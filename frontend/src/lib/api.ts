@@ -96,6 +96,10 @@ export const api = {
   dashboard: {
     data: () => request<import('@/types').DashboardData>('/user/dashboard'),
   },
+
+  progress: {
+    weakAreas: () => request<import('@/types').TopicProgress[]>('/progress/weak-areas'),
+  },
 };
 
 export { ApiError };

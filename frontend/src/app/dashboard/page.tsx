@@ -280,6 +280,16 @@ export default function DashboardPage() {
                 <p className="db-card-title">Focus areas</p>
                 <p className="db-card-sub">Topics where you scored below 60%</p>
               </div>
+              <Link
+                href="/practice?mode=weak"
+                className="btn btn-primary btn-sm"
+                style={{ flexShrink: 0 }}
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+                Practice weak areas
+              </Link>
             </div>
             <div className="db-weak-list">
               {data!.weakAreas.slice(0, 6).map((w) => {

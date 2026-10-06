@@ -37,7 +37,7 @@ export async function submitAnswer(req: AuthRequest, res: Response, next: NextFu
       data: {
         isCorrect,
         correctAnswer: question.answer,
-        explanation: isCorrect ? undefined : question.explanation,
+        explanation: question.explanation,
       },
     });
   } catch (err) {

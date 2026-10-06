@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import { QuestionCard } from '@/components/QuestionCard';
-import type { Question, AnswerResult, Subject } from '@/types';
+import type { Question, AnswerResult, Subject, TopicProgress } from '@/types';
 
 /* ─── Syllabus data ─────────────────────────────────────── */
 const TOPICS_BY_CLASS: Record<Subject, { class11: string[]; class12: string[] }> = {
@@ -45,9 +45,10 @@ const LOAD_MESSAGES = [
 ];
 
 /* ─── Types ─────────────────────────────────────────────── */
-type AppState = 'wizard' | 'loading' | 'exam' | 'summary';
+type AppState = 'wizard' | 'loading' | 'exam' | 'summary' | 'review';
 type WizardStep = 1 | 2 | 3;
 type DiffOption = 'beginner' | 'intermediate' | 'advanced' | 'mixed';
+type MarkingScheme = 'standard' | 'jee_main' | 'jee_advanced';
 type StoredResult = AnswerResult & { selectedAnswer: string };
 
 const CHECK_SVG = (
@@ -56,6 +57,137 @@ const CHECK_SVG = (
   </svg>
 );
 
+/* ─── Math utilities (for ReviewCard) ───────────────────── */
+function ensureMathDelimiters(text: string): string {
+  if (/\$|\\\(|\\\[/.test(text)) return text;
+  if (!/\\[a-zA-Z]|[_^]\{/.test(text)) return text;
+  let start = text.search(/\\[a-zA-Z]|[_^]\{/);
+  while (start > 0 && /[a-zA-Z0-9]/.test(text[start - 1]!)) start--;
+  return text.slice(0, start) + '$' + text.slice(start).trim() + '$';
+}
+
+function renderMathInEl(el: HTMLElement | null) {
+  if (!el) return;
+  const win = window as unknown as { renderMathInElement?: (el: HTMLElement, opts: object) => void };
+  if (typeof win.renderMathInElement === 'function') {
+    win.renderMathInElement(el, {
+      delimiters: [
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '$$', right: '$$', display: true },
+      ],
+      throwOnError: false,
+    });
+  }
+}
+
+function stripOptPrefix(opt: string): string {
+  return opt.replace(/^[A-Da-d][).]\s*/, '').trim();
+}
+
+const RC_CHECK = (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+    <polyline points="20 6 9 17 4 12" />
+  </svg>
+);
+const RC_CROSS = (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+    <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+);
+
+/* ─── Review card ────────────────────────────────────────── */
+function ReviewCard({ question, idx, result }: {
+  question: Question;
+  idx: number;
+  result: StoredResult | undefined;
+}) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const id = requestAnimationFrame(() => renderMathInEl(cardRef.current));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  const letters = ['A', 'B', 'C', 'D'];
+  const skipped = !result;
+  const SUBJ_COLORS: Record<string, string> = {
+    Physics: '#2563eb', Chemistry: '#16a34a', Mathematics: '#7c3aed',
+  };
+  const subjColor = SUBJ_COLORS[question.subject] ?? 'var(--gray-600)';
+
+  return (
+    <div ref={cardRef} className="card" style={{ padding: 0, overflow: 'hidden' }}>
+      {/* Status header */}
+      <div style={{
+        padding: '10px 20px', display: 'flex', alignItems: 'center', gap: 10,
+        background: skipped ? 'var(--gray-50)' : result.isCorrect ? 'var(--green-50)' : 'var(--red-50)',
+        borderBottom: `1px solid ${skipped ? 'var(--gray-200)' : result.isCorrect ? 'var(--green-100)' : 'var(--red-100)'}`,
+      }}>
+        <span style={{
+          fontSize: 11, fontWeight: 700, padding: '2px 9px', borderRadius: 'var(--radius-full)',
+          color: skipped ? 'var(--gray-500)' : result.isCorrect ? 'var(--green-600)' : 'var(--red-600)',
+          background: skipped ? 'var(--gray-200)' : result.isCorrect ? 'var(--green-100)' : 'var(--red-100)',
+        }}>
+          Q{idx + 1}
+        </span>
+        <span style={{ fontSize: 12, color: 'var(--gray-500)' }}>{question.subject}</span>
+        <span style={{ fontSize: 11, color: 'var(--gray-300)' }}>·</span>
+        <span style={{ fontSize: 12, color: subjColor, fontWeight: 500 }}>{question.topic}</span>
+        <span style={{ fontSize: 11, color: 'var(--gray-300)', marginLeft: 4 }}>·</span>
+        <span style={{ fontSize: 11, color: 'var(--gray-400)', textTransform: 'capitalize' }}>{question.difficulty}</span>
+        <span style={{
+          marginLeft: 'auto', fontSize: 12, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 4,
+          color: skipped ? 'var(--gray-400)' : result.isCorrect ? 'var(--green-600)' : 'var(--red-600)',
+        }}>
+          {skipped ? 'Skipped' : result.isCorrect ? <>{RC_CHECK} Correct</> : <>{RC_CROSS} Wrong</>}
+        </span>
+      </div>
+
+      {/* Body */}
+      <div style={{ padding: '20px 24px' }}>
+        <p className="question-text" style={{ margin: '0 0 18px' }}>
+          {ensureMathDelimiters(question.questionText)}
+        </p>
+
+        <div className="options-grid">
+          {question.options.map((opt, i) => {
+            const letter = letters[i]!;
+            const isCorrectAns = !skipped && letter === result.correctAnswer;
+            const isWrongSel = !skipped && !result.isCorrect && letter === result.selectedAnswer;
+
+            let cls = 'option-btn';
+            if (isCorrectAns) cls += ' correct';
+            else if (isWrongSel) cls += ' wrong';
+
+            return (
+              <div key={letter} className={cls} style={{ cursor: 'default', pointerEvents: 'none' }}>
+                <span className="option-letter">{letter}</span>
+                <span style={{ flex: 1 }}>{ensureMathDelimiters(stripOptPrefix(opt))}</span>
+                {isCorrectAns && <span style={{ color: 'var(--green-600)', flexShrink: 0 }}>{RC_CHECK}</span>}
+                {isWrongSel   && <span style={{ color: 'var(--red-600)',   flexShrink: 0 }}>{RC_CROSS}</span>}
+              </div>
+            );
+          })}
+        </div>
+
+        {result?.explanation && (
+          <div className="explanation-box" style={{ marginTop: 16 }}>
+            <p className="explanation-label">Explanation</p>
+            <p className="explanation-text">{result.explanation}</p>
+          </div>
+        )}
+
+        {skipped && (
+          <p style={{ fontSize: 13, color: 'var(--gray-400)', fontStyle: 'italic', marginTop: 16 }}>
+            This question was not attempted.
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
 /* ═══════════════════════════════════════════════════════════
    Main component
 ═══════════════════════════════════════════════════════════ */
@@ -63,8 +195,6 @@ export default function PracticePage() {
   const router = useRouter();
   const user = getUser();
   const studentClass = user?.class ?? '12';
-
-  useEffect(() => { if (!isAuthenticated()) router.push('/login'); }, [router]);
 
   /* ── App state ── */
   const [appState, setAppState] = useState<AppState>('wizard');
@@ -79,6 +209,11 @@ export default function PracticePage() {
   const [customCount, setCustomCount] = useState('');
   const [difficulty, setDifficulty] = useState<DiffOption>('mixed');
   const [examType, setExamType] = useState<'Main' | 'Advanced'>('Main');
+  const [markingScheme, setMarkingScheme] = useState<MarkingScheme>('jee_main');
+
+  /* ── Weak mode ── */
+  const [weakMode, setWeakMode] = useState(false);
+  const [weakStartLoading, setWeakStartLoading] = useState(false);
 
   /* ── Loading ── */
   const [loadProgress, setLoadProgress] = useState(0);
@@ -92,6 +227,37 @@ export default function PracticePage() {
   const [sessionSecs, setSessionSecs] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const sessionTimerRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
+
+  /* ─── Auth + weak mode init ──────────────────────────── */
+  useEffect(() => {
+    if (!isAuthenticated()) { router.push('/login'); return; }
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('mode') !== 'weak') return;
+
+    setWeakMode(true);
+    setWeakStartLoading(true);
+    api.progress.weakAreas()
+      .then((areas: TopicProgress[]) => {
+        if (!areas.length) { setWeakStartLoading(false); return; }
+        const subjectTopics = new Map<Subject, Set<string>>();
+        for (const w of areas) {
+          const subj = w.subject as Subject;
+          if (!(['Mathematics', 'Physics', 'Chemistry'] as string[]).includes(subj)) continue;
+          if (!subjectTopics.has(subj)) subjectTopics.set(subj, new Set());
+          subjectTopics.get(subj)!.add(w.topicName);
+        }
+        const subjects = new Set(subjectTopics.keys());
+        const topicsMap: Partial<Record<Subject, Set<string>>> = {};
+        for (const [subj, topicSet] of subjectTopics) topicsMap[subj] = topicSet;
+        setSelectedSubjects(subjects);
+        setSelectedTopics(topicsMap);
+        setWizardStep(3);
+      })
+      .catch(() => {})
+      .finally(() => setWeakStartLoading(false));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router]);
 
   /* ─── Fullscreen handling ─────────────────────────────── */
   useEffect(() => {
@@ -112,7 +278,7 @@ export default function PracticePage() {
     setSelectedSubjects((prev) => {
       const next = new Set(prev);
       if (next.has(s)) {
-        if (next.size === 1) return prev; // at least 1 required
+        if (next.size === 1) return prev;
         next.delete(s);
         setSelectedTopics((t) => { const n = { ...t }; delete n[s]; return n; });
       } else {
@@ -127,9 +293,7 @@ export default function PracticePage() {
     const all: Subject[] = ['Mathematics', 'Physics', 'Chemistry'];
     setSelectedSubjects(new Set(all));
     const topics: Partial<Record<Subject, Set<string>>> = {};
-    for (const s of all) {
-      topics[s] = new Set(); // student picks topics in step 2
-    }
+    for (const s of all) topics[s] = new Set();
     setSelectedTopics(topics);
   }
 
@@ -183,14 +347,12 @@ export default function PracticePage() {
 
   /* ─── Start exam (fetch batch) ────────────────────────── */
   const startExam = useCallback(async () => {
-    // Must be called synchronously in the click handler to satisfy browser gesture requirement
     enterFullscreen();
     setAppState('loading');
     setLoadProgress(0);
     setLoadMsgIdx(0);
     setLoadError('');
 
-    // Animate progress — keeps moving the whole time, never truly stops
     let p = 0;
     const progressInterval = setInterval(() => {
       p = Math.min(p + (p < 60 ? 4 : p < 80 ? 2 : p < 92 ? 0.8 : 0.15), 98);
@@ -218,10 +380,8 @@ export default function PracticePage() {
       clearInterval(msgInterval);
       setLoadProgress(100);
 
-      // Short pause so 100% is visible
       await new Promise((r) => setTimeout(r, 500));
 
-      // Sort questions by subject in the order subjects were selected (Physics all first, then Chemistry, etc.)
       const subjectOrder = Array.from(selectedSubjects);
       const sorted = [...batch].sort(
         (a, b) => subjectOrder.indexOf(a.subject as Subject) - subjectOrder.indexOf(b.subject as Subject),
@@ -272,6 +432,11 @@ export default function PracticePage() {
     setWizardStep(1);
     setQuestions([]);
     setExamResults({});
+    setWeakMode(false);
+    // Remove ?mode=weak from URL without navigation
+    if (window.location.search) {
+      window.history.replaceState({}, '', window.location.pathname);
+    }
   }
 
   /* ─── Timer formatting ─────────────────────────────────── */
@@ -279,6 +444,29 @@ export default function PracticePage() {
     const m = String(Math.floor(secs / 60)).padStart(2, '0');
     const s = String(secs % 60).padStart(2, '0');
     return `${m}:${s}`;
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     RENDER: Wizard — loading weak areas
+  ═══════════════════════════════════════════════════════ */
+  if (weakStartLoading) {
+    return (
+      <div className="ai-loader-overlay">
+        <div className="ai-loader-icon-wrap">
+          <div className="ai-spin-ring" />
+          <div className="ai-spin-ring-2" />
+          <div className="ai-loader-center">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="var(--gray-800)">
+              <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/>
+            </svg>
+          </div>
+        </div>
+        <div className="ai-loader-text">
+          <p className="ai-loader-title">Loading your weak areas</p>
+          <p className="ai-loader-msg">Checking your topic progress...</p>
+        </div>
+      </div>
+    );
   }
 
   /* ═══════════════════════════════════════════════════════
@@ -301,6 +489,35 @@ export default function PracticePage() {
 
         <div className="wizard-body">
           <div className="wizard-inner">
+            {/* Weak mode banner */}
+            {weakMode && (
+              <div style={{
+                background: 'var(--navy-50)', border: '1px solid var(--navy-100)',
+                borderRadius: 'var(--radius-lg)', padding: '12px 16px',
+                marginBottom: 24, display: 'flex', alignItems: 'center', gap: 10,
+              }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--navy-600)" strokeWidth="2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                <div>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--navy-800)' }}>
+                    Targeting your weak areas
+                  </span>
+                  <span style={{ fontSize: 12, color: 'var(--navy-600)', marginLeft: 8 }}>
+                    {Array.from(selectedSubjects).reduce((acc, s) => acc + (selectedTopics[s]?.size ?? 0), 0)} topics across {selectedSubjects.size} subject{selectedSubjects.size !== 1 ? 's' : ''} pre-selected
+                  </span>
+                </div>
+                <button
+                  className="btn btn-ghost btn-sm"
+                  style={{ marginLeft: 'auto' }}
+                  onClick={() => { setWeakMode(false); setWizardStep(1); }}
+                >
+                  Change topics
+                </button>
+              </div>
+            )}
+
             {/* Step bar */}
             <div className="wizard-step-bar">
               {(['Subjects', 'Topics', 'Session'] as const).map((label, idx) => {
@@ -329,7 +546,6 @@ export default function PracticePage() {
                   Pick one or more. You can practice MPC together or focus on one.
                 </p>
                 <div className="subject-cards">
-                  {/* MPC All */}
                   <div
                     className={`subject-card${selectedSubjects.size === 3 ? ' selected' : ''}`}
                     onClick={selectAllSubjects}
@@ -498,6 +714,25 @@ export default function PracticePage() {
                         onClick={() => setExamType(e)}
                       >
                         JEE {e}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="config-row">
+                  <p className="config-label">Marking scheme</p>
+                  <div className="pill-group">
+                    {([
+                      { key: 'standard',     label: 'Standard (1/0)'      },
+                      { key: 'jee_main',     label: 'JEE Main (+4/−1)'    },
+                      { key: 'jee_advanced', label: 'JEE Advanced (+4/−2)' },
+                    ] as const).map(({ key, label }) => (
+                      <button
+                        key={key}
+                        className={`pill${markingScheme === key ? ' selected' : ''}`}
+                        onClick={() => setMarkingScheme(key)}
+                      >
+                        {label}
                       </button>
                     ))}
                   </div>
@@ -707,11 +942,16 @@ export default function PracticePage() {
      RENDER: Summary
   ═══════════════════════════════════════════════════════ */
   if (appState === 'summary') {
-    const total = questions.length;
-    const correct = Object.values(examResults).filter((r) => r.isCorrect).length;
-    const attempted = Object.keys(examResults).length;
-    const answeredCount = attempted;
-    const accuracy = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
+    const total      = questions.length;
+    const correct    = Object.values(examResults).filter((r) => r.isCorrect).length;
+    const attempted  = Object.keys(examResults).length;
+    const wrong      = attempted - correct;
+    const accuracy   = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
+
+    const jeeScore   = markingScheme === 'jee_main'     ? correct * 4 - wrong * 1
+                     : markingScheme === 'jee_advanced'  ? correct * 4 - wrong * 2
+                     : correct;
+    const jeeMax     = markingScheme !== 'standard' ? total * 4 : total;
 
     return (
       <div className="exam-overlay">
@@ -736,7 +976,7 @@ export default function PracticePage() {
                 <div className="summary-stat-lbl">Correct</div>
               </div>
               <div style={{ textAlign: 'center' }}>
-                <div className="summary-stat-val" style={{ color: 'var(--red-600)' }}>{attempted - correct}</div>
+                <div className="summary-stat-val" style={{ color: 'var(--red-600)' }}>{wrong}</div>
                 <div className="summary-stat-lbl">Wrong</div>
               </div>
               <div style={{ textAlign: 'center' }}>
@@ -749,16 +989,106 @@ export default function PracticePage() {
               </div>
             </div>
 
-            <div className="divider" />
+            {/* JEE score block */}
+            {markingScheme !== 'standard' && (
+              <div style={{
+                background: 'var(--navy-50)', border: '1px solid var(--navy-100)',
+                borderRadius: 'var(--radius-lg)', padding: '14px 20px', marginTop: 4,
+              }}>
+                <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.07em', color: 'var(--navy-600)', marginBottom: 4 }}>
+                  {markingScheme === 'jee_main' ? 'JEE Main Score' : 'JEE Advanced Score'}
+                </p>
+                <p style={{ fontSize: 30, fontWeight: 800, letterSpacing: '-.03em', lineHeight: 1.1,
+                  color: jeeScore < 0 ? 'var(--red-600)' : jeeScore === 0 ? 'var(--gray-500)' : 'var(--primary)'
+                }}>
+                  {jeeScore > 0 ? '+' : ''}{jeeScore}
+                  <span style={{ fontSize: 15, fontWeight: 500, color: 'var(--gray-400)', marginLeft: 6 }}>
+                    / {jeeMax}
+                  </span>
+                </p>
+                <p style={{ fontSize: 12, color: 'var(--gray-500)', marginTop: 3 }}>
+                  {correct} correct × 4
+                  {wrong > 0 && ` − ${wrong} wrong × ${markingScheme === 'jee_main' ? 1 : 2}`}
+                  {total - attempted > 0 && ` · ${total - attempted} skipped (no penalty)`}
+                </p>
+              </div>
+            )}
+
+            <div className="divider" style={{ margin: '20px 0 0' }} />
 
             <div className="summary-actions">
+              <button className="btn btn-primary" onClick={() => setAppState('review')}>
+                Review session →
+              </button>
               <button className="btn btn-outline" onClick={handlePracticeAgain}>
                 Practice again
               </button>
-              <Link href="/dashboard" className="btn btn-primary">
-                View dashboard
+              <Link href="/dashboard" className="btn btn-ghost">
+                Dashboard
               </Link>
             </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     RENDER: Review
+  ═══════════════════════════════════════════════════════ */
+  if (appState === 'review') {
+    const totalQ   = questions.length;
+    const correct  = Object.values(examResults).filter((r) => r.isCorrect).length;
+    const wrong    = Object.values(examResults).filter((r) => !r.isCorrect).length;
+    const skipped  = totalQ - Object.keys(examResults).length;
+
+    return (
+      <div className="exam-overlay">
+        <div className="exam-header">
+          <span className="exam-logo">CrackJEE</span>
+          <span style={{ fontSize: 14, color: 'var(--gray-500)' }}>Session review</span>
+          <div style={{ display: 'flex', gap: 8 }}>
+            <button className="btn btn-ghost btn-sm" onClick={() => setAppState('summary')}>
+              ← Summary
+            </button>
+            <button className="btn btn-outline btn-sm" onClick={handlePracticeAgain}>
+              New session
+            </button>
+            <Link href="/dashboard" className="btn btn-primary btn-sm">Dashboard</Link>
+          </div>
+        </div>
+
+        <div className="exam-body" style={{ padding: '28px 32px' }}>
+          <div style={{ width: '100%', maxWidth: 820, display: 'flex', flexDirection: 'column', gap: 14 }}>
+
+            {/* Stats bar */}
+            <div className="card card-sm" style={{
+              background: 'var(--gray-50)', border: '1px solid var(--gray-200)',
+              display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center',
+            }}>
+              <span style={{ fontSize: 13 }}>
+                <strong style={{ color: 'var(--green-600)', fontSize: 15 }}>{correct}</strong>
+                <span style={{ color: 'var(--gray-500)', marginLeft: 5 }}>correct</span>
+              </span>
+              <span style={{ fontSize: 13 }}>
+                <strong style={{ color: 'var(--red-600)', fontSize: 15 }}>{wrong}</strong>
+                <span style={{ color: 'var(--gray-500)', marginLeft: 5 }}>wrong</span>
+              </span>
+              {skipped > 0 && (
+                <span style={{ fontSize: 13 }}>
+                  <strong style={{ color: 'var(--gray-500)', fontSize: 15 }}>{skipped}</strong>
+                  <span style={{ color: 'var(--gray-500)', marginLeft: 5 }}>skipped</span>
+                </span>
+              )}
+              <span style={{ marginLeft: 'auto', fontSize: 13, color: 'var(--gray-500)' }}>
+                {totalQ} question{totalQ !== 1 ? 's' : ''} · {fmtTime(sessionSecs)} session
+              </span>
+            </div>
+
+            {/* One card per question */}
+            {questions.map((q, i) => (
+              <ReviewCard key={`${q.id}-${i}`} question={q} idx={i} result={examResults[i]} />
+            ))}
           </div>
         </div>
       </div>
