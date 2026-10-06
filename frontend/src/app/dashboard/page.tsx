@@ -8,57 +8,88 @@ import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import type { DashboardData, WeeklyPoint } from '@/types';
 
-/* ── Mini bar chart ──────────────────────────────────── */
-function WeeklyBarChart({ data }: { data: WeeklyPoint[] }) {
-  const max = Math.max(...data.map((d) => d.total), 1);
-  const barW = 28;
-  const gap  = 8;
-  const h    = 72;
-  const w    = data.length * (barW + gap) - gap;
-  const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-
+/* ── Accuracy ring ───────────────────────────────────────── */
+function AccuracyRing({ pct }: { pct: number }) {
+  const r = 46;
+  const circ = 2 * Math.PI * r;
+  const fill = (pct / 100) * circ;
   return (
-    <svg width={w} height={h + 22} aria-label="Weekly practice chart">
-      {data.map((d, i) => {
-        const x       = i * (barW + gap);
-        const bgH     = Math.max((d.total / max) * h, d.total > 0 ? 4 : 2);
-        const fillH   = Math.max((d.correct / max) * h, d.correct > 0 ? 4 : 0);
-        const date    = new Date(d.date);
-
-        return (
-          <g key={d.date}>
-            {/* background bar */}
-            <rect x={x} y={h - bgH} width={barW} height={bgH}
-              fill="var(--gray-100)" rx={4} />
-            {/* correct bar */}
-            {fillH > 0 && (
-              <rect x={x} y={h - fillH} width={barW} height={fillH}
-                fill="var(--primary)" rx={4} />
-            )}
-            <text x={x + barW / 2} y={h + 16} textAnchor="middle"
-              fill="var(--gray-400)" fontSize="11" fontFamily="Inter, sans-serif">
-              {days[date.getDay()]}
-            </text>
-          </g>
-        );
-      })}
+    <svg width={120} height={120}>
+      <circle cx={60} cy={60} r={r} fill="none"
+        stroke="rgba(255,255,255,0.13)" strokeWidth={9}
+        transform="rotate(-90 60 60)" />
+      <circle cx={60} cy={60} r={r} fill="none"
+        stroke="rgba(255,255,255,0.92)" strokeWidth={9}
+        strokeLinecap="round"
+        strokeDasharray={`${fill} ${circ}`}
+        transform="rotate(-90 60 60)"
+        style={{ transition: 'stroke-dasharray 1.1s ease' }} />
     </svg>
   );
 }
 
-/* ── Skeleton row ────────────────────────────────────── */
-function SkeletonRow({ w }: { w: string }) {
-  return <div className="skeleton" style={{ height: 14, width: w, borderRadius: 6 }} />;
+/* ── Sparkline ───────────────────────────────────────────── */
+function Sparkline({ data }: { data: WeeklyPoint[] }) {
+  const W = 260; const H = 72; const PAD = 8;
+  const max = Math.max(...data.map((d) => d.total), 1);
+  const n = data.length;
+  const xOf = (i: number) => PAD + (i / Math.max(n - 1, 1)) * (W - PAD * 2);
+  const yOf = (v: number) => H - PAD - (v / max) * (H - PAD * 2);
+  const DAYS = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+
+  function smooth(pts: [number, number][]) {
+    if (pts.length < 2) return '';
+    let d = `M${pts[0]![0]} ${pts[0]![1]}`;
+    for (let i = 1; i < pts.length; i++) {
+      const [px, py] = pts[i - 1]!;
+      const [cx, cy] = pts[i]!;
+      const mid = (px + cx) / 2;
+      d += ` C${mid} ${py} ${mid} ${cy} ${cx} ${cy}`;
+    }
+    return d;
+  }
+
+  const totalPts = data.map((d, i): [number, number] => [xOf(i), yOf(d.total)]);
+  const correctPts = data.map((d, i): [number, number] => [xOf(i), yOf(d.correct)]);
+  const area = (pts: [number, number][]) =>
+    smooth(pts) + ` L${pts[pts.length - 1]![0]} ${H} L${pts[0]![0]} ${H} Z`;
+
+  return (
+    <svg width={W} height={H + 22} style={{ overflow: 'visible' }}>
+      <defs>
+        <linearGradient id="gT" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="var(--gray-300)" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="var(--gray-300)" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id="gC" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="var(--navy-500)" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="var(--navy-500)" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      <path d={area(totalPts)} fill="url(#gT)" />
+      <path d={smooth(totalPts)} fill="none" stroke="var(--gray-300)" strokeWidth="1.5" />
+      <path d={area(correctPts)} fill="url(#gC)" />
+      <path d={smooth(correctPts)} fill="none" stroke="var(--navy-500)" strokeWidth="2" strokeLinecap="round" />
+      {data.map((d, i) => (
+        <text key={d.date} x={xOf(i)} y={H + 17} textAnchor="middle"
+          fill="var(--gray-400)" fontSize="11" fontFamily="Inter, sans-serif">
+          {DAYS[new Date(d.date).getDay()]}
+        </text>
+      ))}
+    </svg>
+  );
 }
 
+/* ── Main ────────────────────────────────────────────────── */
 export default function DashboardPage() {
   const router = useRouter();
-  const user   = getUser();
+  const [user, setUser] = useState<ReturnType<typeof getUser>>(null);
   const [data, setData] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
   useEffect(() => {
+    setUser(getUser());
     if (!isAuthenticated()) { router.push('/login'); return; }
     api.dashboard.data()
       .then(setData)
@@ -68,156 +99,190 @@ export default function DashboardPage() {
 
   const hour = new Date().getHours();
   const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
+  const firstName = user?.name?.split(' ')[0] ?? '';
 
-  const statCards = data
-    ? [
-        { label: 'Questions attempted', value: data.stats.totalAttempts },
-        { label: 'Correct answers',     value: data.stats.correctAttempts },
-        { label: 'Accuracy',            value: `${data.stats.accuracy}%` },
-        { label: 'Weak areas',          value: data.weakAreas.length },
-      ]
-    : [];
+  const accuracy      = data?.stats.accuracy ?? 0;
+  const totalAttempts = data?.stats.totalAttempts ?? 0;
+  const weakCount     = data?.weakAreas.length ?? 0;
+
+  const streak = (() => {
+    if (!data?.weeklyStats?.length) return 0;
+    const sorted = [...data.weeklyStats].sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+    );
+    let c = 0;
+    for (const d of sorted) { if (d.total > 0) c++; else break; }
+    return c;
+  })();
+
+  const SUBJ: Record<string, string> = {
+    Physics:     'var(--navy-600)',
+    Chemistry:   '#16a34a',
+    Mathematics: '#7c3aed',
+  };
+
+  const weekDots: { total: number }[] = data?.weeklyStats ?? Array(7).fill({ total: 0 });
 
   return (
     <div className="app-shell">
       <Sidebar />
-      <main className="app-main">
+      <main className="app-main dash-page-main">
 
-        {/* ── Header ── */}
-        <div className="page-header">
-          <h1 className="page-title">{greeting}{user ? `, ${user.name.split(' ')[0]}` : ''}</h1>
-          <p className="page-subtitle">
-            {new Date().toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
-          </p>
-        </div>
+        {/* ════════════════ HERO ════════════════ */}
+        <div className="dash-hero">
 
-        {error && (
-          <div className="badge badge-red" style={{ marginBottom: 20, fontSize: 13 }}>{error}</div>
-        )}
-
-        {/* ── Stat cards ── */}
-        <div className="grid-4" style={{ marginBottom: 28 }}>
-          {loading
-            ? Array.from({ length: 4 }).map((_, i) => (
-                <div key={i} className="stat-card">
-                  <SkeletonRow w="60%" />
-                  <div className="stat-value skeleton" style={{ height: 36, width: '50%', margin: '8px 0 4px' }} />
-                  <SkeletonRow w="40%" />
-                </div>
-              ))
-            : statCards.map((s) => (
-                <div key={s.label} className="stat-card">
-                  <p className="stat-label">{s.label}</p>
-                  <p className="stat-value">{s.value}</p>
-                </div>
-              ))}
-        </div>
-
-        <div className="dashboard-grid-main" style={{ marginBottom: 28 }}>
-          {/* ── Weekly chart ── */}
-          <div className="chart-wrap">
-            <p className="chart-label">Practice this week</p>
-            <p className="chart-sublabel">
-              <span style={{ display: 'inline-block', width: 10, height: 10, background: 'var(--primary)', borderRadius: 2, marginRight: 5 }} />
-              Correct
-              <span style={{ display: 'inline-block', width: 10, height: 10, background: 'var(--gray-100)', borderRadius: 2, marginRight: 5, marginLeft: 12 }} />
-              Total
+          {/* Left: greeting */}
+          <div className="dash-hero-left">
+            <p className="dash-greeting">{greeting}</p>
+            <p className="dash-name" suppressHydrationWarning>
+              {firstName || 'Student'}
             </p>
-            {loading
-              ? <div className="skeleton" style={{ height: 94, borderRadius: 8 }} />
-              : data?.weeklyStats && <WeeklyBarChart data={data.weeklyStats} />}
+            <p className="dash-date">
+              {new Date().toLocaleDateString('en-IN', {
+                weekday: 'long', day: 'numeric', month: 'long',
+              })}
+            </p>
+            {error && (
+              <p style={{ fontSize: 12, color: '#fca5a5', marginTop: 10 }}>{error}</p>
+            )}
           </div>
 
-          {/* ── Subject accuracy ── */}
-          <div className="chart-wrap">
-            <p className="chart-label">Subject accuracy</p>
-            <p className="chart-sublabel">Based on all attempts</p>
-            {loading
-              ? <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                  {[0,1,2].map(i => <SkeletonRow key={i} w="100%" />)}
+          {/* Center: accuracy ring */}
+          <div className="dash-ring-wrap">
+            {loading ? (
+              <div className="dash-ring-ghost" />
+            ) : (
+              <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                <AccuracyRing pct={accuracy} />
+                <div style={{ position: 'absolute', textAlign: 'center' }}>
+                  <p style={{ fontSize: 26, fontWeight: 800, color: 'white', lineHeight: 1 }}>
+                    {accuracy}%
+                  </p>
                 </div>
-              : (
-                <div style={{ marginTop: 4 }}>
-                  {(data?.subjectAccuracy ?? []).length === 0
-                    ? <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>No data yet. Start practicing.</p>
-                    : data?.subjectAccuracy.map((s) => (
-                        <div key={s.subject} className="subject-row">
-                          <span className="subject-name">{s.subject.slice(0, 4)}</span>
-                          <div className="progress-track flex-1">
-                            <div
-                              className={`progress-fill${s.accuracy >= 60 ? ' green' : ' red'}`}
-                              style={{ width: `${s.accuracy}%` }}
-                            />
-                          </div>
-                          <span className="subject-pct">{s.accuracy}%</span>
-                        </div>
-                      ))}
+              </div>
+            )}
+            <p className="dash-ring-label">overall accuracy</p>
+          </div>
+
+          {/* Right: streak + counts */}
+          <div className="dash-hero-right">
+            <div>
+              <p className="dash-streak-label">
+                {streak > 0 ? `${streak}-day streak` : 'Start a streak'}
+              </p>
+              <div className="dash-streak-row">
+                {weekDots.map((d, i) => (
+                  <div key={i} className={`dash-dot${d.total > 0 ? ' on' : ''}`} />
+                ))}
+              </div>
+            </div>
+
+            <div className="dash-counts">
+              {loading ? (
+                <>
+                  <div className="dash-count-ghost" />
+                  <div className="dash-count-ghost" />
+                </>
+              ) : (
+                <>
+                  <div className="dash-count">
+                    <span className="dash-count-n">{totalAttempts}</span>
+                    <span className="dash-count-l">attempted</span>
+                  </div>
+                  <div className="dash-count-sep" />
+                  <div className="dash-count">
+                    <span className="dash-count-n">{weakCount}</span>
+                    <span className="dash-count-l">weak areas</span>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* ════════════════ BODY ════════════════ */}
+        <div className="dash-body">
+
+          {/* Sparkline + Subject bars */}
+          <div className="dash-two-col">
+
+            <div>
+              <span className="dash-eyebrow">This week</span>
+              <div className="dash-legend">
+                <span><span className="dash-legend-line navy" />Correct</span>
+                <span><span className="dash-legend-line gray" />Total</span>
+              </div>
+              {loading ? (
+                <div className="dash-sparkline-ghost" />
+              ) : data?.weeklyStats?.length ? (
+                <Sparkline data={data.weeklyStats} />
+              ) : (
+                <p className="dash-empty">No data yet. Start practicing.</p>
+              )}
+            </div>
+
+            <div>
+              <span className="dash-eyebrow">By subject</span>
+              {loading ? (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 20, marginTop: 4 }}>
+                  {[80, 55, 70].map((w, i) => (
+                    <div key={i} style={{ height: 14, width: `${w}%`, background: 'var(--gray-100)', borderRadius: 4 }} />
+                  ))}
+                </div>
+              ) : !data?.subjectAccuracy.length ? (
+                <p className="dash-empty">Practice to see subject breakdown.</p>
+              ) : (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 22, marginTop: 4 }}>
+                  {data.subjectAccuracy.map((s) => (
+                    <div key={s.subject}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                        <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--gray-700)', display: 'flex', alignItems: 'center', gap: 8 }}>
+                          <span style={{ width: 8, height: 8, borderRadius: '50%', background: SUBJ[s.subject] ?? 'var(--gray-400)', display: 'inline-block', flexShrink: 0 }} />
+                          {s.subject}
+                        </span>
+                        <span style={{ fontSize: 13, fontWeight: 700, color: s.accuracy >= 60 ? 'var(--green-600)' : 'var(--red-600)' }}>
+                          {s.accuracy}%
+                        </span>
+                      </div>
+                      <div style={{ height: 5, background: 'var(--gray-100)', borderRadius: 99, overflow: 'hidden' }}>
+                        <div style={{ height: '100%', width: `${s.accuracy}%`, background: SUBJ[s.subject] ?? 'var(--gray-400)', borderRadius: 99, transition: 'width 0.9s ease' }} />
+                      </div>
+                    </div>
+                  ))}
                 </div>
               )}
-          </div>
-        </div>
-
-        <div className="dashboard-grid-bottom">
-          {/* ── Weak areas ── */}
-          <div className="chart-wrap">
-            <div className="flex items-center justify-between" style={{ marginBottom: 14 }}>
-              <p className="chart-label" style={{ margin: 0 }}>Weak areas</p>
-              <Link href="/progress" className="btn btn-ghost btn-sm">View all</Link>
             </div>
-            {loading
-              ? <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                  {[0,1,2].map(i => <SkeletonRow key={i} w="90%" />)}
-                </div>
-              : data?.weakAreas.length === 0
-                ? <p style={{ fontSize: 13, color: 'var(--gray-500)', padding: '8px 0' }}>
-                    No weak areas yet. Keep practicing!
-                  </p>
-                : data?.weakAreas.map((w) => (
-                    <div key={w.id} className="activity-item">
-                      <div>
-                        <p style={{ fontSize: 14, fontWeight: 500, color: 'var(--gray-900)', marginBottom: 2 }}>
-                          {w.topicName}
-                        </p>
-                        <p className="activity-meta">{w.subject} · {Math.round(w.successRate * 100)}% accuracy · {w.attempts} attempts</p>
-                      </div>
-                      <span className="badge badge-red" style={{ marginLeft: 'auto', flexShrink: 0 }}>weak</span>
-                    </div>
-                  ))}
           </div>
 
-          {/* ── Recent activity ── */}
-          <div className="chart-wrap">
-            <p className="chart-label" style={{ marginBottom: 14 }}>Recent activity</p>
-            {loading
-              ? <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                  {[0,1,2].map(i => <SkeletonRow key={i} w="85%" />)}
-                </div>
-              : data?.recentActivity.length === 0
-                ? <p style={{ fontSize: 13, color: 'var(--gray-500)', padding: '8px 0' }}>
-                    No activity yet.
-                  </p>
-                : data?.recentActivity.map((a) => (
-                    <div key={a.id} className="activity-item">
-                      <span className={`activity-dot${a.isCorrect ? ' correct' : ' wrong'}`} />
-                      <div>
-                        <p style={{ fontSize: 13, fontWeight: 500, color: 'var(--gray-800)' }}>
-                          {a.question.topic}
-                        </p>
-                        <p className="activity-meta">
-                          {a.question.subject} · {a.question.difficulty} · {a.timeSpent}s
-                        </p>
-                      </div>
-                    </div>
-                  ))}
+          {/* Weak area chips */}
+          {!loading && (data?.weakAreas.length ?? 0) > 0 && (
+            <div className="dash-weak-section">
+              <span className="dash-eyebrow">Needs work</span>
+              <div className="dash-chips">
+                {data!.weakAreas.slice(0, 8).map((w) => (
+                  <span key={w.id} className="dash-chip">
+                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: SUBJ[w.subject] ?? 'var(--gray-400)', display: 'inline-block', flexShrink: 0 }} />
+                    {w.topicName}
+                    <span style={{ color: 'var(--red-600)', fontWeight: 600 }}>
+                      {Math.round(w.successRate * 100)}%
+                    </span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* CTA */}
+          <div className="dash-cta">
+            <Link href="/practice" className="btn btn-primary dash-cta-btn">
+              Start your session
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
-        </div>
 
-        {/* ── CTA ── */}
-        <div style={{ marginTop: 28, display: 'flex', gap: 10 }}>
-          <Link href="/practice" className="btn btn-primary">Start practicing</Link>
-          <Link href="/progress" className="btn btn-outline">View full progress</Link>
         </div>
-
       </main>
     </div>
   );
