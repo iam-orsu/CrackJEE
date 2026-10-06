@@ -60,7 +60,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     if (!isAuthenticated()) { router.push('/login'); return; }
-    api.progress.dashboard()
+    api.dashboard.data()
       .then(setData)
       .catch((e: Error) => setError(e.message))
       .finally(() => setLoading(false));

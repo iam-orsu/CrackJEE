@@ -16,17 +16,9 @@ const PracticeIcon = () => (
     <path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
   </svg>
 );
-const ProgressIcon = () => (
-  <svg className="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" />
-    <line x1="6" y1="20" x2="6" y2="14" />
-  </svg>
-);
-
 const links = [
   { href: '/dashboard', label: 'Dashboard', Icon: DashIcon },
   { href: '/practice',  label: 'Practice',  Icon: PracticeIcon },
-  { href: '/progress',  label: 'Progress',  Icon: ProgressIcon },
 ];
 
 export function Sidebar() {

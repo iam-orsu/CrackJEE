@@ -93,10 +93,8 @@ export const api = {
       }),
   },
 
-  progress: {
-    dashboard: () => request<import('@/types').DashboardData>('/user/dashboard'),
-    weakAreas: () => request<import('@/types').TopicProgress[]>('/progress/weak-areas'),
-    overview: () => request<import('@/types').TopicProgress[]>('/stats/overview'),
+  dashboard: {
+    data: () => request<import('@/types').DashboardData>('/user/dashboard'),
   },
 };
 
