@@ -32,8 +32,10 @@ const links = [
 export function Sidebar() {
   const pathname = usePathname();
   const router = useRouter();
-  const user = getUser();
+  const [user, setUser] = useState<ReturnType<typeof getUser>>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => { setUser(getUser()); }, []);
 
   // Close sidebar on route change
   useEffect(() => { setMobileOpen(false); }, [pathname]);

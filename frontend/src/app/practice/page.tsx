@@ -72,7 +72,7 @@ export default function PracticePage() {
   /* ── Wizard selections ── */
   const [selectedSubjects, setSelectedSubjects] = useState<Set<Subject>>(new Set(['Mathematics']));
   const [selectedTopics, setSelectedTopics] = useState<Partial<Record<Subject, Set<string>>>>({
-    Mathematics: new Set(TOPICS_BY_CLASS.Mathematics.class11.slice(0, 5)),
+    Mathematics: new Set(),
   });
   const [questionCount, setQuestionCount] = useState<number | 'custom'>(10);
   const [customCount, setCustomCount] = useState('');
@@ -116,8 +116,7 @@ export default function PracticePage() {
         setSelectedTopics((t) => { const n = { ...t }; delete n[s]; return n; });
       } else {
         next.add(s);
-        const topics = getTopicsForStudent(s, studentClass);
-        setSelectedTopics((t) => ({ ...t, [s]: new Set([...topics.class11, ...topics.class12]) }));
+        setSelectedTopics((t) => ({ ...t, [s]: new Set() }));
       }
       return next;
     });
@@ -128,8 +127,7 @@ export default function PracticePage() {
     setSelectedSubjects(new Set(all));
     const topics: Partial<Record<Subject, Set<string>>> = {};
     for (const s of all) {
-      const t = getTopicsForStudent(s, studentClass);
-      topics[s] = new Set([...t.class11, ...t.class12]);
+      topics[s] = new Set(); // student picks topics in step 2
     }
     setSelectedTopics(topics);
   }
@@ -184,6 +182,8 @@ export default function PracticePage() {
 
   /* ─── Start exam (fetch batch) ────────────────────────── */
   const startExam = useCallback(async () => {
+    // Must be called synchronously in the click handler to satisfy browser gesture requirement
+    enterFullscreen();
     setAppState('loading');
     setLoadProgress(0);
     setLoadMsgIdx(0);
@@ -224,7 +224,6 @@ export default function PracticePage() {
       setExamResults({});
       setSessionSecs(0);
       setAppState('exam');
-      enterFullscreen();
 
       sessionTimerRef.current = setInterval(() => setSessionSecs((s) => s + 1), 1000);
     } catch (e: unknown) {

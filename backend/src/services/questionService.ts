@@ -117,21 +117,21 @@ export async function getQuestionBatch(
   studentClass: StudentClass,
   count: number,
 ): Promise<Question[]> {
-  // Distribute count slots across selections round-robin, then shuffle
+  // Shuffle selections first so round-robin picks evenly across subjects
+  const shuffled = [...selections].sort(() => Math.random() - 0.5);
+
   const plan: Array<{ subject: Subject; topic: string; diff: Difficulty }> = [];
   for (let i = 0; i < count; i++) {
-    const sel = selections[i % selections.length]!;
+    const sel = shuffled[i % shuffled.length]!;
     plan.push({
       subject: sel.subject,
       topic: sel.topic,
       diff: difficulty === 'mixed' ? randomDifficulty() : difficulty,
     });
   }
-  // Shuffle so subjects/topics interleave
-  plan.sort(() => Math.random() - 0.5);
 
   const results: Question[] = [];
-  const concurrency = 3;
+  const concurrency = Math.min(count, 8);
 
   for (let i = 0; i < plan.length; i += concurrency) {
     const chunk = plan.slice(i, i + concurrency);

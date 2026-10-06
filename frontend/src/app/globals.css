@@ -301,6 +301,28 @@ img, svg { display: block; }
 .activity-dot.wrong   { background: var(--red-600); }
 .activity-meta   { font-size: 12px; color: var(--gray-400); margin-top: 1px; }
 
+/* ── Question card split layout ─────────────────────────── */
+.qcard-body        { display: flex; gap: 0; }
+.qcard-body-split  { border-top: 1px solid var(--gray-100); }
+.qcard-left {
+  flex: 1; min-width: 0; padding: 24px;
+}
+.qcard-explanation {
+  width: 340px; flex-shrink: 0;
+  background: var(--navy-50); border-left: 1px solid var(--navy-100);
+  padding: 24px; overflow-y: auto;
+}
+
+@media (max-width: 900px) {
+  .qcard-body-split  { flex-direction: column; }
+  .qcard-explanation { width: 100%; border-left: none; border-top: 1px solid var(--navy-100); }
+  .qcard-left        { padding: 20px 16px; }
+}
+@media (max-width: 768px) {
+  .qcard-left        { padding: 16px 12px; }
+  .qcard-explanation { padding: 16px 12px; }
+}
+
 /* ── Practice page (old layout kept for compat) ─────────── */
 .practice-layout { display: grid; grid-template-columns: 260px 1fr; gap: 24px; }
 .filter-panel    { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-xl); padding: 24px; height: fit-content; position: sticky; top: 36px; }

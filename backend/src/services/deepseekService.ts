@@ -47,13 +47,14 @@ export async function generateQuestion(
   {
     "question": "Full question text here",
     "options": ["A) option1", "B) option2", "C) option3", "D) option4"],
-    "correct_answer": "A",
+    "correct_answer": "<the actual correct letter: A, B, C, or D>",
     "answer_explanation": "Step-by-step explanation here"
   }
 </format>
 
 <constraints>
-  - correct_answer must be ONLY the letter: A, B, C, or D
+  - correct_answer must be ONLY a single letter: A, B, C, or D — whichever option is actually correct
+  - Vary the position of the correct answer naturally (do NOT always put it at A)
   - Do NOT use concepts beyond the student's class syllabus scope
   - Do NOT generate ambiguous questions
   - Include units where applicable
