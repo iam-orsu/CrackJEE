@@ -118,7 +118,7 @@ export default function DashboardPage() {
   const kpis = [
     {
       label: 'Questions done',
-      value: loading ? '—' : String(totalAttempts),
+      value: loading ? '...' : String(totalAttempts),
       sub: loading ? '' : `${data?.stats.correctAttempts ?? 0} correct`,
       color: '#2563eb',
       shadow: 'rgba(37,99,235,.12)',
@@ -130,7 +130,7 @@ export default function DashboardPage() {
     },
     {
       label: 'Accuracy',
-      value: loading ? '—' : `${accuracy}%`,
+      value: loading ? '...' : `${accuracy}%`,
       sub: accuracy >= 60 ? 'Keep it up!' : 'Room to grow',
       color: accuracy >= 60 ? '#16a34a' : '#dc2626',
       shadow: accuracy >= 60 ? 'rgba(22,163,74,.12)' : 'rgba(220,38,38,.12)',
@@ -142,7 +142,7 @@ export default function DashboardPage() {
     },
     {
       label: 'Day streak',
-      value: loading ? '—' : String(streak),
+      value: loading ? '...' : String(streak),
       sub: streak > 0 ? 'Keep the streak!' : 'Practice today',
       color: '#d97706',
       shadow: 'rgba(217,119,6,.12)',
@@ -154,7 +154,7 @@ export default function DashboardPage() {
     },
     {
       label: 'Weak areas',
-      value: loading ? '—' : String(weakCount),
+      value: loading ? '...' : String(weakCount),
       sub: weakCount === 0 ? 'All clear!' : 'Need attention',
       color: weakCount === 0 ? '#16a34a' : '#dc2626',
       shadow: weakCount === 0 ? 'rgba(22,163,74,.12)' : 'rgba(220,38,38,.12)',
@@ -192,10 +192,7 @@ export default function DashboardPage() {
         {/* ── KPI row ── */}
         <div className="db-kpi-row">
           {kpis.map((k) => (
-            <div key={k.label} className="db-kpi-card" style={{
-              borderTop: `3px solid ${k.color}`,
-              boxShadow: `0 4px 24px ${k.shadow}, 0 1px 3px rgba(15,23,42,.06)`,
-            }}>
+            <div key={k.label} className="db-kpi-card">
               <span className="db-kpi-watermark" style={{ color: k.color }}>{k.icon}</span>
               <div className="db-kpi-value" style={{ color: k.color }}>{k.value}</div>
               <div className="db-kpi-label">{k.label}</div>
@@ -257,7 +254,7 @@ export default function DashboardPage() {
               data.subjectAccuracy.map((s) => {
                 const cfg = SUBJ_CFG[s.subject] ?? { color: 'var(--gray-500)', bg: 'var(--gray-50)', icon: '?' };
                 return (
-                  <div key={s.subject} className="db-subj-card" style={{ borderLeft: `3px solid ${cfg.color}` }}>
+                  <div key={s.subject} className="db-subj-card">
                     <div className="db-subj-left">
                       <span className="db-subj-icon" style={{ background: cfg.bg, color: cfg.color }}>
                         {cfg.icon}
@@ -291,7 +288,7 @@ export default function DashboardPage() {
                 const badgeColor = pct < 40 ? '#dc2626' : '#d97706';
                 const badgeBg    = pct < 40 ? '#fef2f2' : '#fffbeb';
                 return (
-                  <div key={w.id} className="db-weak-item" style={{ borderLeft: `3px solid ${cfg.color}` }}>
+                  <div key={w.id} className="db-weak-item">
                     <span className="db-subj-icon" style={{ background: cfg.bg, color: cfg.color, fontSize: 14, width: 30, height: 30, flexShrink: 0 }}>
                       {cfg.icon}
                     </span>
