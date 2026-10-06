@@ -20,7 +20,7 @@ const selectionSchema = z.object({
 });
 
 const batchSchema = z.object({
-  selections: z.array(selectionSchema).min(1).max(50),
+  selections: z.array(selectionSchema).min(1).max(150),
   difficulty: z.enum(['beginner', 'intermediate', 'advanced', 'mixed']).default('mixed'),
   examType: z.enum(['Main', 'Advanced', 'Both']).default('Main'),
   studentClass: z.enum(['11', '12', 'Dropper']).default('12'),
