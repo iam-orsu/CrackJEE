@@ -647,7 +647,7 @@ export default function PracticePage() {
         <div className="exam-body">
           <div className="exam-question-wrap">
             <QuestionCard
-              key={q.id}
+              key={currentIndex}
               question={q}
               questionNum={currentIndex + 1}
               onSubmit={handleExamSubmit}
