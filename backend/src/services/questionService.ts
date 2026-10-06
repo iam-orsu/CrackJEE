@@ -47,7 +47,7 @@ async function generateAndPersist(
       options: finalQuestion.options,
       answer: finalQuestion.correct_answer,
       explanation: finalQuestion.answer_explanation,
-      diagram: finalQuestion.diagram ?? undefined,
+      diagram: finalQuestion.diagram ? JSON.parse(JSON.stringify(finalQuestion.diagram)) : undefined,
       difficulty,
       examType,
       validatedAt: new Date(),
