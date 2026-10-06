@@ -822,13 +822,13 @@ export default function PracticePage() {
     const insightParts: string[] = [];
 
     if (accuracy >= 80) {
-      insightParts.push('Excellent session — your preparation is clearly paying off.');
+      insightParts.push('Good session. Your preparation is working.');
     } else if (accuracy >= 60) {
-      insightParts.push('Good session. You\'re above the 60% threshold. Keep targeting the gaps below to push higher.');
+      insightParts.push('You crossed 60%. See the topics below and keep going.');
     } else if (accuracy >= 40) {
-      insightParts.push('Decent attempt, but there\'s meaningful ground to cover. The breakdown below shows exactly where to focus.');
+      insightParts.push('Not a bad start. The topics below show where you lost marks.');
     } else {
-      insightParts.push('Tough session. Don\'t be discouraged — pinpointing these gaps now is exactly what productive preparation looks like.');
+      insightParts.push('Rough session. That is fine. Use the topic list below to know what to study next.');
     }
 
     /* Difficulty pattern */
@@ -838,9 +838,9 @@ export default function PracticePage() {
       const begPct = Math.round((begS.correct / begS.total) * 100);
       const advPct = Math.round((advS.correct / advS.total) * 100);
       if (begPct - advPct >= 30) {
-        insightParts.push(`You're solid on beginner questions (${begPct}%) but drop significantly at advanced level (${advPct}%) — this points to conceptual gaps rather than careless errors.`);
+        insightParts.push(`You got ${begPct}% on easier questions but only ${advPct}% on harder ones. The concepts are not fully clear yet.`);
       } else if (advPct > begPct + 10) {
-        insightParts.push(`Interestingly, you performed better on advanced questions (${advPct}%) than beginner ones (${begPct}%) — check whether you're rushing through simpler problems.`);
+        insightParts.push(`You scored higher on harder questions (${advPct}%) than easier ones (${begPct}%). You may be rushing through the simpler problems.`);
       }
     }
 
@@ -853,15 +853,15 @@ export default function PracticePage() {
       }
     }
     if (worstSubj && worstPct < 50) {
-      insightParts.push(`${worstSubj} needs immediate attention — only ${worstPct}% accuracy across ${subjectStats.get(worstSubj)!.total} questions.`);
+      insightParts.push(`${worstSubj} is where you lost the most marks. Only ${worstPct}% correct across ${subjectStats.get(worstSubj)!.total} questions.`);
     }
 
     /* Single topic dominating wrong answers */
     const dominant = weakTopics.find((t) => t.total >= 3 && t.pct === 0);
     if (dominant) {
-      insightParts.push(`${dominant.topic} is a critical gap — every question on this topic was wrong across ${dominant.total} attempts. Treat this as a priority revision topic before your next session.`);
+      insightParts.push(`${dominant.topic} was wrong every time across ${dominant.total} attempts. Revise this topic before your next session.`);
     } else if (skipped > totalQ * 0.3) {
-      insightParts.push(`You skipped ${skipped} of ${totalQ} questions. Attempting and getting it wrong is more informative than leaving it blank — don't skip in practice.`);
+      insightParts.push(`You skipped ${skipped} of ${totalQ} questions. Try to attempt everything in practice, even if you are unsure.`);
     }
 
     const insight = insightParts.join(' ');
@@ -903,7 +903,7 @@ export default function PracticePage() {
             {subjectStats.size > 0 && (
               <div>
                 <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.09em', color: 'var(--gray-400)', marginBottom: 12 }}>
-                  Subject breakdown
+                  By subject
                 </p>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                   {[...subjectStats.entries()].map(([subj, s]) => {

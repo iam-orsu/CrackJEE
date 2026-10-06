@@ -28,22 +28,32 @@ export async function generateQuestion(
   const LETTERS = ['A', 'B', 'C', 'D'] as const;
   const targetLetter = LETTERS[Math.floor(Math.random() * 4)]!;
 
+  const difficultySpec = difficulty === 'beginner'
+    ? `BEGINNER (JEE level): Single-concept problem requiring direct application of a formula or theorem. Still a proper JEE question — NOT a school textbook example. Requires understanding of the concept, not just recall. A student who has studied the topic should be able to solve it in under 90 seconds.`
+    : difficulty === 'intermediate'
+    ? `INTERMEDIATE (JEE Main level): Requires combining 2-3 concepts or applying a concept in a non-obvious way. Typical of actual JEE Main paper questions. A well-prepared student should solve it in 2-3 minutes. Tricky but fair.`
+    : `ADVANCED (JEE Advanced level): Multi-step problem requiring deep conceptual understanding and non-trivial reasoning. Similar to JEE Advanced paper difficulty. Should challenge even a well-prepared student. Options must be carefully crafted so elimination is difficult.`;
+
   const prompt = `
 <context>
   <subject>${subject}</subject>
   <topic>${topic}</topic>
-  <difficulty>${difficulty}</difficulty>
-  <exam_type>JEE ${examType}</exam_type>
+  <exam_type>JEE ${examType} competitive entrance exam</exam_type>
   <student_class>Class ${studentClass}</student_class>
   <syllabus_scope>${classSyllabus}</syllabus_scope>
 </context>
 
+<difficulty_requirement>
+  ${difficultySpec}
+  IMPORTANT: This is a competitive exam for admission to IITs and NITs. Questions must be at that standard. Do NOT generate school-level, NCERT textbook, or basic definitional questions. Every question must require actual mathematical or scientific reasoning to solve.
+</difficulty_requirement>
+
 <task>
-  Generate a JEE-style ${subject} question on "${topic}" with these properties:
-  - Clear single correct answer placed at option ${targetLetter}
-  - Solvable in 2-3 minutes
-  - Appropriate difficulty for ${difficulty} level
-  - Strictly within the ${classSyllabus} syllabus scope
+  Generate one JEE ${examType} level ${subject} question on "${topic}".
+  - The correct answer must be placed at option ${targetLetter}
+  - The question must require active problem solving, not just memory recall
+  - All four options must be numerically or conceptually plausible to prevent easy elimination
+  - Question must be unambiguous with exactly one correct answer
 </task>
 
 <format>
@@ -63,7 +73,7 @@ export async function generateQuestion(
   - answer_explanation must be 3-4 sentences maximum — direct, clear, no internal monologue
   - ALL mathematical expressions — fractions, exponents, subscripts, symbols, binomial coefficients, integrals, etc. — MUST be wrapped in $...$ delimiters for inline math or $$...$$ for display math (e.g. $x^2 + y^2$, $\binom{n}{r}$, $\frac{a}{b}$). Never write bare LaTeX commands outside delimiters.
   - Do NOT use concepts beyond the student's class syllabus scope
-  - Do NOT generate ambiguous questions
+  - Do NOT generate basic definitional or recall questions
   - Include units where applicable
 </constraints>`;
 
