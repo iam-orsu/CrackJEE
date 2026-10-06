@@ -57,6 +57,7 @@ export async function generateQuestion(
   - Vary the position of the correct answer naturally (do NOT always put it at A)
   - Options must be plain text values only — do NOT prefix with "A)", "B)", "C)", "D)"
   - answer_explanation must be 3-4 sentences maximum — direct, clear, no internal monologue
+  - ALL mathematical expressions — fractions, exponents, subscripts, symbols, binomial coefficients, integrals, etc. — MUST be wrapped in $...$ delimiters for inline math or $$...$$ for display math (e.g. $x^2 + y^2$, $\binom{n}{r}$, $\frac{a}{b}$). Never write bare LaTeX commands outside delimiters.
   - Do NOT use concepts beyond the student's class syllabus scope
   - Do NOT generate ambiguous questions
   - Include units where applicable

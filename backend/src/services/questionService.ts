@@ -66,14 +66,16 @@ export async function getNextQuestion(
   difficulty: Difficulty,
   examType: ExamType,
   studentClass: StudentClass,
+  batchExcludeIds: string[] = [],
 ): Promise<Question> {
   const cacheKey = `q:${subject}:${topic}:${difficulty}:${examType}:${studentClass}`;
   const servedKey = `served:${userId}:${subject}:${topic}`;
   const servedIds = (await cacheGetJson<string[]>(servedKey)) ?? [];
+  const allExcluded = new Set([...servedIds, ...batchExcludeIds]);
 
   const pool = await cacheGetJson<Question[]>(cacheKey);
   if (pool && pool.length > 0) {
-    const unserved = pool.filter((q) => !servedIds.includes(q.id));
+    const unserved = pool.filter((q) => !allExcluded.has(q.id));
     if (unserved.length > 0) {
       const question = unserved[Math.floor(Math.random() * unserved.length)]!;
       await cacheSetJson(servedKey, [...servedIds, question.id], 86400);
@@ -87,7 +89,7 @@ export async function getNextQuestion(
       subject,
       difficulty,
       examType,
-      id: { notIn: servedIds },
+      id: { notIn: [...allExcluded] },
       validatedAt: { not: null },
     },
   });
@@ -125,7 +127,8 @@ export async function getQuestionBatch(
   }
 
   const numSubjects = subjectGroups.size;
-  const perSubject = numSubjects > 0 ? Math.round(count / numSubjects) : count;
+  // Use Math.floor so we never exceed the requested count; frontend sends count = perSubject * numSubjects
+  const perSubject = numSubjects > 0 ? Math.floor(count / numSubjects) : count;
 
   // Build plan grouped by subject so all Physics come first, then Chemistry, etc.
   const plan: Array<{ subject: Subject; topic: string; diff: Difficulty }> = [];
@@ -141,18 +144,18 @@ export async function getQuestionBatch(
     }
   }
 
+  // Sequential execution with a growing exclude list so concurrent Redis reads
+  // never return the same cached question twice in the same batch.
   const results: Question[] = [];
-  const concurrency = Math.min(count, 8);
+  const usedIds: string[] = [];
 
-  for (let i = 0; i < plan.length; i += concurrency) {
-    const chunk = plan.slice(i, i + concurrency);
-    const settled = await Promise.allSettled(
-      chunk.map(({ subject, topic, diff }) =>
-        getNextQuestion(userId, subject, topic, diff, examType, studentClass),
-      ),
-    );
-    for (const r of settled) {
-      if (r.status === 'fulfilled') results.push(r.value);
+  for (const { subject, topic, diff } of plan) {
+    try {
+      const q = await getNextQuestion(userId, subject, topic, diff, examType, studentClass, usedIds);
+      usedIds.push(q.id);
+      results.push(q);
+    } catch {
+      // skip failed question rather than aborting the whole batch
     }
   }
 
@@ -160,11 +163,5 @@ export async function getQuestionBatch(
     throw new Error('Could not generate any questions. Check your API keys and try again.');
   }
 
-  // Deduplicate: concurrent batch requests for the same topic can return the same cached question
-  const seen = new Set<string>();
-  return results.filter((q) => {
-    if (seen.has(q.id)) return false;
-    seen.add(q.id);
-    return true;
-  });
+  return results;
 }
