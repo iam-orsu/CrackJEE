@@ -65,6 +65,16 @@ function stripOptionPrefix(opt: string): string {
   return opt.replace(/^[A-Da-d][).]\s*/, '').trim();
 }
 
+// If text has bare LaTeX commands but no $ delimiters, add them so KaTeX renders
+function ensureMathDelimiters(text: string): string {
+  if (/\$|\\\(|\\\[/.test(text)) return text;           // already delimited
+  if (!/\\[a-zA-Z]|[_^]\{/.test(text)) return text;    // no LaTeX at all
+  // Find where math begins, extend back to include adjacent alphanumerics
+  let start = text.search(/\\[a-zA-Z]|[_^]\{/);
+  while (start > 0 && /[a-zA-Z0-9]/.test(text[start - 1]!)) start--;
+  return text.slice(0, start) + '$' + text.slice(start).trim() + '$';
+}
+
 function renderMath(el: HTMLElement | null) {
   if (!el) return;
   const win = window as unknown as { renderMathInElement?: (el: HTMLElement, opts: object) => void };
@@ -152,7 +162,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
       <div className={`qcard-body${result?.explanation ? ' qcard-body-split' : ''}`}>
         {/* ── Left: question + options ── */}
         <div className="qcard-left">
-          <p className="question-text">{question.questionText}</p>
+          <p className="question-text">{ensureMathDelimiters(question.questionText)}</p>
 
           <div className="options-grid">
             {question.options.map((opt, i) => {
@@ -174,7 +184,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
                   disabled={!!result}
                 >
                   <span className="option-letter">{letter}</span>
-                  <span style={{ flex: 1 }}>{stripOptionPrefix(opt)}</span>
+                  <span style={{ flex: 1 }}>{ensureMathDelimiters(stripOptionPrefix(opt))}</span>
                   {isCorrect && <span style={{ flexShrink: 0, color: 'var(--green-600)' }}>{CHECK}</span>}
                   {isWrong   && <span style={{ flexShrink: 0, color: 'var(--red-600)' }}>{CROSS}</span>}
                 </button>
