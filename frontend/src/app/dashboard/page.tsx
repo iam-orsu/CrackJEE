@@ -34,7 +34,7 @@ function Sparkline({ data }: { data: WeeklyPoint[] }) {
     pts.length < 2 ? '' : smooth(pts) + ` L${pts[pts.length - 1]![0]} ${H} L${pts[0]![0]} ${H} Z`;
 
   return (
-    <svg width={W} height={H} style={{ overflow: 'visible', display: 'block' }}>
+    <svg width="100%" height={H} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" style={{ overflow: 'visible', display: 'block' }}>
       <defs>
         <linearGradient id="spGrad" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.18" />
@@ -245,7 +245,7 @@ export default function DashboardPage() {
               data.subjectAccuracy.map((s) => {
                 const cfg = SUBJ_CFG[s.subject] ?? { color: 'var(--gray-500)', bg: 'var(--gray-50)', icon: '?' };
                 return (
-                  <div key={s.subject} className="db-subj-card" style={{ borderLeftColor: cfg.color }}>
+                  <div key={s.subject} className="db-subj-card">
                     <div className="db-subj-left">
                       <span className="db-subj-icon" style={{ background: cfg.bg, color: cfg.color }}>
                         {cfg.icon}

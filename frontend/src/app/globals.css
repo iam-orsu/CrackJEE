@@ -525,7 +525,8 @@ img, svg { display: block; }
 .subject-card-name     { font-size: 14px; font-weight: 600; color: var(--gray-800); }
 .subject-card.selected .subject-card-name { color: var(--white); }
 .subject-card-sub      { font-size: 12px; color: var(--gray-500); }
-.subject-card.selected .subject-card-sub  { color: rgba(255,255,255,.55); }
+.subject-card.selected .subject-card-sub   { color: rgba(255,255,255,.55); }
+.subject-card.selected .subject-card-emoji { color: var(--white); }
 
 /* Wizard — topic chips */
 .topic-subject-section { margin-bottom: 28px; }
@@ -617,7 +618,6 @@ img, svg { display: block; }
   background: var(--white); border-radius: var(--radius-xl);
   box-shadow: 0 1px 3px rgba(15,23,42,.06), 0 4px 12px rgba(15,23,42,.04);
   border: 1px solid var(--gray-100);
-  border-left: 3px solid var(--gray-200);
   padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
 }
 .db-subj-left { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; }

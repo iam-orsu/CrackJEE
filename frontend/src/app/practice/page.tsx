@@ -48,6 +48,7 @@ const LOAD_MESSAGES = [
 type AppState = 'wizard' | 'loading' | 'exam' | 'summary';
 type WizardStep = 1 | 2 | 3;
 type DiffOption = 'beginner' | 'intermediate' | 'advanced' | 'mixed';
+type StoredResult = AnswerResult & { selectedAnswer: string };
 
 const CHECK_SVG = (
   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
@@ -87,7 +88,7 @@ export default function PracticePage() {
   /* ── Exam ── */
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [examResults, setExamResults] = useState<Record<number, AnswerResult>>({});
+  const [examResults, setExamResults] = useState<Record<number, StoredResult>>({});
   const [sessionSecs, setSessionSecs] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const sessionTimerRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
@@ -245,7 +246,7 @@ export default function PracticePage() {
   async function handleExamSubmit(answer: string, timeSpent: number): Promise<AnswerResult> {
     const q = questions[currentIndex]!;
     const result = await api.answers.submit({ questionId: q.id, answer, timeSpent });
-    setExamResults((prev) => ({ ...prev, [currentIndex]: result }));
+    setExamResults((prev) => ({ ...prev, [currentIndex]: { ...result, selectedAnswer: answer } }));
     return result;
   }
 
@@ -612,6 +613,7 @@ export default function PracticePage() {
   if (appState === 'exam' && questions.length > 0) {
     const q = questions[currentIndex]!;
     const answeredCount = Object.keys(examResults).length;
+    const storedResult = examResults[currentIndex];
 
     return (
       <div className="exam-overlay">
@@ -652,12 +654,26 @@ export default function PracticePage() {
               questionNum={currentIndex + 1}
               onSubmit={handleExamSubmit}
               onNext={handleExamNext}
+              initialResult={storedResult}
+              initialSelected={storedResult?.selectedAnswer}
             />
           </div>
         </div>
 
         {/* Footer palette */}
         <div className="exam-footer">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            {currentIndex > 0 && (
+              <button
+                className="btn btn-ghost btn-sm"
+                onClick={() => setCurrentIndex((i) => i - 1)}
+                title="Previous question"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+                Prev
+              </button>
+            )}
+          </div>
           <div className="exam-palette">
             {questions.map((qItem, i) => {
               const res = examResults[i];
@@ -665,7 +681,15 @@ export default function PracticePage() {
               if (i === currentIndex) cls += ' current';
               else if (res) cls += res.isCorrect ? ' correct' : ' wrong';
               return (
-                <div key={`${qItem.id}-${i}`} className={cls}>{i + 1}</div>
+                <div
+                  key={`${qItem.id}-${i}`}
+                  className={cls}
+                  style={{ cursor: res ? 'pointer' : 'default' }}
+                  onClick={() => res ? setCurrentIndex(i) : undefined}
+                  title={res ? `Q${i + 1}: ${res.isCorrect ? 'Correct' : 'Wrong'} — click to review` : undefined}
+                >
+                  {i + 1}
+                </div>
               );
             })}
           </div>

@@ -160,5 +160,11 @@ export async function getQuestionBatch(
     throw new Error('Could not generate any questions. Check your API keys and try again.');
   }
 
-  return results;
+  // Deduplicate: concurrent batch requests for the same topic can return the same cached question
+  const seen = new Set<string>();
+  return results.filter((q) => {
+    if (seen.has(q.id)) return false;
+    seen.add(q.id);
+    return true;
+  });
 }

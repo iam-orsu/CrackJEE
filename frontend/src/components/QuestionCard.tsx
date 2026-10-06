@@ -8,6 +8,8 @@ interface Props {
   questionNum: number;
   onSubmit: (answer: string, timeSpent: number) => Promise<AnswerResult>;
   onNext: () => void;
+  initialResult?: AnswerResult;
+  initialSelected?: string;
 }
 
 const CHECK = (
@@ -78,9 +80,9 @@ function renderMath(el: HTMLElement | null) {
   }
 }
 
-export function QuestionCard({ question, questionNum, onSubmit, onNext }: Props) {
-  const [selected, setSelected] = useState<string | null>(null);
-  const [result, setResult]     = useState<AnswerResult | null>(null);
+export function QuestionCard({ question, questionNum, onSubmit, onNext, initialResult, initialSelected }: Props) {
+  const [selected, setSelected] = useState<string | null>(initialSelected ?? null);
+  const [result, setResult]     = useState<AnswerResult | null>(initialResult ?? null);
   const [submitting, setSubmitting] = useState(false);
   const [elapsed, setElapsed]   = useState(0);
   const startRef  = useRef(Date.now());
@@ -88,6 +90,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext }: Props)
   const cardRef   = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (initialResult) return; // already answered — keep pre-populated state, no timer
     setSelected(null);
     setResult(null);
     setElapsed(0);
@@ -98,6 +101,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext }: Props)
     }, 1000);
 
     return () => clearInterval(timerRef.current);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [question.id]);
 
   // Render math after question changes and after result (explanation may have math)
