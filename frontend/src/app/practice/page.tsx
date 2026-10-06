@@ -30,6 +30,12 @@ const SUBJECT_META: Record<Subject, { emoji: string; sub: string }> = {
   Chemistry:   { emoji: '⚗', sub: '31 topics' },
 };
 
+const REVIEW_SUBJ: Record<string, { color: string; icon: string; bg: string }> = {
+  Physics:     { color: '#2563eb', icon: '⚛', bg: '#eff6ff' },
+  Chemistry:   { color: '#16a34a', icon: '⚗', bg: '#f0fdf4' },
+  Mathematics: { color: '#7c3aed', icon: '∑', bg: '#f5f3ff' },
+};
+
 function getTopicsForStudent(subject: Subject, studentClass: string) {
   const t = TOPICS_BY_CLASS[subject];
   return studentClass === '11' ? { class11: t.class11, class12: [] } : t;
@@ -56,137 +62,6 @@ const CHECK_SVG = (
     <polyline points="20 6 9 17 4 12" />
   </svg>
 );
-
-/* ─── Math utilities (for ReviewCard) ───────────────────── */
-function ensureMathDelimiters(text: string): string {
-  if (/\$|\\\(|\\\[/.test(text)) return text;
-  if (!/\\[a-zA-Z]|[_^]\{/.test(text)) return text;
-  let start = text.search(/\\[a-zA-Z]|[_^]\{/);
-  while (start > 0 && /[a-zA-Z0-9]/.test(text[start - 1]!)) start--;
-  return text.slice(0, start) + '$' + text.slice(start).trim() + '$';
-}
-
-function renderMathInEl(el: HTMLElement | null) {
-  if (!el) return;
-  const win = window as unknown as { renderMathInElement?: (el: HTMLElement, opts: object) => void };
-  if (typeof win.renderMathInElement === 'function') {
-    win.renderMathInElement(el, {
-      delimiters: [
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '$$', right: '$$', display: true },
-      ],
-      throwOnError: false,
-    });
-  }
-}
-
-function stripOptPrefix(opt: string): string {
-  return opt.replace(/^[A-Da-d][).]\s*/, '').trim();
-}
-
-const RC_CHECK = (
-  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-    <polyline points="20 6 9 17 4 12" />
-  </svg>
-);
-const RC_CROSS = (
-  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-    <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-  </svg>
-);
-
-/* ─── Review card ────────────────────────────────────────── */
-function ReviewCard({ question, idx, result }: {
-  question: Question;
-  idx: number;
-  result: StoredResult | undefined;
-}) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const id = requestAnimationFrame(() => renderMathInEl(cardRef.current));
-    return () => cancelAnimationFrame(id);
-  }, []);
-
-  const letters = ['A', 'B', 'C', 'D'];
-  const skipped = !result;
-  const SUBJ_COLORS: Record<string, string> = {
-    Physics: '#2563eb', Chemistry: '#16a34a', Mathematics: '#7c3aed',
-  };
-  const subjColor = SUBJ_COLORS[question.subject] ?? 'var(--gray-600)';
-
-  return (
-    <div ref={cardRef} className="card" style={{ padding: 0, overflow: 'hidden' }}>
-      {/* Status header */}
-      <div style={{
-        padding: '10px 20px', display: 'flex', alignItems: 'center', gap: 10,
-        background: skipped ? 'var(--gray-50)' : result.isCorrect ? 'var(--green-50)' : 'var(--red-50)',
-        borderBottom: `1px solid ${skipped ? 'var(--gray-200)' : result.isCorrect ? 'var(--green-100)' : 'var(--red-100)'}`,
-      }}>
-        <span style={{
-          fontSize: 11, fontWeight: 700, padding: '2px 9px', borderRadius: 'var(--radius-full)',
-          color: skipped ? 'var(--gray-500)' : result.isCorrect ? 'var(--green-600)' : 'var(--red-600)',
-          background: skipped ? 'var(--gray-200)' : result.isCorrect ? 'var(--green-100)' : 'var(--red-100)',
-        }}>
-          Q{idx + 1}
-        </span>
-        <span style={{ fontSize: 12, color: 'var(--gray-500)' }}>{question.subject}</span>
-        <span style={{ fontSize: 11, color: 'var(--gray-300)' }}>·</span>
-        <span style={{ fontSize: 12, color: subjColor, fontWeight: 500 }}>{question.topic}</span>
-        <span style={{ fontSize: 11, color: 'var(--gray-300)', marginLeft: 4 }}>·</span>
-        <span style={{ fontSize: 11, color: 'var(--gray-400)', textTransform: 'capitalize' }}>{question.difficulty}</span>
-        <span style={{
-          marginLeft: 'auto', fontSize: 12, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 4,
-          color: skipped ? 'var(--gray-400)' : result.isCorrect ? 'var(--green-600)' : 'var(--red-600)',
-        }}>
-          {skipped ? 'Skipped' : result.isCorrect ? <>{RC_CHECK} Correct</> : <>{RC_CROSS} Wrong</>}
-        </span>
-      </div>
-
-      {/* Body */}
-      <div style={{ padding: '20px 24px' }}>
-        <p className="question-text" style={{ margin: '0 0 18px' }}>
-          {ensureMathDelimiters(question.questionText)}
-        </p>
-
-        <div className="options-grid">
-          {question.options.map((opt, i) => {
-            const letter = letters[i]!;
-            const isCorrectAns = !skipped && letter === result.correctAnswer;
-            const isWrongSel = !skipped && !result.isCorrect && letter === result.selectedAnswer;
-
-            let cls = 'option-btn';
-            if (isCorrectAns) cls += ' correct';
-            else if (isWrongSel) cls += ' wrong';
-
-            return (
-              <div key={letter} className={cls} style={{ cursor: 'default', pointerEvents: 'none' }}>
-                <span className="option-letter">{letter}</span>
-                <span style={{ flex: 1 }}>{ensureMathDelimiters(stripOptPrefix(opt))}</span>
-                {isCorrectAns && <span style={{ color: 'var(--green-600)', flexShrink: 0 }}>{RC_CHECK}</span>}
-                {isWrongSel   && <span style={{ color: 'var(--red-600)',   flexShrink: 0 }}>{RC_CROSS}</span>}
-              </div>
-            );
-          })}
-        </div>
-
-        {result?.explanation && (
-          <div className="explanation-box" style={{ marginTop: 16 }}>
-            <p className="explanation-label">Explanation</p>
-            <p className="explanation-text">{result.explanation}</p>
-          </div>
-        )}
-
-        {skipped && (
-          <p style={{ fontSize: 13, color: 'var(--gray-400)', fontStyle: 'italic', marginTop: 16 }}>
-            This question was not attempted.
-          </p>
-        )}
-      </div>
-    </div>
-  );
-}
 
 /* ═══════════════════════════════════════════════════════════
    Main component
@@ -433,7 +308,6 @@ export default function PracticePage() {
     setQuestions([]);
     setExamResults({});
     setWeakMode(false);
-    // Remove ?mode=weak from URL without navigation
     if (window.location.search) {
       window.history.replaceState({}, '', window.location.pathname);
     }
@@ -447,7 +321,7 @@ export default function PracticePage() {
   }
 
   /* ═══════════════════════════════════════════════════════
-     RENDER: Wizard — loading weak areas
+     RENDER: Weak areas loading
   ═══════════════════════════════════════════════════════ */
   if (weakStartLoading) {
     return (
@@ -477,7 +351,6 @@ export default function PracticePage() {
 
     return (
       <div className="wizard-page">
-        {/* Topbar */}
         <div className="wizard-topbar">
           <span className="wizard-topbar-logo">CrackJEE</span>
           <div className="divider" style={{ width: 1, height: 20, background: 'var(--gray-200)', margin: '0 4px' }} />
@@ -489,7 +362,6 @@ export default function PracticePage() {
 
         <div className="wizard-body">
           <div className="wizard-inner">
-            {/* Weak mode banner */}
             {weakMode && (
               <div style={{
                 background: 'var(--navy-50)', border: '1px solid var(--navy-100)',
@@ -508,17 +380,13 @@ export default function PracticePage() {
                     {Array.from(selectedSubjects).reduce((acc, s) => acc + (selectedTopics[s]?.size ?? 0), 0)} topics across {selectedSubjects.size} subject{selectedSubjects.size !== 1 ? 's' : ''} pre-selected
                   </span>
                 </div>
-                <button
-                  className="btn btn-ghost btn-sm"
-                  style={{ marginLeft: 'auto' }}
-                  onClick={() => { setWeakMode(false); setWizardStep(1); }}
-                >
+                <button className="btn btn-ghost btn-sm" style={{ marginLeft: 'auto' }}
+                  onClick={() => { setWeakMode(false); setWizardStep(1); }}>
                   Change topics
                 </button>
               </div>
             )}
 
-            {/* Step bar */}
             <div className="wizard-step-bar">
               {(['Subjects', 'Topics', 'Session'] as const).map((label, idx) => {
                 const stepN = (idx + 1) as WizardStep;
@@ -527,9 +395,7 @@ export default function PracticePage() {
                 return (
                   <div key={label} style={{ display: 'flex', alignItems: 'center', flex: idx < 2 ? 1 : undefined }}>
                     <div className={`wizard-step-item${isActive ? ' active' : ''}${isDone ? ' done' : ''}`}>
-                      <div className="wizard-step-num">
-                        {isDone ? CHECK_SVG : stepN}
-                      </div>
+                      <div className="wizard-step-num">{isDone ? CHECK_SVG : stepN}</div>
                       <span className="wizard-step-label">{label}</span>
                     </div>
                     {idx < 2 && <div className="wizard-step-line" />}
@@ -538,31 +404,19 @@ export default function PracticePage() {
               })}
             </div>
 
-            {/* ── Step 1: Subjects ── */}
             {wizardStep === 1 && (
               <>
                 <p className="wizard-section-title">Which subjects?</p>
-                <p className="wizard-section-sub">
-                  Pick one or more. You can practice MPC together or focus on one.
-                </p>
+                <p className="wizard-section-sub">Pick one or more. You can practice MPC together or focus on one.</p>
                 <div className="subject-cards">
-                  <div
-                    className={`subject-card${selectedSubjects.size === 3 ? ' selected' : ''}`}
-                    onClick={selectAllSubjects}
-                  >
+                  <div className={`subject-card${selectedSubjects.size === 3 ? ' selected' : ''}`} onClick={selectAllSubjects}>
                     <span className="subject-card-emoji">MPC</span>
                     <span className="subject-card-name">All Three</span>
                     <span className="subject-card-sub">Full coverage</span>
                   </div>
                   {subjects.map((s) => (
-                    <div
-                      key={s}
-                      className={`subject-card${selectedSubjects.has(s) ? ' selected' : ''}`}
-                      onClick={() => toggleSubject(s)}
-                    >
-                      <span className="subject-card-emoji" style={{ fontFamily: 'serif', fontSize: 28 }}>
-                        {SUBJECT_META[s].emoji}
-                      </span>
+                    <div key={s} className={`subject-card${selectedSubjects.has(s) ? ' selected' : ''}`} onClick={() => toggleSubject(s)}>
+                      <span className="subject-card-emoji" style={{ fontFamily: 'serif', fontSize: 28 }}>{SUBJECT_META[s].emoji}</span>
                       <span className="subject-card-name">{s}</span>
                       <span className="subject-card-sub">{SUBJECT_META[s].sub}</span>
                     </div>
@@ -574,73 +428,49 @@ export default function PracticePage() {
               </>
             )}
 
-            {/* ── Step 2: Topics ── */}
             {wizardStep === 2 && (
               <>
                 <p className="wizard-section-title">Which topics?</p>
-                <p className="wizard-section-sub">
-                  Select all or pick specific ones. Questions rotate across your selection.
-                </p>
+                <p className="wizard-section-sub">Select all or pick specific ones. Questions rotate across your selection.</p>
                 {Array.from(selectedSubjects).map((subject) => {
                   const topics = getTopicsForStudent(subject, studentClass);
                   const cur = selectedTopics[subject] ?? new Set<string>();
                   const allTopics = [...topics.class11, ...topics.class12];
                   const allSelected = cur.size === allTopics.length;
-
                   return (
                     <div key={subject} className="topic-subject-section">
                       <div className="topic-subject-header">
                         <span className="topic-subject-name">{subject}</span>
-                        <button
-                          className="btn btn-ghost btn-sm"
-                          onClick={() => toggleAllTopics(subject)}
-                        >
+                        <button className="btn btn-ghost btn-sm" onClick={() => toggleAllTopics(subject)}>
                           {allSelected ? 'Deselect all' : 'Select all'}
                         </button>
                       </div>
-
                       {topics.class11.length > 0 && (
                         <div className="topic-class-group">
-                          {studentClass !== '11' && (
-                            <p className="topic-class-label">Class 11</p>
-                          )}
+                          {studentClass !== '11' && <p className="topic-class-label">Class 11</p>}
                           <div className="wizard-topic-grid">
                             {topics.class11.map((t) => (
-                              <button
-                                key={t}
-                                className={`topic-chip${cur.has(t) ? ' selected' : ''}`}
-                                onClick={() => toggleTopic(subject, t)}
-                              >
-                                <span className="topic-chip-check">
-                                  {cur.has(t) && CHECK_SVG}
-                                </span>
+                              <button key={t} className={`topic-chip${cur.has(t) ? ' selected' : ''}`} onClick={() => toggleTopic(subject, t)}>
+                                <span className="topic-chip-check">{cur.has(t) && CHECK_SVG}</span>
                                 {t}
                               </button>
                             ))}
                           </div>
                         </div>
                       )}
-
                       {topics.class12.length > 0 && (
                         <div className="topic-class-group" style={{ marginTop: 10 }}>
                           <p className="topic-class-label">Class 12</p>
                           <div className="wizard-topic-grid">
                             {topics.class12.map((t) => (
-                              <button
-                                key={t}
-                                className={`topic-chip${cur.has(t) ? ' selected' : ''}`}
-                                onClick={() => toggleTopic(subject, t)}
-                              >
-                                <span className="topic-chip-check">
-                                  {cur.has(t) && CHECK_SVG}
-                                </span>
+                              <button key={t} className={`topic-chip${cur.has(t) ? ' selected' : ''}`} onClick={() => toggleTopic(subject, t)}>
+                                <span className="topic-chip-check">{cur.has(t) && CHECK_SVG}</span>
                                 {t}
                               </button>
                             ))}
                           </div>
                         </div>
                       )}
-
                       <div style={{ marginTop: 8, fontSize: 12, color: 'var(--gray-400)' }}>
                         {cur.size} of {allTopics.length} topics selected
                       </div>
@@ -650,7 +480,6 @@ export default function PracticePage() {
               </>
             )}
 
-            {/* ── Step 3: Session config ── */}
             {wizardStep === 3 && (
               <>
                 <p className="wizard-section-title">Session settings</p>
@@ -660,30 +489,12 @@ export default function PracticePage() {
                   <p className="config-label">How many questions per subject?</p>
                   <div className="pill-group">
                     {([5, 10, 20, 30] as const).map((n) => (
-                      <button
-                        key={n}
-                        className={`pill${questionCount === n ? ' selected' : ''}`}
-                        onClick={() => setQuestionCount(n)}
-                      >
-                        {n}
-                      </button>
+                      <button key={n} className={`pill${questionCount === n ? ' selected' : ''}`} onClick={() => setQuestionCount(n)}>{n}</button>
                     ))}
-                    <button
-                      className={`pill${questionCount === 'custom' ? ' selected' : ''}`}
-                      onClick={() => setQuestionCount('custom')}
-                    >
-                      Custom
-                    </button>
+                    <button className={`pill${questionCount === 'custom' ? ' selected' : ''}`} onClick={() => setQuestionCount('custom')}>Custom</button>
                     {questionCount === 'custom' && (
-                      <input
-                        type="number"
-                        className="custom-count-input"
-                        placeholder="1-30"
-                        min={1}
-                        max={30}
-                        value={customCount}
-                        onChange={(e) => setCustomCount(e.target.value)}
-                      />
+                      <input type="number" className="custom-count-input" placeholder="1-30" min={1} max={30}
+                        value={customCount} onChange={(e) => setCustomCount(e.target.value)} />
                     )}
                   </div>
                 </div>
@@ -692,12 +503,7 @@ export default function PracticePage() {
                   <p className="config-label">Difficulty</p>
                   <div className="pill-group">
                     {(['mixed', 'beginner', 'intermediate', 'advanced'] as DiffOption[]).map((d) => (
-                      <button
-                        key={d}
-                        className={`pill${difficulty === d ? ' selected' : ''}`}
-                        onClick={() => setDifficulty(d)}
-                        style={{ textTransform: 'capitalize' }}
-                      >
+                      <button key={d} className={`pill${difficulty === d ? ' selected' : ''}`} onClick={() => setDifficulty(d)} style={{ textTransform: 'capitalize' }}>
                         {d === 'mixed' ? 'Mixed (all levels)' : d}
                       </button>
                     ))}
@@ -708,13 +514,7 @@ export default function PracticePage() {
                   <p className="config-label">Exam type</p>
                   <div className="pill-group">
                     {(['Main', 'Advanced'] as const).map((e) => (
-                      <button
-                        key={e}
-                        className={`pill${examType === e ? ' selected' : ''}`}
-                        onClick={() => setExamType(e)}
-                      >
-                        JEE {e}
-                      </button>
+                      <button key={e} className={`pill${examType === e ? ' selected' : ''}`} onClick={() => setExamType(e)}>JEE {e}</button>
                     ))}
                   </div>
                 </div>
@@ -723,43 +523,30 @@ export default function PracticePage() {
                   <p className="config-label">Marking scheme</p>
                   <div className="pill-group">
                     {([
-                      { key: 'standard',     label: 'Standard (1/0)'      },
-                      { key: 'jee_main',     label: 'JEE Main (+4/−1)'    },
+                      { key: 'standard',     label: 'Standard (1/0)'       },
+                      { key: 'jee_main',     label: 'JEE Main (+4/−1)'   },
                       { key: 'jee_advanced', label: 'JEE Advanced (+4/−2)' },
                     ] as const).map(({ key, label }) => (
-                      <button
-                        key={key}
-                        className={`pill${markingScheme === key ? ' selected' : ''}`}
-                        onClick={() => setMarkingScheme(key)}
-                      >
-                        {label}
-                      </button>
+                      <button key={key} className={`pill${markingScheme === key ? ' selected' : ''}`} onClick={() => setMarkingScheme(key)}>{label}</button>
                     ))}
                   </div>
                 </div>
 
-                {/* Summary */}
                 <div className="card card-sm" style={{ background: 'var(--gray-50)', border: '1px solid var(--gray-200)', marginTop: 8 }}>
                   <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', fontSize: 13 }}>
                     <span>
                       <strong style={{ color: 'var(--gray-900)' }}>{resolvedCount()}</strong>{' '}
                       <span style={{ color: 'var(--gray-500)' }}>per subject</span>
                       {selectedSubjects.size > 1 && (
-                        <span style={{ color: 'var(--gray-400)', marginLeft: 4 }}>
-                          ({resolvedCount() * selectedSubjects.size} total)
-                        </span>
+                        <span style={{ color: 'var(--gray-400)', marginLeft: 4 }}>({resolvedCount() * selectedSubjects.size} total)</span>
                       )}
                     </span>
                     <span>
                       <strong style={{ color: 'var(--gray-900)', textTransform: 'capitalize' }}>{difficulty}</strong>{' '}
                       <span style={{ color: 'var(--gray-500)' }}>difficulty</span>
                     </span>
-                    <span>
-                      <strong style={{ color: 'var(--gray-900)' }}>JEE {examType}</strong>
-                    </span>
-                    <span>
-                      <strong style={{ color: 'var(--gray-900)' }}>{Array.from(selectedSubjects).join(', ')}</strong>
-                    </span>
+                    <span><strong style={{ color: 'var(--gray-900)' }}>JEE {examType}</strong></span>
+                    <span><strong style={{ color: 'var(--gray-900)' }}>{Array.from(selectedSubjects).join(', ')}</strong></span>
                     <span>
                       <strong style={{ color: 'var(--gray-900)' }}>
                         {Array.from(selectedSubjects).reduce((acc, s) => acc + (selectedTopics[s]?.size ?? 0), 0)}
@@ -771,28 +558,16 @@ export default function PracticePage() {
               </>
             )}
 
-            {/* Wizard nav */}
             <div className="wizard-nav">
-              <button
-                className="btn btn-outline"
-                onClick={() => wizardStep > 1 ? setWizardStep((s) => (s - 1) as WizardStep) : router.push('/dashboard')}
-              >
+              <button className="btn btn-outline"
+                onClick={() => wizardStep > 1 ? setWizardStep((s) => (s - 1) as WizardStep) : router.push('/dashboard')}>
                 {wizardStep === 1 ? 'Cancel' : 'Back'}
               </button>
-
               {wizardStep < 3 ? (
-                <button
-                  className="btn btn-primary btn-lg"
-                  disabled={!canAdvanceStep()}
-                  onClick={() => setWizardStep((s) => (s + 1) as WizardStep)}
-                >
-                  Continue
-                </button>
+                <button className="btn btn-primary btn-lg" disabled={!canAdvanceStep()}
+                  onClick={() => setWizardStep((s) => (s + 1) as WizardStep)}>Continue</button>
               ) : (
-                <button
-                  className="btn btn-primary btn-lg"
-                  onClick={startExam}
-                >
+                <button className="btn btn-primary btn-lg" onClick={startExam}>
                   Start Exam
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
@@ -820,24 +595,18 @@ export default function PracticePage() {
             </svg>
           </div>
         </div>
-
         <div className="ai-loader-text">
           <p className="ai-loader-title">Preparing your session</p>
           <p className="ai-loader-msg">{LOAD_MESSAGES[loadMsgIdx]}</p>
           <div className="ai-loader-dots">
-            <div className="ai-loader-dot" />
-            <div className="ai-loader-dot" />
-            <div className="ai-loader-dot" />
+            <div className="ai-loader-dot" /><div className="ai-loader-dot" /><div className="ai-loader-dot" />
           </div>
         </div>
-
         <div className="ai-loader-bar-wrap">
           <div className="ai-loader-bar-track">
             <div className="ai-loader-bar-fill" style={{ width: `${loadProgress}%` }} />
           </div>
-          <p className="ai-loader-bar-label">
-            {loadProgress < 100 ? `${Math.round(loadProgress)}% complete` : 'Ready!'}
-          </p>
+          <p className="ai-loader-bar-label">{loadProgress < 100 ? `${Math.round(loadProgress)}% complete` : 'Ready!'}</p>
         </div>
       </div>
     );
@@ -853,35 +622,26 @@ export default function PracticePage() {
 
     return (
       <div className="exam-overlay">
-        {/* Header */}
         <div className="exam-header">
           <span className="exam-logo">CrackJEE</span>
-
           <div className="exam-meta">
             <span className="exam-qnum">Q{currentIndex + 1} / {questions.length}</span>
             <span className="exam-topic">{q.subject} · {q.topic}</span>
           </div>
-
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
             <span className="exam-timer">{fmtTime(sessionSecs)}</span>
-            <button className="btn btn-outline btn-sm" onClick={handleEndSession}>
-              End session
-            </button>
-            <button
-              className="btn btn-ghost btn-sm"
+            <button className="btn btn-outline btn-sm" onClick={handleEndSession}>End session</button>
+            <button className="btn btn-ghost btn-sm"
               onClick={() => isFullscreen ? exitFullscreen() : enterFullscreen()}
-              title={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
-            >
-              {isFullscreen ? (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M8 3v3a2 2 0 01-2 2H3m18 0h-3a2 2 0 01-2-2V3m0 18v-3a2 2 0 012-2h3M3 16h3a2 2 0 012 2v3"/></svg>
-              ) : (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-              )}
+              title={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}>
+              {isFullscreen
+                ? <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M8 3v3a2 2 0 01-2 2H3m18 0h-3a2 2 0 01-2-2V3m0 18v-3a2 2 0 012-2h3M3 16h3a2 2 0 012 2v3"/></svg>
+                : <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              }
             </button>
           </div>
         </div>
 
-        {/* Body */}
         <div className="exam-body">
           <div className="exam-question-wrap">
             <QuestionCard
@@ -897,15 +657,10 @@ export default function PracticePage() {
           </div>
         </div>
 
-        {/* Footer palette */}
         <div className="exam-footer">
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             {currentIndex > 0 && (
-              <button
-                className="btn btn-ghost btn-sm"
-                onClick={() => setCurrentIndex((i) => i - 1)}
-                title="Previous question"
-              >
+              <button className="btn btn-ghost btn-sm" onClick={() => setCurrentIndex((i) => i - 1)} title="Previous question">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
                 Prev
               </button>
@@ -918,21 +673,16 @@ export default function PracticePage() {
               if (i === currentIndex) cls += ' current';
               else if (res) cls += res.isCorrect ? ' correct' : ' wrong';
               return (
-                <div
-                  key={`${qItem.id}-${i}`}
-                  className={cls}
+                <div key={`${qItem.id}-${i}`} className={cls}
                   style={{ cursor: res ? 'pointer' : 'default' }}
                   onClick={() => res ? setCurrentIndex(i) : undefined}
-                  title={res ? `Q${i + 1}: ${res.isCorrect ? 'Correct' : 'Wrong'} (click to review)` : undefined}
-                >
+                  title={res ? `Q${i + 1}: ${res.isCorrect ? 'Correct' : 'Wrong'} (click to review)` : undefined}>
                   {i + 1}
                 </div>
               );
             })}
           </div>
-          <span style={{ fontSize: 13, color: 'var(--gray-500)' }}>
-            {answeredCount} of {questions.length} answered
-          </span>
+          <span style={{ fontSize: 13, color: 'var(--gray-500)' }}>{answeredCount} of {questions.length} answered</span>
         </div>
       </div>
     );
@@ -942,16 +692,16 @@ export default function PracticePage() {
      RENDER: Summary
   ═══════════════════════════════════════════════════════ */
   if (appState === 'summary') {
-    const total      = questions.length;
-    const correct    = Object.values(examResults).filter((r) => r.isCorrect).length;
-    const attempted  = Object.keys(examResults).length;
-    const wrong      = attempted - correct;
-    const accuracy   = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
+    const total     = questions.length;
+    const correct   = Object.values(examResults).filter((r) => r.isCorrect).length;
+    const attempted = Object.keys(examResults).length;
+    const wrong     = attempted - correct;
+    const accuracy  = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
 
-    const jeeScore   = markingScheme === 'jee_main'     ? correct * 4 - wrong * 1
-                     : markingScheme === 'jee_advanced'  ? correct * 4 - wrong * 2
-                     : correct;
-    const jeeMax     = markingScheme !== 'standard' ? total * 4 : total;
+    const jeeScore  = markingScheme === 'jee_main'     ? correct * 4 - wrong * 1
+                    : markingScheme === 'jee_advanced'  ? correct * 4 - wrong * 2
+                    : correct;
+    const jeeMax    = markingScheme !== 'standard' ? total * 4 : total;
 
     return (
       <div className="exam-overlay">
@@ -960,16 +710,13 @@ export default function PracticePage() {
           <span style={{ fontSize: 14, color: 'var(--gray-500)' }}>Session complete</span>
           <div />
         </div>
-
         <div className="summary-wrap">
           <div className="summary-card">
             <div style={{ fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.07em', color: 'var(--gray-500)', marginBottom: 20 }}>
               Session Results
             </div>
-
             <div className="summary-score-big">{accuracy}%</div>
             <div className="summary-score-sub">accuracy · {correct} of {attempted} correct</div>
-
             <div className="summary-stats">
               <div style={{ textAlign: 'center' }}>
                 <div className="summary-stat-val" style={{ color: 'var(--green-600)' }}>{correct}</div>
@@ -989,25 +736,18 @@ export default function PracticePage() {
               </div>
             </div>
 
-            {/* JEE score block */}
             {markingScheme !== 'standard' && (
-              <div style={{
-                background: 'var(--navy-50)', border: '1px solid var(--navy-100)',
-                borderRadius: 'var(--radius-lg)', padding: '14px 20px', marginTop: 4,
-              }}>
+              <div style={{ background: 'var(--navy-50)', border: '1px solid var(--navy-100)', borderRadius: 'var(--radius-lg)', padding: '14px 20px', marginTop: 4 }}>
                 <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.07em', color: 'var(--navy-600)', marginBottom: 4 }}>
                   {markingScheme === 'jee_main' ? 'JEE Main Score' : 'JEE Advanced Score'}
                 </p>
                 <p style={{ fontSize: 30, fontWeight: 800, letterSpacing: '-.03em', lineHeight: 1.1,
-                  color: jeeScore < 0 ? 'var(--red-600)' : jeeScore === 0 ? 'var(--gray-500)' : 'var(--primary)'
-                }}>
+                  color: jeeScore < 0 ? 'var(--red-600)' : jeeScore === 0 ? 'var(--gray-500)' : 'var(--primary)' }}>
                   {jeeScore > 0 ? '+' : ''}{jeeScore}
-                  <span style={{ fontSize: 15, fontWeight: 500, color: 'var(--gray-400)', marginLeft: 6 }}>
-                    / {jeeMax}
-                  </span>
+                  <span style={{ fontSize: 15, fontWeight: 500, color: 'var(--gray-400)', marginLeft: 6 }}>/ {jeeMax}</span>
                 </p>
                 <p style={{ fontSize: 12, color: 'var(--gray-500)', marginTop: 3 }}>
-                  {correct} correct × 4
+                  {correct} correct &times; 4
                   {wrong > 0 && ` − ${wrong} wrong × ${markingScheme === 'jee_main' ? 1 : 2}`}
                   {total - attempted > 0 && ` · ${total - attempted} skipped (no penalty)`}
                 </p>
@@ -1015,17 +755,10 @@ export default function PracticePage() {
             )}
 
             <div className="divider" style={{ margin: '20px 0 0' }} />
-
             <div className="summary-actions">
-              <button className="btn btn-primary" onClick={() => setAppState('review')}>
-                Review session →
-              </button>
-              <button className="btn btn-outline" onClick={handlePracticeAgain}>
-                Practice again
-              </button>
-              <Link href="/dashboard" className="btn btn-ghost">
-                Dashboard
-              </Link>
+              <button className="btn btn-primary" onClick={() => setAppState('review')}>Review session &rarr;</button>
+              <button className="btn btn-outline" onClick={handlePracticeAgain}>Practice again</button>
+              <Link href="/dashboard" className="btn btn-ghost">Dashboard</Link>
             </div>
           </div>
         </div>
@@ -1034,61 +767,222 @@ export default function PracticePage() {
   }
 
   /* ═══════════════════════════════════════════════════════
-     RENDER: Review
+     RENDER: Review — coach analysis
   ═══════════════════════════════════════════════════════ */
   if (appState === 'review') {
-    const totalQ   = questions.length;
-    const correct  = Object.values(examResults).filter((r) => r.isCorrect).length;
-    const wrong    = Object.values(examResults).filter((r) => !r.isCorrect).length;
-    const skipped  = totalQ - Object.keys(examResults).length;
+    const totalQ    = questions.length;
+    const correct   = Object.values(examResults).filter((r) => r.isCorrect).length;
+    const wrong     = Object.values(examResults).filter((r) => !r.isCorrect).length;
+    const skipped   = totalQ - Object.keys(examResults).length;
+    const attempted = correct + wrong;
+    const accuracy  = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
+
+    /* Per-subject stats */
+    const subjectStats = new Map<string, { correct: number; total: number }>();
+    /* Per-topic stats */
+    const topicStats   = new Map<string, { correct: number; total: number; subject: string }>();
+    /* Per-difficulty stats */
+    const diffStats    = new Map<string, { correct: number; total: number }>();
+
+    questions.forEach((q, i) => {
+      const res = examResults[i];
+      const isC = res?.isCorrect ?? false;
+
+      if (!subjectStats.has(q.subject)) subjectStats.set(q.subject, { correct: 0, total: 0 });
+      subjectStats.get(q.subject)!.total++;
+      if (isC) subjectStats.get(q.subject)!.correct++;
+
+      const tk = `${q.subject}::${q.topic}`;
+      if (!topicStats.has(tk)) topicStats.set(tk, { correct: 0, total: 0, subject: q.subject });
+      topicStats.get(tk)!.total++;
+      if (isC) topicStats.get(tk)!.correct++;
+
+      if (res) {
+        if (!diffStats.has(q.difficulty)) diffStats.set(q.difficulty, { correct: 0, total: 0 });
+        diffStats.get(q.difficulty)!.total++;
+        if (isC) diffStats.get(q.difficulty)!.correct++;
+      }
+    });
+
+    /* Weakest topics — sorted by accuracy ascending */
+    const weakTopics = [...topicStats.entries()]
+      .map(([key, s]) => ({
+        key,
+        topic: key.split('::')[1] ?? key,
+        subject: s.subject,
+        correct: s.correct,
+        total: s.total,
+        pct: s.total > 0 ? Math.round((s.correct / s.total) * 100) : 0,
+      }))
+      .filter((t) => t.pct < 100)
+      .sort((a, b) => a.pct - b.pct)
+      .slice(0, 6);
+
+    /* Generate insight text */
+    const insightParts: string[] = [];
+
+    if (accuracy >= 80) {
+      insightParts.push('Excellent session — your preparation is clearly paying off.');
+    } else if (accuracy >= 60) {
+      insightParts.push('Good session. You\'re above the 60% threshold. Keep targeting the gaps below to push higher.');
+    } else if (accuracy >= 40) {
+      insightParts.push('Decent attempt, but there\'s meaningful ground to cover. The breakdown below shows exactly where to focus.');
+    } else {
+      insightParts.push('Tough session. Don\'t be discouraged — pinpointing these gaps now is exactly what productive preparation looks like.');
+    }
+
+    /* Difficulty pattern */
+    const begS = diffStats.get('beginner');
+    const advS = diffStats.get('advanced');
+    if (begS && advS && begS.total >= 2 && advS.total >= 2) {
+      const begPct = Math.round((begS.correct / begS.total) * 100);
+      const advPct = Math.round((advS.correct / advS.total) * 100);
+      if (begPct - advPct >= 30) {
+        insightParts.push(`You're solid on beginner questions (${begPct}%) but drop significantly at advanced level (${advPct}%) — this points to conceptual gaps rather than careless errors.`);
+      } else if (advPct > begPct + 10) {
+        insightParts.push(`Interestingly, you performed better on advanced questions (${advPct}%) than beginner ones (${begPct}%) — check whether you're rushing through simpler problems.`);
+      }
+    }
+
+    /* Dominant weak subject */
+    let worstSubj = ''; let worstPct = 101;
+    for (const [subj, s] of subjectStats) {
+      if (s.total >= 3) {
+        const pct = Math.round((s.correct / s.total) * 100);
+        if (pct < worstPct) { worstPct = pct; worstSubj = subj; }
+      }
+    }
+    if (worstSubj && worstPct < 50) {
+      insightParts.push(`${worstSubj} needs immediate attention — only ${worstPct}% accuracy across ${subjectStats.get(worstSubj)!.total} questions.`);
+    }
+
+    /* Single topic dominating wrong answers */
+    const dominant = weakTopics.find((t) => t.total >= 3 && t.pct === 0);
+    if (dominant) {
+      insightParts.push(`${dominant.topic} is a critical gap — every question on this topic was wrong across ${dominant.total} attempts. Treat this as a priority revision topic before your next session.`);
+    } else if (skipped > totalQ * 0.3) {
+      insightParts.push(`You skipped ${skipped} of ${totalQ} questions. Attempting and getting it wrong is more informative than leaving it blank — don't skip in practice.`);
+    }
+
+    const insight = insightParts.join(' ');
 
     return (
       <div className="exam-overlay">
         <div className="exam-header">
           <span className="exam-logo">CrackJEE</span>
-          <span style={{ fontSize: 14, color: 'var(--gray-500)' }}>Session review</span>
+          <span style={{ fontSize: 14, color: 'var(--gray-500)' }}>Session analysis</span>
           <div style={{ display: 'flex', gap: 8 }}>
-            <button className="btn btn-ghost btn-sm" onClick={() => setAppState('summary')}>
-              ← Summary
-            </button>
-            <button className="btn btn-outline btn-sm" onClick={handlePracticeAgain}>
-              New session
-            </button>
+            <button className="btn btn-ghost btn-sm" onClick={() => setAppState('summary')}>Back to score</button>
+            <button className="btn btn-outline btn-sm" onClick={handlePracticeAgain}>New session</button>
             <Link href="/dashboard" className="btn btn-primary btn-sm">Dashboard</Link>
           </div>
         </div>
 
-        <div className="exam-body" style={{ padding: '28px 32px' }}>
-          <div style={{ width: '100%', maxWidth: 820, display: 'flex', flexDirection: 'column', gap: 14 }}>
+        <div className="exam-body" style={{ padding: '40px 32px' }}>
+          <div style={{ width: '100%', maxWidth: 720, display: 'flex', flexDirection: 'column', gap: 28 }}>
 
-            {/* Stats bar */}
-            <div className="card card-sm" style={{
-              background: 'var(--gray-50)', border: '1px solid var(--gray-200)',
-              display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center',
-            }}>
-              <span style={{ fontSize: 13 }}>
-                <strong style={{ color: 'var(--green-600)', fontSize: 15 }}>{correct}</strong>
-                <span style={{ color: 'var(--gray-500)', marginLeft: 5 }}>correct</span>
-              </span>
-              <span style={{ fontSize: 13 }}>
-                <strong style={{ color: 'var(--red-600)', fontSize: 15 }}>{wrong}</strong>
-                <span style={{ color: 'var(--gray-500)', marginLeft: 5 }}>wrong</span>
-              </span>
-              {skipped > 0 && (
-                <span style={{ fontSize: 13 }}>
-                  <strong style={{ color: 'var(--gray-500)', fontSize: 15 }}>{skipped}</strong>
-                  <span style={{ color: 'var(--gray-500)', marginLeft: 5 }}>skipped</span>
+            {/* Score headline */}
+            <div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 14, marginBottom: 10 }}>
+                <span style={{
+                  fontSize: 56, fontWeight: 900, letterSpacing: '-.04em', lineHeight: 1,
+                  color: accuracy >= 60 ? 'var(--green-600)' : accuracy >= 40 ? 'var(--amber-600)' : 'var(--red-600)',
+                }}>
+                  {accuracy}%
                 </span>
-              )}
-              <span style={{ marginLeft: 'auto', fontSize: 13, color: 'var(--gray-500)' }}>
-                {totalQ} question{totalQ !== 1 ? 's' : ''} · {fmtTime(sessionSecs)} session
-              </span>
+                <span style={{ fontSize: 15, color: 'var(--gray-400)' }}>
+                  {correct} correct · {wrong} wrong{skipped > 0 ? ` · ${skipped} skipped` : ''} · {fmtTime(sessionSecs)}
+                </span>
+              </div>
+              <p style={{ fontSize: 15, lineHeight: 1.75, color: 'var(--gray-600)', maxWidth: 620 }}>
+                {insight}
+              </p>
             </div>
 
-            {/* One card per question */}
-            {questions.map((q, i) => (
-              <ReviewCard key={`${q.id}-${i}`} question={q} idx={i} result={examResults[i]} />
-            ))}
+            {/* Subject breakdown */}
+            {subjectStats.size > 0 && (
+              <div>
+                <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.09em', color: 'var(--gray-400)', marginBottom: 12 }}>
+                  Subject breakdown
+                </p>
+                <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                  {[...subjectStats.entries()].map(([subj, s]) => {
+                    const pct = s.total > 0 ? Math.round((s.correct / s.total) * 100) : 0;
+                    const cfg = REVIEW_SUBJ[subj] ?? { color: 'var(--gray-600)', icon: '?', bg: 'var(--gray-50)' };
+                    const barColor = pct >= 60 ? 'var(--green-600)' : pct >= 40 ? 'var(--amber-600)' : 'var(--red-600)';
+                    return (
+                      <div key={subj} style={{
+                        flex: '1 1 160px', background: 'var(--white)',
+                        border: '1px solid var(--gray-200)', borderRadius: 'var(--radius-xl)', padding: '16px 18px',
+                      }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
+                          <span style={{ fontSize: 18, color: cfg.color }}>{cfg.icon}</span>
+                          <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--gray-700)' }}>{subj}</span>
+                        </div>
+                        <p style={{ fontSize: 30, fontWeight: 800, letterSpacing: '-.03em', color: barColor, marginBottom: 2 }}>
+                          {pct}%
+                        </p>
+                        <p style={{ fontSize: 12, color: 'var(--gray-400)', marginBottom: 10 }}>
+                          {s.correct} of {s.total} correct
+                        </p>
+                        <div style={{ height: 3, background: 'var(--gray-100)', borderRadius: 2 }}>
+                          <div style={{ height: '100%', width: `${pct}%`, borderRadius: 2, background: barColor, transition: 'width .7s ease' }} />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Weak topics */}
+            {weakTopics.length > 0 && (
+              <div>
+                <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.09em', color: 'var(--gray-400)', marginBottom: 12 }}>
+                  Topics to focus on
+                </p>
+                <div style={{ border: '1px solid var(--gray-200)', borderRadius: 'var(--radius-xl)', overflow: 'hidden' }}>
+                  {weakTopics.map((t, i) => {
+                    const cfg = REVIEW_SUBJ[t.subject] ?? { color: 'var(--gray-600)', icon: '?', bg: 'var(--gray-50)' };
+                    const pctColor = t.pct < 40 ? 'var(--red-600)' : 'var(--amber-600)';
+                    return (
+                      <div key={t.key} style={{
+                        display: 'flex', alignItems: 'center', gap: 14,
+                        padding: '13px 18px',
+                        borderBottom: i < weakTopics.length - 1 ? '1px solid var(--gray-100)' : 'none',
+                        background: 'var(--white)',
+                      }}>
+                        <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--gray-300)', width: 18, flexShrink: 0 }}>#{i + 1}</span>
+                        <span style={{ fontSize: 15, color: cfg.color, flexShrink: 0 }}>{cfg.icon}</span>
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <p style={{ fontSize: 14, fontWeight: 500, color: 'var(--gray-800)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                            {t.topic}
+                          </p>
+                          <p style={{ fontSize: 12, color: 'var(--gray-400)', marginTop: 1 }}>{t.subject}</p>
+                        </div>
+                        <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                          <p style={{ fontSize: 15, fontWeight: 800, color: pctColor }}>{t.pct}%</p>
+                          <p style={{ fontSize: 11, color: 'var(--gray-400)' }}>{t.correct}/{t.total} correct</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* All correct / nothing to show */}
+            {weakTopics.length === 0 && attempted > 0 && (
+              <div style={{ background: 'var(--green-50)', border: '1px solid var(--green-100)', borderRadius: 'var(--radius-xl)', padding: '20px 24px' }}>
+                <p style={{ fontSize: 15, fontWeight: 600, color: 'var(--green-600)', marginBottom: 4 }}>
+                  Perfect or near-perfect session
+                </p>
+                <p style={{ fontSize: 14, color: 'var(--gray-600)', lineHeight: 1.7 }}>
+                  You got every answered question right. Try a harder difficulty or a new topic to keep growing.
+                </p>
+              </div>
+            )}
+
           </div>
         </div>
       </div>
