@@ -923,7 +923,7 @@ export default function PracticePage() {
                   className={cls}
                   style={{ cursor: res ? 'pointer' : 'default' }}
                   onClick={() => res ? setCurrentIndex(i) : undefined}
-                  title={res ? `Q${i + 1}: ${res.isCorrect ? 'Correct' : 'Wrong'} — click to review` : undefined}
+                  title={res ? `Q${i + 1}: ${res.isCorrect ? 'Correct' : 'Wrong'} (click to review)` : undefined}
                 >
                   {i + 1}
                 </div>

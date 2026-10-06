@@ -60,7 +60,7 @@ export default function RegisterPage() {
           <p className="auth-brand-tagline">The only prep tool<br />that learns you.</p>
           <p className="auth-brand-sub">
             We track every topic you attempt. The moment your accuracy drops
-            below 60%, it's flagged as a weak area. No wasted time — only targeted practice.
+            below 60%, it's flagged as a weak area. No wasted time, only targeted practice.
           </p>
 
           <div className="auth-features">
@@ -73,7 +73,7 @@ export default function RegisterPage() {
               </span>
               <div>
                 <p className="auth-feature-title">AI generates every question</p>
-                <p className="auth-feature-desc">No recycled question banks — unique problems every session</p>
+                <p className="auth-feature-desc">No recycled question banks, unique problems every session</p>
               </div>
             </div>
             <div className="auth-feature-item">
@@ -187,9 +187,9 @@ export default function RegisterPage() {
               <label className="form-label">Current level</label>
               <select className="form-select" value={form.currentLevel}
                 onChange={(e) => set('currentLevel', e.target.value as FormState['currentLevel'])}>
-                <option value="beginner">Beginner — just getting started</option>
-                <option value="intermediate">Intermediate — covered most topics</option>
-                <option value="advanced">Advanced — revision & mock tests</option>
+                <option value="beginner">Beginner: just getting started</option>
+                <option value="intermediate">Intermediate: covered most topics</option>
+                <option value="advanced">Advanced: revision &amp; mock tests</option>
               </select>
             </div>
 
