@@ -656,6 +656,7 @@ export default function PracticePage() {
               onNext={handleExamNext}
               initialResult={storedResult}
               initialSelected={storedResult?.selectedAnswer}
+              isLast={currentIndex === questions.length - 1}
             />
           </div>
         </div>

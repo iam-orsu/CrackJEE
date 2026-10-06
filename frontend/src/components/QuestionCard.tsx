@@ -10,6 +10,7 @@ interface Props {
   onNext: () => void;
   initialResult?: AnswerResult;
   initialSelected?: string;
+  isLast?: boolean;
 }
 
 const CHECK = (
@@ -80,7 +81,7 @@ function renderMath(el: HTMLElement | null) {
   }
 }
 
-export function QuestionCard({ question, questionNum, onSubmit, onNext, initialResult, initialSelected }: Props) {
+export function QuestionCard({ question, questionNum, onSubmit, onNext, initialResult, initialSelected, isLast }: Props) {
   const [selected, setSelected] = useState<string | null>(initialSelected ?? null);
   const [result, setResult]     = useState<AnswerResult | null>(initialResult ?? null);
   const [submitting, setSubmitting] = useState(false);
@@ -195,7 +196,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
           <div style={{ marginTop: 16 }}>
             {result ? (
               <button className="btn btn-primary" onClick={onNext}>
-                Next question →
+                {isLast ? 'Finish session ✓' : 'Next question →'}
               </button>
             ) : (
               <>
