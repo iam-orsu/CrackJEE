@@ -62,8 +62,31 @@ export async function generateQuestion(
     "question": "Full question text here",
     "options": ["option1 text only", "option2 text only", "option3 text only", "option4 text only"],
     "correct_answer": "${targetLetter}",
-    "answer_explanation": "Concise 3-4 sentence explanation of the solution only. No reasoning chain, no thought process, no self-correction text."
+    "answer_explanation": "Concise 3-4 sentence explanation of the solution only.",
+    "diagram": null
   }
+
+  If the question has a geometric/physical setup that benefits from a figure, replace "diagram": null with:
+  {
+    "boundingBox": [xMin, yMax, xMax, yMin],
+    "showAxes": true_or_false,
+    "elements": [
+      { "kind": "point",  "coords": [x, y], "label": "P", "color": "#333" },
+      { "kind": "line",   "from": [x1,y1], "to": [x2,y2], "arrow": "end", "label": "v", "color": "#2563eb", "dashed": false },
+      { "kind": "circle", "center": [cx,cy], "radius": r, "label": "C1", "color": "#dc2626" },
+      { "kind": "arc",    "center": [cx,cy], "radius": r, "startAngle": 0, "endAngle": 3.14159, "color": "#333" },
+      { "kind": "angle",  "vertex": [vx,vy], "arm1": [ax1,ay1], "arm2": [ax2,ay2], "label": "theta" },
+      { "kind": "text",   "coords": [x,y], "content": "m = 2 kg", "color": "#555" },
+      { "kind": "plot",   "expr": "x^2 - 4", "xMin": -3, "xMax": 3, "color": "#7c3aed" }
+    ]
+  }
+
+  Include diagram ONLY for: coordinate geometry (circles, parabolas, ellipses, hyperbolas), vectors/force diagrams, ray optics (lens/mirror), projectile/circular motion setup, electromagnetic loop problems, inclined plane problems, reaction coordinate (energy) diagrams, wave/SHM geometry.
+  Set diagram to null for: pure algebra, number theory, probability, permutations, chemical equations, thermodynamics laws, simple numerical calculations.
+
+  boundingBox convention: [xMin, yMax, xMax, yMin] — yMax comes before yMin. Example: [-6, 6, 6, -6]
+  Allowed colors: "#333" (black), "#2563eb" (blue), "#dc2626" (red), "#16a34a" (green), "#7c3aed" (purple), "#d97706" (amber)
+  Keep total elements under 20. All coordinates must be numbers, not strings.
 </format>
 
 <constraints>
@@ -75,6 +98,7 @@ export async function generateQuestion(
   - Do NOT use concepts beyond the student's class syllabus scope
   - Do NOT generate basic definitional or recall questions
   - Include units where applicable
+  - diagram field must always be present: either a valid descriptor object or null
 </constraints>`;
 
   let lastError: Error | null = null;

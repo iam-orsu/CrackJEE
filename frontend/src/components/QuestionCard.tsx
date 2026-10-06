@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import type { Question, AnswerResult } from '@/types';
+import { DiagramRenderer } from './DiagramRenderer';
 
 interface Props {
   question: Question;
@@ -162,6 +163,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
       <div className={`qcard-body${result?.explanation ? ' qcard-body-split' : ''}`}>
         {/* ── Left: question + options ── */}
         <div className="qcard-left">
+          {question.diagram && <DiagramRenderer descriptor={question.diagram} />}
           <p className="question-text">{ensureMathDelimiters(question.questionText)}</p>
 
           <div className="options-grid">

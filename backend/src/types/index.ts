@@ -13,11 +13,52 @@ export interface AuthRequest extends Request {
   user?: AuthPayload;
 }
 
+export interface DiagramElement {
+  kind: string;
+  // point
+  coords?: [number, number];
+  // line / segment / arrow
+  from?: [number, number];
+  to?: [number, number];
+  arrow?: 'none' | 'end' | 'start' | 'both';
+  dashed?: boolean;
+  // circle
+  center?: [number, number];
+  radius?: number;
+  fill?: string;
+  // arc
+  startAngle?: number;
+  endAngle?: number;
+  // angle marker
+  vertex?: [number, number];
+  arm1?: [number, number];
+  arm2?: [number, number];
+  // text
+  content?: string;
+  bold?: boolean;
+  fontSize?: number;
+  // function plot
+  expr?: string;
+  xMin?: number;
+  xMax?: number;
+  // shared
+  label?: string;
+  color?: string;
+  visible?: boolean;
+}
+
+export interface DiagramDescriptor {
+  boundingBox: [number, number, number, number]; // [xMin, yMax, xMax, yMin]
+  showAxes?: boolean;
+  elements: DiagramElement[];
+}
+
 export interface GeneratedQuestion {
   question: string;
   options: string[];
   correct_answer: string;
   answer_explanation: string;
+  diagram?: DiagramDescriptor | null;
 }
 
 // Topics split by which NCERT class introduces them

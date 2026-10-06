@@ -8,6 +8,38 @@ export interface User {
   createdAt?: string;
 }
 
+export interface DiagramElement {
+  kind: string;
+  coords?: [number, number];
+  from?: [number, number];
+  to?: [number, number];
+  arrow?: 'none' | 'end' | 'start' | 'both';
+  dashed?: boolean;
+  center?: [number, number];
+  radius?: number;
+  fill?: string;
+  startAngle?: number;
+  endAngle?: number;
+  vertex?: [number, number];
+  arm1?: [number, number];
+  arm2?: [number, number];
+  content?: string;
+  bold?: boolean;
+  fontSize?: number;
+  expr?: string;
+  xMin?: number;
+  xMax?: number;
+  label?: string;
+  color?: string;
+  visible?: boolean;
+}
+
+export interface DiagramDescriptor {
+  boundingBox: [number, number, number, number];
+  showAxes?: boolean;
+  elements: DiagramElement[];
+}
+
 export interface Question {
   id: string;
   topic: string;
@@ -16,6 +48,7 @@ export interface Question {
   options: string[];
   difficulty: string;
   examType: string;
+  diagram?: DiagramDescriptor | null;
 }
 
 export interface AnswerResult {

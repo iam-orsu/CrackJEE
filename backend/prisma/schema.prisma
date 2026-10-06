@@ -31,6 +31,7 @@ model Question {
   options      Json
   answer       String
   explanation  String    @db.Text
+  diagram      Json?
   difficulty   String
   examType     String
   generatedAt  DateTime  @default(now())
