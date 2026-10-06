@@ -24,7 +24,7 @@ const batchSchema = z.object({
   difficulty: z.enum(['beginner', 'intermediate', 'advanced', 'mixed']).default('mixed'),
   examType: z.enum(['Main', 'Advanced', 'Both']).default('Main'),
   studentClass: z.enum(['11', '12', 'Dropper']).default('12'),
-  count: z.number().int().min(1).max(30).default(10),
+  count: z.number().int().min(1).max(100).default(10),
 });
 
 export async function nextQuestion(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {

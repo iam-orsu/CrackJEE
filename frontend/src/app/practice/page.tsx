@@ -202,7 +202,8 @@ export default function PracticePage() {
 
     try {
       const selections = buildSelections();
-      const count = resolvedCount();
+      const perSubject = resolvedCount();
+      const count = perSubject * selectedSubjects.size;
 
       const batch = await api.questions.batch({
         selections,
@@ -434,7 +435,7 @@ export default function PracticePage() {
                 <p className="wizard-section-sub">Configure your exam session.</p>
 
                 <div className="config-row">
-                  <p className="config-label">How many questions?</p>
+                  <p className="config-label">How many questions per subject?</p>
                   <div className="pill-group">
                     {([5, 10, 20, 30] as const).map((n) => (
                       <button
@@ -501,7 +502,12 @@ export default function PracticePage() {
                   <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', fontSize: 13 }}>
                     <span>
                       <strong style={{ color: 'var(--gray-900)' }}>{resolvedCount()}</strong>{' '}
-                      <span style={{ color: 'var(--gray-500)' }}>questions</span>
+                      <span style={{ color: 'var(--gray-500)' }}>per subject</span>
+                      {selectedSubjects.size > 1 && (
+                        <span style={{ color: 'var(--gray-400)', marginLeft: 4 }}>
+                          ({resolvedCount() * selectedSubjects.size} total)
+                        </span>
+                      )}
                     </span>
                     <span>
                       <strong style={{ color: 'var(--gray-900)', textTransform: 'capitalize' }}>{difficulty}</strong>{' '}
