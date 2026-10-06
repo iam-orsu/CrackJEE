@@ -7,7 +7,6 @@ export type StudentClass = '11' | '12' | 'Dropper';
 
 export interface AuthPayload {
   userId: string;
-  email: string;
 }
 
 export interface AuthRequest extends Request {

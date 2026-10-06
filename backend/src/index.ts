@@ -32,7 +32,19 @@ const PORT = parseInt(process.env.PORT ?? '3001', 10);
 
 app.set('trust proxy', 1);
 app.use(requestId);
-app.use(helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false }));
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", 'cdn.jsdelivr.net'],
+      styleSrc: ["'self'", "'unsafe-inline'", 'fonts.googleapis.com', 'cdn.jsdelivr.net'],
+      fontSrc: ["'self'", 'fonts.gstatic.com', 'cdn.jsdelivr.net'],
+      imgSrc: ["'self'", 'data:'],
+      connectSrc: ["'self'"],
+    },
+  },
+  crossOriginEmbedderPolicy: false,
+}));
 app.use(cors({
   origin: process.env.FRONTEND_URL ?? 'http://localhost:3000',
   credentials: true,

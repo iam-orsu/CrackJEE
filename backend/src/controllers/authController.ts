@@ -19,11 +19,11 @@ const loginSchema = z.object({
   password: z.string().min(1),
 });
 
-function signToken(userId: string, email: string): string {
+function signToken(userId: string): string {
   const secret = process.env.JWT_SECRET!;
-  return jwt.sign({ userId, email }, secret, {
+  return jwt.sign({ userId }, secret, {
     algorithm: 'HS256',
-    expiresIn: '7d',
+    expiresIn: '24h',
   });
 }
 
@@ -46,7 +46,7 @@ export async function register(req: Request, res: Response, next: NextFunction):
       select: { id: true, name: true, email: true, class: true, targetExam: true, currentLevel: true },
     });
 
-    const token = signToken(user.id, user.email);
+    const token = signToken(user.id);
     res.status(201).json({ success: true, data: { token, user } });
   } catch (err) {
     next(err);
@@ -68,7 +68,7 @@ export async function login(req: Request, res: Response, next: NextFunction): Pr
     const valid = await bcrypt.compare(body.data.password, user.passwordHash);
     if (!valid) throw new AppError(401, 'Invalid credentials');
 
-    const token = signToken(user.id, user.email);
+    const token = signToken(user.id);
     const { passwordHash: _, ...safeUser } = user;
     res.json({ success: true, data: { token, user: safeUser } });
   } catch (err) {

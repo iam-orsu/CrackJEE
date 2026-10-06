@@ -5,7 +5,7 @@ import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
 
 const submitSchema = z.object({
-  questionId: z.string().min(1),
+  questionId: z.string().min(1).max(36).regex(/^[a-z0-9]+$/),
   answer: z.string().min(1).max(1),
   timeSpent: z.number().int().min(0).max(3600),
 });

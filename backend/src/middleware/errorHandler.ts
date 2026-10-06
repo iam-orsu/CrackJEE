@@ -22,7 +22,9 @@ export function errorHandler(
     return;
   }
 
-  const message = err instanceof Error ? err.message : 'Internal server error';
   logger.error({ err }, 'Unhandled error');
+  const message = process.env.NODE_ENV === 'production'
+    ? 'Internal server error'
+    : (err instanceof Error ? err.message : 'Internal server error');
   res.status(500).json({ success: false, error: message });
 }
