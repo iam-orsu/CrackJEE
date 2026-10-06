@@ -8,52 +8,46 @@ import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import type { DashboardData, WeeklyPoint } from '@/types';
 
-/* ── Mini sparkline ──────────────────────────────────────── */
-function Sparkline({ data }: { data: WeeklyPoint[] }) {
-  const W = 220; const H = 80; const PAD = 4;
+/* ── Weekly bar chart ───────────────────────────────────── */
+function WeeklyBars({ data }: { data: WeeklyPoint[] }) {
   const max = Math.max(...data.map((d) => d.total), 1);
-  const n = data.length;
-  const xOf = (i: number) => PAD + (i / Math.max(n - 1, 1)) * (W - PAD * 2);
-  const yOf = (v: number) => H - PAD - (v / max) * (H - PAD * 2);
-
-  function smooth(pts: [number, number][]) {
-    if (pts.length < 2) return '';
-    let d = `M${pts[0]![0]} ${pts[0]![1]}`;
-    for (let i = 1; i < pts.length; i++) {
-      const [px, py] = pts[i - 1]!;
-      const [cx, cy] = pts[i]!;
-      const mid = (px + cx) / 2;
-      d += ` C${mid} ${py} ${mid} ${cy} ${cx} ${cy}`;
-    }
-    return d;
-  }
-
-  const totalPts = data.map((d, i): [number, number] => [xOf(i), yOf(d.total)]);
-  const correctPts = data.map((d, i): [number, number] => [xOf(i), yOf(d.correct)]);
-  const areaFill = (pts: [number, number][]) =>
-    pts.length < 2 ? '' : smooth(pts) + ` L${pts[pts.length - 1]![0]} ${H} L${pts[0]![0]} ${H} Z`;
-
+  const DAY = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
   return (
-    <svg width="100%" height={H} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" style={{ overflow: 'visible', display: 'block' }}>
-      <defs>
-        <linearGradient id="spGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.22" />
-          <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.02" />
-        </linearGradient>
-        <linearGradient id="spGradTotal" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#94a3b8" stopOpacity="0.12" />
-          <stop offset="100%" stopColor="#94a3b8" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      <path d={areaFill(totalPts)} fill="url(#spGradTotal)" />
-      <path d={smooth(totalPts)} fill="none" stroke="var(--gray-200)" strokeWidth="1.5" strokeDasharray="4 3" />
-      <path d={areaFill(correctPts)} fill="url(#spGrad)" />
-      <path d={smooth(correctPts)} fill="none" stroke="#3b82f6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      {/* endpoint dot */}
-      {correctPts.length > 0 && (
-        <circle cx={correctPts[correctPts.length-1]![0]} cy={correctPts[correctPts.length-1]![1]} r={3.5} fill="#3b82f6" />
-      )}
-    </svg>
+    <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6, height: 80, width: '100%' }}>
+      {data.map((d, i) => {
+        const totalPct  = (d.total   / max) * 100;
+        const correctPct = (d.correct / max) * 100;
+        const isToday   = i === data.length - 1;
+        const dayLabel  = DAY[new Date(d.date).getDay()] ?? '';
+        return (
+          <div key={d.date} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, height: '100%', justifyContent: 'flex-end' }}>
+            <div style={{ width: '100%', position: 'relative', height: `${Math.max(totalPct, 4)}%`, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+              {/* total bar (gray background) */}
+              <div style={{
+                position: 'absolute', bottom: 0, left: 0, right: 0,
+                height: '100%',
+                background: d.total > 0 ? '#e2e8f0' : '#f1f5f9',
+                borderRadius: '3px 3px 0 0',
+              }} />
+              {/* correct bar (blue fill) */}
+              {d.correct > 0 && (
+                <div style={{
+                  position: 'absolute', bottom: 0, left: 0, right: 0,
+                  height: `${(d.correct / d.total) * 100}%`,
+                  background: isToday ? '#2563eb' : '#3b82f6',
+                  borderRadius: '3px 3px 0 0',
+                }} />
+              )}
+            </div>
+            <span style={{
+              fontSize: 10, fontWeight: isToday ? 700 : 400,
+              color: isToday ? '#2563eb' : 'var(--gray-400)',
+              lineHeight: 1,
+            }}>{dayLabel}</span>
+          </div>
+        );
+      })}
+    </div>
   );
 }
 
@@ -222,23 +216,13 @@ export default function DashboardPage() {
             </div>
             <div className="db-chart-area">
               {loading ? (
-                <div className="db-skeleton-block" style={{ height: 56 }} />
+                <div className="db-skeleton-block" style={{ height: 80 }} />
               ) : data?.weeklyStats?.length ? (
-                <Sparkline data={data.weeklyStats} />
+                <WeeklyBars data={data.weeklyStats} />
               ) : (
                 <p className="db-empty-msg">No data yet. Start practicing.</p>
               )}
             </div>
-            {/* Day labels */}
-            {!loading && data?.weeklyStats?.length ? (
-              <div className="db-day-labels">
-                {data.weeklyStats.map((d) => (
-                  <span key={d.date}>
-                    {['Su','Mo','Tu','We','Th','Fr','Sa'][new Date(d.date).getDay()]}
-                  </span>
-                ))}
-              </div>
-            ) : null}
           </div>
 
           {/* Subject cards */}
