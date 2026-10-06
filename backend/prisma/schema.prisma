@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  class        String
+  targetExam   String
+  currentLevel String   @default("beginner")
+  createdAt    DateTime @default(now())
+
+  attempts      StudentAttempt[]
+  topicProgress TopicProgress[]
+
+  @@index([email])
+}
+
+model Question {
+  id           String    @id @default(cuid())
+  topic        String
+  subject      String
+  questionText String    @db.Text
+  options      Json
+  answer       String
+  explanation  String    @db.Text
+  difficulty   String
+  examType     String
+  generatedAt  DateTime  @default(now())
+  validatedAt  DateTime?
+
+  attempts StudentAttempt[]
+
+  @@index([topic, subject, difficulty])
+  @@index([subject, difficulty])
+}
+
+model StudentAttempt {
+  id              String   @id @default(cuid())
+  userId          String
+  questionId      String
+  answerSubmitted String
+  isCorrect       Boolean
+  timeSpent       Int
+  createdAt       DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([questionId])
+  @@index([userId, createdAt])
+}
+
+model TopicProgress {
+  id            String   @id @default(cuid())
+  userId        String
+  topicName     String
+  subject       String
+  attempts      Int      @default(0)
+  correctCount  Int      @default(0)
+  successRate   Float    @default(0)
+  markedAsWeak  Boolean  @default(false)
+  lastAttemptAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, topicName])
+  @@index([userId])
+  @@index([userId, markedAsWeak])
+}

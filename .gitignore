@@ -1,0 +1,51 @@
+# Dependencies (managed inside Docker)
+node_modules/
+package.json
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.pnpm-store/
+
+# Environment
+.env
+.env.local
+.env.production
+.env.development
+
+# Build outputs
+dist/
+.next/
+out/
+build/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# SSL certs (never commit)
+nginx/ssl/
+
+# Prisma generated (re-generated during build)
+backend/src/generated/
+
+# Docker override files (local dev overrides only)
+docker-compose.override.yml
+
+# Test output
+coverage/
+.nyc_output/
+
+# Misc
+*.db
+*.sqlite
+tmp/
+temp/
