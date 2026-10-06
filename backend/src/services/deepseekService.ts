@@ -24,6 +24,10 @@ export async function generateQuestion(
       ? 'Class 11 only — do NOT use Class 12 concepts'
       : `Class 11 and Class 12 — use concepts appropriate for Class ${studentClass}`;
 
+  // Force even A/B/C/D distribution — LLMs default to A/B/C without this
+  const LETTERS = ['A', 'B', 'C', 'D'] as const;
+  const targetLetter = LETTERS[Math.floor(Math.random() * 4)]!;
+
   const prompt = `
 <context>
   <subject>${subject}</subject>
@@ -36,7 +40,7 @@ export async function generateQuestion(
 
 <task>
   Generate a JEE-style ${subject} question on "${topic}" with these properties:
-  - Clear single correct answer from 4 options (A, B, C, D)
+  - Clear single correct answer placed at option ${targetLetter}
   - Solvable in 2-3 minutes
   - Appropriate difficulty for ${difficulty} level
   - Strictly within the ${classSyllabus} syllabus scope
@@ -47,14 +51,14 @@ export async function generateQuestion(
   {
     "question": "Full question text here",
     "options": ["option1 text only", "option2 text only", "option3 text only", "option4 text only"],
-    "correct_answer": "<the actual correct letter: A, B, C, or D>",
+    "correct_answer": "${targetLetter}",
     "answer_explanation": "Concise 3-4 sentence explanation of the solution only. No reasoning chain, no thought process, no self-correction text."
   }
 </format>
 
 <constraints>
-  - correct_answer must be ONLY a single letter: A, B, C, or D — whichever option is actually correct
-  - Vary the position of the correct answer naturally (do NOT always put it at A)
+  - The correct answer MUST be option ${targetLetter} — arrange your options so the right answer falls at position ${targetLetter}
+  - correct_answer must be exactly "${targetLetter}" — no other value is acceptable
   - Options must be plain text values only — do NOT prefix with "A)", "B)", "C)", "D)"
   - answer_explanation must be 3-4 sentences maximum — direct, clear, no internal monologue
   - ALL mathematical expressions — fractions, exponents, subscripts, symbols, binomial coefficients, integrals, etc. — MUST be wrapped in $...$ delimiters for inline math or $$...$$ for display math (e.g. $x^2 + y^2$, $\binom{n}{r}$, $\frac{a}{b}$). Never write bare LaTeX commands outside delimiters.
