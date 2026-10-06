@@ -10,7 +10,7 @@ import type { DashboardData, WeeklyPoint } from '@/types';
 
 /* ── Mini sparkline ──────────────────────────────────────── */
 function Sparkline({ data }: { data: WeeklyPoint[] }) {
-  const W = 220; const H = 56; const PAD = 4;
+  const W = 220; const H = 80; const PAD = 4;
   const max = Math.max(...data.map((d) => d.total), 1);
   const n = data.length;
   const xOf = (i: number) => PAD + (i / Math.max(n - 1, 1)) * (W - PAD * 2);
@@ -37,30 +37,38 @@ function Sparkline({ data }: { data: WeeklyPoint[] }) {
     <svg width="100%" height={H} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" style={{ overflow: 'visible', display: 'block' }}>
       <defs>
         <linearGradient id="spGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.18" />
-          <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+          <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.22" />
+          <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.02" />
+        </linearGradient>
+        <linearGradient id="spGradTotal" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#94a3b8" stopOpacity="0.12" />
+          <stop offset="100%" stopColor="#94a3b8" stopOpacity="0" />
         </linearGradient>
       </defs>
-      <path d={areaFill(totalPts)} fill="var(--gray-100)" />
-      <path d={smooth(totalPts)} fill="none" stroke="var(--gray-200)" strokeWidth="1.5" />
+      <path d={areaFill(totalPts)} fill="url(#spGradTotal)" />
+      <path d={smooth(totalPts)} fill="none" stroke="var(--gray-200)" strokeWidth="1.5" strokeDasharray="4 3" />
       <path d={areaFill(correctPts)} fill="url(#spGrad)" />
-      <path d={smooth(correctPts)} fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d={smooth(correctPts)} fill="none" stroke="#3b82f6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      {/* endpoint dot */}
+      {correctPts.length > 0 && (
+        <circle cx={correctPts[correctPts.length-1]![0]} cy={correctPts[correctPts.length-1]![1]} r={3.5} fill="#3b82f6" />
+      )}
     </svg>
   );
 }
 
 /* ── Subject donut ───────────────────────────────────────── */
 function SubjectDonut({ pct, color }: { pct: number; color: string }) {
-  const r = 22; const circ = 2 * Math.PI * r;
+  const r = 26; const circ = 2 * Math.PI * r;
   return (
-    <svg width={56} height={56}>
-      <circle cx={28} cy={28} r={r} fill="none" stroke="var(--gray-100)" strokeWidth={6} />
-      <circle cx={28} cy={28} r={r} fill="none"
+    <svg width={64} height={64}>
+      <circle cx={32} cy={32} r={r} fill="none" stroke="var(--gray-100)" strokeWidth={6} />
+      <circle cx={32} cy={32} r={r} fill="none"
         stroke={color} strokeWidth={6} strokeLinecap="round"
         strokeDasharray={`${(pct / 100) * circ} ${circ}`}
-        transform="rotate(-90 28 28)"
+        transform="rotate(-90 32 32)"
         style={{ transition: 'stroke-dasharray 0.9s ease' }} />
-      <text x={28} y={32} textAnchor="middle" fontSize="11" fontWeight="700"
+      <text x={32} y={37} textAnchor="middle" fontSize="12" fontWeight="800"
         fill={color} fontFamily="Inter, sans-serif">{pct}%</text>
     </svg>
   );
@@ -112,9 +120,10 @@ export default function DashboardPage() {
       label: 'Questions done',
       value: loading ? '—' : String(totalAttempts),
       sub: loading ? '' : `${data?.stats.correctAttempts ?? 0} correct`,
-      color: '#2563eb', bg: '#eff6ff',
+      color: '#2563eb',
+      shadow: 'rgba(37,99,235,.12)',
       icon: (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
         </svg>
       ),
@@ -124,9 +133,9 @@ export default function DashboardPage() {
       value: loading ? '—' : `${accuracy}%`,
       sub: accuracy >= 60 ? 'Keep it up!' : 'Room to grow',
       color: accuracy >= 60 ? '#16a34a' : '#dc2626',
-      bg: accuracy >= 60 ? '#f0fdf4' : '#fef2f2',
+      shadow: accuracy >= 60 ? 'rgba(22,163,74,.12)' : 'rgba(220,38,38,.12)',
       icon: (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
           <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
         </svg>
       ),
@@ -135,9 +144,10 @@ export default function DashboardPage() {
       label: 'Day streak',
       value: loading ? '—' : String(streak),
       sub: streak > 0 ? 'Keep the streak!' : 'Practice today',
-      color: '#d97706', bg: '#fffbeb',
+      color: '#d97706',
+      shadow: 'rgba(217,119,6,.12)',
       icon: (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
         </svg>
       ),
@@ -145,10 +155,11 @@ export default function DashboardPage() {
     {
       label: 'Weak areas',
       value: loading ? '—' : String(weakCount),
-      sub: weakCount === 0 ? 'Nothing flagged' : 'Need attention',
-      color: '#dc2626', bg: '#fef2f2',
+      sub: weakCount === 0 ? 'All clear!' : 'Need attention',
+      color: weakCount === 0 ? '#16a34a' : '#dc2626',
+      shadow: weakCount === 0 ? 'rgba(22,163,74,.12)' : 'rgba(220,38,38,.12)',
       icon: (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
           <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
         </svg>
@@ -181,10 +192,11 @@ export default function DashboardPage() {
         {/* ── KPI row ── */}
         <div className="db-kpi-row">
           {kpis.map((k) => (
-            <div key={k.label} className="db-kpi-card">
-              <div className="db-kpi-icon" style={{ background: k.bg, color: k.color }}>
-                {k.icon}
-              </div>
+            <div key={k.label} className="db-kpi-card" style={{
+              borderTop: `3px solid ${k.color}`,
+              boxShadow: `0 4px 24px ${k.shadow}, 0 1px 3px rgba(15,23,42,.06)`,
+            }}>
+              <span className="db-kpi-watermark" style={{ color: k.color }}>{k.icon}</span>
               <div className="db-kpi-value" style={{ color: k.color }}>{k.value}</div>
               <div className="db-kpi-label">{k.label}</div>
               {k.sub && <div className="db-kpi-sub">{k.sub}</div>}
@@ -245,7 +257,7 @@ export default function DashboardPage() {
               data.subjectAccuracy.map((s) => {
                 const cfg = SUBJ_CFG[s.subject] ?? { color: 'var(--gray-500)', bg: 'var(--gray-50)', icon: '?' };
                 return (
-                  <div key={s.subject} className="db-subj-card">
+                  <div key={s.subject} className="db-subj-card" style={{ borderLeft: `3px solid ${cfg.color}` }}>
                     <div className="db-subj-left">
                       <span className="db-subj-icon" style={{ background: cfg.bg, color: cfg.color }}>
                         {cfg.icon}
@@ -276,19 +288,18 @@ export default function DashboardPage() {
               {data!.weakAreas.slice(0, 6).map((w) => {
                 const cfg = SUBJ_CFG[w.subject] ?? { color: 'var(--gray-500)', bg: 'var(--gray-50)', icon: '?' };
                 const pct = Math.round(w.successRate * 100);
+                const badgeColor = pct < 40 ? '#dc2626' : '#d97706';
+                const badgeBg    = pct < 40 ? '#fef2f2' : '#fffbeb';
                 return (
-                  <div key={w.id} className="db-weak-item">
-                    <span className="db-subj-icon" style={{ background: cfg.bg, color: cfg.color, fontSize: 14, width: 28, height: 28 }}>
+                  <div key={w.id} className="db-weak-item" style={{ borderLeft: `3px solid ${cfg.color}` }}>
+                    <span className="db-subj-icon" style={{ background: cfg.bg, color: cfg.color, fontSize: 14, width: 30, height: 30, flexShrink: 0 }}>
                       {cfg.icon}
                     </span>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <p className="db-weak-topic">{w.topicName}</p>
-                      <p className="db-subj-meta">{w.subject}</p>
+                      <p className="db-subj-meta">{w.subject} · {w.attempts} attempt{w.attempts !== 1 ? 's' : ''}</p>
                     </div>
-                    <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                      <p style={{ fontSize: 16, fontWeight: 700, color: pct < 40 ? 'var(--red-600)' : 'var(--amber-600)', lineHeight: 1 }}>{pct}%</p>
-                      <p className="db-subj-meta">{w.attempts} attempts</p>
-                    </div>
+                    <span className="db-weak-pct" style={{ color: badgeColor, background: badgeBg }}>{pct}%</span>
                   </div>
                 );
               })}

@@ -631,29 +631,28 @@ img, svg { display: block; }
 .custom-count-input:focus { border-color: var(--primary-border); }
 .wizard-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 44px; padding-top: 24px; border-top: 1px solid var(--gray-200); }
 
-/* ── Dashboard v2 (EdTech style) ────────────────────────── */
+/* ── Dashboard v3 ────────────────────────────────────────── */
 
 /* Greeting */
-.db-greeting-row  { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 8px; }
-.db-greeting-label{ font-size: 13px; color: var(--gray-500); margin-bottom: 3px; }
-.db-greeting-name { font-size: 30px; font-weight: 800; color: var(--gray-900); letter-spacing: -.025em; line-height: 1; }
+.db-greeting-row  { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 32px; flex-wrap: wrap; gap: 8px; }
+.db-greeting-label{ font-size: 13px; color: var(--gray-500); margin-bottom: 4px; letter-spacing: .01em; }
+.db-greeting-name { font-size: 36px; font-weight: 900; color: var(--gray-900); letter-spacing: -.035em; line-height: 1; }
 .db-greeting-date { font-size: 13px; color: var(--gray-400); align-self: flex-end; }
 
 /* KPI row */
 .db-kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
 .db-kpi-card {
   background: var(--white); border-radius: var(--radius-xl);
-  box-shadow: 0 1px 3px rgba(15,23,42,.06), 0 4px 12px rgba(15,23,42,.04);
-  padding: 20px 20px 18px; display: flex; flex-direction: column; gap: 0;
-  border: 1px solid var(--gray-100);
+  padding: 22px 22px 18px; display: flex; flex-direction: column;
+  border: 1px solid var(--gray-100); position: relative; overflow: hidden;
+  /* border-top and box-shadow set inline per card */
 }
-.db-kpi-icon {
-  width: 36px; height: 36px; border-radius: var(--radius-lg);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 14px; flex-shrink: 0;
+/* faint watermark icon */
+.db-kpi-watermark {
+  position: absolute; right: 14px; top: 14px; opacity: .07; pointer-events: none;
 }
-.db-kpi-value { font-size: 36px; font-weight: 800; letter-spacing: -.03em; line-height: 1; margin-bottom: 5px; }
-.db-kpi-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--gray-500); margin-bottom: 4px; }
+.db-kpi-value { font-size: 44px; font-weight: 900; letter-spacing: -.04em; line-height: 1; margin-bottom: 6px; }
+.db-kpi-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .09em; color: var(--gray-500); margin-bottom: 4px; }
 .db-kpi-sub   { font-size: 12px; color: var(--gray-400); }
 
 /* Mid section */
@@ -667,7 +666,7 @@ img, svg { display: block; }
 }
 .db-chart-card { padding: 24px; }
 .db-card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; }
-.db-card-title  { font-size: 15px; font-weight: 600; color: var(--gray-900); margin-bottom: 2px; }
+.db-card-title  { font-size: 15px; font-weight: 700; color: var(--gray-900); margin-bottom: 2px; }
 .db-card-sub    { font-size: 12px; color: var(--gray-400); }
 .db-chart-legend { display: flex; gap: 14px; font-size: 12px; color: var(--gray-500); align-items: center; flex-shrink: 0; }
 .db-chart-legend span { display: flex; align-items: center; gap: 5px; }
@@ -676,36 +675,44 @@ img, svg { display: block; }
 .db-day-labels  { display: flex; justify-content: space-between; font-size: 11px; color: var(--gray-400); margin-top: 4px; padding: 0 4px; }
 
 /* Subject column */
-.db-section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--gray-400); margin-bottom: 12px; }
+.db-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--gray-400); margin-bottom: 12px; }
 .db-subjects { display: flex; flex-direction: column; gap: 10px; }
 .db-subj-card {
   background: var(--white); border-radius: var(--radius-xl);
   box-shadow: 0 1px 3px rgba(15,23,42,.06), 0 4px 12px rgba(15,23,42,.04);
   border: 1px solid var(--gray-100);
   padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  /* border-left accent set inline */
 }
 .db-subj-left { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; }
 .db-subj-icon {
-  width: 36px; height: 36px; border-radius: var(--radius-lg); flex-shrink: 0;
+  width: 38px; height: 38px; border-radius: var(--radius-lg); flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
   font-size: 18px; line-height: 1;
 }
-.db-subj-name  { font-size: 14px; font-weight: 600; color: var(--gray-900); margin-bottom: 2px; }
+.db-subj-name  { font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 2px; }
 .db-subj-meta  { font-size: 11px; color: var(--gray-400); }
 
 /* Weak areas */
 .db-weak-card { padding: 20px 24px; margin-bottom: 16px; }
-.db-weak-list { display: flex; flex-direction: column; gap: 0; }
+.db-weak-list { display: flex; flex-direction: column; }
 .db-weak-item {
-  display: flex; align-items: center; gap: 12px;
-  padding: 12px 0; border-bottom: 1px solid var(--gray-100);
+  display: flex; align-items: center; gap: 14px;
+  padding: 13px 12px; border-radius: var(--radius-lg);
+  border-bottom: 1px solid var(--gray-100);
+  /* border-left accent set inline */
 }
-.db-weak-item:last-child { border-bottom: none; padding-bottom: 0; }
-.db-weak-topic { font-size: 14px; font-weight: 500; color: var(--gray-800); margin-bottom: 1px; }
+.db-weak-item:last-child { border-bottom: none; }
+.db-weak-item:hover { background: var(--gray-50); }
+.db-weak-topic { font-size: 14px; font-weight: 600; color: var(--gray-800); margin-bottom: 2px; }
+.db-weak-pct {
+  font-size: 15px; font-weight: 800; padding: 3px 10px;
+  border-radius: var(--radius-full); letter-spacing: -.01em; flex-shrink: 0;
+}
 
 /* CTA */
 .db-cta-row  { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 8px 0 16px; }
-.db-cta-btn  { padding: 14px 36px; font-size: 15px; border-radius: var(--radius-xl); gap: 10px; letter-spacing: -.01em; }
+.db-cta-btn  { padding: 14px 40px; font-size: 15px; border-radius: var(--radius-xl); gap: 10px; letter-spacing: -.01em; font-weight: 700; }
 .db-cta-hint { font-size: 12px; color: var(--gray-400); }
 
 /* Shared utils */
