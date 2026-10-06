@@ -103,34 +103,34 @@ export default function ProgressPage() {
             </p>
           </div>
         ) : (
-          <div className="topic-grid">
-            {filtered.map((p) => (
-              <div key={p.id} className={`topic-row${p.markedAsWeak ? ' weak' : ''}`}>
-                <div style={{ flex: 1 }}>
-                  <p className="topic-name">{p.topicName}</p>
-                  <p className="topic-meta">
-                    {p.subject} · {p.attempts} attempt{p.attempts !== 1 ? 's' : ''} · {p.correctCount} correct
-                  </p>
-                </div>
-
-                <div style={{ width: 140 }} className="topic-bar">
+          <div className="topic-card-grid">
+            {filtered.map((p) => {
+              const pct = Math.round(p.successRate * 100);
+              const good = p.successRate >= 0.6;
+              return (
+                <div key={p.id} className={`topic-card${p.markedAsWeak ? ' weak' : ''}`}>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 10 }}>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <p className="topic-name" style={{ fontSize: 13, marginBottom: 2 }}>{p.topicName}</p>
+                      <p className="topic-meta">{p.subject}</p>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0, marginLeft: 8 }}>
+                      {p.markedAsWeak && <span className="badge badge-red" style={{ fontSize: 11, padding: '2px 7px' }}>weak</span>}
+                      <span className={`topic-pct${good ? ' good' : ' bad'}`} style={{ fontSize: 15 }}>{pct}%</span>
+                    </div>
+                  </div>
                   <div className="progress-track">
                     <div
-                      className={`progress-fill${p.successRate >= 0.6 ? ' green' : ' red'}`}
-                      style={{ width: `${Math.round(p.successRate * 100)}%` }}
+                      className={`progress-fill${good ? ' green' : ' red'}`}
+                      style={{ width: `${pct}%` }}
                     />
                   </div>
+                  <p className="topic-meta" style={{ marginTop: 6 }}>
+                    {p.attempts} attempt{p.attempts !== 1 ? 's' : ''} · {p.correctCount} correct
+                  </p>
                 </div>
-
-                <span className={`topic-pct${p.successRate >= 0.6 ? ' good' : ' bad'}`}>
-                  {Math.round(p.successRate * 100)}%
-                </span>
-
-                {p.markedAsWeak && (
-                  <span className="badge badge-red">weak</span>
-                )}
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </main>
