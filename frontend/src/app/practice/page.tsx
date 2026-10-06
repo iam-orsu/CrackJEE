@@ -87,7 +87,7 @@ export default function PracticePage() {
   /* ── Exam ── */
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [examResults, setExamResults] = useState<Record<string, AnswerResult>>({});
+  const [examResults, setExamResults] = useState<Record<number, AnswerResult>>({});
   const [sessionSecs, setSessionSecs] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const sessionTimerRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
@@ -220,7 +220,12 @@ export default function PracticePage() {
       // Short pause so 100% is visible
       await new Promise((r) => setTimeout(r, 500));
 
-      setQuestions(batch);
+      // Sort questions by subject in the order subjects were selected (Physics all first, then Chemistry, etc.)
+      const subjectOrder = Array.from(selectedSubjects);
+      const sorted = [...batch].sort(
+        (a, b) => subjectOrder.indexOf(a.subject as Subject) - subjectOrder.indexOf(b.subject as Subject),
+      );
+      setQuestions(sorted);
       setCurrentIndex(0);
       setExamResults({});
       setSessionSecs(0);
@@ -240,7 +245,7 @@ export default function PracticePage() {
   async function handleExamSubmit(answer: string, timeSpent: number): Promise<AnswerResult> {
     const q = questions[currentIndex]!;
     const result = await api.answers.submit({ questionId: q.id, answer, timeSpent });
-    setExamResults((prev) => ({ ...prev, [q.id]: result }));
+    setExamResults((prev) => ({ ...prev, [currentIndex]: result }));
     return result;
   }
 
@@ -655,12 +660,12 @@ export default function PracticePage() {
         <div className="exam-footer">
           <div className="exam-palette">
             {questions.map((qItem, i) => {
-              const res = examResults[qItem.id];
+              const res = examResults[i];
               let cls = 'exam-dot';
               if (i === currentIndex) cls += ' current';
               else if (res) cls += res.isCorrect ? ' correct' : ' wrong';
               return (
-                <div key={qItem.id} className={cls}>{i + 1}</div>
+                <div key={`${qItem.id}-${i}`} className={cls}>{i + 1}</div>
               );
             })}
           </div>
@@ -679,6 +684,7 @@ export default function PracticePage() {
     const total = questions.length;
     const correct = Object.values(examResults).filter((r) => r.isCorrect).length;
     const attempted = Object.keys(examResults).length;
+    const answeredCount = attempted;
     const accuracy = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
 
     return (

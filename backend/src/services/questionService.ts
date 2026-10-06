@@ -117,17 +117,28 @@ export async function getQuestionBatch(
   studentClass: StudentClass,
   count: number,
 ): Promise<Question[]> {
-  // Shuffle selections first so round-robin picks evenly across subjects
-  const shuffled = [...selections].sort(() => Math.random() - 0.5);
+  // Group selections by subject preserving insertion order (Physics topics, then Chemistry topics, etc.)
+  const subjectGroups = new Map<Subject, string[]>();
+  for (const { subject, topic } of selections) {
+    if (!subjectGroups.has(subject)) subjectGroups.set(subject, []);
+    subjectGroups.get(subject)!.push(topic);
+  }
 
+  const numSubjects = subjectGroups.size;
+  const perSubject = numSubjects > 0 ? Math.round(count / numSubjects) : count;
+
+  // Build plan grouped by subject so all Physics come first, then Chemistry, etc.
   const plan: Array<{ subject: Subject; topic: string; diff: Difficulty }> = [];
-  for (let i = 0; i < count; i++) {
-    const sel = shuffled[i % shuffled.length]!;
-    plan.push({
-      subject: sel.subject,
-      topic: sel.topic,
-      diff: difficulty === 'mixed' ? randomDifficulty() : difficulty,
-    });
+  for (const [subject, topics] of subjectGroups) {
+    const shuffledTopics = [...topics].sort(() => Math.random() - 0.5);
+    for (let i = 0; i < perSubject; i++) {
+      const topic = shuffledTopics[i % shuffledTopics.length]!;
+      plan.push({
+        subject,
+        topic,
+        diff: difficulty === 'mixed' ? randomDifficulty() : difficulty,
+      });
+    }
   }
 
   const results: Question[] = [];

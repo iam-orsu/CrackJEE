@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import type { Question, AnswerResult } from '@/types';
 
 interface Props {
@@ -20,6 +20,47 @@ const CROSS = (
     <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
   </svg>
 );
+
+// Subject visual config
+const SUBJECT_STYLE: Record<string, { bg: string; accent: string; icon: React.ReactNode }> = {
+  Physics: {
+    bg: 'linear-gradient(135deg, #0f2744 0%, #1e3a6b 60%, #2563eb 100%)',
+    accent: '#60a5fa',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <circle cx="12" cy="12" r="3"/>
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(0 12 12)"/>
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/>
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/>
+      </svg>
+    ),
+  },
+  Chemistry: {
+    bg: 'linear-gradient(135deg, #14532d 0%, #166534 60%, #16a34a 100%)',
+    accent: '#4ade80',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path d="M9 3h6v7l3.5 6.5A2 2 0 0116.76 19H7.24a2 2 0 01-1.74-2.5L9 10V3z"/>
+        <path d="M9 3H7M15 3h2M7 10h10"/>
+      </svg>
+    ),
+  },
+  Mathematics: {
+    bg: 'linear-gradient(135deg, #581c87 0%, #7c3aed 60%, #a855f7 100%)',
+    accent: '#d8b4fe',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <line x1="5" y1="12" x2="19" y2="12"/>
+        <line x1="12" y1="5" x2="12" y2="19"/>
+        <line x1="8" y1="8" x2="16" y2="16" strokeWidth="1.4"/>
+      </svg>
+    ),
+  },
+};
+
+function stripOptionPrefix(opt: string): string {
+  return opt.replace(/^[A-Da-d][).]\s*/, '').trim();
+}
 
 function renderMath(el: HTMLElement | null) {
   if (!el) return;
@@ -82,23 +123,28 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext }: Props)
   const mm = String(Math.floor(elapsed / 60)).padStart(2, '0');
   const ss = String(elapsed % 60).padStart(2, '0');
 
+  const subjectStyle = SUBJECT_STYLE[question.subject] ?? SUBJECT_STYLE['Physics']!;
+
   return (
     <div ref={cardRef} className="card" style={{ borderRadius: 'var(--radius-xl)', padding: 0, overflow: 'hidden' }}>
-      {/* ── Meta row ── */}
-      <div style={{ padding: '16px 24px', borderBottom: '1px solid var(--gray-100)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <div className="question-meta">
-          <span className="badge badge-gray">{question.subject}</span>
-          <span className="badge badge-blue">{question.topic}</span>
-          <span className="badge badge-gray">{question.difficulty}</span>
+      {/* ── Subject header banner ── */}
+      <div style={{ background: subjectStyle.bg, padding: '14px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <span style={{ color: subjectStyle.accent, display: 'flex', alignItems: 'center' }}>{subjectStyle.icon}</span>
+          <div>
+            <p style={{ fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.08em', color: subjectStyle.accent, lineHeight: 1 }}>{question.subject}</p>
+            <p style={{ fontSize: 13, fontWeight: 500, color: 'rgba(255,255,255,0.9)', marginTop: 2 }}>{question.topic}</p>
+          </div>
         </div>
-        <div className="flex items-center gap-3">
-          <span className="timer-display">{mm}:{ss}</span>
-          <span className="caption" style={{ color: 'var(--gray-400)' }}>Q{questionNum}</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', background: 'rgba(255,255,255,0.12)', padding: '3px 8px', borderRadius: 4, textTransform: 'capitalize' }}>{question.difficulty}</span>
+          <span style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.85)', fontVariantNumeric: 'tabular-nums' }}>{mm}:{ss}</span>
+          <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>Q{questionNum}</span>
         </div>
       </div>
 
       {/* ── Body: two-column when explanation visible ── */}
-      <div className={`qcard-body${result ? ' qcard-body-split' : ''}`}>
+      <div className={`qcard-body${result?.explanation ? ' qcard-body-split' : ''}`}>
         {/* ── Left: question + options ── */}
         <div className="qcard-left">
           <p className="question-text">{question.questionText}</p>
@@ -123,7 +169,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext }: Props)
                   disabled={!!result}
                 >
                   <span className="option-letter">{letter}</span>
-                  <span style={{ flex: 1 }}>{opt}</span>
+                  <span style={{ flex: 1 }}>{stripOptionPrefix(opt)}</span>
                   {isCorrect && <span style={{ flexShrink: 0, color: 'var(--green-600)' }}>{CHECK}</span>}
                   {isWrong   && <span style={{ flexShrink: 0, color: 'var(--red-600)' }}>{CROSS}</span>}
                 </button>
@@ -166,8 +212,8 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext }: Props)
           </div>
         </div>
 
-        {/* ── Right: explanation panel (only after submit) ── */}
-        {result && (
+        {/* ── Right: explanation panel (only after submit and when explanation exists) ── */}
+        {result?.explanation && (
           <div className="qcard-explanation">
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--navy-600)" strokeWidth="2">
@@ -177,8 +223,8 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext }: Props)
                 Explanation
               </span>
             </div>
-            <p style={{ fontSize: 14, lineHeight: 1.75, color: 'var(--gray-700)', whiteSpace: 'pre-wrap' }}>
-              {result.explanation ?? 'No explanation available.'}
+            <p style={{ fontSize: 14, lineHeight: 1.75, color: 'var(--gray-700)' }}>
+              {result.explanation}
             </p>
           </div>
         )}

@@ -43,18 +43,20 @@ export async function generateQuestion(
 </task>
 
 <format>
-  Return ONLY valid JSON, no markdown, no extra text:
+  Return ONLY valid JSON, no markdown, no extra text, no reasoning or thought process:
   {
     "question": "Full question text here",
-    "options": ["A) option1", "B) option2", "C) option3", "D) option4"],
+    "options": ["option1 text only", "option2 text only", "option3 text only", "option4 text only"],
     "correct_answer": "<the actual correct letter: A, B, C, or D>",
-    "answer_explanation": "Step-by-step explanation here"
+    "answer_explanation": "Concise 3-4 sentence explanation of the solution only. No reasoning chain, no thought process, no self-correction text."
   }
 </format>
 
 <constraints>
   - correct_answer must be ONLY a single letter: A, B, C, or D — whichever option is actually correct
   - Vary the position of the correct answer naturally (do NOT always put it at A)
+  - Options must be plain text values only — do NOT prefix with "A)", "B)", "C)", "D)"
+  - answer_explanation must be 3-4 sentences maximum — direct, clear, no internal monologue
   - Do NOT use concepts beyond the student's class syllabus scope
   - Do NOT generate ambiguous questions
   - Include units where applicable
