@@ -189,10 +189,10 @@ export default function PracticePage() {
     setLoadMsgIdx(0);
     setLoadError('');
 
-    // Simulate progress animation
+    // Animate progress — keeps moving the whole time, never truly stops
     let p = 0;
     const progressInterval = setInterval(() => {
-      p = Math.min(p + (p < 70 ? 3 : p < 85 ? 1 : 0.3), 90);
+      p = Math.min(p + (p < 60 ? 4 : p < 80 ? 2 : p < 92 ? 0.8 : 0.15), 98);
       setLoadProgress(p);
     }, 300);
 
