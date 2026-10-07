@@ -13,44 +13,11 @@ export interface AuthRequest extends Request {
   user?: AuthPayload;
 }
 
-export interface DiagramElement {
-  kind: string;
-  // point
-  coords?: [number, number];
-  // line / segment / arrow
-  from?: [number, number];
-  to?: [number, number];
-  arrow?: 'none' | 'end' | 'start' | 'both';
-  dashed?: boolean;
-  // circle
-  center?: [number, number];
-  radius?: number;
-  fill?: string;
-  // arc
-  startAngle?: number;
-  endAngle?: number;
-  // angle marker
-  vertex?: [number, number];
-  arm1?: [number, number];
-  arm2?: [number, number];
-  // text
-  content?: string;
-  bold?: boolean;
-  fontSize?: number;
-  // function plot
-  expr?: string;
-  xMin?: number;
-  xMax?: number;
-  // shared
-  label?: string;
-  color?: string;
-  visible?: boolean;
-}
-
-export interface DiagramDescriptor {
-  boundingBox: [number, number, number, number]; // [xMin, yMax, xMax, yMin]
-  showAxes?: boolean;
-  elements: DiagramElement[];
+// Template-based diagram: DeepSeek picks a template + named params.
+// The frontend computes all geometry from params — no raw coordinates.
+export interface DiagramTemplate {
+  template: 'inclined_plane' | 'simple_circuit' | 'lens_mirror' | 'energy_profile' | 'coordinate_geometry';
+  params: Record<string, unknown>;
 }
 
 export interface GeneratedQuestion {
@@ -58,7 +25,7 @@ export interface GeneratedQuestion {
   options: string[];
   correct_answer: string;
   answer_explanation: string;
-  diagram?: DiagramDescriptor | null;
+  diagram?: DiagramTemplate | null;
 }
 
 // Topics split by which NCERT class introduces them

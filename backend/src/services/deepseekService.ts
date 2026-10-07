@@ -66,27 +66,51 @@ export async function generateQuestion(
     "diagram": null
   }
 
-  If the question has a geometric/physical setup that benefits from a figure, replace "diagram": null with:
-  {
-    "boundingBox": [xMin, yMax, xMax, yMin],
-    "showAxes": true_or_false,
-    "elements": [
-      { "kind": "point",  "coords": [x, y], "label": "P", "color": "#333" },
-      { "kind": "line",   "from": [x1,y1], "to": [x2,y2], "arrow": "end", "label": "v", "color": "#2563eb", "dashed": false },
-      { "kind": "circle", "center": [cx,cy], "radius": r, "label": "C1", "color": "#dc2626" },
-      { "kind": "arc",    "center": [cx,cy], "radius": r, "startAngle": 0, "endAngle": 3.14159, "color": "#333" },
-      { "kind": "angle",  "vertex": [vx,vy], "arm1": [ax1,ay1], "arm2": [ax2,ay2], "label": "theta" },
-      { "kind": "text",   "coords": [x,y], "content": "m = 2 kg", "color": "#555" },
-      { "kind": "plot",   "expr": "x^2 - 4", "xMin": -3, "xMax": 3, "color": "#7c3aed" }
-    ]
-  }
+  If the question has a geometric/physical setup that benefits from a figure, replace "diagram": null with ONE of these templates. The frontend renders geometry from your params — do NOT invent a different structure.
 
-  Include diagram ONLY for: coordinate geometry (circles, parabolas, ellipses, hyperbolas), vectors/force diagrams, ray optics (lens/mirror), projectile/circular motion setup, electromagnetic loop problems, inclined plane problems, reaction coordinate (energy) diagrams, wave/SHM geometry.
-  Set diagram to null for: pure algebra, number theory, probability, permutations, chemical equations, thermodynamics laws, simple numerical calculations.
+  TEMPLATE "inclined_plane" — block on a slope, normal/friction/weight forces:
+  { "template": "inclined_plane", "params": {
+      "angle_deg": 30,
+      "show_weight": true, "show_normal": true, "show_friction": false, "show_applied": false,
+      "labels": { "angle": "30°", "block": "m", "weight": "mg", "normal": "N", "friction": "f", "applied": "F" }
+  }}
 
-  boundingBox convention: [xMin, yMax, xMax, yMin] — yMax comes before yMin. Example: [-6, 6, 6, -6]
-  Allowed colors: "#333" (black), "#2563eb" (blue), "#dc2626" (red), "#16a34a" (green), "#7c3aed" (purple), "#d97706" (amber)
-  Keep total elements under 20. All coordinates must be numbers, not strings.
+  TEMPLATE "simple_circuit" — series or parallel electric circuit:
+  { "template": "simple_circuit", "params": {
+      "topology": "series",
+      "components": [
+        { "type": "battery", "label": "6V" },
+        { "type": "resistor", "label": "2Ω" },
+        { "type": "resistor", "label": "4Ω" }
+      ]
+  }}
+  Allowed component types: "battery" | "resistor" | "capacitor" | "bulb" | "inductor" | "switch"
+  Allowed topology: "series" | "parallel"
+
+  TEMPLATE "lens_mirror" — ray optics setup:
+  { "template": "lens_mirror", "params": {
+      "type": "convex_lens",
+      "show_rays": true,
+      "labels": { "f": "f = 20 cm", "object": "O", "image": "I" }
+  }}
+  Allowed types: "convex_lens" | "concave_lens" | "concave_mirror" | "convex_mirror"
+
+  TEMPLATE "energy_profile" — reaction energy diagram for chemistry:
+  { "template": "energy_profile", "params": {
+      "reactant_label": "A + B", "product_label": "C + D", "exothermic": true,
+      "labels": { "ea": "Ea", "delta_h": "ΔH < 0" }
+  }}
+
+  TEMPLATE "coordinate_geometry" — points, lines, circles on x-y plane:
+  { "template": "coordinate_geometry", "params": {
+      "x_range": [-4, 4], "y_range": [-4, 4],
+      "points": [{ "x": 1, "y": 2, "label": "P(1,2)" }],
+      "lines": [{ "from": [-3, -1], "to": [3, 3], "label": "L", "dashed": false, "arrow": false }],
+      "circles": [{ "cx": 0, "cy": 0, "r": 2, "label": "C" }]
+  }}
+
+  Include diagram for: inclined plane / friction problems, electric circuit problems, optics (lens/mirror), reaction coordinate / energy profiles, coordinate geometry with points or curves.
+  Set diagram to null for: pure algebra, number theory, probability, permutations, chemical equations, thermodynamics laws, simple numerical calculations, kinematics without geometry.
 </format>
 
 <constraints>
@@ -98,7 +122,8 @@ export async function generateQuestion(
   - Do NOT use concepts beyond the student's class syllabus scope
   - Do NOT generate basic definitional or recall questions
   - Include units where applicable
-  - diagram field must always be present: either a valid descriptor object or null
+  - diagram field must always be present: either a valid template object or null
+  - If you include a diagram, use ONLY the template names and param keys shown above — no other structure
 </constraints>`;
 
   let lastError: Error | null = null;

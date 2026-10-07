@@ -10,8 +10,7 @@ RUN npm init -y && \
     npm install \
       "next@15" \
       "react@19" \
-      "react-dom@19" \
-      "jsxgraph@^1.10.1" && \
+      "react-dom@19" && \
     npm install --save-dev \
       "@types/node@^22" \
       "@types/react@^19" \
