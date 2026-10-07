@@ -16,7 +16,8 @@ export interface AuthRequest extends Request {
 // Template-based diagram: DeepSeek picks a template + named params.
 // The frontend computes all geometry from params — no raw coordinates.
 export interface DiagramTemplate {
-  template: 'inclined_plane' | 'simple_circuit' | 'lens_mirror' | 'energy_profile' | 'coordinate_geometry';
+  template: 'inclined_plane' | 'simple_circuit' | 'lens_mirror' | 'energy_profile' | 'coordinate_geometry'
+    | 'projectile_motion' | 'pulley_system' | 'wave_diagram' | 'capacitor_field' | 'pv_diagram';
   params: Record<string, unknown>;
 }
 

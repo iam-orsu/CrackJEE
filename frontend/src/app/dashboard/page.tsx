@@ -232,23 +232,32 @@ export default function DashboardPage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {[0,1,2].map(i => <div key={i} className="db-skeleton-block" style={{ height: 76 }} />)}
               </div>
-            ) : !data?.subjectAccuracy.length ? (
-              <p className="db-empty-msg">Practice across subjects to see breakdown.</p>
             ) : (
-              data.subjectAccuracy.map((s) => {
-                const cfg = SUBJ_CFG[s.subject] ?? { color: 'var(--gray-500)', bg: 'var(--gray-50)', icon: '?' };
+              (['Physics', 'Chemistry', 'Mathematics'] as const).map((subj) => {
+                const cfg = SUBJ_CFG[subj]!;
+                const s = data?.subjectAccuracy.find((x) => x.subject === subj);
                 return (
-                  <div key={s.subject} className="db-subj-card">
+                  <div key={subj} className="db-subj-card">
                     <div className="db-subj-left">
                       <span className="db-subj-icon" style={{ background: cfg.bg, color: cfg.color }}>
                         {cfg.icon}
                       </span>
                       <div>
-                        <p className="db-subj-name">{s.subject}</p>
-                        <p className="db-subj-meta">{s.attempts} question{s.attempts !== 1 ? 's' : ''} attempted</p>
+                        <p className="db-subj-name">{subj}</p>
+                        <p className="db-subj-meta">
+                          {s ? `${s.attempts} question${s.attempts !== 1 ? 's' : ''} attempted` : 'No attempts yet'}
+                        </p>
                       </div>
                     </div>
-                    <SubjectDonut pct={s.accuracy} color={cfg.color} />
+                    {s ? (
+                      <SubjectDonut pct={s.accuracy} color={cfg.color} />
+                    ) : (
+                      <svg width={64} height={64}>
+                        <circle cx={32} cy={32} r={26} fill="none" stroke="var(--gray-100)" strokeWidth={6} />
+                        <text x={32} y={37} textAnchor="middle" fontSize="10" fill="var(--gray-300)"
+                          fontFamily="Inter, sans-serif">—</text>
+                      </svg>
+                    )}
                   </div>
                 );
               })

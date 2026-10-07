@@ -103,9 +103,47 @@ export default function PracticePage() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const sessionTimerRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
 
+  /* ─── Persist exam session to sessionStorage ─────────── */
+  useEffect(() => {
+    if (appState === 'wizard' || appState === 'loading') return;
+    try {
+      sessionStorage.setItem('crackjee_exam_session', JSON.stringify({
+        appState,
+        questions,
+        currentIndex,
+        examResults,
+        sessionSecs,
+        markingScheme,
+      }));
+    } catch {}
+  }, [appState, questions, currentIndex, examResults, sessionSecs, markingScheme]);
+
   /* ─── Auth + weak mode init ──────────────────────────── */
   useEffect(() => {
     if (!isAuthenticated()) { router.push('/login'); return; }
+
+    // Restore a saved exam session (survives refresh within the same tab)
+    try {
+      const raw = sessionStorage.getItem('crackjee_exam_session');
+      if (raw) {
+        const s = JSON.parse(raw) as {
+          appState: AppState; questions: Question[]; currentIndex: number;
+          examResults: Record<number, StoredResult>; sessionSecs: number; markingScheme: MarkingScheme;
+        };
+        if (['exam', 'summary', 'review'].includes(s.appState) && s.questions?.length > 0) {
+          setQuestions(s.questions);
+          setCurrentIndex(s.currentIndex ?? 0);
+          setExamResults(s.examResults ?? {});
+          setSessionSecs(s.sessionSecs ?? 0);
+          setMarkingScheme(s.markingScheme ?? 'jee_main');
+          setAppState(s.appState);
+          if (s.appState === 'exam') {
+            sessionTimerRef.current = setInterval(() => setSessionSecs((sec) => sec + 1), 1000);
+          }
+          return; // skip weak-mode init when restoring
+        }
+      }
+    } catch {}
 
     const params = new URLSearchParams(window.location.search);
     if (params.get('mode') !== 'weak') return;
@@ -298,11 +336,13 @@ export default function PracticePage() {
   function handleEndSession() {
     clearInterval(sessionTimerRef.current);
     exitFullscreen();
+    try { sessionStorage.removeItem('crackjee_exam_session'); } catch {}
     setAppState('summary');
   }
 
   function handlePracticeAgain() {
     exitFullscreen();
+    try { sessionStorage.removeItem('crackjee_exam_session'); } catch {}
     setAppState('wizard');
     setWizardStep(1);
     setQuestions([]);

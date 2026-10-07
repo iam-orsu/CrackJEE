@@ -87,21 +87,24 @@ export async function generateQuestion(
   Allowed component types: "battery" | "resistor" | "capacitor" | "bulb" | "inductor" | "switch"
   Allowed topology: "series" | "parallel"
 
-  TEMPLATE "lens_mirror" — ray optics setup:
+  TEMPLATE "lens_mirror" — ray optics (lens or mirror):
   { "template": "lens_mirror", "params": {
       "type": "convex_lens",
+      "focal_length": 15,
+      "object_distance": 45,
       "show_rays": true,
-      "labels": { "f": "f = 20 cm", "object": "O", "image": "I" }
+      "labels": { "f": "f = 15 cm", "object": "O", "image": "I" }
   }}
+  focal_length and object_distance: EXACT positive numbers in cm from the question.
   Allowed types: "convex_lens" | "concave_lens" | "concave_mirror" | "convex_mirror"
 
-  TEMPLATE "energy_profile" — reaction energy diagram for chemistry:
+  TEMPLATE "energy_profile" — reaction coordinate diagram (Chemistry):
   { "template": "energy_profile", "params": {
       "reactant_label": "A + B", "product_label": "C + D", "exothermic": true,
       "labels": { "ea": "Ea", "delta_h": "ΔH < 0" }
   }}
 
-  TEMPLATE "coordinate_geometry" — points, lines, circles on x-y plane:
+  TEMPLATE "coordinate_geometry" — points/lines/circles on x-y plane (Mathematics):
   { "template": "coordinate_geometry", "params": {
       "x_range": [-4, 4], "y_range": [-4, 4],
       "points": [{ "x": 1, "y": 2, "label": "P(1,2)" }],
@@ -109,8 +112,60 @@ export async function generateQuestion(
       "circles": [{ "cx": 0, "cy": 0, "r": 2, "label": "C" }]
   }}
 
-  Include diagram for: inclined plane / friction problems, electric circuit problems, optics (lens/mirror), reaction coordinate / energy profiles, coordinate geometry with points or curves.
-  Set diagram to null for: pure algebra, number theory, probability, permutations, chemical equations, thermodynamics laws, simple numerical calculations, kinematics without geometry.
+  TEMPLATE "projectile_motion" — oblique projectile trajectory:
+  { "template": "projectile_motion", "params": {
+      "angle_deg": 45,
+      "show_components": true,
+      "labels": { "v0": "v₀", "angle": "45°", "height": "H", "range": "R" }
+  }}
+  Use for: projectile questions, maximum height, range, time of flight problems.
+
+  TEMPLATE "pulley_system" — Atwood machine (two masses over fixed pulley):
+  { "template": "pulley_system", "params": {
+      "type": "atwood",
+      "masses": [{ "value": "m₁" }, { "value": "m₂" }],
+      "labels": { "tension": "T", "accel": "a" }
+  }}
+  Use for: Atwood machine, pulley with two hanging masses, tension/acceleration problems.
+
+  TEMPLATE "wave_diagram" — transverse or standing wave:
+  { "template": "wave_diagram", "params": {
+      "type": "transverse",
+      "num_cycles": 2,
+      "labels": { "amplitude": "A", "wavelength": "λ", "velocity": "v" }
+  }}
+  Allowed types: "transverse" | "standing"
+  Use for: wave motion, SHM, standing waves, string vibration, resonance problems.
+
+  TEMPLATE "capacitor_field" — parallel plate capacitor with uniform E field:
+  { "template": "capacitor_field", "params": {
+      "num_field_lines": 5,
+      "show_battery": false,
+      "labels": { "field": "E", "charge_left": "+Q", "charge_right": "−Q", "separation": "d" }
+  }}
+  Use for: parallel plate capacitor, uniform electric field, capacitance, dielectric problems.
+
+  TEMPLATE "pv_diagram" — thermodynamic P-V diagram:
+  { "template": "pv_diagram", "params": {
+      "process": "isothermal",
+      "labels": { "state_a": "A", "state_b": "B", "process": "T = const" }
+  }}
+  Allowed processes: "isothermal" | "adiabatic" | "isobaric" | "isochoric" | "carnot"
+  Use for: thermodynamic processes, work done by gas, PV graph questions, Carnot cycle.
+
+  WHEN TO INCLUDE A DIAGRAM:
+  - inclined_plane: block on slope, friction, normal force, applied force problems
+  - simple_circuit: series/parallel resistor or capacitor circuit problems
+  - lens_mirror: single lens or mirror image formation (NOT multi-lens/mirror combos)
+  - energy_profile: activation energy, exothermic/endothermic reaction, catalysis
+  - coordinate_geometry: geometry with specific points, lines, circles on axes
+  - projectile_motion: projectile questions asking about range, height, angle
+  - pulley_system: Atwood machine, two masses connected by rope over pulley
+  - wave_diagram: transverse or standing wave, amplitude, wavelength, nodes
+  - capacitor_field: parallel plate capacitor field/force/energy problems
+  - pv_diagram: any thermodynamic process on a PV graph
+
+  SET diagram to null for: pure algebra, number theory, probability, permutations, chemical equations without energy profile, kinematics without a geometric setup, abstract/definitional questions, multi-lens or multi-mirror combination problems.
 </format>
 
 <constraints>

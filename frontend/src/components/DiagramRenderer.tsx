@@ -5,10 +5,10 @@ import type { DiagramTemplate } from '@/types';
 
 /* ── Arrow helper ──────────────────────────────────────────── */
 function Arr({
-  x1, y1, x2, y2, color = '#475569', label, lx, ly,
+  x1, y1, x2, y2, color = '#475569', label, lx, ly, sw,
 }: {
   x1: number; y1: number; x2: number; y2: number;
-  color?: string; label?: string; lx?: number; ly?: number;
+  color?: string; label?: string; lx?: number; ly?: number; sw?: number;
 }) {
   const dx = x2 - x1, dy = y2 - y1;
   const len = Math.sqrt(dx * dx + dy * dy);
@@ -19,7 +19,7 @@ function Arr({
   const px = -uy * S * 0.45, py = ux * S * 0.45;
   return (
     <g>
-      <line x1={x1} y1={y1} x2={bx} y2={by} stroke={color} strokeWidth="2" strokeLinecap="round" />
+      <line x1={x1} y1={y1} x2={bx} y2={by} stroke={color} strokeWidth={sw ?? 2} strokeLinecap="round" />
       <polygon points={`${x2},${y2} ${bx + px},${by + py} ${bx - px},${by - py}`} fill={color} />
       {label && (
         <text x={lx ?? x2 + ux * 14} y={ly ?? y2 + uy * 14}
@@ -31,54 +31,63 @@ function Arr({
   );
 }
 
-/* ── TEMPLATE 1: Inclined Plane ─────────────────────────────
-   Computes force vector directions from angle — no raw coords needed.
-────────────────────────────────────────────────────────────── */
+/* double-headed arrow helper */
+function DblArr({ x1, y1, x2, y2, color = '#374151', label, lx, ly }: {
+  x1: number; y1: number; x2: number; y2: number;
+  color?: string; label?: string; lx?: number; ly?: number;
+}) {
+  const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+  return (
+    <g>
+      <Arr x1={mx} y1={my} x2={x1} y2={y1} color={color} />
+      <Arr x1={mx} y1={my} x2={x2} y2={y2} color={color} />
+      {label && (
+        <text x={lx ?? mx} y={ly ?? my - 10}
+          fill={color} fontSize="11" fontWeight="600" textAnchor="middle" dominantBaseline="middle">
+          {label}
+        </text>
+      )}
+    </g>
+  );
+}
+
+/* ── TEMPLATE 1: Inclined Plane ─────────────────────────────── */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function InclinedPlane({ p }: { p: any }) {
   const angle = Math.max(10, Math.min(70, +(p.angle_deg ?? 30)));
   const θ = (angle * Math.PI) / 180;
   const lbl = p.labels ?? {};
 
-  // Triangle vertices: peak top-left, bottom-left (right angle), bottom-right (angle θ)
   const bx1 = 30, bx2 = 370, by = 200;
   const peakH = Math.min((bx2 - bx1) * Math.tan(θ), 172);
   const px = bx1, py = by - peakH;
 
-  // Slope direction vector (from peak down-right to bx2,by)
   const sdx = bx2 - px, sdy = by - py;
   const slen = Math.sqrt(sdx * sdx + sdy * sdy);
   const cosθ = sdx / slen, sinθ = sdy / slen;
   const rot = Math.atan2(sdy, sdx) * (180 / Math.PI);
 
-  // Block center: 42% along slope from bx2 upward
   const t = 0.42;
   const bkx = bx2 - t * sdx, bky = by - t * sdy;
+  const FL = 58;
 
-  const FL = 58; // force vector length px
-
-  // Angle arc at bottom-right vertex — CCW sweep from base to slope
   const AR = 28;
   const arcBx = bx2 - AR, arcBy = by;
   const arcSx = bx2 - cosθ * AR, arcSy = by - sinθ * AR;
 
   return (
     <svg viewBox="0 0 400 220" style={{ width: '100%', height: 'auto', display: 'block' }}>
-      {/* Ground hatching */}
       <line x1={bx1 - 8} y1={by} x2={bx2 + 8} y2={by} stroke="#d1d5db" strokeWidth="1" />
       {[0, 1, 2, 3, 4, 5, 6].map((i) => (
         <line key={i} x1={40 + i * 50} y1={by} x2={32 + i * 50} y2={by + 8} stroke="#d1d5db" strokeWidth="1" />
       ))}
-      {/* Inclined plane */}
       <polygon points={`${px},${py} ${bx1},${by} ${bx2},${by}`}
         fill="rgba(99,102,241,0.08)" stroke="#6366f1" strokeWidth="1.8" />
-      {/* Angle arc (CCW = sweep-flag 0) */}
       <path d={`M ${arcBx},${arcBy} A ${AR},${AR} 0 0,0 ${arcSx},${arcSy}`}
         fill="none" stroke="#6366f1" strokeWidth="1.4" />
       <text x={bx2 - AR * 2.1} y={by - 7} fill="#4f46e5" fontSize="11" fontWeight="600">
         {lbl.angle ?? `${angle}°`}
       </text>
-      {/* Block rotated onto slope */}
       <g transform={`translate(${bkx},${bky}) rotate(${rot})`}>
         <rect x="-18" y="-14" width="36" height="28" rx="3"
           fill="#dbeafe" stroke="#2563eb" strokeWidth="1.5" />
@@ -86,18 +95,15 @@ function InclinedPlane({ p }: { p: any }) {
           {lbl.block ?? 'm'}
         </text>
       </g>
-      {/* Force vectors — directions derived from θ, not hardcoded */}
       {p.show_weight !== false && (
         <Arr x1={bkx} y1={bky} x2={bkx} y2={bky + FL} color="#dc2626"
           label={lbl.weight ?? 'mg'} lx={bkx + 18} ly={bky + FL - 4} />
       )}
       {p.show_normal !== false && (
-        /* Normal: (sinθ, −cosθ) in screen coords */
         <Arr x1={bkx} y1={bky} x2={bkx + sinθ * FL} y2={bky - cosθ * FL} color="#16a34a"
           label={lbl.normal ?? 'N'} lx={bkx + sinθ * FL + 16} ly={bky - cosθ * FL} />
       )}
       {p.show_friction === true && (
-        /* Friction: up slope = (−cosθ, −sinθ) */
         <Arr x1={bkx} y1={bky} x2={bkx - cosθ * FL} y2={bky - sinθ * FL} color="#d97706"
           label={lbl.friction ?? 'f'} lx={bkx - cosθ * FL - 14} ly={bky - sinθ * FL} />
       )}
@@ -194,11 +200,11 @@ function compSymbol(
       {horiz
         ? <line x1={x - 11} y1={y} x2={x + 12} y2={y - 10} stroke="#1e293b" strokeWidth="1.5" />
         : <line x1={x} y1={y - 11} x2={x + 10} y2={y + 12} stroke="#1e293b" strokeWidth="1.5" />}
-      {label && <text x={horiz ? x : x + 20} y={horiz ? y - 20 : y} fill="#374151" fontSize="11" textAnchor={horiz ? 'middle' : 'start'} dominantBaseline="middle">{label}</text>}
+      {label && <text x={horiz ? x : x + 20} y={horiz ? y - 20 : y} fill="#374151" fontSize="11"
+        textAnchor={horiz ? 'middle' : 'start'} dominantBaseline="middle">{label}</text>}
     </g>
   );
 
-  // Fallback: labeled rectangle
   return (
     <g key={`${x}${y}`}>
       <rect x={horiz ? x - 16 : x - 9} y={horiz ? y - 9 : y - 16}
@@ -245,7 +251,6 @@ function SimpleCircuit({ p }: { p: any }) {
     );
   }
 
-  // Series: rectangular loop, battery on left side, components on top wire
   const y0 = 45, y1 = 165, x0 = 55, x1 = 440;
   const batCY = (y0 + y1) / 2;
   const n = Math.max(branches.length, 1);
@@ -269,41 +274,56 @@ function LensMirror({ p }: { p: any }) {
   const type: string = p.type ?? 'convex_lens';
   const lbl = p.labels ?? {};
   const showRays: boolean = p.show_rays !== false;
-  const axisY = 115, lensX = 250, lensH = 78;
-  const fL = 182, fR = 318;  // focal points
+  const axisY = 108, lensX = 250, lensH = 72;
 
   const isLens = type.includes('lens');
   const isConcave = type.includes('concave');
   const lensTop = axisY - lensH, lensBot = axisY + lensH;
   const bulge = isConcave ? -24 : 24;
 
-  // Object: upright arrow on left
-  const objX = 100, objTop = axisY - 58;
-  // Image: approximated position / orientation per lens/mirror type
-  const imgX = (type === 'convex_lens') ? 368
-    : (type === 'concave_mirror') ? 160
-    : 88;
-  const imgVirtual = type === 'concave_lens' || type === 'convex_mirror';
-  const imgTop = imgVirtual ? axisY - 36 : axisY + 36;
+  const fVal = Math.max(5, +(p.focal_length ?? 20));
+  const uVal = Math.max(fVal * 0.5 + 1, +(p.object_distance ?? fVal * 1.5));
+
+  // NCERT Cartesian sign convention
+  const fSigned = isConcave ? -fVal : fVal;
+  const denom = isLens ? (1 / fSigned - 1 / uVal) : (1 / fSigned + 1 / uVal);
+  const vRaw = Math.abs(denom) > 1e-9 ? 1 / denom : 999;
+  const vComputed = vRaw > 0 ? Math.min(vRaw, uVal * 4) : Math.max(vRaw, -uVal * 4);
+
+  const maxPhys = Math.max(uVal, Math.abs(vComputed), fVal * 2.5);
+  const scale = Math.min(195 / maxPhys, 7);
+
+  const objX = Math.max(25, lensX - uVal * scale);
+  const fLx = lensX - fVal * scale;
+  const fRx = lensX + fVal * scale;
+  const imgXRaw = lensX + vComputed * scale;
+  const imgX = Math.max(22, Math.min(478, imgXRaw));
+
+  const imgVirtual = isLens ? vComputed < 0 : vComputed > 0;
+  const objH = 50;
+  const mag = Math.min(Math.abs(vComputed) / uVal, 2.2);
+  const imgH = Math.max(18, Math.min(80, objH * mag * 0.9));
+  const objTop = axisY - objH;
+  const imgTop = imgVirtual ? axisY - imgH : axisY + imgH;
+
+  // Label for v value
+  const vAbs = Math.abs(vRaw) > 900 ? '∞' : Math.abs(vRaw).toFixed(0);
 
   return (
-    <svg viewBox="0 0 500 230" style={{ width: '100%', height: 'auto', display: 'block' }}>
+    <svg viewBox="0 0 500 248" style={{ width: '100%', height: 'auto', display: 'block' }}>
       {/* Principal axis */}
       <line x1="18" y1={axisY} x2="482" y2={axisY} stroke="#cbd5e1" strokeWidth="1" strokeDasharray="6,4" />
 
       {isLens ? (
-        /* Lens: two bezier arcs */
         <g>
           <path d={`M ${lensX},${lensTop} Q ${lensX + bulge},${axisY} ${lensX},${lensBot}`}
             fill="rgba(147,197,253,0.12)" stroke="#64748b" strokeWidth="2" />
           <path d={`M ${lensX},${lensTop} Q ${lensX - bulge},${axisY} ${lensX},${lensBot}`}
             fill="none" stroke="#64748b" strokeWidth="2" />
-          {/* Arrowheads on lens */}
           <polygon points={`${lensX},${lensTop - 7} ${lensX - 5},${lensTop + 8} ${lensX + 5},${lensTop + 8}`} fill="#64748b" />
           <polygon points={`${lensX},${lensBot + 7} ${lensX - 5},${lensBot - 8} ${lensX + 5},${lensBot - 8}`} fill="#64748b" />
         </g>
       ) : (
-        /* Mirror: arc + backing hatch */
         <g>
           <path d={`M ${lensX},${lensTop} Q ${lensX + (isConcave ? -32 : 32)},${axisY} ${lensX},${lensBot}`}
             fill="none" stroke="#64748b" strokeWidth="2.5" />
@@ -318,39 +338,78 @@ function LensMirror({ p }: { p: any }) {
       )}
 
       {/* Focal point markers */}
-      {isLens && <>
-        <circle cx={fL} cy={axisY} r="3" fill="#475569" />
-        <circle cx={fR} cy={axisY} r="3" fill="#475569" />
-        <text x={fL} y={axisY + 15} fill="#475569" fontSize="11" textAnchor="middle">F</text>
-        <text x={fR} y={axisY + 15} fill="#475569" fontSize="11" textAnchor="middle">F</text>
-      </>}
-      {!isLens && <circle cx={lensX + (isConcave ? -40 : 40)} cy={axisY} r="3" fill="#475569" />}
+      {isLens && fLx > 30 && fLx < lensX - 8 && (
+        <>
+          <circle cx={fLx} cy={axisY} r="3" fill="#475569" />
+          <text x={fLx} y={axisY + 14} fill="#475569" fontSize="10" textAnchor="middle">F</text>
+        </>
+      )}
+      {isLens && fRx > lensX + 8 && fRx < 470 && (
+        <>
+          <circle cx={fRx} cy={axisY} r="3" fill="#475569" />
+          <text x={fRx} y={axisY + 14} fill="#475569" fontSize="10" textAnchor="middle">F</text>
+        </>
+      )}
+      {!isLens && (
+        <circle cx={lensX - fVal * scale * (isConcave ? 1 : -1)} cy={axisY} r="3" fill="#475569" />
+      )}
 
       {/* f label */}
-      {lbl.f && <text x={(lensX + fR) / 2} y={axisY - 12} fill="#475569" fontSize="11" textAnchor="middle">{lbl.f}</text>}
+      {lbl.f && (
+        <text x={isLens ? (lensX + fRx) / 2 : lensX - 30} y={axisY - 10}
+          fill="#475569" fontSize="10" textAnchor="middle">{lbl.f}</text>
+      )}
 
       {/* Object arrow */}
       <Arr x1={objX} y1={axisY} x2={objX} y2={objTop} color="#2563eb"
-        label={lbl.object ?? 'O'} lx={objX - 16} ly={objTop - 4} />
+        label={lbl.object ?? 'O'} lx={objX - 14} ly={objTop - 4} />
 
-      {/* Image arrow — dashed if virtual */}
+      {/* u distance label */}
+      {objX > 22 && objX < lensX - 5 && (
+        <g>
+          <line x1={objX} y1={axisY + 3} x2={objX} y2={axisY + 20}
+            stroke="#2563eb" strokeWidth="1" strokeDasharray="3,2" opacity="0.55" />
+          <text x={(objX + lensX) / 2} y={axisY + 30}
+            fill="#2563eb" fontSize="10" textAnchor="middle">{`u = ${uVal} cm`}</text>
+        </g>
+      )}
+
+      {/* Image arrow */}
       {imgVirtual ? (
         <g>
           <line x1={imgX} y1={axisY} x2={imgX} y2={imgTop}
             stroke="#dc2626" strokeWidth="1.5" strokeDasharray="4,3" />
           <polygon points={`${imgX},${imgTop} ${imgX - 4},${imgTop + 10} ${imgX + 4},${imgTop + 10}`} fill="#dc2626" />
-          <text x={imgX + 14} y={imgTop} fill="#dc2626" fontSize="11" fontWeight="600" dominantBaseline="middle">
-            {lbl.image ?? 'I (virtual)'}
+          <text x={imgX + 13} y={imgTop} fill="#dc2626" fontSize="11" fontWeight="600" dominantBaseline="middle">
+            {lbl.image ?? 'I'}
           </text>
         </g>
       ) : (
         <Arr x1={imgX} y1={axisY} x2={imgX} y2={imgTop} color="#dc2626"
-          label={lbl.image ?? 'I'} lx={imgX + 14} ly={imgTop} />
+          label={lbl.image ?? 'I'} lx={imgX + 13} ly={imgTop} />
       )}
 
-      {/* 3 principal rays for convex lens */}
-      {showRays && type === 'convex_lens' && (
-        <g stroke="#fbbf24" strokeWidth="1" opacity="0.65">
+      {/* v distance label */}
+      {!imgVirtual && imgX > lensX + 5 && imgX < 475 && (
+        <g>
+          <line x1={imgX} y1={axisY + 3} x2={imgX} y2={axisY + 20}
+            stroke="#dc2626" strokeWidth="1" strokeDasharray="3,2" opacity="0.55" />
+          <text x={(lensX + imgX) / 2} y={axisY + 30}
+            fill="#dc2626" fontSize="10" textAnchor="middle">{`v = ${vAbs} cm`}</text>
+        </g>
+      )}
+      {imgVirtual && imgX > 22 && imgX < lensX - 5 && (
+        <g>
+          <line x1={imgX} y1={axisY + 3} x2={imgX} y2={axisY + 20}
+            stroke="#dc2626" strokeWidth="1" strokeDasharray="3,2" opacity="0.55" />
+          <text x={(imgX + lensX) / 2} y={axisY + 30}
+            fill="#dc2626" fontSize="10" textAnchor="middle">{`v = −${vAbs} cm`}</text>
+        </g>
+      )}
+
+      {/* Principal rays — convex lens, real image */}
+      {showRays && type === 'convex_lens' && !imgVirtual && imgX > lensX + 5 && objX < lensX - 5 && (
+        <g stroke="#fbbf24" strokeWidth="1" opacity="0.6">
           <line x1={objX} y1={objTop} x2={lensX} y2={objTop} />
           <line x1={lensX} y1={objTop} x2={imgX} y2={imgTop} />
           <line x1={objX} y1={objTop} x2={imgX} y2={imgTop} />
@@ -366,37 +425,31 @@ function EnergyProfile({ p }: { p: any }) {
   const exo: boolean = p.exothermic !== false;
   const lbl = p.labels ?? {};
 
-  // Screen y: lower value = higher energy
   const peakY = 52, reactY = exo ? 118 : 148, prodY = exo ? 148 : 118;
   const reactX = 88, peakX = 214, prodX = 358;
 
   const curve = `M ${reactX},${reactY} C ${reactX + 52},${reactY} ${peakX - 52},${peakY} ${peakX},${peakY} S ${prodX - 52},${prodY} ${prodX},${prodY}`;
 
-  const eaX = 146;  // activation energy bracket x
-  const dhX = 384;  // ΔH bracket x
+  const eaX = 146;
+  const dhX = 384;
 
   return (
     <svg viewBox="0 0 430 215" style={{ width: '100%', height: 'auto', display: 'block' }}>
-      {/* Axes */}
       <Arr x1={48} y1={188} x2={48} y2={28} color="#94a3b8" />
       <Arr x1={48} y1={188} x2={420} y2={188} color="#94a3b8" />
       <text x={28} y={108} fill="#64748b" fontSize="11" textAnchor="middle"
         transform="rotate(-90,28,108)">Energy</text>
       <text x={230} y={204} fill="#64748b" fontSize="11" textAnchor="middle">Reaction coordinate</text>
 
-      {/* Energy level dashed lines */}
       <line x1={60} y1={reactY} x2={reactX + 46} y2={reactY}
         stroke="#16a34a" strokeWidth="1.2" strokeDasharray="4,3" />
       <line x1={prodX - 46} y1={prodY} x2={412} y2={prodY}
         stroke="#dc2626" strokeWidth="1.2" strokeDasharray="4,3" />
 
-      {/* Curve */}
       <path d={curve} fill="none" stroke="#6366f1" strokeWidth="2.2" />
 
-      {/* Transition state label */}
       <text x={peakX} y={peakY - 10} fill="#6366f1" fontSize="11" textAnchor="middle" fontWeight="600">TS</text>
 
-      {/* Compound labels */}
       <text x={reactX} y={reactY + 18} fill="#16a34a" fontSize="12" fontWeight="600" textAnchor="middle">
         {p.reactant_label ?? 'Reactants'}
       </text>
@@ -404,14 +457,12 @@ function EnergyProfile({ p }: { p: any }) {
         {p.product_label ?? 'Products'}
       </text>
 
-      {/* Ea bracket */}
       <line x1={eaX} y1={reactY} x2={eaX} y2={peakY} stroke="#374151" strokeWidth="1" strokeDasharray="2,2" />
       <line x1={eaX - 5} y1={reactY} x2={eaX + 5} y2={reactY} stroke="#374151" strokeWidth="1.2" />
       <line x1={eaX - 5} y1={peakY}  x2={eaX + 5} y2={peakY}  stroke="#374151" strokeWidth="1.2" />
       <text x={eaX - 16} y={(reactY + peakY) / 2} fill="#374151" fontSize="11"
         textAnchor="middle" dominantBaseline="middle">{lbl.ea ?? 'Ea'}</text>
 
-      {/* ΔH bracket */}
       {reactY !== prodY && (
         <>
           <line x1={dhX} y1={reactY} x2={dhX} y2={prodY} stroke="#374151" strokeWidth="1" strokeDasharray="2,2" />
@@ -447,22 +498,18 @@ function CoordGeometry({ p }: { p: any }) {
 
   return (
     <svg viewBox={`0 0 ${VW} ${VH}`} style={{ width: '100%', height: 'auto', display: 'block' }}>
-      {/* Grid */}
       {xTicks.map((x) => <line key={`gx${x}`} x1={sx(x)} y1={PT} x2={sx(x)} y2={VH - PB} stroke="#f1f5f9" strokeWidth="1" />)}
       {yTicks.map((y) => <line key={`gy${y}`} x1={PL} y1={sy(y)} x2={VW - PR} y2={sy(y)} stroke="#f1f5f9" strokeWidth="1" />)}
-      {/* Axes */}
       <Arr x1={PL} y1={axY} x2={VW - PR} y2={axY} color="#94a3b8" />
       <Arr x1={axX} y1={VH - PB} x2={axX} y2={PT} color="#94a3b8" />
       <text x={VW - PR + 4} y={axY + 4} fill="#94a3b8" fontSize="11">x</text>
       <text x={axX + 4}     y={PT - 4}  fill="#94a3b8" fontSize="11">y</text>
-      {/* Tick labels */}
       {xTicks.filter((x) => x !== 0).map((x) => (
         <text key={`tx${x}`} x={sx(x)} y={axY + 13} fill="#94a3b8" fontSize="9" textAnchor="middle">{x}</text>
       ))}
       {yTicks.filter((y) => y !== 0).map((y) => (
         <text key={`ty${y}`} x={axX - 6} y={sy(y) + 4} fill="#94a3b8" fontSize="9" textAnchor="end">{y}</text>
       ))}
-      {/* Lines */}
       {(p.lines ?? []).map((line: GLine, i: number) => (
         line.arrow !== false ? (
           <Arr key={i} x1={sx(line.from[0])} y1={sy(line.from[1])}
@@ -481,7 +528,6 @@ function CoordGeometry({ p }: { p: any }) {
           </g>
         )
       ))}
-      {/* Circles */}
       {(p.circles ?? []).map((c: GCircle, i: number) => (
         <g key={i}>
           <circle cx={sx(c.cx)} cy={sy(c.cy)} r={c.r * (plotW / (xMax - xMin))}
@@ -492,7 +538,6 @@ function CoordGeometry({ p }: { p: any }) {
           )}
         </g>
       ))}
-      {/* Points */}
       {(p.points ?? []).map((pt: GPoint, i: number) => (
         <g key={i}>
           <circle cx={sx(pt.x)} cy={sy(pt.y)} r="4.5" fill="#2563eb" stroke="white" strokeWidth="1.5" />
@@ -502,6 +547,489 @@ function CoordGeometry({ p }: { p: any }) {
           )}
         </g>
       ))}
+    </svg>
+  );
+}
+
+/* ── TEMPLATE 6: Projectile Motion ──────────────────────────── */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function ProjectileMotion({ p }: { p: any }) {
+  const angle = Math.max(10, Math.min(80, +(p.angle_deg ?? 45)));
+  const θ = (angle * Math.PI) / 180;
+  const lbl = p.labels ?? {};
+  const showComponents: boolean = p.show_components !== false;
+
+  const x0 = 55, yg = 182, R = 308, xm = x0 + R / 2, xEnd = x0 + R;
+  // For symmetric projectile: H/R = tan(θ)/4
+  const H = Math.min(R * Math.tan(θ) / 4, 128);
+  // Quadratic bezier: control point Cy = yg - 2H gives apex at yg - H
+  const qcY = yg - 2 * H;
+
+  const vLen = 52;
+  const vx2 = x0 + Math.cos(θ) * vLen;
+  const vy2 = yg - Math.sin(θ) * vLen;
+
+  const AR = 24;
+  const arcEndX = x0 + Math.cos(θ) * AR;
+  const arcEndY = yg - Math.sin(θ) * AR;
+
+  return (
+    <svg viewBox="0 0 420 210" style={{ width: '100%', height: 'auto', display: 'block' }}>
+      {/* Ground */}
+      <line x1={x0 - 14} y1={yg} x2={xEnd + 14} y2={yg} stroke="#d1d5db" strokeWidth="1.5" />
+      {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+        <line key={i} x1={58 + i * 42} y1={yg} x2={48 + i * 42} y2={yg + 8} stroke="#d1d5db" strokeWidth="1" />
+      ))}
+
+      {/* Trajectory */}
+      <path d={`M ${x0},${yg} Q ${xm},${qcY} ${xEnd},${yg}`}
+        fill="none" stroke="#6366f1" strokeWidth="2" />
+
+      {/* Launch and landing dots */}
+      <circle cx={x0} cy={yg} r="3.5" fill="#2563eb" />
+      <circle cx={xEnd} cy={yg} r="3.5" fill="#2563eb" />
+
+      {/* Initial velocity vector */}
+      <Arr x1={x0} y1={yg} x2={vx2} y2={vy2} color="#2563eb"
+        label={lbl.v0 ?? 'v₀'} lx={vx2 + 14} ly={vy2 - 5} />
+
+      {/* Components */}
+      {showComponents && (
+        <g stroke="#94a3b8" strokeWidth="1.2" strokeDasharray="4,3">
+          <line x1={x0} y1={yg} x2={vx2} y2={yg} />
+          <line x1={vx2} y1={yg} x2={vx2} y2={vy2} />
+        </g>
+      )}
+
+      {/* Angle arc */}
+      <path d={`M ${x0 + AR},${yg} A ${AR},${AR} 0 0,0 ${arcEndX},${arcEndY}`}
+        fill="none" stroke="#6366f1" strokeWidth="1.2" />
+      <text x={x0 + AR + 9} y={yg - 8} fill="#4f46e5" fontSize="11" fontWeight="600">
+        {lbl.angle ?? `${angle}°`}
+      </text>
+
+      {/* Max height marker */}
+      {H > 20 && (
+        <>
+          <line x1={xm} y1={yg} x2={xm} y2={yg - H}
+            stroke="#94a3b8" strokeWidth="1" strokeDasharray="3,3" />
+          <line x1={xm + 18} y1={yg - H} x2={xm + 18} y2={yg} stroke="#16a34a" strokeWidth="1.5" />
+          <polygon points={`${xm+18},${yg-H} ${xm+14},${yg-H+9} ${xm+22},${yg-H+9}`} fill="#16a34a" />
+          <polygon points={`${xm+18},${yg} ${xm+14},${yg-9} ${xm+22},${yg-9}`} fill="#16a34a" />
+          <text x={xm + 28} y={(yg * 2 - H) / 2}
+            fill="#16a34a" fontSize="11" fontWeight="600" dominantBaseline="middle">
+            {lbl.height ?? 'H'}
+          </text>
+        </>
+      )}
+
+      {/* Range arrow */}
+      <line x1={x0} y1={yg + 20} x2={xEnd} y2={yg + 20} stroke="#dc2626" strokeWidth="1.5" />
+      <polygon points={`${x0},${yg+20} ${x0+9},${yg+16} ${x0+9},${yg+24}`} fill="#dc2626" />
+      <polygon points={`${xEnd},${yg+20} ${xEnd-9},${yg+16} ${xEnd-9},${yg+24}`} fill="#dc2626" />
+      <text x={xm} y={yg + 34} fill="#dc2626" fontSize="11" fontWeight="600" textAnchor="middle">
+        {lbl.range ?? 'R'}
+      </text>
+    </svg>
+  );
+}
+
+/* ── TEMPLATE 7: Pulley System ───────────────────────────────── */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function PulleySystem({ p }: { p: any }) {
+  const topology = (p.type ?? 'atwood').toLowerCase();
+  const masses: { value?: string }[] = p.masses ?? [{ value: 'm₁' }, { value: 'm₂' }];
+  const lbl = p.labels ?? {};
+
+  const px = 210, py = 52, pr = 22;
+  const leftX = px - 72, rightX = px + 72;
+  const ropeTopY = py + pr;
+
+  // Different heights for the two masses to show they're accelerating
+  const m1Y = 158, m2Y = 118;
+
+  return (
+    <svg viewBox="0 0 420 215" style={{ width: '100%', height: 'auto', display: 'block' }}>
+      {/* Ceiling support */}
+      <line x1={px - 28} y1={30} x2={px + 28} y2={30} stroke="#94a3b8" strokeWidth="2.5" />
+      {[-2, -1, 0, 1, 2].map((i) => (
+        <line key={i} x1={px + i * 12} y1={30} x2={px + i * 12 - 8} y2={20} stroke="#94a3b8" strokeWidth="1" />
+      ))}
+      {/* Pulley axle */}
+      <line x1={px} y1={30} x2={px} y2={py} stroke="#94a3b8" strokeWidth="2" />
+      {/* Pulley wheel */}
+      <circle cx={px} cy={py} r={pr} fill="white" stroke="#475569" strokeWidth="2" />
+      <circle cx={px} cy={py} r={pr * 0.32} fill="#94a3b8" />
+
+      {/* Ropes */}
+      <path d={`M ${leftX},${ropeTopY} A ${pr},${pr} 0 0,1 ${rightX},${ropeTopY}`}
+        fill="none" stroke="#374151" strokeWidth="1.8" />
+      <line x1={leftX} y1={ropeTopY} x2={leftX} y2={m1Y - 18} stroke="#374151" strokeWidth="1.8" />
+      <line x1={rightX} y1={ropeTopY} x2={rightX} y2={m2Y - 18} stroke="#374151" strokeWidth="1.8" />
+
+      {/* Mass 1 (left, lower = heavier) */}
+      <rect x={leftX - 24} y={m1Y - 18} width="48" height="30" rx="3"
+        fill="#dbeafe" stroke="#2563eb" strokeWidth="1.5" />
+      <text x={leftX} y={m1Y} textAnchor="middle" fill="#1e40af" fontSize="12" fontWeight="600">
+        {masses[0]?.value ?? 'm₁'}
+      </text>
+
+      {/* Mass 2 (right, higher = lighter) */}
+      <rect x={rightX - 24} y={m2Y - 18} width="48" height="30" rx="3"
+        fill="#fce7f3" stroke="#db2777" strokeWidth="1.5" />
+      <text x={rightX} y={m2Y} textAnchor="middle" fill="#9d174d" fontSize="12" fontWeight="600">
+        {masses[1]?.value ?? 'm₂'}
+      </text>
+
+      {/* Tension labels */}
+      {lbl.tension && (
+        <>
+          <text x={leftX - 16} y={(ropeTopY + m1Y - 18) / 2} fill="#374151" fontSize="11"
+            textAnchor="end" dominantBaseline="middle">{lbl.tension}</text>
+          <text x={rightX + 16} y={(ropeTopY + m2Y - 18) / 2} fill="#374151" fontSize="11"
+            textAnchor="start" dominantBaseline="middle">{lbl.tension}</text>
+        </>
+      )}
+
+      {/* Velocity / acceleration arrows */}
+      <Arr x1={leftX} y1={m1Y + 14} x2={leftX} y2={m1Y + 38} color="#dc2626"
+        label={lbl.accel ?? 'a'} lx={leftX + 18} ly={m1Y + 36} sw={1.5} />
+      <Arr x1={rightX} y1={m2Y + 14} x2={rightX} y2={m2Y - 14} color="#16a34a" sw={1.5} />
+    </svg>
+  );
+}
+
+/* ── TEMPLATE 8: Wave Diagram ────────────────────────────────── */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function WaveDiagram({ p }: { p: any }) {
+  const waveType = (p.type ?? 'transverse').toLowerCase();
+  const lbl = p.labels ?? {};
+  const nCycles = Math.max(1, Math.min(3, +(p.num_cycles ?? 2)));
+
+  const x0 = 50, xEnd = 382, axY = 105, A = 42;
+  const W = xEnd - x0;
+  const λPx = W / nCycles;
+
+  // Build quadratic bezier sine path
+  const buildSinePath = (phase: number = 0) => {
+    const parts: string[] = [`M ${x0},${axY}`];
+    for (let i = 0; i < nCycles * 2; i++) {
+      const xS = x0 + (i / (nCycles * 2)) * W;
+      const xE = x0 + ((i + 1) / (nCycles * 2)) * W;
+      const xMid = (xS + xE) / 2;
+      const isUp = (i + phase) % 2 === 0;
+      // bezier control overshoots: 2A because quadratic bezier reaches half the control offset
+      parts.push(`Q ${xMid},${axY + (isUp ? -2 * A : 2 * A)} ${xE},${axY}`);
+    }
+    return parts.join(' ');
+  };
+
+  if (waveType === 'standing') {
+    const nodeXs = Array.from({ length: nCycles * 2 + 1 }, (_, i) => x0 + (i / (nCycles * 2)) * W);
+    const antinodeXs = Array.from({ length: nCycles * 2 }, (_, i) => x0 + ((i + 0.5) / (nCycles * 2)) * W);
+
+    return (
+      <svg viewBox="0 0 430 210" style={{ width: '100%', height: 'auto', display: 'block' }}>
+        <Arr x1={x0 - 10} y1={axY} x2={xEnd + 14} y2={axY} color="#94a3b8" />
+        <text x={xEnd + 18} y={axY + 4} fill="#94a3b8" fontSize="11">x</text>
+
+        {/* Envelope curves */}
+        <path d={buildSinePath(0)} fill="none" stroke="#6366f1" strokeWidth="2" />
+        <path d={buildSinePath(1)} fill="none" stroke="#6366f1" strokeWidth="2" />
+
+        {/* Node markers */}
+        {nodeXs.map((nx, i) => (
+          <g key={i}>
+            <circle cx={nx} cy={axY} r="4" fill="#dc2626" />
+            <text x={nx} y={axY + 16} fill="#dc2626" fontSize="9" textAnchor="middle">N</text>
+          </g>
+        ))}
+
+        {/* Antinode labels */}
+        {antinodeXs.map((ax, i) => (
+          <text key={i} x={ax} y={axY - A - 12} fill="#16a34a" fontSize="9" textAnchor="middle">AN</text>
+        ))}
+
+        {lbl.amplitude && (
+          <>
+            <line x1={antinodeXs[0]!} y1={axY} x2={antinodeXs[0]!} y2={axY - A}
+              stroke="#16a34a" strokeWidth="1" strokeDasharray="3,2" />
+            <text x={antinodeXs[0]! + 14} y={axY - A / 2}
+              fill="#16a34a" fontSize="11" fontWeight="600" dominantBaseline="middle">
+              {lbl.amplitude}
+            </text>
+          </>
+        )}
+
+        {lbl.wavelength && nodeXs.length >= 3 && (
+          <>
+            <line x1={nodeXs[0]!} y1={axY + 28} x2={nodeXs[2]!} y2={axY + 28} stroke="#374151" strokeWidth="1.5" />
+            <polygon points={`${nodeXs[0]},${axY+28} ${nodeXs[0]!+8},${axY+24} ${nodeXs[0]!+8},${axY+32}`} fill="#374151" />
+            <polygon points={`${nodeXs[2]},${axY+28} ${nodeXs[2]!-8},${axY+24} ${nodeXs[2]!-8},${axY+32}`} fill="#374151" />
+            <text x={(nodeXs[0]! + nodeXs[2]!) / 2} y={axY + 40}
+              fill="#374151" fontSize="11" fontWeight="600" textAnchor="middle">{lbl.wavelength}</text>
+          </>
+        )}
+      </svg>
+    );
+  }
+
+  // Transverse wave
+  const firstCrestX = x0 + λPx / 4;
+
+  return (
+    <svg viewBox="0 0 430 210" style={{ width: '100%', height: 'auto', display: 'block' }}>
+      <Arr x1={x0 - 10} y1={axY} x2={xEnd + 14} y2={axY} color="#94a3b8" />
+      <Arr x1={x0} y1={axY + 55} x2={x0} y2={28} color="#94a3b8" />
+      <text x={xEnd + 18} y={axY + 4} fill="#94a3b8" fontSize="11">x</text>
+      <text x={x0 + 4} y={24} fill="#94a3b8" fontSize="11">y</text>
+
+      <path d={buildSinePath(0)} fill="none" stroke="#6366f1" strokeWidth="2.2" />
+
+      {/* Amplitude bracket */}
+      <line x1={firstCrestX} y1={axY} x2={firstCrestX} y2={axY - A}
+        stroke="#16a34a" strokeWidth="1" strokeDasharray="3,2" />
+      <line x1={firstCrestX + 20} y1={axY - A} x2={firstCrestX + 20} y2={axY}
+        stroke="#16a34a" strokeWidth="1.5" />
+      <polygon points={`${firstCrestX+20},${axY-A} ${firstCrestX+16},${axY-A+8} ${firstCrestX+24},${axY-A+8}`} fill="#16a34a" />
+      <polygon points={`${firstCrestX+20},${axY} ${firstCrestX+16},${axY-8} ${firstCrestX+24},${axY-8}`} fill="#16a34a" />
+      <text x={firstCrestX + 32} y={(axY * 2 - A) / 2}
+        fill="#16a34a" fontSize="11" fontWeight="600" dominantBaseline="middle">
+        {lbl.amplitude ?? 'A'}
+      </text>
+
+      {/* Wavelength bracket */}
+      <line x1={x0} y1={axY + 30} x2={x0 + λPx} y2={axY + 30} stroke="#374151" strokeWidth="1.5" />
+      <polygon points={`${x0},${axY+30} ${x0+8},${axY+26} ${x0+8},${axY+34}`} fill="#374151" />
+      <polygon points={`${x0+λPx},${axY+30} ${x0+λPx-8},${axY+26} ${x0+λPx-8},${axY+34}`} fill="#374151" />
+      <text x={x0 + λPx / 2} y={axY + 42}
+        fill="#374151" fontSize="11" fontWeight="600" textAnchor="middle">
+        {lbl.wavelength ?? 'λ'}
+      </text>
+
+      {/* Wave velocity label */}
+      {lbl.velocity && (
+        <Arr x1={x0 + λPx * 0.6} y1={axY - 10} x2={x0 + λPx * 0.6 + 32} y2={axY - 10}
+          color="#dc2626" label={lbl.velocity} lx={x0 + λPx * 0.6 + 48} ly={axY - 10} />
+      )}
+    </svg>
+  );
+}
+
+/* ── TEMPLATE 9: Capacitor / Electric Field ─────────────────── */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function CapacitorField({ p }: { p: any }) {
+  const lbl = p.labels ?? {};
+  const nLines = Math.max(3, Math.min(7, +(p.num_field_lines ?? 5)));
+  const showBattery: boolean = p.show_battery === true;
+
+  const leftX = 130, rightX = 300, plateCY = 105, plateH = 130;
+  const plateTop = plateCY - plateH / 2;
+  const plateBot = plateCY + plateH / 2;
+  const fieldYs = Array.from({ length: nLines }, (_, i) =>
+    plateTop + 14 + (i * (plateH - 28)) / (nLines - 1)
+  );
+
+  return (
+    <svg viewBox="0 0 430 215" style={{ width: '100%', height: 'auto', display: 'block' }}>
+      {/* Left plate (+) */}
+      <line x1={leftX} y1={plateTop} x2={leftX} y2={plateBot}
+        stroke="#2563eb" strokeWidth="5" strokeLinecap="round" />
+      {[0, 1, 2, 3].map((i) => {
+        const y = plateTop + 16 + i * 27;
+        return (
+          <g key={i}>
+            <line x1={leftX - 16} y1={y} x2={leftX - 6} y2={y} stroke="#2563eb" strokeWidth="1.5" />
+            <line x1={leftX - 11} y1={y - 5} x2={leftX - 11} y2={y + 5} stroke="#2563eb" strokeWidth="1.5" />
+          </g>
+        );
+      })}
+      <text x={leftX - 30} y={plateCY + 5} fill="#2563eb" fontSize="12" fontWeight="700" textAnchor="middle">
+        {lbl.charge_left ?? '+Q'}
+      </text>
+
+      {/* Right plate (−) */}
+      <line x1={rightX} y1={plateTop} x2={rightX} y2={plateBot}
+        stroke="#dc2626" strokeWidth="5" strokeLinecap="round" />
+      {[0, 1, 2, 3].map((i) => {
+        const y = plateTop + 16 + i * 27;
+        return (
+          <line key={i} x1={rightX + 6} y1={y} x2={rightX + 16} y2={y} stroke="#dc2626" strokeWidth="1.5" />
+        );
+      })}
+      <text x={rightX + 30} y={plateCY + 5} fill="#dc2626" fontSize="12" fontWeight="700" textAnchor="middle">
+        {lbl.charge_right ?? '−Q'}
+      </text>
+
+      {/* Electric field arrows */}
+      {fieldYs.map((fy, i) => (
+        <Arr key={i} x1={leftX + 8} y1={fy} x2={rightX - 8} y2={fy} color="#475569" sw={1.5} />
+      ))}
+
+      {/* E label above field */}
+      <text x={(leftX + rightX) / 2} y={plateCY - plateH / 2 - 12}
+        fill="#475569" fontSize="12" fontWeight="600" textAnchor="middle">
+        {lbl.field ?? 'E →'}
+      </text>
+
+      {/* Plate separation d */}
+      {lbl.separation && (
+        <>
+          <line x1={leftX} y1={plateBot + 16} x2={rightX} y2={plateBot + 16} stroke="#374151" strokeWidth="1.5" />
+          <polygon points={`${leftX},${plateBot+16} ${leftX+8},${plateBot+12} ${leftX+8},${plateBot+20}`} fill="#374151" />
+          <polygon points={`${rightX},${plateBot+16} ${rightX-8},${plateBot+12} ${rightX-8},${plateBot+20}`} fill="#374151" />
+          <text x={(leftX + rightX) / 2} y={plateBot + 30}
+            fill="#374151" fontSize="11" fontWeight="600" textAnchor="middle">
+            {lbl.separation}
+          </text>
+        </>
+      )}
+
+      {/* Battery (optional) */}
+      {showBattery && (
+        <g>
+          <line x1={leftX} y1={plateBot + 46} x2={leftX} y2={plateBot + 56} stroke="#374151" strokeWidth="1.5" />
+          <line x1={rightX} y1={plateBot + 46} x2={rightX} y2={plateBot + 56} stroke="#374151" strokeWidth="1.5" />
+          <line x1={leftX} y1={plateBot + 56} x2={(leftX + rightX) / 2 - 10} y2={plateBot + 56} stroke="#374151" strokeWidth="1.5" />
+          <line x1={(leftX + rightX) / 2 + 10} y1={plateBot + 56} x2={rightX} y2={plateBot + 56} stroke="#374151" strokeWidth="1.5" />
+          <line x1={(leftX + rightX) / 2 - 10} y1={plateBot + 49} x2={(leftX + rightX) / 2 + 10} y2={plateBot + 49}
+            stroke="#1e293b" strokeWidth="2.5" />
+          <line x1={(leftX + rightX) / 2 - 5} y1={plateBot + 56} x2={(leftX + rightX) / 2 + 5} y2={plateBot + 56}
+            stroke="#1e293b" strokeWidth="1.5" />
+          {lbl.voltage && (
+            <text x={(leftX + rightX) / 2} y={plateBot + 70}
+              fill="#374151" fontSize="11" textAnchor="middle">{lbl.voltage}</text>
+          )}
+        </g>
+      )}
+    </svg>
+  );
+}
+
+/* ── TEMPLATE 10: P-V Diagram ────────────────────────────────── */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function PvDiagram({ p }: { p: any }) {
+  const process = (p.process ?? 'isothermal').toLowerCase();
+  const lbl = p.labels ?? {};
+
+  // SVG layout: P-axis vertical left, V-axis horizontal bottom
+  const ox = 58, oy = 205, xEnd = 355, yTop = 30;
+
+  // Pre-defined curve paths for each process type
+  // All states A and B are absolute SVG coordinates
+  const processes: Record<string, { path: string; A: [number,number]; B: [number,number]; color: string }> = {
+    isothermal: {
+      path: `M 95,62 C 190,62 295,95 295,148`,
+      A: [95, 62], B: [295, 148], color: '#6366f1',
+    },
+    adiabatic: {
+      path: `M 95,55 C 135,55 295,118 295,162`,
+      A: [95, 55], B: [295, 162], color: '#dc2626',
+    },
+    isobaric: {
+      path: `M 95,100 L 295,100`,
+      A: [95, 100], B: [295, 100], color: '#16a34a',
+    },
+    isochoric: {
+      path: `M 175,162 L 175,62`,
+      A: [175, 162], B: [175, 62], color: '#d97706',
+    },
+  };
+
+  if (process === 'carnot') {
+    // 4-process closed loop: A→B (hot isotherm), B→C (adiabatic), C→D (cold isotherm), D→A (adiabatic)
+    const A: [number,number] = [95,  62];
+    const B: [number,number] = [230, 98];
+    const C: [number,number] = [280, 150];
+    const D: [number,number] = [130, 122];
+
+    return (
+      <svg viewBox="0 0 380 235" style={{ width: '100%', height: 'auto', display: 'block' }}>
+        <Arr x1={ox} y1={oy} x2={ox} y2={yTop} color="#94a3b8" />
+        <Arr x1={ox} y1={oy} x2={xEnd} y2={oy} color="#94a3b8" />
+        <text x={ox - 14} y={yTop + 2} fill="#94a3b8" fontSize="11">P</text>
+        <text x={xEnd + 4} y={oy + 4} fill="#94a3b8" fontSize="11">V</text>
+
+        {/* Hot isotherm A→B (red) */}
+        <path d={`M ${A[0]},${A[1]} C 175,${A[1]} ${B[0]},${B[1]-18} ${B[0]},${B[1]}`}
+          fill="none" stroke="#dc2626" strokeWidth="2" />
+        {/* Adiabatic B→C */}
+        <path d={`M ${B[0]},${B[1]} C ${B[0]+20},${B[1]+20} ${C[0]},${C[1]-15} ${C[0]},${C[1]}`}
+          fill="none" stroke="#475569" strokeWidth="1.6" strokeDasharray="6,3" />
+        {/* Cold isotherm C→D (blue) */}
+        <path d={`M ${C[0]},${C[1]} C 200,${C[1]} ${D[0]},${D[1]+14} ${D[0]},${D[1]}`}
+          fill="none" stroke="#2563eb" strokeWidth="2" />
+        {/* Adiabatic D→A */}
+        <path d={`M ${D[0]},${D[1]} C ${D[0]-16},${D[1]-18} ${A[0]},${A[1]+15} ${A[0]},${A[1]}`}
+          fill="none" stroke="#475569" strokeWidth="1.6" strokeDasharray="6,3" />
+
+        {/* State dots */}
+        {[A, B, C, D].map(([x, y], i) => (
+          <g key={i}>
+            <circle cx={x} cy={y} r="4.5" fill="white" stroke="#475569" strokeWidth="1.5" />
+            <text x={x + (i < 2 ? 8 : -14)} y={y - 6} fill="#374151" fontSize="11" fontWeight="600">
+              {['A','B','C','D'][i]}
+            </text>
+          </g>
+        ))}
+
+        {/* Labels */}
+        <text x={165} y={68} fill="#dc2626" fontSize="10" textAnchor="middle">
+          {lbl.t_hot ?? 'T₁ (hot)'}
+        </text>
+        <text x={210} y={165} fill="#2563eb" fontSize="10" textAnchor="middle">
+          {lbl.t_cold ?? 'T₂ (cold)'}
+        </text>
+        <text x={295} y={122} fill="#475569" fontSize="10" textAnchor="start">adiabatic</text>
+      </svg>
+    );
+  }
+
+  const proc = processes[process] ?? processes['isothermal']!;
+
+  return (
+    <svg viewBox="0 0 380 235" style={{ width: '100%', height: 'auto', display: 'block' }}>
+      <Arr x1={ox} y1={oy} x2={ox} y2={yTop} color="#94a3b8" />
+      <Arr x1={ox} y1={oy} x2={xEnd} y2={oy} color="#94a3b8" />
+      <text x={ox - 14} y={yTop + 2} fill="#94a3b8" fontSize="11">P</text>
+      <text x={xEnd + 4} y={oy + 4} fill="#94a3b8" fontSize="11">V</text>
+
+      {/* Dashed lines from states to axes */}
+      <line x1={proc.A[0]} y1={proc.A[1]} x2={proc.A[0]} y2={oy}
+        stroke="#cbd5e1" strokeWidth="1" strokeDasharray="3,3" />
+      <line x1={proc.A[0]} y1={proc.A[1]} x2={ox} y2={proc.A[1]}
+        stroke="#cbd5e1" strokeWidth="1" strokeDasharray="3,3" />
+      <line x1={proc.B[0]} y1={proc.B[1]} x2={proc.B[0]} y2={oy}
+        stroke="#cbd5e1" strokeWidth="1" strokeDasharray="3,3" />
+      <line x1={proc.B[0]} y1={proc.B[1]} x2={ox} y2={proc.B[1]}
+        stroke="#cbd5e1" strokeWidth="1" strokeDasharray="3,3" />
+
+      {/* Process curve with direction arrow */}
+      <path d={proc.path} fill="none" stroke={proc.color} strokeWidth="2.2" />
+
+      {/* State markers */}
+      <circle cx={proc.A[0]} cy={proc.A[1]} r="4.5" fill="white" stroke="#475569" strokeWidth="1.5" />
+      <text x={proc.A[0] - 10} y={proc.A[1] - 6} fill="#374151" fontSize="11" fontWeight="600">
+        {lbl.state_a ?? 'A'}
+      </text>
+      <circle cx={proc.B[0]} cy={proc.B[1]} r="4.5" fill="white" stroke="#475569" strokeWidth="1.5" />
+      <text x={proc.B[0] + 8} y={proc.B[1] + 4} fill="#374151" fontSize="11" fontWeight="600">
+        {lbl.state_b ?? 'B'}
+      </text>
+
+      {/* Process label */}
+      {lbl.process && (
+        <text x={(proc.A[0] + proc.B[0]) / 2 + 22} y={(proc.A[1] + proc.B[1]) / 2 - 8}
+          fill={proc.color} fontSize="11" fontWeight="600" textAnchor="middle">
+          {lbl.process}
+        </text>
+      )}
+
+      {/* Work done shading */}
+      <path d={`${proc.path} L ${proc.B[0]},${oy} L ${proc.A[0]},${oy} Z`}
+        fill={proc.color} opacity="0.06" />
+      <text x={(proc.A[0] + proc.B[0]) / 2} y={oy - 10}
+        fill={proc.color} fontSize="10" textAnchor="middle" opacity="0.7">W</text>
     </svg>
   );
 }
@@ -519,11 +1047,16 @@ export function DiagramRenderer({ descriptor }: Props) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const p = params as any;
   switch (template) {
-    case 'inclined_plane':       inner = <InclinedPlane p={p} />; break;
-    case 'simple_circuit':       inner = <SimpleCircuit p={p} />; break;
-    case 'lens_mirror':          inner = <LensMirror p={p} />;    break;
-    case 'energy_profile':       inner = <EnergyProfile p={p} />; break;
-    case 'coordinate_geometry':  inner = <CoordGeometry p={p} />; break;
+    case 'inclined_plane':       inner = <InclinedPlane p={p} />;      break;
+    case 'simple_circuit':       inner = <SimpleCircuit p={p} />;      break;
+    case 'lens_mirror':          inner = <LensMirror p={p} />;         break;
+    case 'energy_profile':       inner = <EnergyProfile p={p} />;      break;
+    case 'coordinate_geometry':  inner = <CoordGeometry p={p} />;      break;
+    case 'projectile_motion':    inner = <ProjectileMotion p={p} />;   break;
+    case 'pulley_system':        inner = <PulleySystem p={p} />;       break;
+    case 'wave_diagram':         inner = <WaveDiagram p={p} />;        break;
+    case 'capacitor_field':      inner = <CapacitorField p={p} />;     break;
+    case 'pv_diagram':           inner = <PvDiagram p={p} />;          break;
     default: return null;
   }
 
