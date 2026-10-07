@@ -504,7 +504,7 @@ export default function PracticePage() {
                   <div className="pill-group">
                     {(['mixed', 'beginner', 'intermediate', 'advanced'] as DiffOption[]).map((d) => (
                       <button key={d} className={`pill${difficulty === d ? ' selected' : ''}`} onClick={() => setDifficulty(d)} style={{ textTransform: 'capitalize' }}>
-                        {d === 'mixed' ? 'Mixed (all levels)' : d}
+                        {d === 'mixed' ? 'All levels' : d}
                       </button>
                     ))}
                   </div>
