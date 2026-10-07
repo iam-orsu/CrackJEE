@@ -41,18 +41,22 @@ export async function dashboard(req: AuthRequest, res: Response, next: NextFunct
       };
     });
 
-    // Subject accuracy
+    // Subject accuracy — always include all 3 subjects even with zero attempts
     const subjectMap: Record<string, { correct: number; total: number }> = {};
     for (const p of allProgress) {
       if (!subjectMap[p.subject]) subjectMap[p.subject] = { correct: 0, total: 0 };
       subjectMap[p.subject].correct += p.correctCount;
       subjectMap[p.subject].total   += p.attempts;
     }
-    const subjectAccuracy = Object.entries(subjectMap).map(([subject, { correct, total }]) => ({
-      subject,
-      accuracy: total > 0 ? Math.round((correct / total) * 100) : 0,
-      attempts: total,
-    }));
+    const ALL_SUBJECTS = ['Physics', 'Mathematics', 'Chemistry'];
+    const subjectAccuracy = ALL_SUBJECTS.map((subject) => {
+      const d = subjectMap[subject] ?? { correct: 0, total: 0 };
+      return {
+        subject,
+        accuracy: d.total > 0 ? Math.round((d.correct / d.total) * 100) : 0,
+        attempts: d.total,
+      };
+    });
 
     const accuracy = totalAttempts > 0 ? Math.round((correctAttempts / totalAttempts) * 100) : 0;
 

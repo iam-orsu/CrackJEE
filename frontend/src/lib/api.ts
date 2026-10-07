@@ -1,4 +1,4 @@
-import { getToken } from './auth';
+import { getToken, clearSession } from './auth';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? '/api';
 
@@ -23,6 +23,15 @@ async function request<T>(
   if (token) headers['Authorization'] = `Bearer ${token}`;
 
   const res = await fetch(`${API_URL}${path}`, { ...options, headers });
+
+  // Session expired or token rejected — clear and redirect to login
+  if (res.status === 401) {
+    clearSession();
+    if (typeof window !== 'undefined') {
+      window.location.href = '/login';
+    }
+    throw new ApiError(401, 'Session expired. Please log in again.');
+  }
 
   const json = await res.json() as { success: boolean; data?: T; error?: string };
 

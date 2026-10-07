@@ -179,6 +179,9 @@ export default function PracticePage() {
     return () => document.removeEventListener('fullscreenchange', handler);
   }, []);
 
+  /* ─── Timer cleanup on unmount ────────────────────────── */
+  useEffect(() => () => clearInterval(sessionTimerRef.current), []);
+
   function enterFullscreen() {
     try { document.documentElement.requestFullscreen().catch(() => {}); } catch {}
   }
@@ -336,7 +339,6 @@ export default function PracticePage() {
   function handleEndSession() {
     clearInterval(sessionTimerRef.current);
     exitFullscreen();
-    try { sessionStorage.removeItem('crackjee_exam_session'); } catch {}
     setAppState('summary');
   }
 
