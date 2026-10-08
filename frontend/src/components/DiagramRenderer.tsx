@@ -18,7 +18,8 @@ function latexToPlain(s: string): string {
     .replace(/\\alpha/g, 'α').replace(/\\beta/g, 'β').replace(/\\gamma/g, 'γ')
     .replace(/\\delta/g, 'δ').replace(/\\lambda/g, 'λ').replace(/\\mu/g, 'μ')
     .replace(/\\left[\(\[{|]/g, '').replace(/\\right[\)\]{|]/g, '')
-    .replace(/\\[a-zA-Z]+/g, '').replace(/[{}]/g, '');
+    .replace(/\\[a-zA-Z]+/g, '').replace(/[{}]/g, '')
+    .normalize('NFD').replace(/[̀-ͯ]/g, '');
 }
 
 /* ── Arrow helper ──────────────────────────────────────────── */

@@ -69,6 +69,24 @@ function stripOptionPrefix(opt: string): string {
   return opt.replace(/^[A-Da-d][).]\s*/, '').trim();
 }
 
+// Convert \ce{} mhchem chemistry notation to plain Unicode (KaTeX lacks mhchem by default)
+function ceToPlain(text: string): string {
+  function formulaToUnicode(f: string): string {
+    const SUB = '₀₁₂₃₄₅₆₇₈₉';
+    const SUP = '⁰¹²³⁴⁵⁶⁷⁸⁹';
+    return f
+      .replace(/_\{(\d+)\}/g, (_, n: string) => n.replace(/\d/g, (d) => SUB[+d] ?? d))
+      .replace(/_(\d)/g, (_, d: string) => SUB[+d] ?? d)
+      .replace(/\^\{(\d+)\}/g, (_, n: string) => n.replace(/\d/g, (d) => SUP[+d] ?? d))
+      .replace(/\^(\d)/g, (_, d: string) => SUP[+d] ?? d)
+      .replace(/([A-Za-z)])(\d+)/g, (_, ch: string, n: string) => ch + n.replace(/\d/g, (d) => SUB[+d] ?? d))
+      .replace(/\\cdot/g, '·').replace(/\*/g, '·');
+  }
+  return text
+    .replace(/\\ce\s*\{([^}]+)\}/g, (_, f: string) => formulaToUnicode(f))
+    .replace(/\\ce\s*([A-Za-z0-9_^{}\-+·*]+)/g, (_, f: string) => formulaToUnicode(f));
+}
+
 // If text has bare LaTeX commands but no $ delimiters, add them so KaTeX renders
 function ensureMathDelimiters(text: string): string {
   if (/\$|\\\(|\\\[/.test(text)) return text;           // already delimited
@@ -167,7 +185,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
         {/* ── Left: question + options ── */}
         <div className="qcard-left">
           {question.diagram && <DiagramRenderer descriptor={question.diagram} />}
-          <p className="question-text">{ensureMathDelimiters(question.questionText)}</p>
+          <p className="question-text">{ensureMathDelimiters(ceToPlain(question.questionText))}</p>
 
           <div className="options-grid">
             {question.options.map((opt, i) => {
@@ -189,7 +207,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
                   disabled={!!result}
                 >
                   <span className="option-letter">{letter}</span>
-                  <span style={{ flex: 1 }}>{ensureMathDelimiters(stripOptionPrefix(opt))}</span>
+                  <span style={{ flex: 1 }}>{ensureMathDelimiters(ceToPlain(stripOptionPrefix(opt)))}</span>
                   {isCorrect && <span style={{ flexShrink: 0, color: 'var(--green-600)' }}>{CHECK}</span>}
                   {isWrong   && <span style={{ flexShrink: 0, color: 'var(--red-600)' }}>{CROSS}</span>}
                 </button>
