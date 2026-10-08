@@ -154,16 +154,99 @@ export async function generateQuestion(
   Use for: thermodynamic processes, work done by gas, PV graph questions, Carnot cycle.
 
   WHEN TO INCLUDE A DIAGRAM:
-  - inclined_plane: block on slope, friction, normal force, applied force problems
-  - simple_circuit: series/parallel resistor or capacitor circuit problems
-  - lens_mirror: single lens or mirror image formation (NOT multi-lens/mirror combos)
-  - energy_profile: activation energy, exothermic/endothermic reaction, catalysis
-  - coordinate_geometry: geometry with specific points, lines, circles on axes
-  - projectile_motion: projectile questions asking about range, height, angle
-  - pulley_system: Atwood machine, two masses connected by rope over pulley
-  - wave_diagram: transverse or standing wave, amplitude, wavelength, nodes
-  - capacitor_field: parallel plate capacitor field/force/energy problems
-  - pv_diagram: any thermodynamic process on a PV graph
+  Physics: inclined_plane | simple_circuit | lens_mirror | projectile_motion | pulley_system | wave_diagram | capacitor_field | pv_diagram | energy_profile
+  Mathematics: coordinate_geometry | triangle | circle_geometry | conic_section | argand_plane
+  Chemistry: energy_profile | molecular_geometry | mo_diagram | crystal_structure | electrochemical_cell | organic_structure
+
+  TEMPLATE "triangle" — triangle with computed angles, optional incircle/circumcircle (Mathematics):
+  { "template": "triangle", "params": {
+      "angles": { "A": 60, "B": 60, "C": 60 },
+      "labels": { "vertex_A": "A", "vertex_B": "B", "vertex_C": "C", "a": "a", "b": "b", "c": "c" },
+      "show_incircle": false, "show_circumcircle": false
+  }}
+  Use for: triangle angle/side problems, sine rule, cosine rule, incircle, circumcircle, area questions.
+  angles.A+B+C need not sum to 180 — they are normalized automatically.
+
+  TEMPLATE "circle_geometry" — circle, two circles, or external point + tangent (Mathematics):
+  { "template": "circle_geometry", "params": {
+      "subtype": "single",
+      "cx": 190, "cy": 120, "r": 80,
+      "labels": { "center": "O", "radius": "r" },
+      "points": [{ "x": 230, "y": 60, "label": "P" }]
+  }}
+  Subtypes: "single" | "two_circles" | "tangent_from_point"
+  For two_circles: add cx2, cy2, r2, labels.c1, labels.c2, labels.r1, labels.r2
+  For tangent_from_point: add point_x, point_y, labels.point, labels.tangent
+  Use for: chord, tangent, secant, circle theorems, two-circle problems.
+
+  TEMPLATE "conic_section" — parabola, ellipse, or hyperbola on coordinate axes (Mathematics):
+  { "template": "conic_section", "params": {
+      "type": "parabola",
+      "a": 2,
+      "show_focus": true, "show_directrix": true,
+      "labels": { "focus": "F(a,0)", "directrix": "x = −a", "equation": "y² = 4ax" }
+  }}
+  For ellipse/hyperbola: add "b" param and optional "show_asymptotes": true (hyperbola only)
+  labels can include "f1", "f2" for focus labels, "a", "b" for semi-axis labels
+  Allowed types: "parabola" | "ellipse" | "hyperbola"
+  Use for: conic sections, focus-directrix, eccentricity, tangent to conics, locus problems.
+
+  TEMPLATE "argand_plane" — complex numbers plotted on Argand diagram (Mathematics):
+  { "template": "argand_plane", "params": {
+      "points": [
+        { "re": 3, "im": 4, "label": "z = 3+4i", "show_modulus": true, "show_argument": true }
+      ]
+  }}
+  Up to 4 points. show_modulus draws line from origin; show_argument draws angle arc.
+  Use for: modulus, argument, locus of complex numbers, polar form, roots of unity.
+
+  TEMPLATE "molecular_geometry" — VSEPR 2D projection (Chemistry):
+  { "template": "molecular_geometry", "params": {
+      "shape": "tetrahedral",
+      "central_atom": "C",
+      "ligands": [{"label":"H"},{"label":"H"},{"label":"H"},{"label":"H"}],
+      "bond_angle": 109.5,
+      "labels": { "bond_angle": "109.5°" }
+  }}
+  Allowed shapes: "linear" | "bent" | "trigonal_planar" | "tetrahedral" | "octahedral" | "trigonal_bipyramidal"
+  Use for: VSEPR theory, molecular shapes, bond angles, hybridization questions.
+
+  TEMPLATE "mo_diagram" — molecular orbital energy level diagram (Chemistry):
+  { "template": "mo_diagram", "params": {
+      "molecule": "N2"
+  }}
+  Supported molecules: N2, O2, F2, B2, C2, Li2, Be2, Ne2, NO, CO, O2+, O2-, N2+, CN-
+  Automatically shows filled orbitals, bond order, and magnetic behavior.
+  Use for: MO theory, bond order, paramagnetism/diamagnetism, stability comparison.
+
+  TEMPLATE "crystal_structure" — isometric unit cell diagram (Chemistry):
+  { "template": "crystal_structure", "params": {
+      "type": "fcc",
+      "labels": { "formula": "Cu", "title": "FCC" }
+  }}
+  Allowed types: "scc" | "bcc" | "fcc" | "nacl"
+  Shows atoms at correct positions with atoms-per-unit-cell label.
+  Use for: solid state, packing efficiency, coordination number, unit cell problems.
+
+  TEMPLATE "electrochemical_cell" — galvanic/Daniell cell diagram (Chemistry):
+  { "template": "electrochemical_cell", "params": {
+      "anode":   { "metal": "Zn", "electrolyte": "ZnSO₄" },
+      "cathode": { "metal": "Cu", "electrolyte": "CuSO₄" },
+      "emf": "1.10 V",
+      "labels": { "anode_rxn": "Zn → Zn²⁺ + 2e⁻", "cathode_rxn": "Cu²⁺ + 2e⁻ → Cu" }
+  }}
+  Use for: electrochemistry, EMF, cell notation, electrode reactions, standard electrode potential.
+
+  TEMPLATE "organic_structure" — 2D skeletal structure via SMILES (Chemistry):
+  { "template": "organic_structure", "params": {
+      "smiles": "c1ccccc1",
+      "label": "Benzene"
+  }}
+  Use IUPAC/standard SMILES notation. Examples:
+    Benzene: "c1ccccc1"  |  Ethanol: "CCO"  |  Acetic acid: "CC(=O)O"
+    Cyclohexane: "C1CCCCC1"  |  Aniline: "Nc1ccccc1"  |  Acetone: "CC(=O)C"
+    Glucose: "OC[C@@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"
+  Use for: IUPAC naming, functional groups, isomerism, organic reactions, structure identification.
 
   SET diagram to null for: pure algebra, number theory, probability, permutations, chemical equations without energy profile, kinematics without a geometric setup, abstract/definitional questions, multi-lens or multi-mirror combination problems.
 </format>

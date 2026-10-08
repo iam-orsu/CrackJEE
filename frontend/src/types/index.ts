@@ -10,7 +10,9 @@ export interface User {
 
 export interface DiagramTemplate {
   template: 'inclined_plane' | 'simple_circuit' | 'lens_mirror' | 'energy_profile' | 'coordinate_geometry'
-    | 'projectile_motion' | 'pulley_system' | 'wave_diagram' | 'capacitor_field' | 'pv_diagram';
+    | 'projectile_motion' | 'pulley_system' | 'wave_diagram' | 'capacitor_field' | 'pv_diagram'
+    | 'triangle' | 'circle_geometry' | 'conic_section' | 'argand_plane'
+    | 'molecular_geometry' | 'mo_diagram' | 'crystal_structure' | 'electrochemical_cell' | 'organic_structure';
   params: Record<string, unknown>;
 }
 
