@@ -104,7 +104,7 @@ function InclinedPlane({ p }: { p: any }) {
       <path d={`M ${arcBx},${arcBy} A ${AR},${AR} 0 0,0 ${arcSx},${arcSy}`}
         fill="none" stroke="#6366f1" strokeWidth="1.4" />
       <text x={bx2 - AR * 2.1} y={by - 7} fill="#4f46e5" fontSize="11" fontWeight="600">
-        {lbl.angle ?? `${angle}°`}
+        {latexToPlain(lbl.angle ?? `${angle}°`)}
       </text>
       <g transform={`translate(${bkx},${bky}) rotate(${rot})`}>
         <rect x="-18" y="-14" width="36" height="28" rx="3"
@@ -499,7 +499,7 @@ function EnergyProfile({ p }: { p: any }) {
       <line x1={eaX - 5} y1={reactY} x2={eaX + 5} y2={reactY} stroke="#374151" strokeWidth="1.2" />
       <line x1={eaX - 5} y1={peakY}  x2={eaX + 5} y2={peakY}  stroke="#374151" strokeWidth="1.2" />
       <text x={eaX - 16} y={(reactY + peakY) / 2} fill="#374151" fontSize="11"
-        textAnchor="middle" dominantBaseline="middle">{lbl.ea ?? 'Ea'}</text>
+        textAnchor="middle" dominantBaseline="middle">{latexToPlain(lbl.ea ?? 'Ea')}</text>
 
       {reactY !== prodY && (
         <>
@@ -507,7 +507,7 @@ function EnergyProfile({ p }: { p: any }) {
           <line x1={dhX - 5} y1={reactY} x2={dhX + 5} y2={reactY} stroke="#374151" strokeWidth="1.2" />
           <line x1={dhX - 5} y1={prodY}  x2={dhX + 5} y2={prodY}  stroke="#374151" strokeWidth="1.2" />
           <text x={dhX + 16} y={(reactY + prodY) / 2} fill="#374151" fontSize="11"
-            textAnchor="middle" dominantBaseline="middle">{lbl.delta_h ?? 'ΔH'}</text>
+            textAnchor="middle" dominantBaseline="middle">{latexToPlain(lbl.delta_h ?? 'ΔH')}</text>
         </>
       )}
     </svg>
@@ -551,7 +551,7 @@ function CoordGeometry({ p }: { p: any }) {
       {(p.lines ?? []).map((line: GLine, i: number) => (
         line.arrow === true ? (
           <Arr key={i} x1={sx(line.from[0])} y1={sy(line.from[1])}
-            x2={sx(line.to[0])} y2={sy(line.to[1])} color="#334155" label={line.label} />
+            x2={sx(line.to[0])} y2={sy(line.to[1])} color="#334155" label={line.label ? latexToPlain(line.label) : undefined} />
         ) : (
           <g key={i}>
             <line x1={sx(line.from[0])} y1={sy(line.from[1])}
@@ -561,7 +561,7 @@ function CoordGeometry({ p }: { p: any }) {
             {line.label && (
               <text x={(sx(line.from[0]) + sx(line.to[0])) / 2 + 8}
                 y={(sy(line.from[1]) + sy(line.to[1])) / 2 - 7}
-                fill="#334155" fontSize="12" fontWeight="600">{line.label}</text>
+                fill="#334155" fontSize="12" fontWeight="600">{latexToPlain(line.label)}</text>
             )}
           </g>
         )
@@ -572,7 +572,7 @@ function CoordGeometry({ p }: { p: any }) {
             fill="none" stroke="#6366f1" strokeWidth="1.5" />
           {c.label && (
             <text x={sx(c.cx) + c.r * (plotW / (xMax - xMin)) + 5} y={sy(c.cy)}
-              fill="#6366f1" fontSize="12" fontWeight="600" dominantBaseline="middle">{c.label}</text>
+              fill="#6366f1" fontSize="12" fontWeight="600" dominantBaseline="middle">{latexToPlain(c.label)}</text>
           )}
         </g>
       ))}
@@ -581,7 +581,7 @@ function CoordGeometry({ p }: { p: any }) {
           <circle cx={sx(pt.x)} cy={sy(pt.y)} r="4.5" fill="#2563eb" stroke="white" strokeWidth="1.5" />
           {pt.label && (
             <text x={sx(pt.x) + 9} y={sy(pt.y) - 7}
-              fill="#2563eb" fontSize="12" fontWeight="600">{pt.label}</text>
+              fill="#2563eb" fontSize="12" fontWeight="600">{latexToPlain(pt.label)}</text>
           )}
         </g>
       ))}
@@ -799,7 +799,7 @@ function WaveDiagram({ p }: { p: any }) {
               stroke="#16a34a" strokeWidth="1" strokeDasharray="3,2" />
             <text x={antinodeXs[0]! + 14} y={axY - A / 2}
               fill="#16a34a" fontSize="11" fontWeight="600" dominantBaseline="middle">
-              {lbl.amplitude}
+              {latexToPlain(lbl.amplitude)}
             </text>
           </>
         )}
@@ -810,7 +810,7 @@ function WaveDiagram({ p }: { p: any }) {
             <polygon points={`${nodeXs[0]},${axY+28} ${nodeXs[0]!+8},${axY+24} ${nodeXs[0]!+8},${axY+32}`} fill="#374151" />
             <polygon points={`${nodeXs[2]},${axY+28} ${nodeXs[2]!-8},${axY+24} ${nodeXs[2]!-8},${axY+32}`} fill="#374151" />
             <text x={(nodeXs[0]! + nodeXs[2]!) / 2} y={axY + 40}
-              fill="#374151" fontSize="11" fontWeight="600" textAnchor="middle">{lbl.wavelength}</text>
+              fill="#374151" fontSize="11" fontWeight="600" textAnchor="middle">{latexToPlain(lbl.wavelength)}</text>
           </>
         )}
       </svg>
@@ -838,7 +838,7 @@ function WaveDiagram({ p }: { p: any }) {
       <polygon points={`${firstCrestX+20},${axY} ${firstCrestX+16},${axY-8} ${firstCrestX+24},${axY-8}`} fill="#16a34a" />
       <text x={firstCrestX + 32} y={(axY * 2 - A) / 2}
         fill="#16a34a" fontSize="11" fontWeight="600" dominantBaseline="middle">
-        {lbl.amplitude ?? 'A'}
+        {latexToPlain(lbl.amplitude ?? 'A')}
       </text>
 
       {/* Wavelength bracket */}
@@ -847,13 +847,13 @@ function WaveDiagram({ p }: { p: any }) {
       <polygon points={`${x0+λPx},${axY+30} ${x0+λPx-8},${axY+26} ${x0+λPx-8},${axY+34}`} fill="#374151" />
       <text x={x0 + λPx / 2} y={axY + 42}
         fill="#374151" fontSize="11" fontWeight="600" textAnchor="middle">
-        {lbl.wavelength ?? 'λ'}
+        {latexToPlain(lbl.wavelength ?? 'λ')}
       </text>
 
       {/* Wave velocity label */}
       {lbl.velocity && (
         <Arr x1={x0 + λPx * 0.6} y1={axY - 10} x2={x0 + λPx * 0.6 + 32} y2={axY - 10}
-          color="#dc2626" label={lbl.velocity} lx={x0 + λPx * 0.6 + 48} ly={axY - 10} />
+          color="#dc2626" label={lbl.velocity ? latexToPlain(lbl.velocity) : undefined} lx={x0 + λPx * 0.6 + 48} ly={axY - 10} />
       )}
     </svg>
   );
@@ -888,7 +888,7 @@ function CapacitorField({ p }: { p: any }) {
         );
       })}
       <text x={leftX - 30} y={plateCY + 5} fill="#2563eb" fontSize="12" fontWeight="700" textAnchor="middle">
-        {lbl.charge_left ?? '+Q'}
+        {latexToPlain(lbl.charge_left ?? '+Q')}
       </text>
 
       {/* Right plate (−) */}
@@ -901,7 +901,7 @@ function CapacitorField({ p }: { p: any }) {
         );
       })}
       <text x={rightX + 30} y={plateCY + 5} fill="#dc2626" fontSize="12" fontWeight="700" textAnchor="middle">
-        {lbl.charge_right ?? '−Q'}
+        {latexToPlain(lbl.charge_right ?? '−Q')}
       </text>
 
       {/* Electric field arrows */}
@@ -912,7 +912,7 @@ function CapacitorField({ p }: { p: any }) {
       {/* E label above field */}
       <text x={(leftX + rightX) / 2} y={plateCY - plateH / 2 - 12}
         fill="#475569" fontSize="12" fontWeight="600" textAnchor="middle">
-        {lbl.field ?? 'E →'}
+        {latexToPlain(lbl.field ?? 'E →')}
       </text>
 
       {/* Plate separation d */}
@@ -923,7 +923,7 @@ function CapacitorField({ p }: { p: any }) {
           <polygon points={`${rightX},${plateBot+16} ${rightX-8},${plateBot+12} ${rightX-8},${plateBot+20}`} fill="#374151" />
           <text x={(leftX + rightX) / 2} y={plateBot + 30}
             fill="#374151" fontSize="11" fontWeight="600" textAnchor="middle">
-            {lbl.separation}
+            {latexToPlain(lbl.separation)}
           </text>
         </>
       )}
@@ -941,7 +941,7 @@ function CapacitorField({ p }: { p: any }) {
             stroke="#1e293b" strokeWidth="1.5" />
           {lbl.voltage && (
             <text x={(leftX + rightX) / 2} y={plateBot + 70}
-              fill="#374151" fontSize="11" textAnchor="middle">{lbl.voltage}</text>
+              fill="#374151" fontSize="11" textAnchor="middle">{latexToPlain(lbl.voltage)}</text>
           )}
         </g>
       )}
@@ -1018,10 +1018,10 @@ function PvDiagram({ p }: { p: any }) {
 
         {/* Labels */}
         <text x={165} y={68} fill="#dc2626" fontSize="10" textAnchor="middle">
-          {lbl.t_hot ?? 'T₁ (hot)'}
+          {latexToPlain(lbl.t_hot ?? 'T₁ (hot)')}
         </text>
         <text x={210} y={165} fill="#2563eb" fontSize="10" textAnchor="middle">
-          {lbl.t_cold ?? 'T₂ (cold)'}
+          {latexToPlain(lbl.t_cold ?? 'T₂ (cold)')}
         </text>
         <text x={295} y={122} fill="#475569" fontSize="10" textAnchor="start">adiabatic</text>
       </svg>
@@ -1064,7 +1064,7 @@ function PvDiagram({ p }: { p: any }) {
       {lbl.process && (
         <text x={(proc.A[0] + proc.B[0]) / 2 + 22} y={(proc.A[1] + proc.B[1]) / 2 - 8}
           fill={proc.color} fontSize="11" fontWeight="600" textAnchor="middle">
-          {lbl.process}
+          {latexToPlain(lbl.process)}
         </text>
       )}
 
@@ -1149,15 +1149,15 @@ function TriangleDiagram({ p }: { p: any }) {
       <path d={arcD(A,B,C)} fill="none" stroke="#6366f1" strokeWidth="1.2"/>
       <path d={arcD(B,A,C)} fill="none" stroke="#6366f1" strokeWidth="1.2"/>
       <path d={arcD(C,A,B)} fill="none" stroke="#6366f1" strokeWidth="1.2"/>
-      <text x={alx} y={aly} fill="#4f46e5" fontSize="11" fontWeight="600" textAnchor="middle" dominantBaseline="middle">{lbl.A ?? `${Math.round(Adeg)}°`}</text>
-      <text x={blx} y={bly} fill="#4f46e5" fontSize="11" fontWeight="600" textAnchor="middle" dominantBaseline="middle">{lbl.B ?? `${Math.round(Bdeg)}°`}</text>
-      <text x={clx} y={cly} fill="#4f46e5" fontSize="11" fontWeight="600" textAnchor="middle" dominantBaseline="middle">{lbl.C ?? `${Math.round(Cdeg)}°`}</text>
+      <text x={alx} y={aly} fill="#4f46e5" fontSize="11" fontWeight="600" textAnchor="middle" dominantBaseline="middle">{latexToPlain(lbl.A ?? `${Math.round(Adeg)}°`)}</text>
+      <text x={blx} y={bly} fill="#4f46e5" fontSize="11" fontWeight="600" textAnchor="middle" dominantBaseline="middle">{latexToPlain(lbl.B ?? `${Math.round(Bdeg)}°`)}</text>
+      <text x={clx} y={cly} fill="#4f46e5" fontSize="11" fontWeight="600" textAnchor="middle" dominantBaseline="middle">{latexToPlain(lbl.C ?? `${Math.round(Cdeg)}°`)}</text>
       <text x={Ax} y={Ay-14} fill="#374151" fontSize="13" fontWeight="700" textAnchor="middle">{lbl.vertex_A ?? 'A'}</text>
       <text x={Bx-16} y={By+6} fill="#374151" fontSize="13" fontWeight="700" textAnchor="middle">{lbl.vertex_B ?? 'B'}</text>
       <text x={Cx+16} y={Cy+6} fill="#374151" fontSize="13" fontWeight="700" textAnchor="middle">{lbl.vertex_C ?? 'C'}</text>
-      {lbl.a && <text x={(Bx+Cx)/2} y={(By+Cy)/2+16} fill="#374151" fontSize="12" textAnchor="middle">{lbl.a}</text>}
-      {lbl.b && <text x={(Ax+Cx)/2+12} y={(Ay+Cy)/2} fill="#374151" fontSize="12" textAnchor="start">{lbl.b}</text>}
-      {lbl.c && <text x={(Ax+Bx)/2-12} y={(Ay+By)/2} fill="#374151" fontSize="12" textAnchor="end">{lbl.c}</text>}
+      {lbl.a && <text x={(Bx+Cx)/2} y={(By+Cy)/2+16} fill="#374151" fontSize="12" textAnchor="middle">{latexToPlain(lbl.a)}</text>}
+      {lbl.b && <text x={(Ax+Cx)/2+12} y={(Ay+Cy)/2} fill="#374151" fontSize="12" textAnchor="start">{latexToPlain(lbl.b)}</text>}
+      {lbl.c && <text x={(Ax+Bx)/2-12} y={(Ay+By)/2} fill="#374151" fontSize="12" textAnchor="end">{latexToPlain(lbl.c)}</text>}
       {p.show_circumcircle && <circle cx={ccX} cy={ccY} r="3" fill="#dc2626"/>}
       {p.show_incircle && <circle cx={Ix} cy={Iy} r="3" fill="#16a34a"/>}
     </svg>
@@ -1215,11 +1215,11 @@ function CircleGeom({ p }: { p: any }) {
         <circle cx={px} cy={py} r="4.5" fill="#dc2626"/>
         <circle cx={t1x} cy={t1y} r="3.5" fill="#6366f1"/>
         <circle cx={t2x} cy={t2y} r="3.5" fill="#6366f1"/>
-        {lbl.point && <text x={px+12} y={py+5} fill="#dc2626" fontSize="12" fontWeight="600">{lbl.point}</text>}
-        {lbl.center && <text x={cx1+10} y={cy1-8} fill="#6366f1" fontSize="12" fontWeight="600">{lbl.center}</text>}
+        {lbl.point && <text x={px+12} y={py+5} fill="#dc2626" fontSize="12" fontWeight="600">{latexToPlain(lbl.point)}</text>}
+        {lbl.center && <text x={cx1+10} y={cy1-8} fill="#6366f1" fontSize="12" fontWeight="600">{latexToPlain(lbl.center)}</text>}
         {lbl.radius && <><line x1={cx1} y1={cy1} x2={t1x} y2={t1y} stroke="#6366f1" strokeWidth="1" strokeDasharray="3,2"/>
-          <text x={(cx1+t1x)/2-12} y={(cy1+t1y)/2-6} fill="#6366f1" fontSize="11">{lbl.radius}</text></>}
-        {lbl.tangent && <text x={(px+t1x)/2-14} y={(py+t1y)/2-6} fill="#dc2626" fontSize="11">{lbl.tangent}</text>}
+          <text x={(cx1+t1x)/2-12} y={(cy1+t1y)/2-6} fill="#6366f1" fontSize="11">{latexToPlain(lbl.radius)}</text></>}
+        {lbl.tangent && <text x={(px+t1x)/2-14} y={(py+t1y)/2-6} fill="#dc2626" fontSize="11">{latexToPlain(lbl.tangent)}</text>}
       </svg>
     );
   }
@@ -1230,17 +1230,17 @@ function CircleGeom({ p }: { p: any }) {
       <circle cx={cx1} cy={cy1} r={r1} fill="rgba(99,102,241,0.06)" stroke="#6366f1" strokeWidth="1.8"/>
       <circle cx={cx1} cy={cy1} r="3" fill="#6366f1"/>
       {lbl.radius && (<><line x1={cx1} y1={cy1} x2={cx1+r1} y2={cy1} stroke="#6366f1" strokeWidth="1" strokeDasharray="3,2"/>
-        <text x={cx1+r1/2} y={cy1-9} fill="#6366f1" fontSize="11" textAnchor="middle">{lbl.radius}</text></>)}
-      {lbl.center && <text x={cx1+8} y={cy1-6} fill="#6366f1" fontSize="12" fontWeight="600">{lbl.center}</text>}
+        <text x={cx1+r1/2} y={cy1-9} fill="#6366f1" fontSize="11" textAnchor="middle">{latexToPlain(lbl.radius)}</text></>)}
+      {lbl.center && <text x={cx1+8} y={cy1-6} fill="#6366f1" fontSize="12" fontWeight="600">{latexToPlain(lbl.center)}</text>}
       {p.chord && (
         <><line x1={+(p.chord.x1??cx1-r1)} y1={+(p.chord.y1??cy1)} x2={+(p.chord.x2??cx1+r1)} y2={+(p.chord.y2??cy1)} stroke="#374151" strokeWidth="1.5"/>
-          {p.chord.label && <text x={(+(p.chord.x1??cx1-r1) + +(p.chord.x2??cx1+r1))/2} y={(+(p.chord.y1??cy1) + +(p.chord.y2??cy1))/2-8} fill="#374151" fontSize="11" textAnchor="middle">{p.chord.label}</text>}
+          {p.chord.label && <text x={(+(p.chord.x1??cx1-r1) + +(p.chord.x2??cx1+r1))/2} y={(+(p.chord.y1??cy1) + +(p.chord.y2??cy1))/2-8} fill="#374151" fontSize="11" textAnchor="middle">{latexToPlain(p.chord.label)}</text>}
         </>
       )}
       {(p.points ?? []).map((pt: {x:number;y:number;label?:string}, i: number) => (
         <g key={i}>
           <circle cx={+pt.x} cy={+pt.y} r="4.5" fill="#2563eb" stroke="white" strokeWidth="1.5"/>
-          {pt.label && <text x={+pt.x+10} y={+pt.y-5} fill="#2563eb" fontSize="12" fontWeight="600">{pt.label}</text>}
+          {pt.label && <text x={+pt.x+10} y={+pt.y-5} fill="#2563eb" fontSize="12" fontWeight="600">{latexToPlain(pt.label)}</text>}
         </g>
       ))}
     </svg>
@@ -1344,7 +1344,7 @@ function ConicSection({ p }: { p: any }) {
     <svg viewBox={`0 0 ${VW} ${VH}`} style={{width:'100%',height:'auto',display:'block'}}>
       {p.show_directrix !== false && (<>
         <line x1={dirX} y1={22} x2={dirX} y2={VH-22} stroke="#dc2626" strokeWidth="1.2" strokeDasharray="5,3"/>
-        <text x={dirX-6} y={34} fill="#dc2626" fontSize="10" textAnchor="end">{lbl.directrix ?? 'x = −a'}</text>
+        <text x={dirX-6} y={34} fill="#dc2626" fontSize="10" textAnchor="end">{latexToPlain(lbl.directrix ?? 'x = −a')}</text>
       </>)}
       <Arr x1={28} y1={oy} x2={VW-12} y2={oy} color="#94a3b8" sw={1.5}/>
       <Arr x1={ox} y1={VH-16} x2={ox} y2={14} color="#94a3b8" sw={1.5}/>
@@ -1354,7 +1354,7 @@ function ConicSection({ p }: { p: any }) {
       <path d={`M${paraPts[0]} L${paraPts.slice(1).join(' L')}`} fill="none" stroke="#6366f1" strokeWidth="2"/>
       {p.show_focus !== false && (<>
         <circle cx={focX} cy={oy} r="4" fill="#2563eb"/>
-        <text x={focX+8} y={oy-8} fill="#2563eb" fontSize="11" fontWeight="600">{lbl.focus ?? 'F(a,0)'}</text>
+        <text x={focX+8} y={oy-8} fill="#2563eb" fontSize="11" fontWeight="600">{latexToPlain(lbl.focus ?? 'F(a,0)')}</text>
       </>)}
       {lbl.equation && <text x={VW-16} y={86} fill="#6366f1" fontSize="12" fontWeight="600" textAnchor="end">{latexToPlain(lbl.equation)}</text>}
     </svg>
@@ -1406,7 +1406,7 @@ function ArgandPlane({ p }: { p: any }) {
             <line x1={sx} y1={sy} x2={sx} y2={oy} stroke="#e2e8f0" strokeWidth="1" strokeDasharray="3,2"/>
             <line x1={sx} y1={sy} x2={ox} y2={sy} stroke="#e2e8f0" strokeWidth="1" strokeDasharray="3,2"/>
             <circle cx={sx} cy={sy} r="4.5" fill="#2563eb" stroke="white" strokeWidth="1.5"/>
-            {pt.label && <text x={sx+(pt.re>=0?10:-10)} y={sy+(pt.im>=0?-9:14)} fill="#2563eb" fontSize="12" fontWeight="600" textAnchor={pt.re>=0?'start':'end'}>{pt.label}</text>}
+            {pt.label && <text x={sx+(pt.re>=0?10:-10)} y={sy+(pt.im>=0?-9:14)} fill="#2563eb" fontSize="12" fontWeight="600" textAnchor={pt.re>=0?'start':'end'}>{latexToPlain(pt.label)}</text>}
           </g>
         );
       })}
@@ -1454,7 +1454,7 @@ function MolecGeometry({ p }: { p: any }) {
     return <svg viewBox={`0 0 ${VW} ${VH}`} style={{width:'100%',height:'auto',display:'block'}}>
       {solidLine(cx,cy,cx-L,cy)}{solidLine(cx,cy,cx+L,cy)}
       {ligAtom(cx-L,cy,0)}{ligAtom(cx+L,cy,1)}{centralAtomEl}
-      {angleLbl && <text x={cx} y={cy-28} fill="#6366f1" fontSize="12" textAnchor="middle" fontWeight="600">{angleLbl}</text>}
+      {angleLbl && <text x={cx} y={cy-28} fill="#6366f1" fontSize="12" textAnchor="middle" fontWeight="600">{latexToPlain(angleLbl)}</text>}
     </svg>;
   }
   if (shape === 'bent') {
@@ -1472,7 +1472,7 @@ function MolecGeometry({ p }: { p: any }) {
         const axE = +(cx + arcR2*Math.cos(pa1)).toFixed(1), ayE = +(cy + arcR2*Math.sin(pa1)).toFixed(1);
         return <path d={`M ${axS},${ayS} A ${arcR2},${arcR2} 0 0,1 ${axE},${ayE}`} fill="none" stroke="#6366f1" strokeWidth="1.2"/>;
       })()}
-      <text x={cx} y={cy+44} fill="#6366f1" fontSize="11" textAnchor="middle" fontWeight="600">{angleLbl ?? `${ang}°`}</text>
+      <text x={cx} y={cy+44} fill="#6366f1" fontSize="11" textAnchor="middle" fontWeight="600">{latexToPlain(angleLbl ?? `${ang}°`)}</text>
     </svg>;
   }
   if (shape === 'trigonal_planar') {
@@ -1480,7 +1480,7 @@ function MolecGeometry({ p }: { p: any }) {
     return <svg viewBox={`0 0 ${VW} ${VH}`} style={{width:'100%',height:'auto',display:'block'}}>
       {pos.map((q) => solidLine(cx,cy,q[0]!,q[1]!))}
       {pos.map((q,i) => ligAtom(q[0]!,q[1]!,i))}{centralAtomEl}
-      {angleLbl && <text x={cx+BL*0.6} y={cy-18} fill="#6366f1" fontSize="11" fontWeight="600">{angleLbl}</text>}
+      {angleLbl && <text x={cx+BL*0.6} y={cy-18} fill="#6366f1" fontSize="11" fontWeight="600">{latexToPlain(angleLbl)}</text>}
     </svg>;
   }
   if (shape === 'octahedral') {
@@ -1491,7 +1491,7 @@ function MolecGeometry({ p }: { p: any }) {
       {wedge(cx,cy,fr[0]!,fr[1]!)}{dashed(cx,cy,bk[0]!,bk[1]!)}
       {pos.map((q,i) => ligAtom(q[0]!,q[1]!,i))}
       {ligAtom(fr[0]!,fr[1]!,4)}{ligAtom(bk[0]!,bk[1]!,5)}{centralAtomEl}
-      {angleLbl && <text x={cx+BL+24} y={cy+4} fill="#6366f1" fontSize="11" fontWeight="600" dominantBaseline="middle">{angleLbl}</text>}
+      {angleLbl && <text x={cx+BL+24} y={cy+4} fill="#6366f1" fontSize="11" fontWeight="600" dominantBaseline="middle">{latexToPlain(angleLbl)}</text>}
     </svg>;
   }
   // tetrahedral (default) and trigonal_bipyramidal
@@ -1503,7 +1503,7 @@ function MolecGeometry({ p }: { p: any }) {
       {solidLine(cx,cy,axT[0]!,axT[1]!)}{solidLine(cx,cy,axB[0]!,axB[1]!)}
       {eqPos.map((q,i) => ligAtom(q[0]!,q[1]!,i))}
       {ligAtom(axT[0]!,axT[1]!,3)}{ligAtom(axB[0]!,axB[1]!,4)}{centralAtomEl}
-      {angleLbl && <text x={cx+BL+18} y={cy+30} fill="#6366f1" fontSize="11" fontWeight="600">{angleLbl}</text>}
+      {angleLbl && <text x={cx+BL+18} y={cy+30} fill="#6366f1" fontSize="11" fontWeight="600">{latexToPlain(angleLbl)}</text>}
     </svg>;
   }
   // tetrahedral
@@ -1512,7 +1512,7 @@ function MolecGeometry({ p }: { p: any }) {
     {solidLine(cx,cy,left[0]!,left[1]!)}{solidLine(cx,cy,right[0]!,right[1]!)}
     {wedge(cx,cy,bot[0]!,bot[1]!)}{dashed(cx,cy,top[0]!,top[1]!)}
     {ligAtom(left[0]!,left[1]!,0)}{ligAtom(right[0]!,right[1]!,1)}{ligAtom(bot[0]!,bot[1]!,2)}{ligAtom(top[0]!,top[1]!,3)}{centralAtomEl}
-    {angleLbl && <text x={cx+52} y={cy+30} fill="#6366f1" fontSize="11" fontWeight="600">{angleLbl ?? '109.5°'}</text>}
+    {angleLbl && <text x={cx+52} y={cy+30} fill="#6366f1" fontSize="11" fontWeight="600">{latexToPlain(angleLbl ?? '109.5°')}</text>}
   </svg>;
 }
 
@@ -1733,7 +1733,7 @@ function ElectrochemCell({ p }: { p: any }) {
       <text x={aX} y={lbY+lbH-10} fill="white" fontSize="10" fontWeight="700" textAnchor="middle" stroke="#374151" strokeWidth="3" paintOrder="stroke">{anodeMetal}</text>
       <text x={lbX+lbW/2} y={lbY+62} fill="#1d4ed8" fontSize="11" textAnchor="middle" fontWeight="600">{anodeElec}</text>
       <text x={lbX+lbW/2} y={lbY+78} fill="#1d4ed8" fontSize="10" textAnchor="middle">(aq)</text>
-      {lbl.anode_rxn && <text x={lbX+lbW/2} y={lbY+lbH+16} fill="#374151" fontSize="9" textAnchor="middle">{lbl.anode_rxn}</text>}
+      {lbl.anode_rxn && <text x={lbX+lbW/2} y={lbY+lbH+16} fill="#374151" fontSize="9" textAnchor="middle">{latexToPlain(lbl.anode_rxn)}</text>}
       {!lbl.anode_rxn && <text x={lbX+lbW/2} y={lbY+lbH+16} fill="#94a3b8" fontSize="9" textAnchor="middle">oxidation</text>}
       {/* Right beaker (cathode) */}
       <rect x={rbX} y={rbY} width={rbW} height={rbH} fill="rgba(220,252,231,0.35)" stroke="#374151" strokeWidth="1.8" rx="2"/>
@@ -1742,7 +1742,7 @@ function ElectrochemCell({ p }: { p: any }) {
       <text x={cX} y={rbY+rbH-10} fill="white" fontSize="10" fontWeight="700" textAnchor="middle" stroke="#374151" strokeWidth="3" paintOrder="stroke">{cathodeMetal}</text>
       <text x={rbX+rbW/2} y={rbY+62} fill="#15803d" fontSize="11" textAnchor="middle" fontWeight="600">{cathodeElec}</text>
       <text x={rbX+rbW/2} y={rbY+78} fill="#15803d" fontSize="10" textAnchor="middle">(aq)</text>
-      {lbl.cathode_rxn && <text x={rbX+rbW/2} y={rbY+rbH+16} fill="#374151" fontSize="9" textAnchor="middle">{lbl.cathode_rxn}</text>}
+      {lbl.cathode_rxn && <text x={rbX+rbW/2} y={rbY+rbH+16} fill="#374151" fontSize="9" textAnchor="middle">{latexToPlain(lbl.cathode_rxn)}</text>}
       {!lbl.cathode_rxn && <text x={rbX+rbW/2} y={rbY+rbH+16} fill="#94a3b8" fontSize="9" textAnchor="middle">reduction</text>}
     </svg>
   );
