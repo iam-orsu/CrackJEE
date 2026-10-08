@@ -364,12 +364,16 @@ function LensMirror({ p }: { p: any }) {
       <Arr x1={objX} y1={axisY} x2={objX} y2={objTop} color="#2563eb"
         label={lbl.object ?? 'O'} lx={objX - 14} ly={objTop - 4} />
 
-      {/* u distance label */}
+      {/* u distance label — sits below axis on the left side */}
       {objX > 22 && objX < lensX - 5 && (
         <g>
-          <line x1={objX} y1={axisY + 3} x2={objX} y2={axisY + 20}
-            stroke="#2563eb" strokeWidth="1" strokeDasharray="3,2" opacity="0.55" />
-          <text x={(objX + lensX) / 2} y={axisY + 30}
+          <line x1={objX} y1={axisY + 4} x2={objX} y2={axisY + 22}
+            stroke="#2563eb" strokeWidth="1" strokeDasharray="3,2" opacity="0.5" />
+          <line x1={lensX} y1={axisY + 4} x2={lensX} y2={axisY + 22}
+            stroke="#2563eb" strokeWidth="1" strokeDasharray="3,2" opacity="0.3" />
+          <line x1={objX} y1={axisY + 22} x2={lensX} y2={axisY + 22}
+            stroke="#2563eb" strokeWidth="1" opacity="0.35" />
+          <text x={(objX + lensX) / 2} y={axisY + 34}
             fill="#2563eb" fontSize="10" textAnchor="middle">{`u = ${uVal} cm`}</text>
         </g>
       )}
@@ -389,20 +393,28 @@ function LensMirror({ p }: { p: any }) {
           label={lbl.image ?? 'I'} lx={imgX + 13} ly={imgTop} />
       )}
 
-      {/* v distance label */}
+      {/* v distance label — sits below axis on the right (or virtual: left) side */}
       {!imgVirtual && imgX > lensX + 5 && imgX < 475 && (
         <g>
-          <line x1={imgX} y1={axisY + 3} x2={imgX} y2={axisY + 20}
-            stroke="#dc2626" strokeWidth="1" strokeDasharray="3,2" opacity="0.55" />
-          <text x={(lensX + imgX) / 2} y={axisY + 30}
+          <line x1={imgX}  y1={axisY + 4} x2={imgX}  y2={axisY + 44}
+            stroke="#dc2626" strokeWidth="1" strokeDasharray="3,2" opacity="0.5" />
+          <line x1={lensX} y1={axisY + 4} x2={lensX} y2={axisY + 44}
+            stroke="#dc2626" strokeWidth="1" strokeDasharray="3,2" opacity="0.3" />
+          <line x1={lensX} y1={axisY + 44} x2={imgX} y2={axisY + 44}
+            stroke="#dc2626" strokeWidth="1" opacity="0.35" />
+          <text x={(lensX + imgX) / 2} y={axisY + 56}
             fill="#dc2626" fontSize="10" textAnchor="middle">{`v = ${vAbs} cm`}</text>
         </g>
       )}
       {imgVirtual && imgX > 22 && imgX < lensX - 5 && (
         <g>
-          <line x1={imgX} y1={axisY + 3} x2={imgX} y2={axisY + 20}
-            stroke="#dc2626" strokeWidth="1" strokeDasharray="3,2" opacity="0.55" />
-          <text x={(imgX + lensX) / 2} y={axisY + 30}
+          <line x1={imgX}  y1={axisY + 4} x2={imgX}  y2={axisY + 44}
+            stroke="#dc2626" strokeWidth="1" strokeDasharray="3,2" opacity="0.5" />
+          <line x1={lensX} y1={axisY + 4} x2={lensX} y2={axisY + 44}
+            stroke="#dc2626" strokeWidth="1" strokeDasharray="3,2" opacity="0.3" />
+          <line x1={imgX}  y1={axisY + 44} x2={lensX} y2={axisY + 44}
+            stroke="#dc2626" strokeWidth="1" opacity="0.35" />
+          <text x={(imgX + lensX) / 2} y={axisY + 56}
             fill="#dc2626" fontSize="10" textAnchor="middle">{`v = −${vAbs} cm`}</text>
         </g>
       )}
@@ -574,7 +586,7 @@ function ProjectileMotion({ p }: { p: any }) {
   const arcEndY = yg - Math.sin(θ) * AR;
 
   return (
-    <svg viewBox="0 0 420 210" style={{ width: '100%', height: 'auto', display: 'block' }}>
+    <svg viewBox="0 0 420 228" style={{ width: '100%', height: 'auto', display: 'block' }}>
       {/* Ground */}
       <line x1={x0 - 14} y1={yg} x2={xEnd + 14} y2={yg} stroke="#d1d5db" strokeWidth="1.5" />
       {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
@@ -637,64 +649,69 @@ function ProjectileMotion({ p }: { p: any }) {
 /* ── TEMPLATE 7: Pulley System ───────────────────────────────── */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function PulleySystem({ p }: { p: any }) {
-  const topology = (p.type ?? 'atwood').toLowerCase();
   const masses: { value?: string }[] = p.masses ?? [{ value: 'm₁' }, { value: 'm₂' }];
   const lbl = p.labels ?? {};
 
-  const px = 210, py = 52, pr = 22;
-  const leftX = px - 72, rightX = px + 72;
-  const ropeTopY = py + pr;
+  // Pulley at center-top; ropes hang from the leftmost/rightmost tangent points of the circle
+  // so vertical ropes + a clean semicircular arc over the top.
+  const px = 210, py = 56, pr = 26;
+  const leftX = px - pr;   // 184 — left tangent point x
+  const rightX = px + pr;  // 236 — right tangent point x
+  const ropeY = py;         // ropes attach at equator of pulley
 
-  // Different heights for the two masses to show they're accelerating
+  // Different heights: m1 lower (heavier → goes down), m2 higher (lighter → goes up)
   const m1Y = 158, m2Y = 118;
+  const boxW = 40, boxH = 28;
 
   return (
-    <svg viewBox="0 0 420 215" style={{ width: '100%', height: 'auto', display: 'block' }}>
+    <svg viewBox="0 0 420 222" style={{ width: '100%', height: 'auto', display: 'block' }}>
       {/* Ceiling support */}
-      <line x1={px - 28} y1={30} x2={px + 28} y2={30} stroke="#94a3b8" strokeWidth="2.5" />
+      <line x1={px - 30} y1={28} x2={px + 30} y2={28} stroke="#94a3b8" strokeWidth="2.5" />
       {[-2, -1, 0, 1, 2].map((i) => (
-        <line key={i} x1={px + i * 12} y1={30} x2={px + i * 12 - 8} y2={20} stroke="#94a3b8" strokeWidth="1" />
+        <line key={i} x1={px + i * 12} y1={28} x2={px + i * 12 - 8} y2={18} stroke="#94a3b8" strokeWidth="1" />
       ))}
       {/* Pulley axle */}
-      <line x1={px} y1={30} x2={px} y2={py} stroke="#94a3b8" strokeWidth="2" />
+      <line x1={px} y1={28} x2={px} y2={py - pr} stroke="#94a3b8" strokeWidth="2" />
       {/* Pulley wheel */}
       <circle cx={px} cy={py} r={pr} fill="white" stroke="#475569" strokeWidth="2" />
-      <circle cx={px} cy={py} r={pr * 0.32} fill="#94a3b8" />
+      <circle cx={px} cy={py} r={pr * 0.28} fill="#94a3b8" />
 
-      {/* Ropes */}
-      <path d={`M ${leftX},${ropeTopY} A ${pr},${pr} 0 0,1 ${rightX},${ropeTopY}`}
+      {/* Rope: left vertical → arc over top → right vertical */}
+      {/* Arc from left tangent (184,56) over the top to right tangent (236,56) — perfect semicircle */}
+      <path d={`M ${leftX},${ropeY} A ${pr},${pr} 0 0,0 ${rightX},${ropeY}`}
         fill="none" stroke="#374151" strokeWidth="1.8" />
-      <line x1={leftX} y1={ropeTopY} x2={leftX} y2={m1Y - 18} stroke="#374151" strokeWidth="1.8" />
-      <line x1={rightX} y1={ropeTopY} x2={rightX} y2={m2Y - 18} stroke="#374151" strokeWidth="1.8" />
+      <line x1={leftX}  y1={ropeY} x2={leftX}  y2={m1Y - boxH / 2} stroke="#374151" strokeWidth="1.8" />
+      <line x1={rightX} y1={ropeY} x2={rightX} y2={m2Y - boxH / 2} stroke="#374151" strokeWidth="1.8" />
 
       {/* Mass 1 (left, lower = heavier) */}
-      <rect x={leftX - 24} y={m1Y - 18} width="48" height="30" rx="3"
+      <rect x={leftX  - boxW / 2} y={m1Y - boxH / 2} width={boxW} height={boxH} rx="3"
         fill="#dbeafe" stroke="#2563eb" strokeWidth="1.5" />
-      <text x={leftX} y={m1Y} textAnchor="middle" fill="#1e40af" fontSize="12" fontWeight="600">
+      <text x={leftX} y={m1Y + 5} textAnchor="middle" fill="#1e40af" fontSize="12" fontWeight="600">
         {masses[0]?.value ?? 'm₁'}
       </text>
 
       {/* Mass 2 (right, higher = lighter) */}
-      <rect x={rightX - 24} y={m2Y - 18} width="48" height="30" rx="3"
+      <rect x={rightX - boxW / 2} y={m2Y - boxH / 2} width={boxW} height={boxH} rx="3"
         fill="#fce7f3" stroke="#db2777" strokeWidth="1.5" />
-      <text x={rightX} y={m2Y} textAnchor="middle" fill="#9d174d" fontSize="12" fontWeight="600">
+      <text x={rightX} y={m2Y + 5} textAnchor="middle" fill="#9d174d" fontSize="12" fontWeight="600">
         {masses[1]?.value ?? 'm₂'}
       </text>
 
-      {/* Tension labels */}
+      {/* Tension labels on rope segments */}
       {lbl.tension && (
         <>
-          <text x={leftX - 16} y={(ropeTopY + m1Y - 18) / 2} fill="#374151" fontSize="11"
+          <text x={leftX  - 14} y={(ropeY + m1Y - boxH / 2) / 2} fill="#374151" fontSize="11"
             textAnchor="end" dominantBaseline="middle">{lbl.tension}</text>
-          <text x={rightX + 16} y={(ropeTopY + m2Y - 18) / 2} fill="#374151" fontSize="11"
+          <text x={rightX + 14} y={(ropeY + m2Y - boxH / 2) / 2} fill="#374151" fontSize="11"
             textAnchor="start" dominantBaseline="middle">{lbl.tension}</text>
         </>
       )}
 
-      {/* Velocity / acceleration arrows */}
-      <Arr x1={leftX} y1={m1Y + 14} x2={leftX} y2={m1Y + 38} color="#dc2626"
-        label={lbl.accel ?? 'a'} lx={leftX + 18} ly={m1Y + 36} sw={1.5} />
-      <Arr x1={rightX} y1={m2Y + 14} x2={rightX} y2={m2Y - 14} color="#16a34a" sw={1.5} />
+      {/* Acceleration arrows: m1 downward (below box), m2 upward (above box) */}
+      <Arr x1={leftX}  y1={m1Y + boxH / 2}      x2={leftX}  y2={m1Y + boxH / 2 + 28}
+        color="#dc2626" label={lbl.accel ?? 'a'} lx={leftX + 18} ly={m1Y + boxH / 2 + 24} sw={1.5} />
+      <Arr x1={rightX} y1={m2Y - boxH / 2}      x2={rightX} y2={m2Y - boxH / 2 - 28}
+        color="#16a34a" sw={1.5} />
     </svg>
   );
 }
@@ -780,9 +797,9 @@ function WaveDiagram({ p }: { p: any }) {
   return (
     <svg viewBox="0 0 430 210" style={{ width: '100%', height: 'auto', display: 'block' }}>
       <Arr x1={x0 - 10} y1={axY} x2={xEnd + 14} y2={axY} color="#94a3b8" />
-      <Arr x1={x0} y1={axY + 55} x2={x0} y2={28} color="#94a3b8" />
+      <Arr x1={x0} y1={axY + A + 16} x2={x0} y2={axY - A - 18} color="#94a3b8" />
       <text x={xEnd + 18} y={axY + 4} fill="#94a3b8" fontSize="11">x</text>
-      <text x={x0 + 4} y={24} fill="#94a3b8" fontSize="11">y</text>
+      <text x={x0 + 4} y={axY - A - 22} fill="#94a3b8" fontSize="11">y</text>
 
       <path d={buildSinePath(0)} fill="none" stroke="#6366f1" strokeWidth="2.2" />
 
@@ -831,7 +848,7 @@ function CapacitorField({ p }: { p: any }) {
   );
 
   return (
-    <svg viewBox="0 0 430 215" style={{ width: '100%', height: 'auto', display: 'block' }}>
+    <svg viewBox="0 0 430 248" style={{ width: '100%', height: 'auto', display: 'block' }}>
       {/* Left plate (+) */}
       <line x1={leftX} y1={plateTop} x2={leftX} y2={plateBot}
         stroke="#2563eb" strokeWidth="5" strokeLinecap="round" />
@@ -1067,7 +1084,7 @@ export function DiagramRenderer({ descriptor }: Props) {
       border: '1px solid var(--gray-200)',
       borderRadius: 8,
       marginBottom: 16,
-      overflow: 'hidden',
+      padding: '12px 16px 8px',
     }}>
       {inner}
     </div>
