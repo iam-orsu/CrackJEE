@@ -164,5 +164,14 @@ export async function getQuestionBatch(
     throw new Error('Could not generate any questions. Check your API keys and try again.');
   }
 
+  // Cap diagrams to 1 per 5 questions (5q→1, 10q→2, 20q→4, 30q→6)
+  const targetDiagrams = Math.floor(results.length / 5);
+  const withDiagrams = results.filter((q) => q.diagram !== null);
+  if (withDiagrams.length > targetDiagrams) {
+    const shuffled = [...withDiagrams].sort(() => Math.random() - 0.5);
+    const stripSet = new Set(shuffled.slice(targetDiagrams).map((q) => q.id));
+    return results.map((q) => (stripSet.has(q.id) ? { ...q, diagram: null } : q));
+  }
+
   return results;
 }
