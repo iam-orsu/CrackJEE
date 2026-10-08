@@ -643,7 +643,7 @@ function ProjectileMotion({ p }: { p: any }) {
       <path d={`M ${x0 + AR},${yg} A ${AR},${AR} 0 0,0 ${arcEndX},${arcEndY}`}
         fill="none" stroke="#6366f1" strokeWidth="1.2" />
       <text x={x0 + AR + 9} y={yg - 8} fill="#4f46e5" fontSize="11" fontWeight="600">
-        {lbl.angle ?? `${angle}°`}
+        {latexToPlain(lbl.angle ?? `${angle}°`)}
       </text>
 
       {/* Max height marker */}
@@ -727,17 +727,17 @@ function PulleySystem({ p }: { p: any }) {
       {lbl.tension && (
         <>
           <text x={leftX  - 14} y={(ropeY + m1Y - boxH / 2) / 2} fill="#374151" fontSize="11"
-            textAnchor="end" dominantBaseline="middle">{lbl.tension}</text>
+            textAnchor="end" dominantBaseline="middle">{latexToPlain(lbl.tension)}</text>
           <text x={rightX + 14} y={(ropeY + m2Y - boxH / 2) / 2} fill="#374151" fontSize="11"
-            textAnchor="start" dominantBaseline="middle">{lbl.tension}</text>
+            textAnchor="start" dominantBaseline="middle">{latexToPlain(lbl.tension)}</text>
         </>
       )}
 
       {/* Acceleration arrows: m1 downward (below box), m2 upward (above box) */}
       <Arr x1={leftX}  y1={m1Y + boxH / 2}      x2={leftX}  y2={m1Y + boxH / 2 + 28}
-        color="#dc2626" label={lbl.accel ?? 'a'} lx={leftX + 18} ly={m1Y + boxH / 2 + 24} sw={1.5} />
+        color="#dc2626" label={latexToPlain(lbl.accel ?? 'a')} lx={leftX + 18} ly={m1Y + boxH / 2 + 24} sw={1.5} />
       <Arr x1={rightX} y1={m2Y - boxH / 2}      x2={rightX} y2={m2Y - boxH / 2 - 28}
-        color="#16a34a" label={lbl.accel ?? 'a'} lx={rightX + 18} ly={m2Y - boxH / 2 - 24} sw={1.5} />
+        color="#16a34a" label={latexToPlain(lbl.accel ?? 'a')} lx={rightX + 18} ly={m2Y - boxH / 2 - 24} sw={1.5} />
     </svg>
   );
 }
@@ -1552,7 +1552,7 @@ function MoDiagram({ p }: { p: any }) {
   // Hund's rule: degenerate pair with e electrons → min(e,4-e) unpaired (handles e=2→2 unpaired for O2/B2)
   levels.forEach((lv,i) => { if(lv.deg){ const e=filled[i]!; unpaired+=Math.min(e,4-e); } else if(filled[i]===1) unpaired++; });
 
-  const VW=380, VH=290;
+  const VW=380, VH=310;
   const lx=68, rx=306, cx2=VW/2;
   const dlx=(lx+cx2-14)/2, drx=(cx2+14+rx)/2;
   const ys=[264,228,192,158,122,90] as const;
@@ -1583,7 +1583,7 @@ function MoDiagram({ p }: { p: any }) {
   return (
     <svg viewBox={`0 0 ${VW} ${VH}`} style={{width:'100%',height:'auto',display:'block'}}>
       <text x={VW/2} y={22} textAnchor="middle" fill="#374151" fontSize="13" fontWeight="700">
-        MO Diagram — {molRaw}
+        MO Diagram - {molRaw}
       </text>
       {levels.map((lv,i) => {
         const y=ys[i]!, c=lv.ab?abC:bC;
@@ -1599,8 +1599,8 @@ function MoDiagram({ p }: { p: any }) {
           {drawEl(i,filled[i]!,lv.deg)}
         </g>);
       })}
-      <text x={VW-8} y={268} fill="#374151" fontSize="11" textAnchor="end">Bond order = {bo}</text>
-      <text x={VW-8} y={284} fill={unpaired>0?'#dc2626':'#16a34a'} fontSize="11" textAnchor="end">
+      <text x={VW-8} y={288} fill="#374151" fontSize="11" textAnchor="end">Bond order = {bo}</text>
+      <text x={VW-8} y={304} fill={unpaired>0?'#dc2626':'#16a34a'} fontSize="11" textAnchor="end">
         {unpaired>0?'Paramagnetic':'Diamagnetic'}
       </text>
     </svg>
