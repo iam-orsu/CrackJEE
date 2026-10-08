@@ -69,11 +69,12 @@ function stripOptionPrefix(opt: string): string {
   return opt.replace(/^[A-Da-d][).]\s*/, '').trim();
 }
 
-// Convert \ce{} mhchem chemistry notation to plain Unicode (KaTeX lacks mhchem by default)
-function ceToPlain(text: string): string {
-  function formulaToUnicode(f: string): string {
-    const SUB = '₀₁₂₃₄₅₆₇₈₉';
-    const SUP = '⁰¹²³⁴⁵⁶⁷⁸⁹';
+// Strip LaTeX commands that appear inline in prose and would break KaTeX if wrapped in $...$
+function preprocessLatex(text: string): string {
+  const SUB = '₀₁₂₃₄₅₆₇₈₉';
+  const SUP = '⁰¹²³⁴⁵⁶⁷⁸⁹';
+
+  function ceFormulaToUnicode(f: string): string {
     return f
       .replace(/_\{(\d+)\}/g, (_, n: string) => n.replace(/\d/g, (d) => SUB[+d] ?? d))
       .replace(/_(\d)/g, (_, d: string) => SUB[+d] ?? d)
@@ -82,9 +83,27 @@ function ceToPlain(text: string): string {
       .replace(/([A-Za-z)])(\d+)/g, (_, ch: string, n: string) => ch + n.replace(/\d/g, (d) => SUB[+d] ?? d))
       .replace(/\\cdot/g, '·').replace(/\*/g, '·');
   }
+
   return text
-    .replace(/\\ce\s*\{([^}]+)\}/g, (_, f: string) => formulaToUnicode(f))
-    .replace(/\\ce\s*([A-Za-z0-9_^{}\-+·*]+)/g, (_, f: string) => formulaToUnicode(f));
+    // \ce{...} chemistry notation
+    .replace(/\\ce\s*\{([^}]+)\}/g, (_, f: string) => ceFormulaToUnicode(f))
+    .replace(/\\ce\s*([A-Za-z0-9_^{}\-+·*]+)/g, (_, f: string) => ceFormulaToUnicode(f))
+    // Temperature/angle degree: \,^\circ\text{C} → °C
+    .replace(/\\[,;!]\s*\^\{?\\circ\}?\s*\\text\{([A-Za-z])\}/g, '°$1')
+    .replace(/\^\{?\\circ\}?\s*\\text\{([A-Za-z])\}/g, '°$1')
+    .replace(/\\[,;!]\s*\^\{?\\circ\}?/g, '°')
+    .replace(/\^\{?\\circ\}?/g, '°')
+    .replace(/\\degree/g, '°')
+    // \text{...} → its plain content
+    .replace(/\\text\{([^}]*)\}/g, '$1')
+    // Thin/negative spacing macros → plain space or nothing
+    .replace(/\\[,;!]/g, ' ')
+    // Common units that appear bare in prose
+    .replace(/\\Omega/g, 'Ω')
+    .replace(/\\mu/g, 'μ')
+    .replace(/\\times/g, '×')
+    .replace(/\\cdot/g, '·')
+    .replace(/\\pm/g, '±');
 }
 
 // If text has bare LaTeX commands but no $ delimiters, add them so KaTeX renders
@@ -185,7 +204,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
         {/* ── Left: question + options ── */}
         <div className="qcard-left">
           {question.diagram && <DiagramRenderer descriptor={question.diagram} />}
-          <p className="question-text">{ensureMathDelimiters(ceToPlain(question.questionText))}</p>
+          <p className="question-text">{ensureMathDelimiters(preprocessLatex(question.questionText))}</p>
 
           <div className="options-grid">
             {question.options.map((opt, i) => {
@@ -207,7 +226,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
                   disabled={!!result}
                 >
                   <span className="option-letter">{letter}</span>
-                  <span style={{ flex: 1 }}>{ensureMathDelimiters(ceToPlain(stripOptionPrefix(opt)))}</span>
+                  <span style={{ flex: 1 }}>{ensureMathDelimiters(preprocessLatex(stripOptionPrefix(opt)))}</span>
                   {isCorrect && <span style={{ flexShrink: 0, color: 'var(--green-600)' }}>{CHECK}</span>}
                   {isWrong   && <span style={{ flexShrink: 0, color: 'var(--red-600)' }}>{CROSS}</span>}
                 </button>
