@@ -131,8 +131,7 @@ export async function getQuestionBatch(
   // Use Math.floor so we never exceed the requested count; frontend sends count = perSubject * numSubjects
   const perSubject = numSubjects > 0 ? Math.floor(count / numSubjects) : count;
 
-  // Build plan grouped by subject so all Physics come first, then Chemistry, etc.
-  // Over-plan by 20% so duplicate cache hits and occasional failures don't leave us short.
+  // Build plan grouped by subject — over-plan by 20% to absorb failures.
   const overPlan: Array<{ subject: Subject; topic: string; diff: Difficulty }> = [];
   for (const [subject, topics] of subjectGroups) {
     const shuffledTopics = [...topics].sort(() => Math.random() - 0.5);
@@ -147,28 +146,47 @@ export async function getQuestionBatch(
     }
   }
 
-  // Run all questions in parallel — each DeepSeek call takes 5-15s so sequential
-  // would exceed nginx's timeout for batches > ~12 questions on a cold cache.
-  // pendingGeneration deduplicates concurrent requests for the same topic key.
-  const settled = await Promise.allSettled(
-    overPlan.map(({ subject, topic, diff }) =>
-      getNextQuestion(userId, subject, topic, diff, examType, studentClass, [])
-    )
+  // Group slots by cache key so slots for the same topic+difficulty run
+  // sequentially (building an exclude list to get distinct questions), while
+  // different topic keys run in parallel for speed.
+  const keyGroups = new Map<string, Array<{ subject: Subject; topic: string; diff: Difficulty }>>();
+  for (const slot of overPlan) {
+    const key = `${slot.subject}:${slot.topic}:${slot.diff}`;
+    if (!keyGroups.has(key)) keyGroups.set(key, []);
+    keyGroups.get(key)!.push(slot);
+  }
+
+  const groupSettled = await Promise.allSettled(
+    [...keyGroups.values()].map(async (slots) => {
+      const groupQuestions: Question[] = [];
+      const excludeIds: string[] = [];
+      for (const { subject, topic, diff } of slots) {
+        try {
+          const q = await getNextQuestion(userId, subject, topic, diff, examType, studentClass, excludeIds);
+          excludeIds.push(q.id);
+          groupQuestions.push(q);
+        } catch {
+          // skip failed slot
+        }
+      }
+      return groupQuestions;
+    })
   );
 
-  // Collect unique results per subject, capping each at perSubject to hit total count.
+  // Collect unique results per subject, capping each bucket at perSubject.
   const seenIds = new Set<string>();
   const perSubjectResults = new Map<Subject, Question[]>();
   for (const [subject] of subjectGroups) perSubjectResults.set(subject, []);
 
-  for (const result of settled) {
+  for (const result of groupSettled) {
     if (result.status !== 'fulfilled') continue;
-    const q = result.value;
-    if (seenIds.has(q.id)) continue;
-    const bucket = perSubjectResults.get(q.subject as Subject);
-    if (!bucket || bucket.length >= perSubject) continue;
-    seenIds.add(q.id);
-    bucket.push(q);
+    for (const q of result.value) {
+      if (seenIds.has(q.id)) continue;
+      const bucket = perSubjectResults.get(q.subject as Subject);
+      if (!bucket || bucket.length >= perSubject) continue;
+      seenIds.add(q.id);
+      bucket.push(q);
+    }
   }
 
   const results: Question[] = [];
