@@ -102,6 +102,10 @@ function preprocessLatex(text: string): string {
     .replace(/\\Omega/g, 'Ω')
     .replace(/\\mu/g, 'μ')
     .replace(/\\times/g, '×')
+    .replace(/\\mathrm\{([^}]*)\}/g, '$1')
+    .replace(/\\mathbf\{([^}]*)\}/g, '$1')
+    .replace(/\\mathit\{([^}]*)\}/g, '$1')
+    .replace(/\\cdotp/g, '·')
     .replace(/\\cdot/g, '·')
     .replace(/\\pm/g, '±');
 }
