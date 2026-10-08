@@ -1203,7 +1203,7 @@ function CircleGeom({ p }: { p: any }) {
       {lbl.center && <text x={cx1+8} y={cy1-6} fill="#6366f1" fontSize="12" fontWeight="600">{lbl.center}</text>}
       {p.chord && (
         <><line x1={+(p.chord.x1??cx1-r1)} y1={+(p.chord.y1??cy1)} x2={+(p.chord.x2??cx1+r1)} y2={+(p.chord.y2??cy1)} stroke="#374151" strokeWidth="1.5"/>
-          {p.chord.label && <text x={(+(p.chord.x1??cx1-r1)++(p.chord.x2??cx1+r1))/2} y={(+(p.chord.y1??cy1)++(p.chord.y2??cy1))/2-8} fill="#374151" fontSize="11" textAnchor="middle">{p.chord.label}</text>}
+          {p.chord.label && <text x={(+(p.chord.x1??cx1-r1) + +(p.chord.x2??cx1+r1))/2} y={(+(p.chord.y1??cy1) + +(p.chord.y2??cy1))/2-8} fill="#374151" fontSize="11" textAnchor="middle">{p.chord.label}</text>}
         </>
       )}
       {(p.points ?? []).map((pt: {x:number;y:number;label?:string}, i: number) => (
