@@ -26,7 +26,7 @@ const TOPICS_BY_CLASS: Record<Subject, { class11: string[]; class12: string[] }>
 
 const SUBJECT_META: Record<Subject, { emoji: string; sub: string }> = {
   Mathematics: { emoji: '∑', sub: '31 topics' },
-  Physics:     { emoji: 'φ', sub: '29 topics' },
+  Physics:     { emoji: '⚛', sub: '29 topics' },
   Chemistry:   { emoji: '⚗', sub: '31 topics' },
 };
 
@@ -68,8 +68,7 @@ const CHECK_SVG = (
 ═══════════════════════════════════════════════════════════ */
 export default function PracticePage() {
   const router = useRouter();
-  const user = getUser();
-  const studentClass = user?.class ?? '12';
+  const [studentClass, setStudentClass] = useState<string>('12');
 
   /* ── App state ── */
   const [appState, setAppState] = useState<AppState>('wizard');
@@ -121,6 +120,8 @@ export default function PracticePage() {
   /* ─── Auth + weak mode init ──────────────────────────── */
   useEffect(() => {
     if (!isAuthenticated()) { router.push('/login'); return; }
+    const u = getUser();
+    if (u?.class) setStudentClass(u.class);
 
     // Restore a saved exam session (survives refresh within the same tab)
     try {

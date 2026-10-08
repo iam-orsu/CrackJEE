@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { api } from '@/lib/api';
-import { setSession } from '@/lib/auth';
+import { setSession, isAuthenticated } from '@/lib/auth';
 
 type FormState = {
   name: string;
@@ -17,6 +17,11 @@ type FormState = {
 
 export default function RegisterPage() {
   const router = useRouter();
+
+  useEffect(() => {
+    if (isAuthenticated()) router.replace('/dashboard');
+  }, [router]);
+
   const [form, setForm] = useState<FormState>({
     name: '',
     email: '',

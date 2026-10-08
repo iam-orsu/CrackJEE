@@ -26,10 +26,11 @@ const CROSS = (
 );
 
 // Subject visual config
-const SUBJECT_STYLE: Record<string, { bg: string; accent: string; icon: React.ReactNode }> = {
+const SUBJECT_STYLE: Record<string, { bg: string; accent: string; textColor: string; icon: React.ReactNode }> = {
   Physics: {
-    bg: 'linear-gradient(135deg, #0f2744 0%, #1e3a6b 60%, #2563eb 100%)',
-    accent: '#60a5fa',
+    bg: '#eff6ff',
+    accent: '#2563eb',
+    textColor: '#1d4ed8',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
         <circle cx="12" cy="12" r="3"/>
@@ -40,8 +41,9 @@ const SUBJECT_STYLE: Record<string, { bg: string; accent: string; icon: React.Re
     ),
   },
   Chemistry: {
-    bg: 'linear-gradient(135deg, #14532d 0%, #166534 60%, #16a34a 100%)',
-    accent: '#4ade80',
+    bg: '#f0fdf4',
+    accent: '#16a34a',
+    textColor: '#15803d',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
         <path d="M9 3h6v7l3.5 6.5A2 2 0 0116.76 19H7.24a2 2 0 01-1.74-2.5L9 10V3z"/>
@@ -50,8 +52,9 @@ const SUBJECT_STYLE: Record<string, { bg: string; accent: string; icon: React.Re
     ),
   },
   Mathematics: {
-    bg: 'linear-gradient(135deg, #581c87 0%, #7c3aed 60%, #a855f7 100%)',
-    accent: '#d8b4fe',
+    bg: '#f5f3ff',
+    accent: '#7c3aed',
+    textColor: '#6d28d9',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <line x1="5" y1="12" x2="19" y2="12"/>
@@ -144,18 +147,18 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
   return (
     <div ref={cardRef} className="card" style={{ borderRadius: 'var(--radius-xl)', padding: 0, overflow: 'hidden' }}>
       {/* ── Subject header banner ── */}
-      <div style={{ background: subjectStyle.bg, padding: '14px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div style={{ background: subjectStyle.bg, borderBottom: `1px solid ${subjectStyle.accent}22`, padding: '14px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <span style={{ color: subjectStyle.accent, display: 'flex', alignItems: 'center' }}>{subjectStyle.icon}</span>
           <div>
             <p style={{ fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.08em', color: subjectStyle.accent, lineHeight: 1 }}>{question.subject}</p>
-            <p style={{ fontSize: 13, fontWeight: 500, color: 'rgba(255,255,255,0.9)', marginTop: 2 }}>{question.topic}</p>
+            <p style={{ fontSize: 13, fontWeight: 500, color: subjectStyle.textColor, marginTop: 2 }}>{question.topic}</p>
           </div>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', background: 'rgba(255,255,255,0.12)', padding: '3px 8px', borderRadius: 4, textTransform: 'capitalize' }}>{question.difficulty}</span>
-          <span style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.85)', fontVariantNumeric: 'tabular-nums' }}>{mm}:{ss}</span>
-          <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>Q{questionNum}</span>
+          <span style={{ fontSize: 11, color: subjectStyle.accent, background: `${subjectStyle.accent}18`, padding: '3px 8px', borderRadius: 4, textTransform: 'capitalize' }}>{question.difficulty}</span>
+          <span style={{ fontSize: 13, fontWeight: 600, color: subjectStyle.textColor, fontVariantNumeric: 'tabular-nums' }}>{mm}:{ss}</span>
+          <span style={{ fontSize: 12, color: 'var(--gray-400)' }}>Q{questionNum}</span>
         </div>
       </div>
 

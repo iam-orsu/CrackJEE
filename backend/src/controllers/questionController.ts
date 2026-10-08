@@ -1,7 +1,7 @@
 import type { Response, NextFunction } from 'express';
 import { z } from 'zod';
 import type { AuthRequest } from '../types/index';
-import { JEE_TOPICS, JEE_TOPICS_BY_CLASS, getTopicsForClass } from '../types/index';
+import { JEE_TOPICS, getTopicsForClass } from '../types/index';
 import type { Subject, StudentClass } from '../types/index';
 import { getNextQuestion, getQuestionBatch } from '../services/questionService';
 import { AppError } from '../middleware/errorHandler';
@@ -119,6 +119,3 @@ export function getTopics(req: AuthRequest, res: Response, next: NextFunction): 
   }
 }
 
-export function getTopicsByClass(_req: AuthRequest, res: Response): void {
-  res.json({ success: true, data: JEE_TOPICS_BY_CLASS });
-}

@@ -33,7 +33,7 @@ async function request<T>(
     throw new ApiError(401, 'Session expired. Please log in again.');
   }
 
-  const json = await res.json() as { success: boolean; data?: T; error?: string };
+  const json = await res.json().catch(() => ({ success: false, error: `HTTP ${res.status}` })) as { success: boolean; data?: T; error?: string };
 
   if (!res.ok || !json.success) {
     throw new ApiError(res.status, json.error ?? 'Unknown error');

@@ -18,7 +18,7 @@ function WeeklyBars({ data }: { data: WeeklyPoint[] }) {
         const totalPct  = (d.total   / max) * 100;
         const correctPct = (d.correct / max) * 100;
         const isToday   = i === data.length - 1;
-        const dayLabel  = DAY[new Date(d.date).getDay()] ?? '';
+        const dayLabel  = DAY[new Date(d.date + 'T00:00:00').getDay()] ?? '';
         return (
           <div key={d.date} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, height: '100%', justifyContent: 'flex-end' }}>
             <div style={{ width: '100%', position: 'relative', height: `${Math.max(totalPct, 4)}%`, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>

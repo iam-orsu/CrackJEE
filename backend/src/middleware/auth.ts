@@ -35,7 +35,7 @@ export function requireAuth(req: AuthRequest, res: Response, next: NextFunction)
       req.user = payload;
       next();
     })
-    .catch(() => {
-      res.status(500).json({ success: false, error: 'Auth check failed' });
+    .catch((err: unknown) => {
+      next(err instanceof Error ? err : new Error('Auth check failed'));
     });
 }

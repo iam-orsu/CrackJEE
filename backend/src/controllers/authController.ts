@@ -62,6 +62,7 @@ export async function login(req: Request, res: Response, next: NextFunction): Pr
 
     const user = await prisma.user.findUnique({
       where: { email: body.data.email },
+      select: { id: true, name: true, email: true, class: true, targetExam: true, currentLevel: true, passwordHash: true },
     });
     if (!user) throw new AppError(401, 'Invalid credentials');
 

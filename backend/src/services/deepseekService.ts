@@ -4,6 +4,7 @@ import type { GeneratedQuestion, Difficulty, ExamType, Subject, StudentClass } f
 const client = new OpenAI({
   apiKey: process.env.DEEPSEEK_API_KEY,
   baseURL: 'https://api.deepseek.com',
+  timeout: 60000,
 });
 
 const RETRY_DELAYS = [1000, 2000, 4000];

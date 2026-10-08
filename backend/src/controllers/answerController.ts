@@ -1,4 +1,5 @@
-﻿import type { Response, NextFunction } from 'express';
+﻿import { randomUUID } from 'crypto';
+import type { Response, NextFunction } from 'express';
 import { z } from 'zod';
 import type { AuthRequest } from '../types/index';
 import { prisma } from '../lib/prisma';
@@ -53,13 +54,14 @@ async function updateTopicProgress(
 ): Promise<void> {
   const inc = isCorrect ? 1 : 0;
   // Single atomic statement: no read-then-write race condition
+  const newId = randomUUID();
   await prisma.$executeRaw`
     INSERT INTO "TopicProgress" (
       "id", "userId", "topicName", "subject",
       "attempts", "correctCount", "successRate", "markedAsWeak", "lastAttemptAt"
     )
     VALUES (
-      gen_random_uuid(), ${userId}, ${topicName}, ${subject},
+      ${newId}, ${userId}, ${topicName}, ${subject},
       1, ${inc}, ${inc}::float8, false, now()
     )
     ON CONFLICT ("userId", "topicName") DO UPDATE SET
