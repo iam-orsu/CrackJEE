@@ -107,9 +107,10 @@ function InclinedPlane({ p }: { p: any }) {
         <Arr x1={bkx} y1={bky} x2={bkx - cosθ * FL} y2={bky - sinθ * FL} color="#d97706"
           label={lbl.friction ?? 'f'} lx={bkx - cosθ * FL - 14} ly={bky - sinθ * FL} />
       )}
+      {/* Applied force: horizontal (rightward) — distinct from friction to avoid overlap */}
       {p.show_applied === true && (
-        <Arr x1={bkx} y1={bky} x2={bkx - cosθ * FL} y2={bky - sinθ * FL} color="#7c3aed"
-          label={lbl.applied ?? 'F'} lx={bkx - cosθ * FL - 14} ly={bky - sinθ * FL} />
+        <Arr x1={bkx} y1={bky} x2={bkx + FL} y2={bky} color="#7c3aed"
+          label={lbl.applied ?? 'F'} lx={bkx + FL + 14} ly={bky} />
       )}
     </svg>
   );
@@ -523,7 +524,7 @@ function CoordGeometry({ p }: { p: any }) {
         <text key={`ty${y}`} x={axX - 6} y={sy(y) + 4} fill="#94a3b8" fontSize="9" textAnchor="end">{y}</text>
       ))}
       {(p.lines ?? []).map((line: GLine, i: number) => (
-        line.arrow !== false ? (
+        line.arrow === true ? (
           <Arr key={i} x1={sx(line.from[0])} y1={sy(line.from[1])}
             x2={sx(line.to[0])} y2={sy(line.to[1])} color="#334155" label={line.label} />
         ) : (
@@ -711,7 +712,7 @@ function PulleySystem({ p }: { p: any }) {
       <Arr x1={leftX}  y1={m1Y + boxH / 2}      x2={leftX}  y2={m1Y + boxH / 2 + 28}
         color="#dc2626" label={lbl.accel ?? 'a'} lx={leftX + 18} ly={m1Y + boxH / 2 + 24} sw={1.5} />
       <Arr x1={rightX} y1={m2Y - boxH / 2}      x2={rightX} y2={m2Y - boxH / 2 - 28}
-        color="#16a34a" sw={1.5} />
+        color="#16a34a" label={lbl.accel ?? 'a'} lx={rightX + 18} ly={m2Y - boxH / 2 - 24} sw={1.5} />
     </svg>
   );
 }
@@ -1363,7 +1364,7 @@ function ArgandPlane({ p }: { p: any }) {
         const [sx, sy] = toS(pt.re, pt.im);
         const angR = Math.atan2(pt.im, pt.re);
         const modLen = Math.sqrt(pt.re**2 + pt.im**2) * sc;
-        const arcRadius = Math.min(modLen * 0.32, 30);
+        const arcRadius = Math.max(Math.min(modLen * 0.32, 30), 12);
         return (
           <g key={i}>
             {pt.show_modulus !== false && <line x1={ox} y1={oy} x2={sx} y2={sy} stroke="#6366f1" strokeWidth="1.3" strokeDasharray="4,2"/>}
@@ -1619,7 +1620,7 @@ function CrystalStruct({ p }: { p: any }) {
   } else if (type === 'nacl') {
     // NaCl: Na at body-center + edge centers; Cl at corners + face centers (simplified)
     atomPositions.forEach(a => { a.type = 'Cl'; }); // reassign corners as Cl
-    [[0.5,0.5,0.5],[1,0.5,0],[0.5,0,0],[0,0.5,0],[1,0,0.5],[0,0.5,0.5],[0.5,1,0.5],[0.5,0.5,1]].forEach(
+    [[0.5,0.5,0.5],[1,0.5,0],[0.5,0,0],[0,0.5,0],[1,0,0.5],[0,0,0.5],[0.5,1,0],[0,0.5,1]].forEach(
       ([x,y,z]) => atomPositions.push({pos:[x!,y!,z!],type:'Na'})
     );
   }
@@ -1687,7 +1688,7 @@ function ElectrochemCell({ p }: { p: any }) {
       {/* Electron arrows on wire */}
       <Arr x1={aX+14} y1={wireY} x2={vmX-18} y2={wireY} color="#374151" sw={1.4}/>
       <Arr x1={vmX+18} y1={wireY} x2={cX-14} y2={wireY} color="#374151" sw={1.4}/>
-      <text x={(aX+vmX)/2} y={wireY-9} fill="#374151" fontSize="9" textAnchor="middle">e⁻</text>
+      <text x={(aX+vmX)/2} y={wireY+14} fill="#374151" fontSize="9" textAnchor="middle">e⁻</text>
       {/* Salt bridge (U-shape tube) */}
       <polyline points={`${lbX+lbW/2},${lbY} ${lbX+lbW/2},${sbBridgeY} ${rbX+rbW/2},${sbBridgeY} ${rbX+rbW/2},${rbY}`}
         fill="none" stroke="#94a3b8" strokeWidth="11" strokeLinecap="round" strokeLinejoin="round"/>
