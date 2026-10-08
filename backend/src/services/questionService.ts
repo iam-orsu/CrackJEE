@@ -132,12 +132,14 @@ export async function getQuestionBatch(
   const perSubject = numSubjects > 0 ? Math.floor(count / numSubjects) : count;
 
   // Build plan grouped by subject so all Physics come first, then Chemistry, etc.
-  const plan: Array<{ subject: Subject; topic: string; diff: Difficulty }> = [];
+  // Over-plan by 20% so duplicate cache hits and occasional failures don't leave us short.
+  const overPlan: Array<{ subject: Subject; topic: string; diff: Difficulty }> = [];
   for (const [subject, topics] of subjectGroups) {
     const shuffledTopics = [...topics].sort(() => Math.random() - 0.5);
-    for (let i = 0; i < perSubject; i++) {
+    const slots = Math.ceil(perSubject * 1.2);
+    for (let i = 0; i < slots; i++) {
       const topic = shuffledTopics[i % shuffledTopics.length]!;
-      plan.push({
+      overPlan.push({
         subject,
         topic,
         diff: difficulty === 'mixed' ? randomDifficulty() : difficulty,
@@ -145,20 +147,32 @@ export async function getQuestionBatch(
     }
   }
 
-  // Sequential execution with a growing exclude list so concurrent Redis reads
-  // never return the same cached question twice in the same batch.
-  const results: Question[] = [];
-  const usedIds: string[] = [];
+  // Run all questions in parallel — each DeepSeek call takes 5-15s so sequential
+  // would exceed nginx's timeout for batches > ~12 questions on a cold cache.
+  // pendingGeneration deduplicates concurrent requests for the same topic key.
+  const settled = await Promise.allSettled(
+    overPlan.map(({ subject, topic, diff }) =>
+      getNextQuestion(userId, subject, topic, diff, examType, studentClass, [])
+    )
+  );
 
-  for (const { subject, topic, diff } of plan) {
-    try {
-      const q = await getNextQuestion(userId, subject, topic, diff, examType, studentClass, usedIds);
-      usedIds.push(q.id);
-      results.push(q);
-    } catch {
-      // skip failed question rather than aborting the whole batch
-    }
+  // Collect unique results per subject, capping each at perSubject to hit total count.
+  const seenIds = new Set<string>();
+  const perSubjectResults = new Map<Subject, Question[]>();
+  for (const [subject] of subjectGroups) perSubjectResults.set(subject, []);
+
+  for (const result of settled) {
+    if (result.status !== 'fulfilled') continue;
+    const q = result.value;
+    if (seenIds.has(q.id)) continue;
+    const bucket = perSubjectResults.get(q.subject as Subject);
+    if (!bucket || bucket.length >= perSubject) continue;
+    seenIds.add(q.id);
+    bucket.push(q);
   }
+
+  const results: Question[] = [];
+  for (const [, bucket] of perSubjectResults) results.push(...bucket);
 
   if (results.length === 0) {
     throw new Error('Could not generate any questions. Check your API keys and try again.');
