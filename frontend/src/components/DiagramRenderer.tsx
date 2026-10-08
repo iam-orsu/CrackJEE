@@ -3,6 +3,24 @@
 import React from 'react';
 import type { DiagramTemplate } from '@/types';
 
+/* ── LaTeX → plain Unicode (for SVG text labels) ──────────── */
+function latexToPlain(s: string): string {
+  return s
+    .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '$1/$2')
+    .replace(/\^\{([^}]+)\}/g, (_: string, e: string) => e === '2' ? '²' : e === '3' ? '³' : e === 'n' ? 'ⁿ' : `^${e}`)
+    .replace(/\^2/g, '²').replace(/\^3/g, '³').replace(/\^n/g, 'ⁿ')
+    .replace(/_\{([^}]+)\}/g, '₀$1').replace(/_([0-9])/g, '₀$1')
+    .replace(/\\pm/g, '±').replace(/\\mp/g, '∓')
+    .replace(/\\sqrt\{([^}]+)\}/g, '√($1)').replace(/\\sqrt/g, '√')
+    .replace(/\\cdot/g, '·').replace(/\\times/g, '×').replace(/\\div/g, '÷')
+    .replace(/\\leq/g, '≤').replace(/\\geq/g, '≥').replace(/\\neq/g, '≠')
+    .replace(/\\infty/g, '∞').replace(/\\pi/g, 'π').replace(/\\theta/g, 'θ')
+    .replace(/\\alpha/g, 'α').replace(/\\beta/g, 'β').replace(/\\gamma/g, 'γ')
+    .replace(/\\delta/g, 'δ').replace(/\\lambda/g, 'λ').replace(/\\mu/g, 'μ')
+    .replace(/\\left[\(\[{|]/g, '').replace(/\\right[\)\]{|]/g, '')
+    .replace(/\\[a-zA-Z]+/g, '').replace(/[{}]/g, '');
+}
+
 /* ── Arrow helper ──────────────────────────────────────────── */
 function Arr({
   x1, y1, x2, y2, color = '#475569', label, lx, ly, sw,
@@ -1272,7 +1290,7 @@ function ConicSection({ p }: { p: any }) {
             <text x={ox+a*sc/2} y={oy-8} fill="#374151" fontSize="11" textAnchor="middle">{lbl.a}</text></>)}
           {lbl.b && (<><line x1={ox} y1={oy} x2={ox} y2={oy-b*sc} stroke="#374151" strokeWidth="1" strokeDasharray="3,2"/>
             <text x={ox+10} y={oy-b*sc/2} fill="#374151" fontSize="11">{lbl.b}</text></>)}
-          {lbl.equation && <text x={VW-16} y={38} fill="#6366f1" fontSize="12" fontWeight="600" textAnchor="end">{lbl.equation}</text>}
+          {lbl.equation && <text x={VW-16} y={38} fill="#6366f1" fontSize="12" fontWeight="600" textAnchor="end">{latexToPlain(lbl.equation)}</text>}
         </svg>
       );
     }
@@ -1302,7 +1320,7 @@ function ConicSection({ p }: { p: any }) {
           <text x={f1x} y={focY+16} fill="#2563eb" fontSize="11" fontWeight="600" textAnchor="middle">{lbl.f1 ?? '(-c,0)'}</text>
           <text x={f2x} y={focY+16} fill="#2563eb" fontSize="11" fontWeight="600" textAnchor="middle">{lbl.f2 ?? '(c,0)'}</text>
         </>)}
-        {lbl.equation && <text x={VW-16} y={38} fill="#6366f1" fontSize="12" fontWeight="600" textAnchor="end">{lbl.equation}</text>}
+        {lbl.equation && <text x={VW-16} y={38} fill="#6366f1" fontSize="12" fontWeight="600" textAnchor="end">{latexToPlain(lbl.equation)}</text>}
       </svg>
     );
   }
@@ -1332,7 +1350,7 @@ function ConicSection({ p }: { p: any }) {
         <circle cx={focX} cy={oy} r="4" fill="#2563eb"/>
         <text x={focX+8} y={oy-8} fill="#2563eb" fontSize="11" fontWeight="600">{lbl.focus ?? 'F(a,0)'}</text>
       </>)}
-      {lbl.equation && <text x={VW-16} y={86} fill="#6366f1" fontSize="12" fontWeight="600" textAnchor="end">{lbl.equation}</text>}
+      {lbl.equation && <text x={VW-16} y={86} fill="#6366f1" fontSize="12" fontWeight="600" textAnchor="end">{latexToPlain(lbl.equation)}</text>}
     </svg>
   );
 }
