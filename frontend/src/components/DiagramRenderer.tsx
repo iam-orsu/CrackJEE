@@ -355,11 +355,18 @@ function LensMirror({ p }: { p: any }) {
         <circle cx={lensX - fVal * scale * (isConcave ? 1 : -1)} cy={axisY} r="3" fill="#475569" />
       )}
 
-      {/* f label */}
-      {lbl.f && (
-        <text x={isLens ? (lensX + fRx) / 2 : lensX - 30} y={axisY - 10}
-          fill="#475569" fontSize="10" textAnchor="middle">{lbl.f}</text>
-      )}
+      {/* f label — white bg rect so it's legible over any ray */}
+      {lbl.f && (() => {
+        const fx = isLens ? (lensX + fRx) / 2 : lensX - 30;
+        const fy = axisY - 14;
+        const tw = lbl.f.length * 6.2 + 8;
+        return (
+          <g>
+            <rect x={fx - tw / 2} y={fy - 11} width={tw} height={15} fill="white" opacity="0.88" rx="2" />
+            <text x={fx} y={fy} fill="#475569" fontSize="10" textAnchor="middle">{lbl.f}</text>
+          </g>
+        );
+      })()}
 
       {/* Object arrow */}
       <Arr x1={objX} y1={axisY} x2={objX} y2={objTop} color="#2563eb"
@@ -1699,7 +1706,7 @@ function ElectrochemCell({ p }: { p: any }) {
       <rect x={lbX} y={lbY} width={lbW} height={lbH} fill="rgba(219,234,254,0.35)" stroke="#374151" strokeWidth="1.8" rx="2"/>
       <line x1={aX} y1={lbY-20} x2={aX} y2={lbY+lbH-6} stroke="#374151" strokeWidth="5" strokeLinecap="round"/>
       <text x={aX} y={sbBridgeY-12} fill="#dc2626" fontSize="9" fontWeight="700" textAnchor="middle">Anode (−)</text>
-      <text x={aX} y={lbY+lbH-10} fill="white" fontSize="10" fontWeight="700" textAnchor="middle">{anodeMetal}</text>
+      <text x={aX} y={lbY+lbH-10} fill="white" fontSize="10" fontWeight="700" textAnchor="middle" stroke="#374151" strokeWidth="3" paintOrder="stroke">{anodeMetal}</text>
       <text x={lbX+lbW/2} y={lbY+62} fill="#1d4ed8" fontSize="11" textAnchor="middle" fontWeight="600">{anodeElec}</text>
       <text x={lbX+lbW/2} y={lbY+78} fill="#1d4ed8" fontSize="10" textAnchor="middle">(aq)</text>
       {lbl.anode_rxn && <text x={lbX+lbW/2} y={lbY+lbH+16} fill="#374151" fontSize="9" textAnchor="middle">{lbl.anode_rxn}</text>}
@@ -1708,7 +1715,7 @@ function ElectrochemCell({ p }: { p: any }) {
       <rect x={rbX} y={rbY} width={rbW} height={rbH} fill="rgba(220,252,231,0.35)" stroke="#374151" strokeWidth="1.8" rx="2"/>
       <line x1={cX} y1={rbY-20} x2={cX} y2={rbY+rbH-6} stroke="#b45309" strokeWidth="5" strokeLinecap="round"/>
       <text x={cX} y={sbBridgeY-12} fill="#16a34a" fontSize="9" fontWeight="700" textAnchor="middle">Cathode (+)</text>
-      <text x={cX} y={rbY+rbH-10} fill="white" fontSize="10" fontWeight="700" textAnchor="middle">{cathodeMetal}</text>
+      <text x={cX} y={rbY+rbH-10} fill="white" fontSize="10" fontWeight="700" textAnchor="middle" stroke="#374151" strokeWidth="3" paintOrder="stroke">{cathodeMetal}</text>
       <text x={rbX+rbW/2} y={rbY+62} fill="#15803d" fontSize="11" textAnchor="middle" fontWeight="600">{cathodeElec}</text>
       <text x={rbX+rbW/2} y={rbY+78} fill="#15803d" fontSize="10" textAnchor="middle">(aq)</text>
       {lbl.cathode_rxn && <text x={rbX+rbW/2} y={rbY+rbH+16} fill="#374151" fontSize="9" textAnchor="middle">{lbl.cathode_rxn}</text>}
