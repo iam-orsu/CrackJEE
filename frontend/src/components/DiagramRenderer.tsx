@@ -1174,20 +1174,26 @@ function CircleGeom({ p }: { p: any }) {
 
   if (sub === 'two_circles') {
     const cx2 = +(p.cx2 ?? cx1 + r1 + 50), cy2 = +(p.cy2 ?? cy1), r2 = +(p.r2 ?? 55);
-    const allX = [cx1-r1, cx1+r1, cx2-r2, cx2+r2], allY = [cy1-r1, cy1+r1, cy2-r2, cy2+r2];
-    const [mnX,mxX,mnY,mxY] = [Math.min(...allX)-14,Math.max(...allX)+14,Math.min(...allY)-14,Math.max(...allY)+14];
+    const rawMinX = Math.min(cx1-r1, cx2-r2), rawMaxX = Math.max(cx1+r1, cx2+r2);
+    const rawMinY = Math.min(cy1-r1, cy2-r2), rawMaxY = Math.max(cy1+r1, cy2+r2);
+    // Proportional padding (18% of range) so small math-unit circles still fill the viewport
+    const pad = Math.max(rawMaxX-rawMinX, rawMaxY-rawMinY, 1) * 0.18;
+    const mnX = rawMinX-pad, mxX = rawMaxX+pad, mnY = rawMinY-pad, mxY = rawMaxY+pad;
     const sc2 = Math.min(VW/(mxX-mnX), VH/(mxY-mnY));
-    const tx = (x: number) => (x-mnX)*sc2, ty = (y: number) => (y-mnY)*sc2;
+    const tx = (x: number) => (x-mnX)*sc2;
+    // Flip y-axis: higher math-y should appear higher on screen
+    const ty = (y: number) => VH - (y-mnY)*sc2;
     return (
       <svg viewBox={`0 0 ${VW} ${VH}`} style={{width:'100%',height:'auto',display:'block'}}>
         <circle cx={tx(cx1)} cy={ty(cy1)} r={r1*sc2} fill="rgba(99,102,241,0.06)" stroke="#6366f1" strokeWidth="1.8"/>
         <circle cx={tx(cx2)} cy={ty(cy2)} r={r2*sc2} fill="rgba(37,99,235,0.06)" stroke="#2563eb" strokeWidth="1.8"/>
         {lbl.r1 && <><line x1={tx(cx1)} y1={ty(cy1)} x2={tx(cx1+r1)} y2={ty(cy1)} stroke="#6366f1" strokeWidth="1" strokeDasharray="3,2"/>
-          <text x={tx(cx1+r1/2)} y={ty(cy1)-8} fill="#6366f1" fontSize="11" textAnchor="middle">{lbl.r1}</text></>}
+          <text x={tx(cx1+r1/2)} y={ty(cy1)+14} fill="#6366f1" fontSize="11" textAnchor="middle">{lbl.r1}</text></>}
         {lbl.r2 && <><line x1={tx(cx2)} y1={ty(cy2)} x2={tx(cx2+r2)} y2={ty(cy2)} stroke="#2563eb" strokeWidth="1" strokeDasharray="3,2"/>
-          <text x={tx(cx2+r2/2)} y={ty(cy2)-8} fill="#2563eb" fontSize="11" textAnchor="middle">{lbl.r2}</text></>}
-        {lbl.c1 && <text x={tx(cx1)} y={ty(cy1)+5} fill="#6366f1" fontSize="12" fontWeight="600" textAnchor="middle">{lbl.c1}</text>}
-        {lbl.c2 && <text x={tx(cx2)} y={ty(cy2)+5} fill="#2563eb" fontSize="12" fontWeight="600" textAnchor="middle">{lbl.c2}</text>}
+          <text x={tx(cx2+r2/2)} y={ty(cy2)+14} fill="#2563eb" fontSize="11" textAnchor="middle">{lbl.r2}</text></>}
+        {/* Labels placed above each circle so long equation strings don't overlap the circles */}
+        {lbl.c1 && <text x={tx(cx1)} y={ty(cy1+r1)-10} fill="#6366f1" fontSize="11" fontWeight="600" textAnchor="middle">{latexToPlain(lbl.c1)}</text>}
+        {lbl.c2 && <text x={tx(cx2)} y={Math.min(ty(cy2+r2)-10, VH-8)} fill="#2563eb" fontSize="11" fontWeight="600" textAnchor="middle">{latexToPlain(lbl.c2)}</text>}
       </svg>
     );
   }
