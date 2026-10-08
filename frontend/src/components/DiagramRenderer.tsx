@@ -9,7 +9,9 @@ function latexToPlain(s: string): string {
     .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '$1/$2')
     .replace(/\^\{([^}]+)\}/g, (_: string, e: string) => e === '2' ? '²' : e === '3' ? '³' : e === 'n' ? 'ⁿ' : `^${e}`)
     .replace(/\^2/g, '²').replace(/\^3/g, '³').replace(/\^n/g, 'ⁿ')
-    .replace(/_\{([^}]+)\}/g, '₀$1').replace(/_([0-9])/g, '₀$1')
+    .replace(/_\{([^}]*)\}/g, (_, s: string) => s.replace(/\d/g, (d) => '₀₁₂₃₄₅₆₇₈₉'[+d] ?? d).replace(/[a-z]/g, (c) => ({i:'ᵢ',n:'ₙ',a:'ₐ',e:'ₑ',x:'ₓ',k:'ₖ',l:'ₗ',m:'ₘ',p:'ₚ',s:'ₛ',t:'ₜ'}[c] ?? c)))
+    .replace(/_([0-9])/g, (_, d: string) => '₀₁₂₃₄₅₆₇₈₉'[+d] ?? d)
+    .replace(/_([a-z])/g, (_, c: string) => ({i:'ᵢ',n:'ₙ',a:'ₐ',e:'ₑ',x:'ₓ',k:'ₖ',l:'ₗ',m:'ₘ',p:'ₚ',s:'ₛ',t:'ₜ'}[c] ?? c))
     .replace(/\\pm/g, '±').replace(/\\mp/g, '∓')
     .replace(/\\sqrt\{([^}]+)\}/g, '√($1)').replace(/\\sqrt/g, '√')
     .replace(/\\cdot/g, '·').replace(/\\times/g, '×').replace(/\\div/g, '÷')
@@ -1200,9 +1202,10 @@ function CircleGeom({ p }: { p: any }) {
   }
 
   if (sub === 'tangent_from_point') {
-    const px = +(p.point_x ?? cx1 + r1 + 70), py = +(p.point_y ?? cy1);
-    const dist = Math.sqrt((px-cx1)**2 + (py-cy1)**2);
-    if (dist <= r1) return null;
+    let px = +(p.point_x ?? cx1 + r1 + 70), py = +(p.point_y ?? cy1);
+    let dist = Math.sqrt((px-cx1)**2 + (py-cy1)**2);
+    // If the external point is inside or on the circle, push it outside so tangents can be drawn
+    if (dist <= r1) { px = cx1 + r1 * 1.7; py = cy1; dist = r1 * 1.7; }
     const tang = Math.sqrt(dist**2 - r1**2);
     const ang = Math.atan2(py-cy1, px-cx1), half = Math.asin(r1/dist);
     const t1x = px - tang*Math.cos(ang-half), t1y = py - tang*Math.sin(ang-half);
