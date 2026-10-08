@@ -1010,7 +1010,7 @@ function PvDiagram({ p }: { p: any }) {
         {[A, B, C, D].map(([x, y], i) => (
           <g key={i}>
             <circle cx={x} cy={y} r="4.5" fill="white" stroke="#475569" strokeWidth="1.5" />
-            <text x={x + (i < 2 ? 8 : -14)} y={y - 6} fill="#374151" fontSize="11" fontWeight="600">
+            <text x={x + (i < 2 ? 8 : i === 3 ? -22 : -14)} y={y + (i === 3 ? 14 : -6)} fill="#374151" fontSize="11" fontWeight="600">
               {['A','B','C','D'][i]}
             </text>
           </g>
@@ -1660,7 +1660,7 @@ function CrystalStruct({ p }: { p: any }) {
 
   return (
     <svg viewBox={`0 0 ${VW} ${VH}`} style={{width:'100%',height:'auto',display:'block'}}>
-      <text x={VW/2} y={20} textAnchor="middle" fill="#374151" fontSize="13" fontWeight="700">{lbl.title ?? typeName} Unit Cell</text>
+      <text x={VW/2} y={20} textAnchor="middle" fill="#374151" fontSize="13" fontWeight="700">{lbl.title ?? `${typeName} Unit Cell`}</text>
       {edges.map(([i,j,hidden],k) => {
         const [x1,y1]=corSvg[i]!, [x2,y2]=corSvg[j]!;
         return <line key={k} x1={x1} y1={y1} x2={x2} y2={y2}
@@ -1707,12 +1707,12 @@ function ElectrochemCell({ p }: { p: any }) {
       {/* External wire */}
       <polyline points={`${aX},${lbY-20} ${aX},${wireY} ${cX},${wireY} ${cX},${rbY-20}`}
         fill="none" stroke="#374151" strokeWidth="1.8" strokeLinejoin="round"/>
-      {/* Voltmeter */}
-      <circle cx={vmX} cy={wireY} r="14" fill="white" stroke="#374151" strokeWidth="1.5"/>
-      <text x={vmX} y={wireY+5} textAnchor="middle" fill="#374151" fontSize="11" fontWeight="700">{emf||'V'}</text>
+      {/* Voltmeter — r=20 fits up to 6-char EMF strings */}
+      <circle cx={vmX} cy={wireY} r="20" fill="white" stroke="#374151" strokeWidth="1.5"/>
+      <text x={vmX} y={wireY+4} textAnchor="middle" fill="#374151" fontSize="10" fontWeight="700">{emf||'V'}</text>
       {/* Electron arrows on wire */}
-      <Arr x1={aX+14} y1={wireY} x2={vmX-18} y2={wireY} color="#374151" sw={1.4}/>
-      <Arr x1={vmX+18} y1={wireY} x2={cX-14} y2={wireY} color="#374151" sw={1.4}/>
+      <Arr x1={aX+14} y1={wireY} x2={vmX-24} y2={wireY} color="#374151" sw={1.4}/>
+      <Arr x1={vmX+24} y1={wireY} x2={cX-14} y2={wireY} color="#374151" sw={1.4}/>
       <text x={(aX+vmX)/2} y={wireY+14} fill="#374151" fontSize="9" textAnchor="middle">e⁻</text>
       {/* Salt bridge (U-shape tube) */}
       <polyline points={`${lbX+lbW/2},${lbY} ${lbX+lbW/2},${sbBridgeY} ${rbX+rbW/2},${sbBridgeY} ${rbX+rbW/2},${rbY}`}
