@@ -1227,8 +1227,18 @@ function ConicSection({ p }: { p: any }) {
   if (type === 'ellipse' || type === 'hyperbola') {
     const a = +(p.a ?? 4), b = +(p.b ?? 3);
     const sc = Math.min((VW/2 - 32) / a, (VH/2 - 28) / b, 30);
-    const c = type === 'ellipse' ? Math.sqrt(Math.max(0, a**2 - b**2)) : Math.sqrt(a**2 + b**2);
-    const [f1x] = toS(-c, 0, sc), [f2x] = toS(c, 0, sc), [,focY] = toS(0, 0, sc);
+    const isVertEllipse = type === 'ellipse' && b > a;
+    const c = type === 'ellipse'
+      ? Math.sqrt(Math.max(0, Math.max(a,b)**2 - Math.min(a,b)**2))
+      : Math.sqrt(a**2 + b**2);
+    // Horizontal ellipse/hyperbola: foci on x-axis at (±c,0)
+    // Vertical ellipse (b>a): foci on y-axis at (0,±c)
+    const hf1x = toS(-c, 0, sc)[0], hf2x = toS(c, 0, sc)[0];
+    const f1x = isVertEllipse ? ox : hf1x;
+    const f2x = isVertEllipse ? ox : hf2x;
+    const f1y = isVertEllipse ? oy+c*sc : oy;
+    const f2y = isVertEllipse ? oy-c*sc : oy;
+    const focY = oy; // used by hyperbola (always x-axis)
 
     const axes = (
       <>{['x','y'].map((ax,i) => (
@@ -1246,9 +1256,9 @@ function ConicSection({ p }: { p: any }) {
           {axes}
           <ellipse cx={ox} cy={oy} rx={a*sc} ry={b*sc} fill="rgba(99,102,241,0.06)" stroke="#6366f1" strokeWidth="2"/>
           {p.show_focus !== false && (<>
-            <circle cx={f1x} cy={focY} r="4" fill="#2563eb"/><circle cx={f2x} cy={focY} r="4" fill="#2563eb"/>
-            <text x={f1x} y={focY+16} fill="#2563eb" fontSize="11" fontWeight="600" textAnchor="middle">{lbl.f1 ?? '(-c,0)'}</text>
-            <text x={f2x} y={focY+16} fill="#2563eb" fontSize="11" fontWeight="600" textAnchor="middle">{lbl.f2 ?? '(c,0)'}</text>
+            <circle cx={f1x} cy={f1y} r="4" fill="#2563eb"/><circle cx={f2x} cy={f2y} r="4" fill="#2563eb"/>
+            <text x={f1x+(isVertEllipse?8:0)} y={f1y+(isVertEllipse?4:16)} fill="#2563eb" fontSize="11" fontWeight="600" textAnchor={isVertEllipse?"start":"middle"}>{lbl.f1 ?? (isVertEllipse?'(0,−c)':'(-c,0)')}</text>
+            <text x={f2x+(isVertEllipse?8:0)} y={f2y+(isVertEllipse?4:16)} fill="#2563eb" fontSize="11" fontWeight="600" textAnchor={isVertEllipse?"start":"middle"}>{lbl.f2 ?? (isVertEllipse?'(0,c)':'(c,0)')}</text>
           </>)}
           {lbl.a && (<><line x1={ox} y1={oy} x2={ox+a*sc} y2={oy} stroke="#374151" strokeWidth="1" strokeDasharray="3,2"/>
             <text x={ox+a*sc/2} y={oy-8} fill="#374151" fontSize="11" textAnchor="middle">{lbl.a}</text></>)}
@@ -1357,7 +1367,7 @@ function ArgandPlane({ p }: { p: any }) {
         return (
           <g key={i}>
             {pt.show_modulus !== false && <line x1={ox} y1={oy} x2={sx} y2={sy} stroke="#6366f1" strokeWidth="1.3" strokeDasharray="4,2"/>}
-            {pt.show_argument !== false && Math.abs(pt.re) > 0.01 && (
+            {pt.show_argument !== false && Math.sqrt(pt.re**2+pt.im**2) > 0.01 && (
               <path d={`M ${ox+arcRadius},${oy} A ${arcRadius},${arcRadius} 0 0,${pt.im>=0?0:1} ${(ox+arcRadius*Math.cos(angR)).toFixed(1)},${(oy-arcRadius*Math.sin(angR)).toFixed(1)}`}
                 fill="none" stroke="#d97706" strokeWidth="1.2"/>
             )}
@@ -1421,8 +1431,16 @@ function MolecGeometry({ p }: { p: any }) {
     return <svg viewBox={`0 0 ${VW} ${VH}`} style={{width:'100%',height:'auto',display:'block'}}>
       {solidLine(cx,cy,l1[0]!,l1[1]!)}{solidLine(cx,cy,l2[0]!,l2[1]!)}
       {ligAtom(l1[0]!,l1[1]!,0)}{ligAtom(l2[0]!,l2[1]!,1)}{centralAtomEl}
-      <path d={`M ${cx-22},${cy+12} A 22,22 0 0,1 ${cx+22},${cy+12}`} fill="none" stroke="#6366f1" strokeWidth="1.2"/>
-      <text x={cx} y={cy+42} fill="#6366f1" fontSize="11" textAnchor="middle" fontWeight="600">{angleLbl ?? `${ang}°`}</text>
+      {(() => {
+        // Arc endpoints are on the bond directions at arcR2 from central atom
+        const arcR2 = 26;
+        const pa2 = Math.atan2(BL*Math.cos(h), BL*Math.sin(h));  // direction to l2
+        const pa1 = Math.atan2(BL*Math.cos(h), -BL*Math.sin(h)); // direction to l1
+        const axS = +(cx + arcR2*Math.cos(pa2)).toFixed(1), ayS = +(cy + arcR2*Math.sin(pa2)).toFixed(1);
+        const axE = +(cx + arcR2*Math.cos(pa1)).toFixed(1), ayE = +(cy + arcR2*Math.sin(pa1)).toFixed(1);
+        return <path d={`M ${axS},${ayS} A ${arcR2},${arcR2} 0 0,1 ${axE},${ayE}`} fill="none" stroke="#6366f1" strokeWidth="1.2"/>;
+      })()}
+      <text x={cx} y={cy+44} fill="#6366f1" fontSize="11" textAnchor="middle" fontWeight="600">{angleLbl ?? `${ang}°`}</text>
     </svg>;
   }
   if (shape === 'trigonal_planar') {
@@ -1446,7 +1464,7 @@ function MolecGeometry({ p }: { p: any }) {
   }
   // tetrahedral (default) and trigonal_bipyramidal
   if (shape === 'trigonal_bipyramidal') {
-    const eqPos = [0,120,240].map(d => [cx+BL*Math.cos((d-90)*Math.PI/180), cy+BL*Math.sin((d-90)*Math.PI/180)]);
+    const eqPos = [0,120,240].map(d => [cx+BL*Math.cos(d*Math.PI/180), cy+BL*Math.sin(d*Math.PI/180)]);
     const axT = [cx, cy-BL], axB = [cx, cy+BL];
     return <svg viewBox={`0 0 ${VW} ${VH}`} style={{width:'100%',height:'auto',display:'block'}}>
       {eqPos.map((q) => solidLine(cx,cy,q[0]!,q[1]!))}
@@ -1499,7 +1517,8 @@ function MoDiagram({ p }: { p: any }) {
   levels.forEach((lv,i) => { if(lv.ab) antibonding+=filled[i]!; else bonding+=filled[i]!; });
   const bo = (bonding - antibonding) / 2;
   let unpaired = 0;
-  levels.forEach((lv,i) => { if(lv.deg){ const e=filled[i]!; if(e===1||e===3) unpaired++; } else if(filled[i]===1) unpaired++; });
+  // Hund's rule: degenerate pair with e electrons → min(e,4-e) unpaired (handles e=2→2 unpaired for O2/B2)
+  levels.forEach((lv,i) => { if(lv.deg){ const e=filled[i]!; unpaired+=Math.min(e,4-e); } else if(filled[i]===1) unpaired++; });
 
   const VW=380, VH=290;
   const lx=68, rx=306, cx2=VW/2;
@@ -1648,11 +1667,13 @@ function ElectrochemCell({ p }: { p: any }) {
   const anodeElec   = p.anode?.electrolyte  ?? `${anodeMetal}SO₄`;
   const cathodeElec = p.cathode?.electrolyte ?? `${cathodeMetal}SO₄`;
   const emf = p.emf ?? '';
-  const VW=440, VH=248;
-  const lbX=36,lbY=80,lbW=128,lbH=138;
-  const rbX=276,rbY=80,rbW=128,rbH=138;
+  const VW=440, VH=260;
+  // lbY=96: beaker starts at 96, salt bridge at 96-32=64, electrode labels at 64-10=54
+  // wireY=22: wire across the top, voltmeter circle at y=22
+  const lbX=36,lbY=96,lbW=128,lbH=136;
+  const rbX=276,rbY=96,rbW=128,rbH=136;
   const aX=lbX+lbW*0.44, cX=rbX+rbW*0.56;
-  const wireY=28, sbBridgeY=lbY-34;
+  const wireY=20, sbBridgeY=lbY-32;
   const vmX=VW/2;
 
   return (
@@ -1676,7 +1697,7 @@ function ElectrochemCell({ p }: { p: any }) {
       {/* Left beaker (anode) */}
       <rect x={lbX} y={lbY} width={lbW} height={lbH} fill="rgba(219,234,254,0.35)" stroke="#374151" strokeWidth="1.8" rx="2"/>
       <line x1={aX} y1={lbY-20} x2={aX} y2={lbY+lbH-6} stroke="#374151" strokeWidth="5" strokeLinecap="round"/>
-      <text x={aX} y={lbY-28} fill="#dc2626" fontSize="9" fontWeight="700" textAnchor="middle">Anode (−)</text>
+      <text x={aX} y={sbBridgeY-12} fill="#dc2626" fontSize="9" fontWeight="700" textAnchor="middle">Anode (−)</text>
       <text x={aX} y={lbY+lbH-10} fill="white" fontSize="10" fontWeight="700" textAnchor="middle">{anodeMetal}</text>
       <text x={lbX+lbW/2} y={lbY+62} fill="#1d4ed8" fontSize="11" textAnchor="middle" fontWeight="600">{anodeElec}</text>
       <text x={lbX+lbW/2} y={lbY+78} fill="#1d4ed8" fontSize="10" textAnchor="middle">(aq)</text>
@@ -1685,7 +1706,7 @@ function ElectrochemCell({ p }: { p: any }) {
       {/* Right beaker (cathode) */}
       <rect x={rbX} y={rbY} width={rbW} height={rbH} fill="rgba(220,252,231,0.35)" stroke="#374151" strokeWidth="1.8" rx="2"/>
       <line x1={cX} y1={rbY-20} x2={cX} y2={rbY+rbH-6} stroke="#b45309" strokeWidth="5" strokeLinecap="round"/>
-      <text x={cX} y={rbY-28} fill="#16a34a" fontSize="9" fontWeight="700" textAnchor="middle">Cathode (+)</text>
+      <text x={cX} y={sbBridgeY-12} fill="#16a34a" fontSize="9" fontWeight="700" textAnchor="middle">Cathode (+)</text>
       <text x={cX} y={rbY+rbH-10} fill="white" fontSize="10" fontWeight="700" textAnchor="middle">{cathodeMetal}</text>
       <text x={rbX+rbW/2} y={rbY+62} fill="#15803d" fontSize="11" textAnchor="middle" fontWeight="600">{cathodeElec}</text>
       <text x={rbX+rbW/2} y={rbY+78} fill="#15803d" fontSize="10" textAnchor="middle">(aq)</text>
@@ -1701,6 +1722,7 @@ function OrganicStruct({ p }: { p: any }) {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const smiles: string = p.smiles ?? 'c1ccccc1';
   const label: string = p.label ?? '';
+  const [failed, setFailed] = React.useState(false);
 
   React.useEffect(() => {
     let active = true;
@@ -1712,7 +1734,7 @@ function OrganicStruct({ p }: { p: any }) {
         const DrawerClass = Lib.SmilesDrawer ?? Lib;
         const parseFunc = (Lib.parse ?? Lib.SmilesDrawer?.parse) as
           ((s:string, ok:(t:unknown)=>void, err:(e:unknown)=>void)=>void) | undefined;
-        if (!DrawerClass || !parseFunc) return;
+        if (!DrawerClass || !parseFunc) { setFailed(true); return; }
         const drawer = new DrawerClass({
           width: 380, height: 200, bondThickness: 1.2,
           shortBondWidth: 0.85, compactDrawing: true,
@@ -1726,17 +1748,27 @@ function OrganicStruct({ p }: { p: any }) {
         });
         parseFunc.call(Lib, smiles,
           (tree: unknown) => { if (active && canvasRef.current) drawer.draw(tree, canvasRef.current, 'light', false); },
-          (err: unknown) => { console.warn('[SmilesDrawer]', err); }
+          (err: unknown) => { console.warn('[SmilesDrawer]', err); if (active) setFailed(true); }
         );
-      } catch (e) { console.warn('[SmilesDrawer init]', e); }
-    }).catch(() => {});
+      } catch (e) { console.warn('[SmilesDrawer init]', e); if (active) setFailed(true); }
+    }).catch(() => { if (active) setFailed(true); });
     return () => { active = false; };
   }, [smiles]);
 
   return (
     <div style={{textAlign:'center'}}>
-      <canvas ref={canvasRef} width={380} height={200} style={{maxWidth:'100%',height:'auto'}}/>
-      {label && <p style={{fontSize:12,color:'#475569',margin:'4px 0 0',padding:0}}>{label}</p>}
+      {failed ? (
+        <div style={{padding:'24px 16px',border:'1px solid #e5e7eb',borderRadius:6,background:'#f9fafb'}}>
+          <div style={{fontFamily:'monospace',fontSize:12,color:'#374151',letterSpacing:'0.02em'}}>{smiles}</div>
+          <div style={{marginTop:6,fontSize:11,color:'#6b7280'}}>Structural formula (SMILES)</div>
+          {label && <div style={{marginTop:4,fontSize:12,color:'#374151',fontWeight:600}}>{label}</div>}
+        </div>
+      ) : (
+        <>
+          <canvas ref={canvasRef} width={380} height={200} style={{maxWidth:'100%',height:'auto'}}/>
+          {label && <p style={{fontSize:12,color:'#475569',margin:'4px 0 0',padding:0}}>{label}</p>}
+        </>
+      )}
     </div>
   );
 }
