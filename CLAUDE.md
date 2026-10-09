@@ -172,6 +172,45 @@ advanced Physics uses rotational + SHM + thermodynamics together, Maths uses mul
 
 ---
 
+## LATEX RENDERING RULES
+
+**Every time you touch question generation, prompts, or any text that gets displayed to the student — ensure LaTeX is always renderable.**
+
+### How the frontend renders math
+- `katex.renderToString()` is called at React render time (not post-render DOM mutation)
+- `renderMathHtml(text)` in `QuestionCard.tsx` handles all input formats:
+  - Already-delimited: `$...$`, `$$...$$`, `\(...\)`, `\[...\]`
+  - Bare LaTeX (no delimiters): auto-wraps the first LaTeX token and everything after it in `$...$`
+
+### Rules for DeepSeek prompts — always include in `<format>` or `<constraints>`
+
+```
+LATEX RULES (MUST FOLLOW):
+- All math expressions MUST be wrapped in LaTeX delimiters: $...$ for inline, $$...$$ for display
+- Example correct:   "Find the value of $\int_0^1 x^2 dx$"
+- Example wrong:     "Find the value of \int_0^1 x^2 dx"
+- Every formula, variable, fraction, integral, summation, Greek letter MUST be inside $...$
+- Plain English words (like "where", "and", "such that") stay OUTSIDE the $ delimiters
+- Do NOT use \(...\) or \[...\] — use $...$ and $$...$$ only
+- Do NOT mix LaTeX and plain text inside the same $ block
+```
+
+### preprocessLatex substitutions (applied before KaTeX)
+The following are stripped/replaced before KaTeX runs — **do NOT rely on them in prompts**:
+- `\ce{...}` → Unicode chemical formula (e.g. H₂O)
+- `\text{...}` → plain text (stripped)
+- `\mathrm{...}` → plain text (stripped)
+- `\degree`, `^\circ` → °
+- `\Omega` → Ω, `\mu` → μ, `\times` → ×, `\cdot` → ·, `\pm` → ±
+
+### What this means for you (the developer)
+- When updating DeepSeek prompt templates, always add or preserve the LATEX RULES block
+- When adding new question types, make sure the format instructions mandate `$...$` delimiters
+- When writing test questions manually, wrap all math in `$...$`
+- If a new display format is added (e.g. paragraph type), confirm `renderMathHtml` handles the text fields
+
+---
+
 ## DEEPSEEK PROMPT STRUCTURE
 
 ### JEE Main — MCQ Single Correct
