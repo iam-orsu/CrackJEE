@@ -109,30 +109,33 @@ function escapeHtml(s: string): string {
 
 function renderMathHtml(rawText: string): string {
   if (!rawText) return '';
-  const text = preprocessLatex(rawText);
 
-  // Pattern: $$...$$, $...$, \[...\], \(...\)  — in that priority order
-  const pattern = /(\$\$[\s\S]+?\$\$|\$[^$\n]+?\$|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\))/g;
-
-  // No explicit delimiters but contains LaTeX commands → wrap the LaTeX portion
-  if (!/[$]|\\\(|\\\[/.test(text) && /\\[a-zA-Z]|[_^]\{/.test(text)) {
-    let start = text.search(/\\[a-zA-Z]|[_^]\{/);
-    while (start > 0 && /[a-zA-Z0-9]/.test(text[start - 1]!)) start--;
-    const pre  = text.slice(0, start);
-    const math = text.slice(start).trim();
-    try {
-      return (pre ? escapeHtml(pre) : '') + katex.renderToString(math, { throwOnError: false });
-    } catch {
-      return escapeHtml(text);
+  // No explicit delimiters — apply preprocessLatex on full text, then detect bare LaTeX
+  if (!/[$]|\\\(|\\\[/.test(rawText)) {
+    const processed = preprocessLatex(rawText);
+    if (/\\[a-zA-Z]|[_^]\{/.test(processed)) {
+      let start = processed.search(/\\[a-zA-Z]|[_^]\{/);
+      while (start > 0 && /[a-zA-Z0-9]/.test(processed[start - 1]!)) start--;
+      const pre  = processed.slice(0, start);
+      const math = processed.slice(start).trim();
+      try {
+        return (pre ? escapeHtml(pre) : '') + katex.renderToString(math, { throwOnError: false });
+      } catch {
+        return escapeHtml(processed);
+      }
     }
+    return escapeHtml(processed);
   }
 
+  // Text has delimiters: apply preprocessLatex only to non-math segments so KaTeX
+  // renders \mu, \times, \Omega, \text{} etc. with proper math fonts.
+  const pattern = /(\$\$[\s\S]+?\$\$|\$[^$\n]+?\$|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\))/g;
   const parts: string[] = [];
   let lastIndex = 0;
   let match: RegExpExecArray | null;
 
-  while ((match = pattern.exec(text)) !== null) {
-    parts.push(escapeHtml(text.slice(lastIndex, match.index)));
+  while ((match = pattern.exec(rawText)) !== null) {
+    parts.push(escapeHtml(preprocessLatex(rawText.slice(lastIndex, match.index))));
     const raw = match[0]!;
     let display = false;
     let content = raw;
@@ -148,7 +151,7 @@ function renderMathHtml(rawText: string): string {
     lastIndex = match.index + raw.length;
   }
 
-  parts.push(escapeHtml(text.slice(lastIndex)));
+  parts.push(escapeHtml(preprocessLatex(rawText.slice(lastIndex))));
   return parts.join('');
 }
 
