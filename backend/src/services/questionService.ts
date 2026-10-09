@@ -2,7 +2,7 @@ import { prisma } from '../lib/prisma';
 import { cacheGetJson, cacheSetJson } from './cacheService';
 import { generateQuestion } from './deepseekService';
 import { validateQuestion } from './openaiService';
-import type { Subject, Difficulty, ExamType, StudentClass } from '../types/index';
+import type { Subject, Difficulty, ExamType, StudentClass, QuestionType } from '../types/index';
 import type { Question } from '@prisma/client';
 
 const pendingGeneration = new Map<string, Promise<Question>>();
@@ -13,31 +13,42 @@ function randomDifficulty(): Difficulty {
   return DIFFICULTIES[Math.floor(Math.random() * 3)] as Difficulty;
 }
 
+function pickQuestionType(examType: ExamType): QuestionType {
+  if (examType !== 'Advanced') {
+    // JEE Main: 70% single correct, 30% integer
+    return Math.random() < 0.70 ? 'mcq_single' : 'integer';
+  }
+  // JEE Advanced: 40% single, 35% multi-correct, 25% integer
+  const r = Math.random();
+  if (r < 0.40) return 'mcq_single';
+  if (r < 0.75) return 'mcq_multi';
+  return 'integer';
+}
+
 async function generateAndPersist(
   subject: Subject,
   topic: string,
   difficulty: Difficulty,
   examType: ExamType,
   studentClass: StudentClass,
+  questionType: QuestionType,
   pool: Question[] | null,
 ): Promise<Question> {
-  const cacheKey = `q:${subject}:${topic}:${difficulty}:${examType}:${studentClass}`;
-
-  const generated = await generateQuestion(subject, topic, difficulty, examType, studentClass);
+  const generated = await generateQuestion(subject, topic, difficulty, examType, studentClass, questionType);
   const isValid = await validateQuestion(generated);
 
   let finalQuestion = generated;
   if (!isValid) {
     try {
-      const retry = await generateQuestion(subject, topic, difficulty, examType, studentClass);
+      const retry = await generateQuestion(subject, topic, difficulty, examType, studentClass, questionType);
       const retryValid = await validateQuestion(retry);
       if (retryValid) finalQuestion = retry;
-      // If still invalid, use the first generated question — a slightly imperfect
-      // question is better than a 500 error for the student.
     } catch {
       // use original
     }
   }
+
+  const cacheKey = `q:${subject}:${topic}:${difficulty}:${examType}:${studentClass}:${questionType}`;
 
   const question = await prisma.question.create({
     data: {
@@ -50,6 +61,7 @@ async function generateAndPersist(
       diagram: finalQuestion.diagram ? JSON.parse(JSON.stringify(finalQuestion.diagram)) : undefined,
       difficulty,
       examType,
+      questionType,
       validatedAt: new Date(),
     },
   });
@@ -69,8 +81,9 @@ export async function getNextQuestion(
   studentClass: StudentClass,
   batchExcludeIds: string[] = [],
 ): Promise<Question> {
-  const cacheKey = `q:${subject}:${topic}:${difficulty}:${examType}:${studentClass}`;
-  const servedKey = `served:${userId}:${subject}:${topic}`;
+  const questionType = pickQuestionType(examType);
+  const cacheKey = `q:${subject}:${topic}:${difficulty}:${examType}:${studentClass}:${questionType}`;
+  const servedKey = `served:${userId}:${subject}:${topic}:${questionType}`;
   const servedIds = (await cacheGetJson<string[]>(servedKey)) ?? [];
   const allExcluded = new Set([...servedIds, ...batchExcludeIds]);
 
@@ -90,6 +103,7 @@ export async function getNextQuestion(
       subject,
       difficulty,
       examType,
+      questionType,
       id: { notIn: [...allExcluded] },
       validatedAt: { not: null },
     },
@@ -101,7 +115,7 @@ export async function getNextQuestion(
 
   let genPromise = pendingGeneration.get(cacheKey);
   if (!genPromise) {
-    genPromise = generateAndPersist(subject, topic, difficulty, examType, studentClass, pool).finally(
+    genPromise = generateAndPersist(subject, topic, difficulty, examType, studentClass, questionType, pool).finally(
       () => pendingGeneration.delete(cacheKey),
     );
     pendingGeneration.set(cacheKey, genPromise);

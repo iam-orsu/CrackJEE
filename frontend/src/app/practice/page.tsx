@@ -566,9 +566,9 @@ export default function PracticePage() {
                   <p className="config-label">Marking scheme</p>
                   <div className="pill-group">
                     {([
-                      { key: 'standard',     label: 'Standard (1/0)'       },
-                      { key: 'jee_main',     label: 'JEE Main (+4/−1)'   },
-                      { key: 'jee_advanced', label: 'JEE Advanced (+4/−2)' },
+                      { key: 'standard',     label: 'Standard (1/0)'              },
+                      { key: 'jee_main',     label: 'JEE Main (+4/−1)'            },
+                      { key: 'jee_advanced', label: 'JEE Advanced (+4/−2 wrong)'  },
                     ] as const).map(({ key, label }) => (
                       <button key={key} className={`pill${markingScheme === key ? ' selected' : ''}`} onClick={() => setMarkingScheme(key)}>{label}</button>
                     ))}
@@ -741,6 +741,7 @@ export default function PracticePage() {
     const wrong     = attempted - correct;
     const accuracy  = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
 
+    // For jee_advanced, multi-correct correct = +4, wrong = -2 (same penalty as single)
     const jeeScore  = markingScheme === 'jee_main'     ? correct * 4 - wrong * 1
                     : markingScheme === 'jee_advanced'  ? correct * 4 - wrong * 2
                     : correct;

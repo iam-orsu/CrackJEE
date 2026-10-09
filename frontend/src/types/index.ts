@@ -21,7 +21,8 @@ export interface Question {
   topic: string;
   subject: string;
   questionText: string;
-  options: string[];
+  questionType: 'mcq_single' | 'mcq_multi' | 'integer';
+  options: string[];   // empty [] for integer type
   difficulty: string;
   examType: string;
   diagram?: DiagramTemplate | null;

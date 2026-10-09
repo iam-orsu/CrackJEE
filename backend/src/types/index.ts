@@ -4,6 +4,7 @@ export type Subject = 'Mathematics' | 'Physics' | 'Chemistry';
 export type Difficulty = 'beginner' | 'intermediate' | 'advanced';
 export type ExamType = 'Main' | 'Advanced' | 'Both';
 export type StudentClass = '11' | '12' | 'Dropper';
+export type QuestionType = 'mcq_single' | 'mcq_multi' | 'integer';
 
 export interface AuthPayload {
   userId: string;
@@ -25,8 +26,9 @@ export interface DiagramTemplate {
 
 export interface GeneratedQuestion {
   question: string;
-  options: string[];
-  correct_answer: string;
+  question_type: QuestionType;
+  options: string[];       // empty [] for integer type
+  correct_answer: string;  // "B" for mcq_single | "A,C" sorted for mcq_multi | "42" for integer
   answer_explanation: string;
   diagram?: DiagramTemplate | null;
 }

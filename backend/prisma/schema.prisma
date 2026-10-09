@@ -34,13 +34,14 @@ model Question {
   diagram      Json?
   difficulty   String
   examType     String
+  questionType String    @default("mcq_single")
   generatedAt  DateTime  @default(now())
   validatedAt  DateTime?
 
   attempts StudentAttempt[]
 
-  @@index([topic, subject, difficulty])
-  @@index([subject, difficulty])
+  @@index([topic, subject, difficulty, questionType])
+  @@index([subject, difficulty, examType, questionType])
 }
 
 model StudentAttempt {

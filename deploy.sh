@@ -13,12 +13,21 @@ case "$ACTION" in
   start)
     echo "Starting CrackJEE platform..."
     docker compose --env-file "$ENV_FILE" up -d --build
-    echo "Platform started. Access at http://localhost:8080"
+    echo ""
+    echo "Build complete. Services are starting up (can take 60-90s on first run)."
+    echo "  Watch logs:   ./deploy.sh logs"
+    echo "  Check status: ./deploy.sh status"
+    echo "  Access at:    http://localhost:8080"
     ;;
 
   restart)
-    echo "Restarting CrackJEE platform..."
-    docker compose --env-file "$ENV_FILE" restart
+    echo "Rebuilding and restarting CrackJEE platform..."
+    docker compose --env-file "$ENV_FILE" down
+    docker compose --env-file "$ENV_FILE" up -d --build
+    echo ""
+    echo "Restart complete."
+    echo "  Watch logs:   ./deploy.sh logs"
+    echo "  Access at:    http://localhost:8080"
     ;;
 
   stop)
@@ -49,7 +58,7 @@ case "$ACTION" in
   *)
     echo "Usage: ./deploy.sh [start|restart|stop|delete|logs|status]"
     echo "  start   - Build and start all services"
-    echo "  restart - Restart all services"
+    echo "  restart - Rebuild images and restart all services"
     echo "  stop    - Stop all services (keep data)"
     echo "  delete  - Stop and delete all data volumes"
     echo "  logs    - Tail logs (optionally pass service name)"

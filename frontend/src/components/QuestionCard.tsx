@@ -25,12 +25,9 @@ const CROSS = (
   </svg>
 );
 
-// Subject visual config
 const SUBJECT_STYLE: Record<string, { bg: string; accent: string; textColor: string; icon: React.ReactNode }> = {
   Physics: {
-    bg: '#eff6ff',
-    accent: '#2563eb',
-    textColor: '#1d4ed8',
+    bg: '#eff6ff', accent: '#2563eb', textColor: '#1d4ed8',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
         <circle cx="12" cy="12" r="3"/>
@@ -41,9 +38,7 @@ const SUBJECT_STYLE: Record<string, { bg: string; accent: string; textColor: str
     ),
   },
   Chemistry: {
-    bg: '#f0fdf4',
-    accent: '#16a34a',
-    textColor: '#15803d',
+    bg: '#f0fdf4', accent: '#16a34a', textColor: '#15803d',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
         <path d="M9 3h6v7l3.5 6.5A2 2 0 0116.76 19H7.24a2 2 0 01-1.74-2.5L9 10V3z"/>
@@ -52,9 +47,7 @@ const SUBJECT_STYLE: Record<string, { bg: string; accent: string; textColor: str
     ),
   },
   Mathematics: {
-    bg: '#f5f3ff',
-    accent: '#7c3aed',
-    textColor: '#6d28d9',
+    bg: '#f5f3ff', accent: '#7c3aed', textColor: '#6d28d9',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <line x1="5" y1="12" x2="19" y2="12"/>
@@ -65,11 +58,15 @@ const SUBJECT_STYLE: Record<string, { bg: string; accent: string; textColor: str
   },
 };
 
+const QTYPE_BADGE: Record<string, { label: string; bg: string; color: string }> = {
+  mcq_multi: { label: 'Multi-correct', bg: '#fef3c7', color: '#92400e' },
+  integer:   { label: 'Integer type',  bg: '#eff6ff', color: '#1e40af' },
+};
+
 function stripOptionPrefix(opt: string): string {
   return opt.replace(/^[A-Da-d][).]\s*/, '').trim();
 }
 
-// Strip LaTeX commands that appear inline in prose and would break KaTeX if wrapped in $...$
 function preprocessLatex(text: string): string {
   const SUB = '₀₁₂₃₄₅₆₇₈₉';
   const SUP = '⁰¹²³⁴⁵⁶⁷⁸⁹';
@@ -85,20 +82,15 @@ function preprocessLatex(text: string): string {
   }
 
   return text
-    // \ce{...} chemistry notation
     .replace(/\\ce\s*\{([^}]+)\}/g, (_, f: string) => ceFormulaToUnicode(f))
     .replace(/\\ce\s*([A-Za-z0-9_^{}\-+·*]+)/g, (_, f: string) => ceFormulaToUnicode(f))
-    // Temperature/angle degree: \,^\circ\text{C} → °C
     .replace(/\\[,;!]\s*\^\{?\\circ\}?\s*\\text\{([A-Za-z])\}/g, '°$1')
     .replace(/\^\{?\\circ\}?\s*\\text\{([A-Za-z])\}/g, '°$1')
     .replace(/\\[,;!]\s*\^\{?\\circ\}?/g, '°')
     .replace(/\^\{?\\circ\}?/g, '°')
     .replace(/\\degree/g, '°')
-    // \text{...} → its plain content
     .replace(/\\text\{([^}]*)\}/g, '$1')
-    // Thin/negative spacing macros → plain space or nothing
     .replace(/\\[,;!]/g, ' ')
-    // Common units that appear bare in prose
     .replace(/\\Omega/g, 'Ω')
     .replace(/\\mu/g, 'μ')
     .replace(/\\times/g, '×')
@@ -110,11 +102,9 @@ function preprocessLatex(text: string): string {
     .replace(/\\pm/g, '±');
 }
 
-// If text has bare LaTeX commands but no $ delimiters, add them so KaTeX renders
 function ensureMathDelimiters(text: string): string {
-  if (/\$|\\\(|\\\[/.test(text)) return text;           // already delimited
-  if (!/\\[a-zA-Z]|[_^]\{/.test(text)) return text;    // no LaTeX at all
-  // Find where math begins, extend back to include adjacent alphanumerics
+  if (/\$|\\\(|\\\[/.test(text)) return text;
+  if (!/\\[a-zA-Z]|[_^]\{/.test(text)) return text;
   let start = text.search(/\\[a-zA-Z]|[_^]\{/);
   while (start > 0 && /[a-zA-Z0-9]/.test(text[start - 1]!)) start--;
   return text.slice(0, start) + '$' + text.slice(start).trim() + '$';
@@ -137,57 +127,103 @@ function renderMath(el: HTMLElement | null) {
 }
 
 export function QuestionCard({ question, questionNum, onSubmit, onNext, initialResult, initialSelected, isLast }: Props) {
-  const [selected, setSelected] = useState<string | null>(initialSelected ?? null);
-  const [result, setResult]     = useState<AnswerResult | null>(initialResult ?? null);
+  const qt = question.questionType ?? 'mcq_single';
+
+  // State per question type
+  const [selected, setSelected]         = useState<string | null>(
+    qt === 'mcq_single' ? (initialSelected ?? null) : null,
+  );
+  const [selectedMulti, setSelectedMulti] = useState<Set<string>>(
+    () => qt === 'mcq_multi' && initialSelected
+      ? new Set(initialSelected.split(',').map((s) => s.trim()))
+      : new Set(),
+  );
+  const [integerInput, setIntegerInput]  = useState<string>(
+    qt === 'integer' ? (initialSelected ?? '') : '',
+  );
+
+  const [result, setResult]       = useState<AnswerResult | null>(initialResult ?? null);
   const [submitting, setSubmitting] = useState(false);
-  const [elapsed, setElapsed]   = useState(0);
+  const [elapsed, setElapsed]     = useState(0);
   const startRef  = useRef(Date.now());
   const timerRef  = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
   const cardRef   = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (initialResult) return; // already answered — keep pre-populated state, no timer
+    clearInterval(timerRef.current);
+
+    if (initialResult) {
+      setResult(initialResult);
+      if (qt === 'mcq_multi' && initialSelected) {
+        setSelectedMulti(new Set(initialSelected.split(',').map((s) => s.trim())));
+      } else if (qt === 'integer') {
+        setIntegerInput(initialSelected ?? '');
+      } else {
+        setSelected(initialSelected ?? null);
+      }
+      return;
+    }
+
     setSelected(null);
+    setSelectedMulti(new Set());
+    setIntegerInput('');
     setResult(null);
     setElapsed(0);
     startRef.current = Date.now();
-
     timerRef.current = setInterval(() => {
       setElapsed(Math.floor((Date.now() - startRef.current) / 1000));
     }, 1000);
-
     return () => clearInterval(timerRef.current);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [question.id]);
 
-  // Render math after question changes and after result (explanation may have math)
   useEffect(() => {
     const raf = requestAnimationFrame(() => renderMath(cardRef.current));
     return () => cancelAnimationFrame(raf);
   }, [question.id, result]);
 
+  const canSubmit =
+    qt === 'mcq_multi' ? selectedMulti.size > 0
+    : qt === 'integer' ? integerInput.trim() !== '' && !isNaN(parseInt(integerInput.trim(), 10)) && parseInt(integerInput.trim(), 10) >= 0
+    : !!selected;
+
   const handleSubmit = useCallback(async () => {
-    if (!selected || submitting || result) return;
+    if (!canSubmit || submitting || result) return;
     clearInterval(timerRef.current);
     setSubmitting(true);
+
+    let answer: string;
+    if (qt === 'mcq_multi') {
+      answer = [...selectedMulti].sort().join(',');
+    } else if (qt === 'integer') {
+      answer = integerInput.trim();
+    } else {
+      answer = selected!;
+    }
+
     try {
       const timeSpent = Math.max(1, Math.floor((Date.now() - startRef.current) / 1000));
-      const res = await onSubmit(selected, timeSpent);
+      const res = await onSubmit(answer, timeSpent);
       setResult(res);
     } finally {
       setSubmitting(false);
     }
-  }, [selected, submitting, result, onSubmit]);
+  }, [canSubmit, submitting, result, qt, selectedMulti, integerInput, selected, onSubmit]);
 
   const letters = ['A', 'B', 'C', 'D'];
   const mm = String(Math.floor(elapsed / 60)).padStart(2, '0');
   const ss = String(elapsed % 60).padStart(2, '0');
-
   const subjectStyle = SUBJECT_STYLE[question.subject] ?? SUBJECT_STYLE['Physics']!;
+  const typeBadge = QTYPE_BADGE[qt];
+
+  // Correct letters for multi-correct result display
+  const correctLetters = result?.correctAnswer
+    ? result.correctAnswer.split(',').map((s) => s.trim())
+    : [];
 
   return (
     <div ref={cardRef} className="card" style={{ borderRadius: 'var(--radius-xl)', padding: 0, overflow: 'hidden' }}>
-      {/* ── Subject header banner ── */}
+      {/* Subject header */}
       <div style={{ background: subjectStyle.bg, borderBottom: `1px solid ${subjectStyle.accent}22`, padding: '14px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <span style={{ color: subjectStyle.accent, display: 'flex', alignItems: 'center' }}>{subjectStyle.icon}</span>
@@ -196,55 +232,153 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
             <p style={{ fontSize: 13, fontWeight: 500, color: subjectStyle.textColor, marginTop: 2 }}>{question.topic}</p>
           </div>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          {typeBadge && (
+            <span style={{ fontSize: 11, color: typeBadge.color, background: typeBadge.bg, padding: '3px 8px', borderRadius: 4, fontWeight: 600 }}>
+              {typeBadge.label}
+            </span>
+          )}
           <span style={{ fontSize: 11, color: subjectStyle.accent, background: `${subjectStyle.accent}18`, padding: '3px 8px', borderRadius: 4, textTransform: 'capitalize' }}>{question.difficulty}</span>
           <span style={{ fontSize: 13, fontWeight: 600, color: subjectStyle.textColor, fontVariantNumeric: 'tabular-nums' }}>{mm}:{ss}</span>
           <span style={{ fontSize: 12, color: 'var(--gray-400)' }}>Q{questionNum}</span>
         </div>
       </div>
 
-      {/* ── Body: two-column when explanation visible ── */}
+      {/* Body */}
       <div className={`qcard-body${result?.explanation ? ' qcard-body-split' : ''}`}>
-        {/* ── Left: question + options ── */}
         <div className="qcard-left">
           {question.diagram && <DiagramRenderer descriptor={question.diagram} />}
           <p className="question-text">{ensureMathDelimiters(preprocessLatex(question.questionText))}</p>
 
-          <div className="options-grid">
-            {question.options.map((opt, i) => {
-              const letter    = letters[i] ?? String.fromCharCode(65 + i);
-              const isSelected = selected === letter;
-              const isCorrect  = result && letter === result.correctAnswer;
-              const isWrong    = result && isSelected && !result.isCorrect;
+          {/* ── Multi-correct hint ── */}
+          {qt === 'mcq_multi' && !result && (
+            <div style={{ marginBottom: 12, padding: '7px 12px', background: '#fef3c7', border: '1px solid #fbbf24', borderRadius: 6, fontSize: 12, color: '#92400e', fontWeight: 500 }}>
+              One or more options may be correct. Select all that apply.
+            </div>
+          )}
 
-              let cls = 'option-btn';
-              if (isCorrect)    cls += ' correct';
-              else if (isWrong) cls += ' wrong';
-              else if (isSelected) cls += ' selected';
+          {/* ── Options (MCQ single + multi-correct) ── */}
+          {qt !== 'integer' && (
+            <div className="options-grid">
+              {question.options.map((opt, i) => {
+                const letter = letters[i] ?? String.fromCharCode(65 + i);
 
-              return (
-                <button
-                  key={letter}
-                  className={cls}
-                  onClick={() => !result && setSelected(letter)}
-                  disabled={!!result}
-                >
-                  <span className="option-letter">{letter}</span>
-                  <span style={{ flex: 1 }}>{ensureMathDelimiters(preprocessLatex(stripOptionPrefix(opt)))}</span>
-                  {isCorrect && <span style={{ flexShrink: 0, color: 'var(--green-600)' }}>{CHECK}</span>}
-                  {isWrong   && <span style={{ flexShrink: 0, color: 'var(--red-600)' }}>{CROSS}</span>}
-                </button>
-              );
-            })}
-          </div>
+                if (qt === 'mcq_multi') {
+                  const isSelectedM  = selectedMulti.has(letter);
+                  const isCorrectOpt = correctLetters.includes(letter);
+                  const isWrongSel   = !!result && isSelectedM && !isCorrectOpt;
+                  const isMissed     = !!result && !isSelectedM && isCorrectOpt;
+
+                  let cls = 'option-btn';
+                  if (result) {
+                    if (isCorrectOpt && isSelectedM) cls += ' correct';
+                    else if (isWrongSel) cls += ' wrong';
+                    else if (isMissed) cls += ' selected'; // highlight missed with neutral selected style
+                  } else if (isSelectedM) {
+                    cls += ' selected';
+                  }
+
+                  return (
+                    <button key={letter} className={cls}
+                      onClick={() => !result && setSelectedMulti((prev) => {
+                        const next = new Set(prev);
+                        if (next.has(letter)) next.delete(letter);
+                        else next.add(letter);
+                        return next;
+                      })}
+                      disabled={!!result}
+                    >
+                      <span className="option-letter">{letter}</span>
+                      <span style={{ flex: 1 }}>{ensureMathDelimiters(preprocessLatex(stripOptionPrefix(opt)))}</span>
+                      {result && isCorrectOpt && isSelectedM && <span style={{ flexShrink: 0, color: 'var(--green-600)' }}>{CHECK}</span>}
+                      {result && isWrongSel && <span style={{ flexShrink: 0, color: 'var(--red-600)' }}>{CROSS}</span>}
+                      {result && isMissed && (
+                        <span style={{ flexShrink: 0, fontSize: 11, color: 'var(--amber-600)', fontWeight: 700 }}>missed</span>
+                      )}
+                    </button>
+                  );
+                }
+
+                // mcq_single
+                const isSelected = selected === letter;
+                const isCorrect  = !!result && letter === result.correctAnswer;
+                const isWrong    = !!result && isSelected && !result.isCorrect;
+
+                let cls = 'option-btn';
+                if (isCorrect)    cls += ' correct';
+                else if (isWrong) cls += ' wrong';
+                else if (isSelected) cls += ' selected';
+
+                return (
+                  <button key={letter} className={cls}
+                    onClick={() => !result && setSelected(letter)}
+                    disabled={!!result}
+                  >
+                    <span className="option-letter">{letter}</span>
+                    <span style={{ flex: 1 }}>{ensureMathDelimiters(preprocessLatex(stripOptionPrefix(opt)))}</span>
+                    {isCorrect && <span style={{ flexShrink: 0, color: 'var(--green-600)' }}>{CHECK}</span>}
+                    {isWrong   && <span style={{ flexShrink: 0, color: 'var(--red-600)' }}>{CROSS}</span>}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          {/* ── Integer input ── */}
+          {qt === 'integer' && (
+            <div style={{ marginTop: 20 }}>
+              <p style={{ fontSize: 13, color: 'var(--gray-500)', marginBottom: 10 }}>
+                Enter your answer{' '}
+                <span style={{ color: 'var(--gray-400)' }}>
+                  ({question.examType === 'Advanced' ? 'integer 0–9' : 'integer 0–99'})
+                </span>
+              </p>
+              <input
+                type="number"
+                min={0}
+                max={question.examType === 'Advanced' ? 9 : 99}
+                value={integerInput}
+                onChange={(e) => !result && setIntegerInput(e.target.value)}
+                placeholder={question.examType === 'Advanced' ? '0 – 9' : '0 – 99'}
+                disabled={!!result}
+                style={{
+                  width: 120,
+                  padding: '10px 14px',
+                  fontSize: 22,
+                  fontWeight: 700,
+                  border: `2px solid ${
+                    result
+                      ? result.isCorrect ? 'var(--green-500)' : 'var(--red-500)'
+                      : 'var(--gray-300)'
+                  }`,
+                  borderRadius: 8,
+                  outline: 'none',
+                  textAlign: 'center',
+                  color: 'var(--gray-900)',
+                  background: result
+                    ? result.isCorrect ? '#f0fdf4' : '#fef2f2'
+                    : 'var(--white)',
+                }}
+              />
+            </div>
+          )}
 
           {/* Result banner */}
           {result && (
             <div className={`result-banner${result.isCorrect ? ' correct' : ' wrong'}`} style={{ marginTop: 16 }}>
               {result.isCorrect ? CHECK : CROSS}
-              {result.isCorrect
+              {qt === 'integer'
+                ? result.isCorrect
+                  ? `Correct! Answer: ${result.correctAnswer}  ·  Solved in ${mm}:${ss}`
+                  : `Incorrect. Correct answer: ${result.correctAnswer}  ·  Solved in ${mm}:${ss}`
+                : qt === 'mcq_multi'
+                ? result.isCorrect
+                  ? `All correct! Solved in ${mm}:${ss}`
+                  : `Incorrect. Correct: ${correctLetters.join(', ')}`
+                : result.isCorrect
                 ? `Correct! Solved in ${mm}:${ss}`
-                : `Incorrect. Correct answer: ${result.correctAnswer}`}
+                : `Incorrect. Correct answer: ${result.correctAnswer}`
+              }
             </div>
           )}
 
@@ -256,16 +390,12 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
               </button>
             ) : (
               <>
-                <button
-                  className="btn btn-primary"
-                  onClick={handleSubmit}
-                  disabled={!selected || submitting}
-                >
+                <button className="btn btn-primary" onClick={handleSubmit} disabled={!canSubmit || submitting}>
                   {submitting ? 'Checking...' : 'Submit answer'}
                 </button>
-                {!selected && (
+                {!canSubmit && (
                   <span style={{ marginLeft: 12, fontSize: 13, color: 'var(--gray-400)' }}>
-                    Select an option first
+                    {qt === 'mcq_multi' ? 'Select at least one option' : qt === 'integer' ? 'Enter an integer' : 'Select an option first'}
                   </span>
                 )}
               </>
@@ -273,7 +403,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
           </div>
         </div>
 
-        {/* ── Right: explanation panel (only after submit and when explanation exists) ── */}
+        {/* Explanation panel */}
         {result?.explanation && (
           <div className="qcard-explanation">
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>

@@ -7,9 +7,24 @@ import { AppError } from '../middleware/errorHandler';
 
 const submitSchema = z.object({
   questionId: z.string().min(1).max(36).regex(/^[a-z0-9]+$/),
-  answer: z.string().min(1).max(1),
+  // mcq_single: "A" | mcq_multi: "A,C" | integer: "42"
+  answer: z.string().min(1).max(20),
   timeSpent: z.number().int().min(0).max(3600),
 });
+
+function checkAnswer(questionType: string, submitted: string, correct: string): boolean {
+  if (questionType === 'mcq_multi') {
+    const sub = new Set(submitted.toUpperCase().split(',').map((s) => s.trim()).filter(Boolean));
+    const cor = new Set(correct.toUpperCase().split(',').map((s) => s.trim()).filter(Boolean));
+    if (sub.size !== cor.size) return false;
+    for (const v of sub) if (!cor.has(v)) return false;
+    return true;
+  }
+  if (questionType === 'integer') {
+    return submitted.trim() === correct.trim();
+  }
+  return submitted.toUpperCase() === correct.toUpperCase();
+}
 
 export async function submitAnswer(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
   try {
@@ -24,7 +39,7 @@ export async function submitAnswer(req: AuthRequest, res: Response, next: NextFu
     const question = await prisma.question.findUnique({ where: { id: questionId } });
     if (!question) throw new AppError(404, 'Question not found');
 
-    const isCorrect = question.answer.toUpperCase() === answer.toUpperCase();
+    const isCorrect = checkAnswer(question.questionType ?? 'mcq_single', answer, question.answer);
 
     await prisma.studentAttempt.create({
       data: { userId, questionId, answerSubmitted: answer, isCorrect, timeSpent },

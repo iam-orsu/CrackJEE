@@ -82,11 +82,16 @@ Student requests question
 
 ```
 Student submits answer
-  → Compare with expected answer (fuzzy match for numbers)
+  → Determine question_type:
+      mcq_single  → exact string match (A/B/C/D)
+      integer     → exact number match (fuzzy ±0 for JEE Main, ±0 for Advanced)
+      mcq_multi   → set equality check (["A","C"] == ["C","A"] → correct)
+                    partial credit tracking: record which options student got right/wrong
+      paragraph   → validate each sub-question independently
   → Get explanation from DeepSeek if wrong
-  → Flag topic as weak area if pattern emerges
+  → Flag topic as weak area if pattern emerges (success rate < 60%)
   → Update student knowledge profile
-  → Return feedback to UI
+  → Return per-option feedback to UI for multi-correct (show which were right/wrong)
 ```
 
 ### Student Knowledge Profile:
@@ -118,7 +123,11 @@ TopicProgress:
   - marked_as_weak (boolean)
 
 Questions:
-  - id, topic, subject, question_text, answer
+  - id, topic, subject, question_text
+  - question_type  (mcq_single | mcq_multi | integer | paragraph)
+  - exam_type      (JEE_MAIN | JEE_ADVANCED)
+  - options        (JSON array, empty [] for integer type)
+  - correct_answer (string for single/integer, JSON array for multi-correct)
   - explanation, difficulty
   - generated_at, validated_at
 ```
@@ -129,15 +138,43 @@ Questions:
 POST /api/auth/register
 POST /api/auth/login
 GET /api/user/dashboard
-GET /api/questions/next (params: subject, difficulty)
+GET /api/questions/next (params: subject, difficulty, exam_type, question_type)
 POST /api/answers/submit
 GET /api/progress/weak-areas
 GET /api/stats/overview
 ```
 
+## EXAM TYPE QUESTION PATTERNS
+
+### JEE Main — Question Types
+| Type | Format | Marking | Time |
+|------|--------|---------|------|
+| MCQ Single Correct | 4 options, exactly 1 correct | +4 / -1 | 2–3 min |
+| Numerical Integer | No options, non-negative integer answer (0–99) | +4 / 0 | 2–3 min |
+
+**Characteristics:** Direct formula application, NCERT-based concepts, moderate difficulty,
+clear single path to solution, no ambiguity, solvable without deep multi-step reasoning.
+
+---
+
+### JEE Advanced — Question Types
+| Type | Format | Marking | Time |
+|------|--------|---------|------|
+| Single Correct MCQ | 4 options, 1 correct | +3 / -1 | 3 min |
+| Multi-Correct MCQ | 4 options, 1–4 can be correct | +4 all correct / partial +1 per correct / -2 wrong | 4–5 min |
+| Integer Type | No options, exact integer 0–9 | +3 / 0 | 3–4 min |
+| Paragraph Based | Shared scenario + 2–3 linked sub-questions | Varies | 5–8 min total |
+| Matrix Match | Two columns, match entries | +3 per correct match | 4–5 min |
+
+**Characteristics:** Multi-concept integration, cross-topic problems (e.g. calculus + mechanics),
+no single formula gives the answer, requires 2–4 reasoning steps, tricky distractors in multi-correct,
+advanced Physics uses rotational + SHM + thermodynamics together, Maths uses multi-variable calculus.
+
+---
+
 ## DEEPSEEK PROMPT STRUCTURE
 
-When calling DeepSeek for question generation:
+### JEE Main — MCQ Single Correct
 
 ```xml
 <context>
@@ -145,30 +182,198 @@ When calling DeepSeek for question generation:
   <topic>Algebra</topic>
   <difficulty>intermediate</difficulty>
   <exam_type>JEE Main</exam_type>
+  <question_type>mcq_single</question_type>
 </context>
 
 <task>
-  Generate a JEE-style mathematics question with these properties:
-  - Clear single correct answer
-  - 4 multiple choice options
-  - Solvable in 2-3 minutes
-  - Focuses on conceptual understanding
+  Generate a JEE Main style single-correct MCQ:
+  - Exactly 1 correct answer out of 4 options
+  - Based on direct application of formulas or NCERT concepts
+  - Solvable in 2–3 minutes
+  - No multi-step cross-topic reasoning required
+  - Moderate difficulty: a well-prepared student should solve it correctly
 </task>
 
 <format>
   Return JSON:
   {
     "question": "...",
+    "question_type": "mcq_single",
     "options": ["A) ...", "B) ...", "C) ...", "D) ..."],
     "correct_answer": "B",
-    "answer_explanation": "..."
+    "answer_explanation": "step-by-step solution in 3–5 lines"
   }
 </format>
 
 <constraints>
   - Do NOT generate ambiguous questions
   - Do NOT use out-of-syllabus concepts
+  - Do NOT make all distractors obviously wrong
   - Do NOT repeat similar questions
+</constraints>
+```
+
+### JEE Main — Numerical Integer Type
+
+```xml
+<context>
+  <subject>Physics</subject>
+  <topic>Kinematics</topic>
+  <difficulty>intermediate</difficulty>
+  <exam_type>JEE Main</exam_type>
+  <question_type>integer</question_type>
+</context>
+
+<task>
+  Generate a JEE Main numerical integer question:
+  - Answer must be a non-negative integer between 0 and 99
+  - No multiple choice options
+  - Requires calculation, not just conceptual answer
+  - Solvable in 2–3 minutes
+</task>
+
+<format>
+  Return JSON:
+  {
+    "question": "...",
+    "question_type": "integer",
+    "options": [],
+    "correct_answer": "42",
+    "answer_explanation": "step-by-step calculation"
+  }
+</format>
+
+<constraints>
+  - Answer MUST be a whole number (not a fraction or decimal)
+  - Do NOT use out-of-syllabus concepts
+  - Ensure the numerical answer is non-negative
+</constraints>
+```
+
+### JEE Advanced — Multi-Correct MCQ
+
+```xml
+<context>
+  <subject>Physics</subject>
+  <topic>Rotational Motion + Energy Conservation</topic>
+  <difficulty>hard</difficulty>
+  <exam_type>JEE Advanced</exam_type>
+  <question_type>mcq_multi</question_type>
+</context>
+
+<task>
+  Generate a JEE Advanced multi-correct MCQ:
+  - 1 to 4 options can be correct (do NOT always make it exactly 2)
+  - Requires multi-step reasoning and cross-topic integration
+  - Each option must be a meaningful statement that tests a different concept
+  - Designed to trap students who only partially understand the topic
+  - Difficulty: hard — only top 5% of aspirants solve fully correctly
+  - Solvable in 4–5 minutes
+</task>
+
+<format>
+  Return JSON:
+  {
+    "question": "...",
+    "question_type": "mcq_multi",
+    "options": ["A) ...", "B) ...", "C) ...", "D) ..."],
+    "correct_answers": ["A", "C"],
+    "answer_explanation": "detailed explanation for each option — why correct or incorrect"
+  }
+</format>
+
+<constraints>
+  - Never make all 4 correct or all 4 wrong
+  - Each wrong option must represent a plausible misconception
+  - Cross at least 2 concepts in a single question
+  - Do NOT generate ambiguous or trick-wording questions
+</constraints>
+```
+
+### JEE Advanced — Integer Type
+
+```xml
+<context>
+  <subject>Mathematics</subject>
+  <topic>Definite Integration + Differential Equations</topic>
+  <difficulty>hard</difficulty>
+  <exam_type>JEE Advanced</exam_type>
+  <question_type>integer</question_type>
+</context>
+
+<task>
+  Generate a JEE Advanced integer type question:
+  - Answer is a single digit integer 0–9
+  - No multiple choice options provided to student
+  - Requires deep multi-step calculation
+  - Should involve cross-topic application (e.g. calculus + geometry)
+  - Difficulty: hard — requires at least 3 non-obvious reasoning steps
+</task>
+
+<format>
+  Return JSON:
+  {
+    "question": "...",
+    "question_type": "integer",
+    "options": [],
+    "correct_answer": "7",
+    "answer_explanation": "full derivation with all steps shown"
+  }
+</format>
+
+<constraints>
+  - Answer must be a single digit (0–9)
+  - Do NOT make the question solvable by substituting answer choices
+  - Require actual derivation/calculation
+</constraints>
+```
+
+### JEE Advanced — Paragraph Based
+
+```xml
+<context>
+  <subject>Chemistry</subject>
+  <topic>Electrochemistry</topic>
+  <difficulty>hard</difficulty>
+  <exam_type>JEE Advanced</exam_type>
+  <question_type>paragraph</question_type>
+</context>
+
+<task>
+  Generate a JEE Advanced paragraph-based question set:
+  - Write a shared scenario/passage (3–5 lines of data/setup)
+  - Generate 2 linked sub-questions that depend on understanding the paragraph
+  - Each sub-question can be MCQ single or integer type
+  - Concepts must be interconnected — sub-question 2 should build on sub-question 1
+</task>
+
+<format>
+  Return JSON:
+  {
+    "paragraph": "...",
+    "question_type": "paragraph",
+    "sub_questions": [
+      {
+        "question": "...",
+        "question_type": "mcq_single",
+        "options": ["A) ...", "B) ...", "C) ...", "D) ..."],
+        "correct_answer": "C",
+        "answer_explanation": "..."
+      },
+      {
+        "question": "...",
+        "question_type": "integer",
+        "options": [],
+        "correct_answer": "3",
+        "answer_explanation": "..."
+      }
+    ]
+  }
+</format>
+
+<constraints>
+  - Paragraph must contain all data needed to solve both sub-questions
+  - Do NOT make sub-questions independent of the paragraph
 </constraints>
 ```
 

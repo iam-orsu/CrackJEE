@@ -14,24 +14,40 @@ async function sleep(ms: number): Promise<void> {
 }
 
 export async function validateQuestion(question: GeneratedQuestion): Promise<boolean> {
+  const qt = question.question_type ?? 'mcq_single';
+
+  const questionSection = qt === 'integer'
+    ? `${question.question}\nAnswer: ${question.correct_answer}`
+    : qt === 'mcq_multi'
+    ? `${question.question}\nOptions: ${question.options.join(' | ')}\nCorrect answers: ${question.correct_answer}`
+    : `${question.question}\nOptions: ${question.options.join(' | ')}\nCorrect Answer: ${question.correct_answer}`;
+
+  const checksSection = qt === 'integer'
+    ? `- Is the answer a valid non-negative integer?
+  - Is the question clearly solvable with a unique integer answer?
+  - Is the calculation in the explanation correct?`
+    : qt === 'mcq_multi'
+    ? `- Are all specified correct answers actually correct?
+  - Do the wrong options represent plausible misconceptions?
+  - Is the number of correct answers between 1 and 3 (not all 4)?
+  - Is this suitable for JEE Advanced difficulty?`
+    : `- Is the answer unambiguous with exactly one correct option?
+  - Are all options valid and distinct?
+  - Is the difficulty appropriate for JEE?
+  - Is the explanation correct?`;
+
   const prompt = `
 <task>
-  Validate if this JEE question is mathematically/scientifically correct and appropriate.
+  Validate if this JEE ${qt} question is mathematically/scientifically correct and appropriate.
 </task>
 
 <question>
-  ${question.question}
-  Options: ${question.options.join(' | ')}
-  Correct Answer: ${question.correct_answer}
+  ${questionSection}
   Explanation: ${question.answer_explanation}
 </question>
 
 <checks>
-  - Is the answer unambiguous?
-  - Are all options valid and distinct?
-  - Is the difficulty appropriate for JEE?
-  - Can it be solved in under 3 minutes?
-  - Is the explanation correct?
+  ${checksSection}
 </checks>
 
 <response>
