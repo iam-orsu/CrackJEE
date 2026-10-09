@@ -11,6 +11,7 @@ RUN npm init -y && \
       "next@15" \
       "react@19" \
       "react-dom@19" \
+      "katex@^0.16.11" \
       "smiles-drawer@1" && \
     npm install --save-dev \
       "@types/node@^22" \

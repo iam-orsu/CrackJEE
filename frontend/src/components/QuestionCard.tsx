@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import katex from 'katex';
 import type { Question, AnswerResult } from '@/types';
 import { DiagramRenderer } from './DiagramRenderer';
 
@@ -102,28 +103,53 @@ function preprocessLatex(text: string): string {
     .replace(/\\pm/g, '±');
 }
 
-function ensureMathDelimiters(text: string): string {
-  if (/\$|\\\(|\\\[/.test(text)) return text;
-  if (!/\\[a-zA-Z]|[_^]\{/.test(text)) return text;
-  let start = text.search(/\\[a-zA-Z]|[_^]\{/);
-  while (start > 0 && /[a-zA-Z0-9]/.test(text[start - 1]!)) start--;
-  return text.slice(0, start) + '$' + text.slice(start).trim() + '$';
+function escapeHtml(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
-function renderMath(el: HTMLElement | null) {
-  if (!el) return;
-  const win = window as unknown as { renderMathInElement?: (el: HTMLElement, opts: object) => void };
-  if (typeof win.renderMathInElement === 'function') {
-    win.renderMathInElement(el, {
-      delimiters: [
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '$$', right: '$$', display: true },
-      ],
-      throwOnError: false,
-    });
+function renderMathHtml(rawText: string): string {
+  if (!rawText) return '';
+  const text = preprocessLatex(rawText);
+
+  // Pattern: $$...$$, $...$, \[...\], \(...\)  — in that priority order
+  const pattern = /(\$\$[\s\S]+?\$\$|\$[^$\n]+?\$|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\))/g;
+
+  // No explicit delimiters but contains LaTeX commands → wrap the LaTeX portion
+  if (!/[$]|\\\(|\\\[/.test(text) && /\\[a-zA-Z]|[_^]\{/.test(text)) {
+    let start = text.search(/\\[a-zA-Z]|[_^]\{/);
+    while (start > 0 && /[a-zA-Z0-9]/.test(text[start - 1]!)) start--;
+    const pre  = text.slice(0, start);
+    const math = text.slice(start).trim();
+    try {
+      return (pre ? escapeHtml(pre) : '') + katex.renderToString(math, { throwOnError: false });
+    } catch {
+      return escapeHtml(text);
+    }
   }
+
+  const parts: string[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = pattern.exec(text)) !== null) {
+    parts.push(escapeHtml(text.slice(lastIndex, match.index)));
+    const raw = match[0]!;
+    let display = false;
+    let content = raw;
+    if (raw.startsWith('$$'))  { display = true;  content = raw.slice(2, -2); }
+    else if (raw.startsWith('$'))              { content = raw.slice(1, -1); }
+    else if (raw.startsWith('\\[')) { display = true;  content = raw.slice(2, -2); }
+    else if (raw.startsWith('\\('))            { content = raw.slice(2, -2); }
+    try {
+      parts.push(katex.renderToString(content.trim(), { displayMode: display, throwOnError: false }));
+    } catch {
+      parts.push(escapeHtml(raw));
+    }
+    lastIndex = match.index + raw.length;
+  }
+
+  parts.push(escapeHtml(text.slice(lastIndex)));
+  return parts.join('');
 }
 
 export function QuestionCard({ question, questionNum, onSubmit, onNext, initialResult, initialSelected, isLast }: Props) {
@@ -147,7 +173,6 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
   const [elapsed, setElapsed]     = useState(0);
   const startRef  = useRef(Date.now());
   const timerRef  = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
-  const cardRef   = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     clearInterval(timerRef.current);
@@ -176,11 +201,6 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
     return () => clearInterval(timerRef.current);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [question.id]);
-
-  useEffect(() => {
-    const raf = requestAnimationFrame(() => renderMath(cardRef.current));
-    return () => cancelAnimationFrame(raf);
-  }, [question.id, result]);
 
   const canSubmit =
     qt === 'mcq_multi' ? selectedMulti.size > 0
@@ -222,7 +242,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
     : [];
 
   return (
-    <div ref={cardRef} className="card" style={{ borderRadius: 'var(--radius-xl)', padding: 0, overflow: 'hidden' }}>
+    <div className="card" style={{ borderRadius: 'var(--radius-xl)', padding: 0, overflow: 'hidden' }}>
       {/* Subject header */}
       <div style={{ background: subjectStyle.bg, borderBottom: `1px solid ${subjectStyle.accent}22`, padding: '14px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -248,7 +268,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
       <div className={`qcard-body${result?.explanation ? ' qcard-body-split' : ''}`}>
         <div className="qcard-left">
           {question.diagram && <DiagramRenderer descriptor={question.diagram} />}
-          <p className="question-text">{ensureMathDelimiters(preprocessLatex(question.questionText))}</p>
+          <p className="question-text" dangerouslySetInnerHTML={{ __html: renderMathHtml(question.questionText) }} />
 
           {/* ── Multi-correct hint ── */}
           {qt === 'mcq_multi' && !result && (
@@ -289,7 +309,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
                       disabled={!!result}
                     >
                       <span className="option-letter">{letter}</span>
-                      <span style={{ flex: 1 }}>{ensureMathDelimiters(preprocessLatex(stripOptionPrefix(opt)))}</span>
+                      <span style={{ flex: 1 }} dangerouslySetInnerHTML={{ __html: renderMathHtml(stripOptionPrefix(opt)) }} />
                       {result && isCorrectOpt && isSelectedM && <span style={{ flexShrink: 0, color: 'var(--green-600)' }}>{CHECK}</span>}
                       {result && isWrongSel && <span style={{ flexShrink: 0, color: 'var(--red-600)' }}>{CROSS}</span>}
                       {result && isMissed && (
@@ -315,7 +335,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
                     disabled={!!result}
                   >
                     <span className="option-letter">{letter}</span>
-                    <span style={{ flex: 1 }}>{ensureMathDelimiters(preprocessLatex(stripOptionPrefix(opt)))}</span>
+                    <span style={{ flex: 1 }} dangerouslySetInnerHTML={{ __html: renderMathHtml(stripOptionPrefix(opt)) }} />
                     {isCorrect && <span style={{ flexShrink: 0, color: 'var(--green-600)' }}>{CHECK}</span>}
                     {isWrong   && <span style={{ flexShrink: 0, color: 'var(--red-600)' }}>{CROSS}</span>}
                   </button>
@@ -414,9 +434,9 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
                 Explanation
               </span>
             </div>
-            <p style={{ fontSize: 14, lineHeight: 1.75, color: 'var(--gray-700)' }}>
-              {result.explanation}
-            </p>
+            <p style={{ fontSize: 14, lineHeight: 1.75, color: 'var(--gray-700)' }}
+              dangerouslySetInnerHTML={{ __html: renderMathHtml(result.explanation ?? '') }}
+            />
           </div>
         )}
       </div>

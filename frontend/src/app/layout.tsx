@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
-import Script from 'next/script';
 import './globals.css';
+import 'katex/dist/katex.min.css';
 
 export const metadata: Metadata = {
   title: 'CrackJEE: AI-powered JEE preparation',
@@ -17,25 +17,8 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css"
-          crossOrigin="anonymous"
-        />
-      </head>
       <body suppressHydrationWarning>
         {children}
-        <Script
-          src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"
-          strategy="beforeInteractive"
-          crossOrigin="anonymous"
-        />
-        <Script
-          src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"
-          strategy="beforeInteractive"
-          crossOrigin="anonymous"
-        />
       </body>
     </html>
   );
