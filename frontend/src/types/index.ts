@@ -77,3 +77,86 @@ export interface DashboardData {
 
 export type Subject = 'Mathematics' | 'Physics' | 'Chemistry';
 export type Difficulty = 'beginner' | 'intermediate' | 'advanced';
+
+/* ── Mock exam types ─────────────────────────────────────────── */
+
+export interface MockExamQuestion {
+  mockQuestionId: string;
+  questionId: string;
+  questionNumber: number;
+  subjectIndex: number;
+  subject: string;
+  savedAnswer: string | null;
+  markedForReview: boolean;
+  questionText: string;
+  questionType: 'mcq_single' | 'mcq_multi' | 'integer';
+  options: string[];
+  topic: string;
+  difficulty: string;
+  diagram?: DiagramTemplate | null;
+}
+
+export interface MockExam {
+  id: string;
+  examType: 'Main' | 'Advanced';
+  status: 'generating' | 'ready' | 'in_progress' | 'submitted' | 'error';
+  durationSeconds: number;
+  startedAt: string | null;
+  submittedAt: string | null;
+  timeLeft?: number;
+  questions: MockExamQuestion[];
+}
+
+export interface MockResultBreakdown {
+  questionId: string;
+  subject: string;
+  submitted: string | null;
+  correctAnswer: string;
+  awarded: number;
+  maxMarks: number;
+  questionType: string;
+}
+
+export interface MockExamResult {
+  id: string;
+  examId: string;
+  totalScore: number;
+  maxScore: number;
+  physicsScore: number;
+  chemistryScore: number;
+  mathScore: number;
+  correct: number;
+  incorrect: number;
+  unattempted: number;
+  timeTaken: number;
+  scoreBreakdown: Record<string, MockResultBreakdown>;
+}
+
+export interface MockResultData {
+  exam: MockExam & {
+    questions: Array<MockExamQuestion & {
+      question: {
+        id: string;
+        questionText: string;
+        questionType: string;
+        options: string[];
+        explanation: string;
+        answer: string;
+        subject: string;
+        topic: string;
+        difficulty: string;
+      };
+    }>;
+    result: MockExamResult;
+  };
+  result: MockExamResult;
+}
+
+export interface MockHistoryItem {
+  id: string;
+  examType: string;
+  status: string;
+  createdAt: string;
+  submittedAt: string | null;
+  result?: { totalScore: number; maxScore: number; correct: number; incorrect: number; unattempted: number };
+}

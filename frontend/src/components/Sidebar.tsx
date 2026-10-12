@@ -16,9 +16,16 @@ const PracticeIcon = () => (
     <path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
   </svg>
 );
+const MockIcon = () => (
+  <svg className="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <rect x="3" y="4" width="18" height="16" rx="2" />
+    <path d="M7 8h10M7 12h6M16 16l2-2-2-2" />
+  </svg>
+);
 const links = [
-  { href: '/dashboard', label: 'Dashboard', Icon: DashIcon },
-  { href: '/practice',  label: 'Practice',  Icon: PracticeIcon },
+  { href: '/dashboard', label: 'Dashboard',  Icon: DashIcon },
+  { href: '/practice',  label: 'Practice',   Icon: PracticeIcon },
+  { href: '/mock',      label: 'Mock Test',  Icon: MockIcon },
 ];
 
 export function Sidebar() {

@@ -136,6 +136,35 @@ export const api = {
   progress: {
     weakAreas: () => request<import('@/types').TopicProgress[]>('/progress/weak-areas'),
   },
+
+  mock: {
+    start: (body: { examType: 'Main' | 'Advanced' }) =>
+      request<{ id: string; status: string }>('/mock/start', {
+        method: 'POST',
+        body: JSON.stringify(body),
+      }),
+
+    get: (id: string) =>
+      request<import('@/types').MockExam>(`/mock/${id}`),
+
+    begin: (id: string) =>
+      request<{ startedAt: string }>(`/mock/${id}/begin`, { method: 'POST' }),
+
+    saveAnswer: (id: string, body: { mockQuestionId: string; answer: string; markedForReview?: boolean }) =>
+      request<void>(`/mock/${id}/answer`, {
+        method: 'PATCH',
+        body: JSON.stringify(body),
+      }),
+
+    submit: (id: string) =>
+      request<{ resultId: string }>(`/mock/${id}/submit`, { method: 'POST' }),
+
+    result: (id: string) =>
+      request<import('@/types').MockResultData>(`/mock/${id}/result`),
+
+    history: () =>
+      request<import('@/types').MockHistoryItem[]>('/mock/history'),
+  },
 };
 
 export { ApiError };

@@ -7,6 +7,7 @@ import { authRoutes } from './routes/auth';
 import { questionRoutes } from './routes/questions';
 import { answerRoutes } from './routes/answers';
 import { progressRoutes } from './routes/progress';
+import { mockRoutes } from './routes/mock';
 import { errorHandler } from './middleware/errorHandler';
 import { apiLimiter } from './middleware/rateLimiter';
 import { requestId } from './middleware/requestId';
@@ -81,6 +82,7 @@ app.get('/health', async (_req, res) => {
 app.use('/api/auth',      authRoutes);
 app.use('/api/questions', questionRoutes);
 app.use('/api/answers',   answerRoutes);
+app.use('/api/mock',      mockRoutes);
 app.use('/api',           progressRoutes);
 
 app.use(errorHandler);

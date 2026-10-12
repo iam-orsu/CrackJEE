@@ -91,8 +91,9 @@ export async function getNextQuestion(
   examType: ExamType,
   studentClass: StudentClass,
   batchExcludeIds: string[] = [],
+  forceType?: QuestionType,
 ): Promise<Question> {
-  const questionType = pickQuestionType(examType);
+  const questionType = forceType ?? pickQuestionType(examType);
   const cacheKey = `q:${subject}:${topic}:${difficulty}:${examType}:${studentClass}:${questionType}`;
   const servedKey = `served:${userId}:${subject}:${topic}:${questionType}`;
   const servedIds = (await cacheGetJson<string[]>(servedKey)) ?? [];

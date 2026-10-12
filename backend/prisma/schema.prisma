@@ -19,6 +19,7 @@ model User {
 
   attempts      StudentAttempt[]
   topicProgress TopicProgress[]
+  mockExams     MockExam[]
 
   @@index([email])
 }
@@ -38,7 +39,8 @@ model Question {
   generatedAt  DateTime  @default(now())
   validatedAt  DateTime?
 
-  attempts StudentAttempt[]
+  attempts          StudentAttempt[]
+  mockExamQuestions MockExamQuestion[]
 
   @@index([topic, subject, difficulty, questionType])
   @@index([subject, difficulty, examType, questionType])
@@ -59,6 +61,58 @@ model StudentAttempt {
   @@index([userId])
   @@index([questionId])
   @@index([userId, createdAt])
+}
+
+model MockExam {
+  id              String    @id @default(cuid())
+  userId          String
+  examType        String    // 'Main' | 'Advanced'
+  status          String    @default("generating") // generating | ready | in_progress | submitted | error
+  durationSeconds Int
+  startedAt       DateTime?
+  submittedAt     DateTime?
+  createdAt       DateTime  @default(now())
+
+  user      User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  questions MockExamQuestion[]
+  result    MockExamResult?
+
+  @@index([userId])
+  @@index([userId, createdAt])
+}
+
+model MockExamQuestion {
+  id              String  @id @default(cuid())
+  examId          String
+  questionId      String
+  subject         String
+  questionNumber  Int
+  subjectIndex    Int
+  savedAnswer     String?
+  markedForReview Boolean @default(false)
+
+  exam     MockExam @relation(fields: [examId], references: [id], onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@index([examId])
+  @@index([examId, subject])
+}
+
+model MockExamResult {
+  id             String @id @default(cuid())
+  examId         String @unique
+  totalScore     Float
+  maxScore       Int
+  physicsScore   Float
+  chemistryScore Float
+  mathScore      Float
+  correct        Int
+  incorrect      Int
+  unattempted    Int
+  timeTaken      Int
+  scoreBreakdown Json
+
+  exam MockExam @relation(fields: [examId], references: [id], onDelete: Cascade)
 }
 
 model TopicProgress {
