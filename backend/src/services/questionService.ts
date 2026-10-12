@@ -1,6 +1,6 @@
 import { prisma } from '../lib/prisma';
 import { cacheGetJson, cacheSetJson } from './cacheService';
-import { generateQuestion } from './deepseekService';
+import { generateQuestion, generateQuestionBatch } from './deepseekService';
 import { validateQuestion } from './openaiService';
 import type { Subject, Difficulty, ExamType, StudentClass, QuestionType } from '../types/index';
 import type { Question } from '@prisma/client';
@@ -25,6 +25,8 @@ function pickQuestionType(examType: ExamType): QuestionType {
   return 'integer';
 }
 
+const BATCH_SIZE = 3;
+
 async function generateAndPersist(
   subject: Subject,
   topic: string,
@@ -34,42 +36,51 @@ async function generateAndPersist(
   questionType: QuestionType,
   pool: Question[] | null,
 ): Promise<Question> {
-  const generated = await generateQuestion(subject, topic, difficulty, examType, studentClass, questionType);
-  const isValid = await validateQuestion(generated);
+  // Generate BATCH_SIZE questions in one API call (~67% cost reduction on cold cache)
+  let batch = await generateQuestionBatch(BATCH_SIZE, subject, topic, difficulty, examType, studentClass, questionType)
+    .catch(async () => {
+      // Fall back to single generation if batch fails
+      const single = await generateQuestion(subject, topic, difficulty, examType, studentClass, questionType);
+      return [single];
+    });
 
-  let finalQuestion = generated;
-  if (!isValid) {
-    try {
-      const retry = await generateQuestion(subject, topic, difficulty, examType, studentClass, questionType);
-      const retryValid = await validateQuestion(retry);
-      if (retryValid) finalQuestion = retry;
-    } catch {
-      // use original
+  // Validate only for non-beginner (skip OpenAI cost for easy questions)
+  if (difficulty !== 'beginner' && batch.length > 0) {
+    const isValid = await validateQuestion(batch[0]!);
+    if (!isValid && batch.length > 1) {
+      const isValid2 = await validateQuestion(batch[1]!);
+      if (isValid2) {
+        [batch[0], batch[1]] = [batch[1]!, batch[0]!];
+      }
     }
   }
 
   const cacheKey = `q:${subject}:${topic}:${difficulty}:${examType}:${studentClass}:${questionType}`;
 
-  const question = await prisma.question.create({
-    data: {
-      topic,
-      subject,
-      questionText: finalQuestion.question,
-      options: finalQuestion.options,
-      answer: finalQuestion.correct_answer,
-      explanation: finalQuestion.answer_explanation,
-      diagram: finalQuestion.diagram ? JSON.parse(JSON.stringify(finalQuestion.diagram)) : undefined,
-      difficulty,
-      examType,
-      questionType,
-      validatedAt: new Date(),
-    },
-  });
+  // Store all generated questions in a single transaction
+  const createdQuestions = await prisma.$transaction(
+    batch.map((q) => prisma.question.create({
+      data: {
+        topic,
+        subject,
+        questionText: q.question,
+        options: q.options,
+        answer: q.correct_answer,
+        explanation: q.answer_explanation,
+        diagram: q.diagram ? JSON.parse(JSON.stringify(q.diagram)) : undefined,
+        difficulty,
+        examType,
+        questionType,
+        validatedAt: new Date(),
+      },
+    }))
+  );
 
-  const updatedPool = [...(pool ?? []), question];
-  await cacheSetJson(cacheKey, updatedPool, 3600 * 6);
+  // Cache all 3 questions (24h TTL, was 6h)
+  const updatedPool = [...(pool ?? []), ...createdQuestions];
+  await cacheSetJson(cacheKey, updatedPool, 3600 * 24);
 
-  return question;
+  return createdQuestions[0]!;
 }
 
 export async function getNextQuestion(
@@ -92,7 +103,7 @@ export async function getNextQuestion(
     const unserved = pool.filter((q) => !allExcluded.has(q.id));
     if (unserved.length > 0) {
       const question = unserved[Math.floor(Math.random() * unserved.length)]!;
-      await cacheSetJson(servedKey, [...servedIds, question.id], 86400);
+      await cacheSetJson(servedKey, [...servedIds, question.id], 86400 * 7);
       return question;
     }
   }
@@ -109,7 +120,7 @@ export async function getNextQuestion(
     },
   });
   if (existing) {
-    await cacheSetJson(servedKey, [...servedIds, existing.id], 86400);
+    await cacheSetJson(servedKey, [...servedIds, existing.id], 86400 * 7);
     return existing;
   }
 
@@ -122,7 +133,7 @@ export async function getNextQuestion(
   }
 
   const question = await genPromise;
-  await cacheSetJson(servedKey, [...servedIds, question.id], 86400);
+  await cacheSetJson(servedKey, [...servedIds, question.id], 86400 * 7);
   return question;
 }
 

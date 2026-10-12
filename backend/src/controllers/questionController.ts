@@ -1,7 +1,7 @@
 import type { Response, NextFunction } from 'express';
 import { z } from 'zod';
 import type { AuthRequest } from '../types/index';
-import { JEE_TOPICS, getTopicsForClass } from '../types/index';
+import { JEE_TOPICS, JEE_TOPICS_BY_CLASS, getTopicsForClass } from '../types/index';
 import type { Subject, StudentClass } from '../types/index';
 import { getNextQuestion, getQuestionBatch } from '../services/questionService';
 import { AppError } from '../middleware/errorHandler';
@@ -91,29 +91,30 @@ export async function batchQuestions(req: AuthRequest, res: Response, next: Next
 
 export function getTopics(req: AuthRequest, res: Response, next: NextFunction): void {
   try {
-    const subject = req.query.subject as string | undefined;
     const studentClass = (req.query.studentClass as StudentClass | undefined) ?? '12';
 
-    if (subject && !(['Mathematics', 'Physics', 'Chemistry'] as string[]).includes(subject)) {
-      throw new AppError(400, 'Invalid subject');
-    }
     if (!(['11', '12', 'Dropper'] as string[]).includes(studentClass)) {
       throw new AppError(400, 'Invalid studentClass');
     }
 
-    if (subject) {
-      const s = subject as Subject;
-      res.json({ success: true, data: { [subject]: getTopicsForClass(s, studentClass) } });
-    } else {
-      res.json({
-        success: true,
-        data: {
-          Mathematics: getTopicsForClass('Mathematics', studentClass),
-          Physics:     getTopicsForClass('Physics',     studentClass),
-          Chemistry:   getTopicsForClass('Chemistry',   studentClass),
-        },
-      });
-    }
+    const subjects: Subject[] = ['Mathematics', 'Physics', 'Chemistry'];
+
+    // Return split format: { subject: { class11: [...], class12: [...] } }
+    // For class 11, class12 topics are filtered out
+    const data = Object.fromEntries(
+      subjects.map((s) => {
+        const split = JEE_TOPICS_BY_CLASS[s];
+        return [
+          s,
+          {
+            class11: split.class11,
+            class12: studentClass === '11' ? [] : split.class12,
+          },
+        ];
+      })
+    );
+
+    res.json({ success: true, data });
   } catch (err) {
     next(err);
   }

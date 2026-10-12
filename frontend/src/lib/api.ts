@@ -1,4 +1,4 @@
-import { getToken, clearSession } from './auth';
+import { getToken, clearSession, shouldRefresh, setToken } from './auth';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? '/api';
 
@@ -11,10 +11,22 @@ class ApiError extends Error {
   }
 }
 
+let _refreshing = false;
+
 async function request<T>(
   path: string,
   options: RequestInit = {},
 ): Promise<T> {
+  // Silent background token renewal — skips for the refresh endpoint itself
+  if (!_refreshing && path !== '/auth/refresh' && shouldRefresh()) {
+    _refreshing = true;
+    // Fire-and-forget: update token in background without blocking current request
+    requestRaw<{ token: string }>('/auth/refresh', { method: 'POST' })
+      .then(({ token }) => setToken(token))
+      .catch(() => {})
+      .finally(() => { _refreshing = false; });
+  }
+
   const token = getToken();
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
@@ -42,6 +54,19 @@ async function request<T>(
   return json.data as T;
 }
 
+// Internal raw request used by the refresh path (avoids circular calls)
+async function requestRaw<T>(path: string, options: RequestInit): Promise<T> {
+  const token = getToken();
+  const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+  if (token) headers['Authorization'] = `Bearer ${token}`;
+  const res = await fetch(`${API_URL}${path}`, { ...options, headers });
+  const json = await res.json() as { success: boolean; data?: T; error?: string };
+  if (!res.ok || !json.success) throw new Error(json.error ?? 'Refresh failed');
+  return json.data as T;
+}
+
+export type SplitTopics = Record<string, { class11: string[]; class12: string[] }>;
+
 export const api = {
   auth: {
     register: (body: {
@@ -63,6 +88,8 @@ export const api = {
       }),
 
     me: () => request<import('@/types').User>('/auth/me'),
+
+    refresh: () => request<{ token: string }>('/auth/refresh', { method: 'POST' }),
   },
 
   questions: {
@@ -88,9 +115,9 @@ export const api = {
       body: JSON.stringify(body),
     }),
 
-    topics: (subject?: string) => {
-      const qs = subject ? `?subject=${subject}` : '';
-      return request<Record<string, string[]>>(`/questions/topics${qs}`);
+    topics: (studentClass?: string) => {
+      const qs = studentClass ? `?studentClass=${studentClass}` : '';
+      return request<SplitTopics>(`/questions/topics${qs}`);
     },
   },
 

@@ -3,6 +3,148 @@
 import React from 'react';
 import type { DiagramTemplate } from '@/types';
 
+/* ── Template param interfaces ──────────────────────────────── */
+interface InclinedPlaneParams {
+  angle_deg?: number;
+  show_weight?: boolean;
+  show_normal?: boolean;
+  show_friction?: boolean;
+  show_applied?: boolean;
+  labels?: Record<string, string>;
+}
+
+interface CircuitComponent { type: string; label?: string; }
+interface SimpleCircuitParams {
+  topology?: 'series' | 'parallel';
+  components?: CircuitComponent[];
+}
+
+interface LensMirrorParams {
+  type?: 'convex_lens' | 'concave_lens' | 'concave_mirror' | 'convex_mirror';
+  focal_length?: number;
+  object_distance?: number;
+  show_rays?: boolean;
+  labels?: Record<string, string>;
+}
+
+interface EnergyProfileParams {
+  reactant_label?: string;
+  product_label?: string;
+  exothermic?: boolean;
+  labels?: Record<string, string>;
+}
+
+interface CoordPoint { x: number; y: number; label?: string; }
+interface CoordLine { from: [number, number]; to: [number, number]; label?: string; dashed?: boolean; arrow?: boolean; }
+interface CoordCircleSpec { cx: number; cy: number; r: number; label?: string; }
+interface CoordGeometryParams {
+  x_range?: [number, number];
+  y_range?: [number, number];
+  points?: CoordPoint[];
+  lines?: CoordLine[];
+  circles?: CoordCircleSpec[];
+}
+
+interface ProjectileMotionParams {
+  angle_deg?: number;
+  show_components?: boolean;
+  labels?: Record<string, string>;
+}
+
+interface PulleyMass { value?: string; }
+interface PulleySystemParams {
+  type?: string;
+  masses?: PulleyMass[];
+  labels?: Record<string, string>;
+}
+
+interface WaveDiagramParams {
+  type?: 'transverse' | 'standing';
+  num_cycles?: number;
+  labels?: Record<string, string>;
+}
+
+interface CapacitorFieldParams {
+  num_field_lines?: number;
+  show_battery?: boolean;
+  labels?: Record<string, string>;
+}
+
+interface PvDiagramParams {
+  process?: 'isothermal' | 'adiabatic' | 'isobaric' | 'isochoric' | 'carnot';
+  labels?: Record<string, string>;
+}
+
+interface TriangleParams {
+  angles?: { A?: number; B?: number; C?: number };
+  angle_A?: number;
+  angle_B?: number;
+  angle_C?: number;
+  labels?: Record<string, string>;
+  show_incircle?: boolean;
+  show_circumcircle?: boolean;
+}
+
+interface CircleChord { x1?: number; y1?: number; x2?: number; y2?: number; label?: string; }
+interface CirclePointSpec { x: number; y: number; label?: string; }
+interface CircleGeomParams {
+  subtype?: 'single' | 'two_circles' | 'tangent_from_point';
+  cx?: number; cy?: number; r?: number;
+  cx1?: number; cy1?: number; r1?: number;
+  cx2?: number; cy2?: number; r2?: number;
+  point_x?: number; point_y?: number;
+  labels?: Record<string, string>;
+  points?: CirclePointSpec[];
+  chord?: CircleChord;
+}
+
+interface ConicSectionParams {
+  type?: 'parabola' | 'ellipse' | 'hyperbola';
+  a?: number;
+  b?: number;
+  show_focus?: boolean;
+  show_directrix?: boolean;
+  show_asymptotes?: boolean;
+  labels?: Record<string, string>;
+}
+
+interface ArgandPoint { re: number; im: number; label?: string; show_modulus?: boolean; show_argument?: boolean; }
+interface ArgandPlaneParams {
+  points?: ArgandPoint[];
+}
+
+interface MolecLigand { label?: string; }
+interface MolecGeometryParams {
+  shape?: 'linear' | 'bent' | 'trigonal_planar' | 'tetrahedral' | 'octahedral' | 'trigonal_bipyramidal';
+  central_atom?: string;
+  ligands?: MolecLigand[];
+  bond_angle?: number;
+  labels?: Record<string, string>;
+}
+
+interface MoDiagramParams {
+  molecule?: string;
+  valence_electrons?: number;
+}
+
+interface CrystalStructParams {
+  type?: 'scc' | 'bcc' | 'fcc' | 'nacl';
+  labels?: Record<string, string>;
+}
+
+interface ElectrodeSpec { metal?: string; electrolyte?: string; }
+interface ElectrochemCellParams {
+  anode?: ElectrodeSpec;
+  cathode?: ElectrodeSpec;
+  emf?: string;
+  labels?: Record<string, string>;
+}
+
+interface OrganicStructParams {
+  smiles?: string;
+  label?: string;
+}
+
 /* ── LaTeX → plain Unicode (for SVG text labels) ──────────── */
 function latexToPlain(s: string): string {
   return s
@@ -73,8 +215,7 @@ function DblArr({ x1, y1, x2, y2, color = '#374151', label, lx, ly }: {
 }
 
 /* ── TEMPLATE 1: Inclined Plane ─────────────────────────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function InclinedPlane({ p }: { p: any }) {
+function InclinedPlane({ p }: { p: InclinedPlaneParams }) {
   const angle = Math.max(10, Math.min(70, +(p.angle_deg ?? 30)));
   const θ = (angle * Math.PI) / 180;
   const lbl = p.labels ?? {};
@@ -241,8 +382,7 @@ function compSymbol(
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function SimpleCircuit({ p }: { p: any }) {
+function SimpleCircuit({ p }: { p: SimpleCircuitParams }) {
   const comps: CComp[] = p.components ?? [];
   const topology = (p.topology ?? 'series').toLowerCase();
   const battery = comps.find((c) => (c.type ?? '').toLowerCase() === 'battery');
@@ -291,8 +431,7 @@ function SimpleCircuit({ p }: { p: any }) {
 }
 
 /* ── TEMPLATE 3: Lens / Mirror ──────────────────────────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function LensMirror({ p }: { p: any }) {
+function LensMirror({ p }: { p: LensMirrorParams }) {
   const type: string = p.type ?? 'convex_lens';
   const lbl = p.labels ?? {};
   const showRays: boolean = p.show_rays !== false;
@@ -461,8 +600,7 @@ function LensMirror({ p }: { p: any }) {
 }
 
 /* ── TEMPLATE 4: Energy Profile ─────────────────────────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function EnergyProfile({ p }: { p: any }) {
+function EnergyProfile({ p }: { p: EnergyProfileParams }) {
   const exo: boolean = p.exothermic !== false;
   const lbl = p.labels ?? {};
 
@@ -518,8 +656,7 @@ function EnergyProfile({ p }: { p: any }) {
 }
 
 /* ── TEMPLATE 5: Coordinate Geometry ────────────────────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function CoordGeometry({ p }: { p: any }) {
+function CoordGeometry({ p }: { p: CoordGeometryParams }) {
   const [xMin, xMax]: [number, number] = p.x_range ?? [-5, 5];
   const [yMin, yMax]: [number, number] = p.y_range ?? [-5, 5];
   const PL = 46, PR = 22, PT = 22, PB = 36;
@@ -593,8 +730,7 @@ function CoordGeometry({ p }: { p: any }) {
 }
 
 /* ── TEMPLATE 6: Projectile Motion ──────────────────────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function ProjectileMotion({ p }: { p: any }) {
+function ProjectileMotion({ p }: { p: ProjectileMotionParams }) {
   const angle = Math.max(10, Math.min(80, +(p.angle_deg ?? 45)));
   const θ = (angle * Math.PI) / 180;
   const lbl = p.labels ?? {};
@@ -676,8 +812,7 @@ function ProjectileMotion({ p }: { p: any }) {
 }
 
 /* ── TEMPLATE 7: Pulley System ───────────────────────────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function PulleySystem({ p }: { p: any }) {
+function PulleySystem({ p }: { p: PulleySystemParams }) {
   const masses: { value?: string }[] = p.masses ?? [{ value: 'm₁' }, { value: 'm₂' }];
   const lbl = p.labels ?? {};
 
@@ -746,8 +881,7 @@ function PulleySystem({ p }: { p: any }) {
 }
 
 /* ── TEMPLATE 8: Wave Diagram ────────────────────────────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function WaveDiagram({ p }: { p: any }) {
+function WaveDiagram({ p }: { p: WaveDiagramParams }) {
   const waveType = (p.type ?? 'transverse').toLowerCase();
   const lbl = p.labels ?? {};
   const nCycles = Math.max(1, Math.min(3, +(p.num_cycles ?? 2)));
@@ -863,8 +997,7 @@ function WaveDiagram({ p }: { p: any }) {
 }
 
 /* ── TEMPLATE 9: Capacitor / Electric Field ─────────────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function CapacitorField({ p }: { p: any }) {
+function CapacitorField({ p }: { p: CapacitorFieldParams }) {
   const lbl = p.labels ?? {};
   const nLines = Math.max(3, Math.min(7, +(p.num_field_lines ?? 5)));
   const showBattery: boolean = p.show_battery === true;
@@ -953,8 +1086,7 @@ function CapacitorField({ p }: { p: any }) {
 }
 
 /* ── TEMPLATE 10: P-V Diagram ────────────────────────────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function PvDiagram({ p }: { p: any }) {
+function PvDiagram({ p }: { p: PvDiagramParams }) {
   const process = (p.process ?? 'isothermal').toLowerCase();
   const lbl = p.labels ?? {};
 
@@ -1081,8 +1213,7 @@ function PvDiagram({ p }: { p: any }) {
 }
 
 /* ── TEMPLATE 11: Triangle ───────────────────────────────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function TriangleDiagram({ p }: { p: any }) {
+function TriangleDiagram({ p }: { p: TriangleParams }) {
   const lbl = p.labels ?? {};
   let Adeg = +(p.angles?.A ?? p.angle_A ?? 60);
   let Bdeg = +(p.angles?.B ?? p.angle_B ?? 60);
@@ -1168,8 +1299,7 @@ function TriangleDiagram({ p }: { p: any }) {
 }
 
 /* ── TEMPLATE 12: Circle Geometry ────────────────────────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function CircleGeom({ p }: { p: any }) {
+function CircleGeom({ p }: { p: CircleGeomParams }) {
   const lbl = p.labels ?? {};
   const sub = (p.subtype ?? 'single').toLowerCase().replace(/[-\s]/g, '_');
   const VW = 380, VH = 240;
@@ -1252,8 +1382,7 @@ function CircleGeom({ p }: { p: any }) {
 }
 
 /* ── TEMPLATE 13: Conic Section ──────────────────────────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function ConicSection({ p }: { p: any }) {
+function ConicSection({ p }: { p: ConicSectionParams }) {
   const type = (p.type ?? 'parabola').toLowerCase();
   const lbl = p.labels ?? {};
   const VW = 420, VH = 260;
@@ -1366,8 +1495,7 @@ function ConicSection({ p }: { p: any }) {
 }
 
 /* ── TEMPLATE 14: Argand Plane ───────────────────────────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function ArgandPlane({ p }: { p: any }) {
+function ArgandPlane({ p }: { p: ArgandPlaneParams }) {
   const pts: Array<{re:number;im:number;label?:string;show_modulus?:boolean;show_argument?:boolean}> = p.points ?? [];
   const VW = 380, VH = 280, ox = VW/2, oy = VH/2;
   const allRe = pts.map(pt => Math.abs(pt.re)), allIm = pts.map(pt => Math.abs(pt.im));
@@ -1419,8 +1547,7 @@ function ArgandPlane({ p }: { p: any }) {
 }
 
 /* ── TEMPLATE 15: Molecular Geometry (VSEPR) ─────────────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function MolecGeometry({ p }: { p: any }) {
+function MolecGeometry({ p }: { p: MolecGeometryParams }) {
   const shape = (p.shape ?? 'tetrahedral').toLowerCase().replace(/[-\s]/g, '_');
   const central = p.central_atom ?? 'X';
   const ligs: Array<{label?:string}> = p.ligands ?? [];
@@ -1521,8 +1648,7 @@ function MolecGeometry({ p }: { p: any }) {
 }
 
 /* ── TEMPLATE 16: MO Diagram ─────────────────────────────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function MoDiagram({ p }: { p: any }) {
+function MoDiagram({ p }: { p: MoDiagramParams }) {
   const molRaw = (p.molecule ?? 'N2');
   const mol = molRaw.replace(/₂/g,'2').replace(/⁺/g,'+').replace(/⁻/g,'-').toUpperCase();
 
@@ -1612,8 +1738,7 @@ function MoDiagram({ p }: { p: any }) {
 }
 
 /* ── TEMPLATE 17: Crystal Structure ─────────────────────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function CrystalStruct({ p }: { p: any }) {
+function CrystalStruct({ p }: { p: CrystalStructParams }) {
   const type = (p.type ?? 'fcc').toLowerCase();
   const lbl = p.labels ?? {};
   const VW=380, VH=260;
@@ -1695,8 +1820,7 @@ function CrystalStruct({ p }: { p: any }) {
 }
 
 /* ── TEMPLATE 18: Electrochemical Cell ──────────────────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function ElectrochemCell({ p }: { p: any }) {
+function ElectrochemCell({ p }: { p: ElectrochemCellParams }) {
   const lbl = p.labels ?? {};
   const anodeMetal  = p.anode?.metal  ?? 'Zn';
   const cathodeMetal= p.cathode?.metal ?? 'Cu';
@@ -1753,8 +1877,7 @@ function ElectrochemCell({ p }: { p: any }) {
 }
 
 /* ── TEMPLATE 19: Organic Structure (SmilesDrawer) ──────────── */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function OrganicStruct({ p }: { p: any }) {
+function OrganicStruct({ p }: { p: OrganicStructParams }) {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const smiles: string = p.smiles ?? 'c1ccccc1';
   const label: string = p.label ?? '';
@@ -1819,28 +1942,26 @@ export function DiagramRenderer({ descriptor }: Props) {
   const { template, params } = descriptor;
 
   let inner: React.ReactNode = null;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const p = params as any;
   switch (template) {
-    case 'inclined_plane':       inner = <InclinedPlane p={p} />;      break;
-    case 'simple_circuit':       inner = <SimpleCircuit p={p} />;      break;
-    case 'lens_mirror':          inner = <LensMirror p={p} />;         break;
-    case 'energy_profile':       inner = <EnergyProfile p={p} />;      break;
-    case 'coordinate_geometry':  inner = <CoordGeometry p={p} />;      break;
-    case 'projectile_motion':    inner = <ProjectileMotion p={p} />;   break;
-    case 'pulley_system':        inner = <PulleySystem p={p} />;       break;
-    case 'wave_diagram':         inner = <WaveDiagram p={p} />;        break;
-    case 'capacitor_field':      inner = <CapacitorField p={p} />;     break;
-    case 'pv_diagram':           inner = <PvDiagram p={p} />;          break;
-    case 'triangle':             inner = <TriangleDiagram p={p} />;    break;
-    case 'circle_geometry':      inner = <CircleGeom p={p} />;         break;
-    case 'conic_section':        inner = <ConicSection p={p} />;       break;
-    case 'argand_plane':         inner = <ArgandPlane p={p} />;        break;
-    case 'molecular_geometry':   inner = <MolecGeometry p={p} />;      break;
-    case 'mo_diagram':           inner = <MoDiagram p={p} />;          break;
-    case 'crystal_structure':    inner = <CrystalStruct p={p} />;      break;
-    case 'electrochemical_cell': inner = <ElectrochemCell p={p} />;    break;
-    case 'organic_structure':    inner = <OrganicStruct p={p} />;      break;
+    case 'inclined_plane':       inner = <InclinedPlane p={params as InclinedPlaneParams} />;        break;
+    case 'simple_circuit':       inner = <SimpleCircuit p={params as SimpleCircuitParams} />;        break;
+    case 'lens_mirror':          inner = <LensMirror p={params as LensMirrorParams} />;              break;
+    case 'energy_profile':       inner = <EnergyProfile p={params as EnergyProfileParams} />;        break;
+    case 'coordinate_geometry':  inner = <CoordGeometry p={params as CoordGeometryParams} />;        break;
+    case 'projectile_motion':    inner = <ProjectileMotion p={params as ProjectileMotionParams} />;  break;
+    case 'pulley_system':        inner = <PulleySystem p={params as PulleySystemParams} />;          break;
+    case 'wave_diagram':         inner = <WaveDiagram p={params as WaveDiagramParams} />;            break;
+    case 'capacitor_field':      inner = <CapacitorField p={params as CapacitorFieldParams} />;      break;
+    case 'pv_diagram':           inner = <PvDiagram p={params as PvDiagramParams} />;                break;
+    case 'triangle':             inner = <TriangleDiagram p={params as TriangleParams} />;           break;
+    case 'circle_geometry':      inner = <CircleGeom p={params as CircleGeomParams} />;              break;
+    case 'conic_section':        inner = <ConicSection p={params as ConicSectionParams} />;          break;
+    case 'argand_plane':         inner = <ArgandPlane p={params as ArgandPlaneParams} />;            break;
+    case 'molecular_geometry':   inner = <MolecGeometry p={params as MolecGeometryParams} />;        break;
+    case 'mo_diagram':           inner = <MoDiagram p={params as MoDiagramParams} />;                break;
+    case 'crystal_structure':    inner = <CrystalStruct p={params as CrystalStructParams} />;        break;
+    case 'electrochemical_cell': inner = <ElectrochemCell p={params as ElectrochemCellParams} />;    break;
+    case 'organic_structure':    inner = <OrganicStruct p={params as OrganicStructParams} />;        break;
     default: return null;
   }
 

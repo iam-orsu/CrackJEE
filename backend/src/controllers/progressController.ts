@@ -26,7 +26,7 @@ export async function dashboard(req: AuthRequest, res: Response, next: NextFunct
         where: { userId, createdAt: { gte: sevenDaysAgo } },
         select: { createdAt: true, isCorrect: true },
       }),
-      prisma.topicProgress.findMany({ where: { userId } }),
+      prisma.topicProgress.findMany({ where: { userId }, take: 300 }),
     ]);
 
     // Build weekly stats: last 7 calendar days

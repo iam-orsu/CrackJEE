@@ -249,6 +249,133 @@ ${DIAGRAM_SPEC}
 </constraints>`;
 }
 
+function parseRawQuestion(
+  raw: Record<string, unknown>,
+  questionType: QuestionType,
+  examType: ExamType,
+): GeneratedQuestion {
+  const parsed: GeneratedQuestion = {
+    question: String(raw.question ?? ''),
+    question_type: questionType,
+    options: Array.isArray(raw.options) ? (raw.options as string[]) : [],
+    correct_answer: '',
+    answer_explanation: String(raw.answer_explanation ?? ''),
+    diagram: (raw.diagram as DiagramTemplate | null) ?? null,
+  };
+
+  if (!parsed.question || !parsed.answer_explanation) {
+    throw new Error('Invalid question format: missing question or explanation');
+  }
+
+  if (questionType === 'mcq_multi') {
+    const rawAnswers = Array.isArray(raw.correct_answers)
+      ? (raw.correct_answers as string[])
+      : typeof raw.correct_answer === 'string'
+        ? raw.correct_answer.split(',')
+        : [];
+
+    const validLetters = [...new Set(
+      rawAnswers
+        .map((s) => String(s).trim().toUpperCase().charAt(0))
+        .filter((s) => ['A', 'B', 'C', 'D'].includes(s))
+    )].sort();
+
+    if (validLetters.length === 0) throw new Error('No valid correct_answers for multi-correct question');
+    if (validLetters.length === 4) throw new Error('All 4 options marked correct — invalid multi-correct');
+    parsed.correct_answer = validLetters.join(',');
+
+  } else if (questionType === 'integer') {
+    const ansStr = String(raw.correct_answer ?? '').trim();
+    const ansNum = parseInt(ansStr, 10);
+    const maxInt = examType === 'Advanced' ? 9 : 99;
+    if (isNaN(ansNum) || ansNum < 0 || ansNum > maxInt) {
+      throw new Error(`Invalid integer answer "${ansStr}" for ${examType} (range 0–${maxInt})`);
+    }
+    parsed.correct_answer = String(ansNum);
+    parsed.options = [];
+
+  } else {
+    // mcq_single
+    if (parsed.options.length !== 4) throw new Error('MCQ single must have exactly 4 options');
+    const letter = String(raw.correct_answer ?? '').trim().toUpperCase().charAt(0);
+    if (!['A', 'B', 'C', 'D'].includes(letter)) {
+      throw new Error(`Invalid correct_answer: "${raw.correct_answer}"`);
+    }
+    parsed.correct_answer = letter;
+  }
+
+  return parsed;
+}
+
+function buildBatchPrompt(
+  count: number,
+  subject: Subject,
+  topic: string,
+  examType: ExamType,
+  studentClass: StudentClass,
+  questionType: QuestionType,
+  targetLetters: string[],
+  difficultySpec: string,
+  classSyllabus: string,
+): string {
+  const qTypeName = questionType === 'mcq_single'
+    ? 'single-correct MCQ'
+    : questionType === 'mcq_multi'
+      ? 'multi-correct MCQ'
+      : 'integer-type';
+
+  const letterConstraints = questionType === 'mcq_single' && targetLetters.length > 0
+    ? '\n' + targetLetters.map((l, i) => `  - Question ${i + 1} correct answer MUST be at option ${l}`).join('\n')
+    : '';
+
+  const exampleObj = questionType === 'mcq_single'
+    ? `{ "question": "...", "question_type": "mcq_single", "options": ["...", "...", "...", "..."], "correct_answer": "B", "answer_explanation": "3-4 sentences.", "diagram": null }`
+    : questionType === 'mcq_multi'
+      ? `{ "question": "...", "question_type": "mcq_multi", "options": ["...", "...", "...", "..."], "correct_answers": ["A", "C"], "answer_explanation": "Option A: ... B: ... C: ... D: ...", "diagram": null }`
+      : `{ "question": "...", "question_type": "integer", "options": [], "correct_answer": "7", "answer_explanation": "Step-by-step solution.", "diagram": null }`;
+
+  return `
+<context>
+  <subject>${subject}</subject>
+  <topic>${topic}</topic>
+  <exam_type>JEE ${examType} competitive entrance exam</exam_type>
+  <student_class>Class ${studentClass}</student_class>
+  <syllabus_scope>${classSyllabus}</syllabus_scope>
+</context>
+
+<difficulty_requirement>
+  ${difficultySpec}
+  IMPORTANT: Competitive exam questions — not school-level. Every question requires real reasoning.
+</difficulty_requirement>
+
+<task>
+  Generate exactly ${count} DISTINCT JEE ${examType} ${qTypeName} questions on "${subject} — ${topic}".
+  Each question MUST test a different concept, formula or scenario — no repetition.${letterConstraints}
+</task>
+
+<format>
+  Return ONLY valid JSON, no markdown, no extra text:
+  {
+    "questions": [
+      ${exampleObj},
+      ... (${count} total)
+    ]
+  }
+${DIAGRAM_SPEC}
+</format>
+
+<constraints>
+  - Return EXACTLY ${count} question objects in the "questions" array
+  ${questionType === 'mcq_single' ? `- Each correct_answer must match its assigned option letter` : ''}
+  ${questionType === 'mcq_multi' ? `- correct_answers: array of letters, never all 4 correct, never all 4 wrong` : ''}
+  ${questionType === 'integer' ? `- correct_answer: string integer${examType === 'Advanced' ? ' (0-9)' : ' (0-99)'}` : ''}
+  - Options: plain text — do NOT prefix with "A)", "B)", "C)", "D)"
+  - ALL math expressions MUST be in $...$ delimiters
+  - Do NOT use concepts outside the class syllabus
+  - diagram must always be present: valid template object or null
+</constraints>`;
+}
+
 export async function generateQuestion(
   subject: Subject,
   topic: string,
@@ -282,7 +409,7 @@ export async function generateQuestion(
         model: 'deepseek-chat',
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.7,
-        max_tokens: 1200,
+        max_tokens: 1000,
         response_format: { type: 'json_object' },
       });
 
@@ -290,59 +417,7 @@ export async function generateQuestion(
       if (!content) throw new Error('Empty response from DeepSeek');
 
       const raw = JSON.parse(content) as Record<string, unknown>;
-
-      const parsed: GeneratedQuestion = {
-        question: String(raw.question ?? ''),
-        question_type: questionType,
-        options: Array.isArray(raw.options) ? (raw.options as string[]) : [],
-        correct_answer: '',
-        answer_explanation: String(raw.answer_explanation ?? ''),
-        diagram: (raw.diagram as DiagramTemplate | null) ?? null,
-      };
-
-      if (!parsed.question || !parsed.answer_explanation) {
-        throw new Error('Invalid question format: missing question or explanation');
-      }
-
-      if (questionType === 'mcq_multi') {
-        // Normalize correct_answers array → sorted comma-separated string
-        const raw_answers = Array.isArray(raw.correct_answers)
-          ? (raw.correct_answers as string[])
-          : typeof raw.correct_answer === 'string'
-            ? raw.correct_answer.split(',')
-            : [];
-
-        const validLetters = [...new Set(
-          raw_answers
-            .map((s) => String(s).trim().toUpperCase().charAt(0))
-            .filter((s) => ['A', 'B', 'C', 'D'].includes(s))
-        )].sort();
-
-        if (validLetters.length === 0) throw new Error('No valid correct_answers for multi-correct question');
-        if (validLetters.length === 4) throw new Error('All 4 options marked correct — invalid multi-correct');
-        parsed.correct_answer = validLetters.join(',');
-
-      } else if (questionType === 'integer') {
-        const ansStr = String(raw.correct_answer ?? '').trim();
-        const ansNum = parseInt(ansStr, 10);
-        const maxInt = examType === 'Advanced' ? 9 : 99;
-        if (isNaN(ansNum) || ansNum < 0 || ansNum > maxInt) {
-          throw new Error(`Invalid integer answer "${ansStr}" for ${examType} (range 0–${maxInt})`);
-        }
-        parsed.correct_answer = String(ansNum);
-        parsed.options = []; // ensure empty
-
-      } else {
-        // mcq_single
-        if (parsed.options.length !== 4) throw new Error('MCQ single must have exactly 4 options');
-        const letter = String(raw.correct_answer ?? '').trim().toUpperCase().charAt(0);
-        if (!['A', 'B', 'C', 'D'].includes(letter)) {
-          throw new Error(`Invalid correct_answer: "${raw.correct_answer}"`);
-        }
-        parsed.correct_answer = letter;
-      }
-
-      return parsed;
+      return parseRawQuestion(raw, questionType, examType);
     } catch (err) {
       lastError = err instanceof Error ? err : new Error(String(err));
       if (attempt < 2) await sleep(RETRY_DELAYS[attempt] ?? 1000);
@@ -350,4 +425,65 @@ export async function generateQuestion(
   }
 
   throw lastError ?? new Error('Failed to generate question after retries');
+}
+
+export async function generateQuestionBatch(
+  count: number,
+  subject: Subject,
+  topic: string,
+  difficulty: Difficulty,
+  examType: ExamType,
+  studentClass: StudentClass,
+  questionType: QuestionType = 'mcq_single',
+): Promise<GeneratedQuestion[]> {
+  const classSyllabus = studentClass === '11'
+    ? 'Class 11 only — do NOT use Class 12 concepts'
+    : `Class 11 and Class 12 — use concepts appropriate for Class ${studentClass}`;
+
+  const difficultySpec = buildDifficultySpec(difficulty, examType);
+
+  const LETTERS = ['A', 'B', 'C', 'D'] as const;
+  const targetLetters = Array.from({ length: count }, () => LETTERS[Math.floor(Math.random() * 4)]!);
+
+  const prompt = buildBatchPrompt(
+    count, subject, topic, examType, studentClass,
+    questionType, targetLetters, difficultySpec, classSyllabus,
+  );
+
+  let lastError: Error | null = null;
+
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const response = await client.chat.completions.create({
+        model: 'deepseek-chat',
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.7,
+        max_tokens: Math.min(count * 950 + 300, 4000),
+        response_format: { type: 'json_object' },
+      });
+
+      const content = response.choices[0]?.message?.content;
+      if (!content) throw new Error('Empty response from DeepSeek');
+
+      const rawBatch = JSON.parse(content) as { questions?: unknown[] };
+      const rawQuestions = Array.isArray(rawBatch.questions) ? rawBatch.questions : [];
+
+      const parsed: GeneratedQuestion[] = [];
+      for (const rawQ of rawQuestions) {
+        try {
+          parsed.push(parseRawQuestion(rawQ as Record<string, unknown>, questionType, examType));
+        } catch {
+          // skip individual malformed questions
+        }
+      }
+
+      if (parsed.length === 0) throw new Error('No valid questions in batch response');
+      return parsed;
+    } catch (err) {
+      lastError = err instanceof Error ? err : new Error(String(err));
+      if (attempt < 2) await sleep(RETRY_DELAYS[attempt] ?? 1000);
+    }
+  }
+
+  throw lastError ?? new Error('Failed to generate question batch after retries');
 }

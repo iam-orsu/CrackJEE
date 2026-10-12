@@ -7,27 +7,12 @@ import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import { QuestionCard } from '@/components/QuestionCard';
 import type { Question, AnswerResult, Subject, TopicProgress } from '@/types';
+import type { SplitTopics } from '@/lib/api';
 
-/* ─── Syllabus data ─────────────────────────────────────── */
-const TOPICS_BY_CLASS: Record<Subject, { class11: string[]; class12: string[] }> = {
-  Mathematics: {
-    class11: ['Sets','Relations and Functions','Trigonometric Functions','Principle of Mathematical Induction','Complex Numbers','Quadratic Equations','Linear Inequalities','Permutations and Combinations','Binomial Theorem','Sequences and Series','Straight Lines','Circles','Conic Sections','Introduction to 3D Geometry','Limits and Derivatives','Statistics','Probability'],
-    class12: ['Relations and Functions (Advanced)','Inverse Trigonometric Functions','Matrices','Determinants','Continuity and Differentiability','Applications of Derivatives','Indefinite Integration','Definite Integration','Applications of Integrals','Differential Equations','Vectors','Three Dimensional Geometry','Linear Programming','Probability (Bayes and Random Variables)'],
-  },
-  Physics: {
-    class11: ['Units and Dimensions','Kinematics','Laws of Motion','Friction','Work Energy and Power','System of Particles','Rotational Motion','Gravitation','Elasticity','Fluid Mechanics','Thermal Properties of Matter','Thermodynamics','Kinetic Theory of Gases','Simple Harmonic Motion','Waves'],
-    class12: ['Electrostatics','Electric Potential and Capacitance','Current Electricity','Moving Charges and Magnetism','Magnetism and Matter','Electromagnetic Induction','Alternating Current','Electromagnetic Waves','Ray Optics','Wave Optics','Dual Nature of Radiation','Atoms and Nuclei','Semiconductor Devices','Communication Systems'],
-  },
-  Chemistry: {
-    class11: ['Mole Concept and Stoichiometry','Atomic Structure','Periodic Table and Periodicity','Chemical Bonding','States of Matter','Chemical Thermodynamics','Chemical Equilibrium','Ionic Equilibrium','Redox Reactions','Hydrogen','s-Block Elements','p-Block Elements Group 13 and 14','Organic Chemistry Basics','Hydrocarbons','Environmental Chemistry'],
-    class12: ['Solid State','Solutions','Electrochemistry','Chemical Kinetics','Surface Chemistry','General Principles of Metallurgy','p-Block Elements Group 15 to 18','Transition Metals and d-Block','Coordination Compounds','Haloalkanes and Haloarenes','Alcohols Phenols and Ethers','Aldehydes and Ketones','Carboxylic Acids and Derivatives','Amines','Biomolecules','Polymers'],
-  },
-};
-
-const SUBJECT_META: Record<Subject, { emoji: string; sub: string }> = {
-  Mathematics: { emoji: '∑', sub: '31 topics' },
-  Physics:     { emoji: '⚛', sub: '29 topics' },
-  Chemistry:   { emoji: '⚗', sub: '31 topics' },
+const SUBJECT_META: Record<Subject, { emoji: string }> = {
+  Mathematics: { emoji: '∑' },
+  Physics:     { emoji: '⚛' },
+  Chemistry:   { emoji: '⚗' },
 };
 
 const REVIEW_SUBJ: Record<string, { color: string; icon: string; bg: string }> = {
@@ -35,11 +20,6 @@ const REVIEW_SUBJ: Record<string, { color: string; icon: string; bg: string }> =
   Chemistry:   { color: '#16a34a', icon: '⚗', bg: '#f0fdf4' },
   Mathematics: { color: '#7c3aed', icon: '∑', bg: '#f5f3ff' },
 };
-
-function getTopicsForStudent(subject: Subject, studentClass: string) {
-  const t = TOPICS_BY_CLASS[subject];
-  return studentClass === '11' ? { class11: t.class11, class12: [] } : t;
-}
 
 /* ─── Loading messages ──────────────────────────────────── */
 const LOAD_MESSAGES = [
@@ -85,6 +65,14 @@ export default function PracticePage() {
   const [examType, setExamType] = useState<'Main' | 'Advanced'>('Main');
   const [markingScheme, setMarkingScheme] = useState<MarkingScheme>('jee_main');
 
+  /* ── Topics (fetched from API) ── */
+  const [topicsByClass, setTopicsByClass] = useState<SplitTopics | null>(null);
+
+  function getTopicsForStudent(subject: Subject) {
+    const t = topicsByClass?.[subject];
+    return t ?? { class11: [], class12: [] };
+  }
+
   /* ── Weak mode ── */
   const [weakMode, setWeakMode] = useState(false);
   const [weakStartLoading, setWeakStartLoading] = useState(false);
@@ -122,6 +110,12 @@ export default function PracticePage() {
     if (!isAuthenticated()) { router.push('/login'); return; }
     const u = getUser();
     if (u?.class) setStudentClass(u.class);
+
+    // Fetch topics from API (single source of truth)
+    api.questions.topics(u?.class ?? '12')
+      .then((data) => setTopicsByClass(data))
+      .catch(() => {});
+
 
     // Restore a saved exam session (survives refresh within the same tab)
     try {
@@ -224,11 +218,12 @@ export default function PracticePage() {
   }
 
   function toggleAllTopics(subject: Subject) {
-    const topics = getTopicsForStudent(subject, studentClass);
+    const topics = getTopicsForStudent(subject);
     const all = [...topics.class11, ...topics.class12];
+    if (all.length === 0) return; // topics not yet loaded
     const cur = selectedTopics[subject];
     if (cur && cur.size === all.length) {
-      setSelectedTopics((p) => ({ ...p, [subject]: new Set([all[0] ?? '']) }));
+      setSelectedTopics((p) => ({ ...p, [subject]: new Set([all[0]!]) }));
     } else {
       setSelectedTopics((p) => ({ ...p, [subject]: new Set(all) }));
     }
@@ -457,13 +452,17 @@ export default function PracticePage() {
                     <span className="subject-card-name">All Three</span>
                     <span className="subject-card-sub">Full coverage</span>
                   </div>
-                  {subjects.map((s) => (
-                    <div key={s} className={`subject-card${selectedSubjects.has(s) ? ' selected' : ''}`} onClick={() => toggleSubject(s)}>
-                      <span className="subject-card-emoji" style={{ fontFamily: 'serif', fontSize: 28 }}>{SUBJECT_META[s].emoji}</span>
-                      <span className="subject-card-name">{s}</span>
-                      <span className="subject-card-sub">{SUBJECT_META[s].sub}</span>
-                    </div>
-                  ))}
+                  {subjects.map((s) => {
+                    const t = topicsByClass?.[s];
+                    const topicCount = t ? (t.class11.length + t.class12.length) : null;
+                    return (
+                      <div key={s} className={`subject-card${selectedSubjects.has(s) ? ' selected' : ''}`} onClick={() => toggleSubject(s)}>
+                        <span className="subject-card-emoji" style={{ fontFamily: 'serif', fontSize: 28 }}>{SUBJECT_META[s].emoji}</span>
+                        <span className="subject-card-name">{s}</span>
+                        <span className="subject-card-sub">{topicCount !== null ? `${topicCount} topics` : 'Loading...'}</span>
+                      </div>
+                    );
+                  })}
                 </div>
                 <div style={{ marginTop: 12, fontSize: 13, color: 'var(--gray-500)' }}>
                   {selectedSubjects.size} subject{selectedSubjects.size !== 1 ? 's' : ''} selected
@@ -476,7 +475,7 @@ export default function PracticePage() {
                 <p className="wizard-section-title">Which topics?</p>
                 <p className="wizard-section-sub">Select all or pick specific ones. Questions rotate across your selection.</p>
                 {Array.from(selectedSubjects).map((subject) => {
-                  const topics = getTopicsForStudent(subject, studentClass);
+                  const topics = getTopicsForStudent(subject);
                   const cur = selectedTopics[subject] ?? new Set<string>();
                   const allTopics = [...topics.class11, ...topics.class12];
                   const allSelected = cur.size === allTopics.length;

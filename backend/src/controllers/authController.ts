@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import { z } from 'zod';
 import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
+import type { AuthRequest } from '../types/index';
 
 const registerSchema = z.object({
   name: z.string().min(2).max(100),
@@ -77,7 +78,7 @@ export async function login(req: Request, res: Response, next: NextFunction): Pr
   }
 }
 
-export async function me(req: Request & { user?: { userId: string } }, res: Response, next: NextFunction): Promise<void> {
+export async function me(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
   try {
     const user = await prisma.user.findUnique({
       where: { id: req.user!.userId },
@@ -85,6 +86,15 @@ export async function me(req: Request & { user?: { userId: string } }, res: Resp
     });
     if (!user) throw new AppError(404, 'User not found');
     res.json({ success: true, data: user });
+  } catch (err) {
+    next(err);
+  }
+}
+
+export async function refresh(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const token = signToken(req.user!.userId);
+    res.json({ success: true, data: { token } });
   } catch (err) {
     next(err);
   }

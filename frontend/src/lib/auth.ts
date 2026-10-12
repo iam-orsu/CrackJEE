@@ -40,18 +40,42 @@ export function clearSession(): void {
   }
 }
 
-export function isAuthenticated(): boolean {
-  const token = getToken();
-  if (!token) return false;
+function decodeJwtExp(token: string): number | null {
   try {
     const b64 = token.split('.')[1]!.replace(/-/g, '+').replace(/_/g, '/');
     const payload = JSON.parse(atob(b64)) as { exp?: number };
-    if (payload.exp && payload.exp * 1000 < Date.now()) {
-      clearSession();
-      return false;
-    }
-    return true;
+    return payload.exp ?? null;
   } catch {
+    return null;
+  }
+}
+
+export function isAuthenticated(): boolean {
+  const token = getToken();
+  if (!token) return false;
+  const exp = decodeJwtExp(token);
+  if (exp && exp * 1000 < Date.now()) {
+    clearSession();
     return false;
+  }
+  return !!exp;
+}
+
+export function shouldRefresh(): boolean {
+  const token = getToken();
+  if (!token) return false;
+  const exp = decodeJwtExp(token);
+  if (!exp) return false;
+  const now = Date.now();
+  if (exp * 1000 <= now) return false; // already expired — let the 401 handler redirect to login
+  // Refresh if token expires within 60 minutes
+  return exp * 1000 < now + 60 * 60 * 1000;
+}
+
+export function setToken(token: string): void {
+  try {
+    localStorage.setItem(TOKEN_KEY, token);
+  } catch {
+    // Storage blocked
   }
 }

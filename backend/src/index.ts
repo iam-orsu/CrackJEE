@@ -19,6 +19,7 @@ const envSchema = z.object({
   JWT_SECRET:       z.string().min(16),
   DEEPSEEK_API_KEY: z.string().min(8),
   OPENAI_API_KEY:   z.string().min(8),
+  FRONTEND_URL:     z.string().url().optional(),
 });
 
 const env = envSchema.safeParse(process.env);
