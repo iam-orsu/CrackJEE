@@ -169,12 +169,12 @@ export default function DashboardPage() {
         {/* ── Greeting ── */}
         <div className="db-greeting-row">
           <div>
-            <p className="db-greeting-label">{greeting}</p>
+            <p className="db-greeting-label" suppressHydrationWarning>{greeting}</p>
             <h1 className="db-greeting-name" suppressHydrationWarning>
               {firstName || 'Student'} 👋
             </h1>
           </div>
-          <p className="db-greeting-date">
+          <p className="db-greeting-date" suppressHydrationWarning>
             {new Date().toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
           </p>
         </div>

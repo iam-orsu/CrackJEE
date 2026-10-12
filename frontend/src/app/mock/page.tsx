@@ -71,9 +71,9 @@ export default function MockPage() {
   const info = selected ? EXAM_INFO[selected] : null;
 
   return (
-    <div className="app-layout">
+    <div className="app-shell">
       <Sidebar />
-      <main className="main-content" style={{ maxWidth: 900 }}>
+      <main className="app-main" style={{ maxWidth: 900 }}>
         <div style={{ marginBottom: 28 }}>
           <h1 style={{ fontSize: 22, fontWeight: 600, color: 'var(--gray-900)', marginBottom: 4 }}>Mock Test</h1>
           <p style={{ fontSize: 14, color: 'var(--gray-500)' }}>
