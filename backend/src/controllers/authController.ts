@@ -23,7 +23,7 @@ function signToken(userId: string): string {
   const secret = process.env.JWT_SECRET!;
   return jwt.sign({ userId }, secret, {
     algorithm: 'HS256',
-    expiresIn: '24h',
+    expiresIn: '7d',
   });
 }
 

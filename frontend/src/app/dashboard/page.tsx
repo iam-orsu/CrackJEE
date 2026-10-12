@@ -93,15 +93,7 @@ export default function DashboardPage() {
   const totalAttempts = data?.stats.totalAttempts ?? 0;
   const weakCount     = data?.weakAreas.length ?? 0;
 
-  const streak = (() => {
-    if (!data?.weeklyStats?.length) return 0;
-    const sorted = [...data.weeklyStats].sort(
-      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-    );
-    let c = 0;
-    for (const d of sorted) { if (d.total > 0) c++; else break; }
-    return c;
-  })();
+  const streak = data?.streak ?? 0;
 
   const SUBJ_CFG: Record<string, { color: string; bg: string; icon: string }> = {
     Physics:     { color: '#2563eb', bg: '#eff6ff', icon: '⚛' },

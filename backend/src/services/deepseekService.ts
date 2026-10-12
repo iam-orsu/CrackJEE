@@ -281,7 +281,7 @@ export async function generateQuestion(
       const response = await client.chat.completions.create({
         model: 'deepseek-chat',
         messages: [{ role: 'user', content: prompt }],
-        temperature: 0.7,
+        temperature: questionType === 'integer' ? 0.3 : 0.7,
         max_tokens: 1200,
         response_format: { type: 'json_object' },
       });

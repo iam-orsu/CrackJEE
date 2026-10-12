@@ -8,7 +8,7 @@ export async function dashboard(req: AuthRequest, res: Response, next: NextFunct
 
     const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
 
-    const [totalAttempts, correctAttempts, weakAreas, recentAttempts, last7Days, allProgress] = await Promise.all([
+    const [totalAttempts, correctAttempts, weakAreas, last7Days, allProgress, allAttemptDates] = await Promise.all([
       prisma.studentAttempt.count({ where: { userId } }),
       prisma.studentAttempt.count({ where: { userId, isCorrect: true } }),
       prisma.topicProgress.findMany({
@@ -17,16 +17,15 @@ export async function dashboard(req: AuthRequest, res: Response, next: NextFunct
         take: 6,
       }),
       prisma.studentAttempt.findMany({
-        where: { userId },
-        include: { question: { select: { topic: true, subject: true, difficulty: true } } },
-        orderBy: { createdAt: 'desc' },
-        take: 8,
-      }),
-      prisma.studentAttempt.findMany({
         where: { userId, createdAt: { gte: sevenDaysAgo } },
         select: { createdAt: true, isCorrect: true },
       }),
       prisma.topicProgress.findMany({ where: { userId } }),
+      prisma.studentAttempt.findMany({
+        where: { userId },
+        select: { createdAt: true },
+        orderBy: { createdAt: 'desc' },
+      }),
     ]);
 
     // Build weekly stats: last 7 calendar days
@@ -60,12 +59,32 @@ export async function dashboard(req: AuthRequest, res: Response, next: NextFunct
 
     const accuracy = totalAttempts > 0 ? Math.round((correctAttempts / totalAttempts) * 100) : 0;
 
+    // Streak: count consecutive days (UTC) ending today or yesterday
+    const dateSet = new Set(allAttemptDates.map((a) => a.createdAt.toISOString().slice(0, 10)));
+    const streak = (() => {
+      if (!dateSet.size) return 0;
+      const today = new Date();
+      today.setUTCHours(0, 0, 0, 0);
+      const todayStr = today.toISOString().slice(0, 10);
+      const yday = new Date(today);
+      yday.setUTCDate(yday.getUTCDate() - 1);
+      const ydayStr = yday.toISOString().slice(0, 10);
+      const cursor = new Date(dateSet.has(todayStr) ? today : dateSet.has(ydayStr) ? yday : new Date(0));
+      if (cursor.getFullYear() < 2000) return 0;
+      let count = 0;
+      while (dateSet.has(cursor.toISOString().slice(0, 10))) {
+        count++;
+        cursor.setUTCDate(cursor.getUTCDate() - 1);
+      }
+      return count;
+    })();
+
     res.json({
       success: true,
       data: {
         stats: { totalAttempts, correctAttempts, accuracy },
         weakAreas,
-        recentActivity: recentAttempts,
+        streak,
         weeklyStats,
         subjectAccuracy,
       },
