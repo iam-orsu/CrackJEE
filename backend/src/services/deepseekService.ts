@@ -125,7 +125,8 @@ ${DIAGRAM_SPEC}
 <constraints>
   - correct_answer MUST be exactly "${targetLetter}"
   - Options: plain text only — do NOT prefix with "A)", "B)", "C)", "D)"
-  - answer_explanation: 3-4 sentences maximum, no internal monologue
+  - ALL 4 options MUST be mathematically distinct — no two options can have the same value or expression
+  - answer_explanation: 2-3 sentences ONLY. No "I'll", no "Let me", no "So the answer is". Start directly with the key insight or formula.
   - ALL math expressions MUST be in $...$ delimiters (e.g. $x^2 + y^2$, $\\frac{a}{b}$)
   - Do NOT use concepts outside the class syllabus
   - diagram must always be present: valid template object or null
@@ -179,7 +180,7 @@ ${DIAGRAM_SPEC}
   - correct_answers: array of letter strings, e.g. ["A", "C"] or ["A", "B", "D"]
   - NEVER all 4 correct, NEVER all 4 wrong
   - Options: plain text only — do NOT prefix with "A)", "B)", "C)", "D)"
-  - answer_explanation MUST address each option individually
+  - answer_explanation MUST address each option individually, 1 sentence per option. No "I'll", no "Let me", no meta-commentary.
   - ALL math in $...$ delimiters
   - Do NOT use concepts outside the class syllabus
   - diagram must always be present: valid template or null
@@ -241,12 +242,34 @@ ${DIAGRAM_SPEC}
   - correct_answer: string of the integer only (e.g. "7" or "42")
   - ${answerRange}
   - options MUST be an empty array []
-  - answer_explanation: show all calculation steps explicitly
+  - answer_explanation: show key calculation steps in 2-3 sentences. No "I'll", no "Let me", no meta-commentary. Start with the equation or principle.
   - ALL math in $...$ delimiters
   - Do NOT use concepts outside the class syllabus
   - Verify the answer is an integer before returning
   - diagram must always be present: valid template or null
 </constraints>`;
+}
+
+const REASONING_NOISE = [
+  /^(okay|alright|sure|let me|i'll|i will|i need to|let's|now,?\s+let|let me think|to solve this|so,?\s+)/i,
+  /then\s+(the\s+)?correct\s+answer\s+is\s+[A-D]\.?/gi,
+  /i'll\s+do\s+that\.?/gi,
+  /the\s+answer\s+is\s+(therefore\s+)?[A-D]\.?\s*$/gi,
+  /so\s+the\s+(correct\s+)?answer\s+is/gi,
+];
+
+function cleanExplanation(raw: string): string {
+  let s = raw.trim();
+  // Strip each noise pattern globally
+  for (const pat of REASONING_NOISE) s = s.replace(pat, '').trim();
+  // Collapse multiple blank lines
+  s = s.replace(/\n{3,}/g, '\n\n').trim();
+  // Hard cap: keep first 600 chars (≈ 4 sentences max)
+  if (s.length > 600) {
+    const cutoff = s.lastIndexOf('.', 600);
+    s = (cutoff > 100 ? s.slice(0, cutoff + 1) : s.slice(0, 600)).trim();
+  }
+  return s || raw.trim();
 }
 
 function parseRawQuestion(
@@ -259,7 +282,7 @@ function parseRawQuestion(
     question_type: questionType,
     options: Array.isArray(raw.options) ? (raw.options as string[]) : [],
     correct_answer: '',
-    answer_explanation: String(raw.answer_explanation ?? ''),
+    answer_explanation: cleanExplanation(String(raw.answer_explanation ?? '')),
     diagram: (raw.diagram as DiagramTemplate | null) ?? null,
   };
 
@@ -300,6 +323,13 @@ function parseRawQuestion(
     const letter = String(raw.correct_answer ?? '').trim().toUpperCase().charAt(0);
     if (!['A', 'B', 'C', 'D'].includes(letter)) {
       throw new Error(`Invalid correct_answer: "${raw.correct_answer}"`);
+    }
+    // Reject questions with duplicate options (DeepSeek hallucination)
+    const normalized = parsed.options.map((o) =>
+      o.replace(/\$/g, '').replace(/\s+/g, ' ').trim().toLowerCase()
+    );
+    if (new Set(normalized).size < 4) {
+      throw new Error('Duplicate options detected — rejecting question');
     }
     parsed.correct_answer = letter;
   }
@@ -370,6 +400,8 @@ ${DIAGRAM_SPEC}
   ${questionType === 'mcq_multi' ? `- correct_answers: array of letters, never all 4 correct, never all 4 wrong` : ''}
   ${questionType === 'integer' ? `- correct_answer: string integer${examType === 'Advanced' ? ' (0-9)' : ' (0-99)'}` : ''}
   - Options: plain text — do NOT prefix with "A)", "B)", "C)", "D)"
+  - ALL 4 options in each question MUST be mathematically distinct — no two options can have the same value or expression
+  - answer_explanation: 2-3 sentences max. Start directly with the insight. NO "I'll", "Let me", "So the answer is", or any internal monologue
   - ALL math expressions MUST be in $...$ delimiters
   - Do NOT use concepts outside the class syllabus
   - diagram must always be present: valid template object or null
@@ -408,8 +440,8 @@ export async function generateQuestion(
       const response = await client.chat.completions.create({
         model: 'deepseek-chat',
         messages: [{ role: 'user', content: prompt }],
-        temperature: 0.7,
-        max_tokens: 1000,
+        temperature: 0.5,
+        max_tokens: 700,
         response_format: { type: 'json_object' },
       });
 
@@ -457,8 +489,8 @@ export async function generateQuestionBatch(
       const response = await client.chat.completions.create({
         model: 'deepseek-chat',
         messages: [{ role: 'user', content: prompt }],
-        temperature: 0.7,
-        max_tokens: Math.min(count * 950 + 300, 4000),
+        temperature: 0.5,
+        max_tokens: Math.min(count * 650 + 200, 3000),
         response_format: { type: 'json_object' },
       });
 

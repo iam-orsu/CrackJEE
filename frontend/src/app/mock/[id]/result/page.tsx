@@ -87,21 +87,19 @@ const SUBJECT_COLOR: Record<string, string> = {
   Physics: '#2563eb', Chemistry: '#16a34a', Mathematics: '#7c3aed',
 };
 
-/* ── Cutoff comparison ───────────────────────────────────────── */
+/* ── Plain text preview (strips LaTeX for snippet) ──────────── */
 
-const MAIN_CUTOFFS_2025 = [
-  { category: 'General', percentile: '93.10', info: '~105+ marks' },
-  { category: 'EWS / GEN-PwD', percentile: '80.38', info: '~80+ marks' },
-  { category: 'OBC-NCL', percentile: '79.43', info: '~75+ marks' },
-  { category: 'SC', percentile: '61.15', info: '~52+ marks' },
-  { category: 'ST', percentile: '47.90', info: '~35+ marks' },
-];
-
-const ADV_CUTOFFS_2025 = [
-  { category: 'General', minMarks: 76, minSubject: 7 },
-  { category: 'EWS / OBC-NCL', minMarks: 66, minSubject: 6 },
-  { category: 'SC / ST / PwD', minMarks: 37, minSubject: 3 },
-];
+function toPlainPreview(text: string, max = 80): string {
+  const plain = text
+    .replace(/\$\$[\s\S]+?\$\$/g, '')
+    .replace(/\$([^$\n]*)\$/g, '$1')
+    .replace(/\\[a-zA-Z]+\{([^}]*)\}/g, '$1')
+    .replace(/\\[a-zA-Z]+/g, '')
+    .replace(/[{}[\]]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return plain.length > max ? plain.slice(0, max) + '…' : plain;
+}
 
 /* ══════════════════════════════════════════════════════════════
    Component
@@ -263,65 +261,6 @@ export default function MockResultPage() {
           </div>
         </div>
 
-        {/* Cutoff comparison */}
-        <div style={{ background: '#fff', borderRadius: 10, border: '1px solid #e2e8f0', padding: 24 }}>
-          <h2 style={{ fontSize: 15, fontWeight: 700, color: '#1e293b', marginBottom: 4 }}>
-            JEE {examType} 2025 Cutoff Comparison
-          </h2>
-          <p style={{ fontSize: 12, color: '#94a3b8', marginBottom: 16 }}>
-            Reference only — based on 2025 official cutoffs. AI-generated questions may differ from actual exam.
-          </p>
-          {examType === 'Main' ? (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              {MAIN_CUTOFFS_2025.map((c) => (
-                <div key={c.category} style={{
-                  display: 'flex', alignItems: 'center', gap: 14,
-                  padding: '10px 14px', background: '#f8fafc', borderRadius: 6,
-                }}>
-                  <div style={{ width: 130, fontSize: 13, fontWeight: 600, color: '#1e293b' }}>{c.category}</div>
-                  <div style={{ fontSize: 13, color: '#475569', flex: 1 }}>{c.percentile} percentile <span style={{ color: '#94a3b8' }}>({c.info})</span></div>
-                  <div style={{ fontSize: 12, fontWeight: 600, color: '#64748b' }}>
-                    {result.totalScore >= 105 && c.category === 'General' ? '✓' : '—'}
-                  </div>
-                </div>
-              ))}
-              <p style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>
-                * Percentile depends on the exam session and overall student performance — marks alone don't directly predict percentile.
-              </p>
-            </div>
-          ) : (
-            <div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 12 }}>
-                {ADV_CUTOFFS_2025.map((c) => {
-                  const minSubjectMet = subjectScores.every((s) => s.score >= c.minSubject);
-                  const totalMet = result.totalScore >= c.minMarks;
-                  const qualifies = totalMet && minSubjectMet;
-                  return (
-                    <div key={c.category} style={{
-                      display: 'flex', alignItems: 'center', gap: 14,
-                      padding: '10px 14px',
-                      background: qualifies ? '#f0fdf4' : '#f8fafc',
-                      border: qualifies ? '1px solid #bbf7d0' : '1px solid transparent',
-                      borderRadius: 6,
-                    }}>
-                      <div style={{ width: 160, fontSize: 13, fontWeight: 600, color: '#1e293b' }}>{c.category}</div>
-                      <div style={{ fontSize: 13, color: '#475569', flex: 1 }}>
-                        ≥ {c.minMarks} total + ≥ {c.minSubject}/subject
-                      </div>
-                      <div style={{ fontSize: 13, fontWeight: 700, color: qualifies ? '#16a34a' : '#94a3b8' }}>
-                        {qualifies ? '✓ Qualifies' : '✗'}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-              <p style={{ fontSize: 12, color: '#94a3b8' }}>
-                * Based on Paper 1 only (our simulation). Actual JEE Advanced requires both Paper 1 + Paper 2.
-              </p>
-            </div>
-          )}
-        </div>
-
         {/* Question review */}
         <div style={{ background: '#fff', borderRadius: 10, border: '1px solid #e2e8f0', padding: 24 }}>
           <h2 style={{ fontSize: 15, fontWeight: 700, color: '#1e293b', marginBottom: 16 }}>Question Review</h2>
@@ -404,7 +343,7 @@ export default function MockResultPage() {
                     </span>
                     <span style={{ fontSize: 11, color: '#94a3b8' }}>{(q as any).topic}</span>
                     <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: 13, color: '#374151' }}>
-                      {((q as any).questionText ?? '')?.slice(0, 80)}…
+                      {toPlainPreview((q as any).questionText ?? '')}
                     </span>
                     <span style={{ fontSize: 12, color: '#94a3b8', flexShrink: 0 }}>
                       {isExpanded ? '▲' : '▼'}
