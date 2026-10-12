@@ -139,6 +139,7 @@ export default function MockExamPage() {
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [saving, setSaving] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const submittingRef = useRef(false);
 
   /* ── Load exam ── */
   useEffect(() => {
@@ -294,7 +295,9 @@ export default function MockExamPage() {
 
   /* ── Submit ── */
   async function handleSubmit(auto = false) {
+    if (submittingRef.current) return;
     if (!auto && !showSubmitModal) { setShowSubmitModal(true); return; }
+    submittingRef.current = true;
     if (timerRef.current) clearInterval(timerRef.current);
     setPageStatus('submitting');
     setShowSubmitModal(false);
@@ -302,6 +305,7 @@ export default function MockExamPage() {
       await api.mock.submit(examId);
       router.push(`/mock/${examId}/result`);
     } catch (e) {
+      submittingRef.current = false;
       setErrorMsg(e instanceof Error ? e.message : 'Submission failed');
       setPageStatus('exam');
     }
@@ -355,7 +359,10 @@ export default function MockExamPage() {
   const subjects = ['Physics', 'Chemistry', 'Mathematics'] as const;
   const bySubject = Object.fromEntries(subjects.map((s) => [s, questions.filter((q) => q.subject === s)]));
 
-  const totalAnswered = Object.keys(answers).length;
+  // Compute accurate counts using qStatus (single source of truth)
+  const statusCounts = { answered: 0, not_answered: 0, marked: 0, not_visited: 0, answered_marked: 0 } as Record<QStatus, number>;
+  for (const q of questions) statusCounts[qStatus(q.mockQuestionId, answers, marked, visited)]++;
+  const totalAnswered = statusCounts.answered + statusCounts.answered_marked;
   const totalMarked = Object.values(marked).filter(Boolean).length;
   const total = questions.length;
 
@@ -597,9 +604,9 @@ export default function MockExamPage() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
             {[
               { label: 'Answered', count: totalAnswered, bg: '#dcfce7', color: '#166534' },
-              { label: 'Unanswered', count: total - totalAnswered - Object.values(marked).filter((m) => m && !answers[Object.keys(marked).find((k) => marked[k] && !answers[k]) ?? '']).length, bg: '#fee2e2', color: '#991b1b' },
+              { label: 'Not Answered', count: statusCounts.not_answered, bg: '#fee2e2', color: '#991b1b' },
               { label: 'Marked', count: totalMarked, bg: '#ede9fe', color: '#5b21b6' },
-              { label: 'Not Visited', count: total - Object.keys(visited).length - Object.keys(answers).filter((k) => !visited[k]).length, bg: '#f1f5f9', color: '#475569' },
+              { label: 'Not Visited', count: statusCounts.not_visited, bg: '#f1f5f9', color: '#475569' },
             ].map(({ label, count, bg, color }) => (
               <div key={label} style={{ background: bg, borderRadius: 6, padding: '8px 10px', textAlign: 'center' }}>
                 <div style={{ fontSize: 18, fontWeight: 700, color }}>{Math.max(0, count)}</div>
