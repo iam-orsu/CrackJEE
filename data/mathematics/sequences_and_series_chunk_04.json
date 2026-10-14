@@ -1,0 +1,630 @@
+{
+  "questions": [
+    {
+      "id": "sas_c04_001",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Three numbers are in arithmetic progression and their sum is $36$. The product of the first and third numbers is $135$. Find the largest of the three numbers.",
+      "options": [],
+      "answer": "15",
+      "explanation": "Let the numbers be $12-d$, $12$ and $12+d$, since their sum is $36$. Then $(12-d)(12+d)=144-d^2=135$, so $d^2=9$ and $d=3$. The numbers are $9, 12, 15$, and the largest is $15$."
+    },
+    {
+      "id": "sas_c04_002",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A geometric progression has its third term equal to $12$ and its sixth term equal to $96$. Find the first term of this geometric progression.",
+      "options": [
+        "A) $6$",
+        "B) $3$",
+        "C) $1.5$",
+        "D) $24$"
+      ],
+      "answer": "B",
+      "explanation": "Dividing the sixth term by the third gives $r^3=8$, so $r=2$. Then $ar^2=12$ gives $a=3$. Option A is the second term $ar$, which is the wrong index."
+    },
+    {
+      "id": "sas_c04_003",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A rope is cut into $8$ pieces whose lengths are in arithmetic progression. The shortest piece is $4$ m and the longest piece is $18$ m. Find the length of the fifth piece.",
+      "options": [
+        "A) $14$ m",
+        "B) $10$ m",
+        "C) $12$ m",
+        "D) $16$ m"
+      ],
+      "answer": "C",
+      "explanation": "The longest piece is the eighth term, so $4+7d=18$ gives $d=2$. The fifth piece is $4+4\\cdot2=12$ m. Option A is the sixth piece, which is an index slip."
+    },
+    {
+      "id": "sas_c04_004",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "How many three-digit numbers are both divisible by $9$ and odd? Count every three-digit number that satisfies both conditions.",
+      "options": [],
+      "answer": "50",
+      "explanation": "The three-digit multiples of $9$ are $9m$ for $12\\leq m\\leq 111$. The product $9m$ is odd exactly when $m$ is odd, so $m$ runs over $13, 15, \\ldots, 111$. There are $\\frac{111-13}{2}+1=50$ such values."
+    },
+    {
+      "id": "sas_c04_005",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The arithmetic mean of two positive numbers is $10$ and their geometric mean is $8$. Find the larger of the two numbers.",
+      "options": [
+        "A) $4$",
+        "B) $12$",
+        "C) $16$",
+        "D) $18$"
+      ],
+      "answer": "C",
+      "explanation": "The numbers satisfy $a+b=20$ and $ab=64$, so they are the roots of $t^2-20t+64=0$. The roots are $4$ and $16$, and the larger is $16$."
+    },
+    {
+      "id": "sas_c04_006",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The sum of the first $n$ terms of an arithmetic progression is $S_n=2n^2+3n$ for every positive integer $n$. Find the fifteenth term of this progression.",
+      "options": [],
+      "answer": "61",
+      "explanation": "The fifteenth term is $S_{15}-S_{14}$. Here $S_{15}=450+45=495$ and $S_{14}=392+42=434$, so the term equals $495-434=61$."
+    },
+    {
+      "id": "sas_c04_007",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the sum of all odd integers from $1$ to $39$ inclusive that are not multiples of $3$, with each qualifying integer counted once.",
+      "options": [
+        "A) $253$",
+        "B) $400$",
+        "C) $147$",
+        "D) $259$"
+      ],
+      "answer": "A",
+      "explanation": "The odd integers from $1$ to $39$ sum to $400$. The odd multiples of $3$ in this range are $3, 9, 15, \\ldots, 39$, which sum to $147$. Subtracting gives $400-147=253$. Option C is the excluded sum, not the required one."
+    },
+    {
+      "id": "sas_c04_008",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The sum to infinity of a geometric progression is $16$, and the sum of its first two terms is $12$. Find the first term of this geometric progression.",
+      "options": [
+        "A) $12$",
+        "B) $8$",
+        "C) $16$",
+        "D) $4$"
+      ],
+      "answer": "B",
+      "explanation": "Let the first term be $a$ and the ratio be $r$. From $\\frac{a}{1-r}=16$ and $a(1+r)=12$, dividing gives $(1+r)(1-r)=\\frac{12}{16}$, so $r^2=\\frac{1}{4}$ and $r=\\frac{1}{2}$. Then $a=\\frac{12}{3/2}=8$. Option A is the sum of the first two terms."
+    },
+    {
+      "id": "sas_c04_010",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The sum of the first two terms of a geometric progression with positive common ratio is $15$, and its third term is $20$. Find the first term of this geometric progression.",
+      "options": [],
+      "answer": "5",
+      "explanation": "Let the first term be $a$ and the ratio be $r$. From $a(1+r)=15$ and $ar^2=20$, dividing gives $\\frac{r^2}{1+r}=\\frac{4}{3}$, so $3r^2-4r-4=0$ and $r=2$. Then $a=\\frac{15}{3}=5$."
+    },
+    {
+      "id": "sas_c04_011",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the arithmetic progression $6, 11, 16, \\ldots$. Find the sum of those terms among its first ten terms that are greater than $40$.",
+      "options": [
+        "A) $133$",
+        "B) $97$",
+        "C) $138$",
+        "D) $142$"
+      ],
+      "answer": "C",
+      "explanation": "The $n$th term is $5n+1$, so the first ten terms run from $6$ to $51$. The terms above $40$ are $41, 46$ and $51$, which are the $8$th, $9$th and $10$th terms. Their sum is $41+46+51=138$."
+    },
+    {
+      "id": "sas_c04_012",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The sum of the first six terms of an arithmetic progression is $39$, and the sum of its first three terms is $15$. Find the sixth term of this progression.",
+      "options": [],
+      "answer": "9",
+      "explanation": "From $S_3=3(a+d)=15$ we get $a+d=5$. From $S_6=3(2a+5d)=39$ we get $2a+5d=13$. Substituting $a=5-d$ gives $3d=3$, so $d=1$ and $a=4$. The sixth term is $4+5=9$."
+    },
+    {
+      "id": "sas_c04_013",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a geometric progression with positive terms, the fourth term is $8$ and the sixth term is $32$. Find the ninth term of this geometric progression.",
+      "options": [
+        "A) $512$",
+        "B) $64$",
+        "C) $256$",
+        "D) $128$"
+      ],
+      "answer": "C",
+      "explanation": "Dividing the sixth term by the fourth gives $r^2=4$, so $r=2$. From $ar^3=8$ we get $a=1$. The ninth term is $ar^8=256$. Option A is $ar^9$, which is the tenth term."
+    },
+    {
+      "id": "sas_c04_014",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the value of the finite sum $\\sum_{k=1}^{6}\\left(k^2-2k\\right)$, in which each term is the square of the index minus twice the index.",
+      "options": [],
+      "answer": "49",
+      "explanation": "The sum of squares for $k=1$ to $6$ is $91$, and the sum of $2k$ over the same range is $2\\cdot21=42$. Their difference is $91-42=49$."
+    },
+    {
+      "id": "sas_c04_015",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the sum of the first five terms of the arithmetic progression whose first term is $4$ and whose fifth term is $20$.",
+      "options": [
+        "A) $48$",
+        "B) $80$",
+        "C) $40$",
+        "D) $60$"
+      ],
+      "answer": "D",
+      "explanation": "The fifth term gives $4+4d=20$, so $d=4$. The five terms are $4, 8, 12, 16, 20$, whose sum is $60$."
+    },
+    {
+      "id": "sas_c04_016",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A sequence satisfies $a_1=2$ and $a_{n+1}=\\frac{a_n+1}{2}$ for every positive integer $n$. Find the value of the fourth term $a_4$ of this sequence.",
+      "options": [
+        "A) $\\frac{5}{4}$",
+        "B) $\\frac{17}{16}$",
+        "C) $\\frac{9}{8}$",
+        "D) $1$"
+      ],
+      "answer": "C",
+      "explanation": "Here $a_{n+1}-1=\\frac{a_n-1}{2}$, so $a_n-1=2^{-(n-1)}$. Hence $a_4=1+\\frac{1}{8}=\\frac{9}{8}$. Option B is $a_5$, an index slip, and option D is the limiting value."
+    },
+    {
+      "id": "sas_c04_017",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The sum of the first $n$ terms of an arithmetic progression is $S_n$, with $S_{10}=100$ and $S_{20}=400$. Find the common difference of this arithmetic progression.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Let $S_n=pn^2+qn$, which is the form of any arithmetic progression sum. From $S_{10}=100$ we get $10p+q=10$, and from $S_{20}=400$ we get $20p+q=20$. So $p=1$ and $q=0$, and the common difference is $2p=2$."
+    },
+    {
+      "id": "sas_c04_018",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the sum of all integers from $100$ to $200$ inclusive that are divisible by $7$.",
+      "options": [
+        "A) $2100$",
+        "B) $2114$",
+        "C) $2003$",
+        "D) $2107$"
+      ],
+      "answer": "D",
+      "explanation": "The multiples of $7$ in this range are $7m$ for $15\\leq m\\leq 28$, namely $105$ through $196$. Their sum is $7\\sum_{m=15}^{28}m=7\\cdot\\frac{(15+28)\\cdot14}{2}=7\\cdot301=2107$."
+    },
+    {
+      "id": "sas_c04_019",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $U_k=1+2+\\cdots+k$ for each positive integer $k$. Find the value of the expression $5\\sum_{k=1}^{4}\\frac{1}{U_k}$.",
+      "options": [],
+      "answer": "8",
+      "explanation": "Here $U_k=\\frac{k(k+1)}{2}$, so $\\frac{1}{U_k}=\\frac{2}{k(k+1)}=2\\left(\\frac{1}{k}-\\frac{1}{k+1}\\right)$. The sum for $k=1$ to $4$ is $2\\left(1-\\frac{1}{5}\\right)=\\frac{8}{5}$, and multiplying by $5$ gives $8$."
+    },
+    {
+      "id": "sas_c04_020",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An arithmetic progression has the property that its first five terms sum to $35$ and its first eight terms sum to $92$. Find the eighth term of this progression.",
+      "options": [
+        "A) $24$",
+        "B) $19$",
+        "C) $22$",
+        "D) $20$"
+      ],
+      "answer": "C",
+      "explanation": "The two sums give $a+2d=7$ and $2a+7d=23$. Substituting $a=7-2d$ gives $d=3$ and $a=1$. The eighth term is $a+7d=22$. Option B is the seventh term, an index slip."
+    },
+    {
+      "id": "sas_c04_021",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The second term of a geometric progression is $10$ and its fifth term is $80$. Find the sum of its first term and its fourth term.",
+      "options": [],
+      "answer": "45",
+      "explanation": "From $ar=10$ and $ar^4=80$, dividing gives $r^3=8$, so $r=2$ and $a=5$. The fourth term is $ar^3=40$, so the requested sum is $5+40=45$."
+    },
+    {
+      "id": "sas_c04_022",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two positive numbers have arithmetic mean $10$ and geometric mean $8$. Find the harmonic mean of these two numbers.",
+      "options": [
+        "A) $\\frac{16}{5}$",
+        "B) $8$",
+        "C) $\\frac{32}{5}$",
+        "D) $\\frac{20}{3}$"
+      ],
+      "answer": "C",
+      "explanation": "For two numbers the product of the arithmetic and harmonic means equals the square of the geometric mean. So $\\mathrm{HM}=\\frac{\\mathrm{GM}^2}{\\mathrm{AM}}=\\frac{64}{10}=\\frac{32}{5}$."
+    },
+    {
+      "id": "sas_c04_024",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In an arithmetic progression, the third term plus the eleventh term equals $40$, and the fourth term equals $8$. Find the tenth term of this progression.",
+      "options": [
+        "A) $28$",
+        "B) $36$",
+        "C) $24$",
+        "D) $32$"
+      ],
+      "answer": "D",
+      "explanation": "From $a_3+a_{11}=2a+12d=40$ we get $a+6d=20$. From $a_4=a+3d=8$ we get $3d=12$, so $d=4$ and $a=-4$. Then $a_{10}=a+9d=32$."
+    },
+    {
+      "id": "sas_c04_025",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The product $2^1\\cdot2^2\\cdot2^3\\cdots2^6$ equals $2^m$ for some positive integer $m$. Find the value of $m$.",
+      "options": [],
+      "answer": "21",
+      "explanation": "The exponent of the product is the sum of the exponents, so $m=1+2+3+4+5+6=21$."
+    },
+    {
+      "id": "sas_c04_026",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the value of $\\sum_{k=0}^{\\infty}\\left(-\\frac{1}{2}\\right)^{k}+\\sum_{k=1}^{\\infty}\\left(\\frac{1}{2}\\right)^{k}$, where the two infinite series are added together.",
+      "options": [
+        "A) $\\frac{2}{3}$",
+        "B) $\\frac{3}{2}$",
+        "C) $1$",
+        "D) $\\frac{5}{3}$"
+      ],
+      "answer": "D",
+      "explanation": "The first series has first term $1$ and ratio $-\\frac{1}{2}$, so it sums to $\\frac{2}{3}$. The second has first term $\\frac{1}{2}$ and ratio $\\frac{1}{2}$, so it sums to $1$. The total is $\\frac{2}{3}+1=\\frac{5}{3}$. Option C is the second series alone."
+    },
+    {
+      "id": "sas_c04_027",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A sequence satisfies $a_1=1$, $a_2=4$ and $a_{n+2}=3a_{n+1}-2a_n$ for every positive integer $n$. Find the value of the sixth term $a_6$.",
+      "options": [],
+      "answer": "94",
+      "explanation": "The characteristic roots are $1$ and $2$, so $a_n=A+B\\cdot2^{n}$. The initial values give $A+2B=1$ and $A+4B=4$, so $B=\\frac{3}{2}$ and $A=-2$. Thus $a_6=-2+\\frac{3}{2}\\cdot64=94$."
+    },
+    {
+      "id": "sas_c04_028",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the sum of the first fifteen terms of the sequence whose $n$th term is $t_n=4n-3$ when $n$ is odd and $t_n=2n$ when $n$ is even.",
+      "options": [
+        "A) $232$",
+        "B) $456$",
+        "C) $288$",
+        "D) $344$"
+      ],
+      "answer": "D",
+      "explanation": "The odd-indexed terms $n=1,3,\\ldots,15$ give $1,9,17,\\ldots,57$, with sum $232$. The even-indexed terms $n=2,4,\\ldots,14$ give $4,8,\\ldots,28$, with sum $112$. The total is $232+112=344$. Option A omits the even-indexed terms."
+    },
+    {
+      "id": "sas_c04_029",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the value of the sum $1\\cdot3+2\\cdot4+3\\cdot5+4\\cdot6$, in which each term is the product of an index and the index plus two.",
+      "options": [],
+      "answer": "50",
+      "explanation": "Each term is $k(k+2)$ for $k=1$ to $4$. The values are $3, 8, 15, 24$, and their sum is $50$."
+    },
+    {
+      "id": "sas_c04_030",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An infinite geometric progression has sum $4$, and the sum of the squares of its terms is $6$. Find the common ratio of this geometric progression.",
+      "options": [
+        "A) $\\frac{1}{2}$",
+        "B) $\\frac{5}{11}$",
+        "C) $\\frac{1}{3}$",
+        "D) $\\frac{3}{4}$"
+      ],
+      "answer": "B",
+      "explanation": "From $\\frac{a}{1-r}=4$ we get $a=4(1-r)$. The squared terms give $\\frac{a^2}{1-r^2}=6$, so $\\frac{16(1-r)}{1+r}=6$. This simplifies to $8-8r=3+3r$, so $r=\\frac{5}{11}$."
+    },
+    {
+      "id": "sas_c04_031",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A ball is dropped from a height of $20$ m, and each rebound reaches exactly half the height of the previous fall. Find the total distance in metres travelled by the ball until it comes to rest.",
+      "options": [],
+      "answer": "60",
+      "explanation": "The falling distances form $20+10+5+\\cdots$, with sum $40$. The rising distances form $10+5+\\cdots$, with sum $20$. The total distance is $40+20=60$ metres."
+    },
+    {
+      "id": "sas_c04_032",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $x_n=\\frac{n}{n+1}$ for positive integers $n$. Find the value of the product $\\prod_{k=1}^{5}x_k$ of the first five of these numbers.",
+      "options": [
+        "A) $\\frac{1}{5}$",
+        "B) $\\frac{1}{6}$",
+        "C) $\\frac{5}{6}$",
+        "D) $\\frac{1}{120}$"
+      ],
+      "answer": "B",
+      "explanation": "The product is $\\frac{1}{2}\\cdot\\frac{2}{3}\\cdot\\frac{3}{4}\\cdot\\frac{4}{5}\\cdot\\frac{5}{6}$. Consecutive numerators and denominators cancel, leaving $\\frac{1}{6}$. Option D equals $\\frac{1}{5!}$, which ignores the cancellation."
+    },
+    {
+      "id": "sas_c04_033",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the value of the expression $15\\sum_{n=1}^{4}\\left(\\frac{1}{n}-\\frac{1}{n+2}\\right)$, where the sum has four terms with index from one to four.",
+      "options": [],
+      "answer": "17",
+      "explanation": "The sum equals $\\left(1+\\frac{1}{2}+\\frac{1}{3}+\\frac{1}{4}\\right)-\\left(\\frac{1}{3}+\\frac{1}{4}+\\frac{1}{5}+\\frac{1}{6}\\right)=1+\\frac{1}{2}-\\frac{1}{5}-\\frac{1}{6}=\\frac{17}{15}$. Multiplying by $15$ gives $17$."
+    },
+    {
+      "id": "sas_c04_034",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A geometric progression of positive integers begins $2, 6, 18, \\ldots$. Find the smallest positive integer $n$ for which the sum of its first $n$ terms exceeds $2000$.",
+      "options": [
+        "A) $6$",
+        "B) $7$",
+        "C) $8$",
+        "D) $9$"
+      ],
+      "answer": "B",
+      "explanation": "The sum of the first $n$ terms is $\\frac{2(3^n-1)}{3-1}=3^n-1$. Since $3^6-1=728$ is too small and $3^7-1=2186$ exceeds $2000$, the answer is $n=7$."
+    },
+    {
+      "id": "sas_c04_035",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "How many integers $n$ with $1\\leq n\\leq 60$ belong to both sequences $\\{4k+1\\}_{k\\geq1}$ and $\\{6j+1\\}_{j\\geq1}$?",
+      "options": [],
+      "answer": "4",
+      "explanation": "A common term satisfies $4k=6j$, so $k=3t$ and $n=12t+1$ for a positive integer $t$. The values $n=13, 25, 37, 49$ lie in the range, and $n=61$ does not, so there are $4$ of them."
+    },
+    {
+      "id": "sas_c04_036",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $a$ and $b$ be positive real numbers with $a+b=4$. Find the minimum value of the expression $\\frac{1}{a}+\\frac{9}{b}$ over all such pairs.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Since $(a+b)\\left(\\frac{1}{a}+\\frac{9}{b}\\right)\\geq(1+3)^2=16$, the expression is at least $\\frac{16}{4}=4$. Equality holds at $a=1$ and $b=3$, where $\\frac{1}{a}+\\frac{9}{b}=1+3=4$."
+    },
+    {
+      "id": "sas_c04_038",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Find the value of the limit $\\lim_{n\\to\\infty}\\prod_{k=2}^{n}\\left(1+\\frac{1}{k^2-1}\\right)$, where each factor equals $1$ plus the reciprocal of $k^2-1$.",
+      "options": [
+        "A) $1$",
+        "B) $\\infty$",
+        "C) $2$",
+        "D) $\\frac{3}{2}$"
+      ],
+      "answer": "C",
+      "explanation": "Each factor equals $\\frac{k^2}{(k-1)(k+1)}$. Splitting the product gives $\\prod_{k=2}^{n}\\frac{k}{k-1}\\cdot\\prod_{k=2}^{n}\\frac{k}{k+1}=n\\cdot\\frac{2}{n+1}=\\frac{2n}{n+1}$, which tends to $2$. Stopping at $n=3$ gives $\\frac{3}{2}$."
+    },
+    {
+      "id": "sas_c04_039",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Find the value of the expression $9\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}(n+1)}{2^{n}}$, where the signs of successive terms alternate.",
+      "options": [],
+      "answer": "5",
+      "explanation": "Split the sum into $\\sum_{n\\geq1}\\frac{(-1)^{n+1}n}{2^{n}}=\\frac{2}{9}$ and $\\sum_{n\\geq1}\\frac{(-1)^{n+1}}{2^{n}}=\\frac{1}{3}$. Their total is $\\frac{5}{9}$, and multiplying by $9$ gives $5$."
+    },
+    {
+      "id": "sas_c04_041",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Find the value of the limit $\\lim_{n\\to\\infty}\\prod_{k=2}^{n}\\frac{k^3-1}{k^3+1}$ of this infinite product of rational factors.",
+      "options": [
+        "A) $1$",
+        "B) $\\frac{2}{3}$",
+        "C) $\\frac{1}{3}$",
+        "D) $\\frac{3}{2}$"
+      ],
+      "answer": "B",
+      "explanation": "Factor $k^3-1=(k-1)(k^2+k+1)$ and $k^3+1=(k+1)(k^2-k+1)$. The first factors telescope to $\\frac{2}{n(n+1)}$, and since $k^2-k+1=f(k-1)$ for $f(j)=j^2+j+1$, the second factors telescope to $\\frac{n^2+n+1}{3}$. The product is $\\frac{2(n^2+n+1)}{3n(n+1)}$, which tends to $\\frac{2}{3}$."
+    },
+    {
+      "id": "sas_c04_042",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Find the least positive integer $n$ for which the sum $\\sum_{k=1}^{n}2^{k}$ exceeds $1000$, where the terms are successive powers of two.",
+      "options": [],
+      "answer": "9",
+      "explanation": "The partial sum is $\\sum_{k=1}^{n}2^{k}=2^{n+1}-2$. For $n=8$ it equals $510$, which is too small, while for $n=9$ it equals $1022$. So the least such $n$ is $9$."
+    },
+    {
+      "id": "sas_c04_044",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Find the value of the infinite series $\\sum_{n=1}^{\\infty}\\frac{n(n+1)}{2^{n}}$, whose terms are the product of two consecutive integers divided by a power of two.",
+      "options": [],
+      "answer": "8",
+      "explanation": "Split the series as $\\sum_{n\\geq1}\\frac{n^2}{2^n}+\\sum_{n\\geq1}\\frac{n}{2^n}$. Using $\\sum n^2x^n=\\frac{x(1+x)}{(1-x)^3}$ at $x=\\frac{1}{2}$ gives $6$, and $\\sum nx^n=\\frac{x}{(1-x)^2}$ gives $2$. The total is $8$."
+    },
+    {
+      "id": "sas_c04_045",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $x$ be a real number with $|x|<1$ such that $\\sum_{n=0}^{\\infty}x^{n}=\\frac{5}{4}$. Find the value of $\\sum_{n=0}^{\\infty}x^{2n}$.",
+      "options": [
+        "A) $\\frac{5}{4}$",
+        "B) $\\frac{24}{25}$",
+        "C) $\\frac{25}{24}$",
+        "D) $\\frac{1}{5}$"
+      ],
+      "answer": "C",
+      "explanation": "The first sum gives $\\frac{1}{1-x}=\\frac{5}{4}$, so $x=\\frac{1}{5}$. Then $\\sum_{n\\geq0}x^{2n}=\\frac{1}{1-\\frac{1}{25}}=\\frac{25}{24}$. Option A repeats the first sum."
+    },
+    {
+      "id": "sas_c04_047",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Find the value of the limit $3\\lim_{n\\to\\infty}\\frac{1}{n^{3/2}}\\sum_{k=1}^{n}\\sqrt{k}$, where the sum runs over the square roots of the integers from $1$ to $n$.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Since $\\frac{1}{n^{3/2}}\\sum_{k=1}^{n}\\sqrt{k}=\\frac{1}{n}\\sum_{k=1}^{n}\\sqrt{\\frac{k}{n}}$, the expression approaches $\\int_0^1\\sqrt{x}\\,dx=\\frac{2}{3}$. Multiplying by $3$ gives $2$."
+    },
+    {
+      "id": "sas_c04_048",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Find the value of the infinite series $\\sum_{n=1}^{\\infty}\\frac{n+1}{n^{2}(n+2)^{2}}$, whose terms have a quadratic denominator in both $n$ and $n+2$.",
+      "options": [
+        "A) $\\frac{5}{4}$",
+        "B) $\\frac{5}{16}$",
+        "C) $\\frac{3}{8}$",
+        "D) $\\frac{1}{4}$"
+      ],
+      "answer": "B",
+      "explanation": "Since $\\frac{1}{n^2}-\\frac{1}{(n+2)^2}=\\frac{4(n+1)}{n^2(n+2)^2}$, each term equals $\\frac{1}{4}\\left(\\frac{1}{n^2}-\\frac{1}{(n+2)^2}\\right)$. The sum is $\\frac{1}{4}\\left(1+\\frac{1}{4}\\right)=\\frac{5}{16}$. Dropping the factor $\\frac{1}{4}$ gives $\\frac{5}{4}$."
+    },
+    {
+      "id": "sas_c04_050",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $T=\\sum_{k=1}^{\\infty}\\frac{2^{k}}{9^{k}}$, a geometric series with first term $\\frac{2}{9}$. Find the integer value of $7T$.",
+      "options": [],
+      "answer": "2",
+      "explanation": "The ratio is $\\frac{2}{9}$, so $T=\\frac{2/9}{1-2/9}=\\frac{2}{7}$. Therefore $7T=2$."
+    }
+  ]
+}
