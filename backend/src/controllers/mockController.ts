@@ -330,7 +330,14 @@ export async function submitMock(req: AuthRequest, res: Response, next: NextFunc
     });
 
     if (!exam || exam.userId !== userId) throw new AppError(404, 'Exam not found');
-    if (exam.status === 'submitted') throw new AppError(400, 'Already submitted');
+    if (exam.status === 'submitted') {
+      const existing = await prisma.mockExamResult.findUnique({ where: { examId: id } });
+      if (existing) {
+        res.json({ success: true, data: { resultId: existing.id } });
+        return;
+      }
+      throw new AppError(400, 'Already submitted');
+    }
     if (exam.status !== 'in_progress') throw new AppError(400, 'Exam not started');
 
     const examType = exam.examType as 'Main' | 'Advanced';

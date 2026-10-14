@@ -1932,6 +1932,26 @@ function OrganicStruct({ p }: { p: OrganicStructParams }) {
   );
 }
 
+class DiagramErrorBoundary extends React.Component<
+  { children: React.ReactNode },
+  { hasError: boolean }
+> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  componentDidCatch(err: unknown) {
+    console.warn('[DiagramRenderer error caught]:', err);
+  }
+  render() {
+    if (this.state.hasError) return null;
+    return this.props.children;
+  }
+}
+
 /* ── Main component ─────────────────────────────────────────── */
 interface Props {
   descriptor: DiagramTemplate;
@@ -1966,15 +1986,17 @@ export function DiagramRenderer({ descriptor }: Props) {
   }
 
   return (
-    <div style={{
-      width: '100%',
-      background: '#fafafa',
-      border: '1px solid var(--gray-200)',
-      borderRadius: 8,
-      marginBottom: 16,
-      padding: '12px 16px 8px',
-    }}>
-      {inner}
-    </div>
+    <DiagramErrorBoundary>
+      <div style={{
+        width: '100%',
+        background: '#fafafa',
+        border: '1px solid var(--gray-200)',
+        borderRadius: 8,
+        marginBottom: 16,
+        padding: '12px 16px 8px',
+      }}>
+        {inner}
+      </div>
+    </DiagramErrorBoundary>
   );
 }

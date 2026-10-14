@@ -72,9 +72,50 @@ export async function getPracticeQuestion(
     candidates = await prisma.question.findMany({ where, take: poolSize });
   }
 
+  // Fallback 1: If user has seen all questions in this topic/diff, reset served cache
+  if (candidates.length === 0 && allExcluded.size > 0) {
+    await cacheSetJson(servedKey, [], 1);
+    candidates = await prisma.question.findMany({
+      where: {
+        topic,
+        subject,
+        difficulty,
+        examType: bankExamType,
+        ...(forceType ? { questionType: forceType } : {}),
+        validatedAt: { not: null },
+      },
+      take: poolSize,
+    });
+  }
+
+  // Fallback 2: Relax difficulty filter across this topic
+  if (candidates.length === 0) {
+    candidates = await prisma.question.findMany({
+      where: {
+        topic,
+        subject,
+        examType: bankExamType,
+        validatedAt: { not: null },
+      },
+      take: poolSize,
+    });
+  }
+
+  // Fallback 3: Relax examType filter across this topic
+  if (candidates.length === 0) {
+    candidates = await prisma.question.findMany({
+      where: {
+        topic,
+        subject,
+        validatedAt: { not: null },
+      },
+      take: poolSize,
+    });
+  }
+
   if (candidates.length === 0) {
     throw new Error(
-      `Practice bank exhausted for ${subject} — ${topic} (${difficulty}). Try a different topic or difficulty.`
+      `No practice questions found in database for topic "${topic}" in ${subject}.`
     );
   }
 
@@ -143,7 +184,7 @@ export async function getPracticeQuestionBatch(
     })
   );
 
-  // Collect, deduplicate, cap per-subject
+  // Collect and deduplicate
   const seenIds = new Set<string>();
   const perSubjectResults = new Map<Subject, Question[]>();
   for (const [subject] of subjectGroups) perSubjectResults.set(subject, []);
@@ -153,18 +194,30 @@ export async function getPracticeQuestionBatch(
     for (const q of result.value) {
       if (seenIds.has(q.id)) continue;
       const bucket = perSubjectResults.get(q.subject as Subject);
-      if (!bucket || bucket.length >= perSubject) continue;
+      if (!bucket) continue;
       seenIds.add(q.id);
       bucket.push(q);
     }
   }
 
+  // Interleave questions across subjects evenly up to the exact requested count
   const results: Question[] = [];
-  for (const [, bucket] of perSubjectResults) results.push(...bucket);
+  let addedAny = true;
+  let round = 0;
+  while (results.length < count && addedAny) {
+    addedAny = false;
+    for (const [, bucket] of perSubjectResults) {
+      if (round < bucket.length && results.length < count) {
+        results.push(bucket[round]!);
+        addedAny = true;
+      }
+    }
+    round++;
+  }
 
   if (results.length === 0) {
     throw new Error(
-      'No practice questions available for the selected topics. The question bank may be exhausted for these topics.'
+      'No practice questions available for the selected topics in the database.'
     );
   }
 
