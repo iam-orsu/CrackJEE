@@ -59,24 +59,49 @@ async function seed(filePath: string): Promise<void> {
   const existingIdSet = new Set(existingRows.map((r) => r.id));
   console.log(`[seed] Database currently contains: ${existingIdSet.size} questions.`);
 
-  const newQuestions = questions.filter((q) => !existingIdSet.has(q.id));
-  const skippedCount = questions.length - newQuestions.length;
+  const seenNewIds = new Set<string>();
+  const validNewQuestions: RawQuestion[] = [];
+  let invalidCount = 0;
+  let alreadyInDbCount = 0;
 
-  console.log(`[seed] Total questions in JSON:  ${questions.length}`);
-  console.log(`[seed] Already in DB (untouched): ${skippedCount}`);
-  console.log(`[seed] New to be inserted:        ${newQuestions.length}`);
+  for (const q of questions) {
+    if (!q || typeof q !== 'object' || !q.questionText || !q.topic || !q.subject || !q.answer) {
+      invalidCount++;
+      continue;
+    }
+    const id = (q.id && typeof q.id === 'string' && q.id.trim()) ? q.id.trim() : `gen_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`;
+    q.id = id;
 
-  if (newQuestions.length === 0) {
-    console.log(`\n[seed] ✅ All ${questions.length} questions already exist in database. Existing records left untouched.`);
+    if (existingIdSet.has(id)) {
+      alreadyInDbCount++;
+      continue;
+    }
+    if (seenNewIds.has(id)) {
+      // Intra-file duplicate
+      continue;
+    }
+    seenNewIds.add(id);
+    validNewQuestions.push(q);
+  }
+
+  console.log(`[seed] Total questions in JSON:   ${questions.length}`);
+  console.log(`[seed] Already in DB (untouched):  ${alreadyInDbCount}`);
+  if (invalidCount > 0) {
+    console.log(`[seed] Skipped invalid records:    ${invalidCount}`);
+  }
+  console.log(`[seed] New to be inserted:         ${validNewQuestions.length}`);
+
+  if (validNewQuestions.length === 0) {
+    console.log(`\n[seed] ✅ No new questions to insert. Existing database records left 100% untouched.`);
     return;
   }
 
-  console.log(`[seed] Starting insertion of ${newQuestions.length} new questions...`);
+  console.log(`[seed] Starting insertion of ${validNewQuestions.length} new questions...`);
   const now = new Date();
   let processed = 0;
 
-  for (let i = 0; i < newQuestions.length; i += BATCH_SIZE) {
-    const batch = newQuestions.slice(i, i + BATCH_SIZE);
+  for (let i = 0; i < validNewQuestions.length; i += BATCH_SIZE) {
+    const batch = validNewQuestions.slice(i, i + BATCH_SIZE);
 
     await prisma.$transaction(
       batch.map((q) =>
@@ -103,12 +128,12 @@ async function seed(filePath: string): Promise<void> {
     );
 
     processed += batch.length;
-    console.log(`[seed] Insert progress: ${processed} / ${newQuestions.length}`);
+    console.log(`[seed] Insert progress: ${processed} / ${validNewQuestions.length}`);
   }
 
   const finalTotal = await prisma.question.count();
   console.log(`\n[seed] ✅ Seeding complete:`);
-  console.log(`       Untouched (existing): ${skippedCount}`);
+  console.log(`       Untouched (existing): ${alreadyInDbCount}`);
   console.log(`       Newly inserted:       ${processed}`);
   console.log(`       Total now in DB:      ${finalTotal}`);
 }
