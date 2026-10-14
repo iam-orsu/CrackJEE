@@ -88,6 +88,16 @@ case "$ACTION" in
     run_migrations
     ;;
 
+  seed)
+    # Manually re-seed the question bank (runs automatically on start/restart).
+    # Useful after updating data/master_questions.json.
+    echo "Seeding question bank into database..."
+    wait_backend
+    docker compose --env-file "$ENV_FILE" exec -T backend \
+      sh -c "node dist/scripts/seedQuestions.js 2>&1"
+    echo "Seeding complete."
+    ;;
+
   stop)
     echo "Stopping CrackJEE platform..."
     docker compose --env-file "$ENV_FILE" down
@@ -114,10 +124,11 @@ case "$ACTION" in
     ;;
 
   *)
-    echo "Usage: ./deploy.sh [start|restart|stop|delete|logs|status|migrate]"
-    echo "  start   - Build and start all services (runs migrations automatically)"
-    echo "  restart - Rebuild images and restart all services (runs migrations automatically)"
+    echo "Usage: ./deploy.sh [start|restart|stop|delete|logs|status|migrate|seed]"
+    echo "  start   - Build and start all services (runs migrations + seeds question bank automatically)"
+    echo "  restart - Rebuild images and restart all services (runs migrations + seeds automatically)"
     echo "  migrate - Run database migrations against running containers"
+    echo "  seed    - Manually re-seed question bank (runs automatically on start/restart)"
     echo "  stop    - Stop all services (keep data)"
     echo "  delete  - Stop and delete all data volumes"
     echo "  logs    - Tail logs (optionally pass service name: ./deploy.sh logs backend)"

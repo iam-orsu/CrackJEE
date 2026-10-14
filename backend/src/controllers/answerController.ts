@@ -1,4 +1,4 @@
-﻿import { randomUUID } from 'crypto';
+import { randomUUID } from 'crypto';
 import type { Response, NextFunction } from 'express';
 import { z } from 'zod';
 import type { AuthRequest } from '../types/index';
@@ -6,9 +6,9 @@ import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
 
 const submitSchema = z.object({
-  questionId: z.string().min(1).max(36).regex(/^[a-z0-9]+$/),
+  questionId: z.string().min(1).max(64).regex(/^[a-zA-Z0-9_-]+$/),
   // mcq_single: "A" | mcq_multi: "A,C" | integer: "42"
-  answer: z.string().min(1).max(20),
+  answer: z.string().min(1).max(100),
   timeSpent: z.number().int().min(0).max(3600),
 });
 

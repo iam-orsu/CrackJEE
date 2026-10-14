@@ -28,8 +28,8 @@ services:
 
   backend:
     build:
-      context: ./backend
-      dockerfile: Dockerfile
+      context: .                         # project root so COPY data/ works
+      dockerfile: backend/Dockerfile
     environment:
       NODE_ENV: production
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/jeedb
@@ -44,7 +44,7 @@ services:
       test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3001/health"]
       interval: 15s
       timeout: 5s
-      start_period: 25s
+      start_period: 120s    # seeder loads 5799 questions on first deploy
       retries: 3
     depends_on:
       postgres:

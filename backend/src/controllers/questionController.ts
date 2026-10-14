@@ -3,7 +3,7 @@ import { z } from 'zod';
 import type { AuthRequest } from '../types/index';
 import { JEE_TOPICS, JEE_TOPICS_BY_CLASS, getTopicsForClass } from '../types/index';
 import type { Subject, StudentClass } from '../types/index';
-import { getNextQuestion, getQuestionBatch } from '../services/questionService';
+import { getNextQuestion, getQuestionBatch, getPracticeQuestion, getPracticeQuestionBatch } from '../services/questionService';
 import { AppError } from '../middleware/errorHandler';
 
 const nextQuestionSchema = z.object({
@@ -12,6 +12,7 @@ const nextQuestionSchema = z.object({
   difficulty: z.enum(['beginner', 'intermediate', 'advanced']).default('intermediate'),
   examType: z.enum(['Main', 'Advanced', 'Both']).default('Main'),
   studentClass: z.enum(['11', '12', 'Dropper']).default('12'),
+  mode: z.enum(['practice', 'ai']).default('practice'),  // practice = question bank, ai = DeepSeek
 });
 
 const selectionSchema = z.object({
@@ -25,6 +26,7 @@ const batchSchema = z.object({
   examType: z.enum(['Main', 'Advanced', 'Both']).default('Main'),
   studentClass: z.enum(['11', '12', 'Dropper']).default('12'),
   count: z.number().int().min(1).max(100).default(10),
+  mode: z.enum(['practice', 'ai']).default('practice'),  // practice = question bank, ai = DeepSeek
 });
 
 export async function nextQuestion(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
@@ -34,7 +36,7 @@ export async function nextQuestion(req: AuthRequest, res: Response, next: NextFu
       throw new AppError(400, query.error.errors[0]?.message ?? 'Invalid parameters');
     }
 
-    const { subject, topic, difficulty, examType, studentClass } = query.data;
+    const { subject, topic, difficulty, examType, studentClass, mode } = query.data;
 
     if (!JEE_TOPICS[subject].includes(topic)) {
       throw new AppError(400, `Invalid topic "${topic}" for subject "${subject}"`);
@@ -45,10 +47,12 @@ export async function nextQuestion(req: AuthRequest, res: Response, next: NextFu
       throw new AppError(400, `Topic "${topic}" is not in the Class ${studentClass} syllabus`);
     }
 
-    const question = await getNextQuestion(req.user!.userId, subject, topic, difficulty, examType, studentClass);
+    const question = mode === 'practice'
+      ? await getPracticeQuestion(req.user!.userId, subject, topic, difficulty, examType)
+      : await getNextQuestion(req.user!.userId, subject, topic, difficulty, examType, studentClass);
 
     const { answer: _, explanation: __, ...safeQuestion } = question;
-    res.json({ success: true, data: safeQuestion });
+    res.json({ success: true, data: safeQuestion, source: mode === 'practice' ? 'bank' : 'ai' });
   } catch (err) {
     next(err);
   }
@@ -61,7 +65,7 @@ export async function batchQuestions(req: AuthRequest, res: Response, next: Next
       throw new AppError(400, body.error.errors[0]?.message ?? 'Invalid parameters');
     }
 
-    const { selections, difficulty, examType, studentClass, count } = body.data;
+    const { selections, difficulty, examType, studentClass, count, mode } = body.data;
 
     for (const { subject, topic } of selections) {
       if (!JEE_TOPICS[subject].includes(topic)) {
@@ -73,17 +77,25 @@ export async function batchQuestions(req: AuthRequest, res: Response, next: Next
       }
     }
 
-    const questions = await getQuestionBatch(
-      req.user!.userId,
-      selections as Array<{ subject: import('../types/index').Subject; topic: string }>,
-      difficulty,
-      examType,
-      studentClass,
-      count,
-    );
+    const questions = mode === 'practice'
+      ? await getPracticeQuestionBatch(
+          req.user!.userId,
+          selections as Array<{ subject: import('../types/index').Subject; topic: string }>,
+          difficulty,
+          examType,
+          count,
+        )
+      : await getQuestionBatch(
+          req.user!.userId,
+          selections as Array<{ subject: import('../types/index').Subject; topic: string }>,
+          difficulty,
+          examType,
+          studentClass,
+          count,
+        );
 
     const safe = questions.map(({ answer: _, explanation: __, ...q }) => q);
-    res.json({ success: true, data: safe });
+    res.json({ success: true, data: safe, source: mode === 'practice' ? 'bank' : 'ai' });
   } catch (err) {
     next(err);
   }

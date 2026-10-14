@@ -37,9 +37,9 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=deps /app/package.json ./package.json
 
-COPY tsconfig.json ./
-COPY src/ ./src/
-COPY prisma/ ./prisma/
+COPY backend/tsconfig.json ./
+COPY backend/src/ ./src/
+COPY backend/prisma/ ./prisma/
 
 RUN ./node_modules/.bin/prisma generate && \
     ./node_modules/.bin/tsc --project tsconfig.json
@@ -56,6 +56,9 @@ COPY --from=builder --chown=nodejs:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=nodejs:nodejs /app/prisma      ./prisma
 COPY --from=deps    --chown=nodejs:nodejs /app/package.json ./package.json
 
+# Copy the pre-generated question bank so the seeder can find it at runtime
+COPY --chown=nodejs:nodejs data/master_questions.json ./data/master_questions.json
+
 USER nodejs
 
 EXPOSE 3001
@@ -63,4 +66,4 @@ EXPOSE 3001
 HEALTHCHECK --interval=15s --timeout=5s --start-period=20s --retries=3 \
   CMD wget -qO- http://127.0.0.1:3001/health || exit 1
 
-CMD ["sh", "-c", "node_modules/.bin/prisma db push --skip-generate && node dist/index.js"]
+CMD ["sh", "-c", "node_modules/.bin/prisma db push --skip-generate && node dist/scripts/seedQuestions.js && node dist/index.js"]

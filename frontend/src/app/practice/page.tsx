@@ -314,6 +314,14 @@ export default function PracticePage() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedSubjects, selectedTopics, questionCount, customCount, difficulty, examType, studentClass]);
 
+  // Keep the active question dot in view within the horizontal palette
+  useEffect(() => {
+    if (appState === 'exam') {
+      const activeDot = document.querySelector('.exam-dot.current');
+      activeDot?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }, [currentIndex, appState]);
+
   /* ─── Exam handlers ───────────────────────────────────── */
   async function handleExamSubmit(answer: string, timeSpent: number): Promise<AnswerResult> {
     const q = questions[currentIndex]!;
@@ -724,7 +732,7 @@ export default function PracticePage() {
               );
             })}
           </div>
-          <span style={{ fontSize: 13, color: 'var(--gray-500)' }}>{answeredCount} of {questions.length} answered</span>
+          <span className="exam-footer-count">{answeredCount} of {questions.length} answered</span>
         </div>
       </div>
     );

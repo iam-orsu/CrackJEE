@@ -517,23 +517,46 @@ img, svg { display: block; }
 .exam-qnum  { font-size: 14px; font-weight: 600; color: var(--gray-800); }
 .exam-topic { font-size: 13px; color: var(--gray-500); }
 .exam-timer { font-size: 14px; font-weight: 600; color: var(--gray-600); font-variant-numeric: tabular-nums; letter-spacing: .02em; }
-.exam-body  { flex: 1; overflow-y: auto; display: flex; justify-content: center; padding: 40px 32px; }
+.exam-body  { flex: 1; overflow-y: auto; display: flex; justify-content: center; padding: 32px 24px 60px; }
 .exam-question-wrap { width: 100%; max-width: 820px; }
 .exam-footer {
-  height: 60px; border-top: 1px solid var(--gray-200);
+  height: 56px; border-top: 1px solid var(--gray-200);
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 32px; flex-shrink: 0; background: var(--white);
+  padding: 0 24px; flex-shrink: 0; background: var(--white);
+  gap: 12px; z-index: 10;
 }
-.exam-palette { display: flex; gap: 5px; flex-wrap: wrap; }
+.exam-palette {
+  display: flex; gap: 5px; flex-wrap: nowrap;
+  overflow-x: auto; overflow-y: hidden;
+  flex: 1; min-width: 0;
+  padding: 4px 2px;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+.exam-palette::-webkit-scrollbar {
+  height: 4px;
+}
+.exam-palette::-webkit-scrollbar-track {
+  background: transparent;
+}
+.exam-palette::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: 4px;
+}
+.exam-palette::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-400);
+}
 .exam-dot {
   width: 28px; height: 28px; border-radius: 5px;
   border: 1.5px solid var(--gray-200); font-size: 11px; font-weight: 600;
   display: flex; align-items: center; justify-content: center;
   color: var(--gray-400); transition: all var(--transition); cursor: default;
+  flex-shrink: 0;
 }
 .exam-dot.current { border-color: var(--primary); color: var(--primary); background: var(--navy-50); }
 .exam-dot.correct { border-color: var(--green-600); background: var(--green-50); color: var(--green-600); }
 .exam-dot.wrong   { border-color: var(--red-600);   background: var(--red-50);   color: var(--red-600); }
+.exam-footer-count { font-size: 13px; color: var(--gray-500); white-space: nowrap; flex-shrink: 0; }
 
 /* ── Session summary ─────────────────────────────────────── */
 .summary-wrap { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px; }
@@ -791,11 +814,12 @@ img, svg { display: block; }
   .wizard-nav    { margin-top: 28px; padding-top: 16px; }
 
   /* Exam mode */
-  .exam-header { padding: 0 16px; height: 52px; }
+  .exam-header { padding: 0 14px; height: 50px; }
   .exam-topic  { display: none; }
-  .exam-body   { padding: 20px 16px; }
-  .exam-footer { padding: 0 16px; height: 52px; }
+  .exam-body   { padding: 18px 12px 50px; }
+  .exam-footer { padding: 0 12px; height: 50px; gap: 8px; }
   .exam-dot    { width: 24px; height: 24px; font-size: 10px; }
+  .exam-footer-count { font-size: 11px; }
   .summary-card { padding: 28px 20px; }
   .summary-score-big { font-size: 48px; }
   .summary-stats { gap: 20px; }
@@ -805,12 +829,22 @@ img, svg { display: block; }
   .option-btn    { padding: 12px 14px; }
 }
 
+@media (max-width: 900px) {
+  .exam-header { padding: 0 16px; height: 52px; }
+  .exam-topic  { max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .exam-body   { padding: 24px 16px 50px; }
+  .exam-footer { padding: 0 16px; height: 52px; gap: 10px; }
+  .exam-dot    { width: 26px; height: 26px; font-size: 10px; }
+  .exam-footer-count { font-size: 12px; }
+}
+
 @media (max-width: 480px) {
   .subject-cards   { grid-template-columns: 1fr 1fr; }
   .wizard-topic-grid { grid-template-columns: 1fr 1fr; }
   .topic-card-grid { grid-template-columns: 1fr; }
+  .exam-footer     { padding: 0 8px; height: 48px; gap: 6px; }
   .exam-palette    { gap: 3px; }
-  .exam-dot        { width: 22px; height: 22px; font-size: 10px; }
+  .exam-dot        { width: 22px; height: 22px; font-size: 9px; }
   .summary-actions { flex-direction: column; }
   .hero-ctas       { flex-direction: column; align-items: center; }
 }
