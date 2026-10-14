@@ -39,3 +39,15 @@ export const mockStartLimiter = rateLimit({
     return authReq.user?.userId ?? req.ip ?? 'unknown';
   },
 });
+
+export const answerLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 60, // max 60 answer submissions per min per user
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { success: false, error: 'Answer submission limit reached. Please wait a moment.' },
+  keyGenerator: (req) => {
+    const authReq = req as typeof req & { user?: { userId: string } };
+    return authReq.user?.userId ?? req.ip ?? 'unknown';
+  },
+});

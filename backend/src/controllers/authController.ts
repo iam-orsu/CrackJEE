@@ -1,4 +1,4 @@
-﻿import type { Request, Response, NextFunction } from 'express';
+import type { Request, Response, NextFunction } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { z } from 'zod';
@@ -6,9 +6,12 @@ import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
 import type { AuthRequest } from '../types/index';
 
+// Precomputed dummy bcrypt hash (cost 12) for constant-time comparisons when user does not exist
+const DUMMY_HASH = '$2a$12$e80yqZzD7Cqm/5aE6e1PkuWjWcK3pZ0G8Q6T8W3g9o3e5k5g7q4yW';
+
 const registerSchema = z.object({
-  name: z.string().min(2).max(100),
-  email: z.string().email(),
+  name: z.string().min(2).max(100).trim(),
+  email: z.string().email().toLowerCase().trim(),
   password: z.string().min(8).max(128),
   class: z.enum(['11', '12', 'Dropper']),
   targetExam: z.enum(['Main', 'Advanced', 'Both']),
@@ -16,7 +19,7 @@ const registerSchema = z.object({
 });
 
 const loginSchema = z.object({
-  email: z.string().email(),
+  email: z.string().email().toLowerCase().trim(),
   password: z.string().min(1),
 });
 
@@ -65,7 +68,12 @@ export async function login(req: Request, res: Response, next: NextFunction): Pr
       where: { email: body.data.email },
       select: { id: true, name: true, email: true, class: true, targetExam: true, currentLevel: true, passwordHash: true },
     });
-    if (!user) throw new AppError(401, 'Invalid credentials');
+
+    if (!user) {
+      // Execute dummy compare to eliminate timing discrepancy between existing & non-existing users
+      await bcrypt.compare(body.data.password, DUMMY_HASH);
+      throw new AppError(401, 'Invalid credentials');
+    }
 
     const valid = await bcrypt.compare(body.data.password, user.passwordHash);
     if (!valid) throw new AppError(401, 'Invalid credentials');

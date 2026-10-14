@@ -52,6 +52,18 @@ export async function submitAnswer(req: AuthRequest, res: Response, next: NextFu
     const question = await prisma.question.findUnique({ where: { id: questionId } });
     if (!question) throw new AppError(404, 'Question not found');
 
+    // Prevent cheating: verify this question does not belong to an active mock exam for this user
+    const inActiveMock = await prisma.mockExamQuestion.findFirst({
+      where: {
+        questionId,
+        exam: { userId, status: 'in_progress' },
+      },
+      select: { id: true },
+    });
+    if (inActiveMock) {
+      throw new AppError(403, 'Cannot submit answers for questions in an active mock exam');
+    }
+
     const isCorrect = checkAnswer(question.questionType ?? 'mcq_single', answer, question.answer);
 
     await prisma.studentAttempt.create({

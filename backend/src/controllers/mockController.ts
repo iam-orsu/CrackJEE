@@ -226,7 +226,6 @@ export async function getMock(req: AuthRequest, res: Response, next: NextFunctio
 
     const questions = exam.questions.map((mq) => ({
       mockQuestionId: mq.id,
-      questionId: mq.questionId,
       questionNumber: mq.questionNumber,
       subjectIndex: mq.subjectIndex,
       subject: mq.subject,
