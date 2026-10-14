@@ -307,7 +307,7 @@ git push origin main
 
 **Source of truth:** `data/registry/progress.json` (per-topic counts) and `data/registry/question_hashes.json` (duplicate fingerprints). Both change only when `auditChunkFile(path, true)` commits a file with zero failures.
 
-**Ledger total: 3550 committed questions** out of a 10,000 target (35.5%).
+**Ledger total: 4150 committed questions** out of a 10,000 target (41.5%).
 
 **Next steps for any new agent:**
 1. Start only from the Pending lists below. Never regenerate a Started topic unless a file is flagged and needs replacement.
@@ -316,7 +316,7 @@ git push origin main
 4. Audit with `auditChunkFile(path, false)`, remove flagged questions, re-audit, then commit with `auditChunkFile(path, true)`.
 5. Update this section after each batch.
 
-**ID prefixes already used (do not reuse):** aod, as, bt, cb, cc, cd, ce, chq, circ, ck, cn, ct, di, ec, epc, es, fm, grav, hc, ieq, kin, lad, lom, mat, mcs, pnc, prob, ptp, qe, rm, ro, rr, sas, shm, sl, sol, som, tf, th, tpm, wav, wep.
+**ID prefixes already used (do not reuse):** aod, as, bt, cb, cc, cd, ce, chq, circ, ck, cn, cs, ct, di, ec, epc, es, fm, fr, grav, hc, hyd, ieq, kin, ktg, lad, lom, mat, mcs, pnc, prob, ptp, qe, raf, rm, ro, rr, sas, sbe, sc, set, shm, sl, sol, som, sop, ss, tf, th, tpm, ud, vec, wav, wep.
 
 **Known open issues:**
 - Simple Harmonic Motion chunks 01 and 02 are skewed toward answer A (chunk 01 about 91%, chunk 02 all 35 single-answer items). Reshuffle options and fix any letter references in explanations before adding more items.
@@ -325,7 +325,7 @@ git push origin main
 - The compiler (`data/compiler.js`) counts all chunk files, including uncommitted ones, so its total can be higher than the ledger total.
 - The gatekeeper does not check JEE difficulty or answer keys. Review new items by hand, and cut any single-formula, recall, or textbook-statement items.
 
-### Physics (14 of 29 topics started)
+### Physics (18 of 29 topics started)
 | Topic | Committed | Chunks (committed questions per chunk) |
 |---|---|---|
 | Kinematics | 43 | c01 43 |
@@ -342,10 +342,14 @@ git push origin main
 | Ray Optics | 50 | c01 50 |
 | Thermodynamics | 50 | c01 50 |
 | Current Electricity | 50 | c01 50 |
+| Units and Dimensions | 50 | c01 50 |
+| Friction | 50 | c01 50 |
+| System of Particles | 50 | c01 50 |
+| Kinetic Theory of Gases | 50 | c01 50 |
 
-**Pending Physics topics (start here):** Units and Dimensions; Friction; System of Particles; Elasticity; Kinetic Theory of Gases; Moving Charges and Magnetism; Magnetism and Matter; Electromagnetic Induction; Alternating Current; Electromagnetic Waves; Wave Optics; Dual Nature of Radiation; Atoms and Nuclei; Semiconductor Devices; Communication Systems.
+**Pending Physics topics (start here):** Elasticity; Moving Charges and Magnetism; Magnetism and Matter; Electromagnetic Induction; Alternating Current; Electromagnetic Waves; Wave Optics; Dual Nature of Radiation; Atoms and Nuclei; Semiconductor Devices; Communication Systems.
 
-### Chemistry (14 of 31 topics started)
+### Chemistry (18 of 31 topics started)
 | Topic | Committed | Chunks (committed questions per chunk) |
 |---|---|---|
 | Atomic Structure | 48 | c01 48 |
@@ -362,10 +366,14 @@ git push origin main
 | Mole Concept and Stoichiometry | 50 | c01 50 |
 | Electrochemistry | 50 | c01 50 |
 | Chemical Thermodynamics | 50 | c01 50 |
+| Hydrogen | 50 | c01 50 |
+| s-Block Elements | 50 | c01 50 |
+| Solid State | 50 | c01 50 |
+| Surface Chemistry | 50 | c01 50 |
 
-**Pending Chemistry topics (start here):** Hydrogen; s-Block Elements; p-Block Elements Group 13 and 14; Organic Chemistry Basics; Environmental Chemistry; Solid State; Surface Chemistry; General Principles of Metallurgy; p-Block Elements Group 15 to 18; Transition Metals and d-Block; Haloalkanes and Haloarenes; Alcohols Phenols and Ethers; Aldehydes and Ketones; Carboxylic Acids and Derivatives; Amines; Biomolecules; Polymers.
+**Pending Chemistry topics (start here):** p-Block Elements Group 13 and 14; Organic Chemistry Basics; Environmental Chemistry; General Principles of Metallurgy; p-Block Elements Group 15 to 18; Transition Metals and d-Block; Haloalkanes and Haloarenes; Alcohols Phenols and Ethers; Aldehydes and Ketones; Carboxylic Acids and Derivatives; Amines; Biomolecules; Polymers.
 
-### Mathematics (14 of 31 topics started)
+### Mathematics (18 of 31 topics started)
 | Topic | Committed | Chunks (committed questions per chunk) |
 |---|---|---|
 | Quadratic Equations | 118 | c01 44, c02 37, c03 37 |
@@ -382,5 +390,9 @@ git push origin main
 | Straight Lines | 50 | c01 50 |
 | Complex Numbers | 50 | c01 50 |
 | Trigonometric Functions | 50 | c01 50 |
+| Sets | 50 | c01 50 |
+| Relations and Functions | 50 | c01 50 |
+| Conic Sections | 50 | c01 50 |
+| Vectors | 50 | c01 50 |
 
-**Pending Mathematics topics (start here):** Sets; Relations and Functions; Principle of Mathematical Induction; Linear Inequalities; Conic Sections; Introduction to 3D Geometry; Statistics; Relations and Functions (Advanced); Inverse Trigonometric Functions; Determinants; Indefinite Integration; Applications of Integrals; Differential Equations; Vectors; Three Dimensional Geometry; Linear Programming; Probability (Bayes and Random Variables).
+**Pending Mathematics topics (start here):** Principle of Mathematical Induction; Linear Inequalities; Introduction to 3D Geometry; Statistics; Relations and Functions (Advanced); Inverse Trigonometric Functions; Determinants; Indefinite Integration; Applications of Integrals; Differential Equations; Three Dimensional Geometry; Linear Programming; Probability (Bayes and Random Variables).

@@ -1,0 +1,789 @@
+{
+  "questions": [
+    {
+      "id": "vec_c01_001",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\vec{a} = 2\\hat{i} + 3\\hat{j} - \\hat{k}$ and let $\\Pi$ be the plane passing through the origin with unit normal vector $\\hat{n} = \\frac{1}{\\sqrt{3}}(\\hat{i} - \\hat{j} + \\hat{k})$. The vector projection of $\\vec{a}$ onto the plane $\\Pi$ is denoted by $\\vec{a}_{\\parallel}$. Determine the vector $\\vec{a}_{\\parallel}$.",
+      "options": [
+        "A) $\\frac{1}{3}(8\\hat{i} + 7\\hat{j} - \\hat{k})$",
+        "B) $\\frac{1}{3}(4\\hat{i} + 11\\hat{j} - 5\\hat{k})$",
+        "C) $\\frac{1}{3}(2\\hat{i} + 5\\hat{j} + \\hat{k})$",
+        "D) $-\\frac{2}{3}(\\hat{i} - \\hat{j} + \\hat{k})$"
+      ],
+      "answer": "A",
+      "explanation": "The vector projection of $\\vec{a}$ onto a plane with unit normal $\\hat{n}$ is obtained by subtracting its normal component: $\\vec{a}_{\\parallel} = \\vec{a} - (\\vec{a}\\cdot\\hat{n})\\hat{n}$. Evaluating the scalar product, we get $\\vec{a}\\cdot\\hat{n} = \\frac{1}{\\sqrt{3}}[2(1) + 3(-1) + (-1)(1)] = -\\frac{2}{\\sqrt{3}}$. Substituting this scalar value yields the normal component $(\\vec{a}\\cdot\\hat{n})\\hat{n} = -\\frac{2}{3}(\\hat{i} - \\hat{j} + \\hat{k})$. Therefore, $\\vec{a}_{\\parallel} = (2\\hat{i} + 3\\hat{j} - \\hat{k}) - \\left[-\\frac{2}{3}(\\hat{i} - \\hat{j} + \\hat{k})\\right] = \\frac{1}{3}(8\\hat{i} + 7\\hat{j} - \\hat{k})$. The distractor $\\frac{1}{3}(4\\hat{i} + 11\\hat{j} - 5\\hat{k})$ arises from incorrectly subtracting rather than adding the negative normal projection, $-\\frac{2}{3}(\\hat{i} - \\hat{j} + \\hat{k})$ represents only the normal projection along $\\hat{n}$, and $\\frac{1}{3}(2\\hat{i} + 5\\hat{j} + \\hat{k})$ stems from omitting the normalizing factor $\\frac{1}{\\sqrt{3}}$."
+    },
+    {
+      "id": "vec_c01_002",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the vectors $\\vec{a} = 2\\hat{i} + 2\\hat{j} - \\hat{k}$ and $\\vec{b} = \\hat{i} - 2\\hat{j} + 2\\hat{k}$. A vector $\\vec{v}$ of magnitude $\\sqrt{10}$ is directed along the internal bisector of the angle between $\\vec{a}$ and $\\vec{b}$. Given a third vector $\\vec{c} = 4\\hat{i} + 3\\hat{j} - 2\\hat{k}$, determine the scalar product $\\vec{v}\\cdot\\vec{c}$.",
+      "options": [
+        "A) $14$",
+        "B) $10$",
+        "C) $-10$",
+        "D) $6$"
+      ],
+      "answer": "B",
+      "explanation": "First, calculate the lengths of the vectors: $|\\vec{a}| = \\sqrt{2^2 + 2^2 + (-1)^2} = 3$ and $|\\vec{b}| = \\sqrt{1^2 + (-2)^2 + 2^2} = 3$. Because $|\\vec{a}| = |\\vec{b}|$, the internal angle bisector is parallel to $\\vec{a} + \\vec{b} = (2+1)\\hat{i} + (2-2)\\hat{j} + (-1+2)\\hat{k} = 3\\hat{i} + \\hat{k}$. The norm of this bisector vector is $|3\\hat{i} + \\hat{k}| = \\sqrt{3^2 + 1^2} = \\sqrt{10}$. Since the required vector $\\vec{v}$ has magnitude $\\sqrt{10}$ and forms an acute angle with $\\vec{a}$ (as $\\vec{a}\\cdot(3\\hat{i}+\\hat{k}) = 6 - 1 = 5 > 0$), we get $\\vec{v} = 3\\hat{i} + \\hat{k}$. Computing the scalar product, we find $\\vec{v}\\cdot\\vec{c} = (3)(4) + (0)(3) + (1)(-2) = 12 - 2 = 10$. The distractor $-10$ corresponds to choosing the opposite orientation along the bisector line, $14$ results from an algebraic sign slip in the $z$-coordinate product, and $6$ arises from mistakenly taking the external bisector $\\vec{a} - \\vec{b} = \\hat{i} + 4\\hat{j} - 3\\hat{k}$."
+    },
+    {
+      "id": "vec_c01_003",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $\\vec{u}, \\vec{v}, \\vec{w}$ be mutually perpendicular unit vectors in $\\mathbb{R}^3$. A vector $\\vec{r}$ satisfies the three linear scalar conditions $\\vec{r}\\cdot(\\vec{u} + 2\\vec{v}) = 5$, $\\vec{r}\\cdot(2\\vec{v} - \\vec{w}) = 1$, and $\\vec{r}\\cdot(\\vec{u} - \\vec{v} + \\vec{w}) = 0$. Determine the value of $|\\vec{r}|^2$.",
+      "options": [],
+      "answer": "74",
+      "explanation": "Express $\\vec{r}$ as a linear combination of the orthonormal basis: $\\vec{r} = x\\vec{u} + y\\vec{v} + z\\vec{w}$. Taking dot products with the basis elements yields $\\vec{r}\\cdot\\vec{u} = x$, $\\vec{r}\\cdot\\vec{v} = y$, and $\\vec{r}\\cdot\\vec{w} = z$. The given conditions translate into the linear system: (1) $x + 2y = 5$, (2) $2y - z = 1 \\implies z = 2y - 1$, and (3) $x - y + z = 0$. Substituting $x = 5 - 2y$ and $z = 2y - 1$ into equation (3) implies $(5 - 2y) - y + (2y - 1) = 0$, yielding $4 - y = 0 \\implies y = 4$. Solving for the remaining coefficients gives $x = 5 - 2(4) = -3$ and $z = 2(4) - 1 = 7$. Therefore, the squared magnitude is $|\\vec{r}|^2 = x^2 + y^2 + z^2 = (-3)^2 + 4^2 + 7^2 = 9 + 16 + 49 = 74$."
+    },
+    {
+      "id": "vec_c01_004",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A vector $\\vec{v}$ of magnitude $6$ is equally inclined to the three positive coordinate axes $OX, OY, OZ$. Another vector is given by $\\vec{w} = 2\\hat{i} - 2\\hat{j} + \\hat{k}$. If $p$ denotes the scalar projection of $\\vec{v}$ onto $\\vec{w}$, find the value of $p$.",
+      "options": [
+        "A) $2\\sqrt{3}$",
+        "B) $\\frac{4}{\\sqrt{3}}$",
+        "C) $\\frac{2}{\\sqrt{3}}$",
+        "D) $\\frac{1}{\\sqrt{3}}$"
+      ],
+      "answer": "C",
+      "explanation": "The unit vector equally inclined to the positive coordinate axes has direction cosines $l = m = n = \\frac{1}{\\sqrt{3}}$, hence $\\hat{u} = \\frac{1}{\\sqrt{3}}(\\hat{i} + \\hat{j} + \\hat{k})$. Since $|\\vec{v}| = 6$, we get $\\vec{v} = 6\\hat{u} = \\frac{6}{\\sqrt{3}}(\\hat{i} + \\hat{j} + \\hat{k}) = 2\\sqrt{3}(\\hat{i} + \\hat{j} + \\hat{k})$. For the vector $\\vec{w} = 2\\hat{i} - 2\\hat{j} + \\hat{k}$, its magnitude is $|\\vec{w}| = \\sqrt{2^2 + (-2)^2 + 1^2} = \\sqrt{9} = 3$. The scalar projection of $\\vec{v}$ on $\\vec{w}$ is given by $p = \\frac{\\vec{v}\\cdot\\vec{w}}{|\\vec{w}|}$. Substituting values, we have $\\vec{v}\\cdot\\vec{w} = 2\\sqrt{3}[2(1) - 2(1) + 1(1)] = 2\\sqrt{3}(1) = 2\\sqrt{3}$. Therefore, $p = \\frac{2\\sqrt{3}}{3} = \\frac{2}{\\sqrt{3}}$. The distractor $2\\sqrt{3}$ corresponds to forgetting to divide by $|\\vec{w}|$, $\\frac{4}{\\sqrt{3}}$ results from taking the sum of the positive coefficients in $\\vec{w}$, and $\\frac{1}{\\sqrt{3}}$ arises from using a unit vector instead of $\\vec{v}$."
+    },
+    {
+      "id": "vec_c01_005",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The diagonals of a parallelogram are given by the vectors $\\vec{d}_1 = 3\\hat{i} + \\hat{j} - 2\\hat{k}$ and $\\vec{d}_2 = \\hat{i} - 3\\hat{j} + 4\\hat{k}$. If $\\Delta$ denotes the area of this parallelogram, determine the value of $\\Delta^2$.",
+      "options": [
+        "A) $300$",
+        "B) $64$",
+        "C) $51$",
+        "D) $75$"
+      ],
+      "answer": "D",
+      "explanation": "The area $\\Delta$ of a parallelogram with diagonal vectors $\\vec{d}_1$ and $\\vec{d}_2$ is given by $\\Delta = \\frac{1}{2}|\\vec{d}_1 \\times \\vec{d}_2|$. Computing the vector cross product: $\\vec{d}_1 \\times \\vec{d}_2 = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 3 & 1 & -2 \\\\ 1 & -3 & 4 \\end{vmatrix} = \\hat{i}(4 - 6) - \\hat{j}(12 - (-2)) + \\hat{k}(-9 - 1) = -2\\hat{i} - 14\\hat{j} - 10\\hat{k}$. Evaluating the squared norm gives $|\\vec{d}_1 \\times \\vec{d}_2|^2 = (-2)^2 + (-14)^2 + (-10)^2 = 4 + 196 + 100 = 300$. Hence, $\\Delta^2 = \\left(\\frac{1}{2}\\right)^2 (300) = \\frac{300}{4} = 75$. The distractor $300$ comes from forgetting the factor of $\\frac{1}{2}$ for diagonal vectors, $64$ represents the squared dot product $(\\vec{d}_1\\cdot\\vec{d}_2)^2$, and $51$ arises from an algebraic sign slip when evaluating the $j$-component of the cross product."
+    },
+    {
+      "id": "vec_c01_006",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The position vectors of three points $A, B, C$ in three-dimensional space are $\\vec{a} = \\hat{i} + 2\\hat{j} + 3\\hat{k}$, $\\vec{b} = 2\\hat{i} + 5\\hat{j} - \\hat{k}$, and $\\vec{c} = -\\hat{i} - 4\\hat{j} + \\lambda\\hat{k}$ respectively. If the points $A, B, C$ are collinear, determine the value of the parameter $\\lambda$.",
+      "options": [],
+      "answer": "11",
+      "explanation": "Form the displacement vectors: $\\vec{AB} = \\vec{b} - \\vec{a} = (2-1)\\hat{i} + (5-2)\\hat{j} + (-1-3)\\hat{k} = \\hat{i} + 3\\hat{j} - 4\\hat{k}$, and $\\vec{AC} = \\vec{c} - \\vec{a} = (-1-1)\\hat{i} + (-4-2)\\hat{j} + (\\lambda-3)\\hat{k} = -2\\hat{i} - 6\\hat{j} + (\\lambda-3)\\hat{k}$. For collinearity of points $A, B, C$, there must exist a scalar $k$ such that $\\vec{AC} = k\\vec{AB}$. Equating the respective coordinates yields: $-2 = k(1) \\implies k = -2$, and $-6 = k(3) = -2(3) = -6$, which is consistent. Equating the $z$-components implies $\\lambda - 3 = k(-4) = (-2)(-4) = 8$. Solving for $\\lambda$, we obtain $\\lambda = 8 + 3 = 11$."
+    },
+    {
+      "id": "vec_c01_007",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\vec{a} = \\hat{i} + \\hat{j} + 2\\hat{k}$ and $\\vec{b} = \\hat{i} + 2\\hat{j} + \\hat{k}$. A unit vector $\\hat{u}$ is coplanar with $\\vec{a}$ and $\\vec{b}$, and is perpendicular to the vector $\\vec{c} = 2\\hat{i} - \\hat{j} + \\hat{k}$. If $\\hat{u}\\cdot\\hat{i} > 0$, determine the vector $\\hat{u}$.",
+      "options": [
+        "A) $\\frac{1}{\\sqrt{30}}(2\\hat{i} + 5\\hat{j} + \\hat{k})$",
+        "B) $\\frac{1}{\\sqrt{30}}(-2\\hat{i} - 5\\hat{j} - \\hat{k})$",
+        "C) $\\frac{1}{\\sqrt{11}}(\\hat{i} + 3\\hat{j} + \\hat{k})$",
+        "D) $\\frac{1}{\\sqrt{14}}(3\\hat{i} - \\hat{j} - 2\\hat{k})$"
+      ],
+      "answer": "A",
+      "explanation": "A normal vector to the plane containing $\\vec{a}$ and $\\vec{b}$ is given by $\\vec{n} = \\vec{a} \\times \\vec{b} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 1 & 1 & 2 \\\\ 1 & 2 & 1 \\end{vmatrix} = \\hat{i}(1 - 4) - \\hat{j}(1 - 2) + \\hat{k}(2 - 1) = -3\\hat{i} + \\hat{j} + \\hat{k}$. Since $\\hat{u}$ lies in this plane, it is perpendicular to $\\vec{n}$. It is also perpendicular to $\\vec{c} = 2\\hat{i} - \\hat{j} + \\hat{k}$, so $\\hat{u}$ must be parallel to $\\vec{n} \\times \\vec{c} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ -3 & 1 & 1 \\\\ 2 & -1 & 1 \\end{vmatrix} = \\hat{i}(1 - (-1)) - \\hat{j}(-3 - 2) + \\hat{k}(3 - 2) = 2\\hat{i} + 5\\hat{j} + \\hat{k}$. The length of this vector is $\\sqrt{2^2 + 5^2 + 1^2} = \\sqrt{30}$. Because $\\hat{u}\\cdot\\hat{i} > 0$, the positive scalar multiple gives $\\hat{u} = \\frac{1}{\\sqrt{30}}(2\\hat{i} + 5\\hat{j} + \\hat{k})$. The distractor $\\frac{1}{\\sqrt{30}}(-2\\hat{i} - 5\\hat{j} - \\hat{k})$ violates the condition $\\hat{u}\\cdot\\hat{i} > 0$, and the other options do not lie in the plane of $\\vec{a}$ and $\\vec{b}$."
+    },
+    {
+      "id": "vec_c01_008",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In $\\triangle ABC$, the position vectors of the vertices are $A(1, 2, 3)$, $B(2, 3, 1)$, and $C(3, 1, 2)$. Let $M$ be the midpoint of side $BC$, and let $G$ be the centroid of $\\triangle ABC$. Find the ordered pair $(|\\vec{AM}|, OG)$, where $O$ denotes the origin.",
+      "options": [
+        "A) $\\left(3\\sqrt{2}, \\sqrt{3}\\right)$",
+        "B) $\\left(\\frac{3}{\\sqrt{2}}, 2\\sqrt{3}\\right)$",
+        "C) $\\left(\\frac{\\sqrt{3}}{2}, 2\\sqrt{3}\\right)$",
+        "D) $\\left(\\frac{3}{\\sqrt{2}}, 3\\sqrt{2}\\right)$"
+      ],
+      "answer": "B",
+      "explanation": "The coordinates of midpoint $M$ of $BC$ are $M = \\left(\\frac{2+3}{2}, \\frac{3+1}{2}, \\frac{1+2}{2}\\right) = \\left(\\frac{5}{2}, 2, \\frac{3}{2}\\right)$. The median displacement vector is $\\vec{AM} = \\left(\\frac{5}{2} - 1\\right)\\hat{i} + (2 - 2)\\hat{j} + \\left(\\frac{3}{2} - 3\\right)\\hat{k} = \\frac{3}{2}\\hat{i} + 0\\hat{j} - \\frac{3}{2}\\hat{k}$. Its length is $|\\vec{AM}| = \\sqrt{\\left(\\frac{3}{2}\\right)^2 + 0^2 + \\left(-\\frac{3}{2}\\right)^2} = \\sqrt{\\frac{18}{4}} = \\frac{3\\sqrt{2}}{2} = \\frac{3}{\\sqrt{2}}$. Next, the centroid $G$ has position vector $\\vec{r}_G = \\frac{A+B+C}{3} = \\left(\\frac{1+2+3}{3}, \\frac{2+3+1}{3}, \\frac{3+1+2}{3}\\right) = (2, 2, 2)$. The distance from origin $O$ is $OG = \\sqrt{2^2 + 2^2 + 2^2} = \\sqrt{12} = 2\\sqrt{3}$. Hence, the ordered pair is $\\left(\\frac{3}{\\sqrt{2}}, 2\\sqrt{3}\\right)$. The distractors switch the radical multipliers or confuse the median length with twice its value."
+    },
+    {
+      "id": "vec_c01_009",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Consider the vectors $\\vec{a} = 2\\hat{i} + \\lambda\\hat{j} + \\hat{k}$ and $\\vec{b} = \\hat{i} + 2\\hat{j} + 3\\hat{k}$, where $\\lambda$ is a positive real number. If the scalar projection of $\\vec{a}$ on $\\vec{b}$ is equal to the scalar projection of $\\vec{b}$ on $\\vec{a}$, determine the value of $\\lambda^2$.",
+      "options": [],
+      "answer": "9",
+      "explanation": "The scalar projection of $\\vec{a}$ on $\\vec{b}$ is $\\frac{\\vec{a}\\cdot\\vec{b}}{|\\vec{b}|}$, and the scalar projection of $\\vec{b}$ on $\\vec{a}$ is $\\frac{\\vec{a}\\cdot\\vec{b}}{|\\vec{a}|}$. Evaluating the dot product gives $\\vec{a}\\cdot\\vec{b} = 2(1) + \\lambda(2) + 1(3) = 2\\lambda + 5$. Since $\\lambda > 0$, this scalar product is strictly non-zero. Equating the two projections implies $\\frac{\\vec{a}\\cdot\\vec{b}}{|\\vec{b}|} = \\frac{\\vec{a}\\cdot\\vec{b}}{|\\vec{a}|} \\implies |\\vec{a}| = |\\vec{b}|$. Equating their squared lengths yields $2^2 + \\lambda^2 + 1^2 = 1^2 + 2^2 + 3^2$, which simplifies to $5 + \\lambda^2 = 14$. Solving for $\\lambda^2$, we obtain $\\lambda^2 = 9$ (yielding $\\lambda = 3$ since $\\lambda > 0$)."
+    },
+    {
+      "id": "vec_c01_010",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A vector $\\vec{p}$ has magnitude $3$ and is perpendicular to $\\vec{a} = \\hat{i} - \\hat{j}$. It makes an angle of $\\frac{\\pi}{3}$ with $\\vec{b} = \\hat{j} + \\hat{k}$. If the $z$-component of $\\vec{p}$ is strictly positive, determine the vector $\\vec{p}$.",
+      "options": [
+        "A) $\\frac{\\sqrt{2}}{2}(\\hat{i} + \\hat{j} + 4\\hat{k})$",
+        "B) $\\frac{3}{\\sqrt{2}}(\\hat{i} - \\hat{j})$",
+        "C) $\\frac{\\sqrt{2}}{2}(-\\hat{i} - \\hat{j} + 4\\hat{k})$",
+        "D) $\\frac{\\sqrt{2}}{2}(-\\hat{i} + \\hat{j} + 2\\hat{k})$"
+      ],
+      "answer": "C",
+      "explanation": "Let $\\vec{p} = x\\hat{i} + y\\hat{j} + z\\hat{k}$. The condition $\\vec{p} \\perp \\vec{a}$ implies $x - y = 0 \\implies x = y$. Next, the angle condition gives $\\vec{p}\\cdot\\vec{b} = |\\vec{p}||\\vec{b}|\\cos\\left(\\frac{\\pi}{3}\\right) = 3(\\sqrt{2})\\left(\\frac{1}{2}\\right) = \\frac{3\\sqrt{2}}{2}$. Since $\\vec{p}\\cdot\\vec{b} = y + z$, we have $z = \\frac{3\\sqrt{2}}{2} - y$. Substituting $x = y$ and $z$ into the magnitude equation $x^2 + y^2 + z^2 = 9$ yields $2y^2 + \\left(\\frac{3\\sqrt{2}}{2} - y\\right)^2 = 9$, which simplifies to $3y^2 - 3\\sqrt{2}y - \\frac{9}{2} = 0$, or $2y^2 - 2\\sqrt{2}y - 3 = 0$. Solving this quadratic gives $y = \\frac{2\\sqrt{2} \\pm 4\\sqrt{2}}{4}$. If $y = \\frac{3\\sqrt{2}}{2}$, then $z = 0$, which is not strictly positive. Thus we must choose $y = -\\frac{\\sqrt{2}}{2}$, yielding $x = -\\frac{\\sqrt{2}}{2}$ and $z = \\frac{3\\sqrt{2}}{2} - \\left(-\\frac{\\sqrt{2}}{2}\\right) = 2\\sqrt{2} > 0$. Hence, $\\vec{p} = -\\frac{\\sqrt{2}}{2}\\hat{i} - \\frac{\\sqrt{2}}{2}\\hat{j} + 2\\sqrt{2}\\hat{k} = \\frac{\\sqrt{2}}{2}(-\\hat{i} - \\hat{j} + 4\\hat{k})$. The distractors fail the angle condition or have a non-positive $z$-component."
+    },
+    {
+      "id": "vec_c01_011",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A force $\\vec{F} = 3\\hat{i} + 2\\hat{j} - 4\\hat{k}$ acts on a particle, displacing it from point $P(1, -1, 2)$ to point $Q(3, 1, -1)$. Let $W$ be the work done by the force. Furthermore, let $\\vec{\\tau}$ be the torque of this force $\\vec{F}$ acting at $P$ evaluated about the origin. Find the value of $W + |\\vec{\\tau}|^2$.",
+      "options": [
+        "A) $125$",
+        "B) $169$",
+        "C) $103$",
+        "D) $147$"
+      ],
+      "answer": "D",
+      "explanation": "The displacement vector is $\\vec{d} = \\vec{r}_Q - \\vec{r}_P = (3-1)\\hat{i} + (1 - (-1))\\hat{j} + (-1 - 2)\\hat{k} = 2\\hat{i} + 2\\hat{j} - 3\\hat{k}$. The work done is $W = \\vec{F}\\cdot\\vec{d} = 3(2) + 2(2) + (-4)(-3) = 6 + 4 + 12 = 22$. Next, the position vector of $P$ is $\\vec{r}_P = \\hat{i} - \\hat{j} + 2\\hat{k}$. The torque about the origin is $\\vec{\\tau} = \\vec{r}_P \\times \\vec{F} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 1 & -1 & 2 \\\\ 3 & 2 & -4 \\end{vmatrix} = \\hat{i}(4 - 4) - \\hat{j}(-4 - 6) + \\hat{k}(2 - (-3)) = 0\\hat{i} + 10\\hat{j} + 5\\hat{k}$. The squared norm of the torque is $|\\vec{\\tau}|^2 = 0^2 + 10^2 + 5^2 = 125$. Therefore, the required sum is $W + |\\vec{\\tau}|^2 = 22 + 125 = 147$. The distractor $125$ forgets the work term $W$, $169$ corresponds to an incorrect sign in displacement giving $W = 44$, and $103$ arises from subtracting $W$ from $|\\vec{\\tau}|^2$."
+    },
+    {
+      "id": "vec_c01_012",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $\\vec{a}, \\vec{b}, \\vec{c}$ be three unit vectors satisfying the vector relation $\\vec{a} + \\vec{b} + \\vec{c} = \\vec{0}$. If a vector $\\vec{d}$ is defined as $\\vec{d} = 2\\vec{a} + 3\\vec{b} + 4\\vec{c}$, determine the value of $|\\vec{d}|^2$.",
+      "options": [],
+      "answer": "3",
+      "explanation": "Because $\\vec{a} + \\vec{b} + \\vec{c} = \\vec{0}$ and $|\\vec{a}| = |\\vec{b}| = |\\vec{c}| = 1$, squaring both sides gives $|\\vec{a}+\\vec{b}+\\vec{c}|^2 = 3 + 2(\\vec{a}\\cdot\\vec{b} + \\vec{b}\\cdot\\vec{c} + \\vec{c}\\cdot\\vec{a}) = 0$, implying $\\vec{a}\\cdot\\vec{b} + \\vec{b}\\cdot\\vec{c} + \\vec{c}\\cdot\\vec{a} = -\\frac{3}{2}$. By symmetry, each mutual scalar product is $\\vec{a}\\cdot\\vec{b} = \\vec{b}\\cdot\\vec{c} = \\vec{c}\\cdot\\vec{a} = -\\frac{1}{2}$. We rewrite $\\vec{d} = 2(\\vec{a} + \\vec{b} + \\vec{c}) + \\vec{b} + 2\\vec{c} = \\vec{0} + \\vec{b} + 2\\vec{c} = \\vec{b} + 2\\vec{c}$. Computing the squared magnitude yields $|\\vec{d}|^2 = |\\vec{b} + 2\\vec{c}|^2 = |\\vec{b}|^2 + 4|\\vec{c}|^2 + 4(\\vec{b}\\cdot\\vec{c})$. Substituting the known values gives $|\\vec{d}|^2 = 1 + 4(1) + 4\\left(-\\frac{1}{2}\\right) = 5 - 2 = 3$."
+    },
+    {
+      "id": "vec_c01_013",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The vertices of a triangle in three dimensions are given by $A(1, 0, 0)$, $B(0, 2, 0)$, and $C(0, 0, 2)$. Determine the position vector of the circumcenter of $\\triangle ABC$.",
+      "options": [
+        "A) $\\frac{1}{6}(\\hat{i} + 5\\hat{j} + 5\\hat{k})$",
+        "B) $\\frac{1}{3}(\\hat{i} + 2\\hat{j} + 2\\hat{k})$",
+        "C) $\\frac{1}{4}(2\\hat{i} + 3\\hat{j} + 3\\hat{k})$",
+        "D) $\\frac{1}{6}(2\\hat{i} + 5\\hat{j} + 5\\hat{k})$"
+      ],
+      "answer": "A",
+      "explanation": "Let $P(x, y, z)$ be the circumcenter. First, $P$ lies on the plane containing $A, B, C$. Using the intercept form, the plane equation is $\\frac{x}{1} + \\frac{y}{2} + \\frac{z}{2} = 1 \\implies 2x + y + z = 2$. Second, the circumcenter is equidistant from the vertices: $PA^2 = PB^2 = PC^2$. The condition $PB^2 = PC^2$ implies $x^2 + (y-2)^2 + z^2 = x^2 + y^2 + (z-2)^2 \\implies (y-2)^2 = (z-2)^2 \\implies y = z$. The condition $PA^2 = PB^2$ gives $(x-1)^2 + y^2 + z^2 = x^2 + (y-2)^2 + z^2 \\implies -2x + 1 = -4y + 4 \\implies 2x = 4y - 3$. Substituting $2x = 4y - 3$ and $z = y$ into the plane equation yields $(4y - 3) + y + y = 2 \\implies 6y = 5 \\implies y = \\frac{5}{6}$. Hence, $z = \\frac{5}{6}$, and $x = \\frac{4(5/6) - 3}{2} = \\frac{1}{6}$. Therefore, the circumcenter position vector is $\\frac{1}{6}(\\hat{i} + 5\\hat{j} + 5\\hat{k})$. The distractor $\\frac{1}{3}(\\hat{i} + 2\\hat{j} + 2\\hat{k})$ is the centroid of the triangle, and the other options fail the equidistance condition."
+    },
+    {
+      "id": "vec_c01_014",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The vector $\\vec{v} = 4\\hat{i} - 2\\hat{j} + 3\\hat{k}$ is resolved into two component vectors $\\vec{v}_1$ and $\\vec{v}_2$ such that $\\vec{v} = \\vec{v}_1 + \\vec{v}_2$, where $\\vec{v}_1$ is parallel to $\\vec{w} = \\hat{i} + \\hat{j} + \\hat{k}$ and $\\vec{v}_2$ is perpendicular to $\\vec{w}$. Find the value of $|\\vec{v}_2|^2$.",
+      "options": [
+        "A) $\\frac{25}{3}$",
+        "B) $\\frac{62}{3}$",
+        "C) $29$",
+        "D) $\\frac{38}{3}$"
+      ],
+      "answer": "B",
+      "explanation": "The component parallel to $\\vec{w}$ is the vector projection $\\vec{v}_1 = \\left(\\frac{\\vec{v}\\cdot\\vec{w}}{|\\vec{w}|^2}\\right)\\vec{w}$. We compute $\\vec{v}\\cdot\\vec{w} = 4(1) - 2(1) + 3(1) = 5$, and $|\\vec{w}|^2 = 1^2 + 1^2 + 1^2 = 3$. Hence, $\\vec{v}_1 = \\frac{5}{3}(\\hat{i} + \\hat{j} + \\hat{k})$ and its squared magnitude is $|\\vec{v}_1|^2 = \\frac{25}{9}(3) = \\frac{25}{3}$. Because $\\vec{v}_1 \\perp \\vec{v}_2$, the Pythagorean relation gives $|\\vec{v}|^2 = |\\vec{v}_1|^2 + |\\vec{v}_2|^2$. The squared magnitude of $\\vec{v}$ is $|\\vec{v}|^2 = 4^2 + (-2)^2 + 3^2 = 16 + 4 + 9 = 29$. Therefore, $|\\vec{v}_2|^2 = |\\vec{v}|^2 - |\\vec{v}_1|^2 = 29 - \\frac{25}{3} = \\frac{87 - 25}{3} = \\frac{62}{3}$. The distractor $\\frac{25}{3}$ is $|\\vec{v}_1|^2$, $29$ is the total magnitude squared $|\\vec{v}|^2$, and $\\frac{38}{3}$ represents an arithmetic error in computing the scalar projection."
+    },
+    {
+      "id": "vec_c01_015",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A parallelogram is spanned by the vectors $\\vec{a} = \\hat{i} + 2\\hat{j} + 3\\hat{k}$ and $\\vec{b} = 2\\hat{i} - \\hat{j} + 2\\hat{k}$. If $\\theta$ denotes the acute angle between the two diagonals of this parallelogram, determine $\\cos\\theta$.",
+      "options": [
+        "A) $\\frac{7}{\\sqrt{385}}$",
+        "B) $\\frac{3}{\\sqrt{385}}$",
+        "C) $\\frac{5}{\\sqrt{385}}$",
+        "D) $\\frac{5}{\\sqrt{35}}$"
+      ],
+      "answer": "C",
+      "explanation": "The diagonal vectors of the parallelogram are $\\vec{d}_1 = \\vec{a} + \\vec{b} = (1+2)\\hat{i} + (2-1)\\hat{j} + (3+2)\\hat{k} = 3\\hat{i} + \\hat{j} + 5\\hat{k}$, and $\\vec{d}_2 = \\vec{a} - \\vec{b} = (1-2)\\hat{i} + (2 - (-1))\\hat{j} + (3-2)\\hat{k} = -\\hat{i} + 3\\hat{j} + \\hat{k}$. Their magnitudes are $|\\vec{d}_1| = \\sqrt{3^2 + 1^2 + 5^2} = \\sqrt{9 + 1 + 25} = \\sqrt{35}$, and $|\\vec{d}_2| = \\sqrt{(-1)^2 + 3^2 + 1^2} = \\sqrt{1 + 9 + 1} = \\sqrt{11}$. Evaluating the scalar product of the diagonals yields $\\vec{d}_1 \\cdot \\vec{d}_2 = 3(-1) + 1(3) + 5(1) = -3 + 3 + 5 = 5$. Therefore, the cosine of the acute angle $\\theta$ between the diagonals is $\\cos\\theta = \\frac{|\\vec{d}_1 \\cdot \\vec{d}_2|}{|\\vec{d}_1||\\vec{d}_2|} = \\frac{5}{\\sqrt{35}\\sqrt{11}} = \\frac{5}{\\sqrt{385}}$. The distractors arise from arithmetic errors in the dot product or omitting $|\\vec{d}_2|$ in the denominator."
+    },
+    {
+      "id": "vec_c01_016",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The coterminous edges of a parallelepiped are given by the vectors $\\vec{a} = \\hat{i} + \\lambda\\hat{j} + \\hat{k}$, $\\vec{b} = \\hat{j} + \\lambda\\hat{k}$, and $\\vec{c} = \\lambda\\hat{i} + \\hat{k}$, where $\\lambda$ is a real number. If the volume of the parallelepiped attains its local minimum value for $\\lambda > 0$, determine this minimum volume.",
+      "options": [
+        "A) $1 + \\frac{2}{3\\sqrt{3}}$",
+        "B) $\\frac{1}{\\sqrt{3}}$",
+        "C) $1$",
+        "D) $\\frac{9 - 2\\sqrt{3}}{9}$"
+      ],
+      "answer": "D",
+      "explanation": "The volume of the parallelepiped is given by the absolute value of the scalar triple product $V(\\lambda) = |[\\vec{a}\\;\\vec{b}\\;\\vec{c}]|$. Expanding the $3\\times 3$ determinant along the first row: $[\\vec{a}\\;\\vec{b}\\;\\vec{c}] = \\begin{vmatrix} 1 & \\lambda & 1 \\\\ 0 & 1 & \\lambda \\\\ \\lambda & 0 & 1 \\end{vmatrix} = 1(1 - 0) - \\lambda(0 - \\lambda^2) + 1(0 - \\lambda) = \\lambda^3 - \\lambda + 1$. For $\\lambda > 0$, define $f(\\lambda) = \\lambda^3 - \\lambda + 1$. Differentiating with respect to $\\lambda$ gives $f'(\\lambda) = 3\\lambda^2 - 1$. Setting $f'(\\lambda) = 0$ yields the critical point $\\lambda = \\frac{1}{\\sqrt{3}}$ (since $\\lambda > 0$). The second derivative is $f''(\\lambda) = 6\\lambda > 0$, confirming a local minimum. Substituting $\\lambda = \\frac{1}{\\sqrt{3}}$ into $f(\\lambda)$ gives the minimum volume: $V = \\left(\\frac{1}{\\sqrt{3}}\\right)^3 - \\frac{1}{\\sqrt{3}} + 1 = \\frac{1}{3\\sqrt{3}} - \\frac{1}{\\sqrt{3}} + 1 = 1 - \\frac{2}{3\\sqrt{3}} = \\frac{9 - 2\\sqrt{3}}{9}$. The distractor $1 + \\frac{2}{3\\sqrt{3}}$ corresponds to the local maximum at $\\lambda = -\\frac{1}{\\sqrt{3}}$, $\\frac{1}{\\sqrt{3}}$ is the minimizing parameter value itself rather than the volume, and $1$ is the volume at $\\lambda = 0$."
+    },
+    {
+      "id": "vec_c01_017",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A vector $\\vec{r}$ satisfies the simultaneous vector equations $\\vec{r} \\times (\\hat{i} + \\hat{j} + \\hat{k}) = \\hat{i} - \\hat{k}$ and $\\vec{r} \\cdot (\\hat{i} + 2\\hat{j} + \\hat{k}) = 4$. Determine the value of the squared magnitude $|\\vec{r}|^2$.",
+      "options": [
+        "A) $\\frac{11}{4}$",
+        "B) $\\frac{9}{4}$",
+        "C) $\\frac{13}{4}$",
+        "D) $\\frac{7}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "Let $\\vec{a} = \\hat{i} + \\hat{j} + \\hat{k}$ and $\\vec{b} = \\hat{i} - \\hat{k}$. Since $\\vec{a}\\cdot\\vec{b} = 1(1) + 1(0) + 1(-1) = 0$, the vector equation $\\vec{r}\\times\\vec{a} = \\vec{b}$ is consistent. The general solution is $\\vec{r} = t\\vec{a} + \\frac{\\vec{a}\\times\\vec{b}}{|\\vec{a}|^2}$ for some real parameter $t$. Evaluating the cross product: $\\vec{a}\\times\\vec{b} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 1 & 1 & 1 \\\\ 1 & 0 & -1 \\end{vmatrix} = -\\hat{i} + 2\\hat{j} - \\hat{k}$. Since $|\\vec{a}|^2 = 3$, we have $\\vec{r} = t(\\hat{i} + \\hat{j} + \\hat{k}) + \\frac{1}{3}(-\\hat{i} + 2\\hat{j} - \\hat{k}) = \\left(t - \\frac{1}{3}\\right)\\hat{i} + \\left(t + \\frac{2}{3}\\right)\\hat{j} + \\left(t - \\frac{1}{3}\\right)\\hat{k}$. Substituting $\\vec{r}$ into the scalar equation with $\\vec{c} = \\hat{i} + 2\\hat{j} + \\hat{k}$ yields $\\vec{r}\\cdot\\vec{c} = \\left(t - \\frac{1}{3}\\right)(1) + 2\\left(t + \\frac{2}{3}\\right) + \\left(t - \\frac{1}{3}\\right)(1) = 4t + \\frac{2}{3} = 4$. Solving for $t$ gives $4t = \\frac{10}{3} \\implies t = \\frac{5}{6}$. Substituting back, the components of $\\vec{r}$ are $r_x = \\frac{5}{6} - \\frac{1}{3} = \\frac{1}{2}$, $r_y = \\frac{5}{6} + \\frac{2}{3} = \\frac{3}{2}$, and $r_z = \\frac{5}{6} - \\frac{1}{3} = \\frac{1}{2}$, so $\\vec{r} = \\frac{1}{2}\\hat{i} + \\frac{3}{2}\\hat{j} + \\frac{1}{2}\\hat{k}$. Hence, $|\\vec{r}|^2 = \\left(\\frac{1}{2}\\right)^2 + \\left(\\frac{3}{2}\\right)^2 + \\left(\\frac{1}{2}\\right)^2 = \\frac{1}{4} + \\frac{9}{4} + \\frac{1}{4} = \\frac{11}{4}$. The distractors arise from arithmetic errors in solving for $t$ or dropping the perpendicular particular solution."
+    },
+    {
+      "id": "vec_c01_018",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $\\vec{a} = 2\\hat{i} + 3\\hat{j} + \\hat{k}$, $\\vec{b} = \\hat{i} - 2\\hat{j} + 2\\hat{k}$, and $\\vec{c} = 3\\hat{i} + \\hat{j} - \\hat{k}$. The vector triple product $\\vec{a} \\times (\\vec{b} \\times \\vec{c})$ is uniquely expressed as the linear combination $\\alpha\\vec{b} + \\beta\\vec{c}$ for real scalars $\\alpha$ and $\\beta$. Determine the integer value of $\\alpha + \\beta$.",
+      "options": [],
+      "answer": "10",
+      "explanation": "Expanding the vector triple product using the vector Lagrange identity gives $\\vec{a} \\times (\\vec{b} \\times \\vec{c}) = (\\vec{a}\\cdot\\vec{c})\\vec{b} - (\\vec{a}\\cdot\\vec{b})\\vec{c}$. Comparing with the given form $\\alpha\\vec{b} + \\beta\\vec{c}$, we deduce $\\alpha = \\vec{a}\\cdot\\vec{c}$ and $\\beta = -(\\vec{a}\\cdot\\vec{b})$. Evaluating the first dot product: $\\vec{a}\\cdot\\vec{c} = 2(3) + 3(1) + 1(-1) = 6 + 3 - 1 = 8$, so $\\alpha = 8$. Evaluating the second dot product: $\\vec{a}\\cdot\\vec{b} = 2(1) + 3(-2) + 1(2) = 2 - 6 + 2 = -2$, which implies $\\beta = -(-2) = 2$. Therefore, the sum of the scalar coefficients is $\\alpha + \\beta = 8 + 2 = 10$."
+    },
+    {
+      "id": "vec_c01_019",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\vec{a}, \\vec{b}, \\vec{c}$ be three non-coplanar vectors such that the volume of the parallelepiped determined by them is $[\\vec{a}\\;\\vec{b}\\;\\vec{c}] = 4$. Let $\\vec{a}', \\vec{b}', \\vec{c}'$ denote their reciprocal triad of vectors. Evaluate the scalar triple product $[2\\vec{a}' - \\vec{b}'\\quad 2\\vec{b}' - \\vec{c}'\\quad 2\\vec{c}' - \\vec{a}']$.",
+      "options": [
+        "A) $\\frac{9}{4}$",
+        "B) $\\frac{7}{4}$",
+        "C) $\\frac{7}{16}$",
+        "D) $\\frac{1}{4}$"
+      ],
+      "answer": "B",
+      "explanation": "For any three vectors $\\vec{u}, \\vec{v}, \\vec{w}$, the scalar triple product of their linear combinations $[p\\vec{u} + q\\vec{v} + r\\vec{w}\\quad p'\\vec{u} + q'\\vec{v} + r'\\vec{w}\\quad p''\\vec{u} + q''\\vec{v} + r''\\vec{w}]$ equals the determinant of the coefficients multiplied by $[\\vec{u}\\;\\vec{v}\\;\\vec{w}]$. Here the transformation matrix is $M = \\begin{pmatrix} 2 & -1 & 0 \\\\ 0 & 2 & -1 \\\\ -1 & 0 & 2 \\end{pmatrix}$. Evaluating its determinant: $\\det M = 2(4 - 0) - (-1)(0 - 1) + 0 = 8 - 1 = 7$. Furthermore, by reciprocal system properties, $[\\vec{a}'\\;\\vec{b}'\\;\\vec{c}'] = \\frac{1}{[\\vec{a}\\;\\vec{b}\\;\\vec{c}]} = \\frac{1}{4}$. Therefore, the required scalar triple product is $[2\\vec{a}' - \\vec{b}'\\quad 2\\vec{b}' - \\vec{c}'\\quad 2\\vec{c}' - \\vec{a}'] = 7 [\\vec{a}'\\;\\vec{b}'\\;\\vec{c}'] = 7\\left(\\frac{1}{4}\\right) = \\frac{7}{4}$. The distractor $\\frac{9}{4}$ results from treating $\\det M$ as $2^3 + 1 = 9$, $\\frac{7}{16}$ mistakenly squares the denominator $[\\vec{a}\\;\\vec{b}\\;\\vec{c}]$, and $\\frac{1}{4}$ ignores the coefficient determinant."
+    },
+    {
+      "id": "vec_c01_020",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The three vectors $\\vec{u} = \\alpha\\hat{i} + \\hat{j} + 2\\hat{k}$, $\\vec{v} = \\hat{i} + \\alpha\\hat{j} + \\hat{k}$, and $\\vec{w} = 2\\hat{i} + \\hat{j} + \\alpha\\hat{k}$ are coplanar for certain real values of $\\alpha$. Find the sum of the squares of all such real values of $\\alpha$.",
+      "options": [
+        "A) $6$",
+        "B) $8$",
+        "C) $12$",
+        "D) $16$"
+      ],
+      "answer": "C",
+      "explanation": "Three vectors are coplanar if and only if their scalar triple product vanishes: $[\\vec{u}\\;\\vec{v}\\;\\vec{w}] = 0$. Writing the determinant: $\\begin{vmatrix} \\alpha & 1 & 2 \\\\ 1 & \\alpha & 1 \\\\ 2 & 1 & \\alpha \\end{vmatrix} = 0$. Expanding along the first row gives $\\alpha(\\alpha^2 - 1) - 1(\\alpha - 2) + 2(1 - 2\\alpha) = 0$, which simplifies to $\\alpha^3 - \\alpha - \\alpha + 2 + 2 - 4\\alpha = 0$, yielding the cubic equation $\\alpha^3 - 6\\alpha + 4 = 0$. Observing that $\\alpha = 2$ is an integer root ($2^3 - 6(2) + 4 = 0$), we factor out $(\\alpha - 2)$ to obtain $(\\alpha - 2)(\\alpha^2 + 2\\alpha - 2) = 0$. For the quadratic factor, the discriminant is $D = 2^2 - 4(1)(-2) = 12 > 0$, hence all three roots are real. Let the three real roots be $\\alpha_1, \\alpha_2, \\alpha_3$. Using Vieta relations, $\\sum \\alpha_i = 0$ and $\\sum \\alpha_i \\alpha_j = -6$. The sum of their squares is $\\sum \\alpha_i^2 = \\left(\\sum \\alpha_i\\right)^2 - 2\\sum \\alpha_i \\alpha_j = 0^2 - 2(-6) = 12$. The distractors arise from considering only the rational root ($2^2 = 4$), or confusing the product of roots with the sum of squares."
+    },
+    {
+      "id": "vec_c01_021",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The vertices of a tetrahedron are given by $O(0,0,0)$, $A(1, 2, 1)$, $B(2, 1, 3)$, and $C(-1, 1, 2)$. If $V$ denotes the volume of this tetrahedron, determine the integer value of $6V$.",
+      "options": [],
+      "answer": "12",
+      "explanation": "The coterminous vectors emanating from origin $O$ are $\\vec{a} = \\hat{i} + 2\\hat{j} + \\hat{k}$, $\\vec{b} = 2\\hat{i} + \\hat{j} + 3\\hat{k}$, and $\\vec{c} = -\\hat{i} + \\hat{j} + 2\\hat{k}$. The volume of a tetrahedron with coterminous edges $\\vec{a}, \\vec{b}, \\vec{c}$ is given by $V = \\frac{1}{6}|[\\vec{a}\\;\\vec{b}\\;\\vec{c}]|$, which implies $6V = |[\\vec{a}\\;\\vec{b}\\;\\vec{c}]|$. Evaluating the determinant: $[\\vec{a}\\;\\vec{b}\\;\\vec{c}] = \\begin{vmatrix} 1 & 2 & 1 \\\\ 2 & 1 & 3 \\\\ -1 & 1 & 2 \\end{vmatrix} = 1(2 - 3) - 2(4 - (-3)) + 1(2 - (-1)) = 1(-1) - 2(7) + 1(3) = -1 - 14 + 3 = -12$. Taking the absolute value gives $|[\\vec{a}\\;\\vec{b}\\;\\vec{c}]| = 12$. Hence, $6V = 12$."
+    },
+    {
+      "id": "vec_c01_022",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\vec{a} = \\hat{i} + \\hat{j}$, $\\vec{b} = \\hat{j} + \\hat{k}$, and $\\vec{c} = \\hat{k} + \\hat{i}$. A vector $\\vec{r}$ satisfies the simultaneous scalar equations $\\vec{r}\\cdot\\vec{a} = 4$, $\\vec{r}\\cdot\\vec{b} = 6$, and $\\vec{r}\\cdot\\vec{c} = 8$. Determine the vector $\\vec{r}$.",
+      "options": [
+        "A) $5\\hat{i} + 3\\hat{j} + \\hat{k}$",
+        "B) $\\hat{i} + 3\\hat{j} + 5\\hat{k}$",
+        "C) $3\\hat{i} + 5\\hat{j} + \\hat{k}$",
+        "D) $3\\hat{i} + \\hat{j} + 5\\hat{k}$"
+      ],
+      "answer": "D",
+      "explanation": "Let $\\vec{r} = x\\hat{i} + y\\hat{j} + z\\hat{k}$. Taking dot products with each given vector leads to the linear system: (1) $\\vec{r}\\cdot\\vec{a} = x + y = 4$, (2) $\\vec{r}\\cdot\\vec{b} = y + z = 6$, and (3) $\\vec{r}\\cdot\\vec{c} = z + x = 8$. Summing all three equations gives $2(x + y + z) = 4 + 6 + 8 = 18$, which implies $x + y + z = 9$. Subtracting each equation from this sum yields: $z = (x + y + z) - (x + y) = 9 - 4 = 5$, $x = (x + y + z) - (y + z) = 9 - 6 = 3$, and $y = (x + y + z) - (z + x) = 9 - 8 = 1$. Therefore, $\\vec{r} = 3\\hat{i} + \\hat{j} + 5\\hat{k}$. The distractors permute the components $(3, 1, 5)$, which fails to satisfy the original system of dot products."
+    },
+    {
+      "id": "vec_c01_023",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The shortest distance between the two skew lines $L_1: \\vec{r}_1 = (\\hat{i} + 2\\hat{j} + 3\\hat{k}) + \\lambda(\\hat{i} - \\hat{j} + \\hat{k})$ and $L_2: \\vec{r}_2 = (2\\hat{i} - \\hat{j} - \\hat{k}) + \\mu(2\\hat{i} + \\hat{j} + 2\\hat{k})$ is denoted by $d$. Find the value of $d$.",
+      "options": [
+        "A) $\\frac{5}{\\sqrt{2}}$",
+        "B) $\\frac{3}{\\sqrt{2}}$",
+        "C) $\\frac{15}{\\sqrt{2}}$",
+        "D) $\\frac{5}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "Identify the base points $\\vec{a}_1 = \\hat{i} + 2\\hat{j} + 3\\hat{k}$, $\\vec{a}_2 = 2\\hat{i} - \\hat{j} - \\hat{k}$, and direction vectors $\\vec{d}_1 = \\hat{i} - \\hat{j} + \\hat{k}$, $\\vec{d}_2 = 2\\hat{i} + \\hat{j} + 2\\hat{k}$. The difference between the points is $\\vec{a}_2 - \\vec{a}_1 = \\hat{i} - 3\\hat{j} - 4\\hat{k}$. The common perpendicular direction is given by the cross product: $\\vec{d}_1 \\times \\vec{d}_2 = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 1 & -1 & 1 \\\\ 2 & 1 & 2 \\end{vmatrix} = \\hat{i}(-2 - 1) - \\hat{j}(2 - 2) + \\hat{k}(1 - (-2)) = -3\\hat{i} + 0\\hat{j} + 3\\hat{k}$. The norm of this cross product is $|\\vec{d}_1 \\times \\vec{d}_2| = \\sqrt{(-3)^2 + 0^2 + 3^2} = 3\\sqrt{2}$. The scalar projection along the common perpendicular is $(\\vec{a}_2 - \\vec{a}_1)\\cdot(\\vec{d}_1 \\times \\vec{d}_2) = 1(-3) - 3(0) - 4(3) = -15$. Hence, the shortest distance is $d = \\frac{|(\\vec{a}_2 - \\vec{a}_1)\\cdot(\\vec{d}_1 \\times \\vec{d}_2)|}{|\\vec{d}_1 \\times \\vec{d}_2|} = \\frac{|-15|}{3\\sqrt{2}} = \\frac{15}{3\\sqrt{2}} = \\frac{5}{\\sqrt{2}}$. The distractor $\\frac{15}{\\sqrt{2}}$ forgets to divide by the factor 3, $\\frac{3}{\\sqrt{2}}$ results from a subtraction error in the numerator, and $\\frac{5}{2}$ drops the radical."
+    },
+    {
+      "id": "vec_c01_024",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $\\vec{a}, \\vec{b}, \\vec{c}$ be three non-coplanar vectors such that $[\\vec{a}\\;\\vec{b}\\;\\vec{c}] = 5$. Determine the value of the scalar triple product $[2\\vec{a} + \\vec{b}\\quad 2\\vec{b} + \\vec{c}\\quad 2\\vec{c} + \\vec{a}]$.",
+      "options": [],
+      "answer": "45",
+      "explanation": "Express the three linear combinations as matrix multiplication on the basis $\\vec{a}, \\vec{b}, \\vec{c}$. The coefficient matrix is $A = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 1 & 0 & 2 \\end{pmatrix}$. The scalar triple product of the combinations satisfies $[2\\vec{a} + \\vec{b}\\quad 2\\vec{b} + \\vec{c}\\quad 2\\vec{c} + \\vec{a}] = (\\det A)[\\vec{a}\\;\\vec{b}\\;\\vec{c}]$. Expanding the determinant along the first row: $\\det A = 2(4 - 0) - 1(0 - 1) + 0 = 8 + 1 = 9$. Given that $[\\vec{a}\\;\\vec{b}\\;\\vec{c}] = 5$, substituting this value yields $[2\\vec{a} + \\vec{b}\\quad 2\\vec{b} + \\vec{c}\\quad 2\\vec{c} + \\vec{a}] = 9 \\times 5 = 45$."
+    },
+    {
+      "id": "vec_c01_025",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\vec{a}, \\vec{b}, \\vec{c}$ be three unit vectors such that $\\vec{b}$ and $\\vec{c}$ are non-collinear and $\\vec{a} \\times (\\vec{b} \\times \\vec{c}) = \\frac{1}{2}\\vec{b} + \\frac{\\sqrt{3}}{2}\\vec{c}$. If $\\theta_1$ denotes the angle between $\\vec{a}$ and $\\vec{c}$, and $\\theta_2$ denotes the angle between $\\vec{a}$ and $\\vec{b}$, find the ordered pair of angles $(\\theta_1, \\theta_2)$.",
+      "options": [
+        "A) $\\left(\\frac{\\pi}{6}, \\frac{2\\pi}{3}\\right)$",
+        "B) $\\left(\\frac{\\pi}{3}, \\frac{5\\pi}{6}\\right)$",
+        "C) $\\left(\\frac{\\pi}{3}, \\frac{\\pi}{6}\\right)$",
+        "D) $\\left(\\frac{2\\pi}{3}, \\frac{5\\pi}{6}\\right)$"
+      ],
+      "answer": "B",
+      "explanation": "Expanding the left side via the vector triple product formula: $\\vec{a} \\times (\\vec{b} \\times \\vec{c}) = (\\vec{a}\\cdot\\vec{c})\\vec{b} - (\\vec{a}\\cdot\\vec{b})\\vec{c}$. Equating coefficients with $\\frac{1}{2}\\vec{b} + \\frac{\\sqrt{3}}{2}\\vec{c}$ (valid since $\\vec{b}$ and $\\vec{c}$ are linearly independent) yields: $\\vec{a}\\cdot\\vec{c} = \\frac{1}{2}$ and $-(\\vec{a}\\cdot\\vec{b}) = \\frac{\\sqrt{3}}{2} \\implies \\vec{a}\\cdot\\vec{b} = -\\frac{\\sqrt{3}}{2}$. Since all vectors are unit vectors, $\\cos\\theta_1 = \\frac{1}{2} \\implies \\theta_1 = \\frac{\\pi}{3}$, and $\\cos\\theta_2 = -\\frac{\\sqrt{3}}{2} \\implies \\theta_2 = \\pi - \\frac{\\pi}{6} = \\frac{5\\pi}{6}$. Therefore, the ordered pair is $(\\theta_1, \\theta_2) = \\left(\\frac{\\pi}{3}, \\frac{5\\pi}{6}\\right)$. The distractors mistake the acute angle $\\frac{\\pi}{6}$ for $\\frac{5\\pi}{6}$ by ignoring the negative sign in the BAC-CAB expansion, or swap $\\theta_1$ and $\\theta_2$."
+    },
+    {
+      "id": "vec_c01_026",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The edges of a parallelepiped meeting at a common vertex are given by vectors $\\vec{a}, \\vec{b}, \\vec{c}$ having magnitudes $2, 3$, and $4$ respectively. If the angle between every pair of these edges is $\\frac{\\pi}{3}$, find the volume $V$ of the parallelepiped.",
+      "options": [
+        "A) $24\\sqrt{2}$",
+        "B) $6\\sqrt{2}$",
+        "C) $12\\sqrt{2}$",
+        "D) $12\\sqrt{3}$"
+      ],
+      "answer": "C",
+      "explanation": "The squared volume of a parallelepiped equals the determinant of its Gram matrix: $V^2 = [\\vec{a}\\;\\vec{b}\\;\\vec{c}]^2 = \\det G$, where $G_{ij} = \\vec{v}_i \\cdot \\vec{v}_j$. Here $|\\vec{a}| = 2, |\\vec{b}| = 3, |\\vec{c}| = 4$ and $\\cos(\\pi/3) = \\frac{1}{2}$. The entries are: $\\vec{a}\\cdot\\vec{a} = 4$, $\\vec{b}\\cdot\\vec{b} = 9$, $\\vec{c}\\cdot\\vec{c} = 16$, $\\vec{a}\\cdot\\vec{b} = 2(3)\\left(\\frac{1}{2}\\right) = 3$, $\\vec{a}\\cdot\\vec{c} = 2(4)\\left(\\frac{1}{2}\\right) = 4$, and $\\vec{b}\\cdot\\vec{c} = 3(4)\\left(\\frac{1}{2}\\right) = 6$. The Gram matrix is $G = \\begin{pmatrix} 4 & 3 & 4 \\\\ 3 & 9 & 6 \\\\ 4 & 6 & 16 \\end{pmatrix}$. Computing $\\det G$: $4(9\\cdot 16 - 36) - 3(3\\cdot 16 - 24) + 4(3\\cdot 6 - 36) = 4(144 - 36) - 3(48 - 24) + 4(18 - 36) = 4(108) - 3(24) - 4(18) = 432 - 72 - 72 = 288$. Taking the square root gives $V = \\sqrt{288} = 12\\sqrt{2}$. The distractor $24\\sqrt{2}$ forgets the factor of $\\frac{1}{2}$ in the cosine of $\\frac{\\pi}{3}$, $6\\sqrt{2}$ divides by an extra factor of 2, and $12\\sqrt{3}$ uses an incorrect trigonometric value."
+    },
+    {
+      "id": "vec_c01_027",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $\\vec{a} = \\hat{i} + \\hat{j} + \\hat{k}$, $\\vec{b} = \\hat{i} - \\hat{j} + \\hat{k}$, and $\\vec{c} = \\hat{i} + 2\\hat{j} - \\hat{k}$. A vector $\\vec{r}$ satisfies the relations $\\vec{r}\\times\\vec{a} = \\vec{b}\\times\\vec{a}$ and $\\vec{r}\\cdot\\vec{c} = 0$. Determine the value of $|\\vec{r}|^2$.",
+      "options": [],
+      "answer": "8",
+      "explanation": "Rewriting the cross product equation: $\\vec{r}\\times\\vec{a} - \\vec{b}\\times\\vec{a} = \\vec{0} \\implies (\\vec{r} - \\vec{b})\\times\\vec{a} = \\vec{0}$. This implies that $\\vec{r} - \\vec{b}$ is collinear with $\\vec{a}$, hence $\\vec{r} = \\vec{b} + \\lambda\\vec{a}$ for some scalar $\\lambda$. Taking the scalar product with $\\vec{c}$ gives $(\\vec{b} + \\lambda\\vec{a})\\cdot\\vec{c} = 0 \\implies \\vec{b}\\cdot\\vec{c} + \\lambda(\\vec{a}\\cdot\\vec{c}) = 0$. Computing the dot products: $\\vec{b}\\cdot\\vec{c} = 1(1) + (-1)(2) + 1(-1) = 1 - 2 - 1 = -2$, and $\\vec{a}\\cdot\\vec{c} = 1(1) + 1(2) + 1(-1) = 1 + 2 - 1 = 2$. Substituting these yields $-2 + 2\\lambda = 0 \\implies \\lambda = 1$. Therefore, the vector is $\\vec{r} = \\vec{b} + \\vec{a} = (\\hat{i} - \\hat{j} + \\hat{k}) + (\\hat{i} + \\hat{j} + \\hat{k}) = 2\\hat{i} + 2\\hat{k}$. Its squared magnitude is $|\\vec{r}|^2 = 2^2 + 0^2 + 2^2 = 4 + 4 = 8$."
+    },
+    {
+      "id": "vec_c01_028",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\vec{a}, \\vec{b}, \\vec{c}$ be three non-coplanar vectors in $\\mathbb{R}^3$ with $[\\vec{a}\\;\\vec{b}\\;\\vec{c}] \\neq 0$. A vector $\\vec{r}$ is expressed as $\\vec{r} = x(\\vec{b}\\times\\vec{c}) + y(\\vec{c}\\times\\vec{a}) + z(\\vec{a}\\times\\vec{b})$. If $\\vec{r}\\cdot\\vec{a} = 3[\\vec{a}\\;\\vec{b}\\;\\vec{c}]$, $\\vec{r}\\cdot\\vec{b} = -2[\\vec{a}\\;\\vec{b}\\;\\vec{c}]$, and $\\vec{r}\\cdot\\vec{c} = 5[\\vec{a}\\;\\vec{b}\\;\\vec{c}]$, find the value of $x^2 + y^2 + z^2$.",
+      "options": [
+        "A) $34$",
+        "B) $36$",
+        "C) $40$",
+        "D) $38$"
+      ],
+      "answer": "D",
+      "explanation": "Taking the scalar product of $\\vec{r}$ with $\\vec{a}$: $\\vec{r}\\cdot\\vec{a} = x(\\vec{b}\\times\\vec{c})\\cdot\\vec{a} + y(\\vec{c}\\times\\vec{a})\\cdot\\vec{a} + z(\\vec{a}\\times\\vec{b})\\cdot\\vec{a}$. Since $(\\vec{c}\\times\\vec{a})\\cdot\\vec{a} = 0$ and $(\\vec{a}\\times\\vec{b})\\cdot\\vec{a} = 0$, we have $\\vec{r}\\cdot\\vec{a} = x[\\vec{b}\\;\\vec{c}\\;\\vec{a}] = x[\\vec{a}\\;\\vec{b}\\;\\vec{c}]$. Comparing with the given condition $\\vec{r}\\cdot\\vec{a} = 3[\\vec{a}\\;\\vec{b}\\;\\vec{c}]$ gives $x = 3$. Similarly, taking dot products with $\\vec{b}$ and $\\vec{c}$ gives $\\vec{r}\\cdot\\vec{b} = y[\\vec{a}\\;\\vec{b}\\;\\vec{c}] = -2[\\vec{a}\\;\\vec{b}\\;\\vec{c}] \\implies y = -2$, and $\\vec{r}\\cdot\\vec{c} = z[\\vec{a}\\;\\vec{b}\\;\\vec{c}] = 5[\\vec{a}\\;\\vec{b}\\;\\vec{c}] \\implies z = 5$. Computing the sum of squares yields $x^2 + y^2 + z^2 = 3^2 + (-2)^2 + 5^2 = 9 + 4 + 25 = 38$. The distractors arise from arithmetic errors in the summation or treating $-2^2$ as $-4$ yielding $30$."
+    },
+    {
+      "id": "vec_c01_029",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\vec{a}$ and $\\vec{b}$ be mutually perpendicular unit vectors. A third unit vector $\\vec{c}$ forms an equal angle $\\theta$ with both $\\vec{a}$ and $\\vec{b}$. If $\\vec{c}$ is expressed as $\\vec{c} = \\alpha\\vec{a} + \\beta\\vec{b} + \\gamma(\\vec{a}\\times\\vec{b})$ for real scalars $\\alpha, \\beta, \\gamma$, determine the maximum possible value of $\\theta \\in [0, \\pi]$.",
+      "options": [
+        "A) $\\frac{3\\pi}{4}$",
+        "B) $\\frac{2\\pi}{3}$",
+        "C) $\\frac{5\\pi}{6}$",
+        "D) $\\frac{\\pi}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "Because $\\vec{a}, \\vec{b}$ are orthonormal, $\\vec{a}, \\vec{b}$, and $\\vec{a}\\times\\vec{b}$ form an orthonormal right-handed triad in $\\mathbb{R}^3$. Taking scalar products: $\\vec{c}\\cdot\\vec{a} = \\alpha = \\cos\\theta$, and $\\vec{c}\\cdot\\vec{b} = \\beta = \\cos\\theta$. Because $\\vec{c}$ is a unit vector, the sum of squared coordinates along this orthonormal triad equals 1: $\\alpha^2 + \\beta^2 + \\gamma^2 = 1 \\implies \\cos^2\\theta + \\cos^2\\theta + \\gamma^2 = 1 \\implies 2\\cos^2\\theta + \\gamma^2 = 1$. Because $\\gamma$ is a real number, $\\gamma^2 \\ge 0$, which forces $2\\cos^2\\theta \\le 1 \\implies \\cos^2\\theta \\le \\frac{1}{2}$. This implies $-\\frac{1}{\\sqrt{2}} \\le \\cos\\theta \\le \\frac{1}{\\sqrt{2}}$. For $\\theta \\in [0, \\pi]$, the cosine function is strictly decreasing, hence the maximum angle $\\theta$ occurs at the minimum value $\\cos\\theta = -\\frac{1}{\\sqrt{2}}$, which gives $\\theta = \\frac{3\\pi}{4}$. The distractor $\\frac{2\\pi}{3}$ corresponds to $\\cos\\theta = -\\frac{1}{2}$, and $\\frac{5\\pi}{6}$ assumes an equilateral triad rather than an orthogonal pair."
+    },
+    {
+      "id": "vec_c01_030",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $\\vec{u} = \\hat{i} + 2\\hat{j} + 2\\hat{k}$ and $\\vec{v} = \\hat{i} + \\hat{j}$. A vector $\\vec{w}$ satisfies $\\vec{w}\\cdot\\vec{u} = 0$, $\\vec{w}\\cdot\\vec{v} = 0$, and $|\\vec{w}| = 9$. If the $z$-component of $\\vec{w}$ is strictly positive, find the sum of all three scalar components of $\\vec{w}$.",
+      "options": [],
+      "answer": "3",
+      "explanation": "Since $\\vec{w}$ is orthogonal to both $\\vec{u}$ and $\\vec{v}$, it must be parallel to their cross product: $\\vec{u}\\times\\vec{v} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 1 & 2 & 2 \\\\ 1 & 1 & 0 \\end{vmatrix} = \\hat{i}(0 - 2) - \\hat{j}(0 - 2) + \\hat{k}(1 - 2) = -2\\hat{i} + 2\\hat{j} - \\hat{k}$. The length of this cross product is $|\\vec{u}\\times\\vec{v}| = \\sqrt{(-2)^2 + 2^2 + (-1)^2} = \\sqrt{9} = 3$. Given that $|\\vec{w}| = 9$, we have $\\vec{w} = \\pm \\frac{9}{3}(-2\\hat{i} + 2\\hat{j} - \\hat{k}) = \\pm ( -6\\hat{i} + 6\\hat{j} - 3\\hat{k})$. Because the $z$-component must be strictly positive, we must select the negative multiple: $\\vec{w} = -(-6\\hat{i} + 6\\hat{j} - 3\\hat{k}) = 6\\hat{i} - 6\\hat{j} + 3\\hat{k}$. The scalar components are $w_x = 6$, $w_y = -6$, and $w_z = 3$. Their sum is $6 + (-6) + 3 = 3$."
+    },
+    {
+      "id": "vec_c01_031",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The vertices of a tetrahedron $OABC$ have position vectors relative to origin $O(0,0,0)$ given by $\\vec{a} = 2\\hat{i} + 3\\hat{j} + 4\\hat{k}$, $\\vec{b} = \\hat{i} + 2\\hat{j} + 3\\hat{k}$, and $\\vec{c} = 3\\hat{i} + \\hat{j} + 2\\hat{k}$. Find the length of the altitude drawn from vertex $O$ to the opposite triangular face $ABC$.",
+      "options": [
+        "A) $\\sqrt{2}$",
+        "B) $\\frac{1}{\\sqrt{2}}$",
+        "C) $\\frac{1}{2}$",
+        "D) $\\frac{\\sqrt{3}}{2}$"
+      ],
+      "answer": "B",
+      "explanation": "The altitude $h$ from $O$ to face $ABC$ is related to the volume by $V = \\frac{1}{3}\\Delta_{ABC} h$, where $V = \\frac{1}{6}|[\\vec{a}\\;\\vec{b}\\;\\vec{c}]|$ and $\\Delta_{ABC} = \\frac{1}{2}|\\vec{AB} \\times \\vec{AC}|$. This yields the formula $h = \\frac{|[\\vec{a}\\;\\vec{b}\\;\\vec{c}]|}{|\\vec{AB}\\times\\vec{AC}|}$. Evaluating the scalar triple product: $[\\vec{a}\\;\\vec{b}\\;\\vec{c}] = \\begin{vmatrix} 2 & 3 & 4 \\\\ 1 & 2 & 3 \\\\ 3 & 1 & 2 \\end{vmatrix} = 2(4 - 3) - 3(2 - 9) + 4(1 - 6) = 2(1) - 3(-7) + 4(-5) = 2 + 21 - 20 = 3$. Next, compute the edge vectors: $\\vec{AB} = \\vec{b} - \\vec{a} = -\\hat{i} - \\hat{j} - \\hat{k}$, and $\\vec{AC} = \\vec{c} - \\vec{a} = \\hat{i} - 2\\hat{j} - 2\\hat{k}$. Taking their cross product gives $\\vec{AB} \\times \\vec{AC} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ -1 & -1 & -1 \\\\ 1 & -2 & -2 \\end{vmatrix} = \\hat{i}(2 - 2) - \\hat{j}(2 - (-1)) + \\hat{k}(2 - (-1)) = 0\\hat{i} - 3\\hat{j} + 3\\hat{k}$. The magnitude is $|\\vec{AB}\\times\\vec{AC}| = \\sqrt{0^2 + (-3)^2 + 3^2} = \\sqrt{18} = 3\\sqrt{2}$. Therefore, the altitude length is $h = \\frac{3}{3\\sqrt{2}} = \\frac{1}{\\sqrt{2}}$. The distractor $\\sqrt{2}$ inverts the ratio, $\\frac{1}{2}$ drops the radical from $\\sqrt{2}$, and $\\frac{\\sqrt{3}}{2}$ results from an arithmetic error in the cross product magnitude."
+    },
+    {
+      "id": "vec_c01_032",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two vectors $\\vec{a}$ and $\\vec{b}$ satisfy $|\\vec{a}| = 5$, $|\\vec{b}| = 13$, and $\\vec{a}\\cdot\\vec{b} = 25$. A third vector is defined as $\\vec{c} = 2(\\vec{a}\\times\\vec{b}) + 3\\vec{a}$. Determine the value of the squared norm $|\\vec{c}|^2$.",
+      "options": [
+        "A) $14400$",
+        "B) $15025$",
+        "C) $14625$",
+        "D) $13825$"
+      ],
+      "answer": "C",
+      "explanation": "Because the vector cross product $\\vec{a}\\times\\vec{b}$ is strictly orthogonal to $\\vec{a}$, we have $(\\vec{a}\\times\\vec{b})\\cdot\\vec{a} = 0$. Expanding the squared magnitude of $\\vec{c}$: $|\\vec{c}|^2 = 4|\\vec{a}\\times\\vec{b}|^2 + 9|\\vec{a}|^2 + 12(\\vec{a}\\times\\vec{b})\\cdot\\vec{a} = 4|\\vec{a}\\times\\vec{b}|^2 + 9|\\vec{a}|^2$. Applying the vector Lagrange identity $|\\vec{a}\\times\\vec{b}|^2 = |\\vec{a}|^2|\\vec{b}|^2 - (\\vec{a}\\cdot\\vec{b})^2$: $|\\vec{a}|^2 = 25$, $|\\vec{b}|^2 = 169$, and $(\\vec{a}\\cdot\\vec{b})^2 = 25^2 = 625$. Thus $|\\vec{a}\\times\\vec{b}|^2 = 25(169) - 625 = 25(169 - 25) = 25(144) = 3600$. Substituting this into the squared magnitude yields $|\\vec{c}|^2 = 4(3600) + 9(25) = 14400 + 225 = 14625$. The distractor $14400$ omits the term $9|\\vec{a}|^2$, $15025$ uses an incorrect multiplier of 25 for $|\\vec{a}|^2$, and $13825$ corresponds to mistakenly subtracting the scalar product component."
+    },
+    {
+      "id": "vec_c01_033",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the unit vector $\\hat{n}$ perpendicular to the plane containing the vectors $\\vec{a} = 2\\hat{i} - 6\\hat{j} - 3\\hat{k}$ and $\\vec{b} = 4\\hat{i} + 3\\hat{j} - \\hat{k}$ such that $\\hat{n}$ makes an acute angle with the positive $y$-axis.",
+      "options": [
+        "A) $\\frac{1}{7}(3\\hat{i} - 2\\hat{j} + 6\\hat{k})$",
+        "B) $\\frac{1}{7}(3\\hat{i} + 2\\hat{j} - 6\\hat{k})$",
+        "C) $\\frac{1}{7}(-3\\hat{i} - 2\\hat{j} + 6\\hat{k})$",
+        "D) $\\frac{1}{7}(-3\\hat{i} + 2\\hat{j} - 6\\hat{k})$"
+      ],
+      "answer": "D",
+      "explanation": "A normal vector to the plane of $\\vec{a}$ and $\\vec{b}$ is obtained from the cross product: $\\vec{a}\\times\\vec{b} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 2 & -6 & -3 \\\\ 4 & 3 & -1 \\end{vmatrix} = \\hat{i}(6 - (-9)) - \\hat{j}(-2 - (-12)) + \\hat{k}(6 - (-24)) = 15\\hat{i} - 10\\hat{j} + 30\\hat{k} = 5(3\\hat{i} - 2\\hat{j} + 6\\hat{k})$. The length of $3\\hat{i} - 2\\hat{j} + 6\\hat{k}$ is $\\sqrt{3^2 + (-2)^2 + 6^2} = \\sqrt{49} = 7$. Thus the two possible unit normal vectors are $\\pm \\frac{1}{7}(3\\hat{i} - 2\\hat{j} + 6\\hat{k})$. The angle with the positive $y$-axis is acute if and only if $\\hat{n}\\cdot\\hat{j} > 0$. For $+\\frac{1}{7}(3\\hat{i} - 2\\hat{j} + 6\\hat{k})$, the $y$-component is $-\\frac{2}{7} < 0$. Choosing the opposite sign gives $\\hat{n} = -\\frac{1}{7}(3\\hat{i} - 2\\hat{j} + 6\\hat{k}) = \\frac{1}{7}(-3\\hat{i} + 2\\hat{j} - 6\\hat{k})$, which has $y$-component $+\\frac{2}{7} > 0$. The distractors either choose the wrong normal orientation with obtuse angle to the $y$-axis or contain sign errors in the cross product."
+    },
+    {
+      "id": "vec_c01_034",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two forces $\\vec{F}_1 = 2\\hat{i} - 5\\hat{j} + 6\\hat{k}$ and $\\vec{F}_2 = -\\hat{i} + 3\\hat{j} - 2\\hat{k}$ act at points $A(1, 2, -1)$ and $B(2, 1, 0)$ respectively. The total resultant torque of this system of forces about the pivot point $C(0, 1, 2)$ is denoted by $\\vec{\\tau}$. Determine the squared magnitude $|\\vec{\\tau}|^2$.",
+      "options": [
+        "A) $46$",
+        "B) $54$",
+        "C) $38$",
+        "D) $62$"
+      ],
+      "answer": "A",
+      "explanation": "Compute the position vectors relative to point $C(0, 1, 2)$: $\\vec{r}_A = \\vec{CA} = (1-0)\\hat{i} + (2-1)\\hat{j} + (-1-2)\\hat{k} = \\hat{i} + \\hat{j} - 3\\hat{k}$, and $\\vec{r}_B = \\vec{CB} = (2-0)\\hat{i} + (1-1)\\hat{j} + (0-2)\\hat{k} = 2\\hat{i} + 0\\hat{j} - 2\\hat{k}$. The torque produced by $\\vec{F}_1$ is $\\vec{\\tau}_1 = \\vec{r}_A \\times \\vec{F}_1 = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 1 & 1 & -3 \\\\ 2 & -5 & 6 \\end{vmatrix} = \\hat{i}(6 - 15) - \\hat{j}(6 - (-6)) + \\hat{k}(-5 - 2) = -9\\hat{i} - 12\\hat{j} - 7\\hat{k}$. The torque produced by $\\vec{F}_2$ is $\\vec{\\tau}_2 = \\vec{r}_B \\times \\vec{F}_2 = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 2 & 0 & -2 \\\\ -1 & 3 & -2 \\end{vmatrix} = \\hat{i}(0 - (-6)) - \\hat{j}(-4 - 2) + \\hat{k}(6 - 0) = 6\\hat{i} + 6\\hat{j} + 6\\hat{k}$. Summing the torques gives $\\vec{\\tau} = \\vec{\\tau}_1 + \\vec{\\tau}_2 = (-9 + 6)\\hat{i} + (-12 + 6)\\hat{j} + (-7 + 6)\\hat{k} = -3\\hat{i} - 6\\hat{j} - \\hat{k}$. Computing the squared norm: $|\\vec{\\tau}|^2 = (-3)^2 + (-6)^2 + (-1)^2 = 9 + 36 + 1 = 46$. The distractors correspond to sign errors when computing the cross products or evaluating the lever arm vectors."
+    },
+    {
+      "id": "vec_c01_035",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $\\vec{a}, \\vec{b}, \\vec{c}$ be three non-zero vectors in $\\mathbb{R}^3$ satisfying the relations $\\vec{a}\\times\\vec{b} = \\vec{c}$ and $\\vec{b}\\times\\vec{c} = \\vec{a}$. If $|\\vec{a}| = 4$, determine the value of $|\\vec{a}|^2 + |\\vec{b}|^2 + |\\vec{c}|^2$.",
+      "options": [],
+      "answer": "33",
+      "explanation": "From $\\vec{a}\\times\\vec{b} = \\vec{c}$, we deduce that $\\vec{c} \\perp \\vec{a}$ and $\\vec{c} \\perp \\vec{b}$. From $\\vec{b}\\times\\vec{c} = \\vec{a}$, we deduce that $\\vec{a} \\perp \\vec{b}$ and $\\vec{a} \\perp \\vec{c}$. Hence, the three vectors $\\vec{a}, \\vec{b}, \\vec{c}$ are mutually perpendicular. Taking magnitudes of both cross products: $|\\vec{c}| = |\\vec{a}||\\vec{b}|\\sin(\\pi/2) = |\\vec{a}||\\vec{b}|$, and $|\\vec{a}| = |\\vec{b}||\\vec{c}|\\sin(\\pi/2) = |\\vec{b}||\\vec{c}|$. Substituting $|\\vec{c}| = |\\vec{a}||\\vec{b}|$ into the second equation gives $|\\vec{a}| = |\\vec{b}|(|\\vec{a}||\\vec{b}|) = |\\vec{a}||\\vec{b}|^2$. Since $\\vec{a}$ is non-zero, we divide by $|\\vec{a}|$ to obtain $|\\vec{b}|^2 = 1 \\implies |\\vec{b}| = 1$. Consequently, $|\\vec{c}| = |\\vec{a}||\\vec{b}| = 4(1) = 4$. Evaluating the sum of squared lengths: $|\\vec{a}|^2 + |\\vec{b}|^2 + |\\vec{c}|^2 = 4^2 + 1^2 + 4^2 = 16 + 1 + 16 = 33$."
+    },
+    {
+      "id": "vec_c01_036",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $\\vec{a}, \\vec{b}, \\vec{c}, \\vec{d}$ be four non-zero vectors in $\\mathbb{R}^3$, no three of which are coplanar. Consider the quadruple vector cross product $\\vec{V} = (\\vec{a}\\times\\vec{b})\\times(\\vec{c}\\times\\vec{d})$. Which of the following statements is/are correct?",
+      "options": [
+        "A) $\\vec{V} = [\\vec{a}\\;\\vec{b}\\;\\vec{d}]\\vec{c} - [\\vec{a}\\;\\vec{b}\\;\\vec{c}]\\vec{d}$",
+        "B) $\\vec{V} = [\\vec{a}\\;\\vec{c}\\;\\vec{d}]\\vec{b} - [\\vec{b}\\;\\vec{c}\\;\\vec{d}]\\vec{a}$",
+        "C) The vector $\\vec{V}$ is parallel to the line of intersection of the planes spanned by $\\{\\vec{a}, \\vec{b}\\}$ and $\\{\\vec{c}, \\vec{d}\\}$, provided the planes intersect along a line.",
+        "D) The scalar product $\\vec{V}\\cdot(\\vec{a}\\times\\vec{b})$ is strictly non-zero whenever $\\vec{a}\\times\\vec{b}$ and $\\vec{c}\\times\\vec{d}$ are non-orthogonal."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Let $\\vec{u} = \\vec{a}\\times\\vec{b}$. Then $\\vec{V} = \\vec{u} \\times (\\vec{c}\\times\\vec{d})$. Applying the vector triple product expansion identity $\\vec{u}\\times(\\vec{c}\\times\\vec{d}) = (\\vec{u}\\cdot\\vec{d})\\vec{c} - (\\vec{u}\\cdot\\vec{c})\\vec{d}$, and substituting $\\vec{u} = \\vec{a}\\times\\vec{b}$ gives $(\\vec{u}\\cdot\\vec{d}) = [\\vec{a}\\;\\vec{b}\\;\\vec{d}]$ and $(\\vec{u}\\cdot\\vec{c}) = [\\vec{a}\\;\\vec{b}\\;\\vec{c}]$. Therefore, $\\vec{V} = [\\vec{a}\\;\\vec{b}\\;\\vec{d}]\\vec{c} - [\\vec{a}\\;\\vec{b}\\;\\vec{c}]\\vec{d}$, confirming the validity of the first statement. Alternatively, treating $\\vec{w} = \\vec{c}\\times\\vec{d}$ and applying $(\\vec{a}\\times\\vec{b})\\times\\vec{w} = (\\vec{a}\\cdot\\vec{w})\\vec{b} - (\\vec{b}\\cdot\\vec{w})\\vec{a}$ gives $\\vec{V} = [\\vec{a}\\;\\vec{c}\\;\\vec{d}]\\vec{b} - [\\vec{b}\\;\\vec{c}\\;\\vec{d}]\\vec{a}$, confirming the second statement. Geometrically, $\\vec{a}\\times\\vec{b}$ is normal to the first plane and $\\vec{c}\\times\\vec{d}$ is normal to the second plane; their vector cross product $\\vec{V}$ is perpendicular to both normals, and hence lies along the line of intersection of the two planes, validating the third statement. Finally, because $\\vec{V} = (\\vec{a}\\times\\vec{b})\\times(\\vec{c}\\times\\vec{d})$, it is identically orthogonal to its first factor $\\vec{a}\\times\\vec{b}$, so $\\vec{V}\\cdot(\\vec{a}\\times\\vec{b}) = 0$ holds identically, refuting the fourth statement."
+    },
+    {
+      "id": "vec_c01_037",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider a tri-rectangular tetrahedron $OABC$ with vertex $O$ at the origin, where edges $OA, OB, OC$ lie along the mutually orthogonal unit vectors $\\hat{i}, \\hat{j}, \\hat{k}$ with lengths $a, b, c > 0$ respectively. Let $S$ denote the circumcenter of tetrahedron $OABC$, and let $\\Delta_{ABC}$ be the area of face $ABC$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The position vector of the circumcenter $S$ is $\\frac{1}{2}(a\\hat{i} + b\\hat{j} + c\\hat{k})$.",
+        "B) The circumradius $R$ of the tetrahedron satisfies $R^2 = \\frac{1}{4}(a^2 + b^2 + c^2)$.",
+        "C) The centroid of the tetrahedron has position vector $\\frac{1}{3}(a\\hat{i} + b\\hat{j} + c\\hat{k})$.",
+        "D) The area of face $ABC$ satisfies $\\Delta_{ABC}^2 = \\frac{1}{4}(a^2 b^2 + b^2 c^2 + c^2 a^2)$."
+      ],
+      "answer": "A,B,D",
+      "explanation": "Let $S(x, y, z)$ be the circumcenter of the tetrahedron. The circumcenter is equidistant from all four vertices $O(0,0,0), A(a,0,0), B(0,b,0), C(0,0,c)$. The condition $SO^2 = SA^2$ implies $x^2 + y^2 + z^2 = (x-a)^2 + y^2 + z^2 \\implies x = \\frac{a}{2}$. Similarly, $SO^2 = SB^2 \\implies y = \\frac{b}{2}$, and $SO^2 = SC^2 \\implies z = \\frac{c}{2}$. Thus, the position vector of the circumcenter is $\\vec{r}_S = \\frac{1}{2}(a\\hat{i} + b\\hat{j} + c\\hat{k})$, confirming the first statement. The circumradius is $R = |OS| = \\sqrt{\\left(\\frac{a}{2}\\right)^2 + \\left(\\frac{b}{2}\\right)^2 + \\left(\\frac{c}{2}\\right)^2} = \\frac{1}{2}\\sqrt{a^2 + b^2 + c^2}$, so $R^2 = \\frac{1}{4}(a^2 + b^2 + c^2)$, validating the second statement. The centroid of a tetrahedron is the average of its four vertices: $\\vec{r}_G = \\frac{O + A + B + C}{4} = \\frac{1}{4}(a\\hat{i} + b\\hat{j} + c\\hat{k})$; the third statement incorrectly uses the factor $\\frac{1}{3}$ corresponding to a triangle. Finally, using vector face area vectors: $\\vec{AB} = -a\\hat{i} + b\\hat{j}$ and $\\vec{AC} = -a\\hat{i} + c\\hat{k}$. Their cross product is $\\vec{AB}\\times\\vec{AC} = bc\\hat{i} + ca\\hat{j} + ab\\hat{k}$. The area is $\\Delta_{ABC} = \\frac{1}{2}|\\vec{AB}\\times\\vec{AC}| = \\frac{1}{2}\\sqrt{b^2 c^2 + c^2 a^2 + a^2 b^2}$, yielding $\\Delta_{ABC}^2 = \\frac{1}{4}(a^2 b^2 + b^2 c^2 + c^2 a^2)$ by de Gua's theorem, confirming the fourth statement."
+    },
+    {
+      "id": "vec_c01_038",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $\\vec{a}, \\vec{b}, \\vec{c}$ be three unit vectors in $\\mathbb{R}^3$ forming a right-handed system such that the angle between any pair of them is $\\frac{\\pi}{3}$. Let $\\vec{r} = x\\vec{a} + y\\vec{b} + z\\vec{c}$ be an arbitrary vector in $\\mathbb{R}^3$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The scalar triple product $[\\vec{a}\\;\\vec{b}\\;\\vec{c}]$ is equal to $\\frac{1}{\\sqrt{2}}$.",
+        "B) If $\\vec{r}\\cdot\\vec{a} = 1$, $\\vec{r}\\cdot\\vec{b} = 1$, and $\\vec{r}\\cdot\\vec{c} = 1$, then $x = y = z = \\frac{1}{2}$.",
+        "C) The reciprocal vector $\\vec{a}'$ can be written as $\\vec{a}' = 2\\vec{a} - \\vec{b} - \\vec{c}$.",
+        "D) The volume of the parallelepiped formed by $\\vec{a}\\times\\vec{b}$, $\\vec{b}\\times\\vec{c}$, and $\\vec{c}\\times\\vec{a}$ is equal to $\\frac{1}{2}$."
+      ],
+      "answer": "A,B,D",
+      "explanation": "First, evaluate the Gram determinant of the triad $\\vec{a}, \\vec{b}, \\vec{c}$. Since each vector is a unit vector and $\\vec{a}\\cdot\\vec{b} = \\vec{b}\\cdot\\vec{c} = \\vec{c}\\cdot\\vec{a} = \\cos(\\pi/3) = \\frac{1}{2}$, we have $[\\vec{a}\\;\\vec{b}\\;\\vec{c}]^2 = \\det \\begin{pmatrix} 1 & 1/2 & 1/2 \\\\ 1/2 & 1 & 1/2 \\\\ 1/2 & 1/2 & 1 \\end{pmatrix}$. Expanding the determinant yields $1\\left(1 - \\frac{1}{4}\\right) - \\frac{1}{2}\\left(\\frac{1}{2} - \\frac{1}{4}\\right) + \\frac{1}{2}\\left(\\frac{1}{4} - \\frac{1}{2}\\right) = \\frac{3}{4} - \\frac{1}{8} - \\frac{1}{8} = \\frac{1}{2}$. Since the system is right-handed, $[\\vec{a}\\;\\vec{b}\\;\\vec{c}] = \\frac{1}{\\sqrt{2}}$, which verifies the first statement. Next, taking dot products of $\\vec{r}$ with each basis vector yields the symmetric linear system: $x + \\frac{1}{2}y + \\frac{1}{2}z = 1$, $\\frac{1}{2}x + y + \\frac{1}{2}z = 1$, and $\\frac{1}{2}x + \\frac{1}{2}y + z = 1$. By symmetry, $x = y = z$. Substituting gives $x\\left(1 + \\frac{1}{2} + \\frac{1}{2}\\right) = 2x = 1 \\implies x = \\frac{1}{2}$, verifying the second statement. The reciprocal vector $\\vec{a}'$ must satisfy $\\vec{a}'\\cdot\\vec{a} = 1$ and $\\vec{a}'\\cdot\\vec{b} = \\vec{a}'\\cdot\\vec{c} = 0$. Testing $\\vec{a}' = 2\\vec{a} - \\vec{b} - \\vec{c}$ gives $\\vec{a}'\\cdot\\vec{a} = 2(1) - \\frac{1}{2} - \\frac{1}{2} = 1$, but $\\vec{a}'\\cdot\\vec{b} = 2\\left(\\frac{1}{2}\\right) - 1 - \\frac{1}{2} = -\\frac{1}{2} \\neq 0$, refuting the third statement. Finally, the volume of the parallelepiped formed by the mutual cross products is $[\\vec{a}\\times\\vec{b}\\quad \\vec{b}\\times\\vec{c}\\quad \\vec{c}\\times\\vec{a}] = [\\vec{a}\\;\\vec{b}\\;\\vec{c}]^2 = \\left(\\frac{1}{\\sqrt{2}}\\right)^2 = \\frac{1}{2}$, confirming the fourth statement."
+    },
+    {
+      "id": "vec_c01_039",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $\\vec{a}, \\vec{b}, \\vec{c}, \\vec{d}$ be non-zero vectors in $\\mathbb{R}^3$ such that $\\vec{a}\\cdot\\vec{c} \\neq 0$ and $[\\vec{a}\\;\\vec{b}\\;\\vec{c}] \\neq 0$. Consider the vector equation $\\vec{r} \\times \\vec{a} + (\\vec{r}\\cdot\\vec{b})\\vec{c} = \\vec{d}$. Which of the following statements is/are correct?",
+      "options": [
+        "A) Taking the scalar product with $\\vec{a}$ uniquely specifies $\\vec{r}\\cdot\\vec{b} = \\frac{\\vec{a}\\cdot\\vec{d}}{\\vec{a}\\cdot\\vec{c}}$.",
+        "B) If $\\vec{a}\\cdot\\vec{d} = 0$, then the vector equation reduces directly to $\\vec{r}\\times\\vec{a} = \\vec{d}$.",
+        "C) The vector $\\vec{w} = \\vec{d} - \\left(\\frac{\\vec{a}\\cdot\\vec{d}}{\\vec{a}\\cdot\\vec{c}}\\right)\\vec{c}$ is strictly orthogonal to $\\vec{a}$.",
+        "D) The solution vector $\\vec{r}$ must be orthogonal to $\\vec{c}$ for every possible vector $\\vec{d}$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Taking the scalar product of both sides of the equation $\\vec{r}\\times\\vec{a} + (\\vec{r}\\cdot\\vec{b})\\vec{c} = \\vec{d}$ with $\\vec{a}$: $(\\vec{r}\\times\\vec{a})\\cdot\\vec{a} + (\\vec{r}\\cdot\\vec{b})(\\vec{a}\\cdot\\vec{c}) = \\vec{a}\\cdot\\vec{d}$. Because the cross product $\\vec{r}\\times\\vec{a}$ is orthogonal to $\\vec{a}$, the first term vanishes identically: $(\\vec{r}\\times\\vec{a})\\cdot\\vec{a} = 0$. Since $\\vec{a}\\cdot\\vec{c} \\neq 0$, solving for the scalar projection yields $(\\vec{r}\\cdot\\vec{b}) = \\frac{\\vec{a}\\cdot\\vec{d}}{\\vec{a}\\cdot\\vec{c}}$, confirming the first statement. If $\\vec{a}\\cdot\\vec{d} = 0$, this scalar projection becomes $\\vec{r}\\cdot\\vec{b} = 0$, which simplifies the equation directly to $\\vec{r}\\times\\vec{a} = \\vec{d}$, confirming the second statement. Defining $\\vec{w} = \\vec{d} - \\left(\\frac{\\vec{a}\\cdot\\vec{d}}{\\vec{a}\\cdot\\vec{c}}\\right)\\vec{c}$, taking its scalar product with $\\vec{a}$ yields $\\vec{w}\\cdot\\vec{a} = \\vec{d}\\cdot\\vec{a} - \\left(\\frac{\\vec{a}\\cdot\\vec{d}}{\\vec{a}\\cdot\\vec{c}}\\right)(\\vec{c}\\cdot\\vec{a}) = \\vec{d}\\cdot\\vec{a} - \\vec{a}\\cdot\\vec{d} = 0$, proving that $\\vec{w} \\perp \\vec{a}$, which verifies the third statement. The fourth statement is false because $\\vec{r}\\cdot\\vec{c}$ depends arbitrarily on the geometry of $\\vec{d}$ and is not constrained to vanish."
+    },
+    {
+      "id": "vec_c01_040",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $\\vec{a}, \\vec{b}, \\vec{c}, \\vec{d}$ be four vectors in $\\mathbb{R}^3$. Define the scalar quantity $Q = (\\vec{a}\\times\\vec{b})\\cdot(\\vec{c}\\times\\vec{d})$. Which of the following expressions is/are identically equal to $Q$?",
+      "options": [
+        "A) $(\\vec{a}\\cdot\\vec{c})(\\vec{b}\\cdot\\vec{d}) - (\\vec{a}\\cdot\\vec{d})(\\vec{b}\\cdot\\vec{c})$",
+        "B) $\\begin{vmatrix} \\vec{a}\\cdot\\vec{c} & \\vec{a}\\cdot\\vec{d} \\\\ \\vec{b}\\cdot\\vec{c} & \\vec{b}\\cdot\\vec{d} \\end{vmatrix}$",
+        "C) $\\vec{a}\\cdot[\\vec{b}\\times(\\vec{c}\\times\\vec{d})]$",
+        "D) $[\\vec{a}\\;\\vec{b}\\;\\vec{c}] + [\\vec{a}\\;\\vec{b}\\;\\vec{d}]$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Using the cyclic property of the scalar triple product, treat $\\vec{c}\\times\\vec{d}$ as a single vector: $(\\vec{a}\\times\\vec{b})\\cdot(\\vec{c}\\times\\vec{d}) = \\vec{a}\\cdot[\\vec{b}\\times(\\vec{c}\\times\\vec{d})]$, which validates the third statement. Now expand the inner vector triple product via BAC-CAB: $\\vec{b}\\times(\\vec{c}\\times\\vec{d}) = (\\vec{b}\\cdot\\vec{d})\\vec{c} - (\\vec{b}\\cdot\\vec{c})\\vec{d}$. Taking the dot product with $\\vec{a}$ yields $\\vec{a}\\cdot[(\\vec{b}\\cdot\\vec{d})\\vec{c} - (\\vec{b}\\cdot\\vec{c})\\vec{d}] = (\\vec{a}\\cdot\\vec{c})(\\vec{b}\\cdot\\vec{d}) - (\\vec{a}\\cdot\\vec{d})(\\vec{b}\\cdot\\vec{c})$, which is Lagrange's four-vector identity and validates the first statement. Writing this algebraic expansion in determinant form gives $\\begin{vmatrix} \\vec{a}\\cdot\\vec{c} & \\vec{a}\\cdot\\vec{d} \\\\ \\vec{b}\\cdot\\vec{c} & \\vec{b}\\cdot\\vec{d} \\end{vmatrix} = (\\vec{a}\\cdot\\vec{c})(\\vec{b}\\cdot\\vec{d}) - (\\vec{a}\\cdot\\vec{d})(\\vec{b}\\cdot\\vec{c})$, which validates the second statement. The fourth statement represents a sum of scalar triple products, which has completely different physical units and does not equal $Q$."
+    },
+    {
+      "id": "vec_c01_041",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $A_1, A_2, A_3, A_4$ be the vertices of a non-degenerate tetrahedron in $\\mathbb{R}^3$ with position vectors $\\vec{r}_1, \\vec{r}_2, \\vec{r}_3, \\vec{r}_4$ respectively. Let $S_i$ denote the area of the face opposite to vertex $A_i$ (for $i=1,2,3,4$), and let $V$ be the volume of the tetrahedron. Which of the following statements is/are correct?",
+      "options": [
+        "A) The position vector $\\vec{r}_{\\text{in}}$ of the incenter of the tetrahedron is $\\frac{\\sum_{i=1}^4 S_i \\vec{r}_i}{\\sum_{i=1}^4 S_i}$.",
+        "B) The radius $r$ of the inscribed sphere is given by $r = \\frac{3V}{S_1 + S_2 + S_3 + S_4}$.",
+        "C) If $\\hat{n}_i$ denotes the outward unit normal to the face opposite to vertex $A_i$, then $\\sum_{i=1}^4 S_i \\hat{n}_i = \\vec{0}$.",
+        "D) The volume of the tetrahedron satisfies $V = \\frac{1}{3} r \\sum_{i=1}^4 S_i^2$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "The incenter $I$ partitions the tetrahedron into four smaller sub-tetrahedra sharing $I$ as a common apex with heights equal to the inradius $r$. The volume of the sub-tetrahedron based on the face opposite to $A_i$ is $V_i = \\frac{1}{3}S_i r$. Summing these sub-volumes gives $V = \\sum_{i=1}^4 V_i = \\frac{1}{3}r\\sum_{i=1}^4 S_i$, which implies $r = \\frac{3V}{\\sum_{i=1}^4 S_i}$, verifying the second statement and refuting the fourth statement. By barycentric volume coordinates, the position vector of the incenter is the weighted average $\\vec{r}_{\\text{in}} = \\frac{\\sum_{i=1}^4 V_i \\vec{r}_i}{V} = \\frac{\\frac{1}{3}r\\sum_{i=1}^4 S_i \\vec{r}_i}{\\frac{1}{3}r\\sum_{i=1}^4 S_i} = \\frac{\\sum_{i=1}^4 S_i \\vec{r}_i}{\\sum_{i=1}^4 S_i}$, which verifies the first statement. Furthermore, for any closed polyhedron in $\\mathbb{R}^3$, the vector sum of its directed face area vectors $\\vec{A}_i = S_i \\hat{n}_i$ vanishes identically: $\\sum_{i=1}^4 S_i \\hat{n}_i = \\vec{0}$, which verifies the third statement."
+    },
+    {
+      "id": "vec_c01_042",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\vec{a}, \\vec{b}, \\vec{c}, \\vec{d}$ be four unit vectors in $\\mathbb{R}^3$. The angle between $\\vec{a}$ and $\\vec{c}$ is $\\frac{\\pi}{3}$, the angle between $\\vec{b}$ and $\\vec{d}$ is $\\frac{\\pi}{4}$, the angle between $\\vec{a}$ and $\\vec{d}$ is $\\frac{\\pi}{6}$, and the angle between $\\vec{b}$ and $\\vec{c}$ is $\\frac{\\pi}{4}$. Evaluate the scalar quantity $(\\vec{a}\\times\\vec{b})\\cdot(\\vec{c}\\times\\vec{d})$.",
+      "options": [
+        "A) $\\frac{1 + \\sqrt{3}}{2\\sqrt{2}}$",
+        "B) $\\frac{1 - \\sqrt{3}}{2\\sqrt{2}}$",
+        "C) $\\frac{\\sqrt{3} - 1}{2\\sqrt{2}}$",
+        "D) $\\frac{1 - \\sqrt{3}}{\\sqrt{2}}$"
+      ],
+      "answer": "B",
+      "explanation": "Applying Lagrange's identity for the quadruple dot product of vectors: $(\\vec{a}\\times\\vec{b})\\cdot(\\vec{c}\\times\\vec{d}) = (\\vec{a}\\cdot\\vec{c})(\\vec{b}\\cdot\\vec{d}) - (\\vec{a}\\cdot\\vec{d})(\\vec{b}\\cdot\\vec{c})$. Since each vector has unit length, the dot products are given directly by the cosines of the respective angles: $\\vec{a}\\cdot\\vec{c} = \\cos\\left(\\frac{\\pi}{3}\\right) = \\frac{1}{2}$, $\\vec{b}\\cdot\\vec{d} = \\cos\\left(\\frac{\\pi}{4}\\right) = \\frac{1}{\\sqrt{2}}$, $\\vec{a}\\cdot\\vec{d} = \\cos\\left(\\frac{\\pi}{6}\\right) = \\frac{\\sqrt{3}}{2}$, and $\\vec{b}\\cdot\\vec{c} = \\cos\\left(\\frac{\\pi}{4}\\right) = \\frac{1}{\\sqrt{2}}$. Substituting these trigonometric values into the identity yields: $(\\vec{a}\\cdot\\vec{c})(\\vec{b}\\cdot\\vec{d}) = \\left(\\frac{1}{2}\\right)\\left(\\frac{1}{\\sqrt{2}}\\right) = \\frac{1}{2\\sqrt{2}}$, and $(\\vec{a}\\cdot\\vec{d})(\\vec{b}\\cdot\\vec{c}) = \\left(\\frac{\\sqrt{3}}{2}\\right)\\left(\\frac{1}{\\sqrt{2}}\\right) = \\frac{\\sqrt{3}}{2\\sqrt{2}}$. Computing their difference gives $(\\vec{a}\\times\\vec{b})\\cdot(\\vec{c}\\times\\vec{d}) = \\frac{1}{2\\sqrt{2}} - \\frac{\\sqrt{3}}{2\\sqrt{2}} = \\frac{1 - \\sqrt{3}}{2\\sqrt{2}}$. The distractor $\\frac{1 + \\sqrt{3}}{2\\sqrt{2}}$ adds rather than subtracts the terms, $\\frac{\\sqrt{3} - 1}{2\\sqrt{2}}$ reverses the subtraction order, and $\\frac{1 - \\sqrt{3}}{\\sqrt{2}}$ forgets the factor of 2 in the denominator."
+    },
+    {
+      "id": "vec_c01_043",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In a tetrahedron $OABC$, the vertex $O$ is at the origin and edges $OA, OB, OC$ are mutually perpendicular with lengths $2, 4$, and $4$ respectively. Using vector cross products to find the face area vectors, determine the area of the triangular face $ABC$.",
+      "options": [
+        "A) $8\\sqrt{6}$",
+        "B) $4\\sqrt{3}$",
+        "C) $4\\sqrt{6}$",
+        "D) $6\\sqrt{2}$"
+      ],
+      "answer": "C",
+      "explanation": "Set coordinate axes along the orthogonal edges: $A(2, 0, 0)$, $B(0, 4, 0)$, and $C(0, 0, 4)$. The edge vectors are $\\vec{AB} = -2\\hat{i} + 4\\hat{j}$ and $\\vec{AC} = -2\\hat{i} + 4\\hat{k}$. The area vector of face $ABC$ is $\\vec{S}_{ABC} = \\frac{1}{2}(\\vec{AB}\\times\\vec{AC})$. Computing the cross product: $\\vec{AB}\\times\\vec{AC} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ -2 & 4 & 0 \\\\ -2 & 0 & 4 \\end{vmatrix} = \\hat{i}(16 - 0) - \\hat{j}(-8 - 0) + \\hat{k}(0 - (-8)) = 16\\hat{i} + 8\\hat{j} + 8\\hat{k} = 8(2\\hat{i} + \\hat{j} + \\hat{k})$. Dividing by 2 gives $\\vec{S}_{ABC} = 4(2\\hat{i} + \\hat{j} + \\hat{k})$. The area of face $ABC$ is the magnitude: $\\Delta_{ABC} = |\\vec{S}_{ABC}| = 4\\sqrt{2^2 + 1^2 + 1^2} = 4\\sqrt{4 + 1 + 1} = 4\\sqrt{6}$. Alternatively, by de Gua's theorem, $\\Delta_{ABC}^2 = S_{OAB}^2 + S_{OBC}^2 + S_{OCA}^2 = \\left(\\frac{1}{2}\\cdot 2\\cdot 4\\right)^2 + \\left(\\frac{1}{2}\\cdot 4\\cdot 4\\right)^2 + \\left(\\frac{1}{2}\\cdot 4\\cdot 2\\right)^2 = 4^2 + 8^2 + 4^2 = 16 + 64 + 16 = 96$, so $\\Delta_{ABC} = \\sqrt{96} = 4\\sqrt{6}$. The distractor $8\\sqrt{6}$ forgets the factor $\\frac{1}{2}$, $4\\sqrt{3}$ miscalculates the sum of squares, and $6\\sqrt{2}$ evaluates an incorrect radical."
+    },
+    {
+      "id": "vec_c01_044",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The position vector $\\vec{r}$ of a variable point $P$ satisfies the sphere equation $(\\vec{r} - \\vec{a})\\cdot(\\vec{r} - \\vec{b}) = 0$, where $\\vec{a} = 2\\hat{i} + 3\\hat{j} - \\hat{k}$ and $\\vec{b} = 4\\hat{i} - \\hat{j} + 3\\hat{k}$ denote the endpoints of a diameter. If $P$ also lies on the plane $\\vec{r}\\cdot(\\hat{i} + \\hat{j} + \\hat{k}) = 4$, determine the radius of the circular cross section formed by this intersection.",
+      "options": [
+        "A) $\\sqrt{\\frac{28}{3}}$",
+        "B) $\\sqrt{\\frac{25}{3}}$",
+        "C) $\\sqrt{8}$",
+        "D) $\\sqrt{\\frac{26}{3}}$"
+      ],
+      "answer": "D",
+      "explanation": "The center of the sphere is the midpoint of the diameter $AB$: $\\vec{r}_C = \\frac{\\vec{a} + \\vec{b}}{2} = \\frac{(2+4)\\hat{i} + (3-1)\\hat{j} + (-1+3)\\hat{k}}{2} = 3\\hat{i} + \\hat{j} + \\hat{k}$. The diameter length is $|\\vec{b} - \\vec{a}| = \\sqrt{(4-2)^2 + (-1-3)^2 + (3 - (-1))^2} = \\sqrt{2^2 + (-4)^2 + 4^2} = \\sqrt{4 + 16 + 16} = 6$. Hence, the radius of the sphere is $R = \\frac{6}{2} = 3$. Next, compute the perpendicular distance $d$ from center $C(3, 1, 1)$ to the plane $\\vec{r}\\cdot(\\hat{i} + \\hat{j} + \\hat{k}) = 4$: $d = \\frac{|3(1) + 1(1) + 1(1) - 4|}{\\sqrt{1^2 + 1^2 + 1^2}} = \\frac{|5 - 4|}{\\sqrt{3}} = \\frac{1}{\\sqrt{3}}$. The radius of the circular cross-section is given by Pythagoras theorem: $r_{\\text{circle}} = \\sqrt{R^2 - d^2} = \\sqrt{3^2 - \\left(\\frac{1}{\\sqrt{3}}\\right)^2} = \\sqrt{9 - \\frac{1}{3}} = \\sqrt{\\frac{26}{3}}$. The distractor $\\sqrt{\\frac{28}{3}}$ incorrectly adds $d^2$ instead of subtracting, $\\sqrt{\\frac{25}{3}}$ uses $R^2 = 8$, and $\\sqrt{8}$ takes $d = 1$ without dividing by the normal magnitude $\\sqrt{3}$."
+    },
+    {
+      "id": "vec_c01_045",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $\\vec{a}, \\vec{b}, \\vec{c}$ be three unit vectors satisfying the condition $\\vec{a} \\times (\\vec{b} \\times \\vec{c}) = \\frac{1}{2}\\vec{b}$. If $\\vec{b}$ and $\\vec{c}$ are non-collinear vectors, $\\alpha$ is the angle between $\\vec{a}$ and $\\vec{b}$, and $\\beta$ is the angle between $\\vec{a}$ and $\\vec{c}$, determine the integer value of $12(\\sin^2\\alpha + \\cos^2\\beta)$.",
+      "options": [],
+      "answer": "15",
+      "explanation": "Expanding the vector triple product: $\\vec{a} \\times (\\vec{b} \\times \\vec{c}) = (\\vec{a}\\cdot\\vec{c})\\vec{b} - (\\vec{a}\\cdot\\vec{b})\\vec{c}$. Equating this to the right side $\\frac{1}{2}\\vec{b} + 0\\vec{c}$ is unique because $\\vec{b}$ and $\\vec{c}$ are linearly independent. Comparing coefficients gives $(\\vec{a}\\cdot\\vec{c}) = \\frac{1}{2}$ and $-(\\vec{a}\\cdot\\vec{b}) = 0 \\implies \\vec{a}\\cdot\\vec{b} = 0$. Since $\\vec{a}, \\vec{b}, \\vec{c}$ are unit vectors, $\\cos\\beta = \\vec{a}\\cdot\\vec{c} = \\frac{1}{2}$, which implies $\\cos^2\\beta = \\left(\\frac{1}{2}\\right)^2 = \\frac{1}{4}$. Furthermore, $\\vec{a}\\cdot\\vec{b} = 0 \\implies \\cos\\alpha = 0$, which yields $\\sin^2\\alpha = 1 - \\cos^2\\alpha = 1 - 0 = 1$. Evaluating the required trigonometric combination: $\\sin^2\\alpha + \\cos^2\\beta = 1 + \\frac{1}{4} = \\frac{5}{4}$. Multiplying by 12 yields $12\\left(\\frac{5}{4}\\right) = 15$."
+    },
+    {
+      "id": "vec_c01_046",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\vec{a}, \\vec{b}, \\vec{c}$ be three non-coplanar vectors with $[\\vec{a}\\;\\vec{b}\\;\\vec{c}] = V \\neq 0$. Let $\\vec{a}', \\vec{b}', \\vec{c}'$ be their reciprocal system of vectors defined by $\\vec{a}' = \\frac{\\vec{b}\\times\\vec{c}}{V}$, $\\vec{b}' = \\frac{\\vec{c}\\times\\vec{a}}{V}$, and $\\vec{c}' = \\frac{\\vec{a}\\times\\vec{b}}{V}$. Express the vector sum $\\vec{w} = \\vec{a}' \\times \\vec{b}' + \\vec{b}' \\times \\vec{c}' + \\vec{c}' \\times \\vec{a}'$ in terms of $\\vec{a}, \\vec{b}, \\vec{c}$, and $V$.",
+      "options": [
+        "A) $\\frac{\\vec{a} + \\vec{b} + \\vec{c}}{V}$",
+        "B) $\\frac{\\vec{a} + \\vec{b} + \\vec{c}}{V^2}$",
+        "C) $V(\\vec{a} + \\vec{b} + \\vec{c})$",
+        "D) $\\frac{\\vec{a}\\times\\vec{b} + \\vec{b}\\times\\vec{c} + \\vec{c}\\times\\vec{a}}{V}$"
+      ],
+      "answer": "A",
+      "explanation": "Evaluate the first term $\\vec{a}' \\times \\vec{b}'$: $\\vec{a}' \\times \\vec{b}' = \\frac{(\\vec{b}\\times\\vec{c}) \\times (\\vec{c}\\times\\vec{a})}{V^2}$. Using the quadruple cross product expansion: $(\\vec{b}\\times\\vec{c}) \\times (\\vec{c}\\times\\vec{a}) = [(\\vec{b}\\times\\vec{c})\\cdot\\vec{a}]\\vec{c} - [(\\vec{b}\\times\\vec{c})\\cdot\\vec{c}]\\vec{a}$. Since $(\\vec{b}\\times\\vec{c})\\cdot\\vec{c} = 0$ and $(\\vec{b}\\times\\vec{c})\\cdot\\vec{a} = [\\vec{b}\\;\\vec{c}\\;\\vec{a}] = [\\vec{a}\\;\\vec{b}\\;\\vec{c}] = V$, this simplifies to $V\\vec{c} - \\vec{0} = V\\vec{c}$. Dividing by $V^2$ gives $\\vec{a}' \\times \\vec{b}' = \\frac{V\\vec{c}}{V^2} = \\frac{\\vec{c}}{V}$. By cyclic permutation of symbols, $\\vec{b}' \\times \\vec{c}' = \\frac{\\vec{a}}{V}$, and $\\vec{c}' \\times \\vec{a}' = \\frac{\\vec{b}}{V}$. Summing these three cross products yields $\\vec{w} = \\frac{\\vec{c}}{V} + \\frac{\\vec{a}}{V} + \\frac{\\vec{b}}{V} = \\frac{\\vec{a} + \\vec{b} + \\vec{c}}{V}$. The distractor $\\frac{\\vec{a} + \\vec{b} + \\vec{c}}{V^2}$ fails to cancel the factor of $V$ in the numerator, $V(\\vec{a} + \\vec{b} + \\vec{c})$ inverts the scalar divisor, and the last option confuses the reciprocal basis with the original cross product basis."
+    },
+    {
+      "id": "vec_c01_047",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $\\vec{a}, \\vec{b}, \\vec{c}$ be three non-coplanar vectors in $\\mathbb{R}^3$ such that the volume of the parallelepiped determined by them is $[\\vec{a}\\;\\vec{b}\\;\\vec{c}] = 4$. Determine the volume of the parallelepiped whose coterminous edges are $\\vec{a}\\times\\vec{b}$, $\\vec{b}\\times\\vec{c}$, and $\\vec{c}\\times\\vec{a}$.",
+      "options": [],
+      "answer": "16",
+      "explanation": "The volume of the parallelepiped formed by the vector cross products is given by the scalar triple product $[(\\vec{a}\\times\\vec{b})\\quad (\\vec{b}\\times\\vec{c})\\quad (\\vec{c}\\times\\vec{a})]$. Expanding the inner cross product: $(\\vec{b}\\times\\vec{c}) \\times (\\vec{c}\\times\\vec{a}) = [(\\vec{b}\\times\\vec{c})\\cdot\\vec{a}]\\vec{c} - [(\\vec{b}\\times\\vec{c})\\cdot\\vec{c}]\\vec{a}$. Since $(\\vec{b}\\times\\vec{c})\\cdot\\vec{c} = 0$, this simplifies to $[\\vec{b}\\;\\vec{c}\\;\\vec{a}]\\vec{c} = [\\vec{a}\\;\\vec{b}\\;\\vec{c}]\\vec{c}$. Taking the scalar product with the remaining edge $(\\vec{a}\\times\\vec{b})$ yields $(\\vec{a}\\times\\vec{b})\\cdot([\\vec{a}\\;\\vec{b}\\;\\vec{c}]\\vec{c}) = [\\vec{a}\\;\\vec{b}\\;\\vec{c}](\\vec{a}\\times\\vec{b}\\cdot\\vec{c}) = [\\vec{a}\\;\\vec{b}\\;\\vec{c}]^2$. Given $[\\vec{a}\\;\\vec{b}\\;\\vec{c}] = 4$, substituting this value gives the required volume as $4^2 = 16$."
+    },
+    {
+      "id": "vec_c01_048",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\vec{a} = \\hat{i} + \\hat{j} + \\hat{k}$ and $\\vec{b} = 2\\hat{i} - \\hat{j} + \\hat{k}$. Solve the vector equation $\\vec{r} + (\\vec{r}\\times\\vec{a}) = \\vec{b}$ for the vector $\\vec{r}$.",
+      "options": [
+        "A) $\\frac{1}{2}\\hat{i} + \\frac{3}{2}\\hat{j}$",
+        "B) $\\frac{3}{2}\\hat{i} + \\frac{1}{2}\\hat{j}$",
+        "C) $\\frac{3}{2}\\hat{i} - \\frac{1}{2}\\hat{k}$",
+        "D) $\\hat{i} + \\frac{1}{2}\\hat{j} - \\frac{1}{2}\\hat{k}$"
+      ],
+      "answer": "B",
+      "explanation": "Taking the scalar product of both sides of $\\vec{r} + (\\vec{r}\\times\\vec{a}) = \\vec{b}$ with $\\vec{a}$: $\\vec{r}\\cdot\\vec{a} + (\\vec{r}\\times\\vec{a})\\cdot\\vec{a} = \\vec{b}\\cdot\\vec{a}$. Because $(\\vec{r}\\times\\vec{a})\\cdot\\vec{a} = 0$, we have $\\vec{r}\\cdot\\vec{a} = \\vec{b}\\cdot\\vec{a} = 2(1) - 1(1) + 1(1) = 2$. Next, take the cross product of the equation with $\\vec{a}$: $\\vec{r}\\times\\vec{a} + (\\vec{r}\\times\\vec{a})\\times\\vec{a} = \\vec{b}\\times\\vec{a}$. Applying BAC-CAB: $(\\vec{r}\\times\\vec{a})\\times\\vec{a} = (\\vec{r}\\cdot\\vec{a})\\vec{a} - (\\vec{a}\\cdot\\vec{a})\\vec{r} = 2\\vec{a} - 3\\vec{r}$ (since $|\\vec{a}|^2 = 3$). Substituting this back gives $(\\vec{r}\\times\\vec{a}) + 2\\vec{a} - 3\\vec{r} = \\vec{b}\\times\\vec{a}$. From the original equation, $\\vec{r}\\times\\vec{a} = \\vec{b} - \\vec{r}$. Substituting this yields $(\\vec{b} - \\vec{r}) + 2\\vec{a} - 3\\vec{r} = \\vec{b}\\times\\vec{a} \\implies 4\\vec{r} = \\vec{b} + 2\\vec{a} - (\\vec{b}\\times\\vec{a}) = \\vec{b} + 2\\vec{a} + (\\vec{a}\\times\\vec{b})$. Computing the cross product: $\\vec{a}\\times\\vec{b} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 1 & 1 & 1 \\\\ 2 & -1 & 1 \\end{vmatrix} = 2\\hat{i} + \\hat{j} - 3\\hat{k}$. Then $\\vec{b} + 2\\vec{a} = (2\\hat{i} - \\hat{j} + \\hat{k}) + 2(\\hat{i} + \\hat{j} + \\hat{k}) = 4\\hat{i} + \\hat{j} + 3\\hat{k}$. Thus, $4\\vec{r} = (4\\hat{i} + \\hat{j} + 3\\hat{k}) + (2\\hat{i} + \\hat{j} - 3\\hat{k}) = 6\\hat{i} + 2\\hat{j} + 0\\hat{k}$. Dividing by 4 gives $\\vec{r} = \\frac{3}{2}\\hat{i} + \\frac{1}{2}\\hat{j}$. The distractors swap the coefficients or introduce a non-zero $z$-component."
+    },
+    {
+      "id": "vec_c01_049",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $\\vec{a}, \\vec{b}, \\vec{c}$ be three vectors satisfying $|\\vec{a}| = 1$, $|\\vec{b}| = 2$, and $|\\vec{c}| = 3$. The scalar projection of $\\vec{b}$ on $\\vec{a}$ is equal to the scalar projection of $\\vec{c}$ on $\\vec{a}$, and $\\vec{b}$ is orthogonal to $\\vec{c}$. If $\\vec{a}\\cdot\\vec{b} = 1$, determine the integer value of $|\\vec{a} - 2\\vec{b} + \\vec{c}|^2$.",
+      "options": [],
+      "answer": "24",
+      "explanation": "The scalar projection of $\\vec{b}$ on $\\vec{a}$ is $\\frac{\\vec{b}\\cdot\\vec{a}}{|\\vec{a}|} = \\frac{1}{1} = 1$. The scalar projection of $\\vec{c}$ on $\\vec{a}$ is $\\frac{\\vec{c}\\cdot\\vec{a}}{|\\vec{a}|} = \\vec{c}\\cdot\\vec{a}$. Equating the projections gives $\\vec{c}\\cdot\\vec{a} = 1$. Since $\\vec{b}$ is orthogonal to $\\vec{c}$, we have $\\vec{b}\\cdot\\vec{c} = 0$. Now expand the squared norm of the linear combination: $|\\vec{a} - 2\\vec{b} + \\vec{c}|^2 = |\\vec{a}|^2 + 4|\\vec{b}|^2 + |\\vec{c}|^2 - 4(\\vec{a}\\cdot\\vec{b}) + 2(\\vec{a}\\cdot\\vec{c}) - 4(\\vec{b}\\cdot\\vec{c})$. Substituting the known magnitudes and scalar products: $|\\vec{a}|^2 = 1^2 = 1$, $4|\\vec{b}|^2 = 4(2^2) = 16$, $|\\vec{c}|^2 = 3^2 = 9$, $-4(\\vec{a}\\cdot\\vec{b}) = -4(1) = -4$, $2(\\vec{a}\\cdot\\vec{c}) = 2(1) = 2$, and $-4(\\vec{b}\\cdot\\vec{c}) = -4(0) = 0$. Summing these contributions gives $|\\vec{a} - 2\\vec{b} + \\vec{c}|^2 = 1 + 16 + 9 - 4 + 2 - 0 = 26 - 4 + 2 = 24$."
+    },
+    {
+      "id": "vec_c01_050",
+      "subject": "Mathematics",
+      "topic": "Vectors",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\hat{u}_1, \\hat{u}_2, \\hat{u}_3$ be three unit vectors emanating from the origin forming a right-handed system such that $[\\hat{u}_1\\;\\hat{u}_2\\;\\hat{u}_3] = \\frac{1}{\\sqrt{2}}$. If the acute angle between each pair of vectors is identical and equal to $\\theta$, determine the value of $\\cos\\theta$.",
+      "options": [
+        "A) $\\frac{1}{\\sqrt{2}}$",
+        "B) $\\frac{\\sqrt{3}}{2}$",
+        "C) $\\frac{1}{2}$",
+        "D) $\\frac{1}{3}$"
+      ],
+      "answer": "C",
+      "explanation": "The volume of the parallelepiped spanned by the three unit vectors is related to their Gram matrix by $[\\hat{u}_1\\;\\hat{u}_2\\;\\hat{u}_3]^2 = \\det G$. Since all three vectors are unit vectors and the angle between every distinct pair is $\\theta$, we have $\\hat{u}_i \\cdot \\hat{u}_i = 1$ and $\\hat{u}_i \\cdot \\hat{u}_j = \\cos\\theta$ for $i \\neq j$. Let $x = \\cos\\theta$. The Gram determinant is $\\det \\begin{pmatrix} 1 & x & x \\\\ x & 1 & x \\\\ x & x & 1 \\end{pmatrix} = (1 - x)^2(1 + 2x) = 1 - 3x^2 + 2x^3$. Given $[\\hat{u}_1\\;\\hat{u}_2\\;\\hat{u}_3] = \\frac{1}{\\sqrt{2}}$, squaring gives $\\det G = \\left(\\frac{1}{\\sqrt{2}}\\right)^2 = \\frac{1}{2}$. Equating the two expressions: $2x^3 - 3x^2 + 1 = \\frac{1}{2} \\implies 4x^3 - 6x^2 + 1 = 0$. Factoring the cubic polynomial: testing $x = \\frac{1}{2}$ gives $4\\left(\\frac{1}{8}\\right) - 6\\left(\\frac{1}{4}\\right) + 1 = \\frac{1}{2} - \\frac{3}{2} + 1 = 0$. Factoring out $(2x - 1)$ yields $(2x - 1)(2x^2 - 2x - 1) = 0$. For an acute angle between vectors in $\\mathbb{R}^3$, the valid geometric solution is $x = \\cos\\theta = \\frac{1}{2}$, which corresponds to $\\theta = \\frac{\\pi}{3}$. The distractor $\\frac{1}{\\sqrt{2}}$ assumes mutually orthogonal vectors, $\\frac{\\sqrt{3}}{2}$ corresponds to an angle of $\\frac{\\pi}{6}$, and $\\frac{1}{3}$ is the cosine between face diagonals of a cube."
+    }
+  ]
+}

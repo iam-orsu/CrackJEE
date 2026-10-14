@@ -1,0 +1,789 @@
+{
+  "questions": [
+    {
+      "id": "ss_c01_001",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Metallic copper crystallizes in a face-centered cubic lattice with a density of $8.93\\ \\mathrm{g\\ cm^{-3}}$. Given that the atomic mass of copper is $63.55\\ \\mathrm{g\\ mol^{-1}}$ and Avogadro's constant is $6.022 \\times 10^{23}\\ \\mathrm{mol^{-1}}$, what is the atomic radius of a copper atom?",
+      "options": [
+        "A) $128\\ \\mathrm{pm}$",
+        "B) $157\\ \\mathrm{pm}$",
+        "C) $181\\ \\mathrm{pm}$",
+        "D) $101\\ \\mathrm{pm}$"
+      ],
+      "answer": "A",
+      "explanation": "For an FCC unit cell, the number of atoms per unit cell is $Z = 4$. Using the density relation $\\rho = \\frac{Z M}{a^3 N_A}$, we calculate the unit cell volume $a^3 = \\frac{4 \\times 63.55}{8.93 \\times 6.022 \\times 10^{23}} = 4.727 \\times 10^{-23}\\ \\mathrm{cm^3} = 47.27 \\times 10^{-24}\\ \\mathrm{cm^3}$. Taking the cube root gives the edge length $a = 3.616 \\times 10^{-8}\\ \\mathrm{cm} = 361.6\\ \\mathrm{pm}$. In FCC, spherical atoms touch along the face diagonal, which yields $4r = \\sqrt{2}a$. Therefore, the atomic radius is $r = \\frac{a}{2\\sqrt{2}} = \\frac{361.6}{2.828} \\approx 128\\ \\mathrm{pm}$. Incorrectly applying the BCC relationship $r = \\frac{\\sqrt{3}a}{4}$ yields $157\\ \\mathrm{pm}$, whereas using simple cubic packing $r = \\frac{a}{2}$ produces $181\\ \\mathrm{pm}$."
+    },
+    {
+      "id": "ss_c01_002",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A transition metal crystallizes in a body-centered cubic (BCC) lattice. The atomic radius of the metal atom is $173.2\\ \\mathrm{pm}$ (take $\\sqrt{3} = 1.732$). If the measured density of the crystal is $7.50\\ \\mathrm{g\\ cm^{-3}}$ and Avogadro's constant is taken as $6.0 \\times 10^{23}\\ \\mathrm{mol^{-1}}$, determine the molar mass of the metal in $\\mathrm{g\\ mol^{-1}}$.",
+      "options": [],
+      "answer": "144",
+      "explanation": "In a BCC lattice, host atoms touch along the body diagonal, satisfying the condition $\\sqrt{3}a = 4r$. Substituting $r = 173.2\\ \\mathrm{pm}$ and $\\sqrt{3} = 1.732$, we find $a = \\frac{4 \\times 173.2}{1.732} = 400.0\\ \\mathrm{pm} = 4.0 \\times 10^{-8}\\ \\mathrm{cm}$. The unit cell volume is $a^3 = (4.0 \\times 10^{-8})^3 = 6.4 \\times 10^{-23}\\ \\mathrm{cm^3}$. For BCC, $Z = 2$. Applying the density formula $\\rho = \\frac{Z M}{a^3 N_A}$, we solve for the molar mass: $M = \\frac{\\rho a^3 N_A}{Z} = \\frac{7.50 \\times 6.4 \\times 10^{-23} \\times 6.0 \\times 10^{23}}{2} = \\frac{288}{2} = 144\\ \\mathrm{g\\ mol^{-1}}$."
+    },
+    {
+      "id": "ss_c01_003",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a crystalline mixed metal oxide, oxide ions form a cubic close-packed (ccp) lattice. Divalent cations $A^{2+}$ occupy one-eighth of the tetrahedral voids, while trivalent cations $B^{3+}$ occupy one-half of the octahedral voids. What is the empirical formula of the compound and the total number of moles of cations present in $1.0\\ \\mathrm{mol}$ of the pure crystal?",
+      "options": [
+        "A) $A_2BO_4\\text{ and } 3.0\\ \\mathrm{mol}$",
+        "B) $AB_2O_4\\text{ and } 3.0\\ \\mathrm{mol}$",
+        "C) $AB_2O_4\\text{ and } 7.0\\ \\mathrm{mol}$",
+        "D) $A_2B_3O_4\\text{ and } 5.0\\ \\mathrm{mol}$"
+      ],
+      "answer": "B",
+      "explanation": "In a CCP lattice, there are 4 oxide ions per unit cell. The number of tetrahedral voids is $2 \\times 4 = 8$, so the number of $A^{2+}$ ions is $8 \\times \\frac{1}{8} = 1$. The number of octahedral voids is 4, so the number of $B^{3+}$ ions is $4 \\times \\frac{1}{2} = 2$. The unit cell therefore contains $A_1 B_2 O_4$, giving the empirical formula $AB_2O_4$. In $1.0\\ \\mathrm{mol}$ of $AB_2O_4$, there is $1.0\\ \\mathrm{mol}$ of $A^{2+}$ and $2.0\\ \\mathrm{mol}$ of $B^{3+}$, yielding $1.0 + 2.0 = 3.0\\ \\mathrm{mol}$ of cations. Mistaking the total moles of all constituent ions for cations gives $7.0\\ \\mathrm{mol}$, while reversing the tetrahedral and octahedral void occupancies yields $A_2BO_4$."
+    },
+    {
+      "id": "ss_c01_004",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An allotrope of an element undergoes a structural phase transition from a simple cubic lattice to a body-centered cubic (BCC) lattice without any change in its atomic radius $r$. What is the ratio of the volume of the simple cubic unit cell to that of the body-centered cubic unit cell?",
+      "options": [
+        "A) $\\frac{8}{3\\sqrt{3}}$",
+        "B) $\\frac{4}{3\\sqrt{2}}$",
+        "C) $\\frac{3\\sqrt{3}}{8}$",
+        "D) $\\frac{\\sqrt{3}}{2}$"
+      ],
+      "answer": "C",
+      "explanation": "For a simple cubic lattice, atoms touch along the edge, so $a_1 = 2r$ and the unit cell volume is $V_1 = a_1^3 = 8r^3$. For a BCC lattice, atoms touch along the body diagonal, giving $\\sqrt{3}a_2 = 4r \\implies a_2 = \\frac{4r}{\\sqrt{3}}$, so the volume is $V_2 = a_2^3 = \\frac{64}{3\\sqrt{3}}r^3$. Taking the ratio yields $\\frac{V_1}{V_2} = \\frac{8r^3}{\\frac{64}{3\\sqrt{3}}r^3} = \\frac{8 \\times 3\\sqrt{3}}{64} = \\frac{3\\sqrt{3}}{8}$. Inverting the ratio results in $\\frac{8}{3\\sqrt{3}}$, and confusing face diagonal with body diagonal leads to $\\frac{4}{3\\sqrt{2}}$."
+    },
+    {
+      "id": "ss_c01_005",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In a body-centered cubic (BCC) crystal lattice with edge length $a$, let $N_1$ denote the number of nearest neighbors to an atom (at distance $\\frac{\\sqrt{3}}{2}a$) and $N_2$ denote the number of next-nearest neighbors (at distance $a$). What is the value of the sum $(N_1 + N_2)$?",
+      "options": [],
+      "answer": "14",
+      "explanation": "In a BCC lattice, every central atom is surrounded by 8 corner atoms along the body diagonals at distance $d_1 = \\frac{\\sqrt{3}}{2}a$, so the coordination number of nearest neighbors is $N_1 = 8$. The next-nearest neighbors are the atoms located at the centers of adjacent unit cells across the 6 cube faces at distance $d_2 = a$, giving $N_2 = 6$. Therefore, the required sum is $N_1 + N_2 = 8 + 6 = 14$."
+    },
+    {
+      "id": "ss_c01_006",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a face-centered cubic (FCC) close-packed lattice composed of hard spherical atoms of radius $R$, what is the center-to-center distance between a corner host atom and the center of the nearest tetrahedral void?",
+      "options": [
+        "A) $\\frac{\\sqrt{3}}{2}R$",
+        "B) $\\frac{\\sqrt{2}}{2}R$",
+        "C) $\\frac{\\sqrt{3}}{4}R$",
+        "D) $\\frac{\\sqrt{6}}{2}R$"
+      ],
+      "answer": "D",
+      "explanation": "In an FCC lattice, spherical host atoms touch along the face diagonal, giving $4R = \\sqrt{2}a$, which implies $a = 2\\sqrt{2}R$. Tetrahedral voids lie along each of the four body diagonals at one-fourth of the body diagonal from each corner: $d = \\frac{\\sqrt{3}}{4}a$. Substituting $a = 2\\sqrt{2}R$ yields $d = \\frac{\\sqrt{3}}{4}(2\\sqrt{2}R) = \\frac{2\\sqrt{6}}{4}R = \\frac{\\sqrt{6}}{2}R$. Taking half the body diagonal directly leads to the distance to the center of the unit cell $\\frac{\\sqrt{3}}{2}R$, while forgetting the face diagonal contact factor produces $\\frac{\\sqrt{3}}{4}R$."
+    },
+    {
+      "id": "ss_c01_007",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Iron undergoes a polymorphic transformation from $\\alpha$-Fe (body-centered cubic with lattice parameter $a = 2.87\\ \\text{\\AA}$) to $\\gamma$-Fe (face-centered cubic with lattice parameter $a = 3.59\\ \\text{\\AA}$). Assuming that the molar mass of iron remains strictly constant, what is the percentage change in density during the $\\alpha \\to \\gamma$ phase transition?",
+      "options": [
+        "A) $+2.2\\%$",
+        "B) $-4.4\\%$",
+        "C) $+8.8\\%$",
+        "D) $-1.8\\%$"
+      ],
+      "answer": "A",
+      "explanation": "The density of a cubic crystal is $\\rho = \\frac{Z M}{a^3 N_A}$. For $\\alpha$-Fe (BCC), $Z_1 = 2$ and $a_1 = 2.87 \\times 10^{-8}\\ \\mathrm{cm}$, so $\\rho_1 \\propto \\frac{2}{(2.87)^3} = \\frac{2}{23.64} = 0.08460\\ \\text{\\AA}^{-3}$. For $\\gamma$-Fe (FCC), $Z_2 = 4$ and $a_2 = 3.59 \\times 10^{-8}\\ \\mathrm{cm}$, so $\\rho_2 \\propto \\frac{4}{(3.59)^3} = \\frac{4}{46.27} = 0.08645\\ \\text{\\AA}^{-3}$. The relative change in density is $\\frac{\\rho_2 - \\rho_1}{\\rho_1} \\times 100\\% = \\frac{0.08645 - 0.08460}{0.08460} \\times 100\\% = \\frac{0.00185}{0.08460} \\times 100\\% \\approx +2.19\\% \\approx +2.2\\%$. Ignoring the change in the number of atoms per unit cell ($Z$) produces a large negative density change of $-48\\%$."
+    },
+    {
+      "id": "ss_c01_008",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In a normal spinel-type mixed oxide, oxide ions ($O^{2-}$) form a cubic close-packed (ccp) framework. Divalent cations $A^{2+}$ occupy one-eighth of the tetrahedral voids, while trivalent cations $B^{3+}$ occupy $x\\%$ of the octahedral voids such that electrical neutrality is strictly preserved. What is the value of $x$?",
+      "options": [],
+      "answer": "50",
+      "explanation": "In a CCP lattice, there are 4 oxide ions per unit cell, carrying a total negative charge of $4 \\times (-2) = -8$. The number of tetrahedral voids is $2 \\times 4 = 8$, so the number of $A^{2+}$ ions is $8 \\times \\frac{1}{8} = 1$, contributing a positive charge of $+2$. To achieve electrical neutrality, the total positive charge required from $B^{3+}$ ions is $8 - 2 = +6$. Therefore, the number of $B^{3+}$ ions per unit cell is $\\frac{6}{3} = 2$. In a CCP lattice, there are 4 octahedral voids per unit cell. The fraction of octahedral voids occupied is $\\frac{2}{4} = 0.50$, which corresponds to $x = 50\\%$."
+    },
+    {
+      "id": "ss_c01_009",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Cesium chloride ($CsCl$) crystallizes in a cubic lattice with edge length $a = 412\\ \\mathrm{pm}$, wherein $Cl^-$ ions occupy the corners and $Cs^+$ occupies the body center. If the ionic radius of $Cs^+$ is $169\\ \\mathrm{pm}$, what is the ionic radius of $Cl^-$ and the shortest interionic distance between two $Cl^-$ ions?",
+      "options": [
+        "A) $r(Cl^-) = 243\\ \\mathrm{pm}\\text{ and } 412\\ \\mathrm{pm}$",
+        "B) $r(Cl^-) = 188\\ \\mathrm{pm}\\text{ and } 412\\ \\mathrm{pm}$",
+        "C) $r(Cl^-) = 188\\ \\mathrm{pm}\\text{ and } 357\\ \\mathrm{pm}$",
+        "D) $r(Cl^-) = 169\\ \\mathrm{pm}\\text{ and } 206\\ \\mathrm{pm}$"
+      ],
+      "answer": "B",
+      "explanation": "In the $CsCl$ structure, the central $Cs^+$ ion touches the 8 corner $Cl^-$ ions along the body diagonal of the cube: $r(Cs^+) + r(Cl^-) = \\frac{\\sqrt{3}}{2}a$. Substituting $a = 412\\ \\mathrm{pm}$ and $\\sqrt{3} \\approx 1.732$, the contact distance is $\\frac{1.732 \\times 412}{2} = 356.8\\ \\mathrm{pm}$. Thus, $r(Cl^-) = 356.8 - 169 = 187.8\\ \\mathrm{pm} \\approx 188\\ \\mathrm{pm}$. The shortest distance between two $Cl^-$ ions is simply the edge length of the cubic unit cell, which is $a = 412\\ \\mathrm{pm}$. Confusing the body diagonal contact distance with edge length yields $357\\ \\mathrm{pm}$."
+    },
+    {
+      "id": "ss_c01_010",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a close-packed arrangement of uniform spheres of radius $R$, a small spherical interstitial solute of radius $r$ exactly fits into a tetrahedral void without causing any lattice distortion. What is the limiting radius ratio $r/R$, and what is the distance from the center of the tetrahedral void to the center of any of the four contacting host spheres?",
+      "options": [
+        "A) $\\frac{r}{R} = 0.414\\text{ and distance } = 1.414\\ R$",
+        "B) $\\frac{r}{R} = 0.732\\text{ and distance } = 1.732\\ R$",
+        "C) $\\frac{r}{R} = 0.225\\text{ and distance } = \\sqrt{\\frac{3}{2}}\\ R$",
+        "D) $\\frac{r}{R} = 0.155\\text{ and distance } = \\frac{\\sqrt{3}}{2}\\ R$"
+      ],
+      "answer": "C",
+      "explanation": "The centroid of a regular tetrahedron of edge length $L = 2R$ lies at distance $d = \\sqrt{\\frac{3}{8}} L = \\sqrt{\\frac{3}{8}}(2R) = \\sqrt{\\frac{3}{2}} R \\approx 1.225\\ R$ from each vertex. Because the interstitial sphere touches each host sphere, $R + r = \\sqrt{\\frac{3}{2}} R$, which yields $\\frac{r}{R} = \\sqrt{\\frac{3}{2}} - 1 = 1.225 - 1 = 0.225$. The value $0.414$ corresponds to an octahedral void, $0.732$ to a cubic void, and $0.155$ to a distorted octahedral void in a BCC lattice."
+    },
+    {
+      "id": "ss_c01_011",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A metallic element with molar mass $60.0\\ \\mathrm{g\\ mol^{-1}}$ crystallizes in a face-centered cubic (FCC) lattice with an edge length of $400\\ \\mathrm{pm}$. Using Avogadro's constant $N_A = 6.022 \\times 10^{23}\\ \\mathrm{mol^{-1}}$, how many unit cells are contained in exactly $100\\ \\mathrm{g}$ of this pure metal?",
+      "options": [
+        "A) $1.00 \\times 10^{24}$",
+        "B) $6.25 \\times 10^{22}$",
+        "C) $5.02 \\times 10^{23}$",
+        "D) $2.51 \\times 10^{23}$"
+      ],
+      "answer": "D",
+      "explanation": "For an FCC crystal, each unit cell contains $Z = 4$ atoms. The mass of one unit cell is $m_{\\mathrm{cell}} = \\frac{Z M}{N_A} = \\frac{4 \\times 60.0\\ \\mathrm{g\\ mol^{-1}}}{6.022 \\times 10^{23}\\ \\mathrm{mol^{-1}}} = 3.985 \\times 10^{-22}\\ \\mathrm{g}$. The total number of unit cells in $100\\ \\mathrm{g}$ of the metal is $\\frac{100\\ \\mathrm{g}}{3.985 \\times 10^{-22}\\ \\mathrm{g}} \\approx 2.51 \\times 10^{23}$. Forgetting that there are 4 atoms per unit cell yields $1.00 \\times 10^{24}$ (the total number of atoms), while dividing by 2 (assuming BCC) gives $5.02 \\times 10^{23}$."
+    },
+    {
+      "id": "ss_c01_012",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An ordered intermetallic alloy of copper and gold possesses a cubic unit cell in which gold atoms occupy all eight corners and copper atoms occupy all six face centers. The unit cell edge length is $3.74\\ \\text{\\AA}$. Given molar masses $M_{\\mathrm{Cu}} = 63.55\\ \\mathrm{g\\ mol^{-1}}$, $M_{\\mathrm{Au}} = 197.0\\ \\mathrm{g\\ mol^{-1}}$, and $N_A = 6.022 \\times 10^{23}\\ \\mathrm{mol^{-1}}$, find the density of the alloy in $\\mathrm{g\\ cm^{-3}}$ rounded to the nearest integer.",
+      "options": [],
+      "answer": "12",
+      "explanation": "Gold atoms occupy 8 corners, contributing $8 \\times \\frac{1}{8} = 1$ atom. Copper atoms occupy 6 face centers, contributing $6 \\times \\frac{1}{2} = 3$ atoms. The formula unit per unit cell is $\\mathrm{Cu_3Au}$ ($Z = 1$). The molar mass is $M = 3(63.55) + 197.0 = 190.65 + 197.0 = 387.65\\ \\mathrm{g\\ mol^{-1}}$. The unit cell volume is $V = a^3 = (3.74 \\times 10^{-8}\\ \\mathrm{cm})^3 = 5.231 \\times 10^{-23}\\ \\mathrm{cm^3}$. The density is $\\rho = \\frac{1 \\times 387.65}{5.231 \\times 10^{-23} \\times 6.022 \\times 10^{23}} = \\frac{387.65}{31.50} = 12.31\\ \\mathrm{g\\ cm^{-3}}$, which rounds to 12."
+    },
+    {
+      "id": "ss_c01_013",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a face-centered cubic lattice with unit cell edge length $a$, what is the shortest distance between the center of an octahedral void and the center of an adjacent tetrahedral void?",
+      "options": [
+        "A) $\\frac{\\sqrt{3}}{4} a$",
+        "B) $\\frac{a}{2}$",
+        "C) $\\frac{\\sqrt{2}}{4} a$",
+        "D) $\\frac{\\sqrt{3}}{2} a$"
+      ],
+      "answer": "A",
+      "explanation": "In an FCC unit cell of edge length $a$, one octahedral void is situated at the body center with fractional coordinates $\\left(\\frac{1}{2}, \\frac{1}{2}, \\frac{1}{2}\\right)$. The adjacent tetrahedral voids are situated at the centers of each of the 8 sub-cubes of side $\\frac{a}{2}$, with coordinates such as $\\left(\\frac{1}{4}, \\frac{1}{4}, \\frac{1}{4}\\right)$. The vector separating these two void centers is $\\vec{\\Delta} = \\left(\\frac{1}{4}, \\frac{1}{4}, \\frac{1}{4}\\right)a$. Therefore, the shortest distance is $d = \\sqrt{\\left(\\frac{1}{4}\\right)^2 + \\left(\\frac{1}{4}\\right)^2 + \\left(\\frac{1}{4}\\right)^2} a = \\frac{\\sqrt{3}}{4} a$. Confusing with edge-center to body-center distance gives $\\frac{a}{2}$, while taking the body diagonal gives $\\frac{\\sqrt{3}}{2}a$."
+    },
+    {
+      "id": "ss_c01_014",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "If a solid sodium chloride crystal is doped with $10^{-3}\\ \\mathrm{mol\\ \\%}$ of strontium chloride ($SrCl_2$), what is the total concentration of cation vacancies created per mole of $NaCl$?",
+      "options": [
+        "A) $1.204 \\times 10^{19}\\ \\mathrm{mol^{-1}}$",
+        "B) $6.022 \\times 10^{18}\\ \\mathrm{mol^{-1}}$",
+        "C) $6.022 \\times 10^{20}\\ \\mathrm{mol^{-1}}$",
+        "D) $3.011 \\times 10^{18}\\ \\mathrm{mol^{-1}}$"
+      ],
+      "answer": "B",
+      "explanation": "Each divalent strontium cation ($Sr^{2+}$) replaces two monovalent sodium cations ($Na^+$) in the lattice to maintain macroscopic electrical neutrality. One sodium site is occupied by the $Sr^{2+}$ ion, leaving the second site vacant as a cation vacancy. Thus, one cation vacancy is created per $Sr^{2+}$ ion introduced. Doping with $10^{-3}\\ \\mathrm{mol\\ \\%}$ means there are $\\frac{10^{-3}}{100} = 10^{-5}\\ \\mathrm{mol}$ of $Sr^{2+}$ per mole of $NaCl$. The number of cation vacancies created is therefore $10^{-5} \\times 6.022 \\times 10^{23} = 6.022 \\times 10^{18}\\ \\mathrm{mol^{-1}}$. Forgetting to divide the percentage by 100 leads to $6.022 \\times 10^{20}\\ \\mathrm{mol^{-1}}$."
+    },
+    {
+      "id": "ss_c01_015",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the fluorite ($CaF_2$) crystal lattice, calcium ions form a face-centered cubic array while fluoride ions occupy all the tetrahedral voids. What are the respective coordination numbers of $Ca^{2+}$ and $F^-$, and what is the shortest interionic distance between a $Ca^{2+}$ ion and an $F^-$ ion in terms of the lattice parameter $a$?",
+      "options": [
+        "A) $4\\text{ and } 8\\text{, with distance } \\frac{a}{2}$",
+        "B) $6\\text{ and } 6\\text{, with distance } \\frac{\\sqrt{2}}{4} a$",
+        "C) $8\\text{ and } 4\\text{, with distance } \\frac{\\sqrt{3}}{4} a$",
+        "D) $8\\text{ and } 8\\text{, with distance } \\frac{\\sqrt{3}}{2} a$"
+      ],
+      "answer": "C",
+      "explanation": "In the fluorite structure, each $Ca^{2+}$ ion is surrounded by 8 $F^-$ ions situated at the corners of a surrounding cube, giving coordination number 8 for $Ca^{2+}$. Each $F^-$ ion occupies a tetrahedral void and is surrounded by 4 $Ca^{2+}$ ions at the vertices of a tetrahedron, giving coordination number 4 for $F^-$. The shortest distance between $Ca^{2+}$ and $F^-$ is the distance from a corner of the unit cell to the nearest tetrahedral void along the body diagonal, which is $\\frac{\\sqrt{3}}{4} a$. Reversing the stoichiometry yields coordination numbers $4$ and $8$."
+    },
+    {
+      "id": "ss_c01_016",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An ionic crystal $MX$ possesses cation radius $r(M^+) = 126\\ \\mathrm{pm}$ and anion radius $r(X^-) = 216\\ \\mathrm{pm}$. Based on radius ratio rules, what is the expected coordination number and structural type under ambient conditions, and what structural transition occurs when the crystal is subjected to high hydrostatic pressure?",
+      "options": [
+        "A) Coordination number $4$ ($ZnS$ type); transforms to $NaCl$ type",
+        "B) Coordination number $8$ ($CsCl$ type); transforms to $NaCl$ type",
+        "C) Coordination number $6$ ($NaCl$ type); transforms to $ZnS$ type",
+        "D) Coordination number $6$ ($NaCl$ type); transforms to $CsCl$ type"
+      ],
+      "answer": "D",
+      "explanation": "The radius ratio is $\\frac{r_+}{r_-} = \\frac{126}{216} = 0.583$. Since $0.414 \\le 0.583 < 0.732$, the crystal under ambient conditions adopts octahedral coordination (coordination number 6) with an $NaCl$-type rock-salt structure. Applying high hydrostatic pressure reduces molar volume by forcing anions closer together, effectively increasing the relative coordination number from $6$ to $8$ ($NaCl \\to CsCl$ transition). Conversely, high temperature increases thermal amplitude and decreases coordination ($CsCl \\to NaCl$)."
+    },
+    {
+      "id": "ss_c01_017",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A non-stoichiometric transition metal oxide sample has the empirical formula $M_{0.80}O_{1.00}$, where the metal $M$ exists simultaneously in $+2$ and $+3$ oxidation states while oxygen is present as $O^{2-}$. Determine the percentage of metal ions present in the $+3$ oxidation state.",
+      "options": [],
+      "answer": "50",
+      "explanation": "Let the fraction of metal ions present as $M^{3+}$ be $f$, which implies that the fraction of $M^{2+}$ ions is $(1 - f)$. For macroscopic electrical neutrality, the total positive charge from $0.80$ moles of metal ions must exactly balance the $-2.00$ charge of one mole of oxide ions: $0.80[3f + 2(1 - f)] = 2.00$. Simplifying the expression inside the brackets gives $0.80(2 + f) = 2.00$, which yields $2 + f = \\frac{2.00}{0.80} = 2.50$. Therefore, $f = 2.50 - 2.00 = 0.50$, corresponding to $50\\%$ of the metal ions being in the $+3$ oxidation state."
+    },
+    {
+      "id": "ss_c01_018",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Potassium chloride ($KCl$, molar mass $74.55\\ \\mathrm{g\\ mol^{-1}}$) has an $NaCl$-type lattice with edge length $a = 629\\ \\mathrm{pm}$. The experimental density of the crystal is $1.964\\ \\mathrm{g\\ cm^{-3}}$, whereas its theoretical density calculated from crystallographic parameters is $1.990\\ \\mathrm{g\\ cm^{-3}}$. What is the percentage of vacant lattice sites caused by Schottky defects, and how many Schottky defect pairs exist per unit cell?",
+      "options": [
+        "A) $1.31\\%\\text{ vacancies and } 0.052\\text{ pairs per unit cell}$",
+        "B) $2.62\\%\\text{ vacancies and } 0.105\\text{ pairs per unit cell}$",
+        "C) $0.65\\%\\text{ vacancies and } 0.026\\text{ pairs per unit cell}$",
+        "D) $1.31\\%\\text{ vacancies and } 0.210\\text{ pairs per unit cell}$"
+      ],
+      "answer": "A",
+      "explanation": "Schottky defects reduce the actual mass of the crystal without altering the unit cell volume. The fraction of vacant lattice sites is given by $\\frac{\\rho_{\\mathrm{th}} - \\rho_{\\mathrm{exp}}}{\\rho_{\\mathrm{th}}} = \\frac{1.990 - 1.964}{1.990} = \\frac{0.026}{1.990} \\approx 0.01307 = 1.31\\%$. An $NaCl$-type unit cell contains $Z = 4$ formula units of $KCl$. The number of Schottky defect pairs per unit cell is $4 \\times 0.01307 \\approx 0.052$. Doubling the percentage by separately counting both cation and anion vacancies gives $2.62\\%$, which confuses the fraction of pairs with individual sites."
+    },
+    {
+      "id": "ss_c01_019",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Monochromatic X-radiation of wavelength $\\lambda = 1.542\\ \\text{\\AA}$ is incident on a face-centered cubic crystal of copper with lattice parameter $a = 3.615\\ \\text{\\AA}$. For first-order Bragg reflection from the $(111)$ crystallographic planes, what is the interplanar spacing $d_{111}$ and the glancing angle $\\theta$?",
+      "options": [
+        "A) $d_{111} = 1.808\\ \\text{\\AA}\\text{ and } \\theta \\approx 25.2^\\circ$",
+        "B) $d_{111} = 2.087\\ \\text{\\AA}\\text{ and } \\theta \\approx 21.7^\\circ$",
+        "C) $d_{111} = 2.556\\ \\text{\\AA}\\text{ and } \\theta \\approx 17.5^\\circ$",
+        "D) $d_{111} = 3.615\\ \\text{\\AA}\\text{ and } \\theta \\approx 12.3^\\circ$"
+      ],
+      "answer": "B",
+      "explanation": "For a cubic crystal, the interplanar spacing is $d_{hkl} = \\frac{a}{\\sqrt{h^2 + k^2 + l^2}}$. For the $(111)$ planes, $d_{111} = \\frac{3.615}{\\sqrt{1^2 + 1^2 + 1^2}} = \\frac{3.615}{\\sqrt{3}} = \\frac{3.615}{1.732} = 2.087\\ \\text{\\AA}$. According to Bragg's law, $n\\lambda = 2d\\sin\\theta$. For first-order diffraction ($n = 1$): $\\sin\\theta = \\frac{\\lambda}{2d_{111}} = \\frac{1.542}{2 \\times 2.087} = \\frac{1.542}{4.174} \\approx 0.3694$. Solving for $\\theta$ gives $\\theta = \\arcsin(0.3694) \\approx 21.7^\\circ$. Using the $(200)$ plane spacing $1.808\\ \\text{\\AA}$ instead of $(111)$ yields $25.2^\\circ$, and omitting the factor of 2 in Bragg's law yields $47.5^\\circ$."
+    },
+    {
+      "id": "ss_c01_020",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A cubic crystal with lattice parameter $a = 300\\ \\mathrm{pm}$ produces a second-order ($n = 2$) Bragg diffraction peak from its $(110)$ family of planes at a glancing angle of $\\theta = 30^\\circ$. Given $\\sin 30^\\circ = 0.500$ and $\\sqrt{2} = 1.414$, determine the wavelength $\\lambda$ of the incident X-ray beam in picometers to the nearest integer.",
+      "options": [],
+      "answer": "106",
+      "explanation": "The interplanar spacing for the $(110)$ planes of a cubic lattice is $d_{110} = \\frac{a}{\\sqrt{1^2 + 1^2 + 0^2}} = \\frac{300}{\\sqrt{2}} = \\frac{300}{1.414} = 212.16\\ \\mathrm{pm}$. Applying Bragg's law for second-order diffraction ($n = 2$): $n\\lambda = 2 d_{110} \\sin\\theta \\implies 2\\lambda = 2(212.16)(0.500) = 212.16$. Dividing by 2 yields $\\lambda = 106.08\\ \\mathrm{pm} \\approx 106\\ \\mathrm{pm}$."
+    },
+    {
+      "id": "ss_c01_021",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In an ideal hexagonal close-packed (HCP) crystal lattice of identical rigid spheres of radius $r$ and basal edge length $a = 2r$, what is the exact ratio of the unit cell height to basal edge length ($c/a$) and the total volume of the unit cell?",
+      "options": [
+        "A) $\\frac{c}{a} = \\sqrt{\\frac{3}{2}}\\text{ and } V = 12\\sqrt{3}r^3$",
+        "B) $\\frac{c}{a} = \\frac{2\\sqrt{2}}{\\sqrt{3}}\\text{ and } V = 16\\sqrt{2}r^3$",
+        "C) $\\frac{c}{a} = \\sqrt{\\frac{8}{3}}\\text{ and } V = 24\\sqrt{2}r^3$",
+        "D) $\\frac{c}{a} = \\frac{4}{\\sqrt{3}}\\text{ and } V = 32\\sqrt{2}r^3$"
+      ],
+      "answer": "C",
+      "explanation": "In an ideal HCP lattice, the vertical distance between adjacent close-packed layers is $h = 2r\\sqrt{\\frac{2}{3}}$, so the total height of the unit cell is $c = 2h = 4r\\sqrt{\\frac{2}{3}} = 2a\\sqrt{\\frac{2}{3}} = a\\sqrt{\\frac{8}{3}} \\approx 1.633 a$. The basal area consists of 6 equilateral triangles of side $a$: $A = 6 \\times \\frac{\\sqrt{3}}{4} a^2 = \\frac{3\\sqrt{3}}{2} a^2$. The volume of the unit cell is $V = A \\times c = \\frac{3\\sqrt{3}}{2} a^2 \\times a\\sqrt{\\frac{8}{3}} = 3\\sqrt{2} a^3$. Since $a = 2r$, $V = 3\\sqrt{2}(2r)^3 = 24\\sqrt{2} r^3$. Taking $V = 16\\sqrt{2}r^3$ forgets the triangular cross-section factor of 6."
+    },
+    {
+      "id": "ss_c01_022",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When silver bromide ($AgBr$) develops stoichiometric Frenkel defects upon thermal activation, how do its bulk crystal density and dielectric constant change in comparison to an ideal defect-free crystal?",
+      "options": [
+        "A) Crystal density decreases and dielectric constant decreases",
+        "B) Crystal density remains unchanged and dielectric constant increases",
+        "C) Crystal density decreases and dielectric constant remains unchanged",
+        "D) Crystal density increases and dielectric constant remains unchanged"
+      ],
+      "answer": "B",
+      "explanation": "In a Frenkel defect, a smaller cation ($Ag^+$) dislodges from its regular lattice site and occupies an interstitial void. Because no ions escape the crystal boundary, the total mass and unit cell volume remain invariant, so crystal density remains strictly unchanged. However, bringing positive ions into interstitial positions brings like charges into closer proximity, enhancing local electrostatic polarization and thereby increasing the crystal's dielectric constant. Mistaking Frenkel for Schottky defects leads to predicting a density decrease."
+    },
+    {
+      "id": "ss_c01_023",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Metallic magnesium crystallizes in a hexagonal close-packed (HCP) unit cell with basal lattice parameter $a = 3.21\\ \\text{\\AA}$ and vertical height $c = 5.21\\ \\text{\\AA}$. Given that the density of magnesium is $1.74\\ \\mathrm{g\\ cm^{-3}}$, molar mass is $24.31\\ \\mathrm{g\\ mol^{-1}}$, and $N_A = 6.022 \\times 10^{23}\\ \\mathrm{mol^{-1}}$, find the effective number of magnesium atoms ($Z$) belonging to one complete HCP unit cell.",
+      "options": [],
+      "answer": "6",
+      "explanation": "The basal area of the hexagonal prism is $A = \\frac{3\\sqrt{3}}{2} a^2 = \\frac{3 \\times 1.732}{2} \\times (3.21 \\times 10^{-8}\\ \\mathrm{cm})^2 = 2.598 \\times 1.030 \\times 10^{-15} = 2.676 \\times 10^{-15}\\ \\mathrm{cm^2}$. The volume of the unit cell is $V = A \\times c = 2.676 \\times 10^{-15}\\ \\mathrm{cm^2} \\times 5.21 \\times 10^{-8}\\ \\mathrm{cm} = 1.394 \\times 10^{-22}\\ \\mathrm{cm^3}$. Using $\\rho = \\frac{Z M}{V N_A}$, we solve for $Z$: $Z = \\frac{\\rho V N_A}{M} = \\frac{1.74 \\times 1.394 \\times 10^{-22} \\times 6.022 \\times 10^{23}}{24.31} = \\frac{146.06}{24.31} = 6.01 \\approx 6$."
+    },
+    {
+      "id": "ss_c01_024",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In an ionic lattice where rigid spherical anions of radius $R$ form an octahedral void, what is the minimum limiting radius ratio $\\frac{r_+}{r_-}$ required for a central cation of radius $r_+$ to touch all six anions simultaneously without pushing them apart?",
+      "options": [
+        "A) $\\sqrt{3} - 1 \\approx 0.732$",
+        "B) $\\sqrt{\\frac{3}{2}} - 1 \\approx 0.225$",
+        "C) $\\sqrt{2} - 1 \\approx 0.414$",
+        "D) $\\frac{2}{\\sqrt{3}} - 1 \\approx 0.155$"
+      ],
+      "answer": "C",
+      "explanation": "In an octahedral coordination environment, four equatorial anions form a square of edge length $2R$. The diagonal of this square passes through the center of the cation: $\\text{Diagonal} = 2R + 2r_+ = 2(R + r_+)$. Geometrically, the diagonal of a square with side $2R$ is $\\sqrt{2}(2R) = 2\\sqrt{2}R$. Equating these two expressions gives $2(R + r_+) = 2\\sqrt{2}R \\implies R + r_+ = \\sqrt{2}R$. Dividing by $R$ yields $\\frac{r_+}{r_-} = \\sqrt{2} - 1 \\approx 0.414$. The value $0.732$ corresponds to cubic 8-fold coordination, $0.225$ to tetrahedral 4-fold coordination, and $0.155$ to BCC octahedral voids."
+    },
+    {
+      "id": "ss_c01_025",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For a binary ionic compound $AB$ adopting the eight-coordinate cesium chloride ($CsCl$) structure, what is the minimum limiting radius ratio $\\frac{r_+}{r_-}$ necessary to maintain stable contact between the central cation and all eight corner anions without anion-anion overlap?",
+      "options": [
+        "A) $\\sqrt{3} - 1 \\approx 0.732$",
+        "B) $\\sqrt{2} - 1 \\approx 0.414$",
+        "C) $\\frac{\\sqrt{3}}{2} \\approx 0.866$",
+        "D) $\\sqrt{\\frac{3}{2}} - 1 \\approx 0.225$"
+      ],
+      "answer": "A",
+      "explanation": "In the $CsCl$ structure, anions touch along the cube edge in the limiting condition, so $a = 2r_-$. The cation at the center touches the corner anions along the body diagonal, which has length $\\sqrt{3}a$: $2(r_+ + r_-) = \\sqrt{3}a = \\sqrt{3}(2r_-) = 2\\sqrt{3}r_-$. Dividing both sides by 2 yields $r_+ + r_- = \\sqrt{3}r_-$. Dividing through by $r_-$ gives $\\frac{r_+}{r_-} + 1 = \\sqrt{3} \\implies \\frac{r_+}{r_-} = \\sqrt{3} - 1 \\approx 0.732$. If the radius ratio drops below $0.732$, anion-anion repulsion destabilizes the 8-coordinate lattice and drives transition to 6-coordinate $NaCl$."
+    },
+    {
+      "id": "ss_c01_026",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "If pure sodium chloride is doped with $2.0 \\times 10^{-4}\\ \\mathrm{mol\\ \\%}$ of aluminium chloride ($AlCl_3$), determine the number of cation vacancies created per mole of $NaCl$. If the answer is expressed in the form $N \\times 10^{17}\\ \\mathrm{vacancies\\ mol^{-1}}$ (taking $N_A = 6.0 \\times 10^{23}\\ \\mathrm{mol^{-1}}$), find the integer value of $N$.",
+      "options": [],
+      "answer": "24",
+      "explanation": "Each trivalent aluminium cation ($Al^{3+}$) replaces three monovalent sodium cations ($Na^+$) to maintain overall charge neutrality. One of the three vacated sites is occupied by the $Al^{3+}$ ion, leaving the remaining two sites vacant as cation vacancies. Thus, 2 cation vacancies are created per $Al^{3+}$ ion incorporated. The number of moles of $AlCl_3$ per mole of $NaCl$ is $\\frac{2.0 \\times 10^{-4}}{100} = 2.0 \\times 10^{-6}\\ \\mathrm{mol}$. The total number of cation vacancies created is $2 \\times (2.0 \\times 10^{-6}\\ \\mathrm{mol}) \\times (6.0 \\times 10^{23}\\ \\mathrm{mol^{-1}}) = 2.4 \\times 10^{18} = 24 \\times 10^{17}\\ \\mathrm{vacancies\\ mol^{-1}}$. Hence, $N = 24$."
+    },
+    {
+      "id": "ss_c01_027",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When a colorless crystal of sodium chloride is heated in an atmosphere of excess sodium vapor, it develops an intense yellow coloration. What is the fundamental physical defect responsible for this optical absorption, and how does it arise?",
+      "options": [
+        "A) Migration of excess $Na^+$ ions into interstitial sites forming Frenkel defects",
+        "B) Entrapment of electrons in anion vacancies (F-centers) produced by diffusion of chloride ions to the surface",
+        "C) Formation of Schottky defect pairs of vacant $Na^+$ and $Cl^-$ sites that scatter visible light",
+        "D) Substitution of divalent impurity cations into sodium sites causing local lattice contraction"
+      ],
+      "answer": "B",
+      "explanation": "When $NaCl$ is heated in sodium vapor, sodium atoms deposit on the crystal surface. Chloride ions ($Cl^-$) diffuse from the bulk to the surface to combine with sodium, ionizing as $Na \\to Na^+ + e^-$. The released electrons diffuse into the crystal and occupy the anionic vacancies left behind by the departed chloride ions. These trapped electrons at anion vacancies are known as F-centers (Farbzentren). Visible light absorption occurs when these trapped electrons undergo transitions between quantum states in the defect potential well, causing the characteristic yellow color."
+    },
+    {
+      "id": "ss_c01_028",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Zinc sulfide crystallizes in two distinct polymorphic crystalline modifications: Zinc Blende (sphalerite) and Wurtzite. Which statement correctly distinguishes the crystallographic arrangements of these two polymorphs?",
+      "options": [
+        "A) In Zinc Blende, sulfide ions form an FCC array with zinc in all octahedral voids; in Wurtzite, sulfide ions form an HCP array with zinc in all tetrahedral voids",
+        "B) In Zinc Blende, sulfide ions form an HCP array with zinc in alternate tetrahedral voids; in Wurtzite, sulfide ions form an FCC array with zinc in alternate tetrahedral voids",
+        "C) In Zinc Blende, sulfide ions form a cubic close-packed (FCC) array with zinc in half of the tetrahedral voids; in Wurtzite, sulfide ions form a hexagonal close-packed (HCP) array with zinc in half of the tetrahedral voids",
+        "D) In Zinc Blende, zinc and sulfide have $6:6$ octahedral coordination; in Wurtzite, they have $4:4$ tetrahedral coordination"
+      ],
+      "answer": "C",
+      "explanation": "Both Zinc Blende and Wurtzite maintain identical $4:4$ tetrahedral coordination where each $Zn^{2+}$ is surrounded by 4 $S^{2-}$ and each $S^{2-}$ is surrounded by 4 $Zn^{2+}$. The structural difference lies entirely in the close-packing arrangement of sulfide anions: in Zinc Blende, $S^{2-}$ ions form a cubic close-packed (ccp / FCC) lattice with $ABCABC...$ stacking, whereas in Wurtzite, $S^{2-}$ ions form a hexagonal close-packed (hcp) lattice with $ABAB...$ stacking. In both lattices, $Zn^{2+}$ cations occupy exactly half (alternate) of the tetrahedral voids."
+    },
+    {
+      "id": "ss_c01_029",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In the diamond cubic crystal structure, carbon atoms occupy all face-centered cubic lattice sites and half of the tetrahedral interstitial sites. If the atomic packing factor (packing efficiency) of the diamond lattice is expressed as $\\frac{\\pi\\sqrt{3}}{k}$, determine the integer value of $k$.",
+      "options": [],
+      "answer": "16",
+      "explanation": "The diamond unit cell contains 8 carbon atoms ($Z = 4 + 4 = 8$). Carbon atoms touch along the body diagonal, satisfying $2r = \\frac{\\sqrt{3}a}{4} \\implies r = \\frac{\\sqrt{3}a}{8}$. The total volume occupied by the 8 spherical atoms is $V_{\\mathrm{atoms}} = 8 \\times \\frac{4}{3}\\pi r^3 = \\frac{32}{3}\\pi \\left(\\frac{\\sqrt{3}a}{8}\\right)^3 = \\frac{32}{3}\\pi \\frac{3\\sqrt{3}a^3}{512} = \\frac{\\pi\\sqrt{3}}{16}a^3$. The atomic packing factor is $\\eta = \\frac{V_{\\mathrm{atoms}}}{a^3} = \\frac{\\pi\\sqrt{3}}{16} \\approx 0.3401$ (or $34\\%$). Comparing this with $\\frac{\\pi\\sqrt{3}}{k}$ gives $k = 16$."
+    },
+    {
+      "id": "ss_c01_030",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In powder X-ray diffraction analysis, which of the following families of crystallographic planes $(hkl)$ will produce constructive interference diffraction peaks for a body-centered cubic (BCC) metal?",
+      "options": [
+        "A) $(100), (111),\\text{ and } (210)$",
+        "B) $(110), (210),\\text{ and } (300)$",
+        "C) $(111), (210),\\text{ and } (221)$",
+        "D) $(110), (200),\\text{ and } (211)$"
+      ],
+      "answer": "D",
+      "explanation": "The structure factor for a body-centered cubic unit cell is $F_{hkl} = f [1 + e^{-i\\pi(h + k + l)}]$. When $(h + k + l)$ is an odd integer, $e^{-i\\pi(h + k + l)} = -1$, yielding $F_{hkl} = 0$ (systematic extinction). When $(h + k + l)$ is an even integer, $F_{hkl} = 2f$, producing strong diffraction reflections. For $(110)$, $h + k + l = 1 + 1 + 0 = 2$ (even); for $(200)$, $2 + 0 + 0 = 2$ (even); for $(211)$, $2 + 1 + 1 = 4$ (even). All three planes satisfy the selection rule for BCC. Planes like $(100)$ and $(111)$ have odd sums and are forbidden in BCC."
+    },
+    {
+      "id": "ss_c01_031",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Sodium oxide ($Na_2O$) crystallizes in the antifluorite structure, where oxide ions form a face-centered cubic lattice and sodium ions occupy all eight tetrahedral voids. Assuming hard-sphere contact between adjacent sodium and oxide ions, what is the theoretical unit cell edge length $a$ given ionic radii $r(Na^+) = 102\\ \\mathrm{pm}$ and $r(O^{2-}) = 140\\ \\mathrm{pm}$?",
+      "options": [
+        "A) $559\\ \\mathrm{pm}$",
+        "B) $484\\ \\mathrm{pm}$",
+        "C) $342\\ \\mathrm{pm}$",
+        "D) $684\\ \\mathrm{pm}$"
+      ],
+      "answer": "A",
+      "explanation": "In the antifluorite lattice, each tetrahedral void is located at distance $\\frac{\\sqrt{3}}{4}a$ from a corner oxide ion along the body diagonal. In the limiting contact condition between the interstitial $Na^+$ and the host $O^{2-}$ ion: $r(Na^+) + r(O^{2-}) = \\frac{\\sqrt{3}}{4} a$. Substituting the given values: $102 + 140 = 242\\ \\mathrm{pm} = \\frac{\\sqrt{3}}{4} a$. Solving for the lattice parameter: $a = \\frac{4 \\times 242}{\\sqrt{3}} = \\frac{968}{1.732} \\approx 558.9\\ \\mathrm{pm} \\approx 559\\ \\mathrm{pm}$. Incorrectly assuming face-diagonal contact between $Na^+$ and $O^{2-}$ leads to $a = 484\\ \\mathrm{pm}$."
+    },
+    {
+      "id": "ss_c01_032",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The enthalpy of formation of a Schottky defect pair in an ionic crystal $MX$ is $\\Delta H_s = 200\\ \\mathrm{kJ\\ mol^{-1}}$. Assuming the vibrational entropy change is negligible, by what factor does the equilibrium concentration of Schottky defects increase when the temperature is raised from $600\\ \\mathrm{K}$ to $1200\\ \\mathrm{K}$? (Take $R = 8.314\\ \\mathrm{J\\ mol^{-1}\\ K^{-1}}$ and $e^{10.02} \\approx 2.25 \\times 10^4$).",
+      "options": [
+        "A) $2.00$",
+        "B) $2.25 \\times 10^4$",
+        "C) $5.07 \\times 10^8$",
+        "D) $1.50 \\times 10^2$"
+      ],
+      "answer": "B",
+      "explanation": "The equilibrium number of Schottky defect pairs is given by $n = N \\exp\\left(-\\frac{\\Delta H_s}{2 R T}\\right)$, where the factor of 2 accounts for creating two defect sites (one cation vacancy and one anion vacancy) per pair. The ratio of defect concentrations at $T_2 = 1200\\ \\mathrm{K}$ and $T_1 = 600\\ \\mathrm{K}$ is $\\frac{n_2}{n_1} = \\exp\\left[-\\frac{\\Delta H_s}{2R}\\left(\\frac{1}{T_2} - \\frac{1}{T_1}\\right)\\right]$. Substituting values: Exponent $= -\\frac{200000}{2 \\times 8.314}\\left(\\frac{1}{1200} - \\frac{1}{600}\\right) = \\frac{100000}{8.314} \\times \\frac{1}{1200} = \\frac{100000}{9976.8} \\approx 10.023$. Thus, $\\frac{n_2}{n_1} = e^{10.023} \\approx 2.25 \\times 10^4$. Forgetting the factor of 2 produces $e^{20.05} \\approx 5.07 \\times 10^8$."
+    },
+    {
+      "id": "ss_c01_033",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In corundum ($alpha-\\mathrm{Al_2O_3}$), oxide ions form a hexagonal close-packed (HCP) array while aluminium ions occupy octahedral voids. What fraction of the octahedral voids is occupied by $\\mathrm{Al^{3+}}$ ions, and what are the coordination numbers of aluminium and oxide ions, respectively?",
+      "options": [
+        "A) $\\frac{1}{3}\\text{; coordination numbers: } 6\\text{ and } 3$",
+        "B) $\\frac{1}{2}\\text{; coordination numbers: } 4\\text{ and } 6$",
+        "C) $\\frac{2}{3}\\text{; coordination numbers: } 6\\text{ and } 4$",
+        "D) $\\frac{3}{4}\\text{; coordination numbers: } 6\\text{ and } 4$"
+      ],
+      "answer": "C",
+      "explanation": "In an HCP lattice containing $N$ oxide ions, the total number of octahedral voids is $N$. According to the formula $\\mathrm{Al_2O_3}$, for every 3 oxide ions there are 2 aluminium ions, so for $N$ oxide ions there are $\\frac{2}{3}N$ aluminium ions. Because all $\\mathrm{Al^{3+}}$ reside in octahedral voids, the fraction of occupied octahedral voids is $\\frac{\\frac{2}{3}N}{N} = \\frac{2}{3}$. Being in an octahedral void, each $\\mathrm{Al^{3+}}$ has coordination number 6. By stoichiometry, $2 \\times CN(\\mathrm{Al}) = 3 \\times CN(\\mathrm{O}) \\implies 2 \\times 6 = 3 \\times CN(\\mathrm{O}) \\implies CN(\\mathrm{O}) = 4$."
+    },
+    {
+      "id": "ss_c01_034",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $N_{\\mathrm{sc}}$, $N_{\\mathrm{bcc}}$, and $N_{\\mathrm{fcc}}$ denote the number of nearest neighbors (coordination numbers) of an atom in a simple cubic lattice, a body-centered cubic lattice, and a face-centered cubic lattice, respectively. Determine the integer value of $(N_{\\mathrm{fcc}} + N_{\\mathrm{bcc}} - N_{\\mathrm{sc}})$.",
+      "options": [],
+      "answer": "14",
+      "explanation": "For a simple cubic lattice, each atom has 6 nearest neighbors along the cube axes ($N_{\\mathrm{sc}} = 6$). For a body-centered cubic lattice, each atom has 8 nearest neighbors along the body diagonals ($N_{\\mathrm{bcc}} = 8$). For a face-centered cubic lattice, each atom touches 12 nearest neighbors along the face diagonals ($N_{\\mathrm{fcc}} = 12$). Evaluating the given linear combination: $N_{\\mathrm{fcc}} + N_{\\mathrm{bcc}} - N_{\\mathrm{sc}} = 12 + 8 - 6 = 14$."
+    },
+    {
+      "id": "ss_c01_035",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A transition metal oxide is antiferromagnetic at $150\\ \\mathrm{K}$, exhibiting zero net magnetic moment due to strict antiparallel spin alignment in adjacent sublattices. When heated above its Néel temperature ($T_N = 300\\ \\mathrm{K}$), what fundamental change occurs in its magnetic domain structure and magnetic susceptibility $\\chi$?",
+      "options": [
+        "A) It transforms into a ferromagnetic material with spontaneous magnetization",
+        "B) It transforms into a diamagnetic material with negative susceptibility independent of temperature",
+        "C) It transforms into a ferrimagnetic material with unequal parallel and antiparallel dipoles",
+        "D) It transforms into a paramagnetic material whose susceptibility decreases monotonically with temperature"
+      ],
+      "answer": "D",
+      "explanation": "In an antiferromagnetic crystal below its Néel temperature ($T_N$), exchange interactions lock magnetic dipoles into equal and opposite directions on alternating sublattices, causing complete cancellation of the macroscopic magnetic moment. When heated above $T_N$, thermal kinetic energy overcomes this exchange coupling, causing complete randomization of individual magnetic dipoles. Consequently, the material transforms into a paramagnetic state where its magnetic susceptibility follows the Curie-Weiss law $\\chi = \\frac{C}{T + \\theta}$, decreasing monotonically with increasing temperature."
+    },
+    {
+      "id": "ss_c01_036",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In the ideal cubic perovskite crystal structure of calcium titanate ($CaTiO_3$), calcium ions ($Ca^{2+}$) occupy all eight cube corners, titanium ions ($Ti^{4+}$) occupy the body-center site, and oxide ions ($O^{2-}$) occupy all six face-center positions. Which of the following statements regarding this crystal lattice is/are correct?",
+      "options": [
+        "A) The coordination number of $Ca^{2+}$ is $12$, being surrounded by $12$ oxide ions at an interionic distance of $\\frac{a}{\\sqrt{2}}$",
+        "B) The coordination number of $Ti^{4+}$ is $6$, being octahedrally surrounded by $6$ oxide ions at a distance of $\\frac{a}{2}$",
+        "C) Each $O^{2-}$ ion is coordinated to two $Ti^{4+}$ ions linearly at distance $\\frac{a}{2}$ and four $Ca^{2+}$ ions coplanarly at distance $\\frac{a}{\\sqrt{2}}$",
+        "D) For an ideal cubic perovskite lattice with mutually touching rigid spheres, the Goldschmidt tolerance factor is $t = \\frac{r_{Ca^{2+}} + r_{O^{2-}}}{\\sqrt{2}(r_{Ti^{4+}} + r_{O^{2-}})} = 1$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Evaluating each statement systematically: First, consider $Ca^{2+}$ at $(0,0,0)$. The nearest oxide ions lie at the face centers of the 12 edges radiating from the origin. The distance is $\\sqrt{(a/2)^2 + (a/2)^2 + 0} = \\frac{a}{\\sqrt{2}}$. Hence, the coordination number of $Ca^{2+}$ is 12, confirming statement A. Second, $Ti^{4+}$ at $(1/2, 1/2, 1/2)$ is coordinated to 6 face-center oxide ions at distance $\\frac{a}{2}$, forming a regular octahedron with coordination number 6, which implies statement B is true. Third, each $O^{2-}$ at $(1/2, 1/2, 0)$ is sandwiched between two $Ti^{4+}$ ions along the z-axis at distance $\\frac{a}{2}$, and surrounded by four $Ca^{2+}$ ions in the xy-plane at distance $\\frac{a}{\\sqrt{2}}$, confirming statement C. Fourth, along the cube edge, $Ti-O$ contact yields $a = 2(r_{Ti^{4+}} + r_{O^{2-}})$, while along the face diagonal, $Ca-O$ contact yields $\\sqrt{2}a = 2(r_{Ca^{2+}} + r_{O^{2-}})$. Substituting the edge length gives $\\sqrt{2}[2(r_{Ti^{4+}} + r_{O^{2-}})] = 2(r_{Ca^{2+}} + r_{O^{2-}})$, therefore $t = \\frac{r_{Ca^{2+}} + r_{O^{2-}}}{\\sqrt{2}(r_{Ti^{4+}} + r_{O^{2-}})} = 1$, yielding statement D."
+    },
+    {
+      "id": "ss_c01_037",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Magnetite ($Fe_3O_4$) crystallizes in an inverse spinel lattice whereas magnesium aluminate ($MgAl_2O_4$) adopts a normal spinel lattice. In both lattices, oxide ions ($O^{2-}$) establish a face-centered cubic close-packed framework with 32 oxide ions per unit cell. Which of the following statements is/are correct?",
+      "options": [
+        "A) In $MgAl_2O_4$, $Mg^{2+}$ cations occupy one-eighth of the tetrahedral voids and $Al^{3+}$ cations occupy one-half of the octahedral voids",
+        "B) In $Fe_3O_4$, half of the $Fe^{3+}$ ions occupy tetrahedral sites, while the remaining $Fe^{3+}$ ions and all $Fe^{2+}$ ions occupy octahedral sites",
+        "C) The site preference in $Fe_3O_4$ is driven by crystal field stabilization energy because high-spin $Fe^{2+}$ ($d^6$) has CFSE of $-0.4\\Delta_o$ in octahedral geometry, whereas $Fe^{3+}$ ($d^5$) has zero CFSE",
+        "D) Magnetite exhibits ferrimagnetism at room temperature because the magnetic moments of $Fe^{3+}$ in tetrahedral and octahedral sublattices cancel antiparallelly, leaving a net saturation magnetization from $Fe^{2+}$ ions"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Analyzing the spinel structures step-by-step: In $MgAl_2O_4$, the unit cell has 32 oxide ions, 64 tetrahedral voids, and 32 octahedral voids. Stoichiometry requires $8\\ Mg^{2+}$ and $16\\ Al^{3+}$. Substituting these counts into void totals shows $Mg^{2+}$ occupies $\\frac{8}{64} = \\frac{1}{8}$ of tetrahedral voids and $Al^{3+}$ occupies $\\frac{16}{32} = \\frac{1}{2}$ of octahedral voids, confirming statement A. In inverse spinel $Fe_3O_4$, the cation distribution is formulated as $Fe^{3+}[Fe^{2+}Fe^{3+}]O_4$. Therefore, 8 $Fe^{3+}$ occupy tetrahedral sites, while 8 $Fe^{3+}$ and 8 $Fe^{2+}$ occupy octahedral sites, validating statement B. Regarding energetics, $Fe^{3+}$ ($d^5$, $t_{2g}^3 e_g^2$) has zero crystal field stabilization energy in both geometries, whereas high-spin $Fe^{2+}$ ($d^6$, $t_{2g}^4 e_g^2$) has $\\mathrm{CFSE} = -0.4\\Delta_o$ in octahedral fields and $-0.27\\Delta_o$ in tetrahedral fields. Applying ligand field theory, the octahedral site stabilization energy strongly favors $Fe^{2+}$ in octahedral holes, hence confirming statement C. For magnetic ordering, superexchange coupling aligns the tetrahedral $Fe^{3+}$ spins antiparallel to the octahedral $Fe^{3+}$ spins, resulting in exact mutual cancellation. We get a net magnetic moment that stems entirely from the high-spin $Fe^{2+}$ ions ($4\\ \\mu_B$), yielding ferrimagnetic behavior as described in statement D."
+    },
+    {
+      "id": "ss_c01_038",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In the body-centered cubic (BCC) lattice of $\\alpha$-iron with lattice constant $a$ and atomic radius $R$, interstitial octahedral voids are located at the center of each cube face and the midpoint of each cube edge. These interstitial sites represent distorted octahedra due to tetragonal anisotropy. What is the maximum radius $r_{\\mathrm{oct}}$ of an interstitial solute sphere that can fit into such an octahedral void without straining the host iron lattice?",
+      "options": [
+        "A) $\\left(\\frac{2}{\\sqrt{3}} - 1\\right)R \\approx 0.155\\ R$",
+        "B) $\\left(\\sqrt{\\frac{5}{3}} - 1\\right)R \\approx 0.291\\ R$",
+        "C) $(\\sqrt{2} - 1)R \\approx 0.414\\ R$",
+        "D) $\\left(\\sqrt{\\frac{3}{2}} - 1\\right)R \\approx 0.225\\ R$"
+      ],
+      "answer": "A",
+      "explanation": "In BCC iron, host atoms touch along the body diagonal, satisfying $\\sqrt{3}a = 4R \\implies a = \\frac{4R}{\\sqrt{3}}$. Consider an octahedral void located at the face center $\\left(\\frac{1}{2}, \\frac{1}{2}, 0\\right)$. The void is surrounded by two host atoms along the perpendicular z-axis at distance $\\frac{a}{2}$, and four host atoms in the xy-plane at distance $\\frac{\\sqrt{2}}{2}a = \\frac{a}{\\sqrt{2}}$. Since $\\frac{a}{2} < \\frac{a}{\\sqrt{2}}$, the bottleneck constraint is imposed by the two nearest atoms along the z-axis. Applying the contact condition gives $2(R + r_{\\mathrm{oct}}) = a$. Substituting $a = \\frac{4R}{\\sqrt{3}}$ into this equation, we get $R + r_{\\mathrm{oct}} = \\frac{2R}{\\sqrt{3}}$. Solving for $r_{\\mathrm{oct}}$ yields $r_{\\mathrm{oct}} = \\left(\\frac{2}{\\sqrt{3}} - 1\\right)R = \\left(\\frac{2 - 1.732}{1.732}\\right)R \\approx 0.155\\ R$. Notice that the tetrahedral void in BCC has a larger radius of $0.291\\ R$, therefore carbon atoms cause severe tetragonal distortion in martensite."
+    },
+    {
+      "id": "ss_c01_039",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In the diamond cubic crystal structure, carbon atoms occupy all positions of a face-centered cubic lattice as well as four of the eight tetrahedral interstitial sites. The cubic lattice constant of diamond is $a = 356.7\\ \\mathrm{pm}$. Determine the nearest-neighbor carbon-carbon bond distance in picometers, rounded to the nearest integer.",
+      "options": [],
+      "answer": "154",
+      "explanation": "In diamond, the unit cell can be partitioned into 8 smaller octants of edge length $\\frac{a}{2}$. Each occupied tetrahedral carbon atom is located at the center of an octant, with fractional coordinates $\\left(\\frac{1}{4}, \\frac{1}{4}, \\frac{1}{4}\\right)a$, while the corner carbon atom is at $(0, 0, 0)$. Applying the three-dimensional Euclidean distance formula, we get the bond distance $d = \\sqrt{\\left(\\frac{a}{4}\\right)^2 + \\left(\\frac{a}{4}\\right)^2 + \\left(\\frac{a}{4}\\right)^2} = \\frac{\\sqrt{3}}{4} a$. Substituting the lattice parameter $a = 356.7\\ \\mathrm{pm}$ and $\\sqrt{3} \\approx 1.73205$, we calculate $d = \\frac{1.73205 \\times 356.7}{4} = \\frac{617.82}{4} = 154.46\\ \\mathrm{pm}$. Rounding to the nearest integer yields 154, which exactly matches the standard single $C-C$ covalent bond length in diamond."
+    },
+    {
+      "id": "ss_c01_040",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "For a face-centered cubic (FCC) single crystal with unit cell parameter $a$ and hard-sphere atomic radius $R = \\frac{a}{2\\sqrt{2}}$, consider the crystallographic planes $(100)$, $(110)$, and $(111)$. Which of the following statements regarding the planar atomic densities $\\rho_{(hkl)}$ (atoms per unit area) is/are correct?",
+      "options": [
+        "A) The planar atomic density of the $(100)$ plane is $\\rho_{(100)} = \\frac{2}{a^2} = \\frac{1}{4R^2}$",
+        "B) The planar atomic density of the $(110)$ plane is $\\rho_{(110)} = \\frac{\\sqrt{2}}{a^2} = \\frac{1}{4\\sqrt{2}R^2}$",
+        "C) The planar atomic density of the $(111)$ plane is $\\rho_{(111)} = \\frac{4}{\\sqrt{3}a^2} = \\frac{1}{2\\sqrt{3}R^2}$",
+        "D) The close-packed plane in FCC is $(111)$, possessing the highest planar atomic density among all low-index crystallographic planes"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Evaluating planar densities systematically: For the $(100)$ plane, the intersecting area is $A_{(100)} = a^2$. The plane contains 1 central face atom plus 4 corner atoms shared among 4 unit cells: $1 + 4 \\times \\frac{1}{4} = 2$ atoms. Substituting $a = 2\\sqrt{2}R$ gives $\\rho_{(100)} = \\frac{2}{a^2} = \\frac{2}{8R^2} = \\frac{1}{4R^2} = \\frac{0.250}{R^2}$, confirming A. For the $(110)$ plane, the rectangle area is $A_{(110)} = a \\times \\sqrt{2}a = \\sqrt{2}a^2$. The number of atoms is $2 \\times \\frac{1}{2} + 4 \\times \\frac{1}{4} = 2$ atoms. Solving for density yields $\\rho_{(110)} = \\frac{2}{\\sqrt{2}a^2} = \\frac{\\sqrt{2}}{a^2} = \\frac{1}{4\\sqrt{2}R^2} = \\frac{0.177}{R^2}$, confirming B. For the $(111)$ plane, the equilateral triangle has side $\\sqrt{2}a$ and area $A_{(111)} = \\frac{\\sqrt{3}}{4}(\\sqrt{2}a)^2 = \\frac{\\sqrt{3}}{2}a^2$. The number of atoms belonging to this unit area is 2, giving $\\rho_{(111)} = \\frac{2}{\\frac{\\sqrt{3}}{2}a^2} = \\frac{4}{\\sqrt{3}a^2} = \\frac{4}{\\sqrt{3}(8R^2)} = \\frac{1}{2\\sqrt{3}R^2} = \\frac{0.289}{R^2}$, confirming C. Comparing the numerical prefactors shows $\\rho_{(111)} > \\rho_{(100)} > \\rho_{(110)}$, therefore the $(111)$ plane is the closest packed, validating statement D."
+    },
+    {
+      "id": "ss_c01_041",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A monoenergetic beam of thermal neutrons undergoes first-order ($n=1$) Bragg reflection from the $(220)$ crystallographic planes of a silicon single crystal (diamond cubic, lattice parameter $a = 5.430\\ \\text{\\AA}$) at a glancing angle $\\theta = 30.0^\\circ$. Given Planck's constant $h = 6.626 \\times 10^{-34}\\ \\mathrm{J\\ s}$, neutron rest mass $m_n = 1.675 \\times 10^{-27}\\ \\mathrm{kg}$, and $1\\ \\mathrm{eV} = 1.602 \\times 10^{-19}\\ \\mathrm{J}$, determine the kinetic energy of the neutrons in electron volts ($mathrm{eV}$).",
+      "options": [
+        "A) $0.0888\\ \\mathrm{eV}$",
+        "B) $0.0444\\ \\mathrm{eV}$",
+        "C) $0.1554\\ \\mathrm{eV}$",
+        "D) $0.0222\\ \\mathrm{eV}$"
+      ],
+      "answer": "D",
+      "explanation": "First, determine the interplanar spacing for the $(220)$ planes: $d_{220} = \\frac{a}{\\sqrt{2^2 + 2^2 + 0^2}} = \\frac{5.430}{\\sqrt{8}} = \\frac{5.430}{2.8284} = 1.9198\\ \\text{\\AA} = 1.9198 \\times 10^{-10}\\ \\mathrm{m}$. Applying Bragg's law for $n = 1$ and $\\theta = 30.0^\\circ$: $\\lambda = 2 d_{220} \\sin 30^\\circ = 2(1.9198 \\times 10^{-10})(0.500) = 1.9198 \\times 10^{-10}\\ \\mathrm{m}$. Next, using the de Broglie relation, we find the neutron momentum: $p = \\frac{h}{\\lambda} = \\frac{6.626 \\times 10^{-34}}{1.9198 \\times 10^{-10}} = 3.4514 \\times 10^{-24}\\ \\mathrm{kg\\ m\\ s^{-1}}$. The kinetic energy is $E_k = \\frac{p^2}{2m_n} = \\frac{(3.4514 \\times 10^{-24})^2}{2 \\times 1.675 \\times 10^{-27}} = \\frac{1.1912 \\times 10^{-47}}{3.350 \\times 10^{-27}} = 3.556 \\times 10^{-21}\\ \\mathrm{J}$. Converting into electron volts yields $E_k = \\frac{3.556 \\times 10^{-21}}{1.602 \\times 10^{-19}} = 0.0222\\ \\mathrm{eV}$. Forgetting the factor of $2$ in the kinetic energy formula $p^2/(2m)$ leads to $0.0444\\ \\mathrm{eV}$."
+    },
+    {
+      "id": "ss_c01_042",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the crystallographic relationship between the Zinc Blende ($ZnS$) and Diamond cubic structures. Both crystals share a face-centered cubic Bravais lattice with a two-atom basis. Which of the following statements is/are correct?",
+      "options": [
+        "A) The diamond cubic structure can be described as two interpenetrating FCC lattices displaced relative to each other along the body diagonal by the translation vector $\\left(\\frac{1}{4}, \\frac{1}{4}, \\frac{1}{4}\\right)a$",
+        "B) In both diamond and zinc blende, each atom is tetrahedrally bonded to four nearest neighbors with tetrahedral bond angles of $\\arccos\\left(-\\frac{1}{3}\\right) \\approx 109.47^\\circ$",
+        "C) If all zinc and sulfur sites in zinc blende are occupied by identical carbon atoms, space inversion symmetry is restored with centers of inversion located at the bond midpoints",
+        "D) In the diamond structure, all eight tetrahedral interstitial sites within the FCC unit cell are occupied by carbon atoms"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Analyzing the symmetry and geometry of both lattices: The diamond cubic structure consists of an FCC lattice with a basis of two identical carbon atoms located at $(0,0,0)$ and $\\left(\\frac{1}{4}, \\frac{1}{4}, \\frac{1}{4}\\right)$, which implies two interpenetrating FCC sublattices displaced by one-fourth of the body diagonal, confirming statement A. In both structures, the local environment of every atom is a regular tetrahedron formed by four nearest neighbors with bond angles $\\theta = \\arccos(-1/3) \\approx 109.47^\\circ$, confirming statement B. In zinc blende, the two sublattices contain different chemical elements ($Zn$ and $S$), which breaks inversion symmetry (point group $T_d$). In diamond, both sublattices are identical carbon atoms, which restores inversion symmetry (point group $O_h$) with inversion centers located at the midpoints of every $C-C$ bond, validating statement C. However, carbon atoms occupy only 4 of the 8 tetrahedral sites. If all 8 tetrahedral sites were occupied, the unit cell would contain $4 + 8 = 12$ atoms (the fluorite structure), whereas diamond contains exactly 8 atoms per unit cell. Therefore, statement D is incorrect."
+    },
+    {
+      "id": "ss_c01_043",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In an ideal hexagonal close-packed (HCP) unit cell composed of uniform hard spheres: Let $N_1$ denote the coordination number of each sphere (nearest neighbors). Let $N_{\\mathrm{oct}}$ denote the total number of octahedral voids enclosed within one complete HCP unit cell. Let $N_{\\mathrm{tet}}$ denote the total number of tetrahedral voids enclosed within one complete HCP unit cell. Determine the integer value of $(N_1 + N_{\\mathrm{oct}} + N_{\\mathrm{tet}})$.",
+      "options": [],
+      "answer": "30",
+      "explanation": "In an HCP crystal lattice, each sphere touches 6 coplanar spheres in its own close-packed layer, 3 spheres in the layer directly above, and 3 spheres in the layer directly below, yielding coordination number $N_1 = 6 + 3 + 3 = 12$. A complete HCP unit cell (hexagonal prism) contains $Z = 6$ effective atoms ($12 \\times \\frac{1}{6}$ at corners $+ 2 \\times \\frac{1}{2}$ at face centers $+ 3$ interior atoms $= 2 + 1 + 3 = 6$). For any close-packed arrangement of $Z$ atoms, the number of octahedral voids is equal to $Z$, so $N_{\\mathrm{oct}} = 6$. The number of tetrahedral voids is equal to $2Z$, so $N_{\\mathrm{tet}} = 2 \\times 6 = 12$. Substituting these values into the sum, we get $N_1 + N_{\\mathrm{oct}} + N_{\\mathrm{tet}} = 12 + 6 + 12 = 30$."
+    },
+    {
+      "id": "ss_c01_044",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Titanium monoxide ($TiO$) crystallizes in the rock-salt structure and exhibits an unusually high concentration of constitutional Schottky defects, such that at stoichiometric composition approximately $15\\%$ of both titanium and oxygen sites are vacant ($Ti_{0.85}O_{0.85}$). Which of the following statements regarding this defective lattice is/are correct?",
+      "options": [
+        "A) The presence of equal concentrations of cation and anion vacancies maintains macroscopic electrical neutrality while significantly reducing the measured crystal density",
+        "B) The phase field of $TiO_x$ spans a broad non-stoichiometric range ($0.7 \\le x \\le 1.25$) due to the variable oxidation states of titanium ($Ti^{2+}, Ti^{3+}, Ti^{4+}$)",
+        "C) In the metal-deficient regime ($x > 1.0$), electrical neutrality is preserved by the oxidation of a portion of $Ti^{2+}$ ions to $Ti^{3+}$",
+        "D) The formation of constitutional vacancies reduces the actual unit cell density by approximately $15\\%$ compared to the density calculated assuming complete site occupancy"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Analyzing the defect chemistry of titanium monoxide: In stoichiometric $TiO$, approximately $15\\%$ of titanium sites and $15\\%$ of oxygen sites are simultaneously vacant. Because the vacancy concentrations on both sublattices are identical, positive and negative charges remain strictly balanced, fulfilling the classic definition of Schottky defect pairs while decreasing density, confirming statement A. Titanium exhibits flexible $d$-electron configurations ($Ti^{2+}, Ti^{3+}, Ti^{4+}$), which allows $TiO_x$ to accommodate vast deviations from stoichiometry from $Ti_{0.7}O$ (metal-deficient) to $TiO_{0.7}$ (oxygen-deficient) while maintaining the rock-salt framework, confirming statement B. When oxygen exceeds titanium ($x > 1.0$), cation vacancies predominate. To balance the excess negative charge of $O^{2-}$, two $Ti^{2+}$ ions are oxidized to $Ti^{3+}$ for each missing $Ti^{2+}$ ion, confirming statement C. Because $15\\%$ of the mass is absent from the unit cell while the lattice parameter changes only marginally, the actual density is $\\rho_{\\mathrm{actual}} = 0.85\\ \\rho_{\\mathrm{ideal}}$, representing an approximate $15\\%$ reduction in crystal density, confirming statement D."
+    },
+    {
+      "id": "ss_c01_045",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Barium titanate ($BaTiO_3$) adopts the perovskite crystal structure. Above $120^\\circ\\mathrm{C}$, it is cubic and paraelectric; below $120^\\circ\\mathrm{C}$, it distorts to a tetragonal ferroelectric phase with spontaneous polarization. Given the ionic radii $r(Ba^{2+}) = 161\\ \\mathrm{pm}$, $r(Ti^{4+}) = 60.5\\ \\mathrm{pm}$, and $r(O^{2-}) = 140\\ \\mathrm{pm}$, calculate the Goldschmidt tolerance factor $t$ and identify the microscopic origin of the ferroelectric transition.",
+      "options": [
+        "A) $t \\approx 0.89$; tilting of rigid $TiO_6$ octahedra reduces cell symmetry while keeping $Ti^{4+}$ centered",
+        "B) $t \\approx 1.06$; the expanded oxygen cage permits off-center displacement of the $Ti^{4+}$ cation, breaking inversion symmetry",
+        "C) $t \\approx 1.00$; the ideal cubic packing prevents any cooperative displacement of transition metal ions",
+        "D) $t \\approx 0.73$; large interstitial voids accommodate extra barium ions, producing polar defect complexes"
+      ],
+      "answer": "B",
+      "explanation": "The Goldschmidt tolerance factor is defined as $t = \\frac{r_{A} + r_{O}}{\\sqrt{2}(r_{B} + r_{O})}$. Substituting the given radii: $r_{Ba^{2+}} + r_{O^{2-}} = 161 + 140 = 301\\ \\mathrm{pm}$, and $r_{Ti^{4+}} + r_{O^{2-}} = 60.5 + 140 = 200.5\\ \\mathrm{pm}$. Evaluating the denominator: $\\sqrt{2}(200.5) = 1.4142 \\times 200.5 = 283.55\\ \\mathrm{pm}$. Dividing the terms yields $t = \\frac{301}{283.55} \\approx 1.0615 \\approx 1.06$. Because $t > 1$, the large $Ba^{2+}$ cation expands the cubic unit cell. Consequently, the central $Ti^{4+}$ cation is too small for its octahedral cage, creating an unstable rattle site. Below $120^\\circ\\mathrm{C}$, cooperative off-center displacement of $Ti^{4+}$ towards an apical oxygen atom along the c-axis elongates the unit cell tetragonally, destroying centrosymmetry and producing spontaneous ferroelectric polarization."
+    },
+    {
+      "id": "ss_c01_046",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Magnetic ordering in solid crystalline transition metal compounds is governed by exchange interactions between unpaired $d$-electrons. Which of the following statements regarding magnetic domain structures and temperature-induced transitions is/are correct?",
+      "options": [
+        "A) In ferromagnetic substances such as $CrO_2$, magnetic dipoles within individual domains are aligned strictly parallel in the same direction, generating a large spontaneous macroscopic magnetic moment",
+        "B) In antiferromagnetic substances such as $MnO$ and $NiO$, magnetic dipoles of adjacent magnetic sublattices are aligned strictly antiparallel with equal magnitudes, resulting in zero net macroscopic magnetization below the Néel temperature",
+        "C) In ferrimagnetic substances such as magnetite ($Fe_3O_4$), magnetic moments of antiparallel sublattices are unequal in magnitude, producing a net spontaneous magnetic moment that is weaker than in ferromagnetism",
+        "D) When heated above the Curie temperature ($T_C$) for ferromagnetic/ferrimagnetic materials or the Néel temperature ($T_N$) for antiferromagnetic materials, domain alignment is disrupted by thermal randomization, and all these substances transition into a paramagnetic state"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Evaluating domain theory across magnetic classes: In ferromagnetic solids like chromium dioxide ($CrO_2$), quantum mechanical exchange coupling forces all magnetic dipoles within a Weiss domain to point in the same direction, yielding substantial spontaneous magnetization that persists even after removing an external magnetic field, confirming statement A. In antiferromagnetic materials like $MnO$ and $NiO$, superexchange through intermediate oxygen anions locks adjacent cations into strictly antiparallel orientations of identical magnitude, so the vector sum of moments cancels completely to zero below $T_N$, confirming statement B. In ferrimagnets like $Fe_3O_4$, opposing sublattices contain different numbers of magnetic ions or ions with unequal spin moments, leaving a permanent uncompensated magnetic moment, confirming statement C. As thermal energy increases past $T_C$ or $T_N$, thermal agitation overcomes the exchange coupling energy, destroying domain coherence. Therefore, ferromagnetic, ferrimagnetic, and antiferromagnetic substances all revert to disordered paramagnetic behavior above their respective transition temperatures, validating statement D."
+    },
+    {
+      "id": "ss_c01_047",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In a single crystal of rock salt ($NaCl$) having unit cell parameter $a = 564\\ \\mathrm{pm}$: Let $d_1$ be the interionic distance between an $Na^+$ ion and its nearest $Cl^-$ neighbor. Let $d_2$ be the distance between an $Na^+$ ion and its nearest $Na^+$ neighbor. Calculate the difference $(d_2 - d_1)$ in picometers, rounded to the nearest integer.",
+      "options": [],
+      "answer": "117",
+      "explanation": "In the face-centered cubic rock salt lattice, an $Na^+$ ion at $(0,0,0)$ has its nearest neighbors as $6$ $Cl^-$ ions located along the unit cell axes at distance $d_1 = \\frac{a}{2}$. Substituting $a = 564\\ \\mathrm{pm}$, we get $d_1 = \\frac{564}{2} = 282.0\\ \\mathrm{pm}$. The next-nearest neighbors of an $Na^+$ ion are $12$ $Na^+$ ions located at the face centers of the unit cell at distance $d_2 = \\frac{a}{\\sqrt{2}}$. Substituting $a = 564\\ \\mathrm{pm}$ and $\\sqrt{2} \\approx 1.4142$, we find $d_2 = \\frac{564}{1.4142} = 398.81\\ \\mathrm{pm}$. Calculating the difference between these two separation distances: $d_2 - d_1 = 398.81 - 282.0 = 116.81\\ \\mathrm{pm}$. Rounding to the nearest integer yields 117."
+    },
+    {
+      "id": "ss_c01_048",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In a face-centered cubic (FCC) metal with unit cell parameter $a$, plastic deformation occurs through slip along close-packed directions on close-packed planes. What is the crystallographic direction and magnitude of the Burgers vector $\\vec{b}$ corresponding to a full unit dislocation that connects two nearest-neighbor atomic lattice sites?",
+      "options": [
+        "A) Along $\\langle 100 \\rangle$ with magnitude $a$",
+        "B) Along $\\langle 111 \\rangle$ with magnitude $\\frac{\\sqrt{3}}{2} a$",
+        "C) Along $\\langle 110 \\rangle$ with magnitude $\\frac{a}{\\sqrt{2}}$",
+        "D) Along $\\langle 112 \\rangle$ with magnitude $\\frac{a}{\\sqrt{6}}$"
+      ],
+      "answer": "C",
+      "explanation": "In an FCC crystal lattice, the closest-packed planes are the ${111}$ family, and the close-packed directions along which atoms touch are the $\\langle 110 \\rangle$ face diagonals. The shortest lattice translation vector that connects two equivalent atomic lattice points is the Burgers vector $\\vec{b} = \\frac{a}{2}\\langle 110 \\rangle$, such as $\\frac{a}{2}[1, 1, 0]$. The magnitude of this dislocation Burgers vector is $b = |\\vec{b}| = \\frac{a}{2}\\sqrt{1^2 + 1^2 + 0^2} = \\frac{a\\sqrt{2}}{2} = \\frac{a}{\\sqrt{2}} = 2R$. Dislocation slip preferentially occurs along this vector because the elastic strain energy of a dislocation is proportional to $b^2$, making the shortest translation vector energetically most favorable."
+    },
+    {
+      "id": "ss_c01_049",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the structural characteristics of the fluorite ($CaF_2$) and antifluorite ($Li_2O$) lattices. Both crystallize in cubic systems derived from face-centered close packing. Which of the following statements is/are correct?",
+      "options": [
+        "A) In $CaF_2$, $Ca^{2+}$ cations form a face-centered cubic framework while $F^-$ anions occupy all eight tetrahedral voids; in $Li_2O$, $O^{2-}$ anions form an FCC framework while $Li^+$ cations occupy all eight tetrahedral voids",
+        "B) The coordination ratio of cation to anion is $8 : 4$ in $CaF_2$, whereas it is $4 : 8$ in $Li_2O$",
+        "C) In the fluorite structure ($CaF_2$), all octahedral voids within the FCC $Ca^{2+}$ sublattice remain completely unoccupied",
+        "D) The body-center coordinate $\\left(\\frac{1}{2}, \\frac{1}{2}, \\frac{1}{2}\\right)$ in $CaF_2$ represents an empty octahedral interstitial site surrounded by six $Ca^{2+}$ cations and eight $F^-$ anions"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Evaluating both structures across crystallographic criteria: In fluorite ($CaF_2$), $Ca^{2+}$ ions establish the FCC lattice, and $F^-$ ions fill all 8 tetrahedral voids. In antifluorite ($Li_2O$), the anion and cation positions are reversed: $O^{2-}$ ions form the FCC array, and $Li^+$ ions occupy all 8 tetrahedral voids, confirming statement A. In $CaF_2$, each $Ca^{2+}$ is surrounded cubically by 8 $F^-$ ions, and each $F^-$ is surrounded tetrahedrally by 4 $Ca^{2+}$ ions, giving an $8 : 4$ coordination ratio. In $Li_2O$, each $Li^+$ has coordination number 4, and each $O^{2-}$ has coordination number 8, giving a $4 : 8$ ratio, validating statement B. In $CaF_2$, because fluoride ions exclusively fill tetrahedral sites, all 4 octahedral sites per unit cell remain completely vacant, confirming statement C. The body-center position $\\left(\\frac{1}{2}, \\frac{1}{2}, \\frac{1}{2}\\right)$ is the central octahedral void of the FCC $Ca^{2+}$ lattice, coordinated octahedrally to 6 $Ca^{2+}$ face-center ions at distance $\\frac{a}{2}$ and cubically to 8 $F^-$ ions at distance $\\frac{\\sqrt{3}}{4}a$, confirming statement D."
+    },
+    {
+      "id": "ss_c01_050",
+      "subject": "Chemistry",
+      "topic": "Solid State",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A sample of non-stoichiometric wüstite has the empirical formula $Fe_{0.92}O_{1.00}$ and crystallizes in an $NaCl$-type cubic unit cell with edge length $a = 430\\ \\mathrm{pm}$. Given molar masses $M_{\\mathrm{Fe}} = 55.85\\ \\mathrm{g\\ mol^{-1}}$, $M_{\\mathrm{O}} = 16.00\\ \\mathrm{g\\ mol^{-1}}$, and $N_A = 6.022 \\times 10^{23}\\ \\mathrm{mol^{-1}}$, which of the following statements is/are correct?",
+      "options": [
+        "A) For every 100 oxide ions in the crystal, there are 8 vacant cation sites, 16 $Fe^{3+}$ ions, and 76 $Fe^{2+}$ ions",
+        "B) The percentage of iron atoms present in the $+3$ oxidation state is $\\frac{16}{92} \\times 100\\% \\approx 17.39\\%$",
+        "C) The theoretical density of ideal stoichiometric $FeO$ ($a = 430\\ \\mathrm{pm}$) is approximately $6.00\\ \\mathrm{g\\ cm^{-3}}$, whereas the actual density of $Fe_{0.92}O$ is approximately $5.64\\ \\mathrm{g\\ cm^{-3}}$",
+        "D) Heating wüstite under an atmosphere of pure hydrogen gas selectively oxidizes $Fe^{2+}$ to $Fe^{3+}$ without reducing the iron cations"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Analyzing the non-stoichiometric defect composition: For 100 $O^{2-}$ ions (total negative charge $-200$), there are 92 iron ions, meaning 8 cation sites are vacant. Let $x$ be the number of $Fe^{3+}$ ions and $(92 - x)$ be $Fe^{2+}$. Balancing charge: $3x + 2(92 - x) = 200 \\implies x + 184 = 200 \\implies x = 16\\ Fe^{3+}$ and $92 - 16 = 76\\ Fe^{2+}$, confirming statement A. The percentage of iron atoms as $Fe^{3+}$ is $\\frac{16}{92} \\times 100\\% = 17.39\\%$, validating statement B. The unit cell volume is $V = a^3 = (4.30 \\times 10^{-8}\\ \\mathrm{cm})^3 = 7.951 \\times 10^{-23}\\ \\mathrm{cm^3}$. For ideal $FeO$ ($Z = 4$, $M = 71.85\\ \\mathrm{g\\ mol^{-1}}$): $\\rho_{\\mathrm{ideal}} = \\frac{4 \\times 71.85}{7.951 \\times 10^{-23} \\times 6.022 \\times 10^{23}} = \\frac{287.4}{47.88} = 6.00\\ \\mathrm{g\\ cm^{-3}}$. For $Fe_{0.92}O$, the effective molar mass is $0.92(55.85) + 16.00 = 67.38\\ \\mathrm{g\\ mol^{-1}}$, so $\\rho_{\\mathrm{actual}} = \\frac{4 \\times 67.38}{47.88} = 5.63\\ \\mathrm{g\\ cm^{-3}} \\approx 5.64\\ \\mathrm{g\\ cm^{-3}}$, confirming statement C. Hydrogen gas is a strong reducing agent; heating wüstite in $H_2$ reduces iron oxides to metallic iron ($Fe$) and steam ($H_2O$), not oxidizing $Fe^{2+}$ to $Fe^{3+}$. Therefore, statement D is false."
+    }
+  ]
+}
