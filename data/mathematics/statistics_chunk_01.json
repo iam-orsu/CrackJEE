@@ -1,0 +1,794 @@
+{
+  "questions": [
+    {
+      "id": "stat_c01_001",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The variance of the first $n$ natural numbers $1, 2, \\dots, n$ is equal to $10$. If each of these $n$ numbers is multiplied by $3$ and then increased by $5$ to obtain a transformed set of numbers $y_1, y_2, \\dots, y_n$, find the arithmetic mean of this transformed set.",
+      "options": [
+        "A) $21$",
+        "B) $23$",
+        "C) $18$",
+        "D) $26$"
+      ],
+      "answer": "B",
+      "explanation": "For the first $n$ natural numbers, the variance is given by $\\sigma^2 = \\frac{n^2 - 1}{12}$. Setting $\\frac{n^2 - 1}{12} = 10$, we obtain $n^2 - 1 = 120$, which implies $n^2 = 121$ and hence $n = 11$. The mean of the first $11$ natural numbers is $\\bar{x} = \\frac{n + 1}{2} = \\frac{11 + 1}{2} = 6$. Applying the linear transformation $y_i = 3x_i + 5$, the mean transforms according to the linear relation $\\bar{y} = 3\\bar{x} + 5$. Substituting $\\bar{x} = 6$ yields $\\bar{y} = 3(6) + 5 = 23$. The value $18$ arises from multiplying the mean by $3$ while omitting the constant shift of $5$. The value $21$ corresponds to erroneously using $\\frac{n}{2} = 5.5$ as the mean of the first $n$ natural numbers. The value $26$ results from taking $n = 13$ by adding $49$ instead of solving $n^2 - 1 = 120$."
+    },
+    {
+      "id": "stat_c01_002",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The mean and variance of $20$ observations are calculated as $10$ and $4$, respectively. Upon subsequent verification, it was found that one observation was incorrectly recorded as $12$ instead of $8$. Determine the correct variance of the $20$ observations.",
+      "options": [
+        "A) $3.96$",
+        "B) $4.04$",
+        "C) $3.80$",
+        "D) $4.16$"
+      ],
+      "answer": "A",
+      "explanation": "We are given $n = 20$, the initial mean $\\bar{x}_{\\text{old}} = 10$, and initial variance $\\sigma_{\\text{old}}^2 = 4$. The incorrect sum of observations is $\\sum x_{\\text{old}} = 20 \\times 10 = 200$. Correcting the erroneous entry by subtracting $12$ and adding $8$, the corrected sum is $\\sum x_{\\text{new}} = 200 - 12 + 8 = 196$. Therefore, the corrected mean is $\\bar{x}_{\\text{new}} = \\frac{196}{20} = 9.8$. Using the variance formula $\\sigma^2 = \\frac{1}{n}\\sum x_i^2 - \\bar{x}^2$, the old sum of squares is $\\sum x_{\\text{old}}^2 = 20(4 + 10^2) = 20 \\times 104 = 2080$. Subtracting $12^2 = 144$ and adding $8^2 = 64$ gives the corrected sum of squares $\\sum x_{\\text{new}}^2 = 2080 - 144 + 64 = 2000$. Hence, the new variance is $\\sigma_{\\text{new}}^2 = \\frac{2000}{20} - (9.8)^2 = 100 - 96.04 = 3.96$. The value $4.04$ arises from erroneously reversing the sign of the square differences. The value $3.80$ is obtained by mistakenly retaining the old mean $10$ in the variance calculation while subtracting $0.20$. The value $4.16$ occurs when the square of the difference $(12-8)^2$ is added instead of updating each squared observation."
+    },
+    {
+      "id": "stat_c01_003",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The median of the seven ordered observations $x, x+2, x+4, x+7, x+9, x+12, x+15$ is known to be $18$. What is the mean deviation of these seven observations about their median?",
+      "options": [
+        "A) $\\frac{26}{7}$",
+        "B) $4$",
+        "C) $\\frac{30}{7}$",
+        "D) $\\frac{32}{7}$"
+      ],
+      "answer": "C",
+      "explanation": "Since the seven observations are arranged in strictly ascending order, the median is the fourth observation, which gives $x + 7 = 18$, yielding $x = 11$. The absolute deviations of each term from the median $18$ are $|x - 18| = |11 - 18| = 7$, $|(x+2) - 18| = |13 - 18| = 5$, $|(x+4) - 18| = |15 - 18| = 3$, $|(x+7) - 18| = 0$, $|(x+9) - 18| = |20 - 18| = 2$, $|(x+12) - 18| = |23 - 18| = 5$, and $|(x+15) - 18| = |26 - 18| = 8$. Summing these absolute deviations, we get $\\sum |x_i - 18| = 7 + 5 + 3 + 0 + 2 + 5 + 8 = 30$. Applying the definition of mean deviation about the median, $\\text{MD} = \\frac{\\sum |x_i - \\text{Median}|}{n} = \\frac{30}{7}$. The value $\\frac{26}{7}$ results from undercounting the largest deviation as $4$. The value $4$ arises from dividing the deviation sum by an incorrect sample size. The value $\\frac{32}{7}$ stems from an arithmetic addition error in the deviation list."
+    },
+    {
+      "id": "stat_c01_004",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The arithmetic mean and variance of five observations are $6$ and $6.8$, respectively. If three of the observations are $3, 5,$ and $7$, and the other two observations are $a$ and $b$ with $a < b$, determine the exact value of $a^2 + b^2$.",
+      "options": [],
+      "answer": "131",
+      "explanation": "Let the five observations be $3, 5, 7, a, b$. The sum of all five observations satisfies $\\sum x_i = 3 + 5 + 7 + a + b = 15 + a + b$. Since the mean is $6$, we have $15 + a + b = 5 \\times 6 = 30$, which implies $a + b = 15$. Next, using the variance identity $\\sigma^2 = \\frac{1}{n}\\sum x_i^2 - \\bar{x}^2$, we substitute the given values: $6.8 = \\frac{1}{5}\\sum x_i^2 - 6^2 = \\frac{1}{5}\\sum x_i^2 - 36$. Solving for the sum of squares yields $\\frac{1}{5}\\sum x_i^2 = 42.8$, and multiplying by $5$ gives $\\sum x_i^2 = 214$. The sum of squares of the known observations is $3^2 + 5^2 + 7^2 = 9 + 25 + 49 = 83$. Therefore, $a^2 + b^2 = \\sum x_i^2 - 83 = 214 - 83 = 131$."
+    },
+    {
+      "id": "stat_c01_005",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An arithmetic progression consists of $15$ terms with common difference $d > 0$. If the variance of these $15$ terms is $112$, determine the value of the common difference $d$.",
+      "options": [
+        "A) $\\sqrt{7}$",
+        "B) $2\\sqrt{2}$",
+        "C) $3$",
+        "D) $\\sqrt{6}$"
+      ],
+      "answer": "D",
+      "explanation": "For any arithmetic progression of $n$ terms with common difference $d$, the variance is independent of the initial term and is given by $\\sigma^2 = d^2 \\frac{n^2 - 1}{12}$. Substituting $n = 15$, we evaluate the coefficient $\\frac{15^2 - 1}{12} = \\frac{225 - 1}{12} = \\frac{224}{12} = \\frac{56}{3}$. Setting this equal to the given variance, we obtain $d^2 \\left(\\frac{56}{3}\\right) = 112$. Solving for $d^2$ yields $d^2 = 112 \\times \\frac{3}{56} = 2 \\times 3 = 6$. Since $d > 0$, we have $d = \\sqrt{6}$. The value $\\sqrt{7}$ arises from mistakenly writing $\\frac{n^2+1}{12}$ instead of $\\frac{n^2-1}{12}$. The value $2\\sqrt{2}$ comes from taking $d^2 = 8$ through an arithmetic simplification slip. The value $3$ corresponds to rounding $d^2$ to $9$."
+    },
+    {
+      "id": "stat_c01_006",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For a dataset of $50$ observations, it is given that $\\sum_{i=1}^{50} (x_i - 20) = 100$ and $\\sum_{i=1}^{50} (x_i - 20)^2 = 600$. If a new variable is defined by $y_i = \\frac{x_i - 10}{2}$, find the standard deviation $\\sigma_y$ of the transformed dataset.",
+      "options": [
+        "A) $\\sqrt{2}$",
+        "B) $2\\sqrt{2}$",
+        "C) $2$",
+        "D) $4$"
+      ],
+      "answer": "A",
+      "explanation": "Let $u_i = x_i - 20$. The mean of $u$ is $\\bar{u} = \\frac{1}{50}\\sum u_i = \\frac{100}{50} = 2$. The variance of $u$ is calculated as $\\sigma_u^2 = \\frac{1}{50}\\sum u_i^2 - \\bar{u}^2 = \\frac{600}{50} - 2^2 = 12 - 4 = 8$. Since a constant shift does not affect variance, $\\sigma_x^2 = \\sigma_u^2 = 8$, which implies $\\sigma_x = \\sqrt{8} = 2\\sqrt{2}$. The transformed variable is $y_i = \\frac{1}{2}x_i - 5$. By the scaling property of standard deviation, $\\sigma_y = |a|\\sigma_x = \\frac{1}{2}(2\\sqrt{2}) = \\sqrt{2}$. The value $2\\sqrt{2}$ arises from forgetting to apply the scaling factor $\\frac{1}{2}$. The value $2$ results from dropping the square in $\\bar{u}^2$ and computing $\\sqrt{12 - 8} = 2$. The value $4$ occurs when multiplying by $2$ instead of dividing."
+    },
+    {
+      "id": "stat_c01_007",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Consider the discrete frequency distribution where the values $x_i \\in \\{2, 4, 6, 8\\}$ occur with frequencies $3, 2, 4, 1$ respectively. If $\\text{MD}(\\bar{x})$ denotes the mean deviation of this distribution about its arithmetic mean, find the value of $10 \\times \\text{MD}(\\bar{x})$.",
+      "options": [],
+      "answer": "18",
+      "explanation": "The total frequency of the distribution is $N = \\sum f_i = 3 + 2 + 4 + 1 = 10$. The sum of products $\\sum f_i x_i$ is computed as $3(2) + 2(4) + 4(6) + 1(8) = 6 + 8 + 24 + 8 = 46$. Thus, the arithmetic mean is $\\bar{x} = \\frac{46}{10} = 4.6$. Next, we evaluate the absolute deviations $|x_i - \\bar{x}|$: $|2 - 4.6| = 2.6$, $|4 - 4.6| = 0.6$, $|6 - 4.6| = 1.4$, and $|8 - 4.6| = 3.4$. Multiplying by frequencies gives $\\sum f_i |x_i - \\bar{x}| = 3(2.6) + 2(0.6) + 4(1.4) + 1(3.4) = 7.8 + 1.2 + 5.6 + 3.4 = 18.0$. Dividing by the total frequency yields the mean deviation $\\text{MD}(\\bar{x}) = \\frac{18.0}{10} = 1.8$. Hence, $10 \\times \\text{MD}(\\bar{x}) = 18$."
+    },
+    {
+      "id": "stat_c01_008",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the calculation of the variance of $40$ observations using the step-deviation method with assumed mean $A = 50$ and class width $h = 10$, the coded values $u_i = \\frac{x_i - 50}{10}$ satisfy $\\sum_{i=1}^{40} u_i = 20$ and $\\sum_{i=1}^{40} u_i^2 = 90$. What is the variance $\\sigma_x^2$ of the original observations?",
+      "options": [
+        "A) $180$",
+        "B) $225$",
+        "C) $200$",
+        "D) $150$"
+      ],
+      "answer": "C",
+      "explanation": "The mean of the coded variable is $\\bar{u} = \\frac{1}{40}\\sum u_i = \\frac{20}{40} = 0.5$. The variance of the coded variable is given by $\\sigma_u^2 = \\frac{1}{40}\\sum u_i^2 - \\bar{u}^2 = \\frac{90}{40} - (0.5)^2 = 2.25 - 0.25 = 2.0$. Since the original observations are related to the coded variable by $x_i = 10u_i + 50$, the variance of $x$ scales with the square of the class width: $\\sigma_x^2 = h^2 \\sigma_u^2 = 10^2 \\times 2.0 = 100 \\times 2.0 = 200$. The value $180$ arises from forgetting to subtract $\\bar{u}^2$ and calculating $100 \\times (2.25 - 0.45)$. The value $225$ corresponds to neglecting $\\bar{u}^2$ entirely, setting $\\sigma_x^2 = 100 \\times 2.25$. The value $150$ is obtained by an arithmetic error in computing the squared mean."
+    },
+    {
+      "id": "stat_c01_009",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $V_1$ be the variance of the first $n$ natural numbers $1, 2, \\dots, n$, and let $V_2$ be the variance of the first $n$ even natural numbers $2, 4, \\dots, 2n$. If the sum $V_1 + V_2 = 70$, find the positive integer value of $n$.",
+      "options": [
+        "A) $13$",
+        "B) $11$",
+        "C) $15$",
+        "D) $17$"
+      ],
+      "answer": "A",
+      "explanation": "The variance of the first $n$ natural numbers is $V_1 = \\frac{n^2 - 1}{12}$. The first $n$ even natural numbers are obtained by scaling each term of the first $n$ natural numbers by a factor of $2$, so $y_i = 2x_i$. Because variance scales quadratically with multiplication, $V_2 = 2^2 V_1 = 4 V_1$. Therefore, the total variance sum is $V_1 + V_2 = V_1 + 4V_1 = 5V_1 = 5\\left(\\frac{n^2 - 1}{12}\\right) = \\frac{5(n^2 - 1)}{12}$. Equating this to $70$, we have $\\frac{5(n^2 - 1)}{12} = 70$, which gives $n^2 - 1 = \\frac{70 \\times 12}{5} = 14 \\times 12 = 168$. Adding $1$ to both sides yields $n^2 = 169$, and hence $n = 13$. The value $11$ arises from mistakenly setting $V_2 = 2V_1$ instead of $4V_1$. The values $15$ and $17$ stem from using incorrect variance formulas for the sequence of natural numbers."
+    },
+    {
+      "id": "stat_c01_010",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The mean and standard deviation of $25$ observations are $40$ and $5$, respectively. It was later discovered that an observation equal to $40$ was recorded erroneously and must be discarded. If the variance of the remaining $24$ observations is $V_{\\text{new}}$, compute the exact integer value of $24 \\times V_{\\text{new}}$.",
+      "options": [],
+      "answer": "625",
+      "explanation": "We have $n = 25$, $\\bar{x} = 40$, and variance $\\sigma^2 = 5^2 = 25$. The sum of observations is $\\sum x_i = 25 \\times 40 = 1000$. The sum of squares of all $25$ observations is $\\sum x_i^2 = 25(\\sigma^2 + \\bar{x}^2) = 25(25 + 1600) = 25 \\times 1625 = 40625$. When the observation $x_k = 40$ is discarded, the new sum becomes $1000 - 40 = 960$, so the new mean is $\\bar{x}_{\\text{new}} = \\frac{960}{24} = 40$, which is unchanged. The new sum of squares is $40625 - 40^2 = 40625 - 1600 = 39025$. Hence, the new variance is $V_{\\text{new}} = \\frac{39025}{24} - 40^2 = \\frac{39025 - 24 \\times 1600}{24} = \\frac{39025 - 38400}{24} = \\frac{625}{24}$. Multiplying by $24$, we obtain $24 \\times V_{\\text{new}} = 625$."
+    },
+    {
+      "id": "stat_c01_011",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For a moderately asymmetrical frequency distribution, the arithmetic mean is $42$ and the median is $38$. If each observation of the distribution is transformed by $y_i = 2x_i + 5$, determine the mode of the transformed distribution using Pearson empirical relationship.",
+      "options": [
+        "A) $60$",
+        "B) $70$",
+        "C) $58$",
+        "D) $65$"
+      ],
+      "answer": "D",
+      "explanation": "Pearson empirical relationship between mean, median, and mode for moderately skewed data is $\\text{Mode} \\approx 3\\text{Median} - 2\\text{Mean}$. Substituting the initial values, the original mode is $\\text{Mode}_x = 3(38) - 2(42) = 114 - 84 = 30$. Under the linear transformation $y = 2x + 5$, the mode undergoes the exact same transformation: $\\text{Mode}_y = 2\\text{Mode}_x + 5 = 2(30) + 5 = 65$. The value $60$ results from omitting the constant addition of $5$. The value $70$ arises from mistakenly substituting the transformed median into the formula. The value $58$ stems from swapping the coefficients of mean and median as $3\\text{Mean} - 2\\text{Median}$."
+    },
+    {
+      "id": "stat_c01_012",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the mean deviation about the median for the discrete grouped data given below:\n$$\\begin{array}{cccccc}\nx_i: & 5 & 10 & 15 & 20 & 25 \\\\\nf_i: & 3 & 5 & 8 & 4 & 2\n\\end{array}$$\nWhat is the value of this mean deviation?",
+      "options": [
+        "A) $\\frac{91}{22}$",
+        "B) $\\frac{95}{22}$",
+        "C) $\\frac{105}{22}$",
+        "D) $\\frac{85}{22}$"
+      ],
+      "answer": "B",
+      "explanation": "We first compute the cumulative frequencies: for $x_1 = 5$, $cf = 3$; for $x_2 = 10$, $cf = 8$; for $x_3 = 15$, $cf = 16$; for $x_4 = 20$, $cf = 20$; and for $x_5 = 25$, $cf = 22$. The total frequency is $N = 22$. Because $\\frac{N}{2} = 11$, the observation corresponding to cumulative frequency reaching $11$ falls at $x = 15$, which establishes the median $M = 15$. The absolute deviations $|x_i - 15|$ are $|5-15| = 10$, $|10-15| = 5$, $|15-15| = 0$, $|20-15| = 5$, and $|25-15| = 10$. The sum of frequency-weighted deviations is $\\sum f_i |x_i - 15| = 3(10) + 5(5) + 8(0) + 4(5) + 2(10) = 30 + 25 + 0 + 20 + 20 = 95$. Thus, the mean deviation about the median is $\\frac{\\sum f_i |x_i - M|}{N} = \\frac{95}{22}$. The value $\\frac{91}{22}$ arises from an arithmetic addition error. The value $\\frac{105}{22}$ stems from mistakenly taking the median as $10$. The value $\\frac{85}{22}$ occurs if the deviation of $x=25$ is computed as $5$ instead of $10$."
+    },
+    {
+      "id": "stat_c01_013",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two candidates A and B participated in $10$ rounds of an examination. Candidate A had $\\sum x_A = 500$ and $\\sum x_A^2 = 26000$, while candidate B had $\\sum x_B = 400$ and $\\sum x_B^2 = 17440$. By comparing their coefficients of variation, find the difference $(CV_B - CV_A)$ in percentage points.",
+      "options": [
+        "A) $5\\%$",
+        "B) $10\\%$",
+        "C) $15\\%$",
+        "D) $8\\%$"
+      ],
+      "answer": "B",
+      "explanation": "For candidate A, the mean is $\\bar{x}_A = \\frac{500}{10} = 50$. The variance is $\\sigma_A^2 = \\frac{26000}{10} - 50^2 = 2600 - 2500 = 100$, so the standard deviation is $\\sigma_A = 10$. The coefficient of variation is $CV_A = \\frac{\\sigma_A}{\\bar{x}_A} \\times 100\\% = \\frac{10}{50} \\times 100\\% = 20\\%$. For candidate B, the mean is $\\bar{x}_B = \\frac{400}{10} = 40$. The variance is $\\sigma_B^2 = \\frac{17440}{10} - 40^2 = 1744 - 1600 = 144$, yielding standard deviation $\\sigma_B = 12$. The coefficient of variation is $CV_B = \\frac{\\sigma_B}{\\bar{x}_B} \\times 100\\% = \\frac{12}{40} \\times 100\\% = 30\\%$. Therefore, candidate A is more consistent than candidate B, and the difference between their coefficients of variation is $CV_B - CV_A = 30\\% - 20\\% = 10\\%$. The value $5\\%$ arises from halving the variance difference. The value $15\\%$ stems from calculating the ratio of variances rather than standard deviations. The value $8\\%$ results from an incorrect arithmetic calculation of $\\bar{x}_B$."
+    },
+    {
+      "id": "stat_c01_014",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A set of $10$ observations has mean $15$ and variance $9$. A second set of $10$ observations has the same mean $15$ and variance $16$. What is the variance of the combined dataset of all $20$ observations?",
+      "options": [
+        "A) $12.5$",
+        "B) $12.0$",
+        "C) $25.0$",
+        "D) $7.0$"
+      ],
+      "answer": "A",
+      "explanation": "Let the two datasets have sizes $n_1 = 10$ and $n_2 = 10$, means $\\bar{x}_1 = 15$ and $\\bar{x}_2 = 15$, and variances $\\sigma_1^2 = 9$ and $\\sigma_2^2 = 16$. Because both groups share the identical mean, the combined mean is $\\bar{x} = 15$, and the mean deviations $d_1 = \\bar{x}_1 - \\bar{x} = 0$ and $d_2 = \\bar{x}_2 - \\bar{x} = 0$. The combined variance formula reduces directly to $\\sigma^2 = \\frac{n_1 \\sigma_1^2 + n_2 \\sigma_2^2}{n_1 + n_2} = \\frac{10(9) + 10(16)}{20} = \\frac{90 + 160}{20} = \\frac{250}{20} = 12.5$. The value $12.0$ arises from mistakenly taking the geometric mean $\\sqrt{9 \\times 16} = 12$. The value $25.0$ corresponds to erroneously adding variances directly without dividing by the combined sample size. The value $7.0$ comes from taking the absolute difference of the two variances."
+    },
+    {
+      "id": "stat_c01_015",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For a collection of real observations $x_1, x_2, \\dots, x_n$, the quadratic function $f(c) = \\sum_{i=1}^n (x_i - c)^2$ achieves its global minimum value of $72$ at $c = 6$. If it is known that $\\sum_{i=1}^n x_i^2 = 432$, determine the number of observations $n$.",
+      "options": [
+        "A) $12$",
+        "B) $8$",
+        "C) $10$",
+        "D) $15$"
+      ],
+      "answer": "C",
+      "explanation": "The sum of squared deviations $\\sum_{i=1}^n (x_i - c)^2$ achieves its unique global minimum when $c$ equals the sample mean $\\bar{x}$. Therefore, $\\bar{x} = 6$. The minimum value is the total sum of squared deviations about the mean: $f(\\bar{x}) = \\sum_{i=1}^n (x_i - \\bar{x})^2 = 72$. Expanding this expression, we have $\\sum_{i=1}^n x_i^2 - n\\bar{x}^2 = 72$. Substituting the given values $\\sum x_i^2 = 432$ and $\\bar{x} = 6$ yields $432 - n(6^2) = 72$. Simplifying the algebraic equation gives $432 - 36n = 72$, which implies $36n = 432 - 72 = 360$. Dividing by $36$ gives $n = 10$. The value $12$ corresponds to dividing $432$ directly by $36$ while neglecting the minimum value $72$. The value $8$ arises from mistakenly adding $72$ to $432$. The value $15$ results from an arithmetic slip in solving the linear equation."
+    },
+    {
+      "id": "stat_c01_016",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A group of $30$ observations has an arithmetic mean of $20$ and a variance of $25$. A second group of $20$ observations has an arithmetic mean of $25$ and a variance of $16$. Determine the variance of the combined group formed by pooling all $50$ observations.",
+      "options": [
+        "A) $21.4$",
+        "B) $27.4$",
+        "C) $25.0$",
+        "D) $31.2$"
+      ],
+      "answer": "B",
+      "explanation": "Let the sample sizes be $n_1 = 30$ and $n_2 = 20$, with means $\\bar{x}_1 = 20$, $\\bar{x}_2 = 25$ and variances $\\sigma_1^2 = 25$, $\\sigma_2^2 = 16$. The pooled mean is $\\bar{x} = \\frac{n_1 \\bar{x}_1 + n_2 \\bar{x}_2}{n_1 + n_2} = \\frac{30(20) + 20(25)}{50} = \\frac{600 + 500}{50} = \\frac{1100}{50} = 22$. The deviations of the group means from the pooled mean are $d_1 = \\bar{x}_1 - \\bar{x} = 20 - 22 = -2$, so $d_1^2 = 4$, and $d_2 = \\bar{x}_2 - \\bar{x} = 25 - 22 = 3$, so $d_2^2 = 9$. Applying the combined variance formula $\\sigma^2 = \\frac{n_1(\\sigma_1^2 + d_1^2) + n_2(\\sigma_2^2 + d_2^2)}{n_1 + n_2}$, we evaluate $\\sigma^2 = \\frac{30(25 + 4) + 20(16 + 9)}{50} = \\frac{30(29) + 20(25)}{50} = \\frac{870 + 500}{50} = \\frac{1370}{50} = 27.4$. The value $21.4$ arises from calculating the simple weighted average of the two group variances $\\frac{30(25) + 20(16)}{50}$ while neglecting the between-group variance terms $d_1^2$ and $d_2^2$. The value $25.0$ results from taking an unweighted average. The value $31.2$ corresponds to squaring deviations before multiplying by the incorrect weights."
+    },
+    {
+      "id": "stat_c01_017",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The mean of eight observations is $9$ and their variance is $9.25$. Six of the observations are known to be $4, 7, 8, 10, 12,$ and $13$. If the remaining two observations are $u$ and $v$ with $u \\le v$, find the integer product $u \\times v$.",
+      "options": [],
+      "answer": "72",
+      "explanation": "Let the eight observations be $4, 7, 8, 10, 12, 13, u, v$. The total sum of all eight observations is $8 \\times 9 = 72$. The sum of the six known values is $4 + 7 + 8 + 10 + 12 + 13 = 54$. Thus, $u + v = 72 - 54 = 18$. The sum of squares of the eight observations satisfies $\\sigma^2 = \\frac{1}{8}\\sum x_i^2 - \\bar{x}^2$, so $9.25 = \\frac{1}{8}\\sum x_i^2 - 81$, which gives $\\frac{1}{8}\\sum x_i^2 = 90.25$, and hence $\\sum x_i^2 = 722$. The sum of squares of the six known values is $4^2 + 7^2 + 8^2 + 10^2 + 12^2 + 13^2 = 16 + 49 + 64 + 100 + 144 + 169 = 542$. Therefore, $u^2 + v^2 = 722 - 542 = 180$. Using the algebraic identity $(u + v)^2 = u^2 + v^2 + 2uv$, we have $18^2 = 180 + 2uv$, which implies $324 = 180 + 2uv$, yielding $2uv = 144$ and hence $uv = 72$."
+    },
+    {
+      "id": "stat_c01_018",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Three samples of sizes $10, 20,$ and $30$ have identical arithmetic means $\\bar{x}_1 = \\bar{x}_2 = \\bar{x}_3 = 20$, and variances $\\sigma_1^2 = 12$, $\\sigma_2^2 = 15$, and $\\sigma_3^2 = 18$, respectively. When all three samples are pooled into a single consolidated dataset of $60$ observations, what is the pooled standard deviation?",
+      "options": [
+        "A) $16$",
+        "B) $\\sqrt{15}$",
+        "C) $4$",
+        "D) $3\\sqrt{2}$"
+      ],
+      "answer": "C",
+      "explanation": "Since all three samples share the same arithmetic mean of $20$, the consolidated mean of the pooled dataset is $\\bar{x} = 20$. Consequently, the mean deviation shifts are $d_1 = d_2 = d_3 = 0$. The combined variance is the weighted average of the individual sample variances: $\\sigma^2 = \\frac{n_1 \\sigma_1^2 + n_2 \\sigma_2^2 + n_3 \\sigma_3^2}{n_1 + n_2 + n_3} = \\frac{10(12) + 20(15) + 30(18)}{10 + 20 + 30} = \\frac{120 + 300 + 540}{60} = \\frac{960}{60} = 16$. The pooled standard deviation is the square root of the pooled variance: $\\sigma = \\sqrt{16} = 4$. The value $16$ represents the pooled variance rather than the standard deviation. The value $\\sqrt{15}$ corresponds to a simple unweighted average of standard deviations. The value $3\\sqrt{2} = \\sqrt{18}$ results from taking the maximum standard deviation."
+    },
+    {
+      "id": "stat_c01_019",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $n$ be a positive integer. The mean deviation about the arithmetic mean of the first $2n$ natural numbers $1, 2, 3, \\dots, 2n$ is equal to:",
+      "options": [
+        "A) $\\frac{n}{2}$",
+        "B) $\\frac{n+1}{2}$",
+        "C) $\\frac{n^2}{4}$",
+        "D) $\\frac{2n+1}{4}$"
+      ],
+      "answer": "A",
+      "explanation": "The arithmetic mean of the first $2n$ natural numbers is $\\bar{x} = \\frac{2n + 1}{2} = n + \\frac{1}{2}$. The absolute deviation of each term $k$ from $\\bar{x}$ is $|k - (n + 0.5)|$. For $k = 1, 2, \\dots, n$, the deviations are $(n - k + 0.5)$, which evaluate to $n - 0.5, n - 1.5, \\dots, 0.5$. By symmetry, the deviations for $k = n+1, \\dots, 2n$ are identical in reverse order. The total sum of absolute deviations is $\\sum_{k=1}^{2n} |k - \\bar{x}| = 2 \\sum_{j=1}^n (j - 0.5) = 2\\left[ \\frac{n(n+1)}{2} - \\frac{n}{2} \\right] = 2\\left( \\frac{n^2}{2} \\right) = n^2$. Applying the definition of mean deviation, we divide the total deviation by the number of observations $2n$: $\\text{MD}(\\bar{x}) = \\frac{n^2}{2n} = \\frac{n}{2}$. The value $\\frac{n+1}{2}$ is the arithmetic mean of $n$ numbers rather than the mean deviation. The value $\\frac{n^2}{4}$ arises from erroneously dividing by $4n$. The value $\\frac{2n+1}{4}$ stems from confusing the mean $\\bar{x}$ with deviation formulas."
+    },
+    {
+      "id": "stat_c01_020",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $x_1, x_2, x_3, x_4, x_5$ be five real observations satisfying $\\sum_{i=1}^5 (x_i - 3) = 15$ and $\\sum_{i=1}^5 (x_i - 3)^2 = 75$. If the variance of these five observations is $\\sigma^2$, find the integer value of $10\\sigma^2$.",
+      "options": [],
+      "answer": "60",
+      "explanation": "Let $u_i = x_i - 3$. The mean of the shifted observations is $\\bar{u} = \\frac{1}{5}\\sum_{i=1}^5 u_i = \\frac{15}{5} = 3$. The variance of $u$ is given by $\\sigma_u^2 = \\frac{1}{5}\\sum_{i=1}^5 u_i^2 - \\bar{u}^2 = \\frac{75}{5} - 3^2 = 15 - 9 = 6$. Because shifting a dataset by a constant value $c = 3$ does not alter its dispersion, the variance of the original observations is identical to the variance of $u$: $\\sigma^2 = \\sigma_u^2 = 6$. Consequently, $10\\sigma^2 = 10 \\times 6 = 60$."
+    },
+    {
+      "id": "stat_c01_021",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A statistical distribution has an arithmetic mean of $50$ and a standard deviation of $10$. Each observation is transformed according to $y_i = a x_i + b$, where $a > 0$ and $b > 0$. If the new mean is $120$ and the coefficient of variation of the transformed variable $y$ is $12.5\\%$, calculate the numerical value of $a + b$.",
+      "options": [
+        "A) $45.0$",
+        "B) $47.0$",
+        "C) $48.5$",
+        "D) $46.5$"
+      ],
+      "answer": "D",
+      "explanation": "Under the linear transformation $y = ax + b$ with $a > 0$, the new mean is $\\bar{y} = a\\bar{x} + b = 50a + b = 120$. The new standard deviation is $\\sigma_y = a\\sigma_x = 10a$. The coefficient of variation is defined as $CV_y = \\frac{\\sigma_y}{\\bar{y}} \\times 100\\%$. Substituting the known quantities, we have $\\frac{10a}{120} \\times 100\\% = 12.5\\%$, which simplifies to $\\frac{25a}{3} = \\frac{25}{2}$. Solving for $a$ gives $a = \\frac{3}{2} = 1.5$. Substituting $a = 1.5$ into the mean equation yields $50(1.5) + b = 120$, so $75 + b = 120$, which implies $b = 45$. Therefore, $a + b = 1.5 + 45 = 46.5$. The value $45.0$ represents the intercept parameter $b$ alone. The value $47.0$ arises from taking $a = 2$. The value $48.5$ stems from using $CV_y = 15\\%$."
+    },
+    {
+      "id": "stat_c01_022",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the ordered set of nine observations: $3, 5, 7, 8, 12, 15, 17, 19, 23$. The value of $c \\in \\mathbb{R}$ that minimizes the absolute sum $S(c) = \\sum_{i=1}^9 |x_i - c|$ and the resulting minimum sum $S_{\\min}$ are given by:",
+      "options": [
+        "A) $c = 11.5, S_{\\min} = 51$",
+        "B) $c = 12, S_{\\min} = 51$",
+        "C) $c = 12, S_{\\min} = 54$",
+        "D) $c = 11, S_{\\min} = 53$"
+      ],
+      "answer": "B",
+      "explanation": "The sum of absolute deviations $\\sum_{i=1}^n |x_i - c|$ is minimized when $c$ is the median of the dataset. For nine ordered observations, the median is the fifth observation: $x_5 = 12$. Therefore, the optimal value is $c = 12$. Evaluating the sum of absolute deviations at $c = 12$: $S(12) = |3-12| + |5-12| + |7-12| + |8-12| + |12-12| + |15-12| + |17-12| + |19-12| + |23-12| = 9 + 7 + 5 + 4 + 0 + 3 + 5 + 7 + 11 = 51$. The choice $c = 11.5$ corresponds to erroneously picking the mean instead of the median. The choice $S_{\\min} = 54$ stems from an arithmetic miscalculation adding absolute deviations. The choice $c = 11$ results from rounding the mean down."
+    },
+    {
+      "id": "stat_c01_023",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The values $x \\in \\{0, 1, 2, 3, 4\\}$ occur in a frequency distribution with frequencies proportional to the binomial coefficients $\\binom{4}{0}, \\binom{4}{1}, \\binom{4}{2}, \\binom{4}{3}, \\binom{4}{4}$ respectively. If the variance of this frequency distribution is $\\sigma^2$, compute the exact value of $100\\sigma^2$.",
+      "options": [],
+      "answer": "100",
+      "explanation": "The frequencies are proportional to the terms of the binomial expansion $\\binom{4}{x}$ for $x = 0, 1, 2, 3, 4$. This corresponds to a binomial distribution $B(n, p)$ with $n = 4$ and $p = \\frac{1}{2}$. Total frequency is $N = \\sum_{x=0}^4 \\binom{4}{x} = 2^4 = 16$. The frequencies are $f_0 = 1, f_1 = 4, f_2 = 6, f_3 = 4, f_4 = 1$. The mean is $\\bar{x} = \\frac{1}{16}[0(1) + 1(4) + 2(6) + 3(4) + 4(1)] = \\frac{4 + 12 + 12 + 4}{16} = \\frac{32}{16} = 2$. The sum of products $\\sum f_i x_i^2 = 0^2(1) + 1^2(4) + 2^2(6) + 3^2(4) + 4^2(1) = 0 + 4 + 24 + 36 + 16 = 80$. The variance is $\\sigma^2 = \\frac{80}{16} - 2^2 = 5 - 4 = 1$. This directly confirms the formula $\\sigma^2 = np(1-p) = 4\\left(\\frac{1}{2}\\right)\\left(\\frac{1}{2}\\right) = 1$. Therefore, $100\\sigma^2 = 100 \\times 1 = 100$."
+    },
+    {
+      "id": "stat_c01_024",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The arithmetic mean and variance of $100$ observations were calculated as $40$ and $22$, respectively. Later, it was found that two observations recorded as $20$ and $60$ were incorrect and must be replaced by the correct values $30$ and $50$. Find the correct standard deviation of the $100$ observations.",
+      "options": [
+        "A) $4$",
+        "B) $5$",
+        "C) $3.5$",
+        "D) $4.5$"
+      ],
+      "answer": "A",
+      "explanation": "The initial sum is $\\sum x_{\\text{old}} = 100 \\times 40 = 4000$. The incorrect observations sum to $20 + 60 = 80$, and the replacing observations sum to $30 + 50 = 80$. Because the sum of replaced values equals the sum of corrected values, the corrected sum is $\\sum x_{\\text{new}} = 4000 - 80 + 80 = 4000$, which means the mean remains unchanged: $\\bar{x}_{\\text{new}} = 40$. The original sum of squares is $\\sum x_{\\text{old}}^2 = 100(22 + 40^2) = 100(1622) = 162200$. Removing the squares of the erroneous entries gives $20^2 + 60^2 = 400 + 3600 = 4000$, and adding the squares of the correct entries gives $30^2 + 50^2 = 900 + 2500 = 3400$. The corrected sum of squares is $\\sum x_{\\text{new}}^2 = 162200 - 4000 + 3400 = 161600$. The corrected variance is $\\sigma_{\\text{new}}^2 = \\frac{161600}{100} - 40^2 = 1616 - 1600 = 16$. Therefore, the corrected standard deviation is $\\sigma_{\\text{new}} = \\sqrt{16} = 4$. The value $5$ corresponds to mistakenly adding the difference in squares. The values $3.5$ and $4.5$ arise from computational errors in the square root."
+    },
+    {
+      "id": "stat_c01_025",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a continuous frequency distribution, the classes $0-10, 10-20, 20-30, 30-40, 40-50$ have frequencies $5, 8, 15, 12, 10$ respectively. Find the median of this continuous frequency distribution.",
+      "options": [
+        "A) $25$",
+        "B) $26$",
+        "C) $30$",
+        "D) $28$"
+      ],
+      "answer": "D",
+      "explanation": "We construct the cumulative frequency table: for class $0-10$, $cf = 5$; for $10-20$, $cf = 13$; for $20-30$, $cf = 28$; for $30-40$, $cf = 40$; and for $40-50$, $cf = 50$. The total frequency is $N = 50$, so $\\frac{N}{2} = 25$. The cumulative frequency just greater than or equal to $25$ is $28$, which corresponds to the median class $20-30$. The lower limit is $L = 20$, the frequency of the median class is $f = 15$, the cumulative frequency of the preceding class is $cf = 13$, and the class width is $h = 10$. Applying the continuous median formula $\\text{Median} = L + \\frac{\\frac{N}{2} - cf}{f} \\times h$, we obtain $\\text{Median} = 20 + \\frac{25 - 13}{15} \\times 10 = 20 + \\frac{12}{15} \\times 10 = 20 + 8 = 28$. The value $25$ corresponds to taking the class midpoint. The value $26$ results from taking $cf = 16$. The value $30$ represents the upper boundary of the median class."
+    },
+    {
+      "id": "stat_c01_026",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "For the frequency distribution where the observations $x_i \\in \\{2, 4, 6, 8, 10\\}$ have frequencies $1, 3, 5, 3, 1$ respectively, let $M$ be the median. Determine the integer value of $13 \\times \\text{MD}(M)$, where $\\text{MD}(M)$ is the mean deviation about the median.",
+      "options": [],
+      "answer": "20",
+      "explanation": "The total frequency of the distribution is $N = 1 + 3 + 5 + 3 + 1 = 13$. The cumulative frequencies are $1, 4, 9, 12, 13$. Since $N = 13$, the median is the $\\frac{13 + 1}{2} = 7$-th observation. The seventh observation falls in the category $x = 6$, so $M = 6$. The absolute deviations from the median $6$ are $|2-6| = 4$, $|4-6| = 2$, $|6-6| = 0$, $|8-6| = 2$, and $|10-6| = 4$. Multiplying each deviation by its corresponding frequency gives $\\sum f_i |x_i - M| = 1(4) + 3(2) + 5(0) + 3(2) + 1(4) = 4 + 6 + 0 + 6 + 4 = 20$. Dividing by total frequency gives $\\text{MD}(M) = \\frac{20}{13}$. Therefore, $13 \\times \\text{MD}(M) = 20$."
+    },
+    {
+      "id": "stat_c01_027",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a cohort of $100$ students, $60$ are boys and $40$ are girls. The boys have a mean score of $75$ with standard deviation $4$, while the girls have a mean score of $70$ with standard deviation $3$. What is the variance of the scores of all $100$ students combined?",
+      "options": [
+        "A) $13.2$",
+        "B) $21.5$",
+        "C) $19.2$",
+        "D) $17.8$"
+      ],
+      "answer": "C",
+      "explanation": "Let $n_1 = 60, \\bar{x}_1 = 75, \\sigma_1 = 4 \\implies \\sigma_1^2 = 16$, and $n_2 = 40, \\bar{x}_2 = 70, \\sigma_2 = 3 \\implies \\sigma_2^2 = 9$. The pooled mean is $\\bar{x} = \\frac{60(75) + 40(70)}{100} = \\frac{4500 + 2800}{100} = \\frac{7300}{100} = 73$. The deviations of group means from the combined mean are $d_1 = 75 - 73 = 2 \\implies d_1^2 = 4$, and $d_2 = 70 - 73 = -3 \\implies d_2^2 = 9$. Applying the combined variance formula $\\sigma^2 = \\frac{n_1(\\sigma_1^2 + d_1^2) + n_2(\\sigma_2^2 + d_2^2)}{n_1 + n_2}$, we compute $\\sigma^2 = \\frac{60(16 + 4) + 40(9 + 9)}{100} = \\frac{60(20) + 40(18)}{100} = \\frac{1200 + 720}{100} = \\frac{1920}{100} = 19.2$. The value $13.2$ results from taking the weighted average of individual variances $\\frac{60(16) + 40(9)}{100}$ without including the between-group variance terms. The values $21.5$ and $17.8$ arise from arithmetic errors in the squared deviations."
+    },
+    {
+      "id": "stat_c01_028",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A continuous grouped frequency distribution with class intervals $10-20, 20-30, 30-40, 40-50, 50-60$ has frequencies $4, 10, 25, 15, 6$ respectively. Determine the mode of this distribution.",
+      "options": [
+        "A) $34$",
+        "B) $36$",
+        "C) $35$",
+        "D) $38$"
+      ],
+      "answer": "B",
+      "explanation": "The modal class is the class interval containing the highest frequency, which is $30-40$ with frequency $f_1 = 25$. The lower limit of the modal class is $L = 30$, the class width is $h = 10$, the frequency of the preceding class is $f_0 = 10$, and the frequency of the succeeding class is $f_2 = 15$. Applying the mode formula $\\text{Mode} = L + \\frac{f_1 - f_0}{2f_1 - f_0 - f_2} \\times h$, we substitute the values: $\\text{Mode} = 30 + \\frac{25 - 10}{2(25) - 10 - 15} \\times 10 = 30 + \\frac{15}{50 - 25} \\times 10 = 30 + \\frac{15}{25} \\times 10 = 30 + 6 = 36$. The value $34$ arises from calculating the denominator as $2f_1 - f_0$. The value $35$ corresponds to taking the midpoint of the modal class. The value $38$ results from reversing the roles of preceding and succeeding frequencies."
+    },
+    {
+      "id": "stat_c01_029",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The arithmetic mean of the five numbers $a, 2a, 3a, 4a, 5a$ is equal to $15$. If $V$ denotes the variance of these five numbers, find the integer value of $V$.",
+      "options": [],
+      "answer": "50",
+      "explanation": "The arithmetic mean of the five terms is $\\bar{x} = \\frac{a + 2a + 3a + 4a + 5a}{5} = \\frac{15a}{5} = 3a$. Setting $3a = 15$ yields $a = 5$. Thus, the five numbers are $5, 10, 15, 20, 25$. Since these numbers form an arithmetic progression with first term $5$, common difference $d = 5$, and $n = 5$ terms, the variance is given by $\\sigma^2 = d^2 \\frac{n^2 - 1}{12}$. Substituting $d = 5$ and $n = 5$, we obtain $V = 5^2 \\times \\frac{5^2 - 1}{12} = 25 \\times \\frac{24}{12} = 25 \\times 2 = 50$."
+    },
+    {
+      "id": "stat_c01_030",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $X$ and $Y$ be two statistical variables with variances $\\sigma_x^2 = 9$ and $\\sigma_y^2 = 16$. If the Pearson correlation coefficient between $X$ and $Y$ is $r = 0.5$, determine the variance of the linear combination $Z = 2X - 3Y + 7$.",
+      "options": [
+        "A) $180$",
+        "B) $72$",
+        "C) $144$",
+        "D) $108$"
+      ],
+      "answer": "D",
+      "explanation": "A constant shift $+7$ does not affect variance, so $\\text{Var}(Z) = \\text{Var}(2X - 3Y)$. Expanding the variance of a linear combination of two variables, we have $\\text{Var}(2X - 3Y) = 2^2 \\text{Var}(X) + (-3)^2 \\text{Var}(Y) + 2(2)(-3)\\text{Cov}(X, Y) = 4\\sigma_x^2 + 9\\sigma_y^2 - 12\\text{Cov}(X, Y)$. The covariance is given by $\\text{Cov}(X, Y) = r \\sigma_x \\sigma_y$. Given $\\sigma_x = 3$, $\\sigma_y = 4$, and $r = 0.5$, we find $\\text{Cov}(X, Y) = 0.5 \\times 3 \\times 4 = 6$. Substituting into the variance expansion yields $\\text{Var}(Z) = 4(9) + 9(16) - 12(6) = 36 + 144 - 72 = 108$. The value $180$ arises from assuming the variables are uncorrelated, omitting the covariance term. The value $72$ results from doubling the covariance subtraction. The value $144$ comes from adding the covariance term instead of subtracting."
+    },
+    {
+      "id": "stat_c01_031",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the dataset $\\{1, 2, 4, 8, 16\\}$, let $M$ denote the median and $\\bar{x}$ denote the arithmetic mean. If $D_M$ is the mean deviation about the median and $D_{\\bar{x}}$ is the mean deviation about the mean, evaluate the numerical difference $D_{\\bar{x}} - D_M$.",
+      "options": [
+        "A) $0.44$",
+        "B) $0.32$",
+        "C) $0.56$",
+        "D) $0.20$"
+      ],
+      "answer": "A",
+      "explanation": "The five observations in ascending order are $1, 2, 4, 8, 16$. The median is the middle observation, $M = 4$. The absolute deviations from the median are $|1-4| = 3$, $|2-4| = 2$, $|4-4| = 0$, $|8-4| = 4$, and $|16-4| = 12$. Their sum is $3 + 2 + 0 + 4 + 12 = 21$, so $D_M = \\frac{21}{5} = 4.20$. The arithmetic mean is $\\bar{x} = \\frac{1 + 2 + 4 + 8 + 16}{5} = \\frac{31}{5} = 6.2$. The absolute deviations from the mean are $|1 - 6.2| = 5.2$, $|2 - 6.2| = 4.2$, $|4 - 6.2| = 2.2$, $|8 - 6.2| = 1.8$, and $|16 - 6.2| = 9.8$. Their sum is $5.2 + 4.2 + 2.2 + 1.8 + 9.8 = 23.2$, so $D_{\\bar{x}} = \\frac{23.2}{5} = 4.64$. Therefore, the difference is $D_{\\bar{x}} - D_M = 4.64 - 4.20 = 0.44$. The value $0.32$ results from an arithmetic error when summing deviations from the mean. The value $0.56$ occurs when using rounded deviations. The value $0.20$ results from undercounting the largest deviation."
+    },
+    {
+      "id": "stat_c01_032",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A set of $20$ observations has $\\sum x_i = 100$ and $\\sum x_i^2 = 900$. A second set of $30$ observations has $\\sum y_i = 90$ and $\\sum y_i^2 = 720$. Determine the variance of the combined dataset of all $50$ observations.",
+      "options": [
+        "A) $18.50$",
+        "B) $16.20$",
+        "C) $17.96$",
+        "D) $19.44$"
+      ],
+      "answer": "C",
+      "explanation": "For the combined dataset of $N = 20 + 30 = 50$ observations, the sum of all values is $\\sum z_i = \\sum x_i + \\sum y_i = 100 + 90 = 190$. The combined arithmetic mean is $\\bar{z} = \\frac{190}{50} = 3.8$. The sum of squares of all $50$ observations is $\\sum z_i^2 = \\sum x_i^2 + \\sum y_i^2 = 900 + 720 = 1620$. Using the fundamental variance formula $\\sigma_z^2 = \\frac{1}{N}\\sum z_i^2 - \\bar{z}^2$, we evaluate $\\sigma_z^2 = \\frac{1620}{50} - (3.8)^2 = 32.4 - 14.44 = 17.96$. The value $18.50$ represents a naive arithmetic average of the two individual sample variances. The value $16.20$ arises from dividing the combined sum of squares by $100$ instead of $50$. The value $19.44$ comes from erroneously adding $\\bar{z}^2$ instead of subtracting."
+    },
+    {
+      "id": "stat_c01_033",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A random variable $X$ has mean $\\mu_X = 14$ and standard deviation $\\sigma_X = 6$. A transformed variable is defined by $Y = -3X + 8$. Find the standard deviation $\\sigma_Y$ and the magnitude of the coefficient of variation $|\\text{CV}_Y|$.",
+      "options": [
+        "A) $\\sigma_Y = -18, |\\text{CV}_Y| = \\frac{900}{17}\\%$",
+        "B) $\\sigma_Y = 18, |\\text{CV}_Y| = \\frac{900}{17}\\%$",
+        "C) $\\sigma_Y = 18, |\\text{CV}_Y| = \\frac{450}{17}\\%$",
+        "D) $\\sigma_Y = 6, |\\text{CV}_Y| = \\frac{300}{17}\\%$"
+      ],
+      "answer": "B",
+      "explanation": "The expectation of $Y$ is $\\mu_Y = -3\\mu_X + 8 = -3(14) + 8 = -42 + 8 = -34$. Standard deviation is by definition non-negative and scales as $\\sigma_Y = |-3|\\sigma_X = 3 \\times 6 = 18$. The magnitude of the coefficient of variation is calculated as $|\\text{CV}_Y| = \\frac{\\sigma_Y}{|\\mu_Y|} \\times 100\\% = \\frac{18}{|-34|} \\times 100\\% = \\frac{18}{34} \\times 100\\% = \\frac{9}{17} \\times 100\\% = \\frac{900}{17}\\%$. The choice with $\\sigma_Y = -18$ violates the fundamental non-negativity of dispersion measures. The value $\\frac{450}{17}\\%$ arises from halving the numerator. The value $\\sigma_Y = 6$ corresponds to forgetting to multiply by the scale factor $3$."
+    },
+    {
+      "id": "stat_c01_034",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the ordered dataset of $12$ observations: $4, 7, 10, 11, 15, 18, 21, 24, 28, 30, 33, 37$, calculate the semi-interquartile range (quartile deviation) defined by $\\text{QD} = \\frac{Q_3 - Q_1}{2}$.",
+      "options": [
+        "A) $18.5$",
+        "B) $8.50$",
+        "C) $10.0$",
+        "D) $9.25$"
+      ],
+      "answer": "D",
+      "explanation": "The dataset has $n = 12$ observations. The lower half consists of the first six observations: $4, 7, 10, 11, 15, 18$. The first quartile $Q_1$ is the median of this lower half: $Q_1 = \\frac{10 + 11}{2} = 10.5$. The upper half consists of the last six observations: $21, 24, 28, 30, 33, 37$. The third quartile $Q_3$ is the median of this upper half: $Q_3 = \\frac{28 + 30}{2} = 29$. The semi-interquartile range is given by $\\text{QD} = \\frac{Q_3 - Q_1}{2} = \\frac{29 - 10.5}{2} = \\frac{18.5}{2} = 9.25$. The value $18.5$ represents the full interquartile range $Q_3 - Q_1$ before dividing by $2$. The values $8.50$ and $10.0$ arise from taking incorrect quartiles without proper median interpolation."
+    },
+    {
+      "id": "stat_c01_035",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $V_n$ denote the variance of the first $n$ natural numbers $1, 2, \\dots, n$, and let $W_n$ denote the variance of the first $n$ even natural numbers $2, 4, \\dots, 2n$. Determine the asymptotic limit $\\lim_{n \\to \\infty} \\frac{W_n - V_n}{n^2}$.",
+      "options": [
+        "A) $\\frac{1}{3}$",
+        "B) $\\frac{1}{12}$",
+        "C) $\\frac{1}{4}$",
+        "D) $\\frac{1}{2}$"
+      ],
+      "answer": "C",
+      "explanation": "The variance of the first $n$ natural numbers is $V_n = \\frac{n^2 - 1}{12}$. Since the first $n$ even natural numbers are formed by multiplying each natural number by $2$, the variance scales quadratically: $W_n = 2^2 V_n = 4V_n = 4\\left(\\frac{n^2 - 1}{12}\\right) = \\frac{n^2 - 1}{3}$. Taking the difference yields $W_n - V_n = \\frac{n^2 - 1}{3} - \\frac{n^2 - 1}{12} = \\frac{4(n^2 - 1) - (n^2 - 1)}{12} = \\frac{3(n^2 - 1)}{12} = \\frac{n^2 - 1}{4}$. Dividing by $n^2$ and taking the limit as $n \\to \\infty$, we obtain $\\lim_{n \\to \\infty} \\frac{n^2 - 1}{4n^2} = \\lim_{n \\to \\infty} \\frac{1 - 1/n^2}{4} = \\frac{1}{4}$. The value $\\frac{1}{3}$ is the coefficient of $W_n$. The value $\\frac{1}{12}$ is the coefficient of $V_n$. The value $\\frac{1}{2}$ stems from an algebraic error in subtracting fractions."
+    },
+    {
+      "id": "stat_c01_036",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $X = \\{x_1, x_2, \\dots, x_n\\}$ be a collection of $n$ distinct real numbers with sample mean $\\bar{x}$, standard deviation $\\sigma_x > 0$, and mean deviation about the mean $\\text{MD}(\\bar{x})$. A linear transformation creates the dataset $Y = \\{y_i = a x_i + b\\}_{i=1}^n$, where $a, b \\in \\mathbb{R}$ with $a \\neq 0$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The mean deviation of the transformed variable satisfies $\\text{MD}(\\bar{y}) = |a| \\text{MD}(\\bar{x})$.",
+        "B) The standard deviation of the transformed variable satisfies $\\sigma_y = |a| \\sigma_x$.",
+        "C) The mean deviation about the mean and standard deviation always satisfy $\\text{MD}(\\bar{x}) \\le \\sigma_x$.",
+        "D) The sum $\\sum_{i=1}^n (x_i - c)^2$ achieves its unique global minimum at $c = \\bar{x}$, while $\\sum_{i=1}^n |x_i - c|$ is minimized when $c$ is the median of $X$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "For statement A, the transformed mean is $\\bar{y} = a\\bar{x} + b$. The deviations are $|y_i - \\bar{y}| = |(ax_i + b) - (a\\bar{x} + b)| = |a(x_i - \\bar{x})| = |a||x_i - \\bar{x}|$. Summing and dividing by $n$ gives $\\text{MD}(\\bar{y}) = |a|\\text{MD}(\\bar{x})$, so statement A is correct. For statement B, $\\sigma_y^2 = \\frac{1}{n}\\sum (y_i - \\bar{y})^2 = \\frac{1}{n}\\sum a^2(x_i - \\bar{x})^2 = a^2 \\sigma_x^2$. Taking the positive square root gives $\\sigma_y = |a|\\sigma_x$, confirming statement B. For statement C, applying the Cauchy-Schwarz inequality to the vectors $(\\frac{1}{\\sqrt{n}}, \\dots, \\frac{1}{\\sqrt{n}})$ and $(|x_1 - \\bar{x}|, \\dots, |x_n - \\bar{x}|)$ yields $\\left(\\frac{1}{n}\\sum_{i=1}^n |x_i - \\bar{x}|\\right)^2 \\le \\frac{1}{n}\\sum_{i=1}^n |x_i - \\bar{x}|^2$, which directly implies $(\\text{MD}(\\bar{x}))^2 \\le \\sigma_x^2$, or $\\text{MD}(\\bar{x}) \\le \\sigma_x$, so statement C is correct. For statement D, differentiating $f(c) = \\sum (x_i - c)^2$ gives $f'(c) = -2\\sum (x_i - c) = 0 \\implies c = \\bar{x}$ with $f''(c) = 2n > 0$, ensuring a unique minimum. For $g(c) = \\sum |x_i - c|$, the derivative is $\\sum \\text{sgn}(c - x_i)$, which equals zero when the number of observations below $c$ equals the number above $c$, defining the median. Hence statement D is correct."
+    },
+    {
+      "id": "stat_c01_037",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $x_1, x_2, \\dots, x_n$ ($n \\ge 3$) be real numbers constrained to the closed interval $[a, b]$, where $a < b$. Let $\\bar{x} = \\frac{1}{n}\\sum_{i=1}^n x_i$ be their sample mean and $\\sigma^2 = \\frac{1}{n}\\sum_{i=1}^n (x_i - \\bar{x})^2$ be their sample variance. Which of the following statements is/are correct?",
+      "options": [
+        "A) The variance always satisfies the Popoviciu upper bound $\\sigma^2 \\le \\frac{(b - a)^2}{4}$.",
+        "B) The variance satisfies the positive lower bound $\\sigma^2 \\ge \\frac{(b - a)^2}{2n}$ for any collection of distinct values in $[a, b]$.",
+        "C) If $n$ is an odd integer, the maximum possible variance achievable on $[a, b]$ is equal to $\\frac{n^2 - 1}{4n^2}(b - a)^2$.",
+        "D) For any mean $\\bar{x} \\in [a, b]$, the variance satisfies $\\sigma^2 \\le (b - \\bar{x})(\\bar{x} - a)$."
+      ],
+      "answer": "A,C,D",
+      "explanation": "Because each $x_i \\in [a, b]$, we have $(x_i - a)(b - x_i) \\ge 0$, which on expanding yields $x_i^2 \\le (a+b)x_i - ab$. Averaging over all $i$ gives $\\frac{1}{n}\\sum x_i^2 \\le (a+b)\\bar{x} - ab$. Thus, the variance satisfies $\\sigma^2 = \\frac{1}{n}\\sum x_i^2 - \\bar{x}^2 \\le (a+b)\\bar{x} - ab - \\bar{x}^2 = (b - \\bar{x})(\\bar{x} - a)$, which establishes statement D. By the AM-GM inequality, $(b - \\bar{x})(\\bar{x} - a) \\le \\left[\\frac{(b - \\bar{x}) + (\\bar{x} - a)}{2}\\right]^2 = \\frac{(b - a)^2}{4}$, which establishes statement A (Popoviciu's inequality). The maximum variance occurs at extreme vertices where every $x_i \\in \\{a, b\\}$. If $k$ observations equal $a$ and $n-k$ equal $b$, the variance is $\\frac{k(n-k)}{n^2}(b-a)^2$. For odd $n$, the integer product $k(n-k)$ is maximized at $k = \\frac{n-1}{2}$, giving $k(n-k) = \\frac{n-1}{2}\\frac{n+1}{2} = \\frac{n^2-1}{4}$, so the maximum variance is $\\frac{n^2-1}{4n^2}(b-a)^2$, confirming statement C. Statement B is false because distinct points can be chosen arbitrarily close to their mean, making the variance arbitrarily close to zero."
+    },
+    {
+      "id": "stat_c01_038",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A manufacturing process produces precision resistors whose resistance values have mean $\\mu = 100\\ \\Omega$ and standard deviation $\\sigma = 2\\ \\Omega$. Using Chebyshev's inequality, what is the guaranteed minimum fraction of resistors whose resistances lie strictly within the symmetric interval $(94\\ \\Omega, 106\\ \\Omega)$?",
+      "options": [
+        "A) $\\frac{8}{9}$",
+        "B) $\\frac{3}{4}$",
+        "C) $\\frac{15}{16}$",
+        "D) $\\frac{5}{6}$"
+      ],
+      "answer": "A",
+      "explanation": "The interval $(94\\ \\Omega, 106\\ \\Omega)$ can be written in terms of the mean $\\mu = 100\\ \\Omega$ and standard deviation $\\sigma = 2\\ \\Omega$ as $(\\mu - 3\\sigma, \\mu + 3\\sigma)$, since $100 - 3(2) = 94$ and $100 + 3(2) = 106$. This corresponds to a multiplier $k = 3$. According to Chebyshev's inequality, for any statistical distribution with finite variance, the probability that a value lies within $k$ standard deviations of the mean satisfies $P(|X - \\mu| < k\\sigma) \\ge 1 - \\frac{1}{k^2}$. Substituting $k = 3$, we find $P(|X - 100| < 6) \\ge 1 - \\frac{1}{3^2} = 1 - \\frac{1}{9} = \\frac{8}{9}$. Thus, at least $\\frac{8}{9}$ of the resistors are guaranteed to fall within this interval. The value $\\frac{3}{4}$ corresponds to applying Chebyshev inequality with $k = 2$ instead of $k = 3$. The value $\\frac{15}{16}$ results from mistakenly setting $k = 4$. The value $\\frac{5}{6}$ arises from confusing the Chebyshev bound with a linear probability estimate."
+    },
+    {
+      "id": "stat_c01_039",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $x_1, x_2, \\dots, x_{10}$ be ten real numbers having an arithmetic mean of $\\bar{x} = 12$ and a variance of $\\sigma^2 = 9$. If $M = \\max(x_1, x_2, \\dots, x_{10})$, find the maximum possible value that $M$ can achieve.",
+      "options": [],
+      "answer": "21",
+      "explanation": "Without loss of generality, let $x_{10} = M$. The sum of all ten deviations from the mean is zero: $\\sum_{i=1}^{10} (x_i - \\bar{x}) = 0$, which yields $(M - \\bar{x}) = -\\sum_{i=1}^9 (x_i - \\bar{x})$. The total sum of squared deviations is given by $\\sum_{i=1}^{10} (x_i - \\bar{x})^2 = 10\\sigma^2 = 10 \\times 9 = 90$. Separating the maximum term, we have $(M - \\bar{x})^2 + \\sum_{i=1}^9 (x_i - \\bar{x})^2 = 90$. By the Cauchy-Schwarz inequality applied to the $9$ deviations, we have $\\left(\\sum_{i=1}^9 (x_i - \\bar{x})\\right)^2 \\le 9 \\sum_{i=1}^9 (x_i - \\bar{x})^2$. Substituting the deviations sum, this becomes $(M - \\bar{x})^2 \\le 9\\left[ 90 - (M - \\bar{x})^2 \\right] = 810 - 9(M - \\bar{x})^2$. Rearranging terms gives $10(M - \\bar{x})^2 \\le 810$, which implies $(M - \\bar{x})^2 \\le 81$. Taking the square root yields $M - \\bar{x} \\le 9$, so $M \\le 12 + 9 = 21$. Equality is achieved when the other nine observations are equal to $x_1 = \\dots = x_9 = 12 - 1 = 11$, for which $\\bar{x} = 12$ and $\\sigma^2 = 9$. Thus, the maximum possible value of $M$ is $21$."
+    },
+    {
+      "id": "stat_c01_040",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $(x_1, y_1), (x_2, y_2), \\dots, (x_n, y_n)$ be $n$ bivariate paired observations with sample means $\\bar{x}, \\bar{y}$, sample variances $\\sigma_x^2 > 0, \\sigma_y^2 > 0$, and Pearson correlation coefficient $r = \\frac{\\sum_{i=1}^n (x_i - \\bar{x})(y_i - \\bar{y})}{n \\sigma_x \\sigma_y}$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The correlation coefficient satisfies $-1 \\le r \\le 1$.",
+        "B) The variance of the standardized sum $Z = \\frac{X - \\bar{x}}{\\sigma_x} + \\frac{Y - \\bar{y}}{\\sigma_y}$ is equal to $2(1 + r)$.",
+        "C) If $y_i = a x_i + b$ for all $i$ with $a < 0$, then $r = -1$.",
+        "D) If $r = 0$, then the variance of the sum satisfies $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Applying the Cauchy-Schwarz inequality to the deviation vectors $u_i = x_i - \\bar{x}$ and $v_i = y_i - \\bar{y}$ yields $\\left(\\sum u_i v_i\\right)^2 \\le \\left(\\sum u_i^2\\right)\\left(\\sum v_i^2\\right)$, which implies $(n\\sigma_x\\sigma_y r)^2 \\le (n\\sigma_x^2)(n\\sigma_y^2) = n^2\\sigma_x^2\\sigma_y^2$, establishing $-1 \\le r \\le 1$ and proving statement A. The standardized variables $U = \\frac{X - \\bar{x}}{\\sigma_x}$ and $V = \\frac{Y - \\bar{y}}{\\sigma_y}$ have mean zero, unit variance $\\text{Var}(U) = \\text{Var}(V) = 1$, and covariance $\\text{Cov}(U, V) = r$. Expanding the variance of the sum, $\\text{Var}(U + V) = \\text{Var}(U) + \\text{Var}(V) + 2\\text{Cov}(U, V) = 1 + 1 + 2r = 2(1 + r)$, which proves statement B. When $y_i = ax_i + b$ with $a < 0$, $y_i - \\bar{y} = a(x_i - \\bar{x})$ and $\\sigma_y = |a|\\sigma_x = -a\\sigma_x$. Thus, the numerator of $r$ is $a\\sum (x_i - \\bar{x})^2 = n a \\sigma_x^2$, and the denominator is $n \\sigma_x (-a\\sigma_x) = -n a \\sigma_x^2$, giving $r = \\frac{na\\sigma_x^2}{-na\\sigma_x^2} = -1$, confirming statement C. When $r = 0$, the covariance between $X$ and $Y$ vanishes, so $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y) + 2\\text{Cov}(X, Y) = \\text{Var}(X) + \\text{Var}(Y)$, confirming statement D."
+    },
+    {
+      "id": "stat_c01_041",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Two distinct sub-populations of sizes $n_1$ and $n_2$ have identical internal standard deviations $\\sigma_1 = \\sigma_2 = \\sigma > 0$, but different arithmetic means $\\mu_1$ and $\\mu_2$ with $\\mu_1 \\neq \\mu_2$. If all observations are pooled into a single combined population of size $n_1 + n_2$, what is the variance $\\sigma_{\\text{comb}}^2$ of this combined population?",
+      "options": [
+        "A) $\\sigma^2 + \\frac{n_1 + n_2}{n_1 n_2}(\\mu_1 - \\mu_2)^2$",
+        "B) $\\sigma^2 + \\frac{n_1 n_2}{(n_1 + n_2)^2}(\\mu_1 - \\mu_2)^2$",
+        "C) $\\sigma^2 + \\frac{1}{2}(\\mu_1 - \\mu_2)^2$",
+        "D) $\\sigma^2 + \\frac{(n_1 - n_2)^2}{(n_1 + n_2)^2}(\\mu_1 - \\mu_2)^2$"
+      ],
+      "answer": "B",
+      "explanation": "The combined mean of the pooled population is $\\bar{\\mu} = \\frac{n_1 \\mu_1 + n_2 \\mu_2}{n_1 + n_2}$. The deviations of the two group means from the combined mean are $d_1 = \\mu_1 - \\bar{\\mu} = \\mu_1 - \\frac{n_1 \\mu_1 + n_2 \\mu_2}{n_1 + n_2} = \\frac{n_2(\\mu_1 - \\mu_2)}{n_1 + n_2}$, and $d_2 = \\mu_2 - \\bar{\\mu} = \\mu_2 - \\frac{n_1 \\mu_1 + n_2 \\mu_2}{n_1 + n_2} = \\frac{n_1(\\mu_2 - \\mu_1)}{n_1 + n_2}$. The weighted sum of squared mean deviations is $n_1 d_1^2 + n_2 d_2^2 = n_1 \\frac{n_2^2 (\\mu_1 - \\mu_2)^2}{(n_1 + n_2)^2} + n_2 \\frac{n_1^2 (\\mu_1 - \\mu_2)^2}{(n_1 + n_2)^2} = \\frac{n_1 n_2 (n_2 + n_1)}{(n_1 + n_2)^2}(\\mu_1 - \\mu_2)^2 = \\frac{n_1 n_2}{n_1 + n_2}(\\mu_1 - \\mu_2)^2$. Applying the combined variance formula $\\sigma_{\\text{comb}}^2 = \\frac{n_1 \\sigma^2 + n_2 \\sigma^2 + (n_1 d_1^2 + n_2 d_2^2)}{n_1 + n_2}$, we obtain $\\sigma_{\\text{comb}}^2 = \\sigma^2 + \\frac{n_1 n_2}{(n_1 + n_2)^2}(\\mu_1 - \\mu_2)^2$. The value with inverted factor $\\frac{n_1 + n_2}{n_1 n_2}$ has dimensionally incorrect scaling. The value with unweighted factor $\\frac{1}{2}$ incorrectly assumes equal population sizes $n_1 = n_2$. The value containing $(n_1 - n_2)^2$ mistakenly vanishes when population sizes are equal."
+    },
+    {
+      "id": "stat_c01_042",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Four positive real numbers $x_1, x_2, x_3, x_4$ satisfy the constraints $x_1 + x_2 + x_3 + x_4 = 40$ and $x_1^2 + x_2^2 + x_3^2 + x_4^2 = 472$. If the first number is fixed at $x_1 = 4$, determine the difference between the maximum and minimum possible values of $x_2$.",
+      "options": [],
+      "answer": "8",
+      "explanation": "Substituting $x_1 = 4$ into the two constraints gives $x_2 + x_3 + x_4 = 40 - 4 = 36$ and $x_2^2 + x_3^2 + x_4^2 = 472 - 4^2 = 472 - 16 = 456$. Rearranging for the remaining pair yields $x_3 + x_4 = 36 - x_2$ and $x_3^2 + x_4^2 = 456 - x_2^2$. By the Cauchy-Schwarz inequality for the two variables $x_3$ and $x_4$, we have $(x_3 + x_4)^2 \\le 2(x_3^2 + x_4^2)$. Substituting the expressions in terms of $x_2$, this gives $(36 - x_2)^2 \\le 2(456 - x_2^2) = 912 - 2x_2^2$. Expanding the left-hand side: $1296 - 72x_2 + x_2^2 \\le 912 - 2x_2^2$. Collecting all terms on the left yields $3x_2^2 - 72x_2 + 384 \\le 0$. Dividing the entire quadratic inequality by $3$ gives $x_2^2 - 24x_2 + 128 \\le 0$. Factoring the quadratic expression, we have $(x_2 - 8)(x_2 - 16) \\le 0$, which yields the bounded interval $8 \\le x_2 \\le 16$. The maximum possible value is $16$ and the minimum possible value is $8$. Thus, the difference between the maximum and minimum possible values of $x_2$ is $16 - 8 = 8$."
+    },
+    {
+      "id": "stat_c01_043",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $x_1 < x_2 < \\dots < x_{2m}$ be $2m$ distinct real numbers arranged in strictly increasing order. Define the objective function $g(c) = \\sum_{i=1}^{2m} |x_i - c|$ for $c \\in \\mathbb{R}$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The function $g(c)$ achieves its absolute minimum value for every $c \\in [x_m, x_{m+1}]$.",
+        "B) The minimum value of $g(c)$ is equal to $\\sum_{i=m+1}^{2m} x_i - \\sum_{i=1}^m x_i$.",
+        "C) The function $g(c)$ is strictly decreasing on $(-\\infty, x_1]$ and strictly increasing on $[x_{2m}, \\infty)$.",
+        "D) The function $g(c)$ is strictly convex on $\\mathbb{R}$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Rewriting the sum by pairing symmetric terms from opposite ends, $g(c) = \\sum_{i=1}^m (|x_i - c| + |x_{2m+1-i} - c|)$. By the triangle inequality, $|c - x_i| + |x_{2m+1-i} - c| \\ge x_{2m+1-i} - x_i$, with equality holding if and only if $x_i \\le c \\le x_{2m+1-i}$. The intersection of all these intervals for $i = 1, 2, \\dots, m$ is the central closed interval $[x_m, x_{m+1}]$. Thus, $g(c)$ attains its constant minimum everywhere on $[x_m, x_{m+1}]$, proving statement A. When $c \\in [x_m, x_{m+1}]$, for each $i \\le m$, $|x_i - c| = c - x_i$, and for each $i \\ge m+1$, $|x_i - c| = x_i - c$. Summing these yields $\\sum_{i=m+1}^{2m} (x_i - c) + \\sum_{i=1}^m (c - x_i) = \\sum_{i=m+1}^{2m} x_i - \\sum_{i=1}^m x_i + mc - mc = \\sum_{i=m+1}^{2m} x_i - \\sum_{i=1}^m x_i$, confirming statement B. For $c \\le x_1$, $g(c) = \\sum_{i=1}^{2m} (x_i - c) = \\sum x_i - 2mc$, which is a linear function with strictly negative slope $-2m$, so it is strictly decreasing. For $c \\ge x_{2m}$, $g(c) = 2mc - \\sum x_i$, having strictly positive slope $+2m$, so it is strictly increasing, confirming statement C. Statement D is false because $g(c)$ is constant and hence flat on $[x_m, x_{m+1}]$, which violates the strict convexity requirement."
+    },
+    {
+      "id": "stat_c01_044",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $X = \\{x_1, \\dots, x_n\\}$ and $Y = \\{y_1, \\dots, y_n\\}$ be two datasets with sample variances $s_x^2 = \\frac{1}{n}\\sum (x_i - \\bar{x})^2 > 0$ and $s_y^2 = \\frac{1}{n}\\sum (y_i - \\bar{y})^2 > 0$, and sample covariance $s_{xy} = \\frac{1}{n}\\sum (x_i - \\bar{x})(y_i - \\bar{y})$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The covariance and variances always satisfy the inequality $s_{xy}^2 \\le s_x^2 s_y^2$.",
+        "B) The non-negativity of $\\sum_{i=1}^n \\left( (x_i - \\bar{x}) - t (y_i - \\bar{y}) \\right)^2 \\ge 0$ for all $t \\in \\mathbb{R}$ directly implies $|s_{xy}| \\le s_x s_y$.",
+        "C) If $s_{xy} = s_x s_y$, then there exist real constants $a > 0$ and $b$ such that $y_i = a x_i + b$ for all $i = 1, \\dots, n$.",
+        "D) If transformed variables are defined by $u_i = 2x_i + 3$ and $v_i = -4y_i + 5$, then their sample covariance satisfies $s_{uv} = -8 s_{xy}$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Applying the Cauchy-Schwarz inequality directly gives $\\left(\\sum (x_i - \\bar{x})(y_i - \\bar{y})\\right)^2 \\le \\left(\\sum (x_i - \\bar{x})^2\\right)\\left(\\sum (y_i - \\bar{y})^2\\right)$, which on dividing by $n^2$ establishes $s_{xy}^2 \\le s_x^2 s_y^2$, proving statement A. Expanding the quadratic function of $t$, we obtain $Q(t) = \\frac{1}{n}\\sum \\left( (x_i - \\bar{x}) - t (y_i - \\bar{y}) \\right)^2 = s_x^2 - 2t s_{xy} + t^2 s_y^2 \\ge 0$. Since this quadratic in $t$ is non-negative for all real $t$, its discriminant must be non-positive: $\\Delta = 4s_{xy}^2 - 4s_x^2 s_y^2 \\le 0$, which yields $s_{xy}^2 \\le s_x^2 s_y^2$ and hence $|s_{xy}| \\le s_x s_y$, proving statement B. Equality $s_{xy} = s_x s_y$ means the correlation coefficient is $+1$, which occurs if and only if all points lie exactly on a straight line with strictly positive slope: $y_i - \\bar{y} = a(x_i - \\bar{x})$ with $a = \\frac{s_y}{s_x} > 0$, establishing $y_i = a x_i + b$ with $b = \\bar{y} - a\\bar{x}$, proving statement C. The deviations of the transformed variables are $u_i - \\bar{u} = 2(x_i - \\bar{x})$ and $v_i - \\bar{v} = -4(y_i - \\bar{y})$. The covariance is $s_{uv} = \\frac{1}{n}\\sum (u_i - \\bar{u})(v_i - \\bar{v}) = \\frac{1}{n}\\sum [2(x_i - \\bar{x})][-4(y_i - \\bar{y})] = -8 s_{xy}$, proving statement D."
+    },
+    {
+      "id": "stat_c01_045",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "The three roots of the cubic polynomial $P(x) = x^3 - 12x^2 + 44x - 48$ are denoted by $\\alpha, \\beta,$ and $\\gamma$. If $\\sigma^2$ is the statistical variance of the root dataset $\\{\\alpha, \\beta, \\gamma\\}$, determine the exact integer value of $9\\sigma^2$.",
+      "options": [],
+      "answer": "24",
+      "explanation": "Applying Vieta's formulas to the cubic polynomial $x^3 - 12x^2 + 44x - 48 = 0$, the sum of roots is $\\alpha + \\beta + \\gamma = 12$, and the sum of pairwise products is $\\alpha\\beta + \\beta\\gamma + \\gamma\\alpha = 44$. The arithmetic mean of the three roots is $\\mu = \\frac{\\alpha + \\beta + \\gamma}{3} = \\frac{12}{3} = 4$. The sum of squares of the roots is evaluated using the algebraic identity $\\alpha^2 + \\beta^2 + \\gamma^2 = (\\alpha + \\beta + \\gamma)^2 - 2(\\alpha\\beta + \\beta\\gamma + \\gamma\\alpha) = 12^2 - 2(44) = 144 - 88 = 56$. The variance of the three roots is defined as $\\sigma^2 = \\frac{\\alpha^2 + \\beta^2 + \\gamma^2}{3} - \\mu^2 = \\frac{56}{3} - 4^2 = \\frac{56}{3} - 16 = \\frac{56 - 48}{3} = \\frac{8}{3}$. Multiplying this variance by $9$ yields $9\\sigma^2 = 9 \\times \\frac{8}{3} = 24$. (Factoring the polynomial verifies the roots are $2, 4, 6$, whose deviations from mean $4$ are $-2, 0, 2$, giving sum of squared deviations $4 + 0 + 4 = 8$, confirming $\\sigma^2 = \\frac{8}{3}$)."
+    },
+    {
+      "id": "stat_c01_046",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $X_1, X_2, \\dots, X_n$ be pairwise uncorrelated statistical variables, each having variance $\\sigma^2 > 0$. If a consolidated variable is constructed as $Y = \\sum_{k=1}^n k X_k$, what is the variance of $Y$?",
+      "options": [
+        "A) $\\frac{n(n+1)}{2}\\sigma^2$",
+        "B) $\\frac{n^2(n+1)^2}{4}\\sigma^2$",
+        "C) $\\frac{n(n+1)(2n+1)}{6}\\sigma^2$",
+        "D) $\\frac{n(2n+1)}{3}\\sigma^2$"
+      ],
+      "answer": "C",
+      "explanation": "Because the variables $X_1, X_2, \\dots, X_n$ are pairwise uncorrelated, all pairwise covariance terms $\\text{Cov}(X_j, X_k) = 0$ for $j \\neq k$. Therefore, the variance of their linear combination is the sum of the scaled individual variances: $\\text{Var}(Y) = \\text{Var}\\left(\\sum_{k=1}^n k X_k\\right) = \\sum_{k=1}^n k^2 \\text{Var}(X_k)$. Since every variable has identical variance $\\text{Var}(X_k) = \\sigma^2$, we factor out $\\sigma^2$ to get $\\text{Var}(Y) = \\sigma^2 \\sum_{k=1}^n k^2$. Applying the standard sum of squares identity $\\sum_{k=1}^n k^2 = \\frac{n(n+1)(2n+1)}{6}$, we conclude $\\text{Var}(Y) = \\frac{n(n+1)(2n+1)}{6}\\sigma^2$. The value $\\frac{n(n+1)}{2}\\sigma^2$ arises from summing the linear weights $k$ instead of $k^2$. The value $\\frac{n^2(n+1)^2}{4}\\sigma^2$ corresponds to erroneously squaring the sum of linear weights. The value $\\frac{n(2n+1)}{3}\\sigma^2$ is an arithmetic simplification error."
+    },
+    {
+      "id": "stat_c01_047",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $X$ be any discrete random variable with finite mean $\\mu$ and finite standard deviation $\\sigma > 0$. For any real constant $k > 1$, which of the following statistical inequalities is/are guaranteed to hold universally?",
+      "options": [
+        "A) $P(|X - \\mu| \\ge k\\sigma) \\le \\frac{1}{k^2}$",
+        "B) $P(|X - \\mu| < k\\sigma) \\ge 1 - \\frac{1}{k^2}$",
+        "C) $P(X \\ge \\mu + k\\sigma) \\le \\frac{1}{1 + k^2}$",
+        "D) If $p = P(|X - \\mu| \\ge 2\\sigma)$, then $p \\le 0.25$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Statement A is Chebyshev's inequality: by Markov's inequality applied to the non-negative random variable $(X - \\mu)^2$, $P(|X - \\mu| \\ge k\\sigma) = P((X - \\mu)^2 \\ge k^2\\sigma^2) \\le \\frac{E[(X - \\mu)^2]}{k^2\\sigma^2} = \\frac{\\sigma^2}{k^2\\sigma^2} = \\frac{1}{k^2}$, confirming statement A. Statement B is the complementary event of statement A: $P(|X - \\mu| < k\\sigma) = 1 - P(|X - \\mu| \\ge k\\sigma) \\ge 1 - \\frac{1}{k^2}$, confirming statement B. Statement C is Cantelli's inequality (the one-sided Chebyshev inequality): for any $t > 0$, $P(X - \\mu \\ge k\\sigma) = P(X - \\mu + t \\ge k\\sigma + t) \\le \\frac{E[(X - \\mu + t)^2]}{(k\\sigma + t)^2} = \\frac{\\sigma^2 + t^2}{(k\\sigma + t)^2}$. Minimizing this bound by choosing $t = \\frac{\\sigma}{k}$ yields the optimal bound $\\frac{1}{1 + k^2}$, confirming statement C. For statement D, setting $k = 2$ in Chebyshev's inequality gives $p = P(|X - \\mu| \\ge 2\\sigma) \\le \\frac{1}{2^2} = \\frac{1}{4} = 0.25$, confirming statement D."
+    },
+    {
+      "id": "stat_c01_048",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Three distinct samples of $20$ observations each have arithmetic means equal to $10, 20,$ and $30$, respectively. If each of the three samples has the exact same variance $\\sigma_0^2 = 8$, determine the variance $\\sigma^2$ of the combined dataset formed by pooling all $60$ observations.",
+      "options": [
+        "A) $\\frac{208}{3}$",
+        "B) $\\frac{248}{3}$",
+        "C) $72$",
+        "D) $\\frac{224}{3}$"
+      ],
+      "answer": "D",
+      "explanation": "Let $n_1 = n_2 = n_3 = 20$. The pooled sample mean is $\\bar{x} = \\frac{20(10) + 20(20) + 20(30)}{60} = \\frac{10 + 20 + 30}{3} = 20$. The deviations of the three sample means from the pooled mean are $d_1 = 10 - 20 = -10 \\implies d_1^2 = 100$, $d_2 = 20 - 20 = 0 \\implies d_2^2 = 0$, and $d_3 = 30 - 20 = 10 \\implies d_3^2 = 100$. Because all three sample sizes are equal, the combined variance formula simplifies to $\\sigma^2 = \\sigma_0^2 + \\frac{d_1^2 + d_2^2 + d_3^2}{3}$. Substituting the given values gives $\\sigma^2 = 8 + \\frac{100 + 0 + 100}{3} = 8 + \\frac{200}{3} = \\frac{24 + 200}{3} = \\frac{224}{3}$. The value $\\frac{208}{3}$ arises from taking $8 + \\frac{100}{3}$ by dropping one group deviation. The value $\\frac{248}{3}$ results from mistakenly squaring $20$ as $400$. The value $72$ corresponds to dropping the baseline sample variance $8$ and rounding."
+    },
+    {
+      "id": "stat_c01_049",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A discrete random variable $X$ takes non-negative integer values $k \\in \\{0, 1, 2, \\dots\\}$ with probability distribution given by $P(X = k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}$, where parameter $\\lambda > 0$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The expected value of the distribution is $E[X] = \\lambda$.",
+        "B) The variance of the distribution is $\\text{Var}(X) = \\lambda$.",
+        "C) The coefficient of variation is given by $CV = \\frac{100}{\\sqrt{\\lambda}}\\%$.",
+        "D) As parameter $\\lambda \\to \\infty$, the coefficient of variation approaches zero, indicating relative dispersion becomes negligible."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Evaluating the expected value: $E[X] = \\sum_{k=0}^\\infty k \\frac{\\lambda^k e^{-\\lambda}}{k!} = \\lambda e^{-\\lambda} \\sum_{k=1}^\\infty \\frac{\\lambda^{k-1}}{(k-1)!} = \\lambda e^{-\\lambda} e^\\lambda = \\lambda$, proving statement A. Next, evaluating the second factorial moment: $E[X(X-1)] = \\sum_{k=2}^\\infty k(k-1)\\frac{\\lambda^k e^{-\\lambda}}{k!} = \\lambda^2 e^{-\\lambda}\\sum_{k=2}^\\infty \\frac{\\lambda^{k-2}}{(k-2)!} = \\lambda^2$. Thus, $E[X^2] = E[X(X-1)] + E[X] = \\lambda^2 + \\lambda$. The variance is $\\text{Var}(X) = E[X^2] - (E[X])^2 = \\lambda^2 + \\lambda - \\lambda^2 = \\lambda$, proving statement B. The standard deviation is $\\sigma = \\sqrt{\\lambda}$. The coefficient of variation is defined as $CV = \\frac{\\sigma}{\\mu} \\times 100\\% = \\frac{\\sqrt{\\lambda}}{\\lambda} \\times 100\\% = \\frac{100}{\\sqrt{\\lambda}}\\%$, proving statement C. In the asymptotic limit $\\lambda \\to \\infty$, $\\lim_{\\lambda \\to \\infty} \\frac{100}{\\sqrt{\\lambda}}\\% = 0$, meaning the relative spread around the mean diminishes, confirming statement D."
+    },
+    {
+      "id": "stat_c01_050",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Consider the set of eleven consecutive integers $\\{n, n+1, n+2, \\dots, n+10\\}$ with $n = 5$. When one integer $x_k$ that is strictly greater than the mean of the eleven integers is removed, the variance of the remaining ten integers becomes $8.25$. Find the value of the removed integer $x_k$.",
+      "options": [],
+      "answer": "15",
+      "explanation": "With $n = 5$, the eleven integers are $5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15$. Their mean is the middle integer $\\mu = 10$. Let $u_i = x_i - 10$, so the eleven deviations are $-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5$. The sum of all eleven deviations is $\\sum u_i = 0$, and the sum of their squares is $\\sum u_i^2 = 2(1^2 + 2^2 + 3^2 + 4^2 + 5^2) = 2(55) = 110$. Let the removed integer have deviation $d = x_k - 10$, with $d > 0$. For the remaining ten integers, the sum of deviations is $0 - d = -d$, so their new mean deviation is $\\bar{u} = -\\frac{d}{10}$. The sum of squared deviations of the remaining ten integers is $110 - d^2$. The variance of the remaining ten integers is $V = \\frac{110 - d^2}{10} - \\left(-\\frac{d}{10}\\right)^2 = 11 - \\frac{d^2}{10} - \\frac{d^2}{100} = 11 - \\frac{11d^2}{100}$. Setting $V = 8.25 = 11 - 2.75$, we have $\\frac{11d^2}{100} = 2.75 = \\frac{11}{4}$. Solving for $d^2$ yields $d^2 = \\frac{100}{4} = 25$. Since the removed integer is greater than the mean, $d = +5$. Therefore, the removed integer is $x_k = 10 + 5 = 15$."
+    }
+  ]
+}

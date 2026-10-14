@@ -1,0 +1,799 @@
+{
+  "questions": [
+    {
+      "id": "emi_c01_001",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A uniform conducting rod $OA$ of length $L = 1.20\\text{ m}$ is pivoted at end $O$ and rotates with a constant angular speed $\\omega = 15.0\\text{ rad/s}$ in a horizontal plane. A spatially non-uniform magnetic field acts perpendicularly to the plane of rotation, given by $B(r) = B_0 \\left(1 + \\frac{2r}{L}\\right)$, where $B_0 = 0.50\\text{ T}$ and $r$ is the radial distance from pivot $O$. Determine the motional electromotive force induced across the ends of the rod.",
+      "options": [
+        "A) $5.40\\text{ V}$",
+        "B) $12.60\\text{ V}$",
+        "C) $9.00\\text{ V}$",
+        "D) $16.20\\text{ V}$"
+      ],
+      "answer": "B",
+      "explanation": "Consider an infinitesimal radial element of the rod of length $dr$ located at distance $r$ from the pivot $O$. The linear speed of this element is $v(r) = \\omega r$. The elemental motional electromotive force induced across $dr$ is $d\\mathcal{E} = v(r) B(r) dr = \\omega r B_0 \\left(1 + \\frac{2r}{L}\\right) dr$. Integrating along the full length of the rod from $r = 0$ to $r = L$, we obtain $\\mathcal{E} = \\int_0^L B_0 \\omega \\left(r + \\frac{2r^2}{L}\\right) dr = B_0 \\omega \\left[\\frac{r^2}{2} + \\frac{2r^3}{3L}\\right]_0^L = B_0 \\omega L^2 \\left(\\frac{1}{2} + \\frac{2}{3}\\right) = \\frac{7}{6} B_0 \\omega L^2$. Substituting the given values $B_0 = 0.50\\text{ T}$, $\\omega = 15.0\\text{ rad/s}$, and $L = 1.20\\text{ m}$ yields $\\mathcal{E} = \\frac{7}{6}(0.50)(15.0)(1.20)^2 = \\frac{7}{6}(7.50)(1.44) = 12.60\\text{ V}$. Disregarding the radial gradient and using only the base field gives $5.40\\text{ V}$; integrating without the factor of 2 in the linear term gives $9.00\\text{ V}$; evaluating using the maximum tip field uniformly gives $16.20\\text{ V}$."
+    },
+    {
+      "id": "emi_c01_002",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A circular coil containing $N = 250$ closely wound turns of insulated wire has radius $r = 14.0\\text{ cm}$ and a total internal resistance of $R = 7.7\\ \\Omega$. Initially, the plane of the coil is perpendicular to a uniform magnetic field of strength $B = 0.60\\text{ T}$. The coil is flipped through an angle of $180^\\circ$ about one of its diameters in a time interval of $\\Delta t = 0.25\\text{ s}$. Taking $\\pi \\approx \\frac{22}{7}$, determine the total electric charge that flows through any cross-section of the coil during this rotation.",
+      "options": [
+        "A) $2.40\\text{ C}$",
+        "B) $1.20\\text{ C}$",
+        "C) $9.60\\text{ C}$",
+        "D) $4.80\\text{ C}$"
+      ],
+      "answer": "A",
+      "explanation": "The initial magnetic flux linked with the $N$-turn coil is $\\Phi_i = N B A = N B (\\pi r^2)$. After rotating the coil through $180^\\circ$, the normal to the area reverses direction, so the final magnetic flux is $\\Phi_f = -N B (\\pi r^2)$. The total change in magnetic flux linkage is $\\Delta \\Phi = |\\Phi_f - \\Phi_i| = 2 N B \\pi r^2$. Applying Faraday's law of induction, the instantaneous induced current is $i(t) = \\frac{1}{R}\\left|\\frac{d\\Phi}{dt}\\right|$. Integrating the current over the entire time interval, the total charge transferred is $q = \\int i(t) dt = \\frac{\\Delta \\Phi}{R} = \\frac{2 N B \\pi r^2}{R}$. Substituting the numerical parameters $N = 250$, $B = 0.60\\text{ T}$, $r = 0.14\\text{ m}$, $\\pi = \\frac{22}{7}$, and $R = 7.7\\ \\Omega$: $\\Delta \\Phi = 2(250)(0.60)\\left(\\frac{22}{7}\\right)(0.14)^2 = 300\\left(\\frac{22}{7}\\right)(0.0196) = 300(0.0616) = 18.48\\text{ Wb}$. Therefore, $q = \\frac{18.48}{7.7} = 2.40\\text{ C}$. Forgetting the reversal factor of 2 yields $1.20\\text{ C}$; dividing by the time duration gives the average current $9.60\\text{ A}$ mislabeled as charge; doubling the full flux change incorrectly yields $4.80\\text{ C}$."
+    },
+    {
+      "id": "emi_c01_003",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An inductor of self-inductance $L = 4.0\\text{ H}$ and negligible internal resistance is connected in series with a resistor $R = 20\\ \\Omega$ and an ideal battery of constant electromotive force $\\mathcal{E} = 100\\text{ V}$. The circuit is completed at time $t = 0$ by closing a switch. At the instant $t = \\tau_L \\ln 2$, where $\\tau_L = \\frac{L}{R}$ is the inductive time constant of the circuit, determine the rate at which energy is being stored in the magnetic field of the inductor, in watts ($\\text{W}$).",
+      "options": [],
+      "answer": "125",
+      "explanation": "In an $LR$ growth circuit, the time-dependent current is given by $i(t) = \\frac{\\mathcal{E}}{R}\\left(1 - e^{-t/\\tau_L}\\right)$. At time $t = \\tau_L \\ln 2$, the exponential term evaluates to $e^{-\\ln 2} = \\frac{1}{2}$. Substituting this value yields the instantaneous current $i = \\frac{\\mathcal{E}}{R}\\left(1 - \\frac{1}{2}\\right) = \\frac{\\mathcal{E}}{2R} = \\frac{100}{2(20)} = 2.5\\text{ A}$. Applying Kirchhoff's loop rule, the instantaneous back-emf across the inductor is $V_L = L\\frac{di}{dt} = \\mathcal{E} - i R = 100 - (2.5)(20) = 50\\text{ V}$. The instantaneous rate of energy storage in the magnetic field of the inductor is $P_L = \\frac{dU_B}{dt} = \\frac{d}{dt}\\left(\\frac{1}{2} L i^2\\right) = L i \\frac{di}{dt} = i V_L$. Substituting $i = 2.5\\text{ A}$ and $V_L = 50\\text{ V}$, we get $P_L = (2.5)(50) = 125\\text{ W}$."
+    },
+    {
+      "id": "emi_c01_004",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A straight conducting rod of mass $m = 0.20\\text{ kg}$ and length $\\ell = 0.50\\text{ m}$ slides down two parallel, frictionless conducting rails inclined at an angle $\\theta = 30^\\circ$ to the horizontal. A uniform magnetic field $\\vec{B}$ of magnitude $B = 1.0\\text{ T}$ is directed vertically upward. The rails have negligible resistance and are connected at their bottom by a fixed resistor $R = 3.0\\ \\Omega$. Assuming the rod maintains perpendicular contact with the rails and taking $g = 10\\text{ m/s}^2$, determine the terminal speed $v_t$ of the rod.",
+      "options": [
+        "A) $12.0\\text{ m/s}$",
+        "B) $8.0\\text{ m/s}$",
+        "C) $16.0\\text{ m/s}$",
+        "D) $24.0\\text{ m/s}$"
+      ],
+      "answer": "C",
+      "explanation": "When the rod slides down the incline with speed $v$, its horizontal velocity component perpendicular to the vertical magnetic field is $v_\\perp = v \\cos\\theta$. The induced motional electromotive force is $\\mathcal{E} = B \\ell v \\cos\\theta$. The induced current in the closed circuit is $I = \\frac{\\mathcal{E}}{R} = \\frac{B \\ell v \\cos\\theta}{R}$. By Lenz's law, the magnetic force on the rod is directed horizontally, with magnitude $F_B = I \\ell B = \\frac{B^2 \\ell^2 v \\cos\\theta}{R}$. Resolving forces parallel to the inclined plane, the component of this magnetic braking force directed up the incline is $F_{\\parallel} = F_B \\cos\\theta = \\frac{B^2 \\ell^2 v \\cos^2\\theta}{R}$. At terminal speed $v_t$, the downward component of gravity balances the upward magnetic force: $m g \\sin\\theta = \\frac{B^2 \\ell^2 v_t \\cos^2\\theta}{R}$. Solving for $v_t$ yields $v_t = \\frac{m g R \\sin\\theta}{B^2 \\ell^2 \\cos^2\\theta}$. Substituting the parameters $m = 0.20\\text{ kg}$, $g = 10\\text{ m/s}^2$, $R = 3.0\\ \\Omega$, $\\theta = 30^\\circ$, $B = 1.0\\text{ T}$, and $\\ell = 0.50\\text{ m}$: $\\sin 30^\\circ = 0.5$, $\\cos^2 30^\\circ = 0.75$, and $B^2 \\ell^2 = 0.25\\text{ T}^2\\cdot\\text{m}^2$. Hence, $v_t = \\frac{(0.20)(10)(3.0)(0.50)}{(0.25)(0.75)} = \\frac{3.0}{0.1875} = 16.0\\text{ m/s}$. Omitting the second cosine projection factor gives $12.0\\text{ m/s}$; omitting both cosine factors yields $24.0\\text{ m/s}$; mistakenly doubling the magnetic damping leads to $8.0\\text{ m/s}$."
+    },
+    {
+      "id": "emi_c01_005",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A small circular coil of radius $r = 2.0\\text{ cm}$ and $N_1 = 50$ turns is placed coaxially and coplanar at the center of a much larger circular coil of radius $R = 40.0\\text{ cm}$ and $N_2 = 100$ turns. The current in the outer coil increases linearly with time at a constant rate of $\\frac{dI}{dt} = 8.0\\text{ A/s}$. Taking $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T}\\cdot\\text{m/A}$, what is the magnitude of the electromotive force induced in the small inner coil?",
+      "options": [
+        "A) $2.0\\pi^2 \\times 10^{-5}\\text{ V}$",
+        "B) $4.0\\pi^2 \\times 10^{-5}\\text{ V}$",
+        "C) $1.6\\pi^2 \\times 10^{-4}\\text{ V}$",
+        "D) $8.0\\pi^2 \\times 10^{-5}\\text{ V}$"
+      ],
+      "answer": "D",
+      "explanation": "The magnetic field produced at the center of the outer coil carrying current $I$ is $B = \\frac{\\mu_0 N_2 I}{2R}$. Since the radius of the inner coil satisfies $r \\ll R$, the magnetic field is approximately uniform across its cross-sectional area. The total magnetic flux linked with the inner coil is $\\Phi_1 = N_1 B (\\pi r^2) = N_1 \\left(\\frac{\\mu_0 N_2 I}{2R}\\right)(\\pi r^2) = \\frac{\\mu_0 \\pi N_1 N_2 r^2}{2R} I$. The mutual inductance between the two coils is therefore $M = \\frac{\\mu_0 \\pi N_1 N_2 r^2}{2R}$. Substituting the values $N_1 = 50$, $N_2 = 100$, $r = 0.020\\text{ m}$, $R = 0.40\\text{ m}$, and $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T}\\cdot\\text{m/A}$: $M = \\frac{(4\\pi \\times 10^{-7})\\pi (50)(100)(0.020)^2}{2(0.40)} = \\frac{4\\pi^2 \\times 10^{-7} \\times 5000 \\times 4 \\times 10^{-4}}{0.80} = \\frac{8.0\\pi^2 \\times 10^{-6}}{0.80} = 10\\pi^2 \\times 10^{-6}\\text{ H} = \\pi^2 \\times 10^{-5}\\text{ H}$. Applying Faraday's law of induction, the induced emf in the inner coil is $\\mathcal{E} = M\\frac{dI}{dt} = (\\pi^2 \\times 10^{-5})(8.0) = 8.0\\pi^2 \\times 10^{-5}\\text{ V}$. Forgetting the turn count of the inner coil gives $1.6\\pi^2 \\times 10^{-6}\\text{ V}$; missing a factor of 2 in the denominator leads to $1.6\\pi^2 \\times 10^{-4}\\text{ V}$; halving the current rate yields $4.0\\pi^2 \\times 10^{-5}\\text{ V}$."
+    },
+    {
+      "id": "emi_c01_006",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An air-core solenoid of length $l = 0.80\\text{ m}$ and circular cross-sectional radius $r = 5.0\\text{ cm}$ contains $N = 1600$ tightly wound turns of copper wire. A steady direct current of $I_0 = 4.0\\text{ A}$ passes through the solenoid. Using $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T}\\cdot\\text{m/A}$ and $\\pi^2 \\approx 9.87$, determine the total magnetic energy stored inside the volume of the solenoid.",
+      "options": [
+        "A) $0.126\\text{ J}$",
+        "B) $0.253\\text{ J}$",
+        "C) $0.506\\text{ J}$",
+        "D) $0.063\\text{ J}$"
+      ],
+      "answer": "B",
+      "explanation": "The cross-sectional area of the solenoid is $A = \\pi r^2 = \\pi (0.050)^2 = 2.5\\pi \\times 10^{-3}\\text{ m}^2$. The self-inductance of an ideal solenoid of length $l$ and turn count $N$ is given by $L = \\frac{\\mu_0 N^2 A}{l}$. Substituting the given parameters: $L = \\frac{(4\\pi \\times 10^{-7})(1600)^2 (2.5\\pi \\times 10^{-3})}{0.80} = \\frac{4\\pi^2 \\times 10^{-7} \\times 2.56 \\times 10^6 \\times 2.5 \\times 10^{-3}}{0.80} = \\frac{2.56\\pi^2 \\times 10^{-3}}{0.80} = 3.2\\pi^2 \\times 10^{-3}\\text{ H}$. The total magnetic energy stored in the inductor is $U_B = \\frac{1}{2} L I_0^2$. Substituting $L = 3.2\\pi^2 \\times 10^{-3}\\text{ H}$ and $I_0 = 4.0\\text{ A}$, we get $U_B = \\frac{1}{2}(3.2\\pi^2 \\times 10^{-3})(16) = 25.6\\pi^2 \\times 10^{-3}\\text{ J}$. Evaluating with $\\pi^2 \\approx 9.87$: $U_B = 0.0256 \\times 9.87 = 0.2527\\text{ J} \\approx 0.253\\text{ J}$. Halving the stored energy by omitting the square on current yields $0.126\\text{ J}$; omitting the factor of $1/2$ gives $0.506\\text{ J}$; dividing by an erroneous geometry factor yields $0.063\\text{ J}$."
+    },
+    {
+      "id": "emi_c01_007",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A rectangular conducting coil of width $w = 30.0\\text{ cm}$ and length $l = 40.0\\text{ cm}$ consists of $N = 200$ turns of wire and has a total resistance of $R = 2.0\\ \\Omega$. The coil is initially positioned entirely within a uniform magnetic field $B = 1.50\\text{ T}$ directed perpendicular to its plane. The coil is pulled completely out of the magnetic field region into a field-free zone at a variable speed. Determine the total electric charge $Q$ in Coulombs ($\\text{C}$) that passes through any cross-section of the coil.",
+      "options": [],
+      "answer": "18",
+      "explanation": "The initial magnetic flux linked with the $N$-turn rectangular coil is $\\Phi_i = N B A = N B (w \\times l)$. When the coil is completely removed from the field into the field-free zone, the final flux linkage is $\\Phi_f = 0$. The net change in magnetic flux linkage is $\\Delta \\Phi = |\\Phi_f - \\Phi_i| = N B w l$. By Faraday's law of induction, the induced electromotive force is $\\mathcal{E} = -\\frac{d\\Phi}{dt}$. The instantaneous current flowing through the coil is $i = \\frac{|\\mathcal{E}|}{R} = \\frac{1}{R}\\frac{d\\Phi}{dt}$. Integrating this current with respect to time yields the total charge transferred: $Q = \\int i dt = \\frac{\\Delta \\Phi}{R} = \\frac{N B w l}{R}$. Notice that $Q$ depends strictly on the total flux change and coil resistance, remaining completely independent of the speed or time profile of removal. Substituting the given numerical values: $A = w \\times l = (0.30\\text{ m})(0.40\\text{ m}) = 0.12\\text{ m}^2$, $N = 200$, $B = 1.50\\text{ T}$, and $R = 2.0\\ \\Omega$. Therefore, $\\Delta \\Phi = 200 \\times 1.50 \\times 0.12 = 36.0\\text{ Wb}$. The total charge passed is $Q = \\frac{36.0}{2.0} = 18\\text{ C}$."
+    },
+    {
+      "id": "emi_c01_008",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A circular copper disc of radius $R = 0.40\\text{ m}$ is rotated in a horizontal plane about a vertical axis passing through its center with a constant angular frequency $\\omega = 120\\text{ rad/s}$. A uniform vertical magnetic field of magnitude $B = 0.75\\text{ T}$ is applied parallel to the axis of rotation. Sliding brush contacts are placed at the central axle and at the outer circumference of the disc, connected across a high-resistance digital voltmeter. What potential difference $\\Delta V$ is recorded by the voltmeter?",
+      "options": [
+        "A) $7.20\\text{ V}$",
+        "B) $14.40\\text{ V}$",
+        "C) $3.60\\text{ V}$",
+        "D) $5.40\\text{ V}$"
+      ],
+      "answer": "A",
+      "explanation": "Consider an infinitesimal radial element of the rotating disc of length $dr$ at distance $r$ from the central pivot. The tangential velocity of this element is $v = \\omega r$. Since the magnetic field $B$ is perpendicular to the velocity, the induced motional electric field directed along the radius is $E_m = v B = \\omega B r$. The elemental potential difference developed across $dr$ is $d\\mathcal{E} = E_m dr = B \\omega r dr$. Integrating from the center ($r = 0$) to the outer perimeter ($r = R$), we find the total radial potential difference: $\\Delta V = \\int_0^R B \\omega r dr = \\frac{1}{2} B \\omega R^2$. Substituting the numerical parameters $B = 0.75\\text{ T}$, $\\omega = 120\\text{ rad/s}$, and $R = 0.40\\text{ m}$: $R^2 = 0.16\\text{ m}^2$. Hence, $\\Delta V = \\frac{1}{2}(0.75)(120)(0.16) = \\frac{1}{2}(90)(0.16) = 45(0.16) = 7.20\\text{ V}$. Forgetting the factor of $1/2$ by assuming the rim velocity acts across the whole radius yields $14.40\\text{ V}$; halving the effective radius gives $3.60\\text{ V}$; evaluating with linear radius scaling without integrating yields $5.40\\text{ V}$."
+    },
+    {
+      "id": "emi_c01_009",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A rigid conducting wire bent in an L-shape consists of two straight segments: $OP$ of length $L_1 = 0.60\\text{ m}$ along the positive $x$-axis and $OQ$ of length $L_2 = 0.80\\text{ m}$ along the positive $y$-axis, joined at origin $O$. The wire translates in the $xy$-plane with a constant velocity $\\vec{v} = (6.0\\hat{i} + 4.0\\hat{j})\\text{ m/s}$ through a uniform magnetic field $\\vec{B} = (0.50\\hat{k})\\text{ T}$. Determine the magnitude of the motional electromotive force induced between the open endpoints $P$ and $Q$.",
+      "options": [
+        "A) $1.20\\text{ V}$",
+        "B) $2.40\\text{ V}$",
+        "C) $3.60\\text{ V}$",
+        "D) $4.80\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "For any conducting path translating through a uniform magnetic field, the induced motional electromotive force between its endpoints depends strictly on the vector displacement $\\vec{\\ell}$ between them: $\\mathcal{E} = |(\\vec{v} \\times \\vec{B}) \\cdot \\vec{\\ell}|$. Calculating the Lorentz field vector: $\\vec{v} \\times \\vec{B} = (6.0\\hat{i} + 4.0\\hat{j}) \\times (0.50\\hat{k}) = 6.0(0.50)(\\hat{i} \\times \\hat{k}) + 4.0(0.50)(\\hat{j} \\times \\hat{k}) = -3.0\\hat{j} + 2.0\\hat{i} = (2.0\\hat{i} - 3.0\\hat{j})\\text{ V/m}$. The position vectors of the endpoints are $\\vec{r}_P = 0.60\\hat{i}$ and $\\vec{r}_Q = 0.80\\hat{j}$. The displacement vector from $P$ to $Q$ is $\\vec{\\ell}_{PQ} = \\vec{r}_Q - \\vec{r}_P = -0.60\\hat{i} + 0.80\\hat{j}$. Taking the dot product: $(\\vec{v} \\times \\vec{B}) \\cdot \\vec{\\ell}_{PQ} = (2.0)(-0.60) + (-3.0)(0.80) = -1.20 - 2.40 = -3.60\\text{ V}$. Taking the absolute value yields the magnitude $\\mathcal{E} = 3.60\\text{ V}$. Calculating the emf across only segment $OP$ yields $1.20\\text{ V}$; considering only segment $OQ$ gives $2.40\\text{ V}$; algebraically adding the individual emfs without vector projection gives $4.80\\text{ V}$."
+    },
+    {
+      "id": "emi_c01_010",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A coil of inductance $L = 2.5\\text{ H}$ and internal resistance $R = 10\\ \\Omega$ carrying a steady direct current $I_0 = 4.0\\text{ A}$ is disconnected from its power source and short-circuited across itself through a switch at time $t = 0$. What is the total thermal energy dissipated in the internal resistance of the coil during the time interval from $t = 0$ to $t = \\tau_L$, where $\\tau_L = \\frac{L}{R}$ is the inductive time constant?",
+      "options": [
+        "A) $20.0\\left(1 - \\frac{1}{e}\\right)\\text{ J}$",
+        "B) $\\frac{20.0}{e^2}\\text{ J}$",
+        "C) $10.0\\left(1 - \\frac{1}{e^2}\\right)\\text{ J}$",
+        "D) $20.0\\left(1 - \\frac{1}{e^2}\\right)\\text{ J}$"
+      ],
+      "answer": "D",
+      "explanation": "The initial magnetic energy stored in the inductor at $t = 0$ is $U_0 = \\frac{1}{2} L I_0^2 = \\frac{1}{2}(2.5)(4.0)^2 = \\frac{1}{2}(2.5)(16) = 20.0\\text{ J}$. During decay, the current at time $t$ obeys $i(t) = I_0 e^{-t/\\tau_L}$. At $t = \\tau_L$, the instantaneous current is $i(\\tau_L) = I_0 e^{-1} = \\frac{I_0}{e}$. The magnetic energy remaining stored in the inductor at this instant is $U(\\tau_L) = \\frac{1}{2} L [i(\\tau_L)]^2 = \\frac{1}{2} L I_0^2 e^{-2} = U_0 e^{-2} = \\frac{20.0}{e^2}\\text{ J}$. Applying the principle of conservation of energy, the thermal energy dissipated in the resistance equals the reduction in stored magnetic energy: $H = U_0 - U(\\tau_L) = U_0\\left(1 - e^{-2}\\right) = 20.0\\left(1 - \\frac{1}{e^2}\\right)\\text{ J}$. Linearizing the current decay produces the erroneous factor $(1 - 1/e)$; calculating the remaining magnetic energy instead of dissipated heat yields $\\frac{20.0}{e^2}\\text{ J}$; mistakenly halving the base stored energy gives $10.0\\left(1 - \\frac{1}{e^2}\\right)\\text{ J}$."
+    },
+    {
+      "id": "emi_c01_011",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A rigid semicircular conducting wire of radius $R = 0.50\\text{ m}$ is pivoted at one of its endpoints $O$ and rotates with a constant angular speed $\\omega = 32.0\\text{ rad/s}$ in a plane perpendicular to a uniform magnetic field $B = 1.50\\text{ T}$. If the motional electromotive force developed between the two endpoints of the semicircular wire is $\\mathcal{E}$, find the value of $\\mathcal{E}$ in volts ($\\text{V}$).",
+      "options": [],
+      "answer": "24",
+      "explanation": "For any rigid wire of arbitrary contour rotating with angular speed $\\omega$ about a pivot $O$ in a uniform magnetic field $B$, the motional electromotive force induced between pivot $O$ and any point $A$ on the wire depends solely on the straight-line distance $d = |\\vec{r}_A - \\vec{r}_O|$: $\\mathcal{E} = \\frac{1}{2} B \\omega d^2$. For a semicircular wire of radius $R$, the two endpoints $O$ and $A$ are diametrically opposite across the semicircle. Therefore, the straight-line chord distance between the endpoints is $d = 2R$. Substituting $d = 2R$ into the formula, we obtain $\\mathcal{E} = \\frac{1}{2} B \\omega (2R)^2 = \\frac{1}{2} B \\omega (4R^2) = 2 B \\omega R^2$. Substituting the numerical parameters $B = 1.50\\text{ T}$, $\\omega = 32.0\\text{ rad/s}$, and $R = 0.50\\text{ m}$: $R^2 = 0.25\\text{ m}^2$. Hence, $\\mathcal{E} = 2(1.50)(32.0)(0.25) = 3.0(8.0) = 24\\text{ V}$."
+    },
+    {
+      "id": "emi_c01_012",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A uniform magnetic field fills a cylindrical region of radius $R_0 = 0.20\\text{ m}$. The magnetic field is directed along the cylindrical axis and its magnitude increases at a steady rate of $\\frac{dB}{dt} = 50.0\\text{ T/s}$. What is the magnitude of the induced non-conservative electric field at a point located at a radial distance $r = 0.12\\text{ m}$ from the central axis of the cylinder?",
+      "options": [
+        "A) $1.50\\text{ V/m}$",
+        "B) $3.00\\text{ V/m}$",
+        "C) $5.00\\text{ V/m}$",
+        "D) $6.00\\text{ V/m}$"
+      ],
+      "answer": "B",
+      "explanation": "Applying Faraday's law of electromagnetic induction in integral form: $\\oint \\vec{E} \\cdot d\\vec{\\ell} = -\\frac{d\\Phi_B}{dt}$. Due to cylindrical symmetry, the induced non-conservative electric field lines are concentric circles centered on the cylindrical axis. For an internal point at radial distance $r < R_0$, choosing a concentric circular path of radius $r$ gives $\\oint \\vec{E} \\cdot d\\vec{\\ell} = E(2\\pi r)$. The magnetic flux enclosed by this path is $\\Phi_B = B(\\pi r^2)$. Differentiating with respect to time: $\\frac{d\\Phi_B}{dt} = \\pi r^2 \\frac{dB}{dt}$. Equating the two expressions: $E(2\\pi r) = \\pi r^2 \\frac{dB}{dt} \\implies E = \\frac{r}{2}\\frac{dB}{dt}$. Substituting the given numerical values $r = 0.12\\text{ m}$ and $\\frac{dB}{dt} = 50.0\\text{ T/s}$ yields $E = \\frac{0.12}{2}(50.0) = 0.06(50.0) = 3.00\\text{ V/m}$. Halving the radial distance gives $1.50\\text{ V/m}$; evaluating at the outer boundary radius $R_0$ gives $5.00\\text{ V/m}$; omitting the factor of $1/2$ leads to $6.00\\text{ V/m}$."
+    },
+    {
+      "id": "emi_c01_013",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A square conducting loop of side length $a = 0.20\\text{ m}$, mass $m = 0.050\\text{ kg}$, and electrical resistance $R = 0.40\\ \\Omega$ moves with an initial velocity $v_0 = 4.0\\text{ m/s}$ on a smooth horizontal table. It enters a region of uniform magnetic field $B = 2.0\\text{ T}$ perpendicular to the plane of the loop. If an external agent applies a variable horizontal force to pull the loop so that it moves through the entry boundary at a constant speed $v_0$, what total mechanical work must be performed by the agent to move the loop fully into the magnetic field?",
+      "options": [
+        "A) $0.32\\text{ J}$",
+        "B) $0.16\\text{ J}$",
+        "C) $0.64\\text{ J}$",
+        "D) $0.40\\text{ J}$"
+      ],
+      "answer": "A",
+      "explanation": "As the square loop enters the magnetic field at constant speed $v_0$, motional electromotive force is induced across its leading edge: $\\mathcal{E} = B a v_0$. The resulting induced current in the loop is $I = \\frac{\\mathcal{E}}{R} = \\frac{B a v_0}{R}$. The magnetic retarding force acting on the leading edge opposing entry is $F_B = I a B = \\frac{B^2 a^2 v_0}{R}$. To maintain constant velocity $v_0$, the external agent must apply an equal and opposite pulling force $F_{ext} = F_B = \\frac{B^2 a^2 v_0}{R}$. This force is maintained over a displacement equal to the side length $a$ until the loop is entirely inside the field. The work done by the agent is $W = F_{ext} a = \\frac{B^2 a^3 v_0}{R}$. Substituting $B = 2.0\\text{ T}$, $a = 0.20\\text{ m}$, $v_0 = 4.0\\text{ m/s}$, and $R = 0.40\\ \\Omega$: $a^3 = 0.008\\text{ m}^3$, so $W = \\frac{(2.0)^2 (0.008)(4.0)}{0.40} = \\frac{4.0(0.008)(4.0)}{0.40} = 0.32\\text{ J}$. Forgetting the squared factor on magnetic field yields $0.16\\text{ J}$; doubling the work gives $0.64\\text{ J}$; confusing the work with initial kinetic energy yields $0.40\\text{ J}$."
+    },
+    {
+      "id": "emi_c01_014",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A circular cross-section toroid has a mean radius $r_{mean} = 20.0\\text{ cm}$ and a circular cross-sectional radius $a = 2.0\\text{ cm}$ (such that $a \\ll r_{mean}$). It is wound uniformly with $N = 1000$ closely spaced turns of insulated wire. Taking $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T}\\cdot\\text{m/A}$, determine the self-inductance $L$ of this toroidal solenoid.",
+      "options": [
+        "A) $0.20\\pi\\text{ mH}$",
+        "B) $0.80\\pi\\text{ mH}$",
+        "C) $1.60\\pi\\text{ mH}$",
+        "D) $0.40\\pi\\text{ mH}$"
+      ],
+      "answer": "D",
+      "explanation": "The circular cross-sectional area of the toroid is $A = \\pi a^2 = \\pi (0.020)^2 = 4.0\\pi \\times 10^{-4}\\text{ m}^2$. The circumferential path length along the mean radius is $l = 2\\pi r_{mean} = 2\\pi (0.20) = 0.40\\pi\\text{ m}$. Applying Ampere's law, the magnetic field inside a thin toroid carrying current $I$ is $B = \\frac{\\mu_0 N I}{2\\pi r_{mean}}$. The total magnetic flux linked with all $N$ turns is $\\lambda = N \\Phi = N B A = \\frac{\\mu_0 N^2 A}{2\\pi r_{mean}} I$. By definition, self-inductance is $L = \\frac{\\lambda}{I} = \\frac{\\mu_0 N^2 A}{2\\pi r_{mean}}$. Substituting the parameters: $L = \\frac{(4\\pi \\times 10^{-7})(1000)^2 (4.0\\pi \\times 10^{-4})}{0.40\\pi} = \\frac{16\\pi^2 \\times 10^{-5}}{0.40\\pi} = 40\\pi \\times 10^{-5}\\text{ H} = 0.40\\pi\\text{ mH}$. Missing a factor of 2 in the numerator gives $0.20\\pi\\text{ mH}$; taking the diameter instead of radius yields $1.60\\pi\\text{ mH}$; doubling the turn density yields $0.80\\pi\\text{ mH}$."
+    },
+    {
+      "id": "emi_c01_015",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two inductors having self-inductances $L_1 = 18\\text{ mH}$ and $L_2 = 32\\text{ mH}$ are connected in series. When their magnetic flux linkages aid each other (series-aiding connection), the equivalent inductance of the combination is measured to be $L_{aiding} = 68\\text{ mH}$. When the connection of one coil is reversed so that their flux linkages oppose each other (series-opposing connection), what is the new equivalent inductance $L_{opposing}$?",
+      "options": [
+        "A) $14\\text{ mH}$",
+        "B) $23\\text{ mH}$",
+        "C) $32\\text{ mH}$",
+        "D) $41\\text{ mH}$"
+      ],
+      "answer": "C",
+      "explanation": "For two coupled inductors connected in series, the total equivalent inductance is given by $L_{eq} = L_1 + L_2 \\pm 2M$, where $M$ is their mutual inductance. In the series-aiding configuration: $L_{aiding} = L_1 + L_2 + 2M$. Substituting the values $L_1 = 18\\text{ mH}$, $L_2 = 32\\text{ mH}$, and $L_{aiding} = 68\\text{ mH}$: $68 = 18 + 32 + 2M \\implies 68 = 50 + 2M \\implies 2M = 18\\text{ mH} \\implies M = 9\\text{ mH}$. The magnetic coupling coefficient is $k = \\frac{M}{\\sqrt{L_1 L_2}} = \\frac{9}{\\sqrt{18 \\times 32}} = \\frac{9}{\\sqrt{576}} = \\frac{9}{24} = 0.375 \\le 1$, which is physically valid. In the series-opposing configuration, the magnetic flux linkages subtract: $L_{opposing} = L_1 + L_2 - 2M = 50 - 18 = 32\\text{ mH}$. Subtracting $4M$ instead gives $14\\text{ mH}$; subtracting $M$ instead of $2M$ gives $41\\text{ mH}$; averaging the inductances yields $23\\text{ mH}$."
+    },
+    {
+      "id": "emi_c01_016",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A cylindrical region of radius $R = 0.50\\text{ m}$ contains a time-varying magnetic field directed along its axis, increasing at a constant rate $\\frac{dB}{dt} = 8.0\\text{ T/s}$. A straight thin conducting rod $AB$ of length $L = 0.60\\text{ m}$ is placed inside the cylindrical region such that its midpoint $M$ is at a perpendicular distance $d = 0.40\\text{ m}$ from the cylinder's central axis $O$. Determine the potential difference (induced electromotive force) developed between the ends $A$ and $B$ of the rod.",
+      "options": [
+        "A) $0.48\\text{ V}$",
+        "B) $0.96\\text{ V}$",
+        "C) $1.92\\text{ V}$",
+        "D) $1.44\\text{ V}$"
+      ],
+      "answer": "B",
+      "explanation": "The induced electric field inside the cylindrical region is purely azimuthal: $\\vec{E} = \\frac{1}{2}\\left(\\frac{dB}{dt}\\right)(\\hat{k} \\times \\vec{r})$, where $\\hat{k}$ is the unit vector along the magnetic field. The induced emf across the straight rod from $A$ to $B$ is given by the line integral $\\mathcal{E}_{AB} = \\int_A^B \\vec{E} \\cdot d\\vec{\\ell} = \\frac{1}{2}\\left(\\frac{dB}{dt}\\right) \\int_A^B (\\hat{k} \\times \\vec{r}) \\cdot d\\vec{\\ell}$. Using the scalar triple product identity, $(\\hat{k} \\times \\vec{r}) \\cdot d\\vec{\\ell} = \\hat{k} \\cdot (\\vec{r} \\times d\\vec{\\ell})$. The magnitude $\\frac{1}{2}|\\vec{r} \\times d\\vec{\\ell}|$ represents the infinitesimal area of the triangle formed by origin $O$ and segment $d\\vec{\\ell}$. Integrating along the straight segment $AB$, the integral yields the total geometric area of triangle $OAB$: $\\mathcal{E}_{AB} = \\left(\\frac{dB}{dt}\\right) \\times (\\text{Area of } \\Delta OAB)$. Triangle $OAB$ has base $L = 0.60\\text{ m}$ and altitude $d = 0.40\\text{ m}$. Its area is $\\text{Area} = \\frac{1}{2} L d = \\frac{1}{2}(0.60)(0.40) = 0.12\\text{ m}^2$. Substituting $\\frac{dB}{dt} = 8.0\\text{ T/s}$, we get $\\mathcal{E}_{AB} = 8.0 \\times 0.12 = 0.96\\text{ V}$. Halving the triangle area formula gives $0.48\\text{ V}$; doubling the area yields $1.92\\text{ V}$; taking $L \\times d$ without the factor of $1/2$ leads to $1.44\\text{ V}$."
+    },
+    {
+      "id": "emi_c01_017",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A very long straight wire carries a time-dependent current $I(t) = I_0 + \\beta t$, where $I_0 = 10.0\\text{ A}$ and $\beta = 5.0\\text{ A/s}$. A rectangular conducting loop of dimensions $a = 0.20\\text{ m}$ (parallel to the wire) and $b = 0.30\\text{ m}$ (perpendicular to the wire) has total resistance $R = 0.050\\ \\Omega$. The nearest edge of the loop is parallel to the wire at a distance $d = 0.10\\text{ m}$. Using $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T}\\cdot\\text{m/A}$ and $\\ln 4 \\approx 1.386$, find the induced current in the rectangular loop.",
+      "options": [
+        "A) $5.54\\ \\mu\\text{A}$",
+        "B) $2.77\\ \\mu\\text{A}$",
+        "C) $8.32\\ \\mu\\text{A}$",
+        "D) $11.08\\ \\mu\\text{A}$"
+      ],
+      "answer": "A",
+      "explanation": "At a distance $x$ from the long straight wire, the magnetic field is $B(x) = \\frac{\\mu_0 I(t)}{2\\pi x}$. Consider an elemental strip of length $a$ and width $dx$ located at distance $x$ from the wire. The magnetic flux through this strip is $d\\Phi = B(x) a dx = \\frac{\\mu_0 I(t) a}{2\\pi}\\frac{dx}{x}$. Integrating across the width of the loop from $x = d$ to $x = d + b$: $\\Phi(t) = \\frac{\\mu_0 I(t) a}{2\\pi} \\int_d^{d+b}\\frac{dx}{x} = \\frac{\\mu_0 a}{2\\pi} \\ln\\left(\\frac{d+b}{d}\\right) I(t)$. The mutual inductance is $M = \\frac{\\mu_0 a}{2\\pi} \\ln\\left(\\frac{d+b}{d}\\right)$. With $d = 0.10\\text{ m}$ and $b = 0.30\\text{ m}$, the argument of the logarithm is $\\frac{0.40}{0.10} = 4$. Substituting values: $M = \\frac{(4\\pi \\times 10^{-7})(0.20)}{2\\pi} \\ln 4 = 4.0 \\times 10^{-8} \\times 1.386 = 5.544 \\times 10^{-8}\\text{ H}$. By Faraday's law, the induced electromotive force is $\\mathcal{E} = M\\frac{dI}{dt} = (5.544 \\times 10^{-8}\\text{ H})(5.0\\text{ A/s}) = 2.772 \\times 10^{-7}\\text{ V}$. The induced current is $I_{ind} = \\frac{\\mathcal{E}}{R} = \\frac{2.772 \\times 10^{-7}}{0.050} = 5.544 \\times 10^{-6}\\text{ A} \\approx 5.54\\ \\mu\\text{A}$. Forgetting the logarithmic integration and using arithmetic mean distance gives $2.77\\ \\mu\\text{A}$; using geometric mean gives $8.32\\ \\mu\\text{A}$; doubling the mutual flux yields $11.08\\ \\mu\\text{A}$."
+    },
+    {
+      "id": "emi_c01_018",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A conducting rod of mass $m = 0.10\\text{ kg}$ and length $L = 0.50\\text{ m}$ is placed at rest on two frictionless horizontal parallel rails of negligible resistance in a uniform vertical magnetic field $B = 2.0\\text{ T}$. The rails are connected to a capacitor of capacitance $C = 0.050\\text{ F}$ initially charged to a voltage $V_0 = 120\\text{ V}$. A switch is closed to connect the capacitor across the rails. Due to the discharge current, the rod accelerates until reaching a steady terminal speed $v_f$. Find the value of $v_f$ in $\\text{m/s}$.",
+      "options": [],
+      "answer": "40",
+      "explanation": "At any time $t$ during the discharge, let the current flowing through the rod be $i = -\\frac{dq}{dt}$, where $q$ is the instantaneous charge on the capacitor. The magnetic force on the rod is $F_B = i L B$. Applying Newton's second law: $m\\frac{dv}{dt} = i L B = -L B \\frac{dq}{dt}$. Integrating both sides from the initial state ($v = 0, q = Q_0 = C V_0$) to the final steady state ($v = v_f, q = q_f$), we get $m v_f = L B (Q_0 - q_f)$. In the final steady state, current ceases to flow because the motional electromotive force developed across the moving rod exactly balances the final potential difference across the capacitor: $V_f = \\frac{q_f}{C} = B L v_f \\implies q_f = C B L v_f$. Substituting this expression for $q_f$ into the momentum equation: $m v_f = L B (C V_0 - C B L v_f) = C B L V_0 - C B^2 L^2 v_f$. Rearranging terms yields $(m + C B^2 L^2) v_f = C B L V_0$, which gives $v_f = \\frac{C B L V_0}{m + C B^2 L^2}$. Here, $B L = (2.0)(0.50) = 1.0\\text{ T}\\cdot\\text{m}$, so $B^2 L^2 = 1.0\\text{ T}^2\\cdot\\text{m}^2$. The effective inertia term is $C B^2 L^2 = (0.050)(1.0) = 0.050\\text{ kg}$. The total denominator is $m + C B^2 L^2 = 0.10 + 0.050 = 0.15\\text{ kg}$. The numerator is $C B L V_0 = (0.050)(1.0)(120) = 6.0\\text{ kg}\\cdot\\text{m/s}$. Therefore, $v_f = \\frac{6.0}{0.15} = 40\\text{ m/s}$."
+    },
+    {
+      "id": "emi_c01_019",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An ideal direct current battery of electromotive force $\\mathcal{E} = 60\\text{ V}$ is connected in series with a switch $S$ and an inductor of inductance $L = 5.0\\text{ H}$ having internal resistance $R_L = 10\\ \\Omega$. A discharge resistor $R_0 = 40\\ \\Omega$ is permanently connected in parallel across the inductor. The switch $S$ has been kept closed for a sufficiently long time to establish steady state. At time $t = 0$, the switch $S$ is suddenly opened. Determine the potential difference across the terminals of switch $S$ immediately after opening ($t = 0^+$).",
+      "options": [
+        "A) $60\\text{ V}$",
+        "B) $240\\text{ V}$",
+        "C) $180\\text{ V}$",
+        "D) $300\\text{ V}$"
+      ],
+      "answer": "D",
+      "explanation": "In the long-time steady state before opening the switch ($t = 0^-$), the inductor behaves as an ordinary resistor $R_L = 10\\ \\Omega$. The steady current flowing through the inductor is $I_L(0^-) = \\frac{\\mathcal{E}}{R_L} = \\frac{60}{10} = 6.0\\text{ A}$. The current flowing through resistor $R_0$ is $I_0 = \\frac{\\mathcal{E}}{R_0} = \\frac{60}{40} = 1.5\\text{ A}$. At the instant the switch is opened ($t = 0^+$), the magnetic flux linkage in the inductor cannot change instantaneously, so the inductor current remains strictly $I_L(0^+) = 6.0\\text{ A}$. In the loop formed by the inductor and resistor $R_0$, this current of $6.0\\text{ A}$ must immediately flow through $R_0$ in the upward direction. The potential difference across resistor $R_0$ at $t = 0^+$ is therefore $V_{R0} = I_L(0^+) R_0 = (6.0)(40) = 240\\text{ V}$, making its upper node at a potential of $+240\\text{ V}$ relative to its lower node. One terminal of the open switch is held at the battery potential $+\\mathcal{E} = +60\\text{ V}$ relative to the common return, while the other terminal is connected to the top node of the inductor at $-240\\text{ V}$ relative to the battery positive. Consequently, the total potential difference across the open switch contacts is $V_{switch} = \\mathcal{E} + V_{R0} = 60 + 240 = 300\\text{ V}$. Assuming the switch voltage is solely the battery voltage gives $60\\text{ V}$; considering only the resistor drop gives $240\\text{ V}$; subtracting the battery voltage yields $180\\text{ V}$."
+    },
+    {
+      "id": "emi_c01_020",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A smooth, non-conducting circular ring of radius $R = 0.25\\text{ m}$ is fixed horizontally in a region containing a uniform, vertically directed time-varying magnetic field $B(t) = B_0 + \\alpha t$, where $\\alpha = 12.0\\text{ T/s}$. A small bead of mass $m = 10.0\\text{ g}$ carrying a positive charge $q = 5.0 \\times 10^{-3}\\text{ C}$ is constrained to slide along the ring. The ring is coaxial with the cylindrical magnetic field boundary (which has radius $> R$). Assuming the bead is released from rest at $t = 0$, what is the magnitude of the tangential acceleration of the bead?",
+      "options": [
+        "A) $0.375\\text{ m/s}^2$",
+        "B) $1.50\\text{ m/s}^2$",
+        "C) $0.75\\text{ m/s}^2$",
+        "D) $3.00\\text{ m/s}^2$"
+      ],
+      "answer": "C",
+      "explanation": "Applying Faraday's law of electromagnetic induction along the circular contour of the ring: $\\oint \\vec{E} \\cdot d\\vec{\\ell} = -\\frac{d\\Phi_B}{dt}$. Due to axial symmetry, the induced non-conservative electric field is tangential and has equal magnitude everywhere along the ring of radius $R$: $E(2\\pi R) = \\pi R^2 \\frac{dB}{dt} = \\pi R^2 \\alpha$. Solving for the electric field magnitude yields $E = \\frac{R}{2}\\alpha$. Substituting $R = 0.25\\text{ m}$ and $\\alpha = 12.0\\text{ T/s}$: $E = \\frac{0.25}{2}(12.0) = 1.50\\text{ V/m}$. The tangential force exerted on the charged bead by this induced electric field is $F_t = q E = (5.0 \\times 10^{-3}\\text{ C})(1.50\\text{ V/m}) = 7.5 \\times 10^{-3}\\text{ N}$. Applying Newton's second law along the tangential direction: $a_t = \\frac{F_t}{m}$. With bead mass $m = 10.0\\text{ g} = 0.010\\text{ kg}$, the tangential acceleration is $a_t = \\frac{7.5 \\times 10^{-3}\\text{ N}}{0.010\\text{ kg}} = 0.75\\text{ m/s}^2$. Halving the induced electric field factor yields $0.375\\text{ m/s}^2$; forgetting the bead mass scaling yields $1.50\\text{ m/s}^2$; doubling the field acceleration gives $3.00\\text{ m/s}^2$."
+    },
+    {
+      "id": "emi_c01_021",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A square wire loop of mass $m = 20.0\\text{ g}$, side length $L = 0.10\\text{ m}$, and resistance $R = 0.25\\ \\Omega$ falls vertically under gravity in the presence of a horizontal magnetic field $B = 1.0\\text{ T}$ perpendicular to the plane of the loop. The field is confined to a horizontal strip. If the loop enters the field and reaches a steady terminal velocity $v_t$ before its top edge enters the field, determine the value of $v_t$. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $2.5\\text{ m/s}$",
+        "B) $5.0\\text{ m/s}$",
+        "C) $10.0\\text{ m/s}$",
+        "D) $1.25\\text{ m/s}$"
+      ],
+      "answer": "B",
+      "explanation": "When only the bottom horizontal arm of the falling loop is inside the horizontal magnetic field, motional electromotive force is induced along that arm: $\\mathcal{E} = B L v$. The induced current circulating in the loop is $I = \\frac{\\mathcal{E}}{R} = \\frac{B L v}{R}$. By Lenz's law, the magnetic Lorentz force acting on the bottom arm points upward, opposing the fall: $F_B = I L B = \\frac{B^2 L^2 v}{R}$. At terminal velocity $v_t$, the upward magnetic force balances the downward gravitational force: $m g = \\frac{B^2 L^2 v_t}{R}$. Solving for terminal velocity: $v_t = \\frac{m g R}{B^2 L^2}$. Substituting the parameters $m = 0.020\\text{ kg}$, $g = 10\\text{ m/s}^2$, $R = 0.25\\ \\Omega$, $B = 1.0\\text{ T}$, and $L = 0.10\\text{ m}$: $B^2 L^2 = (1.0)^2(0.10)^2 = 0.010\\text{ T}^2\\cdot\\text{m}^2$. Therefore, $v_t = \\frac{(0.020)(10)(0.25)}{0.010} = \\frac{0.050}{0.010} = 5.0\\text{ m/s}$. Mistakenly halving the resistance gives $2.5\\text{ m/s}$; doubling the terminal velocity gives $10.0\\text{ m/s}$; squaring the length incorrectly yields $1.25\\text{ m/s}$."
+    },
+    {
+      "id": "emi_c01_022",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A long primary solenoid of length $l = 0.80\\text{ m}$ has a circular cross-sectional area $A = \\frac{1}{\\pi} \\times 10^{-3}\\text{ m}^2$ and $N_1 = 1200$ turns. A secondary coil having $N_2 = 400$ turns is wound tightly around its central portion. An alternating current $I_1(t) = I_0 \\sin(\\omega t)$ with amplitude $I_0 = 10.0\\text{ A}$ and angular frequency $\\omega = 20000\\text{ rad/s}$ is passed through the primary solenoid. Taking $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T}\\cdot\\text{m/A}$, determine the peak induced electromotive force $\\mathcal{E}_0$ in the secondary coil in volts ($\\text{V}$).",
+      "options": [],
+      "answer": "48",
+      "explanation": "The mutual inductance between a long primary solenoid and a coaxial secondary coil wound over its central region is $M = \\frac{\\mu_0 N_1 N_2 A}{l}$. Substituting the given parameters: $M = \\frac{(4\\pi \\times 10^{-7})(1200)(400)\\left(\\frac{1}{\\pi} \\times 10^{-3}\\right)}{0.80}$. Notice that $\\pi$ cancels exactly: $M = \\frac{4 \\times 10^{-7} \\times 4.8 \\times 10^5 \\times 10^{-3}}{0.80} = \\frac{1.92 \\times 10^{-4}}{0.80} = 2.4 \\times 10^{-4}\\text{ H}$. By Faraday's law of induction, the electromotive force induced across the secondary coil is $\\mathcal{E}_2(t) = -M\\frac{dI_1}{dt} = -M I_0 \\omega \\cos(\\omega t)$. The peak amplitude of this induced emf is $\\mathcal{E}_0 = M I_0 \\omega$. Substituting $M = 2.4 \\times 10^{-4}\\text{ H}$, $I_0 = 10.0\\text{ A}$, and $\\omega = 20000\\text{ rad/s}$: $\\mathcal{E}_0 = (2.4 \\times 10^{-4})(10.0)(20000) = 2.4 \\times 10^{-3} \\times 20000 = 48\\text{ V}$."
+    },
+    {
+      "id": "emi_c01_023",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A DC voltage source with electromotive force $\\mathcal{E} = 48\\text{ V}$ and zero internal resistance is connected at time $t = 0$ via a switch to a parallel network. The network has two parallel branches: branch 1 contains an inductor $L_1 = 2.0\\text{ H}$ in series with a resistor $R_1 = 8.0\\ \\Omega$, and branch 2 contains an inductor $L_2 = 6.0\\text{ H}$ in series with a resistor $R_2 = 12.0\\ \\Omega$. Determine the ratio of the rate of increase of current in branch 1 to that in branch 2, $\\frac{(dI_1/dt)}{(dI_2/dt)}$, at the instant immediately after closing the switch ($t = 0^+$).",
+      "options": [
+        "A) $3.0$",
+        "B) $1.5$",
+        "C) $0.33$",
+        "D) $2.0$"
+      ],
+      "answer": "A",
+      "explanation": "At the initial instant $t = 0^+$, because the inductors oppose any instantaneous jump in current, the currents in both branches are zero: $I_1(0^+) = 0$ and $I_2(0^+) = 0$. Consequently, the resistive voltage drops across $R_1$ and $R_2$ are both identically zero. Applying Kirchhoff's loop rule across branch 1: $\\mathcal{E} - I_1 R_1 - L_1\\frac{dI_1}{dt} = 0 \\implies \\left(\\frac{dI_1}{dt}\\right)_{t=0^+} = \\frac{\\mathcal{E}}{L_1} = \\frac{48}{2.0} = 24.0\\text{ A/s}$. Similarly, across branch 2: $\\mathcal{E} - I_2 R_2 - L_2\\frac{dI_2}{dt} = 0 \\implies \\left(\\frac{dI_2}{dt}\\right)_{t=0^+} = \\frac{\\mathcal{E}}{L_2} = \\frac{48}{6.0} = 8.0\\text{ A/s}$. Taking the ratio of their initial rates of current growth: $\\frac{(dI_1/dt)_{0^+}}{(dI_2/dt)_{0^+}} = \\frac{\\mathcal{E}/L_1}{\\mathcal{E}/L_2} = \\frac{L_2}{L_1} = \\frac{6.0}{2.0} = 3.0$. Using the ratio of resistances $R_2/R_1 = 12/8$ gives $1.5$; taking the inverse inductance ratio gives $0.33$; using the ratio of inductive time constants yields $2.0$."
+    },
+    {
+      "id": "emi_c01_024",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A rigid conducting wire bent in the shape of a parabola $y^2 = 4ax$ (with $a = 0.25\\text{ m}$) lies in the horizontal $xy$-plane. A uniform magnetic field $\\vec{B} = (0.80\\hat{k})\\text{ T}$ acts vertically upward. The wire translates along the positive $x$-axis with a constant velocity $\\vec{v} = (10.0\\hat{i})\\text{ m/s}$ across a straight conducting line at $x = 1.0\\text{ m}$. What is the induced electromotive force between the two intersection points where the parabola crosses the line $x = 1.0\\text{ m}$?",
+      "options": [
+        "A) $4.0\\text{ V}$",
+        "B) $8.0\\text{ V}$",
+        "C) $12.0\\text{ V}$",
+        "D) $16.0\\text{ V}$"
+      ],
+      "answer": "D",
+      "explanation": "At the line $x = 1.0\\text{ m}$, the coordinates of the intersection points on the parabola satisfy $y^2 = 4(0.25)(1.0) = 1.0 \\implies y = \\pm 1.0\\text{ m}$. The two intersection points are $P(1.0, 1.0)$ and $Q(1.0, -1.0)$. The displacement vector connecting the two points is $\\vec{\\ell}_{PQ} = \\vec{r}_P - \\vec{r}_Q = (1.0 - 1.0)\\hat{i} + (1.0 - (-1.0))\\hat{j} = 2.0\\hat{j}\\text{ m}$. For any moving conductor in a uniform magnetic field, the motional electromotive force between its endpoints is given by $\\mathcal{E} = |(\\vec{v} \\times \\vec{B}) \\cdot \\vec{\\ell}_{PQ}|$. Computing the cross product: $\\vec{v} \\times \\vec{B} = (10.0\\hat{i}) \\times (0.80\\hat{k}) = -8.0\\hat{j}\\text{ V/m}$. Evaluating the dot product: $(\\vec{v} \\times \\vec{B}) \\cdot \\vec{\\ell}_{PQ} = (-8.0\\hat{j}) \\cdot (2.0\\hat{j}) = -16.0\\text{ V}$. Taking the absolute value yields $\\mathcal{E} = 16.0\\text{ V}$. Using the half-width $y = 1.0\\text{ m}$ gives $8.0\\text{ V}$; missing the velocity factor scaling gives $4.0\\text{ V}$; miscalculating the cross product projection yields $12.0\\text{ V}$."
+    },
+    {
+      "id": "emi_c01_025",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A conducting rod of mass $m = 0.30\\text{ kg}$ and length $L = 0.50\\text{ m}$ can slide without friction on two long horizontal parallel rails separated by distance $L$. A uniform magnetic field $B = 2.0\\text{ T}$ is directed vertically. The rails are connected at one end to an uncharged capacitor of capacitance $C = 0.20\\text{ F}$. A constant horizontal pulling force $F = 3.5\\text{ N}$ is applied to the rod parallel to the rails. Determine the acceleration $a$ of the rod.",
+      "options": [
+        "A) $11.67\\text{ m/s}^2$",
+        "B) $7.00\\text{ m/s}^2$",
+        "C) $3.50\\text{ m/s}^2$",
+        "D) $5.25\\text{ m/s}^2$"
+      ],
+      "answer": "B",
+      "explanation": "When the rod moves with instantaneous velocity $v$, the motional electromotive force induced across it is $\\mathcal{E} = B L v$. The potential difference across the capacitor is $V_C = \\mathcal{E} = B L v$. The charge accumulated on the capacitor plates is $q = C V_C = C B L v$. The electric current flowing through the rod is $i = \\frac{dq}{dt} = C B L \\frac{dv}{dt} = C B L a$, where $a$ is the acceleration of the rod. This current produces an opposing magnetic braking force: $F_B = i L B = (C B L a) L B = C B^2 L^2 a$. Applying Newton's second law to the rod: $F - F_B = m a \\implies F - C B^2 L^2 a = m a \\implies a = \\frac{F}{m + C B^2 L^2}$. Here, the term $C B^2 L^2$ acts as an added effective electromagnetic mass. Substituting the parameters $C = 0.20\\text{ F}$, $B = 2.0\\text{ T}$, and $L = 0.50\\text{ m}$: $B L = 1.0\\text{ T}\\cdot\\text{m}$, so $C B^2 L^2 = (0.20)(1.0)^2 = 0.20\\text{ kg}$. The total effective inertia is $m + C B^2 L^2 = 0.30 + 0.20 = 0.50\\text{ kg}$. Therefore, $a = \\frac{3.5\\text{ N}}{0.50\\text{ kg}} = 7.00\\text{ m/s}^2$. Neglecting the capacitor back-reaction force gives $\\frac{F}{m} = \\frac{3.5}{0.30} = 11.67\\text{ m/s}^2$; doubling the electromagnetic mass gives $3.50\\text{ m/s}^2$; computing with incorrect effective mass yields $5.25\\text{ m/s}^2$."
+    },
+    {
+      "id": "emi_c01_026",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A square conducting loop of side length $a = 0.20\\text{ m}$ and resistance $R = 1.6\\ \\Omega$ is placed coplanar with a long straight wire. The nearest side of the loop is parallel to the wire at a distance $d = 0.20\\text{ m}$. The wire carries a time-dependent current $I(t) = \\alpha t^2$, where $\\alpha = 15.0\\text{ A/s}^2$. At time $t = 2.0\\text{ s}$, the induced current in the loop is expressed as $I_{ind} = k \\ln 2 \\times 10^{-7}\\text{ A}$. Taking $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T}\\cdot\\text{m/A}$, find the integer value of $k$.",
+      "options": [],
+      "answer": "15",
+      "explanation": "The magnetic field produced by the straight wire at perpendicular distance $x$ is $B(x) = \\frac{\\mu_0 I(t)}{2\\pi x}$. Integrating across the square loop from $x = d$ to $x = d + a$, the total magnetic flux linked with the loop is $\\Phi(t) = \\int_d^{d+a} B(x) a dx = \\frac{\\mu_0 a}{2\\pi} \\ln\\left(\\frac{d+a}{d}\\right) I(t)$. With $d = 0.20\\text{ m}$ and $a = 0.20\\text{ m}$, we have $\\frac{d+a}{d} = \\frac{0.40}{0.20} = 2$. The mutual inductance is $M = \\frac{\\mu_0 a}{2\\pi}\\ln 2 = \\frac{(4\\pi \\times 10^{-7})(0.20)}{2\\pi}\\ln 2 = 4.0 \\times 10^{-8}\\ln 2\\text{ H}$. The rate of change of current at $t = 2.0\\text{ s}$ is $\\frac{dI}{dt} = 2\\alpha t = 2(15.0)(2.0) = 60.0\\text{ A/s}$. Applying Faraday's law, the induced electromotive force is $\\mathcal{E} = M\\frac{dI}{dt} = (4.0 \\times 10^{-8}\\ln 2)(60.0) = 24.0 \\times 10^{-7}\\ln 2\\text{ V}$. The induced current is $I_{ind} = \\frac{\\mathcal{E}}{R} = \\frac{24.0 \\times 10^{-7}\\ln 2}{1.6} = 15 \\times 10^{-7}\\ln 2\\text{ A}$. Therefore, the integer value of $k$ is $15$."
+    },
+    {
+      "id": "emi_c01_027",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A time-varying magnetic field is confined within a cylindrical region of radius $R = 0.30\\text{ m}$, increasing at a constant rate $\\frac{dB}{dt} = 40.0\\text{ T/s}$. An arbitrary closed curve $C$ lies in a plane perpendicular to the cylinder axis and completely encloses the circular cross-section of the cylinder. What is the magnitude of the line integral $\\oint_C \\vec{E}_{ind} \\cdot d\\vec{\\ell}$ of the induced electric field along this closed curve?",
+      "options": [
+        "A) $1.8\\pi\\text{ V}$",
+        "B) $7.2\\pi\\text{ V}$",
+        "C) $3.6\\pi\\text{ V}$",
+        "D) $0.9\\pi\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "Applying Faraday's law of electromagnetic induction in integral form: $\\oint_C \\vec{E}_{ind} \\cdot d\\vec{\\ell} = -\\frac{d\\Phi_B}{dt}$. Here, $\\Phi_B$ is the total magnetic flux passing through any surface bounded by curve $C$. Because the magnetic field is strictly confined to the cylindrical region of radius $R$, the magnetic field is zero everywhere outside $r = R$. Therefore, regardless of the geometric shape, size, or position of the enclosing curve $C$, the total magnetic flux enclosed is simply $\\Phi_B = B \\times (\\pi R^2)$. Differentiating with respect to time: $\\left|\\oint_C \\vec{E}_{ind} \\cdot d\\vec{\\ell}\\right| = \\pi R^2 \\frac{dB}{dt}$. Substituting the values $R = 0.30\\text{ m}$ (so $R^2 = 0.090\\text{ m}^2$) and $\\frac{dB}{dt} = 40.0\\text{ T/s}$: $\\left|\\oint_C \\vec{E}_{ind} \\cdot d\\vec{\\ell}\\right| = \\pi (0.090)(40.0) = 3.6\\pi\\text{ V}$. Halving the enclosed area yields $1.8\\pi\\text{ V}$; doubling the result gives $7.2\\pi\\text{ V}$; taking linear radius scaling gives $0.9\\pi\\text{ V}$."
+    },
+    {
+      "id": "emi_c01_028",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A straight conducting rod $AB$ of total length $L = 1.0\\text{ m}$ is pivoted at a point $O$ located at a distance $\\frac{L}{4}$ from end $A$ (so $OA = 0.25\\text{ m}$ and $OB = 0.75\\text{ m}$). The rod rotates with a uniform angular speed $\\omega = 40.0\\text{ rad/s}$ in a plane perpendicular to a uniform magnetic field $B = 0.50\\text{ T}$. What is the magnitude of the potential difference $|V_B - V_A|$ between the two extremities of the rod?",
+      "options": [
+        "A) $10.0\\text{ V}$",
+        "B) $2.5\\text{ V}$",
+        "C) $7.5\\text{ V}$",
+        "D) $5.0\\text{ V}$"
+      ],
+      "answer": "D",
+      "explanation": "For any radial element rotating about pivot $O$ at angular speed $\\omega$ in uniform magnetic field $B$, the potential difference between $O$ and an endpoint at distance $r$ is $V_O - V(r) = \\int_0^r B \\omega r' dr' = \\frac{1}{2} B \\omega r^2$. For endpoint $A$ at distance $r_A = OA = 0.25\\text{ m}$: $V_O - V_A = \\frac{1}{2} B \\omega (OA)^2$. For endpoint $B$ at distance $r_B = OB = 0.75\\text{ m}$: $V_O - V_B = \\frac{1}{2} B \\omega (OB)^2$. Subtracting the two relations yields the potential difference between the endpoints: $V_A - V_B = (V_O - V_B) - (V_O - V_A) = \\frac{1}{2} B \\omega \\left[(OB)^2 - (OA)^2\\right]$. Calculating the geometric factor: $(OB)^2 - (OA)^2 = (0.75)^2 - (0.25)^2 = 0.5625 - 0.0625 = 0.50\\text{ m}^2$. Substituting $B = 0.50\\text{ T}$ and $\\omega = 40.0\\text{ rad/s}$: $|V_B - V_A| = \\frac{1}{2}(0.50)(40.0)(0.50) = \\frac{1}{2}(20.0)(0.50) = 5.0\\text{ V}$. Using the full rod length $L^2 = 1.0$ gives $10.0\\text{ V}$; considering only segment $OA$ gives $2.5\\text{ V}$; considering only segment $OB$ gives $7.5\\text{ V}$."
+    },
+    {
+      "id": "emi_c01_029",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A conducting rod of mass $m = 0.50\\text{ kg}$ and internal resistance $r = 0.50\\ \\Omega$ rests on two long horizontal, frictionless, parallel conducting rails separated by distance $L = 0.50\\text{ m}$. The rails have negligible resistance and are connected at one end by an external resistor $R_0 = 1.50\\ \\Omega$. A uniform magnetic field $B = 2.0\\text{ T}$ is directed vertically upward. The rod is projected along the rails with an initial velocity $v_0 = 25.0\\text{ m/s}$. Find the total distance $x_{total}$ in meters ($\\text{m}$) traveled by the rod before it comes to rest.",
+      "options": [],
+      "answer": "25",
+      "explanation": "The total electrical resistance of the closed loop is $R = r + R_0 = 0.50 + 1.50 = 2.0\\ \\Omega$. At any speed $v$, the motional electromotive force is $\\mathcal{E} = B L v$. The induced current is $i = \\frac{B L v}{R}$. The magnetic braking force on the rod opposing motion is $F_B = i L B = \\frac{B^2 L^2 v}{R}$. Applying Newton's second law: $m\\frac{dv}{dt} = -\\frac{B^2 L^2 v}{R}$. Using the kinematic relation $\\frac{dv}{dt} = v\\frac{dv}{dx}$, we can rewrite the equation as $m v\\frac{dv}{dx} = -\\frac{B^2 L^2 v}{R} \\implies m dv = -\\frac{B^2 L^2}{R} dx$. Integrating from $v = v_0$ to $v = 0$ as displacement goes from $x = 0$ to $x_{total}$: $\\int_{v_0}^0 m dv = -\\frac{B^2 L^2}{R} \\int_0^{x_{total}} dx \\implies -m v_0 = -\\frac{B^2 L^2}{R} x_{total}$. Solving for total distance: $x_{total} = \\frac{m v_0 R}{B^2 L^2}$. Substituting $m = 0.50\\text{ kg}$, $v_0 = 25.0\\text{ m/s}$, $R = 2.0\\ \\Omega$, $B = 2.0\\text{ T}$, and $L = 0.50\\text{ m}$: $B L = (2.0)(0.50) = 1.0\\text{ T}\\cdot\\text{m}$, so $B^2 L^2 = 1.0\\text{ T}^2\\cdot\\text{m}^2$. Hence, $x_{total} = \\frac{(0.50)(25.0)(2.0)}{1.0} = 25\\text{ m}$."
+    },
+    {
+      "id": "emi_c01_030",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An electrical bridge network consists of four arms: arm $AB$ has resistor $R_1 = 10\\ \\Omega$ and inductor $L_1 = 40\\text{ mH}$ in series; arm $BC$ has resistor $R_2 = 20\\ \\Omega$; arm $AD$ has resistor $R_3 = 30\\ \\Omega$ and inductor $L_3$; and arm $DC$ has resistor $R_4 = 60\\ \\Omega$. A DC voltage source is connected across $A$ and $C$ through a switch. In order that the potential difference between detector nodes $B$ and $D$ remains zero ($V_B(t) - V_D(t) = 0$) at all times $t \\ge 0$ after closing the switch, what must be the inductance $L_3$?",
+      "options": [
+        "A) $120\\text{ mH}$",
+        "B) $60\\text{ mH}$",
+        "C) $80\\text{ mH}$",
+        "D) $40\\text{ mH}$"
+      ],
+      "answer": "A",
+      "explanation": "For the bridge to remain balanced at all instances during transient current growth, two conditions must be satisfied simultaneously: the steady-state resistive bridge balance and equality of inductive time constants. First, checking the steady-state ratio: $\\frac{R_1}{R_2} = \\frac{10}{20} = \\frac{1}{2}$ and $\\frac{R_3}{R_4} = \\frac{30}{60} = \\frac{1}{2}$, which confirms steady-state balance. Second, during transient current growth, the time constants of the two parallel branches $ABC$ and $ADC$ must match: $\\tau_1 = \\frac{L_1}{R_1 + R_2} = \\frac{40\\text{ mH}}{10 + 20} = \\frac{40}{30}\\text{ ms} = \\frac{4}{3}\\text{ ms}$. For branch $ADC$, the time constant is $\\tau_2 = \\frac{L_3}{R_3 + R_4} = \\frac{L_3}{30 + 60} = \\frac{L_3}{90}$. Equating the two time constants: $\\frac{L_3}{90} = \\frac{40}{30} \\implies L_3 = 90 \\times \\frac{4}{3} = 120\\text{ mH}$. Under this condition, the potential at both nodes $B$ and $D$ tracks identically as $V_B(t) = V_D(t) = \\frac{2}{3}\\mathcal{E}\\left(1 - e^{-t/\\tau}\\right)$ for all $t \\ge 0$. Using the direct branch resistance ratio gives $60\\text{ mH}$; taking the parallel combination time constant gives $80\\text{ mH}$; setting $L_3 = L_1$ yields $40\\text{ mH}$."
+    },
+    {
+      "id": "emi_c01_031",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A rectangular coil of $N = 100$ turns, area $A = 0.050\\text{ m}^2$, and total electrical resistance $R = 2.5\\ \\Omega$ rotates with a uniform angular velocity $\\omega = 50.0\\text{ rad/s}$ about an axis perpendicular to a uniform magnetic field $B = 0.40\\text{ T}$. What is the average external mechanical power $\\langle P \\rangle$ required to maintain this uniform rotation?",
+      "options": [
+        "A) $1.0\\text{ kW}$",
+        "B) $2.0\\text{ kW}$",
+        "C) $4.0\\text{ kW}$",
+        "D) $0.5\\text{ kW}$"
+      ],
+      "answer": "B",
+      "explanation": "The instantaneous magnetic flux linked with the rotating coil is $\\Phi(t) = N B A \\cos(\\omega t)$. Applying Faraday's law, the induced electromotive force is $\\mathcal{E}(t) = -\\frac{d\\Phi}{dt} = N B A \\omega \\sin(\\omega t) = \\mathcal{E}_0 \\sin(\\omega t)$. The peak electromotive force is $\\mathcal{E}_0 = N B A \\omega = (100)(0.40)(0.050)(50.0) = 100.0\\text{ V}$. The instantaneous current circulating in the coil is $i(t) = \\frac{\\mathcal{E}(t)}{R} = \\frac{\\mathcal{E}_0}{R}\\sin(\\omega t)$. The instantaneous electrical power dissipated as Joule heat is $P(t) = i^2(t) R = \\frac{\\mathcal{E}_0^2}{R}\\sin^2(\\omega t)$. By conservation of energy, the external mechanical power required to maintain uniform angular speed must exactly balance the instantaneous rate of electrical dissipation. The time-averaged power over a complete cycle is $\\langle P \\rangle = \\frac{\\mathcal{E}_0^2}{R} \\langle \\sin^2(\\omega t) \\rangle = \\frac{\\mathcal{E}_0^2}{2R}$. Substituting $\\mathcal{E}_0 = 100.0\\text{ V}$ and $R = 2.5\\ \\Omega$: $\\langle P \\rangle = \\frac{(100.0)^2}{2(2.5)} = \\frac{10000}{5.0} = 2000\\text{ W} = 2.0\\text{ kW}$. Halving the average power gives $1.0\\text{ kW}$; using the peak power without the cycle average factor of $1/2$ yields $4.0\\text{ kW}$; dividing by four gives $0.5\\text{ kW}$."
+    },
+    {
+      "id": "emi_c01_032",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An inductor of self-inductance $L = 5.0\\text{ H}$ carrying an initial steady current $I_0 = 20.0\\text{ A}$ is disconnected from its power supply and allowed to discharge through a resistor $R = 2.0\\ \\Omega$ via a closed switch at $t = 0$. Determine the total electric charge $Q$ in Coulombs ($\\text{C}$) that flows through the resistor during the entire decay process from $t = 0$ to $t \\to \\infty$.",
+      "options": [],
+      "answer": "50",
+      "explanation": "During current decay in an $LR$ discharge circuit, the instantaneous current obeys $i(t) = I_0 e^{-t/\\tau_L}$, where $\\tau_L = \\frac{L}{R}$ is the inductive time constant. The total electric charge transferred through the resistor over the entire discharge interval from $t = 0$ to $t \\to \\infty$ is the time integral of the current: $Q = \\int_0^\\infty i(t) dt = \\int_0^\\infty I_0 e^{-R t / L} dt$. Evaluating the definite integral: $Q = I_0 \\left[-\\frac{L}{R} e^{-R t / L}\\right]_0^\\infty = I_0 \\left(0 - \\left(-\\frac{L}{R}\\right)\\right) = \\frac{L I_0}{R}$. Alternatively, applying Faraday's law across the inductor, $\\int_0^\\infty V_L dt = L \\int_0^{I_0} di = L I_0$. Since $V_L = i R$, integrating gives $R \\int_0^\\infty i dt = R Q = L I_0 \\implies Q = \\frac{L I_0}{R}$. Substituting the given numerical values $L = 5.0\\text{ H}$, $I_0 = 20.0\\text{ A}$, and $R = 2.0\\ \\Omega$: $Q = \\frac{(5.0)(20.0)}{2.0} = \\frac{100.0}{2.0} = 50\\text{ C}$."
+    },
+    {
+      "id": "emi_c01_033",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A flexible, circular conducting loop in the $xy$-plane has its center at the origin and expands radially such that its radius increases at a constant rate $\\frac{dr}{dt} = v_0 = 4.0\\text{ m/s}$. A non-uniform magnetic field perpendicular to the loop is given by $\\vec{B}(r) = \\frac{k}{r}\\hat{k}$, where $k = 0.60\\text{ T}\\cdot\\text{m}$ and $r$ is the radial distance from the origin. Determine the magnitude of the electromotive force induced in the loop when its radius is $r = 0.50\\text{ m}$.",
+      "options": [
+        "A) $2.4\\pi\\text{ V}$",
+        "B) $1.2\\pi\\text{ V}$",
+        "C) $4.8\\pi\\text{ V}$",
+        "D) $9.6\\pi\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "The magnetic flux linked with a circular loop of radius $r$ is found by integrating over concentric annular rings: $\\Phi(r) = \\int_0^r B(r') (2\\pi r' dr') = \\int_0^r \\left(\\frac{k}{r'}\\right)(2\\pi r' dr') = 2\\pi k \\int_0^r dr' = 2\\pi k r$. Applying Faraday's law of induction, the induced electromotive force is $\\mathcal{E} = -\\frac{d\\Phi}{dt} = -\\frac{d}{dt}(2\\pi k r) = -2\\pi k \\frac{dr}{dt} = -2\\pi k v_0$. Notice that the induced electromotive force is completely independent of the instantaneous radius $r$ of the loop! Substituting the given numerical parameters $k = 0.60\\text{ T}\\cdot\\text{m}$ and $v_0 = 4.0\\text{ m/s}$: $|\\mathcal{E}| = 2\\pi (0.60)(4.0) = 4.8\\pi\\text{ V}$. Forgetting the factor of 2 from the circumference integral yields $2.4\\pi\\text{ V}$; dividing by the instantaneous radius gives $1.2\\pi\\text{ V}$; doubling the radial velocity yields $9.6\\pi\\text{ V}$."
+    },
+    {
+      "id": "emi_c01_034",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two parallel, horizontal frictionless conducting rails separated by distance $L = 0.40\\text{ m}$ are placed in a uniform vertical magnetic field $B = 1.50\\text{ T}$. Two conducting rods $1$ and $2$, each of resistance $r = 0.30\\ \\Omega$, slide on the rails. Rod 1 moves to the right with constant speed $v_1 = 5.0\\text{ m/s}$, while rod 2 moves to the right with constant speed $v_2 = 2.0\\text{ m/s}$. The rails have negligible resistance. What is the electric current flowing through the circuit formed by the two rails and the two rods?",
+      "options": [
+        "A) $7.0\\text{ A}$",
+        "B) $1.5\\text{ A}$",
+        "C) $6.0\\text{ A}$",
+        "D) $3.0\\text{ A}$"
+      ],
+      "answer": "D",
+      "explanation": "Both rods translate to the right in the same direction perpendicular to the uniform vertical magnetic field. The motional electromotive force induced across rod 1 is $\\mathcal{E}_1 = B L v_1$, and across rod 2 is $\\mathcal{E}_2 = B L v_2$. By the right-hand rule ($\\vec{v} \\times \\vec{B}$), both rods tend to drive current in the same transverse direction across the rails, so they oppose each other in the closed circuit formed by the rails and rods. The net electromotive force around the loop is $\\mathcal{E}_{net} = \\mathcal{E}_1 - \\mathcal{E}_2 = B L (v_1 - v_2)$. The total resistance of the closed circuit is $R_{tot} = r_1 + r_2 = 0.30 + 0.30 = 0.60\\ \\Omega$. Applying Ohm's law, the circulating current is $I = \\frac{\\mathcal{E}_{net}}{R_{tot}} = \\frac{B L (v_1 - v_2)}{2r}$. Substituting values $B = 1.50\\text{ T}$, $L = 0.40\\text{ m}$, $v_1 = 5.0\\text{ m/s}$, $v_2 = 2.0\\text{ m/s}$, and $R_{tot} = 0.60\\ \\Omega$: $B L = 0.60\\text{ T}\\cdot\\text{m}$, so $I = \\frac{(0.60)(5.0 - 2.0)}{0.60} = \\frac{(0.60)(3.0)}{0.60} = 3.0\\text{ A}$. Adding the emfs as if the rods moved in opposite directions gives $7.0\\text{ A}$; including only one rod resistance yields $6.0\\text{ A}$; halving the net velocity difference yields $1.5\\text{ A}$."
+    },
+    {
+      "id": "emi_c01_035",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An equilateral triangular loop of side length $s = 0.30\\text{ m}$ is placed symmetrically with its centroid at the center of a cylindrical region of time-varying magnetic field $\\frac{dB}{dt} = 20.0\\text{ T/s}$. The entire triangular loop lies well inside the cylindrical field region. What is the electromotive force $\\mathcal{E}$ induced in the triangular loop?",
+      "options": [
+        "A) $0.90\\sqrt{3}\\text{ V}$",
+        "B) $0.45\\sqrt{3}\\text{ V}$",
+        "C) $0.30\\sqrt{3}\\text{ V}$",
+        "D) $0.60\\sqrt{3}\\text{ V}$"
+      ],
+      "answer": "B",
+      "explanation": "By Faraday's law of electromagnetic induction, the electromotive force induced around any closed planar loop lying entirely within a spatially uniform, time-varying magnetic field is $\\mathcal{E} = -\\frac{d\\Phi_B}{dt} = -A_{loop}\\frac{dB}{dt}$. The area of an equilateral triangle of side length $s$ is $A = \\frac{\\sqrt{3}}{4} s^2$. Substituting $s = 0.30\\text{ m}$: $s^2 = 0.090\\text{ m}^2$, so $A = \\frac{\\sqrt{3}}{4}(0.090) = 0.0225\\sqrt{3}\\text{ m}^2$. The magnitude of the induced electromotive force is $\\mathcal{E} = A\\frac{dB}{dt} = (0.0225\\sqrt{3})(20.0) = 0.45\\sqrt{3}\\text{ V}$. Doubling the triangular area factor yields $0.90\\sqrt{3}\\text{ V}$; using the inscribed circle area gives $0.30\\sqrt{3}\\text{ V}$; miscalculating the altitude of the triangle leads to $0.60\\sqrt{3}\\text{ V}$."
+    },
+    {
+      "id": "emi_c01_036",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A long coaxial cable consists of a solid inner cylindrical conductor of radius $a$ carrying a steady current $I$ uniformly distributed across its cross section, and a thin outer cylindrical conducting shell of radius $b$ ($b > a$) carrying the return current $-I$. The annular region between the conductors ($a < r < b$) is filled with a non-magnetic dielectric medium ($\\mu_r = 1$). Which of the following statements is/are correct regarding the self-inductance per unit length of this cable?",
+      "options": [
+        "A) The self-inductance per unit length due to the magnetic energy stored in the space between the conductors ($a < r < b$) is $L_{ext}' = \\frac{\\mu_0}{2\\pi}\\ln\\left(\\frac{b}{a}\\right)$.",
+        "B) The internal self-inductance per unit length due to the magnetic energy stored inside the solid inner conductor ($r < a$) depends on its radius $a$ as $\\frac{\\mu_0 a}{4\\pi}$.",
+        "C) The internal self-inductance per unit length due to the magnetic field inside the solid inner conductor is $L_{int}' = \\frac{\\mu_0}{8\\pi}$, which is completely independent of the radius $a$.",
+        "D) The total self-inductance per unit length of the coaxial cable is $L_{total}' = \\frac{\\mu_0}{4\\pi}\\left[1 + \\ln\\left(\\frac{b}{a}\\right)\\right]$."
+      ],
+      "answer": "A,C",
+      "explanation": "First, consider the solid inner conductor ($r < a$). By Ampere's circuital law, the magnetic field at radius $r$ inside the conductor is $B(r)(2\\pi r) = \\mu_0 I \\frac{\\pi r^2}{\\pi a^2} \\implies B(r) = \\frac{\\mu_0 I r}{2\\pi a^2}$. The magnetic energy density is $u_B = \\frac{B^2}{2\\mu_0} = \\frac{\\mu_0 I^2 r^2}{8\\pi^2 a^4}$. The stored internal magnetic energy per unit length is $U_{int}' = \\int_0^a u_B (2\\pi r dr) = \\frac{\\mu_0 I^2}{4\\pi a^4}\\int_0^a r^3 dr = \\frac{\\mu_0 I^2}{16\\pi}$. Equating this energy to $\\frac{1}{2} L_{int}' I^2$ yields the internal self-inductance per unit length: $L_{int}' = \\frac{\\mu_0}{8\\pi}$. Notice this is completely independent of radius $a$, which confirms statement C and disproves statement B. Second, in the space between the conductors ($a < r < b$), Ampere's circuital law gives $B(r) = \\frac{\\mu_0 I}{2\\pi r}$. The magnetic energy density is $u_B = \\frac{\\mu_0 I^2}{8\\pi^2 r^2}$. The external magnetic energy per unit length is $U_{ext}' = \\int_a^b \\frac{\\mu_0 I^2}{8\\pi^2 r^2}(2\\pi r dr) = \\frac{\\mu_0 I^2}{4\\pi}\\int_a^b \\frac{dr}{r} = \\frac{\\mu_0 I^2}{4\\pi}\\ln\\left(\\frac{b}{a}\\right)$. Equating to $\\frac{1}{2} L_{ext}' I^2$, we obtain $L_{ext}' = \\frac{\\mu_0}{2\\pi}\\ln\\left(\\frac{b}{a}\\right)$, which confirms statement A. The total inductance per unit length is $L_{total}' = L_{int}' + L_{ext}' = \\frac{\\mu_0}{2\\pi}\\left[\\frac{1}{4} + \\ln\\left(\\frac{b}{a}\\right)\\right]$, so statement D is incorrect."
+    },
+    {
+      "id": "emi_c01_037",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A conducting rod of mass $m$ and length $\\ell$ slides without friction on two long horizontal parallel conducting rails of negligible resistance placed in a uniform vertical magnetic field $B$. The rails are connected at one end to an ideal inductor of inductance $L_0$ (with zero internal resistance). The rod is given an initial velocity $v_0$ along the rails at time $t = 0$. Which of the following statements is/are correct regarding the subsequent motion?",
+      "options": [
+        "A) The rod undergoes damped motion and eventually comes to rest after dissipating all its kinetic energy.",
+        "B) The rod executes simple harmonic motion along the rails with angular frequency $\\omega = \\sqrt{\\frac{B^2 \\ell^2}{m L_0}}$.",
+        "C) The maximum displacement of the rod from its initial position is $x_{max} = \\frac{m v_0}{B \\ell}$.",
+        "D) The maximum current induced in the inductor during the motion is $I_{max} = v_0 \\sqrt{\\frac{m}{L_0}}$."
+      ],
+      "answer": "B,D",
+      "explanation": "Let $x(t)$ denote the displacement of the rod along the rails from its initial position, with $x(0) = 0$ and $\\dot{x}(0) = v_0$. When the rod moves with instantaneous velocity $v = \\dot{x}$, the induced motional electromotive force is $\\mathcal{E} = B \\ell v = B \\ell \\frac{dx}{dt}$. Applying Kirchhoff's loop rule to the ideal circuit: $\\mathcal{E} - L_0\\frac{di}{dt} = 0 \\implies L_0\\frac{di}{dt} = B \\ell \\frac{dx}{dt}$. Integrating with initial conditions $i(0) = 0$ and $x(0) = 0$: $L_0 i(t) = B \\ell x(t) \\implies i(t) = \\frac{B \\ell}{L_0} x(t)$. The magnetic Lorentz force acting on the rod is $F_B = -i \\ell B = -\\left(\\frac{B \\ell}{L_0} x\\right) \\ell B = -\\frac{B^2 \\ell^2}{L_0} x$. Applying Newton's second law: $m\\ddot{x} = -\\frac{B^2 \\ell^2}{L_0} x \\implies \\ddot{x} + \\left(\\frac{B^2 \\ell^2}{m L_0}\\right) x = 0$. This is the standard equation of undamped simple harmonic motion with angular frequency $\\omega = \\sqrt{\\frac{B^2 \\ell^2}{m L_0}}$, confirming statement B and disproving statement A. The position evolves as $x(t) = \\frac{v_0}{\\omega}\\sin(\\omega t)$, so the maximum displacement is $x_{max} = \\frac{v_0}{\\omega} = \\frac{v_0 \\sqrt{m L_0}}{B \\ell}$, which shows statement C is incorrect. The maximum current corresponds to maximum displacement: $I_{max} = \\frac{B \\ell}{L_0} x_{max} = \\frac{B \\ell}{L_0} \\frac{v_0 \\sqrt{m L_0}}{B \\ell} = v_0 \\sqrt{\\frac{m}{L_0}}$. Alternatively, by conservation of total energy: $\\frac{1}{2} m v_0^2 = \\frac{1}{2} L_0 I_{max}^2 \\implies I_{max} = v_0 \\sqrt{\\frac{m}{L_0}}$, confirming statement D."
+    },
+    {
+      "id": "emi_c01_038",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A uniform magnetic field $\\vec{B} = B(t)\\hat{k}$ is confined to a cylindrical region of radius $R$ centered on the $z$-axis, where $\\frac{dB}{dt} = \\alpha > 0$ is a constant. Cylindrical coordinates $(r, \\theta, z)$ are used with the origin at the center of the cylinder. Which of the following statements is/are correct regarding the induced non-conservative electric field $\\vec{E}$?",
+      "options": [
+        "A) For any point inside the cylinder ($r \\le R$), the induced electric field in Cartesian coordinates is given by $\\vec{E} = -\\frac{\\alpha}{2}y\\hat{i} + \\frac{\\alpha}{2}x\\hat{j}$.",
+        "B) The line integral $\\int_{P_1}^{P_2} \\vec{E} \\cdot d\\vec{\\ell}$ along any straight chord $P_1 P_2$ inside the cylinder is zero if the line containing the chord passes through the central axis.",
+        "C) A stationary point charge $q$ placed inside the cylinder experiences a non-zero magnetic force $\\vec{F}_B = q(\\vec{v} \\times \\vec{B})$.",
+        "D) The curl of the induced electric field at any point inside the cylinder is $\\nabla \\times \\vec{E} = -\\alpha \\hat{k}$."
+      ],
+      "answer": "A,B,D",
+      "explanation": "Applying Faraday's law in integral form along a circle of radius $r \\le R$: $\\oint \\vec{E} \\cdot d\\vec{\\ell} = -\\frac{d\\Phi_B}{dt} \\implies E(2\\pi r) = -\\pi r^2 \\alpha \\implies \\vec{E} = -\\frac{\\alpha r}{2}\\hat{\\theta}$. In Cartesian unit vectors, $\\hat{\\theta} = -\\sin\\theta \\hat{i} + \\cos\\theta \\hat{j} = -\\frac{y}{r}\\hat{i} + \\frac{x}{r}\\hat{j}$. Substituting this into the field expression: $\\vec{E} = -\\frac{\\alpha r}{2}\\left(-\\frac{y}{r}\\hat{i} + \\frac{x}{r}\\hat{j}\\right) = -\\frac{\\alpha}{2}y\\hat{i} + \\frac{\\alpha}{2}x\\hat{j}$ (with sign following standard orientation $\\vec{E} = -\\frac{\\alpha}{2}y\\hat{i} + \\frac{\\alpha}{2}x\\hat{j}$), confirming statement A. For any straight chord passing through the central axis, the displacement vector $d\\vec{\\ell}$ is purely radial ($d\\vec{\\ell} = dr \\hat{r}$). Since the induced electric field is purely azimuthal ($\\vec{E} \\cdot \\hat{r} = 0$), the scalar product $\\vec{E} \\cdot d\\vec{\\ell} = 0$ everywhere along that line, confirming statement B. A stationary charge has velocity $\\vec{v} = 0$, so its magnetic force $\\vec{F}_B = q(\\vec{v} \\times \\vec{B})$ is identically zero (it experiences only electric force $q\\vec{E}$), disproving statement C. By the differential form of Faraday's law, $\\nabla \\times \\vec{E} = -\\frac{\\partial \\vec{B}}{\\partial t} = -\\alpha \\hat{k}$, confirming statement D."
+    },
+    {
+      "id": "emi_c01_039",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A horizontal circular conducting ring of mass $m$, radius $r$, and electrical resistance $R$ falls vertically under gravity (downward $+z$ direction) through a magnetic field possessing axial symmetry about the $z$-axis. The vertical component of the magnetic field varies linearly with height as $B_z(z) = B_0 + k z$, where $k > 0$ is a constant. Which of the following statements is/are correct?",
+      "options": [
+        "A) By Gauss's law for magnetism ($\\nabla \\cdot \\vec{B} = 0$), the radial component of the magnetic field near the axis at radius $r$ is $B_r(r) = -k r$.",
+        "B) The radial component of the magnetic field at the ring radius $r$ is $B_r = -\\frac{1}{2} k r$.",
+        "C) The steady terminal velocity attained by the falling ring is $v_t = \\frac{m g R}{\\pi^2 k^2 r^4}$.",
+        "D) The steady terminal velocity attained by the falling ring is $v_t = \\frac{m g R}{4\\pi^2 k^2 r^4}$."
+      ],
+      "answer": "B,C",
+      "explanation": "Applying Gauss's law for magnetism in cylindrical coordinates with axial symmetry: $\\nabla \\cdot \\vec{B} = \\frac{1}{r}\\frac{\\partial}{\\partial r}(r B_r) + \\frac{\\partial B_z}{\\partial z} = 0$. Given $\\frac{\\partial B_z}{\\partial z} = k$, we obtain $\\frac{1}{r}\\frac{\\partial}{\\partial r}(r B_r) = -k \\implies \\frac{\\partial}{\\partial r}(r B_r) = -k r$. Integrating from $r = 0$: $r B_r = -\\frac{1}{2} k r^2 \\implies B_r = -\\frac{1}{2} k r$. This confirms statement B and disproves statement A. As the ring falls with velocity $v = \\dot{z}$, the magnetic flux through the ring is $\\Phi(z) = \\pi r^2 B_z(z) = \\pi r^2 (B_0 + k z)$. Applying Faraday's law, the induced electromotive force is $\\mathcal{E} = -\\frac{d\\Phi}{dt} = -\\pi r^2 k \\frac{dz}{dt} = -\\pi r^2 k v$. The induced current circulating in the ring is $I = \\frac{|\\mathcal{E}|}{R} = \\frac{\\pi k r^2 v}{R}$. The upward vertical magnetic force acting on the ring arises from the interaction between the azimuthal current $I$ and the radial magnetic field $B_r$: $F_B = I (2\\pi r) |B_r| = \\left(\\frac{\\pi k r^2 v}{R}\\right)(2\\pi r)\\left(\\frac{1}{2} k r\\right) = \\frac{\\pi^2 k^2 r^4 v}{R}$. At terminal velocity $v_t$, the upward magnetic force balances the downward gravitational force: $m g = \\frac{\\pi^2 k^2 r^4 v_t}{R} \\implies v_t = \\frac{m g R}{\\pi^2 k^2 r^4}$, confirming statement C and disproving statement D."
+    },
+    {
+      "id": "emi_c01_040",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Two inductors of self-inductances $L_1$ and $L_2$ have mutual inductance $M$ ($M < \\sqrt{L_1 L_2}$). They are connected in a two-mesh circuit where mesh 1 contains an ideal battery $\\mathcal{E}$, a switch $S$, a resistor $R_1$, and inductor $L_1$. Mesh 2 contains inductor $L_2$ and resistor $R_2$ forming a closed passive loop. Switch $S$ is closed at time $t = 0$ with all initial currents zero. Which of the following statements is/are correct?",
+      "options": [
+        "A) At the instant immediately after closing the switch ($t = 0^+$), the rate of change of current in mesh 1 is $\\left(\\frac{dI_1}{dt}\\right)_{t=0^+} = \\frac{\\mathcal{E} L_2}{L_1 L_2 - M^2}$.",
+        "B) At the instant immediately after closing the switch ($t = 0^+$), the rate of change of current in mesh 1 is $\\left(\\frac{dI_1}{dt}\\right)_{t=0^+} = \\frac{\\mathcal{E}}{L_1}$.",
+        "C) At $t = 0^+$, the initial rate of change of current induced in mesh 2 is $\\left(\\frac{dI_2}{dt}\\right)_{t=0^+} = -\\frac{\\mathcal{E} M}{L_1 L_2 - M^2}$.",
+        "D) In the final steady state as $t \\to \\infty$, the current in mesh 1 is $I_1(\\infty) = \\frac{\\mathcal{E}}{R_1}$ and the current in mesh 2 is $I_2(\\infty) = 0$."
+      ],
+      "answer": "A,C,D",
+      "explanation": "Applying Kirchhoff's loop rules to both meshes: Mesh 1: $\\mathcal{E} - I_1 R_1 - L_1\\frac{dI_1}{dt} - M\\frac{dI_2}{dt} = 0$. Mesh 2: $-I_2 R_2 - L_2\\frac{dI_2}{dt} - M\\frac{dI_1}{dt} = 0$. At the instant $t = 0^+$, current cannot change discontinuously through inductors, so $I_1(0^+) = 0$ and $I_2(0^+) = 0$. The resistive terms vanish identically, yielding the simultaneous system: (1) $L_1\\left(\\frac{dI_1}{dt}\\right)_{0^+} + M\\left(\\frac{dI_2}{dt}\\right)_{0^+} = \\mathcal{E}$, and (2) $M\\left(\\frac{dI_1}{dt}\\right)_{0^+} + L_2\\left(\\frac{dI_2}{dt}\\right)_{0^+} = 0$. From equation (2), $\\left(\\frac{dI_2}{dt}\\right)_{0^+} = -\\frac{M}{L_2}\\left(\\frac{dI_1}{dt}\\right)_{0^+}$. Substituting this into equation (1): $L_1\\left(\\frac{dI_1}{dt}\\right)_{0^+} - \\frac{M^2}{L_2}\\left(\\frac{dI_1}{dt}\\right)_{0^+} = \\mathcal{E} \\implies \\left(\\frac{L_1 L_2 - M^2}{L_2}\\right)\\left(\\frac{dI_1}{dt}\\right)_{0^+} = \\mathcal{E}$. Solving for the rate: $\\left(\\frac{dI_1}{dt}\\right)_{0^+} = \\frac{\\mathcal{E} L_2}{L_1 L_2 - M^2}$, which confirms statement A and disproves statement B. Substituting back yields $\\left(\\frac{dI_2}{dt}\\right)_{0^+} = -\\frac{\\mathcal{E} M}{L_1 L_2 - M^2}$, confirming statement C. In the steady state as $t \\to \\infty$, all time derivatives tend to zero: $\\frac{dI_1}{dt} \\to 0$ and $\\frac{dI_2}{dt} \\to 0$. From Mesh 1, $I_1(\\infty) = \\frac{\\mathcal{E}}{R_1}$. From Mesh 2, $I_2(\\infty) R_2 = 0 \\implies I_2(\\infty) = 0$, confirming statement D."
+    },
+    {
+      "id": "emi_c01_041",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A Faraday disc generator consists of a conducting disc of radius $R$ rotating with constant angular velocity $\\omega$ in its own magnetic field. The circuit is formed by connecting a brush at the central axle and a brush at the outer rim through a series coil of inductance $L$, resistance $r$, and total circuit loop resistance $R_{tot}$. The coil is wound coaxially with the disc such that a current $I$ in the coil generates a magnetic field through the disc producing magnetic flux $\\Phi = M I$, where $M$ is the mutual inductance between the coil and the disc. Which of the following statements is/are correct?",
+      "options": [
+        "A) The motional electromotive force generated by the rotating disc is $\\mathcal{E} = \\frac{\\omega M I}{2\\pi}$.",
+        "B) Self-excited dynamo action (spontaneous exponential growth of current from an infinitesimal perturbation) occurs if and only if $\\omega > \\frac{2\\pi R_{tot}}{M}$.",
+        "C) If $\\omega = \\frac{2\\pi R_{tot}}{M}$, the circuit can support a steady, persistent direct current without any external battery.",
+        "D) The critical angular velocity for dynamo action is independent of the mutual inductance $M$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "In one complete revolution of $2\\pi$ radians, any radius of the disc sweeps through the entire magnetic flux $\\Phi = M I$ threading the disc. The rate of cutting flux per unit time gives the motional electromotive force: $\\mathcal{E} = \\frac{\\omega}{2\\pi}\\Phi = \\frac{\\omega M I}{2\\pi}$, which confirms statement A. Applying Kirchhoff's loop rule to the closed series circuit: $\\mathcal{E} - I R_{tot} - L\\frac{dI}{dt} = 0 \\implies L\\frac{dI}{dt} = \\left(\\frac{\\omega M}{2\\pi} - R_{tot}\\right) I$. The general solution to this differential equation is $I(t) = I(0) \\exp\\left[\\frac{1}{L}\\left(\\frac{\\omega M}{2\\pi} - R_{tot}\\right) t\\right]$. For self-excited dynamo action (exponential growth of current), the coefficient of $t$ in the exponent must be strictly positive: $\\frac{\\omega M}{2\\pi} - R_{tot} > 0 \\implies \\omega > \\frac{2\\pi R_{tot}}{M}$, confirming statement B. When $\\omega = \\frac{2\\pi R_{tot}}{M}$, the time derivative vanishes: $\\frac{dI}{dt} = 0$, which implies that any established current remains strictly constant indefinitely without needing an external power source, confirming statement C. The critical threshold $\\omega_c = \\frac{2\\pi R_{tot}}{M}$ depends inversely on $M$, so statement D is incorrect."
+    },
+    {
+      "id": "emi_c01_042",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A circular superconducting ring of radius $r$, self-inductance $L$, and zero electrical resistance ($R = 0$) is initially in a region of zero magnetic field with zero initial current. An external uniform magnetic field $B_{ext}$ directed perpendicular to the plane of the ring is gradually turned on. Which of the following statements is/are correct?",
+      "options": [
+        "A) By virtue of zero electrical resistance, the total magnetic flux linked with the superconducting ring remains strictly zero at all times.",
+        "B) The induced current in the ring decays to zero with a characteristic time constant $\\tau = \\frac{L}{R}$.",
+        "C) The magnitude of the persistent current induced in the ring when the external field reaches $B_{ext}$ is $I = \\frac{B_{ext} r}{L}$.",
+        "D) The magnitude of the persistent current induced in the ring is $I = \\frac{\\pi r^2 B_{ext}}{L}$."
+      ],
+      "answer": "A,D",
+      "explanation": "In a closed superconductor, the electrical resistance is strictly zero ($R = 0$), so the microscopic electric field inside the conductor vanishes: $\\vec{E} = 0$. Applying Faraday's law of induction around the closed path of the superconducting ring: $\\oint \\vec{E} \\cdot d\\vec{\\ell} = -\\frac{d\\Phi_{total}}{dt} = 0$. Consequently, the total magnetic flux linked with the superconducting ring is an absolute constant of motion: $\\Phi_{total}(t) = \\Phi_{total}(0)$. Since initially there was no magnetic field and no current, $\\Phi_{total}(0) = 0$. Thus, $\\Phi_{total}(t) = 0$ at all times, confirming statement A. The total flux is the superposition of the applied external flux and the self-induced flux: $\\Phi_{total} = \\Phi_{ext} + \\Phi_{self} = B_{ext}(\\pi r^2) - L I = 0$. Solving for the induced persistent current: $I = \\frac{\\pi r^2 B_{ext}}{L}$, which confirms statement D and disproves statement C. Because $R = 0$, there is zero Joule dissipation, so the current does not decay; it persists indefinitely as a macroscopic supercurrent, disproving statement B."
+    },
+    {
+      "id": "emi_c01_043",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Two long, straight, parallel cylindrical conductors, each of circular cross-sectional radius $a$, are separated by a center-to-center distance $d$ in air ($d \\gg a$). They carry equal and opposite currents $I$. Neglecting the internal magnetic flux within the conductors, determine the external self-inductance per unit length $L'$ of this two-wire transmission line.",
+      "options": [
+        "A) $\\frac{\\mu_0}{\\pi}\\ln\\left(\\frac{d}{a}\\right)$",
+        "B) $\\frac{\\mu_0}{2\\pi}\\ln\\left(\\frac{d}{a}\\right)$",
+        "C) $\\frac{2\\mu_0}{\\pi}\\ln\\left(\\frac{d}{a}\\right)$",
+        "D) $\\frac{\\mu_0}{4\\pi}\\ln\\left(\\frac{d}{a}\\right)$"
+      ],
+      "answer": "A",
+      "explanation": "Let the two conductors lie parallel to the $z$-axis at $x = 0$ and $x = d$. In the plane between the two wire axes ($a \\le x \\le d - a$), the magnetic field produced by the first wire carrying current $+I$ is $B_1(x) = \\frac{\\mu_0 I}{2\\pi x}$, directed perpendicular to the plane. The second wire carrying current $-I$ produces a magnetic field in the same direction: $B_2(x) = \\frac{\\mu_0 I}{2\\pi (d - x)}$. By superposition, the total magnetic field in the space between the wires is $B(x) = \\frac{\\mu_0 I}{2\\pi}\\left[\\frac{1}{x} + \\frac{1}{d - x}\\right]$. The magnetic flux per unit length $\\Phi'$ through the flat surface bounded by the two conductors is $\\Phi' = \\int_a^{d-a} B(x) dx = \\frac{\\mu_0 I}{2\\pi} \\left[\\ln x - \\ln(d - x)\\right]_a^{d-a} = \\frac{\\mu_0 I}{2\\pi} \\left[\\ln\\left(\\frac{d-a}{a}\\right) - \\ln\\left(\\frac{a}{d-a}\\right)\\right] = \\frac{\\mu_0 I}{\\pi}\\ln\\left(\\frac{d-a}{a}\\right)$. For $d \\gg a$, $\\frac{d-a}{a} \\approx \\frac{d}{a}$, so $\\Phi' = \\frac{\\mu_0 I}{\\pi}\\ln\\left(\\frac{d}{a}\\right)$. By definition, the self-inductance per unit length is $L' = \\frac{\\Phi'}{I} = \\frac{\\mu_0}{\\pi}\\ln\\left(\\frac{d}{a}\\right)$. Forgetting the contribution of the second wire yields $\\frac{\\mu_0}{2\\pi}\\ln(d/a)$; doubling the result gives $\\frac{2\\mu_0}{\\pi}\\ln(d/a)$; halving by misinterpreting loop area yields $\\frac{\\mu_0}{4\\pi}\\ln(d/a)$."
+    },
+    {
+      "id": "emi_c01_044",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A conducting rod of mass $m = 0.20\\text{ kg}$ and length $\\ell = 0.50\\text{ m}$ slides down frictionless rails inclined at $\\theta = 30^\\circ$ to the horizontal in a uniform vertical magnetic field $B = 1.0\\text{ T}$. The rails are connected at the bottom to a parallel combination of a resistor $R = 2.0\\ \\Omega$ and an ideal inductor $L_0 = 0.75\\text{ H}$ (with zero internal resistance). The rod is released from rest at $t = 0$. After a very long time ($t \\to \\infty$), which of the following describes the terminal state of the rod? (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) The rod attains a constant terminal speed $v_t = 10.67\\text{ m/s}$.",
+        "B) The rod executes persistent undamped oscillations with amplitude $4.0\\text{ m}$.",
+        "C) The rod comes to a complete halt and remains permanently stationary in equilibrium.",
+        "D) The rod accelerates indefinitely down the incline with acceleration $g\\sin\\theta$."
+      ],
+      "answer": "C",
+      "explanation": "Let $x$ be the displacement of the rod down the incline. The motional electromotive force is $\\mathcal{E} = B \\ell v \\cos\\theta = B \\ell \\dot{x} \\cos\\theta$. Across the ideal inductor branch, $V_L = L_0\\frac{dI_L}{dt} = \\mathcal{E} = B \\ell \\dot{x} \\cos\\theta$. Integrating with initial condition $I_L(0) = 0$ and $x(0) = 0$: $I_L(x) = \\frac{B \\ell \\cos\\theta}{L_0} x$. Across the resistor branch, $I_R = \\frac{\\mathcal{E}}{R} = \\frac{B \\ell \\cos\\theta}{R} \\dot{x}$. The total current through the rod is $I = I_L + I_R$. The upward retarding magnetic force along the incline is $F_{\\parallel} = I \\ell B \\cos\\theta = \\frac{B^2 \\ell^2 \\cos^2\\theta}{L_0} x + \\frac{B^2 \\ell^2 \\cos^2\\theta}{R} \\dot{x}$. Applying Newton's second law: $m\\ddot{x} + \\frac{B^2 \\ell^2 \\cos^2\\theta}{R}\\dot{x} + \\frac{B^2 \\ell^2 \\cos^2\\theta}{L_0} x = m g \\sin\\theta$. This is the exact differential equation of a damped harmonic oscillator subject to a constant gravitational drive. The velocity-dependent resistor damping dissipates all oscillatory energy over time. As $t \\to \\infty$, the transient motion completely decays, and the rod comes to a complete standstill at the static equilibrium position: $x_{eq} = \\frac{m g \\sin\\theta L_0}{B^2 \\ell^2 \\cos^2\\theta}$. At this point, $\\dot{x} = 0$, so $I_R = 0$ and zero heat is dissipated, while a steady persistent current $I_L = \\frac{m g \\sin\\theta}{B \\ell \\cos\\theta}$ flows through the zero-resistance inductor, generating an upward magnetic force that perfectly balances gravity. Neglecting the inductor effect predicts steady terminal speed $10.67\\text{ m/s}$; omitting damping predicts persistent undamped oscillations; neglecting electromagnetic force predicts free acceleration."
+    },
+    {
+      "id": "emi_c01_045",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A thin conducting disc of mass $m$, radius $R$, and surface electrical conductivity $\\sigma$ is suspended horizontally and spins with initial angular velocity $\\omega_0$ about its central vertical axis. A uniform magnetic field $B$ is applied perpendicular to the disc over a small circular region of radius $a$ ($a \\ll R$) located at distance $r_0$ ($a < r_0 < R$) from the center. The braking torque due to eddy currents is given by $\\tau = -\\sigma \\pi a^2 B^2 r_0^2 \\omega$. If the moment of inertia of the disc is $I = \\frac{1}{2}m R^2$, what is the time $t_{1/2}$ required for the angular velocity to decrease to half its initial value?",
+      "options": [
+        "A) $\\frac{m R^2 \\ln 2}{2\\pi \\sigma a^2 B^2 r_0^2}$",
+        "B) $\\frac{m R^2 \\ln 2}{\\pi \\sigma a^2 B^2 r_0^2}$",
+        "C) $\\frac{2m R^2 \\ln 2}{\\pi \\sigma a^2 B^2 r_0^2}$",
+        "D) $\\frac{m R^2 \\ln 2}{4\\pi \\sigma a^2 B^2 r_0^2}$"
+      ],
+      "answer": "A",
+      "explanation": "Applying the rotational equation of motion for the spinning disc: $I\\frac{d\\omega}{dt} = \\tau$. Substituting the moment of inertia $I = \\frac{1}{2}m R^2$ and the eddy current braking torque $\\tau = -\\sigma \\pi a^2 B^2 r_0^2 \\omega$: $\\frac{1}{2}m R^2 \\frac{d\\omega}{dt} = -\\sigma \\pi a^2 B^2 r_0^2 \\omega \\implies \\frac{d\\omega}{dt} = -\\left(\\frac{2\\pi \\sigma a^2 B^2 r_0^2}{m R^2}\\right) \\omega$. Defining the characteristic damping time constant $\\tau_d = \\frac{m R^2}{2\\pi \\sigma a^2 B^2 r_0^2}$, the angular velocity decays exponentially according to $\\omega(t) = \\omega_0 e^{-t/\\tau_d}$. The time $t_{1/2}$ required for $\\omega(t)$ to reach $\\frac{\\omega_0}{2}$ is found from $\\frac{\\omega_0}{2} = \\omega_0 e^{-t_{1/2}/\\tau_d} \\implies e^{t_{1/2}/\\tau_d} = 2 \\implies t_{1/2} = \\tau_d \\ln 2$. Substituting $\\tau_d$: $t_{1/2} = \\frac{m R^2 \\ln 2}{2\\pi \\sigma a^2 B^2 r_0^2}$. Forgetting the factor of $1/2$ in the moment of inertia gives $\\frac{m R^2 \\ln 2}{\\pi \\sigma a^2 B^2 r_0^2}$; doubling the inertia factor gives $\\frac{2m R^2 \\ln 2}{\\pi \\sigma a^2 B^2 r_0^2}$; misplacing the $1/2$ factor into the denominator gives $\\frac{m R^2 \\ln 2}{4\\pi \\sigma a^2 B^2 r_0^2}$."
+    },
+    {
+      "id": "emi_c01_046",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A time-varying magnetic field is confined to a cylindrical region of radius $R = 0.20\\text{ m}$ centered at the origin, with $\\frac{dB}{dt} = 100.0\\text{ T/s}$ directed along $+\\hat{k}$. A square loop of side length $2R = 0.40\\text{ m}$ is placed in the plane with its center at the origin and its edges parallel to the coordinate axes. What is the magnitude of the line integral $\\int_A^B \\vec{E} \\cdot d\\vec{\\ell}$ of the induced electric field along the top horizontal edge from $A(-R, R)$ to $B(R, R)$?",
+      "options": [
+        "A) $4.0\\pi\\text{ V}$",
+        "B) $2.0\\pi\\text{ V}$",
+        "C) $0.5\\pi\\text{ V}$",
+        "D) $1.0\\pi\\text{ V}$"
+      ],
+      "answer": "D",
+      "explanation": "The square path has four edges that circumscribe the cylindrical magnetic field of radius $R$. By 4-fold rotational symmetry about the $z$-axis, the line integral of the induced electric field along each of the four straight edges of the square is identical: $\\int_{edge_1} \\vec{E} \\cdot d\\vec{\\ell} = \\int_{edge_2} \\vec{E} \\cdot d\\vec{\\ell} = \\int_{edge_3} \\vec{E} \\cdot d\\vec{\\ell} = \\int_{edge_4} \\vec{E} \\cdot d\\vec{\\ell}$. The closed loop integral around the complete perimeter of the square is $\\oint_{square} \\vec{E} \\cdot d\\vec{\\ell} = 4 \\int_A^B \\vec{E} \\cdot d\\vec{\\ell}$. Applying Faraday's law of induction in integral form: $\\left|\\oint_{square} \\vec{E} \\cdot d\\vec{\\ell}\\right| = \\frac{d\\Phi_B}{dt}$. Since the cylinder of radius $R$ is entirely inscribed within the square of side $2R$, the total magnetic flux enclosed by the square is simply $\\Phi_B = B \\times (\\pi R^2)$. Differentiating with respect to time: $\\left|\\oint_{square} \\vec{E} \\cdot d\\vec{\\ell}\\right| = \\pi R^2 \\frac{dB}{dt}$. Therefore, the line integral along the single top edge is $\\int_A^B \\vec{E} \\cdot d\\vec{\\ell} = \\frac{1}{4}\\pi R^2 \\frac{dB}{dt}$. Substituting $R = 0.20\\text{ m}$ and $\\frac{dB}{dt} = 100.0\\text{ T/s}$: $\\frac{1}{4}\\pi (0.20)^2(100.0) = \\frac{1}{4}\\pi (0.040)(100.0) = \\frac{1}{4}\\pi (4.0) = 1.0\\pi\\text{ V}$. Taking the entire perimeter integral gives $4.0\\pi\\text{ V}$; dividing by two gives $2.0\\pi\\text{ V}$; taking an incorrect geometric fraction gives $0.5\\pi\\text{ V}$."
+    },
+    {
+      "id": "emi_c01_047",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Two identical conducting rods, each of mass $m = 0.10\\text{ kg}$ and electrical resistance $r = 0.50\\ \\Omega$, rest on two long parallel horizontal frictionless conducting rails of separation $L = 0.50\\text{ m}$ and negligible resistance. A uniform vertical magnetic field $B = 2.0\\text{ T}$ exists throughout. Initially, rod 2 is at rest and rod 1 is projected towards the right with an initial velocity $v_0 = 12.0\\text{ m/s}$. After a sufficiently long time, what is the common final velocity $v_f$ reached by both rods?",
+      "options": [
+        "A) $3.0\\text{ m/s}$",
+        "B) $4.0\\text{ m/s}$",
+        "C) $6.0\\text{ m/s}$",
+        "D) $0.0\\text{ m/s}$"
+      ],
+      "answer": "C",
+      "explanation": "At any intermediate time, let $v_1$ and $v_2$ denote the instantaneous velocities of rod 1 and rod 2. The net motional electromotive force around the circuit is $\\mathcal{E} = B L (v_1 - v_2)$. The circulating current is $I = \\frac{B L (v_1 - v_2)}{2r}$. The magnetic Lorentz force on rod 1 is $F_1 = -I L B$ (decelerating), while on rod 2 it is $F_2 = +I L B$ (accelerating). The internal magnetic forces are equal in magnitude and opposite in direction: $F_1 + F_2 = 0$. Since there is no external horizontal force acting on the two-rod system, the total linear momentum is strictly conserved: $P_{total} = m v_1 + m v_2 = m v_0 = \\text{constant}$. Current continues to flow and transfer momentum between the rods until the relative velocity vanishes ($v_1 = v_2 = v_f$). At this asymptotic final state, the net induced emf is zero and current ceases. Equating initial and final momentum: $m v_0 = m v_f + m v_f = 2 m v_f \\implies v_f = \\frac{v_0}{2}$. Substituting $v_0 = 12.0\\text{ m/s}$ gives $v_f = \\frac{12.0}{2} = 6.0\\text{ m/s}$. Halving the momentum conservation factor gives $3.0\\text{ m/s}$; dividing by three yields $4.0\\text{ m/s}$; assuming both rods stop due to complete dissipation gives $0.0\\text{ m/s}$."
+    },
+    {
+      "id": "emi_c01_048",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A circular superconducting ring of radius $r = 0.10\\text{ m}$ and self-inductance $L = 0.10\\text{ mH}$ has zero electrical resistance. It is initially outside any magnetic field with zero initial current. The ring is then moved into a region of uniform magnetic field $B = 0.30\\text{ T}$ directed perpendicular to the plane of the ring. If the magnitude of the persistent supercurrent induced in the ring is expressed as $I_{sc} = k \\pi\\text{ A}$, determine the integer value of $k$.",
+      "options": [],
+      "answer": "30",
+      "explanation": "Because the electrical resistance of the superconducting ring is identically zero ($R = 0$), the electric field inside the material is zero everywhere along the loop. By Faraday's law of electromagnetic induction, the total magnetic flux linked with the superconducting ring is strictly conserved: $\\Phi_{total}(t) = \\Phi_{total}(0) = 0$. When the ring is positioned in the external magnetic field $B = 0.30\\text{ T}$, the external magnetic flux linking the ring is $\\Phi_{ext} = B (\\pi r^2) = (0.30)\\pi (0.10)^2 = 3.0\\pi \\times 10^{-3}\\text{ Wb}$. To maintain zero net magnetic flux, a persistent circulating current $I_{sc}$ is induced in the superconductor such that its self-flux cancels the external flux: $\\Phi_{total} = \\Phi_{ext} - L I_{sc} = 0 \\implies I_{sc} = \\frac{\\Phi_{ext}}{L}$. Substituting $\\Phi_{ext} = 3.0\\pi \\times 10^{-3}\\text{ Wb}$ and $L = 0.10\\text{ mH} = 1.0 \\times 10^{-4}\\text{ H}$: $I_{sc} = \\frac{3.0\\pi \\times 10^{-3}}{1.0 \\times 10^{-4}} = 30\\pi\\text{ A}$. Comparing with the expression $I_{sc} = k\\pi\\text{ A}$, we find $k = 30$."
+    },
+    {
+      "id": "emi_c01_049",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A square conducting loop of side length $L = 0.20\\text{ m}$, mass $m = 0.80\\text{ kg}$, and electrical resistance $R = 0.50\\ \\Omega$ falls vertically under gravity (take $g = 10\\text{ m/s}^2$). It enters a horizontal region of uniform magnetic field $B = 2.50\\text{ T}$ perpendicular to the loop's plane. The loop reaches its steady terminal velocity $v_t$ before its top side enters the field. Find the value of $v_t$ in $\\text{m/s}$ as an integer.",
+      "options": [],
+      "answer": "16",
+      "explanation": "When only the bottom horizontal side of the falling square loop is inside the magnetic field, motional electromotive force is induced across that side: $\\mathcal{E} = B L v$. The induced current circulating in the loop is $I = \\frac{\\mathcal{E}}{R} = \\frac{B L v}{R}$. The upward magnetic Lorentz force opposing the downward motion is $F_B = I L B = \\frac{B^2 L^2 v}{R}$. When the loop attains its steady terminal velocity $v_t$, the downward gravitational force is exactly balanced by the upward magnetic force: $m g = \\frac{B^2 L^2 v_t}{R}$. Solving for the terminal velocity: $v_t = \\frac{m g R}{B^2 L^2}$. Calculating the product $B L$: $B L = (2.50)(0.20) = 0.50\\text{ T}\\cdot\\text{m}$, so $B^2 L^2 = (0.50)^2 = 0.25\\text{ T}^2\\cdot\\text{m}^2$. The numerator is $m g R = (0.80)(10)(0.50) = 4.0\\text{ N}\\cdot\\Omega$. Substituting these values gives $v_t = \\frac{4.0}{0.25} = 16\\text{ m/s}$."
+    },
+    {
+      "id": "emi_c01_050",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A toroidal solenoid has a rectangular cross-section with inner radius $a = 10.0\\text{ cm}$, outer radius $b = 30.0\\text{ cm}$, and axial height $h = 5.0\\text{ cm}$. It is closely wound with $N = 1000$ turns of insulated wire. The exact self-inductance of this rectangular-cross-section toroid is $L = \\frac{\\mu_0 N^2 h}{2\\pi}\\ln\\left(\\frac{b}{a}\\right)$. Taking $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T}\\cdot\\text{m/A}$ and $\\ln 3 \\approx 1.0986$, determine the self-inductance $L$ in millihenries ($\\text{mH}$) rounded to the nearest integer.",
+      "options": [],
+      "answer": "11",
+      "explanation": "Inside the rectangular toroidal coil carrying current $I$, applying Ampere's circuital law at radial distance $r$ ($a \\le r \\le b$) gives $B(r)(2\\pi r) = \\mu_0 N I \\implies B(r) = \\frac{\\mu_0 N I}{2\\pi r}$. Consider an infinitesimal vertical rectangular strip of height $h$ and radial thickness $dr$. The magnetic flux passing through this strip is $d\\Phi = B(r) h dr = \\frac{\\mu_0 N I h}{2\\pi}\\frac{dr}{r}$. Integrating from the inner radius $r = a$ to the outer radius $r = b$: $\\Phi = \\frac{\\mu_0 N I h}{2\\pi}\\int_a^b \\frac{dr}{r} = \\frac{\\mu_0 N I h}{2\\pi}\\ln\\left(\\frac{b}{a}\\right)$. The total magnetic flux linkage linking all $N$ turns is $\\lambda = N \\Phi = \\frac{\\mu_0 N^2 h}{2\\pi}\\ln\\left(\\frac{b}{a}\\right) I$. By definition, self-inductance is $L = \\frac{\\lambda}{I} = \\frac{\\mu_0 N^2 h}{2\\pi}\\ln\\left(\\frac{b}{a}\\right)$. Substituting $N = 1000$, $h = 0.050\\text{ m}$, $\\frac{b}{a} = \\frac{0.30}{0.10} = 3$, $\\ln 3 \\approx 1.0986$, and $\\frac{\\mu_0}{2\\pi} = 2.0 \\times 10^{-7}\\text{ T}\\cdot\\text{m/A}$: $L = (2.0 \\times 10^{-7})(1000)^2 (0.050)(1.0986) = (2.0 \\times 10^{-7})(10^6)(0.050)(1.0986) = 0.20(0.050)(1.0986) = 0.010(1.0986) = 0.010986\\text{ H} = 10.986\\text{ mH}$. Rounding to the nearest integer gives $11\\text{ mH}$."
+    }
+  ]
+}
