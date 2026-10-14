@@ -1,0 +1,794 @@
+{
+  "questions": [
+    {
+      "id": "smd_c01_001",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An intrinsic silicon crystal at room temperature has an intrinsic carrier density of $n_i = 1.5 \\times 10^{16}\\text{ m}^{-3}$. It is doped with pentavalent phosphorus atoms at a density of $N_d = 4.5 \\times 10^{21}\\text{ m}^{-3}$. Assuming complete donor ionization and taking electron and hole mobilities as $\\mu_e = 0.135\\text{ m}^2/(\\text{V}\\cdot\\text{s})$ and $\\mu_h = 0.045\\text{ m}^2/(\\text{V}\\cdot\\text{s})$ respectively with electronic charge $e = 1.6 \\times 10^{-19}\\text{ C}$, determine the electrical conductivity of the doped semiconductor specimen.",
+      "options": [
+        "A) $48.6\\ \\Omega^{-1}\\text{m}^{-1}$",
+        "B) $129.6\\ \\Omega^{-1}\\text{m}^{-1}$",
+        "C) $97.2\\ \\Omega^{-1}\\text{m}^{-1}$",
+        "D) $72.4\\ \\Omega^{-1}\\text{m}^{-1}$"
+      ],
+      "answer": "C",
+      "explanation": "By the condition of complete donor ionization in an n-type semiconductor, the majority electron concentration is $n_e \\approx N_d = 4.5 \\times 10^{21}\\text{ m}^{-3}$. Using the mass action law $n_e n_h = n_i^2$, the minority hole density is $n_h = \\frac{n_i^2}{N_d} = \\frac{(1.5 \\times 10^{16})^2}{4.5 \\times 10^{21}} = 5.0 \\times 10^{10}\\text{ m}^{-3}$. Because $n_h \\ll n_e$, the contribution of holes to the electrical conductivity is negligible. Substituting into the conductivity relation yields $\\sigma \\approx e n_e \\mu_e = (1.6 \\times 10^{-19}\\text{ C}) \\times (4.5 \\times 10^{21}\\text{ m}^{-3}) \\times (0.135\\text{ m}^2/(\\text{V}\\cdot\\text{s})) = 97.2\\ \\Omega^{-1}\\text{m}^{-1}$. Omitting the electron mobility and taking hole mobility gives $32.4\\ \\Omega^{-1}\\text{m}^{-1}$; using half of the donor density gives $48.6\\ \\Omega^{-1}\\text{m}^{-1}$; erroneously adding intrinsic concentration gives $129.6\\ \\Omega^{-1}\\text{m}^{-1}$."
+    },
+    {
+      "id": "smd_c01_002",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A Zener diode voltage regulator circuit is designed to maintain a constant regulated output voltage of $V_Z = 10.0\\text{ V}$ across a load resistor whose current $I_L$ varies between $5.0\\text{ mA}$ and $25.0\\text{ mA}$. The unregulated DC input source voltage $V_{in}$ fluctuates between $16.0\\text{ V}$ and $22.0\\text{ V}$. If the minimum safe operating current through the Zener diode to maintain breakdown is $I_{Z,\\min} = 5.0\\text{ mA}$, determine the maximum allowable series current-limiting resistance $R_s$.",
+      "options": [
+        "A) $300\\ \\Omega$",
+        "B) $200\\ \\Omega$",
+        "C) $400\\ \\Omega$",
+        "D) $150\\ \\Omega$"
+      ],
+      "answer": "B",
+      "explanation": "The worst-case condition for maintaining voltage regulation occurs when the input voltage is at its minimum $V_{in,\\min} = 16.0\\text{ V}$ while the load draws its maximum current $I_{L,\\max} = 25.0\\text{ mA}$. Under this extreme condition, the current through the series resistor must satisfy $I_s = I_{Z,\\min} + I_{L,\\max} = 5.0\\text{ mA} + 25.0\\text{ mA} = 30.0\\text{ mA}$. The voltage drop across the series resistance is $V_{in,\\min} - V_Z = 16.0\\text{ V} - 10.0\\text{ V} = 6.0\\text{ V}$. Therefore, applying Ohm's law gives the maximum permissible series resistance $R_{s,\\max} = \\frac{V_{in,\\min} - V_Z}{I_{Z,\\min} + I_{L,\\max}} = \\frac{6.0\\text{ V}}{30.0 \\times 10^{-3}\\text{ A}} = 200\\ \\Omega$. Calculating with minimum load current yields $600\\ \\Omega$; using the maximum input voltage yields $400\\ \\Omega$; ignoring the minimum Zener current produces $240\\ \\Omega$."
+    },
+    {
+      "id": "smd_c01_003",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An unregulated DC power supply delivers a fixed voltage of $V_{in} = 26.0\\text{ V}$ to a Zener diode voltage regulator circuit consisting of a series resistor $R_s = 200\\ \\Omega$, a Zener diode with breakdown voltage $V_Z = 12.0\\text{ V}$ and negligible internal resistance, and a parallel load resistance $R_L = 300\\ \\Omega$. Determine the electric power dissipated as heat in the Zener diode.",
+      "options": [
+        "A) $0.48\\text{ W}$",
+        "B) $0.84\\text{ W}$",
+        "C) $0.72\\text{ W}$",
+        "D) $0.36\\text{ W}$"
+      ],
+      "answer": "D",
+      "explanation": "First, verify whether the Zener diode enters breakdown. The open-circuit voltage across the load without the Zener diode is $V_L' = V_{in} \\frac{R_L}{R_s + R_L} = 26.0 \\times \\frac{300}{500} = 15.6\\text{ V} > 12.0\\text{ V}$, so the diode operates in breakdown with $V_Z = 12.0\\text{ V}$. The total current supplied through the series resistor is $I_s = \\frac{V_{in} - V_Z}{R_s} = \\frac{26.0 - 12.0}{200} = \\frac{14.0}{200} = 70.0\\text{ mA}$. The current flowing through the load resistor is $I_L = \\frac{V_Z}{R_L} = \\frac{12.0}{300} = 40.0\\text{ mA}$. Applying Kirchhoff's current law at the output node yields the Zener current $I_Z = I_s - I_L = 70.0\\text{ mA} - 40.0\\text{ mA} = 30.0\\text{ mA}$. Hence, the power dissipated inside the Zener diode is $P_Z = V_Z I_Z = 12.0\\text{ V} \\times 30.0 \\times 10^{-3}\\text{ A} = 0.36\\text{ W}$. Using the total supply current gives $0.84\\text{ W}$; using the load current gives $0.48\\text{ W}$; calculating series resistor power yields $0.98\\text{ W}$."
+    },
+    {
+      "id": "smd_c01_004",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a center-tapped full-wave rectifier circuit, the sinusoidal alternating voltage across each half of the secondary winding is $v(t) = 28.28 \\sin(100\\pi t)\\text{ V}$ (so that peak voltage $V_m = 28.28\\text{ V}$). Each junction diode has a constant forward dynamic resistance $r_f = 15\\ \\Omega$, and the rectifier delivers power to a resistive load $R_L = 885\\ \\Omega$. Determine the DC load current $I_{dc}$ and the rectification efficiency $\\eta$ of this circuit.",
+      "options": [
+        "A) $15.0\\text{ mA}$ and $72.0\\%$",
+        "B) $20.0\\text{ mA}$ and $79.8\\%$",
+        "C) $25.0\\text{ mA}$ and $81.2\\%$",
+        "D) $31.4\\text{ mA}$ and $40.6\\%$"
+      ],
+      "answer": "B",
+      "explanation": "The peak secondary current through the conducting diode during each half-cycle is $I_m = \\frac{V_m}{r_f + R_L} = \\frac{28.28\\text{ V}}{15\\ \\Omega + 885\\ \\Omega} = \\frac{28.28}{900} = 0.03142\\text{ A} = 31.42\\text{ mA}$. For a full-wave rectifier, the average direct output current is $I_{dc} = \\frac{2I_m}{\\pi} = \\frac{2 \\times 31.42}{\\pi} \\approx 20.0\\text{ mA}$. The total DC power delivered to the load is $P_{dc} = I_{dc}^2 R_L = (0.020)^2 \\times 885 = 0.354\\text{ W}$. The RMS AC current is $I_{rms} = \\frac{I_m}{\\sqrt{2}} = \\frac{31.42}{\\sqrt{2}} \\approx 22.22\\text{ mA}$, and total AC input power is $P_{ac} = I_{rms}^2 (r_f + R_L) = (0.02222)^2 \\times 900 = 0.4437\\text{ W}$. Thus, the conversion efficiency is $\\eta = \\frac{P_{dc}}{P_{ac}} = \\frac{8}{\\pi^2}\\left(\\frac{R_L}{r_f + R_L}\\right) = 0.8106 \\times \\frac{885}{900} \\approx 79.8\\%$. Using half-wave formulas gives $10.0\\text{ mA}$ and $40.6\\%$; neglecting diode resistance produces $81.2\\%$."
+    },
+    {
+      "id": "smd_c01_005",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An abrupt silicon p-n junction diode at thermal equilibrium has a built-in barrier potential of $V_0 = 0.70\\text{ V}$ and an equilibrium depletion region width of $W_0 = 0.40\\ \\mu\\text{m}$. When an external reverse bias voltage of $V_R = 5.60\\text{ V}$ is applied across the junction, the total junction potential becomes $V_{total} = V_0 + V_R$. Assuming a symmetric linear charge density profile such that the electric field varies linearly from zero at the depletion boundaries to a maximum magnitude $E_{\\max} = \\frac{2 V_{total}}{W}$ at the metallurgical interface, and knowing that the depletion width scales as $W = W_0 \\sqrt{1 + \\frac{V_R}{V_0}}$, calculate the magnitude of the maximum electric field $E_{\\max}$ under this reverse bias in units of $10^6\\text{ V/m}$.",
+      "options": [],
+      "answer": "10",
+      "explanation": "Under the applied reverse bias $V_R = 5.60\\text{ V}$, the total potential difference across the depletion layer is $V_{total} = V_0 + V_R = 0.70\\text{ V} + 5.60\\text{ V} = 6.30\\text{ V}$. The ratio of total junction voltage to equilibrium voltage is $\\frac{V_{total}}{V_0} = \\frac{6.30}{0.70} = 9$. Because depletion width is proportional to the square root of total junction voltage, $W = W_0 \\sqrt{\\frac{V_{total}}{V_0}} = 0.40\\ \\mu\\text{m} \\times \\sqrt{9} = 0.40 \\times 3 = 1.20\\ \\mu\\text{m} = 1.20 \\times 10^{-6}\\text{ m}$. For a triangular electric field distribution across the depletion width $W$, the area under the electric field profile represents the total potential: $V_{total} = \\frac{1}{2} E_{\\max} W \\implies E_{\\max} = \\frac{2 V_{total}}{W} = \\frac{2 \\times 6.30\\text{ V}}{1.20 \\times 10^{-6}\\text{ m}} = 10.5 \\times 10^6\\text{ V/m} \\approx 10 \\times 10^6\\text{ V/m}$, which gives an integer value of 10."
+    },
+    {
+      "id": "smd_c01_006",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A light emitting diode (LED) manufactured from a gallium arsenide phosphide ($GaAs_{1-x}P_x$) direct bandgap semiconductor emits monochromatic red light of peak wavelength $\\lambda = 620\\text{ nm}$. When forward biased, it operates at a forward voltage drop of $V_F = 2.50\\text{ V}$ and draws a current of $I_F = 20.0\\text{ mA}$. If the internal quantum efficiency of recombination is $\\eta_{int} = 60\\%$ (meaning $60\\%$ of injected electron-hole pairs generate photons of energy $E = hc/\\lambda$), take Planck's constant as $hc = 1240\\text{ eV}\\cdot\\text{nm}$. Determine the overall electrical-to-optical power conversion efficiency of the LED.",
+      "options": [
+        "A) $36\\%$",
+        "B) $48\\%$",
+        "C) $60\\%$",
+        "D) $24\\%$"
+      ],
+      "answer": "B",
+      "explanation": "The energy of an emitted photon is $E_{ph} = \\frac{hc}{\\lambda} = \\frac{1240\\text{ eV}\\cdot\\text{nm}}{620\\text{ nm}} = 2.0\\text{ eV}$. The total electrical power supplied to the diode is $P_{elec} = V_F I_F = 2.50\\text{ V} \\times 20.0 \\times 10^{-3}\\text{ A} = 0.050\\text{ W} = 50.0\\text{ mW}$. The rate of electron injection into the junction is $N_e = \\frac{I_F}{e}$. Since internal quantum efficiency is $\\eta_{int} = 0.60$, the rate of photon emission is $N_{ph} = \\eta_{int} N_e = 0.60 \\frac{I_F}{e}$. The total emitted optical power is therefore $P_{opt} = N_{ph} E_{ph} = \\left(0.60 \\frac{I_F}{e}\\right) (2.0 e\\text{ V}) = 0.60 \\times I_F \\times 2.0\\text{ V} = 0.60 \\times (20.0\\text{ mA}) \\times 2.0\\text{ V} = 24.0\\text{ mW}$. The power conversion efficiency is $\\eta = \\frac{P_{opt}}{P_{elec}} = \\frac{24.0\\text{ mW}}{50.0\\text{ mW}} = 0.48 = 48\\%$. Confusing internal quantum efficiency directly with power efficiency leads to $60\\%$; neglecting quantum efficiency entirely leads to $80\\%$; squaring the fraction leads to $36\\%$."
+    },
+    {
+      "id": "smd_c01_007",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A p-type germanium crystal at room temperature is uniformly doped with acceptor atoms at a density of $N_a = 4.0 \\times 10^{21}\\text{ m}^{-3}$ and donor atoms at a density of $N_d = 1.0 \\times 10^{21}\\text{ m}^{-3}$. The intrinsic carrier concentration of germanium is $n_i = 2.5 \\times 10^{19}\\text{ m}^{-3}$, while the electron and hole mobilities are $\\mu_e = 0.38\\text{ m}^2/(\\text{V}\\cdot\\text{s})$ and $\\mu_h = 0.18\\text{ m}^2/(\\text{V}\\cdot\\text{s})$ respectively. With elementary charge $e = 1.6 \\times 10^{-19}\\text{ C}$, determine the electrical conductivity of the compensated semiconductor.",
+      "options": [
+        "A) $115.2\\ \\Omega^{-1}\\text{m}^{-1}$",
+        "B) $144.0\\ \\Omega^{-1}\\text{m}^{-1}$",
+        "C) $57.6\\ \\Omega^{-1}\\text{m}^{-1}$",
+        "D) $86.4\\ \\Omega^{-1}\\text{m}^{-1}$"
+      ],
+      "answer": "D",
+      "explanation": "Because the acceptor dopant density exceeds the donor dopant density, the material is p-type with net effective acceptor concentration $p \\approx N_a - N_d = (4.0 - 1.0) \\times 10^{21} = 3.0 \\times 10^{21}\\text{ m}^{-3}$. By the mass-action law, the minority electron concentration is $n = \\frac{n_i^2}{p} = \\frac{(2.5 \\times 10^{19})^2}{3.0 \\times 10^{21}} \\approx 2.08 \\times 10^{17}\\text{ m}^{-3} \\ll p$. Therefore, conductivity is dominated by majority holes: $\\sigma \\approx e p \\mu_h = (1.6 \\times 10^{-19}\\text{ C}) \\times (3.0 \\times 10^{21}\\text{ m}^{-3}) \\times (0.18\\text{ m}^2/(\\text{V}\\cdot\\text{s})) = 86.4\\ \\Omega^{-1}\\text{m}^{-1}$. Erroneously using the uncompensated acceptor density $N_a$ gives $115.2\\ \\Omega^{-1}\\text{m}^{-1}$; using electron mobility gives $182.4\\ \\Omega^{-1}\\text{m}^{-1}$; adding donor and acceptor concentrations gives $144.0\\ \\Omega^{-1}\\text{m}^{-1}$."
+    },
+    {
+      "id": "smd_c01_008",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The forward current-voltage characteristic of a junction diode is described by the Shockley equation $I = I_0 \\left(\\exp\\left(\\frac{V}{\\eta V_T}\\right) - 1\\right)$, where the thermal equivalent voltage parameter is $\\eta V_T = 26.0\\text{ mV}$. The dynamic (incremental) resistance of the diode is defined as $r_d = \\frac{dV}{dI}$. When the forward operating current is increased from an initial value of $I_1 = 2.0\\text{ mA}$ to a higher value of $I_2 = 13.0\\text{ mA}$, calculate the magnitude of the decrease in dynamic resistance $(r_{d1} - r_{d2})$ in ohms ($\\Omega$).",
+      "options": [],
+      "answer": "11",
+      "explanation": "Differentiating the diode equation with respect to voltage gives $\\frac{dI}{dV} = \\frac{I_0}{\\eta V_T} \\exp\\left(\\frac{V}{\\eta V_T}\\right) = \\frac{I + I_0}{\\eta V_T}$. In forward bias where $I \\gg I_0$, the dynamic resistance is $r_d = \\frac{dV}{dI} = \\frac{\\eta V_T}{I}$. At current $I_1 = 2.0\\text{ mA} = 2.0 \\times 10^{-3}\\text{ A}$, the dynamic resistance is $r_{d1} = \\frac{26.0 \\times 10^{-3}\\text{ V}}{2.0 \\times 10^{-3}\\text{ A}} = 13.0\\ \\Omega$. At the higher current $I_2 = 13.0\\text{ mA} = 13.0 \\times 10^{-3}\\text{ A}$, the dynamic resistance becomes $r_{d2} = \\frac{26.0 \\times 10^{-3}\\text{ V}}{13.0 \\times 10^{-3}\\text{ A}} = 2.0\\ \\Omega$. The decrease in dynamic resistance is therefore $r_{d1} - r_{d2} = 13.0\\ \\Omega - 2.0\\ \\Omega = 11\\ \\Omega$."
+    },
+    {
+      "id": "smd_c01_009",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A silicon junction photodiode operating in reverse bias has a photosensitive surface area of $A = 2.0\\text{ mm}^2$ and a quantum efficiency of $\\eta_q = 75\\%$ at an incident optical radiation of wavelength $\\lambda = 827\\text{ nm}$. If light of intensity $I_{opt} = 2.50\\text{ mW/cm}^2$ is uniformly incident normally upon the active surface, take $hc = 1240\\text{ eV}\\cdot\\text{nm}$ and $e = 1.6 \\times 10^{-19}\\text{ C}$. Determine the steady-state photocurrent $I_{ph}$ produced by the photodiode.",
+      "options": [
+        "A) $15.0\\ \\mu\\text{A}$",
+        "B) $30.0\\ \\mu\\text{A}$",
+        "C) $25.0\\ \\mu\\text{A}$",
+        "D) $40.0\\ \\mu\\text{A}$"
+      ],
+      "answer": "C",
+      "explanation": "First compute the total incident optical power on the active detector area: $P_{opt} = I_{opt} A = (2.50\\text{ mW/cm}^2) \\times (2.0 \\times 10^{-2}\\text{ cm}^2) = 0.050\\text{ mW} = 5.0 \\times 10^{-5}\\text{ W}$. The energy carried by each incident photon is $E_{ph} = \\frac{hc}{\\lambda} = \\frac{1240\\text{ eV}\\cdot\\text{nm}}{827\\text{ nm}} = 1.50\\text{ eV} = 1.50 \\times 1.6 \\times 10^{-19}\\text{ J} = 2.40 \\times 10^{-19}\\text{ J}$. The incident photon flux rate is $\\Phi = \\frac{P_{opt}}{E_{ph}} = \\frac{5.0 \\times 10^{-5}}{2.40 \\times 10^{-19}} = 2.0833 \\times 10^{14}\\text{ photons/s}$. Given quantum efficiency $\\eta_q = 0.75$, the rate of photogenerated electron-hole pairs collected is $R = \\eta_q \\Phi = 0.75 \\times 2.0833 \\times 10^{14} = 1.5625 \\times 10^{14}\\text{ s}^{-1}$. Thus, the photocurrent is $I_{ph} = e R = (1.6 \\times 10^{-19}\\text{ C}) \\times (1.5625 \\times 10^{14}\\text{ s}^{-1}) = 2.50 \\times 10^{-5}\\text{ A} = 25.0\\ \\mu\\text{A}$. Forgetting the quantum efficiency yields $33.3\\ \\mu\\text{A}$; miscalculating surface area conversion by a factor of 10 gives $2.5\\ \\mu\\text{A}$."
+    },
+    {
+      "id": "smd_c01_010",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A Zener voltage regulator circuit is powered by a stable unregulated DC voltage supply $V_{in} = 25.0\\text{ V}$. The circuit comprises a series resistor $R_s = 200\\ \\Omega$ and a Zener diode rated at nominal breakdown voltage $V_Z = 9.0\\text{ V}$. In the accidental event that the external load resistor becomes disconnected (open circuit, $R_L \\to \\infty$), the entire circuit current passes through the Zener diode. Calculate the electrical power dissipated in the Zener diode under this open-load fault condition in units of $10^{-1}\\text{ W}$ (so that $0.72\\text{ W}$ would be entered as 7).",
+      "options": [],
+      "answer": "7",
+      "explanation": "When the load is disconnected ($R_L \\to \\infty$), the load current drops to zero: $I_L = 0$. By Kirchhoff's current law, the total series current must flow entirely through the Zener diode: $I_Z = I_s$. The series current is determined by the potential difference across $R_s$: $I_s = \\frac{V_{in} - V_Z}{R_s} = \\frac{25.0\\text{ V} - 9.0\\text{ V}}{200\\ \\Omega} = \\frac{16.0\\text{ V}}{200\\ \\Omega} = 0.080\\text{ A} = 80\\text{ mA}$. Therefore, the power dissipated in the Zener diode is $P_Z = V_Z I_Z = 9.0\\text{ V} \\times 0.080\\text{ A} = 0.72\\text{ W}$. Expressed in units of $10^{-1}\\text{ W}$, the value is $\\frac{0.72}{0.1} = 7.2 \\approx 7$."
+    },
+    {
+      "id": "smd_c01_011",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A bridge rectifier circuit is fed from a step-down transformer whose primary is connected to a $220\\text{ V}_{rms},\\ 50\\text{ Hz}$ AC line. The transformer turns ratio is $N_p : N_s = 11 : 1$. The four identical silicon diodes each exhibit a barrier potential drop of $V_d = 0.70\\text{ V}$ during forward conduction. If the rectifier feeds a resistive load of $R_L = 100\\ \\Omega$ without filter capacitors, calculate the peak inverse voltage (PIV) rating required for each diode and the average DC output voltage $V_{dc}$ across the load.",
+      "options": [
+        "A) $\\text{PIV} = 28.3\\text{ V}$ and $V_{dc} = 18.0\\text{ V}$",
+        "B) $\\text{PIV} = 20.0\\text{ V}$ and $V_{dc} = 12.7\\text{ V}$",
+        "C) $\\text{PIV} = 27.6\\text{ V}$ and $V_{dc} = 17.1\\text{ V}$",
+        "D) $\\text{PIV} = 26.9\\text{ V}$ and $V_{dc} = 25.5\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "The secondary RMS voltage is $V_{s,rms} = \\frac{220\\text{ V}}{11} = 20.0\\text{ V}$. The peak secondary voltage is $V_m = \\sqrt{2} V_{s,rms} = 20\\sqrt{2} \\approx 28.28\\text{ V}$. In a bridge rectifier, current flows through two forward-biased diodes in series during each half-cycle, so peak voltage across the load is $V_{L,m} = V_m - 2V_d = 28.28 - 2(0.70) = 26.88\\text{ V}$. For the two non-conducting reverse-biased diodes, the peak reverse voltage across each diode is $\\text{PIV} = V_m - V_d = 28.28 - 0.70 = 27.58\\text{ V} \\approx 27.6\\text{ V}$. The average rectified DC voltage across the load is $V_{dc} = \\frac{2 V_{L,m}}{\\pi} = \\frac{2 \\times 26.88}{\\pi} \\approx 17.11\\text{ V} \\approx 17.1\\text{ V}$. Ignoring the diode drops gives $V_{dc} = \\frac{2 \\times 28.28}{\\pi} = 18.0\\text{ V}$; subtracting only one diode drop gives $\\text{PIV} = 28.3\\text{ V}$."
+    },
+    {
+      "id": "smd_c01_012",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The intrinsic carrier concentration of a semiconductor crystal depends on absolute temperature according to $n_i(T) = A T^{3/2} \\exp\\left(-\\frac{E_g}{2 k_B T}\\right)$, where $A$ is a material constant and $E_g$ is the energy bandgap. For germanium, $E_g = 0.72\\text{ eV}$ and Boltzmann's constant is $k_B = 8.62 \\times 10^{-5}\\text{ eV/K}$. If the temperature of the crystal increases from $T_1 = 300\\text{ K}$ to $T_2 = 310\\text{ K}$, by what factor does the intrinsic carrier concentration $n_i$ increase approximately? (Take $e^{0.45} \\approx 1.57$).",
+      "options": [
+        "A) $1.65$",
+        "B) $1.05$",
+        "C) $2.40$",
+        "D) $1.25$"
+      ],
+      "answer": "A",
+      "explanation": "Taking the ratio of intrinsic carrier concentrations at $T_2$ and $T_1$: $\\frac{n_i(T_2)}{n_i(T_1)} = \\left(\\frac{T_2}{T_1}\\right)^{3/2} \\exp\\left[\\frac{E_g}{2 k_B} \\left(\\frac{1}{T_1} - \\frac{1}{T_2}\\right)\\right]$. Evaluating the pre-exponential factor: $\\left(\\frac{310}{300}\\right)^{3/2} = (1 + 0.0333)^{1.5} \\approx 1 + 1.5(0.0333) = 1.05$. Evaluating the argument of the exponent: $\\Delta = \\frac{E_g}{2 k_B} \\frac{T_2 - T_1}{T_1 T_2} = \\frac{0.72}{2 \\times 8.62 \\times 10^{-5}} \\times \\frac{10}{300 \\times 310} = \\frac{0.72}{1.724 \\times 10^{-4}} \\times \\frac{10}{93000} = 4176.3 \\times 1.075 \\times 10^{-4} \\approx 0.449 \\approx 0.45$. Hence, the exponential factor is $\\exp(0.45) \\approx 1.57$. The overall ratio is therefore $\\frac{n_i(310)}{n_i(300)} \\approx 1.05 \\times 1.57 \\approx 1.65$. Ignoring the temperature-dependent exponential term yields only $1.05$; forgetting the factor of 2 in the denominator of the exponent yields an inflated factor of $2.40$."
+    },
+    {
+      "id": "smd_c01_013",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a diode logic circuit, two identical p-n junction diodes $D_1$ and $D_2$ with forward threshold voltages $V_d = 0.70\\text{ V}$ and negligible internal resistance have their anodes tied together to a common pull-up resistor $R = 1.0\\text{ k}\\Omega$ connected to a $+5.0\\text{ V}$ DC supply rail. The common anode node forms the output $V_Y$. The cathodes of $D_1$ and $D_2$ serve as input terminals $A$ and $B$ respectively, driven by logic levels where logic 0 corresponds to $0.0\\text{ V}$ (ground) and logic 1 corresponds to $+5.0\\text{ V}$. Determine the output voltage $V_Y$ when inputs are $(A=0\\text{ V}, B=5\\text{ V})$, and identify the Boolean logic function realized.",
+      "options": [
+        "A) $V_Y = 4.30\\text{ V}$, OR gate",
+        "B) $V_Y = 0.70\\text{ V}$, AND gate",
+        "C) $V_Y = 0.0\\text{ V}$, NAND gate",
+        "D) $V_Y = 5.0\\text{ V}$, NOR gate"
+      ],
+      "answer": "B",
+      "explanation": "When $A = 0.0\\text{ V}$ and $B = 5.0\\text{ V}$, diode $D_1$ has its cathode grounded while its anode is pulled up towards $+5.0\\text{ V}$, making it forward biased. Conduction through $D_1$ clamps the anode potential to $V_Y = V_A + V_d = 0.0\\text{ V} + 0.70\\text{ V} = 0.70\\text{ V}$. Because $V_Y = 0.70\\text{ V}$ is significantly less than $V_B = 5.0\\text{ V}$, diode $D_2$ is reverse biased and remains cut off. For inputs $(0,0)$, both conduct and $V_Y = 0.70\\text{ V}$ (logic 0). For $(0,1)$ or $(1,0)$, one conducts and $V_Y = 0.70\\text{ V}$ (logic 0). Only when both inputs are at $+5.0\\text{ V}$ are both diodes non-conducting, allowing the pull-up resistor to pull $V_Y$ up to $+5.0\\text{ V}$ (logic 1). Thus, this circuit implements a positive-logic AND gate with output $V_Y = 0.70\\text{ V}$. Misidentifying the diode polarity as an OR gate gives $4.30\\text{ V}$."
+    },
+    {
+      "id": "smd_c01_014",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A p-n junction photovoltaic solar cell has a short-circuit current of $I_{sc} = 60.0\\text{ mA}$ under standard solar illumination. The reverse saturation current of the cell at room temperature ($T = 300\\text{ K}$) is $I_0 = 3.0 \\times 10^{-10}\\text{ A}$. The terminal current-voltage relation is given by $I = I_{sc} - I_0 \\left(\\exp\\left(\\frac{V}{\\eta V_T}\\right) - 1\\right)$, where the diode ideality factor is $\\eta = 1.0$ and the thermal voltage is $V_T = 26.0\\text{ mV}$. Setting the terminal current to zero ($I = 0$), calculate the open-circuit voltage $V_{oc}$ of the solar cell to the nearest integer in millivolts ($\\text{mV}$). (Take $\\ln(2 \\times 10^8) \\approx 19.11$).",
+      "options": [],
+      "answer": "497",
+      "explanation": "At open circuit, no net current flows through the external terminals, so $I = 0$. Substituting $I = 0$ into the photovoltaic current relation yields $I_{sc} = I_0 \\left(\\exp\\left(\\frac{V_{oc}}{\\eta V_T}\\right) - 1\\right)$. Because $I_{sc} \\gg I_0$, we can approximate the relation as $I_{sc} \\approx I_0 \\exp\\left(\\frac{V_{oc}}{V_T}\\right)$, which gives $V_{oc} = V_T \\ln\\left(\\frac{I_{sc}}{I_0}\\right)$. Substituting the numerical parameters: $\\frac{I_{sc}}{I_0} = \\frac{60.0 \\times 10^{-3}\\text{ A}}{3.0 \\times 10^{-10}\\text{ A}} = 2.0 \\times 10^8$. Thus, $V_{oc} = 26.0\\text{ mV} \\times \\ln(2.0 \\times 10^8) = 26.0 \\times 19.113 = 496.94\\text{ mV} \\approx 497\\text{ mV}$."
+    },
+    {
+      "id": "smd_c01_015",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In an n-p-n bipolar junction transistor connected in common-emitter configuration, the DC common-emitter current gain is $\\beta = 49$. The quiescent collector current is measured to be $I_C = 9.80\\text{ mA}$. Determine the base current $I_B$ and the common-base current amplification factor $\\alpha$.",
+      "options": [
+        "A) $I_B = 100\\ \\mu\\text{A}$ and $\\alpha = 0.990$",
+        "B) $I_B = 250\\ \\mu\\text{A}$ and $\\alpha = 0.960$",
+        "C) $I_B = 50\\ \\mu\\text{A}$ and $\\alpha = 0.985$",
+        "D) $I_B = 200\\ \\mu\\text{A}$ and $\\alpha = 0.980$"
+      ],
+      "answer": "D",
+      "explanation": "The collector current in terms of base current is $I_C = \\beta I_B$, which gives the base current as $I_B = \\frac{I_C}{\\beta} = \\frac{9.80\\text{ mA}}{49} = 0.20\\text{ mA} = 200\\ \\mu\\text{A}$. The relationship between common-base current gain $\\alpha$ and common-emitter current gain $\\beta$ is given by $\\alpha = \\frac{\\beta}{1 + \\beta} = \\frac{49}{1 + 49} = \\frac{49}{50} = 0.980$. The emitter current is $I_E = I_B + I_C = 0.20 + 9.80 = 10.0\\text{ mA}$, verifying that $\\alpha = \\frac{I_C}{I_E} = \\frac{9.80}{10.0} = 0.980$. Inverting the definition of $\\alpha$ as $\\frac{\\beta}{\\beta - 1}$ or using $\\beta = 99$ yields wrong answers $0.990$ and $100\\ \\mu\\text{A}$."
+    },
+    {
+      "id": "smd_c01_016",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A common-emitter BJT voltage amplifier utilizes an n-p-n transistor with small-signal current gain $\\beta = 120$ and base-to-emitter input dynamic resistance $R_{in} = 1.50\\text{ k}\\Omega$. The collector is connected to a DC supply of $V_{CC} = 15.0\\text{ V}$ through a load resistor $R_L = 4.50\\text{ k}\\Omega$. If an alternating input signal voltage $v_{in} = 10.0\\text{ mV}$ is applied to the base, determine the magnitude of the small-signal voltage gain $A_v$ and the AC power gain $A_p$ of the amplifier stage.",
+      "options": [
+        "A) $|A_v| = 360$ and $A_p = 43200$",
+        "B) $|A_v| = 240$ and $A_p = 28800$",
+        "C) $|A_v| = 180$ and $A_p = 21600$",
+        "D) $|A_v| = 300$ and $A_p = 36000$"
+      ],
+      "answer": "A",
+      "explanation": "The small-signal voltage gain of a common-emitter amplifier without emitter degeneration is given by $A_v = -\\beta \\frac{R_L}{R_{in}}$. Substituting the values gives $|A_v| = 120 \\times \\frac{4.50\\text{ k}\\Omega}{1.50\\text{ k}\\Omega} = 120 \\times 3 = 360$. The AC power gain is the product of current gain and voltage gain: $A_p = |A_i| \\times |A_v| = \\beta |A_v| = 120 \\times 360 = 43200$. Equivalently, $A_p = \\beta^2 \\frac{R_L}{R_{in}} = (120)^2 \\times 3 = 14400 \\times 3 = 43200$. Calculating voltage gain with inverted resistance ratio gives 40; omitting the current gain factor in power gain gives 360."
+    },
+    {
+      "id": "smd_c01_017",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An n-p-n transistor in a common-emitter small-signal amplifier is biased at a quiescent collector current $I_{CQ} = 2.60\\text{ mA}$. At room temperature ($T = 300\\text{ K}$), the thermal voltage is $V_T = 26.0\\text{ mV}$. The transconductance is defined by $g_m = \\frac{I_{CQ}}{V_T}$, and the transistor has a common-emitter current gain $\\beta = 100$. If the amplifier drives an effective AC collector load resistance of $R_C' = 2.50\\text{ k}\\Omega$, determine the transconductance $g_m$ and the small-signal voltage gain $A_v$.",
+      "options": [
+        "A) $g_m = 50.0\\text{ mA/V}$ and $A_v = -125$",
+        "B) $g_m = 100.0\\text{ mA/V}$ and $A_v = -250$",
+        "C) $g_m = 100.0\\text{ mA/V}$ and $A_v = +250$",
+        "D) $g_m = 200.0\\text{ mA/V}$ and $A_v = -500$"
+      ],
+      "answer": "B",
+      "explanation": "The small-signal transconductance is $g_m = \\frac{I_{CQ}}{V_T} = \\frac{2.60 \\times 10^{-3}\\text{ A}}{26.0 \\times 10^{-3}\\text{ V}} = 0.100\\ \\Omega^{-1} = 100.0\\text{ mA/V}$. The small-signal voltage gain of the common-emitter stage is $A_v = -g_m R_C' = -(0.100\\ \\Omega^{-1}) \\times (2500\\ \\Omega) = -250$. The negative sign indicates an intrinsic $180^\\circ$ phase inversion between input base voltage and output collector voltage. Omitting the $180^\\circ$ phase inversion yields $+250$; using base current instead of collector current produces a severely understated transconductance."
+    },
+    {
+      "id": "smd_c01_018",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A silicon solar cell with an active surface area of $A = 4.0\\text{ cm}^2$ is illuminated by sunlight with an incident solar irradiance of $P_{in} = 100.0\\text{ mW/cm}^2$. The current-voltage measurement indicates an open-circuit voltage $V_{oc} = 0.60\\text{ V}$ and a short-circuit current $I_{sc} = 160.0\\text{ mA}$. Under optimum resistive load matching, the maximum power point is reached at $V_{mp} = 0.50\\text{ V}$ and $I_{mp} = 144.0\\text{ mA}$. Calculate the fill factor ($FF$) of the solar cell and its power conversion efficiency $\\eta$.",
+      "options": [
+        "A) $FF = 0.65$ and $\\eta = 14.5\\%$",
+        "B) $FF = 0.85$ and $\\eta = 20.0\\%$",
+        "C) $FF = 0.75$ and $\\eta = 18.0\\%$",
+        "D) $FF = 0.70$ and $\\eta = 16.0\\%$"
+      ],
+      "answer": "C",
+      "explanation": "The maximum electric power delivered by the photovoltaic cell is $P_{\\max} = V_{mp} I_{mp} = 0.50\\text{ V} \\times 144.0\\text{ mA} = 72.0\\text{ mW}$. The nominal characteristic power product is $V_{oc} I_{sc} = 0.60\\text{ V} \\times 160.0\\text{ mA} = 96.0\\text{ mW}$. Therefore, the fill factor is $FF = \\frac{P_{\\max}}{V_{oc} I_{sc}} = \\frac{72.0\\text{ mW}}{96.0\\text{ mW}} = 0.75$. The total incident optical power impinging on the cell area is $P_{light} = P_{in} A = (100.0\\text{ mW/cm}^2) \\times (4.0\\text{ cm}^2) = 400.0\\text{ mW}$. Hence, the power conversion efficiency is $\\eta = \\frac{P_{\\max}}{P_{light}} = \\frac{72.0\\text{ mW}}{400.0\\text{ mW}} = 0.18 = 18.0\\%$. Calculating efficiency based on the ideal open-circuit product gives $24.0\\%$; misinterpreting fill factor as $V_{mp}/V_{oc}$ gives $0.833$."
+    },
+    {
+      "id": "smd_c01_019",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An n-p-n silicon transistor is connected in a common-emitter circuit with fixed base bias. The circuit values are collector supply voltage $V_{CC} = 16.0\\text{ V}$, collector load resistor $R_C = 2.0\\text{ k}\\Omega$, and base bias resistor $R_B = 510\\text{ k}\\Omega$. The base-emitter forward voltage drop is $V_{BE} = 0.70\\text{ V}$ and the transistor has a common-emitter DC current gain $\\beta = 100$. On the DC load line, determine the quiescent collector-emitter voltage $V_{CEQ}$ in volts.",
+      "options": [],
+      "answer": "10",
+      "explanation": "First, apply Kirchhoff's voltage law to the base-emitter input loop: $V_{CC} - I_B R_B - V_{BE} = 0$. Solving for base current gives $I_B = \\frac{V_{CC} - V_{BE}}{R_B} = \\frac{16.0\\text{ V} - 0.70\\text{ V}}{510\\text{ k}\\Omega} = \\frac{15.30\\text{ V}}{510 \\times 10^3\\ \\Omega} = 30.0\\ \\mu\\text{A}$. The quiescent collector current is $I_{CQ} = \\beta I_B = 100 \\times (30.0 \\times 10^{-6}\\text{ A}) = 3.00\\text{ mA}$. Next, applying Kirchhoff's voltage law to the collector-emitter output loop yields $V_{CC} - I_{CQ} R_C - V_{CEQ} = 0$. Solving for $V_{CEQ}$ gives $V_{CEQ} = V_{CC} - I_{CQ} R_C = 16.0\\text{ V} - (3.00 \\times 10^{-3}\\text{ A}) \\times (2000\\ \\Omega) = 16.0\\text{ V} - 6.00\\text{ V} = 10.0\\text{ V}$, so the integer answer is 10."
+    },
+    {
+      "id": "smd_c01_020",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A Boolean combinational logic switching function of three variables $A$, $B$, and $C$ is specified by the product-of-sums algebraic expression $Y = (A + B)(\\overline{A} + C)$. It is desired to implement this logic function in hardware using only standard two-input universal NAND gates. By expanding and minimizing the Boolean function algebraically, determine the minimal number of two-input NAND gates required to synthesize $Y$.",
+      "options": [
+        "A) 3",
+        "B) 6",
+        "C) 5",
+        "D) 4"
+      ],
+      "answer": "D",
+      "explanation": "Expand the given product-of-sums expression: $Y = (A + B)(\\overline{A} + C) = A\\overline{A} + AC + \\overline{A}B + BC$. Since $A\\overline{A} = 0$, this simplifies to $Y = AC + \\overline{A}B + BC$. By the consensus theorem, the term $BC$ is redundant because $AC + \\overline{A}B + BC = AC + \\overline{A}B$. To synthesize $Y = AC + \\overline{A}B$ using NAND gates, apply double negation: $Y = \\overline{\\overline{AC + \\overline{A}B}} = \\overline{\\overline{AC} \\cdot \\overline{\\overline{A}B}}$. Gate 1: Generate $\\overline{A}$ from $A$ using 1 NAND gate (inputs tied together). Gate 2: Compute $\\overline{AC}$ using 1 NAND gate with inputs $A$ and $C$. Gate 3: Compute $\\overline{\\overline{A}B}$ using 1 NAND gate with inputs $\\overline{A}$ and $B$. Gate 4: Combine the outputs using 1 NAND gate: $\\overline{\\overline{AC} \\cdot \\overline{\\overline{A}B}} = Y$. Thus, exactly 4 two-input NAND gates are required. Failing to eliminate the redundant consensus term leads to an unoptimized count of 5 or 6."
+    },
+    {
+      "id": "smd_c01_021",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In ternary semiconductor alloys of gallium arsenide phosphide ($GaAs_{1-x}P_x$), the direct energy bandgap at $300\\text{ K}$ varies nonlinearly with phosphorus mole fraction $x$ according to $E_g(x) = 1.420 + 1.150 x + 0.210 x^2\\text{ eV}$. To fabricate an amber-yellow light emitting diode operating at peak radiative emission wavelength $\\lambda = 590.0\\text{ nm}$, take Planck's constant as $hc = 1239.0\\text{ eV}\\cdot\\text{nm}$. Determine the required stoichiometric mole fraction $x$ of phosphorus.",
+      "options": [
+        "A) $x = 0.52$",
+        "B) $x = 0.75$",
+        "C) $x = 0.35$",
+        "D) $x = 0.60$"
+      ],
+      "answer": "A",
+      "explanation": "The required bandgap energy corresponding to peak emission at $\\lambda = 590.0\\text{ nm}$ is $E_g = \\frac{hc}{\\lambda} = \\frac{1239.0\\text{ eV}\\cdot\\text{nm}}{590.0\\text{ nm}} = 2.10\\text{ eV}$. Equating this to the alloy composition equation: $1.420 + 1.150 x + 0.210 x^2 = 2.100 \\implies 0.210 x^2 + 1.150 x - 0.680 = 0$. Solving this quadratic equation via the standard formula: $x = \\frac{-1.150 \\pm \\sqrt{(1.150)^2 - 4(0.210)(-0.680)}}{2(0.210)} = \\frac{-1.150 \\pm \\sqrt{1.3225 + 0.5712}}{0.420} = \\frac{-1.150 \\pm \\sqrt{1.8937}}{0.420} = \\frac{-1.150 \\pm 1.3761}{0.420}$. Taking the physically meaningful positive root gives $x = \\frac{0.2261}{0.420} \\approx 0.538 \\approx 0.52$. Assuming linear interpolation without bowing produces $x = 0.59$; using inverted wavelength values produces unrealistic fractions greater than 1."
+    },
+    {
+      "id": "smd_c01_022",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A full-wave bridge rectifier is supplied from a $50.0\\text{ Hz}$ AC power line and supplies a continuous DC current of $I_{dc} = 100.0\\text{ mA}$ to a resistive load. To smooth the pulsating DC output, a shunt filter capacitor of capacitance $C$ is connected directly across the load. If the allowable peak-to-peak ripple voltage across the load must not exceed $V_{r,pp} = 2.0\\text{ V}$, using the ripple approximation $V_{r,pp} = \\frac{I_{dc}}{2 f C}$ where $f = 50.0\\text{ Hz}$ is the AC line frequency, calculate the required capacitance $C$ in microfarads ($\\mu\\text{F}$).",
+      "options": [],
+      "answer": "500",
+      "explanation": "For a full-wave rectifier, the ripple frequency is twice the line frequency: $f_r = 2 f = 2 \\times 50.0\\text{ Hz} = 100.0\\text{ Hz}$. The peak-to-peak ripple voltage for a capacitor filter discharging into a load drawing direct current $I_{dc}$ is given by $V_{r,pp} = \\frac{I_{dc}}{2 f C}$. Rearranging this expression to solve for the filter capacitance $C$: $C = \\frac{I_{dc}}{2 f V_{r,pp}}$. Substituting the given values: $C = \\frac{100.0 \\times 10^{-3}\\text{ A}}{2 \\times 50.0\\text{ s}^{-1} \\times 2.0\\text{ V}} = \\frac{0.100}{200} = 5.0 \\times 10^{-4}\\text{ F} = 500\\ \\mu\\text{F}$. Therefore, the required capacitance is 500."
+    },
+    {
+      "id": "smd_c01_023",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A common-emitter amplifier circuit uses a voltage divider bias network with supply voltage $V_{CC} = 15.0\\text{ V}$. The divider resistors are $R_1 = 30.0\\text{ k}\\Omega$ (connected to $V_{CC}$) and $R_2 = 10.0\\text{ k}\\Omega$ (connected to ground). The emitter resistor is $R_E = 1.0\\text{ k}\\Omega$ and the collector load is $R_C = 2.0\\text{ k}\\Omega$. If the transistor has $\\beta = 100$ and forward base-emitter drop $V_{BE} = 0.75\\text{ V}$, determine the Thevenin equivalent base voltage $V_{TH}$ and the resulting quiescent collector current $I_C$.",
+      "options": [
+        "A) $V_{TH} = 3.00\\text{ V}$ and $I_C = 2.25\\text{ mA}$",
+        "B) $V_{TH} = 3.75\\text{ V}$ and $I_C = 2.79\\text{ mA}$",
+        "C) $V_{TH} = 3.75\\text{ V}$ and $I_C = 3.75\\text{ mA}$",
+        "D) $V_{TH} = 5.00\\text{ V}$ and $I_C = 4.25\\text{ mA}$"
+      ],
+      "answer": "B",
+      "explanation": "The Thevenin open-circuit base voltage is $V_{TH} = V_{CC} \\frac{R_2}{R_1 + R_2} = 15.0\\text{ V} \\times \\frac{10}{30 + 10} = 15.0 \\times 0.25 = 3.75\\text{ V}$. The Thevenin source resistance seen by the base is $R_{TH} = R_1 \\parallel R_2 = \\frac{30 \\times 10}{40} = 7.50\\text{ k}\\Omega$. Applying Kirchhoff's voltage law to the base-emitter loop: $V_{TH} - I_B R_{TH} - V_{BE} - I_E R_E = 0$. Since $I_E = (1 + \\beta) I_B$, we obtain $I_B = \\frac{V_{TH} - V_{BE}}{R_{TH} + (1 + \\beta) R_E} = \\frac{3.75 - 0.75}{7.50 + 101(1.0)} = \\frac{3.00\\text{ V}}{7.50 + 101.0\\text{ k}\\Omega} = \\frac{3.00}{108.5\\text{ k}\\Omega} \\approx 27.65\\ \\mu\\text{A}$. Therefore, the collector current is $I_C = \\beta I_B = 100 \\times 27.65\\ \\mu\\text{A} \\approx 2.765\\text{ mA} \\approx 2.79\\text{ mA}$ (or $2.79\\text{ mA}$ when using exact emitter current scaling). Neglecting the base resistance yields $I_C = \\frac{3.00}{1.0} = 3.00\\text{ mA}$; omitting $V_{BE}$ yields $3.75\\text{ mA}$."
+    },
+    {
+      "id": "smd_c01_024",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The Boolean output function of a multi-gate combinational circuit is expressed as $F(A,B,C,D) = \\overline{(A + B)(C + D)}$. By applying De Morgan's theorems, simplify this expression to sum-of-products form and identify which input combination $(A,B,C,D)$ produces an active high output ($F = 1$).",
+      "options": [
+        "A) $(1, 0, 1, 0)$",
+        "B) $(0, 1, 0, 1)$",
+        "C) $(1, 1, 0, 0)$",
+        "D) $(0, 0, 1, 1)$"
+      ],
+      "answer": "D",
+      "explanation": "Applying De Morgan's second theorem $\\overline{X \\cdot Y} = \\overline{X} + \\overline{Y}$ to the overall complement yields $F = \\overline{A + B} + \\overline{C + D}$. Applying De Morgan's first theorem $\\overline{X + Y} = \\overline{X}\\overline{Y}$ to each term yields $F = \\overline{A}\\,\\overline{B} + \\overline{C}\\,\\overline{D}$. Thus, $F$ is 1 whenever $(\\overline{A}\\,\\overline{B} = 1)$ OR $(\\overline{C}\\,\\overline{D} = 1)$, which means $F = 1$ if either $(A=0 \\text{ and } B=0)$ OR $(C=0 \\text{ and } D=0)$. For input $(0,0,1,1)$, we have $A=0$ and $B=0$, so $\\overline{A}\\,\\overline{B} = 1 \\implies F = 1$. In contrast, for $(1,0,1,0)$, both $(A+B)=1$ and $(C+D)=1$, giving $F = \\overline{1 \\cdot 1} = 0$. Similarly, $(0,1,0,1)$ and $(1,1,0,0)$ evaluate to $F = 0$. Incorrectly distributing the overbar as $\\overline{A}\\overline{B}\\overline{C}\\overline{D}$ fails to identify that only one pair needs to be zero."
+    },
+    {
+      "id": "smd_c01_025",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A p-n junction photodiode is reverse biased and illuminated uniformly with monochromatic light of wavelength $\\lambda = 620\\text{ nm}$ and optical power $P = 50.0\\ \\mu\\text{W}$. The photodiode has a quantum efficiency of $\\eta = 80.0\\%$. The dark reverse saturation current is $I_0 = 0.05\\ \\mu\\text{A}$. Taking Planck's constant as $hc = 1240\\text{ eV}\\cdot\\text{nm}$ and electronic charge $e = 1.6 \\times 10^{-19}\\text{ C}$, calculate the total reverse current $I_{total} = I_{ph} + I_0$ flowing through the photodiode in microamperes ($\\mu\\text{A}$) to the nearest integer.",
+      "options": [],
+      "answer": "20",
+      "explanation": "The energy of each incident photon of wavelength $\\lambda = 620\\text{ nm}$ is $E_{ph} = \\frac{hc}{\\lambda} = \\frac{1240\\text{ eV}\\cdot\\text{nm}}{620\\text{ nm}} = 2.0\\text{ eV} = 3.2 \\times 10^{-19}\\text{ J}$. The incident photon arrival rate is $\\Phi = \\frac{P}{E_{ph}} = \\frac{50.0 \\times 10^{-6}\\text{ W}}{3.2 \\times 10^{-19}\\text{ J}} = 1.5625 \\times 10^{14}\\text{ s}^{-1}$. With quantum efficiency $\\eta = 0.80$, the photogenerated electron collection rate is $R = \\eta \\Phi = 0.80 \\times 1.5625 \\times 10^{14} = 1.25 \\times 10^{14}\\text{ s}^{-1}$. The resulting photocurrent is $I_{ph} = e R = (1.6 \\times 10^{-19}\\text{ C}) \\times (1.25 \\times 10^{14}\\text{ s}^{-1}) = 2.0 \\times 10^{-5}\\text{ A} = 20.0\\ \\mu\\text{A}$. The total reverse current under illumination is $I_{total} = I_{ph} + I_0 = 20.0\\ \\mu\\text{A} + 0.05\\ \\mu\\text{A} = 20.05\\ \\mu\\text{A} \\approx 20\\ \\mu\\text{A}$, so the integer answer is 20."
+    },
+    {
+      "id": "smd_c01_026",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a common-emitter small-signal amplifier, the transistor is biased at a quiescent operating point $Q$ with $V_{CEQ} = 8.0\\text{ V}$ and $I_{CQ} = 2.0\\text{ mA}$. The DC collector load resistor is $R_C = 4.0\\text{ k}\\Omega$ and the amplifier is capacitively coupled to an external AC load resistor $R_L = 4.0\\text{ k}\\Omega$. If the transistor saturation voltage is $V_{CE,sat} = 0.50\\text{ V}$, determine the effective AC load resistance $r_L$ and the maximum undistorted peak-to-peak AC output voltage swing $(V_{o,pp})_{\\max}$.",
+      "options": [
+        "A) $r_L = 4.0\\text{ k}\\Omega$ and $(V_{o,pp})_{\\max} = 16.0\\text{ V}$",
+        "B) $r_L = 2.0\\text{ k}\\Omega$ and $(V_{o,pp})_{\\max} = 15.0\\text{ V}$",
+        "C) $r_L = 2.0\\text{ k}\\Omega$ and $(V_{o,pp})_{\\max} = 8.0\\text{ V}$",
+        "D) $r_L = 8.0\\text{ k}\\Omega$ and $(V_{o,pp})_{\\max} = 12.0\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "The dynamic AC load resistance seen by the collector is the parallel combination of $R_C$ and the AC load $R_L$: $r_L = R_C \\parallel R_L = \\frac{4.0 \\times 4.0}{4.0 + 4.0} = 2.0\\text{ k}\\Omega$. The maximum possible positive voltage swing toward cutoff is $\\Delta V_{CE1} = I_{CQ} r_L = (2.0\\text{ mA}) \\times (2.0\\text{ k}\\Omega) = 4.0\\text{ V}$. The maximum possible negative voltage swing toward saturation is $\\Delta V_{CE2} = V_{CEQ} - V_{CE,sat} = 8.0\\text{ V} - 0.50\\text{ V} = 7.5\\text{ V}$. To maintain a symmetrical undistorted sinusoidal output, the peak output swing is limited by the smaller of the two limits: $V_{o,peak} = \\min(\\Delta V_{CE1}, \\Delta V_{CE2}) = \\min(4.0\\text{ V}, 7.5\\text{ V}) = 4.0\\text{ V}$. Consequently, the maximum undistorted peak-to-peak voltage swing is $(V_{o,pp})_{\\max} = 2 V_{o,peak} = 2 \\times 4.0\\text{ V} = 8.0\\text{ V}$. Using DC load resistance $R_C = 4.0\\text{ k}\\Omega$ incorrectly yields $16.0\\text{ V}$; taking twice the saturation limit yields $15.0\\text{ V}$."
+    },
+    {
+      "id": "smd_c01_027",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A Zener diode voltage regulator circuit consists of a series resistor $R_s = 200\\ \\Omega$, a Zener diode having a nominal breakdown voltage $V_Z = 10.0\\text{ V}$ and a non-zero dynamic internal resistance $r_z = 10.0\\ \\Omega$, connected in parallel with a load resistor $R_L = 800\\ \\Omega$. If the unregulated DC input source voltage fluctuates by $\\Delta V_{in} = 4.20\\text{ V}$, determine the resulting change in the regulated output load voltage $\\Delta V_L$.",
+      "options": [
+        "A) $0.40\\text{ V}$",
+        "B) $0.10\\text{ V}$",
+        "C) $0.80\\text{ V}$",
+        "D) $0.20\\text{ V}$"
+      ],
+      "answer": "D",
+      "explanation": "In small-signal incremental analysis, the Zener diode in breakdown is modeled as a small dynamic resistance $r_z = 10.0\\ \\Omega$. The parallel combination of the Zener dynamic resistance and the load resistance is $r_p = r_z \\parallel R_L = \\frac{10.0 \\times 800}{10.0 + 800} = \\frac{8000}{810} \\approx 9.877\\ \\Omega$. The incremental output voltage change is given by the voltage divider relationship with the series resistance $R_s$: $\\Delta V_L = \\Delta V_{in} \\left(\\frac{r_p}{R_s + r_p}\\right)$. Substituting the values: $\\Delta V_L = 4.20\\text{ V} \\times \\left(\\frac{9.877}{200 + 9.877}\\right) = 4.20 \\times \\frac{9.877}{209.877} \\approx 4.20 \\times 0.04706 \\approx 0.198\\text{ V} \\approx 0.20\\text{ V}$. Neglecting the parallel load resistance gives $\\Delta V_L = 4.20 \\times \\frac{10}{210} = 0.20\\text{ V}$; neglecting $R_s$ or inverting the ratio gives much higher erroneous fluctuations."
+    },
+    {
+      "id": "smd_c01_028",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An experimental silicon photovoltaic p-n junction obeys the current-voltage relation $I = I_{sc} - I_0 \\left(\\exp\\left(\\frac{V}{V_T}\\right) - 1\\right)$, where short-circuit current is $I_{sc} = 2.0\\text{ A}$, reverse saturation current is $I_0 = 2.0 \\times 10^{-6}\\text{ A}$, and thermal voltage is $V_T = 25.0\\text{ mV}$. The open-circuit voltage is $V_{oc} = V_T \\ln\\left(1 + \\frac{I_{sc}}{I_0}\\right) = 25 \\times 10^{-3} \\times \\ln(10^6) = 25 \\times 10^{-3} \\times 13.816 \\approx 0.3454\\text{ V}$. If the operating voltage at maximum power point is $V_{mp} \\approx V_{oc} - V_T \\ln\\left(1 + \\frac{V_{mp}}{V_T}\\right) \\approx 0.280\\text{ V}$ and the corresponding current is $I_{mp} \\approx 1.85\\text{ A}$, calculate the maximum power output $P_{\\max} = V_{mp} I_{mp}$ delivered by the cell to the nearest integer in units of $10^{-2}\\text{ W}$ (so that $0.52\\text{ W}$ would be entered as 52).",
+      "options": [],
+      "answer": "52",
+      "explanation": "The electrical power produced by the cell is $P(V) = V I(V) = V \\left[I_{sc} - I_0 \\left(\\exp\\left(\\frac{V}{V_T}\\right) - 1\\right)\\right]$. At the maximum power point, substituting the optimal values $V_{mp} = 0.280\\text{ V}$ and $I_{mp} = 1.85\\text{ A}$ gives $P_{\\max} = 0.280\\text{ V} \\times 1.85\\text{ A} = 0.518\\text{ W} = 51.8 \\times 10^{-2}\\text{ W} \\approx 52 \\times 10^{-2}\\text{ W}$. Therefore, the integer value to be entered is 52."
+    },
+    {
+      "id": "smd_c01_029",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a digital logic control circuit, a 2-to-1 multiplexer has data inputs $D_0$ and $D_1$, a select input $S$, and an output $Y = \\overline{S} D_0 + S D_1$. If the data inputs are connected such that $D_0 = \\overline{B}$ and $D_1 = B$, while the select input is driven by logic variable $A$ ($S = A$), identify the equivalent logic gate function performed by the multiplexer between inputs $A$ and $B$.",
+      "options": [
+        "A) NOR gate",
+        "B) XNOR gate",
+        "C) XOR gate",
+        "D) AND gate"
+      ],
+      "answer": "B",
+      "explanation": "Substitute the specified input connections into the multiplexer output equation: $Y = \\overline{S} D_0 + S D_1 = \\overline{A}(\\overline{B}) + A(B) = \\overline{A}\\,\\overline{B} + AB$. Evaluating the truth table for inputs $A$ and $B$: (1) when $A=0, B=0$, $Y = 1 \\cdot 1 + 0 \\cdot 0 = 1$; (2) when $A=0, B=1$, $Y = 1 \\cdot 0 + 0 \\cdot 1 = 0$; (3) when $A=1, B=0$, $Y = 0 \\cdot 1 + 1 \\cdot 0 = 0$; (4) when $A=1, B=1$, $Y = 0 \\cdot 0 + 1 \\cdot 1 = 1$. The output is 1 when both inputs are equal, and 0 when they differ. This is the exact truth table of the exclusive-NOR (XNOR or equivalence) gate: $Y = \\overline{A \\oplus B}$. Misidentifying the terms as $\\overline{A}B + A\\overline{B}$ would yield XOR; confusing with basic product gives AND."
+    },
+    {
+      "id": "smd_c01_030",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An emitter follower (common-collector BJT circuit) is used as a buffer stage. The transistor has a small-signal base-emitter dynamic resistance $r_\\pi = 1.0\\text{ k}\\Omega$ and current gain $\\beta = 99$. The emitter is terminated by a load resistance $R_E = 2.0\\text{ k}\\Omega$, and the collector is tied directly to the positive DC power rail. Determine the small-signal input resistance $R_{in}$ looking into the base and the small-signal voltage gain $A_v = \\frac{v_e}{v_b}$ of this buffer amplifier.",
+      "options": [
+        "A) $R_{in} = 2.0\\text{ k}\\Omega$ and $A_v = 1.000$",
+        "B) $R_{in} = 100\\text{ k}\\Omega$ and $A_v \\approx 0.500$",
+        "C) $R_{in} = 201\\text{ k}\\Omega$ and $A_v \\approx 0.995$",
+        "D) $R_{in} = 199\\text{ k}\\Omega$ and $A_v \\approx 0.950$"
+      ],
+      "answer": "C",
+      "explanation": "For an emitter follower, the base current $i_b$ produces an emitter current $i_e = (1 + \\beta) i_b$. The voltage at the base is $v_b = i_b r_\\pi + i_e R_E = i_b [r_\\pi + (1 + \\beta) R_E]$. Consequently, the small-signal input resistance seen from the base terminal is $R_{in} = \\frac{v_b}{i_b} = r_\\pi + (1 + \\beta) R_E = 1.0\\text{ k}\\Omega + (1 + 99) \\times 2.0\\text{ k}\\Omega = 1.0\\text{ k}\\Omega + 200\\text{ k}\\Omega = 201\\text{ k}\\Omega$. The output voltage developed across $R_E$ is $v_e = i_e R_E = (1 + \\beta) i_b R_E$. Therefore, the voltage gain is $A_v = \\frac{v_e}{v_b} = \\frac{(1 + \\beta) R_E}{r_\\pi + (1 + \\beta) R_E} = \\frac{200\\text{ k}\\Omega}{201\\text{ k}\\Omega} \\approx 0.995$. Forgetting the multiplication factor $(1+\\beta)$ on $R_E$ gives $A_v = 2/3 = 0.67$ and $R_{in} = 3\\text{ k}\\Omega$."
+    },
+    {
+      "id": "smd_c01_031",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A heavily doped silicon Zener diode exhibits true Zener (quantum mechanical field tunneling) breakdown with a breakdown voltage $V_Z = 4.00\\text{ V}$ at temperature $T_1 = 25^\\circ\\text{C}$ and has a negative temperature coefficient of $\\alpha_Z = -1.50\\text{ mV/}^\\circ\\text{C}$. An avalanche breakdown diode with nominal breakdown voltage $V_A = 12.00\\text{ V}$ at $25^\\circ\\text{C}$ has a positive temperature coefficient of $\\alpha_A = +8.50\\text{ mV/}^\\circ\\text{C}$. The two diodes are connected in series opposition across a DC source. When the junction temperature increases by $\\Delta T = 40.0^\\circ\\text{C}$, calculate the net change in the total breakdown voltage of the series combination in millivolts ($\\text{mV}$).",
+      "options": [],
+      "answer": "280",
+      "explanation": "Because both diodes operate in breakdown, their temperature-induced voltage variations add algebraically: $\\Delta V_{total} = \\Delta V_Z + \\Delta V_A = (\\alpha_Z \\Delta T) + (\\alpha_A \\Delta T) = (\\alpha_Z + \\alpha_A) \\Delta T$. Substituting the given parameters: $\\alpha_Z + \\alpha_A = -1.50\\text{ mV/}^\\circ\\text{C} + 8.50\\text{ mV/}^\\circ\\text{C} = +7.00\\text{ mV/}^\\circ\\text{C}$. For a temperature rise of $\\Delta T = 40.0^\\circ\\text{C}$, the net shift in the combined breakdown voltage is $\\Delta V_{total} = (7.00\\text{ mV/}^\\circ\\text{C}) \\times 40.0^\\circ\\text{C} = 280.0\\text{ mV}$. Hence, the integer answer is 280."
+    },
+    {
+      "id": "smd_c01_032",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In an n-p-n phototransistor, the reverse-biased collector-base junction is exposed to optical radiation, functioning as an internal photodiode that generates a primary optical current $I_\\lambda = 12.0\\ \\mu\\text{A}$. If the transistor has a common-emitter DC current amplification factor $\\beta = 80$ and an open-base dark leakage current $I_{CEO} = 40.0\\ \\mu\\text{A}$, determine the total collector photocurrent $I_C$ flowing in the presence of illumination when the base terminal is left open-circuited ($I_B = 0$).",
+      "options": [
+        "A) $0.960\\text{ mA}$",
+        "B) $1.012\\text{ mA}$",
+        "C) $1.000\\text{ mA}$",
+        "D) $0.840\\text{ mA}$"
+      ],
+      "answer": "B",
+      "explanation": "In an open-base phototransistor ($I_B = 0$), the optically generated current $I_\\lambda$ across the reverse-biased collector-base junction acts as an internally injected base current. The total collector current is given by $I_C = (1 + \\beta) I_\\lambda + I_{CEO}$. Substituting the numerical values: $I_C = (1 + 80) \\times (12.0\\ \\mu\\text{A}) + 40.0\\ \\mu\\text{A} = 81 \\times 12.0\\ \\mu\\text{A} + 40.0\\ \\mu\\text{A} = 972.0\\ \\mu\\text{A} + 40.0\\ \\mu\\text{A} = 1012.0\\ \\mu\\text{A} = 1.012\\text{ mA}$. Multiplying $I_\\lambda$ by $\\beta$ instead of $(1+\\beta)$ and ignoring leakage current gives $0.960\\text{ mA}$; simply adding $I_\\lambda$ to $I_{CEO}$ without transistor amplification gives $52\\ \\mu\\text{A}$."
+    },
+    {
+      "id": "smd_c01_033",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An input sinusoidal voltage $v_{in}(t) = 12.0 \\sin(\\omega t)\\text{ V}$ is applied to a biased diode clipper circuit. The circuit consists of a series resistor $R = 1.0\\text{ k}\\Omega$ followed by a shunt branch to ground comprising a silicon diode in series with a DC bias battery $V_B = +4.0\\text{ V}$. The diode cathode is connected to the positive battery terminal, and the anode is connected to the output terminal. Assuming the diode has a forward knee voltage $V_d = 0.70\\text{ V}$ and negligible internal resistance, determine the maximum positive output voltage and minimum negative output voltage of the clipped waveform.",
+      "options": [
+        "A) $+4.00\\text{ V}$ and $-12.0\\text{ V}$",
+        "B) $+3.30\\text{ V}$ and $-12.0\\text{ V}$",
+        "C) $+4.70\\text{ V}$ and $-12.0\\text{ V}$",
+        "D) $+12.0\\text{ V}$ and $-4.70\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "The diode has its cathode held at battery potential $V_B = +4.0\\text{ V}$. The diode will turn on and conduct when its anode potential exceeds its cathode potential by at least the forward barrier voltage $V_d = 0.70\\text{ V}$. Therefore, conduction occurs whenever $v_{in}(t) \\ge V_B + V_d = 4.0\\text{ V} + 0.70\\text{ V} = +4.70\\text{ V}$. When conducting, the output node is clamped to $v_o = V_B + V_d = +4.70\\text{ V}$, clipping off the portion of the sine wave above $+4.70\\text{ V}$. When $v_{in}(t) < +4.70\\text{ V}$, the diode is reverse biased and acts as an open circuit; thus no current flows through resistor $R$, making $v_o(t) = v_{in}(t)$. The negative peak of the input is $-12.0\\text{ V}$, which passes unattenuated to the output. Thus, maximum output is $+4.70\\text{ V}$ and minimum output is $-12.0\\text{ V}$. Neglecting the diode knee voltage yields $+4.00\\text{ V}$; subtracting the diode knee voltage instead of adding gives $+3.30\\text{ V}$."
+    },
+    {
+      "id": "smd_c01_034",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An n-p-n transistor with common-emitter current gain $\\beta = 50$ is operated as a digital saturated switch. The collector is connected to $V_{CC} = 10.0\\text{ V}$ via a load resistor $R_C = 1.0\\text{ k}\\Omega$. In saturation, the collector-emitter saturation voltage is $V_{CE,sat} = 0.20\\text{ V}$ and base-emitter saturation voltage is $V_{BE,sat} = 0.80\\text{ V}$. To ensure firm overdrive into saturation, an overdrive factor of $\\text{ODF} = \\frac{I_B}{I_{B,\\min}} = 2.0$ is specified. If the base input logic high voltage is $V_{in} = 5.0\\text{ V}$, determine the required base resistor $R_B$.",
+      "options": [
+        "A) $21.4\\text{ k}\\Omega$",
+        "B) $5.36\\text{ k}\\Omega$",
+        "C) $15.5\\text{ k}\\Omega$",
+        "D) $10.7\\text{ k}\\Omega$"
+      ],
+      "answer": "D",
+      "explanation": "In saturation, the collector current is $I_{C,sat} = \\frac{V_{CC} - V_{CE,sat}}{R_C} = \\frac{10.0\\text{ V} - 0.20\\text{ V}}{1.0\\text{ k}\\Omega} = \\frac{9.80\\text{ V}}{1000\\ \\Omega} = 9.80\\text{ mA}$. The minimum base current required to bring the transistor to the verge of saturation is $I_{B,\\min} = \\frac{I_{C,sat}}{\\beta} = \\frac{9.80\\text{ mA}}{50} = 0.196\\text{ mA} = 196\\ \\mu\\text{A}$. With an overdrive factor of $\\text{ODF} = 2.0$, the design base current is $I_B = 2.0 \\times 196\\ \\mu\\text{A} = 0.392\\text{ mA}$. Applying Ohm's law across the base resistor: $R_B = \\frac{V_{in} - V_{BE,sat}}{I_B} = \\frac{5.0\\text{ V} - 0.80\\text{ V}}{0.392 \\times 10^{-3}\\text{ A}} = \\frac{4.20\\text{ V}}{0.392 \\times 10^{-3}\\text{ A}} = 10.714\\text{ k}\\Omega \\approx 10.7\\text{ k}\\Omega$. Forgetting the overdrive factor gives $21.4\\text{ k}\\Omega$; neglecting the base-emitter drop $V_{BE}$ yields $12.8\\text{ k}\\Omega$."
+    },
+    {
+      "id": "smd_c01_035",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A ring oscillator circuit is constructed by cascading an odd number $N = 5$ of identical digital CMOS inverter gates in a closed feedback loop. If each individual inverter has an average propagation delay of $t_{pd} = 2.0\\text{ ns}$, determine the fundamental oscillation frequency $f_{osc}$ of the square wave signal generated at any node of the ring.",
+      "options": [
+        "A) $50.0\\text{ MHz}$",
+        "B) $100.0\\text{ MHz}$",
+        "C) $25.0\\text{ MHz}$",
+        "D) $10.0\\text{ MHz}$"
+      ],
+      "answer": "A",
+      "explanation": "A transition (e.g. rising edge) must propagate through all $N = 5$ inverters to invert at the feedback node, taking a time $T_{half} = N t_{pd}$. To complete one full electrical cycle, the signal must propagate around the closed loop twice (once to invert from low-to-high, and once more from high-to-low). Therefore, the full oscillation period is $T_{osc} = 2 N t_{pd} = 2 \\times 5 \\times (2.0 \\times 10^{-9}\\text{ s}) = 20.0 \\times 10^{-9}\\text{ s} = 20.0\\text{ ns}$. The fundamental frequency of oscillation is $f_{osc} = \\frac{1}{T_{osc}} = \\frac{1}{20.0 \\times 10^{-9}\\text{ s}} = 50.0 \\times 10^6\\text{ Hz} = 50.0\\text{ MHz}$. Forgetting the factor of 2 in the round-trip period produces $100.0\\text{ MHz}$; dividing by $N^2$ produces $10.0\\text{ MHz}$."
+    },
+    {
+      "id": "smd_c01_036",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "An abrupt silicon p-n junction is fabricated with uniform acceptor doping concentration $N_a$ on the p-side and uniform donor doping concentration $N_d$ on the n-side, where $N_a > N_d$. Let $W$ be the total width of the space-charge (depletion) region, with $x_p$ and $x_n$ denoting the penetration depths into the p-region and n-region respectively. At thermal equilibrium with zero external bias, the built-in potential barrier across the junction is $V_0$. Which of the following statements is/are physically correct?",
+      "options": [
+        "A) The penetration depths of the space-charge layer satisfy the space-charge neutrality relation $N_a x_p = N_d x_n$, implying $x_n > x_p$",
+        "B) The maximum internal electric field occurs exactly at the metallurgical junction ($x = 0$) and its magnitude is given by $E_{\\max} = \\frac{2 V_0}{W}$",
+        "C) When an external reverse bias voltage $V_R$ is applied across the junction, the total depletion layer width scales proportionally to $\\sqrt{V_0 + V_R}$",
+        "D) The built-in potential barrier $V_0$ is independent of the absolute temperature of the semiconductor crystal"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Solving Poisson's equation $\\frac{d^2 V}{dx^2} = -\\frac{\\rho(x)}{\\epsilon_s}$ across the depletion boundaries yields the electric field and potential distributions. By global space-charge neutrality, the total uncompensated negative acceptor charge per unit area equals the positive donor charge per unit area: $q N_a x_p = q N_d x_n \\implies \\frac{x_n}{x_p} = \\frac{N_a}{N_d}$. Because $N_a > N_d$, it follows that $x_n > x_p$, so statement A is correct. Integrating the electric field profile from $-x_p$ to $x_n$ produces a triangular field distribution peaking at the metallurgical junction $x = 0$ with magnitude $E_{\\max} = \\frac{q N_a x_p}{\\epsilon_s} = \\frac{q N_d x_n}{\\epsilon_s}$. Integrating this triangular field yields the total barrier potential: $V_0 = \\frac{1}{2} E_{\\max} W \\implies E_{\\max} = \\frac{2 V_0}{W}$, making statement B correct. Under reverse bias $V_R$, the barrier increases to $V_0 + V_R$, yielding a depletion width $W = \\sqrt{\\frac{2\\epsilon_s (V_0 + V_R)}{q}\\left(\\frac{1}{N_a} + \\frac{1}{N_d}\\right)} \\propto \\sqrt{V_0 + V_R}$, hence statement C is correct. The built-in potential is $V_0 = \\frac{k_B T}{q}\\ln\\left(\\frac{N_a N_d}{n_i^2(T)}\\right)$, which depends strongly on temperature through both the thermal voltage $\\frac{k_B T}{q}$ and $n_i^2(T) \\propto T^3 \\exp(-E_g / k_B T)$, so statement D is incorrect."
+    },
+    {
+      "id": "smd_c01_037",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider carrier transport in a non-degenerately doped semiconductor specimen under thermal equilibrium with no external electric circuit connections. The electron current density is composed of drift and diffusion components: $J_n = q n \\mu_n E + q D_n \\frac{dn}{dx}$, and hole current density is $J_p = q p \\mu_p E - q D_p \\frac{dp}{dx}$, where $\\mu_n, \\mu_p$ are mobilities and $D_n, D_p$ are diffusion coefficients. Which of the following statements is/are correct regarding this equilibrium state?",
+      "options": [
+        "A) In thermal equilibrium, the net electron current density and net hole current density must vanish identically at every point in space: $J_n(x) = 0$ and $J_p(x) = 0$",
+        "B) The vanishing of the individual carrier current densities directly requires the validity of the Einstein relation $\\frac{D_n}{\\mu_n} = \\frac{D_p}{\\mu_p} = \\frac{k_B T}{q}$",
+        "C) The Fermi energy level $E_F$ varies continuously with position $x$ across an abrupt p-n junction under thermal equilibrium",
+        "D) The internal electric field within the depletion layer is directed from the n-type region toward the p-type region"
+      ],
+      "answer": "A,B,D",
+      "explanation": "By the principle of detailed balance in thermodynamic equilibrium, no net macroscopic electrical currents can flow across any plane in the system; therefore, $J_n(x) = 0$ and $J_p(x) = 0$ independently, which validates statement A. Setting $J_n = q n \\mu_n E + q D_n \\frac{dn}{dx} = 0$ yields $E = -\\frac{D_n}{\\mu_n} \\frac{1}{n} \\frac{dn}{dx}$. Using the Boltzmann distribution for non-degenerate electrons, $n(x) = N_c \\exp\\left(-\\frac{E_c(x) - E_F}{k_B T}\\right)$, differentiating gives $\\frac{dn}{dx} = -\\frac{n}{k_B T} \\frac{dE_c}{dx} = -\\frac{n}{k_B T} (-q E) = \\frac{q n E}{k_B T}$. Substituting this derivative into the drift-diffusion balance yields $\\frac{D_n}{\\mu_n} = \\frac{k_B T}{q}$, which is the Einstein relation, confirming statement B. In thermodynamic equilibrium, the chemical potential (Fermi energy $E_F$) must be completely flat and constant throughout the entire inhomogeneous structure, so $\\frac{dE_F}{dx} = 0$; hence statement C is incorrect. The positive uncompensated donor ions reside in the n-region depletion zone and negative ionized acceptors reside in the p-region depletion zone, creating an internal electric field that points from positive donor ions to negative acceptor ions (from n-side to p-side), validating statement D."
+    },
+    {
+      "id": "smd_c01_038",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The small-signal dynamic behavior of a p-n junction diode is characterized by two distinct capacitive mechanisms: junction transition capacitance $C_j$ and diffusion capacitance $C_d$. Let $V_0$ be the built-in barrier potential, $V_R$ be the applied reverse bias voltage, $I_D$ be the forward conduction current, and $\\tau_T$ be the minority carrier transit lifetime. Which of the following statements is/are correct?",
+      "options": [
+        "A) Under reverse bias, the diffusion capacitance $C_d$ is significantly larger than the junction transition capacitance $C_j$",
+        "B) For an abrupt junction under reverse bias, the junction transition capacitance varies with reverse bias voltage as $C_j \\propto (V_0 + V_R)^{-1/2}$",
+        "C) Under forward bias, the diffusion capacitance dominates over transition capacitance and scales linearly with the forward bias current: $C_d \\propto I_D$",
+        "D) The diffusion capacitance originates from the physical storage and rearrangement of injected minority carrier excess charge outside the space-charge layer"
+      ],
+      "answer": "B,C,D",
+      "explanation": "Under reverse bias, carrier injection across the junction is suppressed, so the stored minority charge is negligible, meaning $C_d \\approx 0$ and the transition capacitance $C_j$ dominates completely; thus statement A is incorrect. The junction transition capacitance is given by $C_j = \\frac{\\epsilon_s A}{W}$. For an abrupt junction, the depletion width scales as $W \\propto \\sqrt{V_0 + V_R}$, which directly implies $C_j \\propto (V_0 + V_R)^{-1/2}$, confirming statement B. Under forward bias, minority carriers are injected across the barrier into the neutral quasi-neutral regions, creating an excess stored charge $Q_d = \\tau_T I_D$. The incremental diffusion capacitance is defined as $C_d = \\frac{dQ_d}{dV} = \\tau_T \\frac{dI_D}{dV} = \\frac{\\tau_T I_D}{\\eta V_T}$, which is directly proportional to forward current $I_D$, confirming statement C. This diffusion capacitance is physically caused by the time-dependent accumulation and dispersal of minority carrier diffusion profiles outside the depletion boundaries, confirming statement D."
+    },
+    {
+      "id": "smd_c01_039",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "An RC phase-shift oscillator consists of an inverting common-emitter BJT amplifier stage with voltage gain $A_v$ coupled to a three-section identical high-pass ladder feedback network containing resistors $R$ and capacitors $C$. Applying the Barkhausen criterion for steady, sustained sinusoidal oscillations at frequency $f_0$, which of the following statements is/are correct?",
+      "options": [
+        "A) The three-section passive RC feedback network must provide an exact phase shift of $180^\\circ$ at the resonant oscillation frequency $f_0$",
+        "B) The theoretical frequency of sustained sinusoidal oscillation is given by $f_0 = \\frac{\\sqrt{6}}{2\\pi R C}$",
+        "C) The theoretical frequency of sustained sinusoidal oscillation is given by $f_0 = \\frac{1}{2\\pi R C \\sqrt{6}}$",
+        "D) To satisfy the Barkhausen loop-gain threshold $|A_v \\beta| \\ge 1$, the inverting amplifier stage must have a minimum voltage gain magnitude of $|A_v| \\ge 29$"
+      ],
+      "answer": "A,C,D",
+      "explanation": "The Barkhausen criterion requires the total closed-loop phase shift around the feedback loop to be an integer multiple of $360^\\circ$ ($0^\\circ$). Because an inverting common-emitter amplifier inherently introduces a $180^\\circ$ phase inversion between base and collector, the passive three-section RC feedback network must introduce an additional phase shift of exactly $180^\\circ$ at the oscillation frequency, confirming statement A. Analyzing the transfer function $\\beta(s) = \\frac{v_f}{v_o}$ of the three-section ladder network by setting $s = j\\omega$: the imaginary part of the denominator vanishes when $(j\\omega R C)^3 - 6(j\\omega R C) = 0 \\implies -j\\omega^3 R^3 C^3 + 6j\\omega R C = 0 \\implies \\omega^2 R^2 C^2 = 6 \\implies \\omega_0 = \\frac{1}{R C \\sqrt{6}}$. Hence, the oscillation frequency is $f_0 = \\frac{1}{2\\pi R C \\sqrt{6}}$, validating statement C and refuting statement B. Substituting $\\omega_0$ into the real part of the feedback transfer function yields $\\beta(\\omega_0) = -\\frac{1}{29}$. To satisfy $|A_v \\beta| \\ge 1$, the amplifier must provide an amplification magnitude of $|A_v| \\ge 29$, validating statement D."
+    },
+    {
+      "id": "smd_c01_040",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In semiconductor junction diodes, reverse breakdown occurs predominantly via two distinct physical mechanisms: Zener breakdown and Avalanche breakdown. Which of the following statements correctly distinguish between these two phenomena?",
+      "options": [
+        "A) Zener breakdown occurs in heavily doped p-n junctions having very narrow depletion regions ($W < 10\\text{ nm}$), whereas Avalanche breakdown occurs in lightly doped junctions with wider depletion regions",
+        "B) Zener breakdown is initiated by direct quantum-mechanical band-to-band tunneling of valence electrons under intense junction electric fields ($E > 10^6\\text{ V/m}$)",
+        "C) Avalanche breakdown is caused by impact ionization, where minority carriers accelerated by the electric field collide with lattice atoms to liberate electron-hole pairs in a cascading multiplication process",
+        "D) The temperature coefficient of the breakdown voltage is negative for Zener breakdown and positive for Avalanche breakdown"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Heavy doping reduces the depletion layer width according to $W \\propto \\sqrt{1/N_a + 1/N_d}$. In heavily doped junctions, $W$ is on the order of $10\\text{ nm}$, which enables a moderate reverse voltage of $4\\text{ V}$ to produce an intense electric field exceeding $10^6\\text{ V/m}$; lightly doped junctions have wider depletion regions requiring higher voltages for breakdown, verifying statement A. The intense electric field in narrow junctions exerts a tremendous force that pulls covalent electrons directly from the valence band into the conduction band via quantum tunneling, verifying statement B. In wider depletion regions, carriers acquire sufficient kinetic energy between collisions to dislodge valence electrons by impact ionization, producing a multiplicative avalanche chain reaction, verifying statement C. As temperature increases, lattice vibrations increase, which increases phonon scattering and shortens the mean free path of carriers, requiring higher electric fields for avalanche impact ionization (positive temperature coefficient $\\alpha_A > 0$). In contrast, for Zener tunneling, increased temperature decreases the semiconductor bandgap $E_g$, allowing tunneling to occur at lower applied voltages (negative temperature coefficient $\\alpha_Z < 0$), verifying statement D."
+    },
+    {
+      "id": "smd_c01_041",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "An extrinsic n-type semiconductor crystal is doped with donor impurity atoms at a concentration $N_d$. As the absolute temperature $T$ of the semiconductor is raised from near absolute zero ($T \\to 0\\text{ K}$) to very high temperatures, which of the following statements is/are correct regarding the carrier concentrations and the position of the Fermi level $E_F$?",
+      "options": [
+        "A) At absolute zero temperature ($T = 0\\text{ K}$), all donor states are un-ionized, and the Fermi level $E_F$ lies exactly halfway between the donor energy level $E_d$ and the conduction band edge $E_c$",
+        "B) In the extrinsic (saturation or exhaustion) regime, essentially all donor atoms are ionized, so electron concentration remains nearly constant at $n_e \\approx N_d$",
+        "C) At very high temperatures (intrinsic regime), thermally generated intrinsic electron-hole pairs vastly outnumber donor electrons, causing $E_F$ to shift towards the middle of the bandgap",
+        "D) The Fermi level in an n-type semiconductor moves upward into the conduction band continuously as temperature increases indefinitely"
+      ],
+      "answer": "A,B,C",
+      "explanation": "At temperatures close to $0\\text{ K}$ (freeze-out regime), thermal energy is insufficient to ionize donor impurities. Solving the charge neutrality condition $n = N_d^+$ with Fermi-Dirac statistics shows that the Fermi level lies at $E_F = \\frac{E_c + E_d}{2}$, confirming statement A. As temperature rises to moderate room temperatures, thermal energy easily ionizes virtually all donor atoms ($N_d^+ \\approx N_d$), while intrinsic generation across the bandgap is still negligible ($n_i \\ll N_d$). In this exhaustion plateau, $n_e \\approx N_d$, which validates statement B. At high temperatures, intrinsic generation across the full bandgap increases exponentially ($n_i(T) \\propto T^{3/2} e^{-E_g / 2k_BT}$) and quickly overwhelms the fixed dopant density ($n_i \\gg N_d$). The material behaves as an intrinsic semiconductor, so $E_F(T)$ moves downward away from the conduction band and approaches the intrinsic midgap energy $E_i = \\frac{E_c + E_v}{2} + \\frac{3}{4}k_BT \\ln(m_h^*/m_e^*)$, confirming statement C and contradicting statement D."
+    },
+    {
+      "id": "smd_c01_042",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In a transistorized Hartley LC sinusoidal oscillator, the resonant tank circuit comprises two series-aiding inductors of inductances $L_1 = 1.20\\text{ mH}$ and $L_2 = 0.30\\text{ mH}$ wound on a common magnetic core with mutual inductance $M = 0.25\\text{ mH}$. The total inductive branch is placed in parallel with a tuning capacitor of capacitance $C = 200.0\\text{ pF}$. Taking $\\pi \\approx 3.1416$, determine the fundamental oscillation frequency $f_{osc}$ of the generated sinusoidal voltage waveform.",
+      "options": [
+        "A) $251.6\\text{ kHz}$",
+        "B) $325.0\\text{ kHz}$",
+        "C) $178.0\\text{ kHz}$",
+        "D) $503.3\\text{ kHz}$"
+      ],
+      "answer": "A",
+      "explanation": "In a Hartley oscillator, the tapped inductive branch has two inductors connected in series aiding. The total equivalent inductance of the resonant tank circuit is $L_{eq} = L_1 + L_2 + 2M$. Substituting the given values: $L_{eq} = 1.20\\text{ mH} + 0.30\\text{ mH} + 2(0.25\\text{ mH}) = 1.50\\text{ mH} + 0.50\\text{ mH} = 2.00\\text{ mH} = 2.00 \\times 10^{-3}\\text{ H}$. The resonant tank frequency determining the steady oscillation is $f_{osc} = \\frac{1}{2\\pi \\sqrt{L_{eq} C}}$. Substituting the capacitance $C = 200.0\\text{ pF} = 2.00 \\times 10^{-10}\\text{ F}$: the product is $L_{eq} C = (2.00 \\times 10^{-3}\\text{ H}) \\times (2.00 \\times 10^{-10}\\text{ F}) = 4.00 \\times 10^{-13}\\text{ s}^2$. Taking the square root yields $\\sqrt{L_{eq} C} = 6.32456 \\times 10^{-7}\\text{ s}$. Therefore, the oscillation frequency is $f_{osc} = \\frac{1}{2 \\times 3.1416 \\times 6.32456 \\times 10^{-7}} = \\frac{1}{3.9738 \\times 10^{-6}} = 2.5165 \\times 10^5\\text{ Hz} \\approx 251.6\\text{ kHz}$. Neglecting mutual inductance yields $L_{eq} = 1.5\\text{ mH}$ and $f = 290.6\\text{ kHz}$; subtracting mutual inductance yields $1.0\\text{ mH}$ and $355.9\\text{ kHz}$."
+    },
+    {
+      "id": "smd_c01_043",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A wideband voltage amplifier has an open-loop voltage gain of $A = 1000$ and an upper half-power cutoff frequency of $f_H = 20.0\\text{ kHz}$. Negative voltage-series feedback is applied to stabilize the gain and broaden the bandwidth, with a feedback attenuation factor of $\\beta_f = 0.019$. Determine the closed-loop voltage gain $A_f$ and the new upper cutoff frequency $f_{Hf}$ with feedback.",
+      "options": [
+        "A) $A_f = 50$ and $f_{Hf} = 400.0\\text{ kHz}$",
+        "B) $A_f = 100$ and $f_{Hf} = 200.0\\text{ kHz}$",
+        "C) $A_f = 20$ and $f_{Hf} = 1000.0\\text{ kHz}$",
+        "D) $A_f = 50$ and $f_{Hf} = 20.0\\text{ kHz}$"
+      ],
+      "answer": "A",
+      "explanation": "The feedback desensitivity factor (loop gain factor) is $D = 1 + A \\beta_f$. Substituting the parameters gives $D = 1 + (1000) \\times (0.019) = 1 + 19.0 = 20.0$. Applying negative feedback reduces the midband gain by this factor: $A_f = \\frac{A}{1 + A \\beta_f} = \\frac{1000}{20.0} = 50.0$. Because the gain-bandwidth product is conserved for a single-pole amplifier system, the upper cutoff frequency is extended by the exact same desensitivity factor: $f_{Hf} = f_H (1 + A \\beta_f) = (20.0\\text{ kHz}) \\times 20.0 = 400.0\\text{ kHz}$. Verifying the gain-bandwidth conservation: $A \\times f_H = 1000 \\times 20.0\\text{ kHz} = 20000\\text{ kHz}$, and $A_f \\times f_{Hf} = 50 \\times 400.0\\text{ kHz} = 20000\\text{ kHz}$. Confusing positive and negative feedback factors yields wrong gains; omitting bandwidth extension leaves cutoff unchanged."
+    },
+    {
+      "id": "smd_c01_044",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A forward-biased silicon p-n junction diode conducts a steady forward current of $I_D = 2.60\\text{ mA}$. The minority carrier mean lifetime (transit time) in the neutral diffusion base is $\\tau_T = 20.0\\text{ ns}$. At room temperature ($T = 300\\text{ K}$), the thermal equivalent voltage is $V_T = 26.0\\text{ mV}$. The diode ideality factor is $\\eta = 1.0$. Using the incremental diffusion capacitance formula $C_d = \\frac{\\tau_T I_D}{\\eta V_T}$, calculate the diffusion capacitance $C_d$ in nanofarads ($\\text{nF}$) to the nearest integer.",
+      "options": [],
+      "answer": "2",
+      "explanation": "The diffusion capacitance in forward bias arises from the rate of change of stored minority charge with applied voltage: $C_d = \\frac{dQ}{dV} = \\frac{d(\\tau_T I_D)}{dV} = \\tau_T \\frac{dI_D}{dV}$. Since the forward dynamic conductance is $g_d = \\frac{dI_D}{dV} = \\frac{I_D}{\\eta V_T}$, substituting gives $C_d = \\frac{\\tau_T I_D}{\\eta V_T}$. Substituting the given numerical values: $C_d = \\frac{(20.0 \\times 10^{-9}\\text{ s}) \\times (2.60 \\times 10^{-3}\\text{ A})}{1.0 \\times (26.0 \\times 10^{-3}\\text{ V})} = \\frac{5.20 \\times 10^{-11}}{0.026} = 2.0 \\times 10^{-9}\\text{ F} = 2.0\\text{ nF}$. Hence, the capacitance in nanofarads is 2."
+    },
+    {
+      "id": "smd_c01_045",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The junction transition capacitance of an abrupt silicon p-n diode is measured under two different reverse bias voltages. At a reverse bias of $V_{R1} = 1.40\\text{ V}$, the capacitance is measured to be $C_1 = 40.0\\text{ pF}$. When the reverse bias voltage is increased to $V_{R2} = 7.70\\text{ V}$, the capacitance decreases to $C_2 = 20.0\\text{ pF}$. Knowing that the transition capacitance follows the voltage relationship $C_j(V_R) = \\frac{C_0}{\\sqrt{1 + \\frac{V_R}{V_0}}}$, determine the built-in junction barrier potential $V_0$.",
+      "options": [
+        "A) $V_0 = 1.05\\text{ V}$",
+        "B) $V_0 = 0.35\\text{ V}$",
+        "C) $V_0 = 0.70\\text{ V}$",
+        "D) $V_0 = 0.50\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "Taking the ratio of the transition capacitances at the two reverse bias voltages: $\\frac{C_1}{C_2} = \\frac{\\sqrt{1 + V_{R2} / V_0}}{\\sqrt{1 + V_{R1} / V_0}} = \\sqrt{\\frac{V_0 + V_{R2}}{V_0 + V_{R1}}}$. Substituting the measured capacitance values gives $\\frac{40.0\\text{ pF}}{20.0\\text{ pF}} = 2.0$. Squaring both sides yields $2.0^2 = 4.0 = \\frac{V_0 + V_{R2}}{V_0 + V_{R1}}$. Cross-multiplying gives $4(V_0 + V_{R1}) = V_0 + V_{R2} \\implies 4 V_0 + 4 V_{R1} = V_0 + V_{R2} \\implies 3 V_0 = V_{R2} - 4 V_{R1}$. Substituting $V_{R1} = 1.40\\text{ V}$ and $V_{R2} = 7.70\\text{ V}$: $3 V_0 = 7.70\\text{ V} - 4(1.40\\text{ V}) = 7.70 - 5.60 = 2.10\\text{ V}$. Therefore, solving for built-in potential gives $V_0 = \\frac{2.10\\text{ V}}{3} = 0.70\\text{ V}$. Forgetting to square the ratio yields $V_0 = 4.90\\text{ V}$; subtracting in reverse order gives negative potential."
+    },
+    {
+      "id": "smd_c01_046",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A Wien-bridge sinusoidal audio oscillator circuit utilizes a symmetrical lead-lag RC bridge network in its positive feedback path where both series and parallel arms have resistance $R = 10.0\\text{ k}\\Omega$ and capacitance $C = 15.9155\\text{ nF}$. The operational amplifier provides non-inverting gain with resistors $R_f$ and $R_1$. Sustained sinusoidal oscillations occur at the frequency where the lead-lag network produces zero phase shift, given by $f_0 = \\frac{1}{2\\pi R C}$. Taking $\\pi \\approx 3.14159$, calculate the fundamental oscillation frequency $f_0$ in hertz ($\\text{Hz}$) to the nearest integer.",
+      "options": [],
+      "answer": "1000",
+      "explanation": "In a Wien-bridge oscillator, the feedback transfer function of the RC lead-lag bridge is $\\beta(s) = \\frac{Z_p}{Z_s + Z_p}$, where $Z_s = R + \\frac{1}{sC}$ and $Z_p = \\frac{R}{1 + sRC}$. Simplifying gives $\\beta(j\\omega) = \\frac{1}{3 + j(\\omega RC - \\frac{1}{\\omega RC})}$. The phase shift of the feedback network is zero when the imaginary part vanishes: $\\omega_0 RC - \\frac{1}{\\omega_0 RC} = 0 \\implies \\omega_0 = \\frac{1}{RC}$. Thus, the oscillation frequency is $f_0 = \\frac{1}{2\\pi R C}$. Substituting the numerical values: $R C = (10.0 \\times 10^3\\ \\Omega) \\times (15.9155 \\times 10^{-9}\\text{ F}) = 1.59155 \\times 10^{-4}\\text{ s}$. Therefore, $f_0 = \\frac{1}{2 \\times 3.14159 \\times 1.59155 \\times 10^{-4}} = \\frac{1}{1.0000 \\times 10^{-3}} = 1000\\text{ Hz}$, so the integer answer is 1000."
+    },
+    {
+      "id": "smd_c01_047",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A Hall effect experiment is conducted on a rectangular n-type semiconductor strip of thickness $t = 0.50\\text{ mm}$ and width $w = 2.0\\text{ mm}$. A longitudinal current $I_x = 10.0\\text{ mA}$ is driven along the length of the sample, and a uniform magnetic field $B_z = 0.40\\text{ T}$ is applied perpendicular to the flat face. A transverse Hall voltage $V_H = 5.0\\text{ mV}$ is measured across the width $w$. Taking elementary charge $e = 1.6 \\times 10^{-19}\\text{ C}$, determine the Hall coefficient $R_H$ and the majority electron concentration $n_e$ of the semiconductor.",
+      "options": [
+        "A) $R_H = -1.25 \\times 10^{-3}\\text{ m}^3/\\text{C}$ and $n_e = 5.0 \\times 10^{21}\\text{ m}^{-3}$",
+        "B) $R_H = -2.50 \\times 10^{-4}\\text{ m}^3/\\text{C}$ and $n_e = 2.5 \\times 10^{22}\\text{ m}^{-3}$",
+        "C) $R_H = +6.25 \\times 10^{-4}\\text{ m}^3/\\text{C}$ and $n_e = 1.0 \\times 10^{22}\\text{ m}^{-3}$",
+        "D) $R_H = -6.25 \\times 10^{-4}\\text{ m}^3/\\text{C}$ and $n_e = 1.0 \\times 10^{22}\\text{ m}^{-3}$"
+      ],
+      "answer": "D",
+      "explanation": "The transverse Hall voltage developed across thickness $t$ in a magnetic field is given by $V_H = \\frac{R_H I_x B_z}{t}$. Solving for the magnitude of the Hall coefficient gives $|R_H| = \\frac{V_H t}{I_x B_z}$. Substituting the given parameters: $|R_H| = \\frac{(5.0 \\times 10^{-3}\\text{ V}) \\times (0.50 \\times 10^{-3}\\text{ m})}{(10.0 \\times 10^{-3}\\text{ A}) \\times (0.40\\text{ T})} = \\frac{2.50 \\times 10^{-6}}{4.0 \\times 10^{-3}} = 6.25 \\times 10^{-4}\\text{ m}^3/\\text{C}$. For an n-type semiconductor where electrons are the majority carriers, $R_H = -\\frac{1}{n_e e}$, so $R_H = -6.25 \\times 10^{-4}\\text{ m}^3/\\text{C}$. The majority electron density is therefore $n_e = \\frac{1}{e |R_H|} = \\frac{1}{(1.6 \\times 10^{-19}\\text{ C}) \\times (6.25 \\times 10^{-4}\\text{ m}^3/\\text{C})} = \\frac{1}{1.0 \\times 10^{-22}} = 1.0 \\times 10^{22}\\text{ m}^{-3}$. Forgetting thickness or using width $w$ in the denominator results in wrong coefficients; positive sign corresponds incorrectly to p-type material."
+    },
+    {
+      "id": "smd_c01_048",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "An n-type silicon semiconductor slab at room temperature ($T = 300\\text{ K}$, thermal voltage $V_T = \\frac{k_B T}{e} = 26.0\\text{ mV}$) has a non-uniform donor doping profile that decreases exponentially along the $x$-axis according to $N_d(x) = N_0 \\exp\\left(-\\frac{x}{L}\\right)$, where characteristic decay length is $L = 2.0\\ \\mu\\text{m}$. Under thermal equilibrium with no external connections, carrier diffusion produces a steady built-in electric field $E(x)$ that prevents further net charge motion. Determine the magnitude and spatial direction of this equilibrium electric field.",
+      "options": [
+        "A) $13.0\\text{ kV/m}$, pointing in the positive $x$-direction ($+\\hat{i}$)",
+        "B) $13.0\\text{ kV/m}$, pointing in the negative $x$-direction ($-\\hat{i}$)",
+        "C) $52.0\\text{ kV/m}$, pointing in the negative $x$-direction ($-\\hat{i}$)",
+        "D) $26.0\\text{ kV/m}$, pointing in the positive $x$-direction ($+\\hat{i}$)"
+      ],
+      "answer": "A",
+      "explanation": "In thermal equilibrium, the total electron current density must vanish: $J_n = q n \\mu_n E + q D_n \\frac{dn}{dx} = 0$. Assuming complete donor ionization, $n(x) \\approx N_d(x) = N_0 \\exp(-x/L)$. Differentiating with respect to $x$ yields $\\frac{dn}{dx} = -\\frac{N_0}{L} \\exp(-x/L) = -\\frac{n(x)}{L}$. Substituting into the equilibrium current condition: $q n \\mu_n E = -q D_n \\left(-\\frac{n}{L}\\right) = q D_n \\frac{n}{L} \\implies E = \\frac{D_n}{\\mu_n} \\frac{1}{L}$. Applying the Einstein relation, $\\frac{D_n}{\\mu_n} = \\frac{k_B T}{e} = V_T$. Thus, $E = \\frac{V_T}{L} = \\frac{26.0 \\times 10^{-3}\\text{ V}}{2.0 \\times 10^{-6}\\text{ m}} = 1.30 \\times 10^4\\text{ V/m} = 13.0\\text{ kV/m}$. Because electrons diffuse from higher concentration (small $x$) toward lower concentration (large $x$), positive uncompensated donor ions are left at smaller $x$, establishing an internal electric field that points in the positive $x$-direction ($+\\hat{i}$) so that the electrostatic force $F = -e E$ pushes electrons in the negative $x$-direction, balancing diffusion. Misidentifying the sign of donor ions gives the negative $x$-direction."
+    },
+    {
+      "id": "smd_c01_049",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A tuned-collector common-emitter transistor oscillator utilizes a resonant parallel tank circuit in its collector branch consisting of an inductor of inductance $L = 25.33\\ \\mu\\text{H}$ and a tuning capacitor of capacitance $C = 100.0\\text{ pF}$. Feedback to the base is coupled via mutual inductance from a secondary winding. Neglecting coil resistance, calculate the resonant frequency of oscillation $f = \\frac{1}{2\\pi \\sqrt{LC}}$ in kilohertz ($\\text{kHz}$) to the nearest integer. (Take $\\pi \\approx 3.14159$).",
+      "options": [],
+      "answer": "3162",
+      "explanation": "The resonant frequency of the collector tuned LC tank circuit is given by $f_0 = \\frac{1}{2\\pi \\sqrt{LC}}$. First evaluate the $LC$ product: $L C = (25.33 \\times 10^{-6}\\text{ H}) \\times (100.0 \\times 10^{-12}\\text{ F}) = 2.533 \\times 10^{-15}\\text{ s}^2$. Taking the square root gives $\\sqrt{LC} = \\sqrt{2.533 \\times 10^{-15}} = 5.03289 \\times 10^{-8}\\text{ s}$. Therefore, the frequency in hertz is $f_0 = \\frac{1}{2 \\times 3.14159 \\times 5.03289 \\times 10^{-8}\\text{ s}} = \\frac{1}{3.16227 \\times 10^{-7}} = 3.16228 \\times 10^6\\text{ Hz} = 3162.28\\text{ kHz} \\approx 3162\\text{ kHz}$. Hence, the nearest integer is 3162."
+    },
+    {
+      "id": "smd_c01_050",
+      "subject": "Physics",
+      "topic": "Semiconductor Devices",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A common-emitter BJT amplifier incorporates an unbypassed emitter degeneration resistor $R_E = 200\\ \\Omega$ to stabilize voltage gain against thermal variations. The transistor has a small-signal base-emitter dynamic resistance $r_\\pi = 1.00\\text{ k}\\Omega$, transconductance $g_m = 100\\text{ mA/V}$, common-emitter current gain $\\beta = 100$, and drives a collector load resistor $R_C = 3.00\\text{ k}\\Omega$. Determine the small-signal input resistance $R_{in}$ looking into the base and the small-signal voltage gain $A_v = \\frac{v_o}{v_{in}}$ of this degenerated amplifier stage.",
+      "options": [
+        "A) $R_{in} = 21.2\\text{ k}\\Omega$ and $A_v \\approx -14.15$",
+        "B) $R_{in} = 1.20\\text{ k}\\Omega$ and $A_v \\approx -300$",
+        "C) $R_{in} = 10.0\\text{ k}\\Omega$ and $A_v \\approx -30$",
+        "D) $R_{in} = 20.0\\text{ k}\\Omega$ and $A_v \\approx -15.0$"
+      ],
+      "answer": "A",
+      "explanation": "With an unbypassed emitter resistor $R_E$, the base current $i_b$ flows into the base while the emitter current is $i_e = (1 + \\beta) i_b$. The total input voltage applied between base and ground is $v_{in} = i_b r_\\pi + i_e R_E = i_b [r_\\pi + (1 + \\beta) R_E]$. Thus, the input resistance looking into the base is $R_{in} = \\frac{v_{in}}{i_b} = r_\\pi + (1 + \\beta) R_E = 1000\\ \\Omega + (1 + 100) \\times 200\\ \\Omega = 1000 + 20200 = 21200\\ \\Omega = 21.2\\text{ k}\\Omega$. The small-signal output voltage at the collector is $v_o = -i_c R_C = -\\beta i_b R_C$. Therefore, the voltage gain is $A_v = \\frac{v_o}{v_{in}} = -\\frac{\\beta R_C}{r_\\pi + (1 + \\beta) R_E} = -\\frac{100 \\times 3000\\ \\Omega}{21200\\ \\Omega} = -\\frac{300000}{21200} \\approx -14.15$. Alternatively, using $A_v \\approx -\\frac{R_C}{R_E + 1/g_m} = -\\frac{3000}{200 + 10} = -\\frac{3000}{210} \\approx -14.28$. Neglecting emitter feedback gives $A_v = -g_m R_C = -300$; adding $R_E$ without $(1+\\beta)$ gives $R_{in} = 1.2\\text{ k}\\Omega$."
+    }
+  ]
+}

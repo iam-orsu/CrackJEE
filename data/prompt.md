@@ -307,16 +307,16 @@ git push origin main
 
 **Source of truth:** `data/registry/progress.json` (per-topic counts) and `data/registry/question_hashes.json` (duplicate fingerprints). Both change only when `auditChunkFile(path, true)` commits a file with zero failures.
 
-**Ledger total: 5050 committed questions** out of a 10,000 target (50.5%).
+**Ledger total: 6000 committed questions** out of a 10,000 target (60.0%).
 
 **Next steps for any new agent:**
-1. Start only from the Pending lists below. Never regenerate a Started topic unless a file is flagged and needs replacement.
-2. Give each new topic a unique ID prefix (see the list below). Do not reuse one.
-3. Write 50-question chunks named `data/<subject>/<topic_slug>_chunk_NN.json`. Each agent should write files one at a time and report only when done.
+1. **Syllabus Coverage is 100% Complete**: All 91 official JEE topics have active chunk_01 files committed and verified.
+2. To scale to the 10,000-question milestone (and beyond to 20,310+), generate chunk_02, chunk_03, etc. for existing topics.
+3. Use chunk-specific prefixes (e.g. `kin_c02_001`, `lom_c02_001`) maintaining the topic prefix.
 4. Audit with `auditChunkFile(path, false)`, remove flagged questions, re-audit, then commit with `auditChunkFile(path, true)`.
 5. Update this section after each batch.
 
-**ID prefixes already used (do not reuse):** ac, aod, as, bt, cb, cc, cd, ce, chq, circ, ck, cn, cs, ct, di, ec, ela, emi, emw, enc, epc, es, fm, fr, grav, hc, hyd, ieq, itd, itf, kin, ktg, lad, li, lom, mam, mat, mcm, mcs, met, ocb, pb1314, pb1518, pmi, pnc, prob, ptp, qe, raf, rfa, rm, ro, rr, sas, sbe, sc, set, shm, sl, sol, som, sop, ss, stat, tf, th, tmd, tpm, ud, vec, wav, wep.
+**ID prefixes already used (all 91 official topics covered):** ac, ak, amn, an, aod, aoi, ape, as, bm, bt, cad, cb, cc, cd, ce, chq, circ, ck, cn, com, cs, ct, de, det, di, dnr, ec, ela, emi, emw, enc, epc, es, fm, fr, grav, hc, hha, hyd, ieq, ii, itd, itf, kin, ktg, lad, li, lom, lp, mam, mat, mcm, mcs, met, ocb, pb1314, pb1518, pbr, pmi, pnc, poly, prob, ptp, qe, raf, rfa, rm, ro, rr, sas, sbe, sc, set, shm, sl, smd, sol, som, sop, ss, stat, tdg, tf, th, tmd, tpm, ud, vec, wav, wep, wo.
 
 **Known open issues:**
 - Simple Harmonic Motion chunks 01 and 02 are skewed toward answer A (chunk 01 about 91%, chunk 02 all 35 single-answer items). Reshuffle options and fix any letter references in explanations before adding more items.
@@ -325,7 +325,7 @@ git push origin main
 - The compiler (`data/compiler.js`) counts all chunk files, including uncommitted ones, so its total can be higher than the ledger total.
 - The gatekeeper does not check JEE difficulty or answer keys. Review new items by hand, and cut any single-formula, recall, or textbook-statement items.
 
-### Physics (24 of 29 topics started)
+### Physics (29 of 29 topics started — 100% Syllabus Covered)
 | Topic | Committed | Chunks (committed questions per chunk) |
 |---|---|---|
 | Kinematics | 43 | c01 43 |
@@ -352,10 +352,15 @@ git push origin main
 | Electromagnetic Induction | 50 | c01 50 |
 | Alternating Current | 50 | c01 50 |
 | Electromagnetic Waves | 50 | c01 50 |
+| Wave Optics | 50 | c01 50 |
+| Dual Nature of Radiation | 50 | c01 50 |
+| Atoms and Nuclei | 50 | c01 50 |
+| Semiconductor Devices | 50 | c01 50 |
+| Communication Systems | 50 | c01 50 |
 
-**Pending Physics topics (start here):** Wave Optics; Dual Nature of Radiation; Atoms and Nuclei; Semiconductor Devices; Communication Systems.
+**Pending Physics topics:** None (all 29 official topics covered).
 
-### Chemistry (24 of 31 topics started)
+### Chemistry (31 of 31 topics started — 100% Syllabus Covered)
 | Topic | Committed | Chunks (committed questions per chunk) |
 |---|---|---|
 | Atomic Structure | 48 | c01 48 |
@@ -382,10 +387,17 @@ git push origin main
 | General Principles of Metallurgy | 50 | c01 50 |
 | p-Block Elements Group 15 to 18 | 50 | c01 50 |
 | Transition Metals and d-Block | 50 | c01 50 |
+| Haloalkanes and Haloarenes | 50 | c01 50 |
+| Alcohols Phenols and Ethers | 50 | c01 50 |
+| Aldehydes and Ketones | 50 | c01 50 |
+| Carboxylic Acids and Derivatives | 50 | c01 50 |
+| Amines | 50 | c01 50 |
+| Biomolecules | 50 | c01 50 |
+| Polymers | 50 | c01 50 |
 
-**Pending Chemistry topics (start here):** Haloalkanes and Haloarenes; Alcohols Phenols and Ethers; Aldehydes and Ketones; Carboxylic Acids and Derivatives; Amines; Biomolecules; Polymers.
+**Pending Chemistry topics:** None (all 31 official topics covered).
 
-### Mathematics (24 of 31 topics started)
+### Mathematics (31 of 31 topics started — 100% Syllabus Covered)
 | Topic | Committed | Chunks (committed questions per chunk) |
 |---|---|---|
 | Quadratic Equations | 118 | c01 44, c02 37, c03 37 |
@@ -412,5 +424,12 @@ git push origin main
 | Statistics | 50 | c01 50 |
 | Relations and Functions (Advanced) | 50 | c01 50 |
 | Inverse Trigonometric Functions | 50 | c01 50 |
+| Determinants | 50 | c01 50 |
+| Indefinite Integration | 50 | c01 50 |
+| Applications of Integrals | 50 | c01 50 |
+| Differential Equations | 50 | c01 50 |
+| Three Dimensional Geometry | 50 | c01 50 |
+| Linear Programming | 50 | c01 50 |
+| Probability (Bayes and Random Variables) | 50 | c01 50 |
 
-**Pending Mathematics topics (start here):** Determinants; Indefinite Integration; Applications of Integrals; Differential Equations; Three Dimensional Geometry; Linear Programming; Probability (Bayes and Random Variables).
+**Pending Mathematics topics:** None (all 31 official topics covered).

@@ -1,0 +1,804 @@
+{
+  "questions": [
+    {
+      "id": "cad_c01_001",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the relative acidities of benzoic acid ($\\text{I}$), 2-hydroxybenzoic acid ($\\text{II}$), 2,6-dihydroxybenzoic acid ($\\text{III}$), and 4-hydroxybenzoic acid ($\\text{IV}$). Which of the following correctly represents the decreasing order of their acid dissociation constants ($K_a$ values)?",
+      "options": [
+        "A) $\\text{II} > \\text{III} > \\text{I} > \\text{IV}$",
+        "B) $\\text{III} > \\text{II} > \\text{I} > \\text{IV}$",
+        "C) $\\text{III} > \\text{I} > \\text{II} > \\text{IV}$",
+        "D) $\\text{II} > \\text{I} > \\text{III} > \\text{IV}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze the ortho-substituted derivatives. In 2-hydroxybenzoic acid ($\\text{II}$, salicylic acid), the carboxylate monoanion formed after loss of a proton is exceptionally stabilized by an intramolecular hydrogen bond between the phenolate/hydroxyl proton and the adjacent carboxylate oxygen, combined with steric inhibition of resonance with the ring (ortho-effect).\nStep 2: In 2,6-dihydroxybenzoic acid ($\\text{III}$), the carboxylate group is bracketed by two ortho-hydroxyl groups, allowing two symmetrical intramolecular hydrogen bonds to stabilize the conjugate base, making it far more acidic than salicylic acid ($pK_a \\approx 1.3$ for $\\text{III}$ vs $pK_a \\approx 2.98$ for $\\text{II}$).\nStep 3: Analyze benzoic acid ($\\text{I}$) vs 4-hydroxybenzoic acid ($\\text{IV}$). For 4-hydroxybenzoic acid, the para-$-\\text{OH}$ group donates electron density into the ring through resonance ($+M > -I$), which destabilizes the carboxylate anion and decreases acidity ($pK_a \\approx 4.58$) relative to unsubstituted benzoic acid ($pK_a \\approx 4.20$).\nStep 4: Therefore, the correct decreasing order of acidity is $\\text{III} > \\text{II} > \\text{I} > \\text{IV}$. Placing salicylic acid higher than 2,6-dihydroxybenzoic acid overlooks the dual H-bonding stabilization. Ranking 4-hydroxybenzoic acid as stronger than benzoic acid incorrectly treats $-\\text{OH}$ as predominantly electron-withdrawing at the para position."
+    },
+    {
+      "id": "cad_c01_002",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Propanoic acid is treated with $\\text{Br}_2$ in the presence of red phosphorus to give compound $\\text{P}$. Compound $\\text{P}$ is reacted with alcoholic $\\text{KCN}$ to give compound $\\text{Q}$, which upon prolonged heating with aqueous $\\text{HCl}$ yields compound $\\text{R}$. What is the IUPAC name of compound $\\text{R}$?",
+      "options": [
+        "A) 2-hydroxybutanoic acid",
+        "B) Succinic acid",
+        "C) Methylpropanedioic acid",
+        "D) 2-bromobutanoic acid"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The reaction of propanoic acid ($\\text{CH}_3\\text{CH}_2\\text{COOH}$) with $\\text{Br}_2$ and red phosphorus is the Hell-Volhard-Zelinsky (HVZ) reaction, which specifically brominates the $\\alpha$-carbon to yield 2-bromopropanoic acid ($\\text{CH}_3\\text{CH}(\\text{Br})\\text{COOH}$) as intermediate $\\text{P}$.\nStep 2: Nucleophilic substitution of intermediate $\\text{P}$ with alcoholic $\\text{KCN}$ proceeds via an $S_N2$ displacement of the $\\alpha$-bromide by cyanide to afford 2-cyanopropanoic acid ($\\text{CH}_3\\text{CH}(\\text{CN})\\text{COOH}$) as compound $\\text{Q}$.\nStep 3: Prolonged acidic hydrolysis of compound $\\text{Q}$ with aqueous $\\text{HCl}$ hydrolyzes the nitrile group to a carboxylic acid group, converting $-\\text{CN}$ into $-\\text{COOH}$ while keeping the original carboxyl intact. This yields 2-methylpropanedioic acid ($\\text{CH}_3\\text{CH}(\\text{COOH})_2$, commonly known as methylmalonic acid).\nStep 4: Therefore, compound $\\text{R}$ is methylpropanedioic acid. Assuming attack at the carboxyl carbonyl produces succinic acid, which requires nucleophilic substitution on an unsubstituted alkyl chain. Assuming hydrolysis yields a hydroxy acid confuses cyanide substitution with alkaline hydrolysis of the haloacid."
+    },
+    {
+      "id": "cad_c01_003",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The relative rates of nucleophilic acyl substitution ($S_N\\text{Ac}$) of four carboxylic acid derivatives with excess methanol in the presence of pyridine follow which sequence?\n$\\text{I: CH}_3\\text{COCl} \\quad \\text{II: (CH}_3\\text{CO})_2\\text{O} \\quad \\text{III: CH}_3\\text{COOCH}_3 \\quad \\text{IV: CH}_3\\text{CONH}_2$",
+      "options": [
+        "A) $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$",
+        "B) $\\text{I} > \\text{III} > \\text{II} > \\text{IV}$",
+        "C) $\\text{II} > \\text{I} > \\text{III} > \\text{IV}$",
+        "D) $\\text{IV} > \\text{III} > \\text{II} > \\text{I}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In nucleophilic acyl substitution, the rate is determined by the electrophilicity of the carbonyl carbon and the leaving group ability of the substituent attached to the carbonyl.\nStep 2: Evaluating the leaving group ability: leaving group tendency correlates inversely with the basicity of the leaving group (lower $pK_a$ of conjugate acid indicates a better leaving group). For $\\text{Cl}^-$, the conjugate acid $\\text{HCl}$ has $pK_a \\approx -7$; for acetate $\\text{CH}_3\\text{COO}^-$, $pK_a \\approx 4.76$; for methoxide $\\text{CH}_3\\text{O}^-$, $pK_a \\approx 15.5$; for amide ion $\\text{NH}_2^-$, $pK_a \\approx 38$.\nStep 3: Evaluating resonance donation: the resonance $+M$ stabilization of the carbonyl by the heteroatom lone pair increases in the order $-\\text{Cl} \\ll -\\text{OCOCH}_3 < -\\text{OCH}_3 < -\\text{NH}_2$. Strong resonance donation in acetamide severely reduces carbonyl electrophilicity, whereas weak donation and strong $-I$ in acetyl chloride maximizes electrophilicity.\nStep 4: Therefore, the reactivity order is strictly $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$. Inverting the order of the anhydride and ester fails to recognize that acetate is a significantly weaker base and far superior leaving group compared to methoxide. Placing amides higher misinterprets nitrogen's high basicity as nucleofugality."
+    },
+    {
+      "id": "cad_c01_004",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Consider the following six aliphatic dicarboxylic acids: oxalic acid, malonic acid, succinic acid, glutaric acid, adipic acid, and pimelic acid. Each acid is subjected to thermal treatment at $180^\\circ\\text{C}$ in the presence of acetic anhydride. How many of these acids yield a stable cyclic anhydride containing an intact ring as the major isolated product?",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: Apply Blanc's rule regarding the thermal behavior of dicarboxylic acids. Cyclic anhydrides are favored only when the resulting ring possesses minimal angle and conformational strain, specifically 5- or 6-membered rings.\nStep 2: Oxalic acid ($\\text{HOOC}-\\text{COOH}$) and malonic acid ($\\text{HOOC}-\\text{CH}_2-\\text{COOH}$) cannot form cyclic anhydrides; oxalic acid decomposes into $\\text{CO}_2, \\text{CO}$, and $\\text{H}_2\\text{O}$, while malonic acid undergoes thermal decarboxylation to give acetic acid and $\\text{CO}_2$.\nStep 3: Succinic acid ($\\text{HOOC}-(\\text{CH}_2)_2-\\text{COOH}$) undergoes facile intramolecular dehydration to yield succinic anhydride, a highly stable 5-membered cyclic anhydride.\nStep 4: Glutaric acid ($\\text{HOOC}-(\\text{CH}_2)_3-\\text{COOH}$) dehydrates to yield glutaric anhydride, a stable 6-membered cyclic anhydride.\nStep 5: Adipic acid ($\\text{HOOC}-(\\text{CH}_2)_4-\\text{COOH}$) and pimelic acid ($\\text{HOOC}-(\\text{CH}_2)_5-\\text{COOH}$) would require strained 7- and 8-membered rings respectively to form cyclic anhydrides; instead, under thermal conditions they undergo dry distillation with loss of $\\text{CO}_2$ and $\\text{H}_2\\text{O}$ to yield cyclic ketones (cyclopentanone and cyclohexanone).\nStep 6: Therefore, exactly 2 acids (succinic acid and glutaric acid) yield stable cyclic anhydrides."
+    },
+    {
+      "id": "cad_c01_005",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Bromobenzene is treated with magnesium turnings in dry diethyl ether to give compound $\\text{P}$. Compound $\\text{P}$ is reacted with solid carbon dioxide (dry ice) followed by aqueous acid workup to afford compound $\\text{Q}$. Reaction of $\\text{Q}$ with excess thionyl chloride yields $\\text{R}$, which is subsequently heated with sodium azide in dry toluene. What is the final organic product $\\text{S}$ isolated?",
+      "options": [
+        "A) Benzamide",
+        "B) Aniline",
+        "C) Benzyl azide",
+        "D) Phenyl isocyanate"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Bromobenzene reacts with magnesium in dry ether to form phenylmagnesium bromide ($\\text{PhMgBr}$, compound $\\text{P}$).\nStep 2: Carboxylation of $\\text{PhMgBr}$ with $\\text{CO}_2$ produces bromomagnesium benzoate, which upon acidification with $\\text{H}_3\\text{O}^+$ yields benzoic acid ($\\text{PhCOOH}$, compound $\\text{Q}$).\nStep 3: Treatment of benzoic acid with $\\text{SOCl}_2$ converts the hydroxyl group into a chloride, yielding benzoyl chloride ($\\text{PhCOCl}$, compound $\\text{R}$).\nStep 4: Reaction of benzoyl chloride with $\\text{NaN}_3$ displaces chloride to form benzoyl azide ($\\text{PhCON}_3$). Upon heating in an aprotic solvent (dry toluene), benzoyl azide undergoes the Curtius rearrangement: loss of dinitrogen ($\\text{N}_2$) accompanied by 1,2-migration of the phenyl group from carbonyl carbon to nitrogen, yielding phenyl isocyanate ($\\text{Ph}-\\text{N}=\\text{C}=\\text{O}$, compound $\\text{S}$).\nStep 5: Therefore, the isolated product in the absence of aqueous workup is phenyl isocyanate. Assuming aniline is obtained overlooks the fact that water is absent in dry toluene, preventing hydrolysis of the isocyanate. Assuming benzyl azide confuses aromatic carboxylation with benzyl bromide displacement."
+    },
+    {
+      "id": "cad_c01_006",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Benzoic acid is heated with $^{18}\\text{O}$-labeled methanol ($\\text{CH}_3^{18}\\text{OH}$) in the presence of a catalytic amount of concentrated $\\text{H}_2\\text{SO}_4$. Which of the following correctly describes the distribution of the isotopic label $^{18}\\text{O}$ in the isolated reaction products?",
+      "options": [
+        "A) The $^{18}\\text{O}$ label appears exclusively in the carbonyl oxygen of methyl benzoate.",
+        "B) The $^{18}\\text{O}$ label appears exclusively in the ether oxygen ($-\\text{OCH}_3$) of methyl benzoate.",
+        "C) The $^{18}\\text{O}$ label is found exclusively in the eliminated water molecule.",
+        "D) The $^{18}\\text{O}$ label is equally distributed between the ester carbonyl oxygen and water."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Fischer esterification of benzoic acid with methanol proceeds via the $A_{\\text{Ac}}2$ mechanism (acid-catalyzed, bimolecular, acyl-oxygen cleavage).\nStep 2: Protonation of the carbonyl oxygen of benzoic acid increases the electrophilicity of the carbonyl carbon, which is then attacked by the nucleophilic oxygen of $\\text{CH}_3^{18}\\text{OH}$ to form a tetrahedral intermediate: $\\text{Ph}-\\text{C}(\\text{OH})_2(^{18}\\text{OCH}_3)$.\nStep 3: Proton transfer from the oxonium ion to one of the original hydroxyl groups transforms $-\\text{OH}$ into the good leaving group $-\\text{OH}_2^+$. Collapse of the tetrahedral intermediate with expulsion of neutral water ($\\text{H}_2\\text{O}$) and subsequent deprotonation yields methyl benzoate.\nStep 4: The carbon-oxygen bond broken during this mechanism is the acyl-oxygen bond ($\\text{PhCO}-\\text{OH}$), while the alkyl-oxygen bond of the alcohol ($\\text{CH}_3-^{18}\\text{OH}$) remains completely intact throughout the reaction.\nStep 5: Therefore, the $^{18}\\text{O}$ label resides exclusively in the methoxy ($-\\text{OCH}_3$) oxygen of methyl benzoate, and normal $^{16}\\text{O}$ is in the liberated water. Believing that the label enters the eliminated water assumes an alkyl-oxygen cleavage mechanism, which does not occur with primary alcohols."
+    },
+    {
+      "id": "cad_c01_007",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Four keto acids are heated individually to $120^\\circ\\text{C}$:\n$\\text{I: } \\text{CH}_3-\\text{CO}-\\text{CH}_2-\\text{COOH} \\quad \\text{II: } \\text{CH}_3-\\text{CO}-\\text{C}(\\text{CH}_3)_2-\\text{COOH}$\n$\\text{III: } \\text{CH}_3-\\text{CO}-\\text{CH}_2-\\text{CH}_2-\\text{COOH} \\quad \\text{IV: } \\text{CH}_3-\\text{CO}-\\text{COOH}$\nWhich of the following keto acids does NOT undergo thermal decarboxylation via a 6-membered cyclic transition state?",
+      "options": [
+        "A) $\\text{I}$ only",
+        "B) $\\text{II}$ only",
+        "C) $\\text{III}$ and $\\text{IV}$",
+        "D) $\\text{II}$ and $\\text{III}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: $\\beta$-Keto acids undergo facile thermal decarboxylation because the $\\beta$-carbonyl oxygen can accept the acidic carboxyl hydrogen in a 6-membered cyclic transition state. The cyclic electron shift transfers the proton to the keto oxygen, eliminates $\\text{CO}_2$, and generates an enol intermediate that rapidly tautomerizes to a ketone.\nStep 2: Compound $\\text{I}$ (3-oxobutanoic acid) is a classic $\\beta$-keto acid and decarboxylates rapidly via this 6-membered cyclic transition state to yield acetone enol.\nStep 3: Compound $\\text{II}$ (2,2-dimethyl-3-oxobutanoic acid) is also a $\beta$-keto acid; even though the $\\alpha$-carbon is fully substituted, the carboxylic proton coordinates to the $\\beta$-carbonyl oxygen in a 6-membered ring to yield 3-methylbut-2-en-2-ol (enol of 3-methylbutan-2-one), followed by tautomerization.\nStep 4: Compound $\\text{III}$ (4-oxopentanoic acid) is a $\\gamma$-keto acid; a cyclic transition state involving its carbonyl oxygen would require a 7-membered ring, which is thermodynamically and kinetically disfavored, so it does not undergo decarboxylation at $120^\\circ\\text{C}$. Compound $\\text{IV}$ (2-oxopropanoic acid, pyruvic acid) is an $\\alpha$-keto acid; forming a cyclic transition state would require a highly strained 5-membered ring and pyruvic acid requires oxidative decarboxylation, not simple thermal enol-mediated decarboxylation.\nStep 5: Therefore, both $\\text{III}$ and $\\text{IV}$ cannot undergo decarboxylation via a 6-membered cyclic transition state. Excluding compound $\\text{II}$ based on lack of $\\alpha$-hydrogens is an error, as enolization occurs across the $\\beta$-carbonyl during decarboxylation."
+    },
+    {
+      "id": "cad_c01_008",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "3-Methylpentanoic acid is subjected to the Hell-Volhard-Zelinsky reaction using bromine in the presence of phosphorus tribromide, followed by aqueous workup. What is the total number of stereoisomers (including enantiomers and diastereomers) possible for the isolated mono-$\\alpha$-brominated product?",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: Write the structural formula of 3-methylpentanoic acid: $\\text{CH}_3-\\text{CH}_2-\\text{CH}(\\text{CH}_3)-\\text{CH}_2-\\text{COOH}$. Notice that C-3 is a chiral stereocenter bearing four distinct substituents: $-\\text{H}$, $-\\text{CH}_3$, $-\\text{CH}_2\\text{CH}_3$, and $-\\text{CH}_2\\text{COOH}$.\nStep 2: Under Hell-Volhard-Zelinsky conditions, bromination occurs specifically and exclusively at the $\\alpha$-carbon (C-2), replacing one $\\alpha$-hydrogen with a bromine atom.\nStep 3: The mono-$\\alpha$-brominated product has the constitutional structure: $\\text{CH}_3-\\text{CH}_2-\\text{CH}(\\text{CH}_3)-\\text{CH}(\\text{Br})-\\text{COOH}$.\nStep 4: In this product, C-2 is now bonded to four distinct groups ($-\\text{H}$, $-\\text{Br}$, $-\\text{COOH}$, and the sec-pentyl group), making it a second chiral center. C-3 remains a chiral center.\nStep 5: The molecule contains $n = 2$ non-identical asymmetric carbon atoms with no internal plane or inversion center of symmetry.\nStep 6: Therefore, applying the stereoisomer formula $2^n = 2^2 = 4$, exactly 4 stereoisomers (two pairs of enantiomers: $(2R,3R), (2R,3S), (2S,3R)$, and $(2S,3S)$) exist."
+    },
+    {
+      "id": "cad_c01_009",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The $pK_a$ values of four fluoro-substituted carboxylic acids are given:\n$\\text{Acetic acid: } 4.76 \\quad \\text{Fluoroacetic acid: } 2.59 \\quad \\text{Difluoroacetic acid: } 1.24 \\quad \\text{Trifluoroacetic acid: } 0.23$\nWhich of the following mechanistic statements correctly explains the trend in acid strength across these four compounds?",
+      "options": [
+        "A) The trend is driven by steric hindrance to solvation of the undissociated carboxylic acid molecule.",
+        "B) The trend is governed by hyperconjugation between the $\\text{C}-\\text{F}$ $\\sigma$ bonds and the carbonyl $\\pi^*$ orbital.",
+        "C) The fluorine lone pairs provide $+M$ resonance stabilization to the carboxylate anion.",
+        "D) The strong $-I$ inductive effect of electronegative fluorine atoms progressively disperses negative charge in the carboxylate conjugate base."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The dissociation of a carboxylic acid involves equilibrium between the neutral acid and its carboxylate anion plus hydronium ion: $\\text{RCOOH} + \\text{H}_2\\text{O} \\rightleftharpoons \\text{RCOO}^- + \\text{H}_3\\text{O}^+$. The position of equilibrium depends directly on the relative thermodynamic stability of the carboxylate anion.\nStep 2: Fluorine is the most electronegative element ($\\chi = 4.0$) and exerts a powerful electron-withdrawing inductive effect ($-I$) through the $\\sigma$-bonding framework. This pulls electron density away from the negatively charged carboxylate oxygens, dispersing the negative charge over a larger volume and thereby stabilizing the conjugate base.\nStep 3: Because inductive effects are cumulative, introducing successive fluorine atoms on the $\\alpha$-carbon results in additive electron withdrawal: one fluorine lowers $pK_a$ from $4.76$ to $2.59$ ($\\Delta pK_a = 2.17$), two fluorines lower it to $1.24$, and three fluorines lower it to $0.23$.\nStep 4: Therefore, the dominant driving force is the progressive $-I$ inductive stabilization of the conjugate base. Attributing the stability to $+M$ resonance donation is incorrect because fluorine cannot donate its lone pairs into the carboxylate through an $sp^3$ $\\alpha$-carbon. Hyperconjugation would destabilize rather than stabilize the anion."
+    },
+    {
+      "id": "cad_c01_010",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Optically pure $(R)$-2-methylbutanamide is treated with bromine and excess potassium hydroxide under standard Hofmann bromamide degradation conditions. What is the stereochemical configuration and optical activity of the resulting amine?",
+      "options": [
+        "A) $(R)$-butan-2-amine with complete retention of configuration and optical activity",
+        "B) $(S)$-butan-2-amine with complete inversion of configuration",
+        "C) Racemic butan-2-amine due to a planar radical intermediate",
+        "D) Optically inactive 2-methylpropan-1-amine due to skeletal rearrangement"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The Hofmann bromamide degradation converts a primary carboxamide into a primary amine with one fewer carbon atom: $R\\text{CONH}_2 + \\text{Br}_2 + 4\\text{KOH} \\to R\\text{NH}_2 + \\text{K}_2\\text{CO}_3 + 2\\text{KBr} + 2\\text{H}_2\\text{O}$.\nStep 2: The mechanism proceeds via initial formation of an $N$-bromoamide, followed by base deprotonation to yield a bromamide anion. The rate-determining step is the concerted 1,2-migration of the alkyl group $R$ from the carbonyl carbon to the electron-deficient nitrogen atom, with simultaneous expulsion of the bromide ion, yielding an alkyl isocyanate ($R-\\text{N}=\\text{C}=\\text{O}$).\nStep 3: Because the migration of the alkyl group to nitrogen is intramolecular and concerted, the migrating chiral center never detaches to form a free planar carbocation, radical, or carbanion. The front-side migration occurs with 100% stereospecific retention of configuration.\nStep 4: Hydrolysis of the resulting isocyanate generates an unstable carbamic acid ($R-\\text{NH}-\\text{COOH}$), which undergoes spontaneous decarboxylation without touching any bonds at the chiral carbon. Hence, $(R)$-2-methylbutanamide yields $(R)$-butan-2-amine with complete preservation of optical purity.\nStep 5: Therefore, the product is optically active $(R)$-butan-2-amine. Assuming inversion incorrectly models the rearrangement as an intermolecular $S_N2$ displacement. Assuming racemization erroneously invokes a free radical or planar intermediate."
+    },
+    {
+      "id": "cad_c01_011",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "One mole of citric acid (2-hydroxypropane-1,2,3-tricarboxylic acid) is treated with excess aqueous sodium bicarbonate ($\\text{NaHCO}_3$), producing $V_1$ moles of carbon dioxide gas. In a separate experiment, one mole of citric acid is reacted with an excess of sodium metal in dry ether, liberating $V_2$ moles of hydrogen gas ($\\text{H}_2$). Calculate the numerical value of $(3V_1 + 2V_2)$.",
+      "options": [],
+      "answer": "13",
+      "explanation": "Step 1: Determine the molecular constitution of citric acid: $\\text{HOOC}-\\text{CH}_2-\\text{C}(\\text{OH})(\\text{COOH})-\\text{CH}_2-\\text{COOH}$. It possesses three carboxylic acid groups ($-\\text{COOH}$) and one tertiary alcoholic hydroxyl group ($-\\text{OH}$).\nStep 2: Sodium bicarbonate is a weak base ($pK_a$ of $\\text{H}_2\\text{CO}_3 \\approx 6.37$). It reacts selectively with carboxylic acid groups ($pK_a \\approx 3-5$) by proton transfer to liberate $\\text{CO}_2$, but does not deprotonate aliphatic alcohols ($pK_a \\approx 16-18$). Thus, one mole of citric acid reacts with 3 moles of $\\text{NaHCO}_3$ to yield $V_1 = 3$ moles of $\\text{CO}_2$.\nStep 3: Sodium metal reacts vigorously with any active hydrogen atom bonded to oxygen. Citric acid contains 4 active hydrogen atoms (3 from the carboxyl groups and 1 from the tertiary alcohol group). Each active hydrogen reacts according to: $\\text{R}-\\text{OH} + \\text{Na} \\to \\text{R}-\\text{ONa} + \\frac{1}{2}\\text{H}_2$.\nStep 4: Thus, 4 active hydrogens liberate $4 \\times \\frac{1}{2} = 2$ moles of $\\text{H}_2$, giving $V_2 = 2$.\nStep 5: Compute the required expression: $(3V_1 + 2V_2) = 3(3) + 2(2) = 9 + 4 = 13$."
+    },
+    {
+      "id": "cad_c01_012",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Benzoyl chloride is subjected to catalytic hydrogenation over palladium supported on barium sulfate poisoned with quinoline to yield organic product $\\text{P}$. Product $\\text{P}$ is subsequently treated with concentrated ($50\\%$) aqueous potassium hydroxide at room temperature, followed by neutralization with dilute hydrochloric acid. What are the two organic products formed after acidification?",
+      "options": [
+        "A) Benzoic acid and toluene",
+        "B) Benzene and benzyl chloride",
+        "C) Benzyl alcohol and benzoic acid",
+        "D) Benzophenone and phenol"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The reaction of benzoyl chloride ($\\text{PhCOCl}$) with $\\text{H}_2$ over $\\text{Pd}/\\text{BaSO}_4$ deactivated with sulfur/quinoline is the Rosenmund reduction. The poisoned catalyst reduces the acyl chloride selectively to an aldehyde and prevents over-reduction to an alcohol. Hence, intermediate $\\text{P}$ is benzaldehyde ($\\text{PhCHO}$).\nStep 2: Benzaldehyde contains no $\\alpha$-hydrogens. When heated with concentrated $50\\%$ aqueous $\\text{KOH}$, it undergoes the Cannizzaro reaction, an intermolecular hydride transfer disproportionation.\nStep 3: In the Cannizzaro reaction, one molecule of benzaldehyde is reduced to benzyl alcohol ($\\text{PhCH}_2\\text{OH}$), while a second molecule is oxidized to potassium benzoate ($\\text{PhCOOK}$).\nStep 4: Subsequent neutralization with dilute hydrochloric acid protonates potassium benzoate to yield benzoic acid ($\\text{PhCOOH}$), while neutral benzyl alcohol remains unchanged.\nStep 5: Therefore, the two organic products isolated after acidification are benzyl alcohol and benzoic acid. Predicting toluene results from assuming complete Clemmensen-like reduction. Predicting benzene assumes decarbonylation of the acyl chloride."
+    },
+    {
+      "id": "cad_c01_013",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the soda-lime decarboxylation ($\\text{NaOH} + \\text{CaO}$, heat) of the sodium salts of the following four substituted benzoic acids:\n$\\text{I: Sodium 2,4,6-trinitrobenzoate} \\quad \\text{II: Sodium 4-nitrobenzoate}$\n$\\text{III: Sodium benzoate} \\quad \\text{IV: Sodium 4-methoxybenzoate}$\nWhich of the following represents the correct decreasing order of their rates of decarboxylation?",
+      "options": [
+        "A) $\\text{IV} > \\text{III} > \\text{II} > \\text{I}$",
+        "B) $\\text{III} > \\text{II} > \\text{I} > \\text{IV}$",
+        "C) $\\text{II} > \\text{I} > \\text{III} > \\text{IV}$",
+        "D) $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Soda-lime decarboxylation of carboxylate salts proceeds via a mechanism where the rate-determining step involves the cleavage of the $\\text{C}-\\text{C}$ bond connecting the aryl group and the carboxylate carbon, generating a carbanion (or carbanion-like transition state) with expulsion of carbon dioxide: $\\text{Ar}-\\text{COO}^- \\to [\\text{Ar}^-]^\\ddagger + \\text{CO}_2$.\nStep 2: The rate of decarboxylation depends directly on the electronic stabilization of the developing negative charge on the aromatic ring in this transition state.\nStep 3: Electron-withdrawing substituents strongly accelerate the reaction by stabilizing the carbanion through $-I$ and $-M$ effects. In sodium 2,4,6-trinitrobenzoate ($\\text{I}$), three powerfully electron-withdrawing $-\\text{NO}_2$ groups (two ortho, one para) delocalize the negative charge extensively, making decarboxylation exceptionally fast (even in boiling water without soda lime).\nStep 4: Sodium 4-nitrobenzoate ($\\text{II}$) has one para-$-\\text{NO}_2$ group, providing strong $-M$ stabilization. Sodium benzoate ($\\text{III}$) has no substituents. Sodium 4-methoxybenzoate ($\\text{IV}$) carries a strong electron-donating methoxy group ($+M > -I$), which destabilizes the carbanion and retards the decarboxylation rate.\nStep 5: Therefore, the rate order is $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$. Inverting the sequence confuses electrophilic aromatic substitution with carbanion-mediated decarboxylation."
+    },
+    {
+      "id": "cad_c01_014",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An aqueous solution of potassium propanoate is subjected to Kolbe electrolytic synthesis using platinum electrodes. What is the major organic hydrocarbon collected at the anode?",
+      "options": [
+        "A) $n$-Butane",
+        "B) Ethane",
+        "C) Ethene",
+        "D) Hexane"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In Kolbe electrolysis, the carboxylate anion migrates to the positively charged anode. Propanoate ion ($\\text{CH}_3\\text{CH}_2\\text{COO}^-$) undergoes one-electron oxidation at the anode to form a propanyloxy radical: $\\text{CH}_3\\text{CH}_2\\text{COO}^- \\to \\text{CH}_3\\text{CH}_2\\text{COO}^\\bullet + e^-$.\nStep 2: The propanyloxy radical is unstable and undergoes extremely rapid decarboxylation with expulsion of $\\text{CO}_2$ to generate an ethyl radical: $\\text{CH}_3\\text{CH}_2\\text{COO}^\\bullet \\to \\text{CH}_3\\text{CH}_2^\\bullet + \\text{CO}_2$.\nStep 3: Two ethyl radicals undergo bimolecular homolytic coupling (dimerization) at the electrode surface: $2\\text{CH}_3\\text{CH}_2^\\bullet \\to \\text{CH}_3\\text{CH}_2\\text{CH}_2\\text{CH}_3$ ($n$-butane). Minor disproportionation yields ethane and ethene.\nStep 4: At the cathode, reduction of water occurs: $2\\text{H}_2\\text{O} + 2e^- \\to \\text{H}_2 + 2\\text{OH}^-$, liberating hydrogen gas and leaving potassium hydroxide in solution.\nStep 5: Therefore, the major organic hydrocarbon collected at the anode is $n$-butane. Choosing hexane results from doubling the entire propanoate carbon chain without accounting for the loss of the carboxyl carbon as carbon dioxide."
+    },
+    {
+      "id": "cad_c01_015",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Acetonitrile ($\\text{CH}_3\\text{CN}$) is reacted with alkaline hydrogen peroxide ($\\text{H}_2\\text{O}_2/\\text{OH}^-$) at $40^\\circ\\text{C}$ to give compound $\\text{X}$. Compound $\\text{X}$ is isolated and subsequently heated with phosphorus pentoxide ($\\text{P}_2\\text{O}_5$). What are compounds $\\text{X}$ and $\\text{Y}$ respectively?",
+      "options": [
+        "A) Acetic acid and ethylamine",
+        "B) Acetamide and acetonitrile",
+        "C) Methylamine and methanol",
+        "D) Acetamide and methyl isocyanide"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The reaction of a nitrile with alkaline hydrogen peroxide ($\\text{H}_2\\text{O}_2/\\text{OH}^-$) is known as the Radziszewski reaction. The hydroperoxide anion ($\\text{HOO}^-$) attacks the nitrile carbon to form a peroxycarboximidic acid intermediate, which transfers an oxygen atom to hydrogen peroxide, generating a primary carboxamide cleanly without over-hydrolysis to carboxylic acid. Thus, compound $\\text{X}$ is acetamide ($\\text{CH}_3\\text{CONH}_2$).\nStep 2: When acetamide is heated with phosphorus pentoxide ($\\text{P}_2\\text{O}_5$), a powerful dehydrating agent, an intramolecular dehydration occurs where the elements of water ($\\text{H}_2\\text{O}$) are abstracted from the amide group: $\\text{CH}_3\\text{CONH}_2 \\xrightarrow{\\text{P}_2\\text{O}_5, \\Delta} \\text{CH}_3\\text{CN} + \\text{H}_2\\text{O}$.\nStep 3: This reaction quantitatively regenerates acetonitrile ($\\text{CH}_3\\text{CN}$) as compound $\\text{Y}$.\nStep 4: Therefore, compound $\\text{X}$ is acetamide and compound $\\text{Y}$ is acetonitrile. Assuming hydrolysis goes all the way to acetic acid ignores the mild, selective stoichiometry of alkaline hydroperoxide. Assuming isocyanide formation confuses dehydration with carbylamine synthesis."
+    },
+    {
+      "id": "cad_c01_016",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "2,4,6-Trimethylbenzoic acid (mesitoic acid) undergoes esterification when dissolved in concentrated sulfuric acid and subsequently poured into excess methanol. In contrast, under identical conditions, standard Fischer esterification of benzoic acid proceeds through a bimolecular pathway. Which of the following correctly describes the mechanistic pathway of the esterification of mesitoic acid?",
+      "options": [
+        "A) Unimolecular acyl-oxygen cleavage ($A_{\\text{Ac}}1$) via a stable, linear acylium ion intermediate",
+        "B) Bimolecular acyl-oxygen cleavage ($A_{\\text{Ac}}2$) via a crowded tetrahedral intermediate",
+        "C) Unimolecular alkyl-oxygen cleavage ($A_{\\text{Al}}1$) via a methyl carbocation",
+        "D) Bimolecular nucleophilic substitution ($S_N2$) of methanol on the protonated hydroxyl group"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In mesitoic acid ($2,4,6\\text{-}(\\text{CH}_3)_3\\text{C}_6\\text{H}_2\\text{COOH}$), the two ortho-methyl groups create severe steric hindrance around the carboxyl carbon. Formation of a tetrahedral intermediate (as required in standard $A_{\\text{Ac}}2$ Fischer esterification) increases coordination from $sp^2$ (trigonal planar) to $sp^3$ (tetrahedral), causing intolerable steric compression between the ortho substituents and the attacking nucleophile.\nStep 2: However, when dissolved in concentrated $\\text{H}_2\\text{SO}_4$, the carboxyl group is protonated and readily loses a molecule of water to form a stable, linear acylium ion ($2,4,6\\text{-}(\\text{CH}_3)_3\\text{C}_6\\text{H}_2-\\text{C}^+\\text{=O}$). The linear geometry ($sp$ hybridized carbon, $180^\\circ$ bond angle) completely relieves ortho steric strain and is stabilized by resonance with the mesityl ring.\nStep 3: When poured into methanol, the unhindered linear acylium ion is rapidly attacked by methanol to afford methyl 2,4,6-trimethylbenzoate. This unimolecular acyl cleavage mechanism is classified as $A_{\\text{Ac}}1$.\nStep 4: Therefore, the esterification proceeds via the $A_{\\text{Ac}}1$ pathway through an acylium ion. Invoking the $A_{\\text{Ac}}2$ pathway fails because steric crowding completely shuts down the bimolecular tetrahedral transition state."
+    },
+    {
+      "id": "cad_c01_017",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "tert-Butyl acetate is subjected to acid-catalyzed hydrolysis in the presence of $^{18}\\text{O}$-enriched water ($\\text{H}_2^{18}\\text{O}$). Analysis of the products reveals that the isotopic label is incorporated in only one of the products. Which of the following identifies the labeled product and the governing mechanism?",
+      "options": [
+        "A) Acetic acid containing $^{18}\\text{O}$ via the $A_{\\text{Ac}}2$ mechanism",
+        "B) Acetic acid containing $^{18}\\text{O}$ via the $A_{\\text{Ac}}1$ mechanism",
+        "C) tert-Butyl alcohol containing $^{18}\\text{O}$ via the $A_{\\text{Al}}1$ mechanism",
+        "D) Both products contain equal fractions of $^{18}\\text{O}$ via a concerted pathway"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In tert-butyl acetate ($\\text{CH}_3\\text{COOC}(\\text{CH}_3)_3$), the ester oxygen is bonded to a tertiary carbon atom.\nStep 2: Under acidic conditions, the ester oxygen is protonated: $\\text{CH}_3-\\text{CO}-\\text{O}^+(\\text{H})-\\text{C}(\\text{CH}_3)_3$. Because the tert-butyl carbocation ($(\\text{CH}_3)_3\\text{C}^+$) is exceptionally stable due to 9 hyperconjugative $\\alpha$-hydrogens, heterolytic cleavage of the alkyl-oxygen bond occurs readily: $\\text{CH}_3\\text{COO}^+(\\text{H})-\\text{C}(\\text{CH}_3)_3 \\to \\text{CH}_3\\text{COOH} + (\\text{CH}_3)_3\\text{C}^+$.\nStep 3: This unimolecular alkyl-oxygen cleavage is the $A_{\\text{Al}}1$ mechanism. The neutral acetic acid produced retains the original $^{16}\\text{O}$ atoms from the ester.\nStep 4: The liberated tert-butyl carbocation then reacts with the solvent $\\text{H}_2^{18}\\text{O}$: $(\\text{CH}_3)_3\\text{C}^+ + \\text{H}_2^{18}\\text{O} \\to (\\text{CH}_3)_3\\text{C}-^{18}\\text{OH}_2^+ \\to (\\text{CH}_3)_3\\text{C}-^{18}\\text{OH} + \\text{H}^+$.\nStep 5: Therefore, the $^{18}\\text{O}$ label appears exclusively in tert-butyl alcohol via the $A_{\\text{Al}}1$ mechanism. Predicting labeled acetic acid assumes acyl-oxygen cleavage ($A_{\\text{Ac}}2$), which is overshadowed by rapid alkyl-oxygen cleavage due to high tertiary carbocation stability."
+    },
+    {
+      "id": "cad_c01_018",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When ethyl 2-methylpropanoate (ethyl isobutyrate) is treated with one equivalent of sodium ethoxide in refluxing ethanol, no Claisen condensation product is obtained in appreciable yield upon standard workup. However, ethyl propanoate undergoes facile Claisen condensation under identical conditions. What is the fundamental thermodynamic reason for this difference in behavior?",
+      "options": [
+        "A) Ethyl isobutyrate cannot form an enolate ion with sodium ethoxide due to steric hindrance.",
+        "B) The condensation product of ethyl isobutyrate lacks an acidic $\\alpha$-hydrogen, preventing the irreversible deprotonation that drives the equilibrium forward.",
+        "C) The carbonyl carbon in ethyl isobutyrate is shielded from nucleophilic attack by the bulky ethoxide ion.",
+        "D) Ethoxide ion acts purely as a nucleophile towards ethyl isobutyrate, promoting transesterification instead of enolization."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: All individual elementary steps of the Claisen condensation (deprotonation of the ester to form enolate, addition to another ester molecule, and collapse of the tetrahedral intermediate with expulsion of ethoxide) are thermodynamically unfavorable equilibria with equilibrium constants $K \\ll 1$.\nStep 2: For esters with two or more $\\alpha$-hydrogens (such as ethyl propanoate, $\\text{CH}_3\\text{CH}_2\\text{COOEt}$), the condensation product is a $\\beta$-keto ester ($\\text{CH}_3\\text{CH}_2\\text{CO}-\\text{CH}(\\text{CH}_3)\\text{COOEt}$) that possesses an active methine hydrogen between two carbonyl groups ($pK_a \\approx 11$).\nStep 3: The strongly basic ethoxide ion ($pK_a$ of ethanol $\\approx 16$) immediately and irreversibly deprotonates this $\\beta$-keto ester, forming a resonance-stabilized enolate anion. This exothermic deprotonation acts as the thermodynamic driving force that pulls the entire series of equilibria to completion.\nStep 4: In ethyl isobutyrate ($(\\text{CH}_3)_2\\text{CHCOOEt}$), there is only one $\\alpha$-hydrogen. Enolate formation and condensation can theoretically occur to produce ethyl 2,2,4-trimethyl-3-oxopentanoate ($(\\text{CH}_3)_2\\text{CH}-\\text{CO}-\\text{C}(\\text{CH}_3)_2-\\text{COOEt}$); however, this product has zero acidic hydrogens between the carbonyls. Consequently, no driving deprotonation can take place, and the equilibrium lies almost completely on the side of the starting materials.\nStep 5: Therefore, the absence of an acidic $\\alpha$-proton in the condensation product prevents the irreversible deprotonation required to pull the equilibrium."
+    },
+    {
+      "id": "cad_c01_019",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Diethyl heptanedioate (diethyl pimelate) is refluxed with sodium ethoxide in absolute ethanol, followed by acidification to give intermediate $\\text{A}$. Intermediate $\\text{A}$ is then heated with dilute aqueous sulfuric acid to promote ester hydrolysis and subsequent decarboxylation, affording a single neutral cyclic ketone $\\text{B}$. Determine the molecular mass of ketone $\\text{B}$ in $\\text{g/mol}$. (Given atomic masses: $\\text{C} = 12, \\text{H} = 1, \\text{O} = 16$).",
+      "options": [],
+      "answer": "98",
+      "explanation": "Step 1: Diethyl pimelate is a seven-carbon dicarboxylic diester: $\\text{EtOOC}-(\\text{CH}_2)_5-\\text{COOEt}$.\nStep 2: Treatment of diethyl pimelate with sodium ethoxide brings about an intramolecular Claisen condensation (Dieckmann cyclization). Deprotonation at C-2 generates an ester enolate, which nucleophilically attacks the C-7 ester carbonyl carbon to form a stable 6-membered ring.\nStep 3: Expulsion of ethoxide and subsequent driving deprotonation produces ethyl 2-oxocyclohexanecarboxylate (intermediate $\\text{A}$).\nStep 4: Heating intermediate $\\text{A}$ with dilute aqueous acid hydrolyzes the ethyl ester group to give 2-oxocyclohexanecarboxylic acid, which is a cyclic $\\beta$-keto acid.\nStep 5: The $\\beta$-keto acid undergoes spontaneous thermal decarboxylation via a 6-membered cyclic transition state to expel $\\text{CO}_2$, yielding cyclohexanone as the neutral cyclic ketone $\\text{B}$.\nStep 6: The molecular formula of cyclohexanone is $\\text{C}_6\\text{H}_{10}\\text{O}$.\nStep 7: Calculate the molecular mass: $6(12) + 10(1) + 1(16) = 72 + 10 + 16 = 98\\text{ g/mol}$."
+    },
+    {
+      "id": "cad_c01_020",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Ethyl benzoate is hydrolyzed under basic conditions using sodium hydroxide enriched with $^{18}\\text{O}$ ($\\text{Na}^{18}\\text{OH}$) in ordinary water ($\\text{H}_2\\text{O}$). After acidification of the reaction mixture, the isolated benzoic acid and ethanol are analyzed for isotopic content. Which of the following correctly identifies the location of the $^{18}\\text{O}$ label and the hydrolysis mechanism?",
+      "options": [
+        "A) Ethanol contains $^{18}\\text{O}$ via an alkyl-oxygen cleavage ($B_{\\text{Al}}2$) pathway.",
+        "B) Both benzoic acid and ethanol contain $50\\%$ of the $^{18}\\text{O}$ label via a symmetric cyclic intermediate.",
+        "C) Neither product contains $^{18}\\text{O}$ because water exchanges oxygen with hydroxide before attack.",
+        "D) Benzoic acid contains $^{18}\\text{O}$ exclusively via an acyl-oxygen cleavage ($B_{\\text{Ac}}2$) pathway."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Saponification (base-promoted hydrolysis) of esters typically follows the $B_{\\text{Ac}}2$ mechanism (base-promoted, bimolecular, acyl-oxygen cleavage).\nStep 2: In the first step, the labeled nucleophile $^{18}\\text{OH}^-$ directly attacks the carbonyl carbon of ethyl benzoate ($\\text{PhCOOCH}_2\\text{CH}_3$), generating a tetrahedral intermediate: $[\\text{Ph}-\\text{C}(\\text{O}^-)(^{18}\\text{OH})-\\text{OCH}_2\\text{CH}_3]$.\nStep 3: The tetrahedral intermediate collapses by reforming the carbonyl $\\pi$ bond and expelling the weaker leaving group ethoxide ($\\text{CH}_3\\text{CH}_2\\text{O}^-$), giving labeled benzoic acid ($\\text{Ph}-\\text{C}(=\\text{O})-^{18}\\text{OH}$) and ethoxide.\nStep 4: Rapid and irreversible proton transfer from benzoic acid to ethoxide yields the benzoate anion carrying $^{18}\\text{O}$ and unlabeled ethanol ($\\text{CH}_3\\text{CH}_2\\text{OH}$). Upon acidification, $^{18}\\text{O}$-labeled benzoic acid is recovered.\nStep 5: Therefore, the $^{18}\\text{O}$ label resides exclusively in benzoic acid via the $B_{\\text{Ac}}2$ mechanism. Predicting labeled ethanol presumes nucleophilic attack on the ethyl carbon ($S_N2$ or $B_{\\text{Al}}2$), which does not occur under these conditions."
+    },
+    {
+      "id": "cad_c01_021",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When benzamide ($\\text{PhCONH}_2$) is treated with bromine and potassium hydroxide in absolute ethanol instead of an aqueous medium, aniline is not obtained. Instead, a stable neutral crystalline compound $\\text{Z}$ is isolated in high yield. What is compound $\\text{Z}$ and what is the mechanistic rationale for its formation?",
+      "options": [
+        "A) Ethyl phenylcarbamate ($\\text{Ph}-\\text{NH}-\\text{COOCH}_2\\text{CH}_3$), formed by nucleophilic addition of ethanol to phenyl isocyanate",
+        "B) $N$-Bromobenzamide, formed because lack of water prevents deprotonation of nitrogen",
+        "C) Benzonitrile, formed by base-induced elimination of water from benzamide",
+        "D) Phenyl isocyanate, which precipitates out because it is insoluble in ethanol"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In the Hofmann degradation, benzamide reacts with $\\text{Br}_2$ and base to form the $N$-bromoamide anion, which undergoes concerted 1,2-rearrangement with loss of $\\text{Br}^-$ to yield phenyl isocyanate ($\\text{Ph}-\\text{N}=\\text{C}=\\text{O}$) as the key reactive intermediate.\nStep 2: In conventional aqueous medium, water attacks the central carbon of the electrophilic isocyanate to form phenylcarbamic acid ($\\text{Ph}-\\text{NH}-\\text{COOH}$), which undergoes rapid spontaneous decarboxylation to aniline ($\\text{PhNH}_2$) and $\\text{CO}_2$.\nStep 3: In absolute ethanol, however, ethanol acts as the nucleophile instead of water. The hydroxyl oxygen of ethanol adds to the central carbonyl carbon of phenyl isocyanate: $\\text{Ph}-\\text{N}=\\text{C}=\\text{O} + \\text{CH}_3\\text{CH}_2\\text{OH} \\to \\text{Ph}-\\text{NH}-\\text{COOCH}_2\\text{CH}_3$.\nStep 4: The resulting adduct is ethyl phenylcarbamate (a urethane), which is chemically stable and does not undergo spontaneous decarboxylation.\nStep 5: Therefore, compound $\\text{Z}$ is ethyl phenylcarbamate, formed by trapping the intermediate isocyanate with ethanol. Suggesting benzonitrile confuses this rearrangement with $\\text{P}_2\\text{O}_5$ dehydration. Assuming phenyl isocyanate precipitates ignores its rapid reaction with alcohol."
+    },
+    {
+      "id": "cad_c01_022",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Diethyl malonate is treated successively with: (1) 1.0 equivalent of sodium ethoxide, then 1.0 equivalent of allyl bromide; (2) 1.0 equivalent of sodium ethoxide, then 1.0 equivalent of benzyl chloride; (3) excess aqueous sodium hydroxide with heating; and (4) excess aqueous hydrochloric acid followed by heating to $180^\\circ\\text{C}$ until effervescence ceases. What is the total number of carbon atoms present in the final isolated monocarboxylic acid?",
+      "options": [],
+      "answer": "11",
+      "explanation": "Step 1: Diethyl malonate has the structure $\\text{EtOOC}-\\text{CH}_2-\\text{COOEt}$. Deprotonation with 1.0 eq $\\text{NaOEt}$ generates the resonance-stabilized carbanion $[\\text{EtOOC}-\\text{CH}-\\text{COOEt}]^-$.\nStep 2: Alkylation with allyl bromide ($\\text{CH}_2=\\text{CH}-\\text{CH}_2\\text{Br}$) yields diethyl 2-allylmalonate ($\\text{EtOOC}-\\text{CH}(\\text{CH}_2\\text{CH}=\\text{CH}_2)-\\text{COOEt}$).\nStep 3: A second treatment with 1.0 eq $\\text{NaOEt}$ abstracts the remaining $\\alpha$-hydrogen, and subsequent alkylation with benzyl chloride ($\\text{PhCH}_2\\text{Cl}$) yields diethyl 2-allyl-2-benzylmalonate.\nStep 4: Saponification with aqueous $\\text{NaOH}$ followed by acidification hydrolyzes both ester groups to give 2-allyl-2-benzylmalonic acid.\nStep 5: Heating this substituted gem-dicarboxylic acid to $180^\\circ\\text{C}$ causes decarboxylation of one carboxyl group via a 6-membered cyclic transition state, expelling one mole of $\\text{CO}_2$ and yielding 2-benzylpent-4-enoic acid ($\\text{CH}_2=\\text{CH}-\\text{CH}_2-\\text{CH}(\\text{CH}_2\\text{Ph})-\\text{COOH}$).\nStep 6: Count the carbon atoms in this product: allyl group ($3\\text{ C}$), benzyl group ($7\\text{ C}$, which is $\\text{C}_6\\text{H}_5\\text{CH}_2$), $\\alpha$-carbon ($1\\text{ C}$), and carboxyl carbon ($1\\text{ C}$).\nStep 7: Total number of carbons $= 3 + 7 + 1 + 1 = 11$ carbon atoms."
+    },
+    {
+      "id": "cad_c01_023",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Optically pure exo-bicyclo[2.2.1]heptane-2-carboxamide (exo-norbornane-2-carboxamide) is subjected to the Hofmann bromamide degradation using $\\text{Br}_2$ and aqueous $\\text{KOH}$. What is the stereochemical nature of the amine product isolated after reaction completion?",
+      "options": [
+        "A) An equimolar mixture of exo- and endo-bicyclo[2.2.1]heptan-2-amines",
+        "B) Exclusively exo-bicyclo[2.2.1]heptan-2-amine with complete retention of stereochemistry",
+        "C) Exclusively endo-bicyclo[2.2.1]heptan-2-amine with complete Walden inversion",
+        "D) A ring-expanded bicyclo[2.2.2]octan-2-amine due to Wagner-Meerwein rearrangement"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The Hofmann rearrangement of an amide with an asymmetric migrating group involves the intramolecular 1,2-migration of the group from the carbonyl carbon to the electron-deficient nitrogen in an $N$-haloamide anion.\nStep 2: Kinetic and stereochemical studies establish that this 1,2-migration is strictly intramolecular and concerted: the $\\text{C}-\\text{C}$ bond to the carbonyl carbon breaks simultaneously as the $\\text{C}-\\text{N}$ bond forms on the same face of the migrating carbon.\nStep 3: In exo-bicyclo[2.2.1]heptane-2-carboxamide, the exo-bridgehead-adjacent carbon migrates with 100% stereospecific retention of configuration at C-2.\nStep 4: The intermediate exo-isocyanate is hydrolyzed to the corresponding carbamic acid, which decarboxylates without disturbing the stereocenter, yielding exclusively exo-bicyclo[2.2.1]heptan-2-amine.\nStep 5: Therefore, the product is exclusively the exo isomer with complete retention of configuration. Predicting the endo isomer incorrectly treats the migration as an $S_N2$ displacement with inversion. Predicting ring expansion erroneously invokes a free carbocation intermediate."
+    },
+    {
+      "id": "cad_c01_024",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the ease of thermal decarboxylation of the following four dicarboxylic acids:\n$\\text{I: Propanedioic acid (malonic acid)}$\n$\\text{II: 2,2-Dimethylpropanedioic acid}$\n$\\text{III: Bicyclo[2.2.1]heptane-2,2-dicarboxylic acid}$\n$\\text{IV: Bicyclo[2.2.1]heptane-1-carboxylic acid}$\nWhich of the following correctly identifies why compound $\\text{IV}$ fails to undergo thermal decarboxylation under conditions where compound $\\text{I}$ readily decarboxylates?",
+      "options": [
+        "A) Compound $\\text{IV}$ forms a bridgehead carbanion that is too nucleophilic to release carbon dioxide.",
+        "B) The bridgehead carboxyl group cannot undergo proton transfer due to high steric hindrance from the norbornyl framework.",
+        "C) Compound $\\text{IV}$ lacks a $\\beta$-carbonyl group and cannot form an enol intermediate or a 6-membered cyclic transition state.",
+        "D) The bridgehead double bond formed during decarboxylation violates Bredt's rule."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Understand the mechanism of facile thermal decarboxylation: gem-dicarboxylic acids (such as malonic acid, compound $\\text{I}$) and $\\beta$-keto acids decarboxylate readily ($<150^\\circ\\text{C}$) because they possess a second carbonyl group in the $\\beta$-position relative to the carboxyl group.\nStep 2: This $\\beta$-carbonyl allows the reaction to proceed through a low-energy, 6-membered concerted cyclic transition state involving internal hydrogen bonding, directly generating an enol intermediate that subsequently tautomerizes to a carboxylic acid or ketone.\nStep 3: In compound $\\text{IV}$ (bicyclo[2.2.1]heptane-1-carboxylic acid), there is only a single carboxyl group and no $\\beta$-carbonyl group whatsoever. It is a simple monocarboxylic acid.\nStep 4: Simple monocarboxylic acids cannot form a 6-membered cyclic transition state and require harsh pyrolytic or oxidative conditions (such as soda-lime or radical decarboxylation) to break the strong $\\text{C}-\\text{C}$ bond.\nStep 5: Therefore, compound $\\text{IV}$ fails to decarboxylate because it lacks the $\\beta$-carbonyl functionality essential for cyclic transition state formation. Invoking Bredt's rule for compound $\\text{IV}$ is a distractor because $\\text{IV}$ is not even a $\\beta$-dicarboxylic acid, so enolization at the bridgehead is not the primary reason for non-reaction."
+    },
+    {
+      "id": "cad_c01_025",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When an equimolar mixture of ethyl benzoate and ethyl acetate is treated with sodium ethoxide in ethanol, what is the major crossed Claisen condensation product obtained after acidic workup?",
+      "options": [
+        "A) Ethyl acetoacetate",
+        "B) Diethyl phthalate",
+        "C) Ethyl 3-oxopentanoate",
+        "D) Ethyl 3-oxo-3-phenylpropanoate (ethyl benzoylacetate)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In a crossed Claisen condensation between two different esters, selective cross-condensation is achieved if one ester lacks $\\alpha$-hydrogens while the other has reactive $\\alpha$-hydrogens.\nStep 2: Ethyl benzoate ($\\text{PhCOOEt}$) has no $\\alpha$-hydrogens; therefore, it cannot be deprotonated by sodium ethoxide to form an enolate. It acts exclusively as the electrophilic acyl donor.\nStep 3: Ethyl acetate ($\\text{CH}_3\\text{COOEt}$) has three acidic $\\alpha$-hydrogens. Deprotonation by ethoxide produces the ester enolate: $[\\text{CH}_2-\\text{COOEt}]^-$.\nStep 4: The ester enolate attacks the carbonyl carbon of ethyl benzoate to form a tetrahedral intermediate. Expulsion of ethoxide yields ethyl 3-oxo-3-phenylpropanoate ($\\text{Ph}-\\text{CO}-\\text{CH}_2-\\text{COOEt}$, commonly named ethyl benzoylacetate).\nStep 5: Ethoxide rapidly deprotonates the active methylene group between the benzoyl and carbethoxy groups to drive the equilibrium forward, making ethyl benzoylacetate the dominant product over self-condensation of ethyl acetate.\nStep 6: Therefore, the major product is ethyl 3-oxo-3-phenylpropanoate. Ethyl acetoacetate is the self-condensation product, which is minimized by using ethyl benzoate as the electrophile."
+    },
+    {
+      "id": "cad_c01_026",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Phthalic anhydride is reacted with 1.0 equivalent of methanol to give monoester $\\text{A}$. Compound $\\text{A}$ is treated with excess thionyl chloride to afford acyl chloride $\\text{B}$. Compound $\\text{B}$ is reacted with sodium azide in dry acetone to yield acyl azide $\\text{C}$, which on heating in benzene undergoes Curtius rearrangement to afford isocyanate $\\text{D}$. Determine the total Index of Hydrogen Deficiency (degree of unsaturation) of compound $\\text{D}$.",
+      "options": [],
+      "answer": "7",
+      "explanation": "Step 1: Phthalic anhydride (isobenzofuran-1,3-dione) reacts with 1.0 equivalent of methanol via nucleophilic acyl substitution to open the anhydride ring, yielding monomethyl phthalate ($\\text{A}$, $2\\text{-(methoxycarbonyl)benzoic acid}$, $\\text{C}_6\\text{H}_4(\\text{COOCH}_3)(\\text{COOH})$).\nStep 2: Reaction of the free carboxyl group of $\\text{A}$ with $\\text{SOCl}_2$ produces methyl 2-(chlorocarbonyl)benzoate ($\\text{B}$, $\\text{C}_6\\text{H}_4(\\text{COOCH}_3)(\\text{COCl})$).\nStep 3: Nucleophilic displacement of chloride by azide ion gives methyl 2-(azidocarbonyl)benzoate ($\\text{C}$, $\\text{C}_6\\text{H}_4(\\text{COOCH}_3)(\\text{CON}_3)$).\nStep 4: Thermal Curtius rearrangement of $\\text{C}$ expels $\\text{N}_2$ with simultaneous 1,2-migration of the ortho-ester phenyl carbon to nitrogen, forming methyl 2-isocyanatobenzoate ($\\text{D}$, $\\text{C}_6\\text{H}_4(\\text{COOCH}_3)(\\text{N=C=O})$).\nStep 5: Determine the molecular formula of compound $\\text{D}$: $\\text{C}_9\\text{H}_7\\text{NO}_3$.\nStep 6: Calculate the Index of Hydrogen Deficiency (IHD):\n$\\text{IHD} = C + 1 - \\frac{H - N}{2} = 9 + 1 - \\frac{7 - 1}{2} = 10 - 3 = 7$.\nStep 7: Breaking down the unsaturations: benzene ring $= 4$ (3 $\\pi$ bonds + 1 ring), ester carbonyl $= 1$ ($\\pi$ bond), isocyanate group ($-\\text{N=C=O}$) $= 2$ (two cumulated $\\pi$ bonds). Total $= 4 + 1 + 2 = 7$."
+    },
+    {
+      "id": "cad_c01_027",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When acetyl chloride is treated with sodium ethoxide, ethyl acetate is formed rapidly and quantitatively. Conversely, when ethyl acetate is treated with sodium chloride, no acetyl chloride is formed. Based on the mechanism of nucleophilic acyl substitution, which factor governs this sharp difference?",
+      "options": [
+        "A) Chloride ion is too bulky to attack the ester carbonyl carbon.",
+        "B) The tetrahedral intermediate preferentially expels chloride ion because chloride is a much weaker base and far better leaving group than ethoxide.",
+        "C) Ethoxide ion acts as a reducing agent towards acyl chlorides.",
+        "D) Ethyl acetate is stabilized by aromatic resonance, preventing nucleophilic attack."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Both reactions proceed through the formation of a tetrahedral intermediate: $[\\text{CH}_3-\\text{C}(\\text{O}^-)(\\text{Cl})(\\text{OCH}_2\\text{CH}_3)]$.\nStep 2: In this tetrahedral intermediate, there are two potential heteroatomic leaving groups: chloride ($\\text{Cl}^-$) and ethoxide ($\\text{CH}_3\\text{CH}_2\\text{O}^-$).\nStep 3: Leaving group ability is directly correlated with basicity: the weaker the base (lower $pK_a$ of conjugate acid), the better the leaving group. The conjugate acid of chloride is $\\text{HCl}$ ($pK_a \\approx -7$), whereas the conjugate acid of ethoxide is ethanol ($pK_a \\approx 16$).\nStep 4: Because $\\text{Cl}^-$ is more than 20 orders of magnitude less basic than $\\text{EtO}^-$, the tetrahedral intermediate expels $\\text{Cl}^-$ with an overwhelming kinetic and thermodynamic preference over $\\text{EtO}^-$.\nStep 5: Thus, when ethoxide attacks acetyl chloride, the intermediate readily expels $\\text{Cl}^-$ to form ethyl acetate. When chloride attacks ethyl acetate, the intermediate immediately expels $\\text{Cl}^-$ backwards rather than expelling $\\text{EtO}^-$.\nStep 6: Therefore, the collapse of the tetrahedral intermediate is controlled by the vastly superior leaving group ability of chloride over ethoxide."
+    },
+    {
+      "id": "cad_c01_028",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Benzaldehyde is reacted with ethyl 2-bromopropanoate in the presence of metallic zinc in dry benzene, followed by acidification with dilute aqueous sulfuric acid. What is the major organic product formed in this reaction?",
+      "options": [
+        "A) Ethyl 3-hydroxy-2-methyl-3-phenylpropanoate",
+        "B) Ethyl 3-phenylpropanoate",
+        "C) 2-Methyl-1-phenylbutane-1,3-dione",
+        "D) 1-Phenylpropan-1-ol"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The reaction of an $\\alpha$-halo ester with an aldehyde or ketone in the presence of zinc metal is the Reformatsky reaction.\nStep 2: Zinc undergoes oxidative addition into the carbon-bromine bond of ethyl 2-bromopropanoate ($\\text{CH}_3\\text{CH}(\\text{Br})\\text{COOEt}$) to form an organozinc enolate (Reformatsky reagent): $\\text{BrZn}-\\text{CH}(\\text{CH}_3)-\\text{COOEt}$.\nStep 3: Unlike organomagnesium (Grignard) or organolithium reagents, organozinc reagents are moderate nucleophiles; they do not self-condense with the ester carbonyl group of another reagent molecule, but readily add to the more electrophilic aldehyde carbonyl of benzaldehyde ($\\text{PhCHO}$).\nStep 4: Nucleophilic attack yields a zinc alkoxide intermediate: $\\text{Ph}-\\text{CH}(\\text{OZnBr})-\\text{CH}(\\text{CH}_3)-\\text{COOEt}$.\nStep 5: Acidic hydrolysis converts the alkoxide into a secondary alcohol, affording ethyl 3-hydroxy-2-methyl-3-phenylpropanoate (a $\\beta$-hydroxy ester).\nStep 6: Therefore, the major product is ethyl 3-hydroxy-2-methyl-3-phenylpropanoate. Suggesting a dione confuses the reaction with Claisen condensation. Suggesting 1-phenylpropan-1-ol incorrectly presumes reduction."
+    },
+    {
+      "id": "cad_c01_029",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Benzaldehyde is heated with propanoic anhydride and sodium propanoate at $180^\\circ\\text{C}$ for several hours, followed by acidification with aqueous $\\text{HCl}$. What is the major organic product formed?",
+      "options": [
+        "A) Cinnamic acid ($(2E)$-3-phenylprop-2-enoic acid)",
+        "B) 3-Phenylpropanoic acid",
+        "C) $(2E)$-2-Methyl-3-phenylprop-2-enoic acid ($\\alpha$-methylcinnamic acid)",
+        "D) Ethyl benzoate"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The condensation of an aromatic aldehyde with an aliphatic acid anhydride in the presence of the corresponding sodium carboxylate salt is the Perkin reaction.\nStep 2: Sodium propanoate acts as a base to deprotonate the $\\alpha$-position of propanoic anhydride ($(\\text{CH}_3\\text{CH}_2\\text{CO})_2\\text{O}$), generating an anhydride carbanion: $[\\text{CH}_3\\text{CH}-\\text{CO}-\\text{O}-\\text{COCH}_2\\text{CH}_3]^-$.\nStep 3: This carbanion nucleophilically attacks the aldehyde carbonyl of benzaldehyde ($\\text{PhCHO}$) to form a $\\beta$-alkoxy carboxylate intermediate.\nStep 4: Intramolecular acyl transfer followed by dehydration (elimination of a propanoate ion) produces a mixed unsaturated anhydride.\nStep 5: Aqueous acidic hydrolysis of the anhydride hydrolyzes the acyl group, yielding $(2E)$-2-methyl-3-phenylprop-2-enoic acid (commonly known as $\\alpha$-methylcinnamic acid) and propanoic acid.\nStep 6: Therefore, the major product is $(2E)$-2-methyl-3-phenylprop-2-enoic acid. Choosing cinnamic acid confuses propanoic anhydride with acetic anhydride."
+    },
+    {
+      "id": "cad_c01_030",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "One mole of diethyl oxalate ($\\text{EtOOC}-\\text{COOEt}$) is reacted with an excess of methylmagnesium bromide ($\\text{CH}_3\\text{MgBr}$) in anhydrous diethyl ether, followed by quenching with aqueous ammonium chloride. How many moles of methylmagnesium bromide are consumed per mole of diethyl oxalate?",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: Diethyl oxalate possesses two separate ester carbonyl groups directly bonded to each other: $\\text{EtO}-\\text{CO}-\\text{CO}-\\text{OEt}$.\nStep 2: Consider the reaction of each ester group with methylmagnesium bromide. In the first step, one mole of $\\text{CH}_3\\text{MgBr}$ attacks the first ester carbonyl, forming a tetrahedral intermediate that expels ethoxide ($\\text{EtO}^-$) to yield an $\\alpha$-keto ester ($\\text{CH}_3-\\text{CO}-\\text{COOEt}$).\nStep 3: A second mole of $\\text{CH}_3\\text{MgBr}$ attacks the newly formed ketone carbonyl (which is more electrophilic than an ester) to generate a magnesium alkoxide: $(\\text{CH}_3)_2\\text{C}(\\text{OMgBr})-\\text{COOEt}$.\nStep 4: The second ester group undergoes the identical sequence: a third mole of $\\text{CH}_3\\text{MgBr}$ displaces the second ethoxide group to form a ketone, and a fourth mole of $\\text{CH}_3\\text{MgBr}$ adds to that ketone.\nStep 5: Thus, both ester groups are converted into tertiary alcohol moieties: $(\\text{CH}_3)_2\\text{C}(\\text{OH})-\\text{C}(\\text{OH})(\\text{CH}_3)_2$ (pinacol, 2,3-dimethylbutane-2,3-diol).\nStep 6: Therefore, exactly 4 moles of $\\text{CH}_3\\text{MgBr}$ are consumed per mole of diethyl oxalate."
+    },
+    {
+      "id": "cad_c01_031",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The silver salt of enantiomerically pure $(2R)$-2-phenylpropanoic acid is suspended in refluxing carbon tetrachloride and treated with one equivalent of bromine (Hunsdiecker reaction). What is the stereochemical outcome of the resulting 1-bromo-1-phenylethane product?",
+      "options": [
+        "A) Exclusively $(1R)$-1-bromo-1-phenylethane with complete retention of configuration",
+        "B) Exclusively $(1S)$-1-bromo-1-phenylethane with complete inversion of configuration",
+        "C) An unequal mixture of enantiomers due to neighboring group participation",
+        "D) A racemic mixture ($(\\pm)$-1-bromo-1-phenylethane) with complete loss of optical activity"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The Borodine-Hunsdiecker reaction converts a silver carboxylate into an alkyl halide with the loss of one carbon as $\\text{CO}_2$: $\\text{RCOOAg} + \\text{Br}_2 \\to \\text{RBr} + \\text{CO}_2 + \\text{AgBr}$.\nStep 2: The reaction initiates by halogenation of the carboxylate oxygen to form an unstable acyl hypobromite intermediate: $\\text{R}-\\text{CO}-\\text{O}-\\text{Br}$.\nStep 3: Thermolysis induces homolytic fission of the weak $\\text{O}-\\text{Br}$ bond to generate an acyloxy free radical ($\\text{R}-\\text{COO}^\\bullet$) and a bromine atom ($\\text{Br}^\\bullet$).\nStep 4: The acyloxy radical decarboxylates irreversibly to release $\\text{CO}_2$ and produce a free alkyl radical at the stereocenter: $\\text{CH}_3-\\dot{\\text{C}}\\text{H}-\\text{Ph}$.\nStep 5: This 1-phenylethyl radical intermediate is planar ($sp^2$-hybridized) and achiral. The bromine atom or bromine molecule can attack this planar radical from either the top face or the bottom face with equal probability ($50:50$).\nStep 6: Therefore, complete loss of stereochemical configuration occurs, yielding a racemic mixture of $(\\pm)$-1-bromo-1-phenylethane. Assuming retention or inversion incorrectly models the radical process as a concerted rearrangement or an $S_N2$ displacement."
+    },
+    {
+      "id": "cad_c01_032",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the acid-catalyzed hydrolysis of acetamide in aqueous hydrochloric acid ($\\text{CH}_3\\text{CONH}_2 + \\text{H}_3\\text{O}^+ \\to \\text{CH}_3\\text{COOH} + \\text{NH}_4^+$), which elementary step renders the overall reaction essentially irreversible?",
+      "options": [
+        "A) Exothermic and irreversible protonation of ammonia by hydronium/acetic acid to form ammonium ion ($\\text{NH}_4^+$)",
+        "B) Nucleophilic attack of water on the protonated amide carbonyl",
+        "C) Cleavage of the carbon-nitrogen bond in the neutral tetrahedral intermediate",
+        "D) Initial protonation of the amide carbonyl oxygen"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Acid-catalyzed amide hydrolysis begins with reversible protonation of the carbonyl oxygen, followed by reversible nucleophilic attack of water to form a tetrahedral intermediate.\nStep 2: Proton transfer within the intermediate produces a tetrahedral species bearing a protonated amine leaving group ($-\\text{NH}_3^+$). Collapse of this intermediate expels neutral ammonia ($\\text{NH}_3$) and regenerates the carbonyl bond as protonated acetic acid.\nStep 3: Ammonia is a relatively strong Brønsted base ($pK_a$ of $\\text{NH}_4^+ = 9.25$), whereas protonated acetic acid ($\\text{CH}_3\\text{COOH}_2^+$) and hydronium ($\\text{H}_3\\text{O}^+$) are exceptionally strong acids.\nStep 4: Rapid and virtually instantaneous proton transfer occurs from the acidic species to ammonia, forming the ammonium ion ($\\text{NH}_4^+$). Because $\\text{NH}_4^+$ has no non-bonding lone pair, it possesses zero nucleophilicity and cannot attack the carboxylic acid carbonyl to reverse the reaction.\nStep 5: Therefore, protonation of ammonia to form non-nucleophilic ammonium ion drives the equilibrium to completion irreversibly."
+    },
+    {
+      "id": "cad_c01_033",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A mixture of ethyl acetate and excess $n$-butanol is heated in the presence of catalytic concentrated sulfuric acid. To maximize the yield of $n$-butyl acetate, ethanol is continuously removed from the reaction vessel by fractional distillation. Why is continuous removal of ethanol required to achieve high conversion?",
+      "options": [
+        "A) Ethanol reacts with sulfuric acid to form diethyl ether, which destroys the catalyst.",
+        "B) Transesterification is a thermoneutral equilibrium reaction with an equilibrium constant close to unity ($K_{\\text{eq}} \\approx 1$).",
+        "C) Ethanol oxidizes the butyl ester back into starting materials.",
+        "D) The reaction is kinetically irreversible, but ethanol inhibits the enzyme catalyst."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Acid-catalyzed transesterification involves the exchange of the alkoxy group of an ester with the alkoxy group of an alcohol: $\\text{CH}_3\\text{COOCH}_2\\text{CH}_3 + \\text{CH}_3(\\text{CH}_2)_3\\text{OH} \\rightleftharpoons \\text{CH}_3\\text{COO}(\\text{CH}_2)_3\\text{CH}_3 + \\text{CH}_3\\text{CH}_2\\text{OH}$.\nStep 2: Because both the starting materials (ethyl ester + primary alcohol) and the products (butyl ester + primary alcohol) have nearly identical chemical bonds, resonance stabilization, and steric environments, the enthalpy change ($\\Delta H^\\circ$) and entropy change ($\\Delta S^\\circ$) of the reaction are very close to zero.\nStep 3: Consequently, the standard free energy change $\\Delta G^\\circ \\approx 0$, giving an equilibrium constant $K_{\\text{eq}} \\approx 1$. Without intervention, an equimolar mixture would stall at approximately $50\\%$ conversion.\nStep 4: To shift the equilibrium toward products in accordance with Le Chatelier's principle, ethanol (boiling point $78.3^\\circ\\text{C}$) is selectively removed by distillation as it forms, because $n$-butanol ($117.7^\\circ\\text{C}$), ethyl acetate ($77.1^\\circ\\text{C}$), and $n$-butyl acetate ($126^\\circ\\text{C}$) allow separation, forcing the equilibrium to quantitative completion.\nStep 5: Therefore, continuous distillation drives the thermoneutral equilibrium forward."
+    },
+    {
+      "id": "cad_c01_034",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The relative rates of neutral aqueous hydrolysis at $25^\\circ\\text{C}$ for the following four carboxylic acid anhydrides follow which order?\n$\\text{I: Maleic anhydride} \\quad \\text{II: Succinic anhydride} \\quad \\text{III: Glutaric anhydride} \\quad \\text{IV: Acetic anhydride}$",
+      "options": [
+        "A) $\\text{IV} > \\text{III} > \\text{II} > \\text{I}$",
+        "B) $\\text{II} > \\text{I} > \\text{IV} > \\text{III}$",
+        "C) $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$",
+        "D) $\\text{III} > \\text{IV} > \\text{II} > \\text{I}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The rate of neutral hydrolysis of anhydrides depends on the electrophilicity of the carbonyl carbon and the relief of internal ring strain upon conversion of the trigonal planar ($sp^2$) carbonyl carbon into a tetrahedral ($sp^3$) intermediate.\nStep 2: Maleic anhydride ($\\text{I}$) is a planar 5-membered unsaturated cyclic anhydride. The carbon-carbon double bond holds the two carbonyl groups in an eclipsed cis-conformation, causing severe angle and torsional strain. Furthermore, conjugation with the electron-withdrawing cis double bond substantially enhances the electrophilicity of the carbonyl carbon. Nucleophilic attack by water relieves internal ring strain rapidly ($sp^2 \\to sp^3$).\nStep 3: Succinic anhydride ($\\text{II}$) is a 5-membered saturated cyclic anhydride with significant envelope/torsional strain, which hydrolyzes rapidly (relief of strain upon ring opening) but slower than maleic anhydride because it lacks the activating double bond.\nStep 4: Glutaric anhydride ($\\text{III}$) is a 6-membered cyclic anhydride that adopts a chair-like conformation with minimal angle strain; hence, the thermodynamic driving force from strain relief is much smaller.\nStep 5: Acetic anhydride ($\\text{IV}$) is an acyclic anhydride with full conformational freedom, possessing no ring strain to relieve.\nStep 6: Therefore, the reactivity order is $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$. Placing acyclic acetic anhydride first ignores the massive rate acceleration provided by the relief of ring strain in 5-membered cyclic anhydrides."
+    },
+    {
+      "id": "cad_c01_035",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Maleic acid (cis-butenedioic acid) and fumaric acid (trans-butenedioic acid) exhibit distinct ionization behaviors:\n$\\text{Maleic acid: } pK_{a1} = 1.92, \\quad pK_{a2} = 6.23$\n$\\text{Fumaric acid: } pK_{a1} = 3.02, \\quad pK_{a2} = 4.38$\nWhich of the following mechanistic statements correctly accounts for why $pK_{a1}(\\text{maleic}) < pK_{a1}(\\text{fumaric})$ while $pK_{a2}(\\text{maleic}) > pK_{a2}(\\text{fumaric})$?",
+      "options": [
+        "A) Maleic acid is trans-stabilized, whereas fumaric acid undergoes tautomerization to an enol.",
+        "B) The maleate monoanion is destabilized by dipole repulsion, while the dianion is stabilized by resonance.",
+        "C) Fumaric acid forms an intermolecular polymer in solution that inhibits both ionizations.",
+        "D) The hydrogen maleate monoanion is strongly stabilized by an intramolecular hydrogen bond, whereas the maleate dianion experiences severe electrostatic repulsion between adjacent negative charges."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In maleic acid, the two carboxyl groups are in close proximity on the same side of the double bond (cis-geometry). Upon loss of the first proton, the resulting hydrogen maleate monoanion forms a strong, symmetrical 7-membered intramolecular hydrogen bond between the undissociated carboxyl proton and the carboxylate oxygen. This internal H-bond provides tremendous stabilization to the monoanion, making the first ionization exceptionally favorable ($pK_{a1} = 1.92$, compared to $3.02$ for trans-fumaric acid where intramolecular H-bonding is geometrically impossible).\nStep 2: For the second ionization, the proton must be removed from this strongly H-bonded hydrogen maleate ring. Breaking this stable hydrogen bond requires substantial energy.\nStep 3: Furthermore, once the second proton is removed, the resulting maleate dianion has two negatively charged carboxylate groups ($-\\text{COO}^-$) held in close spatial proximity, leading to intense electrostatic repulsion. In contrast, in the fumarate dianion, the two negative charges are held far apart on opposite sides of the double bond.\nStep 4: Consequently, the second ionization of maleic acid is highly disfavored, resulting in a much higher $pK_{a2}$ ($6.23$ vs $4.38$).\nStep 5: Therefore, intramolecular H-bonding in the monoanion and electrostatic repulsion in the dianion dictate this behavior."
+    },
+    {
+      "id": "cad_c01_036",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The Curtius, Schmidt, Lossen, and Hofmann rearrangements are four classic transformations converting carboxylic acid derivatives into primary amines or their derivatives. Which of the following statements regarding the comparative mechanisms and stereochemical outcomes of these rearrangements is/are correct?",
+      "options": [
+        "A) All four rearrangements proceed through an intermediate alkyl or aryl isocyanate ($R-\\text{N=C=O}$) formed via 1,2-migration to an electron-deficient nitrogen atom.",
+        "B) The 1,2-migration of the migrating group $R$ from carbon to nitrogen occurs with complete retention of stereochemical configuration at the chiral migrating center in all four reactions.",
+        "C) The Lossen rearrangement of $O$-acyl hydroxamic acids requires treatment with strong Brønsted acids to initiate migration, while the Curtius rearrangement requires strong basic reagents.",
+        "D) In both the Curtius and Schmidt reactions of carboxylic acid derivatives, the leaving group expelled during the migration step is molecular nitrogen ($\\text{N}_2$)."
+      ],
+      "answer": "A,B,D",
+      "explanation": "Step 1: Analyze statement A: The Curtius (from acyl azides $R\\text{CON}_3$), Schmidt (from $R\\text{COOH} + \\text{HN}_3$), Lossen (from hydroxamic acid derivatives $R\\text{CONH-OCOR'}$), and Hofmann (from $R\\text{CONH}_2 + \\text{Br}_2/\\text{KOH}$) rearrangements all involve 1,2-migration of $R$ to an electron-deficient nitrogen atom, yielding an alkyl or aryl isocyanate ($R-\\text{N=C=O}$) as the central common intermediate. In aqueous medium, this isocyanate hydrolyzes to a carbamic acid, which decarboxylates to a primary amine. Thus, statement A is correct.\nStep 2: Analyze statement B: In all four transformations, the 1,2-migration step is concerted and strictly intramolecular. The migrating group never dissociates as a free carbocation, carbanion, or radical. Consequently, the migrating chiral center retains its absolute stereochemical configuration with 100% fidelity. Thus, statement B is correct.\nStep 3: Analyze statement C: The Lossen rearrangement is typically base-catalyzed, where base deprotonates the hydroxamate nitrogen to promote departure of the carboxylate leaving group ($R'\\text{COO}^-$). Conversely, the Curtius rearrangement is thermal or photochemical; acyl azides undergo rearrangement simply upon heating in an inert solvent without needing base. Thus, statement C is incorrect.\nStep 4: Analyze statement D: In the Curtius rearrangement, acyl azide ($R-\\text{CO}-\\text{N}-\\text{N}_2^+$) expels neutral $\\text{N}_2$. In the Schmidt reaction of carboxylic acids, protonated acyl azide ($R-\\text{C}(\\text{OH})_2-\\text{NH}-\\text{N}_2^+$ or $R-\\text{CO}-\\text{NH}-\\text{N}_2^+$) similarly expels neutral $\\text{N}_2$ as the driving thermodynamic leaving group. Thus, statement D is correct.\nStep 5: Therefore, the correct statements are A, B, and D. Believing Lossen requires acid overlooks the fact that base deprotonates the hydroxamic acid to form the conjugate base that expels the carboxylate leaving group."
+    },
+    {
+      "id": "cad_c01_037",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Optically active $(S)$-2-phenylpropanoic acid is converted into its acid chloride using thionyl chloride, and subsequently treated with excess diazomethane ($\\text{CH}_2\\text{N}_2$) to afford an $\\alpha$-diazoketone $\\text{P}$. Compound $\\text{P}$ is irradiated with ultraviolet light ($h\\nu$) in methanol in the presence of silver oxide ($\\text{Ag}_2\\text{O}$) to undergo the Arndt-Eistert homologation sequence, yielding methyl ester $\\text{Q}$. Which of the following correctly identifies the constitution, stereochemistry, and reactive intermediate involved in the conversion of $\\text{P}$ to $\\text{Q}$?",
+      "options": [
+        "A) Methyl $(3S)$-3-phenylbutanoate, formed via a ketene intermediate with complete retention of configuration at the chiral center",
+        "B) Methyl $(3R)$-3-phenylbutanoate, formed via a free acyl carbene with complete inversion of configuration",
+        "C) Methyl 2-methyl-3-phenylpropanoate, formed via a radical intermediate resulting in complete racemization",
+        "D) Methyl $(3S)$-3-phenylbutanoate, formed via an oxirane intermediate with double inversion"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Reaction of $(S)$-2-phenylpropanoic acid ($\\text{CH}_3-\\text{C}^*(\\text{H})(\\text{Ph})-\\text{COOH}$) with $\\text{SOCl}_2$ yields $(S)$-2-phenylpropanoyl chloride without affecting the chiral center.\nStep 2: Reaction with excess diazomethane produces $(S)$-1-diazo-3-phenylbutan-2-one ($\\alpha$-diazoketone $\\text{P}$, $\\text{CH}_3-\\text{C}^*(\\text{H})(\\text{Ph})-\\text{CO}-\\text{CH}=\\text{N}_2$) and chloromethane ($\\text{CH}_3\\text{Cl}$).\nStep 3: Photolysis or silver oxide catalysis induces the Wolff rearrangement. Loss of molecular nitrogen ($\\text{N}_2$) generates an acyl carbene (or a concerted transition state) that undergoes 1,2-migration of the chiral 1-phenylethyl group to the carbene carbon, producing a ketene intermediate: $\\text{CH}_3-\\text{C}^*(\\text{H})(\\text{Ph})-\\text{CH=C=O}$.\nStep 4: Because the 1,2-migration in the Wolff rearrangement is intramolecular and concerted, the stereochemical configuration at the chiral carbon is preserved with 100% retention.\nStep 5: Nucleophilic addition of methanol ($\\text{CH}_3\\text{OH}$) across the cumulated $\\text{C}=\\text{C}$ double bond of the ketene yields methyl $(3S)$-3-phenylbutanoate ($\\text{CH}_3-\\text{C}^*(\\text{H})(\\text{Ph})-\\text{CH}_2-\\text{COOCH}_3$), achieving homologation by exactly one methylene unit.\nStep 6: Therefore, the product is methyl $(3S)$-3-phenylbutanoate via a ketene with complete retention."
+    },
+    {
+      "id": "cad_c01_038",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In the Wolff rearrangement of an $\\alpha$-diazoketone ($R-\\text{CO}-\\text{CH}=\\text{N}_2$), reactive ketene intermediates ($R-\\text{CH=C=O}$) are generated upon thermolysis or photolysis. Which of the following statements regarding the reactivity and trapping of these ketene intermediates is/are correct?",
+      "options": [
+        "A) Reaction of the ketene intermediate with water yields a carboxylic acid with one additional carbon atom relative to the starting acyl derivative ($R\\text{COOH} \\to R\\text{CH}_2\\text{COOH}$).",
+        "B) Reaction of the ketene intermediate with primary amines ($R'\\text{NH}_2$) yields $N$-substituted carboxamides of the homologated acid ($R\\text{CH}_2\\text{CONHR'}$).",
+        "C) In the absence of nucleophiles, ketenes readily undergo thermal $[2+2]$ cycloaddition to form cyclobutan-1,3-dione dimers.",
+        "D) When the $\\alpha$-diazoketone is prepared with $^{13}\\text{C}$-labeled diazomethane ($^{13}\\text{CH}_2\\text{N}_2$), the $^{13}\\text{C}$ label appears in the carbonyl carbon of the final homologated carboxylic acid."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Analyze statement A: The ketene $R-\\text{CH=C=O}$ undergoes nucleophilic attack by water at the electrophilic carbonyl carbon to form an enol of the carboxylic acid ($R-\\text{CH=C(OH)}_2$), which tautomerizes to $R\\text{CH}_2\\text{COOH}$. This increases the carbon chain by one carbon (Arndt-Eistert homologation). Thus, statement A is correct.\nStep 2: Analyze statement B: Primary amines attack the central $sp$-hybridized carbonyl carbon of the ketene to form an enolic amide, which tautomerizes to an $N$-alkylamide $R\\text{CH}_2\\text{CONHR'}$. Thus, statement B is correct.\nStep 3: Analyze statement C: Ketenes are orthogonal cumulated $\\pi$ systems. In the absence of trapping nucleophiles, they readily undergo concerted, orbital symmetry-allowed $[2\\pi_s + 2\\pi_a]$ thermal cycloadditions with a second molecule of ketene to form substituted cyclobutane-1,3-diones (ketene dimers). Thus, statement C is correct.\nStep 4: Analyze statement D: In the Wolff rearrangement, the migrating group $R$ migrates to the diazo carbon: $R-\\text{CO}-^{13}\\text{CH}=\\text{N}_2 \\to R-^{13}\\text{CH=C=O}$. The carbonyl carbon of the ketene was the original carbonyl carbon of the starting acid. Upon addition of water, the carbonyl group remains the original carbonyl carbon, while $^{13}\\text{C}$ becomes the $\\alpha$-methylene carbon ($R-^{13}\\text{CH}_2-\\text{COOH}$). Thus, statement D is incorrect.\nStep 5: Therefore, statements A, B, and C are correct."
+    },
+    {
+      "id": "cad_c01_039",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "2-Methylpropanoic acid (isobutyric acid) is subjected to the Arndt-Eistert homologation sequence: (1) $\\text{SOCl}_2$; (2) $\\text{CH}_2\\text{N}_2$ (2 eq); (3) $\\text{Ag}_2\\text{O}/\\text{H}_2\\text{O}$ to afford acid $\\text{X}$. Acid $\\text{X}$ is then reacted with $\\text{Br}_2/\\text{PBr}_3$ followed by $\\text{H}_2\\text{O}$ (HVZ reaction) to give compound $\\text{Y}$. Compound $\\text{Y}$ is subsequently heated with concentrated aqueous potassium hydroxide followed by acidification to give compound $\\text{Z}$. Calculate the molecular weight of compound $\\text{Z}$ in $\\text{g/mol}$. (Given atomic weights: $\\text{C}=12, \\text{H}=1, \\text{O}=16$).",
+      "options": [],
+      "answer": "118",
+      "explanation": "Step 1: Isobutyric acid is $(\\text{CH}_3)_2\\text{CH}-\\text{COOH}$. Treatment with $\\text{SOCl}_2$ yields isobutyryl chloride ($(\\text{CH}_3)_2\\text{CH}-\\text{COCl}$).\nStep 2: Reaction with diazomethane yields the $\\alpha$-diazoketone $(\\text{CH}_3)_2\\text{CH}-\\text{CO}-\\text{CH}=\\text{N}_2$.\nStep 3: Wolff rearrangement in the presence of $\\text{Ag}_2\\text{O}$ and $\\text{H}_2\\text{O}$ yields the homologated carboxylic acid with one additional methylene group: 3-methylbutanoic acid ($(\\text{CH}_3)_2\\text{CH}-\\text{CH}_2-\\text{COOH}$, isovaleric acid, compound $\\text{X}$).\nStep 4: Hell-Volhard-Zelinsky bromination of 3-methylbutanoic acid selectively brominates the $\\alpha$-position (C-2), giving 2-bromo-3-methylbutanoic acid ($(\\text{CH}_3)_2\\text{CH}-\\text{CH}(\\text{Br})-\\text{COOH}$, compound $\\text{Y}$).\nStep 5: Heating $\\alpha$-halo carboxylic acid $\\text{Y}$ with concentrated aqueous $\\text{KOH}$ undergoes nucleophilic substitution ($S_N2$) of the $\\alpha$-bromide by hydroxide, converting $-\\text{Br}$ into an $-\\text{OH}$ group to yield 2-hydroxy-3-methylbutanoic acid ($\\alpha$-hydroxyisovaleric acid, $(\\text{CH}_3)_2\\text{CH}-\\text{CH}(\\text{OH})-\\text{COOH}$, compound $\\text{Z}$) after acidification.\nStep 6: Determine the molecular formula of compound $\\text{Z}$: $\\text{C}_5\\text{H}_{10}\\text{O}_3$.\nStep 7: Calculate the molecular weight: $5(12) + 10(1) + 3(16) = 60 + 10 + 48 = 118\\text{ g/mol}$."
+    },
+    {
+      "id": "cad_c01_040",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Which of the following statements regarding the mechanisms of esterification and ester hydrolysis is/are correct?",
+      "options": [
+        "A) In the acid-catalyzed esterification of benzoic acid with methanol ($A_{\\text{Ac}}2$), the rate-determining step is the nucleophilic addition of methanol to the protonated carboxylic acid.",
+        "B) Hydrolysis of methyl benzoate in aqueous $\\text{H}_2^{18}\\text{O}$ under basic conditions ($B_{\\text{Ac}}2$) proceeds with concurrent oxygen exchange into unreacted ester via reversible formation of the tetrahedral intermediate.",
+        "C) Acid-catalyzed hydrolysis of tert-butyl acetate ($A_{\\text{Al}}1$) proceeds with faster rate than ethyl acetate because tert-butyl cation formation has a lower activation barrier than acyl-oxygen cleavage.",
+        "D) In $A_{\\text{Ac}}1$ esterification of 2,4,6-trimethylbenzoic acid, the reaction rate decreases with increasing concentration of sulfuric acid due to protonation of methanol."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Analyze statement A: In the $A_{\\text{Ac}}2$ mechanism of Fischer esterification, protonation of the carbonyl oxygen is a rapid equilibrium. The subsequent nucleophilic attack of the alcohol molecule on the resonance-stabilized oxocarbenium carbon to form the tetrahedral intermediate involves significant bond formation and loss of resonance, representing the rate-determining step. Thus, statement A is correct.\nStep 2: Analyze statement B: In basic ester hydrolysis ($B_{\\text{Ac}}2$), attack of $^{18}\\text{OH}^-$ on methyl benzoate forms the tetrahedral intermediate $[\\text{Ph}-\\text{C}(\\text{O}^-)(^{18}\\text{OH})-\\text{OCH}_3]$. Because expulsion of $^{18}\\text{OH}^-$ and expulsion of $\\text{OCH}_3^-$ have comparable barriers, the intermediate can collapse backwards with loss of normal $\\text{OH}^-$, leaving $^{18}\\text{O}$ incorporated into the carbonyl oxygen of unreacted methyl benzoate. Bender's classic experiments confirmed this isotopic exchange. Thus, statement B is correct.\nStep 3: Analyze statement C: Hydrolysis of tert-butyl acetate occurs via alkyl-oxygen cleavage ($A_{\\text{Al}}1$) because the tertiary carbocation is highly stable (low activation energy for heterolysis), which occurs at a much faster rate than the sterically retarded bimolecular attack on the carbonyl. Thus, statement C is correct.\nStep 4: Analyze statement D: In $A_{\\text{Ac}}1$, mesitoic acid is converted to an acylium ion ($R-\\text{C}^+\\text{=O}$) by concentrated $\\text{H}_2\\text{SO}_4$. The formation of the acylium ion requires high acidity (Hammett acidity function $H_0 \\ll -10$), so increasing sulfuric acid concentration actually promotes acylium ion generation and accelerates the reaction. Thus, statement D is incorrect.\nStep 5: Therefore, statements A, B, and C are correct."
+    },
+    {
+      "id": "cad_c01_041",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In the Lossen rearrangement, an $O$-acyl hydroxamic acid ($R-\\text{CO}-\\text{NH}-\\text{O}-\\text{CO}-R'$) is treated with aqueous base to generate an alkyl isocyanate ($R-\\text{N=C=O}$) and a carboxylate leaving group ($R'-\\text{COO}^-$). When the substituent $R'$ in the leaving group is systematically varied across:\n$\\text{I: } R' = -\\text{CH}_3 \\quad \\text{II: } R' = -\\text{CF}_3 \\quad \\text{III: } R' = -\\text{C}_6\\text{H}_5 \\quad \\text{IV: } R' = -\\text{C}_6\\text{H}_4(4-\\text{NO}_2)$\nWhich of the following represents the correct decreasing order of the rate of the Lossen rearrangement?",
+      "options": [
+        "A) $\\text{I} > \\text{III} > \\text{IV} > \\text{II}$",
+        "B) $\\text{II} > \\text{IV} > \\text{III} > \\text{I}$",
+        "C) $\\text{I} > \\text{IV} > \\text{III} > \\text{II}$",
+        "D) $\\text{III} > \\text{I} > \\text{IV} > \\text{II}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The rate-determining step of the base-promoted Lossen rearrangement is the concerted 1,2-migration of the $R$ group to the nitrogen atom accompanied by simultaneous departure of the carboxylate leaving group ($R'-\\text{COO}^-$):\n$[R-\\text{CO}-\\text{N}^--\\text{O}-\\text{CO}-R'] \\to R-\\text{N=C=O} + R'-\\text{COO}^-$.\nStep 2: The rate of departure of the leaving group depends directly on its leaving group ability, which correlates inversely with the basicity of $R'-\\text{COO}^-$ (lower $pK_a$ of conjugate acid $R'\\text{COOH}$ corresponds to a better leaving group and faster reaction rate).\nStep 3: Compare the $pK_a$ values of the conjugate acids:\n- Trifluoroacetic acid ($\\text{CF}_3\\text{COOH}$, $\\text{II}$): $pK_a \\approx 0.23$\n- 4-Nitrobenzoic acid ($4\\text{-NO}_2\\text{C}_6\\text{H}_4\\text{COOH}$, $\\text{IV}$): $pK_a \\approx 3.44$\n- Benzoic acid ($\\text{C}_6\\text{H}_5\\text{COOH}$, $\\text{III}$): $pK_a \\approx 4.20$\n- Acetic acid ($\\text{CH}_3\\text{COOH}$, $\\text{I}$): $pK_a \\approx 4.76$\nStep 4: Because trifluoroacetate is by far the weakest base and best leaving group, derivative $\\text{II}$ rearranges fastest, followed by 4-nitrobenzoate ($\\text{IV}$), benzoate ($\\text{III}$), and acetate ($\\text{I}$).\nStep 5: Therefore, the decreasing order of reaction rate is $\\text{II} > \\text{IV} > \\text{III} > \\text{I}$. Assuming acetate is a better leaving group than trifluoroacetate inverts electronic effects."
+    },
+    {
+      "id": "cad_c01_042",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "An acyl chloride, benzoyl chloride ($\\text{PhCOCl}$), is reacted with different organometallic reagents under controlled stoichiometric conditions. Which of the following statements regarding these transformations is/are correct?",
+      "options": [
+        "A) Reaction of $\\text{PhCOCl}$ with 1.0 equivalent of lithium dimethylcuprate ($\\text{Me}_2\\text{CuLi}$, Gilman reagent) at $-78^\\circ\\text{C}$ affords acetophenone ($\\text{PhCOCH}_3$) in high yield without over-addition.",
+        "B) Reaction of $\\text{PhCOCl}$ with 1.0 equivalent of methylmagnesium bromide ($\\text{CH}_3\\text{MgBr}$) cleanly gives acetophenone as the sole isolated product.",
+        "C) Reaction of $\\text{PhCOCl}$ with dimethylcadmium ($\\text{Me}_2\\text{Cd}$) affords acetophenone because organocadmium reagents react rapidly with acyl chlorides but react very sluggishly with ketones.",
+        "D) Reaction of $\\text{PhCOCl}$ with excess phenylmagnesium bromide ($\\text{PhMgBr}$) followed by aqueous acid workup yields triphenylmethanol."
+      ],
+      "answer": "A,C,D",
+      "explanation": "Step 1: Analyze statement A: Gilman reagents (dialkylcuprates, $R_2\\text{CuLi}$) are soft, moderate organometallic nucleophiles. They react cleanly with acyl chlorides by nucleophilic acyl substitution to form ketones, but are too unreactive to add to the resulting ketone carbonyl at low temperature ($-78^\\circ\\text{C}$). Hence, $\\text{PhCOCl} + \\text{Me}_2\\text{CuLi} \\to \\text{PhCOCH}_3$. Thus, statement A is correct.\nStep 2: Analyze statement B: Grignard reagents ($\\text{RMgX}$) are hard, powerful nucleophiles. The ketone product (acetophenone) formed upon addition of the first equivalent is actually more reactive toward Grignard addition than the starting benzoyl chloride (due to less resonance attenuation than chlorine). Consequently, Grignard reagents cannot stop at the ketone stage; a second equivalent of $\\text{CH}_3\\text{MgBr}$ immediately adds to yield 2-phenylpropan-2-ol, even with a 1:1 stoichiometry. Thus, statement B is incorrect.\nStep 3: Analyze statement C: Dialkylcadmium reagents ($R_2\\text{Cd}$), prepared from Grignard reagents and $\\text{CdCl}_2$, are significantly less nucleophilic than Grignards. They possess sufficient nucleophilicity to displace chloride from acyl chlorides, but are inert toward addition to the ketone carbonyl, making it a classic preparation of ketones. Thus, statement C is correct.\nStep 4: Analyze statement D: Excess phenylmagnesium bromide adds twice to benzoyl chloride (first displacement of chloride to form benzophenone, then addition of a second phenyl group to the ketone) to yield the alkoxide of triphenylmethanol ($\\text{Ph}_3\\text{C}-\\text{OH}$) upon aqueous workup. Thus, statement D is correct.\nStep 5: Therefore, the correct statements are A, C, and D."
+    },
+    {
+      "id": "cad_c01_043",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Which of the following statements regarding the thermal decarboxylation of carboxylic acids and polycarboxylic acids is/are correct?",
+      "options": [
+        "A) Thermal decarboxylation of malonic acid proceeds through a planar 6-membered cyclic transition state involving concerted hydrogen transfer from the carboxyl group to the carbonyl oxygen of the other carboxyl group.",
+        "B) Heating citric acid with concentrated sulfuric acid at $130^\\circ\\text{C}$ produces acetonedicarboxylic acid (3-oxopentanedioic acid) with liberation of carbon monoxide ($\\text{CO}$).",
+        "C) Soda-lime decarboxylation of sodium formate ($\\text{HCOONa} + \\text{NaOH}$) yields dihydrogen gas ($\\text{H}_2$) and sodium carbonate.",
+        "D) In the Kolbe electrolysis of sodium succinate ($\\text{NaOOC}-\\text{CH}_2-\\text{CH}_2-\\text{COONa}$), the primary gaseous product collected at the anode is ethene along with carbon dioxide."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Analyze statement A: Decarboxylation of malonic acid involves a 6-membered cyclic transition state where the acidic proton of one $-\\text{COOH}$ is transferred to the carbonyl oxygen of the second $-\\text{COOH}$, while the $\\text{C}-\\text{C}$ bond cleaves to eliminate $\\text{CO}_2$ and form the enol of acetic acid ($\\text{CH}_2=\\text{C(OH)}_2$). Thus, statement A is correct.\nStep 2: Analyze statement B: Citric acid ($\\text{HOOC}-\\text{CH}_2-\\text{C(OH)(COOH)}-\\text{CH}_2-\\text{COOH}$) is an $\\alpha$-hydroxy carboxylic acid. Concentrated sulfuric acid dehydrates $\\alpha$-hydroxy acids with loss of carbon monoxide ($\\text{CO}$), cleaving the central $\\text{C}-\\text{C}$ bond of the $\\alpha$-hydroxy acid moiety to yield 3-oxopentanedioic acid ($\\text{HOOC}-\\text{CH}_2-\\text{CO}-\\text{CH}_2-\\text{COOH}$, acetonedicarboxylic acid) and $\\text{CO}$. Thus, statement B is correct.\nStep 3: Analyze statement C: In the soda-lime decarboxylation of sodium formate, the hydride ion/carbanion equivalent formed upon loss of $\\text{CO}_2$ is $\\text{H}^-$, which rapidly abstracts a proton from water or $\\text{OH}^-$ to liberate dihydrogen gas: $\\text{HCOONa} + \\text{NaOH} \\to \\text{H}_2 + \\text{Na}_2\\text{CO}_3$. Thus, statement C is correct.\nStep 4: Analyze statement D: In Kolbe electrolysis of the dianion of succinate, two electrons are removed at the anode to generate a 1,4-diradical intermediate ($^\\bullet\\text{OOC}-\\text{CH}_2-\\text{CH}_2-\\text{COO}^\\bullet \\to ^\\bullet\\text{CH}_2-\\text{CH}_2^\\bullet + 2\\text{CO}_2$). Coupling of the two radical centers forms ethene ($\\text{CH}_2=\\text{CH}_2$) and $2\\text{CO}_2$ at the anode. Thus, statement D is correct.\nStep 5: Therefore, all four statements A, B, C, and D are correct."
+    },
+    {
+      "id": "cad_c01_044",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Consider the following synthetic sequence starting from $(1R,2R)$-cyclohexane-1,2-dicarboxylic acid:\n$(1R,2R)\\text{-cyclohexane-1,2-dicarboxylic acid} \\xrightarrow{\\text{SOCl}_2} \\text{P} \\xrightarrow{\\text{excess NH}_3} \\text{Q} \\xrightarrow{\\text{Br}_2 / \\text{KOH (excess)}} \\text{R}$.\nCompound $\\text{R}$ is isolated and treated with excess acetic anhydride to afford bis-acetamide $\\text{S}$. Determine the total number of stereoisomers possible for compound $\\text{S}$ that have the same constitutional connectivity as formed in this sequence.",
+      "options": [],
+      "answer": "3",
+      "explanation": "Step 1: $(1R,2R)$-cyclohexane-1,2-dicarboxylic acid is a trans-1,2-dicarboxylic acid. Reaction with $\\text{SOCl}_2$ yields trans-cyclohexane-1,2-dicarbonyl dichloride ($\\text{P}$) without modifying the chiral stereocenters.\nStep 2: Reaction with excess $\\text{NH}_3$ converts the acyl chlorides into amides to yield trans-cyclohexane-1,2-dicarboxamide ($\\text{Q}$).\nStep 3: Treatment of bis-primary amide $\\text{Q}$ with $\\text{Br}_2/\\text{KOH}$ induces double Hofmann bromamide degradation. Each amide group undergoes concerted 1,2-migration with 100% retention of configuration at C-1 and C-2, converting both $-\\text{CONH}_2$ groups into $-\\text{NH}_2$ groups to give $(1R,2R)$-cyclohexane-1,2-diamine ($\\text{R}$).\nStep 4: Acetylation of the diamine with acetic anhydride yields $N,N'$-(cyclohexane-1,2-diyl)diacetamide ($\\text{S}$).\nStep 5: Now, determine the total number of stereoisomers possible for cyclohexane-1,2-diamine derivatives ($N,N'$-(cyclohexane-1,2-diyl)diacetamide):\nThe molecule has 2 identical stereocenters (C-1 and C-2), each bearing the same four groups ($-\\text{H}$, $-\\text{NHAc}$, and the two ring pathways).\n- The trans isomers are $(1R,2R)$ and $(1S,2S)$, which form an enantiomeric pair (2 stereoisomers).\n- The cis isomer is $(1R,2S)$, which possesses an internal plane of symmetry ($\\sigma$) and is a meso compound (1 stereoisomer).\nStep 6: Total number of stereoisomers $= 2\\text{ (enantiomers)} + 1\\text{ (meso)} = 3$."
+    },
+    {
+      "id": "cad_c01_045",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "When acetophenone ($\\text{PhCOCH}_3$) is treated with hydrazoic acid ($\\text{HN}_3$) in the presence of concentrated sulfuric acid (Schmidt reaction on a ketone), what is the major organic product formed, and which factor determines the regiochemical preference of the migrating group?",
+      "options": [
+        "A) $N$-Methylbenzamide ($\\text{PhCONHCH}_3$), because the smaller methyl group migrates preferentially",
+        "B) Phenylacetamide ($\\text{PhCH}_2\\text{CONH}_2$), formed by insertion of nitrogen into the methyl $\\text{C}-\\text{H}$ bond",
+        "C) $N$-Phenylacetamide (acetanilide, $\\text{CH}_3\\text{CONHPh}$), because the phenyl group has a much higher migratory aptitude than methyl",
+        "D) Benzamide ($\\text{PhCONH}_2$), formed by cleavage of the methyl carbon-carbonyl bond"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In the Schmidt reaction of ketones, hydrazoic acid adds to the protonated carbonyl group of the ketone to form an azidohydrin intermediate: $\\text{Ph}-\\text{C}(\\text{OH})(\\text{N}_3)-\\text{CH}_3$.\nStep 2: Protonation of the hydroxyl group followed by loss of water generates an iminodiazonium ion: $[\\text{Ph}-\\text{C}(\\text{CH}_3)=\\text{N}-\\text{N}_2^+]$.\nStep 3: The 1,2-migration occurs simultaneously with the expulsion of molecular nitrogen ($\\text{N}_2$). The group that migrates is determined primarily by two factors: stereoelectronic alignment (the group anti-periplanar to the leaving diazonium group) and intrinsic migratory aptitude.\nStep 4: Phenyl has a substantially greater migratory aptitude than methyl because the aromatic $\\pi$ system can stabilize the transition state through phenonium-like delocalization.\nStep 5: Migration of phenyl to nitrogen yields the nitrilium ion intermediate $[\\text{CH}_3-\\text{C}\\equiv\\text{N}^+-\\text{Ph}]$, which on reaction with water and tautomerization gives $N$-phenylacetamide (acetanilide, $\\text{CH}_3\\text{CONHPh}$).\nStep 6: Therefore, the major product is acetanilide due to the superior migratory aptitude of the phenyl group. Choosing $N$-methylbenzamide assumes methyl migration, which is disfavored electronically."
+    },
+    {
+      "id": "cad_c01_046",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In the Stobbe condensation, diethyl succinate is reacted with benzaldehyde in the presence of potassium tert-butoxide ($\\text{KO}t\\text{Bu}$) in tert-butanol, followed by acidification. Which of the following statements regarding this reaction is/are correct?",
+      "options": [
+        "A) Unlike standard Claisen condensations, the Stobbe condensation of diethyl succinate can be performed successfully even with ketones and aldehydes that lack enolizable hydrogens.",
+        "B) The reaction proceeds through an intermediate $\\gamma$-lactone (paraconic acid ester derivative) formed by intramolecular nucleophilic attack of an alkoxide onto an ester carbonyl.",
+        "C) Ring opening of the $\\gamma$-lactone intermediate via base-promoted irreversible E2 elimination yields an $\\alpha,\\beta$-unsaturated half-ester ($\\beta$-carbethoxy-$\\gamma$-phenylvinylacetic acid derivative).",
+        "D) The driving force that makes the Stobbe condensation irreversible is the formation of a resonance-stabilized carboxylate salt during lactone ring opening."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Analyze statement A: The Stobbe condensation specifically utilizes esters of succinic acid (such as diethyl succinate). Because the reaction has an irreversible lactone ring-opening driving mechanism, it operates efficiently with aromatic aldehydes, aliphatic aldehydes, and even hindered ketones that fail in ordinary Claisen or aldol condensations. Thus, statement A is correct.\nStep 2: Analyze statement B: Deprotonation of diethyl succinate by potassium tert-butoxide gives an ester enolate that adds nucleophilically to the carbonyl of benzaldehyde, yielding an alkoxide intermediate. This alkoxide then attacks the adjacent second ester carbonyl intramolecularly to form a 5-membered cyclic ester, a substituted $\\gamma$-butyrolactone (paraconic ester intermediate). Thus, statement B is correct.\nStep 3: Analyze statement C: The tert-butoxide base abstracts the acidic $\\alpha$-proton adjacent to the lactone carbonyl, initiating an E2 elimination that cleaves the lactone ring, forming an exocyclic carbon-carbon double bond and expelling a carboxylate anion. Acidification yields the unsaturated monoester (half-ester). Thus, statement C is correct.\nStep 4: Analyze statement D: The conversion of the neutral lactone into a resonance-stabilized carboxylate salt during the irreversible ring-opening step provides the strong thermodynamic driving force that shifts the entire sequence of equilibria to completion. Thus, statement D is correct.\nStep 5: Therefore, all four statements A, B, C, and D are correct."
+    },
+    {
+      "id": "cad_c01_047",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A series of mechanistic investigations was conducted on the Hofmann bromamide degradation of primary amides ($R\\text{CONH}_2 + \\text{Br}_2 + 4\\text{KOH} \\to R\\text{NH}_2 + \\text{K}_2\\text{CO}_3 + 2\\text{KBr} + 2\\text{H}_2\\text{O}$). Which of the following experimental observations is/are consistent with the established mechanism?",
+      "options": [
+        "A) A crossover experiment using an equimolar mixture of $^{14}\\text{C}$-carbonyl-labeled benzamide ($\\text{Ph}-^{14}\\text{CONH}_2$) and $p$-methylbenzamide ($p\\text{-CH}_3\\text{C}_6\\text{H}_4\\text{CONH}_2$) yields no crossover products, demonstrating that the migrating aryl group never detaches from the molecule.",
+        "B) When the degradation is conducted using optically active $(S)$-$2$-methylbutanamide, the resulting butan-2-amine retains $100\\%$ of its optical purity with $(S)$-configuration.",
+        "C) Electron-donating substituents on the aromatic ring of substituted benzamides accelerate the rate of rearrangement ($\\rho < 0$ in Hammett plots).",
+        "D) Addition of potassium cyanide to the reaction mixture traps the intermediate as an acyl cyanide ($R\\text{COCN}$) before migration can occur."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Analyze statement A: If the migrating group $R$ detached as a free carbanion, carbocation, or radical, it would exchange between different molecules in the reaction mixture, producing crossover amines. Crossover experiments definitively show zero crossover products; the rearrangement is strictly intramolecular. Thus, statement A is correct.\nStep 2: Analyze statement B: Concerted front-side 1,2-migration of the chiral alkyl group from carbon to nitrogen preserves the spatial arrangement of the bonds at the stereocenter without inversion or racemization, yielding $(S)$-butan-2-amine with 100% enantiomeric excess. Thus, statement B is correct.\nStep 3: Analyze statement C: In the rate-determining step, the migrating aryl group acts as an internal nucleophile migrating to the electron-deficient nitrogen atom, developing partial positive charge in the transition state. Consequently, electron-donating groups (such as $-\\text{OCH}_3$ or $-\\text{CH}_3$) stabilize this transition state and accelerate the reaction, resulting in a negative Hammett reaction constant ($\\rho \\approx -2.5$). Thus, statement C is correct.\nStep 4: Analyze statement D: Cyanide ion cannot trap an 'acyl cyanide' because the $N$-bromoamide anion undergoes migration to form an isocyanate ($R-\\text{N=C=O}$), not an acylium or free acyl species. Isocyanates react with water to form amines. Thus, statement D is incorrect.\nStep 5: Therefore, statements A, B, and C are correct."
+    },
+    {
+      "id": "cad_c01_048",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "2-Hydroxybenzaldehyde (salicylaldehyde) is treated with alkaline hydrogen peroxide ($\\text{H}_2\\text{O}_2/\\text{NaOH}$) at room temperature, followed by acidification (Dakin reaction). What is the major organic product formed, and which intermediate governs the transformation?",
+      "options": [
+        "A) Salicylic acid (2-hydroxybenzoic acid), formed via direct oxidation of the aldehyde to a carboxylic acid",
+        "B) Benzoic acid, formed via oxidative decarbonylation of the aromatic ring",
+        "C) 1,4-Dihydroxybenzene (hydroquinone), formed via para-migration of the phenolic hydroxyl group",
+        "D) 1,2-Dihydroxybenzene (catechol), formed via migration of the ortho-hydroxyphenyl group to a peroxy oxygen atom"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The Dakin reaction is the base-catalyzed oxidation of ortho- or para-hydroxy (or alkoxy) benzaldehydes or acetophenones with hydrogen peroxide to yield benzenediols (catechol or hydroquinone derivatives).\nStep 2: Hydroperoxide anion ($\\text{HOO}^-$) adds nucleophilically to the formyl carbonyl carbon of salicylaldehyde to form a tetrahedral peroxy intermediate: $o\\text{-HO}-\\text{C}_6\\text{H}_4-\\text{CH}(\\text{O}^-)-\\text{O}-\\text{OH}$.\nStep 3: The phenolic oxygen, deprotonated in alkaline medium to a phenolate anion ($-\\text{O}^-$), pushes electron density into the ring through resonance, massively increasing the nucleophilic migratory aptitude of the ortho-hydroxyphenyl group.\nStep 4: In the rate-determining step, the ortho-hydroxyphenyl group migrates to the adjacent peroxy oxygen with simultaneous expulsion of hydroxide ion ($\\text{OH}^-$), generating an ortho-hydroxyphenyl formate ester: $o\\text{-HO}-\\text{C}_6\\text{H}_4-\\text{O}-\\text{CHO}$.\nStep 5: In the alkaline medium, this formate ester is rapidly saponified to yield 1,2-dihydroxybenzene (catechol) and sodium formate. Acidification recovers pure catechol.\nStep 6: Therefore, the major product is catechol (1,2-dihydroxybenzene) via aryl migration to the peroxy oxygen. Choosing salicylic acid confuses the Dakin reaction with mild Tollens or Pinnick oxidation, which occurs only when electron-donating ortho/para hydroxyl groups are absent."
+    },
+    {
+      "id": "cad_c01_049",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the multi-step transformation sequence:\n$\\text{Diethyl malonate} \\xrightarrow{\\text{(1) NaOEt, then PhCH}_2\\text{Br}} \\text{Compound A} \\xrightarrow{\\text{(2) NaOEt, then CH}_3\\text{I}} \\text{Compound B}$\n$\\text{Compound B} \\xrightarrow{\\text{(3) aq NaOH, }\\Delta\\text{; then HCl, }\\Delta (180^\\circ\\text{C})} \\text{Compound C} \\xrightarrow{\\text{(4) SOCl}_2} \\text{Compound D} \\xrightarrow{\\text{(5) NaN}_3\\text{, toluene, }\\Delta} \\text{Compound E} \\xrightarrow{\\text{(6) H}_2\\text{O}} \\text{Compound F}$.\nWhich of the following statements regarding the intermediates and final product $\\text{F}$ is/are correct?",
+      "options": [
+        "A) Compound $\\text{C}$ is 2-methyl-3-phenylpropanoic acid.",
+        "B) Compound $\\text{E}$ is an isocyanate possessing an Index of Hydrogen Deficiency (IHD) of 6.",
+        "C) Compound $\\text{F}$ is a primary amine that cannot be resolved into enantiomers because it is achiral.",
+        "D) Compound $\\text{F}$ is 1-phenylpropan-2-amine (amphetamine)."
+      ],
+      "answer": "A,B,D",
+      "explanation": "Step 1: Analyze steps 1 to 3: Diethyl malonate is sequentially benzylated and methylated to give diethyl 2-benzyl-2-methylmalonate ($\\text{B}$). Hydrolysis gives 2-benzyl-2-methylmalonic acid, which on heating to $180^\\circ\\text{C}$ loses $\\text{CO}_2$ to afford 2-methyl-3-phenylpropanoic acid ($\\text{PhCH}_2-\\text{CH}(\\text{CH}_3)-\\text{COOH}$, compound $\\text{C}$). Thus, statement A is correct.\nStep 2: Analyze steps 4 and 5: Reaction of $\\text{C}$ with $\\text{SOCl}_2$ yields acyl chloride $\\text{D}$ ($\\text{PhCH}_2-\\text{CH}(\\text{CH}_3)-\\text{COCl}$). Reaction with $\\text{NaN}_3$ followed by heating in toluene induces the Curtius rearrangement, eliminating $\\text{N}_2$ to yield isocyanate $\\text{E}$: $\\text{PhCH}_2-\\text{CH}(\\text{CH}_3)-\\text{N=C=O}$.\nStep 3: Calculate the IHD of compound $\\text{E}$ ($\\text{C}_{10}\\text{H}_{11}\\text{NO}$):\n$\\text{IHD} = 10 + 1 - \\frac{11 - 1}{2} = 11 - 5 = 6$ (4 from the phenyl ring + 2 from the cumulative $\\text{N=C=O}$ double bonds). Thus, statement B is correct.\nStep 4: Analyze step 6: Hydrolysis of isocyanate $\\text{E}$ with water yields the unstable carbamic acid $\\text{PhCH}_2-\\text{CH}(\\text{CH}_3)-\\text{NHCOOH}$, which decarboxylates to yield 1-phenylpropan-2-amine ($\\text{PhCH}_2-\\text{CH}(\\text{NH}_2)-\\text{CH}_3$, compound $\\text{F}$). Thus, statement D is correct.\nStep 5: Analyze statement C: Compound $\\text{F}$ has a chiral stereocenter at C-2 ($\\text{H}$, $\\text{CH}_3$, $\\text{NH}_2$, $\\text{CH}_2\\text{Ph}$) and is an optically active, resolvable chiral amine. Thus, statement C is incorrect.\nStep 6: Therefore, statements A, B, and D are correct."
+    },
+    {
+      "id": "cad_c01_050",
+      "subject": "Chemistry",
+      "topic": "Carboxylic Acids and Derivatives",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Evaluate the following eight mechanistic propositions concerning carboxylic acids and their derivatives:\n(1) The Hell-Volhard-Zelinsky bromination of carboxylic acids involves an enol intermediate derived from the in situ formed acyl bromide rather than the free carboxylic acid.\n(2) Reduction of esters with $\\text{DIBAL-H}$ (diisobutylaluminum hydride) at $-78^\\circ\\text{C}$ yields aldehydes because the tetrahedral hemiacetal aluminate intermediate is stable at low temperatures and only collapses upon aqueous workup.\n(3) Esters react with 2 equivalents of Grignard reagents to yield tertiary alcohols, whereas acyl chlorides react with lithium dialkylcuprates ($\\text{R}_2\\text{CuLi}$) to yield ketones.\n(4) Decarboxylation of sodium salts of carboxylic acids via Kolbe electrolysis at the anode involves a carbocation intermediate.\n(5) The Curtius rearrangement of acyl azides to isocyanates involves retention of configuration at the migrating carbon.\n(6) Saponification of optically active $(R)$-sec-butyl acetate in $\\text{H}_2\\text{O}$ yields $(R)$-butan-2-ol with complete retention of configuration because the acyl-oxygen bond cleaves rather than the alkyl-oxygen bond.\n(7) Benzoic acid reacts faster than 4-nitrobenzoic acid with diazomethane to form methyl esters.\n(8) Amides are more basic than amines in aqueous solution due to resonance delocalization of the nitrogen lone pair into the carbonyl group.\nHow many of the above eight propositions are TRUE?",
+      "options": [],
+      "answer": "5",
+      "explanation": "Step 1: Evaluate proposition (1): In the HVZ reaction, trace $\\text{PBr}_3$ converts carboxylic acid to acyl bromide, which enolizes several orders of magnitude faster than the free carboxylic acid to form an enol that rapidly reacts with $\\text{Br}_2$. This proposition is TRUE.\nStep 2: Evaluate proposition (2): $\\text{DIBAL-H}$ reduction of esters at $-78^\\circ\\text{C}$ forms a bulky tetrahedral diisobutylaluminum hemiacetal intermediate that does not collapse at $-78^\\circ\\text{C}$, preventing over-reduction until quenched with aqueous acid. This proposition is TRUE.\nStep 3: Evaluate proposition (3): Esters react with 2 equivalents of Grignard reagents to yield tertiary alcohols; Gilman reagents selectively convert acyl chlorides to ketones without over-addition. This proposition is TRUE.\nStep 4: Evaluate proposition (4): Kolbe electrolysis at the anode proceeds via one-electron oxidation to form an acyloxy radical, followed by loss of $\\text{CO}_2$ to generate a free radical intermediate, NOT a carbocation. This proposition is FALSE.\nStep 5: Evaluate proposition (5): The Curtius rearrangement is a concerted intramolecular 1,2-migration that proceeds with 100% retention of stereochemical configuration at the migrating center. This proposition is TRUE.\nStep 6: Evaluate proposition (6): Saponification proceeds by $B_{\\text{Ac}}2$ acyl-oxygen cleavage ($\\text{Ac}-\\text{OR}$ bond cleavage), leaving the $\\text{C}-\\text{O}$ bond of the chiral sec-butyl group untouched; hence $(R)$-sec-butyl alcohol is formed with 100% retention. This proposition is TRUE.\nStep 7: Evaluate proposition (7): Reaction of carboxylic acids with diazomethane involves rate-determining protonation of diazomethane by the carboxylic acid. 4-Nitrobenzoic acid ($pK_a \\approx 3.4$) is significantly stronger than benzoic acid ($pK_a \\approx 4.2$) and protonates diazomethane faster, reacting at a higher rate. This proposition is FALSE.\nStep 8: Evaluate proposition (8): Amides are much weaker bases than amines ($pK_b \\approx 14-15$ for amides vs $pK_b \\approx 3-4$ for amines) because resonance delocalizes the nitrogen lone pair into the carbonyl $\\pi^*$ orbital. This proposition is FALSE.\nStep 9: Count the true propositions: (1), (2), (3), (5), and (6) are TRUE. Total $= 5$.\nStep 10: Therefore, exactly 5 propositions are TRUE."
+    }
+  ]
+}
