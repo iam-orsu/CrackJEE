@@ -166,14 +166,13 @@ To stop containers and permanently delete all database records and volumes:
 The platform includes a safe, non-destructive question seeder.
 
 ### How the seeder works
-- It reads questions from a JSON file.
-- It queries the database for existing question IDs.
-- Any question already in the database is left untouched.
-- Only new questions with new IDs are inserted into PostgreSQL.
-- Inserted questions are available in tests immediately without needing a container restart.
+- Automatic on container start: When the backend container starts up, it automatically seeds `data/master_questions.json`.
+- Manual or on-demand: You can run `./deploy.sh seed` at any time to import new questions or custom files.
+- Safe and non-destructive: It checks question IDs against the database. Any existing question is left completely untouched. Only new questions are inserted into PostgreSQL.
+- Instant availability: Newly seeded questions are live in tests immediately without needing a container restart.
 
-### Seed the default question bank
-The default file is located at `data/master_questions.json`.
+### Seed the default question bank manually
+To check for new questions in `data/master_questions.json` and insert them:
 
 Run:
 ```bash
