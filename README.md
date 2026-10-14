@@ -1,185 +1,275 @@
 # CrackJEE
 
-A free AI-powered preparation platform for JEE Main and Advanced. CrackJEE generates unique questions on every session, validates them for correctness, tracks your weak areas automatically, and surfaces exactly where you need to focus.
+CrackJEE is an open-source test practice platform for students preparing for JEE Main and JEE Advanced. It runs full simulated exams, custom topic tests, tracks student accuracy, and provides instant answer keys with explanations.
 
-## Features
+The platform is containerized with Docker and ready to deploy on any Linux VPS or local machine.
 
-- **AI-generated questions** - Every question is freshly generated per the JEE syllabus and validated before you see it
-- **Full exam mode** - Full-screen timed practice sessions with a question palette, just like the real exam
-- **Syllabus-aware** - Class 11 students get Class 11 topics only; Class 12 students get the full syllabus
-- **Weak area detection** - Topics where your accuracy drops below 60% are flagged automatically
-- **Never repeat** - Per-user question tracking ensures you never see the same question twice
-- **Progress dashboard** - Weekly chart, subject accuracy breakdown, and topic-level stats
+---
+
+## Core Features
+
+- **JEE Main and Advanced Exam Modes**: Full timed mock tests matching the real exam pattern across Physics, Chemistry, and Mathematics.
+- **Custom Practice Mode**: Students can build custom tests by subject, topic, question count, and difficulty.
+- **Topic Distribution Logic**: Practice tests balance question selection across selected topics (1 to 2 questions per topic when available).
+- **Randomized Question Order**: Questions are randomized per student while preserving section order.
+- **Accuracy and Weak Area Tracking**: Logs every attempt, calculates topic-level accuracy, and flags topics below 60% accuracy for revision.
+- **Non-Destructive Question Seeding**: Fast seeding tool to import thousands of questions from JSON without duplicating or deleting existing records.
+- **Formula Sheets and Review**: Question palette, mark for review, question timers, and reference sheets.
+- **Optional AI Integration**: DeepSeek and OpenAI integrations for dynamic question generation and validation if desired.
+
+---
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend | Next.js 15, React 19, TypeScript |
-| Backend | Node.js, Express, TypeScript, Zod |
-| Database | PostgreSQL 16, Prisma 6 ORM |
-| Cache | Redis 7 |
-| AI | DeepSeek (question generation), OpenAI (validation) |
-| Infrastructure | Docker Compose, Nginx |
+- **Frontend**: Next.js 15, React 19, TypeScript, Tailwind CSS
+- **Backend**: Node.js, Express, TypeScript, Prisma ORM
+- **Database**: PostgreSQL 16
+- **Cache**: Redis 7
+- **Reverse Proxy**: Nginx (serves frontend and proxies `/api` requests)
+- **Deployment**: Docker Compose
 
-## Prerequisites
+---
 
-- Docker and Docker Compose (v2)
-- A DeepSeek API key
-- An OpenAI API key (or a compatible proxy)
+## Architecture Overview
 
-## Quick Start
+```
+Client Browser
+      │
+      ▼
+Nginx (:8080)
+  ├── /api/*   ──> Express Backend (:3001)
+  └── /*       ──> Next.js Frontend (:3000)
+
+Backend Connections:
+  ├── PostgreSQL (:5432) : User accounts, questions, attempts, test results
+  ├── Redis (:6379)      : Session cache and rate limiting
+  └── ./data volume      : Read-only mount for question JSON files
+```
+
+---
+
+## System Requirements for VPS
+
+- **Operating System**: Ubuntu 22.04 LTS, Ubuntu 24.04 LTS, or Debian 12
+- **Memory**: Minimum 2 GB RAM (4 GB recommended)
+- **Disk Space**: At least 10 GB free disk space
+- **Installed Packages**: Docker and Docker Compose v2, Git
+
+To install Docker and Git on a fresh Ubuntu VPS:
 
 ```bash
-# 1. Clone the repo
+sudo apt update && sudo apt install -y git curl
+curl -fsSL https://get.docker.com | sudo sh
+sudo usermod -aG docker $USER
+```
+
+Log out and log back into your VPS terminal after running this command so group permissions take effect.
+
+---
+
+## Deploying to a VPS
+
+### 1. Clone the repository
+
+```bash
 git clone https://github.com/iam-orsu/CrackJEE.git
 cd CrackJEE
+```
 
-# 2. Copy the example env file and fill in your keys
+### 2. Configure environment variables
+
+Create your `.env` file from the example template:
+
+```bash
 cp .env.example .env
-# Edit .env with your DEEPSEEK_API_KEY, OPENAI_API_KEY, and JWT_SECRET
+```
 
-# 3. Start everything with one command
+Open `.env` and set your values:
+
+```bash
+nano .env
+```
+
+Minimum settings to check:
+- `JWT_SECRET`: Put a random secret string here (generate with `openssl rand -hex 32`).
+- `POSTGRES_USER` and `POSTGRES_PASSWORD`: Set strong database credentials.
+- `DEEPSEEK_API_KEY` and `OPENAI_API_KEY`: Add your keys if using AI generation features (optional for offline question bank mode).
+
+### 3. Start the application
+
+Make the deploy script executable and start the stack:
+
+```bash
+chmod +x deploy.sh
 ./deploy.sh start
 ```
 
-The platform will be available at `http://localhost:8080`.
+This command will:
+- Build the frontend and backend Docker images.
+- Run all Prisma database migrations automatically.
+- Start PostgreSQL, Redis, backend, frontend, and Nginx.
 
-On first run, Docker builds all images, runs database migrations, and starts all services. This takes a few minutes. Subsequent starts are fast.
+Once finished, open your browser and go to `http://your-server-ip:8080`.
 
-## Configuration
+---
 
-Copy `.env.example` to `.env` and set these required values:
+## VPS Management Commands
 
-```env
-# Required
-DEEPSEEK_API_KEY=sk-...        # DeepSeek API key for question generation
-OPENAI_API_KEY=sk-...          # OpenAI API key for question validation
-JWT_SECRET=<random 64 chars>   # Secret for signing JWTs — generate with: openssl rand -hex 32
+The `./deploy.sh` script handles day-to-day operations:
 
-# Optional — override defaults only if needed
-POSTGRES_USER=jeeuser
-POSTGRES_PASSWORD=jeepassword
-OPENAI_BASE_URL=               # Custom OpenAI-compatible proxy URL
-OPENAI_MODEL=gpt-4o-mini
-```
-
-The `DATABASE_URL` and `REDIS_URL` in `.env.example` already point to the Docker service names and work out of the box.
-
-## Deploy Commands
-
-The `deploy.sh` script wraps Docker Compose:
-
+### Check status of services
 ```bash
-./deploy.sh start    # Build and start all services
-./deploy.sh stop     # Stop all services, keep data volumes
-./deploy.sh restart  # Restart without rebuilding
-./deploy.sh logs     # Tail all logs
-./deploy.sh logs backend   # Tail logs for a specific service
-./deploy.sh status   # Show container health
-./deploy.sh delete   # Stop and delete all data (irreversible)
+./deploy.sh status
 ```
 
-## Architecture
-
+### View container logs
+View logs from all containers:
+```bash
+./deploy.sh logs
 ```
-Browser
-  |
-  v
-Nginx :8080
-  |-- /api/*  --> Backend (Express :3001)
-  |-- /*      --> Frontend (Next.js :3000)
-
-Backend
-  |-- PostgreSQL (user data, questions, attempts, progress)
-  |-- Redis (question cache, per-user deduplication)
-  |-- DeepSeek API (question generation)
-  |-- OpenAI API (validation)
+Or view logs from a specific container:
+```bash
+./deploy.sh logs backend
+./deploy.sh logs frontend
+./deploy.sh logs nginx
 ```
 
-### Question generation flow
-
-```
-Student starts session
-  -> Choose subjects, topics, count, difficulty
-  -> Backend calls DeepSeek in parallel (up to 3 concurrent) per topic
-  -> Each question validated by OpenAI (pass/fail)
-  -> Results cached in Redis keyed by topic + difficulty
-  -> Per-user served-question keys prevent repeats
-  -> Batch returned to frontend, exam starts immediately
+### Restart the application
+To restart all services on the VPS:
+```bash
+./deploy.sh restart
 ```
 
-### Answer validation flow
-
-```
-Student submits answer
-  -> Compare against stored correct answer
-  -> If wrong, DeepSeek explanation fetched
-  -> TopicProgress updated atomically (attempts, correct count)
-  -> If success rate < 60% over 5+ attempts, topic flagged as weak
+### Stop the application
+To stop containers while keeping all database data safe in Docker volumes:
+```bash
+./deploy.sh stop
 ```
 
-## API Reference
-
-All endpoints are under `/api`. Auth endpoints require no token; all others require `Authorization: Bearer <token>`.
-
-| Method | Path | Description |
-|---|---|---|
-| POST | `/api/auth/register` | Create account |
-| POST | `/api/auth/login` | Log in, get JWT |
-| GET | `/api/auth/me` | Current user info |
-| GET | `/api/questions/next` | Fetch one question |
-| POST | `/api/questions/batch` | Fetch a batch of questions |
-| POST | `/api/answers/submit` | Submit answer, get feedback |
-| GET | `/api/user/dashboard` | Dashboard stats |
-| GET | `/api/progress/weak-areas` | Weak topics list |
-| GET | `/api/stats/overview` | All topic progress |
-
-## Project Structure
-
-```
-CrackJEE/
-  backend/
-    src/
-      controllers/    # Route handlers (auth, questions, answers, progress)
-      middleware/     # Auth, rate limiting, error handling
-      routes/         # Express router definitions
-      services/       # Business logic (DeepSeek, OpenAI, question caching)
-      types/          # Shared TypeScript interfaces
-      lib/            # Prisma client, Redis client, logger
-    prisma/
-      schema.prisma   # Database schema
-  frontend/
-    src/
-      app/            # Next.js App Router pages
-      components/     # Sidebar, QuestionCard
-      lib/            # API client, auth helpers
-      types/          # Shared frontend types
-  nginx/
-    nginx.conf        # Reverse proxy config with rate limiting
-  docker-compose.yml
-  deploy.sh
-  .env.example
+### Update the application with new code
+When pulling updates from Git:
+```bash
+git pull origin main
+./deploy.sh restart
 ```
 
-## Database Schema
+### Complete wipe (dangerous)
+To stop containers and permanently delete all database records and volumes:
+```bash
+./deploy.sh delete
+```
 
-The Prisma schema defines four models:
+---
 
-- **User** - email/password auth, class (11/12/Dropper), target exam
-- **Question** - generated question text, options, answer, explanation, topic metadata
-- **StudentAttempt** - each answer submission with correctness and time spent
-- **TopicProgress** - per-user per-topic accuracy aggregate, weak-area flag
+## Seeding Questions
 
-## Security
+The platform includes a safe, non-destructive question seeder.
 
-- Passwords hashed with bcrypt (cost 12)
-- JWTs expire after 7 days
-- Nginx rate limits: 30 req/min on `/api/`, 5 req/min on `/api/auth/`
-- Helmet sets standard security headers
-- All secrets loaded from environment variables, never hard-coded
-- `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff` headers set by Nginx
+### How the seeder works
+- It reads questions from a JSON file.
+- It queries the database for existing question IDs.
+- Any question already in the database is left untouched.
+- Only new questions with new IDs are inserted into PostgreSQL.
+- Inserted questions are available in tests immediately without needing a container restart.
+
+### Seed the default question bank
+The default file is located at `data/master_questions.json`.
+
+Run:
+```bash
+./deploy.sh seed
+```
+
+Output example:
+```
+[seed] Reading question bank from: /app/data/master_questions.json
+[seed] Checking existing database records...
+[seed] Database currently contains: 5799 questions.
+[seed] Total questions in JSON:   5800
+[seed] Already in DB (untouched):  5799
+[seed] New to be inserted:         1
+[seed] Starting insertion of 1 new questions...
+[seed] Insert progress: 1 / 1
+[seed] Seeding complete!
+```
+
+### Seed a custom JSON file
+You can import custom batches of questions (for example, 500 new physics questions).
+
+1. Copy your JSON file into the `data/` folder on your server:
+   ```bash
+   cp /path/to/my_new_questions.json data/my_new_questions.json
+   ```
+
+2. Run the seed command with the path to your file:
+   ```bash
+   ./deploy.sh seed data/my_new_questions.json
+   ```
+
+The script automatically mounts the `data/` folder inside the backend container and runs the import.
+
+---
+
+## Question JSON Format
+
+Your custom JSON file can be either an object with a `"questions"` array or a root array.
+
+Example format:
+
+```json
+{
+  "questions": [
+    {
+      "id": "chem_thermo_001",
+      "subject": "CHEMISTRY",
+      "topic": "Thermodynamics",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "MEDIUM",
+      "class": "CLASS_11",
+      "content": "Which of the following is an intensive property?",
+      "options": [
+        "Volume",
+        "Mass",
+        "Enthalpy",
+        "Temperature"
+      ],
+      "correctAnswer": "Temperature",
+      "explanation": "Temperature is an intensive property because it does not depend on the amount of matter in the system."
+    },
+    {
+      "id": "phy_kinematics_002",
+      "subject": "PHYSICS",
+      "topic": "Kinematics",
+      "type": "NUMERICAL",
+      "difficulty": "EASY",
+      "class": "CLASS_11",
+      "content": "A car accelerates uniformly from rest to 20 m/s in 5 seconds. What is its acceleration in m/s^2?",
+      "options": [],
+      "correctAnswer": "4",
+      "explanation": "Acceleration a = (v - u) / t = (20 - 0) / 5 = 4 m/s^2."
+    }
+  ]
+}
+```
+
+### Field values
+- **subject**: `PHYSICS`, `CHEMISTRY`, or `MATHEMATICS`
+- **type**: `SINGLE_CHOICE` or `NUMERICAL`
+- **difficulty**: `EASY`, `MEDIUM`, or `HARD`
+- **class**: `CLASS_11` or `CLASS_12`
+- **options**: Array of 4 option strings for `SINGLE_CHOICE`, or empty array `[]` for `NUMERICAL`.
+
+---
+
+## Production Security Notes
+
+- Keep `.env` out of version control.
+- In production, place Nginx behind your own SSL certificate (such as Certbot or Cloudflare).
+- Set firewall rules on your VPS (allow ports 22, 80, 443; keep internal database ports 5432 and 6379 closed to the public).
+- Make regular backups of the PostgreSQL Docker volume `crackjee_postgres_data`.
+
+---
 
 ## License
 
-MIT
+MIT License.
