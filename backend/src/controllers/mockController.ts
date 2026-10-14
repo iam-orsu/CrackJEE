@@ -4,7 +4,7 @@ import type { AuthRequest, Subject, Difficulty, QuestionType } from '../types/in
 import { JEE_TOPICS_BY_CLASS } from '../types/index';
 import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
-import { getNextQuestion } from '../services/questionService';
+import { getNextQuestion, distributeTopicSlots, fisherYatesShuffle } from '../services/questionService';
 import { scoreQuestion, getMaxMarkPerQuestion } from '../services/scoringService';
 import type { Question } from '@prisma/client';
 
@@ -46,12 +46,15 @@ function buildQuestionPlan(examType: 'Main' | 'Advanced'): QuestionSlot[] {
       ? [{ type: 'mcq_single', count: 20 }, { type: 'integer', count: 5 }]
       : [{ type: 'mcq_single', count: 7 }, { type: 'mcq_multi', count: 4 }, { type: 'integer', count: 6 }];
 
+  const totalPerSubject = typePlan.reduce((sum, t) => sum + t.count, 0);
+
   for (const subject of subjects) {
     const allTopics = [
       ...JEE_TOPICS_BY_CLASS[subject].class11,
       ...JEE_TOPICS_BY_CLASS[subject].class12,
     ];
-    const shuffled = [...allTopics].sort(() => Math.random() - 0.5);
+    // Distribute topics ensuring min 1, max 2 rule across topics
+    const allocatedTopics = distributeTopicSlots(allTopics, totalPerSubject);
     let topicCursor = 0;
     let subjectIndex = 0;
 
@@ -59,13 +62,12 @@ function buildQuestionPlan(examType: 'Main' | 'Advanced'): QuestionSlot[] {
       for (let i = 0; i < count; i++) {
         plan.push({
           subject,
-          topic: shuffled[topicCursor % shuffled.length]!,
+          topic: allocatedTopics[topicCursor++]!,
           difficulty: pickDifficulty(examType, Math.random()),
           type,
           number: globalNum++,
           subjectIndex: subjectIndex++,
         });
-        topicCursor++;
       }
     }
   }
@@ -126,6 +128,34 @@ async function generateMockQuestions(
     );
 
     const seenIds = new Set<string>();
+    const fulfilledSlots: Array<{
+      questionId: string;
+      subject: Subject;
+      type: QuestionType;
+    }> = [];
+
+    for (let i = 0; i < results.length; i++) {
+      const r = results[i]!;
+      const slot = plan[i]!;
+      if (r.status === 'fulfilled' && !seenIds.has(r.value.id)) {
+        seenIds.add(r.value.id);
+        fulfilledSlots.push({
+          questionId: r.value.id,
+          subject: slot.subject,
+          type: slot.type,
+        });
+      }
+    }
+
+    if (fulfilledSlots.length < 10) {
+      await prisma.mockExam.update({ where: { id: examId }, data: { status: 'error' } });
+      return;
+    }
+
+    // Assign randomized question numbers and indices per student:
+    // Organize by standard JEE subject order (Physics, Chemistry, Mathematics).
+    // Within each subject, independently Fisher-Yates shuffle questions within
+    // Section A (MCQs) and Section B (Numerical/Integer) so students receive unique question sequences!
     const questionData: Array<{
       examId: string;
       questionId: string;
@@ -134,24 +164,25 @@ async function generateMockQuestions(
       subjectIndex: number;
     }> = [];
 
-    for (let i = 0; i < results.length; i++) {
-      const r = results[i]!;
-      const slot = plan[i]!;
-      if (r.status === 'fulfilled' && !seenIds.has(r.value.id)) {
-        seenIds.add(r.value.id);
+    const subjects: Subject[] = ['Physics', 'Chemistry', 'Mathematics'];
+    let globalNum = 1;
+
+    for (const subj of subjects) {
+      const subjQuestions = fulfilledSlots.filter((q) => q.subject === subj);
+      const mcqQuestions = fisherYatesShuffle(subjQuestions.filter((q) => q.type !== 'integer'));
+      const numQuestions = fisherYatesShuffle(subjQuestions.filter((q) => q.type === 'integer'));
+
+      const orderedSubjQuestions = [...mcqQuestions, ...numQuestions];
+      let subjIdx = 0;
+      for (const q of orderedSubjQuestions) {
         questionData.push({
           examId,
-          questionId: r.value.id,
-          subject: slot.subject,
-          questionNumber: slot.number,
-          subjectIndex: slot.subjectIndex,
+          questionId: q.questionId,
+          subject: q.subject,
+          questionNumber: globalNum++,
+          subjectIndex: subjIdx++,
         });
       }
-    }
-
-    if (questionData.length < 10) {
-      await prisma.mockExam.update({ where: { id: examId }, data: { status: 'error' } });
-      return;
     }
 
     await prisma.mockExamQuestion.createMany({ data: questionData });

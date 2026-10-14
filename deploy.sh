@@ -89,12 +89,22 @@ case "$ACTION" in
     ;;
 
   seed)
-    # Manually re-seed the question bank (runs automatically on start/restart).
-    # Useful after updating data/master_questions.json.
-    echo "Seeding question bank into database..."
+    # Manually re-seed the question bank.
+    # Reads data/master_questions.json or any custom json path passed as an argument.
+    # Checks existing IDs and guarantees existing questions are left 100% untouched.
+    RAW_PATH=${2:-"data/master_questions.json"}
+    if [[ "$RAW_PATH" == data/* ]]; then
+      CONTAINER_PATH="/app/$RAW_PATH"
+    elif [[ "$RAW_PATH" != /* ]]; then
+      CONTAINER_PATH="/app/data/$RAW_PATH"
+    else
+      CONTAINER_PATH="$RAW_PATH"
+    fi
+
+    echo "Seeding question bank into database from $RAW_PATH..."
     wait_backend
     docker compose --env-file "$ENV_FILE" exec -T backend \
-      sh -c "node dist/scripts/seedQuestions.js 2>&1"
+      sh -c "node dist/scripts/seedQuestions.js '$CONTAINER_PATH' 2>&1"
     echo "Seeding complete."
     ;;
 
@@ -128,7 +138,7 @@ case "$ACTION" in
     echo "  start   - Build and start all services (runs migrations + seeds question bank automatically)"
     echo "  restart - Rebuild images and restart all services (runs migrations + seeds automatically)"
     echo "  migrate - Run database migrations against running containers"
-    echo "  seed    - Manually re-seed question bank (runs automatically on start/restart)"
+    echo "  seed    - Import questions without touching existing ones (usage: ./deploy.sh seed [path/to/file.json])"
     echo "  stop    - Stop all services (keep data)"
     echo "  delete  - Stop and delete all data volumes"
     echo "  logs    - Tail logs (optionally pass service name: ./deploy.sh logs backend)"

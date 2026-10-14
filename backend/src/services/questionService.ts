@@ -24,6 +24,56 @@ function pickQuestionType(examType: ExamType): QuestionType {
   return 'integer';
 }
 
+/**
+ * In-place Fisher-Yates array shuffle returning a newly allocated shuffled array.
+ */
+export function fisherYatesShuffle<T>(arr: T[]): T[] {
+  const result = [...arr];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = result[i]!;
+    result[i] = result[j]!;
+    result[j] = tmp;
+  }
+  return result;
+}
+
+/**
+ * Distribute question slots across selected topics following the distribution rules:
+ * - Single topic selected: allow all slots from that topic (e.g. 30 questions from Ray Optics).
+ * - Multiple topics selected:
+ *   - If totalSlots <= N: select totalSlots distinct topics (each gets exactly 1 question, max 1).
+ *   - If N < totalSlots <= 2N: every topic gets 1 question, and remaining slots get a 2nd question (min 1, max 2).
+ *   - If totalSlots > 2N: distribute slots evenly across all topics with at most difference 1.
+ */
+export function distributeTopicSlots(topics: string[], totalSlots: number): string[] {
+  if (topics.length === 0 || totalSlots <= 0) return [];
+  if (topics.length === 1) return Array(totalSlots).fill(topics[0]!);
+
+  const shuffled = fisherYatesShuffle(topics);
+  const N = shuffled.length;
+
+  if (totalSlots <= N) {
+    return shuffled.slice(0, totalSlots);
+  }
+
+  if (totalSlots <= 2 * N) {
+    const result = [...shuffled];
+    const secondPass = fisherYatesShuffle(shuffled).slice(0, totalSlots - N);
+    result.push(...secondPass);
+    return fisherYatesShuffle(result);
+  }
+
+  const result: string[] = [];
+  const base = Math.floor(totalSlots / N);
+  const remainder = totalSlots % N;
+  for (let i = 0; i < N; i++) {
+    const count = base + (i < remainder ? 1 : 0);
+    for (let c = 0; c < count; c++) result.push(shuffled[i]!);
+  }
+  return fisherYatesShuffle(result);
+}
+
 // ── Practice-mode: DB-only helpers (zero DeepSeek calls) ─────────────────────
 
 /**
@@ -145,15 +195,15 @@ export async function getPracticeQuestionBatch(
   const numSubjects = subjectGroups.size;
   const perSubject = numSubjects > 0 ? Math.floor(count / numSubjects) : count;
 
-  // Build plan (over-plan by 20% to absorb empty slots)
+  // Build plan using distributeTopicSlots (over-plan by 20% to absorb empty slots)
   const overPlan: Array<{ subject: Subject; topic: string; diff: Difficulty }> = [];
   for (const [subject, topics] of subjectGroups) {
-    const shuffled = [...topics].sort(() => Math.random() - 0.5);
     const slots = Math.ceil(perSubject * 1.2);
-    for (let i = 0; i < slots; i++) {
+    const allocatedTopics = distributeTopicSlots(topics, slots);
+    for (const topic of allocatedTopics) {
       overPlan.push({
         subject,
-        topic: shuffled[i % shuffled.length]!,
+        topic,
         diff: difficulty === 'mixed' ? randomDifficulty() : difficulty,
       });
     }
@@ -224,13 +274,15 @@ export async function getPracticeQuestionBatch(
   // Cap diagrams to 1 per 5 questions
   const targetDiagrams = Math.floor(results.length / 5);
   const withDiagrams = results.filter((q) => q.diagram !== null);
+  let finalQuestions = results;
   if (withDiagrams.length > targetDiagrams) {
-    const shuffled = [...withDiagrams].sort(() => Math.random() - 0.5);
+    const shuffled = fisherYatesShuffle([...withDiagrams]);
     const stripSet = new Set(shuffled.slice(targetDiagrams).map((q) => q.id));
-    return results.map((q) => (stripSet.has(q.id) ? { ...q, diagram: null } : q));
+    finalQuestions = results.map((q) => (stripSet.has(q.id) ? { ...q, diagram: null } : q));
   }
 
-  return results;
+  // Randomize question sequence so students receive independently shuffled question orders
+  return fisherYatesShuffle(finalQuestions);
 }
 
 const BATCH_SIZE = 3;
@@ -317,7 +369,7 @@ export async function getNextQuestion(
     }
   }
 
-  const existing = await prisma.question.findFirst({
+  const candidates = await prisma.question.findMany({
     where: {
       topic,
       subject,
@@ -327,8 +379,10 @@ export async function getNextQuestion(
       id: { notIn: [...allExcluded] },
       validatedAt: { not: null },
     },
+    take: 10,
   });
-  if (existing) {
+  if (candidates.length > 0) {
+    const existing = candidates[Math.floor(Math.random() * candidates.length)]!;
     await cacheSetJson(servedKey, [...servedIds, existing.id], 86400 * 7);
     return existing;
   }
@@ -365,13 +419,12 @@ export async function getQuestionBatch(
   // Use Math.floor so we never exceed the requested count; frontend sends count = perSubject * numSubjects
   const perSubject = numSubjects > 0 ? Math.floor(count / numSubjects) : count;
 
-  // Build plan grouped by subject — over-plan by 20% to absorb failures.
+  // Build plan grouped by subject using distributeTopicSlots — over-plan by 20% to absorb failures.
   const overPlan: Array<{ subject: Subject; topic: string; diff: Difficulty }> = [];
   for (const [subject, topics] of subjectGroups) {
-    const shuffledTopics = [...topics].sort(() => Math.random() - 0.5);
     const slots = Math.ceil(perSubject * 1.2);
-    for (let i = 0; i < slots; i++) {
-      const topic = shuffledTopics[i % shuffledTopics.length]!;
+    const allocatedTopics = distributeTopicSlots(topics, slots);
+    for (const topic of allocatedTopics) {
       overPlan.push({
         subject,
         topic,
@@ -430,17 +483,16 @@ export async function getQuestionBatch(
     throw new Error('Could not generate any questions. Check your API keys and try again.');
   }
 
-  // ── NOTE: Mock exam questions go through the AI path above. ─────────────────
-  // ── Practice questions use getPracticeQuestionBatch (no DeepSeek). ──────────
-
   // Cap diagrams to 1 per 5 questions (5q→1, 10q→2, 20q→4, 30q→6)
   const targetDiagrams = Math.floor(results.length / 5);
   const withDiagrams = results.filter((q) => q.diagram !== null);
+  let finalQuestions = results;
   if (withDiagrams.length > targetDiagrams) {
-    const shuffled = [...withDiagrams].sort(() => Math.random() - 0.5);
+    const shuffled = fisherYatesShuffle([...withDiagrams]);
     const stripSet = new Set(shuffled.slice(targetDiagrams).map((q) => q.id));
-    return results.map((q) => (stripSet.has(q.id) ? { ...q, diagram: null } : q));
+    finalQuestions = results.map((q) => (stripSet.has(q.id) ? { ...q, diagram: null } : q));
   }
 
-  return results;
+  // Independently shuffle questions for this student
+  return fisherYatesShuffle(finalQuestions);
 }

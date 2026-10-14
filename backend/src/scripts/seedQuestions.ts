@@ -1,4 +1,4 @@
-﻿/**
+/**
  * seedQuestions.ts — Idempotent seeder for master_questions.json
  *
  * Reads the pre-generated question bank and upserts every question into the
@@ -46,28 +46,42 @@ async function seed(filePath: string): Promise<void> {
   }
 
   const raw = fs.readFileSync(filePath, 'utf8');
-  const bank = JSON.parse(raw) as QuestionBank;
-  const questions = bank.questions ?? [];
+  const bank = JSON.parse(raw) as QuestionBank | RawQuestion[];
+  const questions = Array.isArray(bank) ? bank : (bank.questions ?? []);
 
   if (questions.length === 0) {
     console.log('[seed] No questions found in file. Exiting.');
     return;
   }
 
-  console.log(`[seed] Found ${questions.length} questions. Starting upsert...`);
+  console.log(`[seed] Checking existing database records...`);
+  const existingRows = await prisma.question.findMany({ select: { id: true } });
+  const existingIdSet = new Set(existingRows.map((r) => r.id));
+  console.log(`[seed] Database currently contains: ${existingIdSet.size} questions.`);
 
+  const newQuestions = questions.filter((q) => !existingIdSet.has(q.id));
+  const skippedCount = questions.length - newQuestions.length;
+
+  console.log(`[seed] Total questions in JSON:  ${questions.length}`);
+  console.log(`[seed] Already in DB (untouched): ${skippedCount}`);
+  console.log(`[seed] New to be inserted:        ${newQuestions.length}`);
+
+  if (newQuestions.length === 0) {
+    console.log(`\n[seed] ✅ All ${questions.length} questions already exist in database. Existing records left untouched.`);
+    return;
+  }
+
+  console.log(`[seed] Starting insertion of ${newQuestions.length} new questions...`);
   const now = new Date();
   let processed = 0;
 
-  for (let i = 0; i < questions.length; i += BATCH_SIZE) {
-    const batch = questions.slice(i, i + BATCH_SIZE);
+  for (let i = 0; i < newQuestions.length; i += BATCH_SIZE) {
+    const batch = newQuestions.slice(i, i + BATCH_SIZE);
 
     await prisma.$transaction(
       batch.map((q) =>
-        prisma.question.upsert({
-          where: { id: q.id },
-          update: {},  // already exists — leave it untouched (idempotent)
-          create: {
+        prisma.question.create({
+          data: {
             id: q.id,
             subject: q.subject,
             topic: q.topic,
@@ -82,17 +96,21 @@ async function seed(filePath: string): Promise<void> {
               ? (JSON.parse(JSON.stringify(q.diagram)) as object)
               : undefined,
             generatedAt: now,
-            validatedAt: now,  // pre-validated by gatekeeper
+            validatedAt: now,  // pre-validated
           },
         })
       )
     );
 
     processed += batch.length;
-    console.log(`[seed] Progress: ${processed} / ${questions.length}`);
+    console.log(`[seed] Insert progress: ${processed} / ${newQuestions.length}`);
   }
 
-  console.log(`\n[seed] ✅ Seeding complete — ${processed} questions upserted.`);
+  const finalTotal = await prisma.question.count();
+  console.log(`\n[seed] ✅ Seeding complete:`);
+  console.log(`       Untouched (existing): ${skippedCount}`);
+  console.log(`       Newly inserted:       ${processed}`);
+  console.log(`       Total now in DB:      ${finalTotal}`);
 }
 
 const filePath =
