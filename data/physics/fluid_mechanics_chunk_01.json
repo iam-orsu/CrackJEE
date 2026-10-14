@@ -1,0 +1,794 @@
+{
+  "questions": [
+    {
+      "id": "fm_c01_001",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A stationary vertical U-tube of uniform cross-section contains water of density $\\rho_1 = 1000\\text{ kg/m}^3$. A column of oil of density $\\rho_2 = 800\\text{ kg/m}^3$ and height $h_{\\text{oil}} = 20\\text{ cm}$ is poured into the left arm such that the liquids do not mix. The entire system is then placed inside an elevator accelerating vertically upward with an acceleration $a = 2.0\\text{ m/s}^2$. Taking $g = 10\\text{ m/s}^2$, what is the difference in levels $\\Delta h$ between the upper free surfaces of oil and water in the two arms?",
+      "options": [
+        "A) $4.0\\text{ cm}$",
+        "B) $4.8\\text{ cm}$",
+        "C) $16.0\\text{ cm}$",
+        "D) $2.4\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "In an elevator accelerating upward with acceleration $a$, the effective acceleration due to gravity is $g_{\\text{eff}} = g + a$. At the horizontal interface separating oil and water, hydrostatic pressure balance requires $\\rho_1 g_{\\text{eff}} h_{\\text{water}} = \\rho_2 g_{\\text{eff}} h_{\\text{oil}}$, which immediately yields $h_{\\text{water}} = \\frac{\\rho_2}{\\rho_1} h_{\\text{oil}} = \\frac{800}{1000} \\times 20\\text{ cm} = 16.0\\text{ cm}$. Notice that the effective gravity $g_{\\text{eff}}$ cancels out completely from both sides. The height difference between the two top free surfaces is therefore $\\Delta h = h_{\\text{oil}} - h_{\\text{water}} = 20.0\\text{ cm} - 16.0\\text{ cm} = 4.0\\text{ cm}$. The distractor $4.8\\text{ cm}$ incorrectly scales $\\Delta h$ by $(1 + a/g)$, the value $16.0\\text{ cm}$ confuses the water column height with the surface level difference, and $2.4\\text{ cm}$ incorrectly applies the density ratio."
+    },
+    {
+      "id": "fm_c01_002",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A solid composite cylinder of radius $r$ consists of two equal-height coaxial cylinders joined end-to-end, each of height $h = 10\\text{ cm}$. The upper cylinder has density $\\rho_1 = 600\\text{ kg/m}^3$ and the lower cylinder has density $\\rho_2 = 900\\text{ kg/m}^3$. The composite cylinder is placed in a liquid of density $\\rho_L = 1200\\text{ kg/m}^3$ and floats with its axis vertical. Find the depth of the lower base of the cylinder below the liquid surface.",
+      "options": [
+        "A) $10.0\\text{ cm}$",
+        "B) $12.5\\text{ cm}$",
+        "C) $7.5\\text{ cm}$",
+        "D) $15.0\\text{ cm}$"
+      ],
+      "answer": "B",
+      "explanation": "Let $A = \\pi r^2$ be the cross-sectional area of the cylinder. The total mass of the composite cylinder is $M = A h \\rho_1 + A h \\rho_2 = A h (\\rho_1 + \\rho_2) = A(0.10)(600 + 900) = 150 A\\text{ kg}$. Let $H_{\\text{sub}}$ be the total submerged depth from the liquid surface down to the lower base. Since the average density of the cylinder is $\\rho_{\\text{avg}} = \\frac{600 + 900}{2} = 750\\text{ kg/m}^3 < 1200\\text{ kg/m}^3$, the body floats. By Archimedes' principle, the buoyant force equals the total weight: $\\rho_L A H_{\\text{sub}} g = M g = A h (\\rho_1 + \\rho_2) g$. Solving for $H_{\\text{sub}}$ yields $H_{\\text{sub}} = \\frac{\\rho_1 + \\rho_2}{\\rho_L} h = \\frac{1500}{1200} \\times 10\\text{ cm} = 12.5\\text{ cm}$. Since $H_{\\text{sub}} = 12.5\\text{ cm} > 10\\text{ cm}$, the entire lower cylinder ($10\\text{ cm}$) and $2.5\\text{ cm}$ of the upper cylinder are submerged. The distractor $10.0\\text{ cm}$ assumes only the lower cylinder is submerged, $7.5\\text{ cm}$ incorrectly uses only the lower half density, and $15.0\\text{ cm}$ divides by the arithmetic mean density."
+    },
+    {
+      "id": "fm_c01_003",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A cylindrical container of cross-sectional area $A$ has a circular discharge hole of area $a$ at its bottom such that the area ratio is $\\frac{a}{A} = \\frac{3}{5}$. The container is continuously supplied with water so that the water level remains stationary at a constant height $h = 0.8\\text{ m}$ above the hole. Taking $g = 10\\text{ m/s}^2$ and assuming ideal streamline flow, what is the exact speed of efflux of water from the hole?",
+      "options": [
+        "A) $3.2\\text{ m/s}$",
+        "B) $4.0\\text{ m/s}$",
+        "C) $5.0\\text{ m/s}$",
+        "D) $6.25\\text{ m/s}$"
+      ],
+      "answer": "C",
+      "explanation": "Let $v_1$ be the downward speed of the water surface at the top and $v_2$ be the efflux speed at the bottom hole. Applying the equation of continuity gives $A v_1 = a v_2$, which implies $v_1 = \\frac{a}{A} v_2 = \\frac{3}{5} v_2$. Applying Bernoulli's equation between the top free surface and the bottom exit orifice yields $P_0 + \\rho g h + \\frac{1}{2}\\rho v_1^2 = P_0 + \\frac{1}{2}\\rho v_2^2$. Substituting $v_1 = \\frac{3}{5} v_2$ into Bernoulli's equation gives $\\rho g h = \\frac{1}{2}\\rho v_2^2 \\left[ 1 - \\left(\\frac{a}{A}\\right)^2 \\right]$. Solving for $v_2$, we obtain $v_2 = \\sqrt{\\frac{2gh}{1 - (a/A)^2}} = \\sqrt{\\frac{2 \\times 10 \\times 0.8}{1 - 9/25}} = \\sqrt{\\frac{16}{16/25}} = \\sqrt{25} = 5.0\\text{ m/s}$. The distractor $4.0\\text{ m/s}$ represents Torricelli's approximation $\\sqrt{2gh}$ which erroneously assumes $a/A \\ll 1$, $3.2\\text{ m/s}$ erroneously multiplies by $(1 - a^2/A^2)$, and $6.25\\text{ m/s}$ squares the area ratio improperly."
+    },
+    {
+      "id": "fm_c01_004",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A hydraulic press contains an incompressible oil of density $\\rho = 800\\text{ kg/m}^3$. The smaller piston has a cross-sectional area $A_1 = 20\\text{ cm}^2$ and mass $m_1 = 4.0\\text{ kg}$, while the larger piston has an area $A_2 = 400\\text{ cm}^2$ and supports a vehicle such that the total mass of the piston and vehicle is $M = 1200\\text{ kg}$. Taking $g = 10\\text{ m/s}^2$, what external downward force $F$ must be applied to the smaller piston so that both pistons remain at the exact same horizontal level?",
+      "options": [
+        "A) $600\\text{ N}$",
+        "B) $640\\text{ N}$",
+        "C) $520\\text{ N}$",
+        "D) $560\\text{ N}$"
+      ],
+      "answer": "D",
+      "explanation": "When both pistons are at the same horizontal level, the hydrostatic pressure in the fluid just below each piston must be identical: $P_1 = P_2$. The absolute pressure below the smaller piston is $P_1 = P_0 + \\frac{m_1 g + F}{A_1}$, and the absolute pressure below the larger piston is $P_2 = P_0 + \\frac{M g}{A_2}$. Equating the two pressures yields $\\frac{m_1 g + F}{A_1} = \\frac{M g}{A_2}$. Substituting the given numerical values: $\\frac{4.0 \\times 10 + F}{20 \\times 10^{-4}} = \\frac{1200 \\times 10}{400 \\times 10^{-4}} = \\frac{12000}{0.04} = 3.0 \\times 10^5\\text{ Pa}$. Multiplying both sides by $A_1 = 20 \\times 10^{-4}\\text{ m}^2$ gives $40 + F = 600\\text{ N}$, which yields $F = 600 - 40 = 560\\text{ N}$. The distractor $600\\text{ N}$ neglects the weight of the smaller piston, $640\\text{ N}$ incorrectly adds the weight of the smaller piston instead of subtracting it, and $520\\text{ N}$ doubles the piston weight deduction."
+    },
+    {
+      "id": "fm_c01_005",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A solid metal cube of side $10\\text{ cm}$ and density $\\rho_s = 2500\\text{ kg/m}^3$ is completely immersed in water of density $\\rho_w = 1000\\text{ kg/m}^3$ inside a large tank. The cube is suspended from a vertical ideal spring of stiffness $k = 1200\\text{ N/m}$ attached to the ceiling of an elevator. When the elevator accelerates vertically upward at $a = 2.0\\text{ m/s}^2$, find the extension of the spring in millimetres. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [],
+      "answer": "15",
+      "explanation": "The volume of the cube is $V = (0.10\\text{ m})^3 = 10^{-3}\\text{ m}^3$. In the non-inertial reference frame of the elevator accelerating upward at $a = 2.0\\text{ m/s}^2$, the effective gravitational acceleration is $g_{\\text{eff}} = g + a = 10 + 2 = 12\\text{ m/s}^2$. The effective downward gravitational force acting on the cube is $W_{\\text{eff}} = \\rho_s V g_{\\text{eff}}$, and the upward buoyant force exerted by the displaced water is $F_B = \\rho_w V g_{\\text{eff}}$. For equilibrium of the cube in the elevator frame, the upward tension from the spring balances the apparent weight: $k x = W_{\\text{eff}} - F_B = (\\rho_s - \\rho_w) V g_{\\text{eff}}$. Substituting the given values: $k x = (2500 - 1000) \\times 10^{-3} \\times 12 = 1500 \\times 10^{-3} \\times 12 = 18\\text{ N}$. Therefore, the extension of the spring is $x = \\frac{18\\text{ N}}{1200\\text{ N/m}} = 0.015\\text{ m} = 15\\text{ mm}$."
+    },
+    {
+      "id": "fm_c01_006",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A U-tube of uniform cross-section contains mercury. The two vertical arms are separated by a horizontal distance $L = 20\\text{ cm}$. The tube is rotated at a constant angular speed $\\omega$ about a vertical axis coincident with one of the vertical arms. Taking $g = 10\\text{ m/s}^2$, what is the angular speed $\\omega$ in rad/s if the difference in mercury levels between the two arms is $h = 5.0\\text{ cm}$?",
+      "options": [
+        "A) $5.0\\text{ rad/s}$",
+        "B) $10.0\\text{ rad/s}$",
+        "C) $2.5\\text{ rad/s}$",
+        "D) $7.07\\text{ rad/s}$"
+      ],
+      "answer": "A",
+      "explanation": "Let the rotation axis pass through the first vertical arm at $r = 0$, so the second arm is at $r = L$. Along the horizontal limb connecting the two arms, a fluid element of mass $dm = \\rho A dr$ at distance $r$ experiences a centripetal acceleration $\\omega^2 r$. Integrating the radial pressure gradient $\\frac{dP}{dr} = \\rho \\omega^2 r$ from $r = 0$ to $r = L$ gives $P_2 - P_1 = \\int_0^L \\rho \\omega^2 r dr = \\frac{1}{2}\\rho \\omega^2 L^2$. In hydrostatic balance, this pressure difference sustains the vertical column difference $h$: $P_2 - P_1 = \\rho g h$. Equating the two expressions yields $\\rho g h = \\frac{1}{2}\\rho \\omega^2 L^2$, which implies $\\omega = \\frac{\\sqrt{2gh}}{L}$. Substituting the given numerical values: $\\omega = \\frac{\\sqrt{2 \\times 10 \\times 0.05}}{0.20} = \\frac{\\sqrt{1.0}}{0.20} = \\frac{1}{0.20} = 5.0\\text{ rad/s}$. The distractor $10.0\\text{ rad/s}$ forgets the factor of $1/2$ in the centrifugal pressure integral, $2.5\\text{ rad/s}$ erroneously squares the length term twice, and $7.07\\text{ rad/s}$ uses $\\sqrt{gh}/L$."
+    },
+    {
+      "id": "fm_c01_007",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A vertical rectangular dam of width $W = 10\\text{ m}$ holds back water of density $\\rho = 1000\\text{ kg/m}^3$ to a depth of $H = 6.0\\text{ m}$. Taking $g = 10\\text{ m/s}^2$, what is the total horizontal hydrostatic force exerted by the water on the dam, and at what depth below the water surface does the resultant force act?",
+      "options": [
+        "A) $1.8\\text{ MN}$ at a depth of $3.0\\text{ m}$",
+        "B) $1.8\\text{ MN}$ at a depth of $4.0\\text{ m}$",
+        "C) $3.6\\text{ MN}$ at a depth of $4.0\\text{ m}$",
+        "D) $0.9\\text{ MN}$ at a depth of $2.0\\text{ m}$"
+      ],
+      "answer": "B",
+      "explanation": "The gauge pressure at any depth $y$ below the free surface is $P(y) = \\rho g y$. The hydrostatic force on a horizontal strip of height $dy$ and width $W$ is $dF = P(y) W dy = \\rho g W y dy$. Integrating from $y = 0$ to $y = H$ yields the total force: $F = \\int_0^H \\rho g W y dy = \\frac{1}{2}\\rho g W H^2 = \\frac{1}{2}(1000)(10)(10)(6.0)^2 = 1.8 \\times 10^6\\text{ N} = 1.8\\text{ MN}$. The depth of the center of pressure $y_{\\text{cp}}$ is obtained by taking torque about the surface line: $y_{\\text{cp}} = \\frac{\\int_0^H y dF}{F} = \\frac{\\int_0^H y^2 dy}{\\int_0^H y dy} = \\frac{H^3 / 3}{H^2 / 2} = \\frac{2}{3}H = \\frac{2}{3}(6.0) = 4.0\\text{ m}$. The distractor with depth $3.0\\text{ m}$ confuses the centroid depth of the area with the center of pressure, the force $3.6\\text{ MN}$ uses the maximum bottom pressure across the whole surface, and $0.9\\text{ MN}$ halves the average pressure."
+    },
+    {
+      "id": "fm_c01_008",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A uniform solid cube of edge length $L = 10\\text{ cm}$ and density $\\rho_s = 880\\text{ kg/m}^3$ floats at the boundary between oil of density $\\rho_1 = 800\\text{ kg/m}^3$ and water of density $\\rho_2 = 1000\\text{ kg/m}^3$, with its top and bottom faces horizontal. What percentage of the cube's volume is submerged in the water layer?",
+      "options": [
+        "A) $60\\%$",
+        "B) $88\\%$",
+        "C) $40\\%$",
+        "D) $48\\%$"
+      ],
+      "answer": "C",
+      "explanation": "Let $V$ be the total volume of the cube, $V_2$ be the volume submerged in the water layer, and $V_1 = V - V_2$ be the volume in the oil layer. For floating equilibrium, the downward weight of the cube equals the total buoyant force exerted by both fluids: $\\rho_s V g = \\rho_1 V_1 g + \\rho_2 V_2 g$. Dividing through by $V g$ and substituting $V_1 / V = 1 - f_2$, where $f_2 = V_2 / V$ is the fraction in water, we get $\\rho_s = \\rho_1(1 - f_2) + \\rho_2 f_2$. Rearranging terms yields $f_2 = \\frac{\\rho_s - \\rho_1}{\\rho_2 - \\rho_1}$. Substituting the given numerical densities: $f_2 = \\frac{880 - 800}{1000 - 800} = \\frac{80}{200} = 0.40 = 40\\%$. The distractor $60\\%$ is the fraction submerged in the oil layer, $88\\%$ is the relative density with respect to water, and $48\\%$ miscalculates the density differences."
+    },
+    {
+      "id": "fm_c01_009",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An open rectangular container filled with water is placed on a smooth plane inclined at an angle $\\theta = 30^\\circ$ to the horizontal. If the container is released from rest and slides freely down the incline with acceleration $a = g\\sin\\theta$, what is the angle $\\phi$ that the free surface of the liquid makes with the inclined plane?",
+      "options": [
+        "A) $30^\\circ$",
+        "B) $60^\\circ$",
+        "C) $15^\\circ$",
+        "D) $0^\\circ$"
+      ],
+      "answer": "D",
+      "explanation": "In the accelerating reference frame of the container sliding down the incline with acceleration $a = g\\sin\\theta$, a fictitious pseudo-acceleration $\\vec{a}_p = -g\\sin\\theta$ acts directed up the incline. The real gravitational acceleration has two components: $g\\sin\\theta$ parallel down the incline and $g\\cos\\theta$ perpendicular into the incline. Adding the pseudo-acceleration to the real gravity, the net effective acceleration parallel to the incline is $g_{\\text{eff},\\parallel} = g\\sin\\theta - g\\sin\\theta = 0$. The perpendicular component is $g_{\\text{eff},\\perp} = g\\cos\\theta$. Therefore, the net effective gravity $\\vec{g}_{\\text{eff}}$ is directed entirely perpendicular to the inclined plane. Since the free surface of an equilibrium liquid is always perpendicular to the net effective gravity vector, the free surface must be exactly parallel to the inclined plane, meaning $\\phi = 0^\\circ$. The distractor $30^\\circ$ incorrectly assumes the free surface remains horizontal, while $60^\\circ$ and $15^\\circ$ arise from incomplete vector component cancellations."
+    },
+    {
+      "id": "fm_c01_010",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A composite block consisting of an ice block of mass $M = 100\\text{ g}$ containing an embedded lead pellet of mass $m = 27\\text{ g}$ and density $\\rho_m = 9.0\\text{ g/cm}^3$ floats completely in a beaker of water of density $\\rho_w = 1.0\\text{ g/cm}^3$. By how many $\\text{cm}^3$ does the total volume of water displaced decrease after the ice melts completely?",
+      "options": [],
+      "answer": "24",
+      "explanation": "Initially, the composite block of total mass $(M + m)$ floats in equilibrium. By Archimedes' principle, the initial volume of water displaced is $V_{\\text{disp, initial}} = \\frac{M + m}{\\rho_w} = \\frac{100 + 27}{1.0} = 127\\text{ cm}^3$. When the ice melts completely, it turns into liquid water of identical mass $M$, which occupies a volume $V_{\\text{melted}} = \\frac{M}{\\rho_w} = \\frac{100}{1.0} = 100\\text{ cm}^3$. The lead pellet sinks to the bottom because $\\rho_m > \\rho_w$, so it displaces a volume equal to its own physical volume: $V_{\\text{lead}} = \\frac{m}{\\rho_m} = \\frac{27}{9.0} = 3\\text{ cm}^3$. The final total submerged volume contributing to the liquid level is $V_{\\text{final}} = V_{\\text{melted}} + V_{\\text{lead}} = 100 + 3 = 103\\text{ cm}^3$. Therefore, the decrease in the displaced liquid volume is $\\Delta V = V_{\\text{disp, initial}} - V_{\\text{final}} = 127 - 103 = 24\\text{ cm}^3$."
+    },
+    {
+      "id": "fm_c01_011",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A solid glass sphere floats in a liquid at $0^\\circ\\text{C}$ with $10\\%$ of its volume projecting above the liquid surface. The coefficient of volume expansion of the liquid is $\\gamma_L = 1.20 \\times 10^{-3}\\text{ K}^{-1}$, and the coefficient of volume expansion of the glass sphere is $\\gamma_s = 8.0 \\times 10^{-5}\\text{ K}^{-1}$. At what temperature in $^\\circ\\text{C}$ will the glass sphere just begin to sink completely?",
+      "options": [
+        "A) $100^\\circ\\text{C}$",
+        "B) $83.3^\\circ\\text{C}$",
+        "C) $120^\\circ\\text{C}$",
+        "D) $50^\\circ\\text{C}$"
+      ],
+      "answer": "A",
+      "explanation": "At $0^\\circ\\text{C}$, the sphere floats with $90\\%$ of its volume submerged: $\\frac{V_{\\text{sub}}}{V_0} = 0.90$. By Archimedes' principle, $\\rho_s(0) V_0 g = \\rho_L(0) (0.90 V_0) g$, which implies $\\frac{\\rho_s(0)}{\\rho_L(0)} = 0.90 = \\frac{9}{10}$. At temperature $T$, the densities vary as $\\rho_s(T) = \\frac{\\rho_s(0)}{1 + \\gamma_s T}$ and $\\rho_L(T) = \\frac{\\rho_L(0)}{1 + \\gamma_L T}$. The sphere just sinks completely when its density equals that of the liquid: $\\rho_s(T) = \\rho_L(T)$. Substituting the temperature expressions yields $\\frac{\\rho_s(0)}{1 + \\gamma_s T} = \\frac{\\rho_L(0)}{1 + \\gamma_L T} \\implies \\frac{1 + \\gamma_L T}{1 + \\gamma_s T} = \\frac{\\rho_L(0)}{\\rho_s(0)} = \\frac{10}{9}$. Cross-multiplying gives $9(1 + \\gamma_L T) = 10(1 + \\gamma_s T) \\implies 9\\gamma_L T - 10\\gamma_s T = 1$. Substituting $\\gamma_L = 1.20 \\times 10^{-3}\\text{ K}^{-1}$ and $\\gamma_s = 8.0 \\times 10^{-5}\\text{ K}^{-1}$ gives $[9(1.20 \\times 10^{-3}) - 10(0.08 \\times 10^{-3})] T = (10.8 - 0.8) \\times 10^{-3} T = 10.0 \\times 10^{-3} T = 1$. Solving yields $T = \\frac{1}{10^{-2}} = 100^\\circ\\text{C}$. The distractor $83.3^\\circ\\text{C}$ neglects the thermal expansion of the glass sphere, $120^\\circ\\text{C}$ swaps the density ratio, and $50^\\circ\\text{C}$ uses linear expansion coefficients."
+    },
+    {
+      "id": "fm_c01_012",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A cylindrical beaker of internal cross-sectional area $A = 200\\text{ cm}^2$ contains water. A wooden block of mass $m = 400\\text{ g}$ floats in the water with a lead pellet of mass $m_p = 100\\text{ g}$ and density $\\rho_p = 5.0\\text{ g/cm}^3$ resting on top of it. If the lead pellet is removed from the block and dropped directly into the water so that it sinks to the bottom, what is the change in the water level of the beaker?",
+      "options": [
+        "A) Increases by $4.0\\text{ mm}$",
+        "B) Decreases by $4.0\\text{ mm}$",
+        "C) Decreases by $5.0\\text{ mm}$",
+        "D) Remains completely unchanged"
+      ],
+      "answer": "B",
+      "explanation": "Initially, both the block and the pellet float as a combined system of total mass $m + m_p = 500\\text{ g}$. The volume of water displaced initially is $V_1 = \\frac{m + m_p}{\\rho_w} = \\frac{500\\text{ g}}{1.0\\text{ g/cm}^3} = 500\\text{ cm}^3$. After the pellet is dropped into the water, the wooden block floats alone, displacing $V_{\\text{wood}} = \\frac{m}{\\rho_w} = \\frac{400}{1.0} = 400\\text{ cm}^3$. The lead pellet sinks to the bottom, displacing only its own physical volume: $V_{\\text{pellet}} = \\frac{m_p}{\\rho_p} = \\frac{100\\text{ g}}{5.0\\text{ g/cm}^3} = 20\\text{ cm}^3$. The final total submerged volume is $V_2 = V_{\\text{wood}} + V_{\\text{pellet}} = 400 + 20 = 420\\text{ cm}^3$. The change in displaced volume is $\\Delta V = V_1 - V_2 = 500 - 420 = 80\\text{ cm}^3$ (a net decrease). Since the beaker has cross-sectional area $A = 200\\text{ cm}^2$, the water level decreases by $\\Delta h = \\frac{\\Delta V}{A} = \\frac{80\\text{ cm}^3}{200\\text{ cm}^2} = 0.40\\text{ cm} = 4.0\\text{ mm}$. The distractor claiming an increase by $4.0\\text{ mm}$ reverses the volume difference, $5.0\\text{ mm}$ neglects the volume of the submerged pellet, and 'remains unchanged' incorrectly assumes floating and sinking displace identical volumes."
+    },
+    {
+      "id": "fm_c01_013",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A solid metal block suspended from a spring balance reads $60\\text{ N}$ in air. When completely immersed in water inside a beaker resting on the floor of an elevator at rest, the spring balance reads $40\\text{ N}$. If the elevator now accelerates vertically upward at $a = 2.5\\text{ m/s}^2$, what is the new reading of the spring balance? (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $40\\text{ N}$",
+        "B) $65\\text{ N}$",
+        "C) $50\\text{ N}$",
+        "D) $55\\text{ N}$"
+      ],
+      "answer": "C",
+      "explanation": "At rest, the true weight of the block is $W = mg = 60\\text{ N}$, giving a mass $m = 6.0\\text{ kg}$. The apparent weight when immersed at rest is $T_1 = mg - F_B = 40\\text{ N}$, which implies that the buoyant force at rest is $F_B = 60 - 40 = 20\\text{ N} = \\rho_w V g$. When the elevator accelerates upward at $a = 2.5\\text{ m/s}^2$, the effective gravitational acceleration becomes $g_{\\text{eff}} = g + a = 10 + 2.5 = 12.5\\text{ m/s}^2 = 1.25 g$. In the accelerated frame, both the effective weight and the buoyant force scale proportionally by the factor $g_{\\text{eff}} / g = 1.25$: $W_{\\text{eff}} = m g_{\\text{eff}} = 1.25 \\times 60 = 75\\text{ N}$, and $F_B' = \\rho_w V g_{\\text{eff}} = 1.25 \\times 20 = 25\\text{ N}$. Therefore, the new spring balance reading is $T_2 = W_{\\text{eff}} - F_B' = 75 - 25 = 50\\text{ N}$. The distractor $40\\text{ N}$ incorrectly presumes the balance reading is independent of acceleration, $65\\text{ N}$ scales only the weight while keeping buoyancy constant, and $55\\text{ N}$ miscalculates the effective scale factor."
+    },
+    {
+      "id": "fm_c01_014",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A conical vessel with a flat circular base of area $A = 0.04\\text{ m}^2$ and height $H = 0.50\\text{ m}$ is filled to the brim with water of density $\\rho = 1000\\text{ kg/m}^3$. The total mass of water contained inside the vessel is $M = 6.0\\text{ kg}$. Taking $g = 10\\text{ m/s}^2$, what is the downward hydrostatic force exerted by the water on the flat base, and what is the net vertical force exerted by the slanted side walls on the water?",
+      "options": [
+        "A) $60\\text{ N}$ on the base, and $0\\text{ N}$ on the side walls",
+        "B) $200\\text{ N}$ on the base, and $60\\text{ N}$ upward on the side walls",
+        "C) $60\\text{ N}$ on the base, and $140\\text{ N}$ downward on the side walls",
+        "D) $200\\text{ N}$ on the base, and $140\\text{ N}$ downward on the water"
+      ],
+      "answer": "D",
+      "explanation": "The gauge pressure at the flat bottom of the vessel depends solely on the liquid depth $H$: $P_{\\text{base}} = \\rho g H = 1000 \\times 10 \\times 0.50 = 5000\\text{ Pa}$. The downward hydrostatic force exerted on the base is $F_{\\text{base}} = P_{\\text{base}} A = 5000 \\times 0.04 = 200\\text{ N}$. The total downward gravitational force on the water is $W = M g = 6.0 \\times 10 = 60\\text{ N}$. For static vertical equilibrium of the water volume, the upward normal reaction from the base must balance the downward gravity and the vertical force component from the walls: $N_{\\text{base}} - W - F_{\\text{walls}} = 0$, where $N_{\\text{base}} = F_{\\text{base}} = 200\\text{ N}$. Solving yields $F_{\\text{walls}} = N_{\\text{base}} - W = 200 - 60 = 140\\text{ N}$ acting downward on the water. By Newton's third law, the water exerts an upward thrust of $140\\text{ N}$ on the slanted walls. The distractor claiming $60\\text{ N}$ on the base confuses total liquid weight with bottom hydrostatic force, while other options confuse normal force reaction directions."
+    },
+    {
+      "id": "fm_c01_015",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A uniform thin wooden rod of total length $L = 20\\text{ cm}$ and relative density $d = 0.64$ is freely hinged at one end to the horizontal bottom of a water tank. The rod rests in static equilibrium inclined at an angle $\\theta = 60^\\circ$ to the vertical, with its upper portion protruding above the water surface. Find the depth of the water in the tank in centimetres.",
+      "options": [],
+      "answer": "8",
+      "explanation": "Let $A$ be the uniform cross-sectional area of the rod, and let $l$ be the length of the submerged segment of the rod. The total mass of the rod is $M = A L \\rho_{\\text{wood}}$, and its weight acts at its midpoint, distance $L/2$ from the hinge: $W = A L \\rho_{\\text{wood}} g$. The buoyant force acts at the midpoint of the submerged portion, distance $l/2$ from the hinge: $F_B = A l \\rho_{\\text{water}} g$. For rotational equilibrium about the hinge: $\\sum \\tau_{\\text{hinge}} = 0 \\implies W \\left(\\frac{L}{2}\\sin\\theta\\right) = F_B \\left(\\frac{l}{2}\\sin\\theta\\right)$. Cancelling $\\frac{1}{2} A g \\sin\\theta$ from both sides yields $\\rho_{\\text{wood}} L^2 = \\rho_{\\text{water}} l^2$, which implies $l = L \\sqrt{\\frac{\\rho_{\\text{wood}}}{\\rho_{\\text{water}}}} = L \\sqrt{d}$. Substituting $L = 20\\text{ cm}$ and $d = 0.64$ gives $l = 20 \\times \\sqrt{0.64} = 20 \\times 0.8 = 16\\text{ cm}$. The depth of the water is the vertical projection of the submerged segment: $H = l \\cos\\theta = 16 \\times \\cos 60^\\circ = 16 \\times 0.5 = 8\\text{ cm}$."
+    },
+    {
+      "id": "fm_c01_016",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A large cylindrical tank filled with water to a depth $H = 4.0\\text{ m}$ rests on top of a rigid horizontal table of height $h = 1.0\\text{ m}$. A small orifice is punched in the vertical side wall of the tank at a depth $y$ below the free water surface. Neglecting air resistance and viscous dissipation, what depth $y$ maximizes the horizontal range $R$ of the escaping water jet on the ground, and what is this maximum range $R_{\\text{max}}$ measured from the base of the table?",
+      "options": [
+        "A) $y = 2.5\\text{ m}$ and $R_{\\text{max}} = 5.0\\text{ m}$",
+        "B) $y = 2.0\\text{ m}$ and $R_{\\text{max}} = 4.0\\text{ m}$",
+        "C) $y = 2.0\\text{ m}$ and $R_{\\text{max}} = 4.9\\text{ m}$",
+        "D) $y = 1.5\\text{ m}$ and $R_{\\text{max}} = 4.5\\text{ m}$"
+      ],
+      "answer": "A",
+      "explanation": "Applying Torricelli's theorem, the horizontal efflux speed of water escaping through the orifice at depth $y$ is $v = \\sqrt{2gy}$. The height of the orifice above the floor is $Y = (H - y) + h = (4.0 - y) + 1.0 = 5.0 - y$. The time taken for a fluid element to fall vertically through height $Y$ under gravity is $t = \\sqrt{\\frac{2Y}{g}} = \\sqrt{\\frac{2(H + h - y)}{g}}$. The horizontal range on the ground is given by $R = v t = \\sqrt{2gy} \\sqrt{\\frac{2(H + h - y)}{g}} = 2\\sqrt{y(H + h - y)}$. Maximizing the quadratic product $f(y) = y(H + h - y)$ by setting $\\frac{df}{dy} = H + h - 2y = 0$ yields $y = \\frac{H + h}{2} = \\frac{4.0 + 1.0}{2} = 2.5\\text{ m}$. Substituting this optimal depth gives the maximum horizontal range: $R_{\\text{max}} = 2\\sqrt{2.5(5.0 - 2.5)} = 2\\sqrt{2.5^2} = 5.0\\text{ m}$. The distractor with $y = 2.0\\text{ m}$ and $R_{\\text{max}} = 4.0\\text{ m}$ neglects the height of the supporting table, while other options use suboptimal depths."
+    },
+    {
+      "id": "fm_c01_017",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A small spherical lead pellet of radius $r = 1.5\\text{ mm}$ and density $\\rho_s = 7900\\text{ kg/m}^3$ falls vertically through a tall column of glycerin of density $\\rho_l = 1600\\text{ kg/m}^3$ and coefficient of viscosity $\\eta = 0.70\\text{ Pa}\\cdot\\text{s}$. Taking $g = 10\\text{ m/s}^2$ and assuming laminar flow around the sphere, what is the terminal velocity of the pellet in $\\text{m/s}$?",
+      "options": [
+        "A) $0.056\\text{ m/s}$",
+        "B) $0.045\\text{ m/s}$",
+        "C) $0.0225\\text{ m/s}$",
+        "D) $0.090\\text{ m/s}$"
+      ],
+      "answer": "B",
+      "explanation": "At terminal velocity $v_t$, the downward gravitational force is precisely balanced by the sum of the upward buoyant force and the Stokes viscous drag force: $W = F_B + F_v$. Expressing these forces: $\\frac{4}{3}\\pi r^3 \\rho_s g = \\frac{4}{3}\\pi r^3 \\rho_l g + 6\\pi \\eta r v_t$. Rearranging and solving for $v_t$ yields the classical Stokes formula: $v_t = \\frac{2}{9}\\frac{r^2 (\\rho_s - \\rho_l) g}{\\eta}$. Substituting the given numerical parameters: $r = 1.5 \\times 10^{-3}\\text{ m} \\implies r^2 = 2.25 \\times 10^{-6}\\text{ m}^2$, $\\rho_s - \\rho_l = 7900 - 1600 = 6300\\text{ kg/m}^3$, $\\eta = 0.70\\text{ Pa}\\cdot\\text{s}$, and $g = 10\\text{ m/s}^2$. Therefore, $v_t = \\frac{2}{9} \\times \\frac{(2.25 \\times 10^{-6}) \\times 6300 \\times 10}{0.70} = \\frac{2}{9} \\times \\frac{0.14175}{0.70} = \\frac{2}{9} \\times 0.2025 = 0.045\\text{ m/s}$. The distractor $0.056\\text{ m/s}$ completely forgets the buoyant force by setting $\\rho_l = 0$, $0.0225\\text{ m/s}$ omits the factor of $2$ in the numerator, and $0.090\\text{ m/s}$ uses the diameter instead of the radius."
+    },
+    {
+      "id": "fm_c01_018",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two spherical soap bubbles of radii $r_1 = 3.0\\text{ cm}$ and $r_2 = 4.0\\text{ cm}$ coalesce isothermally in an evacuated chamber (in vacuum) to form a single spherical soap bubble of radius $R$. Assuming the surface tension $T$ of the soap film remains constant, what is the radius $R$ of the newly formed bubble?",
+      "options": [
+        "A) $7.0\\text{ cm}$",
+        "B) $4.5\\text{ cm}$",
+        "C) $5.0\\text{ cm}$",
+        "D) $3.5\\text{ cm}$"
+      ],
+      "answer": "C",
+      "explanation": "Inside a vacuum where external atmospheric pressure is zero, the absolute pressure inside a soap bubble of radius $r$ is solely due to surface tension: $P = \\frac{4T}{r}$. Assuming isothermal conditions ($T_e = \\text{constant}$), the ideal gas law gives $P V = n R_u T_e$, meaning the number of moles $n$ of trapped air is proportional to the product $P V$. For a spherical bubble of radius $r$, the product is $P V = \\left(\\frac{4T}{r}\\right)\\left(\\frac{4}{3}\\pi r^3\\right) = \\frac{16\\pi T}{3} r^2$. By conservation of the total number of gas molecules during coalescence ($n_1 + n_2 = n_{\\text{final}}$), we have $P_1 V_1 + P_2 V_2 = P_f V_f$, which directly implies $\\frac{16\\pi T}{3} r_1^2 + \\frac{16\\pi T}{3} r_2^2 = \\frac{16\\pi T}{3} R^2$. Cancelling common constants yields $R^2 = r_1^2 + r_2^2$. Substituting the values: $R = \\sqrt{3.0^2 + 4.0^2} = \\sqrt{9 + 16} = 5.0\\text{ cm}$. The distractor $7.0\\text{ cm}$ simply adds the two radii linearly, $4.5\\text{ cm}$ incorrectly assumes conservation of geometric volume ($r_1^3 + r_2^3 = R^3$), and $3.5\\text{ cm}$ averages the radii."
+    },
+    {
+      "id": "fm_c01_019",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A siphon tube of uniform circular cross-section is used to empty water of density $\\rho = 1000\\text{ kg/m}^3$ from a large open reservoir. The highest point (summit) of the siphon is at a height $h_1 = 1.8\\text{ m}$ above the reservoir water surface, while the discharge outlet is located at a depth $h_2 = 3.2\\text{ m}$ below the reservoir water surface. The atmospheric pressure is $P_0 = 1.0 \\times 10^5\\text{ Pa}$, and $g = 10\\text{ m/s}^2$. What is the speed of efflux at the outlet and the absolute pressure at the summit?",
+      "options": [
+        "A) $v = 8.0\\text{ m/s}$ and $P = 8.2 \\times 10^4\\text{ Pa}$",
+        "B) $v = 10.0\\text{ m/s}$ and $P = 5.0 \\times 10^4\\text{ Pa}$",
+        "C) $v = 8.0\\text{ m/s}$ and $P = 3.2 \\times 10^4\\text{ Pa}$",
+        "D) $v = 8.0\\text{ m/s}$ and $P = 5.0 \\times 10^4\\text{ Pa}$"
+      ],
+      "answer": "D",
+      "explanation": "Applying Bernoulli's equation between the reservoir surface (where pressure is $P_0$ and speed is negligible) and the outlet (where pressure is $P_0$ at depth $h_2$ below the surface): $P_0 + \\rho g h_2 = P_0 + \\frac{1}{2}\\rho v^2$. Solving yields the efflux speed: $v = \\sqrt{2 g h_2} = \\sqrt{2 \\times 10 \\times 3.2} = \\sqrt{64} = 8.0\\text{ m/s}$. By continuity for a uniform tube, the flow speed at the summit is also $v = 8.0\\text{ m/s}$. Applying Bernoulli's equation between the reservoir surface and the summit at elevation $h_1$: $P_0 = P_{\\text{summit}} + \\rho g h_1 + \\frac{1}{2}\\rho v^2$. Solving for $P_{\\text{summit}}$ gives $P_{\\text{summit}} = P_0 - \\rho g h_1 - \\frac{1}{2}\\rho v^2 = 1.0 \\times 10^5 - (1000)(10)(1.8) - \\frac{1}{2}(1000)(64) = 100000 - 18000 - 32000 = 50000\\text{ Pa} = 5.0 \\times 10^4\\text{ Pa}$. The distractor with $P = 8.2 \\times 10^4\\text{ Pa}$ completely forgets the dynamic pressure $\\frac{1}{2}\\rho v^2$ at the summit, while $v = 10.0\\text{ m/s}$ uses the total height $(h_1 + h_2)$ for efflux velocity."
+    },
+    {
+      "id": "fm_c01_020",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A large vertical cylindrical water tank of uniform cross-sectional area $A = 0.10\\text{ m}^2$ has a small sharp-edged discharge orifice of area $a = 4.0\\text{ cm}^2 = 4.0 \\times 10^{-4}\\text{ m}^2$ at its bottom. Initially, the water depth is $H_1 = 1.8\\text{ m}$. Taking $g = 10\\text{ m/s}^2$, how many seconds does it take for the water level in the tank to drop to $H_2 = 0.20\\text{ m}$?",
+      "options": [],
+      "answer": "100",
+      "explanation": "At any instantaneous water height $h$, the efflux speed through the bottom orifice is $v = \\sqrt{2gh}$ by Torricelli's law. By the principle of conservation of mass, the rate of decrease of water volume in the tank equals the volume flow rate discharged through the orifice: $-A \\frac{dh}{dt} = a \\sqrt{2gh}$. Separating the variables gives $dt = -\\frac{A}{a\\sqrt{2g}} h^{-1/2} dh$. Integrating both sides from $t = 0$ to $t$ as the water level drops from $H_1$ to $H_2$: $t = \\frac{A}{a\\sqrt{2g}} \\int_{H_2}^{H_1} h^{-1/2} dh = \\frac{2A}{a\\sqrt{2g}} \\left(\\sqrt{H_1} - \\sqrt{H_2}\\right)$. Notice that $\\sqrt{1.8} - \\sqrt{0.20} = \\sqrt{0.20}(\\sqrt{9} - 1) = 2\\sqrt{0.20} = \\frac{2}{\\sqrt{5}}$. Furthermore, $\\sqrt{2g} = \\sqrt{20} = 2\\sqrt{5}$. Substituting these expressions: $t = \\frac{2A}{a (2\\sqrt{5})} \\times \\frac{2}{\\sqrt{5}} = \\frac{2A}{5a}$. Substituting the given numerical areas $A = 0.10\\text{ m}^2$ and $a = 4.0 \\times 10^{-4}\\text{ m}^2$: $t = \\frac{2 \\times 0.10}{5 \\times (4.0 \\times 10^{-4})} = \\frac{0.20}{2.0 \\times 10^{-3}} = 100\\text{ s}$."
+    },
+    {
+      "id": "fm_c01_021",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Water of density $\\rho_w = 1000\\text{ kg/m}^3$ flows steadily through a horizontal venturimeter. The main pipe has a cross-sectional area $A_1 = 0.020\\text{ m}^2$, while the constricted throat has an area $A_2 = 0.010\\text{ m}^2$ (so $A_1 / A_2 = 2$). An inverted U-tube differential manometer containing a lighter oil of density $\\rho_o = 700\\text{ kg/m}^3$ connects the inlet and the throat. The manometer indicates a vertical level difference of $h = 0.50\\text{ m}$ between the two oil columns. Taking $g = 10\\text{ m/s}^2$, what is the volume flow rate $Q$ of water through the pipe in litres per second (L/s)?",
+      "options": [
+        "A) $20\\text{ L/s}$",
+        "B) $40\\text{ L/s}$",
+        "C) $14.1\\text{ L/s}$",
+        "D) $28.3\\text{ L/s}$"
+      ],
+      "answer": "A",
+      "explanation": "For an inverted U-tube manometer with a light liquid resting above the flowing fluid, the differential pressure between inlet and throat is given by $\\Delta P = P_1 - P_2 = (\\rho_w - \\rho_o) g h = (1000 - 700) \\times 10 \\times 0.50 = 300 \\times 5 = 1500\\text{ Pa}$. By the equation of continuity, $v_2 = \\frac{A_1}{A_2} v_1 = 2 v_1$. Applying Bernoulli's equation along the horizontal streamline: $P_1 + \\frac{1}{2}\\rho_w v_1^2 = P_2 + \\frac{1}{2}\\rho_w v_2^2$, which yields $\\Delta P = \\frac{1}{2}\\rho_w (v_2^2 - v_1^2) = \\frac{1}{2}\\rho_w [(2v_1)^2 - v_1^2] = \\frac{3}{2}\\rho_w v_1^2$. Equating the two expressions: $1500 = \\frac{3}{2}(1000) v_1^2 = 1500 v_1^2$, yielding $v_1^2 = 1.0\\text{ m}^2/\\text{s}^2 \\implies v_1 = 1.0\\text{ m/s}$. The volume flow rate is $Q = A_1 v_1 = 0.020\\text{ m}^2 \\times 1.0\\text{ m/s} = 0.020\\text{ m}^3/\\text{s} = 20\\text{ L/s}$. The distractor $40\\text{ L/s}$ uses the throat velocity $v_2$ with the inlet area, $14.1\\text{ L/s}$ incorrectly omits the factor of $3$ in continuity, and $28.3\\text{ L/s}$ forgets the density difference."
+    },
+    {
+      "id": "fm_c01_022",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The surface tension of a soap solution is $T = 0.030\\text{ N/m}$. What is the total work done in blowing a spherical soap bubble from an initial radius $r_1 = 5.0\\text{ cm}$ to a final radius $r_2 = 10.0\\text{ cm}$ under isothermal conditions?",
+      "options": [
+        "A) $0.90\\pi\\text{ mJ}$",
+        "B) $1.80\\pi\\text{ mJ}$",
+        "C) $3.60\\pi\\text{ mJ}$",
+        "D) $2.40\\pi\\text{ mJ}$"
+      ],
+      "answer": "B",
+      "explanation": "A soap bubble consists of a thin spherical liquid film surrounded by air both on the inside and the outside, and therefore possesses TWO distinct free liquid-air interfaces. The total surface area of a spherical bubble of radius $r$ is $A = 2 \\times (4\\pi r^2) = 8\\pi r^2$. When the bubble expands from radius $r_1$ to radius $r_2$, the change in total surface area is $\\Delta A = 8\\pi (r_2^2 - r_1^2) = 8\\pi [(0.10)^2 - (0.05)^2] = 8\\pi (0.010 - 0.0025) = 8\\pi (0.0075) = 0.060\\pi\\text{ m}^2$. The work done against surface tension forces to create this additional surface area is $W = T \\Delta A = 0.030\\text{ N/m} \\times 0.060\\pi\\text{ m}^2 = 1.80\\pi \\times 10^{-3}\\text{ J} = 1.80\\pi\\text{ mJ}$. The distractor $0.90\\pi\\text{ mJ}$ treats the soap bubble as a single-surface liquid droplet, thereby forgetting the factor of $2$, while $3.60\\pi\\text{ mJ}$ mistakenly doubles the surface count again, and $2.40\\pi\\text{ mJ}$ miscalculates the radius difference."
+    },
+    {
+      "id": "fm_c01_023",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Water of density $\\rho = 1000\\text{ kg/m}^3$ flows steadily at a volume rate $Q = 0.050\\text{ m}^3/\\text{s}$ through a horizontal right-angled ($90^\\circ$) pipe bend of uniform cross-sectional area $A = 0.010\\text{ m}^2$. The uniform gauge pressure of the water throughout the bend is $P = 2.0 \\times 10^5\\text{ Pa}$. What is the magnitude of the net resultant force that external anchors must exert on the pipe bend to hold it securely in static equilibrium?",
+      "options": [
+        "A) $2000\\sqrt{2}\\text{ N}$",
+        "B) $250\\sqrt{2}\\text{ N}$",
+        "C) $2250\\sqrt{2}\\text{ N}$",
+        "D) $4500\\text{ N}$"
+      ],
+      "answer": "C",
+      "explanation": "The velocity of the water through the pipe is $v = \\frac{Q}{A} = \\frac{0.050}{0.010} = 5.0\\text{ m/s}$, and the mass flow rate is $\\dot{m} = \\rho Q = 1000 \\times 0.050 = 50\\text{ kg/s}$. Let the incoming water travel in the $+\\hat{i}$ direction and deflect into the $+\\hat{j}$ direction. Applying the momentum balance equation to the control volume of fluid in the bend: $\\vec{F}_{\\text{ext on fluid}} = \\dot{m}(\\vec{v}_{\\text{out}} - \\vec{v}_{\\text{in}}) = 50(5\\hat{j} - 5\\hat{i}) = -250\\hat{i} + 250\\hat{j}\\text{ N}$. The external forces acting on the fluid include the pressure thrusts at inlet ($+P A \\hat{i}$) and outlet ($-P A \\hat{j}$) plus the force exerted by the pipe walls $\\vec{F}_{w}$: $\\vec{F}_{w} + P A \\hat{i} - P A \\hat{j} = -250\\hat{i} + 250\\hat{j}$. Since $P A = (2.0 \\times 10^5)(0.010) = 2000\\text{ N}$, we get $\\vec{F}_{w} = -(2000 + 250)\\hat{i} + (2000 + 250)\\hat{j} = -2250\\hat{i} + 2250\\hat{j}\\text{ N}$. By Newton's third law, the force exerted by the fluid on the bend is $\\vec{F}_{f} = 2250\\hat{i} - 2250\\hat{j}\\text{ N}$. To keep the bend stationary, the anchor force must satisfy $\\vec{F}_{\\text{anchor}} = -\\vec{F}_{f} = -2250\\hat{i} + 2250\\hat{j}\\text{ N}$. The magnitude of this anchor force is $F = \\sqrt{2250^2 + 2250^2} = 2250\\sqrt{2}\\text{ N}$. The distractor $2000\\sqrt{2}\\text{ N}$ neglects dynamic momentum change, $250\\sqrt{2}\\text{ N}$ ignores pressure thrust, and $4500\\text{ N}$ scalar-sums the vector components."
+    },
+    {
+      "id": "fm_c01_024",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A clean glass capillary tube of internal radius $r = 0.50\\text{ mm}$ is dipped vertically into a trough of water of density $\\rho = 1000\\text{ kg/m}^3$, surface tension $T = 0.070\\text{ N/m}$, and contact angle $\\theta = 0^\\circ$. The tube is subsequently inclined at an angle of $60^\\circ$ to the vertical. Taking $g = 10\\text{ m/s}^2$, what is the length $L$ of the water column contained inside the inclined tube?",
+      "options": [
+        "A) $2.8\\text{ cm}$",
+        "B) $1.4\\text{ cm}$",
+        "C) $3.2\\text{ cm}$",
+        "D) $5.6\\text{ cm}$"
+      ],
+      "answer": "D",
+      "explanation": "The equilibrium vertical height $h$ to which water rises in a vertical capillary tube is determined by hydrostatic equilibrium balancing upward surface tension force: $h = \\frac{2T\\cos\\theta}{\\rho g r}$. Substituting the values: $h = \\frac{2 \\times 0.070 \\times 1.0}{1000 \\times 10 \\times (0.50 \\times 10^{-3})} = \\frac{0.140}{5.0} = 0.028\\text{ m} = 2.8\\text{ cm}$. When the tube is tilted at an angle $\\alpha = 60^\\circ$ to the vertical, the vertical height of the meniscus above the free water surface in the trough must remain unchanged ($h = 2.8\\text{ cm}$) because the hydrostatic pressure drop across the meniscus must equal the weight of the vertical column: $\\Delta P = \\rho g h$. The length of the liquid column measured along the slanted axis of the capillary tube is $L = \\frac{h}{\\cos\\alpha} = \\frac{2.8\\text{ cm}}{\\cos 60^\\circ} = \\frac{2.8}{0.50} = 5.6\\text{ cm}$. The distractor $2.8\\text{ cm}$ assumes the column length along the tube is unchanged, $1.4\\text{ cm}$ mistakenly multiplies by $\\cos 60^\\circ$ instead of dividing, and $3.2\\text{ cm}$ uses the sine of the inclination."
+    },
+    {
+      "id": "fm_c01_025",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Two horizontal capillary tubes of identical length $L$ but different internal radii $r_1 = 1.0\\text{ mm}$ and $r_2 = 2.0\\text{ mm}$ are connected end-to-end in series. A viscous liquid is driven in steady laminar flow through the combined tube system under a total applied pressure difference of $\\Delta P = 85\\text{ kPa}$. Determine the pressure drop across the narrower tube in $\\text{kPa}$.",
+      "options": [],
+      "answer": "80",
+      "explanation": "According to Poiseuille's law, the steady volume flow rate of a liquid of viscosity $\\eta$ through a circular tube of radius $r$ and length $L$ under a pressure difference $\\Delta P$ is $Q = \\frac{\\pi r^4 \\Delta P}{8\\eta L}$. The fluid dynamic resistance of each tube is defined by $R_f = \\frac{\\Delta P}{Q} = \\frac{8\\eta L}{\\pi r^4}$, which is inversely proportional to the fourth power of the radius: $R_f \\propto \\frac{1}{r^4}$. For the two tubes in series, the volume flow rate $Q$ passing through both tubes is identical: $Q = \\frac{\\Delta P_1}{R_1} = \\frac{\\Delta P_2}{R_2}$. The ratio of their fluid resistances is $\\frac{R_1}{R_2} = \\left(\\frac{r_2}{r_1}\\right)^4 = \\left(\\frac{2.0}{1.0}\\right)^4 = 16$. The total resistance of the series combination is $R_{\\text{total}} = R_1 + R_2 = R_1 + \\frac{1}{16}R_1 = \\frac{17}{16}R_1$. The pressure drop across the narrower tube is given by $\\Delta P_1 = \\Delta P \\left(\\frac{R_1}{R_{\\text{total}}}\\right) = \\Delta P \\left(\\frac{16}{17}\\right)$. Substituting $\\Delta P = 85\\text{ kPa}$: $\\Delta P_1 = 85 \\times \\frac{16}{17} = 5 \\times 16 = 80\\text{ kPa}$."
+    },
+    {
+      "id": "fm_c01_026",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An airplane of total mass $M = 11000\\text{ kg}$ is cruising in steady horizontal level flight at a constant altitude. The total effective wing surface area is $A = 40\\text{ m}^2$, and the density of air at this flight altitude is $\\rho = 1.25\\text{ kg/m}^3$. If the average speed of the airflow along the lower surface of the wings is $v_1 = 100\\text{ m/s}$, what must be the average airflow speed $v_2$ over the upper surface of the wings to support the weight of the airplane? (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $120\\text{ m/s}$",
+        "B) $110\\text{ m/s}$",
+        "C) $140\\text{ m/s}$",
+        "D) $125\\text{ m/s}$"
+      ],
+      "answer": "A",
+      "explanation": "For steady horizontal level flight, the upward aerodynamic lift force $L$ produced by the pressure difference across the wings must balance the airplane's weight: $L = M g = 11000 \\times 10 = 110000\\text{ N}$. The required net upward pressure difference between the lower and upper wing surfaces is $\\Delta P = P_1 - P_2 = \\frac{L}{A} = \\frac{110000}{40} = 2750\\text{ Pa}$. Applying Bernoulli's equation along streamlines passing just above and below the wing (neglecting the slight thickness difference): $P_1 + \\frac{1}{2}\\rho v_1^2 = P_2 + \\frac{1}{2}\\rho v_2^2$, which implies $\\Delta P = P_1 - P_2 = \\frac{1}{2}\\rho (v_2^2 - v_1^2)$. Substituting the values: $2750 = \\frac{1}{2}(1.25) (v_2^2 - 100^2) = 0.625 (v_2^2 - 10000)$. Solving for the squared velocity: $v_2^2 - 10000 = \\frac{2750}{0.625} = 4400$, which gives $v_2^2 = 14400\\text{ m}^2/\\text{s}^2 \\implies v_2 = 120\\text{ m/s}$. The distractor $110\\text{ m/s}$ corresponds to using a wing area of $80\\text{ m}^2$, $140\\text{ m/s}$ doubles the required lift, and $125\\text{ m/s}$ neglects the factor of $1/2$ in dynamic pressure."
+    },
+    {
+      "id": "fm_c01_027",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two spherical soap bubbles of radii $r_1 = 2.0\\text{ cm}$ and $r_2 = 4.0\\text{ cm}$ are blown at the two ends of a narrow tube fitted with a closed stopcock in air. When the stopcock is gently opened, which way does the air flow, and if the bubbles stick together sharing a common thin spherical membrane, what is the radius of curvature $R$ of this common interface?",
+      "options": [
+        "A) Air flows from the larger to the smaller bubble; common interface has radius $4.0\\text{ cm}$ concave toward the larger bubble",
+        "B) Air flows from the smaller to the larger bubble; common interface has radius $4.0\\text{ cm}$ concave toward the smaller bubble",
+        "C) Air flows from the smaller to the larger bubble; common interface has radius $2.0\\text{ cm}$ concave toward the smaller bubble",
+        "D) No air flows between the bubbles; common interface is completely flat with $R = \\infty$"
+      ],
+      "answer": "B",
+      "explanation": "The excess internal pressure inside a spherical soap bubble of radius $r$ in atmospheric pressure $P_0$ is $\\Delta P = \\frac{4T}{r}$. Because excess pressure is inversely proportional to radius, the internal pressure in the smaller bubble ($r_1 = 2.0\\text{ cm}$) is twice that in the larger bubble ($r_2 = 4.0\\text{ cm}$): $P_1 - P_0 = \\frac{4T}{r_1} > P_2 - P_0 = \\frac{4T}{r_2}$. When the stopcock is opened, air naturally flows from the region of higher pressure to lower pressure, that is, from the smaller bubble into the larger bubble. At the shared contact boundary between the two bubbles, the net excess pressure across the interface is $\\Delta P_{\\text{net}} = P_1 - P_2 = \\frac{4T}{r_1} - \\frac{4T}{r_2} = \\frac{4T}{R}$, which yields $\\frac{1}{R} = \\frac{1}{r_1} - \\frac{1}{r_2}$. Solving for $R$: $R = \\frac{r_1 r_2}{r_2 - r_1} = \\frac{2.0 \\times 4.0}{4.0 - 2.0} = 4.0\\text{ cm}$. The interface bulges into the bubble with lower pressure (the larger bubble), meaning it is concave towards the smaller bubble. The distractor claiming air flows from larger to smaller bubble incorrectly assumes larger volume means higher pressure, while the flat interface option ignores the pressure differential."
+    },
+    {
+      "id": "fm_c01_028",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Two solid spherical metal beads $A$ and $B$ are made of the exact same uniform material. When released from rest inside a deep column of a viscous liquid, bead $A$ of mass $m_A = 1.0\\text{ g}$ reaches a steady terminal velocity of $v_{t,A} = 4.0\\text{ cm/s}$. If bead $B$ has a mass $m_B = 8.0\\text{ g}$, find the terminal velocity of bead $B$ in $\\text{cm/s}$ when it falls through the same viscous liquid.",
+      "options": [],
+      "answer": "16",
+      "explanation": "Since both beads are solid spheres composed of the same material, the mass of a bead scales with its radius cubed: $m = \\frac{4}{3}\\pi r^3 \\rho_s \\propto r^3$. Therefore, the ratio of their radii is given by $\\frac{r_B}{r_A} = \\left(\\frac{m_B}{m_A}\\right)^{1/3} = \\left(\\frac{8.0\\text{ g}}{1.0\\text{ g}}\\right)^{1/3} = 2.0$. By Stokes' law and buoyancy considerations, the terminal velocity of a falling sphere of radius $r$ in a liquid of viscosity $\\eta$ is $v_t = \\frac{2}{9}\\frac{r^2 (\\rho_s - \\rho_l) g}{\\eta}$, which is directly proportional to the square of its radius: $v_t \\propto r^2$. Taking the ratio of the terminal velocities: $\\frac{v_{t,B}}{v_{t,A}} = \\left(\\frac{r_B}{r_A}\\right)^2 = (2.0)^2 = 4.0$. Therefore, the terminal velocity of bead $B$ is $v_{t,B} = 4.0 \\times v_{t,A} = 4.0 \\times 4.0\\text{ cm/s} = 16\\text{ cm/s}$."
+    },
+    {
+      "id": "fm_c01_029",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An oil of density $\\rho = 850\\text{ kg/m}^3$ and dynamic viscosity $\\eta = 0.17\\text{ Pa}\\cdot\\text{s}$ is pumped through a smooth horizontal circular pipe of diameter $D = 0.10\\text{ m}$. The critical Reynolds number marking the upper limit for laminar streamline flow in this pipe is $Re_c = 2000$. What is the maximum average flow velocity $v_c$ and the corresponding maximum volume flow rate $Q_c$ for which the flow remains strictly laminar?",
+      "options": [
+        "A) $v_c = 2.0\\text{ m/s}$ and $Q_c = 5.0\\pi\\text{ L/s}$",
+        "B) $v_c = 4.0\\text{ m/s}$ and $Q_c = 40.0\\pi\\text{ L/s}$",
+        "C) $v_c = 4.0\\text{ m/s}$ and $Q_c = 10.0\\pi\\text{ L/s}$",
+        "D) $v_c = 8.0\\text{ m/s}$ and $Q_c = 20.0\\pi\\text{ L/s}$"
+      ],
+      "answer": "C",
+      "explanation": "The Reynolds number for pipe flow is defined as $Re = \\frac{\\rho v D}{\\eta}$. Setting $Re = Re_c = 2000$, we solve for the critical flow velocity: $v_c = \\frac{Re_c \\eta}{\\rho D} = \\frac{2000 \\times 0.17}{850 \\times 0.10} = \\frac{340}{85} = 4.0\\text{ m/s}$. The cross-sectional area of the circular pipe is $A = \\frac{\\pi D^2}{4} = \\frac{\\pi (0.10)^2}{4} = \\frac{0.010\\pi}{4} = 2.5 \\times 10^{-3}\\pi\\text{ m}^2$. The corresponding maximum volume flow rate for laminar conditions is $Q_c = A v_c = (2.5 \\times 10^{-3}\\pi\\text{ m}^2) \\times 4.0\\text{ m/s} = 0.010\\pi\\text{ m}^3/\\text{s}$. Converting to litres per second ($1\\text{ m}^3 = 1000\\text{ L}$): $Q_c = 0.010\\pi \\times 1000 = 10.0\\pi\\text{ L/s}$. The distractor with $v_c = 2.0\\text{ m/s}$ uses the radius instead of diameter in Reynolds number, $Q_c = 40.0\\pi\\text{ L/s}$ omits the factor of $4$ in the circular area formula, and $v_c = 8.0\\text{ m/s}$ doubles the critical velocity."
+    },
+    {
+      "id": "fm_c01_030",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A large open water reservoir has a small nozzle pointing upward at an inclination angle $\\theta = 30^\\circ$ above the horizontal at a depth $h = 5.0\\text{ m}$ below the open water surface. Water discharges freely through the nozzle into the atmosphere. Assuming frictionless streamline flow and neglecting air resistance, what is the maximum vertical height $H_{\\text{max}}$ above the nozzle reached by the trajectory of the water jet? (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $5.0\\text{ m}$",
+        "B) $2.5\\text{ m}$",
+        "C) $3.75\\text{ m}$",
+        "D) $1.25\\text{ m}$"
+      ],
+      "answer": "D",
+      "explanation": "Applying Bernoulli's equation between the open reservoir surface and the discharge nozzle at depth $h$, the efflux speed of water exiting the nozzle is $v = \\sqrt{2gh} = \\sqrt{2 \\times 10 \\times 5.0} = 10.0\\text{ m/s}$. The discharged fluid elements behave as free projectiles launched with initial speed $v = 10.0\\text{ m/s}$ at an angle $\\theta = 30^\\circ$ to the horizontal. The vertical component of the initial velocity is $v_y = v\\sin\\theta = 10.0 \\times \\sin 30^\\circ = 5.0\\text{ m/s}$. The maximum vertical height attained above the nozzle level occurs when the vertical velocity component drops to zero: $H_{\\text{max}} = \\frac{v_y^2}{2g} = \\frac{v^2 \\sin^2\\theta}{2g}$. Substituting $v^2 = 2gh$ gives the elegant relationship $H_{\\text{max}} = h\\sin^2\\theta = 5.0 \\times (0.50)^2 = 1.25\\text{ m}$. The distractor $5.0\\text{ m}$ erroneously assumes the jet can rise back to the reservoir surface height despite the horizontal velocity component, $2.5\\text{ m}$ uses $\\sin\\theta$ linearly, and $3.75\\text{ m}$ uses $\\cos^2\\theta$."
+    },
+    {
+      "id": "fm_c01_031",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A thin uniform film of water of thickness $d = 0.050\\text{ mm} = 5.0 \\times 10^{-5}\\text{ m}$ is sandwiched between two flat circular glass plates, each of radius $R = 10.0\\text{ cm}$. The surface tension of water is $T = 0.075\\text{ N/m}$, and the contact angle between water and glass is $\\theta = 0^\\circ$. What is the normal force required to pull the two glass plates directly apart?",
+      "options": [
+        "A) $30.0\\pi\\text{ N}$",
+        "B) $15.0\\pi\\text{ N}$",
+        "C) $60.0\\pi\\text{ N}$",
+        "D) $30.0\\text{ N}$"
+      ],
+      "answer": "A",
+      "explanation": "At the boundary circumference between the plates, the water film forms a concave cylindrical meniscus. The principal radius of curvature in the vertical cross-section is $r = \\frac{d}{2\\cos\\theta} = \\frac{d}{2}$, whereas the radius in the plane of the plates is $R \\gg d$. According to the Young-Laplace equation, the pressure inside the liquid film is lower than atmospheric pressure $P_0$ by an amount $\\Delta P = \\frac{T}{r} = \\frac{2T\\cos\\theta}{d}$. Substituting the given values: $\\Delta P = \\frac{2 \\times 0.075 \\times 1.0}{5.0 \\times 10^{-5}\\text{ m}} = \\frac{0.150}{5.0 \\times 10^{-5}} = 3000\\text{ Pa}$. The total area of contact over which this underpressure acts is the circular area of the plates: $A = \\pi R^2 = \\pi (0.10\\text{ m})^2 = 0.010\\pi\\text{ m}^2$. The normal tensile force required to separate the plates must overcome this pressure deficiency: $F = \\Delta P \\times A = 3000\\text{ Pa} \\times 0.010\\pi\\text{ m}^2 = 30.0\\pi\\text{ N} \\approx 94.2\\text{ N}$. The distractor $15.0\\pi\\text{ N}$ forgets the factor of $2$ in the meniscus curvature radius, $60.0\\pi\\text{ N}$ doubles the surface count inappropriately, and $30.0\\text{ N}$ omits the factor of $\\pi$."
+    },
+    {
+      "id": "fm_c01_032",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Water of density $\\rho = 1000\\text{ kg/m}^3$ flows steadily through a horizontal pipe of varying circular cross-section. At a wider section $A$, where the static pressure is $P_A = 3.0 \\times 10^4\\text{ Pa}$, the flow speed of water is $v_A = 3.0\\text{ m/s}$. Further downstream at a constriction section $B$, the static pressure drops to $P_B = 2.2 \\times 10^4\\text{ Pa}$. Find the flow speed $v_B$ of water at section $B$ in $\\text{m/s}$.",
+      "options": [],
+      "answer": "5",
+      "explanation": "Since the pipe is horizontal, there is no change in gravitational potential energy along the streamlines: $z_A = z_B$. Applying Bernoulli's equation between sections $A$ and $B$: $P_A + \\frac{1}{2}\\rho v_A^2 = P_B + \\frac{1}{2}\\rho v_B^2$. Rearranging to solve for the velocity difference: $\\frac{1}{2}\\rho (v_B^2 - v_A^2) = P_A - P_B$. Substituting the given values: $\\frac{1}{2}(1000)(v_B^2 - 3.0^2) = (3.0 \\times 10^4) - (2.2 \\times 10^4) = 8000\\text{ Pa}$. Simplifying gives $500(v_B^2 - 9) = 8000$, which yields $v_B^2 - 9 = \\frac{8000}{500} = 16$. Solving for $v_B^2$: $v_B^2 = 16 + 9 = 25\\text{ m}^2/\\text{s}^2$, and therefore $v_B = \\sqrt{25} = 5.0\\text{ m/s}$."
+    },
+    {
+      "id": "fm_c01_033",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two clean vertical glass plates are mounted parallel to each other with a small separation gap $d = 0.40\\text{ mm}$ between their inner surfaces and are partially immersed into a basin of water of surface tension $T = 0.072\\text{ N/m}$, density $\\rho = 1000\\text{ kg/m}^3$, and contact angle $\\theta = 0^\\circ$. Taking $g = 10\\text{ m/s}^2$, what is the equilibrium vertical height $h$ to which water rises in the narrow gap between the plates?",
+      "options": [
+        "A) $7.2\\text{ cm}$",
+        "B) $3.6\\text{ cm}$",
+        "C) $1.8\\text{ cm}$",
+        "D) $5.4\\text{ cm}$"
+      ],
+      "answer": "B",
+      "explanation": "Consider a width $L$ along the parallel plates. The water makes contact with two solid plates, forming two distinct contact lines, each of length $L$. The net upward surface tension force exerted along these two contact lines is $F_{\\text{ST}} = 2 \\times (T L \\cos\\theta) = 2 T L$. The volume of the water column raised between the plates is $V = L \\cdot d \\cdot h$, and its weight is $W = \\rho V g = \\rho L d h g$. In static equilibrium, the upward surface tension force balances the weight of the elevated liquid column: $2 T L = \\rho L d h g$. Cancelling the plate width $L$ yields the capillary rise formula between parallel plates: $h = \\frac{2T\\cos\\theta}{\\rho g d}$. Substituting the numerical values: $h = \\frac{2 \\times 0.072 \\times 1.0}{1000 \\times 10 \\times (0.40 \\times 10^{-3})} = \\frac{0.144}{4.0} = 0.036\\text{ m} = 3.6\\text{ cm}$. The distractor $7.2\\text{ cm}$ mistakenly uses the circular capillary tube formula $\\frac{4T}{\\rho g d}$, $1.8\\text{ cm}$ counts only one contact line instead of two, and $5.4\\text{ cm}$ uses an incorrect geometric coefficient."
+    },
+    {
+      "id": "fm_c01_034",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A large closed cylindrical storage tank contains water of density $\\rho = 1000\\text{ kg/m}^3$ to a depth $H = 3.0\\text{ m}$. The sealed headspace above the water surface contains compressed air maintained at a constant absolute pressure $P_1 = 2.7 \\times 10^5\\text{ Pa}$. A small discharge orifice at the bottom of the tank opens directly into the atmosphere, where atmospheric pressure is $P_0 = 1.0 \\times 10^5\\text{ Pa}$. Taking $g = 10\\text{ m/s}^2$ and assuming negligible flow velocity at the large top surface, what is the efflux speed of water escaping through the orifice?",
+      "options": [
+        "A) $7.75\\text{ m/s}$",
+        "B) $18.4\\text{ m/s}$",
+        "C) $20.0\\text{ m/s}$",
+        "D) $28.3\\text{ m/s}$"
+      ],
+      "answer": "C",
+      "explanation": "Applying Bernoulli's equation between the upper water surface in the sealed tank and the discharge orifice at the bottom: $P_1 + \\rho g H + \\frac{1}{2}\\rho v_{\\text{top}}^2 = P_0 + \\frac{1}{2}\\rho v^2$. Since the surface area of the tank is very large compared to the orifice area, $v_{\\text{top}} \\approx 0$. The equation simplifies to $\\frac{1}{2}\\rho v^2 = (P_1 - P_0) + \\rho g H$. The gauge pressure of the compressed air is $P_1 - P_0 = 2.7 \\times 10^5 - 1.0 \\times 10^5 = 1.7 \\times 10^5\\text{ Pa}$, and the hydrostatic head pressure is $\\rho g H = 1000 \\times 10 \\times 3.0 = 0.30 \\times 10^5\\text{ Pa}$. The total effective pressure driving the flow is $\\Delta P_{\\text{total}} = 1.7 \\times 10^5 + 0.30 \\times 10^5 = 2.0 \\times 10^5\\text{ Pa}$. Substituting into the velocity formula gives $\\frac{1}{2}(1000) v^2 = 2.0 \\times 10^5$, which simplifies to $500 v^2 = 200000 \\implies v^2 = 400\\text{ m}^2/\\text{s}^2$, yielding $v = 20.0\\text{ m/s}$. The distractor $7.75\\text{ m/s}$ considers only the hydrostatic head $\\sqrt{2gH}$ and ignores the air pressure, $18.4\\text{ m/s}$ ignores the water depth, and $28.3\\text{ m/s}$ uses the absolute pressure $P_1$ instead of gauge pressure."
+    },
+    {
+      "id": "fm_c01_035",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Two spherical soap bubbles blown in air have radii $r_1 = 6.0\\text{ cm}$ and $r_2 = 4.0\\text{ cm}$. When they come into contact, they coalesce partially to form a stable double bubble sharing a common internal spherical film interface of radius of curvature $R$ cm. Find the value of $R$.",
+      "options": [],
+      "answer": "12",
+      "explanation": "The excess gauge pressure inside a soap bubble of radius $r$ in air with atmospheric pressure $P_0$ is given by $\\Delta P = \\frac{4T}{r}$. For the two individual bubbles: $P_1 - P_0 = \\frac{4T}{r_1}$ and $P_2 - P_0 = \\frac{4T}{r_2}$. Because $r_2 = 4.0\\text{ cm} < r_1 = 6.0\\text{ cm}$, the pressure inside bubble 2 is strictly greater than inside bubble 1 ($P_2 > P_1$). Across the common thin soap film separating the two bubbles, the net pressure difference is $\\Delta P_{\\text{net}} = P_2 - P_1 = 4T\\left(\\frac{1}{r_2} - \\frac{1}{r_1}\\right)$. This net pressure difference must be balanced by the surface tension of the common spherical film of radius $R$: $\\Delta P_{\\text{net}} = \\frac{4T}{R}$. Equating the two expressions yields the curvature equation: $\\frac{1}{R} = \\frac{1}{r_2} - \\frac{1}{r_1}$. Substituting the values: $\\frac{1}{R} = \\frac{1}{4.0} - \\frac{1}{6.0} = \\frac{3 - 2}{12.0} = \\frac{1}{12.0\\text{ cm}}$. Therefore, the radius of curvature of the common film is $R = 12\\text{ cm}$."
+    },
+    {
+      "id": "fm_c01_036",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "An open vertical cylindrical vessel of radius $R = 10.0\\text{ cm}$ and total height $H = 30.0\\text{ cm}$ contains an incompressible liquid of density $\\rho = 1000\\text{ kg/m}^3$ filled to an initial rest depth $h_0 = 20.0\\text{ cm}$. The cylinder is now rotated steadily about its vertical axis of symmetry with a constant angular velocity $\\omega = 10.0\\text{ rad/s}$. Taking $g = 10\\text{ m/s}^2$ and atmospheric pressure as $P_0$, which of the following statements is/are correct?",
+      "options": [
+        "A) The difference in height between the liquid at the outer rim and the liquid at the central axis of rotation is $5.0\\text{ cm}$.",
+        "B) The maximum height of the liquid at the outer wall is $22.5\\text{ cm}$, so no liquid spills over the top edge of the vessel.",
+        "C) The total downward hydrostatic force exerted by the rotating liquid on the bottom base of the cylinder is equal to the total weight of the liquid, $M g$.",
+        "D) The gauge pressure on the bottom base at the central axis ($r = 0$) is $2250\\text{ Pa}$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "In a reference frame rotating with angular velocity $\\omega$, the liquid surface forms a paraboloid of revolution governed by $z(r) = z_0 + \\frac{\\omega^2 r^2}{2g}$, where $z_0$ is the vertex height at $r = 0$. The difference in height between the outer wall ($r = R$) and the vertex ($r = 0$) is $\\Delta z = z(R) - z_0 = \\frac{\\omega^2 R^2}{2g} = \\frac{(10.0)^2 (0.10)^2}{2 \\times 10} = \\frac{100 \\times 0.010}{20} = 0.050\\text{ m} = 5.0\\text{ cm}$. Therefore, statement A is correct. By volume conservation of the incompressible fluid, the volume of the paraboloid of revolution above the vertex is $\\int_0^R (z(r) - z_0) 2\\pi r dr = \\frac{\\pi \\omega^2 R^4}{4g} = \\frac{1}{2}\\pi R^2 \\Delta z$. Hence, the vertex depresses below the initial rest level by $\\frac{\\Delta z}{2} = 2.5\\text{ cm}$, while the liquid at the outer wall rises above the rest level by $\\frac{\\Delta z}{2} = 2.5\\text{ cm}$. Thus, $z_0 = h_0 - 2.5 = 17.5\\text{ cm}$, and the wall height is $z(R) = h_0 + 2.5 = 22.5\\text{ cm} < 30.0\\text{ cm}$, which confirms that no liquid spills out; hence statement B is correct. The hydrostatic gauge pressure at any radial distance $r$ on the base is $P_{\\text{gauge}}(r) = \\rho g z(r) = \\rho g z_0 + \\frac{1}{2}\\rho \\omega^2 r^2$. The total vertical force exerted by the liquid on the base is $F_{\\text{base}} = \\int_0^R P_{\\text{gauge}}(r) 2\\pi r dr = \\rho g z_0 \\pi R^2 + \\frac{1}{4}\\rho \\omega^2 \\pi R^4 = \\pi R^2 \\rho g \\left(z_0 + \\frac{\\omega^2 R^2}{4g}\\right) = \\pi R^2 \\rho g h_0 = M g$. Therefore, statement C is correct. Finally, the gauge pressure at the bottom center ($r = 0$) is $P_{\\text{gauge}}(0) = \\rho g z_0 = 1000 \\times 10 \\times 0.175 = 1750\\text{ Pa}$, whereas $2250\\text{ Pa}$ is the pressure at the outer wall; therefore statement D is false."
+    },
+    {
+      "id": "fm_c01_037",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A wheeled cart of total mass $M$ carries a large open rectangular water tank filled with water of density $\\rho$ to a depth $H$. The cart rests on a frictionless horizontal track. At $t = 0$, a small orifice of cross-sectional area $a$ ($a \\ll \\text{tank area}$) is opened in the vertical rear wall of the tank at a depth $h$ below the free water surface, ejecting a horizontal water stream. Which of the following statements is/are correct?",
+      "options": [
+        "A) The horizontal thrust force exerted on the tank immediately after opening the orifice is $F = 2\\rho g h a$.",
+        "B) The initial thrust force exerted on the tank is equal to the hydrostatic pressure force $\\rho g h a$.",
+        "C) If the water level is continuously maintained at height $H$ by an external vertical trickle supply adding zero horizontal momentum, the cart experiences a constant forward acceleration.",
+        "D) For a fixed total tank height $H$ above the ground, the horizontal range of the ejected jet on the ground is maximized when the orifice is placed at depth $h = H/2$."
+      ],
+      "answer": "A,C,D",
+      "explanation": "Applying Torricelli's law, the efflux speed of water exiting the orifice relative to the tank is $v_{\\text{rel}} = \\sqrt{2gh}$. The rate at which mass is discharged from the orifice is $\\frac{dm}{dt} = \\rho a v_{\\text{rel}} = \\rho a \\sqrt{2gh}$. By applying the momentum conservation theorem to the fluid control volume, the horizontal thrust force exerted on the tank by the exiting jet is $F = \\frac{dm}{dt} v_{\\text{rel}} = \\rho a v_{\\text{rel}}^2 = \\rho a (2gh) = 2\\rho g h a$. Notice that this thrust force is exactly twice the static hydrostatic pressure force $\\rho g h a$ due to dynamic momentum flux convergence; therefore statement A is correct and statement B is false. If the water level $H$ is maintained constant by a vertical trickle supply possessing zero horizontal momentum, the thrust force $F = 2\\rho g h a$ remains constant in time, and since total mass is constant, the cart moves with a constant forward acceleration $a_{\\text{cart}} = \\frac{2\\rho g h a}{M}$; hence statement C is correct. The horizontal range of the jet falling through vertical height $y = H - h$ to ground level is $R = v_{\\text{rel}} \\sqrt{\\frac{2(H-h)}{g}} = 2\\sqrt{h(H-h)}$, which is maximized when $h = H - h \\implies h = H/2$; thus statement D is correct."
+    },
+    {
+      "id": "fm_c01_038",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A clean glass capillary tube of internal radius $r$ is immersed vertically into a broad trough of liquid of surface tension $T$, contact angle $\\theta_0 = 0^\\circ$, and density $\\rho$. In a sufficiently long capillary tube, the liquid rises to an equilibrium height $h_0 = \\frac{2T}{\\rho g r}$. The tube is now cut to an insufficient length $l$, where $l < h_0$, and held vertically with length $l$ projecting above the liquid surface. Which of the following statements is/are correct?",
+      "options": [
+        "A) The liquid continuously overflows from the upper end of the shortened tube like a miniature perpetual fountain.",
+        "B) The liquid rises to the upper edge of the tube and stays there in static equilibrium without overflowing.",
+        "C) The radius of curvature of the meniscus at the top of the shortened tube increases to $R = \\frac{r h_0}{l}$, with an effective contact angle $\\theta$ satisfying $\\cos\\theta = \\frac{l}{h_0}$.",
+        "D) In a tube of sufficient length $h_0$, the total work done by surface tension during the rise of the liquid column is equal to the gravitational potential energy gained by the liquid column."
+      ],
+      "answer": "B,C",
+      "explanation": "When a capillary tube has insufficient length $l < h_0$, liquid ascends to the top rim of the tube. At the rim, the liquid cannot overflow because doing so would require creating additional liquid-air surface area without an available energy source, violating the second law of thermodynamics. Therefore statement A is false and statement B is correct. Instead, the meniscus flattens at the rim, increasing its radius of curvature from $R_0 = r$ to a larger value $R$. Hydrostatic equilibrium requires $\\rho g l = \\frac{2T}{R}$, which yields $R = \\frac{2T}{\\rho g l} = \\frac{2T}{\\rho g (l/h_0) h_0} = \\frac{r h_0}{l}$. Since the effective contact angle satisfies $\\cos\\theta = \\frac{r}{R}$, substituting $R$ yields $\\cos\\theta = \\frac{l}{h_0}$; therefore statement C is correct. For a tube of sufficient length $h_0$, the upward surface tension force is $F = 2\\pi r T$, so the work done by surface tension during the ascent through height $h_0$ is $W_{\\text{ST}} = F h_0 = 2\\pi r T h_0 = 2\\pi r T \\left(\\frac{2T}{\\rho g r}\\right) = \\frac{4\\pi T^2}{\\rho g}$. The gravitational potential energy gained by the elevated column (mass $m = \\rho \\pi r^2 h_0$) whose center of mass rises by $h_0 / 2$ is $U_g = m g \\frac{h_0}{2} = \\frac{1}{2}\\rho \\pi r^2 g h_0^2 = \\frac{2\\pi T^2}{\\rho g} = \\frac{1}{2} W_{\\text{ST}}$. Exactly half of the work done by surface tension is dissipated as viscous heat during the fluid ascent; thus statement D is false."
+    },
+    {
+      "id": "fm_c01_039",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A uniform U-tube of constant cross-sectional area $A$ contains an ideal, non-viscous, incompressible liquid of density $\\rho$. The total length of the liquid column inside the tube is $L$. The liquid column in one vertical arm is depressed downward by a small initial displacement $x_0$ and then released from rest at $t = 0$. Which of the following statements is/are correct regarding the subsequent motion?",
+      "options": [
+        "A) The motion of the liquid column is simple harmonic with a time period $T = 2\\pi \\sqrt{\\frac{L}{2g}}$.",
+        "B) The oscillation period $T$ is completely independent of the cross-sectional area $A$ and the density $\\rho$ of the liquid.",
+        "C) The angular frequency of oscillation is $\\omega = \\sqrt{\\frac{g}{L}}$.",
+        "D) The maximum total kinetic energy of the oscillating liquid column during the motion is $K_{\\text{max}} = \\rho A g x_0^2$."
+      ],
+      "answer": "A,B,D",
+      "explanation": "When the liquid in one arm is displaced downward by a distance $x$, the liquid level in the other vertical arm rises by the same distance $x$. The net vertical height difference between the two columns is therefore $2x$. The resulting hydrostatic restoring force acting on the entire liquid mass is the weight of this excess column: $F_{\\text{restoring}} = -(\\text{mass of excess column}) g = -(2x A \\rho) g = -2\\rho A g x$. The total mass of the liquid oscillating in the tube is $M = \\rho A L$. Applying Newton's second law: $M \\frac{d^2x}{dt^2} = -2\\rho A g x$, which simplifies to $\\frac{d^2x}{dt^2} + \\left(\\frac{2g}{L}\\right) x = 0$. This is the standard equation of simple harmonic motion with angular frequency $\\omega = \\sqrt{\\frac{2g}{L}}$. Hence statement C is false. The time period is $T = \\frac{2\\pi}{\\omega} = 2\\pi\\sqrt{\\frac{L}{2g}}$, confirming statement A. The expression for $T$ depends only on $L$ and $g$, and is independent of $A$ and $\\rho$, so statement B is correct. The maximum velocity of the liquid during oscillation is $v_{\\text{max}} = \\omega x_0 = x_0 \\sqrt{\\frac{2g}{L}}$. The maximum kinetic energy of the entire liquid is $K_{\\text{max}} = \\frac{1}{2} M v_{\\text{max}}^2 = \\frac{1}{2} (\\rho A L) \\left(x_0^2 \\frac{2g}{L}\\right) = \\rho A g x_0^2$; therefore statement D is correct."
+    },
+    {
+      "id": "fm_c01_040",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A large tank contains a stratified liquid whose density increases linearly with depth $z$ below the free surface according to $\\rho(z) = \\rho_0 (1 + \\alpha z)$, where $\\rho_0$ and $\\alpha$ are positive constants. A uniform solid cylinder of cross-sectional area $A$, length $L$, and uniform density $\\rho_c$ floats with its axis vertical in this stratified liquid, with its upper base at depth $z_0$ below the surface. Which of the following statements is/are correct?",
+      "options": [
+        "A) In floating static equilibrium, the density of the stratified liquid at the depth of the center of mass of the cylinder is exactly equal to $\\rho_c$.",
+        "B) The equilibrium depth of the upper base of the cylinder is $z_0 = \\frac{\\rho_c - \\rho_0}{\\alpha \\rho_0}$.",
+        "C) For small vertical displacements from equilibrium, the cylinder executes simple harmonic motion with angular frequency $\\omega = \\sqrt{\\frac{\\rho_0 \\alpha g}{\\rho_c}}$.",
+        "D) The center of buoyancy of the cylinder in static equilibrium is located strictly above its center of mass."
+      ],
+      "answer": "A,C",
+      "explanation": "The mass of the cylinder is $M = \\rho_c A L$. The upward buoyant force exerted by the stratified liquid on the cylinder spanning from depth $z_0$ to $z_0 + L$ is $F_B = \\int_{z_0}^{z_0 + L} \\rho(z) g A dz = A g \\rho_0 \\int_{z_0}^{z_0 + L} (1 + \\alpha z) dz = A g \\rho_0 \\left[ L + \\alpha \\frac{(z_0+L)^2 - z_0^2}{2} \\right] = A g \\rho_0 L \\left[ 1 + \\alpha \\left(z_0 + \\frac{L}{2}\\right) \\right]$. Setting $F_B = M g = \\rho_c A L g$ yields $\\rho_0 \\left[ 1 + \\alpha \\left(z_0 + \\frac{L}{2}\\right) \\right] = \\rho_c$. Notice that $z_{\\text{cm}} = z_0 + \\frac{L}{2}$ is the depth of the cylinder's center of mass, so $\\rho(z_{\\text{cm}}) = \\rho_c$; hence statement A is correct. Solving for $z_0$ gives $z_0 = \\frac{\\rho_c - \\rho_0}{\\alpha \\rho_0} - \\frac{L}{2}$, which shows statement B is false because it omits the $-L/2$ offset. Now consider a small downward displacement $y$ from equilibrium: the change in buoyant force is $\\Delta F_B = -[\\rho(z_0 + L) - \\rho(z_0)] A g y = -[\\rho_0 \\alpha L] A g y$. The equation of motion is $M \\ddot{y} = -\\rho_0 \\alpha A L g y \\implies (\\rho_c A L) \\ddot{y} + (\\rho_0 \\alpha A L g) y = 0 \\implies \\ddot{y} + \\left(\\frac{\\rho_0 \\alpha g}{\\rho_c}\\right) y = 0$. This represents simple harmonic motion with $\\omega = \\sqrt{\\frac{\\rho_0 \\alpha g}{\\rho_c}}$, so statement C is correct. Because density increases with depth, the lower half of the displaced fluid has greater mass than the upper half, so the center of buoyancy lies strictly BELOW the center of mass; thus statement D is false."
+    },
+    {
+      "id": "fm_c01_041",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "An inverted hollow right circular cone of semi-vertical angle $\\alpha = 45^\\circ$ has a small discharge orifice of cross-sectional area $a$ at its bottom vertex. The cone is initially filled to the brim with water to a vertical height $H$. Which of the following statements is/are correct regarding the drainage process?",
+      "options": [
+        "A) The total time required to drain the cone completely is directly proportional to $H^{3/2}$.",
+        "B) The total time required to drain the cone completely is $T = \\frac{2\\pi H^{5/2}}{5 a \\sqrt{2g}}$.",
+        "C) The magnitude of the downward velocity of the free water surface, $\\left|\\frac{dh}{dt}\\right|$, increases continuously as the water depth $h$ decreases toward zero.",
+        "D) The time taken for the water level to drop from $H$ to $H/2$ accounts for more than $80\\%$ of the total emptying time $T$."
+      ],
+      "answer": "B,C,D",
+      "explanation": "At any instantaneous water height $h$, the radius of the circular free surface is $r(h) = h\\tan 45^\\circ = h$. The instantaneous surface area is $A(h) = \\pi r(h)^2 = \\pi h^2$. By Torricelli's law, the efflux velocity at the vertex orifice is $v = \\sqrt{2gh}$. Applying the continuity equation: $-A(h) \\frac{dh}{dt} = a \\sqrt{2gh} \\implies -\\pi h^2 \\frac{dh}{dt} = a \\sqrt{2g} h^{1/2}$. Separating variables yields $dt = -\\frac{\\pi}{a\\sqrt{2g}} h^{3/2} dh$. Integrating from $h = H$ to $h = 0$ gives the total drainage time: $T = \\frac{\\pi}{a\\sqrt{2g}} \\int_0^H h^{3/2} dh = \\frac{\\pi}{a\\sqrt{2g}} \\left[\\frac{2}{5} h^{5/2}\\right]_0^H = \\frac{2\\pi H^{5/2}}{5 a \\sqrt{2g}}$. This shows $T \\propto H^{5/2}$ (not $H^{3/2}$), so statement A is false and statement B is correct. Solving for the surface descent speed: $\\left|\\frac{dh}{dt}\\right| = \\frac{a\\sqrt{2g}}{\\pi} h^{-3/2}$, which clearly diverges as $h \\to 0$; therefore statement C is correct. The time required for the water level to fall from $H$ to $H/2$ is $t_1 = \\frac{2\\pi}{5a\\sqrt{2g}} [H^{5/2} - (H/2)^{5/2}] = T \\left(1 - \\frac{1}{2^{5/2}}\\right) = T \\left(1 - \\frac{1}{4\\sqrt{2}}\\right) \\approx T (1 - 0.1768) = 0.8232 T = 82.3\\% T$. Since $82.3\\% > 80\\%$, statement D is correct."
+    },
+    {
+      "id": "fm_c01_042",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A uniform U-tube has two vertical arms connected by a horizontal base tube of length $L = 20.0\\text{ cm}$. The tube is filled with liquid of density $\\rho = 1000\\text{ kg/m}^3$ up to an initial height $h_0 = 15.0\\text{ cm}$ in each arm. The entire assembly is rotated at a constant angular speed $\\omega = 10.0\\text{ rad/s}$ about a vertical axis located at an asymmetric position along the base: distance $r_1 = 5.0\\text{ cm}$ from the left arm and distance $r_2 = 15.0\\text{ cm}$ from the right arm. Taking $g = 10\\text{ m/s}^2$, what is the difference in liquid levels $\\Delta h = h_2 - h_1$ between the two vertical arms?",
+      "options": [
+        "A) $10.0\\text{ cm}$",
+        "B) $20.0\\text{ cm}$",
+        "C) $5.0\\text{ cm}$",
+        "D) $12.5\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "Let the rotation axis be located at $r = 0$. The left vertical arm is positioned at $r = -r_1 = -0.050\\text{ m}$, and the right vertical arm is at $r = +r_2 = +0.150\\text{ m}$. In a rotating fluid, the radial pressure gradient along the horizontal tube is $\\frac{\\partial P}{\\partial r} = \\rho \\omega^2 r$. Integrating this radial pressure gradient from the left arm to the right arm yields $P_2 - P_1 = \\int_{-r_1}^{r_2} \\rho \\omega^2 r dr = \\frac{1}{2}\\rho \\omega^2 (r_2^2 - r_1^2)$. Hydrostatic equilibrium in the two vertical limbs requires that this base pressure difference balances the difference in the vertical column weights: $P_2 - P_1 = \\rho g (h_2 - h_1) = \\rho g \\Delta h$. Equating the two expressions gives $\\rho g \\Delta h = \\frac{1}{2}\\rho \\omega^2 (r_2^2 - r_1^2)$, which yields $\\Delta h = \\frac{\\omega^2 (r_2^2 - r_1^2)}{2g}$. Evaluating the geometric terms: $r_2^2 - r_1^2 = (0.150)^2 - (0.050)^2 = 0.0225 - 0.0025 = 0.020\\text{ m}^2$. Substituting $\\omega = 10.0\\text{ rad/s}$ and $g = 10\\text{ m/s}^2$: $\\Delta h = \\frac{(10.0)^2 \\times 0.020}{2 \\times 10} = \\frac{100 \\times 0.020}{20} = 0.10\\text{ m} = 10.0\\text{ cm}$. The distractor $20.0\\text{ cm}$ forgets the factor of $1/2$ in the centrifugal pressure integral, $5.0\\text{ cm}$ mistakenly uses $(r_2 - r_1)^2 = (0.10)^2 = 0.010\\text{ m}^2$, and $12.5\\text{ cm}$ uses the sum of the radii squared."
+    },
+    {
+      "id": "fm_c01_043",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Two clean vertical rectangular glass plates of width $L$ are joined along one vertical edge and slightly separated at the opposite vertical edge by a very small angle $\\theta$ (where $\\theta \\ll 1\\text{ rad}$), forming a narrow vertical wedge. The lower edges of the plates are dipped into a broad trough of water of density $\\rho$, surface tension $T$, and contact angle with glass $\\theta_c = 0^\\circ$. Let $x$ denote the horizontal coordinate measured from the joined vertical edge, and let $y(x)$ denote the height of the liquid meniscus above the trough. What is the mathematical shape and equation of the meniscus profile $y(x)$?",
+      "options": [
+        "A) A parabola described by $y^2(x) = \\frac{2T}{\\rho g \\theta} x$",
+        "B) A rectangular hyperbola described by $x y(x) = \\frac{2T}{\\rho g \\theta}$",
+        "C) A straight line described by $y(x) = \\frac{2T}{\\rho g \\theta L} x$",
+        "D) An exponential curve described by $y(x) = \\frac{2T}{\\rho g} e^{-\\theta x}$"
+      ],
+      "answer": "B",
+      "explanation": "At any horizontal distance $x$ from the joined vertical edge of the plates, the local separation distance between the two glass plates is $d(x) = x\\theta$, since $\\theta \\ll 1$. Locally, the plates can be approximated as two parallel plates separated by gap $d(x)$. The capillary rise between two vertical parallel plates separated by distance $d$ for zero contact angle is determined by balancing upward surface tension force $2 T \\cos 0^\\circ$ with the hydrostatic weight of the liquid column $\\rho g d y$: $y(x) = \\frac{2T}{\\rho g d(x)} = \\frac{2T}{\\rho g (x\\theta)}$. Multiplying both sides by $x$ yields $x y(x) = \\frac{2T}{\\rho g \\theta} = \\text{constant}$. This equation has the canonical form $x y = C$, which geometrically defines a rectangular hyperbola having the joined vertical edge ($x = 0$) and the horizontal liquid pool surface ($y = 0$) as its asymptotes. The distractor claiming a parabola mistakenly assumes curvature scales with $y^2$, the straight-line option ignores the inverse-gap scaling of capillary pressure, and the exponential option represents barometric decay rather than capillary rise."
+    },
+    {
+      "id": "fm_c01_044",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A large vertical cylindrical water tank of horizontal cross-sectional area $A = 2.0\\text{ m}^2$ is supplied with water at a constant volume inflow rate $Q_{\\text{in}} = 0.010\\text{ m}^3/\\text{s}$. Water simultaneously discharges through a small circular orifice of area $a = 10.0\\text{ cm}^2 = 1.0 \\times 10^{-3}\\text{ m}^2$ located at the bottom of the tank. Taking $g = 10\\text{ m/s}^2$ and assuming ideal Torricelli flow without losses, what is the steady-state equilibrium height $H_{\\text{eq}}$ of water in the tank?",
+      "options": [
+        "A) $2.5\\text{ m}$",
+        "B) $10.0\\text{ m}$",
+        "C) $5.0\\text{ m}$",
+        "D) $1.25\\text{ m}$"
+      ],
+      "answer": "C",
+      "explanation": "The differential equation governing the instantaneous water height $h(t)$ in the tank is obtained from mass conservation: $A \\frac{dh}{dt} = Q_{\\text{in}} - Q_{\\text{out}}(h)$. According to Torricelli's law, the outflow rate through the bottom orifice at water depth $h$ is $Q_{\\text{out}}(h) = a \\sqrt{2gh}$. In steady-state equilibrium, the water level remains constant in time, meaning $\\frac{dh}{dt} = 0$. Equating the inflow rate to the discharge outflow rate: $Q_{\\text{in}} = a \\sqrt{2g H_{\\text{eq}}}$. Substituting the given numerical parameters: $0.010 = (1.0 \\times 10^{-3}) \\sqrt{2 \\times 10 \\times H_{\\text{eq}}} = 10^{-3} \\sqrt{20 H_{\\text{eq}}}$. Dividing both sides by $10^{-3}$ yields $\\sqrt{20 H_{\\text{eq}}} = \\frac{0.010}{10^{-3}} = 10.0$. Squaring both sides: $20 H_{\\text{eq}} = 100$, which gives $H_{\\text{eq}} = \\frac{100}{20} = 5.0\\text{ m}$. The distractor $2.5\\text{ m}$ forgets the factor of $2$ in $\\sqrt{2gh}$, $10.0\\text{ m}$ neglects the gravitational acceleration factor, and $1.25\\text{ m}$ erroneously squares the area ratio."
+    },
+    {
+      "id": "fm_c01_045",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A solid uniform right circular cylinder of radius $R$, total height $H$, and relative density $d$ (where $0 < d < 1$) floats in water with its circular bases horizontal and its axis vertical. For the vertical floating orientation to be in stable equilibrium against small angular tilts, what condition must the geometric aspect ratio $R/H$ satisfy?",
+      "options": [
+        "A) $\\frac{R}{H} > \\sqrt{d(1 - d)}$",
+        "B) $\\frac{R}{H} > \\sqrt{\\frac{d(1 - d)}{2}}$",
+        "C) $\\frac{R}{H} > 2\\sqrt{d(1 - d)}$",
+        "D) $\\frac{R}{H} > \\sqrt{2d(1 - d)}$"
+      ],
+      "answer": "D",
+      "explanation": "Let the submerged depth of the cylinder be $h$. For floating equilibrium, the weight of the cylinder balances the buoyant force: $\\rho_s \\pi R^2 H g = \\rho_w \\pi R^2 h g \\implies h = \\left(\\frac{\\rho_s}{\\rho_w}\\right) H = d H$. The center of gravity $G$ of the uniform cylinder is located at $O G = H/2$ above the bottom base. The center of buoyancy $B$ is located at the centroid of the submerged volume: $O B = h/2 = d H / 2$. The distance between the center of buoyancy and the center of gravity is $B G = O G - O B = \\frac{H}{2}(1 - d)$. The second moment of area of the circular waterline plane of radius $R$ is $I = \\frac{\\pi R^4}{4}$. The submerged volume of liquid displaced is $V = \\pi R^2 h = \\pi R^2 d H$. The metacentric height above the center of buoyancy is $B M = \\frac{I}{V} = \\frac{\\pi R^4 / 4}{\\pi R^2 d H} = \\frac{R^2}{4 d H}$. For stable equilibrium, the metacenter $M$ must lie strictly above the center of gravity $G$, which requires $G M = B M - B G > 0 \\implies B M > B G$. Substituting the derived expressions: $\\frac{R^2}{4 d H} > \\frac{H}{2}(1 - d)$. Multiplying both sides by $4 d H$ gives $R^2 > 2 d (1 - d) H^2$, which yields the stability criterion $\\frac{R}{H} > \\sqrt{2d(1 - d)}$. Distractor A forgets the factor of $2$ arising from the ratio of moments, B places the factor in the denominator, and C doubles the entire radical."
+    },
+    {
+      "id": "fm_c01_046",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A clean glass capillary tube of radius $r$ is held vertically in a broad container of water of surface tension $T$, contact angle $\\theta = 0^\\circ$, and density $\\rho$. The water slowly ascends inside the capillary tube until it reaches static equilibrium at height $h = \\frac{2T}{\\rho g r}$. During this ascension process, what is the ratio of the total heat energy dissipated by viscous forces $Q_{\\text{diss}}$ to the gravitational potential energy $U_g$ gained by the elevated liquid column?",
+      "options": [
+        "A) $2 : 1$",
+        "B) $1 : 2$",
+        "C) $0 : 1$",
+        "D) $1 : 1$"
+      ],
+      "answer": "D",
+      "explanation": "The upward vertical force exerted by surface tension along the contact line of the capillary tube is $F_{\\text{ST}} = 2\\pi r T \\cos 0^\\circ = 2\\pi r T$. Because surface tension depends only on the perimeter, this force remains constant throughout the ascension of the liquid column through height $h$. The total mechanical work performed by the surface tension force during the rise is $W = F_{\\text{ST}} \\cdot h = (2\\pi r T) h$. The mass of the liquid column raised is $m = \\rho (\\pi r^2 h)$, and its center of mass is elevated through a vertical distance $h/2$. Therefore, the net gain in gravitational potential energy of the liquid is $U_g = m g \\frac{h}{2} = (\\rho \\pi r^2 h) g \\frac{h}{2} = \\frac{1}{2} \\pi r^2 \\rho g h^2$. Using the capillary equilibrium relation $h = \\frac{2T}{\\rho g r}$, we note that $\\pi r^2 \\rho g h = 2\\pi r T$. Substituting this into the potential energy expression gives $U_g = \\frac{1}{2} (2\\pi r T) h = \\frac{1}{2} W$. By the work-energy theorem, the difference between the work done by surface tension and the mechanical energy stored as potential energy must be dissipated as thermal energy due to viscous fluid shear: $Q_{\\text{diss}} = W - U_g = W - \\frac{1}{2} W = \\frac{1}{2} W$. Comparing the two quantities: $Q_{\\text{diss}} = U_g$, which means the ratio $\\frac{Q_{\\text{diss}}}{U_g} = 1 : 1$. The distractor $2 : 1$ confuses total work with dissipated heat, $1 : 2$ inverts the ratio, and $0 : 1$ incorrectly assumes fluid flow without viscous dissipation."
+    },
+    {
+      "id": "fm_c01_047",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A Pitot-static tube is aligned along the centerline of a wind tunnel to measure the flight speed of an airflow. The Pitot tube is connected to a differential U-tube manometer containing an oil of density $\\rho_o = 800\\text{ kg/m}^3$. In steady flow, the manometer records a difference in oil levels of $h = 5.0\\text{ cm} = 0.050\\text{ m}$. If the density of air inside the wind tunnel is $\\rho_a = 1.28\\text{ kg/m}^3$ and $g = 10\\text{ m/s}^2$, calculate the speed of the airflow in $\\text{m/s}$.",
+      "options": [],
+      "answer": "25",
+      "explanation": "At the opening of the Pitot tube facing the flow, the fluid particles are brought completely to rest at a stagnation point where the local flow velocity is zero. Applying Bernoulli's equation between an undisturbed upstream point in the airflow (pressure $P$, speed $v$) and the stagnation point (stagnation pressure $P_0$, speed $0$): $P + \\frac{1}{2}\\rho_a v^2 = P_0$. The dynamic pressure is therefore $\\Delta P = P_0 - P = \\frac{1}{2}\\rho_a v^2$. This pressure difference is measured by the differential liquid manometer: $\\Delta P = \\rho_o g h$. Equating the two expressions for differential pressure gives $\\frac{1}{2}\\rho_a v^2 = \\rho_o g h$, which yields $v = \\sqrt{\\frac{2 \\rho_o g h}{\\rho_a}}$. Substituting the given numerical parameters: $\\Delta P = 800\\text{ kg/m}^3 \\times 10\\text{ m/s}^2 \\times 0.050\\text{ m} = 400\\text{ Pa}$. Solving for velocity: $v^2 = \\frac{2 \\Delta P}{\\rho_a} = \\frac{2 \\times 400}{1.28} = \\frac{800}{1.28} = 625\\text{ m}^2/\\text{s}^2$. Taking the square root: $v = \\sqrt{625} = 25\\text{ m/s}$."
+    },
+    {
+      "id": "fm_c01_048",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A solid uniform vertical cylinder of mass $M = 1.0\\text{ kg}$ and cross-sectional area $A = 0.040\\text{ m}^2 = 400\\text{ cm}^2$ floats in equilibrium in a deep pool of water of density $\\rho = 1000\\text{ kg/m}^3$. The cylinder is pushed down vertically into the water by a small displacement and released from rest. Neglecting liquid viscosity and wave formation, find the angular frequency $\\omega$ of the resulting vertical simple harmonic oscillations in $\\text{rad/s}$. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [],
+      "answer": "20",
+      "explanation": "In static equilibrium, the buoyant force balances the cylinder's weight: $F_{B0} = M g$. Let $y$ denote the vertical downward displacement of the cylinder from its equilibrium position. When the cylinder is displaced downward by distance $y$, the additional volume of water displaced is $\\Delta V = A y$. This creates an additional upward buoyant force: $\\Delta F_B = -\\rho A y g$. This acts as a linear restoring force directed toward the equilibrium position: $F_{\\text{restoring}} = -(\\rho A g) y$. Applying Newton's second law for the vertical motion of the cylinder: $M \\frac{d^2y}{dt^2} = -\\rho A g y$, which can be rewritten in the standard canonical form for simple harmonic motion: $\\frac{d^2y}{dt^2} + \\left(\\frac{\\rho A g}{M}\\right) y = 0$. The angular frequency of oscillation is given by $\\omega = \\sqrt{\\frac{\\rho A g}{M}}$. Substituting the given numerical values: $\\rho = 1000\\text{ kg/m}^3$, $A = 0.040\\text{ m}^2$, $g = 10\\text{ m/s}^2$, and $M = 1.0\\text{ kg}$. We obtain $\\omega^2 = \\frac{1000 \\times 0.040 \\times 10}{1.0} = 400\\text{ rad}^2/\\text{s}^2$. Taking the positive square root yields $\\omega = \\sqrt{400} = 20\\text{ rad/s}$."
+    },
+    {
+      "id": "fm_c01_049",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A tall vertical cylindrical water container filled with water has two small circular holes of equal area drilled in its side wall along the same vertical line at depths $h_1 = 1.0\\text{ m}$ and $h_2 = 3.0\\text{ m}$ below the upper water surface. The water jets exiting horizontally from both holes hit the flat horizontal ground on which the container stands at the exact same horizontal distance $X$ from the base of the container. Determine the total vertical height $H$ of the water surface above the ground in metres.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Let $H$ be the total height of the upper water surface above the horizontal ground. The hole drilled at depth $h_1$ is located at a height $y_1 = H - h_1$ above the ground. By Torricelli's law, the efflux speed is $v_1 = \\sqrt{2gh_1}$, and the time taken for fluid elements to reach the ground is $t_1 = \\sqrt{\\frac{2y_1}{g}} = \\sqrt{\\frac{2(H - h_1)}{g}}$. The horizontal range of the jet from the first hole is $X_1 = v_1 t_1 = \\sqrt{2gh_1} \\sqrt{\\frac{2(H - h_1)}{g}} = 2\\sqrt{h_1(H - h_1)}$. Similarly, for the second hole drilled at depth $h_2$, the height above the ground is $y_2 = H - h_2$, and its horizontal range is $X_2 = 2\\sqrt{h_2(H - h_2)}$. Given that both jets strike the ground at the same horizontal distance ($X_1 = X_2$), we equate their expressions: $2\\sqrt{h_1(H - h_1)} = 2\\sqrt{h_2(H - h_2)}$. Squaring both sides yields $h_1 H - h_1^2 = h_2 H - h_2^2$, which rearranges to $(h_2 - h_1) H = h_2^2 - h_1^2 = (h_2 - h_1)(h_1 + h_2)$. Since $h_1 \\neq h_2$, we divide by $(h_2 - h_1)$ to obtain the elegant result $H = h_1 + h_2$. Substituting the given values: $H = 1.0\\text{ m} + 3.0\\text{ m} = 4\\text{ m}$."
+    },
+    {
+      "id": "fm_c01_050",
+      "subject": "Physics",
+      "topic": "Fluid Mechanics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A sufficiently long vertical glass capillary tube dipped in water at rest on the ground supports a water column of height $h_0 = 10.0\\text{ cm}$. The entire beaker and capillary tube arrangement is placed inside an elevator that accelerates vertically downward with an acceleration $a = 8.0\\text{ m/s}^2$. Assuming the tube is sufficiently long so that liquid does not reach the top rim and taking $g = 10\\text{ m/s}^2$, what is the new equilibrium height $h$ of the water column in the capillary tube in centimetres?",
+      "options": [],
+      "answer": "50",
+      "explanation": "In a stationary inertial frame, the equilibrium capillary rise height is given by Jurin's law: $h_0 = \\frac{2T\\cos\\theta}{\\rho g r}$, where $T$ is the surface tension, $\\theta$ is the contact angle, $\\rho$ is the liquid density, and $r$ is the tube radius. When the elevator accelerates downward with an acceleration $a = 8.0\\text{ m/s}^2$, we analyze the fluid equilibrium in the non-inertial reference frame of the elevator. In this frame, the effective downward gravitational acceleration is $g_{\\text{eff}} = g - a = 10.0 - 8.0 = 2.0\\text{ m/s}^2$. The surface tension force $F_{\\text{ST}} = 2\\pi r T\\cos\\theta$ depends only on intermolecular surface interactions and remains completely unaffected by the elevator acceleration. Balancing the upward surface tension force with the effective weight of the elevated liquid column in the non-inertial frame gives $2\\pi r T\\cos\\theta = (\\rho \\pi r^2 h) g_{\\text{eff}}$, which yields $h = \\frac{2T\\cos\\theta}{\\rho g_{\\text{eff}} r}$. Taking the ratio of heights: $\\frac{h}{h_0} = \\frac{g}{g_{\\text{eff}}} = \\frac{g}{g - a}$. Substituting the numerical values: $h = h_0 \\times \\left(\\frac{10.0}{10.0 - 8.0}\\right) = 10.0 \\times \\left(\\frac{10.0}{2.0}\\right) = 10.0 \\times 5 = 50\\text{ cm}$."
+    }
+  ]
+}

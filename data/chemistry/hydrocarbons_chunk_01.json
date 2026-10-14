@@ -1,0 +1,779 @@
+{
+  "questions": [
+    {
+      "id": "hc_c01_001",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When 3,3-dimethylbut-1-ene is treated with concentrated hydrochloric acid ($\\text{HCl}$) at room temperature, it undergoes electrophilic addition accompanied by a carbocation rearrangement. What is the major product obtained from this reaction?",
+      "options": [
+        "A) 2-chloro-2,3-dimethylbutane",
+        "B) 2-chloro-3,3-dimethylbutane",
+        "C) 1-chloro-3,3-dimethylbutane",
+        "D) 3-chloro-2,2-dimethylbutane"
+      ],
+      "answer": "A",
+      "explanation": "Electrophilic addition starts with protonation of the terminal double bond in 3,3-dimethylbut-1-ene by $\\text{H}^+$, yielding the secondary carbocation $(\\text{CH}_3)_3\\text{C}-\\text{CH}^+-\\text{CH}_3$. To relieve steric crowding and generate a far more stable tertiary carbocation, a spontaneous 1,2-methyl shift occurs, forming $(\\text{CH}_3)_2\\text{C}^+-\\text{CH}(\\text{CH}_3)_2$. Subsequent nucleophilic capture by $\\text{Cl}^-$ yields 2-chloro-2,3-dimethylbutane as the predominant rearranged product. Direct capture of the unrearranged secondary cation gives 2-chloro-3,3-dimethylbutane as only a minor product, 1-chloro-3,3-dimethylbutane incorrectly assumes anti-Markovnikov regiochemistry, and 3-chloro-2,2-dimethylbutane represents an invalid IUPAC numbering of the unrearranged skeleton."
+    },
+    {
+      "id": "hc_c01_002",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An acyclic alkene $A$ with molecular formula $\\text{C}_6\\text{H}_{12}$ undergoes reductive ozonolysis ($\\text{O}_3$ followed by $\\text{Zn}/\\text{H}_2\\text{O}$) to form equimolar amounts of propan-2-one and propanal. When hydrocarbon $A$ is treated with $\\text{HBr}$ in the presence of benzoyl peroxide, how many asymmetric chiral carbon atoms are present in the resulting major mono-bromoalkane product?",
+      "options": [],
+      "answer": "1",
+      "explanation": "Reductive ozonolysis of alkene $A$ cleaves the $\\text{C}=\\text{C}$ bond to give propan-2-one, $(\\text{CH}_3)_2\\text{C}=\\text{O}$, and propanal, $\\text{CH}_3\\text{CH}_2\\text{CH}=\\text{O}$, thereby uniquely deducing alkene $A$ to be 2-methylpent-2-ene, $(\\text{CH}_3)_2\\text{C}=\\text{CH}-\\text{CH}_2\\text{CH}_3$. In the presence of benzoyl peroxide, $\\text{HBr}$ adds via a free-radical chain mechanism. The bromine radical $\\text{Br}^\\bullet$ selectively attacks the less substituted carbon $\\text{C}-3$ to yield the more stable tertiary alkyl radical $(\\text{CH}_3)_2\\dot{\\text{C}}-\\text{CH}(\\text{Br})-\\text{CH}_2\\text{CH}_3$. Abstraction of a hydrogen atom from $\\text{HBr}$ produces 3-bromo-2-methylpentane, $(\\text{CH}_3)_2\\text{CH}-\\text{CH}(\\text{Br})-\\text{CH}_2\\text{CH}_3$. In this molecule, only $\\text{C}-3$ is bonded to four distinct groups ($-\\text{H}$, $-\\text{Br}$, $-\\text{CH}(\\text{CH}_3)_2$, and $-\\text{CH}_2\\text{CH}_3$), giving exactly 1 chiral center."
+    },
+    {
+      "id": "hc_c01_003",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A terminal alkyne $X$ ($\\text{C}_4\\text{H}_6$) yields a reddish precipitate with ammoniacal cuprous chloride. When $X$ is deprotonated with $\\text{NaNH}_2$ in liquid ammonia and subsequently alkylated with ethyl iodide, an internal alkyne $Y$ is formed. Hydration of $Y$ with dilute $\\text{H}_2\\text{SO}_4$ in the presence of $\\text{HgSO}_4$ yields a single ketone $Z$. What is the IUPAC name of compound $Z$?",
+      "options": [
+        "A) hexan-2-one",
+        "B) hexan-3-one",
+        "C) 3,3-dimethylbutan-2-one",
+        "D) 2-methylpentan-3-one"
+      ],
+      "answer": "B",
+      "explanation": "Formation of a red copper acetylide precipitate proves that $X$ is a terminal alkyne, but-1-yne ($\\text{CH}_3\\text{CH}_2\\text{C}\\equiv\\text{CH}$). Deprotonation by the strong base $\\text{NaNH}_2$ forms sodium butynide, $\\text{CH}_3\\text{CH}_2\\text{C}\\equiv\\text{C}^-\\text{Na}^+$. Subsequent $S_N2$ alkylation with ethyl iodide ($\\text{CH}_3\\text{CH}_2\\text{I}$) gives hex-3-yne, $\\text{CH}_3\\text{CH}_2\\text{C}\\equiv\\text{C}-\\text{CH}_2\\text{CH}_3$. Since hex-3-yne is a completely symmetrical internal alkyne, mercuric ion catalyzed hydration across either $sp$-carbon produces the identical enol intermediate that rapidly tautomerizes to hexan-3-one. The distractor hexan-2-one arises from hydration of hex-1-yne or hex-2-yne, while branched ketones like 3,3-dimethylbutan-2-one or 2-methylpentan-3-one require skeletal branching absent in the starting material."
+    },
+    {
+      "id": "hc_c01_004",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Photochemical gas-phase monochlorination of 2-methylbutane at 300°C proceeds via a free-radical chain mechanism. How many constitutionally isomeric monochloro derivatives (structural isomers, excluding stereoisomers) are produced in this reaction?",
+      "options": [],
+      "answer": "4",
+      "explanation": "Free-radical monochlorination can abstract hydrogen from four distinct sets of constitutionally non-equivalent carbon positions in 2-methylbutane, $\\text{CH}_3-\\text{CH}(\\text{CH}_3)-\\text{CH}_2-\\text{CH}_3$: (1) Hydrogen abstraction from either of the two equivalent primary methyl groups at $\\text{C}-1$ gives 1-chloro-2-methylbutane. (2) Abstraction of the single tertiary hydrogen at $\\text{C}-2$ gives 2-chloro-2-methylbutane. (3) Abstraction from the secondary methylene carbon at $\\text{C}-3$ gives 2-chloro-3-methylbutane. (4) Abstraction from the primary methyl carbon at $\\text{C}-4$ gives 1-chloro-3-methylbutane. Thus, the total number of constitutional monochloro isomers is exactly 4."
+    },
+    {
+      "id": "hc_c01_005",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Electrophilic hydration of 3-methylbut-1-ene carried out in the presence of dilute aqueous sulfuric acid ($\\text{H}_2\\text{SO}_4$) yields an alcohol as the major product. What is the IUPAC name of this major product?",
+      "options": [
+        "A) 3-methylbutan-1-ol",
+        "B) 3-methylbutan-2-ol",
+        "C) 2-methylbutan-2-ol",
+        "D) 2-methylbutan-1-ol"
+      ],
+      "answer": "C",
+      "explanation": "Electrophilic addition of $\\text{H}^+$ to 3-methylbut-1-ene follows Markovnikov's rule to produce the secondary carbocation $(\\text{CH}_3)_2\\text{CH}-\\text{CH}^+-\\text{CH}_3$. A rapid 1,2-hydride shift from the adjacent tertiary carbon relieves steric and electronic instability, generating the substantially more stable tertiary carbocation $(\\text{CH}_3)_2\\text{C}^+-\\text{CH}_2\\text{CH}_3$. Nucleophilic attack of $\\text{H}_2\\text{O}$ followed by deprotonation yields 2-methylbutan-2-ol as the major product. The unrearranged secondary alcohol 3-methylbutan-2-ol forms only in minor amounts, 3-methylbutan-1-ol incorrectly assumes anti-Markovnikov regiochemistry, and 2-methylbutan-1-ol would require a non-existent primary cation."
+    },
+    {
+      "id": "hc_c01_006",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When 1-methylcyclohexene is treated with hydrogen bromide ($\\text{HBr}$) in the presence of benzoyl peroxide, the reaction proceeds through a radical pathway (peroxide effect). What is the major mono-brominated product formed?",
+      "options": [
+        "A) 1-bromo-1-methylcyclohexane",
+        "B) 3-bromo-1-methylcyclohexene",
+        "C) 1-(bromomethyl)cyclohexene",
+        "D) 1-bromo-2-methylcyclohexane"
+      ],
+      "answer": "D",
+      "explanation": "In the presence of peroxides, $\\text{HBr}$ adds via a free-radical chain mechanism. Homolysis of peroxide produces radicals that generate $\\text{Br}^\\bullet$. The bromine radical adds regioselectively to the less substituted double-bond carbon ($\\text{C}-2$) of 1-methylcyclohexene to generate the more stable tertiary cycloalkyl radical at $\\text{C}-1$. Subsequent abstraction of hydrogen from $\\text{HBr}$ delivers 1-bromo-2-methylcyclohexane as the major product. In contrast, 1-bromo-1-methylcyclohexane is the Markovnikov addition product obtained in the absence of peroxides via a carbocation intermediate, 3-bromo-1-methylcyclohexene arises from allylic substitution (with NBS), and 1-(bromomethyl)cyclohexene would require allylic methyl bromination."
+    },
+    {
+      "id": "hc_c01_007",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An equimolar mixture of 1-chloropropane and 2-chloropropane is heated with sodium metal in dry ether (Wurtz reaction). How many constitutionally distinct alkane coupling products (excluding alkenes formed by disproportionation and stereoisomers) are obtained?",
+      "options": [],
+      "answer": "3",
+      "explanation": "In the Wurtz reaction, sodium metal generates alkyl radicals/carbanions from both 1-chloropropane (1-propyl group, $R_1$) and 2-chloropropane (isopropyl group, $R_2$). Combination of these alkyl fragments produces three distinct coupled alkanes: (1) Self-coupling of two 1-propyl radicals ($R_1-R_1$) yields $n$-hexane, $\\text{CH}_3(\\text{CH}_2)_4\\text{CH}_3$. (2) Cross-coupling of a 1-propyl radical with an isopropyl radical ($R_1-R_2$) yields 2-methylpentane, $(\\text{CH}_3)_2\\text{CH}-\\text{CH}_2\\text{CH}_2\\text{CH}_3$. (3) Self-coupling of two isopropyl radicals ($R_2-R_2$) yields 2,3-dimethylbutane, $(\\text{CH}_3)_2\\text{CH}-\\text{CH}(\\text{CH}_3)_2$. Therefore, exactly 3 constitutionally distinct alkane coupling products are formed."
+    },
+    {
+      "id": "hc_c01_008",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An alkene with molecular formula $\\text{C}_7\\text{H}_{14}$ on ozonolysis followed by oxidative workup with alkaline hydrogen peroxide ($\\text{H}_2\\text{O}_2$) yields ethanoic acid ($\\text{CH}_3\\text{COOH}$) and 2,2-dimethylpropanoic acid ($(\\text{CH}_3)_3\\text{C}-\\text{COOH}$) in equimolar amounts. What is the IUPAC name of the original alkene?",
+      "options": [
+        "A) 4,4-dimethylpent-2-ene",
+        "B) 2,2-dimethylpent-2-ene",
+        "C) 3,3-dimethylpent-1-ene",
+        "D) 2,4-dimethylpent-2-ene"
+      ],
+      "answer": "A",
+      "explanation": "Oxidative ozonolysis cleaves an alkene at the $\\text{C}=\\text{C}$ double bond, converting $=\\text{CH}-\\text{R}$ groups into carboxylic acids $\\text{R}-\\text{COOH}$. The formation of ethanoic acid ($\\text{CH}_3\\text{COOH}$) indicates that one side of the double bond is $\\text{CH}_3-\\text{CH}=$, while the formation of 2,2-dimethylpropanoic acid ($(\\text{CH}_3)_3\\text{C}-\\text{COOH}$) indicates that the other side is $=\\text{CH}-\\text{C}(\\text{CH}_3)_3$. Joining these fragments reconstructs the original alkene as $(\\text{CH}_3)_3\\text{C}-\\text{CH}=\\text{CH}-\\text{CH}_3$, whose IUPAC name is 4,4-dimethylpent-2-ene. The name 2,2-dimethylpent-2-ene violates IUPAC numbering and pentavalent carbon constraints, 3,3-dimethylpent-1-ene would cleave to give methanoic acid and 2,2-dimethylbutanoic acid, and 2,4-dimethylpent-2-ene would yield propan-2-one rather than ethanoic acid."
+    },
+    {
+      "id": "hc_c01_009",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "During Kolbe's electrolytic synthesis, an aqueous solution of sodium succinate undergoes decarboxylation at the anode to liberate ethylene gas. If sodium maleate (disodium cis-butenedioate) is electrolyzed under identical conditions, which hydrocarbon gas is collected at the anode?",
+      "options": [
+        "A) Ethane",
+        "B) Acetylene",
+        "C) Propene",
+        "D) Buta-1,3-diene"
+      ],
+      "answer": "B",
+      "explanation": "In Kolbe's electrolysis, the carboxylate groups undergo one-electron oxidation at the anode to form acyloxy radicals, which immediately lose carbon dioxide ($\\text{CO}_2$). In sodium maleate, $\\text{Na}^+ \\, ^-\\text{OOC}-\\text{CH}=\\text{CH}-\\text{COO}^- \\, \\text{Na}^+$, loss of two $\\text{CO}_2$ molecules from the adjacent $sp^2$ carbons generates a vicinal diradical intermediate, $\\dot{\\text{C}}\\text{H}=\\dot{\\text{C}}\\text{H}$. Pairing of these two unpaired electrons forms a triple bond, releasing acetylene (ethyne, $\\text{CH}\\equiv\\text{CH}$) at the anode. Ethane is liberated from sodium propanoate electrolysis, ethylene from sodium succinate, and buta-1,3-diene would require a four-carbon unsaturated dicarboxylate with separated carboxylate groups."
+    },
+    {
+      "id": "hc_c01_010",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "When 2-chloro-2,3-dimethylbutane is heated with concentrated alcoholic potassium hydroxide ($\\text{KOH}$), dehydrohalogenation occurs to yield the most stable thermodynamic alkene according to Saytzeff's rule. What is the total number of hyperconjugable $\\alpha$-hydrogen atoms present in this major alkene product?",
+      "options": [],
+      "answer": "12",
+      "explanation": "Heating 2-chloro-2,3-dimethylbutane, $(\\text{CH}_3)_2\\text{C}(\\text{Cl})-\\text{CH}(\\text{CH}_3)_2$, with alcoholic $\\text{KOH}$ induces an E2 elimination. Elimination can occur by abstracting hydrogen from the $\\text{C}-3$ methine carbon or from one of the $\\text{C}-1$ methyl groups. Elimination from $\\text{C}-3$ forms the tetrasubstituted alkene 2,3-dimethylbut-2-ene, $(\\text{CH}_3)_2\\text{C}=\\text{C}(\\text{CH}_3)_2$, which is the Saytzeff product. This alkene contains four identical methyl groups attached directly to the $sp^2$ double-bond carbons. Each methyl group contributes 3 $\\alpha$-hydrogens, resulting in a total of $4 \\times 3 = 12$ hyperconjugable $\\alpha$-hydrogen atoms that provide tremendous thermodynamic stability."
+    },
+    {
+      "id": "hc_c01_011",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When 1-methylcyclopentene is subjected to hydroboration-oxidation using $\\text{BH}_3\\cdot\\text{THF}$ followed by treatment with alkaline hydrogen peroxide ($\\text{H}_2\\text{O}_2 / \\text{NaOH}$), what is the stereochemical configuration and identity of the major alcohol produced?",
+      "options": [
+        "A) 1-methylcyclopentanol",
+        "B) cis-2-methylcyclopentanol",
+        "C) trans-2-methylcyclopentanol",
+        "D) cyclopentylmethanol"
+      ],
+      "answer": "C",
+      "explanation": "Hydroboration of an alkene proceeds via a concerted four-membered cyclic transition state resulting in stereospecific syn-addition of boron and hydrogen across the double bond. Boron attaches regioselectively to the less hindered carbon ($\\text{C}-2$) while hydrogen attaches to $\\text{C}-1$ from the same face. Subsequent alkaline oxidation replaces the boron atom with a hydroxyl group ($-\\text{OH}$) with complete retention of configuration. Because $-\\text{H}$ and $-\\text{OH}$ were added syn, the existing methyl group at $\\text{C}-1$ is pushed to the opposite face, yielding trans-2-methylcyclopentanol as the exclusive product. The tertiary alcohol 1-methylcyclopentanol is the Markovnikov product obtained by acid-catalyzed hydration or oxymercuration, cis-2-methylcyclopentanol would require anti-addition, and cyclopentylmethanol would require an exocyclic double bond."
+    },
+    {
+      "id": "hc_c01_012",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When propene gas is bubbled into an aqueous solution of bromine (bromine water), addition across the double bond takes place. What is the IUPAC name of the major bromohydrin formed?",
+      "options": [
+        "A) 2-bromopropan-1-ol",
+        "B) 1,2-dibromopropane",
+        "C) 3-bromopropan-1-ol",
+        "D) 1-bromopropan-2-ol"
+      ],
+      "answer": "D",
+      "explanation": "Electrophilic addition of $\\text{Br}_2$ to propene in aqueous solution begins with the formation of a cyclic bromonium ion bridging $\\text{C}-1$ and $\\text{C}-2$. Due to unsymmetrical charge distribution, the more substituted secondary carbon $\\text{C}-2$ carries greater partial positive charge ($\\delta^+$) than primary $\\text{C}-1$. Because water is present in overwhelming excess as solvent, $\\text{H}_2\\text{O}$ acts as the nucleophile and attacks the more carbocationic $\\text{C}-2$ carbon with ring opening. Subsequent loss of a proton yields 1-bromopropan-2-ol as the major product. The regioisomer 2-bromopropan-1-ol would require nucleophilic attack at the less stabilized primary carbon, 1,2-dibromopropane forms only when bromide captures the intermediate in non-nucleophilic solvents, and 3-bromopropan-1-ol would require an impossible terminal substitution."
+    },
+    {
+      "id": "hc_c01_013",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Terminal alkynes possess weakly acidic acetylenic hydrogen atoms due to the high $s$-character of the $sp$-hybridized carbon atom. When exactly 2.0 moles of prop-1-yne react completely with an excess of sodium metal in liquid ammonia, how many moles of hydrogen gas ($\\text{H}_2$) are theoretically liberated?",
+      "options": [],
+      "answer": "1",
+      "explanation": "The terminal acetylenic proton of prop-1-yne ($\\text{CH}_3-\\text{C}\\equiv\\text{C}-\\text{H}$) has a $pK_a \\approx 25$ and reacts stoichiometrically with alkali metals such as sodium in liquid ammonia. The redox reaction is represented by the equation: $2\\,\\text{CH}_3\\text{C}\\equiv\\text{CH} + 2\\,\\text{Na} \\to 2\\,\\text{CH}_3\\text{C}\\equiv\\text{C}^-\\text{Na}^+ + \\text{H}_2(g)$. For every 2.0 moles of terminal alkyne consumed, exactly 1.0 mole of molecular hydrogen gas ($\\text{H}_2$) is liberated. Therefore, the stoichiometric quantity of $\\text{H}_2$ released is exactly 1 mole."
+    },
+    {
+      "id": "hc_c01_014",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the Corey-House synthesis of unsymmetrical alkanes, a lithium dialkylcuprate (Gilman reagent, $\\text{R}_2\\text{CuLi}$) is coupled with an alkyl halide ($\\text{R}'\\text{X}$). To prepare 2-methylbutane in optimal yield avoiding competitive E2 elimination, which combination of reagents is the most suitable?",
+      "options": [
+        "A) Lithium diisopropylcuprate and bromoethane",
+        "B) Lithium diethylcuprate and 2-bromopropane",
+        "C) Lithium dimethylcuprate and 2-bromobutane",
+        "D) Lithium di-tert-butylcuprate and bromomethane"
+      ],
+      "answer": "A",
+      "explanation": "The Corey-House coupling proceeds via nucleophilic attack of the lithium dialkylcuprate on an alkyl halide. Because the alkyl halide partner undergoes an $S_N2$-like displacement, it must be primary (or methyl) to prevent steric hindrance and dominant E2 dehydrohalogenation. Coupling lithium diisopropylcuprate, $[(\\text{CH}_3)_2\\text{CH}]_2\\text{CuLi}$, with primary bromoethane ($\\text{CH}_3\\text{CH}_2\\text{Br}$) cleanly forms 2-methylbutane, $(\\text{CH}_3)_2\\text{CH}-\\text{CH}_2\\text{CH}_3$, in excellent yield. In contrast, using secondary alkyl halides like 2-bromopropane or 2-bromobutane as electrophilic substrates leads to lower yields due to competitive elimination, while di-tert-butylcuprate with bromomethane produces 2,2-dimethylpropane instead of 2-methylbutane."
+    },
+    {
+      "id": "hc_c01_015",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the four isomeric butenes: but-1-ene (I), cis-but-2-ene (II), trans-but-2-ene (III), and 2-methylpropene (IV). Which of the following represents the correct decreasing order of their absolute molar heats of hydrogenation ($|-\\Delta H_{\\text{hydro}}|$)?",
+      "options": [
+        "A) $\\text{I} > \\text{III} > \\text{II} > \\text{IV}$",
+        "B) $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$",
+        "C) $\\text{IV} > \\text{I} > \\text{II} > \\text{III}$",
+        "D) $\\text{II} > \\text{I} > \\text{III} > \\text{IV}$"
+      ],
+      "answer": "B",
+      "explanation": "Heat of hydrogenation is inversely related to alkene thermodynamic stability when comparing isomers that hydrogenate to the same alkane (or identical alkane framework). But-1-ene is monosubstituted (only 2 $\\alpha$-hydrogens) and thus least stable, releasing the highest heat of hydrogenation ($\\approx 127\\text{ kJ/mol}$). Among the disubstituted but-2-enes, cis-but-2-ene suffers from van der Waals steric repulsion between the cis-methyl groups, making it less stable than trans-but-2-ene (where the methyl groups are anti-periplanar); therefore, cis-but-2-ene releases more heat ($\\approx 120\\text{ kJ/mol}$) than trans-but-2-ene ($\\approx 115\\text{ kJ/mol}$). Finally, 2-methylpropene has gem-dimethyl substitution with 6 $\\alpha$-hydrogens giving the greatest thermodynamic stability and the lowest heat of hydrogenation ($\\approx 118\\text{ kJ/mol}$ for isobutane product comparison). The correct order is $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$."
+    },
+    {
+      "id": "hc_c01_016",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "But-2-yne is reduced using sodium metal in liquid ammonia to produce hydrocarbon $P$. Hydrocarbon $P$ is then treated with bromine in carbon tetrachloride ($\\text{Br}_2 / \\text{CCl}_4$) in the dark to afford compound $Q$. What is the stereochemical nature and IUPAC designation of compound $Q$?",
+      "options": [
+        "A) (2R,3R)-2,3-dibromobutane",
+        "B) Racemic (±)-2,3-dibromobutane",
+        "C) meso-2,3-dibromobutane",
+        "D) (2S,3S)-2,3-dibromobutane"
+      ],
+      "answer": "C",
+      "explanation": "Reduction of an internal alkyne with sodium in liquid ammonia (Birch reduction) proceeds via a trans-radical-anion mechanism to yield trans-but-2-ene (stereospecific anti-reduction). Subsequent addition of bromine to an alkene proceeds via a cyclic bromonium ion intermediate, which enforces anti-addition. Anti-addition of $\\text{Br}_2$ to a symmetrical trans-alkene (trans + anti) produces the optically inactive meso-diastereomer, meso-2,3-dibromobutane, possessing an internal center of inversion and plane of symmetry. In contrast, catalytic hydrogenation over Lindlar's catalyst would give cis-but-2-ene, which upon anti-addition of bromine produces the racemic (±)-2,3-dibromobutane pair; single enantiomers like (2R,3R) or (2S,3S) cannot be formed without chiral induction."
+    },
+    {
+      "id": "hc_c01_017",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Electrophilic aromatic nitration of tert-butylbenzene using a nitrating mixture of concentrated $\\text{HNO}_3$ and concentrated $\\text{H}_2\\text{SO}_4$ at 30°C yields the para-nitro derivative in over $75\\%$ yield, with only minor amounts of the ortho-nitro derivative. What is the fundamental cause for this pronounced regiochemical bias compared to the nitration of toluene?",
+      "options": [
+        "A) Strong negative inductive (–I) effect of the tert-butyl group",
+        "B) Hyperconjugative destabilization of the para arenium ion",
+        "C) Preferential meta-directing nature of bulky alkyl groups",
+        "D) Severe steric hindrance at the ortho positions caused by the bulky tert-butyl group"
+      ],
+      "answer": "D",
+      "explanation": "Both toluene and tert-butylbenzene possess electron-donating alkyl substituents that activate the ring towards electrophilic aromatic substitution and direct incoming electrophiles to ortho and para positions. However, the tert-butyl group is exceptionally bulky due to its three methyl groups branching from the quaternary benzylic carbon. This immense steric bulk shields the adjacent ortho positions, creating severe steric repulsion in the transition state for electrophilic attack by the nitronium ion ($\\text{NO}_2^+$) at the ortho carbons. Consequently, attack occurs predominantly at the unhindered para position. Alkyl groups exhibit electron-donating (+I) effects rather than negative inductive effects, hyperconjugation stabilizes rather than destabilizes carbocations, and alkyl groups never direct to the meta position."
+    },
+    {
+      "id": "hc_c01_018",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "When (cyclobutylmethyl)amine is treated with nitrous acid ($\\text{HNO}_2$) generated in situ at 0°C, diazotization is followed by loss of molecular nitrogen to generate an unstable primary carbocation. A carbocation rearrangement via ring expansion takes place. How many carbon atoms are present in the carbocyclic ring of the resulting major cycloalkanol?",
+      "options": [],
+      "answer": "5",
+      "explanation": "Treatment of (cyclobutylmethyl)amine with $\\text{HNO}_2$ converts the primary amino group into a diazonium ion, $-\\text{CH}_2-\\text{N}_2^+$. Departure of $\\text{N}_2$ generates the primary cyclobutylmethyl cation, $\\text{C}_4\\text{H}_7-\\text{CH}_2^+$. Because four-membered cyclobutane rings possess substantial angle strain ($\\approx 110\\text{ kJ/mol}$), one of the endocyclic $\\text{C}-\\text{C}$ single bonds migrates to the primary cationic center via a 1,2-alkyl shift (ring expansion). This expands the strained four-membered ring into a far less strained five-membered cyclopentyl carbocation. Subsequent capture by water and deprotonation yields cyclopentanol as the major product. Thus, the ring in the major alcohol contains exactly 5 carbon atoms."
+    },
+    {
+      "id": "hc_c01_019",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When 1-phenylprop-1-ene ($\\text{C}_6\\text{H}_5-\\text{CH}=\\text{CH}-\\text{CH}_3$) is heated with N-bromosuccinimide (NBS) in carbon tetrachloride in the presence of trace benzoyl peroxide and light, allylic bromination occurs cleanly. What is the IUPAC name of the major mono-brominated product?",
+      "options": [
+        "A) 3-bromo-1-phenylprop-1-ene",
+        "B) 1-bromo-1-phenylprop-1-ene",
+        "C) 2-bromo-1-phenylprop-1-ene",
+        "D) 3-bromo-3-phenylprop-1-ene"
+      ],
+      "answer": "A",
+      "explanation": "N-bromosuccinimide (NBS) provides a low, steady-state concentration of molecular bromine and bromine radicals for free-radical allylic/benzylic halogenation. In 1-phenylprop-1-ene, the terminal methyl carbon ($\\text{C}-3$) has allylic hydrogens: $\\text{C}_6\\text{H}_5-\\text{CH}=\\text{CH}-\\text{CH}_3$. Abstraction of an allylic hydrogen by $\\text{Br}^\\bullet$ generates a resonance-stabilized phenylallyl radical: $\\text{C}_6\\text{H}_5-\\text{CH}=\\text{CH}-\\dot{\\text{C}}\\text{H}_2 \\leftrightarrow \\text{C}_6\\text{H}_5-\\dot{\\text{C}}\\text{H}-\\text{CH}=\\text{CH}_2$. Bromine capture at the primary carbon preserves the extended, highly conjugated phenyl-alkene system ($\\,\\text{C}_6\\text{H}_5-\\text{CH}=\\text{CH}-\\,$), yielding 3-bromo-1-phenylprop-1-ene as the thermodynamically preferred major product. The regioisomer 3-bromo-3-phenylprop-1-ene has a terminal unconjugated alkene and is less stable, while 1-bromo-1-phenylprop-1-ene and 2-bromo-1-phenylprop-1-ene represent vinylic bromination products that do not form under free-radical allylic bromination conditions."
+    },
+    {
+      "id": "hc_c01_020",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Birch reduction of methoxybenzene (anisole) with sodium in liquid ammonia containing ethanol yields an unconjugated diene intermediate $A$. When intermediate $A$ is heated with dilute aqueous hydrochloric acid, it undergoes enol-ether hydrolysis and double-bond conjugation. What is the IUPAC name of the resulting stable product $B$?",
+      "options": [
+        "A) cyclohex-3-en-1-one",
+        "B) cyclohex-2-en-1-one",
+        "C) cyclohexanone",
+        "D) 2-methoxycyclohexa-1,3-diene"
+      ],
+      "answer": "B",
+      "explanation": "In the Birch reduction of aromatic rings bearing electron-donating groups (like $-\\text{OCH}_3$ with +M resonance), protonation occurs at positions ortho and meta to the methoxy substituent to maximize electron density at positions with highest radical-anion charge density. This produces 1-methoxycyclohexa-1,4-diene ($A$) as the unconjugated diene. Upon treatment with dilute aqueous $\\text{HCl}$, the methoxy-substituted enol ether undergoes acid-catalyzed hydrolysis to yield the non-conjugated $\\beta,\\gamma$-unsaturated ketone cyclohex-3-en-1-one. Under the acidic reaction conditions, keto-enol tautomerism rapidly isomerizes the isolated double bond into conjugation with the carbonyl group, yielding the thermodynamically stable $\\alpha,\\beta$-unsaturated ketone cyclohex-2-en-1-one ($B$). Fully saturated cyclohexanone requires catalytic hydrogenation, and 2-methoxycyclohexa-1,3-diene is a conjugated diene not formed under Birch conditions."
+    },
+    {
+      "id": "hc_c01_021",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Reductive ozonolysis ($\\text{O}_3$ followed by $\\text{Zn}/\\text{H}_2\\text{O}$) of 1.0 mole of ortho-xylene (1,2-dimethylbenzene) was carried out historically to provide experimental evidence for the resonance hybrid structure of benzene. Assuming equal contribution from both Kekule resonance structures, how many total moles of dicarbonyl cleavage products (glyoxal, methylglyoxal, and butanedione combined) are formed from the cleavage of 1.0 mole of ortho-xylene?",
+      "options": [],
+      "answer": "3",
+      "explanation": "Cleavage of the two contributing Kekule resonance structures of ortho-xylene occurs across the three formal double bonds: (1) In Kekule structure I, where a single bond separates the two methyl-bearing carbons, ozonolysis of the three double bonds yields 2 moles of methylglyoxal ($\\text{CH}_3\\text{COCHO}$) and 1 mole of glyoxal ($\\text{OHC}-\\text{CHO}$), totaling 3 moles of dicarbonyls. (2) In Kekule structure II, where a double bond connects the two methyl-bearing carbons, ozonolysis yields 1 mole of butanedione ($\\text{CH}_3\\text{COCOCH}_3$) and 2 moles of glyoxal ($\\text{OHC}-\\text{CHO}$), also totaling 3 moles of dicarbonyls. Because each mole of either resonance structure cleaves at exactly 3 double bonds to produce exactly 3 dicarbonyl molecules, 1.0 mole of ortho-xylene produces exactly 3.0 total moles of dicarbonyl cleavage products."
+    },
+    {
+      "id": "hc_c01_022",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When 2-bromo-2,3-dimethylbutane is heated with potassium tert-butoxide ($(\\text{CH}_3)_3\\text{CO}^-\\text{K}^+$) in tert-butanol, an E2 elimination takes place. Which of the following represents the major alkene obtained?",
+      "options": [
+        "A) 2,3-dimethylbut-2-ene",
+        "B) 3,3-dimethylbut-1-ene",
+        "C) 2,3-dimethylbut-1-ene",
+        "D) 2-methylpent-2-ene"
+      ],
+      "answer": "C",
+      "explanation": "In an E2 elimination, the regiochemical outcome depends critically on base sterics. Potassium tert-butoxide is an extremely bulky, sterically hindered strong base. In 2-bromo-2,3-dimethylbutane, $(\\text{CH}_3)_2\\text{C}(\\text{Br})-\\text{CH}(\\text{CH}_3)_2$, abstracting the internal tertiary hydrogen at $\\text{C}-3$ to form the tetrasubstituted Saytzeff alkene (2,3-dimethylbut-2-ene) involves severe steric clashes in the transition state between the bulky tert-butoxide and the surrounding methyl groups. Therefore, the base selectively abstracts one of the more sterically accessible primary hydrogens from the $\\text{C}-1$ methyl groups, giving 2,3-dimethylbut-1-ene (the Hofmann product) as the predominant alkene. The Saytzeff alkene 2,3-dimethylbut-2-ene dominates only with small unhindered bases like $\\text{EtO}^-$, 3,3-dimethylbut-1-ene has a rearranged carbon skeleton that cannot form under concerted E2 conditions, and 2-methylpent-2-ene represents an incorrect six-carbon isomer."
+    },
+    {
+      "id": "hc_c01_023",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When benzene is treated with 1-chloropropane in the presence of anhydrous aluminium chloride ($\\text{AlCl}_3$) at room temperature, isopropylbenzene (cumene) is isolated as the major product rather than n-propylbenzene. What is the fundamental mechanistic reason for this outcome?",
+      "options": [
+        "A) Reversible sulfonation followed by desulfonation at the aromatic ring",
+        "B) Steric hindrance in benzene favoring branched alkyl attack",
+        "C) Hyperconjugative stabilization of the primary propyl carbocation",
+        "D) Spontaneous 1,2-hydride shift transforming the incipient primary cation into a more stable secondary carbocation"
+      ],
+      "answer": "D",
+      "explanation": "In Friedel-Crafts alkylation, 1-chloropropane coordinates to the Lewis acid $\\text{AlCl}_3$ to form an electrophilic polarization complex, $[\\text{CH}_3-\\text{CH}_2-\\text{CH}_2-\\text{Cl}\\cdot\\cdot\\cdot\\text{AlCl}_3]$. The incipient primary propyl carbocation possesses high energy and undergoes an intramolecular 1,2-hydride shift before electrophilic attack on the benzene ring can occur. This rearrangement converts the primary propyl cation into the substantially more stable secondary isopropyl carbocation, $\\text{CH}_3-\\text{CH}^+-\\text{CH}_3$. Electrophilic aromatic substitution of benzene by this secondary cation yields isopropylbenzene (cumene) as the major product. Reversible sulfonation is irrelevant to alkylation, benzene has equal steric accessibility for both cations, and hyperconjugation stabilizes secondary cations far more than primary ones."
+    },
+    {
+      "id": "hc_c01_024",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Photochemical free-radical monochlorination of methylcyclopentane at 300°C produces a mixture of constitutionally isomeric monochloro derivatives. How many constitutionally distinct (structural) monochloro isomers are formed in this reaction?",
+      "options": [],
+      "answer": "4",
+      "explanation": "Methylcyclopentane contains four sets of constitutionally non-equivalent hydrogen atoms that can be abstracted by chlorine radicals: (1) The tertiary hydrogen at $\\text{C}-1$ on the ring, yielding 1-chloro-1-methylcyclopentane. (2) The secondary hydrogens at the $\\text{C}-2$ and $\\text{C}-5$ ring positions, yielding 1-chloro-2-methylcyclopentane. (3) The secondary hydrogens at the $\\text{C}-3$ and $\\text{C}-4$ ring positions, yielding 1-chloro-3-methylcyclopentane. (4) The primary hydrogens on the exocyclic methyl group, yielding (chloromethyl)cyclopentane. Therefore, exactly 4 constitutionally distinct (structural) monochloro derivatives are formed."
+    },
+    {
+      "id": "hc_c01_025",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When cis-but-2-ene is treated with cold, dilute, alkaline potassium permanganate (Baeyer's reagent), dihydroxylation of the double bond takes place. What is the stereochemical identity and optical activity of the resulting butane-2,3-diol?",
+      "options": [
+        "A) meso-butane-2,3-diol, which is optically inactive",
+        "B) Racemic (±)-butane-2,3-diol, which is optically inactive",
+        "C) (2R,3R)-butane-2,3-diol, which is dextrorotatory",
+        "D) (2S,3S)-butane-2,3-diol, which is levorotatory"
+      ],
+      "answer": "A",
+      "explanation": "Baeyer's reagent (cold, dilute, alkaline $\\text{KMnO}_4$) reacts with alkenes via a concerted five-membered cyclic manganate ester intermediate, which delivers both oxygen atoms to the same face of the $\\pi$-bond (stereospecific syn-dihydroxylation). When a symmetrical cis-alkene like cis-but-2-ene undergoes syn-dihydroxylation (cis + syn), both hydroxyl groups are added to the identical face. In the eclipsed Fischer projection, the two $-\\text{OH}$ groups lie on the same side, creating an internal plane of symmetry ($\\,\\sigma\\,$). Thus, the product is meso-butane-2,3-diol, which is strictly achiral and optically inactive through internal compensation. Racemic (±)-butane-2,3-diol is formed from trans-but-2-ene with $\\text{KMnO}_4$ (trans + syn) or from cis-but-2-ene via anti-dihydroxylation (peracid followed by acid-catalyzed ring opening)."
+    },
+    {
+      "id": "hc_c01_026",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When propene gas is treated with iodine monochloride ($\\text{ICl}$) in an inert organic solvent, an addition reaction across the double bond takes place cleanly. What is the IUPAC name of the major product formed?",
+      "options": [
+        "A) 1-chloro-2-iodopropane",
+        "B) 2-chloro-1-iodopropane",
+        "C) 1,2-diiodopropane",
+        "D) 1,2-dichloropropane"
+      ],
+      "answer": "B",
+      "explanation": "Iodine monochloride is an interhalogen compound polarized as $\\text{I}^{\\delta+}-\\text{Cl}^{\\delta-}$ due to the higher electronegativity of chlorine (3.0) compared to iodine (2.5). In electrophilic addition to propene, $\\text{I}^+$ acts as the electrophile and attacks the less substituted terminal carbon ($\\text{C}-1$) to generate a bridged iodonium ion intermediate with greater partial positive charge at the more substituted secondary carbon ($\\text{C}-2$). Nucleophilic attack by chloride ion ($\\text{Cl}^-$) then occurs with inversion at the more electrophilic $\\text{C}-2$ carbon, producing 2-chloro-1-iodopropane as the major product. The regioisomer 1-chloro-2-iodopropane would incorrectly require $\\text{Cl}^+$ to act as the electrophile, while diiodo and dichloro products arise from homonuclear halogens."
+    },
+    {
+      "id": "hc_c01_027",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A cycloalkene with molecular formula $\\text{C}_7\\text{H}_{12}$ undergoes reductive ozonolysis ($\\text{O}_3$ followed by $\\text{Zn}/\\text{H}_2\\text{O}$) to produce a single keto-aldehyde, 6-oxoheptanal, as the exclusive organic product. How many constitutionally isomeric methylcyclohexenes can produce 6-oxoheptanal under these conditions?",
+      "options": [],
+      "answer": "1",
+      "explanation": "Reductive ozonolysis of a cycloalkene cleaves the endocyclic double bond to give a dicarbonyl compound with the same number of carbons. The formation of 6-oxoheptanal, $\\text{CH}_3-\\text{C}(=\\text{O})-\\text{CH}_2-\\text{CH}_2-\\text{CH}_2-\\text{CH}_2-\\text{CH}=\\text{O}$, indicates that one double-bond carbon is disubstituted (yielding the methyl ketone) while the other is monosubstituted (yielding the aldehyde). In a methylcyclohexene, having one end of the double bond attached to the methyl substituent and the other attached to $-\\text{H}$ uniquely corresponds to 1-methylcyclohexene. Cleaving 1-methylcyclohexene between $\\text{C}-1$ and $\\text{C}-2$ opens the six-membered ring into a heptanedione derivative with a ketone at $\\text{C}-1$ and an aldehyde at $\\text{C}-2$, which is 6-oxoheptanal. In contrast, 3-methylcyclohexene gives 2-methylhexanedial and 4-methylcyclohexene gives 3-methylhexanedial. Thus, exactly 1 methylcyclohexene isomer produces 6-oxoheptanal."
+    },
+    {
+      "id": "hc_c01_028",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the industrial Hock process, cumene (isopropylbenzene) is converted into phenol and acetone. Cumene is auto-oxidized by atmospheric oxygen to form cumene hydroperoxide, which is subsequently cleaved in the presence of dilute sulfuric acid. Which group migrates to the oxygen atom during the crucial rearrangement of the protonated hydroperoxide intermediate?",
+      "options": [
+        "A) Methyl group, with inversion of configuration",
+        "B) Hydride ion, via a 1,2-hydride shift",
+        "C) Phenyl group, due to its significantly higher migratory aptitude",
+        "D) Hydroxyl radical, via homolytic cleavage"
+      ],
+      "answer": "C",
+      "explanation": "Protonation of the terminal oxygen of cumene hydroperoxide, $\\text{C}_6\\text{H}_5-\\text{C}(\\text{CH}_3)_2-\\text{O}-\\text{OH}$, gives $\\text{C}_6\\text{H}_5-\\text{C}(\\text{CH}_3)_2-\\text{O}-\\text{OH}_2^+$. Loss of a neutral water molecule generates an electron-deficient oxygen atom. To stabilize this developing charge, a 1,2-migration from the benzylic carbon to the electron-deficient oxygen occurs simultaneously. Because the phenyl ring has a vastly superior migratory aptitude compared to methyl groups due to $\\pi$-electron participation and phenonium-like stabilization in the transition state, the phenyl group migrates exclusively to oxygen. This forms a resonance-stabilized carbocation, which upon hydration and hemiacetal cleavage delivers phenol and acetone. Methyl migration does not occur, hydride migration is impossible because the benzylic carbon lacks hydrogen, and the reaction is strictly heterolytic."
+    },
+    {
+      "id": "hc_c01_029",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When ethyne (acetylene) is passed through an aqueous solution of cuprous chloride and ammonium chloride at 70°C, it dimerizes linearly to form vinylacetylene (but-1-en-3-yne). When vinylacetylene is subsequently treated with one equivalent of concentrated hydrochloric acid in the presence of $\\text{Cu}_2\\text{Cl}_2$, what is the major conjugated diene obtained?",
+      "options": [
+        "A) 1-chlorobuta-1,3-diene",
+        "B) 1,4-dichlorobut-2-ene",
+        "C) 4-chlorobut-1-yne",
+        "D) 2-chlorobuta-1,3-diene"
+      ],
+      "answer": "D",
+      "explanation": "Vinylacetylene possesses both an alkene double bond and an alkyne triple bond: $\\text{CH}_2=\\text{CH}-\\text{C}\\equiv\\text{CH}$. In the presence of $\\text{Cu}_2\\text{Cl}_2$, addition of $\\text{HCl}$ occurs regioselectively across the triple bond via 1,4-conjugate addition followed by rearrangement, or direct Markovnikov addition to the alkyne. Protonation at the terminal alkyne carbon produces a conjugated allylic/allenylic carbocation intermediate that captures chloride ion at $\\text{C}-2$. This produces 2-chlorobuta-1,3-diene, commonly known as chloroprene (the synthetic monomer for Neoprene rubber). The 1-chloro isomer 1-chlorobuta-1,3-diene would require anti-Markovnikov alkyne addition, 1,4-dichlorobut-2-ene requires two equivalents of $\\text{HCl}$ with a different diene precursor, and 4-chlorobut-1-yne represents non-existent allylic chloride substitution."
+    },
+    {
+      "id": "hc_c01_030",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Azulene is a non-benzenoid bicyclic aromatic hydrocarbon with molecular formula $\\text{C}_{10}\\text{H}_8$ that exhibits an intense royal-blue color and a significant dipole moment of $1.08\\text{ D}$. How many $\\pi$ electrons are delocalized throughout the fully conjugated perimeter ring system of azulene?",
+      "options": [],
+      "answer": "10",
+      "explanation": "Azulene consists of a fused seven-membered ring (cycloheptatriene) and five-membered ring (cyclopentadiene). The molecule possesses 5 conjugated carbon-carbon double bonds in a planar, bicyclic $sp^2$-hybridized framework. Each double bond contributes $2\\,\\pi$ electrons, yielding a total of $5 \\times 2 = 10\\,\\pi$ electrons. This conforms strictly to Huckel's rule for aromaticity, $4n+2$ with $n=2$. The substantial dipole moment arises from the aromatic resonance contributor comprising a stable aromatic cycloheptatrienyl cation (tropylium ion, $6\\,\\pi$ electrons) fused to an aromatic cyclopentadienyl anion ($6\\,\\pi$ electrons). Thus, the number of delocalized $\\pi$ electrons is exactly 10."
+    },
+    {
+      "id": "hc_c01_031",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When toluene is treated with chromyl chloride ($\\text{CrO}_2\\text{Cl}_2$) in carbon disulfide ($\\text{CS}_2$) as solvent, a brown chromium complex precipitates. Subsequent hydrolysis with aqueous acid affords an aromatic aldehyde as the major product (Etard reaction). What is this major product?",
+      "options": [
+        "A) Benzaldehyde",
+        "B) Benzoic acid",
+        "C) Benzyl alcohol",
+        "D) 4-methylbenzaldehyde"
+      ],
+      "answer": "A",
+      "explanation": "The Etard reaction utilizes chromyl chloride ($\\text{CrO}_2\\text{Cl}_2$) to selectively oxidize the benzylic methyl group of toluene. Two molecules of $\\text{CrO}_2\\text{Cl}_2$ coordinate and insert into the benzylic $\\text{C}-\\text{H}$ bonds to form a brown insoluble complex, $\\text{C}_6\\text{H}_5\\text{CH}[\\text{OCr(OH)Cl}_2]_2$. This coordination complex prevents over-oxidation to carboxylic acid. Subsequent hydrolysis with water cleaves the chromium-oxygen bonds, cleanly releasing benzaldehyde. Strong oxidizing agents like hot alkaline $\\text{KMnO}_4$ or $\\text{K}_2\\text{Cr}_2\\text{O}_7$ oxidize toluene all the way to benzoic acid, benzyl alcohol represents partial reduction rather than controlled oxidation, and 4-methylbenzaldehyde would require formylation of toluene rather than methyl group oxidation."
+    },
+    {
+      "id": "hc_c01_032",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When 3,3-dimethylbut-1-ene is subjected to oxymercuration-demercuration using mercuric acetate ($\\text{Hg(OAc)}_2$) in aqueous tetrahydrofuran followed by reduction with sodium borohydride ($\\text{NaBH}_4$), what is the IUPAC name of the major alcohol formed?",
+      "options": [
+        "A) 2,3-dimethylbutan-2-ol",
+        "B) 3,3-dimethylbutan-2-ol",
+        "C) 3,3-dimethylbutan-1-ol",
+        "D) 2,3-dimethylbutan-1-ol"
+      ],
+      "answer": "B",
+      "explanation": "Oxymercuration begins with electrophilic attack of $\\text{Hg(OAc)}^+$ on the double bond of 3,3-dimethylbut-1-ene to generate a bridged, three-membered cyclic mercurinium ion. Because the cyclic intermediate holds the positive charge delocalized over the mercurinium bridge, an open carbocation is never formed, thereby entirely preventing 1,2-methyl or hydride shifts. Nucleophilic attack by $\\text{H}_2\\text{O}$ occurs with high regioselectivity at the more substituted secondary carbon $\\text{C}-2$ with ring opening. Subsequent reduction with $\\text{NaBH}_4$ replaces the $-\\text{HgOAc}$ group at $\\text{C}-1$ with hydrogen, yielding unrearranged 3,3-dimethylbutan-2-ol as the major product. In contrast, 2,3-dimethylbutan-2-ol is the rearranged product obtained from acid-catalyzed hydration, 3,3-dimethylbutan-1-ol is the anti-Markovnikov product from hydroboration-oxidation, and 2,3-dimethylbutan-1-ol requires both rearrangement and anti-Markovnikov regiochemistry."
+    },
+    {
+      "id": "hc_c01_033",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A cyclic hydrocarbon $X$ with molecular formula $\\text{C}_8\\text{H}_{12}$ consumes exactly 2.0 moles of hydrogen gas ($\\text{H}_2$) per mole of $X$ upon catalytic hydrogenation over palladium to afford cyclooctane. Vigorous oxidative cleavage of $X$ with hot alkaline $\\text{KMnO}_4$ followed by acidification yields exactly 2.0 moles of butanedioic acid (succinic acid) per mole of $X$. How many rings are present in the structure of hydrocarbon $X$?",
+      "options": [],
+      "answer": "1",
+      "explanation": "The degree of unsaturation (index of hydrogen deficiency) for $\\text{C}_8\\text{H}_{12}$ is given by $\\text{DU} = 8 + 1 - \\frac{12}{2} = 3$. Because catalytic hydrogenation consumes exactly 2 moles of $\\text{H}_2$, hydrocarbon $X$ contains 2 carbon-carbon double bonds. The remaining degree of unsaturation must correspond to a ring, so $\\text{Rings} = \\text{DU} - (\\text{double bonds}) = 3 - 2 = 1$. Hydrogenation gives cyclooctane, proving the ring is eight-membered. Oxidative cleavage yielding 2 moles of succinic acid ($\\text{HOOC}-\\text{CH}_2-\\text{CH}_2-\\text{COOH}$) confirms $X$ to be cycloocta-1,5-diene, a symmetrical monocyclic diene with exactly 1 ring."
+    },
+    {
+      "id": "hc_c01_034",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Electrophilic aromatic sulfonation of naphthalene with concentrated sulfuric acid is a reversible reaction that exhibits kinetic versus thermodynamic control. At 80°C, product $M$ dominates, whereas at 160°C, product $N$ dominates. Which of the following statements correctly identifies products $M$ and $N$ and explains their relative stabilities?",
+      "options": [
+        "A) $M$ is naphthalene-2-sulfonic acid; $N$ is naphthalene-1-sulfonic acid because C-1 has greater steric freedom",
+        "B) $M$ is naphthalene-2-sulfonic acid; $N$ is naphthalene-1-sulfonic acid because C-2 is thermodynamically favored",
+        "C) $M$ is naphthalene-1-sulfonic acid; $N$ is naphthalene-2-sulfonic acid because steric peri-interaction with H-8 destabilizes the 1-isomer",
+        "D) $M$ and $N$ are positional isomers of disulfonated naphthalene produced by sequential irreversible substitution"
+      ],
+      "answer": "C",
+      "explanation": "In naphthalene, electrophilic attack at the $\\alpha$-position (C-1) proceeds via an arenium intermediate where resonance delocalization maintains an intact aromatic sextet in seven contributing forms, compared to only six for attack at the $\\beta$-position (C-2). Consequently, activation energy for C-1 substitution is lower, making naphthalene-1-sulfonic acid the faster-forming kinetic product ($M$) at 80°C. However, the bulky sulfonic acid group ($-\\text{SO}_3\\text{H}$) at C-1 experiences severe steric peri-strain with the hydrogen atom at C-8 across the ring. At 160°C, sulfonation becomes readily reversible; equilibration relieves this peri-strain by converting the kinetic isomer into the thermodynamically more stable naphthalene-2-sulfonic acid ($N$), where the substituent is in the less congested $\\beta$-position."
+    },
+    {
+      "id": "hc_c01_035",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Addition of 1.0 equivalent of $\\text{HBr}$ to buta-1,3-diene at –80°C yields 3-bromobut-1-ene as the major product (kinetic control), whereas at 40°C, 1-bromobut-2-ene predominates (thermodynamic control). Why is 1-bromobut-2-ene thermodynamically more stable than 3-bromobut-1-ene?",
+      "options": [
+        "A) 1-bromobut-2-ene has a higher dipole moment than 3-bromobut-1-ene",
+        "B) The allylic carbocation undergoes faster chloride capture at C-1",
+        "C) Bromine at C-1 forms a stronger coordinate bond with the double bond",
+        "D) 1-bromobut-2-ene features an internal, disubstituted alkene stabilized by hyperconjugation, whereas 3-bromobut-1-ene has a terminal, monosubstituted alkene"
+      ],
+      "answer": "D",
+      "explanation": "Protonation of buta-1,3-diene forms a resonance-stabilized allylic carbocation, $\\text{CH}_3-\\text{CH}^+-\\text{CH}=\\text{CH}_2 \\leftrightarrow \\text{CH}_3-\\text{CH}=\\text{CH}-\\text{CH}_2^+$. At low temperature (–80°C), attack of bromide occurs faster at C-2 due to greater proximity of the counterion (proximity effect) and higher localized positive charge, yielding the kinetic 1,2-addition product 3-bromobut-1-ene. At elevated temperature (40°C), addition is reversible and equilibrium favors the thermodynamic product. In 1-bromobut-2-ene, the double bond is internal and disubstituted, possessing 5 hyperconjugable $\\alpha$-hydrogens (3 from the methyl group and 2 from the $-\\text{CH}_2\\text{Br}$ group), which confers significantly higher thermodynamic stability than the terminal monosubstituted double bond of 3-bromobut-1-ene (only 1 $\\alpha$-hydrogen). Dipole moments and coordination do not determine alkene relative heats of formation."
+    },
+    {
+      "id": "hc_c01_036",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The Diels-Alder reaction of cyclopenta-1,3-diene with maleic anhydride is an archetypal pericyclic cycloaddition. Which of the following statements regarding this reaction is/are TRUE?\n\nA) The reaction is a concerted $[4\\pi_s + 2\\pi_s]$ cycloaddition that proceeds with complete retention of the cis configuration of maleic anhydride.\nB) The endo adduct is the kinetically favored major product due to secondary orbital interaction between the developing $\\pi^*$ orbitals of the carbonyl groups and the diene $\\pi$ system.\nC) The exo adduct is thermodynamically more stable than the endo adduct because it experiences less steric congestion.\nD) The reaction is photochemically allowed under suprafacial-suprafacial symmetry selection rules according to the Woodward-Hoffmann rules.",
+      "options": [
+        "A) A",
+        "B) B",
+        "C) C",
+        "D) D"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Evaluating each statement step by step:\nStep 1: The Diels-Alder reaction involves the concerted reaction of a conjugated $4\\pi$-electron diene with a $2\\pi$-electron dienophile. According to the Woodward-Hoffmann rules, thermal $[4\\pi_s + 2\\pi_s]$ cycloadditions are symmetry-allowed with a suprafacial-suprafacial orbital overlap, preserving dienophile stereochemistry; hence, statement A is correct, whereas statement D is incorrect because photochemical $[4\\pi_s + 2\\pi_s]$ cycloadditions are symmetry-forbidden.\nStep 2: In the transition state leading to the endo adduct, the electron-withdrawing carbonyl groups of maleic anhydride point directly beneath the developing $\\pi$-electron cloud of the diene. This permits secondary orbital interactions (favorable bonding overlap between the carbonyl $\\pi^*$ LUMO and diene HOMO), which lowers the activation energy $\\Delta G^\\ddagger$; therefore, the endo isomer forms faster as the kinetic product, confirming statement B.\nStep 3: In the endo product, the bulky anhydride ring is oriented toward the endo face, experiencing steric clash with the bridgehead methylene group. In the exo product, the anhydride ring points away from the bicyclic ring, yielding lower steric energy; hence, the exo isomer is thermodynamically more stable, confirming statement C."
+    },
+    {
+      "id": "hc_c01_037",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Stereospecific addition reactions across stereoisomeric alkenes provide critical pathways for creating stereochemically defined polyfunctional compounds. Which of the following transformations correctly describes the stereochemical outcome of the reaction?\n\nA) Anti-addition of $\\text{Br}_2$ in $\\text{CCl}_4$ to (E)-but-2-ene yields meso-2,3-dibromobutane.\nB) Anti-addition of $\\text{Br}_2$ in $\\text{CCl}_4$ to (Z)-but-2-ene yields meso-2,3-dibromobutane.\nC) Syn-dihydroxylation of (Z)-but-2-ene using catalytic $\\text{OsO}_4$ in the presence of N-methylmorpholine N-oxide (NMO) yields meso-butane-2,3-diol.\nD) Epoxidation of (E)-but-2-ene with mCPBA followed by acid-catalyzed ring opening (overall anti-dihydroxylation) yields meso-butane-2,3-diol.",
+      "options": [
+        "A) A",
+        "B) B",
+        "C) C",
+        "D) D"
+      ],
+      "answer": "A,C,D",
+      "explanation": "Step 1: Halogenation of an alkene with $\\text{Br}_2$ proceeds via a bridged cyclic bromonium ion intermediate followed by backside nucleophilic attack of bromide, enforcing strict anti-addition. For a symmetrical alkene, anti-addition to a trans-alkene ((E)-but-2-ene) generates the internally compensated meso-2,3-dibromobutane, confirming statement A. Applying anti-addition to a cis-alkene ((Z)-but-2-ene) yields the racemic (±)-2,3-dibromobutane pair; hence statement B is incorrect.\nStep 2: Dihydroxylation with $\\text{OsO}_4$ proceeds via a concerted cyclic osmate ester, enforcing strict syn-addition of both hydroxyl groups to the same face. Syn-addition to a symmetrical cis-alkene ((Z)-but-2-ene) places both $-\\text{OH}$ groups on the identical side in the Fischer projection, yielding meso-butane-2,3-diol, confirming statement C.\nStep 3: Epoxidation with mCPBA is a stereospecific syn-addition, preserving the trans relationship of the methyl groups to give trans-2,3-dimethyloxirane. Subsequent acid-catalyzed ring opening by water occurs via backside $S_N2$-like attack with inversion at one carbon, resulting in overall anti-dihydroxylation. Net anti-dihydroxylation of (E)-but-2-ene (trans + anti) yields meso-butane-2,3-diol, therefore statement D is correct."
+    },
+    {
+      "id": "hc_c01_038",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "When 1,4-dimethylbenzene (p-xylene) is treated with sodium in liquid ammonia containing ethanol at –78°C, it undergoes Birch reduction to afford hydrocarbon $X$ as the major product. Which of the following statements concerning hydrocarbon $X$ is/are TRUE?\n\nA) Hydrocarbon $X$ is a conjugated cyclohexadiene exhibiting an intense UV absorption band at $\\lambda_{\\max} \\approx 256\\text{ nm}$.\nB) Reductive ozonolysis ($\\text{O}_3$ followed by $\\text{Zn}/\\text{H}_2\\text{O}$) of 1.0 mole of hydrocarbon $X$ yields exactly 2.0 moles of 3-oxobutanal ($\\text{CH}_3\\text{COCH}_2\\text{CHO}$).\nC) The ${}^1\\text{H}$ NMR spectrum of hydrocarbon $X$ exhibits exactly three singlets in a $3 : 1 : 2$ relative proton integration ratio.\nD) Catalytic hydrogenation of hydrocarbon $X$ over platinum consumes exactly two molar equivalents of $\\text{H}_2$ per mole of $X$, yielding 1,4-dimethylcyclohexane.",
+      "options": [
+        "A) A",
+        "B) B",
+        "C) C",
+        "D) D"
+      ],
+      "answer": "B,C,D",
+      "explanation": "Step 1: In the Birch reduction of aromatic rings, alkyl groups are weakly electron-donating (+I effect) and destabilize radical-anion electron density at the carbons to which they are attached. Consequently, protonation by ethanol avoids the substituted carbons and occurs at C-2 and C-5, yielding 1,4-dimethylcyclohexa-1,4-diene as hydrocarbon $X$. Because the double bonds are at C-1 and C-4, they are isolated and unconjugated, disproving statement A.\nStep 2: The structure of 1,4-dimethylcyclohexa-1,4-diene has two identical halves: $\\text{C}(1)(\\text{CH}_3)=\\text{C}(2)\\text{H}-\\text{C}(3)\\text{H}_2-\\text{C}(4)(\\text{CH}_3)=\\text{C}(5)\\text{H}-\\text{C}(6)\\text{H}_2-$. Reductive ozonolysis cleaves both $\\text{C}=\\text{C}$ double bonds. Cleaving between C-1=C-2 and C-4=C-5 converts the ring into two identical molecules of 3-oxobutanal, $\\text{CH}_3-\\text{C}(=\\text{O})-\\text{CH}_2-\\text{CH}=\\text{O}$; hence, exactly 2.0 moles of 3-oxobutanal are formed, validating statement B.\nStep 3: Due to the high molecular symmetry ($D_{2h}$ idealized point symmetry), there are only three sets of equivalent protons: the 6 methyl protons (singlet), the 2 vinylic protons at C-2 and C-5 (singlet/multiplet appearing as singlet without vicinal coupling), and the 4 allylic methylene protons at C-3 and C-6 (singlet). The proton ratio is $6 : 2 : 4 = 3 : 1 : 2$, validating statement C.\nStep 4: Hydrocarbon $X$ contains two carbon-carbon double bonds; therefore, complete catalytic hydrogenation over platinum consumes exactly 2.0 equivalents of $\\text{H}_2$ to yield 1,4-dimethylcyclohexane, confirming statement D."
+    },
+    {
+      "id": "hc_c01_039",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "An authentic multi-step retrosynthetic pathway is required to convert benzene into 1-bromo-3-nitro-5-propylbenzene in high overall yield. Which of the following sequential reaction sequences achieves this synthesis without leading to positional isomers or Friedel-Crafts failure?",
+      "options": [
+        "A) (1) $\\text{CH}_3\\text{CH}_2\\text{COCl} / \\text{AlCl}_3$; (2) $\\text{HNO}_3 / \\text{H}_2\\text{SO}_4$; (3) $\\text{Br}_2 / \\text{FeBr}_3$; (4) $\\text{Zn(Hg)} / \\text{conc. HCl}$",
+        "B) (1) $\\text{CH}_3\\text{CH}_2\\text{CH}_2\\text{Cl} / \\text{AlCl}_3$; (2) $\\text{HNO}_3 / \\text{H}_2\\text{SO}_4$; (3) $\\text{Br}_2 / \\text{FeBr}_3$",
+        "C) (1) $\\text{Br}_2 / \\text{FeBr}_3$; (2) $\\text{HNO}_3 / \\text{H}_2\\text{SO}_4$; (3) $\\text{CH}_3\\text{CH}_2\\text{COCl} / \\text{AlCl}_3$; (4) $\\text{Zn(Hg)} / \\text{conc. HCl}$",
+        "D) (1) $\\text{HNO}_3 / \\text{H}_2\\text{SO}_4$; (2) $\\text{Br}_2 / \\text{FeBr}_3$; (3) $\\text{CH}_3\\text{CH}_2\\text{CH}_2\\text{Cl} / \\text{AlCl}_3$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Direct alkylation of benzene with 1-chloropropane fails because the primary propyl cation undergoes an instantaneous 1,2-hydride shift to the secondary isopropyl cation, giving isopropylbenzene rather than n-propylbenzene. Furthermore, an alkyl group is ortho/para directing and cannot yield a 1,3,5-trisubstituted benzene.\nStep 2: To solve both problems, Friedel-Crafts acylation of benzene with propanoyl chloride ($\\text{CH}_3\\text{CH}_2\\text{COCl}$) in the presence of $\\text{AlCl}_3$ introduces the propanoyl group without carbocation rearrangement, yielding propiophenone ($-\\text{COCH}_2\\text{CH}_3$).\nStep 3: The propanoyl group is a strong meta-directing and deactivating group. Nitration of propiophenone with $\\text{HNO}_3/\\text{H}_2\\text{SO}_4$ selectively introduces the nitro group at the meta position, yielding 1-(3-nitrophenyl)propan-1-one. Subsequent bromination with $\\text{Br}_2/\\text{FeBr}_3$ is directed by both the propanoyl group (meta) and nitro group (meta), which mutually reinforce electrophilic attack at the remaining mutually meta position C-5, yielding 1-(3-bromo-5-nitrophenyl)propan-1-one.\nStep 4: Finally, Clemmensen reduction ($\\text{Zn(Hg)}/\\text{conc. HCl}$) reduces the carbonyl group to a methylene group without reducing the nitro or aryl bromide moieties under controlled conditions, yielding 1-bromo-3-nitro-5-propylbenzene. The alternative sequences fail because Friedel-Crafts acylation or alkylation is completely suppressed on strongly deactivated nitrobenzene or bromonitrobenzene rings."
+    },
+    {
+      "id": "hc_c01_040",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Huckel's $(4n+2)\\,\\pi$ electron rule dictates the thermodynamic stabilization of planar cyclic conjugated polyenes. Which of the following statements correctly identifies the aromatic, non-aromatic, or antiaromatic nature of the given cyclic species?\n\nA) The cyclopentadienyl anion ($\\text{C}_5\\text{H}_5^-$) possesses $6\\,\\pi$ electrons fully delocalized across a planar pentagonal ring, rendering it an aromatic species with significant resonance stabilization.\nB) Cyclooctatetraene ($\\text{C}_8\\text{H}_8$) adopts a non-planar tub-shaped conformation to avoid angle and antiaromatic strain, rendering it non-aromatic rather than antiaromatic at room temperature.\nC) Cycloheptatriene ($\\text{C}_7\\text{H}_8$) contains three conjugated double bonds with $6\\,\\pi$ electrons and is therefore aromatic.\nD) The cyclopropenyl cation ($\\text{C}_3\\text{H}_3^+$) possesses $2\\,\\pi$ electrons in a planar three-membered ring ($n=0$) and is an exceptionally stable aromatic carbocation.",
+      "options": [
+        "A) A",
+        "B) B",
+        "C) C",
+        "D) D"
+      ],
+      "answer": "A,B,D",
+      "explanation": "Step 1: Applying Huckel's rule requires continuous cyclic conjugation of $p$-orbitals across a planar ring. The cyclopentadienyl anion contains two $\\pi$ bonds ($4\\,\\pi$ electrons) plus one carbanionic lone pair delocalized into the $p$-system, giving $6\\,\\pi$ electrons. For $n=1$, $4n+2 = 6$; hence, it is aromatic, confirming statement A.\nStep 2: Planar cyclooctatetraene would possess $8\\,\\pi$ electrons ($4n$ with $n=2$), which would make it antiaromatic with open-shell biradical character. To relieve this electronic destabilization, the molecule puckers into a non-planar tub-shaped conformation ($D_{2d}$ symmetry) where adjacent $p$-orbitals cannot overlap effectively, rendering it non-aromatic, confirming statement B.\nStep 3: Cycloheptatriene contains an $sp^3$-hybridized methylene carbon ($-\\text{CH}_2-$) that breaks cyclic conjugation; therefore, it is non-aromatic, disproving statement C (only the tropylium cation $\\text{C}_7\\text{H}_7^+$, formed by hydride removal, is aromatic).\nStep 4: The cyclopropenyl cation has one double bond ($2\\,\\pi$ electrons) and an empty $p$-orbital on the third carbon. With $2\\,\\pi$ electrons, it satisfies $4n+2$ for $n=0$; hence, it is a stable aromatic cation, confirming statement D."
+    },
+    {
+      "id": "hc_c01_041",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Phenanthrene is a fused tricyclic benzenoid aromatic hydrocarbon with molecular formula $\\text{C}_{14}\\text{H}_{10}$. In phenanthrene, electrophilic addition reactions such as bromination occur readily across the C-9 and C-10 positions rather than undergoing typical electrophilic substitution. What is the total number of localized and delocalized $\\pi$-bonds present in one molecule of phenanthrene?",
+      "options": [],
+      "answer": "7",
+      "explanation": "Step 1: The degree of unsaturation (index of hydrogen deficiency) for phenanthrene ($\\text{C}_{14}\\text{H}_{10}$) is calculated using the formula: $\\text{DU} = C + 1 - \\frac{H}{2} = 14 + 1 - \\frac{10}{2} = 15 - 5 = 10$.\nStep 2: Phenanthrene is a tricyclic system consisting of three fused benzene rings, which accounts for exactly 3 rings.\nStep 3: The total degree of unsaturation is the sum of the number of rings and the number of $\\pi$-bonds: $\\text{DU} = \\text{Rings} + \\pi\\text{-bonds}$. Substituting the values yields: $10 = 3 + \\pi\\text{-bonds} \\implies \\pi\\text{-bonds} = 10 - 3 = 7$.\nStep 4: Each of the 7 $\\pi$-bonds contributes two $\\pi$ electrons, giving a total of $14\\,\\pi$ electrons distributed across the three rings. Therefore, the total number of $\\pi$-bonds present in phenanthrene is exactly 7."
+    },
+    {
+      "id": "hc_c01_042",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Bicyclo[2.2.1]hept-2-ene (norbornene) undergoes characteristic electrophilic additions and rearrangements due to its strained, rigid bridged bicyclic framework. Which of the following statements regarding norbornene is/are TRUE?\n\nA) Electrophilic addition of electrophiles to the norbornene double bond occurs preferentially from the less hindered exo face rather than the endo face.\nB) Norbornene is thermodynamically more stable than cyclohexene due to relief of torsional strain in its bridged bicyclic ring system.\nC) Protonation of norbornene generates a bridged, non-classical 2-norbornyl carbocation that exhibits rapid Wagner-Meerwein rearrangement.\nD) Addition of $\\text{Br}_2$ to norbornene yields trans-2,3-dibromobicyclo[2.2.1]heptane as the exclusive product without skeletal rearrangement.",
+      "options": [
+        "A) A",
+        "B) B",
+        "C) C",
+        "D) D"
+      ],
+      "answer": "A,C",
+      "explanation": "Step 1: The bicyclic skeleton of norbornene presents two distinct diastereotopic faces: the exo face (convex, pointing toward the one-carbon bridge) and the endo face (concave, pointing toward the two-carbon ethano bridge). The endo face is sterically congested by the endo hydrogens at C-5 and C-6; hence, incoming electrophiles and nucleophiles attack predominantly from the more accessible exo face, confirming statement A.\nStep 2: Norbornene possesses considerable angle strain and torsional strain (total strain energy $\\approx 100\\text{ kJ/mol}$) compared to the almost strain-free chair conformation of cyclohexene (strain energy $\\approx 11\\text{ kJ/mol}$); thus, norbornene is thermodynamically much less stable and far more reactive than cyclohexene, disproving statement B.\nStep 3: Electrophilic addition of $\\text{H}^+$ to norbornene produces the 2-norbornyl cation, which is stabilized by three-center two-electron $\\sigma$-delocalization (non-classical carbocation structure) and undergoes extremely rapid Wagner-Meerwein 1,2-shifts and 6,2-hydride shifts, confirming statement C.\nStep 4: Bromination of norbornene is accompanied by extensive skeletal rearrangement and Wagner-Meerwein shifts yielding a mixture of rearranged exo-bromonorbornyl derivatives rather than exclusive unrearranged trans-addition, disproving statement D."
+    },
+    {
+      "id": "hc_c01_043",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following stereo-controlled multi-step reaction cascade starting from but-2-yne:\n$$\\text{CH}_3-\\text{C}\\equiv\\text{C}-\\text{CH}_3 \\xrightarrow{\\text{Na} / \\text{liquid NH}_3} P \\xrightarrow{\\text{mCPBA} / \\text{CH}_2\\text{Cl}_2} Q \\xrightarrow{\\text{H}_3\\text{O}^+} R$$\nWhat is the IUPAC name and stereochemical classification of the final product $R$?",
+      "options": [
+        "A) Racemic (±)-butane-2,3-diol",
+        "B) meso-butane-2,3-diol",
+        "C) (2R,3R)-butane-2,3-diol",
+        "D) (2S,3S)-butane-2,3-diol"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Reduction of but-2-yne with sodium in liquid ammonia (Birch reduction) proceeds with stereospecific anti-addition via a trans-radical-anion intermediate, yielding trans-but-2-ene as hydrocarbon $P$.\nStep 2: Epoxidation of trans-but-2-ene with meta-chloroperbenzoic acid (mCPBA) is a concerted, stereospecific syn-addition that preserves the relative trans geometry of the methyl groups, producing trans-2,3-dimethyloxirane as intermediate $Q$.\nStep 3: Acid-catalyzed epoxide ring opening occurs via protonation of the oxirane oxygen followed by nucleophilic backside attack of $\\text{H}_2\\text{O}$ at one of the oxirane carbons with complete inversion of configuration at that center (anti-opening).\nStep 4: Backside opening of trans-2,3-dimethyloxirane reverses the relative inversion at one center such that in the resulting open-chain diol, the two $-\\text{OH}$ groups lie on the same side in the eclipsed Fischer projection. This yields meso-butane-2,3-diol, which possesses an internal plane of symmetry and is optically inactive. Distractors like racemic (±)-butane-2,3-diol would arise from cis-but-2-ene via the same epoxidation-hydrolysis sequence, and pure single enantiomers cannot be formed from achiral precursors."
+    },
+    {
+      "id": "hc_c01_044",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Anthracene and phenanthrene represent structural isomers of polycyclic aromatic hydrocarbons containing three fused benzene rings. Which of the following statements regarding the reactivity and aromatic resonance stability of anthracene is/are TRUE?\n\nA) Electrophilic aromatic substitution of anthracene occurs preferentially at the C-1 and C-4 positions to minimize steric hindrance.\nB) Electrophilic attack at the C-9 (meso) position of anthracene is kinetically and thermodynamically favored because the resulting arenium ion preserves two fully intact benzene sextets ($2 \\times 151\\text{ kJ/mol} = 302\\text{ kJ/mol}$ resonance energy).\nC) Electrophilic attack at the C-1 position of anthracene disrupts the central ring, leaving a naphthalene-like conjugated core with a substantially lower resonance energy of $255\\text{ kJ/mol}$.\nD) Addition of 1.0 equivalent of $\\text{Br}_2$ to anthracene in carbon disulfide at 0°C yields 9,10-dibromo-9,10-dihydroanthracene, which upon heating readily eliminates $\\text{HBr}$ to afford 9-bromoanthracene.",
+      "options": [
+        "A) A",
+        "B) B",
+        "C) C",
+        "D) D"
+      ],
+      "answer": "B,C,D",
+      "explanation": "Step 1: In anthracene, the C-9 and C-10 positions (the meso positions on the central ring) exhibit unusually high chemical reactivity. Attack of an electrophile ($E^+$) at C-9 generates a carbocation intermediate (Wheland intermediate) in which the positive charge is localized while the two terminal rings each retain an intact, fully benzenoid $6\\,\\pi$-electron aromatic sextet. The resonance energy preserved is approximately $2 \\times 151\\text{ kJ/mol} = 302\\text{ kJ/mol}$, confirming statement B and disproving statement A.\nStep 2: In contrast, electrophilic attack at C-1 or C-2 forces the remaining $10\\,\\pi$ electrons to be delocalized across a naphthalene-like ring system whose total resonance energy is only approximately $255\\text{ kJ/mol}$. The loss of resonance energy is $347 - 255 = 92\\text{ kJ/mol}$ for C-1 attack, versus only $347 - 302 = 45\\text{ kJ/mol}$ for C-9 attack; hence, the activation energy for C-9 attack is far lower, confirming statement C.\nStep 3: Because the central ring has significant localized diene character, bromine adds across C-9 and C-10 at low temperatures to give 9,10-dibromo-9,10-dihydroanthracene. Upon gentle heating, it readily loses a molecule of $\\text{HBr}$ driven by the recovery of full aromaticity, yielding 9-bromoanthracene, confirming statement D."
+    },
+    {
+      "id": "hc_c01_045",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Cyclopenta-1,3-diene spontaneously undergoes a Diels-Alder dimerization reaction at room temperature to form endo-dicyclopentadiene, a stable bridged tricyclic hydrocarbon with molecular formula $\\text{C}_{10}\\text{H}_{12}$. How many $sp^3$-hybridized carbon atoms are present in one molecule of endo-dicyclopentadiene?",
+      "options": [],
+      "answer": "6",
+      "explanation": "Step 1: In the Diels-Alder dimerization of cyclopenta-1,3-diene ($\\text{C}_5\\text{H}_6$), one molecule acts as the $4\\pi$-diene while the second molecule acts as the $2\\pi$-dienophile.\nStep 2: Cycloaddition consumes one double bond from the dienophile and both double bonds from the diene, creating two new $\\text{C}-\\text{C}$ $\\sigma$-bonds and one new double bond in the newly formed norbornene-type bicyclic core, while the unreacted double bond of the dienophile's cyclopentene ring remains intact.\nStep 3: Thus, endo-dicyclopentadiene ($\\text{C}_{10}\\text{H}_{12}$) contains exactly 2 carbon-carbon double bonds. Each double bond involves 2 $sp^2$-hybridized carbon atoms, giving a total of $2 \\times 2 = 4$ $sp^2$-hybridized carbons.\nStep 4: Since dicyclopentadiene has a total of 10 carbon atoms, the number of $sp^3$-hybridized carbon atoms is $10 - 4 = 6$. Specifically, these 6 $sp^3$ carbons comprise the four bridgehead/junction methine carbons ($-\\text{CH}-$) and the two bridging methylene carbons ($-\\text{CH}_2-$)."
+    },
+    {
+      "id": "hc_c01_046",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "When hex-1-yne is reacted with dicyclohexylborane in THF followed by oxidation with alkaline hydrogen peroxide ($\\text{H}_2\\text{O}_2 / \\text{NaOH}$), a single carbonyl product $X$ is formed. When hex-1-yne is treated with dilute $\\text{H}_2\\text{SO}_4$ in the presence of $\\text{HgSO}_4$ catalyst at 60°C, a different carbonyl product $Y$ is obtained as the major product. What are the IUPAC names of products $X$ and $Y$?",
+      "options": [
+        "A) $X$ is hexan-2-one and $Y$ is hexanal",
+        "B) $X$ is hexanoic acid and $Y$ is hexan-3-one",
+        "C) $X$ is hexanal and $Y$ is hexan-2-one",
+        "D) $X$ is hexan-3-one and $Y$ is hexanoic acid"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Terminal alkynes like hex-1-yne ($\\text{CH}_3(\\text{CH}_2)_3\\text{C}\\equiv\\text{CH}$) undergo hydroboration-oxidation with bulky, sterically hindered boranes such as dicyclohexylborane ($\\text{Cy}_2\\text{BH}$). The bulky boron atom attaches regioselectively to the terminal, less hindered $sp$-carbon with syn-stereospecificity, generating an alkenylborane.\nStep 2: Alkaline oxidation with $\\text{H}_2\\text{O}_2$ converts the alkenylborane into an enol, $\\text{CH}_3(\\text{CH}_2)_3\\text{CH}=\\text{CH}-\\text{OH}$, which immediately tautomerizes to the more stable aldehyde hexanal ($X$, anti-Markovnikov hydration).\nStep 3: In contrast, mercury(II)-catalyzed hydration with dilute $\\text{H}_2\\text{SO}_4/\\text{HgSO}_4$ proceeds via a cyclic mercurinium ion that is opened by nucleophilic attack of $\\text{H}_2\\text{O}$ at the more substituted internal carbon (Markovnikov regiochemistry). Tautomerization of the resulting enol $\\text{CH}_3(\\text{CH}_2)_3\\text{C}(\\text{OH})=\\text{CH}_2$ produces the methyl ketone hexan-2-one ($Y$). Therefore, $X$ is hexanal and $Y$ is hexan-2-one. Reversing the products represents confusion between Markovnikov and anti-Markovnikov hydration, and oxidation to carboxylic acid occurs only under vigorous oxidative cleavage."
+    },
+    {
+      "id": "hc_c01_047",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Elimination reactions of nitrogen-containing derivatives provide specialized pathways for the regioselective synthesis of alkenes. Which of the following statements comparing the Hofmann elimination and the Cope elimination is/are TRUE?\n\nA) The Cope elimination of tertiary amine N-oxides is an intramolecular thermal syn-elimination proceeding through a planar five-membered cyclic transition state.\nB) The Hofmann elimination of quaternary ammonium hydroxides requires an anti-coplanar periplanar geometry between the leaving group and the $\\beta$-hydrogen atom.\nC) Both Hofmann and Cope eliminations obey Saytzeff's rule to yield the most highly substituted thermodynamic alkene as the major product.\nD) Hofmann elimination requires mild non-basic aqueous conditions, whereas Cope elimination requires strong Brønsted bases such as sodium ethoxide at 200°C.",
+      "options": [
+        "A) A",
+        "B) B",
+        "C) C",
+        "D) D"
+      ],
+      "answer": "A,B",
+      "explanation": "Step 1: The Cope elimination involves heating a tertiary amine $N$-oxide ($\\text{R}_3\\text{N}^+-\\text{O}^-$) at 100–150°C. The negatively charged oxygen atom acts as an internal base, abstracting a $\\beta$-hydrogen from the same face via a concerted five-membered cyclic transition state, resulting in stereospecific syn-elimination; hence, statement A is correct.\nStep 2: The Hofmann elimination involves pyrolysis of quaternary ammonium hydroxides ($-\\text{N}^+\\text{R}_3 \\, \\text{OH}^-$) via an E2 pathway. The E2 mechanism has a strict stereoelectronic requirement for an anti-periplanar arrangement between the bulky leaving group and the $\\beta$-proton to maximize orbital overlap between developing $\\pi$-orbitals; hence, statement B is correct.\nStep 3: Because of severe steric clashes with the bulky trimethylammonium or amine oxide groups and the carbanion-like character of the transition state, both eliminations selectively abstract the most acidic and sterically accessible primary $\\beta$-hydrogens. Consequently, both reactions yield the less substituted Hofmann alkene rather than the Saytzeff alkene, disproving statement C.\nStep 4: Quaternary ammonium hydroxides are strongly basic salts requiring heating, whereas Cope elimination is completely base-free, disproving statement D."
+    },
+    {
+      "id": "hc_c01_048",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Norbornadiene (bicyclo[2.2.1]hepta-2,5-diene) is a bridged bicyclic hydrocarbon with molecular formula $\\text{C}_7\\text{H}_8$. Catalytic hydrogenation of norbornadiene over palladium on carbon consumes exactly 2.0 moles of $\\text{H}_2$ per mole of norbornadiene to form the saturated bicyclic hydrocarbon norbornane ($\\text{C}_7\\text{H}_{12}$). What is the total number of rings present in the structure of norbornadiene?",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: Calculate the degree of unsaturation (index of hydrogen deficiency) for norbornadiene ($\\text{C}_7\\text{H}_8$): $\\text{DU} = C + 1 - \\frac{H}{2} = 7 + 1 - \\frac{8}{2} = 8 - 4 = 4$.\nStep 2: Complete catalytic hydrogenation consumes exactly 2.0 moles of $\\text{H}_2$ per mole of norbornadiene, proving that norbornadiene contains exactly 2 carbon-carbon double bonds.\nStep 3: The remaining degree of unsaturation must correspond to rings: $\\text{Rings} = \\text{DU} - (\\text{double bonds}) = 4 - 2 = 2$.\nStep 4: This is fully verified by the formula of the saturated product norbornane ($\\text{C}_7\\text{H}_{12}$), which has $\\text{DU} = 7 + 1 - \\frac{12}{2} = 2$. An alkane with $\\text{DU} = 2$ and no double bonds consists of exactly 2 rings (a bicyclic framework). Therefore, the number of rings in norbornadiene is exactly 2."
+    },
+    {
+      "id": "hc_c01_049",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "When but-2-yne is treated with 1.0 equivalent of anhydrous hydrogen bromide ($\\text{HBr}$) at –20°C in the presence of trace benzoyl peroxide, free-radical addition occurs across the triple bond. What is the stereochemical configuration and IUPAC name of the predominant mono-brominated alkene obtained?",
+      "options": [
+        "A) (E)-1-bromobut-1-ene",
+        "B) (Z)-1-bromobut-1-ene",
+        "C) (E)-2-bromobut-2-ene",
+        "D) (Z)-2-bromobut-2-ene"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In the presence of peroxides, $\\text{HBr}$ adds to alkynes via a free-radical chain mechanism. A bromine radical ($\\text{Br}^\\bullet$) attacks the carbon-carbon triple bond of but-2-yne ($\\text{CH}_3-\\text{C}\\equiv\\text{C}-\\text{CH}_3$) to form an intermediate vinyl radical.\nStep 2: To minimize steric repulsion between the two bulky methyl groups, the bromine radical approaches such that the vinyl radical intermediate adopts an (E)-conformation with the two methyl groups positioned trans to one another: $\\text{CH}_3-\\text{C}(\\text{Br})=\\dot{\\text{C}}-\\text{CH}_3$.\nStep 3: In the subsequent propagation step, the vinyl radical abstracts a hydrogen atom from a molecule of $\\text{HBr}$. At low temperatures (–20°C), hydrogen transfer occurs from the face opposite to the bulky bromine atom (anti-addition) faster than the vinyl radical can undergo configurational inversion. Anti-addition of $\\text{H}$ relative to $\\text{Br}$ places the added hydrogen atom trans to bromine, meaning the two methyl groups remain on opposite sides of the double bond; applying CIP priority rules ($\\text{Br} > \\text{CH}_3$ at C-2, $\\text{CH}_3 > \\text{H}$ at C-3), the higher priority groups ($-\\text{Br}$ and $-\\text{CH}_3$) reside on the same side of the double bond, which defines the (Z)-configuration: (Z)-2-bromobut-2-ene.\nStep 4: Terminal bromobut-1-enes require but-1-yne as starting material, and the (E)-isomer forms in significant amounts only at higher temperatures where rapid inversion of the vinyl radical occurs."
+    },
+    {
+      "id": "hc_c01_050",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "When propyne gas is passed through a red-hot iron tube at 873 K, it undergoes cyclic trimerization to form a symmetrical aromatic hydrocarbon $P$ with molecular formula $\\text{C}_9\\text{H}_{12}$ (mesitylene). Vigorous oxidation of hydrocarbon $P$ with hot alkaline potassium permanganate ($\\text{KMnO}_4$) followed by acidification yields tricarboxylic acid $Q$ (trimesic acid). How many carboxylic acid groups ($-\\text{COOH}$) are present in one molecule of tricarboxylic acid $Q$?",
+      "options": [],
+      "answer": "3",
+      "explanation": "Step 1: Cyclic trimerization of propyne ($\\text{CH}_3-\\text{C}\\equiv\\text{CH}$) over a red-hot iron tube at 873 K proceeds with head-to-tail regioselectivity to produce 1,3,5-trimethylbenzene, commonly known as mesitylene ($P$, $\\text{C}_9\\text{H}_{12}$).\nStep 2: Mesitylene contains three benzylic methyl groups attached symmetrically at positions 1, 3, and 5 of the benzene ring.\nStep 3: Oxidation of alkylbenzenes with hot alkaline $\\text{KMnO}_4$ oxidizes any benzylic carbon possessing at least one $\\text{C}-\\text{H}$ bond completely to a carboxylic acid group ($-\\text{COOH}$). Because all three methyl groups at C-1, C-3, and C-5 possess three benzylic hydrogens each, all three are oxidized simultaneously.\nStep 4: Subsequent acidification converts the tricarboxylate salt into benzene-1,3,5-tricarboxylic acid (trimesic acid, $Q$). Therefore, exactly 3 carboxylic acid groups ($-\\text{COOH}$) are present in one molecule of tricarboxylic acid $Q$."
+    }
+  ]
+}

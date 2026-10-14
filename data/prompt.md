@@ -303,24 +303,84 @@ git push origin main
 
 ---
 
-## 7. Coverage Status (update after every committed batch)
+## 7. Coverage Status (resume from here)
 
-**Source of truth:** `data/registry/progress.json` (per-topic counts) and `data/registry/question_hashes.json` (duplicate fingerprints). Both are written only by `auditChunkFile(path, true)` in `data/gatekeeper.js`, and only for files with zero failures.
+**Source of truth:** `data/registry/progress.json` (per-topic counts) and `data/registry/question_hashes.json` (duplicate fingerprints). Both change only when `auditChunkFile(path, true)` commits a file with zero failures.
 
-**Last updated:** 2026-10-14. Ledger total: **2750 committed questions**.
+**Ledger total: 3550 committed questions** out of a 10,000 target (35.5%).
 
-### Started (committed count in brackets)
-- **Physics (10 of 29 started):** Kinematics [43]; Laws of Motion [46]; Work Energy and Power [50]; Rotational Motion [50]; Gravitation [50]; Thermal Properties of Matter [187]; Simple Harmonic Motion [200]; Waves [99]; Electrostatics [50]; Electric Potential and Capacitance [117].
-- **Chemistry (10 of 31 started):** Atomic Structure [48]; Periodic Table and Periodicity [196]; Chemical Bonding [180]; States of Matter [143]; Chemical Equilibrium [49]; Ionic Equilibrium [199]; Redox Reactions [48]; Solutions [50]; Chemical Kinetics [50]; Coordination Compounds [41].
-- **Mathematics (10 of 31 started):** Quadratic Equations [118]; Permutations and Combinations [50]; Binomial Theorem [76]; Sequences and Series [187]; Circles [50]; Limits and Derivatives [194]; Probability [47]; Matrices [49]; Applications of Derivatives [50]; Definite Integration [33].
+**Next steps for any new agent:**
+1. Start only from the Pending lists below. Never regenerate a Started topic unless a file is flagged and needs replacement.
+2. Give each new topic a unique ID prefix (see the list below). Do not reuse one.
+3. Write 50-question chunks named `data/<subject>/<topic_slug>_chunk_NN.json`. Each agent should write files one at a time and report only when done.
+4. Audit with `auditChunkFile(path, false)`, remove flagged questions, re-audit, then commit with `auditChunkFile(path, true)`.
+5. Update this section after each batch.
 
-### Pending (not yet started; resume here)
-- **Physics:** Units and Dimensions; Friction; System of Particles; Elasticity; Fluid Mechanics; Thermodynamics; Kinetic Theory of Gases; Current Electricity; Moving Charges and Magnetism; Magnetism and Matter; Electromagnetic Induction; Alternating Current; Electromagnetic Waves; Ray Optics; Wave Optics; Dual Nature of Radiation; Atoms and Nuclei; Semiconductor Devices; Communication Systems.
-- **Chemistry:** Mole Concept and Stoichiometry; Chemical Thermodynamics; Hydrogen; s-Block Elements; p-Block Elements Group 13 and 14; Organic Chemistry Basics; Hydrocarbons; Environmental Chemistry; Solid State; Electrochemistry; Surface Chemistry; General Principles of Metallurgy; p-Block Elements Group 15 to 18; Transition Metals and d-Block; Haloalkanes and Haloarenes; Alcohols Phenols and Ethers; Aldehydes and Ketones; Carboxylic Acids and Derivatives; Amines; Biomolecules; Polymers.
-- **Mathematics:** Sets; Relations and Functions; Trigonometric Functions; Principle of Mathematical Induction; Complex Numbers; Linear Inequalities; Straight Lines; Conic Sections; Introduction to 3D Geometry; Statistics; Relations and Functions (Advanced); Inverse Trigonometric Functions; Determinants; Continuity and Differentiability; Indefinite Integration; Applications of Integrals; Differential Equations; Vectors; Three Dimensional Geometry; Linear Programming; Probability (Bayes and Random Variables).
+**ID prefixes already used (do not reuse):** aod, as, bt, cb, cc, cd, ce, chq, circ, ck, cn, ct, di, ec, epc, es, fm, grav, hc, ieq, kin, lad, lom, mat, mcs, pnc, prob, ptp, qe, rm, ro, rr, sas, shm, sl, sol, som, tf, th, tpm, wav, wep.
 
-### How to resume
-1. Read this section and the Pending lists. Pick the next topics from Pending, not from Started.
-2. Use the ID prefix pattern `<topic_abbrev>_c01_...`, with one prefix per chunk file (c01, c02, ...). Write files to `data/<subject>/<topic_slug>_chunk_NN.json`.
-3. Audit each file with `auditChunkFile(path, false)`. Remove failing questions, then re-audit and commit with `auditChunkFile(path, true)`.
-4. Update this section after each batch: move topics from Pending to Started and refresh the ledger total.
+**Known open issues:**
+- Simple Harmonic Motion chunks 01 and 02 are skewed toward answer A (chunk 01 about 91%, chunk 02 all 35 single-answer items). Reshuffle options and fix any letter references in explanations before adding more items.
+- Several topics in the bank have template overlap: Binomial Theorem, Quadratic Equations, Sequences and Series, Limits and Derivatives. New items must use different structures, not new numbers in the same template.
+- Electric Potential and Capacitance chunk 03 has only 19 questions, because its agent was stopped early. Top it up or leave it.
+- The compiler (`data/compiler.js`) counts all chunk files, including uncommitted ones, so its total can be higher than the ledger total.
+- The gatekeeper does not check JEE difficulty or answer keys. Review new items by hand, and cut any single-formula, recall, or textbook-statement items.
+
+### Physics (14 of 29 topics started)
+| Topic | Committed | Chunks (committed questions per chunk) |
+|---|---|---|
+| Kinematics | 43 | c01 43 |
+| Laws of Motion | 46 | c01 46 |
+| Work Energy and Power | 50 | c01 50 |
+| Rotational Motion | 50 | c01 50 |
+| Gravitation | 50 | c01 50 |
+| Thermal Properties of Matter | 187 | c01 49, c02 46, c03 46, c04 45 |
+| Simple Harmonic Motion | 200 | c01 50, c02 50, c03 50, c04 50 |
+| Waves | 99 | c01 50, c02 49 |
+| Electrostatics | 50 | c01 50 |
+| Electric Potential and Capacitance | 117 | c01 48, c02 50, c03 19 |
+| Fluid Mechanics | 50 | c01 50 |
+| Ray Optics | 50 | c01 50 |
+| Thermodynamics | 50 | c01 50 |
+| Current Electricity | 50 | c01 50 |
+
+**Pending Physics topics (start here):** Units and Dimensions; Friction; System of Particles; Elasticity; Kinetic Theory of Gases; Moving Charges and Magnetism; Magnetism and Matter; Electromagnetic Induction; Alternating Current; Electromagnetic Waves; Wave Optics; Dual Nature of Radiation; Atoms and Nuclei; Semiconductor Devices; Communication Systems.
+
+### Chemistry (14 of 31 topics started)
+| Topic | Committed | Chunks (committed questions per chunk) |
+|---|---|---|
+| Atomic Structure | 48 | c01 48 |
+| Periodic Table and Periodicity | 196 | c01 48, c02 49, c03 49, c04 50 |
+| Chemical Bonding | 180 | c01 47, c02 45, c03 47, c04 41 |
+| States of Matter | 143 | c01 50, c02 49, c03 44 |
+| Chemical Equilibrium | 49 | c01 49 |
+| Ionic Equilibrium | 199 | c01 50, c02 50, c03 49, c04 50 |
+| Redox Reactions | 48 | c01 48 |
+| Solutions | 50 | c01 50 |
+| Chemical Kinetics | 50 | c01 50 |
+| Coordination Compounds | 41 | c01 41 |
+| Hydrocarbons | 50 | c01 50 |
+| Mole Concept and Stoichiometry | 50 | c01 50 |
+| Electrochemistry | 50 | c01 50 |
+| Chemical Thermodynamics | 50 | c01 50 |
+
+**Pending Chemistry topics (start here):** Hydrogen; s-Block Elements; p-Block Elements Group 13 and 14; Organic Chemistry Basics; Environmental Chemistry; Solid State; Surface Chemistry; General Principles of Metallurgy; p-Block Elements Group 15 to 18; Transition Metals and d-Block; Haloalkanes and Haloarenes; Alcohols Phenols and Ethers; Aldehydes and Ketones; Carboxylic Acids and Derivatives; Amines; Biomolecules; Polymers.
+
+### Mathematics (14 of 31 topics started)
+| Topic | Committed | Chunks (committed questions per chunk) |
+|---|---|---|
+| Quadratic Equations | 118 | c01 44, c02 37, c03 37 |
+| Permutations and Combinations | 50 | c01 50 |
+| Binomial Theorem | 76 | c01 45, c02 31 |
+| Sequences and Series | 187 | c01 50, c02 46, c03 48, c04 43 |
+| Circles | 50 | c01 50 |
+| Limits and Derivatives | 194 | c01 50, c02 50, c03 50, c04 44 |
+| Probability | 47 | c01 47 |
+| Matrices | 49 | c01 49 |
+| Applications of Derivatives | 50 | c01 50 |
+| Definite Integration | 33 | c01 33 |
+| Continuity and Differentiability | 50 | c01 50 |
+| Straight Lines | 50 | c01 50 |
+| Complex Numbers | 50 | c01 50 |
+| Trigonometric Functions | 50 | c01 50 |
+
+**Pending Mathematics topics (start here):** Sets; Relations and Functions; Principle of Mathematical Induction; Linear Inequalities; Conic Sections; Introduction to 3D Geometry; Statistics; Relations and Functions (Advanced); Inverse Trigonometric Functions; Determinants; Indefinite Integration; Applications of Integrals; Differential Equations; Vectors; Three Dimensional Geometry; Linear Programming; Probability (Bayes and Random Variables).
