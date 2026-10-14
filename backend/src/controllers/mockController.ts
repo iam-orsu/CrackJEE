@@ -73,6 +73,37 @@ function buildQuestionPlan(examType: 'Main' | 'Advanced'): QuestionSlot[] {
   return plan;
 }
 
+/* ── Concurrency-limited promise pool ───────────────────────────── */
+
+async function mapConcurrentSettled<T, R>(
+  items: T[],
+  concurrency: number,
+  fn: (item: T, index: number) => Promise<R>,
+): Promise<PromiseSettledResult<R>[]> {
+  const results: PromiseSettledResult<R>[] = new Array(items.length);
+  let nextIndex = 0;
+
+  async function worker(): Promise<void> {
+    while (nextIndex < items.length) {
+      const idx = nextIndex++;
+      const item = items[idx]!;
+      try {
+        const val = await fn(item, idx);
+        results[idx] = { status: 'fulfilled', value: val };
+      } catch (err) {
+        results[idx] = { status: 'rejected', reason: err };
+      }
+    }
+  }
+
+  const workers = Array.from(
+    { length: Math.min(concurrency, items.length) },
+    () => worker(),
+  );
+  await Promise.all(workers);
+  return results;
+}
+
 /* ── Background generation ─────────────────────────────────────── */
 
 async function generateMockQuestions(
@@ -83,13 +114,15 @@ async function generateMockQuestions(
   try {
     const plan = buildQuestionPlan(examType);
 
-    const results = await Promise.allSettled(
-      plan.map((slot) =>
+    // Limit concurrent DeepSeek calls to 4 to prevent 429 rate limits and socket timeouts
+    const results = await mapConcurrentSettled(
+      plan,
+      4,
+      (slot) =>
         getNextQuestion(
           userId, slot.subject, slot.topic, slot.difficulty,
           examType, 'Dropper', [], slot.type,
-        )
-      )
+        ),
     );
 
     const seenIds = new Set<string>();

@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { requireAuth } from '../middleware/auth';
+import { mockStartLimiter } from '../middleware/rateLimiter';
 import {
   startMock,
   getMock,
@@ -16,7 +17,7 @@ mockRoutes.use(requireAuth);
 
 // /history must be before /:id to avoid being caught as an id param
 mockRoutes.get('/history', getMockHistory);
-mockRoutes.post('/start', startMock);
+mockRoutes.post('/start', mockStartLimiter, startMock);
 mockRoutes.get('/:id', getMock);
 mockRoutes.post('/:id/begin', beginMock);
 mockRoutes.patch('/:id/answer', saveAnswer);

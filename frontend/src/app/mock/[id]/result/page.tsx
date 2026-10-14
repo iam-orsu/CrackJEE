@@ -7,63 +7,7 @@ import { api } from '@/lib/api';
 import { isAuthenticated } from '@/lib/auth';
 import type { MockResultData, MockResultBreakdown } from '@/types';
 
-/* ── Math rendering ─────────────────────────────────────────── */
-
-function preprocessLatex(text: string): string {
-  const SUB = '₀₁₂₃₄₅₆₇₈₉';
-  function ceToUnicode(f: string): string {
-    return f
-      .replace(/_\{(\d+)\}/g, (_, n: string) => n.replace(/\d/g, (d) => SUB[+d] ?? d))
-      .replace(/_(\d)/g, (_, d: string) => SUB[+d] ?? d)
-      .replace(/([A-Za-z)])(\d+)/g, (_, ch: string, n: string) => ch + n.replace(/\d/g, (d) => SUB[+d] ?? d))
-      .replace(/\\cdot/g, '·').replace(/\*/g, '·');
-  }
-  return text
-    .replace(/\\ce\s*\{([^}]+)\}/g, (_, f: string) => ceToUnicode(f))
-    .replace(/\\text\{([^}]*)\}/g, '$1')
-    .replace(/\\[,;!]/g, ' ').replace(/\\Omega/g, 'Ω').replace(/\\mu/g, 'μ')
-    .replace(/\\times/g, '×').replace(/\\mathrm\{([^}]*)\}/g, '$1')
-    .replace(/\\cdot/g, '·').replace(/\\pm/g, '±').replace(/\^\{?\\circ\}?/g, '°');
-}
-
-function escapeHtml(s: string): string {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-
-function renderMath(rawText: string): string {
-  if (!rawText) return '';
-  if (!/[$]|\\\(|\\\[/.test(rawText)) {
-    const p = preprocessLatex(rawText);
-    if (/\\[a-zA-Z]|[_^]\{/.test(p)) {
-      let s = p.search(/\\[a-zA-Z]|[_^]\{/);
-      while (s > 0 && /[a-zA-Z0-9]/.test(p[s - 1]!)) s--;
-      try { return (p.slice(0, s) ? escapeHtml(p.slice(0, s)) : '') + katex.renderToString(p.slice(s).trim(), { throwOnError: false }); }
-      catch { return escapeHtml(p); }
-    }
-    return escapeHtml(p);
-  }
-  const pat = /(\$\$[\s\S]+?\$\$|\$[^$\n]+?\$|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\))/g;
-  const parts: string[] = [];
-  let last = 0; let m: RegExpExecArray | null;
-  while ((m = pat.exec(rawText)) !== null) {
-    parts.push(escapeHtml(preprocessLatex(rawText.slice(last, m.index))));
-    const raw = m[0]!;
-    let display = false; let content = raw;
-    if (raw.startsWith('$$')) { display = true; content = raw.slice(2, -2); }
-    else if (raw.startsWith('$')) { content = raw.slice(1, -1); }
-    else if (raw.startsWith('\\[')) { display = true; content = raw.slice(2, -2); }
-    else if (raw.startsWith('\\(')) { content = raw.slice(2, -2); }
-    try { parts.push(katex.renderToString(content.trim(), { displayMode: display, throwOnError: false })); }
-    catch { parts.push(escapeHtml(raw)); }
-    last = m.index + raw.length;
-  }
-  parts.push(escapeHtml(preprocessLatex(rawText.slice(last))));
-  return parts.join('');
-}
-
-function MathText({ text, style }: { text: string; style?: React.CSSProperties }) {
-  return <span style={style} dangerouslySetInnerHTML={{ __html: renderMath(text) }} />;
-}
+import { MathText, renderMath } from '@/lib/math';
 
 /* ── Helpers ─────────────────────────────────────────────────── */
 
