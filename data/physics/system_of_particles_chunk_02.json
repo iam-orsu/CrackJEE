@@ -1,0 +1,518 @@
+{
+  "questions": [
+    {
+      "id": "sop_c02_001",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A non-uniform thin rod of length $L$ lies along the $x$-axis from $x = 0$ to $x = L$. The linear mass density of the rod varies with position according to the relation $\\lambda(x) = \\lambda_0 \\left(1 + \\frac{x^2}{L^2}\\right)$, where $\\lambda_0$ is a positive constant. What is the distance of the center of mass of the rod from the end $x = 0$?",
+      "options": [
+        "A) $\\frac{7}{12} L$",
+        "B) $\\frac{9}{16} L$",
+        "C) $\\frac{5}{8} L$",
+        "D) $\\frac{3}{5} L$"
+      ],
+      "answer": "B",
+      "explanation": "To determine the center of mass, we calculate the total mass $M$ and the first moment of mass $\\int x \\lambda(x) dx$. The total mass of the non-uniform rod is given by integrating the linear mass density over the length: $M = \\int_0^L \\lambda(x) dx = \\lambda_0 \\int_0^L \\left(1 + \\frac{x^2}{L^2}\\right) dx = \\lambda_0 \\left[x + \\frac{x^3}{3L^2}\\right]_0^L = \\lambda_0 \\left(L + \\frac{L}{3}\\right) = \\frac{4}{3}\\lambda_0 L$. Next, the first moment of mass about the origin is evaluated by integrating: $\\int_0^L x \\lambda(x) dx = \\lambda_0 \\int_0^L \\left(x + \\frac{x^3}{L^2}\\right) dx = \\lambda_0 \\left[\\frac{x^2}{2} + \\frac{x^4}{4L^2}\\right]_0^L = \\lambda_0 \\left(\\frac{L^2}{2} + \\frac{L^2}{4}\\right) = \\frac{3}{4}\\lambda_0 L^2$. Applying the definition of the center of mass yields $X_{cm} = \\frac{\\int_0^L x \\lambda(x) dx}{M} = \\frac{\\frac{3}{4}\\lambda_0 L^2}{\\frac{4}{3}\\lambda_0 L} = \\frac{9}{16} L$. The distractor $\\frac{7}{12}L$ arises from miscalculating the integral as a linear density variation, $\\frac{5}{8}L$ from assuming $\\lambda(x) \\propto x$, and $\\frac{3}{5}L$ from an arithmetic slip in the ratio of the coefficients."
+    },
+    {
+      "id": "sop_c02_002",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A uniform solid sphere of radius $R$ and uniform mass density $\\rho$ is centered at the coordinate origin $(0, 0, 0)$. A spherical cavity of radius $\\frac{R}{3}$ is scooped out of the sphere such that the center of the cavity lies on the positive $x$-axis at $x = +\\frac{R}{2}$. What is the $x$-coordinate of the center of mass of the remaining hollowed sphere?",
+      "options": [
+        "A) $-\\frac{R}{26}$",
+        "B) $-\\frac{R}{54}$",
+        "C) $-\\frac{R}{52}$",
+        "D) $-\\frac{R}{48}$"
+      ],
+      "answer": "C",
+      "explanation": "We solve the cavity problem using the principle of negative mass superposition. The original solid sphere has volume $V_1 = \\frac{4}{3}\\pi R^3$ with its center of mass at $x_1 = 0$. The removed spherical cavity has volume $V_2 = \\frac{4}{3}\\pi \\left(\\frac{R}{3}\\right)^3 = \\frac{4}{3}\\pi \\frac{R^3}{27} = \\frac{V_1}{27}$ and its center is located at $x_2 = +\\frac{R}{2}$. The center of mass of the remaining body is determined by substituting into $X_{cm} = \\frac{V_1 x_1 - V_2 x_2}{V_1 - V_2} = \\frac{V_1(0) - \\left(\\frac{V_1}{27}\\right)\\left(\\frac{R}{2}\\right)}{V_1 - \\frac{V_1}{27}} = \\frac{-\\frac{R}{54}}{\\frac{26}{27}} = -\\frac{R}{54} \\times \\frac{27}{26} = -\\frac{R}{52}$. Therefore, the center of mass shifts to $x = -\\frac{R}{52}$. The distractor $-\\frac{R}{26}$ forgets the factor of $\\frac{1}{2}$ in the cavity coordinate, $-\\frac{R}{54}$ forgets to subtract the cavity volume in the denominator, and $-\\frac{R}{48}$ uses an incorrect radius ratio."
+    },
+    {
+      "id": "sop_c02_003",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A particle of mass $m_1 = 2\\text{ kg}$ moving along the positive $x$-axis with velocity $\\vec{u}_1 = +12\\hat{i}\\text{ m/s}$ undergoes a one-dimensional perfectly elastic collision with a stationary particle of mass $m_2 = 6\\text{ kg}$. What is the velocity $\\vec{v}_1$ of the $2\\text{ kg}$ particle immediately after this collision?",
+      "options": [
+        "A) $+6\\hat{i}\\text{ m/s}$",
+        "B) $-3\\hat{i}\\text{ m/s}$",
+        "C) $+4\\hat{i}\\text{ m/s}$",
+        "D) $-6\\hat{i}\\text{ m/s}$"
+      ],
+      "answer": "D",
+      "explanation": "In a one-dimensional perfectly elastic collision with the target particle initially at rest ($u_2 = 0$), the final velocity of the incident particle is derived by simultaneously solving linear momentum and kinetic energy conservation: $v_1 = \\left(\\frac{m_1 - m_2}{m_1 + m_2}\\right) u_1$. Substituting the given values $m_1 = 2\\text{ kg}$, $m_2 = 6\\text{ kg}$, and $u_1 = +12\\text{ m/s}$ into the relation, we get $v_1 = \\left(\\frac{2 - 6}{2 + 6}\\right)(12) = \\left(\\frac{-4}{8}\\right)(12) = -6\\text{ m/s}$. Thus, the velocity vector is $\\vec{v}_1 = -6\\hat{i}\\text{ m/s}$. The distractor $+6\\hat{i}\\text{ m/s}$ commits a sign error by ignoring the negative numerator, $-3\\hat{i}\\text{ m/s}$ mistakenly doubles the denominator mass, and $+4\\hat{i}\\text{ m/s}$ confuses the velocity of $m_1$ with an inelastic collision scenario."
+    },
+    {
+      "id": "sop_c02_004",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A straight non-uniform rod of length $L = 80\\text{ cm}$ lies along the $x$-axis with its ends at $x = 0$ and $x = L$. The linear mass density of the rod varies with distance from the origin as $\\lambda(x) = \\beta x^3$, where $\\beta$ is a positive dimensional constant. Calculate the distance (in cm) of the center of mass of the rod from the origin $x = 0$.",
+      "options": [],
+      "answer": "64",
+      "explanation": "To evaluate the position of the center of mass, we set up the integrals for mass and first moment. The total mass is $M = \\int_0^L \\lambda(x) dx = \\beta \\int_0^L x^3 dx = \\beta \\left[\\frac{x^4}{4}\\right]_0^L = \\frac{\\beta L^4}{4}$. The first moment of mass about $x = 0$ is $\\int_0^L x \\lambda(x) dx = \\beta \\int_0^L x^4 dx = \\beta \\left[\\frac{x^5}{5}\\right]_0^L = \\frac{\\beta L^5}{5}$. Solving for the center of mass coordinate gives $X_{cm} = \\frac{\\int_0^L x \\lambda(x) dx}{M} = \\frac{\\frac{\\beta L^5}{5}}{\\frac{\\beta L^4}{4}} = \\frac{4}{5} L$. Substituting the given rod length $L = 80\\text{ cm}$, we obtain $X_{cm} = \\frac{4}{5} \\times 80 = 64\\text{ cm}$."
+    },
+    {
+      "id": "sop_c02_005",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A uniform thin circular disc of radius $R$ lies in the $xy$-plane centered at the origin $(0, 0)$. Two circular holes, each of radius $\\frac{R}{4}$, are punched out of the disc. The centers of the holes are located at $\\left(\\frac{R}{2}, 0\\right)$ and $\\left(0, \\frac{R}{2}\\right)$ respectively. What is the distance of the center of mass of the remaining lamina from the origin?",
+      "options": [
+        "A) $\\frac{\\sqrt{2}}{28} R$",
+        "B) $\\frac{\\sqrt{2}}{14} R$",
+        "C) $\\frac{1}{28} R$",
+        "D) $\\frac{\\sqrt{2}}{32} R$"
+      ],
+      "answer": "A",
+      "explanation": "Let the surface mass density of the original disc be $\\sigma$. The area of the complete disc is $A_0 = \\pi R^2$ centered at $(0, 0)$. Each removed circular hole has area $A_h = \\pi \\left(\\frac{R}{4}\\right)^2 = \\frac{\\pi R^2}{16}$. The remaining area is $A_{rem} = A_0 - 2 A_h = \\pi R^2 \\left(1 - \\frac{2}{16}\\right) = \\frac{7}{8}\\pi R^2$. Using the negative mass method, the $x$-coordinate of the center of mass is $X_{cm} = \\frac{A_0(0) - A_h\\left(\\frac{R}{2}\\right) - A_h(0)}{A_{rem}} = \\frac{-\\frac{\\pi R^2}{16}\\left(\\frac{R}{2}\\right)}{\\frac{7}{8}\\pi R^2} = \\frac{-\\frac{R}{32}}{\\frac{7}{8}} = -\\frac{R}{28}$. By symmetry, the $y$-coordinate is identically $Y_{cm} = -\\frac{R}{28}$. The distance of the center of mass from the origin is therefore $r_{cm} = \\sqrt{X_{cm}^2 + Y_{cm}^2} = \\sqrt{\\left(-\\frac{R}{28}\\right)^2 + \\left(-\\frac{R}{28}\\right)^2} = \\frac{\\sqrt{2}}{28} R$. The distractor $\\frac{\\sqrt{2}}{14}R$ neglects the factor of $1/2$ in hole coordinate, $\\frac{1}{28}R$ computes only a single Cartesian coordinate, and $\\frac{\\sqrt{2}}{32}R$ forgets the reduction of total area in the denominator."
+    },
+    {
+      "id": "sop_c02_006",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A block of mass $m_1 = 3\\text{ kg}$ moving at a speed of $8\\text{ m/s}$ along a straight horizontal frictionless track collides head-on with a stationary block of mass $m_2 = 5\\text{ kg}$. If the coefficient of restitution for the impact is $e = 0.6$, what is the speed of the $5\\text{ kg}$ block immediately after the collision?",
+      "options": [
+        "A) $3.0\\text{ m/s}$",
+        "B) $4.8\\text{ m/s}$",
+        "C) $6.0\\text{ m/s}$",
+        "D) $5.4\\text{ m/s}$"
+      ],
+      "answer": "B",
+      "explanation": "Let $v_1$ and $v_2$ be the velocities of masses $m_1$ and $m_2$ after the collision. Applying conservation of linear momentum: $m_1 u_1 + m_2 u_2 = m_1 v_1 + m_2 v_2$. Substituting the given values $3(8) + 5(0) = 3 v_1 + 5 v_2$, which gives $3 v_1 + 5 v_2 = 24$. From the definition of the coefficient of restitution: $e = \\frac{v_2 - v_1}{u_1 - u_2} \\implies 0.6 = \\frac{v_2 - v_1}{8 - 0} \\implies v_2 - v_1 = 4.8$, which implies $v_1 = v_2 - 4.8$. Substituting $v_1$ into the momentum equation yields $3(v_2 - 4.8) + 5 v_2 = 24 \\implies 8 v_2 - 14.4 = 24 \\implies 8 v_2 = 38.4$. Solving this gives $v_2 = 4.8\\text{ m/s}$. The distractor $3.0\\text{ m/s}$ corresponds to a completely inelastic collision ($e = 0$), $6.0\\text{ m/s}$ corresponds to a perfectly elastic collision ($e = 1$), and $5.4\\text{ m/s}$ arises from an algebraic sign error."
+    },
+    {
+      "id": "sop_c02_007",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two identical uniform thin rods, each of mass $M$ and length $L$, are joined to form a symmetric T-shaped structure. The vertical stem of the T lies along the $y$-axis from $(0, 0)$ to $(0, L)$, and the horizontal crossbar lies along the line $y = L$ extending symmetrically from $\\left(-\\frac{L}{2}, L\\right)$ to $\\left(\\frac{L}{2}, L\\right)$. What is the $y$-coordinate of the center of mass of this combined structure?",
+      "options": [
+        "A) $\\frac{2}{3} L$",
+        "B) $\\frac{5}{8} L$",
+        "C) $\\frac{3}{4} L$",
+        "D) $\\frac{1}{2} L$"
+      ],
+      "answer": "C",
+      "explanation": "We treat each uniform rod as a point mass $M$ located at its individual center of mass. The vertical stem extends from $y = 0$ to $y = L$ along the $y$-axis, so its center of mass is at coordinate $(x_1, y_1) = \\left(0, \\frac{L}{2}\\right)$. The horizontal crossbar extends from $x = -\\frac{L}{2}$ to $x = +\\frac{L}{2}$ along the horizontal line $y = L$, so by symmetry its center of mass is at coordinate $(x_2, y_2) = (0, L)$. The total mass of the combined structure is $2M$. Applying the center of mass formula for the $y$-coordinate: $Y_{cm} = \\frac{M y_1 + M y_2}{M + M} = \\frac{M\\left(\\frac{L}{2}\\right) + M(L)}{2M} = \\frac{\\frac{3}{2} M L}{2M} = \\frac{3}{4} L$. The distractor $\\frac{2}{3}L$ confuses the composite rod with a triangular centroid, $\\frac{5}{8}L$ results from an incorrect weighting ratio, and $\\frac{1}{2}L$ erroneously neglects the elevated position of the horizontal bar."
+    },
+    {
+      "id": "sop_c02_008",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A block of mass $m_1 = 4\\text{ kg}$ moving horizontally with an initial speed of $15\\text{ m/s}$ collides head-on with a stationary block of mass $m_2 = 6\\text{ kg}$ on a smooth horizontal plane. Upon impact, the two blocks stick firmly together and move forward as a single composite body. Calculate the total loss of mechanical kinetic energy (in Joules) resulting from this collision.",
+      "options": [],
+      "answer": "270",
+      "explanation": "Before the collision, only mass $m_1$ is in motion. The initial kinetic energy of the system is $K_i = \\frac{1}{2} m_1 u_1^2 = \\frac{1}{2}(4)(15)^2 = 2 \\times 225 = 450\\text{ J}$. By conservation of linear momentum, the common velocity $v$ of the combined mass $(m_1 + m_2)$ after the completely inelastic collision is $v = \\frac{m_1 u_1}{m_1 + m_2} = \\frac{4 \\times 15}{4 + 6} = \\frac{60}{10} = 6\\text{ m/s}$. The final kinetic energy of the coalesced system is $K_f = \\frac{1}{2}(m_1 + m_2) v^2 = \\frac{1}{2}(10)(6)^2 = 5 \\times 36 = 180\\text{ J}$. Therefore, the loss in kinetic energy during the collision is $\\Delta K = K_i - K_f = 450 - 180 = 270\\text{ J}$. Alternatively, applying the reduced mass theorem directly yields $\\Delta K = \\frac{1}{2}\\mu u_{rel}^2 = \\frac{1}{2}\\left(\\frac{4 \\times 6}{4 + 6}\\right)(15)^2 = \\frac{1}{2}(2.4)(225) = 270\\text{ J}$."
+    },
+    {
+      "id": "sop_c02_009",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A uniform solid right circular cone of total height $H$ and base radius $R$ is cut by a plane parallel to its circular base at a distance $\\frac{H}{2}$ from the apex, and the smaller upper cone is removed. What is the distance of the center of mass of the remaining frustum from the large circular base?",
+      "options": [
+        "A) $\\frac{9}{56} H$",
+        "B) $\\frac{13}{56} H$",
+        "C) $\\frac{1}{4} H$",
+        "D) $\\frac{11}{56} H$"
+      ],
+      "answer": "D",
+      "explanation": "For a complete uniform solid cone of height $H$, the center of mass lies on its symmetry axis at a distance $\\frac{H}{4}$ from the base. The volume of the complete cone is $V_0 = \\frac{1}{3}\\pi R^2 H$. The removed top cone has height $h = \\frac{H}{2}$ and base radius $r = \\frac{R}{2}$, so its volume is $V_1 = \\frac{1}{3}\\pi \\left(\\frac{R}{2}\\right)^2 \\left(\\frac{H}{2}\\right) = \\frac{V_0}{8}$. The center of mass of this smaller top cone is at a distance of $\\frac{3}{4}\\left(\\frac{H}{2}\\right) = \\frac{3}{8}H$ below the apex, meaning its distance from the large base is $H - \\frac{3}{8}H = \\frac{5}{8}H$. The volume of the remaining frustum is $V_{frust} = V_0 - V_1 = \\frac{7}{8}V_0$. By the negative mass method, the distance of the center of mass of the frustum from the large base is $y_{cm} = \\frac{V_0\\left(\\frac{H}{4}\\right) - \\left(\\frac{V_0}{8}\\right)\\left(\\frac{5H}{8}\\right)}{\\frac{7}{8}V_0} = \\frac{\\frac{H}{4} - \\frac{5H}{64}}{\\frac{7}{8}} = \\frac{\\frac{11H}{64}}{\\frac{7}{8}} = \\frac{11}{56} H$. The distractor $\\frac{9}{56}H$ makes an arithmetic error in subtracting fractions, $\\frac{13}{56}H$ misidentifies the centroid of the removed apex cone, and $\\frac{1}{4}H$ forgets the removal and uses the intact cone centroid."
+    },
+    {
+      "id": "sop_c02_010",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A thin semicircular disc of radius $R$ lies in the upper half of the $xy$-plane ($y \\ge 0$) with its straight diameter along the $x$-axis and centered at the origin. The surface mass density of the disc is non-uniform and varies directly with the distance $r$ from the origin as $\\sigma(r) = \\sigma_0 \\frac{r}{R}$, where $\\sigma_0$ is a constant. What is the $y$-coordinate of the center of mass of the disc?",
+      "options": [
+        "A) $\\frac{3}{2\\pi} R$",
+        "B) $\\frac{4}{3\\pi} R$",
+        "C) $\\frac{2}{\\pi} R$",
+        "D) $\\frac{5}{3\\pi} R$"
+      ],
+      "answer": "A",
+      "explanation": "Using polar coordinates $(r, \\theta)$, the area element is $dA = r dr d\\theta$ with $r \\in [0, R]$ and $\\theta \\in [0, \\pi]$. The mass element is $dm = \\sigma(r) dA = \\left(\\sigma_0 \\frac{r}{R}\\right) r dr d\\theta = \\frac{\\sigma_0}{R} r^2 dr d\\theta$. Integrating to find the total mass $M$: $M = \\int_0^\\pi d\\theta \\int_0^R \\frac{\\sigma_0}{R} r^2 dr = \\pi \\frac{\\sigma_0}{R} \\left[\\frac{r^3}{3}\\right]_0^R = \\frac{\\pi \\sigma_0 R^2}{3}$. The $y$-coordinate of each mass element is $y = r \\sin\\theta$. Integrating the first moment of mass: $\\int y dm = \\int_0^\\pi \\sin\\theta d\\theta \\int_0^R r \\left(\\frac{\\sigma_0}{R} r^2 dr\\right) = [-\\cos\\theta]_0^\\pi \\frac{\\sigma_0}{R} \\left[\\frac{r^4}{4}\\right]_0^R = 2 \\times \\frac{\\sigma_0}{R} \\times \\frac{R^4}{4} = \\frac{\\sigma_0 R^3}{2}$. Applying the center of mass definition yields $Y_{cm} = \\frac{\\int y dm}{M} = \\frac{\\frac{\\sigma_0 R^3}{2}}{\\frac{\\pi \\sigma_0 R^2}{3}} = \\frac{3}{2\\pi} R$. The distractor $\\frac{4}{3\\pi}R$ is the standard textbook result for a uniform semicircular disc, $\\frac{2}{\\pi}R$ is the result for a semicircular wire, and $\\frac{5}{3\\pi}R$ stems from an incorrect power in the radial integration."
+    },
+    {
+      "id": "sop_c02_011",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A small elastic ball strikes a smooth horizontal floor with an initial speed $u = 20\\text{ m/s}$ at an angle of incidence $\\theta = 30^\\circ$ measured with respect to the normal to the floor. The coefficient of restitution between the ball and the floor is $e = \\frac{1}{\\sqrt{3}}$. What is the magnitude of the velocity of the ball immediately after the bounce?",
+      "options": [
+        "A) $10\\sqrt{3}\\text{ m/s}$",
+        "B) $10\\sqrt{2}\\text{ m/s}$",
+        "C) $20\\text{ m/s}$",
+        "D) $15\\text{ m/s}$"
+      ],
+      "answer": "B",
+      "explanation": "Let the normal to the smooth floor be along the $y$-axis and the surface of the floor be along the $x$-axis. The incident velocity components are $u_x = u \\sin 30^\\circ = 20 \\times \\frac{1}{2} = 10\\text{ m/s}$ (tangential) and $u_y = -u \\cos 30^\\circ = -20 \\times \\frac{\\sqrt{3}}{2} = -10\\sqrt{3}\\text{ m/s}$ (normal). Because the floor is completely smooth, no tangential impulse acts on the ball during impact, so the horizontal velocity component remains unchanged: $v_x = u_x = 10\\text{ m/s}$. Along the normal direction, the rebound velocity is governed by the coefficient of restitution: $v_y = e |u_y| = \\left(\\frac{1}{\\sqrt{3}}\\right)(10\\sqrt{3}) = 10\\text{ m/s}$. The total rebound speed of the ball is obtained by combining the components: $v = \\sqrt{v_x^2 + v_y^2} = \\sqrt{10^2 + 10^2} = 10\\sqrt{2}\\text{ m/s}$. The distractor $10\\sqrt{3}\\text{ m/s}$ swaps the sine and cosine projections, $20\\text{ m/s}$ assumes a perfectly elastic rebound ($e=1$), and $15\\text{ m/s}$ uses a linear average."
+    },
+    {
+      "id": "sop_c02_012",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A projectile of mass $M$ is fired from the origin on level ground with an initial speed $u_0 = 50\\text{ m/s}$ at an elevation angle of $37^\\circ$ (take $\\sin 37^\\circ = 0.6$, $\\cos 37^\\circ = 0.8$, and $g = 10\\text{ m/s}^2$). At the highest point of its parabolic trajectory, an internal explosion splits the projectile into two fragments of masses $m_1 = \\frac{M}{3}$ and $m_2 = \\frac{2M}{3}$. If the lighter fragment $m_1$ is brought to rest immediately after the explosion and falls vertically downwards, how far from the launch point does the heavier fragment $m_2$ land?",
+      "options": [
+        "A) $270\\text{ m}$",
+        "B) $360\\text{ m}$",
+        "C) $300\\text{ m}$",
+        "D) $240\\text{ m}$"
+      ],
+      "answer": "C",
+      "explanation": "We determine the trajectory by analyzing momentum at the apex and using center of mass properties. The initial velocity components are $u_x = 50 \\times 0.8 = 40\\text{ m/s}$ and $u_y = 50 \\times 0.6 = 30\\text{ m/s}$. The time to reach the apex is $t_{apex} = \\frac{u_y}{g} = \\frac{30}{10} = 3\\text{ s}$. The horizontal coordinate of the apex is $x_{apex} = u_x t_{apex} = 40 \\times 3 = 120\\text{ m}$, and the total range of the unexploded projectile would be $R = 2 x_{apex} = 240\\text{ m}$. Because the explosion is caused entirely by internal forces, the center of mass of the fragments lands at $X_{cm} = R = 240\\text{ m}$. Fragment $m_1 = \\frac{M}{3}$ has zero horizontal velocity immediately after the explosion, so it drops straight down and lands at $X_1 = x_{apex} = 120\\text{ m}$. Both fragments hit the level ground simultaneously at $t = 2 t_{apex} = 6\\text{ s}$. Applying the center of mass relation: $X_{cm} = \\frac{m_1 X_1 + m_2 X_2}{M} \\implies 240 = \\frac{\\left(\\frac{M}{3}\\right)(120) + \\left(\\frac{2M}{3}\\right) X_2}{M} = 40 + \\frac{2}{3} X_2$. Solving this gives $\\frac{2}{3} X_2 = 200 \\implies X_2 = 300\\text{ m}$. The distractor $270\\text{ m}$ erroneously assumes $m_1$ falls at the launch point, $360\\text{ m}$ doubles the post-explosion travel distance, and $240\\text{ m}$ is the landing point of the unexploded shell."
+    },
+    {
+      "id": "sop_c02_013",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two blocks of masses $m_1 = 2\\text{ kg}$ and $m_2 = 3\\text{ kg}$ are connected by a light spring of stiffness $k = 480\\text{ N/m}$ on a smooth horizontal floor. Initially, the system is at rest with the spring in its natural unstretched length. A sharp horizontal impulse $J = 20\\text{ N}\\cdot\\text{s}$ is delivered to block $m_1$ directing it towards block $m_2$. What is the maximum compression produced in the spring during the subsequent motion?",
+      "options": [
+        "A) $0.75\\text{ m}$",
+        "B) $0.41\\text{ m}$",
+        "C) $0.65\\text{ m}$",
+        "D) $0.50\\text{ m}$"
+      ],
+      "answer": "D",
+      "explanation": "Immediately after the application of impulse $J$, block $m_1$ acquires velocity $v_{10} = \\frac{J}{m_1} = \\frac{20}{2} = 10\\text{ m/s}$, while block $m_2$ is still momentarily at rest ($v_{20} = 0$). The velocity of the center of mass of the system is $V_{cm} = \\frac{m_1 v_{10} + m_2 v_{20}}{m_1 + m_2} = \\frac{2(10) + 0}{2 + 3} = 4\\text{ m/s}$. At the instant of maximum compression $x_{max}$, both blocks move with the same instantaneous velocity equal to $V_{cm}$, meaning their relative velocity is zero. The energy stored in the spring at maximum compression corresponds precisely to the kinetic energy in the center of mass reference frame: $\\frac{1}{2} k x_{max}^2 = \\frac{1}{2} \\mu v_{rel}^2$, where $\\mu = \\frac{m_1 m_2}{m_1 + m_2} = \\frac{2 \\times 3}{2 + 3} = 1.2\\text{ kg}$ is the reduced mass, and $v_{rel} = v_{10} - v_{20} = 10\\text{ m/s}$. Substituting the values: $\\frac{1}{2}(480) x_{max}^2 = \\frac{1}{2}(1.2)(10)^2 \\implies 240 x_{max}^2 = 60 \\implies x_{max}^2 = \\frac{60}{240} = 0.25\\text{ m}^2$. Solving yields $x_{max} = 0.50\\text{ m}$. The distractor $0.65\\text{ m}$ equates the spring potential energy directly to the total initial kinetic energy $\\frac{1}{2}m_1 v_{10}^2 = 100\\text{ J}$ without subtracting center-of-mass kinetic energy, $0.75\\text{ m}$ uses an unreduced mass calculation, and $0.41\\text{ m}$ stems from inverted mass ratios."
+    },
+    {
+      "id": "sop_c02_014",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A smooth sphere $A$ of mass $m$ traveling with speed $u$ along the $x$-axis collides elastically with an identical stationary sphere $B$ of mass $m$. After the impact, sphere $A$ is deflected and moves in a direction making an angle of $30^\\circ$ with its original incident direction. What is the speed of sphere $B$ immediately after the collision?",
+      "options": [
+        "A) $\\frac{1}{2} u$",
+        "B) $\\frac{\\sqrt{3}}{2} u$",
+        "C) $\\frac{1}{\\sqrt{2}} u$",
+        "D) $\\frac{1}{\\sqrt{3}} u$"
+      ],
+      "answer": "A",
+      "explanation": "For a two-dimensional elastic collision between two identical particles where one is initially at rest, the velocity vectors after collision are mutually perpendicular: $\\vec{v}_A \\cdot \\vec{v}_B = 0$. Since sphere $A$ is scattered at an angle $\\theta_A = 30^\\circ$ relative to the incident direction, sphere $B$ must recoil at an angle $\\theta_B = 90^\\circ - 30^\\circ = 60^\\circ$ on the opposite side of the incident line. Conservation of linear momentum requires $m \\vec{u} = m \\vec{v}_A + m \\vec{v}_B \\implies \\vec{u} = \\vec{v}_A + \\vec{v}_B$. Because $\\vec{v}_A$ and $\\vec{v}_B$ form the legs of a right triangle with hypotenuse $\\vec{u}$, the magnitudes of the velocities are simply $v_A = u \\cos 30^\\circ = \\frac{\\sqrt{3}}{2} u$ and $v_B = u \\sin 30^\\circ = \\frac{1}{2} u$. Therefore, the speed of sphere $B$ is $\\frac{1}{2} u$. The distractor $\\frac{\\sqrt{3}}{2} u$ is the post-collision speed of sphere $A$, $\\frac{1}{\\sqrt{2}} u$ assumes symmetric $45^\\circ$ scattering, and $\\frac{1}{\\sqrt{3}} u$ is an erroneous trigonometric tangent ratio."
+    },
+    {
+      "id": "sop_c02_015",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A small rubber ball is released from rest from a vertical height $h = 45\\text{ m}$ above a flat, horizontal rigid floor. The coefficient of restitution between the ball and the floor is $e = \\frac{2}{3}$. Taking the acceleration due to gravity as $g = 10\\text{ m/s}^2$ and neglecting air resistance, calculate the total vertical distance (in meters) traversed by the ball until all bouncing ceases.",
+      "options": [],
+      "answer": "117",
+      "explanation": "The ball initially falls through a distance $h$. Upon colliding with the floor with speed $v_0 = \\sqrt{2gh}$, it rebounds with speed $v_1 = e v_0$, reaching a peak height $h_1 = \\frac{v_1^2}{2g} = e^2 h$. The ball then falls through $h_1$ and rebounds again, reaching height $h_2 = e^2 h_1 = e^4 h$. For each successive bounce $n \\ge 1$, the ball travels upward and downward through distance $2 h_n = 2 e^{2n} h$. The total vertical distance traversed is the infinite geometric series: $D = h + 2 \\sum_{n=1}^\\infty h_n = h + 2 h \\sum_{n=1}^\\infty (e^2)^n = h + 2 h \\left(\\frac{e^2}{1 - e^2}\\right) = h \\left(1 + \\frac{2e^2}{1 - e^2}\\right) = h \\left(\\frac{1 + e^2}{1 - e^2}\\right)$. Given $e = \\frac{2}{3}$, we have $e^2 = \\frac{4}{9}$. Evaluating the multiplier yields $\\frac{1 + e^2}{1 - e^2} = \\frac{1 + 4/9}{1 - 4/9} = \\frac{13/9}{5/9} = \\frac{13}{5} = 2.6$. Substituting $h = 45\\text{ m}$, we get $D = 45 \\times 2.6 = 117\\text{ m}$."
+    },
+    {
+      "id": "sop_c02_016",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two blocks of masses $m_1 = 3\\text{ kg}$ and $m_2 = 6\\text{ kg}$ are connected by a compressed spring and held together with a cord. The entire system is sliding along a frictionless horizontal plane towards the $+x$-direction with a uniform velocity of $4\\text{ m/s}$. The connecting cord suddenly breaks, releasing the spring. If block $m_1$ is observed to come to an instantaneous complete stop in the laboratory frame, what is the speed of block $m_2$ immediately following the release?",
+      "options": [
+        "A) $8\\text{ m/s}$",
+        "B) $6\\text{ m/s}$",
+        "C) $4\\text{ m/s}$",
+        "D) $10\\text{ m/s}$"
+      ],
+      "answer": "B",
+      "explanation": "Since no net external horizontal force acts on the (block $1$ + block $2$ + spring) system, the total linear momentum of the system is strictly conserved. The initial momentum before the cord breaks is $P_i = (m_1 + m_2) v_0 = (3 + 6) \\times 4 = 36\\text{ kg}\\cdot\\text{m/s}$ along the $+x$-direction. After the cord breaks and the spring fully releases its stored energy, the velocity of block $1$ in the laboratory frame is observed to be $v_1 = 0$. Writing the conservation of momentum equation: $P_f = m_1 v_1 + m_2 v_2 = P_i$. Substituting the values: $3(0) + 6(v_2) = 36 \\implies 6 v_2 = 36$. Solving yields $v_2 = 6\\text{ m/s}$ in the $+x$-direction. The distractor $8\\text{ m/s}$ arises from an incorrect momentum partition, $4\\text{ m/s}$ assumes the velocity remains unaffected by internal release, and $10\\text{ m/s}$ erroneously adds the initial speed to the mass ratio."
+    },
+    {
+      "id": "sop_c02_017",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A block $A$ of mass $m_A = 2\\text{ kg}$ slides on a smooth horizontal surface with speed $v_0 = 6\\text{ m/s}$ towards a stationary block $B$ of mass $m_B = 4\\text{ kg}$. A massless linear spring of stiffness $k = 1200\\text{ N/m}$ is attached to the left face of block $B$. Which of the following statements is/are correct regarding the motion of the system?",
+      "options": [
+        "A) The speed of the center of mass of the two-block system remains $2\\text{ m/s}$ throughout the interaction.",
+        "B) The maximum compression of the spring during the interaction is $0.20\\text{ m}$.",
+        "C) At the instant of maximum compression, the velocity of block $B$ is $2\\text{ m/s}$.",
+        "D) The velocity of block $A$ after the spring returns to its relaxed state is $+2\\text{ m/s}$ along the initial direction."
+      ],
+      "answer": "A,B,C",
+      "explanation": "We analyze the system using center of mass and energy principles. Since no external horizontal force acts on the two-block system, the velocity of the center of mass is constant: $V_{cm} = \\frac{m_A v_0 + m_B(0)}{m_A + m_B} = \\frac{2 \\times 6}{2 + 4} = 2\\text{ m/s}$ at all times, making statement A correct. At the instant of maximum compression, both blocks have zero relative velocity and therefore move together with the center of mass velocity: $v_A = v_B = V_{cm} = 2\\text{ m/s}$, making statement C correct. The reduced mass is $\\mu = \\frac{m_A m_B}{m_A + m_B} = \\frac{2 \\times 4}{6} = \\frac{4}{3}\\text{ kg}$. The maximum potential energy stored in the spring equals the initial kinetic energy in the CM frame: $\\frac{1}{2} k x_{max}^2 = \\frac{1}{2} \\mu v_{rel}^2 = \\frac{1}{2}\\left(\\frac{4}{3}\\right)(6)^2 = 24\\text{ J}$. Substituting $k = 1200\\text{ N/m}$: $\\frac{1}{2}(1200) x_{max}^2 = 24 \\implies 600 x_{max}^2 = 24 \\implies x_{max}^2 = 0.04\\text{ m}^2 \\implies x_{max} = 0.20\\text{ m}$, confirming statement B. When the spring returns to its relaxed state (an elastic collision), the final velocity of block $A$ in the lab frame is $v_{Af} = \\left(\\frac{m_A - m_B}{m_A + m_B}\\right) v_0 = \\left(\\frac{2 - 4}{6}\\right)(6) = -2\\text{ m/s}$, which is directed opposite to the incident motion, making statement D incorrect."
+    },
+    {
+      "id": "sop_c02_018",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A stationary bomb in deep space explodes into three fragments of masses $m_1 = m$, $m_2 = m$, and $m_3 = 2m$. The two lighter fragments fly off mutually perpendicular to each other, each with an identical speed of $v_0 = 30\\text{ m/s}$. What is the speed of the third fragment immediately after the explosion?",
+      "options": [
+        "A) $30\\sqrt{2}\\text{ m/s}$",
+        "B) $15\\text{ m/s}$",
+        "C) $15\\sqrt{2}\\text{ m/s}$",
+        "D) $30\\text{ m/s}$"
+      ],
+      "answer": "C",
+      "explanation": "Because the bomb is initially at rest in free space, the total initial momentum is zero: $\\vec{P}_i = \\vec{0}$. By conservation of linear momentum, the total momentum immediately after the explosion must also be zero: $\\vec{p}_1 + \\vec{p}_2 + \\vec{p}_3 = \\vec{0} \\implies \\vec{p}_3 = -(\\vec{p}_1 + \\vec{p}_2)$. Choosing the coordinate axes such that fragment $1$ moves along the $+x$-axis and fragment $2$ moves along the $+y$-axis: $\\vec{p}_1 = m v_0 \\hat{i}$ and $\\vec{p}_2 = m v_0 \\hat{j}$. The magnitude of their combined momentum is $|\\vec{p}_1 + \\vec{p}_2| = \\sqrt{(m v_0)^2 + (m v_0)^2} = \\sqrt{2} m v_0$. The magnitude of the momentum of the third fragment must be identical: $|\\vec{p}_3| = \\sqrt{2} m v_0$. The mass of the third fragment is $m_3 = 2m$. Solving for its speed: $v_3 = \\frac{|\\vec{p}_3|}{m_3} = \\frac{\\sqrt{2} m v_0}{2m} = \\frac{v_0}{\\sqrt{2}}$. Substituting $v_0 = 30\\text{ m/s}$ gives $v_3 = \\frac{30}{\\sqrt{2}} = 15\\sqrt{2}\\text{ m/s}$. The distractor $30\\sqrt{2}\\text{ m/s}$ forgets to divide by the fragment mass $2m$, $15\\text{ m/s}$ omits the geometric factor $\\sqrt{2}$, and $30\\text{ m/s}$ assumes all fragments carry equal speeds."
+    },
+    {
+      "id": "sop_c02_019",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A firecracker of total mass $M$ is projected from level ground at an elevation angle of $45^\\circ$ with initial speed $u = 20\\sqrt{2}\\text{ m/s}$. At the apex of its parabolic trajectory, an internal explosion breaks the projectile into two fragments of masses $m_1 = \\frac{M}{4}$ and $m_2 = \\frac{3M}{4}$. One second after the explosion, fragment $m_1$ is observed to be at a height of $21\\text{ m}$ above the ground. Taking $g = 10\\text{ m/s}^2$, what is the height of fragment $m_2$ above the ground at that exact same instant?",
+      "options": [
+        "A) $11\\text{ m}$",
+        "B) $14\\text{ m}$",
+        "C) $9\\text{ m}$",
+        "D) $13\\text{ m}$"
+      ],
+      "answer": "D",
+      "explanation": "Because the explosion results strictly from internal forces, the center of mass of the fragments continues moving along the identical parabolic trajectory that the intact projectile would have followed under gravity. The initial vertical component of velocity is $u_y = u \\sin 45^\\circ = 20\\sqrt{2} \\times \\frac{1}{\\sqrt{2}} = 20\\text{ m/s}$. The time taken to reach the apex is $t_{apex} = \\frac{u_y}{g} = \\frac{20}{10} = 2\\text{ s}$. The maximum height achieved at the apex is $H_{max} = \\frac{u_y^2}{2g} = \\frac{400}{20} = 20\\text{ m}$. At time $t = 1\\text{ s}$ after the explosion, the total elapsed time from projection is $t = 3\\text{ s}$. The vertical coordinate of the center of mass at this instant is $Y_{cm} = H_{max} - \\frac{1}{2} g (1)^2 = 20 - 5 = 15\\text{ m}$. Applying the definition of the center of mass: $Y_{cm} = \\frac{m_1 y_1 + m_2 y_2}{M} = \\frac{1}{4} y_1 + \\frac{3}{4} y_2$. Substituting $Y_{cm} = 15\\text{ m}$ and $y_1 = 21\\text{ m}$ gives $15 = \\frac{1}{4}(21) + \\frac{3}{4} y_2 \\implies 15 - 5.25 = \\frac{3}{4} y_2 \\implies 9.75 = \\frac{3}{4} y_2$. Solving yields $y_2 = \\frac{9.75 \\times 4}{3} = 13\\text{ m}$. The distractor $11\\text{ m}$ assumes equal mass weighting, $14\\text{ m}$ makes an arithmetic slip, and $9\\text{ m}$ inverts the $1:3$ mass ratio."
+    },
+    {
+      "id": "sop_c02_020",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Three identical smooth spheres $A$, $B$, and $C$, each of mass $m$, are positioned in a straight line on a frictionless horizontal plane. Initially, spheres $B$ and $C$ are stationary and separated by a small gap. Sphere $A$ moves towards sphere $B$ with speed $v_0$. Assuming all collisions are direct, head-on, and perfectly elastic, what is the final velocity of sphere $A$ after all possible impacts have concluded?",
+      "options": [
+        "A) $0$",
+        "B) $\\frac{v_0}{3}$",
+        "C) $\\frac{v_0}{2}$",
+        "D) $-v_0$"
+      ],
+      "answer": "A",
+      "explanation": "We analyze the sequence of collisions chronologically. In a one-dimensional perfectly elastic collision between two bodies of equal mass, the velocities are completely exchanged. In the first step, sphere $A$ moving with velocity $v_0$ collides head-on with stationary sphere $B$. Due to equal masses and elasticity, velocity exchange occurs: sphere $A$ comes to a complete rest ($v_A = 0$), and sphere $B$ acquires velocity $v_0$. In the second step, sphere $B$ moves with velocity $v_0$ and collides head-on with stationary sphere $C$. Again, velocities are exchanged: sphere $B$ comes to rest ($v_B = 0$), and sphere $C$ moves forward with velocity $v_0$. Since sphere $C$ moves away at $v_0$ while spheres $A$ and $B$ are both at rest, no further collisions are possible. Thus, the final velocity of sphere $A$ is $0$. The distractor $\\frac{v_0}{3}$ incorrectly assumes all three masses stick together, $\\frac{v_0}{2}$ stems from an erroneous impulse calculation, and $-v_0$ assumes reflection from a rigid wall."
+    },
+    {
+      "id": "sop_c02_021",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A billiard ball of mass $m = 0.5\\text{ kg}$ moving at a speed of $20\\text{ m/s}$ strikes a smooth vertical cushion at an angle of incidence of $60^\\circ$ to the normal. The ball rebounds elastically with unchanged speed at an angle of reflection of $60^\\circ$ to the normal. Taking $\\cos 60^\\circ = 0.5$, calculate the magnitude of the impulse (in $\\text{N}\\cdot\\text{s}$) imparted by the cushion to the ball.",
+      "options": [],
+      "answer": "10",
+      "explanation": "Let the normal to the cushion lie along the $x$-axis and the cushion surface lie along the $y$-axis. The incident velocity vector is $\\vec{u} = -u \\cos 60^\\circ \\hat{i} + u \\sin 60^\\circ \\hat{j}$. The reflected velocity vector after the elastic rebound is $\\vec{v} = +u \\cos 60^\\circ \\hat{i} + u \\sin 60^\\circ \\hat{j}$. By Newton's second law, the impulse delivered by the cushion is equal to the change in linear momentum: $\\vec{J} = \\Delta \\vec{p} = m(\\vec{v} - \\vec{u})$. The tangential component along the $y$-axis does not change because the cushion is frictionless: $\\Delta p_y = 0$. Along the normal direction, the change in momentum is $\\Delta p_x = m[u \\cos 60^\\circ - (-u \\cos 60^\\circ)] = 2 m u \\cos 60^\\circ$. Substituting the given values $m = 0.5\\text{ kg}$, $u = 20\\text{ m/s}$, and $\\cos 60^\\circ = 0.5$: $J = 2(0.5)(20)(0.5) = 10\\text{ N}\\cdot\\text{s}$."
+    },
+    {
+      "id": "sop_c02_022",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "An open rectangular cart of initial empty mass $M_0$ is pulled from rest along a smooth horizontal track by a constant horizontal towing force $F$. At time $t = 0$, rain begins to fall vertically at a steady rate, accumulating inside the open cart at a constant rate $\\frac{dm}{dt} = \\mu$ (in kg/s). Assuming the falling rain has zero horizontal velocity just before entering the cart, which of the following expressions correctly gives the speed $v(t)$ of the cart as a function of elapsed time $t$?",
+      "options": [
+        "A) $\\frac{F}{\\mu} \\ln\\left(1 + \\frac{\\mu t}{M_0}\\right)$",
+        "B) $\\frac{F t}{M_0 + \\mu t}$",
+        "C) $\\frac{F t}{M_0}$",
+        "D) $\\frac{2 F t}{2 M_0 + \\mu t}$"
+      ],
+      "answer": "B",
+      "explanation": "We treat the system as a variable mass problem governed by the momentum rate equation. At time $t$, the total mass of the cart and accumulated water is $M(t) = M_0 + \\mu t$. The falling rain has zero horizontal momentum prior to entry, so the horizontal velocity of incoming mass relative to the cart is $\\vec{v}_{rel} = -v \\hat{i}$. The variable mass equation of motion along the horizontal direction states: $M \\frac{dv}{dt} = F_{ext} + v_{rel} \\frac{dm}{dt} = F - v \\mu$. Rearranging this equation into the total time derivative form: $M \\frac{dv}{dt} + v \\frac{dM}{dt} = F \\implies \\frac{d}{dt}\\left[M(t) v(t)\\right] = F$. Integrating both sides with respect to time from $t = 0$ (where initial velocity $v = 0$): $\\int_0^t \\frac{d}{dt}\\left[(M_0 + \\mu t) v\\right] dt = \\int_0^t F dt \\implies (M_0 + \\mu t) v(t) = F t$. Solving directly for velocity yields $v(t) = \\frac{F t}{M_0 + \\mu t}$. The distractor $\\frac{F}{\\mu} \\ln(1 + \\mu t/M_0)$ incorrectly neglects the momentum carried by incoming mass and applies the standard rocket equation $M \\frac{dv}{dt} = F$, $\\frac{Ft}{M_0}$ ignores mass accumulation, and $\\frac{2Ft}{2M_0 + \\mu t}$ uses an arithmetic average mass."
+    },
+    {
+      "id": "sop_c02_023",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A uniform thin rigid rod of mass $M$ and length $L$ lies at rest on a frictionless horizontal plane. A point particle of mass $m = \\frac{M}{2}$ moving with velocity $v_0$ perpendicular to the rod collides with one end of the rod and sticks to it. Which of the following statements is/are correct immediately after the impact?",
+      "options": [
+        "A) The velocity of the center of mass of the combined system is $\\frac{v_0}{3}$.",
+        "B) The angular speed of the system about its center of mass is $\\frac{v_0}{L}$.",
+        "C) The center of mass of the combined system is located at a distance $\\frac{L}{6}$ from the geometric center of the rod.",
+        "D) Immediately after the impact, the unstruck end of the rod is momentarily at rest."
+      ],
+      "answer": "A,B,C",
+      "explanation": "We examine the motion using center of mass and angular momentum principles. Let the geometric center of the rod be at the origin $(0, 0)$ with the rod extending along the $y$-axis from $-\\frac{L}{2}$ to $+\\frac{L}{2}$. The particle strikes the end at $\\left(0, \\frac{L}{2}\\right)$ with velocity $v_0 \\hat{i}$. The center of mass of the combined system of mass $M + m = M + \\frac{M}{2} = \\frac{3M}{2}$ is located at $Y_{cm} = \\frac{M(0) + \\left(\\frac{M}{2}\\right)\\left(\\frac{L}{2}\\right)}{\\frac{3M}{2}} = \\frac{\\frac{ML}{4}}{\\frac{3M}{2}} = \\frac{L}{6}$, confirming statement C. By linear momentum conservation, $m v_0 = (M + m) V_{cm} \\implies \\left(\\frac{M}{2}\\right) v_0 = \\left(\\frac{3M}{2}\\right) V_{cm} \\implies V_{cm} = \\frac{v_0}{3}$, confirming statement A. The distance of the particle from the combined center of mass is $r_p = \\frac{L}{2} - \\frac{L}{6} = \\frac{L}{3}$, and the distance of the rod's geometric center from the CM is $d = \\frac{L}{6}$. Applying the parallel axis theorem, the total moment of inertia about the combined center of mass is $I_{cm} = \\left[\\frac{1}{12} M L^2 + M d^2\\right] + m r_p^2 = \\left[\\frac{1}{12} M L^2 + M \\left(\\frac{L}{6}\\right)^2\\right] + \\frac{M}{2} \\left(\\frac{L}{3}\\right)^2 = \\left[\\frac{1}{12} + \\frac{1}{36}\\right] M L^2 + \\frac{1}{18} M L^2 = \\frac{1}{9} M L^2 + \\frac{1}{18} M L^2 = \\frac{1}{6} M L^2$. The angular momentum about the combined center of mass before collision is $L_{cm} = m v_0 r_p = \\left(\\frac{M}{2}\\right) v_0 \\left(\\frac{L}{3}\\right) = \\frac{1}{6} M v_0 L$. Equating to $I_{cm} \\omega$: $\\frac{1}{6} M L^2 \\omega = \\frac{1}{6} M v_0 L \\implies \\omega = \\frac{v_0}{L}$, confirming statement B. The velocity of the unstruck end located at distance $\\frac{L}{2} + \\frac{L}{6} = \\frac{2L}{3}$ below the CM is $v_{end} = V_{cm} - \\omega \\left(\\frac{2L}{3}\\right) = \\frac{v_0}{3} - \\left(\\frac{v_0}{L}\\right)\\left(\\frac{2L}{3}\\right) = -\\frac{v_0}{3} \\ne 0$, meaning it is not at rest, so statement D is incorrect."
+    },
+    {
+      "id": "sop_c02_024",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A uniform flexible heavy chain of total length $L$ and total mass $M$ is suspended vertically so that its bottom end just touches the pan of a weighing scale. The chain is released from rest at $t = 0$ and falls freely under gravity. Each link comes to rest instantaneously upon colliding with the scale pan. When a length $x$ ($0 < x < L$) of the chain has accumulated on the scale pan, what is the total normal force registered by the scale?",
+      "options": [
+        "A) $\\frac{2 M g x}{L}$",
+        "B) $\\frac{M g x}{L}$",
+        "C) $\\frac{3 M g x}{L}$",
+        "D) $\\frac{4 M g x}{L}$"
+      ],
+      "answer": "C",
+      "explanation": "The total force registered by the scale balance consists of the superposition of two distinct physical contributions: the static weight of the chain already resting on the pan, and the dynamic impact force arising from the continuous destruction of downward momentum. First, the mass of length $x$ already on the pan is $m(x) = \\frac{M}{L} x$, which exerts a static weight $W_{static} = m(x) g = \\frac{M g x}{L}$. Second, links of the chain fall freely through height $x$, so each element reaches the pan with speed $v = \\sqrt{2gx}$. The rate at which falling mass arrives at the pan is $\\frac{dm}{dt} = \\left(\\frac{M}{L}\\right) \\frac{dx}{dt} = \\left(\\frac{M}{L}\\right) v$. The dynamic normal force required to bring this incoming mass to rest instantaneously is $F_{dyn} = v \\frac{dm}{dt} = \\left(\\frac{M}{L}\\right) v^2 = \\left(\\frac{M}{L}\\right)(2gx) = \\frac{2 M g x}{L}$. Adding both contributions gives the total normal force registered by the weighing scale: $N = W_{static} + F_{dyn} = \\frac{M g x}{L} + \\frac{2 M g x}{L} = \\frac{3 M g x}{L}$. The distractor $\\frac{2Mgx}{L}$ completely ignores the static weight, $\\frac{Mgx}{L}$ ignores the dynamic momentum transfer, and $\\frac{4Mgx}{L}$ double-counts the momentum flux."
+    },
+    {
+      "id": "sop_c02_025",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A two-stage rocket is launched from rest in gravity-free outer space. The initial gross mass of the entire rocket (stage 1 + stage 2) is $M_0 = 12000\\text{ kg}$. Stage 1 burns $9000\\text{ kg}$ of propellant and then immediately jettisons its empty structural casing of mass $1000\\text{ kg}$. Stage 2 then immediately ignites, consuming $1500\\text{ kg}$ of propellant before burnout. Both stages expel exhaust gases at an identical relative speed $u_{ex}$. If the final burnout speed of the rocket can be expressed as $v = K u_{ex} \\ln 2$, determine the integer value of $K$.",
+      "options": [],
+      "answer": "4",
+      "explanation": "We apply Tsiolkovsky's rocket equation sequentially across both operational stages. For stage 1, the initial gross mass is $M_{01} = 12000\\text{ kg}$. After burning $9000\\text{ kg}$ of propellant, the remaining mass is $M_{f1} = 12000 - 9000 = 3000\\text{ kg}$. The velocity increment acquired in stage 1 is $\\Delta v_1 = u_{ex} \\ln\\left(\\frac{M_{01}}{M_{f1}}\\right) = u_{ex} \\ln\\left(\\frac{12000}{3000}\\right) = u_{ex} \\ln 4 = 2 u_{ex} \\ln 2$. Next, the empty stage 1 structural casing of mass $1000\\text{ kg}$ is jettisoned without altering the current velocity. The initial mass for stage 2 ignition is therefore $M_{02} = 3000 - 1000 = 2000\\text{ kg}$. Stage 2 burns $1500\\text{ kg}$ of propellant, leaving a final burnout mass $M_{f2} = 2000 - 1500 = 500\\text{ kg}$. The velocity increment acquired in stage 2 is $\\Delta v_2 = u_{ex} \\ln\\left(\\frac{M_{02}}{M_{f2}}\\right) = u_{ex} \\ln\\left(\\frac{2000}{500}\\right) = u_{ex} \\ln 4 = 2 u_{ex} \\ln 2$. The total speed achieved by the rocket from rest is $v = \\Delta v_1 + \\Delta v_2 = 2 u_{ex} \\ln 2 + 2 u_{ex} \\ln 2 = 4 u_{ex} \\ln 2$. Comparing with $v = K u_{ex} \\ln 2$ yields $K = 4$."
+    },
+    {
+      "id": "sop_c02_026",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Dry sand falls vertically at a constant steady rate of $\\mu$ (kg/s) from a stationary overhead hopper onto a horizontal conveyor belt moving with constant velocity $v$. A drive motor maintains the steady speed of the belt. What is the power output delivered by the motor, and what fraction of this total power is dissipated as thermal energy due to friction as the sand accelerates to belt speed?",
+      "options": [
+        "A) Power is $\\frac{1}{2}\\mu v^2$, and the fraction dissipated as heat is $0$",
+        "B) Power is $\\mu v^2$, and the fraction dissipated as heat is $\\frac{1}{4}$",
+        "C) Power is $2\\mu v^2$, and the fraction dissipated as heat is $\\frac{3}{4}$",
+        "D) Power is $\\mu v^2$, and the fraction dissipated as heat is $\\frac{1}{2}$"
+      ],
+      "answer": "D",
+      "explanation": "As each element of sand of mass $dm$ drops vertically onto the belt, its initial horizontal velocity is zero. To bring the sand up to the belt's speed $v$, the rate of change of horizontal momentum is $\\frac{dp}{dt} = v \\frac{dm}{dt} = \\mu v$. By Newton's second law, the conveyor belt must exert a forward frictional force $F = \\mu v$ on the sand. In reaction, the motor must supply a driving force equal and opposite: $F_{ext} = \\mu v$. The mechanical power output delivered by the motor to maintain constant velocity is $P_{motor} = F_{ext} v = (\\mu v) v = \\mu v^2$. Meanwhile, the rate of increase of kinetic energy of the deposited sand is $\\frac{dK}{dt} = \\frac{1}{2} \\left(\\frac{dm}{dt}\\right) v^2 = \\frac{1}{2} \\mu v^2$. By the principle of conservation of energy, the difference between the power supplied by the motor and the rate of kinetic energy imparted is dissipated as heat via friction during the slippage phase: $P_{diss} = P_{motor} - \\frac{dK}{dt} = \\mu v^2 - \\frac{1}{2}\\mu v^2 = \\frac{1}{2}\\mu v^2$. The fraction of motor power converted to heat is therefore $\\frac{P_{diss}}{P_{motor}} = \\frac{\\frac{1}{2}\\mu v^2}{\\mu v^2} = \\frac{1}{2}$. The distractor $\\frac{1}{2}\\mu v^2$ erroneously equates power output to rate of kinetic energy increase ignoring friction loss, and $2\\mu v^2$ overestimates the driving force."
+    },
+    {
+      "id": "sop_c02_027",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In a laboratory frame of reference, particle $1$ of mass $m_1 = 2\\text{ kg}$ moves along the positive $x$-axis with speed $u_1 = 6\\text{ m/s}$, while particle $2$ of mass $m_2 = 4\\text{ kg}$ moves along the positive $y$-axis with speed $u_2 = 3\\text{ m/s}$. Which of the following statements is/are correct regarding this two-particle system?",
+      "options": [
+        "A) The velocity of the center of mass of the system is $\\vec{V}_{cm} = (2\\hat{i} + 2\\hat{j})\\text{ m/s}$.",
+        "B) The total kinetic energy in the laboratory reference frame is $54\\text{ J}$.",
+        "C) The kinetic energy associated with motion relative to the center of mass is $30\\text{ J}$.",
+        "D) If the two particles collide and stick together, the kinetic energy of the combined system is $30\\text{ J}$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "We evaluate the system using laboratory and center of mass frames. The momentum vectors are $\\vec{p}_1 = m_1 \\vec{u}_1 = 2(6\\hat{i}) = 12\\hat{i}\\text{ kg}\\cdot\\text{m/s}$ and $\\vec{p}_2 = m_2 \\vec{u}_2 = 4(3\\hat{j}) = 12\\hat{j}\\text{ kg}\\cdot\\text{m/s}$. The total mass is $M = m_1 + m_2 = 2 + 4 = 6\\text{ kg}$. The total momentum is $\\vec{P} = 12\\hat{i} + 12\\hat{j}\\text{ kg}\\cdot\\text{m/s}$. The velocity of the center of mass is $\\vec{V}_{cm} = \\frac{\\vec{P}}{M} = \\frac{12\\hat{i} + 12\\hat{j}}{6} = (2\\hat{i} + 2\\hat{j})\\text{ m/s}$, confirming statement A. The total kinetic energy in the laboratory frame is $K_{lab} = \\frac{1}{2} m_1 u_1^2 + \\frac{1}{2} m_2 u_2^2 = \\frac{1}{2}(2)(36) + \\frac{1}{2}(4)(9) = 36 + 18 = 54\\text{ J}$, confirming statement B. By Koenig's theorem, total laboratory kinetic energy decomposes into $K_{lab} = K_{cm} + K_{rel}$, where $K_{cm} = \\frac{1}{2} M |\\vec{V}_{cm}|^2 = \\frac{1}{2}(6)(2^2 + 2^2) = 3 \\times 8 = 24\\text{ J}$. The internal kinetic energy in the center of mass frame is $K_{rel} = K_{lab} - K_{cm} = 54 - 24 = 30\\text{ J}$, confirming statement C. If the two particles collide and stick together, all internal kinetic energy $K_{rel} = 30\\text{ J}$ is dissipated as deformation and heat, leaving only the center of mass kinetic energy $K_{final} = K_{cm} = 24\\text{ J}$, making statement D incorrect."
+    },
+    {
+      "id": "sop_c02_028",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A uniform flexible chain of length $L$ and total mass $M$ lies along a smooth horizontal tabletop perpendicular to the edge, with a fraction $\\eta = \\frac{1}{4}$ of its length initially hanging vertically over the edge. The chain is released from rest at $t = 0$. Assuming the chain slides smoothly over the frictionless edge without losing contact, what is the speed of the chain at the instant the last link just leaves the tabletop?",
+      "options": [
+        "A) $\\frac{\\sqrt{15}}{4}\\sqrt{gL}$",
+        "B) $\\frac{\\sqrt{7}}{4}\\sqrt{gL}$",
+        "C) $\\frac{\\sqrt{15}}{2}\\sqrt{gL}$",
+        "D) $\\frac{3}{4}\\sqrt{gL}$"
+      ],
+      "answer": "A",
+      "explanation": "We solve using energy conservation since the tabletop and corner are completely frictionless. Let the tabletop be the reference level for gravitational potential energy ($y = 0$). When a length $x$ of chain hangs over the edge, its mass is $m(x) = \\frac{M}{L} x$, and its center of mass lies at a depth of $\\frac{x}{2}$ below the tabletop. The gravitational potential energy of the hanging part is $U(x) = -m(x) g \\left(\\frac{x}{2}\\right) = -\\frac{M g x^2}{2L}$ (the portion resting horizontally on the table has zero potential energy). Initially, the hanging length is $x_0 = \\frac{L}{4}$, so the initial potential energy is $U_i = -\\frac{M g (L/4)^2}{2L} = -\\frac{M g L}{32}$. When the entire chain has just slipped off the tabletop, the hanging length is $x_f = L$, so the final potential energy is $U_f = -\\frac{M g L^2}{2L} = -\\frac{M g L}{2}$. The loss in potential energy converts entirely into the kinetic energy of the whole chain of mass $M$: $\\Delta U = U_i - U_f = -\\frac{M g L}{32} - \\left(-\\frac{M g L}{2}\\right) = M g L \\left(\\frac{1}{2} - \\frac{1}{32}\\right) = \\frac{15}{32} M g L$. Equating to kinetic energy $\\frac{1}{2} M v^2 = \\frac{15}{32} M g L \\implies v^2 = \\frac{15}{16} g L$. Taking the square root gives $v = \\frac{\\sqrt{15}}{4}\\sqrt{gL}$. The distractor $\\frac{\\sqrt{7}}{4}\\sqrt{gL}$ assumes a linear rather than quadratic potential energy drop, $\\frac{\\sqrt{15}}{2}\\sqrt{gL}$ forgets the factor of $1/2$ in the center of mass depth, and $\\frac{3}{4}\\sqrt{gL}$ approximates $\\sqrt{15} \\approx 3$."
+    },
+    {
+      "id": "sop_c02_029",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A rocket of initial gross mass $m_0$ is fired vertically upwards from rest at $t = 0$ in a uniform gravitational field of acceleration $g$. The engine ejects exhaust gases vertically downward at a constant relative speed $u$ and at a steady fuel consumption rate $r = -\\frac{dm}{dt} = \\alpha m_0$, where $\\alpha$ is a positive constant. Neglecting aerodynamic drag, which expression gives the upward velocity $v(t)$ of the rocket at any time $t < \\frac{1}{\\alpha}$ during the powered burn?",
+      "options": [
+        "A) $u \\ln(1 - \\alpha t) + g t$",
+        "B) $u \\ln\\left(\\frac{1}{1 - \\alpha t}\\right) - g t$",
+        "C) $\\frac{u \\alpha t}{1 - \\alpha t} - g t$",
+        "D) $u \\ln\\left(\\frac{1}{1 - \\alpha t}\\right) - \\frac{1}{2} g t^2$"
+      ],
+      "answer": "B",
+      "explanation": "We derive the vertical velocity using Newton's second law for a variable mass system. At time $t$, the instantaneous mass of the rocket is $m(t) = m_0 - r t = m_0(1 - \\alpha t)$. The exhaust gas is expelled downwards with velocity relative to the rocket $\\vec{u}_{rel} = -u \\hat{j}$. The equation of motion for vertical ascent in gravity is $m(t) \\frac{dv}{dt} = u \\left(-\\frac{dm}{dt}\\right) - m(t) g$. Dividing both sides by $m(t)$: $\\frac{dv}{dt} = -\\frac{u}{m(t)} \\frac{dm}{dt} - g$. Integrating both sides from $t = 0$ (where $v = 0$ and $m = m_0$) to time $t$: $\\int_0^v dv = -u \\int_{m_0}^{m(t)} \\frac{dm}{m} - g \\int_0^t dt \\implies v(t) = -u \\left[\\ln m(t) - \\ln m_0\\right] - g t = u \\ln\\left(\\frac{m_0}{m(t)}\right) - g t$. Substituting $m(t) = m_0(1 - \\alpha t)$ into the logarithmic argument: $v(t) = u \\ln\\left(\\frac{1}{1 - \\alpha t}\\right) - g t$. The distractor $u \\ln(1 - \\alpha t) + g t$ contains erroneous negative signs, $\\frac{u\\alpha t}{1-\\alpha t} - gt$ uses a linear Taylor approximation, and $u \\ln\\left(\\frac{1}{1 - \\alpha t}\\right) - \\frac{1}{2} g t^2$ violates dimensional consistency by replacing velocity $gt$ with displacement $\\frac{1}{2}gt^2$."
+    },
+    {
+      "id": "sop_c02_030",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Two identical small particles $A$ and $B$, each of mass $m$, are connected by a light inextensible string of length $L$. Initially, the particles rest on a smooth horizontal table with the string taut along the $y$-axis, particle $A$ at $\\left(0, \\frac{L}{2}\\right)$ and particle $B$ at $\\left(0, -\\frac{L}{2}\\right)$. At $t = 0$, an instantaneous horizontal impulse $J$ is imparted to particle $A$ along the positive $x$-axis. Which of the following statements is/are correct immediately after the impulse is delivered?",
+      "options": [
+        "A) The impulsive tension developed in the string during the application of impulse $J$ is zero.",
+        "B) The velocity of the center of mass of the two-particle system immediately after the impulse is $\\frac{J}{2m}\\hat{i}$.",
+        "C) The initial angular speed of rotation of the system about its center of mass is $\\frac{J}{mL}$.",
+        "D) The total kinetic energy imparted to the system immediately after the impulse is $\\frac{J^2}{4m}$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "We analyze the impulsive dynamics of the two-particle system. An inextensible string can only develop impulsive tension along its own axis (here, the $y$-axis). Because the applied impulse $J$ on particle $A$ is directed strictly along the $x$-axis, its component along the string is zero ($J_y = 0$). Consequently, the string remains untensioned during the impact: the impulsive tension $\\mathcal{T} = 0$, confirming statement A. Since particle $B$ receives no impulse, it remains instantaneously stationary ($\\vec{v}_B = \\vec{0}$), while particle $A$ acquires velocity $\\vec{v}_A = \\frac{J}{m}\\hat{i}$. The velocity of the center of mass of the two-particle system is $\\vec{V}_{cm} = \\frac{m \\vec{v}_A + m \\vec{v}_B}{2m} = \\frac{J}{2m}\\hat{i}$, confirming statement B. The center of mass is located at the origin $(0, 0)$. In the center of mass frame, particle $A$ has velocity $\\vec{v}_A' = \\vec{v}_A - \\vec{V}_{cm} = \\frac{J}{2m}\\hat{i}$ at position $\\vec{r}_A' = \\frac{L}{2}\\hat{j}$, and particle $B$ has velocity $\\vec{v}_B' = -\\vec{V}_{cm} = -\\frac{J}{2m}\\hat{i}$ at position $\\vec{r}_B' = -\\frac{L}{2}\\hat{j}$. The relative angular speed is $\\omega = \\frac{v_{rel, \\perp}}{L} = \\frac{v_A - v_B}{L} = \\frac{J/m - 0}{L} = \\frac{J}{mL}$, confirming statement C. The total kinetic energy imparted to the system immediately after the impulse is $K = \\frac{1}{2} m |\\vec{v}_A|^2 + \\frac{1}{2} m |\\vec{v}_B|^2 = \\frac{1}{2} m \\left(\\frac{J}{m}\\right)^2 + 0 = \\frac{J^2}{2m}$, which disproves statement D."
+    },
+    {
+      "id": "sop_c02_031",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Two identical smooth stationary spheres $B$ and $C$, each of radius $R$ and mass $m$, touch each other on a frictionless horizontal plane. A third identical sphere $A$ of radius $R$ and mass $m$ travels with speed $u$ along the line of symmetry between $B$ and $C$ and collides simultaneously and elastically with both spheres. What is the speed of sphere $A$ immediately after this collision?",
+      "options": [
+        "A) $\\frac{2}{5} u$",
+        "B) $\\frac{1}{3} u$",
+        "C) $\\frac{1}{5} u$",
+        "D) $\\frac{3}{5} u$"
+      ],
+      "answer": "C",
+      "explanation": "Let the line of symmetry and initial velocity of sphere $A$ be along the $x$-axis. Spheres $B$ and $C$ touch at $(0, 0)$ with centers at $(0, -R)$ and $(0, +R)$. At the moment of contact, the center of sphere $A$ is at $(-x_0, 0)$. The distance between centers of $A$ and $B$ (or $A$ and $C$) is $2R$. Thus, $\\sin\\theta = \\frac{R}{2R} = \\frac{1}{2} \\implies \\theta = 30^\\circ$ relative to the $x$-axis, so $\\cos 30^\\circ = \\frac{\\sqrt{3}}{2}$. Because the surfaces are smooth, the impulses on $B$ and $C$ act strictly along their respective lines of centers at angle $30^\\circ$ to the $x$-axis. Let $J$ be the magnitude of impulse delivered to each sphere $B$ and $C$. After impact, their speeds are $v_B = v_C = \\frac{J}{m}$. By Newton's third law, sphere $A$ receives two symmetric backward impulses of magnitude $J$ at angle $30^\\circ$ to the $x$-axis. The net impulse on $A$ along the $x$-axis is $J_{net} = 2 J \\cos 30^\\circ = \\sqrt{3} J$. The velocity of sphere $A$ after the collision is $v_A = u - \\frac{\\sqrt{3} J}{m}$. The collision is elastic, so kinetic energy is conserved: $\\frac{1}{2} m u^2 = \\frac{1}{2} m v_A^2 + 2\\left[\\frac{1}{2} m \\left(\\frac{J}{m}\\right)^2\\right] \\implies u^2 = v_A^2 + 2 \\left(\\frac{J}{m}\\right)^2$. Defining $\\xi = \\frac{J}{m}$, we have $v_A = u - \\sqrt{3}\\xi$. Substituting gives $u^2 = (u - \\sqrt{3}\\xi)^2 + 2\\xi^2 = u^2 - 2\\sqrt{3} u \\xi + 3\\xi^2 + 2\\xi^2 = u^2 - 2\\sqrt{3} u \\xi + 5\\xi^2$. For $\\xi > 0$, solving $5\\xi^2 - 2\\sqrt{3} u \\xi = 0$ yields $\\xi = \\frac{2\\sqrt{3}}{5} u$. Substituting $\\xi$ back into $v_A$: $v_A = u - \\sqrt{3}\\left(\\frac{2\\sqrt{3}}{5} u\\right) = u - \\frac{6}{5} u = -\\frac{1}{5} u$. The negative sign indicates that sphere $A$ rebounds backwards with a speed of $|v_A| = \\frac{1}{5} u$. The distractor $\\frac{2}{5}u$ neglects the factor of 2 in kinetic energy summation, $\\frac{1}{3}u$ assumes symmetric 1D sharing among three bodies, and $\\frac{3}{5}u$ confuses sine and cosine."
+    },
+    {
+      "id": "sop_c02_032",
+      "subject": "Physics",
+      "topic": "System of Particles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A uniform flexible rope of total mass $M = 4\\text{ kg}$ and length $L = 3\\text{ m}$ lies coiled on a smooth horizontal floor. A person grasps one end of the rope and pulls it vertically upwards with a constant lifting force $F = 48\\text{ N}$. Taking $g = 10\\text{ m/s}^2$ and assuming each link is picked up from rest without bounce, calculate the speed (in $\\text{m/s}$) of the rope at the exact instant the last link leaves the floor.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Let $y$ denote the vertical length of rope lifted above the floor at time $t$, and let $v = \\frac{dy}{dt}$ be its upward velocity. The mass of the airborne portion is $m(y) = \\lambda y = \\left(\\frac{M}{L}\\right) y$. The downward gravitational force acting on the airborne rope is $m(y) g = \\lambda y g$. The equation of motion for this variable mass system is given by the momentum rate relation: $\\frac{d}{dt}\\left[m(y) v\\right] = F_{net} \\implies \\frac{d}{dt}(\\lambda y v) = F - \\lambda g y$. Expanding using the chain rule $v = \\frac{dy}{dt}$, we write $\\frac{d}{dt}(\\lambda y v) = v \\frac{d}{dy}(\\lambda y v)$. Multiplying both sides by $y$ gives $\\lambda y v \\frac{d}{dy}(y v) = F y - \\lambda g y^2$. Recognizing that $y v \\frac{d(y v)}{dy} = \\frac{1}{2} \\frac{d}{dy}(y v)^2$, we obtain $\\frac{1}{2} \\lambda \\frac{d}{dy}(y v)^2 = F y - \\lambda g y^2$. Integrating both sides from $y = 0$ (where $y v = 0$) to $y = L$: $\\frac{1}{2} \\lambda (L v)^2 = \\int_0^L (F y - \\lambda g y^2) dy = F \\frac{L^2}{2} - \\lambda g \\frac{L^3}{3}$. Dividing by $\\frac{1}{2} \\lambda L^2$ and substituting $\\lambda = \\frac{M}{L}$ yields $v^2 = 2 \\left[\\frac{F L^2 / 2}{\\lambda L^2} - \\frac{\\lambda g L^3 / 3}{\\lambda L^2}\\right] = \\frac{F}{\\lambda} - \\frac{2}{3} g L = L \\left(\\frac{F}{M} - \\frac{2g}{3}\\right)$. Substituting $M = 4\\text{ kg}$, $L = 3\\text{ m}$, $F = 48\\text{ N}$, and $g = 10\\text{ m/s}^2$: $\\frac{F}{M} = \\frac{48}{4} = 12\\text{ m/s}^2$, and $\\frac{2g}{3} = \\frac{20}{3}\\text{ m/s}^2$. Therefore, $v^2 = 3 \\left(12 - \\frac{20}{3}\\right) = 3 \\left(\\frac{36 - 20}{3}\\right) = 16\\text{ m}^2/\\text{s}^2$. Solving yields $v = 4\\text{ m/s}$."
+    }
+  ]
+}

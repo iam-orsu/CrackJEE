@@ -104,8 +104,14 @@ export default function MockExamPage() {
       'Building your unique paper…',
       'Almost ready…',
     ];
+    const MAX_ATTEMPTS = 40; // ~2 minutes at 3s intervals
     let attempt = 0;
     const poll = async (): Promise<void> => {
+      if (attempt >= MAX_ATTEMPTS) {
+        setPageStatus('error');
+        setLoadMsg('Exam generation timed out. Please go back and try again.');
+        return;
+      }
       setLoadMsg(MESSAGES[attempt % MESSAGES.length]!);
       attempt++;
       try {

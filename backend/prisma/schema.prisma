@@ -21,7 +21,6 @@ model User {
   topicProgress TopicProgress[]
   mockExams     MockExam[]
 
-  @@index([email])
 }
 
 model Question {

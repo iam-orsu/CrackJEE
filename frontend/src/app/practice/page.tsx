@@ -748,7 +748,7 @@ export default function PracticePage() {
     const wrong     = attempted - correct;
     const accuracy  = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
 
-    // For jee_advanced, multi-correct correct = +4, wrong = -2 (same penalty as single)
+    // Simplified marking: multi-correct partial credit is not tracked in practice mode
     const jeeScore  = markingScheme === 'jee_main'     ? correct * 4 - wrong * 1
                     : markingScheme === 'jee_advanced'  ? correct * 4 - wrong * 2
                     : correct;
@@ -790,7 +790,7 @@ export default function PracticePage() {
             {markingScheme !== 'standard' && (
               <div style={{ background: 'var(--navy-50)', border: '1px solid var(--navy-100)', borderRadius: 'var(--radius-lg)', padding: '14px 20px', marginTop: 4 }}>
                 <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.07em', color: 'var(--navy-600)', marginBottom: 4 }}>
-                  {markingScheme === 'jee_main' ? 'JEE Main Score' : 'JEE Advanced Score'}
+                  {markingScheme === 'jee_main' ? 'JEE Main Score' : 'JEE Advanced Score (approx.)'}
                 </p>
                 <p style={{ fontSize: 30, fontWeight: 800, letterSpacing: '-.03em', lineHeight: 1.1,
                   color: jeeScore < 0 ? 'var(--red-600)' : jeeScore === 0 ? 'var(--gray-500)' : 'var(--primary)' }}>
@@ -801,6 +801,7 @@ export default function PracticePage() {
                   {correct} correct &times; 4
                   {wrong > 0 && ` − ${wrong} wrong × ${markingScheme === 'jee_main' ? 1 : 2}`}
                   {total - attempted > 0 && ` · ${total - attempted} skipped (no penalty)`}
+                  {markingScheme === 'jee_advanced' && ' · multi-correct partial credit not reflected'}
                 </p>
               </div>
             )}

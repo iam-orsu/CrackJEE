@@ -335,13 +335,15 @@ export async function saveAnswer(req: AuthRequest, res: Response, next: NextFunc
     if (!exam || exam.userId !== userId) throw new AppError(404, 'Exam not found');
     if (exam.status !== 'in_progress') throw new AppError(400, 'Exam not in progress');
 
-    await prisma.mockExamQuestion.updateMany({
+    const updated = await prisma.mockExamQuestion.updateMany({
       where: { id: mockQuestionId, examId: id },
       data: {
         savedAnswer: answer || null,
         ...(markedForReview !== undefined ? { markedForReview } : {}),
       },
     });
+
+    if (updated.count === 0) throw new AppError(404, 'Question not found in this exam');
 
     res.json({ success: true });
   } catch (err) {

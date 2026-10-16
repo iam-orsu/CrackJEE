@@ -1,0 +1,513 @@
+{
+  "questions": [
+    {
+      "id": "ieq_c05_001",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A solution is prepared by mixing $50\\text{ mL}$ of $0.10\\text{ M } \\text{HCl}$ with $50\\text{ mL}$ of $0.20\\text{ M } \\text{CH}_3\\text{COOH}$ ($K_a = 1.8 \\times 10^{-5}$ at $298\\text{ K}$). What is the degree of dissociation $\\alpha$ of acetic acid in the resulting mixed solution?",
+      "options": [
+        "A) $3.6 \\times 10^{-4}$",
+        "B) $1.34 \\times 10^{-2}$",
+        "C) $1.80 \\times 10^{-4}$",
+        "D) $9.00 \\times 10^{-5}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate the concentrations of both acids after mixing. The total volume is $V = 50\\text{ mL} + 50\\text{ mL} = 100\\text{ mL}$. Therefore, the molarity of strong acid $\\text{HCl}$ is $C_{\\text{HCl}} = \\frac{50 \\times 0.10}{100} = 0.050\\text{ M}$, and the concentration of $\\text{CH}_3\\text{COOH}$ is $C = \\frac{50 \\times 0.20}{100} = 0.10\\text{ M}$. Step 2: Since $\\text{HCl}$ dissociates completely, $[\\text{H}^+] \\approx 0.050\\text{ M}$ due to common ion suppression. Applying the acid dissociation equilibrium expression for acetic acid: $K_a = \\frac{[\\text{CH}_3\\text{COO}^-][\\text{H}^+]}{[\\text{CH}_3\\text{COOH}]} = \\frac{(C\\alpha)(0.050 + C\\alpha)}{C(1-\\alpha)} \\approx \\frac{(C\\alpha)(0.050)}{C} = 0.050 \\alpha$. Substituting $K_a = 1.8 \\times 10^{-5}$, we get $\\alpha = \\frac{1.8 \\times 10^{-5}}{0.050} = 3.6 \\times 10^{-4}$. Hence, option A is correct."
+    },
+    {
+      "id": "ieq_c05_002",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "To $100\\text{ mL}$ of a $0.15\\text{ M}$ aqueous solution of a weak monoprotic acid $\\text{HA}$ ($pK_a = 4.74$), $50\\text{ mL}$ of $0.10\\text{ M } \\text{NaOH}$ is added at $298\\text{ K}$. What is the $\\text{pH}$ of the resulting buffer solution? (Take $\\log_{10} 2 \\approx 0.301$).",
+      "options": [
+        "A) $4.44$",
+        "B) $5.04$",
+        "C) $4.74$",
+        "D) $4.26$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate the initial millimoles of the reactants: $\\text{millimoles of HA} = 100\\text{ mL} \\times 0.15\\text{ M} = 15.0\\text{ mmol}$, and $\\text{millimoles of NaOH} = 50\\text{ mL} \\times 0.10\\text{ M} = 5.0\\text{ mmol}$. Step 2: Neutralization proceeds according to $\\text{HA} + \\text{OH}^- \\rightarrow \\text{A}^- + \\text{H}_2\\text{O}$. The remaining weak acid is $\\text{HA} = 15.0 - 5.0 = 10.0\\text{ mmol}$, yielding conjugate base $\\text{A}^- = 5.0\\text{ mmol}$. Step 3: Applying the Henderson-Hasselbalch equation: $\\text{pH} = pK_a + \\log_{10}\\left(\\frac{[\\text{A}^-]}{[\\text{HA}]}\\right) = 4.74 + \\log_{10}\\left(\\frac{5.0}{10.0}\\right)$. Substituting the logarithmic value, we get $\\text{pH} = 4.74 - \\log_{10}(2) = 4.74 - 0.301 = 4.439 \\approx 4.44$. Therefore, hence option A is correct."
+    },
+    {
+      "id": "ieq_c05_003",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The solubility of a sparingly soluble salt $M_2X_3$ (molar mass $= 280\\text{ g mol}^{-1}$) in pure water is $1.40 \\times 10^{-3}\\text{ g L}^{-1}$ at $298\\text{ K}$. What is the solubility product $K_{sp}$ of the salt at this temperature?",
+      "options": [
+        "A) $3.38 \\times 10^{-25}$",
+        "B) $3.13 \\times 10^{-27}$",
+        "C) $1.88 \\times 10^{-26}$",
+        "D) $1.08 \\times 10^{-25}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate the molar solubility $S$ in $\\text{mol L}^{-1}$. Dividing the mass solubility by the molar mass: $S = \\frac{1.40 \\times 10^{-3}\\text{ g L}^{-1}}{280\\text{ g mol}^{-1}} = 5.0 \\times 10^{-6}\\text{ mol L}^{-1}$. Step 2: Write the dissolution equilibrium: $M_2X_3(s) \\rightleftharpoons 2M^{3+}(aq) + 3X^{2-}(aq)$. Therefore, at equilibrium $[M^{3+}] = 2S$ and $[X^{2-}] = 3S$. Step 3: The solubility product expression is $K_{sp} = [M^{3+}]^2 [X^{2-}]^3 = (2S)^2 (3S)^3 = 108 S^5$. Substituting $S = 5.0 \\times 10^{-6}\\text{ M}$, we get $S^5 = (5.0 \\times 10^{-6})^5 = 3125 \\times 10^{-30} = 3.125 \\times 10^{-27}$. Solving for $K_{sp}$ yields $K_{sp} = 108 \\times 3.125 \\times 10^{-27} = 3.375 \\times 10^{-25} \\approx 3.38 \\times 10^{-25}$. Hence, option A is correct."
+    },
+    {
+      "id": "ieq_c05_004",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The solubility product of lead(II) chloride, $\\text{PbCl}_2$, is $K_{sp} = 1.6 \\times 10^{-5}$ at $298\\text{ K}$. What is the molar solubility of $\\text{PbCl}_2$ in a $0.10\\text{ M } \\text{NaCl}$ aqueous solution?",
+      "options": [
+        "A) $1.6 \\times 10^{-3}\\text{ M}$",
+        "B) $1.59 \\times 10^{-2}\\text{ M}$",
+        "C) $1.6 \\times 10^{-4}\\text{ M}$",
+        "D) $4.0 \\times 10^{-3}\\text{ M}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write the solubility equilibrium: $\\text{PbCl}_2(s) \\rightleftharpoons \\text{Pb}^{2+}(aq) + 2\\text{Cl}^-(aq)$. Let $S'$ be the molar solubility in the common ion solution. Step 2: The total chloride concentration is $[\\text{Cl}^-] = 0.10 + 2S' \\approx 0.10\\text{ M}$ because the common ion suppresses dissolution. Step 3: Applying the solubility product expression: $K_{sp} = [\\text{Pb}^{2+}][\\text{Cl}^-]^2 = S' \\times (0.10)^2 = 1.6 \\times 10^{-5}$. Substituting and solving for $S'$, we get $S' = \\frac{1.6 \\times 10^{-5}}{0.010} = 1.6 \\times 10^{-3}\\text{ M}$. Therefore, the molar solubility is $1.6 \\times 10^{-3}\\text{ M}$, yielding option A as the correct answer. Hence, option A is confirmed."
+    },
+    {
+      "id": "ieq_c05_005",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An aqueous solution contains a mixture of two weak monoprotic acids $\\text{HA}_1$ ($0.10\\text{ M}$, $K_{a1} = 1.0 \\times 10^{-4}$) and $\\text{HA}_2$ ($0.20\\text{ M}$, $K_{a2} = 4.5 \\times 10^{-5}$) at $298\\text{ K}$. What is the equilibrium hydronium ion concentration $[\\text{H}_3\\text{O}^+]$ in this solution?",
+      "options": [
+        "A) $4.36 \\times 10^{-3}\\text{ M}$",
+        "B) $6.16 \\times 10^{-3}\\text{ M}$",
+        "C) $3.16 \\times 10^{-3}\\text{ M}$",
+        "D) $1.90 \\times 10^{-3}\\text{ M}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: When two weak acids coexist, both furnish hydronium ions into the common pool: $\\text{HA}_1 \\rightleftharpoons \\text{H}^+ + \\text{A}_1^-$ and $\\text{HA}_2 \\rightleftharpoons \\text{H}^+ + \\text{A}_2^-$. Step 2: Applying the charge balance: $[\\text{H}^+] = [\\text{A}_1^-] + [\\text{A}_2^-] = \\frac{C_1 K_{a1}}{[\\text{H}^+]} + \\frac{C_2 K_{a2}}{[\\text{H}^+]}$. This implies $[\\text{H}^+]^2 = C_1 K_{a1} + C_2 K_{a2}$. Step 3: Substituting the given concentrations and constants: $C_1 K_{a1} = 0.10 \\times 1.0 \\times 10^{-4} = 1.0 \\times 10^{-5}$, and $C_2 K_{a2} = 0.20 \\times 4.5 \\times 10^{-5} = 0.90 \\times 10^{-5}$. Therefore, $[\\text{H}^+]^2 = 1.0 \\times 10^{-5} + 0.90 \\times 10^{-5} = 1.90 \\times 10^{-5}\\text{ M}^2$. Solving for $[\\text{H}^+]$ yields $[\\text{H}^+] = \\sqrt{1.90 \\times 10^{-5}} = 4.36 \\times 10^{-3}\\text{ M}$. Hence, option A is correct."
+    },
+    {
+      "id": "ieq_c05_006",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A basic buffer is prepared by mixing $200\\text{ mL}$ of $0.10\\text{ M } \\text{NH}_3$ and $200\\text{ mL}$ of $0.10\\text{ M } \\text{NH}_4\\text{Cl}$ ($K_b = 1.8 \\times 10^{-5}$, $pK_b = 4.74$). Then, $10\\text{ mL}$ of $0.10\\text{ M } \\text{HCl}$ is added to this buffer at $298\\text{ K}$. What is the resulting $\\text{pH}$? (Take $\\log_{10}(21/19) \\approx 0.043$).",
+      "options": [
+        "A) $9.22$",
+        "B) $4.78$",
+        "C) $9.30$",
+        "D) $9.26$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate the initial millimoles in the buffer: $\\text{NH}_3 = 200 \\times 0.10 = 20.0\\text{ mmol}$, and $\\text{NH}_4^+ = 200 \\times 0.10 = 20.0\\text{ mmol}$. Step 2: Added strong acid furnishes $\\text{H}^+ = 10 \\times 0.10 = 1.0\\text{ mmol}$. The acid reacts with the base: $\\text{NH}_3 + \\text{H}^+ \\rightarrow \\text{NH}_4^+$. After reaction, remaining $\\text{NH}_3 = 20.0 - 1.0 = 19.0\\text{ mmol}$, and newly formed $\\text{NH}_4^+ = 20.0 + 1.0 = 21.0\\text{ mmol}$. Step 3: Applying the Henderson-Hasselbalch equation for a basic buffer: $\\text{pOH} = pK_b + \\log_{10}\\left(\\frac{[\\text{NH}_4^+]}{[\\text{NH}_3]}\\right) = 4.74 + \\log_{10}\\left(\\frac{21.0}{19.0}\\right)$. Substituting the values, we get $\\text{pOH} = 4.74 + 0.043 = 4.783$. Therefore, solving for pH: $\\text{pH} = 14.00 - \\text{pOH} = 14.00 - 4.783 = 9.217 \\approx 9.22$. Hence, option A is correct."
+    },
+    {
+      "id": "ieq_c05_007",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Equal volumes of $2.0 \\times 10^{-4}\\text{ M } \\text{CaCl}_2$ and $4.0 \\times 10^{-4}\\text{ M } \\text{NaOH}$ solutions are mixed at $298\\text{ K}$. Given that $K_{sp}(\\text{Ca(OH)}_2) = 5.5 \\times 10^{-6}$, what is the value of the ionic product quotient $Q_{sp}$ and will precipitation occur?",
+      "options": [
+        "A) $Q_{sp} = 4.0 \\times 10^{-12}$, and no precipitate forms because $Q_{sp} < K_{sp}$",
+        "B) $Q_{sp} = 3.2 \\times 10^{-11}$, and precipitate forms because $Q_{sp} > K_{sp}$",
+        "C) $Q_{sp} = 2.0 \\times 10^{-8}$, and precipitate forms because $Q_{sp} > K_{sp}$",
+        "D) $Q_{sp} = 4.0 \\times 10^{-12}$, and precipitate forms because $Q_{sp} = K_{sp}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: When equal volumes are mixed, the concentration of each solute is halved due to dilution: $[\\text{Ca}^{2+}] = \\frac{2.0 \\times 10^{-4}}{2} = 1.0 \\times 10^{-4}\\text{ M}$, and $[\\text{OH}^-] = \\frac{4.0 \\times 10^{-4}}{2} = 2.0 \\times 10^{-4}\\text{ M}$. Step 2: The precipitation equilibrium is $\\text{Ca(OH)}_2(s) \\rightleftharpoons \\text{Ca}^{2+}(aq) + 2\\text{OH}^-(aq)$. Applying the reaction quotient expression: $Q_{sp} = [\\text{Ca}^{2+}][\\text{OH}^-]^2$. Step 3: Substituting the concentrations, we get $Q_{sp} = (1.0 \\times 10^{-4}) \\times (2.0 \\times 10^{-4})^2 = 1.0 \\times 10^{-4} \\times 4.0 \\times 10^{-8} = 4.0 \\times 10^{-12}$. Comparing $Q_{sp}$ with $K_{sp}$: since $Q_{sp} = 4.0 \\times 10^{-12} \\ll 5.5 \\times 10^{-6}$, the solution is unsaturated. Therefore, no precipitation occurs, yielding option A. Hence, option A is correct."
+    },
+    {
+      "id": "ieq_c05_008",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_multi",
+      "questionText": "Which of the following statements is/are correct regarding weak electrolytes and the autoionization of water in aqueous systems at different temperatures?",
+      "options": [
+        "A) For a weak monoprotic acid $\\text{HA}$, the degree of ionization $\\alpha$ increases upon dilution, approaching unity at infinite dilution",
+        "B) The ionic product of water $K_w$ increases with temperature because the autoionization of water is an endothermic process $(\\Delta H^\\circ > 0)$",
+        "C) At $350\\text{ K}$, where $K_w = 1.0 \\times 10^{-12}$, pure neutral water has a $\\text{pH} = 6.0$ and is therefore acidic",
+        "D) Addition of a strong electrolyte containing a common ion shifts the dissociation equilibrium of a weak electrolyte backwards, decreasing its degree of ionization"
+      ],
+      "answer": "A,B,D",
+      "explanation": "Step 1: Statement A is correct: by Ostwald's dilution law, $K_a = \\frac{C\\alpha^2}{1-\\alpha}$. As $C \\rightarrow 0$, $\\alpha \\rightarrow 1$, implying that degree of dissociation approaches unity at infinite dilution. Step 2: Statement B is correct: the autoionization $\\text{H}_2\\text{O} \\rightleftharpoons \\text{H}^+ + \\text{OH}^-$ is endothermic $(\\Delta H^\\circ \\approx +57.3\\text{ kJ mol}^{-1})$. Applying Van 't Hoff's reaction isobar, $K_w$ increases with temperature. Step 3: Statement C is incorrect: in pure water $[\\text{H}^+] = [\\text{OH}^-] = \\sqrt{K_w} = 10^{-6}\\text{ M}$, so $\\text{pH} = 6.0$. Because $[\\text{H}^+] = [\\text{OH}^-]$, the water is strictly neutral, not acidic. Step 4: Statement D is correct: applying Le Chatelier's principle, introducing common ions suppresses the ionization of the weak electrolyte. Therefore, statements A, B, and D are correct, yielding answer A,B,D."
+    },
+    {
+      "id": "ieq_c05_009",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A volume of $100\\text{ mL}$ of $0.050\\text{ M } \\text{H}_2\\text{SO}_4$ (assuming complete dissociation of both protons) is mixed with $100\\text{ mL}$ of $0.080\\text{ M } \\text{NaOH}$ at $298\\text{ K}$. What is the $\\text{pH}$ of the resulting aqueous solution?",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: Calculate the millimoles of hydronium ions provided by the diprotic acid: $\\text{millimoles of } \\text{H}^+ = 100\\text{ mL} \\times (2 \\times 0.050\\text{ M}) = 10.0\\text{ mmol}$. Step 2: Calculate the millimoles of hydroxide ions provided by the strong base: $\\text{millimoles of } \\text{OH}^- = 100\\text{ mL} \\times 0.080\\text{ M} = 8.0\\text{ mmol}$. Step 3: Neutralization proceeds according to $\\text{H}^+ + \\text{OH}^- \\rightarrow \\text{H}_2\\text{O}$. Excess millimoles of $\\text{H}^+ = 10.0 - 8.0 = 2.0\\text{ mmol}$. Step 4: The total volume is $V = 100 + 100 = 200\\text{ mL}$. Substituting into concentration: $[\\text{H}^+] = \\frac{2.0\\text{ mmol}}{200\\text{ mL}} = 0.010\\text{ M} = 1.0 \\times 10^{-2}\\text{ M}$. Therefore, solving for $\\text{pH}$: $\\text{pH} = -\\log_{10}(1.0 \\times 10^{-2}) = 2$. Hence, the integer answer is 2."
+    },
+    {
+      "id": "ieq_c05_010",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The solubility product of a sparingly soluble salt $MX_2$ is $K_{sp} = 4.0 \\times 10^{-12}$ at $298\\text{ K}$. When solid $MX_2$ is added to a $0.010\\text{ M}$ solution of the soluble salt $KX$, its molar solubility is found to be $S = n \\times 10^{-8}\\text{ M}$. Determine the value of integer $n$.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: Write the dissolution equilibrium: $MX_2(s) \\rightleftharpoons M^{2+}(aq) + 2X^-(aq)$. In a solution containing $0.010\\text{ M } KX$, the equilibrium concentration of $X^-$ is $[X^-] = 0.010 + 2S \\approx 0.010\\text{ M} = 1.0 \\times 10^{-2}\\text{ M}$ due to common ion effect. Step 2: Applying the solubility product relation: $K_{sp} = [M^{2+}][X^-]^2 = S \\times (1.0 \\times 10^{-2})^2 = S \\times 1.0 \\times 10^{-4}$. Step 3: Substituting $K_{sp} = 4.0 \\times 10^{-12}$, we get $S = \\frac{4.0 \\times 10^{-12}}{1.0 \\times 10^{-4}} = 4.0 \\times 10^{-8}\\text{ M}$. Therefore, comparing with $S = n \\times 10^{-8}\\text{ M}$, solving for $n$ yields $n = 4$. Hence, the integer answer is 4."
+    },
+    {
+      "id": "ieq_c05_011",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "At $298\\text{ K}$, solid ammonium acetate $\\text{CH}_3\\text{COONH}_4$ is dissolved in pure water to form a $0.050\\text{ M}$ solution. Given that $K_a(\\text{CH}_3\\text{COOH}) = 1.8 \\times 10^{-5}$ and $K_b(\\text{NH}_3) = 1.8 \\times 10^{-5}$, what is the degree of hydrolysis $h$ of the salt?",
+      "options": [
+        "A) $5.56 \\times 10^{-3}$, and it is independent of the initial salt concentration",
+        "B) $2.48 \\times 10^{-2}$, because the degree of hydrolysis depends on $1/\\sqrt{C}$",
+        "C) $1.05 \\times 10^{-4}$, because only the acetate anion undergoes hydrolysis",
+        "D) $3.09 \\times 10^{-5}$, which represents the hydrolysis constant $K_h$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write the mutual hydrolysis equilibrium for salt of weak acid and weak base: $\\text{CH}_3\\text{COO}^- + \\text{NH}_4^+ + \\text{H}_2\\text{O} \\rightleftharpoons \\text{CH}_3\\text{COOH} + \\text{NH}_4\\text{OH}$. Step 2: The hydrolysis constant is defined as $K_h = \\frac{K_w}{K_a K_b}$. Substituting the values: $K_h = \\frac{1.0 \\times 10^{-14}}{(1.8 \\times 10^{-5})(1.8 \\times 10^{-5})} = \\frac{1.0 \\times 10^{-14}}{3.24 \\times 10^{-10}} = 3.086 \\times 10^{-5}$. Step 3: Setting equilibrium expressions: $[\\text{CH}_3\\text{COOH}] = Ch$, $[\\text{NH}_4\\text{OH}] = Ch$, $[\\text{CH}_3\\text{COO}^-] = C(1-h)$, and $[\\text{NH}_4^+] = C(1-h)$. Applying the equilibrium expression: $K_h = \\frac{h^2}{(1-h)^2} \\approx h^2$. Solving for $h$, we get $h = \\sqrt{K_h} = \\sqrt{\\frac{K_w}{K_a K_b}} = \\frac{1.0 \\times 10^{-7}}{1.8 \\times 10^{-5}} = 5.56 \\times 10^{-3}$. Therefore, $h$ is independent of concentration $C$, yielding option A. Hence, option A is correct."
+    },
+    {
+      "id": "ieq_c05_012",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "For a $0.10\\text{ M}$ aqueous solution of phosphoric acid $\\text{H}_3\\text{PO}_4$ at $298\\text{ K}$, the stepwise ionization constants are $K_{a1} = 7.5 \\times 10^{-3}$, $K_{a2} = 6.2 \\times 10^{-8}$, and $K_{a3} = 4.8 \\times 10^{-13}$. What is the equilibrium concentration of divalent hydrogen phosphate ions $[\\text{HPO}_4^{2-}]$ in this solution?",
+      "options": [
+        "A) $6.2 \\times 10^{-8}\\text{ M}$",
+        "B) $7.87 \\times 10^{-5}\\text{ M}$",
+        "C) $4.65 \\times 10^{-9}\\text{ M}$",
+        "D) $4.80 \\times 10^{-13}\\text{ M}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write the primary ionization equilibrium: $\\text{H}_3\\text{PO}_4 \\rightleftharpoons \\text{H}^+ + \\text{H}_2\\text{PO}_4^-$, with $K_{a1} = \\frac{[\\text{H}^+][\\text{H}_2\\text{PO}_4^-]}{[\\text{H}_3\\text{PO}_4]}$. Step 2: Write the secondary ionization equilibrium: $\\text{H}_2\\text{PO}_4^- \\rightleftharpoons \\text{H}^+ + \\text{HPO}_4^{2-}$, with $K_{a2} = \\frac{[\\text{H}^+][\\text{HPO}_4^{2-}]}{[\\text{H}_2\\text{PO}_4^-]}$. Step 3: Because $K_{a1} \\gg K_{a2} \\gg K_{a3}$, virtually all hydronium ions originate from the primary stage. This implies $[\\text{H}^+] \\approx [\\text{H}_2\\text{PO}_4^-]$. Substituting this equivalence into the secondary ionization constant expression yields $[\\text{HPO}_4^{2-}] = K_{a2} \\frac{[\\text{H}_2\\text{PO}_4^-]}{[\\text{H}^+]} \\approx K_{a2}$. Solving for the value, we get $[\\text{HPO}_4^{2-}] = 6.2 \\times 10^{-8}\\text{ M}$. Therefore, option A is correct. Hence, option A is confirmed."
+    },
+    {
+      "id": "ieq_c05_013",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The buffer capacity $\\beta$ of an acidic buffer system containing weak acid $\\text{HA}$ and its conjugate base $\\text{A}^-$ at total concentration $C = [\\text{HA}] + [\\text{A}^-] = 0.20\\text{ M}$ is given by Van Slyke's equation: $$\\beta = 2.303 \\frac{[\\text{HA}][\\text{A}^-]}{[\\text{HA}] + [\\text{A}^-]}$$ What is the maximum buffer capacity $\\beta_{\\max}$ of this buffer, and under what condition does it occur?",
+      "options": [
+        "A) $\\beta_{\\max} = 0.115\\text{ mol L}^{-1} \\text{pH}^{-1}$, occurring when $\\text{pH} = pK_a$ ($[\\text{HA}] = [\\text{A}^-]$)",
+        "B) $\\beta_{\\max} = 0.050\\text{ mol L}^{-1} \\text{pH}^{-1}$, occurring when $\\text{pH} = pK_a$ ($[\\text{HA}] = [\\text{A}^-]$)",
+        "C) $\\beta_{\\max} = 0.461\\text{ mol L}^{-1} \\text{pH}^{-1}$, occurring when $\\text{pH} = pK_a + 1$",
+        "D) $\\beta_{\\max} = 0.230\\text{ mol L}^{-1} \\text{pH}^{-1}$, occurring when $\\text{pH} = pK_a - 1$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Express buffer capacity as a function of the fraction of conjugate base: let $[\\text{A}^-] = x$, so $[\\text{HA}] = C - x$. Then $\\beta = 2.303 \\frac{x(C-x)}{C}$. Step 2: Differentiating $\\beta$ with respect to $x$ and setting $\\frac{d\\beta}{dx} = 0$ implies $C - 2x = 0$, yielding $x = C/2$. Therefore, maximum buffer capacity occurs when $[\\text{HA}] = [\\text{A}^-] = C/2$, which corresponds to $\\text{pH} = pK_a$. Step 3: Substituting $x = C/2 = 0.10\\text{ M}$ and $C = 0.20\\text{ M}$ into Van Slyke's formula: $\\beta_{\\max} = 2.303 \\times \\frac{(0.10)(0.10)}{0.20} = 2.303 \\times 0.050 = 0.115\\text{ mol L}^{-1} \\text{pH}^{-1}$. Applying this result, we get $\\beta_{\\max} = 0.115\\text{ mol L}^{-1} \\text{pH}^{-1}$. Hence, option A is correct."
+    },
+    {
+      "id": "ieq_c05_014",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An aqueous solution is $0.020\\text{ M}$ in $\\text{Mg}^{2+}$ and $0.10\\text{ M}$ in $\\text{NH}_4\\text{Cl}$ at $298\\text{ K}$. Gaseous $\\text{NH}_3$ is introduced into the solution without altering the total volume. Given that $K_{sp}(\\text{Mg(OH)}_2) = 1.8 \\times 10^{-11}$ and $K_b(\\text{NH}_3) = 1.8 \\times 10^{-5}$, what is the maximum concentration of free $\\text{NH}_3$ that can be maintained before precipitation of $\\text{Mg(OH)}_2$ commences?",
+      "options": [
+        "A) $0.167\\text{ M}$",
+        "B) $5.00 \\times 10^{-6}\\text{ M}$",
+        "C) $3.00 \\times 10^{-5}\\text{ M}$",
+        "D) $0.060\\text{ M}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Determine the maximum hydroxide ion concentration $[\\text{OH}^-]$ permissible before the solubility product is exceeded. Applying the equilibrium expression: $K_{sp} = [\\text{Mg}^{2+}][\\text{OH}^-]^2$. Substituting $[\\text{Mg}^{2+}] = 0.020\\text{ M}$: $[\\text{OH}^-]^2 = \\frac{1.8 \\times 10^{-11}}{0.020} = 9.0 \\times 10^{-10}$. Solving for $[\\text{OH}^-]$, we get $[\\text{OH}^-] = \\sqrt{9.0 \\times 10^{-10}} = 3.0 \\times 10^{-5}\\text{ M}$. Step 2: In the ammoniacal buffer, ammonia ionizes according to $\\text{NH}_3 + \\text{H}_2\\text{O} \\rightleftharpoons \\text{NH}_4^+ + \\text{OH}^-$. The base dissociation constant is $K_b = \\frac{[\\text{NH}_4^+][\\text{OH}^-]}{[\\text{NH}_3]}$. Step 3: Rearranging for $[\\text{NH}_3]$: $[\\text{NH}_3] = \\frac{[\\text{NH}_4^+][\\text{OH}^-]}{K_b} = \\frac{0.10 \\times (3.0 \\times 10^{-5})}{1.8 \\times 10^{-5}} = \\frac{3.0 \\times 10^{-6}}{1.8 \\times 10^{-5}} = \\frac{1}{6} \\approx 0.167\\text{ M}$. Therefore, option A is correct. Hence, option A is confirmed."
+    },
+    {
+      "id": "ieq_c05_015",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For carbonic acid $\\text{H}_2\\text{CO}_3$, the stepwise dissociation constants are $pK_{a1} = 6.37$ and $pK_{a2} = 10.33$ at $298\\text{ K}$. What is the $\\text{pH}$ of a $0.050\\text{ M } \\text{NaHCO}_3$ aqueous solution?",
+      "options": [
+        "A) $8.35$",
+        "B) $9.54$",
+        "C) $6.37$",
+        "D) $10.33$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The bicarbonate ion $\\text{HCO}_3^-$ is an amphiprotic anion that can act as both an acid and a base: $\\text{HCO}_3^- + \\text{H}_2\\text{O} \\rightleftharpoons \\text{H}_3\\text{O}^+ + \\text{CO}_3^{2-}$ ($K_{a2}$) and $\\text{HCO}_3^- + \\text{H}_2\\text{O} \\rightleftharpoons \\text{H}_2\\text{CO}_3 + \\text{OH}^-$ ($K_b = K_w/K_{a1}$). Step 2: Applying the rigorous electroneutrality and mass balance derivation for an amphiprotic salt, the hydronium ion concentration satisfies $[\\text{H}^+] = \\sqrt{\\frac{K_{a1} K_{a2} C + K_{a1} K_w}{C + K_{a1}}}$. Step 3: Since $C = 0.050\\text{ M} \\gg K_{a1}$ and $K_{a2} C \\gg K_w$, the formula simplifies to $[\\text{H}^+] \\approx \\sqrt{K_{a1} K_{a2}}$. Taking negative logarithm on both sides yields $\\text{pH} = \\frac{pK_{a1} + pK_{a2}}{2}$. Substituting the given values: $\\text{pH} = \\frac{6.37 + 10.33}{2} = \\frac{16.70}{2} = 8.35$. Therefore, solving we get $\\text{pH} = 8.35$. Hence, option A is correct."
+    },
+    {
+      "id": "ieq_c05_016",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "At $298\\text{ K}$, ammonium formate $\\text{HCOONH}_4$ is dissolved in water to give a $0.10\\text{ M}$ solution. Given that $K_a(\\text{HCOOH}) = 1.8 \\times 10^{-4}$ ($pK_a = 3.75$) and $K_b(\\text{NH}_3) = 1.8 \\times 10^{-5}$ ($pK_b = 4.75$), what is the $\\text{pH}$ of this salt solution?",
+      "options": [
+        "A) $6.50$",
+        "B) $7.50$",
+        "C) $7.00$",
+        "D) $11.25$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Ammonium formate is a salt formed from a weak acid (formic acid) and a weak base (ammonia). Both ions hydrolyse simultaneously: $\\text{HCOO}^- + \\text{NH}_4^+ + \\text{H}_2\\text{O} \\rightleftharpoons \\text{HCOOH} + \\text{NH}_4\\text{OH}$. Step 2: Applying the thermodynamic relation for salt of weak acid and weak base: $[\\text{H}^+] = \\sqrt{\\frac{K_w K_a}{K_b}}$. Step 3: Taking negative logarithms on both sides yields $\\text{pH} = \\frac{1}{2}(pK_w + pK_a - pK_b) = 7.00 + \\frac{1}{2}(pK_a - pK_b)$. Substituting the constants: $\\text{pH} = 7.00 + \\frac{1}{2}(3.75 - 4.75) = 7.00 + \\frac{1}{2}(-1.00) = 7.00 - 0.50 = 6.50$. Because $K_a > K_b$, the acid is stronger than the base, implying the solution is slightly acidic. Therefore, solving we get $\\text{pH} = 6.50$. Hence, option A is correct."
+    },
+    {
+      "id": "ieq_c05_017",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider a $0.10\\text{ M}$ aqueous solution of oxalic acid $\\text{H}_2\\text{C}_2\\text{O}_4$ ($K_{a1} = 5.6 \\times 10^{-2}$ and $K_{a2} = 5.4 \\times 10^{-5}$ at $298\\text{ K}$). Which of the following statements is/are correct regarding the ionic equilibria in this solution?",
+      "options": [
+        "A) The equilibrium concentration of the fully deprotonated oxalate ion $[\\text{C}_2\\text{O}_4^{2-}]$ is approximately equal to $K_{a2} = 5.4 \\times 10^{-5}\\text{ M}$",
+        "B) The degree of the first ionization $\\alpha_1$ cannot be calculated using the simplified formula $\\alpha_1 = \\sqrt{K_{a1}/C}$ because $K_{a1}/C > 0.05$",
+        "C) Addition of a strong acid suppresses the concentration of $[\\text{C}_2\\text{O}_4^{2-}]$ inversely proportional to the hydronium ion concentration",
+        "D) The relative order of species concentrations in this solution satisfies $[\\text{H}_3\\text{O}^+] > [\\text{HC}_2\\text{O}_4^-] \\gg [\\text{C}_2\\text{O}_4^{2-}] > [\\text{OH}^-]$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Statement A is correct: for a polyprotic acid with $K_{a1} \\gg K_{a2}$, the first ionization produces almost all $\\text{H}^+$ and $\\text{HC}_2\\text{O}_4^-$. Substituting $[\\text{H}^+] \\approx [\\text{HC}_2\\text{O}_4^-]$ into $K_{a2} = \\frac{[\\text{H}^+][\\text{C}_2\\text{O}_4^{2-}]}{[\\text{HC}_2\\text{O}_4^-]}$ yields $[\\text{C}_2\\text{O}_4^{2-}] \\approx K_{a2} = 5.4 \\times 10^{-5}\\text{ M}$. Step 2: Statement B is correct: here $\\frac{K_{a1}}{C} = \\frac{5.6 \\times 10^{-2}}{0.10} = 0.56 \\gg 0.05$. Therefore, the approximation $1-\\alpha_1 \\approx 1$ fails and the quadratic equation must be solved, yielding $\\alpha_1 \\approx 0.53$. Step 3: Statement C is correct: since $[\\text{C}_2\\text{O}_4^{2-}] = \\frac{K_{a2}[\\text{HC}_2\\text{O}_4^-]}{[\\text{H}^+]}$, increasing $[\\text{H}^+]$ via strong acid suppresses $[\\text{C}_2\\text{O}_4^{2-}]$ in inverse proportion to $[\\text{H}^+]$. Step 4: Statement D is correct: $[\\text{H}_3\\text{O}^+] = [\\text{HC}_2\\text{O}_4^-] + 2[\\text{C}_2\\text{O}_4^{2-}] > [\\text{HC}_2\\text{O}_4^-] \\approx 0.053\\text{ M} \\gg [\\text{C}_2\\text{O}_4^{2-}] = 5.4 \\times 10^{-5}\\text{ M} \\gg [\\text{OH}^-] \\approx 1.9 \\times 10^{-13}\\text{ M}$. Applying these deductions, all four statements A, B, C, and D are correct. Hence, answer is A,B,C,D."
+    },
+    {
+      "id": "ieq_c05_018",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Which of the following statements is/are correct regarding aqueous solutions of sodium salts of phosphoric acid at $298\\text{ K}$? (Given for $\\text{H}_3\\text{PO}_4$: $pK_{a1} = 2.15$, $pK_{a2} = 7.20$, and $pK_{a3} = 12.35$).",
+      "options": [
+        "A) An aqueous solution of $\\text{NaH}_2\\text{PO}_4$ is acidic with $\\text{pH} \\approx \\frac{pK_{a1} + pK_{a2}}{2} = 4.68$",
+        "B) An aqueous solution of $\\text{Na}_2\\text{HPO}_4$ is alkaline with $\\text{pH} \\approx \\frac{pK_{a2} + pK_{a3}}{2} = 9.78$",
+        "C) Mixing equimolar quantities of $\\text{NaH}_2\\text{PO}_4$ and $\\text{Na}_2\\text{HPO}_4$ produces a buffer solution whose $\\text{pH} \\approx pK_{a2} = 7.20$",
+        "D) An aqueous solution of $\\text{Na}_3\\text{PO}_4$ hydrolyses to yield a strongly basic solution whose $\\text{pH}$ is strictly less than $7.00$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Statement A is correct: the dihydrogen phosphate ion $\\text{H}_2\\text{PO}_4^-$ is amphiprotic, bounded by $pK_{a1}$ and $pK_{a2}$. Applying the amphiprotic formula: $\\text{pH} = \\frac{pK_{a1} + pK_{a2}}{2} = \\frac{2.15 + 7.20}{2} = 4.675 \\approx 4.68$. Because $\\text{pH} < 7$, it is acidic. Step 2: Statement B is correct: the monohydrogen phosphate ion $\\text{HPO}_4^{2-}$ is bounded by $pK_{a2}$ and $pK_{a3}$. Applying the formula: $\\text{pH} = \\frac{pK_{a2} + pK_{a3}}{2} = \\frac{7.20 + 12.35}{2} = 9.775 \\approx 9.78$. Because $\\text{pH} > 7$, it is alkaline. Step 3: Statement C is correct: equimolar $\\text{H}_2\\text{PO}_4^-$ (weak acid) and $\\text{HPO}_4^{2-}$ (conjugate base) form a buffer where $\\text{pH} = pK_{a2} + \\log_{10}(1) = 7.20$. Step 4: Statement D is incorrect: $\\text{Na}_3\\text{PO}_4$ undergoes strong anionic hydrolysis $\\text{PO}_4^{3-} + \\text{H}_2\\text{O} \\rightleftharpoons \\text{HPO}_4^{2-} + \\text{OH}^-$, generating an alkaline solution with $\\text{pH} \\gg 7$, which contradicts $\\text{pH} < 7.00$. Therefore, statements A, B, and C are correct, yielding answer A,B,C."
+    },
+    {
+      "id": "ieq_c05_019",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An aqueous solution contains $0.010\\text{ M } \\text{Fe}^{3+}$ ions. It is desired to precipitate $\\text{Fe}^{3+}$ as $\\text{Fe(OH)}_3$ such that the concentration of $\\text{Fe}^{3+}$ remaining in solution is reduced to $1.0 \\times 10^{-11}\\text{ M}$. Given that $K_{sp}(\\text{Fe(OH)}_3) = 1.0 \\times 10^{-38}$ at $298\\text{ K}$, calculate the minimum $\\text{pH}$ required to achieve this quantitative separation.",
+      "options": [],
+      "answer": "5",
+      "explanation": "Step 1: Write the solubility product expression for iron(III) hydroxide: $K_{sp} = [\\text{Fe}^{3+}][\\text{OH}^-]^3 = 1.0 \\times 10^{-38}$. Step 2: To reduce $[\\text{Fe}^{3+}]$ to $1.0 \\times 10^{-11}\\text{ M}$, substituting this value into the $K_{sp}$ equation gives: $[\\text{OH}^-]^3 = \\frac{K_{sp}}{[\\text{Fe}^{3+}]} = \\frac{1.0 \\times 10^{-38}}{1.0 \\times 10^{-11}} = 1.0 \\times 10^{-27}\\text{ M}^3$. Step 3: Solving for $[\\text{OH}^-]$, we get $[\\text{OH}^-] = (1.0 \\times 10^{-27})^{1/3} = 1.0 \\times 10^{-9}\\text{ M}$. Step 4: Applying the definition of pOH: $\\text{pOH} = -\\log_{10}(1.0 \\times 10^{-9}) = 9$. Therefore, solving for pH: $\\text{pH} = 14 - \\text{pOH} = 14 - 9 = 5$. Hence, the integer answer is 5."
+    },
+    {
+      "id": "ieq_c05_020",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "An aqueous solution contains $0.10\\text{ M } \\text{Cl}^-$ and $0.10\\text{ M } \\text{I}^-$. Solid silver nitrate $\\text{AgNO}_3$ is slowly added to this solution without any change in volume. Given that $K_{sp}(\\text{AgI}) = 1.0 \\times 10^{-16}$ and $K_{sp}(\\text{AgCl}) = 1.0 \\times 10^{-10}$ at $298\\text{ K}$. When $\\text{AgCl}$ just begins to precipitate, the remaining concentration of iodide ions in the solution is $[\\text{I}^-] = 1.0 \\times 10^{-x}\\text{ M}$. Determine the value of integer $x$.",
+      "options": [],
+      "answer": "7",
+      "explanation": "Step 1: Silver iodide precipitates first because $K_{sp}(\\text{AgI}) \\ll K_{sp}(\\text{AgCl})$. Step 2: Silver chloride $\\text{AgCl}$ begins to precipitate when the ionic product equals its $K_{sp}$: $[\\text{Ag}^+][\\text{Cl}^-] = K_{sp}(\\text{AgCl})$. Substituting $[\\text{Cl}^-] = 0.10\\text{ M}$, we get $[\\text{Ag}^+] = \\frac{1.0 \\times 10^{-10}}{0.10} = 1.0 \\times 10^{-9}\\text{ M}$. Step 3: At this point, $\\text{AgI}$ remains in simultaneous equilibrium with the solution: $K_{sp}(\\text{AgI}) = [\\text{Ag}^+][\\text{I}^-] = 1.0 \\times 10^{-16}$. Substituting $[\\text{Ag}^+] = 1.0 \\times 10^{-9}\\text{ M}$ yields $[\\text{I}^-] = \\frac{1.0 \\times 10^{-16}}{1.0 \\times 10^{-9}} = 1.0 \\times 10^{-7}\\text{ M}$. Step 4: Comparing with $[\\text{I}^-] = 1.0 \\times 10^{-x}\\text{ M}$, solving for $x$ implies $x = 7$. Therefore, hence the integer answer is 7."
+    },
+    {
+      "id": "ieq_c05_021",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Solid silver chloride, $\\text{AgCl}(s)$ ($K_{sp} = 1.8 \\times 10^{-10}$), is added to a $1.0\\text{ M}$ aqueous ammonia solution at $298\\text{ K}$. Silver ions react with ammonia to form a diamminesilver(I) coordination complex: $$\\text{Ag}^+ + 2\\text{NH}_3 \\rightleftharpoons [\\text{Ag(NH}_3)_2]^+, \\quad K_f = 1.6 \\times 10^7$$ What is the molar solubility $S$ of $\\text{AgCl}$ in this $1.0\\text{ M}$ aqueous ammonia solution at equilibrium?",
+      "options": [
+        "A) $0.049\\text{ M}$",
+        "B) $0.054\\text{ M}$",
+        "C) $0.051\\text{ M}$",
+        "D) $1.13 \\times 10^{-17}\\text{ M}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write the combined dissolution-complexation equilibrium: $\\text{AgCl}(s) + 2\\text{NH}_3(aq) \\rightleftharpoons [\\text{Ag(NH}_3)_2]^+(aq) + \\text{Cl}^-(aq)$. The equilibrium constant for this combined process is $K = K_{sp} \\times K_f = (1.8 \\times 10^{-10}) \\times (1.6 \\times 10^7) = 2.88 \\times 10^{-3}$. Step 2: Let $S$ be the molar solubility of $\\text{AgCl}$. Then at equilibrium, $[[\\text{Ag(NH}_3)_2]^+] = S$, $[\\text{Cl}^-] = S$, and $[\\text{NH}_3] = 1.0 - 2S$. Applying the mass-action expression: $K = \\frac{[[\\text{Ag(NH}_3)_2]^+][\\text{Cl}^-]}{[\\text{NH}_3]^2} = \\frac{S^2}{(1.0 - 2S)^2} = 2.88 \\times 10^{-3}$. Step 3: Taking square root on both sides yields $\\frac{S}{1.0 - 2S} = \\sqrt{2.88 \\times 10^{-3}} = 0.05366$. Step 4: Substituting and rearranging: $S = 0.05366(1.0 - 2S) = 0.05366 - 0.1073 S$. This implies $1.1073 S = 0.05366$. Solving for $S$, we get $S = \\frac{0.05366}{1.1073} \\approx 0.0485\\text{ M} \\approx 0.049\\text{ M}$. Therefore, option A is correct. Hence, option A is confirmed."
+    },
+    {
+      "id": "ieq_c05_022",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Consider a weak monoprotic acid $\\text{HA}$ with ionization constant $K_a = 1.0 \\times 10^{-5}$ dissolved in pure water at an extremely low concentration of $C = 1.0 \\times 10^{-6}\\text{ M}$ at $298\\text{ K}$ ($K_w = 1.0 \\times 10^{-14}$). At this extreme dilution, neither the autoionization of water nor incomplete dissociation can be neglected. Applying exact electroneutrality, what is the equilibrium hydronium ion concentration $[\\text{H}^+]$?",
+      "options": [
+        "A) $9.26 \\times 10^{-7}\\text{ M}$",
+        "B) $3.16 \\times 10^{-6}\\text{ M}$",
+        "C) $1.00 \\times 10^{-6}\\text{ M}$",
+        "D) $1.05 \\times 10^{-7}\\text{ M}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write the exact charge balance for the solution: $[\\text{H}^+] = [\\text{A}^-] + [\\text{OH}^-] = [\\text{A}^-] + \\frac{K_w}{[\\text{H}^+]}$. Step 2: From mass balance, total analytical concentration is $C = [\\text{HA}] + [\\text{A}^-]$. Using $K_a = \\frac{[\\text{H}^+][\\text{A}^-]}{[\\text{HA}]}$, substituting gives $[\\text{A}^-] = \\frac{K_a C}{K_a + [\\text{H}^+]}$. Step 3: Applying this into the charge balance yields: $[\\text{H}^+] = \\frac{K_a C}{K_a + [\\text{H}^+]} + \\frac{K_w}{[\\text{H}^+]}$. Multiplying throughout by $[\\text{H}^+](K_a + [\\text{H}^+])$ produces the cubic equation: $[\\text{H}^+]^3 + K_a [\\text{H}^+]^2 - (K_a C + K_w)[\\text{H}^+] - K_a K_w = 0$. Step 4: Substituting the values $K_a = 1.0 \\times 10^{-5}$, $C = 1.0 \\times 10^{-6}$, and $K_w = 1.0 \\times 10^{-14}$: since $K_a \\gg C$, the acid dissociates extensively (degree of dissociation $\\alpha \\approx 0.915$). Solving the cubic relation iteratively, we get $[\\text{H}^+] = 9.26 \\times 10^{-7}\\text{ M}$. Standard formula $\\sqrt{K_a C} = 3.16 \\times 10^{-6}\\text{ M}$ fails completely because it exceeds $C$. Therefore, option A is correct. Hence, option A is confirmed."
+    },
+    {
+      "id": "ieq_c05_023",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Histidine is a triprotic $\\alpha$-amino acid with three acid dissociation constants at $298\\text{ K}$: $$\\alpha\\text{-carboxyl group: } pK_{a1} = 1.82$$ $$\\text{imidazole side chain: } pK_{a2} = 6.00$$ $$\\alpha\\text{-amino group: } pK_{a3} = 9.17$$ What is the isoelectric point ($pI$) of histidine, and what is the net electric charge of the predominant species at this $pI$?",
+      "options": [
+        "A) $pI = 7.59$, with net electric charge equal to $0$",
+        "B) $pI = 3.91$, with net electric charge equal to $+1$",
+        "C) $pI = 5.50$, with net electric charge equal to $0$",
+        "D) $pI = 5.66$, with net electric charge equal to $-1$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write the successive protonation equilibria of histidine starting from the fully protonated form: $\\text{H}_3\\text{A}^{2+} \\xrightleftharpoons{K_{a1}} \\text{H}_2\\text{A}^+ + \\text{H}^+$, $\\text{H}_2\\text{A}^+ \\xrightleftharpoons{K_{a2}} \\text{HA}^0 + \\text{H}^+$, and $\\text{HA}^0 \\xrightleftharpoons{K_{a3}} \\text{A}^- + \\text{H}^+$. Step 2: Identify the species having net zero charge: the electrically neutral dipolar zwitterionic species is $\\text{HA}^0$. Step 3: The isoelectric point $pI$ is defined as the $\\text{pH}$ where the average net electric charge of the amino acid is strictly zero, meaning $[\\text{H}_2\\text{A}^+] + 2[\\text{H}_3\\text{A}^{2+}] = [\\text{A}^-]$. Because $K_{a1} \\gg K_{a2} \\gg K_{a3}$, this equality simplifies to $[\\text{H}_2\\text{A}^+] = [\\text{A}^-]$. Step 4: Applying the equilibrium definitions: $\\frac{[\\text{H}^+][\\text{HA}^0]}{K_{a2}} = \\frac{K_{a3}[\\text{HA}^0]}{[\\text{H}^+]}$, implying $[\\text{H}^+] = \\sqrt{K_{a2} K_{a3}}$. Taking negative logarithms yields $pI = \\frac{pK_{a2} + pK_{a3}}{2}$. Substituting the values: $pI = \\frac{6.00 + 9.17}{2} = \\frac{15.17}{2} = 7.585 \\approx 7.59$. Therefore, solving we get $pI = 7.59$ with zero net charge. Hence, option A is correct."
+    },
+    {
+      "id": "ieq_c05_024",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "An aqueous solution contains $0.010\\text{ M } \\text{Mn}^{2+}$ and $0.010\\text{ M } \\text{Cu}^{2+}$. Hydrogen sulfide gas $\\text{H}_2\\text{S}$ is continuously bubbled through the solution until saturation ($[\\text{H}_2\\text{S}] = 0.10\\text{ M}$). The overall dissociation constant of $\\text{H}_2\\text{S}$ is $K_{a1} K_{a2} = 1.0 \\times 10^{-20}$, and the solubility products are $K_{sp}(\\text{CuS}) = 6.3 \\times 10^{-36}$ and $K_{sp}(\\text{MnS}) = 2.5 \\times 10^{-13}$ at $298\\text{ K}$. What is the maximum $\\text{pH}$ at which the buffer solution must be maintained to prevent the precipitation of $\\text{MnS}$ completely?",
+      "options": [
+        "A) $5.20$",
+        "B) $4.70$",
+        "C) $7.00$",
+        "D) $3.40$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: To prevent precipitation of manganese(II) sulfide, the ionic product must not exceed the solubility product: $Q_{sp}(\\text{MnS}) = [\\text{Mn}^{2+}][\\text{S}^{2-}] < K_{sp}(\\text{MnS})$. Substituting $[\\text{Mn}^{2+}] = 0.010\\text{ M} = 1.0 \\times 10^{-2}\\text{ M}$: $[\\text{S}^{2-}] < \\frac{2.5 \\times 10^{-13}}{1.0 \\times 10^{-2}} = 2.5 \\times 10^{-11}\\text{ M}$. Step 2: Applying the overall ionization equilibrium for saturated $\\text{H}_2\\text{S}$: $K_{a1} K_{a2} = \\frac{[\\text{H}^+]^2 [\\text{S}^{2-}]}{[\\text{H}_2\\text{S}]}$. Rearranging gives $[\\text{S}^{2-}] = \\frac{K_{a1} K_{a2} [\\text{H}_2\\text{S}]}{[\\text{H}^+]^2} = \\frac{(1.0 \\times 10^{-20})(0.10)}{[\\text{H}^+]^2} = \\frac{1.0 \\times 10^{-21}}{[\\text{H}^+]^2}$. Step 3: Setting the inequality: $\\frac{1.0 \\times 10^{-21}}{[\\text{H}^+]^2} < 2.5 \\times 10^{-11}$. This implies $[\\text{H}^+]^2 > \\frac{1.0 \\times 10^{-21}}{2.5 \\times 10^{-11}} = 4.0 \\times 10^{-11}\\text{ M}^2$. Solving for $[\\text{H}^+]$: $[\\text{H}^+] > \\sqrt{40 \\times 10^{-12}} = 6.32 \\times 10^{-6}\\text{ M}$. Step 4: Converting to pH: $\\text{pH} < -\\log_{10}(6.32 \\times 10^{-6}) = 6 - \\log_{10}(6.32) = 6 - 0.801 = 5.199 \\approx 5.20$. Therefore, the maximum allowable pH is $5.20$. Hence, option A is correct."
+    },
+    {
+      "id": "ieq_c05_025",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "For a diprotic acid $\\text{H}_2\\text{A}$ ($K_{a1} = 1.0 \\times 10^{-4}$, $K_{a2} = 1.0 \\times 10^{-7}$) at analytical concentration $C$ in pure water at $298\\text{ K}$ ($K_w = 1.0 \\times 10^{-14}$), consider the exact electroneutrality condition: $$[\\text{H}^+] = [\\text{HA}^-] + 2[\\text{A}^{2-}] + [\\text{OH}^-]$$ Expressing every equilibrium concentration in terms of $h = [\\text{H}^+]$, which of the following polynomials correctly represents the exact electroneutrality quartic equation?",
+      "options": [
+        "A) $h^4 + K_{a1} h^3 + (K_{a1} K_{a2} - K_{a1} C - K_w) h^2 - (2 K_{a1} K_{a2} C + K_{a1} K_w) h - K_{a1} K_{a2} K_w = 0$",
+        "B) $h^4 + K_{a1} h^3 + (K_{a1} K_{a2} + K_{a1} C + K_w) h^2 + (K_{a1} K_{a2} C + K_{a1} K_w) h + K_{a1} K_{a2} K_w = 0$",
+        "C) $h^4 - K_{a1} h^3 + (K_{a1} K_{a2} - K_{a1} C) h^2 - 2 K_{a1} K_{a2} C h - K_w = 0$",
+        "D) $h^3 + K_{a1} h^2 - K_{a1} C h - K_w = 0$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Express the distribution fractions of the diprotic acid species as functions of $h = [\\text{H}^+]$: let the denominator be $D(h) = h^2 + K_{a1} h + K_{a1} K_{a2}$. Then $[\\text{HA}^-] = \\frac{C K_{a1} h}{D(h)}$ and $[\\text{A}^{2-}] = \\frac{C K_{a1} K_{a2}}{D(h)}$. Step 2: Applying the exact charge balance: $h = [\\text{HA}^-] + 2[\\text{A}^{2-}] + [\\text{OH}^-] = \\frac{C(K_{a1} h + 2 K_{a1} K_{a2})}{D(h)} + \\frac{K_w}{h}$. Step 3: Clearing fractions by multiplying both sides by $h \\cdot D(h) = h(h^2 + K_{a1} h + K_{a1} K_{a2})$ yields: $h^2(h^2 + K_{a1} h + K_{a1} K_{a2}) = C h(K_{a1} h + 2 K_{a1} K_{a2}) + K_w(h^2 + K_{a1} h + K_{a1} K_{a2})$. Step 4: Expanding and collecting all terms in descending powers of $h$: $h^4 + K_{a1} h^3 + (K_{a1} K_{a2} - K_{a1} C - K_w) h^2 - (2 K_{a1} K_{a2} C + K_{a1} K_w) h - K_{a1} K_{a2} K_w = 0$. Therefore, solving we get the quartic polynomial given in option A. Hence, option A is confirmed."
+    },
+    {
+      "id": "ieq_c05_026",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Solid copper(II) hydroxide $\\text{Cu(OH)}_2$ ($K_{sp} = 2.2 \\times 10^{-20}$) is equilibrated in an aqueous solution containing $0.50\\text{ M}$ free ammonia at a buffered $\\text{pH} = 10.0$ at $298\\text{ K}$. Copper(II) forms the tetraammine complex: $$\\text{Cu}^{2+} + 4\\text{NH}_3 \\rightleftharpoons [\\text{Cu(NH}_3)_4]^{2+}, \\quad K_f = 1.1 \\times 10^{13}$$ Assuming the free ammonia concentration is maintained at $0.50\\text{ M}$, what is the total dissolved copper concentration $[\\text{Cu}]_{\\text{total}} = [\\text{Cu}^{2+}] + [[\\text{Cu(NH}_3)_4]^{2+}]$?",
+      "options": [
+        "A) $1.51\\text{ M}$",
+        "B) $12.1\\text{ M}$",
+        "C) $2.20 \\times 10^{-12}\\text{ M}$",
+        "D) $3.20 \\times 10^{-26}\\text{ M}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: At the buffered $\\text{pH} = 10.0$, the hydroxide ion concentration is $[\\text{OH}^-] = 10^{-\\text{pOH}} = 10^{-(14-10)} = 1.0 \\times 10^{-4}\\text{ M}$. Step 2: Applying the solubility product expression for $\\text{Cu(OH)}_2$: $K_{sp} = [\\text{Cu}^{2+}][\\text{OH}^-]^2$. Substituting $[\\text{OH}^-] = 1.0 \\times 10^{-4}\\text{ M}$: $[\\text{Cu}^{2+}] = \\frac{K_{sp}}{[\\text{OH}^-]^2} = \\frac{2.2 \\times 10^{-20}}{(1.0 \\times 10^{-4})^2} = 2.2 \\times 10^{-12}\\text{ M}$. Step 3: Applying the complex formation constant expression: $[[\\text{Cu(NH}_3)_4]^{2+}] = K_f [\\text{Cu}^{2+}][\\text{NH}_3]^4$. Substituting $[\\text{NH}_3] = 0.50\\text{ M}$, $[\\text{NH}_3]^4 = (0.50)^4 = 0.0625$. Therefore, $[[\\text{Cu(NH}_3)_4]^{2+}] = (1.1 \\times 10^{13}) \\times (2.2 \\times 10^{-12}) \\times 0.0625 = 24.2 \\times 0.0625 = 1.5125\\text{ M}$. Step 4: Total dissolved copper is $[\\text{Cu}]_{\\text{total}} = [\\text{Cu}^{2+}] + [[\\text{Cu(NH}_3)_4]^{2+}] = 2.2 \\times 10^{-12} + 1.5125 \\approx 1.51\\text{ M}$. Solving yields $1.51\\text{ M}$. Hence, option A is correct."
+    },
+    {
+      "id": "ieq_c05_027",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Solid zinc hydroxide $\\text{Zn(OH)}_2$ is an amphoteric hydroxide that dissolves in alkaline solutions by forming the tetrahydroxozincate(II) complex according to: $$\\text{Zn(OH)}_2(s) \\rightleftharpoons \\text{Zn}^{2+} + 2\\text{OH}^-, \\quad K_{sp} = 3.0 \\times 10^{-17}$$ $$\\text{Zn}^{2+} + 4\\text{OH}^- \\rightleftharpoons [\\text{Zn(OH)}_4]^{2-}, \\quad \\beta_4 = 5.0 \\times 10^{14}$$ Which of the following statements is/are correct regarding this system at $298\\text{ K}$?",
+      "options": [
+        "A) The equilibrium constant for the dissolution reaction $\\text{Zn(OH)}_2(s) + 2\\text{OH}^- \\rightleftharpoons [\\text{Zn(OH)}_4]^{2-}$ is $K_{\\text{diss}} = K_{sp} \\times \\beta_4 = 1.5 \\times 10^{-2}$",
+        "B) The molar solubility $S$ of $\\text{Zn(OH)}_2$ in a $0.10\\text{ M } \\text{NaOH}$ solution dominated by $[\\text{Zn(OH)}_4]^{2-}$ is $1.5 \\times 10^{-4}\\text{ M}$",
+        "C) As $\\text{pH}$ increases from $7$ to $13$, the total molar solubility of $\\text{Zn(OH)}_2$ first decreases, passes through a minimum, and then increases sharply due to complex formation",
+        "D) At the solubility minimum of $\\text{Zn(OH)}_2$, the concentration of free $\\text{Zn}^{2+}$ is exactly equal to the concentration of $[\\text{Zn(OH)}_4]^{2-}$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Statement A is correct: adding the two reactions yields $\\text{Zn(OH)}_2(s) + 2\\text{OH}^- \\rightleftharpoons [\\text{Zn(OH)}_4]^{2-}$. The equilibrium constant is $K_{\\text{diss}} = K_{sp} \\times \\beta_4 = (3.0 \\times 10^{-17}) \\times (5.0 \\times 10^{14}) = 1.5 \\times 10^{-2}$. Step 2: Statement B is correct: in $0.10\\text{ M } \\text{NaOH}$, $[\\text{OH}^-] = 0.10\\text{ M}$. Applying mass action: $[[\\text{Zn(OH)}_4]^{2-}] = K_{\\text{diss}} [\\text{OH}^-]^2 = (1.5 \\times 10^{-2}) \\times (0.10)^2 = 1.5 \\times 10^{-4}\\text{ M}$. Since free $[\\text{Zn}^{2+}] = \\frac{K_{sp}}{[\\text{OH}^-]^2} = 3.0 \\times 10^{-15}\\text{ M}$ is negligible, $S \\approx 1.5 \\times 10^{-4}\\text{ M}$. Step 3: Statement C is correct: total solubility is $S = [\\text{Zn}^{2+}] + [[\\text{Zn(OH)}_4]^{2-}] = \\frac{K_{sp}}{[\\text{OH}^-]^2} + K_{\\text{diss}}[\\text{OH}^-]^2$. As $[\\text{OH}^-]$ increases, the first term decreases while the second increases, resulting in a curve with a distinct minimum. Step 4: Statement D is correct: differentiating $S$ with respect to $[\\text{OH}^-]^2$ and setting $\\frac{dS}{d([\\text{OH}^-]^2)} = 0$ implies $-\\frac{K_{sp}}{([\\text{OH}^-]^2)^2} + K_{\\text{diss}} = 0$, which yields $\\frac{K_{sp}}{[\\text{OH}^-]^2} = K_{\\text{diss}}[\\text{OH}^-]^2$. This proves $[\\text{Zn}^{2+}] = [[\\text{Zn(OH)}_4]^{2-}]$ at the minimum. Therefore, all statements A, B, C, and D are correct, yielding answer A,B,C,D."
+    },
+    {
+      "id": "ieq_c05_028",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Alanine is a diprotic amino acid with $pK_{a1} = 2.34$ (carboxyl group) and $pK_{a2} = 9.69$ ($alpha$-amino group) at $298\\text{ K}$. Consider a $0.10\\text{ M}$ aqueous solution of alanine. Which of the following statements is/are correct regarding this amphoteric system?",
+      "options": [
+        "A) The isoelectric point $pI$ of alanine is $6.015$",
+        "B) At the isoelectric point, the concentrations of the cationic form $\\text{H}_2\\text{A}^+$ and the anionic form $\\text{A}^-$ are exactly equal",
+        "C) The mole fraction of the neutral zwitterionic form $\\text{HA}^\\pm$ at the isoelectric point exceeds $99.9\\%$",
+        "D) Addition of a strong base shifts the equilibrium predominantly towards the cationic species $\\text{H}_2\\text{A}^+$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Statement A is correct: for a neutral diprotic amino acid, the isoelectric point is $pI = \\frac{pK_{a1} + pK_{a2}}{2} = \\frac{2.34 + 9.69}{2} = 6.015$. Step 2: Statement B is correct: at $pI$, $[\\text{H}^+] = \\sqrt{K_{a1} K_{a2}}$. Substituting this into the ratios gives $\\frac{[\\text{H}_2\\text{A}^+]}{[\\text{HA}^\\pm]} = \\frac{[\\text{H}^+]}{K_{a1}} = \\sqrt{\\frac{K_{a2}}{K_{a1}}}$ and $\\frac{[\\text{A}^-]}{[\\text{HA}^\\pm]} = \\frac{K_{a2}}{[\\text{H}^+]} = \\sqrt{\\frac{K_{a2}}{K_{a1}}}$. Therefore, $[\\text{H}_2\\text{A}^+] = [\\text{A}^-]$. Step 3: Statement C is correct: at $pI$, $\\sqrt{\\frac{K_{a2}}{K_{a1}}} = \\sqrt{\\frac{10^{-9.69}}{10^{-2.34}}} = 10^{-3.675} \\approx 2.11 \\times 10^{-4}$. The fraction of zwitterion is $\\frac{1}{1 + 2 \\times 2.11 \\times 10^{-4}} \\approx 0.99958 = 99.96\\% > 99.9\\%$. Step 4: Statement D is incorrect: adding strong base consumes $\\text{H}^+$, shifting the equilibrium towards the deprotonated anionic species $\\text{A}^-$, not the cationic species $\\text{H}_2\\text{A}^+$. Applying these deductions, statements A, B, and C are correct, yielding answer A,B,C."
+    },
+    {
+      "id": "ieq_c05_029",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "An aqueous solution contains $0.010\\text{ M } \\text{Ca}^{2+}$ and $0.010\\text{ M } \\text{Ba}^{2+}$. To this solution, the hexadentate chelating agent ethylenediaminetetraacetate (EDTA, $\\text{Y}^{4-}$) is added at a buffered $\\text{pH} = 10.0$. The complex formation constants are: $$\\text{Ca}^{2+} + \\text{Y}^{4-} \\rightleftharpoons [\\text{CaY}]^{2-}, \\quad K_f(\\text{CaY}^{2-}) = 5.0 \\times 10^{10}$$ $$\\text{Ba}^{2+} + \\text{Y}^{4-} \\rightleftharpoons [\\text{BaY}]^{2-}, \\quad K_f(\\text{BaY}^{2-}) = 5.8 \\times 10^7$$ Sodium sulfate $\\text{Na}_2\\text{SO}_4$ is added to separate the ions ($K_{sp}(\\text{BaSO}_4) = 1.1 \\times 10^{-10}$, $K_{sp}(\\text{CaSO}_4) = 2.4 \\times 10^{-5}$). Which of the following statements is/are correct?",
+      "options": [
+        "A) $\\text{Ca}^{2+}$ binds to EDTA approximately $860$ times more strongly than $\\text{Ba}^{2+}$ does, allowing selective masking of $\\text{Ca}^{2+}$",
+        "B) In the absence of EDTA, selective precipitation of $\\text{Ba}^{2+}$ over $\\text{Ca}^{2+}$ by sulfate addition is favored because $K_{sp}(\\text{BaSO}_4) \\ll K_{sp}(\\text{CaSO}_4)$",
+        "C) If EDTA is added in stoichiometric quantity to bind all $\\text{Ca}^{2+}$, the free $[\\text{Ca}^{2+}]$ is drastically reduced, completely preventing precipitation of $\\text{CaSO}_4$ upon sulfate addition",
+        "D) The stability of metal-EDTA complexes is $\\text{pH}$-dependent because $\\text{Y}^{4-}$ acts as a tetraprotic base and undergoes stepwise protonation below $\\text{pH} = 10$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Statement A is correct: the ratio of formation constants is $\\frac{K_f(\\text{CaY}^{2-})}{K_f(\\text{BaY}^{2-})} = \\frac{5.0 \\times 10^{10}}{5.8 \\times 10^7} \\approx 862 \\approx 860$. Therefore, $\\text{Ca}^{2+}$ forms far more stable chelates, allowing selective masking. Step 2: Statement B is correct: the solubility products differ by over 5 orders of magnitude ($1.1 \\times 10^{-10}$ versus $2.4 \\times 10^{-5}$), so $\\text{BaSO}_4$ precipitates at much lower sulfate concentration. Step 3: Statement C is correct: binding of $\\text{Ca}^{2+}$ into $[\\text{CaY}]^{2-}$ lowers free $[\\text{Ca}^{2+}]$ below $10^{-6}\\text{ M}$. Even with $[\\text{SO}_4^{2-}] = 0.010\\text{ M}$, the ion product $[\\text{Ca}^{2+}][\\text{SO}_4^{2-}] < 10^{-8} \\ll 2.4 \\times 10^{-5}$, completely preventing precipitation of $\\text{CaSO}_4$. Step 4: Statement D is correct: EDTA is the conjugate base of tetraprotic acid $\\text{H}_4\\text{Y}$. At lower pH, protonation produces $\\text{HY}^{3-}$, $\\text{H}_2\\text{Y}^{2-}$, reducing the conditional formation constant $K_f' = \\alpha_{\\text{Y}^{4-}} K_f$. Applying these principles, all statements A, B, C, and D are correct, yielding answer A,B,C,D."
+    },
+    {
+      "id": "ieq_c05_030",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Consider the complexation equilibrium between silver ions and cyanide ions: $$\\text{Ag}^+ + 2\\text{CN}^- \\rightleftharpoons [\\text{Ag(CN)}_2]^-, \\quad K_f = 1.0 \\times 10^{10}$$ Solid $\\text{AgI}$ ($K_{sp} = 4.0 \\times 10^{-10}$) is equilibrated in a $0.10\\text{ M } \\text{KCN}$ solution at $298\\text{ K}$. The molar solubility of $\\text{AgI}$ in this solution is found to be $S = N \\times 10^{-2}\\text{ M}$. Determine the value of integer $N$.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: Write the overall dissolution-complexation reaction: $\\text{AgI}(s) + 2\\text{CN}^-(aq) \\rightleftharpoons [\\text{Ag(CN)}_2]^-(aq) + \\text{I}^-(aq)$. The overall equilibrium constant is $K = K_{sp} \\times K_f = (4.0 \\times 10^{-10}) \\times (1.0 \\times 10^{10}) = 4.0$. Step 2: Let $S$ be the molar solubility of $\\text{AgI}$. At equilibrium: $[[\\text{Ag(CN)}_2]^-] = S$, $[\\text{I}^-] = S$, and $[\\text{CN}^-] = 0.10 - 2S$. Step 3: Applying the mass action expression: $K = \\frac{[[\\text{Ag(CN)}_2]^-][\\text{I}^-]}{[\\text{CN}^-]^2} = \\frac{S^2}{(0.10 - 2S)^2} = 4.0$. Taking the square root on both sides yields $\\frac{S}{0.10 - 2S} = 2.0$. Step 4: Solving for $S$: $S = 2.0(0.10 - 2S) = 0.20 - 4S$. This implies $5S = 0.20$, which yields $S = 0.040\\text{ M} = 4.0 \\times 10^{-2}\\text{ M}$. Comparing with $S = N \\times 10^{-2}\\text{ M}$, we get $N = 4$. Therefore, the integer answer is 4."
+    },
+    {
+      "id": "ieq_c05_031",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A dibasic organic acid $\\text{H}_2\\text{A}$ has stepwise ionization constants $K_{a1} = 1.0 \\times 10^{-3}$ and $K_{a2} = 1.0 \\times 10^{-7}$ at $298\\text{ K}$ ($K_w = 1.0 \\times 10^{-14}$). An aqueous solution of the intermediate sodium salt $\\text{NaHA}$ is prepared at a concentration of $0.10\\text{ M}$. Determine the integer $\\text{pH}$ of this solution.",
+      "options": [],
+      "answer": "5",
+      "explanation": "Step 1: In the aqueous solution of the amphiprotic salt $\\text{NaHA}$, the amphiprotic ion $\\text{HA}^-$ participates in two competing equilibria: $\\text{HA}^- + \\text{H}_2\\text{O} \\rightleftharpoons \\text{H}_3\\text{O}^+ + \\text{A}^{2-}$ ($K_{a2}$) and $\\text{HA}^- + \\text{H}_2\\text{O} \\rightleftharpoons \\text{H}_2\\text{A} + \\text{OH}^-$ ($K_b = K_w/K_{a1}$). Step 2: Applying the rigorous electroneutrality and mass balance equation: $[\\text{H}^+] = \\sqrt{\\frac{K_{a1} K_{a2} C + K_{a1} K_w}{C + K_{a1}}}$. Step 3: Substituting the values: $K_{a1} K_{a2} C = (10^{-3})(10^{-7})(0.10) = 1.0 \\times 10^{-11}$, and $K_{a1} K_w = (10^{-3})(10^{-14}) = 1.0 \\times 10^{-17} \\ll 1.0 \\times 10^{-11}$. The denominator is $C + K_{a1} = 0.10 + 0.001 = 0.101 \\approx 0.10$. Therefore, $[\\text{H}^+] \\approx \\sqrt{\\frac{1.0 \\times 10^{-11}}{0.10}} = \\sqrt{1.0 \\times 10^{-10}} = 1.0 \\times 10^{-5}\\text{ M}$. Step 4: Solving for pH: $\\text{pH} = -\\log_{10}(1.0 \\times 10^{-5}) = 5$. Hence, the integer answer is 5."
+    },
+    {
+      "id": "ieq_c05_032",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In qualitative inorganic analysis, an aqueous solution contains $1.0 \\times 10^{-3}\\text{ M } \\text{Zn}^{2+}$ and $1.0 \\times 10^{-3}\\text{ M } \\text{Cd}^{2+}$. Saturated hydrogen sulfide gas $\\text{H}_2\\text{S}$ is passed into the solution ($[\\text{H}_2\\text{S}] = 0.10\\text{ M}$). The overall ionization constant of $\\text{H}_2\\text{S}$ is $K_{a1} K_{a2} = 1.0 \\times 10^{-21}$ and $K_{sp}(\\text{ZnS}) = 1.0 \\times 10^{-21}$ at $298\\text{ K}$. To prevent the precipitation of $\\text{ZnS}$ completely, the $\\text{pH}$ of the solution must be strictly maintained below a critical threshold $\\text{pH}_{\\text{crit}}$. Calculate the value of integer $\\text{pH}_{\\text{crit}}$.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: Zinc sulfide $\\text{ZnS}$ begins to precipitate when its ionic product equals the solubility product: $[\\text{Zn}^{2+}][\\text{S}^{2-}] = K_{sp}(\\text{ZnS})$. Substituting $[\\text{Zn}^{2+}] = 1.0 \\times 10^{-3}\\text{ M}$: $[\\text{S}^{2-}] = \\frac{1.0 \\times 10^{-21}}{1.0 \\times 10^{-3}} = 1.0 \\times 10^{-18}\\text{ M}$. Step 2: To prevent precipitation of $\\text{ZnS}$, the sulfide concentration must satisfy $[\\text{S}^{2-}] < 1.0 \\times 10^{-18}\\text{ M}$. Step 3: Applying the ionization equilibrium for saturated $\\text{H}_2\\text{S}$: $[\\text{S}^{2-}] = \\frac{K_{a1} K_{a2} [\\text{H}_2\\text{S}]}{[\\text{H}^+]^2} = \\frac{(1.0 \\times 10^{-21})(0.10)}{[\\text{H}^+]^2} = \\frac{1.0 \\times 10^{-22}}{[\\text{H}^+]^2}$. Step 4: Substituting into the inequality: $\\frac{1.0 \\times 10^{-22}}{[\\text{H}^+]^2} < 1.0 \\times 10^{-18}$, which implies $[\\text{H}^+]^2 > 1.0 \\times 10^{-4}\\text{ M}^2$. Solving for $[\\text{H}^+]$: $[\\text{H}^+] > 1.0 \\times 10^{-2}\\text{ M}$. Therefore, taking the negative logarithm: $\\text{pH} < -\\log_{10}(1.0 \\times 10^{-2}) = 2$. Thus, the critical threshold is $\\text{pH}_{\\text{crit}} = 2$. Hence, the integer answer is 2."
+    }
+  ]
+}

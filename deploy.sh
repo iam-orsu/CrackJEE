@@ -62,9 +62,8 @@ case "$ACTION" in
   start)
     echo "Starting CrackJEE platform..."
     docker compose --env-file "$ENV_FILE" up -d --build
-    run_migrations
     echo ""
-    echo "All done. Services are up."
+    echo "All done. Services are up (schema sync + seeding run inside the backend container)."
     echo "  Watch logs:   ./deploy.sh logs"
     echo "  Check status: ./deploy.sh status"
     echo "  Access at:    http://localhost:8080"
@@ -74,7 +73,6 @@ case "$ACTION" in
     echo "Rebuilding and restarting CrackJEE platform..."
     docker compose --env-file "$ENV_FILE" down
     docker compose --env-file "$ENV_FILE" up -d --build
-    run_migrations
     echo ""
     echo "Restart complete."
     echo "  Watch logs:   ./deploy.sh logs"
