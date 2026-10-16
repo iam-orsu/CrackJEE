@@ -801,6 +801,9 @@ img, svg { display: block; }
   /* Wizard */
   .wizard-topbar { padding: 0 16px; }
   .wizard-body   { padding: 24px 16px; }
+  .paper-hero    { padding: 28px 16px 24px !important; }
+  .paper-hero-stack { display: none !important; }
+  .paper-hero-inner { gap: 0 !important; }
   .wizard-step-bar { margin-bottom: 28px; }
   .wizard-step-label { display: none; }
   .wizard-step-line  { margin: 0 8px; }

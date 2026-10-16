@@ -395,6 +395,37 @@ export default function PracticePage() {
   if (appState === 'wizard') {
     const subjects: Subject[] = ['Mathematics', 'Physics', 'Chemistry'];
 
+    /* ── Fake paper data for the teaser stack ─────────────── */
+    const PAPER_STACK = [
+      {
+        subject: 'Chemistry', zIndex: 1, opacity: 0.42, cardBlur: 3,
+        textBlur: 8, rotate: '-5deg', tx: '-18px', ty: '22px',
+        questions: [
+          { text: 'The hybridisation of the central atom in XeF₄ is', opts: ['sp³d²', 'sp²', 'sp³', 'sp³d'] },
+          { text: 'pH of 0.1 M acetic acid (Kₐ = 1.8×10⁻⁵) is', opts: ['2.87', '3.21', '4.12', '1.56'] },
+          { text: 'Which has the highest electron affinity?', opts: ['F', 'Cl', 'Br', 'I'] },
+        ],
+      },
+      {
+        subject: 'Physics', zIndex: 2, opacity: 0.65, cardBlur: 1.5,
+        textBlur: 5, rotate: '-2.5deg', tx: '-8px', ty: '11px',
+        questions: [
+          { text: 'Block of mass m on frictionless incline at 30°. Acceleration is', opts: ['g/2', 'g sin30°', 'mg', 'g cos30°'] },
+          { text: 'Two charges q₁=4μC, q₂=2μC separated by d=0.3 m. Force is', opts: ['0.36 N', '0.18 N', '0.72 N', '0.09 N'] },
+          { text: 'A particle in SHM has amplitude A and period T. Max velocity is', opts: ['2πA/T', 'πA/T', 'A/T', '4πA/T'] },
+        ],
+      },
+      {
+        subject: 'Mathematics', zIndex: 3, opacity: 1, cardBlur: 0,
+        textBlur: 2.5, rotate: '0.8deg', tx: '4px', ty: '2px',
+        questions: [
+          { text: 'f(x) = x³ − 3x² + 2x. Number of critical points in ℝ is', opts: ['0', '1', '2', '3'] },
+          { text: 'Area bounded by y = x² and y = √x equals', opts: ['1/3', '2/3', '1/6', '1/2'] },
+          { text: 'If |z − 2| = |z + 2i|, the locus of z is', opts: ['x = y', 'x + y = 0', 'x − y = 2', 'x = 0'] },
+        ],
+      },
+    ];
+
     return (
       <div className="wizard-page">
         <div className="wizard-topbar">
@@ -404,6 +435,82 @@ export default function PracticePage() {
           {loadError && (
             <span style={{ marginLeft: 'auto', fontSize: 13, color: 'var(--red-600)' }}>{loadError}</span>
           )}
+        </div>
+
+        {/* ── Paper teaser hero ──────────────────────────────── */}
+        <div className="paper-hero" style={{ background: '#fff', borderBottom: '1px solid var(--gray-200)', padding: '40px 40px 36px', flexShrink: 0 }}>
+          <div className="paper-hero-inner" style={{ maxWidth: 860, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 56 }}>
+
+            {/* Left: copy + stats */}
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', color: 'var(--gray-400)', textTransform: 'uppercase', marginBottom: 10 }}>
+                Practice Mode
+              </div>
+              <h1 style={{ fontSize: 30, fontWeight: 800, color: 'var(--gray-900)', lineHeight: 1.18, marginBottom: 12, letterSpacing: '-0.025em' }}>
+                10,000+ Unique<br />Question Papers
+              </h1>
+              <p style={{ fontSize: 13, color: 'var(--gray-500)', lineHeight: 1.65, marginBottom: 28, maxWidth: 320 }}>
+                Every student gets a completely different set of questions. Drawn from 6,183 real JEE problems across all three subjects.
+              </p>
+              <div style={{ display: 'flex', gap: 28 }}>
+                {[
+                  { num: '6,183+', label: 'Questions' },
+                  { num: '10,000+', label: 'Unique Papers' },
+                  { num: '3', label: 'Subjects' },
+                ].map(({ num, label }) => (
+                  <div key={label}>
+                    <div style={{ fontSize: 20, fontWeight: 800, color: 'var(--gray-900)', letterSpacing: '-0.02em' }}>{num}</div>
+                    <div style={{ fontSize: 10, color: 'var(--gray-400)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.07em', marginTop: 1 }}>{label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: stacked blurred papers */}
+            <div className="paper-hero-stack" style={{ flexShrink: 0, position: 'relative', width: 300, height: 310 }}>
+              {PAPER_STACK.map((paper, i) => (
+                <div
+                  key={i}
+                  style={{
+                    position: 'absolute', top: 0, left: 0,
+                    width: 268,
+                    background: '#fff',
+                    border: '1px solid #e5e7eb',
+                    borderRadius: 5,
+                    padding: '14px 18px 18px',
+                    boxShadow: '0 3px 14px rgba(0,0,0,0.09)',
+                    transform: `rotate(${paper.rotate}) translate(${paper.tx}, ${paper.ty})`,
+                    zIndex: paper.zIndex,
+                    opacity: paper.opacity,
+                    filter: paper.cardBlur > 0 ? `blur(${paper.cardBlur}px)` : undefined,
+                  }}
+                >
+                  {/* Paper header */}
+                  <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '0.09em', color: '#9ca3af', textTransform: 'uppercase', marginBottom: 8, paddingBottom: 7, borderBottom: '1px solid #f3f4f6' }}>
+                    JEE MAIN 2024 &nbsp;·&nbsp; {paper.subject} &nbsp;·&nbsp; Section A
+                  </div>
+                  {/* Blurred question content */}
+                  <div style={{ filter: `blur(${paper.textBlur}px)`, userSelect: 'none', pointerEvents: 'none' }}>
+                    {paper.questions.map((q, qi) => (
+                      <div key={qi} style={{ marginBottom: 11 }}>
+                        <div style={{ fontSize: 10, color: '#1f2937', lineHeight: 1.5, marginBottom: 4 }}>
+                          <span style={{ fontWeight: 700, marginRight: 3 }}>Q{qi + 1}.</span>
+                          {q.text}
+                        </div>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px 10px' }}>
+                          {q.opts.map((opt, oi) => (
+                            <div key={oi} style={{ fontSize: 9.5, color: '#4b5563' }}>
+                              ({String.fromCharCode(65 + oi)}) {opt}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="wizard-body">
