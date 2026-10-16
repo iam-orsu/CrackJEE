@@ -1,4 +1,4 @@
-# ── Stage 1: Install all dependencies inside Docker (no package.json from host) ──
+# ── Stage 1: Install all dependencies + generate Prisma client (needs network) ──
 FROM node:22-alpine AS deps
 WORKDIR /app
 
@@ -30,7 +30,11 @@ RUN npm init -y && \
       "prisma@^6" \
       "typescript@^5.7.0"
 
-# ── Stage 2: Generate Prisma client + compile TypeScript ──
+# Copy schema and generate Prisma client while network is still available
+COPY backend/prisma/ ./prisma/
+RUN ./node_modules/.bin/prisma generate
+
+# ── Stage 2: Compile TypeScript (no network needed — Prisma client already generated) ──
 FROM node:22-alpine AS builder
 WORKDIR /app
 
@@ -41,8 +45,7 @@ COPY backend/tsconfig.json ./
 COPY backend/src/ ./src/
 COPY backend/prisma/ ./prisma/
 
-RUN ./node_modules/.bin/prisma generate && \
-    ./node_modules/.bin/tsc --project tsconfig.json
+RUN ./node_modules/.bin/tsc --project tsconfig.json
 
 # ── Stage 3: Minimal production runner ──
 FROM node:22-alpine AS runner
