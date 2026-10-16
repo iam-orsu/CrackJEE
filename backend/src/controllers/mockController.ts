@@ -10,6 +10,7 @@ import type { Question } from '@prisma/client';
 
 const startSchema = z.object({
   examType: z.enum(['Main', 'Advanced']),
+  difficultyMode: z.enum(['easy', 'medium', 'hard']).default('medium'),
 });
 
 const answerSchema = z.object({
@@ -29,14 +30,28 @@ interface QuestionSlot {
   subjectIndex: number;
 }
 
-function pickDifficulty(examType: 'Main' | 'Advanced', seed: number): Difficulty {
+function pickDifficulty(examType: 'Main' | 'Advanced', seed: number, difficultyMode: 'easy' | 'medium' | 'hard'): Difficulty {
+  if (difficultyMode === 'easy') {
+    // 60% beginner, 35% intermediate, 5% advanced
+    if (seed < 0.60) return 'beginner';
+    if (seed < 0.95) return 'intermediate';
+    return 'advanced';
+  }
+  if (difficultyMode === 'hard') {
+    // JEE Advanced is inherently hard — skew maximally toward advanced
+    if (examType === 'Advanced') return seed < 0.12 ? 'intermediate' : 'advanced';
+    // JEE Main hard: 0% beginner, 25% intermediate, 75% advanced
+    if (seed < 0.25) return 'intermediate';
+    return 'advanced';
+  }
+  // medium (default): existing distribution
   if (examType === 'Advanced') return seed < 0.35 ? 'intermediate' : 'advanced';
   if (seed < 0.2) return 'beginner';
   if (seed < 0.65) return 'intermediate';
   return 'advanced';
 }
 
-function buildQuestionPlan(examType: 'Main' | 'Advanced'): QuestionSlot[] {
+function buildQuestionPlan(examType: 'Main' | 'Advanced', difficultyMode: 'easy' | 'medium' | 'hard'): QuestionSlot[] {
   const subjects: Subject[] = ['Physics', 'Chemistry', 'Mathematics'];
   const plan: QuestionSlot[] = [];
   let globalNum = 1;
@@ -63,7 +78,7 @@ function buildQuestionPlan(examType: 'Main' | 'Advanced'): QuestionSlot[] {
         plan.push({
           subject,
           topic: allocatedTopics[topicCursor++]!,
-          difficulty: pickDifficulty(examType, Math.random()),
+          difficulty: pickDifficulty(examType, Math.random(), difficultyMode),
           type,
           number: globalNum++,
           subjectIndex: subjectIndex++,
@@ -112,9 +127,10 @@ async function generateMockQuestions(
   examId: string,
   userId: string,
   examType: 'Main' | 'Advanced',
+  difficultyMode: 'easy' | 'medium' | 'hard',
 ): Promise<void> {
   try {
-    const plan = buildQuestionPlan(examType);
+    const plan = buildQuestionPlan(examType, difficultyMode);
 
     // Limit concurrent DeepSeek calls to 4 to prevent 429 rate limits and socket timeouts
     const results = await mapConcurrentSettled(
@@ -199,7 +215,7 @@ export async function startMock(req: AuthRequest, res: Response, next: NextFunct
     const body = startSchema.safeParse(req.body);
     if (!body.success) throw new AppError(400, body.error.errors[0]?.message ?? 'Invalid input');
 
-    const { examType } = body.data;
+    const { examType, difficultyMode } = body.data;
     const userId = req.user!.userId;
 
     // If student already has an active exam, return it
@@ -213,11 +229,11 @@ export async function startMock(req: AuthRequest, res: Response, next: NextFunct
     }
 
     const mockExam = await prisma.mockExam.create({
-      data: { userId, examType, status: 'generating', durationSeconds: 10800 },
+      data: { userId, examType, difficultyMode, status: 'generating', durationSeconds: 10800 },
     });
 
     // Fire and forget — background question generation
-    generateMockQuestions(mockExam.id, userId, examType).catch(() => {});
+    generateMockQuestions(mockExam.id, userId, examType, difficultyMode).catch(() => {});
 
     res.json({ success: true, data: { id: mockExam.id, status: 'generating' } });
   } catch (err) {
@@ -495,7 +511,7 @@ export async function getMockHistory(req: AuthRequest, res: Response, next: Next
     const exams = await prisma.mockExam.findMany({
       where: { userId },
       select: {
-        id: true, examType: true, status: true, createdAt: true, submittedAt: true,
+        id: true, examType: true, difficultyMode: true, status: true, createdAt: true, submittedAt: true,
         result: { select: { totalScore: true, maxScore: true, correct: true, incorrect: true, unattempted: true } },
       },
       orderBy: { createdAt: 'desc' },

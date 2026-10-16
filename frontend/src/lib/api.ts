@@ -138,7 +138,7 @@ export const api = {
   },
 
   mock: {
-    start: (body: { examType: 'Main' | 'Advanced' }) =>
+    start: (body: { examType: 'Main' | 'Advanced'; difficultyMode?: 'easy' | 'medium' | 'hard' }) =>
       request<{ id: string; status: string }>('/mock/start', {
         method: 'POST',
         body: JSON.stringify(body),

@@ -15,15 +15,47 @@ async function sleep(ms: number): Promise<void> {
 
 function buildDifficultySpec(difficulty: Difficulty, examType: ExamType): string {
   if (difficulty === 'beginner') {
-    return `BEGINNER (JEE level): Single-concept problem requiring direct application of a formula or theorem. Still a proper JEE question — NOT a school textbook example. Requires understanding of the concept, not just recall. Solvable in under 90 seconds by a well-prepared student.`;
+    return `EASY (JEE-entry level): Single-concept problem applying ONE formula or principle to a completely original scenario.
+Physics: Standard formula in a fresh context — e.g. projectile with specific angle and speed, simple circuit applying Ohm's law with real resistance values, friction with given mass and coefficient. NOT F=ma stated directly.
+Chemistry: Basic stoichiometry with given masses/volumes, strong acid pH with specific concentration, VSEPR shape prediction for a molecule not in any textbook.
+Math: Quadratic with fresh non-textbook coefficients, basic definite integral with original limits, simple trigonometric identity with a specific angle.
+ANTI-HALLUCINATION RULES:
+  1. DO NOT reproduce, paraphrase, or adapt any NCERT example, NCERT exercise, or standard coaching material problem — ever.
+  2. Use completely fresh numbers and a new scenario not found in any reference book.
+  3. This is still a competitive exam question — it requires understanding, not just formula recall.
+Solvable in under 90 seconds by a student who understands the concept.`;
   }
   if (difficulty === 'intermediate') {
-    return `INTERMEDIATE (JEE Main level): Requires combining 2-3 concepts or applying a concept in a non-obvious way. Typical of actual JEE Main paper questions. A well-prepared student should solve it in 2-3 minutes. Tricky but fair.`;
+    return `MEDIUM (JEE Main level): 2-3 step problem in a non-standard setup. Concept combination or a twist on standard application.
+Physics: Non-standard physical setups — object on incline inside an accelerating elevator, circuit with both series and parallel branches and internal resistance, projectile launched from a moving cart or from a height.
+Chemistry: Buffer pH with specific weak acid/base and salt concentrations, Kp ↔ Kc conversion with temperature and moles of gas change, electrochemistry with a non-standard Nernst equation condition.
+Math: Integration requiring substitution then boundary evaluation, quadratic + geometric interpretation, probability combined with combinatorics (distinct items with constraints).
+ANTI-HALLUCINATION RULES:
+  1. DO NOT reproduce, paraphrase, or adapt any NCERT example or exercise — these are disqualifying.
+  2. Create a completely original scenario. A student who only memorises the formula will get it wrong.
+  3. Distractors must be results of specific wrong moves (sign error, forgotten condition, wrong formula variant) — not arbitrary numbers.
+Solvable in 2-3 minutes by a well-prepared student.`;
   }
   if (examType === 'Advanced') {
-    return `HARD (JEE Advanced level): Multi-step problem requiring deep conceptual understanding, cross-topic integration, and non-trivial reasoning. Must require at least 3 non-obvious logical steps. Designed to challenge even top JEE aspirants — only top 5% should solve fully correctly. A student who only memorised formulas will fail.`;
+    return `HARD (JEE Advanced level): Multi-concept problem requiring at least 3 non-obvious reasoning steps and cross-topic integration.
+Physics: Quantities varying with position or time (force as f(x), non-uniform rotating rod), simultaneous energy + momentum + torque analysis in a single problem, non-standard thermodynamics involving variable heat capacity or phase transitions, Biot-Savart + superposition in non-symmetric geometry.
+Chemistry: Multi-stage stoichiometry-dependent calculations (product of step 1 feeds step 2), organic multi-step reaction with stereo/regioselectivity, coordination compounds with competing ligand field effects, electrochemistry combined with acid-base equilibrium.
+Math: Hidden parameter conditions (find all k such that…), cross-chapter (definite integral technique + differential equations, conic sections + complex numbers), problems requiring a non-obvious substitution, transformation, or insight before the algebra unlocks.
+ANTI-HALLUCINATION RULES:
+  1. DO NOT reproduce any past JEE question, NCERT example, or coaching material problem. The scenario must be completely original.
+  2. A student who memorised formulas will fail. The question should require reasoning about WHY, not just applying WHAT.
+  3. Each wrong option must follow from a specific, plausible error in a particular step — not a random number.
+  4. Verify internally that your stated answer is correct by mentally completing the solution before outputting.
+Solvable in 3-5 minutes by a top JEE aspirant. Only top 5% should answer completely correctly.`;
   }
-  return `ADVANCED (JEE Main hard): Multi-step problem requiring deep conceptual understanding and non-trivial reasoning. Similar to JEE Advanced paper difficulty. Should challenge a well-prepared student. Options must be carefully crafted so elimination is difficult.`;
+  return `HARD (JEE Main — top difficulty): Multi-step problem requiring concept combination and non-trivial reasoning beyond formula substitution.
+Physics/Chemistry/Math: At least 2 concepts applied in sequence; a standard formula is necessary but not sufficient.
+Options must be crafted so elimination is impossible without actually solving — each distractor is the result of a specific wrong step.
+ANTI-HALLUCINATION RULES:
+  1. DO NOT reproduce any NCERT example, exercise, or standard textbook problem. Completely original scenario and numbers.
+  2. The scenario must be original. A student who tries to recall a similar problem will be misled by the differences.
+  3. Verify internally that your stated answer is correct before outputting.
+A well-prepared student needs 3+ minutes.`;
 }
 
 const DIAGRAM_SPEC = `
@@ -129,6 +161,8 @@ ${DIAGRAM_SPEC}
   - answer_explanation: 2-3 sentences ONLY. No "I'll", no "Let me", no "So the answer is". Start directly with the key insight or formula.
   - ALL math expressions MUST be in $...$ delimiters (e.g. $x^2 + y^2$, $\\frac{a}{b}$)
   - Do NOT use concepts outside the class syllabus
+  - NEVER copy or paraphrase any NCERT example, exercise, or standard textbook problem — use a completely original scenario
+  - Verify the correct answer before outputting: mentally solve using the given values
   - diagram must always be present: valid template object or null
 </constraints>`;
 }
@@ -183,6 +217,8 @@ ${DIAGRAM_SPEC}
   - answer_explanation MUST address each option individually, 1 sentence per option. No "I'll", no "Let me", no meta-commentary.
   - ALL math in $...$ delimiters
   - Do NOT use concepts outside the class syllabus
+  - NEVER copy or paraphrase any NCERT example, exercise, or standard textbook problem — use a completely original scenario
+  - Verify every correct answer before outputting: mentally confirm each marked-correct option is actually true
   - diagram must always be present: valid template or null
 </constraints>`;
 }
@@ -245,7 +281,8 @@ ${DIAGRAM_SPEC}
   - answer_explanation: show key calculation steps in 2-3 sentences. No "I'll", no "Let me", no meta-commentary. Start with the equation or principle.
   - ALL math in $...$ delimiters
   - Do NOT use concepts outside the class syllabus
-  - Verify the answer is an integer before returning
+  - NEVER copy or paraphrase any NCERT example, exercise, or standard textbook problem — use a completely original scenario
+  - Verify the answer is an integer before returning: compute it step by step and confirm it falls in the valid range
   - diagram must always be present: valid template or null
 </constraints>`;
 }
@@ -404,6 +441,8 @@ ${DIAGRAM_SPEC}
   - answer_explanation: 2-3 sentences max. Start directly with the insight. NO "I'll", "Let me", "So the answer is", or any internal monologue
   - ALL math expressions MUST be in $...$ delimiters
   - Do NOT use concepts outside the class syllabus
+  - NEVER copy or paraphrase any NCERT example, exercise, or standard textbook problem — every question must use a completely original scenario
+  - Verify each answer before outputting: mentally solve to confirm correctness
   - diagram must always be present: valid template object or null
 </constraints>`;
 }

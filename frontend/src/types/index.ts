@@ -99,6 +99,7 @@ export interface MockExamQuestion {
 export interface MockExam {
   id: string;
   examType: 'Main' | 'Advanced';
+  difficultyMode?: string;
   status: 'generating' | 'ready' | 'in_progress' | 'submitted' | 'error';
   durationSeconds: number;
   startedAt: string | null;
@@ -155,6 +156,7 @@ export interface MockResultData {
 export interface MockHistoryItem {
   id: string;
   examType: string;
+  difficultyMode?: string;
   status: string;
   createdAt: string;
   submittedAt: string | null;

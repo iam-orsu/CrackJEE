@@ -43,9 +43,24 @@ const EXAM_INFO = {
   },
 } as const;
 
+type DifficultyMode = 'easy' | 'medium' | 'hard';
+
+const DIFFICULTY_OPTIONS: Array<{ value: DifficultyMode; label: string; description: string }> = [
+  { value: 'easy', label: 'Easy', description: 'Single-concept problems, standard formula application' },
+  { value: 'medium', label: 'Medium', description: 'Multi-step, non-standard setups — typical JEE Main' },
+  { value: 'hard', label: 'Hard', description: 'Cross-topic, 3+ reasoning steps — JEE Advanced grade' },
+];
+
+const DIFFICULTY_COLORS: Record<DifficultyMode, { bg: string; text: string }> = {
+  easy: { bg: '#dcfce7', text: '#166534' },
+  medium: { bg: '#fef9c3', text: '#854d0e' },
+  hard: { bg: '#fee2e2', text: '#991b1b' },
+};
+
 export default function MockPage() {
   const router = useRouter();
   const [selected, setSelected] = useState<'Main' | 'Advanced' | null>(null);
+  const [difficultyMode, setDifficultyMode] = useState<DifficultyMode>('medium');
   const [starting, setStarting] = useState(false);
   const [error, setError] = useState('');
   const [history, setHistory] = useState<MockHistoryItem[]>([]);
@@ -60,7 +75,7 @@ export default function MockPage() {
     setStarting(true);
     setError('');
     try {
-      const { id } = await api.mock.start({ examType: selected });
+      const { id } = await api.mock.start({ examType: selected, difficultyMode });
       router.push(`/mock/${id}`);
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Failed to start exam');
@@ -103,6 +118,34 @@ export default function MockPage() {
               <div style={{ fontSize: 13, opacity: 0.75 }}>{EXAM_INFO[type].questions} · {EXAM_INFO[type].duration}</div>
             </button>
           ))}
+        </div>
+
+        {/* Difficulty selector */}
+        <div style={{ marginBottom: 24 }}>
+          <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--gray-600)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 10 }}>
+            Difficulty Level
+          </div>
+          <div style={{ display: 'flex', gap: 10 }}>
+            {DIFFICULTY_OPTIONS.map(({ value, label, description }) => (
+              <button
+                key={value}
+                onClick={() => setDifficultyMode(value)}
+                style={{
+                  flex: 1,
+                  padding: '12px 16px',
+                  border: `2px solid ${difficultyMode === value ? 'var(--gray-700)' : 'var(--gray-200)'}`,
+                  borderRadius: 6,
+                  background: difficultyMode === value ? 'var(--gray-50)' : '#fff',
+                  cursor: 'pointer',
+                  textAlign: 'left',
+                  transition: 'border-color 0.15s',
+                }}
+              >
+                <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--gray-900)', marginBottom: 3 }}>{label}</div>
+                <div style={{ fontSize: 11, color: 'var(--gray-500)', lineHeight: 1.4 }}>{description}</div>
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Exam details */}
@@ -184,7 +227,7 @@ export default function MockPage() {
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
                 <thead>
                   <tr style={{ background: '#f9fafb', borderBottom: '1px solid var(--gray-200)' }}>
-                    {['Exam', 'Date', 'Score', 'Correct', 'Wrong', 'Status', ''].map((h) => (
+                    {['Exam', 'Difficulty', 'Date', 'Score', 'Correct', 'Wrong', 'Status', ''].map((h) => (
                       <th key={h} style={{ padding: '10px 14px', textAlign: 'left', fontWeight: 600, color: 'var(--gray-600)', fontSize: 12 }}>{h}</th>
                     ))}
                   </tr>
@@ -193,6 +236,17 @@ export default function MockPage() {
                   {history.map((item) => (
                     <tr key={item.id} style={{ borderBottom: '1px solid var(--gray-100)' }}>
                       <td style={{ padding: '10px 14px', fontWeight: 500 }}>JEE {item.examType}</td>
+                      <td style={{ padding: '10px 14px' }}>
+                        {item.difficultyMode ? (
+                          <span style={{
+                            padding: '2px 8px', borderRadius: 9999, fontSize: 11, fontWeight: 600,
+                            background: DIFFICULTY_COLORS[item.difficultyMode as DifficultyMode]?.bg ?? '#f3f4f6',
+                            color: DIFFICULTY_COLORS[item.difficultyMode as DifficultyMode]?.text ?? '#374151',
+                          }}>
+                            {item.difficultyMode.charAt(0).toUpperCase() + item.difficultyMode.slice(1)}
+                          </span>
+                        ) : <span style={{ color: 'var(--gray-400)' }}>—</span>}
+                      </td>
                       <td style={{ padding: '10px 14px', color: 'var(--gray-500)' }}>
                         {new Date(item.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
                       </td>

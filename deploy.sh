@@ -42,6 +42,32 @@ wait_backend() {
   echo "  Backend container is running."
 }
 
+# ── Wait until backend is fully ready (db push + seeding done) ────────────────
+# Polls the /health endpoint inside the backend container — no host curl/wget needed.
+# First deploy with 5000+ questions can take up to 3 minutes; subsequent ~30s.
+wait_ready() {
+  echo ""
+  echo "  Waiting for backend to finish initializing..."
+  echo "  (first deploy: up to 3 min for question seeding — subsequent deploys: ~30 sec)"
+  local attempts=0
+  while [ $attempts -lt 48 ]; do
+    if docker compose --env-file "$ENV_FILE" exec -T backend \
+        wget -qO- http://127.0.0.1:3001/health >/dev/null 2>&1; then
+      echo "  Backend is ready."
+      return 0
+    fi
+    attempts=$((attempts + 1))
+    elapsed=$(( attempts * 5 ))
+    if [ $(( attempts % 6 )) -eq 0 ]; then
+      echo "  ... still initializing (${elapsed}s elapsed)"
+    fi
+    sleep 5
+  done
+  echo ""
+  echo "  WARNING: Backend did not become ready within 4 minutes."
+  echo "  It may still be starting. Run: ./deploy.sh logs backend"
+}
+
 # ── Run database migrations ───────────────────────────────────────────────────
 # Uses prisma db push (schema sync without migration files).
 # This is idempotent — safe to run on every deploy.
@@ -62,21 +88,23 @@ case "$ACTION" in
   start)
     echo "Starting CrackJEE platform..."
     docker compose --env-file "$ENV_FILE" up -d --build
+    wait_ready
     echo ""
-    echo "All done. Services are up (schema sync + seeding run inside the backend container)."
+    echo "Platform is live."
+    echo "  Access at:    http://localhost:8080"
     echo "  Watch logs:   ./deploy.sh logs"
     echo "  Check status: ./deploy.sh status"
-    echo "  Access at:    http://localhost:8080"
     ;;
 
   restart)
     echo "Rebuilding and restarting CrackJEE platform..."
     docker compose --env-file "$ENV_FILE" down
     docker compose --env-file "$ENV_FILE" up -d --build
+    wait_ready
     echo ""
-    echo "Restart complete."
-    echo "  Watch logs:   ./deploy.sh logs"
+    echo "Platform is live."
     echo "  Access at:    http://localhost:8080"
+    echo "  Watch logs:   ./deploy.sh logs"
     ;;
 
   migrate)
@@ -124,7 +152,11 @@ case "$ACTION" in
 
   logs)
     SERVICE=${2:-""}
-    docker compose --env-file "$ENV_FILE" logs -f $SERVICE
+    if [ -n "$SERVICE" ]; then
+      docker compose --env-file "$ENV_FILE" logs -f "$SERVICE"
+    else
+      docker compose --env-file "$ENV_FILE" logs -f
+    fi
     ;;
 
   status)

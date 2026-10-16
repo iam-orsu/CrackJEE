@@ -66,6 +66,7 @@ model MockExam {
   id              String    @id @default(cuid())
   userId          String
   examType        String    // 'Main' | 'Advanced'
+  difficultyMode  String    @default("medium") // easy | medium | hard
   status          String    @default("generating") // generating | ready | in_progress | submitted | error
   durationSeconds Int
   startedAt       DateTime?
