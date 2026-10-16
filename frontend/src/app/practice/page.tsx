@@ -455,7 +455,7 @@ export default function PracticePage() {
               <div style={{ display: 'flex', gap: 28 }}>
                 {[
                   { num: '6,183+', label: 'Questions' },
-                  { num: '10,000+', label: 'Unique Papers' },
+                  { num: '10,000+', label: 'Paper Combinations' },
                   { num: '3', label: 'Subjects' },
                 ].map(({ num, label }) => (
                   <div key={label}>
