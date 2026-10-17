@@ -36,8 +36,9 @@ async function request<T>(
 
   const res = await fetch(`${API_URL}${path}`, { ...options, headers });
 
-  // Session expired or token rejected — clear and redirect to login
-  if (res.status === 401) {
+  // Session expired or token rejected — clear and redirect to login.
+  // Login/register return 401 for a wrong password, so those errors must reach the form.
+  if (res.status === 401 && !path.startsWith('/auth/')) {
     clearSession();
     if (typeof window !== 'undefined') {
       window.location.href = '/login';

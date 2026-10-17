@@ -993,11 +993,19 @@ export default function PracticePage() {
     const wrong     = attempted - correct;
     const accuracy  = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
 
-    // Simplified marking: multi-correct partial credit is not tracked in practice mode
-    const jeeScore  = markingScheme === 'jee_main'     ? correct * 4 - wrong * 1
-                    : markingScheme === 'jee_advanced'  ? correct * 4 - wrong * 2
-                    : correct;
-    const jeeMax    = markingScheme !== 'standard' ? total * 4 : total;
+    // Same marks as the mock exam: JEE Main integers have no penalty; Advanced single-correct is +3,
+    // multi-correct is -2 when wrong, integer is +4. Multi-correct partial credit is not tracked here.
+    const pointsIfCorrect = (qt: string) => (markingScheme === 'jee_advanced' && qt === 'mcq_single' ? 3 : 4);
+    const jeeScore = markingScheme === 'standard' ? correct : questions.reduce((acc, q, i) => {
+      const res = examResults[i];
+      if (!res) return acc;
+      if (res.isCorrect) return acc + pointsIfCorrect(q.questionType);
+      if (markingScheme === 'jee_main') return acc - (q.questionType === 'integer' ? 0 : 1);
+      if (q.questionType === 'integer') return acc;
+      return acc - (q.questionType === 'mcq_multi' ? 2 : 1);
+    }, 0);
+    const jeeMax = markingScheme === 'standard' ? total
+      : questions.reduce((acc, q) => acc + pointsIfCorrect(q.questionType), 0);
 
     return (
       <div className="exam-overlay">
@@ -1043,8 +1051,8 @@ export default function PracticePage() {
                   <span style={{ fontSize: 15, fontWeight: 500, color: 'var(--gray-400)', marginLeft: 6 }}>/ {jeeMax}</span>
                 </p>
                 <p style={{ fontSize: 12, color: 'var(--gray-500)', marginTop: 3 }}>
-                  {correct} correct &times; 4
-                  {wrong > 0 && ` − ${wrong} wrong × ${markingScheme === 'jee_main' ? 1 : 2}`}
+                  {correct} correct
+                  {wrong > 0 && ` · ${wrong} wrong`}
                   {total - attempted > 0 && ` · ${total - attempted} skipped (no penalty)`}
                   {markingScheme === 'jee_advanced' && ' · multi-correct partial credit not reflected'}
                 </p>
