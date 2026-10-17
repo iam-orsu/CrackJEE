@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import { QuestionCard } from '@/components/QuestionCard';
-import type { Question, AnswerResult, Subject, TopicProgress } from '@/types';
+import type { Question, AnswerResult, Subject, TopicProgress, PaperSet } from '@/types';
 import type { SplitTopics } from '@/lib/api';
 
 const SUBJECT_META: Record<Subject, { emoji: string }> = {
@@ -36,6 +36,24 @@ type WizardStep = 1 | 2 | 3;
 type DiffOption = 'beginner' | 'intermediate' | 'advanced' | 'mixed';
 type MarkingScheme = 'standard' | 'jee_main' | 'jee_advanced';
 type StoredResult = AnswerResult & { selectedAnswer: string };
+
+const SUBJECTS_FOR_PAPERS: Subject[] = ['Physics', 'Chemistry', 'Mathematics'];
+const DIFFICULTY_LABELS: Array<[string, string]> = [
+  ['beginner', 'easy'],
+  ['intermediate', 'medium'],
+  ['advanced', 'hard'],
+];
+
+/* Short plain-text snippet of a question for the paper cards (LaTeX stripped) */
+function previewText(text: string): string {
+  const plain = text
+    .replace(/\$\$?/g, '')
+    .replace(/\\[a-zA-Z]+/g, '')
+    .replace(/[{}]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return plain.length > 150 ? plain.slice(0, 150) + '…' : plain;
+}
 
 const CHECK_SVG = (
   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
@@ -70,6 +88,12 @@ export default function PracticePage() {
 
   /* ── Question bank size (from the API) ── */
   const [bank, setBank] = useState<{ total: number; bySubject: Record<string, number> } | null>(null);
+
+  /* ── Paper row (choose a paper before starting) ── */
+  const [showPapers, setShowPapers] = useState(false);
+  const [paperSets, setPaperSets] = useState<PaperSet[]>([]);
+  const [papersLoading, setPapersLoading] = useState(false);
+  const [papersError, setPapersError] = useState('');
 
   function getTopicsForStudent(subject: Subject) {
     const t = topicsByClass?.[subject];
@@ -267,6 +291,52 @@ export default function PracticePage() {
       return isNaN(n) || n < 1 ? 5 : Math.min(n, 30);
     }
     return questionCount;
+  }
+
+  /* ─── Paper row: preview papers, then claim the chosen one ── */
+  async function loadPapers() {
+    setShowPapers(true);
+    setPapersLoading(true);
+    setPapersError('');
+    try {
+      const sets = await api.questions.papers({
+        selections: buildSelections(),
+        difficulty,
+        examType,
+        studentClass,
+        perSubject: resolvedCount(),
+        papers: 6,
+      });
+      setPaperSets(sets);
+      if (sets.length === 0) setPapersError('No papers can be built from these topics. Try adding more topics.');
+    } catch (e) {
+      setPaperSets([]);
+      setPapersError(e instanceof Error ? e.message : 'Could not build papers');
+    } finally {
+      setPapersLoading(false);
+    }
+  }
+
+  async function choosePaper(paper: PaperSet) {
+    enterFullscreen();
+    setAppState('loading');
+    setLoadProgress(50);
+    setLoadError('');
+    try {
+      const claimed = await api.questions.claimPapers(paper.questionIds);
+      setLoadProgress(100);
+      await new Promise((r) => setTimeout(r, 300));
+      setQuestions(claimed);
+      setCurrentIndex(0);
+      setExamResults({});
+      setSessionSecs(0);
+      setAppState('exam');
+      sessionTimerRef.current = setInterval(() => setSessionSecs((s) => s + 1), 1000);
+    } catch (e) {
+      setLoadError(e instanceof Error ? e.message : 'Could not start this paper');
+      setAppState('wizard');
+      loadPapers();
+    }
   }
 
   /* ─── Start exam (fetch batch) ────────────────────────── */
@@ -648,7 +718,60 @@ export default function PracticePage() {
               </>
             )}
 
-            {wizardStep === 3 && (
+            {wizardStep === 3 && showPapers && (
+              <>
+                <p className="wizard-section-title">Choose your paper</p>
+                <p className="wizard-section-sub">
+                  Each paper is a different set of questions from the bank. Pick one to start.
+                </p>
+
+                {papersLoading && <p className="db-empty-msg">Building papers...</p>}
+                {papersError && <div className="badge badge-red" style={{ marginBottom: 16 }}>{papersError}</div>}
+
+                {!papersLoading && paperSets.length > 0 && (
+                  <div className="paper-grid">
+                    {paperSets.map((paper) => {
+                      const subjectCounts = SUBJECTS_FOR_PAPERS
+                        .map((s) => ({ s, n: paper.questions.filter((q) => q.subject === s).length }))
+                        .filter((x) => x.n > 0);
+                      const diffCounts = DIFFICULTY_LABELS
+                        .map(([key, label]) => ({ label, n: paper.questions.filter((q) => q.difficulty === key).length }))
+                        .filter((x) => x.n > 0);
+                      const topicCount = new Set(paper.questions.map((q) => q.topic)).size;
+                      const first = paper.questions[0];
+                      return (
+                        <button key={paper.number} type="button" className="paper-card" onClick={() => choosePaper(paper)}>
+                          <div className="paper-card-head">
+                            <span>Paper {paper.number}</span>
+                            <span>{paper.questions.length} questions</span>
+                          </div>
+                          <div className="paper-card-chips">
+                            {subjectCounts.map(({ s, n }) => (
+                              <span key={s} className="paper-chip">{SUBJECT_META[s].emoji} {s} · {n}</span>
+                            ))}
+                          </div>
+                          <div className="paper-card-meta">
+                            {topicCount} topic{topicCount !== 1 ? 's' : ''} · {diffCounts.map(({ label, n }) => `${n} ${label}`).join(' · ')}
+                          </div>
+                          {first && <p className="paper-card-preview">{previewText(first.questionText)}</p>}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+
+                <div className="paper-grid-actions">
+                  <button type="button" className="btn btn-outline" onClick={loadPapers} disabled={papersLoading}>
+                    Shuffle papers
+                  </button>
+                  <button type="button" className="btn btn-ghost" onClick={startExam}>
+                    Skip, start a random paper
+                  </button>
+                </div>
+              </>
+            )}
+
+            {wizardStep === 3 && !showPapers && (
               <>
                 <p className="wizard-section-title">Session settings</p>
                 <p className="wizard-section-sub">Configure your exam session.</p>
@@ -728,15 +851,19 @@ export default function PracticePage() {
 
             <div className="wizard-nav">
               <button className="btn btn-outline"
-                onClick={() => wizardStep > 1 ? setWizardStep((s) => (s - 1) as WizardStep) : router.push('/dashboard')}>
+                onClick={() => {
+                  if (showPapers) setShowPapers(false);
+                  else if (wizardStep > 1) setWizardStep((s) => (s - 1) as WizardStep);
+                  else router.push('/dashboard');
+                }}>
                 {wizardStep === 1 ? 'Cancel' : 'Back'}
               </button>
               {wizardStep < 3 ? (
                 <button className="btn btn-primary btn-lg" disabled={!canAdvanceStep()}
                   onClick={() => setWizardStep((s) => (s + 1) as WizardStep)}>Continue</button>
-              ) : (
-                <button className="btn btn-primary btn-lg" onClick={startExam}>
-                  Start Exam
+              ) : showPapers ? null : (
+                <button className="btn btn-primary btn-lg" onClick={loadPapers}>
+                  Find papers
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
               )}

@@ -78,6 +78,25 @@ export interface DashboardData {
 export type Subject = 'Mathematics' | 'Physics' | 'Chemistry';
 export type Difficulty = 'beginner' | 'intermediate' | 'advanced';
 
+/* ── Question paper row (practice page) ───────────────────────── */
+
+export interface PaperQuestion {
+  id: string;
+  topic: string;
+  subject: string;
+  questionText: string;
+  questionType: 'mcq_single' | 'mcq_multi' | 'integer';
+  options: string[];
+  difficulty: string;
+  diagram?: DiagramTemplate | null;
+}
+
+export interface PaperSet {
+  number: number;
+  questionIds: string[];
+  questions: PaperQuestion[];
+}
+
 /* ── Mock exam types ─────────────────────────────────────────── */
 
 export interface MockExamQuestion {

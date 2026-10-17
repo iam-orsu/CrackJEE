@@ -117,6 +117,23 @@ export const api = {
 
     bankStats: () => request<{ total: number; bySubject: Record<string, number> }>('/questions/bank-stats'),
 
+    papers: (body: {
+      selections: Array<{ subject: string; topic: string }>;
+      difficulty: string;
+      examType: string;
+      studentClass: string;
+      perSubject: number;
+      papers: number;
+    }) => request<import('@/types').PaperSet[]>('/questions/papers', {
+      method: 'POST',
+      body: JSON.stringify(body),
+    }),
+
+    claimPapers: (questionIds: string[]) => request<import('@/types').Question[]>('/questions/papers/claim', {
+      method: 'POST',
+      body: JSON.stringify({ questionIds }),
+    }),
+
     topics: (studentClass?: string) => {
       const qs = studentClass ? `?studentClass=${studentClass}` : '';
       return request<SplitTopics>(`/questions/topics${qs}`);
