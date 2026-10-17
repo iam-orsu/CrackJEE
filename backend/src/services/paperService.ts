@@ -59,11 +59,23 @@ function groupByTopic(rows: PoolRow[]): Map<string, string[]> {
   return buckets;
 }
 
+/** C(n, k) as an exact integer, so very large counts are not rounded */
+function binomial(n: number, k: number): bigint {
+  if (k < 0 || k > n) return 0n;
+  const kk = Math.min(k, n - k);
+  let result = 1n;
+  for (let i = 1; i <= kk; i++) {
+    result = (result * BigInt(n - kk + i)) / BigInt(i);
+  }
+  return result;
+}
+
 /**
  * Build a row of disjoint paper candidates from the bank.
  * Nothing is marked as served here; the student's pick is claimed separately.
+ * Also returns how many distinct papers the bank could make for these settings.
  */
-export async function buildPaperSet(userId: string, options: PaperOptions): Promise<string[][]> {
+export async function buildPaperSet(userId: string, options: PaperOptions): Promise<{ papers: string[][]; possibleSets: string }> {
   const bankExamType: 'Main' | 'Advanced' = options.examType === 'Advanced' ? 'Advanced' : 'Main';
 
   const rows: PoolRow[] = await prisma.question.findMany({
@@ -89,6 +101,13 @@ export async function buildPaperSet(userId: string, options: PaperOptions): Prom
   const reusedRows = rows.filter((r) => servedIds.has(r.id));
 
   const subjects = [...new Set(options.selections.map((s) => s.subject))];
+
+  // Distinct papers = product over subjects of C(questions in subject, perSubject)
+  let possible = 1n;
+  for (const subject of subjects) {
+    possible *= binomial(rows.filter((r) => r.subject === subject).length, options.perSubject);
+  }
+
   const papers: string[][] = Array.from({ length: options.papers }, () => []);
 
   for (const subject of subjects) {
@@ -103,7 +122,10 @@ export async function buildPaperSet(userId: string, options: PaperOptions): Prom
     }
   }
 
-  return papers.filter((p) => p.length > 0);
+  return {
+    papers: papers.filter((p) => p.length > 0),
+    possibleSets: possible.toString(),
+  };
 }
 
 /** Fetch the question rows for a paper, without answers or explanations */

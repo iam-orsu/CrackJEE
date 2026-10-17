@@ -41,7 +41,7 @@ export async function previewPapers(req: AuthRequest, res: Response, next: NextF
       }
     }
 
-    const idRows = await buildPaperSet(req.user!.userId, {
+    const { papers: idRows, possibleSets } = await buildPaperSet(req.user!.userId, {
       selections: selections as Array<{ subject: Subject; topic: string }>,
       difficulty,
       examType,
@@ -59,7 +59,7 @@ export async function previewPapers(req: AuthRequest, res: Response, next: NextF
       questions: ids.map((id) => byId.get(id)).filter((q): q is NonNullable<typeof q> => !!q),
     }));
 
-    res.json({ success: true, data });
+    res.json({ success: true, data: { papers: data, possibleSets } });
   } catch (err) {
     next(err);
   }

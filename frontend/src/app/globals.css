@@ -853,27 +853,80 @@ img, svg { display: block; }
 }
 
 /* ── Paper row (practice page, choose a paper) ──────────── */
-.paper-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px;
+.paper-combos {
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px;
+  padding: 14px 18px; margin-bottom: 18px;
+  background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-xl);
 }
-.paper-card {
-  display: flex; flex-direction: column; gap: 10px; text-align: left;
-  padding: 16px; background: var(--white); border: 1px solid var(--gray-200);
-  border-radius: var(--radius-xl); cursor: pointer; transition: border-color var(--transition);
+.paper-combos-value {
+  font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: var(--gray-900);
+  font-variant-numeric: tabular-nums;
 }
-.paper-card:hover { border-color: var(--gray-400); }
-.paper-card-head {
-  display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: var(--gray-900);
+.paper-combos-label { font-size: 13px; color: var(--gray-500); }
+
+.paper-row {
+  position: relative; display: grid; gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  min-height: 440px; transition: opacity 0.2s ease;
 }
-.paper-card-head span:last-child { color: var(--gray-500); font-weight: 500; }
-.paper-card-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.paper-row-loading { opacity: 0.45; pointer-events: none; }
+.paper-row-overlay {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 600; color: var(--gray-700);
+}
+
+/* A sheet of paper: slight tilt-free depth, perforated header, blurred questions */
+.paper-sheet {
+  position: relative; display: flex; flex-direction: column; gap: 12px; text-align: left;
+  padding: 16px 18px 14px; background: var(--white);
+  border: 1px solid var(--gray-200); border-radius: 6px; cursor: pointer;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 18px -12px rgba(15, 23, 42, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.paper-sheet:hover {
+  transform: translateY(-3px);
+  border-color: var(--gray-300);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05), 0 18px 28px -14px rgba(15, 23, 42, 0.28);
+}
+.paper-sheet-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 10px; border-bottom: 1px dashed var(--gray-300);
+}
+.paper-no {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-900);
+}
+.paper-count { font-size: 12px; color: var(--gray-500); font-variant-numeric: tabular-nums; }
+.paper-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .paper-chip {
   font-size: 12px; color: var(--gray-700); border: 1px solid var(--gray-200);
-  border-radius: var(--radius-full); padding: 3px 9px;
+  border-radius: var(--radius-full); padding: 3px 9px; background: var(--gray-50);
 }
-.paper-card-meta { font-size: 12px; color: var(--gray-500); }
-.paper-card-preview {
-  font-size: 13px; line-height: 1.5; color: var(--gray-600);
-  border-top: 1px solid var(--gray-100); padding-top: 10px;
+
+/* Questions are visible only as blurred text until the paper is started */
+.paper-teaser {
+  display: flex; flex-direction: column; gap: 6px; max-height: 96px; overflow: hidden;
+  filter: blur(3.5px); user-select: none; transition: filter 0.25s ease;
 }
-.paper-grid-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+.paper-teaser p { font-size: 13px; line-height: 1.55; color: var(--gray-700); }
+.paper-sheet:hover .paper-teaser,
+.paper-sheet:focus-visible .paper-teaser { filter: blur(1.5px); }
+
+/* Difficulty mix as a single bar: easy, medium, hard */
+.paper-diff { display: flex; gap: 3px; height: 6px; }
+.paper-diff-seg { border-radius: 999px; min-width: 6px; }
+.paper-diff-beginner { background: #cbd5e1; }
+.paper-diff-intermediate { background: #64748b; }
+.paper-diff-advanced { background: #0f172a; }
+
+.paper-foot {
+  margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--gray-500); padding-top: 10px; border-top: 1px solid var(--gray-100);
+}
+.paper-start { font-weight: 600; color: var(--gray-900); white-space: nowrap; }
+
+.paper-grid-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .paper-sheet, .paper-teaser, .paper-row { transition: none; }
+  .paper-sheet:hover { transform: none; }
+}

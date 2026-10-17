@@ -125,7 +125,7 @@ export const api = {
       studentClass: string;
       perSubject: number;
       papers: number;
-    }) => request<import('@/types').PaperSet[]>('/questions/papers', {
+    }) => request<{ papers: import('@/types').PaperSet[]; possibleSets: string }>('/questions/papers', {
       method: 'POST',
       body: JSON.stringify(body),
     }),
