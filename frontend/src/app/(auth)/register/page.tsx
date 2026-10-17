@@ -169,8 +169,8 @@ export default function RegisterPage() {
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
               <div className="form-group">
-                <label className="form-label">Class</label>
-                <select className="form-select" value={form.class}
+                <label className="form-label" htmlFor="class">Class</label>
+                <select id="class" className="form-select" value={form.class}
                   onChange={(e) => set('class', e.target.value as FormState['class'])}>
                   <option value="11">Class 11</option>
                   <option value="12">Class 12</option>
@@ -178,8 +178,8 @@ export default function RegisterPage() {
                 </select>
               </div>
               <div className="form-group">
-                <label className="form-label">Target</label>
-                <select className="form-select" value={form.targetExam}
+                <label className="form-label" htmlFor="targetExam">Target</label>
+                <select id="targetExam" className="form-select" value={form.targetExam}
                   onChange={(e) => set('targetExam', e.target.value as FormState['targetExam'])}>
                   <option value="Main">JEE Main</option>
                   <option value="Advanced">JEE Advanced</option>
@@ -189,8 +189,8 @@ export default function RegisterPage() {
             </div>
 
             <div className="form-group">
-              <label className="form-label">Current level</label>
-              <select className="form-select" value={form.currentLevel}
+              <label className="form-label" htmlFor="currentLevel">Current level</label>
+              <select id="currentLevel" className="form-select" value={form.currentLevel}
                 onChange={(e) => set('currentLevel', e.target.value as FormState['currentLevel'])}>
                 <option value="beginner">Beginner: just getting started</option>
                 <option value="intermediate">Intermediate: covered most topics</option>

@@ -13,7 +13,7 @@ import { apiLimiter } from './middleware/rateLimiter';
 import { requestId } from './middleware/requestId';
 import { logger } from './lib/logger';
 
-/* â”€â”€ Validate required env vars at startup â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* -- Validate required env vars at startup --------------- */
 const envSchema = z.object({
   DATABASE_URL:     z.string().startsWith('postgresql://'),
   REDIS_URL:        z.string().startsWith('redis://'),
@@ -25,7 +25,7 @@ const envSchema = z.object({
 
 const env = envSchema.safeParse(process.env);
 if (!env.success) {
-  logger.error({ issues: env.error.errors }, 'Invalid environment â€” aborting startup');
+  logger.error({ issues: env.error.errors }, 'Invalid environment - aborting startup');
   process.exit(1);
 }
 
@@ -54,7 +54,7 @@ app.use(cors({
 app.use(express.json({ limit: '10kb' }));
 app.use(apiLimiter);
 
-/* â”€â”€ Request logging â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* -- Request logging -------------------------------------- */
 app.use((req, res, next) => {
   const start = Date.now();
   res.on('finish', () => {
@@ -69,7 +69,7 @@ app.use((req, res, next) => {
   next();
 });
 
-/* â”€â”€ Routes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* -- Routes ----------------------------------------------- */
 app.get('/health', async (_req, res) => {
   try {
     await prisma.$queryRaw`SELECT 1`;
@@ -87,7 +87,7 @@ app.use('/api',           progressRoutes);
 
 app.use(errorHandler);
 
-/* â”€â”€ Boot â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* -- Boot ------------------------------------------------- */
 async function start(): Promise<void> {
   await prisma.$connect();
   logger.info('Connected to PostgreSQL');
@@ -97,7 +97,7 @@ async function start(): Promise<void> {
   });
 
   function shutdown(signal: string): void {
-    logger.info(`${signal} received â€” shutting down`);
+    logger.info(`${signal} received - shutting down`);
     server.close(async () => {
       await prisma.$disconnect();
       logger.info('Shutdown complete');
