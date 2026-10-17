@@ -47,9 +47,11 @@ const DIFFICULTY_LABELS: Array<[string, string]> = [
 /* Short plain-text snippet of a question for the paper cards (LaTeX stripped) */
 function previewText(text: string): string {
   const plain = text
-    .replace(/\$\$?/g, '')
-    .replace(/\\[a-zA-Z]+/g, '')
-    .replace(/[{}]/g, '')
+    .replace(/\$\$?/g, ' ')
+    .replace(/\\begin\{[^}]*\}|\\end\{[^}]*\}/g, ' ')
+    .replace(/\\\\/g, ' ')
+    .replace(/\\[a-zA-Z]+/g, ' ')
+    .replace(/[{}&_^]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
   return plain.length > 150 ? plain.slice(0, 150) + '…' : plain;
