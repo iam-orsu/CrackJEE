@@ -4,6 +4,24 @@ import { z } from 'zod';
 import type { AuthRequest } from '../types/index';
 import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
+import { cacheGetJson } from '../services/cacheService';
+
+// Served-list keys written by the practice, AI batch and paper flows (see questionService / paperService)
+const SERVED_KINDS = ['practice', 'mcq_single', 'mcq_multi', 'integer'];
+
+// A question can only be answered if this user was actually shown it, so answers
+// can't be harvested by submitting guessed question IDs
+async function wasServedToUser(userId: string, questionId: string, subject: string, topic: string): Promise<boolean> {
+  for (const kind of SERVED_KINDS) {
+    const ids = await cacheGetJson<string[]>(`served:${userId}:${subject}:${topic}:${kind}`);
+    if (ids?.includes(questionId)) return true;
+  }
+  const inMock = await prisma.mockExamQuestion.findFirst({
+    where: { questionId, exam: { userId } },
+    select: { id: true },
+  });
+  return !!inMock;
+}
 
 const submitSchema = z.object({
   questionId: z.string().min(1).max(64).regex(/^[a-zA-Z0-9_-]+$/),
@@ -51,6 +69,10 @@ export async function submitAnswer(req: AuthRequest, res: Response, next: NextFu
 
     const question = await prisma.question.findUnique({ where: { id: questionId } });
     if (!question) throw new AppError(404, 'Question not found');
+
+    if (!(await wasServedToUser(userId, question.id, question.subject, question.topic))) {
+      throw new AppError(403, 'This question is not part of your session. Open it from practice, a paper or a mock first.');
+    }
 
     // Prevent cheating: verify this question does not belong to an active mock exam for this user
     const inActiveMock = await prisma.mockExamQuestion.findFirst({
