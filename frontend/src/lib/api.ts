@@ -115,6 +115,8 @@ export const api = {
       body: JSON.stringify(body),
     }),
 
+    bankStats: () => request<{ total: number; bySubject: Record<string, number> }>('/questions/bank-stats'),
+
     topics: (studentClass?: string) => {
       const qs = studentClass ? `?studentClass=${studentClass}` : '';
       return request<SplitTopics>(`/questions/topics${qs}`);

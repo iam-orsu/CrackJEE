@@ -68,10 +68,18 @@ export default function PracticePage() {
   /* ── Topics (fetched from API) ── */
   const [topicsByClass, setTopicsByClass] = useState<SplitTopics | null>(null);
 
+  /* ── Question bank size (from the API) ── */
+  const [bank, setBank] = useState<{ total: number; bySubject: Record<string, number> } | null>(null);
+
   function getTopicsForStudent(subject: Subject) {
     const t = topicsByClass?.[subject];
     return t ?? { class11: [], class12: [] };
   }
+
+  const bankTotal = bank ? bank.total.toLocaleString('en-IN') : '—';
+  const topicTotal = topicsByClass
+    ? Object.values(topicsByClass).reduce((n, t) => n + t.class11.length + t.class12.length, 0)
+    : null;
 
   /* ── Weak mode ── */
   const [weakMode, setWeakMode] = useState(false);
@@ -114,6 +122,10 @@ export default function PracticePage() {
     // Fetch topics from API (single source of truth)
     api.questions.topics(u?.class ?? '12')
       .then((data) => setTopicsByClass(data))
+      .catch(() => {});
+
+    api.questions.bankStats()
+      .then(setBank)
       .catch(() => {});
 
 
@@ -435,15 +447,15 @@ export default function PracticePage() {
                 Practice Mode
               </div>
               <h1 style={{ fontSize: 30, fontWeight: 800, color: 'var(--gray-900)', lineHeight: 1.18, marginBottom: 12, letterSpacing: '-0.025em' }}>
-                10,000+ Unique<br />Question Papers
+                A fresh paper<br />every session
               </h1>
-              <p style={{ fontSize: 13, color: 'var(--gray-500)', lineHeight: 1.65, marginBottom: 28, maxWidth: 320 }}>
-                Every student gets a completely different set of questions. Drawn from 6,183 real JEE problems across all three subjects.
+              <p style={{ fontSize: 13, color: 'var(--gray-500)', lineHeight: 1.65, marginBottom: 28, maxWidth: 340 }}>
+                Each session draws a new set of questions from the bank across Physics, Chemistry and Mathematics. You see the answer and explanation after every question.
               </p>
               <div style={{ display: 'flex', gap: 28 }}>
                 {[
-                  { num: '6,183+', label: 'Questions' },
-                  { num: '10,000+', label: 'Paper Combinations' },
+                  { num: bankTotal, label: 'Questions' },
+                  { num: topicTotal !== null ? String(topicTotal) : '—', label: 'Topics' },
                   { num: '3', label: 'Subjects' },
                 ].map(({ num, label }) => (
                   <div key={label}>
@@ -481,7 +493,7 @@ export default function PracticePage() {
                 >
                   {/* Paper header */}
                   <div style={{ fontSize: 7.5, fontWeight: 700, letterSpacing: '0.08em', color: '#9ca3af', textTransform: 'uppercase', marginBottom: 8, paddingBottom: 6, borderBottom: '1px solid #f3f4f6' }}>
-                    JEE MAIN 2024 &nbsp;·&nbsp; {paper.subject} &nbsp;·&nbsp; Section A
+                    Practice paper &nbsp;·&nbsp; {paper.subject}
                   </div>
                   {/* Single question */}
                   <div style={{ fontSize: 11, color: '#1f2937', lineHeight: 1.55, marginBottom: 10, fontWeight: 400 }}>
@@ -565,11 +577,15 @@ export default function PracticePage() {
                   {subjects.map((s) => {
                     const t = topicsByClass?.[s];
                     const topicCount = t ? (t.class11.length + t.class12.length) : null;
+                    const questionCount = bank?.bySubject[s];
                     return (
                       <div key={s} className={`subject-card${selectedSubjects.has(s) ? ' selected' : ''}`} onClick={() => toggleSubject(s)}>
                         <span className="subject-card-emoji" style={{ fontFamily: 'serif', fontSize: 28 }}>{SUBJECT_META[s].emoji}</span>
                         <span className="subject-card-name">{s}</span>
-                        <span className="subject-card-sub">{topicCount !== null ? `${topicCount} topics` : 'Loading...'}</span>
+                        <span className="subject-card-sub">
+                          {topicCount !== null ? `${topicCount} topics` : 'Loading...'}
+                          {questionCount !== undefined && ` · ${questionCount.toLocaleString('en-IN')} questions`}
+                        </span>
                       </div>
                     );
                   })}
