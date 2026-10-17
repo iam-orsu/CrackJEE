@@ -7,68 +7,110 @@ import { Sidebar } from '@/components/Sidebar';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import type { DashboardData, WeeklyPoint } from '@/types';
+import styles from './dashboard.module.css';
 
-/* ── Weekly bar chart ───────────────────────────────────── */
-function WeeklyBars({ data }: { data: WeeklyPoint[] }) {
-  const max = Math.max(...data.map((d) => d.total), 1);
-  const DAY = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+const SUBJECTS = ['Physics', 'Chemistry', 'Mathematics'] as const;
+const DAY_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+/* Round an axis maximum up to a clean number (4, 5, 10, 20, 50, 100 ...) */
+function niceMax(value: number): number {
+  if (value <= 4) return 4;
+  const pow = Math.pow(10, Math.floor(Math.log10(value)));
+  const n = value / pow;
+  const step = n <= 1 ? 1 : n <= 2 ? 2 : n <= 5 ? 5 : 10;
+  return step * pow;
+}
+
+function toneClass(pct: number): string {
+  if (pct >= 60) return styles.toneGood;
+  if (pct >= 40) return styles.toneMid;
+  return styles.toneLow;
+}
+
+function plural(n: number, word: string): string {
+  return `${n} ${word}${n === 1 ? '' : 's'}`;
+}
+
+/* ── Weekly chart: axes, gridlines, bars and a hover tooltip ───── */
+function WeeklyChart({ data }: { data: WeeklyPoint[] }) {
+  const [hover, setHover] = useState<number | null>(null);
+  const max = niceMax(Math.max(...data.map((d) => d.total), 0));
+
+  const W = 640, H = 230, PL = 34, PT = 12, PB = 28;
+  const plotH = H - PT - PB;
+  const slot = (W - PL) / data.length;
+  const barW = Math.min(34, slot * 0.46);
+  const yFor = (v: number) => PT + plotH - (v / max) * plotH;
+  const ticks = [0, 0.25, 0.5, 0.75, 1].map((t) => Math.round(max * t));
+
+  const hovered = hover !== null ? data[hover] : null;
+
   return (
-    <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6, height: 80, width: '100%' }}>
-      {data.map((d, i) => {
-        const totalPct  = (d.total   / max) * 100;
-        const correctPct = (d.correct / max) * 100;
-        const isToday   = i === data.length - 1;
-        const dayLabel  = DAY[new Date(d.date + 'T00:00:00').getDay()] ?? '';
-        return (
-          <div key={d.date} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, height: '100%', justifyContent: 'flex-end' }}>
-            <div style={{ width: '100%', position: 'relative', height: `${Math.max(totalPct, 4)}%`, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-              {/* total bar (gray background) */}
-              <div style={{
-                position: 'absolute', bottom: 0, left: 0, right: 0,
-                height: '100%',
-                background: d.total > 0 ? '#e2e8f0' : '#f1f5f9',
-                borderRadius: '3px 3px 0 0',
-              }} />
-              {/* correct bar (blue fill) */}
-              {d.correct > 0 && (
-                <div style={{
-                  position: 'absolute', bottom: 0, left: 0, right: 0,
-                  height: `${(d.correct / d.total) * 100}%`,
-                  background: isToday ? '#2563eb' : '#3b82f6',
-                  borderRadius: '3px 3px 0 0',
-                }} />
+    <div className={styles.chart}>
+      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Questions attempted per day this week">
+        {ticks.map((t) => (
+          <g key={t}>
+            <line x1={PL} x2={W} y1={yFor(t)} y2={yFor(t)} className={styles.gridLine} />
+            <text x={PL - 8} y={yFor(t)} dy="0.32em" textAnchor="end" className={styles.tick}>{t}</text>
+          </g>
+        ))}
+
+        {data.map((d, i) => {
+          const cx = PL + slot * i + slot / 2;
+          const isToday = i === data.length - 1;
+          const totalH = (d.total / max) * plotH;
+          const correctH = (d.correct / max) * plotH;
+          return (
+            <g
+              key={d.date}
+              onMouseEnter={() => setHover(i)}
+              onMouseLeave={() => setHover(null)}
+              onFocus={() => setHover(i)}
+              onBlur={() => setHover(null)}
+              tabIndex={0}
+            >
+              <rect x={PL + slot * i} y={PT} width={slot} height={plotH} fill="transparent" />
+              {d.total > 0 ? (
+                <rect x={cx - barW / 2} y={yFor(d.total)} width={barW} height={totalH} rx={6} className={styles.barTotal} />
+              ) : (
+                <rect x={cx - barW / 2} y={yFor(0) - 2} width={barW} height={2} rx={1} className={styles.barEmpty} />
               )}
-            </div>
-            <span style={{
-              fontSize: 10, fontWeight: isToday ? 700 : 400,
-              color: isToday ? '#2563eb' : 'var(--gray-400)',
-              lineHeight: 1,
-            }}>{dayLabel}</span>
+              {d.correct > 0 && (
+                <rect
+                  x={cx - barW / 2}
+                  y={yFor(d.correct)}
+                  width={barW}
+                  height={correctH}
+                  rx={6}
+                  className={isToday ? styles.barCorrectToday : styles.barCorrect}
+                />
+              )}
+              <text x={cx} y={H - 8} textAnchor="middle" className={isToday ? styles.dayToday : styles.day}>
+                {DAY_SHORT[new Date(d.date + 'T00:00:00').getDay()]}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+
+      {hovered && hover !== null && (
+        <div
+          className={styles.tooltip}
+          style={{ left: `${((PL + slot * hover + slot / 2) / W) * 100}%` }}
+        >
+          <div className={styles.tooltipTitle}>
+            {new Date(hovered.date + 'T00:00:00').toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' })}
           </div>
-        );
-      })}
+          <div className={styles.tooltipValue}>
+            {hovered.total === 0 ? 'No questions' : `${hovered.correct} correct of ${plural(hovered.total, 'question')}`}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
-/* ── Subject donut ───────────────────────────────────────── */
-function SubjectDonut({ pct, color }: { pct: number; color: string }) {
-  const r = 26; const circ = 2 * Math.PI * r;
-  return (
-    <svg width={64} height={64}>
-      <circle cx={32} cy={32} r={r} fill="none" stroke="var(--gray-100)" strokeWidth={6} />
-      <circle cx={32} cy={32} r={r} fill="none"
-        stroke={color} strokeWidth={6} strokeLinecap="round"
-        strokeDasharray={`${(pct / 100) * circ} ${circ}`}
-        transform="rotate(-90 32 32)"
-        style={{ transition: 'stroke-dasharray 0.9s ease' }} />
-      <text x={32} y={37} textAnchor="middle" fontSize="12" fontWeight="800"
-        fill={color} fontFamily="Inter, sans-serif">{pct}%</text>
-    </svg>
-  );
-}
-
-/* ── Main ────────────────────────────────────────────────── */
+/* ── Page ──────────────────────────────────────────────────────── */
 export default function DashboardPage() {
   const router = useRouter();
   const [user, setUser] = useState<ReturnType<typeof getUser>>(null);
@@ -88,10 +130,13 @@ export default function DashboardPage() {
   const hour = new Date().getHours();
   const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
   const firstName = user?.name?.split(' ')[0] ?? '';
+  const today = new Date().toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 
-  const accuracy      = data?.stats.accuracy ?? 0;
+  const accuracy = data?.stats.accuracy ?? 0;
   const totalAttempts = data?.stats.totalAttempts ?? 0;
-  const weakCount     = data?.weakAreas.length ?? 0;
+  const correctAttempts = data?.stats.correctAttempts ?? 0;
+  const weakAreas = data?.weakAreas ?? [];
+  const hasActivity = totalAttempts > 0;
 
   const streak = (() => {
     if (!data?.weeklyStats?.length) return 0;
@@ -103,221 +148,196 @@ export default function DashboardPage() {
     return c;
   })();
 
-  const SUBJ_CFG: Record<string, { color: string; bg: string; icon: string }> = {
-    Physics:     { color: '#2563eb', bg: '#eff6ff', icon: '⚛' },
-    Chemistry:   { color: '#16a34a', bg: '#f0fdf4', icon: '⚗' },
-    Mathematics: { color: '#7c3aed', bg: '#f5f3ff', icon: '∑' },
-  };
-
-  const kpis = [
-    {
-      label: 'Questions done',
-      value: loading ? '...' : String(totalAttempts),
-      sub: loading ? '' : `${data?.stats.correctAttempts ?? 0} correct`,
-      color: '#2563eb',
-      shadow: 'rgba(37,99,235,.12)',
-      icon: (
-        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-        </svg>
-      ),
-    },
-    {
-      label: 'Accuracy',
-      value: loading ? '...' : `${accuracy}%`,
-      sub: accuracy >= 60 ? 'Keep it up!' : 'Room to grow',
-      color: accuracy >= 60 ? '#16a34a' : '#dc2626',
-      shadow: accuracy >= 60 ? 'rgba(22,163,74,.12)' : 'rgba(220,38,38,.12)',
-      icon: (
-        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
-        </svg>
-      ),
-    },
-    {
-      label: 'Day streak',
-      value: loading ? '...' : String(streak),
-      sub: streak > 0 ? 'Keep the streak!' : 'Practice today',
-      color: '#d97706',
-      shadow: 'rgba(217,119,6,.12)',
-      icon: (
-        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-        </svg>
-      ),
-    },
-    {
-      label: 'Weak areas',
-      value: loading ? '...' : String(weakCount),
-      sub: weakCount === 0 ? 'All clear!' : 'Need attention',
-      color: weakCount === 0 ? '#16a34a' : '#dc2626',
-      shadow: weakCount === 0 ? 'rgba(22,163,74,.12)' : 'rgba(220,38,38,.12)',
-      icon: (
-        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-          <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-        </svg>
-      ),
-    },
-  ];
+  const subjectRows = SUBJECTS.map((subject) => ({
+    subject,
+    stat: data?.subjectAccuracy.find((x) => x.subject === subject),
+  }));
 
   return (
     <div className="app-shell">
       <Sidebar />
       <main className="app-main">
+        <div className={styles.page}>
 
-        {/* ── Greeting ── */}
-        <div className="db-greeting-row">
-          <div>
-            <p className="db-greeting-label" suppressHydrationWarning>{greeting}</p>
-            <h1 className="db-greeting-name" suppressHydrationWarning>
-              {firstName || 'Student'} 👋
-            </h1>
-          </div>
-          <p className="db-greeting-date" suppressHydrationWarning>
-            {new Date().toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
-          </p>
-        </div>
-
-        {error && (
-          <div className="badge badge-red" style={{ marginBottom: 20 }}>{error}</div>
-        )}
-
-        {/* ── KPI row ── */}
-        <div className="db-kpi-row">
-          {kpis.map((k) => (
-            <div key={k.label} className="db-kpi-card">
-              <span className="db-kpi-watermark" style={{ color: k.color }}>{k.icon}</span>
-              <div className="db-kpi-value" style={{ color: k.color }}>{k.value}</div>
-              <div className="db-kpi-label">{k.label}</div>
-              {k.sub && <div className="db-kpi-sub">{k.sub}</div>}
+          {/* Header */}
+          <header className={styles.header}>
+            <div>
+              <p className={styles.eyebrow} suppressHydrationWarning>{today}</p>
+              <h1 className={styles.title} suppressHydrationWarning>
+                {greeting}{firstName ? `, ${firstName}` : ''}
+              </h1>
             </div>
-          ))}
-        </div>
+            <Link href="/practice" className={styles.primaryBtn}>
+              Start practice
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </Link>
+          </header>
 
-        {/* ── Mid section: chart + subjects ── */}
-        <div className="db-mid-row">
+          {error && <div className={styles.error}>{error}</div>}
 
-          {/* Activity chart */}
-          <div className="db-card db-chart-card">
-            <div className="db-card-header">
-              <div>
-                <p className="db-card-title">Weekly activity</p>
-                <p className="db-card-sub">Questions attempted this week</p>
-              </div>
-              <div className="db-chart-legend">
-                <span style={{ color: '#3b82f6' }}>
-                  <span className="db-legend-dot" style={{ background: '#3b82f6' }} />Correct
-                </span>
-                <span style={{ color: 'var(--gray-400)' }}>
-                  <span className="db-legend-dot" style={{ background: 'var(--gray-200)' }} />Total
-                </span>
-              </div>
+          {/* Stat strip */}
+          <section className={styles.statStrip} aria-label="Summary">
+            <div className={styles.stat}>
+              <p className={styles.statLabel}>Questions done</p>
+              <p className={styles.statValue}>{loading ? '–' : totalAttempts}</p>
+              <p className={styles.statSub}>{loading ? ' ' : `${correctAttempts} correct`}</p>
             </div>
-            <div className="db-chart-area">
+            <div className={styles.stat}>
+              <p className={styles.statLabel}>Accuracy</p>
+              <p className={`${styles.statValue} ${hasActivity && accuracy < 60 ? styles.statValueBad : ''} ${hasActivity && accuracy >= 60 ? styles.statValueGood : ''}`}>
+                {loading ? '–' : `${accuracy}%`}
+              </p>
+              <p className={styles.statSub}>
+                {!hasActivity ? 'No attempts yet' : accuracy >= 60 ? 'On track' : 'Below the 60% target'}
+              </p>
+            </div>
+            <div className={styles.stat}>
+              <p className={styles.statLabel}>Day streak</p>
+              <p className={styles.statValue}>{loading ? '–' : streak}</p>
+              <p className={styles.statSub}>{streak > 0 ? 'Consecutive days' : 'Practice today to start one'}</p>
+            </div>
+            <div className={styles.stat}>
+              <p className={styles.statLabel}>Weak areas</p>
+              <p className={styles.statValue}>{loading ? '–' : weakAreas.length}</p>
+              <p className={styles.statSub}>
+                {loading ? ' ' : weakAreas.length === 0 ? 'None flagged' : 'Topics under 60%'}
+              </p>
+            </div>
+          </section>
+
+          {/* Chart + subject mastery */}
+          <div className={styles.grid}>
+            <section className={styles.panel}>
+              <div className={styles.panelHead}>
+                <div>
+                  <h2 className={styles.panelTitle}>Weekly activity</h2>
+                  <p className={styles.panelSub}>Questions attempted, last 7 days</p>
+                </div>
+                <div className={styles.legend}>
+                  <span><span className={styles.legendDot} style={{ background: '#2c3e50' }} />Correct</span>
+                  <span><span className={styles.legendDot} style={{ background: 'var(--gray-200)' }} />Attempted</span>
+                </div>
+              </div>
               {loading ? (
-                <div className="db-skeleton-block" style={{ height: 80 }} />
+                <div className={styles.skeleton} style={{ height: 230 }} />
               ) : data?.weeklyStats?.length ? (
-                <WeeklyBars data={data.weeklyStats} />
+                <WeeklyChart data={data.weeklyStats} />
               ) : (
-                <p className="db-empty-msg">No data yet. Start practicing.</p>
+                <p className={styles.empty}>No activity yet this week.</p>
               )}
-            </div>
+            </section>
+
+            <section className={styles.panel}>
+              <div className={styles.panelHead}>
+                <div>
+                  <h2 className={styles.panelTitle}>Subject mastery</h2>
+                  <p className={styles.panelSub}>Accuracy by subject</p>
+                </div>
+              </div>
+              {loading ? (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                  {[0, 1, 2].map((i) => <div key={i} className={styles.skeleton} style={{ height: 52 }} />)}
+                </div>
+              ) : (
+                <div className={styles.subjectList}>
+                  {subjectRows.map(({ subject, stat }) => {
+                    const attempts = stat?.attempts ?? 0;
+                    const pct = stat?.accuracy ?? 0;
+                    return (
+                      <div key={subject} className={styles.subjectRow}>
+                        <div>
+                          <p className={styles.subjectName}>{subject}</p>
+                          <p className={styles.subjectMeta}>{attempts ? plural(attempts, 'question') : 'Not started'}</p>
+                        </div>
+                        <span className={styles.subjectPct}>{attempts ? `${pct}%` : '—'}</span>
+                        <div className={styles.bar}>
+                          <div
+                            className={`${styles.barFill} ${attempts ? toneClass(pct) : styles.toneNone}`}
+                            style={{ width: `${attempts ? pct : 0}%` }}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </section>
           </div>
 
-          {/* Subject cards */}
-          <div className="db-subjects">
-            <p className="db-section-title">Subject mastery</p>
-            {loading ? (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                {[0,1,2].map(i => <div key={i} className="db-skeleton-block" style={{ height: 76 }} />)}
-              </div>
-            ) : (
-              (['Physics', 'Chemistry', 'Mathematics'] as const).map((subj) => {
-                const cfg = SUBJ_CFG[subj]!;
-                const s = data?.subjectAccuracy.find((x) => x.subject === subj);
-                return (
-                  <div key={subj} className="db-subj-card">
-                    <div className="db-subj-left">
-                      <span className="db-subj-icon" style={{ background: cfg.bg, color: cfg.color }}>
-                        {cfg.icon}
-                      </span>
-                      <div>
-                        <p className="db-subj-name">{subj}</p>
-                        <p className="db-subj-meta">
-                          {s ? `${s.attempts} question${s.attempts !== 1 ? 's' : ''} attempted` : 'No attempts yet'}
-                        </p>
-                      </div>
-                    </div>
-                    {s ? (
-                      <SubjectDonut pct={s.accuracy} color={cfg.color} />
-                    ) : (
-                      <svg width={64} height={64}>
-                        <circle cx={32} cy={32} r={26} fill="none" stroke="var(--gray-100)" strokeWidth={6} />
-                        <text x={32} y={37} textAnchor="middle" fontSize="10" fill="var(--gray-300)"
-                          fontFamily="Inter, sans-serif">—</text>
-                      </svg>
-                    )}
+          {/* Focus areas, or the start guide for new students */}
+          <div className={styles.grid} style={{ gridTemplateColumns: '1fr' }}>
+            {!loading && weakAreas.length > 0 && (
+              <section className={styles.panel}>
+                <div className={styles.panelHead}>
+                  <div>
+                    <h2 className={styles.panelTitle}>Focus areas</h2>
+                    <p className={styles.panelSub}>Topics where your accuracy is under 60%</p>
                   </div>
-                );
-              })
+                  <Link href="/practice?mode=weak" className={`${styles.primaryBtn} ${styles.primaryBtnSm}`}>
+                    Practice weak areas
+                  </Link>
+                </div>
+                <div className={styles.focusList}>
+                  {weakAreas.slice(0, 6).map((w) => {
+                    const pct = Math.round(w.successRate * 100);
+                    return (
+                      <div key={w.id} className={styles.focusRow}>
+                        <div>
+                          <p className={styles.focusTopic}>{w.topicName}</p>
+                          <p className={styles.focusMeta}>
+                            {w.subject} · {plural(w.attempts, 'attempt')}
+                          </p>
+                        </div>
+                        <span className={`${styles.focusPct} ${pct >= 40 ? styles.focusPctMid : ''}`}>{pct}%</span>
+                        <div className={`${styles.bar} ${styles.focusBarWrap}`}>
+                          <div className={`${styles.barFill} ${toneClass(pct)}`} style={{ width: `${pct}%` }} />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
+
+            {!loading && !hasActivity && (
+              <section className={styles.panel}>
+                <div className={styles.panelHead}>
+                  <div>
+                    <h2 className={styles.panelTitle}>Get started</h2>
+                    <p className={styles.panelSub}>Three steps to your first session</p>
+                  </div>
+                </div>
+                <div className={styles.guideSteps}>
+                  <div className={styles.guideStep}>
+                    <span className={styles.guideNum}>1</span>
+                    <div>
+                      <p className={styles.guideTitle}>Pick subjects and topics</p>
+                      <p className={styles.guideText}>Choose from Physics, Chemistry and Mathematics.</p>
+                    </div>
+                  </div>
+                  <div className={styles.guideStep}>
+                    <span className={styles.guideNum}>2</span>
+                    <div>
+                      <p className={styles.guideTitle}>Answer one question at a time</p>
+                      <p className={styles.guideText}>Get instant feedback and a full explanation.</p>
+                    </div>
+                  </div>
+                  <div className={styles.guideStep}>
+                    <span className={styles.guideNum}>3</span>
+                    <div>
+                      <p className={styles.guideTitle}>Watch your weak areas appear</p>
+                      <p className={styles.guideText}>Topics under 60% accuracy are flagged here automatically.</p>
+                    </div>
+                  </div>
+                </div>
+                <Link href="/practice" className={styles.primaryBtn}>Start your first session</Link>
+              </section>
             )}
           </div>
+
         </div>
-
-        {/* ── Weak areas ── */}
-        {!loading && (data?.weakAreas.length ?? 0) > 0 && (
-          <div className="db-card db-weak-card">
-            <div className="db-card-header" style={{ marginBottom: 14 }}>
-              <div>
-                <p className="db-card-title">Focus areas</p>
-                <p className="db-card-sub">Topics where you scored below 60%</p>
-              </div>
-              <Link
-                href="/practice?mode=weak"
-                className="btn btn-primary btn-sm"
-                style={{ flexShrink: 0 }}
-              >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                  <polygon points="5 3 19 12 5 21 5 3"/>
-                </svg>
-                Practice weak areas
-              </Link>
-            </div>
-            <div className="db-weak-list">
-              {data!.weakAreas.slice(0, 6).map((w) => {
-                const cfg = SUBJ_CFG[w.subject] ?? { color: 'var(--gray-500)', bg: 'var(--gray-50)', icon: '?' };
-                const pct = Math.round(w.successRate * 100);
-                const badgeColor = pct < 40 ? '#dc2626' : '#d97706';
-                const badgeBg    = pct < 40 ? '#fef2f2' : '#fffbeb';
-                return (
-                  <div key={w.id} className="db-weak-item">
-                    <span className="db-subj-icon" style={{ background: cfg.bg, color: cfg.color, fontSize: 14, width: 30, height: 30, flexShrink: 0 }}>
-                      {cfg.icon}
-                    </span>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <p className="db-weak-topic">{w.topicName}</p>
-                      <p className="db-subj-meta">{w.subject} · {w.attempts} attempt{w.attempts !== 1 ? 's' : ''}</p>
-                    </div>
-                    <span className="db-weak-pct" style={{ color: badgeColor, background: badgeBg }}>{pct}%</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-
-        {/* ── CTA ── */}
-        <div className="db-cta-row">
-          <Link href="/practice" className="btn btn-primary db-cta-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-              <polygon points="5 3 19 12 5 21 5 3"/>
-            </svg>
-            Start practice session
-          </Link>
-          <p className="db-cta-hint">Picks topics based on your weak areas</p>
-        </div>
-
       </main>
     </div>
   );
