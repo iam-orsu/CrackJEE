@@ -218,6 +218,13 @@ export async function startMock(req: AuthRequest, res: Response, next: NextFunct
     const { examType, difficultyMode } = body.data;
     const userId = req.user!.userId;
 
+    // Generation runs in the background. If the server restarted mid-way, the exam would stay
+    // 'generating' forever and block new exams, so fail anything stuck for over 10 minutes.
+    await prisma.mockExam.updateMany({
+      where: { userId, status: 'generating', createdAt: { lt: new Date(Date.now() - 10 * 60 * 1000) } },
+      data: { status: 'error' },
+    });
+
     // If student already has an active exam, return it
     const active = await prisma.mockExam.findFirst({
       where: { userId, status: { in: ['generating', 'ready', 'in_progress'] } },
