@@ -5,6 +5,7 @@ import { JEE_TOPICS, JEE_TOPICS_BY_CLASS, getTopicsForClass } from '../types/ind
 import type { Subject, StudentClass } from '../types/index';
 import { getNextQuestion, getQuestionBatch, getPracticeQuestion, getPracticeQuestionBatch } from '../services/questionService';
 import { AppError } from '../middleware/errorHandler';
+import { prisma } from '../lib/prisma';
 
 const nextQuestionSchema = z.object({
   subject: z.enum(['Mathematics', 'Physics', 'Chemistry']),
@@ -96,6 +97,23 @@ export async function batchQuestions(req: AuthRequest, res: Response, next: Next
 
     const safe = questions.map(({ answer: _, explanation: __, ...q }) => q);
     res.json({ success: true, data: safe, source: mode === 'practice' ? 'bank' : 'ai' });
+  } catch (err) {
+    next(err);
+  }
+}
+
+// Count of validated questions in the bank, overall and per subject
+export async function bankStats(_req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const rows = await prisma.question.groupBy({
+      by: ['subject'],
+      where: { validatedAt: { not: null } },
+      _count: { _all: true },
+    });
+    const bySubject: Record<string, number> = { Physics: 0, Chemistry: 0, Mathematics: 0 };
+    for (const row of rows) bySubject[row.subject] = row._count._all;
+    const total = Object.values(bySubject).reduce((sum, n) => sum + n, 0);
+    res.json({ success: true, data: { total, bySubject } });
   } catch (err) {
     next(err);
   }
