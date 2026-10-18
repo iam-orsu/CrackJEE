@@ -41,6 +41,8 @@ services:
       OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
       PORT: 3001
       FRONTEND_URL: http://${VPS_IP:?VPS_IP must be set in .env}
+      SUPERADMIN_EMAIL: ${SUPERADMIN_EMAIL:-}
+      SUPERADMIN_PASSWORD: ${SUPERADMIN_PASSWORD:-}
     volumes:
       - ./data:/app/data:ro
     healthcheck:
