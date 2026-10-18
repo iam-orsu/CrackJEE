@@ -42,6 +42,95 @@ export interface AdminStats {
   students: AdminStudent[];
 }
 
+export interface AdminPracticeAttempt {
+  id: string;
+  answeredAt: string;
+  subject: string;
+  topic: string;
+  difficulty: string;
+  questionType: string;
+  examType: string;
+  questionText: string;
+  options: string[];
+  answerSubmitted: string;
+  correctAnswer: string;
+  isCorrect: boolean;
+  timeSpent: number;
+}
+
+export interface AdminMockSummary {
+  id: string;
+  examType: string;
+  difficultyMode: string;
+  status: string;
+  createdAt: string;
+  submittedAt: string | null;
+  result: {
+    totalScore: number;
+    maxScore: number;
+    physicsScore: number;
+    chemistryScore: number;
+    mathScore: number;
+    correct: number;
+    incorrect: number;
+    unattempted: number;
+    timeTaken: number;
+  } | null;
+}
+
+export interface AdminStudentDetail {
+  student: {
+    id: string;
+    name: string;
+    email: string;
+    class: string;
+    targetExam: string;
+    currentLevel: string;
+    joinedAt: string;
+  };
+  summary: { answered: number; correct: number; wrong: number; accuracy: number };
+  topics: Array<{ subject: string; topic: string; attempts: number; correct: number; accuracy: number }>;
+  practice: AdminPracticeAttempt[];
+  mocks: AdminMockSummary[];
+}
+
+export interface AdminMockRow {
+  questionNumber: number;
+  subject: string;
+  topic: string;
+  difficulty: string;
+  questionType: string;
+  questionText: string;
+  options: string[];
+  submitted: string | null;
+  correctAnswer: string;
+  explanation: string;
+  markedForReview: boolean;
+  awarded: number | null;
+  maxMarks: number | null;
+}
+
+export interface AdminMockDetail {
+  exam: {
+    id: string;
+    examType: string;
+    status: string;
+    createdAt: string;
+    submittedAt: string | null;
+    studentName: string;
+    studentEmail: string;
+  };
+  result: {
+    totalScore: number;
+    maxScore: number;
+    correct: number;
+    incorrect: number;
+    unattempted: number;
+    timeTaken: number;
+  } | null;
+  questions: AdminMockRow[];
+}
+
 export function getAdminToken(): string | null {
   try {
     return sessionStorage.getItem(ADMIN_TOKEN_KEY);

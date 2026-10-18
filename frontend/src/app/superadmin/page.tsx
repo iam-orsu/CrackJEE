@@ -10,6 +10,12 @@ import {
   type AdminStats,
 } from '@/lib/admin';
 import styles from './superadmin.module.css';
+import { MockDetail, StudentDetail } from './details';
+
+type View =
+  | { kind: 'overview' }
+  | { kind: 'student'; id: string }
+  | { kind: 'mock'; examId: string; studentId: string };
 
 function fmtDate(iso: string | null): string {
   if (!iso) return '—';
@@ -23,6 +29,16 @@ export default function SuperAdminPage() {
   const [error, setError] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [view, setView] = useState<View>({ kind: 'overview' });
+
+  // Called by detail views when the admin token has expired
+  function expireSession() {
+    clearAdminToken();
+    setStats(null);
+    setSignedIn(false);
+    setView({ kind: 'overview' });
+    setError('Your admin session ended. Sign in again.');
+  }
 
   async function load() {
     setLoading(true);
@@ -70,6 +86,7 @@ export default function SuperAdminPage() {
     clearAdminToken();
     setStats(null);
     setSignedIn(false);
+    setView({ kind: 'overview' });
   }
 
   if (!signedIn) {
@@ -117,7 +134,24 @@ export default function SuperAdminPage() {
 
         {error && <div className={styles.error}>{error}</div>}
 
-        {stats && (
+        {view.kind === 'student' && (
+          <StudentDetail
+            studentId={view.id}
+            onBack={() => setView({ kind: 'overview' })}
+            onOpenMock={(examId) => setView({ kind: 'mock', examId, studentId: view.id })}
+            onUnauthorized={expireSession}
+          />
+        )}
+
+        {view.kind === 'mock' && (
+          <MockDetail
+            examId={view.examId}
+            onBack={() => setView({ kind: 'student', id: view.studentId })}
+            onUnauthorized={expireSession}
+          />
+        )}
+
+        {view.kind === 'overview' && stats && (
           <>
             <section className={styles.statGrid}>
               <div className={styles.card}>
@@ -177,7 +211,7 @@ export default function SuperAdminPage() {
             </div>
 
             <section className={styles.section}>
-              <p className={styles.sectionTitle}>Students and exam activity</p>
+              <p className={styles.sectionTitle}>Students and exam activity <span className={styles.muted}>· click a student to see every answer</span></p>
               <div className={styles.tableWrap}>
                 <table className={styles.table}>
                   <thead>
@@ -198,7 +232,7 @@ export default function SuperAdminPage() {
                       <tr><td colSpan={9} className={styles.muted}>No students registered yet.</td></tr>
                     )}
                     {stats.students.map((s) => (
-                      <tr key={s.id}>
+                      <tr key={s.id} className={styles.clickRow} onClick={() => setView({ kind: 'student', id: s.id })}>
                         <td>{s.name}</td>
                         <td className={styles.muted}>{s.email}</td>
                         <td>{s.class}</td>

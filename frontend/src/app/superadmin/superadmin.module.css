@@ -60,6 +60,18 @@
 .error { font-size: 13px; color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 8px 12px; margin-bottom: 14px; }
 .submit { width: 100%; margin-top: 4px; }
 
+/* Drill-down */
+.clickRow { cursor: pointer; }
+.clickRow:hover td { background: #f9fafb; }
+.linkBtn {
+  background: none; border: none; padding: 0; color: #2c3e50; font-size: 13px;
+  font-weight: 500; text-decoration: underline; cursor: pointer;
+}
+.good { color: #15803d; font-weight: 500; }
+.bad { color: #b91c1c; font-weight: 500; }
+.wrapCell { white-space: normal; min-width: 260px; max-width: 520px; line-height: 1.55; }
+.optList { list-style: none; margin-top: 8px; display: flex; flex-direction: column; gap: 4px; }
+
 @media (max-width: 900px) {
   .statGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .twoCol { grid-template-columns: 1fr; }
