@@ -1,6 +1,10 @@
 /* Super admin — white, minimal, data-first (CLAUDE.md design rules) */
 
-:root { --ink: #111827; --ink-2: #374151; --muted: #6b7280; --faint: #9ca3af; --line: #eceff3; --line-2: #e5e7eb; --brand: #2c3e50; }
+/* CSS Modules cannot use :root, so the palette lives on the two page wrappers */
+.page, .loginWrap {
+  --ink: #111827; --ink-2: #374151; --muted: #6b7280; --faint: #9ca3af;
+  --line: #eceff3; --line-2: #e5e7eb; --brand: #2c3e50;
+}
 
 .page { min-height: 100vh; background: #fff; color: var(--ink-2); padding: 32px 24px 80px; }
 .wrap { max-width: 1120px; margin: 0 auto; }
