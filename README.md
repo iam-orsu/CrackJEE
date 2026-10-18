@@ -36,7 +36,7 @@ The platform is containerized with Docker and ready to deploy on any Linux VPS o
 Client Browser
       │
       ▼
-Nginx (:8080)
+Nginx (:80)
   ├── /api/*   ──> Express Backend (:3001)
   └── /*       ──> Next.js Frontend (:3000)
 
@@ -109,7 +109,7 @@ This command will:
 - Run all Prisma database migrations automatically.
 - Start PostgreSQL, Redis, backend, frontend, and Nginx.
 
-Once finished, open your browser and go to `http://your-server-ip:8080`.
+Once finished, open your browser and go to `http://your-server-ip` (port 80, no port number needed).
 
 ---
 

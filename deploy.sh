@@ -9,6 +9,61 @@ if [ ! -f "$ENV_FILE" ]; then
   exit 1
 fi
 
+# Read a single value from .env (strips quotes and CR characters)
+env_value() {
+  grep -E "^$1=" "$ENV_FILE" | tail -n1 | cut -d= -f2- | tr -d '"\r' || true
+}
+
+# ── Check VPS_IP is set to a real address ─────────────────────────────────────
+require_vps_ip() {
+  VPS_IP=$(env_value VPS_IP)
+  if [ -z "$VPS_IP" ] || [ "$VPS_IP" = "YOUR_VPS_PUBLIC_IP" ]; then
+    echo "ERROR: VPS_IP is not set in .env. Set it to your VPS public IP, e.g. VPS_IP=203.0.113.10"
+    exit 1
+  fi
+  export VPS_IP
+  echo "  Server address: http://$VPS_IP"
+}
+
+# ── Stop our own stack, then free port 80 from anything else ──────────────────
+free_port_80() {
+  echo ""
+  echo "Freeing port 80..."
+
+  # 1) Containers from any compose project that publish port 80
+  local ids
+  ids=$(docker ps -q --filter "publish=80" 2>/dev/null || true)
+  if [ -n "$ids" ]; then
+    echo "  Removing containers on port 80: $ids"
+    docker rm -f $ids >/dev/null 2>&1 || true
+  fi
+
+  # 2) Host web servers that are installed as system services
+  for svc in nginx apache2 httpd caddy; do
+    if systemctl is-active --quiet "$svc" 2>/dev/null; then
+      echo "  Stopping host service: $svc"
+      systemctl stop "$svc" 2>/dev/null || true
+      systemctl disable "$svc" 2>/dev/null || true
+    fi
+  done
+
+  # 3) Any other process still listening on port 80
+  if command -v fuser >/dev/null 2>&1; then
+    fuser -k -9 80/tcp >/dev/null 2>&1 || true
+  elif command -v lsof >/dev/null 2>&1; then
+    lsof -ti :80 2>/dev/null | xargs -r kill -9 2>/dev/null || true
+  fi
+
+  sleep 2
+
+  # 4) Verify port 80 is now free
+  if ss -ltn 2>/dev/null | awk '{print $4}' | grep -qE '(:|\.)80$'; then
+    echo "ERROR: port 80 is still in use after cleanup. Check with: sudo ss -ltnp | grep ':80 '"
+    exit 1
+  fi
+  echo "  Port 80 is free."
+}
+
 # ── Wait until postgres is healthy ────────────────────────────────────────────
 wait_postgres() {
   echo "  Waiting for PostgreSQL to be ready..."
@@ -76,40 +131,43 @@ run_migrations() {
   echo "Running database migrations..."
   wait_postgres
 
-  # Source .env so POSTGRES_USER is available for the wait_postgres check
-  # Migration itself runs inside the backend container which already has DATABASE_URL
   docker compose --env-file "$ENV_FILE" exec -T backend \
     sh -c "node_modules/.bin/prisma db push --skip-generate 2>&1"
 
   echo "Migrations complete."
 }
 
+print_access() {
+  echo ""
+  echo "Platform is live."
+  echo "  Access at:    http://$VPS_IP"
+  echo "  Watch logs:   ./deploy.sh logs"
+  echo "  Check status: ./deploy.sh status"
+}
+
 case "$ACTION" in
   start)
+    require_vps_ip
     echo "Starting CrackJEE platform..."
+    docker compose --env-file "$ENV_FILE" down --remove-orphans >/dev/null 2>&1 || true
+    free_port_80
     docker compose --env-file "$ENV_FILE" up -d --build
     wait_ready
-    echo ""
-    echo "Platform is live."
-    echo "  Access at:    http://localhost:8080"
-    echo "  Watch logs:   ./deploy.sh logs"
-    echo "  Check status: ./deploy.sh status"
+    print_access
     ;;
 
   restart)
+    require_vps_ip
     echo "Rebuilding and restarting CrackJEE platform..."
-    docker compose --env-file "$ENV_FILE" down
+    docker compose --env-file "$ENV_FILE" down --remove-orphans >/dev/null 2>&1 || true
+    free_port_80
     docker compose --env-file "$ENV_FILE" up -d --build
     wait_ready
-    echo ""
-    echo "Platform is live."
-    echo "  Access at:    http://localhost:8080"
-    echo "  Watch logs:   ./deploy.sh logs"
+    print_access
     ;;
 
   migrate)
     # Explicit migration run — useful after pulling new schema changes.
-    # Connects to the running backend container and runs prisma db push.
     echo "Running database migrations against running containers..."
     run_migrations
     ;;
@@ -165,8 +223,8 @@ case "$ACTION" in
 
   *)
     echo "Usage: ./deploy.sh [start|restart|stop|delete|logs|status|migrate|seed]"
-    echo "  start   - Build and start all services (runs migrations + seeds question bank automatically)"
-    echo "  restart - Rebuild images and restart all services (runs migrations + seeds automatically)"
+    echo "  start   - Free port 80, build and start all services on http://<VPS_IP>"
+    echo "  restart - Stop, free port 80, rebuild and restart all services"
     echo "  migrate - Run database migrations against running containers"
     echo "  seed    - Import questions without touching existing ones (usage: ./deploy.sh seed [path/to/file.json])"
     echo "  stop    - Stop all services (keep data)"
