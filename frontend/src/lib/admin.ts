@@ -42,22 +42,6 @@ export interface AdminStats {
   students: AdminStudent[];
 }
 
-export interface AdminPracticeAttempt {
-  id: string;
-  answeredAt: string;
-  subject: string;
-  topic: string;
-  difficulty: string;
-  questionType: string;
-  examType: string;
-  questionText: string;
-  options: string[];
-  answerSubmitted: string;
-  correctAnswer: string;
-  isCorrect: boolean;
-  timeSpent: number;
-}
-
 export interface AdminMockSummary {
   id: string;
   examType: string;
@@ -90,7 +74,6 @@ export interface AdminStudentDetail {
   };
   summary: { answered: number; correct: number; wrong: number; accuracy: number };
   topics: Array<{ subject: string; topic: string; attempts: number; correct: number; accuracy: number }>;
-  practice: AdminPracticeAttempt[];
   mocks: AdminMockSummary[];
 }
 

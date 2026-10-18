@@ -16,16 +16,7 @@ export async function adminStudent(req: Request, res: Response, next: NextFuncti
     const [attempts, mocks] = await Promise.all([
       prisma.studentAttempt.findMany({
         where: { userId: id },
-        orderBy: { createdAt: 'desc' },
-        take: 1000,
-        include: {
-          question: {
-            select: {
-              topic: true, subject: true, difficulty: true, questionType: true, examType: true,
-              questionText: true, options: true, answer: true,
-            },
-          },
-        },
+        select: { isCorrect: true, question: { select: { topic: true, subject: true } } },
       }),
       prisma.mockExam.findMany({
         where: { userId: id },
@@ -43,19 +34,9 @@ export async function adminStudent(req: Request, res: Response, next: NextFuncti
     ]);
 
     const practice = attempts.map((a) => ({
-      id: a.id,
-      answeredAt: a.createdAt.toISOString(),
       subject: a.question.subject,
       topic: a.question.topic,
-      difficulty: a.question.difficulty,
-      questionType: a.question.questionType,
-      examType: a.question.examType,
-      questionText: a.question.questionText,
-      options: a.question.options as string[],
-      answerSubmitted: a.answerSubmitted,
-      correctAnswer: a.question.answer,
       isCorrect: a.isCorrect,
-      timeSpent: a.timeSpent,
     }));
 
     // Topic breakdown
@@ -93,7 +74,6 @@ export async function adminStudent(req: Request, res: Response, next: NextFuncti
           accuracy: answered > 0 ? Math.round((correct / answered) * 100) : 0,
         },
         topics,
-        practice,
         mocks: mocks.map((m) => ({
           id: m.id,
           examType: m.examType,

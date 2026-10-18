@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import {
   adminFetch,
   AdminError,
@@ -10,18 +10,24 @@ import {
 import { MathText, stripOptionPrefix } from '@/lib/math';
 import styles from './superadmin.module.css';
 
+const LETTERS = ['A', 'B', 'C', 'D'];
+
 function fmtDate(iso: string | null): string {
   if (!iso) return '—';
   return new Date(iso).toLocaleString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 }
 
-function fmtSecs(s: number): string {
+function fmtDuration(s: number): string {
   const m = Math.floor(s / 60);
   const sec = s % 60;
   return m > 0 ? `${m}m ${sec}s` : `${sec}s`;
 }
 
-// Loads one admin endpoint; reports an expired session up to the page
+function initials(name: string): string {
+  return name.split(' ').filter(Boolean).slice(0, 2).map((p) => p[0]!.toUpperCase()).join('');
+}
+
+// Loads one admin endpoint and reports an expired session up to the page
 function useAdminData<T>(path: string, onUnauthorized: () => void) {
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState('');
@@ -47,11 +53,21 @@ function useAdminData<T>(path: string, onUnauthorized: () => void) {
   return { data, error, loading };
 }
 
-function BackButton({ onClick, label }: { onClick: () => void; label: string }) {
-  return <button className={styles.btn} onClick={onClick}>← {label}</button>;
+function Tile({ label, value, hint }: { label: string; value: string; hint?: string }) {
+  return (
+    <div className={styles.tile}>
+      <p className={styles.tileLabel}>{label}</p>
+      <p className={styles.tileValue}>{value}</p>
+      {hint && <p className={styles.tileHint}>{hint}</p>}
+    </div>
+  );
 }
 
-/* ── One student: profile, mock exams, topics, every practice answer ── */
+function Pill({ tone, children }: { tone: 'good' | 'bad' | 'neutral'; children: React.ReactNode }) {
+  return <span className={`${styles.pill} ${styles[`pill_${tone}`]}`}>{children}</span>;
+}
+
+/* ── One student ─────────────────────────────────────────────────── */
 export function StudentDetail({
   studentId,
   onBack,
@@ -65,43 +81,45 @@ export function StudentDetail({
 }) {
   const { data, error, loading } = useAdminData<AdminStudentDetail>(`/students/${studentId}`, onUnauthorized);
 
-  if (loading) return <p className={styles.muted}>Loading student…</p>;
+  if (loading) return <p className={styles.muted}>Loading…</p>;
   if (error) return <div className={styles.error}>{error}</div>;
   if (!data) return null;
 
-  const { student, summary, topics, practice, mocks } = data;
+  const { student, summary, topics, mocks } = data;
+  const submittedMocks = mocks.filter((m) => m.result);
+  const bestMock = submittedMocks.length > 0
+    ? Math.max(...submittedMocks.map((m) => Math.round((m.result!.totalScore / m.result!.maxScore) * 100)))
+    : null;
 
   return (
-    <>
-      <header className={styles.header}>
+    <div className={styles.detail}>
+      <button className={styles.backBtn} onClick={onBack}>← All students</button>
+
+      <div className={styles.profile}>
+        <div className={styles.avatar}>{initials(student.name)}</div>
         <div>
-          <BackButton onClick={onBack} label="All students" />
-          <p className={styles.title} style={{ marginTop: 14 }}>{student.name}</p>
-          <p className={styles.sub}>
-            {student.email} · Class {student.class} · JEE {student.targetExam} · {student.currentLevel} · joined {fmtDate(student.joinedAt)}
-          </p>
+          <p className={styles.name}>{student.name}</p>
+          <p className={styles.email}>{student.email}</p>
+          <div className={styles.meta}>
+            <span className={styles.chip}>Class {student.class}</span>
+            <span className={styles.chip}>JEE {student.targetExam}</span>
+            <span className={styles.chip}>{student.currentLevel}</span>
+            <span className={styles.chip}>Joined {fmtDate(student.joinedAt)}</span>
+          </div>
         </div>
-      </header>
+      </div>
 
-      <section className={styles.statGrid}>
-        <div className={styles.card}>
-          <p className={styles.statLabel}>Practice questions answered</p>
-          <p className={styles.statValue}>{summary.answered}</p>
-        </div>
-        <div className={styles.card}>
-          <p className={styles.statLabel}>Correct / wrong</p>
-          <p className={styles.statValue}>{summary.correct} / {summary.wrong}</p>
-        </div>
-        <div className={styles.card}>
-          <p className={styles.statLabel}>Practice accuracy</p>
-          <p className={styles.statValue}>{summary.answered > 0 ? `${summary.accuracy}%` : '—'}</p>
-        </div>
-      </section>
+      <div className={styles.tiles}>
+        <Tile label="Practice answered" value={String(summary.answered)} hint={`${summary.correct} correct · ${summary.wrong} wrong`} />
+        <Tile label="Practice accuracy" value={summary.answered > 0 ? `${summary.accuracy}%` : '—'} />
+        <Tile label="Mock exams" value={String(submittedMocks.length)} hint={`${mocks.length} started`} />
+        <Tile label="Best mock" value={bestMock !== null ? `${bestMock}%` : '—'} />
+      </div>
 
-      <section className={styles.section}>
-        <p className={styles.sectionTitle}>Mock exams ({mocks.length})</p>
+      <section className={styles.block}>
+        <h2 className={styles.blockTitle}>Mock exams</h2>
         {mocks.length === 0 ? (
-          <p className={styles.muted}>No mock exams started.</p>
+          <p className={styles.muted}>No mock exams yet.</p>
         ) : (
           <div className={styles.tableWrap}>
             <table className={styles.table}>
@@ -109,7 +127,7 @@ export function StudentDetail({
                 <tr>
                   <th>Started</th>
                   <th>Exam</th>
-                  <th>Difficulty</th>
+                  <th>Level</th>
                   <th>Status</th>
                   <th className={styles.num}>Score</th>
                   <th className={styles.num}>Correct</th>
@@ -124,17 +142,17 @@ export function StudentDetail({
                   <tr key={m.id}>
                     <td>{fmtDate(m.createdAt)}</td>
                     <td>JEE {m.examType}</td>
-                    <td>{m.difficultyMode}</td>
-                    <td>{m.status}</td>
-                    <td className={styles.num}>{m.result ? `${m.result.totalScore} / ${m.result.maxScore}` : '—'}</td>
+                    <td className={styles.capitalize}>{m.difficultyMode}</td>
+                    <td>
+                      <Pill tone={m.status === 'submitted' ? 'good' : 'neutral'}>{m.status.replace('_', ' ')}</Pill>
+                    </td>
+                    <td className={`${styles.num} ${styles.strong}`}>{m.result ? `${m.result.totalScore} / ${m.result.maxScore}` : '—'}</td>
                     <td className={styles.num}>{m.result?.correct ?? '—'}</td>
                     <td className={styles.num}>{m.result?.incorrect ?? '—'}</td>
                     <td className={styles.num}>{m.result?.unattempted ?? '—'}</td>
-                    <td className={styles.num}>{m.result ? fmtSecs(m.result.timeTaken) : '—'}</td>
-                    <td>
-                      {m.result && (
-                        <button className={styles.linkBtn} onClick={() => onOpenMock(m.id)}>View answers</button>
-                      )}
+                    <td className={styles.num}>{m.result ? fmtDuration(m.result.timeTaken) : '—'}</td>
+                    <td className={styles.num}>
+                      {m.result && <button className={styles.textBtn} onClick={() => onOpenMock(m.id)}>View →</button>}
                     </td>
                   </tr>
                 ))}
@@ -144,85 +162,35 @@ export function StudentDetail({
         )}
       </section>
 
-      <section className={styles.section}>
-        <p className={styles.sectionTitle}>Practice by topic (weakest first)</p>
+      <section className={styles.block}>
+        <h2 className={styles.blockTitle}>Practice by topic <span className={styles.muted}>weakest first</span></h2>
         {topics.length === 0 ? (
           <p className={styles.muted}>No practice answers yet.</p>
         ) : (
-          <div className={styles.tableWrap}>
-            <table className={styles.table}>
-              <thead>
-                <tr>
-                  <th>Subject</th>
-                  <th>Topic</th>
-                  <th className={styles.num}>Attempted</th>
-                  <th className={styles.num}>Correct</th>
-                  <th className={styles.num}>Accuracy</th>
-                </tr>
-              </thead>
-              <tbody>
-                {topics.map((t) => (
-                  <tr key={`${t.subject}-${t.topic}`}>
-                    <td>{t.subject}</td>
-                    <td>{t.topic}</td>
-                    <td className={styles.num}>{t.attempts}</td>
-                    <td className={styles.num}>{t.correct}</td>
-                    <td className={styles.num}>{t.accuracy}%</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className={styles.topicList}>
+            {topics.map((t) => (
+              <div key={`${t.subject}-${t.topic}`} className={styles.topicRow}>
+                <div className={styles.topicName}>
+                  <span>{t.topic}</span>
+                  <span className={styles.muted}>{t.subject}</span>
+                </div>
+                <div className={styles.bar}>
+                  <div
+                    className={`${styles.barFill} ${t.accuracy < 60 ? styles.barLow : ''}`}
+                    style={{ width: `${t.accuracy}%` }}
+                  />
+                </div>
+                <span className={styles.topicStat}>{t.correct}/{t.attempts} · {t.accuracy}%</span>
+              </div>
+            ))}
           </div>
         )}
       </section>
-
-      <section className={styles.section}>
-        <p className={styles.sectionTitle}>Every practice answer ({practice.length}, newest first)</p>
-        {practice.length === 0 ? (
-          <p className={styles.muted}>No practice answers yet.</p>
-        ) : (
-          <div className={styles.tableWrap}>
-            <table className={styles.table}>
-              <thead>
-                <tr>
-                  <th>When</th>
-                  <th>Subject / topic</th>
-                  <th>Type</th>
-                  <th>Question</th>
-                  <th>Student answer</th>
-                  <th>Correct answer</th>
-                  <th>Result</th>
-                  <th className={styles.num}>Time</th>
-                </tr>
-              </thead>
-              <tbody>
-                {practice.map((p) => (
-                  <tr key={p.id}>
-                    <td>{fmtDate(p.answeredAt)}</td>
-                    <td>
-                      <div>{p.subject}</div>
-                      <div className={styles.muted}>{p.topic} · {p.difficulty}</div>
-                    </td>
-                    <td>{p.questionType === 'mcq_single' ? 'Single' : p.questionType === 'mcq_multi' ? 'Multi' : 'Integer'}</td>
-                    <td className={styles.wrapCell}>
-                      <MathText text={p.questionText} />
-                    </td>
-                    <td>{p.answerSubmitted || '—'}</td>
-                    <td>{p.correctAnswer}</td>
-                    <td className={p.isCorrect ? styles.good : styles.bad}>{p.isCorrect ? 'Correct' : 'Wrong'}</td>
-                    <td className={styles.num}>{fmtSecs(p.timeSpent)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </section>
-    </>
+    </div>
   );
 }
 
-/* ── One mock exam: every question, the student's answer, the right answer, marks ── */
+/* ── One mock exam: compact question list, details on click ────── */
 export function MockDetail({
   examId,
   onBack,
@@ -233,95 +201,113 @@ export function MockDetail({
   onUnauthorized: () => void;
 }) {
   const { data, error, loading } = useAdminData<AdminMockDetail>(`/mocks/${examId}`, onUnauthorized);
+  const [openNo, setOpenNo] = useState<number | null>(null);
 
-  if (loading) return <p className={styles.muted}>Loading exam…</p>;
+  if (loading) return <p className={styles.muted}>Loading…</p>;
   if (error) return <div className={styles.error}>{error}</div>;
   if (!data) return null;
 
   const { exam, result, questions } = data;
-  const letters = ['A', 'B', 'C', 'D'];
 
   return (
-    <>
-      <header className={styles.header}>
+    <div className={styles.detail}>
+      <button className={styles.backBtn} onClick={onBack}>← Back to student</button>
+
+      <div className={styles.profile}>
+        <div className={styles.avatar}>{initials(exam.studentName)}</div>
         <div>
-          <BackButton onClick={onBack} label="Back to student" />
-          <p className={styles.title} style={{ marginTop: 14 }}>
-            {exam.studentName} · JEE {exam.examType} mock
-          </p>
-          <p className={styles.sub}>
-            {exam.studentEmail} · started {fmtDate(exam.createdAt)} · submitted {fmtDate(exam.submittedAt)} · status {exam.status}
-          </p>
+          <p className={styles.name}>{exam.studentName}</p>
+          <p className={styles.email}>JEE {exam.examType} mock · {fmtDate(exam.submittedAt ?? exam.createdAt)}</p>
         </div>
-      </header>
+      </div>
 
       {result && (
-        <section className={styles.statGrid}>
-          <div className={styles.card}>
-            <p className={styles.statLabel}>Score</p>
-            <p className={styles.statValue}>{result.totalScore} / {result.maxScore}</p>
-          </div>
-          <div className={styles.card}>
-            <p className={styles.statLabel}>Correct / wrong / skipped</p>
-            <p className={styles.statValue}>{result.correct} / {result.incorrect} / {result.unattempted}</p>
-          </div>
-          <div className={styles.card}>
-            <p className={styles.statLabel}>Time taken</p>
-            <p className={styles.statValue}>{fmtSecs(result.timeTaken)}</p>
-          </div>
-        </section>
+        <div className={styles.tiles}>
+          <Tile label="Score" value={`${result.totalScore} / ${result.maxScore}`} />
+          <Tile label="Correct" value={String(result.correct)} />
+          <Tile label="Wrong" value={String(result.incorrect)} />
+          <Tile label="Skipped" value={String(result.unattempted)} hint={`in ${fmtDuration(result.timeTaken)}`} />
+        </div>
       )}
 
-      <section className={styles.section}>
-        <p className={styles.sectionTitle}>Every question ({questions.length})</p>
+      <section className={styles.block}>
+        <h2 className={styles.blockTitle}>Questions <span className={styles.muted}>click a row to see the question</span></h2>
         <div className={styles.tableWrap}>
           <table className={styles.table}>
             <thead>
               <tr>
-                <th>#</th>
-                <th>Subject / topic</th>
-                <th>Question</th>
-                <th>Student answer</th>
-                <th>Correct answer</th>
+                <th className={styles.num}>#</th>
+                <th>Subject</th>
+                <th>Their answer</th>
+                <th>Correct</th>
                 <th className={styles.num}>Marks</th>
               </tr>
             </thead>
             <tbody>
               {questions.map((q) => {
-                const got = q.awarded ?? 0;
-                const cls = q.submitted === null || q.submitted === '' ? styles.muted : got > 0 ? styles.good : styles.bad;
+                const isOpen = openNo === q.questionNumber;
+                const correctSet = new Set(q.correctAnswer.split(',').map((s) => s.trim()));
+                const submittedSet = new Set((q.submitted ?? '').split(',').map((s) => s.trim()).filter(Boolean));
+                const skipped = !q.submitted;
+                const awarded = q.awarded ?? 0;
+                const tone = skipped ? 'neutral' : awarded > 0 ? 'good' : 'bad';
                 return (
-                  <tr key={q.questionNumber}>
-                    <td>{q.questionNumber}</td>
-                    <td>
-                      <div>{q.subject}</div>
-                      <div className={styles.muted}>{q.topic}</div>
-                    </td>
-                    <td className={styles.wrapCell}>
-                      <MathText text={q.questionText} />
-                      {q.options.length > 0 && (
-                        <ol className={styles.optList}>
-                          {q.options.map((opt, i) => (
-                            <li key={i}>
-                              <strong>{letters[i]})</strong>{' '}
-                              <MathText text={stripOptionPrefix(opt)} />
-                            </li>
-                          ))}
-                        </ol>
-                      )}
-                    </td>
-                    <td>{q.submitted || <span className={styles.muted}>Not answered</span>}</td>
-                    <td>{q.correctAnswer}</td>
-                    <td className={`${styles.num} ${cls}`}>
-                      {q.awarded !== null ? `${q.awarded} / ${q.maxMarks}` : '—'}
-                    </td>
-                  </tr>
+                  <Fragment key={q.questionNumber}>
+                    <tr className={styles.clickRow} onClick={() => setOpenNo(isOpen ? null : q.questionNumber)}>
+                      <td className={styles.num}>{q.questionNumber}</td>
+                      <td>{q.subject}</td>
+                      <td>{q.submitted || <span className={styles.muted}>—</span>}</td>
+                      <td className={styles.strong}>{q.correctAnswer}</td>
+                      <td className={styles.num}>
+                        <Pill tone={tone}>{q.awarded !== null ? `${awarded} / ${q.maxMarks}` : '—'}</Pill>
+                      </td>
+                    </tr>
+                    {isOpen && (
+                      <tr className={styles.expandRow}>
+                        <td colSpan={5}>
+                          <div className={styles.expand}>
+                            <div className={styles.questionText}><MathText text={q.questionText} /></div>
+                            {q.options.length > 0 && (
+                              <ul className={styles.options}>
+                                {q.options.map((opt, i) => {
+                                  const letter = LETTERS[i]!;
+                                  const isCorrect = correctSet.has(letter);
+                                  const isPicked = submittedSet.has(letter);
+                                  return (
+                                    <li
+                                      key={letter}
+                                      className={`${styles.option} ${isCorrect ? styles.optionCorrect : ''} ${isPicked && !isCorrect ? styles.optionWrong : ''}`}
+                                    >
+                                      <span className={styles.optLetter}>{letter}</span>
+                                      <MathText text={stripOptionPrefix(opt)} />
+                                      {isPicked && <span className={styles.optTag}>their answer</span>}
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            )}
+                            {q.options.length === 0 && (
+                              <p className={styles.muted}>
+                                Integer question. Their answer: {q.submitted || 'none'} · correct: {q.correctAnswer}
+                              </p>
+                            )}
+                            {q.explanation && (
+                              <div className={styles.explanation}>
+                                <p className={styles.explainLabel}>Explanation</p>
+                                <MathText text={q.explanation} />
+                              </div>
+                            )}
+                          </div>
+                        </td>
+                      </tr>
+                    )}
+                  </Fragment>
                 );
               })}
             </tbody>
           </table>
         </div>
       </section>
-    </>
+    </div>
   );
 }

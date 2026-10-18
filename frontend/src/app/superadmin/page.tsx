@@ -30,6 +30,7 @@ export default function SuperAdminPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [view, setView] = useState<View>({ kind: 'overview' });
+  const [query, setQuery] = useState('');
 
   // Called by detail views when the admin token has expired
   function expireSession() {
@@ -117,6 +118,10 @@ export default function SuperAdminPage() {
   }
 
   const maxSignups = Math.max(1, ...(stats?.signupsByDay.map((d) => d.count) ?? [0]));
+  const needle = query.trim().toLowerCase();
+  const visibleStudents = (stats?.students ?? []).filter(
+    (s) => !needle || s.name.toLowerCase().includes(needle) || s.email.toLowerCase().includes(needle),
+  );
 
   return (
     <div className={styles.page}>
@@ -211,7 +216,15 @@ export default function SuperAdminPage() {
             </div>
 
             <section className={styles.section}>
-              <p className={styles.sectionTitle}>Students and exam activity <span className={styles.muted}>· click a student to see every answer</span></p>
+              <div className={styles.blockHead}>
+                <h2 className={styles.blockTitle}>Students <span className={styles.muted}>{visibleStudents.length} of {stats.students.length}</span></h2>
+                <input
+                  className={styles.search}
+                  placeholder="Search name or email"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                />
+              </div>
               <div className={styles.tableWrap}>
                 <table className={styles.table}>
                   <thead>
@@ -228,10 +241,10 @@ export default function SuperAdminPage() {
                     </tr>
                   </thead>
                   <tbody>
-                    {stats.students.length === 0 && (
-                      <tr><td colSpan={9} className={styles.muted}>No students registered yet.</td></tr>
+                    {visibleStudents.length === 0 && (
+                      <tr><td colSpan={9} className={styles.muted}>No students match.</td></tr>
                     )}
-                    {stats.students.map((s) => (
+                    {visibleStudents.map((s) => (
                       <tr key={s.id} className={styles.clickRow} onClick={() => setView({ kind: 'student', id: s.id })}>
                         <td>{s.name}</td>
                         <td className={styles.muted}>{s.email}</td>
