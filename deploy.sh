@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 ACTION=${1:-start}
 ENV_FILE=".env"
@@ -22,7 +22,7 @@ require_vps_ip() {
     exit 1
   fi
   export VPS_IP
-  echo "  Server address: http://$VPS_IP"
+  echo "  Server address: https://$VPS_IP"
 }
 
 # ── Stop our own stack, then free ports 80 and 443 from anything else ────────
@@ -137,6 +137,64 @@ run_migrations() {
   echo "Migrations complete."
 }
 
+# ── Ensure SSL certificates exist ─────────────────────────────────────────────
+# ENABLE_SSL=false (default) → self-signed cert via docker alpine/openssl (no host deps)
+# ENABLE_SSL=true            → Let's Encrypt via certbot standalone (requires DOMAIN + SSL_EMAIL)
+ensure_ssl() {
+  if [ -f "./nginx/ssl/fullchain.pem" ] && [ -f "./nginx/ssl/privkey.pem" ]; then
+    echo "  SSL certificates already exist — skipping generation."
+    return 0
+  fi
+
+  mkdir -p ./nginx/ssl
+
+  local ENABLE_SSL
+  local DOMAIN
+  local SSL_EMAIL
+  ENABLE_SSL=$(env_value ENABLE_SSL)
+  DOMAIN=$(env_value DOMAIN)
+  SSL_EMAIL=$(env_value SSL_EMAIL)
+
+  # Fall back to VPS_IP if DOMAIN not set
+  DOMAIN="${DOMAIN:-${VPS_IP:-localhost}}"
+
+  if [ "${ENABLE_SSL:-false}" = "true" ]; then
+    # ── Let's Encrypt via certbot ──────────────────────────────────────────────
+    if [ -z "$SSL_EMAIL" ]; then
+      echo "ERROR: SSL_EMAIL must be set in .env when ENABLE_SSL=true"
+      echo "  e.g. SSL_EMAIL=admin@example.com"
+      exit 1
+    fi
+    echo "  Obtaining Let's Encrypt certificate for $DOMAIN..."
+    echo "  (port 80 must be open and pointing to this server)"
+    mkdir -p ./certbot/conf ./certbot/www
+    docker run --rm \
+      -v "$(pwd)/certbot/conf:/etc/letsencrypt" \
+      -v "$(pwd)/certbot/www:/var/www/certbot" \
+      -p 80:80 \
+      certbot/certbot certonly --standalone \
+      --domain "$DOMAIN" \
+      --email "$SSL_EMAIL" \
+      --agree-tos --no-eff-email --non-interactive
+    cp "$(pwd)/certbot/conf/live/$DOMAIN/fullchain.pem" ./nginx/ssl/
+    cp "$(pwd)/certbot/conf/live/$DOMAIN/privkey.pem"   ./nginx/ssl/
+    echo "  Let's Encrypt certificate installed."
+    echo "  Renew later with: ./deploy.sh renew-ssl"
+  else
+    # ── Self-signed via Docker (zero host dependencies) ────────────────────────
+    echo "  Generating self-signed certificate for $DOMAIN..."
+    docker run --rm \
+      -v "$(pwd)/nginx/ssl:/ssl" \
+      alpine/openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+      -keyout /ssl/privkey.pem \
+      -out    /ssl/fullchain.pem \
+      -subj "/C=IN/ST=India/L=City/O=CrackJEE/CN=$DOMAIN" 2>/dev/null
+    echo "  Self-signed certificate created."
+    echo "  For a trusted cert: set ENABLE_SSL=true, DOMAIN=yourdomain.com, SSL_EMAIL=you@example.com"
+    echo "  Then run: ./deploy.sh ssl-setup"
+  fi
+}
+
 print_access() {
   echo ""
   echo "Platform is live."
@@ -149,18 +207,9 @@ case "$ACTION" in
   start)
     require_vps_ip
     echo "Starting CrackJEE platform..."
-    if [ ! -f "./nginx/ssl/fullchain.pem" ] || [ ! -f "./nginx/ssl/privkey.pem" ]; then
-      echo "  No SSL certificates found — generating self-signed certificate for $VPS_IP..."
-      mkdir -p ./nginx/ssl
-      openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-        -keyout ./nginx/ssl/privkey.pem \
-        -out    ./nginx/ssl/fullchain.pem \
-        -subj "/C=IN/ST=India/L=City/O=CrackJEE/CN=$VPS_IP" 2>/dev/null
-      echo "  Self-signed cert created. Replace with Let's Encrypt certs for production:"
-      echo "    ./deploy.sh ssl-setup"
-    fi
     docker compose --env-file "$ENV_FILE" down --remove-orphans >/dev/null 2>&1 || true
     free_port_80
+    ensure_ssl
     docker compose --env-file "$ENV_FILE" up -d --build
     wait_ready
     print_access
@@ -169,18 +218,9 @@ case "$ACTION" in
   restart)
     require_vps_ip
     echo "Rebuilding and restarting CrackJEE platform..."
-    if [ ! -f "./nginx/ssl/fullchain.pem" ] || [ ! -f "./nginx/ssl/privkey.pem" ]; then
-      echo "  No SSL certificates found — generating self-signed certificate for $VPS_IP..."
-      mkdir -p ./nginx/ssl
-      openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-        -keyout ./nginx/ssl/privkey.pem \
-        -out    ./nginx/ssl/fullchain.pem \
-        -subj "/C=IN/ST=India/L=City/O=CrackJEE/CN=$VPS_IP" 2>/dev/null
-      echo "  Self-signed cert created. Replace with Let's Encrypt certs for production:"
-      echo "    ./deploy.sh ssl-setup"
-    fi
     docker compose --env-file "$ENV_FILE" down --remove-orphans >/dev/null 2>&1 || true
     free_port_80
+    ensure_ssl
     docker compose --env-file "$ENV_FILE" up -d --build
     wait_ready
     print_access
@@ -208,23 +248,41 @@ case "$ACTION" in
     ;;
 
   ssl-setup)
-    # Generate a self-signed TLS certificate for testing.
-    # For production, replace ./nginx/ssl/fullchain.pem and ./nginx/ssl/privkey.pem
-    # with real Let's Encrypt certificates (e.g. via certbot).
+    # Force-generate SSL certificates (overwrites any existing ones).
+    # ENABLE_SSL=false (default) → self-signed cert, good for IP-based access
+    # ENABLE_SSL=true            → Let's Encrypt cert (requires real domain + open port 80)
     require_vps_ip
-    mkdir -p ./nginx/ssl
-    openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-      -keyout ./nginx/ssl/privkey.pem \
-      -out    ./nginx/ssl/fullchain.pem \
-      -subj "/C=IN/ST=India/L=City/O=CrackJEE/CN=$VPS_IP" 2>/dev/null
-    echo "Self-signed certificate created at ./nginx/ssl/"
-    echo "Access the app at https://$VPS_IP (browsers will warn — this is expected for self-signed certs)"
+    echo "Setting up SSL certificates..."
+    # Remove existing certs so ensure_ssl regenerates them
+    rm -f ./nginx/ssl/fullchain.pem ./nginx/ssl/privkey.pem
+    ensure_ssl
     echo ""
-    echo "For production: replace with Let's Encrypt certs, e.g.:"
-    echo "  certbot certonly --standalone -d yourdomain.com"
-    echo "  cp /etc/letsencrypt/live/yourdomain.com/fullchain.pem ./nginx/ssl/"
-    echo "  cp /etc/letsencrypt/live/yourdomain.com/privkey.pem   ./nginx/ssl/"
-    echo "  ./deploy.sh restart"
+    echo "Certificates are at ./nginx/ssl/"
+    echo "Restart the stack to apply: ./deploy.sh restart"
+    ;;
+
+  renew-ssl)
+    # Renew an existing Let's Encrypt certificate (no-op for self-signed).
+    # Run this every ~60 days or set up a cron job.
+    DOMAIN=$(env_value DOMAIN)
+    ENABLE_SSL=$(env_value ENABLE_SSL)
+    if [ "${ENABLE_SSL:-false}" != "true" ]; then
+      echo "ENABLE_SSL is not true — nothing to renew (self-signed certs don't expire for 365 days)."
+      exit 0
+    fi
+    echo "Renewing Let's Encrypt certificate for $DOMAIN..."
+    free_port_80
+    mkdir -p ./certbot/conf ./certbot/www
+    docker run --rm \
+      -v "$(pwd)/certbot/conf:/etc/letsencrypt" \
+      -v "$(pwd)/certbot/www:/var/www/certbot" \
+      -p 80:80 \
+      certbot/certbot renew --non-interactive --standalone
+    cp "$(pwd)/certbot/conf/live/$DOMAIN/fullchain.pem" ./nginx/ssl/
+    cp "$(pwd)/certbot/conf/live/$DOMAIN/privkey.pem"   ./nginx/ssl/
+    echo "Certificate renewed. Reloading nginx..."
+    docker compose --env-file "$ENV_FILE" exec -T nginx nginx -s reload
+    echo "Done."
     ;;
 
   seed)
@@ -254,7 +312,7 @@ case "$ACTION" in
 
   delete)
     echo "WARNING: This will delete all containers and data volumes."
-    read -p "Are you sure? (yes/no): " confirm
+    read -r -p "Are you sure? (yes/no): " confirm
     if [ "$confirm" = "yes" ]; then
       docker compose --env-file "$ENV_FILE" down -v
       echo "All containers and volumes deleted."
@@ -277,17 +335,23 @@ case "$ACTION" in
     ;;
 
   *)
-    echo "Usage: ./deploy.sh [start|restart|stop|delete|logs|status|migrate|seed|baseline|ssl-setup]"
-    echo "  start     - Free port 80/443, build and start all services on https://<VPS_IP>"
-    echo "  restart   - Stop, free port 80/443, rebuild and restart all services"
-    echo "  migrate   - Run pending database migrations against running containers"
-    echo "  seed      - Import questions without touching existing ones (usage: ./deploy.sh seed [path/to/file.json])"
-    echo "  baseline  - Mark all migrations applied (run once when upgrading from prisma db push)"
-    echo "  ssl-setup - Generate a self-signed TLS cert (replace with Let's Encrypt for production)"
-    echo "  stop      - Stop all services (keep data)"
-    echo "  delete    - Stop and delete all data volumes"
-    echo "  logs      - Tail logs (optionally pass service name: ./deploy.sh logs backend)"
-    echo "  status    - Show service status"
+    echo "Usage: ./deploy.sh [start|restart|stop|delete|logs|status|migrate|seed|baseline|ssl-setup|renew-ssl]"
+    echo ""
+    echo "  start      - Free port 80/443, generate SSL if needed, build and start all services"
+    echo "  restart    - Stop, free port 80/443, rebuild and restart all services"
+    echo "  stop       - Stop all services (keep data)"
+    echo "  delete     - Stop and delete all data volumes"
+    echo "  logs       - Tail logs (optionally pass service name: ./deploy.sh logs backend)"
+    echo "  status     - Show service status"
+    echo ""
+    echo "  migrate    - Run pending database migrations against running containers"
+    echo "  seed       - Import questions without touching existing ones (usage: ./deploy.sh seed [path])"
+    echo "  baseline   - Mark all migrations applied (run once when upgrading from prisma db push)"
+    echo ""
+    echo "  ssl-setup  - (Re)generate SSL certs:"
+    echo "               ENABLE_SSL=false → self-signed (default, no host deps)"
+    echo "               ENABLE_SSL=true  → Let's Encrypt (requires DOMAIN + SSL_EMAIL in .env)"
+    echo "  renew-ssl  - Renew an existing Let's Encrypt certificate"
     exit 1
     ;;
 esac
