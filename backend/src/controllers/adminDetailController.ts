@@ -26,7 +26,7 @@ export async function adminStudent(req: Request, res: Response, next: NextFuncti
           result: {
             select: {
               totalScore: true, maxScore: true, physicsScore: true, chemistryScore: true, mathScore: true,
-              correct: true, incorrect: true, unattempted: true, timeTaken: true,
+              correct: true, partial: true, incorrect: true, unattempted: true, timeTaken: true,
             },
           },
         },

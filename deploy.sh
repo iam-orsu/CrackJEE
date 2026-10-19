@@ -25,10 +25,10 @@ require_vps_ip() {
   echo "  Server address: http://$VPS_IP"
 }
 
-# ── Stop our own stack, then free port 80 from anything else ──────────────────
+# ── Stop our own stack, then free ports 80 and 443 from anything else ────────
 free_port_80() {
   echo ""
-  echo "Freeing port 80..."
+  echo "Freeing ports 80 and 443..."
 
   # 1) Containers from any compose project that publish port 80
   local ids
@@ -97,7 +97,7 @@ wait_backend() {
   echo "  Backend container is running."
 }
 
-# ── Wait until backend is fully ready (db push + seeding done) ────────────────
+# ── Wait until backend is fully ready (migrations + seeding done) ────────────
 # Polls the /health endpoint inside the backend container — no host curl/wget needed.
 # First deploy with 5000+ questions can take up to 3 minutes; subsequent ~30s.
 wait_ready() {
@@ -124,15 +124,15 @@ wait_ready() {
 }
 
 # ── Run database migrations ───────────────────────────────────────────────────
-# Uses prisma db push (schema sync without migration files).
-# This is idempotent — safe to run on every deploy.
+# Uses prisma migrate deploy — applies pending migration files in order.
+# Safe to run on every deploy; never drops columns.
 run_migrations() {
   echo ""
   echo "Running database migrations..."
   wait_postgres
 
   docker compose --env-file "$ENV_FILE" exec -T backend \
-    sh -c "node_modules/.bin/prisma db push --skip-generate 2>&1"
+    sh -c "node_modules/.bin/prisma migrate deploy 2>&1"
 
   echo "Migrations complete."
 }
@@ -140,7 +140,7 @@ run_migrations() {
 print_access() {
   echo ""
   echo "Platform is live."
-  echo "  Access at:    http://$VPS_IP"
+  echo "  Access at:    https://$VPS_IP"
   echo "  Watch logs:   ./deploy.sh logs"
   echo "  Check status: ./deploy.sh status"
 }
@@ -149,6 +149,16 @@ case "$ACTION" in
   start)
     require_vps_ip
     echo "Starting CrackJEE platform..."
+    if [ ! -f "./nginx/ssl/fullchain.pem" ] || [ ! -f "./nginx/ssl/privkey.pem" ]; then
+      echo "  No SSL certificates found — generating self-signed certificate for $VPS_IP..."
+      mkdir -p ./nginx/ssl
+      openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+        -keyout ./nginx/ssl/privkey.pem \
+        -out    ./nginx/ssl/fullchain.pem \
+        -subj "/C=IN/ST=India/L=City/O=CrackJEE/CN=$VPS_IP" 2>/dev/null
+      echo "  Self-signed cert created. Replace with Let's Encrypt certs for production:"
+      echo "    ./deploy.sh ssl-setup"
+    fi
     docker compose --env-file "$ENV_FILE" down --remove-orphans >/dev/null 2>&1 || true
     free_port_80
     docker compose --env-file "$ENV_FILE" up -d --build
@@ -159,6 +169,16 @@ case "$ACTION" in
   restart)
     require_vps_ip
     echo "Rebuilding and restarting CrackJEE platform..."
+    if [ ! -f "./nginx/ssl/fullchain.pem" ] || [ ! -f "./nginx/ssl/privkey.pem" ]; then
+      echo "  No SSL certificates found — generating self-signed certificate for $VPS_IP..."
+      mkdir -p ./nginx/ssl
+      openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+        -keyout ./nginx/ssl/privkey.pem \
+        -out    ./nginx/ssl/fullchain.pem \
+        -subj "/C=IN/ST=India/L=City/O=CrackJEE/CN=$VPS_IP" 2>/dev/null
+      echo "  Self-signed cert created. Replace with Let's Encrypt certs for production:"
+      echo "    ./deploy.sh ssl-setup"
+    fi
     docker compose --env-file "$ENV_FILE" down --remove-orphans >/dev/null 2>&1 || true
     free_port_80
     docker compose --env-file "$ENV_FILE" up -d --build
@@ -170,6 +190,41 @@ case "$ACTION" in
     # Explicit migration run — useful after pulling new schema changes.
     echo "Running database migrations against running containers..."
     run_migrations
+    ;;
+
+  baseline)
+    # Mark all existing migrations as already applied WITHOUT running them.
+    # Use this once on a database that was set up with 'prisma db push' (before
+    # this project switched to migration files). After running this command,
+    # future deploys will apply only NEW migration files.
+    #
+    # Usage: ./deploy.sh baseline
+    echo "Marking all migrations as applied (baseline for existing database)..."
+    wait_backend
+    docker compose --env-file "$ENV_FILE" exec -T backend \
+      sh -c "node_modules/.bin/prisma migrate resolve --applied 20241001000000_init 2>&1 && \
+             node_modules/.bin/prisma migrate resolve --applied 20241002000000_add_partial_count 2>&1"
+    echo "Baseline complete. Run './deploy.sh migrate' to verify."
+    ;;
+
+  ssl-setup)
+    # Generate a self-signed TLS certificate for testing.
+    # For production, replace ./nginx/ssl/fullchain.pem and ./nginx/ssl/privkey.pem
+    # with real Let's Encrypt certificates (e.g. via certbot).
+    require_vps_ip
+    mkdir -p ./nginx/ssl
+    openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+      -keyout ./nginx/ssl/privkey.pem \
+      -out    ./nginx/ssl/fullchain.pem \
+      -subj "/C=IN/ST=India/L=City/O=CrackJEE/CN=$VPS_IP" 2>/dev/null
+    echo "Self-signed certificate created at ./nginx/ssl/"
+    echo "Access the app at https://$VPS_IP (browsers will warn — this is expected for self-signed certs)"
+    echo ""
+    echo "For production: replace with Let's Encrypt certs, e.g.:"
+    echo "  certbot certonly --standalone -d yourdomain.com"
+    echo "  cp /etc/letsencrypt/live/yourdomain.com/fullchain.pem ./nginx/ssl/"
+    echo "  cp /etc/letsencrypt/live/yourdomain.com/privkey.pem   ./nginx/ssl/"
+    echo "  ./deploy.sh restart"
     ;;
 
   seed)
@@ -222,15 +277,17 @@ case "$ACTION" in
     ;;
 
   *)
-    echo "Usage: ./deploy.sh [start|restart|stop|delete|logs|status|migrate|seed]"
-    echo "  start   - Free port 80, build and start all services on http://<VPS_IP>"
-    echo "  restart - Stop, free port 80, rebuild and restart all services"
-    echo "  migrate - Run database migrations against running containers"
-    echo "  seed    - Import questions without touching existing ones (usage: ./deploy.sh seed [path/to/file.json])"
-    echo "  stop    - Stop all services (keep data)"
-    echo "  delete  - Stop and delete all data volumes"
-    echo "  logs    - Tail logs (optionally pass service name: ./deploy.sh logs backend)"
-    echo "  status  - Show service status"
+    echo "Usage: ./deploy.sh [start|restart|stop|delete|logs|status|migrate|seed|baseline|ssl-setup]"
+    echo "  start     - Free port 80/443, build and start all services on https://<VPS_IP>"
+    echo "  restart   - Stop, free port 80/443, rebuild and restart all services"
+    echo "  migrate   - Run pending database migrations against running containers"
+    echo "  seed      - Import questions without touching existing ones (usage: ./deploy.sh seed [path/to/file.json])"
+    echo "  baseline  - Mark all migrations applied (run once when upgrading from prisma db push)"
+    echo "  ssl-setup - Generate a self-signed TLS cert (replace with Let's Encrypt for production)"
+    echo "  stop      - Stop all services (keep data)"
+    echo "  delete    - Stop and delete all data volumes"
+    echo "  logs      - Tail logs (optionally pass service name: ./deploy.sh logs backend)"
+    echo "  status    - Show service status"
     exit 1
     ;;
 esac

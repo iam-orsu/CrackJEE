@@ -146,6 +146,7 @@ export interface MockExamResult {
   chemistryScore: number;
   mathScore: number;
   correct: number;
+  partial: number;
   incorrect: number;
   unattempted: number;
   timeTaken: number;
@@ -179,5 +180,5 @@ export interface MockHistoryItem {
   status: string;
   createdAt: string;
   submittedAt: string | null;
-  result?: { totalScore: number; maxScore: number; correct: number; incorrect: number; unattempted: number };
+  result?: { totalScore: number; maxScore: number; correct: number; partial?: number; incorrect: number; unattempted: number };
 }

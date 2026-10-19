@@ -58,7 +58,7 @@ export function isAuthenticated(): boolean {
     clearSession();
     return false;
   }
-  return !!exp;
+  return true;
 }
 
 export function shouldRefresh(): boolean {
@@ -67,7 +67,7 @@ export function shouldRefresh(): boolean {
   const exp = decodeJwtExp(token);
   if (!exp) return false;
   const now = Date.now();
-  if (exp * 1000 <= now) return false; // already expired — let the 401 handler redirect to login
+  if (exp * 1000 <= now) return false;
   // Refresh if token expires within 60 minutes
   return exp * 1000 < now + 60 * 60 * 1000;
 }

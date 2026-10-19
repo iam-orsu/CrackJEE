@@ -88,13 +88,17 @@ export default function MockResultPage() {
   const pct = Math.round((result.totalScore / result.maxScore) * 100);
   const examType = exam.examType;
 
-  // Build per-subject scores
+  // Build per-subject scores — sum maxMarks from scoreBreakdown rather than
+  // dividing the total by 3, which is wrong when subjects have different question counts.
   const subjectScores = SUBJECTS.map((subj) => {
     const key = subj.toLowerCase() as 'physics' | 'chemistry' | 'mathematics';
     const score = key === 'physics' ? result.physicsScore : key === 'chemistry' ? result.chemistryScore : result.mathScore;
     const subjectQs = exam.questions.filter((q) => q.subject === subj);
-    const maxPerSubject = Math.round(result.maxScore / 3);
-    const sPct = Math.round((score / maxPerSubject) * 100);
+    const maxPerSubject = subjectQs.reduce((sum, q) => {
+      const bd = breakdown[(q as any).mockQuestionId ?? q.questionId];
+      return sum + (bd?.maxMarks ?? 0);
+    }, 0) || Math.round(result.maxScore / 3);
+    const sPct = maxPerSubject > 0 ? Math.round((score / maxPerSubject) * 100) : 0;
     return { subj, score, maxPerSubject, pct: sPct, count: subjectQs.length };
   });
 
@@ -150,6 +154,9 @@ export default function MockResultPage() {
               </div>
               <div style={{ marginTop: 10, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
                 <span style={{ fontSize: 13, color: '#16a34a', fontWeight: 600 }}>✓ {result.correct} Correct</span>
+                {(result.partial ?? 0) > 0 && (
+                  <span style={{ fontSize: 13, color: '#d97706', fontWeight: 600 }}>◑ {result.partial} Partial</span>
+                )}
                 <span style={{ fontSize: 13, color: '#dc2626', fontWeight: 600 }}>✗ {result.incorrect} Wrong</span>
                 <span style={{ fontSize: 13, color: '#64748b', fontWeight: 600 }}>○ {result.unattempted} Skipped</span>
                 <span style={{ fontSize: 13, color: '#64748b' }}>⏱ {fmtTime(result.timeTaken)}</span>

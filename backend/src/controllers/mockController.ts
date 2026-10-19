@@ -397,7 +397,7 @@ export async function submitMock(req: AuthRequest, res: Response, next: NextFunc
 
     const examType = exam.examType as 'Main' | 'Advanced';
     let physicsScore = 0, chemistryScore = 0, mathScore = 0;
-    let correct = 0, incorrect = 0, unattempted = 0, maxScore = 0;
+    let correct = 0, partial = 0, incorrect = 0, unattempted = 0, maxScore = 0;
     const breakdown: Record<string, {
       questionId: string; subject: string;
       submitted: string | null; correctAnswer: string;
@@ -410,9 +410,15 @@ export async function submitMock(req: AuthRequest, res: Response, next: NextFunc
       const maxMarks = getMaxMarkPerQuestion(examType, q.questionType);
       maxScore += maxMarks;
 
-      if (!mq.savedAnswer) unattempted++;
-      else if (marks > 0) correct++;
-      else incorrect++;
+      if (!mq.savedAnswer) {
+        unattempted++;
+      } else if (marks === maxMarks) {
+        correct++;
+      } else if (marks > 0) {
+        partial++;
+      } else {
+        incorrect++;
+      }
 
       if (mq.subject === 'Physics') physicsScore += marks;
       else if (mq.subject === 'Chemistry') chemistryScore += marks;
@@ -444,6 +450,7 @@ export async function submitMock(req: AuthRequest, res: Response, next: NextFunc
           chemistryScore,
           mathScore,
           correct,
+          partial,
           incorrect,
           unattempted,
           timeTaken,
@@ -519,7 +526,7 @@ export async function getMockHistory(req: AuthRequest, res: Response, next: Next
       where: { userId },
       select: {
         id: true, examType: true, difficultyMode: true, status: true, createdAt: true, submittedAt: true,
-        result: { select: { totalScore: true, maxScore: true, correct: true, incorrect: true, unattempted: true } },
+        result: { select: { totalScore: true, maxScore: true, correct: true, partial: true, incorrect: true, unattempted: true } },
       },
       orderBy: { createdAt: 'desc' },
       take: 20,

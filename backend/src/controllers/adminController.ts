@@ -1,4 +1,4 @@
-import { timingSafeEqual } from 'crypto';
+import { timingSafeEqual, createHash } from 'crypto';
 import type { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { z } from 'zod';
@@ -10,10 +10,12 @@ const loginSchema = z.object({
   password: z.string().min(1).max(200),
 });
 
+// Hash both sides to a fixed-length digest so the comparison never
+// branches on string length — prevents the timing side-channel that would
+// let an attacker infer the correct password length.
 function safeEqual(a: string, b: string): boolean {
-  const left = Buffer.from(a);
-  const right = Buffer.from(b);
-  if (left.length !== right.length) return false;
+  const left = createHash('sha256').update(a).digest();
+  const right = createHash('sha256').update(b).digest();
   return timingSafeEqual(left, right);
 }
 

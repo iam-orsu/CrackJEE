@@ -107,6 +107,7 @@ model MockExamResult {
   chemistryScore Float
   mathScore      Float
   correct        Int
+  partial        Int      @default(0)
   incorrect      Int
   unattempted    Int
   timeTaken      Int
