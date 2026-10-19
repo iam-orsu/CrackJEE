@@ -48,8 +48,20 @@ app.use(helmet({
   },
   crossOriginEmbedderPolicy: false,
 }));
+const allowedOrigins = new Set([
+  process.env.FRONTEND_URL ?? 'http://localhost:3000',
+  'http://localhost',
+  'http://localhost:3000',
+  'http://127.0.0.1',
+  ...(process.env.EXTRA_CORS_ORIGINS ?? '').split(',').filter(Boolean),
+]);
+// RFC 1918 private IP ranges — covers any WSL2 / Docker bridge IP for local testing
+const PRIVATE_IP_RE = /^https?:\/\/(10\.|172\.(1[6-9]|2[0-9]|3[01])\.|192\.168\.)\d+\.\d+(:\d+)?$/;
 app.use(cors({
-  origin: process.env.FRONTEND_URL ?? 'http://localhost:3000',
+  origin: (origin, cb) => {
+    if (!origin || allowedOrigins.has(origin) || PRIVATE_IP_RE.test(origin)) return cb(null, true);
+    cb(new Error(`CORS: origin ${origin} not allowed`));
+  },
   credentials: true,
 }));
 app.use(express.json({ limit: '10kb' }));

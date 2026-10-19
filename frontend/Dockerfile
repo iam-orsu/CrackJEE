@@ -32,7 +32,7 @@ COPY next.config.ts ./
 COPY src/ ./src/
 COPY public/ ./public/
 
-ARG NEXT_PUBLIC_API_URL
+ARG NEXT_PUBLIC_API_URL=/api
 ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
 
 RUN ./node_modules/.bin/next build
