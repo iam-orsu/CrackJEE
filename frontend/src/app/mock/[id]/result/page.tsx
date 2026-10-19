@@ -313,6 +313,106 @@ export default function MockResultPage() {
           );
         })()}
 
+        {/* JEE Chances Analyzer */}
+        {(() => {
+          const rawPct = result.maxScore > 0 ? result.totalScore / result.maxScore : 0;
+
+          type Band = { label: string; color: string; bg: string; border: string };
+          const bands: Record<string, Band> = {
+            exceptional: { label: 'Exceptional', color: '#15803d', bg: '#f0fdf4', border: '#86efac' },
+            high:        { label: 'High',        color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0' },
+            good:        { label: 'Good',        color: '#d97706', bg: '#fffbeb', border: '#fde68a' },
+            moderate:    { label: 'Moderate',    color: '#ea580c', bg: '#fff7ed', border: '#fed7aa' },
+            low:         { label: 'Low',         color: '#dc2626', bg: '#fef2f2', border: '#fecaca' },
+            veryLow:     { label: 'Very Low',    color: '#9f1239', bg: '#fff1f2', border: '#fecdd3' },
+          };
+
+          // JEE Main: score/maxScore → percentile → rank (calibrated to real JEE Main 2025 data)
+          const mainData = rawPct >= 0.83
+            ? { band: bands.exceptional, percentile: '99.95%+',    rank: 'AIR < 500',          colleges: 'IIT B/D/M CSE, EE',      msg: 'Near-perfect. IIT Bombay, Delhi, Madras flagship branches are in reach.' }
+            : rawPct >= 0.67
+            ? { band: bands.high,        percentile: '99.7–99.95%', rank: 'AIR 500–3,000',      colleges: 'Most IITs',              msg: 'Strong performance. Most IIT branches in top-tier IITs accessible.' }
+            : rawPct >= 0.50
+            ? { band: bands.good,        percentile: '99.0–99.7%',  rank: 'AIR 3,000–15,000',   colleges: 'Good NITs / Newer IITs', msg: 'Qualifies for JEE Advanced. Good NITs and newer IITs accessible.' }
+            : rawPct >= 0.33
+            ? { band: bands.moderate,    percentile: '95–99%',      rank: 'AIR 15,000–80,000',  colleges: 'NITs / GFTIs',           msg: 'May qualify for JEE Advanced. NITs and government colleges in range.' }
+            : rawPct >= 0.25
+            ? { band: bands.low,         percentile: '~93%',        rank: 'AIR 80,000+',        colleges: 'Borderline',             msg: 'Near the JEE Advanced qualifying cutoff (93.1 percentile, 2025). Borderline NIT admission.' }
+            : { band: bands.veryLow,     percentile: '< 93%',       rank: '—',                  colleges: 'Below cutoff',           msg: 'Below the JEE Advanced qualifying percentile (93.1, 2025). Focus on core fundamentals.' };
+
+          // JEE Advanced: score/maxScore → rank (calibrated to real JEE Advanced 2025 data)
+          const advData = rawPct >= 0.70
+            ? { band: bands.exceptional, rank: 'AIR < 500',        iitAccess: 'IIT B/D/M CSE, EE', msg: 'Exceptional. IIT Bombay, Delhi, Madras flagship branches in reach.' }
+            : rawPct >= 0.56
+            ? { band: bands.high,        rank: 'AIR 500–3,000',    iitAccess: 'IIT K/R/G/BHU',     msg: 'Strong. IIT Kanpur, Roorkee, Guwahati — good branches accessible.' }
+            : rawPct >= 0.42
+            ? { band: bands.good,        rank: 'AIR 3,000–8,000',  iitAccess: 'Newer IITs',         msg: 'Qualifies comfortably. Newer IITs and non-flagship branches of good IITs.' }
+            : rawPct >= 0.35
+            ? { band: bands.moderate,    rank: 'AIR 8,000–18,000', iitAccess: 'Limited options',    msg: 'Near the qualifying threshold (~35% of max). Few IIT branches accessible.' }
+            : { band: bands.veryLow,     rank: '—',                iitAccess: 'Not qualifying',     msg: 'Below the typical qualifying mark (~35% of max, 2025). Strengthen weak areas first.' };
+
+          return (
+            <div style={{ background: '#fff', borderRadius: 10, border: '1px solid #e2e8f0', padding: 24 }}>
+              <h2 style={{ fontSize: 15, fontWeight: 700, color: '#1e293b', marginBottom: 4 }}>Your JEE Chances</h2>
+              <p style={{ fontSize: 12, color: '#94a3b8', marginBottom: 20 }}>
+                Based on JEE 2025 official cutoffs and marks vs rank trends. General (open) category only.
+              </p>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+                {/* JEE Main card */}
+                <div style={{ padding: 18, borderRadius: 8, border: `1px solid ${mainData.band.border}`, background: mainData.band.bg }}>
+                  <div style={{ fontSize: 11, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 10 }}>
+                    JEE Main → NIT / IIT
+                  </div>
+                  <div style={{ fontSize: 20, fontWeight: 800, color: mainData.band.color, marginBottom: 12 }}>
+                    {mainData.band.label}
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 12 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12 }}>
+                      <span style={{ color: '#64748b' }}>Percentile</span>
+                      <span style={{ fontWeight: 700, color: '#1e293b' }}>{mainData.percentile}</span>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12 }}>
+                      <span style={{ color: '#64748b' }}>Expected Rank</span>
+                      <span style={{ fontWeight: 700, color: '#1e293b' }}>{mainData.rank}</span>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12 }}>
+                      <span style={{ color: '#64748b' }}>Colleges in range</span>
+                      <span style={{ fontWeight: 700, color: '#1e293b' }}>{mainData.colleges}</span>
+                    </div>
+                  </div>
+                  <div style={{ fontSize: 12, color: mainData.band.color, lineHeight: 1.5 }}>{mainData.msg}</div>
+                </div>
+
+                {/* JEE Advanced card */}
+                <div style={{ padding: 18, borderRadius: 8, border: `1px solid ${advData.band.border}`, background: advData.band.bg }}>
+                  <div style={{ fontSize: 11, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 10 }}>
+                    JEE Advanced → IIT Rank
+                  </div>
+                  <div style={{ fontSize: 20, fontWeight: 800, color: advData.band.color, marginBottom: 12 }}>
+                    {advData.band.label}
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 12 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12 }}>
+                      <span style={{ color: '#64748b' }}>Expected AIR</span>
+                      <span style={{ fontWeight: 700, color: '#1e293b' }}>{advData.rank}</span>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12 }}>
+                      <span style={{ color: '#64748b' }}>IIT branches</span>
+                      <span style={{ fontWeight: 700, color: '#1e293b' }}>{advData.iitAccess}</span>
+                    </div>
+                  </div>
+                  <div style={{ fontSize: 12, color: advData.band.color, lineHeight: 1.5 }}>{advData.msg}</div>
+                </div>
+              </div>
+
+              <div style={{ marginTop: 14, fontSize: 11, color: '#94a3b8', fontStyle: 'italic' }}>
+                * Estimates based on JEE 2025 published data. Actual results vary with paper difficulty, normalization, and candidate count each year.
+              </div>
+            </div>
+          );
+        })()}
+
         {/* Question review */}
         <div style={{ background: '#fff', borderRadius: 10, border: '1px solid #e2e8f0', padding: 24 }}>
           <h2 style={{ fontSize: 15, fontWeight: 700, color: '#1e293b', marginBottom: 16 }}>Question Review</h2>
