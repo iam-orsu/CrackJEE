@@ -102,6 +102,35 @@ export default function MockResultPage() {
     return { subj, score, maxPerSubject, pct: sPct, count: subjectQs.length };
   });
 
+  // Build URL for "Practice Weak Areas" — encodes the wrong/skipped topics from this mock
+  function buildWeakPracticeUrl(): string {
+    const topicWeights = new Map<string, { subject: string; weight: number }>();
+    for (const q of exam.questions) {
+      const mqId = (q as any).mockQuestionId ?? q.questionId;
+      const bd = breakdown[mqId];
+      const isWrong = !!bd?.submitted && (bd.awarded ?? 0) <= 0;
+      const isUnattempted = !bd?.submitted;
+      if (!isWrong && !isUnattempted) continue;
+      const topic = (q as any).topic as string;
+      if (!topic || !q.subject) continue;
+      const key = `${q.subject}::${topic}`;
+      const weight = isWrong ? 2 : 1;
+      const ex = topicWeights.get(key);
+      if (ex) { ex.weight += weight; } else { topicWeights.set(key, { subject: q.subject, weight }); }
+    }
+    if (topicWeights.size === 0) return '/practice';
+    const sorted = [...topicWeights.entries()].sort(([, a], [, b]) => b.weight - a.weight);
+    const subjectMap: Record<string, string[]> = {};
+    for (const [key, { subject }] of sorted) {
+      const topic = key.split('::')[1]!;
+      if (!subjectMap[subject]) subjectMap[subject] = [];
+      subjectMap[subject].push(topic);
+    }
+    const weakData = encodeURIComponent(JSON.stringify({ subjects: Object.keys(subjectMap), topics: subjectMap }));
+    return `/practice?mode=mock_weak&weakData=${weakData}`;
+  }
+  const weakPracticeUrl = buildWeakPracticeUrl();
+
   // Filter questions for review section
   const allQs = exam.questions;
   const filteredQs = allQs.filter((q) => {
@@ -395,7 +424,7 @@ export default function MockResultPage() {
           }}>
             Take Another Mock
           </a>
-          <a href="/practice" style={{
+          <a href={weakPracticeUrl} style={{
             padding: '11px 24px', background: '#fff', color: '#1e293b',
             border: '1px solid #e2e8f0', borderRadius: 6, fontSize: 14, fontWeight: 600, textDecoration: 'none',
           }}>

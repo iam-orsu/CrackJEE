@@ -160,6 +160,7 @@ export default function PracticePage() {
 
   /* ── Weak mode ── */
   const [weakMode, setWeakMode] = useState(false);
+  const [weakSource, setWeakSource] = useState<'global' | 'mock' | null>(null);
   const [weakStartLoading, setWeakStartLoading] = useState(false);
 
   /* ── Loading ── */
@@ -206,31 +207,62 @@ export default function PracticePage() {
       .catch(() => {});
 
 
-    // Restore a saved exam session (survives refresh within the same tab)
-    try {
-      const raw = sessionStorage.getItem('crackjee_exam_session');
-      if (raw) {
-        const s = JSON.parse(raw) as {
-          appState: AppState; questions: Question[]; currentIndex: number;
-          examResults: Record<number, StoredResult>; sessionSecs: number; markingScheme: MarkingScheme;
-        };
-        if (['exam', 'summary', 'review'].includes(s.appState) && s.questions?.length > 0) {
-          setQuestions(s.questions);
-          setCurrentIndex(s.currentIndex ?? 0);
-          setExamResults(s.examResults ?? {});
-          setSessionSecs(s.sessionSecs ?? 0);
-          setMarkingScheme(s.markingScheme ?? 'jee_main');
-          setAppState(s.appState);
-          if (s.appState === 'exam') {
-            sessionTimerRef.current = setInterval(() => setSessionSecs((sec) => sec + 1), 1000);
+    // When coming from a mock result, always start fresh — don't restore a stale session
+    const incomingMode = new URLSearchParams(window.location.search).get('mode');
+    if (incomingMode === 'mock_weak') {
+      try { sessionStorage.removeItem('crackjee_exam_session'); } catch {}
+    } else {
+      // Restore a saved exam session (survives refresh within the same tab)
+      try {
+        const raw = sessionStorage.getItem('crackjee_exam_session');
+        if (raw) {
+          const s = JSON.parse(raw) as {
+            appState: AppState; questions: Question[]; currentIndex: number;
+            examResults: Record<number, StoredResult>; sessionSecs: number; markingScheme: MarkingScheme;
+          };
+          if (['exam', 'summary', 'review'].includes(s.appState) && s.questions?.length > 0) {
+            setQuestions(s.questions);
+            setCurrentIndex(s.currentIndex ?? 0);
+            setExamResults(s.examResults ?? {});
+            setSessionSecs(s.sessionSecs ?? 0);
+            setMarkingScheme(s.markingScheme ?? 'jee_main');
+            setAppState(s.appState);
+            if (s.appState === 'exam') {
+              sessionTimerRef.current = setInterval(() => setSessionSecs((sec) => sec + 1), 1000);
+            }
+            return; // skip weak-mode init when restoring
           }
-          return; // skip weak-mode init when restoring
         }
-      }
-    } catch {}
+      } catch {}
+    }
 
     const params = new URLSearchParams(window.location.search);
-    if (params.get('mode') !== 'weak') return;
+    const mode = params.get('mode');
+
+    // Pre-select topics from a specific mock exam's wrong/skipped questions
+    if (mode === 'mock_weak') {
+      const rawData = params.get('weakData');
+      if (rawData) {
+        try {
+          const parsed = JSON.parse(decodeURIComponent(rawData)) as { subjects: string[]; topics: Record<string, string[]> };
+          const valid = ['Mathematics', 'Physics', 'Chemistry'] as Subject[];
+          const subjects = parsed.subjects.filter((s) => valid.includes(s as Subject)) as Subject[];
+          if (subjects.length > 0) {
+            const subjSet = new Set<Subject>(subjects);
+            const topicsMap: Partial<Record<Subject, Set<string>>> = {};
+            for (const subj of subjects) topicsMap[subj] = new Set(parsed.topics[subj] ?? []);
+            setSelectedSubjects(subjSet);
+            setSelectedTopics(topicsMap);
+            setWeakMode(true);
+            setWeakSource('mock');
+            setWizardStep(3);
+          }
+        } catch {}
+      }
+      return;
+    }
+
+    if (mode !== 'weak') return;
 
     setWeakMode(true);
     setWeakStartLoading(true);
@@ -249,6 +281,7 @@ export default function PracticePage() {
         for (const [subj, topicSet] of subjectTopics) topicsMap[subj] = topicSet;
         setSelectedSubjects(subjects);
         setSelectedTopics(topicsMap);
+        setWeakSource('global');
         setWizardStep(3);
       })
       .catch(() => {})
@@ -490,6 +523,7 @@ export default function PracticePage() {
     setQuestions([]);
     setExamResults({});
     setWeakMode(false);
+    setWeakSource(null);
     if (window.location.search) {
       window.history.replaceState({}, '', window.location.pathname);
     }
@@ -658,10 +692,11 @@ export default function PracticePage() {
                 </svg>
                 <div>
                   <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--navy-800)' }}>
-                    Targeting your weak areas
+                    {weakSource === 'mock' ? 'Drilling your mock exam mistakes' : 'Targeting your weak areas'}
                   </span>
                   <span style={{ fontSize: 12, color: 'var(--navy-600)', marginLeft: 8 }}>
                     {Array.from(selectedSubjects).reduce((acc, s) => acc + (selectedTopics[s]?.size ?? 0), 0)} topics across {selectedSubjects.size} subject{selectedSubjects.size !== 1 ? 's' : ''} pre-selected
+                    {weakSource === 'mock' && <span style={{ marginLeft: 6, opacity: 0.75 }}>· from your mock exam</span>}
                   </span>
                 </div>
                 <button className="btn btn-ghost btn-sm" style={{ marginLeft: 'auto' }}
