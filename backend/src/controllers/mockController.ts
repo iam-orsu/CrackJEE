@@ -185,10 +185,8 @@ async function generateMockQuestions(
 
     for (const subj of subjects) {
       const subjQuestions = fulfilledSlots.filter((q) => q.subject === subj);
-      const mcqQuestions = fisherYatesShuffle(subjQuestions.filter((q) => q.type !== 'integer'));
-      const numQuestions = fisherYatesShuffle(subjQuestions.filter((q) => q.type === 'integer'));
-
-      const orderedSubjQuestions = [...mcqQuestions, ...numQuestions];
+      // Shuffle all types together so integers, MCQ single and multi-correct are interleaved
+      const orderedSubjQuestions = fisherYatesShuffle(subjQuestions);
       let subjIdx = 0;
       for (const q of orderedSubjQuestions) {
         questionData.push({
