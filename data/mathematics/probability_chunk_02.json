@@ -1,0 +1,508 @@
+{
+  "questions": [
+    {
+      "id": "prob_c02_001",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A five-digit number is formed by selecting digits from the set $\\{1, 2, 3, 4, 5, 6, 7\\}$ without repetition. What is the probability that the number thus formed is divisible by $4$?",
+      "options": [
+        "A) $\\frac{5}{21}$",
+        "B) $\\frac{4}{21}$",
+        "C) $\\frac{2}{7}$",
+        "D) $\\frac{1}{4}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The total number of five-digit numbers formed from the $7$ distinct digits without repetition is given by the permutation $N = 7 \\times 6 \\times 5 \\times 4 \\times 3 = 2520$. Step 2: A number is divisible by $4$ if and only if its last two digits form a two-digit number divisible by $4$. The possible pairs of distinct digits from $\\{1, 2, 3, 4, 5, 6, 7\\}$ forming a multiple of $4$ are $12, 16, 24, 32, 36, 52, 56, 64, 72$, and $76$, giving exactly $10$ favourable choices for the last two digits. Step 3: For each such choice, the remaining $3$ positions are filled from the remaining $5$ digits in $5 \\times 4 \\times 3 = 60$ ways. Therefore, the total number of favourable numbers is $10 \\times 60 = 600$. Step 4: Applying the definition of classical probability, we get $P = \\frac{600}{2520} = \\frac{5}{21}$. Hence, option A is correct. Option B misses two valid ending pairs; option C overcounts the endings; option D assumes an unconstrained divisibility rate."
+    },
+    {
+      "id": "prob_c02_002",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For three events $A, B$, and $C$, the probabilities are given as $P(A) = 0.40$, $P(B) = 0.50$, and $P(C) = 0.60$. The pairwise intersections satisfy $P(A \\cap B) = 0.20$, $P(B \\cap C) = 0.25$, and $P(A \\cap C) = 0.15$, while the probability of all three occurring simultaneously is $P(A \\cap B \\cap C) = 0.10$. What is the probability that exactly two of the three events occur?",
+      "options": [
+        "A) $0.30$",
+        "B) $0.40$",
+        "C) $0.50$",
+        "D) $0.20$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The event that exactly two of the three events occur is represented by the disjoint union of $(A \\cap B \\cap C^c)$, $(A \\cap B^c \\cap C)$, and $(A^c \\cap B \\cap C)$. Step 2: Applying the formula for the probability of two events occurring without the third, we get $P(A \\cap B \\cap C^c) = P(A \\cap B) - P(A \\cap B \\cap C) = 0.20 - 0.10 = 0.10$. Step 3: Similarly, substituting the values for the remaining pairs, we get $P(A \\cap C \\cap B^c) = 0.15 - 0.10 = 0.05$, and $P(B \\cap C \\cap A^c) = 0.25 - 0.10 = 0.15$. Step 4: Summing these mutually exclusive probabilities, we get $0.10 + 0.05 + 0.15 = 0.30$. Therefore, the probability that exactly two events occur is $0.30$. Hence, option A is correct. Option B subtracts the triple intersection only once overall; option C simply sums pairwise intersections; option D subtracts $2 \\times$ each term incorrectly."
+    },
+    {
+      "id": "prob_c02_003",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An electrical system consists of four independent switches $S_1, S_2, S_3, S_4$. Switches $S_1$ and $S_2$ are connected in parallel to form subsystem $1$, and switches $S_3$ and $S_4$ are connected in parallel to form subsystem $2$. The two subsystems are connected in series. Each switch closes independently with probability $p = \\frac{2}{3}$. What is the probability that electric current flows through the complete circuit?",
+      "options": [
+        "A) $\\frac{64}{81}$",
+        "B) $\\frac{16}{81}$",
+        "C) $\\frac{8}{9}$",
+        "D) $\\frac{80}{81}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Subsystem $1$ conducts if at least one of the switches $S_1$ or $S_2$ is closed. The probability that both fail to close is $(1 - \\frac{2}{3})^2 = (\\frac{1}{3})^2 = \\frac{1}{9}$. Therefore, the probability that subsystem $1$ conducts is $P(E_1) = 1 - \\frac{1}{9} = \\frac{8}{9}$. Step 2: Similarly, subsystem $2$ conducts if at least one of $S_3$ or $S_4$ is closed, yielding $P(E_2) = 1 - (1 - \\frac{2}{3})^2 = \\frac{8}{9}$. Step 3: Since the two subsystems are in series and act independently, the entire circuit conducts if and only if both subsystems conduct simultaneously. Applying independence, we get $P(\\text{conducts}) = P(E_1) \\times P(E_2) = \\frac{8}{9} \\times \\frac{8}{9} = \\frac{64}{81}$. Hence, option A is correct. Option B assumes all four switches must close in series; option C calculates the reliability of only a single parallel subsystem; option D assumes any switch closing completes the circuit."
+    },
+    {
+      "id": "prob_c02_004",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two unbiased standard six-faced dice are rolled simultaneously. Let $E_1$ be the event that the sum of the numbers appearing on the dice is greater than or equal to $8$, and let $E_2$ be the event that the number on the first die is strictly greater than the number on the second die. Find the conditional probability $P(E_1 \\mid E_2)$.",
+      "options": [
+        "A) $\\frac{2}{5}$",
+        "B) $\\frac{1}{2}$",
+        "C) $\\frac{7}{15}$",
+        "D) $\\frac{1}{3}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let the outcome of the roll be $(x, y) \\in \\{1, 2, 3, 4, 5, 6\\}^2$. The condition $E_2$ requires $x > y$. The number of such pairs is $\\binom{6}{2} = 15$, specifically: $(2,1)$; $(3,1), (3,2)$; $(4,1), (4,2), (4,3)$; $(5,1), (5,2), (5,3), (5,4)$; and $(6,1), (6,2), (6,3), (6,4), (6,5)$. Step 2: For the event $E_1 \\cap E_2$, we need $x > y$ and $x + y \\ge 8$. For $x \\le 4$, maximum $x+y = 4+3=7 < 8$, which yields no pairs. For $x = 5$, we require $5+y \\ge 8 \\implies y \\ge 3$, yielding $(5,3)$ and $(5,4)$ (2 pairs). For $x = 6$, we require $6+y \\ge 8 \\implies y \\ge 2$, yielding $(6,2), (6,3), (6,4)$, and $(6,5)$ (4 pairs). Step 3: Therefore, the total number of favourable pairs in $E_1 \\cap E_2$ is $2 + 4 = 6$. Step 4: Applying the conditional probability definition, we get $P(E_1 \\mid E_2) = \\frac{n(E_1 \\cap E_2)}{n(E_2)} = \\frac{6}{15} = \\frac{2}{5}$. Hence, option A is correct. Option C mistakenly includes the diagonal outcome $(4,4)$; option B is an unconditioned guess; option D omits the pair $(5,4)$."
+    },
+    {
+      "id": "prob_c02_005",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A box contains $5$ red balls, $4$ green balls, and $3$ blue balls. Three balls are drawn at random one by one without replacement. Given that at least one of the drawn balls is green, what is the probability that all three drawn balls are of mutually different colours?",
+      "options": [
+        "A) $\\frac{15}{41}$",
+        "B) $\\frac{3}{11}$",
+        "C) $\\frac{15}{55}$",
+        "D) $\\frac{20}{41}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The total number of balls in the box is $5 + 4 + 3 = 12$. The total number of ways to choose $3$ balls from $12$ without replacement is $\\binom{12}{3} = \\frac{12 \\times 11 \\times 10}{6} = 220$. Step 2: Let $B$ be the event that at least one green ball is drawn. The complement $B^c$ is the event that no green ball is drawn, meaning all $3$ balls are chosen from the $5 + 3 = 8$ non-green balls. The number of such selections is $\\binom{8}{3} = \\frac{8 \\times 7 \\times 6}{6} = 56$. Therefore, $n(B) = 220 - 56 = 164$. Step 3: Let $A$ be the event that all $3$ balls are of different colours (one red, one green, and one blue). Since any such selection contains exactly one green ball, we have $A \\subseteq B$, which implies $A \\cap B = A$. The number of ways to pick one of each colour is $\\binom{5}{1} \\times \\binom{4}{1} \\times \\binom{3}{1} = 5 \\times 4 \\times 3 = 60$. Step 4: Applying conditional probability, we get $P(A \\mid B) = \\frac{n(A \\cap B)}{n(B)} = \\frac{60}{164} = \\frac{15}{41}$. Hence, option A is correct. Option B calculates $P(A) = \\frac{60}{220} = \\frac{3}{11}$ without conditioning on $B$; option C miscalculates the complement; option D uses an incorrect numerator."
+    },
+    {
+      "id": "prob_c02_006",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $A$ and $B$ be two independent events associated with a random experiment such that the probability that both $A$ and $B$ happen is $\\frac{1}{12}$, and the probability that neither $A$ nor $B$ happens is $\\frac{1}{2}$. If $P(A) > P(B)$, find the value of the integer expression $60 \\times [P(A) - P(B)]$.",
+      "options": [],
+      "answer": "5",
+      "explanation": "Step 1: Let $P(A) = x$ and $P(B) = y$. Since $A$ and $B$ are independent events, we have $P(A \\cap B) = xy = \\frac{1}{12}$. Step 2: The probability that neither occurs is given by $P(A^c \\cap B^c) = (1 - x)(1 - y) = \\frac{1}{2}$. Expanding this expression, we get $1 - (x + y) + xy = \\frac{1}{2}$. Step 3: Substituting $xy = \\frac{1}{12}$ into the equation yields $1 - (x + y) + \\frac{1}{12} = \\frac{1}{2} \\implies x + y = 1 + \\frac{1}{12} - \\frac{1}{2} = \\frac{7}{12}$. Step 4: Thus, $x$ and $y$ are the roots of the quadratic equation $t^2 - (x+y)t + xy = 0$, which gives $t^2 - \\frac{7}{12}t + \\frac{1}{12} = 0$, or $12t^2 - 7t + 1 = 0$. Solving by factorisation, $(3t - 1)(4t - 1) = 0$, giving $t = \\frac{1}{3}$ or $t = \\frac{1}{4}$. Since $P(A) > P(B)$, we have $P(A) = \\frac{1}{3}$ and $P(B) = \\frac{1}{4}$. Therefore, $P(A) - P(B) = \\frac{1}{3} - \\frac{1}{4} = \\frac{1}{12}$. Step 5: Multiplying by $60$, we get $60 \\times [P(A) - P(B)] = 60 \\times \\frac{1}{12} = 5$."
+    },
+    {
+      "id": "prob_c02_007",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Four distinct addressed letters are placed at random into four addressed envelopes, one letter per envelope. Let $p_1$ be the probability that exactly one letter is inserted into its correctly addressed envelope, and let $p_2$ be the probability that no letter is inserted into its correct envelope. Find the exact value of the ratio $\\frac{p_1}{p_2}$.",
+      "options": [
+        "A) $\\frac{8}{9}$",
+        "B) $\\frac{3}{4}$",
+        "C) $\\frac{4}{9}$",
+        "D) $1$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The total number of permutations of placing $4$ letters into $4$ envelopes is $4! = 24$. Step 2: The number of ways in which no letter goes into its correct envelope corresponds to the derangement number $D_4$. Applying the derangement formula $D_n = n! \\sum_{k=0}^n \\frac{(-1)^k}{k!}$, we get $D_4 = 24 \\left(1 - 1 + \\frac{1}{2} - \\frac{1}{6} + \\frac{1}{24}\\right) = 12 - 4 + 1 = 9$. Therefore, $p_2 = \\frac{9}{24}$. Step 3: For exactly one letter to be correctly placed, we first choose which letter is correctly placed in $\\binom{4}{1} = 4$ ways. The remaining $3$ letters must be completely deranged, which can occur in $D_3 = 3! \\left(\\frac{1}{2} - \\frac{1}{6}\\right) = 3 - 1 = 2$ ways. Hence, the number of ways is $4 \\times 2 = 8$, yielding $p_1 = \\frac{8}{24}$. Step 4: Taking the required ratio, we get $\\frac{p_1}{p_2} = \\frac{8/24}{9/24} = \\frac{8}{9}$. Therefore, option A is correct. Option B confuses $D_3$ with $3$; option C forgets the factor $\\binom{4}{1}$; option D assumes equal probabilities for $1$ match and $0$ matches."
+    },
+    {
+      "id": "prob_c02_008",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Three marksmen $A$, $B$, and $C$ fire at a target independently, with respective probabilities of hitting equal to $\\frac{1}{2}$, $\\frac{2}{3}$, and $\\frac{3}{4}$. Each marksman fires exactly one shot. Given that exactly two of the three marksmen hit the target, what is the probability that marksman $C$ was one of the two who hit?",
+      "options": [
+        "A) $\\frac{9}{11}$",
+        "B) $\\frac{6}{11}$",
+        "C) $\\frac{3}{4}$",
+        "D) $\\frac{8}{11}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let $H_A, H_B, H_C$ denote the events that $A, B, C$ hit the target, with $P(H_A) = \\frac{1}{2}$, $P(H_B) = \\frac{2}{3}$, and $P(H_C) = \\frac{3}{4}$. The complement probabilities are $P(H_A^c) = \\frac{1}{2}$, $P(H_B^c) = \\frac{1}{3}$, and $P(H_C^c) = \\frac{1}{4}$. Step 2: Let $E$ be the event that exactly two marksmen hit the target. Since their shots are independent, $E$ can occur in three mutually exclusive ways: Case 1: $A$ and $B$ hit, $C$ misses: $P_1 = \\frac{1}{2} \\times \\frac{2}{3} \\times \\frac{1}{4} = \\frac{2}{24}$. Case 2: $A$ and $C$ hit, $B$ misses: $P_2 = \\frac{1}{2} \\times \\frac{1}{3} \\times \\frac{3}{4} = \\frac{3}{24}$. Case 3: $B$ and $C$ hit, $A$ misses: $P_3 = \\frac{1}{2} \\times \\frac{2}{3} \\times \\frac{3}{4} = \\frac{6}{24}$. Step 3: Summing these disjoint cases, we get $P(E) = \\frac{2 + 3 + 6}{24} = \\frac{11}{24}$. Step 4: The event that marksman $C$ hit the target among the two successful shooters comprises Case 2 and Case 3, yielding $P(H_C \\cap E) = P_2 + P_3 = \\frac{3 + 6}{24} = \\frac{9}{24}$. Step 5: Applying conditional probability, we get $P(H_C \\mid E) = \\frac{P(H_C \\cap E)}{P(E)} = \\frac{9/24}{11/24} = \\frac{9}{11}$. Hence, option A is correct. Option B accounts only for Case 3; option C is the prior probability $P(H_C)$; option D results from miscalculating $2+6=8$."
+    },
+    {
+      "id": "prob_c02_009",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_multi",
+      "questionText": "For two events $A$ and $B$ defined on a sample space $S$, it is given that $P(A) = \\frac{3}{5}$ and $P(B) = \\frac{2}{3}$. Which of the following statements is/are mathematically CORRECT?",
+      "options": [
+        "A) $\\frac{4}{15} \\le P(A \\cap B) \\le \\frac{3}{5}$",
+        "B) $\\frac{2}{3} \\le P(A \\cup B) \\le 1$",
+        "C) $0 \\le P(A \\cap B^c) \\le \\frac{1}{3}$",
+        "D) $P(A \\cup B)$ can be strictly less than $\\frac{3}{5}$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Applying the addition theorem of probability, we have $P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = \\frac{3}{5} + \\frac{2}{3} - P(A \\cap B) = \\frac{19}{15} - P(A \\cap B)$. Step 2: Since $P(A \\cup B) \\le 1$, we must have $\\frac{19}{15} - P(A \\cap B) \\le 1 \\implies P(A \\cap B) \\ge \\frac{19}{15} - 1 = \\frac{4}{15}$. Also, since $A \\cap B \\subseteq A$, we have $P(A \\cap B) \\le P(A) = \\frac{3}{5}$. Hence, $\\frac{4}{15} \\le P(A \\cap B) \\le \\frac{3}{5}$, so statement A is correct. Step 3: For the union, $P(A \\cup B) \\ge \\max\\{P(A), P(B)\\} = \\max\\{\\frac{3}{5}, \\frac{2}{3}\\} = \\frac{2}{3}$, and $P(A \\cup B) \\le 1$. Hence, $\\frac{2}{3} \\le P(A \\cup B) \\le 1$, which proves statement B is correct and statement D is false because $P(A \\cup B) \\ge \\frac{2}{3} > \\frac{3}{5}$. Step 4: Now, $P(A \\cap B^c) = P(A) - P(A \\cap B) = \\frac{3}{5} - P(A \\cap B)$. Since $\\frac{4}{15} \\le P(A \\cap B) \\le \\frac{3}{5}$, substituting the extreme values gives a maximum of $\\frac{3}{5} - \\frac{4}{15} = \\frac{5}{15} = \\frac{1}{3}$ and a minimum of $\\frac{3}{5} - \\frac{3}{5} = 0$. Therefore, $0 \\le P(A \\cap B^c) \\le \\frac{1}{3}$, so statement C is also correct. Thus, the correct choices are A, B, and C."
+    },
+    {
+      "id": "prob_c02_010",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Two cards are drawn at random one after another without replacement from a standard, thoroughly shuffled deck of $52$ playing cards. Let $E_1$ be the event that both drawn cards are aces, and let $E_2$ be the event that at least one of the drawn cards is the ace of spades. If the conditional probability $P(E_1 \\mid E_2)$ is expressed as $\\frac{1}{k}$, find the value of the positive integer $k$.",
+      "options": [],
+      "answer": "17",
+      "explanation": "Step 1: The total number of unordered pairs of $2$ cards drawn from $52$ playing cards is given by $\\binom{52}{2} = \\frac{52 \\times 51}{2} = 1326$. Step 2: The conditioning event $E_2$ requires that at least one of the two drawn cards is the Ace of Spades. This event comprises all pairs containing the Ace of Spades paired with any of the remaining $51$ cards in the deck. Therefore, the number of favourable outcomes for $E_2$ is $n(E_2) = 51$. Step 3: Now consider the joint event $E_1 \\cap E_2$, which specifies that both cards are aces AND one of them is the Ace of Spades. Since there are $4$ aces in total in the deck, the second ace must be chosen from the remaining $3$ aces (Ace of Hearts, Ace of Diamonds, Ace of Clubs). Hence, the number of favourable outcomes for $E_1 \\cap E_2$ is $n(E_1 \\cap E_2) = 3$. Step 4: Applying the formula for conditional probability, we get $P(E_1 \\mid E_2) = \\frac{n(E_1 \\cap E_2)}{n(E_2)} = \\frac{3}{51} = \\frac{1}{17}$. Comparing this with $\\frac{1}{k}$, we deduce that $k = 17$."
+    },
+    {
+      "id": "prob_c02_011",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Three visually indistinguishable boxes $B_1, B_2,$ and $B_3$ contain colored balls as follows: Box $B_1$ contains $3$ white and $2$ black balls; Box $B_2$ contains $2$ white and $3$ black balls; Box $B_3$ contains $4$ white and $1$ black ball. A box is chosen at random with prior probabilities $P(B_1) = \\frac{1}{2}$, $P(B_2) = \\frac{1}{3}$, and $P(B_3) = \\frac{1}{6}$. A ball is then drawn from the chosen box and observed to be white. What is the posterior probability that the ball was drawn from Box $B_1$?",
+      "options": [
+        "A) $\\frac{9}{17}$",
+        "B) $\\frac{3}{17}$",
+        "C) $\\frac{4}{17}$",
+        "D) $\\frac{1}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let $W$ be the event of drawing a white ball. The conditional probabilities of drawing a white ball from each box are $P(W \\mid B_1) = \\frac{3}{5}$, $P(W \\mid B_2) = \\frac{2}{5}$, and $P(W \\mid B_3) = \\frac{4}{5}$. Step 2: Applying the law of total probability, we get $P(W) = P(B_1)P(W \\mid B_1) + P(B_2)P(W \\mid B_2) + P(B_3)P(W \\mid B_3) = \\left(\\frac{1}{2}\\right)\\left(\\frac{3}{5}\\right) + \\left(\\frac{1}{3}\\right)\\left(\\frac{2}{5}\\right) + \\left(\\frac{1}{6}\\right)\\left(\\frac{4}{5}\\right) = \\frac{3}{10} + \\frac{2}{15} + \\frac{4}{30} = \\frac{9 + 4 + 4}{30} = \\frac{17}{30}$. Step 3: Applying Bayes' theorem, the posterior probability that Box $B_1$ was selected is given by $P(B_1 \\mid W) = \\frac{P(B_1)P(W \\mid B_1)}{P(W)} = \\frac{3/10}{17/30} = \\frac{9}{17}$. Therefore, option A is correct. Option B and option C correspond to the posterior probabilities of selecting $B_2$ and $B_3$ respectively; option D is the unconditioned prior probability $P(B_1)$."
+    },
+    {
+      "id": "prob_c02_012",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Urn I contains $4$ red and $6$ black balls, while Urn II contains $5$ red and $5$ black balls. Two balls are drawn at random from Urn I and transferred directly into Urn II without noting their colors. Subsequently, one ball is drawn at random from Urn II. What is the probability that the ball drawn from Urn II is red?",
+      "options": [
+        "A) $\\frac{29}{60}$",
+        "B) $\\frac{1}{2}$",
+        "C) $\\frac{31}{60}$",
+        "D) $\\frac{7}{15}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let $k \\in \\{0, 1, 2\\}$ denote the number of red balls transferred from Urn I to Urn II. The total number of balls in Urn I is $10$, so $\\binom{10}{2} = 45$ total selections exist. Step 2: Calculating the partition probabilities: $P(k=0) = \\frac{\\binom{6}{2}}{45} = \\frac{15}{45} = \\frac{1}{3}$; $P(k=1) = \\frac{\\binom{4}{1}\\binom{6}{1}}{45} = \\frac{24}{45} = \\frac{8}{15}$; and $P(k=2) = \\frac{\\binom{4}{2}}{45} = \\frac{6}{45} = \\frac{2}{15}$. Step 3: After transferring $2$ balls, Urn II contains $12$ balls, of which $5 + k$ are red. The conditional probability of drawing a red ball from Urn II given $k$ is $P(R \\mid k) = \\frac{5 + k}{12}$. Step 4: Applying the theorem of total probability, we get $P(R) = \\sum_{k=0}^2 P(k) P(R \\mid k) = \\frac{15}{45}\\left(\\frac{5}{12}\\right) + \\frac{24}{45}\\left(\\frac{6}{12}\\right) + \\frac{6}{45}\\left(\\frac{7}{12}\\right) = \\frac{75 + 144 + 42}{540} = \\frac{261}{540}$. Simplifying by dividing the numerator and denominator by $9$, we get $\\frac{29}{60}$. Therefore, option A is correct. Option B assumes an unperturbed composition of Urn II; option C adds transfer counts incorrectly; option D uses $\\frac{28}{60}$."
+    },
+    {
+      "id": "prob_c02_013",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a certain community, $1\\%$ of the individuals have a rare metabolic condition. A diagnostic clinical test correctly identifies an affected person with probability $0.98$ (sensitivity), but produces a false positive result in an unaffected person with probability $0.02$. A randomly chosen person undergoes two separate, conditionally independent administrations of the test, and both tests yield positive results. What is the probability that the individual actually possesses the metabolic condition?",
+      "options": [
+        "A) $\\frac{2401}{2500}$",
+        "B) $\\frac{49}{50}$",
+        "C) $\\frac{49}{100}$",
+        "D) $\\frac{2401}{2450}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let $D$ be the event that the person has the condition, so $P(D) = 0.01$ and $P(D^c) = 0.99$. Let $T_{++}$ denote the event that both independent tests are positive. Step 2: Conditioned on $D$, the probability of two positive tests is $P(T_{++} \\mid D) = (0.98)^2 = 0.9604$. Conditioned on $D^c$, the probability of two false positive tests is $P(T_{++} \\mid D^c) = (0.02)^2 = 0.0004$. Step 3: By the law of total probability, $P(T_{++}) = P(D)P(T_{++} \\mid D) + P(D^c)P(T_{++} \\mid D^c) = (0.01)(0.9604) + (0.99)(0.0004) = 0.009604 + 0.000396 = 0.010000$. Step 4: Applying Bayes' theorem, the posterior probability is $P(D \\mid T_{++}) = \\frac{P(D)P(T_{++} \\mid D)}{P(T_{++})} = \\frac{0.009604}{0.010000} = 0.9604 = \\frac{9604}{10000} = \\frac{2401}{2500}$. Therefore, option A is correct. Option B corresponds to the sensitivity $0.98$; option C is the result of a single positive test; option D omits the false positive contribution in the denominator."
+    },
+    {
+      "id": "prob_c02_014",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A discrete random variable $X$ follows a binomial distribution $B(n, p)$ such that the sum of its mean and its variance is $15$, and the product of its mean and its variance is $54$. If the success probability satisfies $p < \\frac{1}{2}$, find the value of the number of trials $n$.",
+      "options": [],
+      "answer": "27",
+      "explanation": "Step 1: For a binomial distribution $B(n, p)$, the mean is $\\mu = np$ and the variance is $\\sigma^2 = np(1 - p) = npq$. We are given $\\mu + \\sigma^2 = 15$ and $\\mu \\sigma^2 = 54$. Step 2: Therefore, $\\mu$ and $\\sigma^2$ are the roots of the quadratic equation $u^2 - 15u + 54 = 0$, which factorises as $(u - 9)(u - 6) = 0$. Hence, the roots are $9$ and $6$. Step 3: Since $0 < p < 1$, we have $0 < 1 - p < 1$, which implies that the variance $\\sigma^2 = np(1 - p)$ is strictly less than the mean $\\mu = np$. Therefore, we must have $\\mu = 9$ and $\\sigma^2 = 6$. Step 4: Dividing the variance by the mean, we get $\\frac{\\sigma^2}{\\mu} = 1 - p = \\frac{6}{9} = \\frac{2}{3} \\implies p = 1 - \\frac{2}{3} = \\frac{1}{3}$. This satisfies the given condition $p < \\frac{1}{2}$. Step 5: Substituting $p = \\frac{1}{3}$ into $\\mu = np = 9$, we get $n = \\frac{9}{1/3} = 27$."
+    },
+    {
+      "id": "prob_c02_015",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A biased die is thrown $12$ times independently. On any individual throw, the probability of scoring a $6$ is $p = \\frac{1}{4}$. Let $X$ denote the number of times a $6$ is scored in the $12$ throws. Determine the value of $k$ that maximizes the probability $P(X = k)$, and identify the corresponding maximum probability.",
+      "options": [
+        "A) $k = 3$, with probability $\\binom{12}{3} \\left(\\frac{1}{4}\\right)^3 \\left(\\frac{3}{4}\\right)^9$",
+        "B) $k = 4$, with probability $\\binom{12}{4} \\left(\\frac{1}{4}\\right)^4 \\left(\\frac{3}{4}\\right)^8$",
+        "C) $k = 2$ and $k = 3$, both yielding the same maximal probability",
+        "D) $k = 3$ and $k = 4$, both yielding the same maximal probability"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For a binomial distribution $X \\sim B(n, p)$, the ratio of consecutive probabilities is $\\frac{P(X = k)}{P(X = k - 1)} = \\frac{n - k + 1}{k} \\frac{p}{1 - p}$. Setting this ratio greater than $1$ yields $(n - k + 1)p > k(1 - p) \\implies k < (n + 1)p$. Step 2: Substituting $n = 12$ and $p = \\frac{1}{4}$, we compute $(n + 1)p = (12 + 1) \\times \\frac{1}{4} = \\frac{13}{4} = 3.25$. Step 3: Since $(n + 1)p = 3.25$ is not an integer, the binomial distribution has a unique mode at $k = \\lfloor (n + 1)p \\rfloor = \\lfloor 3.25 \\rfloor = 3$. Step 4: The maximum probability is therefore achieved at $k = 3$, giving $P(X = 3) = \\binom{12}{3} \\left(\\frac{1}{4}\\right)^3 \\left(\\frac{3}{4}\\right)^9$. Hence, option A is correct. Option B incorrectly rounds $(n+1)p$ up; option C and D incorrectly assume two modes exist when $(n+1)p$ is non-integral."
+    },
+    {
+      "id": "prob_c02_016",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_multi",
+      "questionText": "Let $X$ be a binomial random variable distributed as $B\\left(10, \\frac{1}{2}\\right)$. Which of the following statements regarding the distribution of $X$ is/are CORRECT?",
+      "options": [
+        "A) $P(X \\le 4) = P(X \\ge 6)$",
+        "B) $P(X = 5) = \\frac{63}{256}$",
+        "C) $E[X^2] = 27.5$",
+        "D) $P(X \\text{ is an even integer}) = \\frac{1}{2}$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Since $p = \\frac{1}{2}$, the binomial distribution is symmetric about the mean $\\mu = np = 10 \\times \\frac{1}{2} = 5$. By symmetry, $P(X = k) = P(X = 10 - k)$ for all $k$. Therefore, $P(X \\le 4) = \\sum_{k=0}^4 P(X = k) = \\sum_{k=0}^4 P(X = 10 - k) = P(X \\ge 6)$, so statement A is correct. Step 2: The probability mass at the mean is $P(X = 5) = \\binom{10}{5} \\left(\\frac{1}{2}\\right)^{10} = \\frac{252}{1024} = \\frac{63}{256}$, which confirms statement B is correct. Step 3: The mean is $E[X] = 5$ and the variance is $\\text{Var}(X) = np(1 - p) = 10 \\times \\frac{1}{2} \\times \\frac{1}{2} = 2.5$. Applying the relation $E[X^2] = \\text{Var}(X) + (E[X])^2$, we get $E[X^2] = 2.5 + 5^2 = 27.5$, so statement C is correct. Step 4: The probability of obtaining an even number of successes is $\\sum_{k \\text{ even}} \\binom{n}{k} p^k (1 - p)^{n - k} = \\frac{(q + p)^n + (q - p)^n}{2}$. Substituting $p = q = \\frac{1}{2}$, this becomes $\\frac{1^{10} + 0^{10}}{2} = \\frac{1}{2}$, which shows statement D is correct. Thus, all four statements A, B, C, and D are correct."
+    },
+    {
+      "id": "prob_c02_017",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A person $A$ speaks the truth in $75\\%$ of cases and a person $B$ speaks the truth in $80\\%$ of cases. A standard six-faced die is rolled once. Both $A$ and $B$ independently report that the number rolled on the die is a prime number. What is the probability that the number rolled is actually a prime number?",
+      "options": [
+        "A) $\\frac{12}{13}$",
+        "B) $\\frac{3}{5}$",
+        "C) $\\frac{4}{5}$",
+        "D) $\\frac{11}{13}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The set of prime numbers on a standard six-faced die is $\\{2, 3, 5\\}$ ($3$ outcomes), and the non-prime numbers are $\\{1, 4, 6\\}$ ($3$ outcomes). Let $E$ be the event that the die shows a prime number, so $P(E) = \\frac{3}{6} = \\frac{1}{2}$ and $P(E^c) = \\frac{1}{2}$. Step 2: Let $R$ be the event that both $A$ and $B$ report that a prime number has appeared. If $E$ occurred, both $A$ and $B$ must speak the truth, yielding $P(R \\mid E) = \\left(\\frac{3}{4}\\right)\\left(\\frac{4}{5}\\right) = \\frac{12}{20} = \\frac{3}{5}$. Step 3: If $E^c$ occurred, both $A$ and $B$ must lie and assert that a prime appeared, yielding $P(R \\mid E^c) = \\left(1 - \\frac{3}{4}\\right)\\left(1 - \\frac{4}{5}\\right) = \\left(\\frac{1}{4}\\right)\\left(\\frac{1}{5}\\right) = \\frac{1}{20}$. Step 4: Applying Bayes' theorem, we get $P(E \\mid R) = \\frac{P(E)P(R \\mid E)}{P(E)P(R \\mid E) + P(E^c)P(R \\mid E^c)} = \\frac{\\frac{1}{2} \\times \\frac{12}{20}}{\\frac{1}{2} \\times \\frac{12}{20} + \\frac{1}{2} \\times \\frac{1}{20}} = \\frac{12}{12 + 1} = \\frac{12}{13}$. Therefore, option A is correct. Option B is simply the joint truth probability $\\frac{3}{4} \\times \\frac{4}{5} = \\frac{3}{5}$; option C is the truth probability of $B$; option D is an arithmetic mistake."
+    },
+    {
+      "id": "prob_c02_018",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An urn initially contains $3$ white balls and $2$ black balls. A ball is drawn at random, its color is recorded, and it is returned to the urn together with $2$ additional balls of the exact same color. The balls are mixed thoroughly, and the process is repeated. If the probability that the ball drawn on the third draw is white is expressed as an irreducible fraction $\\frac{p}{q}$, find the value of $p + q$.",
+      "options": [],
+      "answer": "8",
+      "explanation": "Step 1: Let $W_i$ and $B_i$ denote the events of drawing a white ball and a black ball on the $i$-th draw, respectively. Initially, the urn contains $w = 3$ white and $b = 2$ black balls, with total $T_1 = 5$. Hence, $P(W_1) = \\frac{3}{5}$. Step 2: On the second draw, applying total probability, $P(W_2) = P(W_1)P(W_2 \\mid W_1) + P(B_1)P(W_2 \\mid B_1) = \\frac{3}{5}\\left(\\frac{5}{7}\\right) + \\frac{2}{5}\\left(\\frac{3}{7}\\right) = \\frac{15 + 6}{35} = \\frac{21}{35} = \\frac{3}{5}$. Step 3: For the third draw, we partition over all four outcomes of the first two draws: $(W_1, W_2)$ has probability $\\frac{3}{5} \\times \\frac{5}{7} = \\frac{15}{35}$, leaving $7$ white and $2$ black balls (total $9$), so $P(W_3 \\mid W_1, W_2) = \\frac{7}{9}$; $(W_1, B_2)$ has probability $\\frac{3}{5} \\times \\frac{2}{7} = \\frac{6}{35}$, leaving $5$ white and $4$ black balls, so $P(W_3 \\mid W_1, B_2) = \\frac{5}{9}$; $(B_1, W_2)$ has probability $\\frac{2}{5} \\times \\frac{3}{7} = \\frac{6}{35}$, leaving $5$ white and $4$ black balls, so $P(W_3 \\mid B_1, W_2) = \\frac{5}{9}$; $(B_1, B_2)$ has probability $\\frac{2}{5} \\times \\frac{4}{7} = \\frac{8}{35}$, leaving $3$ white and $6$ black balls, so $P(W_3 \\mid B_1, B_2) = \\frac{3}{9}$. Step 4: Summing these probabilities, $P(W_3) = \\frac{15 \\times 7 + 6 \\times 5 + 6 \\times 5 + 8 \\times 3}{35 \\times 9} = \\frac{105 + 30 + 30 + 24}{315} = \\frac{189}{315}$. Dividing both numerator and denominator by $63$, we obtain $\\frac{3}{5}$. Step 5: Therefore, $\\frac{p}{q} = \\frac{3}{5}$ with $\\gcd(3, 5) = 1$, which yields $p + q = 3 + 5 = 8$."
+    },
+    {
+      "id": "prob_c02_019",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two biased coins $C_1$ and $C_2$ are placed in a box. Coin $C_1$ has probability of landing heads equal to $\\frac{3}{4}$, whereas coin $C_2$ has probability of landing heads equal to $\\frac{1}{4}$. One coin is chosen at random with equal probability and tossed $4$ times independently. If exactly $3$ heads are observed in the $4$ tosses, what is the probability that coin $C_1$ was chosen?",
+      "options": [
+        "A) $\\frac{9}{10}$",
+        "B) $\\frac{3}{4}$",
+        "C) $\\frac{27}{28}$",
+        "D) $\\frac{4}{5}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let $E$ be the event of observing exactly $3$ heads in $4$ independent tosses. The prior probabilities are $P(C_1) = P(C_2) = \\frac{1}{2}$. Step 2: Under coin $C_1$, the probability of heads is $p_1 = \\frac{3}{4}$, so $P(E \\mid C_1) = \\binom{4}{3}\\left(\\frac{3}{4}\\right)^3\\left(\\frac{1}{4}\\right)^1 = 4 \\times \\frac{27}{256} = \\frac{108}{256}$. Step 3: Under coin $C_2$, the probability of heads is $p_2 = \\frac{1}{4}$, so $P(E \\mid C_2) = \\binom{4}{3}\\left(\\frac{1}{4}\\right)^3\\left(\\frac{3}{4}\\right)^1 = 4 \\times \\frac{3}{256} = \\frac{12}{256}$. Step 4: Applying Bayes' theorem, the posterior probability of coin $C_1$ having been selected is $P(C_1 \\mid E) = \\frac{P(C_1)P(E \\mid C_1)}{P(C_1)P(E \\mid C_1) + P(C_2)P(E \\mid C_2)} = \\frac{108/256}{108/256 + 12/256} = \\frac{108}{120} = \\frac{9}{10}$. Therefore, option A is correct. Option B is the parameter $p_1$; option C drops the binomial factor $4$ selectively; option D is $\\frac{8}{10}$."
+    },
+    {
+      "id": "prob_c02_020",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_multi",
+      "questionText": "An unbiased six-faced die is rolled independently $6$ times. Let the random variable $X$ denote the total number of times an odd number appears in these $6$ rolls. Which of the following statements is/are CORRECT?",
+      "options": [
+        "A) $P(X \\ge 4 \\mid X \\ge 2) = \\frac{22}{57}$",
+        "B) The variance of $X$ is $\\frac{3}{2}$",
+        "C) $P(X = 3)$ is strictly greater than $P(X = k)$ for all $k \\in \\{0, 1, 2, 4, 5, 6\\}$",
+        "D) $E\\left[\\frac{1}{X + 1}\\right] = \\frac{127}{448}$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: The probability of obtaining an odd number on a single roll is $p = \\frac{3}{6} = \\frac{1}{2}$. Thus, $X \\sim B(6, \\frac{1}{2})$. Step 2: The total number of outcomes is $2^6 = 64$. We have $P(X \\ge 2) = 1 - P(X = 0) - P(X = 1) = 1 - \\frac{\\binom{6}{0} + \\binom{6}{1}}{64} = 1 - \\frac{7}{64} = \\frac{57}{64}$. For $X \\ge 4$, $P(X \\ge 4) = \\frac{\\binom{6}{4} + \\binom{6}{5} + \\binom{6}{6}}{64} = \\frac{15 + 6 + 1}{64} = \\frac{22}{64}$. Since $\\{X \\ge 4\\} \\subset \\{X \\ge 2\\}$, the conditional probability is $P(X \\ge 4 \\mid X \\ge 2) = \\frac{22/64}{57/64} = \\frac{22}{57}$, so statement A is correct. Step 3: The variance of $X$ is $\\text{Var}(X) = np(1 - p) = 6 \\times \\frac{1}{2} \\times \\frac{1}{2} = \\frac{3}{2}$, proving statement B is correct. Step 4: The probability at $k = 3$ is $P(X = 3) = \\binom{6}{3}\\left(\\frac{1}{2}\\right)^6 = \\frac{20}{64}$, while $P(X = 2) = P(X = 4) = \\frac{15}{64}$, $P(X = 1) = P(X = 5) = \\frac{6}{64}$, and $P(X = 0) = P(X = 6) = \\frac{1}{64}$. Since $20 > 15 > 6 > 1$, $P(X = 3)$ is the unique maximum, proving statement C is correct. Step 5: For any binomial variable, $E\\left[\\frac{1}{X + 1}\\right] = \\sum_{k=0}^n \\frac{1}{k + 1} \\binom{n}{k} p^k q^{n - k} = \\frac{1}{(n + 1)p} [1 - q^{n + 1}]$. Substituting $n = 6$ and $p = q = \\frac{1}{2}$, we get $E\\left[\\frac{1}{X + 1}\\right] = \\frac{1}{7 \\times (1/2)} \\left[1 - \\left(\\frac{1}{2}\\right)^7\\right] = \\frac{2}{7}\\left(1 - \\frac{1}{128}\\right) = \\frac{2}{7} \\times \\frac{127}{128} = \\frac{127}{448}$, which proves statement D is correct. Hence, A, B, C, and D are all correct."
+    },
+    {
+      "id": "prob_c02_021",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A gambler starts with an initial fortune of $k = 3$ units of capital. At each successive round of play, the gambler wins $1$ unit with probability $p = \\frac{2}{5}$ and loses $1$ unit with probability $q = \\frac{3}{5}$. The game ceases when the total capital reaches either $0$ units (ruin) or $N = 6$ units (the target goal). What is the exact probability $P_3$ that the gambler achieves the target goal of $6$ units before suffering ruin?",
+      "options": [
+        "A) $\\frac{8}{35}$",
+        "B) $\\frac{1}{2}$",
+        "C) $\\frac{27}{65}$",
+        "D) $\\frac{4}{35}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In the classical gambler's ruin formulation, the probability $P_k$ of reaching capital $N$ from capital $k$ satisfies the linear recurrence relation $P_k = p P_{k + 1} + q P_{k - 1}$ for $1 \\le k \\le N - 1$, subject to the boundary conditions $P_0 = 0$ and $P_N = 1$. Step 2: Defining the ratio $r = \\frac{q}{p} = \\frac{3/5}{2/5} = \\frac{3}{2} \\ne 1$, the general solution to this second-order linear difference equation is given by $P_k = \\frac{1 - r^k}{1 - r^N}$. Step 3: Substituting the parameters $k = 3$, $N = 6$, and $r = \\frac{3}{2}$, we compute $r^3 = \\left(\\frac{3}{2}\\right)^3 = \\frac{27}{8}$, yielding $1 - r^3 = 1 - \\frac{27}{8} = -\\frac{19}{8}$. Step 4: Similarly, $r^6 = \\left(\\frac{3}{2}\\right)^6 = \\frac{729}{64}$, yielding $1 - r^6 = 1 - \\frac{729}{64} = -\\frac{665}{64}$. Step 5: Dividing the two expressions, we get $P_3 = \\frac{-19/8}{-665/64} = \\frac{19}{8} \\times \\frac{64}{665} = \\frac{19 \\times 8}{665}$. Since $665 = 19 \\times 35$, we divide by $19$ to obtain $P_3 = \\frac{8}{35}$. Therefore, option A is correct. Option B assumes a symmetric game with $p = q$; option C inverts the ratio $p/q$; option D misses a factor of $2$."
+    },
+    {
+      "id": "prob_c02_022",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $X$ be a non-negative integer-valued discrete random variable with probability generating function given by $G_X(s) = E[s^X] = \\frac{1}{4 - 3s}$ for all real $s$ in the domain $|s| < \\frac{4}{3}$. Find the value of the variance $\\text{Var}(X)$.",
+      "options": [],
+      "answer": "12",
+      "explanation": "Step 1: Notice that $G_X(1) = \\frac{1}{4 - 3(1)} = 1$, which confirms that $G_X(s)$ is a valid, properly normalized probability generating function. Step 2: Differentiating $G_X(s)$ with respect to $s$ yields $G_X'(s) = \\frac{d}{ds}(4 - 3s)^{-1} = -(4 - 3s)^{-2}(-3) = \\frac{3}{(4 - 3s)^2}$. Evaluating at $s = 1$, we obtain the expected value $E[X] = G_X'(1) = \\frac{3}{(4 - 3)^2} = 3$. Step 3: Differentiating a second time yields $G_X''(s) = \\frac{d}{ds} 3(4 - 3s)^{-2} = 3(-2)(4 - 3s)^{-3}(-3) = \\frac{18}{(4 - 3s)^3}$. Evaluating at $s = 1$ gives the second factorial moment $E[X(X - 1)] = G_X''(1) = \\frac{18}{(4 - 3)^3} = 18$. Step 4: Applying the fundamental moment formula for the variance via generating functions, we get $\\text{Var}(X) = G_X''(1) + G_X'(1) - [G_X'(1)]^2$. Step 5: Substituting the computed values yields $\\text{Var}(X) = 18 + 3 - (3)^2 = 21 - 9 = 12$."
+    },
+    {
+      "id": "prob_c02_023",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A high-speed digital communications channel transmits data packets consecutively. The trial number $X$ at which the first transmission error occurs follows a geometric distribution with probability mass function $P(X = k) = (1 - p)^{k - 1} p$ for $k = 1, 2, 3, \\ldots$, where the error probability is $p = \\frac{1}{10}$. Given that no packet errors occurred in the first $5$ transmissions, what is the conditional probability that the first transmission error occurs on or after the $9$th transmission?",
+      "options": [
+        "A) $\\left(\\frac{9}{10}\\right)^3$",
+        "B) $\\left(\\frac{9}{10}\\right)^4$",
+        "C) $\\left(\\frac{9}{10}\\right)^8$",
+        "D) $\\frac{1}{10}\\left(\\frac{9}{10}\\right)^3$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For a geometric distribution supported on positive integers $\\{1, 2, 3, \\ldots\\}$, the tail probability is $P(X > n) = \\sum_{k = n + 1}^\\infty (1 - p)^{k - 1} p = (1 - p)^n$. Step 2: The conditioning event that no errors occur in the first $5$ transmissions means $X > 5$, so $P(X > 5) = (1 - p)^5$. Step 3: The event that the first error occurs on or after the $9$th transmission is equivalent to $X \\ge 9$, which can be written strictly as $X > 8$. Since $\\{X > 8\\} \\subseteq \\{X > 5\\}$, we get $P(X \\ge 9 \\cap X > 5) = P(X > 8) = (1 - p)^8$. Step 4: Applying the definition of conditional probability, we get $P(X \\ge 9 \\mid X > 5) = \\frac{P(X > 8)}{P(X > 5)} = \\frac{(1 - p)^8}{(1 - p)^5} = (1 - p)^{8 - 5} = (1 - p)^3$. Step 5: Substituting $p = \\frac{1}{10}$ yields $1 - p = \\frac{9}{10}$, so the required probability is $\\left(\\frac{9}{10}\\right)^3 = \\frac{729}{1000}$. Hence, option A is correct. Option B makes an off-by-one index error $9 - 5 = 4$; option C is the unconditioned probability $P(X > 8)$; option D represents the point mass $P(X = 9 \\mid X > 5)$."
+    },
+    {
+      "id": "prob_c02_024",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A semiconductor fabrication facility manufactures microchips, where the probability of any given chip having a fatal defect is $p = 0.002$. A random batch of $n = 1000$ chips is inspected. Using the Poisson approximation to the binomial distribution, find the conditional probability that the batch contains at least $2$ defective chips, given the condition that it contains at least $1$ defective chip.",
+      "options": [
+        "A) $\\frac{e^2 - 3}{e^2 - 1}$",
+        "B) $\\frac{e^2 - 2}{e^2 - 1}$",
+        "C) $1 - 3e^{-2}$",
+        "D) $\\frac{2}{e^2 - 1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The number of defective chips follows a binomial distribution $B(n, p)$ with $n = 1000$ and $p = 0.002$. Since $n$ is large and $p$ is small with $\\lambda = np = 1000 \\times 0.002 = 2$, we apply the Poisson approximation with intensity parameter $\\lambda = 2$. Step 2: Under $Y \\sim \\text{Poisson}(2)$, the probability mass function is $P(Y = k) = \\frac{e^{-2} 2^k}{k!}$ for $k \\ge 0$. The probability of at least one defect is $P(Y \\ge 1) = 1 - P(Y = 0) = 1 - e^{-2}$. Step 3: The probability of at least two defects is $P(Y \\ge 2) = 1 - P(Y = 0) - P(Y = 1) = 1 - e^{-2} - 2e^{-2} = 1 - 3e^{-2}$. Step 4: Because $\\{Y \\ge 2\\} \\subset \\{Y \\ge 1\\}$, the joint event is simply $\\{Y \\ge 2\\}$. Applying conditional probability, we get $P(Y \\ge 2 \\mid Y \\ge 1) = \\frac{P(Y \\ge 2)}{P(Y \\ge 1)} = \\frac{1 - 3e^{-2}}{1 - e^{-2}}$. Multiplying numerator and denominator by $e^2$, we obtain $\\frac{e^2 - 3}{e^2 - 1}$. Therefore, option A is correct. Option B forgets $P(Y=0)$ in the numerator; option C calculates the unconditional probability; option D calculates $P(Y = 1 \\mid Y \\ge 1)$."
+    },
+    {
+      "id": "prob_c02_025",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "An unbiased standard six-faced die is rolled repeatedly until a $6$ appears for the first time. Let $N$ be the total number of rolls required. Each time the die is rolled, a biased coin with probability of showing heads equal to $p = \\frac{1}{3}$ is tossed simultaneously. Let $K$ denote the total number of heads accumulated up to and including the $N$-th roll. Which of the following statements is/are CORRECT?",
+      "options": [
+        "A) The expected number of rolls is $E[N] = 6$",
+        "B) The conditional expectation of $K$ given $N$ is $E[K \\mid N] = \\frac{N}{3}$",
+        "C) The unconditional expected number of heads is $E[K] = 2$",
+        "D) The unconditional variance of the total number of heads is $\\text{Var}(K) = \\frac{14}{3}$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: The random variable $N$ follows a geometric distribution with parameter $p_{\\text{die}} = \\frac{1}{6}$. The expectation is $E[N] = \\frac{1}{1/6} = 6$, and its variance is $\\text{Var}(N) = \\frac{1 - 1/6}{(1/6)^2} = \\frac{5/6}{1/36} = 30$. Thus, statement A is correct. Step 2: Given $N = n$, the coin is tossed $n$ times independently, so $K \\mid (N = n) \\sim B(n, \\frac{1}{3})$. Hence, the conditional expectation is $E[K \\mid N] = N \\times \\frac{1}{3} = \\frac{N}{3}$, confirming statement B is correct. Step 3: By the law of total expectation, $E[K] = E[E[K \\mid N]] = E\\left[\\frac{N}{3}\\right] = \\frac{E[N]}{3} = \\frac{6}{3} = 2$, proving statement C is correct. Step 4: Applying Eve's law (the law of total variance), $\\text{Var}(K) = E[\\text{Var}(K \\mid N)] + \\text{Var}(E[K \\mid N])$. Step 5: Since $\\text{Var}(K \\mid N) = N \\times \\frac{1}{3} \\times \\frac{2}{3} = \\frac{2N}{9}$, we have $E[\\text{Var}(K \\mid N)] = \\frac{2 E[N]}{9} = \\frac{12}{9} = \\frac{4}{3}$. Furthermore, $\\text{Var}(E[K \\mid N]) = \\text{Var}\\left(\\frac{N}{3}\\right) = \\frac{1}{9}\\text{Var}(N) = \\frac{30}{9} = \\frac{10}{3}$. Summing both terms, $\\text{Var}(K) = \\frac{4}{3} + \\frac{10}{3} = \\frac{14}{3}$, which proves statement D is correct. Thus, statements A, B, C, and D are all correct."
+    },
+    {
+      "id": "prob_c02_026",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A promotional campaign offers collector badges inside sealed packages. Each package contains exactly one badge chosen uniformly at random from a complete set of $4$ distinct collector badges. Let $T$ denote the random number of packages that a collector must purchase in order to acquire at least one copy of each of the $4$ distinct badges. Find the value of the integer expression $12 \\times E[T]$.",
+      "options": [],
+      "answer": "100",
+      "explanation": "Step 1: Let $T = X_1 + X_2 + X_3 + X_4$, where $X_i$ represents the number of additional packages purchased to obtain the $i$-th distinct badge after having already collected $i - 1$ distinct badges. Step 2: The first package guaranteed produces a new badge, so $X_1 = 1$ with probability $1$, yielding $E[X_1] = 1$. Step 3: When $i - 1$ distinct badges have been found, the probability of obtaining a new badge in any subsequent draw is $p_i = \\frac{4 - (i - 1)}{4}$. Thus, each $X_i$ is a geometric random variable with parameter $p_i$, so $E[X_i] = \\frac{1}{p_i}$. Step 4: Computing these expectations individually: for $i = 2$, $p_2 = \\frac{3}{4} \\implies E[X_2] = \\frac{4}{3}$; for $i = 3$, $p_3 = \\frac{2}{4} = \\frac{1}{2} \\implies E[X_3] = 2$; and for $i = 4$, $p_4 = \\frac{1}{4} \\implies E[X_4] = 4$. Step 5: By linearity of expectation, $E[T] = E[X_1] + E[X_2] + E[X_3] + E[X_4] = 1 + \\frac{4}{3} + 2 + 4 = 7 + \\frac{4}{3} = \\frac{25}{3}$. Multiplying by $12$, we get $12 \\times E[T] = 12 \\times \\frac{25}{3} = 4 \\times 25 = 100$."
+    },
+    {
+      "id": "prob_c02_027",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In a symmetric gambler's ruin process, a player starts with capital $k = 4$. At each discrete turn, the player wins $1$ unit with probability $\\frac{1}{2}$ or loses $1$ unit with probability $\\frac{1}{2}$. The game terminates as soon as the capital reaches either $0$ or $N = 10$. Find the expected total duration (the expected number of turns) until the game terminates.",
+      "options": [
+        "A) $24$",
+        "B) $16$",
+        "C) $40$",
+        "D) $20$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let $D_k$ denote the expected duration of the game starting from capital $k$. By first-step analysis, $D_k$ satisfies the non-homogeneous recurrence relation $D_k = 1 + \\frac{1}{2} D_{k + 1} + \\frac{1}{2} D_{k - 1}$ for $1 \\le k \\le N - 1$, with boundary conditions $D_0 = 0$ and $D_N = 0$. Step 2: Rearranging the difference equation gives $D_{k + 1} - 2D_k + D_{k - 1} = -2$. The homogeneous part has the general solution $D_k^{(h)} = A + B k$. Step 3: For the particular solution, trying $D_k^{(p)} = C k^2$, we substitute into the recurrence: $C(k + 1)^2 - 2C k^2 + C(k - 1)^2 = 2C = -2 \\implies C = -1$. Hence, the general solution is $D_k = A + B k - k^2$. Step 4: Applying the boundary conditions: $D_0 = A = 0$, and $D_N = B N - N^2 = 0 \\implies B = N$. Therefore, the expected duration formula is $D_k = k(N - k)$. Step 5: Substituting the given parameters $k = 4$ and $N = 10$, we obtain $D_4 = 4(10 - 4) = 4 \\times 6 = 24$. Hence, option A is correct. Option B calculates $k^2 = 16$; option C calculates $k N = 40$; option D is an approximation error."
+    },
+    {
+      "id": "prob_c02_028",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $X_1, X_2, \\ldots, X_m$ be mutually independent and identically distributed Poisson random variables, each having parameter $\\lambda = 2$. Define their sum as $S_m = \\sum_{i=1}^m X_i$. Which of the following statements is/are CORRECT?",
+      "options": [
+        "A) The probability generating function of $S_m$ is $G_{S_m}(s) = e^{2m(s - 1)}$ for all $s \\in \\mathbb{R}$",
+        "B) When $m = 3$, the exact probability $P(S_3 = 2)$ equals $18 e^{-6}$",
+        "C) The expected reciprocal value $E\\left[\\frac{1}{S_m + 1}\\right]$ equals $\\frac{1 - e^{-2m}}{2m}$",
+        "D) The asymptotic limit $\\lim_{m \\to \\infty} P\\left(\\frac{S_m - 2m}{\\sqrt{2m}} \\le 0\\right) = \\frac{1}{2}$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: For each $X_i \\sim \\text{Poisson}(2)$, its probability generating function is $G_X(s) = \\sum_{k=0}^\\infty s^k e^{-2}\\frac{2^k}{k!} = e^{-2} e^{2s} = e^{2(s - 1)}$. Because the random variables are mutually independent, the generating function of their sum is $G_{S_m}(s) = [G_X(s)]^m = [e^{2(s - 1)}]^m = e^{2m(s - 1)}$, so statement A is correct. Step 2: Since the sum of independent Poisson variables is Poisson with parameter equal to the sum of the parameters, $S_m \\sim \\text{Poisson}(2m)$. For $m = 3$, the parameter is $\\mu = 2(3) = 6$. Therefore, $P(S_3 = 2) = \\frac{e^{-6} 6^2}{2!} = \\frac{36 e^{-6}}{2} = 18 e^{-6}$, so statement B is correct. Step 3: By definition of expectation, $E\\left[\\frac{1}{S_m + 1}\\right] = \\sum_{k=0}^\\infty \\frac{1}{k + 1} e^{-2m} \\frac{(2m)^k}{k!} = \\frac{e^{-2m}}{2m} \\sum_{k=0}^\\infty \\frac{(2m)^{k + 1}}{(k + 1)!} = \\frac{e^{-2m}}{2m}(e^{2m} - 1) = \\frac{1 - e^{-2m}}{2m}$, confirming statement C is correct. Step 4: The mean of $S_m$ is $2m$ and its variance is $2m$. By the central limit theorem, the standardized variable $Z_m = \\frac{S_m - 2m}{\\sqrt{2m}}$ converges in distribution to the standard normal distribution $\\mathcal{N}(0, 1)$ as $m \\to \\infty$. Therefore, $\\lim_{m \\to \\infty} P(Z_m \\le 0) = \\Phi(0) = \\frac{1}{2}$, so statement D is correct. Hence, all four statements A, B, C, and D are correct."
+    },
+    {
+      "id": "prob_c02_029",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "An unbiased coin with probability of showing heads equal to $p = \\frac{1}{2}$ is tossed repeatedly and independently. Let $N$ denote the random number of tosses required until two consecutive heads ($HH$) appear for the very first time. Find the expected value $E[N]$.",
+      "options": [],
+      "answer": "6",
+      "explanation": "Step 1: Let $e$ denote the expected number of additional tosses required to reach $HH$ starting from the initial state where no heads have just occurred. Let $e_1$ denote the expected number of additional tosses required given that the preceding toss resulted in heads. Step 2: From the initial state, on the first toss: with probability $\\frac{1}{2}$ we obtain tails, returning to the initial state with $1$ toss consumed, contributing $\\frac{1}{2}(1 + e)$; with probability $\\frac{1}{2}$ we obtain heads, transitioning to the one-head state with $1$ toss consumed, contributing $\\frac{1}{2}(1 + e_1)$. Therefore, $e = 1 + \\frac{1}{2}e + \\frac{1}{2}e_1 \\implies \\frac{1}{2}e = 1 + \\frac{1}{2}e_1 \\implies e = 2 + e_1$. Step 3: From the one-head state: with probability $\\frac{1}{2}$ the next toss is heads, yielding $HH$ and completing the experiment with $1$ toss; with probability $\\frac{1}{2}$ the next toss is tails, resetting to the initial state, which requires $1 + e$ tosses. Therefore, $e_1 = \\frac{1}{2}(1) + \\frac{1}{2}(1 + e) = 1 + \\frac{1}{2}e$. Step 4: Substituting $e_1 = 1 + \\frac{1}{2}e$ into $e = 2 + e_1$, we obtain $e = 2 + 1 + \\frac{1}{2}e = 3 + \\frac{1}{2}e$. Solving for $e$, we get $\\frac{1}{2}e = 3 \\implies e = 6$. Step 5: Hence, the expected total number of tosses is $E[N] = 6$."
+    },
+    {
+      "id": "prob_c02_030",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Suppose $m = 20$ particles are placed independently and uniformly at random into $n = 365$ discrete cells. Using the Poisson approximation for the total number of pairwise collisions among the $\\binom{m}{2}$ pairs of particles, where the expected number of collisions is $\\lambda = \\frac{\\binom{m}{2}}{n}$, find the approximate probability that no two particles land in the same cell.",
+      "options": [
+        "A) $e^{-38/73}$",
+        "B) $e^{-19/73}$",
+        "C) $1 - e^{-38/73}$",
+        "D) $e^{-20/73}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The total number of distinct pairs formed from $m = 20$ particles is $\\binom{m}{2} = \\binom{20}{2} = \\frac{20 \\times 19}{2} = 190$. Step 2: For any given pair, the probability that both particles land in the same specified cell is $\\frac{1}{n} = \\frac{1}{365}$. Step 3: By linearity of expectation, the expected number of pairwise collisions is $\\lambda = \\frac{\\binom{m}{2}}{n} = \\frac{190}{365}$. Simplifying the fraction by dividing numerator and denominator by $5$, we get $\\lambda = \\frac{38}{73}$. Step 4: Under the Poisson paradigm for weakly dependent rare collision events, the total number of collisions $C$ is approximately distributed as $\\text{Poisson}(\\lambda)$ with $\\lambda = \\frac{38}{73}$. Step 5: The condition that no two particles share a cell is equivalent to having zero collisions, $C = 0$. The probability of this event is $P(C = 0) = \\frac{e^{-\\lambda} \\lambda^0}{0!} = e^{-\\lambda} = e^{-38/73}$. Therefore, option A is correct. Option B omits the combination factor $\\frac{1}{2}$; option C gives the probability of at least one collision; option D substitutes $m$ for $\\binom{m}{2}$."
+    },
+    {
+      "id": "prob_c02_031",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In an asymmetric random walk, a particle moves along the integer states $\\{0, 1, 2, 3, 4, 5\\}$ with absorbing barriers at $0$ and $5$. From any interior position $x \\in \\{1, 2, 3, 4\\}$, the particle moves to $x + 1$ with probability $p = \\frac{2}{3}$ and to $x - 1$ with probability $q = \\frac{1}{3}$. Let $u_x$ denote the probability that the particle is eventually absorbed at state $5$ given that it starts at position $x$. Which of the following statements is/are CORRECT?",
+      "options": [
+        "A) The recurrence relation is $u_x = \\frac{2}{3} u_{x + 1} + \\frac{1}{3} u_{x - 1}$ with boundary conditions $u_0 = 0$ and $u_5 = 1$",
+        "B) Starting from $x = 1$, the absorption probability at state $5$ is $u_1 = \\frac{16}{31}$",
+        "C) Starting from $x = 4$, the absorption probability at state $5$ is $u_4 = \\frac{30}{31}$",
+        "D) Starting from $x = 2$, the probability that the particle is absorbed at state $0$ is $\\frac{7}{31}$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: By first-step analysis, $u_x = p u_{x + 1} + q u_{x - 1} = \\frac{2}{3} u_{x + 1} + \\frac{1}{3} u_{x - 1}$ for $x \\in \\{1, 2, 3, 4\\}$, with absorption conditions $u_0 = 0$ and $u_5 = 1$. Hence, statement A is correct. Step 2: The characteristic ratio is $r = \\frac{q}{p} = \\frac{1/3}{2/3} = \\frac{1}{2}$. The general solution for the absorption probability is $u_x = \\frac{1 - r^x}{1 - r^N}$ with $N = 5$. Computing the denominator, $1 - r^5 = 1 - \\left(\\frac{1}{2}\\right)^5 = 1 - \\frac{1}{32} = \\frac{31}{32}$. Step 3: For $x = 1$, $1 - r^1 = 1 - \\frac{1}{2} = \\frac{1}{2} = \\frac{16}{32}$. Thus, $u_1 = \\frac{16/32}{31/32} = \\frac{16}{31}$, confirming statement B is correct. Step 4: For $x = 4$, $1 - r^4 = 1 - \\left(\\frac{1}{2}\\right)^4 = 1 - \\frac{1}{16} = \\frac{15}{16} = \\frac{30}{32}$. Thus, $u_4 = \\frac{30/32}{31/32} = \\frac{30}{31}$, confirming statement C is correct. Step 5: For $x = 2$, $1 - r^2 = 1 - \\frac{1}{4} = \\frac{3}{4} = \\frac{24}{32}$, so $u_2 = \\frac{24}{31}$. Because the particle is absorbed at either $0$ or $5$ with certainty, the probability of absorption at $0$ starting from $x = 2$ is $1 - u_2 = 1 - \\frac{24}{31} = \\frac{7}{31}$, proving statement D is correct. Thus, statements A, B, C, and D are all correct."
+    },
+    {
+      "id": "prob_c02_032",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In a Galton-Watson branching process, the number of offspring produced by any single individual is governed by the probability distribution: $p_0 = \\frac{1}{8}, p_1 = \\frac{1}{2}, p_2 = \\frac{3}{8}$, and $p_k = 0$ for all $k \\ge 3$. The process begins with a single ancestor at generation $0$. If the ultimate probability of extinction of the population is written in simplest fractional form as $\\frac{a}{b}$, where $a, b \\in \\mathbb{N}$ and $\\gcd(a, b) = 1$, find the value of $a + b$.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: The probability generating function for the offspring distribution is given by $G(s) = \\sum_{k=0}^\\infty p_k s^k = \\frac{1}{8} + \\frac{1}{2} s + \\frac{3}{8} s^2$. Step 2: The mean offspring per individual is $\\mu = G'(1) = \\frac{1}{2} + 2\\left(\\frac{3}{8}\\right) = \\frac{1}{2} + \\frac{3}{4} = \\frac{5}{4}$. Since $\\mu = \\frac{5}{4} > 1$, the branching process is supercritical, implying that the ultimate extinction probability $\\pi$ is strictly less than $1$. Step 3: By the fundamental theorem of branching processes, the extinction probability $\\pi$ is the smallest non-negative root of the fixed-point equation $\\pi = G(\\pi)$. Step 4: Substituting $G(\\pi)$ into the fixed-point relation gives $\\pi = \\frac{1}{8} + \\frac{1}{2}\\pi + \\frac{3}{8}\\pi^2$. Multiplying the entire equation by $8$ yields $8\\pi = 1 + 4\\pi + 3\\pi^2 \\implies 3\\pi^2 - 4\\pi + 1 = 0$. Step 5: Solving this quadratic equation by factorisation, we get $(3\\pi - 1)(\\pi - 1) = 0$, giving the roots $\\pi = 1$ and $\\pi = \\frac{1}{3}$. The smallest non-negative root is $\\pi = \\frac{1}{3}$. Step 6: Expressing $\\pi = \\frac{a}{b} = \\frac{1}{3}$ with $\\gcd(1, 3) = 1$, we identify $a = 1$ and $b = 3$. Therefore, $a + b = 1 + 3 = 4$."
+    }
+  ]
+}

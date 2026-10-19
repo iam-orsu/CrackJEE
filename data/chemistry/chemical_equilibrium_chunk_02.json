@@ -1,0 +1,513 @@
+{
+  "questions": [
+    {
+      "id": "chq_c02_001",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the gas-phase equilibrium $2SO_2(g) + O_2(g) \\rightleftharpoons 2SO_3(g)$ at $T = 500\\text{ K}$. If the equilibrium constant $K_c$ is $82.1\\text{ L}\\cdot\\text{mol}^{-1}$, what is the numerical value of the equilibrium constant $K_p$ in $\\text{atm}^{-1}$? (Take universal gas constant $R = 0.0821\\text{ L}\\cdot\\text{atm}\\cdot\\text{mol}^{-1}\\cdot\\text{K}^{-1}$).",
+      "options": [
+        "A) $2.0\\text{ atm}^{-1}$",
+        "B) $3370.2\\text{ atm}^{-1}$",
+        "C) $0.5\\text{ atm}^{-1}$",
+        "D) $82.1\\text{ atm}^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Determine the change in stoichiometric gaseous moles: $$\\Delta n_g = n_{products}(g) - n_{reactants}(g) = 2 - (2 + 1) = -1$$\nStep 2: Relate $K_p$ to $K_c$ using the thermodynamic relation: $$K_p = K_c(RT)^{\\Delta n_g} = \\frac{K_c}{RT}$$\nStep 3: Calculate the product $RT$: $$RT = 0.0821\\text{ L}\\cdot\\text{atm}\\cdot\\text{mol}^{-1}\\cdot\\text{K}^{-1} \\times 500\\text{ K} = 41.05\\text{ L}\\cdot\\text{atm}\\cdot\\text{mol}^{-1}$$\nStep 4: Substituting the values yields: $$K_p = \\frac{82.1}{41.05} = 2.0\\text{ atm}^{-1}$$\nTherefore, the correct numerical value is $2.0\\text{ atm}^{-1}$."
+    },
+    {
+      "id": "chq_c02_002",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An equilibrium mixture of dinitrogen tetroxide and nitrogen dioxide, $N_2O_4(g) \\rightleftharpoons 2NO_2(g)$, is maintained in a closed container at $300\\text{ K}$. Which of the following statements correctly describes the effect of adding an inert gas (Argon) to the system?",
+      "options": [
+        "A) At constant volume, the equilibrium position remains unchanged; at constant total pressure, the degree of dissociation of $N_2O_4$ increases.",
+        "B) At constant volume, the degree of dissociation of $N_2O_4$ increases; at constant total pressure, the equilibrium position remains unchanged.",
+        "C) Both at constant volume and constant total pressure, the equilibrium shifts forward because the total pressure increases.",
+        "D) Both at constant volume and constant total pressure, the equilibrium remains unchanged because Argon is chemically non-reactive."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze inert gas addition at constant volume ($V = \\text{constant}$): Adding Argon increases total pressure, but the partial pressures $P_{N_2O_4} = \\frac{n_{N_2O_4}RT}{V}$ and $P_{NO_2} = \\frac{n_{NO_2}RT}{V}$ remain unaltered. Hence, the reaction quotient $Q_p = \\frac{P_{NO_2}^2}{P_{N_2O_4}} = K_p$, meaning no shift occurs.\nStep 2: Analyze inert gas addition at constant pressure ($P = \\text{constant}$): To maintain constant pressure, the volume $V$ of the system must expand. Substituting into the partial pressures, each partial pressure decreases. For $\\Delta n_g = 2 - 1 = +1 > 0$, the reaction quotient becomes $Q_p < K_p$.\nStep 3: Therefore, according to Le Chatelier's principle, the equilibrium shifts in the forward direction towards more gaseous moles, increasing the degree of dissociation $\\alpha$."
+    },
+    {
+      "id": "chq_c02_003",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Pure phosphorus pentachloride gas is introduced into an evacuated rigid container at $250^\\circ\\text{C}$ with an initial pressure of $P_0 = 1.0\\text{ atm}$. The substance dissociates as $PCl_5(g) \\rightleftharpoons PCl_3(g) + Cl_2(g)$. If the total pressure at equilibrium is found to be $P_{eq} = 1.4\\text{ atm}$, what is the equilibrium constant $K_p$ in $\\text{atm}$?",
+      "options": [
+        "A) $\\frac{4}{15}\\text{ atm}$",
+        "B) $\\frac{2}{3}\\text{ atm}$",
+        "C) $\\frac{1}{6}\\text{ atm}$",
+        "D) $\\frac{8}{15}\\text{ atm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Set up equilibrium partial pressures in terms of pressure drop $x$:\n$$P_{PCl_5} = P_0 - x = 1.0 - x$$\n$$P_{PCl_3} = x$$\n$$P_{Cl_2} = x$$\nStep 2: Relate total equilibrium pressure to $x$:\n$$P_{total} = P_{PCl_5} + P_{PCl_3} + P_{Cl_2} = (1.0 - x) + x + x = 1.0 + x$$\nGiven $P_{total} = 1.4\\text{ atm}$, solving gives $x = 1.4 - 1.0 = 0.4\\text{ atm}$.\nStep 3: Calculate individual equilibrium partial pressures:\n$$P_{PCl_5} = 1.0 - 0.4 = 0.6\\text{ atm}$$\n$$P_{PCl_3} = 0.4\\text{ atm}, \\quad P_{Cl_2} = 0.4\\text{ atm}$$\nStep 4: Applying the equilibrium expression yields:\n$$K_p = \\frac{P_{PCl_3} P_{Cl_2}}{P_{PCl_5}} = \\frac{0.4 \\times 0.4}{0.6} = \\frac{0.16}{0.60} = \\frac{4}{15}\\text{ atm}$$\nTherefore, option A is correct."
+    },
+    {
+      "id": "chq_c02_004",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A gaseous reaction mixture for Haber synthesis, $N_2(g) + 3H_2(g) \\rightleftharpoons 2NH_3(g)$, is at equilibrium in a cylinder fitted with a frictionless piston under a constant external pressure. If Helium gas is introduced into the cylinder at constant temperature and total pressure, how does the equilibrium respond?",
+      "options": [
+        "A) The volume expands, reducing the partial pressures of all components, and the equilibrium shifts in the reverse direction, decreasing the yield of $NH_3$.",
+        "B) The volume remains constant, the partial pressures remain unchanged, and the equilibrium position does not shift.",
+        "C) The volume expands, shifting the equilibrium in the forward direction towards higher product yield.",
+        "D) The partial pressure of Helium compresses the reactants, accelerating the forward rate and increasing $NH_3$."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Note that the reaction has $\\Delta n_g = 2 - (1 + 3) = -2 < 0$.\nStep 2: Addition of Helium at constant external pressure forces the piston to move outward, resulting in an expansion of system volume $V$.\nStep 3: As volume $V$ increases, the partial pressure of each gaseous species $P_i = \\frac{n_i RT}{V}$ decreases proportionally.\nStep 4: The reaction quotient is: $$Q_p = \\frac{P_{NH_3}^2}{P_{N_2} P_{H_2}^3} = \\frac{n_{NH_3}^2}{n_{N_2} n_{H_2}^3} \\left(\\frac{RT}{V}\\right)^{-2} = \\frac{n_{NH_3}^2}{n_{N_2} n_{H_2}^3} \\left(\\frac{V}{RT}\\right)^2$$\nSince $V$ increases, $Q_p > K_p$. Hence, the equilibrium shifts in the backward direction to consume products, thereby decreasing the equilibrium yield of $NH_3$."
+    },
+    {
+      "id": "chq_c02_005",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the thermal dissociation reaction $N_2O_4(g) \\rightleftharpoons 2NO_2(g)$, pure $N_2O_4$ is initially taken. If at total equilibrium pressure $P = 6.0\\text{ bar}$ the equilibrium constant is $K_p = 1.0\\text{ bar}$, what is the degree of dissociation $\\alpha$ of $N_2O_4$?",
+      "options": [
+        "A) $0.20$",
+        "B) $0.25$",
+        "C) $0.38$",
+        "D) $0.40$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write down the equilibrium mole fractions starting with $1\\text{ mol}$ of $N_2O_4$ and degree of dissociation $\\alpha$:\n$$n_{N_2O_4} = 1 - \\alpha, \\quad n_{NO_2} = 2\\alpha, \\quad n_{total} = 1 + \\alpha$$\nStep 2: Formulate partial pressures at total pressure $P$:\n$$P_{N_2O_4} = \\left(\\frac{1-\\alpha}{1+\\alpha}\\right)P, \\quad P_{NO_2} = \\left(\\frac{2\\alpha}{1+\\alpha}\\right)P$$\nStep 3: Express $K_p$ in terms of $\\alpha$ and $P$:\n$$K_p = \\frac{P_{NO_2}^2}{P_{N_2O_4}} = \\frac{\\left(\\frac{2\\alpha}{1+\\alpha}\\right)^2 P^2}{\\left(\\frac{1-\\alpha}{1+\\alpha}\\right)P} = \\frac{4\\alpha^2 P}{1-\\alpha^2}$$\nStep 4: Substitute the given values $K_p = 1.0\\text{ bar}$ and $P = 6.0\\text{ bar}$:\n$$1.0 = \\frac{4\\alpha^2 (6.0)}{1 - \\alpha^2} = \\frac{24\\alpha^2}{1-\\alpha^2}$$\nSolving gives: $$1 - \\alpha^2 = 24\\alpha^2 \\implies 25\\alpha^2 = 1 \\implies \\alpha = \\frac{1}{5} = 0.20$$\nTherefore, the degree of dissociation is $0.20$."
+    },
+    {
+      "id": "chq_c02_006",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In a rigid $5.0\\text{ L}$ closed vessel at $500\\text{ K}$, $2.0\\text{ mol}$ of $PCl_5(g)$ is heated until equilibrium is established according to $PCl_5(g) \\rightleftharpoons PCl_3(g) + Cl_2(g)$. If the equilibrium degree of dissociation of $PCl_5$ is $\\alpha = 0.60$, find the value of $100 \\times K_c$ (where $K_c$ is in $\\text{mol}\\cdot\\text{L}^{-1}$).",
+      "options": [],
+      "answer": "36",
+      "explanation": "Step 1: Calculate the equilibrium moles of each species from initial moles $n_0 = 2.0\\text{ mol}$ and $\\alpha = 0.60$:\n$$n_{PCl_5} = n_0(1 - \\alpha) = 2.0(1 - 0.60) = 0.80\\text{ mol}$$\n$$n_{PCl_3} = n_0 \\alpha = 2.0 \\times 0.60 = 1.20\\text{ mol}$$\n$$n_{Cl_2} = n_0 \\alpha = 2.0 \\times 0.60 = 1.20\\text{ mol}$$\nStep 2: Determine equilibrium molar concentrations in vessel volume $V = 5.0\\text{ L}$:\n$$[PCl_5] = \\frac{0.80}{5.0} = 0.16\\text{ mol}\\cdot\\text{L}^{-1}$$\n$$[PCl_3] = \\frac{1.20}{5.0} = 0.24\\text{ mol}\\cdot\\text{L}^{-1}$$\n$$[Cl_2] = \\frac{1.20}{5.0} = 0.24\\text{ mol}\\cdot\\text{L}^{-1}$$\nStep 3: Compute $K_c$:\n$$K_c = \\frac{[PCl_3][Cl_2]}{[PCl_5]} = \\frac{0.24 \\times 0.24}{0.16} = \\frac{0.0576}{0.16} = 0.36\\text{ mol}\\cdot\\text{L}^{-1}$$\nStep 4: Evaluating the requested quantity: $$100 \\times K_c = 100 \\times 0.36 = 36$$\nHence, the integer answer is 36."
+    },
+    {
+      "id": "chq_c02_007",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Solid ammonium carbamate undergoes thermal decomposition according to $NH_2COONH_4(s) \\rightleftharpoons 2NH_3(g) + CO_2(g)$. When excess solid is placed in an evacuated rigid vessel at $300\\text{ K}$, the total equilibrium pressure is measured to be $0.30\\text{ atm}$. What is the equilibrium constant $K_p$ in $\\text{atm}^3$ at this temperature?",
+      "options": [
+        "A) $4.0 \\times 10^{-3}\\text{ atm}^3$",
+        "B) $2.0 \\times 10^{-3}\\text{ atm}^3$",
+        "C) $2.7 \\times 10^{-2}\\text{ atm}^3$",
+        "D) $1.0 \\times 10^{-3}\\text{ atm}^3$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write the stoichiometric relation for the gaseous products formed from pure solid:\nFor every $1\\text{ mol}$ of $CO_2(g)$ produced, $2\\text{ mol}$ of $NH_3(g)$ are produced.\nTherefore: $$P_{NH_3} = 2 P_{CO_2}$$\nStep 2: Relate partial pressures to total pressure $P_{total} = 0.30\\text{ atm}$:\n$$P_{total} = P_{NH_3} + P_{CO_2} = 2P_{CO_2} + P_{CO_2} = 3P_{CO_2}$$\nSolving gives: $$P_{CO_2} = \\frac{0.30}{3} = 0.10\\text{ atm}$$\n$$P_{NH_3} = 2 \\times 0.10 = 0.20\\text{ atm}$$\nStep 3: Pure solid has unit activity ($a = 1$). Applying the equilibrium expression:\n$$K_p = (P_{NH_3})^2 (P_{CO_2}) = (0.20)^2 \\times (0.10) = 0.040 \\times 0.10 = 4.0 \\times 10^{-3}\\text{ atm}^3$$\nHence, option A is correct."
+    },
+    {
+      "id": "chq_c02_008",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the gas-phase dissociation $2AB_2(g) \\rightleftharpoons 2AB(g) + B_2(g)$, pure $AB_2(g)$ is initially taken. If the degree of dissociation $\\alpha$ is very small compared to unity ($\\alpha \\ll 1$), which of the following expressions correctly represents the proportionality of $\\alpha$ with total equilibrium pressure $P$?",
+      "options": [
+        "A) $\\alpha \\propto P^{-1/3}$",
+        "B) $\\alpha \\propto P^{-1/2}$",
+        "C) $\\alpha \\propto P^{-1}$",
+        "D) $\\alpha \\propto P^{1/3}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Set up equilibrium moles starting from $1\\text{ mol}$ of $AB_2$:\n$$n_{AB_2} = 1 - \\alpha$$\n$$n_{AB} = \\alpha$$\n$$n_{B_2} = \\frac{\\alpha}{2}$$\nTotal moles: $$n_{total} = (1 - \\alpha) + \\alpha + \\frac{\\alpha}{2} = 1 + \\frac{\\alpha}{2}$$\nStep 2: For $\\alpha \\ll 1$, approximate $1 - \\alpha \\approx 1$ and $1 + \\frac{\\alpha}{2} \\approx 1$. Then the mole fractions are:\n$$x_{AB_2} \\approx 1, \\quad x_{AB} \\approx \\alpha, \\quad x_{B_2} \\approx \\frac{\\alpha}{2}$$\nStep 3: Express partial pressures and $K_p$:\n$$P_{AB_2} \\approx P, \\quad P_{AB} \\approx \\alpha P, \\quad P_{B_2} \\approx \\frac{\\alpha}{2} P$$\n$$K_p = \\frac{(P_{AB})^2 (P_{B_2})}{(P_{AB_2})^2} = \\frac{(\\alpha P)^2 \\left(\\frac{\\alpha}{2} P\\right)}{P^2} = \\frac{\\alpha^3 P}{2}$$\nStep 4: Solving for $\\alpha$ yields:\n$$\\alpha^3 = \\frac{2K_p}{P} \\implies \\alpha = \\left(\\frac{2K_p}{P}\\right)^{1/3} \\propto P^{-1/3}$$\nTherefore, $\\alpha$ is proportional to $P^{-1/3}$."
+    },
+    {
+      "id": "chq_c02_009",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Industrial synthesis of methanol occurs via $CO(g) + 2H_2(g) \\rightleftharpoons CH_3OH(g)$, with $\\Delta H^\\circ = -90.5\\text{ kJ}\\cdot\\text{mol}^{-1}$. Which set of operating conditions provides the optimal thermodynamic driving force for maximizing equilibrium yield while maintaining practical reaction rates?",
+      "options": [
+        "A) High pressure (favors forward reaction with $\\Delta n_g = -2$) and moderate/optimum temperature (balances exothermic thermodynamic shift against kinetic activation).",
+        "B) Low pressure (minimizes compression cost and shifts equilibrium forward) and high temperature (accelerates endothermic pathways).",
+        "C) High pressure and extremely high temperature (increases both equilibrium constant $K_p$ and kinetic rate).",
+        "D) Low pressure and low temperature (promotes product stabilization by reducing collision frequency)."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate the pressure effect: For this reaction, $\\Delta n_g = 1 - (1 + 2) = -2 < 0$. According to Le Chatelier's principle, applying high pressure shifts the equilibrium towards the side with fewer gaseous moles (forward direction, producing more $CH_3OH$).\nStep 2: Evaluate the temperature effect: The reaction is exothermic ($\\Delta H^\\circ < 0$). Thermodynamically, lowering temperature increases $K_p$ via the van 't Hoff equation $\\frac{d\\ln K_p}{dT} = \\frac{\\Delta H^\\circ}{RT^2} < 0$.\nStep 3: However, at excessively low temperatures, reaction rates become prohibitively slow due to Arrhenius kinetics. Hence, a moderate optimum temperature (typically $250^\\circ\\text{C}$) combined with high pressure ($50-100\\text{ bar}$) is selected to balance thermodynamic yield with kinetic feasibility."
+    },
+    {
+      "id": "chq_c02_010",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "At temperature $T$, pure $N_2O_4(g)$ is placed in a vessel. At equilibrium, the total pressure is $P_1 = 3.0\\text{ atm}$ and the degree of dissociation is $\\alpha_1 = 0.50$. If the volume of the vessel is expanded isothermally until the total pressure drops to $P_2 = 0.25\\text{ atm}$, the new equilibrium degree of dissociation is $\\alpha_2$. Find the value of $100 \\times \\alpha_2^2$.",
+      "options": [],
+      "answer": "80",
+      "explanation": "Step 1: The dissociation reaction is $N_2O_4(g) \\rightleftharpoons 2NO_2(g)$. The relationship between $K_p$, $\\alpha$, and total pressure $P$ is: $$K_p = \\frac{4\\alpha^2 P}{1 - \\alpha^2}$$\nStep 2: Since temperature is kept constant, $K_p$ remains constant. Substituting initial conditions $P_1 = 3.0\\text{ atm}$ and $\\alpha_1 = 0.50$:\n$$K_p = \\frac{4(0.50)^2 \\times 3.0}{1 - (0.50)^2} = \\frac{4 \\times 0.25 \\times 3.0}{1 - 0.25} = \\frac{3.0}{0.75} = 4.0\\text{ atm}$$\nStep 3: At the new pressure $P_2 = 0.25\\text{ atm}$, equate $K_p$ to $4.0\\text{ atm}$:\n$$4.0 = \\frac{4\\alpha_2^2 (0.25)}{1 - \\alpha_2^2} = \\frac{\\alpha_2^2}{1 - \\alpha_2^2}$$\nStep 4: Solving for $\\alpha_2^2$:\n$$\\alpha_2^2 = 4.0(1 - \\alpha_2^2) = 4.0 - 4.0\\alpha_2^2 \\implies 5\\alpha_2^2 = 4.0 \\implies \\alpha_2^2 = \\frac{4.0}{5} = 0.80$$\nStep 5: Evaluating the required quantity: $$100 \\times \\alpha_2^2 = 100 \\times 0.80 = 80$$\nHence, the integer answer is 80."
+    },
+    {
+      "id": "chq_c02_011",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In an evacuated rigid container at temperature $T$, solid $CaCO_3$, solid $CaO$, and excess graphite $C(s)$ are introduced. The following two simultaneous equilibria are established:\n(1) $CaCO_3(s) \\rightleftharpoons CaO(s) + CO_2(g), \\quad K_{p1} = 0.25\\text{ atm}$\n(2) $C(s) + CO_2(g) \\rightleftharpoons 2CO(g), \\quad K_{p2} = 9.0\\text{ atm}$\nWhat is the total equilibrium pressure (in $\\text{atm}$) inside the container?",
+      "options": [
+        "A) $1.75\\text{ atm}$",
+        "B) $1.50\\text{ atm}$",
+        "C) $2.25\\text{ atm}$",
+        "D) $0.75\\text{ atm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Examine equilibrium (1): Because pure $CaCO_3(s)$ and $CaO(s)$ are both present at equilibrium, the partial pressure of $CO_2(g)$ is pinned directly by reaction (1):\n$$P_{CO_2} = K_{p1} = 0.25\\text{ atm}$$\nStep 2: Examine equilibrium (2): Both $C(s)$ and $CO_2(g)$ participate in the Boudouard equilibrium:\n$$K_{p2} = \\frac{(P_{CO})^2}{P_{CO_2}}$$\nSubstituting $K_{p2} = 9.0\\text{ atm}$ and $P_{CO_2} = 0.25\\text{ atm}$:\n$$(P_{CO})^2 = K_{p2} \\times P_{CO_2} = 9.0 \\times 0.25 = 2.25\\text{ atm}^2$$\nSolving yields: $$P_{CO} = \\sqrt{2.25} = 1.50\\text{ atm}$$\nStep 3: Calculate the total gaseous pressure inside the container:\n$$P_{total} = P_{CO_2} + P_{CO} = 0.25 + 1.50 = 1.75\\text{ atm}$$\nTherefore, the total equilibrium pressure is $1.75\\text{ atm}$."
+    },
+    {
+      "id": "chq_c02_012",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Two sparingly volatile solid salts $X(s)$ and $Y(s)$ are placed in an evacuated container at temperature $T$ and decompose according to the simultaneous equilibria:\n$$X(s) \\rightleftharpoons A(g) + B(g), \\quad K_{p1} = 16\\text{ bar}^2$$\n$$Y(s) \\rightleftharpoons A(g) + C(g), \\quad K_{p2} = 9\\text{ bar}^2$$\nAt thermodynamic equilibrium, what is the total pressure of the gaseous mixture inside the vessel?",
+      "options": [
+        "A) $10\\text{ bar}$",
+        "B) $5\\text{ bar}$",
+        "C) $14\\text{ bar}$",
+        "D) $7\\text{ bar}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let the partial pressure contribution of $A(g)$ from the decomposition of $X(s)$ be $p_1$, and from $Y(s)$ be $p_2$. Then the equilibrium partial pressure of the common gas $A(g)$ is:\n$$P_A = p_1 + p_2$$\nFrom stoichiometry of each solid, $P_B = p_1$ and $P_C = p_2$.\nStep 2: Write the equilibrium expressions:\n$$K_{p1} = P_A \\cdot P_B = (p_1 + p_2)p_1 = 16\\text{ bar}^2$$\n$$K_{p2} = P_A \\cdot P_C = (p_1 + p_2)p_2 = 9\\text{ bar}^2$$\nStep 3: Summing the two expressions yields:\n$$K_{p1} + K_{p2} = (p_1 + p_2)p_1 + (p_1 + p_2)p_2 = (p_1 + p_2)^2 = P_A^2$$\nSubstituting the numerical values:\n$$P_A^2 = 16 + 9 = 25\\text{ bar}^2 \\implies P_A = 5\\text{ bar}$$\nStep 4: Compute the total equilibrium pressure:\n$$P_{total} = P_A + P_B + P_C = (p_1 + p_2) + p_1 + p_2 = 2(p_1 + p_2) = 2 P_A = 2 \\times 5 = 10\\text{ bar}$$\nTherefore, the total pressure is $10\\text{ bar}$."
+    },
+    {
+      "id": "chq_c02_013",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Nitrogen tetroxide dissociates as $N_2O_4(g) \\rightleftharpoons 2NO_2(g)$. The theoretical vapor density of pure $N_2O_4$ is $D = 46.0$. At a certain temperature and total pressure of $1.0\\text{ atm}$, the observed vapor density of the equilibrium mixture is $d = 34.5$. What are the degree of dissociation $\\alpha$ and the equilibrium constant $K_p$ (in $\\text{atm}$)?",
+      "options": [
+        "A) $\\alpha = 0.333, \\quad K_p = 0.50\\text{ atm}$",
+        "B) $\\alpha = 0.250, \\quad K_p = 0.27\\text{ atm}$",
+        "C) $\\alpha = 0.333, \\quad K_p = 0.25\\text{ atm}$",
+        "D) $\\alpha = 0.500, \\quad K_p = 1.33\\text{ atm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Applying the vapor density formula for dissociation $A(g) \\rightleftharpoons n B(g)$, where $n = 2$:\n$$\\alpha = \\frac{D - d}{(n - 1)d} = \\frac{46.0 - 34.5}{(2 - 1) \\times 34.5} = \\frac{11.5}{34.5} = \\frac{1}{3} \\approx 0.333$$\nStep 2: Express $K_p$ in terms of $\\alpha$ and total pressure $P = 1.0\\text{ atm}$:\n$$K_p = \\frac{4\\alpha^2 P}{1 - \\alpha^2}$$\nStep 3: Substituting $\\alpha = \\frac{1}{3}$ and $P = 1.0\\text{ atm}$:\n$$\\alpha^2 = \\frac{1}{9}, \\quad 1 - \\alpha^2 = 1 - \\frac{1}{9} = \\frac{8}{9}$$\n$$K_p = \\frac{4 \\times \\left(\\frac{1}{9}\\right) \\times 1.0}{\\frac{8}{9}} = \\frac{4/9}{8/9} = \\frac{4}{8} = 0.50\\text{ atm}$$\nHence, $\\alpha = 0.333$ and $K_p = 0.50\\text{ atm}$."
+    },
+    {
+      "id": "chq_c02_014",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The equilibrium constant $K_p$ for an endothermic gas-phase reaction increases by a factor of exactly $100$ when the temperature is raised from $300\\text{ K}$ to $400\\text{ K}$. Assuming the standard enthalpy of reaction $\\Delta H^\\circ$ is independent of temperature, calculate $\\Delta H^\\circ$ in $\\text{kJ}\\cdot\\text{mol}^{-1}$. (Take $R = 8.314\\text{ J}\\cdot\\text{mol}^{-1}\\cdot\\text{K}^{-1}$ and $\\ln(10) = 2.303$).",
+      "options": [
+        "A) $+45.95\\text{ kJ}\\cdot\\text{mol}^{-1}$",
+        "B) $-45.95\\text{ kJ}\\cdot\\text{mol}^{-1}$",
+        "C) $+22.98\\text{ kJ}\\cdot\\text{mol}^{-1}$",
+        "D) $+91.90\\text{ kJ}\\cdot\\text{mol}^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write the integrated van 't Hoff isochore equation:\n$$\\ln\\left(\\frac{K_2}{K_1}\\right) = \\frac{\\Delta H^\\circ}{R}\\left(\\frac{1}{T_1} - \\frac{1}{T_2}\\right) = \\frac{\\Delta H^\\circ}{R}\\left(\\frac{T_2 - T_1}{T_1 T_2}\\right)$$\nStep 2: Calculate the logarithmic ratio:\n$$\\ln\\left(\\frac{K_2}{K_1}\\right) = \\ln(100) = 2\\ln(10) = 2 \\times 2.303 = 4.606$$\nStep 3: Calculate the temperature factor:\n$$\\frac{1}{T_1} - \\frac{1}{T_2} = \\frac{1}{300} - \\frac{1}{400} = \\frac{100}{120000} = \\frac{1}{1200}\\text{ K}^{-1}$$\nStep 4: Solving for $\\Delta H^\\circ$:\n$$\\Delta H^\\circ = \\frac{R \\ln(K_2/K_1)}{\\frac{1}{T_1} - \\frac{1}{T_2}} = 8.314 \\times 4.606 \\times 1200\\text{ J}\\cdot\\text{mol}^{-1} = 45953\\text{ J}\\cdot\\text{mol}^{-1} \\approx +45.95\\text{ kJ}\\cdot\\text{mol}^{-1}$$\nTherefore, the standard enthalpy of reaction is $+45.95\\text{ kJ}\\cdot\\text{mol}^{-1}$."
+    },
+    {
+      "id": "chq_c02_015",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Phosphorus pentachloride gas (molar mass $= 208.5\\text{ g}\\cdot\\text{mol}^{-1}$) dissociates according to $PCl_5(g) \\rightleftharpoons PCl_3(g) + Cl_2(g)$. At $250^\\circ\\text{C}$, the observed vapor density of the equilibrium mixture is measured to be $69.50$. Calculate the percentage degree of dissociation of $PCl_5$ at this temperature.",
+      "options": [],
+      "answer": "50",
+      "explanation": "Step 1: Determine the theoretical vapor density $D$ of pure undissociated $PCl_5$:\n$$D = \\frac{\\text{Molar mass}}{2} = \\frac{208.5}{2} = 104.25$$\nStep 2: Relate observed vapor density $d$ to degree of dissociation $\\alpha$ for a dissociation into $n = 2$ gaseous particles:\n$$\\alpha = \\frac{D - d}{(n - 1)d} = \\frac{D - d}{d}$$\nStep 3: Substituting the values $D = 104.25$ and $d = 69.50$:\n$$\\alpha = \\frac{104.25 - 69.50}{69.50} = \\frac{34.75}{69.50} = 0.500$$\nStep 4: Converting to percentage:\n$$\\%\\text{ dissociation} = \\alpha \\times 100 = 0.500 \\times 100 = 50\\%$$\nHence, the integer answer is 50."
+    },
+    {
+      "id": "chq_c02_016",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "For an exothermic gas-phase reversible reaction $A(g) + B(g) \\rightleftharpoons C(g)$ with $\\Delta H^\\circ < 0$ and $\\Delta S^\\circ < 0$, the thermodynamic behavior is analyzed over a range of temperatures. Which of the following statements is/are CORRECT?",
+      "options": [
+        "A) A plot of $\\ln K_p$ versus $1/T$ is linear with a positive slope equal to $-\\Delta H^\\circ / R$.",
+        "B) The equilibrium constant $K_p$ decreases monotonically as temperature increases.",
+        "C) The standard Gibbs free energy change $\\Delta G^\\circ$ becomes more positive as temperature increases.",
+        "D) Introduction of an inert gas at constant total pressure causes the equilibrium to shift in the backward direction."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: The van 't Hoff relation in integrated form is: $$\\ln K_p = -\\frac{\\Delta H^\\circ}{RT} + \\frac{\\Delta S^\\circ}{R} = \\left(-\\frac{\\Delta H^\\circ}{R}\\right)\\frac{1}{T} + \\frac{\\Delta S^\\circ}{R}$$\nSince $\\Delta H^\\circ < 0$, the slope $-\\frac{\\Delta H^\\circ}{R} > 0$ is positive. Thus, statement A is correct.\nStep 2: Since $\\frac{d\\ln K_p}{dT} = \\frac{\\Delta H^\\circ}{RT^2} < 0$, raising temperature decreases $K_p$. Thus, statement B is correct.\nStep 3: Standard Gibbs free energy is $\\Delta G^\\circ = \\Delta H^\\circ - T\\Delta S^\\circ$. Since $\\Delta S^\\circ < 0$, the term $-T\\Delta S^\\circ > 0$ increases linearly with $T$, making $\\Delta G^\\circ$ more positive. Thus, statement C is correct.\nStep 4: The reaction has $\\Delta n_g = 1 - (1 + 1) = -1 < 0$. Adding an inert gas at constant total pressure expands the system volume, reducing partial pressures. By Le Chatelier's principle, the system shifts towards greater gaseous moles (backward). Thus, statement D is correct."
+    },
+    {
+      "id": "chq_c02_017",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Solid ammonium chloride and solid ammonium iodide decompose simultaneously in an evacuated rigid vessel at temperature $T$:\n$$NH_4Cl(s) \\rightleftharpoons NH_3(g) + HCl(g), \\quad K_{p1} = 4.0\\text{ atm}^2$$\n$$NH_4I(s) \\rightleftharpoons NH_3(g) + HI(g), \\quad K_{p2} = 5.0\\text{ atm}^2$$\nAt equilibrium, what is the mole fraction of $HCl(g)$ in the gas phase?",
+      "options": [
+        "A) $\\frac{2}{9}$",
+        "B) $\\frac{4}{9}$",
+        "C) $\\frac{1}{3}$",
+        "D) $\\frac{5}{18}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let $p_1$ be the partial pressure of $HCl(g)$ and $p_2$ be the partial pressure of $HI(g)$. The total partial pressure of the common product ammonia is:\n$$P_{NH_3} = p_1 + p_2$$\nStep 2: Express the equilibrium conditions:\n$$K_{p1} = P_{NH_3} \\cdot P_{HCl} = (p_1 + p_2)p_1 = 4.0\\text{ atm}^2$$\n$$K_{p2} = P_{NH_3} \\cdot P_{HI} = (p_1 + p_2)p_2 = 5.0\\text{ atm}^2$$\nStep 3: Add the two equations:\n$$(p_1 + p_2)^2 = K_{p1} + K_{p2} = 4.0 + 5.0 = 9.0\\text{ atm}^2$$\nSolving gives: $$P_{NH_3} = p_1 + p_2 = 3.0\\text{ atm}$$\nStep 4: Compute the partial pressures of $HCl$ and $HI$:\n$$P_{HCl} = p_1 = \\frac{K_{p1}}{P_{NH_3}} = \\frac{4.0}{3.0} = \\frac{4}{3}\\text{ atm}$$\n$$P_{HI} = p_2 = \\frac{K_{p2}}{P_{NH_3}} = \\frac{5.0}{3.0} = \\frac{5}{3}\\text{ atm}$$\nStep 5: Total gas pressure is:\n$$P_{total} = P_{NH_3} + P_{HCl} + P_{HI} = 3.0 + \\frac{4}{3} + \\frac{5}{3} = 3.0 + 3.0 = 6.0\\text{ atm}$$\nStep 6: Compute the mole fraction of $HCl$:\n$$x_{HCl} = \\frac{P_{HCl}}{P_{total}} = \\frac{4/3}{6.0} = \\frac{4}{18} = \\frac{2}{9}$$\nHence, option A is correct."
+    },
+    {
+      "id": "chq_c02_018",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A sample of $N_2O_4(g)$ dissociates into $NO_2(g)$ at $320\\text{ K}$ according to $N_2O_4(g) \\rightleftharpoons 2NO_2(g)$. In an initial state, the vapor density of the equilibrium mixture is $d_1 = 38.33$ at total pressure $P_1$. When the vessel volume is expanded isothermally, a new equilibrium is established at total pressure $P_2$, where the observed vapor density is $d_2 = 34.50$. What is the ratio of equilibrium pressures $\\frac{P_2}{P_1}$? (Theoretical vapor density of pure $N_2O_4$ is $D = 46.0$).",
+      "options": [
+        "A) $\\frac{1}{3}$",
+        "B) $\\frac{1}{2}$",
+        "C) $\\frac{2}{3}$",
+        "D) $\\frac{1}{4}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate the degree of dissociation in each state using $\\alpha = \\frac{D - d}{d}$:\nIn State 1: $$\\alpha_1 = \\frac{46.0 - 38.333}{38.333} = \\frac{7.667}{38.333} = \\frac{1}{5} = 0.20$$\nIn State 2: $$\\alpha_2 = \\frac{46.0 - 34.50}{34.50} = \\frac{11.50}{34.50} = \\frac{1}{3}$$\nStep 2: Express $K_p$ in terms of $\\alpha$ and $P$:\n$$K_p = \\frac{4\\alpha^2 P}{1 - \\alpha^2}$$\nStep 3: Since temperature is constant, $K_p(P_1, \\alpha_1) = K_p(P_2, \\alpha_2)$:\n$$\\frac{4\\alpha_1^2 P_1}{1 - \\alpha_1^2} = \\frac{4\\alpha_2^2 P_2}{1 - \\alpha_2^2}$$\nStep 4: Solving for the ratio $\\frac{P_2}{P_1}$:\n$$\\frac{P_2}{P_1} = \\frac{\\alpha_1^2(1 - \\alpha_2^2)}{\\alpha_2^2(1 - \\alpha_1^2)} = \\frac{\\left(\\frac{1}{5}\\right)^2 \\left[1 - \\left(\\frac{1}{3}\\right)^2\\right]}{\\left(\\frac{1}{3}\\right)^2 \\left[1 - \\left(\\frac{1}{5}\\right)^2\\right]} = \\frac{\\frac{1}{25} \\times \\frac{8}{9}}{\\frac{1}{9} \\times \\frac{24}{25}} = \\frac{8}{24} = \\frac{1}{3}$$\nTherefore, the ratio of total pressures is $\\frac{1}{3}$."
+    },
+    {
+      "id": "chq_c02_019",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the simultaneous thermal decomposition of two pure solid substances in an evacuated closed container of fixed volume at temperature $T$:\n(1) $A(s) \\rightleftharpoons B(g) + C(g), \\quad K_{p1}$\n(2) $D(s) \\rightleftharpoons B(g) + E(g), \\quad K_{p2}$\nWhich of the following statements is/are CORRECT regarding this simultaneous equilibrium system?",
+      "options": [
+        "A) The total equilibrium pressure of all gases inside the vessel is given by $2\\sqrt{K_{p1} + K_{p2}}$.",
+        "B) The ratio of equilibrium partial pressures of $C(g)$ to $E(g)$ is $\\frac{P_C}{P_E} = \\frac{K_{p1}}{K_{p2}}$.",
+        "C) Adding more pure solid $A(s)$ to the equilibrium mixture at constant temperature does not change any partial pressure.",
+        "D) Introduction of additional gas $B(g)$ into the container at constant volume causes both reactions to shift backward, decreasing the partial pressures of both $C(g)$ and $E(g)$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Let the partial pressure of $B$ contributed by reaction (1) be $p_1$ and by reaction (2) be $p_2$. Then $P_B = p_1 + p_2$, $P_C = p_1$, $P_E = p_2$.\nStep 2: $K_{p1} = P_B \\cdot P_C = (p_1 + p_2)p_1$ and $K_{p2} = P_B \\cdot P_E = (p_1 + p_2)p_2$.\nSumming: $K_{p1} + K_{p2} = (p_1 + p_2)^2 = P_B^2 \\implies P_B = \\sqrt{K_{p1} + K_{p2}}$.\nThen $P_{total} = P_B + P_C + P_E = 2P_B = 2\\sqrt{K_{p1} + K_{p2}}$. Thus, A is correct.\nStep 3: $\\frac{P_C}{P_E} = \\frac{K_{p1}/P_B}{K_{p2}/P_B} = \\frac{K_{p1}}{K_{p2}}$. Thus, B is correct.\nStep 4: Pure solids have constant thermodynamic activity ($a = 1$). Adding more solid $A(s)$ does not alter the equilibrium expression. Thus, C is correct.\nStep 5: Increasing $P_B$ by adding $B(g)$ increases the reaction quotients $Q_1 = P_B P_C > K_{p1}$ and $Q_2 = P_B P_E > K_{p2}$. Both equilibria shift backward, consuming $C(g)$ and $E(g)$ to reduce their partial pressures. Thus, D is correct."
+    },
+    {
+      "id": "chq_c02_020",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In an evacuated rigid vessel at temperature $T$, two solid compounds $A(s)$ and $D(s)$ are introduced simultaneously and dissociate according to:\n$$A(s) \\rightleftharpoons B(g) + C(g), \\quad K_{p1} = 36\\text{ atm}^2$$\n$$D(s) \\rightleftharpoons B(g) + E(g), \\quad K_{p2} = 64\\text{ atm}^2$$\nAssuming both solids remain present at equilibrium, find the total equilibrium pressure (in $\\text{atm}$) of all gases in the vessel.",
+      "options": [],
+      "answer": "20",
+      "explanation": "Step 1: Formulate the simultaneous equilibria with common gaseous species $B(g)$:\nLet $p_1$ be the partial pressure of $C(g)$ produced by reaction (1), and $p_2$ be the partial pressure of $E(g)$ produced by reaction (2).\nThe total partial pressure of $B(g)$ is: $$P_B = p_1 + p_2$$\nStep 2: Substitute into the equilibrium constant definitions:\n$$K_{p1} = P_B \\cdot P_C = (p_1 + p_2)p_1 = 36\\text{ atm}^2$$\n$$K_{p2} = P_B \\cdot P_E = (p_1 + p_2)p_2 = 64\\text{ atm}^2$$\nStep 3: Add both equations:\n$$(p_1 + p_2)p_1 + (p_1 + p_2)p_2 = (p_1 + p_2)^2 = K_{p1} + K_{p2} = 36 + 64 = 100\\text{ atm}^2$$\nStep 4: Solving for $P_B$:\n$$P_B = p_1 + p_2 = \\sqrt{100} = 10\\text{ atm}$$\nStep 5: Compute the total pressure of the gaseous mixture:\n$$P_{total} = P_B + P_C + P_E = (p_1 + p_2) + p_1 + p_2 = 2(p_1 + p_2) = 2 \\times 10 = 20\\text{ atm}$$\nHence, the integer answer is 20."
+    },
+    {
+      "id": "chq_c02_021",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Industrial steam reforming of methane involves two simultaneous reversible reactions in the gas phase:\n(1) $CH_4(g) + H_2O(g) \\rightleftharpoons CO(g) + 3H_2(g), \\quad \\Delta G_1^\\circ, \\; K_{p1}$\n(2) $CO(g) + H_2O(g) \\rightleftharpoons CO_2(g) + H_2(g), \\quad \\Delta G_2^\\circ, \\; K_{p2}$\nSumming reactions (1) and (2) yields the overall reaction:\n(3) $CH_4(g) + 2H_2O(g) \\rightleftharpoons CO_2(g) + 4H_2(g), \\quad \\Delta G_3^\\circ, \\; K_{p3}$\nWhich of the following thermodynamic statements is/are CORRECT for this coupled system at constant temperature and total pressure?",
+      "options": [
+        "A) The overall standard Gibbs free energy change satisfies $\\Delta G_3^\\circ = \\Delta G_1^\\circ + \\Delta G_2^\\circ$, and the equilibrium constant satisfies $K_{p3} = K_{p1} \\times K_{p2}$.",
+        "B) At thermodynamic equilibrium under constant temperature and pressure, the total Gibbs free energy satisfies $dG = \\sum_{i} \\mu_i dn_i = 0$.",
+        "C) Increasing total pressure at constant temperature shifts equilibrium (1) backward because $\\Delta n_{g1} = +2 > 0$, thereby decreasing the equilibrium extent $\\xi_1$.",
+        "D) For simultaneous equilibrium to hold, the reaction quotient of the overall reaction must satisfy $Q_3 = Q_1 \\times Q_2 = K_{p3}$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Reaction (3) is the algebraic sum of reactions (1) and (2). Since Gibbs free energy is an extensive state function:\n$$\\Delta G_3^\\circ = \\Delta G_1^\\circ + \\Delta G_2^\\circ$$\nFrom $\\Delta G^\\circ = -RT\\ln K_p$, we obtain:\n$$-RT\\ln K_{p3} = -RT\\ln K_{p1} - RT\\ln K_{p2} = -RT\\ln(K_{p1}K_{p2}) \\implies K_{p3} = K_{p1} \\times K_{p2}$$\nTherefore, statement A is correct.\nStep 2: At constant temperature and pressure, the fundamental thermodynamic criterion for equilibrium is the minimization of Gibbs free energy, $dG_{T,P} = \\sum_{i} \\mu_i dn_i = 0$. Thus, statement B is correct.\nStep 3: For reaction (1), $\\Delta n_{g1} = (1 + 3) - (1 + 1) = +2 > 0$. According to Le Chatelier's principle, an isothermal increase in total pressure shifts the equilibrium in the direction of fewer gaseous moles (backward), decreasing extent $\\xi_1$. Thus, statement C is correct.\nStep 4: The reaction quotient $Q_3 = \\frac{P_{CO_2} P_{H_2}^4}{P_{CH_4} P_{H_2O}^2} = \\left(\\frac{P_{CO} P_{H_2}^3}{P_{CH_4} P_{H_2O}}\\right) \\left(\\frac{P_{CO_2} P_{H_2}}{P_{CO} P_{H_2O}}\\right) = Q_1 Q_2$. When both reactions (1) and (2) are simultaneously at equilibrium, $Q_1 = K_{p1}$ and $Q_2 = K_{p2}$, implying $Q_3 = K_{p3}$. Thus, statement D is correct."
+    },
+    {
+      "id": "chq_c02_022",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A gaseous monomer $M(g)$ undergoes simultaneous dimerization and trimerization according to the coupled equilibria:\n(1) $2M(g) \\rightleftharpoons D(g), \\quad K_{p1} = 1.0\\text{ bar}^{-1}$\n(2) $3M(g) \\rightleftharpoons T(g), \\quad K_{p2} = 2.0\\text{ bar}^{-2}$\nAt constant temperature, the system reaches equilibrium at a total pressure of $P = 1.00\\text{ bar}$, where the partial pressure of monomer is measured to be $p_M = 0.50\\text{ bar}$. If the molar mass of monomer $M$ is $M_0 = 30.0\\text{ g}\\cdot\\text{mol}^{-1}$, what is the average molar mass $\\bar{M}$ (in $\\text{g}\\cdot\\text{mol}^{-1}$) of the equilibrium gas mixture?",
+      "options": [
+        "A) $52.5\\text{ g}\\cdot\\text{mol}^{-1}$",
+        "B) $60.0\\text{ g}\\cdot\\text{mol}^{-1}$",
+        "C) $45.0\\text{ g}\\cdot\\text{mol}^{-1}$",
+        "D) $30.0\\text{ g}\\cdot\\text{mol}^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate the equilibrium partial pressures of dimer $D(g)$ and trimer $T(g)$ from the monomer partial pressure $p_M = 0.50\\text{ bar}$:\n$$p_D = K_{p1} (p_M)^2 = 1.0\\text{ bar}^{-1} \\times (0.50\\text{ bar})^2 = 0.25\\text{ bar}$$\n$$p_T = K_{p2} (p_M)^3 = 2.0\\text{ bar}^{-2} \\times (0.50\\text{ bar})^3 = 2.0 \\times 0.125\\text{ bar} = 0.25\\text{ bar}$$\nStep 2: Verify total pressure:\n$$P_{total} = p_M + p_D + p_T = 0.50 + 0.25 + 0.25 = 1.00\\text{ bar}$$\nStep 3: Determine the mole fractions of each species:\n$$x_M = \\frac{p_M}{P_{total}} = \\frac{0.50}{1.00} = 0.50$$\n$$x_D = \\frac{p_D}{P_{total}} = \\frac{0.25}{1.00} = 0.25$$\n$$x_T = \\frac{p_T}{P_{total}} = \\frac{0.25}{1.00} = 0.25$$\nStep 4: Molar masses of species: $M_M = 30.0\\text{ g}\\cdot\\text{mol}^{-1}$, $M_D = 2 \\times 30.0 = 60.0\\text{ g}\\cdot\\text{mol}^{-1}$, and $M_T = 3 \\times 30.0 = 90.0\\text{ g}\\cdot\\text{mol}^{-1}$.\nStep 5: Compute the average molar mass $\\bar{M}$:\n$$\\bar{M} = x_M M_M + x_D M_D + x_T M_T$$\n$$\\bar{M} = (0.50 \\times 30.0) + (0.25 \\times 60.0) + (0.25 \\times 90.0) = 15.0 + 15.0 + 22.5 = 52.5\\text{ g}\\cdot\\text{mol}^{-1}$$\nTherefore, the average molar mass is $52.5\\text{ g}\\cdot\\text{mol}^{-1}$."
+    },
+    {
+      "id": "chq_c02_023",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Consider the thermal decomposition of a binary carbonate solid solution $(Ba_x Ca_{1-x})CO_3(s) \\rightleftharpoons (Ba_x Ca_{1-x})O(s) + CO_2(g)$ at temperature $T$. For pure calcium carbonate, $CaCO_3(s) \\rightleftharpoons CaO(s) + CO_2(g)$, the equilibrium decomposition pressure is $P_{CO_2}^\\circ = 0.80\\text{ bar}$. Assuming the solid phases form ideal solid solutions such that the thermodynamic activity of each solid component equals its mole fraction, what is the equilibrium partial pressure of $CO_2(g)$ over a mixture where the mole fraction of $CaCO_3$ in the carbonate phase is $x_{CaCO_3} = 0.60$ and the mole fraction of $CaO$ in the oxide phase is $x_{CaO} = 0.30$?",
+      "options": [
+        "A) $1.60\\text{ bar}$",
+        "B) $0.40\\text{ bar}$",
+        "C) $0.80\\text{ bar}$",
+        "D) $0.24\\text{ bar}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write the chemical potential equilibrium condition for the calcium component:\n$$\\mu_{CaCO_3}(\\text{solid solution}) = \\mu_{CaO}(\\text{solid solution}) + \\mu_{CO_2}(\\text{gas})$$\nStep 2: Express activities in the solid solution: $$\\mu_i = \\mu_i^\\circ + RT\\ln a_i$$\nFor an ideal solid solution, activities equal mole fractions: $a_{CaCO_3} = x_{CaCO_3} = 0.60$ and $a_{CaO} = x_{CaO} = 0.30$.\nStep 3: Relate to the pure standard equilibrium constant $K_p^\\circ$:\n$$K_p^\\circ = \\frac{a_{CaO} \\cdot P_{CO_2}}{a_{CaCO_3}} = \\frac{x_{CaO} \\cdot P_{CO_2}}{x_{CaCO_3}}$$\nFor the pure phase decomposition, $a_{CaCO_3} = 1$ and $a_{CaO} = 1$, which gives $K_p^\\circ = P_{CO_2}^\\circ = 0.80\\text{ bar}$.\nStep 4: Solving for $P_{CO_2}$ over the solid solution:\n$$P_{CO_2} = K_p^\\circ \\times \\frac{x_{CaCO_3}}{x_{CaO}} = 0.80\\text{ bar} \\times \\frac{0.60}{0.30} = 0.80 \\times 2.0 = 1.60\\text{ bar}$$\nTherefore, the equilibrium partial pressure of $CO_2$ is $1.60\\text{ bar}$."
+    },
+    {
+      "id": "chq_c02_024",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider a heterogeneous equilibrium involving a binary solid solution of two isomorphous carbonates $ACO_3(s)$ and $BCO_3(s)$ decomposing into a binary oxide solid solution $(A, B)O(s)$ and carbon dioxide gas $CO_2(g)$ at temperature $T$:\n$$ACO_3(\\text{ss}) \\rightleftharpoons AO(\\text{ss}) + CO_2(g)$$\n$$BCO_3(\\text{ss}) \\rightleftharpoons BO(\\text{ss}) + CO_2(g)$$\nWhich of the following statements is/are CORRECT for this heterogeneous system?",
+      "options": [
+        "A) For each carbonate component, the equilibrium partial pressure of $CO_2$ satisfies $P_{CO_2} = K_{p,A}^\\circ \\frac{a_{ACO_3}}{a_{AO}} = K_{p,B}^\\circ \\frac{a_{BCO_3}}{a_{BO}}$, where $a_i$ denotes activity in the respective solid solution.",
+        "B) Applying the Gibbs Phase Rule $F = C - P + 2$ with independent components $\\{AO, BO, CO_2\\}$ ($C=3$) and phases {carbonate solid solution, oxide solid solution, gas} ($P=3$), the variance is $F = 3 - 3 + 2 = 2$.",
+        "C) At a specified temperature and fixed $CO_2$ pressure, the equilibrium compositions of both solid solution phases are completely fixed ($F=0$ under fixed $T$ and $P_{CO_2}$).",
+        "D) Unlike pure carbonates where decomposition occurs at a unique equilibrium pressure $P_{CO_2}(T)$, a solid solution decomposes over a continuous range of $CO_2$ pressures depending on solid-phase compositions."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: In a solid solution, the chemical potential equality $\\mu_{MCO_3} = \\mu_{MO} + \\mu_{CO_2}$ holds for each independent component $M \\in \\{A, B\\}$. Therefore:\n$$P_{CO_2} = K_{p,A}^\\circ \\frac{a_{ACO_3}}{a_{AO}} = K_{p,B}^\\circ \\frac{a_{BCO_3}}{a_{BO}}$$\nThis validates statement A.\nStep 2: The system consists of 3 chemical components ($AO$, $BO$, and $CO_2$) and 3 phases (carbonate solid solution, oxide solid solution, and gas phase). Applying Gibbs Phase Rule: $$F = C - P + 2 = 3 - 3 + 2 = 2$$\nDegrees of freedom are 2 (e.g., temperature $T$ and pressure $P_{CO_2}$). Thus, statement B is correct.\nStep 3: If both temperature $T$ and $P_{CO_2}$ are specified, all $2$ degrees of freedom are exhausted ($F = 2 - 2 = 0$), so the solid compositions $x_{ACO_3}$ and $x_{AO}$ are uniquely determined. Thus, statement C is correct.\nStep 4: Because the activities $a_i$ vary continuously with solid composition, the equilibrium decomposition pressure $P_{CO_2}$ is not fixed at a single invariant value (as in pure substances), but varies continuously with solid mole fraction. Thus, statement D is correct."
+    },
+    {
+      "id": "chq_c02_025",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The carbothermal reduction of zinc oxide in an industrial retort is governed by two coupled standard Gibbs free energy expressions:\n(1) $2C(s) + O_2(g) \\rightleftharpoons 2CO(g), \\quad \\Delta G_1^\\circ = -221.0 - 0.179 T\\text{ (kJ}\\cdot\\text{mol}^{-1}\\text{)}$\n(2) $2Zn(g) + O_2(g) \\rightleftharpoons 2ZnO(s), \\quad \\Delta G_2^\\circ = -920.0 + 0.390 T\\text{ (kJ}\\cdot\\text{mol}^{-1}\\text{)}$\nNet reaction: $ZnO(s) + C(s) \\rightleftharpoons Zn(g) + CO(g), \\quad \\Delta G_{net}^\\circ$\nWhich of the following statements is/are CORRECT?",
+      "options": [
+        "A) The standard Gibbs free energy change for the net reduction reaction is $\\Delta G_{net}^\\circ = \\frac{1}{2}(\\Delta G_1^\\circ - \\Delta G_2^\\circ) = +349.5 - 0.2845 T\\text{ (kJ}\\cdot\\text{mol}^{-1}\\text{)}$.",
+        "B) The minimum temperature above which the net reduction becomes thermodynamically spontaneous under standard pressure ($\\Delta G_{net}^\\circ < 0$) is approximately $1228\\text{ K}$.",
+        "C) At temperatures above $1228\\text{ K}$, increasing the total pressure shifts the equilibrium backward, reducing the yield of $Zn(g)$.",
+        "D) At equilibrium, the gas partial pressures satisfy $\\ln(P_{Zn} \\cdot P_{CO}) = -\\frac{\\Delta G_{net}^\\circ}{RT}$, where pure solids $ZnO(s)$ and $C(s)$ have unit activities."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Derive $\\Delta G_{net}^\\circ$: Subtract reaction (2) from reaction (1) and divide by $2$:\n$$\\Delta G_{net}^\\circ = \\frac{1}{2}\\left[(-221.0 - 0.179 T) - (-920.0 + 0.390 T)\\right] = \\frac{1}{2}[699.0 - 0.569 T] = +349.5 - 0.2845 T\\text{ kJ}\\cdot\\text{mol}^{-1}$$\nThis confirms statement A.\nStep 2: Set $\\Delta G_{net}^\\circ = 0$ to find the transition temperature:\n$$349.5 - 0.2845 T = 0 \\implies T = \\frac{349.5}{0.2845} \\approx 1228.5\\text{ K}$$\nFor $T > 1228\\text{ K}$, $\\Delta G_{net}^\\circ < 0$, making reduction thermodynamically spontaneous. Thus, statement B is correct.\nStep 3: The net reaction has $\\Delta n_g = 1 + 1 = +2 > 0$. By Le Chatelier's principle, increasing total pressure shifts the equilibrium towards fewer gaseous moles (backward towards $ZnO$), decreasing the yield of $Zn(g)$. Thus, statement C is correct.\nStep 4: Because $ZnO(s)$ and $C(s)$ are pure solid phases with $a = 1$, the equilibrium constant is $K_p = P_{Zn} \\cdot P_{CO}$. Thermodynamically, $\\ln K_p = -\\frac{\\Delta G_{net}^\\circ}{RT}$. Thus, statement D is correct."
+    },
+    {
+      "id": "chq_c02_026",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "At $1000\\text{ K}$, pure water vapor $H_2O(g)$ is introduced into an evacuated rigid container containing an excess of solid carbon $C(s)$. Two simultaneous equilibria are established:\n(1) $CO(g) + H_2O(g) \\rightleftharpoons CO_2(g) + H_2(g), \\quad K_{p1} = 1.0$\n(2) $CO_2(g) + C(s) \\rightleftharpoons 2CO(g), \\quad K_{p2} = 4.0\\text{ atm}$\nIf the partial pressure of $H_2(g)$ at equilibrium is measured to be $P_{H_2} = 4.0\\text{ atm}$, calculate the equilibrium partial pressure of $CO(g)$ in $\\text{atm}$.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: Set up the elemental conservation constraints. Hydrogen and oxygen atoms originate solely from initial $H_2O(g)$. Each mole of $CO$ contains 1 oxygen atom, and each mole of $CO_2$ contains 2 oxygen atoms. Since each $H_2$ molecule formed corresponds to one oxygen atom removed from $H_2O$:\n$$n_{H_2} = n_{CO} + 2n_{CO_2} \\implies P_{H_2} = P_{CO} + 2P_{CO_2}$$\nStep 2: Express $P_{CO_2}$ from equilibrium (2):\n$$K_{p2} = \\frac{(P_{CO})^2}{P_{CO_2}} = 4.0\\text{ atm} \\implies P_{CO_2} = \\frac{(P_{CO})^2}{4.0}$$\nStep 3: Substitute $P_{CO_2}$ into the atomic balance equation:\n$$P_{H_2} = P_{CO} + 2\\left(\\frac{(P_{CO})^2}{4.0}\\right) = P_{CO} + \\frac{(P_{CO})^2}{2.0}$$\nStep 4: Given $P_{H_2} = 4.0\\text{ atm}$, substituting yields the quadratic equation:\n$$4.0 = P_{CO} + 0.5(P_{CO})^2 \\implies (P_{CO})^2 + 2P_{CO} - 8.0 = 0$$\nStep 5: Solving the quadratic equation:\n$$(P_{CO} + 4)(P_{CO} - 2) = 0$$\nSince partial pressure must be positive, $P_{CO} = 2.0\\text{ atm}$.\nHence, the integer answer is 2."
+    },
+    {
+      "id": "chq_c02_027",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "For an ideal gas-phase isomerization reaction $A(g) \\rightleftharpoons B(g)$ in a closed vessel at constant temperature $T$ and constant total pressure $P = 1.0\\text{ bar}$, starting with $1.0\\text{ mol}$ of pure $A$, the total Gibbs free energy is expressed as a function of the extent of reaction $\\xi$ ($0 < \\xi < 1$):\n$$G(\\xi) = (1-\\xi)\\mu_A^\\circ + \\xi \\mu_B^\\circ + RT\\left[(1-\\xi)\\ln(1-\\xi) + \\xi\\ln\\xi\\right]$$\nWhich of the following thermodynamic statements is/are CORRECT?",
+      "options": [
+        "A) The first derivative $\\left(\\frac{\\partial G}{\\partial \\xi}\\right)_{T,P} = \\Delta G^\\circ + RT\\ln\\left(\\frac{\\xi}{1-\\xi}\\right) = \\Delta_r G$, which vanishes strictly at thermodynamic equilibrium $\\xi = \\xi_{eq}$.",
+        "B) The second derivative $\\left(\\frac{\\partial^2 G}{\\partial \\xi^2}\\right)_{T,P} = \\frac{RT}{\\xi(1-\\xi)} > 0$ for all $\\xi \\in (0,1)$, ensuring the equilibrium state is a unique global minimum of Gibbs free energy.",
+        "C) When $\\Delta G^\\circ = 0$, the minimum in free energy occurs at $\\xi_{eq} = 0.50$ due to the maximum configurational entropy of mixing $\\Delta S_{mix} = -R[\\xi\\ln\\xi + (1-\\xi)\\ln(1-\\xi)]$.",
+        "D) For any finite value of $\\Delta G^\\circ$, complete conversion ($\\xi = 1$) is thermodynamically unreachable in a closed system because $\\left(\\frac{\\partial G}{\\partial \\xi}\\right) \\to +\\infty$ as $\\xi \\to 1$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Differentiating $G(\\xi)$ with respect to $\\xi$:\n$$\\left(\\frac{\\partial G}{\\partial \\xi}\\right)_{T,P} = \\mu_B^\\circ - \\mu_A^\\circ + RT\\left[\\ln\\xi + 1 - \\ln(1-\\xi) - 1\\right] = \\Delta G^\\circ + RT\\ln\\left(\\frac{\\xi}{1-\\xi}\\right)$$\nThis equals the reaction Gibbs energy $\\Delta_r G$. At equilibrium, $\\Delta_r G = 0$, validating statement A.\nStep 2: Differentiating again with respect to $\\xi$:\n$$\\left(\\frac{\\partial^2 G}{\\partial \\xi^2}\\right)_{T,P} = RT\\left(\\frac{1}{\\xi} + \\frac{1}{1-\\xi}\\right) = \\frac{RT}{\\xi(1-\\xi)}$$\nSince $T > 0$ and $0 < \\xi < 1$, $\\frac{\\partial^2 G}{\\partial \\xi^2} > 0$ everywhere, proving strict convexity and a unique global minimum. Thus, statement B is correct.\nStep 3: If $\\Delta G^\\circ = 0$, $\\ln\\left(\\frac{\\xi_{eq}}{1-\\xi_{eq}}\\right) = 0 \\implies \\xi_{eq} = 0.50$. This position corresponds to maximum entropy of mixing $\\Delta S_{mix} = R\\ln 2$. Thus, statement C is correct.\nStep 4: As $\\xi \\to 1$, $-\\ln(1-\\xi) \\to +\\infty$, so $\\frac{\\partial G}{\\partial \\xi} \\to +\\infty$. The infinite positive slope creates an insurmountable thermodynamic barrier preventing complete conversion $\\xi = 1$. Thus, statement D is correct."
+    },
+    {
+      "id": "chq_c02_028",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In the reduction zone of a blast furnace at $900^\\circ\\text{C}$, the stepwise reduction of iron oxides by carbon monoxide is described by two consecutive heterogeneous equilibria:\n(1) $Fe_3O_4(s) + CO(g) \\rightleftharpoons 3FeO(s) + CO_2(g), \\quad K_{p1} = 2.0$\n(2) $FeO(s) + CO(g) \\rightleftharpoons Fe(s) + CO_2(g), \\quad K_{p2} = 0.50$\nWhich of the following statements is/are CORRECT regarding the thermodynamic stability of the solid phases as a function of the gas ratio $\\frac{P_{CO_2}}{P_{CO}}$?",
+      "options": [
+        "A) In a gas mixture with $\\frac{P_{CO_2}}{P_{CO}} > 2.0$ (i.e. $%CO < 33.3\\%$, where $%CO = \\frac{P_{CO}}{P_{CO}+P_{CO_2}} \\times 100$), magnetite $Fe_3O_4(s)$ is the thermodynamically stable iron oxide phase.",
+        "B) For gas compositions where $0.50 < \\frac{P_{CO_2}}{P_{CO}} < 2.0$ (i.e. $33.3\\% < \\%CO < 66.7\\%$), wüstite $FeO(s)$ is the thermodynamically stable solid phase.",
+        "C) Metallic iron $Fe(s)$ is thermodynamically stable and formed only when $\\frac{P_{CO_2}}{P_{CO}} \\le 0.50$ (i.e. $\\%CO \\ge 66.7\\%$).",
+        "D) When pure $FeO(s)$ is heated in a closed container under initial pure $CO(g)$ at $1.0\\text{ bar}$, metallic iron precipitates until $P_{CO_2} = \\frac{1}{3}\\text{ bar}$ and $P_{CO} = \\frac{2}{3}\\text{ bar}$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Analyze reaction (1): $Q_1 = \\frac{P_{CO_2}}{P_{CO}}$. If $Q_1 > K_{p1} = 2.0$, reaction (1) shifts in reverse, stabilizing $Fe_3O_4(s)$. Here, $\\frac{P_{CO_2}}{P_{CO}} > 2.0 \\implies \\%CO = \\frac{1}{1 + 2} = 33.3\\%$. Thus, A is correct.\nStep 2: Analyze reaction (2): $Q_2 = \\frac{P_{CO_2}}{P_{CO}}$. If $Q_2 > K_{p2} = 0.50$, metallic iron oxidizes to $FeO(s)$. When $0.50 < \\frac{P_{CO_2}}{P_{CO}} < 2.0$, $FeO(s)$ is stable against both oxidation to $Fe_3O_4$ and reduction to $Fe$. Thus, B is correct.\nStep 3: For metallic iron to precipitate spontaneously, $Q_2 \\le K_{p2} = 0.50$, requiring $\\frac{P_{CO_2}}{P_{CO}} \\le 0.50$, corresponding to $\\%CO \\ge 66.7\\%$. Thus, C is correct.\nStep 4: Starting with pure $FeO(s)$ and pure $CO$ at $1.0\\text{ bar}$: Let $x$ be the equilibrium pressure of $CO_2$. Then $P_{CO} = 1.0 - x$. Setting $\\frac{x}{1.0 - x} = 0.50$ gives $x = 0.50 - 0.50x \\implies 1.5x = 0.50 \\implies x = \\frac{1}{3}\\text{ bar}$. Therefore, $P_{CO_2} = \\frac{1}{3}\\text{ bar}$ and $P_{CO} = \\frac{2}{3}\\text{ bar}$. Thus, D is correct."
+    },
+    {
+      "id": "chq_c02_029",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Solid ammonium carbamate decomposes reversibly as $NH_2COONH_4(s) \\rightleftharpoons 2NH_3(g) + CO_2(g)$ with equilibrium constant $K_p = 16.0\\text{ bar}^3$ at temperature $T$. If ammonia gas is initially introduced into an evacuated rigid container at a partial pressure of $P_{NH_3}^0 = 2.0\\text{ bar}$ prior to adding excess solid ammonium carbamate at the same temperature $T$, what is the total pressure (in $\\text{bar}$) inside the vessel once equilibrium is reached?",
+      "options": [
+        "A) $5.0\\text{ bar}$",
+        "B) $6.0\\text{ bar}$",
+        "C) $4.0\\text{ bar}$",
+        "D) $3.0\\text{ bar}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Set up the equilibrium partial pressures. Let $x$ be the partial pressure of $CO_2(g)$ generated by decomposition. Stoichiometrically, the additional partial pressure of $NH_3(g)$ generated is $2x$.\nTherefore:\n$$P_{CO_2} = x$$\n$$P_{NH_3} = P_{NH_3}^0 + 2x = 2.0 + 2x$$\nStep 2: Apply the equilibrium constant expression for heterogeneous decomposition:\n$$K_p = (P_{NH_3})^2 (P_{CO_2}) = (2.0 + 2x)^2 x = 4(1.0 + x)^2 x = 16.0\\text{ bar}^3$$\nStep 3: Dividing both sides by $4$:\n$$(1.0 + x)^2 x = 4.0$$\nStep 4: Solving for $x$:\nExpanding gives $x(x^2 + 2x + 1) = x^3 + 2x^2 + x = 4.0 \\implies x^3 + 2x^2 + x - 4.0 = 0$.\nTesting integer root $x = 1.0$: $$(1.0 + 1.0)^2 (1.0) = 4 \\times 1 = 4.0$$\nThus, $x = 1.0\\text{ bar}$ is the exact physical root.\nStep 5: Compute the equilibrium partial pressures and total pressure:\n$$P_{CO_2} = 1.0\\text{ bar}$$\n$$P_{NH_3} = 2.0 + 2(1.0) = 4.0\\text{ bar}$$\n$$P_{total} = P_{NH_3} + P_{CO_2} = 4.0 + 1.0 = 5.0\\text{ bar}$$\nTherefore, the total equilibrium pressure is $5.0\\text{ bar}$."
+    },
+    {
+      "id": "chq_c02_030",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In a high-temperature metallurgical equilibrium at $1273\\text{ K}$, a binary oxide solid solution $(Ni_x Mg_{1-x})O(s)$ is exposed to a reducing atmosphere of $CO(g)$ and $CO_2(g)$. Only the nickel oxide component is selectively reduced according to:\n$$NiO(\\text{in solid solution}) + CO(g) \\rightleftharpoons Ni(s) + CO_2(g)$$\nFor pure solid nickel oxide, the standard equilibrium constant is $K_p^\\circ = 100$. At equilibrium, metallic nickel precipitates as a pure distinct solid phase, and the gas-phase partial pressure ratio is measured to be $\\frac{P_{CO_2}}{P_{CO}} = 40$. What is the thermodynamic activity $a_{NiO}$ of nickel oxide in the solid solution at equilibrium?",
+      "options": [
+        "A) $0.40$",
+        "B) $2.50$",
+        "C) $0.16$",
+        "D) $0.60$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write the thermodynamic equilibrium relation for the heterogeneous reduction reaction:\n$$K_p^\\circ = \\frac{a_{Ni} \\cdot P_{CO_2}}{a_{NiO} \\cdot P_{CO}}$$\nStep 2: Because pure metallic nickel precipitates as a separate crystalline solid phase, its thermodynamic activity in its standard state is $a_{Ni} = 1.0$.\nStep 3: Substituting $a_{Ni} = 1.0$ into the equilibrium expression:\n$$K_p^\\circ = \\frac{1.0}{a_{NiO}} \\left(\\frac{P_{CO_2}}{P_{CO}}\\right)$$\nStep 4: Substitute the given values $K_p^\\circ = 100$ and $\\frac{P_{CO_2}}{P_{CO}} = 40$:\n$$100 = \\frac{1.0}{a_{NiO}} \\times 40$$\nStep 5: Solving for $a_{NiO}$:\n$$a_{NiO} = \\frac{40}{100} = 0.40$$\nTherefore, the thermodynamic activity of $NiO$ in the solid solution is $0.40$."
+    },
+    {
+      "id": "chq_c02_031",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "At high temperature, ethane undergoes coupled dehydrogenation cracking in the gas phase:\n(1) $C_2H_6(g) \\rightleftharpoons C_2H_4(g) + H_2(g), \\quad K_{p1} = 2.0\\text{ bar}$\n(2) $C_2H_4(g) \\rightleftharpoons C_2H_2(g) + H_2(g), \\quad K_{p2} = 0.50\\text{ bar}$\nPure ethane is introduced into a reactor maintained at a constant total pressure of $P = 5.0\\text{ bar}$ at fixed temperature. At equilibrium, the partial pressure of hydrogen is measured to be $P_{H_2} = 2.0\\text{ bar}$. Calculate the ratio of the equilibrium partial pressure of ethylene to acetylene, $\\frac{P_{C_2H_4}}{P_{C_2H_2}}$.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: Formulate the equilibrium constant expression for reaction (2):\n$$K_{p2} = \\frac{P_{C_2H_2} \\cdot P_{H_2}}{P_{C_2H_4}}$$\nStep 2: Rearrange to solve directly for the ratio of partial pressures $\\frac{P_{C_2H_4}}{P_{C_2H_2}}$:\n$$\\frac{P_{C_2H_4}}{P_{C_2H_2}} = \\frac{P_{H_2}}{K_{p2}}$$\nStep 3: Substituting the given equilibrium partial pressure $P_{H_2} = 2.0\\text{ bar}$ and $K_{p2} = 0.50\\text{ bar}$:\n$$\\frac{P_{C_2H_4}}{P_{C_2H_2}} = \\frac{2.0\\text{ bar}}{0.50\\text{ bar}} = 4$$\nStep 4: Verify consistency with reaction (1) and total pressure $P = 5.0\\text{ bar}$:\nFrom stoichiometry of pure ethane feed, $P_{H_2} = P_{C_2H_4} + 2P_{C_2H_2}$.\nWith $\\frac{P_{C_2H_4}}{P_{C_2H_2}} = 4 \\implies P_{C_2H_4} = 4 P_{C_2H_2}$, we get:\n$$2.0 = 4P_{C_2H_2} + 2P_{C_2H_2} = 6P_{C_2H_2} \\implies P_{C_2H_2} = \\frac{1}{3}\\text{ bar}, \\quad P_{C_2H_4} = \\frac{4}{3}\\text{ bar}$$\nFrom reaction (1): $$P_{C_2H_6} = \\frac{P_{C_2H_4} P_{H_2}}{K_{p1}} = \\frac{(4/3) \\times 2.0}{2.0} = \\frac{4}{3}\\text{ bar}$$\nTotal pressure: $$P_{total} = P_{C_2H_6} + P_{C_2H_4} + P_{C_2H_2} + P_{H_2} = \\frac{4}{3} + \\frac{4}{3} + \\frac{1}{3} + 2.0 = 3.0 + 2.0 = 5.0\\text{ bar}$$, which exactly matches the system pressure.\nHence, the integer answer is 4."
+    },
+    {
+      "id": "chq_c02_032",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In a multi-reaction gaseous equilibrium system at $600\\text{ K}$, the following coupled gas-phase reactions occur simultaneously in a closed container:\n(1) $N_2O_4(g) \\rightleftharpoons 2NO_2(g), \\quad K_{p1} = 4.0\\text{ bar}$\n(2) $2NO_2(g) \\rightleftharpoons 2NO(g) + O_2(g), \\quad K_{p2} = 8.0\\text{ bar}$\nAt equilibrium, the partial pressure of $N_2O_4(g)$ is measured to be $P_{N_2O_4} = 1.0\\text{ bar}$, and the partial pressure of oxygen gas is measured to be $P_{O_2} = 2.0\\text{ bar}$. Calculate the total equilibrium pressure (in $\\text{bar}$) of all gaseous components in the container.",
+      "options": [],
+      "answer": "9",
+      "explanation": "Step 1: Determine the equilibrium partial pressure of $NO_2(g)$ from equilibrium (1):\n$$K_{p1} = \\frac{(P_{NO_2})^2}{P_{N_2O_4}} \\implies (P_{NO_2})^2 = K_{p1} \\times P_{N_2O_4}$$\nSubstituting $K_{p1} = 4.0\\text{ bar}$ and $P_{N_2O_4} = 1.0\\text{ bar}$:\n$$(P_{NO_2})^2 = 4.0 \\times 1.0 = 4.0\\text{ bar}^2 \\implies P_{NO_2} = 2.0\\text{ bar}$$\nStep 2: Determine the equilibrium partial pressure of $NO(g)$ from equilibrium (2):\n$$K_{p2} = \\frac{(P_{NO})^2 \\cdot P_{O_2}}{(P_{NO_2})^2}$$\nSubstituting $K_{p2} = 8.0\\text{ bar}$, $P_{NO_2} = 2.0\\text{ bar}$, and $P_{O_2} = 2.0\\text{ bar}$:\n$$8.0 = \\frac{(P_{NO})^2 \\times 2.0}{(2.0)^2} = \\frac{(P_{NO})^2 \\times 2.0}{4.0} = \\frac{(P_{NO})^2}{2.0}$$\nSolving gives: $$(P_{NO})^2 = 8.0 \\times 2.0 = 16.0\\text{ bar}^2 \\implies P_{NO} = 4.0\\text{ bar}$$\nStep 3: Calculate the total pressure of all gases present at equilibrium:\n$$P_{total} = P_{N_2O_4} + P_{NO_2} + P_{NO} + P_{O_2} = 1.0 + 2.0 + 4.0 + 2.0 = 9.0\\text{ bar}$$\nHence, the integer answer is 9."
+    }
+  ]
+}

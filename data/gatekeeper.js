@@ -273,11 +273,33 @@ function auditChunkFile(filePath, commitToRegistry = false) {
     return { success: false, error: `File not found: ${filePath}` };
   }
 
-  const raw = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  let raw;
+  try {
+    raw = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  } catch (err) {
+    return {
+      success: false,
+      error: `Invalid JSON or file in-flight: ${err.message}`,
+      total: 0,
+      passed: 0,
+      failed: 1,
+      rejections: [{ id: 'FILE_READ_ERROR', reason: err.message }]
+    };
+  }
   const questions = raw.questions || [];
 
-  const hashes = JSON.parse(fs.readFileSync(HASHES_FILE, 'utf8'));
-  const progress = JSON.parse(fs.readFileSync(PROGRESS_FILE, 'utf8'));
+  let hashes, progress;
+  for (let retry = 0; retry < 3; retry++) {
+    try {
+      hashes = JSON.parse(fs.readFileSync(HASHES_FILE, 'utf8'));
+      progress = JSON.parse(fs.readFileSync(PROGRESS_FILE, 'utf8'));
+      break;
+    } catch (err) {
+      if (retry === 2) throw err;
+      const start = Date.now();
+      while (Date.now() - start < 50); // 50ms sync backoff
+    }
+  }
   const initialHashes = { ...hashes };
 
   const validQuestions = [];

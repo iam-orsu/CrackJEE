@@ -69,4 +69,4 @@ EXPOSE 3001
 HEALTHCHECK --interval=15s --timeout=5s --start-period=20s --retries=3 \
   CMD wget -qO- http://127.0.0.1:3001/health || exit 1
 
-CMD ["sh", "-c", "node_modules/.bin/prisma migrate deploy && node dist/scripts/seedQuestions.js && node dist/index.js"]
+CMD ["sh", "-c", "migrate_out=$(node_modules/.bin/prisma migrate deploy 2>&1); if echo \"$migrate_out\" | grep -q 'P3005'; then echo '[migrate] Baseline: marking migrations as applied...'; node_modules/.bin/prisma migrate resolve --applied 20241001000000_init 2>&1 || true; node_modules/.bin/prisma migrate resolve --applied 20241002000000_add_partial_count 2>&1 || true; node_modules/.bin/prisma migrate deploy; else echo \"$migrate_out\"; fi && (node dist/scripts/seedQuestions.js || echo '[warn] Seeding failed — continuing with existing data') && node dist/index.js"]

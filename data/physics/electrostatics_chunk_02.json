@@ -1,0 +1,522 @@
+{
+  "chunkIndex": 2,
+  "subject": "Physics",
+  "topic": "Electrostatics",
+  "totalQuestions": 32,
+  "questions": [
+    {
+      "id": "phy_electrostatics_beg_001",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Three identical point charges, each carrying charge $+q$, are placed at the vertices of an equilateral triangle of side length $L$. A fourth point charge $Q$ is placed at the centroid of the equilateral triangle such that the entire system of four charges is in electrostatic equilibrium. The value of the charge $Q$ is:",
+      "options": [
+        "A) -\\frac{q}{\\sqrt{3}}",
+        "B) -\\frac{q}{3}",
+        "C) +\\frac{q}{\\sqrt{3}}",
+        "D) -\\sqrt{3}q"
+      ],
+      "answer": "A",
+      "explanation": "For the entire system to be in electrostatic equilibrium, the net electrostatic force acting on each charge must be zero. By symmetry, the net force on the central charge $Q$ is already zero. Now consider one of the vertex charges of magnitude $q$. The distance between any two vertex charges is $L$, so the repulsive force exerted on it by each of the other two vertex charges is $F = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2}{L^2}$. The angle between these two repulsive forces is $60^\\circ$. Therefore, their vector resultant has magnitude $F_{vv} = 2F\\cos(30^\\circ) = \\sqrt{3}F = \\sqrt{3}\\frac{q^2}{4\\pi\\varepsilon_0 L^2}$, directed radially outward away from the centroid. The distance from the centroid to any vertex is $r_c = \\frac{L}{\\sqrt{3}}$. Hence, the electrostatic force exerted by the central charge $Q$ on this vertex charge is $F_Q = \\frac{1}{4\\pi\\varepsilon_0}\\frac{|Q|q}{r_c^2} = \\frac{3|Q|q}{4\\pi\\varepsilon_0 L^2}$. For equilibrium, this force must be attractive, meaning $Q$ must be negative. Equating the two opposing forces yields $\\frac{3|Q|q}{4\\pi\\varepsilon_0 L^2} = \\frac{\\sqrt{3}q^2}{4\\pi\\varepsilon_0 L^2}$. Solving this equation, we get $|Q| = \\frac{q}{\\sqrt{3}}$, which implies $Q = -\\frac{q}{\\sqrt{3}}$."
+    },
+    {
+      "id": "phy_electrostatics_beg_002",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two identical small spheres, each of mass $m$ and carrying an identical positive charge $q$, are suspended from a common point by two insulating strings of length $L$. In air, the strings make an angle $\\theta$ with the vertical. When the entire apparatus is immersed in a liquid of density $\\rho_L = 800\\,\\text{kg/m}^3$, the angle of inclination $\\theta$ remains unchanged. If the density of the sphere material is $\\rho_s = 1600\\,\\text{kg/m}^3$, the relative permittivity (dielectric constant) $\\varepsilon_r$ of the liquid is:",
+      "options": [
+        "A) 2.0",
+        "B) 1.5",
+        "C) 2.5",
+        "D) 0.5"
+      ],
+      "answer": "A",
+      "explanation": "In air, the forces acting on each sphere are the tension $T$, gravity $mg$, and the electrostatic repulsion $F_e = \\frac{q^2}{4\\pi\\varepsilon_0 r^2}$. In equilibrium, $\\tan\\theta = \\frac{F_e}{mg}$. When immersed in the liquid, the electrostatic force is reduced by the dielectric constant to $F'_e = \\frac{F_e}{\\varepsilon_r}$. Furthermore, the buoyant force exerted by the liquid is $F_b = V\\rho_L g = \\left(\\frac{m}{\\rho_s}\\right)\\rho_L g$. Therefore, the effective apparent weight of the sphere becomes $W_{\\text{eff}} = mg - F_b = mg\\left(1 - \\frac{\\rho_L}{\\rho_s}\\right)$. Since the angle $\\theta$ remains unchanged, we have $\\tan\\theta = \\frac{F'_e}{W_{\\text{eff}}} = \\frac{F_e}{\\varepsilon_r mg\\left(1 - \\frac{\\rho_L}{\\rho_s}\\right)}$. Equating the expressions for $\\tan\\theta$, we obtain $\\frac{F_e}{mg} = \\frac{F_e}{\\varepsilon_r mg\\left(1 - \\frac{\\rho_L}{\\rho_s}\\right)}$, which implies $\\varepsilon_r = \\frac{1}{1 - \\rho_L/\\rho_s} = \\frac{\\rho_s}{\\rho_s - \\rho_L}$. Substituting the given numerical values $\\rho_s = 1600\\,\\text{kg/m}^3$ and $\\rho_L = 800\\,\\text{kg/m}^3$, we find $\\varepsilon_r = \\frac{1600}{1600 - 800} = \\frac{1600}{800} = 2.0$."
+    },
+    {
+      "id": "phy_electrostatics_beg_003",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A thin circular ring of radius $R$ carries a total positive charge $Q$ uniformly distributed along its circumference. The electric field on the axis of the ring at an axial distance $x$ from the center is given by $E(x) = \\frac{1}{4\\pi\\varepsilon_0}\\frac{Qx}{(x^2+R^2)^{3/2}}$. The ratio of the electric field at an axial distance $x = R$ to the maximum electric field $E_{\\max}$ on the axis is:",
+      "options": [
+        "A) \\frac{3\\sqrt{6}}{8}",
+        "B) \\frac{3\\sqrt{3}}{4}",
+        "C) \\frac{2\\sqrt{2}}{3\\sqrt{3}}",
+        "D) \\frac{\\sqrt{6}}{4}"
+      ],
+      "answer": "A",
+      "explanation": "To find the maximum electric field, we differentiate $E(x)$ with respect to $x$ and set $\\frac{dE}{dx} = 0$. Differentiating gives $(x^2+R^2)^{3/2} - x \\cdot \\frac{3}{2}(x^2+R^2)^{1/2}(2x) = 0$, which simplifies to $x^2+R^2 - 3x^2 = 0$, yielding $x_{\\max} = \\frac{R}{\\sqrt{2}}$. Substituting $x = \\frac{R}{\\sqrt{2}}$ into $E(x)$, the denominator becomes $\\left(\\left(\\frac{R}{\\sqrt{2}}\\right)^2 + R^2\\right)^{3/2} = \\left(\\frac{3}{2}R^2\\right)^{3/2} = \\frac{3\\sqrt{3}}{2\\sqrt{2}}R^3$. Hence, $E_{\\max} = \\frac{Q}{4\\pi\\varepsilon_0}\\frac{R/\\sqrt{2}}{\\frac{3\\sqrt{3}}{2\\sqrt{2}}R^3} = \\frac{Q}{4\\pi\\varepsilon_0 R^2}\\frac{2}{3\\sqrt{3}}$. Next, evaluating the electric field at $x = R$, we get $(R^2+R^2)^{3/2} = (2R^2)^{3/2} = 2\\sqrt{2}R^3$. Thus, $E(R) = \\frac{Q}{4\\pi\\varepsilon_0}\\frac{R}{2\\sqrt{2}R^3} = \\frac{Q}{4\\pi\\varepsilon_0 R^2}\\frac{1}{2\\sqrt{2}}$. Taking the ratio, we obtain $\\frac{E(R)}{E_{\\max}} = \\frac{1/(2\\sqrt{2})}{2/(3\\sqrt{3})} = \\frac{3\\sqrt{3}}{4\\sqrt{2}} = \\frac{3\\sqrt{6}}{8}$."
+    },
+    {
+      "id": "phy_electrostatics_beg_004",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A thin straight insulating wire of length $2L$ lies along the $y$-axis from $y = -L$ to $y = +L$ with a uniform linear charge density $\\lambda > 0$. Point $P$ is located on the $x$-axis at coordinates $(L, 0)$. The magnitude of the net electric field at point $P$ is:",
+      "options": [
+        "A) \\frac{\\lambda}{2\\sqrt{2}\\pi\\varepsilon_0 L}",
+        "B) \\frac{\\lambda}{4\\pi\\varepsilon_0 L}",
+        "C) \\frac{\\lambda}{\\sqrt{2}\\pi\\varepsilon_0 L}",
+        "D) \\frac{\\sqrt{2}\\lambda}{\\pi\\varepsilon_0 L}"
+      ],
+      "answer": "A",
+      "explanation": "Consider the wire symmetrical about the origin from $y = -L$ to $y = +L$, and point $P$ at $(d, 0)$ where $d = L$. By symmetry, the vertical components of the electric field from elements at $+y$ and $-y$ cancel, so $E_y = 0$. For a finite line of charge, the component perpendicular to the wire is given by $E_x = \\frac{\\lambda}{4\\pi\\varepsilon_0 d}(\\sin\\theta_1 + \\sin\\theta_2)$, where $\\theta_1$ and $\\theta_2$ are the angles subtended by the two ends of the wire at point $P$. Since the ends are at $(0, L)$ and $(0, -L)$, we have $\\tan\\theta_1 = \\tan\\theta_2 = \\frac{L}{d} = \\frac{L}{L} = 1$. Therefore, $\\theta_1 = \\theta_2 = 45^\\circ$, which implies $\\sin\\theta_1 = \\sin\\theta_2 = \\frac{1}{\\sqrt{2}}$. Substituting these values into the expression, we get $E_x = \\frac{\\lambda}{4\\pi\\varepsilon_0 L}\\left(\\frac{1}{\\sqrt{2}} + \\frac{1}{\\sqrt{2}}\\right) = \\frac{\\lambda}{4\\pi\\varepsilon_0 L}\\left(\\frac{2}{\\sqrt{2}}\\right) = \\frac{\\sqrt{2}\\lambda}{4\\pi\\varepsilon_0 L} = \\frac{\\lambda}{2\\sqrt{2}\\pi\\varepsilon_0 L}$. Hence, the net electric field magnitude is $\\frac{\\lambda}{2\\sqrt{2}\\pi\\varepsilon_0 L}$."
+    },
+    {
+      "id": "phy_electrostatics_beg_005",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A thin insulating wire is bent into a semicircle of radius $R$ lying in the $xy$-plane centered at the origin, spanning the angular range $0 \\le \\theta \\le \\pi$. The first quadrant ($0 \\le \\theta \\le \\pi/2$) carries a uniform linear charge density $+\\lambda$, while the second quadrant ($\\pi/2 < \\theta \\le \\pi$) carries a uniform linear charge density $-\\lambda$. The net electric field vector $\\vec{E}$ at the origin is:",
+      "options": [
+        "A) -\\frac{\\lambda}{2\\pi\\varepsilon_0 R}\\hat{i}",
+        "B) -\\frac{\\sqrt{2}\\lambda}{\\pi\\varepsilon_0 R}\\hat{j}",
+        "C) -\\frac{\\lambda}{4\\pi\\varepsilon_0 R}\\hat{i}",
+        "D) +\\frac{\\lambda}{2\\pi\\varepsilon_0 R}\\hat{j}"
+      ],
+      "answer": "A",
+      "explanation": "An infinitesimal charge element at angle $\\theta$ is $dq = \\lambda(\\theta) R d\\theta$ located at $\\vec{r} = R(\\cos\\theta\\hat{i} + \\sin\\theta\\hat{j})$. The electric field at the origin due to $dq$ is $d\\vec{E} = -\\frac{dq}{4\\pi\\varepsilon_0 R^2}(\\cos\\theta\\hat{i} + \\sin\\theta\\hat{j})$. For the first quadrant ($0 \\le \\theta \\le \\pi/2$), $dq = +\\lambda R d\\theta$. Integrating: $E_{1x} = -\\frac{\\lambda}{4\\pi\\varepsilon_0 R}\\int_0^{\\pi/2}\\cos\\theta d\\theta = -\\frac{\\lambda}{4\\pi\\varepsilon_0 R}[\\sin\\theta]_0^{\\pi/2} = -\\frac{\\lambda}{4\\pi\\varepsilon_0 R}$, and $E_{1y} = -\\frac{\\lambda}{4\\pi\\varepsilon_0 R}\\int_0^{\\pi/2}\\sin\\theta d\\theta = -\\frac{\\lambda}{4\\pi\\varepsilon_0 R}[-\\cos\\theta]_0^{\\pi/2} = -\\frac{\\lambda}{4\\pi\\varepsilon_0 R}$. For the second quadrant ($\\pi/2 < \\theta \\le \\pi$), $dq = -\\lambda R d\\theta$. Integrating: $E_{2x} = +\\frac{\\lambda}{4\\pi\\varepsilon_0 R}\\int_{\\pi/2}^\\pi\\cos\\theta d\\theta = +\\frac{\\lambda}{4\\pi\\varepsilon_0 R}[\\sin\\theta]_{\\pi/2}^\\pi = -\\frac{\\lambda}{4\\pi\\varepsilon_0 R}$, and $E_{2y} = +\\frac{\\lambda}{4\\pi\\varepsilon_0 R}\\int_{\\pi/2}^\\pi\\sin\\theta d\\theta = +\\frac{\\lambda}{4\\pi\\varepsilon_0 R}[-\\cos\\theta]_{\\pi/2}^\\pi = +\\frac{\\lambda}{4\\pi\\varepsilon_0 R}$. Summing the components, we get $E_x = E_{1x} + E_{2x} = -\\frac{2\\lambda}{4\\pi\\varepsilon_0 R} = -\\frac{\\lambda}{2\\pi\\varepsilon_0 R}$, and $E_y = E_{1y} + E_{2y} = -\\frac{\\lambda}{4\\pi\\varepsilon_0 R} + \\frac{\\lambda}{4\\pi\\varepsilon_0 R} = 0$. Therefore, $\\vec{E} = -\\frac{\\lambda}{2\\pi\\varepsilon_0 R}\\hat{i}$."
+    },
+    {
+      "id": "phy_electrostatics_beg_006",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An electric dipole consists of two point charges $\\pm 2.0\\,\\mu\\text{C}$ separated by a distance of $3.0\\,\\text{cm}$. The dipole is placed in a uniform electric field of magnitude $4.0 \\times 10^5\\,\\text{N/C}$. Initially, the dipole moment makes an angle of $30^\\circ$ with the electric field vector. The initial torque acting on the dipole and the minimum work done by an external agent to slowly rotate the dipole to an angle of $90^\\circ$ are respectively:",
+      "options": [
+        "A) 1.2 \\times 10^{-2}\\,\\text{N}\\cdot\\text{m} \\text{ and } 1.2\\sqrt{3} \\times 10^{-2}\\,\\text{J}",
+        "B) 1.2\\sqrt{3} \\times 10^{-2}\\,\\text{N}\\cdot\\text{m} \\text{ and } 1.2 \\times 10^{-2}\\,\\text{J}",
+        "C) 2.4 \\times 10^{-2}\\,\\text{N}\\cdot\\text{m} \\text{ and } 2.4\\sqrt{3} \\times 10^{-2}\\,\\text{J}",
+        "D) 1.2 \\times 10^{-2}\\,\\text{N}\\cdot\\text{m} \\text{ and } -1.2\\sqrt{3} \\times 10^{-2}\\,\\text{J}"
+      ],
+      "answer": "A",
+      "explanation": "The electric dipole moment has magnitude $p = qd = (2.0 \\times 10^{-6}\\,\\text{C})(0.03\\,\\text{m}) = 6.0 \\times 10^{-8}\\,\\text{C}\\cdot\\text{m}$. The magnitude of the torque is $\\tau = pE\\sin\\theta$. At $\\theta_1 = 30^\\circ$, we have $\\tau = (6.0 \\times 10^{-8})(4.0 \\times 10^5)\\sin(30^\\circ) = 2.4 \\times 10^{-2} \\times 0.5 = 1.2 \\times 10^{-2}\\,\\text{N}\\cdot\\text{m}$. The electrostatic potential energy of a dipole is $U(\\theta) = -pE\\cos\\theta$. The work done by an external agent to slowly rotate the dipole from $\\theta_1 = 30^\\circ$ to $\\theta_2 = 90^\\circ$ without changing kinetic energy is $W_{\\text{ext}} = U(90^\\circ) - U(30^\\circ) = (-pE\\cos 90^\\circ) - (-pE\\cos 30^\\circ) = 0 - \\left(-pE\\frac{\\sqrt{3}}{2}\\right) = pE\\frac{\\sqrt{3}}{2}$. Substituting $pE = 2.4 \\times 10^{-2}\\,\\text{J}$, we find $W_{\\text{ext}} = (2.4 \\times 10^{-2})\\frac{\\sqrt{3}}{2} = 1.2\\sqrt{3} \\times 10^{-2}\\,\\text{J}$."
+    },
+    {
+      "id": "phy_electrostatics_beg_007",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A uniform thin insulating rod of mass $M$ and length $L$ has two small particles of negligible mass, carrying charges $+q$ and $-q$, attached to its opposite ends. The rod is pivoted at its center about a frictionless fixed axis perpendicular to a uniform electric field $\\vec{E}$. When displaced by a small angle $\\theta$ from its stable alignment with the electric field and released, the angular frequency $\\omega$ of the resulting small oscillations is:",
+      "options": [
+        "A) \\sqrt{\\frac{12qE}{ML}}",
+        "B) \\sqrt{\\frac{6qE}{ML}}",
+        "C) \\sqrt{\\frac{3qE}{ML}}",
+        "D) \\sqrt{\\frac{qE}{ML}}"
+      ],
+      "answer": "A",
+      "explanation": "The moment of inertia of the uniform thin rod of mass $M$ and length $L$ about its central pivot axis is $I = \\frac{1}{12}ML^2$. The dipole moment of the system is $p = qL$. When the rod is rotated through a small angle $\\theta$ from the equilibrium alignment with $\\vec{E}$, the electric field exerts a restoring torque given by $\\tau = -pE\\sin\\theta$. Applying the small-angle approximation $\\sin\\theta \\approx \\theta$, we get $\\tau \\approx -(qLE)\\theta$. The rotational equation of motion is $I\\frac{d^2\\theta}{dt^2} = \\tau$, which yields $\\frac{1}{12}ML^2\\frac{d^2\\theta}{dt^2} + (qLE)\\theta = 0$. Dividing throughout by $\\frac{1}{12}ML^2$, we obtain $\\frac{d^2\\theta}{dt^2} + \\left(\\frac{12qE}{ML}\\right)\\theta = 0$. Comparing this with standard simple harmonic motion $\\frac{d^2\\theta}{dt^2} + \\omega^2\\theta = 0$, we find that the angular frequency is $\\omega = \\sqrt{\\frac{12qE}{ML}}$."
+    },
+    {
+      "id": "phy_electrostatics_beg_008",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_multi",
+      "questionText": "Two identical positive point charges $+Q$ are held fixed at coordinates $(-a, 0)$ and $(+a, 0)$ on the $x$-axis. A third point charge $q$ of mass $m$ is placed at the origin $(0, 0)$. Which of the following statements is/are correct regarding the electrostatic equilibrium of charge $q$?",
+      "options": [
+        "A) If $q > 0$, the equilibrium is stable for small displacements along the $y$-axis.",
+        "B) If $q > 0$, the equilibrium is unstable for small displacements along the $x$-axis.",
+        "C) If $q < 0$, the equilibrium is stable for small displacements along the $x$-axis.",
+        "D) If $q > 0$, the equilibrium is stable for displacements in all directions in the $xy$-plane."
+      ],
+      "answer": "A,B,C",
+      "explanation": "At the origin $(0,0)$, the electric field due to the two $+Q$ charges is zero by symmetry, so the charge $q$ is in equilibrium. Consider a small displacement $x$ along the $x$-axis: the net electrostatic force is $F_x = \\frac{1}{4\\pi\\varepsilon_0}\\left(\\frac{Qq}{(a-x)^2} - \\frac{Qq}{(a+x)^2}\\right) \\approx \\frac{Qq}{4\\pi\\varepsilon_0 a^2}\\left((1+2x/a) - (1-2x/a)\\right) = \\frac{Qq}{\\pi\\varepsilon_0 a^3}x$. If $q > 0$, $F_x$ is directed along $+x$ (in the direction of displacement), which is repulsive away from equilibrium, making it unstable along the $x$-axis (statement B is correct). If $q < 0$, $F_x$ is opposing displacement, acting as a restoring force, making it stable along the $x$-axis (statement C is correct). Now consider a small displacement $y$ along the $y$-axis: each charge exerts a force along the line connecting it to $(0, y)$. The horizontal components cancel, while the net vertical force is $F_y = -2\\frac{Qq}{4\\pi\\varepsilon_0(a^2+y^2)}\\sin\\theta = -2\\frac{Qq}{4\\pi\\varepsilon_0(a^2+y^2)}\\frac{y}{\\sqrt{a^2+y^2}} \\approx -\\frac{Qq}{2\\pi\\varepsilon_0 a^3}y$. For $q > 0$, $F_y$ is directed toward the origin (restoring), so the equilibrium is stable along the $y$-axis (statement A is correct). By Earnshaw's theorem, an electrostatic equilibrium cannot be stable in all directions simultaneously, so statement D is false."
+    },
+    {
+      "id": "phy_electrostatics_beg_009",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A thin non-conducting circular ring of radius $R = 0.30\\,\\text{m}$ has a uniform linear charge density $\\lambda = 2.0\\,\\mu\\text{C/m}$ along its circumference, except for a small gap of length $w = 1.0\\,\\text{cm}$ ($w \\ll R$) where the charge has been removed. Find the magnitude of the electric field at the center of the ring in $\\text{N/C}$. (Take $\\frac{1}{4\\pi\\varepsilon_0} = 9.0 \\times 10^9\\,\\text{N}\\cdot\\text{m}^2/\\text{C}^2$).",
+      "options": [],
+      "answer": "2000",
+      "explanation": "A complete circular ring carrying a uniform charge density produces zero electric field at its center because diametrically opposite elements cancel each other pairwise: $\\vec{E}_{\\text{complete}} = 0$. By the principle of superposition, the electric field of the complete ring is the sum of the electric field of the incomplete ring and the electric field of the missing gap segment: $\\vec{E}_{\\text{incomplete}} + \\vec{E}_{\\text{gap}} = 0$, which implies $\\vec{E}_{\\text{incomplete}} = -\\vec{E}_{\\text{gap}}$. Since the gap width $w = 1.0\\,\\text{cm} = 0.01\\,\\text{m}$ is much smaller than the radius $R = 0.30\\,\\text{m}$, the missing segment can be treated as a point charge: $q_{\\text{gap}} = \\lambda w = (2.0 \\times 10^{-6}\\,\\text{C/m})(0.01\\,\\text{m}) = 2.0 \\times 10^{-8}\\,\\text{C}$. The magnitude of the electric field produced at the center by this gap charge is $E = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q_{\\text{gap}}}{R^2}$. Substituting the values: $E = (9.0 \\times 10^9)\\frac{2.0 \\times 10^{-8}}{(0.30)^2} = \\frac{180}{0.09} = 2000\\,\\text{N/C}$."
+    },
+    {
+      "id": "phy_electrostatics_beg_010",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Five identical positive point charges, each of magnitude $q = 4.0\\,\\mu\\text{C}$, are fixed at five of the six vertices of a regular hexagon of side length $a = 0.30\\,\\text{m}$. The sixth vertex is left empty. Find the magnitude of the net electric field at the center of the hexagon in kilovolts per meter ($\\text{kV/m}$). (Take $\\frac{1}{4\\pi\\varepsilon_0} = 9.0 \\times 10^9\\,\\text{N}\\cdot\\text{m}^2/\\text{C}^2$).",
+      "options": [],
+      "answer": "400",
+      "explanation": "In a regular hexagon, the distance from each of the six vertices to the geometric center is equal to the side length $a = 0.30\\,\\text{m}$. If equal charges $q$ were placed at all six vertices, the net electric field at the center would be zero by rotational symmetry: $\\vec{E}_5 + \\vec{E}_6 = 0$, where $\\vec{E}_5$ is the electric field produced by the five charges and $\\vec{E}_6$ is the electric field that would be produced by a charge at the sixth vertex. Applying superposition yields $\\vec{E}_5 = -\\vec{E}_6$. Therefore, the magnitude of the electric field produced by the five charges at the center is identical to the magnitude of the electric field of a single point charge $q$ located at distance $a$: $E = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q}{a^2}$. Substituting the given numerical parameters: $E = (9.0 \\times 10^9)\\frac{4.0 \\times 10^{-6}}{(0.30)^2} = \\frac{36000}{0.09} = 400000\\,\\text{N/C} = 400\\,\\text{kV/m}$."
+    },
+    {
+      "id": "phy_electrostatics_int_011",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A point charge $q$ is placed at one vertex of a solid cube of edge length $L$. What is the electric flux passing through each of the three faces of this cube that do NOT meet at the vertex containing the charge?",
+      "options": [
+        "A) \\frac{q}{24\\varepsilon_0}",
+        "B) \\frac{q}{8\\varepsilon_0}",
+        "C) \\frac{q}{6\\varepsilon_0}",
+        "D) \\frac{q}{12\\varepsilon_0}"
+      ],
+      "answer": "A",
+      "explanation": "To apply Gauss's law with complete spatial symmetry, consider eight identical cubes of edge length $L$ arranged together to form a larger cube of edge length $2L$, with the point charge $q$ positioned at its center. The total electric flux passing through this large enclosing cube is $\\Phi_{\\text{total}} = \\frac{q}{\\varepsilon_0}$. By symmetry, the electric flux entering the single smaller cube containing the vertex is one-eighth of the total flux: $\\Phi_{\\text{cube}} = \\frac{q}{8\\varepsilon_0}$. For the three faces of this cube that meet at the vertex containing $q$, the electric field lines lie entirely parallel to the faces, meaning $\\vec{E} \\cdot d\\vec{A} = 0$, so the flux through each of these three adjacent faces is strictly zero. Hence, the entire flux entering the cube must emerge symmetrically through the remaining three faces that do not touch the charge. Therefore, the electric flux through each of these three non-adjacent faces is $\\Phi = \\frac{1}{3}\\Phi_{\\text{cube}} = \\frac{1}{3}\\left(\\frac{q}{8\\varepsilon_0}\\right) = \\frac{q}{24\\varepsilon_0}$."
+    },
+    {
+      "id": "phy_electrostatics_int_012",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A point charge $q$ is placed on the symmetry axis of a flat circular disk of radius $R$ at a perpendicular distance $d = \\sqrt{3}R$ from the center of the disk. The electric flux $\\Phi$ passing through the surface of the circular disk is:",
+      "options": [
+        "A) \\frac{q(2-\\sqrt{3})}{4\\varepsilon_0}",
+        "B) \\frac{q}{4\\varepsilon_0}",
+        "C) \\frac{\\sqrt{3}q}{4\\varepsilon_0}",
+        "D) \\frac{q(2-\\sqrt{3})}{2\\varepsilon_0}"
+      ],
+      "answer": "A",
+      "explanation": "The electric flux emanating from a point charge through any surface subtending a solid angle $\\Omega$ at the charge is given by Gauss's law as $\\Phi = \\frac{q}{\\varepsilon_0}\\left(\\frac{\\Omega}{4\\pi}\\right)$. For a circular cone of semi-vertical angle $\\alpha$, the solid angle subtended by the circular base at its apex is $\\Omega = 2\\pi(1 - \\cos\\alpha)$. The semi-vertical angle $\\alpha$ subtended by the rim of the disk at the location of the point charge satisfies $\\tan\\alpha = \\frac{R}{d} = \\frac{R}{\\sqrt{3}R} = \\frac{1}{\\sqrt{3}}$, which implies $\\alpha = 30^\\circ$. Therefore, the cosine of the semi-vertical angle is $\\cos(30^\\circ) = \\frac{\\sqrt{3}}{2}$. Substituting this into the solid angle expression yields $\\Omega = 2\\pi\\left(1 - \\frac{\\sqrt{3}}{2}\\right)$. Hence, the electric flux passing through the disk is $\\Phi = \\frac{q}{4\\pi\\varepsilon_0}\\left[2\\pi\\left(1 - \\frac{\\sqrt{3}}{2}\\right)\\right] = \\frac{q}{2\\varepsilon_0}\\left(\\frac{2-\\sqrt{3}}{2}\\right) = \\frac{q(2-\\sqrt{3})}{4\\varepsilon_0}$."
+    },
+    {
+      "id": "phy_electrostatics_int_013",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A point charge $+q$ is located at a perpendicular distance $a$ directly above one corner of a flat square plate of side length $a$. The electric flux passing through the square plate is:",
+      "options": [
+        "A) \\frac{q}{24\\varepsilon_0}",
+        "B) \\frac{q}{8\\varepsilon_0}",
+        "C) \\frac{q}{12\\varepsilon_0}",
+        "D) \\frac{q}{16\\varepsilon_0}"
+      ],
+      "answer": "A",
+      "explanation": "To evaluate the flux using Gauss's law without complex surface integration, consider assembling four identical square plates of side $a$ in the same plane to form a larger square plate of side $2a$. The charge $+q$ is now located at a height $a$ directly above the center of this large composite square plate. Next, construct a closed cube of edge length $2a$ centered on the charge $+q$, such that the large composite square forms one of its six identical faces. By Gauss's law and cubic symmetry, the total flux from the enclosed charge $+q$ through the entire cube is $\\Phi_{\\text{cube}} = \\frac{q}{\\varepsilon_0}$, so the flux passing through each of the six faces is $\\Phi_{\\text{face}} = \\frac{1}{6}\\frac{q}{\\varepsilon_0}$. Since each face of side $2a$ is composed of four identical original square plates of side $a$, and the charge $+q$ is situated symmetrically above their common central corner, the flux divides equally among the four sub-plates. Therefore, the electric flux through a single square plate is $\\Phi = \\frac{1}{4}\\Phi_{\\text{face}} = \\frac{1}{4}\\left(\\frac{q}{6\\varepsilon_0}\\right) = \\frac{q}{24\\varepsilon_0}$."
+    },
+    {
+      "id": "phy_electrostatics_int_014",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two concentric thin spherical conducting shells have radii $R$ and $2R$. The outer shell is given a positive charge $+Q$, while the inner shell is grounded (connected to earth). The induced charge on the inner shell and the final electric potential of the outer shell are respectively:",
+      "options": [
+        "A) q_{\\text{in}} = -\\frac{Q}{2} \\text{ and } V_{\\text{outer}} = \\frac{Q}{16\\pi\\varepsilon_0 R}",
+        "B) q_{\\text{in}} = -Q \\text{ and } V_{\\text{outer}} = 0",
+        "C) q_{\\text{in}} = -\\frac{Q}{2} \\text{ and } V_{\\text{outer}} = \\frac{Q}{8\\pi\\varepsilon_0 R}",
+        "D) q_{\\text{in}} = +\\frac{Q}{2} \\text{ and } V_{\\text{outer}} = \\frac{3Q}{16\\pi\\varepsilon_0 R}"
+      ],
+      "answer": "A",
+      "explanation": "Let the induced charge residing on the grounded inner shell be $q_{\\text{in}}$, and the outer shell carries charge $+Q$. Because the inner shell is connected to earth, its electric potential must be zero: $V_{\\text{inner}} = 0$. The potential of the inner shell ($r = R$) is the superposition of potentials produced by $q_{\\text{in}}$ and $Q$: $V_{\\text{inner}} = \\frac{1}{4\\pi\\varepsilon_0}\\left(\\frac{q_{\\text{in}}}{R} + \\frac{Q}{2R}\\right) = 0$. Solving this equation gives $\\frac{q_{\\text{in}}}{R} = -\\frac{Q}{2R}$, which implies $q_{\\text{in}} = -\\frac{Q}{2}$. Now, evaluate the electric potential at the outer shell ($r = 2R$). The potential at $r = 2R$ is $V_{\\text{outer}} = \\frac{1}{4\\pi\\varepsilon_0}\\left(\\frac{q_{\\text{in}}}{2R} + \\frac{Q}{2R}\\right) = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q_{\\text{in}} + Q}{2R}$. Substituting $q_{\\text{in}} = -\\frac{Q}{2}$, we obtain $V_{\\text{outer}} = \\frac{1}{4\\pi\\varepsilon_0}\\frac{-Q/2 + Q}{2R} = \\frac{Q/2}{4\\pi\\varepsilon_0(2R)} = \\frac{Q}{16\\pi\\varepsilon_0 R}$. Therefore, $q_{\\text{in}} = -\\frac{Q}{2}$ and $V_{\\text{outer}} = \\frac{Q}{16\\pi\\varepsilon_0 R}$."
+    },
+    {
+      "id": "phy_electrostatics_int_015",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Three concentric thin conducting spherical shells $A$, $B$, and $C$ have radii $R$, $2R$, and $3R$, respectively. Shell $A$ is given a charge $+Q$, shell $B$ is given a charge $-2Q$, and the outermost shell $C$ is connected to earth (grounded). The charge appearing on the outer surface of shell $C$ and the electric potential of shell $B$ are respectively:",
+      "options": [
+        "A) q_{C,\\text{out}} = 0 \\text{ and } V_B = -\\frac{Q}{24\\pi\\varepsilon_0 R}",
+        "B) q_{C,\\text{out}} = +Q \\text{ and } V_B = -\\frac{Q}{12\\pi\\varepsilon_0 R}",
+        "C) q_{C,\\text{out}} = -Q \\text{ and } V_B = -\\frac{Q}{24\\pi\\varepsilon_0 R}",
+        "D) q_{C,\\text{out}} = 0 \\text{ and } V_B = +\\frac{Q}{24\\pi\\varepsilon_0 R}"
+      ],
+      "answer": "A",
+      "explanation": "Let the total charge acquired by the grounded shell $C$ be $Q_C$. Because shell $C$ is grounded, its potential is zero: $V_C = \\frac{1}{4\\pi\\varepsilon_0}\\frac{Q_A + Q_B + Q_C}{R_C} = 0$. Substituting $Q_A = +Q$, $Q_B = -2Q$, and $R_C = 3R$, we obtain $Q - 2Q + Q_C = 0$, which yields $Q_C = +Q$. To find the distribution of this charge, apply Gauss's law across a Gaussian surface inside the metal of shell $C$: the total enclosed charge must be zero, so the charge on the inner surface of $C$ must be $q_{C,\\text{in}} = -(Q_A + Q_B) = -(Q - 2Q) = +Q$. Therefore, the charge residing on the outer surface of shell $C$ is $q_{C,\\text{out}} = Q_C - q_{C,\\text{in}} = (+Q) - (+Q) = 0$. Next, calculate the electric potential of shell $B$ ($r = 2R$). Superposing potentials from all three concentric shells: $V_B = \\frac{1}{4\\pi\\varepsilon_0}\\left(\\frac{Q_A}{2R} + \\frac{Q_B}{2R} + \\frac{Q_C}{3R}\\right) = \\frac{1}{4\\pi\\varepsilon_0}\\left(\\frac{Q}{2R} - \\frac{2Q}{2R} + \\frac{Q}{3R}\\right) = \\frac{Q}{4\\pi\\varepsilon_0 R}\\left(\\frac{1}{2} - 1 + \\frac{1}{3}\\right) = \\frac{Q}{4\\pi\\varepsilon_0 R}\\left(-\\frac{1}{6}\\right) = -\\frac{Q}{24\\pi\\varepsilon_0 R}$."
+    },
+    {
+      "id": "phy_electrostatics_int_016",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An electric dipole of dipole moment $\\vec{p} = p\\hat{k}$ is positioned at the origin. At a point $P$ in the first quadrant of the $xz$-plane, the position vector $\\vec{r}$ makes an angle $\\theta$ with the $+z$-axis such that $\\tan\\theta = \\sqrt{2}$. The angle that the net electric field $\\vec{E}$ at point $P$ makes with the $+z$-axis is:",
+      "options": [
+        "A) 90^\\circ",
+        "B) 60^\\circ",
+        "C) 45^\\circ",
+        "D) 120^\\circ"
+      ],
+      "answer": "A",
+      "explanation": "In spherical polar coordinates, the electric field components of a short electric dipole $\\vec{p} = p\\hat{k}$ at $(r, \\theta)$ are $E_r = \\frac{2p\\cos\\theta}{4\\pi\\varepsilon_0 r^3}$ and $E_\\theta = \\frac{p\\sin\\theta}{4\\pi\\varepsilon_0 r^3}$. If $\\alpha$ is the angle between the net electric field vector $\\vec{E}$ and the radial direction $\\hat{r}$, then $\\tan\\alpha = \\frac{E_\\theta}{E_r} = \\frac{\\sin\\theta}{2\\cos\\theta} = \\frac{1}{2}\\tan\\theta$. Given that $\\tan\\theta = \\sqrt{2}$, substituting this value gives $\\tan\\alpha = \\frac{\\sqrt{2}}{2} = \\frac{1}{\\sqrt{2}}$. The total angle $\\beta$ that the electric field $\\vec{E}$ makes with the $+z$-axis is $\\beta = \\theta + \\alpha$. Applying the tangent addition identity: $\\tan\\beta = \\tan(\\theta + \\alpha) = \\frac{\\tan\\theta + \\tan\\alpha}{1 - \\tan\\theta\\tan\\alpha} = \\frac{\\sqrt{2} + \\frac{1}{\\sqrt{2}}}{1 - \\sqrt{2}\\left(\\frac{1}{\\sqrt{2}}\\right)} = \\frac{\\frac{3}{\\sqrt{2}}}{1 - 1} = \\frac{3/\\sqrt{2}}{0} \\to \\infty$. Therefore, $\\beta = 90^\\circ$, meaning the electric field vector is perpendicular to the dipole axis ($+z$-axis)."
+    },
+    {
+      "id": "phy_electrostatics_int_017",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Two identical short electric dipoles $\\vec{p}_1 = p\\hat{i}$ and $\\vec{p}_2 = p\\hat{i}$ are placed on the $x$-axis separated by a distance $r$ ($r \\gg$ dipole size), with $\\vec{p}_1$ located at the origin and $\\vec{p}_2$ at $(r, 0, 0)$. Which of the following statements is/are correct?",
+      "options": [
+        "A) In this collinear configuration, the electrostatic force between the dipoles is attractive with magnitude $F = \\frac{6p^2}{4\\pi\\varepsilon_0 r^4}$.",
+        "B) The electrostatic potential energy of the system is $U = -\\frac{2p^2}{4\\pi\\varepsilon_0 r^3}$.",
+        "C) The work required to slowly rotate $\\vec{p}_2$ by $180^\\circ$ so that it points along $-\\hat{i}$ is $W = \\frac{4p^2}{4\\pi\\varepsilon_0 r^3}$.",
+        "D) If $\\vec{p}_2$ is rotated to point along $+\\hat{j}$, the magnitude of the torque exerted on $\\vec{p}_2$ is $\\tau = \\frac{2p^2}{4\\pi\\varepsilon_0 r^3}$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "The electric field produced by the dipole $\\vec{p}_1 = p\\hat{i}$ at an axial point $(r, 0, 0)$ is $\\vec{E}_1 = \\frac{2p}{4\\pi\\varepsilon_0 r^3}\\hat{i}$. The electrostatic potential energy of $\\vec{p}_2$ in this field is $U_i = -\\vec{p}_2 \\cdot \\vec{E}_1 = -(p\\hat{i}) \\cdot \\left(\\frac{2p}{4\\pi\\varepsilon_0 r^3}\\hat{i}\\right) = -\\frac{2p^2}{4\\pi\\varepsilon_0 r^3}$ (statement B is correct). The electrostatic interaction force on $\\vec{p}_2$ is $F_x = -\\frac{dU}{dr} = -\\frac{d}{dr}\\left(-\\frac{2p^2}{4\\pi\\varepsilon_0 r^3}\\right) = -\\frac{6p^2}{4\\pi\\varepsilon_0 r^4}$, where the negative sign indicates an attractive force towards the origin of magnitude $\\frac{6p^2}{4\\pi\\varepsilon_0 r^4}$ (statement A is correct). When $\\vec{p}_2$ is reversed to $-p\\hat{i}$, the new potential energy is $U_f = -(-p\\hat{i}) \\cdot \\vec{E}_1 = +\\frac{2p^2}{4\\pi\\varepsilon_0 r^3}$. The external work required is $W = U_f - U_i = \\frac{2p^2}{4\\pi\\varepsilon_0 r^3} - \\left(-\\frac{2p^2}{4\\pi\\varepsilon_0 r^3}\\right) = \\frac{4p^2}{4\\pi\\varepsilon_0 r^3}$ (statement C is correct). If $\\vec{p}_2 = p\\hat{j}$, the torque acting on it is $\\vec{\\tau} = \\vec{p}_2 \\times \\vec{E}_1 = (p\\hat{j}) \\times \\left(\\frac{2p}{4\\pi\\varepsilon_0 r^3}\\hat{i}\\right) = -\\frac{2p^2}{4\\pi\\varepsilon_0 r^3}\\hat{k}$, having magnitude $\\frac{2p^2}{4\\pi\\varepsilon_0 r^3}$ (statement D is correct). Hence, all options are correct."
+    },
+    {
+      "id": "phy_electrostatics_int_018",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A solid insulating sphere of radius $R$ centered at the origin $O$ has a uniform volume charge density $\\rho$. A spherical cavity of radius $R/2$ is carved inside the sphere, centered at $\\vec{a} = \\frac{R}{2}\\hat{i}$. Which of the following statements is/are correct regarding the resulting electrostatic field and potential?",
+      "options": [
+        "A) The electric field inside the cavity is uniform and directed along $+\\hat{i}$ with magnitude $E = \\frac{\\rho R}{6\\varepsilon_0}$.",
+        "B) The electric potential at the center of the sphere $O$ is $V_O = \\frac{5\\rho R^2}{12\\varepsilon_0}$.",
+        "C) The electric potential at the center of the cavity $C$ is $V_C = \\frac{\\rho R^2}{3\\varepsilon_0}$.",
+        "D) The electric field inside the cavity is non-uniform and diverges near the cavity boundary."
+      ],
+      "answer": "A,B,C",
+      "explanation": "By the principle of superposition, the sphere with the cavity is equivalent to a complete solid sphere of radius $R$ and uniform charge density $+\\rho$ plus a sphere of radius $R/2$ with charge density $-\\rho$ centered at $\\vec{a} = \\frac{R}{2}\\hat{i}$. At any point $\\vec{r}$ inside the cavity, the electric field from the first sphere is $\\vec{E}_1 = \\frac{\\rho}{3\\varepsilon_0}\\vec{r}$, and that from the cavity charge is $\\vec{E}_2 = -\\frac{\\rho}{3\\varepsilon_0}(\\vec{r} - \\vec{a})$. Summing them yields $\\vec{E} = \\vec{E}_1 + \\vec{E}_2 = \\frac{\\rho}{3\\varepsilon_0}\\vec{a} = \\frac{\\rho R}{6\\varepsilon_0}\\hat{i}$, which is strictly uniform throughout the cavity (statement A is correct, D is false). At origin $O$, the potential due to the complete sphere is $V_1(0) = \\frac{\\rho R^2}{2\\varepsilon_0}$. Origin $O$ lies on the surface of the cavity sphere of radius $R/2$ and total charge $q_{\\text{cav}} = -\\rho\\frac{4}{3}\\pi(R/2)^3 = -\\frac{\\pi\\rho R^3}{6}$. Hence, $V_2(0) = \\frac{q_{\\text{cav}}}{4\\pi\\varepsilon_0(R/2)} = -\\frac{\\rho R^2}{12\\varepsilon_0}$. Superposing gives $V_O = \\frac{\\rho R^2}{2\\varepsilon_0} - \\frac{\\rho R^2}{12\\varepsilon_0} = \\frac{5\\rho R^2}{12\\varepsilon_0}$ (statement B is correct). At cavity center $C$ ($r = R/2$), the potential from the complete sphere is $V_1(R/2) = \\frac{\\rho}{2\\varepsilon_0}\\left(R^2 - \\frac{(R/2)^2}{3}\\right) = \\frac{11\\rho R^2}{24\\varepsilon_0}$. The potential from the cavity sphere at its own center is $V_2(C) = -\\frac{\\rho(R/2)^2}{2\\varepsilon_0} = -\\frac{\\rho R^2}{8\\varepsilon_0} = -\\frac{3\\rho R^2}{24\\varepsilon_0}$. Superposing yields $V_C = \\frac{11\\rho R^2}{24\\varepsilon_0} - \\frac{3\\rho R^2}{24\\varepsilon_0} = \\frac{8\\rho R^2}{24\\varepsilon_0} = \\frac{\\rho R^2}{3\\varepsilon_0}$ (statement C is correct)."
+    },
+    {
+      "id": "phy_electrostatics_int_019",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Three concentric thin conducting spherical shells have radii $R_1 = 10\\,\\text{cm}$, $R_2 = 20\\,\\text{cm}$, and $R_3 = 30\\,\\text{cm}$. The shells carry net charges $q_1 = +2.0\\,\\mu\\text{C}$, $q_2 = -4.0\\,\\mu\\text{C}$, and $q_3 = +6.0\\,\\mu\\text{C}$, respectively. Find the electric potential at the surface of the middle shell ($r = R_2$) in kilovolts ($\\text{kV}$). (Take $\\frac{1}{4\\pi\\varepsilon_0} = 9.0 \\times 10^9\\,\\text{N}\\cdot\\text{m}^2/\\text{C}^2$).",
+      "options": [],
+      "answer": "90",
+      "explanation": "The electric potential at radius $r = R_2$ is determined by summing the potentials contributed by each of the three concentric spherical shells: $V(R_2) = V_1(R_2) + V_2(R_2) + V_3(R_2)$. Because the point $r = R_2$ lies outside shell 1, shell 1 acts as if its entire charge $q_1$ were concentrated at the origin: $V_1(R_2) = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q_1}{R_2}$. The point lies on the surface of shell 2, so $V_2(R_2) = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q_2}{R_2}$. Because the point lies inside shell 3, the potential contributed by shell 3 throughout its interior remains uniform at the surface value: $V_3(R_2) = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q_3}{R_3}$. Combining these, we obtain $V(R_2) = \\frac{1}{4\\pi\\varepsilon_0}\\left(\\frac{q_1+q_2}{R_2} + \\frac{q_3}{R_3}\\right)$. Substituting the values: $q_1 + q_2 = (2.0 - 4.0)\\,\\mu\\text{C} = -2.0\\,\\mu\\text{C} = -2.0 \\times 10^{-6}\\,\\text{C}$, $R_2 = 0.20\\,\\text{m}$, giving $\\frac{q_1+q_2}{R_2} = \\frac{-2.0 \\times 10^{-6}}{0.20} = -1.0 \\times 10^{-5}\\,\\text{C/m}$. For shell 3: $q_3 = 6.0\\,\\mu\\text{C} = 6.0 \\times 10^{-6}\\,\\text{C}$, $R_3 = 0.30\\,\\text{m}$, giving $\\frac{q_3}{R_3} = \\frac{6.0 \\times 10^{-6}}{0.30} = +2.0 \\times 10^{-5}\\,\\text{C/m}$. The sum inside the bracket is $-1.0 \\times 10^{-5} + 2.0 \\times 10^{-5} = 1.0 \\times 10^{-5}\\,\\text{C/m}$. Multiplying by $\\frac{1}{4\\pi\\varepsilon_0} = 9.0 \\times 10^9$, we find $V(R_2) = (9.0 \\times 10^9)(1.0 \\times 10^{-5}) = 90000\\,\\text{V} = 90\\,\\text{kV}$."
+    },
+    {
+      "id": "phy_electrostatics_int_020",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A point charge $q = 8.854 \\times 10^{-8}\\,\\text{C}$ is placed at the apex of a right circular cone of base radius $R = 3.0\\,\\text{m}$ and height $h = 4.0\\,\\text{m}$. What is the electric flux passing through the circular flat base of the cone in units of $10^2\\,\\text{N}\\cdot\\text{m}^2/\\text{C}$? (Take $\\varepsilon_0 = 8.854 \\times 10^{-12}\\,\\text{C}^2/(\\text{N}\\cdot\\text{m}^2)$).",
+      "options": [],
+      "answer": "10",
+      "explanation": "The slant height of the cone from its apex to the rim of the base is $L = \\sqrt{R^2 + h^2} = \\sqrt{3.0^2 + 4.0^2} = 5.0\\,\\text{m}$. The semi-vertical angle $\\alpha$ of the cone satisfies $\\cos\\alpha = \\frac{h}{L} = \\frac{4.0}{5.0} = 0.8$. The solid angle subtended by the circular base at the apex is given by $\\Omega = 2\\pi(1 - \\cos\\alpha) = 2\\pi(1 - 0.8) = 0.4\\pi\\,\\text{sr}$. By Gauss's law, a point charge $q$ radiates a total electric flux of $\\frac{q}{\\varepsilon_0}$ uniformly into the total solid angle of $4\\pi\\,\\text{sr}$. Therefore, the flux intercepted by the base is $\\Phi = \\frac{q}{\\varepsilon_0}\\frac{\\Omega}{4\\pi} = \\frac{q}{2\\varepsilon_0}(1 - \\cos\\alpha) = \\frac{q}{2\\varepsilon_0}(0.2) = 0.1\\frac{q}{\\varepsilon_0}$. Substituting the given numerical parameters: $\\frac{q}{\\varepsilon_0} = \\frac{8.854 \\times 10^{-8}}{8.854 \\times 10^{-12}} = 10^4\\,\\text{N}\\cdot\\text{m}^2/\\text{C}$. Hence, the electric flux is $\\Phi = 0.1 \\times 10^4 = 1000\\,\\text{N}\\cdot\\text{m}^2/\\text{C} = 10 \\times 10^2\\,\\text{N}\\cdot\\text{m}^2/\\text{C}$."
+    },
+    {
+      "id": "phy_electrostatics_adv_021",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A solid non-conducting sphere of radius $R$ possesses a non-uniform spherically symmetric volume charge density given by $\\rho(r) = \\rho_0\\frac{r}{R}$ for $r \\le R$, and $\\rho(r) = 0$ for $r > R$, where $\\rho_0$ is a positive constant. The total charge of the sphere is $Q$. What is the total electrostatic self-energy $U$ of this charge distribution in terms of $Q$, $R$, and the vacuum permittivity $\\varepsilon_0$?",
+      "options": [
+        "A) \\frac{4}{7}\\left(\\frac{Q^2}{4\\pi\\varepsilon_0 R}\\right)",
+        "B) \\frac{3}{5}\\left(\\frac{Q^2}{4\\pi\\varepsilon_0 R}\\right)",
+        "C) \\frac{5}{9}\\left(\\frac{Q^2}{4\\pi\\varepsilon_0 R}\\right)",
+        "D) \\frac{1}{2}\\left(\\frac{Q^2}{4\\pi\\varepsilon_0 R}\\right)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Relate the total charge $Q$ to $\\rho_0$ by integrating over concentric spherical shells: $Q = \\int_0^R \\rho(r) 4\\pi r^2 dr = 4\\pi \\frac{\\rho_0}{R} \\int_0^R r^3 dr = \\pi \\rho_0 R^3$. Therefore, we get $\\rho_0 = \\frac{Q}{\\pi R^3}$. Step 2: Applying Gauss's law for $r \\le R$, the enclosed charge is $q_{\\text{encl}}(r) = \\int_0^r \\frac{\\rho_0}{R} r' \\cdot 4\\pi r'^2 dr' = \\pi \\rho_0 \\frac{r^4}{R} = Q\\frac{r^4}{R^4}$. Hence, the electric field inside the sphere is $E_{\\text{in}}(r) = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q_{\\text{encl}}(r)}{r^2} = \\frac{Q}{4\\pi\\varepsilon_0 R^4} r^2$. For $r \\ge R$, the electric field is $E_{\\text{out}}(r) = \\frac{Q}{4\\pi\\varepsilon_0 r^2}$. Step 3: Integrating the electrostatic energy density $u = \\frac{1}{2}\\varepsilon_0 E^2$ over all space, the energy inside the sphere is $U_{\\text{in}} = \\int_0^R \\frac{1}{2}\\varepsilon_0 \\left(\\frac{Q}{4\\pi\\varepsilon_0 R^4} r^2\\right)^2 (4\\pi r^2 dr) = \\frac{Q^2}{8\\pi\\varepsilon_0 R^8} \\int_0^R r^6 dr = \\frac{Q^2}{8\\pi\\varepsilon_0 R^8}\\frac{R^7}{7} = \\frac{1}{14}\\left(\\frac{Q^2}{4\\pi\\varepsilon_0 R}\\right)$. Step 4: The energy outside the sphere is $U_{\\text{out}} = \\int_R^\\infty \\frac{1}{2}\\varepsilon_0 \\left(\\frac{Q}{4\\pi\\varepsilon_0 r^2}\\right)^2 (4\\pi r^2 dr) = \\frac{Q^2}{8\\pi\\varepsilon_0} \\int_R^\\infty \\frac{dr}{r^2} = \\frac{1}{2}\\left(\\frac{Q^2}{4\\pi\\varepsilon_0 R}\\right)$. Summing both contributions, we find $U = U_{\\text{in}} + U_{\\text{out}} = \\left(\\frac{1}{14} + \\frac{1}{2}\\right)\\left(\\frac{Q^2}{4\\pi\\varepsilon_0 R}\\right) = \\frac{4}{7}\\left(\\frac{Q^2}{4\\pi\\varepsilon_0 R}\\right)$."
+    },
+    {
+      "id": "phy_electrostatics_adv_022",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "An infinite conducting plane is grounded ($V = 0$) and occupies the plane $z = 0$. A point charge $+q$ is held fixed at coordinates $(0, 0, d)$ where $d > 0$. Using the method of images, determine the net electrostatic force $\\vec{F}$ exerted by the induced surface charges on the charge $+q$, and find the total induced charge $q_{\\text{ind}}$ residing on the portion of the conducting plane bounded within a circle of radius $R = d$ centered at the origin $(0, 0, 0)$.",
+      "options": [
+        "A) \\vec{F} = -\\frac{q^2}{16\\pi\\varepsilon_0 d^2}\\hat{k} \\text{ and } q_{\\text{ind}} = -q\\left(1 - \\frac{1}{\\sqrt{2}}\\right)",
+        "B) \\vec{F} = -\\frac{q^2}{4\\pi\\varepsilon_0 d^2}\\hat{k} \\text{ and } q_{\\text{ind}} = -q",
+        "C) \\vec{F} = -\\frac{q^2}{16\\pi\\varepsilon_0 d^2}\\hat{k} \\text{ and } q_{\\text{ind}} = -\\frac{q}{2}",
+        "D) \\vec{F} = -\\frac{q^2}{8\\pi\\varepsilon_0 d^2}\\hat{k} \\text{ and } q_{\\text{ind}} = -q\\left(1 - \\frac{1}{\\sqrt{2}}\\right)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: By the method of images, the boundary condition $V = 0$ on the grounded plane $z = 0$ is satisfied by placing an image charge $q' = -q$ at $(0, 0, -d)$. The separation between the real charge and the image charge is $2d$. Therefore, the electrostatic force on $+q$ is attractive and directed along $-\\hat{k}$: $\\vec{F} = -\\frac{q^2}{4\\pi\\varepsilon_0 (2d)^2}\\hat{k} = -\\frac{q^2}{16\\pi\\varepsilon_0 d^2}\\hat{k}$. Step 2: The electric field at any point $(x, y, 0)$ on the surface of the grounded conductor is perpendicular to the plane and directed along $-\\hat{k}$. The vertical electric field is $E_z = -2\\left(\\frac{q}{4\\pi\\varepsilon_0(r^2+d^2)}\\right)\\cos\\theta = -\\frac{qd}{2\\pi\\varepsilon_0(r^2+d^2)^{3/2}}$, where $r = \\sqrt{x^2+y^2}$ and $\\cos\\theta = \\frac{d}{\\sqrt{r^2+d^2}}$. Step 3: Applying Gauss's boundary condition, the surface charge density is $\\sigma(r) = \\varepsilon_0 E_z = -\\frac{qd}{2\\pi(r^2+d^2)^{3/2}}$. Step 4: Integrating $\\sigma(r)$ over the disk of radius $R = d$: $q_{\\text{ind}} = \\int_0^d \\sigma(r) 2\\pi r dr = -qd \\int_0^d \\frac{r dr}{(r^2+d^2)^{3/2}}$. Substituting $u = r^2+d^2$, we obtain $q_{\\text{ind}} = -qd\\left[-\\frac{1}{\\sqrt{r^2+d^2}}\\right]_0^d = -qd\\left(\\frac{1}{d} - \\frac{1}{\\sqrt{2}d}\\right) = -q\\left(1 - \\frac{1}{\\sqrt{2}}\\right)$. Hence, option A is correct."
+    },
+    {
+      "id": "phy_electrostatics_adv_023",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A point charge $+q$ is initially held at rest at a distance $d$ in front of an infinite grounded conducting plane. An external agent slowly pulls the charge along the normal away from the plane until its distance from the plane becomes $2d$. The total work done $W_{\\text{ext}}$ by the external agent during this quasi-static displacement is:",
+      "options": [
+        "A) \\frac{q^2}{32\\pi\\varepsilon_0 d}",
+        "B) \\frac{q^2}{16\\pi\\varepsilon_0 d}",
+        "C) \\frac{q^2}{8\\pi\\varepsilon_0 d}",
+        "D) \\frac{q^2}{64\\pi\\varepsilon_0 d}"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: At any instantaneous distance $z$ from the infinite grounded plane, the electric field in the half-space $z > 0$ is identical to that produced by the charge $+q$ and an image charge $-q$ at distance $z$ behind the plane. Therefore, the attractive electrostatic force exerted by the induced charges on $+q$ has magnitude $F_{\\text{elec}}(z) = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2}{(2z)^2} = \\frac{q^2}{16\\pi\\varepsilon_0 z^2}$ directed toward the plane. Step 2: To move the charge quasi-statically without imparting kinetic energy, the external agent must apply an opposing force $F_{\\text{ext}}(z) = +\\frac{q^2}{16\\pi\\varepsilon_0 z^2}$ directed away from the plane. Step 3: Integrating the external force from the initial position $z = d$ to the final position $z = 2d$, the work done by the external agent is $W_{\\text{ext}} = \\int_d^{2d} F_{\\text{ext}}(z) dz = \\int_d^{2d} \\frac{q^2}{16\\pi\\varepsilon_0 z^2} dz$. Step 4: Evaluating the definite integral yields $W_{\\text{ext}} = \\frac{q^2}{16\\pi\\varepsilon_0}\\left[-\\frac{1}{z}\\right]_d^{2d} = \\frac{q^2}{16\\pi\\varepsilon_0}\\left(\\frac{1}{d} - \\frac{1}{2d}\\right) = \\frac{q^2}{16\\pi\\varepsilon_0}\\left(\\frac{1}{2d}\\right) = \\frac{q^2}{32\\pi\\varepsilon_0 d}$. Hence, the correct option is A."
+    },
+    {
+      "id": "phy_electrostatics_adv_024",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A grounded conducting sphere of radius $R$ is centered at the origin. A point charge $+q$ is placed on the $z$-axis at coordinates $(0, 0, D)$ where $D > R$. By the method of images, the induced surface charges can be replaced by a single fictitious image charge $q'$ located at $(0, 0, d')$. The values of the image charge $q'$, its position $d'$, and the attractive force $F$ between the charge $+q$ and the grounded sphere are:",
+      "options": [
+        "A) q' = -q\\frac{R}{D}, \\; d' = \\frac{R^2}{D}, \\; F = \\frac{q^2 R D}{4\\pi\\varepsilon_0(D^2-R^2)^2}",
+        "B) q' = -q, \\; d' = \\frac{R^2}{D}, \\; F = \\frac{q^2 D^2}{4\\pi\\varepsilon_0(D^2-R^2)^2}",
+        "C) q' = -q\\frac{R}{D}, \\; d' = \\frac{R}{2}, \\; F = \\frac{q^2 R}{4\\pi\\varepsilon_0(D - R/2)^2}",
+        "D) q' = -q\\frac{D}{R}, \\; d' = \\frac{R^2}{D}, \\; F = \\frac{q^2 D^3}{4\\pi\\varepsilon_0 R(D^2-R^2)^2}"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: To satisfy the equipotential boundary condition $V = 0$ on the spherical surface $r = R$, the image charge $q'$ must lie on the line joining the origin and $+q$. Applying the image formulation for a grounded sphere, the required image charge is $q' = -q\\frac{R}{D}$ located at distance $d' = \\frac{R^2}{D}$ from the center along the $+z$-axis. Step 2: The separation between the real charge $+q$ at $z = D$ and the image charge $q'$ at $z = d'$ is $\\Delta z = D - d' = D - \\frac{R^2}{D} = \\frac{D^2 - R^2}{D}$. Step 3: The net attractive electrostatic force exerted on $+q$ by the induced charges on the sphere equals the Coulomb attraction between $+q$ and $q'$: $F = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q |q'|}{(\\Delta z)^2}$. Step 4: Substituting $|q'| = q\\frac{R}{D}$ and $\\Delta z = \\frac{D^2 - R^2}{D}$, we get $F = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q\\left(q\\frac{R}{D}\\right)}{\\left(\\frac{D^2-R^2}{D}\\right)^2} = \\frac{q^2 R/D}{4\\pi\\varepsilon_0 \\frac{(D^2-R^2)^2}{D^2}} = \\frac{q^2 R D}{4\\pi\\varepsilon_0(D^2 - R^2)^2}$. Therefore, option A is correct."
+    },
+    {
+      "id": "phy_electrostatics_adv_025",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A parallel-plate capacitor has plate area $A$ and plate separation $d$. The space between the plates ($0 \\le x \\le d$) is filled with a non-uniform dielectric medium whose relative permittivity increases linearly with distance from the grounded plate ($x = 0$) to the positive plate ($x = d$) according to $\\varepsilon_r(x) = 1 + \\frac{x}{d}$. A constant potential difference $V_0$ is maintained across the plates. The capacitance $C$ and the magnitude of the electric field $E(x)$ inside the dielectric are:",
+      "options": [
+        "A) C = \\frac{\\varepsilon_0 A}{d\\ln 2} \\text{ and } E(x) = \\frac{V_0}{\\ln 2(d+x)}",
+        "B) C = \\frac{2\\varepsilon_0 A}{3d} \\text{ and } E(x) = \\frac{V_0}{d(1+x/d)}",
+        "C) C = \\frac{\\varepsilon_0 A\\ln 2}{d} \\text{ and } E(x) = \\frac{V_0(1+x/d)}{d\\ln 2}",
+        "D) C = \\frac{\\varepsilon_0 A}{d\\ln 2} \\text{ and } E(x) = \\frac{V_0}{d}"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Consider the inhomogeneous dielectric as an infinite series combination of differential capacitor slices of thickness $dx$. The capacitance of an infinitesimal slice is $dC = \\frac{\\varepsilon_0 \\varepsilon_r(x) A}{dx}$. Step 2: Integrating the reciprocal capacitance across the gap: $\\frac{1}{C} = \\int_0^d \\frac{dx}{\\varepsilon_0 \\varepsilon_r(x) A} = \\frac{1}{\\varepsilon_0 A} \\int_0^d \\frac{dx}{1 + x/d}$. Substituting $u = 1 + x/d$, we get $du = \\frac{dx}{d}$, yielding $\\frac{1}{C} = \\frac{d}{\\varepsilon_0 A} [\\ln(1 + x/d)]_0^d = \\frac{d\\ln 2}{\\varepsilon_0 A}$. Hence, the total capacitance is $C = \\frac{\\varepsilon_0 A}{d\\ln 2}$. Step 3: By Gauss's law for dielectrics with no free volume charges, the electric displacement field $\\vec{D}$ is spatially constant between the plates: $D = \\frac{Q}{A} = \\frac{C V_0}{A} = \\frac{\\varepsilon_0 V_0}{d\\ln 2}$. Step 4: Using the constitutive relation $D = \\varepsilon_0 \\varepsilon_r(x) E(x)$, we solve for $E(x)$: $E(x) = \\frac{D}{\\varepsilon_0 \\varepsilon_r(x)} = \\frac{\\varepsilon_0 V_0/(d\\ln 2)}{\\varepsilon_0 (1 + x/d)} = \\frac{V_0}{(d\\ln 2)\\left(\\frac{d+x}{d}\\right)} = \\frac{V_0}{\\ln 2(d + x)}$. Therefore, option A is correct."
+    },
+    {
+      "id": "phy_electrostatics_adv_026",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A solid dielectric sphere of radius $R$ centered at the origin carries a frozen-in permanent radial polarization given by $\\vec{P}(\\vec{r}) = kr\\hat{r}$ for $r \\le R$, where $k$ is a positive constant. There are no free charges anywhere. The bound volume charge density $\\rho_b(r)$ inside the sphere, the bound surface charge density $\\sigma_b$ on the outer surface $r = R$, and the electric field $\\vec{E}(\\vec{r})$ at any interior point ($r < R$) are:",
+      "options": [
+        "A) \\rho_b = -3k, \\; \\sigma_b = +kR, \\; \\vec{E} = -\\frac{kr}{\\varepsilon_0}\\hat{r}",
+        "B) \\rho_b = -k, \\; \\sigma_b = +kR, \\; \\vec{E} = -\\frac{kr}{3\\varepsilon_0}\\hat{r}",
+        "C) \\rho_b = -3k, \\; \\sigma_b = -kR, \\; \\vec{E} = +\\frac{kr}{\\varepsilon_0}\\hat{r}",
+        "D) \\rho_b = 0, \\; \\sigma_b = +kR, \\; \\vec{E} = 0"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Applying the definition of bound volume charge density in spherical coordinates: $\\rho_b = -\\nabla \\cdot \\vec{P} = -\\frac{1}{r^2}\\frac{\\partial}{\\partial r}(r^2 P_r)$. Substituting $P_r = kr$, we get $\\rho_b = -\\frac{1}{r^2}\\frac{\\partial}{\\partial r}(kr^3) = -\\frac{3kr^2}{r^2} = -3k$, which is strictly uniform throughout the interior. Step 2: The bound surface charge density at the boundary $r = R$ is given by $\\sigma_b = \\vec{P} \\cdot \\hat{n} = (kR\\hat{r}) \\cdot \\hat{r} = +kR$. Notice that the total bound volume charge is $Q_{b,\\text{vol}} = \\rho_b\\left(\\frac{4}{3}\\pi R^3\\right) = -4\\pi k R^3$, while the total bound surface charge is $Q_{b,\\text{surf}} = \\sigma_b(4\\pi R^2) = +4\\pi k R^3$, yielding a net bound charge of zero. Step 3: Since there are no free charges, Gauss's law for the displacement field gives $\\oint \\vec{D} \\cdot d\\vec{A} = Q_{\\text{free,encl}} = 0$, implying $\\vec{D} = 0$ everywhere by spherical symmetry. Step 4: Applying the constitutive relation $\\vec{D} = \\varepsilon_0 \\vec{E} + \\vec{P} = 0$, solving for the electric field inside yields $\\vec{E} = -\\frac{\\vec{P}}{\\varepsilon_0} = -\\frac{kr}{\\varepsilon_0}\\hat{r}$. Hence, option A is correct."
+    },
+    {
+      "id": "phy_electrostatics_adv_027",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Two semi-infinite grounded conducting planes meet at a right angle, occupying the planes $x = 0$ ($y \\ge 0$) and $y = 0$ ($x \\ge 0$). A point charge $+q$ is held fixed in the corner region at coordinates $(d, d, 0)$ where $d > 0$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The electrostatic boundary conditions are satisfied by three image charges: $-q$ at $(-d, d, 0)$, $-q$ at $(d, -d, 0)$, and $+q$ at $(-d, -d, 0)$.",
+        "B) The net electrostatic force acting on the charge $+q$ is directed along the vector $-(\\hat{i} + \\hat{j})$.",
+        "C) The magnitude of the net electrostatic force acting on the charge $+q$ is $F = \\frac{q^2}{32\\pi\\varepsilon_0 d^2}(2\\sqrt{2} - 1)$.",
+        "D) The total induced surface charge on the two grounded conducting half-planes combined is equal to $-q$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: By the method of images for two orthogonal conducting planes, reflecting $+q$ at $(d, d)$ across $x = 0$ gives image $-q$ at $(-d, d)$, reflecting across $y = 0$ gives image $-q$ at $(d, -d)$, and reflecting either image across the other plane gives $+q$ at $(-d, -d)$. These three images maintain $V = 0$ on both boundaries (statement A is correct). Step 2: The force on $+q$ from $-q$ at $(-d, d)$ is along $-\\hat{i}$ with magnitude $F_1 = \\frac{q^2}{4\\pi\\varepsilon_0(2d)^2} = \\frac{q^2}{16\\pi\\varepsilon_0 d^2}$. Similarly, the force from $-q$ at $(d, -d)$ is along $-\\hat{j}$ with magnitude $F_2 = \\frac{q^2}{16\\pi\\varepsilon_0 d^2}$. Step 3: The force from $+q$ at $(-d, -d)$ is repulsive along $\\frac{\\hat{i}+\\hat{j}}{\\sqrt{2}}$, with separation distance $2\\sqrt{2}d$: $\\vec{F}_3 = \\frac{q^2}{4\\pi\\varepsilon_0(2\\sqrt{2}d)^2}\\left(\\frac{\\hat{i}+\\hat{j}}{\\sqrt{2}}\\right) = \\frac{q^2}{32\\pi\\varepsilon_0 d^2}\\frac{\\hat{i}+\\hat{j}}{\\sqrt{2}} = \\frac{q^2}{16\\pi\\varepsilon_0 d^2}\\frac{1}{2\\sqrt{2}}(\\hat{i}+\\hat{j})$. Step 4: Summing all forces: $\\vec{F} = -\\frac{q^2}{16\\pi\\varepsilon_0 d^2}\\left(1 - \\frac{1}{2\\sqrt{2}}\\right)(\\hat{i}+\\hat{j})$. This force is directed along $-(\\hat{i}+\\hat{j})$ (statement B is correct). Its magnitude is $F = \\frac{q^2}{16\\pi\\varepsilon_0 d^2}\\left(1 - \\frac{1}{2\\sqrt{2}}\\right)\\sqrt{2} = \\frac{q^2}{16\\pi\\varepsilon_0 d^2}\\left(\\sqrt{2} - \\frac{1}{2}\\right) = \\frac{q^2}{32\\pi\\varepsilon_0 d^2}(2\\sqrt{2} - 1)$ (statement C is correct). By Gauss's law over a surface bounding the entire first quadrant, all flux from $+q$ terminates on the conducting boundaries, yielding total induced charge $-q$ (statement D is correct)."
+    },
+    {
+      "id": "phy_electrostatics_adv_028",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A thin spherical conducting shell of radius $R$ carries a total electrostatic charge $Q$ distributed uniformly over its surface. The shell is sliced into two identical hemispherical halves by an equatorial plane. Which of the following statements is/are correct regarding the electrostatic pressure and mechanical interaction between the two hemispheres?",
+      "options": [
+        "A) The electrostatic outward pressure acting on the surface of the shell is uniform and given by $P_e = \\frac{Q^2}{32\\pi^2\\varepsilon_0 R^4}$.",
+        "B) The repulsive electrostatic force between the two hemispherical halves has magnitude $F = \\frac{Q^2}{32\\pi\\varepsilon_0 R^2}$.",
+        "C) If the total charge $Q$ on the shell is doubled, the repulsive force between the two hemispheres increases by a factor of 4.",
+        "D) The repulsive electrostatic force between the two hemispheres is inversely proportional to the cube of the radius $R$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: The uniform surface charge density on the sphere is $\\sigma = \\frac{Q}{4\\pi R^2}$. The outward electrostatic pressure (force per unit area) acting on a conductor surface is $P_e = \\frac{\\sigma^2}{2\\varepsilon_0}$. Substituting $\\sigma$ gives $P_e = \\frac{1}{2\\varepsilon_0}\\left(\\frac{Q}{4\\pi R^2}\\right)^2 = \\frac{Q^2}{32\\pi^2\\varepsilon_0 R^4}$ (statement A is correct). Step 2: To calculate the net repulsive force along the axial direction (say $z$-axis) between the two hemispheres, integrate the axial component of the electrostatic pressure over one hemisphere: $F = \\int P_e \\cos\\theta dA = P_e \\int \\cos\\theta dA$. The integral of $\\cos\\theta dA$ over a hemisphere equals the area of its equatorial projected circle, $\\pi R^2$. Step 3: Multiplying pressure by the projected area: $F = P_e (\\pi R^2) = \\frac{Q^2}{32\\pi^2\\varepsilon_0 R^4} (\\pi R^2) = \\frac{Q^2}{32\\pi\\varepsilon_0 R^2}$ (statement B is correct). Step 4: Because $F \\propto Q^2$, doubling the total charge increases the repulsive force by $2^2 = 4$ times (statement C is correct). Furthermore, $F$ is inversely proportional to $R^2$, not $R^3$, making statement D false."
+    },
+    {
+      "id": "phy_electrostatics_adv_029",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A dielectric slab of thickness $d$ and cross-sectional area $A$ is placed between the plates of a parallel-plate capacitor. The material exhibits a non-linear electric polarization given by $P(E) = \\varepsilon_0(\\chi_1 E + \\chi_2 E^2)$, where $\\chi_1 > 0$ is the linear electric susceptibility and $\\chi_2 > 0$ is the second-order non-linear coefficient. A uniform electric field $\\vec{E} = E_0\\hat{i}$ is maintained inside the dielectric perpendicular to the plates. Which of the following statements is/are correct?",
+      "options": [
+        "A) The electric displacement field inside the dielectric is $D = \\varepsilon_0 E_0(1 + \\chi_1 + \\chi_2 E_0)$.",
+        "B) The bound volume charge density $\\rho_b$ inside the dielectric slab is zero.",
+        "C) The effective relative permittivity of the material increases linearly with the electric field magnitude $E_0$.",
+        "D) The magnitude of the bound surface charge density on the dielectric boundary is $\\sigma_b = \\varepsilon_0(\\chi_1 E_0 + \\chi_2 E_0^2)$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: The electric displacement field is defined as $\\vec{D} = \\varepsilon_0 \\vec{E} + \\vec{P}$. Substituting the non-linear constitutive polarization expression $\\vec{P} = \\varepsilon_0(\\chi_1 E_0 + \\chi_2 E_0^2)\\hat{i}$, we obtain $D = \\varepsilon_0 E_0 + \\varepsilon_0(\\chi_1 E_0 + \\chi_2 E_0^2) = \\varepsilon_0 E_0(1 + \\chi_1 + \\chi_2 E_0)$ (statement A is correct). Step 2: The bound volume charge density is given by $\\rho_b = -\\nabla \\cdot \\vec{P}$. Because the electric field $E_0$ is uniform throughout the slab, $\\vec{P}$ is spatially constant, so $\\nabla \\cdot \\vec{P} = 0$, implying $\\rho_b = 0$ everywhere inside (statement B is correct). Step 3: The effective relative permittivity is $\\varepsilon_{r,\\text{eff}} = \\frac{D}{\\varepsilon_0 E_0} = 1 + \\chi_1 + \\chi_2 E_0$. Differentiating with respect to $E_0$ gives $\\frac{d\\varepsilon_{r,\\text{eff}}}{dE_0} = \\chi_2 = \\text{constant}$, which means $\\varepsilon_{r,\\text{eff}}$ increases linearly with $E_0$ (statement C is correct). Step 4: The bound surface charge density on the dielectric interface perpendicular to $\\hat{i}$ is $\\sigma_b = |\\vec{P} \\cdot \\hat{n}| = \\varepsilon_0(\\chi_1 E_0 + \\chi_2 E_0^2)$ (statement D is correct). Thus, all statements are correct."
+    },
+    {
+      "id": "phy_electrostatics_adv_030",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "An infinite grounded conducting plane lies in the $xy$-plane at $z = 0$. A small particle of mass $m$ carrying positive charge $+q$ is released from rest at coordinates $(0, 0, z_0)$ where $z_0 > 0$. Neglecting gravity and radiation losses, which of the following statements is/are correct regarding the subsequent motion of the particle?",
+      "options": [
+        "A) The speed of the particle as a function of its distance $z$ from the plane is $v(z) = \\sqrt{\\frac{q^2}{8\\pi\\varepsilon_0 m}\\left(\\frac{1}{z} - \\frac{1}{z_0}\\right)}$.",
+        "B) The speed of the particle when it reaches $z = \\frac{z_0}{2}$ is $v = \\frac{q}{\\sqrt{8\\pi\\varepsilon_0 m z_0}}$.",
+        "C) The time taken by the particle to hit the grounded conducting plane is $T = \\pi\\sqrt{\\frac{2\\pi\\varepsilon_0 m z_0^3}{q^2}}$.",
+        "D) The acceleration of the particle remains constant throughout the motion."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: The electrostatic force on the charge $+q$ at position $z$ due to the grounded plane is given by the image method as $F(z) = -\\frac{q^2}{16\\pi\\varepsilon_0 z^2}$. Newton's second law gives $m v\\frac{dv}{dz} = -\\frac{q^2}{16\\pi\\varepsilon_0 z^2}$. Step 2: Integrating with the initial condition $v(z_0) = 0$: $\\int_0^v v' dv' = -\\frac{q^2}{16\\pi\\varepsilon_0 m}\\int_{z_0}^z \\frac{dz'}{z'^2}$, which gives $\\frac{1}{2}v^2 = \\frac{q^2}{16\\pi\\varepsilon_0 m}\\left(\\frac{1}{z} - \\frac{1}{z_0}\\right)$. Solving for $v(z)$ yields $v(z) = \\sqrt{\\frac{q^2}{8\\pi\\varepsilon_0 m}\\left(\\frac{1}{z} - \\frac{1}{z_0}\\right)}$ (statement A is correct). Step 3: Substituting $z = z_0/2$, we get $v(z_0/2) = \\sqrt{\\frac{q^2}{8\\pi\\varepsilon_0 m}\\left(\\frac{2}{z_0} - \\frac{1}{z_0}\\right)} = \\frac{q}{\\sqrt{8\\pi\\varepsilon_0 m z_0}}$ (statement B is correct). Step 4: The time required to reach $z = 0$ is $T = -\\int_{z_0}^0 \\frac{dz}{v(z)} = \\sqrt{\\frac{8\\pi\\varepsilon_0 m z_0}{q^2}} \\int_0^{z_0} \\sqrt{\\frac{z}{z_0 - z}} dz$. Substituting $z = z_0\\sin^2\\theta$, the integral evaluates to $2z_0\\int_0^{\\pi/2}\\sin^2\\theta d\\theta = \\frac{\\pi z_0}{2}$. Hence, $T = \\frac{\\pi z_0}{2}\\sqrt{\\frac{8\\pi\\varepsilon_0 m z_0}{q^2}} = \\pi\\sqrt{\\frac{2\\pi\\varepsilon_0 m z_0^3}{q^2}}$ (statement C is correct). Because the acceleration $a(z) \\propto \\frac{1}{z^2}$ varies with position, statement D is false."
+    },
+    {
+      "id": "phy_electrostatics_adv_031",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A solid non-conducting sphere of radius $R$ has a spherically symmetric volume charge density given by $\\rho(r) = \\rho_0\\left(1 - \\frac{r^2}{R^2}\\right)$ for $r \\le R$, and $\\rho(r) = 0$ for $r > R$, carrying total charge $Q$. The total electrostatic self-energy of this sphere can be expressed in the form $U = \\frac{p}{q}\\left(\\frac{1}{4\\pi\\varepsilon_0}\\frac{Q^2}{R}\\right)$, where $p$ and $q$ are coprime positive integers. Find the value of $(p + q)$.",
+      "options": [],
+      "answer": "12",
+      "explanation": "Step 1: Relate the total charge $Q$ to $\\rho_0$: $Q = \\int_0^R \\rho_0\\left(1 - \\frac{r^2}{R^2}\\right)4\\pi r^2 dr = 4\\pi \\rho_0 R^3\\left(\\frac{1}{3} - \\frac{1}{5}\\right) = \\frac{8\\pi}{15}\\rho_0 R^3$. Step 2: The enclosed charge within radius $r \\le R$ is $q(r) = 4\\pi \\rho_0 \\left(\\frac{r^3}{3} - \\frac{r^5}{5R^2}\\right) = \\frac{Q}{2}\\left(5\\frac{r^3}{R^3} - 3\\frac{r^5}{R^5}\\right)$. Applying Gauss's law, the electric field inside is $E_{\\text{in}}(r) = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q(r)}{r^2} = \\frac{Q}{8\\pi\\varepsilon_0 R^2}\\left(5\\frac{r}{R} - 3\\frac{r^3}{R^3}\\right)$. Step 3: Integrating energy density $u = \\frac{1}{2}\\varepsilon_0 E_{\\text{in}}^2$ inside the sphere: $U_{\\text{in}} = \\frac{1}{2}\\varepsilon_0 \\int_0^R \\left[\\frac{Q}{8\\pi\\varepsilon_0 R^2}\\left(5\\frac{r}{R} - 3\\frac{r^3}{R^3}\\right)\\right]^2 4\\pi r^2 dr = \\frac{Q^2}{32\\pi\\varepsilon_0 R^4}\\int_0^R \\left(25\\frac{r^4}{R^2} - 30\\frac{r^6}{R^4} + 9\\frac{r^8}{R^6}\\right)dr$. Evaluating the polynomial integral yields $R^3\\left(\\frac{25}{5} - \\frac{30}{7} + \\frac{9}{9}\\right) = R^3\\left(6 - \\frac{30}{7}\\right) = \\frac{12}{7}R^3$. Thus, $U_{\\text{in}} = \\frac{Q^2}{32\\pi\\varepsilon_0 R}\\left(\\frac{12}{7}\\right) = \\frac{3}{14}\\left(\\frac{1}{4\\pi\\varepsilon_0}\\frac{Q^2}{R}\\right)$. Step 4: For $r \\ge R$, the electric field is $E_{\\text{out}} = \\frac{Q}{4\\pi\\varepsilon_0 r^2}$, giving energy $U_{\\text{out}} = \\frac{1}{2}\\left(\\frac{1}{4\\pi\\varepsilon_0}\\frac{Q^2}{R}\\right) = \\frac{7}{14}\\left(\\frac{1}{4\\pi\\varepsilon_0}\\frac{Q^2}{R}\\right)$. Summing both parts: $U = \\left(\\frac{3}{14} + \\frac{7}{14}\\right)\\left(\\frac{1}{4\\pi\\varepsilon_0}\\frac{Q^2}{R}\\right) = \\frac{10}{14}\\left(\\frac{1}{4\\pi\\varepsilon_0}\\frac{Q^2}{R}\\right) = \\frac{5}{7}\\left(\\frac{1}{4\\pi\\varepsilon_0}\\frac{Q^2}{R}\\right)$. Hence, $p = 5$ and $q = 7$, which are coprime integers, yielding $p + q = 5 + 7 = 12$."
+    },
+    {
+      "id": "phy_electrostatics_adv_032",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "An infinite grounded conducting plane is located at $z = 0$. A uniform external electric field $\\vec{E}_0 = (1.0 \\times 10^5\\,\\text{N/C})\\hat{k}$ is applied throughout the region $z > 0$. A point charge $+q = 4.0\\,\\mu\\text{C}$ is placed on the $z$-axis at $(0, 0, d)$. Find the distance $d$ in centimeters ($\\text{cm}$) from the conducting plane at which the point charge experiences zero net electrostatic force. (Take $\\frac{1}{4\\pi\\varepsilon_0} = 9.0 \\times 10^9\\,\\text{N}\\cdot\\text{m}^2/\\text{C}^2$).",
+      "options": [],
+      "answer": "30",
+      "explanation": "Step 1: The point charge $+q$ experiences two opposing electrostatic forces. First, the uniform external electric field $\\vec{E}_0 = E_0\\hat{k}$ exerts a force pointing away from the plane along $+\\hat{k}$: $\\vec{F}_{\\text{ext}} = q\\vec{E}_0 = qE_0\\hat{k}$. Step 2: Second, the induced surface charges on the grounded conducting plane $z = 0$ exert an attractive force on $+q$. By the method of images, this is equivalent to the Coulomb force exerted by an image charge $-q$ located at $(0, 0, -d)$. The separation between the real charge and the image charge is $2d$. Step 3: The attractive force toward the plane is $\\vec{F}_{\\text{image}} = -\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2}{(2d)^2}\\hat{k} = -\\frac{q^2}{16\\pi\\varepsilon_0 d^2}\\hat{k}$. Step 4: For zero net force on the charge: $qE_0 = \\frac{q^2}{16\\pi\\varepsilon_0 d^2}$, which simplifies to $E_0 = \\frac{q}{16\\pi\\varepsilon_0 d^2} = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q}{4d^2}$. Solving for $d$: $d^2 = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q}{4E_0}$. Substituting the numerical parameters: $\\frac{1}{4\\pi\\varepsilon_0} = 9.0 \\times 10^9\\,\\text{N}\\cdot\\text{m}^2/\\text{C}^2$, $q = 4.0 \\times 10^{-6}\\,\\text{C}$, and $E_0 = 1.0 \\times 10^5\\,\\text{N/C}$, we get $d^2 = \\frac{(9.0 \\times 10^9)(4.0 \\times 10^{-6})}{4(1.0 \\times 10^5)} = \\frac{3.6 \\times 10^4}{4.0 \\times 10^5} = 0.09\\,\\text{m}^2$. Taking the square root gives $d = 0.30\\,\\text{m} = 30\\,\\text{cm}$."
+    }
+  ]
+}
