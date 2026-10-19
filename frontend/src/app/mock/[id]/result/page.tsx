@@ -31,6 +31,30 @@ const SUBJECT_COLOR: Record<string, string> = {
   Physics: '#2563eb', Chemistry: '#16a34a', Mathematics: '#7c3aed',
 };
 
+/* ── JEE cracking chances bands ─────────────────────────────── */
+
+interface ChanceBand {
+  label: string; color: string; bg: string; border: string;
+  headline: string; details: string[]; bar: number;
+}
+
+function getJeeCrackingChances(pct: number, examType: string): ChanceBand {
+  if (examType === 'Main') {
+    if (pct >= 75) return { label: 'Excellent', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', headline: 'Top 1% nationally', details: ['99+ percentile range (AIR < 1,000)', 'Strong NIT/IIIT admission — any branch', 'JEE Advanced qualifier — very likely'], bar: 95 };
+    if (pct >= 60) return { label: 'Very Good', color: '#2563eb', bg: '#eff6ff', border: '#bfdbfe', headline: 'Top 3–5% nationally', details: ['97–99 percentile range (AIR 1,000–10,000)', 'Good NITs assured (CS/Mech/EE)', 'JEE Advanced qualifying range'], bar: 75 };
+    if (pct >= 45) return { label: 'Good', color: '#d97706', bg: '#fffbeb', border: '#fde68a', headline: 'Top 10–15% nationally', details: ['90–97 percentile range', 'Decent NITs/IIITs accessible', 'Near JEE Advanced qualifying threshold'], bar: 55 };
+    if (pct >= 30) return { label: 'Average', color: '#ea580c', bg: '#fff7ed', border: '#fed7aa', headline: 'Top 20–35% nationally', details: ['80–90 percentile range', 'Some NITs/IIITs (lower branches)', 'Below JEE Advanced cutoff — improve accuracy'], bar: 35 };
+    return { label: 'Needs Work', color: '#dc2626', bg: '#fef2f2', border: '#fecaca', headline: 'Below qualifying threshold', details: ['Below 80 percentile range', 'Focus on NCERT fundamentals first', 'Strengthen weak topics before next mock'], bar: 15 };
+  }
+  // JEE Advanced
+  if (pct >= 75) return { label: 'Outstanding', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', headline: 'IIT Top Branches assured', details: ['AIR < 200 range', 'CS/EE at IIT Bombay, Delhi, Madras within reach', 'Top 0.1% of JEE Advanced aspirants'], bar: 98 };
+  if (pct >= 60) return { label: 'Excellent', color: '#2563eb', bg: '#eff6ff', border: '#bfdbfe', headline: 'Top IITs guaranteed', details: ['AIR 200–1,000 range', 'CS/EE at top-5 IITs very likely', 'Top 0.5% of JEE Advanced aspirants'], bar: 80 };
+  if (pct >= 47) return { label: 'Very Good', color: '#7c3aed', bg: '#f5f3ff', border: '#ddd6fe', headline: 'IIT admission assured', details: ['AIR 1,000–5,000 range', 'Good branches at IIT Roorkee, Kharagpur, Guwahati', 'Top 2–3% of JEE Advanced aspirants'], bar: 62 };
+  if (pct >= 35) return { label: 'Good', color: '#d97706', bg: '#fffbeb', border: '#fde68a', headline: 'IIT admission possible', details: ['AIR 5,000–15,000 range', 'Lower branches at newer IITs', '2025 closing cutoff was ~35–47% range'], bar: 42 };
+  if (pct >= 25) return { label: 'Borderline', color: '#ea580c', bg: '#fff7ed', border: '#fed7aa', headline: 'Near qualifying cutoff', details: ['2025 open category cutoff ~28–30%', 'Work on accuracy — multi-correct guessing costs marks', 'Improve integer-type hit rate'], bar: 25 };
+  return { label: 'Needs Work', color: '#dc2626', bg: '#fef2f2', border: '#fecaca', headline: 'Below qualifying cutoff', details: ['Below 2025 open category threshold', 'Master conceptual clarity across all 3 subjects', 'Focus on single-correct accuracy before tackling multi-correct'], bar: 10 };
+}
+
 /* ── Plain text preview (strips LaTeX for snippet) ──────────── */
 
 function toPlainPreview(text: string, max = 80): string {
@@ -240,6 +264,54 @@ export default function MockResultPage() {
             ))}
           </div>
         </div>
+
+        {/* JEE Cracking Chances */}
+        {(() => {
+          const band = getJeeCrackingChances(pct, examType);
+          return (
+            <div style={{ background: band.bg, borderRadius: 10, border: `1px solid ${band.border}`, padding: 24 }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap' }}>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: band.color, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 4 }}>
+                    JEE {examType} — Cracking Chances
+                  </div>
+                  <div style={{ fontSize: 22, fontWeight: 800, color: band.color, marginBottom: 4 }}>{band.label}</div>
+                  <div style={{ fontSize: 14, color: '#374151', fontWeight: 600, marginBottom: 12 }}>{band.headline}</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+                    {band.details.map((d, i) => (
+                      <div key={i} style={{ fontSize: 13, color: '#4b5563', display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <span style={{ color: band.color, fontWeight: 700, fontSize: 11 }}>›</span>
+                        {d}
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{ fontSize: 11, color: '#9ca3af', marginTop: 14 }}>
+                    Based on 2025 JEE open category cutoff trends · Your score: {pct}% of max marks
+                  </div>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, minWidth: 80 }}>
+                  <div style={{ position: 'relative', width: 80, height: 80 }}>
+                    <svg width="80" height="80" viewBox="0 0 80 80">
+                      <circle cx="40" cy="40" r="32" fill="none" stroke={`${band.color}20`} strokeWidth="8" />
+                      <circle
+                        cx="40" cy="40" r="32" fill="none"
+                        stroke={band.color} strokeWidth="8"
+                        strokeDasharray={`${2 * Math.PI * 32}`}
+                        strokeDashoffset={`${2 * Math.PI * 32 * (1 - band.bar / 100)}`}
+                        strokeLinecap="round"
+                        transform="rotate(-90 40 40)"
+                      />
+                    </svg>
+                    <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <span style={{ fontSize: 15, fontWeight: 800, color: band.color }}>{band.bar}%</span>
+                    </div>
+                  </div>
+                  <div style={{ fontSize: 11, color: '#6b7280', textAlign: 'center' }}>chance</div>
+                </div>
+              </div>
+            </div>
+          );
+        })()}
 
         {/* Question review */}
         <div style={{ background: '#fff', borderRadius: 10, border: '1px solid #e2e8f0', padding: 24 }}>
