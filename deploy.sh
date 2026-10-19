@@ -262,27 +262,31 @@ case "$ACTION" in
     ;;
 
   renew-ssl)
-    # Renew an existing Let's Encrypt certificate (no-op for self-signed).
+    # Renew an existing Let's Encrypt certificate using webroot mode (nginx stays up, zero downtime).
     # Run this every ~60 days or set up a cron job.
-    DOMAIN=$(env_value DOMAIN)
+    # Nginx must already be running (webroot challenge is served via /.well-known/acme-challenge/).
+    local ENABLE_SSL DOMAIN
     ENABLE_SSL=$(env_value ENABLE_SSL)
+    DOMAIN=$(env_value DOMAIN)
     if [ "${ENABLE_SSL:-false}" != "true" ]; then
       echo "ENABLE_SSL is not true — nothing to renew (self-signed certs don't expire for 365 days)."
       exit 0
     fi
-    echo "Renewing Let's Encrypt certificate for $DOMAIN..."
-    free_port_80
+    if [ -z "$DOMAIN" ] || [ "$DOMAIN" = "YOUR_DOMAIN_OR_VPS_IP" ]; then
+      echo "ERROR: DOMAIN must be set in .env for Let's Encrypt renewal."
+      exit 1
+    fi
+    echo "Renewing Let's Encrypt certificate for $DOMAIN (webroot mode — nginx stays up)..."
     mkdir -p ./certbot/conf ./certbot/www
     docker run --rm \
       -v "$(pwd)/certbot/conf:/etc/letsencrypt" \
       -v "$(pwd)/certbot/www:/var/www/certbot" \
-      -p 80:80 \
-      certbot/certbot renew --non-interactive --standalone
+      certbot/certbot renew --webroot -w /var/www/certbot --non-interactive
     cp "$(pwd)/certbot/conf/live/$DOMAIN/fullchain.pem" ./nginx/ssl/
     cp "$(pwd)/certbot/conf/live/$DOMAIN/privkey.pem"   ./nginx/ssl/
     echo "Certificate renewed. Reloading nginx..."
     docker compose --env-file "$ENV_FILE" exec -T nginx nginx -s reload
-    echo "Done."
+    echo "Done. Next renewal: run this command again in ~60 days."
     ;;
 
   seed)
