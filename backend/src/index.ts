@@ -48,8 +48,13 @@ app.use(helmet({
   },
   crossOriginEmbedderPolicy: false,
 }));
+const frontendUrl = process.env.FRONTEND_URL ?? 'http://localhost:3000';
 const allowedOrigins = new Set([
-  process.env.FRONTEND_URL ?? 'http://localhost:3000',
+  frontendUrl,
+  // Allow both http and https variants so plain-HTTP access works alongside HTTPS
+  frontendUrl.startsWith('https://')
+    ? frontendUrl.replace('https://', 'http://')
+    : frontendUrl.replace('http://', 'https://'),
   'http://localhost',
   'http://localhost:3000',
   'http://127.0.0.1',
