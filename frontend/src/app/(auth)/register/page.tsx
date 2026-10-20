@@ -11,7 +11,7 @@ type FormState = {
   email: string;
   password: string;
   class: '11' | '12' | 'Dropper';
-  targetExam: 'Main' | 'Advanced' | 'Both';
+  targetExam: 'Main' | 'Advanced' | 'Both' | 'NEET';
   currentLevel: 'beginner' | 'intermediate' | 'advanced';
 };
 
@@ -99,8 +99,8 @@ export default function RegisterPage() {
                 </svg>
               </span>
               <div>
-                <p className="auth-feature-title">JEE Main & Advanced</p>
-                <p className="auth-feature-desc">Covers full Class 11 + 12 MPC syllabus</p>
+                <p className="auth-feature-title">JEE Main, Advanced & NEET UG</p>
+                <p className="auth-feature-desc">Full Class 11 + 12 MPC + Biology syllabus</p>
               </div>
             </div>
           </div>
@@ -110,6 +110,7 @@ export default function RegisterPage() {
           <span className="auth-subject-tag" style={{ color: '#60a5fa', background: 'rgba(96,165,250,.12)' }}>⚛ Physics</span>
           <span className="auth-subject-tag" style={{ color: '#d8b4fe', background: 'rgba(216,180,254,.12)' }}>∑ Mathematics</span>
           <span className="auth-subject-tag" style={{ color: '#4ade80', background: 'rgba(74,222,128,.12)' }}>⚗ Chemistry</span>
+          <span className="auth-subject-tag" style={{ color: '#86efac', background: 'rgba(134,239,172,.12)' }}>🌿 Biology</span>
         </div>
       </div>
 
@@ -183,7 +184,8 @@ export default function RegisterPage() {
                   onChange={(e) => set('targetExam', e.target.value as FormState['targetExam'])}>
                   <option value="Main">JEE Main</option>
                   <option value="Advanced">JEE Advanced</option>
-                  <option value="Both">Both</option>
+                  <option value="Both">JEE Both</option>
+                  <option value="NEET">NEET UG</option>
                 </select>
               </div>
             </div>

@@ -14,7 +14,7 @@ const registerSchema = z.object({
   email: z.string().email().toLowerCase().trim(),
   password: z.string().min(8).max(128),
   class: z.enum(['11', '12', 'Dropper']),
-  targetExam: z.enum(['Main', 'Advanced', 'Both']),
+  targetExam: z.enum(['Main', 'Advanced', 'Both', 'NEET']),
   currentLevel: z.enum(['beginner', 'intermediate', 'advanced']).default('beginner'),
 });
 
