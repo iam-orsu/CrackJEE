@@ -105,7 +105,7 @@ export default function MockExamPage() {
       'Building your unique paper…',
       'Almost ready…',
     ];
-    const MAX_ATTEMPTS = 40; // ~2 minutes at 3s intervals
+    const MAX_ATTEMPTS = 100; // ~5 minutes at 3s intervals (NEET first-gen takes 3-4 min)
     let attempt = 0;
     const poll = async (): Promise<void> => {
       if (attempt >= MAX_ATTEMPTS) {
@@ -271,7 +271,7 @@ export default function MockExamPage() {
         <div style={{ width: 40, height: 40, border: '3px solid var(--gray-200)', borderTopColor: 'var(--gray-900)', borderRadius: '50%', animation: 'spin 0.8s linear infinite', marginBottom: 20 }} />
         <div style={{ fontSize: 16, color: 'var(--gray-700)', fontWeight: 500 }}>{loadMsg}</div>
         {pageStatus === 'polling' && (
-          <div style={{ fontSize: 13, color: 'var(--gray-500)', marginTop: 8 }}>This may take 30–60 seconds on first load</div>
+          <div style={{ fontSize: 13, color: 'var(--gray-500)', marginTop: 8 }}>NEET first load takes 3–4 minutes; JEE takes ~60–90 seconds</div>
         )}
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
       </div>
