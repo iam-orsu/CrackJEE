@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Work, Energy, and Power",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_work_energy_and_power_c01_001",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the definition and fundamental nature of mechanical work:\nStatement I: Work done by a force is defined as the scalar product of the force vector and the displacement vector, $W = \\vec{F} \\cdot \\vec{d}$, and therefore work is a scalar quantity despite force and displacement being vector quantities.\nStatement II: The SI unit of work is the Joule ($\\text{J} = \\text{N}\\cdot\\text{m}$), and its dimensional formula is identical to that of torque, namely $[\\text{M}\\text{L}^2\\text{T}^{-2}]$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: By NCERT definition, work is given by the dot product of force and displacement vectors, $W = \\vec{F} \\cdot \\vec{d} = F d \\cos\\theta$. The scalar product of two vectors yields a pure scalar quantity possessing magnitude and sign but no spatial direction. Hence, Statement I is correct.\nStep 2: The SI unit of work is $\\text{N}\\cdot\\text{m}$, which is termed the Joule ($\\text{J}$). The dimensional formula of force is $[\\text{M}\\text{L}\\text{T}^{-2}]$ and displacement is $[\\text{L}]$, giving $[W] = [\\text{M}\\text{L}^2\\text{T}^{-2}]$. Torque is $\\vec{\\tau} = \\vec{r} \\times \\vec{F}$, which also has dimensions $[\\text{M}\\text{L}^2\\text{T}^{-2}]$. Hence, Statement II is correct.\nStep 3: Distractor rejection: Both statements represent direct NCERT postulates and standard dimensional equivalences, so any choice claiming either statement is incorrect must be eliminated."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_002",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The work done by the centripetal force on an object undergoing uniform circular motion in a horizontal plane over any time interval is strictly zero.\nReason (R): For an object in uniform circular motion, the centripetal force acts radially inward, which is always perpendicular to the instantaneous tangential displacement vector ($d\\vec{r}$).\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In uniform circular motion, the centripetal force $\\vec{F}_c$ is directed along the radius toward the center of the circle, while the instantaneous velocity and infinitesimal displacement $d\\vec{r}$ are directed along the tangent to the path.\nStep 2: The angle between $\\vec{F}_c$ and $d\\vec{r}$ is precisely $\\theta = 90^\\circ$ at every instant. The work done is $dW = \\vec{F}_c \\cdot d\\vec{r} = F_c \\, dr \\cos 90^\\circ = 0$. Integrating over any time interval gives total work $W = 0$.\nStep 3: Distractor rejection: Assertion (A) is true, Reason (R) is true, and the perpendicularity explained in Reason (R) is the exact physical justification for the zero work done stated in Assertion (A)."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_003",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A porter carries a heavy trunk of mass $m = 40\\text{ kg}$ on his head and walks a horizontal distance of $s = 50\\text{ m}$ on a level platform with a uniform speed of $1.5\\text{ m/s}$. The acceleration due to gravity is $g = 10\\text{ m/s}^2$. The work done by the normal force exerted by the porter's head on the trunk during this displacement is:",
+      "options": [
+        "A) $60\\text{ J}$",
+        "B) $20000\\text{ J}$",
+        "C) $0\\text{ J}$",
+        "D) $-20000\\text{ J}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The normal force exerted by the porter's head on the trunk acts vertically upward to balance the downward force of gravity ($N = mg = 40 \\times 10 = 400\\text{ N}$).\nStep 2: The displacement of the trunk is along the horizontal level platform. Thus, the angle between the upward normal force $\\vec{N}$ and the horizontal displacement vector $\\vec{s}$ is $\\theta = 90^\\circ$.\nStep 3: Work done is $W = N s \\cos 90^\\circ = 400 \\times 50 \\times 0 = 0\\text{ J}$.\nDistractor rejection: The value $20000\\text{ J}$ comes from improperly multiplying $N \\times s$ ignoring the $90^\\circ$ angle; $-20000\\text{ J}$ assumes work against gravity along the displacement which does not exist horizontally; $60\\text{ J}$ erroneously computes kinetic energy."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_004",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A constant force $\\vec{F} = (4\\hat{i} + 3\\hat{j} - 2\\hat{k})\\text{ N}$ acts on a particle, displacing it from an initial position vector $\\vec{r}_1 = (2\\hat{i} + \\hat{j} + 3\\hat{k})\\text{ m}$ to a final position vector $\\vec{r}_2 = (5\\hat{i} + 4\\hat{j} + 7\\hat{k})\\text{ m}$. The work done by this force during the displacement is:",
+      "options": [
+        "A) $21\\text{ J}$",
+        "B) $29\\text{ J}$",
+        "C) $37\\text{ J}$",
+        "D) $13\\text{ J}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Determine the displacement vector $\\Delta\\vec{r} = \\vec{r}_2 - \\vec{r}_1$:\n$\\Delta\\vec{r} = (5 - 2)\\hat{i} + (4 - 1)\\hat{j} + (7 - 3)\\hat{k} = (3\\hat{i} + 3\\hat{j} + 4\\hat{k})\\text{ m}$.\nStep 2: Compute the scalar dot product $W = \\vec{F} \\cdot \\Delta\\vec{r}$:\n$W = (4)(3) + (3)(3) + (-2)(4) = 12 + 9 - 8 = 13\\text{ J}$.\nStep 3: Distractor rejection: $21\\text{ J}$ results from dropping the negative sign on the $\\hat{k}$ component ($12 + 9 = 21$); $29\\text{ J}$ results from adding all terms as positive ($12 + 9 + 8 = 29$); $37\\text{ J}$ results from using position coordinates directly instead of the displacement difference."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_005",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following physical scenarios describes a case where the work done by the specified force is strictly negative?\n(i) Work done by kinetic friction on a block sliding to rest on a rough horizontal surface.\n(ii) Work done by the gravitational force on an apple falling freely from a tree branch.\n(iii) Work done by the gravitational pull of the Earth on a rocket accelerating vertically upwards.\n(iv) Work done by the tension in the string on the bob of a simple pendulum during its motion.",
+      "options": [
+        "A) (i) and (iii) only",
+        "B) (i) and (iv) only",
+        "C) (ii) and (iii) only",
+        "D) (i), (ii), and (iii)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For kinetic friction on a sliding block, the frictional force opposes the direction of relative displacement, meaning $\\theta = 180^\\circ$. Hence $W = f_k s \\cos 180^\\circ < 0$ (strictly negative).\nStep 2: For an apple falling downward, gravity is downward and displacement is downward, so $\\theta = 0^\\circ$ and $W = mgh > 0$ (positive).\nStep 3: For a rocket ascending vertically, gravity acts downward while displacement is upward, giving $\\theta = 180^\\circ$. Hence work done by gravity is negative.\nStep 4: Tension in a pendulum string acts along the radial direction, perpendicular to the tangential displacement at all points, so $\\theta = 90^\\circ$ and work done by tension is zero.\nDistractor rejection: Statements (i) and (iii) have negative work, while (ii) has positive work and (iv) has zero work."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_006",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The magnetic force acting on an electron moving through a uniform magnetic field does zero work on the electron, yet it alters its velocity.\nReason (R): The magnetic Lorentz force $\\vec{F}_B = -e(\\vec{v} \\times \\vec{B})$ is perpendicular to the velocity vector $\\vec{v}$ at every instant, so the power delivered by the magnetic force is identically zero.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The magnetic Lorentz force on a moving charge is $\\vec{F}_B = q(\\vec{v} \\times \\vec{B})$. By the properties of the vector cross product, $\\vec{F}_B$ is perpendicular to both $\\vec{v}$ and $\\vec{B}$.\nStep 2: The rate of work done (instantaneous power) is $P = \\vec{F}_B \\cdot \\vec{v} = q(\\vec{v} \\times \\vec{B}) \\cdot \\vec{v} = 0$, because the scalar triple product of coplanar vectors with one repeated vector is zero. Consequently, work done is zero and kinetic energy remains constant (speed is constant), but the direction of velocity changes.\nStep 3: Distractor rejection: Both (A) and (R) are true statements and (R) provides the exact mathematical and physical basis for (A)."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_007",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A one-dimensional position-dependent force $F(x) = (3x^2 + 4x + 2)\\text{ N}$ acts on a small particle, moving it along the positive x-axis from $x = 1\\text{ m}$ to $x = 3\\text{ m}$. The total work done by this variable force is:",
+      "options": [
+        "A) $64\\text{ J}$",
+        "B) $36\\text{ J}$",
+        "C) $46\\text{ J}$",
+        "D) $52\\text{ J}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The work done by a variable force in one dimension is evaluated by the definite integral $W = \\int_{x_i}^{x_f} F(x)\\,dx$.\nStep 2: Substitute $F(x) = 3x^2 + 4x + 2$ with limits from $x = 1$ to $x = 3$:\n$W = \\int_{1}^{3} (3x^2 + 4x + 2)\\,dx = \\left[ x^3 + 2x^2 + 2x \\right]_{1}^{3}$.\nStep 3: Evaluate at upper and lower limits:\nAt $x = 3$: $3^3 + 2(3^2) + 2(3) = 27 + 18 + 6 = 51\\text{ J}$.\nAt $x = 1$: $1^3 + 2(1^2) + 2(1) = 1 + 2 + 2 = 5\\text{ J}$.\n$W = 51 - 5 = 46\\text{ J}$.\nDistractor rejection: $36\\text{ J}$ results from failing to integrate the $4x$ term properly ($x^2$ instead of $2x^2$); $52\\text{ J}$ results from adding the lower limit instead of subtracting; $64\\text{ J}$ results from multiplying force at $x=3$ by displacement."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_008",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle moves along the x-axis under the action of a force $F(x)$. The force starts at $0\\text{ N}$ at $x = 0$, increases linearly to $20\\text{ N}$ at $x = 4\\text{ m}$, remains constant at $20\\text{ N}$ from $x = 4\\text{ m}$ to $x = 8\\text{ m}$, and drops linearly to $0\\text{ N}$ at $x = 10\\text{ m}$. From $x = 10\\text{ m}$ to $x = 12\\text{ m}$, the force becomes negative, dropping linearly to $-10\\text{ N}$ at $x = 12\\text{ m}$. The net work done by the force from $x = 0$ to $x = 12\\text{ m}$ is:",
+      "options": [
+        "A) $140\\text{ J}$",
+        "B) $150\\text{ J}$",
+        "C) $160\\text{ J}$",
+        "D) $130\\text{ J}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The total work done equals the net area under the force-displacement graph: $W = \\text{Area}_{0 \\to 10} - \\text{Area}_{10 \\to 12}$.\nStep 2: Region $x = 0$ to $x = 10\\text{ m}$ forms a trapezoid (or sum of triangle and rectangle):\nTriangle $0$ to $4\\text{ m}$: $\\frac{1}{2} \\times 4 \\times 20 = 40\\text{ J}$.\nRectangle $4$ to $8\\text{ m}$: $(8 - 4) \\times 20 = 80\\text{ J}$.\nTriangle $8$ to $10\\text{ m}$: $\\frac{1}{2} \\times (10 - 8) \\times 20 = 20\\text{ J}$.\nTotal positive area $= 40 + 80 + 20 = 140\\text{ J}$.\nStep 3: Region $x = 10$ to $x = 12\\text{ m}$ lies below the displacement axis (negative force):\nTriangle $10$ to $12\\text{ m}$: $\\frac{1}{2} \\times (12 - 10) \\times (-10) = -10\\text{ J}$.\nStep 4: Net work done $= 140 - 10 = 130\\text{ J}$.\nDistractor rejection: $140\\text{ J}$ neglects the negative work below the axis; $150\\text{ J}$ improperly adds the negative area instead of subtracting; $160\\text{ J}$ incorrectly treats the whole region as a single rectangle."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_009",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the kinetic energy of a material body:\nStatement I: Kinetic energy of a particle of mass $m$ moving with velocity $\\vec{v}$ is given by $K = \\frac{1}{2}m v^2$, and since $v^2 = \\vec{v} \\cdot \\vec{v} \\ge 0$, kinetic energy can never be negative in any frame of reference.\nStatement II: The numerical value of kinetic energy of a body is independent of the reference frame from which its motion is observed.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Statement I is incorrect but Statement II is correct.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Both Statement I and Statement II are incorrect."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Kinetic energy is defined as $K = \\frac{1}{2}m v^2$. Since mass $m > 0$ and the square of speed $v^2 \\ge 0$, kinetic energy is strictly a non-negative scalar quantity in all reference frames. Thus, Statement I is correct.\nStep 2: Velocity is a relative quantity that depends explicitly on the chosen frame of reference. For example, a passenger sitting inside a moving train has zero velocity (and zero kinetic energy) relative to the train, but non-zero velocity (and non-zero kinetic energy) relative to an observer on the ground. Thus, kinetic energy is frame-dependent, making Statement II incorrect.\nStep 3: Distractor rejection: Since Statement I is correct and Statement II is false, the option stating Statement I is correct but Statement II is incorrect is the only valid choice."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_010",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "If the linear momentum of a body of constant mass is increased by $50\\%$, the percentage increase in its kinetic energy will be:",
+      "options": [
+        "A) $100\\%$",
+        "B) $125\\%$",
+        "C) $225\\%$",
+        "D) $50\\%$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The relationship between kinetic energy $K$ and linear momentum $p$ for a body of mass $m$ is $K = \\frac{p^2}{2m}$.\nStep 2: Let initial momentum be $p_1 = p$. After a $50\\%$ increase, the final momentum is $p_2 = p + 0.50p = 1.5p$.\nStep 3: The final kinetic energy is:\n$K_2 = \\frac{p_2^2}{2m} = \\frac{(1.5p)^2}{2m} = 2.25 \\left(\\frac{p^2}{2m}\\right) = 2.25 K_1$.\nStep 4: Percentage increase in kinetic energy is:\n$\\frac{K_2 - K_1}{K_1} \\times 100\\% = \\frac{2.25K_1 - K_1}{K_1} \\times 100\\% = 1.25 \\times 100\\% = 125\\%$.\nDistractor rejection: $225\\%$ represents the final kinetic energy as a percentage of initial energy, not the percentage increase; $50\\%$ assumes a linear relationship; $100\\%$ is a common arithmetic guess."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_011",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "If the kinetic energy of a moving particle of fixed mass is increased by $300\\%$, the percentage increase in its linear momentum is:",
+      "options": [
+        "A) $200\\%$",
+        "B) $73\\%$",
+        "C) $100\\%$",
+        "D) $150\\%$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The relation between momentum and kinetic energy is $p = \\sqrt{2mK}$.\nStep 2: An increase of $300\\%$ means final kinetic energy is $K_f = K_i + 3.00 K_i = 4 K_i$.\nStep 3: The final momentum is $p_f = \\sqrt{2m(4K_i)} = 2\\sqrt{2mK_i} = 2p_i$.\nStep 4: The percentage increase in linear momentum is:\n$\\frac{p_f - p_i}{p_i} \\times 100\\% = \\frac{2p_i - p_i}{p_i} \\times 100\\% = 1.00 \\times 100\\% = 100\\%$.\nDistractor rejection: $200\\%$ represents the final momentum as a percentage of initial momentum, rather than the increase; $150\\%$ halves the $300\\%$ without taking the square root; $73\\%$ corresponds to $\\sqrt{3} - 1$ which would incorrectly assume $K_f = 3K_i$."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_012",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "If the linear momentum of a projectile of constant mass increases by a very small fraction of $1.5\\%$ during its flight, the approximate percentage increase in its kinetic energy is:",
+      "options": [
+        "A) $0.75\\%$",
+        "B) $1.5\\%$",
+        "C) $2.25\\%$",
+        "D) $3.0\\%$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For a body of mass $m$, the kinetic energy is $K = \\frac{p^2}{2m}$.\nStep 2: Taking the natural logarithm on both sides: $\\ln K = 2\\ln p - \\ln(2m)$.\nStep 3: Differentiating for small fractional changes: $\\frac{\\Delta K}{K} \\approx 2 \\frac{\\Delta p}{p}$.\nStep 4: Multiply by $100\\%$ to get percentage change:\n$\\text{Percentage change in } K = 2 \\times (1.5\\%) = 3.0\\%$.\nDistractor rejection: $0.75\\%$ divides by $2$ instead of multiplying; $1.5\\%$ assumes direct proportionality; $2.25\\%$ squares the percentage $(1.5)^2$, which is mathematically invalid for small percentage changes."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_013",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the Work-Energy Theorem for a particle:\nStatement I: The Work-Energy Theorem states that the work done by the resultant force acting on a particle is equal to the change in its kinetic energy, $W_{\\text{net}} = \\Delta K = K_f - K_i$.\nStatement II: The Work-Energy Theorem is strictly valid only when the forces acting on the particle are conservative forces like gravity or spring force, and it fails if non-conservative forces like friction are present.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Statement I is incorrect but Statement II is correct.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Both Statement I and Statement II are incorrect."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Statement I is an exact formulation of the Work-Energy Theorem: the net work done by all forces acting on a body equals the change in its kinetic energy ($W_{\\text{net}} = \\Delta K$). Hence, Statement I is correct.\nStep 2: The Work-Energy Theorem is derived directly from Newton's second law ($F_{\\text{net}} = m \\frac{dv}{dt}$). As Newton's second law holds for all types of forces, the theorem is universally valid for conservative, non-conservative, internal, and external forces alike ($W_c + W_{nc} + W_{\\text{ext}} = \\Delta K$). It does NOT fail when friction is present. Hence, Statement II is incorrect.\nStep 3: Distractor rejection: Since Statement I is correct and Statement II is incorrect, the option indicating Statement I is correct but Statement II is incorrect must be selected."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_014",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A car travelling with initial speed $u$ on a level horizontal road is brought to rest over a minimum stopping distance $s$ by the application of constant braking friction. If the initial speed of the car is doubled to $2u$ and the same braking force is applied, the new stopping distance will be:",
+      "options": [
+        "A) $3s$",
+        "B) $4s$",
+        "C) $s$",
+        "D) $2s$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: By the Work-Energy Theorem, the work done by the braking force $F$ over stopping distance $s$ equals the loss in kinetic energy:\n$W = -F s = K_f - K_i = 0 - \\frac{1}{2}m u^2 \\implies F s = \\frac{1}{2}m u^2$.\nStep 2: Since the braking force $F$ and vehicle mass $m$ remain constant, stopping distance is directly proportional to the square of initial speed: $s \\propto u^2$.\nStep 3: When the initial speed is doubled ($u' = 2u$):\n$s' \\propto (2u)^2 = 4u^2 \\implies s' = 4s$.\nDistractor rejection: $2s$ assumes a linear dependence on speed; $s$ assumes stopping distance is independent of speed; $3s$ is an arithmetic distractor."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_015",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle of mass $m = 0.5\\text{ kg}$ moves along the x-axis under the action of a resultant force. Its velocity varies with position according to the relation $v(x) = 4 x^{3/2}\\text{ m/s}$, where $x$ is in metres. The net work done by the force on the particle as it is displaced from $x = 0$ to $x = 2\\text{ m}$ is:",
+      "options": [
+        "A) $128\\text{ J}$",
+        "B) $16\\text{ J}$",
+        "C) $32\\text{ J}$",
+        "D) $64\\text{ J}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: By the Work-Energy Theorem, the net work done by the resultant force equals the change in kinetic energy: $W_{\\text{net}} = \\Delta K = \\frac{1}{2}m(v_f^2 - v_i^2)$.\nStep 2: Calculate initial velocity at $x = 0$: $v_i = 4(0)^{3/2} = 0\\text{ m/s}$.\nStep 3: Calculate final velocity at $x = 2\\text{ m}$:\n$v_f = 4 (2)^{3/2} = 4 \\times 2\\sqrt{2} = 8\\sqrt{2}\\text{ m/s}$.\nThus, $v_f^2 = (8\\sqrt{2})^2 = 64 \\times 2 = 128\\text{ m}^2/\\text{s}^2$.\nStep 4: Compute the net work done:\n$W_{\\text{net}} = \\frac{1}{2}(0.5\\text{ kg})(128 - 0) = 0.25 \\times 128 = 32\\text{ J}$.\nDistractor rejection: $64\\text{ J}$ omits the factor of $0.5$ for mass; $16\\text{ J}$ erroneously halves the work again; $128\\text{ J}$ is simply $v_f^2$ without multiplying by $\\frac{1}{2}m$."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_016",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The frictional force acting on a body can never do positive work on that body under any circumstances.\nReason (R): The frictional force always opposes the relative motion between the two surfaces in contact.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Reason (R) is true: by definition, friction opposes relative motion (or impending relative motion) between two contacting surfaces.\nStep 2: Assertion (A) is false: while friction opposes relative motion between surfaces, it does not necessarily oppose the absolute displacement of a body in an inertial frame. For example, when a block of mass $m$ is placed on top of an accelerating flatbed truck, static friction accelerates the block forward, doing positive work on the block. Similarly, when a person walks, static friction from the ground acts in the forward direction of motion and does positive work on the center of mass.\nStep 3: Distractor rejection: (A) is false while (R) is true. Hence, the choice identifying (A) as false and (R) as true is correct."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_017",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A motorized crane lifts a shipping crate of mass $m = 200\\text{ kg}$ vertically upward with a constant acceleration of $a = 2\\text{ m/s}^2$ through a height of $h = 5\\text{ m}$. Taking the acceleration due to gravity as $g = 10\\text{ m/s}^2$, the work done by the tension force in the hoisting cable is:",
+      "options": [
+        "A) $12000\\text{ J}$",
+        "B) $14000\\text{ J}$",
+        "C) $8000\\text{ J}$",
+        "D) $10000\\text{ J}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write Newton's second law for the vertically ascending crate:\n$T - mg = m a \\implies T = m(g + a)$.\nStep 2: Substitute the given numerical values:\n$T = 200\\text{ kg} \\times (10 + 2)\\text{ m/s}^2 = 200 \\times 12 = 2400\\text{ N}$.\nStep 3: Tension acts vertically upward and the displacement is also vertically upward ($\\theta = 0^\\circ$):\n$W_T = T h \\cos 0^\\circ = 2400\\text{ N} \\times 5\\text{ m} = 12000\\text{ J}$.\nDistractor rejection: $10000\\text{ J}$ corresponds to work done by tension if the crate moved at constant velocity ($a = 0$); $8000\\text{ J}$ corresponds to $m(g - a)h$ (accelerating downwards); $14000\\text{ J}$ is an arithmetic error."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_018",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two bodies of masses $m_1 = 4\\text{ kg}$ and $m_2 = 9\\text{ kg}$ have equal linear momentum. The ratio of their kinetic energies $K_1 : K_2$ is:",
+      "options": [
+        "A) $4 : 9$",
+        "B) $9 : 4$",
+        "C) $2 : 3$",
+        "D) $3 : 2$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The relationship connecting kinetic energy $K$, momentum $p$, and mass $m$ is $K = \\frac{p^2}{2m}$.\nStep 2: Given that both bodies have equal momentum ($p_1 = p_2 = p$):\n$K_1 = \\frac{p^2}{2m_1}$ and $K_2 = \\frac{p^2}{2m_2}$.\nStep 3: Take the ratio:\n$\\frac{K_1}{K_2} = \\frac{p^2 / (2m_1)}{p^2 / (2m_2)} = \\frac{m_2}{m_1} = \\frac{9}{4} = 9 : 4$.\nDistractor rejection: $4 : 9$ assumes kinetic energy is directly proportional to mass for constant momentum, rather than inversely proportional; $2 : 3$ incorrectly takes square roots of the mass ratio."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_019",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the work done by an ideal spring force:\nStatement I: The work done by an ideal spring force of spring constant $k$ when its extension changes from $x_1$ to $x_2$ from its relaxed length is given by $W_s = -\\frac{1}{2}k(x_2^2 - x_1^2)$.\nStatement II: When an ideal spring is pulled outward from its natural length ($x = 0$) to an elongation $x$, the restoring spring force does positive work because the elongation is increasing.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Hooke's Law states that the restoring force exerted by a spring is $F_s = -k x$, where $x$ is the displacement from the natural unstretched position.\nStep 2: The work done by the spring force as the extension changes from $x_1$ to $x_2$ is:\n$W_s = \\int_{x_1}^{x_2} (-kx)\\,dx = -\\left[ \\frac{1}{2}kx^2 \\right]_{x_1}^{x_2} = -\\frac{1}{2}k(x_2^2 - x_1^2)$. Thus, Statement I is correct.\nStep 3: When the spring is pulled outward ($x > 0$), the displacement is directed away from equilibrium while the restoring spring force is directed inward toward equilibrium (opposite direction, $\\theta = 180^\\circ$). Therefore, the spring force does negative work ($W_s = -\\frac{1}{2}kx^2 < 0$), not positive work. Thus, Statement II is incorrect.\nDistractor rejection: Since Statement I is correct and Statement II is incorrect, the choice highlighting this combination is valid."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_020",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): A block attached to an ideal horizontal spring is pulled from its mean position $x = 0$ to an extension $x = +A$ and then released so that it returns to $x = 0$. The net work done by the spring force over this complete round trip is zero.\nReason (R): The elastic spring force is a conservative force, and the total work done by any conservative force along any closed path is identically zero.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: From $x = 0$ to $x = +A$, the work done by the spring force is $W_1 = -\\frac{1}{2}kA^2$. From $x = +A$ back to $x = 0$, the displacement is in the same direction as the restoring force, so the work done is $W_2 = +\\frac{1}{2}kA^2$. Net work $W_{\\text{net}} = W_1 + W_2 = 0$. Hence, Assertion (A) is true.\nStep 2: Reason (R) states the fundamental definition of a conservative force: $\\oint \\vec{F} \\cdot d\\vec{r} = 0$. Since the spring force $F = -kx$ depends solely on position and satisfies this criterion, it is conservative. Hence, Reason (R) is true and correctly explains Assertion (A).\nStep 3: Distractor rejection: Both statements are true and Reason (R) provides the definitive theoretical rationale for Assertion (A)."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_021",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding various physical concepts in Work and Energy:\nList I:\n(A) Area under Force vs displacement ($F-x$) curve\n(B) Work done by a force perpendicular to displacement\n(C) Dimensional formula of work\n(D) Work done by kinetic friction on a sliding block\nList II:\n(I) Zero work\n(II) Work done on the body\n(III) Negative work\n(IV) $[\\text{M}\\text{L}^2\\text{T}^{-2}]$\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (A)-(II), (B)-(I), (C)-(IV), (D)-(III)",
+        "B) (A)-(I), (B)-(II), (C)-(III), (D)-(IV)",
+        "C) (A)-(II), (B)-(III), (C)-(IV), (D)-(I)",
+        "D) (A)-(IV), (B)-(I), (C)-(II), (D)-(III)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: (A) The integral $\\int F\\,dx$ represents the area under the $F-x$ curve, which corresponds to the work done on the body (II).\nStep 2: (B) When force is perpendicular to displacement ($\\theta = 90^\\circ$), $W = F d \\cos 90^\\circ = 0$, representing zero work (I).\nStep 3: (C) The dimensional formula of work $[\\vec{F} \\cdot \\vec{d}]$ is $[\\text{M}\\text{L}\\text{T}^{-2}][\\text{L}] = [\\text{M}\\text{L}^2\\text{T}^{-2}]$ (IV).\nStep 4: (D) Kinetic friction opposes relative motion ($\\theta = 180^\\circ$), so it performs negative work on the sliding block (III).\nStep 5: Matching gives (A)-(II), (B)-(I), (C)-(IV), (D)-(III).\nDistractor rejection: Other matchings misidentify the physical meaning of the area under the curve or confuse the zero and negative work conditions."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_022",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle of mass $m = 2\\text{ kg}$ is released from the origin $x = 0$ with an initial velocity of $v_0 = 4\\text{ m/s}$ along the positive x-axis. It experiences a retarding position-dependent force $F(x) = -2x\\text{ N}$, where $x$ is in metres. The position $x$ at which the particle comes to a momentary stop is:",
+      "options": [
+        "A) $2\\text{ m}$",
+        "B) $4\\text{ m}$",
+        "C) $8\\text{ m}$",
+        "D) $16\\text{ m}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Apply the Work-Energy Theorem: $W_{\\text{net}} = \\Delta K = K_f - K_i$.\nStep 2: The work done by the variable force from $x = 0$ to stopping position $x_0$ is:\n$W = \\int_{0}^{x_0} (-2x)\\,dx = -\\left[ x^2 \\right]_0^{x_0} = -x_0^2$.\nStep 3: The initial kinetic energy is $K_i = \\frac{1}{2} m v_0^2 = \\frac{1}{2}(2\\text{ kg})(4\\text{ m/s})^2 = 16\\text{ J}$, and the final kinetic energy is $K_f = 0$.\nStep 4: Equating work to change in kinetic energy:\n$-x_0^2 = 0 - 16 \\implies x_0^2 = 16 \\implies x_0 = 4\\text{ m}$.\nDistractor rejection: $2\\text{ m}$ corresponds to taking $\\sqrt{4}$; $8\\text{ m}$ results from forgetting the factor of $\\frac{1}{2}$ in integrating $2x$; $16\\text{ m}$ corresponds to equating $x_0 = K_i$ without taking the square root."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_023",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the concept and definition of potential energy in mechanics:\nStatement I: The potential energy $U(\\vec{r})$ of a system can be physically defined only for conservative forces, and the change in potential energy is equal to the negative of the work done by the internal conservative force, $\\Delta U = -W_c = -\\int_{\\vec{r}_i}^{\\vec{r}_f} \\vec{F}_c \\cdot d\\vec{r}$.\nStatement II: Potential energy is fundamentally a property of an isolated single point particle, rather than a mutual property of an interacting system of particles or bodies.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In NCERT mechanics, potential energy is defined strictly for conservative forces. The change in potential energy during an infinitesimal displacement is $dU = -\\vec{F}_c \\cdot d\\vec{r}$, which on integration gives $\\Delta U = -W_c$. Thus, Statement I is correct.\nStep 2: Potential energy arises due to the relative configuration, mutual arrangement, or interaction between two or more bodies (such as the Earth and a mass, or two interacting charges, or the coils of a spring). It is an attribute of the system as a whole, not of a single isolated particle in empty space. Thus, Statement II is incorrect.\nStep 3: Distractor rejection: Since Statement I accurately states the integral relation of potential energy while Statement II misattributes potential energy to a single isolated particle, the choice identifying Statement I as correct and Statement II as incorrect is valid."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_024",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The potential energy of a particle moving along the x-axis under a conservative force field is given by $U(x) = (2x^3 - 9x^2 + 12x + 5)\\text{ J}$, where $x$ is in metres. The position where the particle is in a state of stable equilibrium is:",
+      "options": [
+        "A) $x = 3\\text{ m}$",
+        "B) $x = 0.5\\text{ m}$",
+        "C) $x = 1\\text{ m}$",
+        "D) $x = 2\\text{ m}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Equilibrium occurs where the conservative force is zero: $F = -\\frac{dU}{dx} = 0$.\nStep 2: Differentiating $U(x)$ with respect to $x$:\n$\\frac{dU}{dx} = \\frac{d}{dx}(2x^3 - 9x^2 + 12x + 5) = 6x^2 - 18x + 12$.\nSetting $\\frac{dU}{dx} = 0$:\n$6(x^2 - 3x + 2) = 0 \\implies (x - 1)(x - 2) = 0 \\implies x = 1\\text{ m}$ and $x = 2\\text{ m}$.\nStep 3: To determine the nature of equilibrium, compute the second derivative:\n$\\frac{d^2U}{dx^2} = 12x - 18$.\nAt $x = 1\\text{ m}$: $\\frac{d^2U}{dx^2} = 12(1) - 18 = -6 < 0$ (potential energy maximum, unstable equilibrium).\nAt $x = 2\\text{ m}$: $\\frac{d^2U}{dx^2} = 12(2) - 18 = +6 > 0$ (potential energy minimum, stable equilibrium).\nDistractor rejection: $x = 1\\text{ m}$ is the position of unstable equilibrium; $x = 3\\text{ m}$ and $x = 0.5\\text{ m}$ are non-equilibrium points where net force is non-zero."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_025",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The work done by the gravitational force in moving a mass $m$ between two points on the Earth's surface is completely independent of the path connecting the two points.\nReason (R): The gravitational force is a conservative central force, and the line integral of any conservative force around any closed path is identically zero ($\\oint \\vec{F} \\cdot d\\vec{r} = 0$).\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Gravitational force is an inverse-square central force whose field is irrotational (curl is zero). By definition, the work done by such a force between two points $A$ and $B$ depends solely on the initial and final position vectors, $W = -\\Delta U = mgh_A - mgh_B$, which is path-independent. Thus, Assertion (A) is true.\nStep 2: Reason (R) correctly specifies the mathematical and physical property that defines a conservative force: the work done along a closed loop is zero ($\\oint \\vec{F} \\cdot d\\vec{r} = 0$). This property is equivalent to path independence between any two endpoints.\nStep 3: Distractor rejection: Both statements are true and Reason (R) provides the direct, rigorous explanation for Assertion (A)."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_026",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding conservative and non-conservative forces:\n(i) The work done by a conservative force in a closed loop round trip is strictly zero.\n(ii) For a conservative force, there exists a scalar potential function $U$ such that $\\vec{F} = -\\vec{\\nabla} U$.\n(iii) Kinetic friction is a non-conservative force because the work done by it along a closed round trip is non-zero and always negative.\n(iv) A non-conservative force can conserve the total mechanical energy of a macroscopic system if the motion is extremely slow.\nWhich of the above statements are correct?",
+      "options": [
+        "A) (i), (ii), (iii), and (iv)",
+        "B) (i), (ii), and (iii) only",
+        "C) (i) and (ii) only",
+        "D) (ii), (iii), and (iv) only"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Statements (i) and (ii) are fundamental criteria for conservative forces: $\\oint \\vec{F} \\cdot d\\vec{r} = 0$ and $\\vec{F} = -\\vec{\\nabla} U$. Both are correct.\nStep 2: Statement (iii) is correct: kinetic friction always opposes the instantaneous direction of motion, so $dW = -f_k\\,ds < 0$ along every differential segment of any path. Thus, for any closed loop, $W = -\\oint f_k\\,ds < 0$, dissipating mechanical energy into heat.\nStep 3: Statement (iv) is incorrect: non-conservative forces (like friction) dissipate mechanical energy into thermal energy regardless of the speed of motion; the dissipation does not vanish even if the process occurs quasi-statically.\nDistractor rejection: Only statements (i), (ii), and (iii) are correct; any choice containing statement (iv) must be eliminated."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_027",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A small stone of mass $m$ is dropped from rest from a height $H$ above the ground in a vacuum. At what height $h$ above the ground will the kinetic energy of the stone be exactly three times its gravitational potential energy (taking the ground as the reference zero for potential energy)?",
+      "options": [
+        "A) $\\frac{H}{2}$",
+        "B) $\\frac{H}{3}$",
+        "C) $\\frac{H}{4}$",
+        "D) $\\frac{3H}{4}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: By the law of conservation of mechanical energy, the total mechanical energy at any point equals the initial mechanical energy at height $H$:\n$E = K_i + U_i = 0 + mgH = mgH$.\nStep 2: At height $h$, potential energy is $U = mgh$ and kinetic energy is given to be $K = 3U$.\nStep 3: Equating total mechanical energy:\n$E = K + U = 3U + U = 4U = 4mgh$.\nStep 4: Set $4mgh = mgH \\implies h = \\frac{H}{4}$.\nDistractor rejection: $\\frac{3H}{4}$ corresponds to the height where potential energy is three times kinetic energy; $\\frac{H}{3}$ mistakenly divides by $3$ instead of $(3 + 1) = 4$; $\\frac{H}{2}$ is the midpoint where kinetic and potential energies are equal."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_028",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The potential energy between two neutral atoms in a diatomic molecule as a function of their interatomic distance $r$ is given by the Lennard-Jones expression $U(r) = \\frac{A}{r^{12}} - \\frac{B}{r^6}$, where $A$ and $B$ are positive constants. The equilibrium separation distance $r_0$ between the atoms is:",
+      "options": [
+        "A) $\\left(\\frac{B}{2A}\\right)^{1/6}$",
+        "B) $\\left(\\frac{A}{2B}\\right)^{1/6}$",
+        "C) $\\left(\\frac{A}{B}\\right)^{1/6}$",
+        "D) $\\left(\\frac{2A}{B}\\right)^{1/6}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The interatomic force is the negative derivative of the potential energy function with respect to separation distance: $F(r) = -\\frac{dU}{dr}$.\nStep 2: Differentiating $U(r)$:\n$\\frac{dU}{dr} = \\frac{d}{dr}\\left(A r^{-12} - B r^{-6}\\right) = -12A r^{-13} + 6B r^{-7}$.\nStep 3: At the equilibrium separation $r_0$, the net force is zero ($F(r_0) = 0 \\implies \\frac{dU}{dr}\\Big|_{r_0} = 0$):\n$-12A r_0^{-13} + 6B r_0^{-7} = 0 \\implies \\frac{12A}{r_0^{13}} = \\frac{6B}{r_0^7}$.\nStep 4: Multiply both sides by $r_0^{13}$ and rearrange:\n$12A = 6B r_0^6 \\implies r_0^6 = \\frac{12A}{6B} = \\frac{2A}{B} \\implies r_0 = \\left(\\frac{2A}{B}\\right)^{1/6}$.\nDistractor rejection: $\\left(\\frac{A}{B}\\right)^{1/6}$ is the distance where potential energy is zero, not where force is zero; $\\left(\\frac{B}{2A}\\right)^{1/6}$ is the reciprocal; $\\left(\\frac{A}{2B}\\right)^{1/6}$ erroneously multiplies instead of dividing."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_029",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding the conditions on the potential energy function $U(x)$ for different mechanical equilibrium states of a particle:\nList I:\n(A) Stable equilibrium\n(B) Unstable equilibrium\n(C) Neutral equilibrium\n(D) Non-equilibrium point\nList II:\n(I) $\\frac{dU}{dx} = 0$ and $\\frac{d^2U}{dx^2} < 0$\n(II) $\\frac{dU}{dx} = 0$ and $\\frac{d^2U}{dx^2} > 0$\n(III) $\\frac{dU}{dx} \\ne 0$\n(IV) $\\frac{dU}{dx} = 0$ and $\\frac{d^2U}{dx^2} = 0$\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (A)-(II), (B)-(I), (C)-(IV), (D)-(III)",
+        "B) (A)-(I), (B)-(II), (C)-(IV), (D)-(III)",
+        "C) (A)-(II), (B)-(IV), (C)-(I), (D)-(III)",
+        "D) (A)-(IV), (B)-(I), (C)-(II), (D)-(III)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: (A) Stable equilibrium requires zero net force ($\\frac{dU}{dx} = 0$) and a local minimum of potential energy, which corresponds to $\\frac{d^2U}{dx^2} > 0$ (II).\nStep 2: (B) Unstable equilibrium requires zero net force ($\\frac{dU}{dx} = 0$) and a local maximum of potential energy, which corresponds to $\\frac{d^2U}{dx^2} < 0$ (I).\nStep 3: (C) Neutral equilibrium occurs when potential energy is constant over a region, which corresponds to $\\frac{dU}{dx} = 0$ and $\\frac{d^2U}{dx^2} = 0$ (IV).\nStep 4: (D) A non-equilibrium point is characterized by a non-zero net force acting on the particle, which corresponds to $\\frac{dU}{dx} \\ne 0$ (III).\nStep 5: The correct matching is (A)-(II), (B)-(I), (C)-(IV), (D)-(III).\nDistractor rejection: Other match combinations swap the criteria between local minima (stable) and local maxima (unstable)."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_030",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An ideal spring of stiffness $k = 500\\text{ N/m}$ is held horizontally. What is the additional work required by an external agent to extend the spring from an initial stretch of $x_1 = 4\\text{ cm}$ to a final stretch of $x_2 = 12\\text{ cm}$ from its unstretched position?",
+      "options": [
+        "A) $1.6\\text{ J}$",
+        "B) $3.2\\text{ J}$",
+        "C) $4.8\\text{ J}$",
+        "D) $6.4\\text{ J}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The work done by an external agent to stretch a spring slowly from extension $x_1$ to $x_2$ equals the increase in elastic potential energy: $W_{\\text{ext}} = \\Delta U = \\frac{1}{2}k(x_2^2 - x_1^2)$.\nStep 2: Convert extensions into SI units (metres):\n$x_1 = 4\\text{ cm} = 0.04\\text{ m}$, $x_2 = 12\\text{ cm} = 0.12\\text{ m}$.\nStep 3: Compute the difference of squares:\n$x_2^2 - x_1^2 = (0.12)^2 - (0.04)^2 = 0.0144 - 0.0016 = 0.0128\\text{ m}^2$.\nStep 4: Substitute into the work expression:\n$W_{\\text{ext}} = \\frac{1}{2}(500\\text{ N/m})(0.0128\\text{ m}^2) = 250 \\times 0.0128 = 3.2\\text{ J}$.\nDistractor rejection: $1.6\\text{ J}$ calculates $\\frac{1}{2}k(x_2 - x_1)^2 = \\frac{1}{2}(500)(0.08)^2 = 1.6\\text{ J}$, which is a classic conceptual error of squaring the difference rather than the difference of squares; $4.8\\text{ J}$ and $6.4\\text{ J}$ are arithmetic multiples."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_031",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A block of mass $m = 1.0\\text{ kg}$ slides on a frictionless horizontal floor with a constant speed of $v = 4.0\\text{ m/s}$ and directly collides with the uncompressed end of an ideal horizontal spring of force constant $k = 400\\text{ N/m}$ fixed to a rigid wall. The maximum compression of the spring during the collision is:",
+      "options": [
+        "A) $10\\text{ cm}$",
+        "B) $15\\text{ cm}$",
+        "C) $20\\text{ cm}$",
+        "D) $40\\text{ cm}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: At maximum compression $x_{\\max}$, the block momentarily comes to rest, so its final kinetic energy is zero ($K_f = 0$).\nStep 2: Since there is no friction, mechanical energy is conserved: initial kinetic energy equals final elastic potential energy:\n$\\frac{1}{2}m v^2 = \\frac{1}{2}k x_{\\max}^2$.\nStep 3: Solve for $x_{\\max}$:\n$x_{\\max} = v\\sqrt{\\frac{m}{k}} = 4.0\\text{ m/s} \\times \\sqrt{\\frac{1.0\\text{ kg}}{400\\text{ N/m}}} = 4.0 \\times \\frac{1}{20} = 0.20\\text{ m}$.\nStep 4: Convert to centimetres:\n$x_{\\max} = 0.20 \\times 100\\text{ cm} = 20\\text{ cm}$.\nDistractor rejection: $10\\text{ cm}$ results from using $m/2k$; $40\\text{ cm}$ results from omitting the square root; $15\\text{ cm}$ is an arithmetic guess."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_032",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a block dropped onto a vertical spring:\nStatement I: When a block of mass $m$ is dropped from a height $h$ above the top of an uncompressed vertical spring of stiffness $k$, the maximum compression $x_m$ is determined by equating the loss in gravitational potential energy to the gain in elastic potential energy: $mg(h + x_m) = \\frac{1}{2}k x_m^2$.\nStatement II: The speed of the block reaches its maximum value at the instant it first contacts the uncompressed top of the spring ($x = 0$).\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is incorrect but Statement II is correct.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Both Statement I and Statement II are incorrect.",
+        "D) Statement I is correct but Statement II is incorrect."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: From release to maximum compression, the block falls through a total vertical distance of $(h + x_m)$. Since both the initial and momentary final velocities are zero, mechanical energy conservation gives $mg(h + x_m) = \\frac{1}{2}k x_m^2$. Thus, Statement I is correct.\nStep 2: When the block touches the spring ($x = 0$), the downward force of gravity $mg$ exceeds the upward spring restoring force ($kx = 0$). The net force is downward, so the block continues to accelerate downwards. Speed reaches its maximum when acceleration is zero, which occurs at the equilibrium position where $kx = mg \\implies x = mg/k > 0$, not at $x = 0$. Thus, Statement II is incorrect.\nStep 3: Distractor rejection: Since Statement I is correct and Statement II is incorrect, the choice indicating Statement I is correct but Statement II is incorrect is valid."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_033",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The potential energy of a particle moving in the $x-y$ plane under a conservative force field is given by $U(x, y) = (3x^2 y - 4y^2 + 5x)\\text{ J}$, where $x$ and $y$ are in metres. The net force vector $\\vec{F}$ acting on the particle at the coordinates $(2\\text{ m}, -1\\text{ m})$ is:",
+      "options": [
+        "A) $(7\\hat{i} - 20\\hat{j})\\text{ N}$",
+        "B) $(-7\\hat{i} + 20\\hat{j})\\text{ N}$",
+        "C) $(7\\hat{i} + 20\\hat{j})\\text{ N}$",
+        "D) $(-7\\hat{i} - 20\\hat{j})\\text{ N}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In a two-dimensional conservative field, the force components are the negative partial derivatives of potential energy: $F_x = -\\frac{\\partial U}{\\partial x}$ and $F_y = -\\frac{\\partial U}{\\partial y}$.\nStep 2: Differentiate with respect to $x$ (treating $y$ as constant):\n$\\frac{\\partial U}{\\partial x} = 6xy + 5$.\nAt $(2, -1)$: $\\frac{\\partial U}{\\partial x} = 6(2)(-1) + 5 = -12 + 5 = -7\\text{ N}$.\nThus, $F_x = -(-7) = +7\\text{ N}$.\nStep 3: Differentiate with respect to $y$ (treating $x$ as constant):\n$\\frac{\\partial U}{\\partial y} = 3x^2 - 8y$.\nAt $(2, -1)$: $\\frac{\\partial U}{\\partial y} = 3(2)^2 - 8(-1) = 12 + 8 = +20\\text{ N}$.\nThus, $F_y = -(+20) = -20\\text{ N}$.\nStep 4: The force vector is $\\vec{F} = (7\\hat{i} - 20\\hat{j})\\text{ N}$.\nDistractor rejection: $(-7\\hat{i} + 20\\hat{j})\\text{ N}$ forgets the negative sign in $\\vec{F} = -\\vec{\\nabla} U$; other choices have sign errors in the partial differentiation."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_034",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding non-conservative forces and mechanical energy:\nStatement I: In any mechanical system containing non-conservative forces, the work done by all non-conservative forces equals the net change in the total mechanical energy of the system, $W_{nc} = \\Delta E = \\Delta K + \\Delta U$.\nStatement II: When a block slides down a rough inclined plane, the work done by kinetic friction is positive because friction generates thermal energy and warms the surface.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: By the extended Work-Energy Theorem, $W_{\\text{net}} = W_c + W_{nc} = \\Delta K$. Since conservative work is defined by $W_c = -\\Delta U$, substituting gives $-\\Delta U + W_{nc} = \\Delta K \\implies W_{nc} = \\Delta K + \\Delta U = \\Delta E$. Thus, Statement I is correct.\nStep 2: Kinetic friction always opposes the direction of relative displacement of the sliding block ($\\theta = 180^\\circ$). Therefore, the work done by kinetic friction on the block is strictly negative ($W_f = -f_k s < 0$). This negative work accounts for the reduction of mechanical energy, which is transformed into heat. Thus, Statement II is incorrect.\nStep 3: Distractor rejection: Statement I is an established NCERT law, whereas Statement II falsely confuses energy dissipation with positive mechanical work."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_035",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A small solid block of mass $m = 0.5\\text{ kg}$ is released from rest at the top of a smooth frictionless curved track from a height $h = 1.6\\text{ m}$. At the bottom, the track seamlessly joins a smooth horizontal surface where the block strikes an uncompressed horizontal spring of stiffness $k = 100\\text{ N/m}$. Taking $g = 10\\text{ m/s}^2$, the maximum compression of the spring is:",
+      "options": [
+        "A) $1.6\\text{ m}$",
+        "B) $0.2\\text{ m}$",
+        "C) $0.4\\text{ m}$",
+        "D) $0.8\\text{ m}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Since all surfaces are completely frictionless and the track is smooth, mechanical energy is conserved throughout the entire process.\nStep 2: Initial mechanical energy at release: $E_i = mgh$.\nStep 3: Final mechanical energy at maximum compression $x$: the block momentarily stops ($K = 0$), so all energy is stored as elastic potential energy: $E_f = \\frac{1}{2}k x^2$.\nStep 4: Equating initial and final mechanical energies:\n$mgh = \\frac{1}{2}k x^2 \\implies x = \\sqrt{\\frac{2mgh}{k}}$.\nStep 5: Substitute the given numerical values:\n$x = \\sqrt{\\frac{2 \\times 0.5\\text{ kg} \\times 10\\text{ m/s}^2 \\times 1.6\\text{ m}}{100\\text{ N/m}}} = \\sqrt{\\frac{16}{100}} = \\frac{4}{10} = 0.4\\text{ m}$.\nDistractor rejection: $0.2\\text{ m}$ forgets the factor of $2$ in $\\frac{1}{2}kx^2$; $0.8\\text{ m}$ omits the square root; $1.6\\text{ m}$ incorrectly equates $x$ directly to $h$."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_036",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the modification of the spring constant when an ideal spring is cut:\nStatement I: The spring constant $k$ of an ideal uniform spring of natural length $L$ is inversely proportional to its length, so that the product $k \\times L$ is constant.\nStatement II: When a uniform spring of spring constant $k$ is cut into two segments having lengths in the ratio $1 : 3$, the spring constant of the shorter segment is $4k$ and that of the longer segment is $\\frac{4}{3}k$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: An ideal spring obeys Hooke's Law: $F = k \\Delta L$. For a uniform material under tension, elongation $\\Delta L = \\frac{F L}{A Y}$, giving $k = \\frac{A Y}{L}$. Since cross-sectional area $A$ and Young's modulus $Y$ are constant, $k \\propto \\frac{1}{L}$ and $k L = \\text{constant}$. Thus, Statement I is correct.\nStep 2: Let original length be $L$. Cutting in the ratio $1 : 3$ gives lengths $L_1 = \\frac{1}{4}L$ and $L_2 = \\frac{3}{4}L$.\nStep 3: Using $k_1 L_1 = k L$ and $k_2 L_2 = k L$:\n$k_1 = \\frac{k L}{L/4} = 4k$, and $k_2 = \\frac{k L}{3L/4} = \\frac{4}{3}k$. Thus, Statement II is correct.\nStep 4: Distractor rejection: Both statements are standard NCERT principles of elasticity and spring dynamics, so choices claiming either statement is incorrect are invalid."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_037",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle of mass $m = 1\\text{ kg}$ is constrained to move along the x-axis under the influence of a conservative potential energy function given by $U(x) = (x^2 - 6x + 13)\\text{ J}$, where $x$ is in metres. If the total mechanical energy of the particle is $E = 20\\text{ J}$, the turning points of its oscillatory motion are located at:",
+      "options": [
+        "A) $x = -1\\text{ m}$ and $x = 7\\text{ m}$",
+        "B) $x = 1\\text{ m}$ and $x = 5\\text{ m}$",
+        "C) $x = 0\\text{ m}$ and $x = 6\\text{ m}$",
+        "D) $x = 2\\text{ m}$ and $x = 4\\text{ m}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: At the turning points of motion, the instantaneous kinetic energy of the particle is zero ($K = 0$), so the potential energy equals the total mechanical energy: $U(x) = E$.\nStep 2: Set up the equation:\n$x^2 - 6x + 13 = 20 \\implies x^2 - 6x - 7 = 0$.\nStep 3: Factor the quadratic equation:\n$(x - 7)(x + 1) = 0 \\implies x = 7\\text{ m}$ and $x = -1\\text{ m}$.\nStep 4: The particle is bounded in the potential well between $x = -1\\text{ m}$ and $x = 7\\text{ m}$, oscillating about its stable equilibrium point at $x = 3\\text{ m}$ (where $U(3) = 4\\text{ J}$ is minimum).\nDistractor rejection: $x = 1\\text{ m}$ and $x = 5\\text{ m}$ correspond to an energy of $E = 8\\text{ J}$; $x = 0\\text{ m}$ and $x = 6\\text{ m}$ correspond to $E = 13\\text{ J}$."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_038",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a simple pendulum of length $L$ and bob mass $m$ released from a horizontal orientation:\nStatement I: When the pendulum bob is released from rest from the horizontal position (string horizontal, $\\theta = 90^\\circ$), its speed upon reaching the lowest point is $v = \\sqrt{2gL}$.\nStatement II: The tension in the supporting string as the bob passes through the lowest vertical position is exactly three times the weight of the bob, that is, $T = 3mg$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is incorrect but Statement II is correct.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Both Statement I and Statement II are incorrect.",
+        "D) Statement I is correct but Statement II is incorrect."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: From the horizontal position to the lowest vertical position, the bob descends through a vertical height $h = L$. By conservation of mechanical energy: $\\frac{1}{2}m v^2 = mgh = mgL \\implies v = \\sqrt{2gL}$. Thus, Statement I is correct.\nStep 2: At the lowest position, the net vertical force provides the required centripetal acceleration:\n$T - mg = \\frac{m v^2}{L}$.\nStep 3: Substituting $v^2 = 2gL$:\n$T = mg + \\frac{m(2gL)}{L} = mg + 2mg = 3mg$. Thus, Statement II is correct.\nStep 4: Distractor rejection: Both statements are standard, rigorously proven NCERT results, making the choice indicating both are correct the only valid option."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_039",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A pendulum bob of mass $m = 0.2\\text{ kg}$ is attached to a light string of length $L = 1.6\\text{ m}$. The bob is pulled aside until the string makes an angle of $\\theta = 60^\\circ$ with the vertical, and is then released from rest. Taking $g = 10\\text{ m/s}^2$, the speed of the bob and the tension in the string as it swings through the lowest point are:",
+      "options": [
+        "A) $v = 2.8\\text{ m/s}$, $T = 3.0\\text{ N}$",
+        "B) $v = 5.6\\text{ m/s}$, $T = 6.0\\text{ N}$",
+        "C) $v = 4.0\\text{ m/s}$, $T = 4.0\\text{ N}$",
+        "D) $v = 4.0\\text{ m/s}$, $T = 2.0\\text{ N}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The vertical height through which the bob descends is:\n$h = L(1 - \\cos 60^\\circ) = 1.6\\text{ m} \\times (1 - 0.5) = 1.6 \\times 0.5 = 0.8\\text{ m}$.\nStep 2: Using conservation of mechanical energy:\n$\\frac{1}{2}m v^2 = mgh \\implies v = \\sqrt{2gh} = \\sqrt{2 \\times 10 \\times 0.8} = \\sqrt{16} = 4.0\\text{ m/s}$.\nStep 3: At the lowest point, tension $T$ must support gravity and provide centripetal force:\n$T - mg = \\frac{m v^2}{L} \\implies T = mg + \\frac{m v^2}{L}$.\nStep 4: Substitute the values:\n$T = (0.2)(10) + \\frac{(0.2)(4.0)^2}{1.6} = 2.0 + \\frac{0.2 \\times 16}{1.6} = 2.0 + 2.0 = 4.0\\text{ N}$.\nDistractor rejection: $T = 2.0\\text{ N}$ neglects the centripetal acceleration term and considers only the static weight $mg$; other values result from incorrect angles or arithmetic errors."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_040",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The absolute numerical value of the potential energy of a physical system at a given point has no unique physical significance; only the difference in potential energy between two configurations is physically measurable.\nReason (R): The choice of the reference configuration at which potential energy is assigned to be zero is completely arbitrary, and adding a constant $C$ to the potential function leaves the force $\\vec{F} = -\\vec{\\nabla}(U + C) = -\\vec{\\nabla} U$ unchanged.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Work done by a conservative force is defined by $W = -\\Delta U = U_i - U_f$. Any measurable change in physical observables (like speed, work, or acceleration) depends exclusively on $\\Delta U$, so the absolute value of $U$ has no independent physical meaning. Thus, Assertion (A) is true.\nStep 2: Reason (R) correctly explains that potential energy is defined up to an additive constant $C$. Since the derivative of a constant is zero, $\\vec{\\nabla}(U + C) = \\vec{\\nabla} U$, meaning physical forces, equations of motion, and accelerations remain completely identical regardless of the reference zero chosen. Thus, Reason (R) is true and is the exact explanation for Assertion (A).\nStep 3: Distractor rejection: Both statements are true and Reason (R) provides the full mathematical and conceptual justification for Assertion (A)."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_041",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two identical massless springs, each of stiffness $k$, are connected first in series and then in parallel. In each arrangement, the combination is subjected to the same tensile stretching force $F$.\nStatement I: The effective spring constant of the series combination is $k_s = \\frac{k}{2}$, while that of the parallel combination is $k_p = 2k$.\nStatement II: Under the same stretching force $F$, the elastic potential energy stored in the series combination is four times the elastic potential energy stored in the parallel combination ($U_s = 4 U_p$).\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For two identical springs of constant $k$, the equivalent stiffness in series is $\\frac{1}{k_s} = \\frac{1}{k} + \\frac{1}{k} = \\frac{2}{k} \\implies k_s = \\frac{k}{2}$. In parallel, $k_p = k + k = 2k$. Thus, Statement I is correct.\nStep 2: The elastic potential energy stored in a spring system in terms of applied force $F$ is $U = \\frac{F^2}{2k_{\\text{eq}}}$.\nStep 3: For the series combination: $U_s = \\frac{F^2}{2(k/2)} = \\frac{F^2}{k}$.\nFor the parallel combination: $U_p = \\frac{F^2}{2(2k)} = \\frac{F^2}{4k}$.\nStep 4: Taking the ratio: $\\frac{U_s}{U_p} = \\frac{F^2 / k}{F^2 / (4k)} = 4 \\implies U_s = 4 U_p$. Thus, Statement II is correct.\nDistractor rejection: Both statements are rigorously derived from fundamental elasticity and work-energy relations, making the choice indicating both are correct the valid answer."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_042",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a vehicle of mass $m$ accelerating from rest on a level straight track under a constant delivered mechanical power $P$:\nStatement I: The instantaneous velocity of the vehicle varies with time as $v(t) \\propto t^{1/2}$, and the distance covered from rest varies with time as $s(t) \\propto t^{3/2}$.\nStatement II: The instantaneous acceleration of the vehicle increases linearly with time as $a(t) \\propto t$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Power delivered is $P = F v = \\left(m \\frac{dv}{dt}\\right) v$. Separating variables gives $v\\,dv = \\frac{P}{m}\\,dt$.\nStep 2: Integrating from rest ($v = 0$ at $t = 0$):\n$\\int_0^v v\\,dv = \\frac{P}{m}\\int_0^t dt \\implies \\frac{1}{2}v^2 = \\frac{P}{m}t \\implies v(t) = \\sqrt{\\frac{2P}{m}} t^{1/2} \\propto t^{1/2}$.\nStep 3: Distance covered is $s(t) = \\int_0^t v\\,dt = \\sqrt{\\frac{2P}{m}} \\int_0^t t^{1/2}\\,dt = \\frac{2}{3}\\sqrt{\\frac{2P}{m}} t^{3/2} \\propto t^{3/2}$. Thus, Statement I is correct.\nStep 4: Differentiating velocity to find acceleration:\n$a(t) = \\frac{dv}{dt} = \\frac{d}{dt}\\left(\\sqrt{\\frac{2P}{m}} t^{1/2}\\right) = \\frac{1}{2}\\sqrt{\\frac{2P}{m}} t^{-1/2} \\propto t^{-1/2}$.\nThus, acceleration decreases with time (inversely proportional to $\\sqrt{t}$), and does not increase linearly. Thus, Statement II is incorrect.\nDistractor rejection: Statement I is mathematically rigorous and physically valid, whereas Statement II falsely claims acceleration increases linearly."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_043",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An electric automobile of total mass $m = 1200\\text{ kg}$ accelerates from rest on a level straight highway under a constant motor output power of $P = 60\\text{ kW}$. Neglecting air resistance and friction, the time required for the vehicle to attain a speed of $v = 20\\text{ m/s}$ is:",
+      "options": [
+        "A) $8.0\\text{ s}$",
+        "B) $2.0\\text{ s}$",
+        "C) $4.0\\text{ s}$",
+        "D) $6.0\\text{ s}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: By the Work-Energy Theorem, the total work done by the motor on the car equals its gain in kinetic energy from rest: $W = \\Delta K = \\frac{1}{2}m v^2 - 0$.\nStep 2: Since power delivered $P$ is constant, the work done in time $t$ is $W = P t$.\nStep 3: Equating the two expressions:\n$P t = \\frac{1}{2}m v^2 \\implies t = \\frac{m v^2}{2P}$.\nStep 4: Substitute the given parameters ($m = 1200\\text{ kg}$, $v = 20\\text{ m/s}$, $P = 60\\text{ kW} = 60000\\text{ W}$):\n$t = \\frac{1200 \\times (20)^2}{2 \\times 60000} = \\frac{1200 \\times 400}{120000} = \\frac{480000}{120000} = 4.0\\text{ s}$.\nDistractor rejection: $2.0\\text{ s}$ omits the factor of $2$ in the denominator; $8.0\\text{ s}$ mistakenly multiplies by $2$; $6.0\\text{ s}$ is an arithmetic calculation error."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_044",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An irrigation water pump lifts water from an underground well of depth $h = 30\\text{ m}$ at a steady rate of $120\\text{ litres per minute}$ and discharges it through a nozzle at ground level with an ejection speed of $v = 10\\text{ m/s}$. Taking the density of water as $\\rho = 1000\\text{ kg/m}^3$ and $g = 10\\text{ m/s}^2$, the minimum mechanical power delivered by the pump is:",
+      "options": [
+        "A) $800\\text{ W}$",
+        "B) $1000\\text{ W}$",
+        "C) $600\\text{ W}$",
+        "D) $700\\text{ W}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Determine the mass flow rate $\\frac{dm}{dt}$:\nVolume rate $= 120\\text{ L/min} = \\frac{120 \\times 10^{-3}\\text{ m}^3}{60\\text{ s}} = 2.0 \\times 10^{-3}\\text{ m}^3/\\text{s}$.\nMass rate $\\frac{dm}{dt} = \\rho \\times \\text{Volume rate} = 1000 \\times 2.0 \\times 10^{-3} = 2.0\\text{ kg/s}$.\nStep 2: Total power delivered by the pump supplies both gravitational potential energy per unit time and kinetic energy per unit time:\n$P = \\left(\\frac{dm}{dt}\\right) g h + \\frac{1}{2}\\left(\\frac{dm}{dt}\\right) v^2$.\nStep 3: Compute each component:\n$P_{\\text{gravity}} = 2.0\\text{ kg/s} \\times 10\\text{ m/s}^2 \\times 30\\text{ m} = 600\\text{ W}$.\n$P_{\\text{kinetic}} = \\frac{1}{2} \\times 2.0\\text{ kg/s} \\times (10\\text{ m/s})^2 = 1.0 \\times 100 = 100\\text{ W}$.\nStep 4: Total power $P = 600\\text{ W} + 100\\text{ W} = 700\\text{ W}$.\nDistractor rejection: $600\\text{ W}$ accounts only for lifting the water and ignores the kinetic energy of ejection; $800\\text{ W}$ results from doubling the kinetic energy contribution; $1000\\text{ W}$ uses $v^2 = 200$ incorrectly."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_045",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): When two identical smooth spheres of equal mass undergo a direct head-on elastic collision in one dimension, they completely exchange their velocities upon collision.\nReason (R): In a one-dimensional elastic collision between two bodies of masses $m_1$ and $m_2$, the final velocities are given by $v_1 = \\left(\\frac{m_1 - m_2}{m_1 + m_2}\\right)u_1 + \\left(\\frac{2m_2}{m_1 + m_2}\\right)u_2$ and $v_2 = \\left(\\frac{2m_1}{m_1 + m_2}\\right)u_1 + \\left(\\frac{m_2 - m_1}{m_1 + m_2}\\right)u_2$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Reason (R) states the standard 1D elastic collision equations derived from simultaneous conservation of linear momentum ($m_1 u_1 + m_2 u_2 = m_1 v_1 + m_2 v_2$) and kinetic energy (or coefficient of restitution $e = \\frac{v_2 - v_1}{u_1 - u_2} = 1$). Reason (R) is true.\nStep 2: Setting $m_1 = m_2 = m$ in these equations:\n$v_1 = \\left(\\frac{m - m}{2m}\\right)u_1 + \\left(\\frac{2m}{2m}\\right)u_2 = 0 + u_2 = u_2$, and\n$v_2 = \\left(\\frac{2m}{2m}\\right)u_1 + \\left(\\frac{m - m}{2m}\\right)u_2 = u_1 + 0 = u_1$.\nStep 3: The particles completely swap their velocities ($v_1 = u_2$ and $v_2 = u_1$), which proves Assertion (A). Therefore, both (A) and (R) are true, and (R) is the correct mathematical explanation of (A).\nDistractor rejection: Assertion (A) and Reason (R) are both true and logically connected, eliminating all other answer choices."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_046",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the transfer of kinetic energy during a one-dimensional elastic collision:\nStatement I: A projectile particle of mass $m$ with initial kinetic energy $K_0$ collides head-on elastically with a stationary target of mass $M$ ($u_2 = 0$). The fraction of initial kinetic energy transferred to the target mass $M$ is given by $\\frac{\\Delta K}{K_0} = \\frac{4mM}{(m + M)^2}$.\nStatement II: The fractional energy transferred to the target mass is maximum and equal to $1$ ($100\\%$ energy transfer) when the projectile and target have equal masses, $m = M$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is incorrect but Statement II is correct.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Both Statement I and Statement II are incorrect.",
+        "D) Statement I is correct but Statement II is incorrect."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: For a stationary target ($u_2 = 0$), the velocity of target $M$ after elastic collision is $v_2 = \\frac{2m}{m + M} u_1$.\nStep 2: The kinetic energy transferred to the target is:\n$K_2 = \\frac{1}{2} M v_2^2 = \\frac{1}{2} M \\left(\\frac{2m}{m + M} u_1\\right)^2 = \\frac{4m^2 M}{(m + M)^2} \\left(\\frac{1}{2} u_1^2\\right) = \\frac{4mM}{(m + M)^2} \\left(\\frac{1}{2} m u_1^2\\right) = \\frac{4mM}{(m + M)^2} K_0$.\nThus, the fraction transferred is $\\frac{\\Delta K}{K_0} = \\frac{4mM}{(m + M)^2}$. Hence, Statement I is correct.\nStep 3: Let ratio $r = M/m$. The fraction is $\\frac{4r}{(1 + r)^2}$. Differentiating with respect to $r$ and setting to zero yields $(1 + r)^2 - 2r(1 + r) = 0 \\implies 1 - r = 0 \\implies r = 1$, meaning $m = M$. At $m = M$, fraction $= \\frac{4(1)}{(2)^2} = 1$ ($100\\%$ transfer). Hence, Statement II is correct.\nStep 4: Distractor rejection: Both statements are mathematically proven NCERT collision properties, so the choice stating both are correct is the only valid answer."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_047",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A railway freight car of mass $m_1 = 3000\\text{ kg}$ travelling along a straight level track with a velocity of $u_1 = 10\\text{ m/s}$ collides head-on and automatically couples with an initially stationary freight car of mass $m_2 = 2000\\text{ kg}$ ($u_2 = 0$). The loss of kinetic energy of the system during this completely inelastic collision is:",
+      "options": [
+        "A) $150\\text{ kJ}$",
+        "B) $30\\text{ kJ}$",
+        "C) $60\\text{ kJ}$",
+        "D) $90\\text{ kJ}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: By conservation of linear momentum, the common final velocity $v_c$ of the coupled cars is:\n$m_1 u_1 + m_2 u_2 = (m_1 + m_2) v_c \\implies v_c = \\frac{3000 \\times 10 + 0}{3000 + 2000} = \\frac{30000}{5000} = 6.0\\text{ m/s}$.\nStep 2: Calculate the initial total kinetic energy:\n$K_i = \\frac{1}{2} m_1 u_1^2 = \\frac{1}{2}(3000\\text{ kg})(10\\text{ m/s})^2 = 1500 \\times 100 = 150000\\text{ J} = 150\\text{ kJ}$.\nStep 3: Calculate the final total kinetic energy:\n$K_f = \\frac{1}{2}(m_1 + m_2) v_c^2 = \\frac{1}{2}(5000\\text{ kg})(6.0\\text{ m/s})^2 = 2500 \\times 36 = 90000\\text{ J} = 90\\text{ kJ}$.\nStep 4: The loss of kinetic energy is:\n$\\Delta K_{\\text{loss}} = K_i - K_f = 150\\text{ kJ} - 90\\text{ kJ} = 60\\text{ kJ}$.\n(Alternatively, using $\\Delta K = \\frac{1}{2}\\frac{m_1 m_2}{m_1 + m_2}(u_1 - u_2)^2 = \\frac{1}{2}\\frac{3000 \\times 2000}{5000}(10)^2 = \\frac{1}{2}(1200)(100) = 60000\\text{ J} = 60\\text{ kJ}$).\nDistractor rejection: $90\\text{ kJ}$ is the remaining final kinetic energy; $150\\text{ kJ}$ is the total initial kinetic energy; $30\\text{ kJ}$ is an arithmetic error."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_048",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a two-dimensional elastic collision:\nStatement I: When a smooth sphere of mass $m$ moving with speed $u$ collides obliquely and elastically with an identical stationary sphere of mass $m$ (non-head-on collision), the two spheres always move at right angles ($90^\\circ$) to each other after the collision.\nStatement II: In any oblique elastic collision between two identical masses where one is initially at rest, the vector condition $\\vec{v}_1 \\cdot \\vec{v}_2 = 0$ follows directly from equating the square of momentum conservation to kinetic energy conservation.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Conservation of linear momentum gives $\\vec{u}_1 = \\vec{v}_1 + \\vec{v}_2$ (since $m_1 = m_2 = m$ and $\\vec{u}_2 = \\vec{0}$).\nStep 2: Squaring both sides: $u_1^2 = |\\vec{v}_1 + \\vec{v}_2|^2 = v_1^2 + v_2^2 + 2(\\vec{v}_1 \\cdot \\vec{v}_2)$.\nStep 3: Since the collision is elastic, kinetic energy is strictly conserved:\n$\\frac{1}{2}m u_1^2 = \\frac{1}{2}m v_1^2 + \\frac{1}{2}m v_2^2 \\implies u_1^2 = v_1^2 + v_2^2$.\nStep 4: Comparing the two equations:\n$v_1^2 + v_2^2 + 2(\\vec{v}_1 \\cdot \\vec{v}_2) = v_1^2 + v_2^2 \\implies 2(\\vec{v}_1 \\cdot \\vec{v}_2) = 0 \\implies \\vec{v}_1 \\cdot \\vec{v}_2 = 0$.\nStep 5: Since the scalar product is zero and neither final speed is zero (in an oblique collision), the angle between $\\vec{v}_1$ and $\\vec{v}_2$ is $90^\\circ$. Thus, Statement I and Statement II are both correct.\nDistractor rejection: Both statements represent standard textbook proofs in 2D collisions, making the choice indicating both are correct the valid answer."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_049",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding the value of the coefficient of restitution $e$ and the corresponding physical collision characteristics:\nList I:\n(A) Perfectly elastic collision\n(B) Inelastic collision\n(C) Completely (perfectly) inelastic collision\n(D) Super-elastic / explosive separation\nList II:\n(I) $e = 0$, colliding bodies stick together with maximum loss of kinetic energy\n(II) $e = 1$, kinetic energy is strictly conserved\n(III) $0 < e < 1$, kinetic energy is partially converted into internal thermal/deformation energy\n(IV) $e > 1$, final kinetic energy is strictly greater than initial kinetic energy\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (A)-(II), (B)-(III), (C)-(I), (D)-(IV)",
+        "B) (A)-(I), (B)-(II), (C)-(III), (D)-(IV)",
+        "C) (A)-(II), (B)-(I), (C)-(III), (D)-(IV)",
+        "D) (A)-(III), (B)-(II), (C)-(IV), (D)-(I)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: (A) A perfectly elastic collision has $e = 1$, where mechanical kinetic energy is conserved before and after collision (II).\nStep 2: (B) An ordinary inelastic collision has $0 < e < 1$, where momentum is conserved but part of kinetic energy is dissipated into heat or deformation (III).\nStep 3: (C) In a completely inelastic collision, $e = 0$, the colliding objects coalesce and stick together, resulting in the maximum possible loss of kinetic energy consistent with momentum conservation (I).\nStep 4: (D) In a super-elastic collision or explosion, internal chemical or potential energy is released, giving $e > 1$ and final kinetic energy greater than initial kinetic energy (IV).\nStep 5: Thus, the correct match is (A)-(II), (B)-(III), (C)-(I), (D)-(IV).\nDistractor rejection: Alternative matchings erroneously swap the coefficient values between perfectly elastic ($e=1$) and perfectly inelastic ($e=0$) conditions."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_050",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For a body of mass $m$ tied to an inextensible string of length $R$ executing a full vertical circular loop, the difference between the tension at the lowest point and the tension at the highest point, $T_{\\text{bottom}} - T_{\\text{top}}$, is strictly equal to $6mg$, irrespective of the initial speed (provided the string does not go slack).\nReason (R): By the conservation of mechanical energy, the difference in the square of speeds between the bottom and top points is $v_{\\text{bottom}}^2 - v_{\\text{top}}^2 = 4gR$, which gives a tension difference $\\Delta T = \\frac{m}{R}(v_{\\text{bottom}}^2 - v_{\\text{top}}^2) + 2mg = 4mg + 2mg = 6mg$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: At the lowest point, the tension is $T_L - mg = \\frac{m v_L^2}{R} \\implies T_L = \\frac{m v_L^2}{R} + mg$.\nStep 2: At the highest point, both tension and gravity act downward toward the center:\n$T_H + mg = \\frac{m v_H^2}{R} \\implies T_H = \\frac{m v_H^2}{R} - mg$.\nStep 3: Subtracting the two equations gives:\n$T_L - T_H = \\frac{m}{R}(v_L^2 - v_H^2) + 2mg$.\nStep 4: By conservation of mechanical energy between bottom and top (vertical height change $h = 2R$):\n$\\frac{1}{2}m v_L^2 = \\frac{1}{2}m v_H^2 + mg(2R) \\implies v_L^2 - v_H^2 = 4gR$.\nStep 5: Substituting this into the tension difference gives:\n$T_L - T_H = \\frac{m}{R}(4gR) + 2mg = 4mg + 2mg = 6mg$.\nThis shows that $T_L - T_H = 6mg$ identically, independent of $v_L$. Thus, Assertion (A) is true, Reason (R) is true, and (R) correctly explains (A).\nDistractor rejection: Both statements are true and Reason (R) provides the full algebraic proof of Assertion (A)."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_051",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding motion in a vertical circle of radius $R$:\nStatement I: The minimum speed required at the lowest point for a body tied to a flexible inextensible string of length $R$ to complete a full vertical circle is $v_{\\text{bottom}} = \\sqrt{5gR}$.\nStatement II: The minimum speed required at the lowest point for a body attached to a light rigid rod of length $R$ to complete a full vertical circle is $v_{\\text{bottom}} = 2\\sqrt{gR} = \\sqrt{4gR}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Statement I is incorrect but Statement II is correct.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Both Statement I and Statement II are incorrect."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: For a body tied to a flexible string, the string must maintain non-negative tension at the highest point ($T_{\\text{top}} \\ge 0$). At the critical limit $T_{\\text{top}} = 0$, the centripetal force is provided solely by gravity: $\\frac{m v_{\\text{top}}^2}{R} = mg \\implies v_{\\text{top}} = \\sqrt{gR}$. By energy conservation from bottom to top: $v_{\\text{bottom}}^2 = v_{\\text{top}}^2 + 4gR = gR + 4gR = 5gR \\implies v_{\\text{bottom}} = \\sqrt{5gR}$. Thus, Statement I is correct.\nStep 2: For a mass attached to a light rigid rod, the rod can support compressive forces as well as tensile forces. The mass does not fall inward even if tension drops below zero. Therefore, the critical condition for completing the loop is simply that the velocity at the highest point can be zero ($v_{\\text{top}} = 0$). By conservation of energy: $v_{\\text{bottom}}^2 = v_{\\text{top}}^2 + 4gR = 0 + 4gR = 4gR \\implies v_{\\text{bottom}} = \\sqrt{4gR} = 2\\sqrt{gR}$. Thus, Statement II is correct.\nStep 3: Distractor rejection: Both statements are standard NCERT vertical circular dynamics results, making the option stating both are correct the only valid choice."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_052",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A small bob of mass $m = 0.5\\text{ kg}$ is attached to a light inextensible string of length $R = 1.0\\text{ m}$ and whirled in a vertical circle. If the horizontal speed imparted to the bob at the lowest point is $v_0 = 8.0\\text{ m/s}$, taking $g = 10\\text{ m/s}^2$, the string tension at the lowest point ($T_L$) and at the highest point ($T_H$) are, respectively:",
+      "options": [
+        "A) $T_L = 32\\text{ N}$, $T_H = 2\\text{ N}$",
+        "B) $T_L = 42\\text{ N}$, $T_H = 12\\text{ N}$",
+        "C) $T_L = 37\\text{ N}$, $T_H = 17\\text{ N}$",
+        "D) $T_L = 37\\text{ N}$, $T_H = 7\\text{ N}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: At the lowest point, tension supports gravity and provides centripetal acceleration:\n$T_L = mg + \\frac{m v_0^2}{R} = (0.5\\text{ kg})(10\\text{ m/s}^2) + \\frac{(0.5\\text{ kg})(8.0\\text{ m/s})^2}{1.0\\text{ m}} = 5.0 + \\frac{0.5 \\times 64}{1.0} = 5.0 + 32.0 = 37\\text{ N}$.\nStep 2: Determine speed at the highest point using conservation of mechanical energy ($h = 2R = 2.0\\text{ m}$):\n$\\frac{1}{2}m v_H^2 = \\frac{1}{2}m v_0^2 - mg(2R) \\implies v_H^2 = v_0^2 - 4gR = (8.0)^2 - 4(10)(1.0) = 64 - 40 = 24\\text{ m}^2/\\text{s}^2$.\nStep 3: At the highest point, tension and gravity together provide centripetal force:\n$T_H = \\frac{m v_H^2}{R} - mg = \\frac{(0.5)(24)}{1.0} - 5.0 = 12.0 - 5.0 = 7\\text{ N}$.\nStep 4: Check difference: $T_L - T_H = 37 - 7 = 30\\text{ N} = 6mg = 6(0.5)(10) = 30\\text{ N}$, which confirms accuracy.\nDistractor rejection: $T_L = 32\\text{ N}$ neglects the weight $mg$ at the bottom; other values fail the universal relation $T_L - T_H = 6mg$."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_053",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A small sphere suspended by an inextensible string of length $R$ is given a horizontal speed $v_0$ at the lowest position. Consider the following statements regarding the resulting motion:\n(i) If $v_0 \\le \\sqrt{2gR}$, the sphere oscillates back and forth within the lower hemisphere without the string ever going slack.\n(ii) If $\\sqrt{2gR} < v_0 < \\sqrt{5gR}$, the string becomes slack ($T = 0$) at some point in the upper hemisphere ($90^\\circ < \\theta < 180^\\circ$), after which the sphere executes parabolic projectile motion under gravity.\n(iii) If $v_0 \\ge \\sqrt{5gR}$, the string remains taut throughout the motion and the sphere completes a full vertical circular loop.\nWhich of the above statements are correct?",
+      "options": [
+        "A) (i), (ii), and (iii)",
+        "B) (i) and (iii) only",
+        "C) (ii) and (iii) only",
+        "D) (i) and (ii) only"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: If $v_0 \\le \\sqrt{2gR}$, the maximum height reached is $h = \\frac{v_0^2}{2g} \\le R$. Velocity becomes zero before or at the horizontal position ($\u000b0 \\le 90^\\circ$). Since tension $T = mg\\cos\\theta + \\frac{m v^2}{R} \\ge 0$ in the lower hemisphere, the string never slacks, and the bob oscillates as a pendulum. Statement (i) is correct.\nStep 2: If $\\sqrt{2gR} < v_0 < \\sqrt{5gR}$, the bob passes the horizontal level with positive speed, but the tension vanishes ($T = 0$) at an angle $\\theta$ where $\\cos\\theta = \\frac{2gR - v_0^2}{3gR}$ in the upper hemisphere before reaching the top. The string slacks, and the bob travels as an unconstrained projectile under gravity until the string becomes taut again. Statement (ii) is correct.\nStep 3: If $v_0 \\ge \\sqrt{5gR}$, tension at the top satisfies $T_{\\text{top}} \\ge 0$, and the bob completes full circular loops. Statement (iii) is correct.\nDistractor rejection: All three statements (i), (ii), and (iii) are exact NCERT mechanics criteria, so any choice excluding any statement is incorrect."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_054",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a ballistic pendulum experiment, a rifle bullet of mass $m = 20\\text{ g}$ travelling horizontally with an unknown speed $v$ strikes and embeds itself into a stationary wooden block of mass $M = 1.98\\text{ kg}$ suspended by a light vertical cord. Immediately after the collision, the block-bullet system swings upward to a maximum vertical height of $h = 0.20\\text{ m}$. Taking $g = 10\\text{ m/s}^2$, the initial speed $v$ of the bullet was:",
+      "options": [
+        "A) $150\\text{ m/s}$",
+        "B) $200\\text{ m/s}$",
+        "C) $400\\text{ m/s}$",
+        "D) $100\\text{ m/s}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The ballistic pendulum involves two distinct physical stages:\nStage 1: A completely inelastic collision during which linear momentum is conserved, but mechanical kinetic energy is lost.\nStage 2: A conservative swing during which mechanical energy is conserved.\nStep 2: From Stage 2, determine the common speed $V$ of the combined system immediately after impact from the maximum vertical rise $h$:\n$\\frac{1}{2}(m + M)V^2 = (m + M)gh \\implies V = \\sqrt{2gh} = \\sqrt{2 \\times 10\\text{ m/s}^2 \\times 0.20\\text{ m}} = \\sqrt{4.0} = 2.0\\text{ m/s}$.\nStep 3: From Stage 1, apply conservation of horizontal momentum:\n$m v = (m + M)V \\implies v = \\left(\\frac{m + M}{m}\\right) V$.\nStep 4: Substitute the masses ($m = 20\\text{ g} = 0.02\\text{ kg}$, $M = 1.98\\text{ kg}$, $m + M = 2.00\\text{ kg}$):\n$v = \\left(\\frac{2.00\\text{ kg}}{0.02\\text{ kg}}\\right) \\times 2.0\\text{ m/s} = 100 \\times 2.0\\text{ m/s} = 200\\text{ m/s}$.\nDistractor rejection: $100\\text{ m/s}$ results from omitting the factor of $2$ in velocity; $400\\text{ m/s}$ squares the mass ratio; $150\\text{ m/s}$ is an arithmetic error."
+    },
+    {
+      "id": "phy_work_energy_and_power_c01_055",
+      "subject": "Physics",
+      "topic": "Work, Energy, and Power",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the overarching principles of Work, Energy, Power, and Collisions:\n(i) The work done by all internal conservative forces of a system is equal to the negative of the change in its potential energy, $W_c = -\\Delta U$.\n(ii) The instantaneous rate of work done on a particle by a force $\\vec{F}$ is given by the scalar product $P = \\vec{F} \\cdot \\vec{v}$.\n(iii) In any collision occurring in an isolated physical system, linear momentum is conserved regardless of whether the collision is elastic or inelastic.\n(iv) In a perfectly inelastic collision between two moving bodies in the laboratory frame, the total final kinetic energy of the system is always reduced strictly to zero.\nWhich of the above statements are correct?",
+      "options": [
+        "A) (ii), (iii), and (iv) only",
+        "B) (i), (ii), (iii), and (iv)",
+        "C) (i), (ii), and (iii) only",
+        "D) (i) and (ii) only"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Statement (i) is the exact definition of potential energy in NCERT physics ($W_c = -\\Delta U$). Correct.\nStep 2: Statement (ii) is the NCERT definition of instantaneous power: $P = \\frac{dW}{dt} = \\frac{\\vec{F} \\cdot d\\vec{r}}{dt} = \\vec{F} \\cdot \\vec{v}$. Correct.\nStep 3: Statement (iii) is correct: by Newton's third law, the internal collision impulses sum to zero ($\\sum \\vec{F}_{\\text{ext}} = 0$), so linear momentum is conserved in all isolated collisions (elastic, inelastic, or completely inelastic).\nStep 4: Statement (iv) is incorrect: in a perfectly inelastic collision, the bodies stick together and move with a common velocity $v_c = \\frac{\\vec{p}_{\\text{total}}}{m_1 + m_2}$. As long as the total initial momentum $\\vec{p}_{\\text{total}} \\ne \\vec{0}$ in the lab frame, the system retains non-zero final kinetic energy ($K_f = \\frac{p_{\\text{total}}^2}{2(m_1 + m_2)} > 0$). Final kinetic energy is zero only in the special reference frame where initial momentum is zero (center of mass frame).\nDistractor rejection: Statements (i), (ii), and (iii) are correct; any option containing statement (iv) must be rejected."
+    }
+  ]
+}

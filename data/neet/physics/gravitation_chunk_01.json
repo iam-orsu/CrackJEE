@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Gravitation",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_gravitation_c01_001",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Johannes Kepler successfully formulated his three empirical laws of planetary motion without invoking the concept of Ptolemaic epicycles.\nReason (R): Kepler mathematically analyzed the comprehensive and meticulous naked-eye observational records of planetary positions recorded over decades by Tycho Brahe.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In the historical development of astronomy, Ptolemy proposed the geocentric model which required complex geometric constructs called epicycles to account for retrograde motion.\nStep 2: Tycho Brahe compiled exceptionally precise observational data on planetary positions across decades. Johannes Kepler meticulously analyzed Tycho Brahe's data (particularly the motion of Mars) and showed that planets move in elliptical orbits with the Sun at one focus.\nStep 3: This breakthrough eliminated the need for artificial epicycles, providing an elegant empirical foundation for planetary kinematics. Hence, both Assertion (A) and Reason (R) are true, and (R) correctly explains how Kepler arrived at his laws.\nDistractor Analysis: Alternative options fail because Reason (R) directly identifies the empirical data source that enabled Kepler to formulate his revolutionary laws."
+    },
+    {
+      "id": "phy_gravitation_c01_002",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Kepler's First Law of Planetary Motion (Law of Orbits):\n\nStatement I: According to Kepler's first law, every planet moves around the Sun in an elliptical orbit with the Sun situated at one of the two focal points (foci) of the ellipse.\nStatement II: A circular orbit represents a special limiting case of an elliptical orbit having an eccentricity of unity ($e = 1$).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Kepler's First Law (Law of Orbits) explicitly states that all planets move in elliptical orbits with the Sun located at one of the two foci. Therefore, Statement I is strictly correct according to NCERT.\nStep 2: The geometry of an ellipse is defined by its eccentricity $e$, where $0 \\le e < 1$. For a circular orbit, the two foci merge into a single geometric center, which corresponds to an eccentricity of zero ($e = 0$), not unity.\nStep 3: An eccentricity of $e = 1$ describes a parabolic trajectory (an unbound orbit), while $e > 1$ represents a hyperbola. Thus, Statement II is completely false.\nDistractor Analysis: Choices asserting that Statement II is true confuse zero eccentricity (circle) with unit eccentricity (parabola)."
+    },
+    {
+      "id": "phy_gravitation_c01_003",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A newly discovered minor planet moves in an elliptical orbit about the Sun with a semi-major axis of $a = 2.50\\text{ AU}$ and an orbital eccentricity of $e = 0.20$. What are its perihelion distance ($r_p$, closest approach) and aphelion distance ($r_a$, farthest distance) from the Sun?",
+      "options": [
+        "A) $r_p = 2.00\\text{ AU}$ and $r_a = 3.00\\text{ AU}$",
+        "B) $r_p = 2.25\\text{ AU}$ and $r_a = 2.75\\text{ AU}$",
+        "C) $r_p = 1.50\\text{ AU}$ and $r_a = 3.50\\text{ AU}$",
+        "D) $r_p = 2.00\\text{ AU}$ and $r_a = 2.50\\text{ AU}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In an elliptical orbit of semi-major axis $a$ and eccentricity $e$, the distance of closest approach (perihelion) from the focus is given by $r_p = a(1 - e)$.\nStep 2: Substituting the given values: $r_p = 2.50 \\times (1 - 0.20) = 2.50 \\times 0.80 = 2.00\\text{ AU}$.\nStep 3: The distance of farthest separation (aphelion) from the focus is given by $r_a = a(1 + e) = 2.50 \\times (1 + 0.20) = 2.50 \\times 1.20 = 3.00\\text{ AU}$. Note that $r_p + r_a = 2a = 5.00\\text{ AU}$, which verifies the major axis length.\nDistractor Analysis: Other choices violate the geometric identities $r_p = a(1-e)$ and $r_a = a(1+e)$ or do not sum to $2a$."
+    },
+    {
+      "id": "phy_gravitation_c01_004",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The areal velocity of the radius vector connecting the Sun to any revolving planet remains constant throughout the orbit.\nReason (R): The gravitational force exerted by the Sun on the planet is a purely central force, resulting in zero net torque about the Sun and thereby conserving the orbital angular momentum of the planet.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Kepler's Second Law (Law of Areas) states that the line joining the Sun and a planet sweeps out equal areas in equal intervals of time, meaning areal velocity $\\frac{d\\vec{A}}{dt} = \\text{constant}$. Thus, Assertion (A) is true.\nStep 2: Gravitational force is directed along the radius vector $\\vec{r}$ connecting the Sun and planet: $\\vec{F} = -\\frac{G M m}{r^2}\\hat{r}$. The torque acting on the planet about the Sun is $\\vec{\\tau} = \\vec{r} \\times \\vec{F} = \\vec{r} \\times \\left(-\\frac{G M m}{r^2}\\hat{r}\\right) = 0$.\nStep 3: Since $\\vec{\\tau} = \\frac{d\\vec{L}}{dt} = 0$, the orbital angular momentum $\\vec{L} = \\vec{r} \\times m\\vec{v}$ is strictly conserved. The infinitesimal area swept is $d\\vec{A} = \\frac{1}{2}(\\vec{r} \\times d\\vec{r}) = \\frac{1}{2}(\\vec{r} \\times \\vec{v}\\,dt) = \\frac{\\vec{L}}{2m}dt$, so $\\frac{d\\vec{A}}{dt} = \\frac{\\vec{L}}{2m} = \\text{constant}$. Thus, Reason (R) is true and perfectly explains (A).\nDistractor Analysis: Denying the causal relationship is incorrect because conservation of angular momentum under a central force is the exact physical origin of Kepler's second law."
+    },
+    {
+      "id": "phy_gravitation_c01_005",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A comet travels in an eccentric elliptical orbit around the Sun. If the distance of the comet at aphelion is $4$ times its distance at perihelion ($r_a = 4 r_p$), what is the ratio of its orbital speed at perihelion ($v_p$) to its orbital speed at aphelion ($v_a$)?",
+      "options": [
+        "A) $1 : 4$",
+        "B) $4 : 1$",
+        "C) $16 : 1$",
+        "D) $2 : 1$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Since the gravitational force is central, the orbital angular momentum of the comet about the Sun is strictly conserved throughout its motion: $L = m v r \\sin\\theta = \\text{constant}$.\nStep 2: At both perihelion and aphelion, the velocity vector is perpendicular to the position vector ($\\theta = 90^\\circ$), so the angular momentum simplifies to $L = m v_p r_p = m v_a r_a$.\nStep 3: Equating the two expressions gives $v_p r_p = v_a r_a \\implies \\frac{v_p}{v_a} = \\frac{r_a}{r_p}$. Given $r_a = 4 r_p$, we find $\\frac{v_p}{v_a} = 4$.\nDistractor Analysis: A ratio of $16:1$ incorrectly squares the ratio, while $2:1$ assumes a square-root dependence typical of circular orbital speeds rather than conservation of angular momentum."
+    },
+    {
+      "id": "phy_gravitation_c01_006",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Kepler's Third Law of Planetary Motion:\n\nStatement I: The square of the orbital period of revolution of a planet around the Sun is directly proportional to the cube of the semi-major axis of its elliptical orbit ($T^2 \\propto a^3$).\nStatement II: For planets revolving around the Sun, the ratio $\\frac{T^2}{a^3}$ is identical for all planets and is independent of the mass of the Sun.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Both Statement I and Statement II are true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Kepler's Third Law (Law of Periods) states that the square of the time period $T$ of revolution of a planet is proportional to the cube of the semi-major axis $a$ of its elliptical orbit ($T^2 \\propto a^3$). Hence, Statement I is true.\nStep 2: From Newton's law of gravitation, the proportionality constant for planets orbiting a central body of mass $M_s$ is given by $T^2 = \\left(\\frac{4\\pi^2}{G M_s}\\right) a^3$. Thus, $\\frac{T^2}{a^3} = \\frac{4\\pi^2}{G M_s}$.\nStep 3: This ratio is indeed the same for all planets orbiting the same central star, but it depends directly and inversely on the mass of the Sun ($M_s$). Therefore, Statement II is false because it claims independence from the solar mass.\nDistractor Analysis: Claiming Statement II is true overlooks the explicit presence of the central mass $M_s$ in the denominator of Kepler's constant."
+    },
+    {
+      "id": "phy_gravitation_c01_007",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The mean distance of a distant planet from the Sun is $4$ times the mean distance between the Earth and the Sun. Assuming the orbits to be circular and taking the orbital period of the Earth as $1\\text{ year}$, what is the orbital period of revolution of this distant planet?",
+      "options": [
+        "A) $64\\text{ years}$",
+        "B) $4\\text{ years}$",
+        "C) $8\\text{ years}$",
+        "D) $16\\text{ years}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: According to Kepler's Third Law of planetary motion, the orbital period $T$ and orbital radius $R$ satisfy the relation $T^2 \\propto R^3$, or $\\frac{T_p}{T_e} = \\left(\\frac{R_p}{R_e}\\right)^{3/2}$.\nStep 2: Given that the planetary orbital radius is $R_p = 4 R_e$ and the Earth's orbital period is $T_e = 1\\text{ year}$.\nStep 3: Substituting these values yields $T_p = 1\\text{ year} \\times (4)^{3/2} = 1 \\times (2^2)^{3/2} = 2^3 = 8\\text{ years}$.\nDistractor Analysis: Choosing $16\\text{ years}$ incorrectly evaluates $4^2$; $64\\text{ years}$ incorrectly computes $4^3$; and $4\\text{ years}$ assumes a direct linear dependence $T \\propto R$."
+    },
+    {
+      "id": "phy_gravitation_c01_008",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the characteristics of Newton's universal gravitational interaction:\n\nStatement I: The gravitational attraction between two isolated point masses is entirely independent of the physical nature, state, or presence of any intervening medium.\nStatement II: The gravitational force between two point masses acts along the line joining them and is a conservative central force.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Unlike electrostatic forces (which are reduced in a dielectric medium by a factor of dielectric constant $K$), gravitational forces are completely unaffected by intervening matter. Gravitational shielding does not exist in nature. Thus, Statement I is true.\nStep 2: Gravitational force acts along the line connecting the centers of the two interacting masses, classifying it as a central force ($\\vec{F} \\parallel \\hat{r}$). Furthermore, the work done by gravitational force along any closed trajectory is identically zero ($\\oint \\vec{F} \\cdot d\\vec{r} = 0$), confirming that it is a conservative force. Thus, Statement II is true.\nDistractor Analysis: Both statements reflect established fundamental principles of classical gravitation outlined in NCERT Class 11."
+    },
+    {
+      "id": "phy_gravitation_c01_009",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "What are the dimensional formula and the SI units of the universal gravitational constant $G$ in Newton's law of gravitation $F = \\frac{G m_1 m_2}{r^2}$?",
+      "options": [
+        "A) $[M^{-1} L^3 T^{-2}]$ and $\\text{N}\\cdot\\text{m}^2\\cdot\\text{kg}^{-2}$",
+        "B) $[M L^3 T^{-2}]$ and $\\text{N}\\cdot\\text{m}^2\\cdot\\text{kg}^{-2}$",
+        "C) $[M^{-1} L^2 T^{-2}]$ and $\\text{N}\\cdot\\text{m}\\cdot\\text{kg}^{-2}$",
+        "D) $[M^{-1} L^3 T^{-1}]$ and $\\text{N}\\cdot\\text{m}^2\\cdot\\text{kg}^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: From Newton's universal law of gravitation, $F = G \\frac{m_1 m_2}{r^2} \\implies G = \\frac{F r^2}{m_1 m_2}$.\nStep 2: Expressing in SI units, the unit of force is $\\text{N}$, distance is $\\text{m}$, and mass is $\\text{kg}$, giving the SI unit $\\text{N}\\cdot\\text{m}^2\\cdot\\text{kg}^{-2}$ (or $\\text{m}^3\\cdot\\text{kg}^{-1}\\cdot\\text{s}^{-2}$).\nStep 3: Determining the dimensional formula: $[G] = \\frac{[F][r^2]}{[m_1][m_2]} = \\frac{[M L T^{-2}][L^2]}{[M^2]} = [M^{-1} L^3 T^{-2}]$.\nDistractor Analysis: Incorrect choices have positive mass dimension $[M^1]$ or incorrect exponents for length and time."
+    },
+    {
+      "id": "phy_gravitation_c01_010",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The experimental apparatus utilized by Henry Cavendish in 1798 to determine the universal gravitational constant $G$ is historically referred to as 'weighing the Earth'.\nReason (R): Once the experimental numerical value of $G$ was established by Cavendish, the mass of the Earth could be calculated directly using the known surface acceleration due to gravity $g$ and the radius of the Earth $R$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In 1798, Henry Cavendish used a sensitive torsion balance to measure the extremely weak gravitational attraction between laboratory lead spheres, obtaining the first accurate value of $G \\approx 6.67 \\times 10^{-11}\\text{ N}\\cdot\\text{m}^2\\cdot\\text{kg}^{-2}$.\nStep 2: At that time, the acceleration due to gravity at Earth's surface ($g \\approx 9.8\\text{ m/s}^2$) and Earth's radius ($R \\approx 6.4 \\times 10^6\\text{ m}$) were already well known from geodetic surveys.\nStep 3: From the relation $g = \\frac{G M_E}{R^2}$, knowing $G$ immediately yielded Earth's mass $M_E = \\frac{g R^2}{G} \\approx 6 \\times 10^{24}\\text{ kg}$ and its mean density $\\rho \\approx 5.5 \\times 10^3\\text{ kg/m}^3$. Hence, Cavendish's experiment is aptly described as 'weighing the Earth', making (R) the exact explanation of (A).\nDistractor Analysis: Both statements are factually correct and logically linked; any choice asserting otherwise contradicts NCERT physics history."
+    },
+    {
+      "id": "phy_gravitation_c01_011",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two uniform lead spheres having masses of $5.0\\text{ kg}$ and $10.0\\text{ kg}$ are kept with their centers separated by a distance of $0.50\\text{ m}$. Taking $G = 6.67 \\times 10^{-11}\\text{ N}\\cdot\\text{m}^2\\cdot\\text{kg}^{-2}$, what is the magnitude of the mutual gravitational attraction between them?",
+      "options": [
+        "A) $2.67 \\times 10^{-8}\\text{ N}$",
+        "B) $1.33 \\times 10^{-9}\\text{ N}$",
+        "C) $1.33 \\times 10^{-8}\\text{ N}$",
+        "D) $6.67 \\times 10^{-9}\\text{ N}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Newton's universal law of gravitation provides the magnitude of the force as $F = \\frac{G m_1 m_2}{r^2}$.\nStep 2: Here, $m_1 = 5.0\\text{ kg}$, $m_2 = 10.0\\text{ kg}$, and separation $r = 0.50\\text{ m}$.\nStep 3: Substituting the values: $F = \\frac{6.67 \\times 10^{-11} \\times 5.0 \\times 10.0}{(0.50)^2} = \\frac{6.67 \\times 10^{-11} \\times 50.0}{0.25} = 6.67 \\times 10^{-11} \\times 200 = 1.334 \\times 10^{-8}\\text{ N}$.\nDistractor Analysis: Calculating with $r$ instead of $r^2$ yields $6.67 \\times 10^{-9}\\text{ N}$, while an arithmetic mistake in the power of $10$ gives $1.33 \\times 10^{-9}\\text{ N}$."
+    },
+    {
+      "id": "phy_gravitation_c01_012",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two point masses are separated by a distance $r$ and exert a mutual gravitational force $F$ on each other. If the mass of each point body is doubled and the distance between them is reduced to $\\frac{r}{2}$, the new gravitational force between them will be:",
+      "options": [
+        "A) $8 F$",
+        "B) $4 F$",
+        "C) $F$",
+        "D) $16 F$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The initial gravitational force between two masses $m_1$ and $m_2$ separated by distance $r$ is $F = \\frac{G m_1 m_2}{r^2}$.\nStep 2: The new masses are $m_1' = 2m_1$ and $m_2' = 2m_2$, and the new separation is $r' = \\frac{r}{2}$.\nStep 3: The new force is $F' = \\frac{G m_1' m_2'}{(r')^2} = \\frac{G (2m_1)(2m_2)}{(r/2)^2} = \\frac{4 G m_1 m_2}{r^2 / 4} = 16 \\left(\\frac{G m_1 m_2}{r^2}\\right) = 16 F$.\nDistractor Analysis: Forgetting to square the distance factor leads to $\\frac{4}{1/2} = 8 F$; considering only mass doubling leads to $4 F$."
+    },
+    {
+      "id": "phy_gravitation_c01_013",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Three identical particles, each of mass $m$, are situated at the vertices of an equilateral triangle of side length $a$. According to the principle of superposition, what is the magnitude of the net gravitational force experienced by any one of the particles?",
+      "options": [
+        "A) $\\sqrt{2}\\frac{G m^2}{a^2}$",
+        "B) $\\sqrt{3}\\frac{G m^2}{a^2}$",
+        "C) $2\\frac{G m^2}{a^2}$",
+        "D) $\\frac{G m^2}{a^2}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Consider one particle at vertex $A$. The other two particles at vertices $B$ and $C$ each exert an attractive gravitational force of magnitude $F_0 = \\frac{G m^2}{a^2}$ directed along $AB$ and $AC$ respectively.\nStep 2: In an equilateral triangle, the angle between the two force vectors is $\\theta = 60^\\circ$.\nStep 3: The magnitude of the resultant force is obtained using vector addition: $F_{\\text{net}} = \\sqrt{F_0^2 + F_0^2 + 2 F_0 F_0 \\cos 60^\\circ} = \\sqrt{F_0^2 + F_0^2 + 2 F_0^2 (1/2)} = \\sqrt{3 F_0^2} = \\sqrt{3} F_0 = \\sqrt{3}\\frac{G m^2}{a^2}$.\nDistractor Analysis: Simply adding the magnitudes algebraically yields $2 F_0$, which ignores vector direction; $\\sqrt{2} F_0$ incorrectly uses $\\theta = 90^\\circ$."
+    },
+    {
+      "id": "phy_gravitation_c01_014",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Three identical particles of mass $m$ each are placed at the three vertices of an equilateral triangle of side $L$. A fourth particle of mass $M$ is placed at the centroid of this equilateral triangle. What is the net gravitational force acting on the particle of mass $M$?",
+      "options": [
+        "A) Zero",
+        "B) $\\frac{3 G M m}{L^2}$",
+        "C) $\\sqrt{3}\\frac{G M m}{L^2}$",
+        "D) $\\frac{G M m}{3 L^2}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The centroid of an equilateral triangle is equidistant from all three vertices. The distance from the centroid to each vertex is $r = \\frac{L}{\\sqrt{3}}$.\nStep 2: Each of the three vertex masses exerts an attractive gravitational force of magnitude $F = \\frac{G M m}{r^2} = \\frac{3 G M m}{L^2}$ on the central mass $M$, directed towards the respective vertices.\nStep 3: These three forces are equal in magnitude and separated symmetrically by mutual angles of $120^\\circ$. The vector sum of three coplanar vectors of equal magnitude spaced symmetrically at $120^\\circ$ intervals is identically zero: $\\sum \\vec{F} = 0$.\nDistractor Analysis: Non-zero values arise from algebraic summation without considering the complete vector cancellation caused by threefold rotational symmetry."
+    },
+    {
+      "id": "phy_gravitation_c01_015",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): A point mass situated at any arbitrary interior point inside a hollow, uniform spherical shell of mass $M$ experiences zero net gravitational force from the shell.\nReason (R): The gravitational forces exerted on the interior particle by various surface elements of the spherical shell cancel each other completely when integrated vectorially over the entire closed surface.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Newton's shell theorem states that the gravitational field inside a uniform spherical shell of matter is zero everywhere throughout the hollow cavity.\nStep 2: Even if the test mass is placed off-center, closer to one side of the shell, the smaller area of the shell nearby exerts a force that exactly balances the force exerted by the larger area of the shell located farther away (due to the inverse-square law $\\frac{dA}{r^2} = d\\Omega$).\nStep 3: Vector integration over the complete $4\\pi$ solid angle yields $\\vec{F}_{\\text{net}} = \\int d\\vec{F} = 0$. Hence, both Assertion (A) and Reason (R) are true, and (R) correctly explains (A).\nDistractor Analysis: Denying the explanation ignores Newton's geometric solid-angle proof of the shell theorem."
+    },
+    {
+      "id": "phy_gravitation_c01_016",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Newton's Shell Theorems for a uniform thin spherical shell of mass $M$ and radius $R$:\n\nStatement I: The gravitational force exerted by the spherical shell on a point mass located outside the shell ($r > R$) is identical to the force that would be exerted if the entire mass of the shell were concentrated at its geometric center.\nStatement II: For a point mass located inside the spherical shell ($r < R$), the gravitational force experienced by it is directly proportional to its distance $r$ from the center.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: According to Newton's first shell theorem, the external gravitational field ($r > R$) of a uniform spherical shell is $E(r) = \\frac{G M}{r^2}$, exactly as if all its mass were concentrated at the center. Thus, Statement I is true.\nStep 2: According to Newton's second shell theorem, the gravitational field inside a thin hollow spherical shell ($r < R$) is identically zero everywhere ($E(r) = 0$), so the force is zero, not linearly proportional to $r$.\nStep 3: A linear variation $F \\propto r$ applies inside a uniform solid sphere, not inside a thin hollow shell. Therefore, Statement II is completely false.\nDistractor Analysis: Confusing the hollow shell with a solid sphere leads to the misconception that Statement II is true."
+    },
+    {
+      "id": "phy_gravitation_c01_017",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the gravitational interaction between the Earth and the Moon:\n\nStatement I: The gravitational attraction exerted by the Earth on the Moon is exactly equal in magnitude to the gravitational attraction exerted by the Moon on the Earth.\nStatement II: Because the mass of the Earth is approximately $81$ times the mass of the Moon, the linear acceleration experienced by the Moon in its orbit is approximately $81$ times that experienced by the Earth.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: By Newton's third law of motion, gravitational forces form an action-reaction pair: $\\vec{F}_{EM} = -\\vec{F}_{ME}$. Hence, the magnitudes of the forces are identical ($|F_{EM}| = |F_{ME}|$). Thus, Statement I is true.\nStep 2: From Newton's second law, acceleration is given by $a = \\frac{F}{m}$. The acceleration of the Moon is $a_M = \\frac{F}{M_M}$, and the acceleration of the Earth is $a_E = \\frac{F}{M_E}$.\nStep 3: The ratio of accelerations is $\\frac{a_M}{a_E} = \\frac{M_E}{M_M} \\approx 81$. Therefore, the Moon experiences an acceleration approximately $81$ times larger than that experienced by the Earth. Statement II is also true.\nDistractor Analysis: A common student misconception is that the more massive Earth exerts a larger force, which violates Newton's third law."
+    },
+    {
+      "id": "phy_gravitation_c01_018",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the historical scientific contributors in List I with their fundamental discoveries or models in List II:\n\nList I:\n(P) Ptolemy\n(Q) Nicolaus Copernicus\n(R) Tycho Brahe\n(S) Henry Cavendish\n\nList II:\n(1) Recorded extensive and precise planetary position data without telescopes\n(2) Measured the universal gravitational constant $G$ using a sensitive torsion balance\n(3) Formulated the geocentric model with circular epicycles\n(4) Proposed the heliocentric model with planets revolving around the central Sun\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-4, R-3, S-2",
+        "B) P-3, Q-4, R-1, S-2",
+        "C) P-4, Q-3, R-1, S-2",
+        "D) P-3, Q-1, R-4, S-2"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Ptolemy (2nd century CE) developed the comprehensive geocentric model of the universe involving epicycles and deferents (P matches 3).\nStep 2: Nicolaus Copernicus (1543) proposed the heliocentric model in which planets move in circular paths around a stationary Sun (Q matches 4).\nStep 3: Tycho Brahe compiled decades of extraordinarily accurate naked-eye planetary position measurements that Kepler later analyzed (R matches 1).\nStep 4: Henry Cavendish (1798) experimentally determined the value of the universal gravitational constant $G$ using a torsion balance (S matches 2).\nDistractor Analysis: Any combination swapping Ptolemy and Copernicus or confusing Tycho Brahe's observational role is historically inaccurate."
+    },
+    {
+      "id": "phy_gravitation_c01_019",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A planet of mass $m$ revolves around the Sun in an elliptical orbit. If the constant orbital angular momentum of the planet about the Sun has a magnitude $L$, what is the areal velocity $\\frac{dA}{dt}$ of the position vector connecting the Sun to the planet?",
+      "options": [
+        "A) $\\frac{2L}{m}$",
+        "B) $\\frac{L}{4m}$",
+        "C) $\\frac{L}{2m}$",
+        "D) $\\frac{L}{m}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Let the position vector of the planet with respect to the Sun be $\\vec{r}$. In a small time interval $\\Delta t$, the planet undergoes displacement $\\Delta\\vec{r} = \\vec{v}\\,\\Delta t$.\nStep 2: The area swept out by the position vector is approximately the area of a triangle: $\\Delta\\vec{A} = \\frac{1}{2}(\\vec{r} \\times \\Delta\\vec{r}) = \\frac{1}{2}(\\vec{r} \\times \\vec{v})\\Delta t$.\nStep 3: Dividing by $\\Delta t$ and taking the limit gives the areal velocity: $\\frac{d\\vec{A}}{dt} = \\frac{1}{2}(\\vec{r} \\times \\vec{v})$. Since angular momentum is $\\vec{L} = m(\\vec{r} \\times \\vec{v})$, we have $\\vec{r} \\times \\vec{v} = \\frac{\\vec{L}}{m}$. Thus, $\\frac{dA}{dt} = \\frac{L}{2m}$.\nDistractor Analysis: Omitting the factor of $1/2$ from the triangle area formula leads to $\\frac{L}{m}$."
+    },
+    {
+      "id": "phy_gravitation_c01_020",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two planets $P_1$ and $P_2$ travel in circular orbits around a star with orbital radii $R$ and $9R$ respectively. If the time period of revolution of planet $P_1$ is $12\\text{ days}$, what is the time period of revolution of planet $P_2$?",
+      "options": [
+        "A) $108\\text{ days}$",
+        "B) $972\\text{ days}$",
+        "C) $36\\text{ days}$",
+        "D) $324\\text{ days}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: According to Kepler's Third Law, the square of the time period is proportional to the cube of the orbital radius: $T^2 \\propto R^3$, which gives $\\frac{T_2}{T_1} = \\left(\\frac{R_2}{R_1}\\right)^{3/2}$.\nStep 2: Here, $R_2 / R_1 = 9$ and $T_1 = 12\\text{ days}$.\nStep 3: Evaluating the ratio: $\\left(\\frac{R_2}{R_1}\\right)^{3/2} = (9)^{3/2} = (3^2)^{3/2} = 3^3 = 27$. Therefore, $T_2 = 27 \\times T_1 = 27 \\times 12\\text{ days} = 324\\text{ days}$.\nDistractor Analysis: $108\\text{ days}$ incorrectly computes $9 \\times 12$ assuming linear scaling; $36\\text{ days}$ assumes $T \\propto \\sqrt{R}$."
+    },
+    {
+      "id": "phy_gravitation_c01_021",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two point masses $m_1$ and $m_2$ are located at position vectors $\\vec{r}_1$ and $\\vec{r}_2$ respectively relative to an origin. Which of the following correctly expresses the gravitational force $\\vec{F}_{12}$ exerted on mass $m_1$ by mass $m_2$?",
+      "options": [
+        "A) $\\vec{F}_{12} = \\frac{G m_1 m_2}{|\\vec{r}_2 - \\vec{r}_1|^3}(\\vec{r}_2 - \\vec{r}_1)$",
+        "B) $\\vec{F}_{12} = -\\frac{G m_1 m_2}{|\\vec{r}_2 - \\vec{r}_1|^3}(\\vec{r}_2 - \\vec{r}_1)$",
+        "C) $\\vec{F}_{12} = \\frac{G m_1 m_2}{|\\vec{r}_2 - \\vec{r}_1|^2}(\\vec{r}_2 - \\vec{r}_1)$",
+        "D) $\\vec{F}_{12} = -\\frac{G m_1 m_2}{|\\vec{r}_1 - \\vec{r}_2|^2}(\\vec{r}_1 - \\vec{r}_2)$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The gravitational force on $m_1$ due to $m_2$ is attractive, meaning it is directed from $m_1$ toward $m_2$.\nStep 2: The vector directed from $m_1$ to $m_2$ is $(\\vec{r}_2 - \\vec{r}_1)$, and its unit vector is $\\hat{r}_{12} = \\frac{\\vec{r}_2 - \\vec{r}_1}{|\\vec{r}_2 - \\vec{r}_1|}$.\nStep 3: The force vector is therefore $\\vec{F}_{12} = \\frac{G m_1 m_2}{|\\vec{r}_2 - \\vec{r}_1|^2} \\hat{r}_{12} = \\frac{G m_1 m_2}{|\\vec{r}_2 - \\vec{r}_1|^3}(\\vec{r}_2 - \\vec{r}_1)$. Equivalently, this can be written as $-\\frac{G m_1 m_2}{|\\vec{r}_1 - \\vec{r}_2|^3}(\\vec{r}_1 - \\vec{r}_2)$.\nDistractor Analysis: Expressions with a negative sign point in the repulsive direction away from $m_2$, whereas expressions with $|\\vec{r}|^2$ in the denominator are dimensionally inconsistent."
+    },
+    {
+      "id": "phy_gravitation_c01_022",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The gravitational force of attraction between two small spheres cannot be altered by placing a thick, dense lead slab between them.\nReason (R): Gravitational interaction between two point masses depends solely on the magnitudes of their masses and the distance between them, and is completely independent of the medium separating them.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Unlike electromagnetic forces, which are heavily modified by intervening media (e.g., through relative permittivity $\\varepsilon_r$), gravitational forces exhibit no screening or shielding effect in nature.\nStep 2: Inserting any material body (such as a thick lead slab) between two interacting masses leaves the mutual force between those two masses completely invariant.\nStep 3: This occurs because Newton's gravitational constant $G$ is a fundamental universal constant, independent of the intervening matter. Hence, Assertion (A) and Reason (R) are both true, and (R) correctly explains (A).\nDistractor Analysis: Claiming that gravitation can be shielded confuses gravitational interactions with electrostatic shielding in conductors."
+    },
+    {
+      "id": "phy_gravitation_c01_023",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A hypothetical exoplanet has twice the mass and twice the radius of the Earth. If $g_E$ represents the acceleration due to gravity on the surface of the Earth, what is the acceleration due to gravity on the surface of this exoplanet?",
+      "options": [
+        "A) $2 g_E$",
+        "B) $\\frac{g_E}{4}$",
+        "C) $\\frac{g_E}{2}$",
+        "D) $g_E$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The acceleration due to gravity at the surface of a spherical planet of mass $M$ and radius $R$ is given by $g = \\frac{G M}{R^2}$.\nStep 2: For the exoplanet, mass $M_p = 2 M_E$ and radius $R_p = 2 R_E$.\nStep 3: Substituting these values into the formula: $g_p = \\frac{G M_p}{R_p^2} = \\frac{G (2 M_E)}{(2 R_E)^2} = \\frac{2 G M_E}{4 R_E^2} = \\frac{1}{2}\\left(\\frac{G M_E}{R_E^2}\\right) = \\frac{g_E}{2}$.\nDistractor Analysis: Assuming $g_p = g_E$ incorrectly scales radius linearly instead of squaring it; assuming $2 g_E$ neglects the radius change entirely."
+    },
+    {
+      "id": "phy_gravitation_c01_024",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding acceleration due to gravity in terms of mean planetary density $\\rho$ and radius $R$:\n\nStatement I: The surface acceleration due to gravity of a uniform spherical planet of mean density $\\rho$ and radius $R$ is expressed by $g = \\frac{4}{3}\\pi \\rho G R$.\nStatement II: If two celestial bodies possess identical mean mass densities, the acceleration due to gravity at their respective surfaces is directly proportional to their radii.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The mass of a uniform sphere of radius $R$ and uniform density $\\rho$ is $M = \\frac{4}{3}\\pi R^3 \\rho$.\nStep 2: Surface gravity is $g = \\frac{G M}{R^2} = \\frac{G \\left(\\frac{4}{3}\\pi R^3 \\rho\\right)}{R^2} = \\frac{4}{3}\\pi \\rho G R$. Hence, Statement I is strictly true.\nStep 3: From $g = \\frac{4}{3}\\pi \\rho G R$, when mean density $\\rho$ is kept constant, $g$ is directly proportional to radius $R$ ($g \\propto R$). Therefore, Statement II is also true.\nDistractor Analysis: Both statements follow directly from NCERT class 11 derivations; choices stating either is false reflect algebraic errors in relating mass, volume, and density."
+    },
+    {
+      "id": "phy_gravitation_c01_025",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "At what vertical altitude $h$ above the surface of the Earth does the acceleration due to gravity become $25\\%$ of its value at the Earth's surface (where $R$ is the radius of the Earth)?",
+      "options": [
+        "A) $h = 2R$",
+        "B) $h = \\frac{R}{2}$",
+        "C) $h = 4R$",
+        "D) $h = R$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The exact formula for acceleration due to gravity at height $h$ above Earth's surface is $g_h = g \\left(\\frac{R}{R + h}\\right)^2$.\nStep 2: We are given $g_h = 25\\% \\text{ of } g = \\frac{g}{4}$. Therefore, $\\frac{g}{4} = g \\left(\\frac{R}{R + h}\\right)^2$.\nStep 3: Taking the square root on both sides: $\\frac{1}{2} = \\frac{R}{R + h} \\implies R + h = 2R \\implies h = R$.\nDistractor Analysis: Selecting $h = 2R$ yields $g_h = g/9$ ($11.1\\%$ of $g$); selecting $h = R/2$ yields $g_h = 4g/9$ ($44.4\\%$ of $g$)."
+    },
+    {
+      "id": "phy_gravitation_c01_026",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A payload has a weight of $100\\text{ N}$ when measured on the surface of the Earth. What will be the weight of this payload when it is raised to an altitude of $32\\text{ km}$ above the surface? (Take the radius of the Earth as $R = 6400\\text{ km}$)",
+      "options": [
+        "A) $96\\text{ N}$",
+        "B) $99\\text{ N}$",
+        "C) $98\\text{ N}$",
+        "D) $99.5\\text{ N}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Since the altitude $h = 32\\text{ km}$ is substantially smaller than $R = 6400\\text{ km}$ ($h \\ll R$), we can use the linear binomial approximation $g_h \\approx g\\left(1 - \\frac{2h}{R}\\right)$.\nStep 2: Compute the fractional reduction: $\\frac{2h}{R} = \\frac{2 \\times 32\\text{ km}}{6400\\text{ km}} = \\frac{64}{6400} = \\frac{1}{100} = 0.01$.\nStep 3: The weight at height $h$ is $W_h = m g_h = m g \\left(1 - \\frac{2h}{R}\\right) = 100\\text{ N} \\times (1 - 0.01) = 100 \\times 0.99 = 99\\text{ N}$.\nDistractor Analysis: $98\\text{ N}$ incorrectly doubles the decrease by calculating $\\frac{4h}{R}$; $99.5\\text{ N}$ incorrectly uses $\\frac{h}{R}$ without the factor of $2$."
+    },
+    {
+      "id": "phy_gravitation_c01_027",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "What is the acceleration due to gravity at a depth $d = \\frac{R}{2}$ below the Earth's surface in terms of the surface acceleration due to gravity $g$ (where $R$ is the Earth's radius)?",
+      "options": [
+        "A) $\\frac{g}{2}$",
+        "B) $\\frac{g}{4}$",
+        "C) $\\frac{3g}{4}$",
+        "D) Zero"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The acceleration due to gravity at a depth $d$ below the Earth's surface is given by the exact linear formula $g_d = g\\left(1 - \\frac{d}{R}\\right)$.\nStep 2: Here, the depth is specified as $d = \\frac{R}{2}$.\nStep 3: Substituting $d = \\frac{R}{2}$ gives $g_d = g\\left(1 - \\frac{R/2}{R}\\right) = g\\left(1 - \\frac{1}{2}\\right) = \\frac{g}{2}$.\nDistractor Analysis: Selecting $g/4$ incorrectly applies the inverse-square law $\\left(1 - \\frac{d}{R}\\right)^2$ to depth; selecting Zero applies only at the Earth's center ($d = R$)."
+    },
+    {
+      "id": "phy_gravitation_c01_028",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): For small heights above the Earth's surface ($h \\ll R$), the reduction in acceleration due to gravity at an altitude $h$ is identical to the reduction in acceleration due to gravity at a depth $d = 2h$.\nReason (R): Near the Earth's surface, the fractional decrease in $g$ with height is given by $\\frac{\\Delta g_h}{g} = \\frac{2h}{R}$, whereas the fractional decrease in $g$ with depth is given by $\\frac{\\Delta g_d}{g} = \\frac{d}{R}$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) (A) is false but (R) is true.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: At a height $h \\ll R$, the reduction in $g$ is $\\Delta g_h = g - g_h \\approx g - g\\left(1 - \\frac{2h}{R}\\right) = g\\frac{2h}{R}$.\nStep 2: At a depth $d$, the reduction in $g$ is $\\Delta g_d = g - g_d = g - g\\left(1 - \\frac{d}{R}\\right) = g\\frac{d}{R}$.\nStep 3: Equating $\\Delta g_h = \\Delta g_d$ leads directly to $g\\frac{2h}{R} = g\\frac{d}{R} \\implies d = 2h$. Thus, both Assertion (A) and Reason (R) are true, and (R) provides the exact mathematical rationale for (A).\nDistractor Analysis: Denying the explanation fails to recognize that equating the two fractional variation formulas directly yields the condition $d = 2h$."
+    },
+    {
+      "id": "phy_gravitation_c01_029",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "At what depth $d$ below the Earth's surface will the weight of an object become one-fourth ($25\\%$) of its original weight on the Earth's surface? (Let $R$ denote the radius of the Earth)",
+      "options": [
+        "A) $d = \\frac{7}{8} R$",
+        "B) $d = \\frac{3}{4} R$",
+        "C) $d = \\frac{1}{4} R$",
+        "D) $d = \\frac{1}{2} R$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The weight of an object of mass $m$ at depth $d$ is $W_d = m g_d = m g \\left(1 - \\frac{d}{R}\\right)$.\nStep 2: We require $W_d = \\frac{1}{4} W_{\\text{surface}} = \\frac{1}{4} m g$.\nStep 3: Setting $m g \\left(1 - \\frac{d}{R}\\right) = \\frac{1}{4} m g \\implies 1 - \\frac{d}{R} = \\frac{1}{4} \\implies \\frac{d}{R} = 1 - \\frac{1}{4} = \\frac{3}{4} \\implies d = \\frac{3}{4} R$.\nDistractor Analysis: Selecting $d = R/4$ represents the remaining fraction of gravity rather than the required depth; selecting $d = R/2$ corresponds to half weight."
+    },
+    {
+      "id": "phy_gravitation_c01_030",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the variation of acceleration due to gravity $g(r)$ as a function of radial distance $r$ measured from the center of a uniform solid spherical planet of radius $R$:\n\nStatement I: For interior points ($r \\le R$), the acceleration due to gravity increases linearly with radial distance from the center, such that $g(r) \\propto r$.\nStatement II: For exterior points ($r \\ge R$), the acceleration due to gravity decreases inversely with the square of the radial distance from the center, such that $g(r) \\propto \\frac{1}{r^2}$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Inside a uniform solid sphere of mass $M$ and radius $R$, the mass enclosed within radius $r$ is $M' = M\\frac{r^3}{R^3}$. By Newton's shell theorem, the outer shell contributes zero net force. Thus, $g(r) = \\frac{G M'}{r^2} = \\frac{G M r}{R^3} \\propto r$. Hence, Statement I is true.\nStep 2: Outside the sphere ($r \\ge R$), the entire mass acts as if concentrated at the center, giving $g(r) = \\frac{G M}{r^2} \\propto \\frac{1}{r^2}$. Hence, Statement II is true.\nStep 3: The overall curve starts at zero at $r=0$, rises linearly to a peak $g_{\\text{max}} = \\frac{G M}{R^2}$ at the surface $r=R$, and decays quadratically for $r > R$.\nDistractor Analysis: Both statements accurately reflect the standard piecewise gravitational field profile described in NCERT Class 11."
+    },
+    {
+      "id": "phy_gravitation_c01_031",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Even if the Earth were not rotating, a body would weigh slightly more at the geographic poles than at the equator.\nReason (R): Due to its oblate spheroidal shape, the Earth's polar radius is approximately $21\\text{ km}$ smaller than its equatorial radius, and surface gravity is inversely proportional to the square of the radius.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) (A) is false but (R) is true.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The Earth is not a perfect sphere but an oblate ellipsoid, bulging at the equator and flattened at the poles. The equatorial radius ($R_e \\approx 6378\\text{ km}$) exceeds the polar radius ($R_p \\approx 6357\\text{ km}$) by approximately $21\\text{ km}$.\nStep 2: The acceleration due to gravity on the surface of a non-rotating Earth depends on radius as $g = \\frac{G M}{R^2}$.\nStep 3: Because $R_p < R_e$, we have $\\frac{G M}{R_p^2} > \\frac{G M}{R_e^2}$, meaning $g_{\\text{pole}} > g_{\\text{equator}}$ by approximately $0.02\\text{ m/s}^2$ purely due to shape. Hence, both Assertion (A) and Reason (R) are true, and (R) correctly explains (A).\nDistractor Analysis: Claiming that rotation is the only cause of the difference between polar and equatorial gravity ignores the geometric ellipsoidal flattening of the Earth."
+    },
+    {
+      "id": "phy_gravitation_c01_032",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the latitudes $\\lambda$ on the rotating Earth in List I with the corresponding apparent acceleration due to gravity $g'$ in List II (where $\\omega$ is Earth's angular velocity and $R$ is Earth's radius):\n\nList I:\n(P) Latitude $\\lambda = 0^\\circ$ (Equator)\n(Q) Latitude $\\lambda = 90^\\circ$ (Geographic Pole)\n(R) Latitude $\\lambda = 60^\\circ$\n(S) Latitude $\\lambda = 45^\\circ$\n\nList II:\n(1) $g' = g$\n(2) $g' = g - \\omega^2 R$\n(3) $g' = g - \\frac{1}{4}\\omega^2 R$\n(4) $g' = g - \\frac{1}{2}\\omega^2 R$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-2, Q-1, R-3, S-4",
+        "B) P-1, Q-2, R-4, S-3",
+        "C) P-2, Q-1, R-4, S-3",
+        "D) P-3, Q-1, R-2, S-4"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The apparent acceleration due to gravity at latitude $\\lambda$ on a rotating Earth is given by $g' = g - \\omega^2 R \\cos^2\\lambda$.\nStep 2: At the equator ($\\lambda = 0^\\circ$), $\\cos 0^\\circ = 1$, giving $g' = g - \\omega^2 R$ (P matches 2).\nStep 3: At the poles ($\\lambda = 90^\\circ$), $\\cos 90^\\circ = 0$, giving $g' = g$ (Q matches 1).\nStep 4: At $\\lambda = 60^\\circ$, $\\cos 60^\\circ = \\frac{1}{2}$, so $\\cos^2 60^\\circ = \\frac{1}{4}$, yielding $g' = g - \\frac{1}{4}\\omega^2 R$ (R matches 3).\nStep 5: At $\\lambda = 45^\\circ$, $\\cos 45^\\circ = \\frac{1}{\\sqrt{2}}$, so $\\cos^2 45^\\circ = \\frac{1}{2}$, yielding $g' = g - \\frac{1}{2}\\omega^2 R$ (S matches 4).\nDistractor Analysis: Any assignment swapping equatorial and polar formulas violates the fact that centrifugal acceleration is zero at the axis of rotation."
+    },
+    {
+      "id": "phy_gravitation_c01_033",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the hypothetical cessation of Earth's diurnal rotation:\n\nStatement I: If the Earth suddenly ceases to rotate about its polar axis, the acceleration due to gravity at the equator will increase by $\\omega^2 R$.\nStatement II: If the Earth ceases to rotate, the value of acceleration due to gravity at the geographic poles will experience an identical increase of $\\omega^2 R$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is false but Statement II is true.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Both Statement I and Statement II are true.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The effective gravity at latitude $\\lambda$ on a rotating Earth is $g' = g - \\omega^2 R \\cos^2\\lambda$. At the equator ($\\lambda = 0^\\circ$), $g_{\\text{eq}}' = g - \\omega^2 R$.\nStep 2: If rotation stops ($\\omega = 0$), the equatorial gravity becomes $g$, representing an increase of $\\Delta g = g - (g - \\omega^2 R) = \\omega^2 R$. Hence, Statement I is strictly true.\nStep 3: At the geographic poles ($\\lambda = 90^\\circ$), the centrifugal term is $\\omega^2 R \\cos^2 90^\\circ = 0$, so $g_{\\text{pole}}' = g$ already. Ceasing rotation has zero effect on polar gravity. Thus, Statement II is completely false.\nDistractor Analysis: Claiming that polar gravity also increases ignores the fact that the geographic poles lie on the rotational axis and therefore experience no centrifugal effect."
+    },
+    {
+      "id": "phy_gravitation_c01_034",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "What must be the angular velocity $\\omega$ of rotation of the Earth about its axis so that bodies located on the equator experience apparent weightlessness? (Take $g = 9.8\\text{ m/s}^2$ and radius of Earth $R = 6.4 \\times 10^6\\text{ m}$)",
+      "options": [
+        "A) $7.27 \\times 10^{-5}\\text{ rad/s}$",
+        "B) $2.48 \\times 10^{-3}\\text{ rad/s}$",
+        "C) $1.53 \\times 10^{-6}\\text{ rad/s}$",
+        "D) $1.24 \\times 10^{-3}\\text{ rad/s}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The apparent acceleration due to gravity at the equator is $g_{\\text{eq}}' = g - \\omega^2 R$.\nStep 2: For bodies to feel weightless, the apparent gravity must be zero: $g - \\omega^2 R = 0 \\implies \\omega = \\sqrt{\\frac{g}{R}}$.\nStep 3: Substituting the values: $\\omega = \\sqrt{\\frac{9.8}{6.4 \\times 10^6}} = \\sqrt{\\frac{98}{64 \\times 10^6}} = \\frac{\\sqrt{98}}{8 \\times 10^3} = \\frac{9.899}{8000} \\approx 1.237 \\times 10^{-3}\\text{ rad/s}$. (This is roughly $17$ times the Earth's present angular speed of $7.27 \\times 10^{-5}\\text{ rad/s}$).\nDistractor Analysis: $7.27 \\times 10^{-5}\\text{ rad/s}$ is the present rotational angular velocity of the Earth; $1.53 \\times 10^{-6}\\text{ rad/s}$ is the square of that frequency."
+    },
+    {
+      "id": "phy_gravitation_c01_035",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A solid celestial body is modelled as a uniform sphere of mass $M$ and radius $R$. What is the magnitude of the gravitational field intensity at an internal point located at a radial distance $r = \\frac{R}{2}$ from its geometric center?",
+      "options": [
+        "A) $\\frac{2 G M}{R^2}$",
+        "B) Zero",
+        "C) $\\frac{G M}{2 R^2}$",
+        "D) $\\frac{G M}{4 R^2}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The gravitational field intensity inside a uniform solid sphere at a distance $r \\le R$ from the center is given by $E(r) = \\frac{G M r}{R^3}$.\nStep 2: Here, the internal radial distance is $r = \\frac{R}{2}$.\nStep 3: Substituting $r = \\frac{R}{2}$: $E\\left(\\frac{R}{2}\\right) = \\frac{G M (R/2)}{R^3} = \\frac{G M}{2 R^2}$. (This is exactly half of the surface field intensity $E_s = \\frac{G M}{R^2}$).\nDistractor Analysis: $G M / (4 R^2)$ incorrectly applies the inverse-square law $\\frac{G M}{r^2}$ inside the sphere; Zero would only be correct if the sphere were hollow."
+    },
+    {
+      "id": "phy_gravitation_c01_036",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform thin circular ring of mass $M$ and radius $R$ is positioned in the $y$-$z$ plane with its center at the origin. At what distance $x$ along the axis perpendicular to the plane of the ring (the $x$-axis) is the magnitude of the gravitational field maximum?",
+      "options": [
+        "A) $x = \\frac{R}{\\sqrt{2}}$",
+        "B) $x = R$",
+        "C) $x = \\sqrt{2} R$",
+        "D) $x = \\frac{R}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The axial gravitational field of a ring of mass $M$ and radius $R$ at a distance $x$ from its center is $E(x) = \\frac{G M x}{(x^2 + R^2)^{3/2}}$.\nStep 2: To find the point of maximum field, differentiate $E(x)$ with respect to $x$ and set the derivative to zero: $\\frac{dE}{dx} = G M \\frac{(x^2 + R^2)^{3/2} - x \\cdot \\frac{3}{2}(x^2 + R^2)^{1/2}(2x)}{(x^2 + R^2)^3} = 0$.\nStep 3: Simplifying the numerator gives $(x^2 + R^2)^{1/2} \\left[(x^2 + R^2) - 3x^2\\right] = 0 \\implies R^2 - 2x^2 = 0 \\implies x = \\frac{R}{\\sqrt{2}}$.\nDistractor Analysis: Choosing $x = R$ ignores the factor of $3/2$ in the differentiation of $(x^2 + R^2)^{-3/2}$."
+    },
+    {
+      "id": "phy_gravitation_c01_037",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Taking the gravitational potential at an infinite distance from a uniform solid sphere of mass $M$ and radius $R$ to be zero, what is the gravitational potential $V_{\\text{center}}$ at the exact center of the sphere?",
+      "options": [
+        "A) Zero",
+        "B) $-\\frac{3 G M}{2 R}$",
+        "C) $-\\frac{G M}{R}$",
+        "D) $-\\frac{G M}{2 R}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The gravitational potential at any internal point $r \\le R$ inside a uniform solid sphere is given by $V(r) = -\\frac{G M}{2 R^3}(3 R^2 - r^2)$.\nStep 2: At the geometric center of the sphere, $r = 0$.\nStep 3: Substituting $r = 0$ yields $V_{\\text{center}} = -\\frac{G M}{2 R^3}(3 R^2 - 0) = -\\frac{3 G M}{2 R} = 1.5 V_{\\text{surface}}$.\nDistractor Analysis: Setting potential to zero confuses potential with gravitational field; $-\\frac{G M}{R}$ is the potential at the surface, not at the center."
+    },
+    {
+      "id": "phy_gravitation_c01_038",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a certain gravitational field, the gravitational potential at any point $(x, y, z)$ is given by $V(x, y, z) = (4x + 3y - 2z)\\text{ J/kg}$, where coordinates are measured in meters. What is the magnitude of the gravitational field intensity vector $\\vec{E}$ at the point $(1, 1, 1)\\text{ m}$?",
+      "options": [
+        "A) $5\\text{ N/kg}$",
+        "B) $9\\text{ N/kg}$",
+        "C) $\\sqrt{21}\\text{ N/kg}$",
+        "D) $\\sqrt{29}\\text{ N/kg}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The gravitational field intensity $\\vec{E}$ is the negative gradient of the gravitational potential: $\\vec{E} = -\\vec{\\nabla} V = -\\left(\\frac{\\partial V}{\\partial x}\\hat{i} + \\frac{\\partial V}{\\partial y}\\hat{j} + \\frac{\\partial V}{\\partial z}\\hat{k}\\right)$.\nStep 2: Evaluating the partial derivatives: $\\frac{\\partial V}{\\partial x} = 4$, $\\frac{\\partial V}{\\partial y} = 3$, and $\\frac{\\partial V}{\\partial z} = -2$.\nStep 3: The gravitational field vector is $\\vec{E} = -4\\hat{i} - 3\\hat{j} + 2\\hat{k}\\text{ N/kg}$. Its magnitude is $|\\vec{E}| = \\sqrt{(-4)^2 + (-3)^2 + (2)^2} = \\sqrt{16 + 9 + 4} = \\sqrt{29}\\text{ N/kg}$.\nDistractor Analysis: $5\\text{ N/kg}$ accounts only for $x$ and $y$ components ($\\sqrt{16+9}=5$); $9\\text{ N/kg}$ algebraically sums the magnitudes ($4+3+2=9$)."
+    },
+    {
+      "id": "phy_gravitation_c01_039",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "What is the minimum work done by an external agent to slowly transport a particle of mass $m$ from the surface of the Earth to an altitude equal to the Earth's radius $R$?",
+      "options": [
+        "A) $\\frac{1}{2} m g R$",
+        "B) $m g R$",
+        "C) $\\frac{1}{4} m g R$",
+        "D) $2 m g R$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The work done by an external agent in slowly moving a mass $m$ from the surface to height $h$ is equal to the gain in gravitational potential energy: $W = \\Delta U = U(R + h) - U(R)$.\nStep 2: Using the general formula: $\\Delta U = -\\frac{G M m}{R + h} - \\left(-\\frac{G M m}{R}\\right) = G M m \\left(\\frac{1}{R} - \\frac{1}{R + h}\\right) = \\frac{m g h}{1 + h/R}$ (using $G M = g R^2$).\nStep 3: For $h = R$, we obtain $W = \\frac{m g R}{1 + R/R} = \\frac{m g R}{1 + 1} = \\frac{1}{2} m g R$.\nDistractor Analysis: Selecting $m g R$ assumes that acceleration due to gravity remains constant at $g$ throughout the distance $R$, which is only valid for $h \\ll R$."
+    },
+    {
+      "id": "phy_gravitation_c01_040",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A space vehicle of mass $m$ is propelled from the surface of the Earth to an orbital altitude of $h = 3R$ above the surface (where $R$ is Earth's radius). What is the increase in its gravitational potential energy?",
+      "options": [
+        "A) $3 m g R$",
+        "B) $\\frac{1}{3} m g R$",
+        "C) $\\frac{3}{4} m g R$",
+        "D) $\\frac{2}{3} m g R$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The increase in gravitational potential energy when lifting a body of mass $m$ from Earth's surface ($r_1 = R$) to a height $h$ ($r_2 = R + h$) is $\\Delta U = \\frac{m g h}{1 + h/R}$.\nStep 2: Given $h = 3R$, substitute into the expression: $\\Delta U = \\frac{m g (3R)}{1 + (3R/R)} = \\frac{3 m g R}{1 + 3}$.\nStep 3: Simplifying yields $\\Delta U = \\frac{3}{4} m g R$.\nDistractor Analysis: Selecting $3 m g R$ assumes a uniform gravitational field $g$; selecting $2/3 m g R$ incorrectly evaluates the denominator as $1 + 2$."
+    },
+    {
+      "id": "phy_gravitation_c01_041",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding gravitational field and potential:\n\n(i) The gravitational potential is constant at all interior points of a uniform thin spherical shell.\n(ii) The gravitational field is zero at all points inside a hollow uniform spherical shell.\n(iii) The gravitational potential at the center of a uniform solid sphere is zero.\n(iv) The gravitational field intensity at the center of a uniform solid sphere is zero.\n\nWhich of the above statements are strictly correct?",
+      "options": [
+        "A) (i), (ii), (iii), and (iv)",
+        "B) (i), (ii), and (iv) only",
+        "C) (i) and (ii) only",
+        "D) (ii), (iii), and (iv) only"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Inside a thin spherical shell, $\\vec{E} = 0$ everywhere, and since $\\vec{E} = -\\frac{dV}{dr}\\hat{r}$, $V$ must be constant throughout the interior ($V = -\\frac{G M}{R}$). Thus, statements (i) and (ii) are both correct.\nStep 2: Gravitational potential at the center of a uniform solid sphere is $V_{\\text{center}} = -\\frac{3 G M}{2 R} \\ne 0$. Potential is zero only at infinity ($r \\to \\infty$). Thus, statement (iii) is incorrect.\nStep 3: At the center of a solid sphere, the gravitational pull from all diametrically opposite mass elements cancels completely by symmetry, making the net field $\\vec{E} = 0$. Thus, statement (iv) is correct.\nDistractor Analysis: Including statement (iii) is a frequent error resulting from confusing zero field with zero potential."
+    },
+    {
+      "id": "phy_gravitation_c01_042",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A newly surveyed planet has a mass equal to $8$ times the mass of the Earth and a radius equal to $2$ times the radius of the Earth. If the escape speed from the surface of the Earth is $v_{e,E} = 11.2\\text{ km/s}$, what is the escape speed from the surface of this planet?",
+      "options": [
+        "A) $44.8\\text{ km/s}$",
+        "B) $11.2\\text{ km/s}$",
+        "C) $5.6\\text{ km/s}$",
+        "D) $22.4\\text{ km/s}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The escape speed from the surface of a spherical body of mass $M$ and radius $R$ is given by $v_e = \\sqrt{\\frac{2 G M}{R}}$.\nStep 2: For the given planet, mass $M_p = 8 M_E$ and radius $R_p = 2 R_E$.\nStep 3: Taking the ratio of escape speeds: $\\frac{v_{e,p}}{v_{e,E}} = \\sqrt{\\frac{M_p / M_E}{R_p / R_E}} = \\sqrt{\\frac{8}{2}} = \\sqrt{4} = 2$. Therefore, $v_{e,p} = 2 \\times 11.2\\text{ km/s} = 22.4\\text{ km/s}$.\nDistractor Analysis: Selecting $44.8\\text{ km/s}$ incorrectly omits the square root; selecting $11.2\\text{ km/s}$ assumes the ratio $M/R$ is invariant."
+    },
+    {
+      "id": "phy_gravitation_c01_043",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The Moon does not possess a sustained atmosphere surrounding its surface.\nReason (R): The escape speed on the lunar surface is approximately $2.38\\text{ km/s}$, which is lower than the root-mean-square thermal speed ($v_{\\text{rms}}$) of common atmospheric gas molecules at lunar daytime temperatures.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) (A) is false but (R) is true.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The gravitational acceleration and mass of the Moon are small ($M_M \\approx \\frac{1}{81} M_E$, $R_M \\approx \\frac{1}{3.7} R_E$), resulting in a low escape speed: $v_{e,M} = \\sqrt{\\frac{2 G M_M}{R_M}} \\approx 2.38\\text{ km/s}$.\nStep 2: The root-mean-square speed of gas molecules of molar mass $M$ at absolute temperature $T$ is $v_{\\text{rms}} = \\sqrt{\\frac{3 R T}{M}}$. Under daytime lunar temperatures ($T \\approx 370-400\\text{ K}$), $v_{\\text{rms}}$ for lighter gases easily exceeds $2.38\\text{ km/s}$.\nStep 3: Consequently, atmospheric gas molecules attained velocities exceeding lunar escape speed and permanently escaped into space over geological timescales. Hence, both Assertion (A) and Reason (R) are true, and (R) provides the exact thermodynamic explanation for (A).\nDistractor Analysis: Denying the explanation ignores kinetic theory of gases as the fundamental cause of planetary atmospheric retention."
+    },
+    {
+      "id": "phy_gravitation_c01_044",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding escape speed from a planet's surface:\n\nStatement I: The escape speed of a projectile from the surface of the Earth is entirely independent of the mass of the projectile and the angle at which it is projected relative to the horizontal.\nStatement II: If a particle is launched with the escape speed $v_e = 11.2\\text{ km/s}$ at an angle of $30^\\circ$ to the horizontal, it will still escape the Earth's gravitational field completely, neglecting air resistance.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: From mechanical energy conservation, escape occurs when the total mechanical energy is greater than or equal to zero: $E = \\frac{1}{2} m v^2 - \\frac{G M m}{R} \\ge 0 \\implies v \\ge \\sqrt{\\frac{2 G M}{R}}$.\nStep 2: The mass $m$ of the projectile cancels out completely from the energy equation. Furthermore, kinetic energy is a scalar quantity depending solely on the speed magnitude $v$, not its launch angle $\\theta$. Therefore, Statement I is strictly true.\nStep 3: Because escape speed is independent of the projection angle, launching at $\\theta = 30^\\circ$ with $v = v_e$ provides sufficient total energy ($E = 0$) to reach infinity, assuming no obstacle intercepts the trajectory. Thus, Statement II is also true.\nDistractor Analysis: A common misconception assumes that only vertical projection ($90^\\circ$) allows escape, overlooking the scalar nature of total mechanical energy in a central gravitational field."
+    },
+    {
+      "id": "phy_gravitation_c01_045",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A probe is launched vertically upward from the surface of the Earth with an initial launch speed equal to $3$ times the escape speed ($v = 3 v_e$). What is the asymptotic speed $v_\\infty$ of the probe when it reaches deep interstellar space far away from the Earth?",
+      "options": [
+        "A) $\\sqrt{10}\\,v_e$",
+        "B) $2\\sqrt{2}\\,v_e$",
+        "C) $3 v_e$",
+        "D) $2 v_e$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: By the law of conservation of mechanical energy between the Earth's surface and infinity: $E_{\\text{surface}} = E_\\infty$.\nStep 2: Total energy at the surface is $\\frac{1}{2} m v^2 - \\frac{G M m}{R}$, and at infinity potential energy is zero: $E_\\infty = \\frac{1}{2} m v_\\infty^2$.\nStep 3: Since $v_e^2 = \\frac{2 G M}{R}$, we have $\\frac{G M m}{R} = \\frac{1}{2} m v_e^2$. Thus: $\\frac{1}{2} m v^2 - \\frac{1}{2} m v_e^2 = \\frac{1}{2} m v_\\infty^2 \\implies v_\\infty = \\sqrt{v^2 - v_e^2}$.\nStep 4: Substituting $v = 3 v_e$: $v_\\infty = \\sqrt{(3 v_e)^2 - v_e^2} = \\sqrt{9 v_e^2 - v_e^2} = \\sqrt{8 v_e^2} = 2\\sqrt{2}\\,v_e$.\nDistractor Analysis: Selecting $2 v_e$ incorrectly computes $3 v_e - v_e$; selecting $3 v_e$ neglects gravitational potential energy loss; selecting $\\sqrt{10} v_e$ incorrectly adds the squares."
+    },
+    {
+      "id": "phy_gravitation_c01_046",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A projectile is launched vertically upward from the Earth's surface with an initial speed $v = \\frac{v_e}{\\sqrt{2}}$, where $v_e$ is the escape speed from the Earth's surface. What is the maximum vertical altitude $h$ reached by the projectile above the surface of the Earth? (Let $R$ denote the Earth's radius)",
+      "options": [
+        "A) $h = 2R$",
+        "B) $h = \\frac{R}{2}$",
+        "C) $h = \\frac{R}{3}$",
+        "D) $h = R$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: At maximum height $h$, the projectile momentarily comes to rest ($v_{\\text{top}} = 0$). By conservation of mechanical energy: $\\frac{1}{2} m v^2 - \\frac{G M m}{R} = 0 - \\frac{G M m}{R + h}$.\nStep 2: Express the escape speed as $v_e^2 = \\frac{2 G M}{R} \\implies \\frac{G M m}{R} = \\frac{1}{2} m v_e^2$. Given $v^2 = \\frac{v_e^2}{2}$, the initial kinetic energy is $\\frac{1}{2} m \\left(\\frac{v_e^2}{2}\\right) = \\frac{1}{4} m v_e^2 = \\frac{G M m}{2R}$.\nStep 3: Substitute into the energy equation: $\\frac{G M m}{2R} - \\frac{G M m}{R} = -\\frac{G M m}{R + h} \\implies -\\frac{G M m}{2R} = -\\frac{G M m}{R + h}$.\nStep 4: Equating denominators: $R + h = 2R \\implies h = R$.\nDistractor Analysis: Selecting $h = R/2$ ignores the variation of gravitational field with height and uses kinematics with constant $g$."
+    },
+    {
+      "id": "phy_gravitation_c01_047",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding escape speed and orbital speed:\n\nStatement I: The escape speed from the surface of the Earth ($v_e$) is related to the orbital speed of a satellite in a circular orbit close to the Earth's surface ($v_o$) by $v_e = \\sqrt{2}\\,v_o$.\nStatement II: If the orbital speed of a near-Earth satellite is increased by approximately $41.4\\%$, its orbit ceases to be bound and it escapes into outer space.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are true.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The orbital speed close to Earth's surface ($h \\ll R$) is $v_o = \\sqrt{\\frac{G M}{R}} = \\sqrt{g R}$. The escape speed from the surface is $v_e = \\sqrt{\\frac{2 G M}{R}} = \\sqrt{2 g R}$. Thus, $v_e = \\sqrt{2}\\,v_o$. Hence, Statement I is true.\nStep 2: The percentage increase in speed required for the orbiting satellite to attain escape speed is $\\frac{v_e - v_o}{v_o} \\times 100\\% = (\\sqrt{2} - 1) \\times 100\\% = (1.414 - 1) \\times 100\\% = 41.4\\%$.\nStep 3: When its speed reaches $v_e$, its total mechanical energy becomes zero ($E = 0$), unbinding the trajectory from an ellipse/circle into a parabolic escape path. Hence, Statement II is also true.\nDistractor Analysis: Both statements are standard NCERT core principles; claiming either is false reflects unfamiliarity with the $\\sqrt{2}$ relation."
+    },
+    {
+      "id": "phy_gravitation_c01_048",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two satellites $S_1$ and $S_2$ revolve around the Earth in concentric circular orbits with radii $r_1 = 4 R$ and $r_2 = 16 R$ respectively (where $R$ is the radius of the Earth). What is the ratio of their orbital speeds $\\frac{v_1}{v_2}$?",
+      "options": [
+        "A) $2 : 1$",
+        "B) $4 : 1$",
+        "C) $1 : 2$",
+        "D) $1 : 4$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The orbital speed of a satellite revolving in a circular orbit of radius $r$ around a planet of mass $M$ is given by $v_o = \\sqrt{\\frac{G M}{r}}$.\nStep 2: The orbital speed is inversely proportional to the square root of the orbital radius: $v_o \\propto \\frac{1}{\\sqrt{r}}$.\nStep 3: Taking the ratio of speeds: $\\frac{v_1}{v_2} = \\sqrt{\\frac{r_2}{r_1}} = \\sqrt{\\frac{16 R}{4 R}} = \\sqrt{4} = 2$. Therefore, the ratio is $2 : 1$.\nDistractor Analysis: $4 : 1$ incorrectly assumes an inverse linear relation $v \\propto 1/r$; $1 : 2$ inverts the ratio."
+    },
+    {
+      "id": "phy_gravitation_c01_049",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A remote sensing satellite revolves around the Earth in a circular orbit very close to the Earth's surface ($h \\ll R$). Taking the radius of the Earth as $R = 6.4 \\times 10^6\\text{ m}$ and $g = 9.8\\text{ m/s}^2$, what is the orbital time period of this near-Earth satellite?",
+      "options": [
+        "A) $42.3\\text{ minutes}$",
+        "B) $120.0\\text{ minutes}$",
+        "C) $24.0\\text{ hours}$",
+        "D) $84.6\\text{ minutes}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For a satellite in low Earth orbit ($h \\ll R$), the orbital radius is approximately $R$.\nStep 2: The orbital period is $T = \\frac{2\\pi R}{v_o} = \\frac{2\\pi R}{\\sqrt{g R}} = 2\\pi \\sqrt{\\frac{R}{g}}$.\nStep 3: Substituting the given values: $T = 2\\pi \\sqrt{\\frac{6.4 \\times 10^6}{9.8}} = 2\\pi \\times 808.1\\text{ s} \\approx 5077\\text{ s}$.\nStep 4: Converting seconds to minutes: $T = \\frac{5077}{60} \\approx 84.6\\text{ minutes}$ (or approximately $1.41\\text{ hours}$).\nDistractor Analysis: $24.0\\text{ hours}$ corresponds to a geostationary orbit at altitude $\\approx 36,000\\text{ km}$; $42.3\\text{ minutes}$ is half the period (one-way passage through a hypothetical tunnel)."
+    },
+    {
+      "id": "phy_gravitation_c01_050",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the energetic parameters of a satellite of mass $m$ revolving in a circular orbit of radius $r$ around the Earth of mass $M$ in List I with their mathematical expressions in List II:\n\nList I:\n(P) Kinetic Energy ($K$)\n(Q) Potential Energy ($U$)\n(R) Total Mechanical Energy ($E$)\n(S) Dimensionless ratio $\\frac{U}{K}$\n\nList II:\n(1) $-\\frac{G M m}{r}$\n(2) $+\\frac{G M m}{2r}$\n(3) $-\\frac{G M m}{2r}$\n(4) $-2$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-3, Q-1, R-2, S-4",
+        "B) P-2, Q-1, R-3, S-4",
+        "C) P-1, Q-2, R-3, S-4",
+        "D) P-2, Q-3, R-1, S-4"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Orbital velocity is $v_o = \\sqrt{\\frac{G M}{r}}$, so kinetic energy is $K = \\frac{1}{2} m v_o^2 = +\\frac{G M m}{2r}$ (P matches 2).\nStep 2: Gravitational potential energy at radius $r$ is $U = -\\frac{G M m}{r}$ (Q matches 1).\nStep 3: Total mechanical energy is $E = K + U = \\frac{G M m}{2r} - \\frac{G M m}{r} = -\\frac{G M m}{2r}$ (R matches 3).\nStep 4: The ratio of potential to kinetic energy is $\\frac{U}{K} = \\frac{-G M m / r}{G M m / (2r)} = -2$ (S matches 4). Notice that $E = -K = \\frac{1}{2}U$.\nDistractor Analysis: Any option interchanging $K$ and $E$ violates the fundamental sign requirement that kinetic energy is strictly positive while bound orbital energy is negative."
+    },
+    {
+      "id": "phy_gravitation_c01_051",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A communication satellite of mass $m$ orbits the Earth of mass $M$ and radius $R$ in a circular orbit of radius $r_1 = 2R$. How much additional energy $\\Delta E$ must be supplied to shift the satellite into a higher circular orbit of radius $r_2 = 3R$?",
+      "options": [
+        "A) $\\frac{G M m}{2 R}$",
+        "B) $\\frac{G M m}{24 R}$",
+        "C) $\\frac{G M m}{12 R}$",
+        "D) $\\frac{G M m}{6 R}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The total mechanical energy of an orbiting satellite at radius $r$ is $E = -\\frac{G M m}{2r}$.\nStep 2: The initial total energy at $r_1 = 2R$ is $E_1 = -\\frac{G M m}{2(2R)} = -\\frac{G M m}{4R}$. The final total energy at $r_2 = 3R$ is $E_2 = -\\frac{G M m}{2(3R)} = -\\frac{G M m}{6R}$.\nStep 3: The additional energy required is $\\Delta E = E_2 - E_1 = -\\frac{G M m}{6R} - \\left(-\\frac{G M m}{4R}\\right) = \\frac{G M m}{R}\\left(\\frac{1}{4} - \\frac{1}{6}\\right) = \\frac{G M m}{R}\\left(\\frac{3 - 2}{12}\\right) = \\frac{G M m}{12 R}$.\nDistractor Analysis: Selecting $\\frac{G M m}{6 R}$ calculates the difference in potential energy rather than total energy; $\\frac{G M m}{2 R}$ assumes surface energy reference."
+    },
+    {
+      "id": "phy_gravitation_c01_052",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When an Earth satellite orbiting in low atmosphere experiences faint dissipative aerodynamic drag, its orbital speed gradually increases rather than decreases.\nReason (R): Atmospheric drag causes the total mechanical energy of the satellite to decrease, forcing it to spiral inward to an orbit of smaller radius $r$, where the orbital speed $v_o = \\sqrt{\\frac{G M}{r}}$ is necessarily higher.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: A satellite in a circular orbit of radius $r$ has total mechanical energy $E = -\\frac{G M m}{2r}$. Atmospheric friction performs negative work, decreasing $E$ (making $E$ more negative).\nStep 2: As $E$ becomes more negative, the orbital radius $r$ must decrease, causing the satellite to slowly spiral towards the Earth.\nStep 3: The orbital speed is $v_o = \\sqrt{\\frac{G M}{r}}$. As $r$ decreases, $v_o$ increases. The loss in gravitational potential energy is twice the gain in kinetic energy ($|\\Delta U| = 2\\Delta K$), so half of the potential energy lost goes into increasing kinetic energy while the other half is dissipated as heat. Hence, both (A) and (R) are true, and (R) correctly explains the orbital paradox (A).\nDistractor Analysis: Intuition from terrestrial friction suggests the body should slow down, failing to recognize that inward orbital descent releases gravitational potential energy."
+    },
+    {
+      "id": "phy_gravitation_c01_053",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding weightlessness inside an orbiting Earth satellite:\n\nStatement I: An astronaut floating inside an artificial Earth satellite experiences weightlessness because the gravitational attraction of the Earth at orbital altitudes is zero.\nStatement II: The apparent weight of an astronaut inside an orbiting satellite is zero because both the satellite shell and the astronaut are freely falling towards the Earth with identical orbital gravitational acceleration.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: At typical low Earth orbit altitudes ($h \\approx 400\\text{ km}$), acceleration due to gravity is $g_h = g \\left(\\frac{R}{R + h}\\right)^2 \\approx 0.89 g \\approx 8.7\\text{ m/s}^2$, which is nearly $90\\%$ of surface gravity. Therefore, gravity is definitely not zero, making Statement I completely false.\nStep 2: Inside the satellite, both the astronaut and the satellite shell experience the exact same acceleration $a = g_h$ directed toward the center of the Earth.\nStep 3: The normal contact force $N$ between the astronaut's feet and the satellite floor is given by $m g_h - N = m a = m g_h \\implies N = 0$. Because normal reaction is zero, the astronaut experiences apparent weightlessness. Thus, Statement II is strictly true.\nDistractor Analysis: Believing that gravity vanishes in space is one of the most widespread misconceptions among students."
+    },
+    {
+      "id": "phy_gravitation_c01_054",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Planet $A$ has radius $R_A$ and uniform mass density $\\rho_A$. Planet $B$ has radius $R_B = 2 R_A$ and uniform mass density $\\rho_B = 4 \\rho_A$. What is the ratio of the escape speed from the surface of planet $B$ to that from the surface of planet $A$ ($\\frac{v_{e,B}}{v_{e,A}}$)?",
+      "options": [
+        "A) $16 : 1$",
+        "B) $4 : 1$",
+        "C) $2 : 1$",
+        "D) $8 : 1$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The mass of a uniform spherical planet is $M = \\frac{4}{3}\\pi R^3 \\rho$. The escape speed is $v_e = \\sqrt{\\frac{2 G M}{R}} = \\sqrt{\\frac{2 G \\left(\\frac{4}{3}\\pi R^3 \\rho\\right)}{R}} = R \\sqrt{\\frac{8\\pi G \\rho}{3}}$.\nStep 2: Therefore, escape speed is directly proportional to the product of radius and the square root of density: $v_e \\propto R \\sqrt{\\rho}$.\nStep 3: Calculating the ratio for planets $B$ and $A$: $\\frac{v_{e,B}}{v_{e,A}} = \\frac{R_B}{R_A} \\sqrt{\\frac{\\rho_B}{\\rho_A}} = 2 \\times \\sqrt{4} = 2 \\times 2 = 4$. Thus, the ratio is $4 : 1$.\nDistractor Analysis: Selecting $2 : 1$ considers only the radius ratio; selecting $8 : 1$ omits the square root over density ($2 \\times 4 = 8$)."
+    },
+    {
+      "id": "phy_gravitation_c01_055",
+      "subject": "Physics",
+      "topic": "Gravitation",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A geostationary satellite revolves around the Earth in a circular equatorial orbit of radius $r_1 = 7 R$ with an orbital period of $T_1 = 24\\text{ hours}$. Another satellite revolves in a circular orbit of radius $r_2 = 1.75 R$ about the Earth. What is the orbital period $T_2$ of this second satellite?",
+      "options": [
+        "A) $1.5\\text{ hours}$",
+        "B) $8\\text{ hours}$",
+        "C) $3\\text{ hours}$",
+        "D) $6\\text{ hours}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: By Kepler's Third Law, the square of the orbital period is proportional to the cube of the orbital radius: $T^2 \\propto r^3 \\implies \\frac{T_2}{T_1} = \\left(\\frac{r_2}{r_1}\\right)^{3/2}$.\nStep 2: Compute the ratio of the orbital radii: $\\frac{r_2}{r_1} = \\frac{1.75 R}{7 R} = \\frac{7/4}{7} = \\frac{1}{4}$.\nStep 3: Evaluating the period ratio: $\\frac{T_2}{T_1} = \\left(\\frac{1}{4}\\right)^{3/2} = \\left(\\frac{1}{2^2}\\right)^{3/2} = \\frac{1}{2^3} = \\frac{1}{8}$.\nStep 4: Therefore, $T_2 = \\frac{T_1}{8} = \\frac{24\\text{ hours}}{8} = 3\\text{ hours}$.\nDistractor Analysis: Selecting $6\\text{ hours}$ incorrectly uses $\\frac{1}{4}$ scaling linearly; selecting $1.5\\text{ hours}$ divides by $16$."
+    }
+  ]
+}

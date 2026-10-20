@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Laws of Motion",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_laws_of_motion_c01_001",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Aristotle's view of mechanics and Galileo's law of inertia:\nStatement I: Aristotle postulated that an external force is required to keep a body in uniform motion.\nStatement II: Galileo demonstrated through experiments on inclined planes that a body moving on a frictionless horizontal plane requires no net external force to maintain a constant velocity.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Statement I is historically and conceptually correct. According to NCERT, the Aristotelian law of motion held that an external force is always required to keep a body in continuous motion. This was Aristotle's fallacy because in everyday experience, friction and opposing drag forces always act to bring moving bodies to rest.\nStep 2: Statement II is correct. Galileo conducted systematic experiments with balls rolling on double inclined planes. He concluded that in the limiting case of a smooth horizontal plane with no frictional resistance, an object in motion will continue to move indefinitely with uniform velocity without the application of any external driving force.\nStep 3: Distractor rejection: Statements I and II are both authentic historical tenets codified in NCERT Class 11 Physics, making options claiming either statement to be incorrect invalid."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_002",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): According to Galileo, the state of rest and the state of uniform linear motion are physically equivalent.\nReason (R): In both the state of rest and the state of uniform linear motion, the net external force acting on the body is zero.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Assertion (A) is true. In classical mechanics as formulated by Galileo and Newton, an object experiencing no net external force either stays at rest or moves along a straight path with constant speed. Both states represent equilibrium ($a = 0$), meaning the laws of physics are identical in both frames.\nStep 2: Reason (R) is true. By Newton's first law, acceleration is zero ($a = 0$) if and only if the vector sum of all external forces is zero ($\\sum \\vec{F} = 0$). This dynamical equivalence between rest ($v = 0, a = 0$) and uniform linear motion ($v = \\text{constant}, a = 0$) directly explains why they are physically indistinguishable from within an inertial frame.\nStep 3: Distractor rejection: Because the absence of a net resultant force directly accounts for the physical equivalence of rest and uniform rectilinear motion, Reason (R) provides the exact causal explanation for Assertion (A)."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_003",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following physical phenomena observed in daily life:\nI. A passenger standing in a stationary bus falls backward when the bus abruptly starts moving forward.\nII. Mud flying off tangential to the rim of a rotating bicycle wheel.\nIII. An athlete running a certain distance before taking a long jump.\nWhich of the following correctly pairs these observations with the corresponding types of inertia?",
+      "options": [
+        "A) I: Inertia of motion, II: Inertia of direction, III: Inertia of rest",
+        "B) I: Inertia of rest, II: Inertia of motion, III: Inertia of direction",
+        "C) I: Inertia of rest, II: Inertia of direction, III: Inertia of motion",
+        "D) I: Inertia of direction, II: Inertia of rest, III: Inertia of motion"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Phenomenon I: When the bus starts suddenly, the feet in contact with the floor move forward with the bus, while the upper body tends to stay at rest due to inertia of rest. Hence, the passenger leans/falls backward.\nStep 2: Phenomenon II: The mud particles clinging to the tire fly off along the tangent because of inertia of direction; they maintain their instantaneous tangential velocity once the adhesive force is overcome.\nStep 3: Phenomenon III: An athlete runs before taking a leap so that the forward momentum and velocity gained due to inertia of motion helps carry the athlete over a greater horizontal distance during the flight phase.\nStep 4: Distractor rejection: Any pairing that does not attribute I to inertia of rest, II to inertia of direction, and III to inertia of motion violates basic NCERT principles."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_004",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding frames of reference:\nStatement I: An inertial frame of reference is a coordinate system in which Newton's first law of motion is valid without invoking fictitious or pseudo forces.\nStatement II: A frame of reference rigidly attached to a train carriage accelerating uniformly along a straight level track is an inertial frame because its acceleration is constant.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Statement I is correct but Statement II is incorrect."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement I is correct. By standard definition, an inertial frame is either at rest or in uniform rectilinear motion with zero acceleration. In such a frame, a body with zero net external force maintains constant velocity, and no pseudo force is required.\nStep 2: Statement II is incorrect. Any frame that has an acceleration relative to an inertial frame—regardless of whether that acceleration is constant, variable, linear, or rotational—is classified as a non-inertial frame. In an accelerating train carriage, an unattached object accelerates backward without any real physical force, violating Newton's first law unless a pseudo force $\\vec{F}_p = -m\\vec{a}_0$ is introduced.\nStep 3: Distractor rejection: Statement II falsely associates constant nonzero acceleration with an inertial frame; hence options stating that Statement II is correct are eliminated."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_005",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Newton's laws of motion:\nStatement I: Newton's first law of motion provides the qualitative definition of force as an external agency that alters or tends to alter the state of rest or uniform motion of a body.\nStatement II: Newton's second law of motion provides the quantitative measure of force through the relation $\\vec{F} = \\frac{d\\vec{p}}{dt}$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Statement I is correct. Newton's first law defines force qualitatively by introducing inertia and explaining what force does: it is that external influence capable of disrupting a body's uniform state.\nStep 2: Statement II is correct. Newton's second law defines force quantitatively by stating that the net external force is equal to the time rate of change of linear momentum, $\\vec{F} = \\frac{d\\vec{p}}{dt} = m\\vec{a}$ (for constant mass).\nStep 3: Distractor rejection: Both statements are standard fundamental tenets presented in NCERT Class 11 Physics (Chapter: Laws of Motion). Thus, options claiming either statement to be false are ruled out."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_006",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A rubber ball of mass $m = 0.20\\text{ kg}$ traveling horizontally along the positive x-axis with a speed of $v = 15\\text{ m/s}$ hits a rigid vertical wall normally and rebounds elastically along the same straight line with the same speed. The change in linear momentum of the ball ($\u000bec{\\Delta p} = \\vec{p}_f - \\vec{p}_i$) is:",
+      "options": [
+        "A) $+6.0\\hat{i}\\text{ kg}\\cdot\\text{m/s}$",
+        "B) $-6.0\\hat{i}\\text{ kg}\\cdot\\text{m/s}$",
+        "C) $-3.0\\hat{i}\\text{ kg}\\cdot\\text{m/s}$",
+        "D) $0\\text{ kg}\\cdot\\text{m/s}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Write down the initial momentum vector: $\\vec{p}_i = m\\vec{v}_i = (0.20\\text{ kg})(+15\\hat{i}\\text{ m/s}) = +3.0\\hat{i}\\text{ kg}\\cdot\\text{m/s}$.\nStep 2: Write down the final momentum vector after rebound: $\\vec{p}_f = m\\vec{v}_f = (0.20\\text{ kg})(-15\\hat{i}\\text{ m/s}) = -3.0\\hat{i}\\text{ kg}\\cdot\\text{m/s}$.\nStep 3: Compute the change in momentum: $\\vec{\\Delta p} = \\vec{p}_f - \\vec{p}_i = (-3.0\\hat{i}) - (+3.0\\hat{i}) = -6.0\\hat{i}\\text{ kg}\\cdot\\text{m/s}$.\nStep 4: Distractor rejection: A value of $0$ neglects the vector nature of momentum. A positive value $+6.0\\hat{i}$ represents the change in momentum of the wall, not the ball. A magnitude of $3.0$ fails to account for the reversal of direction."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_007",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle of mass $m$ strikes a smooth, rigid vertical wall with speed $v$ at an angle of incidence $\\theta$ measured with the normal to the wall. It rebounds elastically with the same speed $v$ at the same angle $\\theta$ to the normal. The magnitude of the change in linear momentum of the particle is:",
+      "options": [
+        "A) $2mv\\sin\\theta$",
+        "B) $mv\\cos\\theta$",
+        "C) $2mv\\cos\\theta$",
+        "D) $2mv$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Choose coordinate axes such that the x-axis is normal to the wall (pointing out from the wall) and the y-axis is parallel to the wall.\nStep 2: Resolve the initial velocity: $\\vec{v}_i = (-v\\cos\\theta)\\hat{i} + (v\\sin\\theta)\\hat{j}$.\nStep 3: Resolve the final velocity after elastic reflection: $\\vec{v}_f = (+v\\cos\\theta)\\hat{i} + (v\\sin\\theta)\\hat{j}$.\nStep 4: The change in velocity is $\\Delta\\vec{v} = \\vec{v}_f - \\vec{v}_i = (2v\\cos\\theta)\\hat{i} + 0\\hat{j}$.\nStep 5: The change in momentum is $\\Delta\\vec{p} = m\\Delta\\vec{v} = (2mv\\cos\\theta)\\hat{i}$, so its magnitude is $|\u000bec{\\Delta p}| = 2mv\\cos\\theta$.\nStep 6: Distractor rejection: $2mv\\sin\\theta$ incorrectly uses the parallel velocity component, which remains unaffected because the wall is frictionless along the y-direction."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_008",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the vector component form of Newton's second law of motion ($F_x = m a_x$, $F_y = m a_y$, $F_z = m a_z$):\nStatement I: A force acting along the x-direction produces acceleration only along the x-direction and does not affect the motion along the y-direction.\nStatement II: When a projectile is fired horizontally from the top of a tower, its horizontal velocity remains constant throughout its flight in the absence of air resistance because no external force acts along the horizontal.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement I is correct. In Cartesian coordinates, the three component equations of Newton's second law are mutually independent. A net force $F_x$ causes an acceleration $a_x = F_x / m$, while $a_y$ and $a_z$ are governed solely by $F_y$ and $F_z$ respectively.\nStep 2: Statement II is correct. For a horizontally projected body, gravity acts vertically downward ($F_y = -mg$), so $a_y = -g$. Since $F_x = 0$, $a_x = 0$, which means the horizontal velocity component remains strictly constant throughout the motion.\nStep 3: Distractor rejection: Because Statement II is an immediate physical realization of Statement I's vector independence, both statements are correct."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_009",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): When a stone is gently released from the window of a train accelerating horizontally on a straight track, its horizontal acceleration with respect to the ground immediately after release is zero.\nReason (R): The force acting on a body at any instant determines its acceleration at that very instant, and the body possesses zero memory of past forces once contact ceases.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Assertion (A) is true. As long as the stone is inside the train, the passenger or floor provides a horizontal contact force that accelerates it. The instant it is released into the air, the only external force acting on it (neglecting air drag) is gravity acting vertically downward. Hence, its horizontal acceleration relative to the ground is immediately zero ($a_x = 0$).\nStep 2: Reason (R) is true and represents an explicit NCERT principle: Newton's second law $\\vec{F} = m\\vec{a}$ is strictly a local relation in time. Acceleration at time $t$ is determined solely by the force acting at time $t$, without any 'memory' or carryover of accelerative forces from previous instants.\nStep 3: Distractor rejection: Since Reason (R) explains why the horizontal acceleration drops to zero instantaneously upon release, (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_010",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The position coordinates of a particle of mass $m = 2.0\\text{ kg}$ as a function of time $t$ are given by $\\vec{r}(t) = (3.0 t^2 + 2.0 t)\\hat{i} + (4.0 t)\\hat{j} + 5.0\\hat{k}$, where $\\vec{r}$ is in meters and $t$ is in seconds. The magnitude of the net force acting on the particle at $t = 2.0\\text{ s}$ is:",
+      "options": [
+        "A) $24\\text{ N}$",
+        "B) $12\\text{ N}$",
+        "C) $16\\text{ N}$",
+        "D) $6.0\\text{ N}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Find velocity by taking the first time derivative of position: $\\vec{v}(t) = \\frac{d\\vec{r}}{dt} = (6.0 t + 2.0)\\hat{i} + 4.0\\hat{j} + 0\\hat{k}\\text{ m/s}$.\nStep 2: Find acceleration by taking the second time derivative: $\\vec{a}(t) = \\frac{d\\vec{v}}{dt} = 6.0\\hat{i} + 0\\hat{j} + 0\\hat{k}\\text{ m/s}^2$.\nStep 3: The acceleration is constant and entirely directed along the x-axis: $|\u000bec{a}| = 6.0\\text{ m/s}^2$ at all times, including $t = 2.0\\text{ s}$.\nStep 4: By Newton's second law, the magnitude of the net force is $|\u000bec{F}| = m|\u000bec{a}| = (2.0\\text{ kg})(6.0\\text{ m/s}^2) = 12\\text{ N}$.\nStep 5: Distractor rejection: $24\\text{ N}$ arises if one erroneously multiplies velocity at $t = 2.0\\text{ s}$ or evaluates incorrectly. $6.0\\text{ N}$ neglects the mass factor of $2.0\\text{ kg}$."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_011",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A horizontal stream of water emerging from a pipe of cross-sectional area $A = 1.0 \\times 10^{-3}\\text{ m}^2$ with a steady speed of $v = 10\\text{ m/s}$ strikes a flat vertical wall normally and loses all its forward velocity without rebounding. Given that the density of water is $\\rho = 1000\\text{ kg/m}^3$, the magnitude of the force exerted by the water stream on the wall is:",
+      "options": [
+        "A) $10\\text{ N}$",
+        "B) $50\\text{ N}$",
+        "C) $100\\text{ N}$",
+        "D) $200\\text{ N}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The mass of water striking the wall per second is $\\frac{dm}{dt} = \\rho A v$.\nStep 2: Substitute the given values: $\\frac{dm}{dt} = (1000\\text{ kg/m}^3)(1.0 \\times 10^{-3}\\text{ m}^2)(10\\text{ m/s}) = 10\\text{ kg/s}$.\nStep 3: Since the water comes to rest upon impact ($v_f = 0$), the change in momentum per unit time is $F = \\frac{dp}{dt} = v\\left(\\frac{dm}{dt}\\right) = \\rho A v^2$.\nStep 4: Compute the force: $F = (10\\text{ kg/s})(10\\text{ m/s}) = 100\\text{ N}$. By Newton's third law, the force exerted on the wall is also $100\\text{ N}$.\nStep 5: Distractor rejection: $10\\text{ N}$ corresponds to just the mass flow rate $\\frac{dm}{dt}$. $50\\text{ N}$ incorrectly uses an average factor of $\\frac{1}{2}$. $200\\text{ N}$ corresponds to elastic rebound where $\\Delta v = 2v$."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_012",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): A cricket player draws his hands backward along with the ball while taking a catch to avoid injury to his palms.\nReason (R): Increasing the duration of impact decreases the rate of change of momentum of the ball, thereby reducing the average retarding force exerted on the hands.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Assertion (A) is true. By pulling the hands back while catching, the fielder cushions the impact, preventing bruised palms or finger fractures.\nStep 2: Reason (R) is true. According to the impulse-momentum theorem, the impulse delivered is fixed by the initial momentum of the ball: $\\vec{J} = \\Delta\\vec{p} = \\vec{F}_{\\text{avg}} \\Delta t$. By increasing the time interval $\\Delta t$ taken to bring the ball to rest, the average retarding force $\\vec{F}_{\\text{avg}} = \\frac{\\Delta\\vec{p}}{\\Delta t}$ is significantly diminished.\nStep 3: Distractor rejection: Reason (R) directly explains the physical mechanism behind the action described in Assertion (A)."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_013",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A body of mass $m = 1.5\\text{ kg}$ is initially at rest on a frictionless horizontal plane. A time-dependent horizontal force acts on the body such that it increases linearly from $0\\text{ N}$ at $t = 0\\text{ s}$ to a peak value of $30\\text{ N}$ at $t = 2.0\\text{ s}$, and then decreases linearly back to $0\\text{ N}$ at $t = 4.0\\text{ s}$. The speed of the body at $t = 4.0\\text{ s}$ is:",
+      "options": [
+        "A) $40\\text{ m/s}$",
+        "B) $20\\text{ m/s}$",
+        "C) $60\\text{ m/s}$",
+        "D) $30\\text{ m/s}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The impulse delivered to the body is equal to the area under the force-time ($F-t$) graph between $t = 0$ and $t = 4.0\\text{ s}$.\nStep 2: The graph forms a triangle with base $b = 4.0\\text{ s}$ and height $h = 30\\text{ N}$.\nStep 3: Compute the impulse: $J = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times (4.0\\text{ s}) \\times (30\\text{ N}) = 60\\text{ N}\\cdot\\text{s}$.\nStep 4: By the impulse-momentum theorem, $J = \\Delta p = m(v_f - v_i)$. Since the body starts from rest ($v_i = 0$):\n$v_f = \\frac{J}{m} = \\frac{60\\text{ N}\\cdot\\text{s}}{1.5\\text{ kg}} = 40\\text{ m/s}$.\nStep 5: Distractor rejection: $20\\text{ m/s}$ is obtained if only half the triangular area is calculated (up to $t = 2.0\\text{ s}$). $60\\text{ m/s}$ corresponds to dividing impulse by $1.0\\text{ kg}$ instead of $1.5\\text{ kg}$."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_014",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding impulsive forces:\nStatement I: A person jumping from a height onto a heap of sand experiences far less injury than jumping onto a hard concrete floor from the same height.\nStatement II: The change in linear momentum is identical in both scenarios, but the sand yields under impact, increasing the stopping time and thereby reducing the average force.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Statement I is correct. Jumping onto sand allows the feet to penetrate into the yielding surface, which prevents severe bone impact and injury.\nStep 2: Statement II is correct. In both cases, the person lands with the same velocity $v = \\sqrt{2gh}$ and comes to rest ($v_f = 0$), so $\\Delta p = m\\sqrt{2gh}$ is identical. Because the sand gives way over a stopping distance $\\Delta x$, the stopping time $\\Delta t$ is much longer than on rigid concrete. Since $F_{\\text{avg}} = \\frac{\\Delta p}{\\Delta t}$, the average impact force is substantially reduced.\nStep 3: Distractor rejection: Both statements are standard NCERT conceptual applications of the impulse theorem, making alternative choices incorrect."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_015",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Action and reaction forces never cancel each other out to produce equilibrium of a single body.\nReason (R): Action and reaction forces always act simultaneously on two different interacting bodies, rather than on the same body.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Assertion (A) is true. For two forces to cancel each other and create translational equilibrium, they must act concurrently on the exact same object. Action and reaction forces cannot cancel out because they act on separate bodies.\nStep 2: Reason (R) is true. Newton's third law explicitly states that if body A exerts a force $\\vec{F}_{BA}$ on body B, body B simultaneously exerts an equal and opposite force $\\vec{F}_{AB} = -\\vec{F}_{BA}$ on body A. Because the forces act on different bodies ($A$ and $B$), they never form a canceling pair on either individual object.\nStep 3: Distractor rejection: Reason (R) provides the definitive NCERT explanation for Assertion (A)."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_016",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the classic horse-cart problem:\nStatement I: The force that accelerates the horse and cart forward along a level road is the horizontal friction force exerted by the ground on the horse's hooves.\nStatement II: The forward force exerted by the horse on the cart is greater in magnitude than the backward pull exerted by the cart on the horse when the system is accelerating.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Statement I is correct but Statement II is incorrect."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement I is correct. When the horse pushes backward against the rough ground with its hooves, the ground pushes forward on the horse with an equal and opposite reaction force. This external horizontal force accelerates the entire (horse + cart) system.\nStep 2: Statement II is incorrect. The force exerted by the horse on the cart and the force exerted by the cart on the horse form a Newton's third law action-reaction pair. They are strictly equal in magnitude and opposite in direction at every single instant, regardless of whether the system is accelerating, decelerating, or at rest.\nStep 3: Distractor rejection: Claiming that the horse pulls harder on the cart than the cart pulls on the horse is a classic misconception that violates Newton's third law."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_017",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a textbook of mass $m$ resting at equilibrium on a horizontal table:\nStatement I: The upward normal force exerted by the table on the book and the downward gravitational pull of the Earth on the book constitute an action-reaction pair according to Newton's third law.\nStatement II: The reaction force to the downward gravitational pull of the Earth on the book is an equal upward gravitational force exerted by the book on the Earth.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is incorrect but Statement II is correct.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Both Statement I and Statement II are incorrect.",
+        "D) Statement I is correct but Statement II is incorrect."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Statement I is incorrect. Although the upward normal force $\\vec{N}$ and the downward gravity $m\\vec{g}$ on the book are equal in magnitude and opposite in direction in equilibrium, they both act on the same object (the book). Furthermore, they have entirely different physical origins (normal force is contact electromagnetic repulsion; gravity is long-range gravitational attraction). Therefore, they do not form an action-reaction pair.\nStep 2: Statement II is correct. The gravitational force exerted by the Earth on the book has its exact Newton's third law reaction in the gravitational pull exerted by the book on the center of the Earth, which has identical magnitude $mg$ directed upward.\nStep 3: Distractor rejection: Confusing equilibrium balance forces on a single body with third-law action-reaction pairs across two interacting bodies is an identified NCERT trap."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_018",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The total linear momentum of an isolated system of interacting particles remains strictly conserved over time.\nReason (R): Internal mutual forces between particles within the system always occur in equal and opposite pairs that cancel each other out in the vector summation of forces.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Assertion (A) is true. For an isolated system, the net external force is zero ($\\sum \\vec{F}_{\\text{ext}} = 0$). By the law of conservation of linear momentum, the total vector momentum $\\vec{P} = \\sum m_i \\vec{v}_i$ is constant.\nStep 2: Reason (R) is true. From Newton's second law for a system of particles, $\\frac{d\\vec{P}}{dt} = \\sum \\vec{F}_{\\text{ext}} + \\sum \\vec{F}_{\\text{int}}$. According to Newton's third law, the internal forces between any two particles $j$ and $k$ satisfy $\\vec{F}_{jk} = -\\vec{F}_{kj}$. Summing over all pairs yields $\\sum \\vec{F}_{\\text{int}} = 0$, so internal forces cannot change total linear momentum.\nStep 3: Distractor rejection: Because the mutual cancellation of internal third-law pairs directly proves the conservation of momentum in the absence of external forces, Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_019",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A rifle of mass $M = 4.0\\text{ kg}$ fires a bullet of mass $m = 0.020\\text{ kg}$ with a muzzle velocity of $v_b = 400\\text{ m/s}$. Assuming the rifle is free to recoil, the recoil speed of the rifle $v_r$ and the ratio of the kinetic energy of the bullet to that of the rifle ($K_b / K_r$) are respectively:",
+      "options": [
+        "A) $4.0\\text{ m/s}$ and $100$",
+        "B) $2.0\\text{ m/s}$ and $0.005$",
+        "C) $2.0\\text{ m/s}$ and $200$",
+        "D) $1.0\\text{ m/s}$ and $400$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: By conservation of linear momentum along the horizontal: $P_i = 0 \\implies m v_b - M v_r = 0$.\nStep 2: Solve for recoil speed: $v_r = \\frac{m}{M} v_b = \\frac{0.020\\text{ kg}}{4.0\\text{ kg}} \\times 400\\text{ m/s} = 2.0\\text{ m/s}$.\nStep 3: The ratio of kinetic energies is given by $K = \\frac{p^2}{2m}$. Since both have equal magnitude of momentum ($p_b = p_r$):\n$\\frac{K_b}{K_r} = \\frac{p^2 / (2m)}{p^2 / (2M)} = \\frac{M}{m} = \\frac{4.0}{0.020} = 200$.\nStep 4: Distractor rejection: $2.0\\text{ m/s}$ and $0.005$ inverts the kinetic energy ratio ($K_r / K_b$ instead of $K_b / K_r$). $4.0\\text{ m/s}$ incorrectly doubles the recoil speed."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_020",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A stationary projectile shell of mass $M$ explodes into two fragments of masses $m_1$ and $m_2$. If the total mechanical kinetic energy released during the explosion is $E$, the kinetic energy $E_1$ carried away by the fragment of mass $m_1$ is:",
+      "options": [
+        "A) $\\left(\\frac{m_1}{m_1 + m_2}\\right)E$",
+        "B) $\\left(\\frac{m_2}{m_1}\\right)E$",
+        "C) $\\left(\\frac{m_1}{m_2}\\right)E$",
+        "D) $\\left(\\frac{m_2}{m_1 + m_2}\\right)E$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: By conservation of linear momentum for a stationary shell: $\\vec{p}_1 + \\vec{p}_2 = 0 \\implies |\\vec{p}_1| = |\\vec{p}_2| = p$.\nStep 2: The kinetic energy of each fragment in terms of momentum is $E_1 = \\frac{p^2}{2m_1}$ and $E_2 = \\frac{p^2}{2m_2}$.\nStep 3: The ratio of their kinetic energies is $\\frac{E_1}{E_2} = \\frac{m_2}{m_1}$, meaning kinetic energy is inversely proportional to mass.\nStep 4: The total kinetic energy is $E = E_1 + E_2 = E_1 + E_1\\left(\\frac{m_1}{m_2}\\right) = E_1\\left(\\frac{m_1 + m_2}{m_2}\\right)$.\nStep 5: Solve for $E_1$: $E_1 = \\left(\\frac{m_2}{m_1 + m_2}\\right)E$.\nStep 6: Distractor rejection: The lighter mass receives the greater share of kinetic energy; the expression $\\left(\\frac{m_1}{m_1 + m_2}\\right)E$ gives the fraction for $m_2$, not $m_1$."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_021",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A bomb of mass $6.0\\text{ kg}$ initially at rest on a horizontal surface explodes into three fragments. Two fragments, each of mass $2.0\\text{ kg}$, fly off with equal speeds of $30\\text{ m/s}$ along mutually perpendicular directions along the positive x-axis and positive y-axis. The velocity vector of the third fragment is:",
+      "options": [
+        "A) $(-30\\hat{i} - 30\\hat{j})\\text{ m/s}$",
+        "B) $(30\\hat{i} + 30\\hat{j})\\text{ m/s}$",
+        "C) $(-15\\hat{i} - 15\\hat{j})\\text{ m/s}$",
+        "D) $(-60\\hat{i} - 60\\hat{j})\\text{ m/s}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Total initial momentum of the bomb is zero: $\\vec{P}_i = \\vec{0}$.\nStep 2: Mass of the third fragment is $m_3 = 6.0\\text{ kg} - (2.0\\text{ kg} + 2.0\\text{ kg}) = 2.0\\text{ kg}$.\nStep 3: The momenta of the first two fragments are $\\vec{p}_1 = m_1 \\vec{v}_1 = (2.0)(30\\hat{i}) = 60\\hat{i}\\text{ kg}\\cdot\\text{m/s}$ and $\\vec{p}_2 = m_2 \\vec{v}_2 = (2.0)(30\\hat{j}) = 60\\hat{j}\\text{ kg}\\cdot\\text{m/s}$.\nStep 4: By conservation of linear momentum: $\\vec{p}_1 + \\vec{p}_2 + \\vec{p}_3 = \\vec{0} \\implies \\vec{p}_3 = -(60\\hat{i} + 60\\hat{j})\\text{ kg}\\cdot\\text{m/s}$.\nStep 5: The velocity of the third fragment is $\\vec{v}_3 = \\frac{\\vec{p}_3}{m_3} = \\frac{-(60\\hat{i} + 60\\hat{j})}{2.0\\text{ kg}} = (-30\\hat{i} - 30\\hat{j})\\text{ m/s}$.\nStep 6: Distractor rejection: Expressions with positive signs $(+30\\hat{i} + 30\\hat{j})$ violate momentum conservation because the third fragment must oppose the resultant of the first two. $(-15\\hat{i} - 15\\hat{j})$ incorrectly assumes a third mass of $4\\text{ kg}$."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_022",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A machine gun fires $240$ bullets per minute, with each bullet having a mass of $25\\text{ g}$ and exiting the barrel with a muzzle speed of $600\\text{ m/s}$. The average force required to keep the machine gun steadily in place is:",
+      "options": [
+        "A) $3600\\text{ N}$",
+        "B) $60\\text{ N}$",
+        "C) $150\\text{ N}$",
+        "D) $15\\text{ N}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Convert firing rate to bullets per second: $n = \\frac{240\\text{ bullets}}{60\\text{ s}} = 4.0\\text{ bullets/s}$.\nStep 2: Convert bullet mass to SI units: $m = 25\\text{ g} = 0.025\\text{ kg}$.\nStep 3: Linear momentum carried away by each bullet is $p = m v = (0.025\\text{ kg})(600\\text{ m/s}) = 15\\text{ kg}\\cdot\\text{m/s}$.\nStep 4: By Newton's second and third laws, the average force exerted on the gun equals the total rate of momentum ejection:\n$F_{\\text{avg}} = n \\times (m v) = (4.0\\text{ s}^{-1})(15\\text{ kg}\\cdot\\text{m/s}) = 60\\text{ N}$.\nStep 5: Distractor rejection: $3600\\text{ N}$ forgets to divide the firing rate by $60$ seconds. $150\\text{ N}$ uses an incorrect bullet mass or speed."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_023",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A mass of $m = 6.0\\text{ kg}$ is suspended from a rigid ceiling by a light inextensible cord. A horizontal force $F$ is applied to the mass such that in the equilibrium state, the cord makes an angle of $\\theta = 30^\\circ$ with the vertical. Taking $g = 10\\text{ m/s}^2$, the magnitude of the horizontal force $F$ and the tension $T$ in the cord are respectively:",
+      "options": [
+        "A) $40\\sqrt{3}\\text{ N}$ and $20\\sqrt{3}\\text{ N}$",
+        "B) $30\\text{ N}$ and $60\\text{ N}$",
+        "C) $20\\sqrt{3}\\text{ N}$ and $40\\sqrt{3}\\text{ N}$",
+        "D) $60\\sqrt{3}\\text{ N}$ and $120\\text{ N}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Draw the free-body diagram of the suspended mass at equilibrium. Three coplanar concurrent forces act on the mass: downward gravitational force $mg$, horizontal applied force $F$, and tension $T$ directed along the cord at $30^\\circ$ to the vertical.\nStep 2: Resolve forces along the vertical: $\\sum F_y = 0 \\implies T\\cos 30^\\circ = mg$.\n$T\\left(\\frac{\\sqrt{3}}{2}\\right) = (6.0\\text{ kg})(10\\text{ m/s}^2) = 60\\text{ N} \\implies T = \\frac{120}{\\sqrt{3}} = 40\\sqrt{3}\\text{ N}$.\nStep 3: Resolve forces along the horizontal: $\\sum F_x = 0 \\implies F = T\\sin 30^\\circ$.\n$F = (40\\sqrt{3}\\text{ N})\\left(\\frac{1}{2}\\right) = 20\\sqrt{3}\\text{ N}$.\nStep 4: Distractor rejection: $30\\text{ N}$ and $60\\text{ N}$ incorrectly uses $\\cos 30^\\circ = 1/2$. The option with swapped values reverses $F$ and $T$, which is physically impossible since $T = \\sqrt{F^2 + (mg)^2} > F$."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_024",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Three blocks of masses $m_1 = 2.0\\text{ kg}$, $m_2 = 3.0\\text{ kg}$, and $m_3 = 5.0\\text{ kg}$ are placed in mutual contact in a straight line on a smooth horizontal table. A horizontal pushing force of $F = 50\\text{ N}$ is applied to block $m_1$ towards the right. The contact force exerted by block $m_2$ on block $m_3$ is:",
+      "options": [
+        "A) $40\\text{ N}$",
+        "B) $15\\text{ N}$",
+        "C) $10\\text{ N}$",
+        "D) $25\\text{ N}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Treat the three blocks as a combined system to find the common acceleration:\n$a = \\frac{F}{m_1 + m_2 + m_3} = \\frac{50\\text{ N}}{2.0\\text{ kg} + 3.0\\text{ kg} + 5.0\\text{ kg}} = \\frac{50}{10.0} = 5.0\\text{ m/s}^2$.\nStep 2: Isolate block $m_3$ to determine the contact force $N_{23}$ exerted by $m_2$ on $m_3$. The only horizontal force acting on $m_3$ is $N_{23}$:\n$N_{23} = m_3 a = (5.0\\text{ kg})(5.0\\text{ m/s}^2) = 25\\text{ N}$.\nStep 3: Distractor rejection: $40\\text{ N}$ is the contact force between $m_1$ and $m_2$ ($N_{12} = (m_2 + m_3)a = 8.0 \\times 5.0 = 40\\text{ N}$). $15\\text{ N}$ corresponds to $m_2 a$, which is the net force on $m_2$, not the normal contact force on $m_3$."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_025",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Three blocks of masses $m_1 = 1.0\\text{ kg}$, $m_2 = 2.0\\text{ kg}$, and $m_3 = 3.0\\text{ kg}$ are connected in series by light inextensible strings on a frictionless horizontal plane. A horizontal pulling force of $F = 18\\text{ N}$ is applied to $m_3$. If $T_1$ is the tension in the string connecting $m_1$ and $m_2$, and $T_2$ is the tension in the string connecting $m_2$ and $m_3$, the ratio $T_1 / T_2$ is:",
+      "options": [
+        "A) $1 : 3$",
+        "B) $1 : 2$",
+        "C) $2 : 3$",
+        "D) $1 : 6$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Find the common acceleration of the connected assembly:\n$a = \\frac{F}{m_1 + m_2 + m_3} = \\frac{18\\text{ N}}{1.0 + 2.0 + 3.0\\text{ kg}} = 3.0\\text{ m/s}^2$.\nStep 2: Isolate $m_1$ to find the tension $T_1$ in the rear string:\n$T_1 = m_1 a = (1.0\\text{ kg})(3.0\\text{ m/s}^2) = 3.0\\text{ N}$.\nStep 3: Isolate the combination of $(m_1 + m_2)$ to find the tension $T_2$ in the middle string:\n$T_2 = (m_1 + m_2) a = (1.0 + 2.0\\text{ kg})(3.0\\text{ m/s}^2) = 9.0\\text{ N}$.\nStep 4: Form the ratio: $\\frac{T_1}{T_2} = \\frac{3.0\\text{ N}}{9.0\\text{ N}} = \\frac{1}{3}$, which is $1 : 3$.\nStep 5: Distractor rejection: $1 : 2$ uses only the ratio of $m_1$ to $m_2$, neglecting that $T_2$ must pull both $m_1$ and $m_2$ together."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_026",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In an ideal Atwood machine, two masses $m_1 = 3.0\\text{ kg}$ and $m_2 = 5.0\\text{ kg}$ are connected by a light inextensible string passing over a frictionless, massless fixed pulley. Taking $g = 10\\text{ m/s}^2$, the downward acceleration of mass $m_2$ and the total downward force exerted by the string on the pulley support are respectively:",
+      "options": [
+        "A) $2.5\\text{ m/s}^2$ and $37.5\\text{ N}$",
+        "B) $2.5\\text{ m/s}^2$ and $75.0\\text{ N}$",
+        "C) $4.0\\text{ m/s}^2$ and $75.0\\text{ N}$",
+        "D) $1.25\\text{ m/s}^2$ and $80.0\\text{ N}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The acceleration of an ideal Atwood machine is given by:\n$a = \\left(\\frac{m_2 - m_1}{m_1 + m_2}\\right)g = \\left(\\frac{5.0 - 3.0}{5.0 + 3.0}\\right)(10) = \\frac{2.0}{8.0} \\times 10 = 2.5\\text{ m/s}^2$.\nStep 2: The tension in the string is:\n$T = \\frac{2 m_1 m_2}{m_1 + m_2}g = \\frac{2(3.0)(5.0)}{8.0} \\times 10 = \\frac{300}{8.0} = 37.5\\text{ N}$.\nStep 3: The pulley is supported from above, and two string segments pull downward on it with tension $T$. Since the pulley is massless, the vertical downward force exerted on the pulley support is:\n$F_{\\text{support}} = 2T = 2 \\times 37.5\\text{ N} = 75.0\\text{ N}$.\nStep 4: Distractor rejection: $37.5\\text{ N}$ is the tension in a single strand of string, not the total force on the support. $80.0\\text{ N}$ is simply $(m_1 + m_2)g$, which would only hold if the system were statically pinned rather than accelerating."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_027",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A block of mass $M = 4.0\\text{ kg}$ rests on a frictionless horizontal tabletop. It is connected by a light, inextensible string that passes over a light, frictionless pulley at the edge of the table to a hanging block of mass $m = 1.0\\text{ kg}$. If the system is released from rest with $g = 10\\text{ m/s}^2$, the acceleration of the system and the tension in the string are:",
+      "options": [
+        "A) $2.5\\text{ m/s}^2$ and $10.0\\text{ N}$",
+        "B) $2.0\\text{ m/s}^2$ and $10.0\\text{ N}$",
+        "C) $2.0\\text{ m/s}^2$ and $8.0\\text{ N}$",
+        "D) $1.5\\text{ m/s}^2$ and $6.0\\text{ N}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Write the equations of motion for both bodies:\nFor hanging mass $m$: $mg - T = m a$.\nFor mass $M$ on the horizontal table: $T = M a$.\nStep 2: Add the two equations to eliminate tension $T$:\n$mg = (M + m) a \\implies a = \\frac{m}{M + m} g$.\nStep 3: Calculate acceleration: $a = \\frac{1.0\\text{ kg}}{4.0 + 1.0\\text{ kg}}(10\\text{ m/s}^2) = \\frac{10}{5.0} = 2.0\\text{ m/s}^2$.\nStep 4: Calculate tension: $T = M a = (4.0\\text{ kg})(2.0\\text{ m/s}^2) = 8.0\\text{ N}$ (or $T = m(g - a) = 1.0(10 - 2) = 8.0\\text{ N}$).\nStep 5: Distractor rejection: $2.5\\text{ m/s}^2$ erroneously divides $mg$ by $M$ alone. $10.0\\text{ N}$ incorrectly assumes tension equals the static weight $mg$ of the hanging mass."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_028",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A block of mass $m_1 = 4.0\\text{ kg}$ lies on a smooth inclined plane of angle of inclination $\\theta = 30^\\circ$. A light inextensible cord tied to $m_1$ passes over a frictionless pulley at the apex of the incline and supports a vertically suspended block of mass $m_2 = 6.0\\text{ kg}$. Taking $g = 10\\text{ m/s}^2$, the acceleration of the system and the tension in the cord are:",
+      "options": [
+        "A) $2.0\\text{ m/s}^2$ and $48\\text{ N}$",
+        "B) $4.0\\text{ m/s}^2$ and $24\\text{ N}$",
+        "C) $3.0\\text{ m/s}^2$ and $42\\text{ N}$",
+        "D) $4.0\\text{ m/s}^2$ and $36\\text{ N}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Determine the forces along the line of motion:\nGravitational pull on hanging mass $m_2$: $F_2 = m_2 g = 6.0 \\times 10 = 60\\text{ N}$ (downward).\nComponent of gravity on $m_1$ down the incline: $F_1 = m_1 g\\sin 30^\\circ = (4.0)(10)(0.5) = 20\\text{ N}$.\nStep 2: Since $F_2 > F_1$, mass $m_2$ accelerates downward and $m_1$ accelerates up the incline.\nNet driving force is $F_{\\text{net}} = m_2 g - m_1 g\\sin 30^\\circ = 60 - 20 = 40\\text{ N}$.\nStep 3: Total mass in motion is $M_{\\text{total}} = m_1 + m_2 = 4.0 + 6.0 = 10.0\\text{ kg}$.\nAcceleration: $a = \\frac{F_{\\text{net}}}{M_{\\text{total}}} = \\frac{40\\text{ N}}{10.0\\text{ kg}} = 4.0\\text{ m/s}^2$.\nStep 4: Compute tension from the FBD of $m_2$:\n$m_2 g - T = m_2 a \\implies T = m_2(g - a) = (6.0\\text{ kg})(10 - 4.0\\text{ m/s}^2) = 36\\text{ N}$.\nStep 5: Distractor rejection: $24\\text{ N}$ comes from evaluating tension using $m_1(g\\sin\\theta - a)$ instead of $m_1(g\\sin\\theta + a) = 4(5 + 4) = 36\\text{ N}$."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_029",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A person of mass $m = 60\\text{ kg}$ stands on a spring weighing scale inside an elevator. Consider the scale reading under the following circumstances ($g = 10\\text{ m/s}^2$):\nI. When the elevator moves upward with uniform acceleration $a = 2.0\\text{ m/s}^2$, the reading is $720\\text{ N}$.\nII. When the elevator moves downward with uniform speed $v = 3.0\\text{ m/s}$, the reading is $600\\text{ N}$.\nIII. When the elevator moves downward with uniform acceleration $a = 2.0\\text{ m/s}^2$, the reading is $480\\text{ N}$.\nIV. If the elevator cable snaps and it falls freely ($a = g$), the reading is $0\\text{ N}$.\nWhich of the statements given above are correct?",
+      "options": [
+        "A) I, II, III, and IV",
+        "B) I and III only",
+        "C) I, III, and IV only",
+        "D) II and IV only"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze statement I: When accelerating upward, normal force is $N = m(g + a) = 60(10 + 2.0) = 720\\text{ N}$. Statement I is correct.\nStep 2: Analyze statement II: Uniform speed means acceleration is zero ($a = 0$), so $N = mg = 60 \\times 10 = 600\\text{ N}$. Statement II is correct.\nStep 3: Analyze statement III: When accelerating downward, normal force is $N = m(g - a) = 60(10 - 2.0) = 480\\text{ N}$. Statement III is correct.\nStep 4: Analyze statement IV: In free fall, $a = g$, so $N = m(g - g) = 0\\text{ N}$ (state of weightlessness). Statement IV is correct.\nStep 5: Distractor rejection: Since all four statements correspond precisely to NCERT elevator dynamics, options omitting any of these statements are incorrect."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_030",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding an elevator accelerating vertically downwards with an acceleration $a = 1.2 g$:\nStatement I: An unattached passenger inside the cabin will lift off the floor and be pushed against the ceiling of the elevator cabin.\nStatement II: From the non-inertial frame of the elevator, the upward pseudo force $m a$ exceeds the downward gravitational force $mg$, resulting in a net upward relative acceleration of $0.2 g$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Statement I is correct. When the downward acceleration of the cabin exceeds $g$, the cabin accelerates downward faster than a freely falling body. The floor drops away faster than gravity pulls the passenger, causing the passenger to make contact with the ceiling.\nStep 2: Statement II is correct. Inside the non-inertial reference frame of the cabin, the effective acceleration is $g_{\\text{eff}} = g - a = g - 1.2g = -0.2g$. The upward pseudo force is $F_p = m(1.2g)$, while gravity is $mg$ downward. The net force relative to the cabin is $F_{\\text{rel}} = m(1.2g - g) = +0.2mg$ upward, causing the body to accelerate toward the ceiling at $0.2g$.\nStep 3: Distractor rejection: Because Statement II provides the formal dynamical explanation in the accelerated frame for the physical phenomenon stated in Statement I, both statements are correct."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_031",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the microscopic origin and macroscopic laws of friction:\nStatement I: Friction arises primarily due to intermolecular electrostatic attractions (cold-welding) formed between microscopic contact asperities of two surfaces.\nStatement II: The limiting force of static friction between two dry solid surfaces is directly proportional to the apparent macroscopic surface area of contact.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Statement I is correct. At the microscopic level, even highly polished surfaces have irregularities (peaks and valleys). Real contact occurs only at high-pressure asperities where intermolecular electromagnetic attractions create micro-welds that must be sheared for motion to occur.\nStep 2: Statement II is incorrect. One of Amontons' fundamental empirical laws of friction states that the limiting static friction $f_{s,\\max} = \\mu_s N$ is independent of the apparent macroscopic contact area, provided the normal reaction $N$ remains constant. When the apparent area increases, the pressure at microscopic asperities decreases proportionately, keeping the actual area of micro-contact nearly unchanged.\nStep 3: Distractor rejection: Statement II is a widespread misconception that directly contradicts NCERT physics."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_032",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A wooden crate of mass $m = 5.0\\text{ kg}$ rests on a rough horizontal floor. The coefficients of static and kinetic friction between the crate and the floor are $\\mu_s = 0.40$ and $\\mu_k = 0.30$ respectively. If a horizontal force of $F = 12\\text{ N}$ is applied to the crate, the magnitude of the frictional force exerted by the floor on the crate is ($g = 10\\text{ m/s}^2$):",
+      "options": [
+        "A) $20\\text{ N}$",
+        "B) $15\\text{ N}$",
+        "C) $0\\text{ N}$",
+        "D) $12\\text{ N}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Calculate the normal reaction force: $N = mg = (5.0\\text{ kg})(10\\text{ m/s}^2) = 50\\text{ N}$.\nStep 2: Calculate the maximum limiting static friction: $f_{s,\\max} = \\mu_s N = (0.40)(50\\text{ N}) = 20\\text{ N}$.\nStep 3: Compare the applied horizontal force $F$ with $f_{s,\\max}$. Here, $F = 12\\text{ N} < f_{s,\\max} = 20\\text{ N}$.\nStep 4: Because the applied force is less than limiting friction, the crate does not move ($a = 0$). Static friction is a self-adjusting force that exactly balances the applied force: $f_s = F = 12\\text{ N}$.\nStep 5: Distractor rejection: $20\\text{ N}$ is the maximum possible static friction, not the actual friction mobilized. $15\\text{ N}$ is kinetic friction ($f_k = \\mu_k N = 0.30 \\times 50$), which only acts once relative slipping has commenced."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_033",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The coefficient of kinetic friction $\\mu_k$ is always somewhat less than the coefficient of static friction $\\mu_s$ for any given pair of dry surfaces.\nReason (R): Once relative sliding starts, the contact asperities on the two surfaces do not get sufficient time to interlock and form strong molecular bonds as they do during relative rest.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Assertion (A) is true. Experimental measurements consistently show that it requires a greater force to initiate motion from rest (limiting friction $f_{s,\\max} = \\mu_s N$) than to maintain motion at a constant speed (kinetic friction $f_k = \\mu_k N$), meaning $\\mu_k < \\mu_s$.\nStep 2: Reason (R) is true. When two bodies are at rest relative to each other, the asperities settle into one another and form robust cold-welded junctions under intense microscopic contact pressure. Once relative motion begins, the peaks ride over one another rapidly, preventing the re-establishment of full atomic bonding.\nStep 3: Distractor rejection: Reason (R) provides the definitive microscopic physical mechanism that explains why $\\mu_k < \\mu_s$, making (R) the correct explanation of (A)."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_034",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding rolling friction:\nStatement I: Rolling friction is substantially smaller than sliding friction because the contacting surfaces undergo primarily compression and detachment with minimal relative tangential sliding.\nStatement II: Ball bearings are installed in rotating axles and wheel hubs to replace sliding friction with much smaller rolling friction.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Statement I is correct. In pure rolling, the instantaneous point or line of contact is momentarily at rest relative to the surface. Resistance to rolling arises mainly due to slight elastic deformation of the roller and the surface, resulting in rolling friction coefficients that are typically $10$ to $100$ times smaller than sliding friction coefficients.\nStep 2: Statement II is correct. Ball bearings placed between the fixed housing and the rotating axle substitute rolling contact for sliding contact, significantly minimizing frictional heating, wear, and mechanical energy dissipation.\nStep 3: Distractor rejection: Both statements are verbatim NCERT applications, so options rejecting either statement are incorrect."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_035",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The angle of repose of an inclined plane is numerically equal to the angle of friction between the body and the incline.\nReason (R): The tangent of the angle of repose $\\theta_r$ and the tangent of the angle of friction $\\lambda$ are both equal to the coefficient of static friction $\\mu_s$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Assertion (A) is true. The angle of repose is defined as the maximum angle of inclination $\\theta_r$ at which a body placed on an inclined plane just remains at rest without sliding down. By equilibrium, $mg\\sin\\theta_r = f_{s,\\max} = \\mu_s mg\\cos\\theta_r \\implies \\tan\\theta_r = \\mu_s$.\nStep 2: Reason (R) is true. The angle of friction $\\lambda$ is the angle made by the resultant contact force with the normal reaction: $\\tan\\lambda = \\frac{f_{s,\\max}}{N} = \\mu_s$. Since $\\tan\\theta_r = \\mu_s$ and $\\tan\\lambda = \\mu_s$, it follows directly that $\\theta_r = \\lambda$.\nStep 3: Distractor rejection: Because the mathematical equality of their tangents to $\\mu_s$ directly proves the equality of the two angles, Reason (R) is the correct explanation of Assertion (A)."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_036",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A small block starts from rest and slides down a rough plane inclined at an angle of $\\theta = 45^\\circ$ to the horizontal. If the time taken by the block to slide down the rough plane is exactly twice ($n = 2$) the time taken to slide down a frictionless plane of identical length and inclination, the coefficient of kinetic friction $\\mu_k$ between the block and the rough plane is:",
+      "options": [
+        "A) $0.50$",
+        "B) $0.25$",
+        "C) $0.80$",
+        "D) $0.75$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For a smooth plane, the acceleration down the incline is $a_1 = g\\sin\\theta$.\nUsing $s = \\frac{1}{2} a_1 t_1^2$, the time taken is $t_1 = \\sqrt{\\frac{2s}{g\\sin\\theta}}$.\nStep 2: For the rough plane, the acceleration down the incline is $a_2 = g(\\sin\\theta - \\mu_k\\cos\\theta)$.\nThe time taken is $t_2 = \\sqrt{\\frac{2s}{g(\\sin\\theta - \\mu_k\\cos\\theta)}}$.\nStep 3: We are given $t_2 = n t_1 = 2 t_1$. Squaring gives $\\frac{t_2^2}{t_1^2} = n^2 = 4$.\nStep 4: Therefore, $\\frac{a_1}{a_2} = n^2 \\implies \\frac{g\\sin\\theta}{g(\\sin\\theta - \\mu_k\\cos\\theta)} = n^2$.\nStep 5: For $\\theta = 45^\\circ$, $\\sin 45^\\circ = \\cos 45^\\circ$, so:\n$\\frac{1}{1 - \\mu_k} = 4 \\implies 1 - \\mu_k = \\frac{1}{4} \\implies \\mu_k = 1 - 0.25 = 0.75$.\nStep 6: Distractor rejection: $0.50$ corresponds to $n = \\sqrt{2}$. $0.25$ corresponds to $1/n^2$ rather than $(1 - 1/n^2)$."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_037",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A block of mass $m = 10\\text{ kg}$ is placed on an inclined plane of inclination $\\theta = 30^\\circ$. The coefficient of static friction between the block and the plane is $\\mu_s = \\frac{1}{2\\sqrt{3}}$. Let $F_1$ be the minimum force parallel to the incline required to prevent the block from sliding down, and $F_2$ be the minimum force parallel to the incline required to move the block up. Taking $g = 10\\text{ m/s}^2$, the ratio $F_2 / F_1$ is:",
+      "options": [
+        "A) $3$",
+        "B) $2$",
+        "C) $4$",
+        "D) $1.5$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Compute the components of gravity:\n$mg\\sin 30^\\circ = (10\\text{ kg})(10\\text{ m/s}^2)(0.5) = 50\\text{ N}$.\n$mg\\cos 30^\\circ = (10)(10)\\left(\\frac{\\sqrt{3}}{2}\\right) = 50\\sqrt{3}\\text{ N}$.\nStep 2: Compute the limiting static friction force:\n$f_{s,\\max} = \\mu_s mg\\cos 30^\\circ = \\left(\\frac{1}{2\\sqrt{3}}\\right)(50\\sqrt{3}) = 25\\text{ N}$.\nStep 3: To prevent the block from sliding down, friction acts upward along the incline:\n$F_1 + f_{s,\\max} = mg\\sin 30^\\circ \\implies F_1 = 50 - 25 = 25\\text{ N}$.\nStep 4: To start moving the block up the incline, friction acts downward along the incline:\n$F_2 = mg\\sin 30^\\circ + f_{s,\\max} = 50 + 25 = 75\\text{ N}$.\nStep 5: The ratio is $\\frac{F_2}{F_1} = \\frac{75\\text{ N}}{25\\text{ N}} = 3$.\nStep 6: Distractor rejection: Ratios of $2$ or $4$ arise if friction is erroneously omitted from either the upward or holding condition."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_038",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A wooden block of mass $m = 2.0\\text{ kg}$ is pressed against a vertical rough wall by applying a horizontal force $F$ perpendicular to the wall. If the coefficient of static friction between the block and the wall is $\\mu_s = 0.40$ and $g = 10\\text{ m/s}^2$, the minimum horizontal force $F_{\\min}$ required to keep the block stationary against the wall is:",
+      "options": [
+        "A) $20\\text{ N}$",
+        "B) $50\\text{ N}$",
+        "C) $8.0\\text{ N}$",
+        "D) $80\\text{ N}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Identify all forces on the block at equilibrium:\nHorizontal direction: Applied force $F$ balances normal reaction $N$ from the wall, so $N = F$.\nVertical direction: Downward gravitational pull $mg$ must be balanced by upward static friction $f_s$, so $f_s = mg$.\nStep 2: Write the static friction condition: $f_s \\le \\mu_s N$.\nStep 3: Substitute $f_s = mg$ and $N = F$:\n$mg \\le \\mu_s F \\implies F \\ge \\frac{mg}{\\mu_s}$.\nStep 4: Calculate the minimum force:\n$F_{\\min} = \\frac{(2.0\\text{ kg})(10\\text{ m/s}^2)}{0.40} = \\frac{20\\text{ N}}{0.40} = 50\\text{ N}$.\nStep 5: Distractor rejection: $20\\text{ N}$ is just the weight of the block $mg$. $8.0\\text{ N}$ incorrectly multiplies $\\mu_s \\times mg$ rather than dividing."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_039",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): It is easier to pull a heavy roller across a rough horizontal lawn than to push it at the same angle $\\theta$ to the horizontal.\nReason (R): Pulling provides a vertical upward component of applied force that reduces the normal reaction and hence the limiting friction, whereas pushing adds a vertical downward component that increases the normal reaction.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Assertion (A) is true. When handling a lawn roller or heavy cart, pulling at an angle above the horizontal requires less effort to initiate and maintain motion than pushing at the same angle below the horizontal.\nStep 2: Reason (R) is true. For pulling at angle $\\theta$: $N_{\\text{pull}} = mg - F\\sin\\theta$, so friction is $f_{\\text{pull}} = \\mu(mg - F\\sin\\theta)$. For pushing: $N_{\\text{push}} = mg + F\\sin\\theta$, so friction is $f_{\\text{push}} = \\mu(mg + F\\sin\\theta)$. Because $N_{\\text{pull}} < N_{\\text{push}}$, the frictional resistance to motion is significantly lower when pulling.\nStep 3: Distractor rejection: Because Reason (R) correctly details the exact normal force reduction that makes pulling easier, (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_040",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform heavy rope of mass $M = 3.0\\text{ kg}$ and total length $L = 6.0\\text{ m}$ is pulled horizontally across a frictionless floor by a constant horizontal force of $F = 30\\text{ N}$ applied at one end. The tension $T$ in the rope at a distance of $x = 2.0\\text{ m}$ from the pulled end is:",
+      "options": [
+        "A) $10\\text{ N}$",
+        "B) $15\\text{ N}$",
+        "C) $25\\text{ N}$",
+        "D) $20\\text{ N}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Find the horizontal acceleration of the entire rope:\n$a = \\frac{F}{M} = \\frac{30\\text{ N}}{3.0\\text{ kg}} = 10\\text{ m/s}^2$.\nStep 2: The point in question is at a distance $x = 2.0\\text{ m}$ from the front (pulled) end. The segment of the rope trailing behind this point has length $L' = L - x = 6.0 - 2.0 = 4.0\\text{ m}$.\nStep 3: The mass of this trailing segment is $m' = \\left(\\frac{M}{L}\\right) L' = \\left(\\frac{3.0\\text{ kg}}{6.0\\text{ m}}\\right)(4.0\\text{ m}) = 2.0\\text{ kg}$.\nStep 4: The tension $T$ at distance $x$ must accelerate this trailing mass $m'$:\n$T = m' a = (2.0\\text{ kg})(10\\text{ m/s}^2) = 20\\text{ N}$.\nStep 5: Distractor rejection: $10\\text{ N}$ is the force accelerating the front $2.0\\text{ m}$ segment alone ($m_1 a = 1.0 \\times 10 = 10\\text{ N}$). $15\\text{ N}$ corresponds to the midpoint tension ($x = 3.0\\text{ m}$)."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_041",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Physical Quantity / Friction Parameter) with List II (Analytical Formula or Relationship):\nList I:\nA. Angle of static friction $\\lambda$\nB. Acceleration of block sliding down rough plane of inclination $\\theta$\nC. Limiting static friction $f_{s,\\max}$\nD. Acceleration of ideal Atwood machine with masses $m_2 > m_1$\nList II:\nI. $g(\\sin\\theta - \\mu_k\\cos\\theta)$\nII. $\\tan^{-1}(\\mu_s)$\nIII. $\\left(\\frac{m_2 - m_1}{m_1 + m_2}\\right)g$\nIV. $\\mu_s N$\nChoose the correct match from the options given below:",
+      "options": [
+        "A) A-II, B-I, C-IV, D-III",
+        "B) A-I, B-II, C-III, D-IV",
+        "C) A-II, B-IV, C-I, D-III",
+        "D) A-IV, B-I, C-II, D-III"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Match item A: Angle of friction $\\lambda$ satisfies $\\tan\\lambda = \\mu_s \\implies \\lambda = \\tan^{-1}(\\mu_s)$. Hence, A matches II.\nStep 2: Match item B: For a block sliding down a rough inclined plane, net force is $mg\\sin\\theta - \\mu_k mg\\cos\\theta$, so acceleration is $a = g(\\sin\\theta - \\mu_k\\cos\\theta)$. Hence, B matches I.\nStep 3: Match item C: Limiting static friction represents the threshold static frictional resistance $f_{s,\\max} = \\mu_s N$. Hence, C matches IV.\nStep 4: Match item D: For two unequal masses in an ideal Atwood machine, net driving force is $(m_2 - m_1)g$ and total mass is $(m_1 + m_2)$, giving $a = \\left(\\frac{m_2 - m_1}{m_1 + m_2}\\right)g$. Hence, D matches III.\nStep 5: Distractor rejection: Any combination other than A-II, B-I, C-IV, D-III mismatches standard NCERT mechanical definitions."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_042",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding uniform circular motion and centripetal force:\nStatement I: Centripetal force is not a distinct new category of physical interaction, but rather the net inward radial force provided by real forces such as tension, gravity, normal reaction, or friction.\nStatement II: The work done by the centripetal force on a particle executing uniform circular motion over any displacement is strictly zero because the force is everywhere perpendicular to the instantaneous velocity vector.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Statement I is correct. As emphasized in NCERT Physics, centripetal force $F_c = \\frac{m v^2}{r}$ is a requirement for circular motion, not a separate force of nature. In any physical scenario, it must be provided by one or more real forces (e.g., tension in a whirling string, gravitational attraction for planets, friction for a car turning on a level road).\nStep 2: Statement II is correct. In uniform circular motion, the centripetal force $\\vec{F}_c$ acts radially inward while the instantaneous displacement $d\\vec{r}$ (and velocity $\\vec{v}$) is directed tangentially. Thus, the angle between force and displacement is always $90^\\circ$. The work done is $dW = \\vec{F}_c \\cdot d\\vec{r} = F_c dr \\cos 90^\\circ = 0$.\nStep 3: Distractor rejection: Both statements represent foundational NCERT mechanics principles, so options claiming either statement is incorrect are invalid."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_043",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A car of mass $m = 1000\\text{ kg}$ is rounding a flat, unbanked horizontal circular turn of radius $R = 100\\text{ m}$. The coefficient of static friction between the tires and the dry asphalt road is $\\mu_s = 0.40$. Taking $g = 10\\text{ m/s}^2$, the maximum speed $v_{\\max}$ at which the car can negotiate the curve without skidding outward is:",
+      "options": [
+        "A) $14\\text{ m/s}$",
+        "B) $40\\text{ m/s}$",
+        "C) $20\\text{ m/s}$",
+        "D) $10\\text{ m/s}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: On an unbanked circular road, the normal reaction is vertical: $N = mg$.\nStep 2: The only horizontal force available to provide the necessary centripetal acceleration is the static friction between the tires and the road: $f_s = \\frac{m v^2}{R}$.\nStep 3: To prevent skidding, static friction must not exceed the limiting static friction: $f_s \\le f_{s,\\max} = \\mu_s N = \\mu_s mg$.\nStep 4: Setting up the inequality: $\\frac{m v^2}{R} \\le \\mu_s mg \\implies v \\le \\sqrt{\\mu_s R g}$.\nStep 5: Compute the maximum safe speed:\n$v_{\\max} = \\sqrt{(0.40)(100\\text{ m})(10\\text{ m/s}^2)} = \\sqrt{400} = 20\\text{ m/s}$.\nStep 6: Distractor rejection: $14\\text{ m/s}$ is obtained by misapplying $\\sqrt{2\\mu_s R g}$ or using an incorrect friction value. $40\\text{ m/s}$ incorrectly squares the radius inside the root."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_044",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): On a circular road banked at an angle $\\theta$, there exists a characteristic optimum speed $v_0 = \\sqrt{R g \\tan\\theta}$ at which a vehicle can negotiate the curve with zero lateral friction between the tires and the road surface.\nReason (R): At the speed $v_0$, the horizontal component of the normal force $N\\sin\\theta$ provides the entire centripetal force required for circular motion, while the vertical component $N\\cos\\theta$ balances the weight of the vehicle.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Assertion (A) is true. Banking of roads is engineered precisely to allow vehicles to turn safely at a designed speed $v_0$ without depending on friction, thereby preventing tire wear and reducing skidding hazard in wet conditions.\nStep 2: Reason (R) is true. When friction is zero ($f = 0$):\nVertical equilibrium: $N\\cos\\theta = mg$.\nHorizontal radial dynamics: $N\\sin\\theta = \\frac{m v_0^2}{R}$.\nDividing the second equation by the first: $\\frac{N\\sin\\theta}{N\\cos\\theta} = \\tan\\theta = \\frac{v_0^2}{R g} \\implies v_0 = \\sqrt{R g \\tan\\theta}$.\nStep 3: Distractor rejection: Because Reason (R) provides the exact mathematical balance that yields the design speed formula in Assertion (A), (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_045",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A curved highway track of radius $R = 60\\text{ m}$ is banked at an angle of $\\theta = 45^\\circ$. The coefficient of static friction between the vehicle tires and the banked road surface is $\\mu_s = 0.20$. Taking $g = 10\\text{ m/s}^2$, the maximum permissible speed $v_{\\max}$ at which a vehicle can round the curve without slipping up the banking is:",
+      "options": [
+        "A) $30\\text{ m/s}$",
+        "B) $20\\text{ m/s}$",
+        "C) $24\\text{ m/s}$",
+        "D) $35\\text{ m/s}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For maximum speed on a banked rough road, the tendency of the car is to slip outward (up the incline). Consequently, the limiting static friction $f_s$ acts downward along the inclined surface.\nStep 2: The standard formula for maximum permissible speed is:\n$v_{\\max} = \\sqrt{R g \\left(\\frac{\\mu_s + \\tan\\theta}{1 - \\mu_s \\tan\\theta}\\right)}$.\nStep 3: For $\\theta = 45^\\circ$, we have $\\tan 45^\\circ = 1$. Substitute $\\mu_s = 0.20$:\n$\\frac{\\mu_s + \\tan\\theta}{1 - \\mu_s \\tan\\theta} = \\frac{0.20 + 1.0}{1 - (0.20)(1.0)} = \\frac{1.20}{0.80} = 1.5$.\nStep 4: Compute the maximum speed:\n$v_{\\max} = \\sqrt{(60\\text{ m})(10\\text{ m/s}^2)(1.5)} = \\sqrt{900} = 30\\text{ m/s}$.\nStep 5: Distractor rejection: $24\\text{ m/s}$ represents the optimum friction-free speed $v_0 = \\sqrt{R g \\tan 45^\\circ} = \\sqrt{600} \\approx 24.5\\text{ m/s}$. $20\\text{ m/s}$ corresponds to an unbanked level surface."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_046",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A circular race track of radius $R = 30\\text{ m}$ is banked at an angle of $\\theta = 45^\\circ$. The coefficient of static friction between the road and tires is $\\mu_s = 0.50$. Taking $g = 10\\text{ m/s}^2$, the minimum permissible speed $v_{\\min}$ below which a vehicle will slip down the incline towards the center of the track is:",
+      "options": [
+        "A) $5.0\\text{ m/s}$",
+        "B) $10\\text{ m/s}$",
+        "C) $15\\text{ m/s}$",
+        "D) $0\\text{ m/s}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: When traveling below the optimum speed, the vehicle has a tendency to slide down the incline. Limiting static friction acts upward along the inclined road.\nStep 2: The analytical expression for minimum permissible speed is:\n$v_{\\min} = \\sqrt{R g \\left(\\frac{\\tan\\theta - \\mu_s}{1 + \\mu_s \\tan\\theta}\\right)}$.\nStep 3: Given $\\theta = 45^\\circ$ (so $\\tan\\theta = 1$) and $\\mu_s = 0.50$:\n$\\frac{\\tan\\theta - \\mu_s}{1 + \\mu_s \\tan\\theta} = \\frac{1 - 0.50}{1 + (0.50)(1)} = \\frac{0.50}{1.50} = \\frac{1}{3}$.\nStep 4: Substitute the radius and gravitational acceleration:\n$v_{\\min} = \\sqrt{(30\\text{ m})(10\\text{ m/s}^2)\\left(\\frac{1}{3}\\right)} = \\sqrt{100} = 10\\text{ m/s}$.\nStep 5: Distractor rejection: $0\\text{ m/s}$ would only be possible if $\\tan\\theta \\le \\mu_s$ (meaning the road angle does not exceed the angle of repose). Here $\\tan 45^\\circ = 1 > 0.50$, so friction alone cannot hold a parked vehicle."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_047",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A small bob of mass $m = 0.60\\text{ kg}$ is attached to a light inextensible string of length $l = 2.0\\text{ m}$ and whirled in a horizontal circle at constant speed, forming a conical pendulum. The string maintains a constant angle of $\\theta = 60^\\circ$ with the vertical. Taking $g = 10\\text{ m/s}^2$, the tension $T$ in the string and the angular speed $\\omega$ of revolution are:",
+      "options": [
+        "A) $6.0\\text{ N}$ and $\\sqrt{10}\\text{ rad/s}$",
+        "B) $12\\text{ N}$ and $\\sqrt{5}\\text{ rad/s}$",
+        "C) $12\\text{ N}$ and $\\sqrt{10}\\text{ rad/s}$",
+        "D) $15\\text{ N}$ and $2\\sqrt{5}\\text{ rad/s}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Write the vertical force balance equation for the bob:\n$T\\cos\\theta = mg \\implies T\\cos 60^\\circ = mg$.\n$T = \\frac{mg}{\\cos 60^\\circ} = \\frac{(0.60\\text{ kg})(10\\text{ m/s}^2)}{0.50} = 12\\text{ N}$.\nStep 2: The radius of the horizontal circle traced by the bob is $r = l\\sin\\theta = l\\sin 60^\\circ$.\nStep 3: The horizontal component of tension provides the centripetal force:\n$T\\sin\\theta = m \\omega^2 r = m \\omega^2 (l\\sin\\theta) \\implies T = m \\omega^2 l$.\nStep 4: Substitute $T = \\frac{mg}{\\cos\\theta}$ into this expression:\n$\\frac{mg}{\\cos\\theta} = m \\omega^2 l \\implies \\omega = \\sqrt{\\frac{g}{l\\cos\\theta}}$.\nStep 5: Substitute the numerical values: $l\\cos 60^\\circ = (2.0\\text{ m})(0.50) = 1.0\\text{ m}$.\n$\\omega = \\sqrt{\\frac{10\\text{ m/s}^2}{1.0\\text{ m}}} = \\sqrt{10}\\text{ rad/s}$.\nStep 6: Distractor rejection: $6.0\\text{ N}$ is just the weight $mg$, which neglects the $\\cos 60^\\circ$ division."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_048",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a rotor ride (cylinder of death), a person of mass $m = 50\\text{ kg}$ stands pressed against the inner vertical wall of a hollow cylindrical drum of radius $R = 4.0\\text{ m}$. The cylinder is set rotating about its vertical axis of symmetry. The coefficient of static friction between the person's clothing and the cylinder wall is $\\mu_s = 0.40$. When the floor is suddenly dropped, the minimum angular speed $\\omega_{\\min}$ required to prevent the person from sliding down is ($g = 10\\text{ m/s}^2$):",
+      "options": [
+        "A) $5.0\\text{ rad/s}$",
+        "B) $1.25\\text{ rad/s}$",
+        "C) $3.5\\text{ rad/s}$",
+        "D) $2.5\\text{ rad/s}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Set up the forces acting on the person in the rotating cylinder:\nRadial direction: The normal reaction $N$ from the cylindrical wall supplies the centripetal force: $N = m \\omega^2 R$.\nVertical direction: Upward static friction $f_s$ prevents the person from falling under gravity: $f_s = mg$.\nStep 2: Apply the condition for static equilibrium without slipping: $f_s \\le \\mu_s N$.\nStep 3: Substitute $f_s = mg$ and $N = m \\omega^2 R$:\n$mg \\le \\mu_s (m \\omega^2 R) \\implies \\omega^2 \\ge \\frac{g}{\\mu_s R}$.\nStep 4: Calculate the minimum angular speed:\n$\\omega_{\\min} = \\sqrt{\\frac{g}{\\mu_s R}} = \\sqrt{\\frac{10\\text{ m/s}^2}{(0.40)(4.0\\text{ m})}} = \\sqrt{\\frac{10}{1.6}} = \\sqrt{6.25} = 2.5\\text{ rad/s}$.\nStep 5: Distractor rejection: $5.0\\text{ rad/s}$ forgets the square root of $6.25$ or doubles the angular frequency. $1.25\\text{ rad/s}$ erroneously includes an extra factor of $2$."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_049",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A simple pendulum having a bob of mass $m = 2.0\\text{ kg}$ is suspended from the roof of a trolley. The trolley moves along a straight horizontal track with a constant horizontal acceleration $a_0 = 7.5\\text{ m/s}^2$. In the non-inertial frame of reference of the trolley, the angle $\\theta$ made by the string with the vertical at equilibrium and the tension $T$ in the string are ($g = 10\\text{ m/s}^2$):",
+      "options": [
+        "A) $\\tan^{-1}(0.75)$ and $25\\text{ N}$",
+        "B) $\\tan^{-1}(0.75)$ and $20\\text{ N}$",
+        "C) $\\tan^{-1}(1.33)$ and $25\\text{ N}$",
+        "D) $\\tan^{-1}(0.60)$ and $15\\text{ N}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In the accelerating frame of the trolley, an apparent inertial pseudo force $\\vec{F}_p = -m\\vec{a}_0$ acts horizontally backward on the bob.\nStep 2: Resolve forces on the bob in equilibrium relative to the trolley:\nAlong the horizontal: $T\\sin\\theta = m a_0$.\nAlong the vertical: $T\\cos\\theta = mg$.\nStep 3: Divide horizontal by vertical equation: $\\tan\\theta = \\frac{m a_0}{mg} = \\frac{a_0}{g} = \\frac{7.5\\text{ m/s}^2}{10\\text{ m/s}^2} = 0.75 \\implies \\theta = \\tan^{-1}(0.75) \\approx 37^\\circ$.\nStep 4: Compute the tension by squaring and adding:\n$T = m\\sqrt{g^2 + a_0^2} = (2.0\\text{ kg})\\sqrt{10^2 + (7.5)^2} = 2.0\\sqrt{100 + 56.25} = 2.0\\sqrt{156.25} = (2.0)(12.5) = 25\\text{ N}$.\nStep 5: Distractor rejection: $20\\text{ N}$ is just the gravitational weight $mg$. $\\tan^{-1}(1.33)$ inverts the tangent ratio as $g / a_0$."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_050",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A small block of mass $m = 4.0\\text{ kg}$ is placed on the smooth inclined surface of a wedge of inclination angle $\\theta = 37^\\circ$. The wedge is accelerated horizontally along a frictionless ground. The horizontal acceleration $a_0$ of the wedge such that the block remains stationary relative to the wedge, and the normal force $N$ exerted by the wedge on the block are (take $\\sin 37^\\circ = 0.60, \\cos 37^\\circ = 0.80, g = 10\\text{ m/s}^2$):",
+      "options": [
+        "A) $10.0\\text{ m/s}^2$ and $40\\text{ N}$",
+        "B) $7.5\\text{ m/s}^2$ and $50\\text{ N}$",
+        "C) $7.5\\text{ m/s}^2$ and $32\\text{ N}$",
+        "D) $6.0\\text{ m/s}^2$ and $50\\text{ N}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Choose the non-inertial frame of the wedge. The block experiences an apparent pseudo force $m a_0$ directed horizontally backward.\nStep 2: Resolve forces along the incline for the block to remain stationary:\n$m a_0 \\cos\\theta = mg\\sin\\theta \\implies a_0 = g\\tan\\theta$.\n$a_0 = (10\\text{ m/s}^2)\\left(\\frac{0.60}{0.80}\\right) = 10 \\times 0.75 = 7.5\\text{ m/s}^2$.\nStep 3: Resolve forces perpendicular to the incline:\n$N = mg\\cos\\theta + m a_0 \\sin\\theta$.\nSubstitute $a_0 = g\\tan\\theta = g\\frac{\\sin\\theta}{\\cos\\theta}$:\n$N = mg\\cos\\theta + mg\\frac{\\sin^2\\theta}{\\cos\\theta} = \\frac{mg(\\cos^2\\theta + \\sin^2\\theta)}{\\cos\\theta} = \\frac{mg}{\\cos\\theta}$.\nStep 4: Calculate the normal reaction:\n$N = \\frac{(4.0\\text{ kg})(10\\text{ m/s}^2)}{0.80} = \\frac{40\\text{ N}}{0.80} = 50\\text{ N}$.\nStep 5: Distractor rejection: $32\\text{ N}$ is $mg\\cos\\theta$, which ignores the normal contribution of the pseudo force. $10.0\\text{ m/s}^2$ corresponds to $\\theta = 45^\\circ$."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_051",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Block A of mass $m_A = 2.0\\text{ kg}$ is placed on top of block B of mass $m_B = 3.0\\text{ kg}$, which in turn rests on a frictionless horizontal floor. The coefficient of static friction between block A and block B is $\\mu_s = 0.30$. Taking $g = 10\\text{ m/s}^2$, the maximum horizontal pulling force $F_{\\max}$ that can be applied to the lower block B so that both blocks accelerate together without any relative slipping is:",
+      "options": [
+        "A) $6.0\\text{ N}$",
+        "B) $9.0\\text{ N}$",
+        "C) $15\\text{ N}$",
+        "D) $25\\text{ N}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Identify the force accelerating block A. Block A experiences no applied external force; it is accelerated exclusively by the static friction force $f_s$ exerted by block B: $f_s = m_A a$.\nStep 2: Find the maximum acceleration block A can experience without slipping:\n$f_{s,\\max} = \\mu_s N_A = \\mu_s m_A g = (0.30)(2.0\\text{ kg})(10\\text{ m/s}^2) = 6.0\\text{ N}$.\n$a_{\\max} = \\frac{f_{s,\\max}}{m_A} = \\mu_s g = (0.30)(10\\text{ m/s}^2) = 3.0\\text{ m/s}^2$.\nStep 3: Because both blocks move as a unified single body with acceleration $a_{\\max}$, the total force applied to block B is:\n$F_{\\max} = (m_A + m_B) a_{\\max} = (2.0\\text{ kg} + 3.0\\text{ kg})(3.0\\text{ m/s}^2) = (5.0\\text{ kg})(3.0\\text{ m/s}^2) = 15\\text{ N}$.\nStep 4: Distractor rejection: $6.0\\text{ N}$ is simply the maximum friction force $f_{s,\\max}$. $9.0\\text{ N}$ is $m_B a_{\\max}$, neglecting the force needed to accelerate block A."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_052",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Block A of mass $m_A = 2.0\\text{ kg}$ is placed upon block B of mass $m_B = 8.0\\text{ kg}$ resting on a smooth horizontal table. The coefficient of static friction between block A and block B is $\\mu_s = 0.40$. If a horizontal pulling force $F$ is applied directly to the upper block A, the maximum force $F_{\\max}$ that can be applied such that block B moves together with block A without slipping is ($g = 10\\text{ m/s}^2$):",
+      "options": [
+        "A) $8.0\\text{ N}$",
+        "B) $40\\text{ N}$",
+        "C) $16\\text{ N}$",
+        "D) $10\\text{ N}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The lower block B is accelerated solely by the forward static friction force transmitted from block A: $f_s = m_B a$.\nStep 2: The maximum static friction available between the two blocks is:\n$f_{s,\\max} = \\mu_s m_A g = (0.40)(2.0\\text{ kg})(10\\text{ m/s}^2) = 8.0\\text{ N}$.\nStep 3: The maximum possible acceleration of block B before slipping occurs is:\n$a_{\\max} = \\frac{f_{s,\\max}}{m_B} = \\frac{8.0\\text{ N}}{8.0\\text{ kg}} = 1.0\\text{ m/s}^2$.\nStep 4: For both blocks to accelerate together at $a_{\\max} = 1.0\\text{ m/s}^2$, the total horizontal force applied to block A must be:\n$F_{\\max} = (m_A + m_B) a_{\\max} = (2.0\\text{ kg} + 8.0\\text{ kg})(1.0\\text{ m/s}^2) = 10\\text{ N}$.\n(Equivalently, for block A: $F_{\\max} - f_{s,\\max} = m_A a_{\\max} \\implies F_{\\max} = 8.0 + (2.0)(1.0) = 10\\text{ N}$).\nStep 5: Distractor rejection: $8.0\\text{ N}$ is merely the limiting friction $f_{s,\\max}$. $40\\text{ N}$ incorrectly treats $m_B$ as the normal force generator."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_053",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Block A of mass $m_A = 2.0\\text{ kg}$ rests on top of block B of mass $m_B = 3.0\\text{ kg}$, which sits on a frictionless horizontal floor. The coefficient of kinetic friction between block A and block B is $\\mu_k = 0.20$. If a horizontal pulling force of $F = 25\\text{ N}$ is applied to the lower block B, causing relative slipping between the blocks, the accelerations of block A ($a_A$) and block B ($a_B$) are respectively ($g = 10\\text{ m/s}^2$):",
+      "options": [
+        "A) $2.0\\text{ m/s}^2$ and $7.0\\text{ m/s}^2$",
+        "B) $5.0\\text{ m/s}^2$ and $5.0\\text{ m/s}^2$",
+        "C) $1.0\\text{ m/s}^2$ and $8.0\\text{ m/s}^2$",
+        "D) $4.0\\text{ m/s}^2$ and $6.0\\text{ m/s}^2$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Because slipping occurs, the contact force between the blocks is kinetic friction $f_k$:\n$f_k = \\mu_k N_A = \\mu_k m_A g = (0.20)(2.0\\text{ kg})(10\\text{ m/s}^2) = 4.0\\text{ N}$.\nStep 2: By Newton's third law, $f_k = 4.0\\text{ N}$ acts forward on block A and backward on block B.\nStep 3: Equation of motion for block A: $f_k = m_A a_A$.\n$a_A = \\frac{f_k}{m_A} = \\frac{4.0\\text{ N}}{2.0\\text{ kg}} = 2.0\\text{ m/s}^2$.\nStep 4: Equation of motion for block B: $F - f_k = m_B a_B$.\n$25\\text{ N} - 4.0\\text{ N} = (3.0\\text{ kg}) a_B \\implies 21\\text{ N} = 3.0 a_B \\implies a_B = 7.0\\text{ m/s}^2$.\nStep 5: Distractor rejection: $5.0\\text{ m/s}^2$ and $5.0\\text{ m/s}^2$ assumes no slipping with common acceleration $a = \\frac{25}{5} = 5.0\\text{ m/s}^2$, which is invalid because the required friction ($m_A a = 10\\text{ N}$) exceeds the maximum available friction."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_054",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A rocket of initial total mass $M_0 = 1000\\text{ kg}$ is fired vertically upward from the launch pad. The rocket burns fuel at a constant rate of $\\alpha = -\\frac{dM}{dt} = 20\\text{ kg/s}$ and expels the exhaust gases downward at a constant speed of $u = 1200\\text{ m/s}$ relative to the rocket. Taking $g = 10\\text{ m/s}^2$ and neglecting air resistance, the upward thrust force $F_{\\text{thrust}}$ on the rocket and its initial upward acceleration $a_{\\text{init}}$ at lift-off are:",
+      "options": [
+        "A) $24000\\text{ N}$ and $24\\text{ m/s}^2$",
+        "B) $24000\\text{ N}$ and $14\\text{ m/s}^2$",
+        "C) $12000\\text{ N}$ and $2.0\\text{ m/s}^2$",
+        "D) $14000\\text{ N}$ and $14\\text{ m/s}^2$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The reaction thrust force produced by the variable mass ejection is:\n$F_{\\text{thrust}} = u\\left(-\\frac{dM}{dt}\\right) = (1200\\text{ m/s})(20\\text{ kg/s}) = 24000\\text{ N}$.\nStep 2: The downward gravitational force acting on the rocket at lift-off is:\n$W_0 = M_0 g = (1000\\text{ kg})(10\\text{ m/s}^2) = 10000\\text{ N}$.\nStep 3: The net upward accelerating force on the rocket at lift-off is:\n$F_{\\text{net}} = F_{\\text{thrust}} - M_0 g = 24000\\text{ N} - 10000\\text{ N} = 14000\\text{ N}$.\nStep 4: The initial upward acceleration is:\n$a_{\\text{init}} = \\frac{F_{\\text{net}}}{M_0} = \\frac{14000\\text{ N}}{1000\\text{ kg}} = 14\\text{ m/s}^2$.\nStep 5: Distractor rejection: $24\\text{ m/s}^2$ fails to subtract gravity ($a = \\frac{F_{\\text{thrust}}}{M_0} = 24\\text{ m/s}^2$), which violates the vertical equation of motion $a = \\frac{F_{\\text{thrust}}}{M} - g$."
+    },
+    {
+      "id": "phy_laws_of_motion_c01_055",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Dynamical System / Motion Phenomenon) with List II (Governing Characteristic Expression):\nList I:\nA. Optimum safe speed on a banked circular road without friction\nB. Maximum safe speed on an unbanked circular road with friction\nC. Period of revolution of a conical pendulum of string length $l$\nD. Acceleration of a smooth wedge to keep a block stationary on it\nList II:\nI. $\\sqrt{\\mu_s R g}$\nII. $\\sqrt{R g \\tan\\theta}$\nIII. $2\\pi\\sqrt{\\frac{l\\cos\\theta}{g}}$\nIV. $g\\tan\\theta$\nChoose the correct match from the options given below:",
+      "options": [
+        "A) A-I, B-II, C-IV, D-III",
+        "B) A-II, B-III, C-I, D-IV",
+        "C) A-II, B-I, C-III, D-IV",
+        "D) A-IV, B-I, C-II, D-III"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Match item A: Optimum speed on a banked circular road with zero friction is given by balancing $N\\sin\\theta = m v^2 / R$ and $N\\cos\\theta = mg$, which yields $v_0 = \\sqrt{R g \\tan\\theta}$. Thus, A matches II.\nStep 2: Match item B: Maximum speed on an unbanked circular track is determined by limiting static friction $\\mu_s mg = m v^2 / R$, which gives $v_{\\max} = \\sqrt{\\mu_s R g}$. Thus, B matches I.\nStep 3: Match item C: For a conical pendulum, the period of revolution is $T_p = \\frac{2\\pi}{\\omega} = 2\\pi\\sqrt{\\frac{l\\cos\\theta}{g}}$. Thus, C matches III.\nStep 4: Match item D: For a block to remain stationary on a smooth accelerating wedge, horizontal pseudo force balances gravity down the incline: $m a_0 \\cos\\theta = mg\\sin\\theta \\implies a_0 = g\\tan\\theta$. Thus, D matches IV.\nStep 5: Distractor rejection: Any correspondence other than A-II, B-I, C-III, D-IV is physically inconsistent with classical Newtonian mechanics."
+    }
+  ]
+}

@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "System of Particles and Rotational Motion",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_001",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the center of mass (CM) of a system of particles:\nStatement I: The center of mass of a system of particles moves as if all the mass of the system were concentrated at that point and all external forces were applied at that point.\nStatement II: Internal forces between the constituent particles of an isolated system can alter the motion of the center of mass.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Both Statement I and Statement II are incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: According to Newton's second law applied to a system of particles, $M\\vec{a}_{\\text{cm}} = \\sum \\vec{F}_{\\text{ext}}$. Thus, the center of mass translates in the exact manner as a single point mass equal to the total mass of the system acted upon by the resultant of all external forces. Hence, Statement I is correct.\nStep 2: By Newton's third law, the mutual internal forces exerted between any two particles of the system are equal and opposite ($\\vec{F}_{ij} = -\\vec{F}_{ji}$). Therefore, the vector sum of all internal forces is identically zero ($\\sum \\vec{F}_{\\text{int}} = 0$). Consequently, internal forces cannot produce any net acceleration of the center of mass or alter its trajectory. Hence, Statement II is incorrect.\nStep 3: Distractor rejection: Any option stating that Statement II is correct or Statement I is incorrect fails because internal forces strictly cancel in pairs and external forces solely govern center of mass acceleration."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_002",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The center of mass of a rigid body does not necessarily lie inside the material of the body.\nReason (R): The location of the center of mass depends purely on the spatial distribution of mass and the geometric shape of the body, rather than where the matter physically resides.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Assertion (A): The center of mass is a mathematical weighted-average position of mass. For bodies like a uniform thin ring, a hollow sphere, a hollow cylinder, or a bent uniform rod, the center of mass lies at their geometric center or in the empty hollow space where no physical material exists. Hence, Assertion (A) is true.\nStep 2: Analyze Reason (R): The position vector of the center of mass is given by $\\vec{r}_{\\text{cm}} = \\frac{1}{M}\\int \\vec{r}\\,dm$. This integral depends entirely on the spatial coordinates and distribution of mass elements across space. Symmetry and geometry determine this weighted balance point, which can fall into void regions. Hence, Reason (R) is true and correctly explains Assertion (A).\nStep 3: Distractor rejection: Options stating that (A) or (R) is false are incorrect because both are standard NCERT principles."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_003",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two particles of masses $m_1 = 2\\text{ kg}$ and $m_2 = 6\\text{ kg}$ are separated by a fixed distance of $80\\text{ cm}$. The distance of the center of mass of the two-particle system from the $2\\text{ kg}$ mass is:",
+      "options": [
+        "A) $20\\text{ cm}$",
+        "B) $40\\text{ cm}$",
+        "C) $60\\text{ cm}$",
+        "D) $70\\text{ cm}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Place the coordinate origin at the position of the $2\\text{ kg}$ mass ($x_1 = 0$). The position of the second mass is $x_2 = 80\\text{ cm}$.\nStep 2: Using the center of mass formula for a two-particle system:\n$X_{\\text{cm}} = \\frac{m_1 x_1 + m_2 x_2}{m_1 + m_2} = \\frac{(2 \\times 0) + (6 \\times 80)}{2 + 6} = \\frac{480}{8} = 60\\text{ cm}$.\nStep 3: Alternatively, recall that the distances from the center of mass satisfy the inverse mass ratio: $r_1 / r_2 = m_2 / m_1 = 6/2 = 3/1$. Since $r_1 + r_2 = 80\\text{ cm}$, we have $r_1 = \\frac{3}{3+1} \\times 80 = 60\\text{ cm}$.\nDistractor rejection: $20\\text{ cm}$ is the distance from the heavier $6\\text{ kg}$ mass ($r_2$), not the $2\\text{ kg}$ mass; $40\\text{ cm}$ assumes equal masses; $70\\text{ cm}$ is an arithmetic miscalculation."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_004",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the choice of coordinate frame and the center of mass:\nStatement I: The physical position of the center of mass of a rigid body in space is absolute and independent of the choice of coordinate axes or origin.\nStatement II: The numerical coordinates $(X_{\\text{cm}}, Y_{\\text{cm}}, Z_{\\text{cm}})$ of the center of mass remain unchanged when the origin of the coordinate system is shifted.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Statement I is correct but Statement II is incorrect."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement I is correct because the center of mass represents a unique physical point fixed relative to the mass distribution of the body. Its physical location in space or relative to the particles does not change when we rotate or shift coordinate axes.\nStep 2: Statement II is incorrect. The numerical coordinates $(X_{\\text{cm}}, Y_{\\text{cm}}, Z_{\\text{cm}})$ explicitly depend on the chosen coordinate frame. If the origin is shifted by a displacement vector $\\vec{r}_0$, the new position vector of the center of mass becomes $\\vec{r}'_{\\text{cm}} = \\vec{r}_{\\text{cm}} - \\vec{r}_0$, changing the numerical values of the coordinates.\nStep 3: Distractor rejection: Any option stating that Statement II is correct is false because coordinates are always relative to the selected reference origin."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_005",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Three identical particles, each of mass $m$, are placed at the vertices of an equilateral triangle of side $L$. One vertex is located at the origin $(0, 0)$, the second vertex lies on the positive x-axis at $(L, 0)$, and the third vertex lies in the first quadrant at $\\left(\\frac{L}{2}, \\frac{\\sqrt{3}L}{2}\\right)$. The coordinates of the center of mass of this system are:",
+      "options": [
+        "A) $\\left(\\frac{L}{2}, \\frac{L}{2\\sqrt{3}}\\right)$",
+        "B) $\\left(\\frac{L}{2}, \\frac{\\sqrt{3}L}{4}\\right)$",
+        "C) $\\left(\\frac{L}{3}, \\frac{L}{\\sqrt{3}}\\right)$",
+        "D) $\\left(\\frac{L}{2}, \\frac{\\sqrt{3}L}{2}\\right)$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate the x-coordinate of the center of mass:\n$X_{\\text{cm}} = \\frac{m(0) + m(L) + m(L/2)}{3m} = \\frac{3L/2}{3} = \\frac{L}{2}$.\nStep 2: Calculate the y-coordinate of the center of mass:\n$Y_{\\text{cm}} = \\frac{m(0) + m(0) + m\\left(\\frac{\\sqrt{3}L}{2}\\right)}{3m} = \\frac{\\sqrt{3}L/2}{3} = \\frac{\\sqrt{3}L}{6} = \\frac{L}{2\\sqrt{3}}$.\nStep 3: This point coincides exactly with the geometric centroid of the equilateral triangle, which lies at a height of $\\frac{1}{3} h = \\frac{1}{3}\\left(\\frac{\\sqrt{3}L}{2}\\right) = \\frac{L}{2\\sqrt{3}}$.\nDistractor rejection: $\\frac{\\sqrt{3}L}{4}$ is half the altitude; $\\left(\\frac{L}{3}, \\frac{L}{\\sqrt{3}}\\right)$ uses incorrect weighting; $\\left(\\frac{L}{2}, \\frac{\\sqrt{3}L}{2}\\right)$ is the coordinate of the third vertex itself."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_006",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): When a projectile explodes in mid-air into several fragments, the center of mass of the fragments continues to follow the original parabolic path until the first fragment strikes the ground.\nReason (R): The explosion is caused solely by internal chemical forces, and internal forces cannot exert any net external force to alter the acceleration of the center of mass.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Assertion (A): As established in NCERT, the motion of the center of mass depends solely on external forces: $\\vec{F}_{\\text{ext}} = M\\vec{a}_{\\text{cm}}$. Throughout the flight in mid-air, the only external force acting on the projectile system is the uniform force of gravity ($M\\vec{g}$ downwards). Hence, $\\vec{a}_{\\text{cm}} = \\vec{g}$. The center of mass continues along its original parabolic path unchanged. Assertion (A) is true.\nStep 2: Analyze Reason (R): The forces generated during the explosion are internal action-reaction pairs between fragments. By Newton's third law, $\\sum \\vec{F}_{\\text{int}} = 0$. Since external forces are completely unaffected by internal forces, the trajectory of the center of mass is unaltered. Thus, Reason (R) is true and correctly explains Assertion (A).\nStep 3: Distractor rejection: Any option disputing the truth of (A) or (R) or their explanatory link is incorrect."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_007",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle of mass $m_1 = 1\\text{ kg}$ is moving with a velocity $\\vec{v}_1 = 6\\hat{i}\\text{ m/s}$, and a second particle of mass $m_2 = 3\\text{ kg}$ is moving with a velocity $\\vec{v}_2 = 2\\hat{j}\\text{ m/s}$. The magnitude of the velocity of the center of mass of this two-particle system is:",
+      "options": [
+        "A) $1.5\\text{ m/s}$",
+        "B) $3\\sqrt{2}\\text{ m/s}$",
+        "C) $1.5\\sqrt{2}\\text{ m/s}$",
+        "D) $6\\text{ m/s}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Use the definition of the velocity of the center of mass for a system of particles:\n$\\vec{v}_{\\text{cm}} = \\frac{m_1\\vec{v}_1 + m_2\\vec{v}_2}{m_1 + m_2}$.\nStep 2: Substitute the given values ($m_1 = 1\\text{ kg}, m_2 = 3\\text{ kg}, \\vec{v}_1 = 6\\hat{i}, \\vec{v}_2 = 2\\hat{j}$):\n$\\vec{v}_{\\text{cm}} = \\frac{1(6\\hat{i}) + 3(2\\hat{j})}{1 + 3} = \\frac{6\\hat{i} + 6\\hat{j}}{4} = 1.5\\hat{i} + 1.5\\hat{j}\\text{ m/s}$.\nStep 3: Calculate the magnitude of $\\vec{v}_{\\text{cm}}$:\n$|\\vec{v}_{\\text{cm}}| = \\sqrt{(1.5)^2 + (1.5)^2} = 1.5\\sqrt{2}\\text{ m/s}$.\nDistractor rejection: $1.5\\text{ m/s}$ is only the x-component or y-component; $3\\sqrt{2}\\text{ m/s}$ results from dividing by $2$ instead of total mass $4\\text{ kg}$; $6\\text{ m/s}$ is the speed of particle 1."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_008",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the Center of Mass (CM) and Center of Gravity (CG) of an extended body:\nStatement I: The center of mass of a body coincides with its center of gravity if and only if the body is situated in a uniform gravitational field.\nStatement II: For an extraordinarily tall structure like a mountain on Earth where the gravitational field decreases with altitude, the center of gravity lies slightly above the center of mass.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Statement I is correct but Statement II is incorrect."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement I is correct. Center of mass depends solely on mass distribution, whereas center of gravity is the point where the total gravitational torque vanishes. When the gravitational acceleration $\\vec{g}$ is uniform over the body, $\\sum m_i \\vec{r}_i \\times \\vec{g} = \\left(\\sum m_i \\vec{r}_i\\right) \\times \\vec{g} = 0$, meaning CG and CM strictly coincide.\nStep 2: Statement II is incorrect. For a gigantic structure such as a mountain, the acceleration due to gravity $g$ decreases with increasing height ($g \\propto 1/r^2$). Therefore, the lower portions of the structure experience a greater gravitational pull per unit mass than the upper portions. Consequently, the weighted center of gravitational force (CG) is shifted downwards and lies slightly below the center of mass (CM), not above it.\nStep 3: Distractor rejection: Any option validating Statement II is erroneous because weaker gravity at high altitudes shifts the center of gravity downward relative to the center of mass."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_009",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A man of mass $m = 60\\text{ kg}$ stands at one end of a stationary boat of mass $M = 140\\text{ kg}$ and length $L = 5\\text{ m}$ resting on calm, frictionless water. If the man walks to the other end of the boat, the displacement of the boat relative to the shore is:",
+      "options": [
+        "A) $1.5\\text{ m}$",
+        "B) $2.1\\text{ m}$",
+        "C) $2.5\\text{ m}$",
+        "D) $3.5\\text{ m}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Since there is no external horizontal force acting on the (man + boat) system, the horizontal position of the center of mass of the system relative to the shore must remain strictly stationary: $\\Delta X_{\\text{cm}} = 0$.\nStep 2: Let the displacement of the boat relative to the shore be $\\Delta x_{\\text{boat}} = -x$. The displacement of the man relative to the shore is $\\Delta x_{\\text{man}} = L - x$.\nStep 3: Apply the condition $m \\Delta x_{\\text{man}} + M \\Delta x_{\\text{boat}} = 0$:\n$m(L - x) - Mx = 0 \\implies mL = (m + M)x \\implies x = \\frac{m L}{m + M}$.\nStep 4: Substitute the given numerical values ($m = 60\\text{ kg}, M = 140\\text{ kg}, L = 5\\text{ m}$):\n$x = \\frac{60 \\times 5}{60 + 140} = \\frac{300}{200} = 1.5\\text{ m}$.\nDistractor rejection: $2.1\\text{ m}$ results from using $M/(m+M) \\times L = 140/200 \\times 5 = 3.5\\text{ m}$ divided incorrectly; $2.5\\text{ m}$ assumes equal masses; $3.5\\text{ m}$ is the displacement of the man relative to the shore."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_010",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two blocks of masses $m_1 = 4\\text{ kg}$ and $m_2 = 6\\text{ kg}$ are connected by a light spring of stiffness $k$ and placed on a smooth horizontal surface. A constant horizontal force $F = 20\\text{ N}$ is applied to the $6\\text{ kg}$ block pulling it away from the $4\\text{ kg}$ block. At an instant when the $4\\text{ kg}$ block has an acceleration of $1\\text{ m/s}^2$ towards the right, the acceleration of the center of mass of the two-block system is:",
+      "options": [
+        "A) $1.0\\text{ m/s}^2$",
+        "B) $2.0\\text{ m/s}^2$",
+        "C) $1.6\\text{ m/s}^2$",
+        "D) $2.5\\text{ m/s}^2$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Understand that the spring force connecting the two blocks is purely an internal force. Internal forces exert equal and opposite pushes or pulls that cancel each other out in the system equation.\nStep 2: The acceleration of the center of mass of any system is determined solely by the net external force acting on the total mass: $\\vec{a}_{\\text{cm}} = \\frac{\\vec{F}_{\\text{ext}}}{M_{\\text{total}}}$.\nStep 3: The only external horizontal force acting on the system is $F = 20\\text{ N}$, and the total mass is $M_{\\text{total}} = m_1 + m_2 = 4\\text{ kg} + 6\\text{ kg} = 10\\text{ kg}$.\n$a_{\\text{cm}} = \\frac{F}{m_1 + m_2} = \\frac{20}{10} = 2.0\\text{ m/s}^2$.\nNotice that the instantaneous acceleration of individual blocks or internal spring oscillation does not affect $a_{\\text{cm}}$.\nDistractor rejection: $1.0\\text{ m/s}^2$ is the acceleration of the $4\\text{ kg}$ block; $1.6\\text{ m/s}^2$ and $2.5\\text{ m/s}^2$ come from dividing $F$ by $m_2$ or erroneous mass combinations."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_011",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): If the net external force acting on a system of particles is zero, the total linear momentum of the system remains constant and its center of mass moves with constant velocity or remains at rest.\nReason (R): Newton's second law for a system of particles states that $\\frac{d\\vec{P}}{dt} = \\vec{F}_{\\text{ext}}$, where $\\vec{P} = M\\vec{v}_{\\text{cm}}$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Assertion (A): By the law of conservation of linear momentum, when $\\vec{F}_{\\text{ext}} = 0$, the total momentum $\\vec{P}$ is conserved. Since $\\vec{P} = M\\vec{v}_{\\text{cm}}$, a constant total momentum implies $\\vec{v}_{\\text{cm}} = \\text{constant}$ (or zero if initially at rest). Thus, Assertion (A) is true.\nStep 2: Analyze Reason (R): From NCERT mechanics, the rate of change of the total linear momentum of a system of particles equals the vector sum of external forces acting on it: $\\frac{d\\vec{P}}{dt} = \\vec{F}_{\\text{ext}}$. When $\\vec{F}_{\\text{ext}} = 0$, $\\frac{d\\vec{P}}{dt} = 0 \\implies \\vec{P} = \\text{constant}$, directly explaining why $\\vec{v}_{\\text{cm}}$ is constant. Hence, Reason (R) is true and correctly explains Assertion (A).\nStep 3: Distractor rejection: Both statements are textbook truths, and (R) provides the mathematical proof for (A)."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_012",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the center of mass of uniform planar laminas:\nStatement I: The center of mass of a uniform triangular lamina lies at the intersection of its three medians (its centroid).\nStatement II: The centroid of a triangle divides each median internally in the ratio $1:2$ measured from the vertex to the opposite base.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Statement I is correct but Statement II is incorrect."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Statement I: A uniform triangular lamina can be considered as composed of narrow strips parallel to the base. The center of mass of each strip lies at its midpoint. The locus of midpoints of all such strips is a median. Since this holds for all three orientations, the center of mass must lie at the common intersection of the three medians, which is the centroid. Thus, Statement I is correct.\nStep 2: Analyze Statement II: From standard geometry, the centroid divides each median internally in the ratio $2:1$ from the vertex to the opposite side, not $1:2$. (The distance from vertex to centroid is twice the distance from centroid to midpoint of opposite base). Hence, Statement II is incorrect.\nStep 3: Distractor rejection: Any option declaring Statement II to be correct is eliminated due to the reversed geometric ratio."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_013",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A stationary radioactive nucleus of total mass $3m$ disintegrates into two daughter fragments of masses $m$ and $2m$. If the lighter fragment of mass $m$ is emitted with a speed of $12\\text{ m/s}$ along the positive x-axis, which of the following correctly describes the motion of the center of mass of the system after disintegration?",
+      "options": [
+        "A) The center of mass remains permanently at rest at the site of decay.",
+        "B) The center of mass moves along the positive x-axis at $4\\text{ m/s}$.",
+        "C) The center of mass moves along the negative x-axis at $6\\text{ m/s}$.",
+        "D) The center of mass accelerates at $9.8\\text{ m/s}^2$ due to mass defect."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The radioactive disintegration occurs under the action of internal nuclear forces. No external force acts on the parent nucleus during the decay process ($\\vec{F}_{\\text{ext}} = 0$).\nStep 2: By conservation of linear momentum, the total momentum remains zero: $\\vec{P} = m\\vec{v}_1 + 2m\\vec{v}_2 = 0 \\implies \\vec{v}_2 = -\\frac{m}{2m}(12\\hat{i}) = -6\\hat{i}\\text{ m/s}$.\nStep 3: The velocity of the center of mass is given by $\\vec{v}_{\\text{cm}} = \\frac{\\vec{P}}{M_{\\text{total}}} = \\frac{0}{3m} = 0$. Since the parent nucleus was initially at rest, the center of mass remains permanently at rest at the original position.\nDistractor rejection: Distractors predicting non-zero velocities mistakenly confuse the velocity of the center of mass with the velocity of one of the fragments; invoking mass defect to claim acceleration is physically erroneous since no external forces act."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_014",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two particles of masses $m_1 = 3\\text{ kg}$ and $m_2 = 5\\text{ kg}$ are located on a straight line. If the $3\\text{ kg}$ mass is shifted towards the right by a distance of $10\\text{ cm}$, by what distance and in which direction must the $5\\text{ kg}$ mass be shifted so that the position of the center of mass remains unchanged?",
+      "options": [
+        "A) $6\\text{ cm}$ towards the right",
+        "B) $6\\text{ cm}$ towards the left",
+        "C) $16.7\\text{ cm}$ towards the left",
+        "D) $10\\text{ cm}$ towards the left"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The condition for the center of mass position to remain unchanged is $\\Delta X_{\\text{cm}} = 0$.\nStep 2: The change in position of the center of mass is given by:\n$\\Delta X_{\\text{cm}} = \\frac{m_1 \\Delta x_1 + m_2 \\Delta x_2}{m_1 + m_2} = 0 \\implies m_1 \\Delta x_1 + m_2 \\Delta x_2 = 0$.\nStep 3: Substitute $m_1 = 3\\text{ kg}$, $\\Delta x_1 = +10\\text{ cm}$, and $m_2 = 5\\text{ kg}$:\n$3(+10) + 5(\\Delta x_2) = 0 \\implies 30 + 5\\Delta x_2 = 0 \\implies \\Delta x_2 = -6\\text{ cm}$.\nStep 4: The negative sign indicates that the $5\\text{ kg}$ mass must be shifted by $6\\text{ cm}$ towards the left.\nDistractor rejection: $6\\text{ cm}$ towards the right would shift the center of mass by $+6\\text{ cm}$; $16.7\\text{ cm}$ comes from inverted ratio $(5/3) \\times 10$; $10\\text{ cm}$ assumes equal masses."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_015",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The center of mass of a solid sphere of uniform mass density coincides with its geometric center, but for a solid sphere of non-uniform mass density, it does not necessarily lie at the center.\nReason (R): For any body having a point, line, or plane of geometric symmetry, the center of mass lies at that point, line, or plane only if the mass density distribution shares the same symmetry.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Assertion (A): In a uniform solid sphere, every mass element $dm$ at $\\vec{r}$ is balanced by an identical mass element at $-\\vec{r}$, placing the center of mass at the origin (geometric center). If the density is non-uniform (e.g. one hemisphere is made of lead and the other of aluminum), the center of mass shifts towards the denser side. Thus, Assertion (A) is true.\nStep 2: Analyze Reason (R): Symmetry arguments strictly require that the distribution of mass $\\rho(\\vec{r})$ must possess the geometric symmetry. If the mass density violates the symmetry, the integral $\\int \\vec{r}\\,dm$ does not vanish at the geometric center. Hence, Reason (R) is true and correctly explains Assertion (A).\nStep 3: Distractor rejection: Both statements are fundamental NCERT concepts, and (R) directly explains (A)."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_016",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements regarding the center of mass of a rigid body is INCORRECT?",
+      "options": [
+        "A) The center of mass of a uniform circular ring is located at its center, where no matter is present.",
+        "B) The center of mass of a system of particles always lies closer to the heavier particle than the lighter particle.",
+        "C) If no external force acts on a system, the center of mass cannot undergo acceleration even if individual particles are accelerating.",
+        "D) The center of mass of a body depends on the magnitude and direction of the local acceleration due to gravity."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement A: A uniform ring has rotational symmetry about its center, so $\\vec{r}_{\\text{cm}} = 0$, which is in empty space. This statement is correct.\nStep 2: Evaluate Statement B: From $m_1 r_1 = m_2 r_2$, the distance from the center of mass is inversely proportional to mass ($r \\propto 1/m$). Hence, the CM is always closer to the heavier particle. This statement is correct.\nStep 3: Evaluate Statement C: Since $\\vec{a}_{\\text{cm}} = \\vec{F}_{\\text{ext}}/M$, when $\\vec{F}_{\\text{ext}} = 0$, $\\vec{a}_{\\text{cm}} = 0$ strictly. Individual particles may accelerate due to internal forces (such as mutual gravity or spring forces). This statement is correct.\nStep 4: Evaluate Statement D: The center of mass depends solely on mass and spatial distribution ($\\vec{r}_{\\text{cm}} = \\frac{\\sum m_i \\vec{r}_i}{M}$). It is completely independent of the gravitational field or acceleration due to gravity (that is the property of the center of gravity). Therefore, Statement D is incorrect, making it the right answer.\nDistractor rejection: Symmetrical empty spaces, proximity to heavier particles, and conservation of center-of-mass velocity in the absence of external forces are all scientifically valid principles, whereas claiming dependence on gravitational field falsely confuses center of mass with center of gravity."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_017",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Four particles of masses $1\\text{ kg}, 2\\text{ kg}, 3\\text{ kg},$ and $4\\text{ kg}$ are placed at the four corners $A(0,0), B(1,0), C(1,1),$ and $D(0,1)$ of a square of side $1\\text{ m}$ in the xy-plane. The coordinates of the center of mass of the system are:",
+      "options": [
+        "A) $(0.5\\text{ m}, 0.7\\text{ m})$",
+        "B) $(0.5\\text{ m}, 0.5\\text{ m})$",
+        "C) $(0.6\\text{ m}, 0.7\\text{ m})$",
+        "D) $(0.7\\text{ m}, 0.6\\text{ m})$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: List the coordinates of the four particles:\n- Mass $m_1 = 1\\text{ kg}$ at $(0, 0)$\n- Mass $m_2 = 2\\text{ kg}$ at $(1, 0)$\n- Mass $m_3 = 3\\text{ kg}$ at $(1, 1)$\n- Mass $m_4 = 4\\text{ kg}$ at $(0, 1)$\nTotal mass $M = 1 + 2 + 3 + 4 = 10\\text{ kg}$.\nStep 2: Calculate $X_{\\text{cm}}$:\n$X_{\\text{cm}} = \\frac{1(0) + 2(1) + 3(1) + 4(0)}{10} = \\frac{2 + 3}{10} = \\frac{5}{10} = 0.5\\text{ m}$.\nStep 3: Calculate $Y_{\\text{cm}}$:\n$Y_{\\text{cm}} = \\frac{1(0) + 2(0) + 3(1) + 4(1)}{10} = \\frac{3 + 4}{10} = \\frac{7}{10} = 0.7\\text{ m}$.\nThus, the center of mass is at $(0.5\\text{ m}, 0.7\\text{ m})$.\nDistractor rejection: $(0.5\\text{ m}, 0.5\\text{ m})$ corresponds to four equal masses at the corners; $(0.6\\text{ m}, 0.7\\text{ m})$ and $(0.7\\text{ m}, 0.6\\text{ m})$ represent swapped or miscalculated coordinate products."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_018",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the Center of Gravity (CG) of a rigid body:\nStatement I: The center of gravity of a body is the point about which the total gravitational torque on the body is zero.\nStatement II: A body supported at its center of gravity will remain in rotational balance in any orientation in a uniform gravitational field.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Statement I is correct. By definition in NCERT, the center of gravity of an extended body is the point through which the resultant gravitational force acts, which means the sum of the torques of the gravitational forces on all particles about this point is zero: $\\vec{\\tau}_g = \\sum (\\vec{r}_i - \\vec{r}_{\\text{cg}}) \\times m_i \\vec{g} = 0$.\nStep 2: Statement II is correct. If a body is pivoted or supported at its center of gravity, the normal reaction from the pivot acts directly through the center of gravity, and the net gravitational torque about the pivot is identically zero regardless of how the body is tilted. Therefore, it remains in neutral rotational equilibrium in any orientation.\nStep 3: Distractor rejection: Both statements are direct NCERT definitions and principles, so any option stating either is incorrect is false."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_019",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two particles $A$ and $B$, initially at rest at a large separation, move towards each other under their mutual gravitational attraction. At any instant during their motion, which of the following statements is correct regarding the system consisting of particles $A$ and $B$?",
+      "options": [
+        "A) The total mechanical energy of the system is not conserved because particles are accelerating.",
+        "B) The center of mass of the system accelerates towards the heavier particle.",
+        "C) The total linear momentum of the system remains zero and the center of mass remains at rest.",
+        "D) The velocity of the center of mass increases continuously as the particles get closer."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The gravitational attraction between particles $A$ and $B$ is an internal force. No external force acts on the two-particle system ($\\vec{F}_{\\text{ext}} = 0$).\nStep 2: By Newton's second law for a system of particles, $\\vec{F}_{\\text{ext}} = M\\vec{a}_{\\text{cm}} = 0$, which implies $\\vec{a}_{\\text{cm}} = 0$. Since the particles were initially at rest, $\\vec{v}_{\\text{cm}} = 0$ throughout the entire motion.\nStep 3: Total linear momentum $\\vec{P} = M\\vec{v}_{\\text{cm}} = 0$ is strictly conserved at every instant.\nDistractor rejection: Gravity is a conservative internal force, so total mechanical energy is conserved rather than lost; claims that the center of mass accelerates or increases speed are incorrect because internal mutual forces cannot alter the velocity of the center of mass."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_020",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A thin non-uniform rod of length $L$ lies along the x-axis with one end at the origin $x = 0$. Its linear mass density varies directly with distance from the origin according to the relation $\\lambda(x) = c x$, where $c$ is a positive constant. The position of the center of mass of the rod is:",
+      "options": [
+        "A) $\\frac{L}{3}$",
+        "B) $\\frac{L}{2}$",
+        "C) $\\frac{3L}{4}$",
+        "D) $\\frac{2L}{3}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Use the integral definition of the center of mass for a continuous one-dimensional body:\n$X_{\\text{cm}} = \\frac{\\int_0^L x\\,dm}{\\int_0^L dm}$, where $dm = \\lambda(x)\\,dx = cx\\,dx$.\nStep 2: Evaluate the total mass $M$:\n$M = \\int_0^L cx\\,dx = c \\left[ \\frac{x^2}{2} \\right]_0^L = \\frac{cL^2}{2}$.\nStep 3: Evaluate the numerator $\\int_0^L x\\,dm$:\n$\\int_0^L x(cx)\\,dx = c \\int_0^L x^2\\,dx = c \\left[ \\frac{x^3}{3} \\right]_0^L = \\frac{cL^3}{3}$.\nStep 4: Compute $X_{\\text{cm}}$:\n$X_{\\text{cm}} = \\frac{cL^3 / 3}{cL^2 / 2} = \\frac{2L}{3}$.\nDistractor rejection: $\\frac{L}{2}$ corresponds to a uniform rod; $\\frac{L}{3}$ would mean mass is concentrated near the origin (e.g. $\\lambda \\propto (L-x)$); $\\frac{3L}{4}$ corresponds to a density varying as $x^2$."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_021",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): When a single external force $\\vec{F}$ acts on a free rigid body of mass $M$, the acceleration of its center of mass is $\\vec{a}_{\\text{cm}} = \\frac{\\vec{F}}{M}$, regardless of whether the line of action of the force passes through the center of mass or not.\nReason (R): The point of application of an external force influences the rotational motion and torque on the body, but does not affect the translational acceleration of the center of mass.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Assertion (A): By Newton's second law for a system of particles, $\\sum \\vec{F}_{\\text{ext}} = M\\vec{a}_{\\text{cm}}$. This vector equation contains no term representing the point of application or coordinate of the force. Hence, $\\vec{a}_{\\text{cm}} = \\vec{F}/M$ is unconditionally true whether the force acts at the center of mass, at the rim, or along an eccentric axis. Thus, Assertion (A) is true.\nStep 2: Analyze Reason (R): Shifting the line of action of $\\vec{F}$ changes the torque about the center of mass ($\\vec{\\tau}_{\\text{cm}} = \\vec{r} \\times \\vec{F}$), thereby affecting angular acceleration $\\alpha$. However, it has zero influence on the translational acceleration $\\vec{a}_{\\text{cm}}$. Reason (R) is true and perfectly explains Assertion (A).\nStep 3: Distractor rejection: Both statements are fundamental NCERT rigid body dynamics concepts: translational acceleration of the center of mass is strictly governed by resultant external force independent of location, while line of action determines torque."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_022",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding the location of the center of mass for various uniform symmetrical bodies:\nList I (Body)\nA. Uniform thin circular ring of radius $R$\nB. Uniform thin semi-circular wire of radius $R$\nC. Uniform solid hemisphere of radius $R$\nD. Uniform semi-circular disc of radius $R$\nList II (Distance of CM from base center / diameter along symmetry axis)\nI. $\\frac{4R}{3\\pi}$\nII. $0$ (at the geometric center)\nIII. $\\frac{3R}{8}$\nIV. $\\frac{2R}{\\pi}$\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-I, C-III, D-IV",
+        "B) A-II, B-IV, C-III, D-I",
+        "C) A-II, B-IV, C-I, D-III",
+        "D) A-III, B-IV, C-II, D-I"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Identify the standard NCERT center of mass positions for symmetrical bodies:\n- Uniform thin circular ring: The center of mass is at its geometric center, so distance from center is $0$ (Matches II).\n- Uniform thin semi-circular wire: By integration $\\int y\\,dm / M$, the center of mass lies on the symmetry axis at a distance $y_{\\text{cm}} = \\frac{2R}{\\pi}$ from the base center (Matches IV).\n- Uniform solid hemisphere: By integration of elemental discs, $y_{\\text{cm}} = \\frac{3R}{8}$ from the flat base center (Matches III).\n- Uniform semi-circular disc: By integration of concentric semi-circular strips, $y_{\\text{cm}} = \\frac{4R}{3\\pi}$ from the diametrical base center (Matches I).\nStep 2: Combining these matches gives: A-II, B-IV, C-III, D-I.\nDistractor rejection: The other options confuse the formulas for the semi-circular wire ($\\frac{2R}{\\pi}$) with the semi-circular disc ($\\frac{4R}{3\\pi}$), or invert the solid hemisphere ($3R/8$)."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_023",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A force $\\vec{F} = (4\\hat{i} - 2\\hat{j} + 3\\hat{k})\\text{ N}$ acts at a point whose position vector relative to the origin is $\\vec{r} = (2\\hat{i} + 3\\hat{j} - \\hat{k})\\text{ m}$. The torque $\\vec{\\tau}$ acting about the origin is:",
+      "options": [
+        "A) $(-7\\hat{i} + 10\\hat{j} + 16\\hat{k})\\text{ N}\\cdot\\text{m}$",
+        "B) $(7\\hat{i} + 10\\hat{j} - 16\\hat{k})\\text{ N}\\cdot\\text{m}$",
+        "C) $(7\\hat{i} - 10\\hat{j} - 16\\hat{k})\\text{ N}\\cdot\\text{m}$",
+        "D) $(11\\hat{i} - 2\\hat{j} - 16\\hat{k})\\text{ N}\\cdot\\text{m}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: By definition, the torque vector is the cross product of the position vector $\\vec{r}$ and the force vector $\\vec{F}$:\n$\\vec{\\tau} = \\vec{r} \\times \\vec{F}$.\nStep 2: Evaluate the determinant of the cross product:\n$\\vec{\\tau} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 2 & 3 & -1 \\\\ 4 & -2 & 3 \\end{vmatrix}$.\nStep 3: Expand the determinant along the first row:\n$\\hat{i} \\left[(3)(3) - (-1)(-2)\\right] - \\hat{j} \\left[(2)(3) - (-1)(4)\\right] + \\hat{k} \\left[(2)(-2) - (3)(4)\\right]$\n$= \\hat{i} [9 - 2] - \\hat{j} [6 - (-4)] + \\hat{k} [-4 - 12]$\n$= 7\\hat{i} - 10\\hat{j} - 16\\hat{k}\\text{ N}\\cdot\\text{m}$.\nDistractor rejection: An inverted sign result arises from computing $\\vec{F} \\times \\vec{r}$ instead of $\\vec{r} \\times \\vec{F}$; other incorrect vectors stem from sign errors during the cofactor expansion of the determinant."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_024",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the torque produced by a couple:\nStatement I: A couple consists of a pair of equal and opposite parallel forces whose lines of action do not coincide.\nStatement II: The moment of a couple (its torque) depends explicitly on the point in space about which the moments are taken.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Statement I is correct but Statement II is incorrect."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement I is correct. In NCERT mechanics, a couple is defined as a pair of equal and opposite forces acting along two parallel, distinct lines of action (for example, forces exerted when turning a tap or jar lid).\nStep 2: Statement II is incorrect. Let forces $\\vec{F}$ and $-\\vec{F}$ act at points with position vectors $\\vec{r}_1$ and $\\vec{r}_2$. The total torque about any arbitrary origin $O$ is $\\vec{\\tau} = \\vec{r}_1 \\times \\vec{F} + \\vec{r}_2 \\times (-\\vec{F}) = (\\vec{r}_1 - \\vec{r}_2) \\times \\vec{F}$. Here, $\\vec{r}_1 - \\vec{r}_2$ is the relative displacement vector between the points of application. This expression is completely independent of the choice of origin $O$!\nStep 3: Distractor rejection: Any option stating Statement II is correct is invalid because the torque of a couple is an invariant pure rotational moment."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_025",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle of mass $m$ moves in the xy-plane with a constant velocity $\\vec{v} = v\\hat{i}$ along the straight line $y = b$ ($b > 0$). The magnitude of the angular momentum of the particle about the origin $(0, 0)$:",
+      "options": [
+        "A) remains constant at all times and is equal to $m v b$.",
+        "B) is zero because the particle moves in a straight line with zero angular velocity.",
+        "C) increases linearly with time as the distance of the particle from the origin increases.",
+        "D) decreases inversely with time as the angle between $\\vec{r}$ and $\\vec{v}$ decreases."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The position vector of the particle at any time $t$ is $\\vec{r}(t) = x(t)\\hat{i} + b\\hat{j}$.\nStep 2: The linear momentum of the particle is $\\vec{p} = m\\vec{v} = mv\\hat{i}$.\nStep 3: Calculate the angular momentum vector about the origin:\n$\\vec{L} = \\vec{r} \\times \\vec{p} = (x\\hat{i} + b\\hat{j}) \\times (mv\\hat{i}) = xmv(\\hat{i} \\times \\hat{i}) + bmv(\\hat{j} \\times \\hat{i}) = -mvb\\hat{k}$.\nStep 4: The magnitude of the angular momentum is $|\\vec{L}| = mvb = p \\cdot r_\\perp$, where $r_\\perp = b$ is the constant perpendicular distance from the origin to the line of motion. Because neither $m$, $v$, nor $b$ changes with time, the magnitude remains strictly constant.\nDistractor rejection: Straight-line motion does not imply zero angular momentum unless the trajectory line passes directly through the origin; time-dependent variations overlook that the perpendicular lever arm $r_\\perp = b$ remains strictly constant throughout the motion."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_026",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform meter stick of mass $M = 150\\text{ g}$ is supported on a knife-edge placed at the $40\\text{ cm}$ mark. To keep the meter stick in horizontal equilibrium, an unknown mass $m$ must be suspended at the $10\\text{ cm}$ mark. The value of mass $m$ is:",
+      "options": [
+        "A) $75\\text{ g}$",
+        "B) $50\\text{ g}$",
+        "C) $100\\text{ g}$",
+        "D) $150\\text{ g}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Identify the forces and their positions relative to the pivot at the $40\\text{ cm}$ mark:\n- The knife-edge pivot is at $x_p = 40\\text{ cm}$.\n- The meter stick is uniform, so its weight acts at its geometric center (the $50\\text{ cm}$ mark): $x_{\\text{cm}} = 50\\text{ cm}$.\n- The distance of the center of mass from the pivot is $d_1 = 50\\text{ cm} - 40\\text{ cm} = 10\\text{ cm}$ (clockwise torque).\n- The unknown mass $m$ is suspended at $x_m = 10\\text{ cm}$.\n- The distance of the mass $m$ from the pivot is $d_2 = 40\\text{ cm} - 10\\text{ cm} = 30\\text{ cm}$ (anticlockwise torque).\nStep 2: Apply the Principle of Moments for rotational equilibrium about the pivot ($\\sum \\tau = 0$):\n$m \\cdot g \\cdot d_2 = M \\cdot g \\cdot d_1 \\implies m \\cdot d_2 = M \\cdot d_1$.\nStep 3: Substitute the numerical values ($M = 150\\text{ g}, d_1 = 10\\text{ cm}, d_2 = 30\\text{ cm}$):\n$m \\times 30 = 150 \\times 10 \\implies 30m = 1500 \\implies m = 50\\text{ g}$.\nDistractor rejection: $75\\text{ g}$ results from using $d_2 = 20\\text{ cm}$; $100\\text{ g}$ results from using $d_1 = 20\\text{ cm}$; $150\\text{ g}$ ignores the unequal lever arms."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_027",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the mechanical equilibrium of a rigid body:\nStatement I: A rigid body can be in translational equilibrium without being in rotational equilibrium.\nStatement II: A rigid body can be in rotational equilibrium without being in translational equilibrium.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I: Consider a pair of equal and opposite forces acting along two parallel lines separated by a distance (a couple). Here, $\\sum \\vec{F} = \\vec{F} + (-\\vec{F}) = 0$, so the body is in translational equilibrium. However, the net torque is $\\vec{\\tau} = \\vec{d} \\times \\vec{F} \\ne 0$, so it is not in rotational equilibrium. Thus, Statement I is correct.\nStep 2: Analyze Statement II: Consider two equal parallel forces acting in the same direction at equal distances from the center of mass of a rod. The net torque about the center of mass is $\\tau = F(L/2) - F(L/2) = 0$, so the body has no angular acceleration about its center. However, the net force is $\\sum \\vec{F} = 2\\vec{F} \\ne 0$, so the center of mass accelerates translationally. Hence, Statement II is correct.\nStep 3: Distractor rejection: Both statements highlight the essential independence of translational equilibrium ($\\sum \\vec{F} = 0$) and rotational equilibrium ($\\sum \\vec{\\tau} = 0$) as stated in NCERT mechanics."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_028",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The moment of inertia of a rigid body about a specified axis of rotation depends on its mass, shape, size, and mass distribution relative to that axis, but is completely independent of its angular velocity $\\omega$.\nReason (R): Moment of inertia is the rotational analogue of inertial mass and measures the rotational inertia of the body purely as an intrinsic geometric-mass property.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Assertion (A): By definition, $I = \\sum m_i r_i^2 = \\int r^2\\,dm$. This integral involves only the mass of the elements and their perpendicular distances $r$ from the designated axis of rotation. It does not depend on whether the body is stationary or rotating at any angular velocity $\\omega$, nor does it depend on the torque applied. Thus, Assertion (A) is true.\nStep 2: Analyze Reason (R): In linear dynamics, inertial mass $M$ quantifies the resistance of a body to changes in linear velocity ($F = M a$). Analogously, moment of inertia $I$ quantifies resistance to angular acceleration ($\\tau = I \\alpha$). Just as mass $M$ is independent of linear velocity $v$, moment of inertia $I$ is independent of angular velocity $\\omega$. Reason (R) is true and correctly explains Assertion (A).\nStep 3: Distractor rejection: Both statements are direct NCERT definitions, and (R) correctly explains why $I$ is independent of dynamical state variables."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_029",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the radius of gyration ($k$) of a rotating rigid body:\nStatement I: The radius of gyration depends on the shape and size of the body and the position and orientation of the axis of rotation, but does not depend on the total mass of the body.\nStatement II: The radius of gyration is physically interpreted as the distance from the axis of rotation at which the entire mass of the body can be assumed to be concentrated to give the same moment of inertia.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I: The radius of gyration is defined by $I = M k^2 \\implies k = \\sqrt{I/M}$. For any geometrically defined body, $I$ is proportional to total mass $M$ (e.g. $I = c M R^2$, where $c$ is a geometric constant). Thus, $k = \\sqrt{c M R^2 / M} = R\\sqrt{c}$, which depends purely on the dimensions ($R$) and mass distribution relative to the axis, completely canceling out the total mass $M$. Hence, Statement I is correct.\nStep 2: Evaluate Statement II: If a single fictitious point mass equal to the total mass $M$ is positioned at a distance $k$ from the rotation axis, its moment of inertia is $M k^2$, identical to that of the extended rigid body. This is the exact physical definition given in NCERT. Hence, Statement II is correct.\nStep 3: Distractor rejection: Any option claiming either statement is incorrect fails to reflect NCERT definitions."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_030",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The theorem of perpendicular axes ($I_z = I_x + I_y$) cannot be applied to determine the moment of inertia of a solid cylinder or a solid sphere.\nReason (R): The theorem of perpendicular axes is strictly applicable only to planar laminar (two-dimensional) bodies lying in the xy-plane.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Reason (R): In deriving the theorem of perpendicular axes, the distance of a mass element $dm(x, y, z)$ from the z-axis is $r_z^2 = x^2 + y^2$. This yields $I_z = \\int (x^2 + y^2)\\,dm = \\int y^2\\,dm + \\int x^2\\,dm$. For this to equal $I_x + I_y$, the distance from the x-axis must be $y$ (implying $z = 0$) and from the y-axis must be $x$ (implying $z = 0$). This is mathematically valid if and only if the body is a thin planar lamina confined to the $xy$-plane ($z = 0$). Thus, Reason (R) is true.\nStep 2: Analyze Assertion (A): A solid cylinder and a solid sphere are three-dimensional extended bodies with non-zero thickness along all three dimensions ($z \\ne 0$). Therefore, the theorem of perpendicular axes cannot be applied to them. Assertion (A) is true, and Reason (R) is its exact mathematical reason.\nStep 3: Distractor rejection: Both statements are true, and (R) explains (A)."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_031",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the Theorem of Parallel Axes ($I = I_0 + M d^2$):\nStatement I: The theorem of parallel axes is applicable to rigid bodies of arbitrary shape and dimension (both 2D and 3D).\nStatement II: In the formula $I = I_0 + M d^2$, the reference axis about which the moment of inertia is $I_0$ can be any arbitrary axis parallel to the required axis.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Statement I is correct. Unlike the perpendicular axes theorem which is restricted to planar laminas, the parallel axes theorem ($I = I_{\\text{cm}} + Md^2$) holds generally for three-dimensional bodies of any arbitrary shape.\nStep 2: Statement II is incorrect. The theorem of parallel axes strictly requires that the reference axis MUST pass through the center of mass of the body ($I_{\\text{cm}}$). If $I_0$ is measured about an axis that does NOT pass through the center of mass, the cross-term $\\int \\vec{r}_{\\text{cm}}\\,dm$ does not vanish, and the formula $I = I_0 + Md^2$ is invalid.\nStep 3: Distractor rejection: Any option stating that Statement II is correct fails to recognize that $I_{\\text{cm}}$ must be the moment of inertia about the center of mass."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_032",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A thin uniform rod has mass $M$ and length $L$. The moment of inertia of this rod about an axis perpendicular to its length and passing through a point located at a distance of $\\frac{L}{4}$ from one of its ends is:",
+      "options": [
+        "A) $\\frac{1}{16} M L^2$",
+        "B) $\\frac{5}{24} M L^2$",
+        "C) $\\frac{1}{3} M L^2$",
+        "D) $\\frac{7}{48} M L^2$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The center of mass of a uniform rod of length $L$ lies at its midpoint, so the distance of the center of mass from either end is $\\frac{L}{2}$.\nStep 2: The given axis passes through a point at distance $\\frac{L}{4}$ from one end. Therefore, the parallel distance $d$ between this axis and the central axis passing through the center of mass is:\n$d = \\frac{L}{2} - \\frac{L}{4} = \\frac{L}{4}$.\nStep 3: The moment of inertia of the rod about the transverse axis through its center of mass is $I_{\\text{cm}} = \\frac{1}{12} M L^2$.\nStep 4: By the Theorem of Parallel Axes:\n$I = I_{\\text{cm}} + M d^2 = \\frac{1}{12} M L^2 + M \\left(\\frac{L}{4}\\right)^2 = \\frac{1}{12} M L^2 + \\frac{1}{16} M L^2$.\nTaking the common denominator of $48$:\n$I = \\left(\\frac{4 + 3}{48}\\right) M L^2 = \\frac{7}{48} M L^2$.\nDistractor rejection: $\\frac{1}{16} M L^2$ is only the shift term $M d^2$; $\\frac{1}{3} M L^2$ is the moment of inertia about an end ($d = L/2$); $\\frac{5}{24} M L^2$ uses an incorrect common denominator."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_033",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The moment of inertia of a thin uniform circular disc of mass $M$ and radius $R$ about a tangent lying in the plane of the disc is:",
+      "options": [
+        "A) $\\frac{5}{4} M R^2$",
+        "B) $\\frac{1}{4} M R^2$",
+        "C) $\\frac{1}{2} M R^2$",
+        "D) $\\frac{3}{2} M R^2$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The moment of inertia of a uniform circular disc about its central symmetry axis perpendicular to its plane is $I_z = \\frac{1}{2} M R^2$.\nStep 2: By the theorem of perpendicular axes, $I_z = I_x + I_y = 2 I_{\\text{dia}}$ because of circular symmetry. Thus, the moment of inertia about any diameter is:\n$I_{\\text{dia}} = \\frac{1}{2} I_z = \\frac{1}{4} M R^2$.\nStep 3: A tangent lying in the plane of the disc is parallel to a diameter and separated by a distance $d = R$. By the Theorem of Parallel Axes:\n$I_{\\text{tangent, in-plane}} = I_{\\text{dia}} + M R^2 = \\frac{1}{4} M R^2 + M R^2 = \\frac{5}{4} M R^2$.\nDistractor rejection: $\\frac{1}{4} M R^2$ is about a diameter; $\\frac{1}{2} M R^2$ is about the central perpendicular axis; $\\frac{3}{2} M R^2$ is about a tangent perpendicular to the plane of the disc ($I_z + MR^2 = \\frac{1}{2}MR^2 + MR^2$)."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_034",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A solid sphere and a thin hollow spherical shell have the same mass $M$ and the same radius $R$. The ratio of the radius of gyration of the solid sphere to that of the hollow spherical shell about their respective diametrical axes is:",
+      "options": [
+        "A) $\\sqrt{\\frac{5}{3}}$",
+        "B) $\\sqrt{\\frac{3}{5}}$",
+        "C) $\\frac{3}{5}$",
+        "D) $\\sqrt{\\frac{2}{5}}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The moment of inertia of a solid sphere about its diameter is $I_{\\text{solid}} = \\frac{2}{5} M R^2$.\nIts radius of gyration is $k_{\\text{solid}} = \\sqrt{\\frac{I_{\\text{solid}}}{M}} = \\sqrt{\\frac{2}{5}} R$.\nStep 2: The moment of inertia of a thin hollow spherical shell about its diameter is $I_{\\text{hollow}} = \\frac{2}{3} M R^2$.\nIts radius of gyration is $k_{\\text{hollow}} = \\sqrt{\\frac{I_{\\text{hollow}}}{M}} = \\sqrt{\\frac{2}{3}} R$.\nStep 3: The ratio of their radii of gyration is:\n$\\frac{k_{\\text{solid}}}{k_{\\text{hollow}}} = \\frac{\\sqrt{2/5}\\,R}{\\sqrt{2/3}\\,R} = \\sqrt{\\frac{2/5}{2/3}} = \\sqrt{\\frac{2}{5} \\times \\frac{3}{2}} = \\sqrt{\\frac{3}{5}}$.\nDistractor rejection: $\\sqrt{\\frac{5}{3}}$ is the inverse ratio; $\\frac{3}{5}$ forgets the square root operation in $k = \\sqrt{I/M}$; $\\sqrt{\\frac{2}{5}}$ is simply $k_{\\text{solid}}/R$."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_035",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding the standard moments of inertia of uniform rigid bodies of mass $M$ and radius $R$:\nList I (Body and Axis)\nA. Thin hollow cylinder about its central cylindrical axis\nB. Solid cylinder about its central cylindrical axis\nC. Solid sphere about its diameter\nD. Thin spherical shell about its tangent\nList II (Moment of Inertia)\nI. $\\frac{2}{5} M R^2$\nII. $\\frac{1}{2} M R^2$\nIII. $M R^2$\nIV. $\\frac{5}{3} M R^2$\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-III, C-I, D-IV",
+        "B) A-III, B-II, C-IV, D-I",
+        "C) A-III, B-II, C-I, D-IV",
+        "D) A-I, B-II, C-III, D-IV"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Check each standard NCERT formula:\n- Thin hollow cylinder about its central axis: all mass is at distance $R$, so $I = M R^2$ (Matches III).\n- Solid cylinder about its central axis: integrated over concentric shells, $I = \\frac{1}{2} M R^2$ (Matches II).\n- Solid sphere about its diameter: $I = \\frac{2}{5} M R^2$ (Matches I).\n- Thin spherical shell about its tangent: by parallel axes theorem, $I = I_{\\text{dia}} + M R^2 = \\frac{2}{3} M R^2 + M R^2 = \\frac{5}{3} M R^2$ (Matches IV).\nStep 2: Matching these correctly yields: A-III, B-II, C-I, D-IV.\nDistractor rejection: Other choices swap the hollow cylinder and solid cylinder, or confuse the solid sphere with spherical shell tangent."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_036",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A projectile of mass $m$ is projected with speed $u$ at an angle $\\theta$ to the horizontal. The magnitude of the angular momentum of the projectile about the point of projection when it reaches the highest point of its trajectory is:",
+      "options": [
+        "A) $\\frac{m u^3 \\sin\\theta \\cos^2\\theta}{2g}$",
+        "B) $\\frac{m u^3 \\sin^2\\theta}{2g}$",
+        "C) $\\frac{m u^3 \\cos\\theta}{g}$",
+        "D) $\\frac{m u^3 \\sin^2\\theta \\cos\\theta}{2g}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: At the highest point of the trajectory, the vertical component of velocity is zero ($v_y = 0$). The velocity is purely horizontal: $\\vec{v} = (u\\cos\\theta)\\hat{i}$.\nStep 2: The maximum height reached by the projectile above the horizontal launch plane is $H = \\frac{u^2 \\sin^2\\theta}{2g}$.\nStep 3: The angular momentum of the projectile about the point of projection $O$ is given by $|\\vec{L}| = p \\cdot r_\\perp$, where $p = m v = m(u\\cos\\theta)$ is the linear momentum and $r_\\perp$ is the perpendicular distance from the launch point to the line of motion.\nStep 4: Since the line of motion at the crest is horizontal at height $H$, the perpendicular distance is simply $r_\\perp = H$.\n$L = m(u\\cos\\theta) \\cdot H = m(u\\cos\\theta) \\left(\\frac{u^2 \\sin^2\\theta}{2g}\\right) = \\frac{m u^3 \\sin^2\\theta \\cos\\theta}{2g}$.\nDistractor rejection: Inverting the trigonometric powers of sine and cosine or omitting the horizontal velocity component $\\cos\\theta$ or the factor of $2$ in the denominator yields incorrect angular momentum expressions."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_037",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A thin uniform ring and a thin uniform circular disc have identical mass $M$ and identical radius $R$. The ratio of the moment of inertia of the ring to that of the disc about a tangent line lying in their respective planes is:",
+      "options": [
+        "A) $6 : 5$",
+        "B) $5 : 6$",
+        "C) $3 : 2$",
+        "D) $4 : 3$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate the moment of inertia of the ring about an in-plane tangent:\nFor a ring, $I_{\\text{dia}} = \\frac{1}{2} M R^2$. By the Theorem of Parallel Axes, the moment of inertia about an in-plane tangent is:\n$I_{\\text{ring, tangent}} = I_{\\text{dia}} + M R^2 = \\frac{1}{2} M R^2 + M R^2 = \\frac{3}{2} M R^2$.\nStep 2: Calculate the moment of inertia of the disc about an in-plane tangent:\nFor a disc, $I_{\\text{dia}} = \\frac{1}{4} M R^2$. By the Theorem of Parallel Axes:\n$I_{\\text{disc, tangent}} = I_{\\text{dia}} + M R^2 = \\frac{1}{4} M R^2 + M R^2 = \\frac{5}{4} M R^2$.\nStep 3: Compute the ratio of the two moments of inertia:\n$\\frac{I_{\\text{ring, tangent}}}{I_{\\text{disc, tangent}}} = \\frac{\\frac{3}{2} M R^2}{\\frac{5}{4} M R^2} = \\frac{3}{2} \\times \\frac{4}{5} = \\frac{6}{5} = 6 : 5$.\nDistractor rejection: $5 : 6$ is the inverted ratio; $3 : 2$ is the ratio of their moments about a tangent perpendicular to their planes ($2MR^2 / \\frac{3}{2}MR^2 = 4/3$)."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_038",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding torque and angular momentum:\nStatement I: The time rate of change of angular momentum of a particle about an origin is equal to the external torque acting on the particle about that same origin ($\\frac{d\\vec{L}}{dt} = \\vec{\\tau}$).\nStatement II: For a particle moving under a central force directed towards the origin, the torque acting on it about the origin is zero, and its angular momentum about the origin is strictly conserved.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Statement I is correct. From $\\vec{L} = \\vec{r} \\times \\vec{p}$, differentiating with respect to time gives $\\frac{d\\vec{L}}{dt} = \\frac{d\\vec{r}}{dt} \\times \\vec{p} + \\vec{r} \\times \\frac{d\\vec{p}}{dt} = (\\vec{v} \\times m\\vec{v}) + (\\vec{r} \\times \\vec{F})$. Since $\\vec{v} \\times \\vec{v} = 0$, we obtain $\\frac{d\\vec{L}}{dt} = \\vec{r} \\times \\vec{F} = \\vec{\\tau}$.\nStep 2: Statement II is correct. For any central force, the line of action passes through the origin, so the force vector is parallel or anti-parallel to the position vector ($\\vec{F} \\parallel \\vec{r}$). Therefore, $\\vec{\\tau} = \\vec{r} \\times \\vec{F} = 0$. Since $\\vec{\\tau} = 0$, $\\frac{d\\vec{L}}{dt} = 0$, proving that $\\vec{L}$ is a constant vector.\nStep 3: Distractor rejection: Both statements are textbook NCERT physics laws underlying Kepler's second law."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_039",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two uniform circular discs of the same thickness and made of the same metal have radii $R_1 = R$ and $R_2 = 2R$. The ratio of their moments of inertia about their respective central transverse axes, $I_1 : I_2$, is:",
+      "options": [
+        "A) $1 : 4$",
+        "B) $1 : 8$",
+        "C) $1 : 16$",
+        "D) $1 : 2$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The mass of a disc of radius $R$ and uniform thickness $t$ and density $\\rho$ is $M = \\rho \\cdot (\\pi R^2) \\cdot t$. Therefore, mass is proportional to the square of the radius: $M \\propto R^2$.\nStep 2: The moment of inertia of a disc about its central transverse axis is $I = \\frac{1}{2} M R^2$.\nStep 3: Substituting $M \\propto R^2$ into the moment of inertia formula gives:\n$I \\propto (R^2) \\cdot R^2 = R^4$.\nStep 4: Compute the ratio $I_1 / I_2$:\n$\\frac{I_1}{I_2} = \\left(\\frac{R_1}{R_2}\\right)^4 = \\left(\\frac{R}{2R}\\right)^4 = \\left(\\frac{1}{2}\\right)^4 = \\frac{1}{16} = 1 : 16$.\nDistractor rejection: $1 : 4$ assumes mass is kept constant ($I \\propto R^2$); $1 : 8$ results from incorrectly assuming three-dimensional volume scaling for mass while keeping $I \\propto M R$; $1 : 2$ is just the radius ratio."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_040",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In the design of a flywheel or a bicycle wheel, the majority of the mass is concentrated near the outer rim rather than at the central hub.\nReason (R): Concentrating the mass farther from the rotational axis maximizes the moment of inertia for a given total mass, thereby reducing fluctuations in angular speed during operation.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Assertion (A): As highlighted in NCERT, flywheels and bicycle wheels are engineered with heavy rims connected to the hub by lightweight spokes. This is done to achieve high rotational inertia. Thus, Assertion (A) is true.\nStep 2: Analyze Reason (R): Since moment of inertia is $I = \\sum m_i r_i^2$, placing mass at the largest possible distance $r$ from the axis maximizes $I$. A large moment of inertia resists abrupt changes in angular velocity ($\\alpha = \\tau / I$), which stabilizes rotational speed against torque fluctuations. Reason (R) is true and correctly explains Assertion (A).\nStep 3: Distractor rejection: Both statements are true and directly explain engineering applications of rotational inertia."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_041",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A lever has an effort arm of length $d_1 = 1.2\\text{ m}$ and a load arm of length $d_2 = 0.3\\text{ m}$. To lift a load of $600\\text{ N}$, the minimum effort required and the mechanical advantage (MA) of the lever are, respectively:",
+      "options": [
+        "A) $150\\text{ N}$ and $4$",
+        "B) $150\\text{ N}$ and $0.25$",
+        "C) $2400\\text{ N}$ and $0.25$",
+        "D) $200\\text{ N}$ and $3$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: By the Principle of Moments for a lever in equilibrium:\n$\\text{Load} \\times \\text{Load arm} = \\text{Effort} \\times \\text{Effort arm} \\implies \\text{Load} \\times d_2 = \\text{Effort} \\times d_1$.\nStep 2: The Mechanical Advantage (MA) of a lever is defined as:\n$MA = \\frac{\\text{Load}}{\\text{Effort}} = \\frac{\\text{Effort arm}}{\\text{Load arm}} = \\frac{d_1}{d_2}$.\nSubstitute $d_1 = 1.2\\text{ m}$ and $d_2 = 0.3\\text{ m}$:\n$MA = \\frac{1.2}{0.3} = 4$.\nStep 3: Calculate the minimum effort required:\n$\\text{Effort} = \\frac{\\text{Load}}{MA} = \\frac{600\\text{ N}}{4} = 150\\text{ N}$.\nBecause $MA > 1$, a smaller effort can lift a larger load.\nDistractor rejection: $0.25$ is the reciprocal of MA ($d_2/d_1$); $2400\\text{ N}$ represents multiplying load by MA instead of dividing; $200\\text{ N}$ corresponds to $d_1/d_2 = 3$."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_042",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A flywheel having a moment of inertia $I = 10\\text{ kg}\\cdot\\text{m}^2$ is initially at rest. A constant torque $\\tau = 50\\text{ N}\\cdot\\text{m}$ is applied to the flywheel about its fixed central axis. The rotational kinetic energy acquired by the flywheel after an interval of $4\\text{ seconds}$ from the start is:",
+      "options": [
+        "A) $1000\\text{ J}$",
+        "B) $2000\\text{ J}$",
+        "C) $4000\\text{ J}$",
+        "D) $8000\\text{ J}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Calculate the angular acceleration $\\alpha$ produced by the constant torque:\n$\\alpha = \\frac{\\tau}{I} = \\frac{50\\text{ N}\\cdot\\text{m}}{10\\text{ kg}\\cdot\\text{m}^2} = 5\\text{ rad/s}^2$.\nStep 2: Since the flywheel starts from rest ($\\omega_0 = 0$), its angular velocity after time $t = 4\\text{ s}$ is:\n$\\omega = \\omega_0 + \\alpha t = 0 + (5 \\times 4) = 20\\text{ rad/s}$.\nStep 3: The rotational kinetic energy of the flywheel is given by:\n$K_{\\text{rot}} = \\frac{1}{2} I \\omega^2 = \\frac{1}{2} \\times 10 \\times (20)^2 = 5 \\times 400 = 2000\\text{ J}$.\nStep 4: Alternatively, using the work-energy theorem: the angular displacement is $\\theta = \\frac{1}{2}\\alpha t^2 = \\frac{1}{2}(5)(16) = 40\\text{ rad}$. Work done $W = \\tau \\theta = 50 \\times 40 = 2000\\text{ J} = K_{\\text{rot}}$.\nDistractor rejection: $1000\\text{ J}$ is $\\frac{1}{2} \\tau t$; $4000\\text{ J}$ forgets the factor of $\\frac{1}{2}$ in kinetic energy; $8000\\text{ J}$ uses $\\tau \\omega$ multiplied by time."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_043",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding an ice skater spinning on a frictionless surface with outstretched arms who suddenly pulls her arms closer to her body:\nStatement I: The angular momentum of the ice skater about her axis of rotation remains strictly conserved during this action.\nStatement II: The rotational kinetic energy of the skater increases because she performs internal muscular work against centrifugal effects to pull her arms inward.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I: The ice surface is frictionless and no external torque acts about the vertical axis of rotation ($\\tau_{\\text{ext}} = 0$). By the law of conservation of angular momentum, $L = I\\omega = \\text{constant}$. Bringing arms closer decreases the moment of inertia ($I_2 < I_1$), which correspondingly increases the angular speed ($\\omega_2 > \\omega_1$). Thus, Statement I is correct.\nStep 2: Analyze Statement II: Expressing rotational kinetic energy in terms of angular momentum gives $K_{\\text{rot}} = \\frac{L^2}{2I}$. Because $L$ is constant and $I$ decreases, $K_{\\text{rot}}$ increases ($K_2 > K_1$). This additional kinetic energy is provided by the internal muscular work performed by the skater as she exerts inward forces to pull her mass towards the axis of rotation. Hence, Statement II is correct.\nStep 3: Distractor rejection: Any option stating that kinetic energy remains constant or decreases is incorrect because internal energy is converted into rotational mechanical energy."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_044",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For a planet orbiting the Sun in an elliptical path, the areal velocity of the radius vector connecting the Sun to the planet remains strictly constant throughout the orbit.\nReason (R): The gravitational attraction exerted by the Sun on the planet is a central force, which produces zero torque about the Sun, ensuring the conservation of angular momentum.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Assertion (A): Kepler's second law states that the line joining a planet to the Sun sweeps out equal areas in equal intervals of time; that is, the areal velocity $\\frac{dA}{dt}$ is constant. Assertion (A) is true.\nStep 2: Analyze Reason (R): In differential time $dt$, the radius vector sweeps out an area $dA = \\frac{1}{2}|\\vec{r} \\times d\\vec{r}| = \\frac{1}{2}|\\vec{r} \\times \\vec{v}\\,dt|$. Dividing by $dt$ gives $\\frac{dA}{dt} = \\frac{1}{2}|\\vec{r} \\times \\vec{v}| = \\frac{L}{2m}$. Because the gravitational force is central ($\\vec{F} \\parallel \\vec{r}$), the torque about the Sun is $\\vec{\\tau} = \\vec{r} \\times \\vec{F} = 0$. Since torque is zero, the angular momentum $\\vec{L}$ is strictly constant, making $\\frac{dA}{dt} = \\frac{L}{2m}$ constant. Reason (R) is true and is the exact mathematical explanation of Assertion (A).\nStep 3: Distractor rejection: Both statements are true and (R) directly explains (A)."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_045",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A circular disc of moment of inertia $I_1$ is rotating about its central symmetry axis with an initial angular velocity $\\omega_0$. Another identical co-axial disc of moment of inertia $I_2$, initially stationary, is gently placed face-to-face onto the first disc. If the two discs eventually rotate together with a common angular speed $\\omega$ due to mutual friction, the fractional loss of rotational kinetic energy $\\frac{\\Delta K}{K_i}$ of the system is:",
+      "options": [
+        "A) $\\frac{I_2}{I_1 + I_2}$",
+        "B) $\\frac{I_1}{I_1 + I_2}$",
+        "C) $\\frac{I_1 I_2}{(I_1 + I_2)^2}$",
+        "D) $\\frac{I_1 - I_2}{I_1 + I_2}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The frictional forces between the contact surfaces are internal forces. Since no external torque acts on the combined two-disc system along the axis of rotation, angular momentum is conserved:\n$I_1 \\omega_0 = (I_1 + I_2) \\omega \\implies \\omega = \\frac{I_1}{I_1 + I_2} \\omega_0$.\nStep 2: Calculate the initial and final rotational kinetic energies:\n$K_i = \\frac{1}{2} I_1 \\omega_0^2$.\n$K_f = \\frac{1}{2} (I_1 + I_2) \\omega^2 = \\frac{1}{2} (I_1 + I_2) \\left( \\frac{I_1 \\omega_0}{I_1 + I_2} \\right)^2 = \\frac{1}{2} \\frac{I_1^2}{I_1 + I_2} \\omega_0^2$.\nStep 3: Calculate the loss in kinetic energy $\\Delta K = K_i - K_f$:\n$\\Delta K = \\frac{1}{2} I_1 \\omega_0^2 \\left[ 1 - \\frac{I_1}{I_1 + I_2} \\right] = \\frac{1}{2} \\frac{I_1 I_2}{I_1 + I_2} \\omega_0^2$.\nStep 4: The fractional loss of kinetic energy is:\n$\\frac{\\Delta K}{K_i} = \\frac{\\frac{1}{2} \\frac{I_1 I_2}{I_1 + I_2} \\omega_0^2}{\\frac{1}{2} I_1 \\omega_0^2} = \\frac{I_2}{I_1 + I_2}$.\nDistractor rejection: $\\frac{I_1}{I_1 + I_2}$ is the fraction of energy retained ($K_f/K_i$); the remaining options represent algebraic dimension errors."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_046",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform wheel of radius $R$ rolls without slipping along a horizontal flat road with a forward center-of-mass velocity $v_{\\text{cm}}$. Which of the following statements regarding the instantaneous velocities of points on the rim of the wheel is correct?",
+      "options": [
+        "A) All points on the circumference of the wheel move with the same linear speed $v_{\\text{cm}}$ relative to the ground.",
+        "B) The instantaneous linear speed of the topmost point on the rim is $2 v_{\\text{cm}}$, while that of the bottom-most point in contact with the ground is zero.",
+        "C) The instantaneous velocity of the contact point is directed opposite to the rolling direction with magnitude $v_{\\text{cm}}$.",
+        "D) The topmost point on the rim has an instantaneous linear velocity of zero because it is momentarily stationary."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Pure rolling without slipping is a linear superposition of two simultaneous motions: translation of the center of mass with velocity $\\vec{v}_{\\text{cm}}$, and rotation about the center of mass with angular velocity $\\omega = v_{\\text{cm}}/R$.\nStep 2: For the contact point at the bottom, the translational velocity is $+v_{\\text{cm}}$ (forward) and the tangential rotational velocity is $-\\omega R = -v_{\\text{cm}}$ (backward). The vector sum gives $\\vec{v}_{\\text{contact}} = v_{\\text{cm}} - v_{\\text{cm}} = 0$. Hence, the instantaneous velocity of the point of contact with the ground is zero.\nStep 3: For the topmost point on the rim, the translational velocity is $+v_{\\text{cm}}$ (forward) and the tangential rotational velocity is $+\\omega R = +v_{\\text{cm}}$ (forward). The vector sum gives $\\vec{v}_{\\text{top}} = v_{\\text{cm}} + v_{\\text{cm}} = 2 v_{\\text{cm}}$.\nDistractor rejection: The claim of equal linear speed for all points fails because instantaneous velocity varies continuously from zero to $2v_{\\text{cm}}$; claiming backward velocity at contact confuses slipping with pure rolling; claiming the top is at rest inverts the kinematics."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_047",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform solid sphere of mass $M$ and radius $R$ rolls purely without slipping on a horizontal surface. The fraction of its total kinetic energy associated with rotational motion about its center of mass is:",
+      "options": [
+        "A) $\\frac{5}{7}$",
+        "B) $\\frac{2}{5}$",
+        "C) $\\frac{2}{7}$",
+        "D) $\\frac{1}{2}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The total kinetic energy in pure rolling is the sum of translational and rotational kinetic energies:\n$K_{\\text{total}} = K_{\\text{trans}} + K_{\\text{rot}} = \\frac{1}{2} M v_{\\text{cm}}^2 + \\frac{1}{2} I_{\\text{cm}} \\omega^2$.\nStep 2: For a solid sphere, $I_{\\text{cm}} = \\frac{2}{5} M R^2$, and pure rolling requires $\\omega = \\frac{v_{\\text{cm}}}{R}$.\n$K_{\\text{rot}} = \\frac{1}{2} \\left( \\frac{2}{5} M R^2 \\right) \\left( \\frac{v_{\\text{cm}}}{R} \\right)^2 = \\frac{1}{5} M v_{\\text{cm}}^2$.\n$K_{\\text{trans}} = \\frac{1}{2} M v_{\\text{cm}}^2$.\nStep 3: Add them to find $K_{\\text{total}}$:\n$K_{\\text{total}} = \\frac{1}{2} M v_{\\text{cm}}^2 + \\frac{1}{5} M v_{\\text{cm}}^2 = \\frac{7}{10} M v_{\\text{cm}}^2$.\nStep 4: Calculate the fraction of rotational kinetic energy:\n$\\frac{K_{\\text{rot}}}{K_{\\text{total}}} = \\frac{\\frac{1}{5} M v_{\\text{cm}}^2}{\\frac{7}{10} M v_{\\text{cm}}^2} = \\frac{1/5}{7/10} = \\frac{2}{7}$.\nNotice that the fraction of translational kinetic energy is $\\frac{K_{\\text{trans}}}{K_{\\text{total}}} = \\frac{5}{7}$.\nDistractor rejection: $\\frac{5}{7}$ is the translational fraction; $\\frac{2}{5}$ is $k^2/R^2$; $\\frac{1}{2}$ is the rotational fraction for a thin ring."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_048",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Four symmetrical bodies of identical mass $M$ and identical radius $R$—a solid sphere, a thin circular disc, a thin spherical shell, and a thin circular ring—are released simultaneously from rest from the top of the same rough inclined plane. If all bodies roll down the plane purely without slipping, the correct sequence in which they reach the bottom of the incline is:",
+      "options": [
+        "A) Ring first, followed by Spherical shell, Disc, and Solid sphere last",
+        "B) All four bodies reach the bottom simultaneously because acceleration is independent of shape",
+        "C) Disc first, followed by Solid sphere, Spherical shell, and Ring last",
+        "D) Solid sphere first, followed by Disc, Spherical shell, and Ring last"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The linear acceleration of a body rolling purely down an incline of angle $\\theta$ is given by:\n$a = \\frac{g \\sin\\theta}{1 + \\frac{k^2}{R^2}}$, where $k$ is the radius of gyration.\nA smaller value of $\\frac{k^2}{R^2}$ yields a larger linear acceleration $a$ and therefore a shorter time of descent ($t = \\sqrt{2s/a}$).\nStep 2: Compare the values of $\\frac{k^2}{R^2}$ for each body:\n- Solid sphere: $\\frac{k^2}{R^2} = \\frac{2}{5} = 0.40$\n- Thin circular disc: $\\frac{k^2}{R^2} = \\frac{1}{2} = 0.50$\n- Thin spherical shell: $\\frac{k^2}{R^2} = \\frac{2}{3} \\approx 0.67$\n- Thin circular ring: $\\frac{k^2}{R^2} = 1.00$\nStep 3: Ranking the accelerations:\n$a_{\\text{solid sphere}} > a_{\\text{disc}} > a_{\\text{spherical shell}} > a_{\\text{ring}}$.\nTherefore, the solid sphere reaches the bottom first, followed by the disc, then the spherical shell, and the ring reaches last.\nDistractor rejection: The reverse arrival sequence incorrectly assumes larger moment of inertia accelerates faster; claiming simultaneous arrival mistakenly applies frictionless sliding; placing the disc ahead of the sphere overlooks that $k^2/R^2 = 0.4$ for the sphere is less than $0.5$ for the disc."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_049",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform circular disc rolls down an inclined plane from rest without slipping. If the vertical height of the incline is $h = 2.7\\text{ m}$ and the acceleration due to gravity is taken as $g = 10\\text{ m/s}^2$, the linear speed of the center of mass of the disc upon reaching the bottom of the incline is:",
+      "options": [
+        "A) $6.0\\text{ m/s}$",
+        "B) $4.5\\text{ m/s}$",
+        "C) $7.35\\text{ m/s}$",
+        "D) $9.0\\text{ m/s}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: By conservation of mechanical energy for pure rolling down an incline of height $h$:\n$Mgh = \\frac{1}{2} M v_{\\text{cm}}^2 \\left( 1 + \\frac{k^2}{R^2} \\right)$.\nStep 2: For a uniform circular disc, the radius of gyration satisfies $\\frac{k^2}{R^2} = \\frac{1}{2}$.\n$Mgh = \\frac{1}{2} M v_{\\text{cm}}^2 \\left( 1 + \\frac{1}{2} \\right) = \\frac{1}{2} M v_{\\text{cm}}^2 \\left( \\frac{3}{2} \\right) = \\frac{3}{4} M v_{\\text{cm}}^2$.\nStep 3: Solve for $v_{\\text{cm}}$:\n$v_{\\text{cm}} = \\sqrt{\\frac{4gh}{3}}$.\nStep 4: Substitute the given values ($h = 2.7\\text{ m}$ and $g = 10\\text{ m/s}^2$):\n$v_{\\text{cm}} = \\sqrt{\\frac{4 \\times 10 \\times 2.7}{3}} = \\sqrt{\\frac{108}{3}} = \\sqrt{36} = 6.0\\text{ m/s}$.\nDistractor rejection: $7.35\\text{ m/s}$ corresponds to sliding without friction ($v = \\sqrt{2gh} = \\sqrt{54} \\approx 7.35\\text{ m/s}$); $4.5\\text{ m/s}$ and $9.0\\text{ m/s}$ represent incorrect energy coefficient calculations."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_050",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the friction force acting on a body undergoing pure rolling down an inclined plane:\nStatement I: The frictional force acting on the body during pure rolling down an incline is static in nature and performs zero net mechanical work on the body.\nStatement II: Even though the static friction performs zero work, its presence is indispensable to provide the necessary torque that causes rotational acceleration.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I: In pure rolling, there is no relative slipping between the contact surface and the incline; hence, the friction is static friction. The instantaneous linear velocity of the contact point is zero ($\\vec{v}_{\\text{contact}} = 0$). Therefore, the rate of work done by static friction is $P = \\vec{f}_s \\cdot \\vec{v}_{\\text{contact}} = 0$, meaning mechanical energy is fully conserved. Statement I is correct.\nStep 2: Analyze Statement II: On a perfectly smooth frictionless incline, the component of gravity $Mg\\sin\\theta$ acts through the center of mass and creates zero torque about the center of mass. Consequently, the body would merely slide translationally without acquiring any angular acceleration. The static friction force acting up the incline provides the torque $\\tau = f_s R = I_{\\text{cm}}\\alpha$ necessary to spin the body such that $a = \\alpha R$. Statement II is correct.\nStep 3: Distractor rejection: Both statements are essential NCERT core principles explaining why pure rolling conserves total mechanical energy despite the presence of friction."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_051",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform solid cylinder of mass $M$ and radius $R$ is placed on an inclined plane of inclination $\\theta = 30^\\circ$. The minimum coefficient of static friction $\\mu_s$ between the cylinder and the incline required to prevent slipping and ensure pure rolling is:",
+      "options": [
+        "A) $\\frac{1}{\\sqrt{3}}$",
+        "B) $\\frac{1}{2\\sqrt{3}}$",
+        "C) $\\frac{1}{3\\sqrt{3}}$",
+        "D) $\\frac{\\sqrt{3}}{2}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Write the equations of motion for the cylinder rolling down an incline of angle $\\theta$:\n- Down the incline: $Mg\\sin\\theta - f_s = M a$.\n- Rotation about center of mass: $f_s R = I_{\\text{cm}} \\alpha = \\left(\\frac{1}{2} M R^2\\right) \\left(\\frac{a}{R}\\right) \\implies f_s = \\frac{1}{2} M a$.\nStep 2: Substitute $f_s$ into the force equation:\n$Mg\\sin\\theta - \\frac{1}{2} M a = M a \\implies \\frac{3}{2} M a = Mg\\sin\\theta \\implies a = \\frac{2}{3} g\\sin\\theta$.\nStep 3: Calculate the static friction force required:\n$f_s = \\frac{1}{2} M a = \\frac{1}{2} M \\left( \\frac{2}{3} g\\sin\\theta \\right) = \\frac{1}{3} Mg\\sin\\theta$.\nStep 4: Apply the condition for no slipping: $f_s \\le \\mu_s N$, where normal force $N = Mg\\cos\\theta$:\n$\\frac{1}{3} Mg\\sin\\theta \\le \\mu_s Mg\\cos\\theta \\implies \\mu_s \\ge \\frac{1}{3} \\tan\\theta$.\nStep 5: Substitute $\\theta = 30^\\circ$:\n$\\mu_s \\ge \\frac{1}{3} \\tan 30^\\circ = \\frac{1}{3} \\times \\frac{1}{\\sqrt{3}} = \\frac{1}{3\\sqrt{3}}$.\nDistractor rejection: $\\frac{1}{\\sqrt{3}} = \\tan 30^\\circ$ is the coefficient needed to prevent a block from sliding on an incline; $\\frac{1}{2\\sqrt{3}}$ assumes an incorrect ratio of inertia."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_052",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the instantaneous axis of rotation (IAOR) in pure rolling motion:\nStatement I: In pure rolling of a rigid circular body on a stationary horizontal surface, the instantaneous axis of rotation passes through the instantaneous point of contact with the ground.\nStatement II: The total kinetic energy of the rolling body can be calculated directly as purely rotational kinetic energy about this instantaneous axis of rotation as $K = \\frac{1}{2} I_P \\omega^2$, where $I_P$ is the moment of inertia about the contact axis.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement I is correct. At any instant during rolling without slipping, the point of contact $P$ is momentarily at rest ($\\vec{v}_P = 0$). The line parallel to the central axis passing through $P$ acts as an instantaneous axis of rotation about which every point in the body undergoes pure rotation with angular velocity $\\omega$.\nStep 2: Statement II is correct. By the Theorem of Parallel Axes, the moment of inertia about the contact point $P$ is $I_P = I_{\\text{cm}} + M R^2$. The kinetic energy evaluated purely as rotation about $P$ is:\n$K = \\frac{1}{2} I_P \\omega^2 = \\frac{1}{2}(I_{\\text{cm}} + M R^2)\\omega^2 = \\frac{1}{2} I_{\\text{cm}} \\omega^2 + \\frac{1}{2} M (R\\omega)^2 = K_{\\text{rot}} + K_{\\text{trans}}$.\nThis yields the exact total kinetic energy of the body.\nStep 3: Distractor rejection: Both statements are standard formulations in rigid body dynamics confirming the equivalence of rolling as translation+rotation and pure rotation about IAOR."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_053",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An electric motor delivers a steady torque of $120\\text{ N}\\cdot\\text{m}$ to a shaft that rotates at a constant rotational speed of $1800\\text{ rpm}$. The power delivered by the motor to the rotating shaft is:",
+      "options": [
+        "A) $7.2\\pi\\text{ kW}$",
+        "B) $3.6\\pi\\text{ kW}$",
+        "C) $14.4\\pi\\text{ kW}$",
+        "D) $216\\pi\\text{ kW}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Convert the rotational speed from revolutions per minute (rpm) to radians per second (rad/s):\n$\\omega = \\frac{2\\pi N}{60} = \\frac{2\\pi \\times 1800}{60} = 60\\pi\\text{ rad/s}$.\nStep 2: Use the formula for rotational power delivered by a torque:\n$P = \\tau \\cdot \\omega$.\nStep 3: Substitute the torque $\\tau = 120\\text{ N}\\cdot\\text{m}$ and $\\omega = 60\\pi\\text{ rad/s}$:\n$P = 120 \\times 60\\pi = 7200\\pi\\text{ W} = 7.2\\pi\\text{ kW}$.\n(Numerically, this equals approximately $22.62\\text{ kW}$).\nDistractor rejection: $3.6\\pi\\text{ kW}$ divides by an extra factor of $2$; $14.4\\pi\\text{ kW}$ multiplies by an extra factor of $2$; $216\\pi\\text{ kW}$ forgets the conversion of minutes to seconds ($/60$)."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_054",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding the ratio of rotational kinetic energy to total kinetic energy $\\left(\\frac{K_{\\text{rot}}}{K_{\\text{total}}}\\right)$ for various uniform bodies executing pure rolling without slipping:\nList I (Rolling Body)\nA. Thin circular ring\nB. Thin circular disc\nC. Uniform solid sphere\nD. Thin spherical shell\nList II (Ratio $\\frac{K_{\\text{rot}}}{K_{\\text{total}}}$)\nI. $\\frac{1}{3}$\nII. $\\frac{2}{7}$\nIII. $\\frac{1}{2}$\nIV. $\\frac{2}{5}$\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-III, B-I, C-IV, D-II",
+        "B) A-III, B-I, C-II, D-IV",
+        "C) A-I, B-III, C-II, D-IV",
+        "D) A-II, B-I, C-III, D-IV"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: For any body rolling without slipping, the ratio of rotational kinetic energy to total kinetic energy is given by:\n$\\frac{K_{\\text{rot}}}{K_{\\text{total}}} = \\frac{\\frac{k^2}{R^2}}{1 + \\frac{k^2}{R^2}}$.\nStep 2: Calculate this ratio for each body:\n- For a thin circular ring, $\\frac{k^2}{R^2} = 1$: $\\frac{1}{1 + 1} = \\frac{1}{2}$ (Matches III).\n- For a thin circular disc, $\\frac{k^2}{R^2} = \\frac{1}{2}$: $\\frac{1/2}{1 + 1/2} = \\frac{1/2}{3/2} = \\frac{1}{3}$ (Matches I).\n- For a uniform solid sphere, $\\frac{k^2}{R^2} = \\frac{2}{5}$: $\\frac{2/5}{1 + 2/5} = \\frac{2/5}{7/5} = \\frac{2}{7}$ (Matches II).\n- For a thin spherical shell, $\\frac{k^2}{R^2} = \\frac{2}{3}$: $\\frac{2/3}{1 + 2/3} = \\frac{2/3}{5/3} = \\frac{2}{5}$ (Matches IV).\nStep 3: Matching each correctly yields: A-III, B-I, C-II, D-IV.\nDistractor rejection: Other choices confuse the spherical shell with solid sphere or invert the ring and disc."
+    },
+    {
+      "id": "phy_system_of_particles_and_rotational_motion_c01_055",
+      "subject": "Physics",
+      "topic": "System of Particles and Rotational Motion",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding a rigid body of mass $M$ and radius $R$ rolling down a rough inclined plane of inclination $\\theta$ and vertical height $h$ purely without slipping:\nStatement I: The linear speed of the center of mass of the body upon reaching the bottom of the incline is completely independent of both its mass $M$ and its radius $R$.\nStatement II: The time taken by the body to reach the bottom depends only on the vertical height $h$, angle of inclination $\\theta$, acceleration due to gravity $g$, and its geometric radius of gyration ratio $\\frac{k}{R}$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Statement I is correct. From conservation of mechanical energy, $v_{\\text{cm}} = \\sqrt{\\frac{2gh}{1 + k^2/R^2}}$. For any given geometric shape (e.g. solid sphere, disc, cylinder), the dimensionless ratio $k^2/R^2$ is a pure numerical constant. Thus, the linear speed at the bottom depends strictly on $g, h,$ and the shape parameter $k/R$, and is completely independent of total mass $M$ and physical radius $R$.\nStep 2: Statement II is correct. The time of descent along the incline of length $s = h/\\sin\\theta$ is given by $t = \\frac{1}{\\sin\\theta}\\sqrt{\\frac{2h(1 + k^2/R^2)}{g}}$. This formula contains only $h, \\theta, g,$ and the ratio $k/R$, showing that time of descent is also completely independent of mass $M$ and radius $R$.\nStep 3: Distractor rejection: Any option declaring Statement I or Statement II incorrect is false because the mass and radius strictly cancel out in the equations of motion for rolling down an incline."
+    }
+  ]
+}
