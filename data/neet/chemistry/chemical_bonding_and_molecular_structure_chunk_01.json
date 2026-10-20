@@ -1,0 +1,943 @@
+{
+  "subject": "Chemistry",
+  "topic": "Chemical Bonding and Molecular Structure",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "chem_chem_bond_c01_001",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "According to the Lewis octet theory, which of the following species represents an electron-deficient molecule containing an incomplete octet of electrons around its central atom?",
+      "options": [
+        "A) $\\text{BCl}_3$",
+        "B) $\\text{SF}_6$",
+        "C) $\\text{PCl}_5$",
+        "D) $\\text{CCl}_4$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Determine the number of valence electrons around the central atom in each given molecule.\nStep 2: In $\\text{BCl}_3$, boron has 3 valence electrons and shares 3 electrons with three chlorine atoms, forming 3 single covalent bonds. Thus, boron is surrounded by only 6 valence electrons, representing an incomplete octet (electron-deficient molecule).\nStep 3: In $\\text{CCl}_4$, carbon shares 4 pairs of electrons having an exact complete octet (8 electrons). In $\\text{PCl}_5$ and $\\text{SF}_6$, phosphorus and sulfur have expanded octets with 10 and 12 valence electrons, respectively."
+    },
+    {
+      "id": "chem_chem_bond_c01_002",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following stable gaseous molecules contains an odd number of valence electrons, failing to satisfy the classical octet rule in its monomeric state?",
+      "options": [
+        "A) $\\text{CO}_2$",
+        "B) $\\text{NO}$",
+        "C) $\\text{N}_2\\text{O}$",
+        "D) $\\text{SO}_2$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Calculate the total number of valence electrons for each molecule.\nStep 2: For nitric oxide ($\\text{NO}$), nitrogen possesses 5 valence electrons and oxygen possesses 6 valence electrons, yielding a total of $5 + 6 = 11$ valence electrons (an odd-electron molecule). The octet rule cannot be satisfied for all atoms in odd-electron molecules, making $\\text{NO}$ paramagnetic in the gaseous state.\nStep 3: In contrast, $\\text{CO}_2$ has $4 + 2(6) = 16$, $\\text{N}_2\\text{O}$ has $2(5) + 6 = 16$, and $\\text{SO}_2$ has $6 + 2(6) = 18$ valence electrons, all possessing even numbers of electrons."
+    },
+    {
+      "id": "chem_chem_bond_c01_003",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The thermodynamic formation of a stable ionic solid $\\text{M}^+\\text{X}^-(s)$ from its constituent neutral gaseous atoms is most strongly favored by which combination of energetic parameters?",
+      "options": [
+        "A) High ionization enthalpy of metal, low negative electron gain enthalpy of non-metal, and low lattice enthalpy",
+        "B) Low ionization enthalpy of metal, positive electron gain enthalpy of non-metal, and low lattice enthalpy",
+        "C) Low ionization enthalpy of metal, highly negative electron gain enthalpy of non-metal, and high lattice enthalpy",
+        "D) High ionization enthalpy of metal, highly negative electron gain enthalpy of non-metal, and low lattice enthalpy"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze the energy terms in ionic bond formation according to the Born-Haber thermodynamic cycle.\nStep 2: Ionization of metal $\\text{M}(g) \\rightarrow \\text{M}^+(g) + e^-$ requires energy, so a lower ionization enthalpy favors cation formation.\nStep 3: Electron addition to non-metal $\\text{X}(g) + e^- \\rightarrow \\text{X}^-(g)$ releases energy, so a highly negative electron gain enthalpy strongly favors anion formation.\nStep 4: Condensation of gaseous ions into crystal lattice $\\text{M}^+(g) + \\text{X}^-(g) \\rightarrow \\text{MX}(s)$ releases lattice energy; hence, a high lattice enthalpy provides the primary driving force for the formation and thermodynamic stability of the ionic compound."
+    },
+    {
+      "id": "chem_chem_bond_c01_004",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In the Born-Haber cycle for the formation of crystalline sodium chloride $\\text{NaCl}(s)$ from $\\text{Na}(s)$ and $\\frac{1}{2}\\text{Cl}_2(g)$, which step represents an endothermic process requiring an input of energy?",
+      "options": [
+        "A) Electron gain by gaseous chlorine atoms: $\\text{Cl}(g) + e^- \\rightarrow \\text{Cl}^-(g)$",
+        "B) Lattice condensation of gaseous ions: $\\text{Na}^+(g) + \\text{Cl}^-(g) \\rightarrow \\text{NaCl}(s)$",
+        "C) Standard enthalpy of formation of sodium chloride: $\\text{Na}(s) + \\frac{1}{2}\\text{Cl}_2(g) \\rightarrow \\text{NaCl}(s)$",
+        "D) Sublimation of metallic solid sodium: $\\text{Na}(s) \\rightarrow \\text{Na}(g)$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate the thermochemical nature of each step in the Born-Haber cycle.\nStep 2: Sublimation of solid sodium $\\text{Na}(s) \\rightarrow \\text{Na}(g)$ requires energy to break metallic bonds ($\\Delta_{\\text{sub}}H > 0$, endothermic). Similarly, dissociation of $\\text{Cl}_2$ and ionization of $\\text{Na}(g)$ are endothermic.\nStep 3: In contrast, electron gain enthalpy of chlorine ($\\Delta_{\\text{eg}}H = -349\\text{ kJ mol}^{-1}$), lattice enthalpy of formation ($\\Delta_{\\text{lattice}}H = -788\\text{ kJ mol}^{-1}$), and the standard enthalpy of formation $\\Delta_f H^\\circ$ ($-411.2\\text{ kJ mol}^{-1}$) are all exothermic processes (energy released)."
+    },
+    {
+      "id": "chem_chem_bond_c01_005",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the carbon-carbon bond lengths in ethane ($\\text{C}_2\\text{H}_6$), ethene ($\\text{C}_2\\text{H}_4$), and ethyne ($\\text{C}_2\\text{H}_2$). Which of the following correctly lists these hydrocarbons in strictly decreasing order of their $\\text{C}-\\text{C}$ bond length?",
+      "options": [
+        "A) $\\text{C}_2\\text{H}_6 > \\text{C}_2\\text{H}_4 > \\text{C}_2\\text{H}_2$",
+        "B) $\\text{C}_2\\text{H}_2 > \\text{C}_2\\text{H}_4 > \\text{C}_2\\text{H}_6$",
+        "C) $\\text{C}_2\\text{H}_4 > \\text{C}_2\\text{H}_6 > \\text{C}_2\\text{H}_2$",
+        "D) $\\text{C}_2\\text{H}_6 > \\text{C}_2\\text{H}_2 > \\text{C}_2\\text{H}_4$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Recall the standard NCERT bond length values: Single bond $\\text{C}-\\text{C}$ in ethane is $154\\text{ pm}$ ($sp^3-sp^3$), double bond $\\text{C}=\\text{C}$ in ethene is $134\\text{ pm}$ ($sp^2-sp^2$), and triple bond $\\text{C}\\equiv\\text{C}$ in ethyne is $120\\text{ pm}$ ($sp-sp$).\nStep 2: As bond multiplicity increases and the $s$-character of the hybridized carbon orbitals increases ($sp^3: 25\\%, sp^2: 33.3\\%, sp: 50\\%$), the bonding electrons are drawn closer to the carbon nuclei, causing bond length to decrease.\nStep 3: Hence, the decreasing order of bond length is $\\text{C}_2\\text{H}_6 (154\\text{ pm}) > \\text{C}_2\\text{H}_4 (134\\text{ pm}) > \\text{C}_2\\text{H}_2 (120\\text{ pm})$."
+    },
+    {
+      "id": "chem_chem_bond_c01_006",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The bond angles of the hydrides of group 15 elements follow the order $\\text{NH}_3 (107.8^\\circ) > \\text{PH}_3 (93.6^\\circ) > \\text{AsH}_3 (91.8^\\circ) > \\text{SbH}_3 (91.3^\\circ)$. The primary reason for this marked decrease in bond angle down the group is:",
+      "options": [
+        "A) Increase in the electronegativity of the central atom down the group",
+        "B) Decrease in electronegativity and increase in size of the central atom, reducing bond-pair bond-pair repulsion",
+        "C) Increase in the number of lone pairs on the central atom",
+        "D) Transition from $sp$ to $sp^3$ hybridization of the central atom"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze electron density around the central atom according to VSEPR theory.\nStep 2: Nitrogen is highly electronegative and small, concentrating the $\\text{N}-\\text{H}$ bond pairs close to the nitrogen nucleus, which generates strong bond-pair bond-pair repulsion that opens up the bond angle to $107.8^\\circ$.\nStep 3: Moving down the group from $\\text{N}$ to $\\text{Sb}$, electronegativity decreases and atomic size increases; the bonding electron pairs shift further away from the central atom towards hydrogen. Consequently, bond-pair bond-pair repulsion decreases sharply, allowing the lone pair to compress the bond angle close to $90^\\circ$ (also explained by almost pure $p$-orbitals participating in bonding in $\\text{PH}_3, \\text{AsH}_3, \\text{SbH}_3$ without significant hybridization)."
+    },
+    {
+      "id": "chem_chem_bond_c01_007",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "X-ray diffraction studies reveal that all three carbon-oxygen bonds in the carbonate ion ($\\text{CO}_3^{2-}$) have identical lengths of $129\\text{ pm}$. This experimental equivalence is best explained by:",
+      "options": [
+        "A) Rapid tautomerism between three distinct isomers",
+        "B) The presence of three equivalent localized double bonds",
+        "C) Resonance delocalization of $\\pi$ electrons across all three $\\text{C}-\\text{O}$ bonds yielding a bond order of $1.33$",
+        "D) $sp^3$ hybridization of the central carbon atom forming four equivalent single bonds"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Write the canonical Lewis structures of the carbonate ion ($\\text{CO}_3^{2-}$). Carbon is $sp^2$ hybridized with trigonal planar geometry.\nStep 2: There are three equivalent resonating structures, each featuring one $\\text{C}=\\text{O}$ double bond and two $\\text{C}-\\text{O}^-$ single bonds.\nStep 3: The actual structure is a resonance hybrid where the $\\pi$ bond is uniformly delocalized over all three oxygen atoms. The calculated bond order is $\\frac{\\text{total bonds}}{\\text{resonating structures}} = \\frac{4}{3} = 1.33$.\nStep 4: As a result, all three $\\text{C}-\\text{O}$ bond lengths are identical ($129\\text{ pm}$), intermediate between a pure $\\text{C}-\\text{O}$ single bond ($143\\text{ pm}$) and a $\\text{C}=\\text{O}$ double bond ($122\\text{ pm}$)."
+    },
+    {
+      "id": "chem_chem_bond_c01_008",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Although the boron-fluorine bond in boron trifluoride ($\\text{BF}_3$) is highly polar due to a substantial electronegativity difference, the net dipole moment of the $\\text{BF}_3$ molecule is zero ($\\mu = 0$). This occurs because:",
+      "options": [
+        "A) Fluorine atoms donate lone pairs into the empty $p$-orbital of boron, making the bonds non-polar",
+        "B) The molecule adopts a trigonal pyramidal shape where bond dipoles cancel out incompletely",
+        "C) Boron undergoes $sp^3$ hybridization creating a tetrahedral symmetrical arrangement",
+        "D) The molecule is planar with three identical $\\text{B}-\\text{F}$ bond dipoles oriented at $120^\\circ$ whose vector sum is zero"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Examine the geometry of $\\text{BF}_3$. Boron has steric number 3 (3 bond pairs, 0 lone pairs), yielding $sp^2$ hybridization and a symmetrical trigonal planar geometry.\nStep 2: Dipole moment is a vector quantity ($\\vec{\\mu}$). The three identical $\\text{B}-\\text{F}$ bond dipoles are directed outwards at angles of $120^\\circ$ in the same plane.\nStep 3: The vector resultant of any two equal dipoles at $120^\\circ$ is equal in magnitude and directly opposite in direction to the third bond dipole: $\\vec{\\mu}_{1+2} = -\\vec{\\mu}_3$.\nStep 4: Consequently, the vector sum of the three bond moments completely cancels out, resulting in an overall dipole moment of $\\mu_{\\text{net}} = 0$."
+    },
+    {
+      "id": "chem_chem_bond_c01_009",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Both ammonia ($\\text{NH}_3$) and nitrogen trifluoride ($\\text{NF}_3$) possess a trigonal pyramidal geometry with one lone pair on the nitrogen atom. However, the dipole moment of $\\text{NH}_3$ ($1.47\\text{ D}$) is significantly higher than that of $\\text{NF}_3$ ($0.24\\text{ D}$). What is the fundamental origin of this difference?",
+      "options": [
+        "A) In $\\text{NH}_3$, the lone-pair orbital dipole reinforces the resultant $\\text{N}-\\text{H}$ bond dipoles, whereas in $\\text{NF}_3$, the lone-pair orbital dipole opposes the resultant $\\text{N}-\\text{F}$ bond dipoles",
+        "B) Nitrogen is more electronegative than fluorine, making the $\\text{N}-\\text{F}$ bond dipole vector point towards nitrogen",
+        "C) $\\text{NH}_3$ undergoes $sp^2$ hybridization while $\\text{NF}_3$ undergoes $sp^3$ hybridization",
+        "D) $\\text{NF}_3$ has a planar geometry where the three $\\text{N}-\\text{F}$ dipoles completely cancel each other"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Compare the relative electronegativities of the constituent atoms. Electronegativities: $\\text{F} (4.0) > \\text{N} (3.0) > \\text{H} (2.1)$.\nStep 2: In $\\text{NH}_3$, nitrogen is more electronegative than hydrogen. The three $\\text{N}-\\text{H}$ bond dipoles point towards nitrogen (upwards towards the apex). The lone-pair orbital dipole also points upwards away from nitrogen. Hence, the orbital dipole and bond dipoles reinforce each other, resulting in a large net dipole moment ($\\mu = 1.47\\text{ D}$).\nStep 3: In $\\text{NF}_3$, fluorine is more electronegative than nitrogen. The three $\\text{N}-\\text{F}$ bond dipoles point downwards towards the fluorine atoms, directly opposing the upward lone-pair orbital dipole. This cancellation drastically reduces the resultant dipole moment to just $\\mu = 0.24\\text{ D}$."
+    },
+    {
+      "id": "chem_chem_bond_c01_010",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "According to Fajan's rules, which of the following alkali metal chlorides exhibits the highest degree of covalent character and is readily soluble in organic solvents such as ethanol?",
+      "options": [
+        "A) $\\text{NaCl}$",
+        "B) $\\text{LiCl}$",
+        "C) $\\text{KCl}$",
+        "D) $\\text{CsCl}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Recall Fajan's rule regarding cation size: Polarizing power of a cation is directly proportional to its charge density ($\\frac{\\text{charge}}{\\text{radius}}$ ratio).\nStep 2: Among alkali metal cations $\\text{Li}^+, \\text{Na}^+, \\text{K}^+, \\text{Cs}^+$, the lithium cation ($\\text{Li}^+$) has the smallest ionic radius and therefore the highest charge density.\nStep 3: Due to its exceptionally high polarizing power, $\\text{Li}^+$ severely distorts the electron cloud of the chloride anion ($\\text{Cl}^-$), introducing significant covalent character into the $\\text{Li}-\\text{Cl}$ bond.\nStep 4: Hence, $\\text{LiCl}$ is predominantly covalent, exhibits a lower melting point than $\\text{NaCl}$, and dissolves easily in polar organic solvents like ethanol and acetone."
+    },
+    {
+      "id": "chem_chem_bond_c01_011",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Cuprous chloride ($\\text{CuCl}$) is far more covalent and has a much lower melting point ($426^\\circ\\text{C}$) than sodium chloride ($\\text{NaCl}$, melting point $801^\\circ\\text{C}$), even though both $\\text{Cu}^+$ ($0.96\\text{ \\AA}$) and $\\text{Na}^+$ ($0.95\\text{ \\AA}$) have almost identical ionic radii and identical $+1$ charge. This phenomenon is explained by:",
+      "options": [
+        "A) The higher hydration enthalpy of sodium ions compared to cuprous ions",
+        "B) The noble gas configuration of $\\text{Cu}^+$ providing effective shielding of the nuclear charge",
+        "C) The pseudo-noble gas configuration ($18\\text{ e}^-$ valence shell) of $\\text{Cu}^+$, which shields nuclear charge poorly and exerts greater polarizing power",
+        "D) The higher electronegativity of chlorine in the $\\text{NaCl}$ lattice"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Write the electronic configurations of the two cations: $\\text{Na}^+: [\\text{Ne}] = 2s^2 2p^6$ (noble gas configuration with 8 valence electrons), while $\\text{Cu}^+: [\\text{Ar}] 3d^{10} = 3s^2 3p^6 3d^{10}$ (pseudo-noble gas configuration with 18 electrons in the outermost shell).\nStep 2: The $10$ $d$-electrons in $\\text{Cu}^+$ have diffused shapes and shield the nuclear charge very poorly compared to $s$ and $p$ electrons.\nStep 3: Consequently, the effective nuclear charge ($Z_{\\text{eff}}$) experienced at the surface of $\\text{Cu}^+$ is substantially greater than that in $\\text{Na}^+$.\nStep 4: Therefore, $\\text{Cu}^+$ possesses far greater polarizing power than $\\text{Na}^+$, polarizing the $\\text{Cl}^-$ electron cloud much more strongly and imparting dominant covalent character to $\\text{CuCl}$."
+    },
+    {
+      "id": "chem_chem_bond_c01_012",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "According to the Valence Shell Electron Pair Repulsion (VSEPR) theory formulated by Gillespie and Nyholm, the correct decreasing magnitude of repulsive interactions between electron pairs in the valence shell of a central atom is:",
+      "options": [
+        "A) $\\text{bp}-\\text{bp} > \\text{lp}-\\text{bp} > \\text{lp}-\\text{lp}$",
+        "B) $\\text{lp}-\\text{bp} > \\text{lp}-\\text{lp} > \\text{bp}-\\text{bp}$",
+        "C) $\\text{lp}-\\text{lp} > \\text{bp}-\\text{bp} > \\text{lp}-\\text{bp}$",
+        "D) $\\text{lp}-\\text{lp} > \\text{lp}-\\text{bp} > \\text{bp}-\\text{bp}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Understand the spatial distribution of bonding vs non-bonding electron pairs.\nStep 2: A lone pair ($\\text{lp}$) is localized on the central atom and influenced by only one atomic nucleus, causing its electron cloud to occupy a larger volume of space around the nucleus.\nStep 3: A bond pair ($\\text{bp}$) is shared between two nuclei and is therefore held tightly in the region between the two atoms, occupying less lateral space.\nStep 4: Because lone pairs occupy more space, repulsive forces between two lone pairs are maximal, followed by lone pair-bond pair, and least between two bond pairs: $\\text{lp}-\\text{lp} > \\text{lp}-\\text{bp} > \\text{bp}-\\text{bp}$."
+    },
+    {
+      "id": "chem_chem_bond_c01_013",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In the gaseous phosphorus pentachloride ($\\text{PCl}_5$) molecule, the two axial $\\text{P}-\\text{Cl}$ bonds ($219\\text{ pm}$) are experimentally found to be longer and weaker than the three equatorial $\\text{P}-\\text{Cl}$ bonds ($204\\text{ pm}$). What is the underlying geometric cause of this bond asymmetry?",
+      "options": [
+        "A) Each axial bond pair experiences three repulsions at $90^\\circ$ from equatorial bond pairs, whereas each equatorial pair experiences only two repulsions at $90^\\circ$",
+        "B) Axial bonds are formed by $p_z-p_z$ overlap while equatorial bonds are formed by $d-d$ overlap",
+        "C) Equatorial bonds experience greater steric crowding because the bond angle between them is $120^\\circ$",
+        "D) Phosphorus has a lone pair of electrons oriented exclusively along the equatorial plane"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze the trigonal bipyramidal geometry of $\\text{PCl}_5$ ($sp^3d$ hybridization).\nStep 2: The molecule contains three equatorial $\\text{P}-\\text{Cl}$ bonds lying in a plane at $120^\\circ$ to each other, and two axial $\\text{P}-\\text{Cl}$ bonds perpendicular to the equatorial plane at $90^\\circ$.\nStep 3: Repulsive interactions at $90^\\circ$ are significantly stronger than those at $120^\\circ$. Each axial bond pair is situated at $90^\\circ$ to three equatorial bond pairs, experiencing three $90^\\circ$ repulsions.\nStep 4: In contrast, each equatorial bond pair experiences only two $90^\\circ$ repulsions from the two axial pairs. To minimize this greater repulsive strain, the axial bond pairs are pushed further away, making axial bonds longer ($219\\text{ pm}$) and weaker than equatorial bonds ($204\\text{ pm}$)."
+    },
+    {
+      "id": "chem_chem_bond_c01_014",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "What is the molecular geometry of sulfur tetrafluoride ($\\text{SF}_4$) according to VSEPR theory, and in which position is the lone pair of electrons situated?",
+      "options": [
+        "A) Square planar geometry with the lone pair situated in an axial position",
+        "B) See-saw geometry with the lone pair situated in an equatorial position",
+        "C) Tetrahedral geometry with the lone pair situated symmetrically at the center",
+        "D) Trigonal pyramidal geometry with the lone pair situated in an equatorial position"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Count valence electrons of sulfur: $6$ electrons. In $\\text{SF}_4$, sulfur forms 4 single bonds with fluorine atoms and retains 1 lone pair, giving steric number $Z = 4 + 1 = 5$ ($sp^3d$ hybridization).\nStep 2: The electron-pair geometry is trigonal bipyramidal. In this geometry, lone pairs preferentially occupy equatorial positions rather than axial positions to minimize repulsions.\nStep 3: If placed in an equatorial position, the lone pair experiences only two $90^\\circ$ $\\text{lp}-\\text{bp}$ repulsions. If it were in an axial position, it would suffer three $90^\\circ$ $\\text{lp}-\\text{bp}$ repulsions.\nStep 4: With one equatorial position occupied by a lone pair, the spatial arrangement of the four fluorine atoms results in a see-saw (or folded square) molecular shape."
+    },
+    {
+      "id": "chem_chem_bond_c01_015",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Xenon tetrafluoride ($\\text{XeF}_4$) possesses 4 bond pairs and 2 lone pairs around the central xenon atom. What is the spatial geometry of $\\text{XeF}_4$ and the relative orientation of its two lone pairs?",
+      "options": [
+        "A) Tetrahedral with lone pairs at $109.5^\\circ$ to each other",
+        "B) See-saw with lone pairs oriented at $90^\\circ$ to each other",
+        "C) Square planar with lone pairs occupying trans positions ($180^\\circ$ apart) to minimize electron repulsion",
+        "D) Square pyramidal with both lone pairs situated on the same side of the basal plane"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate the steric number of xenon in $\\text{XeF}_4$: Xenon has 8 valence electrons. Four electrons form 4 $\\text{Xe}-\\text{F}$ single bonds, leaving 4 non-bonding electrons as 2 lone pairs. Steric number $Z = 4 + 2 = 6$ ($sp^3d^2$ hybridization).\nStep 2: The electron-pair geometry is octahedral. An octahedron has vertices situated at $90^\\circ$ and $180^\\circ$.\nStep 3: According to VSEPR theory, $\\text{lp}-\\text{lp}$ repulsion is the strongest interaction. To minimize this repulsive energy, the two lone pairs must occupy positions that are opposite to each other ($180^\\circ$, trans positions).\nStep 4: The four fluorine atoms lie in a single plane around xenon at $90^\\circ$ angles, producing a square planar molecular geometry."
+    },
+    {
+      "id": "chem_chem_bond_c01_016",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In Valence Bond Theory (VBT), a sigma ($\\sigma$) bond is experimentally observed to be stronger and possess higher dissociation energy than a pi ($\\pi$) bond formed between the same two atoms. The fundamental reason for this difference is:",
+      "options": [
+        "A) Pi bonds are formed by head-on axial overlap of hybrid orbitals",
+        "B) Sigma bonds involve sideways lateral overlap which provides greater orbital overlap",
+        "C) Electrons in a pi bond are held closer to the two nuclei than in a sigma bond",
+        "D) Sigma bonds involve coaxial/head-on overlap of orbitals, which provides a significantly greater extent of orbital overlap than lateral sideways overlap"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Define the modes of orbital overlap in Valence Bond Theory.\nStep 2: A sigma ($\\sigma$) bond is formed by the end-to-end (head-on / coaxial) overlap of atomic orbitals along the internuclear axis. Because the orbitals point directly towards each other, the extent of orbital overlap is large and the electron density is concentrated along the internuclear axis.\nStep 3: A pi ($\\pi$) bond is formed by lateral (sideways) overlap of parallel $p$-orbitals perpendicular to the internuclear axis. Due to the parallel geometry, the degree of overlap is inherently limited and smaller.\nStep 4: Since bond strength is directly proportional to the extent of orbital overlap, a $\\sigma$ bond is significantly stronger than a $\\pi$ bond."
+    },
+    {
+      "id": "chem_chem_bond_c01_017",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Sulfur hexafluoride ($\\text{SF}_6$) is an exceptionally inert gas with an octahedral molecular shape. What is the hybridization state of sulfur in $\\text{SF}_6$, and which specific $d$-orbitals of sulfur participate in this hybridization?",
+      "options": [
+        "A) $sp^3d^2$ hybridization involving $d_{x^2-y^2}$ and $d_{z^2}$ orbitals",
+        "B) $sp^3d^2$ hybridization involving $d_{xy}$ and $d_{yz}$ orbitals",
+        "C) $sp^3d$ hybridization involving the $d_{z^2}$ orbital only",
+        "D) $d^2sp^3$ hybridization involving $d_{xy}$ and $d_{xz}$ orbitals"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Determine the steric number of sulfur in $\\text{SF}_6$: Sulfur has 6 valence electrons and forms 6 single bonds with six fluorine atoms with 0 lone pairs. Steric number $Z = 6$.\nStep 2: Six equivalent hybrid orbitals pointing towards the vertices of a regular octahedron require $sp^3d^2$ hybridization.\nStep 3: In an octahedral geometry, the six bonds lie along the Cartesian axes ($x, y, z$). Therefore, the participating atomic orbitals must have electron density directed along these axes.\nStep 4: The axial $d$-orbitals are $d_{x^2-y^2}$ (lobes along $x$ and $y$ axes) and $d_{z^2}$ (lobes along $z$ axis). The non-axial $d$-orbitals ($d_{xy}, d_{yz}, d_{zx}$) point between axes and do not participate in $sp^3d^2$ hybridization."
+    },
+    {
+      "id": "chem_chem_bond_c01_018",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "According to Molecular Orbital Theory (MOT), liquid oxygen is attracted into the magnetic field of a strong magnet (paramagnetic). The paramagnetism of the $\\text{O}_2$ molecule is attributed to:",
+      "options": [
+        "A) Two unpaired electrons present in degenerate bonding $\\pi 2p_x$ and $\\pi 2p_y$ molecular orbitals",
+        "B) Two unpaired electrons present in degenerate antibonding $\\pi^* 2p_x$ and $\\pi^* 2p_y$ molecular orbitals",
+        "C) One unpaired electron in the $\\sigma 2p_z$ bonding molecular orbital",
+        "D) Two unpaired electrons in the $\\sigma^* 2p_z$ antibonding molecular orbital"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Write the MO electronic configuration for $\\text{O}_2$ (total 16 electrons): $\\sigma 1s^2 \\sigma^* 1s^2 \\sigma 2s^2 \\sigma^* 2s^2 \\sigma 2p_z^2 (\\pi 2p_x^2 = \\pi 2p_y^2) (\\pi^* 2p_x^1 = \\pi^* 2p_y^1)$.\nStep 2: The 14 core and bonding electrons pair up completely in lower-energy orbitals.\nStep 3: The last two electrons enter the degenerate antibonding $\\pi^* 2p_x$ and $\\pi^* 2p_y$ molecular orbitals.\nStep 4: According to Hund's rule of maximum multiplicity, these two electrons occupy separate degenerate orbitals with parallel spins: $(\\pi^* 2p_x)^1 (\\pi^* 2p_y)^1$. The presence of two unpaired electrons explains the observed paramagnetism of $\\text{O}_2$."
+    },
+    {
+      "id": "chem_chem_bond_c01_019",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Applying Molecular Orbital Theory, calculate the bond order of the dinitrogen molecule ($\\text{N}_2$) and compare it with the bond orders of the $\\text{N}_2^+$ cation and $\\text{N}_2^-$ anion.",
+      "options": [
+        "A) $\\text{N}_2 = 2.5$, $\\text{N}_2^+ = 3.0$, $\\text{N}_2^- = 2.5$",
+        "B) $\\text{N}_2 = 3.0$, $\\text{N}_2^+ = 2.0$, $\\text{N}_2^- = 2.0$",
+        "C) $\\text{N}_2 = 3.0$, $\\text{N}_2^+ = 2.5$, $\\text{N}_2^- = 2.5$",
+        "D) $\\text{N}_2 = 2.0$, $\\text{N}_2^+ = 2.5$, $\\text{N}_2^- = 1.5$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Write MO configurations:\n- $\\text{N}_2$ (14 electrons): $\\sigma 1s^2 \\sigma^* 1s^2 \\sigma 2s^2 \\sigma^* 2s^2 (\\pi 2p_x^2 = \\pi 2p_y^2) \\sigma 2p_z^2$.\nBond order $= \\frac{1}{2}(N_b - N_a) = \\frac{1}{2}(10 - 4) = 3.0$.\nStep 2: For $\\text{N}_2^+$ (13 electrons): One electron is removed from the bonding $\\sigma 2p_z$ orbital ($N_b = 9, N_a = 4$). Bond order $= \\frac{1}{2}(9 - 4) = 2.5$.\nStep 3: For $\\text{N}_2^-$ (15 electrons): One electron is added to an antibonding $\\pi^* 2p$ orbital ($N_b = 10, N_a = 5$). Bond order $= \\frac{1}{2}(10 - 5) = 2.5$.\nStep 4: Hence, the bond orders are $\\text{N}_2 = 3.0$, $\\text{N}_2^+ = 2.5$, and $\\text{N}_2^- = 2.5$."
+    },
+    {
+      "id": "chem_chem_bond_c01_020",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "According to Molecular Orbital Theory, the diatomic carbon molecule ($\\text{C}_2$) exists in the vapor phase with a bond order of 2. Which of the following statements regarding the nature of the double bond in $\\text{C}_2$ is correct?",
+      "options": [
+        "A) The double bond consists of one $\\sigma$ bond and one $\\pi$ bond, exactly as predicted by classical Lewis structure",
+        "B) The double bond consists of two $\\sigma$ bonds formed by overlap of $2s$ and $2p$ orbitals",
+        "C) The double bond consists of one $\\sigma$ bond and two half-filled $\\pi$ bonds",
+        "D) Both bonds in the double bond are $\\pi$ bonds because all four valence electrons are in degenerate $\\pi 2p$ molecular orbitals"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Write the MO electronic configuration for $\\text{C}_2$ (total 12 electrons): $\\sigma 1s^2 \\sigma^* 1s^2 \\sigma 2s^2 \\sigma^* 2s^2 (\\pi 2p_x^2 = \\pi 2p_y^2)$.\nStep 2: The $\\sigma 1s, \\sigma^* 1s, \\sigma 2s$, and $\\sigma^* 2s$ orbitals hold 8 electrons whose bonding and antibonding effects cancel each other out.\nStep 3: The remaining 4 valence electrons reside entirely in the degenerate bonding $\\pi 2p_x$ and $\\pi 2p_y$ orbitals.\nStep 4: Calculate bond order: $\\frac{1}{2}(8 - 4) = 2$. Because these 4 electrons are in $\\pi$ molecular orbitals and none are in $\\sigma 2p_z$, both bonds in $\\text{C}_2$ are $\\pi$ bonds (a unique NCERT hallmark question)."
+    },
+    {
+      "id": "chem_chem_bond_c01_021",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Hydrogen bonding represents an attractive force between a hydrogen atom covalently bonded to an electronegative atom and another electronegative atom. Which conditions are essential for effective hydrogen bonding?",
+      "options": [
+        "A) Small atomic size and high electronegativity of the bonded heteroatom (such as $\\text{F}$, $\\text{O}$, or $\\text{N}$)",
+        "B) Large atomic size and low electronegativity of the bonded atom so that orbitals overlap easily",
+        "C) Presence of a central transition metal atom with vacant $d$-orbitals",
+        "D) Symmetrical distribution of electron density between the bonded atoms"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Identify the criteria given in NCERT for the formation of hydrogen bonds.\nStep 2: A hydrogen bond is primarily an electrostatic dipole-dipole attraction. To create a sufficiently large partial positive charge ($\\delta^+$) on the hydrogen atom, it must be covalently bonded to an element of high electronegativity.\nStep 3: Furthermore, the electronegative atom must have a small atomic radius so that its concentrated electron density can exert a strong electrostatic pull on the small proton-like hydrogen atom.\nStep 4: Only fluorine, oxygen, and nitrogen satisfy both criteria (high electronegativity and small atomic size). Elements like chlorine, despite having equal electronegativity to nitrogen ($3.0$), have a larger atomic size and therefore exhibit much weaker H-bonding."
+    },
+    {
+      "id": "chem_chem_bond_c01_022",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Water ($\\text{H}_2\\text{O}$) is a liquid with an abnormally high boiling point of $100^\\circ\\text{C}$ ($373\\text{ K}$), whereas hydrogen sulfide ($\\text{H}_2\\text{S}$), despite having a greater molecular mass, is a gas at room temperature with a boiling point of $-60^\\circ\\text{C}$ ($213\\text{ K}$). This striking physical difference is due to:",
+      "options": [
+        "A) Strong covalent bonding between adjacent sulfur atoms in $\\text{H}_2\\text{S}$",
+        "B) Higher polarity of the $\\text{S}-\\text{H}$ bond compared to the $\\text{O}-\\text{H}$ bond",
+        "C) Extensive intermolecular hydrogen bonding in $\\text{H}_2\\text{O}$ which is absent in $\\text{H}_2\\text{S}$ due to lower electronegativity and larger size of sulfur",
+        "D) Formation of intramolecular hydrogen bonding in $\\text{H}_2\\text{S}$ molecules"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Compare the electronegativities of oxygen and sulfur: Oxygen ($3.5$) is far more electronegative than sulfur ($2.5$).\nStep 2: Oxygen's high electronegativity and small atomic radius permit extensive three-dimensional intermolecular hydrogen bonding among water molecules. Each water molecule can form up to four hydrogen bonds in an open tetrahedral network, requiring substantial thermal energy to break.\nStep 3: In contrast, sulfur is larger in size and significantly less electronegative. As a result, $\\text{H}_2\\text{S}$ molecules cannot form effective hydrogen bonds and are held together only by weak van der Waals dispersion/dipole forces, making $\\text{H}_2\\text{S}$ a gas at room temperature."
+    },
+    {
+      "id": "chem_chem_bond_c01_023",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the octet rule and hypervalent molecules:\n\nStatement I: In molecules such as $\\text{PCl}_5$, $\\text{SF}_6$, and $\\text{H}_2\\text{SO}_4$, the central atom has an expanded octet with 10, 12, and 12 valence electrons respectively, facilitated by the availability of vacant $3d$ orbitals.\nStatement II: Second-period elements such as carbon, nitrogen, and oxygen can similarly expand their octet up to 12 electrons under high coordination numbers by utilizing low-lying empty $d$-orbitals.\n\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I: Elements of the third period and beyond (such as $\\text{P}$, $\\text{S}$, $\\text{Cl}$) possess $3s$, $3p$, and vacant $3d$ orbitals. They can accommodate more than 8 valence electrons, forming hypervalent molecules like $\\text{PCl}_5$ (10 electrons), $\\text{SF}_6$ (12 electrons), and $\\text{H}_2\\text{SO}_4$ (12 electrons). Thus, Statement I is fully correct.\nStep 2: Evaluate Statement II: Second-period elements ($\text{C}, \\text{N}, \\text{O}, \\text{F}$) have only $2s$ and $2p$ subshells in their valence shell ($n = 2$) and completely lack $d$-orbitals. Hence, their maximum covalency is strictly limited to 4 (e.g., $\\text{NF}_3$ exists, but $\\text{NF}_5$ cannot exist; $\\text{BF}_4^-$ exists, but $\\text{BF}_6^{3-}$ cannot). Statement II is completely incorrect."
+    },
+    {
+      "id": "chem_chem_bond_c01_024",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\n\nAssertion (A): The experimental lattice enthalpy of magnesium oxide ($\\text{MgO}$, $-3791\\text{ kJ mol}^{-1}$) is nearly five times higher in magnitude than that of sodium chloride ($\\text{NaCl}$, $-788\\text{ kJ mol}^{-1}$).\nReason (R): Lattice enthalpy is directly proportional to the product of ionic charges ($|z_+ z_-|$) and inversely proportional to internuclear distance; in $\\text{MgO}$, both ions are divalent ($\\text{Mg}^{2+}, \\text{O}^{2-}$), giving a charge product of 4 compared to 1 in $\\text{NaCl}$.\n\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Assertion (A): The lattice enthalpy of $\\text{MgO}$ is $-3791\\text{ kJ mol}^{-1}$, whereas for $\\text{NaCl}$ it is $-788\\text{ kJ mol}^{-1}$. Assertion (A) is a correct experimental fact.\nStep 2: Analyze Reason (R): According to Born-Landé and Coulombic expressions, lattice energy $U \\propto \\frac{|z_+ z_-|}{r_0}$, where $z_+$ and $z_-$ are ionic charges and $r_0$ is the interionic distance.\nStep 3: In $\\text{MgO}$, $z_+ = +2$ and $z_- = -2$, so $|z_+ z_-| = 4$. In $\\text{NaCl}$, $z_+ = +1$ and $z_- = -1$, so $|z_+ z_-| = 1$. Furthermore, the radii of $\\text{Mg}^{2+}$ and $\\text{O}^{2-}$ are smaller than those of $\\text{Na}^+$ and $\\text{Cl}^-$, making $r_0$ smaller.\nStep 4: The four-fold charge product combined with smaller interionic separation explains why $\\text{MgO}$ has roughly five times higher lattice energy. Thus, (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chem_bond_c01_025",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\n\nAssertion (A): The net dipole moment of *trans*-1,2-dichloroethene is zero ($\\mu = 0$), whereas *cis*-1,2-dichloroethene has a substantial dipole moment of $\\mu = 1.90\\text{ D}$.\nReason (R): The boiling point of *cis*-1,2-dichloroethene ($60^\\circ\\text{C}$) is higher than that of *trans*-1,2-dichloroethene ($48^\\circ\\text{C}$) due to stronger dipole-dipole intermolecular attractions.\n\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Assertion (A): In *trans*-1,2-dichloroethene, the two polar $\\text{C}-\\text{Cl}$ bond dipoles and the two $\\text{C}-\\text{H}$ bond dipoles are directed in diametrically opposite directions ($180^\\circ$), causing complete vector cancellation ($\\mu = 0$). In *cis*-1,2-dichloroethene, the bond dipoles reinforce each other on the same side, giving $\\mu = 1.90\\text{ D}$. Assertion (A) is true.\nStep 2: Evaluate Reason (R): Polar molecules experience stronger dipole-dipole interactions in the liquid phase; hence *cis*-1,2-dichloroethene boils at $60^\\circ\\text{C}$, whereas the non-polar *trans*-isomer boils at $48^\\circ\\text{C}$. Reason (R) is a true statement.\nStep 3: However, Reason (R) describes the thermodynamic consequence (boiling point) of dipole moments, rather than explaining why the vector sum of bond dipoles in the *trans*-isomer cancels out to zero. Thus, both (A) and (R) are true, but (R) is NOT the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chem_bond_c01_026",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding molecular polarity:\n\nStatement I: Carbon dioxide ($\\text{CO}_2$) and sulfur dioxide ($\\text{SO}_2$) both contain two polar double bonds and have symmetrical linear geometries, resulting in a net dipole moment of zero ($\\mu = 0$) for both compounds.\nStatement II: Carbon dioxide is linear ($sp$ hybridized, $\\mu = 0$) because it lacks lone pairs on carbon, whereas sulfur dioxide is angular/bent ($sp^2$ hybridized, $\\mu = 1.62\\text{ D}$) due to the presence of a lone pair on sulfur.\n\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Examine Statement I: In $\\text{CO}_2$, carbon is $sp$ hybridized with 2 bond pairs and 0 lone pairs, giving a linear geometry where two opposing $\\text{C}=\\text{O}$ bond dipoles cancel out ($\\mu = 0$). However, $\\text{SO}_2$ has 2 bond pairs and 1 lone pair on sulfur, adopting a bent V-shaped geometry. Its bond dipoles do not cancel out, resulting in a permanent dipole moment of $\\mu = 1.62\\text{ D}$. Thus, Statement I is incorrect.\nStep 2: Examine Statement II: In $\\text{SO}_2$, sulfur is $sp^2$ hybridized; the presence of the lone pair distorts the bond angle to approximately $119.5^\\circ$. The vector resultant of the two polar $\\text{S}=\\text{O}$ bonds does not cancel, making it polar. Statement II provides an accurate structural description and is fully correct.\nStep 3: Therefore, Statement I is incorrect but Statement II is correct."
+    },
+    {
+      "id": "chem_chem_bond_c01_027",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\n\nAssertion (A): The thermal stability of group 2 carbonates increases significantly down the column: $\\text{BeCO}_3 < \\text{MgCO}_3 < \\text{CaCO}_3 < \\text{SrCO}_3 < \\text{BaCO}_3$.\nReason (R): As the size of the alkaline earth metal cation increases down the group, its charge density and polarizing power decrease, resulting in less distortion of the large polarizable carbonate ($\\text{CO}_3^{2-}$) anion and greater thermal stability.\n\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A): Beryllium carbonate decomposes even in an atmosphere of $\\text{CO}_2$ at $25^\\circ\\text{C}$ ($100\\text{ K}$), while barium carbonate is thermally stable up to $1360^\\circ\\text{C}$. The thermal stability order is $\\text{BeCO}_3 < \\text{MgCO}_3 < \\text{CaCO}_3 < \\text{SrCO}_3 < \\text{BaCO}_3$. Assertion (A) is true.\nStep 2: Evaluate Reason (R): According to Fajan's rules, small cations with high charge density (like $\\text{Be}^{2+}$) exert strong polarizing power on the large, electron-rich carbonate ion. This polarizes one of the $\\text{C}-\\text{O}$ bonds, weakening it and favoring decomposition into the stable metal oxide and $\\text{CO}_2$: $\\text{MCO}_3 \\rightarrow \\text{MO} + \\text{CO}_2$.\nStep 3: Down the group, cation radius increases ($\\text{Be}^{2+} < \\text{Mg}^{2+} < \\text{Ca}^{2+} < \\text{Sr}^{2+} < \\text{Ba}^{2+}$), so polarizing power decreases sharply. The carbonate ion suffers minimal polarization in $\\text{BaCO}_3$, requiring high temperatures to decompose. Thus, (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chem_bond_c01_028",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\n\nAssertion (A): Stannic chloride ($\\text{SnCl}_4$) is a volatile covalent liquid (boiling point $114^\\circ\\text{C}$) that fumes in moist air, whereas stannous chloride ($\\text{SnCl}_2$) is an ionic solid with a high melting point ($247^\\circ\\text{C}$).\nReason (R): Transition metals in their lower oxidation states generally form basic oxides, whereas in their highest oxidation states they form acidic or amphoteric oxides.\n\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Assertion (A): In $\\text{SnCl}_4$, tin is in the $+4$ oxidation state with high charge and small ionic radius, giving it massive polarizing power according to Fajan's rules. This induces dominant covalent character, making $\\text{SnCl}_4$ a volatile liquid. In $\\text{SnCl}_2$, tin is in the $+2$ state with lower polarizing power, resulting in predominant ionic character and a solid lattice. Assertion (A) is true.\nStep 2: Evaluate Reason (R): Transition metal oxides in lower oxidation states (e.g., $\\text{MnO}, \\text{CrO}$) are basic, whereas higher oxidation state oxides (e.g., $\\text{Mn}_2\\text{O}_7, \\text{CrO}_3$) are acidic due to high covalency and electronegativity. Reason (R) is a scientifically correct fact.\nStep 3: However, Reason (R) refers to the acid-base nature of transition metal oxides and does not provide the rationale for the physical state and covalent character of group 14 tin chlorides (Fajan's rule on cation oxidation state). Thus, both (A) and (R) are true, but (R) is NOT the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chem_bond_c01_029",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the molecular geometries of interhalogen compounds:\n\nStatement I: In chlorine trifluoride ($\\text{ClF}_3$), the central chlorine atom is $sp^3d$ hybridized with two lone pairs occupying equatorial positions, resulting in a bent T-shaped molecular geometry.\nStatement II: In bromine pentafluoride ($\\text{BrF}_5$), the central bromine atom is $sp^3d$ hybridized with five bond pairs and zero lone pairs, producing a regular trigonal bipyramidal geometry.\n\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I: For $\\text{ClF}_3$, chlorine has 7 valence electrons. Forming 3 single bonds with fluorine leaves 4 non-bonding electrons (2 lone pairs). Steric number $Z = 3 + 2 = 5$ ($sp^3d$ hybridization). To minimize $90^\\circ$ repulsions, both lone pairs occupy equatorial positions, leaving 3 bond pairs in a bent T-shaped shape. Statement I is correct.\nStep 2: Analyze Statement II: For $\\text{BrF}_5$, bromine has 7 valence electrons. It forms 5 single bonds with fluorine atoms, leaving 2 non-bonding electrons as 1 lone pair. Steric number $Z = 5 + 1 = 6$ ($sp^3d^2$ hybridization). The electron geometry is octahedral and the molecular shape is square pyramidal (not trigonal bipyramidal). Statement II is incorrect.\nStep 3: Therefore, Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_chem_bond_c01_030",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\n\nAssertion (A): The observed bond angles in methane, ammonia, and water decrease systematically in the order $\\text{CH}_4 (109.5^\\circ) > \\text{NH}_3 (107.8^\\circ) > \\text{H}_2\\text{O} (104.5^\\circ)$, despite all three central atoms having $sp^3$ hybridization.\nReason (R): According to VSEPR theory, lone pairs of electrons occupy more spatial volume around the central atom, generating repulsive forces in the order $\\text{lp}-\\text{lp} > \\text{lp}-\\text{bp} > \\text{bp}-\\text{bp}$, which increasingly compresses the bonding electron pairs.\n\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Examine Assertion (A): In $\\text{CH}_4$, carbon has 4 bond pairs and 0 lone pairs (bond angle $109.5^\\circ$). In $\\text{NH}_3$, nitrogen has 3 bond pairs and 1 lone pair (bond angle $107.8^\\circ$). In $\\text{H}_2\\text{O}$, oxygen has 2 bond pairs and 2 lone pairs (bond angle $104.5^\\circ$). The sequence of decreasing bond angles is an established NCERT fact. Assertion (A) is true.\nStep 2: Examine Reason (R): A lone pair is held by only one positive nucleus and is broader and more diffuse than a bond pair. Therefore, repulsion between two lone pairs ($\\text{lp}-\\text{lp}$) is maximum, followed by lone pair-bond pair ($\\text{lp}-\\text{bp}$), and least between two bond pairs ($\\text{bp}-\\text{bp}$).\nStep 3: With zero lone pairs in $\\text{CH}_4$, the tetrahedral angle is unperturbed. In $\\text{NH}_3$, one $\\text{lp}-\\text{bp}$ interaction compresses the angle to $107.8^\\circ$. In $\\text{H}_2\\text{O}$, two lone pairs exert severe $\\text{lp}-\\text{lp}$ and $\\text{lp}-\\text{bp}$ repulsions, compressing the $\\text{H}-\\text{O}-\\text{H}$ angle down to $104.5^\\circ$. Thus, (R) correctly explains (A)."
+    },
+    {
+      "id": "chem_chem_bond_c01_031",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the triatomic species $\\text{XeF}_2$ and $\\text{I}_3^-$:\n\nStatement I: Both $\\text{XeF}_2$ and the triiodide anion ($\\text{I}_3^-$) adopt a bent V-shaped geometry because their central atoms possess two bond pairs and two lone pairs with $sp^3$ hybridization.\nStatement II: In both $\\text{XeF}_2$ and $\\text{I}_3^-$, the central atom has 2 bond pairs and 3 lone pairs ($sp^3d$ hybridization), where the 3 lone pairs occupy equatorial positions at $120^\\circ$ to each other, resulting in a strictly linear geometry.\n\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze the steric number of xenon in $\\text{XeF}_2$: Xenon has 8 valence electrons. Two electrons form bonds with fluorine atoms, leaving 6 electrons as 3 lone pairs. Steric number $Z = 2 + 3 = 5$ ($sp^3d$ hybridization).\nStep 2: Analyze the triiodide ion ($\\text{I}_3^-$): The central iodine atom has 7 valence electrons plus 1 negative charge $= 8$ electrons. It forms 2 single bonds with two terminal iodine atoms and retains 3 lone pairs. Steric number $Z = 2 + 3 = 5$ ($sp^3d$ hybridization).\nStep 3: In a trigonal bipyramid, the 3 lone pairs occupy the equatorial plane at $120^\\circ$ to minimize repulsions. The two axial positions hold the bonded atoms at $180^\\circ$, creating a linear molecular shape for both species.\nStep 4: Therefore, Statement I is incorrect (they are not bent $sp^3$) and Statement II is correct."
+    },
+    {
+      "id": "chem_chem_bond_c01_032",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\n\nAssertion (A): Covalent bonds formed by hybrid orbitals are substantially stronger and more stable than those formed by pure, unhybridized atomic orbitals ($s, p$).\nReason (R): Unhybridized pure atomic orbitals are spherically symmetrical or dumb-bell shaped with equal lobes on opposite sides of the nucleus, whereas hybrid orbitals have one lobe significantly enlarged and concentrated in a specific directional vector.\n\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Assertion (A): Hybrid orbitals undergo more effective overlap because they are strongly directional, yielding higher bond enthalpies and greater thermodynamic stability. Assertion (A) is true.\nStep 2: Evaluate Reason (R): Hybridization involves mathematical linear combination of wavefunctions, creating hybrid orbitals with one large directional lobe and one tiny opposite lobe. In contrast, pure $s$-orbitals are non-directional spheres and pure $p$-orbitals have two equal lobes. Reason (R) is a true statement.\nStep 3: However, the precise explanation for bond strength is that the larger directional lobe enables a greater degree/extent of coaxial orbital overlap with the partner atom's orbital. While Reason (R) describes the shape of the hybrid orbital, the direct physical criterion for bond strength according to VBT is the increased 'extent of overlap' along the internuclear axis. Therefore, both (A) and (R) are true, but (R) is NOT the full correct explanation of (A)."
+    },
+    {
+      "id": "chem_chem_bond_c01_033",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\n\nAssertion (A): In homonuclear diatomic molecules of lighter second-period elements up to dinitrogen ($\\text{B}_2, \\text{C}_2, \\text{N}_2$), the bonding $\\pi 2p_x$ and $\\pi 2p_y$ molecular orbitals are lower in energy than the bonding $\\sigma 2p_z$ molecular orbital.\nReason (R): In atoms with $Z \\le 7$, the energy difference between the $2s$ and $2p_z$ atomic orbitals is small, allowing significant $2s-2p_z$ orbital mixing that raises the energy of $\\sigma 2p_z$ above the degenerate $\\pi 2p_{x,y}$ level.\n\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A): In homonuclear diatomic molecules with total electrons $\\le 14$ (up to $\\text{N}_2$), the molecular orbital energy ordering is $\\sigma 1s < \\sigma^* 1s < \\sigma 2s < \\sigma^* 2s < (\\pi 2p_x = \\pi 2p_y) < \\sigma 2p_z$. The $\\pi 2p$ orbitals lie below $\\sigma 2p_z$. Assertion (A) is correct.\nStep 2: Evaluate Reason (R): In lighter elements ($Z \\le 7$), the effective nuclear charge is relatively low, and the energy separation between $2s$ and $2p$ orbitals is small ($5.7\\text{ eV}$ in $\\text{B}$ to $12.4\\text{ eV}$ in $\\text{N}$). This permits strong interaction ($s-p$ mixing) between the $\\sigma 2s$ and $\\sigma 2p_z$ orbitals of compatible cylindrical symmetry.\nStep 3: This mixing pushes $\\sigma 2s$ down to lower energy and pushes $\\sigma 2p_z$ up to higher energy, above the unperturbed $\\pi 2p_x$ and $\\pi 2p_y$ orbitals. In $\\text{O}_2$ and $\\text{F}_2$, the $2s-2p$ gap is much larger ($> 16\\text{ eV}$), preventing $s-p$ mixing. Thus, (R) is the true and correct explanation of (A)."
+    },
+    {
+      "id": "chem_chem_bond_c01_034",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\n\nAssertion (A): The diboron molecule ($\\text{B}_2$) is paramagnetic with two unpaired electrons, whereas the dicarbon molecule ($\\text{C}_2$) is diamagnetic with zero unpaired electrons.\nReason (R): Dinitrogen ($\\text{N}_2$) has a high bond dissociation energy of $945\\text{ kJ mol}^{-1}$ and is chemically inert at ambient temperatures due to its bond order of 3.\n\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Assertion (A): $\\text{B}_2$ has 10 electrons: $\\sigma 1s^2 \\sigma^* 1s^2 \\sigma 2s^2 \\sigma^* 2s^2 (\\pi 2p_x^1 = \\pi 2p_y^1)$. It possesses 2 unpaired electrons in degenerate $\\pi 2p$ orbitals and is paramagnetic. $\\text{C}_2$ has 12 electrons: $\\sigma 1s^2 \\sigma^* 1s^2 \\sigma 2s^2 \\sigma^* 2s^2 (\\pi 2p_x^2 = \\pi 2p_y^2)$. All electrons are paired, making it diamagnetic. Assertion (A) is true.\nStep 2: Evaluate Reason (R): Dinitrogen contains a triple bond (one $\\sigma$ and two $\\pi$ bonds, bond order 3) with a bond enthalpy of $945\\text{ kJ mol}^{-1}$, rendering it inert at room temperature. Reason (R) is an accurate NCERT fact.\nStep 3: However, Reason (R) concerns the bond strength of $\\text{N}_2$ and does not explain the magnetic properties of $\\text{B}_2$ and $\\text{C}_2$ (which stem from the electronic population of degenerate $\\pi 2p$ orbitals according to Hund's rule). Thus, both (A) and (R) are true, but (R) is NOT the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chem_bond_c01_035",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the molecular properties of dioxygen species:\n\nStatement I: Among the species $\\text{O}_2^{2-}$, $\\text{O}_2^-$, $\\text{O}_2$, and $\\text{O}_2^+$, the superoxide ion ($\\text{O}_2^-$) has the shortest bond length and the highest bond dissociation energy.\nStatement II: According to Molecular Orbital Theory, as the bond order increases from $1.0$ in peroxide ($\\text{O}_2^{2-}$) to $2.5$ in the oxygenyl cation ($\\text{O}_2^+$), the internuclear distance decreases and bond stability increases.\n\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Calculate the bond orders of all four species:\n- $\\text{O}_2^+$ (15 electrons): $\\text{BO} = \\frac{1}{2}(10 - 5) = 2.5$.\n- $\\text{O}_2$ (16 electrons): $\\text{BO} = \\frac{1}{2}(10 - 6) = 2.0$.\n- $\\text{O}_2^-$ (17 electrons): $\\text{BO} = \\frac{1}{2}(10 - 7) = 1.5$.\n- $\\text{O}_2^{2-}$ (18 electrons): $\\text{BO} = \\frac{1}{2}(10 - 8) = 1.0$.\nStep 2: Bond length is inversely proportional to bond order: $\\text{O}_2^+ (112\\text{ pm}) < \\text{O}_2 (121\\text{ pm}) < \\text{O}_2^- (128\\text{ pm}) < \\text{O}_2^{2-} (149\\text{ pm})$. $\\text{O}_2^+$ has the shortest bond length and highest bond energy, not $\\text{O}_2^-$. Statement I is incorrect.\nStep 3: Statement II accurately describes the fundamental relationship: higher bond order corresponds to stronger nuclear attraction, shorter bond length, and greater bond dissociation enthalpy. Statement II is correct.\nStep 4: Therefore, Statement I is incorrect but Statement II is correct."
+    },
+    {
+      "id": "chem_chem_bond_c01_036",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\n\nAssertion (A): Potassium superoxide ($\\text{KO}_2$) is paramagnetic and orange-yellow in color, whereas potassium peroxide ($\\text{K}_2\\text{O}_2$) is diamagnetic and colorless.\nReason (R): The superoxide anion ($\\text{O}_2^-$) contains 17 valence electrons with one unpaired electron in its antibonding $\\pi^* 2p$ molecular orbital, whereas the peroxide anion ($\\text{O}_2^{2-}$) contains 18 valence electrons where all molecular orbitals are fully filled.\n\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A): In $\\text{KO}_2$, the cation is $\\text{K}^+$ (diamagnetic) and the anion is $\\text{O}_2^-$. Experimental measurement confirms $\\text{KO}_2$ is paramagnetic and yellow-orange. In $\\text{K}_2\\text{O}_2$, the anion is $\\text{O}_2^{2-}$, which is diamagnetic and white/colorless. Assertion (A) is true.\nStep 2: Evaluate Reason (R): Using MOT:\n- For $\\text{O}_2^-$ (17 electrons): $\\sigma 1s^2 \\sigma^* 1s^2 \\sigma 2s^2 \\sigma^* 2s^2 \\sigma 2p_z^2 (\\pi 2p_x^2 = \\pi 2p_y^2) (\\pi^* 2p_x^2 = \\pi^* 2p_y^1)$. There is 1 unpaired electron in the $\\pi^* 2p_y$ orbital, responsible for paramagnetism and visible electronic transitions.\n- For $\\text{O}_2^{2-}$ (18 electrons): $(\\pi^* 2p_x^2 = \\pi^* 2p_y^2)$, so all electrons are paired, conferring diamagnetism.\nStep 3: Hence, Reason (R) directly explains Assertion (A)."
+    },
+    {
+      "id": "chem_chem_bond_c01_037",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\n\nAssertion (A): *ortho*-Nitrophenol has a lower boiling point and can be separated from a mixture with *para*-nitrophenol by steam distillation.\nReason (R): The nitro group ($-\\text{NO}_2$) attached to the benzene ring exerts strong electron-withdrawing inductive ($-I$) and resonance ($-R$) effects, increasing the acidity of phenolic protons.\n\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Assertion (A): In *ortho*-nitrophenol, the $-\\text{OH}$ and $-\\text{NO}_2$ groups are adjacent, forming a stable six-membered chelate ring via intramolecular hydrogen bonding. This prevents association with neighboring molecules, lowering its boiling point ($216^\\circ\\text{C}$) and making it steam volatile. In *para*-nitrophenol, intermolecular hydrogen bonding causes extensive molecular association, elevating its boiling point ($279^\\circ\\text{C}$) and preventing steam distillation. Assertion (A) is true.\nStep 2: Evaluate Reason (R): The nitro group is strongly electron-withdrawing via both $-I$ and $-R$ effects, which stabilizes the phenoxide conjugate base and enhances acidity. Reason (R) is a true chemical fact.\nStep 3: However, acidity is not the cause of steam volatility or difference in boiling points; the difference is strictly due to intramolecular versus intermolecular hydrogen bonding. Thus, both (A) and (R) are true, but (R) is NOT the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chem_bond_c01_038",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the structural properties of ice and water:\n\nStatement I: In ordinary ice, each oxygen atom is tetrahedrally surrounded by four oxygen atoms through two covalent and two hydrogen bonds, creating an open cage-like lattice with empty channels that results in ice having a lower density than liquid water at $0^\\circ\\text{C}$.\nStatement II: Upon heating ice from $0^\\circ\\text{C}$ to $4^\\circ\\text{C}$, all hydrogen bonds are completely broken and water molecules exist entirely as unassociated discrete monomeric particles.\n\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I: Ice forms a hexagonal crystal lattice where each oxygen atom is tetrahedrally coordinated to four other oxygen atoms (two by normal covalent bonds of length $96\\text{ pm}$ and two by hydrogen bonds of length $177\\text{ pm}$). This open cage-like structure encloses large cavities, giving ice a lower density ($0.917\\text{ g cm}^{-3}$) than liquid water ($0.9998\\text{ g cm}^{-3}$) at $0^\\circ\\text{C}$. Statement I is correct.\nStep 2: Evaluate Statement II: When ice melts at $0^\\circ\\text{C}$, only approximately $15\\%$ of the hydrogen bonds collapse, allowing water molecules to tumble into the open voids and increasing density up to a maximum at $4^\\circ\\text{C}$ ($277\\text{ K}$). Liquid water at $4^\\circ\\text{C}$ still maintains extensive intermolecular hydrogen bonding networks; hydrogen bonds are not completely broken into discrete monomers until water vaporizes into steam at $100^\\circ\\text{C}$. Statement II is incorrect.\nStep 3: Hence, Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_chem_bond_c01_039",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\n\nAssertion (A): Among hydrogen halides, the boiling point decreases strictly in the sequence $\\text{HF} > \\text{HCl} > \\text{HBr} > \\text{HI}$ as molecular mass decreases.\nReason (R): Hydrogen fluoride ($\\text{HF}$) possesses the strongest intermolecular hydrogen bonding among hydrogen halides due to the small atomic size and exceptionally high electronegativity of fluorine.\n\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Assertion (A): The experimental boiling points of hydrogen halides are: $\\text{HF} (293\\text{ K}) > \\text{HI} (238\\text{ K}) > \\text{HBr} (206\\text{ K}) > \\text{HCl} (189\\text{ K})$. $\\text{HCl}$ has the lowest boiling point in the entire group. Boiling point does NOT decrease monotonically from $\\text{HF}$ to $\\text{HI}$; after the drop from $\\text{HF}$ to $\\text{HCl}$, boiling point increases from $\\text{HCl}$ to $\\text{HI}$ due to increasing London dispersion forces with larger molecular weight and polarizability. Thus, Assertion (A) is false.\nStep 2: Analyze Reason (R): Fluorine has the highest electronegativity ($4.0$) and a very small atomic radius, making the $\\text{H}-\\text{F}$ bond highly polar and generating strong intermolecular hydrogen bonding that holds $\\text{HF}$ molecules in zigzag chains even in the vapor phase. Reason (R) is true.\nStep 3: Therefore, (A) is false but (R) is true."
+    },
+    {
+      "id": "chem_chem_bond_c01_040",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the formal charge on atoms in the Lewis structure of the ozone molecule ($\\text{O}_3$):\n\nStatement I: In the canonical Lewis structure of ozone where oxygen atoms are numbered as central $\\text{O}(1)$, double-bonded terminal $\\text{O}(2)$, and single-bonded coordinate $\\text{O}(3)$, the calculated formal charges are $+1$ on $\\text{O}(1)$, $0$ on $\\text{O}(2)$, and $-1$ on $\\text{O}(3)$.\nStatement II: Formal charges represent real, physically measurable electrostatic charges residing on individual atoms in polyatomic molecules.\n\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate formal charges using the NCERT formula:\n$\\text{Formal Charge} = V - L - \\frac{1}{2}S$, where $V$ is valence electrons in free atom, $L$ is non-bonding lone pair electrons, and $S$ is shared bonding electrons.\n- For central $\\text{O}(1)$: $V = 6$, $L = 2$ (1 lone pair), $S = 6$ (one double bond + one single bond). Formal charge $= 6 - 2 - \\frac{1}{2}(6) = +1$.\n- For double-bonded $\\text{O}(2)$: $V = 6$, $L = 4$ (2 lone pairs), $S = 4$. Formal charge $= 6 - 4 - \\frac{1}{2}(4) = 0$.\n- For single-bonded $\\text{O}(3)$: $V = 6$, $L = 6$ (3 lone pairs), $S = 2$. Formal charge $= 6 - 6 - \\frac{1}{2}(2) = -1$.\nStatement I is completely correct.\nStep 2: Evaluate Statement II: Formal charge is a formal electron bookkeeping convention based on the assumption of pure covalent sharing of electrons; it does not represent real physical electrostatic charges, which are determined by electronegativity differences and polarizations. Statement II is incorrect.\nStep 3: Thus, Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_chem_bond_c01_041",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\n\nAssertion (A): The resonance hybrid of a molecule exists as a dynamic equilibrium mixture in which the molecule flips back and forth rapidly between its contributing canonical structures.\nReason (R): The resonance hybrid has lower potential energy and greater thermodynamic stability than any individual canonical structure, and the energy difference between the hybrid and the most stable canonical structure is defined as the resonance energy.\n\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Assertion (A): As explicitly emphasized in NCERT Chemistry, canonical resonance structures have no real physical existence; a molecule does not exist for a certain fraction of time in one canonical form and other fractions in other forms. There is NO dynamic equilibrium between canonical forms. The molecule has a single, definite structure represented by the resonance hybrid at all times. Assertion (A) is completely false.\nStep 2: Evaluate Reason (R): Delocalization of $\\pi$ electrons lowers the overall potential energy of the system. The resonance hybrid is always more stable (lower energy) than any imaginary canonical structure. The difference in energy between the resonance hybrid and the most stable canonical structure is indeed the resonance energy. Reason (R) is true.\nStep 3: Therefore, (A) is false but (R) is true."
+    },
+    {
+      "id": "chem_chem_bond_c01_042",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the xenon compounds in List I with their corresponding molecular geometry/shape according to VSEPR theory in List II:\n\nList I:\nA. $\\text{XeF}_2$\nB. $\\text{XeF}_4$\nC. $\\text{XeOF}_4$\nD. $\\text{XeO}_3$\n\nList II:\nI. Square pyramidal\nII. Trigonal pyramidal\nIII. Linear\nIV. Square planar\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-IV, B-III, C-II, D-I",
+        "B) A-III, B-IV, C-I, D-II",
+        "C) A-III, B-I, C-IV, D-II",
+        "D) A-II, B-IV, C-I, D-III"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Determine steric number and geometry for each xenon compound:\n- For $\\text{XeF}_2$: Xenon has 8 valence electrons; 2 bonding pairs + 3 lone pairs. Steric number $Z = 5$ ($sp^3d$). Lone pairs occupy 3 equatorial positions, giving a strictly linear shape (A matches III).\n- For $\\text{XeF}_4$: Xenon has 4 bonding pairs + 2 lone pairs. Steric number $Z = 6$ ($sp^3d^2$). Lone pairs occupy trans axial positions, giving a square planar shape (B matches IV).\n- For $\\text{XeOF}_4$: Xenon forms 1 double bond with oxygen and 4 single bonds with fluorines, plus 1 lone pair. Steric number $Z = 5\\sigma + 1\\text{ lp} = 6$ ($sp^3d^2$). Geometry is square pyramidal (C matches I).\n- For $\\text{XeO}_3$: Xenon forms 3 double bonds with oxygen atoms and retains 1 lone pair. Steric number $Z = 3\\sigma + 1\\text{ lp} = 4$ ($sp^3$). Geometry is trigonal pyramidal (D matches II).\nStep 2: Matching sequence: A-III, B-IV, C-I, D-II, which corresponds to option B."
+    },
+    {
+      "id": "chem_chem_bond_c01_043",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the electronic structure and molecular orbital parameters of diatomic species:\n\n(a) $\\text{CO}$, $\\text{NO}^+$, and $\\text{CN}^-$ are isoelectronic with 14 electrons each and share an identical bond order of 3.\n(b) All three species ($\\text{CO}$, $\\text{NO}^+$, $\\text{CN}^-$) are diamagnetic in their ground state with zero unpaired electrons.\n(c) Ionization of nitric oxide ($\\text{NO} \\rightarrow \\text{NO}^+ + e^-$) involves the removal of an electron from an antibonding orbital, decreasing the bond order from $2.5$ to $2.0$.\n(d) In $\\text{CO}$, ionization to form $\\text{CO}^+$ removes an electron from a weakly antibonding orbital, causing a slight increase in bond order to approximately $3.5$.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) (a), (b), and (d) only",
+        "B) (a), (c), and (d) only",
+        "C) (b) and (c) only",
+        "D) (a), (b), (c), and (d)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate statement (a): $\\text{CO} (6+8=14)$, $\\text{NO}^+ (7+8-1=14)$, and $\\text{CN}^- (6+7+1=14)$ are all 14-electron isoelectronic species. With configuration $\\sigma 1s^2 \\sigma^* 1s^2 \\sigma 2s^2 \\sigma^* 2s^2 (\\pi 2p_x^2 = \\pi 2p_y^2) \\sigma 2p_z^2$, bond order $= \\frac{1}{2}(10 - 4) = 3$. Statement (a) is correct.\nStep 2: Evaluate statement (b): All 14 electrons are paired in bonding and core orbitals, leaving zero unpaired electrons; hence, all are diamagnetic. Statement (b) is correct.\nStep 3: Evaluate statement (c): For neutral $\\text{NO}$ (15 electrons), the bond order is $2.5$. In ionization to $\\text{NO}^+$, the removed electron comes from the antibonding $\\pi^* 2p$ orbital ($N_a$ decreases from 5 to 4), which increases the bond order from $2.5$ to $3.0$ (not decreases to $2.0$). Statement (c) is incorrect.\nStep 4: Evaluate statement (d): In $\\text{CO}$, photoelectron spectroscopy and advanced MO theory establish that the HOMO ($\\sigma 2s^* / 3\\sigma$) has slight antibonding character due to polarization towards carbon; removing an electron to form $\\text{CO}^+$ increases the bond order to $3.5$ and shortens the bond length. Statement (d) is correct.\nStep 5: Therefore, statements (a), (b), and (d) only are correct."
+    },
+    {
+      "id": "chem_chem_bond_c01_044",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the pairs of compounds in List I with their governing chemical bonding or polarization principle in List II according to Fajan's rules:\n\nList I:\nA. $\\text{LiF}$ and $\\text{LiI}$\nB. $\\text{NaCl}$ and $\\text{CuCl}$\nC. $\\text{SnCl}_2$ and $\\text{SnCl}_4$\nD. $\\text{BeSO}_4$ and $\\text{BaSO}_4$\n\nList II:\nI. Pseudo-noble gas configuration ($18\\text{ e}^-$) produces significantly higher polarizing power, causing high covalent character and lower melting point\nII. Higher oxidation state of cation ($+4$ vs $+2$) increases charge density and polarizing power, resulting in a volatile covalent liquid\nIII. Larger, more polarizable anion undergoes stronger electron cloud distortion, imparting higher solubility in non-polar organic solvents\nIV. Exceptionally high hydration enthalpy of small divalent cation overcompensates lattice enthalpy, imparting high water solubility\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-I, C-III, D-IV",
+        "B) A-III, B-II, C-I, D-IV",
+        "C) A-III, B-I, C-II, D-IV",
+        "D) A-IV, B-I, C-II, D-III"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Match each pair based on NCERT principles:\n- A ($\\text{LiF}$ vs $\\text{LiI}$): Iodide ion ($\\text{I}^-$) is much larger and more polarizable than fluoride ($\\text{F}^-$). Polarizing power of $\\text{Li}^+$ distorts $\\text{I}^-$ strongly, giving $\\text{LiI}$ significant covalent character and high solubility in organic solvents like ethanol (A matches III).\n- B ($\\text{NaCl}$ vs $\\text{CuCl}$): Both cations have similar radius and $+1$ charge, but $\\text{Cu}^+$ has a pseudo-noble gas configuration ($3s^2 3p^6 3d^{10}$) which shields nuclear charge poorly, exerting far higher polarizing power than $\\text{Na}^+$ ($2s^2 2p^6$) and lowering its melting point to $426^\\circ\\text{C}$ (B matches I).\n- C ($\\text{SnCl}_2$ vs $\\text{SnCl}_4$): $\\text{Sn}^{4+}$ has a higher positive charge and smaller ionic size than $\\text{Sn}^{2+}$, causing severe polarization of chloride anions and rendering $\\text{SnCl}_4$ a volatile liquid (C matches II).\n- D ($\\text{BeSO}_4$ vs $\\text{BaSO}_4$): $\\text{Be}^{2+}$ is exceptionally small, conferring a huge hydration enthalpy that easily overcomes its lattice enthalpy, making $\\text{BeSO}_4$ highly soluble, whereas $\\text{BaSO}_4$ is insoluble (D matches IV).\nStep 2: Correct matching order: A-III, B-I, C-II, D-IV, which corresponds to option C."
+    },
+    {
+      "id": "chem_chem_bond_c01_045",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding bond angles and distortion in molecules governed by VSEPR theory:\n\n(a) In gaseous $\\text{PCl}_5$, all five $\\text{P}-\\text{Cl}$ bonds are of strictly identical length and bond dissociation enthalpy.\n(b) In $\\text{SF}_4$, repulsion from the equatorial lone pair pushes the two axial fluorine atoms slightly backwards, compressing the axial $\\text{F}-\\text{S}-\\text{F}$ bond angle to approximately $173^\\circ$ (less than $180^\\circ$).\n(c) In $\\text{ClF}_3$, the two equatorial lone pairs exert strong repulsive push on the axial $\\text{Cl}-\\text{F}$ bonds, reducing the axial $\\text{F}-\\text{Cl}-\\text{F}$ angle to approximately $175^\\circ$.\n(d) In $\\text{BrF}_5$, the axial-equatorial $\\text{F}-\\text{Br}-\\text{F}$ bond angles are strictly $90^\\circ$ because the single lone pair on bromine exerts negligible repulsion on the basal fluorine atoms.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) (a) and (b) only",
+        "B) (b) and (c) only",
+        "C) (b), (c), and (d) only",
+        "D) (a), (c), and (d) only"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate statement (a): In $\\text{PCl}_5$, the axial bonds ($219\\text{ pm}$) are longer and weaker than the equatorial bonds ($204\\text{ pm}$) due to unequal repulsive forces. Statement (a) is incorrect.\nStep 2: Evaluate statement (b): In $\\text{SF}_4$, the equatorial lone pair exerts strong $\\text{lp}-\\text{bp}$ repulsion at $90^\\circ$ on the two axial $\\text{S}-\\text{F}$ bonds, bending them away from the lone pair. The axial angle is compressed from $180^\\circ$ to $173^\\circ$, and the equatorial angle from $120^\\circ$ to $102^\\circ$. Statement (b) is correct.\nStep 3: Evaluate statement (c): In $\\text{ClF}_3$, the two equatorial lone pairs repel the axial bond pairs towards each other, causing the axial $\\text{F}-\\text{Cl}-\\text{F}$ bond angle to contract to $175^\\circ$. Statement (c) is correct.\nStep 4: Evaluate statement (d): In $\\text{BrF}_5$, the lone pair on bromine occupies one axial position of an octahedron and strongly repels the four basal equatorial fluorine atoms upward, bending the equatorial $\\text{F}-\\text{Br}-\\text{F}$ angles to $84.8^\\circ$ (less than $90^\\circ$). Statement (d) is incorrect.\nStep 5: Hence, only statements (b) and (c) are correct."
+    },
+    {
+      "id": "chem_chem_bond_c01_046",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the chemical species in List I with the exact number of non-bonding lone pairs localized on their central atom in List II:\n\nList I:\nA. $\\text{I}_3^-$\nB. $\\text{XeF}_4$\nC. $\\text{SF}_4$\nD. $\\text{NH}_4^+$\n\nList II:\nI. Zero lone pairs\nII. One lone pair\nIII. Two lone pairs\nIV. Three lone pairs\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-III, B-IV, C-I, D-II",
+        "B) A-IV, B-II, C-III, D-I",
+        "C) A-II, B-III, C-IV, D-I",
+        "D) A-IV, B-III, C-II, D-I"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Calculate the number of lone pairs on the central atom for each species:\n- A ($\\text{I}_3^-$): The central iodine atom has 7 valence electrons $+ 1$ negative charge $= 8$ electrons. Two electrons form bonds with terminal iodines, leaving 6 non-bonding electrons as 3 lone pairs ($sp^3d$). A matches IV.\n- B ($\\text{XeF}_4$): Xenon has 8 valence electrons. Four electrons form single bonds with fluorines, leaving 4 non-bonding electrons as 2 lone pairs ($sp^3d^2$). B matches III.\n- C ($\\text{SF}_4$): Sulfur has 6 valence electrons. Four electrons form single bonds with fluorines, leaving 2 non-bonding electrons as 1 lone pair ($sp^3d$). C matches II.\n- D ($\\text{NH}_4^+$): Nitrogen has 5 valence electrons $- 1$ positive charge $= 4$ valence electrons. All 4 electrons are shared with four hydrogen atoms, leaving 0 lone pairs ($sp^3$). D matches I.\nStep 2: Correct matching order: A-IV, B-III, C-II, D-I, corresponding to option D."
+    },
+    {
+      "id": "chem_chem_bond_c01_047",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the application of Molecular Orbital Theory to homonuclear diatomic molecules:\n\n(a) In dicarbon ($\\text{C}_2$), the double bond consists entirely of two $\\pi$ bonds with no $\\sigma$ bond present between the carbon atoms.\n(b) In diboron ($\\text{B}_2$), the single bond consists of two half-filled degenerate $\\pi$ molecular orbitals, making the molecule paramagnetic.\n(c) When dioxygen ($\\text{O}_2$) is oxidized to the oxygenyl cation ($\\text{O}_2^+$), it becomes diamagnetic because all antibonding electrons are removed.\n(d) The bond order of $\\text{N}_2^+$ is $2.5$, and its bond length is experimentally greater than that of neutral $\\text{N}_2$.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) (a) and (c) only",
+        "B) (b) and (d) only",
+        "C) (a), (b), and (d) only",
+        "D) (a), (b), (c), and (d)"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate statement (a): In $\\text{C}_2$ (12 electrons), the valence electrons enter $(\\pi 2p_x^2 = \\pi 2p_y^2)$, with no electrons occupying the $\\sigma 2p_z$ bonding orbital. Hence, both bonds making up the double bond are $\\pi$ bonds. Statement (a) is correct.\nStep 2: Evaluate statement (b): In $\\text{B}_2$ (10 electrons), the configuration is $(\\pi 2p_x^1 = \\pi 2p_y^1)$, yielding a bond order of 1 consisting of two half-filled $\\pi$ orbitals with parallel spins (paramagnetic). Statement (b) is correct.\nStep 3: Evaluate statement (c): In $\\text{O}_2$ (16 electrons), there are two unpaired electrons in $(\\pi^* 2p_x^1 = \\pi^* 2p_y^1)$. Ionization to $\\text{O}_2^+$ (15 electrons) removes one electron, leaving one unpaired electron in $\\pi^* 2p$. Thus, $\\text{O}_2^+$ remains paramagnetic, not diamagnetic. Statement (c) is incorrect.\nStep 4: Evaluate statement (d): $\\text{N}_2$ has bond order 3.0 (bond length $110\\text{ pm}$). In $\\text{N}_2^+$, an electron is removed from the bonding $\\sigma 2p_z$ orbital, reducing bond order to $2.5$ and increasing the bond length to $112\\text{ pm}$. Statement (d) is correct.\nStep 5: Thus, statements (a), (b), and (d) only are correct."
+    },
+    {
+      "id": "chem_chem_bond_c01_048",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the chemical phenomena in List I with the underlying molecular bonding principle responsible for them in List II:\n\nList I:\nA. Exceptionally high boiling point and viscosity of glycerol compared to propan-1-ol\nB. Rapid dissolving and high aqueous solubility of crystalline sucrose in water\nC. Ease of separation of *ortho*-nitrophenol from *para*-nitrophenol by steam distillation\nD. Restricted rotation and planarity of the peptide bond ($-\\text{CONH}-$) in polypeptide chains\n\nList II:\nI. Formation of multiple intermolecular hydrogen bonds with solvent water molecules\nII. Intramolecular hydrogen bonding (chelation) in the *ortho*-isomer preventing intermolecular association\nIII. Resonance delocalization of the nitrogen lone pair into the carbonyl group imparting partial double-bond character\nIV. Formation of an extensive, three-dimensional intermolecular hydrogen-bonded network via three hydroxyl groups\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-I, B-IV, C-II, D-III",
+        "B) A-IV, B-I, C-II, D-III",
+        "C) A-IV, B-II, C-I, D-III",
+        "D) A-II, B-I, C-IV, D-III"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Match each phenomenon with its molecular mechanism:\n- A: Glycerol (propane-1,2,3-triol) contains three $-\\text{OH}$ groups per molecule, forming a dense 3D network of intermolecular hydrogen bonds, leading to high boiling point ($290^\\circ\\text{C}$) and syrupy viscosity (A matches IV).\n- B: Sucrose contains eight $-\\text{OH}$ groups that form numerous intermolecular hydrogen bonds with surrounding water molecules, overcoming its lattice energy and causing high solubility (B matches I).\n- C: *ortho*-Nitrophenol exhibits intramolecular hydrogen bonding (chelation), which prevents intermolecular association, lowering its boiling point and allowing it to be distilled with steam (C matches II).\n- D: The lone pair on nitrogen in an amide/peptide group delocalizes into the carbonyl $\\pi$ system, giving approximately $40\\%$ double-bond character to the $\\text{C}-\\text{N}$ bond and enforcing planarity (D matches III).\nStep 2: Correct matching: A-IV, B-I, C-II, D-III, which corresponds to option B."
+    },
+    {
+      "id": "chem_chem_bond_c01_049",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding dipole moments and molecular symmetry:\n\n(a) Boron trifluoride ($\\text{BF}_3$) has a net dipole moment of zero ($\\mu = 0$), whereas nitrogen trifluoride ($\\text{NF}_3$) has a permanent dipole moment ($\\mu = 0.24\\text{ D}$).\n(b) The experimental dipole moment of chloromethane ($\\text{CH}_3\\text{Cl}$, $1.86\\text{ D}$) is higher than that of fluoromethane ($\\text{CH}_3\\text{F}$, $1.60\\text{ D}$), because the much longer $\\text{C}-\\text{Cl}$ bond distance overcompensates for the smaller charge difference ($\\mu = q \\times d$).\n(c) Carbon tetrachloride ($\\text{CCl}_4$) and chloroform ($\\text{CHCl}_3$) both have a net dipole moment of zero due to tetrahedral symmetry.\n(d) 1,4-Dichlorobenzene possesses a net dipole moment of zero ($\\mu = 0$), whereas 1,4-dihydroxybenzene (hydroquinone) can possess a non-zero dipole moment due to non-collinear orientation of bent $\\text{C}-\\text{O}-\\text{H}$ groups.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) (a), (b), and (d) only",
+        "B) (a) and (b) only",
+        "C) (b), (c), and (d) only",
+        "D) (a), (c), and (d) only"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate statement (a): $\\text{BF}_3$ is symmetrical trigonal planar with bond dipoles canceling completely ($\\mu = 0$). $\\text{NF}_3$ is trigonal pyramidal with an uncancelled dipole moment ($\\mu = 0.24\\text{ D}$). Statement (a) is correct.\nStep 2: Evaluate statement (b): Dipole moment is the product of charge and distance ($\\mu = q \\times d$). Although the $\\text{C}-\\text{F}$ bond has higher partial charges, the $\\text{C}-\\text{Cl}$ bond length ($178\\text{ pm}$) is significantly longer than the $\\text{C}-\\text{F}$ bond length ($139\\text{ pm}$). The greater distance dominates, resulting in $\\mu(\\text{CH}_3\\text{Cl}) = 1.86\\text{ D} > \\mu(\\text{CH}_3\\text{F}) = 1.60\\text{ D}$ (a classic NCERT point). Statement (b) is correct.\nStep 3: Evaluate statement (c): In $\\text{CCl}_4$, all four $\\text{C}-\\text{Cl}$ dipoles cancel symmetrically ($\\mu = 0$). In $\\text{CHCl}_3$, the three $\\text{C}-\\text{Cl}$ dipoles and one $\\text{C}-\\text{H}$ dipole are not identical, resulting in an uncancelled dipole moment of $\\mu = 1.04\\text{ D}$. Statement (c) is incorrect.\nStep 4: Evaluate statement (d): In 1,4-dichlorobenzene, the two $\\text{C}-\\text{Cl}$ bonds are collinear along the aromatic axis at $180^\\circ$ ($\\mu = 0$). In hydroquinone, the $\\text{C}-\\text{O}-\\text{H}$ angle is approximately $109^\\circ$ (bent); rotation around the $\\text{C}-\\text{O}$ bond allows conformations where the two $\\text{O}-\\text{H}$ dipoles do not cancel, giving a net dipole moment ($\\mu \\ne 0$). Statement (d) is correct.\nStep 5: Hence, statements (a), (b), and (d) only are correct."
+    },
+    {
+      "id": "chem_chem_bond_c01_050",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the types of atomic orbital combinations in List I (taking the $z$-axis as the internuclear axis) with the nature of the resulting overlap or bond in List II:\n\nList I:\nA. Positive lobe of $s$ + positive lobe of $s$ along $z$-axis\nB. Positive lobe of $p_z$ + positive lobe of $p_z$ along $z$-axis\nC. Positive lobe of $p_x$ + positive lobe of $p_x$ perpendicular to $z$-axis\nD. Positive lobe of $s$ approaching a $p_x$ orbital along the $z$-axis\n\nList II:\nI. Coaxial $\\sigma$ bond formed by directional $p$-orbital overlap\nII. Lateral $\\pi$ bond with a nodal plane containing the internuclear axis\nIII. Zero overlap resulting in no bond formation\nIV. Spherically symmetrical coaxial $\\sigma$ bond\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-I, B-IV, C-II, D-III",
+        "B) A-IV, B-II, C-I, D-III",
+        "C) A-IV, B-I, C-II, D-III",
+        "D) A-III, B-I, C-II, D-IV"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze each orbital combination according to Valence Bond Theory:\n- A ($s + s$ along $z$-axis): Axial overlap of non-directional $s$-orbitals creates a cylindrically symmetrical $\\sigma$ bond with electron density concentrated symmetrically between the nuclei (A matches IV).\n- B ($p_z + p_z$ along $z$-axis): End-to-end head-on overlap of directional $p_z$ lobes along the internuclear axis forms a strong coaxial $\\sigma$ bond (B matches I).\n- C ($p_x + p_x$ perpendicular to $z$-axis): Sideways parallel overlap of $p_x$ lobes above and below the internuclear axis produces a lateral $\\pi$ bond with the internuclear $z$-axis lying in the nodal plane (C matches II).\n- D ($s + p_x$ along $z$-axis): The spherical $s$-orbital overlaps equally with the positive lobe and negative lobe of the perpendicular $p_x$-orbital. Positive and negative overlap integrals cancel out exactly, giving net zero overlap and no chemical bond (D matches III).\nStep 2: Correct matching order: A-IV, B-I, C-II, D-III, which corresponds to option C."
+    },
+    {
+      "id": "chem_chem_bond_c01_051",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding isoelectronic and isostructural relationships among polyatomic chemical species:\n\n(a) The carbonate ion ($\\text{CO}_3^{2-}$) and nitrate ion ($\\text{NO}_3^-$) are isoelectronic with 24 valence electrons and are isostructural with trigonal planar geometry ($sp^2$ hybridization).\n(b) The chlorate ion ($\\text{ClO}_3^-$) and sulfite ion ($\\text{SO}_3^{2-}$) are isoelectronic with 26 valence electrons and are isostructural with trigonal pyramidal geometry ($sp^3$ hybridization).\n(c) Xenon difluoride ($\\text{XeF}_2$) and carbon dioxide ($\\text{CO}_2$) are isostructural because both are linear molecules with central atoms possessing $sp$ hybridization.\n(d) The tetrafluoroborate ion ($\\text{BF}_4^-$) and ammonium ion ($\\text{NH}_4^+$) are isostructural with regular tetrahedral geometry ($sp^3$ hybridization).\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) (a) and (b) only",
+        "B) (a), (b), and (d) only",
+        "C) (b), (c), and (d) only",
+        "D) (a), (c), and (d) only"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate statement (a): Valence electrons: $\\text{CO}_3^{2-} = 4 + 3(6) + 2 = 24$; $\\text{NO}_3^- = 5 + 3(6) + 1 = 24$. Both central atoms have steric number 3 (3 $\\sigma$ bonds, 0 lone pairs), yielding $sp^2$ trigonal planar geometry. Statement (a) is correct.\nStep 2: Evaluate statement (b): Valence electrons: $\\text{ClO}_3^- = 7 + 3(6) + 1 = 26$; $\\text{SO}_3^{2-} = 6 + 3(6) + 2 = 26$. Both have steric number 4 (3 $\\sigma$ bonds, 1 lone pair), yielding $sp^3$ trigonal pyramidal geometry. Statement (b) is correct.\nStep 3: Evaluate statement (c): Although both molecules are linear in shape, $\\text{CO}_2$ has $sp$ hybridization (2 bond pairs, 0 lone pairs), whereas $\\text{XeF}_2$ has $sp^3d$ hybridization (2 bond pairs, 3 lone pairs in equatorial positions). They do not share the same hybridization. Statement (c) is incorrect.\nStep 4: Evaluate statement (d): In $\\text{BF}_4^-$, boron has steric number 4 (4 bond pairs, 0 lone pairs, $sp^3$, tetrahedral). In $\\text{NH}_4^+$, nitrogen has steric number 4 (4 bond pairs, 0 lone pairs, $sp^3$, tetrahedral). Both are isostructural. Statement (d) is correct.\nStep 5: Thus, statements (a), (b), and (d) only are correct."
+    },
+    {
+      "id": "chem_chem_bond_c01_052",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the dioxygen species in List I with their corresponding bond order and magnetic nature in List II according to Molecular Orbital Theory:\n\nList I:\nA. $\\text{O}_2^+$\nB. $\\text{O}_2^-$\nC. $\\text{O}_2^{2-}$\nD. $\\text{O}_2$\n\nList II:\nI. $\\text{Bond Order} = 1.0$, Diamagnetic\nII. $\\text{Bond Order} = 1.5$, Paramagnetic (1 unpaired electron)\nIII. $\\text{Bond Order} = 2.0$, Paramagnetic (2 unpaired electrons)\nIV. $\\text{Bond Order} = 2.5$, Paramagnetic (1 unpaired electron)\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-IV, C-I, D-III",
+        "B) A-IV, B-III, C-II, D-I",
+        "C) A-III, B-II, C-I, D-IV",
+        "D) A-IV, B-II, C-I, D-III"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Write MO configuration and calculate parameters for each species:\n- A ($\\text{O}_2^+$): 15 electrons. Configuration ends with $(\\pi^* 2p_x^1 = \\pi^* 2p_y^0)$. Bond order $= \\frac{1}{2}(10 - 5) = 2.5$; has 1 unpaired electron, paramagnetic (A matches IV).\n- B ($\\text{O}_2^-$): 17 electrons. Configuration ends with $(\\pi^* 2p_x^2 = \\pi^* 2p_y^1)$. Bond order $= \\frac{1}{2}(10 - 7) = 1.5$; has 1 unpaired electron, paramagnetic (B matches II).\n- C ($\\text{O}_2^{2-}$): 18 electrons. Configuration ends with $(\\pi^* 2p_x^2 = \\pi^* 2p_y^2)$. Bond order $= \\frac{1}{2}(10 - 8) = 1.0$; zero unpaired electrons, diamagnetic (C matches I).\n- D ($\\text{O}_2$): 16 electrons. Configuration ends with $(\\pi^* 2p_x^1 = \\pi^* 2p_y^1)$. Bond order $= \\frac{1}{2}(10 - 6) = 2.0$; has 2 unpaired electrons, paramagnetic (D matches III).\nStep 2: Correct matching order: A-IV, B-II, C-I, D-III, which corresponds to option D."
+    },
+    {
+      "id": "chem_chem_bond_c01_053",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding resonance stabilization and bond parameters in organic and inorganic molecules:\n\n(a) In the acetate ion ($\\text{CH}_3\\text{COO}^-$), both carbon-oxygen bonds are of identical length and have an equal fractional bond order of $1.5$.\n(b) In benzene ($\\text{C}_6\\text{H}_6$), all six carbon-carbon bonds have an identical experimental length of $139\\text{ pm}$, lying intermediate between a pure single bond ($154\\text{ pm}$) and a pure double bond ($134\\text{ pm}$).\n(c) The resonance energy of a molecule is rigorously defined as the energy difference between the least stable canonical contributing structure and the resonance hybrid.\n(d) In the nitrate ion ($\\text{NO}_3^-$), all three nitrogen-oxygen bonds are completely equivalent in length with a calculated bond order of $1.33$.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) (a) and (b) only",
+        "B) (a), (c), and (d) only",
+        "C) (a), (b), and (d) only",
+        "D) (b), (c), and (d) only"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate statement (a): In the acetate anion, resonance delocalizes the negative charge equally over both oxygen atoms, making both $\\text{C}-\\text{O}$ bonds equivalent with bond order $\\frac{1 + 2}{2} = 1.5$. Statement (a) is correct.\nStep 2: Evaluate statement (b): The resonance hybrid of benzene delocalizes $6$ $\\pi$ electrons evenly over the ring, resulting in six equal $\\text{C}-\\text{C}$ bonds of $139\\text{ pm}$, intermediate between $154\\text{ pm}$ ($\text{C}-\text{C}$) and $134\\text{ pm}$ ($\text{C}=\text{C}$). Statement (b) is correct.\nStep 3: Evaluate statement (c): By definition, resonance energy is the difference between the energy of the resonance hybrid and the energy of the *most stable* (lowest energy) canonical structure, NOT the least stable. Statement (c) is incorrect.\nStep 4: Evaluate statement (d): In $\\text{NO}_3^-$, three equivalent resonance structures distribute one double bond and two single bonds over three $\\text{N}-\\text{O}$ positions, yielding an average bond order of $\\frac{4}{3} = 1.33$ and strictly identical bond lengths. Statement (d) is correct.\nStep 5: Hence, statements (a), (b), and (d) only are correct."
+    },
+    {
+      "id": "chem_chem_bond_c01_054",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the molecules in List I with the complete set of ideal bond angles present within their geometric frameworks in List II:\n\nList I:\nA. $\\text{SF}_6$\nB. $\\text{PCl}_5$\nC. $\\text{BF}_3$\nD. $\\text{CH}_4$\n\nList II:\nI. Only $120^\\circ$\nII. Only $109^\\circ 28'$\nIII. Both $90^\\circ$ and $120^\\circ$ (and $180^\\circ$ between axial bonds)\nIV. Both $90^\\circ$ and $180^\\circ$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-IV, B-III, C-I, D-II",
+        "B) A-III, B-IV, C-I, D-II",
+        "C) A-IV, B-I, C-III, D-II",
+        "D) A-II, B-III, C-I, D-IV"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Determine the bond angles for each molecule based on regular geometries:\n- A ($\\text{SF}_6$): Regular octahedral geometry ($sp^3d^2$). All adjacent bonds lie at $90^\\circ$ to each other, and opposite axial bonds lie at $180^\\circ$. A matches IV.\n- B ($\\text{PCl}_5$): Regular trigonal bipyramidal geometry ($sp^3d$). Equatorial-equatorial angle is $120^\\circ$, axial-equatorial angle is $90^\\circ$, and axial-axial angle is $180^\\circ$. B matches III.\n- C ($\\text{BF}_3$): Regular trigonal planar geometry ($sp^2$). All three $\\text{F}-\\text{B}-\\text{F}$ bond angles are strictly $120^\\circ$. C matches I.\n- D ($\\text{CH}_4$): Regular tetrahedral geometry ($sp^3$). All four $\\text{H}-\\text{C}-\\text{H}$ bond angles are strictly $109^\\circ 28'$ ($109.5^\\circ$). D matches II.\nStep 2: Correct matching order: A-IV, B-III, C-I, D-II, which corresponds to option A."
+    },
+    {
+      "id": "chem_chem_bond_c01_055",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding and Molecular Structure",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding hydrogen bonding and anomalous physical phenomena:\n\n(a) The typical bond energy of a hydrogen bond ranges from $10$ to $40\\text{ kJ mol}^{-1}$, which is significantly weaker than a normal covalent bond ($200-400\\text{ kJ mol}^{-1}$) but substantially stronger than van der Waals dispersion forces.\n(b) In non-polar solvents and in the vapor phase, acetic acid ($\\text{CH}_3\\text{COOH}$) exists predominantly as a stable cyclic dimer with an apparent molecular mass of 120 due to two intermolecular hydrogen bonds.\n(c) The density of water increases as it is warmed from $0^\\circ\\text{C}$ to $4^\\circ\\text{C}$ because thermal kinetic expansion overrides the breakdown of the hydrogen-bonded cage structure.\n(d) Salicylaldehyde is steam volatile and has a lower boiling point than its *para*-isomer because it forms an intramolecular hydrogen bond between its phenolic $-\\text{OH}$ and carbonyl oxygen.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) (a) and (b) only",
+        "B) (b), (c), and (d) only",
+        "C) (a), (c), and (d) only",
+        "D) (a), (b), and (d) only"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate statement (a): Covalent bonds have energies around $200-450\\text{ kJ mol}^{-1}$, van der Waals forces are $< 8\\text{ kJ mol}^{-1}$, and hydrogen bonds have intermediate energies of $10-40\\text{ kJ mol}^{-1}$ (or up to $100\\text{ kJ mol}^{-1}$ in $[\text{F}-\text{H}\\cdots\\text{F}]^-$). Statement (a) is correct.\nStep 2: Evaluate statement (b): In benzene and in the vapor phase, two molecules of acetic acid join head-to-tail by two intermolecular hydrogen bonds forming an eight-membered ring dimer with formula $(\\text{CH}_3\\text{COOH})_2$ and molecular weight $120$. Statement (b) is correct.\nStep 3: Evaluate statement (c): Between $0^\\circ\\text{C}$ and $4^\\circ\\text{C}$, the collapse of the open tetrahedral cage structure upon melting causes water molecules to pack more closely into the cavities. This contraction *dominates over* normal thermal expansion, causing density to increase to a maximum at $4^\\circ\\text{C}$. Statement (c) falsely asserts that thermal expansion overrides cage collapse. Statement (c) is incorrect.\nStep 4: Evaluate statement (d): In salicylaldehyde, the adjacent $-\\text{OH}$ and $-\\text{CHO}$ groups form an intramolecular six-membered chelate ring via H-bonding, preventing intermolecular association and rendering it steam volatile with a lower boiling point. Statement (d) is correct.\nStep 5: Therefore, statements (a), (b), and (d) only are correct."
+    }
+  ]
+}

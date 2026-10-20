@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Units and Measurements",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_units_meas_c01_001",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements is strictly correct regarding plane angle and solid angle in the International System of Units (SI)?",
+      "options": [
+        "A) Both plane angle and solid angle possess units (radian and steradian, respectively) but are dimensionless physical quantities.",
+        "B) Both plane angle and solid angle possess dimensions as well as units in SI.",
+        "C) Plane angle is dimensionless without any unit, whereas solid angle has units and dimensions.",
+        "D) Both plane angle and solid angle have neither units nor dimensions."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Plane angle is defined as the ratio of arc length to radius ($d\\theta = ds/r$), which is a ratio of two lengths $[L]/[L] = [M^0 L^0 T^0]$.\\nStep 2: Solid angle is defined as the ratio of intercepted area to the square of radius ($d\\Omega = dA/r^2$), which is a ratio of areas $[L^2]/[L^2] = [M^0 L^0 T^0]$.\\nStep 3: Although both quantities are dimensionless, the General Conference on Weights and Measures (CGPM) assigned them supplementary SI units: radian ($\\text{rad}$) for plane angle and steradian ($\\text{sr}$) for solid angle. Thus, they possess units but no dimensions. Distractor rejection: Option B falsely attributes dimensions; Option C wrongly claims plane angle has no unit; Option D overlooks radian and steradian."
+    },
+    {
+      "id": "phy_units_meas_c01_002",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "According to Newton's law of universal gravitation, the gravitational force between two point masses $m_1$ and $m_2$ separated by a distance $r$ is given by $F = \\frac{G m_1 m_2}{r^2}$. The dimensional formula of the universal gravitational constant $G$ is:",
+      "options": [
+        "A) $[M L^3 T^{-2}]$",
+        "B) $[M^{-1} L^3 T^{-2}]$",
+        "C) $[M^{-1} L^2 T^{-2}]$",
+        "D) $[M^{-1} L^3 T^{-1}]$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Rearrange Newton's gravitational law to isolate $G$: $G = \\frac{F r^2}{m_1 m_2}$.\\nStep 2: Substitute the known dimensional formulas for force, distance, and mass: $[F] = [M L T^{-2}]$, $[r] = [L]$, and $[m_1] = [m_2] = [M]$.\\nStep 3: Evaluate the dimensions: $[G] = \\frac{[M L T^{-2}][L^2]}{[M^2]} = [M^{-1} L^3 T^{-2}]$.\\nDistractor rejection: Option A has a positive power for mass $[M^1]$; Option C misses one power of length ($L^2$ instead of $L^3$); Option D contains $[T^{-1}]$ instead of $[T^{-2}]$."
+    },
+    {
+      "id": "phy_units_meas_c01_003",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following pairs of physical quantities share exactly the same dimensional formula?",
+      "options": [
+        "A) Force and torque",
+        "B) Linear momentum and work",
+        "C) Angular momentum and Planck's constant",
+        "D) Surface tension and pressure"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Angular momentum is given by $L = m v r \\implies [L] = [M][L T^{-1}][L] = [M L^2 T^{-1}]$.\\nStep 2: Planck's constant is obtained from Planck's quantum equation $E = h \\nu \\implies [h] = \\frac{[E]}{[\\nu]} = \\frac{[M L^2 T^{-2}]}{[T^{-1}]} = [M L^2 T^{-1}]$. Both share $[M L^2 T^{-1}]$.\\nDistractor rejection: Option A: Force is $[M L T^{-2}]$ while torque is $[M L^2 T^{-2}]$. Option B: Linear momentum is $[M L T^{-1}]$ while work is $[M L^2 T^{-2}]$. Option D: Surface tension is $[M T^{-2}]$ while pressure is $[M L^{-1} T^{-2}]$."
+    },
+    {
+      "id": "phy_units_meas_c01_004",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In the SI system, energy, pressure, and power are derived quantities. Which of the following correctly expresses the unit of power (watt) exclusively in terms of fundamental SI base units?",
+      "options": [
+        "A) $\\text{kg}\\cdot\\text{m}\\cdot\\text{s}^{-2}$",
+        "B) $\\text{kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-2}$",
+        "C) $\\text{kg}\\cdot\\text{m}^{-1}\\cdot\\text{s}^{-2}$",
+        "D) $\\text{kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-3}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Power is defined as work done per unit time: $P = \\frac{W}{t}$.\\nStep 2: Work is force multiplied by displacement: $W = F \\cdot s = (m \\cdot a) \\cdot s$.\\nStep 3: Substitute the SI base units: mass in $\\text{kg}$, acceleration in $\\text{m}\\cdot\\text{s}^{-2}$, displacement in $\\text{m}$, and time in $\\text{s}$.\\n$\\text{Watt} = \\frac{\\text{Joule}}{\\text{s}} = \\frac{(\\text{kg}\\cdot\\text{m}\\cdot\\text{s}^{-2})(\\text{m})}{\\text{s}} = \\text{kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-3}$.\\nDistractor rejection: Option A is the newton (force); Option B is the joule (work/energy); Option C is the pascal (pressure)."
+    },
+    {
+      "id": "phy_units_meas_c01_005",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "According to Stokes' law, the viscous drag force acting on a spherical raindrop of radius $r$ moving with terminal velocity $v$ through air of viscosity $\\eta$ is given by $F = 6\\pi \\eta r v$. The dimensional formula of the coefficient of viscosity $\\eta$ is:",
+      "options": [
+        "A) $[M L^{-1} T^{-1}]$",
+        "B) $[M L T^{-1}]$",
+        "C) $[M L^{-2} T^{-1}]$",
+        "D) $[M L^{-1} T^{-2}]$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Isolate $\\eta$ from Stokes' equation: $\\eta = \\frac{F}{6\\pi r v}$.\\nStep 2: The factor $6\\pi$ is a dimensionless numerical constant. Substitute dimensional formulas: $[F] = [M L T^{-2}]$, $[r] = [L]$, and $[v] = [L T^{-1}]$.\\nStep 3: Calculate the dimensions: $[\\eta] = \\frac{[M L T^{-2}]}{[L][L T^{-1}]} = \\frac{[M L T^{-2}]}{[L^2 T^{-1}]} = [M L^{-1} T^{-1}]$.\\nDistractor rejection: Option B is linear momentum $[M L T^{-1}]$; Option C has $L^{-2}$; Option D is pressure or stress $[M L^{-1} T^{-2}]$."
+    },
+    {
+      "id": "phy_units_meas_c01_006",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A student records the following four measurements in a laboratory notebook: (i) $0.005080\\text{ m}$, (ii) $400.0\\text{ kg}$, (iii) $0.020\\text{ s}$, and (iv) $3.050 \\times 10^4\\text{ J}$. The number of significant figures in these measurements are, respectively:",
+      "options": [
+        "A) $3, 1, 2, 4$",
+        "B) $4, 4, 2, 4$",
+        "C) $4, 1, 2, 3$",
+        "D) $6, 4, 2, 4$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In $0.005080\\text{ m}$, leading zeros are never significant; the digits 5, 0, 8, and the trailing zero after decimal are significant $\\implies 4$ significant figures.\\nStep 2: In $400.0\\text{ kg}$, the trailing zeros following non-zero digits with an explicit decimal point are significant $\\implies 4$ significant figures.\\nStep 3: In $0.020\\text{ s}$, leading zeros are not significant; the digit 2 and the trailing zero are significant $\\implies 2$ significant figures.\\nStep 4: In $3.050 \\times 10^4\\text{ J}$, exponential factors do not influence significant figures; all digits in the mantissa (3, 0, 5, 0) are significant $\\implies 4$ significant figures. Thus, the counts are $4, 4, 2, 4$."
+    },
+    {
+      "id": "phy_units_meas_c01_007",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A physical quantity $X$ is related to four observables $A$, $B$, $C$, and $D$ by the relation $X = \\frac{A^2 B^3}{C \\sqrt{D}}$. The percentage errors of measurement in $A$, $B$, $C$, and $D$ are $1\\%$, $2\\%$, $3\\%$, and $4\\%$, respectively. The maximum percentage error in the determination of $X$ is:",
+      "options": [
+        "A) $10\\%$",
+        "B) $11\\%$",
+        "C) $13\\%$",
+        "D) $16\\%$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Express the relative error formula for $X = A^2 B^3 C^{-1} D^{-1/2}$: $\\frac{\\Delta X}{X} = 2\\left(\\frac{\\Delta A}{A}\\right) + 3\\left(\\frac{\\Delta B}{B}\\right) + 1\\left(\\frac{\\Delta C}{C}\\right) + \\frac{1}{2}\\left(\\frac{\\Delta D}{D}\\right)$.\\nStep 2: Convert to percentage errors: $\\%\\Delta X = 2(\\%\\Delta A) + 3(\\%\\Delta B) + 1(\\%\\Delta C) + \\frac{1}{2}(\\%\\Delta D)$.\\nStep 3: Substitute the given percentage errors: $\\%\\Delta X = 2(1\\%) + 3(2\\%) + 1(3\\%) + \\frac{1}{2}(4\\%) = 2\\% + 6\\% + 3\\% + 2\\% = 13\\%$.\\nDistractor rejection: Option A omits the power of $B$; Option B incorrectly subtracts the denominator terms ($2+6-3-2 = 3$ or similar error); Option D uses squared error addition."
+    },
+    {
+      "id": "phy_units_meas_c01_008",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In an electric circuit comprising an inductor of inductance $L$, a capacitor of capacitance $C$, and a resistor of resistance $R$, which of the following combinations does NOT possess the dimensions of time $[T]$?",
+      "options": [
+        "A) $R C$",
+        "B) $\\frac{L}{R}$",
+        "C) $\\sqrt{L C}$",
+        "D) $\\frac{R}{L}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In an $RC$ capacitive circuit, the time constant is $\\tau = RC$, possessing dimensions $[T]$.\\nStep 2: In an $LR$ inductive circuit, the time constant is $\\tau = \\frac{L}{R}$, possessing dimensions $[T]$.\\nStep 3: In an $LC$ resonant circuit, the natural resonant frequency is $\\omega = \\frac{1}{\\sqrt{LC}}$, which means $\\sqrt{LC} = \\frac{1}{\\omega}$ has dimensions $[T^{-1}]^{-1} = [T]$.\\nStep 4: The combination $\\frac{R}{L}$ is the inverse of the inductive time constant, so its dimensional formula is $[T^{-1}]$ (frequency), not time $[T]$. Therefore, option D is the correct answer."
+    },
+    {
+      "id": "phy_units_meas_c01_009",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Surface tension $S$ is defined as force per unit length, while the spring constant $k$ is defined as restoring force per unit extension. Which of the following correctly represents the dimensional formula shared by both surface tension and the spring constant?",
+      "options": [
+        "A) $[M L^0 T^{-2}]$",
+        "B) $[M L T^{-2}]$",
+        "C) $[M L^{-1} T^{-2}]$",
+        "D) $[M L^2 T^{-2}]$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Surface tension is force per unit length: $[S] = \\frac{[F]}{[L]} = \\frac{[M L T^{-2}]}{[L]} = [M L^0 T^{-2}]$.\\nStep 2: Spring constant is restoring force per unit displacement: $[k] = \\frac{[F]}{[x]} = \\frac{[M L T^{-2}]}{[L]} = [M L^0 T^{-2}]$.\\nStep 3: Comparing both formulas confirms that both quantities share the dimensional formula $[M T^{-2}]$ or $[M L^0 T^{-2}]$.\\nDistractor rejection: Option B represents force $[M L T^{-2}]$; Option C represents pressure/stress $[M L^{-1} T^{-2}]$; Option D represents energy/work $[M L^2 T^{-2}]$."
+    },
+    {
+      "id": "phy_units_meas_c01_010",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The mass of a uniform spherical marble is measured to be $(10.0 \\pm 0.1)\\text{ g}$ and its radius is measured as $(1.00 \\pm 0.02)\\text{ cm}$. The maximum percentage error in the calculated density of the marble is:",
+      "options": [
+        "A) $3\\%$",
+        "B) $7\\%$",
+        "C) $5\\%$",
+        "D) $1.5\\%$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The density of a sphere of mass $m$ and radius $r$ is given by $\\rho = \\frac{m}{V} = \\frac{m}{\\frac{4}{3}\\pi r^3} = \\frac{3m}{4\\pi r^3}$.\\nStep 2: The fractional error in density is $\\frac{\\Delta \\rho}{\\rho} = \\frac{\\Delta m}{m} + 3\\left(\\frac{\\Delta r}{r}\\right)$.\\nStep 3: Calculate the individual percentage errors: $\\%\\Delta m = \\frac{0.1}{10.0} \\times 100\\% = 1.0\\%$ and $\\%\\Delta r = \\frac{0.02}{1.00} \\times 100\\% = 2.0\\%$.\\nStep 4: The maximum percentage error is $\\%\\Delta \\rho = 1.0\\% + 3(2.0\\%) = 1.0\\% + 6.0\\% = 7.0\\%$.\\nDistractor rejection: Option A neglects the exponent 3 for radius ($1 + 2 = 3\\%$); Option C takes exponent 2 ($1 + 2\\times 2 = 5\\%$); Option D averages the percentage errors."
+    },
+    {
+      "id": "phy_units_meas_c01_011",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In electrostatics, the electrostatic force between two point charges $q_1$ and $q_2$ separated by a distance $r$ in vacuum is given by $F = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q_1 q_2}{r^2}$. The dimensional formula of the permittivity of free space $\\varepsilon_0$ is:",
+      "options": [
+        "A) $[M L^3 T^{-4} A^{-2}]$",
+        "B) $[M^{-1} L^3 T^{-2} A^2]$",
+        "C) $[M^{-1} L^{-3} T^4 A^2]$",
+        "D) $[M^{-1} L^{-2} T^3 A]$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Rearrange Coulomb's law for $\\varepsilon_0$: $\\varepsilon_0 = \\frac{q_1 q_2}{4\\pi F r^2}$.\\nStep 2: The factor $4\\pi$ is dimensionless. Substitute dimensions for charge ($[q] = [I t] = [A T]$), force ($[F] = [M L T^{-2}]$), and distance ($[r] = [L]$):\\nStep 3: $[\\varepsilon_0] = \\frac{[A T][A T]}{[M L T^{-2}][L^2]} = \\frac{[A^2 T^2]}{[M L^3 T^{-2}]} = [M^{-1} L^{-3} T^4 A^2]$.\\nDistractor rejection: Option A inverts all mass, length, and time powers; Option B has positive power for length $L^3$; Option D has incomplete dimensions."
+    },
+    {
+      "id": "phy_units_meas_c01_012",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "According to Ampere's circuital law and the Biot-Savart law, the magnetic field at the centre of a circular current-carrying loop of radius $r$ carrying current $I$ is $B = \\frac{\\mu_0 I}{2r}$. Given that the magnetic force on a moving charge is $F = q v B$, the dimensional formula of the permeability of free space $\\mu_0$ is:",
+      "options": [
+        "A) $[M L^2 T^{-2} A^{-2}]$",
+        "B) $[M L T^{-1} A^{-2}]$",
+        "C) $[M^{-1} L T^{-2} A^2]$",
+        "D) $[M L T^{-2} A^{-2}]$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Determine the dimensions of magnetic field $B$: from $F = q v B \\implies [B] = \\frac{[F]}{[q][v]} = \\frac{[M L T^{-2}]}{[A T][L T^{-1}]} = [M T^{-2} A^{-1}]$.\\nStep 2: Isolate $\\mu_0$ from the loop formula: $\\mu_0 = \\frac{2 r B}{I}$.\\nStep 3: Substitute dimensions: $[\\mu_0] = \\frac{[L][M T^{-2} A^{-1}]}{[A]} = [M L T^{-2} A^{-2}]$.\\nDistractor rejection: Option A corresponds to self-inductance $L$ ($[M L^2 T^{-2} A^{-2}]$); Option B has an incorrect time exponent $[T^{-1}]$; Option C inverts the mass exponent."
+    },
+    {
+      "id": "phy_units_meas_c01_013",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In Maxwell's electromagnetic theory, the speed of electromagnetic waves in vacuum is given by $c = \\frac{1}{\\sqrt{\\mu_0 \\varepsilon_0}}$. Which of the following represents the correct dimensional formula of the expression $\\frac{1}{\\sqrt{\\mu_0 \\varepsilon_0}}$?",
+      "options": [
+        "A) $[M^0 L T^{-1}]$",
+        "B) $[M^0 L^2 T^{-2}]$",
+        "C) $[M L T^{-1}]$",
+        "D) $[M^0 L^{-1} T]$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In Maxwell's electrodynamics, $c$ represents the propagation velocity of electromagnetic radiation in free space.\\nStep 2: Since $c$ is a speed, its dimensional formula is directly that of velocity: $[c] = [L T^{-1}] = [M^0 L T^{-1}]$.\\nStep 3: Direct substitution verifies this: $[\\mu_0 \\varepsilon_0] = [M L T^{-2} A^{-2}][M^{-1} L^{-3} T^4 A^2] = [L^{-2} T^2]$.\\nTaking the square root gives $[L^{-1} T]$, and taking the reciprocal yields $[L T^{-1}]$.\\nDistractor rejection: Option B is the dimension of $c^2 = \\frac{1}{\\mu_0 \\varepsilon_0}$; Option C contains a mass factor; Option D is the reciprocal of speed."
+    },
+    {
+      "id": "phy_units_meas_c01_014",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "According to the NCERT rules for rounding off numbers to three significant figures, what are the rounded values of the numbers $2.745$ and $2.735$, respectively?",
+      "options": [
+        "A) $2.75$ and $2.74$",
+        "B) $2.74$ and $2.74$",
+        "C) $2.74$ and $2.73$",
+        "D) $2.75$ and $2.73$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: NCERT rule states that if the digit to be dropped is 5 (with no non-zero digits following), the preceding digit is left unchanged if it is even, and increased by 1 if it is odd.\\nStep 2: For $2.745$, the digit to be dropped is 5 and the preceding digit 4 is even; hence it remains unchanged: $2.74$.\\nStep 3: For $2.735$, the digit to be dropped is 5 and the preceding digit 3 is odd; hence it is rounded up by 1: $2.74$.\\nTherefore, both numbers round off to $2.74$.\\nDistractor rejection: Option A applies biased rounding (always rounding up on 5); Option C fails to round up the odd preceding digit; Option D rounds the even digit up and drops the odd."
+    },
+    {
+      "id": "phy_units_meas_c01_015",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A physical chemist measures three separate masses of chemical reagents: $m_1 = 4.327\\text{ g}$, $m_2 = 2.5\\text{ g}$, and $m_3 = 0.032\\text{ g}$. According to the rules of significant figures, the total mass should be reported as:",
+      "options": [
+        "A) $6.859\\text{ g}$",
+        "B) $6.86\\text{ g}$",
+        "C) $6.9\\text{ g}$",
+        "D) $7\\text{ g}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Compute the arithmetic sum of the three values: $4.327\\text{ g} + 2.5\\text{ g} + 0.032\\text{ g} = 6.859\\text{ g}$.\\nStep 2: Apply the NCERT addition rule: in addition or subtraction, the final result should retain as many decimal places as are there in the measurement with the least decimal places.\\nStep 3: $4.327$ has 3 decimal places, $2.5$ has 1 decimal place, and $0.032$ has 3 decimal places. The least number of decimal places is 1 (from $2.5\\text{ g}$).\\nStep 4: Round $6.859\\text{ g}$ to 1 decimal place: the digit following the first decimal place is 5 followed by 9 ($> 5$), so round up: $6.9\\text{ g}$.\\nDistractor rejection: Option A reports all raw digits without rounding; Option B rounds to 2 decimal places; Option D rounds to zero decimal places."
+    },
+    {
+      "id": "phy_units_meas_c01_016",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements correctly distinguishes systematic errors from random errors in experimental measurements?",
+      "options": [
+        "A) Systematic errors occur irregularly and can be minimized by taking the arithmetic mean of a large number of readings.",
+        "B) Random errors are unidirectional and always arise due to calibration defects in measuring instruments.",
+        "C) Systematic errors arise from unpredictable environmental fluctuations, whereas random errors are completely predictable.",
+        "D) Systematic errors tend to be in one direction (either positive or negative) and can be eliminated by identifying their source, whereas random errors occur irregularly and are minimized by averaging repeated measurements."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Systematic errors are unidirectional (tend to be consistently positive or consistently negative) and arise from identifiable sources such as instrumental flaws (zero error), imperfect experimental techniques, or personal bias. Once identified, systematic errors can be eliminated or corrected.\\nStep 2: Random errors occur irregularly in magnitude and sign due to unpredictable and unavoidable fluctuations in environmental conditions (e.g. line voltage, ambient temperature). According to statistical theory, taking the mean of $N$ measurements reduces random error by a factor of $1/\\sqrt{N}$.\\nDistractor rejection: Options A, B, and C interchange or misattribute the defining properties of systematic and random errors."
+    },
+    {
+      "id": "phy_units_meas_c01_017",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A standard laboratory Vernier calliper has a main scale graduated in millimetres ($1\\text{ MSD} = 1\\text{ mm}$). If $10$ divisions of the vernier scale coincide exactly with $9$ divisions of the main scale, the least count of this instrument is:",
+      "options": [
+        "A) $0.01\\text{ cm}$",
+        "B) $0.1\\text{ cm}$",
+        "C) $0.001\\text{ cm}$",
+        "D) $0.05\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: By definition, $10\\text{ VSD} = 9\\text{ MSD} \\implies 1\\text{ VSD} = \\frac{9}{10}\\text{ MSD} = 0.9\\text{ MSD}$.\\nStep 2: The least count (vernier constant) is $\\text{LC} = 1\\text{ MSD} - 1\\text{ VSD} = 1\\text{ MSD} - 0.9\\text{ MSD} = 0.1\\text{ MSD}$.\\nStep 3: Since $1\\text{ MSD} = 1\\text{ mm}$, $\\text{LC} = 0.1 \\times 1\\text{ mm} = 0.1\\text{ mm}$.\\nStep 4: Convert to centimetres: $0.1\\text{ mm} = \\frac{0.1}{10}\\text{ cm} = 0.01\\text{ cm}$.\\nDistractor rejection: Option B is $0.1\\text{ cm} = 1\\text{ mm}$; Option C is $0.001\\text{ cm} = 0.01\\text{ mm}$ (typical of screw gauges); Option D is $0.05\\text{ cm}$."
+    },
+    {
+      "id": "phy_units_meas_c01_018",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A micrometer screw gauge has a pitch of $0.5\\text{ mm}$ and its circular scale contains $50$ equal divisions. What is the least count of this screw gauge in millimetres and in micrometres ($\\mu\\text{m}$)?",
+      "options": [
+        "A) $0.1\\text{ mm}$ and $100\\ \\mu\\text{m}$",
+        "B) $0.01\\text{ mm}$ and $10\\ \\mu\\text{m}$",
+        "C) $0.001\\text{ mm}$ and $1\\ \\mu\\text{m}$",
+        "D) $0.02\\text{ mm}$ and $20\\ \\mu\\text{m}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The least count of a screw gauge is defined as: $\\text{LC} = \\frac{\\text{Pitch}}{\\text{Total circular scale divisions}}$.\\nStep 2: Substitute given values: $\\text{LC} = \\frac{0.5\\text{ mm}}{50} = 0.01\\text{ mm}$.\\nStep 3: Convert millimetres to micrometres ($1\\text{ mm} = 1000\\ \\mu\\text{m}$): $\\text{LC} = 0.01 \\times 1000\\ \\mu\\text{m} = 10\\ \\mu\\text{m}$.\\nDistractor rejection: Option A corresponds to dividing $5\\text{ mm}$ by $50$; Option C corresponds to dividing $0.05\\text{ mm}$ by $50$; Option D erroneously uses a pitch of $1.0\\text{ mm}$."
+    },
+    {
+      "id": "phy_units_meas_c01_019",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "According to the kinetic theory of gases, the average translational kinetic energy of a monoatomic gas molecule at absolute temperature $T$ is given by $E = \\frac{3}{2} k_B T$, where $k_B$ is the Boltzmann constant. The dimensional formula of $k_B$ is:",
+      "options": [
+        "A) $[M L^2 T^{-1} K^{-1}]$",
+        "B) $[M L T^{-2} K^{-1}]$",
+        "C) $[M L^2 T^{-2} K^{-1}]$",
+        "D) $[M L^0 T^{-2} K^{-1}]$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Isolate Boltzmann constant: $k_B = \\frac{2 E}{3 T}$.\\nStep 2: The factor $2/3$ is dimensionless. Substitute the dimensional formulas for kinetic energy ($[E] = [M L^2 T^{-2}]$) and absolute temperature ($[T] = [K]$):\\nStep 3: $[k_B] = \\frac{[M L^2 T^{-2}]}{[K]} = [M L^2 T^{-2} K^{-1}]$.\\nDistractor rejection: Option A has $[T^{-1}]$ instead of $[T^{-2}]$ (resembles angular momentum per Kelvin); Option B misses one factor of length ($[L^1]$ instead of $[L^2]$); Option D misses the length dimension entirely."
+    },
+    {
+      "id": "phy_units_meas_c01_020",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Stefan's law states that the total radiant energy emitted per second per unit surface area of a blackbody is proportional to the fourth power of its absolute temperature: $E = \\sigma T^4$. The dimensional formula of Stefan's constant $\\sigma$ is:",
+      "options": [
+        "A) $[M L^2 T^{-3} K^{-4}]$",
+        "B) $[M L^{-1} T^{-3} K^{-4}]$",
+        "C) $[M T^{-2} K^{-4}]$",
+        "D) $[M T^{-3} K^{-4}]$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Stefan's law defines $E$ as radiant energy emitted per unit area per unit time: $[E] = \\frac{[\\text{Energy}]}{[\\text{Area}][\\text{Time}]} = \\frac{[M L^2 T^{-2}]}{[L^2][T]} = [M T^{-3}]$.\\nStep 2: From $E = \\sigma T^4$, isolate Stefan's constant: $\\sigma = \\frac{E}{T^4}$.\\nStep 3: Substitute the dimensions: $[\\sigma] = \\frac{[M T^{-3}]}{[K^4]} = [M T^{-3} K^{-4}] = [M L^0 T^{-3} K^{-4}]$.\\nDistractor rejection: Option A incorrectly uses total power instead of power per unit area; Option B inserts an erroneous $[L^{-1}]$; Option C contains $[T^{-2}]$ instead of $[T^{-3}]$."
+    },
+    {
+      "id": "phy_units_meas_c01_021",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In physics, energy density is defined as stored energy per unit volume, while pressure is defined as force exerted normally per unit surface area. Which of the following statements correctly describes their dimensional relationship?",
+      "options": [
+        "A) Energy density and pressure share identical dimensions $[M L^{-1} T^{-2}]$.",
+        "B) Energy density has dimensions $[M L^2 T^{-2}]$, whereas pressure has dimensions $[M L^{-1} T^{-2}]$.",
+        "C) Energy density has dimensions $[M L^{-2} T^{-2}]$, whereas pressure has dimensions $[M L^{-1} T^{-1}]$.",
+        "D) Energy density and pressure have distinct dimensions because energy is a scalar while pressure is a tensor."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The dimensional formula of energy density is: $[u] = \\frac{[\\text{Energy}]}{[\\text{Volume}]} = \\frac{[M L^2 T^{-2}]}{[L^3]} = [M L^{-1} T^{-2}]$.\\nStep 2: The dimensional formula of pressure is: $[P] = \\frac{[\\text{Force}]}{[\\text{Area}]} = \\frac{[M L T^{-2}]}{[L^2]} = [M L^{-1} T^{-2}]$.\\nStep 3: Comparing both formulas confirms that energy density and pressure have identical dimensions $[M L^{-1} T^{-2}]$. This same dimensional formula is also shared by stress, Young's modulus, bulk modulus, and shear modulus.\\nDistractor rejection: Option B gives total energy for energy density; Option C has incorrect formulas for both; Option D confuses scalar/tensor nature with dimensional equivalence."
+    },
+    {
+      "id": "phy_units_meas_c01_022",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The method of dimensional analysis is a powerful tool in physics, but it suffers from well-defined mathematical limitations. Which of the following physical relationships CANNOT be derived purely using dimensional analysis?",
+      "options": [
+        "A) The time period of a simple pendulum: $T = 2\\pi\\sqrt{\\frac{l}{g}}$",
+        "B) The kinematic displacement equation: $s = u t + \\frac{1}{2} a t^2$",
+        "C) The centripetal force acting on a revolving body: $F = \\frac{m v^2}{r}$",
+        "D) The terminal velocity of a falling sphere: $v_t = \\frac{2}{9}\\frac{r^2(\\rho - \\sigma)g}{\\eta}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Dimensional analysis via Rayleigh's method assumes a product-power relation of the form $Y = k \\cdot A^a B^b C^c$.\\nStep 2: It is fundamentally incapable of deriving equations that involve the sum or difference of two or more terms, such as $s = u t + \\frac{1}{2} a t^2$.\\nStep 3: Additionally, dimensional analysis cannot determine dimensionless proportionality constants (like $2\\pi$ or $1/2$) or functions like trigonometric, logarithmic, or exponential functions.\\nDistractor rejection: Relations in Options A and C are pure power products of independent variables and can be derived up to the dimensionless constant. Option D can also be expressed as a single monomial proportionality relation."
+    },
+    {
+      "id": "phy_units_meas_c01_023",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements labeled as Assertion (A) and Reason (R):\\n\\nAssertion (A): Plane angle and solid angle are dimensionless physical quantities that possess supplementary SI units (radian and steradian).\\nReason (R): Any physical quantity that is dimensionless cannot be assigned a unit in any system of measurement.\\n\\nIn the light of the above statements, choose the correct option:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A).",
+        "C) Assertion (A) is true but Reason (R) is false.",
+        "D) Assertion (A) is false but Reason (R) is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Assertion (A): Plane angle ($d\\theta = ds/r$) has dimension $[L]/[L] = [M^0 L^0 T^0]$, and solid angle ($d\\Omega = dA/r^2$) has dimension $[L^2]/[L^2] = [M^0 L^0 T^0]$. Both are dimensionless, yet the SI system assigns them the supplementary units radian and steradian. Thus, Assertion (A) is strictly true.\\nStep 2: Evaluate Reason (R): While having dimensions always requires units, having units does NOT mean a quantity must have dimensions. Plane angle (radian) and solid angle (steradian) are prominent counterexamples that have units while being dimensionless. Therefore, Reason (R) is false.\\nStep 3: Hence, Assertion (A) is true but Reason (R) is false."
+    },
+    {
+      "id": "phy_units_meas_c01_024",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding dimensional analysis in physics:\\n\\nStatement I: A dimensionally consistent physical equation need not be physically correct.\\nStatement II: A physically correct equation must always satisfy the principle of homogeneity of dimensions.\\n\\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I: An equation like $s = 2 u t + \\frac{1}{3} a t^2$ is dimensionally consistent because every term has the dimension of length $[L]$. However, due to incorrect numerical factors, it is physically incorrect. Thus, dimensional consistency is a necessary but not sufficient condition for physical correctness. Statement I is correct.\\nStep 2: Analyze Statement II: According to the principle of homogeneity, only terms of identical dimensions can be added, subtracted, or equated. Therefore, every physically correct equation must be dimensionally homogeneous. Statement II is correct.\\nStep 3: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "phy_units_meas_c01_025",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II to identify the correct dimensional formulas of the fundamental physical constants:\\n\\nList I (Physical Constant):\\nP. Universal gravitational constant ($G$)\\nQ. Planck's constant ($h$)\\nR. Coefficient of viscosity ($\\eta$)\\nS. Thermal conductivity ($K$)\\n\\nList II (Dimensional Formula):\\n1. $[M L T^{-3} K^{-1}]$\\n2. $[M^{-1} L^3 T^{-2}]$\\n3. $[M L^2 T^{-1}]$\\n4. $[M L^{-1} T^{-1}]$\\n\\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-3, R-4, S-2",
+        "B) P-2, Q-3, R-4, S-1",
+        "C) P-2, Q-4, R-3, S-1",
+        "D) P-3, Q-2, R-1, S-4"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Gravitational constant $G$: From $F = \\frac{G m_1 m_2}{r^2} \\implies [G] = \\frac{[F][r^2]}{[m^2]} = \\frac{[M L T^{-2}][L^2]}{[M^2]} = [M^{-1} L^3 T^{-2}]$ (Matches 2).\\nStep 2: Planck's constant $h$: From $E = h \\nu \\implies [h] = \\frac{[E]}{[\\nu]} = \\frac{[M L^2 T^{-2}]}{[T^{-1}]} = [M L^2 T^{-1}]$ (Matches 3).\\nStep 3: Coefficient of viscosity $\\eta$: From $F = 6\\pi \\eta r v \\implies [\\eta] = \\frac{[M L T^{-2}]}{[L][L T^{-1}]} = [M L^{-1} T^{-1}]$ (Matches 4).\\nStep 4: Thermal conductivity $K$: From $\\frac{dQ}{dt} = K A \\frac{\\Delta T}{\\Delta x} \\implies [K] = \\frac{[M L^2 T^{-3}][L]}{[L^2][K]} = [M L T^{-3} K^{-1}]$ (Matches 1).\\nThus, the correct matching is P-2, Q-3, R-4, S-1."
+    },
+    {
+      "id": "phy_units_meas_c01_026",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In the van der Waals equation of state for a real gas, given by $\\left(P + \\frac{a}{V^2}\\right)(V - b) = R T$, where $P$ is pressure, $V$ is molar volume, and $T$ is temperature, what is the dimensional formula of the ratio $\\frac{a}{b^2}$?",
+      "options": [
+        "A) $[M L^5 T^{-2}]$",
+        "B) $[M L^2 T^{-2}]$",
+        "C) $[M L^0 T^{-2}]$",
+        "D) $[M L^{-1} T^{-2}]$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: By the principle of homogeneity, quantities added to each other must have identical dimensions. Therefore, $[\\frac{a}{V^2}] = [P] \\implies [a] = [P][V^2]$.\\nStep 2: Since $V$ is volume, $[V] = [L^3] \\implies [V^2] = [L^6]$. Given $[P] = [M L^{-1} T^{-2}]$, we have $[a] = [M L^{-1} T^{-2}][L^6] = [M L^5 T^{-2}]$.\\nStep 3: Similarly, $[b] = [V] = [L^3] \\implies [b^2] = [L^6]$.\\nStep 4: Determine the dimensions of the ratio $\\frac{a}{b^2}$: $[\\frac{a}{b^2}] = \\frac{[M L^5 T^{-2}]}{[L^6]} = [M L^{-1} T^{-2}]$.\\nNotice that $[\\frac{a}{b^2}]$ possesses the dimensions of pressure!\\nDistractor rejection: Option A is the dimension of $a$; Option B is energy; Option C is surface tension."
+    },
+    {
+      "id": "phy_units_meas_c01_027",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a newly designed system of units, the fundamental unit of mass is chosen as $10\\text{ kg}$, the unit of length is $100\\text{ m}$, and the unit of time is $1\\text{ minute} = 60\\text{ s}$. What is the numerical value of $1\\text{ Joule}$ of energy in this new system of units?",
+      "options": [
+        "A) $3.6 \\times 10^{-2}$",
+        "B) $3.6 \\times 10^2$",
+        "C) $2.78 \\times 10^{-4}$",
+        "D) $3.6 \\times 10^{-4}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The dimensional formula of energy is $[E] = [M L^2 T^{-2}]$.\\nStep 2: Use the unit conversion equation $n_2 = n_1 \\left[\\frac{M_1}{M_2}\\right]^a \\left[\\frac{L_1}{L_2}\\right]^b \\left[\\frac{T_1}{T_2}\\right]^c$, where $a = 1, b = 2, c = -2$.\\nStep 3: In SI: $M_1 = 1\\text{ kg}, L_1 = 1\\text{ m}, T_1 = 1\\text{ s}$, with $n_1 = 1$.\\nIn the new system: $M_2 = 10\\text{ kg}, L_2 = 100\\text{ m}, T_2 = 60\\text{ s}$.\\nStep 4: Substitute the values:\\n$n_2 = 1 \\times \\left(\\frac{1}{10}\\right)^1 \\times \\left(\\frac{1}{100}\\right)^2 \\times \\left(\\frac{1}{60}\\right)^{-2} = \\frac{1}{10} \\times \\frac{1}{10^4} \\times 3600 = \\frac{3600}{10^5} = 3.6 \\times 10^{-2}$.\\nDistractor rejection: Option B fails to divide by $10^5$; Option C inverts the time ratio; Option D has an arithmetic power error."
+    },
+    {
+      "id": "phy_units_meas_c01_028",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements labeled as Assertion (A) and Reason (R):\\n\\nAssertion (A): When the number of repeated observations in a timing experiment is increased from $25$ to $100$, the random error is reduced to one-fourth of its initial value.\\nReason (R): According to the statistical theory of errors, the magnitude of random error is inversely proportional to the square root of the number of observations ($1/\\sqrt{N}$).\\n\\nIn the light of the above statements, choose the correct option:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A).",
+        "C) Assertion (A) is true but Reason (R) is false.",
+        "D) Assertion (A) is false but Reason (R) is true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Reason (R): By the central limit theorem and Gauss's law of errors, the standard error of the mean for $N$ random observations is $\\sigma_m = \\frac{\\sigma}{\\sqrt{N}}$. Thus, random error is inversely proportional to $\\sqrt{N}$. Reason (R) is true.\\nStep 2: Evaluate Assertion (A): If the number of observations increases from $N_1 = 25$ to $N_2 = 100$, the random error decreases by a factor of $\\sqrt{\\frac{N_2}{N_1}} = \\sqrt{\\frac{100}{25}} = \\sqrt{4} = 2$. Thus, the error is halved (reduced to $1/2$), NOT reduced to one-fourth ($1/4$). Hence, Assertion (A) is false.\\nStep 3: Therefore, Assertion (A) is false but Reason (R) is true."
+    },
+    {
+      "id": "phy_units_meas_c01_029",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II to identify the physical nature of the given dimensional expressions:\\n\\nList I (Expression):\\nP. $\\frac{E}{B}$ (Ratio of electric field to magnetic field)\\nQ. $\\frac{B^2}{2\\mu_0}$ (Magnetic energy density)\\nR. $\\sqrt{\\frac{L}{C}}$ (Ratio of square roots of inductance and capacitance)\\nS. $\\frac{h}{m}$ (Ratio of Planck's constant to mass)\\n\\nList II (Physical Equivalent):\\n1. Electrical resistance ($[M L^2 T^{-3} A^{-2}])$\\n2. Velocity ($[L T^{-1}])$\\n3. Energy density ($[M L^{-1} T^{-2}])$\\n4. Circulation / Specific angular momentum ($[L^2 T^{-1}])$\\n\\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-3, R-2, S-4",
+        "B) P-2, Q-1, R-3, S-4",
+        "C) P-2, Q-3, R-1, S-4",
+        "D) P-3, Q-2, R-1, S-4"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In electromagnetic waves, $E/B = c$, which is the velocity of light $[L T^{-1}]$ (P matches 2).\\nStep 2: The energy density stored in a magnetic field is $u_B = \\frac{B^2}{2\\mu_0}$, which has the dimension of energy density $[M L^{-1} T^{-2}]$ (Q matches 3).\\nStep 3: The surge impedance of a transmission line is $Z_0 = \\sqrt{\\frac{L}{C}}$, which has the dimension of electrical resistance (ohms) $[M L^2 T^{-3} A^{-2}]$ (R matches 1).\\nStep 4: Ratio $h/m$: $[h]/[m] = \\frac{[M L^2 T^{-1}]}{[M]} = [L^2 T^{-1}]$, which represents circulation or specific angular momentum (angular momentum per unit mass) (S matches 4).\\nTherefore, the correct combination is P-2, Q-3, R-1, S-4."
+    },
+    {
+      "id": "phy_units_meas_c01_030",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding zero error in Vernier callipers:\\n\\nStatement I: When the movable jaw is brought into contact with the fixed jaw, if the zero mark of the vernier scale lies to the right of the main scale zero mark, the zero error is positive and must be subtracted from the observed reading.\\nStatement II: If the zero mark of the vernier scale lies to the left of the main scale zero mark when the jaws are in contact, the zero error is negative and its absolute value must be added to the observed reading.\\n\\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I: When the vernier zero lies to the right of the main scale zero, the instrument reads a non-zero positive value even when measuring zero length. This positive zero error ($+e$) means every measured reading is an overestimate, so the true reading is obtained by subtracting the zero error: $\\text{True Reading} = \\text{Observed} - (+e)$. Statement I is correct.\\nStep 2: Evaluate Statement II: When the vernier zero lies to the left of the main scale zero, the reading is an underestimate (negative zero error, $-e$). To correct for this, $\\text{True Reading} = \\text{Observed} - (-e) = \\text{Observed} + |e|$. Thus, its absolute value is added. Statement II is correct.\\nStep 3: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "phy_units_meas_c01_031",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A vernier calliper is designed such that $1\\text{ MSD} = 0.5\\text{ mm}$ and $20$ divisions on the vernier scale coincide with $19$ divisions of the main scale. When measuring the thickness of a glass plate, the main scale reads $4.5\\text{ mm}$ and the 8th vernier division coincides with a main scale division. If the instrument has no zero error, the thickness of the glass plate is:",
+      "options": [
+        "A) $4.90\\text{ mm}$",
+        "B) $4.70\\text{ mm}$",
+        "C) $4.58\\text{ mm}$",
+        "D) $4.66\\text{ mm}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Determine the least count of the instrument: $20\\text{ VSD} = 19\\text{ MSD} \\implies 1\\text{ VSD} = \\frac{19}{20}\\text{ MSD}$.\\n$\\text{LC} = 1\\text{ MSD} - 1\\text{ VSD} = \\left(1 - \\frac{19}{20}\\right)\\text{ MSD} = \\frac{1}{20}\\text{ MSD}$.\\nStep 2: Since $1\\text{ MSD} = 0.5\\text{ mm}$: $\\text{LC} = \\frac{0.5\\text{ mm}}{20} = 0.025\\text{ mm}$.\\nStep 3: Calculate the reading from the formula: $\\text{Reading} = \\text{MSR} + (\\text{VSR} \\times \\text{LC})$.\\n$\\text{Thickness} = 4.5\\text{ mm} + (8 \\times 0.025\\text{ mm}) = 4.5\\text{ mm} + 0.20\\text{ mm} = 4.70\\text{ mm}$.\\nDistractor rejection: Option A assumes standard vernier constant $0.05\\text{ mm}$ ($4.5 + 8 \\times 0.05 = 4.90\\text{ mm}$); Option C erroneously adds $8 \\times 0.01$; Option D uses $0.02\\text{ mm}$."
+    },
+    {
+      "id": "phy_units_meas_c01_032",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding significant figures in arithmetic operations:\\n\\nStatement I: In multiplication or division of two measured quantities, the final calculated result should be rounded off to retain the same number of decimal places as there are in the measurement with the least decimal places.\\nStatement II: In addition or subtraction of two measured quantities, the final calculated result should be rounded off to retain as many significant figures as there are in the measurement with the least significant figures.\\n\\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are incorrect."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement I: The NCERT rule for multiplication and division specifies that the final result should retain as many significant figures as are there in the original number with the least significant figures, NOT decimal places. Thus, Statement I is incorrect.\\nStep 2: Evaluate Statement II: The NCERT rule for addition and subtraction specifies that the final result should retain as many decimal places as are there in the number with the least decimal places, NOT significant figures. Thus, Statement II is incorrect.\\nStep 3: Both statements have cross-swapped the foundational rules for significant figures, making both Statement I and Statement II incorrect."
+    },
+    {
+      "id": "phy_units_meas_c01_033",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The acceleration due to gravity $g$ is determined using a simple pendulum via the relation $T = 2\\pi\\sqrt{\\frac{L}{g}}$. The measured length of the pendulum is $L = 20.0\\text{ cm}$ known to $1\\text{ mm}$ accuracy. The time for $100$ complete oscillations is measured using a stopwatch of $1\\text{ s}$ resolution to be $90\\text{ s}$. The maximum percentage error in the determined value of $g$ is closest to:",
+      "options": [
+        "A) $1.6\\%$",
+        "B) $5.4\\%$",
+        "C) $2.7\\%$",
+        "D) $3.2\\%$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Rearrange the pendulum period equation for $g$: $g = \\frac{4\\pi^2 L}{T^2}$.\\nStep 2: Express maximum fractional error: $\\frac{\\Delta g}{g} = \\frac{\\Delta L}{L} + 2\\left(\\frac{\\Delta T}{T}\\right)$.\\nStep 3: Since $T = t/n$, $\\frac{\\Delta T}{T} = \\frac{\\Delta t}{t}$. Here $t = 90\\text{ s}$ and $\\Delta t = 1\\text{ s}$.\\nStep 4: Convert length values to consistent units: $L = 20.0\\text{ cm} = 200\\text{ mm}$ and $\\Delta L = 1\\text{ mm}$.\\nStep 5: Compute fractional errors:\\n$\\frac{\\Delta L}{L} = \\frac{1}{200} = 0.005 = 0.5\\%$.\\n$2\\left(\\frac{\\Delta t}{t}\\right) = 2 \\times \\left(\\frac{1}{90}\\right) = \\frac{2}{90} \\approx 0.0222 = 2.22\\%$.\\nStep 6: Total percentage error in $g$: $\\%\\Delta g = 0.5\\% + 2.22\\% = 2.72\\% \\approx 2.7\\%$.\\nDistractor rejection: Option A ignores the factor of 2 on time error ($0.5 + 1.11 = 1.6\\%$); Option B doubles both errors; Option D adds $1 + 1/90$."
+    },
+    {
+      "id": "phy_units_meas_c01_034",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements labeled as Assertion (A) and Reason (R):\\n\\nAssertion (A): The ratio of magnetic flux ($\\Phi_B$) to electric flux ($\\Phi_E$) passing through the same cross-sectional area has the dimensional formula $[L^{-1} T]$.\\nReason (R): In free space, the ratio of electric field to magnetic field ($E/B$) is equal to the speed of light $c$, which possesses the dimensional formula $[L T^{-1}]$.\\n\\nIn the light of the above statements, choose the correct option:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A).",
+        "C) Assertion (A) is true but Reason (R) is false.",
+        "D) Assertion (A) is false but Reason (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Reason (R): From Maxwell's electromagnetic wave equations, the ratio of electric field to magnetic field amplitudes in free space is $\\frac{E}{B} = c$. The speed of light $c$ has dimensions $[L T^{-1}]$. Thus, Reason (R) is true.\\nStep 2: Evaluate Assertion (A): For the same area $A$, the fluxes are $\\Phi_B = B A$ and $\\Phi_E = E A$. Therefore, $\\frac{\\Phi_B}{\\Phi_E} = \\frac{B A}{E A} = \\frac{B}{E} = \\frac{1}{c}$. The dimensional formula is $[1/c] = [L T^{-1}]^{-1} = [L^{-1} T]$. Thus, Assertion (A) is true.\\nStep 3: Since Reason (R) provides the exact theoretical basis for $\\frac{\\Phi_B}{\\Phi_E} = \\frac{1}{c} = [L^{-1} T]$, Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_units_meas_c01_035",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The pressure $P$ of a gas varies with position $x$ and time $t$ according to the relation $P = \\frac{\\alpha}{\\beta} \\exp\\left(-\\frac{\\alpha t^2}{m x^2}\\right)$, where $m$ is mass. By the principle of homogeneity, what is the dimensional formula of the parameter $\\beta$?",
+      "options": [
+        "A) $[M L^3 T^{-2}]$",
+        "B) $[M^0 L^3 T^0]$",
+        "C) $[M^{-1} L^2 T^0]$",
+        "D) $[M^0 L^2 T^{-1}]$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The exponential argument must be strictly dimensionless: $\\left[\\frac{\\alpha t^2}{m x^2}\\right] = [M^0 L^0 T^0]$.\\nStep 2: Solve for the dimensions of $\\alpha$: $[\\alpha] = \\frac{[m][x^2]}{[t^2]} = \\frac{[M][L^2]}{[T^2]} = [M L^2 T^{-2}]$ (which has dimensions of energy/work).\\nStep 3: The exponential term is dimensionless, so the pre-factor $\\frac{\\alpha}{\\beta}$ must possess the dimensions of pressure $P$:\\n$\\left[\\frac{\\alpha}{\\beta}\\right] = [P] = [M L^{-1} T^{-2}]$.\\nStep 4: Solve for the dimensions of $\\beta$:\\n$[\\beta] = \\frac{[\\alpha]}{[P]} = \\frac{[M L^2 T^{-2}]}{[M L^{-1} T^{-2}]} = [L^{2 - (-1)}] = [L^3] = [M^0 L^3 T^0]$.\\nTherefore, $\\beta$ represents a volume with dimensions $[M^0 L^3 T^0]$."
+    },
+    {
+      "id": "phy_units_meas_c01_036",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II to identify the correct dimensional formulas for electromagnetic quantities:\\n\\nList I (Quantity):\\nP. Self-inductance ($L$)\\nQ. Capacitance ($C$)\\nR. Electrical resistance ($R$)\\nS. Magnetic flux ($\\Phi_B$)\\n\\nList II (Dimensional Formula):\\n1. $[M^{-1} L^{-2} T^4 A^2]$\\n2. $[M L^2 T^{-2} A^{-1}]$\\n3. $[M L^2 T^{-3} A^{-2}]$\\n4. $[M L^2 T^{-2} A^{-2}]$\\n\\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-3, Q-1, R-4, S-2",
+        "B) P-4, Q-3, R-1, S-2",
+        "C) P-4, Q-1, R-3, S-2",
+        "D) P-2, Q-1, R-3, S-4"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Self-inductance $L$: From magnetic energy $U = \\frac{1}{2} L I^2 \\implies [L] = \\frac{[M L^2 T^{-2}]}{[A^2]} = [M L^2 T^{-2} A^{-2}]$ (Matches 4).\\nStep 2: Capacitance $C$: From electrostatic energy $U = \\frac{Q^2}{2C} \\implies [C] = \\frac{[A^2 T^2]}{[M L^2 T^{-2}]} = [M^{-1} L^{-2} T^4 A^2]$ (Matches 1).\\nStep 3: Resistance $R$: From Joule heating $P = I^2 R \\implies [R] = \\frac{[M L^2 T^{-3}]}{[A^2]} = [M L^2 T^{-3} A^{-2}]$ (Matches 3).\\nStep 4: Magnetic flux $\\Phi_B$: From induced emf $\\varepsilon = \\frac{d\\Phi}{dt} \\implies [\\Phi_B] = [\\text{emf}][T] = [M L^2 T^{-3} A^{-1}][T] = [M L^2 T^{-2} A^{-1}]$ (Matches 2).\\nThus, the correct match is P-4, Q-1, R-3, S-2."
+    },
+    {
+      "id": "phy_units_meas_c01_037",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A micrometer screw gauge has a pitch of $1.0\\text{ mm}$ and $100$ divisions on its circular scale. When the two flat studs are brought into contact, the 96th division of the circular scale coincides with the reference line and the zero mark lies above the reference line. When a metal ball is placed between the studs, the pitch scale reads $3\\text{ mm}$ and the 42nd circular division coincides with the reference line. The true diameter of the ball is:",
+      "options": [
+        "A) $3.38\\text{ mm}$",
+        "B) $3.42\\text{ mm}$",
+        "C) $4.38\\text{ mm}$",
+        "D) $3.46\\text{ mm}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Determine the least count: $\\text{LC} = \\frac{\\text{Pitch}}{\\text{Number of circular divisions}} = \\frac{1.0\\text{ mm}}{100} = 0.01\\text{ mm}$.\\nStep 2: Determine zero error: Since the zero of the circular scale lies above the reference line, the screw gauge has a negative zero error. Magnitude $= -(100 - 96) \\times 0.01\\text{ mm} = -0.04\\text{ mm}$.\\nStep 3: Calculate the observed reading: $\\text{Observed} = \\text{PSR} + (\\text{CSR} \\times \\text{LC}) = 3\\text{ mm} + (42 \\times 0.01\\text{ mm}) = 3.42\\text{ mm}$.\\nStep 4: True reading $= \\text{Observed reading} - (\\text{Zero Error}) = 3.42\\text{ mm} - (-0.04\\text{ mm}) = 3.42\\text{ mm} + 0.04\\text{ mm} = 3.46\\text{ mm}$.\\nDistractor rejection: Option A incorrectly subtracts the zero error ($3.42 - 0.04 = 3.38\\text{ mm}$); Option B ignores zero error; Option C misreads the pitch scale."
+    },
+    {
+      "id": "phy_units_meas_c01_038",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding SI units and dimensions:\\n\\nStatement I: In the International System of Units (SI), electric current (ampere) is chosen as a fundamental base quantity, whereas electric charge (coulomb) is defined as a derived quantity.\\nStatement II: All physical quantities that possess dimensions must have units, but all physical quantities that possess units do not necessarily have dimensions.\\n\\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I: Under the SI convention adopted by the 14th CGPM, electric current (ampere, $\\text{A}$) is one of the seven fundamental base quantities. Electric charge is a derived quantity whose unit, the coulomb ($\\text{C}$), is derived as $1\\text{ C} = 1\\text{ A}\\cdot\\text{s}$. Thus, Statement I is correct.\\nStep 2: Evaluate Statement II: If a physical quantity has dimensions, it must have a unit to be measured experimentally (e.g., length has dimension $[L]$ and unit metre). However, possessing a unit does not imply possessing dimensions; plane angle (radian) and solid angle (steradian) possess units but are strictly dimensionless ($[M^0 L^0 T^0]$). Thus, Statement II is correct.\\nStep 3: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "phy_units_meas_c01_039",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "If Force ($F$), Velocity ($v$), and Time ($T$) are chosen as the fundamental base quantities instead of Mass, Length, and Time, what is the dimensional formula of Mass ($M$)?",
+      "options": [
+        "A) $[F v T^{-1}]$",
+        "B) $[F v^{-1} T]$",
+        "C) $[F v^{-2} T^2]$",
+        "D) $[F^2 v^{-1} T]$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Express mass $M$ in terms of $F, v, T$: Let $M = k \\cdot F^a v^b T^c$.\\nStep 2: Substitute standard dimensions in terms of $M, L, T$:\\n$[M^1 L^0 T^0] = [M L T^{-2}]^a [L T^{-1}]^b [T]^c = [M^a L^{a+b} T^{-2a - b + c}]$.\\nStep 3: Equate powers on both sides:\\nFor $M$: $a = 1$.\\nFor $L$: $a + b = 0 \\implies 1 + b = 0 \\implies b = -1$.\\nFor $T$: $-2a - b + c = 0 \\implies -2(1) - (-1) + c = 0 \\implies -2 + 1 + c = 0 \\implies c = 1$.\\nStep 4: Therefore, $[M] = [F^1 v^{-1} T^1] = [F v^{-1} T]$.\\nDistractor rejection: Option A corresponds to momentum $[F T]$ divided by length or similar; Option C corresponds to energy; Option D has squared force."
+    },
+    {
+      "id": "phy_units_meas_c01_040",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements labeled as Assertion (A) and Reason (R):\\n\\nAssertion (A): Young's modulus, bulk modulus, and shear modulus all possess the identical dimensional formula $[M L^{-1} T^{-2}]$.\\nReason (R): Strain is defined as the ratio of change in dimension to the original dimension, making it a dimensionless quantity; therefore, modulus of elasticity has the same dimensions as stress.\\n\\nIn the light of the above statements, choose the correct option:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A).",
+        "B) Assertion (A) is true but Reason (R) is false.",
+        "C) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).",
+        "D) Assertion (A) is false but Reason (R) is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Reason (R): Longitudinal strain is $\\Delta L/L$, volumetric strain is $\\Delta V/V$, and shear strain is $\\Delta x/L$. Each is a ratio of two identical dimensional quantities, making strain dimensionless: $[\\text{Strain}] = [M^0 L^0 T^0]$. Hooke's law defines modulus of elasticity as $\\frac{\\text{Stress}}{\\text{Strain}}$. Hence, $[\\text{Modulus}] = [\\text{Stress}] = \\frac{[F]}{[A]} = [M L^{-1} T^{-2}]$. Reason (R) is true.\\nStep 2: Evaluate Assertion (A): Since Young's modulus, bulk modulus, and shear modulus are each defined as stress divided by strain, all three moduli possess the dimensions of stress: $[M L^{-1} T^{-2}]$. Assertion (A) is true.\\nStep 3: Reason (R) provides the complete mathematical and physical justification for Assertion (A)."
+    },
+    {
+      "id": "phy_units_meas_c01_041",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "If the linear momentum $p$ of an object is increased by $20\\%$, what is the exact percentage increase in its kinetic energy $K$, assuming its mass remains constant?",
+      "options": [
+        "A) $20\\%$",
+        "B) $40\\%$",
+        "C) $24\\%$",
+        "D) $44\\%$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Kinetic energy is related to momentum by $K = \\frac{p^2}{2m}$.\\nStep 2: Let initial momentum be $p_1$. The new momentum is $p_2 = p_1 + 0.20 p_1 = 1.20 p_1$.\\nStep 3: The initial kinetic energy is $K_1 = \\frac{p_1^2}{2m}$, and the new kinetic energy is:\\n$K_2 = \\frac{p_2^2}{2m} = \\frac{(1.20 p_1)^2}{2m} = 1.44 \\left(\\frac{p_1^2}{2m}\\right) = 1.44 K_1$.\\nStep 4: The percentage increase in kinetic energy is:\\n$\\% \\Delta K = \\frac{K_2 - K_1}{K_1} \\times 100\\% = (1.44 - 1.00) \\times 100\\% = 44\\%$.\\nDistractor rejection: Option B is the result obtained by blindly using the differential approximation $\\frac{\\Delta K}{K} \\approx 2\\frac{\\Delta p}{p} = 40\\%$, which fails for large changes ($20\\% > 5\\%$); Option A assumes kinetic energy varies linearly; Option C adds $20 + 4 = 24$."
+    },
+    {
+      "id": "phy_units_meas_c01_042",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In quantum gravity and unified field theories, the Planck length $l_p$ is expressed as a combination of three fundamental physical constants: the speed of light $c$, the universal gravitational constant $G$, and Planck's constant $h$. Which of the following expressions correctly represents the Planck length $l_p$ in terms of these constants?",
+      "options": [
+        "A) $\\sqrt{\\frac{G c^3}{h}}$",
+        "B) $\\sqrt{\\frac{h G}{c^3}}$",
+        "C) $\\sqrt{\\frac{h c^3}{G}}$",
+        "D) $\\frac{h G}{c^2}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Let the Planck length be $l_p = c^x G^y h^z$. Write the dimensional formula of each constant:\\n$[c] = [L T^{-1}]$, $[G] = [M^{-1} L^3 T^{-2}]$, $[h] = [M L^2 T^{-1}]$.\\nStep 2: Express the dimensional homogeneity equation for length $[M^0 L^1 T^0]$:\\n$[M^0 L^1 T^0] = [L T^{-1}]^x [M^{-1} L^3 T^{-2}]^y [M L^2 T^{-1}]^z = [M^{-y + z} L^{x + 3y + 2z} T^{-x - 2y - z}]$.\\nStep 3: Equate powers on both sides:\\nFor $M$: $-y + z = 0 \\implies z = y$.\\nFor $T$: $-x - 2y - z = 0 \\implies x = -2y - z = -3y$.\\nFor $L$: $x + 3y + 2z = 1 \\implies (-3y) + 3y + 2y = 1 \\implies 2y = 1 \\implies y = 1/2$.\\nStep 4: From $y = 1/2$, we get $z = 1/2$ and $x = -3(1/2) = -3/2$.\\nTherefore, $l_p = c^{-3/2} G^{1/2} h^{1/2} = \\sqrt{\\frac{h G}{c^3}}$.\\nDistractor rejection: Option A inverts $h$ and places $c^3$ in the numerator; Option C inverts $G$; Option D has incorrect powers resulting in $[M^0 L^3 T^{-1}]$."
+    },
+    {
+      "id": "phy_units_meas_c01_043",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following four statements regarding significant figures and rounding off in physical measurements:\\n\\nStatement I: The numbers $15.75$ and $15.65$, when rounded off to three significant figures following NCERT rules, both become $15.8$.\\nStatement II: A change in the system of units of a measurement does not alter the number of significant figures.\\nStatement III: Exact numbers such as integers obtained by counting ($20$ students) or geometric factors ($2\\pi r$) have an infinite number of significant figures.\\nStatement IV: The trailing zeros in a whole number without a decimal point (such as $4200$) are always statistically significant.\\n\\nWhich of the statements given above are CORRECT?",
+      "options": [
+        "A) Statements I, II, and III only",
+        "B) Statements I, III, and IV only",
+        "C) Statements II and III only",
+        "D) Statements II, III, and IV only"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I: For $15.75$, the dropped digit is 5 and the preceding digit 7 is odd, so it rounds up to $15.8$. For $15.65$, the dropped digit is 5 and the preceding digit 6 is even, so it remains $15.6$. Thus, they do not both become $15.8$. Statement I is incorrect.\\nStep 2: Evaluate Statement II: Changing units shifts the decimal point or changes the power of 10 in scientific notation ($4.700\\text{ m} = 4.700 \\times 10^2\\text{ cm} = 4.700 \\times 10^3\\text{ mm}$), leaving the 4 significant figures unchanged. Statement II is correct.\\nStep 3: Evaluate Statement III: Exact counts or defined geometric constants have no uncertainty and can be written with an arbitrary number of trailing zeros ($20.000\\dots$); hence they possess infinite significant figures. Statement III is correct.\\nStep 4: Evaluate Statement IV: Trailing zeros in a number without a decimal point are not significant unless indicated by a decimal or scientific notation. Statement IV is incorrect.\\nStep 5: Therefore, Statements II and III only are correct."
+    },
+    {
+      "id": "phy_units_meas_c01_044",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A non-standard Vernier calliper has $1\\text{ MSD} = 1\\text{ mm}$, and $20$ divisions of its vernier scale coincide with $16$ divisions of the main scale. When the jaws are closed together, the zero mark of the vernier scale lies to the right of the main scale zero mark, and the 4th vernier division coincides with a main scale division. When measuring the external diameter of a cylindrical tube, the main scale reads $2.8\\text{ cm}$ and the 12th vernier division coincides with a main scale division. The true external diameter of the cylinder is:",
+      "options": [
+        "A) $2.96\\text{ cm}$",
+        "B) $3.04\\text{ cm}$",
+        "C) $3.12\\text{ cm}$",
+        "D) $2.88\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Determine the least count: $20\\text{ VSD} = 16\\text{ MSD} \\implies 1\\text{ VSD} = \\frac{16}{20}\\text{ MSD} = 0.8\\text{ MSD}$.\\n$\\text{LC} = 1\\text{ MSD} - 1\\text{ VSD} = 1\\text{ mm} - 0.8\\text{ mm} = 0.2\\text{ mm} = 0.02\\text{ cm}$.\\nStep 2: Calculate zero error: Since the vernier zero lies to the right of the main scale zero, it is a positive zero error:\\n$\\text{Zero Error} = +4 \\times \\text{LC} = +4 \\times 0.2\\text{ mm} = +0.8\\text{ mm} = +0.08\\text{ cm}$.\\nStep 3: Calculate the observed reading: $\\text{MSR} = 2.8\\text{ cm} = 28\\text{ mm}$.\\n$\\text{Observed} = \\text{MSR} + (\\text{VSR} \\times \\text{LC}) = 28\\text{ mm} + (12 \\times 0.2\\text{ mm}) = 28\\text{ mm} + 2.4\\text{ mm} = 30.4\\text{ mm} = 3.04\\text{ cm}$.\\nStep 4: True reading $= \\text{Observed} - (\\text{Zero Error}) = 3.04\\text{ cm} - (+0.08\\text{ cm}) = 2.96\\text{ cm}$.\\nDistractor rejection: Option B fails to correct for the zero error; Option C erroneously adds the positive zero error ($3.04 + 0.08 = 3.12\\text{ cm}$); Option D uses an erroneous least count."
+    },
+    {
+      "id": "phy_units_meas_c01_045",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A micrometer screw gauge has a pitch of $0.5\\text{ mm}$ and its circular scale has $100$ divisions. In an experiment to determine the thickness of a microscope glass slide, a student first checks the zero error: when the spindle touches the anvil, the zero of the circular scale lies 3 divisions above the reference line. When the glass slide is placed between the spindle and anvil, the pitch scale shows 4 complete divisions and the 68th circular division aligns with the reference line. The correct thickness of the glass slide is:",
+      "options": [
+        "A) $2.325\\text{ mm}$",
+        "B) $4.340\\text{ mm}$",
+        "C) $2.340\\text{ mm}$",
+        "D) $2.355\\text{ mm}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Compute least count: $\\text{LC} = \\frac{\\text{Pitch}}{\\text{Total circular divisions}} = \\frac{0.5\\text{ mm}}{100} = 0.005\\text{ mm}$.\\nStep 2: Determine zero error: Since the circular scale zero is 3 divisions above the reference line, the screw gauge has a negative zero error:\\n$\\text{Zero Error} = -(3 \\times 0.005\\text{ mm}) = -0.015\\text{ mm}$.\\nStep 3: Determine the observed reading: Each division on pitch scale equals $0.5\\text{ mm}$.\\n$\\text{MSR} = 4 \\times 0.5\\text{ mm} = 2.0\\text{ mm}$.\\n$\\text{Observed reading} = \\text{MSR} + (\\text{CSR} \\times \\text{LC}) = 2.0\\text{ mm} + (68 \\times 0.005\\text{ mm}) = 2.0\\text{ mm} + 0.340\\text{ mm} = 2.340\\text{ mm}$.\\nStep 4: Apply zero error correction:\\n$\\text{Correct Thickness} = \\text{Observed} - (\\text{Zero Error}) = 2.340\\text{ mm} - (-0.015\\text{ mm}) = 2.340 + 0.015 = 2.355\\text{ mm}$.\\nDistractor rejection: Option A subtracts the zero error ($2.340 - 0.015 = 2.325\\text{ mm}$); Option B incorrectly takes $1\\text{ division} = 1.0\\text{ mm}$; Option C omits zero error correction."
+    },
+    {
+      "id": "phy_units_meas_c01_046",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two physical observables $A$ and $B$ are independently measured in an advanced physics laboratory as $A = (100 \\pm 4)$ and $B = (10.0 \\pm 0.2)$. Two derived quantities $Q$ and $W$ are defined as the quotient $Q = \\frac{A}{B}$ and the power-law product $W = A^2 B^3$. What are the maximum percentage errors in $Q$ and $W$, respectively?",
+      "options": [
+        "A) $2\\%$ and $10\\%$",
+        "B) $6\\%$ and $14\\%$",
+        "C) $6\\%$ and $10\\%$",
+        "D) $4\\%$ and $12\\%$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Calculate the fractional and percentage error in observable $A$:\\n$\\% \\Delta A = \\frac{4}{100} \\times 100\\% = 4.0\\%$.\\nStep 2: Calculate the fractional and percentage error in observable $B$:\\n$\\% \\Delta B = \\frac{0.2}{10.0} \\times 100\\% = 2.0\\%$.\\nStep 3: For the quotient $Q = \\frac{A}{B}$, relative errors add directly:\\n$\\% \\Delta Q = \\% \\Delta A + \\% \\Delta B = 4.0\\% + 2.0\\% = 6.0\\%$.\\nStep 4: For the power-law product $W = A^2 B^3$, apply the power rule of errors:\\n$\\% \\Delta W = 2(\\% \\Delta A) + 3(\\% \\Delta B) = 2(4.0\\%) + 3(2.0\\%) = 8.0\\% + 6.0\\% = 14.0\\%$.\\nThus, the percentage errors are $6\\%$ and $14\\%$.\\nDistractor rejection: Option A subtracts errors for the quotient ($4 - 2 = 2\\%$); Option C forgets the exponent of $B$ in $W$ ($8 + 2 = 10\\%$); Option D omits the exponent of $A$."
+    },
+    {
+      "id": "phy_units_meas_c01_047",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The velocity $v$ of ripple waves traveling across the surface of a liquid depends on the liquid's surface tension $S$ (dimensions $[M T^{-2}]$), density $\\rho$ (dimensions $[M L^{-3}]$), and wavelength $\\lambda$ (dimensions $[L]$). If the relationship is expressed as $v \\propto S^a \\rho^b \\lambda^c$, what are the values of the exponents $a$, $b$, and $c$, respectively?",
+      "options": [
+        "A) $1/2, 1/2, -1/2$",
+        "B) $-1/2, 1/2, 1/2$",
+        "C) $1/2, -1/2, -1/2$",
+        "D) $1, -1, -1$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Write the dimensional equation: $[v] = [S]^a [\\rho]^b [\\lambda]^c$.\\n$[M^0 L^1 T^{-1}] = [M T^{-2}]^a [M L^{-3}]^b [L]^c = [M^{a + b} L^{-3b + c} T^{-2a}]$.\\nStep 2: Equate powers on both sides:\\nFor mass $M$: $a + b = 0 \\implies b = -a$.\\nFor time $T$: $-2a = -1 \\implies a = 1/2$.\\nStep 3: Solve for $b$: $b = -a = -1/2$.\\nStep 4: Equate powers for length $L$:\\n$-3b + c = 1 \\implies -3(-1/2) + c = 1 \\implies \\frac{3}{2} + c = 1 \\implies c = 1 - \\frac{3}{2} = -1/2$.\\nStep 5: Hence, $a = 1/2$, $b = -1/2$, $c = -1/2$, giving $v \\propto \\sqrt{\\frac{S}{\\rho \\lambda}}$.\\nDistractor rejection: Option A has positive exponent for density; Option B has negative exponent for surface tension; Option D uses linear exponents."
+    },
+    {
+      "id": "phy_units_meas_c01_048",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following four statements regarding errors in experimental measurements according to NCERT:\\n\\nStatement I: Systematic errors can be positive or negative, but they tend to occur in one direction for a given experimental setup.\\nStatement II: Instrumental zero error and personal bias of the observer are examples of systematic errors.\\nStatement III: Random errors cannot be completely eliminated, but their statistical influence on the mean result can be reduced by increasing the number of observations $N$, with the standard error scaling as $1/\\sqrt{N}$.\\nStatement IV: Systematic errors can be minimized simply by taking the arithmetic mean of a very large number of repeated measurements.\\n\\nWhich of the statements given above are CORRECT?",
+      "options": [
+        "A) Statements I, II, and III only",
+        "B) Statements II, III, and IV only",
+        "C) Statements I and IV only",
+        "D) Statements I, II, III, and IV"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I: By definition, systematic errors are unidirectional; they persistently shift readings in one direction (consistently positive or consistently negative). Statement I is correct.\\nStep 2: Evaluate Statement II: Calibration flaws, zero errors of verniers/screw gauges, and observer's personal parallax habits are classic systematic errors. Statement II is correct.\\nStep 3: Evaluate Statement III: Random errors arise from unpredictable environmental fluctuations. Taking the arithmetic mean of $N$ readings reduces the standard error of the mean by $1/\\sqrt{N}$. Statement III is correct.\\nStep 4: Evaluate Statement IV: Averaging repeated measurements cancels random fluctuations, but CANNOT eliminate systematic errors. For example, if an instrument has a $+0.2\\text{ mm}$ zero error, every single reading has this error, and their mean will still be shifted by $+0.2\\text{ mm}$. Statement IV is false.\\nStep 5: Therefore, Statements I, II, and III only are correct."
+    },
+    {
+      "id": "phy_units_meas_c01_049",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A spherometer has a circular scale with $100$ equal divisions. When rotated through $4$ complete revolutions, its central screw advances by $2.0\\text{ mm}$ on the linear pitch scale. In an experiment to determine the radius of curvature $R$ of a spherical watch glass using the formula $R = \\frac{l^2}{6h} + \\frac{h}{2}$, the distance between the outer legs is measured as $l = (4.00 \\pm 0.01)\\text{ cm}$ and the sagitta is measured as $h = (0.200 \\pm 0.005)\\text{ cm}$. Neglecting the smaller term $h/2$ in error calculation, the maximum percentage error in the determined radius of curvature $R$ is:",
+      "options": [
+        "A) $1.5\\%$",
+        "B) $2.0\\%$",
+        "C) $2.75\\%$",
+        "D) $3.0\\%$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Find pitch and least count of the spherometer: $\\text{Pitch} = \\frac{2.0\\text{ mm}}{4} = 0.5\\text{ mm}$, and $\\text{LC} = \\frac{0.5\\text{ mm}}{100} = 0.005\\text{ mm}$.\\nStep 2: For $R \\approx \\frac{l^2}{6h}$, express the maximum fractional error formula: $\\frac{\\Delta R}{R} = 2\\left(\\frac{\\Delta l}{l}\\right) + \\frac{\\Delta h}{h}$.\\nStep 3: Compute percentage error in $l$: $\\%\\Delta l = \\frac{0.01}{4.00} \\times 100\\% = 0.25\\%$. Hence, $2(\\%\\Delta l) = 2 \\times 0.25\\% = 0.50\\%$.\\nStep 4: Compute percentage error in $h$: $\\%\\Delta h = \\frac{0.005}{0.200} \\times 100\\% = 2.50\\%$.\\nStep 5: Compute total percentage error in $R$: $\\%\\Delta R = 0.50\\% + 2.50\\% = 3.00\\% = 3.0\\%$.\\nDistractor rejection: Option A neglects the factor of 2 for $l$ and miscalculates $h$ ($0.25 + 1.25 = 1.5\\%$); Option B subtracts errors; Option C omits the factor of 2 ($0.25 + 2.5 = 2.75\\%$)."
+    },
+    {
+      "id": "phy_units_meas_c01_050",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In theoretical cosmology, the Planck time $t_p$ represents the smallest unit of time that has physical significance. It is constructed from the universal gravitational constant $G$, Planck's constant $h$, and the speed of light $c$. Which of the following expressions correctly defines the Planck time $t_p$?",
+      "options": [
+        "A) $\\sqrt{\\frac{h G}{c^3}}$",
+        "B) $\\sqrt{\\frac{h G}{c^5}}$",
+        "C) $\\sqrt{\\frac{c^5}{h G}}$",
+        "D) $\\frac{h G^2}{c^4}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The Planck time is the time taken by light to travel one Planck length: $t_p = \\frac{l_p}{c}$.\\nStep 2: We know Planck length is $l_p = \\sqrt{\\frac{h G}{c^3}}$.\\nStep 3: Divide by $c$: $t_p = \\frac{1}{c}\\sqrt{\\frac{h G}{c^3}} = \\sqrt{\\frac{h G}{c^5}}$.\\nStep 4: Check dimensions explicitly:\\n$[h G] = [M L^2 T^{-1}][M^{-1} L^3 T^{-2}] = [L^5 T^{-3}]$.\\n$[c^5] = [L^5 T^{-5}]$.\\n$\\frac{[h G]}{[c^5]} = \\frac{[L^5 T^{-3}]}{[L^5 T^{-5}]} = [T^2]$.\\nTaking the square root yields $\\sqrt{[T^2]} = [T]$.\\nDistractor rejection: Option A is the Planck length $[L]$; Option C is frequency $[T^{-1}]$; Option D has dimensions $[M^{-1} L^4 T^{-1}]$."
+    },
+    {
+      "id": "phy_units_meas_c01_051",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following four statements regarding dimensional analysis and physical quantities:\\n\\nStatement I: If a physical quantity is dimensionless, it can still have a unit.\\nStatement II: If a physical quantity is unitless, it can never have dimensions.\\nStatement III: Dimensional analysis cannot distinguish between physical quantities that share identical dimensions, such as work and torque.\\nStatement IV: Dimensional analysis can be applied to deduce an equation containing trigonometric, logarithmic, or exponential functions of dimensional variables.\\n\\nWhich of the statements given above are CORRECT?",
+      "options": [
+        "A) Statements I, II, and IV only",
+        "B) Statements II, III, and IV only",
+        "C) Statements I, II, and III only",
+        "D) Statements I, III, and IV only"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I: Plane angle and solid angle have units (radian and steradian) but are completely dimensionless ($[M^0 L^0 T^0]$). Thus, a dimensionless quantity can have a unit. Statement I is correct.\\nStep 2: Evaluate Statement II: If a quantity has dimensions, it must have a unit to be quantified. A completely unitless quantity (such as refractive index or relative density) is a pure number and cannot possess dimensions. Statement II is correct.\\nStep 3: Evaluate Statement III: Work (scalar) and torque (vector) both have the dimension $[M L^2 T^{-2}]$. Dimensional analysis cannot distinguish their distinct vector/scalar character. Statement III is correct.\\nStep 4: Evaluate Statement IV: Arguments of trigonometric, exponential, and logarithmic functions must be dimensionless, and power-matching methods cannot determine transcendental functional dependencies. Statement IV is incorrect.\\nStep 5: Therefore, Statements I, II, and III only are correct."
+    },
+    {
+      "id": "phy_units_meas_c01_052",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In an optical bench experiment to determine the focal length $f$ of a concave mirror using the mirror formula $\\frac{1}{f} = \\frac{1}{v} + \\frac{1}{u}$, the object distance is measured as $u = (20.0 \\pm 0.2)\\text{ cm}$ and the real image distance is measured as $v = (30.0 \\pm 0.3)\\text{ cm}$. The maximum absolute error $\\Delta f$ and the percentage error in the determined focal length are:",
+      "options": [
+        "A) $0.25\\text{ cm}$ and $2.0\\%$",
+        "B) $0.12\\text{ cm}$ and $1.0\\%$",
+        "C) $0.50\\text{ cm}$ and $4.2\\%$",
+        "D) $0.06\\text{ cm}$ and $0.5\\%$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Compute mean focal length: $\\frac{1}{f} = \\frac{1}{u} + \\frac{1}{v} = \\frac{1}{20.0} + \\frac{1}{30.0} = \\frac{3 + 2}{60.0} = \\frac{5}{60.0} = \\frac{1}{12.0} \\implies f = 12.0\\text{ cm}$.\\nStep 2: Differentiate the mirror equation: $-\\frac{\\Delta f}{f^2} = -\\frac{\\Delta u}{u^2} - \\frac{\\Delta v}{v^2} \\implies \\Delta f = f^2 \\left[\\frac{\\Delta u}{u^2} + \\frac{\\Delta v}{v^2}\\right]$.\\nStep 3: Substitute the measured values:\\n$\\frac{\\Delta u}{u^2} = \\frac{0.2}{(20.0)^2} = \\frac{0.2}{400} = 0.0005\\text{ cm}^{-1}$.\\n$\\frac{\\Delta v}{v^2} = \\frac{0.3}{(30.0)^2} = \\frac{0.3}{900} = \\frac{1}{3000} \\approx 0.000333\\text{ cm}^{-1}$.\\nSum $= 0.0005 + 0.000333 = \\frac{1}{1200}\\text{ cm}^{-1}$.\\nStep 4: Compute absolute error $\\Delta f$: $\\Delta f = (12.0)^2 \\times \\frac{1}{1200} = \\frac{144}{1200} = 0.12\\text{ cm}$.\\nStep 5: Percentage error in $f$: $\\%\\Delta f = \\frac{\\Delta f}{f} \\times 100\\% = \\frac{0.12}{12.0} \\times 100\\% = 1.0\\%$.\\nDistractor rejection: Option A simply adds $\\Delta u + \\Delta v$ or fractional errors; Option C assumes $\\Delta f = \\Delta u + \\Delta v = 0.5\\text{ cm}$; Option D halves the correct error."
+    },
+    {
+      "id": "phy_units_meas_c01_053",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The diameter of a thin uniform copper wire is measured using a micrometer screw gauge with pitch $0.5\\text{ mm}$ and $50$ circular scale divisions. When the studs are in contact without the wire, the 45th division of the circular scale coincides with the reference line and the zero mark lies above the reference line. When the wire is placed between the studs, the main scale reading is $1.0\\text{ mm}$ and the 20th circular division coincides with the reference line. Using $\\pi = 3.14$, what is the cross-sectional area of the wire reported to the correct number of significant figures?",
+      "options": [
+        "A) $1.13\\text{ mm}^2$",
+        "B) $1.25\\text{ mm}^2$",
+        "C) $1.23\\text{ mm}^2$",
+        "D) $1.227\\text{ mm}^2$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Compute least count: $\\text{LC} = \\frac{0.5\\text{ mm}}{50} = 0.01\\text{ mm}$.\\nStep 2: Compute zero error: Since the zero mark lies above the reference line, the error is negative:\\n$\\text{Zero Error} = -(50 - 45) \\times 0.01\\text{ mm} = -0.05\\text{ mm}$.\\nStep 3: Compute observed diameter: $\\text{Observed} = 1.0\\text{ mm} + (20 \\times 0.01\\text{ mm}) = 1.20\\text{ mm}$.\\nStep 4: True diameter: $d = 1.20\\text{ mm} - (-0.05\\text{ mm}) = 1.25\\text{ mm}$. Radius $r = d/2 = 0.625\\text{ mm}$.\\nStep 5: Cross-sectional area: $A = \\pi r^2 = 3.14 \\times (0.625\\text{ mm})^2 = 3.14 \\times 0.390625\\text{ mm}^2 = 1.22656\\dots\\text{ mm}^2$.\\nStep 6: Apply significant figure rules: The measured diameter $1.25\\text{ mm}$ and constant $\\pi = 3.14$ each have 3 significant figures. Rounding $1.22656\\text{ mm}^2$ to 3 significant figures gives $1.23\\text{ mm}^2$.\\nDistractor rejection: Option A subtracts zero error ($d = 1.15\\text{ mm} \\implies A = 1.13\\text{ mm}^2$); Option B gives the diameter value; Option D keeps 4 significant figures without rounding."
+    },
+    {
+      "id": "phy_units_meas_c01_054",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following four physical expressions encountered across different branches of physics:\\n\\n(I) $\\frac{e^2}{4\\pi\\varepsilon_0 \\hbar c}$ (Fine-structure constant $\\alpha$)\\n(II) $\\left(\\frac{R}{L}\\right) \\times (R C)$ (Product of inverse inductive time constant and capacitive time constant)\\n(III) $\\frac{B^2}{2\\mu_0 P}$ (Ratio of magnetic energy density to gas pressure $P$)\\n(IV) $\\frac{h}{\\sqrt{2 m K}}$ divided by the de Broglie wavelength $\\lambda$ of a particle of kinetic energy $K$\\n\\nWhich of the combinations given above are completely DIMENSIONLESS ($[M^0 L^0 T^0]$)?",
+      "options": [
+        "A) (I), (II), (III), and (IV)",
+        "B) (I), (II), and (IV) only",
+        "C) (I) and (III) only",
+        "D) (II) and (IV) only"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate expression (I): The fine-structure constant $\\alpha = \\frac{e^2}{4\\pi\\varepsilon_0 \\hbar c} \\approx \\frac{1}{137}$ is a fundamental pure number; it is strictly dimensionless $[M^0 L^0 T^0]$.\\nStep 2: Evaluate expression (II): $\\frac{R}{L}$ has dimension $[T^{-1}]$, and $R C$ has dimension $[T]$. Their product is $[T^{-1}][T] = [M^0 L^0 T^0]$ (dimensionless).\\nStep 3: Evaluate expression (III): $\\frac{B^2}{2\\mu_0}$ represents magnetic energy density with dimension $[M L^{-1} T^{-2}]$, while pressure $P$ also has dimension $[M L^{-1} T^{-2}]$. Their ratio has dimension $\\frac{[M L^{-1} T^{-2}]}{[M L^{-1} T^{-2}]} = [M^0 L^0 T^0]$ (dimensionless).\\nStep 4: Evaluate expression (IV): The de Broglie wavelength is defined as $\\lambda = \\frac{h}{p} = \\frac{h}{\\sqrt{2mK}}$. The ratio of $\\frac{h}{\\sqrt{2mK}}$ to $\\lambda$ is identically equal to 1, which is strictly dimensionless $[M^0 L^0 T^0]$.\\nStep 5: Therefore, all four expressions (I, II, III, and IV) are completely dimensionless."
+    },
+    {
+      "id": "phy_units_meas_c01_055",
+      "subject": "Physics",
+      "topic": "Units and Measurements",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a specially calibrated Vernier calliper, $N$ divisions of the vernier scale coincide with $(N - 1)$ divisions of the main scale, where each main scale division is equal to $a\\text{ units}$. In a second calliper of identical main scale graduation ($1\\text{ MSD} = a\\text{ units}$), $N$ divisions of the vernier scale coincide with $(N - 2)$ divisions of the main scale. What is the ratio of the least count of the second calliper to the least count of the first calliper?",
+      "options": [
+        "A) $\\frac{1}{2}$",
+        "B) $\\frac{N - 1}{N - 2}$",
+        "C) $\\frac{N}{N - 1}$",
+        "D) $2$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For the first Vernier calliper: $N\\text{ VSD}_1 = (N - 1)\\text{ MSD} \\implies 1\\text{ VSD}_1 = \\frac{N - 1}{N}\\text{ MSD}$.\\nLeast Count $\\text{LC}_1 = 1\\text{ MSD} - 1\\text{ VSD}_1 = a - \\left(\\frac{N - 1}{N}\\right)a = \\frac{a}{N}$.\\nStep 2: For the second Vernier calliper: $N\\text{ VSD}_2 = (N - 2)\\text{ MSD} \\implies 1\\text{ VSD}_2 = \\frac{N - 2}{N}\\text{ MSD}$.\\nLeast Count $\\text{LC}_2 = 1\\text{ MSD} - 1\\text{ VSD}_2 = a - \\left(\\frac{N - 2}{N}\\right)a = \\frac{2a}{N}$.\\nStep 3: Calculate the ratio of the least counts:\\n$\\frac{\\text{LC}_2}{\\text{LC}_1} = \\frac{2a / N}{a / N} = 2$.\\nDistractor rejection: Option A gives the reciprocal ratio $\\frac{\\text{LC}_1}{\\text{LC}_2} = \\frac{1}{2}$; Options B and C introduce spurious functions of $N$."
+    }
+  ]
+}
