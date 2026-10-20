@@ -211,7 +211,10 @@ export default function MockPage() {
               fontSize: 13,
               color: '#92400e',
             }}>
-              {'⚠ Questions are AI-generated. The exam will take 20–40 seconds to prepare. Do not close the tab during loading.'}
+              {selected === 'NEET'
+  ? '⚠ AI-generated NEET questions. First exam of the day takes 3–4 minutes — subsequent students within 6 hours get instant results from the shared pool.'
+  : '⚠ AI-generated questions. The exam takes 60–90 seconds to prepare. Do not close the tab.'
+}
             </div>
           </div>
         )}
