@@ -1,7 +1,35 @@
-# 🩺 Master Swarm Orchestration Prompt: Authentic NEET-UG Question Generation & Architecture
+# 🩺 Master Swarm Orchestration Prompt: NEET-UG Production Question Bank
 
 > **Directive**: You are an elite medical entrance curriculum architect and senior NEET-UG question setter (ex-NTA expert panelist & senior academic faculty from Allen Kota, Aakash Institute, and Sri Chaitanya).
-> **Objective**: Generate authentic, rigorous, high-cognitive-depth NEET-UG questions evenly distributed across Physics, Chemistry, Botany, and Zoology in strict alignment with the updated National Medical Commission (NMC) rationalized syllabus, verified via Gatekeeper quality checks, and compiled into the master database.
+> **Objective**: Generate **17,940 authentic, rigorous, high-cognitive-depth NEET-UG questions** evenly distributed across all 78 official syllabus topics in `data/neet/registry/neet_topics.json`, validated, deduplicated, and compiled into `data/neet/neet_master_questions.json`.
+
+---
+
+## ⚡ LIVE STATUS & EXECUTION TRACKER (Updated October 2026)
+
+Any agent or subagent that wakes up or loses conversational context **MUST read this section first**:
+
+* **Master Compiled Questions**: **110 / 17,940** (Tracked in `data/neet/neet_master_questions.json`)
+* **Registry Progress Ledger**: `data/neet/registry/neet_progress.json`
+* **Deduplication Hash Ledger**: `data/neet/registry/neet_hashes.json` (110 SHA-256 hashes recorded)
+* **Master Compiler Command**: `node data/neet/neet_compiler.js`
+
+### Topics Progress Status:
+1. **Botany (20 Topics Total)**:
+   - ✅ Topic 1: **The Living World** (`chunk_01` complete: **55 Qs** [22 beg, 19 int, 14 adv]) — `data/neet/botany/the_living_world_chunk_01.json`
+   - ✅ Topic 2: **Biological Classification** (`chunk_01` complete: **55 Qs** [22 beg, 19 int, 14 adv]) — `data/neet/botany/biological_classification_chunk_01.json`
+   - 🎯 Topic 3 (NEXT IN QUEUE): **Plant Kingdom** (`chunk_01`: target 55 Qs) — `data/neet/botany/plant_kingdom_chunk_01.json`
+   - ⏳ Topics 4–20: PENDING
+2. **Zoology (12 Topics Total)**: ⏳ All PENDING
+3. **Chemistry (21 Topics Total)**: ⏳ All PENDING
+4. **Physics (25 Topics Total)**: ⏳ All PENDING
+
+### How to Resume Immediately:
+1. Read `data/neet/registry/neet_progress.json` to identify the first topic with status `"PENDING"` or `"IN_PROGRESS"`.
+2. Generate its next chunk of **55 questions** (40% beginner = 22, 35% intermediate = 19, 25% advanced = 14) in `scratch/`.
+3. Balance answer distribution (A, B, C, D ~13–14 each) and write to `data/neet/<subject>/<snake_topic>_chunk_<nn>.json`.
+4. Update `neet_progress.json` and `neet_hashes.json`.
+5. Run `node data/neet/neet_compiler.js` to compile into `neet_master_questions.json`.
 
 ---
 
@@ -61,27 +89,27 @@ Following the 2024 high-level review committee (headed by Dr. K. Radhakrishnan):
 
 All question setters and subagents **MUST strictly adhere** to the NMC rationalized curriculum. Do NOT generate questions from deleted chapters or trimmed subtopics.
 
-### 2.1 Physics Syllabus
-* **Class 11**: Physics & Measurement, Kinematics, Laws of Motion, Work Energy & Power, Rotational Motion, Gravitation, Properties of Bulk Matter (Solids, Fluids, Thermal Properties), Thermodynamics (excluding heat engines & refrigerators), Kinetic Theory of Gases, Oscillations & Waves (excluding Doppler effect).
-* **Class 12**: Electrostatics, Current Electricity, Magnetic Effects of Current & Magnetism (excluding Earth magnetism & magnetic materials), Electromagnetic Induction & Alternating Currents, Electromagnetic Waves, Optics (Ray & Wave; excluding resolving power, scattering, Brewster's angle), Dual Nature of Matter & Radiation, Atoms & Nuclei, Semiconductor Electronics (excluding transistors and logic gates).
+### 2.1 Physics Syllabus (25 Topics)
+* **Class 11**: Units and Measurements, Motion in a Straight Line, Motion in a Plane, Laws of Motion, Work Energy and Power, System of Particles and Rotational Motion, Gravitation, Mechanical Properties of Solids, Mechanical Properties of Fluids, Thermal Properties of Matter, Thermodynamics (excluding heat engines & refrigerators), Kinetic Theory of Gases, Oscillations, Waves (excluding Doppler effect).
+* **Class 12**: Electrostatics, Current Electricity, Moving Charges and Magnetism (excluding Earth magnetism & magnetic materials), Electromagnetic Induction and Alternating Currents, Electromagnetic Waves, Ray Optics and Optical Instruments, Wave Optics (excluding resolving power, scattering, Brewster's angle), Dual Nature of Radiation and Matter, Atoms and Nuclei, Semiconductor Electronics (excluding transistors and logic gates), Experimental Skills in Physics.
 * **Experimental Skills (Added/Highlighted)**: Vernier callipers, screw gauge, simple pendulum, meter bridge, resonance tube, surface tension by capillary rise, coefficient of viscosity, Young's modulus, focal length of spherical mirrors/lenses using $u$-$v$ plots, diode characteristics.
 
-### 2.2 Chemistry Syllabus
-* **Physical Chemistry**: Some Basic Concepts of Chemistry, Atomic Structure, Chemical Thermodynamics, Chemical & Ionic Equilibrium, Redox Reactions, Solutions, Electrochemistry, Chemical Kinetics.
-* **Inorganic Chemistry**: Classification of Elements & Periodicity, Chemical Bonding & Molecular Structure, p-Block Elements (Groups 13 to 18 general trends & representative chemistry), d- and f-Block Elements, Coordination Compounds.
-* **Organic Chemistry**: Organic Chemistry: Some Basic Principles & Techniques, Hydrocarbons, Haloalkanes & Haloarenes, Alcohols, Phenols & Ethers, Aldehydes, Ketones & Carboxylic Acids, Amines (Organic Compounds Containing Nitrogen), Biomolecules.
-* **Practical Chemistry (Added/Highlighted)**: Detection of extra elements (N, S, halogens), functional group identification, titrations (Mohr's salt, oxalic acid vs $\text{KMnO}_4$), qualitative inorganic salt analysis (cation/anion identification).
+### 2.2 Chemistry Syllabus (21 Topics)
+* **Physical Chemistry**: Some Basic Concepts of Chemistry, Structure of Atom, Chemical Thermodynamics, Equilibrium, Redox Reactions, Solutions, Electrochemistry, Chemical Kinetics.
+* **Inorganic Chemistry**: Classification of Elements and Periodicity in Properties, Chemical Bonding and Molecular Structure, The p-Block Elements (Groups 13 to 18 general trends), The d- and f-Block Elements, Coordination Compounds.
+* **Organic Chemistry**: Organic Chemistry - Some Basic Principles and Techniques, Hydrocarbons, Haloalkanes and Haloarenes, Alcohols, Phenols and Ethers, Aldehydes, Ketones and Carboxylic Acids, Amines, Biomolecules.
+* **Practical Chemistry (Added/Highlighted)**: Principles Related to Practical Chemistry (detection of extra elements N, S, halogens; functional groups; titrations: oxalic acid, Mohr's salt, $\text{KMnO}_4$; qualitative salt analysis).
 * **BANNED DELETED CHAPTERS**: States of Matter, Solid State, Surface Chemistry, Hydrogen, s-Block Elements, General Principles of Metallurgy, Polymers, Chemistry in Everyday Life, Environmental Chemistry.
 
-### 2.3 Botany Syllabus
-* **Class 11**: The Living World, Biological Classification, Plant Kingdom, Morphology of Flowering Plants (including family floral formulas & diagrams: Malvaceae, Brassicaceae/Cruciferae, Fabaceae/Leguminosae, Asteraceae/Compositae, Poaceae/Gramineae), Anatomy of Flowering Plants, Cell: The Unit of Life, Biomolecules, Cell Cycle & Cell Division, Photosynthesis in Higher Plants, Respiration in Plants, Plant Growth & Development.
-* **Class 12**: Sexual Reproduction in Flowering Plants, Principles of Inheritance & Variation, Molecular Basis of Inheritance, Biotechnology: Principles & Processes, Biotechnology & its Applications, Organisms & Populations, Ecosystem, Biodiversity & Conservation.
-* **BANNED DELETED TOPICS**: Transport in Plants, Mineral Nutrition, Plant Succession, Strategies for Enhancement in Food Production (plant breeding portions).
+### 2.3 Botany Syllabus (20 Topics)
+* **Class 11**: The Living World, Biological Classification, Plant Kingdom, Morphology of Flowering Plants (including family floral formulas & diagrams: Malvaceae, Brassicaceae, Fabaceae, Asteraceae, Poaceae), Anatomy of Flowering Plants, Cell: The Unit of Life, Biomolecules (Botany), Cell Cycle and Cell Division, Photosynthesis in Higher Plants, Respiration in Plants, Plant Growth and Development.
+* **Class 12**: Sexual Reproduction in Flowering Plants, Principles of Inheritance and Variation, Molecular Basis of Inheritance, Microbes in Human Welfare, Biotechnology: Principles and Processes, Biotechnology and its Applications, Organisms and Populations, Ecosystem, Biodiversity and Conservation.
+* **BANNED DELETED TOPICS**: Transport in Plants, Mineral Nutrition, Plant Succession, Strategies for Enhancement in Food Production (plant breeding).
 
-### 2.4 Zoology Syllabus
-* **Class 11**: Animal Kingdom (non-chordates and chordates), Structural Organisation in Animals (Animal Tissues, Morphology & Anatomy of Frog and Cockroach), Breathing & Exchange of Gases, Body Fluids & Circulation, Excretory Products & their Elimination, Locomotion & Movement, Neural Control & Coordination (excluding detailed ear & eye histology), Chemical Coordination & Integration.
-* **Class 12**: Human Reproduction, Reproductive Health, Evolution, Human Health & Disease.
-* **BANNED DELETED TOPICS**: Digestion & Absorption, Reproduction in Organisms (intro chapter), Environmental Issues.
+### 2.4 Zoology Syllabus (12 Topics)
+* **Class 11**: Animal Kingdom, Structural Organisation in Animals (Animal Tissues, Frog and Cockroach anatomy), Breathing and Exchange of Gases, Body Fluids and Circulation, Excretory Products and their Elimination, Locomotion and Movement, Neural Control and Coordination (excluding ear & eye histology), Chemical Coordination and Integration.
+* **Class 12**: Human Reproduction, Reproductive Health, Evolution, Human Health and Disease.
+* **BANNED DELETED TOPICS**: Digestion and Absorption, Reproduction in Organisms (intro chapter), Environmental Issues.
 
 ---
 
@@ -124,240 +152,79 @@ Presents 4 to 5 statements labeled (a), (b), (c), (d), (e). Asks:
 ### Archetype 5: Rapid Multi-Step Numericals & Graphical Interpretations
 For Physics and Physical Chemistry:
 - Calculation must be solvable within **60 to 90 seconds** without a calculator.
-- Numbers must be clean ($g = 10\text{ m/s}^2$ or $9.8\text{ m/s}^2$, $R = 8.314\text{ J/mol}\cdot\text{K}$ or $0.0821\text{ L}\cdot\text{atm/mol}\cdot\text{K}$, $h = 6.63 \times 10^{-34}\text{ J}\cdot\text{s}$, $e = 1.6 \times 10^{-19}\text{ C}$).
-- Requires combining 2 linked concepts (e.g., De Broglie wavelength + photoelectric stopping potential, or buffer equation + solubility product).
+- Numbers must be clean ($g = 10\text{ m/s}^2$ or $9.8\text{ m/s}^2$, $R = 8.314\text{ J/mol}\cdot\text{K}$, $h = 6.63 \times 10^{-34}\text{ J}\cdot\text{s}$).
+- Requires combining 2 linked concepts (e.g., De Broglie wavelength + photoelectric stopping potential).
 
 ---
 
-## 4. Good vs. Bad Showcases (Zero-Kindergarten Guarantee)
+## 4. Micro-Chunk Specification & Schema
 
-### 🌿 Botany Showcase
-
-#### ❌ BAD (Trivial 1-Second Rote Recall — REJECTED)
-```json
-{
-  "questionText": "Which cell organelle is known as the powerhouse of the cell?",
-  "options": ["A) Mitochondria", "B) Chloroplast", "C) Ribosome", "D) Golgi apparatus"],
-  "answer": "A",
-  "explanation": "Mitochondria produce ATP, so they are the powerhouse of the cell."
-}
-```
-*Why it fails*: Zero cognitive depth. 5th-grade general science trivia.
-
-#### ✅ GOOD (Authentic NEET Multi-Statement NCERT Discrimination)
-```json
-{
-  "id": "neet_bot_cell_012",
-  "subject": "Botany",
-  "topic": "Cell: The Unit of Life",
-  "difficulty": "intermediate",
-  "examType": "NEET",
-  "questionType": "mcq_single",
-  "questionText": "Given below are four statements regarding the structure and function of cell organelles:\n(a) The inner mitochondrial membrane is folded into cristae to increase surface area for ATP synthesis complexes.\n(b) Ribosomes of chloroplasts are 80S, identical to cytoplasmic ribosomes.\n(c) The cis and trans faces of the Golgi apparatus are entirely interconnected and identical in composition.\n(d) Peroxisomes and glyoxysomes are part of the endomembrane system.\nWhich of the following statement(s) is/are INCORRECT?",
-  "options": [
-    "A) (a) only",
-    "B) (b), (c), and (d) only",
-    "C) (b) and (c) only",
-    "D) (a) and (d) only"
-  ],
-  "answer": "B",
-  "explanation": "Statement (a) is correct: cristae in the inner mitochondrial membrane increase the surface area for electron transport chain complexes. Statement (b) is incorrect: chloroplast ribosomes are 70S (smaller, prokaryotic type), whereas cytoplasmic ribosomes of eukaryotes are 80S. Statement (c) is incorrect: the cis (forming) and trans (maturing) faces of the Golgi apparatus are entirely different in biochemical composition and polarity, though interconnected. Statement (d) is incorrect: the endomembrane system includes ER, Golgi apparatus, lysosomes, and vacuoles; peroxisomes, chloroplasts, and mitochondria are NOT part of the endomembrane system because their functions are not coordinated with these organelles. Thus, statements (b), (c), and (d) are incorrect. Option B is correct."
-}
-```
-
----
-
-### 🧬 Zoology Showcase
-
-#### ❌ BAD (Direct Definition Checking — REJECTED)
-```json
-{
-  "questionText": "What is the structural and functional unit of the human kidney?",
-  "options": ["A) Nephron", "B) Neuron", "C) Alveoli", "D) Glomerulus"],
-  "answer": "A",
-  "explanation": "Nephron is the basic functional unit of kidney."
-}
-```
-
-#### ✅ GOOD (Authentic NEET Assertion-Reason Physiological Feedback)
-```json
-{
-  "id": "neet_zoo_excr_018",
-  "subject": "Zoology",
-  "topic": "Excretory Products and their Elimination",
-  "difficulty": "advanced",
-  "examType": "NEET",
-  "questionType": "mcq_single",
-  "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\nAssertion (A): An excessive loss of body fluid activates osmoreceptors which stimulate the neurohypophysis to release Antidiuretic Hormone (ADH).\nReason (R): ADH facilitates water reabsorption from the distal parts of the tubule, thereby preventing diuresis and producing a hypertonic urine.\nIn the light of the above statements, choose the correct option:",
-  "options": [
-    "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
-    "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
-    "C) (A) is true but (R) is false.",
-    "D) (A) is false but (R) is true."
-  ],
-  "answer": "B",
-  "explanation": "Step 1: Check Assertion (A): Osmoreceptors in the hypothalamus are activated by changes in blood volume, body fluid volume, and ionic concentration. An excessive loss of fluid from the body stimulates these osmoreceptors, which induce the release of ADH (vasopressin) from the neurohypophysis (posterior pituitary). Thus, (A) is factually true. Step 2: Check Reason (R): ADH acts on the distal convoluted tubule (DCT) and collecting duct to facilitate water reabsorption, conserving body water and preventing excessive urination (diuresis). Thus, (R) is also factually true. Step 3: Evaluate causal link: Reason (R) describes the physiological action and outcome of ADH on the renal tubules, but does NOT explain *how or why* the osmoreceptors are triggered by volume depletion in the assertion. Therefore, both (A) and (R) are true, but (R) is NOT the correct explanation of (A). Option B is correct."
-}
-```
-
----
-
-### ⚛️ Physics Showcase
-
-#### ❌ BAD (Single-Formula 4th-Grade Arithmetic — REJECTED)
-```json
-{
-  "questionText": "A force of 10 N acts on a body of mass 2 kg. Find its acceleration.",
-  "options": ["A) 5 m/s^2", "B) 20 m/s^2", "C) 2 m/s^2", "D) 0.2 m/s^2"],
-  "answer": "A",
-  "explanation": "a = F/m = 10/2 = 5 m/s^2."
-}
-```
-
-#### ✅ GOOD (Authentic NEET Multi-Step Circuit with Internal Resistance & Power)
-```json
-{
-  "id": "neet_phy_curr_024",
-  "subject": "Physics",
-  "topic": "Current Electricity",
-  "difficulty": "intermediate",
-  "examType": "NEET",
-  "questionType": "mcq_single",
-  "questionText": "A storage battery of emf $\\mathcal{E} = 12\\text{ V}$ and internal resistance $r = 1.5\\;\\Omega$ is being charged by a $120\\text{ V}$ DC supply using a series ballast resistor $R = 22.5\\;\\Omega$. What is the terminal voltage across the storage battery during charging?",
-  "options": [
-    "A) $11.5\\text{ V}$",
-    "B) $18.75\\text{ V}$",
-    "C) $12.0\\text{ V}$",
-    "D) $15.25\\text{ V}$"
-  ],
-  "answer": "B",
-  "explanation": "Step 1: Determine net emf driving charging current into the battery. The external DC source opposes the battery emf: $\\mathcal{E}_{\\text{net}} = V_{\\text{supply}} - \\mathcal{E}_{\\text{battery}} = 120 - 12 = 108\\text{ V}$. Step 2: Calculate charging current $I$ through total loop resistance: $R_{\\text{total}} = R + r = 22.5 + 1.5 = 24.0\\;\\Omega$. Current $I = \\frac{\\mathcal{E}_{\\text{net}}}{R_{\\text{total}}} = \\frac{108}{24} = 4.5\\text{ A}$. Step 3: During charging, current flows *into* the positive terminal of the battery. The terminal potential difference $V$ across a battery being charged is: $V = \\mathcal{E} + I r$. Step 4: Substitute the values: $V = 12 + (4.5)(1.5) = 12 + 6.75 = 18.75\\text{ V}$. Distractor A results from using the discharging formula $V = \\mathcal{E} - I r$. Distractor C assumes terminal voltage equals emf. Option B is correct."
-}
-```
-
----
-
-### 🧪 Chemistry Showcase
-
-#### ❌ BAD (One-Line Periodic Memorization — REJECTED)
-```json
-{
-  "questionText": "Which gas is evolved when zinc reacts with dilute sulfuric acid?",
-  "options": ["A) Hydrogen", "B) Oxygen", "C) Nitrogen", "D) Chlorine"],
-  "answer": "A",
-  "explanation": "Zn + H2SO4 -> ZnSO4 + H2."
-}
-```
-
-#### ✅ GOOD (Authentic NEET Organic Multi-Step Reaction with Reagent Stereospecificity)
-```json
-{
-  "id": "neet_chem_org_031",
-  "subject": "Chemistry",
-  "topic": "Hydrocarbons",
-  "difficulty": "advanced",
-  "examType": "NEET",
-  "questionType": "mcq_single",
-  "questionText": "An alkyne $X$ (molecular formula $\\text{C}_4\\text{H}_6$) reacts with dilute $\\text{H}_2\\text{SO}_4$ in the presence of $\\text{HgSO}_4$ at $333\\text{ K}$ to yield a compound $Y$. Compound $Y$ gives a positive iodoform test and does not reduce Tollens' reagent. When $X$ is treated with sodium in liquid ammonia (Birch reduction conditions), it does not yield a gas, but when treated with ammoniacal cuprous chloride, it forms no precipitate. The compound $X$ is:",
-  "options": [
-    "A) But-1-yne",
-    "B) But-2-yne",
-    "C) Buta-1,3-diene",
-    "D) Cyclobutene"
-  ],
-  "answer": "B",
-  "explanation": "Step 1: Molecular formula $\\text{C}_4\\text{H}_6$ indicates a degree of unsaturation of $4 - (6/2) + 1 = 2$, which corresponds to an alkyne, alkadiene, or cycloalkene. Step 2: Hydration with dilute $\\text{H}_2\\text{SO}_4/\\text{HgSO}_4$ (Kucherov reaction) is characteristic of alkynes. Hydration of But-1-yne gives butan-2-one (methyl ketone) via Markovnikov enol tautomerization. Hydration of But-2-yne also yields butan-2-one. Step 3: Compound $Y$ is butan-2-one ($\\text{CH}_3\\text{COCH}_2\\text{CH}_3$). Since it contains a $\\text{CH}_3\\text{C=O}$ group, it gives a positive iodoform test (yellow precipitate of $\\text{CHI}_3$) and, being a ketone, does not reduce Tollens' reagent. Step 4: The critical discrimination: Ammoniacal cuprous chloride ($\\text{Cu}_2\\text{Cl}_2 + \\text{NH}_4\\text{OH}$) forms a red precipitate of copper acetylide with *terminal alkynes* having acidic terminal $\\equiv\\text{C}-\\text{H}$ bonds. Since $X$ forms *no precipitate*, $X$ is an internal alkyne, NOT a terminal alkyne. This rules out But-1-yne (Option A). But-2-yne ($\text{CH}_3-\\text{C}\\equiv\\text{C}-\\text{CH}_3$) is an internal alkyne. Option B is correct."
-}
-```
-
----
-
-## 5. Cognitive Depth Spectrum for NEET
-
-Every question must be categorized into one of three difficulty tiers:
-
-| Tier | Distribution Target | Cognitive Demand | Target Characteristics |
-| :--- | :--- | :--- | :--- |
-| **Beginner** | ~33% | Precise NCERT conceptual application | Tests accurate line-by-line understanding, dimensional reasoning, or standard 2-step calculations. Never single-word trivia. |
-| **Intermediate** | ~34% | Multi-step analytical deduction | Assertion-Reason with subtle causal distractors, Statement I/II pairs, Match the Column with 4-5 pairs, or graphical slope/intercept checks. |
-| **Advanced** | ~33% | Cross-concept integration under time limit | Integrates 2 distinct topics (e.g., Mendelian genetics + mathematical probability, Equilibrium + Electrochemistry, Mechanics + Thermodynamics) solvable in 90s. |
-
----
-
-## 6. Micro-Chunk Specification & Execution Protocol
-
-### 6.1 Chunk Size & File Naming
-- Each topic chunk contains exactly **32 questions**.
-- Distribution per 32-question chunk:
-  - **10 Beginner Questions**
-  - **10 Intermediate Questions**
-  - **12 Advanced Questions**
+### 4.1 Chunk Size & File Naming
+- Each topic chunk contains exactly **55 questions**.
+- Distribution per 55-question chunk:
+  - **22 Beginner Questions** (40%)
+  - **19 Intermediate Questions** (35%)
+  - **14 Advanced Questions** (25%)
 - File naming pattern:
-  - `data/neet/<subject>/<topic_snake_case>_chunk_01.json`
-  - Example: `data/neet/botany/cell_the_unit_of_life_chunk_01.json`
+  - `data/neet/<subject>/<topic_snake_case>_chunk_<nn>.json`
+  - Example: `data/neet/botany/the_living_world_chunk_01.json`
 
-### 6.2 The Modular 3-Part Script Protocol (Mandatory for Subagents)
-To completely prevent Cloud Code Server-Sent Event (SSE) dropouts, output token cutoffs, and stream EOF errors, subagents must NEVER attempt to stream all 32 detailed questions in a single response.
-
-Instead, subagents must write:
-1. `scratch/part1_beg.js`: Defines array of 10 Beginner questions.
-2. `scratch/part2_int.js`: Defines array of 10 Intermediate questions.
-3. `scratch/part3_adv.js`: Defines array of 12 Advanced questions.
-4. `scratch/assemble.js`: Imports parts 1, 2, 3, concatenates into 32 questions, writes the target JSON, and triggers the Gatekeeper audit.
-
-### 6.3 Standard Question JSON Schema
+### 4.2 Standard Question JSON Schema
 ```json
 {
-  "id": "neet_bot_cell_c01_001",
+  "id": "bot_living_world_c01_001",
   "subject": "Botany",
-  "topic": "Cell: The Unit of Life",
-  "subtopic": "Mitochondria and Chloroplast Ultrastructure",
-  "difficulty": "intermediate",
+  "topic": "The Living World",
+  "difficulty": "beginner",
   "examType": "NEET",
   "questionType": "mcq_single",
-  "questionText": "Question stem here with complete mathematical and chemical notation in standard KaTeX delimiters like $...$ or $$...$$.",
+  "questionText": "Question stem with $...$ KaTeX for all formulas.",
   "options": [
     "A) First option text",
     "B) Second option text",
     "C) Third option text",
     "D) Fourth option text"
   ],
-  "answer": "A",
-  "explanation": "Step 1: Direct derivation and physiological logic. Step 2: Identification of why options B, C, and D are incorrect with specific distractor analysis."
+  "answer": "B",
+  "explanation": "Step 1: Why correct. Step 2: Specific error analysis for wrong options."
 }
 ```
 
+### 4.3 Subject Abbreviations for Question IDs:
+* Botany: `bot` (e.g. `bot_plant_kingdom_c01_001`)
+* Zoology: `zoo` (e.g. `zoo_animal_kingdom_c01_001`)
+* Physics: `phy` (e.g. `phy_laws_of_motion_c01_001`)
+* Chemistry: `chem` (e.g. `chem_chemical_bonding_c01_001`)
+
 ---
 
-## 7. Gatekeeper Validation & Strict Hard Rejection Rules
+## 5. Gatekeeper & Quality Enforcement Rules
 
-Any question violating the following rules will be rejected by the Gatekeeper auditor:
 1. **Zero-NCERT-Trivia Violation**: Any direct 1-step definition check without application or discrimination is purged.
-2. **Formula-Plug Violation**: Any Physics question requiring only a 1-step calculator plug-in (e.g., $F = ma$, $P = W/t$) is purged.
+2. **Formula-Plug Violation**: Any Physics question requiring only a 1-step calculator plug-in (e.g., $F = ma$) is purged.
 3. **KaTeX Delimiter Rule**: All math symbols, equations, units, chemical formulas, and variables must be enclosed in valid KaTeX (`$...$` or `$$...$$`). Unclosed or mismatched braces (`{` without `}`) cause instant rejection.
-4. **Distractor Distribution Balance**: Across any 32-question chunk, correct answers must be evenly distributed across A, B, C, and D (no single letter exceeding 35%).
-5. **Content-Identified Distractors**: Explanations must explain the error represented by each distractor (e.g., *"Option B represents forgetting that chloroplast ribosomes are 70S"*), never merely stating *"Option B is wrong"*.
+4. **Distractor Distribution Balance**: Across any 55-question chunk, correct answers must be evenly distributed across A, B, C, and D (~13–14 each; no single letter exceeding 35%).
+5. **Content-Identified Distractors**: Explanations must explain the error represented by each distractor, never merely stating *"Option B is wrong"*.
 
 ---
 
-## 8. Autonomous Self-Resuming Subagent Launching Protocol
+## 6. Self-Resuming Subagent Execution Protocol
 
-When launching a subagent swarm to author NEET questions, invoke subagents using the standardized template below.
+When launching a subagent swarm to author NEET questions, invoke subagents using the standardized template below:
 
-### Standard Subagent Prompt Template:
 ```text
-Generate an authentic, high-cognitive-depth micro-chunk of 32 NEET-UG questions for:
-Subject: <Subject: Physics | Chemistry | Botany | Zoology>
-Topic: <Exact Official Topic Name>
-Target File: <Absolute Path to data/neet/<subject>/<topic_snake_case>_chunk_01.json>
+Generate an authentic, high-cognitive-depth micro-chunk of 55 NEET-UG questions for:
+Subject: <Subject: Botany | Zoology | Physics | Chemistry>
+Topic: <Exact Official Topic Name from data/neet/registry/neet_topics.json>
+Target File: <Absolute Path to data/neet/<subject_lowercase>/<topic_snake_case>_chunk_01.json>
 
 Execution Protocol (Mandatory):
 - MUST write in 3 modular parts in scratch/:
-  1. part1_beg.js (10 Beginner Qs: NCERT line discrimination, 2-step calculations)
-  2. part2_int.js (10 Intermediate Qs: Assertion-Reason, Statement I & II, Match the Column)
-  3. part3_adv.js (12 Advanced Qs: Multi-concept integration, multi-statement evaluation). Cognitive depth >= 6.8
-- Assemble via assemble.js and audit with gatekeeper until 0 failures.
+  1. part1_beg.js (22 Beginner Qs: NCERT line discrimination, 2-step calculations)
+  2. part2_int.js (19 Intermediate Qs: Assertion-Reason, Statement I & II, Match the Column)
+  3. part3_adv.js (14 Advanced Qs: Multi-concept integration, multi-statement evaluation)
+- Assemble, balance answers (A, B, C, D ~13-14 each), update neet_hashes.json and neet_progress.json, and run node data/neet/neet_compiler.js.
 - Adhere strictly to the NMC revised syllabus (no deleted topics).
 ```
 
-This prompt file is permanent and self-contained. Any agent reading this document has the full context, syllabus constraints, cognitive rubrics, and execution protocols required to generate authentic NEET-UG questions.
+This prompt file is permanent and self-contained. Any agent reading this document has the full context, syllabus constraints, cognitive rubrics, and execution protocols required to resume generation seamlessly.
