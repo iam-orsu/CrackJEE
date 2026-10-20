@@ -190,6 +190,9 @@ export const api = {
 
     history: () =>
       request<import('@/types').MockHistoryItem[]>('/mock/history'),
+
+    cancel: (id: string) =>
+      request<void>(`/mock/${id}`, { method: 'DELETE' }),
   },
 };
 

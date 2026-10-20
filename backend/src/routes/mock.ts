@@ -9,6 +9,7 @@ import {
   submitMock,
   getMockResult,
   getMockHistory,
+  cancelMock,
 } from '../controllers/mockController';
 
 export const mockRoutes = Router();
@@ -23,3 +24,4 @@ mockRoutes.post('/:id/begin', beginMock);
 mockRoutes.patch('/:id/answer', saveAnswer);
 mockRoutes.post('/:id/submit', submitMock);
 mockRoutes.get('/:id/result', getMockResult);
+mockRoutes.delete('/:id', cancelMock);

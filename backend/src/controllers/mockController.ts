@@ -562,6 +562,22 @@ export async function getMockResult(req: AuthRequest, res: Response, next: NextF
   }
 }
 
+export async function cancelMock(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const { id } = req.params as { id: string };
+    const userId = req.user!.userId;
+
+    const exam = await prisma.mockExam.findUnique({ where: { id }, select: { userId: true, status: true } });
+    if (!exam || exam.userId !== userId) throw new AppError(404, 'Exam not found');
+    if (exam.status === 'submitted') throw new AppError(400, 'Cannot cancel a submitted exam');
+
+    await prisma.mockExam.update({ where: { id }, data: { status: 'error' } });
+    res.json({ success: true });
+  } catch (err) {
+    next(err);
+  }
+}
+
 export async function getMockHistory(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
   try {
     const userId = req.user!.userId;
