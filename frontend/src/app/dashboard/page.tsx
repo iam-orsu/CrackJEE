@@ -275,9 +275,18 @@ export default function DashboardPage() {
                     <h2 className={styles.panelTitle}>Focus areas</h2>
                     <p className={styles.panelSub}>Topics where your accuracy is under 60%</p>
                   </div>
-                  <Link href="/practice?mode=weak" className={`${styles.primaryBtn} ${styles.primaryBtnSm}`}>
-                    Practice weak areas
-                  </Link>
+                  <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                    {weakAreas.some((w) => ['Mathematics', 'Physics', 'Chemistry'].includes(w.subject)) && (
+                      <Link href="/practice?mode=weak" className={`${styles.primaryBtn} ${styles.primaryBtnSm}`}>
+                        Practice JEE weak areas
+                      </Link>
+                    )}
+                    {weakAreas.some((w) => ['Botany', 'Zoology'].includes(w.subject)) && (
+                      <Link href="/neet/practice?mode=weak" className={`${styles.primaryBtn} ${styles.primaryBtnSm}`}>
+                        Practice NEET weak areas
+                      </Link>
+                    )}
+                  </div>
                 </div>
                 <div className={styles.focusList}>
                   {weakAreas.slice(0, 6).map((w) => {

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { api } from '@/lib/api';
 import { isAuthenticated } from '@/lib/auth';
 import { QuestionCard } from '@/components/QuestionCard';
-import type { Question, AnswerResult } from '@/types';
+import type { Question, AnswerResult, TopicProgress } from '@/types';
 import type { SplitTopics } from '@/lib/api';
 
 type NeetSubject = 'Physics' | 'Chemistry' | 'Botany' | 'Zoology';
@@ -55,6 +55,11 @@ export default function NEETPracticePage() {
   const [topicsByClass, setTopicsByClass] = useState<SplitTopics | null>(null);
   const [bank, setBank] = useState<{ total: number; bySubject: Record<string, number> } | null>(null);
 
+  /* ── Weak mode ── */
+  const [weakMode, setWeakMode] = useState(false);
+  const [weakSource, setWeakSource] = useState<'global' | 'mock' | null>(null);
+  const [weakStartLoading, setWeakStartLoading] = useState(false);
+
   const [loadProgress, setLoadProgress] = useState(0);
   const [loadMsgIdx, setLoadMsgIdx] = useState(0);
   const [loadError, setLoadError] = useState('');
@@ -70,6 +75,58 @@ export default function NEETPracticePage() {
     if (!isAuthenticated()) { router.push('/login'); return; }
     api.questions.topics(undefined, 'NEET').then(setTopicsByClass).catch(() => {});
     api.questions.bankStats('NEET').then(setBank).catch(() => {});
+
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get('mode');
+
+    if (mode === 'mock_weak') {
+      const rawData = params.get('weakData');
+      if (rawData) {
+        try {
+          const parsed = JSON.parse(decodeURIComponent(rawData)) as { subjects: string[]; topics: Record<string, string[]> };
+          const valid: NeetSubject[] = ['Physics', 'Chemistry', 'Botany', 'Zoology'];
+          const subjects = parsed.subjects.filter((s) => valid.includes(s as NeetSubject)) as NeetSubject[];
+          if (subjects.length > 0) {
+            const subjSet = new Set<NeetSubject>(subjects);
+            const topicsMap: Partial<Record<NeetSubject, Set<string>>> = {};
+            for (const subj of subjects) topicsMap[subj] = new Set(parsed.topics[subj] ?? []);
+            setSelectedSubjects(subjSet);
+            setSelectedTopics(topicsMap);
+            setWeakMode(true);
+            setWeakSource('mock');
+            setWizardStep(3);
+          }
+        } catch {}
+      }
+      return;
+    }
+
+    if (mode !== 'weak') return;
+
+    setWeakMode(true);
+    setWeakStartLoading(true);
+    api.progress.weakAreas()
+      .then((areas: TopicProgress[]) => {
+        if (!areas.length) { setWeakStartLoading(false); return; }
+        const neetSubjects: NeetSubject[] = ['Physics', 'Chemistry', 'Botany', 'Zoology'];
+        const subjectTopics = new Map<NeetSubject, Set<string>>();
+        for (const w of areas) {
+          const subj = w.subject as NeetSubject;
+          if (!neetSubjects.includes(subj)) continue;
+          if (!subjectTopics.has(subj)) subjectTopics.set(subj, new Set());
+          subjectTopics.get(subj)!.add(w.topicName);
+        }
+        if (subjectTopics.size === 0) { setWeakStartLoading(false); return; }
+        const topicsMap: Partial<Record<NeetSubject, Set<string>>> = {};
+        for (const [subj, topicSet] of subjectTopics) topicsMap[subj] = topicSet;
+        setSelectedSubjects(new Set(subjectTopics.keys()));
+        setSelectedTopics(topicsMap);
+        setWeakSource('global');
+        setWizardStep(3);
+      })
+      .catch(() => {})
+      .finally(() => setWeakStartLoading(false));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router]);
 
   useEffect(() => {
@@ -247,12 +304,40 @@ export default function NEETPracticePage() {
     setWizardStep(1);
     setQuestions([]);
     setExamResults({});
+    setWeakMode(false);
+    setWeakSource(null);
+    if (window.location.search) {
+      window.history.replaceState({}, '', window.location.pathname);
+    }
   }
 
   function fmtTime(secs: number) {
     const m = String(Math.floor(secs / 60)).padStart(2, '0');
     const s = String(secs % 60).padStart(2, '0');
     return `${m}:${s}`;
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     RENDER: Weak areas loading
+  ═══════════════════════════════════════════════════════ */
+  if (weakStartLoading) {
+    return (
+      <div className="ai-loader-overlay">
+        <div className="ai-loader-icon-wrap">
+          <div className="ai-spin-ring" />
+          <div className="ai-spin-ring-2" />
+          <div className="ai-loader-center">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="var(--gray-800)">
+              <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/>
+            </svg>
+          </div>
+        </div>
+        <div className="ai-loader-text">
+          <p className="ai-loader-title">Loading your weak areas</p>
+          <p className="ai-loader-msg">Checking your NEET topic progress...</p>
+        </div>
+      </div>
+    );
   }
 
   /* ═══════════════════════════════════════════════════════
@@ -296,6 +381,32 @@ export default function NEETPracticePage() {
 
         <div className="wizard-body">
           <div className="wizard-inner">
+            {weakMode && (
+              <div style={{
+                background: 'var(--navy-50)', border: '1px solid var(--navy-100)',
+                borderRadius: 'var(--radius-lg)', padding: '12px 16px',
+                marginBottom: 24, display: 'flex', alignItems: 'center', gap: 10,
+              }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--navy-600)" strokeWidth="2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                <div>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--navy-800)' }}>
+                    {weakSource === 'mock' ? 'Drilling your mock exam mistakes' : 'Targeting your weak areas'}
+                  </span>
+                  <span style={{ fontSize: 12, color: 'var(--navy-600)', marginLeft: 8 }}>
+                    {Array.from(selectedSubjects).reduce((acc, s) => acc + (selectedTopics[s]?.size ?? 0), 0)} topics across {selectedSubjects.size} subject{selectedSubjects.size !== 1 ? 's' : ''} pre-selected
+                    {weakSource === 'mock' && <span style={{ marginLeft: 6, opacity: 0.75 }}>· from your mock exam</span>}
+                  </span>
+                </div>
+                <button className="btn btn-ghost btn-sm" style={{ marginLeft: 'auto' }}
+                  onClick={() => { setWeakMode(false); setWizardStep(1); }}>
+                  Change topics
+                </button>
+              </div>
+            )}
+
             <div className="wizard-step-bar">
               {(['Subjects', 'Topics', 'Session'] as const).map((label, idx) => {
                 const stepN = (idx + 1) as WizardStep;
