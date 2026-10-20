@@ -1,0 +1,708 @@
+{
+  "questions": [
+    {
+      "id": "cb_c01_001",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Average bond enthalpies are H–H 436 kJ/mol, Cl–Cl 242 kJ/mol and H–Cl 431 kJ/mol. How much heat is released when 2.00 g of $\\text{H}_2(g)$ reacts completely with $\\text{Cl}_2(g)$ to form $\\text{HCl}(g)$?",
+      "options": [
+        "A) 184 kJ",
+        "B) 92 kJ",
+        "C) 368 kJ",
+        "D) 678 kJ"
+      ],
+      "answer": "A",
+      "explanation": "Bonds broken total $436+242=678$ kJ per mole of $\\text{H}_2$ reacted, while bonds formed total $2(431)=862$ kJ, so $\\Delta H=678-862=-184$ kJ. Since 2.00 g of $\\text{H}_2$ is exactly 1 mol, 184 kJ is released. Halving gives 92 kJ by forgetting that two HCl molecules form, doubling gives 368 kJ, and 678 kJ counts only the bonds broken."
+    },
+    {
+      "id": "cb_c01_002",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The nitrate ion $\\text{NO}_3^-$ is drawn with one N=O double bond and two N–O$^-$ single bonds. What is the sum of the absolute values of the formal charges on all four atoms in this drawing?",
+      "options": [],
+      "answer": "3",
+      "explanation": "Nitrogen has no lone pair and four bonding electrons, so $FC_N=5-0-4=+1$. The double-bonded oxygen has $FC=6-4-2=0$, while each singly bonded oxygen has three lone pairs and one bond, giving $FC=6-6-1=-1$. The absolute sum is $1+0+1+1=3$, which is not the net charge of $-1$."
+    },
+    {
+      "id": "cb_c01_003",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Bromine trifluoride, $\\text{BrF}_3$, has three fluorine atoms bonded to one central bromine atom. How many lone pairs does the central bromine atom carry in the molecule?",
+      "options": [],
+      "answer": "2",
+      "explanation": "Bromine contributes 7 valence electrons and each fluorine contributes 7, so the molecule has $7+3(7)=28$ electrons, which is 14 pairs. The three Br–F bonds use 3 pairs and each fluorine keeps 3 lone pairs (9 pairs), leaving $14-3-9=2$ pairs on bromine."
+    },
+    {
+      "id": "cb_c01_004",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a molecule, two identical bond dipoles, each of magnitude 2.0 D, lie at a bond angle of 90° to each other. What is the magnitude of their resultant dipole moment?",
+      "options": [
+        "A) 0 D",
+        "B) 2.83 D",
+        "C) 2.00 D",
+        "D) 4.00 D"
+      ],
+      "answer": "B",
+      "explanation": "For two vectors of equal magnitude $\\mu$ at angle $\\theta$, the resultant is $R=\\sqrt{2\\mu^2(1+\\cos\\theta)}$. With $\\cos 90^\\circ=0$, this gives $R=\\sqrt{2}\\,\\mu=2\\sqrt{2}\\approx 2.83$ D. Adding the two magnitudes gives 4.00 D, treating the dipoles as exactly opposed gives 0 D, and ignoring one dipole leaves 2.00 D."
+    },
+    {
+      "id": "cb_c01_005",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The superoxide ion $\\text{O}_2^-$ is formed when one electron is added to molecular oxygen. What is the bond order of the superoxide ion?",
+      "options": [
+        "A) 2.0",
+        "B) 2.5",
+        "C) 1.5",
+        "D) 1.0"
+      ],
+      "answer": "C",
+      "explanation": "Neutral $\\text{O}_2$ has 16 electrons, with 10 in bonding and 6 in antibonding levels, so its bond order is 2. The added electron enters an antibonding $\\pi^*$ level, giving 10 bonding and 7 antibonding electrons, so $BO=(10-7)/2=1.5$. Reporting 2.0 forgets the added electron, 2.5 is the value for $\\text{O}_2^+$, and 1.0 is the value for $\\text{O}_2^{2-}$."
+    },
+    {
+      "id": "cb_c01_006",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Twice the bond order of the dioxygen cation $\\text{O}_2^+$ is a whole number. What is that whole number?",
+      "options": [],
+      "answer": "5",
+      "explanation": "$\\text{O}_2^+$ has 15 electrons, with 10 in bonding and 5 in antibonding levels, so $BO=(10-5)/2=2.5$. Doubling gives 5. Using the neutral $\\text{O}_2$ value of 2 would give 4, and forgetting to double the half-integer value leaves 2.5, which is not a whole number."
+    },
+    {
+      "id": "cb_c01_007",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The nitronium ion $\\text{NO}_2^+$ is drawn with two N=O double bonds and no lone pair on nitrogen. What is the sum of the formal charges on the nitrogen atom and on one of the oxygen atoms?",
+      "options": [
+        "A) −1",
+        "B) 0",
+        "C) +2",
+        "D) +1"
+      ],
+      "answer": "D",
+      "explanation": "Nitrogen has 5 valence electrons, no nonbonding electrons and four bonding electrons from two double bonds, so $FC_N=5-0-4=+1$. Each oxygen has two lone pairs and four bonding electrons, so $FC_O=6-4-2=0$. The sum is $+1$. Treating the nitrogen as carrying both double bonds as a full extra charge gives +2, and a sign slip on nitrogen gives −1."
+    },
+    {
+      "id": "cb_c01_008",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "How many lone pairs of electrons are present in total over all atoms of the tetrachloroiodate ion $\\text{ICl}_4^-$ when it is drawn with four I–Cl single bonds?",
+      "options": [],
+      "answer": "14",
+      "explanation": "Total valence electrons are $7+4(7)+1=36$. Four I–Cl bonds use 8 electrons, leaving 28 electrons, which is 14 pairs. Each chlorine keeps 3 lone pairs (12 pairs), so iodine keeps the remaining 2 pairs, and the total is $12+2=14$. Forgetting the extra electron from the negative charge would give 13."
+    },
+    {
+      "id": "cb_c01_009",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the ratio of the bond order of $\\text{NO}^-$ to the bond order of $\\text{NO}^+$. Give the ratio to two decimal places.",
+      "options": [
+        "A) 0.67",
+        "B) 1.50",
+        "C) 0.33",
+        "D) 2.00"
+      ],
+      "answer": "A",
+      "explanation": "$\\text{NO}^+$ has 14 electrons, all paired in a configuration isoelectronic with $\\text{N}_2$, so $BO=(10-4)/2=3$. $\\text{NO}^-$ has 16 electrons, giving $BO=(10-6)/2=2$. The ratio is $2/3\\approx 0.67$. Inverting the ratio gives 1.50, dividing 1 by the NO+ value alone gives 0.33, and 2.00 ignores the bond order of $\\text{NO}^+$ entirely."
+    },
+    {
+      "id": "cb_c01_010",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The carbon atoms of ethyne use hybrid orbitals to form their C–H bonds. Compare the percentage s-character of such a hybrid orbital with that of a carbon hybrid orbital used in a C–H bond of ethene. What is the ratio of the ethyne value to the ethene value?",
+      "options": [
+        "A) 0.67",
+        "B) 1.50",
+        "C) 2.00",
+        "D) 0.75"
+      ],
+      "answer": "B",
+      "explanation": "Ethyne's carbon is sp hybridised, so each C–H hybrid has 50% s-character. Ethene's carbon is sp2 hybridised, with about 33.3% s-character per hybrid. The ratio is $50/33.3\\approx 1.50$. Inverting the ratio gives 0.67, comparing sp with sp3 (25%) gives 2.00, and using sp3 in the numerator against sp2 gives 0.75."
+    },
+    {
+      "id": "cb_c01_011",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In one molecule of acetonitrile, $\\text{CH}_3\\text{C}\\equiv\\text{N}$, what is the total number of sigma bonds plus pi bonds?",
+      "options": [],
+      "answer": "7",
+      "explanation": "The three C–H bonds, one C–C bond and one C≡N triple bond give 5 sigma bonds ($3+1+1$). The triple bond also contains 2 pi bonds. The total is $5+2=7$. Forgetting the C–C single bond gives 6, and counting only pi bonds gives 2."
+    },
+    {
+      "id": "cb_c01_012",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Carbon monoxide is drawn with a triple bond between C and O, one lone pair on carbon and one lone pair on oxygen. What is the formal charge on carbon minus the formal charge on oxygen in this drawing?",
+      "options": [
+        "A) 0",
+        "B) +2",
+        "C) −2",
+        "D) +1"
+      ],
+      "answer": "C",
+      "explanation": "Carbon has $FC=4-2-3=-1$ and oxygen has $FC=6-2-3=+1$ in this drawing. The difference is $-1-(+1)=-2$. A student who reverses the subtraction gets +2, and one who assumes the molecule is neutral and therefore takes the difference as zero gets 0."
+    },
+    {
+      "id": "cb_c01_013",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Sulfur tetrafluoride, $\\text{SF}_4$, has four fluorine atoms bonded to one central sulfur atom. How many lone pairs are on the central sulfur atom?",
+      "options": [
+        "A) 0",
+        "B) 2",
+        "C) 3",
+        "D) 1"
+      ],
+      "answer": "D",
+      "explanation": "Sulfur supplies 6 valence electrons and the four fluorines supply 28, a total of 34 electrons or 17 pairs. The four S–F bonds use 4 pairs and each fluorine keeps 3 lone pairs (12 pairs), leaving $17-4-12=1$ pair on sulfur. Counting only bonded pairs gives 0, while miscounting the bonded pairs as 2 gives 2."
+    },
+    {
+      "id": "cb_c01_014",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "How many electrons occupy bonding molecular orbitals in the nitrogen molecule $\\text{N}_2$?",
+      "options": [],
+      "answer": "10",
+      "explanation": "$\\text{N}_2$ has 14 electrons. The bonding levels $\\sigma_{1s}$, $\\sigma_{2s}$, the two $\\pi_{2p}$ levels and $\\sigma_{2p}$ hold $2+2+4+2=10$ electrons. The antibonding levels hold the remaining 4 electrons. Counting all 14 electrons as bonding is the error to avoid."
+    },
+    {
+      "id": "cb_c01_015",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Given an average N–H bond enthalpy of 391 kJ/mol, how many kJ are needed to break all the N–H bonds in 0.100 mol of ammonia, $\\text{NH}_3$?",
+      "options": [
+        "A) 117.3 kJ",
+        "B) 39.1 kJ",
+        "C) 156.4 kJ",
+        "D) 391 kJ"
+      ],
+      "answer": "A",
+      "explanation": "Each $\\text{NH}_3$ molecule contains three N–H bonds, so 0.100 mol of ammonia contains $0.300$ mol of N–H bonds. Multiplying by 391 kJ/mol gives $0.300\\times 391=117.3$ kJ. Using only one bond per molecule gives 39.1 kJ, using four gives 156.4 kJ, and 391 kJ ignores the amount of substance."
+    },
+    {
+      "id": "cb_c01_016",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The carbonate ion $\\text{CO}_3^{2-}$ is drawn with one C=O double bond and two C–O$^-$ single bonds. What is the sum of the absolute values of all formal charges in this drawing?",
+      "options": [],
+      "answer": "2",
+      "explanation": "Carbon has $FC=4-0-4=0$ and the double-bonded oxygen has $FC=0$. Each singly bonded oxygen carries $FC=-1$. Summing the signed charges gives $-2$, which only equals the net charge, while the absolute sum is $0+0+1+1=2$."
+    },
+    {
+      "id": "cb_c01_017",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the molecule $\\text{XeOF}_4$, with xenon joined to one oxygen by a double bond and to four fluorines by single bonds, consider these statements: (I) xenon carries one lone pair; (II) xenon is $sp^3d^2$ hybridised; (III) the molecular shape is trigonal bipyramidal. Which statements are correct?",
+      "options": [
+        "A) II and III only",
+        "B) I and II only",
+        "C) I only",
+        "D) I, II and III"
+      ],
+      "answer": "B",
+      "explanation": "Xenon has 8 valence electrons, oxygen has 6 and the four fluorines have 28, giving 42 electrons in total. The Xe=O bond uses 4 electrons and the four Xe–F bonds use 8, leaving 30 electrons. Oxygen takes 2 lone pairs and the fluorines take 12, so 1 lone pair remains on xenon. Five bonded domains plus one lone pair give $sp^3d^2$, so statement III is false."
+    },
+    {
+      "id": "cb_c01_018",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "What is the total number of pi bonds in one molecule of hydrogen cyanide, HCN, plus the total number of pi bonds in one molecule of carbon dioxide, $\\text{CO}_2$?",
+      "options": [],
+      "answer": "4",
+      "explanation": "HCN contains a $\\text{C}\\equiv\\text{N}$ triple bond, which has one sigma and two pi bonds. $\\text{CO}_2$ has two $\\text{C}=\\text{O}$ double bonds, each with one pi bond. Adding $2+2$ gives 4. Counting only one pi bond per triple bond gives 3, which is the error to avoid."
+    },
+    {
+      "id": "cb_c01_019",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Using average bond enthalpies C–H 413 kJ/mol, C–C 348 kJ/mol, C=C 614 kJ/mol and H–H 436 kJ/mol, what is the enthalpy change for $\\text{C}_2\\text{H}_6(g)\\rightarrow \\text{C}_2\\text{H}_4(g)+\\text{H}_2(g)$?",
+      "options": [
+        "A) −124 kJ/mol",
+        "B) +2702 kJ/mol",
+        "C) +124 kJ/mol",
+        "D) +2826 kJ/mol"
+      ],
+      "answer": "C",
+      "explanation": "Breaking ethane's six C–H bonds and one C–C bond requires $6(413)+348=2826$ kJ. Forming ethene's four C–H bonds, one C=C bond and one H–H bond releases $4(413)+614+436=2702$ kJ. The change is $2826-2702=+124$ kJ/mol, so the reaction is endothermic. Reversing the sign gives −124, and using only the products' bonds gives 2702."
+    },
+    {
+      "id": "cb_c01_020",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the species $\\text{O}_2^{2-}$, $\\text{O}_2^-$ and $\\text{O}_2$, consider these statements: (I) $\\text{O}_2^{2-}$ is diamagnetic; (II) $\\text{O}_2^-$ has a bond order of 1.5; (III) $\\text{O}_2$ has a bond order of 2 with no unpaired electrons. Which statements are correct?",
+      "options": [
+        "A) I only",
+        "B) II and III only",
+        "C) I, II and III",
+        "D) I and II only"
+      ],
+      "answer": "D",
+      "explanation": "$\\text{O}_2^{2-}$ has 18 electrons, all paired, with bond order $(10-8)/2=1$, so I is true. $\\text{O}_2^-$ has 17 electrons and bond order $(10-7)/2=1.5$, so II is true. Neutral $\\text{O}_2$ has two unpaired electrons in its $\\pi^*$ levels, so III is false. Calling $\\text{O}_2$ diamagnetic is the common error."
+    },
+    {
+      "id": "cb_c01_021",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "How many lone pairs are present on the central xenon atom in the molecule $\\text{XeF}_4$?",
+      "options": [],
+      "answer": "2",
+      "explanation": "Xenon has 8 valence electrons and four fluorines add 28, giving 36 electrons or 18 pairs. Four Xe–F bonds use 4 pairs and each fluorine keeps 3 pairs (12 pairs), leaving $18-4-12=2$ pairs on xenon. Forgetting the lone pairs entirely gives 0."
+    },
+    {
+      "id": "cb_c01_022",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the linear azide ion $\\text{N}_3^-$, drawn with two N=N double bonds, what is the formal charge on the central nitrogen atom?",
+      "options": [
+        "A) +1",
+        "B) 0",
+        "C) −1",
+        "D) +2"
+      ],
+      "answer": "A",
+      "explanation": "Azide has 16 valence electrons. The two N=N double bonds use 8 electrons and the central nitrogen has no lone pair, so $FC_{\\text{central}}=5-0-4=+1$. The two terminal nitrogens each carry two lone pairs and have $FC=-1$, which sums with the central value to the −1 net charge. Assigning zero to the central atom ignores its bonding count."
+    },
+    {
+      "id": "cb_c01_023",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For chlorine trifluoride, $\\text{ClF}_3$, consider these statements: (I) chlorine carries two lone pairs; (II) the molecule has a T-shaped geometry; (III) the molecule is nonpolar. Which statements are correct?",
+      "options": [
+        "A) I and III only",
+        "B) I and II only",
+        "C) II and III only",
+        "D) I only"
+      ],
+      "answer": "B",
+      "explanation": "Chlorine supplies 7 electrons and three fluorines supply 21, a total of 28 electrons or 14 pairs. Three Cl–F bonds use 3 pairs and each fluorine keeps 3 pairs (9 pairs), leaving 2 pairs on chlorine, so I is true. Five electron domains with two lone pairs give a T-shape, so II is true. The unequal arrangement of bond dipoles leaves a net dipole, so III is false."
+    },
+    {
+      "id": "cb_c01_024",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "What is the total number of valence electrons in the sulphate ion $\\text{SO}_4^{2-}$?",
+      "options": [],
+      "answer": "32",
+      "explanation": "Sulphur contributes 6 valence electrons and the four oxygens contribute $4\\times 6=24$. The two extra electrons from the 2− charge bring the total to 32. Omitting the charge gives 30."
+    },
+    {
+      "id": "cb_c01_025",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the dianion $\\text{C}_2^{2-}$, which is isoelectronic with $\\text{N}_2$. What is its bond order?",
+      "options": [
+        "A) 2.0",
+        "B) 1.5",
+        "C) 3.0",
+        "D) 4.0"
+      ],
+      "answer": "C",
+      "explanation": "$\\text{C}_2$ has 12 electrons, so $\\text{C}_2^{2-}$ has 14. With 10 bonding and 4 antibonding electrons, $BO=(10-4)/2=3$. Doubling the neutral $\\text{C}_2$ bond order gives 4, and 2.0 is the bond order of neutral $\\text{C}_2$ itself."
+    },
+    {
+      "id": "cb_c01_026",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Ozone is drawn with a central oxygen bonded to a terminal oxygen by a double bond and to a second terminal oxygen by a single bond. What is the formal charge on the central oxygen minus the formal charge on the singly bonded terminal oxygen in this drawing?",
+      "options": [
+        "A) 0",
+        "B) +1",
+        "C) −2",
+        "D) +2"
+      ],
+      "answer": "D",
+      "explanation": "The central oxygen has one lone pair and three bonding electrons, giving $FC=6-2-3=+1$. The singly bonded terminal oxygen has three lone pairs and one bond, giving $FC=6-6-1=-1$. The difference is $+1-(-1)=+2$. Subtracting in the reverse order gives −2, and assuming the two formal charges are equal gives 0."
+    },
+    {
+      "id": "cb_c01_027",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "How many lone pairs does the central xenon atom carry in $\\text{XeO}_2\\text{F}_2$, where xenon forms two Xe=O double bonds and two Xe–F single bonds?",
+      "options": [],
+      "answer": "1",
+      "explanation": "The total valence electron count is $8+2(6)+2(7)=34$. The four bonds use 12 electrons, leaving 22. The two double-bonded oxygens hold 8 nonbonding electrons and the two fluorines hold 12, which uses 20 of the remaining 22. The last 2 electrons form one lone pair on xenon."
+    },
+    {
+      "id": "cb_c01_028",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In a molecule of phosphorus pentachloride, $\\text{PCl}_5$, with a trigonal bipyramidal arrangement of five chlorine atoms, how many Cl–P–Cl bond angles are exactly 90°?",
+      "options": [],
+      "answer": "6",
+      "explanation": "Each of the two axial chlorines makes a 90° angle with each of the three equatorial chlorines, giving $2\\times 3=6$ angles. The three equatorial pairs are 120° apart and the axial pair is 180°. Counting only the equatorial-to-equatorial angles gives 3 angles of 120°, not 90°."
+    },
+    {
+      "id": "cb_c01_029",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the molecules $\\text{CO}_2$ and $\\text{SO}_2$. Statements: (I) $\\text{CO}_2$ has zero net dipole moment because its two C=O bond dipoles cancel; (II) $\\text{SO}_2$ has a nonzero dipole moment; (III) $\\text{CO}_2$ has a larger dipole moment than $\\text{SO}_2$. Which statements are correct?",
+      "options": [
+        "A) I and II only",
+        "B) II and III only",
+        "C) I only",
+        "D) I, II and III"
+      ],
+      "answer": "A",
+      "explanation": "Linear $\\text{CO}_2$ has two equal and opposite C=O dipoles that cancel, so I is true. Bent $\\text{SO}_2$ has a lone pair on sulphur and its bond dipoles do not cancel, so II is true. Since $\\text{CO}_2$ has zero dipole, III is false. Treating the bent molecule as nonpolar is the error to avoid."
+    },
+    {
+      "id": "cb_c01_030",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "What is the total number of unpaired electrons in one molecule of $\\text{O}_2$ plus one ion of $\\text{O}_2^+$?",
+      "options": [],
+      "answer": "3",
+      "explanation": "$\\text{O}_2$ has 16 electrons, with two unpaired electrons in its degenerate $\\pi^*$ levels. $\\text{O}_2^+$ has 15 electrons, leaving one unpaired electron. The total is $2+1=3$. Assuming $\\text{O}_2$ is diamagnetic gives 1."
+    },
+    {
+      "id": "cb_c01_031",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The perchlorate ion, $\\text{ClO}_4^-$, is drawn with four Cl–O single bonds and no double bonds. What is the formal charge on the central chlorine atom in this drawing?",
+      "options": [
+        "A) +7",
+        "B) +3",
+        "C) +1",
+        "D) −1"
+      ],
+      "answer": "B",
+      "explanation": "Chlorine has 7 valence electrons, no nonbonding electrons and four bonds, giving four bonding electrons. So $FC=7-0-4=+3$. Using the total valence electron count as the formal charge gives +7, using the +1 net charge of the ion gives +1, and taking the ion's −1 charge gives −1."
+    },
+    {
+      "id": "cb_c01_032",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "How many lone pairs are on the central iodine atom of the linear triiodide ion $\\text{I}_3^-$?",
+      "options": [],
+      "answer": "3",
+      "explanation": "The ion has $3(7)+1=22$ valence electrons, which is 11 pairs. The two I–I bonds use 2 pairs, and each terminal iodine keeps 3 pairs (6 pairs), leaving $11-2-6=3$ pairs on the central iodine."
+    },
+    {
+      "id": "cb_c01_033",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the diatomic species $\\text{B}_2$, $\\text{C}_2$ and $\\text{N}_2$, consider these statements: (I) $\\text{B}_2$ is paramagnetic; (II) $\\text{C}_2$ has a bond order of 3; (III) $\\text{N}_2$ is diamagnetic. Which statements are correct?",
+      "options": [
+        "A) I and II only",
+        "B) II and III only",
+        "C) I and III only",
+        "D) I only"
+      ],
+      "answer": "C",
+      "explanation": "$\\text{B}_2$ has 10 electrons, two of which are unpaired in degenerate $\\pi_{2p}$ levels, so I is true. $\\text{C}_2$ has 12 electrons and bond order 2, so II is false. $\\text{N}_2$ has all its bonding electrons paired, so III is true. Assigning bond order 3 to $\\text{C}_2$ confuses it with $\\text{N}_2$."
+    },
+    {
+      "id": "cb_c01_034",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "What is the sum of the number of sigma bonds and the number of lone pairs on the central xenon atom in $\\text{XeO}_3$, which has three bonded oxygen atoms?",
+      "options": [],
+      "answer": "4",
+      "explanation": "Xenon forms three sigma bonds to the oxygens. The total valence electron count is $8+18=26$. The three Xe=O bonds take 12 electrons and the oxygens keep 12 nonbonding electrons, leaving 2 electrons, which is one lone pair on xenon. The sum is $3+1=4$."
+    },
+    {
+      "id": "cb_c01_035",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the hydronium ion $\\text{H}_3\\text{O}^+$ and the amide ion $\\text{NH}_2^-$, each in its usual Lewis structure. What is the sum of the formal charges on the central oxygen of $\\text{H}_3\\text{O}^+$ and the central nitrogen of $\\text{NH}_2^-$?",
+      "options": [
+        "A) −2",
+        "B) −1",
+        "C) +2",
+        "D) 0"
+      ],
+      "answer": "D",
+      "explanation": "Oxygen in $\\text{H}_3\\text{O}^+$ has one lone pair and three bonds, so $FC=6-2-3=+1$. Nitrogen in $\\text{NH}_2^-$ has two lone pairs and two bonds, so $FC=5-4-2=-1$. The sum is $+1+(-1)=0$. Ignoring the second lone pair on nitrogen gives +1 for that atom and a total of +2."
+    },
+    {
+      "id": "cb_c01_036",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the nitrogen-oxygen species $\\text{NO}^+$, $\\text{NO}$ and $\\text{NO}^-$. Select all statements that are correct.",
+      "options": [
+        "A) $\\text{NO}^+$ has the highest bond order of the three species, which is 3.",
+        "B) $\\text{NO}$ holds its unpaired electron in an antibonding $\\pi^*$ level.",
+        "C) $\\text{NO}^-$ is diamagnetic because all of its electrons are paired.",
+        "D) $\\text{NO}^+$ is paramagnetic because it is isoelectronic with $\\text{O}_2$."
+      ],
+      "answer": "A,B",
+      "explanation": "$\\text{NO}^+$ has 14 electrons and bond order 3, $\\text{NO}$ has 15 electrons and bond order 2.5, and $\\text{NO}^-$ has 16 electrons and bond order 2, so A is true. $\\text{NO}$ places its 15th electron in a $\\pi^*$ level, so B is true. $\\text{NO}^-$ puts two electrons in the degenerate $\\pi^*$ pair, which gives two unpaired electrons, so C is false. $\\text{NO}^+$ is isoelectronic with $\\text{N}_2$ and is diamagnetic, so D is false."
+    },
+    {
+      "id": "cb_c01_037",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Which of the following species have a nonzero net dipole moment? Select all that apply, considering both the number of electron domains and the arrangement of the bonds.",
+      "options": [
+        "A) $\\text{XeF}_4$",
+        "B) $\\text{SF}_4$",
+        "C) $\\text{CO}_2$",
+        "D) $\\text{ClF}_3$"
+      ],
+      "answer": "B,D",
+      "explanation": "$\\text{XeF}_4$ has six electron domains with two lone pairs in opposite positions, so its bond dipoles cancel and the dipole is zero. $\\text{SF}_4$ has five domains with one lone pair in an equatorial position, giving an asymmetric see-saw shape with a nonzero dipole. $\\text{CO}_2$ is linear and symmetric, so its dipole is zero. $\\text{ClF}_3$ is T-shaped with two lone pairs, so it is polar. Assuming every molecule with lone pairs is polar is the trap for A."
+    },
+    {
+      "id": "cb_c01_038",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the diatomic species $\\text{O}_2^{2-}$, $\\text{C}_2$, $\\text{B}_2$ and $\\text{N}_2^+$. Select all statements that are correct.",
+      "options": [
+        "A) $\\text{O}_2^{2-}$ is diamagnetic with a bond order of 1.",
+        "B) $\\text{C}_2$ is paramagnetic with a bond order of 2.",
+        "C) $\\text{B}_2$ has two unpaired electrons and a bond order of 1.",
+        "D) $\\text{N}_2^+$ has a longer bond than $\\text{N}_2$."
+      ],
+      "answer": "A,C,D",
+      "explanation": "$\\text{O}_2^{2-}$ has 18 electrons, all paired, with bond order $(10-8)/2=1$, so A is true. $\\text{B}_2$ has 10 electrons with bond order $(6-4)/2=1$ and two unpaired electrons in its $\\pi_{2p}$ levels, so C is true. $\\text{N}_2^+$ has bond order 2.5 against 3 for $\\text{N}_2$, so its bond is longer and D is true. $\\text{C}_2$ has 12 electrons and is diamagnetic with bond order 2, so B is false."
+    },
+    {
+      "id": "cb_c01_041",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In the chlorite ion $\\text{ClO}_2^-$, drawn with one $\\text{Cl}=\\text{O}$ double bond and one $\\text{Cl}\\text{–}\\text{O}^-$ single bond, add the number of lone pairs on chlorine to the absolute formal charge on the singly bonded oxygen. What is the total?",
+      "options": [],
+      "answer": "3",
+      "explanation": "The ion has $7+12+1=20$ valence electrons, or 10 pairs. The double and single bonds use 3 pairs, the double-bonded oxygen keeps 2 pairs and the singly bonded oxygen keeps 3 pairs, leaving 2 pairs on chlorine. The singly bonded oxygen has $FC=-1$, absolute value 1. The total is $2+1=3$."
+    },
+    {
+      "id": "cb_c01_042",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Using average bond enthalpies $\\text{C}\\equiv\\text{O}$ = 1072 kJ/mol, $\\text{O}=\\text{O}$ = 498 kJ/mol and $\\text{C}=\\text{O}$ = 745 kJ/mol, what is $\\Delta H$ for $2\\text{CO}(g)+\\text{O}_2(g)\\rightarrow 2\\text{CO}_2(g)$?",
+      "options": [
+        "A) +338 kJ/mol",
+        "B) −338 kJ/mol",
+        "C) −2980 kJ/mol",
+        "D) +2642 kJ/mol"
+      ],
+      "answer": "B",
+      "explanation": "The bonds broken are two $\\text{C}\\equiv\\text{O}$ and one $\\text{O}=\\text{O}$, totalling $2(1072)+498=2642$ kJ. The bonds formed are four $\\text{C}=\\text{O}$, totalling $4(745)=2980$ kJ. So $\\Delta H=2642-2980=-338$ kJ/mol, an exothermic change. Reversing the sign gives +338, and using only the bonds formed gives −2980."
+    },
+    {
+      "id": "cb_c01_043",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In the nitrate ion drawn with one $\\text{N}=\\text{O}$ double bond and two $\\text{N}\\text{–}\\text{O}^-$ single bonds, how many lone pairs are on the three oxygen atoms together?",
+      "options": [],
+      "answer": "8",
+      "explanation": "The ion has $5+18+1=24$ valence electrons. The three N–O bonds and the one N=O pi bond use 8 bonding electrons, leaving 16 electrons. The double-bonded oxygen has 2 lone pairs, and each singly bonded oxygen has 3, giving $2+3+3=8$ pairs (16 electrons). Nitrogen keeps no lone pairs."
+    },
+    {
+      "id": "cb_c01_044",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Among $\\text{XeF}_2$, $\\text{BrF}_3$, $\\text{SF}_4$ and $\\text{XeF}_4$, which species has exactly one lone pair on its central atom?",
+      "options": [
+        "A) $\\text{XeF}_2$",
+        "B) $\\text{BrF}_3$",
+        "C) $\\text{SF}_4$",
+        "D) $\\text{XeF}_4$"
+      ],
+      "answer": "C",
+      "explanation": "$\\text{XeF}_2$ has 22 valence electrons, which after two bonds and six fluorine lone pairs leaves 3 lone pairs on xenon. $\\text{BrF}_3$ and $\\text{XeF}_4$ each leave 2 lone pairs on the central atom. $\\text{SF}_4$ leaves 1 lone pair on sulphur, which sits in an equatorial position in its five-domain arrangement. Only $\\text{SF}_4$ matches the stated count."
+    },
+    {
+      "id": "cb_c01_045",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider $\\text{SO}_3$, $\\text{SO}_2$ and $\\text{SO}_3^{2-}$. Select all statements that are correct.",
+      "options": [
+        "A) $\\text{SO}_3$ has zero net dipole moment because its three S–O bond dipoles cancel.",
+        "B) $\\text{SO}_2$ is nonpolar because its two S=O bond dipoles are equal in magnitude.",
+        "C) $\\text{SO}_3^{2-}$ has a lone pair on sulphur and is pyramidal.",
+        "D) In $\\text{SO}_2$ drawn with two S=O bonds, sulphur carries one lone pair and zero formal charge."
+      ],
+      "answer": "A,C,D",
+      "explanation": "Trigonal planar $\\text{SO}_3$ has three equal bond dipoles at 120°, which cancel, so A is true. Bent $\\text{SO}_2$ has a lone pair on sulphur, so its dipole is nonzero and B is false. $\\text{SO}_3^{2-}$ has three bonds and one lone pair on sulphur, which gives a trigonal pyramidal shape, so C is true. In $\\text{SO}_2$, sulphur has $FC=6-2-4=0$, so D is true."
+    },
+    {
+      "id": "cb_c01_046",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Add the number of electrons in antibonding molecular orbitals of $\\text{NO}^+$ to the bond order of $\\text{N}_2$. What is the total?",
+      "options": [],
+      "answer": "7",
+      "explanation": "$\\text{NO}^+$ has 14 electrons, and the antibonding levels $\\sigma^*_{1s}$ and $\\sigma^*_{2s}$ hold $2+2=4$ of them. The bond order of $\\text{N}_2$ is $(10-4)/2=3$. The total is $4+3=7$. Counting the bonding electrons instead would give a much larger number."
+    },
+    {
+      "id": "cb_c01_047",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Calculate the ratio of the bond order of $\\text{CO}$ to the bond order of $\\text{NO}$. Give the answer to two decimal places.",
+      "options": [
+        "A) 0.83",
+        "B) 2.00",
+        "C) 1.50",
+        "D) 1.20"
+      ],
+      "answer": "D",
+      "explanation": "$\\text{CO}$ has 14 electrons and bond order 3. $\\text{NO}$ has 15 electrons, giving $BO=(10-5)/2=2.5$. The ratio is $3/2.5=1.20$. Inverting it gives 0.83, using a bond order of 1.5 for NO gives 2.00, and using 2 for NO gives 1.50."
+    },
+    {
+      "id": "cb_c01_048",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following diatomic species has an odd number of valence electrons and a half-integer bond order?",
+      "options": [
+        "A) $\\text{NO}$",
+        "B) $\\text{CO}$",
+        "C) $\\text{N}_2$",
+        "D) $\\text{C}_2$"
+      ],
+      "answer": "A",
+      "explanation": "$\\text{NO}$ has $5+6=11$ valence electrons, which is odd, and bond order 2.5. $\\text{CO}$ and $\\text{N}_2$ each have 10 valence electrons with bond order 3. $\\text{C}_2$ has 8 valence electrons and bond order 2. Only $\\text{NO}$ satisfies both conditions."
+    },
+    {
+      "id": "cb_c01_049",
+      "subject": "Chemistry",
+      "topic": "Chemical Bonding",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In $\\text{XeOF}_4$, with one $\\text{Xe}=\\text{O}$ bond and four $\\text{Xe}\\text{–}\\text{F}$ bonds, add the number of lone pairs on xenon to the number of sigma bonds that xenon forms. What is the total?",
+      "options": [],
+      "answer": "6",
+      "explanation": "The total valence electron count is $8+6+28=42$. After the bonds and the terminal lone pairs on oxygen and fluorine are placed, one lone pair remains on xenon. Xenon forms five sigma bonds, one to oxygen and four to fluorine, while the pi part of the double bond is not counted. The total is $1+5=6$."
+    }
+  ]
+}

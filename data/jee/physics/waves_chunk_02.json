@@ -1,0 +1,762 @@
+{
+  "questions": [
+    {
+      "id": "wav_c02_001",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A long metal rod has Young's modulus $2.0\\times10^{11}$ Pa and density 8000 kg/m$^3$. A longitudinal pulse travels the full 15 m length of the rod. How long in milliseconds does the pulse take?",
+      "options": [
+        "A) 0.0006 ms",
+        "B) 3.0 ms",
+        "C) 4.2 ms",
+        "D) 1.5 ms"
+      ],
+      "answer": "B",
+      "explanation": "The speed of a longitudinal wave in a rod is $v = \\sqrt{Y/\\rho} = \\sqrt{2.0\\times10^{11}/8000} = \\sqrt{2.5\\times10^{7}} = 5000$ m/s. The travel time is $t = \\frac{15}{5000} = 3.0\\times10^{-3}$ s, which is 3.0 ms. Using $Y/\\rho$ without the square root gives 0.0006 ms, using $\\rho = 16000$ kg/m$^3$ gives 4.2 ms, and halving the length gives 1.5 ms."
+    },
+    {
+      "id": "wav_c02_002",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A standing wave on a string is $y(x,t) = 0.06\\sin(5\\pi x)\\cos(200\\pi t)$ m, with $x$ in metres. Find the distance in metres between a node and the nearest antinode of this standing wave.",
+      "options": [
+        "A) 0.2 m",
+        "B) 0.05 m",
+        "C) 0.1 m",
+        "D) 0.4 m"
+      ],
+      "answer": "C",
+      "explanation": "The wave number is $k = 5\\pi$ rad/m, so $\\lambda = \\frac{2\\pi}{k} = 0.40$ m. Nodes sit where $\\sin(5\\pi x) = 0$, and antinodes sit a quarter wavelength away from them, so the node-to-antinode distance is $\\frac{\\lambda}{4} = 0.10$ m. The value 0.2 m is the spacing between adjacent nodes, 0.05 m uses $\\lambda/8$, and 0.4 m is the full wavelength."
+    },
+    {
+      "id": "wav_c02_003",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two in-phase sources emit sound at 1700 Hz in air where the speed of sound is 340 m/s. A listener is at a point where the path difference between the two waves is 0.50 m. Find the phase difference of the two waves at the listener, in radians, in terms of $\\pi$.",
+      "options": [
+        "A) $\\pi$ rad",
+        "B) $2.5\\pi$ rad",
+        "C) $5\\pi$ rad",
+        "D) $10\\pi$ rad"
+      ],
+      "answer": "C",
+      "explanation": "The wavelength is $\\lambda = \\frac{v}{f} = \\frac{340}{1700} = 0.20$ m. The phase difference is $\\Delta\\phi = \\frac{2\\pi\\Delta x}{\\lambda} = \\frac{2\\pi(0.50)}{0.20} = 5\\pi$ rad. Taking the path difference as a half wavelength gives $\\pi$ rad, using $\\lambda = 0.40$ m from a halved frequency gives $2.5\\pi$ rad, and using $\\lambda = 0.10$ m from a doubled frequency gives $10\\pi$ rad."
+    },
+    {
+      "id": "wav_c02_004",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "At a certain point one source produces a sound level of 70 dB and a second, independent source produces 60 dB. What is the combined sound level at that point in decibels, to one decimal place?",
+      "options": [
+        "A) 130 dB",
+        "B) 70.4 dB",
+        "C) 65 dB",
+        "D) 60.4 dB"
+      ],
+      "answer": "B",
+      "explanation": "The intensities are $I_1 = 10^{-5}$ W/m$^2$ and $I_2 = 10^{-6}$ W/m$^2$, which add to $1.1\\times10^{-5}$ W/m$^2$. The combined level is $10\\log_{10}\\left(\\frac{1.1\\times10^{-5}}{10^{-12}}\\right) = 70.4$ dB. Adding the decibel values gives 130 dB, averaging them gives 65 dB, and adding $10\\log_{10}1.1$ to the weaker level alone gives 60.4 dB."
+    },
+    {
+      "id": "wav_c02_005",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A pipe closed at one end has length 0.30 m, and the speed of sound in its air is 330 m/s. What is the frequency in hertz of its third resonance, that is, the third possible resonant frequency counted from the fundamental?",
+      "options": [
+        "A) 1375 Hz",
+        "B) 825 Hz",
+        "C) 2750 Hz",
+        "D) 1100 Hz"
+      ],
+      "answer": "A",
+      "explanation": "The resonances of a closed pipe are $f_n = \\frac{(2n-1)v}{4L}$, so the third resonance has $n = 3$ and $f = \\frac{5 \\times 330}{4 \\times 0.30} = 1375$ Hz. The value 825 Hz uses $\\frac{3v}{4L}$, which is the second resonance, 2750 Hz uses $\\frac{5v}{2L}$ with the closed length doubled, and 1100 Hz uses the even multiple $\\frac{4v}{4L}$."
+    },
+    {
+      "id": "wav_c02_006",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A transverse wave on a string has amplitude $0.030$ m and frequency $20$ Hz. Find the maximum transverse acceleration of a particle on the string, in m/s$^2$, in terms of $\\pi$.",
+      "options": [
+        "A) $24\\pi^2$ m/s$^2$",
+        "B) $1.2\\pi$ m/s$^2$",
+        "C) $192\\pi^2$ m/s$^2$",
+        "D) $48\\pi^2$ m/s$^2$"
+      ],
+      "answer": "D",
+      "explanation": "The angular frequency is $\\omega = 2\\pi(20) = 40\\pi$ rad/s, so the maximum acceleration is $a_{\\max} = A\\omega^2 = 0.030 \\times 1600\\pi^2 = 48\\pi^2$ m/s$^2$. Halving the amplitude gives $24\\pi^2$, using $A\\omega$ gives the maximum speed $1.2\\pi$, and doubling the frequency before squaring gives $192\\pi^2$."
+    },
+    {
+      "id": "wav_c02_007",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Water waves on a lake have frequency 4.0 Hz and wavelength 1.5 m. How many seconds does a crest take to travel 30 m along the surface?",
+      "options": [
+        "A) 80 s",
+        "B) 2.5 s",
+        "C) 5 s",
+        "D) 7.5 s"
+      ],
+      "answer": "C",
+      "explanation": "The wave speed is $v = f\\lambda = 4.0 \\times 1.5 = 6.0$ m/s. The travel time for 30 m is $t = \\frac{30}{6.0} = 5$ s. Inverting the speed to $\\lambda/f = 0.375$ m/s gives 80 s, doubling the speed to 12 m/s gives 2.5 s, and using the frequency alone as the speed gives 7.5 s."
+    },
+    {
+      "id": "wav_c02_008",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Helium gas with molar mass 4.0 g/mol behaves as an ideal monatomic gas with adiabatic index $\\gamma = 5/3$ at 300 K. Find the speed of sound in helium in m/s, using $R = 8.314$ J/(mol K).",
+      "options": [
+        "A) 790 m/s",
+        "B) 1019 m/s",
+        "C) 322 m/s",
+        "D) 340 m/s"
+      ],
+      "answer": "B",
+      "explanation": "The speed of sound in an ideal gas is $v = \\sqrt{\\frac{\\gamma R T}{M}}$. With $\\gamma = 5/3$, $R = 8.314$, $T = 300$ K and $M = 0.0040$ kg/mol, $v^2 = \\frac{(5/3)(8.314)(300)}{0.0040} \\approx 1.04\\times10^{6}$, so $v \\approx 1019$ m/s. Dropping $\\gamma$ gives 790 m/s, using the argon molar mass gives 322 m/s, and copying the speed in air gives 340 m/s."
+    },
+    {
+      "id": "wav_c02_009",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An open organ pipe has a fundamental of 440 Hz in air where sound travels at 330 m/s. The same pipe is then filled with a gas in which sound travels at 660 m/s, with the length unchanged. What is the new fundamental frequency in hertz?",
+      "options": [
+        "A) 880 Hz",
+        "B) 440 Hz",
+        "C) 1760 Hz",
+        "D) 220 Hz"
+      ],
+      "answer": "A",
+      "explanation": "The length of the open pipe follows from $f_1 = \\frac{v}{2L}$, so $L = \\frac{330}{2 \\times 440} = 0.375$ m. In the new gas the fundamental is $f_1 = \\frac{660}{2 \\times 0.375} = 880$ Hz. Keeping 440 Hz ignores the change in speed, using $v/L$ without the factor of 2 gives 1760 Hz, and scaling the frequency inversely with speed gives 220 Hz."
+    },
+    {
+      "id": "wav_c02_010",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two triangular pulses of heights $+2$ cm and $-3$ cm travel toward each other on a string and fully overlap at one instant. What is the net displacement of the string at that instant, in centimetres?",
+      "options": [
+        "A) 5 cm",
+        "B) -1 cm",
+        "C) 1 cm",
+        "D) -5 cm"
+      ],
+      "answer": "B",
+      "explanation": "Displacements of overlapping pulses add algebraically, so the net displacement is $(+2) + (-3) = -1$ cm. Ignoring the sign gives 5 cm, flipping both pulses gives $(-2) + (+3) = +1$ cm, and adding the magnitudes while keeping a negative sign gives -5 cm."
+    },
+    {
+      "id": "wav_c02_011",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A standing wave on a string of length 0.80 m fixed at both ends has wave speed 40 m/s and frequency 100 Hz. How many nodes appear along the string, counting both fixed ends?",
+      "options": [],
+      "answer": "5",
+      "explanation": "The wavelength is $\\lambda = \\frac{v}{f} = \\frac{40}{100} = 0.40$ m. The number of loops is $n = \\frac{2L}{\\lambda} = \\frac{1.6}{0.40} = 4$, and $n$ loops give $n+1 = 5$ nodes including both fixed ends. Counting only the interior nodes gives 3, and counting only the loops gives 4."
+    },
+    {
+      "id": "wav_c02_012",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A horn of frequency 160 Hz approaches a stationary listener at 20 m/s, and the speed of sound in air is 340 m/s. By how many hertz does the frequency heard by the listener exceed 160 Hz?",
+      "options": [],
+      "answer": "10",
+      "explanation": "The approaching horn is heard at $f' = f\\frac{v}{v - v_s} = 160 \\times \\frac{340}{320} = 170$ Hz. The excess is $170 - 160 = 10$ Hz. Using $v + v_s$ in the denominator would give a lower frequency, so the excess would come out negative."
+    },
+    {
+      "id": "wav_c02_013",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A pipe closed at one end and a pipe open at both ends are both 0.60 m long. Both contain air in which sound travels at 180 m/s. How many beats per second are heard when their fundamental tones sound together?",
+      "options": [],
+      "answer": "75",
+      "explanation": "The closed-pipe fundamental is $f_c = \\frac{v}{4L} = \\frac{180}{2.4} = 75$ Hz. The open-pipe fundamental is $f_o = \\frac{v}{2L} = \\frac{180}{1.2} = 150$ Hz. The beat frequency is $|150 - 75| = 75$ beats per second. Using the closed-pipe value for both pipes gives 0 beats."
+    },
+    {
+      "id": "wav_c02_014",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A wave of speed 16 m/s and wavelength 0.40 m travels along a rope. How many complete waves pass a fixed point on the rope in 2.0 s?",
+      "options": [],
+      "answer": "80",
+      "explanation": "The frequency is $f = \\frac{v}{\\lambda} = \\frac{16}{0.40} = 40$ Hz. In 2.0 s the number of complete waves passing a fixed point is $f t = 40 \\times 2.0 = 80$. Using the wavelength in place of the frequency gives 0.2 waves, and forgetting the division by the wavelength gives 32 waves."
+    },
+    {
+      "id": "wav_c02_015",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A point source gives a sound level of 50 dB at a distance of 1.0 m. Its power is then increased tenfold. What is the new sound level in decibels at a distance of 100 m, assuming inverse-square spreading?",
+      "options": [],
+      "answer": "20",
+      "explanation": "A tenfold power increase raises the level at 1.0 m by $10\\log_{10}(10) = 10$ dB, giving 60 dB. Moving from 1.0 m to 100 m lowers the level by $20\\log_{10}(100) = 40$ dB, so the final level is $60 - 40 = 20$ dB. Forgetting the power change gives 10 dB, and using a 10 log factor for distance gives 50 dB."
+    },
+    {
+      "id": "wav_c02_016",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A siren moves at 34 m/s along a straight line, first approaching and then receding from a stationary observer at the same speed. The speed of sound is 340 m/s. Find the ratio of the frequency heard while the siren approaches to the frequency heard while it recedes.",
+      "options": [
+        "A) 9/11",
+        "B) 1.10",
+        "C) 1.49",
+        "D) 11/9"
+      ],
+      "answer": "D",
+      "explanation": "While approaching, the observer hears $f_a = f\\frac{v}{v - u} = f\\frac{340}{306}$. While receding, the observer hears $f_r = f\\frac{v}{v + u} = f\\frac{340}{374}$. The ratio is $\\frac{f_a}{f_r} = \\frac{374}{306} = \\frac{11}{9}$. Inverting the ratio gives 9/11, using only $(v+u)/v = 1.10$ ignores the recession, and squaring the ratio gives 1.49."
+    },
+    {
+      "id": "wav_c02_017",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a standing sound wave in air, where the speed of sound is 340 m/s, the distance between adjacent pressure nodes is 0.34 m. What is the frequency of the sound in hertz?",
+      "options": [
+        "A) 500 Hz",
+        "B) 1000 Hz",
+        "C) 250 Hz",
+        "D) 340 Hz"
+      ],
+      "answer": "A",
+      "explanation": "Adjacent nodes of a standing wave are separated by half a wavelength, so $\\frac{\\lambda}{2} = 0.34$ m and $\\lambda = 0.68$ m. The frequency is $f = \\frac{v}{\\lambda} = \\frac{340}{0.68} = 500$ Hz. Treating the node spacing as the wavelength gives 1000 Hz, treating it as a quarter wavelength gives 250 Hz, and using the speed as the frequency gives 340 Hz."
+    },
+    {
+      "id": "wav_c02_018",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two identical machines each produce a sound level of 80 dB at a distance of 2 m. Both machines run together at the same spot. Using $10\\log_{10}2 \\approx 3$ dB, what is the approximate sound level in decibels at a distance of 20 m from them?",
+      "options": [
+        "A) 83 dB",
+        "B) 60 dB",
+        "C) 63 dB",
+        "D) 43 dB"
+      ],
+      "answer": "C",
+      "explanation": "Two equal sources at one spot raise the level at 2 m by about 3 dB, giving 83 dB. Moving from 2 m to 20 m is a distance factor of 10, and inverse-square spreading lowers the level by $20\\log_{10}10 = 20$ dB. The result is $83 - 20 = 63$ dB. Forgetting the doubling gives 60 dB, forgetting the distance change gives 83 dB, and a distance factor of 100 gives 43 dB."
+    },
+    {
+      "id": "wav_c02_019",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A transverse wave on a string is $y(x,t) = 0.5\\sin(2x + 8t)$ in SI units. Find the wave speed and the direction in which the wave travels.",
+      "options": [
+        "A) 4 m/s along +x",
+        "B) 0.25 m/s along -x",
+        "C) 16 m/s along +x",
+        "D) 4 m/s along -x"
+      ],
+      "answer": "D",
+      "explanation": "The wave number is $k = 2$ rad/m and the angular frequency is $\\omega = 8$ rad/s, so the speed is $v = \\frac{\\omega}{k} = 4$ m/s. A function of $(2x + 8t)$ moves toward negative $x$. Reporting +x gives the wrong direction, inverting the ratio gives 0.25 m/s, and multiplying $\\omega$ by $k$ gives 16 m/s."
+    },
+    {
+      "id": "wav_c02_020",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A tuning fork of frequency 500 Hz resonates with a tube of air at two successive air column lengths of 17 cm and 51 cm. What is the speed of sound in the air in metres per second?",
+      "options": [
+        "A) 340 m/s",
+        "B) 170 m/s",
+        "C) 680 m/s",
+        "D) 85 m/s"
+      ],
+      "answer": "A",
+      "explanation": "Successive resonances differ by half a wavelength, so $\\frac{\\lambda}{2} = 51 - 17 = 34$ cm and $\\lambda = 0.68$ m. Then $v = f\\lambda = 500 \\times 0.68 = 340$ m/s. Taking the length difference as the wavelength gives 170 m/s, using $\\lambda = 4(L_2 - L_1) = 1.36$ m gives 680 m/s, and taking the first length as the wavelength gives 85 m/s."
+    },
+    {
+      "id": "wav_c02_021",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A string of mass 0.20 kg and length 0.50 m is fixed at both ends and stretched by a tension of 40 N. Find the frequency in hertz of its fundamental mode.",
+      "options": [
+        "A) 20 Hz",
+        "B) 5 Hz",
+        "C) 14.1 Hz",
+        "D) 10 Hz"
+      ],
+      "answer": "D",
+      "explanation": "The linear density is $\\mu = 0.20/0.50 = 0.40$ kg/m, so the wave speed is $v = \\sqrt{T/\\mu} = \\sqrt{40/0.40} = 10$ m/s. The fundamental is $f_1 = \\frac{v}{2L} = \\frac{10}{1.0} = 10$ Hz. Using $v/L$ with no factor of 2 gives 20 Hz, using $L = 1.0$ m gives 5 Hz, and using 0.20 kg/m as the linear density gives 14.1 Hz."
+    },
+    {
+      "id": "wav_c02_022",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A rope of linear density 0.020 kg/m is tensioned by a block of mass 5.0 kg hanging over a frictionless pulley, with $g = 10$ m/s$^2$. How many seconds does a transverse pulse take to travel 100 m along the rope?",
+      "options": [
+        "A) 0.04 s",
+        "B) 2 s",
+        "C) 100 s",
+        "D) 2.83 s"
+      ],
+      "answer": "B",
+      "explanation": "The tension is $T = Mg = 5.0 \\times 10 = 50$ N, so the pulse speed is $v = \\sqrt{T/\\mu} = \\sqrt{50/0.020} = 50$ m/s. The travel time is $t = \\frac{100}{50} = 2$ s. Using $v = T/\\mu$ without the square root gives 0.04 s, using $v = \\sqrt{T\\mu}$ gives 100 s, and using $\\mu = 0.040$ kg/m gives 2.83 s."
+    },
+    {
+      "id": "wav_c02_023",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A pipe closed at one end sounds its fundamental in air at 20 degrees Celsius. Using $v = 331 + 0.6\\,T$ m/s with $T$ in degrees Celsius, what is the length in centimetres of the pipe if its fundamental frequency is 250 Hz?",
+      "options": [
+        "A) 68.6 cm",
+        "B) 33.1 cm",
+        "C) 34.3 cm",
+        "D) 17.2 cm"
+      ],
+      "answer": "C",
+      "explanation": "At 20 degrees Celsius the speed is $v = 331 + 0.6(20) = 343$ m/s. For a closed pipe $f_1 = \\frac{v}{4L}$, so $L = \\frac{v}{4f} = \\frac{343}{1000} = 0.343$ m, which is 34.3 cm. Using the open-pipe formula $v/(2f)$ gives 68.6 cm, using the 0 degree speed 331 m/s gives 33.1 cm, and using $v/(8f)$ gives 17.2 cm."
+    },
+    {
+      "id": "wav_c02_024",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A stationary source emits a sound of frequency 340 Hz. A steady wind of speed 20 m/s blows from the source toward a stationary listener, and the sound speed in still air is 340 m/s. What frequency in hertz does the listener hear?",
+      "options": [
+        "A) 360 Hz",
+        "B) 320 Hz",
+        "C) 680 Hz",
+        "D) 340 Hz"
+      ],
+      "answer": "D",
+      "explanation": "The source and the listener are both at rest relative to the ground, so the frequency is unchanged at 340 Hz. The wind changes the sound speed relative to the ground and therefore the wavelength, but not the frequency. Adding the wind speed to the frequency gives 360 Hz, subtracting it gives 320 Hz, and doubling the frequency gives 680 Hz."
+    },
+    {
+      "id": "wav_c02_025",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A point source radiates acoustic power of $4\\pi \\times 10^{-3}$ W uniformly in all directions. What is the sound intensity level in decibels at a distance of 100 m from the source?",
+      "options": [
+        "A) 50 dB",
+        "B) 61 dB",
+        "C) 70 dB",
+        "D) 100 dB"
+      ],
+      "answer": "A",
+      "explanation": "The intensity at 100 m is $I = \\frac{P}{4\\pi r^2} = \\frac{4\\pi \\times 10^{-3}}{4\\pi \\times 10^{4}} = 10^{-7}$ W/m$^2$. The level is $\\beta = 10\\log_{10}\\left(\\frac{10^{-7}}{10^{-12}}\\right) = 50$ dB. Forgetting the $4\\pi$ in the area gives 61 dB, using $r = 10$ m gives 70 dB, and using $20\\log_{10}$ for intensity gives 100 dB."
+    },
+    {
+      "id": "wav_c02_026",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two strings have the same length, the same tension and the same material. The diameter of the second string is twice that of the first. What is the ratio of the fundamental frequency of the second string to that of the first?",
+      "options": [
+        "A) 0.25",
+        "B) 2",
+        "C) 0.5",
+        "D) 0.71"
+      ],
+      "answer": "C",
+      "explanation": "The linear density is proportional to the cross-sectional area, so $\\mu \\propto d^2$ and the second string has $\\mu_2 = 4\\mu_1$. The wave speed is $v = \\sqrt{T/\\mu}$, so $v_2 = v_1/2$, and since $f_1 = v/(2L)$ the frequency ratio is $\\frac{f_2}{f_1} = \\frac{1}{2}$. Treating frequency as proportional to the density gives 0.25, inverting the ratio gives 2, and using the diameter ratio for the density gives 0.71."
+    },
+    {
+      "id": "wav_c02_027",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The third harmonic of a string of length 0.60 m equals the second harmonic of a second string of length $L'$, where both strings are fixed at both ends and have the same wave speed. Find $L'$ in metres.",
+      "options": [
+        "A) 0.2 m",
+        "B) 0.9 m",
+        "C) 0.6 m",
+        "D) 0.4 m"
+      ],
+      "answer": "D",
+      "explanation": "The third harmonic of the first string is $f_3 = \\frac{3v}{2 \\times 0.60} = 2.5v$. The second harmonic of the second string is $f_2 = \\frac{2v}{2L'} = \\frac{v}{L'}$. Setting $\\frac{v}{L'} = 2.5v$ gives $L' = 0.40$ m. Using the fundamental formula for the second harmonic gives 0.2 m, inverting the frequency ratio gives 0.9 m, and assuming equal lengths gives 0.6 m."
+    },
+    {
+      "id": "wav_c02_028",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A rope of length 2.0 m and mass 80 g is held at a tension of 36 N. A transverse pulse makes three complete round trips along the rope, each trip going from one end to the other and back. How many seconds does the pulse take?",
+      "options": [
+        "A) 0.4 s",
+        "B) 0.2 s",
+        "C) 0.28 s",
+        "D) 0.013 s"
+      ],
+      "answer": "A",
+      "explanation": "The linear density is $\\mu = 0.080/2.0 = 0.040$ kg/m, so the speed is $v = \\sqrt{36/0.040} = 30$ m/s. Each round trip covers $2L = 4.0$ m, so three trips cover 12 m and take $t = \\frac{12}{30} = 0.4$ s. Counting only one way per trip gives 0.2 s, using $\\mu = 0.020$ kg/m gives 0.28 s, and using $v = T/\\mu$ gives 0.013 s."
+    },
+    {
+      "id": "wav_c02_029",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A string of length 1.60 m is fixed at both ends and carries waves of speed 80 m/s. How many antinodes appear on the string when it vibrates at 200 Hz?",
+      "options": [],
+      "answer": "8",
+      "explanation": "The wavelength is $\\lambda = \\frac{v}{f} = \\frac{80}{200} = 0.40$ m. The number of loops is $n = \\frac{2L}{\\lambda} = \\frac{3.20}{0.40} = 8$, and each loop contains one antinode, so there are 8 antinodes. Counting the nodes instead gives 9, and halving the loops gives 4."
+    },
+    {
+      "id": "wav_c02_030",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An open pipe of length 1.00 m contains air in which sound travels at 340 m/s. How many of its resonant frequencies lie in the range from 0 to 700 Hz, inclusive?",
+      "options": [],
+      "answer": "4",
+      "explanation": "The resonances of an open pipe are $f_n = \\frac{nv}{2L} = 170n$ Hz. The condition $170n \\le 700$ gives $n \\le 4.1$, so $n = 1, 2, 3, 4$, which are 170, 340, 510 and 680 Hz. Using the closed-pipe series would give only 170, 510 Hz, and using $v/L$ as the spacing gives 340, 680 Hz only."
+    },
+    {
+      "id": "wav_c02_031",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A point source gives a sound level of 90 dB at 1.0 m. A listener walks away from the source until the level drops to 70 dB, and then walks a further 5.0 m away from the source. What is the total distance in metres from the source to the listener?",
+      "options": [],
+      "answer": "15",
+      "explanation": "A drop of 20 dB corresponds to a distance factor of $10$ under inverse-square spreading, so the listener is at $10$ m when the level reaches 70 dB. Walking a further 5.0 m puts the listener at $10 + 5 = 15$ m. Using a 10 dB drop per factor of 10 would place the first point at 100 m and give 105 m."
+    },
+    {
+      "id": "wav_c02_032",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The fundamental frequency of a string fixed at both ends is 150 Hz. How many beats per second are heard when its third harmonic sounds together with a 440 Hz tuning fork?",
+      "options": [],
+      "answer": "10",
+      "explanation": "The third harmonic of the string is $f_3 = 3 \\times 150 = 450$ Hz. The beat frequency with the 440 Hz fork is $|450 - 440| = 10$ beats per second. Using the fundamental instead gives 290 beats, and using the second harmonic gives 140 beats, which are the mistakes of picking the wrong harmonic."
+    },
+    {
+      "id": "wav_c02_033",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A transverse wave of amplitude 0.020 m on a string has maximum particle speed $4\\pi$ m/s and wavelength 0.50 m. What is the wave speed on the string in metres per second?",
+      "options": [],
+      "answer": "50",
+      "explanation": "The maximum particle speed is $A\\omega$, so $\\omega = \\frac{4\\pi}{0.020} = 200\\pi$ rad/s and the frequency is $f = 100$ Hz. The wave speed is $v = f\\lambda = 100 \\times 0.50 = 50$ m/s. Using $\\omega$ directly as the frequency would give 0.5 m/s, and dividing instead of multiplying gives 0.02 m/s."
+    },
+    {
+      "id": "wav_c02_034",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A sound's intensity is multiplied by $10^5$ and then divided by $10^2$. By how many decibels does the sound level change?",
+      "options": [],
+      "answer": "30",
+      "explanation": "The net intensity factor is $10^5 / 10^2 = 10^3$, so the level changes by $10\\log_{10}(10^3) = 30$ dB. Using the factor $10^5$ alone would give 50 dB, and using $20\\log_{10}$ on the net factor would give 60 dB."
+    },
+    {
+      "id": "wav_c02_035",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A pipe closed at one end is 0.30 m long, and the speed of sound in its air is 340 m/s. At which resonance number, counting from 1, does the frequency 850 Hz occur?",
+      "options": [],
+      "answer": "2",
+      "explanation": "The closed-pipe resonances are $f_n = \\frac{(2n-1)v}{4L} = (2n-1)\\times 283.3$ Hz. Setting $(2n-1) \\times 283.3 = 850$ gives $2n - 1 = 3$, so $n = 2$. Counting every multiple of 283.3 Hz would wrongly place 850 Hz at the third position, and using $f = v/(4L)$ alone gives 283.3 Hz."
+    },
+    {
+      "id": "wav_c02_036",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A source of frequency 900 Hz is at rest relative to the ground. A steady wind of speed 20 m/s blows from the source toward an observer, and the observer runs at 40 m/s toward the source. The speed of sound in still air is 340 m/s. What frequency in hertz does the observer hear?",
+      "options": [
+        "A) 1006 Hz",
+        "B) 800 Hz",
+        "C) 1012.5 Hz",
+        "D) 1000 Hz"
+      ],
+      "answer": "D",
+      "explanation": "With the wind, the sound moves at $v + w = 360$ m/s relative to the ground in the direction of the observer, so the wavelength is $\\lambda = \\frac{360}{900} = 0.40$ m. The observer moves toward the source at 40 m/s, so the sound reaches the observer at a relative speed of $360 + 40 = 400$ m/s and $f' = \\frac{400}{0.40} = 1000$ Hz. Ignoring the wind gives 1006 Hz, reversing the observer's direction gives 800 Hz, and reversing the wind gives 1012.5 Hz."
+    },
+    {
+      "id": "wav_c02_037",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A sound wave travels at normal incidence from medium 1, with acoustic impedance $Z_1 = 2.0\\times10^3$, into medium 2, with $Z_2 = 6.0\\times10^3$. What fraction of the incident intensity is transmitted into medium 2?",
+      "options": [
+        "A) 0.50",
+        "B) 0.75",
+        "C) 0.25",
+        "D) 0.67"
+      ],
+      "answer": "B",
+      "explanation": "The amplitude reflection coefficient is $r = \\frac{Z_1 - Z_2}{Z_1 + Z_2} = -\\frac{1}{2}$, so the reflected intensity fraction is $r^2 = \\frac{1}{4}$. The transmitted fraction is $\\frac{4Z_1Z_2}{(Z_1+Z_2)^2} = \\frac{48}{64} = 0.75$. Taking the amplitude coefficient $\\frac{2Z_1}{Z_1+Z_2} = 0.50$ as the intensity fraction gives 0.50, using the reflected fraction gives 0.25, and using $1 - Z_1/Z_2$ gives 0.67."
+    },
+    {
+      "id": "wav_c02_038",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A pipe closed at one end is 0.50 m long. Its third resonance (with $n = 3$ in the closed-pipe sequence) has the same frequency as the fundamental of a pipe open at both ends, and both pipes contain the same air. What is the length in metres of the open pipe?",
+      "options": [
+        "A) 0.2 m",
+        "B) 0.5 m",
+        "C) 0.33 m",
+        "D) 0.1 m"
+      ],
+      "answer": "A",
+      "explanation": "The third closed-pipe resonance is $f = \\frac{(2\\cdot 3 - 1)v}{4 \\times 0.50} = 2.5v$. The open-pipe fundamental is $f = \\frac{v}{2L_o}$, so $\\frac{v}{2L_o} = 2.5v$ gives $L_o = 0.20$ m. Copying the closed length gives 0.5 m, using $3v/(4L)$ as the closed frequency gives 0.33 m, and using the closed-pipe formula for the open pipe gives 0.1 m."
+    },
+    {
+      "id": "wav_c02_039",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A pulse starts at $x = 0$ at time $t = 0$ and moves in the $+x$ direction at 4 m/s. A second pulse starts at $x = 12$ m at time $t = 1.0$ s and moves in the $-x$ direction at 6 m/s. At what position in metres do the two pulses meet?",
+      "options": [
+        "A) 6.0 m",
+        "B) 7.2 m",
+        "C) 4.8 m",
+        "D) 6.4 m"
+      ],
+      "answer": "B",
+      "explanation": "The first pulse is at $x_1 = 4t$. The second pulse is at $x_2 = 12 - 6(t - 1)$. Setting $x_1 = x_2$ gives $4t = 18 - 6t$, so $t = 1.8$ s and $x = 4(1.8) = 7.2$ m. Taking the midpoint of 12 m gives 6.0 m, ignoring the one-second delay gives 4.8 m, and delaying the first pulse instead gives 6.4 m."
+    },
+    {
+      "id": "wav_c02_041",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A pipe closed at one end contains gas A, of molar mass 4.0 g/mol, and has fundamental frequency 900 Hz at 300 K. The same pipe is then filled with gas B, of molar mass 36 g/mol, at the same temperature and with the same adiabatic index. What is the fundamental frequency with gas B, in hertz?",
+      "options": [
+        "A) 100 Hz",
+        "B) 2700 Hz",
+        "C) 900 Hz",
+        "D) 300 Hz"
+      ],
+      "answer": "D",
+      "explanation": "The speed of sound is $v = \\sqrt{\\gamma RT/M}$, so $\\frac{v_B}{v_A} = \\sqrt{\\frac{M_A}{M_B}} = \\sqrt{\\frac{4}{36}} = \\frac{1}{3}$. The pipe length is unchanged, so $f_B = \\frac{v_B}{v_A} f_A = 300$ Hz. Using $v \\propto 1/M$ gives 100 Hz, taking $v \\propto \\sqrt{M}$ gives 2700 Hz, and ignoring the molar mass gives 900 Hz."
+    },
+    {
+      "id": "wav_c02_042",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A string of length 0.80 m is fixed at both ends, has linear density 0.0020 kg/m, and is under a tension of 20 N. Select all correct statements about its vibrations.",
+      "options": [
+        "A) At a tension of 40 N its fundamental frequency is 125 Hz.",
+        "B) Its fourth harmonic has frequency 250 Hz.",
+        "C) Its fourth harmonic has 5 nodes, counting the fixed ends.",
+        "D) A tone of 180 Hz is one of its natural frequencies."
+      ],
+      "answer": "B,C",
+      "explanation": "At 20 N the speed is $v = \\sqrt{20/0.0020} = 100$ m/s, so $f_1 = \\frac{v}{2L} = 62.5$ Hz and $f_4 = 4f_1 = 250$ Hz (B is true). A fourth harmonic has 4 loops and 5 nodes including the fixed ends (C is true). At 40 N the speed is $\\sqrt{40/0.0020} \\approx 141$ m/s, so the fundamental is about 88 Hz and A is false. Since $180/62.5 = 2.88$ is not an integer, D is false."
+    },
+    {
+      "id": "wav_c02_043",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A source of frequency 270 Hz moves at 34 m/s toward a stationary observer, and the speed of sound is 340 m/s. Select all correct statements about what the observer hears.",
+      "options": [
+        "A) The observer hears 300 Hz while the source approaches.",
+        "B) After the source recedes at 34 m/s, the observer hears 240 Hz.",
+        "C) The beat frequency between the approaching sound and a stationary 270 Hz fork is 30 Hz.",
+        "D) An observer moving toward the source at 34 m/s hears 310 Hz."
+      ],
+      "answer": "A,C",
+      "explanation": "The approaching frequency is $f' = 270 \\times \\frac{340}{306} = 300$ Hz, so A is true, and the beat with 270 Hz is $300 - 270 = 30$ Hz, so C is true. The receding frequency is $270 \\times \\frac{340}{374} \\approx 245$ Hz, so B is false. An observer moving toward the source hears $270 \\times \\frac{374}{340} = 297$ Hz, so D is false."
+    },
+    {
+      "id": "wav_c02_044",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A pipe closed at one end is 0.50 m long, and the air inside has sound speed $v = 331 + 0.6\\,T$ m/s with $T$ in degrees Celsius. Compare its resonances at 0 degrees Celsius and at 27 degrees Celsius. Select all correct statements.",
+      "options": [
+        "A) At 0 degrees Celsius the fundamental is 165.5 Hz.",
+        "B) At 27 degrees Celsius the fundamental is 180.6 Hz.",
+        "C) At 27 degrees Celsius the third resonance is 520.8 Hz.",
+        "D) At 27 degrees Celsius the second resonance is 520.8 Hz."
+      ],
+      "answer": "A,D",
+      "explanation": "At 0 degrees Celsius the speed is 331 m/s, so $f_1 = \\frac{331}{4 \\times 0.50} = 165.5$ Hz (A is true). At 27 degrees Celsius the speed is $331 + 0.6(27) = 347.2$ m/s, so $f_1 = 173.6$ Hz, which makes B false. The second resonance is $3f_1 = 520.8$ Hz (D is true), while the third is $5f_1 \\approx 868$ Hz, so C is false."
+    },
+    {
+      "id": "wav_c02_045",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "String A has fundamental frequency 200 Hz when fixed at both ends. String B has the same length and linear density as string A, but its tension is four times larger. Select all correct statements.",
+      "options": [
+        "A) Beats of 200 Hz occur between the third harmonic of A and the fundamental of B.",
+        "B) Beats of 100 Hz occur between the third harmonic of A and the fundamental of B.",
+        "C) The fundamental of B is 400 Hz.",
+        "D) If the tension of B were half that of A, its fundamental would be 200 Hz."
+      ],
+      "answer": "A,C",
+      "explanation": "Quadrupling the tension doubles the wave speed, so the fundamental of B is $2 \\times 200 = 400$ Hz (C is true). The third harmonic of A is $3 \\times 200 = 600$ Hz, and the beat with B's fundamental is $600 - 400 = 200$ Hz (A is true), so B is false. If the tension of B were half of A's, its speed would be $\\sqrt{1/2}$ of A's, giving about 141 Hz, so D is false."
+    },
+    {
+      "id": "wav_c02_046",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A tube of air closed at one end is driven at 400 Hz. Successive resonances of the air column occur at column lengths of 0.20 m and 0.60 m. Select all correct statements about this tube.",
+      "options": [
+        "A) The speed of sound in the air is 320 m/s.",
+        "B) The wavelength at 400 Hz is 0.40 m.",
+        "C) The next resonance occurs at an air column of 1.00 m.",
+        "D) A 400 Hz fork resonates with an air column of 0.40 m."
+      ],
+      "answer": "A,C",
+      "explanation": "Successive resonances differ by half a wavelength, so $\\frac{\\lambda}{2} = 0.60 - 0.20 = 0.40$ m and $\\lambda = 0.80$ m. The speed is $v = f\\lambda = 400 \\times 0.80 = 320$ m/s (A is true), and the wavelength is 0.80 m, not 0.40 m, so B is false. The resonant lengths are $\\frac{\\lambda}{4}, \\frac{3\\lambda}{4}, \\frac{5\\lambda}{4}$, so the next resonance is 1.00 m (C is true), while 0.40 m is a half wavelength and not a resonance (D is false)."
+    },
+    {
+      "id": "wav_c02_047",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Two identical in-phase point sources are 3.0 m apart and emit waves of wavelength 1.2 m. A point P lies on the segment joining the sources at distance $x$ from the first source. Select all correct statements about the resultant intensity at P.",
+      "options": [
+        "A) At x = 1.5 m the intensity is a maximum.",
+        "B) At x = 0.6 m the intensity is zero.",
+        "C) At x = 1.0 m the intensity is a maximum.",
+        "D) At x = 0.3 m the intensity is zero."
+      ],
+      "answer": "A,B",
+      "explanation": "The path difference at P is $\\Delta = |2x - 3|$. At the midpoint $x = 1.5$ m the path difference is zero, so the intensity is a maximum (A is true). At $x = 0.6$ m, $\\Delta = 1.8 = 1.5\\lambda$, which is destructive and gives zero intensity (B is true). At $x = 1.0$ m, $\\Delta = 1.0 \\approx 0.83\\lambda$, which is neither (C is false). At $x = 0.3$ m, $\\Delta = 2.4 = 2\\lambda$, which is constructive (D is false)."
+    },
+    {
+      "id": "wav_c02_048",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A string of length 1.0 m is fixed at both ends and has wave speed 100 m/s. A pipe closed at one end, of length 0.75 m, contains air with sound speed 300 m/s. How many frequencies below 1000 Hz are natural frequencies of both the string and the pipe?",
+      "options": [],
+      "answer": "5",
+      "explanation": "The string frequencies are $f_n = \\frac{nv}{2L} = 50n$ Hz. The closed pipe frequencies are $f_m = \\frac{(2m-1)v}{4L} = (2m-1)\\times 100$ Hz. A common frequency needs $50n = 100(2m-1)$, so $n = 2(2m-1)$, which always works. The common frequencies below 1000 Hz are 100, 300, 500, 700 and 900 Hz, giving 5."
+    },
+    {
+      "id": "wav_c02_049",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A transverse wave on a string has amplitude 0.05 m, maximum particle speed $2\\pi$ m/s, and wave speed 20 m/s. How many complete wavelengths fit in a 6.0 m length of the string at one instant?",
+      "options": [],
+      "answer": "6",
+      "explanation": "The maximum particle speed is $A\\omega = 2\\pi$, so $\\omega = \\frac{2\\pi}{0.05} = 40\\pi$ rad/s and $f = 20$ Hz. The wavelength is $\\lambda = \\frac{v}{f} = \\frac{20}{20} = 1.0$ m, so a 6.0 m length holds $\\frac{6.0}{1.0} = 6$ complete wavelengths. Using $\\omega$ as the frequency would give 0.3 wavelengths."
+    },
+    {
+      "id": "wav_c02_050",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "For a transverse wave on a string the average power is proportional to $\\sqrt{T}\\,f^2 A^2$ with the other quantities fixed. If the tension is quadrupled, the frequency is halved and the amplitude is doubled, by what factor does the average power change?",
+      "options": [],
+      "answer": "2",
+      "explanation": "The factor from the tension is $\\sqrt{4} = 2$. The factor from the frequency is $(1/2)^2 = 1/4$. The factor from the amplitude is $2^2 = 4$. The total factor is $2 \\times \\frac{1}{4} \\times 4 = 2$. Forgetting the square root on the tension gives 4, and forgetting the square on the amplitude gives 1/2."
+    }
+  ]
+}

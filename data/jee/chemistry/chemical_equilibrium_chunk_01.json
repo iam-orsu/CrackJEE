@@ -1,0 +1,772 @@
+{
+  "questions": [
+    {
+      "id": "chq_c01_001",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the equilibrium $N_2O_4(g) \\rightleftharpoons 2NO_2(g)$, 0.2 M of $N_2O_4$ is taken in a closed vessel at a fixed temperature. At equilibrium the degree of dissociation of $N_2O_4$ is 0.5. What is the equilibrium constant $K_c$ for this reaction?",
+      "options": [
+        "A) 0.05",
+        "B) 0.40",
+        "C) 2.00",
+        "D) 0.80"
+      ],
+      "answer": "B",
+      "explanation": "Equilibrium concentrations are $[N_2O_4] = 0.2(1-0.5) = 0.1$ M and $[NO_2] = 2(0.2)(0.5) = 0.2$ M. Then $K_c = \\frac{[NO_2]^2}{[N_2O_4]} = \\frac{0.04}{0.1} = 0.40$. Option A inverts the ratio, option C omits squaring the NO_2 term, and option D doubles the answer."
+    },
+    {
+      "id": "chq_c01_002",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "For the equilibrium $A(g) + B(g) \\rightleftharpoons 2C(g)$, $K_c = 4$ at a fixed temperature. A 1 L vessel initially contains 2 mol of A and 2 mol of B with no C present. Find the equilibrium concentration of C in mol L$^{-1}$ and report $10 \\times [C]$ as an integer.",
+      "options": [],
+      "answer": "20",
+      "explanation": "Let x mol/L of A react, so $[A] = [B] = 2 - x$ and $[C] = 2x$. Then $K_c = \\frac{(2x)^2}{(2-x)^2} = 4$ gives $\\frac{2x}{2-x} = 2$, so $x = 1$. Hence $[C] = 2$ M and $10 \\times [C] = 20$."
+    },
+    {
+      "id": "chq_c01_003",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The reaction $PCl_5(g) \\rightleftharpoons PCl_3(g) + Cl_2(g)$ is at equilibrium in a vessel at total pressure 2.0 atm. The mole fractions at equilibrium are $PCl_5 = 0.2$, $PCl_3 = 0.4$ and $Cl_2 = 0.4$. What is the value of $K_p$ for this reaction in atm?",
+      "options": [
+        "A) 0.80",
+        "B) 1.60",
+        "C) 0.50",
+        "D) 3.20"
+      ],
+      "answer": "B",
+      "explanation": "Partial pressures are $p_i = x_i P$, so $p_{PCl_5} = 0.4$ atm and $p_{PCl_3} = p_{Cl_2} = 0.8$ atm. Then $K_p = \\frac{p_{PCl_3}\\, p_{Cl_2}}{p_{PCl_5}} = \\frac{0.64}{0.4} = 1.60$ atm. Option A uses the mole fractions directly without multiplying by total pressure."
+    },
+    {
+      "id": "chq_c01_004",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The equilibrium constant for $2NO_2(g) \\rightleftharpoons N_2O_4(g)$ is $K_c = 5$ at 298 K. Find the value of $K_c$ for $2N_2O_4(g) \\rightleftharpoons 4NO_2(g)$ at the same temperature and report $100 \\times K_c$ as an integer.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Reversing $2NO_2 \\rightleftharpoons N_2O_4$ gives $N_2O_4 \\rightleftharpoons 2NO_2$ with $K = 1/5 = 0.2$. Doubling the reaction squares the constant, so $K = (0.2)^2 = 0.04$. Then $100 \\times 0.04 = 4$."
+    },
+    {
+      "id": "chq_c01_005",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Hydrogen and iodine react as $H_2(g) + I_2(g) \\rightleftharpoons 2HI(g)$ with $K_c = 9$ at a fixed temperature. The vessel initially contains 1.0 M of $H_2$ and 1.0 M of $I_2$ and no HI. What is the equilibrium concentration of HI in mol L$^{-1}$?",
+      "options": [
+        "A) 0.60",
+        "B) 1.20",
+        "C) 0.80",
+        "D) 2.40"
+      ],
+      "answer": "B",
+      "explanation": "Let x mol L$^{-1}$ of $H_2$ and $I_2$ react, so $[H_2] = [I_2] = 1 - x$ and $[HI] = 2x$. Then $K_c = \\frac{(2x)^2}{(1-x)^2} = 9$ gives $\\frac{2x}{1-x} = 3$, so $x = 0.6$ and $[HI] = 1.2$ mol L$^{-1}$. Option A takes x itself as the HI concentration."
+    },
+    {
+      "id": "chq_c01_006",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For $N_2O_4(g) \\rightleftharpoons 2NO_2(g)$, the equilibrium constant is $K_c = 0.5$ mol L$^{-1}$ at 500 K. Using $R = 0.082$ L atm K$^{-1}$ mol$^{-1}$, what is the value of $K_p$ in atm at this temperature?",
+      "options": [
+        "A) 0.0122",
+        "B) 20.5",
+        "C) 0.50",
+        "D) 41.0"
+      ],
+      "answer": "B",
+      "explanation": "The relation is $K_p = K_c (RT)^{\\Delta n}$ with $\\Delta n = 2 - 1 = 1$. So $K_p = 0.5 \\times 0.082 \\times 500 = 20.5$ atm. Option A divides by RT instead of multiplying, and option D doubles the result, as if $\\Delta n$ were 2."
+    },
+    {
+      "id": "chq_c01_007",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the reaction $2A(g) \\rightleftharpoons B(g) + C(g)$ at a fixed temperature, $K_c = 0.25$. A closed vessel holds a mixture with $[A] = 0.5$ M, $[B] = 0.2$ M and $[C] = 0.4$ M that is not at equilibrium. Which statement correctly describes the direction in which the reaction must proceed to reach equilibrium?",
+      "options": [
+        "A) $Q_c = 0.32$, so the reaction proceeds in the reverse direction, toward A",
+        "B) $Q_c = 0.32$, so the reaction proceeds in the forward direction",
+        "C) $Q_c = 3.13$, so the reaction proceeds in the reverse direction",
+        "D) $Q_c = 0.08$, so the reaction proceeds in the forward direction"
+      ],
+      "answer": "A",
+      "explanation": "The reaction quotient is $Q_c = \\frac{[B][C]}{[A]^2} = \\frac{0.2 \\times 0.4}{0.5^2} = 0.32$. Since $Q_c > K_c$ (0.32 > 0.25), the reaction shifts toward the reactants. Option C inverts the quotient, and option D omits the $[A]^2$ denominator."
+    },
+    {
+      "id": "chq_c01_008",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "For $N_2O_4(g) \\rightleftharpoons 2NO_2(g)$, the equilibrium constant is $K_c = 2.0$ mol L$^{-1}$ at a fixed temperature. The vessel initially contains 1.0 M of $N_2O_4$ and no $NO_2$. What is the percentage dissociation of $N_2O_4$ at equilibrium, reported as an integer?",
+      "options": [],
+      "answer": "50",
+      "explanation": "With degree of dissociation $\\alpha$, $[N_2O_4] = 1 - \\alpha$ and $[NO_2] = 2\\alpha$. So $K_c = \\frac{4\\alpha^2}{1-\\alpha} = 2$, giving $2\\alpha^2 + \\alpha - 1 = 0$. The positive root is $\\alpha = 0.5$, so the percentage dissociation is 50."
+    },
+    {
+      "id": "chq_c01_009",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the heterogeneous equilibrium $C(s) + CO_2(g) \\rightleftharpoons 2CO(g)$, the equilibrium concentrations in a closed vessel are $[CO_2] = 0.4$ M and $[CO] = 0.8$ M. Carbon is present as a solid in excess. What is the value of $K_c$ for this reaction?",
+      "options": [
+        "A) 0.32",
+        "B) 1.60",
+        "C) 2.00",
+        "D) 0.50"
+      ],
+      "answer": "B",
+      "explanation": "Pure solid carbon has unit activity and is left out of the expression, so $K_c = \\frac{[CO]^2}{[CO_2]} = \\frac{0.8^2}{0.4} = \\frac{0.64}{0.4} = 1.60$. Option C forgets the squared CO term, which is the most common error on this reaction."
+    },
+    {
+      "id": "chq_c01_010",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "For $CO(g) + H_2O(g) \\rightleftharpoons CO_2(g) + H_2(g)$, $K_c = 9$ at a fixed temperature. A 1 L vessel is charged with 1 mol of CO and 1 mol of $H_2O$ and no products. What is the percentage conversion of CO at equilibrium, reported as an integer?",
+      "options": [],
+      "answer": "75",
+      "explanation": "Let x mol of CO react. Then $[CO] = [H_2O] = 1 - x$ and $[CO_2] = [H_2] = x$. So $K_c = \\frac{x^2}{(1-x)^2} = 9$, which gives $\\frac{x}{1-x} = 3$ and $x = 0.75$. The percentage conversion of CO is therefore 75."
+    },
+    {
+      "id": "chq_c01_011",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "For $2SO_2(g) + O_2(g) \\rightleftharpoons 2SO_3(g)$ in a closed vessel, the mixture initially contains 2 mol of $SO_2$ and 1 mol of $O_2$ with no $SO_3$. At equilibrium the vessel contains 1 mol of $SO_3$. What is the mole percent of $SO_3$ in the equilibrium mixture, reported as an integer?",
+      "options": [],
+      "answer": "40",
+      "explanation": "Forming 1 mol of $SO_3$ consumes 1 mol of $SO_2$ and 0.5 mol of $O_2$. The equilibrium mixture is therefore 1 mol $SO_2$, 0.5 mol $O_2$ and 1 mol $SO_3$, for a total of 2.5 mol. The mole fraction of $SO_3$ is $\\frac{1}{2.5} = 0.4$, which is 40 mole percent."
+    },
+    {
+      "id": "chq_c01_012",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The equilibrium constant for $N_2(g) + O_2(g) \\rightleftharpoons 2NO(g)$ is $K_c = 4.0 \\times 10^{-4}$ at a given temperature. What is the equilibrium constant for $\\frac{1}{2}N_2(g) + \\frac{1}{2}O_2(g) \\rightleftharpoons NO(g)$ at the same temperature?",
+      "options": [
+        "A) $2.0 \\times 10^{-2}$",
+        "B) $1.6 \\times 10^{-7}$",
+        "C) $4.0 \\times 10^{-4}$",
+        "D) $2.5 \\times 10^{3}$"
+      ],
+      "answer": "A",
+      "explanation": "Halving all coefficients raises the equilibrium constant to the power 1/2, so $K = \\sqrt{4.0 \\times 10^{-4}} = 2.0 \\times 10^{-2}$. Option B squares the constant, which is the error made when the coefficients are doubled instead of halved. Option D takes the reciprocal without the root."
+    },
+    {
+      "id": "chq_c01_013",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The reaction $2HI(g) \\rightleftharpoons H_2(g) + I_2(g)$ has $K_c = 0.25$ at a fixed temperature. A 1 L vessel initially contains 1.0 mol of HI and no $H_2$ or $I_2$. What is the equilibrium concentration of HI in mol L$^{-1}$?",
+      "options": [
+        "A) 0.25",
+        "B) 0.50",
+        "C) 0.75",
+        "D) 1.00"
+      ],
+      "answer": "B",
+      "explanation": "Let x mol L$^{-1}$ of $H_2$ and $I_2$ form, so $[HI] = 1 - 2x$. Then $K_c = \\frac{x^2}{(1-2x)^2} = 0.25$ gives $\\frac{x}{1-2x} = 0.5$, so $x = 0.25$. Therefore $[HI] = 1 - 0.5 = 0.50$ mol L$^{-1}$. Option A takes the amount of H_2 formed as the remaining HI."
+    },
+    {
+      "id": "chq_c01_014",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the Haber reaction $N_2(g) + 3H_2(g) \\rightleftharpoons 2NH_3(g)$ with $\\Delta H < 0$, which statement about the equilibrium in a closed rigid vessel is correct?",
+      "options": [
+        "A) Adding argon at constant volume shifts the equilibrium to the right and increases the yield of $NH_3$.",
+        "B) Raising the temperature increases $K_c$ because the forward reaction is exothermic.",
+        "C) Adding extra $N_2$ at constant volume shifts the equilibrium to the right and lowers the equilibrium concentration of $H_2$.",
+        "D) $K_p$ equals $K_c$ at every temperature because the total moles of gas on both sides are equal."
+      ],
+      "answer": "C",
+      "explanation": "Adding $N_2$ raises Q above its value at equilibrium, so the system consumes $N_2$ and $H_2$ and forms more $NH_3$, which lowers $[H_2]$. Argon at constant volume leaves all partial pressures unchanged, so option A is false. Raising the temperature lowers $K_c$ for an exothermic reaction, and $K_p = K_c$ only when $\\Delta n = 0$, which fails here since $\\Delta n = -2$."
+    },
+    {
+      "id": "chq_c01_015",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For $2NO_2(g) \\rightleftharpoons N_2O_4(g)$, a mixture at equilibrium has a total pressure of 2.0 atm. The mole fractions are 0.4 for $NO_2$ and 0.6 for $N_2O_4$. What is the value of $K_p$ in atm$^{-1}$ for this reaction?",
+      "options": [
+        "A) 1.875",
+        "B) 0.533",
+        "C) 1.200",
+        "D) 3.750"
+      ],
+      "answer": "A",
+      "explanation": "Partial pressures are $p_{NO_2} = 0.4 \\times 2.0 = 0.8$ atm and $p_{N_2O_4} = 0.6 \\times 2.0 = 1.2$ atm. Then $K_p = \\frac{p_{N_2O_4}}{p_{NO_2}^2} = \\frac{1.2}{0.64} = 1.875$ atm$^{-1}$. Option B inverts the expression, and option C forgets to square the NO_2 pressure."
+    },
+    {
+      "id": "chq_c01_016",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The reaction $CO(g) + 2H_2(g) \\rightleftharpoons CH_3OH(g)$ has $K_c = 4$ at a fixed temperature. A 1 L vessel initially contains 1 mol of CO and y mol of $H_2$ with no methanol. At equilibrium exactly half of the CO has been converted. What is the value of y?",
+      "options": [
+        "A) 1.0",
+        "B) 1.5",
+        "C) 2.0",
+        "D) 1.25"
+      ],
+      "answer": "B",
+      "explanation": "Half the CO reacts, so $[CO] = 0.5$ and $[CH_3OH] = 0.5$, while $[H_2] = y - 1$ because two moles of $H_2$ are consumed per mole of CO converted. Then $K_c = \\frac{0.5}{0.5(y-1)^2} = 4$ gives $(y-1)^2 = 0.25$, so $y = 1.5$. Option D treats the reaction as first order in H_2, and option A ignores the H_2 consumed."
+    },
+    {
+      "id": "chq_c01_017",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "For $N_2O_4(g) \\rightleftharpoons 2NO_2(g)$ at a fixed temperature, $K_p = 2.25$ atm when the total pressure is 1.0 atm. Starting from pure $N_2O_4$ at this temperature and pressure, what is the percentage dissociation $\\alpha$ at equilibrium, reported as an integer?",
+      "options": [],
+      "answer": "60",
+      "explanation": "Starting from 1 mol of $N_2O_4$, the mole fractions are $\\frac{1-\\alpha}{1+\\alpha}$ and $\\frac{2\\alpha}{1+\\alpha}$. So $K_p = \\frac{4\\alpha^2}{1-\\alpha^2} \\times 1$ atm = 2.25, which gives $\\alpha^2 = 0.36$ and $\\alpha = 0.6$, that is 60 percent."
+    },
+    {
+      "id": "chq_c01_018",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the reaction $2SO_2(g) + O_2(g) \\rightleftharpoons 2SO_3(g)$ with $\\Delta H < 0$ in a closed rigid vessel at equilibrium, which of the following statements is correct?",
+      "options": [
+        "A) Adding helium at constant volume shifts the equilibrium to the left, because the inert gas raises the total pressure.",
+        "B) Adding a catalyst increases the equilibrium amount of $SO_3$, because it lowers the activation energy of both directions.",
+        "C) Compressing the vessel at constant temperature shifts the equilibrium to the right, because three moles of gas become two.",
+        "D) Raising the temperature increases $K_c$, because more $SO_3$ is favoured at higher temperature."
+      ],
+      "answer": "C",
+      "explanation": "Compression favours the side with fewer gas moles; here 3 mol of gas on the left become 2 mol on the right, so $SO_3$ increases. Helium at constant volume changes no partial pressure, so option A is false. A catalyst changes only the rate, and raising the temperature lowers $K_c$ for this exothermic reaction, so options B and D are false."
+    },
+    {
+      "id": "chq_c01_019",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A 1 L vessel initially contains 2 mol of A and 1 mol of B for the gas-phase reaction $2A(g) + B(g) \\rightleftharpoons 3C(g)$. At equilibrium the vessel contains 1.5 mol of C. Find the equilibrium constant $K_c$ and report $4 \\times K_c$ as an integer.",
+      "options": [],
+      "answer": "27",
+      "explanation": "Since 3x = 1.5, x = 0.5, so $[A] = 2 - 2(0.5) = 1$ M, $[B] = 1 - 0.5 = 0.5$ M and $[C] = 1.5$ M. Then $K_c = \\frac{[C]^3}{[A]^2[B]} = \\frac{3.375}{0.5} = 6.75$, and $4 \\times 6.75 = 27$."
+    },
+    {
+      "id": "chq_c01_020",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the decomposition $NH_4HS(s) \\rightleftharpoons NH_3(g) + H_2S(g)$, $K_p = 0.11$ atm$^2$ at a fixed temperature. Which of the following statements about this equilibrium in a closed vessel is correct?",
+      "options": [
+        "A) $K_p = \\frac{p_{NH_3}\\, p_{H_2S}}{p_{NH_4HS}}$, with the partial pressure of the solid included in the expression.",
+        "B) Adding more solid $NH_4HS$ at constant temperature shifts the equilibrium to the left.",
+        "C) If the total pressure at equilibrium is 0.66 atm, then $K_p$ is approximately 0.11 atm$^2$.",
+        "D) Increasing the volume at constant temperature increases the value of $K_p$."
+      ],
+      "answer": "C",
+      "explanation": "Each gas has partial pressure $0.66/2 = 0.33$ atm, so $K_p = (0.33)^2 \\approx 0.11$ atm$^2$, which is consistent with option C. A solid has no partial pressure and is excluded from $K_p$, so option A is wrong. Adding solid or changing volume does not change $K_p$, and $K_p$ depends only on temperature, so options B and D are false."
+    },
+    {
+      "id": "chq_c01_021",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For $2SO_2(g) + O_2(g) \\rightleftharpoons 2SO_3(g)$, $K_c = 0.5$ mol$^{-1}$ L at 1000 K. Taking $R = 0.082$ L atm K$^{-1}$ mol$^{-1}$, what is the value of $K_p$ at this temperature?",
+      "options": [
+        "A) 0.0061 atm$^{-1}$",
+        "B) 41.0 atm",
+        "C) 0.0122 atm$^{-1}$",
+        "D) 0.50 atm$^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Here $\\Delta n = 2 - 3 = -1$, so $K_p = K_c (RT)^{-1} = \\frac{0.5}{0.082 \\times 1000} = 0.0061$ atm$^{-1}$. Option B multiplies by RT instead of dividing, option C uses $\\Delta n = -2$, and option D forgets the conversion entirely."
+    },
+    {
+      "id": "chq_c01_022",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the water-gas shift reaction $CO(g) + H_2O(g) \\rightleftharpoons CO_2(g) + H_2(g)$ with $\\Delta H = -41$ kJ mol$^{-1}$, which of the following statements is correct for a system at equilibrium?",
+      "options": [
+        "A) Doubling the total pressure by adding helium at constant volume increases the conversion of CO.",
+        "B) Adding $H_2$ at constant volume shifts the equilibrium to the left and lowers $[CO_2]$, while changing the total pressure does not alter the CO conversion because $\\Delta n = 0$.",
+        "C) Raising the temperature increases $K_c$, because the products are favoured at higher temperature.",
+        "D) $K_p = K_c (RT)^2$, because the total moles of gas change by two."
+      ],
+      "answer": "B",
+      "explanation": "Adding $H_2$ raises Q above K, so $CO_2$ and $H_2$ are partly consumed and $[CO_2]$ falls. Because $\\Delta n = 0$, $K_p = K_c$ and pressure changes do not shift the equilibrium. Helium at constant volume changes no concentration, so option A is false. Since the reaction is exothermic, raising the temperature lowers $K_c$, which makes option C false, and option D is false because $\\Delta n = 0$."
+    },
+    {
+      "id": "chq_c01_023",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The dissociation $PCl_5(g) \\rightleftharpoons PCl_3(g) + Cl_2(g)$ is started with 1.0 mol of $PCl_5$ in a 1 L vessel. At equilibrium the degree of dissociation is 0.4. What is the value of $K_c$ in mol L$^{-1}$?",
+      "options": [
+        "A) 0.27",
+        "B) 0.67",
+        "C) 0.16",
+        "D) 0.40"
+      ],
+      "answer": "A",
+      "explanation": "At equilibrium $[PCl_5] = 0.6$, $[PCl_3] = 0.4$ and $[Cl_2] = 0.4$ mol L$^{-1}$. Then $K_c = \\frac{0.4 \\times 0.4}{0.6} = 0.267 \\approx 0.27$. Option B uses the linear ratio $0.4/0.6$, forgetting to square the product term, and option C omits the $[PCl_5]$ denominator."
+    },
+    {
+      "id": "chq_c01_024",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "For $N_2O_4(g) \\rightleftharpoons 2NO_2(g)$, a vessel initially contains 0.6 M of $N_2O_4$ and no $NO_2$. At equilibrium $K_c = 1.2$ mol L$^{-1}$. Find the total molar concentration of all gases at equilibrium and report $10 \\times$ this value as an integer.",
+      "options": [],
+      "answer": "9",
+      "explanation": "Let the degree of dissociation be $\\alpha$, so $[N_2O_4] = 0.6(1-\\alpha)$ and $[NO_2] = 1.2\\alpha$. Then $K_c = \\frac{(1.2\\alpha)^2}{0.6(1-\\alpha)} = 1.2$ gives $\\alpha = 0.5$. The total concentration is $0.6(1+\\alpha) = 0.9$ M, so $10 \\times 0.9 = 9$."
+    },
+    {
+      "id": "chq_c01_025",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The reaction $H_2(g) + I_2(g) \\rightleftharpoons 2HI(g)$ has $K_c = 4$ at a fixed temperature. A 1 L vessel initially contains 2 mol of $H_2$ and 2 mol of $I_2$ with no HI. What is the equilibrium concentration of HI in mol L$^{-1}$?",
+      "options": [
+        "A) 1.0",
+        "B) 2.0",
+        "C) 2.67",
+        "D) 4.0"
+      ],
+      "answer": "B",
+      "explanation": "Let x mol L$^{-1}$ of each reactant react, so $[H_2] = [I_2] = 2 - x$ and $[HI] = 2x$. Then $\\frac{(2x)^2}{(2-x)^2} = 4$ gives $\\frac{2x}{2-x} = 2$, so $x = 1$ and $[HI] = 2.0$ mol L$^{-1}$. Option A takes x itself as the HI concentration, and option C solves $\\frac{2x}{2-x} = 4$, which uses K_c where its square root belongs."
+    },
+    {
+      "id": "chq_c01_026",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the reaction $2NO(g) + O_2(g) \\rightleftharpoons 2NO_2(g)$ with $\\Delta H < 0$, which of the following statements about the equilibrium is correct?",
+      "options": [
+        "A) Raising the temperature increases the yield of $NO_2$, because the forward reaction is favoured at higher temperature.",
+        "B) Doubling the volume at constant temperature shifts the equilibrium to the left, because the side with more gas moles is favoured at lower pressure.",
+        "C) Adding a catalyst increases $K_c$ and therefore the yield of $NO_2$.",
+        "D) The units of $K_c$ are mol L$^{-1}$, because the moles of gas cancel out."
+      ],
+      "answer": "B",
+      "explanation": "Doubling the volume lowers the pressure, so the equilibrium shifts toward the side with more gas moles, which is the left side with 3 mol against 2 mol. Raising the temperature lowers $K_c$ for this exothermic reaction, so option A is false. A catalyst does not change $K_c$, and $K_c = \\frac{[NO_2]^2}{[NO]^2[O_2]}$ has units of $M^{-1}$, which makes options C and D false."
+    },
+    {
+      "id": "chq_c01_027",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "For $N_2O_4(g) \\rightleftharpoons 2NO_2(g)$ at a fixed temperature, the degree of dissociation is 0.25 when the total equilibrium pressure is 3.0 atm. Calculate $K_p$ in atm and report $10 \\times K_p$ rounded to the nearest integer.",
+      "options": [],
+      "answer": "8",
+      "explanation": "With $\\alpha = 0.25$, the partial pressures are $p_{N_2O_4} = \\frac{1-\\alpha}{1+\\alpha}P$ and $p_{NO_2} = \\frac{2\\alpha}{1+\\alpha}P$. So $K_p = \\frac{4\\alpha^2 P}{1-\\alpha^2} = \\frac{0.25 \\times 3}{0.9375} = 0.8$ atm, and $10 \\times 0.8 = 8$."
+    },
+    {
+      "id": "chq_c01_028",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "At a fixed temperature, $A(g) \\rightleftharpoons B(g)$ has $K_1 = 2.0$ and $B(g) + C(g) \\rightleftharpoons D(g)$ has $K_2 = 5.0$. What is the equilibrium constant for the overall reaction $A(g) + C(g) \\rightleftharpoons D(g)$ at the same temperature?",
+      "options": [
+        "A) 10",
+        "B) 7.0",
+        "C) 0.4",
+        "D) 25"
+      ],
+      "answer": "A",
+      "explanation": "Adding two reactions multiplies their equilibrium constants, because the intermediate B cancels: $K = K_1 \\times K_2 = 2.0 \\times 5.0 = 10$. Option B adds the two constants, which is a common mistake, option C divides them, and option D squares K_2 as if the second step were doubled."
+    },
+    {
+      "id": "chq_c01_029",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The reaction $PCl_5(g) \\rightleftharpoons PCl_3(g) + Cl_2(g)$ has $K_c = 1$ mol L$^{-1}$ at a fixed temperature. A 1 L vessel initially contains 2 mol of $PCl_5$ and no products. Find the total number of moles of all gases at equilibrium and report $10 \\times$ this value as an integer.",
+      "options": [],
+      "answer": "30",
+      "explanation": "Let x mol react, so $K_c = \\frac{x^2}{2-x} = 1$, which gives $x^2 + x - 2 = 0$ and $x = 1$. At equilibrium there is 1 mol of $PCl_5$, 1 mol of $PCl_3$ and 1 mol of $Cl_2$, for a total of 3 mol, and $10 \\times 3 = 30$."
+    },
+    {
+      "id": "chq_c01_030",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the heterogeneous reaction $C(s) + CO_2(g) \\rightleftharpoons 2CO(g)$, $K_p = 4$ atm at a fixed temperature. The total pressure at equilibrium is 3.0 atm. What is the partial pressure of $CO_2$ at equilibrium?",
+      "options": [
+        "A) 0.75 atm",
+        "B) 1.0 atm",
+        "C) 1.5 atm",
+        "D) 2.0 atm"
+      ],
+      "answer": "B",
+      "explanation": "Let $p_{CO_2} = p$ and $p_{CO} = q$. Then $p + q = 3$ and $K_p = \\frac{q^2}{p} = 4$. With $p = 1$ atm, $q = 2$ atm, which satisfies both equations, so $p_{CO_2} = 1.0$ atm. Option D reports the CO pressure instead of the CO_2 pressure."
+    },
+    {
+      "id": "chq_c01_031",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the Haber reaction $N_2(g) + 3H_2(g) \\rightleftharpoons 2NH_3(g)$ with $\\Delta H = -92$ kJ mol$^{-1}$ at equilibrium in a closed system, which statement is correct?",
+      "options": [
+        "A) Adding argon at constant volume shifts the equilibrium to the right, because the total number of moles is unchanged.",
+        "B) Continuously removing $NH_3$ at constant temperature shifts the equilibrium to the right, and $K_c$ remains unchanged.",
+        "C) Raising the temperature increases the yield of $NH_3$, because the forward reaction is endothermic.",
+        "D) $K_c$ and $K_p$ are numerically equal, because the reaction is exothermic."
+      ],
+      "answer": "B",
+      "explanation": "Removing $NH_3$ lowers Q below K, so the reaction moves right, and $K_c$ depends only on temperature so it stays the same. Argon at constant volume changes no partial pressure, so option A is false. The forward reaction is exothermic, so raising the temperature lowers the yield, making option C false. $K_p = K_c(RT)^{\\Delta n}$ with $\\Delta n = -2$, so option D is false."
+    },
+    {
+      "id": "chq_c01_032",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For $A(g) + B(g) \\rightleftharpoons C(g)$, a 2.0 L flask initially contains 1.0 mol of A and 1.0 mol of B with no C. At equilibrium the flask contains 0.6 mol of C. What is the value of $K_c$ in L mol$^{-1}$?",
+      "options": [
+        "A) 0.075",
+        "B) 3.75",
+        "C) 7.5",
+        "D) 15.0"
+      ],
+      "answer": "C",
+      "explanation": "At equilibrium $[A] = [B] = 0.4/2 = 0.2$ M and $[C] = 0.6/2 = 0.3$ M. Then $K_c = \\frac{0.3}{0.2 \\times 0.2} = 7.5$ L mol$^{-1}$. Option B uses moles instead of concentrations, and option D miscalculates the product $[A][B]$ as 0.02 instead of 0.04."
+    },
+    {
+      "id": "chq_c01_033",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A reaction has $K_c = 4$ at 300 K and $K_c = 0.5$ at 400 K. Using the van't Hoff relation $\\ln\\frac{K_2}{K_1} = -\\frac{\\Delta H}{R}\\left(\\frac{1}{T_2} - \\frac{1}{T_1}\\right)$ with $R = 8.314$ J K$^{-1}$ mol$^{-1}$, what is $\\Delta H$ for the reaction?",
+      "options": [
+        "A) -20.8 kJ mol$^{-1}$",
+        "B) +20.8 kJ mol$^{-1}$",
+        "C) -2.1 kJ mol$^{-1}$",
+        "D) +2.1 kJ mol$^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Here $\\ln(0.5/4) = \\ln(0.125) = -2.079$ and $\\frac{1}{400} - \\frac{1}{300} = -8.33 \\times 10^{-4}$ K$^{-1}$. Substituting gives $-2.079 = -\\frac{\\Delta H}{8.314}(-8.33 \\times 10^{-4})$, so $\\Delta H = -2.08 \\times 10^{4}$ J mol$^{-1}$, or -20.8 kJ mol$^{-1}$. A decrease in K with temperature signals an exothermic reaction. Option C divides by an extra factor of 10 when converting joules to kilojoules."
+    },
+    {
+      "id": "chq_c01_034",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For $N_2O_4(g) \\rightleftharpoons 2NO_2(g)$ at a fixed temperature, $K_p = 0.67$ atm. A vessel holds a mixture with $p_{NO_2} = 1.0$ atm and $p_{N_2O_4} = 0.5$ atm that is not at equilibrium. Which statement describes the reaction direction and reaction quotient?",
+      "options": [
+        "A) $Q_p = 2.0$, so the reaction shifts to the left to reach equilibrium",
+        "B) $Q_p = 2.0$, so the reaction shifts to the right to reach equilibrium",
+        "C) $Q_p = 0.5$, so the reaction shifts to the right to reach equilibrium",
+        "D) $Q_p = 0.5$, so the reaction shifts to the left to reach equilibrium"
+      ],
+      "answer": "A",
+      "explanation": "The reaction quotient is $Q_p = \\frac{p_{NO_2}^2}{p_{N_2O_4}} = \\frac{1.0^2}{0.5} = 2.0$. Since $Q_p > K_p$ (2.0 > 0.67), the reaction shifts left to form more $N_2O_4$. Options B and C reverse the direction, and option D inverts the quotient."
+    },
+    {
+      "id": "chq_c01_035",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "For $2NO_2(g) \\rightleftharpoons N_2O_4(g)$, $K_c = 5$ mol$^{-1}$ L at a fixed temperature. At equilibrium the concentration of $N_2O_4$ is 0.8 M. Find the equilibrium concentration of $NO_2$ in mol L$^{-1}$ and report $10 \\times [NO_2]$ as an integer.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Use $K_c = \\frac{[N_2O_4]}{[NO_2]^2} = 5$, so $[NO_2]^2 = \\frac{0.8}{5} = 0.16$ and $[NO_2] = 0.4$ M. Then $10 \\times 0.4 = 4$."
+    },
+    {
+      "id": "chq_c01_036",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "For $N_2(g) + 3H_2(g) \\rightleftharpoons 2NH_3(g)$ with $\\Delta H = -92$ kJ mol$^{-1}$ in a rigid vessel at equilibrium, which of the following statements is/are correct?",
+      "options": [
+        "A) At constant volume, adding helium increases the number of moles of $NH_3$ present at equilibrium.",
+        "B) Raising the temperature increases $K_p$, so the equilibrium moves toward more $NH_3$ at higher temperature.",
+        "C) At constant volume and temperature, adding $N_2$ increases the equilibrium amount of $NH_3$.",
+        "D) At constant volume and temperature, removing $NH_3$ as it forms shifts the equilibrium to the right while $K_c$ stays the same."
+      ],
+      "answer": "C,D",
+      "explanation": "Adding $N_2$ at constant volume raises Q, so more $NH_3$ forms, and removing $NH_3$ lowers Q, which also drives the reaction right with $K_c$ unchanged because it depends only on temperature. Helium at constant volume changes no partial pressure, so option A is false. Since the reaction is exothermic, $K_p$ falls as temperature rises, which makes option B false."
+    },
+    {
+      "id": "chq_c01_037",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "For $A(g) + B(g) \\rightleftharpoons 2C(g)$, $K_c = 4$ at a fixed temperature. A 1 L vessel initially holds 2 mol of A and 2 mol of B, and the mixture is allowed to reach equilibrium. Then 2 mol of pure C is added to the same 1 L vessel at constant temperature, and a new equilibrium is established. Find the new equilibrium concentration of C in mol L$^{-1}$ as an integer.",
+      "options": [],
+      "answer": "3",
+      "explanation": "The first equilibrium gives $x = 1$, so $[A] = [B] = 1$ M and $[C] = 2$ M. After adding 2 mol C the concentration of C is 4 M, and it shifts back as $y$ mol/L of C forms A and B: $[A] = [B] = 1 + y$ and $[C] = 4 - 2y$. Then $\\frac{(4-2y)^2}{(1+y)^2} = 4$ gives $y = 0.5$, so $[C] = 3$ M."
+    },
+    {
+      "id": "chq_c01_038",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "For $N_2O_4(g) \\rightleftharpoons 2NO_2(g)$, the degree of dissociation at 1.0 atm and a fixed temperature is 0.6. The same system is then brought to a total pressure of 4.0 atm at the same temperature. What is the new degree of dissociation $\\alpha$?",
+      "options": [
+        "A) 0.35",
+        "B) 0.60",
+        "C) 0.15",
+        "D) 0.80"
+      ],
+      "answer": "A",
+      "explanation": "At 1 atm, $K_p = \\frac{4\\alpha^2 P}{1-\\alpha^2} = \\frac{4(0.36)}{0.64} = 2.25$ atm. At $P = 4$ atm, $\\frac{16\\alpha'^2}{1-\\alpha'^2} = 2.25$ gives $\\alpha'^2 = \\frac{2.25}{18.25} = 0.123$, so $\\alpha' = 0.35$. Option B ignores the pressure change, option C divides by P as though $\\alpha \\propto 1/P$, and option D reverses the pressure effect."
+    },
+    {
+      "id": "chq_c01_040",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The dissociation $PCl_5(g) \\rightleftharpoons PCl_3(g) + Cl_2(g)$ is studied in a vessel. Start with 1 mol of $PCl_5$ in 1 L at a fixed temperature, where the degree of dissociation is 0.4. Which of the following statements is/are correct?",
+      "options": [
+        "A) The equilibrium constant $K_c$ is approximately 0.27 mol L$^{-1}$.",
+        "B) At the same temperature, doubling the volume increases the degree of dissociation of $PCl_5$.",
+        "C) If 2 mol of $PCl_5$ are placed in 1 L at the same temperature, the degree of dissociation remains 0.4.",
+        "D) At constant volume and temperature, adding $Cl_2$ increases the equilibrium amount of $PCl_5$."
+      ],
+      "answer": "A,B,D",
+      "explanation": "With $K_c = \\frac{[PCl_3][Cl_2]}{[PCl_5]} = \\frac{0.4 \\times 0.4}{0.6} = 0.27$, option A is correct. The product side has more moles, so doubling the volume favours dissociation, making option B correct. Adding $Cl_2$ shifts the equilibrium left and restores $PCl_5$, so option D is correct. For 2 mol in 1 L, solving $\\frac{2\\alpha^2}{1-\\alpha} = 0.27$ gives $\\alpha \\approx 0.31$, so option C is false."
+    },
+    {
+      "id": "chq_c01_041",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "For $NH_4HS(s) \\rightleftharpoons NH_3(g) + H_2S(g)$ at a fixed temperature, $K_p = 0.12$ atm$^2$. A closed vessel contains solid $NH_4HS$ together with $NH_3$ at an initial partial pressure of 0.4 atm and no $H_2S$. What is the equilibrium partial pressure of $H_2S$?",
+      "options": [
+        "A) 0.12 atm",
+        "B) 0.20 atm",
+        "C) 0.30 atm",
+        "D) 0.08 atm"
+      ],
+      "answer": "B",
+      "explanation": "Let the partial pressure of $H_2S$ formed be $y$, so $p_{NH_3} = 0.4 + y$ and $K_p = (0.4+y)\\,y = 0.12$. This gives $y^2 + 0.4y - 0.12 = 0$ and $y = 0.20$ atm. Option A forgets the NH_3 that was already present, which is the common-ion effect, and option D divides K_p by the sum of the pressures."
+    },
+    {
+      "id": "chq_c01_042",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the relation between $K_p$ and $K_c$ for gas-phase and heterogeneous reactions at temperature $T$. Which of the following statements is/are correct?",
+      "options": [
+        "A) For $2SO_2(g) + O_2(g) \\rightleftharpoons 2SO_3(g)$, $K_p = K_c (RT)^{-1}$.",
+        "B) For $2HI(g) \\rightleftharpoons H_2(g) + I_2(g)$, $K_p = K_c$ at all temperatures.",
+        "C) For $N_2O_4(g) \\rightleftharpoons 2NO_2(g)$, $\\frac{K_p}{K_c} = (RT)^2$.",
+        "D) For $CaCO_3(s) \\rightleftharpoons CaO(s) + CO_2(g)$, $K_p = p_{CO_2}$."
+      ],
+      "answer": "A,B,D",
+      "explanation": "The general relation $K_p = K_c (RT)^{\\Delta n}$ gives $\\Delta n = -1$ for option A and $\\Delta n = 0$ for option B, so both are correct. For $CaCO_3$, only the gas appears, so $K_p = p_{CO_2}$ and option D is correct. For $N_2O_4 \\rightleftharpoons 2NO_2$, $\\Delta n = 1$, so $\\frac{K_p}{K_c} = RT$, not $(RT)^2$, making option C false."
+    },
+    {
+      "id": "chq_c01_043",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "For $N_2O_4(g) \\rightleftharpoons 2NO_2(g)$ at a fixed temperature, $K_p = 0.67$ atm. Which of the following statements is/are correct?",
+      "options": [
+        "A) A mixture with $p_{NO_2} = 0.8$ atm and $p_{N_2O_4} = 0.2$ atm has $Q_p = 3.2$, so it shifts toward $N_2O_4$ to reach equilibrium.",
+        "B) At equilibrium, compressing the system at constant temperature increases the mole fraction of $N_2O_4$.",
+        "C) Compression at constant temperature increases the value of $K_p$, because the pressure of the system has risen.",
+        "D) The relation $K_c = K_p \\times RT$ holds, because the moles of gas increase by one on dissociation."
+      ],
+      "answer": "A,B",
+      "explanation": "Since $Q_p = \\frac{0.8^2}{0.2} = 3.2 > K_p$, the reaction moves toward the reactant, so option A is correct. Compression favours the side with fewer moles, which is $N_2O_4$, making option B correct. $K_p$ depends only on temperature, so option C is false. With $\\Delta n = +1$ the correct relation is $K_c = K_p/(RT)$, which makes option D false."
+    },
+    {
+      "id": "chq_c01_044",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A reaction has $K_c = 100$ at 298 K and $\\Delta H^\\circ = -40$ kJ mol$^{-1}$, which is assumed constant over the range 298 K to 350 K. Using $R = 8.314$ J K$^{-1}$ mol$^{-1}$, what is the equilibrium constant at 350 K?",
+      "options": [
+        "A) 1.1 $\\times 10^{3}$",
+        "B) 9.1",
+        "C) 0.11",
+        "D) 2.4"
+      ],
+      "answer": "B",
+      "explanation": "Using $\\ln\\frac{K_2}{K_1} = -\\frac{\\Delta H}{R}\\left(\\frac{1}{T_2}-\\frac{1}{T_1}\\right)$, we get $\\ln\\frac{K_2}{100} = -\\frac{-40000}{8.314}(0.002857 - 0.003356) = -2.40$. So $K_2 = 100 e^{-2.40} = 9.1$. Option A flips the sign of $\\Delta H$, option C reports the reciprocal, and option D reports the logarithm ratio instead of K."
+    },
+    {
+      "id": "chq_c01_045",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Relating the equilibrium constant to standard free energy, $\\Delta G^\\circ = -RT\\ln K$. Which of the following statements is/are correct for a reaction at temperature $T$?",
+      "options": [
+        "A) If $K > 1$, then $\\Delta G^\\circ < 0$ for the reaction written in that direction.",
+        "B) Reversing a reaction changes the sign of $\\Delta G^\\circ$ and gives the reciprocal of K.",
+        "C) At equilibrium the standard free energy change $\\Delta G^\\circ$ is zero.",
+        "D) Adding a catalyst lowers the value of $\\Delta G^\\circ$ and therefore increases K."
+      ],
+      "answer": "A,B",
+      "explanation": "If $K > 1$ then $\\ln K > 0$, so $\\Delta G^\\circ = -RT\\ln K < 0$, making option A correct. Reversing the reaction gives $K' = 1/K$ and $\\Delta G^\\circ' = -\\Delta G^\\circ$, so option B is correct. At equilibrium $\\Delta G = 0$, not $\\Delta G^\\circ$, so option C is false, and a catalyst changes neither $\\Delta G^\\circ$ nor K, which makes option D false."
+    },
+    {
+      "id": "chq_c01_046",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "For $H_2O(g) + CO(g) \\rightleftharpoons H_2(g) + CO_2(g)$, $K_c = 1$ at a fixed temperature. A 1 L vessel initially holds 1 mol of $H_2O$ and 1 mol of CO. After equilibrium is reached, 1 more mol of $H_2O$ is added at constant temperature and a new equilibrium is established. Find $6 \\times [CO]$ at this new equilibrium as an integer.",
+      "options": [],
+      "answer": "2",
+      "explanation": "The first equilibrium gives $x = 0.5$, so each species is 0.5 M. After adding 1 mol $H_2O$, let $y$ mol/L of CO react: $[CO] = 0.5 - y$, $[H_2O] = 1.5 - y$, and $[CO_2] = [H_2] = 0.5 + y$. Then $\\frac{(0.5+y)^2}{(0.5-y)(1.5-y)} = 1$ gives $y = \\frac{1}{6}$, so $[CO] = \\frac{1}{3}$ M and $6 \\times \\frac{1}{3} = 2$."
+    },
+    {
+      "id": "chq_c01_047",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "For $N_2O_4(g) \\rightleftharpoons 2NO_2(g)$ at a fixed temperature, $K_p = \\frac{4}{3}$ atm. A vessel initially contains 1 mol of $N_2O_4$ and 1 mol of an inert gas He, and the total pressure is held at 1.0 atm. What is the degree of dissociation $\\alpha$ of $N_2O_4$ at equilibrium?",
+      "options": [
+        "A) 0.35",
+        "B) 0.50",
+        "C) 0.59",
+        "D) 0.75"
+      ],
+      "answer": "C",
+      "explanation": "At equilibrium the total moles are $2 + \\alpha$, so $p_{NO_2} = \\frac{2\\alpha}{2+\\alpha}$ and $p_{N_2O_4} = \\frac{1-\\alpha}{2+\\alpha}$. Then $K_p = \\frac{4\\alpha^2}{(2+\\alpha)(1-\\alpha)} = \\frac{4}{3}$ gives $4\\alpha^2 + \\alpha - 2 = 0$, so $\\alpha = 0.59$. Option B ignores the inert gas, which dilutes the mixture and increases dissociation."
+    },
+    {
+      "id": "chq_c01_048",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "For $2NOCl(g) \\rightleftharpoons 2NO(g) + Cl_2(g)$ at a fixed temperature, $K_p = 0.2$ atm. One mole of NOCl is placed in a vessel where the total pressure is held at 1.0 atm, and at equilibrium the degree of dissociation of NOCl is 0.5. What is the equilibrium partial pressure of NO?",
+      "options": [
+        "A) 0.20 atm",
+        "B) 0.40 atm",
+        "C) 0.50 atm",
+        "D) 0.25 atm"
+      ],
+      "answer": "B",
+      "explanation": "At equilibrium there are $1 - \\alpha$ mol NOCl, $\\alpha$ mol NO and $\\alpha/2$ mol Cl_2, for a total of $1 + \\alpha/2 = 1.25$ mol. Then $p_{NO} = \\frac{\\alpha}{1.25} \\times 1.0 = 0.40$ atm, and this $\\alpha$ is consistent with $K_p = 0.2$ atm. Option C forgets to divide by the total moles, and option D uses the Cl_2 stoichiometry for NO."
+    },
+    {
+      "id": "chq_c01_049",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Solid ammonium chloride decomposes as $NH_4Cl(s) \\rightleftharpoons NH_3(g) + HCl(g)$ with $\\Delta H > 0$ in a closed vessel. Which of the following statements is/are correct?",
+      "options": [
+        "A) Adding more solid $NH_4Cl$ at constant temperature does not change the partial pressures of $NH_3$ and $HCl$.",
+        "B) At equilibrium the total pressure is $P$, and $K_p = \\left(\\frac{P}{2}\\right)^2$.",
+        "C) At constant temperature, compressing the vessel leaves the partial pressures unchanged, and the amount of solid increases.",
+        "D) Raising the temperature decreases $K_p$, because the decomposition is exothermic."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Since $K_p$ depends only on temperature, the partial pressures of the gases are fixed, so adding solid changes nothing (option A) and compression forces gas to re-condense as solid (option C). The gases form in a 1:1 ratio, so each has pressure $P/2$ and $K_p = (P/2)^2$, making option B correct. The decomposition is endothermic, so $K_p$ increases with temperature, and option D is false."
+    },
+    {
+      "id": "chq_c01_050",
+      "subject": "Chemistry",
+      "topic": "Chemical Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "For $3Fe(s) + 4H_2O(g) \\rightleftharpoons Fe_3O_4(s) + 4H_2(g)$, $K_p = 16$ at a fixed temperature. A closed vessel contains a mixture with $p_{H_2} = 0.9$ atm and $p_{H_2O} = 0.3$ atm, with excess solid iron and magnetite present. Which statement correctly describes the reaction quotient and the direction of reaction?",
+      "options": [
+        "A) $Q_p = 81$, so the reaction shifts backward to produce more $H_2O$",
+        "B) $Q_p = 81$, so the reaction shifts forward to produce more $H_2$",
+        "C) $Q_p = 0.012$, so the reaction shifts forward to produce more $H_2$",
+        "D) $Q_p = 3$, so the reaction shifts forward to produce more $H_2$"
+      ],
+      "answer": "A",
+      "explanation": "The solids are excluded, so $Q_p = \\frac{p_{H_2}^4}{p_{H_2O}^4} = \\left(\\frac{0.9}{0.3}\\right)^4 = 81$. Since $Q_p > K_p$ (81 > 16), the reaction moves backward, consuming $H_2$ and forming $H_2O$. Option C inverts the quotient, and option D uses the first power instead of the fourth power."
+    }
+  ]
+}

@@ -1,0 +1,799 @@
+{
+  "questions": [
+    {
+      "id": "itd_c01_001",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The vertices of a tetrahedron are given by $A(3, -1, 2)$, $B(1, 2, -4)$, $C(-1, 1, 2)$, and $D(5, 2, 4)$. If $G$ denotes the centroid of this tetrahedron, determine the distance from the centroid $G$ to the point $P(5, -3, 1)$.",
+      "options": [
+        "A) $5$",
+        "B) $\\sqrt{29}$",
+        "C) $3\\sqrt{3}$",
+        "D) $\\frac{5\\sqrt{5}}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "First, determine the coordinates of the centroid $G$ using $G = \\left(\\frac{x_1+x_2+x_3+x_4}{4}, \\frac{y_1+y_2+y_3+y_4}{4}, \\frac{z_1+z_2+z_3+z_4}{4}\\right)$. Here, $x_G = \\frac{3+1-1+5}{4} = 2$, $y_G = \\frac{-1+2+1+2}{4} = 1$, and $z_G = \\frac{2-4+2+4}{4} = 1$, yielding $G(2, 1, 1)$. Next, compute the Euclidean distance between $G(2, 1, 1)$ and $P(5, -3, 1)$ as $GP = \\sqrt{(5-2)^2 + (-3-1)^2 + (1-1)^2} = \\sqrt{9 + 16 + 0} = 5$. The distractor $\\sqrt{29}$ arises from incorrectly applying the triangle centroid formula dividing by $3$, while $3\\sqrt{3}$ results from an arithmetic sign error in summing the $y$-coordinates."
+    },
+    {
+      "id": "itd_c01_002",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The line segment joining the points $A(-2, 3, 5)$ and $B(4, -6, 2)$ intersects the $yz$-coordinate plane at the point $P$. Find the distance of the point $P$ from the point $Q(2, -1, 2)$.",
+      "options": [
+        "A) $\\sqrt{5}$",
+        "B) $3$",
+        "C) $\\sqrt{13}$",
+        "D) $4$"
+      ],
+      "answer": "B",
+      "explanation": "At any point on the $yz$-plane, the $x$-coordinate is identically zero. Let the $yz$-plane divide the segment $AB$ in the ratio $k:1$. By the section formula, the $x$-coordinate of $P$ is $\\frac{4k - 2}{k + 1} = 0$, which yields $k = \\frac{1}{2}$, indicating an internal division in the ratio $1:2$. Substituting $k = \\frac{1}{2}$ into the coordinates gives $y_P = \\frac{1(-6) + 2(3)}{1+2} = 0$ and $z_P = \\frac{1(2) + 2(5)}{1+2} = 4$, so $P$ has coordinates $(0, 0, 4)$. Finally, calculating the distance between $P(0, 0, 4)$ and $Q(2, -1, 2)$ gives $PQ = \\sqrt{(2-0)^2 + (-1-0)^2 + (2-4)^2} = \\sqrt{4 + 1 + 4} = 3$. The distractor $\\sqrt{5}$ results from neglecting the $z$-coordinate difference, and $\\sqrt{13}$ arises from an erroneous external division calculation."
+    },
+    {
+      "id": "itd_c01_003",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Three consecutive vertices of a parallelogram $ABCD$ are given by $A(1, 2, -1)$, $B(3, 4, 2)$, and $C(2, -1, 5)$. If the fourth vertex is $D(\\alpha, \\beta, \\gamma)$, determine the value of $\\alpha^2 + \\beta^2 + \\gamma^2$.",
+      "options": [],
+      "answer": "13",
+      "explanation": "In any parallelogram, the diagonals $AC$ and $BD$ bisect each other at a common midpoint $M$. The midpoint of diagonal $AC$ is $M = \\left(\\frac{1+2}{2}, \\frac{2-1}{2}, \\frac{-1+5}{2}\\right) = \\left(\\frac{3}{2}, \\frac{1}{2}, 2\\right)$. The midpoint of diagonal $BD$ is given by $\\left(\\frac{3+\\alpha}{2}, \\frac{4+\\beta}{2}, \\frac{2+\\gamma}{2}\\right)$. Equating the coordinates yields $\\frac{3+\\alpha}{2} = \\frac{3}{2} \\implies \\alpha = 0$, $\\frac{4+\\beta}{2} = \\frac{1}{2} \\implies \\beta = -3$, and $\\frac{2+\\gamma}{2} = 2 \\implies \\gamma = 2$. Thus the fourth vertex is $D(0, -3, 2)$. Finally, we compute $\\alpha^2 + \\beta^2 + \\gamma^2 = 0^2 + (-3)^2 + 2^2 = 0 + 9 + 4 = 13$."
+    },
+    {
+      "id": "itd_c01_004",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $P(2, -3, 6)$ be a point in three-dimensional Cartesian space. If $d_1$ denotes the perpendicular distance of $P$ from the $x$-axis and $d_2$ denotes the perpendicular distance of $P$ from the $xy$-plane, evaluate the quantity $d_1^2 - d_2^2$.",
+      "options": [
+        "A) $45$",
+        "B) $36$",
+        "C) $9$",
+        "D) $4$"
+      ],
+      "answer": "C",
+      "explanation": "The perpendicular distance of a point $(x, y, z)$ from the $x$-axis is $d_1 = \\sqrt{y^2 + z^2}$, which gives $d_1^2 = (-3)^2 + 6^2 = 9 + 36 = 45$. The perpendicular distance of the point from the $xy$-plane is $d_2 = |z| = |6| = 6$, giving $d_2^2 = 36$. Therefore, the required quantity is $d_1^2 - d_2^2 = 45 - 36 = 9$. Note that this directly equals $y^2 = (-3)^2 = 9$. The distractor $45$ corresponds to $d_1^2$ alone, $36$ corresponds to $d_2^2$, and $4$ arises from confusing the $y$-coordinate with the $x$-coordinate squared."
+    },
+    {
+      "id": "itd_c01_005",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The points $A(3, 2, -4)$, $B(5, 4, -6)$, and $C(9, 8, k)$ are collinear in three-dimensional space. Determine the distance between point $C$ and the point $D(9, 2, -2)$.",
+      "options": [
+        "A) $8$",
+        "B) $\\sqrt{136}$",
+        "C) $12$",
+        "D) $10$"
+      ],
+      "answer": "D",
+      "explanation": "For points $A, B, C$ to be collinear, the vector $\\vec{AB}$ must be parallel to $\\vec{AC}$. Computing direction ratios: $\\vec{AB} = \\langle 5-3, 4-2, -6-(-4) \\rangle = \\langle 2, 2, -2 \\rangle$ and $\\vec{AC} = \\langle 9-3, 8-2, k-(-4) \\rangle = \\langle 6, 6, k+4 \\rangle$. Equating the proportional ratios yields $\\frac{6}{2} = \\frac{6}{2} = \\frac{k+4}{-2} = 3$, which implies $k + 4 = -6$, so $k = -10$. Hence, point $C$ has coordinates $(9, 8, -10)$. Next, compute the distance $CD$: $CD = \\sqrt{(9-9)^2 + (8-2)^2 + (-10 - (-2))^2} = \\sqrt{0 + 6^2 + (-8)^2} = \\sqrt{36 + 64} = 10$. The distractor $8$ arises from omitting the $y$-difference, and $\\sqrt{136}$ results from a sign mistake in evaluating $k = 2$."
+    },
+    {
+      "id": "itd_c01_006",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A line segment with endpoints $A(1, 2, 3)$ and $B(3, 6, 7)$ is divided internally at point $P$ and externally at point $Q$ in the ratio $2:1$. Determine the length of the segment $PQ$.",
+      "options": [],
+      "answer": "8",
+      "explanation": "First, apply the section formula for internal division in the ratio $2:1$: $P = \\left(\\frac{2(3)+1(1)}{2+1}, \\frac{2(6)+1(2)}{2+1}, \\frac{2(7)+1(3)}{2+1}\\right) = \\left(\\frac{7}{3}, \\frac{14}{3}, \\frac{17}{3}\\right)$. Second, apply the section formula for external division in the ratio $2:1$: $Q = \\left(\\frac{2(3)-1(1)}{2-1}, \\frac{2(6)-1(2)}{2-1}, \\frac{2(7)-1(3)}{2-1}\\right) = (5, 10, 11)$. Now compute the vector difference $\\vec{PQ} = Q - P = \\left(5 - \\frac{7}{3}, 10 - \\frac{14}{3}, 11 - \\frac{17}{3}\\right) = \\left(\\frac{8}{3}, \\frac{16}{3}, \\frac{16}{3}\\right) = \\frac{8}{3}\\langle 1, 2, 2 \\rangle$. The length is $PQ = \\frac{8}{3}\\sqrt{1^2 + 2^2 + 2^2} = \\frac{8}{3}(3) = 8$."
+    },
+    {
+      "id": "itd_c01_007",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In $\\triangle ABC$, the vertices are given by $A(2, 3, 5)$, $B(4, -1, 1)$, and $C(-2, 7, 3)$. Find the length of the median originating from the vertex $A$ to the opposite side $BC$.",
+      "options": [
+        "A) $\\sqrt{10}$",
+        "B) $2\\sqrt{3}$",
+        "C) $\\frac{2}{3}\\sqrt{10}$",
+        "D) $\\sqrt{14}$"
+      ],
+      "answer": "A",
+      "explanation": "The median from vertex $A$ meets the side $BC$ at its midpoint $M$. Applying the midpoint formula to vertices $B(4, -1, 1)$ and $C(-2, 7, 3)$: $M = \\left(\\frac{4 + (-2)}{2}, \\frac{-1 + 7}{2}, \\frac{1 + 3}{2}\\right) = (1, 3, 2)$. Next, calculate the length of the segment $AM$ connecting $A(2, 3, 5)$ and $M(1, 3, 2)$: $AM = \\sqrt{(1-2)^2 + (3-3)^2 + (2-5)^2} = \\sqrt{(-1)^2 + 0^2 + (-3)^2} = \\sqrt{1 + 0 + 9} = \\sqrt{10}$. The distractor $\\frac{2}{3}\\sqrt{10}$ is the distance from $A$ to the centroid $G$, while $\\sqrt{14}$ is obtained from an arithmetic slip in the coordinates of $M$."
+    },
+    {
+      "id": "itd_c01_008",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A directed straight line in space makes angles $\\alpha = \\frac{\\pi}{4}$ and $\\beta = \\frac{\\pi}{3}$ with the positive $x$-axis and positive $y$-axis respectively. If it makes an acute angle $\\gamma$ with the positive $z$-axis, calculate the value of $\\cos(2\\gamma) + \\sin^2\\gamma$.",
+      "options": [
+        "A) $\\frac{3}{4}$",
+        "B) $\\frac{1}{4}$",
+        "C) $\\frac{5}{4}$",
+        "D) $\\frac{1}{2}$"
+      ],
+      "answer": "B",
+      "explanation": "Direction cosines must satisfy $\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$. Substituting $\\alpha = \\frac{\\pi}{4}$ and $\\beta = \\frac{\\pi}{3}$: $\\left(\\frac{1}{\\sqrt{2}}\\right)^2 + \\left(\\frac{1}{2}\\right)^2 + \\cos^2\\gamma = 1 \\implies \\frac{1}{2} + \\frac{1}{4} + \\cos^2\\gamma = 1$, yielding $\\cos^2\\gamma = \\frac{1}{4}$. Since $\\gamma$ is acute, $\\cos\\gamma = \\frac{1}{2}$, so $\\gamma = \\frac{\\pi}{3}$. Next, evaluate the expression: $\\cos(2\\gamma) = \\cos\\left(\\frac{2\\pi}{3}\\right) = -\\frac{1}{2}$, and $\\sin^2\\gamma = 1 - \\cos^2\\gamma = \\frac{3}{4}$. Therefore, $\\cos(2\\gamma) + \\sin^2\\gamma = -\\frac{1}{2} + \\frac{3}{4} = \\frac{1}{4}$. The distractor $\\frac{5}{4}$ mistakenly takes $\\cos(2\\gamma) = +\\frac{1}{2}$, and $\\frac{3}{4}$ simply equals $\\sin^2\\gamma$ alone."
+    },
+    {
+      "id": "itd_c01_009",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $P(3, 4, 12)$ be a point in three-dimensional space. Let $M$ be the foot of the perpendicular dropped from $P$ onto the $z$-axis, and let $N$ be the foot of the perpendicular dropped from $P$ onto the $xy$-coordinate plane. Find the length of the segment $MN$.",
+      "options": [
+        "A) $5$",
+        "B) $12$",
+        "C) $13$",
+        "D) $\\sqrt{153}$"
+      ],
+      "answer": "C",
+      "explanation": "The foot of the perpendicular from $P(3, 4, 12)$ onto the $z$-axis has coordinates $M(0, 0, 12)$ because both the $x$ and $y$ coordinates vanish on the $z$-axis. The foot of the perpendicular from $P(3, 4, 12)$ onto the $xy$-plane has coordinates $N(3, 4, 0)$ because the $z$-coordinate vanishes on the $xy$-plane. Now, applying the 3D distance formula to points $M(0, 0, 12)$ and $N(3, 4, 0)$: $MN = \\sqrt{(3-0)^2 + (4-0)^2 + (0-12)^2} = \\sqrt{9 + 16 + 144} = \\sqrt{169} = 13$. The distractor $5$ is the distance of $N$ from the origin, $12$ is the distance of $M$ from the origin, and $\\sqrt{153}$ arises from an arithmetic subtraction error."
+    },
+    {
+      "id": "itd_c01_010",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A point $P$ lying on the $y$-axis is equidistant from the two points $A(1, 4, 3)$ and $B(3, 2, 1)$. If the coordinates of $P$ are $(0, \\beta, 0)$, determine the value of $\\beta$.",
+      "options": [],
+      "answer": "3",
+      "explanation": "Since point $P$ lies on the $y$-axis, its coordinates are $(0, \\beta, 0)$. The condition of equidistance requires $PA^2 = PB^2$. Using the distance formula: $PA^2 = (0-1)^2 + (\\beta-4)^2 + (0-3)^2 = 1 + \\beta^2 - 8\\beta + 16 + 9 = \\beta^2 - 8\\beta + 26$. For $B$: $PB^2 = (0-3)^2 + (\\beta-2)^2 + (0-1)^2 = 9 + \\beta^2 - 4\\beta + 4 + 1 = \\beta^2 - 4\\beta + 14$. Equating the two expressions gives $\\beta^2 - 8\\beta + 26 = \\beta^2 - 4\\beta + 14 \\implies -8\\beta + 26 = -4\\beta + 14 \\implies 4\\beta = 12 \\implies \\beta = 3$."
+    },
+    {
+      "id": "itd_c01_011",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The plane $x + y + z = 6$ divides the line segment joining the points $A(1, 2, 1)$ and $B(3, 4, 2)$ internally at the point $R$. Find the coordinates of the division point $R$.",
+      "options": [
+        "A) $\\left(\\frac{7}{5}, \\frac{12}{5}, \\frac{6}{5}\\right)$",
+        "B) $\\left(2, 3, \\frac{3}{2}\\right)$",
+        "C) $\\left(\\frac{11}{5}, \\frac{16}{5}, \\frac{8}{5}\\right)$",
+        "D) $\\left(\\frac{9}{5}, \\frac{14}{5}, \\frac{7}{5}\\right)$"
+      ],
+      "answer": "D",
+      "explanation": "Let the plane divide the line segment joining $A(1, 2, 1)$ and $B(3, 4, 2)$ in the ratio $\\lambda : 1$. Using the ratio formula for a plane $ax+by+cz+d=0$, we have $\\lambda = -\\frac{x_1 + y_1 + z_1 - 6}{x_2 + y_2 + z_2 - 6} = -\\frac{1 + 2 + 1 - 6}{3 + 4 + 2 - 6} = -\\frac{-2}{3} = \\frac{2}{3}$. Thus the point $R$ divides the segment internally in the ratio $2:3$. By the section formula: $x_R = \\frac{2(3) + 3(1)}{2+3} = \\frac{9}{5}$, $y_R = \\frac{2(4) + 3(2)}{2+3} = \\frac{14}{5}$, and $z_R = \\frac{2(2) + 3(1)}{2+3} = \\frac{7}{5}$. Hence $R = \\left(\\frac{9}{5}, \\frac{14}{5}, \\frac{7}{5}\\right)$. The distractor $\\left(2, 3, \\frac{3}{2}\\right)$ corresponds to the midpoint ($1:1$ ratio), and other distractors swap the internal ratio."
+    },
+    {
+      "id": "itd_c01_012",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A straight line passes through the points $A(1, 2, 3)$ and $B(4, 0, 5)$. A second straight line passes through $C(2, -1, 1)$ and $D(x, 3, 2)$. If line $AB$ is perpendicular to line $CD$, determine the value of $x$.",
+      "options": [
+        "A) $4$",
+        "B) $2$",
+        "C) $-\\frac{4}{3}$",
+        "D) $6$"
+      ],
+      "answer": "A",
+      "explanation": "First, find the direction ratios of line $AB$: $\\vec{AB} = \\langle 4-1, 0-2, 5-3 \\rangle = \\langle 3, -2, 2 \\rangle$. Second, find the direction ratios of line $CD$: $\\vec{CD} = \\langle x-2, 3-(-1), 2-1 \\rangle = \\langle x-2, 4, 1 \\rangle$. For the two lines to be perpendicular, the dot product of their direction ratios must vanish: $a_1 a_2 + b_1 b_2 + c_1 c_2 = 0 \\implies 3(x-2) + (-2)(4) + (2)(1) = 0$. Expanding gives $3x - 6 - 8 + 2 = 0 \\implies 3x - 12 = 0 \\implies x = 4$. The distractor $2$ forgets to expand $3(x-2)$, $-\\frac{4}{3}$ commits a sign slip on the $y$-component difference, and $6$ is an algebraic arithmetic slip."
+    },
+    {
+      "id": "itd_c01_013",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $P(2, -3, 4)$ be a point in space. Let $Q$ be the reflection of $P$ in the $xy$-coordinate plane, and let $R$ be the reflection of $Q$ in the $y$-axis. Find the Euclidean distance between $P$ and $R$.",
+      "options": [
+        "A) $\\sqrt{29}$",
+        "B) $4$",
+        "C) $8$",
+        "D) $2\\sqrt{13}$"
+      ],
+      "answer": "B",
+      "explanation": "Reflection of any point $(x, y, z)$ across the $xy$-plane changes the sign of its $z$-coordinate only, so $Q = (2, -3, -4)$. Reflection of a point across the $y$-axis changes the signs of both its $x$ and $z$ coordinates while preserving $y$, so $R = (-2, -3, -(-4)) = (-2, -3, 4)$. Now compute the distance between $P(2, -3, 4)$ and $R(-2, -3, 4)$: $PR = \\sqrt{(-2-2)^2 + (-3 - (-3))^2 + (4-4)^2} = \\sqrt{(-4)^2 + 0 + 0} = 4$. The distractor $\\sqrt{29}$ is the distance of $P$ from the origin, $8$ mistakenly doubles the $z$-difference, and $2\\sqrt{13}$ comes from reflecting across the wrong axis."
+    },
+    {
+      "id": "itd_c01_014",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A plane intersects the three coordinate axes at $A(4, 0, 0)$, $B(0, 3, 0)$, and $C(0, 0, 12)$. If $\\Delta$ represents the area of $\\triangle ABC$, determine the value of $\\Delta^2$.",
+      "options": [],
+      "answer": "936",
+      "explanation": "The area $\\Delta$ of a triangle in 3D whose orthogonal projections onto the $xy$, $yz$, and $zx$ coordinate planes have areas $\\Delta_{xy}, \\Delta_{yz}, \\Delta_{zx}$ satisfies $\\Delta^2 = \\Delta_{xy}^2 + \\Delta_{yz}^2 + \\Delta_{zx}^2$. The projections on the coordinate planes are right triangles with vertices at the origin: $\\Delta_{xy} = \\frac{1}{2}(4)(3) = 6$, $\\Delta_{yz} = \\frac{1}{2}(3)(12) = 18$, and $\\Delta_{zx} = \\frac{1}{2}(4)(12) = 24$. Therefore, $\\Delta^2 = 6^2 + 18^2 + 24^2 = 36 + 324 + 576 = 936$. Alternatively, computing half the magnitude of the cross product $\\vec{AB} \\times \\vec{AC}$ yields $\\frac{1}{2}\\sqrt{36^2 + 48^2 + 12^2} = 6\\sqrt{26}$, so $\\Delta^2 = 36 \\times 26 = 936$."
+    },
+    {
+      "id": "itd_c01_015",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A directed line segment is drawn from $A(1, -2, 4)$ to $B(3, 0, 5)$. If the direction cosines of the vector $\\vec{AB}$ are given by $\\langle l, m, n \\rangle$ with $n > 0$, determine the exact value of $\\frac{l + m}{n}$.",
+      "options": [
+        "A) $2$",
+        "B) $\\frac{4}{3}$",
+        "C) $4$",
+        "D) $\\sqrt{5}$"
+      ],
+      "answer": "C",
+      "explanation": "The vector from $A$ to $B$ is $\\vec{AB} = \\langle 3-1, 0-(-2), 5-4 \\rangle = \\langle 2, 2, 1 \\rangle$. The magnitude of $\\vec{AB}$ is $|\\vec{AB}| = \\sqrt{2^2 + 2^2 + 1^2} = \\sqrt{4 + 4 + 1} = \\sqrt{9} = 3$. Dividing each component by the magnitude gives the direction cosines: $l = \\frac{2}{3}$, $m = \\frac{2}{3}$, and $n = \\frac{1}{3}$. Finally, we evaluate the required ratio: $\\frac{l + m}{n} = \\frac{\\frac{2}{3} + \\frac{2}{3}}{\\frac{1}{3}} = \\frac{\\frac{4}{3}}{\\frac{1}{3}} = 4$. The distractor $2$ neglects one of the numerator terms, $\\frac{4}{3}$ omits the division by $n$, and $\\sqrt{5}$ incorrectly normalizes the vector."
+    },
+    {
+      "id": "itd_c01_016",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two straight lines $L_1$ and $L_2$ in space have direction ratios given by $\\langle 1, 2, 2 \\rangle$ and $\\langle 2, 3, 6 \\rangle$ respectively. Determine the cosine of the acute angle $\\theta$ between these two lines.",
+      "options": [
+        "A) $\\frac{10}{21}$",
+        "B) $\\frac{19}{21}$",
+        "C) $\\frac{4}{7}$",
+        "D) $\\frac{20}{21}$"
+      ],
+      "answer": "D",
+      "explanation": "Let the direction vectors be $\\vec{v}_1 = \\langle 1, 2, 2 \\rangle$ and $\\vec{v}_2 = \\langle 2, 3, 6 \\rangle$. The magnitude of the first vector is $|\\vec{v}_1| = \\sqrt{1^2 + 2^2 + 2^2} = \\sqrt{9} = 3$. The magnitude of the second vector is $|\\vec{v}_2| = \\sqrt{2^2 + 3^2 + 6^2} = \\sqrt{4 + 9 + 36} = \\sqrt{49} = 7$. Next, compute their scalar dot product: $\\vec{v}_1 \\cdot \\vec{v}_2 = (1)(2) + (2)(3) + (2)(6) = 2 + 6 + 12 = 20$. Therefore, the cosine of the acute angle between the two lines is given by $\\cos\\theta = \\frac{|\\vec{v}_1 \\cdot \\vec{v}_2|}{|\\vec{v}_1||\\vec{v}_2|} = \\frac{20}{(3)(7)} = \\frac{20}{21}$. The distractor $\\frac{10}{21}$ misses a factor of two in the third component, $\\frac{19}{21}$ arises from an addition error in the numerator, and $\\frac{4}{7}$ uses an incorrect magnitude."
+    },
+    {
+      "id": "itd_c01_017",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $A(1, 0, 0)$, $B(0, 1, 0)$, $C(0, 0, 1)$, and $D(1, 1, 1)$ be four vertices of a tetrahedron. A point $P(x, y, z)$ moves in space such that $PA^2 + PB^2 + PC^2 + PD^2 = 6$. The locus of $P$ is a sphere of radius $R$. Determine the exact value of $8R^2$.",
+      "options": [],
+      "answer": "6",
+      "explanation": "The centroid $G$ of the four vertices has coordinates $G = \\left(\\frac{1+0+0+1}{4}, \\frac{0+1+0+1}{4}, \\frac{0+0+1+1}{4}\\right) = \\left(\\frac{1}{2}, \\frac{1}{2}, \\frac{1}{2}\\right)$. By Apollonius' theorem extended to four points, $\\sum PA^2 = 4PG^2 + \\sum GA^2$. Computing the distances from the centroid to each vertex: $GA^2 = \\left(\\frac{1}{2}-1\\right)^2 + \\left(\\frac{1}{2}\\right)^2 + \\left(\\frac{1}{2}\\right)^2 = \\frac{1}{4} + \\frac{1}{4} + \\frac{1}{4} = \\frac{3}{4}$. By symmetry, $GB^2 = GC^2 = \\frac{3}{4}$. For $D$: $GD^2 = \\left(\\frac{1}{2}-1\\right)^2 + \\left(\\frac{1}{2}-1\\right)^2 + \\left(\\frac{1}{2}-1\\right)^2 = \\frac{3}{4}$. Thus $\\sum GA^2 = 4 \\times \\frac{3}{4} = 3$. The locus equation becomes $4PG^2 + 3 = 6 \\implies 4PG^2 = 3 \\implies PG^2 = \\frac{3}{4}$. Therefore, the locus is a sphere centered at $G$ with radius $R$ satisfying $R^2 = \\frac{3}{4}$, which implies $8R^2 = 8 \\times \\frac{3}{4} = 6$."
+    },
+    {
+      "id": "itd_c01_018",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A sphere passes through the origin $O(0, 0, 0)$ and intersects the positive coordinate axes at the points $A(4, 0, 0)$, $B(0, 6, 0)$, and $C(0, 0, 8)$. Determine the radius of this sphere.",
+      "options": [
+        "A) $\\sqrt{29}$",
+        "B) $\\sqrt{58}$",
+        "C) $\\sqrt{26}$",
+        "D) $\\frac{\\sqrt{29}}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "The general equation of a sphere is $x^2 + y^2 + z^2 + 2ux + 2vy + 2wz + d = 0$. Since it passes through the origin $(0, 0, 0)$, we have $d = 0$. Substituting the intercept points $A(4, 0, 0)$, $B(0, 6, 0)$, and $C(0, 0, 8)$ yields $16 + 8u = 0 \\implies u = -2$, $36 + 12v = 0 \\implies v = -3$, and $64 + 16w = 0 \\implies w = -4$. Hence, the center of the sphere is $(-u, -v, -w) = (2, 3, 4)$. The radius $R$ is given by $R = \\sqrt{u^2 + v^2 + w^2 - d} = \\sqrt{2^2 + 3^2 + 4^2} = \\sqrt{4 + 9 + 16} = \\sqrt{29}$. The distractor $\\sqrt{58}$ erroneously calculates the diameter instead of the radius, $\\sqrt{26}$ arises from an arithmetic error in squaring the components, and $\\frac{\\sqrt{29}}{2}$ incorrectly divides by four inside the radical."
+    },
+    {
+      "id": "itd_c01_019",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The direction cosines $l, m, n$ of two directed lines in space satisfy the system of equations $l + m + n = 0$ and $l^2 + m^2 - n^2 = 0$. Find the angle $\\theta$ between the two lines.",
+      "options": [
+        "A) $\\frac{\\pi}{4}$",
+        "B) $\\frac{\\pi}{3}$",
+        "C) $\\frac{\\pi}{6}$",
+        "D) $\\frac{\\pi}{2}$"
+      ],
+      "answer": "B",
+      "explanation": "From the first equation, we express $n = -(l + m)$. Substituting this into the second equation gives $l^2 + m^2 - (-(l + m))^2 = 0 \\implies l^2 + m^2 - (l^2 + 2lm + m^2) = 0 \\implies -2lm = 0 \\implies lm = 0$. This yields two distinct cases: Case 1: $l = 0$. Then $n = -m$. The direction ratios of the first line are $\\langle 0, 1, -1 \\rangle$. Case 2: $m = 0$. Then $n = -l$. The direction ratios of the second line are $\\langle 1, 0, -1 \\rangle$. The acute angle $\\theta$ between these lines satisfies $\\cos\\theta = \\frac{|(0)(1) + (1)(0) + (-1)(-1)|}{\\sqrt{0^2 + 1^2 + (-1)^2} \\sqrt{1^2 + 0^2 + (-1)^2}} = \\frac{1}{\\sqrt{2}\\sqrt{2}} = \\frac{1}{2}$. Therefore, $\\theta = \\frac{\\pi}{3}$. The distractor $\\frac{\\pi}{4}$ confuses the angle with a $45^\\circ$ inclination, and $\\frac{\\pi}{2}$ assumes orthogonality."
+    },
+    {
+      "id": "itd_c01_020",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A sphere passes through the four points $(0, 0, 0)$, $(2, 0, 0)$, $(0, 4, 0)$, and $(0, 0, 6)$. If the center of the sphere is $(u_0, v_0, w_0)$ and its radius is $R$, calculate the integer value of $u_0 + v_0 + w_0 + R^2$.",
+      "options": [],
+      "answer": "20",
+      "explanation": "The equation of any sphere passing through the origin and points on the coordinate axes with intercepts $a, b, c$ is $x^2 + y^2 + z^2 - ax - by - cz = 0$. Here $a = 2$, $b = 4$, and $c = 6$, so the sphere equation is $x^2 + y^2 + z^2 - 2x - 4y - 6z = 0$. Rewriting in standard form: $(x-1)^2 + (y-2)^2 + (z-3)^2 = 1^2 + 2^2 + 3^2 = 14$. The center is $(u_0, v_0, w_0) = (1, 2, 3)$, which gives $u_0 + v_0 + w_0 = 1 + 2 + 3 = 6$. The square of the radius is $R^2 = 14$. Therefore, the required sum is $u_0 + v_0 + w_0 + R^2 = 6 + 14 = 20$."
+    },
+    {
+      "id": "itd_c01_021",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A line segment $AB$ has lengths of projections on the $xy$-plane, $yz$-plane, and $zx$-plane equal to $\\sqrt{13}$, $\\sqrt{20}$, and $5$ respectively. Determine the true length of the segment $AB$.",
+      "options": [
+        "A) $\\sqrt{58}$",
+        "B) $29$",
+        "C) $\\sqrt{29}$",
+        "D) $\\sqrt{34}$"
+      ],
+      "answer": "C",
+      "explanation": "Let the projections of the segment $AB$ on the $x$, $y$, and $z$ coordinate axes be $d_x = |\\Delta x|$, $d_y = |\\Delta y|$, and $d_z = |\\Delta z|$. The length of the projection on the $xy$-plane is $\\sqrt{d_x^2 + d_y^2} = \\sqrt{13} \\implies d_x^2 + d_y^2 = 13$. Similarly, on the $yz$-plane: $d_y^2 + d_z^2 = 20$, and on the $zx$-plane: $d_z^2 + d_x^2 = 5^2 = 25$. Adding all three equations yields $2(d_x^2 + d_y^2 + d_z^2) = 13 + 20 + 25 = 58$, which implies $d_x^2 + d_y^2 + d_z^2 = 29$. The length of the line segment is $AB = \\sqrt{d_x^2 + d_y^2 + d_z^2} = \\sqrt{29}$. The distractor $\\sqrt{58}$ forgets to divide by two when summing the relations, $29$ neglects taking the square root, and $\\sqrt{34}$ averages the given projection lengths."
+    },
+    {
+      "id": "itd_c01_022",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the coordinates of the foot of the perpendicular dropped from the point $P(0, 2, 3)$ onto the line passing through the points $A(4, 7, 1)$ and $B(3, 5, 3)$.",
+      "options": [
+        "A) $(3, 5, 3)$",
+        "B) $(1, 1, 7)$",
+        "C) $(2, 5, 1)$",
+        "D) $(2, 3, 5)$"
+      ],
+      "answer": "D",
+      "explanation": "The direction ratios of the line $AB$ are $\\vec{AB} = \\langle 3-4, 5-7, 3-1 \\rangle = \\langle -1, -2, 2 \\rangle$. Any arbitrary point $Q$ on the line can be represented in parametric form as $Q(4 - t, 7 - 2t, 1 + 2t)$. The vector $\\vec{PQ}$ is given by $\\vec{PQ} = \\langle 4 - t - 0, 7 - 2t - 2, 1 + 2t - 3 \\rangle = \\langle 4 - t, 5 - 2t, -2 + 2t \\rangle$. Since $PQ$ must be perpendicular to $AB$, their dot product must vanish: $(-1)(4 - t) + (-2)(5 - 2t) + (2)(-2 + 2t) = 0$. Expanding this gives $-4 + t - 10 + 4t - 4 + 4t = 0 \\implies 9t - 18 = 0 \\implies t = 2$. Substituting $t = 2$ back into the coordinates of $Q$ yields $Q(4 - 2, 7 - 4, 1 + 4) = (2, 3, 5)$. The distractor $(3, 5, 3)$ is the point $B$ itself, $(1, 1, 7)$ results from evaluating at $t = 3$, and $(2, 5, 1)$ has swapped coordinates."
+    },
+    {
+      "id": "itd_c01_023",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A sphere has equation $x^2 + y^2 + z^2 - 4x - 6y - 8z + 4 = 0$. A straight line passes through the points $A(2, 3, 1)$ and $B(5, 7, 1)$ and intersects the sphere at two points $P$ and $Q$. If $L$ denotes the length of the chord $PQ$, evaluate $L^2$.",
+      "options": [],
+      "answer": "64",
+      "explanation": "First, complete the squares in the sphere equation: $(x-2)^2 + (y-3)^2 + (z-4)^2 = 2^2 + 3^2 + 4^2 - 4 = 25$. Thus the center of the sphere is $C(2, 3, 4)$ and its radius is $R = 5$. Notice that the line $AB$ lies entirely in the plane $z = 1$, and its direction vector is $\\vec{AB} = \\langle 5-2, 7-3, 1-1 \\rangle = \\langle 3, 4, 0 \\rangle$. The point $A(2, 3, 1)$ on the line has the exact same $x$ and $y$ coordinates as the center $C(2, 3, 4)$, and the vector $\\vec{AC} = \\langle 0, 0, 3 \\rangle$ is perpendicular to $\\vec{AB}$ because $\\langle 3, 4, 0 \\rangle \\cdot \\langle 0, 0, 3 \\rangle = 0$. Hence, the perpendicular distance from the center $C$ to the line is simply $d = |4 - 1| = 3$. The length of the chord is $L = 2\\sqrt{R^2 - d^2} = 2\\sqrt{25 - 9} = 2\\sqrt{16} = 8$. Therefore, $L^2 = 8^2 = 64$."
+    },
+    {
+      "id": "itd_c01_024",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A directed line makes angles $\\alpha, \\beta, \\gamma$ with the positive coordinate axes such that $\\cos\\alpha + \\cos\\beta = \\sqrt{2}\\sin\\gamma$ and $\\cos\\alpha - \\cos\\beta = \\sqrt{2}\\cos\\gamma$. Determine the value of $\\cos^2\\alpha + \\cos^2\\beta$.",
+      "options": [
+        "A) $1$",
+        "B) $\\frac{1}{2}$",
+        "C) $\\frac{3}{4}$",
+        "D) $2$"
+      ],
+      "answer": "A",
+      "explanation": "Square both of the given trigonometric equations: $(\\cos\\alpha + \\cos\\beta)^2 = 2\\sin^2\\gamma$ and $(\\cos\\alpha - \\cos\\beta)^2 = 2\\cos^2\\gamma$. Adding these two equations gives $[\\cos^2\\alpha + 2\\cos\\alpha\\cos\\beta + \\cos^2\\beta] + [\\cos^2\\alpha - 2\\cos\\alpha\\cos\\beta + \\cos^2\\beta] = 2(\\sin^2\\gamma + \\cos^2\\gamma)$. Simplifying the left and right hand sides yields $2(\\cos^2\\alpha + \\cos^2\\beta) = 2(1) = 2$, which implies $\\cos^2\\alpha + \\cos^2\\beta = 1$. Consequently, since $\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$, we must have $\\cos^2\\gamma = 0$. The distractor $\\frac{1}{2}$ incorrectly divides by two again, $\\frac{3}{4}$ assumes an equilateral angle distribution, and $2$ forgets the factor of two in the left-hand expansion."
+    },
+    {
+      "id": "itd_c01_025",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the perpendicular distance from the point $P(3, 3, 3)$ to the straight line passing through the point $A(1, -1, 2)$ with direction ratios $\\langle 1, 2, 2 \\rangle$.",
+      "options": [
+        "A) $\\sqrt{21}$",
+        "B) $\\sqrt{5}$",
+        "C) $4$",
+        "D) $\\sqrt{17}$"
+      ],
+      "answer": "B",
+      "explanation": "The vector from $A$ to $P$ is $\\vec{AP} = \\langle 3-1, 3-(-1), 3-2 \\rangle = \\langle 2, 4, 1 \\rangle$. The square of its length is $|\\vec{AP}|^2 = 2^2 + 4^2 + 1^2 = 4 + 16 + 1 = 21$. The direction vector of the line is $\\vec{v} = \\langle 1, 2, 2 \\rangle$, with unit vector $\\hat{u} = \\frac{1}{\\sqrt{1+4+4}}\\langle 1, 2, 2 \\rangle = \\frac{1}{3}\\langle 1, 2, 2 \\rangle$. The scalar projection of $\\vec{AP}$ onto the line is $\\text{proj} = \\vec{AP} \\cdot \\hat{u} = \\frac{(2)(1) + (4)(2) + (1)(2)}{3} = \\frac{2 + 8 + 2}{3} = \\frac{12}{3} = 4$. By the Pythagorean theorem in 3D, the perpendicular distance $d$ is $d = \\sqrt{|\\vec{AP}|^2 - (\\text{proj})^2} = \\sqrt{21 - 4^2} = \\sqrt{21 - 16} = \\sqrt{5}$. The distractor $\\sqrt{21}$ is the total distance $|\\vec{AP}|$, $4$ is the projection length along the line, and $\\sqrt{17}$ results from forgetting the $z$-coordinate contribution."
+    },
+    {
+      "id": "itd_c01_026",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A point $P(x, y, z)$ moves in the first octant such that its perpendicular distance from the $xy$-plane is equal to its Euclidean distance from the point $A(0, 0, 4)$. The locus of $P$ intersects the positive $z$-axis at the point $(0, 0, z_0)$. Determine the value of $z_0$.",
+      "options": [],
+      "answer": "2",
+      "explanation": "The perpendicular distance of $P(x, y, z)$ from the $xy$-plane is $|z| = z$ (since $z > 0$ in the first octant). The Euclidean distance from $P$ to $A(0, 0, 4)$ is $\\sqrt{x^2 + y^2 + (z-4)^2}$. Equating the two distances gives $z = \\sqrt{x^2 + y^2 + (z-4)^2}$. Squaring both sides: $z^2 = x^2 + y^2 + z^2 - 8z + 16$, which simplifies to $8z = x^2 + y^2 + 16$. At the intersection with the $z$-axis, we set $x = 0$ and $y = 0$, yielding $8z_0 = 0 + 0 + 16 \\implies 8z_0 = 16 \\implies z_0 = 2$."
+    },
+    {
+      "id": "itd_c01_027",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two straight lines have direction ratios given by $\\langle k, 2, k-1 \\rangle$ and $\\langle k-3, k, 2 \\rangle$. If the angle between the two lines is $\\frac{\\pi}{2}$, calculate the sum of all possible real values of $k$.",
+      "options": [
+        "A) $1$",
+        "B) $2$",
+        "C) $-1$",
+        "D) $-2$"
+      ],
+      "answer": "C",
+      "explanation": "Two lines are perpendicular if and only if the sum of the products of their direction ratios equals zero: $a_1 a_2 + b_1 b_2 + c_1 c_2 = 0$. Substituting the given direction ratios: $k(k-3) + 2(k) + (k-1)(2) = 0$. Expanding the equation: $k^2 - 3k + 2k + 2k - 2 = 0 \\implies k^2 + k - 2 = 0$. Factoring the quadratic yields $(k + 2)(k - 1) = 0$, so the roots are $k = 1$ and $k = -2$. The discriminant is $1^2 - 4(1)(-2) = 9 > 0$, confirming both roots are real. By Vieta's formulas, the sum of all possible real values of $k$ is $-\\frac{b}{a} = -1$. The distractor $1$ is one of the individual roots, $2$ is the product with wrong sign, and $-2$ is the other individual root."
+    },
+    {
+      "id": "itd_c01_028",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The vertices of a triangle are given by $A(1, 2, 3)$, $B(4, 2, 3)$, and $C(1, 6, 3)$. Find the distance of the circumcenter of $\\triangle ABC$ from the origin $O(0, 0, 0)$.",
+      "options": [
+        "A) $5$",
+        "B) $\\frac{5}{2}$",
+        "C) $\\sqrt{29}$",
+        "D) $\\frac{5\\sqrt{5}}{2}$"
+      ],
+      "answer": "D",
+      "explanation": "Notice that all three vertices lie in the plane $z = 3$. The side lengths are $AB = \\sqrt{(4-1)^2 + 0 + 0} = 3$, $AC = \\sqrt{0 + (6-2)^2 + 0} = 4$, and $BC = \\sqrt{(1-4)^2 + (6-2)^2 + 0} = \\sqrt{9 + 16} = 5$. Since $AB^2 + AC^2 = 3^2 + 4^2 = 25 = BC^2$, $\\triangle ABC$ is a right-angled triangle with the right angle at vertex $A$. In any right triangle, the circumcenter is the midpoint of the hypotenuse $BC$. Applying the midpoint formula to $B(4, 2, 3)$ and $C(1, 6, 3)$: $M = \\left(\\frac{4+1}{2}, \\frac{2+6}{2}, \\frac{3+3}{2}\\right) = \\left(\\frac{5}{2}, 4, 3\\right)$. The distance of the circumcenter from the origin is $OM = \\sqrt{\\left(\\frac{5}{2}\\right)^2 + 4^2 + 3^2} = \\sqrt{\\frac{25}{4} + 16 + 9} = \\sqrt{\\frac{25}{4} + 25} = \\sqrt{\\frac{125}{4}} = \\frac{5\\sqrt{5}}{2}$. The distractor $5$ is the length of hypotenuse $BC$, and $\\frac{5}{2}$ is the circumradius alone."
+    },
+    {
+      "id": "itd_c01_029",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A sphere of radius $r = 3$ lies entirely in the first octant and is tangent to all three coordinate planes $xy$, $yz$, and $zx$. Determine the square of the Euclidean distance from the origin $O(0, 0, 0)$ to the center of this sphere.",
+      "options": [],
+      "answer": "27",
+      "explanation": "A sphere lying in the first octant that touches the three coordinate planes $x=0$, $y=0$, and $z=0$ must have its center equidistant from all three planes, where each distance equals the radius $r$. Therefore, the center of the sphere is $C(r, r, r) = (3, 3, 3)$. The distance $d$ from the origin $(0, 0, 0)$ to the center $C(3, 3, 3)$ is $d = \\sqrt{3^2 + 3^2 + 3^2} = \\sqrt{9 + 9 + 9} = \\sqrt{27} = 3\\sqrt{3}$. Consequently, the square of the distance is $d^2 = (3\\sqrt{3})^2 = 27$."
+    },
+    {
+      "id": "itd_c01_030",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let a cube have edges aligned with the coordinate axes. If $\\theta$ denotes the acute angle between any two body diagonals of the cube, determine the value of $\\cos\\theta$.",
+      "options": [
+        "A) $\\frac{1}{3}$",
+        "B) $\\frac{1}{\\sqrt{3}}$",
+        "C) $\\frac{2}{3}$",
+        "D) $\\frac{1}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "Let the cube have vertices with coordinates $(0, 0, 0)$ and $(a, a, a)$ where $a > 0$. A body diagonal connecting $(0, 0, 0)$ to $(a, a, a)$ has direction ratios $\\vec{d}_1 = \\langle 1, 1, 1 \\rangle$. Another body diagonal connecting $(a, 0, 0)$ to $(0, a, a)$ has direction ratios $\\vec{d}_2 = \\langle -1, 1, 1 \\rangle$. Both vectors have magnitude $|\\vec{d}_1| = |\\vec{d}_2| = \\sqrt{1^2 + 1^2 + 1^2} = \\sqrt{3}$. Their dot product is $\\vec{d}_1 \\cdot \\vec{d}_2 = (1)(-1) + (1)(1) + (1)(1) = -1 + 1 + 1 = 1$. The cosine of the acute angle $\\theta$ between them is $\\cos\\theta = \\frac{|\\vec{d}_1 \\cdot \\vec{d}_2|}{|\\vec{d}_1||\\vec{d}_2|} = \\frac{1}{\\sqrt{3}\\sqrt{3}} = \\frac{1}{3}$. The distractor $\\frac{1}{\\sqrt{3}}$ is the cosine of the angle between a body diagonal and an edge, and $\\frac{2}{3}$ confuses the ratio with $\\frac{2}{\\sqrt{3}}$."
+    },
+    {
+      "id": "itd_c01_031",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $A(-1, 0, 0)$ and $B(2, 0, 0)$ be two fixed points in space. A point $P(x, y, z)$ moves such that $\\frac{PA}{PB} = 2$. The locus of $P$ is a sphere with center $(x_0, y_0, z_0)$ and radius $R$. Find the value of $x_0 + R$.",
+      "options": [
+        "A) $3$",
+        "B) $5$",
+        "C) $4$",
+        "D) $1$"
+      ],
+      "answer": "B",
+      "explanation": "The condition $\\frac{PA}{PB} = 2$ is equivalent to $PA^2 = 4PB^2$. Using the 3D distance formula: $(x + 1)^2 + y^2 + z^2 = 4[(x - 2)^2 + y^2 + z^2]$. Expanding both sides gives $x^2 + 2x + 1 + y^2 + z^2 = 4(x^2 - 4x + 4 + y^2 + z^2) = 4x^2 - 16x + 16 + 4y^2 + 4z^2$. Rearranging all terms: $3x^2 + 3y^2 + 3z^2 - 18x + 15 = 0$. Dividing through by $3$ yields $x^2 + y^2 + z^2 - 6x + 5 = 0$. Completing the square in $x$: $(x - 3)^2 + y^2 + z^2 = 9 - 5 = 4 = 2^2$. This is a sphere of Apollonius with center $(x_0, y_0, z_0) = (3, 0, 0)$ and radius $R = 2$. Therefore, $x_0 + R = 3 + 2 = 5$. The distractor $3$ represents $x_0$ alone, $4$ is $R^2$, and $1$ is $x_0 - R$."
+    },
+    {
+      "id": "itd_c01_032",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Three points in three-dimensional space are given by $A(1, 1, 0)$, $B(1, 2, 1)$, and $C(-2, 2, -1)$. Determine the direction cosines of a normal vector perpendicular to the plane containing the triangle $ABC$.",
+      "options": [
+        "A) $\\left\\langle \\frac{1}{\\sqrt{3}}, \\frac{1}{\\sqrt{3}}, \\frac{1}{\\sqrt{3}} \\right\\rangle$",
+        "B) $\\left\\langle \\frac{2}{\\sqrt{14}}, \\frac{1}{\\sqrt{14}}, \\frac{3}{\\sqrt{14}} \\right\\rangle$",
+        "C) $\\left\\langle \\frac{2}{\\sqrt{22}}, \\frac{3}{\\sqrt{22}}, -\\frac{3}{\\sqrt{22}} \\right\\rangle$",
+        "D) $\\left\\langle \\frac{3}{\\sqrt{22}}, \\frac{2}{\\sqrt{22}}, -\\frac{3}{\\sqrt{22}} \\right\\rangle$"
+      ],
+      "answer": "C",
+      "explanation": "First, determine two displacement vectors lying in the plane of the triangle: $\\vec{AB} = \\langle 1-1, 2-1, 1-0 \\rangle = \\langle 0, 1, 1 \\rangle$ and $\\vec{AC} = \\langle -2-1, 2-1, -1-0 \\rangle = \\langle -3, 1, -1 \\rangle$. A normal vector $\\vec{n}$ is obtained by taking the cross product $\\vec{AB} \\times \\vec{AC}$: $\\vec{n} = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ 0 & 1 & 1 \\\\ -3 & 1 & -1 \\end{vmatrix} = \\mathbf{i}(-1 - 1) - \\mathbf{j}(0 - (-3)) + \\mathbf{k}(0 - (-3)) = \\langle -2, -3, 3 \\rangle$. The magnitude of $\\vec{n}$ is $|\\vec{n}| = \\sqrt{(-2)^2 + (-3)^2 + 3^2} = \\sqrt{4 + 9 + 9} = \\sqrt{22}$. Reversing the sense or dividing by $-\\sqrt{22}$ yields unit direction cosines $\\left\\langle \\frac{2}{\\sqrt{22}}, \\frac{3}{\\sqrt{22}}, -\\frac{3}{\\sqrt{22}} \\right\\rangle$. The distractor with components $3, 2, -3$ swaps the $x$ and $y$ coefficients."
+    },
+    {
+      "id": "itd_c01_033",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two parallel straight lines $L_1$ and $L_2$ pass through the points $A(1, 2, 3)$ and $B(2, 4, 5)$ respectively, and both share the direction vector $\\vec{u} = \\langle 1, 1, 1 \\rangle$. Determine the shortest distance between $L_1$ and $L_2$.",
+      "options": [
+        "A) $\\sqrt{2}$",
+        "B) $\\frac{2}{3}$",
+        "C) $\\sqrt{\\frac{1}{3}}$",
+        "D) $\\sqrt{\\frac{2}{3}}$"
+      ],
+      "answer": "D",
+      "explanation": "The displacement vector joining the points on the two parallel lines is $\\vec{AB} = B - A = \\langle 2-1, 4-2, 5-3 \\rangle = \\langle 1, 2, 2 \\rangle$. The shortest distance $d$ between two parallel lines with shared direction vector $\\vec{u}$ is given by $d = \\frac{|\\vec{AB} \\times \\vec{u}|}{|\\vec{u}|}$. Computing the cross product: $\\vec{AB} \\times \\vec{u} = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ 1 & 2 & 2 \\\\ 1 & 1 & 1 \\end{vmatrix} = \\mathbf{i}(2-2) - \\mathbf{j}(1-2) + \\mathbf{k}(1-2) = \\langle 0, 1, -1 \\rangle$. The magnitude of the cross product is $|\\vec{AB} \\times \\vec{u}| = \\sqrt{0^2 + 1^2 + (-1)^2} = \\sqrt{2}$. The magnitude of the direction vector is $|\\vec{u}| = \\sqrt{1^2 + 1^2 + 1^2} = \\sqrt{3}$. Thus, the distance is $d = \\frac{\\sqrt{2}}{\\sqrt{3}} = \\sqrt{\\frac{2}{3}}$. The distractor $\\sqrt{2}$ forgets the denominator $|\\vec{u}|$, and $\\frac{2}{3}$ squares the radical."
+    },
+    {
+      "id": "itd_c01_034",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $P$ and $Q$ be the points of trisection of the line segment joining $A(2, 1, -3)$ and $B(5, -8, 6)$, where $P$ is closer to $A$. Determine the distance of $P$ from the point $C(1, 2, 1)$.",
+      "options": [
+        "A) $\\sqrt{21}$",
+        "B) $\\sqrt{29}$",
+        "C) $\\sqrt{17}$",
+        "D) $5$"
+      ],
+      "answer": "A",
+      "explanation": "Since point $P$ is the trisection point closer to $A$, it divides the segment $AB$ internally in the ratio $1:2$. Using the section formula: $x_P = \\frac{1(5) + 2(2)}{1+2} = \\frac{9}{3} = 3$, $y_P = \\frac{1(-8) + 2(1)}{1+2} = \\frac{-6}{3} = -2$, and $z_P = \\frac{1(6) + 2(-3)}{1+2} = \\frac{0}{3} = 0$. Thus, $P$ has coordinates $(3, -2, 0)$. Now, compute the Euclidean distance from $P(3, -2, 0)$ to $C(1, 2, 1)$: $PC = \\sqrt{(1-3)^2 + (2 - (-2))^2 + (1-0)^2} = \\sqrt{(-2)^2 + 4^2 + 1^2} = \\sqrt{4 + 16 + 1} = \\sqrt{21}$. The distractor $\\sqrt{29}$ is obtained by mistakenly evaluating at the second trisection point $Q(4, -5, 3)$, and $\\sqrt{17}$ arises from a sign slip in the $y$-difference."
+    },
+    {
+      "id": "itd_c01_035",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The direction ratios of two straight lines satisfy the simultaneous equations $l + m + n = 0$ and $2lm + 2ln - mn = 0$. Determine the acute angle between the two lines.",
+      "options": [
+        "A) $\\frac{\\pi}{4}$",
+        "B) $\\frac{\\pi}{3}$",
+        "C) $\\frac{\\pi}{6}$",
+        "D) $\\frac{\\pi}{2}$"
+      ],
+      "answer": "B",
+      "explanation": "Substitute $l = -(m + n)$ into the second equation: $2(-(m + n))m + 2(-(m + n))n - mn = 0 \\implies -2m^2 - 2mn - 2mn - 2n^2 - mn = 0$. Multiplying by $-1$ gives $2m^2 + 5mn + 2n^2 = 0$. Factoring the quadratic expression: $(2m + n)(m + 2n) = 0$. This gives two solutions: Case 1: $n = -2m$. Then $l = -(m - 2m) = m$. Setting $m = 1$, the direction ratios are $\\langle 1, 1, -2 \\rangle$. Case 2: $m = -2n$. Then $l = -(-2n + n) = n$. Setting $n = 1$, the direction ratios are $\\langle 1, -2, 1 \\rangle$. The acute angle $\\theta$ between the lines satisfies $\\cos\\theta = \\frac{|(1)(1) + (1)(-2) + (-2)(1)|}{\\sqrt{1+1+4}\\sqrt{1+4+1}} = \\frac{|1 - 2 - 2|}{\\sqrt{6}\\sqrt{6}} = \\frac{3}{6} = \\frac{1}{2}$. Thus $\\theta = \\frac{\\pi}{3}$. The distractor $\\frac{\\pi}{4}$ comes from misreading the dot product as $3/3\\sqrt{2}$, and $\\frac{\\pi}{6}$ is the complement."
+    },
+    {
+      "id": "itd_c01_036",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A regular tetrahedron has its four vertices embedded in Cartesian three-dimensional space at $A(1, 1, 1)$, $B(1, -1, -1)$, $C(-1, 1, -1)$, and $D(-1, -1, 1)$. Which of the following geometric statements is/are correct regarding this tetrahedron?",
+      "options": [
+        "A) The centroid of the tetrahedron is located at $(0, 0, 0)$.",
+        "B) The circumradius $R$ of the tetrahedron is equal to $\\sqrt{3}$.",
+        "C) The inradius $r$ of the tetrahedron is equal to $\\frac{1}{\\sqrt{3}}$.",
+        "D) The volume of the tetrahedron is equal to $\\frac{4}{3}$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "First, compute the centroid $G$ of the four vertices: $G = \\left(\\frac{1+1-1-1}{4}, \\frac{1-1+1-1}{4}, \\frac{1-1-1+1}{4}\\right) = (0, 0, 0)$. Hence the statement regarding the centroid being at the origin is correct. Second, calculate the length of an edge: $AB = \\sqrt{(1-1)^2 + (1 - (-1))^2 + (1 - (-1))^2} = \\sqrt{0 + 4 + 4} = 2\\sqrt{2}$. All pairs of vertices have Euclidean distance $2\\sqrt{2}$, confirming the tetrahedron is regular. Third, the circumradius $R$ is the distance from the centroid $(0, 0, 0)$ to any vertex $A(1, 1, 1)$, yielding $R = \\sqrt{1^2 + 1^2 + 1^2} = \\sqrt{3}$, so the circumradius statement is correct. Fourth, for any regular tetrahedron, the inradius satisfies $r = \\frac{R}{3} = \\frac{\\sqrt{3}}{3} = \\frac{1}{\\sqrt{3}}$, which is therefore correct. Finally, evaluate the volume using the scalar triple product: $\\vec{AB} = \\langle 0, -2, -2 \\rangle$, $\\vec{AC} = \\langle -2, 0, -2 \\rangle$, and $\\vec{AD} = \\langle -2, -2, 0 \\rangle$. The determinant is $\\det = -2(4) - 2(4) = -16$, which implies the volume is $V = \\frac{1}{6}|-16| = \\frac{8}{3} \\neq \\frac{4}{3}$. Thus the volume statement is incorrect by a factor of two."
+    },
+    {
+      "id": "itd_c01_037",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A sphere $S$ passes through the origin $O(0, 0, 0)$ and intersects the positive coordinate axes at $A(a, 0, 0)$, $B(0, b, 0)$, and $C(0, 0, c)$ respectively. Let $G(\\alpha, \\beta, \\gamma)$ denote the centroid of $\\triangle ABC$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The center of the sphere $S$ has coordinates $\\left(\\frac{3\\alpha}{2}, \\frac{3\\beta}{2}, \\frac{3\\gamma}{2}\\right)$.",
+        "B) The radius of the sphere $S$ is given by $\\frac{3}{2}\\sqrt{\\alpha^2 + \\beta^2 + \\gamma^2}$.",
+        "C) The sphere $S$ passes through the orthocenter of $\\triangle ABC$.",
+        "D) If $\\alpha = \\beta = \\gamma = 2$, then the radius of the sphere $S$ is $3\\sqrt{3}$."
+      ],
+      "answer": "A,B,D",
+      "explanation": "The centroid of $\\triangle ABC$ has coordinates $\\alpha = \\frac{a}{3}$, $\\beta = \\frac{b}{3}$, and $\\gamma = \\frac{c}{3}$, which implies $a = 3\\alpha$, $b = 3\\beta$, and $c = 3\\gamma$. A sphere passing through the origin and points $(a, 0, 0)$, $(0, b, 0)$, $(0, 0, c)$ has equation $x^2 + y^2 + z^2 - ax - by - cz = 0$. Substituting $a, b, c$ gives $x^2 + y^2 + z^2 - 3\\alpha x - 3\\beta y - 3\\gamma z = 0$. The center of this sphere is therefore $C_0 = \\left(\\frac{3\\alpha}{2}, \\frac{3\\beta}{2}, \\frac{3\\gamma}{2}\\right)$, so the first statement is correct. Next, computing the radius $R = \\sqrt{\\left(\\frac{3\\alpha}{2}\\right)^2 + \\left(\\frac{3\\beta}{2}\\right)^2 + \\left(\\frac{3\\gamma}{2}\\right)^2} = \\frac{3}{2}\\sqrt{\\alpha^2 + \\beta^2 + \\gamma^2}$, validating the radius statement. If $\\alpha = \\beta = \\gamma = 2$, then $R = \\frac{3}{2}\\sqrt{4 + 4 + 4} = \\frac{3}{2}(2\\sqrt{3}) = 3\\sqrt{3}$, confirming the numerical statement. However, the orthocenter of $\\triangle ABC$ does not generally lie on $S$; for example, when $a = b = c = 6$, the orthocenter is $(2, 2, 2)$, and substituting this into the sphere gives $12 - 36 = -24 \\neq 0$, rendering the orthocenter statement incorrect."
+    },
+    {
+      "id": "itd_c01_038",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A directed line segment of length $L$ in three-dimensional space has direction cosines $l, m, n$. Let $p_1, p_2, p_3, p_4$ be the lengths of its orthogonal projections on the four body diagonals of a cube whose edges are parallel to the coordinate axes. Determine the value of $\\sum_{i=1}^4 p_i^2$ in terms of $L$.",
+      "options": [
+        "A) $\\frac{2}{3}L^2$",
+        "B) $2L^2$",
+        "C) $\\frac{4}{3}L^2$",
+        "D) $\\frac{4}{9}L^2$"
+      ],
+      "answer": "C",
+      "explanation": "Let the cube have edge length $a$. The four body diagonals of the cube connect opposite vertices and have unit direction vectors given by $\\hat{u}_1 = \\frac{1}{\\sqrt{3}}\\langle 1, 1, 1 \\rangle$, $\\hat{u}_2 = \\frac{1}{\\sqrt{3}}\\langle -1, 1, 1 \\rangle$, $\\hat{u}_3 = \\frac{1}{\\sqrt{3}}\\langle 1, -1, 1 \\rangle$, and $\\hat{u}_4 = \\frac{1}{\\sqrt{3}}\\langle 1, 1, -1 \\rangle$. The orthogonal projection of a directed segment of length $L$ with direction cosines $\\hat{v} = \\langle l, m, n \\rangle$ onto $\\hat{u}_i$ is $p_i = L |\\hat{v} \\cdot \\hat{u}_i|$. Squaring each projection: $p_1^2 = \\frac{L^2}{3}(l + m + n)^2$, $p_2^2 = \\frac{L^2}{3}(-l + m + n)^2$, $p_3^2 = \\frac{L^2}{3}(l - m + n)^2$, and $p_4^2 = \\frac{L^2}{3}(l + m - n)^2$. Expanding and summing all four expressions: all cross terms such as $2lm, 2mn, 2nl$ appear twice with positive signs and twice with negative signs, therefore canceling out completely. This yields $\\sum_{i=1}^4 p_i^2 = \\frac{L^2}{3}[4l^2 + 4m^2 + 4n^2] = \\frac{4L^2}{3}(l^2 + m^2 + n^2)$. Applying the identity $l^2 + m^2 + n^2 = 1$ gives $\\sum_{i=1}^4 p_i^2 = \\frac{4}{3}L^2$. The distractor $\\frac{2}{3}L^2$ misses a factor of two, $2L^2$ erroneously treats the diagonals as mutually orthogonal, and $\\frac{4}{9}L^2$ squares the denominator $\\sqrt{3}$ twice."
+    },
+    {
+      "id": "itd_c01_039",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $A(a, 0, 0)$ and $B(-a, 0, 0)$ be two fixed points in space, with $a > 0$. A point $P(x, y, z)$ moves in space such that $PA^2 - PB^2 = 4k^2$, where $k$ is a non-zero real constant. Which of the following statements is/are correct regarding the locus of $P$?",
+      "options": [
+        "A) The locus of $P$ is a plane perpendicular to the $x$-axis.",
+        "B) The locus of $P$ is a plane parallel to the $yz$-coordinate plane.",
+        "C) The perpendicular distance of the locus plane from the origin is $\\frac{k^2}{a}$.",
+        "D) The locus of $P$ is a sphere of radius $\\frac{k^2}{a}$ centered at the origin."
+      ],
+      "answer": "A,B,C",
+      "explanation": "First, apply the 3D distance formula to evaluate the squared distances from $P(x, y, z)$: $PA^2 = (x - a)^2 + y^2 + z^2 = x^2 - 2ax + a^2 + y^2 + z^2$, and $PB^2 = (x + a)^2 + y^2 + z^2 = x^2 + 2ax + a^2 + y^2 + z^2$. Subtracting the two expressions gives $PA^2 - PB^2 = -4ax$. The given condition $PA^2 - PB^2 = 4k^2$ therefore implies $-4ax = 4k^2$, which yields the linear equation $x = -\\frac{k^2}{a}$. Since the resulting equation is linear in $x$ and contains no $y$ or $z$ terms, it represents a plane whose normal vector is $\\langle 1, 0, 0 \\rangle$, which is parallel to the $x$-axis. Hence, the plane is perpendicular to the $x$-axis and parallel to the $yz$-plane. The perpendicular distance from the origin $(0, 0, 0)$ to the plane $x = -\\frac{k^2}{a}$ is $|x| = \\frac{k^2}{a}$. The statement asserting that the locus is a sphere is incorrect because the quadratic terms $x^2, y^2, z^2$ completely cancel out, leaving no spherical curvature."
+    },
+    {
+      "id": "itd_c01_040",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A tetrahedron has vertices at $O(0, 0, 0)$, $A(6, 0, 0)$, $B(0, 8, 0)$, and $C(0, 0, 12)$. Let $R$ denote the radius of the sphere circumscribing this tetrahedron, and let $V$ denote the volume of the tetrahedron. Calculate the exact integer value of $4R^2 - V$.",
+      "options": [],
+      "answer": "148",
+      "explanation": "First, compute the volume $V$ of the tetrahedron whose edges from the origin lie along the orthogonal coordinate axes: $V = \\frac{1}{6}abc = \\frac{1}{6}(6)(8)(12) = 96$. Second, determine the circumscribing sphere passing through $(0, 0, 0)$, $(6, 0, 0)$, $(0, 8, 0)$, and $(0, 0, 12)$. The sphere equation is $x^2 + y^2 + z^2 - 6x - 8y - 12z = 0$. Rewriting in completed square form gives $(x - 3)^2 + (y - 4)^2 + (z - 6)^2 = 3^2 + 4^2 + 6^2 = 9 + 16 + 36 = 61$. Therefore, the center of the sphere is $(3, 4, 6)$ and the square of its radius is $R^2 = 61$. Multiplying by four yields $4R^2 = 4 \\times 61 = 244$. Finally, evaluating the required expression yields $4R^2 - V = 244 - 96 = 148$."
+    },
+    {
+      "id": "itd_c01_041",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A directed straight line passes through the origin and makes angles $\\alpha, \\beta, \\gamma$ with the positive coordinate axes such that its direction cosines $\\cos\\alpha, \\cos\\beta, \\cos\\gamma$ form an arithmetic progression with common difference $d \\neq 0$. Let $S = \\cos\\alpha + \\cos\\beta + \\cos\\gamma$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The sum of direction cosines satisfies $S^2 < 3$.",
+        "B) The common difference satisfies $d^2 < \\frac{1}{2}$.",
+        "C) If the middle direction cosine is $\\frac{1}{2}$, then $|d| = \\frac{1}{2\\sqrt{2}}$.",
+        "D) The sum of direction cosines $S$ can achieve the value $2$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Let the direction cosines be $\\cos\\alpha = m - d$, $\\cos\\beta = m$, and $\\cos\\gamma = m + d$. Then their sum is $S = (m - d) + m + (m + d) = 3m$. Applying the fundamental relation $\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$ gives $(m - d)^2 + m^2 + (m + d)^2 = 1 \\implies 3m^2 + 2d^2 = 1$. Since $d \\neq 0$, we have $2d^2 > 0$, which implies $3m^2 < 1$. Multiplying this inequality by $3$ yields $9m^2 < 3$, so $S^2 = (3m)^2 < 3$. This proves that $S^2 < 3$, and consequently $|S| < \\sqrt{3} < 2$, so $S$ can never take the value $2$. Next, since $3m^2 \\ge 0$, we have $2d^2 = 1 - 3m^2 \\le 1 \\implies d^2 \\le \\frac{1}{2}$, with strict inequality $d^2 < \\frac{1}{2}$ for real non-zero $m$. Furthermore, substituting $m = \\frac{1}{2}$ into $3m^2 + 2d^2 = 1$ yields $3\\left(\\frac{1}{4}\\right) + 2d^2 = 1 \\implies 2d^2 = \\frac{1}{4} \\implies d^2 = \\frac{1}{8}$, which yields $|d| = \\frac{1}{2\\sqrt{2}}$."
+    },
+    {
+      "id": "itd_c01_042",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $T$ be a regular tetrahedron with edge length $a = 6\\sqrt{2}$. Let $R$ and $r$ denote its circumradius and inradius respectively, and let $h$ denote its altitude from any vertex to the opposite face. Determine the numerical value of the ratio $\\frac{Rh}{r^2}$.",
+      "options": [
+        "A) $6$",
+        "B) $16$",
+        "C) $8$",
+        "D) $12$"
+      ],
+      "answer": "D",
+      "explanation": "For any regular tetrahedron of edge length $a$, the altitude $h$ is given by $h = \\sqrt{\\frac{2}{3}}a = \\frac{\\sqrt{6}}{3}a$. The circumradius is $R = \\frac{\\sqrt{6}}{4}a$, and the inradius is $r = \\frac{\\sqrt{6}}{12}a$. Notice that the circumradius and inradius satisfy the relation $R = 3r$. Furthermore, the altitude is the sum of the distances from the centroid to a vertex and to the opposite base, so $h = R + r = 3r + r = 4r$. Substituting these expressions into the required ratio gives $\\frac{Rh}{r^2} = \\frac{(3r)(4r)}{r^2} = \\frac{12r^2}{r^2} = 12$. Evaluating numerically for $a = 6\\sqrt{2}$: $R = \\frac{\\sqrt{6}}{4}(6\\sqrt{2}) = 3\\sqrt{3}$, $r = \\frac{\\sqrt{6}}{12}(6\\sqrt{2}) = \\sqrt{3}$, and $h = 4\\sqrt{3}$, giving $\\frac{(3\\sqrt{3})(4\\sqrt{3})}{(\\sqrt{3})^2} = \\frac{36}{3} = 12$. The distractor $6$ mistakenly assumes $R = 2r$ as in planar equilateral triangles, $16$ evaluates $\\frac{h^2}{r^2}$, and $8$ uses $R = 2r$ with $h = 4r$."
+    },
+    {
+      "id": "itd_c01_043",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the sphere $S_1: x^2 + y^2 + z^2 - 4 = 0$ and the plane $\\Pi: x + y + z = 1$. The circular intersection of $S_1$ and $\\Pi$ is denoted by $C$. The family of spheres passing through $C$ is given by $S_\\lambda: x^2 + y^2 + z^2 - 4 + \\lambda(x + y + z - 1) = 0$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The center of every sphere in this family lies on the straight line $x = y = z$.",
+        "B) The radius of the circle of intersection $C$ is $\\sqrt{\\frac{11}{3}}$.",
+        "C) The minimum radius among all spheres containing the circle $C$ is $\\sqrt{\\frac{11}{3}}$.",
+        "D) The sphere in this family passing through the origin corresponds to $\\lambda = -4$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Rewriting the sphere equation: $x^2 + y^2 + z^2 + \\lambda x + \\lambda y + \\lambda z - (4 + \\lambda) = 0$. The center of $S_\\lambda$ is $\\left(-\\frac{\\lambda}{2}, -\\frac{\\lambda}{2}, -\\frac{\\lambda}{2}\\right)$, which clearly satisfies $x = y = z$, validating the center line statement. Next, calculate the distance $d$ from the origin (center of $S_1$) to the plane $x + y + z - 1 = 0$: $d = \\frac{|-1|}{\\sqrt{1^2 + 1^2 + 1^2}} = \\frac{1}{\\sqrt{3}}$. Since the radius of $S_1$ is $R_1 = 2$, the radius of the circle of intersection is $r_C = \\sqrt{R_1^2 - d^2} = \\sqrt{4 - \\frac{1}{3}} = \\sqrt{\\frac{11}{3}}$. Any sphere containing circle $C$ must have a radius at least as large as the radius of $C$, with equality occurring when $C$ is a great circle of the sphere; thus the minimum sphere radius is indeed $\\sqrt{\\frac{11}{3}}$. Finally, substituting the origin $(0, 0, 0)$ into the family equation yields $0 - 4 + \\lambda(0 - 1) = 0 \\implies -4 - \\lambda = 0 \\implies \\lambda = -4$. Hence all four statements are correct."
+    },
+    {
+      "id": "itd_c01_044",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A triangle in space has vertices at $P(2, 3, 5)$, $Q(4, 7, 8)$, and $R(1, 2, 2)$. If $A_{xy}, A_{yz}, A_{zx}$ denote the areas of the orthogonal projections of $\\triangle PQR$ on the $xy$, $yz$, and $zx$ coordinate planes respectively, determine the total area $A$ of $\\triangle PQR$.",
+      "options": [
+        "A) $\\frac{\\sqrt{94}}{2}$",
+        "B) $\\frac{\\sqrt{85}}{2}$",
+        "C) $\\sqrt{94}$",
+        "D) $\\frac{7}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "First, construct the edge vectors: $\\vec{PQ} = \\langle 4-2, 7-3, 8-5 \\rangle = \\langle 2, 4, 3 \\rangle$ and $\\vec{PR} = \\langle 1-2, 2-3, 2-5 \\rangle = \\langle -1, -1, -3 \\rangle$. Computing their vector cross product: $\\vec{PQ} \\times \\vec{PR} = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ 2 & 4 & 3 \\\\ -1 & -1 & -3 \\end{vmatrix} = \\mathbf{i}(-12 - (-3)) - \\mathbf{j}(-6 - (-3)) + \\mathbf{k}(-2 - (-4)) = \\langle -9, 3, 2 \\rangle$. The projection areas on the coordinate planes are half the absolute values of the components of the cross product: $A_{yz} = \\frac{1}{2}|-9| = \\frac{9}{2}$, $A_{zx} = \\frac{1}{2}|3| = \\frac{3}{2}$, and $A_{xy} = \\frac{1}{2}|2| = 1$. By the projection area theorem for 3D polygons, $A^2 = A_{xy}^2 + A_{yz}^2 + A_{zx}^2 = 1^2 + \\left(\\frac{9}{2}\\right)^2 + \\left(\\frac{3}{2}\\right)^2 = 1 + \\frac{81}{4} + \\frac{9}{4} = \\frac{94}{4}$. Taking the square root gives $A = \\frac{\\sqrt{94}}{2}$. The distractor $\\sqrt{94}$ omits the factor of one-half, $\\frac{\\sqrt{85}}{2}$ makes a sign error in the cross product, and $\\frac{7}{2}$ assumes a flat 2D projection."
+    },
+    {
+      "id": "itd_c01_045",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $A(2, 0, 0)$ and $B(-2, 0, 0)$ be two fixed points on the $x$-axis. A variable point $P(x, y, z)$ moves in space such that $\\angle APB = \\frac{\\pi}{2}$ and the area of $\\triangle PAB$ is equal to $4$. The locus of $P$ lies on a right circular cylinder whose axis is the $x$-axis and whose radius is $r_0$. Determine the value of $r_0^2$.",
+      "options": [],
+      "answer": "4",
+      "explanation": "First, since $\\angle APB = \\frac{\\pi}{2}$, the point $P$ lies on the sphere having $AB$ as a diameter. The midpoint of $AB$ is the origin $(0, 0, 0)$ and the radius is $\\frac{1}{2}(4) = 2$, yielding the sphere equation $x^2 + y^2 + z^2 = 4$. Second, consider the area of $\\triangle PAB$: the base $AB$ has length $4$ along the $x$-axis. The height from $P(x, y, z)$ to the $x$-axis is the perpendicular distance to the $x$-axis, which is $\\sqrt{y^2 + z^2}$. Therefore, the area is $\\text{Area} = \\frac{1}{2}(\\text{base})(\\text{height}) = \\frac{1}{2}(4)\\sqrt{y^2 + z^2} = 2\\sqrt{y^2 + z^2}$. Setting this equal to $4$ implies $2\\sqrt{y^2 + z^2} = 4 \\implies \\sqrt{y^2 + z^2} = 2$. Squaring both sides yields $y^2 + z^2 = 4$, which is the equation of a right circular cylinder of radius $r_0 = 2$ centered along the $x$-axis. Hence $r_0^2 = 2^2 = 4$."
+    },
+    {
+      "id": "itd_c01_046",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $L_1, L_2, L_3$ be three mutually perpendicular directed lines passing through the origin with direction cosines $(l_1, m_1, n_1)$, $(l_2, m_2, n_2)$, and $(l_3, m_3, n_3)$ respectively. Let $M$ be the $3 \\times 3$ matrix with these direction cosines as its rows. Which of the following statements is/are correct?",
+      "options": [
+        "A) $l_1^2 + l_2^2 + l_3^2 = 1$.",
+        "B) $l_1 m_1 + l_2 m_2 + l_3 m_3 = 0$.",
+        "C) $\\det(M) = \\pm 1$.",
+        "D) $(l_1 + m_1 + n_1)^2 + (l_2 + m_2 + n_2)^2 + (l_3 + m_3 + n_3)^2 = 3$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Because the lines are mutually perpendicular unit vectors, the matrix $M$ is an orthogonal matrix satisfying $M M^T = I$. Taking determinants, $\\det(M M^T) = (\\det M)^2 = 1 \\implies \\det M = \\pm 1$, proving the determinant statement. For any orthogonal matrix, $M^T M = I$ also holds, which means that the columns are orthonormal as well. Orthogonality of the first column gives $l_1^2 + l_2^2 + l_3^2 = 1$, and orthogonality between the first and second columns yields $l_1 m_1 + l_2 m_2 + l_3 m_3 = 0$. Finally, expanding the sum of squares: $\\sum_{i=1}^3 (l_i + m_i + n_i)^2 = \\sum_{i=1}^3 (l_i^2 + m_i^2 + n_i^2) + 2\\sum_{i=1}^3 (l_i m_i + m_i n_i + n_i l_i)$. Using row unit lengths, $\\sum_{i=1}^3 (l_i^2 + m_i^2 + n_i^2) = 1 + 1 + 1 = 3$. By column orthogonality, $\\sum_{i=1}^3 l_i m_i = 0$, $\\sum_{i=1}^3 m_i n_i = 0$, and $\\sum_{i=1}^3 n_i l_i = 0$. Thus the cross terms vanish completely, yielding $3 + 2(0) = 3$. Hence all four statements are correct."
+    },
+    {
+      "id": "itd_c01_047",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A sphere is inscribed inside a cube of edge length $2a$, with the center of the cube situated at the origin $O(0, 0, 0)$ and its edges parallel to the coordinate axes. A line passing through the origin along a body diagonal of the cube intersects the sphere at points $P$ and $Q$, and intersects the boundary surface of the cube at points $U$ and $V$. Evaluate the ratio $\\frac{UV^2}{PQ^2}$.",
+      "options": [
+        "A) $\\sqrt{3}$",
+        "B) $3$",
+        "C) $\\frac{3}{2}$",
+        "D) $4$"
+      ],
+      "answer": "B",
+      "explanation": "Since the cube has edge length $2a$, the distance from the center to each face is $a$, which means the inscribed sphere touches each face and has radius $R = a$. Since the line passes through the center of the sphere, the chord $PQ$ is a diameter of the sphere, so $PQ = 2R = 2a$, which implies $PQ^2 = 4a^2$. The line is aligned with a body diagonal of the cube, connecting the opposite vertices $(-a, -a, -a)$ and $(a, a, a)$. The length of this segment is $UV = \\sqrt{(a - (-a))^2 + (a - (-a))^2 + (a - (-a))^2} = \\sqrt{(2a)^2 + (2a)^2 + (2a)^2} = \\sqrt{12a^2} = 2a\\sqrt{3}$. Squaring this length gives $UV^2 = 12a^2$. Therefore, the required ratio is $\\frac{UV^2}{PQ^2} = \\frac{12a^2}{4a^2} = 3$. The distractor $\\sqrt{3}$ is the ratio of lengths $\\frac{UV}{PQ}$ rather than the ratio of squares, $\\frac{3}{2}$ assumes a face diagonal, and $4$ is an arithmetic error."
+    },
+    {
+      "id": "itd_c01_048",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the sphere $S$ given by the equation $x^2 + y^2 + z^2 - 2x - 4y - 4z = 0$. Which of the following statements is/are correct regarding the intersection of $S$ with the coordinate planes?",
+      "options": [
+        "A) The intersection of $S$ with the $xy$-coordinate plane is a circle of radius $\\sqrt{5}$.",
+        "B) The intersection of $S$ with the $yz$-coordinate plane is a circle of radius $2\\sqrt{2}$.",
+        "C) The intersection of $S$ with the $zx$-coordinate plane is a circle of radius $\\sqrt{5}$.",
+        "D) The sphere $S$ is tangent to the $xy$-coordinate plane."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Rewriting the sphere in completed square form: $(x-1)^2 + (y-2)^2 + (z-2)^2 = 1^2 + 2^2 + 2^2 = 9 = 3^2$. The center of the sphere is $C(1, 2, 2)$ and its radius is $R = 3$. The intersection with the $xy$-plane ($z = 0$) has distance from center $d_{xy} = |z_C| = 2$. Since $d_{xy} < R$, the intersection is a circle of radius $r_{xy} = \\sqrt{R^2 - d_{xy}^2} = \\sqrt{9 - 4} = \\sqrt{5}$. For the $yz$-plane ($x = 0$), the distance from center is $d_{yz} = |x_C| = 1$, yielding a circular section of radius $r_{yz} = \\sqrt{9 - 1} = \\sqrt{8} = 2\\sqrt{2}$. For the $zx$-plane ($y = 0$), the distance is $d_{zx} = |y_C| = 2$, yielding a circle of radius $r_{zx} = \\sqrt{9 - 4} = \\sqrt{5}$. Because $d_{xy} = 2 < 3$, the sphere intersects the $xy$-plane in a real non-degenerate circle rather than being tangent to it; tangency would require $d = R = 3$. Hence, the tangency statement is incorrect."
+    },
+    {
+      "id": "itd_c01_049",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $T$ be a regular tetrahedron whose four vertices in Cartesian coordinates are given by $A(a, a, 0)$, $B(-a, -a, 0)$, $C(a, -a, 2a)$, and $D(-a, a, 2a)$, where $a > 0$. Determine the shortest distance between the pair of opposite skew edges $AB$ and $CD$.",
+      "options": [
+        "A) $a\\sqrt{2}$",
+        "B) $a$",
+        "C) $2a$",
+        "D) $2\\sqrt{2}a$"
+      ],
+      "answer": "C",
+      "explanation": "The edge $AB$ lies entirely in the horizontal plane $z = 0$ with direction vector $\\vec{AB} = \\langle -2a, -2a, 0 \\rangle = -2a\\langle 1, 1, 0 \\rangle$. The opposite edge $CD$ lies entirely in the parallel horizontal plane $z = 2a$ with direction vector $\\vec{CD} = \\langle -2a, 2a, 0 \\rangle = 2a\\langle -1, 1, 0 \\rangle$. Notice that $\\vec{AB} \\cdot \\vec{CD} = (-2a)(-2a) + (-2a)(2a) + 0 = 0$, so the two skew edges are mutually orthogonal. Their cross product is $\\vec{AB} \\times \\vec{CD} = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ 1 & 1 & 0 \\\\ -1 & 1 & 0 \\end{vmatrix} = 2\\mathbf{k}$, which is directed along the $z$-axis. The midpoint of $AB$ is $M_{AB}(0, 0, 0)$ and the midpoint of $CD$ is $M_{CD}(0, 0, 2a)$. The segment joining these midpoints is parallel to the $z$-axis and is perpendicular to both edges. Therefore, the shortest distance between the two lines is the distance between the two parallel planes $z = 0$ and $z = 2a$, which is $d = |2a - 0| = 2a$. The distractor $a\\sqrt{2}$ confuses the distance with half the edge length, $a$ is half the plane separation, and $2\\sqrt{2}a$ is the length of an edge."
+    },
+    {
+      "id": "itd_c01_050",
+      "subject": "Mathematics",
+      "topic": "Introduction to 3D Geometry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A directed line segment $PQ$ of length $L$ in three-dimensional space has direction cosines $l, m, n$. Let $A_1, A_2, A_3$ denote the lengths of the orthogonal projections of $PQ$ on the $xy$, $yz$, and $zx$ coordinate planes respectively. Evaluate the quantity $A_1^2 + A_2^2 + A_3^2$ in terms of $L$.",
+      "options": [
+        "A) $L^2$",
+        "B) $3L^2$",
+        "C) $\\frac{3}{2}L^2$",
+        "D) $2L^2$"
+      ],
+      "answer": "D",
+      "explanation": "Let the coordinate differences between $P$ and $Q$ be $\\Delta x = L l$, $\\Delta y = L m$, and $\\Delta z = L n$. The orthogonal projection of $PQ$ onto the $xy$-plane has length $A_1 = \\sqrt{(\\Delta x)^2 + (\\Delta y)^2}$, which implies $A_1^2 = (\\Delta x)^2 + (\\Delta y)^2 = L^2(l^2 + m^2)$. Similarly, the projection onto the $yz$-plane has squared length $A_2^2 = (\\Delta y)^2 + (\\Delta z)^2 = L^2(m^2 + n^2)$, and the projection onto the $zx$-plane has squared length $A_3^2 = (\\Delta z)^2 + (\\Delta x)^2 = L^2(n^2 + l^2)$. Summing these three squared lengths: $A_1^2 + A_2^2 + A_3^2 = L^2[(l^2 + m^2) + (m^2 + n^2) + (n^2 + l^2)] = 2L^2(l^2 + m^2 + n^2)$. By the fundamental property of direction cosines, $l^2 + m^2 + n^2 = 1$. Therefore, $A_1^2 + A_2^2 + A_3^2 = 2L^2(1) = 2L^2$. The distractor $L^2$ forgets the factor of two arising from each component appearing in two coordinate planes, $3L^2$ assumes three independent dimensions without overlap, and $\\frac{3}{2}L^2$ averages the projections."
+    }
+  ]
+}

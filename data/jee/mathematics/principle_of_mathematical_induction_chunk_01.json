@@ -1,0 +1,804 @@
+{
+  "questions": [
+    {
+      "id": "pmi_c01_001",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For every positive integer $n \\ge 1$, the expression $E(n) = 7^{2n} + 16n - 1$ is divisible by $64$. When $E(3)$ is evaluated, the value of the quotient $\\frac{E(3)}{64}$ is equal to:",
+      "options": [
+        "A) $1835$",
+        "B) $1838$",
+        "C) $1842$",
+        "D) $1824$"
+      ],
+      "answer": "B",
+      "explanation": "The base case gives $E(1) = 7^2 + 16(1) - 1 = 64$, which is divisible by $64$. For the induction step, consider $E(k+1) - E(k) = 7^{2k+2} + 16(k+1) - 1 - (7^{2k} + 16k - 1) = 48 \\cdot 7^{2k} + 16 = 48(7^{2k} - 1) + 64$. Since $7^{2k} - 1$ is divisible by $7^2 - 1 = 48$, the term $48(7^{2k} - 1)$ is a multiple of $48 \\times 48 = 2304$, which is divisible by $64$. Therefore, $64$ divides $E(k+1)$ whenever it divides $E(k)$. For $n = 3$, we get $E(3) = 7^6 + 16(3) - 1 = 117649 + 48 - 1 = 117696$. Solving for the quotient, we obtain $\\frac{117696}{64} = 1838$. The value $1835$ arises from miscalculating $16(3) - 1$ as $44$, $1842$ comes from adding an extra multiple of $64$, and $1824$ comes from omitting the linear term entirely."
+    },
+    {
+      "id": "pmi_c01_002",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The sum of the series $S_n = \\sum_{k=1}^n k(k+1)$ is established inductively to be of the form $\\frac{n(an^2 + bn + c)}{3}$, where $a, b, c$ are positive integers. The value of $a^2 + b^2 + c^2$ is equal to:",
+      "options": [
+        "A) $11$",
+        "B) $13$",
+        "C) $14$",
+        "D) $17$"
+      ],
+      "answer": "C",
+      "explanation": "For the base step $n=1$, $S_1 = 1(2) = 2$, yielding $\\frac{1(a + b + c)}{3} = 2$, which implies $a + b + c = 6$. In the induction step, assuming $S_k = \\frac{k(k+1)(k+2)}{3}$, adding the next term gives $S_{k+1} = \\frac{k(k+1)(k+2)}{3} + (k+1)(k+2) = \\frac{(k+1)(k+2)(k+3)}{3}$. Expanding the polynomial factors gives $\\frac{n(n+1)(n+2)}{3} = \\frac{n(n^2 + 3n + 2)}{3}$. Therefore, comparing coefficients yields $a = 1$, $b = 3$, and $c = 2$. Hence, substituting these values gives $a^2 + b^2 + c^2 = 1^2 + 3^2 + 2^2 = 1 + 9 + 4 = 14$. The value $11$ results from taking $b=1$, $13$ results from forgetting the $a^2$ term, and $17$ arises from taking $c=3$."
+    },
+    {
+      "id": "pmi_c01_003",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $P(n)$ be the statement that $3^{2n+2} - 8n - 9$ is divisible by $64$ for all integers $n \\ge 1$. If $q_n = \\frac{3^{2n+2} - 8n - 9}{64}$, then the remainder when $q_4$ is divided by $7$ is:",
+      "options": [
+        "A) $1$",
+        "B) $3$",
+        "C) $4$",
+        "D) $5$"
+      ],
+      "answer": "D",
+      "explanation": "The induction step considers the difference $f(k+1) - f(k) = (3^{2k+4} - 8(k+1) - 9) - (3^{2k+2} - 8k - 9) = 8 \\cdot 3^{2k+2} - 8 = 8(9^{k+1} - 1)$. Since $9^{k+1} - 1$ is divisible by $9 - 1 = 8$, the expression $8(9^{k+1} - 1)$ is divisible by $64$. Therefore, by induction, $64$ divides $3^{2n+2} - 8n - 9$ for all $n \\ge 1$. For $n = 4$, evaluating the numerator yields $3^{10} - 8(4) - 9 = 59049 - 32 - 9 = 59008$. Solving for the quotient, we get $q_4 = \\frac{59008}{64} = 922$. Dividing $922$ by $7$, we observe that $922 = 7 \\times 131 + 5$. Hence, the remainder is $5$. The distractor $1$ comes from miscalculating $3^{10}$ as $59045$, $3$ arises from arithmetic error in the division by $7$, and $4$ comes from evaluating $q_3$ instead of $q_4$."
+    },
+    {
+      "id": "pmi_c01_004",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The sum of the squares of the first $n$ odd positive integers is given by $S_n = 1^2 + 3^2 + 5^2 + \\dots + (2n-1)^2$. The induction step establishes that $S_n = \\frac{n(4n^2 - 1)}{3}$ for all integers $n \\ge 1$. The value of $S_{10}$ is equal to:",
+      "options": [
+        "A) $1330$",
+        "B) $1320$",
+        "C) $1345$",
+        "D) $1290$"
+      ],
+      "answer": "A",
+      "explanation": "For the induction step, assuming $S_k = \\frac{k(4k^2 - 1)}{3}$, adding the $(k+1)$-th odd square gives $S_{k+1} = \\frac{k(2k-1)(2k+1)}{3} + (2k+1)^2 = \\frac{2k+1}{3}[k(2k-1) + 3(2k+1)] = \\frac{2k+1}{3}[2k^2 + 5k + 3] = \\frac{(k+1)(2k+1)(2k+3)}{3} = \\frac{(k+1)(4(k+1)^2 - 1)}{3}$, which proves the formula. Substituting $n = 10$, we get $S_{10} = \\frac{10(4(10)^2 - 1)}{3} = \\frac{10(400 - 1)}{3} = \\frac{10 \\times 399}{3}$. Solving this yields $10 \\times 133 = 1330$. Therefore, $S_{10} = 1330$. The distractor $1320$ comes from using $4n^2 - 4$ in the numerator, $1345$ arises from an addition mistake in $10 \\times 133$, and $1290$ results from using $n=9$."
+    },
+    {
+      "id": "pmi_c01_005",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For each integer $n \\ge 1$, let $T_n = 2^{3n} - 1$. The induction transition $T_{k+1} = \\lambda T_k + \\mu$ allows one to deduce that $7$ divides $T_n$ for all integers $n \\ge 1$. The value of the product $\\lambda \\mu$ is equal to:",
+      "options": [
+        "A) $49$",
+        "B) $56$",
+        "C) $63$",
+        "D) $42$"
+      ],
+      "answer": "B",
+      "explanation": "For the base step, $T_1 = 2^3 - 1 = 7$, which is clearly divisible by $7$. In the induction step, consider $T_{k+1} = 2^{3(k+1)} - 1 = 2^3 \\cdot 2^{3k} - 1 = 8 \\cdot 2^{3k} - 1$. Rewriting this in terms of $T_k$, we get $T_{k+1} = 8(2^{3k} - 1) + 7 = 8T_k + 7$. Therefore, the constants are $\\lambda = 8$ and $\\mu = 7$. Since $7$ divides $T_k$ and $7$ divides $7$, it follows that $7$ divides $T_{k+1}$. Solving for the product yields $\\lambda \\mu = 8 \\times 7 = 56$. The choice $49$ comes from setting $\\lambda = 7$, $63$ arises from taking $\\lambda = 9$, and $42$ results from taking $\\lambda = 6$."
+    },
+    {
+      "id": "pmi_c01_006",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $S_n = \\sum_{k=1}^n \\frac{1}{k(k+1)}$. In proving by mathematical induction that $S_n = \\frac{n}{n+1}$, the induction step combines $S_k$ and the next term. If $S_{24} = \\frac{p}{q}$ where $p$ and $q$ are coprime positive integers, then the value of $p + q$ is equal to:",
+      "options": [
+        "A) $47$",
+        "B) $48$",
+        "C) $49$",
+        "D) $51$"
+      ],
+      "answer": "C",
+      "explanation": "For the base step, $S_1 = \\frac{1}{1(2)} = \\frac{1}{2} = \\frac{1}{1+1}$. For the induction step, assuming $S_k = \\frac{k}{k+1}$, adding the next term gives $S_{k+1} = \\frac{k}{k+1} + \\frac{1}{(k+1)(k+2)} = \\frac{k(k+2) + 1}{(k+1)(k+2)} = \\frac{k^2 + 2k + 1}{(k+1)(k+2)} = \\frac{(k+1)^2}{(k+1)(k+2)} = \\frac{k+1}{k+2}$. Therefore, the identity $S_n = \\frac{n}{n+1}$ holds for all $n \\ge 1$. Substituting $n = 24$, we get $S_{24} = \\frac{24}{25}$. Since $\\gcd(24, 25) = 1$, we have $p = 24$ and $q = 25$. Solving for the sum yields $p + q = 24 + 25 = 49$. The value $47$ comes from taking $p=23$, $48$ results from omitting the denominator increment, and $51$ arises from taking $n=25$."
+    },
+    {
+      "id": "pmi_c01_007",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For every integer $n \\ge 1$, the expression $f(n) = 4^n + 15n - 1$ is divisible by $9$. If $g(n) = \\frac{f(n)}{9}$, then the value of the difference $g(3) - g(2)$ is equal to:",
+      "options": [
+        "A) $8$",
+        "B) $9$",
+        "C) $10$",
+        "D) $7$"
+      ],
+      "answer": "D",
+      "explanation": "The base case gives $f(1) = 4 + 15 - 1 = 18 = 9 \\times 2$. In the induction step, $f(k+1) - f(k) = (4^{k+1} + 15(k+1) - 1) - (4^k + 15k - 1) = 3 \\cdot 4^k + 15 = 3(4^k - 1) + 18$. Since $4^k - 1$ is divisible by $4 - 1 = 3$, the term $3(4^k - 1)$ is divisible by $9$. Therefore, $9$ divides $f(k+1)$. Now evaluate $f(2) = 4^2 + 15(2) - 1 = 16 + 30 - 1 = 45$, yielding $g(2) = \\frac{45}{9} = 5$. Next, evaluate $f(3) = 4^3 + 15(3) - 1 = 64 + 45 - 1 = 108$, yielding $g(3) = \\frac{108}{9} = 12$. Solving for the difference, we get $g(3) - g(2) = 12 - 5 = 7$. The distractor $8$ arises from taking $g(2) = 4$, $9$ comes from miscalculating $f(3) = 117$, and $10$ arises from forgetting the constant $-1$ in $f(2)$."
+    },
+    {
+      "id": "pmi_c01_008",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $C_n = \\sum_{k=1}^n k^3$ and $L_n = \\sum_{k=1}^n k$. If the inductive relationship $C_n = (L_n)^2$ is used to determine the value of the difference $\\sum_{k=1}^8 k^3 - \\sum_{k=1}^5 k^3$, then this difference is equal to:",
+      "options": [
+        "A) $1071$",
+        "B) $1065$",
+        "C) $1080$",
+        "D) $1050$"
+      ],
+      "answer": "A",
+      "explanation": "By induction, $C_n = \\left(\\frac{n(n+1)}{2}\\right)^2 = (L_n)^2$. In the inductive step, assuming $C_k = (L_k)^2$, we add $(k+1)^3$ to get $C_{k+1} = \\left(\\frac{k(k+1)}{2}\\right)^2 + (k+1)^3 = (k+1)^2 \\left[\\frac{k^2}{4} + k + 1\\right] = \\frac{(k+1)^2(k+2)^2}{4} = (L_{k+1})^2$. Therefore, the identity holds for all $n \\ge 1$. For $n = 8$, $L_8 = \\frac{8 \\times 9}{2} = 36$, yielding $C_8 = 36^2 = 1296$. For $n = 5$, $L_5 = \\frac{5 \\times 6}{2} = 15$, yielding $C_5 = 15^2 = 225$. Solving for the difference gives $C_8 - C_5 = 1296 - 225 = 1071$. Alternatively, $6^3 + 7^3 + 8^3 = 216 + 343 + 512 = 1071$. The value $1065$ comes from arithmetic error in $36^2$, $1080$ comes from subtracting $216$ instead of $225$, and $1050$ results from evaluating $C_7 - C_5$."
+    },
+    {
+      "id": "pmi_c01_009",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For any integer $n \\ge 1$, let $P(n)$ denote the statement that the product of three consecutive integers $n(n+1)(n+2)$ is divisible by $6$. If $Q(n) = \\frac{n(n+1)(n+2)}{6}$, then the sum $\\sum_{n=1}^5 Q(n)$ is equal to:",
+      "options": [
+        "A) $65$",
+        "B) $70$",
+        "C) $75$",
+        "D) $60$"
+      ],
+      "answer": "B",
+      "explanation": "The induction step notes that $(k+1)(k+2)(k+3) - k(k+1)(k+2) = 3(k+1)(k+2)$. Since $(k+1)(k+2)$ is the product of two consecutive integers, it is divisible by $2$, so $3(k+1)(k+2)$ is divisible by $6$. Therefore, $6$ divides $n(n+1)(n+2)$ for all $n \\ge 1$. We observe that $Q(n) = \\binom{n+2}{3}$. Applying the hockey-stick identity, we get $\\sum_{n=1}^5 Q(n) = \\sum_{n=1}^5 \\binom{n+2}{3} = \\binom{8}{4}$. Solving for this binomial coefficient yields $\\binom{8}{4} = \\frac{8 \\times 7 \\times 6 \\times 5}{24} = 70$. Evaluating term by term confirms $1 + 4 + 10 + 20 + 35 = 70$. The choice $65$ arises from missing the first term $Q(1)=1$ and adding a miscalculated $Q(5)=30$, $75$ arises from an addition mistake in the sum, and $60$ comes from evaluating only up to $n=4$."
+    },
+    {
+      "id": "pmi_c01_010",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The sum of the series $U_n = \\sum_{k=1}^n \\frac{1}{(2k-1)(2k+1)}$ is proved by mathematical induction to satisfy $U_n = \\frac{n}{2n+1}$. The least positive integer $n$ for which $U_n > \\frac{99}{200}$ is equal to:",
+      "options": [
+        "A) $48$",
+        "B) $49$",
+        "C) $50$",
+        "D) $51$"
+      ],
+      "answer": "C",
+      "explanation": "The base case gives $U_1 = \\frac{1}{1 \\times 3} = \\frac{1}{3} = \\frac{1}{2(1)+1}$. For the induction step, assuming $U_k = \\frac{k}{2k+1}$, adding the next term gives $U_{k+1} = \\frac{k}{2k+1} + \\frac{1}{(2k+1)(2k+3)} = \\frac{k(2k+3) + 1}{(2k+1)(2k+3)} = \\frac{2k^2 + 3k + 1}{(2k+1)(2k+3)} = \\frac{(2k+1)(k+1)}{(2k+1)(2k+3)} = \\frac{k+1}{2k+3}$. Therefore, $U_n = \\frac{n}{2n+1}$ for all $n \\ge 1$. We require $\\frac{n}{2n+1} > \\frac{99}{200}$. Cross-multiplying yields $200n > 99(2n+1) = 198n + 99$. Solving this linear inequality gives $2n > 99$, which implies $n > 49.5$. Since $n$ must be an integer, the least such integer is $n = 50$. The value $48$ satisfies $U_{48} < 99/200$, $49$ gives $U_{49} = 49/99 < 99/200$, and $51$ is not the minimal integer."
+    },
+    {
+      "id": "pmi_c01_011",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For every integer $n \\ge 1$, let $W(n) = 10^{2n-1} + 1$. In establishing by mathematical induction that $11$ divides $W(n)$, one expresses $W(k+1) = 100 W(k) - c$. The value of the integer constant $c$ is equal to:",
+      "options": [
+        "A) $11$",
+        "B) $89$",
+        "C) $90$",
+        "D) $99$"
+      ],
+      "answer": "D",
+      "explanation": "For the base case $n=1$, $W(1) = 10^1 + 1 = 11$, which is divisible by $11$. In the inductive step, consider $W(k+1) = 10^{2(k+1)-1} + 1 = 10^{2k+1} + 1 = 10^2 \\cdot 10^{2k-1} + 1 = 100 \\cdot 10^{2k-1} + 1$. To express this in terms of $W(k)$, write $W(k+1) = 100(10^{2k-1} + 1) - 100 + 1 = 100 W(k) - 99$. Therefore, the constant is $c = 99$. Since $99 = 11 \\times 9$, if $11$ divides $W(k)$, then $11$ divides both $100W(k)$ and $99$, which implies that $11$ divides $W(k+1)$. Solving for $c$ yields $99$. The option $11$ represents the common divisor rather than the adjustment constant, $89$ comes from incorrectly computing $100 - 11$, and $90$ arises from forgetting the $+1$ term."
+    },
+    {
+      "id": "pmi_c01_012",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $P(n)$ be the inequality $2^n > n$. In the inductive step from $k$ to $k+1$, assuming $2^k > k$, multiplying by $2$ gives $2^{k+1} > 2k$. The condition $2k \\ge k+1$ holds for all integers $k$ satisfying:",
+      "options": [
+        "A) $k \\ge 1$",
+        "B) $k \\ge 2$",
+        "C) $k \\ge 3$",
+        "D) $k \\ge 4$"
+      ],
+      "answer": "A",
+      "explanation": "For the base step $n=1$, $2^1 = 2 > 1$, which is true. For the inductive step, assuming $2^k > k$ holds for some integer $k \\ge 1$, multiplying both sides by $2$ gives $2^{k+1} = 2 \\cdot 2^k > 2k$. To establish that $2^{k+1} > k+1$, it suffices that $2k \\ge k+1$. Solving this inequality yields $2k - k \\ge 1$, which implies $k \\ge 1$. Therefore, the induction step holds unconditionally for all integers $k \\ge 1$, and the inequality $2^n > n$ is valid for all positive integers $n$. The option $k \\ge 2$ represents the stricter threshold for $2^n > n+1$, while $k \\ge 3$ and $k \\ge 4$ confuse this problem with the proof of $2^n > n^2$."
+    },
+    {
+      "id": "pmi_c01_013",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "For each integer $n \\ge 1$, let $E_n = 5^{2n} - 1$. The principle of mathematical induction establishes that $24$ divides $E_n$ for all integers $n \\ge 1$. If the quotient is denoted by $q_n = \\frac{5^{2n}-1}{24}$, determine the integer value of $q_2$.",
+      "options": [],
+      "answer": "26",
+      "explanation": "For the base step $n=1$, $E_1 = 5^2 - 1 = 24$, which gives $q_1 = 1$. In the inductive step, consider $E_{k+1} - E_k = 5^{2k+2} - 1 - (5^{2k} - 1) = 25 \\cdot 5^{2k} - 5^{2k} = 24 \\cdot 5^{2k}$. Therefore, $E_{k+1} = E_k + 24 \\cdot 5^{2k}$. If $24$ divides $E_k$, then $24$ divides $E_{k+1}$. To evaluate $q_2$, we substitute $n = 2$ into $E_n$, yielding $E_2 = 5^4 - 1 = 625 - 1 = 624$. Solving for the quotient, we get $q_2 = \\frac{624}{24} = 26$."
+    },
+    {
+      "id": "pmi_c01_014",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let the arithmetico-geometric series sum be $S_n = \\sum_{k=1}^n k \\cdot 2^k$. The closed form $S_n = (n-1)2^{n+1} + 2$ is verified by mathematical induction for all integers $n \\ge 1$. Determine the integer value of $S_4$.",
+      "options": [],
+      "answer": "98",
+      "explanation": "For the base step $n=1$, $S_1 = 1 \\cdot 2^1 = 2$, and the formula gives $(1-1)2^2 + 2 = 2$, which holds. For the induction step, assuming $S_k = (k-1)2^{k+1} + 2$, adding the next term yields $S_{k+1} = (k-1)2^{k+1} + 2 + (k+1)2^{k+1} = [(k-1) + (k+1)]2^{k+1} + 2 = 2k \\cdot 2^{k+1} + 2 = k \\cdot 2^{k+2} + 2 = ((k+1)-1)2^{k+2} + 2$. Therefore, the formula holds for all $n \\ge 1$. Substituting $n = 4$ into the closed form gives $S_4 = (4-1)2^{4+1} + 2 = 3 \\cdot 2^5 + 2 = 3 \\times 32 + 2 = 96 + 2 = 98$. Alternatively, summing directly gives $1(2) + 2(4) + 3(8) + 4(16) = 2 + 8 + 24 + 64 = 98$."
+    },
+    {
+      "id": "pmi_c01_015",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The sum of the first $n$ triangular numbers is given by $\\mathcal{T}_n = \\sum_{k=1}^n \\frac{k(k+1)}{2}$. By mathematical induction, $\\mathcal{T}_n = \\frac{n(n+1)(n+2)}{6}$ for all integers $n \\ge 1$. Determine the integer value of $\\mathcal{T}_5$.",
+      "options": [],
+      "answer": "35",
+      "explanation": "For the base step $n=1$, $\\mathcal{T}_1 = \\frac{1(2)}{2} = 1$, and $\\frac{1(2)(3)}{6} = 1$, which holds. In the inductive step, assuming $\\mathcal{T}_k = \\frac{k(k+1)(k+2)}{6}$, adding the next term gives $\\mathcal{T}_{k+1} = \\frac{k(k+1)(k+2)}{6} + \\frac{(k+1)(k+2)}{2} = \\frac{(k+1)(k+2)}{6}[k + 3] = \\frac{(k+1)(k+2)(k+3)}{6}$. Therefore, the formula is valid for all $n \\ge 1$. Substituting $n = 5$, we get $\\mathcal{T}_5 = \\frac{5(6)(7)}{6} = 5 \\times 7 = 35$. Summing the individual terms verifies this: $1 + 3 + 6 + 10 + 15 = 35$."
+    },
+    {
+      "id": "pmi_c01_016",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let the matrix $A = \\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}$. It is proved by mathematical induction that $A^n = \\begin{pmatrix} 1 & 2n \\\\ 0 & 1 \\end{pmatrix}$ for all integers $n \\ge 1$. If $B = \\sum_{n=1}^{10} A^n$, then the entry in the first row and second column of matrix $B$ is equal to:",
+      "options": [
+        "A) $110$",
+        "B) $100$",
+        "C) $120$",
+        "D) $90$"
+      ],
+      "answer": "A",
+      "explanation": "For the base case $n=1$, $A^1 = \\begin{pmatrix} 1 & 2(1) \\\\ 0 & 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}$, which holds. In the induction step, assuming $A^k = \\begin{pmatrix} 1 & 2k \\\\ 0 & 1 \\end{pmatrix}$, multiplying by $A$ yields $A^{k+1} = A^k A = \\begin{pmatrix} 1 & 2k \\\\ 0 & 1 \\end{pmatrix} \\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 2 + 2k \\\\ 0 & 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 2(k+1) \\\\ 0 & 1 \\end{pmatrix}$. Therefore, the formula holds for all integers $n \\ge 1$. The $(1,2)$-entry of matrix $B = \\sum_{n=1}^{10} A^n$ is given by the sum $\\sum_{n=1}^{10} 2n = 2 \\sum_{n=1}^{10} n$. Solving this summation yields $2 \\times \\frac{10 \\times 11}{2} = 110$. The value $100$ results from omitting the final term $n=10$, $120$ comes from using $n=11$, and $90$ arises from evaluating $2 \\times \\frac{9 \\times 10}{2}$."
+    },
+    {
+      "id": "pmi_c01_017",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the product $P_n = \\prod_{k=2}^n \\left(1 - \\frac{1}{k^2}\\right)$ defined for integers $n \\ge 2$. By mathematical induction, $P_n = \\frac{n+1}{2n}$. If $P_{50}$ is expressed as an irreducible fraction $\\frac{p}{q}$, where $p, q$ are positive integers, then the value of $q - p$ is equal to:",
+      "options": [
+        "A) $47$",
+        "B) $49$",
+        "C) $51$",
+        "D) $53$"
+      ],
+      "answer": "B",
+      "explanation": "For the base step $n=2$, $P_2 = 1 - \\frac{1}{4} = \\frac{3}{4} = \\frac{2+1}{2(2)}$, which holds. In the induction step, assuming $P_k = \\frac{k+1}{2k}$, multiplying by the next factor yields $P_{k+1} = P_k \\left(1 - \\frac{1}{(k+1)^2}\\right) = \\frac{k+1}{2k} \\cdot \\frac{(k+1)^2 - 1}{(k+1)^2} = \\frac{k+1}{2k} \\cdot \\frac{k(k+2)}{(k+1)^2} = \\frac{k+2}{2(k+1)}$. Therefore, the formula holds for all $n \\ge 2$. Substituting $n = 50$, we get $P_{50} = \\frac{50+1}{2(50)} = \\frac{51}{100}$. Since $\\gcd(51, 100) = 1$, we have $p = 51$ and $q = 100$. Solving for the difference yields $q - p = 100 - 51 = 49$. The value $47$ arises from incorrectly reducing $51/100$, $51$ comes from taking $p$ directly, and $53$ results from evaluating $P_{48}$."
+    },
+    {
+      "id": "pmi_c01_018",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Bernoulli's inequality states that for any real number $x > -1$ and any positive integer $n \\ge 1$, $(1+x)^n \\ge 1+nx$. In the inductive step from $k$ to $k+1$, assuming $(1+x)^k \\ge 1+kx$, multiplying both sides by $(1+x) > 0$ yields $(1+x)^{k+1} \\ge (1+kx)(1+x) = 1 + (k+1)x + kx^2$. The term $kx^2$ guarantees that $(1+x)^{k+1} \\ge 1 + (k+1)x$ because:",
+      "options": [
+        "A) $k \\ge 1$ and $x > -1$ implies $kx > 0$",
+        "B) the factor $(1+x)^k$ is always strictly positive",
+        "C) $k \\ge 1$ and $x^2 \\ge 0$ implies $kx^2 \\ge 0$",
+        "D) the expression $1 + (k+1)x$ is an increasing function of $k$"
+      ],
+      "answer": "C",
+      "explanation": "In the inductive step, multiplying both sides of $(1+x)^k \\ge 1+kx$ by $1+x > 0$ preserves the inequality sign, yielding $(1+x)^{k+1} \\ge 1 + (k+1)x + kx^2$. Since $k \\ge 1$ is a positive integer and the square of any real number satisfies $x^2 \\ge 0$, their product satisfies $kx^2 \\ge 0$. Dropping a non-negative quantity from the right-hand side yields $1 + (k+1)x + kx^2 \\ge 1 + (k+1)x$. Therefore, by transitivity, $(1+x)^{k+1} \\ge 1 + (k+1)x$, completing the induction step. Claiming that $kx > 0$ is wrong because $x$ can be negative in $(-1, 0)$, positivity of $(1+x)^k$ does not bound $kx^2$, and monotonicity of $1+(k+1)x$ is irrelevant to the algebraic comparison."
+    },
+    {
+      "id": "pmi_c01_019",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A sequence $(x_n)$ is defined recursively by $x_1 = \\sqrt{2}$ and $x_{n+1} = \\sqrt{2 + x_n}$ for all integers $n \\ge 1$. Using mathematical induction, one proves both $x_n < 2$ and $x_n < x_{n+1}$ for all $n \\ge 1$. If $L = \\lim_{n \\to \\infty} x_n$, then the value of $L^3 - 3L$ is equal to:",
+      "options": [
+        "A) $0$",
+        "B) $1$",
+        "C) $-1$",
+        "D) $2$"
+      ],
+      "answer": "D",
+      "explanation": "For the upper bound, $x_1 = \\sqrt{2} < 2$. Assuming $x_k < 2$, we get $x_{k+1} = \\sqrt{2 + x_k} < \\sqrt{2 + 2} = 2$, establishing by induction that $x_n < 2$ for all $n \\ge 1$. For monotonicity, $x_1 = \\sqrt{2} < \\sqrt{2 + \\sqrt{2}} = x_2$. Assuming $x_k < x_{k+1}$, adding $2$ gives $2 + x_k < 2 + x_{k+1}$, so taking square roots implies $\\sqrt{2 + x_k} < \\sqrt{2 + x_{k+1}}$, hence $x_{k+1} < x_{k+2}$. Since $(x_n)$ is bounded and strictly increasing, it converges to limit $L$ satisfying $L = \\sqrt{2+L} \\implies L^2 - L - 2 = 0$. Solving yields $(L-2)(L+1) = 0$, and since $x_n > 0$, we have $L = 2$. Therefore, $L^3 - 3L = 2^3 - 3(2) = 8 - 6 = 2$. The value $0$ comes from taking $L = \\sqrt{3}$, $1$ results from taking $L=1$, and $-1$ arises from incorrectly choosing the negative root $L = -1$."
+    },
+    {
+      "id": "pmi_c01_020",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $M = \\begin{pmatrix} 3 & 1 \\\\ 0 & 3 \\end{pmatrix}$. The inductive hypothesis establishes that $M^n = \\begin{pmatrix} 3^n & n 3^{n-1} \\\\ 0 & 3^n \\end{pmatrix}$ for all integers $n \\ge 1$. The sum of all four entries of the matrix $M^4$ is equal to:",
+      "options": [
+        "A) $270$",
+        "B) $252$",
+        "C) $288$",
+        "D) $264$"
+      ],
+      "answer": "A",
+      "explanation": "For the base step $n=1$, $M^1 = \\begin{pmatrix} 3^1 & 1 \\cdot 3^0 \\\\ 0 & 3^1 \\end{pmatrix} = \\begin{pmatrix} 3 & 1 \\\\ 0 & 3 \\end{pmatrix}$, which holds. In the inductive step, assuming $M^k = \\begin{pmatrix} 3^k & k 3^{k-1} \\\\ 0 & 3^k \\end{pmatrix}$, multiplying by $M$ yields $M^{k+1} = \\begin{pmatrix} 3^k & k 3^{k-1} \\\\ 0 & 3^k \\end{pmatrix} \\begin{pmatrix} 3 & 1 \\\\ 0 & 3 \\end{pmatrix} = \\begin{pmatrix} 3^{k+1} & 3^k + 3k 3^{k-1} \\\\ 0 & 3^{k+1} \\end{pmatrix} = \\begin{pmatrix} 3^{k+1} & (k+1)3^k \\\\ 0 & 3^{k+1} \\end{pmatrix}$. Therefore, the formula holds for all integers $n \\ge 1$. For $n = 4$, the entries of $M^4$ are $M_{11} = 3^4 = 81$, $M_{12} = 4 \\cdot 3^3 = 4 \\times 27 = 108$, $M_{21} = 0$, and $M_{22} = 3^4 = 81$. Solving for their sum yields $81 + 108 + 0 + 81 = 270$. The value $252$ omits the cross-diagonal term $3^3$, $288$ adds an extra $18$, and $264$ computes $3 \\times 81 + 21$."
+    },
+    {
+      "id": "pmi_c01_021",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The polynomial product identity $P_n(x) = \\prod_{k=1}^n \\left(1 + x^{2^{k-1}}\\right) = \\frac{1 - x^{2^n}}{1 - x}$ is proved by mathematical induction for all $x \\neq 1$. For $x = \\frac{1}{2}$ and $n = 3$, the value of $P_3\\left(\\frac{1}{2}\\right)$ is equal to $\\frac{m}{128}$. The positive integer $m$ is equal to:",
+      "options": [
+        "A) $253$",
+        "B) $255$",
+        "C) $257$",
+        "D) $251$"
+      ],
+      "answer": "B",
+      "explanation": "For the base step $n=1$, $P_1(x) = 1 + x = \\frac{1-x^2}{1-x}$, which is correct. In the inductive step, assuming $P_k(x) = \\frac{1 - x^{2^k}}{1 - x}$, multiplying by the next term yields $P_{k+1(x)} = P_k(x)(1 + x^{2^k}) = \\frac{(1 - x^{2^k})(1 + x^{2^k})}{1 - x} = \\frac{1 - (x^{2^k})^2}{1 - x} = \\frac{1 - x^{2^{k+1}}}{1 - x}$. Therefore, the identity holds for all integers $n \\ge 1$. Substituting $x = \\frac{1}{2}$ and $n = 3$, we get $P_3(1/2) = \\frac{1 - (1/2)^8}{1 - 1/2} = 2\\left(1 - \\frac{1}{256}\\right) = 2 \\times \\frac{255}{256} = \\frac{255}{128}$. Thus, comparing with $\\frac{m}{128}$ gives $m = 255$. The distractor $253$ comes from arithmetic error in $256 - 1$, $257$ comes from adding $1$, and $251$ arises from subtracting $5$."
+    },
+    {
+      "id": "pmi_c01_022",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let the Fibonacci sequence be defined by $F_1 = 1$, $F_2 = 1$, and $F_{n+1} = F_n + F_{n-1}$ for $n \\ge 2$. Cassini's identity states that $F_{n-1}F_{n+1} - F_n^2 = (-1)^n$ for all integers $n \\ge 2$. In the induction step, the expression $F_k F_{k+2} - F_{k+1}^2$ is rewritten using the recurrence as:",
+      "options": [
+        "A) $F_k(F_{k+1} - F_k) - F_{k+1}^2$",
+        "B) $F_k F_{k+1} - (F_k + F_{k-1})^2$",
+        "C) $F_k(F_{k+1} + F_k) - F_{k+1}^2 = -(F_{k-1}F_{k+1} - F_k^2)$",
+        "D) $(F_{k+1} + F_k)^2 - F_k F_{k-1}$"
+      ],
+      "answer": "C",
+      "explanation": "For the base step $n=2$, $F_1 F_3 - F_2^2 = 1(2) - 1^2 = 1 = (-1)^2$, which holds. In the induction step, assuming $F_{k-1}F_{k+1} - F_k^2 = (-1)^k$, we substitute the recurrence relation $F_{k+2} = F_{k+1} + F_k$ into the next expression: $F_k F_{k+2} - F_{k+1}^2 = F_k(F_{k+1} + F_k) - F_{k+1}^2 = F_k F_{k+1} + F_k^2 - F_{k+1}^2 = F_k^2 - F_{k+1}(F_{k+1} - F_k)$. Since $F_{k+1} - F_k = F_{k-1}$, this simplifies to $F_k^2 - F_{k+1}F_{k-1} = -(F_{k-1}F_{k+1} - F_k^2) = -(-1)^k = (-1)^{k+1}$. Therefore, the step is completed. The other options either employ wrong signs or misapply the Fibonacci definition."
+    },
+    {
+      "id": "pmi_c01_023",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the inequality $S_n = \\sum_{k=1}^n \\frac{1}{\\sqrt{k}} \\ge \\sqrt{n}$ for integers $n \\ge 1$. In the inductive step from $k$ to $k+1$, assuming $S_k \\ge \\sqrt{k}$, we add $\\frac{1}{\\sqrt{k+1}}$ to obtain $S_{k+1} \\ge \\sqrt{k} + \\frac{1}{\\sqrt{k+1}}$. To complete the induction, one must establish that $\\sqrt{k} + \\frac{1}{\\sqrt{k+1}} \\ge \\sqrt{k+1}$, which is equivalent to proving:",
+      "options": [
+        "A) $\\sqrt{k(k+1)} \\ge k+1$",
+        "B) $k^2 + k \\ge (k+1)^2$",
+        "C) $\\sqrt{k} \\ge \\sqrt{k+1} - 1$",
+        "D) $\\sqrt{k(k+1)} \\ge k$"
+      ],
+      "answer": "D",
+      "explanation": "For the base step $n=1$, $S_1 = 1 \\ge \\sqrt{1} = 1$, which holds with equality. In the inductive step, we require $\\sqrt{k} + \\frac{1}{\\sqrt{k+1}} \\ge \\sqrt{k+1}$. Multiplying both sides by the positive quantity $\\sqrt{k+1}$ gives $\\sqrt{k}\\sqrt{k+1} + 1 \\ge (\\sqrt{k+1})^2 = k+1$. Subtracting $1$ from both sides yields $\\sqrt{k(k+1)} \\ge k$. Squaring both sides of this non-negative relation gives $k(k+1) \\ge k^2 \\iff k^2 + k \\ge k^2 \\iff k \\ge 0$, which holds strictly for all integers $k \\ge 1$. Therefore, the induction step is valid. The condition $\\sqrt{k(k+1)} \\ge k+1$ is false since $\\sqrt{k} < \\sqrt{k+1}$, and the other alternatives reflect incorrect algebraic manipulation."
+    },
+    {
+      "id": "pmi_c01_024",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $Q_n = \\prod_{k=1}^n \\left(1 + \\frac{1}{k}\\right)$ and $R_n = \\prod_{k=2}^n \\left(1 - \\frac{1}{k}\\right)$. Using mathematical induction, one establishes that $Q_n = n+1$ and $R_n = \\frac{1}{n}$ for all integers $n \\ge 2$. If $n = 19$, the value of the product $Q_{19} \\cdot R_{19}$ is equal to:",
+      "options": [
+        "A) $\\frac{20}{19}$",
+        "B) $\\frac{19}{20}$",
+        "C) $1$",
+        "D) $\\frac{21}{19}$"
+      ],
+      "answer": "A",
+      "explanation": "For $Q_n$, the induction step gives $Q_{k+1} = Q_k \\left(1 + \\frac{1}{k+1}\\right) = (k+1)\\left(\\frac{k+2}{k+1}\\right) = k+2$, so $Q_n = n+1$. For $R_n$, the induction step gives $R_{k+1} = R_k \\left(1 - \\frac{1}{k+1}\\right) = \\frac{1}{k} \\cdot \\frac{k}{k+1} = \\frac{1}{k+1}$, so $R_n = \\frac{1}{n}$. Substituting $n = 19$, we obtain $Q_{19} = 19 + 1 = 20$, and $R_{19} = \\frac{1}{19}$. Solving for the product yields $Q_{19} \\cdot R_{19} = 20 \\times \\frac{1}{19} = \\frac{20}{19}$. Therefore, the product equals $\\frac{20}{19}$. The distractor $\\frac{19}{20}$ inverts the fraction, $1$ assumes complete telescoping cancellation, and $\\frac{21}{19}$ results from evaluating $Q_{20} R_{19}$."
+    },
+    {
+      "id": "pmi_c01_025",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The summation identity $\\sum_{k=1}^n k \\cdot k! = (n+1)! - 1$ is proved inductively for all integers $n \\ge 1$. If $N = \\sum_{k=1}^6 k \\cdot k!$, then the remainder when $N$ is divided by $7$ is equal to:",
+      "options": [
+        "A) $5$",
+        "B) $6$",
+        "C) $1$",
+        "D) $0$"
+      ],
+      "answer": "B",
+      "explanation": "For the base step $n=1$, $1 \\cdot 1! = 1$, and $(1+1)! - 1 = 2 - 1 = 1$, which holds. In the induction step, assuming $\\sum_{k=1}^m k \\cdot k! = (m+1)! - 1$, adding $(m+1)(m+1)!$ gives $(m+1)! - 1 + (m+1)(m+1)! = (m+1)![1 + (m+1)] - 1 = (m+2)! - 1$. Therefore, the formula holds for all $n \\ge 1$. Substituting $n = 6$, we get $N = (6+1)! - 1 = 7! - 1$. Since $7! = 7 \\times 6!$ is an exact multiple of $7$, we have $7! \\equiv 0 \\pmod 7$. Thus, $N = 7! - 1 \\equiv 0 - 1 \\equiv 6 \\pmod 7$. Hence, the remainder is $6$. The value $5$ comes from incorrectly evaluating $7! - 2$, $1$ comes from confusing $-1$ with $+1$, and $0$ incorrectly assumes $7$ divides $7! - 1$."
+    },
+    {
+      "id": "pmi_c01_026",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $R(\\theta) = \\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix}$. Mathematical induction establishes that $R(\\theta)^n = \\begin{pmatrix} \\cos(n\\theta) & -\\sin(n\\theta) \\\\ \\sin(n\\theta) & \\cos(n\\theta) \\end{pmatrix}$ for all integers $n \\ge 1$. If $\\theta = \\frac{\\pi}{3}$, then the trace of the matrix $R(\\theta)^4$ is equal to:",
+      "options": [
+        "A) $2$",
+        "B) $1$",
+        "C) $-1$",
+        "D) $-2$"
+      ],
+      "answer": "C",
+      "explanation": "For the base case $n=1$, the identity holds trivially. In the induction step, assuming $R(\\theta)^k = \\begin{pmatrix} \\cos(k\\theta) & -\\sin(k\\theta) \\\\ \\sin(k\\theta) & \\cos(k\\theta) \\end{pmatrix}$, multiplying by $R(\\theta)$ and applying angle-addition formulas gives the $(1,1)$-entry $\\cos(k\\theta)\\cos\\theta - \\sin(k\\theta)\\sin\\theta = \\cos((k+1)\\theta)$, and similarly for the other entries. Therefore, $R(\\theta)^n$ holds for all $n \\ge 1$. The trace of $R(\\theta)^4$ is $\\cos(4\\theta) + \\cos(4\\theta) = 2\\cos(4\\theta)$. Substituting $\\theta = \\frac{\\pi}{3}$, we get $4\\theta = \\frac{4\\pi}{3}$. Since $\\cos(4\\pi/3) = -\\cos(\\pi/3) = -\\frac{1}{2}$, solving for the trace gives $2 \\left(-\\frac{1}{2}\\right) = -1$. The value $1$ arises from omitting the negative sign in the third quadrant, $2$ comes from evaluating at $\\theta = 0$, and $-2$ comes from taking $\\cos(4\\theta) = -1$."
+    },
+    {
+      "id": "pmi_c01_027",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A sequence $(a_n)$ is defined by $a_1 = 1$ and $a_{n+1} = \\frac{a_n}{1 + 2a_n}$ for all integers $n \\ge 1$. The explicit formula $a_n = \\frac{1}{2n-1}$ is verified by mathematical induction. If $a_{50} = \\frac{1}{K}$, then the sum of the digits of the positive integer $K$ is equal to:",
+      "options": [
+        "A) $15$",
+        "B) $17$",
+        "C) $16$",
+        "D) $18$"
+      ],
+      "answer": "D",
+      "explanation": "For the base step $n=1$, $a_1 = \\frac{1}{2(1)-1} = 1$, which matches the given initial condition. In the induction step, assuming $a_k = \\frac{1}{2k-1}$, we substitute into the recurrence: $a_{k+1} = \\frac{\\frac{1}{2k-1}}{1 + 2\\left(\\frac{1}{2k-1}\\right)} = \\frac{\\frac{1}{2k-1}}{\\frac{(2k-1) + 2}{2k-1}} = \\frac{1}{2k+1} = \\frac{1}{2(k+1)-1}$. Therefore, $a_n = \\frac{1}{2n-1}$ holds for all $n \\ge 1$. For $n = 50$, we get $a_{50} = \\frac{1}{2(50)-1} = \\frac{1}{99}$. Thus, $K = 99$. Solving for the sum of digits gives $9 + 9 = 18$. The value $15$ results from taking $K=87$, $17$ results from taking $K=89$ from $2(45)-1$, and $16$ comes from an arithmetic error."
+    },
+    {
+      "id": "pmi_c01_028",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The inequality $n! > 2^n$ is proved by mathematical induction for all integers $n \\ge 4$. In the inductive step, assuming $k! > 2^k$ for an integer $k \\ge 4$, we write $(k+1)! = (k+1)k! > (k+1)2^k$. The induction step concludes $(k+1)2^k > 2^{k+1}$ because:",
+      "options": [
+        "A) $k+1 > 2$ holds since $k \\ge 4$",
+        "B) the factorial satisfies $k! > k$ for all $k \\ge 1$",
+        "C) the exponential satisfies $2^k > k+1$ for all $k \\ge 4$",
+        "D) the inequality $(k+1)! > 2k!$ holds for all $k \\ge 1$"
+      ],
+      "answer": "A",
+      "explanation": "For the base step $n=4$, $4! = 24 > 2^4 = 16$, which is true. In the induction step, we assume $k! > 2^k$ holds for some integer $k \\ge 4$. Multiplying by $k+1$ yields $(k+1)! = (k+1)k! > (k+1)2^k$. To deduce that $(k+1)2^k > 2^{k+1} = 2 \\cdot 2^k$, it is necessary and sufficient that $k+1 > 2$. Since $k \\ge 4$, we have $k+1 \\ge 5 > 2$. Therefore, $(k+1)2^k > 2 \\cdot 2^k = 2^{k+1}$, establishing $(k+1)! > 2^{k+1}$. While $2^k > k+1$ and $k! > k$ are true inequalities, they are not the logical justification for replacing $(k+1)$ with $2$ in $(k+1)2^k > 2^{k+1}$."
+    },
+    {
+      "id": "pmi_c01_029",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The sum $V_n = \\sum_{k=1}^n \\frac{k}{(k+1)!}$ satisfies $V_n = 1 - \\frac{1}{(n+1)!}$ by mathematical induction for all integers $n \\ge 1$. The value of $V_5$ is equal to:",
+      "options": [
+        "A) $\\frac{718}{720}$",
+        "B) $\\frac{719}{720}$",
+        "C) $\\frac{119}{120}$",
+        "D) $\\frac{23}{24}$"
+      ],
+      "answer": "B",
+      "explanation": "For the base step $n=1$, $V_1 = \\frac{1}{2!} = \\frac{1}{2} = 1 - \\frac{1}{2!}$, which holds. In the induction step, assuming $V_k = 1 - \\frac{1}{(k+1)!}$, adding the next term gives $V_{k+1} = 1 - \\frac{1}{(k+1)!} + \\frac{k+1}{(k+2)!} = 1 - \\frac{(k+2) - (k+1)}{(k+2)!} = 1 - \\frac{1}{(k+2)!}$. Therefore, the formula holds for all $n \\ge 1$. Substituting $n = 5$ gives $(5+1)! = 6! = 720$. Hence, solving for $V_5$ yields $1 - \\frac{1}{720} = \\frac{719}{720}$. The value $\\frac{718}{720}$ comes from incorrectly writing $1 - \\frac{2}{720}$, $\\frac{119}{120}$ corresponds to $V_4 = 1 - 1/5!$, and $\\frac{23}{24}$ corresponds to $V_3 = 1 - 1/4!$."
+    },
+    {
+      "id": "pmi_c01_030",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For all integers $n \\ge 1$, let $F(n) = 11^{n+2} + 12^{2n+1}$. By mathematical induction, $133$ divides $F(n)$ for all integers $n \\ge 1$. If $F(1) = 11^3 + 12^3$, then the quotient $\\frac{F(1)}{133}$ is equal to:",
+      "options": [
+        "A) $21$",
+        "B) $22$",
+        "C) $23$",
+        "D) $24$"
+      ],
+      "answer": "C",
+      "explanation": "For the induction step, consider $F(k+1) - 11F(k) = (11^{k+3} + 12^{2k+3}) - 11(11^{k+2} + 12^{2k+1}) = 12^{2k+3} - 11 \\cdot 12^{2k+1} = 12^{2k+1}(12^2 - 11) = 12^{2k+1}(144 - 11) = 133 \\cdot 12^{2k+1}$. Therefore, $F(k+1) = 11F(k) + 133 \\cdot 12^{2k+1}$, which proves by induction that $133$ divides $F(n)$ for all $n \\ge 1$. To evaluate the base case quotient, compute $11^3 = 1331$ and $12^3 = 1728$. Adding these gives $F(1) = 1331 + 1728 = 3059$. Solving for the quotient, we get $\\frac{3059}{133} = 23$, since $133 \\times 23 = 133 \\times 20 + 133 \\times 3 = 2660 + 399 = 3059$. The value $21$ comes from $133 \\times 21 = 2793$, $22$ gives $2926$, and $24$ gives $3192$."
+    },
+    {
+      "id": "pmi_c01_031",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $J = \\begin{pmatrix} 2 & 1 \\\\ 0 & 2 \\end{pmatrix}$. An inductive proof demonstrates that $J^n = \\begin{pmatrix} 2^n & n 2^{n-1} \\\\ 0 & 2^n \\end{pmatrix}$ for all integers $n \\ge 1$. If $J^6 = \\begin{pmatrix} p & q \\\\ 0 & p \\end{pmatrix}$, then the value of the difference $q - p$ is equal to:",
+      "options": [
+        "A) $112$",
+        "B) $120$",
+        "C) $124$",
+        "D) $128$"
+      ],
+      "answer": "D",
+      "explanation": "For the base step $n=1$, $J^1 = \\begin{pmatrix} 2^1 & 1 \\cdot 2^0 \\\\ 0 & 2^1 \\end{pmatrix} = \\begin{pmatrix} 2 & 1 \\\\ 0 & 2 \\end{pmatrix}$, which holds. In the inductive step, assuming $J^k = \\begin{pmatrix} 2^k & k 2^{k-1} \\\\ 0 & 2^k \\end{pmatrix}$, multiplying by $J$ yields $J^{k+1} = \\begin{pmatrix} 2^k & k 2^{k-1} \\\\ 0 & 2^k \\end{pmatrix} \\begin{pmatrix} 2 & 1 \\\\ 0 & 2 \\end{pmatrix} = \\begin{pmatrix} 2^{k+1} & 2^k + 2k 2^{k-1} \\\\ 0 & 2^{k+1} \\end{pmatrix} = \\begin{pmatrix} 2^{k+1} & (k+1)2^k \\\\ 0 & 2^{k+1} \\end{pmatrix}$. Therefore, the formula holds for all integers $n \\ge 1$. For $n = 6$, we get $p = 2^6 = 64$ and $q = 6 \\cdot 2^5 = 6 \\times 32 = 192$. Solving for the difference gives $q - p = 192 - 64 = 128$. The value $112$ comes from taking $q = 5 \\times 32$, $120$ results from an arithmetic error in $192 - 64$, and $124$ comes from using $p = 68$."
+    },
+    {
+      "id": "pmi_c01_032",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let a sequence be defined by $a_1 = \\sqrt{6}$ and $a_{n+1} = \\sqrt{6 + a_n}$ for all integers $n \\ge 1$. Mathematical induction establishes that $a_n < 3$ and $a_n < a_{n+1}$ for all $n \\ge 1$, so the sequence converges to $L = 3$. If another sequence is defined by $b_1 = 1$ and $b_{n+1} = b_n + L$, determine the integer value of $b_4$.",
+      "options": [],
+      "answer": "10",
+      "explanation": "We first prove $a_n < 3$ by induction: $a_1 = \\sqrt{6} < 3$. If $a_k < 3$, then $a_{k+1} = \\sqrt{6 + a_k} < \\sqrt{6+3} = 3$. Next, we prove $a_n < a_{n+1}$: $a_1 = \\sqrt{6} < \\sqrt{6 + \\sqrt{6}} = a_2$. If $a_k < a_{k+1}$, then $6 + a_k < 6 + a_{k+1} \\implies \\sqrt{6 + a_k} < \\sqrt{6 + a_{k+1}} \\implies a_{k+1} < a_{k+2}$. Thus $(a_n)$ is bounded and strictly increasing, converging to $L = \\sqrt{6+L} \\implies L^2 - L - 6 = 0 \\implies (L-3)(L+2) = 0$. Since $a_n > 0$, $L = 3$. The sequence $(b_n)$ satisfies $b_1 = 1$ and $b_{n+1} = b_n + 3$, which is an AP with first term $1$ and common difference $3$. Solving for $b_4$, we get $b_4 = 1 + 3(3) = 10$."
+    },
+    {
+      "id": "pmi_c01_033",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "For the Fibonacci sequence $F_1 = 1, F_2 = 1, F_3 = 2, F_4 = 3, F_5 = 5, F_6 = 8, \\dots$, the summation identity $\\sum_{k=1}^n F_k^2 = F_n F_{n+1}$ is proved inductively for all integers $n \\ge 1$. Determine the integer value of the sum $\\sum_{k=1}^5 F_k^2$.",
+      "options": [],
+      "answer": "40",
+      "explanation": "For the base step $n=1$, $F_1^2 = 1^2 = 1$ and $F_1 F_2 = 1(1) = 1$, which holds. In the inductive step, assuming $\\sum_{k=1}^m F_k^2 = F_m F_{m+1}$, adding the next squared term yields $\\sum_{k=1}^{m+1} F_k^2 = F_m F_{m+1} + F_{m+1}^2 = F_{m+1}(F_m + F_{m+1}) = F_{m+1} F_{m+2}$, since $F_m + F_{m+1} = F_{m+2}$. Therefore, the identity holds for all integers $n \\ge 1$. For $n = 5$, substituting into the closed form gives $\\sum_{k=1}^5 F_k^2 = F_5 F_6$. Since $F_5 = 5$ and $F_6 = 8$, solving for the product gives $5 \\times 8 = 40$. Evaluating the sum term by term confirms $1^2 + 1^2 + 2^2 + 3^2 + 5^2 = 1 + 1 + 4 + 9 + 25 = 40$."
+    },
+    {
+      "id": "pmi_c01_034",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "By mathematical induction, a finite set of $n$ elements contains exactly $2^n$ distinct subsets for all integers $n \\ge 0$. If a set $S$ contains exactly $5$ elements, determine the total number of non-empty subsets of $S$.",
+      "options": [],
+      "answer": "31",
+      "explanation": "For the base case $n=0$, the empty set has $2^0 = 1$ subset (itself), which is true. In the induction step, consider a set with $k+1$ elements $S_{k+1} = S_k \\cup \\{x\\}$. Any subset of $S_{k+1}$ either contains $x$ or does not. There are $2^k$ subsets not containing $x$ (subsets of $S_k$) and $2^k$ subsets containing $x$ (formed by adjoining $x$ to each subset of $S_k$). Therefore, the total number of subsets is $2^k + 2^k = 2 \\cdot 2^k = 2^{k+1}$. This completes the induction. For a set $S$ with $5$ elements, the total number of subsets is $2^5 = 32$. Since the problem asks for non-empty subsets, we exclude the empty set $\\emptyset$. Solving gives $32 - 1 = 31$."
+    },
+    {
+      "id": "pmi_c01_035",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The sum of squares $S_n = \\sum_{k=1}^n k^2 = \\frac{n(n+1)(2n+1)}{6}$ is established by mathematical induction for all integers $n \\ge 1$. If $S_n = 285$, determine the integer value of $\\frac{n(n-1)}{2}$.",
+      "options": [],
+      "answer": "36",
+      "explanation": "For the base step $n=1$, $S_1 = 1^2 = 1 = \\frac{1(2)(3)}{6}$. In the induction step, assuming $S_k = \\frac{k(k+1)(2k+1)}{6}$, adding $(k+1)^2$ yields $S_{k+1} = \\frac{k+1}{6}[k(2k+1) + 6(k+1)] = \\frac{k+1}{6}[2k^2 + 7k + 6] = \\frac{(k+1)(k+2)(2k+3)}{6}$. Therefore, the formula holds for all $n \\ge 1$. Given $S_n = \\frac{n(n+1)(2n+1)}{6} = 285$, we test integer values: for $n = 9$, $\\frac{9 \\times 10 \\times 19}{6} = 15 \\times 19 = 285$. Hence, $n = 9$. Solving for $\\frac{n(n-1)}{2}$ gives $\\frac{9 \\times 8}{2} = 36$."
+    },
+    {
+      "id": "pmi_c01_036",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $P(n)$ be a mathematical proposition defined for all integers $n \\ge 1$. Consider the two core components of mathematical induction:\n(I) The inductive step: $P(k) \\implies P(k+1)$ is true for all integers $k \\ge 1$.\n(II) The base step: $P(1)$ is true.\nWhich of the following statements is/are correct regarding inductive logic?",
+      "options": [
+        "A) If condition (I) is valid but $P(1)$ is false, then $P(n)$ may be false for every integer $n \\ge 1$",
+        "B) If $P(1)$ is true and the implication $P(k) \\implies P(k+2)$ is proved for all $k \\ge 1$, then $P(n)$ is necessarily true for all odd positive integers $n$",
+        "C) If $P(1)$ is true and the implication $P(k) \\implies P(k+1)$ fails only at the single value $k = 4$, then $P(n)$ is guaranteed to be true for all $n \\in \\{1, 2, 3, 4\\}$",
+        "D) If condition (I) holds for all $k \\ge 1$ and $P(5)$ is verified to be true, then $P(n)$ must be true for all integers $n \\ge 1$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Regarding statement A, consider $P(n): n = n + 1$. The inductive step holds because assuming $k = k + 1$ and adding $1$ to both sides yields $k + 1 = (k + 1) + 1$, so $P(k) \\implies P(k+1)$ is logically valid. However, the base step $1 = 2$ is false, and $P(n)$ is false for every positive integer $n \\ge 1$. Therefore, statement A is correct. Regarding statement B, define $Q(m) = P(2m-1)$ for $m \\ge 1$. Here $Q(1) = P(1)$ is true, and $Q(m) \\implies Q(m+1)$ corresponds to $P(2m-1) \\implies P(2m+1)$, which holds since $P(k) \\implies P(k+2)$ is valid for all $k$. Applying standard induction to $Q(m)$ establishes that $P(n)$ holds for all odd integers $n$. Therefore, statement B is correct. Regarding statement C, $P(1)$ is true, $P(1) \\implies P(2)$ holds, $P(2) \\implies P(3)$ holds, and $P(3) \\implies P(4)$ holds. Hence, $P(1), P(2), P(3), P(4)$ are all true before the inductive step fails at $k=4$. Therefore, statement C is correct. Regarding statement D, forward induction only propagates to integers $n \\ge 5$; it provides no logical implication for $n \\in \\{1, 2, 3, 4\\}$. Thus statement D is false."
+    },
+    {
+      "id": "pmi_c01_037",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A postal kiosk issues stamps only in denominations of $4$ cents and $5$ cents. Let $P(n)$ denote the proposition that an exact postage of $n$ cents can be formed using only these stamps, so that $n = 4a + 5b$ for some non-negative integers $a, b \\ge 0$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The base step for strong mathematical induction requires verifying $4$ consecutive integers: $P(12), P(13), P(14)$, and $P(15)$",
+        "B) The greatest integer postage $n$ that cannot be formed using these denominations is $n = 11$",
+        "C) If $P(k)$ is true for an integer $k$, then $P(k+4)$ is immediately true by adding one $4$-cent stamp",
+        "D) An exact postage of $10$ cents cannot be formed using these stamps"
+      ],
+      "answer": "A,B,C",
+      "explanation": "To prove $P(n)$ for all $n \\ge 12$ by strong induction with step $P(k) \\implies P(k+4)$, one must establish $4$ consecutive base cases: $12 = 4(3) + 5(0)$, $13 = 4(2) + 5(1)$, $14 = 4(1) + 5(2)$, and $15 = 4(0) + 5(3)$. All four integers are achievable with non-negative coefficients. Therefore, statement A is correct. In the inductive step, if $P(k)$ is true, then $k = 4a + 5b$. Adding a $4$-cent stamp gives $k + 4 = 4(a+1) + 5b$, where $a+1 \\ge 1 \\ge 0$. Hence, $P(k+4)$ is true, showing that statement C is correct. The Frobenius coin problem states that for coprime integers $p$ and $q$, the largest unachievable integer is $g(p, q) = pq - p - q$. Substituting $p = 4$ and $q = 5$ yields $g(4, 5) = 4(5) - 4 - 5 = 11$. Thus, $11$ is the greatest postage that cannot be formed, making statement B correct. Finally, $10$ cents can be formed as $10 = 4(0) + 5(2)$, so $P(10)$ is true. This contradicts statement D, which is false."
+    },
+    {
+      "id": "pmi_c01_038",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $n$ straight lines be drawn in a plane such that no two lines are parallel and no three lines intersect at a common point (general position). Let $R_n$ denote the total number of disjoint regions into which the plane is divided by these $n$ lines. Which of the following statements is/are correct?",
+      "options": [
+        "A) The recurrence relation between consecutive terms is $R_{n+1} = R_n + n + 1$ for all integers $n \\ge 1$",
+        "B) The closed-form expression established by induction is $R_n = \\frac{n^2 + n + 2}{2}$ for all integers $n \\ge 1$",
+        "C) For $n = 6$ lines in general position, the total number of regions formed in the plane is equal to $22$",
+        "D) The number of bounded regions among the $R_n$ regions is given by $\\frac{(n-1)(n-2)}{2}$ for all integers $n \\ge 2$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "When the $(n+1)$-th line is drawn, it intersects the existing $n$ lines at $n$ distinct points because no two lines are parallel and no three are concurrent. These $n$ points divide the new line into $n+1$ segments and rays. Each segment or ray divides an existing region into two regions, thereby creating $n+1$ new regions. Therefore, $R_{n+1} = R_n + n + 1$, which proves statement A. For the base step $n=1$, one line divides the plane into $2$ regions, and $\\frac{1^2 + 1 + 2}{2} = 2$. Assuming $R_k = \\frac{k^2+k+2}{2}$, we get $R_{k+1} = \\frac{k^2+k+2}{2} + (k+1) = \\frac{k^2 + 3k + 4}{2} = \\frac{(k+1)^2 + (k+1) + 2}{2}$, which proves statement B. For $n = 6$, substituting gives $R_6 = \\frac{6^2 + 6 + 2}{2} = \\frac{44}{2} = 22$, which proves statement C. The $n$ lines produce $2n$ unbounded regions. Subtracting the unbounded regions from total regions yields the bounded regions: $R_n - 2n = \\frac{n^2+n+2}{2} - 2n = \\frac{n^2 - 3n + 2}{2} = \\frac{(n-1)(n-2)}{2}$. Therefore, statement D is also correct."
+    },
+    {
+      "id": "pmi_c01_039",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In graph theory, a tree $T$ is defined as a connected acyclic undirected graph. Let $V(T)$ and $E(T)$ denote the number of vertices and edges of $T$, respectively. Which of the following statements is/are correct regarding inductive proofs on trees?",
+      "options": [
+        "A) Every finite tree with $n \\ge 2$ vertices contains at least two pendant vertices (vertices of degree $1$)",
+        "B) Deleting a pendant vertex and its incident edge from a tree with $k+1$ vertices yields a tree with $k$ vertices, establishing by induction that $E(T) = V(T) - 1$",
+        "C) For every tree with $n$ vertices, the sum of the degrees of all its vertices is equal to $2n - 2$",
+        "D) A tree containing $n = 8$ vertices can have a maximum of $8$ edges"
+      ],
+      "answer": "A,B,C",
+      "explanation": "For a tree $T$ with $V(T) = n \\ge 2$, every vertex has degree $\\ge 1$ because the tree is connected. By the handshake lemma, $\\sum_{v \\in V} \\deg(v) = 2E(T) = 2(n-1) = 2n-2$. If there were at most one vertex of degree $1$, then the sum of degrees would be at least $1 + 2(n-1) = 2n - 1 > 2n - 2$, a contradiction. Therefore, every tree with $n \\ge 2$ has at least two pendant vertices (leaves), proving statement A. Deleting a pendant vertex leaves the graph connected and acyclic, so the remaining graph is a tree on $k$ vertices. By the induction hypothesis, it has $k-1$ edges. Restoring the deleted vertex and its single incident edge yields $(k-1) + 1 = k$ edges for $k+1$ vertices, which completes the induction proof of $E(T) = V(T) - 1$, confirming statement B. Substituting $E = n-1$ into the handshake lemma gives $\\sum \\deg(v) = 2(n-1) = 2n-2$, proving statement C. For $n = 8$, any tree has exactly $8 - 1 = 7$ edges, never $8$ edges. Therefore, statement D is false."
+    },
+    {
+      "id": "pmi_c01_040",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In Augustin-Louis Cauchy's forward-backward induction proof of the Arithmetic Mean - Geometric Mean (AM-GM) inequality for $n$ positive real numbers $a_1, a_2, \\dots, a_n$:\n(I) The base case $n=2$ states $\\frac{a_1+a_2}{2} \\ge \\sqrt{a_1 a_2}$.\n(II) Forward step: If the inequality holds for $n=k$, it is proved for $n=2k$.\n(III) Backward step: If the inequality holds for $n=k$, it is proved for $n=k-1$ by substituting $a_k = \\frac{a_1+\\dots+a_{k-1}}{k-1}$.\nWhich of the following statements is/are correct?",
+      "options": [
+        "A) The forward step establishes the AM-GM inequality for all powers of two, $n = 2^m$, where $m \\in \\mathbb{N}$",
+        "B) The backward step allows one to descend from any power of two to every intermediate integer $n$",
+        "C) Forward-backward induction is a logically valid variant of the principle of mathematical induction that establishes the proposition for all integers $n \\ge 2$",
+        "D) In the backward step for $n=k$, Cauchy's standard substitution chooses $a_k$ to be the geometric mean $\\sqrt[k-1]{a_1 \\dots a_{k-1}}$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "In Cauchy's forward-backward induction, the base case establishes $P(2)$. The forward step proves $P(k) \\implies P(2k)$. Therefore, by ordinary induction on $m$, $P(2) \\implies P(4) \\implies P(8) \\dots \\implies P(2^m)$ holds for all integers $m \\ge 1$, which confirms statement A. For any positive integer $n$, there exists an integer $m$ such that $2^m > n$. The backward step establishes $P(k) \\implies P(k-1)$. Repeatedly applying the backward step starting from $2^m$ proves the inequality for all integers down to $n$, which confirms statement B. Since every integer $n \\ge 2$ is reached through a finite sequence of forward and backward steps, forward-backward induction is logically sound and equivalent to mathematical induction, confirming statement C. In the backward step, Cauchy chose $a_k$ to be the arithmetic mean $A = \\frac{a_1 + \\dots + a_{k-1}}{k-1}$, not the geometric mean. Substituting this choice of $A$ into the $k$-term AM-GM inequality eliminates $A$ from both sides, yielding the $(k-1)$-term AM-GM inequality. Therefore, statement D is false."
+    },
+    {
+      "id": "pmi_c01_041",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In the classic Tower of Hanoi puzzle with $n$ distinct disks and $3$ pegs, let $M_n$ denote the minimum number of valid moves required to transfer all $n$ disks from the source peg to the destination peg. Which of the following statements is/are correct?",
+      "options": [
+        "A) To transfer $k+1$ disks, one must first transfer the top $k$ disks to the auxiliary peg, transfer the largest disk to the destination, and then transfer the $k$ disks to the destination, yielding $M_{k+1} = 2M_k + 1$",
+        "B) The closed-form expression $M_n = 2^n - 1$ is verified by mathematical induction for all integers $n \\ge 1$",
+        "C) If $n = 6$ disks are used, the minimum number of moves required is equal to $63$",
+        "D) If moves are restricted to adjacent pegs only (pegs in a line $1 - 2 - 3$), the minimal moves satisfy $W_{k+1} = 3W_k + 2$, yielding $W_n = 3^n - 1$ by induction"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "To transfer $k+1$ disks, the largest disk cannot move until all $k$ smaller disks are placed on the auxiliary peg, requiring at least $M_k$ moves. The largest disk is then transferred in $1$ move to the destination peg. Finally, the $k$ smaller disks must be moved from the auxiliary peg to the destination peg, requiring another $M_k$ moves. Thus, $M_{k+1} = 2M_k + 1$, proving statement A. For the base step $n=1$, $M_1 = 1 = 2^1 - 1$. In the inductive step, assuming $M_k = 2^k - 1$, we get $M_{k+1} = 2(2^k - 1) + 1 = 2^{k+1} - 2 + 1 = 2^{k+1} - 1$. Therefore, $M_n = 2^n - 1$ holds for all $n \\ge 1$, proving statement B. For $n = 6$, $M_6 = 2^6 - 1 = 64 - 1 = 63$, confirming statement C. In the adjacent peg variant, transferring $k+1$ disks from peg 1 to peg 3 requires: transfer $k$ disks to peg 3 ($W_k$ moves), move largest disk to peg 2 ($1$ move), transfer $k$ disks back to peg 1 ($W_k$ moves), move largest disk to peg 3 ($1$ move), and transfer $k$ disks to peg 3 ($W_k$ moves). This yields $W_{k+1} = 3W_k + 2$. With $W_1 = 2 = 3^1 - 1$, assuming $W_k = 3^k - 1$ yields $W_{k+1} = 3(3^k - 1) + 2 = 3^{k+1} - 1$, proving statement D."
+    },
+    {
+      "id": "pmi_c01_042",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let a sequence $(x_n)$ be defined by $x_1 = 5$, $x_2 = 13$, and $x_{n+1} = 5x_n - 6x_{n-1}$ for all integers $n \\ge 2$. Strong induction establishes that $x_n = 2^n + 3^n$ for all $n \\ge 1$. If $x_5 = K$, then the value of $K \\pmod{10}$ is equal to:",
+      "options": [
+        "A) $3$",
+        "B) $5$",
+        "C) $7$",
+        "D) $1$"
+      ],
+      "answer": "B",
+      "explanation": "For base cases $n=1$ and $n=2$: $x_1 = 2^1 + 3^1 = 5$ and $x_2 = 2^2 + 3^2 = 13$, which both match. For the strong induction step, assume $x_m = 2^m + 3^m$ holds for all $1 \\le m \\le k$ with $k \\ge 2$. Substituting into the recurrence yields $x_{k+1} = 5x_k - 6x_{k-1} = 5(2^k + 3^k) - 6(2^{k-1} + 3^{k-1}) = (5 \\cdot 2^k - 6 \\cdot 2^{k-1}) + (5 \\cdot 3^k - 6 \\cdot 3^{k-1})$. Factoring out powers gives $2^{k-1}(10 - 6) + 3^{k-1}(15 - 6) = 2^{k-1}(4) + 3^{k-1}(9) = 2^{k+1} + 3^{k+1}$. Therefore, by strong induction, $x_n = 2^n + 3^n$ holds for all integers $n \\ge 1$. Substituting $n = 5$ gives $x_5 = 2^5 + 3^5 = 32 + 243 = 275$. Solving for the units digit yields $275 \\pmod{10} = 5$. The value $3$ comes from taking $3^5 \\pmod{10}$ alone, $7$ comes from evaluating $x_4 \\pmod{10}$, and $1$ arises from taking $x_6 \\pmod{10}$."
+    },
+    {
+      "id": "pmi_c01_043",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $H_m = \\sum_{k=1}^m \\frac{1}{k}$ denote the $m$-th harmonic number. Nicole Oresme's inductive grouping establishes that $H_{2^n} \\ge 1 + \\frac{n}{2}$ for all integers $n \\ge 0$. In the inductive step from $k$ to $k+1$, the sum of the $2^k$ intermediate terms $\\sum_{j=2^k+1}^{2^{k+1}} \\frac{1}{j}$ is bounded strictly from below by:",
+      "options": [
+        "A) $\\frac{1}{4}$",
+        "B) $\\frac{1}{2^k}$",
+        "C) $\\frac{1}{2}$",
+        "D) $1$"
+      ],
+      "answer": "C",
+      "explanation": "For the base step $n=0$, $H_{2^0} = H_1 = 1 \\ge 1 + 0/2 = 1$, which holds with equality. In the inductive step, assume $H_{2^k} \\ge 1 + \\frac{k}{2}$. Then $H_{2^{k+1}} = H_{2^k} + \\sum_{j=2^k+1}^{2^{k+1}} \\frac{1}{j}$. The summation contains $2^{k+1} - 2^k = 2^k$ terms. Since each term satisfies $\\frac{1}{j} > \\frac{1}{2^{k+1}}$ for all $2^k < j < 2^{k+1}$, and the final term equals $\\frac{1}{2^{k+1}}$, we have $\\sum_{j=2^k+1}^{2^{k+1}} \\frac{1}{j} > 2^k \\cdot \\frac{1}{2^{k+1}} = \\frac{1}{2}$. Therefore, $H_{2^{k+1}} > \\left(1 + \\frac{k}{2}\\right) + \\frac{1}{2} = 1 + \\frac{k+1}{2}$, which completes the inductive step. Hence, the lower bound for this block of terms is strictly $\\frac{1}{2}$. The distractor $\\frac{1}{4}$ is too loose, $\\frac{1}{2^k}$ represents a single term rather than the block sum, and $1$ is an overestimation."
+    },
+    {
+      "id": "pmi_c01_044",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "To prove the inequality $\\prod_{k=1}^n \\frac{2k-1}{2k} < \\frac{1}{\\sqrt{2n}}$, one strengthens the induction hypothesis to $P(n): \\prod_{k=1}^n \\frac{2k-1}{2k} \\le \\frac{1}{\\sqrt{3n+1}}$ for all integers $n \\ge 1$. In the inductive step from $k$ to $k+1$, one requires $\\frac{1}{\\sqrt{3k+1}} \\cdot \\frac{2k+1}{2k+2} \\le \\frac{1}{\\sqrt{3k+4}}$, which upon squaring both sides reduces to comparing $(2k+2)^2(3k+1)$ with $(2k+1)^2(3k+4)$. The polynomial difference $(2k+2)^2(3k+1) - (2k+1)^2(3k+4)$ evaluates to:",
+      "options": [
+        "A) $k^2 + 1$",
+        "B) $2k$",
+        "C) $3k + 1$",
+        "D) $k$"
+      ],
+      "answer": "D",
+      "explanation": "Expanding the first product yields $(2k+2)^2(3k+1) = (4k^2 + 8k + 4)(3k+1) = 12k^3 + 4k^2 + 24k^2 + 8k + 12k + 4 = 12k^3 + 28k^2 + 20k + 4$. Expanding the second product yields $(2k+1)^2(3k+4) = (4k^2 + 4k + 1)(3k+4) = 12k^3 + 16k^2 + 12k^2 + 16k + 3k + 4 = 12k^3 + 28k^2 + 19k + 4$. Solving for the difference gives $(12k^3 + 28k^2 + 20k + 4) - (12k^3 + 28k^2 + 19k + 4) = 20k - 19k = k$. Since $k \\ge 1$, we have $k > 0$, which implies $(2k+2)^2(3k+1) > (2k+1)^2(3k+4)$. Taking the reciprocal square root confirms $\\frac{2k+1}{2k+2} \\le \\frac{\\sqrt{3k+1}}{\\sqrt{3k+4}}$, completing the inductive step. Therefore, the difference is $k$. The distractor $k^2+1$ comes from miscalculating the quadratic terms, $2k$ comes from subtracting $18k$ instead of $19k$, and $3k+1$ comes from an expansion error in $(2k+1)^2$."
+    },
+    {
+      "id": "pmi_c01_045",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "By strong mathematical induction, every integer $n \\ge 2$ can be factored as a product of one or more prime numbers. In the inductive step, if $k+1$ is not prime, it can be written as $k+1 = a \\cdot b$ where $2 \\le a, b \\le k$. By the strong inductive hypothesis, both $a$ and $b$ are products of primes. If $N = 2024$, and its prime factorization is $2^\\alpha \\cdot 11^\\beta \\cdot 23^\\gamma$, then the value of $\\alpha^2 + \\beta^2 + \\gamma^2$ is equal to:",
+      "options": [
+        "A) $11$",
+        "B) $9$",
+        "C) $14$",
+        "D) $17$"
+      ],
+      "answer": "A",
+      "explanation": "The base case $n=2$ holds because $2$ is a prime. In the strong induction step, assume every integer $m$ with $2 \\le m \\le k$ is a product of primes. For $k+1$, if $k+1$ is prime, we are done. If $k+1$ is composite, $k+1 = a \\cdot b$ with $2 \\le a, b \\le k$. By the strong inductive hypothesis, both $a$ and $b$ are products of primes, so their product $k+1$ is also a product of primes. To determine the prime factorization of $N = 2024$, we divide by powers of $2$: $2024 / 2 = 1012$, $1012 / 2 = 506$, $506 / 2 = 253$. Thus $2024 = 2^3 \\times 253$. Next, dividing $253$ by $11$ yields $253 / 11 = 23$. Since $23$ is prime, the prime factorization is $2^3 \\cdot 11^1 \\cdot 23^1$. Comparing with $2^\\alpha \\cdot 11^\\beta \\cdot 23^\\gamma$, we get $\\alpha = 3$, $\\beta = 1$, and $\\gamma = 1$. Solving yields $\\alpha^2 + \\beta^2 + \\gamma^2 = 3^2 + 1^2 + 1^2 = 9 + 1 + 1 = 11$. The value $9$ forgets $\\beta^2$ and $\\gamma^2$, $14$ comes from taking $\\alpha = 2$ and $\\beta = 3$, and $17$ results from taking $\\alpha = 4$."
+    },
+    {
+      "id": "pmi_c01_046",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "By mathematical induction, every convex polygon with $n \\ge 3$ vertices can be triangulated into non-overlapping triangles by drawing non-intersecting internal diagonals. Let $T(n)$ denote the number of triangles and $D(n)$ denote the number of internal diagonals in any such triangulation. The correct expressions for $T(n)$ and $D(n)$ are:",
+      "options": [
+        "A) $T(n) = n-1, D(n) = n-2$",
+        "B) $T(n) = n-2, D(n) = n-3$",
+        "C) $T(n) = n-2, D(n) = n-2$",
+        "D) $T(n) = n-3, D(n) = n-4$"
+      ],
+      "answer": "B",
+      "explanation": "For the base step $n=3$ (a single triangle), $T(3) = 1 = 3-2$ and $D(3) = 0 = 3-3$, which holds. In the inductive step, consider any convex polygon $P$ with $k+1$ vertices. Choosing an internal diagonal divides $P$ into two smaller convex polygons with $a$ and $b$ vertices respectively, such that $a + b = (k+1) + 2 = k+3$ and $3 \\le a, b \\le k$. By the strong induction hypothesis, the two sub-polygons can be triangulated into $T(a) = a-2$ and $T(b) = b-2$ triangles using $D(a) = a-3$ and $D(b) = b-3$ diagonals. Summing these and adding the dividing diagonal yields total triangles $T(k+1) = (a-2) + (b-2) = a + b - 4 = (k+3) - 4 = (k+1) - 2$, and total diagonals $D(k+1) = (a-3) + (b-3) + 1 = a + b - 5 = (k+3) - 5 = (k+1) - 3$. Therefore, $T(n) = n-2$ and $D(n) = n-3$ for all $n \\ge 3$. Distractor A sets $T(n)=n-1$, which overcounts triangles by $1$; distractor C sets $D(n)=n-2$, which equals the triangle count; and distractor D sets $T(n)=n-3$, undercounting triangles."
+    },
+    {
+      "id": "pmi_c01_047",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "For any integer $n \\ge 1$ and real $x > 1$, the algebraic product identity $\\prod_{k=0}^{n-1} \\left(1 + x^{2^k}\\right) = \\frac{x^{2^n}-1}{x-1}$ is proved by mathematical induction. For $x = 3$ and $n = 3$, the numerical value of the finite product $\\prod_{k=0}^2 \\left(1 + 3^{2^k}\\right)$ is equal to:",
+      "options": [
+        "A) $3270$",
+        "B) $3285$",
+        "C) $3280$",
+        "D) $3290$"
+      ],
+      "answer": "C",
+      "explanation": "For the base step $n=1$, $\\prod_{k=0}^0 (1 + x^{2^k}) = 1 + x = \\frac{x^2 - 1}{x - 1}$, which holds. In the inductive step, assuming $\\prod_{k=0}^{m-1} (1 + x^{2^k}) = \\frac{x^{2^m}-1}{x-1}$, multiplying by the next factor $(1 + x^{2^m})$ yields $\\frac{x^{2^m}-1}{x-1}(1 + x^{2^m}) = \\frac{(x^{2^m})^2 - 1}{x-1} = \\frac{x^{2^{m+1}}-1}{x-1}$. Therefore, the formula holds for all integers $n \\ge 1$. Substituting $x = 3$ and $n = 3$, we get $\\frac{3^{2^3} - 1}{3 - 1} = \\frac{3^8 - 1}{2}$. Since $3^8 = 6561$, solving gives $\\frac{6561 - 1}{2} = \\frac{6560}{2} = 3280$. Evaluating term by term confirms: $(1 + 3^1)(1 + 3^2)(1 + 3^4) = 4 \\times 10 \\times 82 = 40 \\times 82 = 3280$. The value $3270$ comes from subtracting $10$, $3285$ arises from an addition mistake, and $3290$ comes from evaluating with $82.25$."
+    },
+    {
+      "id": "pmi_c01_048",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Two coprime positive integers $a = 5$ and $b = 7$ are used as denominations. By strong mathematical induction, every integer $n > g(a,b)$ can be expressed as $n = 5x + 7y$ for non-negative integers $x, y \\ge 0$, where $g(a,b) = ab - a - b = 23$ is the Frobenius number. The total number of positive integers that CANNOT be expressed in the form $5x + 7y$ ($x, y \\ge 0$) is given by $\\frac{(a-1)(b-1)}{2}$. Determine the integer value of this count.",
+      "options": [],
+      "answer": "12",
+      "explanation": "By the Sylvester-Frobenius theorem proved via strong induction, in any pair of integers $(n, g(a,b) - n)$, exactly one can be represented in the form $ax + by$ with non-negative integers $x, y \\ge 0$. Therefore, exactly half of the integers between $1$ and $g(a,b)$ are representable, and the other half cannot be represented. Since $g(a,b) = ab - a - b$, the number of non-representable positive integers is given by $\\frac{g(a,b) + 1}{2} = \\frac{ab - a - b + 1}{2} = \\frac{(a-1)(b-1)}{2}$. Substituting $a = 5$ and $b = 7$, we get $\\frac{(5-1)(7-1)}{2} = \\frac{4 \\times 6}{2} = \\frac{24}{2} = 12$. Solving for this quantity yields $12$."
+    },
+    {
+      "id": "pmi_c01_049",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Zeckendorf's theorem, proved by strong mathematical induction, states that every positive integer can be uniquely represented as the sum of one or more distinct, non-consecutive Fibonacci numbers from the sequence $F_2 = 1, F_3 = 2, F_4 = 3, F_5 = 5, F_6 = 8, F_7 = 13, F_8 = 21, F_9 = 34, \\dots$. If the integer $50$ is written in its unique Zeckendorf representation $50 = F_{i_1} + F_{i_2} + \\dots + F_{i_r}$ with $i_1 > i_2 > \\dots > i_r$, determine the integer value of the largest Fibonacci term $F_{i_1}$ in this sum.",
+      "options": [],
+      "answer": "34",
+      "explanation": "Zeckendorf's theorem is proved by strong induction: for any positive integer $n$, let $F_k$ be the largest Fibonacci number such that $F_k \\le n$. If $n = F_k$, the proof is complete. If $n > F_k$, consider $n' = n - F_k$. Since $F_k \\le n < F_{k+1} = F_k + F_{k-1}$, we have $n' < F_{k-1}$. By the strong induction hypothesis, $n'$ has a unique Zeckendorf representation whose largest term is strictly less than $F_{k-1}$. Therefore, adding $F_k$ gives a representation of $n$ without consecutive Fibonacci numbers. For $n = 50$, the largest Fibonacci number $\\le 50$ is $F_9 = 34$. Then $50 - 34 = 16$. The largest Fibonacci number $\\le 16$ is $F_7 = 13$. Then $16 - 13 = 3 = F_4$. Therefore, $50 = F_9 + F_7 + F_4 = 34 + 13 + 3$, where the indices are non-consecutive ($9, 7, 4$). Solving for the largest term in this sum yields $F_9 = 34$."
+    },
+    {
+      "id": "pmi_c01_050",
+      "subject": "Mathematics",
+      "topic": "Principle of Mathematical Induction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In a plane, $n$ circles are drawn such that every pair of circles intersects at two distinct points, and no three circles pass through a common point. By mathematical induction, the number of disjoint regions into which the plane is divided by these $n$ circles is given by $C_n = n^2 - n + 2$. If $n = 7$, determine the integer value of $C_7$.",
+      "options": [],
+      "answer": "44",
+      "explanation": "For the base step $n=1$, a single circle divides the plane into $2$ regions (inside and outside), and $1^2 - 1 + 2 = 2$, which holds. In the inductive step, consider $k$ circles in general position. When a $(k+1)$-th circle is added, it intersects the existing $k$ circles at $2k$ distinct points. These $2k$ points divide the circumference of the new circle into $2k$ circular arcs. Each arc divides an existing region of the plane into two new regions, thereby creating $2k$ additional regions. Therefore, $C_{k+1} = C_k + 2k$. Assuming $C_k = k^2 - k + 2$, we get $C_{k+1} = (k^2 - k + 2) + 2k = k^2 + k + 2 = (k+1)^2 - (k+1) + 2$. This establishes the formula for all integers $n \\ge 1$. Substituting $n = 7$, we get $C_7 = 7^2 - 7 + 2 = 49 - 7 + 2 = 44$. Solving yields $44$."
+    }
+  ]
+}

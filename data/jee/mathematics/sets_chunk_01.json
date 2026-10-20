@@ -1,0 +1,784 @@
+{
+  "questions": [
+    {
+      "id": "set_c01_001",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $A$ and $B$ be two finite sets satisfying $n(A) = 12$, $n(B) = 15$, and $n(A \\cap B) = 5$. The total number of elements in the set $((A \\times B) \\cap (B \\times A)) \\cup ((A \\setminus B) \\times (B \\setminus A))$ is equal to:",
+      "options": [
+        "A) $95$",
+        "B) $105$",
+        "C) $120$",
+        "D) $75$"
+      ],
+      "answer": "A",
+      "explanation": "First, recall the identity $(A \\times B) \\cap (B \\times A) = (A \\cap B) \\times (B \\cap A) = (A \\cap B) \\times (A \\cap B)$. Since $n(A \\cap B) = 5$, the cardinality of this intersection is $n((A \\times B) \\cap (B \\times A)) = 5 \\times 5 = 25$. Next, compute the cardinalities of the relative complements: $n(A \\setminus B) = n(A) - n(A \\cap B) = 12 - 5 = 7$, and $n(B \\setminus A) = n(B) - n(A \\cap B) = 15 - 5 = 10$. Thus, $n((A \\setminus B) \\times (B \\setminus A)) = 7 \\times 10 = 70$. Since $(A \\cap B) \\cap (A \\setminus B) = \\emptyset$, the first coordinates of pairs in $(A \\cap B) \\times (A \\cap B)$ and $(A \\setminus B) \\times (B \\setminus A)$ are strictly disjoint, which implies the two Cartesian products are mutually disjoint. Therefore, the union has cardinality $25 + 70 = 95$. The value $105$ arises from mistakenly computing $n(A) \\times n(B) - n(A \\cap B)^2$, $120$ comes from adding $5 \\times 10$ extra terms, and $75$ omits the cross-product components."
+    },
+    {
+      "id": "set_c01_002",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a cohort of $100$ students, each student studies at least one of Physics ($P$), Chemistry ($C$), or Mathematics ($M$). Given that $n(P) = 48$, $n(C) = 45$, $n(M) = 52$, $n(P \\cap C) = 18$, $n(C \\cap M) = 17$, and $n(P \\cap M) = 21$, the number of students who study exactly two of the three subjects is equal to:",
+      "options": [
+        "A) $33$",
+        "B) $23$",
+        "C) $45$",
+        "D) $34$"
+      ],
+      "answer": "B",
+      "explanation": "Applying the Principle of Inclusion-Exclusion for three sets: $n(P \\cup C \\cup M) = n(P) + n(C) + n(M) - [n(P \\cap C) + n(C \\cap M) + n(P \\cap M)] + n(P \\cap C \\cap M)$. Substituting the given numerical values yields $100 = 48 + 45 + 52 - (18 + 17 + 21) + n(P \\cap C \\cap M) = 145 - 56 + n(P \\cap C \\cap M) = 89 + n(P \\cap C \\cap M)$, whence $n(P \\cap C \\cap M) = 100 - 89 = 11$. The number of students enrolled in exactly two subjects is given by $[n(P \\cap C) + n(C \\cap M) + n(P \\cap M)] - 3n(P \\cap C \\cap M)$. Evaluating this expression gives $56 - 3(11) = 56 - 33 = 23$. The value $33$ represents $3n(P \\cap C \\cap M)$, $34$ results from subtracting $2n(P \\cap C \\cap M)$ instead of $3n(P \\cap C \\cap M)$ (which gives students taking at least two subjects), and $45$ results from ignoring the three-way intersection completely."
+    },
+    {
+      "id": "set_c01_003",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\\}$. The number of non-empty subsets $A \\subseteq S$ such that the sum of all elements in $A$ is an even integer and $A$ contains at least one prime number is:",
+      "options": [
+        "A) $448$",
+        "B) $496$",
+        "C) $480$",
+        "D) $511$"
+      ],
+      "answer": "C",
+      "explanation": "The set $S$ contains $5$ even numbers $\\{2, 4, 6, 8, 10\\}$ and $5$ odd numbers $\\{1, 3, 5, 7, 9\\}$. A subset has an even sum if and only if it contains an even number of odd integers. The number of ways to choose an even number of odd elements from $5$ odd elements is $\\binom{5}{0} + \\binom{5}{2} + \\binom{5}{4} = 2^{5-1} = 16$. The $5$ even elements can be chosen arbitrarily in $2^5 = 32$ ways. Thus, the total number of subsets of $S$ with even sum is $32 \\times 16 = 512$. Now consider the complementary condition: subsets with an even sum that contain no prime numbers. The primes in $S$ are $\\{2, 3, 5, 7\\}$, so the non-prime elements are $N = \\{1, 4, 6, 8, 9, 10\\}$. In $N$, the even elements are $\\{4, 6, 8, 10\\}$ ($4$ elements) and the odd elements are $\\{1, 9\\}$ ($2$ elements). The number of subsets of $N$ with even sum is $2^4 \\times (\\binom{2}{0} + \\binom{2}{2}) = 16 \\times 2 = 32$. All $32$ of these subsets (including the empty set) contain no prime numbers. Subtracting these from the $512$ total even-sum subsets, we obtain $512 - 32 = 480$ valid non-empty subsets. The distractor $511$ counts all non-empty even-sum subsets, $496$ forgets the evens among non-primes, and $448$ miscounts odd non-primes."
+    },
+    {
+      "id": "set_c01_004",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $A, B, C$ be three finite sets such that $n(A) = 25$, $n(B) = 30$, $n(C) = 35$, $n(A \\cap B) = 10$, $n(B \\cap C) = 12$, $n(A \\cap C) = 8$, and $n(A \\cap B \\cap C) = 4$. The cardinality of the symmetric difference $(A \\Delta B) \\Delta C$ is:",
+      "options": [
+        "A) $38$",
+        "B) $42$",
+        "C) $54$",
+        "D) $46$"
+      ],
+      "answer": "D",
+      "explanation": "An element $x$ belongs to the symmetric difference $(A \\Delta B) \\Delta C$ if and only if $x$ belongs to an odd number of the sets $A, B, C$—that is, either to exactly one set or to all three sets. Applying the algebraic formula for symmetric difference cardinality: $n((A \\Delta B) \\Delta C) = n(A) + n(B) + n(C) - 2[n(A \\cap B) + n(B \\cap C) + n(A \\cap C)] + 4n(A \\cap B \\cap C)$. Substituting the given values: $n((A \\Delta B) \\Delta C) = 25 + 30 + 35 - 2(10 + 12 + 8) + 4(4) = 90 - 2(30) + 16 = 90 - 60 + 16 = 46$. Alternatively, the total union is $n(A \\cup B \\cup C) = 90 - 30 + 4 = 64$. Elements in at least two sets number $(10 - 4) + (12 - 4) + (8 - 4) + 4 = 6 + 8 + 4 + 4 = 22$. Hence elements in exactly one set are $64 - 22 = 42$. Adding the $4$ elements in all three sets gives $42 + 4 = 46$. The value $42$ erroneously omits the three-way intersection, $38$ subtracts the triple intersection instead of adding, and $54$ adds the pairwise intersections incorrectly."
+    },
+    {
+      "id": "set_c01_005",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $A = \\left\\{ x \\in \\mathbb{R} : \\frac{2x - 5}{x - 3} \\le 1 \\right\\}$ and $B = \\{ x \\in \\mathbb{R} : x^2 - 7x + 10 < 0 \\}$. The set $(A \\setminus B) \\cup (B \\setminus A)$ is equal to:",
+      "options": [
+        "A) $\\{2\\} \\cup [3, 5)$",
+        "B) $[2, 3) \\cup (3, 5)$",
+        "C) $(2, 3] \\cup [3, 5)$",
+        "D) $[2, 5) \\setminus \\{3\\}$"
+      ],
+      "answer": "A",
+      "explanation": "First, solve the rational inequality defining $A$: $\\frac{2x - 5}{x - 3} - 1 \\le 0 \\implies \\frac{2x - 5 - (x - 3)}{x - 3} \\le 0 \\implies \\frac{x - 2}{x - 3} \\le 0$. The critical points are $x = 2$ and $x = 3$. The expression is non-positive on $[2, 3)$, excluding $x = 3$ where the denominator vanishes. Thus, $A = [2, 3)$. Next, solve the quadratic inequality for $B$: $x^2 - 7x + 10 < 0 \\implies (x - 2)(x - 5) < 0$, yielding $B = (2, 5)$. Now compute the relative complements: $A \\setminus B = [2, 3) \\setminus (2, 5) = \\{2\\}$, since $2 \\in A$ and $2 \\notin B$. Next, $B \\setminus A = (2, 5) \\setminus [2, 3) = [3, 5)$. Therefore, the symmetric difference $(A \\setminus B) \\cup (B \\setminus A) = \\{2\\} \\cup [3, 5)$. The option $[2, 3) \\cup (3, 5)$ fails to recognize that $2$ is isolated in the difference, $(2, 3] \\cup [3, 5)$ incorrectly includes $3$ in $A$, and $[2, 5) \\setminus \\{3\\}$ improperly includes $(2, 3)$ which lies in $A \\cap B$."
+    },
+    {
+      "id": "set_c01_006",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $U = \\{2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12\\}$. The number of non-empty subsets $X \\subseteq U$ such that the greatest common divisor of all elements in $X$ is strictly greater than $1$ is equal to:",
+      "options": [
+        "A) $75$",
+        "B) $79$",
+        "C) $83$",
+        "D) $87$"
+      ],
+      "answer": "B",
+      "explanation": "A subset $X \\subseteq U$ has $\\gcd(X) > 1$ if and only if all elements in $X$ are divisible by at least one prime $p \\in \\{2, 3, 5, 7, 11\\}$. The subsets of multiples in $U$ are: $M_2 = \\{2, 4, 6, 8, 10, 12\\}$ ($6$ elements), $M_3 = \\{3, 6, 9, 12\\}$ ($4$ elements), $M_5 = \\{5, 10\\}$ ($2$ elements), $M_7 = \\{7\\}$ ($1$ element), and $M_{11} = \\{11\\}$ ($1$ element). The number of non-empty subsets of each is $2^{|M_p|} - 1$. Summing these: $(2^6 - 1) + (2^4 - 1) + (2^2 - 1) + (2^1 - 1) + (2^1 - 1) = 63 + 15 + 3 + 1 + 1 = 83$. By the Principle of Inclusion-Exclusion, we must subtract subsets whose elements are multiples of two distinct primes: $M_2 \\cap M_3 = M_6 = \\{6, 12\\}$ gives $2^2 - 1 = 3$ subsets, and $M_2 \\cap M_5 = M_{10} = \\{10\\}$ gives $2^1 - 1 = 1$ subset. All other pairwise intersections have size $0$ since $pq > 12$. Furthermore, the product of three primes is at least $2 \\times 3 \\times 5 = 30 > 12$, so all three-way intersections are empty. Hence, the required count is $83 - (3 + 1) = 79$. The value $83$ forgets to subtract subsets counted under multiple primes, $75$ over-subtracts common multiples, and $87$ adds intersections instead of subtracting."
+    },
+    {
+      "id": "set_c01_007",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a town of $1000$ families, every family owns at least one vehicle among a car ($C$), a two-wheeler ($T$), and a bicycle ($B$). Given $n(C) = 750$, $n(T) = 600$, and $n(B) = 450$, let $m$ and $M$ denote the minimum and maximum possible number of families that own all three vehicles. The ordered pair $(m, M)$ is:",
+      "options": [
+        "A) $(50, 450)$",
+        "B) $(0, 450)$",
+        "C) $(0, 400)$",
+        "D) $(100, 400)$"
+      ],
+      "answer": "C",
+      "explanation": "Let $x = n(C \\cap T \\cap B)$. Let $s_1$ and $s_2$ denote the number of families owning exactly one and exactly two vehicles, respectively. Then $s_1 + s_2 + x = 1000$ and $s_1 + 2s_2 + 3x = 750 + 600 + 450 = 1800$. Subtracting gives $s_2 + 2x = 800$, so $s_2 = 800 - 2x$. Since $s_2 \\ge 0$, we immediately have $2x \\le 800 \\implies x \\le 400$. When $x = 400$, setting $s_2 = 0$ yields $n(C \\setminus (T \\cup B)) = 350$, $n(T \\setminus (C \\cup B)) = 200$, and $n(B \\setminus (C \\cup T)) = 50$, all non-negative and summing to $1000$. Hence $M = 400$. To determine $m$, test if $x = 0$ is valid: when $x = 0$, $s_2 = 800$ and $s_1 = 200$. Choosing pairwise intersections $n(C \\cap T) = 350$, $n(T \\cap B) = 150$, $n(C \\cap B) = 300$, the individual exclusive regions are $n(C \\text{ only}) = 100$, $n(T \\text{ only}) = 100$, $n(B \\text{ only}) = 0$. Since all regional counts are non-negative and satisfy all given totals, $x = 0$ is achievable. Therefore, $(m, M) = (0, 400)$. The pair $(0, 450)$ naively assumes $M = \\min(n(C), n(T), n(B)) = 450$ without verifying that $s_2 \\ge 0$, while $(50, 450)$ and $(100, 400)$ rely on incorrect pairwise Bonferroni approximations."
+    },
+    {
+      "id": "set_c01_008",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6\\}$. The number of non-empty subsets of $S$ such that the sum of the elements in the subset is divisible by $3$ is equal to:",
+      "options": [
+        "A) $21$",
+        "B) $22$",
+        "C) $24$",
+        "D) $23$"
+      ],
+      "answer": "D",
+      "explanation": "Partition $S$ into residue classes modulo $3$: $R_0 = \\{3, 6\\}$ (size $2$), $R_1 = \\{1, 4\\}$ (size $2$), and $R_2 = \\{2, 5\\}$ (size $2$). Using the roots of unity filter with $\\omega = e^{i 2\\pi/3}$, the subset sum generating function is $P(z) = \\prod_{x \\in S}(1 + z^x) = (1 + z^3)^2 (1 + z)^2 (1 + z^2)^2$. The number of subsets with sum $\\equiv 0 \\pmod 3$ is $N = \\frac{1}{3}[P(1) + P(\\omega) + P(\\omega^2)]$. At $z = 1$, $P(1) = 2^6 = 64$. At $z = \\omega$, since $\\omega^3 = 1$ and $(1 + \\omega)(1 + \\omega^2) = 1 + \\omega + \\omega^2 + \\omega^3 = 1$, we have $P(\\omega) = (1 + 1)^2 \\times 1^2 = 4$. Similarly, $P(\\omega^2) = 4$. Therefore, $N = \\frac{1}{3}(64 + 4 + 4) = \\frac{72}{3} = 24$. Since the empty set $\\emptyset$ has sum $0$ (which is a multiple of $3$), the number of non-empty subsets is $24 - 1 = 23$. The value $24$ erroneously includes the empty set, $21$ miscounts combinations from $R_1$ and $R_2$, and $22$ is an off-by-one arithmetic error."
+    },
+    {
+      "id": "set_c01_009",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6, 7\\}$. The number of ordered pairs of subsets $(A, B)$ of $S$ such that $A \\cap B = \\emptyset$ with both $A$ and $B$ being non-empty is equal to:",
+      "options": [
+        "A) $1932$",
+        "B) $1931$",
+        "C) $2059$",
+        "D) $1804$"
+      ],
+      "answer": "A",
+      "explanation": "For any element $x \\in S$, if $A \\cap B = \\emptyset$, there are exactly $3$ mutually exclusive choices: $x \\in A \\setminus B$, $x \\in B \\setminus A$, or $x \\notin A \\cup B$. Since $|S| = 7$, the total number of ordered pairs of disjoint subsets $(A, B)$ is $3^7 = 2187$. We must exclude pairs where $A = \\emptyset$ or $B = \\emptyset$. If $A = \\emptyset$, $B$ can be any of the $2^7 = 128$ subsets of $S$. Similarly, if $B = \\emptyset$, $A$ can be any of the $2^7 = 128$ subsets of $S$. The pair $(\\emptyset, \\emptyset)$ has been subtracted in both cases and must be added back once via inclusion-exclusion. Thus, the number of pairs of non-empty disjoint subsets is $3^7 - 2 \\times 2^7 + 1 = 2187 - 256 + 1 = 1932$. The value $1931$ subtracts the empty pair instead of adding it back, $2059$ accounts only for $A = \\emptyset$ while ignoring $B = \\emptyset$, and $1804$ over-subtracts $3 \\times 128$."
+    },
+    {
+      "id": "set_c01_010",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $A = \\{x \\in \\mathbb{R} : |x - 2| < 3\\}$ and $B = \\{x \\in \\mathbb{R} : x^2 - (2k + 1)x + k(k + 1) \\le 0\\}$, where $k \\in \\mathbb{R}$. If $B \\subseteq A$, then the set of all permissible real values of $k$ is:",
+      "options": [
+        "A) $[-1, 4]$",
+        "B) $(-1, 4)$",
+        "C) $[0, 4)$",
+        "D) $(-1, 5)$"
+      ],
+      "answer": "B",
+      "explanation": "First, solve the inequality defining $A$: $|x - 2| < 3 \\iff -3 < x - 2 < 3 \\iff -1 < x < 5$. Hence $A = (-1, 5)$. Next, factor the quadratic inequality for $B$: $x^2 - (2k + 1)x + k(k + 1) = (x - k)(x - (k + 1)) \\le 0$. Since $k < k + 1$, the solution set is the closed interval $B = [k, k + 1]$. The condition $B \\subseteq A$ requires $[k, k + 1] \\subseteq (-1, 5)$. For a closed interval $[a, b]$ to be contained within an open interval $(c, d)$, we must have $c < a$ and $b < d$. Thus: $-1 < k$ and $k + 1 < 5 \\implies k < 4$. Combining these strict inequalities gives $k \\in (-1, 4)$. If $k = -1$ or $k = 4$, an endpoint of $B$ coincides with an open boundary of $A$ and is excluded from $A$, violating subset containment. Hence the closed interval $[-1, 4]$ is incorrect. The set $[0, 4)$ unnecessarily restricts $k$ to non-negative values, and $(-1, 5)$ ignores the unit interval length of $B$."
+    },
+    {
+      "id": "set_c01_011",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $X$ be a non-empty universal set, and for any subset $S \\subseteq X$, let $\\chi_S : X \\to \\{0, 1\\}$ denote its characteristic function. For two arbitrary subsets $A, B \\subseteq X$, consider the mapping $f(x) = \\chi_A(x) + \\chi_B(x) - 2\\chi_A(x)\\chi_B(x)$. The set of all $x \\in X$ for which $f(x) = 1$ is:",
+      "options": [
+        "A) $A \\cup B$",
+        "B) $A \\cap B$",
+        "C) $A \\Delta B$",
+        "D) $(A \\cup B)^c$"
+      ],
+      "answer": "C",
+      "explanation": "Evaluate the function $f(x)$ across all four mutually disjoint regions of the partition of $X$: (1) If $x \\in A \\cap B$, then $\\chi_A(x) = 1$ and $\\chi_B(x) = 1$, yielding $f(x) = 1 + 1 - 2(1)(1) = 0$. (2) If $x \\in A \\setminus B$, then $\\chi_A(x) = 1$ and $\\chi_B(x) = 0$, giving $f(x) = 1 + 0 - 0 = 1$. (3) If $x \\in B \\setminus A$, then $\\chi_A(x) = 0$ and $\\chi_B(x) = 1$, yielding $f(x) = 0 + 1 - 0 = 1$. (4) If $x \\notin A \\cup B$, then $\\chi_A(x) = 0$ and $\\chi_B(x) = 0$, giving $f(x) = 0 + 0 - 0 = 0$. Therefore, $f(x) = 1$ if and only if $x \\in (A \\setminus B) \\cup (B \\setminus A) = A \\Delta B$. Note that $A \\cup B$ has characteristic function $\\chi_A + \\chi_B - \\chi_A\\chi_B$, $A \\cap B$ has characteristic function $\\chi_A\\chi_B$, and $(A \\cup B)^c$ corresponds to $(1 - \\chi_A)(1 - \\chi_B)$."
+    },
+    {
+      "id": "set_c01_012",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\\}$. Find the number of pairs $(A, B)$ of non-empty subsets of $S$ such that $A \\cup B = S$ and $A \\cap B = \\{1, 2\\}$.",
+      "options": [],
+      "answer": "256",
+      "explanation": "For the elements $1$ and $2$, both must belong to $A \\cap B$, meaning $1 \\in A, 1 \\in B$ and $2 \\in A, 2 \\in B$. There is only $1$ choice for these elements. For each of the remaining $8$ elements $x \\in \\{3, 4, 5, 6, 7, 8, 9, 10\\}$, since $A \\cap B = \\{1, 2\\}$, $x$ cannot belong to both $A$ and $B$. Since $A \\cup B = S$, $x$ must belong to at least one of $A$ or $B$. Thus, each such $x$ must belong to either $A \\setminus B$ or $B \\setminus A$, giving exactly $2$ independent choices per element. Since there are $8$ such elements, there are $2^8 = 256$ assignments. Because $1, 2 \\in A$ and $1, 2 \\in B$, both subsets $A$ and $B$ contain at least two elements and are automatically non-empty. Hence, the total number of valid pairs is $2^8 = 256$."
+    },
+    {
+      "id": "set_c01_013",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the total number of integers in the set $S = \\{1, 2, 3, \\dots, 600\\}$ that are divisible by at least one of $4$ or $6$, but are not divisible by $5$.",
+      "options": [],
+      "answer": "160",
+      "explanation": "Let $A_k$ denote the set of multiples of $k$ in $S$. The number of elements in $S$ divisible by at least one of $4$ or $6$ is given by $|A_4 \\cup A_6| = |A_4| + |A_6| - |A_4 \\cap A_6| = |A_4| + |A_6| - |A_{12}|$. Computing these cardinalities: $|A_4| = \\lfloor 600/4 \\rfloor = 150$, $|A_6| = \\lfloor 600/6 \\rfloor = 100$, and $|A_{12}| = \\lfloor 600/12 \\rfloor = 50$. Thus, $|A_4 \\cup A_6| = 150 + 100 - 50 = 200$. Now, the elements in $A_4 \\cup A_6$ that are divisible by $5$ belong to $(A_4 \\cup A_6) \\cap A_5 = (A_4 \\cap A_5) \\cup (A_6 \\cap A_5) = A_{20} \\cup A_{30}$. Using inclusion-exclusion: $|A_{20} \\cup A_{30}| = |A_{20}| + |A_{30}| - |A_{\\text{lcm}(20, 30)}| = |A_{20}| + |A_{30}| - |A_{60}|$. Calculating these values: $|A_{20}| = \\lfloor 600/20 \\rfloor = 30$, $|A_{30}| = \\lfloor 600/30 \\rfloor = 20$, and $|A_{60}| = \\lfloor 600/60 \\rfloor = 10$. Thus, $|A_{20} \\cup A_{30}| = 30 + 20 - 10 = 40$. Subtracting the multiples of $5$, the required count is $200 - 40 = 160$."
+    },
+    {
+      "id": "set_c01_014",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6, 7, 8, 9\\}$. Find the total number of $3$-element subsets of $S$ that contain at least one multiple of $3$ and at least one even integer.",
+      "options": [],
+      "answer": "55",
+      "explanation": "The total number of $3$-element subsets of $S$ is $\\binom{9}{3} = \\frac{9 \\times 8 \\times 7}{6} = 84$. We use the Principle of Inclusion-Exclusion to eliminate subsets that violate the conditions. Let $P_1$ be the property that a subset contains no multiple of $3$, and $P_2$ be the property that it contains no even integer. The multiples of $3$ in $S$ are $\\{3, 6, 9\\}$ ($3$ elements), so there are $9 - 3 = 6$ non-multiples of $3$. Subsets satisfying $P_1$ are chosen from these $6$ elements: $N(P_1) = \\binom{6}{3} = 20$. The even integers in $S$ are $\\{2, 4, 6, 8\\}$ ($4$ elements), so there are $9 - 4 = 5$ odd integers. Subsets satisfying $P_2$ are chosen from these $5$ odd integers: $N(P_2) = \\binom{5}{3} = 10$. Subsets satisfying both $P_1$ and $P_2$ contain neither a multiple of $3$ nor an even integer; these must be chosen from $S \\setminus (\\{3, 6, 9\\} \\cup \\{2, 4, 6, 8\\}) = \\{1, 5, 7\\}$ ($3$ elements). Hence $N(P_1 \\cap P_2) = \\binom{3}{3} = 1$. By inclusion-exclusion, the number of invalid subsets is $N(P_1) + N(P_2) - N(P_1 \\cap P_2) = 20 + 10 - 1 = 29$. Therefore, the number of valid subsets is $84 - 29 = 55$."
+    },
+    {
+      "id": "set_c01_015",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $A$ and $B$ be two sets such that $|A| = 6$, $|B| = 7$, and $|A \\cap B| = 3$. Let $\\mathcal{P}(X)$ denote the power set of a set $X$. Find the total number of subsets in $\\mathcal{P}(A \\cup B)$ that do not belong to $\\mathcal{P}(A) \\cup \\mathcal{P}(B)$.",
+      "options": [],
+      "answer": "840",
+      "explanation": "First, determine the cardinality of the union: $|A \\cup B| = |A| + |B| - |A \\cap B| = 6 + 7 - 3 = 10$. The power set $\\mathcal{P}(A \\cup B)$ has cardinality $2^{10} = 1024$. Next, calculate the cardinality of $\\mathcal{P}(A) \\cup \\mathcal{P}(B)$ using the Principle of Inclusion-Exclusion: $|\\mathcal{P}(A) \\cup \\mathcal{P}(B)| = |\\mathcal{P}(A)| + |\\mathcal{P}(B)| - |\\mathcal{P}(A) \\cap \\mathcal{P}(B)|$. Since the intersection of two power sets satisfies $\\mathcal{P}(A) \\cap \\mathcal{P}(B) = \\mathcal{P}(A \\cap B)$, we substitute the known sizes: $|\\mathcal{P}(A)| = 2^6 = 64$, $|\\mathcal{P}(B)| = 2^7 = 128$, and $|\\mathcal{P}(A \\cap B)| = 2^3 = 8$. This yields $|\\mathcal{P}(A) \\cup \\mathcal{P}(B)| = 64 + 128 - 8 = 184$. The number of subsets in $\\mathcal{P}(A \\cup B)$ that are neither in $\\mathcal{P}(A)$ nor in $\\mathcal{P}(B)$ is therefore $1024 - 184 = 840$."
+    },
+    {
+      "id": "set_c01_016",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $S = \\{1, 2, 3, \\dots, 210\\}$. The number of elements in $S$ that are divisible by at least two of the distinct prime factors of $210$ is equal to:",
+      "options": [
+        "A) $64$",
+        "B) $68$",
+        "C) $74$",
+        "D) $70$"
+      ],
+      "answer": "D",
+      "explanation": "The prime factorization of $210$ is $210 = 2 \\times 3 \\times 5 \\times 7$. The number of elements in $S$ coprime to $210$ is given by Euler's totient function: $\\phi(210) = 210 \\left(1 - \\frac{1}{2}\\right)\\left(1 - \\frac{1}{3}\\right)\\left(1 - \\frac{1}{5}\\right)\\left(1 - \\frac{1}{7}\\right) = 210 \\times \\frac{1}{2} \\times \\frac{2}{3} \\times \\frac{4}{5} \\times \\frac{6}{7} = 48$. Thus, the number of elements divisible by at least one prime factor is $210 - 48 = 162$. Next, compute the number of elements divisible by exactly one prime factor. For $p = 2$: the integers are $2k \\le 210$, so $k \\in \\{1, \\dots, 105\\}$ must be coprime to $3 \\times 5 \\times 7 = 105$. The count is $\\phi(105) = 105 \\times \\frac{2}{3} \\times \\frac{4}{5} \\times \\frac{6}{7} = 48$. For $p = 3$: integers $3k \\le 210$ with $k \\in \\{1, \\dots, 70\\}$ coprime to $2 \\times 5 \\times 7 = 70$. The count is $\\phi(70) = 70 \\times \\frac{1}{2} \\times \\frac{4}{5} \\times \\frac{6}{7} = 24$. For $p = 5$: integers $5k \\le 210$ with $k \\in \\{1, \\dots, 42\\}$ coprime to $2 \\times 3 \\times 7 = 42$. The count is $\\phi(42) = 42 \\times \\frac{1}{2} \\times \\frac{2}{3} \\times \\frac{6}{7} = 12$. For $p = 7$: integers $7k \\le 210$ with $k \\in \\{1, \\dots, 30\\}$ coprime to $2 \\times 3 \\times 5 = 30$. The count is $\\phi(30) = 30 \\times \\frac{1}{2} \\times \\frac{2}{3} \\times \\frac{4}{5} = 8$. Summing these yields $48 + 24 + 12 + 8 = 92$ integers divisible by exactly one prime factor. Therefore, the number of elements divisible by at least two prime factors is $162 - 92 = 70$. The value $64$ comes from miscalculating $\\phi(105)$, while $68$ and $74$ stem from arithmetic errors in the single-prime sums."
+    },
+    {
+      "id": "set_c01_017",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6\\}$. The number of partitions of the set $S$ into three non-empty pairwise disjoint subsets $A, B, C$ such that the elements $1$ and $2$ belong to different subsets is equal to:",
+      "options": [
+        "A) $65$",
+        "B) $75$",
+        "C) $50$",
+        "D) $60$"
+      ],
+      "answer": "A",
+      "explanation": "The total number of partitions of a $6$-element set into $3$ non-empty subsets is given by the Stirling number of the second kind, $S(6, 3) = \\frac{1}{3!} \\sum_{j=0}^3 (-1)^{3-j} \\binom{3}{j} j^6 = \\frac{1}{6} [3^6 - 3 \\cdot 2^6 + 3 \\cdot 1^6] = \\frac{1}{6} [729 - 192 + 3] = \\frac{540}{6} = 90$. Now consider the partitions in which $1$ and $2$ belong to the same block. Merging $1$ and $2$ into a single composite element $\\{1, 2\\}$, the task reduces to partitioning a $5$-element set $\\{\\{1, 2\\}, 3, 4, 5, 6\\}$ into $3$ non-empty subsets, which is counted by $S(5, 3) = \\frac{1}{6} [3^5 - 3 \\cdot 2^5 + 3 \\cdot 1^5] = \\frac{1}{6} [243 - 96 + 3] = \\frac{150}{6} = 25$. Therefore, the number of partitions in which $1$ and $2$ belong to different subsets is $S(6, 3) - S(5, 3) = 90 - 25 = 65$. The value $75$ subtracts $15$ instead of $25$, $50$ arises from improperly dividing $S(6,3)$, and $60$ results from evaluating $S(6,3)$ incorrectly."
+    },
+    {
+      "id": "set_c01_018",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $A = \\{-3, -2, -1, 0, 1, 2, 3\\}$ and $B = \\{-4, -3, -2, -1, 0, 1, 2, 3, 4\\}$. Consider the subset $S \\subseteq A \\times B$ defined by $S = \\{(x, y) \\in A \\times B : x^2 + y^2 \\le 9 \\text{ and } |x - y| \\le 2\\}$. The cardinality of the set $S$ is:",
+      "options": [
+        "A) $17$",
+        "B) $19$",
+        "C) $21$",
+        "D) $23$"
+      ],
+      "answer": "B",
+      "explanation": "We analyze the points $(x, y) \\in A \\times B$ satisfying both $y^2 \\le 9 - x^2$ and $x - 2 \\le y \\le x + 2$ by systematic casework on $x \\in \\{-3, -2, -1, 0, 1, 2, 3\\}$: (1) For $x = 0$: $y^2 \\le 9 \\implies y \\in \\{-3, -2, -1, 0, 1, 2, 3\\}$, and $|y| \\le 2 \\implies y \\in \\{-2, -1, 0, 1, 2\\}$. Both hold for $5$ values. (2) For $x = 1$: $y^2 \\le 8 \\implies y \\in \\{-2, -1, 0, 1, 2\\}$, and $-1 \\le y \\le 3$. Intersection gives $y \\in \\{-1, 0, 1, 2\\}$ ($4$ values). (3) For $x = -1$: by symmetry under $(x, y) \\mapsto (-x, -y)$, there are also $4$ values ($y \\in \\{-2, -1, 0, 1\\}$). (4) For $x = 2$: $y^2 \\le 5 \\implies y \\in \\{-2, -1, 0, 1, 2\\}$, and $0 \\le y \\le 4$. Intersection gives $y \\in \\{0, 1, 2\\}$ ($3$ values). (5) For $x = -2$: by symmetry, there are $3$ values ($y \\in \\{-2, -1, 0\\}$). (6) For $x = 3$: $y^2 \\le 0 \\implies y = 0$. But $|3 - 0| = 3 > 2$, which fails the second constraint ($0$ values). (7) For $x = -3$: similarly $y = 0$, giving $|-3 - 0| = 3 > 2$ ($0$ values). Summing all cases: $5 + 4 + 4 + 3 + 3 + 0 + 0 = 19$. The value $21$ mistakenly includes $(3, 0)$ and $(-3, 0)$, $17$ omits diagonal boundary points, and $23$ ignores the condition $|x - y| \\le 2$ on higher ordinates."
+    },
+    {
+      "id": "set_c01_019",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\\}$, and define two fixed subsets $A = \\{1, 2, 3, 4, 5, 6\\}$ and $B = \\{4, 5, 6, 7, 8, 9\\}$. The total number of subsets $X \\subseteq S$ satisfying the set equation $(A \\cap X) \\cup (B \\setminus X) = \\{3, 4, 5, 6, 8\\}$ is equal to:",
+      "options": [
+        "A) $8$",
+        "B) $12$",
+        "C) $16$",
+        "D) $32$"
+      ],
+      "answer": "C",
+      "explanation": "Let $T = \\{3, 4, 5, 6, 8\\}$. We determine the membership condition for each element $x \\in S$: (1) For $x \\in A \\cap B = \\{4, 5, 6\\}$: whether $x \\in X$ or $x \\notin X$, we have $x \\in (A \\cap X)$ if $x \\in X$, and $x \\in (B \\setminus X)$ if $x \\notin X$. Hence every element of $A \\cap B$ is automatically contained in $(A \\cap X) \\cup (B \\setminus X)$. Since $\\{4, 5, 6\\} \\subseteq T$, this requirement is satisfied regardless of whether each element is in $X$ or not. Thus each of the $3$ elements in $\\{4, 5, 6\\}$ yields $2$ independent choices ($2^3 = 8$ ways). (2) For $x \\in A \\setminus B = \\{1, 2, 3\\}$: here $x \\notin B$, so $x \\in (B \\setminus X)$ is impossible. Thus $x \\in T \\iff x \\in (A \\cap X) \\iff x \\in X$. Since $3 \\in T$, we must have $3 \\in X$. Since $1, 2 \\notin T$, we must have $1 \\notin X$ and $2 \\notin X$. Each of these $3$ elements has exactly $1$ choice. (3) For $x \\in B \\setminus A = \\{7, 8, 9\\}$: here $x \\notin A$, so $x \\in (A \\cap X)$ is impossible. Thus $x \\in T \\iff x \\in (B \\setminus X) \\iff x \\notin X$. Since $8 \\in T$, we must have $8 \\notin X$. Since $7, 9 \\notin T$, we must have $7 \\in X$ and $9 \\in X$. Each of these $3$ elements has exactly $1$ choice. (4) For $x \\in S \\setminus (A \\cup B) = \\{10\\}$: $10$ cannot belong to $A$ or $B$, so it can never enter the LHS. Since $10 \\notin T$, this is consistent whether $10 \\in X$ or $10 \\notin X$ ($2$ choices). Multiplying independent choices gives $2^3 \\times 1 \\times 1 \\times 2 = 16$. The value $8$ forgets the element $10$ outside $A \\cup B$, $32$ miscounts dependencies, and $12$ adds possibilities instead of multiplying."
+    },
+    {
+      "id": "set_c01_020",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $A = \\{1, 2, 3, 4, 5\\}$. A relation $R \\subseteq A \\times A$ is called strictly asymmetric if for every $(x, y) \\in R$, we have $x \\ne y$ and $(y, x) \\notin R$. The number of strictly asymmetric relations $R \\subseteq A \\times A$ such that $|R| = 4$ is equal to:",
+      "options": [
+        "A) $1680$",
+        "B) $2520$",
+        "C) $3150$",
+        "D) $3360$"
+      ],
+      "answer": "D",
+      "explanation": "The Cartesian product $A \\times A$ contains $25$ ordered pairs. The diagonal elements $(x, x)$ for $x \\in A$ cannot belong to $R$ because $x \\ne y$. The remaining $20$ off-diagonal pairs can be grouped into $\\binom{5}{2} = 10$ disjoint pairs of mutually inverse ordered pairs: $\\{\\{(x, y), (y, x)\\} : 1 \\le x < y \\le 5\\}$. The asymmetry condition dictates that for each of these $10$ unordered pairs, $R$ can contain at most one of $(x, y)$ or $(y, x)$, and cannot contain both. To construct a strictly asymmetric relation $R$ with $|R| = 4$: first, select $4$ distinct unordered pairs out of the $10$ available pairs in $\\binom{10}{4} = \\frac{10 \\times 9 \\times 8 \\times 7}{24} = 210$ ways. Next, for each of the $4$ chosen pairs, select which orientation of the pair belongs to $R$ ($2$ choices per pair, yielding $2^4 = 16$ ways). Therefore, the total number of strictly asymmetric relations of size $4$ is $210 \\times 16 = 3360$. The value $1680$ erroneously uses $2^3$ orientations, $2520$ results from an incorrect combination calculation, and $3150$ forgets the mutually exclusive nature of the pairs."
+    },
+    {
+      "id": "set_c01_021",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a class of $100$ students, $85$ students study English ($E$), $75$ study Hindi ($H$), and $65$ study French ($F$). Let $m$ and $M$ denote the minimum and maximum possible number of students who study all three languages, assuming every student studies at least one language. The value of $M - m$ is equal to:",
+      "options": [
+        "A) $40$",
+        "B) $35$",
+        "C) $45$",
+        "D) $50$"
+      ],
+      "answer": "A",
+      "explanation": "Let $x = n(E \\cap H \\cap F)$. The maximum possible value is constrained by the smallest set: $x \\le \\min(85, 75, 65) = 65$. To check whether $x = 65$ is valid: if $F \\subseteq E \\cap H$, then $n(E \\cap H) \\ge 65$. Since $n(E \\cup H) = 85 + 75 - n(E \\cap H) \\le 100 \\implies n(E \\cap H) \\ge 60$, having $n(E \\cap H) = 65$ is fully compatible and gives $n(E \\cup H \\cup F) = 100$. Thus $M = 65$. To find the minimum $m$, we consider the complements with respect to the class of $100$: $n(E') = 15$, $n(H') = 25$, and $n(F') = 35$. The students who do not study all three languages belong to $E' \\cup H' \\cup F'$. By Boole's inequality: $n(E' \\cup H' \\cup F') \\le n(E') + n(H') + n(F') = 15 + 25 + 35 = 75$. Therefore, $n(E \\cap H \\cap F) = 100 - n(E' \\cup H' \\cup F') \\ge 100 - 75 = 25$. This lower bound $x = 25$ is achieved when $E', H', F'$ are pairwise disjoint. Hence $m = 25$. Finally, $M - m = 65 - 25 = 40$. The value $35$ arises from mistakenly setting $M = 60$, $45$ comes from estimating $m = 20$, and $50$ results from unbounded complement subtraction."
+    },
+    {
+      "id": "set_c01_022",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $A = \\left\\{ x \\in \\mathbb{R} : \\log_{1/2}(x^2 - 5x + 7) \\ge 0 \\right\\}$ and $B = \\left\\{ x \\in \\mathbb{R} : \\frac{x^2 - 4x + 3}{x^2 - 6x + 8} \\le 0 \\right\\}$. The symmetric difference $A \\Delta B = (A \\setminus B) \\cup (B \\setminus A)$ is given by:",
+      "options": [
+        "A) $[1, 4)$",
+        "B) $[1, 3) \\cup (3, 4)$",
+        "C) $[1, 2) \\cup (2, 4)$",
+        "D) $(1, 3) \\cup (3, 4)$"
+      ],
+      "answer": "B",
+      "explanation": "First, solve for set $A$: since the logarithm base is $\\frac{1}{2} < 1$, the inequality inverts: $\\log_{1/2}(x^2 - 5x + 7) \\ge 0 \\iff 0 < x^2 - 5x + 7 \\le (1/2)^0 = 1$. The quadratic $x^2 - 5x + 7$ has discriminant $\\Delta = 25 - 28 = -3 < 0$, so it is strictly positive for all $x \\in \\mathbb{R}$. The upper bound gives $x^2 - 5x + 6 \\le 0 \\implies (x - 2)(x - 3) \\le 0 \\implies x \\in [2, 3]$. Thus $A = [2, 3]$. Next, solve for set $B$: $\\frac{(x - 1)(x - 3)}{(x - 2)(x - 4)} \\le 0$. Testing intervals with non-zero denominators ($x \\ne 2, 4$): the expression is non-positive on $[1, 2) \\cup [3, 4)$. Thus $B = [1, 2) \\cup [3, 4)$. Now compute the intersection: $A \\cap B = [2, 3] \\cap ([1, 2) \\cup [3, 4)) = \\{3\\}$. The union is $A \\cup B = [2, 3] \\cup [1, 2) \\cup [3, 4) = [1, 4)$. The symmetric difference is $(A \\cup B) \\setminus (A \\cap B) = [1, 4) \\setminus \\{3\\} = [1, 3) \\cup (3, 4)$. The set $[1, 4)$ fails to remove the common point $3$, $[1, 2) \\cup (2, 4)$ misidentifies the excluded boundary, and $(1, 3) \\cup (3, 4)$ incorrectly excludes $x = 1$."
+    },
+    {
+      "id": "set_c01_023",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\\}$. The number of $4$-element subsets $\\{a, b, c, d\\} \\subseteq S$ with $a < b < c < d$ such that $b - a \\ge 2$, $c - b \\ge 2$, and $d - c \\ge 2$, and which contain at least one odd integer, is:",
+      "options": [
+        "A) $25$",
+        "B) $28$",
+        "C) $30$",
+        "D) $35$"
+      ],
+      "answer": "C",
+      "explanation": "First, determine the total number of $4$-element subsets of ${1, 2, \\dots, 10}$ with no two consecutive integers. This is given by the standard combinatorial formula $\\binom{n - k + 1}{k}$ with $n = 10$ and $k = 4$: $\\binom{10 - 4 + 1}{4} = \\binom{7}{4} = \\frac{7 \\times 6 \\times 5}{6} = 35$. Next, consider the complementary condition: subsets where NO element is odd—that is, all $4$ elements are even integers. The even integers in $S$ are $\\{2, 4, 6, 8, 10\\}$ ($5$ elements). Notice that any two distinct even integers have a difference of at least $2$. Thus, every $4$-element subset chosen from $\\{2, 4, 6, 8, 10\\}$ automatically satisfies the non-consecutive spacing constraint. The number of such all-even subsets is $\\binom{5}{4} = 5$. Subtracting these all-even subsets from the total valid subsets yields $35 - 5 = 30$ subsets containing at least one odd integer. The value $35$ fails to exclude all-even subsets, $25$ over-subtracts $10$, and $28$ results from miscounting the even subsets."
+    },
+    {
+      "id": "set_c01_024",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $X$ be a non-empty set and $\\mathcal{P}(X)$ be its power set. In the Boolean ring $(\\mathcal{P}(X), \\Delta, \\cap)$, addition is given by symmetric difference and multiplication by intersection. For two fixed subsets $A, B \\in \\mathcal{P}(X)$, consider the set equation $A \\Delta Y = B$ in the unknown subset $Y$. Which of the following statements is correct?",
+      "options": [
+        "A) A solution exists if and only if $A \\subseteq B$, and it is given by $Y = B \\setminus A$.",
+        "B) A solution exists if and only if $A \\cap B = \\emptyset$, and it is given by $Y = A \\cup B$.",
+        "C) A solution always exists, but it is not unique whenever $A \\cap B \\ne \\emptyset$.",
+        "D) A unique solution always exists for any given $A$ and $B$, and is given by $Y = A \\Delta B$."
+      ],
+      "answer": "D",
+      "explanation": "In any Boolean ring, every element is its own additive inverse because $A \\Delta A = \\emptyset$ for every subset $A$. Applying symmetric difference with $A$ on both sides of $A \\Delta Y = B$ gives $A \\Delta (A \\Delta Y) = A \\Delta B$. By associativity of symmetric difference, $(A \\Delta A) \\Delta Y = A \\Delta B \\implies \\emptyset \\Delta Y = A \\Delta B \\implies Y = A \\Delta B$. Because $(\\mathcal{P}(X), \\Delta)$ is an abelian group, the additive inverse is unique, which guarantees that $Y = A \\Delta B$ is the unique solution for any arbitrary choice of $A, B \\subseteq X$. The claim that $A \\subseteq B$ is required confuses symmetric difference with relative complementation, the disjointness condition is completely unnecessary, and the non-uniqueness claim fails to recognize group cancellation in $(\\mathcal{P}(X), \\Delta)$."
+    },
+    {
+      "id": "set_c01_025",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $A = \\{1, 2, 3, 4, 5\\}$ and $B = \\{1, 2, 3, 4\\}$. The number of functions $f : A \\to B$ whose range $f(A)$ satisfies $|f(A)| = 3$ and $1 \\in f(A)$ is equal to:",
+      "options": [
+        "A) $450$",
+        "B) $360$",
+        "C) $540$",
+        "D) $600$"
+      ],
+      "answer": "A",
+      "explanation": "To specify such a function $f$, we first select its range $R \\subseteq B$: we need $|R| = 3$ with $1 \\in R$. Since $1$ is fixed, we choose the remaining $2$ elements from $B \\setminus \\{1\\} = \\{2, 3, 4\\}$, which gives $\\binom{3}{2} = 3$ choices for $R$. For each chosen range $R$ of size $3$, the number of surjective (onto) functions from $A$ (size $5$) to $R$ (size $3$) is given by $3! \\times S(5, 3)$, where $S(5, 3)$ is the Stirling number of the second kind. Computing $S(5, 3) = \\frac{1}{6}[3^5 - 3 \\cdot 2^5 + 3 \\cdot 1^5] = \\frac{1}{6}[243 - 96 + 3] = \\frac{150}{6} = 25$. Thus, the number of surjections onto $R$ is $3! \\times 25 = 6 \\times 25 = 150$. Multiplying by the $3$ choices of range yields $3 \\times 150 = 450$ valid functions. The value $360$ comes from choosing any $3$ elements of $B$ without enforcing $1 \\in R$ and making an arithmetic omission, $540$ overcounts overlaps, and $600$ uses $4 \\times 150$."
+    },
+    {
+      "id": "set_c01_026",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6, 7, 8\\}$. The number of unordered pairs of disjoint non-empty subsets $\\{A, B\\}$ such that $A \\cup B = S$ and the sum of elements in $A$ equals the sum of elements in $B$ is equal to:",
+      "options": [
+        "A) $5$",
+        "B) $7$",
+        "C) $8$",
+        "D) $14$"
+      ],
+      "answer": "B",
+      "explanation": "The total sum of all elements in $S$ is $\\sum_{i=1}^8 i = \\frac{8 \\times 9}{2} = 36$. For the sums to be equal, each subset must sum to $\\frac{36}{2} = 18$. Since $B = S \\setminus A$, each valid subset $A$ uniquely determines $B$, and since $A$ and $B$ are non-empty and disjoint, unordered pairs $\\{A, B\\}$ correspond to half the number of subsets of $S$ that sum to $18$. We enumerate subsets summing to $18$: subsets of size $1$ or $2$ cannot sum to $18$ as $\\max(a+b) = 7 + 8 = 15 < 18$. Subsets of size $3$: $\\{3, 7, 8\\}, \\{4, 6, 8\\}, \\{5, 6, 7\\}$ ($3$ subsets). Subsets of size $4$: systematically listing distinct $4$-tuples summing to $18$ gives $\\{1, 2, 7, 8\\}, \\{1, 3, 6, 8\\}, \\{1, 4, 5, 8\\}, \\{1, 4, 6, 7\\}, \\{2, 3, 5, 8\\}, \\{2, 3, 6, 7\\}, \\{2, 4, 5, 7\\}, \\{3, 4, 5, 6\\}$ ($8$ subsets). Subsets of size $5$ are complements of size $3$ subsets ($3$ subsets). Subsets of size $\\ge 6$ have minimum sum $1+2+3+4+5+6 = 21 > 18$. The total number of subsets summing to $18$ is $3 + 8 + 3 = 14$. Dividing by $2$ for unordered pairs gives $14 / 2 = 7$. The value $14$ counts ordered pairs $(A, B)$ instead of unordered pairs, $8$ counts only size-$4$ partitions, and $5$ misses multiple $4$-element combinations."
+    },
+    {
+      "id": "set_c01_027",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $T = \\{1, 2, 3, 6, 8\\}$. The number of non-empty subsets $A \\subseteq T$ such that the product of all elements in $A$ is a perfect square is equal to:",
+      "options": [
+        "A) $3$",
+        "B) $4$",
+        "C) $7$",
+        "D) $8$"
+      ],
+      "answer": "C",
+      "explanation": "Represent each element of $T$ by its prime exponent parity vector over $\\mathbb{F}_2$ for primes $(2, 3)$: $1 \\mapsto (0, 0)$, $2 \\mapsto (1, 0)$, $3 \\mapsto (0, 1)$, $6 \\mapsto (1, 1)$, and $8 = 2^3 \\mapsto (1, 0)$. A subset has a square product if and only if the componentwise sum of its vectors is $(0, 0) \\pmod 2$. The element $1$ contributes $(0, 0)$ and can be included or excluded independently in any valid subset ($2$ choices). For the remaining elements $\\{2, 3, 6, 8\\}$, we seek subsets whose vector sum is $(0, 0) \\pmod 2$. In $\\mathbb{F}_2^2$, the vectors are $v_2 = (1, 0), v_3 = (0, 1), v_6 = (1, 1), v_8 = (1, 0)$. These span a $2$-dimensional subspace. The kernel of this linear map on $4$ variables has dimension $4 - 2 = 2$, yielding exactly $2^2 = 4$ valid subsets of $\\{2, 3, 6, 8\\}$: $\\emptyset$, $\\{2, 8\\}$, $\\{2, 3, 6\\}$, and $\\{3, 6, 8\\}$. Combining with the $2$ choices for $1$, there are $4 \\times 2 = 8$ subsets in total. Excluding the empty set $\\emptyset$, there are $8 - 1 = 7$ non-empty subsets. The value $8$ improperly includes the empty set, $4$ neglects the element $1$, and $3$ omits subsets combining $2, 3, 6$."
+    },
+    {
+      "id": "set_c01_028",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $A = \\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\\}$. The number of $5$-element subsets $X \\subseteq A$ such that the product of all elements in $X$ is divisible by $4$ is equal to:",
+      "options": [
+        "A) $220$",
+        "B) $232$",
+        "C) $240$",
+        "D) $236$"
+      ],
+      "answer": "D",
+      "explanation": "The total number of $5$-element subsets of $A$ is $\\binom{10}{5} = 252$. We determine the number of subsets whose product is NOT divisible by $4$. The elements are partitioned into odd numbers $\\{1, 3, 5, 7, 9\\}$ ($5$ elements), even numbers not divisible by $4$: $\\{2, 6, 10\\}$ ($3$ elements), and multiples of $4$: $\\{4, 8\\}$ ($2$ elements). The product is not divisible by $4$ in two mutually disjoint cases: (1) All $5$ chosen elements are odd: there is $\\binom{5}{5} = 1$ such subset. (2) Exactly $4$ elements are odd and $1$ element is an even number not divisible by $4$: there are $\\binom{5}{4} \\times \\binom{3}{1} = 5 \\times 3 = 15$ such subsets. Any other selection contains either a multiple of $4$ or at least two even numbers, each yielding a product divisible by $4$. Thus, the number of subsets with product not divisible by $4$ is $1 + 15 = 16$. Subtracting from the total gives $252 - 16 = 236$. The value $232$ subtracts $20$, $240$ subtracts only $12$, and $220$ subtracts all subsets containing fewer than two even integers."
+    },
+    {
+      "id": "set_c01_029",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $A, B, C$ be three finite sets such that $|A \\Delta B| = 36$, $|B \\Delta C| = 44$, and $|C \\Delta A| = 50$. If the number of elements belonging to exactly two of the three sets is $25$ and $|A \\cap B \\cap C| = 8$, the cardinality of $(A \\Delta B) \\Delta C$ is:",
+      "options": [
+        "A) $48$",
+        "B) $40$",
+        "C) $56$",
+        "D) $65$"
+      ],
+      "answer": "A",
+      "explanation": "Let $a, b, c$ denote the number of elements belonging exclusively to $A, B, C$, respectively, and let $ab, bc, ca$ denote the number of elements belonging to exactly two sets. By definition of symmetric difference: $|A \\Delta B| = a + b + bc + ca = 36$, $|B \\Delta C| = b + c + ab + ca = 44$, and $|C \\Delta A| = c + a + ab + bc = 50$. Summing these three equations yields $2(a + b + c) + 2(ab + bc + ca) = 36 + 44 + 50 = 130$, which simplifies to $(a + b + c) + (ab + bc + ca) = 65$. We are given that the number of elements belonging to exactly two sets is $ab + bc + ca = 25$. Therefore, the number of elements belonging to exactly one set is $a + b + c = 65 - 25 = 40$. The symmetric difference of all three sets, $(A \\Delta B) \\Delta C$, contains precisely those elements that belong to an odd number of sets—namely, those belonging to exactly one set plus those in all three sets. Hence, $|(A \\Delta B) \\Delta C| = (a + b + c) + |A \\cap B \\cap C| = 40 + 8 = 48$. The value $40$ forgets the three-way intersection, $56$ improperly adds $ab + bc + ca$, and $65$ confuses the sum with the single-membership count."
+    },
+    {
+      "id": "set_c01_030",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6, 7, 8, 9\\}$. Find the number of $5$-element subsets of $S$ that have a non-empty intersection with both $\\{1, 2\\}$ and $\\{3, 4\\}$.",
+      "options": [],
+      "answer": "85",
+      "explanation": "The total number of $5$-element subsets of $S$ is $\\binom{9}{5} = \\frac{9 \\times 8 \\times 7 \\times 6}{24} = 126$. We use the Principle of Inclusion-Exclusion to eliminate invalid subsets. Let $P_1$ be the property that a subset is disjoint from $\\{1, 2\\}$, and $P_2$ be the property that it is disjoint from $\\{3, 4\\}$. Subsets satisfying $P_1$ are chosen from $S \\setminus \\{1, 2\\}$ ($7$ elements), so $N(P_1) = \\binom{7}{5} = \\binom{7}{2} = 21$. Subsets satisfying $P_2$ are chosen from $S \\setminus \\{3, 4\\}$ ($7$ elements), so $N(P_2) = \\binom{7}{5} = 21$. Subsets satisfying both $P_1$ and $P_2$ are chosen from $S \\setminus \\{1, 2, 3, 4\\} = \\{5, 6, 7, 8, 9\\}$ ($5$ elements), so $N(P_1 \\cap P_2) = \\binom{5}{5} = 1$. The number of subsets disjoint from at least one of the two sets is $N(P_1) + N(P_2) - N(P_1 \\cap P_2) = 21 + 21 - 1 = 41$. Therefore, the number of subsets having a non-empty intersection with both sets is $126 - 41 = 85$."
+    },
+    {
+      "id": "set_c01_031",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5\\}$. Find the total number of ordered pairs $(A, B)$ of subsets of $S$ such that $A \\cap B \\ne \\emptyset$ and $A \\cup B = S$.",
+      "options": [],
+      "answer": "211",
+      "explanation": "First, find the total number of ordered pairs of subsets $(A, B)$ satisfying $A \\cup B = S$. For each element $x \\in S$, to satisfy $A \\cup B = S$, $x$ cannot belong to $S \\setminus (A \\cup B)$. Thus $x$ must belong to exactly one of three disjoint regions: $A \\setminus B$, $B \\setminus A$, or $A \\cap B$. Since $|S| = 5$, there are $3^5 = 243$ pairs $(A, B)$ satisfying $A \\cup B = S$. Among these pairs, those with $A \\cap B = \\emptyset$ require every element $x \\in S$ to belong to either $A \\setminus B$ or $B \\setminus A$ ($2$ choices per element). There are $2^5 = 32$ such pairs. Subtracting these gives the number of pairs with $A \\cap B \\ne \\emptyset$: $243 - 32 = 211$."
+    },
+    {
+      "id": "set_c01_032",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $S = \\{1, 2, 3, \\dots, 500\\}$. Find the total number of integers in $S$ that are divisible by neither $6$, nor $10$, nor $15$.",
+      "options": [],
+      "answer": "366",
+      "explanation": "Let $A_k$ denote the set of multiples of $k$ in $S$. We compute $|A_6 \\cup A_{10} \\cup A_{15}|$ using the Principle of Inclusion-Exclusion: $|A_6| = \\lfloor 500/6 \\rfloor = 83$, $|A_{10}| = \\lfloor 500/10 \\rfloor = 50$, and $|A_{15}| = \\lfloor 500/15 \\rfloor = 33$. For pairwise intersections: $\\text{lcm}(6, 10) = 30$, so $|A_6 \\cap A_{10}| = \\lfloor 500/30 \\rfloor = 16$. $\\text{lcm}(6, 15) = 30$, so $|A_6 \\cap A_{15}| = 16$. $\\text{lcm}(10, 15) = 30$, so $|A_{10} \\cap A_{15}| = 16$. For the three-way intersection: $\\text{lcm}(6, 10, 15) = 30$, so $|A_6 \\cap A_{10} \\cap A_{15}| = 16$. By inclusion-exclusion: $|A_6 \\cup A_{10} \\cup A_{15}| = (83 + 50 + 33) - (16 + 16 + 16) + 16 = 166 - 48 + 16 = 134$. The number of integers divisible by none of $6, 10, 15$ is $500 - 134 = 366$."
+    },
+    {
+      "id": "set_c01_033",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\\}$. Find the total number of non-empty subsets $A \\subseteq S$ such that $\\min(A) + \\max(A) = 11$.",
+      "options": [],
+      "answer": "341",
+      "explanation": "Let $a = \\min(A)$ and $b = \\max(A)$. For a non-empty subset $A$, $a \\le b$. The condition is $a + b = 11$. Since $a$ and $b$ are integers, $a = b \\implies 2a = 11$, which has no integer solution. Thus $a < b$. The possible pairs $(a, b)$ with $1 \\le a < b \\le 10$ and $a + b = 11$ are: (1) $a = 1, b = 10$: the remaining elements of $A$ can be any subset of $\\{2, 3, 4, 5, 6, 7, 8, 9\\}$ ($8$ elements), giving $2^8 = 256$ subsets. (2) $a = 2, b = 9$: elements chosen from $\\{3, 4, 5, 6, 7, 8\\}$ ($6$ elements), giving $2^6 = 64$ subsets. (3) $a = 3, b = 8$: elements chosen from $\\{4, 5, 6, 7\\}$ ($4$ elements), giving $2^4 = 16$ subsets. (4) $a = 4, b = 7$: elements chosen from $\\{5, 6\\}$ ($2$ elements), giving $2^2 = 4$ subsets. (5) $a = 5, b = 6$: no elements lie strictly between $5$ and $6$, giving $2^0 = 1$ subset. Summing over all pairs yields $256 + 64 + 16 + 4 + 1 = 341$ subsets."
+    },
+    {
+      "id": "set_c01_034",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6, 7, 8\\}$. Find the number of partitions of $S$ into two non-empty disjoint subsets $A$ and $B$ such that $|A| \\ne |B|$.",
+      "options": [],
+      "answer": "92",
+      "explanation": "The total number of partitions of an $8$-element set into two non-empty subsets is given by the Stirling number of the second kind $S(8, 2) = \\frac{2^8 - 2}{2} = \\frac{256 - 2}{2} = 127$. We subtract the partitions where the two blocks have equal size, meaning $|A| = |B| = 4$. The number of ways to choose a $4$-element subset $A$ is $\\binom{8}{4} = 70$. Since the partition $\\{A, B\\}$ is an unordered pair, choosing $A$ automatically determines $B = S \\setminus A$, and the pair $\\{A, B\\}$ is counted twice in $\\binom{8}{4}$. Thus, the number of partitions into two subsets of size $4$ is $\\frac{1}{2} \\binom{8}{4} = \\frac{70}{2} = 35$. Subtracting these from the total yields $127 - 35 = 92$ partitions where $|A| \\ne |B|$."
+    },
+    {
+      "id": "set_c01_035",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $A = \\{1, 2, 3, \\dots, 30\\}$. Find the number of ordered pairs $(x, y) \\in A \\times A$ such that $x < y$ and $x + y$ is divisible by $5$.",
+      "options": [],
+      "answer": "87",
+      "explanation": "Partition $A$ into residue classes modulo $5$: $R_r = \\{x \\in A : x \\equiv r \\pmod 5\\}$ for $r \\in \\{0, 1, 2, 3, 4\\}$. Since $30 / 5 = 6$, each residue class $R_r$ contains exactly $6$ elements. The sum $x + y$ is divisible by $5$ in three mutually disjoint cases: (1) Both $x, y \\in R_0$: since $x < y$, we choose any $2$ distinct elements from $R_0$, giving $\\binom{6}{2} = 15$ pairs. (2) One element in $R_1$ and one in $R_4$: for any choice of $u \\in R_1$ and $v \\in R_4$, since $R_1$ and $R_4$ are disjoint, $u \\ne v$. The ordered pair $(x, y)$ with $x < y$ is uniquely determined by $\\{\\min(u, v), \\max(u, v)\\}$. The number of such pairs is $|R_1| \\times |R_4| = 6 \\times 6 = 36$. (3) One element in $R_2$ and one in $R_3$: similarly, this gives $|R_2| \\times |R_3| = 6 \\times 6 = 36$ pairs. Summing all cases: $15 + 36 + 36 = 87$ valid pairs."
+    },
+    {
+      "id": "set_c01_036",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6\\}$, and let $\\mathcal{P}(S)$ denote its power set. A family $\\mathcal{F} \\subseteq \\mathcal{P}(S)$ is called an antichain (or Sperner family) if no set in $\\mathcal{F}$ is a proper subset of another set in $\\mathcal{F}$ (that is, for all distinct $A, B \\in \\mathcal{F}$, we have $A \\not\\subseteq B$ and $B \\not\\subseteq A$). Which of the following statements is/are correct?",
+      "options": [
+        "A) The maximum possible number of subsets in an antichain $\\mathcal{F} \\subseteq \\mathcal{P}(S)$ is $\\binom{6}{3} = 20$.",
+        "B) If every subset in an antichain $\\mathcal{F} \\subseteq \\mathcal{P}(S)$ has size $2$, then $|\\mathcal{F}| \\le 15$.",
+        "C) For any antichain $\\mathcal{F} \\subseteq \\mathcal{P}(S)$, the Lubell-Yamamoto-Meshalkin (LYM) inequality $\\sum_{A \\in \\mathcal{F}} \\frac{1}{\\binom{6}{|A|}} \\le 1$ holds.",
+        "D) The total number of distinct antichains in $\\mathcal{P}(S)$ of maximum size $20$ is strictly greater than $1$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "By Sperner's theorem, the maximum cardinality of an antichain in the Boolean lattice $\\mathcal{P}(n)$ is $\\binom{n}{\\lfloor n/2 \\rfloor}$. For $n = 6$, this yields $\\binom{6}{3} = 20$, which implies statement A is correct. Next, if every subset in $\\mathcal{F}$ has size $2$, then $\\mathcal{F}$ is a subfamily of the collection of all $2$-element subsets of $S$. Since there are $\\binom{6}{2} = 15$ such subsets, we get $|\\mathcal{F}| \\le 15$, hence statement B is correct. Furthermore, the Lubell-Yamamoto-Meshalkin (LYM) inequality states that for any antichain $\\mathcal{F}$ in $\\mathcal{P}(n)$, $\\sum_{A \\in \\mathcal{F}} \\frac{|A|!(n - |A|)!}{n!} = \\sum_{A \\in \\mathcal{F}} \\frac{1}{\\binom{n}{|A|}} \\le 1$. Applying this inequality with $n = 6$ establishes that statement C is correct. Finally, Sperner's theorem proves that when $n$ is even, the maximum antichain is uniquely achieved by the single level of subsets of size $n/2 = 3$. Therefore, there is only $1$ unique antichain of size $20$, which implies statement D is false."
+    },
+    {
+      "id": "set_c01_037",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6, 7\\}$. A family $\\mathcal{A} \\subseteq \\mathcal{P}(S)$ is defined to be an intersecting family if for any pair of subsets $X, Y \\in \\mathcal{A}$, the intersection is non-empty ($X \\cap Y \\ne \\emptyset$). Which of the following statements is/are correct?",
+      "options": [
+        "A) The maximum possible number of subsets in an intersecting family $\\mathcal{A} \\subseteq \\mathcal{P}(S)$ is $128$.",
+        "B) The maximum possible number of subsets in an intersecting family $\\mathcal{A} \\subseteq \\mathcal{P}(S)$ is $64$.",
+        "C) If every subset in an intersecting family $\\mathcal{A}$ has cardinality exactly $3$, then $|\\mathcal{A}| \\le 15$.",
+        "D) If $\\mathcal{A} \\subseteq \\mathcal{P}(S)$ is an intersecting family with $|\\mathcal{A}| = 64$, then for every $X \\subseteq S$, exactly one of $X$ or $X^c$ belongs to $\\mathcal{A}$."
+      ],
+      "answer": "B,C,D",
+      "explanation": "For any subset $X \\subseteq S$, we have $X \\cap X^c = \\emptyset$, which implies that $X$ and $X^c$ cannot both belong to an intersecting family $\\mathcal{A}$. The power set $\\mathcal{P}(S)$ contains $2^7 = 128$ subsets, which partition into $2^6 = 64$ complementary pairs $\\{X, X^c\\}$. Therefore, $\\mathcal{A}$ can contain at most one set from each pair, yielding $|\\mathcal{A}| \\le 64$. Hence statement B is correct and statement A is false. When $|\\mathcal{A}| = 64$, $\\mathcal{A}$ must contain exactly one set from every complementary pair, so statement D is correct. Finally, by the Erdős-Ko-Rado theorem, for $n \\ge 2k$, the maximum size of an intersecting family of $k$-subsets of an $n$-element set is $\\binom{n-1}{k-1}$. Substituting $n = 7$ and $k = 3$ (since $7 \\ge 2 \\times 3 = 6$), we get the bound $\\binom{7-1}{3-1} = \\binom{6}{2} = 15$. Hence statement C is also correct."
+    },
+    {
+      "id": "set_c01_038",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $X$ be an arbitrary non-empty universal set, and let $\\mathcal{P}(X)$ denote its power set equipped with symmetric difference $\\Delta$, intersection $\\cap$, and union $\\cup$. Which of the following set-theoretic identities is/are correct for all subsets $A, B, C \\subseteq X$?",
+      "options": [
+        "A) $A \\cap (B \\Delta C) = (A \\cap B) \\Delta (A \\cap C)$",
+        "B) $A \\cup (B \\Delta C) = (A \\cup B) \\Delta (A \\cup C)$",
+        "C) $(A \\Delta B) \\Delta (B \\Delta C) = A \\Delta C$",
+        "D) $(A \\setminus B) \\Delta (B \\setminus A) = A \\cup B$"
+      ],
+      "answer": "A,C",
+      "explanation": "In the Boolean ring $(\\mathcal{P}(X), \\Delta, \\cap)$, addition is defined by $\\Delta$ and multiplication is defined by $\\cap$. Ring multiplication distributes over ring addition, which implies $A \\cap (B \\Delta C) = (A \\cap B) \\Delta (A \\cap C)$. Therefore, statement A is correct. However, union does not distribute over symmetric difference; for example, setting $A = X$ gives the left side as $X \\cup (B \\Delta C) = X$, while the right side simplifies to $(X \\cup B) \\Delta (X \\cup C) = X \\Delta X = \\emptyset \\ne X$. Hence statement B is false. For statement C, applying the associativity and commutativity of symmetric difference yields $(A \\Delta B) \\Delta (B \\Delta C) = A \\Delta (B \\Delta B) \\Delta C = A \\Delta \\emptyset \\Delta C = A \\Delta C$, which implies statement C is correct. Finally, $(A \\setminus B) \\Delta (B \\setminus A) = (A \\setminus B) \\cup (B \\setminus A) = A \\Delta B$, which equals $A \\cup B$ only when $A \\cap B = \\emptyset$. Hence statement D is false in general."
+    },
+    {
+      "id": "set_c01_039",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $S = \\{1, 2, 3, 4\\}$. A collection of subsets $\\tau \\subseteq \\mathcal{P}(S)$ is defined to be a topology on $S$ if $\\emptyset \\in \\tau$, $S \\in \\tau$, and $\\tau$ is closed under both set union and set intersection. Which of the following statements is/are correct?",
+      "options": [
+        "A) The collection $\\tau_1 = \\{\\emptyset, \\{1\\}, \\{1, 2\\}, S\\}$ forms a valid topology on $S$.",
+        "B) The collection $\\tau_2 = \\{\\emptyset, \\{2\\}, \\{1, 2\\}, \\{2, 3\\}, \\{1, 2, 3\\}, S\\}$ forms a valid topology on $S$.",
+        "C) The collection $\\tau_3 = \\{\\emptyset, \\{1, 2\\}, \\{3, 4\\}, S\\}$ does not form a topology on $S$.",
+        "D) The minimum possible cardinality of a topology on $S$ is $2$, and the maximum possible cardinality is $16$."
+      ],
+      "answer": "A,B,D",
+      "explanation": "For statement A, notice that $\\emptyset \\subseteq \\{1\\} \\subseteq \\{1, 2\\} \\subseteq S$ forms a nested chain of subsets. For any two sets in a chain, their union is the larger set and their intersection is the smaller set, both of which belong to $\\tau_1$. Hence $\\tau_1$ is closed under union and intersection, so statement A is correct. For statement B, testing pairs in $\\tau_2$: $\\{1, 2\\} \\cap \\{2, 3\\} = \\{2\\} \\in \\tau_2$, and $\\{1, 2\\} \\cup \\{2, 3\\} = \\{1, 2, 3\\} \\in \\tau_2$. All other unions and intersections remain within $\\tau_2$, which implies statement B is correct. For statement C, in $\\tau_3$ we have $\\{1, 2\\} \\cap \\{3, 4\\} = \\emptyset \\in \\tau_3$ and $\\{1, 2\\} \\cup \\{3, 4\\} = S \\in \\tau_3$. Thus $\\tau_3$ is closed under union and intersection and contains $\\emptyset$ and $S$, meaning $\\tau_3$ is indeed a valid topology. Therefore, the assertion that $\\tau_3$ does not form a topology is false. For statement D, the indiscrete topology $\\{\\emptyset, S\\}$ has cardinality $2$ (minimum), while the discrete topology $\\mathcal{P}(S)$ has cardinality $2^4 = 16$ (maximum). Hence statement D is correct."
+    },
+    {
+      "id": "set_c01_040",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $S_n$ denote the set of all $n!$ permutations of the finite set $\\{1, 2, \\dots, n\\}$. For each index $i \\in \\{1, 2, \\dots, n\\}$, let $A_i = \\{\\sigma \\in S_n : \\sigma(i) = i\\}$ denote the subset of permutations that fix the element $i$. Which of the following statements is/are correct?",
+      "options": [
+        "A) For $n = 5$, the cardinality of the three-set intersection $A_1 \\cap A_2 \\cap A_3$ is equal to $6$.",
+        "B) For $n = 5$, the cardinality of the three-set intersection $A_1 \\cap A_2 \\cap A_3$ is equal to $2$.",
+        "C) The number of permutations in $S_4$ that have no fixed points is equal to $11$.",
+        "D) The number of permutations in $S_4$ that fix exactly one element is equal to $8$."
+      ],
+      "answer": "B,D",
+      "explanation": "For statements A and B, a permutation $\\sigma \\in S_5$ belongs to $A_1 \\cap A_2 \\cap A_3$ if and only if $\\sigma(1) = 1, \\sigma(2) = 2$, and $\\sigma(3) = 3$. The remaining two elements $\\{4, 5\\}$ can be permuted among themselves in $(5 - 3)! = 2! = 2$ ways. Therefore, $|A_1 \\cap A_2 \\cap A_3| = 2$. This implies statement B is correct and statement A is false (which mistakenly uses $3! = 6$). For statement C, the number of permutations with no fixed points is the derangement number $D_4$. Applying the derangement formula: $D_4 = 4! \\left(1 - \\frac{1}{1!} + \\frac{1}{2!} - \\frac{1}{3!} + \\frac{1}{4!}\\right) = 24 \\left(\\frac{1}{2} - \\frac{1}{6} + \\frac{1}{24}\\right) = 12 - 4 + 1 = 9$. Thus statement C is false. For statement D, the number of permutations in $S_4$ that fix exactly one element is obtained by choosing the single fixed element in $\\binom{4}{1} = 4$ ways and deranging the remaining $3$ elements in $D_3 = 3!\\left(\\frac{1}{2!} - \\frac{1}{3!}\\right) = 6\\left(\\frac{1}{3}\\right) = 2$ ways. Multiplying these gives $4 \\times 2 = 8$, which implies statement D is correct."
+    },
+    {
+      "id": "set_c01_041",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $X = \\{1, 2, 3\\}$. The set of all partitions of $X$, denoted by $\\Pi(X)$, is partially ordered by refinement: partition $P_1 \\le P_2$ if every block of $P_1$ is a subset of some block of $P_2$. Which of the following statements is/are correct regarding the poset $(\\Pi(X), \\le)$?",
+      "options": [
+        "A) The total number of elements in $\\Pi(X)$ is equal to the Bell number $B_3 = 5$.",
+        "B) The poset $\\Pi(X)$ has exactly $2$ minimal elements.",
+        "C) The partition $\\{\\{1\\}, \\{2, 3\\}\\}$ is covered by $\\{\\{1, 2, 3\\}\\}$ in the Hasse diagram of $\\Pi(X)$.",
+        "D) The partition $\\{\\{1\\}, \\{2\\}, \\{3\\}\\}$ is the unique least element of $\\Pi(X)$."
+      ],
+      "answer": "A,C,D",
+      "explanation": "The total number of partitions of a $3$-element set is given by the Bell number $B_3 = \\sum_{k=1}^3 S(3, k) = S(3, 1) + S(3, 2) + S(3, 3) = 1 + 3 + 1 = 5$. These partitions are: $\\{\\{1\\}, \\{2\\}, \\{3\\}\\}$, $\\{\\{1\\}, \\{2, 3\\}\\}$, $\\{\\{2\\}, \\{1, 3\\}\\}$, $\\{\\{3\\}, \\{1, 2\\}\\}$, and $\\{\\{1, 2, 3\\}\\}$. Therefore, statement A is correct. The partition into singletons, $\\{\\{1\\}, \\{2\\}, \\{3\\}\\}$, is finer than every other partition, so it is the unique least element (bottom element $\\hat{0}$) of $\\Pi(X)$. This implies statement D is correct and statement B is false (there is only $1$ minimal element, not $2$). In the refinement poset, a partition $P_1$ is covered by $P_2$ if $P_1 < P_2$ and there is no partition $Q$ such that $P_1 < Q < P_2$. Since $\\{\\{1\\}, \\{2, 3\\}\\}$ has $2$ blocks and $\\{\\{1, 2, 3\\}\\}$ has $1$ block, no intermediate partition exists between them, so $\\{\\{1\\}, \\{2, 3\\}\\}$ is covered by $\\{\\{1, 2, 3\\}\\}$. Hence statement C is correct."
+    },
+    {
+      "id": "set_c01_042",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $A, B, C, D$ be non-empty subsets of a universal set $U$. Which of the following set-theoretic statements is/are correct?",
+      "options": [
+        "A) $(A \\times B) \\cap (C \\times D) = (A \\cap C) \\times (B \\cap D)$",
+        "B) $(A \\times B) \\cup (A \\times C) = A \\times (B \\cup C)$",
+        "C) $(A \\times B) \\setminus (C \\times D) = [(A \\setminus C) \\times B] \\cup [(A \\cap C) \\times (B \\setminus D)]$",
+        "D) If $A \\times B \\subseteq C \\times D$, then $A \\subseteq C$ and $B \\subseteq D$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "For statement A, $(x, y) \\in (A \\times B) \\cap (C \\times D) \\iff (x \\in A \\text{ and } y \\in B) \\text{ and } (x \\in C \\text{ and } y \\in D) \\iff (x \\in A \\cap C) \\text{ and } (y \\in B \\cap D) \\iff (x, y) \\in (A \\cap C) \\times (B \\cap D)$. Hence statement A is correct. For statement B, $(x, y) \\in (A \\times B) \\cup (A \\times C) \\iff x \\in A \\text{ and } (y \\in B \\text{ or } y \\in C) \\iff (x, y) \\in A \\times (B \\cup C)$. Hence statement B is correct. For statement C, $(x, y) \\in (A \\times B) \\setminus (C \\times D) \\iff x \\in A, y \\in B$ and not $(x \\in C \\text{ and } y \\in D)$. This negates to ($x \\notin C$ or $y \\notin D$). Partitioning $A$ into $A \\setminus C$ and $A \\cap C$, the condition decomposes into $x \\in A \\setminus C$ (with $y \\in B$) or $x \\in A \\cap C$ with $y \\in B \\setminus D$. These sets are disjoint and their union is exactly $(A \\times B) \\setminus (C \\times D)$. Hence statement C is correct. For statement D, since $B$ is non-empty, fix some $b_0 \\in B$. For any $a \\in A$, we have $(a, b_0) \\in A \\times B \\subseteq C \\times D$, which implies $a \\in C$. Thus $A \\subseteq C$. Similarly, fixing $a_0 \\in A$ yields $B \\subseteq D$. Therefore, statement D is also correct."
+    },
+    {
+      "id": "set_c01_043",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6, 7, 8\\}$. A family $\\mathcal{F}$ of $4$-element subsets of $S$ has the property that for any two distinct subsets $A, B \\in \\mathcal{F}$, their intersection contains at least two elements ($|A \\cap B| \\ge 2$). The maximum possible number of subsets in such a family $\\mathcal{F}$ is:",
+      "options": [
+        "A) $15$",
+        "B) $17$",
+        "C) $19$",
+        "D) $21$"
+      ],
+      "answer": "B",
+      "explanation": "This is the problem of determining the maximum size of a $2$-intersecting family of $4$-subsets of an $8$-element set. According to the Ahlswede-Khachatrian Complete Intersection Theorem, candidate maximal $t$-intersecting families of $k$-subsets of an $n$-element set take the form $\\mathcal{F}_r = \\{A \\in \\binom{S}{k} : |A \\cap T| \\ge t + r\\}$, where $|T| = t + 2r$. Here $k = 4$ and $t = 2$. For $r = 0$: $|T| = 2$. The family $\\mathcal{F}_0$ consists of all $4$-subsets containing both elements of $T$, yielding $|\\mathcal{F}_0| = \\binom{8-2}{4-2} = \\binom{6}{2} = 15$. For $r = 1$: $|T| = t + 2(1) = 4$. The family $\\mathcal{F}_1$ consists of all $4$-subsets containing at least $t + r = 3$ elements of $T$. For any two sets $A, B \\in \\mathcal{F}_1$, $|A \\cap T| \\ge 3$ and $|B \\cap T| \\ge 3$, which implies by the inclusion-exclusion bound that $|A \\cap B| \\ge |(A \\cap T) \\cap (B \\cap T)| \\ge 3 + 3 - 4 = 2$. Hence $\\mathcal{F}_1$ is strictly $2$-intersecting. The number of such subsets is $\\binom{4}{4}\\binom{4}{0} + \\binom{4}{3}\\binom{4}{1} = 1 \\times 1 + 4 \\times 4 = 17$. For $r = 2$: $|T| = 6$, requiring $|A \\cap T| \\ge 4$, giving $|\\mathcal{F}_2| = \\binom{6}{4} = 15 < 17$. Therefore, the maximum cardinality is $17$. The value $15$ corresponds to the naive star family fixing $2$ elements, while $19$ and $21$ violate the intersection constraint."
+    },
+    {
+      "id": "set_c01_044",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $X = \\{1, 2, 3, 4, 5\\}$. A non-empty family $\\mathcal{I} \\subseteq \\mathcal{P}(X)$ is called an order ideal (down-set) in the Boolean lattice $(\\mathcal{P}(X), \\subseteq)$ if whenever $B \\in \\mathcal{I}$ and $A \\subseteq B$, we have $A \\in \\mathcal{I}$. If the maximal elements of $\\mathcal{I}$ under inclusion are $M_1 = \\{1, 2, 3\\}$ and $M_2 = \\{2, 3, 4, 5\\}$, the total number of subsets in $\\mathcal{I}$ is:",
+      "options": [
+        "A) $16$",
+        "B) $18$",
+        "C) $20$",
+        "D) $24$"
+      ],
+      "answer": "C",
+      "explanation": "Because an order ideal is completely determined by its maximal elements under set inclusion, every subset in $\\mathcal{I}$ must be a subset of at least one maximal element. Therefore, $\\mathcal{I} = \\mathcal{P}(M_1) \\cup \\mathcal{P}(M_2)$. Applying the Principle of Inclusion-Exclusion yields $|\\mathcal{I}| = |\\mathcal{P}(M_1)| + |\\mathcal{P}(M_2)| - |\\mathcal{P}(M_1) \\cap \\mathcal{P}(M_2)|$. Since the intersection of two power sets is the power set of their intersection, we get $\\mathcal{P}(M_1) \\cap \\mathcal{P}(M_2) = \\mathcal{P}(M_1 \\cap M_2)$. Here $M_1 = \\{1, 2, 3\\}$ and $M_2 = \\{2, 3, 4, 5\\}$, so $M_1 \\cap M_2 = \\{2, 3\\}$. Computing the cardinalities of the power sets: $|\\mathcal{P}(M_1)| = 2^3 = 8$, $|\\mathcal{P}(M_2)| = 2^4 = 16$, and $|\\mathcal{P}(M_1 \\cap M_2)| = 2^2 = 4$. Substituting these into the inclusion-exclusion formula gives $|\\mathcal{I}| = 8 + 16 - 4 = 20$. The value $24$ omits the subtraction of the overlap $\\mathcal{P}(\\{2, 3\\})$, $18$ results from miscounting the size of $M_1 \\cap M_2$, and $16$ counts only $\\mathcal{P}(M_2)$."
+    },
+    {
+      "id": "set_c01_045",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let the universal set be $U = \\{1, 2, 3, 4, 5, 6\\}$. For each subset $S \\subseteq U$, let $v_S \\in \\{0, 1\\}^6$ denote its indicator vector whose $i$-th component is $1$ if $i \\in S$ and $0$ if $i \\notin S$. If $A, B \\subseteq U$ satisfy $|A| = 4$ and $|B| = 3$, the maximum possible value of the squared Euclidean distance $\\|v_A - v_B\\|^2$ is:",
+      "options": [
+        "A) $3$",
+        "B) $4$",
+        "C) $7$",
+        "D) $5$"
+      ],
+      "answer": "D",
+      "explanation": "The squared Euclidean distance between two binary indicator vectors is given by $\\|v_A - v_B\\|^2 = \\sum_{i=1}^6 (v_A(i) - v_B(i))^2$. Since each coordinate is either $0$ or $1$, the squared difference $(v_A(i) - v_B(i))^2 = 1$ if and only if $i \\in A \\Delta B$, and is $0$ otherwise. Therefore, $\\|v_A - v_B\\|^2 = |A \\Delta B| = |A| + |B| - 2|A \\cap B|$. Given $|A| = 4$ and $|B| = 3$, this simplifies to $\\|v_A - v_B\\|^2 = 4 + 3 - 2|A \\cap B| = 7 - 2|A \\cap B|$. To maximize this expression, we must minimize the intersection size $|A \\cap B|$. Since both $A$ and $B$ are subsets of the universe $U$ with $|U| = 6$, we apply the union bound: $|A \\cup B| = |A| + |B| - |A \\cap B| \\le |U| = 6 \\implies |A \\cap B| \\ge 4 + 3 - 6 = 1$. The minimum intersection size is achieved by taking $A = \\{1, 2, 3, 4\\}$ and $B = \\{4, 5, 6\\}$, for which $A \\cap B = \\{4\\}$ and $|A \\cap B| = 1$. Substituting this minimum gives $\\|v_A - v_B\\|^2 = 7 - 2(1) = 5$. The value $7$ ignores the universe size constraint ($A \\cap B \\ne \\emptyset$), $3$ corresponds to the minimum distance when $|A \\cap B| = 2$, and $4$ is an arithmetic error."
+    },
+    {
+      "id": "set_c01_046",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $S = \\{1, 2, 3, 4\\}$. A sequence of subsets $(A_1, A_2, A_3)$ of $S$ is called a strict chain of length $3$ if $A_1 \\subsetneq A_2 \\subsetneq A_3$. The total number of strict chains of length $3$ in $\\mathcal{P}(S)$ is equal to:",
+      "options": [
+        "A) $84$",
+        "B) $96$",
+        "C) $104$",
+        "D) $110$"
+      ],
+      "answer": "D",
+      "explanation": "For any sequence $A_1 \\subsetneq A_2 \\subsetneq A_3 \\subseteq S$, define four pairwise disjoint sets that partition $S$: $D_1 = A_1$, $D_2 = A_2 \\setminus A_1$, $D_3 = A_3 \\setminus A_2$, and $D_4 = S \\setminus A_3$. The strict inclusions $A_1 \\subsetneq A_2$ and $A_2 \\subsetneq A_3$ require that $D_2 \\ne \\emptyset$ and $D_3 \\ne \\emptyset$. The sets $D_1$ and $D_4$ are permitted to be empty because $A_1$ can be $\\emptyset$ and $A_3$ can be $S$. Thus, the problem is equivalent to distributing the $4$ elements of $S$ into $4$ ordered bins $D_1, D_2, D_3, D_4$ such that bins $2$ and $3$ are non-empty. We solve this using the Principle of Inclusion-Exclusion: the total number of unconstrained distributions is $4^4 = 256$. Let $P_2$ be the property that bin $2$ is empty, and $P_3$ be the property that bin $3$ is empty. If bin $2$ is empty, elements are placed into $3$ bins, giving $N(P_2) = 3^4 = 81$. Similarly, $N(P_3) = 3^4 = 81$. If both bins $2$ and $3$ are empty, elements are placed into $2$ bins, yielding $N(P_2 \\cap P_3) = 2^4 = 16$. Applying inclusion-exclusion gives $256 - (81 + 81) + 16 = 256 - 162 + 16 = 110$. Distractor values $84$, $96$, and $104$ arise from omitting the inclusion-exclusion correction term or miscounting bin capacities."
+    },
+    {
+      "id": "set_c01_047",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6, 7\\}$. An intersecting family $\\mathcal{F}$ of $3$-element subsets of $S$ has the maximum possible cardinality. Find the total number of distinct intersecting families $\\mathcal{F}$ that achieve this maximum cardinality.",
+      "options": [],
+      "answer": "7",
+      "explanation": "By the Erdős-Ko-Rado theorem, for $n \\ge 2k$, the maximum cardinality of an intersecting family of $k$-subsets of an $n$-element set is $\\binom{n-1}{k-1}$. Here $n = 7$ and $k = 3$, so $n = 7 > 2(3) = 6$. The maximum size is $\\binom{6}{2} = 15$. The Erdős-Ko-Rado uniqueness theorem states that when $n > 2k$, every intersecting family achieving the maximum bound $\\binom{n-1}{k-1}$ is uniquely a star family—that is, a family consisting of all $k$-element subsets containing a fixed element $x \\in S$. For each element $x \\in S$, the star family is $\\mathcal{F}_x = \\{A \\in \\binom{S}{3} : x \\in A\\}$. Since $|S| = 7$, there are exactly $\\binom{7}{1} = 7$ such star families. Furthermore, for distinct elements $x \\ne y$, taking any two elements $a, b \\in S \\setminus \\{x, y\\}$ shows that $\\{x, a, b\\} \\in \\mathcal{F}_x \\setminus \\mathcal{F}_y$, which implies that all $7$ families are distinct. By the Hilton-Milner theorem, any intersecting family that is not a star family has cardinality at most $\\binom{n-1}{k-1} - \\binom{n-k-1}{k-1} + 1 = 15 - \\binom{3}{2} + 1 = 13 < 15$. Hence, no non-star family can achieve size $15$, yielding exactly $7$ such families."
+    },
+    {
+      "id": "set_c01_048",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In the subset lattice $\\mathcal{P}(\\{1, 2, 3, 4, 5, 6\\})$, determine the total number of ordered pairs $(A, B)$ of subsets satisfying the strict inclusion $A \\subsetneq B$ such that the cardinality of the set difference $|B \\setminus A|$ is an odd integer.",
+      "options": [],
+      "answer": "364",
+      "explanation": "Let $S = \\{1, 2, 3, 4, 5, 6\\}$ with $n = |S| = 6$. For any pair of subsets $(A, B)$ with $A \\subseteq B$, every element $x \\in S$ belongs to exactly one of three mutually disjoint sets: $x \\in A$, $x \\in B \\setminus A$, or $x \\notin B$. Let $k = |B \\setminus A|$. The number of ways to choose the $k$ elements of $B \\setminus A$ is $\\binom{n}{k}$. Each of the remaining $n - k$ elements of $S$ has exactly $2$ choices (either $x \\in A$ or $x \\notin B$), yielding $2^{n - k}$ assignments. Thus, the number of pairs with $|B \\setminus A| = k$ is $\\binom{n}{k} 2^{n - k}$. The condition $A \\subsetneq B$ requires $k \\ge 1$, and $k$ must be an odd integer, so $k \\in \\{1, 3, 5\\}$. Summing over all odd $k$: $\\sum_{k \\text{ odd}} \\binom{6}{k} 2^{6 - k} = \\binom{6}{1} 2^5 + \\binom{6}{3} 2^3 + \\binom{6}{5} 2^1 = 6(32) + 20(8) + 6(2) = 192 + 160 + 12 = 364$. Alternatively, applying the binomial expansion: $\\sum_{k=0}^6 \\binom{6}{k} 2^{6 - k} = (2 + 1)^6 = 3^6 = 729$, and $\\sum_{k=0}^6 \\binom{6}{k} 2^{6 - k}(-1)^k = (2 - 1)^6 = 1$. Subtracting the two identities gives $2 \\sum_{k \\text{ odd}} \\binom{6}{k} 2^{6 - k} = 729 - 1 = 728$, whence the sum is $\\frac{728}{2} = 364$."
+    },
+    {
+      "id": "set_c01_049",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6\\}$. A partition of $S$ into non-empty pairwise disjoint subsets is called singleton-free if every block in the partition contains at least $2$ elements. Find the total number of singleton-free partitions of $S$.",
+      "options": [],
+      "answer": "41",
+      "explanation": "We classify singleton-free partitions of a $6$-element set by the integer partitions of $6$ where every part is at least $2$: (1) Partition type $6$: a single block of size $6$. The number of ways is $1$. (2) Partition type $4 + 2$: two blocks of sizes $4$ and $2$. We choose the block of size $2$ in $\\binom{6}{2} = 15$ ways. (3) Partition type $3 + 3$: two blocks of size $3$ each. The number of ways is $\\frac{1}{2!} \\binom{6}{3} = \\frac{20}{2} = 10$. (4) Partition type $2 + 2 + 2$: three blocks of size $2$ each. The number of ways is $\\frac{1}{3!} \\binom{6}{2} \\binom{4}{2} \\binom{2}{2} = \\frac{15 \\times 6 \\times 1}{6} = 15$. There are no other partitions of $6$ into parts $\\ge 2$, since $4$ parts would require sum at least $2 \\times 4 = 8 > 6$. Summing these counts gives $1 + 15 + 10 + 15 = 41$. Alternatively, using the relationship with Bell numbers: $B_6 = \\sum_{k=0}^6 \\binom{6}{k} a_k$, where $a_k$ is the number of singleton-free partitions of a $k$-set. With $B_6 = 203$, $a_0 = 1, a_1 = 0, a_2 = 1, a_3 = 1, a_4 = 4, a_5 = 11$, we obtain $a_6 = 203 - [6(11) + 15(4) + 20(1) + 15(1) + 1] = 203 - 162 = 41$."
+    },
+    {
+      "id": "set_c01_050",
+      "subject": "Mathematics",
+      "topic": "Sets",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6, 7, 8\\}$. A subset $I \\subseteq S$ is called an integer interval if $I = \\{x \\in S : a \\le x \\le b\\}$ for some integers $1 \\le a \\le b \\le 8$. Find the total number of unordered pairs of distinct integer intervals $\\{I_1, I_2\\}$ such that $I_1 \\cap I_2 \\ne \\emptyset$.",
+      "options": [],
+      "answer": "420",
+      "explanation": "An integer interval in $S$ is uniquely defined by choosing its endpoints $a, b$ with $1 \\le a \\le b \\le 8$. The total number of intervals is $\\binom{8+1}{2} = \\binom{9}{2} = 36$. The total number of unordered pairs of distinct intervals is $\\binom{36}{2} = \\frac{36 \\times 35}{2} = 630$. We subtract the number of pairs of intervals $\\{I_1, I_2\\}$ that are disjoint. Two intervals $I_1 = [a_1, b_1]$ and $I_2 = [a_2, b_2]$ are disjoint if and only if $b_1 < a_2$ or $b_2 < a_1$. By symmetry, assuming $b_1 < a_2$, we need to choose integers satisfying $1 \\le a_1 \\le b_1 < a_2 \\le b_2 \\le 8$. This partitions the integers $1, \\dots, 8$ into five regions: elements before $a_1$ ($s_1 \\ge 0$), elements in $I_1$ ($s_2 \\ge 1$), elements between $b_1$ and $a_2$ ($s_3 \\ge 0$), elements in $I_2$ ($s_4 \\ge 1$), and elements after $b_2$ ($s_5 \\ge 0$). The equation $s_1 + s_2 + s_3 + s_4 + s_5 = 8$ with $s_2, s_4 \\ge 1$ transforms via $s_2' = s_2 - 1, s_4' = s_4 - 1$ to $s_1 + s_2' + s_3 + s_4' + s_5 = 6$. The number of non-negative integer solutions is $\\binom{6 + 5 - 1}{5 - 1} = \\binom{10}{4} = \\frac{10 \\times 9 \\times 8 \\times 7}{24} = 210$. Hence, exactly $210$ pairs of intervals are disjoint. Therefore, the number of intersecting pairs of intervals is $630 - 210 = 420$."
+    }
+  ]
+}

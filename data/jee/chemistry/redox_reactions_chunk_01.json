@@ -1,0 +1,710 @@
+{
+  "questions": [
+    {
+      "id": "rr_c01_001",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $1.58$ g sample of pure $KMnO_4$ (molar mass $158$ g mol$^{-1}$) is dissolved, acidified with dilute sulphuric acid and added to an excess of $Fe^{2+}$ solution until all the permanganate has reacted. How many millimoles of $Fe^{2+}$ are oxidised to $Fe^{3+}$?",
+      "options": [],
+      "answer": "50",
+      "explanation": "Moles of permanganate are $1.58/158 = 0.0100$ mol. In acid each $MnO_4^-$ gains 5 electrons ($Mn^{7+} \\to Mn^{2+}$), so the electrons gained are $5 \\times 0.0100 = 0.0500$ mol. Each $Fe^{2+}$ loses one electron, so $0.0500$ mol $Fe^{2+}$ is oxidised, which is 50 millimoles."
+    },
+    {
+      "id": "rr_c01_002",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $25$ mL aliquot of $0.02$ M acidified $KMnO_4$ is titrated against $0.05$ M oxalic acid, $H_2C_2O_4$, until the permanganate is just consumed. What volume of the oxalic acid solution, in mL, is required?",
+      "options": [],
+      "answer": "25",
+      "explanation": "Permanganate present is $0.02 \\times 25 = 0.500$ mmol, and it gains $5 \\times 0.500 = 2.50$ mmol electrons. Each oxalic acid molecule gives 2 electrons (two carbons go from $+3$ to $+4$), so $1.25$ mmol $H_2C_2O_4$ is needed. Volume $= 1.25/0.05 = 25$ mL."
+    },
+    {
+      "id": "rr_c01_003",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Potassium dichromate, $K_2Cr_2O_7$ (molar mass $294$ g mol$^{-1}$), is reduced to $Cr^{3+}$ in acidic medium. What is the equivalent mass of $K_2Cr_2O_7$ in this reduction?",
+      "options": [
+        "A) $49$ g eq$^{-1}$",
+        "B) $98$ g eq$^{-1}$",
+        "C) $147$ g eq$^{-1}$",
+        "D) $294$ g eq$^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Each $Cr$ changes from $+6$ to $+3$, gaining 3 electrons, and the formula unit has two $Cr$ atoms, so 6 electrons are gained per formula unit. Equivalent mass $= 294/6 = 49$ g eq$^{-1}$."
+    },
+    {
+      "id": "rr_c01_004",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The unbalanced equation $MnO_4^- + C_2O_4^{2-} \\to Mn^{2+} + CO_2$ is balanced in acidic medium with smallest whole-number coefficients. Which option gives the coefficient of $H^+$ on the reactant side and of $H_2O$ on the product side?",
+      "options": [
+        "A) $H^+ = 8$ and $H_2O = 4$",
+        "B) $H^+ = 16$ and $H_2O = 8$",
+        "C) $H^+ = 10$ and $H_2O = 8$",
+        "D) $H^+ = 16$ and $H_2O = 4$"
+      ],
+      "answer": "B",
+      "explanation": "Electron balance needs $2MnO_4^-$ (gaining 10 e) with $5C_2O_4^{2-}$ (losing 10 e). Charge and oxygen balance then give $2MnO_4^- + 5C_2O_4^{2-} + 16H^+ \\to 2Mn^{2+} + 10CO_2 + 8H_2O$, so $H^+ = 16$ and $H_2O = 8$."
+    },
+    {
+      "id": "rr_c01_005",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Chlorine gas is passed into hot concentrated sodium hydroxide solution until $1.8$ mol of $Cl_2$ has reacted, giving only chloride and chlorate ions. How many moles of electrons are transferred in total?",
+      "options": [],
+      "answer": "3",
+      "explanation": "The balanced equation is $3Cl_2 + 6OH^- \\to 5Cl^- + ClO_3^- + 3H_2O$. Five chlorine atoms each gain one electron (5 electrons), while one chlorine atom loses 5 electrons to form $ClO_3^-$. Per 3 mol $Cl_2$, 5 mol electrons move, so $1.8 \\times 5/3 = 3.0$ mol electrons."
+    },
+    {
+      "id": "rr_c01_006",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Sodium thiosulphate, $Na_2S_2O_3$ (molar mass $158$ g mol$^{-1}$), reacts with iodine and is converted to tetrathionate, $S_4O_6^{2-}$. What is the equivalent mass of $Na_2S_2O_3$ in this change?",
+      "options": [
+        "A) $158$ g eq$^{-1}$",
+        "B) $79$ g eq$^{-1}$",
+        "C) $316$ g eq$^{-1}$",
+        "D) $52.67$ g eq$^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "In $S_2O_3^{2-}$ the two sulphur atoms have average oxidation state $+2$; in $S_4O_6^{2-}$ the average is $+2.5$. Each $S_2O_3^{2-}$ therefore loses $2 \\times 0.5 = 1$ electron. Equivalent mass $= 158/1 = 158$ g eq$^{-1}$."
+    },
+    {
+      "id": "rr_c01_007",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A copper salt solution contains $1.5$ mmol of $Cu^{2+}$. Excess $KI$ is added, forming $CuI$ and iodine, and the liberated iodine is titrated with $0.1$ M $Na_2S_2O_3$. What volume of the thiosulphate solution, in mL, is required?",
+      "options": [],
+      "answer": "15",
+      "explanation": "Two $Cu^{2+}$ ions give one $I_2$ ($2Cu^{2+} + 4I^- \\to 2CuI + I_2$), so $1.5$ mmol $Cu^{2+}$ gives $0.75$ mmol $I_2$. Each $I_2$ consumes two thiosulphate ions, needing $1.5$ mmol $S_2O_3^{2-}$. Volume $= 1.5/0.1 = 15$ mL."
+    },
+    {
+      "id": "rr_c01_008",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Potassium dichromate oxidises hydrogen sulphide in acidic solution to sulphur. In the balanced equation with smallest integer coefficients, how many moles of $H_2S$ are oxidised per mole of $Cr_2O_7^{2-}$?",
+      "options": [
+        "A) $1$",
+        "B) $2$",
+        "C) $3$",
+        "D) $6$"
+      ],
+      "answer": "C",
+      "explanation": "Each $Cr_2O_7^{2-}$ accepts 6 electrons ($2 \\times 3$). Each $H_2S$ gives 2 electrons when $S^{2-}$ becomes $S$, so $6/2 = 3$ mol $H_2S$ are oxidised per mole of dichromate."
+    },
+    {
+      "id": "rr_c01_009",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Hydrogen peroxide is reduced to water in acidic solution. What is the equivalent mass of $H_2O_2$ (molar mass $34$ g mol$^{-1}$) in this reaction?",
+      "options": [
+        "A) $8.5$ g eq$^{-1}$",
+        "B) $17$ g eq$^{-1}$",
+        "C) $34$ g eq$^{-1}$",
+        "D) $11.33$ g eq$^{-1}$"
+      ],
+      "answer": "B",
+      "explanation": "Each oxygen atom in $H_2O_2$ changes from $-1$ to $-2$, so each $H_2O_2$ gains 2 electrons. Equivalent mass $= 34/2 = 17$ g eq$^{-1}$."
+    },
+    {
+      "id": "rr_c01_010",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Nitrate ions are reduced to ammonia in strongly acidic solution. How many millimoles of electrons are needed to convert $4.0$ mmol of $NO_3^-$ completely into $NH_3$?",
+      "options": [],
+      "answer": "32",
+      "explanation": "In $NO_3^-$ nitrogen is $+5$, and in $NH_3$ it is $-3$. Each nitrogen gains 8 electrons, so $4.0$ mmol of nitrate needs $4.0 \\times 8 = 32$ mmol of electrons."
+    },
+    {
+      "id": "rr_c01_011",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Acidified $H_2O_2$ reacts with $KMnO_4$, and oxygen is evolved. A sample of $5.1$ g $H_2O_2$ (molar mass $34$ g mol$^{-1}$) is completely consumed in this reaction. How many millimoles of $KMnO_4$ are needed?",
+      "options": [],
+      "answer": "60",
+      "explanation": "Moles of $H_2O_2$ are $5.1/34 = 0.150$ mol. The balanced reaction is $2MnO_4^- + 5H_2O_2 + 6H^+ \\to 2Mn^{2+} + 5O_2 + 8H_2O$, so $0.150 \\times 2/5 = 0.060$ mol of $KMnO_4$, which is 60 millimoles."
+    },
+    {
+      "id": "rr_c01_012",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In basic medium, $MnO_4^-$ oxidises $SO_3^{2-}$ to $SO_4^{2-}$ and is itself reduced to $MnO_2$. When the equation is balanced with smallest whole-number coefficients, what is the coefficient of $OH^-$ on the product side?",
+      "options": [
+        "A) $1$",
+        "B) $2$",
+        "C) $4$",
+        "D) $6$"
+      ],
+      "answer": "B",
+      "explanation": "Each $MnO_4^-$ gains 3 electrons and each $SO_3^{2-}$ loses 2. The balanced equation is $2MnO_4^- + 3SO_3^{2-} + H_2O \\to 2MnO_2 + 3SO_4^{2-} + 2OH^-$, so the product-side $OH^-$ coefficient is 2."
+    },
+    {
+      "id": "rr_c01_013",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $75$ mL solution of $0.02$ M potassium dichromate is added to an acidic solution of $Fe^{2+}$ until the dichromate is fully reduced to $Cr^{3+}$. How many millimoles of $Fe^{2+}$ are oxidised?",
+      "options": [],
+      "answer": "9",
+      "explanation": "Dichromate taken is $0.02 \\times 75 = 1.50$ mmol. Each $Cr_2O_7^{2-}$ accepts 6 electrons and each $Fe^{2+}$ gives one, so $6 \\times 1.50 = 9.0$ mmol $Fe^{2+}$ is oxidised."
+    },
+    {
+      "id": "rr_c01_014",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Chromium(III) oxide is fused with potassium chlorate and KOH to form potassium chromate, with the chlorate reduced to chloride. Which statement correctly gives the mole ratio of $KClO_3$ to $Cr_2O_3$ required, and the reason?",
+      "options": [
+        "A) $1$ mol $KClO_3$ per mol $Cr_2O_3$, because the 6 electrons lost by the two $Cr^{3+}$ ions are gained by one $ClO_3^-$",
+        "B) $3$ mol $KClO_3$ per mol $Cr_2O_3$, because each $Cr^{3+}$ loses 3 electrons and the chlorate gains 1",
+        "C) $2$ mol $KClO_3$ per mol $Cr_2O_3$, because each $Cr^{3+}$ loses 1 electron",
+        "D) $6$ mol $KClO_3$ per mol $Cr_2O_3$, because each chlorate gains 1 electron"
+      ],
+      "answer": "A",
+      "explanation": "Each $Cr^{3+}$ goes to $CrO_4^{2-}$ (chromium from $+3$ to $+6$), losing 3 electrons, so the two chromium atoms in $Cr_2O_3$ lose 6 electrons. Chlorate changes from $Cl^{+5}$ to $Cl^{-1}$, gaining 6 electrons per $ClO_3^-$, so the ratio is 1:1."
+    },
+    {
+      "id": "rr_c01_015",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Acidified permanganate oxidises hydrogen sulphide to sulphur. If $1.2$ mol of $MnO_4^-$ reacts completely with excess $H_2S$ in acid, how many moles of sulphur are formed?",
+      "options": [],
+      "answer": "3",
+      "explanation": "The balanced equation $2MnO_4^- + 5H_2S + 6H^+ \\to 2Mn^{2+} + 5S + 8H_2O$ gives 5 mol S per 2 mol $MnO_4^-$. Thus $1.2 \\times 5/2 = 3.0$ mol of sulphur are formed."
+    },
+    {
+      "id": "rr_c01_016",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For $MnO_4^- + Fe^{2+} \\to Mn^{2+} + Fe^{3+}$ in acidic medium, consider these statements after balancing with smallest integers: (i) 1 mol $MnO_4^-$ oxidises 5 mol $Fe^{2+}$. (ii) $H_2O$ appears on the product side with coefficient 8. (iii) $H^+$ appears on the reactant side with coefficient 8. Which option is correct?",
+      "options": [
+        "A) (i) and (ii) only",
+        "B) (ii) and (iii) only",
+        "C) (i) and (iii) only",
+        "D) (i), (ii) and (iii)"
+      ],
+      "answer": "C",
+      "explanation": "The balanced equation is $MnO_4^- + 5Fe^{2+} + 8H^+ \\to Mn^{2+} + 5Fe^{3+} + 4H_2O$. Statement (i) holds, statement (iii) holds with 8 $H^+$, and statement (ii) is false because water has coefficient 4."
+    },
+    {
+      "id": "rr_c01_017",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $0.49$ g sample of pure potassium dichromate, $K_2Cr_2O_7$ (molar mass $294$ g mol$^{-1}$), is used to oxidise $Sn^{2+}$ to $Sn^{4+}$ completely. How many millimoles of $Sn^{2+}$ are oxidised?",
+      "options": [],
+      "answer": "5",
+      "explanation": "Dichromate moles are $0.49/294 = 1.667$ mmol. Each dichromate gains 6 electrons, giving $10.0$ mmol of electrons. Each $Sn^{2+}$ loses 2 electrons, so $10.0/2 = 5$ mmol $Sn^{2+}$ is oxidised."
+    },
+    {
+      "id": "rr_c01_018",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Given standard reduction potentials $E^{\\circ}(Sn^{4+}/Sn^{2+}) = +0.15$ V and $E^{\\circ}(Fe^{3+}/Fe^{2+}) = +0.77$ V, which option gives the standard cell potential for $Sn^{2+} + 2Fe^{3+} \\to Sn^{4+} + 2Fe^{2+}$ and its spontaneity?",
+      "options": [
+        "A) $+0.62$ V, spontaneous",
+        "B) $+0.92$ V, spontaneous",
+        "C) $-0.62$ V, non-spontaneous",
+        "D) $-0.92$ V, non-spontaneous"
+      ],
+      "answer": "A",
+      "explanation": "The cell potential is $E^{\\circ}_{cell} = E^{\\circ}_{cathode} - E^{\\circ}_{anode} = 0.77 - 0.15 = +0.62$ V. A positive value means the reaction is spontaneous."
+    },
+    {
+      "id": "rr_c01_019",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A galvanic cell $Zn \\mid Zn^{2+}$ (0.1 M) $\\| Cu^{2+}$ (1.0 M) $\\mid Cu$ operates at 298 K. Take $E^{\\circ}(Zn^{2+}/Zn) = -0.76$ V and $E^{\\circ}(Cu^{2+}/Cu) = +0.34$ V. The cell potential is closest to:",
+      "options": [
+        "A) $1.13$ V",
+        "B) $1.07$ V",
+        "C) $1.16$ V",
+        "D) $1.10$ V"
+      ],
+      "answer": "A",
+      "explanation": "$E^{\\circ}_{cell} = 0.34 - (-0.76) = 1.10$ V. For $Zn + Cu^{2+} \\to Zn^{2+} + Cu$, $n = 2$ and $Q = 0.1/1.0 = 0.1$. The Nernst equation gives $E = 1.10 - \\frac{0.0592}{2}\\log(0.1) = 1.10 + 0.0296 = 1.13$ V."
+    },
+    {
+      "id": "rr_c01_020",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In acidic solution $H_2S$ is oxidised to sulphur by nitric acid, which is reduced to nitric oxide, NO. How many moles of $HNO_3$ are reduced when $9$ mol of $H_2S$ is completely oxidised to sulphur?",
+      "options": [],
+      "answer": "6",
+      "explanation": "The balanced equation is $3H_2S + 2HNO_3 \\to 3S + 2NO + 4H_2O$. Each $H_2S$ gives 2 electrons and each $N$ gains 3, so 9 mol $H_2S$ supplies 18 electrons, which reduces $18/3 = 6$ mol $HNO_3$."
+    },
+    {
+      "id": "rr_c01_021",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Chromium(III) hydroxide is oxidised by hypochlorite in strongly basic solution to chromate, while hypochlorite is reduced to chloride. Balanced with smallest whole-number coefficients, which option gives the coefficients of $OH^-$ (reactant side) and $H_2O$ (product side)?",
+      "options": [
+        "A) $OH^-$ = 2 and $H_2O$ = 5",
+        "B) $OH^-$ = 4 and $H_2O$ = 4",
+        "C) $OH^-$ = 4 and $H_2O$ = 5",
+        "D) $OH^-$ = 3 and $H_2O$ = 3"
+      ],
+      "answer": "C",
+      "explanation": "The balanced equation is $2Cr(OH)_3 + 3ClO^- + 4OH^- \\to 2CrO_4^{2-} + 3Cl^- + 5H_2O$. Chromium loses 6 electrons in total and three hypochlorite ions gain 6, and hydrogen and oxygen balance then fix $OH^- = 4$ and $H_2O = 5$."
+    },
+    {
+      "id": "rr_c01_022",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For $2Cu^{2+} + 4I^- \\to 2CuI + I_2$, consider: (i) each $Cu^{2+}$ gains one electron. (ii) Two mol $Cu^{2+}$ produce one mol $I_2$. (iii) $I^-$ is reduced to $I_2$. Which option is correct?",
+      "options": [
+        "A) (i) and (ii) only",
+        "B) (i) and (iii) only",
+        "C) (ii) and (iii) only",
+        "D) (iii) only"
+      ],
+      "answer": "A",
+      "explanation": "Each $Cu^{2+}$ becomes $Cu^+$ in CuI and gains one electron, so 2 mol $Cu^{2+}$ gain 2 electrons, which two $I^-$ release as one $I_2$. Statement (iii) is false because $I^-$ is oxidised, not reduced."
+    },
+    {
+      "id": "rr_c01_023",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Sulphur is heated with concentrated sodium hydroxide and disproportionates to sulphide and sulphite ions only. How many moles of $S^{2-}$ are formed from $4.5$ mol of sulphur atoms?",
+      "options": [],
+      "answer": "3",
+      "explanation": "The balanced equation is $3S + 6OH^- \\to 2S^{2-} + SO_3^{2-} + 3H_2O$. Three sulphur atoms give two sulphide ions, so $4.5 \\times 2/3 = 3.0$ mol $S^{2-}$."
+    },
+    {
+      "id": "rr_c01_024",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In acidic medium iodate ion is reduced to iodine, $IO_3^- \\to I_2$. Which option gives the equivalent mass of $KIO_3$ (molar mass $214$ g mol$^{-1}$) in this change, together with the correct reason?",
+      "options": [
+        "A) $42.8$ g eq$^{-1}$, because each iodate ion gains 5 electrons",
+        "B) $107$ g eq$^{-1}$, because each iodate ion gains 2 electrons",
+        "C) $214$ g eq$^{-1}$, because iodate gains no electrons overall",
+        "D) $21.4$ g eq$^{-1}$, because each iodate ion gains 10 electrons"
+      ],
+      "answer": "A",
+      "explanation": "Iodine goes from $+5$ in $IO_3^-$ to $0$ in $I_2$, so each iodate gains 5 electrons. Equivalent mass $= 214/5 = 42.8$ g eq$^{-1}$. Two iodate ions give one $I_2$ with 10 electrons, which is still 5 per ion."
+    },
+    {
+      "id": "rr_c01_025",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Hydrogen peroxide is used with acidified permanganate and with iodide ions. Consider: (i) $H_2O_2$ acts as a reducing agent towards acidic $KMnO_4$ and oxygen is released. (ii) $H_2O_2$ oxidises $I^-$ to $I_2$ in acid. (iii) $H_2O_2$ reduces $MnO_4^-$ to $MnO_2$ in acid. Which option is correct?",
+      "options": [
+        "A) (i) and (ii) only",
+        "B) (i) and (iii) only",
+        "C) (ii) and (iii) only",
+        "D) (i), (ii) and (iii)"
+      ],
+      "answer": "A",
+      "explanation": "In acid, $2MnO_4^- + 5H_2O_2 + 6H^+ \\to 2Mn^{2+} + 5O_2 + 8H_2O$, so (i) holds. The reaction $H_2O_2 + 2I^- + 2H^+ \\to I_2 + 2H_2O$ shows (ii) is true. Statement (iii) is false because in acid manganese is reduced to $Mn^{2+}$, not $MnO_2$."
+    },
+    {
+      "id": "rr_c01_026",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Sulphur dioxide is passed into an acidified solution containing $4$ mol of dichromate ions, $Cr_2O_7^{2-}$, until all of it is reduced to $Cr^{3+}$. How many moles of $SO_2$ are oxidised to sulphate?",
+      "options": [],
+      "answer": "12",
+      "explanation": "The balanced equation is $Cr_2O_7^{2-} + 3SO_2 + 2H^+ \\to 2Cr^{3+} + 3SO_4^{2-} + H_2O$. Each dichromate needs 3 $SO_2$ molecules, so $4 \\times 3 = 12$ mol $SO_2$ are oxidised."
+    },
+    {
+      "id": "rr_c01_027",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Tin(II) ions reduce nitrate ions in acidic solution to nitric oxide, and tin is oxidised to tin(IV). When $3Sn^{2+} + 2NO_3^- + xH^+ \\to 3Sn^{4+} + 2NO + yH_2O$ is balanced with smallest integers, what are $x$ and $y$?",
+      "options": [
+        "A) $x = 8$, $y = 4$",
+        "B) $x = 6$, $y = 3$",
+        "C) $x = 4$, $y = 2$",
+        "D) $x = 8$, $y = 2$"
+      ],
+      "answer": "A",
+      "explanation": "Electron balance: the three $Sn^{2+}$ lose 6 electrons and the two $NO_3^-$ gain 6. Charge balance needs $-2 + x = +12$, so $x = 8$. Oxygen balance gives $6 = 2 + y$, so $y = 4$."
+    },
+    {
+      "id": "rr_c01_028",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Starting with $9$ mol of $H_2S$ and $3$ mol of $SO_2$, the reaction between them goes to completion in solution. How many moles of elemental sulphur are formed?",
+      "options": [],
+      "answer": "9",
+      "explanation": "The balanced equation is $2H_2S + SO_2 \\to 3S + 2H_2O$. Each $SO_2$ gives 3 sulphur atoms, so $3 \\times 3 = 9$ mol of S. The $H_2S$ is in excess, since 3 mol $SO_2$ needs only 6 mol $H_2S$."
+    },
+    {
+      "id": "rr_c01_029",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Standard reduction potentials are $E^{\\circ}(Ag^+/Ag) = +0.80$ V, $E^{\\circ}(Fe^{3+}/Fe^{2+}) = +0.77$ V and $E^{\\circ}(Cu^{2+}/Cu) = +0.34$ V. Which statements are correct? (i) Cu can reduce $Ag^+$ to Ag. (ii) $Fe^{2+}$ can reduce $Ag^+$ to Ag. (iii) Ag can reduce $Fe^{3+}$ to $Fe^{2+}$.",
+      "options": [
+        "A) (i) only",
+        "B) (i) and (ii) only",
+        "C) (ii) and (iii) only",
+        "D) (i) and (iii) only"
+      ],
+      "answer": "B",
+      "explanation": "For (i), $E^{\\circ}_{cell} = 0.80 - 0.34 = +0.46$ V. For (ii), $0.80 - 0.77 = +0.03$ V. Both are positive, so both are spontaneous. For (iii), $0.77 - 0.80 = -0.03$ V, so it is non-spontaneous."
+    },
+    {
+      "id": "rr_c01_030",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Copper metal is placed in a solution of silver ions, and the reaction $Cu + 2Ag^+ \\to Cu^{2+} + 2Ag$ occurs with $E^{\\circ}(Ag^+/Ag) = +0.80$ V and $E^{\\circ}(Cu^{2+}/Cu) = +0.34$ V. Taking $F = 96485$ C mol$^{-1}$, what is the magnitude of $\\Delta G^{\\circ}$ in kJ mol$^{-1}$, rounded to the nearest integer?",
+      "options": [],
+      "answer": "89",
+      "explanation": "$E^{\\circ}_{cell} = 0.80 - 0.34 = 0.46$ V and $n = 2$. Then $|\\Delta G^{\\circ}| = nFE^{\\circ} = 2 \\times 96485 \\times 0.46 = 88766$ J, which is $88.8 \\approx 89$ kJ mol$^{-1}$."
+    },
+    {
+      "id": "rr_c01_031",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Cuprous ion disproportionates: $2Cu^+ \\to Cu^{2+} + Cu$. Given $E^{\\circ}(Cu^{2+}/Cu^+) = +0.15$ V and $E^{\\circ}(Cu^+/Cu) = +0.52$ V, which option gives the standard cell potential for this process and its status?",
+      "options": [
+        "A) $+0.37$ V, spontaneous",
+        "B) $-0.37$ V, non-spontaneous",
+        "C) $+0.67$ V, spontaneous",
+        "D) $+0.15$ V, non-spontaneous"
+      ],
+      "answer": "A",
+      "explanation": "The reduction of $Cu^+$ to $Cu$ (+0.52 V) acts as the cathode, and the reduction of $Cu^{2+}$ to $Cu^+$ (+0.15 V) runs in reverse at the anode. So $E^{\\circ}_{cell} = 0.52 - 0.15 = +0.37$ V, which is positive, so the process is spontaneous."
+    },
+    {
+      "id": "rr_c01_032",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A sample of $11.6$ g of magnetite, $Fe_3O_4$ (molar mass $232$ g mol$^{-1}$), is treated with acidified $KMnO_4$ so that only its $Fe^{2+}$ is oxidised to $Fe^{3+}$. How many millimoles of $KMnO_4$ are required?",
+      "options": [],
+      "answer": "10",
+      "explanation": "Moles of $Fe_3O_4$ are $11.6/232 = 0.0500$ mol. Each formula unit has one $Fe^{2+}$, releasing one electron, so 50 mmol electrons are released. Permanganate gains 5 electrons per ion, so it needs $50/5 = 10$ mmol."
+    },
+    {
+      "id": "rr_c01_033",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Acidified potassium dichromate oxidises a mixture containing $0.6$ mol $Fe^{2+}$ and $0.3$ mol $SO_3^{2-}$ completely, with dichromate reduced to $Cr^{3+}$. Which option gives the moles of dichromate required, together with the reason?",
+      "options": [
+        "A) $0.1$ mol, because $Fe^{2+}$ alone accounts for all the electrons",
+        "B) $0.2$ mol, because $Fe^{2+}$ needs $0.1$ mol and sulphite needs $0.1$ mol",
+        "C) $0.3$ mol, because each sulphite ion and each $Fe^{2+}$ ion give 2 electrons",
+        "D) $0.4$ mol, because each $Fe^{2+}$ and each sulphite ion uses 6 electrons"
+      ],
+      "answer": "B",
+      "explanation": "Each dichromate accepts 6 electrons. $0.6$ mol $Fe^{2+}$ gives $0.6$ mol electrons, needing $0.1$ mol dichromate. $0.3$ mol $SO_3^{2-}$ gives $0.6$ mol electrons (sulphur $+4$ to $+6$), needing another $0.1$ mol. The total is $0.2$ mol."
+    },
+    {
+      "id": "rr_c01_034",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In acidic solution permanganate oxidises nitrite ions to nitrate ions. How many moles of nitrite ions are oxidised by $3.2$ mol of permanganate?",
+      "options": [],
+      "answer": "8",
+      "explanation": "Each permanganate gains 5 electrons, and each nitrite loses 2 electrons as nitrogen goes from $+3$ to $+5$. The balanced equation $2MnO_4^- + 5NO_2^- + 6H^+ \\to 2Mn^{2+} + 5NO_3^- + 3H_2O$ gives $3.2 \\times 5/2 = 8.0$ mol $NO_2^-$."
+    },
+    {
+      "id": "rr_c01_035",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "$KMnO_4$ is used as an oxidant in two media. In strongly acidic solution it is reduced to $Mn^{2+}$, and in strongly alkaline solution it is reduced to $MnO_4^{2-}$. What is the ratio of the equivalent mass of $KMnO_4$ in alkaline medium to its equivalent mass in acidic medium?",
+      "options": [
+        "A) $1/5$",
+        "B) $1$",
+        "C) $3$",
+        "D) $5$"
+      ],
+      "answer": "D",
+      "explanation": "In acid, manganese changes from $+7$ to $+2$, a gain of 5 electrons. In alkali it changes to $+6$, a gain of 1 electron. Equivalent mass is molar mass divided by $n$, so the ratio is $(M/1)/(M/5) = 5$."
+    },
+    {
+      "id": "rr_c01_036",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider two acidic-medium reactions: P, in which dichromate $Cr_2O_7^{2-}$ oxidises $H_2S$ to sulphur, and Q, in which chlorate $ClO_3^-$ oxidises $I^-$ to $I_2$ with $Cl^-$ formed. Which of the following statements is/are correct?",
+      "options": [
+        "A) In P, 3 mol $H_2S$ are oxidised per mol $Cr_2O_7^{2-}$, and 7 mol $H_2O$ are formed.",
+        "B) In Q, 1 mol $ClO_3^-$ oxidises 6 mol $I^-$, forming 3 mol $I_2$.",
+        "C) In Q, 6 mol $H^+$ are consumed and 6 mol $H_2O$ are formed per mol $ClO_3^-$.",
+        "D) In P, each sulphur atom loses 2 electrons and each $Cr_2O_7^{2-}$ gains 6 electrons."
+      ],
+      "answer": "A,B,D",
+      "explanation": "In P, $Cr_2O_7^{2-}$ gains 6 electrons (two $Cr$ from $+6$ to $+3$), and 3 $H_2S$ supply 6 electrons, giving $Cr_2O_7^{2-} + 3H_2S + 8H^+ \\to 2Cr^{3+} + 3S + 7H_2O$. In Q, $ClO_3^-$ gains 6 electrons ($+5$ to $-1$), giving $ClO_3^- + 6I^- + 6H^+ \\to Cl^- + 3I_2 + 3H_2O$. Statement C is false because only 3 mol water forms."
+    },
+    {
+      "id": "rr_c01_037",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "At 298 K, $Cu + 2Ag^+ \\to Cu^{2+} + 2Ag$ has $E^{\\circ}(Ag^+/Ag) = +0.80$ V and $E^{\\circ}(Cu^{2+}/Cu) = +0.34$ V. A solution has $[Cu^{2+}] = 0.001$ M and $[Ag^+] = 0.1$ M. Which of the following statements is/are correct?",
+      "options": [
+        "A) The standard cell potential is $+0.46$ V.",
+        "B) Under these concentrations the cell potential is about $+0.49$ V.",
+        "C) Under these concentrations the forward reaction is non-spontaneous.",
+        "D) Raising $[Ag^+]$ to 1.0 M increases the cell potential above its value at 0.1 M."
+      ],
+      "answer": "A,B,D",
+      "explanation": "The standard value is $0.80 - 0.34 = 0.46$ V. The reaction quotient is $Q = [Cu^{2+}]/[Ag^+]^2 = 0.001/0.01 = 0.1$, so $E = 0.46 - \\frac{0.0592}{2}\\log(0.1) = 0.49$ V, which is positive and spontaneous. At $[Ag^+] = 1.0$ M, $Q = 0.001$ and $E = 0.46 + 0.089 = 0.55$ V, which is higher."
+    },
+    {
+      "id": "rr_c01_038",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A mixture of $0.04$ mol $Fe^{2+}$ and $0.03$ mol oxalate ion, $C_2O_4^{2-}$, is completely oxidised by acidified $MnO_4^-$. Express the moles of $MnO_4^-$ consumed as an integer multiple of $0.01$ mol.",
+      "options": [],
+      "answer": "2",
+      "explanation": "The $Fe^{2+}$ supplies $0.04$ mol electrons. Each oxalate gives 2 electrons (two carbons from $+3$ to $+4$), so $0.03 \\times 2 = 0.06$ mol electrons. The total is $0.10$ mol. Permanganate gains 5 electrons per ion, so $0.10/5 = 0.02$ mol $= 2 \\times 0.01$ mol."
+    },
+    {
+      "id": "rr_c01_039",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Manganate ions disproportionate in slightly acidic solution to permanganate and manganese dioxide. Starting with $1.2$ mol of $MnO_4^{2-}$, express the moles of $MnO_4^-$ formed as an integer multiple of $0.1$ mol.",
+      "options": [],
+      "answer": "8",
+      "explanation": "The balanced equation is $3MnO_4^{2-} + 4H^+ \\to 2MnO_4^- + MnO_2 + 2H_2O$, so 2 mol $MnO_4^-$ form per 3 mol manganate. Thus $1.2 \\times 2/3 = 0.8$ mol $= 8 \\times 0.1$ mol. Electron balance: two Mn go from $+6$ to $+7$ (2 electrons lost) and one goes to $+4$ (2 electrons gained)."
+    },
+    {
+      "id": "rr_c01_040",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Using $E^{\\circ}(Ag^+/Ag) = +0.80$ V and $E^{\\circ}(Fe^{3+}/Fe^{2+}) = +0.77$ V at 298 K, the equilibrium constant for $Ag^+ + Fe^{2+} \\rightleftharpoons Ag + Fe^{3+}$ is closest to:",
+      "options": [
+        "A) $3.2$",
+        "B) $0.31$",
+        "C) $1.17$",
+        "D) $31.6$"
+      ],
+      "answer": "A",
+      "explanation": "$E^{\\circ}_{cell} = 0.80 - 0.77 = 0.03$ V with $n = 1$. At equilibrium $\\log K = \\frac{nE^{\\circ}}{0.0592} = \\frac{0.03}{0.0592} = 0.507$, so $K = 10^{0.507} \\approx 3.2$."
+    },
+    {
+      "id": "rr_c01_041",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Chlorine behaves differently in cold dilute and hot concentrated alkali. Which of the following statements is/are correct?",
+      "options": [
+        "A) In cold dilute $NaOH$, $Cl_2 + 2OH^- \\to Cl^- + ClO^- + H_2O$, so 1 mol $Cl_2$ gives 1 mol each of $Cl^-$ and $ClO^-$.",
+        "B) In hot concentrated $NaOH$, 3 mol $Cl_2$ give 5 mol $Cl^-$ and 1 mol $ClO_3^-$.",
+        "C) The change $3ClO^- \\to ClO_3^- + 2Cl^-$ transfers 4 electrons for every 3 mol of $ClO^-$.",
+        "D) In cold dilute $NaOH$, 2 mol $Cl_2$ give 1 mol $ClO_3^-$ as the main product."
+      ],
+      "answer": "A,B,C",
+      "explanation": "In cold dilute alkali, $Cl_2$ disproportionates 1:1 to $Cl^-$ and $ClO^-$. In hot alkali, $3Cl_2 + 6OH^- \\to 5Cl^- + ClO_3^- + 3H_2O$. For statement C, one chlorine goes from $+1$ to $+5$ (4 electrons lost) and two go from $+1$ to $-1$ (2 electrons each, 4 total). Statement D is false."
+    },
+    {
+      "id": "rr_c01_043",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In the basic-medium reaction $2Bi(OH)_3 + 3SnO_2^{2-} \\to 2Bi + 3SnO_3^{2-} + 3H_2O$, which statement correctly describes the electron transfer?",
+      "options": [
+        "A) Each $Bi(OH)_3$ gains 3 electrons, and each $SnO_2^{2-}$ loses 2 electrons.",
+        "B) Each $Bi(OH)_3$ gains 3 electrons, and each $SnO_2^{2-}$ also gains 2 electrons.",
+        "C) Each $Bi(OH)_3$ loses 3 electrons, and each $SnO_2^{2-}$ gains 2 electrons.",
+        "D) Each $Bi(OH)_3$ gains 2 electrons, and each $SnO_2^{2-}$ loses 3 electrons."
+      ],
+      "answer": "A",
+      "explanation": "Bismuth goes from $+3$ to $0$, so each $Bi(OH)_3$ gains 3 electrons. Tin goes from $+2$ in $SnO_2^{2-}$ to $+4$ in $SnO_3^{2-}$, losing 2 electrons per ion. Six electrons are gained by two Bi and six are lost by three Sn, which balances."
+    },
+    {
+      "id": "rr_c01_044",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A solution contains $0.06$ mol $Sn^{2+}$ and $0.06$ mol $Fe^{2+}$. Acidified potassium dichromate is added until both are fully oxidised. Express the moles of dichromate consumed as an integer multiple of $0.01$ mol.",
+      "options": [],
+      "answer": "3",
+      "explanation": "$Sn^{2+}$ gives $0.12$ mol electrons (2 each) and $Fe^{2+}$ gives $0.06$ mol (1 each), a total of $0.18$ mol. Each dichromate accepts 6 electrons, so $0.18/6 = 0.03$ mol $= 3 \\times 0.01$ mol."
+    },
+    {
+      "id": "rr_c01_045",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "White phosphorus is heated in alkali and disproportionates to phosphine and hypophosphite ions only. Express the moles of $H_2PO_2^-$ formed from $0.3$ mol of $P_4$ as an integer multiple of $0.1$ mol.",
+      "options": [],
+      "answer": "9",
+      "explanation": "Each $P_4$ gives 3 mol $H_2PO_2^-$, so $0.3 \\times 3 = 0.9$ mol $= 9 \\times 0.1$ mol. Electron balance: three P atoms go from $0$ to $+1$ (3 electrons lost) while one goes from $0$ to $-3$ (3 electrons gained)."
+    },
+    {
+      "id": "rr_c01_046",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "At 298 K the half reaction $MnO_4^- + 8H^+ + 5e^- \\to Mn^{2+} + 4H_2O$ has $E^{\\circ} = +1.51$ V. In a solution with $[MnO_4^-] = 0.1$ M, $[Mn^{2+}] = 0.01$ M and $[H^+] = 0.1$ M, the electrode potential is closest to:",
+      "options": [
+        "A) $1.43$ V",
+        "B) $1.51$ V",
+        "C) $1.59$ V",
+        "D) $1.10$ V"
+      ],
+      "answer": "A",
+      "explanation": "$E = E^{\\circ} - \\frac{0.0592}{5}\\log\\frac{[Mn^{2+}]}{[MnO_4^-][H^+]^8}$. The reaction quotient is $\\frac{0.01}{0.1 \\times (0.1)^8} = 10^7$, so $E = 1.51 - 0.01184 \\times 7 = 1.43$ V."
+    },
+    {
+      "id": "rr_c01_047",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Given standard reduction potentials $E^{\\circ}(Au^{3+}/Au) = +1.50$ V, $E^{\\circ}(Cl_2/Cl^-) = +1.36$ V, $E^{\\circ}(Ag^+/Ag) = +0.80$ V and $E^{\\circ}(Pb^{2+}/Pb) = -0.13$ V, which of the following statements is/are correct?",
+      "options": [
+        "A) $Cl_2$ can oxidise $Pb$ to $Pb^{2+}$ spontaneously.",
+        "B) $Ag$ can reduce $Au^{3+}$ to $Au$ spontaneously.",
+        "C) $Pb$ can reduce $Ag^+$ to $Ag$ spontaneously.",
+        "D) $Pb^{2+}$ can oxidise $Ag$ to $Ag^+$ spontaneously."
+      ],
+      "answer": "A,B,C",
+      "explanation": "For A, $E^{\\circ}_{cell} = 1.36 - (-0.13) = 1.49$ V, which is positive. For B, $1.50 - 0.80 = 0.70$ V. For C, $0.80 - (-0.13) = 0.93$ V. For D, $-0.13 - 0.80 = -0.93$ V, so it is not spontaneous."
+    },
+    {
+      "id": "rr_c01_048",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In acidic solution $H_2O_2$ reduces $MnO_4^-$ to $Mn^{2+}$ and is itself oxidised to oxygen gas. A $25$ mL aliquot of $0.04$ M $KMnO_4$ is titrated with $0.5$ M $H_2O_2$ until the permanganate is just consumed. What volume of $H_2O_2$ solution, in mL, is required?",
+      "options": [],
+      "answer": "5",
+      "explanation": "$25 \\times 0.04 = 1.0$ mmol $MnO_4^-$ gains 5 electrons per ion, giving $5.0$ mmol electrons. Each $H_2O_2$ loses 2 electrons, so $2.5$ mmol $H_2O_2$ is needed. Volume $= 2.5/0.5 = 5$ mL."
+    },
+    {
+      "id": "rr_c01_050",
+      "subject": "Chemistry",
+      "topic": "Redox Reactions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Hydrogen peroxide reduces acidified dichromate, $Cr_2O_7^{2-}$, to $Cr^{3+}$ and is itself oxidised to oxygen gas. Express the moles of $O_2$ formed from $0.2$ mol of dichromate as an integer multiple of $0.1$ mol.",
+      "options": [],
+      "answer": "6",
+      "explanation": "The balanced equation is $Cr_2O_7^{2-} + 3H_2O_2 + 8H^+ \\to 2Cr^{3+} + 3O_2 + 7H_2O$, so each dichromate gives 3 $O_2$ and $0.2 \\times 3 = 0.6$ mol $= 6 \\times 0.1$ mol. Dichromate gains 6 electrons while three $H_2O_2$ release 6 electrons as 3 $O_2$."
+    }
+  ]
+}

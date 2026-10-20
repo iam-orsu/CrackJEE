@@ -1,0 +1,804 @@
+{
+  "questions": [
+    {
+      "id": "itf_c01_001",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "What is the exact value of the expression $\\sin^{-1}(\\sin 10) + \\cos^{-1}(\\cos 10)$, where the angle $10$ is measured in radians?",
+      "options": [
+        "A) $7\\pi - 20$",
+        "B) $20 - 7\\pi$",
+        "C) $3\\pi - 10$",
+        "D) $5\\pi - 20$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Determine the principal value of $\\sin^{-1}(\\sin 10)$. Since $3\\pi \\approx 9.42$ and $\\frac{7\\pi}{2} \\approx 11.00$, we observe that $10 \\in \\left(3\\pi, \\frac{7\\pi}{2}\\right)$. Using the reduction $\\sin(3\\pi - 10) = \\sin 10$, where $3\\pi - 10 \\approx -0.58 \\in \\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]$, we get $\\sin^{-1}(\\sin 10) = 3\\pi - 10$. Step 2: Determine $\\cos^{-1}(\\cos 10)$. Since $3\\pi < 10 < 4\\pi$, the reduction $\\cos(4\\pi - 10) = \\cos 10$ applies, where $4\\pi - 10 \\approx 2.57 \\in [0, \\pi]$. Hence $\\cos^{-1}(\\cos 10) = 4\\pi - 10$. Step 3: Adding these two results yields $(3\\pi - 10) + (4\\pi - 10) = 7\\pi - 20$. Inverting the signs of both branches produces $20 - 7\\pi$, while omitting the cosine reduction produces $3\\pi - 10$."
+    },
+    {
+      "id": "itf_c01_002",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the exact numerical value of the trigonometric expression $\\tan\\left(2\\tan^{-1}\\left(\\frac{1}{5}\\right) - \\frac{\\pi}{4}\\right)$.",
+      "options": [
+        "A) $\\frac{7}{17}$",
+        "B) $-\\frac{7}{17}$",
+        "C) $-\\frac{5}{12}$",
+        "D) $\\frac{17}{7}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Let $\\theta = \\tan^{-1}\\left(\\frac{1}{5}\\right)$. Applying the double-angle formula for tangent yields $\\tan 2\\theta = \\frac{2(1/5)}{1 - (1/5)^2} = \\frac{2/5}{24/25} = \\frac{5}{12}$. Step 2: Next, applying the tangent subtraction formula gives $\\tan\\left(2\\theta - \\frac{\\pi}{4}\\right) = \\frac{\\tan 2\\theta - 1}{1 + \\tan 2\\theta}$. Step 3: Substituting $\\tan 2\\theta = \\frac{5}{12}$ into this expression gives $\\frac{5/12 - 1}{1 + 5/12} = \\frac{-7/12}{17/12} = -\\frac{7}{17}$. Forgetting the negative sign in the numerator produces $\\frac{7}{17}$, while evaluating only $\\tan 2\\theta$ yields $-\\frac{5}{12}$."
+    },
+    {
+      "id": "itf_c01_003",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the total number of distinct real solutions to the equation $\\sin^{-1} x = 2\\tan^{-1} x$.",
+      "options": [],
+      "answer": "3",
+      "explanation": "Step 1: The domain of the equation requires $x \\in [-1, 1]$. Step 2: Taking the sine of both sides of $\\sin^{-1} x = 2\\tan^{-1} x$ yields $x = \\sin(2\\tan^{-1} x)$. Step 3: Utilizing the double-angle rational identity $\\sin(2\\tan^{-1} x) = \\frac{2x}{1 + x^2}$, the equation becomes $x = \\frac{2x}{1 + x^2}$. Step 4: Rearranging and factoring gives $x\\left(1 - \\frac{2}{1+x^2}\\right) = 0 \\implies x\\left(\\frac{x^2 - 1}{1+x^2}\\right) = 0$. Step 5: The roots are $x = 0$, $x = 1$, and $x = -1$. Substituting each root back into the original equation verifies that $\\sin^{-1}(0) = 2\\tan^{-1}(0) = 0$, $\\sin^{-1}(1) = 2\\tan^{-1}(1) = \\frac{\\pi}{2}$, and $\\sin^{-1}(-1) = 2\\tan^{-1}(-1) = -\\frac{\\pi}{2}$. Hence, there are exactly 3 distinct real solutions."
+    },
+    {
+      "id": "itf_c01_004",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the maximal real domain of the function $f(x) = \\sin^{-1}\\left(\\frac{x^2 - 3x + 2}{x^2 + 2x + 3}\\right)$.",
+      "options": [
+        "A) $[-1, 1]$",
+        "B) $\\left(-\\infty, -\\frac{1}{5}\\right]$",
+        "C) $\\left[-\\frac{1}{5}, \\infty\\right)$",
+        "D) $[0, \\infty)$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The argument of the inverse sine function must satisfy $-1 \\le \\frac{x^2 - 3x + 2}{x^2 + 2x + 3} \\le 1$. Notice that the denominator $x^2 + 2x + 3 = (x+1)^2 + 2 > 0$ is strictly positive for all $x \\in \\mathbb{R}$. Step 2: The lower bound requires $x^2 - 3x + 2 \\ge -(x^2 + 2x + 3) \\implies 2x^2 - x + 5 \\ge 0$. The discriminant is $\\Delta = 1 - 40 = -39 < 0$, so $2x^2 - x + 5 > 0$ holds universally for all real $x$. Step 3: The upper bound requires $x^2 - 3x + 2 \\le x^2 + 2x + 3 \\implies -3x + 2 \\le 2x + 3 \\implies 5x \\ge -1 \\implies x \\ge -\\frac{1}{5}$. Step 4: Intersecting these two solution sets yields the domain $\\left[-\\frac{1}{5}, \\infty\\right)$. Reversing the inequality sign leads to the incorrect set $\\left(-\\infty, -\\frac{1}{5}\\right]$."
+    },
+    {
+      "id": "itf_c01_005",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the exact value of the trigonometric expression $\\cos\\left(\\frac{1}{2}\\cos^{-1}\\left(\\frac{1}{8}\\right)\\right)$.",
+      "options": [
+        "A) $\\frac{\\sqrt{7}}{4}$",
+        "B) $\\frac{1}{4}$",
+        "C) $\\frac{3}{8}$",
+        "D) $\\frac{3}{4}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Let $\\theta = \\cos^{-1}\\left(\\frac{1}{8}\\right)$. Since $\\frac{1}{8} > 0$, we have $\\theta \\in \\left(0, \\frac{\\pi}{2}\\right)$, which implies $\\frac{\\theta}{2} \\in \\left(0, \\frac{\\pi}{4}\\right)$, so $\\cos\\left(\\frac{\\theta}{2}\\right) > 0$. Step 2: Applying the half-angle formula for cosine gives $\\cos^2\\left(\\frac{\\theta}{2}\\right) = \\frac{1 + \\cos\\theta}{2}$. Step 3: Substituting $\\cos\\theta = \\frac{1}{8}$ into the identity yields $\\cos^2\\left(\\frac{\\theta}{2}\\right) = \\frac{1 + 1/8}{2} = \\frac{9/8}{2} = \\frac{9}{16}$. Step 4: Taking the positive square root gives $\\cos\\left(\\frac{\\theta}{2}\\right) = \\sqrt{\\frac{9}{16}} = \\frac{3}{4}$. Calculating $\\sin\\left(\\frac{\\theta}{2}\\right)$ instead yields $\\frac{\\sqrt{7}}{4}$."
+    },
+    {
+      "id": "itf_c01_006",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "If the unique positive real solution to the equation $\\tan^{-1}(2x) + \\tan^{-1}(3x) = \\frac{\\pi}{4}$ is $x = \\frac{1}{k}$, find the value of the integer $k$.",
+      "options": [],
+      "answer": "6",
+      "explanation": "Step 1: For $x > 0$ such that $2x \\cdot 3x = 6x^2 < 1$, we apply the addition formula $\\tan^{-1}(2x) + \\tan^{-1}(3x) = \\tan^{-1}\\left(\\frac{2x + 3x}{1 - 6x^2}\\right)$. Step 2: Equating this expression to $\\frac{\\pi}{4}$ implies $\\frac{5x}{1 - 6x^2} = \\tan\\left(\\frac{\\pi}{4}\\right) = 1$. Step 3: Solving the resulting algebraic equation yields $5x = 1 - 6x^2 \\implies 6x^2 + 5x - 1 = 0$. Step 4: Factoring gives $(6x - 1)(x + 1) = 0$. Since $x > 0$, we discard the negative root $x = -1$ (which gives $-\\frac{3\\pi}{4}$) and obtain $x = \\frac{1}{6}$. Step 5: Verification confirms $6(1/6)^2 = \\frac{1}{6} < 1$. Thus $k = 6$."
+    },
+    {
+      "id": "itf_c01_007",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the exact value of the trigonometric expression $\\cos\\left(2\\sin^{-1}\\left(\\frac{3}{5}\\right)\\right)$.",
+      "options": [
+        "A) $\\frac{7}{25}$",
+        "B) $\\frac{24}{25}$",
+        "C) $-\\frac{7}{25}$",
+        "D) $\\frac{16}{25}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let $\\alpha = \\sin^{-1}\\left(\\frac{3}{5}\\right)$, so that $\\sin\\alpha = \\frac{3}{5}$ with $\\alpha \\in \\left(0, \\frac{\\pi}{2}\\right)$. Step 2: Applying the double-angle formula for cosine gives $\\cos(2\\alpha) = 1 - 2\\sin^2\\alpha$. Step 3: Substituting $\\sin\\alpha = \\frac{3}{5}$ yields $\\cos(2\\alpha) = 1 - 2\\left(\\frac{3}{5}\\right)^2 = 1 - 2\\left(\\frac{9}{25}\\right) = 1 - \\frac{18}{25} = \\frac{7}{25}$. Calculating $\\sin(2\\alpha)$ instead results in $\\frac{24}{25}$, while a sign error leads to $-\\frac{7}{25}$."
+    },
+    {
+      "id": "itf_c01_008",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the exact numerical value of the composite expression $\\sin\\left(\\frac{\\pi}{3} - \\sin^{-1}\\left(-\\frac{\\sqrt{3}}{2}\\right)\\right)$.",
+      "options": [
+        "A) $0$",
+        "B) $\\frac{\\sqrt{3}}{2}$",
+        "C) $-\\frac{\\sqrt{3}}{2}$",
+        "D) $\\frac{1}{2}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate the inner inverse sine function using the odd symmetry property $\\sin^{-1}(-u) = -\\sin^{-1}(u)$. This yields $\\sin^{-1}\\left(-\\frac{\\sqrt{3}}{2}\\right) = -\\frac{\\pi}{3}$. Step 2: Substitute this value into the outer argument: $\\frac{\\pi}{3} - \\left(-\\frac{\\pi}{3}\\right) = \\frac{\\pi}{3} + \\frac{\\pi}{3} = \\frac{2\\pi}{3}$. Step 3: Compute the sine of this angle: $\\sin\\left(\\frac{2\\pi}{3}\\right) = \\sin\\left(\\pi - \\frac{\\pi}{3}\\right) = \\sin\\left(\\frac{\\pi}{3}\\right) = \\frac{\\sqrt{3}}{2}$. Forgetting the negative sign of the inverse sine yields $\\sin(0) = 0$."
+    },
+    {
+      "id": "itf_c01_009",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the complete range of the function $f(x) = \\sin^{-1} x + \\cos^{-1} x + \\tan^{-1} x$ defined on its maximal domain.",
+      "options": [
+        "A) $[0, \\pi]$",
+        "B) $\\left[-\\frac{\\pi}{4}, \\frac{3\\pi}{4}\\right]$",
+        "C) $\\left[\\frac{\\pi}{4}, \\frac{3\\pi}{4}\\right]$",
+        "D) $\\left[\\frac{\\pi}{2}, \\pi\\right]$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The domain of $f(x)$ is the intersection of the domains of $\\sin^{-1} x$, $\\cos^{-1} x$, and $\\tan^{-1} x$, which is $[-1, 1]$. Step 2: For every $x \\in [-1, 1]$, applying the complementary angle identity gives $\\sin^{-1} x + \\cos^{-1} x = \\frac{\\pi}{2}$. Step 3: Therefore, the function simplifies to $f(x) = \\frac{\\pi}{2} + \\tan^{-1} x$. Step 4: Because $\\tan^{-1} x$ is strictly increasing on $[-1, 1]$, its values range from $\\tan^{-1}(-1) = -\\frac{\\pi}{4}$ to $\\tan^{-1}(1) = \\frac{\\pi}{4}$. Step 5: Adding $\\frac{\\pi}{2}$ yields the range $\\left[\\frac{\\pi}{2} - \\frac{\\pi}{4}, \\frac{\\pi}{2} + \\frac{\\pi}{4}\\right] = \\left[\\frac{\\pi}{4}, \\frac{3\\pi}{4}\\right]$. Ignoring the domain restriction $[-1, 1]$ gives the distractor $(0, \\pi)$."
+    },
+    {
+      "id": "itf_c01_010",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "If the real numbers $x, y, z \\in [-1, 1]$ satisfy $\\sin^{-1} x + \\sin^{-1} y + \\sin^{-1} z = \\frac{3\\pi}{2}$, compute the value of $x^{100} + y^{100} + z^{100} - \\frac{9}{x^{101} + y^{101} + z^{101}}$.",
+      "options": [],
+      "answer": "0",
+      "explanation": "Step 1: The principal value range of $\\sin^{-1} t$ for any $t \\in [-1, 1]$ is $\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]$. Step 2: The sum of three such inverse sine terms is bounded above: $\\sin^{-1} x + \\sin^{-1} y + \\sin^{-1} z \\le \\frac{\\pi}{2} + \\frac{\\pi}{2} + \\frac{\\pi}{2} = \\frac{3\\pi}{2}$. Step 3: Equality is attained if and only if each term achieves its maximum value simultaneously: $\\sin^{-1} x = \\sin^{-1} y = \\sin^{-1} z = \\frac{\\pi}{2}$. Step 4: This implies $x = y = z = 1$. Step 5: Substituting these values into the required algebraic expression gives $(1^{100} + 1^{100} + 1^{100}) - \\frac{9}{1^{101} + 1^{101} + 1^{101}} = 3 - \\frac{9}{3} = 3 - 3 = 0$."
+    },
+    {
+      "id": "itf_c01_011",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the exact principal value of the inverse trigonometric expression $\\cos^{-1}\\left(\\cos\\left(\\frac{7\\pi}{5}\\right)\\right)$.",
+      "options": [
+        "A) $\\frac{7\\pi}{5}$",
+        "B) $\\frac{2\\pi}{5}$",
+        "C) $\\frac{4\\pi}{5}$",
+        "D) $\\frac{3\\pi}{5}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The principal value range of $\\cos^{-1} u$ is $[0, \\pi]$. Because $\\frac{7\\pi}{5} = 1.4\\pi > \\pi$, the angle $\\frac{7\\pi}{5}$ lies outside the principal branch. Step 2: We use the periodicity and even symmetry of cosine: $\\cos\\left(\\frac{7\\pi}{5}\\right) = \\cos\\left(2\\pi - \\frac{7\\pi}{5}\\right) = \\cos\\left(\\frac{3\\pi}{5}\\right)$. Step 3: Because $\\frac{3\\pi}{5} \\in [0, \\pi]$, it lies directly in the principal branch of the inverse cosine function. Step 4: Therefore, $\\cos^{-1}\\left(\\cos\\left(\\frac{7\\pi}{5}\\right)\\right) = \\frac{3\\pi}{5}$. Directly canceling $\\cos^{-1}$ and $\\cos$ gives the invalid answer $\\frac{7\\pi}{5}$, while confusing with sine reduction gives $\\frac{2\\pi}{5}$."
+    },
+    {
+      "id": "itf_c01_012",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find all real values of $x$ satisfying the equation $\\tan^{-1}\\left(\\frac{x-1}{x-2}\\right) + \\tan^{-1}\\left(\\frac{x+1}{x+2}\\right) = \\frac{\\pi}{4}$.",
+      "options": [
+        "A) $\\pm \\frac{1}{\\sqrt{2}}$",
+        "B) $\\pm \\sqrt{2}$",
+        "C) $\\pm \\frac{1}{2}$",
+        "D) $\\pm 1$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Apply the tangent addition formula $\\frac{A + B}{1 - AB} = \\tan\\left(\\frac{\\pi}{4}\\right) = 1$, where $A = \\frac{x-1}{x-2}$ and $B = \\frac{x+1}{x+2}$. Step 2: The numerator simplifies to $A + B = \\frac{(x-1)(x+2) + (x+1)(x-2)}{x^2 - 4} = \\frac{2x^2 - 4}{x^2 - 4}$. Step 3: The denominator simplifies to $1 - AB = 1 - \\frac{x^2 - 1}{x^2 - 4} = \\frac{-3}{x^2 - 4}$. Step 4: Equating their quotient to $1$ gives $\\frac{2x^2 - 4}{-3} = 1 \\implies 2x^2 - 4 = -3 \\implies 2x^2 = 1 \\implies x = \\pm \\frac{1}{\\sqrt{2}}$. Step 5: Checking the product $AB = \\frac{1/2 - 1}{1/2 - 4} = \\frac{1}{7} < 1$ confirms both roots satisfy the branch condition. Misidentifying the denominator sign yields $\\pm \\sqrt{2}$."
+    },
+    {
+      "id": "itf_c01_013",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the exact value of the expression $\\cot\\left(\\sum_{n=1}^{4} \\cot^{-1}\\left(1 + n + n^2\\right)\\right)$.",
+      "options": [
+        "A) $\\frac{2}{3}$",
+        "B) $\\frac{3}{2}$",
+        "C) $\\frac{5}{6}$",
+        "D) $\\frac{6}{5}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Rewrite each cotangent term as an arctangent: $\\cot^{-1}(1 + n + n^2) = \\tan^{-1}\\left(\\frac{1}{1 + n(n+1)}\right)$. Step 2: Express the fraction as $\\tan^{-1}\\left(\\frac{(n+1) - n}{1 + n(n+1)}\right) = \\tan^{-1}(n+1) - \\tan^{-1}n$. Step 3: Summing from $n=1$ to $4$ creates a telescoping collapse: $\\sum_{n=1}^4 [\\tan^{-1}(n+1) - \\tan^{-1}n] = \\tan^{-1}(5) - \\tan^{-1}(1)$. Step 4: Taking the tangent of this sum gives $\\tan(\\tan^{-1} 5 - \\tan^{-1} 1) = \\frac{5 - 1}{1 + 5(1)} = \\frac{4}{6} = \\frac{2}{3}$. Step 5: Therefore, the cotangent of the sum is the reciprocal: $\\cot(\\dots) = \\frac{3}{2}$. Taking tangent instead of cotangent produces the distractor $\\frac{2}{3}$."
+    },
+    {
+      "id": "itf_c01_014",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the maximal real domain of the function $f(x) = \\sqrt{\\cos^{-1} x - \\sin^{-1} x}$.",
+      "options": [
+        "A) $[-1, 1]$",
+        "B) $\\left[\\frac{1}{\\sqrt{2}}, 1\\right]$",
+        "C) $\\left[-1, \\frac{1}{\\sqrt{2}}\\right]$",
+        "D) $\\left[0, \\frac{1}{\\sqrt{2}}\\right]$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: For both $\\sin^{-1} x$ and $\\cos^{-1} x$ to be defined, $x$ must lie in $[-1, 1]$. Step 2: Under the square root, we require $\\cos^{-1} x - \\sin^{-1} x \\ge 0 \\implies \\cos^{-1} x \\ge \\sin^{-1} x$. Step 3: Substitute $\\cos^{-1} x = \\frac{\\pi}{2} - \\sin^{-1} x$, yielding $\\frac{\\pi}{2} - \\sin^{-1} x \\ge \\sin^{-1} x \\implies 2\\sin^{-1} x \\le \\frac{\\pi}{2} \\implies \\sin^{-1} x \\le \\frac{\\pi}{4}$. Step 4: Since sine is monotonically strictly increasing on $\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]$, this inequality implies $x \\le \\sin\\left(\\frac{\\pi}{4}\\right) = \\frac{1}{\\sqrt{2}}$. Step 5: Intersecting with $[-1, 1]$ gives the domain $\\left[-1, \\frac{1}{\\sqrt{2}}\\right]$. Inverting the inequality direction produces the complementary distractor $\\left[\\frac{1}{\\sqrt{2}}, 1\\right]$."
+    },
+    {
+      "id": "itf_c01_015",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the exact numerical value of the composite sum $\\tan^{-1}\\left(\\tan\\left(\\frac{19\\pi}{6}\\right)\\right) + \\cos^{-1}\\left(\\cos\\left(-\\frac{7\\pi}{3}\\right)\\right) - \\sin^{-1}\\left(\\sin\\left(\\frac{11\\pi}{4}\\right)\\right)$.",
+      "options": [
+        "A) $\\frac{\\pi}{2}$",
+        "B) $\\frac{3\\pi}{4}$",
+        "C) $\\frac{\\pi}{6}$",
+        "D) $\\frac{\\pi}{4}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For the first term, write $\\frac{19\\pi}{6} = 3\\pi + \\frac{\\pi}{6}$. Since tangent has period $\\pi$, $\\tan\\left(\\frac{19\\pi}{6}\\right) = \\tan\\left(\\frac{\\pi}{6}\\right)$, so $\\tan^{-1}\\left(\\tan\\left(\\frac{19\\pi}{6}\\right)\\right) = \\frac{\\pi}{6}$. Step 2: For the second term, $\\cos\\left(-\\frac{7\\pi}{3}\\right) = \\cos\\left(\\frac{7\\pi}{3}\\right) = \\cos\\left(2\\pi + \\frac{\\pi}{3}\\right) = \\cos\\left(\\frac{\\pi}{3}\\right)$. Hence $\\cos^{-1}\\left(\\cos\\left(-\\frac{7\\pi}{3}\\right)\\right) = \\frac{\\pi}{3}$. Step 3: For the third term, $\\frac{11\\pi}{4} = 3\\pi - \\frac{\\pi}{4}$. Thus $\\sin\\left(\\frac{11\\pi}{4}\\right) = \\sin\\left(3\\pi - \\frac{\\pi}{4}\\right) = \\sin\\left(\\frac{\\pi}{4}\\right)$, giving $\\sin^{-1}\\left(\\sin\\left(\\frac{11\\pi}{4}\\right)\\right) = \\frac{\\pi}{4}$. Step 4: Combining the three terms yields $\\frac{\\pi}{6} + \\frac{\\pi}{3} - \\frac{\\pi}{4} = \\frac{\\pi}{2} - \\frac{\\pi}{4} = \\frac{\\pi}{4}$. Omitting the subtraction of the third term yields $\\frac{\\pi}{2}$."
+    },
+    {
+      "id": "itf_c01_016",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the sum of the infinite series $S = \\sum_{n=1}^{\\infty} \\tan^{-1}\\left(\\frac{1}{n^2 + 3n + 3}\\right)$.",
+      "options": [
+        "A) $\\cot^{-1}(2)$",
+        "B) $\\tan^{-1}(2)$",
+        "C) $\\frac{\\pi}{4}$",
+        "D) $\\frac{\\pi}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Express the quadratic denominator in the form $1 + a_{n+1}a_n$: $n^2 + 3n + 3 = 1 + (n^2 + 3n + 2) = 1 + (n+1)(n+2)$. Step 2: The numerator is $1 = (n+2) - (n+1)$. Step 3: Applying the inverse tangent subtraction identity yields $\\tan^{-1}\\left(\\frac{(n+2) - (n+1)}{1 + (n+1)(n+2)}\right) = \\tan^{-1}(n+2) - \\tan^{-1}(n+1)$. Step 4: The partial sum is a telescoping series: $S_N = \\sum_{n=1}^N [\\tan^{-1}(n+2) - \\tan^{-1}(n+1)] = \\tan^{-1}(N+2) - \\tan^{-1}(2)$. Step 5: Taking the limit as $N \\to \\infty$, we have $\\lim_{N\\to\\infty} \\tan^{-1}(N+2) = \\frac{\\pi}{2}$, which implies $S = \\frac{\\pi}{2} - \\tan^{-1}(2) = \\cot^{-1}(2) = \\tan^{-1}\\left(\\frac{1}{2}\\right)$. Confusing the identity with $\\tan^{-1}(2)$ produces distractor B."
+    },
+    {
+      "id": "itf_c01_017",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Evaluate the infinite summation $S = \\sum_{k=0}^{\\infty} \\tan^{-1}\\left(\\frac{2^k}{1 + 2^{2k+1}}\\right)$. If $S = \\frac{\\pi}{m}$, determine the value of the integer $m$.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: Rewrite the numerator using powers of two: $2^k = 2^{k+1} - 2^k$. Step 2: Notice that the product of these two terms matches the denominator's exponential term: $2^{k+1} \\cdot 2^k = 2^{2k+1}$. Step 3: We express each term as $\\tan^{-1}\\left(\\frac{2^{k+1} - 2^k}{1 + 2^{k+1}\\cdot 2^k}\\right) = \\tan^{-1}(2^{k+1}) - \\tan^{-1}(2^k)$. Step 4: The partial sum of the first $N+1$ terms telescopes directly: $S_N = \\sum_{k=0}^N [\\tan^{-1}(2^{k+1}) - \\tan^{-1}(2^k)] = \\tan^{-1}(2^{N+1}) - \\tan^{-1}(2^0) = \\tan^{-1}(2^{N+1}) - \\tan^{-1}(1)$. Step 5: Taking the limit as $N \\to \\infty$, since $2^{N+1} \\to \\infty$, we find $S = \\frac{\\pi}{2} - \\frac{\\pi}{4} = \\frac{\\pi}{4}$. Comparing with $\\frac{\\pi}{m}$ yields $m = 4$."
+    },
+    {
+      "id": "itf_c01_018",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For all real numbers $x > 1$, simplify the composite inverse trigonometric expression $f(x) = \\sin^{-1}\\left(\\frac{2x}{1+x^2}\\right) + \\cos^{-1}\\left(\\frac{1-x^2}{1+x^2}\\right)$.",
+      "options": [
+        "A) $4\\tan^{-1} x$",
+        "B) $\\pi$",
+        "C) $0$",
+        "D) $2\\pi - 4\\tan^{-1} x$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Let $x = \\tan\\theta$. Since $x > 1$, we have $\\theta \\in \\left(\\frac{\\pi}{4}, \\frac{\\pi}{2}\\right)$, which implies $2\\theta \\in \\left(\\frac{\\pi}{2}, \\pi\\right)$. Step 2: For the sine term, $\\frac{2x}{1+x^2} = \\sin 2\\theta$. Because $2\\theta \\in \\left(\\frac{\\pi}{2}, \\pi\\right)$, the principal value is $\\sin^{-1}(\\sin 2\\theta) = \\pi - 2\\theta = \\pi - 2\\tan^{-1} x$. Step 3: For the cosine term, $\\frac{1-x^2}{1+x^2} = \\cos 2\\theta$. Since $2\\theta \\in \\left(\\frac{\\pi}{2}, \\pi\\right) \\subset [0, \\pi]$, the principal value is directly $\\cos^{-1}(\\cos 2\\theta) = 2\\theta = 2\\tan^{-1} x$. Step 4: Summing the two expressions yields $f(x) = (\\pi - 2\\tan^{-1} x) + 2\\tan^{-1} x = \\pi$. Blindly applying the standard $[-1, 1]$ formula yields $4\\tan^{-1} x$."
+    },
+    {
+      "id": "itf_c01_019",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the sum of all distinct real solutions to the equation $\\cos^{-1}\\left(\\frac{x^2 - 1}{x^2 + 1}\\right) + \\tan^{-1}\\left(\\frac{2x}{x^2 - 1}\\right) = \\frac{2\\pi}{3}$.",
+      "options": [
+        "A) $\\sqrt{3}$",
+        "B) $2 + \\sqrt{3}$",
+        "C) $2$",
+        "D) $0$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Let $x = \\tan\\theta$. Notice that $\\frac{x^2 - 1}{x^2 + 1} = -\\cos 2\\theta$ and $\\frac{2x}{x^2 - 1} = -\\tan 2\\theta$. Step 2: For $x > 1$, $\\theta \\in \\left(\\frac{\\pi}{4}, \\frac{\\pi}{2}\\right)$, so $2\\theta \\in \\left(\\frac{\\pi}{2}, \\pi\\right)$. Then $\\cos^{-1}(-\\cos 2\\theta) = \\pi - 2\\theta = \\pi - 2\\tan^{-1} x$, and $\\tan^{-1}(-\\tan 2\\theta) = \\pi - 2\\theta = \\pi - 2\\tan^{-1} x$. Step 3: The equation becomes $2\\pi - 4\\tan^{-1} x = \\frac{2\\pi}{3} \\implies 4\\tan^{-1} x = \\frac{4\\pi}{3} \\implies \\tan^{-1} x = \\frac{\\pi}{3} \\implies x = \\sqrt{3} > 1$. Step 4: For $0 < x < 1$, $\\theta \\in \\left(0, \\frac{\\pi}{4}\\right)$, so $2\\theta \\in \\left(0, \\frac{\\pi}{2}\\right)$. Then $\\cos^{-1}(-\\cos 2\\theta) = \\pi - 2\\tan^{-1} x$ and $\\tan^{-1}(-\\tan 2\\theta) = -2\\tan^{-1} x$. The equation becomes $\\pi - 4\\tan^{-1} x = \\frac{2\\pi}{3} \\implies \\tan^{-1} x = \\frac{\\pi}{12} \\implies x = 2 - \\sqrt{3} \\in (0, 1)$. Step 5: For $x < 0$, no solutions exist due to asymmetry. Summing both solutions yields $\\sqrt{3} + (2 - \\sqrt{3}) = 2$. Finding only the integer-like root gives $\\sqrt{3}$."
+    },
+    {
+      "id": "itf_c01_020",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the maximum value of $f(x) = (\\sin^{-1} x)^3 + (\\cos^{-1} x)^3$ for $x \\in [-1, 1]$. If this maximum value equals $\\frac{k\\pi^3}{8}$, find the integer $k$.",
+      "options": [],
+      "answer": "7",
+      "explanation": "Step 1: Let $u = \\sin^{-1} x$ and $v = \\cos^{-1} x$. Then $u + v = \\frac{\\pi}{2}$, with $u \\in \\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]$ and $v \\in [0, \\pi]$. Step 2: Rewrite the cubic sum using symmetric polynomials: $u^3 + v^3 = (u+v)^3 - 3uv(u+v) = \\frac{\\pi^3}{8} - \\frac{3\\pi}{2} uv$. Step 3: Express $uv$ in terms of $u$: $uv = u\\left(\\frac{\\pi}{2} - u\\right) = -\\left(u - \\frac{\\pi}{4}\\right)^2 + \\frac{\\pi^2}{16}$. Step 4: To maximize $u^3 + v^3$, we must minimize $uv$. The minimum of $uv$ occurs at the endpoint farthest from $\\frac{\\pi}{4}$, which is $u = -\\frac{\\pi}{2}$ (corresponding to $x = -1$). Step 5: At $u = -\\frac{\\pi}{2}$, $v = \\pi$, so $uv = -\\frac{\\pi^2}{2}$. Hence $f(-1) = \\left(-\\frac{\\pi}{2}\\right)^3 + \\pi^3 = -\\frac{\\pi^3}{8} + \\pi^3 = \\frac{7\\pi^3}{8}$. Comparing with $\\frac{k\\pi^3}{8}$ gives $k = 7$."
+    },
+    {
+      "id": "itf_c01_021",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For $0 < x < 1$ and $y > 0$ such that $xy < 1$, evaluate $\\tan\\left[\\frac{1}{2}\\sin^{-1}\\left(\\frac{2x}{1+x^2}\\right) + \\frac{1}{2}\\cos^{-1}\\left(\\frac{1-y^2}{1+y^2}\\right)\\right]$.",
+      "options": [
+        "A) $\\frac{x-y}{1+xy}$",
+        "B) $\\frac{2(x+y)}{1-xy}$",
+        "C) $\\frac{x+y}{1+xy}$",
+        "D) $\\frac{x+y}{1-xy}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For $0 < x < 1$, the principal branch identity gives $\\sin^{-1}\\left(\\frac{2x}{1+x^2}\\right) = 2\\tan^{-1} x$, which means $\\frac{1}{2}\\sin^{-1}\\left(\\frac{2x}{1+x^2}\\right) = \\tan^{-1} x$. Step 2: For $y > 0$, the principal branch identity gives $\\cos^{-1}\\left(\\frac{1-y^2}{1+y^2}\\right) = 2\\tan^{-1} y$, which implies $\\frac{1}{2}\\cos^{-1}\\left(\\frac{1-y^2}{1+y^2}\\right) = \\tan^{-1} y$. Step 3: The expression becomes $\\tan(\\tan^{-1} x + \\tan^{-1} y)$. Step 4: Because $xy < 1$, we apply the addition formula directly: $\\tan(\\tan^{-1} x + \\tan^{-1} y) = \\frac{x+y}{1-xy}$. A sign confusion leads to $\\frac{x-y}{1+xy}$."
+    },
+    {
+      "id": "itf_c01_022",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the real solution to the inverse trigonometric equation $\\sin^{-1}(6x) + \\sin^{-1}(6\\sqrt{3}x) = -\\frac{\\pi}{2}$.",
+      "options": [
+        "A) $-\\frac{1}{12}$",
+        "B) $\\frac{1}{12}$",
+        "C) $-\\frac{1}{6}$",
+        "D) $-\\frac{\\sqrt{3}}{12}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Rearrange the equation: $\\sin^{-1}(6\\sqrt{3}x) = -\\frac{\\pi}{2} - \\sin^{-1}(6x) = -\\left(\\frac{\\pi}{2} + \\sin^{-1}(6x)\\right) = -\\cos^{-1}(6x)$. Step 2: Take the sine of both sides: $6\\sqrt{3}x = \\sin(-\\cos^{-1}(6x)) = -\\sqrt{1 - (6x)^2} = -\\sqrt{1 - 36x^2}$. Because the right side is negative, $x$ must be negative. Step 3: Square both sides: $108x^2 = 1 - 36x^2 \\implies 144x^2 = 1 \\implies x^2 = \\frac{1}{144}$. Step 4: Since $x < 0$, we have $x = -\\frac{1}{12}$. Step 5: Verification: $\\sin^{-1}\\left(-\\frac{1}{2}\\right) + \\sin^{-1}\\left(-\\frac{\\sqrt{3}}{2}\\right) = -\\frac{\\pi}{6} - \\frac{\\pi}{3} = -\\frac{\\pi}{2}$, which is valid. Ignoring the negative sign produces the extraneous root $\\frac{1}{12}$."
+    },
+    {
+      "id": "itf_c01_023",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Compute the sum of the finite series $S_n = \\sum_{r=1}^{n} \\tan^{-1}\\left(\\frac{1}{r^2 + r + 1}\\right)$ for any positive integer $n$.",
+      "options": [
+        "A) $\\tan^{-1}\\left(\\frac{n+1}{n+2}\\right)$",
+        "B) $\\tan^{-1}\\left(\\frac{n}{n+2}\\right)$",
+        "C) $\\tan^{-1}\\left(\\frac{n}{n+1}\\right)$",
+        "D) $\\tan^{-1}\\left(\\frac{1}{n+2}\\right)$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Rewrite the argument as $\\frac{1}{1 + r(r+1)} = \\frac{(r+1) - r}{1 + r(r+1)}$. Step 2: Apply the subtraction identity $\\tan^{-1}\\left(\\frac{(r+1) - r}{1 + r(r+1)}\right) = \\tan^{-1}(r+1) - \\tan^{-1}(r)$. Step 3: The sum telescopes: $S_n = \\sum_{r=1}^n [\\tan^{-1}(r+1) - \\tan^{-1}(r)] = \\tan^{-1}(n+1) - \\tan^{-1}(1)$. Step 4: Combine the two terms into a single arctangent: $\\tan^{-1}\\left(\\frac{(n+1) - 1}{1 + (n+1)(1)}\\right) = \\tan^{-1}\\left(\\frac{n}{n+2}\\right)$. Omitting the subtraction of $\\tan^{-1}(1)$ leads to $\\tan^{-1}\\left(\\frac{n}{n+1}\\right)$."
+    },
+    {
+      "id": "itf_c01_024",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "If the real numbers $x, y, z \\in [-1, 1]$ satisfy $\\cos^{-1} x + \\cos^{-1} y + \\cos^{-1} z = 3\\pi$, compute the numerical value of $x(y+z) + y(z+x) + z(x+y)$.",
+      "options": [],
+      "answer": "6",
+      "explanation": "Step 1: The principal value range of $\\cos^{-1} t$ for any $t \\in [-1, 1]$ is $[0, \\pi]$. Step 2: The sum of three such functions satisfies $\\cos^{-1} x + \\cos^{-1} y + \\cos^{-1} z \\le \\pi + \\pi + \\pi = 3\\pi$. Step 3: Equality is attained if and only if each term achieves its maximum value: $\\cos^{-1} x = \\cos^{-1} y = \\cos^{-1} z = \\pi$. Step 4: This uniquely forces $x = y = z = -1$. Step 5: Expanding the expression gives $x(y+z) + y(z+x) + z(x+y) = 2(xy + yz + zx)$. Substituting $x=y=z=-1$ yields $2((-1)(-1) + (-1)(-1) + (-1)(-1)) = 2(1 + 1 + 1) = 6$."
+    },
+    {
+      "id": "itf_c01_025",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the exact range of the function $f(x) = \\cot^{-1}(2x - x^2)$ defined for all real numbers $x \\in \\mathbb{R}$.",
+      "options": [
+        "A) $\\left(0, \\frac{\\pi}{4}\\right]$",
+        "B) $[0, \\pi]$",
+        "C) $\\left[\\frac{\\pi}{4}, \\pi\\right)$",
+        "D) $\\left[\\frac{\\pi}{4}, \\frac{3\\pi}{4}\\right]$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Consider the quadratic polynomial $g(x) = 2x - x^2 = 1 - (x-1)^2$. Step 2: Because $(x-1)^2 \\ge 0$, the maximum value of $g(x)$ is $1$, attained at $x = 1$. As $x \\to \\pm\\infty$, $g(x) \\to -\\infty$. Hence the range of $g(x)$ is $(-\\infty, 1]$. Step 3: The function $\\cot^{-1} u$ is strictly decreasing on $(-\\infty, \\infty)$ with range $(0, \\pi)$. Step 4: As $u \\to -\\infty$, $\\cot^{-1} u \\to \\pi$, and at $u = 1$, $\\cot^{-1}(1) = \\frac{\\pi}{4}$. Step 5: Therefore, the range of $f(x)$ is $\\left[\\frac{\\pi}{4}, \\pi\\right)$. Inverting the monotonic behavior produces $\\left(0, \\frac{\\pi}{4}\\right]$."
+    },
+    {
+      "id": "itf_c01_026",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "If the positive real numbers $x, y, z \\in (0, 1)$ satisfy $\\sin^{-1} x + \\sin^{-1} y + \\sin^{-1} z = \\pi$, which of the following algebraic relations is identically satisfied?",
+      "options": [
+        "A) $x^2 + y^2 + z^2 + 2xyz = 1$",
+        "B) $x\\sqrt{1-x^2} + y\\sqrt{1-y^2} + z\\sqrt{1-z^2} = xyz$",
+        "C) $x^2 + y^2 + z^2 = 3xyz$",
+        "D) $x\\sqrt{1-x^2} + y\\sqrt{1-y^2} + z\\sqrt{1-z^2} = 2xyz$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Let $A = \\sin^{-1} x$, $B = \\sin^{-1} y$, and $C = \\sin^{-1} z$. Then $A, B, C \\in \\left(0, \\frac{\\pi}{2}\\right)$ with $A + B + C = \\pi$. Step 2: For angles summing to $\\pi$, the standard trigonometric identity is $\\sin 2A + \\sin 2B + \\sin 2C = 4\\sin A \\sin B \\sin C$. Step 3: Express each term in terms of $x, y, z$: $\\sin 2A = 2\\sin A \\cos A = 2x\\sqrt{1-x^2}$, and similarly for $B$ and $C$. Step 4: Substituting these into the identity yields $2x\\sqrt{1-x^2} + 2y\\sqrt{1-y^2} + 2z\\sqrt{1-z^2} = 4xyz$. Step 5: Dividing both sides by $2$ gives $x\\sqrt{1-x^2} + y\\sqrt{1-y^2} + z\\sqrt{1-z^2} = 2xyz$. The relation $x^2 + y^2 + z^2 + 2xyz = 1$ corresponds to $\\cos^{-1}$ sums instead."
+    },
+    {
+      "id": "itf_c01_027",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Compute the exact value of the infinite sum $S = \\sum_{n=1}^{\\infty} \\cot^{-1}\\left(n^2 + \\frac{3}{4}\\right)$.",
+      "options": [
+        "A) $\\tan^{-1}(2)$",
+        "B) $\\tan^{-1}\\left(\\frac{1}{2}\\right)$",
+        "C) $\\frac{\\pi}{4}$",
+        "D) $\\frac{\\pi}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Rewrite each term using arctangent: $\\cot^{-1}\\left(n^2 + \\frac{3}{4}\\right) = \\tan^{-1}\\left(\\frac{1}{n^2 + 3/4}\\right) = \\tan^{-1}\\left(\\frac{1}{1 + (n^2 - 1/4)}\\right)$. Step 2: Factor the expression $n^2 - \\frac{1}{4} = \\left(n + \\frac{1}{2}\\right)\\left(n - \\frac{1}{2}\\right)$. Step 3: Notice that the difference between these factors is $\\left(n + \\frac{1}{2}\\right) - \\left(n - \\frac{1}{2}\\right) = 1$. Step 4: Express each term as $\\tan^{-1}\\left(n + \\frac{1}{2}\\right) - \\tan^{-1}\\left(n - \\frac{1}{2}\\right)$. Step 5: The partial sum collapses telescopically: $S_N = \\tan^{-1}\\left(N + \\frac{1}{2}\\right) - \\tan^{-1}\\left(\\frac{1}{2}\\right)$. As $N \\to \\infty$, we obtain $\\frac{\\pi}{2} - \\tan^{-1}\\left(\\frac{1}{2}\\right) = \\cot^{-1}\\left(\\frac{1}{2}\\right) = \\tan^{-1}(2)$. Failing to take the complement results in $\\tan^{-1}\\left(\\frac{1}{2}\\right)$."
+    },
+    {
+      "id": "itf_c01_028",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Evaluate the infinite sum $S = \\sum_{n=1}^{\\infty} \\tan^{-1}\\left(\\frac{2n}{2 + n^2 + n^4}\\right)$. If $S = \\frac{\\pi}{k}$, find the value of the integer $k$.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: Factor the denominator: $2 + n^2 + n^4 = 1 + (n^4 + n^2 + 1) = 1 + (n^2 + n + 1)(n^2 - n + 1)$. Step 2: Notice that the difference of these factors equals the numerator: $(n^2 + n + 1) - (n^2 - n + 1) = 2n$. Step 3: Rewrite each term as $\\tan^{-1}(n^2 + n + 1) - \\tan^{-1}(n^2 - n + 1)$. Step 4: Since $(n-1)^2 + (n-1) + 1 = n^2 - n + 1$, the terms telescope consecutively: $S_N = \\sum_{n=1}^N [\\tan^{-1}(n^2 + n + 1) - \\tan^{-1}((n-1)^2 + (n-1) + 1)] = \\tan^{-1}(N^2 + N + 1) - \\tan^{-1}(1)$. Step 5: Taking the limit as $N \\to \\infty$, we find $S = \\frac{\\pi}{2} - \\frac{\\pi}{4} = \\frac{\\pi}{4}$. Comparing with $\\frac{\\pi}{k}$ gives $k = 4$."
+    },
+    {
+      "id": "itf_c01_029",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the positive real root of the equation $\\tan^{-1}\\left(\\frac{1}{1+2x}\\right) + \\tan^{-1}\\left(\\frac{1}{1+4x}\\right) = \\tan^{-1}\\left(\\frac{2}{x^2}\\right)$.",
+      "options": [
+        "A) $2$",
+        "B) $3$",
+        "C) $1$",
+        "D) $4$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Apply the addition formula on the left side: $\\tan(A+B) = \\frac{\\frac{1}{1+2x} + \\frac{1}{1+4x}}{1 - \\frac{1}{(1+2x)(1+4x)}} = \\frac{2 + 6x}{(1+2x)(1+4x) - 1} = \\frac{2(1+3x)}{8x^2 + 6x} = \\frac{1+3x}{x(4x+3)}$. Step 2: Equate this expression to the right-hand argument $\\frac{2}{x^2}$: $\\frac{1+3x}{x(4x+3)} = \\frac{2}{x^2}$. Step 3: Multiply both sides by $x^2(4x+3)$ for $x > 0$: $x(1+3x) = 2(4x+3) \\implies 3x^2 + x = 8x + 6$. Step 4: Rearranging gives $3x^2 - 7x - 6 = 0$, which factors as $(3x + 2)(x - 3) = 0$. Step 5: Since $x > 0$, we find $x = 3$. Testing $x=3$ confirms both sides equal $\\tan^{-1}\\left(\\frac{2}{9}\\right)$. A sign error in the quadratic yields $x = 2$."
+    },
+    {
+      "id": "itf_c01_030",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the exact numerical value of the expression $\\sin\\left(2\\tan^{-1}\\left(\\frac{1}{3}\\right)\\right) + \\cos\\left(\\tan^{-1}(2\\sqrt{2})\\right)$.",
+      "options": [
+        "A) $\\frac{4}{5}$",
+        "B) $\\frac{11}{15}$",
+        "C) $\\frac{14}{15}$",
+        "D) $1$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: For the first term, let $\\theta = \\tan^{-1}\\left(\\frac{1}{3}\\right)$. Using the double-angle identity, $\\sin(2\\theta) = \\frac{2\\tan\\theta}{1 + \\tan^2\\theta} = \\frac{2(1/3)}{1 + 1/9} = \\frac{2/3}{10/9} = \\frac{6}{10} = \\frac{3}{5}$. Step 2: For the second term, let $\\phi = \\tan^{-1}(2\\sqrt{2})$, so $\\tan\\phi = 2\\sqrt{2}$. Then $\\cos\\phi = \\frac{1}{\\sqrt{1 + \\tan^2\\phi}} = \\frac{1}{\\sqrt{1 + 8}} = \\frac{1}{3}$. Step 3: Sum the two evaluated terms: $\\frac{3}{5} + \\frac{1}{3} = \\frac{9 + 5}{15} = \\frac{14}{15}$. Miscalculating $\\cos\\phi$ as $\\frac{1}{\\sqrt{8}}$ leads to fractional errors."
+    },
+    {
+      "id": "itf_c01_031",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the exact number of real solutions to the equation $\\sin^{-1} x = |x - 1|$.",
+      "options": [
+        "A) $2$",
+        "B) $0$",
+        "C) $3$",
+        "D) $1$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The domain of $\\sin^{-1} x$ is $[-1, 1]$. For $x < 0$, $\\sin^{-1} x < 0$ while $|x - 1| = 1 - x > 1 > 0$, so no solution exists on $[-1, 0)$. Step 2: For $x \\in [0, 1]$, we analyze $g(x) = \\sin^{-1} x - (1 - x)$. Step 3: At $x = 0$, $g(0) = 0 - 1 = -1 < 0$. At $x = 1$, $g(1) = \\frac{\\pi}{2} - 0 = \\frac{\\pi}{2} > 0$. Step 4: The derivative is $g'(x) = \\frac{1}{\\sqrt{1-x^2}} + 1 > 0$ for all $x \\in (0, 1)$. Step 5: Since $g(x)$ is continuous and strictly increasing on $[0, 1]$, by the Intermediate Value Theorem it has exactly one real zero. Counting an extraneous root for $x > 1$ gives $2$."
+    },
+    {
+      "id": "itf_c01_032",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the complete set of all real values of $x$ for which the function $f(x) = \\sqrt{\\sin^{-1}(2x) + \\frac{\\pi}{6}}$ is well-defined.",
+      "options": [
+        "A) $\\left[-\\frac{1}{4}, \\frac{1}{2}\\right]$",
+        "B) $\\left[-\\frac{1}{2}, \\frac{1}{2}\\right]$",
+        "C) $\\left[-\\frac{1}{2}, -\\frac{1}{4}\\right]$",
+        "D) $\\left[0, \\frac{1}{2}\\right]$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The argument of the inverse sine must satisfy $-1 \\le 2x \\le 1 \\implies -\\frac{1}{2} \\le x \\le \\frac{1}{2}$. Step 2: The radicand must be non-negative: $\\sin^{-1}(2x) + \\frac{\\pi}{6} \\ge 0 \\implies \\sin^{-1}(2x) \\ge -\\frac{\\pi}{6}$. Step 3: Because the sine function is strictly increasing on $\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]$, we take the sine of both sides: $2x \\ge \\sin\\left(-\\frac{\\pi}{6}\\right) = -\\frac{1}{2} \\implies x \\ge -\\frac{1}{4}$. Step 4: Intersecting $x \\ge -\\frac{1}{4}$ with the domain interval $\\left[-\\frac{1}{2}, \\frac{1}{2}\\right]$ yields $\\left[-\\frac{1}{4}, \\frac{1}{2}\\right]$. Neglecting the square root non-negativity condition yields $\\left[-\\frac{1}{2}, \\frac{1}{2}\\right]$."
+    },
+    {
+      "id": "itf_c01_033",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For $x > 0$, evaluate the finite sum $\\sum_{k=1}^{n} \\tan^{-1}\\left(\\frac{x}{1 + k(k+1)x^2}\\right)$.",
+      "options": [
+        "A) $\\tan^{-1}\\left(\\frac{(n+1)x}{1 + nx^2}\\right)$",
+        "B) $\\tan^{-1}\\left(\\frac{nx}{1 + (n+1)x^2}\\right)$",
+        "C) $\\tan^{-1}\\left(\\frac{nx}{1 + x^2}\\right)$",
+        "D) $\\tan^{-1}(nx)$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Express the numerator as a difference of two terms whose product matches the denominator: $(k+1)x - kx = x$. Step 2: The argument becomes $\\frac{(k+1)x - kx}{1 + ((k+1)x)(kx)}$. Step 3: Applying the arctangent subtraction formula yields $\\tan^{-1}((k+1)x) - \\tan^{-1}(kx)$. Step 4: Summing from $k=1$ to $n$ collapses telescopically: $\\sum_{k=1}^n [\\tan^{-1}((k+1)x) - \\tan^{-1}(kx)] = \\tan^{-1}((n+1)x) - \\tan^{-1}(x)$. Step 5: Combining into a single arctangent gives $\\tan^{-1}\\left(\\frac{(n+1)x - x}{1 + (n+1)x \\cdot x}\\right) = \\tan^{-1}\\left(\\frac{nx}{1 + (n+1)x^2}\\right)$. Omission of the denominator product gives $\\tan^{-1}(nx)$."
+    },
+    {
+      "id": "itf_c01_034",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "If $\\alpha = \\cos^{-1}\\left(\\frac{4}{5}\\right)$ and $\\beta = \\tan^{-1}\\left(\\frac{2}{3}\\right)$, find the exact value of $\\tan(\\alpha + \\beta)$.",
+      "options": [
+        "A) $\\frac{7}{6}$",
+        "B) $\\frac{17}{18}$",
+        "C) $\\frac{17}{6}$",
+        "D) $\\frac{6}{17}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Since $\\cos\\alpha = \\frac{4}{5}$ with $\\alpha \\in \\left(0, \\frac{\\pi}{2}\\right)$, we find $\\sin\\alpha = \\sqrt{1 - 16/25} = \\frac{3}{5}$. Step 2: Hence $\\tan\\alpha = \\frac{\\sin\\alpha}{\\cos\\alpha} = \\frac{3/5}{4/5} = \\frac{3}{4}$. Step 3: We are given $\\tan\\beta = \\frac{2}{3}$. Step 4: Apply the tangent addition formula $\\tan(\\alpha + \\beta) = \\frac{\\tan\\alpha + \\tan\\beta}{1 - \\tan\\alpha \\tan\\beta}$. Step 5: Substituting the values yields $\\frac{3/4 + 2/3}{1 - (3/4)(2/3)} = \\frac{17/12}{1 - 6/12} = \\frac{17/12}{6/12} = \\frac{17}{6}$. Forgetting to subtract the product in the denominator produces $\\frac{17}{18}$."
+    },
+    {
+      "id": "itf_c01_035",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the definite integral $I = \\int_{0}^{1} \\sin^{-1}\\left(\\frac{2x}{1+x^2}\\right) dx$.",
+      "options": [
+        "A) $\\frac{\\pi}{4} - \\frac{1}{2}\\ln 2$",
+        "B) $\\pi - 2\\ln 2$",
+        "C) $\\frac{\\pi}{2} + \\ln 2$",
+        "D) $\\frac{\\pi}{2} - \\ln 2$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For $x \\in [0, 1]$, the inverse trigonometric expression simplifies to $\\sin^{-1}\\left(\\frac{2x}{1+x^2}\\right) = 2\\tan^{-1} x$. Step 2: The integral becomes $I = 2\\int_{0}^{1} \\tan^{-1} x \\, dx$. Step 3: We evaluate $\\int_{0}^{1} \\tan^{-1} x \\, dx$ using integration by parts: $[x\\tan^{-1} x]_0^1 - \\int_0^1 \\frac{x}{1+x^2} \\, dx$. Step 4: This yields $1 \\cdot \\frac{\\pi}{4} - \\left[\\frac{1}{2}\\ln(1+x^2)\\right]_0^1 = \\frac{\\pi}{4} - \\frac{1}{2}\\ln 2$. Step 5: Multiplying by $2$ gives $I = 2\\left(\\frac{\\pi}{4} - \\frac{1}{2}\\ln 2\\right) = \\frac{\\pi}{2} - \\ln 2$. Forgetting the factor of $2$ yields $\\frac{\\pi}{4} - \\frac{1}{2}\\ln 2$."
+    },
+    {
+      "id": "itf_c01_036",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the real-valued function $f(x) = \\sin^{-1}\\left(\\frac{2x}{1+x^2}\\right) - 2\\tan^{-1} x$ defined for all $x \\in \\mathbb{R}$. Which of the following statements is/are correct?",
+      "options": [
+        "A) $f(x) = 0$ for all $x \\in [-1, 1]$",
+        "B) The range of $f(x)$ on $\\mathbb{R}$ is $(-\\pi, \\pi)$",
+        "C) $f(x)$ is continuous for all $x \\in \\mathbb{R}$",
+        "D) $f'(x) = 0$ for all $x \\in \\mathbb{R} \\setminus \\{-1, 1\\}$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: For $x \\in [-1, 1]$, the principal branch formula gives $\\sin^{-1}\\left(\\frac{2x}{1+x^2}\\right) = 2\\tan^{-1} x$, which implies $f(x) = 0$. Step 2: For $x > 1$, we have $\\sin^{-1}\\left(\\frac{2x}{1+x^2}\\right) = \\pi - 2\\tan^{-1} x$, so $f(x) = \\pi - 4\\tan^{-1} x$. As $x \\to 1^+$, $f(x) \\to 0$, and as $x \\to \\infty$, $f(x) \\to -\\pi$. Step 3: For $x < -1$, $\\sin^{-1}\\left(\\frac{2x}{1+x^2}\\right) = -\\pi - 2\\tan^{-1} x$, so $f(x) = -\\pi - 4\\tan^{-1} x$. As $x \\to -1^-$, $f(x) \\to 0$, and as $x \\to -\\infty$, $f(x) \\to \\pi$. Step 4: The one-sided limits at $x = \\pm 1$ equal $f(\\pm 1) = 0$, establishing that $f(x)$ is continuous on all of $\\mathbb{R}$. Step 5: For $|x| > 1$, $f'(x) = -\\frac{4}{1+x^2} \\ne 0$, which refutes the claim of a globally vanishing derivative."
+    },
+    {
+      "id": "itf_c01_037",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $S_n = \\sum_{k=1}^n \\tan^{-1}\\left(\\frac{1}{2k^2}\\right)$ for each integer $n \\ge 1$, and let $T = \\lim_{n\\to\\infty} S_n$. Which of the following statements is/are correct?",
+      "options": [
+        "A) $S_n = \\tan^{-1}\\left(\\frac{n+1}{n}\\right)$ for all integers $n \\ge 1$",
+        "B) $T = \\frac{\\pi}{4}$",
+        "C) $\\cot(S_n) = 1 + \\frac{1}{n}$ for all integers $n \\ge 1$",
+        "D) $\\tan(S_2) = \\frac{2}{3}$"
+      ],
+      "answer": "B,C,D",
+      "explanation": "Step 1: Rewrite the general term: $\\tan^{-1}\\left(\\frac{1}{2k^2}\\right) = \\tan^{-1}\\left(\\frac{2}{4k^2}\\right) = \\tan^{-1}\\left(\\frac{(2k+1) - (2k-1)}{1 + (2k+1)(2k-1)}\\right)$. Step 2: Applying the subtraction formula gives $\\tan^{-1}(2k+1) - \\tan^{-1}(2k-1)$. Step 3: Summing from $k=1$ to $n$ collapses telescopically: $S_n = \\tan^{-1}(2n+1) - \\tan^{-1}(1) = \\tan^{-1}\\left(\\frac{2n+1 - 1}{1 + (2n+1)(1)}\\right) = \\tan^{-1}\\left(\\frac{n}{n+1}\\right)$. Step 4: Taking the limit yields $T = \\lim_{n\\to\\infty} \\tan^{-1}\\left(\\frac{n}{n+1}\\right) = \\tan^{-1}(1) = \\frac{\\pi}{4}$. Step 5: From $S_n = \\tan^{-1}\\left(\\frac{n}{n+1}\\right)$, we obtain $\\cot(S_n) = \\frac{n+1}{n} = 1 + \\frac{1}{n}$, and for $n=2$, $\\tan(S_2) = \\frac{2}{3}$. Thus statement A is false because $S_n = \\tan^{-1}\\left(\\frac{n}{n+1}\\right)$, not $\\tan^{-1}\\left(\\frac{n+1}{n}\\right)$."
+    },
+    {
+      "id": "itf_c01_038",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the equation $\\cos^{-1} x - \\sin^{-1} x = \\cos^{-1}(x\\sqrt{3})$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The equation has exactly 3 distinct real solutions",
+        "B) The sum of all real solutions of the equation is equal to $1$",
+        "C) $x = \\frac{1}{2}$ is a solution of the equation",
+        "D) $x = -\\frac{1}{2}$ is a solution of the equation"
+      ],
+      "answer": "A,C,D",
+      "explanation": "Step 1: Using $\\cos^{-1} x = \\frac{\\pi}{2} - \\sin^{-1} x$, the left-hand side becomes $\\frac{\\pi}{2} - 2\\sin^{-1} x$. Step 2: The equation is $\\cos^{-1}(x\\sqrt{3}) = \\frac{\\pi}{2} - 2\\sin^{-1} x$. Taking cosine of both sides gives $x\\sqrt{3} = \\cos\\left(\\frac{\\pi}{2} - 2\\sin^{-1} x\\right) = \\sin(2\\sin^{-1} x) = 2x\\sqrt{1-x^2}$. Step 3: Factoring gives $x(\\sqrt{3} - 2\\sqrt{1-x^2}) = 0$. Step 4: The root $x = 0$ yields $\\cos^{-1} 0 - \\sin^{-1} 0 = \\frac{\\pi}{2} = \\cos^{-1}(0)$, which is valid. For $x \\ne 0$, $2\\sqrt{1-x^2} = \\sqrt{3} \\implies 1 - x^2 = \\frac{3}{4} \\implies x = \\pm \\frac{1}{2}$. Step 5: Testing $x = \\frac{1}{2}$ yields $\\frac{\\pi}{3} - \\frac{\\pi}{6} = \\frac{\\pi}{6} = \\cos^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right)$, and $x = -\\frac{1}{2}$ yields $\\frac{2\\pi}{3} - \\left(-\\frac{\\pi}{6}\\right) = \\frac{5\\pi}{6} = \\cos^{-1}\\left(-\\frac{\\sqrt{3}}{2}\\right)$. Hence all 3 solutions are valid, their sum is $0$ (not $1$), and both $\\pm \\frac{1}{2}$ are solutions."
+    },
+    {
+      "id": "itf_c01_039",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let the function $f: \\mathbb{R} \\to \\mathbb{R}$ be defined by $f(x) = \\tan^{-1}\\left(\\frac{\\sqrt{1+x^2} - 1}{x}\\right)$ for $x \\ne 0$ and $f(0) = 0$. Which of the following statements is/are correct?",
+      "options": [
+        "A) $f(x) = \\frac{1}{2}\\tan^{-1} x$ for all $x \\in \\mathbb{R}$",
+        "B) The range of $f(x)$ is $\\left(-\\frac{\\pi}{4}, \\frac{\\pi}{4}\\right)$",
+        "C) $f'(0) = 1$",
+        "D) $f(x)$ is an odd function on $\\mathbb{R}$"
+      ],
+      "answer": "A,B,D",
+      "explanation": "Step 1: For $x \\ne 0$, let $x = \\tan\\theta$ with $\\theta \\in \\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right) \\setminus \\{0\\}$. Step 2: The argument becomes $\\frac{\\sec\\theta - 1}{\\tan\\theta} = \\frac{1 - \\cos\\theta}{\\sin\\theta} = \\tan\\left(\\frac{\\theta}{2}\\right)$. Step 3: Because $\\frac{\\theta}{2} \\in \\left(-\\frac{\\pi}{4}, \\frac{\\pi}{4}\\right)$, we have $\\tan^{-1}\\left(\\tan\\left(\\frac{\\theta}{2}\\right)\\right) = \\frac{\\theta}{2} = \\frac{1}{2}\\tan^{-1} x$. At $x = 0$, $f(0) = 0 = \\frac{1}{2}\\tan^{-1}(0)$, confirming statement A for all real $x$. Step 4: As $x \\to \\pm\\infty$, $\\tan^{-1} x \\to \\pm\\frac{\\pi}{2}$, which establishes that the range is $\\left(-\\frac{\\pi}{4}, \\frac{\\pi}{4}\\right)$. Step 5: Differentiating gives $f'(x) = \\frac{1}{2(1+x^2)}$, yielding $f'(0) = \\frac{1}{2}$ (not $1$). Finally, $f(-x) = -f(x)$, so $f$ is an odd function."
+    },
+    {
+      "id": "itf_c01_040",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the real-valued function $g(x) = \\cos^{-1}\\left(2x^2 - 1\\right) - 2\\cos^{-1} x$ defined on $[-1, 1]$. Which of the following statements is/are correct?",
+      "options": [
+        "A) $g(x) = 2x$ for all $x \\in [0, 1]$",
+        "B) $g(x) = 2\\pi - 4\\cos^{-1} x$ for all $x \\in [-1, 0)$",
+        "C) The minimum value attained by $g(x)$ on $[-1, 1]$ is $-2\\pi$",
+        "D) $g(x)$ has a jump discontinuity at $x = 0$"
+      ],
+      "answer": "B,C",
+      "explanation": "Step 1: Let $x = \\cos\\theta$ where $\\theta \\in [0, \\pi]$. Then $2x^2 - 1 = \\cos 2\\theta$. Step 2: For $x \\in [0, 1]$, $\\theta \\in \\left[0, \\frac{\\pi}{2}\\right]$, so $2\\theta \\in [0, \\pi]$. Thus $\\cos^{-1}(\\cos 2\\theta) = 2\\theta = 2\\cos^{-1} x$, which implies $g(x) = 0$ (not $2x$). Step 3: For $x \\in [-1, 0)$, $\\theta \\in \\left(\\frac{\\pi}{2}, \\pi\\right]$, so $2\\theta \\in (\\pi, 2\\pi]$. By the principal branch reduction, $\\cos^{-1}(\\cos 2\\theta) = 2\\pi - 2\\theta = 2\\pi - 2\\cos^{-1} x$. Step 4: Subtracting $2\\cos^{-1} x$ yields $g(x) = 2\\pi - 4\\cos^{-1} x$. At $x = -1$, $\\cos^{-1}(-1) = \\pi$, so $g(-1) = 2\\pi - 4\\pi = -2\\pi$, which is the minimum value. Step 5: As $x \\to 0^-$, $g(x) \\to 2\\pi - 4\\left(\\frac{\\pi}{2}\\right) = 0 = g(0)$, which proves that $g(x)$ is continuous at $x = 0$."
+    },
+    {
+      "id": "itf_c01_041",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let the real numbers $x, y > 0$ satisfy the system of equations $\\sin^{-1} x + \\sin^{-1} y = \\frac{2\\pi}{3}$ and $\\cos^{-1} x - \\cos^{-1} y = \\frac{\\pi}{3}$. Which of the following statements is/are correct?",
+      "options": [
+        "A) $x = \\frac{1}{2}$",
+        "B) $y = \\frac{\\sqrt{3}}{2}$",
+        "C) $x + y = 2$",
+        "D) $x^2 + y^2 = \\frac{5}{4}$"
+      ],
+      "answer": "A,D",
+      "explanation": "Step 1: Using the identity $\\cos^{-1} t = \\frac{\\pi}{2} - \\sin^{-1} t$, rewrite the second equation as $\\left(\\frac{\\pi}{2} - \\sin^{-1} x\\right) - \\left(\\frac{\\pi}{2} - \\sin^{-1} y\\right) = \\sin^{-1} y - \\sin^{-1} x = \\frac{\\pi}{3}$. Step 2: We now have a simultaneous linear system in $u = \\sin^{-1} x$ and $v = \\sin^{-1} y$: $u + v = \\frac{2\\pi}{3}$ and $v - u = \\frac{\\pi}{3}$. Step 3: Adding both equations gives $2v = \\pi \\implies v = \\frac{\\pi}{2}$, so $y = \\sin\\left(\\frac{\\pi}{2}\\right) = 1$ (hence option B is false). Step 4: Subtracting the second from the first gives $2u = \\frac{\\pi}{3} \\implies u = \\frac{\\pi}{6}$, so $x = \\sin\\left(\\frac{\\pi}{6}\\right) = \\frac{1}{2}$. Step 5: Then $x^2 + y^2 = \\left(\\frac{1}{2}\\right)^2 + 1^2 = \\frac{5}{4}$, while $x + y = \\frac{1}{2} + 1 = \\frac{3}{2} \\ne 2$."
+    },
+    {
+      "id": "itf_c01_042",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $S = \\sum_{k=1}^{10} \\tan^{-1}\\left(\\frac{1}{k^2 + k + 1}\\right)$. If $\\tan(S) = \\frac{p}{q}$, where $p$ and $q$ are relatively prime positive integers, determine the value of $p + q$.",
+      "options": [],
+      "answer": "11",
+      "explanation": "Step 1: Rewrite each summand using the telescoping identity $\\tan^{-1}\\left(\\frac{1}{1 + k(k+1)}\\right) = \\tan^{-1}(k+1) - \\tan^{-1}(k)$. Step 2: Summing from $k=1$ to $10$ creates a telescoping cancellation: $S = \\sum_{k=1}^{10} [\\tan^{-1}(k+1) - \\tan^{-1}(k)] = \\tan^{-1}(11) - \\tan^{-1}(1)$. Step 3: Apply the tangent subtraction formula to evaluate $\\tan(S)$: $\\tan(S) = \\tan(\\tan^{-1}(11) - \\tan^{-1}(1)) = \\frac{11 - 1}{1 + 11(1)}$. Step 4: Simplifying the fraction gives $\\tan(S) = \\frac{10}{12} = \\frac{5}{6}$. Step 5: Since $\\gcd(5, 6) = 1$, we identify $p = 5$ and $q = 6$, which yields $p + q = 5 + 6 = 11$."
+    },
+    {
+      "id": "itf_c01_043",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "If the 20 real variables $x_1, x_2, \\dots, x_{20} \\in [-1, 1]$ satisfy the equation $\\sum_{i=1}^{20} \\sin^{-1} x_i = 10\\pi$, compute the value of $\\sum_{i=1}^{20} x_i^{2024} - \\prod_{i=1}^{20} x_i$.",
+      "options": [],
+      "answer": "19",
+      "explanation": "Step 1: The maximum value attainable by $\\sin^{-1} x_i$ for any $x_i \\in [-1, 1]$ is $\\frac{\\pi}{2}$. Step 2: The sum of 20 such terms is bounded above: $\\sum_{i=1}^{20} \\sin^{-1} x_i \\le 20 \\times \\frac{\\pi}{2} = 10\\pi$. Step 3: Because the given sum achieves this theoretical maximum of $10\\pi$, every single term must achieve its maximum simultaneously: $\\sin^{-1} x_i = \\frac{\\pi}{2}$ for all $i \\in \\{1, 2, \\dots, 20\\}$. Step 4: This implies $x_1 = x_2 = \\dots = x_{20} = 1$. Step 5: Substituting these values into the target expression yields $\\sum_{i=1}^{20} 1^{2024} - \\prod_{i=1}^{20} 1 = 20(1) - 1 = 20 - 1 = 19$."
+    },
+    {
+      "id": "itf_c01_044",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Evaluate the definite integral $I = \\int_{0}^{1} \\tan^{-1}\\left(\\frac{1}{1 - x + x^2}\\right) dx$. If $I = \\frac{\\pi}{k} - \\ln 2$, find the integer value of $k$.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: Rewrite the argument as $\\frac{1}{1 - x(1-x)} = \\frac{x + (1-x)}{1 - x(1-x)}$. Step 2: Applying the arctangent addition formula gives $\\tan^{-1}\\left(\\frac{1}{1 - x + x^2}\\right) = \\tan^{-1} x + \\tan^{-1}(1-x)$. Step 3: By symmetry under the change of variables $u = 1-x$, $\\int_0^1 \\tan^{-1}(1-x) \\, dx = \\int_0^1 \\tan^{-1} x \\, dx$. Step 4: Thus $I = 2\\int_0^1 \\tan^{-1} x \\, dx$. Evaluating by integration by parts yields $2\\left([x\\tan^{-1} x]_0^1 - \\int_0^1 \\frac{x}{1+x^2} \\, dx\\right) = 2\\left(\\frac{\\pi}{4} - \\frac{1}{2}\\ln 2\\right) = \\frac{\\pi}{2} - \\ln 2$. Step 5: Comparing this result with $\\frac{\\pi}{k} - \\ln 2$ immediately gives $k = 2$."
+    },
+    {
+      "id": "itf_c01_045",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the limit $L = \\lim_{n\\to\\infty} \\sum_{k=1}^n \\tan^{-1}\\left(\\frac{2k - 1}{k^4 - 2k^3 + k^2 + 1}\\right)$.",
+      "options": [
+        "A) $\\frac{\\pi}{2}$",
+        "B) $\\frac{\\pi}{4}$",
+        "C) $\\pi$",
+        "D) $\\frac{3\\pi}{4}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Express the denominator as $1 + k^2(k-1)^2$ by recognizing that $k^4 - 2k^3 + k^2 = k^2(k^2 - 2k + 1) = k^2(k-1)^2$. Step 2: Notice that the difference of the factors $k^2$ and $(k-1)^2$ is $k^2 - (k-1)^2 = k^2 - (k^2 - 2k + 1) = 2k - 1$, which exactly matches the numerator. Step 3: We express each term as $\\tan^{-1}\\left(\\frac{k^2 - (k-1)^2}{1 + k^2(k-1)^2}\\right) = \\tan^{-1}(k^2) - \\tan^{-1}((k-1)^2)$. Step 4: Summing from $k=1$ to $n$ yields a telescoping series: $S_n = \\sum_{k=1}^n [\\tan^{-1}(k^2) - \\tan^{-1}((k-1)^2)] = \\tan^{-1}(n^2) - \\tan^{-1}(0) = \\tan^{-1}(n^2)$. Step 5: Taking the limit as $n \\to \\infty$, we find $L = \\lim_{n\\to\\infty} \\tan^{-1}(n^2) = \\frac{\\pi}{2}$. Misidentifying the sum's limit as $\\frac{\\pi}{4}$ arises from confusing $n^2$ with an alternating sum."
+    },
+    {
+      "id": "itf_c01_046",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Find the absolute minimum value attained by the function $f(x) = (\\sin^{-1} x)^2 + (\\cos^{-1} x)^2$ for all $x \\in [-1, 1]$.",
+      "options": [
+        "A) $\\frac{\\pi^2}{4}$",
+        "B) $\\frac{\\pi^2}{8}$",
+        "C) $\\frac{5\\pi^2}{8}$",
+        "D) $\\frac{\\pi^2}{16}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Let $u = \\sin^{-1} x$ with $u \\in \\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]$. Then $\\cos^{-1} x = \\frac{\\pi}{2} - u$. Step 2: Substitute into $f(x)$: $f(x) = u^2 + \\left(\\frac{\\pi}{2} - u\\right)^2 = 2u^2 - \\pi u + \\frac{\\pi^2}{4}$. Step 3: Complete the square with respect to $u$: $2\\left(u - \\frac{\\pi}{4}\\right)^2 - 2\\left(\\frac{\\pi^2}{16}\\right) + \\frac{\\pi^2}{4} = 2\\left(u - \\frac{\\pi}{4}\\right)^2 + \\frac{\\pi^2}{8}$. Step 4: Because $u = \\frac{\\pi}{4}$ lies within the interval $\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]$ (corresponding to $x = \\sin\\left(\\frac{\\pi}{4}\\right) = \\frac{1}{\\sqrt{2}}$), the squared term can vanish. Step 5: Therefore, the minimum value is $\\frac{\\pi^2}{8}$. Evaluating at $x = 0$ gives $\\frac{\\pi^2}{4}$, which is not the minimum."
+    },
+    {
+      "id": "itf_c01_047",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Determine the exact numerical value of the nested expression $\\tan\\left(\\frac{1}{4}\\sin^{-1}\\left(\\frac{\\sqrt{63}}{8}\\right)\\right)$.",
+      "options": [
+        "A) $\\frac{1}{7}$",
+        "B) $\\sqrt{7}$",
+        "C) $\\frac{1}{\\sqrt{7}}$",
+        "D) $\\frac{1}{2\\sqrt{2}}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Let $\\theta = \\sin^{-1}\\left(\\frac{\\sqrt{63}}{8}\\right) \\in \\left(0, \\frac{\\pi}{2}\\right)$, which gives $\\sin\\theta = \\frac{\\sqrt{63}}{8}$. Step 2: Compute $\\cos\\theta = \\sqrt{1 - \\frac{63}{64}} = \\sqrt{\\frac{1}{64}} = \\frac{1}{8}$. Step 3: Use the half-angle formula for cosine: $\\cos\\left(\\frac{\\theta}{2}\\right) = \\sqrt{\\frac{1 + \\cos\\theta}{2}} = \\sqrt{\\frac{1 + 1/8}{2}} = \\sqrt{\\frac{9}{16}} = \\frac{3}{4}$. Step 4: Apply the half-angle tangent formula to find $\\tan\\left(\\frac{\\theta}{4}\\right)$: $\\tan\\left(\\frac{\\theta}{4}\\right) = \\sqrt{\\frac{1 - \\cos(\\theta/2)}{1 + \\cos(\\theta/2)}} = \\sqrt{\\frac{1 - 3/4}{1 + 3/4}} = \\sqrt{\\frac{1/4}{7/4}} = \\frac{1}{\\sqrt{7}}$. Forgetting the final square root produces $\\frac{1}{7}$."
+    },
+    {
+      "id": "itf_c01_048",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "If $\\alpha, \\beta, \\gamma$ are the three real roots of the cubic equation $x^3 - 3x^2 + x + 1 = 0$, evaluate $\\tan^{-1}\\alpha + \\tan^{-1}\\beta + \\tan^{-1}\\gamma$.",
+      "options": [
+        "A) $\\frac{3\\pi}{4}$",
+        "B) $\\pi$",
+        "C) $\\frac{\\pi}{4}$",
+        "D) $\\frac{\\pi}{2}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Test $x = 1$ in the cubic: $1^3 - 3(1)^2 + 1 + 1 = 0$, so $x = 1$ is a root. Factoring out $(x-1)$ gives $x^3 - 3x^2 + x + 1 = (x - 1)(x^2 - 2x - 1) = 0$. Step 2: The roots of the quadratic factor $x^2 - 2x - 1 = 0$ are $x = \\frac{2 \\pm \\sqrt{4+4}}{2} = 1 \\pm \\sqrt{2}$. Step 3: Assign the three distinct real roots: $\\alpha = 1$, $\\beta = 1 + \\sqrt{2}$, and $\\gamma = 1 - \\sqrt{2}$. Step 4: Evaluate each inverse tangent: $\\tan^{-1}\\alpha = \\tan^{-1}(1) = \\frac{\\pi}{4}$, $\\tan^{-1}\\beta = \\tan^{-1}(1 + \\sqrt{2}) = \\frac{3\\pi}{8}$, and $\\tan^{-1}\\gamma = \\tan^{-1}(1 - \\sqrt{2}) = -\\tan^{-1}(\\sqrt{2} - 1) = -\\frac{\\pi}{8}$. Step 5: Summing the three values yields $\\frac{\\pi}{4} + \\frac{3\\pi}{8} - \\frac{\\pi}{8} = \\frac{\\pi}{4} + \\frac{2\\pi}{8} = \\frac{\\pi}{4} + \\frac{\\pi}{4} = \\frac{\\pi}{2}$. Misidentifying the branch of $\\tan^{-1}(1-\\sqrt{2})$ yields $\\frac{3\\pi}{4}$."
+    },
+    {
+      "id": "itf_c01_049",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Find the exact numerical value of the definite integral $I = \\int_{0}^{1} \\tan^{-1}\\left(\\frac{2x - 1}{1 + x - x^2}\\right) dx$.",
+      "options": [
+        "A) $0$",
+        "B) $\\frac{\\pi}{4}$",
+        "C) $\\frac{\\pi}{2}$",
+        "D) $-\\frac{\\pi}{4}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Rewrite the argument as $\\frac{x - (1-x)}{1 + x(1-x)}$. Step 2: Applying the arctangent subtraction identity yields $\\tan^{-1}\\left(\\frac{2x - 1}{1 + x - x^2}\\right) = \\tan^{-1} x - \\tan^{-1}(1-x)$. Step 3: Express the integral as $I = \\int_{0}^{1} [\\tan^{-1} x - \\tan^{-1}(1-x)] \\, dx$. Step 4: Apply King's property by substituting $x \\mapsto 1-x$: $I = \\int_{0}^{1} [\\tan^{-1}(1-x) - \\tan^{-1} x] \\, dx = -I$. Step 5: Since $I = -I$, we have $2I = 0 \\implies I = 0$. Approximating the integral numerically without observing the anti-symmetry produces the distractor $\\frac{\\pi}{4}$."
+    },
+    {
+      "id": "itf_c01_050",
+      "subject": "Mathematics",
+      "topic": "Inverse Trigonometric Functions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Determine the total number of distinct real solutions to the equation $\\tan^{-1}(x-1) + \\tan^{-1}(x) + \\tan^{-1}(x+1) = \\tan^{-1}(3x)$.",
+      "options": [
+        "A) $1$",
+        "B) $3$",
+        "C) $2$",
+        "D) $4$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Rearrange the equation: $\\tan^{-1}(x-1) + \\tan^{-1}(x+1) = \\tan^{-1}(3x) - \\tan^{-1}(x)$. Step 2: Apply the addition formula on the left: $\\frac{(x-1) + (x+1)}{1 - (x-1)(x+1)} = \\frac{2x}{1 - (x^2 - 1)} = \\frac{2x}{2 - x^2}$. Step 3: Apply the subtraction formula on the right: $\\frac{3x - x}{1 + (3x)(x)} = \\frac{2x}{1 + 3x^2}$. Step 4: Equating both sides gives $\\frac{2x}{2 - x^2} = \\frac{2x}{1 + 3x^2} \\implies 2x\\left(\\frac{1}{2 - x^2} - \\frac{1}{1 + 3x^2}\\right) = 0$. Step 5: One solution is $2x = 0 \\implies x = 0$. The other factor yields $2 - x^2 = 1 + 3x^2 \\implies 4x^2 = 1 \\implies x = \\pm \\frac{1}{2}$. Verifying all three values in the original equation confirms validity (since $(x-1)(x+1) = -\\frac{3}{4} < 1$). Thus, there are exactly 3 distinct real solutions."
+    }
+  ]
+}

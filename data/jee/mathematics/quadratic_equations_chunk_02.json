@@ -1,0 +1,563 @@
+{
+  "questions": [
+    {
+      "id": "qe_c02_001",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two pipes working together fill a tank in $4$ hours. The larger pipe alone takes $6$ hours less than the smaller pipe alone. How many hours does the smaller pipe take alone?",
+      "options": [
+        "A) $2$",
+        "B) $6$",
+        "C) $12$",
+        "D) $7$"
+      ],
+      "answer": "C",
+      "explanation": "Let the smaller pipe alone take $x$ hours, so the larger takes $x-6$ hours. Working together gives $\\frac{1}{x}+\\frac{1}{x-6}=\\frac{1}{4}$, which simplifies to $x^2-14x+24=0$, so $x=12$ or $x=2$. The value $x=2$ makes the larger pipe's time negative and is rejected. The option $2$ keeps that invalid root. The option $6$ reports the larger pipe's time. The option $7$ is the average of the two roots $12$ and $2$."
+    },
+    {
+      "id": "qe_c02_003",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The sum of the squares of two consecutive positive even integers is $340$. Find the larger of the two integers.",
+      "options": [],
+      "answer": "14",
+      "explanation": "Let the integers be $n$ and $n+2$. Then $n^2+(n+2)^2=340$ gives $2n^2+4n-336=0$, i.e. $n^2+2n-168=0$, so $(n+14)(n-12)=0$ and $n=12$. The larger integer is $14$, and indeed $144+196=340$."
+    },
+    {
+      "id": "qe_c02_004",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The diagonal of a rectangle is $13$ cm and its perimeter is $34$ cm. Find the area of the rectangle in square centimetres.",
+      "options": [
+        "A) $120$",
+        "B) $60$",
+        "C) $30$",
+        "D) $289$"
+      ],
+      "answer": "B",
+      "explanation": "With length $l$ and width $w$, $l+w=17$ and $l^2+w^2=169$. Then $2lw=(l+w)^2-(l^2+w^2)=289-169=120$, so $lw=60$. The option $120$ reports $2lw$ as the area. The option $30$ halves the correct product. The option $289$ squares the semi-perimeter instead of using the diagonal."
+    },
+    {
+      "id": "qe_c02_005",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The equation $2x^2-kx+8=0$ has two real roots in the ratio $1:4$. Find the positive value of $k$.",
+      "options": [],
+      "answer": "10",
+      "explanation": "Let the roots be $r$ and $4r$. The product gives $4r^2=\\frac{8}{2}=4$, so $r=\\pm 1$. The sum gives $5r=\\frac{k}{2}$, so $k=10r$. The positive value is $k=10$."
+    },
+    {
+      "id": "qe_c02_006",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A real number $a$ satisfies $a+\\frac{1}{a}=\\frac{26}{5}$. Find the sum of the squares of the two possible values of $a$.",
+      "options": [
+        "A) $\\frac{626}{25}$",
+        "B) $\\frac{26}{5}$",
+        "C) $\\frac{676}{25}$",
+        "D) $\\frac{651}{25}$"
+      ],
+      "answer": "A",
+      "explanation": "Multiplying by $5a$ gives $5a^2-26a+5=0$, so the two values are $5$ and $\\frac{1}{5}$. Their squares are $25$ and $\\frac{1}{25}$, which sum to $\\frac{626}{25}$. The option $\\frac{26}{5}$ is the sum of the values, not of their squares. The option $\\frac{676}{25}$ squares the sum of the values. The option $\\frac{651}{25}$ uses $s^2-p$ instead of $s^2-2p$."
+    },
+    {
+      "id": "qe_c02_007",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the sum of all integers $x$ that satisfy the inequality $x^2-7x+10<0$.",
+      "options": [
+        "A) $9$",
+        "B) $7$",
+        "C) $3$",
+        "D) $14$"
+      ],
+      "answer": "B",
+      "explanation": "Factor $x^2-7x+10=(x-2)(x-5)$. The inequality holds for $2<x<5$, so the integers are $3$ and $4$, whose sum is $7$. The option $9$ wrongly includes $x=2$. The option $3$ keeps only the smallest integer in the interval. The option $14$ wrongly includes $x=5$ and sums $2+3+4+5$."
+    },
+    {
+      "id": "qe_c02_008",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the positive real solution of the equation $\\frac{x+2}{x-1}+\\frac{x-1}{x+2}=\\frac{5}{2}$.",
+      "options": [
+        "A) $-5$",
+        "B) $4$",
+        "C) $5$",
+        "D) $1$"
+      ],
+      "answer": "B",
+      "explanation": "Clearing denominators gives $2\\left[(x+2)^2+(x-1)^2\\right]=5(x^2+x-2)$, which simplifies to $x^2+x-20=0$. Hence $(x+5)(x-4)=0$, and the positive solution is $x=4$. Check: $\\frac{6}{3}+\\frac{3}{6}=\\frac{5}{2}$. The option $-5$ is the negative root. The option $5$ takes the absolute value of that negative root. The option $1$ comes from a constant slip giving $x^2+x-2=0$."
+    },
+    {
+      "id": "qe_c02_009",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Two numbers have sum $9$ and the sum of their cubes is $189$. Find the product of the two numbers.",
+      "options": [],
+      "answer": "20",
+      "explanation": "Using $a^3+b^3=(a+b)^3-3ab(a+b)$ gives $729-27ab=189$, so $27ab=540$ and $ab=20$. The two numbers are $4$ and $5$, which have sum $9$ and cubes summing to $64+125=189$."
+    },
+    {
+      "id": "qe_c02_010",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For what value of $k$ is $-\\frac{2}{3}$ a root of the equation $3x^2-kx-10=0$?",
+      "options": [
+        "A) $-13$",
+        "B) $5$",
+        "C) $\\frac{13}{3}$",
+        "D) $13$"
+      ],
+      "answer": "D",
+      "explanation": "Substituting $x=-\\frac{2}{3}$ gives $3\\cdot\\frac{4}{9}+\\frac{2k}{3}-10=0$, i.e. $4+2k-30=0$, so $k=13$. The option $-13$ is a sign slip on the linear term. The option $5$ reports the other root of the equation rather than $k$. The option $\\frac{13}{3}$ forgets to multiply the linear term by $3$."
+    },
+    {
+      "id": "qe_c02_011",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The equation $x^2-nx+36=0$ has two real roots that are both positive integers. How many positive integer values of $n$ are possible?",
+      "options": [
+        "A) $5$",
+        "B) $4$",
+        "C) $9$",
+        "D) $2$"
+      ],
+      "answer": "A",
+      "explanation": "Let the positive integer roots be $r$ and $s$ with $rs=36$ and $n=r+s$. The factor pairs give $n=37,20,15,13,12$, which are five distinct values. The option $4$ drops the pair $(6,6)$. The option $9$ counts ordered pairs rather than distinct values of $n$. The option $2$ counts only the pairs with equal roots."
+    },
+    {
+      "id": "qe_c02_013",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The roots $\\alpha$ and $\\beta$ of $x^2-(m+1)x+2m=0$ satisfy $\\alpha^2+\\beta^2=9$. Find the positive value of $m$.",
+      "options": [
+        "A) $-2$",
+        "B) $2\\sqrt{2}$",
+        "C) $4$",
+        "D) $2$"
+      ],
+      "answer": "C",
+      "explanation": "Here $\\alpha+\\beta=m+1$ and $\\alpha\\beta=2m$, so $\\alpha^2+\\beta^2=(m+1)^2-4m=(m-1)^2$. Setting this to $9$ gives $m=4$ or $m=-2$. The positive value is $m=4$. The option $-2$ is the negative root. The option $2\\sqrt{2}$ uses $s^2-p$ instead of $s^2-2p$. The option $2$ ignores the product term and solves $(m+1)^2=9$."
+    },
+    {
+      "id": "qe_c02_014",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the sum of the squares of all real solutions of the equation $x^2-5|x|+6=0$.",
+      "options": [],
+      "answer": "26",
+      "explanation": "Since $x^2=|x|^2$, the equation is quadratic in $|x|$: $|x|^2-5|x|+6=0$ gives $|x|=2$ or $|x|=3$. So $x=\\pm 2$ and $x=\\pm 3$, and the squares sum to $4+4+9+9=26$."
+    },
+    {
+      "id": "qe_c02_015",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Two positive integers differ by $6$ and their product is $135$. Find the sum of the two integers.",
+      "options": [],
+      "answer": "24",
+      "explanation": "Let the smaller integer be $a$, so the larger is $a+6$ and $a(a+6)=135$. This gives $a^2+6a-135=0$, i.e. $(a+15)(a-9)=0$, so $a=9$. The integers are $9$ and $15$, with sum $24$."
+    },
+    {
+      "id": "qe_c02_016",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find all real $a$ for which the equation $x^2+(a-2)x+a+1=0$ has exactly one root in the open interval $(0,1)$.",
+      "options": [
+        "A) $(-\\infty,-1)\\cup(0,\\infty)$",
+        "B) $(-1,0]$",
+        "C) $[-1,0]$",
+        "D) $(-1,0)$"
+      ],
+      "answer": "D",
+      "explanation": "Let $f(x)=x^2+(a-2)x+a+1$, so $f(0)=a+1$ and $f(1)=2a$. A single sign change across $(0,1)$ requires $f(0)f(1)<0$, i.e. $2a(a+1)<0$, giving $-1<a<0$. The endpoints fail: $a=-1$ gives roots $0$ and $3$, and $a=0$ gives the double root $1$, which is outside the open interval. The option $(-\\infty,-1)\\cup(0,\\infty)$ reverses the sign condition. The option $(-1,0]$ includes $a=0$. The option $[-1,0]$ includes $a=-1$."
+    },
+    {
+      "id": "qe_c02_018",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A train covers $240$ km at a uniform speed. If its speed were $20$ km/h more, the same journey would take $2$ hours less. Find the original speed in km/h.",
+      "options": [],
+      "answer": "40",
+      "explanation": "With speed $v$, the condition is $\\frac{240}{v}-\\frac{240}{v+20}=2$. Clearing denominators gives $4800=2v^2+40v$, so $v^2+20v-2400=0$. This factors as $(v+60)(v-40)=0$, so $v=40$. Check: $\\frac{240}{40}-\\frac{240}{60}=6-4=2$."
+    },
+    {
+      "id": "qe_c02_019",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The roots of $x^2-kx+k-1=0$ satisfy $\\frac{1}{\\alpha}+\\frac{1}{\\beta}=2$. Find the value of $k$.",
+      "options": [
+        "A) $-2$",
+        "B) $2$",
+        "C) $-1$",
+        "D) $0$"
+      ],
+      "answer": "B",
+      "explanation": "The reciprocal sum is $\\frac{\\alpha+\\beta}{\\alpha\\beta}=\\frac{k}{k-1}$. Setting $\\frac{k}{k-1}=2$ gives $k=2k-2$, so $k=2$. Check: $x^2-2x+1$ has double root $1$, and $1+1=2$. The option $-2$ is a sign slip in the final step. The option $-1$ inverts the ratio to $\\frac{\\alpha\\beta}{\\alpha+\\beta}$. The option $0$ cancels $k$ from both sides, which loses the case where the numerator vanishes."
+    },
+    {
+      "id": "qe_c02_021",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\alpha$ and $\\beta$ be the roots of $x^2-4x+1=0$. Form the quadratic equation whose roots are $\\alpha+2$ and $\\beta+2$.",
+      "options": [
+        "A) $x^2+8x+13=0$",
+        "B) $x^2-4x+1=0$",
+        "C) $x^2-8x+13=0$",
+        "D) $x^2-8x+5=0$"
+      ],
+      "answer": "C",
+      "explanation": "The new sum is $(\\alpha+2)+(\\beta+2)=4+4=8$. The new product is $\\alpha\\beta+2(\\alpha+\\beta)+4=1+8+4=13$. So the equation is $x^2-8x+13=0$. The option $x^2+8x+13=0$ flips the sign of the sum. The option $x^2-4x+1=0$ is the original equation with no shift. The option $x^2-8x+5=0$ forgets the cross term $2(\\alpha+\\beta)$ in the product."
+    },
+    {
+      "id": "qe_c02_022",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the product of all real values of $b$ for which the roots of $x^2+bx-2=0$ have sum of squares equal to $5$.",
+      "options": [
+        "A) $-1$",
+        "B) $1$",
+        "C) $0$",
+        "D) $-5$"
+      ],
+      "answer": "A",
+      "explanation": "For this equation the sum is $-b$ and the product is $-2$. So $\\alpha^2+\\beta^2=b^2+4$, and setting it to $5$ gives $b^2=1$, so $b=\\pm 1$. Their product is $-1$. The option $1$ flips the sign of the product of the two values. The option $0$ sums the two values instead. The option $-5$ drops the $-2p$ term, giving $b^2=5$."
+    },
+    {
+      "id": "qe_c02_023",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The sum of the reciprocals of the roots of $x^2-6x+k=0$ is $\\frac{3}{2}$. Find the value of $k$.",
+      "options": [],
+      "answer": "4",
+      "explanation": "The sum of reciprocals is $\\frac{\\alpha+\\beta}{\\alpha\\beta}=\\frac{6}{k}$. Setting $\\frac{6}{k}=\\frac{3}{2}$ gives $k=4$. Check: $x^2-6x+4$ has roots $3\\pm\\sqrt5$, whose reciprocals sum to $\\frac{6}{4}=\\frac{3}{2}$. Any other value of $k$ gives a different reciprocal sum, so the answer is unique."
+    },
+    {
+      "id": "qe_c02_026",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the product of all real values of $k$ for which the roots of $2x^2+kx+8=0$ are real and equal.",
+      "options": [
+        "A) $64$",
+        "B) $-8$",
+        "C) $-16$",
+        "D) $-64$"
+      ],
+      "answer": "D",
+      "explanation": "Equal roots need the discriminant $k^2-4\\cdot 2\\cdot 8=k^2-64=0$, so $k=\\pm 8$. Their product is $-64$. The option $64$ takes the product of the magnitudes, dropping the sign. The option $-8$ reports only one of the two values. The option $-16$ uses $k^2=2\\cdot 8$, forgetting the factor $4$ in the discriminant."
+    },
+    {
+      "id": "qe_c02_027",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the sum of all real $m$ for which the roots of $x^2+(m-2)x+m=0$ satisfy $\\alpha^2+\\beta^2=\\alpha+\\beta+2$.",
+      "options": [
+        "A) $5$",
+        "B) $0$",
+        "C) $-5$",
+        "D) $1$"
+      ],
+      "answer": "A",
+      "explanation": "Here $\\alpha+\\beta=-(m-2)$ and $\\alpha\\beta=m$. The condition becomes $(m-2)^2-2m=-(m-2)+2$, i.e. $m^2-6m+4=-m+4$, so $m^2-5m=0$ and $m=0$ or $m=5$. The sum is $5$. The option $0$ takes the product of the two values. The option $-5$ flips the sign of the sum. The option $1$ uses $s^2+2p$ instead of $s^2-2p$."
+    },
+    {
+      "id": "qe_c02_031",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the number of integers $x$ with $x\\ge -10$ that satisfy $\\frac{x^2-5x+6}{x-4}<0$.",
+      "options": [],
+      "answer": "12",
+      "explanation": "The numerator is $(x-2)(x-3)$, so the sign changes at $2$, $3$ and $4$. The expression is negative for $x<2$ and for $3<x<4$, and it is zero at $x=2$ and $x=3$, which are excluded. With $x\\ge -10$, the integers are $-10,\\dots,1$, which is $12$ integers."
+    },
+    {
+      "id": "qe_c02_033",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The product of two positive numbers is $48$ and the sum of their squares is $100$. Find the sum of the two numbers.",
+      "options": [],
+      "answer": "14",
+      "explanation": "Let the numbers have sum $s$. Then $s^2=(a^2+b^2)+2ab=100+96=196$, so $s=14$, since the numbers are positive."
+    },
+    {
+      "id": "qe_c02_035",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the sum of all integers $x$ satisfying the inequality $\\left|x^2-4x\\right|<5$.",
+      "options": [],
+      "answer": "10",
+      "explanation": "The condition splits into $x^2-4x<5$ and $x^2-4x>-5$. The first gives $(x-5)(x+1)<0$, so $-1<x<5$. The second, $x^2-4x+5>0$, holds for all real $x$. The integers are $0,1,2,3,4$, with sum $10$."
+    },
+    {
+      "id": "qe_c02_036",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $p$ and $q$ be real numbers such that $x^2+px+q=0$ has roots $\\alpha$ and $\\beta$ with $\\alpha^2+\\beta^2=3$. Which of the following statements are correct?",
+      "options": [
+        "A) $q=\\frac{p^2-3}{2}$",
+        "B) If $p=1$ then $q=-1$",
+        "C) If $p=0$ the roots are $\\pm\\sqrt{3}$",
+        "D) $p^2\\ge 4q$ for every such pair $(p,q)$"
+      ],
+      "answer": "A,B",
+      "explanation": "Since $\\alpha+\\beta=-p$ and $\\alpha\\beta=q$, the condition is $p^2-2q=3$, which gives A. For $p=1$ this gives $q=-1$, so B is correct. For $p=0$ we get $q=-\\frac{3}{2}$ and roots $\\pm\\sqrt{\\frac{3}{2}}$, not $\\pm\\sqrt{3}$, so C is wrong because it takes the sum of squares as the root value. For $p=3$ we get $q=3$ and $p^2-4q=-3<0$, so D is wrong because the discriminant can be negative."
+    },
+    {
+      "id": "qe_c02_037",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $m$ be a real number and consider the equation $x^2-(2m+1)x+m(m+1)=0$. Which of the following statements are correct?",
+      "options": [
+        "A) The two roots differ by $1$ for every real $m$",
+        "B) The two roots are equal for some real $m$",
+        "C) Both roots are integers if and only if $m$ is an integer",
+        "D) The product of the roots is nonnegative for every real $m$"
+      ],
+      "answer": "A,C",
+      "explanation": "The polynomial factors as $(x-m)(x-(m+1))$, so the roots are $m$ and $m+1$. They always differ by $1$, so A is correct, and they can never be equal, so B is wrong. Both roots are integers exactly when $m$ is an integer, so C is correct. The product $m(m+1)$ is negative for $-1<m<0$, so D is wrong."
+    },
+    {
+      "id": "qe_c02_038",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "For real $k$, consider the equation $x^2+(k-3)x+k=0$. Which of the following statements are correct?",
+      "options": [
+        "A) For $k=0$ the roots are $0$ and $3$",
+        "B) Real roots exist exactly when $k\\le 1$ or $k\\ge 9$",
+        "C) For $k=-1$ the roots have opposite signs",
+        "D) For $k=5$ both roots are negative"
+      ],
+      "answer": "A,B,C",
+      "explanation": "For $k=0$ the equation is $x^2-3x=0$, with roots $0$ and $3$, so A is correct. The discriminant is $(k-3)^2-4k=(k-1)(k-9)$, which is nonnegative exactly when $k\\le 1$ or $k\\ge 9$, so B is correct. For $k=-1$ the product of the roots is $-1$, so the roots have opposite signs and C is correct. For $k=5$ the discriminant is $-4<0$, so there are no real roots and D is wrong."
+    },
+    {
+      "id": "qe_c02_039",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $\\alpha$ and $\\beta$ be the roots of $x^2-3x+1=0$. Which of the following statements are correct?",
+      "options": [
+        "A) $\\alpha^2+\\beta^2=7$",
+        "B) $\\alpha^3+\\beta^3=18$",
+        "C) $\\alpha^4+\\beta^4=49$",
+        "D) $(\\alpha-\\beta)^2=5$"
+      ],
+      "answer": "A,B,D",
+      "explanation": "With $\\alpha+\\beta=3$ and $\\alpha\\beta=1$, we get $\\alpha^2+\\beta^2=9-2=7$, so A is correct. Also $\\alpha^3+\\beta^3=27-9=18$, so B is correct. The difference satisfies $(\\alpha-\\beta)^2=9-4=5$, so D is correct. Since $\\alpha^4+\\beta^4=7^2-2=47$, option C with $49$ is wrong because it forgets the subtraction of $2(\\alpha\\beta)^2$."
+    },
+    {
+      "id": "qe_c02_040",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $p$ and $q$ be prime numbers such that $x^2-px+q=0$ has two integer roots. Which of the following statements are correct?",
+      "options": [
+        "A) The only possible pair is $(p,q)=(3,2)$",
+        "B) For $(p,q)=(3,2)$ the roots are $1$ and $2$",
+        "C) There is a valid pair with $q=5$",
+        "D) Both roots are negative for some valid pair"
+      ],
+      "answer": "A,B",
+      "explanation": "The integer roots $r,s$ satisfy $rs=q$ prime, so $\\{r,s\\}=\\{1,q\\}$ or $\\{-1,-q\\}$. The second case gives $p=-(1+q)<0$, which is not prime. The first gives $p=1+q$, and the only pair of primes differing by $1$ is $(3,2)$, so A is correct and the roots are $1$ and $2$, making B correct. For $q=5$ we get $p=6$ or $p=-6$, neither prime, so C is wrong. Since the only valid pair has positive roots, D is wrong."
+    },
+    {
+      "id": "qe_c02_041",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\alpha$ and $\\beta$ be the real roots of $x^2-tx+1=0$, where $t$ is a real parameter. How many real values of $t$ satisfy $\\alpha^2+\\beta^2=\\alpha^4+\\beta^4$?",
+      "options": [
+        "A) $1$",
+        "B) $0$",
+        "C) $4$",
+        "D) $2$"
+      ],
+      "answer": "D",
+      "explanation": "Real roots require $t^2\\ge 4$. Here $\\alpha^2+\\beta^2=t^2-2=u$ and $\\alpha^4+\\beta^4=u^2-2$, so $u^2-u-2=0$ gives $u=2$ or $u=-1$. The value $u=2$ gives $t=\\pm 2$, which satisfy $t^2\\ge 4$, while $u=-1$ gives $t=\\pm 1$, which fail it. So there are 2 values. The option $1$ keeps only $t=2$. The option $0$ wrongly rejects $t=\\pm 2$ by demanding a strict discriminant. The option $4$ includes $t=\\pm 1$, where the roots are not real."
+    },
+    {
+      "id": "qe_c02_043",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Find the value of $k$ for which the line $y=2x+k$ is tangent to the parabola $y=x^2-4x+5$.",
+      "options": [
+        "A) $4$",
+        "B) $-3$",
+        "C) $-4$",
+        "D) $16$"
+      ],
+      "answer": "C",
+      "explanation": "Equating the two expressions gives $x^2-6x+(5-k)=0$. Tangency requires the discriminant to vanish: $36-4(5-k)=16+4k=0$, so $k=-4$. The tangency point is $x=3$, $y=2$, and $6+k=2$ confirms $k=-4$. The option $4$ is a sign slip. The option $-3$ comes from putting the line through the vertex $(2,1)$. The option $16$ is the discriminant value at $k=0$, without setting it to zero."
+    },
+    {
+      "id": "qe_c02_044",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Find all real values of $a$ for which both roots of $x^2-2ax+a^2+a=0$ lie in the open interval $(-1,3)$.",
+      "options": [
+        "A) $(-1,0]$",
+        "B) $\\left(\\frac{\\sqrt{5}-3}{2},0\\right]$",
+        "C) $\\left[\\frac{\\sqrt{5}-3}{2},0\\right]$",
+        "D) $(-\\infty,0]$"
+      ],
+      "answer": "B",
+      "explanation": "The roots are $a\\pm\\sqrt{-a}$, so real roots need $a\\le 0$. Put $u=\\sqrt{-a}\\ge 0$. The lower root $-u^2-u$ exceeds $-1$ exactly when $u^2+u<1$, i.e. $u<\\frac{\\sqrt5-1}{2}$, which means $a>\\frac{\\sqrt5-3}{2}$. The upper root $u-u^2\\le\\frac14$ always lies below $3$. At the endpoint the lower root equals $-1$, so it is excluded. The option $(-1,0]$ uses $-1$ as the lower bound for $a$. The option with $[\\frac{\\sqrt5-3}{2},0]$ includes the endpoint where a root equals $-1$. The option $(-\\infty,0]$ ignores the lower root condition."
+    },
+    {
+      "id": "qe_c02_045",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $(a,b)$ be real numbers such that the two roots of $x^2+ax+b=0$ are exactly $a$ and $b$. Find the sum of all possible values of $a^2+b^2$.",
+      "options": [
+        "A) $5$",
+        "B) $1$",
+        "C) $-1$",
+        "D) $10$"
+      ],
+      "answer": "A",
+      "explanation": "Matching sum and product gives $-a=a+b$ and $ab=b$. If $b=0$ then $a=0$, giving $(0,0)$. If $b\\ne 0$ then $a=1$ and $b=-2$, giving $(1,-2)$, which checks out since $x^2+x-2$ has roots $1$ and $-2$. The values of $a^2+b^2$ are $0$ and $5$, with sum $5$. The option $1$ takes $a^2$ from the pair $(1,-2)$ only. The option $-1$ sums the values of $a+b$ instead. The option $10$ counts the pair $(1,-2)$ twice."
+    },
+    {
+      "id": "qe_c02_046",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "For how many integers $p$ are both roots of $x^2-2px+p^2+p-6=0$ real and lie in the open interval $(-2,4)$?",
+      "options": [],
+      "answer": "1",
+      "explanation": "The roots are $p\\pm\\sqrt{6-p}$, so $p\\le 6$. Put $u=\\sqrt{6-p}\\ge 0$. The upper root $p+u<4$ becomes $u^2-u-2>0$, i.e. $u>2$, so $p<2$. The lower root $p-u>-2$ becomes $u^2+u<8$, so $u<2.37$ and $p>0.37$. Thus $0.37<p<2$, and the only integer is $p=1$, with roots $1\\pm\\sqrt5$. The remaining cases fail: $p=0$ gives the root $-\\sqrt6<-2$, and $p=2$ gives the root $4$."
+    },
+    {
+      "id": "qe_c02_048",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Find the number of integers $n$ with $1\\le n\\le 50$ for which $n^2-17n+60<0$.",
+      "options": [],
+      "answer": "6",
+      "explanation": "Factor $n^2-17n+60=(n-5)(n-12)$. The product is negative for $5<n<12$, so $n\\in\\{6,7,8,9,10,11\\}$. That is 6 integers, all inside the range $1\\le n\\le 50$."
+    },
+    {
+      "id": "qe_c02_049",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $x^2+mx+n=0$, with $m$ real, have roots $\\alpha$ and $\\beta$ satisfying $\\alpha\\beta=-3$ and $\\alpha^2+\\beta^2=10$. How many real values of $m$ are possible?",
+      "options": [],
+      "answer": "2",
+      "explanation": "The product is $\\alpha\\beta=n=-3$. Then $(\\alpha+\\beta)^2=\\alpha^2+\\beta^2+2\\alpha\\beta=10-6=4$, so $\\alpha+\\beta=\\pm 2$. Since $\\alpha+\\beta=-m$, the two possible values are $m=2$ and $m=-2$."
+    },
+    {
+      "id": "qe_c02_050",
+      "subject": "Mathematics",
+      "topic": "Quadratic Equations",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "For the quadratic $f(x)=x^2-4x+c$, the minimum value of $f$ on the closed interval $[0,3]$ equals $-1$. Find the value of $c$.",
+      "options": [],
+      "answer": "3",
+      "explanation": "The vertex is at $x=2$, which lies inside $[0,3]$, so the minimum on the interval is $f(2)=4-8+c=c-4$. Setting $c-4=-1$ gives $c=3$. The endpoints give $f(0)=3$ and $f(3)=3$, both larger than $-1$."
+    }
+  ]
+}

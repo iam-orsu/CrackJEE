@@ -1,0 +1,804 @@
+{
+  "questions": [
+    {
+      "id": "ac_c01_001",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A periodic electric current given by $i(t) = I_0 + I_1 \\sin(\\omega t)$, where $I_0 = 4.0\\text{ A}$ is a steady direct current and $I_1 = 3.0\\text{ A}$ is the peak alternating current, flows through a purely resistive heating element of resistance $R = 10.0\\ \\Omega$. Determine the average power dissipated in the heating element over a complete cycle.",
+      "options": [
+        "A) $205\\text{ W}$",
+        "B) $250\\text{ W}$",
+        "C) $160\\text{ W}$",
+        "D) $245\\text{ W}$"
+      ],
+      "answer": "A",
+      "explanation": "The root-mean-square current $I_{rms}$ for a composite signal consisting of a direct current and an alternating sinusoidal component is given by $I_{rms}^2 = \\frac{1}{T}\\int_0^T [I_0 + I_1 \\sin(\\omega t)]^2 dt = I_0^2 + \\frac{I_1^2}{2}$. Substituting the given numerical parameters yields $I_{rms}^2 = 4.0^2 + \\frac{3.0^2}{2} = 16.0 + 4.5 = 20.5\\text{ A}^2$. Therefore, the average rate of electrical power dissipation in the resistor is $P_{avg} = I_{rms}^2 R = 20.5 \\times 10.0 = 205\\text{ W}$. Neglecting the cross-term integration and taking $(I_0 + I_1)^2 R / 2$ yields $245\\text{ W}$; ignoring the AC contribution entirely gives $160\\text{ W}$; adding the peak values directly produces $250\\text{ W}$."
+    },
+    {
+      "id": "ac_c01_002",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An inductive coil with internal winding resistance $R = 12\\ \\Omega$ exhibits an impedance of $Z_1 = 20\\ \\Omega$ when connected to an alternating voltage source operating at a frequency of $f_1 = 48\\text{ Hz}$. If the source frequency is increased to $f_2 = 105\\text{ Hz}$ while maintaining the same root-mean-square voltage amplitude, what is the new impedance $Z_2$ of the coil?",
+      "options": [
+        "A) $31\\ \\Omega$",
+        "B) $37\\ \\Omega$",
+        "C) $44\\ \\Omega$",
+        "D) $52\\ \\Omega$"
+      ],
+      "answer": "B",
+      "explanation": "At the initial operating frequency $f_1 = 48\\text{ Hz}$, the inductive reactance is $X_{L1} = \\sqrt{Z_1^2 - R^2} = \\sqrt{20^2 - 12^2} = \\sqrt{400 - 144} = \\sqrt{256} = 16\\ \\Omega$. Since inductive reactance scales linearly with frequency according to $X_L = 2\\pi f L$, the new reactance at $f_2 = 105\\text{ Hz}$ becomes $X_{L2} = X_{L1} \\left(\\frac{f_2}{f_1}\\right) = 16 \\times \\frac{105}{48} = 35\\ \\Omega$. Therefore, applying the series impedance relation, the new coil impedance is $Z_2 = \\sqrt{R^2 + X_{L2}^2} = \\sqrt{12^2 + 35^2} = \\sqrt{144 + 1225} = \\sqrt{1369} = 37\\ \\Omega$. Linearly scaling total impedance directly with frequency gives $44\\ \\Omega$; neglecting the constant series resistance gives $35\\ \\Omega$; doubling the initial impedance yields $40\\ \\Omega$."
+    },
+    {
+      "id": "ac_c01_003",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A series $LCR$ circuit consists of an inductor $L = 200\\text{ mH}$, a capacitor $C = 5.0\\ \\mu\\text{F}$, and a resistor $R = 5.0\\ \\Omega$ connected across an alternating electromotive force of variable angular frequency. Determine the dimensionless Quality factor $Q$ of this resonant circuit.",
+      "options": [],
+      "answer": "40",
+      "explanation": "The resonant angular frequency of the series circuit is determined by $\\omega_0 = \\frac{1}{\\sqrt{LC}} = \\frac{1}{\\sqrt{0.200 \\times 5.0 \\times 10^{-6}}} = \\frac{1}{\\sqrt{1.0 \\times 10^{-6}}} = 1000\\text{ rad/s}$. The Quality factor $Q$ characterizes the sharpness of resonance and is defined as $Q = \\frac{\\omega_0 L}{R}$. Substituting the circuit values gives $Q = \\frac{1000 \\times 0.200}{5.0} = \\frac{200}{5.0} = 40$. Equivalently, using $Q = \\frac{1}{R}\\sqrt{\\frac{L}{C}} = \\frac{1}{5.0}\\sqrt{\\frac{0.200}{5.0 \\times 10^{-6}}} = \\frac{1}{5.0}\\sqrt{4.0 \\times 10^4} = \\frac{200}{5.0} = 40$."
+    },
+    {
+      "id": "ac_c01_004",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A series $LCR$ circuit is energized by an alternating voltage supply of $V_{rms} = 200\\text{ V}$. An alternating current voltmeter measures the potential differences across the non-inductive resistor and the inductor as $V_R = 120\\text{ V}$ and $V_L = 200\\text{ V}$ respectively. If the net reactance of the circuit is predominantly capacitive ($V_C > V_L$), determine the root-mean-square potential difference $V_C$ across the capacitor.",
+      "options": [
+        "A) $40\\text{ V}$",
+        "B) $200\\text{ V}$",
+        "C) $360\\text{ V}$",
+        "D) $280\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "In a series $LCR$ AC circuit, the phasor relation connecting the component voltages to the source voltage is $V_{rms}^2 = V_R^2 + (V_L - V_C)^2$. Substituting the measured root-mean-square values yields $200^2 = 120^2 + (V_C - V_L)^2$, which leads to $(V_C - V_L)^2 = 40000 - 14400 = 25600$. Taking the square root gives $|V_C - V_L| = 160\\text{ V}$. Since the circuit is specified to be predominantly capacitive ($V_C > V_L$), we have $V_C - 200 = 160$, which yields $V_C = 360\\text{ V}$. Selecting the inductive branch $200 - 160$ gives $40\\text{ V}$; scalar algebraic addition gives $280\\text{ V}$; assuming series resonance gives $200\\text{ V}$."
+    },
+    {
+      "id": "ac_c01_005",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A series alternating current circuit comprises a resistor of resistance $R = 40\\ \\Omega$, an inductor of reactance $X_L = 100\\ \\Omega$, and a capacitor of reactance $X_C = 70\\ \\Omega$. The circuit is driven by a sinusoidal AC generator delivering an RMS voltage of $V_{rms} = 200\\text{ V}$. Calculate the average electrical power consumed by the entire circuit.",
+      "options": [
+        "A) $800\\text{ W}$",
+        "B) $480\\text{ W}$",
+        "C) $1000\\text{ W}$",
+        "D) $640\\text{ W}$"
+      ],
+      "answer": "D",
+      "explanation": "The net reactive component of the series branch is $X = X_L - X_C = 100 - 70 = 30\\ \\Omega$. The total circuit impedance is $Z = \\sqrt{R^2 + X^2} = \\sqrt{40^2 + 30^2} = 50\\ \\Omega$. The root-mean-square current drawn from the supply is $I_{rms} = \\frac{V_{rms}}{Z} = \\frac{200}{50} = 4.0\\text{ A}$. The circuit power factor is $\\cos\\phi = \\frac{R}{Z} = \\frac{40}{50} = 0.80$. Hence, the average active power dissipation is $P = V_{rms} I_{rms} \\cos\\phi = 200 \\times 4.0 \\times 0.80 = 640\\text{ W}$. Neglecting the power factor yields apparent power $800\\text{ W}$; multiplying by the reactive factor $\\sin\\phi = 0.60$ gives reactive power $480\\text{ VAR}$; calculating $V^2/R$ directly without impedance gives $1000\\text{ W}$."
+    },
+    {
+      "id": "ac_c01_006",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A real choke coil draws a steady alternating current of $I_{rms} = 4.0\\text{ A}$ when connected across a $120\\text{ V}$, $50\\text{ Hz}$ power line. A wattmeter connected in the circuit records an average power consumption of $288\\text{ W}$. Determine the inductive reactance $X_L$ of the choke coil under these operating conditions.",
+      "options": [
+        "A) $24\\ \\Omega$",
+        "B) $30\\ \\Omega$",
+        "C) $18\\ \\Omega$",
+        "D) $12\\ \\Omega$"
+      ],
+      "answer": "A",
+      "explanation": "Power dissipation in a real inductor occurs exclusively in its internal winding resistance $r$. Using $P = I_{rms}^2 r$, we calculate $r = \\frac{P}{I_{rms}^2} = \\frac{288}{4.0^2} = \\frac{288}{16} = 18\\ \\Omega$. The magnitude of total impedance presented by the coil is $Z = \\frac{V_{rms}}{I_{rms}} = \\frac{120}{4.0} = 30\\ \\Omega$. Therefore, the inductive reactance is $X_L = \\sqrt{Z^2 - r^2} = \\sqrt{30^2 - 18^2} = \\sqrt{900 - 324} = \\sqrt{576} = 24\\ \\Omega$. Confusing impedance with reactance leads to $30\\ \\Omega$; reporting only internal winding resistance gives $18\\ \\Omega$; taking simple algebraic difference $30 - 18$ gives $12\\ \\Omega$."
+    },
+    {
+      "id": "ac_c01_007",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An ideal step-down transformer has a primary-to-secondary turns ratio of $N_p : N_s = 5 : 1$. The primary coil is connected across a $220\\text{ V}$, $50\\text{ Hz}$ alternating mains supply. The secondary winding delivers power to a purely resistive load of $R_L = 4.4\\ \\Omega$. Assuming zero internal flux leakage and unity efficiency, determine the RMS current drawn by the primary winding from the mains.",
+      "options": [
+        "A) $10.0\\text{ A}$",
+        "B) $2.0\\text{ A}$",
+        "C) $0.4\\text{ A}$",
+        "D) $50.0\\text{ A}$"
+      ],
+      "answer": "B",
+      "explanation": "For an ideal transformer, the secondary induced voltage is $V_s = V_p \\left(\\frac{N_s}{N_p}\\right) = 220 \\times \\frac{1}{5} = 44\\text{ V}$. The secondary current delivered through the load resistance is $I_s = \\frac{V_s}{R_L} = \\frac{44}{4.4} = 10.0\\text{ A}$. Conservation of power ($V_p I_p = V_s I_s$) or the inverse turns ratio relation gives $I_p = I_s \\left(\\frac{N_s}{N_p}\\right) = 10.0 \\times \\frac{1}{5} = 2.0\\text{ A}$. Alternatively, reflecting the load resistance to the primary side gives $R_{p,ref} = \\left(\\frac{N_p}{N_s}\\right)^2 R_L = 25 \\times 4.4 = 110\\ \\Omega$, yielding $I_p = \\frac{220}{110} = 2.0\\text{ A}$. Confusing primary and secondary current yields $10.0\\text{ A}$; squaring the turns ratio incorrectly gives $0.4\\text{ A}$; multiplying by turns ratio produces $50.0\\text{ A}$."
+    },
+    {
+      "id": "ac_c01_008",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An incandescent lamp rated at $100\\text{ V}$ and $50\\text{ W}$ is to be operated safely from an AC line of $V_{rms} = 200\\text{ V}$ at frequency $f = 50\\text{ Hz}$ without dissipating excess heat. A pure capacitor of capacitance $C$ is placed in series with the lamp. In order for the lamp to operate precisely at its rated voltage, the value of $C$ must be:",
+      "options": [
+        "A) $\\frac{100}{\\pi}\\ \\mu\\text{F}$",
+        "B) $\\frac{25}{\\sqrt{3}\\pi}\\ \\mu\\text{F}$",
+        "C) $\\frac{50}{\\sqrt{3}\\pi}\\ \\mu\\text{F}$",
+        "D) $\\frac{50}{\\pi}\\ \\mu\\text{F}$"
+      ],
+      "answer": "C",
+      "explanation": "The rated operating current of the incandescent lamp is $I = \\frac{P}{V_{lamp}} = \\frac{50}{100} = 0.50\\text{ A}$, and its filament resistance is $R = \\frac{V_{lamp}^2}{P} = \\frac{100^2}{50} = 200\\ \\Omega$. Since the resistor and capacitor voltages are in quadrature, the supply voltage satisfies $V_{rms}^2 = V_{lamp}^2 + V_C^2$. Solving for the potential across the series capacitor gives $V_C = \\sqrt{200^2 - 100^2} = \\sqrt{30000} = 100\\sqrt{3}\\text{ V}$. The required capacitive reactance is $X_C = \\frac{V_C}{I} = \\frac{100\\sqrt{3}}{0.50} = 200\\sqrt{3}\\ \\Omega$. Applying $X_C = \\frac{1}{2\\pi f C}$, we obtain $C = \\frac{1}{2\\pi (50)(200\\sqrt{3})} = \\frac{1}{20000\\sqrt{3}\\pi}\\text{ F} = \\frac{50}{\\sqrt{3}\\pi}\\ \\mu\\text{F}$. Subtracting voltages algebraically yields $100\\text{ V}$ across capacitor giving $\\frac{50}{\\pi}\\ \\mu\\text{F}$; doubling the reactance leads to $\\frac{25}{\\sqrt{3}\\pi}\\ \\mu\\text{F}$."
+    },
+    {
+      "id": "ac_c01_009",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A series $LCR$ circuit exhibits a resonant angular frequency of $\\omega_0 = 600\\text{ rad/s}$ and a Quality factor $Q = 20$. Let $\\omega_1$ and $\\omega_2$ ($\text{with } \\omega_2 > \\omega_1$) denote the lower and upper half-power angular frequencies of the circuit resonance curve. Determine the numerical value of the half-bandwidth $\\frac{\\omega_2 - \\omega_1}{2}$ in $\\text{rad/s}$.",
+      "options": [],
+      "answer": "15",
+      "explanation": "The total bandwidth of a series resonant circuit is defined by the separation between the half-power frequencies, given by the relation $\\Delta\\omega = \\omega_2 - \\omega_1 = \\frac{\\omega_0}{Q}$. Substituting the given parameters: $\\Delta\\omega = \\frac{600}{20} = 30\\text{ rad/s}$. The half-bandwidth corresponds to the frequency deviation from the resonance center to either half-power point, which is $\\frac{\\Delta\\omega}{2} = \\frac{\\omega_2 - \\omega_1}{2} = \\frac{30}{2} = 15\\text{ rad/s}$."
+    },
+    {
+      "id": "ac_c01_010",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An alternating current source provides an instantaneous electromotive force of $v(t) = 100\\sqrt{2}\\sin(100\\pi t)\\text{ V}$. It is connected to a series circuit comprising a resistance $R = 60\\ \\Omega$, an inductance $L = \\frac{1.0}{\\pi}\\text{ H}$, and a capacitance $C = \\frac{500}{\\pi}\\ \\mu\\text{F}$. What is the mathematical expression for the instantaneous current $i(t)$ flowing in the circuit?",
+      "options": [
+        "A) $i(t) = 1.0\\sqrt{2}\\sin\\left(100\\pi t + \\tan^{-1}\\left(\\frac{4}{3}\\right)\\right)\\text{ A}$",
+        "B) $i(t) = 1.6\\sqrt{2}\\sin\\left(100\\pi t - \\tan^{-1}\\left(\\frac{4}{3}\\right)\\right)\\text{ A}$",
+        "C) $i(t) = 1.0\\sqrt{2}\\sin\\left(100\\pi t - \\tan^{-1}\\left(\\frac{3}{4}\\right)\\right)\\text{ A}$",
+        "D) $i(t) = 1.0\\sqrt{2}\\sin\\left(100\\pi t - \\tan^{-1}\\left(\\frac{4}{3}\\right)\\right)\\text{ A}$"
+      ],
+      "answer": "D",
+      "explanation": "From the given source voltage, the angular frequency is $\\omega = 100\\pi\\text{ rad/s}$. The inductive reactance is $X_L = \\omega L = 100\\pi \\times \\frac{1.0}{\\pi} = 100\\ \\Omega$. The capacitive reactance is $X_C = \\frac{1}{\\omega C} = \\frac{1}{100\\pi \\times \\frac{500 \\times 10^{-6}}{\\pi}} = \\frac{10^6}{50000} = 20\\ \\Omega$. The net reactance is $X = X_L - X_C = 100 - 20 = 80\\ \\Omega$. The total circuit impedance is $Z = \\sqrt{R^2 + X^2} = \\sqrt{60^2 + 80^2} = 100\\ \\Omega$. The peak current amplitude is $I_0 = \\frac{V_0}{Z} = \\frac{100\\sqrt{2}}{100} = 1.0\\sqrt{2}\\text{ A}$. The phase angle by which current lags voltage is $\\phi = \\tan^{-1}\\left(\\frac{X_L - X_C}{R}\\right) = \\tan^{-1}\\left(\\frac{80}{60}\\right) = \\tan^{-1}\\left(\\frac{4}{3}\\right)$. Thus, $i(t) = 1.0\\sqrt{2}\\sin\\left(100\\pi t - \\tan^{-1}(4/3)\\right)\\text{ A}$. Assuming capacitive lead gives option A; calculating impedance as algebraic difference leads to option B; inverting the ratio gives option C."
+    },
+    {
+      "id": "ac_c01_011",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An alternating symmetric triangular current waveform linearly ramps from $-I_0$ to $+I_0$ during the first half-cycle and from $+I_0$ to $-I_0$ during the second half-cycle with fundamental period $T$. Determine the form factor $k_f = \\frac{I_{rms}}{I_{avg}}$ of this triangular waveform, where $I_{avg}$ is evaluated over a half-cycle.",
+      "options": [
+        "A) $\\frac{2}{\\sqrt{3}}$",
+        "B) $\\frac{\\pi}{2\\sqrt{2}}$",
+        "C) $\\frac{\\sqrt{3}}{2}$",
+        "D) $\\frac{2}{\\pi}$"
+      ],
+      "answer": "A",
+      "explanation": "For a symmetric triangular wave rising linearly from $0$ to $I_0$ in time $T/4$, the instantaneous current is $i(t) = \\frac{4I_0}{T} t$. The average current over a half-cycle is $I_{avg} = \\frac{1}{T/4}\\int_0^{T/4} \\frac{4I_0}{T} t dt = \\frac{4I_0}{T} \\left[\\frac{t^2}{2}\\right]_0^{T/4} = \\frac{I_0}{2}$. The mean square value is $I_{rms}^2 = \\frac{1}{T/4}\\int_0^{T/4} \\left(\\frac{4I_0}{T} t\\right)^2 dt = \\frac{16 I_0^2}{T^3/4} \\left[\\frac{t^3}{3}\\right]_0^{T/4} = \\frac{I_0^2}{3}$, yielding $I_{rms} = \\frac{I_0}{\\sqrt{3}}$. Therefore, the form factor is $k_f = \\frac{I_{rms}}{I_{avg}} = \\frac{I_0 / \\sqrt{3}}{I_0 / 2} = \\frac{2}{\\sqrt{3}} \\approx 1.155$. Confusing with a sine wave gives $\\frac{\\pi}{2\\sqrt{2}} \\approx 1.111$; inverting the fraction yields $\\frac{\\sqrt{3}}{2}$; taking the ratio of peak to average yields $\\frac{2}{\\pi}$."
+    },
+    {
+      "id": "ac_c01_012",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An alternating voltage $v(t) = 220\\sqrt{2}\\sin(\\omega t)\\text{ V}$ applied across an inductive load causes a current of $i(t) = 10\\sqrt{2}\\sin\\left(\\omega t - \\frac{\\pi}{3}\\right)\\text{ A}$ to circulate. Determine the magnitude of the reactive (wattless) current component and the active power dissipated in the load.",
+      "options": [
+        "A) $I_w = 5.0\\text{ A},\\ P = 1100\\sqrt{3}\\text{ W}$",
+        "B) $I_w = 5\\sqrt{3}\\text{ A},\\ P = 1100\\text{ W}$",
+        "C) $I_w = 10.0\\text{ A},\\ P = 2200\\text{ W}$",
+        "D) $I_w = 5\\sqrt{3}\\text{ A},\\ P = 2200\\text{ W}$"
+      ],
+      "answer": "B",
+      "explanation": "The root-mean-square values are $V_{rms} = 220\\text{ V}$ and $I_{rms} = 10\\text{ A}$. The phase difference between voltage and current is $\\phi = \\frac{\\pi}{3} = 60^\\circ$. The wattless (reactive) component of current is $I_w = I_{rms} \\sin\\phi = 10 \\sin(60^\\circ) = 10 \\times \\frac{\\sqrt{3}}{2} = 5\\sqrt{3}\\text{ A}$. The active average power dissipated in the load is $P = V_{rms} I_{rms} \\cos\\phi = 220 \\times 10 \\times \\cos(60^\\circ) = 2200 \\times 0.50 = 1100\\text{ W}$. Interchanging sine and cosine yields $I_w = 5.0\\text{ A}$ and $P = 1100\\sqrt{3}\\text{ W}$; neglecting the power factor gives apparent power $2200\\text{ W}$."
+    },
+    {
+      "id": "ac_c01_013",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A non-ideal current flowing through a hot-wire ammeter is represented by the superposition of two alternating currents: $i(t) = 6.0\\sin(\\omega t) + 8.0\\cos\\left(\\omega t + \\frac{\\pi}{6}\\right)\\text{ A}$. What steady current value is indicated on the scale of the hot-wire ammeter?",
+      "options": [
+        "A) $5.0\\sqrt{2}\\text{ A}$",
+        "B) $7.0\\sqrt{2}\\text{ A}$",
+        "C) $\\sqrt{26}\\text{ A}$",
+        "D) $2\\sqrt{13}\\text{ A}$"
+      ],
+      "answer": "C",
+      "explanation": "Expressing both terms in standard sinusoidal form: $8.0\\cos(\\omega t + \\pi/6) = 8.0\\sin(\\omega t + \\pi/6 + \\pi/2) = 8.0\\sin(\\omega t + 2\\pi/3)$. The phase angle between the two sinusoidal components $i_1(t) = 6.0\\sin(\\omega t)$ and $i_2(t) = 8.0\\sin(\\omega t + 120^\\circ)$ is $\\theta = 120^\\circ$. Using the phasor addition formula, the peak amplitude of the resultant harmonic current is $I_0 = \\sqrt{I_1^2 + I_2^2 + 2 I_1 I_2 \\cos(120^\\circ)} = \\sqrt{6.0^2 + 8.0^2 + 2(6.0)(8.0)(-0.50)} = \\sqrt{36 + 64 - 48} = \\sqrt{52} = 2\\sqrt{13}\\text{ A}$. Since a hot-wire ammeter responds to thermal heating and measures the root-mean-square current, the meter reads $I_{rms} = \\frac{I_0}{\\sqrt{2}} = \\frac{\\sqrt{52}}{\\sqrt{2}} = \\sqrt{26}\\text{ A}$. Assuming orthogonal signals ($\theta = 90^\\circ$) gives $5\\sqrt{2}\\text{ A}$; adding amplitudes algebraically gives $7\\sqrt{2}\\text{ A}$; failing to divide peak amplitude by $\\sqrt{2}$ yields $2\\sqrt{13}\\text{ A}$."
+    },
+    {
+      "id": "ac_c01_014",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A series $LCR$ circuit consists of an inductor $L = 80\\text{ mH}$, a capacitor $C = 2.0\\ \\mu\\text{F}$, and a resistor $R = 10.0\\ \\Omega$. When energized by an AC source at its resonant frequency with an RMS source potential of $V_{rms} = 12\\text{ V}$, the root-mean-square potential across the inductor is measured as $V_L$. If the voltage magnification ratio is defined as $k = \\frac{V_L}{V_{rms}}$, determine the integer value of $k$.",
+      "options": [],
+      "answer": "20",
+      "explanation": "At resonance, the net reactive impedance cancels ($X_L = X_C$), so the total circuit impedance equals the resistance $Z = R = 10.0\\ \\Omega$. The resonant angular frequency is $\\omega_0 = \\frac{1}{\\sqrt{LC}} = \\frac{1}{\\sqrt{0.080 \\times 2.0 \\times 10^{-6}}} = \\frac{1}{\\sqrt{1.6 \\times 10^{-7}}} = \\frac{10^4}{4} = 2500\\text{ rad/s}$. The inductive reactance at resonance is $X_L = \\omega_0 L = 2500 \\times 0.080 = 200\\ \\Omega$. The circulating current is $I_{rms} = \\frac{V_{rms}}{R} = \\frac{12}{10} = 1.2\\text{ A}$. The voltage developed across the inductor is $V_L = I_{rms} X_L = 1.2 \\times 200 = 240\\text{ V}$. Therefore, the magnification factor is $k = \\frac{V_L}{V_{rms}} = \\frac{240}{12} = 20$, which identically equals the circuit Quality factor $Q = \\frac{\\omega_0 L}{R} = \\frac{200}{10} = 20$."
+    },
+    {
+      "id": "ac_c01_015",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An ideal inductor with inductance $L = 20\\text{ mH}$ and an ideal capacitor with capacitance $C = 200\\ \\mu\\text{F}$ are connected in parallel across an alternating voltage supply given by $v(t) = 100\\sin(\\omega t)\\text{ V}$. At an excitation angular frequency of $\\omega = 500\\text{ rad/s}$, determine the magnitude of the net instantaneous current $i_{net}(t)$ drawn from the external source.",
+      "options": [
+        "A) $20\\sin(500 t)\\text{ A}$",
+        "B) $10\\sin(500 t)\\text{ A}$",
+        "C) $10\\sqrt{2}\\sin(500 t - \\pi/4)\\text{ A}$",
+        "D) $0\\text{ A}$"
+      ],
+      "answer": "D",
+      "explanation": "The inductive reactance is $X_L = \\omega L = 500 \\times (20 \\times 10^{-3}) = 10\\ \\Omega$. The instantaneous current through the inductor is $i_L(t) = \\frac{V_0}{X_L}\\sin(\\omega t - \\pi/2) = 10\\sin(500 t - \\pi/2) = -10\\cos(500 t)\\text{ A}$. The capacitive reactance is $X_C = \\frac{1}{\\omega C} = \\frac{1}{500 \\times (200 \\times 10^{-6})} = 10\\ \\Omega$. The instantaneous current through the capacitor is $i_C(t) = \\frac{V_0}{X_C}\\sin(\\omega t + \\pi/2) = 10\\sin(500 t + \\pi/2) = +10\\cos(500 t)\\text{ A}$. Applying Kirchhoff's current law at the node, the total current supplied by the source is $i_{net}(t) = i_L(t) + i_C(t) = -10\\cos(500 t) + 10\\cos(500 t) = 0\\text{ A}$. The tank loop maintains an internal circulating current of $10\\text{ A}$ peak while drawing zero net current from the generator. Adding currents scalar-wise gives $20\\text{ A}$; considering one branch alone gives $10\\text{ A}$; adding in quadrature gives $10\\sqrt{2}\\text{ A}$."
+    },
+    {
+      "id": "ac_c01_016",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A real inductor having an inductance of $L = 50\\text{ mH}$ and an internal coil resistance of $r = 10.0\\ \\Omega$ is connected in parallel with an ideal capacitor $C = 20.0\\ \\mu\\text{F}$ across an AC source. At the anti-resonant frequency where the total circuit admittance becomes purely real and the source current is strictly in phase with the applied voltage, determine the dynamic resistance (effective impedance) $R_p$ of the circuit.",
+      "options": [
+        "A) $250\\ \\Omega$",
+        "B) $500\\ \\Omega$",
+        "C) $125\\ \\Omega$",
+        "D) $50\\ \\Omega$"
+      ],
+      "answer": "A",
+      "explanation": "The admittance of the parallel combination is $Y = \\frac{1}{r + j\\omega L} + j\\omega C = \\frac{r - j\\omega L}{r^2 + \\omega^2 L^2} + j\\omega C = \\frac{r}{r^2 + \\omega^2 L^2} + j\\left(\\omega C - \\frac{\\omega L}{r^2 + \\omega^2 L^2}\\right)$. Setting the imaginary component to zero for anti-resonance gives $\\omega C = \\frac{\\omega L}{r^2 + \\omega^2 L^2}$, which implies $r^2 + \\omega^2 L^2 = \\frac{L}{C}$. Substituting this into the real part of the admittance yields $Y = \\frac{r}{L/C} = \\frac{Cr}{L}$. Therefore, the dynamic impedance (anti-resonant resistance) is $R_p = \\frac{1}{Y} = \\frac{L}{Cr}$. Substituting the given parameters: $R_p = \\frac{50 \\times 10^{-3}}{(20.0 \\times 10^{-6})(10.0)} = \\frac{50 \\times 10^{-3}}{200 \\times 10^{-6}} = 250\\ \\Omega$. Halving the capacitance yields $500\\ \\Omega$; doubling the resistance yields $125\\ \\Omega$; neglecting the $L/C$ scaling gives $50\\ \\Omega$."
+    },
+    {
+      "id": "ac_c01_017",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $10.0\\text{ kVA}$, $2200\\text{ V} / 220\\text{ V}$, $50\\text{ Hz}$ single-phase distribution transformer exhibits a core (iron) loss of $P_i = 150\\text{ W}$ and a full-load copper loss of $P_{cu,fl} = 250\\text{ W}$. Determine the commercial efficiency of the transformer when delivering half of its rated full-load output at a lagging power factor of $0.80$.",
+      "options": [
+        "A) $90.9\\%$",
+        "B) $95.0\\%$",
+        "C) $96.2\\%$",
+        "D) $93.0\\%$"
+      ],
+      "answer": "B",
+      "explanation": "At half-rated load ($x = 0.50$) and power factor $\\cos\\phi = 0.80$, the useful power output delivered by the secondary is $P_{out} = x \\times S_{rated} \\times \\cos\\phi = 0.50 \\times 10000 \\times 0.80 = 4000\\text{ W}$. The iron core loss is voltage-dependent and remains constant at $P_i = 150\\text{ W}$. Copper loss scales quadratically with load current according to $P_{cu}(x) = x^2 P_{cu,fl} = (0.50)^2 \\times 250 = 62.5\\text{ W}$. The total internal losses under this operating condition are $P_{loss} = P_i + P_{cu} = 150 + 62.5 = 212.5\\text{ W}$. The total input power required is $P_{in} = P_{out} + P_{loss} = 4000 + 212.5 = 4212.5\\text{ W}$. Therefore, the efficiency is $\\eta = \\frac{P_{out}}{P_{in}} \\times 100\\% = \\frac{4000}{4212.5} \\times 100\\% \\approx 94.96\\% \\approx 95.0\\%$. Using full-load copper loss instead of half-load loss yields $90.9\\%$; neglecting core losses yields $96.2\\%$; taking unity power factor incorrectly yields $93.0\\%$."
+    },
+    {
+      "id": "ac_c01_018",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An undamped $LC$ oscillation circuit consists of an inductor $L = 25\\text{ mH}$ and a capacitor $C = 40\\ \\mu\\text{F}$. Initially, at time $t = 0$, the capacitor stores a maximum charge of $Q_0 = 120\\ \\mu\\text{C}$ while the current is zero. The charge on the capacitor oscillates according to $q(t) = Q_0 \\cos(\\omega t)$. Determine the earliest positive time instant $t_1 > 0$ at which the magnetic energy stored in the inductor equals three times the electrostatic energy stored in the capacitor.",
+      "options": [
+        "A) $\\frac{\\pi}{4}\\text{ ms}$",
+        "B) $\\frac{\\pi}{6}\\text{ ms}$",
+        "C) $\\frac{\\pi}{3}\\text{ ms}$",
+        "D) $\\frac{\\pi}{2}\\text{ ms}$"
+      ],
+      "answer": "C",
+      "explanation": "The natural angular frequency of electromagnetic oscillation is $\\omega = \\frac{1}{\\sqrt{LC}} = \\frac{1}{\\sqrt{25 \\times 10^{-3} \\times 40 \\times 10^{-6}}} = \\frac{1}{\\sqrt{1.0 \\times 10^{-6}}} = 1000\\text{ rad/s}$. Total conserved energy in the circuit is $U = U_E(t) + U_B(t)$. When the magnetic energy equals three times the electric energy ($U_B = 3 U_E$), we have $U = U_E + 3 U_E = 4 U_E$, which implies $U_E = \\frac{1}{4} U_{total}$. Since electrostatic energy is proportional to the square of instantaneous charge, $\\frac{q(t)^2}{2C} = \\frac{1}{4}\\left(\\frac{Q_0^2}{2C}\\right) \\implies q(t) = \\frac{Q_0}{2}$. Substituting the harmonic evolution $q(t) = Q_0 \\cos(\\omega t)$ gives $\\cos(\\omega t) = \\frac{1}{2}$. The smallest positive root is $\\omega t = \\frac{\\pi}{3}$, which gives $t = \\frac{\\pi}{3\\omega} = \\frac{\\pi}{3000}\\text{ s} = \\frac{\\pi}{3}\\text{ ms}$. Equipartition ($U_E = U_B$) occurs at $\\frac{\\pi}{4}\\text{ ms}$; the inverted condition $U_E = 3U_B$ occurs at $\\frac{\\pi}{6}\\text{ ms}$; complete discharge occurs at $\\frac{\\pi}{2}\\text{ ms}$."
+    },
+    {
+      "id": "ac_c01_019",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An industrial factory load draws an active power of $P = 12.0\\text{ kW}$ at a lagging power factor of $\\cos\\phi_1 = 0.60$ from a $240\\text{ V}$, $50\\text{ Hz}$ single-phase AC line. To elevate the overall operating power factor of the installation to unity ($\\cos\\phi_2 = 1.0$), a power-factor-correcting shunt capacitor of capacitance $C$ is connected in parallel with the load. The required capacitance $C$ is:",
+      "options": [
+        "A) $\\frac{1250}{9\\pi}\\ \\mu\\text{F}$",
+        "B) $\\frac{5000}{9\\pi}\\ \\mu\\text{F}$",
+        "C) $\\frac{2000}{9\\pi}\\ \\mu\\text{F}$",
+        "D) $\\frac{2500}{9\\pi}\\ \\mu\\text{F}$"
+      ],
+      "answer": "D",
+      "explanation": "For the original load, with $\\cos\\phi_1 = 0.60$, we have $\\sin\\phi_1 = 0.80$ and $\\tan\\phi_1 = \\frac{0.80}{0.60} = \\frac{4}{3}$. The initial reactive power demanded by the load is $Q_1 = P \\tan\\phi_1 = 12000 \\times \\frac{4}{3} = 16000\\text{ VAR}$. To achieve unity power factor ($\\cos\\phi_2 = 1.0$, $\\tan\\phi_2 = 0$), the net reactive power supplied from the mains must be reduced to zero. Thus, the shunt capacitor must generate a leading reactive power of $Q_C = Q_1 = 16000\\text{ VAR}$. The reactive power produced by a shunt capacitor connected across voltage $V$ is $Q_C = V^2 \\omega C$. Solving for capacitance yields $C = \\frac{Q_C}{\\omega V^2} = \\frac{16000}{2\\pi (50)(240^2)} = \\frac{16000}{100\\pi \\times 57600} = \\frac{16}{5760\\pi}\\text{ F} = \\frac{1}{360\\pi}\\text{ F} = \\frac{10^6}{360\\pi}\\ \\mu\\text{F} = \\frac{2500}{9\\pi}\\ \\mu\\text{F}$. Halving the reactive demand gives $\\frac{1250}{9\\pi}\\ \\mu\\text{F}$; using apparent power instead of reactive power gives $\\frac{5000}{9\\pi}\\ \\mu\\text{F}$."
+    },
+    {
+      "id": "ac_c01_020",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An ideal $LC$ oscillation loop consists of an inductor $L = 25\\text{ mH}$ and a capacitor $C = 40\\ \\mu\\text{F}$. At time $t = 0$, the capacitor possesses an initial charge of $Q_0 = 120\\ \\mu\\text{C}$ and the circuit current is zero. At time $t = \\frac{\\pi}{6}\\text{ ms}$, determine the energy stored in the magnetic field of the inductor expressed in microjoules ($\\mu\\text{J}$).",
+      "options": [],
+      "answer": "45",
+      "explanation": "The angular oscillation frequency is $\\omega = \\frac{1}{\\sqrt{LC}} = \\frac{1}{\\sqrt{25 \\times 10^{-3} \\times 40 \\times 10^{-6}}} = 1000\\text{ rad/s}$. The total conserved energy stored in the system is $U_{total} = \\frac{Q_0^2}{2C} = \\frac{(120 \\times 10^{-6})^2}{2 \\times 40 \\times 10^{-6}} = \\frac{14400 \\times 10^{-12}}{80 \\times 10^{-6}} = 180 \\times 10^{-6}\\text{ J} = 180\\ \\mu\\text{J}$. The temporal evolution of charge is $q(t) = Q_0 \\cos(\\omega t)$, so the current through the inductor is $i(t) = -\\frac{dq}{dt} = Q_0 \\omega \\sin(\\omega t)$. At time $t = \\frac{\\pi}{6}\\text{ ms} = \\frac{\\pi}{6000}\\text{ s}$, the phase angle is $\\omega t = 1000 \\times \\frac{\\pi}{6000} = \\frac{\\pi}{6}\\text{ rad} = 30^\\circ$. The instantaneous current is $i = Q_0 \\omega \\sin(30^\\circ) = \\frac{1}{2} Q_0 \\omega$. The magnetic energy in the inductor is $U_B = \\frac{1}{2} L i^2 = \\frac{1}{2} L \\left(\\frac{1}{2} Q_0 \\omega\\right)^2 = \\frac{1}{4}\\left(\\frac{1}{2} L Q_0^2 \\frac{1}{LC}\\right) = \\frac{1}{4} U_{total} = \\frac{1}{4} \\times 180\\ \\mu\\text{J} = 45\\ \\mu\\text{J}$."
+    },
+    {
+      "id": "ac_c01_021",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A practical coil having an inductance $L = 0.20\\text{ H}$ and internal resistance $R = 60\\ \\Omega$ is connected in parallel with an ideal capacitor $C = 20\\ \\mu\\text{F}$. An alternating current source of constant voltage amplitude is applied across this parallel combination. Determine the anti-resonant angular frequency $\\omega_r$ at which the circuit displays zero phase angle between total line current and applied voltage.",
+      "options": [
+        "A) $400\\text{ rad/s}$",
+        "B) $500\\text{ rad/s}$",
+        "C) $300\\text{ rad/s}$",
+        "D) $350\\text{ rad/s}$"
+      ],
+      "answer": "A",
+      "explanation": "The admittance of the parallel combination is $Y = \\frac{R - j\\omega L}{R^2 + \\omega^2 L^2} + j\\omega C$. Unity power factor (anti-resonance) occurs when the imaginary part of total admittance vanishes: $\\omega C = \\frac{\\omega L}{R^2 + \\omega^2 L^2} \\implies R^2 + \\omega^2 L^2 = \\frac{L}{C}$. Rearranging this expression for the anti-resonant angular frequency gives $\\omega_r = \\sqrt{\\frac{1}{LC} - \\frac{R^2}{L^2}}$. Evaluating the terms: $\\frac{1}{LC} = \\frac{1}{0.20 \\times 20 \\times 10^{-6}} = \\frac{1}{4.0 \\times 10^{-6}} = 250000\\text{ rad}^2/\\text{s}^2$, and $\\frac{R^2}{L^2} = \\left(\\frac{60}{0.20}\\right)^2 = 300^2 = 90000\\text{ rad}^2/\\text{s}^2$. Therefore, $\\omega_r = \\sqrt{250000 - 90000} = \\sqrt{160000} = 400\\text{ rad/s}$. Neglecting coil resistance yields the series resonance frequency $\\omega_0 = \\frac{1}{\\sqrt{LC}} = 500\\text{ rad/s}$; computing $R/L$ directly yields $300\\text{ rad/s}$; taking the arithmetic mean gives $350\\text{ rad/s}$."
+    },
+    {
+      "id": "ac_c01_022",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The total core loss of a power transformer at $50\\text{ Hz}$ under rated peak core magnetic flux density $B_{max}$ is $1200\\text{ W}$, composed of hysteresis loss $P_h$ and eddy current loss $P_e$. When tested at $60\\text{ Hz}$ with the terminal voltage scaled such that the peak flux density $B_{max}$ remains strictly constant, the measured core loss increases to $1536\\text{ W}$. Determine the eddy current loss $P_e$ of the transformer at the base frequency of $50\\text{ Hz}$.",
+      "options": [
+        "A) $800\\text{ W}$",
+        "B) $400\\text{ W}$",
+        "C) $600\\text{ W}$",
+        "D) $480\\text{ W}$"
+      ],
+      "answer": "B",
+      "explanation": "Under constant peak flux density $B_{max}$, hysteresis loss is directly proportional to frequency ($P_h = A f$) while eddy current loss is proportional to the square of frequency ($P_e = B f^2$). Thus, total core loss is $P_{core}(f) = A f + B f^2$. At $f_1 = 50\\text{ Hz}$: $50 A + 2500 B = 1200 \\implies A + 50 B = 24$. At $f_2 = 60\\text{ Hz}$: $60 A + 3600 B = 1536 \\implies A + 60 B = 25.6$. Subtracting the first equation from the second gives $10 B = 1.6 \\implies B = 0.16\\text{ W}/\\text{Hz}^2$. Substituting $B$ back yields $A = 24 - 50(0.16) = 24 - 8.0 = 16.0\\text{ W}/\\text{Hz}$. Therefore, at $50\\text{ Hz}$, the eddy current loss is $P_e = B f_1^2 = 0.16 \\times 2500 = 400\\text{ W}$, while the hysteresis loss is $P_h = 16.0 \\times 50 = 800\\text{ W}$. Identifying the hysteresis component instead of eddy current loss gives $800\\text{ W}$; assuming equal losses yields $600\\text{ W}$."
+    },
+    {
+      "id": "ac_c01_023",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two coils possessing self-inductances $L_1 = 90\\text{ mH}$ and $L_2 = 70\\text{ mH}$ are connected in series across an alternating voltage supply of $V_{rms} = 100\\text{ V}$ and frequency $f = \\frac{250}{\\pi}\\text{ Hz}$. The mutual inductance between the two coils is $M = 30\\text{ mH}$. If the coils are connected in a series-opposing configuration and their ohmic resistances are negligible, calculate the root-mean-square current drawn from the supply.",
+      "options": [
+        "A) $0.91\\text{ A}$",
+        "B) $1.25\\text{ A}$",
+        "C) $2.00\\text{ A}$",
+        "D) $4.00\\text{ A}$"
+      ],
+      "answer": "C",
+      "explanation": "When two mutually coupled inductors are connected in series opposing, their fluxes oppose each other and the equivalent inductance is $L_{eq} = L_1 + L_2 - 2M = 90 + 70 - 2(30) = 160 - 60 = 100\\text{ mH} = 0.10\\text{ H}$. The angular frequency of the source is $\\omega = 2\\pi f = 2\\pi \\left(\\frac{250}{\\pi}\\right) = 500\\text{ rad/s}$. The total inductive reactance presented by the combination is $X_L = \\omega L_{eq} = 500 \\times 0.10 = 50\\ \\Omega$. Therefore, the root-mean-square current drawn from the supply is $I_{rms} = \\frac{V_{rms}}{X_L} = \\frac{100}{50} = 2.00\\text{ A}$. In the series-aiding configuration ($L_{eq} = 220\\text{ mH}$), current is $0.91\\text{ A}$; neglecting mutual coupling entirely ($L_{eq} = 160\\text{ mH}$) yields $1.25\\text{ A}$; subtracting mutual inductance only once yields $4.00\\text{ A}$."
+    },
+    {
+      "id": "ac_c01_024",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A series $LCR$ circuit consists of an inductor $L = 0.20\\text{ H}$, a capacitor $C = 50\\ \\mu\\text{F}$, and a resistor $R = 40\\ \\Omega$ connected across an alternating source of constant RMS amplitude $V$ and variable angular frequency $\\omega$. Determine the angular frequency $\\omega_C$ at which the potential difference across the capacitor $V_C(\\omega)$ attains its maximum value.",
+      "options": [
+        "A) $316\\text{ rad/s}$",
+        "B) $346\\text{ rad/s}$",
+        "C) $245\\text{ rad/s}$",
+        "D) $200\\sqrt{2}\\text{ rad/s}$"
+      ],
+      "answer": "D",
+      "explanation": "The voltage across the capacitor is $V_C(\\omega) = I(\\omega) X_C = \\frac{V}{\\sqrt{R^2 + (\\omega L - \\frac{1}{\\omega C})^2}}\\frac{1}{\\omega C} = \\frac{V}{\\sqrt{\\omega^2 C^2 R^2 + (\\omega^2 LC - 1)^2}}$. Minimizing the radicand with respect to $\\omega^2$ requires differentiating $f(u) = u C^2 R^2 + (u LC - 1)^2$ with $u = \\omega^2$, giving $\\frac{df}{du} = C^2 R^2 + 2(u LC - 1)LC = 0$. Solving for $u$ gives $\\omega_C^2 = \\frac{1}{LC} - \\frac{R^2}{2L^2} = \\omega_0^2 - \\frac{R^2}{2L^2}$. Here, $\\omega_0^2 = \\frac{1}{0.20 \\times 50 \\times 10^{-6}} = 100000\\text{ rad}^2/\\text{s}^2$, and $\\frac{R^2}{2L^2} = \\frac{40^2}{2(0.20^2)} = \\frac{1600}{0.080} = 20000\\text{ rad}^2/\\text{s}^2$. Therefore, $\\omega_C = \\sqrt{100000 - 20000} = \\sqrt{80000} = 200\\sqrt{2}\\text{ rad/s} \\approx 283\\text{ rad/s}$. The current resonant frequency is $\\omega_0 = \\sqrt{100000} \\approx 316\\text{ rad/s}$; inductor voltage peak frequency is $\\sqrt{\\omega_0^2 + R^2/(2L^2)} \\approx 346\\text{ rad/s}$; using $R^2/L^2$ without the factor of 2 gives $245\\text{ rad/s}$."
+    },
+    {
+      "id": "ac_c01_025",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A sinusoidal alternating voltage $v(t) = 200\\sin(100\\pi t)\\text{ V}$ is applied across an impedance $Z = (30 + 40j)\\ \\Omega$. The instantaneous electrical power $p(t)$ delivered by the generator oscillates periodically with time. Determine the average active power $P_{avg}$ delivered to the impedance and the frequency of oscillation of the instantaneous power waveform.",
+      "options": [
+        "A) $P_{avg} = 240\\text{ W},\\ f_{osc} = 100\\text{ Hz}$",
+        "B) $P_{avg} = 400\\text{ W},\\ f_{osc} = 50\\text{ Hz}$",
+        "C) $P_{avg} = 240\\text{ W},\\ f_{osc} = 50\\text{ Hz}$",
+        "D) $P_{avg} = 480\\text{ W},\\ f_{osc} = 100\\text{ Hz}$"
+      ],
+      "answer": "A",
+      "explanation": "The magnitude of the impedance is $|Z| = \\sqrt{30^2 + 40^2} = 50\\ \\Omega$, and the phase angle is $\\phi = \\tan^{-1}\\left(\\frac{40}{30}\\right) \\implies \\cos\\phi = \\frac{30}{50} = 0.60$. The peak voltage is $V_0 = 200\\text{ V}$, so the peak current is $I_0 = \\frac{V_0}{|Z|} = \\frac{200}{50} = 4.0\\text{ A}$. The instantaneous power is $p(t) = v(t) i(t) = V_0 \\sin(\\omega t) I_0 \\sin(\\omega t - \\phi) = \\frac{V_0 I_0}{2}[\\cos\\phi - \\cos(2\\omega t - \\phi)]$. The steady average power component is $P_{avg} = \\frac{V_0 I_0}{2}\\cos\\phi = \\frac{200 \\times 4.0}{2} \\times 0.60 = 240\\text{ W}$. The fluctuating component oscillates at twice the source angular frequency: $\\omega_{osc} = 2\\omega = 2(100\\pi) = 200\\pi\\text{ rad/s}$, corresponding to an oscillation frequency of $f_{osc} = \\frac{\\omega_{osc}}{2\\pi} = 100\\text{ Hz}$. Neglecting power factor gives apparent power $400\\text{ W}$; assuming power oscillates at the fundamental frequency gives $50\\text{ Hz}$."
+    },
+    {
+      "id": "ac_c01_026",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $50\\text{ kVA}$ distribution transformer has a constant core iron loss of $P_i = 450\\text{ W}$ and a full-load copper loss of $P_{cu,fl} = 800\\text{ W}$. Determine the operating percentage of full rated load (in percent) at which the transformer delivers energy with maximum operational efficiency.",
+      "options": [],
+      "answer": "75",
+      "explanation": "At an arbitrary fraction $x$ of full rated load, the copper loss varies quadratically with loading: $P_{cu}(x) = x^2 P_{cu,fl}$. The core loss $P_i$ remains constant. Maximum transformer efficiency occurs when the variable copper loss equals the constant iron loss: $x^2 P_{cu,fl} = P_i$. Solving for the fraction $x$ yields $x = \\sqrt{\\frac{P_i}{P_{cu,fl}}} = \\sqrt{\\frac{450}{800}} = \\sqrt{\\frac{9}{16}} = \\frac{3}{4} = 0.75$. Therefore, maximum efficiency is attained at precisely $75\\%$ of full rated load."
+    },
+    {
+      "id": "ac_c01_027",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A parallel AC network connected across an alternating source of $V_{rms} = 200\\text{ V}$ has two parallel branches. Branch 1 consists of a resistance $R_1 = 40\\ \\Omega$ in series with an inductive reactance $X_L = 30\\ \\Omega$. Branch 2 consists of a resistance $R_2 = 30\\ \\Omega$ in series with a capacitive reactance $X_C = 40\\ \\Omega$. Calculate the magnitude of the total RMS current drawn from the voltage source and state whether it leads or lags the applied voltage.",
+      "options": [
+        "A) $4\\sqrt{2}\\text{ A}$, lagging the source voltage",
+        "B) $4\\sqrt{2}\\text{ A}$, leading the source voltage",
+        "C) $8.0\\text{ A}$, in phase with the source voltage",
+        "D) $4.0\\text{ A}$, leading the source voltage"
+      ],
+      "answer": "B",
+      "explanation": "Representing the supply voltage as reference phasor $\\vec{V} = 200 + 0j\\text{ V}$. Branch 1 impedance is $Z_1 = 40 + 30j\\ \\Omega$, so the branch current is $I_1 = \\frac{200}{40 + 30j} = \\frac{200(40 - 30j)}{40^2 + 30^2} = \\frac{200(40 - 30j)}{2500} = (3.20 - 2.40j)\\text{ A}$. Branch 2 impedance is $Z_2 = 30 - 40j\\ \\Omega$, so its current is $I_2 = \\frac{200}{30 - 40j} = \\frac{200(30 + 40j)}{30^2 + 40^2} = \\frac{200(30 + 40j)}{2500} = (2.40 + 3.20j)\\text{ A}$. Summing branch currents gives total line current $I_{total} = I_1 + I_2 = (3.20 + 2.40) + j(-2.40 + 3.20) = (5.60 + 0.80j)\\text{ A}$. The magnitude of total current is $|I_{total}| = \\sqrt{5.60^2 + 0.80^2} = \\sqrt{31.36 + 0.64} = \\sqrt{32.00} = 4\\sqrt{2}\\text{ A}$. Because the imaginary component is positive ($+0.80j$), the total current leads the source voltage by $\\tan^{-1}(0.80/5.60) = \\tan^{-1}(1/7)$. Interchanging branch reactances erroneously yields a lagging current; adding magnitudes scalar-wise gives $8.0\\text{ A}$."
+    },
+    {
+      "id": "ac_c01_028",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A gas discharge lamp operates stably at a terminal voltage of $40\\text{ V}$ and draws a current of $2.0\\text{ A}$. It is to be powered from a standard $220\\text{ V}$, $50\\text{ Hz}$ alternating mains supply. Compare the power consumed from the line when an ideal choke coil is used in series with the lamp to drop the excess voltage versus when a pure resistor is used instead. The reduction in wasted power achieved by using the choke coil is:",
+      "options": [
+        "A) $440\\text{ W}$",
+        "B) $180\\text{ W}$",
+        "C) $360\\text{ W}$",
+        "D) $80\\text{ W}$"
+      ],
+      "answer": "C",
+      "explanation": "When a pure resistor $R$ is used, the voltage dropped across it in phase with the lamp current is $V_R = 220 - 40 = 180\\text{ V}$. The power dissipated as heat in this resistor is $P_R = V_R I = 180 \\times 2.0 = 360\\text{ W}$, making total circuit power $40 \\times 2.0 + 360 = 440\\text{ W}$. In contrast, with an ideal pure choke coil (zero resistance), the voltage across the choke is in quadrature with current: $V_L = \\sqrt{V^2 - V_{lamp}^2} = \\sqrt{220^2 - 40^2} = \\sqrt{48400 - 1600} = \\sqrt{46800} \\approx 216.3\\text{ V}$. Because the current through the choke lags its voltage by $90^\\circ$, the average power dissipated in the choke coil is strictly $P_{choke} = V_L I \\cos(90^\\circ) = 0\\text{ W}$. Thus, the power consumed using the choke coil is solely the lamp operating power of $80\\text{ W}$. The power saved is $360 - 0 = 360\\text{ W}$. Reporting the total resistive power yields $440\\text{ W}$; halving the voltage drop gives $180\\text{ W}$; selecting lamp power gives $80\\text{ W}$."
+    },
+    {
+      "id": "ac_c01_029",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A sinusoidal AC signal $v_{in}(t) = V_0 \\sin(\\omega t)$ is fed into a high-pass passive $RC$ filter network consisting of a series capacitor $C$ and a shunt load resistor $R$. At an operating angular frequency of $\\omega = \\frac{1}{\\sqrt{3}RC}$, determine the ratio of output voltage amplitude to input amplitude $\\frac{V_{out,0}}{V_0}$ and the phase lead $\\phi$ of the output voltage relative to the input voltage.",
+      "options": [
+        "A) $\\frac{V_{out,0}}{V_0} = \\frac{\\sqrt{3}}{2},\\ \\phi = \\frac{\\pi}{6}$",
+        "B) $\\frac{V_{out,0}}{V_0} = \\frac{1}{2},\\ \\phi = -\\frac{\\pi}{3}$",
+        "C) $\\frac{V_{out,0}}{V_0} = \\frac{1}{\\sqrt{3}},\\ \\phi = \\frac{\\pi}{4}$",
+        "D) $\\frac{V_{out,0}}{V_0} = \\frac{1}{2},\\ \\phi = \\frac{\\pi}{3}$"
+      ],
+      "answer": "D",
+      "explanation": "The frequency response transfer function of the series-C shunt-R filter network is $H(j\\omega) = \\frac{R}{R + \\frac{1}{j\\omega C}} = \\frac{j\\omega RC}{1 + j\\omega RC}$. Given the condition $\\omega RC = \\frac{1}{\\sqrt{3}}$, we substitute to find $H(j\\omega) = \\frac{j/\\sqrt{3}}{1 + j/\\sqrt{3}} = \\frac{j}{\\sqrt{3} + j} = \\frac{j(\\sqrt{3} - j)}{3 + 1} = \\frac{1 + j\\sqrt{3}}{4}$. The amplitude ratio is the modulus $|H(j\\omega)| = \\sqrt{\\left(\\frac{1}{4}\\right)^2 + \\left(\\frac{\\sqrt{3}}{4}\\right)^2} = \\sqrt{\\frac{1 + 3}{16}} = \\frac{1}{2}$. The phase angle is $\\phi = \\arg(1 + j\\sqrt{3}) = \\tan^{-1}(\\sqrt{3}) = \\frac{\\pi}{3}\\text{ rad}$ ($60^\\circ$ lead). Inverting real and imaginary parts produces $\\frac{\\sqrt{3}}{2}$ and $\\frac{\\pi}{6}$; assigning phase lag gives $-\\frac{\\pi}{3}$; taking $1/(\\omega RC)$ directly produces option C."
+    },
+    {
+      "id": "ac_c01_030",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In a series resonant $LCR$ circuit, the maximum electromagnetic energy stored in the reactive components during an oscillation cycle is $E_{max} = 2.50\\text{ J}$. If the thermal energy dissipated per cycle in the series resistor is $\\Delta E = \\frac{\\pi}{10}\\text{ J}$, determine the numerical value of the Quality factor $Q$ of the circuit.",
+      "options": [],
+      "answer": "50",
+      "explanation": "The physical definition of the Quality factor $Q$ for any resonant oscillating system is $Q = 2\\pi \\times \\frac{\\text{Maximum energy stored}}{\\text{Energy dissipated per oscillation period}} = 2\\pi \\frac{E_{max}}{\\Delta E}$. Substituting the given numerical parameters: $Q = 2\\pi \\times \\frac{2.50}{\\frac{\\pi}{10}} = 2\\pi \\times \\frac{25.0}{\\pi} = 50$. This dimensionless measure directly characterizes the low fractional rate of damping in high-performance resonant tank circuits."
+    },
+    {
+      "id": "ac_c01_031",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In an ideal $LC$ circuit consisting of an inductor $L = 0.50\\text{ H}$ and a capacitor $C = 200\\ \\mu\\text{F}$, the instantaneous charge on the capacitor oscillates according to $q(t) = 6.0 \\times 10^{-4}\\cos\\left(100 t - \\frac{\\pi}{6}\\right)\\text{ C}$. Determine the maximum potential difference $V_{L,max}$ developed across the inductor and the maximum rate of change of current $\\left|\\frac{di}{dt}\\right|_{max}$ in the circuit.",
+      "options": [
+        "A) $V_{L,max} = 3.0\\text{ V},\\ \\left|\\frac{di}{dt}\\right|_{max} = 6.0\\text{ A/s}$",
+        "B) $V_{L,max} = 1.5\\text{ V},\\ \\left|\\frac{di}{dt}\\right|_{max} = 3.0\\text{ A/s}$",
+        "C) $V_{L,max} = 6.0\\text{ V},\\ \\left|\\frac{di}{dt}\\right|_{max} = 12.0\\text{ A/s}$",
+        "D) $V_{L,max} = 3.0\\text{ V},\\ \\left|\\frac{di}{dt}\\right|_{max} = 1.5\\text{ A/s}$"
+      ],
+      "answer": "A",
+      "explanation": "In an ideal $LC$ circuit with no resistance, Kirchhoff's loop rule dictates that at every instant $v_L(t) + v_C(t) = 0 \\implies v_L(t) = -\\frac{q(t)}{C}$. Hence, the maximum potential difference across the inductor matches the peak capacitor voltage: $V_{L,max} = \\frac{Q_0}{C} = \\frac{6.0 \\times 10^{-4}}{200 \\times 10^{-6}} = 3.0\\text{ V}$. Since the induced EMF across the inductor is related to the rate of current change by $v_L = -L \\frac{di}{dt}$, we have $\\left|\\frac{di}{dt}\\right|_{max} = \\frac{V_{L,max}}{L} = \\frac{3.0}{0.50} = 6.0\\text{ A/s}$. Dividing by 2 gives $1.5\\text{ V}$ and $3.0\\text{ A/s}$; multiplying by 2 yields $6.0\\text{ V}$ and $12.0\\text{ A/s}$; neglecting inductor division produces $1.5\\text{ A/s}$."
+    },
+    {
+      "id": "ac_c01_032",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A series AC circuit consisting of a resistor $R = 80\\ \\Omega$ and an inductor $L = 0.25\\text{ H}$ is connected to an alternating power line delivering $V_{rms} = 200\\text{ V}$ at frequency $f = \\frac{100}{\\pi}\\text{ Hz}$. A variable capacitor is inserted in series into the circuit. Determine the capacitance value $C$ for which the power consumed by the circuit is maximized, and find this maximum power $P_{max}$.",
+      "options": [
+        "A) $C = 50\\ \\mu\\text{F},\\ P_{max} = 250\\text{ W}$",
+        "B) $C = 100\\ \\mu\\text{F},\\ P_{max} = 500\\text{ W}$",
+        "C) $C = 100\\ \\mu\\text{F},\\ P_{max} = 250\\text{ W}$",
+        "D) $C = 200\\ \\mu\\text{F},\\ P_{max} = 500\\text{ W}$"
+      ],
+      "answer": "B",
+      "explanation": "The angular frequency is $\\omega = 2\\pi f = 2\\pi \\left(\\frac{100}{\\pi}\\right) = 200\\text{ rad/s}$. The inductive reactance is $X_L = \\omega L = 200 \\times 0.25 = 50\\ \\Omega$. For maximum power transfer and absorption, the circuit must operate in series resonance where capacitive reactance exactly balances inductive reactance: $X_C = X_L = 50\\ \\Omega$. Thus, $\\frac{1}{\\omega C} = 50 \\implies C = \\frac{1}{200 \\times 50} = \\frac{1}{10000}\\text{ F} = 100\\ \\mu\\text{F}$. At resonance, total impedance is purely resistive ($Z = R = 80\\ \\Omega$) and the power factor is unity. The maximum active power dissipation is $P_{max} = \\frac{V_{rms}^2}{R} = \\frac{200^2}{80} = \\frac{40000}{80} = 500\\text{ W}$. Dividing power by 2 yields $250\\text{ W}$; halving capacitance yields $50\\ \\mu\\text{F}$; doubling capacitance yields $200\\ \\mu\\text{F}$."
+    },
+    {
+      "id": "ac_c01_033",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An $RL$ low-pass filter circuit consists of an inductor $L = 50\\text{ mH}$ in series with the input signal and a resistor $R = 100\\ \\Omega$ across which the output voltage is measured. The cutoff frequency $f_c$ is defined as the frequency where the output voltage drops to $\\frac{1}{\\sqrt{2}}$ of the input voltage. Determine $f_c$ and the phase angle of the output voltage relative to the input voltage at $f = f_c$.",
+      "options": [
+        "A) $f_c = \\frac{500}{\\pi}\\text{ Hz}$, output leads by $45^\\circ$",
+        "B) $f_c = \\frac{1000}{\\pi}\\text{ Hz}$, output leads by $45^\\circ$",
+        "C) $f_c = \\frac{1000}{\\pi}\\text{ Hz}$, output lags by $45^\\circ$",
+        "D) $f_c = \\frac{2000}{\\pi}\\text{ Hz}$, output lags by $90^\\circ$"
+      ],
+      "answer": "C",
+      "explanation": "The voltage division transfer function across the resistor is $H(j\\omega) = \\frac{R}{R + j\\omega L} = \\frac{1}{1 + j(\\omega L / R)}$. The magnitude is $|H(j\\omega)| = \\frac{1}{\\sqrt{1 + (\\omega L / R)^2}}$. At the cutoff frequency $f_c$, the gain is $\\frac{1}{\\sqrt{2}}$, which requires $\\frac{\\omega_c L}{R} = 1 \\implies 2\\pi f_c L = R$. Solving for the cutoff frequency gives $f_c = \\frac{R}{2\\pi L} = \\frac{100}{2\\pi (0.050)} = \\frac{100}{0.10\\pi} = \\frac{1000}{\\pi}\\text{ Hz}$. The phase angle of the output voltage is $\\phi = -\\tan^{-1}\\left(\\frac{\\omega_c L}{R}\\right) = -\\tan^{-1}(1) = -45^\\circ$, representing a phase lag of $45^\\circ$. Stating that output leads is a misconception that confuses RL low-pass filters with high-pass filters; using $L/R$ incorrectly in the numerator halves the frequency."
+    },
+    {
+      "id": "ac_c01_034",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A single-phase step-down transformer has a turns ratio of $N_p : N_s = 4 : 1$. The ohmic resistances of the primary and secondary copper windings are $R_p = 1.60\\ \\Omega$ and $R_s = 0.10\\ \\Omega$ respectively. Neglecting leakage reactances and core losses, a low alternating voltage $V_{sc} = 38.4\\text{ V}$ is applied across the primary winding while the secondary terminals are directly short-circuited. Determine the root-mean-square short-circuit current circulating in the secondary winding in amperes.",
+      "options": [],
+      "answer": "48",
+      "explanation": "The equivalent winding resistance referred to the primary side is $R_{eq,p} = R_p + \\left(\\frac{N_p}{N_s}\\right)^2 R_s = 1.60 + 4^2 \\times 0.10 = 1.60 + 16 \\times 0.10 = 1.60 + 1.60 = 3.20\\ \\Omega$. When the low test voltage $V_{sc} = 38.4\\text{ V}$ is applied to the primary with the secondary shorted, the primary short-circuit current is $I_{sc,p} = \\frac{V_{sc}}{R_{eq,p}} = \\frac{38.4}{3.20} = 12.0\\text{ A}$. In an ideal transformer coupling without leakage, the secondary current is related to primary current by the turns ratio: $I_{sc,s} = I_{sc,p} \\left(\\frac{N_p}{N_s}\\right) = 12.0 \\times 4 = 48\\text{ A}$. Alternatively, referring resistance to the secondary side gives $R_{eq,s} = R_s + \\frac{R_p}{4^2} = 0.10 + 0.10 = 0.20\\ \\Omega$, and secondary induced voltage is $V_s = \\frac{38.4}{4} = 9.60\\text{ V}$, yielding $I_{sc,s} = \\frac{9.60}{0.20} = 48\\text{ A}$."
+    },
+    {
+      "id": "ac_c01_035",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two synchronous alternating voltage sources $v_1(t) = 120\\sin(\\omega t)\\text{ V}$ and $v_2(t) = 160\\sin\\left(\\omega t + \\frac{\\pi}{2}\\right)\\text{ V}$ are connected in series aiding across an electrical load consisting of a resistor $R = 16.0\\ \\Omega$ in series with a capacitor having capacitive reactance $X_C = 12.0\\ \\Omega$. Determine the root-mean-square current $I_{rms}$ circulating in the circuit and the active power $P$ dissipated in the load resistor.",
+      "options": [
+        "A) $I_{rms} = 5.0\\text{ A},\\ P = 400\\text{ W}$",
+        "B) $I_{rms} = 10.0\\text{ A},\\ P = 1600\\text{ W}$",
+        "C) $I_{rms} = 7\\sqrt{2}\\text{ A},\\ P = 1568\\text{ W}$",
+        "D) $I_{rms} = 5\\sqrt{2}\\text{ A},\\ P = 800\\text{ W}$"
+      ],
+      "answer": "D",
+      "explanation": "Because $v_1(t)$ and $v_2(t)$ have identical angular frequencies and are in quadrature (phase difference $\\Delta\\phi = \\frac{\\pi}{2}$), the peak amplitude of the total composite source voltage is $V_0 = \\sqrt{V_{1,0}^2 + V_{2,0}^2} = \\sqrt{120^2 + 160^2} = \\sqrt{14400 + 25600} = \\sqrt{40000} = 200\\text{ V}$. The corresponding root-mean-square source voltage is $V_{rms} = \\frac{V_0}{\\sqrt{2}} = \\frac{200}{\\sqrt{2}} = 100\\sqrt{2}\\text{ V}$. The total impedance of the series $RC$ load is $Z = \\sqrt{R^2 + X_C^2} = \\sqrt{16.0^2 + 12.0^2} = \\sqrt{256 + 144} = \\sqrt{400} = 20.0\\ \\Omega$. The root-mean-square current is $I_{rms} = \\frac{V_{rms}}{Z} = \\frac{100\\sqrt{2}}{20.0} = 5\\sqrt{2}\\text{ A} \\approx 7.07\\text{ A}$. The average active power dissipated exclusively in the resistor is $P = I_{rms}^2 R = (5\\sqrt{2})^2 \\times 16.0 = 50 \\times 16.0 = 800\\text{ W}$. Dividing peak voltage by 20 without $\\sqrt{2}$ gives $10\\text{ A}$ and $1600\\text{ W}$; scalar sum of voltages gives $120+160=280\\text{ V}$ yielding $7\\sqrt{2}\\text{ A}$."
+    },
+    {
+      "id": "ac_c01_036",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A Maxwell-Wien AC bridge is set up to measure the self-inductance $L_x$ and internal resistance $R_x$ of an unknown coil. Arm 1 contains the unknown coil $(R_x, L_x)$ in series; Arm 2 and Arm 3 contain pure non-inductive precision resistors $R_2 = 1000\\ \\Omega$ and $R_3 = 2000\\ \\Omega$ respectively; Arm 4 comprises a standard variable capacitor $C_4 = 0.50\\ \\mu\\text{F}$ connected in parallel with a standard variable resistor $R_4 = 4000\\ \\Omega$. An alternating audio oscillator energizes the bridge. Under balanced detector null conditions, determine the measured values of the pair $(R_x, L_x)$.",
+      "options": [
+        "A) $R_x = 500\\ \\Omega,\\ L_x = 1.00\\text{ H}$",
+        "B) $R_x = 1000\\ \\Omega,\\ L_x = 2.00\\text{ H}$",
+        "C) $R_x = 500\\ \\Omega,\\ L_x = 0.50\\text{ H}$",
+        "D) $R_x = 250\\ \\Omega,\\ L_x = 1.00\\text{ H}$"
+      ],
+      "answer": "A",
+      "explanation": "Applying the generalized AC bridge balance equation: $Z_1 Z_4 = Z_2 Z_3 \\implies Z_1 = Z_2 Z_3 Y_4$. Here, the branch impedances and admittances are $Z_1 = R_x + j\\omega L_x$, $Z_2 = R_2$, $Z_3 = R_3$, and $Y_4 = \\frac{1}{R_4} + j\\omega C_4$. Substituting these expressions yields $R_x + j\\omega L_x = R_2 R_3 \\left(\\frac{1}{R_4} + j\\omega C_4\\right) = \\frac{R_2 R_3}{R_4} + j\\omega R_2 R_3 C_4$. Equating real parts implies $R_x = \\frac{R_2 R_3}{R_4}$, and equating imaginary parts yields $L_x = R_2 R_3 C_4$. Substituting the known bridge parameters gives $R_x = \\frac{1000 \\times 2000}{4000} = 500\\ \\Omega$, and $L_x = 1000 \\times 2000 \\times (0.50 \\times 10^{-6}) = 2.0 \\times 10^6 \\times 0.50 \\times 10^{-6} = 1.00\\text{ H}$. Therefore, both unknown balance parameters are completely independent of source frequency. Doubling both parameters yields option B; halving inductance gives option C; inverting the ratio arm yields option D."
+    },
+    {
+      "id": "ac_c01_037",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A Wien AC bridge is employed to determine the unknown oscillation frequency $f$ of an audio signal generator. Arm 1 consists of a series combination of $R_1 = 10.0\\text{ k}\\Omega$ and $C_1 = 10.0\\text{ nF}$. Arm 2 consists of a parallel combination of $R_2 = 10.0\\text{ k}\\Omega$ and $C_2 = 10.0\\text{ nF}$. Arm 3 contains a pure resistor $R_3 = 5.0\\text{ k}\\Omega$, and Arm 4 contains an adjustable resistor $R_4$. When the detector demonstrates a perfect null balance, determine the balance frequency $f$ of the generator and the required resistance of $R_4$.",
+      "options": [
+        "A) $f = \\frac{10000}{\\pi}\\text{ Hz},\\ R_4 = 5.0\\text{ k}\\Omega$",
+        "B) $f = \\frac{5000}{\\pi}\\text{ Hz},\\ R_4 = 10.0\\text{ k}\\Omega$",
+        "C) $f = \\frac{5000}{\\pi}\\text{ Hz},\\ R_4 = 5.0\\text{ k}\\Omega$",
+        "D) $f = \\frac{2500}{\\pi}\\text{ Hz},\\ R_4 = 15.0\\text{ k}\\Omega$"
+      ],
+      "answer": "B",
+      "explanation": "The AC bridge balance condition $Z_1 Z_4 = Z_2 Z_3$ can be expressed as $\\frac{Z_1}{Z_2} = \\frac{R_3}{R_4}$. The series branch impedance is $Z_1 = R_1 + \\frac{1}{j\\omega C_1}$, and the parallel branch admittance is $Y_2 = \\frac{1}{Z_2} = \\frac{1}{R_2} + j\\omega C_2$. Expanding their product: $Z_1 Y_2 = \\left(R_1 + \\frac{1}{j\\omega C_1}\\right)\\left(\\frac{1}{R_2} + j\\omega C_2\\right) = \\left(\\frac{R_1}{R_2} + \\frac{C_2}{C_1}\\right) + j\\left(\\omega C_2 R_1 - \\frac{1}{\\omega C_1 R_2}\\right)$. Setting the imaginary component to zero implies $\\omega^2 = \\frac{1}{R_1 R_2 C_1 C_2}$. Substituting $R_1 = R_2 = 10^4\\ \\Omega$ and $C_1 = C_2 = 10^{-8}\\text{ F}$ yields $\\omega = \\frac{1}{R_1 C_1} = \\frac{1}{10^4 \\times 10^{-8}} = 10000\\text{ rad/s}$, which gives frequency $f = \\frac{\\omega}{2\\pi} = \\frac{10000}{2\\pi} = \\frac{5000}{\\pi}\\text{ Hz}$. Equating the real parts yields the ratio arm requirement: $\\frac{R_3}{R_4} = \\frac{1}{\\frac{R_1}{R_2} + \\frac{C_2}{C_1}} = \\frac{1}{1 + 1} = \\frac{1}{2}$, yielding $R_4 = 2 R_3 = 2 \\times 5.0\\text{ k}\\Omega = 10.0\\text{ k}\\Omega$. Neglecting $2\\pi$ in frequency produces $\\frac{10000}{\\pi}\\text{ Hz}$; setting $R_4 = R_3$ produces $5.0\\text{ k}\\Omega$."
+    },
+    {
+      "id": "ac_c01_038",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A non-sinusoidal alternating voltage containing a DC bias and two harmonic components, described by $v(t) = 50 + 100\\sqrt{2}\\sin(500 t) + 80\\sqrt{2}\\sin\\left(1000 t + \\frac{\\pi}{3}\\right)\\text{ V}$, is applied across a series $LCR$ circuit. The circuit elements are $R = 80.0\\ \\Omega$, $L = 40.0\\text{ mH}$, and $C = 25.0\\ \\mu\\text{F}$. Determine the total active average power dissipated in the circuit under steady-state conditions.",
+      "options": [
+        "A) $222.5\\text{ W}$",
+        "B) $80.0\\text{ W}$",
+        "C) $160.0\\text{ W}$",
+        "D) $320.0\\text{ W}$"
+      ],
+      "answer": "C",
+      "explanation": "By Fourier superposition, the total average power dissipated is the sum of powers dissipated by each spectral component independently. For the direct current bias ($V_{dc} = 50\\text{ V}$, $\\omega = 0$), the series ideal capacitor presents infinite reactance ($X_C \\to \\infty$), so the steady DC current is zero ($I_{dc} = 0$), yielding $P_0 = 0\\text{ W}$. For the fundamental AC component ($\\omega_1 = 500\\text{ rad/s}$, $V_{1,rms} = 100\\text{ V}$): $X_{L1} = \\omega_1 L = 500 \\times 0.040 = 20\\ \\Omega$, $X_{C1} = \\frac{1}{\\omega_1 C} = \\frac{1}{500 \\times 25 \\times 10^{-6}} = 80\\ \\Omega$. The net reactance is $X_1 = X_{L1} - X_{C1} = 20 - 80 = -60\\ \\Omega$. Total impedance is $Z_1 = \\sqrt{R^2 + X_1^2} = \\sqrt{80^2 + (-60)^2} = 100\\ \\Omega$. The RMS current is $I_{1,rms} = \\frac{V_{1,rms}}{Z_1} = \\frac{100}{100} = 1.0\\text{ A}$, yielding power $P_1 = I_{1,rms}^2 R = 1.0^2 \\times 80 = 80\\text{ W}$. For the second harmonic ($\\omega_2 = 1000\\text{ rad/s}$, $V_{2,rms} = 80\\text{ V}$): $X_{L2} = 1000 \\times 0.040 = 40\\ \\Omega$, $X_{C2} = \\frac{1}{1000 \\times 25 \\times 10^{-6}} = 40\\ \\Omega$. Here, $X_{L2} = X_{C2}$ (series resonance!), so $Z_2 = R = 80\\ \\Omega$. The RMS current is $I_{2,rms} = \\frac{80}{80} = 1.0\\text{ A}$, yielding power $P_2 = I_{2,rms}^2 R = 1.0^2 \\times 80 = 80\\text{ W}$. Therefore, total average power is $P_{total} = P_0 + P_1 + P_2 = 0 + 80 + 80 = 160.0\\text{ W}$. Incorrectly including DC power through $R$ yields $222.5\\text{ W}$; accounting for only one harmonic gives $80.0\\text{ W}$; doubling yields $320.0\\text{ W}$."
+    },
+    {
+      "id": "ac_c01_039",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A real choke coil having internal resistance $R$ and inductance $L$ exhibits an impedance of $Z_1 = 10.0\\ \\Omega$ and a power factor of $\\cos\\phi_1 = 0.28$ when energized by a $50\\text{ Hz}$ alternating line. When connected across a $100\\text{ Hz}$ supply of identical RMS voltage, an additional non-inductive resistor $R_{add}$ must be connected in series with the choke coil in order to reduce the line current to exactly half of its original $50\\text{ Hz}$ value. Determine the required value of $R_{add}$.",
+      "options": [
+        "A) $5.6\\ \\Omega$",
+        "B) $7.2\\ \\Omega$",
+        "C) $10.0\\ \\Omega$",
+        "D) $2.8\\ \\Omega$"
+      ],
+      "answer": "D",
+      "explanation": "At the initial frequency $f_1 = 50\\text{ Hz}$, the choke internal resistance is $R = Z_1 \\cos\\phi_1 = 10.0 \\times 0.28 = 2.80\\ \\Omega$. The initial inductive reactance is $X_{L1} = \\sqrt{Z_1^2 - R^2} = \\sqrt{10.0^2 - 2.80^2} = \\sqrt{100 - 7.84} = \\sqrt{92.16} = 9.60\\ \\Omega$. When the supply frequency is doubled to $f_2 = 100\\text{ Hz}$, the inductive reactance doubles linearly: $X_{L2} = 2 X_{L1} = 2 \\times 9.60 = 19.20\\ \\Omega$. In order to halve the line current under unchanged supply voltage amplitude, the new total circuit impedance must be exactly twice the initial impedance: $Z_2 = 2 Z_1 = 2 \\times 10.0 = 20.0\\ \\Omega$. Let $R_{total} = R + R_{add}$ be the new total circuit resistance. Applying the impedance relation: $Z_2^2 = R_{total}^2 + X_{L2}^2 \\implies 20.0^2 = R_{total}^2 + 19.20^2$. Solving for $R_{total}$ yields $R_{total}^2 = 400 - 368.64 = 31.36 \\implies R_{total} = \\sqrt{31.36} = 5.60\\ \\Omega$. Therefore, the required additional resistance is $R_{add} = R_{total} - R = 5.60 - 2.80 = 2.80\\ \\Omega$. Neglecting to subtract the coil resistance yields $5.60\\ \\Omega$; doubling resistance gives $7.20\\ \\Omega$; assuming purely inductive reactance yields $10.0\\ \\Omega$."
+    },
+    {
+      "id": "ac_c01_040",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "An Owen AC bridge is configured to measure the series equivalent parameters $(R_1, L_1)$ of an inductive coil. The four arms of the balanced bridge are arranged as follows: Arm 1 contains the test coil $(R_1, L_1)$ in series; Arm 2 contains a pure non-inductive resistor $R_2 = 800\\ \\Omega$; Arm 3 contains a standard lossless capacitor $C_3 = 0.20\\ \\mu\\text{F}$; and Arm 4 contains a known resistor $R_4 = 500\\ \\Omega$ in series with a standard capacitor $C_4 = 0.10\\ \\mu\\text{F}$. When balanced at detector null, determine the values of resistance $R_1$ and inductance $L_1$ of the coil.",
+      "options": [
+        "A) $R_1 = 800\\ \\Omega,\\ L_1 = 40.0\\text{ mH}$",
+        "B) $R_1 = 400\\ \\Omega,\\ L_1 = 80.0\\text{ mH}$",
+        "C) $R_1 = 1600\\ \\Omega,\\ L_1 = 40.0\\text{ mH}$",
+        "D) $R_1 = 1600\\ \\Omega,\\ L_1 = 80.0\\text{ mH}$"
+      ],
+      "answer": "D",
+      "explanation": "The AC bridge balance condition requires $Z_1 Z_3 = Z_2 Z_4$. The complex branch impedances are $Z_1 = R_1 + j\\omega L_1$, $Z_3 = \\frac{1}{j\\omega C_3}$, $Z_2 = R_2$, and $Z_4 = R_4 + \\frac{1}{j\\omega C_4}$. Substituting these expressions yields $(R_1 + j\\omega L_1)\\frac{1}{j\\omega C_3} = R_2 \\left(R_4 + \\frac{1}{j\\omega C_4}\\right)$, which expands to $\\frac{R_1}{j\\omega C_3} + \\frac{L_1}{C_3} = R_2 R_4 + \\frac{R_2}{j\\omega C_4}$. Equating real parts gives $\\frac{L_1}{C_3} = R_2 R_4 \\implies L_1 = R_2 R_4 C_3$. Substituting values: $L_1 = 800 \\times 500 \\times (0.20 \\times 10^{-6}) = 400000 \\times 0.20 \\times 10^{-6} = 0.080\\text{ H} = 80.0\\text{ mH}$. Equating imaginary parts gives $\\frac{R_1}{\\omega C_3} = \\frac{R_2}{\\omega C_4} \\implies R_1 = R_2 \\left(\\frac{C_3}{C_4}\\right)$. Substituting values: $R_1 = 800 \\times \\left(\\frac{0.20}{0.10}\\right) = 800 \\times 2 = 1600\\ \\Omega$. Therefore, the balanced parameters are $R_1 = 1600\\ \\Omega$ and $L_1 = 80.0\\text{ mH}$. Inverting the capacitor ratio gives $400\\ \\Omega$; halving the inductance calculation gives $40.0\\text{ mH}$."
+    },
+    {
+      "id": "ac_c01_041",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A series $LCR$ circuit has circuit components $R = 20.0\\ \\Omega$, $L = 50.0\\text{ mH}$, and $C = 20.0\\ \\mu\\text{F}$. The circuit is connected across an alternating voltage supply given by $v(t) = 100\\sqrt{2}\\sin(\\omega t)\\text{ V}$ of variable angular frequency $\\omega$. Let $\\omega_0$ denote the resonant angular frequency, and let $\\omega_1$ and $\\omega_2$ (with $\\omega_1 < \\omega_2$) denote the two half-power angular frequencies. Which of the following statements is/are correct?",
+      "options": [
+        "A) The resonant angular frequency of the circuit is $\\omega_0 = 1000\\text{ rad/s}$ and its Quality factor is $Q = 2.50$.",
+        "B) The bandwidth of the resonance curve is $\\Delta\\omega = 400\\text{ rad/s}$, and the half-power frequencies satisfy $\\omega_1 \\approx 820\\text{ rad/s}$ and $\\omega_2 \\approx 1220\\text{ rad/s}$.",
+        "C) At the resonant angular frequency $\\omega_0$, the average power dissipated in the circuit is $250\\text{ W}$.",
+        "D) At either of the two half-power frequencies, the magnitude of the phase angle between the generator voltage and current is $|phi| = \\frac{\\pi}{4}$."
+      ],
+      "answer": "A,B,D",
+      "explanation": "Evaluating the resonant parameters: $\\omega_0 = \\frac{1}{\\sqrt{LC}} = \\frac{1}{\\sqrt{0.050 \\times 20.0 \\times 10^{-6}}} = 1000\\text{ rad/s}$. The Quality factor is $Q = \\frac{\\omega_0 L}{R} = \\frac{1000 \\times 0.050}{20.0} = 2.50$, so statement A is correct. The circuit bandwidth is $\\Delta\\omega = \\frac{R}{L} = \\frac{20.0}{0.050} = 400\\text{ rad/s}$. The half-power frequencies are given by the exact roots $\\omega = \\sqrt{\\omega_0^2 + (R/2L)^2} \\pm \\frac{R}{2L} = \\sqrt{10^6 + 200^2} \\pm 200 = \\sqrt{1040000} \\pm 200 \\approx 1019.8 \\pm 200\\text{ rad/s}$, yielding $\\omega_1 \\approx 820\\text{ rad/s}$ and $\\omega_2 \\approx 1220\\text{ rad/s}$, so statement B is correct. At resonance, the circuit impedance is purely resistive ($Z = R = 20.0\\ \\Omega$), and the RMS source voltage is $V_{rms} = 100\\text{ V}$. Therefore, the average active power at resonance is $P_0 = \\frac{V_{rms}^2}{R} = \\frac{100^2}{20.0} = 500\\text{ W}$ (not $250\\text{ W}$, which is the power at the half-power points), so statement C is incorrect. At the half-power frequencies, the net reactance equals the resistance ($|X_L - X_C| = R$), so $\\tan\\phi = \\pm 1$, which implies the phase magnitude is $|phi| = \\frac{\\pi}{4}$, so statement D is correct."
+    },
+    {
+      "id": "ac_c01_042",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A parallel resonant circuit consists of an inductive coil having inductance $L = 0.50\\text{ H}$ and internal resistance $r = 50.0\\ \\Omega$ connected in parallel with an ideal capacitor $C = 100\\ \\mu\\text{F}$ across an AC source of constant RMS voltage $V$. Which of the following statements regarding the circuit behavior is/are correct?",
+      "options": [
+        "A) The anti-resonant angular frequency of the circuit is strictly equal to $\\omega = 100\\sqrt{2}\\text{ rad/s}$.",
+        "B) The anti-resonant angular frequency at which the total line current is in phase with the source voltage is $\\omega_r = 100\\text{ rad/s}$.",
+        "C) At anti-resonance, the equivalent impedance of the circuit is purely resistive and has a dynamic value of $R_p = 100\\ \\Omega$.",
+        "D) At anti-resonance, the current drawn from the external AC source reaches its global maximum value."
+      ],
+      "answer": "B,C",
+      "explanation": "The total admittance of the parallel combination is $Y = \\frac{r - j\\omega L}{r^2 + \\omega^2 L^2} + j\\omega C$. Setting the reactive component to zero for anti-resonance (unity power factor) yields $\\omega C = \\frac{\\omega L}{r^2 + \\omega^2 L^2} \\implies r^2 + \\omega^2 L^2 = \\frac{L}{C}$. The anti-resonant angular frequency is $\\omega_r = \\sqrt{\\frac{1}{LC} - \\frac{r^2}{L^2}}$. Here, $\\frac{1}{LC} = \\frac{1}{0.50 \\times 100 \\times 10^{-6}} = 20000\\text{ rad}^2/\\text{s}^2$, and $\\frac{r^2}{L^2} = \\left(\\frac{50.0}{0.50}\\right)^2 = 100^2 = 10000\\text{ rad}^2/\\text{s}^2$. Therefore, $\\omega_r = \\sqrt{20000 - 10000} = 100\\text{ rad/s}$. The undamped natural frequency is $\\omega_0 = \\frac{1}{\\sqrt{LC}} = \\sqrt{20000} = 100\\sqrt{2}\\text{ rad/s}$, so statement A is incorrect and statement B is correct. Substituting the resonance condition into admittance yields $Y = \\frac{r}{L/C} = \\frac{Cr}{L} = \\frac{(100 \\times 10^{-6})(50.0)}{0.50} = \\frac{5.0 \\times 10^{-3}}{0.50} = 0.010\\ \\Omega^{-1}$. The equivalent dynamic resistance is $R_p = \\frac{1}{Y} = 100\\ \\Omega$, so statement C is correct. Because dynamic impedance is maximum at anti-resonance, the line current drawn from the source reaches a minimum (not maximum), making statement D incorrect."
+    },
+    {
+      "id": "ac_c01_043",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "An undamped $LC$ circuit consists of an inductor $L = 50.0\\text{ mH}$ and a capacitor $C = 20.0\\ \\mu\\text{F}$. At time $t = 0$, the capacitor carries an initial charge $Q_0 = 200\\ \\mu\\text{C}$ and the circuit current is zero. Let $U_E(t)$ and $U_B(t)$ denote the instantaneous energy stored in the electric field of the capacitor and magnetic field of the inductor respectively. Which of the following statements is/are correct?",
+      "options": [
+        "A) The angular frequency of electromagnetic oscillation is $\\omega = 1000\\text{ rad/s}$ and the total conserved energy of the circuit is $1.0\\text{ mJ}$.",
+        "B) The maximum current circulating through the inductor is $I_{max} = 0.50\\text{ A}$.",
+        "C) The individual energies $U_E(t)$ and $U_B(t)$ oscillate periodically with a frequency of $f_{energy} = \\frac{1000}{\\pi}\\text{ Hz}$, which is twice the fundamental charge oscillation frequency.",
+        "D) At time $t = \\frac{\\pi}{4}\\text{ ms}$, the electromagnetic energy is equally shared between the capacitor and inductor ($U_E = U_B = 0.50\\text{ mJ}$)."
+      ],
+      "answer": "A,C,D",
+      "explanation": "The angular oscillation frequency is $\\omega = \\frac{1}{\\sqrt{LC}} = \\frac{1}{\\sqrt{0.050 \\times 20.0 \\times 10^{-6}}} = 1000\\text{ rad/s}$. The total conserved energy is $U_{total} = \\frac{Q_0^2}{2C} = \\frac{(200 \\times 10^{-6})^2}{2(20.0 \\times 10^{-6})} = \\frac{40000 \\times 10^{-12}}{40.0 \\times 10^{-6}} = 1.0 \\times 10^{-3}\\text{ J} = 1.0\\text{ mJ}$, so statement A is correct. The peak current amplitude is $I_{max} = \\omega Q_0 = 1000 \\times (200 \\times 10^{-6}) = 0.20\\text{ A}$ (not $0.50\\text{ A}$), so statement B is incorrect. The charge evolves as $q(t) = Q_0 \\cos(\\omega t)$, so the electric energy is $U_E(t) = \\frac{Q_0^2}{2C}\\cos^2(\\omega t) = \\frac{U_{total}}{2}[1 + \\cos(2\\omega t)]$. The energy oscillation frequency is $f_{energy} = \\frac{2\\omega}{2\\pi} = \\frac{\\omega}{\\pi} = \\frac{1000}{\\pi}\\text{ Hz}$, twice the charge oscillation frequency $f = \\frac{500}{\\pi}\\text{ Hz}$, so statement C is correct. At $t = \\frac{\\pi}{4}\\text{ ms} = \\frac{\\pi}{4000}\\text{ s}$, the phase is $\\omega t = 1000 \\times \\frac{\\pi}{4000} = \\frac{\\pi}{4}\\text{ rad}$. Thus, $\\cos^2(\\pi/4) = \\frac{1}{2}$, giving $U_E = \\frac{1}{2} U_{total} = 0.50\\text{ mJ}$ and $U_B = 0.50\\text{ mJ}$, so statement D is correct."
+    },
+    {
+      "id": "ac_c01_044",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A symmetric periodic square-wave alternating voltage $v(t)$ of amplitude $V_0 = 100\\text{ V}$ and period $T$ oscillates symmetrically between $+V_0$ and $-V_0$. Its Fourier series expansion is given by $v(t) = \\frac{4V_0}{\\pi} \\sum_{n=1,3,5,\\dots}^{\\infty} \\frac{1}{n}\\sin(n\\omega t)$, where $\\omega = \\frac{2\\pi}{T}$. Which of the following statements regarding the voltage waveform and its spectral components is/are correct?",
+      "options": [
+        "A) The true root-mean-square (RMS) value of the applied square-wave voltage is $\\frac{100}{\\sqrt{2}}\\text{ V}$.",
+        "B) The true root-mean-square (RMS) value of the applied square-wave voltage is strictly equal to $100\\text{ V}$.",
+        "C) The root-mean-square value of the fundamental harmonic component of the voltage waveform is $\\frac{200}{\\pi}\\text{ V}$.",
+        "D) The fundamental harmonic component conveys precisely $\\frac{8}{\\pi^2} \\approx 81.1\\%$ of the total power contained in the waveform."
+      ],
+      "answer": "B,D",
+      "explanation": "Evaluating the true RMS value from first principles: $V_{rms}^2 = \\frac{1}{T}\\int_0^T [v(t)]^2 dt = \\frac{1}{T}\\int_0^T V_0^2 dt = V_0^2 \\implies V_{rms} = V_0 = 100\\text{ V}$. Thus, statement A is false and statement B is correct. For the fundamental component ($n = 1$), the instantaneous voltage is $v_1(t) = \\frac{4V_0}{\\pi}\\sin(\\omega t)$, so its peak amplitude is $V_{1,peak} = \\frac{4V_0}{\\pi} = \\frac{400}{\\pi}\\text{ V}$. The RMS value of this sinusoidal fundamental is $V_{1,rms} = \\frac{V_{1,peak}}{\\sqrt{2}} = \\frac{4V_0}{\\sqrt{2}\\pi} = \\frac{2\\sqrt{2}V_0}{\\pi} = \\frac{200\\sqrt{2}}{\\pi}\\text{ V} \\approx 90.03\\text{ V}$ (not $\\frac{200}{\\pi}\\text{ V}$), making statement C incorrect. By Parseval's theorem, total power across a normalized resistor is proportional to $V_{rms}^2 = V_0^2$. The power in the fundamental harmonic is proportional to $V_{1,rms}^2 = \\frac{8 V_0^2}{\\pi^2}$. The power fraction delivered by the fundamental is $\\frac{V_{1,rms}^2}{V_{rms}^2} = \\frac{8}{\\pi^2} \\approx 0.8106 = 81.1\\%$, confirming statement D."
+    },
+    {
+      "id": "ac_c01_045",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A high-frequency practical inductor is modeled as an ideal inductance $L$ in series with its winding resistance $R$, shunted across its terminals by an inter-turn stray distributed capacitance $C_s$. When an alternating voltage source of variable angular frequency $\\omega$ is connected across the coil terminals, which of the following physical statements is/are correct?",
+      "options": [
+        "A) At angular frequencies well below the self-resonant frequency ($\\omega \\ll \\omega_{sr}$), the coil terminal impedance is predominantly inductive.",
+        "B) When the coil winding resistance is small ($R \\ll \\sqrt{L/C_s}$), the self-resonant angular frequency of the coil is accurately approximated by $\\omega_{sr} \\approx \\frac{1}{\\sqrt{LC_s}}$.",
+        "C) At frequencies operating above the self-resonant frequency ($\\omega > \\omega_{sr}$), the terminal behavior of the coil becomes predominantly capacitive, with current leading voltage.",
+        "D) The effective terminal inductance of the coil decreases monotonically as frequency increases from zero up to the self-resonant frequency."
+      ],
+      "answer": "A,B,C",
+      "explanation": "The input admittance of the coil with winding resistance $R$, inductance $L$, and parallel stray capacitance $C_s$ is $Y = \\frac{1}{R + j\\omega L} + j\\omega C_s = \\frac{R - j\\omega L}{R^2 + \\omega^2 L^2} + j\\omega C_s = \\frac{R}{R^2 + \\omega^2 L^2} + j\\left(\\omega C_s - \\frac{\\omega L}{R^2 + \\omega^2 L^2}\\right)$. For low frequencies ($\\omega \\ll \\omega_{sr}$), the inductive term dominates the capacitive term, so net terminal reactance is positive (inductive), validating statement A. Self-resonance occurs when the imaginary part of admittance vanishes: $\\omega C_s = \\frac{\\omega L}{R^2 + \\omega^2 L^2} \\implies \\omega_{sr} = \\sqrt{\\frac{1}{LC_s} - \\frac{R^2}{L^2}}$. For $R \\ll \\sqrt{L/C_s}$, this simplifies to $\\omega_{sr} \\approx \\frac{1}{\\sqrt{LC_s}}$, validating statement B. Above $\\omega_{sr}$, the parallel stray capacitance provides a lower impedance path than the inductor branch, causing the net admittance to be capacitive (current leads voltage), confirming statement C. The effective apparent inductance is $L_{eff}(\\omega) \\approx \\frac{L}{1 - \\omega^2 L C_s}$, which increases (rather than decreases) with increasing frequency as resonance is approached, making statement D false."
+    },
+    {
+      "id": "ac_c01_046",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A Maxwell-Wien AC bridge configuration is used to measure the series self-inductance $L_x$ and resistance $R_x$ of an inductive coil by comparison with standard non-inductive resistors $R_2, R_3$, and a parallel combination of standard capacitor $C_4$ and resistor $R_4$. Which of the following analytical statements regarding this bridge circuit is/are correct?",
+      "options": [
+        "A) The balance conditions $R_x = \\frac{R_2 R_3}{R_4}$ and $L_x = R_2 R_3 C_4$ are completely independent of the operating frequency and waveform of the excitation source.",
+        "B) The bridge balance conditions depend strongly on the source frequency $\\omega$, necessitating an ultra-stable sinusoidal excitation oscillator.",
+        "C) The Quality factor of the inductor under test at angular frequency $\\omega$ can be expressed directly in terms of the standard arm components as $Q = \\omega C_4 R_4$.",
+        "D) The Maxwell-Wien bridge is particularly well suited for measuring coils with exceptionally high Quality factors ($Q > 50$)."
+      ],
+      "answer": "A,C",
+      "explanation": "From the bridge balance equation $Z_1 = Z_2 Z_3 Y_4$, where $Z_1 = R_x + j\\omega L_x$, $Z_2 = R_2$, $Z_3 = R_3$, and $Y_4 = \\frac{1}{R_4} + j\\omega C_4$, equating real and imaginary parts yields $R_x = \\frac{R_2 R_3}{R_4}$ and $L_x = R_2 R_3 C_4$. Both balance relationships are completely free of the frequency term $\\omega$, meaning balance is independent of excitation frequency and distortion harmonics, validating statement A and refuting statement B. The Quality factor of the test coil is $Q = \\frac{\\omega L_x}{R_x} = \\frac{\\omega (R_2 R_3 C_4)}{\\frac{R_2 R_3}{R_4}} = \\omega C_4 R_4$, validating statement C. For very high-$Q$ coils ($Q > 10$), the required balance resistor $R_4 = \\frac{Q}{\\omega C_4}$ becomes excessively large (hundreds of megaohms), making balance difficult to achieve with conventional variable resistors. Hence, Hay's bridge (with a series RC arm) is preferred for high-$Q$ coils, making statement D incorrect."
+    },
+    {
+      "id": "ac_c01_047",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "An AC primary circuit consisting of a series combination of resistance $R_1 = 10.0\\ \\Omega$, inductance $L_1 = 50.0\\text{ mH}$, and capacitance $C_1 = 20.0\\ \\mu\\text{F}$ is energized at $\\omega = 1000\\text{ rad/s}$ by a voltage source of $V_{rms} = 100\\text{ V}$. An unexcited secondary closed loop having resistance $R_2 = 20.0\\ \\Omega$ and inductance $L_2 = 50.0\\text{ mH}$ is magnetically coupled to the primary coil with mutual inductance $M = 20.0\\text{ mH}$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The magnetic coupling with the closed secondary loop strictly increases the net equivalent inductive reactance of the primary loop.",
+        "B) The presence of the coupled secondary loop reflects an additional positive equivalent resistance of $\\Delta R = \\frac{(\\omega M)^2 R_2}{R_2^2 + \\omega^2 L_2^2}$ into the primary circuit.",
+        "C) The induced circulating current in the secondary loop produces a counter-magnetic flux that reduces the net effective flux linking the primary winding.",
+        "D) Although the primary circuit operates in series resonance before coupling ($\\omega = \\frac{1}{\\sqrt{L_1 C_1}}$), the magnetic coupling detunes the primary from unity power factor."
+      ],
+      "answer": "B,C,D",
+      "explanation": "Let the secondary loop impedance be $Z_2 = R_2 + j\\omega L_2$. The back-EMF induced in the primary by secondary current produces a reflected coupled impedance in the primary loop of $Z_{ref} = \\frac{(\\omega M)^2}{Z_2} = \\frac{(\\omega M)^2}{R_2 + j\\omega L_2} = \\frac{(\\omega M)^2(R_2 - j\\omega L_2)}{R_2^2 + \\omega^2 L_2^2} = \\frac{(\\omega M)^2 R_2}{R_2^2 + \\omega^2 L_2^2} - j\\frac{\\omega M^2 \\omega L_2}{R_2^2 + \\omega^2 L_2^2}$. The real part $\\Delta R = \\frac{(\\omega M)^2 R_2}{R_2^2 + \\omega^2 L_2^2} > 0$ adds to primary resistance, confirming statement B. The reactive part is negative ($-j$), which acts as an equivalent capacitive reactance, thereby decreasing (rather than increasing) the net effective inductance of the primary loop, making statement A incorrect. By Lenz's law, the secondary current establishes a counter-flux opposing the primary flux, reducing net primary linkage, confirming statement C. Before coupling, $\\omega = \\frac{1}{\\sqrt{L_1 C_1}} = 1000\\text{ rad/s}$, so primary net reactance was zero. The reflected negative reactance introduces an uncompensated capacitive term ($-j\\frac{(\\omega M)^2 \\omega L_2}{R_2^2 + \\omega^2 L_2^2}$), shifting the circuit away from resonance and detuning it from unity power factor, confirming statement D."
+    },
+    {
+      "id": "ac_c01_048",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A Wien bridge circuit is balanced to measure an unknown audio excitation frequency. The frequency-determining arms consist of a series branch with $R_1 = 200\\ \\Omega$ and $C_1 = 100\\ \\mu\\text{F}$, and a parallel branch with $R_2 = 200\\ \\Omega$ and $C_2 = 100\\ \\mu\\text{F}$. If the balance frequency of the bridge is expressed in the form $f = \\frac{k}{\\pi}\\text{ Hz}$, determine the integer value of $k$.",
+      "options": [],
+      "answer": "25",
+      "explanation": "For a Wien bridge with series elements $(R_1, C_1)$ and parallel elements $(R_2, C_2)$, the balance angular frequency condition derived by setting the imaginary part of the bridge ratio to zero is $\\omega^2 = \\frac{1}{R_1 R_2 C_1 C_2}$. Given $R_1 = R_2 = 200\\ \\Omega$ and $C_1 = C_2 = 100\\ \\mu\\text{F} = 10^{-4}\\text{ F}$, we obtain $\\omega = \\frac{1}{R_1 C_1} = \\frac{1}{200 \\times 10^{-4}} = \\frac{1}{0.020} = 50\\text{ rad/s}$. The cyclic oscillation frequency is related to angular frequency by $f = \\frac{\\omega}{2\\pi} = \\frac{50}{2\\pi} = \\frac{25}{\\pi}\\text{ Hz}$. Comparing with the expression $f = \\frac{k}{\\pi}\\text{ Hz}$ yields the integer value $k = 25$."
+    },
+    {
+      "id": "ac_c01_049",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A composite alternating voltage generator supplying $v(t) = 50\\sqrt{2}\\sin(500 t) + 50\\sqrt{2}\\sin(2000 t)\\text{ V}$ is connected across a series $LCR$ circuit with resistance $R = 40.0\\ \\Omega$, inductance $L = 20.0\\text{ mH}$, and capacitance $C = 50.0\\ \\mu\\text{F}$. Determine the total active average power dissipated in the circuit expressed in watts.",
+      "options": [],
+      "answer": "80",
+      "explanation": "Because the source contains two orthogonal frequencies $\\omega_1 = 500\\text{ rad/s}$ and $\\omega_2 = 2000\\text{ rad/s}$, the total power is the sum of powers dissipated by each harmonic independently. For $\\omega_1 = 500\\text{ rad/s}$: $X_{L1} = \\omega_1 L = 500 \\times 0.020 = 10.0\\ \\Omega$, and $X_{C1} = \\frac{1}{\\omega_1 C} = \\frac{1}{500 \\times 50.0 \\times 10^{-6}} = 40.0\\ \\Omega$. The net reactance is $X_1 = X_{L1} - X_{C1} = 10.0 - 40.0 = -30.0\\ \\Omega$. The circuit impedance at $\\omega_1$ is $Z_1 = \\sqrt{R^2 + X_1^2} = \\sqrt{40.0^2 + (-30.0)^2} = 50.0\\ \\Omega$. The RMS current is $I_{1,rms} = \\frac{V_{1,rms}}{Z_1} = \\frac{50.0}{50.0} = 1.0\\text{ A}$. The power dissipated by the first harmonic is $P_1 = I_{1,rms}^2 R = 1.0^2 \\times 40.0 = 40.0\\text{ W}$. For $\\omega_2 = 2000\\text{ rad/s}$: $X_{L2} = 2000 \\times 0.020 = 40.0\\ \\Omega$, and $X_{C2} = \\frac{1}{2000 \\times 50.0 \\times 10^{-6}} = 10.0\\ \\Omega$. The net reactance is $X_2 = X_{L2} - X_{C2} = 40.0 - 10.0 = +30.0\\ \\Omega$. The circuit impedance is $Z_2 = \\sqrt{40.0^2 + 30.0^2} = 50.0\\ \\Omega$. The RMS current is $I_{2,rms} = \\frac{V_{2,rms}}{Z_2} = \\frac{50.0}{50.0} = 1.0\\text{ A}$. The power dissipated by the second harmonic is $P_2 = I_{2,rms}^2 R = 1.0^2 \\times 40.0 = 40.0\\text{ W}$. Therefore, the total active power dissipated in the resistor is $P = P_1 + P_2 = 40.0 + 40.0 = 80\\text{ W}$."
+    },
+    {
+      "id": "ac_c01_050",
+      "subject": "Physics",
+      "topic": "Alternating Current",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A series resonant circuit comprises an inductor $L = 0.50\\text{ H}$, a capacitor $C = 2.0\\ \\mu\\text{F}$, and a resistor $R = 5.0\\ \\Omega$. When connected across an alternating source tuned to the exact resonant angular frequency $\\omega_0$, calculate the Quality factor $Q$ of this resonant circuit.",
+      "options": [],
+      "answer": "100",
+      "explanation": "The resonant angular frequency of the series $LCR$ circuit is $\\omega_0 = \\frac{1}{\\sqrt{LC}} = \\frac{1}{\\sqrt{0.50 \\times 2.0 \\times 10^{-6}}} = \\frac{1}{\\sqrt{1.0 \\times 10^{-6}}} = 1000\\text{ rad/s}$. The Quality factor $Q$ represents the voltage magnification at resonance and is defined by $Q = \\frac{\\omega_0 L}{R}$. Substituting the values yields $Q = \\frac{1000 \\times 0.50}{5.0} = \\frac{500}{5.0} = 100$. Equivalently, using the intrinsic circuit parameters: $Q = \\frac{1}{R}\\sqrt{\\frac{L}{C}} = \\frac{1}{5.0}\\sqrt{\\frac{0.50}{2.0 \\times 10^{-6}}} = \\frac{1}{5.0}\\sqrt{250000} = \\frac{500}{5.0} = 100$."
+    }
+  ]
+}

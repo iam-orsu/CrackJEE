@@ -1,0 +1,701 @@
+{
+  "questions": [
+    {
+      "id": "lom_c01_001",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A block of mass $3$ kg rests on a smooth horizontal table and is connected by a light string, passing over a frictionless pulley at the table edge, to a hanging block of mass $2$ kg. Take $g = 10$ m/s². What is the tension in the string?",
+      "options": [
+        "A) 8 N",
+        "B) 12 N",
+        "C) 20 N",
+        "D) 30 N"
+      ],
+      "answer": "B",
+      "explanation": "The system accelerates at $a = \\frac{m_2 g}{m_1 + m_2} = \\frac{20}{5} = 4$ m/s². The tension on the table block is $T = m_1 a = 3 \\times 4 = 12$ N, and the hanging block gives $2(10 - 4) = 12$ N as a check. Option C (20 N) comes from ignoring the acceleration and taking $T = m_2 g$; option A (8 N) comes from using $m_2 a$ instead of $m_2(g - a)$."
+    },
+    {
+      "id": "lom_c01_002",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $5$ kg block sits on a rough plane inclined at $37^\\circ$ to the horizontal, with coefficient of friction $\\mu = 0.5$ between the block and the plane. Take $g = 10$ m/s², $\\sin 37^\\circ = 0.6$ and $\\cos 37^\\circ = 0.8$. The block is released from rest and slides down. What is the magnitude of the friction force acting on it, in newtons?",
+      "options": [],
+      "answer": "20",
+      "explanation": "Gravity's component along the plane is $mg\\sin 37^\\circ = 30$ N, which exceeds the maximum friction of 20 N, so the block slides. The normal reaction is $N = mg\\cos 37^\\circ = 40$ N, so the kinetic friction is $\\mu N = 0.5 \\times 40 = 20$ N. Taking the component $mg\\sin 37^\\circ$ as the friction force would give 30 N, which is wrong."
+    },
+    {
+      "id": "lom_c01_006",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $5$ kg block rests on a horizontal floor with coefficient of kinetic friction $\\mu = 0.5$. It is pulled by a rope exerting a force of $50$ N at $37^\\circ$ above the horizontal, and it begins to move. Take $g = 10$ m/s², $\\sin 37^\\circ = 0.6$ and $\\cos 37^\\circ = 0.8$. What is the acceleration of the block, in m/s²?",
+      "options": [],
+      "answer": "6",
+      "explanation": "The vertical component of the pull is $50\\sin 37^\\circ = 30$ N, so the normal reaction is $N = 50 - 30 = 20$ N and the kinetic friction is $\\mu N = 10$ N. The horizontal pull is $50\\cos 37^\\circ = 40$ N, so $a = \\frac{40 - 10}{5} = 6$ m/s². Forgetting the upward component of the pull would give $N = 50$ N and an incorrect answer of 3 m/s²."
+    },
+    {
+      "id": "lom_c01_007",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $2$ kg block and a $3$ kg block lie on a smooth horizontal table, joined by a light string that is initially taut. A horizontal force of $15$ N pulls the $3$ kg block directly away from the $2$ kg block. What is the tension in the string?",
+      "options": [
+        "A) 6 N",
+        "B) 9 N",
+        "C) 15 N",
+        "D) 3 N"
+      ],
+      "answer": "A",
+      "explanation": "The whole system accelerates at $a = \\frac{15}{5} = 3$ m/s². The tension follows from the $2$ kg block alone: $T = 2 \\times 3 = 6$ N. Option B (9 N) is the net force on the $3$ kg block, $15 - 6 = 9$ N, which is wrongly reported as the tension; option C repeats the full applied force."
+    },
+    {
+      "id": "lom_c01_008",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $4$ kg block rests on a smooth plane inclined at $30^\\circ$ to the horizontal. It is pulled up the incline from rest by a constant force of $60$ N applied parallel to the plane. Take $g = 10$ m/s². How long does the block take to travel $20$ m along the plane?",
+      "options": [
+        "A) 1.63 s",
+        "B) 2 s",
+        "C) 4 s",
+        "D) 8 s"
+      ],
+      "answer": "B",
+      "explanation": "Along the plane, $ma = F - mg\\sin 30^\\circ = 60 - 20 = 40$ N, so $a = 10$ m/s². From $s = \\frac{1}{2}at^2$, $t^2 = \\frac{2s}{a} = 4$, so $t = 2$ s. Option A ($\\sqrt{40/15} \\approx 1.63$ s) comes from ignoring the gravity component, and option C (4 s) comes from using $t = \\frac{2s}{a}$ and forgetting the square root."
+    },
+    {
+      "id": "lom_c01_009",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $2$ kg block rests on a rough horizontal floor with coefficient of static friction $\\mu_s = 0.4$ and coefficient of kinetic friction $\\mu_k = 0.3$. A horizontal force of $10$ N is applied to the block. Take $g = 10$ m/s². What is the magnitude of the friction force, in newtons, acting on the block once it is moving?",
+      "options": [],
+      "answer": "6",
+      "explanation": "The maximum static friction is $\\mu_s mg = 0.4 \\times 20 = 8$ N, which is less than the applied 10 N, so the block moves. The friction is then kinetic: $\\mu_k mg = 0.3 \\times 20 = 6$ N. Using the static limit of 8 N for the moving block would give an incorrect answer."
+    },
+    {
+      "id": "lom_c01_010",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A car of mass $1000$ kg pulls a trailer of mass $500$ kg along a smooth horizontal road through a light coupling. A driving force of $3000$ N acts on the car and drives the combined system forward. What is the tension in the coupling?",
+      "options": [
+        "A) 3000 N",
+        "B) 2000 N",
+        "C) 1000 N",
+        "D) 1500 N"
+      ],
+      "answer": "C",
+      "explanation": "The combined system has mass $1500$ kg, so $a = \\frac{3000}{1500} = 2$ m/s². The coupling tension acts on the trailer alone, giving $T = 500 \\times 2 = 1000$ N. Option B (2000 N) comes from using the car's mass, $1000 \\times 2$, instead of the trailer's mass, which is a mass-assignment mistake."
+    },
+    {
+      "id": "lom_c01_011",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $4$ kg block hangs at rest from a ceiling by two identical light strings. Each string makes an angle of $53^\\circ$ with the horizontal, and the strings are symmetric about the vertical. Take $g = 10$ m/s², $\\sin 53^\\circ = 0.8$ and $\\cos 53^\\circ = 0.6$. What is the tension, in newtons, in each string?",
+      "options": [],
+      "answer": "25",
+      "explanation": "Vertical equilibrium gives $2T\\sin 53^\\circ = mg$, so $2T(0.8) = 40$ and $T = 25$ N in each string. Using the cosine in place of the sine would give an incorrect value of about 33.3 N."
+    },
+    {
+      "id": "lom_c01_012",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $2$ kg block rests on a smooth fixed incline inclined at $37^\\circ$ to the horizontal. A horizontal force $F$ holds the block at rest against the incline. Take $g = 10$ m/s² and $\\tan 37^\\circ = 0.75$. What is the value of $F$?",
+      "options": [
+        "A) 12 N",
+        "B) 15 N",
+        "C) 16 N",
+        "D) 20 N"
+      ],
+      "answer": "B",
+      "explanation": "Vertical balance of the normal reaction gives $N\\cos 37^\\circ = mg$, and horizontal balance gives $F = N\\sin 37^\\circ$. Hence $F = mg\\tan 37^\\circ = 20 \\times 0.75 = 15$ N. Option C (16 N, equal to $mg\\cos 37^\\circ$) comes from inverting the ratio, and option A (12 N, equal to $mg\\sin 37^\\circ$) comes from using sine in place of tangent."
+    },
+    {
+      "id": "lom_c01_014",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $2$ kg block starts from rest on a frictionless horizontal floor and is acted on by a constant horizontal net force of $8$ N for $3$ s. The force is then removed. What distance, in metres, does the block travel during the next $2$ s?",
+      "options": [],
+      "answer": "24",
+      "explanation": "During the first $3$ s the acceleration is $a = \\frac{8}{2} = 4$ m/s², so the speed becomes $v = 4 \\times 3 = 12$ m/s. With no net force afterwards, the block moves at constant velocity, so the distance in the next 2 s is $12 \\times 2 = 24$ m. Using the displacement from the first phase instead of the speed would give a wrong answer."
+    },
+    {
+      "id": "lom_c01_015",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $5$ kg block rests on a smooth horizontal table. A light rope attached to the block is pulled with a tension of $25$ N at an angle of $37^\\circ$ above the horizontal. Take $\\sin 37^\\circ = 0.6$ and $\\cos 37^\\circ = 0.8$. What is the horizontal acceleration of the block?",
+      "options": [
+        "A) 3 m/s²",
+        "B) 4 m/s²",
+        "C) 5 m/s²",
+        "D) 10 m/s²"
+      ],
+      "answer": "B",
+      "explanation": "The horizontal force is $25\\cos 37^\\circ = 20$ N, so $a = \\frac{20}{5} = 4$ m/s². The vertical component $25\\sin 37^\\circ = 15$ N reduces the normal reaction but does not change the frictionless horizontal motion. Option A (3 m/s²) uses the sine component by mistake, $15/5$, and option D (10 m/s²) ignores the angle entirely."
+    },
+    {
+      "id": "lom_c01_016",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $4$ kg block lies on a smooth plane inclined at $30^\\circ$ to the horizontal and is connected by a light string, passing over a frictionless pulley at the top of the incline, to a hanging block of mass $4$ kg. Take $g = 10$ m/s². What is the tension, in newtons, in the string after the system is released from rest?",
+      "options": [],
+      "answer": "30",
+      "explanation": "Let $a$ be the common acceleration. For the hanging block, $40 - T = 4a$. For the block on the incline, $T - 4 \\times 10 \\times \\sin 30^\\circ = 4a$, which is $T - 20 = 4a$. Adding the two equations gives $20 = 8a$, so $a = 2.5$ m/s² and $T = 30$ N. Ignoring the gravity component along the incline would give a wrong tension of 20 N."
+    },
+    {
+      "id": "lom_c01_017",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $2$ kg block A rests on top of a $3$ kg block B, which lies on a smooth horizontal floor. The coefficient of static friction between A and B is $0.3$. Take $g = 10$ m/s². What is the maximum horizontal force that can be applied to B so that A does not slip relative to B?",
+      "options": [
+        "A) 6 N",
+        "B) 9 N",
+        "C) 15 N",
+        "D) 3 N"
+      ],
+      "answer": "C",
+      "explanation": "The largest acceleration that friction can give A is $a = \\mu_s g = 0.3 \\times 10 = 3$ m/s². The whole system must then accelerate at 3 m/s², so $F = (m_A + m_B) a = 5 \\times 3 = 15$ N. Option A (6 N) applies the friction limit $\\mu_s m_A g$ directly as the force, and option B (9 N) uses the weight of B, $\\mu_s m_B g$, instead of the total mass."
+    },
+    {
+      "id": "lom_c01_018",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A smooth block slides on a fixed smooth incline of angle $37^\\circ$ that is mounted inside a lift. The lift accelerates upward at $2$ m/s². Take $g = 10$ m/s², $\\sin 37^\\circ = 0.6$ and $\\cos 37^\\circ = 0.8$. What is the acceleration of the block relative to the incline?",
+      "options": [
+        "A) 4.8 m/s²",
+        "B) 6.0 m/s²",
+        "C) 7.2 m/s²",
+        "D) 8.0 m/s²"
+      ],
+      "answer": "C",
+      "explanation": "In the lift frame the effective gravity is $g + a = 12$ m/s² downward, so the component along the plane is $12\\sin 37^\\circ = 7.2$ m/s². Option A (4.8 m/s²) uses $g - a = 8$ m/s², a sign error on the lift's acceleration, and option B (6.0 m/s²) ignores the lift's acceleration altogether."
+    },
+    {
+      "id": "lom_c01_019",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $4$ kg block is at rest on a rough plane inclined at $37^\\circ$ to the horizontal. The coefficient of static friction between the block and the plane is $0.8$. Take $g = 10$ m/s², $\\sin 37^\\circ = 0.6$ and $\\cos 37^\\circ = 0.8$. What is the magnitude of the friction force acting on the block?",
+      "options": [
+        "A) 16 N",
+        "B) 24 N",
+        "C) 32 N",
+        "D) 40 N"
+      ],
+      "answer": "B",
+      "explanation": "The component of weight along the plane is $mg\\sin 37^\\circ = 40 \\times 0.6 = 24$ N. The maximum static friction is $\\mu_s mg\\cos 37^\\circ = 0.8 \\times 32 = 25.6$ N, which exceeds 24 N, so the block stays at rest and the friction is 24 N. Option A (16 N) is $0.5 \\times 32$, which uses a friction coefficient taken from another problem and wrongly predicts sliding."
+    },
+    {
+      "id": "lom_c01_020",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A block slides down a rough plane inclined at $53^\\circ$ to the horizontal, starting from rest. The coefficient of kinetic friction is $0.5$, and the block covers $40$ m along the plane. Take $g = 10$ m/s², $\\sin 53^\\circ = 0.8$ and $\\cos 53^\\circ = 0.6$. How many seconds does the block take to cover this distance?",
+      "options": [],
+      "answer": "4",
+      "explanation": "The acceleration along the plane is $a = g(\\sin 53^\\circ - \\mu \\cos 53^\\circ) = 10(0.8 - 0.3) = 5$ m/s². From $s = \\frac{1}{2}at^2$, $t^2 = \\frac{2 \\times 40}{5} = 16$, so $t = 4$ s. Forgetting friction would give $a = 8$ m/s² and $t^2 = 10$, which is not a perfect square."
+    },
+    {
+      "id": "lom_c01_021",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $4$ kg block lies on a rough horizontal table with coefficient of kinetic friction $0.25$. A light string attached to it passes over a frictionless pulley at the table edge and supports a hanging block of mass $6$ kg. Take $g = 10$ m/s². What is the magnitude of the acceleration of the system, in m/s²?",
+      "options": [],
+      "answer": "5",
+      "explanation": "Friction on the table block is $\\mu m_A g = 0.25 \\times 40 = 10$ N, opposing the motion. The net driving force is $60 - 10 = 50$ N, shared by the total mass $m_A + m_B = 10$ kg, so $a = \\frac{50}{10} = 5$ m/s². Ignoring friction would wrongly give $a = 6$ m/s²."
+    },
+    {
+      "id": "lom_c01_022",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Three blocks of masses $1$ kg, $2$ kg and $3$ kg are placed in contact in a straight line on a smooth horizontal table, in the order $1$ kg, $2$ kg, $3$ kg. A horizontal force of $12$ N pushes the $1$ kg block, which pushes the other two. What is the magnitude of the force exerted by the $1$ kg block on the $2$ kg block?",
+      "options": [
+        "A) 4 N",
+        "B) 6 N",
+        "C) 10 N",
+        "D) 12 N"
+      ],
+      "answer": "C",
+      "explanation": "The three blocks accelerate together at $a = \\frac{12}{6} = 2$ m/s². The $1$ kg block must push the $2$ kg and $3$ kg blocks, so the force is $(2+3) \\times 2 = 10$ N. Option A (4 N) uses only the middle block's mass, and option B (6 N) uses only the last block's mass, $3 \\times 2$."
+    },
+    {
+      "id": "lom_c01_023",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $3$ kg block is initially at rest on a smooth horizontal floor. From $t = 0$ it experiences a horizontal force $F = 6t$ newtons, where $t$ is in seconds. What is the speed of the block, in m/s, at $t = 4$ s?",
+      "options": [],
+      "answer": "16",
+      "explanation": "The impulse up to $t = 4$ s is $\\int_0^4 6t\\,dt = \\left[3t^2\\right]_0^4 = 48$ N s. Since the block starts from rest, its momentum at 4 s is 48 kg m/s, so $v = \\frac{48}{3} = 16$ m/s. Treating the force at $t = 4$ s, which is 24 N, as constant would wrongly give $v = 32$ m/s."
+    },
+    {
+      "id": "lom_c01_024",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A man of mass $60$ kg standing on a stationary boat of mass $40$ kg jumps horizontally off the boat with a speed of $3$ m/s relative to the ground. Water resistance is negligible. What is the speed of the boat immediately after the jump?",
+      "options": [
+        "A) 2.0 m/s",
+        "B) 4.5 m/s",
+        "C) 3.0 m/s",
+        "D) 7.5 m/s"
+      ],
+      "answer": "B",
+      "explanation": "Momentum is conserved: $60 \\times 3 = 40 \\times v_b$, so $v_b = \\frac{180}{40} = 4.5$ m/s, directed opposite to the man's motion. Option A (2.0 m/s) inverts the mass ratio, and option D (7.5 m/s) uses the total mass $60 + 40 = 100$ kg in the numerator instead of the boat's mass."
+    },
+    {
+      "id": "lom_c01_025",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A rope can safely support a tension of $300$ N. It is used to lift a $20$ kg load vertically upward from rest. Take $g = 10$ m/s². What is the maximum upward acceleration the load can have without the rope tension exceeding its safe value?",
+      "options": [
+        "A) 15 m/s²",
+        "B) 10 m/s²",
+        "C) 5 m/s²",
+        "D) 2.5 m/s²"
+      ],
+      "answer": "C",
+      "explanation": "The tension must satisfy $T = m(g + a)$, so $300 = 20(10 + a)$, which gives $a = 5$ m/s². Option A (15 m/s²) comes from taking $a = T/m$ and forgetting to subtract the weight, and option B (10 m/s²) is simply $g$, which ignores the rope's pull."
+    },
+    {
+      "id": "lom_c01_026",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $5$ kg crate rests on the flat bed of a truck that accelerates forward on a level road at $4$ m/s². The crate does not slide, and the coefficient of static friction between the crate and the bed is $0.5$. Take $g = 10$ m/s². What is the friction force on the crate, in newtons?",
+      "options": [],
+      "answer": "20",
+      "explanation": "The crate accelerates with the truck, so the only horizontal force on it is static friction: $f = ma = 5 \\times 4 = 20$ N. This is below the maximum $\\mu_s mg = 0.5 \\times 50 = 25$ N, so the crate indeed does not slide. Taking the maximum value 25 N as the actual friction is a common mistake."
+    },
+    {
+      "id": "lom_c01_027",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A block rests on a smooth inclined face of a wedge of inclination $37^\\circ$, and the wedge sits on a horizontal table. The wedge is accelerated horizontally so that the block stays at rest relative to the wedge. Take $g = 10$ m/s² and $\\tan 37^\\circ = 0.75$. What is the horizontal acceleration of the wedge?",
+      "options": [
+        "A) 6.0 m/s²",
+        "B) 7.5 m/s²",
+        "C) 8.0 m/s²",
+        "D) 13.3 m/s²"
+      ],
+      "answer": "B",
+      "explanation": "The block's equations are $N\\cos 37^\\circ = mg$ (vertical) and $N\\sin 37^\\circ = ma$ (horizontal), where $a$ is the common acceleration. Dividing gives $a = g\\tan 37^\\circ = 7.5$ m/s². Option D (13.3 m/s²) inverts the ratio and uses $g/\\tan 37^\\circ$, a common error."
+    },
+    {
+      "id": "lom_c01_028",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A sled of mass $10$ kg rests on smooth horizontal snow. A rope attached to it is pulled with a tension of $100$ N at $60^\\circ$ above the horizontal, and the sled stays on the snow. Take $g = 10$ m/s² and $\\cos 60^\\circ = 0.5$. What is the acceleration of the sled?",
+      "options": [
+        "A) 5 m/s²",
+        "B) 8.66 m/s²",
+        "C) 10 m/s²",
+        "D) 2.5 m/s²"
+      ],
+      "answer": "A",
+      "explanation": "Only the horizontal component of the tension accelerates the sled, so $a = \\frac{100\\cos 60^\\circ}{10} = 5$ m/s². Option C (10 m/s²) ignores the angle and uses the full tension, while option B uses $\\sin 60^\\circ$ instead of $\\cos 60^\\circ$, a common mix-up of the two components."
+    },
+    {
+      "id": "lom_c01_029",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A uniform rope of mass $6$ kg lies on a smooth horizontal table and is pulled at one end by a horizontal force of $30$ N. What is the tension, in newtons, at the midpoint of the rope?",
+      "options": [],
+      "answer": "15",
+      "explanation": "The whole rope accelerates at $a = \\frac{30}{6} = 5$ m/s². The part of the rope beyond the midpoint has mass $3$ kg, so the tension at the midpoint is $T = 3 \\times 5 = 15$ N. Taking the full 30 N as the midpoint tension ignores that the near half of the rope must also be accelerated."
+    },
+    {
+      "id": "lom_c01_030",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A bob of mass $4$ kg hangs from a light string attached to the ceiling of a car. The car accelerates horizontally at $7.5$ m/s², and the bob stays at rest relative to the car. Take $g = 10$ m/s². What is the tension, in newtons, in the string?",
+      "options": [],
+      "answer": "50",
+      "explanation": "The tension has a horizontal component $ma = 30$ N and a vertical component balancing $mg = 40$ N. So $T = \\sqrt{40^2 + 30^2} = 50$ N. Taking $T = mg = 40$ N ignores the horizontal pull that the string must supply."
+    },
+    {
+      "id": "lom_c01_031",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A light string passes over a light frictionless pulley fixed to a ceiling. Blocks of masses $2$ kg and $3$ kg hang from its two ends and are released from rest. Take $g = 10$ m/s². What is the magnitude of the force exerted by the string on the pulley support?",
+      "options": [
+        "A) 24 N",
+        "B) 48 N",
+        "C) 20 N",
+        "D) 50 N"
+      ],
+      "answer": "B",
+      "explanation": "The tension is $T = \\frac{2m_1m_2 g}{m_1 + m_2} = \\frac{2 \\times 2 \\times 3 \\times 10}{5} = 24$ N. Both string segments pull the pulley downward, so the support force is $2T = 48$ N. Option A (24 N) counts only one string segment, and option D (50 N) takes the total weight of the blocks."
+    },
+    {
+      "id": "lom_c01_032",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A ball of mass $2$ kg falls vertically from rest in air. The air drag force is $kv$ upward, where $k = 0.5$ N s/m and $v$ is the speed of the ball. Take $g = 10$ m/s². What is the acceleration of the ball when its speed is $20$ m/s?",
+      "options": [
+        "A) 0 m/s²",
+        "B) 5 m/s²",
+        "C) 10 m/s²",
+        "D) 15 m/s²"
+      ],
+      "answer": "B",
+      "explanation": "Newton's second law gives $ma = mg - kv$, so $a = g - \\frac{kv}{m} = 10 - \\frac{0.5 \\times 20}{2} = 5$ m/s². Option C ignores the drag altogether, and option D treats the drag as adding to gravity, a sign error. Option A assumes the ball is already at terminal speed, which here is $\\frac{mg}{k} = 40$ m/s."
+    },
+    {
+      "id": "lom_c01_033",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A block of mass $2$ kg is pressed against a vertical wall by a horizontal force $F$. The coefficient of static friction between the block and the wall is $0.4$. Take $g = 10$ m/s². What is the minimum value of $F$ that keeps the block from sliding down the wall?",
+      "options": [
+        "A) 8 N",
+        "B) 20 N",
+        "C) 50 N",
+        "D) 125 N"
+      ],
+      "answer": "C",
+      "explanation": "The normal reaction is $N = F$, and friction must support the weight, so $\\mu_s F \\ge mg$. Thus $F \\ge \\frac{mg}{\\mu_s} = \\frac{20}{0.4} = 50$ N. Option A (8 N) multiplies friction by the weight, $\\mu_s mg$, which swaps the roles of friction and normal force; option D (125 N) divides by the square of the friction coefficient."
+    },
+    {
+      "id": "lom_c01_034",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $5$ kg block lies on a smooth horizontal floor. Two horizontal forces act on it at the same instant: $30$ N due east and $40$ N due north. What is the magnitude of the block's acceleration?",
+      "options": [
+        "A) 2 m/s²",
+        "B) 10 m/s²",
+        "C) 14 m/s²",
+        "D) 7 m/s²"
+      ],
+      "answer": "B",
+      "explanation": "The two forces are perpendicular, so the resultant is $\\sqrt{30^2 + 40^2} = 50$ N and $a = \\frac{50}{5} = 10$ m/s². Adding the magnitudes gives 14 m/s² and subtracting them gives 2 m/s²; both ignore vector addition."
+    },
+    {
+      "id": "lom_c01_035",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A rocket ejects exhaust gas at a constant speed of $500$ m/s relative to the rocket, at a constant rate of $0.1$ kg/s. Neglect gravity and air resistance. What is the thrust on the rocket, in newtons?",
+      "options": [],
+      "answer": "50",
+      "explanation": "Thrust equals the rate at which momentum is carried away by the exhaust: $F = \\frac{dm}{dt} v_{rel} = 0.1 \\times 500 = 50$ N. The speed must be the relative speed of the gas; using the rocket's own speed instead gives a wrong thrust."
+    },
+    {
+      "id": "lom_c01_036",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A block of mass $m$ rests on a smooth wedge of mass $M$ inclined at angle $\\theta$ to the horizontal. The wedge rests on a smooth horizontal floor. A horizontal force $F$ is applied to the wedge so that the block stays at rest relative to the wedge. Which of the following statements are correct?",
+      "options": [
+        "A) $F = (M+m)\\,g\\tan\\theta$",
+        "B) The normal reaction between block and wedge is $\\frac{mg}{\\cos\\theta}$",
+        "C) The acceleration of the wedge is $g\\tan\\theta$",
+        "D) The floor's normal reaction on the wedge is $Mg + N\\sin\\theta$, where $N$ is the normal reaction between block and wedge"
+      ],
+      "answer": "A,B,C",
+      "explanation": "The whole system accelerates at $a = g\\tan\\theta$, so $F = (M+m)a$ and statement A is true. Vertically the block gives $N\\cos\\theta = mg$, so $N = \\frac{mg}{\\cos\\theta}$ and B is true, while the horizontal balance $N\\sin\\theta = ma$ confirms C. For the floor reaction, the block pushes the wedge down with a vertical component $N\\cos\\theta$, so the floor supplies $Mg + N\\cos\\theta = (M+m)g$; option D uses $N\\sin\\theta$, the horizontal component, which is a common mistake."
+    },
+    {
+      "id": "lom_c01_037",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A block of mass $2$ kg is released from rest on a rough fixed incline of angle $37^\\circ$ with coefficient of kinetic friction $\\mu_k = 0.5$. The bottom of the incline is $4$ m from the release point along the plane. Take $g = 10$ m/s², $\\sin 37^\\circ = 0.6$ and $\\cos 37^\\circ = 0.8$. Which of the following statements are correct?",
+      "options": [
+        "A) The acceleration of the block is $2$ m/s$^2$ down the incline",
+        "B) The kinetic friction force on the block is $8$ N",
+        "C) The block reaches the bottom of the incline after $2$ s",
+        "D) The work done by kinetic friction over the $4$ m displacement is $+32$ J"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Along the incline, $ma = mg\\sin 37^\\circ - \\mu_k mg\\cos 37^\\circ = 12 - 8 = 4$ N, so $a = 2$ m/s² and A is true. The friction is $\\mu_k N = 0.5 \\times 16 = 8$ N, so B is true. From $s = \\frac{1}{2}at^2$ we get $4 = t^2$, so $t = 2$ s and C is true. Friction opposes the motion, so its work is $-8 \\times 4 = -32$ J; option D has the right magnitude but the wrong sign, a common sign error."
+    },
+    {
+      "id": "lom_c01_038",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Block A of mass $4$ kg lies on a rough incline of angle $37^\\circ$ with coefficient of kinetic friction $0.25$. A light string attached to A passes over a frictionless pulley at the top of the incline and connects A to a hanging block B of mass $8$ kg. The system is released from rest. Take $g = 10$ m/s², $\\sin 37^\\circ = 0.6$ and $\\cos 37^\\circ = 0.8$. What is the tension in the string?",
+      "options": [
+        "A) 24 N",
+        "B) 48 N",
+        "C) 32 N",
+        "D) 80 N"
+      ],
+      "answer": "B",
+      "explanation": "A moves up the incline and B moves down, so kinetic friction $\\mu mg\\cos 37^\\circ = 8$ N acts down the incline on A. Then $a = \\frac{80 - 24 - 8}{12} = 4$ m/s². From the hanging block, $T = 8(10 - 4) = 48$ N. Option C (32 N) reverses the friction direction, option A (24 N) ignores the acceleration and friction, and option D (80 N) is the weight of B."
+    },
+    {
+      "id": "lom_c01_039",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A uniform rope of total mass $4$ kg and length $2$ m lies on a rough horizontal table with coefficient of kinetic friction $0.2$. A length of $0.5$ m hangs over the smooth edge of the table, and the rope is released from rest. Take $g = 10$ m/s². What is the tension in the rope at the table edge, where it passes over the edge?",
+      "options": [
+        "A) 9 N",
+        "B) 7.5 N",
+        "C) 10 N",
+        "D) 3 N"
+      ],
+      "answer": "A",
+      "explanation": "The hanging part has mass $1$ kg and the table part has mass $3$ kg. Kinetic friction on the table part is $0.2 \\times 3 \\times 10 = 6$ N, so $a = \\frac{10 - 6}{4} = 1$ m/s². The table part gives $T - 6 = 3 \\times 1$, so $T = 9$ N. Option B (7.5 N) is the frictionless answer, and option D (3 N) drops the friction term from the table-part equation."
+    },
+    {
+      "id": "lom_c01_040",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A block of mass $2$ kg is placed on the smooth inclined face of a wedge of mass $1$ kg, inclined at $45^\\circ$ to the horizontal. The wedge rests on a smooth horizontal floor, and the block slides down the incline. Take $g = 10$ m/s². What is the magnitude of the acceleration of the wedge, in m/s²?",
+      "options": [],
+      "answer": "5",
+      "explanation": "Let the wedge acceleration be $A$. Using $A = \\frac{mg\\sin\\theta\\cos\\theta}{M + m\\sin^2\\theta}$ with $m = 2$ kg, $M = 1$ kg and $\\theta = 45^\\circ$, the numerator is $2 \\times 10 \\times \\frac{1}{2} = 10$ and the denominator is $1 + 2 \\times \\frac{1}{2} = 2$, so $A = 5$ m/s². Keeping the wedge fixed would wrongly give zero."
+    },
+    {
+      "id": "lom_c01_041",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A block of mass $2$ kg rests on a rough horizontal floor with coefficient of static friction $0.5$. A force $F$ is applied to the block, directed $37^\\circ$ below the horizontal and pushing the block to the right. Take $g = 10$ m/s², $\\sin 37^\\circ = 0.6$ and $\\cos 37^\\circ = 0.8$. What is the value of $F$ for which the block is just about to move?",
+      "options": [
+        "A) 12.5 N",
+        "B) 10 N",
+        "C) 20 N",
+        "D) 40 N"
+      ],
+      "answer": "C",
+      "explanation": "Vertically, $N = mg + F\\sin 37^\\circ = 20 + 0.6F$. Impending motion requires $F\\cos 37^\\circ = \\mu_s N$, so $0.8F = 0.5(20 + 0.6F)$. This gives $0.5F = 10$, so $F = 20$ N. Option A (12.5 N) ignores the downward push in the normal reaction, and option B (10 N) is just $\\mu_s mg$, which ignores the applied force entirely."
+    },
+    {
+      "id": "lom_c01_042",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A light string passes over a uniform disc-shaped pulley of mass $2$ kg and radius $R$ that rotates freely about its fixed axle, with no slipping between the string and the rim. Blocks of masses $3$ kg and $1$ kg hang from the two ends. Take $g = 10$ m/s². Which of the following statements are correct?",
+      "options": [
+        "A) The acceleration of the $3$ kg block is $4$ m/s$^2$ downward",
+        "B) The tension in the string on the $3$ kg side is $18$ N",
+        "C) The tension in the string on the $1$ kg side is $14$ N",
+        "D) The tension is the same on both sides of the pulley because the string is light"
+      ],
+      "answer": "A,B,C",
+      "explanation": "For the blocks, $30 - T_1 = 3a$ and $T_2 - 10 = 1 \\cdot a$. The pulley gives $(T_1 - T_2)R = \\frac{1}{2}(2)R^2 \\cdot \\frac{a}{R}$, so $T_1 - T_2 = a$. Solving gives $a = 4$ m/s², $T_1 = 18$ N and $T_2 = 14$ N, so A, B and C are correct. Option D is the classic error of assuming a pulley that has mass cannot change the tension across its two sides."
+    },
+    {
+      "id": "lom_c01_043",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A block of mass $2$ kg rests on top of a plank of mass $4$ kg, which lies on a smooth horizontal floor. The coefficient of kinetic friction between the block and the plank is $0.2$. A horizontal force of $12$ N is applied to the block. Take $g = 10$ m/s². Which of the following statements are correct?",
+      "options": [
+        "A) The plank accelerates at $1$ m/s$^2$",
+        "B) The block accelerates at $4$ m/s$^2$",
+        "C) The block and plank move together with an acceleration of $2$ m/s$^2$",
+        "D) The friction force acting on the plank is $6$ N"
+      ],
+      "answer": "A,B",
+      "explanation": "The kinetic friction is $\\mu_k m g = 0.2 \\times 20 = 4$ N. The plank has $a_p = \\frac{4}{4} = 1$ m/s² (A is true), and the block has $a_b = \\frac{12 - 4}{2} = 4$ m/s² (B is true). Since the accelerations differ, the blocks slide relative to each other, so C is false. The friction on the plank is 4 N, not 6 N, so D is false."
+    },
+    {
+      "id": "lom_c01_044",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A block of mass $5$ kg rests on a rough horizontal floor with coefficient of kinetic friction $0.2$. A light rope attached to the block is pulled with a tension of $25$ N at $53^\\circ$ above the horizontal, and the block slides along the floor. Take $g = 10$ m/s², $\\sin 53^\\circ = 0.8$ and $\\cos 53^\\circ = 0.6$. Which of the following statements are correct?",
+      "options": [
+        "A) The normal reaction from the floor is $30$ N",
+        "B) The kinetic friction force on the block is $6$ N",
+        "C) The acceleration of the block is $1.8$ m/s$^2$",
+        "D) The acceleration of the block is $3$ m/s$^2$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "The vertical component of the tension is $25\\sin 53^\\circ = 20$ N, so $N = 50 - 20 = 30$ N (A is true) and the friction is $0.2 \\times 30 = 6$ N (B is true). The horizontal net force is $25\\cos 53^\\circ - 6 = 15 - 6 = 9$ N, so $a = \\frac{9}{5} = 1.8$ m/s² (C is true). Option D ignores friction entirely, giving $15/5 = 3$ m/s²."
+    },
+    {
+      "id": "lom_c01_045",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Block A of mass $2$ kg rests on a rough horizontal table with coefficient of kinetic friction $0.2$. A light string attached to A passes over a frictionless pulley at the table edge and holds a hanging block B of mass $2$ kg. The system is released from rest. When A has moved $8$ m, the string breaks and B is instantly removed from the system. Take $g = 10$ m/s². How many seconds does A take to come to rest after the string breaks?",
+      "options": [],
+      "answer": "4",
+      "explanation": "Before the break, $a = \\frac{m_B g - \\mu m_A g}{m_A + m_B} = \\frac{20 - 4}{4} = 4$ m/s². The speed at 8 m is given by $v^2 = 2as = 64$, so $v = 8$ m/s. After the break, friction alone decelerates A at $\\mu g = 2$ m/s², so the time to stop is $t = \\frac{v}{\\mu g} = \\frac{8}{2} = 4$ s."
+    },
+    {
+      "id": "lom_c01_046",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A block A of mass $2$ kg rests on top of a block B of mass $6$ kg, which lies on a smooth horizontal floor. The coefficient of static friction between A and B is $0.1$. A horizontal force $F$ is applied to block B. Take $g = 10$ m/s². What is the largest value of $F$, in newtons, for which A does not slip on B?",
+      "options": [],
+      "answer": "8",
+      "explanation": "The largest acceleration that friction can give A is $\\mu_s g = 0.1 \\times 10 = 1$ m/s². The whole system then has acceleration 1 m/s², so $F_{max} = (m_A + m_B) \\times 1 = 8$ N. Using only B's mass would give 6 N, which ignores the mass of A that must also accelerate."
+    },
+    {
+      "id": "lom_c01_047",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Two blocks, each of mass $4$ kg, are connected by a light string passing over a frictionless pulley at the top of two smooth inclines on opposite sides of the pulley. Block P lies on an incline of $30^\\circ$ and block Q lies on an incline of $37^\\circ$. Take $g = 10$ m/s², $\\sin 30^\\circ = 0.5$ and $\\sin 37^\\circ = 0.6$. The system is released from rest. What is the tension in the string?",
+      "options": [
+        "A) 20 N",
+        "B) 22 N",
+        "C) 24 N",
+        "D) 18 N"
+      ],
+      "answer": "B",
+      "explanation": "Block Q has the larger component of weight along its incline, so it moves down and pulls P up its incline. The acceleration is $a = \\frac{24 - 20}{8} = 0.5$ m/s². For P, $T - 20 = 4 \\times 0.5$, so $T = 22$ N. Option A (20 N) ignores P's acceleration, option C (24 N) is the component of Q's weight, and option D reverses the sign of the acceleration term."
+    },
+    {
+      "id": "lom_c01_048",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Three blocks of masses $1$ kg, $2$ kg and $3$ kg are joined in a line by light strings on a rough horizontal table, with the $1$ kg block at the front. The coefficient of kinetic friction between each block and the table is $0.05$. A horizontal force of $6$ N pulls the $1$ kg block, and the blocks move together. Take $g = 10$ m/s². What is the tension, in newtons, in the string between the $1$ kg block and the $2$ kg block?",
+      "options": [],
+      "answer": "5",
+      "explanation": "The total friction is $0.05 \\times 10 \\times 6 = 3$ N, so $a = \\frac{6 - 3}{6} = 0.5$ m/s². Blocks 2 and 3 have total mass $5$ kg and friction $2.5$ N, so $T_1 - 2.5 = 5 \\times 0.5$, giving $T_1 = 5$ N. Forgetting the friction on blocks 2 and 3 gives $T_1 = 2.5$ N."
+    },
+    {
+      "id": "lom_c01_049",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A block A of mass $2$ kg rests on top of a block B of mass $4$ kg. Block B lies on a rough plane inclined at $37^\\circ$, with coefficient of kinetic friction $0.5$ between B and the plane. The coefficient of static friction between A and B is $0.8$. The two blocks are released from rest together and slide down the incline. Take $g = 10$ m/s², $\\sin 37^\\circ = 0.6$ and $\\cos 37^\\circ = 0.8$. What is the magnitude of the friction force between A and B?",
+      "options": [
+        "A) 12 N",
+        "B) 8 N",
+        "C) 4 N",
+        "D) 24 N"
+      ],
+      "answer": "B",
+      "explanation": "Treating both blocks as one system, the normal reaction from the incline is $6 \\times 10 \\times 0.8 = 48$ N, so the kinetic friction on B is $0.5 \\times 48 = 24$ N. The net force is $36 - 24 = 12$ N, so $a = 2$ m/s². For block A, $12 - f = 2 \\times 2$, giving $f = 8$ N, which is below the limit $0.8 \\times 16 = 12.8$ N. Option A (12 N) assumes A slides freely with its full weight component along the plane."
+    },
+    {
+      "id": "lom_c01_050",
+      "subject": "Physics",
+      "topic": "Laws of Motion",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A block of mass $2$ kg is placed at rest on a horizontal conveyor belt that moves at a constant speed of $4$ m/s. The coefficient of kinetic friction between the block and the belt is $0.4$. Take $g = 10$ m/s². Before the block reaches the belt speed, how far does the block slide relative to the belt?",
+      "options": [
+        "A) 2 m",
+        "B) 1 m",
+        "C) 4 m",
+        "D) 8 m"
+      ],
+      "answer": "A",
+      "explanation": "Friction accelerates the block at $a = \\mu g = 4$ m/s², so it reaches 4 m/s in $t = 1$ s. In this time the block moves $\\frac{1}{2}(4)(1)^2 = 2$ m, while the belt moves $4 \\times 1 = 4$ m. The relative sliding is $4 - 2 = 2$ m. Option C (4 m) reports only the belt's displacement, which is wrong."
+    }
+  ]
+}

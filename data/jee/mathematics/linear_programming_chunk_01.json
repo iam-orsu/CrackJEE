@@ -1,0 +1,804 @@
+{
+  "questions": [
+    {
+      "id": "lp_c01_001",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A small workshop manufactures two models of wooden chairs, Model $A$ and Model $B$. Production of each Model $A$ chair requires $2$ hours of carpentry and $1$ hour of finishing, whereas each Model $B$ chair requires $1$ hour of carpentry and $2$ hours of finishing. The workshop has at most $100$ hours of carpentry and at most $80$ hours of finishing available per week. If the profit per chair is ₹$400$ on Model $A$ and ₹$300$ on Model $B$, find the maximum weekly profit (in ₹) that the workshop can achieve.",
+      "options": [
+        "A) ₹$22{,}000$",
+        "B) ₹$20{,}000$",
+        "C) ₹$24{,}000$",
+        "D) ₹$18{,}000$"
+      ],
+      "answer": "A",
+      "explanation": "Let $x$ and $y$ denote the number of Model $A$ and Model $B$ chairs produced per week, respectively. The objective function to maximize is the weekly profit $Z = 400x + 300y$. The constraints are carpentry hours $2x + y \\le 100$, finishing hours $x + 2y \\le 80$, with non-negativity $x \\ge 0$ and $y \\ge 0$. Solving for the boundary intersections: the intersection of $2x + y = 100$ and $x + 2y = 80$ is found by multiplying the second equation by $2$, yielding $2x + 4y = 160$. Subtracting the first equation gives $3y = 60 \\implies y = 20$, and substituting back gives $x = 40$. The corner points of the bounded feasible polygon are $(0, 0)$, $(50, 0)$, $(40, 20)$, and $(0, 40)$. Evaluating the objective function at each vertex: $Z(0, 0) = 0$, $Z(50, 0) = 400(50) = 20{,}000$, $Z(40, 20) = 400(40) + 300(20) = 16{,}000 + 6{,}000 = 22{,}000$, and $Z(0, 40) = 300(40) = 12{,}000$. Therefore, the maximum weekly profit is ₹$22{,}000$, achieved at $(40, 20)$. Evaluating only the single-product endpoints results in ₹$20{,}000$, which is suboptimal."
+    },
+    {
+      "id": "lp_c01_002",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A dairy farm prepares a daily cattle feed mixture using two commercial feeds, Brand $X$ and Brand $Y$. Each kilogram of Brand $X$ contains $2$ units of protein and $1$ unit of calcium, costing ₹$3$. Each kilogram of Brand $Y$ contains $1$ unit of protein and $2$ units of calcium, costing ₹$5$. The livestock requires at least $8$ units of protein and at least $10$ units of calcium daily. To prevent nutritional toxicity, the total amount of feed must not exceed $8\\text{ kg}$ per day. Find the minimum daily cost (in ₹) of feeding the cattle while satisfying these dietary constraints.",
+      "options": [
+        "A) ₹$28$",
+        "B) ₹$26$",
+        "C) ₹$24$",
+        "D) ₹$30$"
+      ],
+      "answer": "B",
+      "explanation": "Let $x$ and $y$ be the amounts (in kg) of Brand $X$ and Brand $Y$ used daily. The objective function to minimize is $Z = 3x + 5y$, subject to the constraints: protein requirement $2x + y \\ge 8$, calcium requirement $x + 2y \\ge 10$, total intake limit $x + y \\le 8$, along with $x \\ge 0, y \\ge 0$. Solving the boundary equations: the intersection of $2x + y = 8$ and $x + 2y = 10$ is obtained by multiplying the second by $2$ to get $2x + 4y = 20$, and subtracting the first to yield $3y = 12 \\implies y = 4$, which implies $x = 2$. Checking the toxicity constraint at $(2, 4)$: $2 + 4 = 6 \\le 8$, so $(2, 4)$ is feasible. Solving $2x + y = 8$ and $x + y = 8$ yields $x = 0, y = 8$ (satisfying $0 + 2(8) = 16 \\ge 10$). Solving $x + 2y = 10$ and $x + y = 8$ yields $y = 2, x = 6$ (satisfying $2(6) + 2 = 14 \\ge 8$). Hence, the corner points are $(2, 4)$, $(0, 8)$, and $(6, 2)$. Evaluating cost: $Z(2, 4) = 3(2) + 5(4) = 26$, $Z(0, 8) = 3(0) + 5(8) = 40$, and $Z(6, 2) = 3(6) + 5(2) = 28$. Therefore, the minimum daily cost is ₹$26$ at $(2, 4)$. Choosing $(6, 2)$ without checking the lower slope line yields ₹$28$."
+    },
+    {
+      "id": "lp_c01_003",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A farmer has a plot to apply two fertilizers, $F_1$ and $F_2$. Each bag of $F_1$ contains $1\\text{ kg}$ of nitrogen and $2\\text{ kg}$ of phosphate. Each bag of $F_2$ contains $1\\text{ kg}$ of nitrogen and $1\\text{ kg}$ of phosphate. Soil limits dictate that at most $15\\text{ kg}$ of nitrogen and at most $20\\text{ kg}$ of phosphate may be added. If fertilizer $F_1$ yields an estimated profit boost of ₹$40$ per bag and $F_2$ yields ₹$30$ per bag, determine the maximum profit boost (in ₹).",
+      "options": [
+        "A) ₹$450$",
+        "B) ₹$400$",
+        "C) ₹$500$",
+        "D) ₹$550$"
+      ],
+      "answer": "C",
+      "explanation": "Let $x$ and $y$ be the number of bags of $F_1$ and $F_2$ applied, respectively. The objective function to maximize is $Z = 40x + 30y$. The constraints from nutrient limits are nitrogen $x + y \\le 15$ and phosphate $2x + y \\le 20$, with non-negativity $x \\ge 0, y \\ge 0$. Finding boundary intersections: the lines $x + y = 15$ and $2x + y = 20$ intersect by subtracting the first from the second, yielding $x = 5$, whence $y = 10$. The corner points of the bounded feasible polygon are $(0, 0)$, $(10, 0)$ from the $x$-intercept of $2x + y = 20$, $(5, 10)$ from the intersection, and $(0, 15)$ from the $y$-intercept of $x + y = 15$. Evaluating $Z$: $Z(0, 0) = 0$, $Z(10, 0) = 40(10) + 0 = 400$, $Z(5, 10) = 40(5) + 30(10) = 200 + 300 = 500$, and $Z(0, 15) = 30(15) = 450$. Therefore, the maximum profit boost is ₹$500$ at $(5, 10)$. Failing to combine both fertilizers and using only $F_2$ yields ₹$450$."
+    },
+    {
+      "id": "lp_c01_004",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the bounded quadrilateral feasible region $\\mathcal{Q}$ defined by the system of linear inequalities $x + y \\ge 3$, $x + y \\le 8$, $2x - 3y \\le 1$, and $2y - 3x \\le 1$, with $x \\ge 0$ and $y \\ge 0$. If the objective function is $Z = 5x + 2y$, determine the difference between the maximum value $Z_{\\max}$ and the minimum value $Z_{\\min}$ over $\\mathcal{Q}$.",
+      "options": [
+        "A) $19$",
+        "B) $24$",
+        "C) $20$",
+        "D) $22$"
+      ],
+      "answer": "D",
+      "explanation": "To determine the vertices of the quadrilateral region $\\mathcal{Q}$, we solve the pairwise intersections of the bounding lines: First, solving $x + y = 3$ and $2y - 3x = 1$, we substitute $y = 3 - x$ into the second equation, giving $2(3 - x) - 3x = 1 \\implies 6 - 5x = 1 \\implies x = 1, y = 2$. Second, solving $x + y = 3$ and $2x - 3y = 1$, substituting $x = 3 - y$ gives $2(3 - y) - 3y = 1 \\implies 6 - 5y = 1 \\implies y = 1, x = 2$. Third, solving $x + y = 8$ and $2x - 3y = 1$, substituting $x = 8 - y$ gives $2(8 - y) - 3y = 1 \\implies 16 - 5y = 1 \\implies y = 3, x = 5$. Fourth, solving $x + y = 8$ and $2y - 3x = 1$, substituting $y = 8 - x$ gives $2(8 - x) - 3x = 1 \\implies 16 - 5x = 1 \\implies x = 3, y = 5$. Thus the four vertices are $(1, 2)$, $(2, 1)$, $(5, 3)$, and $(3, 5)$. Evaluating the objective function $Z = 5x + 2y$ at each vertex: $Z(1, 2) = 5(1) + 2(2) = 9$, $Z(2, 1) = 5(2) + 2(1) = 12$, $Z(5, 3) = 5(5) + 2(3) = 25 + 6 = 31$, and $Z(3, 5) = 5(3) + 2(5) = 15 + 10 = 25$. Hence, $Z_{\\max} = 31$ and $Z_{\\min} = 9$. Their difference is $Z_{\\max} - Z_{\\min} = 31 - 9 = 22$. Incorrectly pairing non-adjacent vertices produces an erroneous range such as $19$ or $24$."
+    },
+    {
+      "id": "lp_c01_005",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A consumer electronics distributor stocks two models of tablets, Model $T_1$ and Model $T_2$. The warehouse storage allows a maximum of $60$ units in total. The procurement cost is ₹$2{,}000$ for Model $T_1$ and ₹$5{,}000$ for Model $T_2$, and the distributor has a total budget of ₹$180{,}000$. Market commitments require stocking at least $10$ units of Model $T_1$ and at least $10$ units of Model $T_2$. If the profit is ₹$600$ per unit of Model $T_1$ and ₹$900$ per unit of Model $T_2$, find the maximum total profit divided by $100$ (i.e., $\\frac{Z_{\\max}}{100}$).",
+      "options": [],
+      "answer": "420",
+      "explanation": "Let $x$ and $y$ represent the number of units of Model $T_1$ and Model $T_2$ stocked, respectively. The objective function to maximize is profit $Z = 600x + 900y$. The constraints are storage $x + y \\le 60$, budget $2000x + 5000y \\le 180000 \\implies 2x + 5y \\le 180$, along with minimum demand bounds $x \\ge 10$ and $y \\ge 10$. The corner points of this bounded region are determined by solving the boundary lines: (1) Intersection of $x = 10$ and $y = 10$ gives $(10, 10)$. (2) Intersection of $y = 10$ and $x + y = 60$ gives $(50, 10)$, checking budget: $2(50) + 5(10) = 150 \\le 180$, which is valid. (3) Intersection of $x + y = 60$ and $2x + 5y = 180$: multiplying the first by $2$ gives $2x + 2y = 120$; subtracting gives $3y = 60 \\implies y = 20$, whence $x = 40$, giving point $(40, 20)$. (4) Intersection of $x = 10$ and $2x + 5y = 180$ gives $20 + 5y = 180 \\implies 5y = 160 \\implies y = 32$, giving point $(10, 32)$, which satisfies $10 + 32 = 42 \\le 60$. Evaluating profit at each corner point: $Z(10, 10) = 600(10) + 900(10) = 15{,}000$, $Z(50, 10) = 600(50) + 900(10) = 30{,}000 + 9{,}000 = 39{,}000$, $Z(40, 20) = 600(40) + 900(20) = 24{,}000 + 18{,}000 = 42{,}000$, and $Z(10, 32) = 600(10) + 900(32) = 6{,}000 + 28{,}800 = 34{,}800$. Thus, $Z_{\\max} = 42{,}000$. Computing $\\frac{Z_{\\max}}{100} = \\frac{42000}{100} = 420$."
+    },
+    {
+      "id": "lp_c01_006",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A bakery bakes two types of cakes, Chocolate ($C$) and Vanilla ($V$). Each Chocolate cake requires $200\\text{ g}$ of flour and $50\\text{ g}$ of sugar, whereas each Vanilla cake requires $100\\text{ g}$ of flour and $100\\text{ g}$ of sugar. The bakery has $4\\text{ kg}$ ($4000\\text{ g}$) of flour and $2.5\\text{ kg}$ ($2500\\text{ g}$) of sugar available. Each Chocolate cake yields ₹$80$ profit and each Vanilla cake yields ₹$60$ profit. In order to maximize total profit, determine the optimal production pair $(x, y)$, where $x$ is the number of Chocolate cakes and $y$ is the number of Vanilla cakes.",
+      "options": [
+        "A) $(15, 10)$",
+        "B) $(10, 20)$",
+        "C) $(20, 0)$",
+        "D) $(0, 25)$"
+      ],
+      "answer": "B",
+      "explanation": "Let $x$ be the number of Chocolate cakes and $y$ be the number of Vanilla cakes. The objective function to maximize is $Z = 80x + 60y$. The constraints are flour $200x + 100y \\le 4000 \\implies 2x + y \\le 40$, sugar $50x + 100y \\le 2500 \\implies x + 2y \\le 50$, with $x \\ge 0, y \\ge 0$. Solving for the boundary intersections: the lines $2x + y = 40$ and $x + 2y = 50$ intersect by multiplying the second by $2$ to obtain $2x + 4y = 100$, and subtracting the first to yield $3y = 60 \\implies y = 20$. Substituting back gives $x = 10$. The corner points of the feasible region are $(0, 0)$, $(20, 0)$ from the $x$-intercept of $2x + y = 40$, $(10, 20)$ from the intersection, and $(0, 25)$ from the $y$-intercept of $x + 2y = 50$. Evaluating $Z$: $Z(0, 0) = 0$, $Z(20, 0) = 80(20) = 1600$, $Z(0, 25) = 60(25) = 1500$, and $Z(10, 20) = 80(10) + 60(20) = 800 + 1200 = 2000$. Therefore, the maximum profit is achieved at the production pair $(10, 20)$. Focusing only on single cake production limits profit to ₹$1600$."
+    },
+    {
+      "id": "lp_c01_007",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the bounded convex polygon $\\mathcal{P}$ defined by the linear inequalities $x + y \\ge 4$, $x + 2y \\le 12$, $2x + y \\le 12$, $x \\ge 0$, and $y \\ge 0$. Find the minimum value of the objective function $Z = 5x + 2y$ over this feasible region $\\mathcal{P}$.",
+      "options": [
+        "A) $12$",
+        "B) $8$",
+        "C) $20$",
+        "D) $4$"
+      ],
+      "answer": "B",
+      "explanation": "To identify the feasible region, we determine all boundary line intersections: (1) Line $x + y = 4$ meets the axes at $(4, 0)$ and $(0, 4)$. Testing other constraints: at $(4, 0)$, $4 + 0 \\le 12$ and $2(4) + 0 = 8 \\le 12$, so $(4, 0)$ is feasible. At $(0, 4)$, $0 + 2(4) = 8 \\le 12$ and $2(0) + 4 = 4 \\le 12$, so $(0, 4)$ is feasible. (2) The lines $x + 2y = 12$ and $2x + y = 12$ intersect by subtracting, which implies $x = y$, yielding $3x = 12 \\implies x = 4, y = 4$. Checking $x + y = 4 + 4 = 8 \\ge 4$, so $(4, 4)$ is feasible. (3) Line $2x + y = 12$ meets $y = 0$ at $(6, 0)$ (satisfying $6 + 0 \\le 12$ and $6 \\ge 4$). (4) Line $x + 2y = 12$ meets $x = 0$ at $(0, 6)$ (satisfying $0 + 6 \\le 12$ and $6 \\ge 4$). The vertices of the pentagon are $(4, 0)$, $(6, 0)$, $(4, 4)$, $(0, 6)$, and $(0, 4)$. Evaluating $Z = 5x + 2y$ at each vertex: $Z(4, 0) = 5(4) + 0 = 20$, $Z(6, 0) = 5(6) + 0 = 30$, $Z(4, 4) = 5(4) + 2(4) = 28$, $Z(0, 6) = 5(0) + 2(6) = 12$, and $Z(0, 4) = 5(0) + 2(4) = 8$. Therefore, the minimum value is $8$, attained at $(0, 4)$. Evaluating only along the line $x = y$ leads to the suboptimal candidate $28$."
+    },
+    {
+      "id": "lp_c01_008",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A chemical plant manufactures two solvent solutions, $S_1$ and $S_2$, by blending two active ingredients inside reaction vessels. Producing each kiloliter of $S_1$ requires $3$ hours of reactor time and $1$ unit of catalyst, while each kiloliter of $S_2$ requires $2$ hours of reactor time and $2$ units of catalyst. The facility provides at most $18$ reactor hours and at most $10$ units of catalyst daily. The profit contribution is ₹$7{,}000$ per kiloliter of $S_1$ and ₹$5{,}000$ per kiloliter of $S_2$. Determine the maximum daily profit (in thousands of ₹).",
+      "options": [
+        "A) $42$",
+        "B) $40$",
+        "C) $43$",
+        "D) $45$"
+      ],
+      "answer": "C",
+      "explanation": "Let $x$ and $y$ denote the volume (in kiloliters) of $S_1$ and $S_2$ produced daily. The objective function to maximize is profit $Z = 7x + 5y$ (in thousands of ₹). The constraints are reactor time $3x + 2y \\le 18$ and catalyst units $x + 2y \\le 10$, with non-negativity $x \\ge 0, y \\ge 0$. Solving the boundary lines: subtracting $x + 2y = 10$ from $3x + 2y = 18$ gives $2x = 8 \\implies x = 4$. Substituting $x = 4$ into $x + 2y = 10$ gives $4 + 2y = 10 \\implies 2y = 6 \\implies y = 3$. The corner points of the bounded feasible polygon are $(0, 0)$, $(6, 0)$ from the $x$-intercept of $3x + 2y = 18$, $(4, 3)$ from the intersection, and $(0, 5)$ from the $y$-intercept of $x + 2y = 10$. Evaluating $Z$: $Z(0, 0) = 0$, $Z(6, 0) = 7(6) + 0 = 42$, $Z(0, 5) = 0 + 5(5) = 25$, and $Z(4, 3) = 7(4) + 5(3) = 28 + 15 = 43$. Therefore, the maximum daily profit is ₹$43{,}000$ (i.e. $43$ in thousands of ₹), achieved at $(4, 3)$. Relying strictly on pure $S_1$ production yields $42$, which is strictly suboptimal."
+    },
+    {
+      "id": "lp_c01_009",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An oil refining depot supplies blended fuels to two regional hubs. The refinery has $60\\text{ kL}$ of diesel and $60\\text{ kL}$ of petrol. Producing Grade-1 fuel requires $2\\text{ kL}$ of diesel and $1\\text{ kL}$ of petrol per batch, while Grade-2 fuel requires $1\\text{ kL}$ of diesel and $2\\text{ kL}$ of petrol per batch. Let $x$ and $y$ denote batches of Grade-1 and Grade-2 fuels produced. Environmental regulations mandate minimum production levels of $x \\ge 10$ and $y \\ge 10$. If the revenue is ₹$500$ per batch of Grade-1 and ₹$400$ per batch of Grade-2, find the maximum revenue (in ₹).",
+      "options": [
+        "A) ₹$18{,}000$",
+        "B) ₹$16{,}500$",
+        "C) ₹$17{,}200$",
+        "D) ₹$19{,}000$"
+      ],
+      "answer": "A",
+      "explanation": "The linear programming problem requires maximizing revenue $Z = 500x + 400y$ subject to diesel constraint $2x + y \\le 60$, petrol constraint $x + 2y \\le 60$, and mandatory minimum quotas $x \\ge 10, y \\ge 10$. We find the corner points of this bounded quadrilateral region: (1) Intersection of $x = 10$ and $y = 10$ gives $(10, 10)$. (2) Setting $y = 10$ in $2x + y = 60$ gives $2x + 10 = 60 \\implies x = 25$, checking petrol: $25 + 2(10) = 45 \\le 60$, giving vertex $(25, 10)$. (3) Setting $x = 10$ in $x + 2y = 60$ gives $10 + 2y = 60 \\implies y = 25$, checking diesel: $2(10) + 25 = 45 \\le 60$, giving vertex $(10, 25)$. (4) Solving the intersection of $2x + y = 60$ and $x + 2y = 60$: subtracting the two equations yields $x = y$, whence $3x = 60 \\implies x = 20, y = 20$, giving vertex $(20, 20)$. Evaluating revenue at all corner points: $Z(10, 10) = 500(10) + 400(10) = 9000$, $Z(25, 10) = 500(25) + 400(10) = 12500 + 4000 = 16500$, $Z(10, 25) = 500(10) + 400(25) = 5000 + 10000 = 15000$, and $Z(20, 20) = 500(20) + 400(20) = 10000 + 8000 = 18000$. Therefore, the maximum revenue is ₹$18{,}000$, achieved at $(20, 20)$. Neglecting the balance between products and choosing $(25, 10)$ gives ₹$16{,}500$."
+    },
+    {
+      "id": "lp_c01_010",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A bounded convex polygonal feasible region $\\mathcal{R}$ in the first quadrant is defined by the system of linear inequalities $x + y \\le 10$, $2x + y \\le 16$, $x + 3y \\le 24$, $x \\ge 0$, and $y \\ge 0$. Find the maximum value $M$ of the objective function $Z = 3x + 4y$ over this region $\\mathcal{R}$.",
+      "options": [],
+      "answer": "37",
+      "explanation": "To find the maximum value of $Z = 3x + 4y$, we solve for all vertices of the bounded convex polygon $\\mathcal{R}$: (1) The intersection of $2x + y = 16$ with $y = 0$ is $(8, 0)$; checking $8 + 0 \\le 10$ and $8 + 0 \\le 24$ verifies its feasibility. (2) The intersection of $2x + y = 16$ and $x + y = 10$ is obtained by subtracting the equations, giving $x = 6$, which implies $y = 4$. Checking the third line: $6 + 3(4) = 18 \\le 24$, so $(6, 4)$ is a vertex. (3) The intersection of $x + y = 10$ and $x + 3y = 24$ is obtained by subtracting, giving $2y = 14 \\implies y = 7$, which implies $x = 3$. Checking the first line: $2(3) + 7 = 13 \\le 16$, so $(3, 7)$ is a vertex. (4) The intersection of $x + 3y = 24$ with $x = 0$ is $(0, 8)$; checking $0 + 8 \\le 10$ and $2(0) + 8 = 8 \\le 16$ verifies its feasibility. (5) The origin is $(0, 0)$. Now evaluating the objective function $Z = 3x + 4y$ at each corner point: $Z(0, 0) = 0$, $Z(8, 0) = 3(8) + 4(0) = 24$, $Z(6, 4) = 3(6) + 4(4) = 18 + 16 = 34$, $Z(3, 7) = 3(3) + 4(7) = 9 + 28 = 37$, and $Z(0, 8) = 3(0) + 4(8) = 32$. Therefore, the maximum value is $M = 37$, occurring at $(3, 7)$."
+    },
+    {
+      "id": "lp_c01_011",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A craft studio produces decorative ceramic pots ($x$) and glass vases ($y$). The weekly production is constrained by three resource limitations: kiln baking time $2x + y \\le 12$, clay availability $x + y \\le 7$, and glazing time $x + 2y \\le 12$, along with the non-negativity conditions $x \\ge 0, y \\ge 0$. If each pot contributes a profit of ₹$300$ and each vase contributes ₹$500$, find the vertex $(x_0, y_0)$ of the feasible region that yields the maximum weekly profit.",
+      "options": [
+        "A) $(5, 2)$",
+        "B) $(0, 6)$",
+        "C) $(6, 0)$",
+        "D) $(2, 5)$"
+      ],
+      "answer": "D",
+      "explanation": "The linear programming problem requires maximizing $Z = 300x + 500y$ subject to $2x + y \\le 12$, $x + y \\le 7$, $x + 2y \\le 12$, and $x, y \\ge 0$. We compute the corner points of the feasible polygon: (1) Intersection of $2x + y = 12$ and $x + y = 7$: subtracting yields $x = 5$, whence $y = 2$. Checking glazing time: $5 + 2(2) = 9 \\le 12$, so $(5, 2)$ is feasible. (2) Intersection of $x + y = 7$ and $x + 2y = 12$: subtracting yields $y = 5$, whence $x = 2$. Checking kiln time: $2(2) + 5 = 9 \\le 12$, so $(2, 5)$ is feasible. (3) Line $2x + y = 12$ meets $y = 0$ at $(6, 0)$ (satisfying $6 + 0 \\le 7$ and $6 \\le 12$). (4) Line $x + 2y = 12$ meets $x = 0$ at $(0, 6)$ (satisfying $0 + 6 \\le 7$ and $6 \\le 12$). (5) Origin $(0, 0)$. Evaluating profit $Z$: $Z(0, 0) = 0$, $Z(6, 0) = 300(6) = 1800$, $Z(5, 2) = 300(5) + 500(2) = 1500 + 1000 = 2500$, $Z(0, 6) = 500(6) = 3000$, and $Z(2, 5) = 300(2) + 500(5) = 600 + 2500 = 3100$. Therefore, the maximum weekly profit is ₹$3100$, achieved at the vertex $(2, 5)$. Miscalculating by choosing $(0, 6)$ yields ₹$3000$."
+    },
+    {
+      "id": "lp_c01_012",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A manufacturing plant operates three machines: Machine 1 (Milling), Machine 2 (Lathe), and Machine 3 (Grinding) to produce two specialized components, $K_1$ and $K_2$. The resource requirements per component (in hours) and available weekly hours are given by: Milling $3x + y \\le 21$, Lathe $x + 2y \\le 14$, and Grinding $x + y \\le 9$, with non-negativity $x \\ge 0, y \\ge 0$. The profit function is $Z = 50x + 40y$. At the optimal production schedule $(x^*, y^*)$, which machine has strictly positive unused capacity (slack time), and what is the unused capacity in hours?",
+      "options": [
+        "A) Lathe, with $2$ hours unused",
+        "B) Milling, with $3$ hours unused",
+        "C) Grinding, with $1$ hour unused",
+        "D) Lathe, with $4$ hours unused"
+      ],
+      "answer": "A",
+      "explanation": "We first identify the feasible corner points by solving boundary intersections: (1) Intersection of $3x + y = 21$ and $x + y = 9$: subtracting gives $2x = 12 \\implies x = 6, y = 3$. Testing Lathe: $6 + 2(3) = 12 \\le 14$, so $(6, 3)$ is a feasible corner point. (2) Intersection of $x + 2y = 14$ and $x + y = 9$: subtracting gives $y = 5, x = 4$. Testing Milling: $3(4) + 5 = 17 \\le 21$, so $(4, 5)$ is a feasible corner point. (3) Intercepts: $3x + y = 21$ gives $(7, 0)$ (satisfies $7 \\le 9, 7 \\le 14$); $x + 2y = 14$ gives $(0, 7)$ (satisfies $7 \\le 9, 7 \\le 21$); origin $(0, 0)$. Evaluating profit $Z = 50x + 40y$: $Z(0, 0) = 0$, $Z(7, 0) = 350$, $Z(0, 7) = 280$, $Z(4, 5) = 50(4) + 40(5) = 400$, and $Z(6, 3) = 50(6) + 40(3) = 300 + 120 = 420$. The maximum profit is achieved at $(6, 3)$. Evaluating machine usage at $(6, 3)$: Milling used is $3(6) + 3 = 21$ (slack is $21 - 21 = 0$ hours). Grinding used is $6 + 3 = 9$ (slack is $9 - 9 = 0$ hours). Lathe used is $6 + 2(3) = 12$ (slack is $14 - 12 = 2$ hours). Therefore, Machine 2 (Lathe) has strictly positive unused capacity of $2$ hours."
+    },
+    {
+      "id": "lp_c01_013",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A hospital dietary planner formulates a liquid diet using two nutrient concentrates, $C_1$ and $C_2$. The nutritional requirements specify that the mixture must provide at least $10$ units of iron and at least $11$ units of vitamin B, with constraints $2x + y \\ge 10$, $x + 2y \\ge 11$, and total volume capped at $x + y \\le 12$, where $x, y \\ge 0$. If the cost function per liter is $Z = 4x + 3y$, find the minimum cost (in ₹).",
+      "options": [
+        "A) ₹$30$",
+        "B) ₹$28$",
+        "C) ₹$24$",
+        "D) ₹$20$"
+      ],
+      "answer": "C",
+      "explanation": "We determine the corner points of the bounded feasible polygon defined by $2x + y \\ge 10$, $x + 2y \\ge 11$, $x + y \\le 12$, and $x, y \\ge 0$: (1) Solving $2x + y = 10$ and $x + 2y = 11$: multiplying the first by $2$ gives $4x + 2y = 20$; subtracting the second gives $3x = 9 \\implies x = 3, y = 4$. Checking volume: $3 + 4 = 7 \\le 12$, so $(3, 4)$ is a valid vertex. (2) Boundary along $y$-axis ($x = 0$): $2(0) + y \\ge 10 \\implies y \\ge 10$; $0 + 2y \\ge 11 \\implies y \\ge 5.5$; and $0 + y \\le 12 \\implies y \\le 12$. The boundary vertices on the $y$-axis are $(0, 10)$ and $(0, 12)$. (3) Boundary along $x$-axis ($y = 0$): $2x + 0 \\ge 10 \\implies x \\ge 5$; $x + 0 \\ge 11 \\implies x \\ge 11$; and $x + 0 \\le 12 \\implies x \\le 12$. The boundary vertices on the $x$-axis are $(11, 0)$ and $(12, 0)$. The five vertices of the polygon are $(3, 4)$, $(0, 10)$, $(0, 12)$, $(12, 0)$, and $(11, 0)$. Evaluating $Z = 4x + 3y$: $Z(0, 10) = 30$, $Z(0, 12) = 36$, $Z(12, 0) = 48$, $Z(11, 0) = 44$, and $Z(3, 4) = 4(3) + 3(4) = 12 + 12 = 24$. Therefore, the minimum cost is ₹$24$, attained at $(3, 4)$. Evaluating at $(0, 10)$ without finding the internal vertex gives ₹$30$."
+    },
+    {
+      "id": "lp_c01_014",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A garment manufacturer produces casual shirts and formal trousers. Each shirt requires $1.5\\text{ m}$ of cotton cloth and $1\\text{ hour}$ of tailoring. Each pair of trousers requires $2\\text{ m}$ of cotton cloth and $2\\text{ hours}$ of tailoring. The factory has at most $120\\text{ m}$ of cotton cloth and at most $90\\text{ hours}$ of tailoring available per day. If each shirt generates a profit of ₹$150$ and each pair of trousers generates ₹$220$, find the maximum daily profit (in ₹) that the factory can earn.",
+      "options": [
+        "A) ₹$12{,}000$",
+        "B) ₹$12{,}300$",
+        "C) ₹$11{,}800$",
+        "D) ₹$12{,}500$"
+      ],
+      "answer": "B",
+      "explanation": "Let $x$ be the number of shirts and $y$ be the number of pairs of trousers produced. The objective function to maximize is profit $Z = 150x + 220y$. The constraints are cloth $1.5x + 2y \\le 120 \\implies 3x + 4y \\le 240$, tailoring $x + 2y \\le 90$, with $x \\ge 0, y \\ge 0$. Solving the boundary equations: multiply $x + 2y = 90$ by $2$ to obtain $2x + 4y = 180$. Subtracting this from $3x + 4y = 240$ gives $x = 60$. Substituting $x = 60$ into $x + 2y = 90$ yields $60 + 2y = 90 \\implies 2y = 30 \\implies y = 15$. The corner points of the bounded feasible polygon are $(0, 0)$, $(80, 0)$ from the $x$-intercept of $3x + 4y = 240$, $(60, 15)$ from the intersection, and $(0, 45)$ from the $y$-intercept of $x + 2y = 90$. Evaluating $Z$: $Z(0, 0) = 0$, $Z(80, 0) = 150(80) = 12{,}000$, $Z(0, 45) = 220(45) = 9{,}900$, and $Z(60, 15) = 150(60) + 220(15) = 9000 + 3300 = 12{,}300$. Therefore, the maximum daily profit is ₹$12{,}300$, achieved at $(60, 15)$. Producing only shirts yields ₹$12{,}000$."
+    },
+    {
+      "id": "lp_c01_015",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A bounded feasible region $\\mathcal{S}$ is defined by the linear constraints $x + 2y \\le 12$, $3x + 2y \\le 24$, $x \\ge 0$, and $y \\ge 0$. The objective function $Z = 5x + 4y$ achieves its maximum value over $\\mathcal{S}$ at the unique corner point $(x_0, y_0)$. Determine the value of $x_0^2 + y_0^2$.",
+      "options": [],
+      "answer": "45",
+      "explanation": "To find the optimal corner point $(x_0, y_0)$, we solve for all vertices of the bounded feasible region $\\mathcal{S}$: (1) The intersection of $x + 2y = 12$ and $3x + 2y = 24$ is found by subtracting the first equation from the second: $2x = 12 \\implies x = 6$. Substituting $x = 6$ into $x + 2y = 12$ gives $6 + 2y = 12 \\implies 2y = 6 \\implies y = 3$. Thus, the intersection is $(6, 3)$. (2) The $x$-intercept of $3x + 2y = 24$ is $(8, 0)$; checking the other constraint: $8 + 2(0) = 8 \\le 12$, which is satisfied. (3) The $y$-intercept of $x + 2y = 12$ is $(0, 6)$; checking $3(0) + 2(6) = 12 \\le 24$, which is satisfied. (4) The origin is $(0, 0)$. Evaluating $Z = 5x + 4y$ at each corner point: $Z(0, 0) = 0$, $Z(8, 0) = 5(8) + 4(0) = 40$, $Z(0, 6) = 5(0) + 4(6) = 24$, and $Z(6, 3) = 5(6) + 4(3) = 30 + 12 = 42$. The maximum value $Z_{\\max} = 42$ is uniquely achieved at $(x_0, y_0) = (6, 3)$. Calculating $x_0^2 + y_0^2$: $x_0^2 + y_0^2 = 6^2 + 3^2 = 36 + 9 = 45$."
+    },
+    {
+      "id": "lp_c01_016",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the unbounded feasible region defined by the system of linear inequalities $x + 2y \\ge 10$, $3x + 4y \\ge 24$, $x \\ge 0$, and $y \\ge 0$. Find the minimum value of the objective function $Z = 200x + 500y$ over this region, or determine if it does not exist.",
+      "options": [
+        "A) Minimum does not exist because the feasible region is unbounded",
+        "B) Minimum exists and is equal to $2300$",
+        "C) Minimum exists and is equal to $2000$",
+        "D) Minimum exists and is equal to $3000$"
+      ],
+      "answer": "C",
+      "explanation": "We find the corner points of the unbounded feasible region: (1) Intersection of $x + 2y = 10$ and $3x + 4y = 24$: multiplying the first equation by $2$ gives $2x + 4y = 20$. Subtracting this from $3x + 4y = 24$ gives $x = 4$, which implies $y = 3$. (2) The $y$-intercept of $3x + 4y = 24$ is $(0, 6)$; checking $0 + 2(6) = 12 \\ge 10$, so $(0, 6)$ is feasible. (3) The $x$-intercept of $x + 2y = 10$ is $(10, 0)$; checking $3(10) + 4(0) = 30 \\ge 24$, so $(10, 0)$ is feasible. Evaluating $Z = 200x + 500y$ at the corner points: $Z(0, 6) = 200(0) + 500(6) = 3000$, $Z(4, 3) = 200(4) + 500(3) = 800 + 1500 = 2300$, and $Z(10, 0) = 200(10) + 500(0) = 2000$. The smallest value at the corner points is $m = 2000$. Because the feasible region is unbounded, we must test whether the open half-plane $200x + 500y < 2000$, which simplifies to $2x + 5y < 20$, has any point in common with the feasible region. In the feasible region, $x + 2y \\ge 10 \\implies 2x + 4y \\ge 20$. Since $y \\ge 0$, $2x + 5y = (2x + 4y) + y \\ge 20 + 0 = 20$. Hence $2x + 5y \\ge 20$ for every feasible point, meaning the open half-plane $2x + 5y < 20$ contains no feasible points. Therefore, the minimum exists and is strictly equal to $2000$ at $(10, 0)$."
+    },
+    {
+      "id": "lp_c01_017",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the linear programming problem of maximizing $Z = 3x + 4y$ subject to $x - y \\le 2$, $x + 2y \\ge 4$, $x \\ge 0$, and $y \\ge 0$. Which of the following conclusions regarding the optimal solution of this problem is correct?",
+      "options": [
+        "A) The maximum value is $22$ achieved at $(4,2)$",
+        "B) The objective function has no finite maximum because it is unbounded above",
+        "C) The maximum value is $16$ achieved at $(0,4)$",
+        "D) The maximum value is $18$ achieved at $(2,3)$"
+      ],
+      "answer": "B",
+      "explanation": "We analyze the feasible region defined by $x - y \\le 2$, $x + 2y \\ge 4$, $x \\ge 0$, and $y \\ge 0$. The region is unbounded in the first quadrant. Consider points along the ray $y = x$ for $x \\ge 4$. For any such point, $x - y = 0 \\le 2$ is satisfied, and $x + 2y = 3x \\ge 12 \\ge 4$ is satisfied, while $x \\ge 0, y \\ge 0$ hold. Substituting $y = x$ into the objective function yields $Z = 3x + 4x = 7x$. As $x \\to \\infty$, $Z \\to +\\infty$. Consequently, for any arbitrarily large positive real number $M$, the open half-plane $3x + 4y > M$ contains infinitely many feasible points. Therefore, the objective function is unbounded above on the feasible region, and no finite maximum value exists. Assuming an extremum must occur at one of the boundary vertices without testing ray directions is a major conceptual error."
+    },
+    {
+      "id": "lp_c01_018",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A bounded feasible region is defined by the constraints $2x + 3y \\le 18$, $x + y \\le 7$, $x \\ge 0$, and $y \\ge 0$. If the objective function $Z = ax + 6y$ (where $a > 0$) achieves its maximum value at every point on the line segment connecting $(0, 6)$ and $(3, 4)$, determine the value of the parameter $a$.",
+      "options": [
+        "A) $a = 3$",
+        "B) $a = 6$",
+        "C) $a = 2$",
+        "D) $a = 4$"
+      ],
+      "answer": "D",
+      "explanation": "The vertices of the bounded region are $(0, 0)$, $(7, 0)$, $(3, 4)$, and $(0, 6)$. The line segment connecting $(0, 6)$ and $(3, 4)$ lies on the boundary line $2x + 3y = 18$. The slope of this bounding edge is $m = -\\frac{2}{3}$. The level curves of the objective function $Z = ax + 6y$ are given by lines $ax + 6y = c$, with slope $-\\frac{a}{6}$. For the objective function to take the same constant maximum value along the entire line segment connecting $(0, 6)$ and $(3, 4)$, the level curves must be parallel to the bounding edge $2x + 3y = 18$. Equating slopes gives $-\\frac{a}{6} = -\\frac{2}{3} \\implies a = 4$. Substituting $a = 4$ into $Z$ gives $Z = 4x + 6y = 2(2x + 3y)$. Along the segment where $2x + 3y = 18$, we have $Z = 2(18) = 36$. Evaluating at the remaining vertices: $Z(0, 0) = 0 < 36$ and $Z(7, 0) = 4(7) + 0 = 28 < 36$. Therefore, $36$ is indeed the maximum value, and it is attained at every point on the segment. Setting slopes equal to $-1$ from the other edge gives $a = 6$, which corresponds to the segment connecting $(3, 4)$ and $(7, 0)$ instead."
+    },
+    {
+      "id": "lp_c01_019",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Consider the feasible convex polygon with vertices $O(0,0)$, $A(6,0)$, $B(5,3)$, $C(2,6)$, and $D(0,5)$. The objective function is $Z = 3x + ky$, where $k$ is a positive integer. If the maximum value of $Z$ over this polygon is attained simultaneously at both vertices $B(5,3)$ and $C(2,6)$, find the integer value of $k$.",
+      "options": [],
+      "answer": "3",
+      "explanation": "If the maximum value of $Z = 3x + ky$ occurs at both vertices $B(5, 3)$ and $C(2, 6)$, the objective function values at these two points must be equal: $Z(B) = Z(C) \\implies 3(5) + k(3) = 3(2) + k(6)$. Simplifying gives $15 + 3k = 6 + 6k \\implies 3k = 9 \\implies k = 3$. Geometrically, this means the level lines $3x + ky = c$ must have the same slope as the line segment joining $B(5, 3)$ and $C(2, 6)$. The slope of segment $BC$ is $m = \\frac{6 - 3}{2 - 5} = \\frac{3}{-3} = -1$, and the slope of the level line is $-\\frac{3}{k}$. Equating them gives $-\\frac{3}{k} = -1 \\implies k = 3$. Now we verify that $k = 3$ yields the global maximum over all vertices: $Z = 3x + 3y = 3(x + y)$. Evaluating: $Z(O) = 0$, $Z(A) = 3(6 + 0) = 18$, $Z(B) = 3(5 + 3) = 24$, $Z(C) = 3(2 + 6) = 24$, and $Z(D) = 3(0 + 5) = 15$. Since $24 > 18, 15, 0$, the maximum value is indeed $24$, achieved at both $B$ and $C$ (and everywhere along the segment $BC$). The integer value of $k$ is 3."
+    },
+    {
+      "id": "lp_c01_020",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a linear programming formulation, a system of linear constraints in the first quadrant is given by: (1) $x + y \\ge 4$, (2) $2x + 3y \\ge 6$, and (3) $x + 2y \\ge 5$, with non-negativity conditions $x \\ge 0, y \\ge 0$. Which of these constraints is completely redundant, in the sense that removing it leaves the feasible region unchanged?",
+      "options": [
+        "A) $2x + 3y \\ge 6$",
+        "B) $x + y \\ge 4$",
+        "C) $x + 2y \\ge 5$",
+        "D) None of the inequalities is redundant"
+      ],
+      "answer": "A",
+      "explanation": "A constraint is redundant if every point satisfying the other constraints automatically satisfies it. Consider constraint (1) $x + y \\ge 4$ and non-negativity $x \\ge 0, y \\ge 0$. We can rewrite the expression $2x + 3y$ as $2(x + y) + y$. Since $x + y \\ge 4$ and $y \\ge 0$, we have $2x + 3y = 2(x + y) + y \\ge 2(4) + 0 = 8$. Since $8 > 6$, the inequality $2x + 3y \\ge 6$ is strictly satisfied for all points satisfying $x + y \\ge 4$ and $y \\ge 0$. Therefore, constraint (2) $2x + 3y \\ge 6$ plays no role in defining the boundary of the feasible region. To confirm whether (1) or (3) are redundant: the point $(4, 0)$ satisfies (1) with $4 + 0 = 4 \\ge 4$, but gives $4 + 2(0) = 4 < 5$, violating (3); hence (3) actively truncates the region. Similarly, the point $(0, 3)$ satisfies $0 + 2(3) = 6 \\ge 5$ and $2(0) + 3(3) = 9 \\ge 6$, but violates $x + y \\ge 4$; hence (1) actively truncates the region. Thus, only $2x + 3y \\ge 6$ is redundant."
+    },
+    {
+      "id": "lp_c01_021",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the objective function $Z = x - 2y$ subject to the constraints $x - y \\ge -1$, $x + y \\ge 3$, $x \\ge 0$, and $y \\ge 0$. Which of the following conclusions regarding the minimum value of $Z$ is mathematically correct?",
+      "options": [
+        "A) Minimum is $-3$ achieved at $(1,2)$",
+        "B) Minimum is $3$ achieved at $(3,0)$",
+        "C) Minimum does not exist because $Z$ is unbounded below on the feasible region",
+        "D) Minimum is $0$ achieved at the origin"
+      ],
+      "answer": "C",
+      "explanation": "We analyze the feasible region defined by $x - y \\ge -1$ (or $y \\le x + 1$), $x + y \\ge 3$, $x \\ge 0, y \\ge 0$. Solving the intersection of $x - y = -1$ and $x + y = 3$: adding gives $2x = 2 \\implies x = 1, y = 2$. The line $x + y = 3$ meets the $x$-axis at $(3, 0)$, where $3 - 0 = 3 \\ge -1$. The corner points of the boundary are $(3, 0)$ and $(1, 2)$. Evaluating $Z = x - 2y$ at these corner points: $Z(3, 0) = 3 - 0 = 3$, and $Z(1, 2) = 1 - 2(2) = -3$. The candidate minimum value from corner points is $-3$. However, the feasible region is unbounded as $x, y \\to \\infty$. Consider the ray along the boundary line $y = x + 1$ for $x \\ge 1$. For any point on this ray: $x + y = 2x + 1 \\ge 3$ is satisfied. Substituting $y = x + 1$ into $Z$: $Z = x - 2(x + 1) = -x - 2$. As $x \\to +\\infty$, $Z \\to -\\infty$. Hence, the open half-plane $x - 2y < -3$ contains points of the feasible region for all $x > 1$. Therefore, $Z$ is unbounded below, and no minimum value exists. Mistakenly applying the corner point method without checking unboundedness leads to the incorrect choice $-3$."
+    },
+    {
+      "id": "lp_c01_022",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Consider the feasible region defined by $x + y \\le 8$, $2x + y \\le 12$, $x \\ge 0$, and $y \\ge 0$. The corner points are $(0, 0)$, $(6, 0)$, $(4, 4)$, and $(0, 8)$. Let the objective function be $Z = \\lambda x + y$, where $\\lambda > 0$. If $Z$ attains its unique maximum at the corner point $(4, 4)$, then $\\lambda$ must lie in the open interval $(a, b)$. Determine the integer value of $10(a + b)$.",
+      "options": [],
+      "answer": "30",
+      "explanation": "The two boundary edges of the polygon that meet at the corner point $(4, 4)$ lie on the lines $x + y = 8$ and $2x + y = 12$. The edge connecting $(0, 8)$ to $(4, 4)$ has slope $m_1 = \\frac{4 - 8}{4 - 0} = -1$. The edge connecting $(4, 4)$ to $(6, 0)$ has slope $m_2 = \\frac{0 - 4}{6 - 4} = -2$. The level curves of the objective function $Z = \\lambda x + y$ are given by lines $\\lambda x + y = c \\implies y = -\\lambda x + c$, with slope $m_Z = -\\lambda$. For $(4, 4)$ to be the strict and unique maximum vertex, the level line must not be parallel to either adjacent edge, and its slope must lie strictly between the slopes of the two bounding edges: $m_2 < m_Z < m_1 \\implies -2 < -\\lambda < -1$. Multiplying by $-1$ reverses the inequalities, giving $1 < \\lambda < 2$. Thus, the open interval of optimality is $(a, b) = (1, 2)$, so $a = 1$ and $b = 2$. Calculating $10(a + b)$: $10(1 + 2) = 10(3) = 30$."
+    },
+    {
+      "id": "lp_c01_023",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the linear programming formulation: Maximize $Z = 5x + 7y$ subject to $2x + 3y \\le 6$, $x + y \\ge 4$, $x \\ge 0$, and $y \\ge 0$. What is the nature of the solution to this optimization problem?",
+      "options": [
+        "A) Maximum is $15$ at $(3,0)$",
+        "B) Maximum is $14$ at $(0,2)$",
+        "C) Feasible region is empty, so no optimal solution exists",
+        "D) Feasible region is unbounded, so maximum does not exist"
+      ],
+      "answer": "C",
+      "explanation": "We examine the simultaneous feasibility of the given constraints in the first quadrant ($x \\ge 0, y \\ge 0$). For any non-negative values of $x$ and $y$, we have $2x + 3y = 2(x + y) + y \\ge 2(x + y)$. Given the second constraint $x + y \\ge 4$, it follows that $2x + 3y \\ge 2(4) = 8$. However, the first constraint strictly demands that $2x + 3y \\le 6$. Combining these two requirements yields the inequality chain $8 \\le 2x + 3y \\le 6$, which implies $8 \\le 6$, an impossible contradiction. Geometrically, the half-plane $2x + 3y \\le 6$ lies entirely below the line $2x + 3y = 6$ (with intercepts $(3, 0)$ and $(0, 2)$), whereas the half-plane $x + y \\ge 4$ lies entirely above the line $x + y = 4$ (with intercepts $(4, 0)$ and $(0, 4)$). Because these two closed half-planes are mutually disjoint in the first quadrant, their intersection is empty. Hence, the feasible region is empty (the problem is infeasible), and no optimal solution exists."
+    },
+    {
+      "id": "lp_c01_024",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A feasible region is defined by $x + 2y \\le 10$, $3x + y \\le 15$, $x \\ge 0$, and $y \\ge 0$. The corner points are $(0, 0)$, $(5, 0)$, $(4, 3)$, and $(0, 5)$. If the objective function $Z = 6x + ky$ attains its maximum value at every point on the line segment joining $(5, 0)$ and $(4, 3)$, determine the value of $k$.",
+      "options": [
+        "A) $k = 4$",
+        "B) $k = 2$",
+        "C) $k = 3$",
+        "D) $k = 1$"
+      ],
+      "answer": "B",
+      "explanation": "The line segment connecting $(5, 0)$ and $(4, 3)$ lies on the boundary line $3x + y = 15$. The slope of this line is $m = -3$. For the objective function $Z = 6x + ky$ to attain its maximum at every point on this line segment, the level lines $6x + ky = c$ must have the exact same slope as the boundary line. The slope of the level line is $-\\frac{6}{k}$. Equating slopes: $-\\frac{6}{k} = -3 \\implies 3k = 6 \\implies k = 2$. With $k = 2$, the objective function is $Z = 6x + 2y = 2(3x + y)$. For any point on the segment, $3x + y = 15$, giving $Z = 2(15) = 30$. We check the remaining vertices: $Z(0, 0) = 0 < 30$, and $Z(0, 5) = 6(0) + 2(5) = 10 < 30$. Thus, $30$ is indeed the global maximum, and it is achieved simultaneously at all convex combinations of $(5, 0)$ and $(4, 3)$. Choosing $k = 4$ erroneously matches the other boundary line $x + 2y = 10$."
+    },
+    {
+      "id": "lp_c01_025",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Consider the feasible polygon $\\mathcal{P}$ defined by the linear inequalities $x \\ge 0$, $y \\ge 0$, $2x + y \\le 12$, $x + y \\le 7$, $x + 2y \\le 12$, and $x + y \\le 10$. Determine the number of non-redundant boundary edges (line segments) forming the perimeter of $\\mathcal{P}$.",
+      "options": [],
+      "answer": "5",
+      "explanation": "We first evaluate the constraint $x + y \\le 10$. Since every point in $\\mathcal{P}$ satisfies $x + y \\le 7$, and $7 < 10$, the inequality $x + y \\le 10$ is strictly redundant and plays no role in defining the boundary of $\\mathcal{P}$. Now we solve for the boundary vertices formed by the remaining non-trivial constraints: (1) $x = 0$ and $y = 0$ intersect at $(0, 0)$. (2) $y = 0$ and $2x + y = 12$ intersect at $(6, 0)$ (verifying $6 + 0 \\le 7$ and $6 + 0 \\le 12$). (3) $2x + y = 12$ and $x + y = 7$ intersect by subtracting, giving $x = 5, y = 2$ (verifying $5 + 2(2) = 9 \\le 12$). (4) $x + y = 7$ and $x + 2y = 12$ intersect by subtracting, giving $y = 5, x = 2$ (verifying $2(2) + 5 = 9 \\le 12$). (5) $x + 2y = 12$ and $x = 0$ intersect at $(0, 6)$ (verifying $0 + 6 \\le 7$ and $2(0) + 6 \\le 12$). The vertices in cyclic order are $(0, 0)$, $(6, 0)$, $(5, 2)$, $(2, 5)$, and $(0, 6)$. This defines a convex pentagon bounded by five distinct line segments: $[(0,0), (6,0)]$, $[(6,0), (5,2)]$, $[(5,2), (2,5)]$, $[(2,5), (0,6)]$, and $[(0,6), (0,0)]$. Thus, the number of non-redundant boundary edges is 5."
+    },
+    {
+      "id": "lp_c01_026",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the minimum value of $Z = 3x + 2y$ subject to the constraints $x + y \\ge 4$, $x + 3y \\ge 6$, $x \\ge 0$, and $y \\ge 0$, or establish that no minimum exists.",
+      "options": [
+        "A) $11$",
+        "B) $6$",
+        "C) No minimum exists because the region is unbounded",
+        "D) $8$"
+      ],
+      "answer": "D",
+      "explanation": "We determine the corner points of the unbounded region defined by $x + y \\ge 4$, $x + 3y \\ge 6$, $x \\ge 0, y \\ge 0$: (1) Intersection of $x + y = 4$ and $x + 3y = 6$: subtracting the first from the second gives $2y = 2 \\implies y = 1$, which yields $x = 3$. Point is $(3, 1)$. (2) The $y$-intercept of $x + y = 4$ is $(0, 4)$ (checking $0 + 3(4) = 12 \\ge 6$). (3) The $x$-intercept of $x + 3y = 6$ is $(6, 0)$ (checking $6 + 0 \\ge 4$). Corner points are $(0, 4)$, $(3, 1)$, and $(6, 0)$. Evaluating $Z = 3x + 2y$: $Z(0, 4) = 3(0) + 2(4) = 8$, $Z(3, 1) = 3(3) + 2(1) = 11$, and $Z(6, 0) = 3(6) + 2(0) = 18$. The smallest candidate value is $m = 8$ at $(0, 4)$. Because the region is unbounded, we must test whether the open half-plane $3x + 2y < 8$ has any point in common with the feasible region. For any point in the region, $x + y \\ge 4 \\implies y \\ge 4 - x$. Substituting this gives $3x + 2y \\ge 3x + 2(4 - x) = x + 8$. Since $x \\ge 0$, $x + 8 \\ge 8$. Hence $3x + 2y \\ge 8$ holds for all feasible points. Therefore, the open half-plane $3x + 2y < 8$ has no common points with the feasible region, confirming that the minimum value is $8$."
+    },
+    {
+      "id": "lp_c01_027",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the feasible region defined by $2x + y \\le 12$, $x + 2y \\le c$, $x \\ge 0$, and $y \\ge 0$, where $c > 0$ is a real parameter. Find the minimum value of $c$ such that the constraint $x + 2y \\le c$ becomes completely redundant.",
+      "options": [
+        "A) $12$",
+        "B) $24$",
+        "C) $18$",
+        "D) $36$"
+      ],
+      "answer": "B",
+      "explanation": "A constraint $x + 2y \\le c$ is completely redundant if and only if it is satisfied by every point belonging to the region $\\mathcal{T} = \\{(x, y) \\in \\mathbb{R}^2 \\mid 2x + y \\le 12, x \\ge 0, y \\ge 0\\}$. The region $\\mathcal{T}$ is a right-angled triangle with vertices $(0, 0)$, $(6, 0)$, and $(0, 12)$. By the Fundamental Theorem of Linear Programming, the linear function $f(x, y) = x + 2y$ achieves its maximum over the bounded convex polygon $\\mathcal{T}$ at one of its vertices. Evaluating $f(x, y)$ at the vertices: $f(0, 0) = 0$, $f(6, 0) = 6 + 0 = 6$, and $f(0, 12) = 0 + 2(12) = 24$. Thus, the maximum value of $x + 2y$ over $\\mathcal{T}$ is $24$. For $x + 2y \\le c$ to hold for all $(x, y) \\in \\mathcal{T}$, we must have $c \\ge \\max_{(x, y) \\in \\mathcal{T}} (x + 2y) = 24$. Therefore, the minimum threshold value is $c = 24$. Setting $c = 12$ restricts the region, cutting off $(0, 12)$."
+    },
+    {
+      "id": "lp_c01_028",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $\\mathcal{F}$ be the bounded feasible region defined by the system of inequalities $|x - 3| + |y - 3| \\le 2$. Determine the maximum value of the linear objective function $Z = 4x + 3y$ over $\\mathcal{F}$.",
+      "options": [],
+      "answer": "29",
+      "explanation": "The inequality $|x - 3| + |y - 3| \\le 2$ defines a square region in the Cartesian plane centered at $(3, 3)$ with diagonals parallel to the coordinate axes. The four extreme points (vertices) of this convex region are obtained by setting one absolute value to $2$ and the other to $0$: (1) When $y - 3 = 0 \\implies y = 3$, $|x - 3| = 2 \\implies x = 5$ or $x = 1$, giving vertices $(5, 3)$ and $(1, 3)$. (2) When $x - 3 = 0 \\implies x = 3$, $|y - 3| = 2 \\implies y = 5$ or $y = 1$, giving vertices $(3, 5)$ and $(3, 1)$. The four vertices are $(5, 3)$, $(3, 5)$, $(1, 3)$, and $(3, 1)$. Evaluating the linear objective function $Z = 4x + 3y$ at each vertex: $Z(5, 3) = 4(5) + 3(3) = 20 + 9 = 29$, $Z(3, 5) = 4(3) + 3(5) = 12 + 15 = 27$, $Z(1, 3) = 4(1) + 3(3) = 4 + 9 = 13$, and $Z(3, 1) = 4(3) + 3(1) = 12 + 3 = 15$. By the Fundamental Theorem of Linear Programming, the global maximum occurs at an extreme point. Therefore, the maximum value of $Z$ over $\\mathcal{F}$ is 29."
+    },
+    {
+      "id": "lp_c01_029",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the linear programming problem: Maximize $Z = 3x + 2y$ subject to $x + y \\le 6$, $2x + y \\le 8$, $3x + 2y \\le 14$, $x \\ge 0$, and $y \\ge 0$. Notice that the three lines $x + y = 6$, $2x + y = 8$, and $3x + 2y = 14$ all pass through the common point $(2, 4)$. In linear programming theory, a basic feasible solution where more than two active constraint boundary lines intersect at a single vertex in $\\mathbb{R}^2$ is formally classified as:",
+      "options": [
+        "A) A degenerate basic feasible solution",
+        "B) An infeasible solution",
+        "C) An unbounded solution",
+        "D) An irregular non-convex solution"
+      ],
+      "answer": "A",
+      "explanation": "In an $n$-variable linear programming problem in standard form, a basic feasible solution (BFS) is obtained by setting $n - m$ variables to zero and solving for the $m$ basic variables. In a two-variable problem ($n = 2$), each corner point corresponds to the intersection of two active constraint boundaries (slacks equal to zero). When three or more constraint boundary lines simultaneously pass through the exact same vertex, at least one of the basic variables in the basis is zero. By definition, a basic feasible solution in which one or more basic variables equal zero is called a degenerate basic feasible solution. Geometrically, degeneracy means that the vertex is overdetermined by active constraints, which can lead to cycling in the Simplex algorithm. It does not imply infeasibility or unboundedness, as the region remains convex and bounded."
+    },
+    {
+      "id": "lp_c01_030",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the optimization problem: Minimize $Z = 2x - 5y$ subject to $x - y \\ge -2$, $x + y \\ge 2$, $x \\ge 0$, and $y \\ge 0$. Determine the minimum value of $Z$, or state why it does not exist.",
+      "options": [
+        "A) $-10$",
+        "B) $-14$",
+        "C) Minimum does not exist because $Z$ is unbounded below",
+        "D) $4$"
+      ],
+      "answer": "C",
+      "explanation": "We identify the boundary equations: $x - y = -2 \\implies y = x + 2$, and $x + y = 2$. Solving for their intersection: adding the two equations yields $2x = 0 \\implies x = 0, y = 2$. The line $x + y = 2$ meets the $x$-axis at $(2, 0)$ (which satisfies $2 - 0 = 2 \\ge -2$). The corner points along the boundary are $(0, 2)$ and $(2, 0)$. Evaluating $Z = 2x - 5y$ at these corner points: $Z(0, 2) = 2(0) - 5(2) = -10$, and $Z(2, 0) = 2(2) - 5(0) = 4$. The candidate minimum value from the vertices is $-10$. However, the feasible region is unbounded in the first quadrant. Along the ray $y = x + 2$ for $x \\ge 0$, the constraints are fully satisfied because $x + y = 2x + 2 \\ge 2$. Substituting $y = x + 2$ into the objective function gives $Z = 2x - 5(x + 2) = -3x - 10$. As $x \\to +\\infty$, $Z \\to -\\infty$. Thus, the open half-plane $2x - 5y < -10$ contains feasible points for all $x > 0$. Therefore, $Z$ is unbounded below, and no minimum value exists."
+    },
+    {
+      "id": "lp_c01_031",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Consider the feasible region defined by $x + y \\le 6$, $x + 2y \\le 8$, $x \\ge 0$, and $y \\ge 0$. The corner points are $(0, 0)$, $(6, 0)$, $(4, 2)$, and $(0, 4)$. The objective function is $Z = px + 4y$, where $p$ is an integer. If the maximum value of $Z$ over this region is equal to $20$ and is attained at the corner point $(4, 2)$, determine the value of $p$.",
+      "options": [],
+      "answer": "3",
+      "explanation": "Given that the objective function $Z = px + 4y$ achieves its maximum value of $20$ at $(4, 2)$, we substitute the coordinates $(4, 2)$ into the objective function: $Z(4, 2) = p(4) + 4(2) = 4p + 8$. Setting this equal to $20$ gives $4p + 8 = 20 \\implies 4p = 12 \\implies p = 3$. Now we verify that $p = 3$ is consistent with $(4, 2)$ being the maximum corner point over the entire feasible region: At $(0, 0)$: $Z = 0 < 20$. At $(6, 0)$: $Z = 3(6) + 4(0) = 18 < 20$. At $(0, 4)$: $Z = 3(0) + 4(4) = 16 < 20$. Since $20$ is strictly greater than $18$, $16$, and $0$, the vertex $(4, 2)$ is indeed the unique maximum. Thus, the integer value of $p$ is 3."
+    },
+    {
+      "id": "lp_c01_032",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The feasible region $\\mathcal{R}$ is defined by $x + 2y \\le 10$, $2x + y \\le 10$, $x \\ge 0$, and $y \\ge 0$. If the objective function $Z = kx + 4y$ attains its maximum value at every point on the line segment connecting $(0, 5)$ and $(2, 4)$, determine the value of $k$.",
+      "options": [
+        "A) $k = 8$",
+        "B) $k = 1$",
+        "C) $k = 4$",
+        "D) $k = 2$"
+      ],
+      "answer": "D",
+      "explanation": "The line segment connecting $(0, 5)$ and $(2, 4)$ lies along the boundary line $x + 2y = 10$. The slope of this line is $m = -\\frac{1}{2}$. The level curves of the objective function $Z = kx + 4y$ have the equation $kx + 4y = c$, with slope $-\\frac{k}{4}$. For the maximum value to be achieved at every point along the line segment, the level lines must be parallel to the bounding edge $x + 2y = 10$. Equating their slopes: $-\\frac{k}{4} = -\\frac{1}{2} \\implies k = 2$. With $k = 2$, the objective function is $Z = 2x + 4y = 2(x + 2y)$. For any point on the segment, $x + 2y = 10$, so $Z = 2(10) = 20$. We verify the remaining vertices of the region: at $(0, 0)$, $Z = 0$; at $(5, 0)$, $Z = 2(5) + 0 = 10$. Since $20 > 10 > 0$, the maximum value is indeed $20$, attained at all points on the segment. Setting $k = 8$ aligns with the other edge $2x + y = 10$ connecting $(2, 4)$ and $(5, 0)$."
+    },
+    {
+      "id": "lp_c01_033",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the linear program: Maximize $Z = 3x + 2y$ subject to $x + y \\le 8$, $2x + y \\le 12$, $x \\ge 0$, and $y \\ge 0$. The optimal solution is $(x^*, y^*) = (4, 4)$ with optimal profit $Z^* = 20$. If the right-hand side of the first constraint is changed from $8$ to $8 + \\Delta b_1$ (for sufficiently small $\\Delta b_1$), determine the instantaneous rate of increase $\\frac{\\partial Z^*}{\\partial b_1}$.",
+      "options": [
+        "A) $1$",
+        "B) $2$",
+        "C) $3$",
+        "D) $0.5$"
+      ],
+      "answer": "A",
+      "explanation": "At optimality, both constraints $x + y = 8$ and $2x + y = 12$ are binding (slacks are zero), since $4 + 4 = 8$ and $2(4) + 4 = 12$. When the first right-hand side is perturbed by $\\Delta b_1$, the active system becomes: (1) $x + y = 8 + \\Delta b_1$, (2) $2x + y = 12$. Subtracting equation (1) from equation (2) gives $x = 4 - \\Delta b_1$. Substituting this into equation (2) yields $y = 12 - 2(4 - \\Delta b_1) = 4 + 2\\Delta b_1$. Substituting these perturbed coordinates into the objective function gives $Z^*(\\Delta b_1) = 3(4 - \\Delta b_1) + 2(4 + 2\\Delta b_1) = 12 - 3\\Delta b_1 + 8 + 4\\Delta b_1 = 20 + \\Delta b_1$. Taking the derivative with respect to $b_1$: $\\frac{\\partial Z^*}{\\partial b_1} = 1$. In linear programming theory, this rate is known as the shadow price (or dual variable value) of the first constraint. Hence, the rate of increase is $1$."
+    },
+    {
+      "id": "lp_c01_034",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\mathcal{S}$ be a non-empty feasible region defined by a set of linear inequalities in $\\mathbb{R}^2$, and let $Z = ax + by$ be a linear objective function. Which of the following general theoretical statements is mathematically FALSE?",
+      "options": [
+        "A) The feasible region defined by linear inequalities is always a convex set",
+        "B) If the feasible region is unbounded, the objective function can never achieve a finite minimum",
+        "C) If the optimal value is attained at two distinct vertices, it is also attained at every point on the segment connecting them",
+        "D) The extreme points of the feasible region correspond to basic feasible solutions"
+      ],
+      "answer": "B",
+      "explanation": "Statement B is false because an unbounded feasible region CAN achieve a finite minimum (or maximum) provided the objective function's level curves do not decrease indefinitely along the unbounded directions. For example, minimizing $Z = x + y$ over $x \\ge 1, y \\ge 1$ achieves a finite minimum of $2$ at $(1, 1)$, even though the region is unbounded. Statements A, C, and D are standard correct theorems: the intersection of closed half-planes is always convex (A); linearity of $Z$ implies that any convex combination of optimal vertices yields the same optimal value (C); and the extreme points of the polyhedron correspond algebraically to basic feasible solutions (D)."
+    },
+    {
+      "id": "lp_c01_035",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A bounded feasible polygon has five consecutive vertices: $A(1,2)$, $B(4,1)$, $C(6,4)$, $D(3,6)$, and $E(1,5)$. The objective function is $Z = x + ky$. For which range of the parameter $k$ does $Z$ attain its unique maximum at the vertex $C(6,4)$?",
+      "options": [
+        "A) $\\left(-\\frac{2}{3}, \\frac{3}{2}\\right)$",
+        "B) $\\left(1, 3\\right)$",
+        "C) $\\left(-\\frac{1}{2}, 2\\right)$",
+        "D) $\\left(0, \\frac{3}{2}\\right)$"
+      ],
+      "answer": "A",
+      "explanation": "For $C(6, 4)$ to be the strict maximum, the objective function value at $C$ must be strictly greater than at all adjacent vertices $B(4, 1)$ and $D(3, 6)$: (1) Comparing with $B(4, 1)$: $Z(C) > Z(B) \\implies 6 + 4k > 4 + k \\implies 3k > -2 \\implies k > -\\frac{2}{3}$. (2) Comparing with $D(3, 6)$: $Z(C) > Z(D) \\implies 6 + 4k > 3 + 6k \\implies 2k < 3 \\implies k < \\frac{3}{2}$. We also verify non-adjacent vertices: at $A(1, 2)$, $Z(C) > Z(A) \\implies 6 + 4k > 1 + 2k \\implies 2k > -5 \\implies k > -2.5$; at $E(1, 5)$, $Z(C) > Z(E) \\implies 6 + 4k > 1 + 5k \\implies k < 5$. Taking the intersection of all four inequalities yields the interval $-\\frac{2}{3} < k < \\frac{3}{2}$. Geometrically, the normal vector of the level lines $(1, k)$ must lie within the normal cone of the polygon at vertex $C$. Therefore, the required range of $k$ is $\\left(-\\frac{2}{3}, \\frac{3}{2}\\right)$."
+    },
+    {
+      "id": "lp_c01_036",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the primal linear programming problem: Maximize $Z = 3x_1 + 5x_2$ subject to $x_1 + 2x_2 \\le 12$, $3x_1 + 2x_2 \\le 18$, $x_1 \\ge 0$, and $x_2 \\ge 0$. Let the dual problem be formulated with dual variables $y_1, y_2 \\ge 0$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The optimal objective values of the primal and dual problems are equal, with $Z_{\\max} = W_{\\min} = 31.5$",
+        "B) The optimal dual solution is $(y_1^*, y_2^*) = (2.25, 0.25)$",
+        "C) The shadow price of the first primal resource constraint ($x_1 + 2x_2 \\le 12$) is $2.25$",
+        "D) The primal optimal solution occurs at the vertex $(x_1^*, x_2^*) = (3, 4.5)$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "We formulate the dual problem: Minimize $W = 12y_1 + 18y_2$ subject to $y_1 + 3y_2 \\ge 3$, $2y_1 + 2y_2 \\ge 5$, with $y_1, y_2 \\ge 0$. Solving the primal problem: the boundary lines $x_1 + 2x_2 = 12$ and $3x_1 + 2x_2 = 18$ intersect by subtracting, which yields $2x_1 = 6 \\implies x_1 = 3$. Substituting $x_1 = 3$ gives $3 + 2x_2 = 12 \\implies x_2 = 4.5$. The primal corner points are $(0, 0)$, $(6, 0)$, $(3, 4.5)$, and $(0, 6)$. Evaluating $Z$: $Z(0, 0) = 0$, $Z(6, 0) = 18$, $Z(0, 6) = 30$, and $Z(3, 4.5) = 3(3) + 5(4.5) = 9 + 22.5 = 31.5$. Thus the primal achieves its maximum $Z_{\\max} = 31.5$ at $(3, 4.5)$, confirming D. By the Complementary Slackness Theorem, since both primal constraints are strictly binding with $x_1^* > 0$ and $x_2^* > 0$, both dual constraints must be tight equalities: $y_1 + 3y_2 = 3$ and $2y_1 + 2y_2 = 5 \\implies y_1 + y_2 = 2.5$. Subtracting gives $2y_2 = 0.5 \\implies y_2 = 0.25$, which implies $y_1 = 2.25$. Evaluating the dual objective: $W^* = 12(2.25) + 18(0.25) = 27 + 4.5 = 31.5$. By the Strong Duality Theorem, $Z_{\\max} = W_{\\min} = 31.5$, confirming A and B. The shadow price of the first constraint is the optimal dual variable $y_1^* = 2.25$, confirming C. Therefore, all statements A, B, C, and D are correct."
+    },
+    {
+      "id": "lp_c01_037",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the primal problem: Maximize $Z = 4x_1 + 3x_2$ subject to $2x_1 + x_2 \\le 10$, $x_1 + 2x_2 \\le 8$, $x_1 \\ge 0$, and $x_2 \\ge 0$. Let $y_1$ and $y_2$ denote the dual variables corresponding to the first and second constraints, respectively. Which of the following statements is/are correct?",
+      "options": [
+        "A) The optimal primal solution is $(x_1^*, x_2^*) = (4, 2)$ with optimal objective value $Z^* = 22$",
+        "B) Since both primal constraints are strictly binding (slack variables $s_1 = s_2 = 0$), complementary slackness permits both dual variables $y_1^*$ and $y_2^*$ to be strictly positive",
+        "C) The optimal dual solution is $(y_1^*, y_2^*) = \\left(\\frac{5}{3}, \\frac{2}{3}\\right)$",
+        "D) The dual optimal objective value is strictly less than $22$ due to positive slackness"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Solving the primal system: the lines $2x_1 + x_2 = 10$ and $x_1 + 2x_2 = 8$ intersect by multiplying the second by $2$ to get $2x_1 + 4x_2 = 16$. Subtracting the first equation gives $3x_2 = 6 \\implies x_2 = 2$, which implies $x_1 = 4$. At $(4, 2)$, $Z^* = 4(4) + 3(2) = 16 + 6 = 22$. Evaluating the other vertices: $Z(0, 0) = 0$, $Z(5, 0) = 20$, and $Z(0, 4) = 12$. Thus $(4, 2)$ is the unique optimal primal solution, confirming A. Since both primal constraints hold as exact equalities at $(4, 2)$, the slack variables are $s_1 = 10 - (2(4) + 2) = 0$ and $s_2 = 8 - (4 + 2(2)) = 0$. By the Complementary Slackness condition $s_i y_i = 0$, the dual variables $y_1$ and $y_2$ are not required to be zero and can be strictly positive, confirming B. Formulating the dual constraints: $2y_1 + y_2 \\ge 4$ and $y_1 + 2y_2 \\ge 3$. Since $x_1^* = 4 > 0$ and $x_2^* = 2 > 0$, complementary slackness requires both dual constraints to be tight: $2y_1 + y_2 = 4$ and $y_1 + 2y_2 = 3$. Multiplying the second by $2$ and subtracting gives $3y_2 = 2 \\implies y_2 = \\frac{2}{3}$, whence $y_1 = 4 - \\frac{2}{3} = \\frac{5}{3}$, confirming C. By the Strong Duality Theorem, $W_{\\min} = 10\\left(\\frac{5}{3}\\right) + 8\\left(\\frac{2}{3}\\right) = \\frac{50 + 16}{3} = 22 = Z^*$, which disproves D. Therefore, A, B, and C are correct."
+    },
+    {
+      "id": "lp_c01_038",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A logistics enterprise operates two supply factories $P_1$ and $P_2$ with capacities of $40$ and $60$ units, supplying three regional distribution hubs $D_1, D_2, D_3$ with demands of $30, 30$, and $40$ units, respectively. Let $x_{ij} \\ge 0$ denote the quantity transported from factory $P_i$ to hub $D_j$. Which of the following structural properties of this balanced transportation problem is/are correct?",
+      "options": [
+        "A) The linear programming model contains $6$ decision variables and $5$ supply-demand equality constraints",
+        "B) Exactly one of the $5$ equality constraints is redundant because total supply equals total demand ($40 + 60 = 30 + 30 + 40 = 100$)",
+        "C) Any non-degenerate basic feasible solution contains exactly $m + n - 1 = 4$ strictly positive basic variables",
+        "D) If the number of positive allocations in a basic feasible solution is strictly less than $4$, the solution is degenerate"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "In a classical transportation problem with $m$ sources and $n$ destinations, there are $m \\times n$ decision variables $x_{ij}$. Here, $m = 2$ and $n = 3$, giving $2 \\times 3 = 6$ non-negative decision variables. The model has $m = 2$ source supply constraints $\\sum_{j=1}^3 x_{1j} = 40$, $\\sum_{j=1}^3 x_{2j} = 60$, and $n = 3$ destination demand constraints $\\sum_{i=1}^2 x_{i1} = 30$, $\\sum_{i=1}^2 x_{i2} = 30$, $\\sum_{i=1}^2 x_{i3} = 40$, giving a total of $m + n = 2 + 3 = 5$ linear equality constraints, confirming A. Summing all supply equations yields $\\sum_{i,j} x_{ij} = 100$, and summing all demand equations yields $\\sum_{i,j} x_{ij} = 100$. Because total supply equals total demand, the sum of the supply rows equals the sum of the demand rows, implying linear dependence. Hence, the rank of the constraint matrix is $(m + n - 1) = 2 + 3 - 1 = 4$, meaning exactly one equality constraint is redundant, confirming B. By linear programming theory, the number of basic variables in any basis is equal to the rank of the constraint matrix, which is $m + n - 1 = 4$. In a non-degenerate basic feasible solution, all $4$ basic variables are strictly positive, confirming C. If fewer than $4$ allocations are strictly positive, at least one basic variable equals zero, which by definition constitutes a degenerate basic feasible solution, confirming D. Therefore, statements A, B, C, and D are all correct."
+    },
+    {
+      "id": "lp_c01_039",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A manufacturing firm produces industrial generators across two manufacturing units, $P_1$ (capacity $40$ units) and $P_2$ (capacity $60$ units). These units supply two retail centers, $W_1$ (demand $50$ units) and $W_2$ (demand $50$ units). The per-unit shipping costs (in ₹) are given by: $c(P_1, W_1) = 8$, $c(P_1, W_2) = 5$, $c(P_2, W_1) = 11$, and $c(P_2, W_2) = 9$. Formulate this transportation problem as a single-variable bounded optimization problem and find the minimum total transportation cost (in ₹).",
+      "options": [
+        "A) ₹$880$",
+        "B) ₹$860$",
+        "C) ₹$850$",
+        "D) ₹$840$"
+      ],
+      "answer": "D",
+      "explanation": "Let $x$ denote the number of generators shipped from $P_1$ to $W_1$. By the row and column balance equalities: the shipment from $P_1$ to $W_2$ must be $40 - x$; the shipment from $P_2$ to $W_1$ must be $50 - x$; and the shipment from $P_2$ to $W_2$ must be $60 - (50 - x) = 10 + x$. For all shipment allocations to be non-negative: $x \\ge 0$, $40 - x \\ge 0 \\implies x \\le 40$, $50 - x \\ge 0 \\implies x \\le 50$, and $10 + x \\ge 0 \\implies x \\ge -10$. Intersecting these bounds yields the feasible interval $0 \\le x \\le 40$. The total transportation cost function $C(x)$ is formulated as: $C(x) = 8x + 5(40 - x) + 11(50 - x) + 9(10 + x)$. Expanding and grouping like terms: $C(x) = 8x + 200 - 5x + 550 - 11x + 90 + 9x = (8 - 5 - 11 + 9)x + (200 + 550 + 90) = x + 840$. Because the coefficient of $x$ is $+1 > 0$, $C(x)$ is a strictly increasing linear function of $x$. Therefore, to minimize the total transportation cost over the closed domain $[0, 40]$, we choose the minimum feasible value $x = 0$. Substituting $x = 0$ yields $C_{\\min} = 0 + 840 = ₹840$. The optimal shipment schedule is $P_1 \\to W_1: 0$, $P_1 \\to W_2: 40$, $P_2 \\to W_1: 50$, and $P_2 \\to W_2: 10$. Setting $x = 40$ gives ₹$880$, which is the maximum cost."
+    },
+    {
+      "id": "lp_c01_040",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "An assignment problem allocates $n$ workers to $n$ tasks on a one-to-one basis to minimize total cost $\\sum_{i=1}^n \\sum_{j=1}^n c_{ij} x_{ij}$, subject to $\\sum_{j=1}^n x_{ij} = 1$ for each $i$, $\\sum_{i=1}^n x_{ij} = 1$ for each $j$, and $x_{ij} \\ge 0$. Which of the following mathematical properties of this linear programming formulation is/are correct?",
+      "options": [
+        "A) The coefficient constraint matrix is totally unimodular, guaranteeing that extreme points of the LP relaxation are naturally integral ($x_{ij} \\in \\{0, 1\\}$)",
+        "B) The rank of the coefficient matrix for an $n \\times n$ assignment problem is $2n - 1$",
+        "C) Any basic feasible solution consists of $2n - 1$ basic variables, exactly $n - 1$ of which must have value zero, making every basic feasible solution inherently degenerate",
+        "D) Adding a constant $k$ to every entry in any single row or column of the cost matrix leaves the optimal assignment solution set unchanged"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "In assignment problem theory: (1) The coefficient matrix $A$ corresponds to the incidence matrix of a bipartite graph $K_{n,n}$. The determinant of every square submatrix of $A$ is $0, 1$, or $-1$. By the Hoffman-Kruskal Theorem, $A$ is totally unimodular. Hence, every vertex (extreme point) of the continuous polyhedron $\\{x \\ge 0 \\mid Ax = 1\\}$ has purely integer components $x_{ij} \\in \\{0, 1\\}$, confirming A. (2) There are $2n$ equality constraints (row and column sums). The sum of all row constraints equals $\\sum x_{ij} = n$, which is identically equal to the sum of all column constraints. Thus exactly one linear dependency exists, so $\\text{rank}(A) = 2n - 1$, confirming B. (3) Any basis of this linear program contains $\\text{rank}(A) = 2n - 1$ basic variables. In any valid assignment, exactly $n$ variables equal $1$ (representing the $n$ assigned pairs). The remaining $(2n - 1) - n = n - 1$ basic variables must therefore have value zero. Hence, every basic feasible solution is degenerate, confirming C. (4) If a constant $k$ is added to row $r$, the objective function changes by $\\sum_j (c_{rj} + k)x_{rj} = \\sum_j c_{rj} x_{rj} + k \\sum_j x_{rj} = \\sum_j c_{rj} x_{rj} + k$, since $\\sum_j x_{rj} = 1$. Because the objective value shifts by the exact same constant $k$ for every feasible assignment, the argmin is invariant, confirming D. Thus, A, B, C, and D are all correct."
+    },
+    {
+      "id": "lp_c01_041",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A precision manufacturing plant formulates an optimal production plan: Maximize $Z = 5x_1 + 4x_2$ subject to machine time $x_1 + 2x_2 \\le 16$, chemical reactant availability $3x_1 + x_2 \\le 18$, and non-negativity $x_1, x_2 \\ge 0$. The initial optimal profit is ₹$44$, achieved at $(x_1^*, x_2^*) = (4, 6)$. Using the duality principle and shadow price analysis, determine the new maximum profit (in ₹) if the available machine time increases from $16$ to $18$ hours, assuming the optimal basis remains unchanged.",
+      "options": [
+        "A) ₹$46.8$",
+        "B) ₹$45.4$",
+        "C) ₹$47.2$",
+        "D) ₹$46.0$"
+      ],
+      "answer": "A",
+      "explanation": "Let $y_1$ and $y_2$ denote the dual variables (shadow prices) for machine time and chemical reactant, respectively. The dual constraints corresponding to the positive primal variables $x_1^* = 4 > 0$ and $x_2^* = 6 > 0$ are tight equalities by Complementary Slackness: $y_1 + 3y_2 = 5$ and $2y_1 + y_2 = 4$. Multiplying the second equation by $3$ gives $6y_1 + 3y_2 = 12$. Subtracting the first equation gives $5y_1 = 7 \\implies y_1^* = 1.4$. Substituting back gives $y_2^* = 4 - 2(1.4) = 1.2$. The shadow price of machine time is $y_1^* = 1.4$ ₹ per hour. When machine time capacity increases by $\\Delta b_1 = 18 - 16 = 2$ hours within the feasibility range of the basis, the marginal change in optimal profit is given by $\\Delta Z^* = y_1^* \\Delta b_1 = 1.4 \\times 2 = ₹2.8$. Consequently, the new maximum profit is $Z_{\\text{new}}^* = 44 + 2.8 = ₹46.8$. Verifying directly: solving $x_1 + 2x_2 = 18$ and $3x_1 + x_2 = 18$ yields $5x_1 = 18 \\implies x_1 = 3.6, x_2 = 7.2$. Evaluating profit: $Z = 5(3.6) + 4(7.2) = 18 + 28.8 = ₹46.8$. Neglecting the shadow price factor leads to wrong estimates like ₹$46.0$."
+    },
+    {
+      "id": "lp_c01_042",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the optimization problem: Minimize $f(x, y) = |x - 2| + |y - 3|$ subject to the half-plane constraint $x + y \\ge 8$, with $x \\ge 0$ and $y \\ge 0$. Which of the following analytical statements is/are correct?",
+      "options": [
+        "A) The problem can be formulated as a linear program by introducing auxiliary variables $u, v$ satisfying $u \\ge x - 2, u \\ge -(x - 2), v \\ge y - 3, v \\ge -(y - 3)$, minimizing $u + v$",
+        "B) The minimum value of $f(x, y)$ over the feasible region is $3$",
+        "C) The optimal solution is unique and occurs at the point $(4, 4)$",
+        "D) Every point on the line segment connecting $(2, 6)$ and $(5, 3)$ is an optimal solution"
+      ],
+      "answer": "A,B,D",
+      "explanation": "We analyze the $\\ell_1$-norm distance from the point $(2, 3)$ to the feasible half-plane $x + y \\ge 8$. (1) Any absolute value term $|w|$ can be linearized by introducing a variable $t$ with $t \\ge w$ and $t \\ge -w$, minimizing $t$. Here, setting $u \\ge x - 2$, $u \\ge -(x - 2)$, $v \\ge y - 3$, and $v \\ge -(y - 3)$ with objective $\\min(u + v)$ yields an equivalent linear program, confirming A. (2) For any point $(x, y)$ in the first quadrant with $x \\ge 2$ and $y \\ge 3$, the objective function simplifies directly to $f(x, y) = (x - 2) + (y - 3) = (x + y) - 5$. Given $x + y \\ge 8$, we immediately obtain $f(x, y) \\ge 8 - 5 = 3$. If $x < 2$, let $x = 2 - \\delta$ with $\\delta > 0$. Then $y \\ge 8 - (2 - \\delta) = 6 + \\delta$, so $f(x, y) = \\delta + (6 + \\delta - 3) = 3 + 2\\delta > 3$. A symmetric argument applies if $y < 3$. Hence, the absolute minimum value is $3$, confirming B. (3) Equality $f(x, y) = 3$ is attained if and only if $x + y = 8$ with $x \\ge 2$ and $y \\ge 3$. When $x = 2$, $y = 6$, giving $(2, 6)$. When $y = 3$, $x = 5$, giving $(5, 3)$. Any convex combination $(1 - \\lambda)(2, 6) + \\lambda(5, 3)$ for $\\lambda \\in [0, 1]$ satisfies $x \\ge 2, y \\ge 3$, and $x + y = 8$, yielding $f(x, y) = 3$. Hence, the optimal solution is NOT unique, disproving C, and every point on the line segment between $(2, 6)$ and $(5, 3)$ is an optimal solution, confirming D. Therefore, A, B, and D are correct."
+    },
+    {
+      "id": "lp_c01_043",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Consider the Chebyshev minimax optimization problem: Minimize $t = \\max(|x - 3|, |y - 4|)$ subject to the triangular feasible region $2x + y \\le 4$, $x \\ge 0$, and $y \\ge 0$. Find the minimum value of $t$.",
+      "options": [
+        "A) $1$",
+        "B) $2.5$",
+        "C) $1.5$",
+        "D) $2$"
+      ],
+      "answer": "D",
+      "explanation": "The condition $\\max(|x - 3|, |y - 4|) \\le t$ is equivalent to the system of linear inequalities $-t \\le x - 3 \\le t$ and $-t \\le y - 4 \\le t$, which defines an axis-aligned square $S_t = [3 - t, 3 + t] \\times [4 - t, 4 + t]$ centered at $(3, 4)$ with side length $2t$. The problem requires finding the smallest radius $t \\ge 0$ such that the square $S_t$ has a non-empty intersection with the triangular feasible region $\\mathcal{T} = \\{(x, y) \\in \\mathbb{R}^2 \\mid 2x + y \\le 4, x \\ge 0, y \\ge 0\\}$. Since the target center $(3, 4)$ lies in the first quadrant above and to the right of the line $2x + y = 4$ (at $(3, 4)$, $2(3) + 4 = 10 > 4$), the closest point of the square $S_t$ to the origin is its bottom-left corner $(3 - t, 4 - t)$. For $S_t$ to touch or intersect $\\mathcal{T}$, this bottom-left corner must satisfy the linear constraint $2(3 - t) + (4 - t) \\le 4$. Expanding and simplifying yields $6 - 2t + 4 - t \\le 4 \\implies 10 - 3t \\le 4 \\implies 3t \\ge 6 \\implies t \\ge 2$. At $t = 2$, the bottom-left corner of the square is $(3 - 2, 4 - 2) = (1, 2)$. Testing feasibility: $2(1) + 2 = 4 \\le 4$, $1 \\ge 0$, and $2 \\ge 0$, which strictly belongs to $\\mathcal{T}$. Therefore, the minimum value of $t$ is $2$."
+    },
+    {
+      "id": "lp_c01_044",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Consider the primal linear programming problem: Maximize $Z = 5x + 4y$ subject to $2x + y \\le 18$, $x + 2y \\le 15$, $x \\ge 0$, and $y \\ge 0$. The corresponding dual problem is: Minimize $W = 18u + 15v$ subject to $2u + v \\ge 5$, $u + 2v \\ge 4$, $u \\ge 0$, and $v \\ge 0$. Let $(x^*, y^*)$ be the optimal solution of the primal problem, and let $(u^*, v^*)$ be the optimal solution of the dual problem. Calculate the integer value of $(x^* + y^*) + (u^* + v^*)$.",
+      "options": [],
+      "answer": "14",
+      "explanation": "We solve the primal problem first: finding the intersection of the boundary lines $2x + y = 18$ and $x + 2y = 15$. Multiplying the first equation by $2$ gives $4x + 2y = 36$. Subtracting the second equation yields $3x = 21 \\implies x^* = 7$. Substituting back into $2(7) + y = 18$ gives $y^* = 4$. The primal corner points are $(0, 0)$, $(9, 0)$ from $2x + y = 18$, $(0, 7.5)$ from $x + 2y = 15$, and $(7, 4)$. Evaluating $Z = 5x + 4y$: $Z(0, 0) = 0$, $Z(9, 0) = 45$, $Z(0, 7.5) = 30$, and $Z(7, 4) = 5(7) + 4(4) = 35 + 16 = 51$. Thus the primal optimal solution is $(x^*, y^*) = (7, 4)$, giving $x^* + y^* = 7 + 4 = 11$. By the Complementary Slackness Theorem, since $x^* > 0$ and $y^* > 0$, both dual constraints must be tight equalities: $2u + v = 5$ and $u + 2v = 4$. Multiplying the first equation by $2$ gives $4u + 2v = 10$. Subtracting the second gives $3u = 6 \\implies u^* = 2$. Substituting $u^* = 2$ gives $2(2) + v = 5 \\implies v^* = 1$. Evaluating the dual objective: $W^* = 18(2) + 15(1) = 36 + 15 = 51 = Z^*$, confirming the Strong Duality Theorem. Thus, $u^* + v^* = 2 + 1 = 3$. Finally, evaluating the required expression: $(x^* + y^*) + (u^* + v^*) = 11 + 3 = 14$."
+    },
+    {
+      "id": "lp_c01_045",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "An industrial manufacturing facility plans production of a chemical compound over two consecutive monthly cycles ($t = 1, 2$). The demand is $40$ metric tons in month $1$ and $60$ metric tons in month $2$. The production cost is ₹$10$ thousand per metric ton in month $1$ and ₹$14$ thousand per metric ton in month $2$. Storing inventory from month $1$ to month $2$ costs ₹$2$ thousand per metric ton. Production capacity is capped at $70$ metric tons in each month. Let $x_1, x_2$ denote production volumes, and $I_1$ denote end-of-month $1$ inventory, with initial inventory $I_0 = 0$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The inventory flow balance constraint at the end of month 1 is $x_1 - I_1 = 40$",
+        "B) The effective unit cost of producing in month 1 and carrying over to month 2 is ₹$12$ thousand, which is strictly less than producing in month 2 at ₹$14$ thousand",
+        "C) The optimal production quantities are $x_1^* = 70$ metric tons and $x_2^* = 30$ metric tons",
+        "D) The minimum total operational cost across both months is ₹$1{,}180$ thousand"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "We formulate the linear programming model: The inventory flow balance for month $1$ is $I_0 + x_1 - d_1 = I_1$. Since $I_0 = 0$ and $d_1 = 40$, this gives $x_1 - 40 = I_1 \\implies x_1 - I_1 = 40$, confirming A. For month $2$, demand is fulfilled by inventory carryover plus new production: $I_1 + x_2 = 60$ (with $I_2 = 0$ at optimality). The objective function to minimize is total cost $C = 10x_1 + 14x_2 + 2I_1$. Substituting $I_1 = x_1 - 40$ and $x_2 = 60 - I_1 = 60 - (x_1 - 40) = 100 - x_1$: $C = 10x_1 + 14(100 - x_1) + 2(x_1 - 40) = 10x_1 + 1400 - 14x_1 + 2x_1 - 80 = 1320 - 2x_1$. Alternatively, each unit produced in month 1 and stored costs $10 + 2 = ₹12$ thousand, saving $14 - 12 = ₹2$ thousand compared to producing in month 2, confirming B. Since the marginal cost decreases with $x_1$ (slope is $-2$), we maximize $x_1$ up to its production capacity limit: $x_1 \\le 70$. Since $x_1 - 40 = I_1 \\le 60$ and $x_2 = 100 - x_1 \\ge 0$, the upper bound is $x_1^* = 70$. Then $I_1^* = 70 - 40 = 30$ metric tons, and $x_2^* = 100 - 70 = 30$ metric tons, confirming C. Computing total cost: $C^* = 10(70) + 14(30) + 2(30) = 700 + 420 + 60 = ₹1{,}180$ thousand, confirming D. Therefore, statements A, B, C, and D are all correct."
+    },
+    {
+      "id": "lp_c01_046",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $(P)$ denote the canonical primal linear program: Maximize $c^T x$ subject to $Ax \\le b, x \\ge 0$, and let $(D)$ denote its symmetric dual: Minimize $b^T y$ subject to $A^T y \\ge c, y \\ge 0$. Which of the following fundamental duality propositions is/are mathematically correct?",
+      "options": [
+        "A) Weak Duality: For every primal feasible solution $x$ and every dual feasible solution $y$, the inequality $c^T x \\le b^T y$ always holds",
+        "B) If $(P)$ has an unbounded objective function ($Z \\to +\\infty$), then $(D)$ must be infeasible",
+        "C) If $(P)$ is infeasible, then $(D)$ must be unbounded",
+        "D) It is possible for both $(P)$ and $(D)$ to be simultaneously infeasible"
+      ],
+      "answer": "A,B,D",
+      "explanation": "We analyze the fundamental theorems of linear duality: (1) Weak Duality Theorem states that for any primal feasible $x$ (satisfying $Ax \\le b, x \\ge 0$) and dual feasible $y$ (satisfying $A^T y \\ge c, y \\ge 0$), we have $c^T x \\le (A^T y)^T x = y^T A x \\le y^T b = b^T y$. Thus $c^T x \\le b^T y$ always holds, confirming A. (2) If $(P)$ is unbounded above ($c^T x \\to +\\infty$), suppose for contradiction that $(D)$ has a feasible solution $y_0$. By Weak Duality, $c^T x \\le b^T y_0$ for all primal feasible $x$, which means the primal objective is bounded above by the finite number $b^T y_0$. This contradicts unboundedness. Therefore, $(D)$ cannot have any feasible solution, confirming B. (3) If $(P)$ is infeasible, $(D)$ is NOT guaranteed to be unbounded; $(D)$ can either be unbounded OR infeasible. Hence statement C is false. (4) As a classic counterexample showing simultaneous infeasibility, consider: Maximize $2x_1 - x_2$ subject to $x_1 - x_2 \\le 1, -x_1 + x_2 \\le -2, x_1, x_2 \\ge 0$. Adding the constraints gives $0 \\le -1$, which is impossible, so $(P)$ is infeasible. The dual is: Minimize $y_1 - 2y_2$ subject to $y_1 - y_2 \\ge 2, -y_1 + y_2 \\ge -1, y_1, y_2 \\ge 0$. Adding the dual constraints gives $0 \\ge 1$, which is also impossible, so $(D)$ is also infeasible. Thus both can be simultaneously infeasible, confirming D. Therefore, A, B, and D are correct."
+    },
+    {
+      "id": "lp_c01_047",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "An oil refinery blends two grades of crude oil, Crude $A$ and Crude $B$, to produce $100$ barrels of standard fuel. Crude $A$ costs ₹$60$ per barrel and contains $0.8\\%$ sulfur. Crude $B$ costs ₹$90$ per barrel and contains $0.3\\%$ sulfur. Environmental regulations mandate that the sulfur content of the final blended fuel must not exceed $0.5\\%$. In order to minimize total procurement cost, how many barrels of Crude $A$ and Crude $B$ should be blended?",
+      "options": [
+        "A) $50$ barrels of $A$ and $50$ barrels of $B$",
+        "B) $30$ barrels of $A$ and $70$ barrels of $B$",
+        "C) $20$ barrels of $A$ and $80$ barrels of $B$",
+        "D) $40$ barrels of $A$ and $60$ barrels of $B$"
+      ],
+      "answer": "D",
+      "explanation": "Let $x$ denote the number of barrels of Crude $A$. Since the total batch size is $100$ barrels, the number of barrels of Crude $B$ is $y = 100 - x$. Non-negativity requires $0 \\le x \\le 100$. The environmental sulfur constraint specifies that the total sulfur content must not exceed $0.5\\%$ of $100$ barrels: $0.8x + 0.3(100 - x) \\le 0.5(100)$. Expanding and simplifying: $0.8x + 30 - 0.3x \\le 50 \\implies 0.5x \\le 20 \\implies x \\le 40$. The total procurement cost function is $C(x) = 60x + 90(100 - x) = 60x + 9000 - 90x = 9000 - 30x$. To minimize the total cost $C(x)$, we must choose the maximum possible value of $x$ because the cost decreases at a rate of ₹$30$ per barrel of Crude $A$ used. Given the upper bound $x \\le 40$, the cost is minimized at $x = 40$ barrels of Crude $A$. The required amount of Crude $B$ is $y = 100 - 40 = 60$ barrels. The minimum cost is $C(40) = 9000 - 30(40) = 9000 - 1200 = ₹7800$. Choosing $50$ barrels of each violates the sulfur threshold ($0.8(50) + 0.3(50) = 55 > 50$)."
+    },
+    {
+      "id": "lp_c01_048",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the parametric linear program: Maximize $Z = 3x_1 + 2x_2$ subject to $x_1 + x_2 \\le 8 + \\theta$, $2x_1 + x_2 \\le 12$, and $x_1, x_2 \\ge 0$, where $\\theta \\ge 0$ is a scalar perturbation parameter. Which of the following statements is/are correct?",
+      "options": [
+        "A) For $\\theta = 0$, the optimal solution is $(x_1^*, x_2^*) = (4, 4)$ with $Z^*(0) = 20$",
+        "B) For $0 \\le \\theta \\le 4$, the optimal objective value is given by the linear function $Z^*(\\theta) = 20 + \\theta$",
+        "C) For $\\theta = 4$, the constraint $x_1 + x_2 \\le 12$ becomes redundant relative to $2x_1 + x_2 \\le 12$ and $x_1 \\ge 0$",
+        "D) For all $\\theta > 4$, the optimal objective value remains constant at $24$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "We analyze the parametric system as $\\theta \\ge 0$ increases: (1) At $\\theta = 0$, the boundary lines are $x_1 + x_2 = 8$ and $2x_1 + x_2 = 12$. Subtracting gives $x_1 = 4$, whence $x_2 = 4$. Corner points are $(0, 0)$, $(6, 0)$, $(4, 4)$, and $(0, 8)$. Evaluating $Z$: $Z(0, 0) = 0$, $Z(6, 0) = 18$, $Z(0, 8) = 16$, and $Z(4, 4) = 3(4) + 2(4) = 20$. Thus $(4, 4)$ is optimal with $Z^*(0) = 20$, confirming A. (2) For general $\\theta \\ge 0$, solving $x_1 + x_2 = 8 + \\theta$ and $2x_1 + x_2 = 12$: subtracting the first from the second gives $x_1 = 4 - \\theta$. Substituting back gives $x_2 = 12 - 2(4 - \\theta) = 4 + 2\\theta$. For feasibility, non-negativity requires $x_1 \\ge 0 \\implies \\theta \\le 4$. In the range $0 \\le \\theta \\le 4$, the optimal objective value is $Z^*(\\theta) = 3(4 - \\theta) + 2(4 + 2\\theta) = 12 - 3\\theta + 8 + 4\\theta = 20 + \\theta$, confirming B. (3) When $\\theta = 4$, the intersection point reaches $(0, 12)$. The first constraint becomes $x_1 + x_2 \\le 12$. Since $x_1 \\ge 0$, we have $x_1 + x_2 \\le 2x_1 + x_2 \\le 12$. Thus, the first constraint is automatically satisfied by all points satisfying the second constraint, making it completely redundant, confirming C. (4) For all $\\theta > 4$, the constraint $x_1 + x_2 \\le 8 + \\theta$ is strictly non-binding, and the feasible region is entirely governed by $2x_1 + x_2 \\le 12, x_1, x_2 \\ge 0$. The vertices of this fixed region are $(0, 0)$, $(6, 0)$, and $(0, 12)$. Evaluating $Z$: $Z(6, 0) = 18$, and $Z(0, 12) = 2(12) = 24$. Thus, for all $\\theta > 4$, the optimal value is invariant at $Z^* = 24$, confirming D. Therefore, A, B, C, and D are all correct."
+    },
+    {
+      "id": "lp_c01_049",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Three industrial machines $M_1, M_2, M_3$ are to be assigned to three distinct tasks $T_1, T_2, T_3$ on a one-to-one basis. The processing times (in hours) are given by the cost matrix: $$C = \\begin{pmatrix} 9 & 2 & 7 \\\\ 6 & 4 & 3 \\\\ 5 & 8 & 1 \\end{pmatrix}$$ where rows represent tasks $T_1, T_2, T_3$ and columns represent machines $M_1, M_2, M_3$. Which of the following statements regarding the Hungarian method and the optimal assignment is/are correct?",
+      "options": [
+        "A) By row reduction (subtracting minimums $2, 3, 1$ from rows $1, 2, 3$), the reduced matrix becomes $\\begin{pmatrix} 7 & 0 & 5 \\\\ 3 & 1 & 0 \\\\ 4 & 7 & 0 \\end{pmatrix}$",
+        "B) The minimum total time required to complete all three operations is $9$ hours",
+        "C) The unique optimal assignment is $T_1 \\to M_2, T_2 \\to M_1, T_3 \\to M_3$",
+        "D) The assignment $T_1 \\to M_2, T_2 \\to M_3, T_3 \\to M_1$ achieves the minimum total time"
+      ],
+      "answer": "A,B,C",
+      "explanation": "We execute the Hungarian algorithm step-by-step: (1) Step 1 (Row Reduction): Find the minimum element in each row: Row 1 minimum is $2$; Row 2 minimum is $3$; Row 3 minimum is $1$. Subtracting these from their respective rows yields: Row 1: $[9-2, 2-2, 7-2] = [7, 0, 5]$; Row 2: $[6-3, 4-3, 3-3] = [3, 1, 0]$; Row 3: $[5-1, 8-1, 1-1] = [4, 7, 0]$. This yields the matrix $\\begin{pmatrix} 7 & 0 & 5 \\\\ 3 & 1 & 0 \\\\ 4 & 7 & 0 \\end{pmatrix}$, confirming A. (2) Step 2 (Column Reduction): Column minimums of the reduced matrix are: Col 1 has minimum $3$; Col 2 has minimum $0$; Col 3 has minimum $0$. Subtracting $3$ from Column 1 gives the final reduced cost matrix: $C' = \\begin{pmatrix} 4 & 0 & 5 \\\\ 0 & 1 & 0 \\\\ 1 & 7 & 0 \\end{pmatrix}$. (3) Step 3 (Optimal Assignment of Zeros): Row 1 contains a single zero at position $(1, 2)$, meaning $T_1 \\to M_2$ is mandatory (cost $c_{12} = 2$). With Column 2 assigned, examine Column 3: zeros appear at $(2, 3)$ and $(3, 3)$. Row 3 has its only zero at $(3, 3)$, so $T_3 \\to M_3$ is mandatory (cost $c_{33} = 1$). This leaves task $T_2$, which must be assigned to the remaining unassigned machine $M_1$ at position $(2, 1)$ (cost $c_{21} = 6$). The total time is $c_{12} + c_{21} + c_{33} = 2 + 6 + 1 = 9$ hours, confirming B and C. Evaluating the alternative assignment in D ($T_1 \\to M_2, T_2 \\to M_3, T_3 \\to M_1$): the cost is $c_{12} + c_{23} + c_{31} = 2 + 3 + 5 = 10$ hours, which is strictly suboptimal, disproving D. Therefore, A, B, and C are correct."
+    },
+    {
+      "id": "lp_c01_050",
+      "subject": "Mathematics",
+      "topic": "Linear Programming",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Two central storage warehouses $S_1$ and $S_2$ have available inventories of $30$ and $40$ metric tons of grain, respectively. They must completely supply two distribution centers $D_1$ and $D_2$ with demands of $25$ and $45$ metric tons, respectively. The unit transportation costs (in ₹ per metric ton) are: $c(S_1, D_1) = 4$, $c(S_1, D_2) = 6$, $c(S_2, D_1) = 2$, and $c(S_2, D_2) = 5$. Determine the minimum total transportation cost (in ₹).",
+      "options": [],
+      "answer": "305",
+      "explanation": "We formulate the balanced transportation problem with supplies $a_1 = 30, a_2 = 40$ and demands $b_1 = 25, b_2 = 45$ (total $70$ metric tons). Let $x$ denote the quantity transported from $S_1$ to $D_1$. By the row and column balance equations: the shipment from $S_1$ to $D_2$ is $30 - x$; the shipment from $S_2$ to $D_1$ is $25 - x$; and the shipment from $S_2$ to $D_2$ is $40 - (25 - x) = 15 + x$. Feasibility conditions require all shipments to be non-negative: $x \\ge 0$, $30 - x \\ge 0 \\implies x \\le 30$, $25 - x \\ge 0 \\implies x \\le 25$, and $15 + x \\ge 0 \\implies x \\ge -15$. Taking the intersection gives the feasible interval $0 \\le x \\le 25$. The total cost function is: $C(x) = 4x + 6(30 - x) + 2(25 - x) + 5(15 + x)$. Expanding and collecting like terms: $C(x) = 4x + 180 - 6x + 50 - 2x + 75 + 5x = (4 - 6 - 2 + 5)x + (180 + 50 + 75) = x + 305$. Because the coefficient of $x$ is $+1 > 0$, $C(x)$ is strictly increasing on $[0, 25]$. Therefore, to minimize total cost, we set $x = 0$. Substituting $x = 0$ yields $C_{\\min} = 0 + 305 = 305$. The optimal allocation is $S_1 \\to D_1: 0$, $S_1 \\to D_2: 30$, $S_2 \\to D_1: 25$, and $S_2 \\to D_2: 15$. Verifying the total cost: $0(4) + 30(6) + 25(2) + 15(5) = 0 + 180 + 50 + 75 = 305$."
+    }
+  ]
+}

@@ -1,0 +1,505 @@
+{
+  "questions": [
+    {
+      "id": "di_c01_016",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate $\\int_{0}^{\\pi/4}\\tan^{3}x\\,dx$ by rewriting $\\tan^{3}x$ in terms of $\\tan x$ and $\\sec^{2}x$ before integrating. Choose the correct value.",
+      "options": [
+        "A) $\\frac{1}{2}+\\frac{1}{2}\\ln 2$",
+        "B) $\\frac{1}{2}-\\frac{1}{2}\\ln 2$",
+        "C) $1-\\ln 2$",
+        "D) $\\frac{1}{2}$"
+      ],
+      "answer": "B",
+      "explanation": "Write $\\tan^{3}x=\\tan x\\sec^{2}x-\\tan x$. An antiderivative is $\\frac{\\tan^{2}x}{2}+\\ln|\\cos x|$. At $\\frac{\\pi}{4}$ this equals $\\frac{1}{2}+\\ln\\frac{1}{\\sqrt{2}}=\\frac{1}{2}-\\frac{1}{2}\\ln 2$, and at $0$ it equals $0$. Option A comes from a sign error on the logarithm term, and option C drops the $\\frac{1}{2}$ coefficient on $\\tan^{2}x$ while doubling the logarithm."
+    },
+    {
+      "id": "di_c01_017",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Evaluate $\\int_{1}^{e^{2}}\\frac{\\ln x+1}{x}\\,dx$ by splitting the integrand into two parts and substituting $t=\\ln x$ where useful. Enter the integer value of the integral.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Split the integral into $\\int_1^{e^2}\\frac{\\ln x}{x}\\,dx$ and $\\int_1^{e^2}\\frac{dx}{x}$. With $t=\\ln x$, the first part is $\\int_0^2 t\\,dt=2$, and the second is $\\ln(e^{2})=2$. The total is $4$."
+    },
+    {
+      "id": "di_c01_018",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate $I=\\int_{0}^{\\pi}\\frac{x\\sin x}{1+\\cos^{2}x}\\,dx$ using the property $\\int_0^a f(x)\\,dx=\\int_0^a f(a-x)\\,dx$ together with a suitable integral of $\\frac{\\sin x}{1+\\cos^{2}x}$. Choose the correct option.",
+      "options": [
+        "A) $\\frac{\\pi^{2}}{2}$",
+        "B) $\\frac{\\pi}{4}$",
+        "C) $\\frac{\\pi^{2}}{4}$",
+        "D) $\\frac{\\pi^{2}}{8}$"
+      ],
+      "answer": "C",
+      "explanation": "Under $x\\to\\pi-x$ the factor $\\frac{\\sin x}{1+\\cos^{2}x}$ is unchanged, so $I=\\pi\\int_0^\\pi\\frac{\\sin x}{1+\\cos^{2}x}\\,dx-I$. The latter integral is $\\left[-\\tan^{-1}(\\cos x)\\right]_0^\\pi=\\frac{\\pi}{2}$, which gives $2I=\\frac{\\pi^{2}}{2}$ and $I=\\frac{\\pi^{2}}{4}$. Option A forgets to divide $2I$ by $2$."
+    },
+    {
+      "id": "di_c01_019",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $F(x)=\\int_{0}^{x^{2}}\\frac{t}{1+t^{2}}\\,dt$. Find the value of $F'(2)$ using the Leibniz rule with the chain rule on the upper limit. Choose the correct option.",
+      "options": [
+        "A) $\\frac{4}{17}$",
+        "B) $\\frac{16}{17}$",
+        "C) $\\frac{8}{17}$",
+        "D) $\\frac{17}{16}$"
+      ],
+      "answer": "B",
+      "explanation": "The Leibniz rule gives $F'(x)=\\frac{x^{2}}{1+x^{4}}\\cdot 2x$. At $x=2$ this is $\\frac{4}{17}\\cdot 4=\\frac{16}{17}$. Option A forgets the factor $2x$ from the upper limit, and option C uses $2$ in place of $2x=4$."
+    },
+    {
+      "id": "di_c01_020",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate $\\lim_{n\\to\\infty}\\int_{0}^{1}\\frac{n x^{n}}{1+x}\\,dx$. Note that the weight $nx^{n}$ concentrates as $n$ grows. Choose the correct value.",
+      "options": [
+        "A) $0$",
+        "B) $1$",
+        "C) $\\frac{1}{2}$",
+        "D) $\\ln 2$"
+      ],
+      "answer": "C",
+      "explanation": "The weight $nx^{n}$ on $[0,1]$ has total mass $\\frac{n}{n+1}\\to 1$ and concentrates near $x=1$, so the limit equals the integrand factor $\\frac{1}{1+1}=\\frac{1}{2}$ evaluated there. Option A evaluates the limit at $x=0$, where the weight vanishes, which misidentifies the point of concentration."
+    },
+    {
+      "id": "di_c01_021",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Evaluate $\\int_{-\\pi/2}^{\\pi/2}\\frac{\\cos x}{1+e^{x}}\\,dx$ by pairing $x$ with $-x$ over the symmetric interval. Enter the integer value of the integral.",
+      "options": [],
+      "answer": "1",
+      "explanation": "Let $f(x)=\\frac{\\cos x}{1+e^{x}}$. Since $\\frac{1}{1+e^{x}}+\\frac{1}{1+e^{-x}}=1$ and $\\cos x$ is even, $f(x)+f(-x)=\\cos x$. Hence $2I=\\int_{-\\pi/2}^{\\pi/2}\\cos x\\,dx=2$, so $I=1$."
+    },
+    {
+      "id": "di_c01_022",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Evaluate $6\\int_{0}^{3}\\left|x^{2}-3x+2\\right|\\,dx$, where the integrand changes sign at the roots of the quadratic inside the interval. Enter the integer value of the expression.",
+      "options": [],
+      "answer": "11",
+      "explanation": "The quadratic has roots $1$ and $2$, so it is positive on $[0,1]$ and $[2,3]$ and negative on $[1,2]$. The three pieces of the integral of the absolute value are $\\frac{5}{6}$, $\\frac{1}{6}$ and $\\frac{5}{6}$, totalling $\\frac{11}{6}$. Multiplying by $6$ gives $11$."
+    },
+    {
+      "id": "di_c01_023",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Evaluate $\\lim_{n\\to\\infty}\\frac{\\pi}{n}\\sum_{r=1}^{n}\\sec^{2}\\left(\\frac{r\\pi}{4n}\\right)$ by identifying the sum as a Riemann sum for a standard integral. Enter the integer value of the limit.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Write the expression as $4\\sum_{r=1}^{n}\\frac{\\pi}{4n}\\sec^{2}\\left(\\frac{r\\pi}{4n}\\right)$. The sum is a Riemann sum with $\\Delta x=\\frac{\\pi}{4n}$ on $(0,\\frac{\\pi}{4}]$, so it tends to $\\int_0^{\\pi/4}\\sec^{2}x\\,dx=\\tan\\frac{\\pi}{4}=1$. Multiplying by $4$ gives $4$."
+    },
+    {
+      "id": "di_c01_024",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Evaluate $\\int_{1}^{e^{3}}\\frac{(\\ln x)^{2}}{x}\\,dx$ using a logarithmic substitution and adjust the limits accordingly. Enter the integer value of the integral.",
+      "options": [],
+      "answer": "9",
+      "explanation": "With $t=\\ln x$ we get $\\frac{dx}{x}=dt$, and the limits change from $1$ to $e^{3}$ into $0$ to $3$. The integral is $\\int_0^3 t^{2}\\,dt=\\frac{27}{3}=9$."
+    },
+    {
+      "id": "di_c01_025",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate $\\int_{0}^{\\pi/2}\\sin^{5}x\\cos^{3}x\\,dx$ using a substitution that converts the integrand into a polynomial in one variable. Choose the correct option.",
+      "options": [
+        "A) $\\frac{1}{6}$",
+        "B) $\\frac{1}{12}$",
+        "C) $\\frac{1}{24}$",
+        "D) $\\frac{1}{48}$"
+      ],
+      "answer": "C",
+      "explanation": "Substitute $u=\\sin x$, so $du=\\cos x\\,dx$ and $\\cos^{2}x=1-u^{2}$. The integral is $\\int_0^1 u^{5}(1-u^{2})\\,du=\\frac{1}{6}-\\frac{1}{8}=\\frac{1}{24}$. Option A comes from ignoring the $\\cos^{2}x$ factor after the substitution, which leaves $\\int_0^1 u^{5}\\,du$."
+    },
+    {
+      "id": "di_c01_026",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate $\\int_{0}^{1}\\frac{dx}{\\sqrt{x}\\,(1+x)}$ using a substitution that removes the square root, and track the factor that the differential picks up. Choose the correct option.",
+      "options": [
+        "A) $\\pi$",
+        "B) $\\frac{\\pi}{4}$",
+        "C) $\\frac{\\pi}{2}$",
+        "D) $\\ln 2$"
+      ],
+      "answer": "C",
+      "explanation": "Put $x=t^{2}$, so $dx=2t\\,dt$ and $\\sqrt{x}=t$. The integral becomes $2\\int_0^1\\frac{dt}{1+t^{2}}=2\\cdot\\frac{\\pi}{4}=\\frac{\\pi}{2}$. Option B forgets the factor $2$ coming from $dx=2t\\,dt$."
+    },
+    {
+      "id": "di_c01_027",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate $\\int_{1}^{2}\\frac{dx}{x\\,(1+\\ln x)}$ using a logarithmic substitution, making sure the limits of integration are converted correctly. Choose the correct option.",
+      "options": [
+        "A) $\\ln\\frac{3}{2}$",
+        "B) $\\ln(\\ln 2)$",
+        "C) $\\frac{1}{1+\\ln 2}$",
+        "D) $\\ln(1+\\ln 2)$"
+      ],
+      "answer": "D",
+      "explanation": "Let $t=\\ln x$, so $\\frac{dx}{x}=dt$ and the limits become $0$ to $\\ln 2$. The integral is $\\int_0^{\\ln 2}\\frac{dt}{1+t}=\\ln(1+\\ln 2)$. Option A keeps the original limits $1$ and $2$ after substituting, which wrongly gives $\\ln 3-\\ln 2=\\ln\\frac{3}{2}$."
+    },
+    {
+      "id": "di_c01_028",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $I_n=\\int_{0}^{\\pi/2}\\sin^{n}x\\,dx$ for $n\\ge 0$. Find $\\frac{32}{\\pi}I_6$ by using a reduction formula that links $I_n$ to $I_{n-2}$. Enter the integer value.",
+      "options": [],
+      "answer": "5",
+      "explanation": "The reduction formula $I_n=\\frac{n-1}{n}I_{n-2}$ with $I_0=\\frac{\\pi}{2}$ gives $I_2=\\frac{\\pi}{4}$, $I_4=\\frac{3\\pi}{16}$ and $I_6=\\frac{5}{6}\\cdot\\frac{3\\pi}{16}=\\frac{5\\pi}{32}$. Therefore $\\frac{32}{\\pi}I_6=5$."
+    },
+    {
+      "id": "di_c01_029",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate $\\int_{0}^{1}x^{3}(\\ln x)^{2}\\,dx$ using repeated integration by parts or a standard reduction for powers of $x$ times powers of $\\ln x$. Choose the correct option.",
+      "options": [
+        "A) $\\frac{1}{8}$",
+        "B) $\\frac{1}{16}$",
+        "C) $\\frac{1}{32}$",
+        "D) $\\frac{1}{4}$"
+      ],
+      "answer": "C",
+      "explanation": "Repeated integration by parts gives $\\int_0^1 x^{n}(\\ln x)^{2}\\,dx=\\frac{2}{(n+1)^{3}}$, so with $n=3$ the value is $\\frac{2}{4^{3}}=\\frac{1}{32}$. Option A uses $(n+1)^{2}$ in the denominator, and option B misses the factor $2$ produced by the second integration by parts."
+    },
+    {
+      "id": "di_c01_030",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Evaluate $3\\int_{0}^{1}\\frac{x^{3}}{\\sqrt{1-x^{2}}}\\,dx$ after a suitable substitution in which $1-x^{2}$ becomes the new variable. Enter the integer value of the expression.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Put $u=1-x^{2}$, so $x\\,dx=-\\frac{du}{2}$ and $x^{2}=1-u$. The limits swap to $1$ and $0$, and the integral becomes $\\frac{1}{2}\\int_0^1\\frac{1-u}{\\sqrt{u}}\\,du=\\frac{1}{2}\\left(2-\\frac{2}{3}\\right)=\\frac{2}{3}$. Multiplying by $3$ gives $2$."
+    },
+    {
+      "id": "di_c01_031",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate $\\int_{0}^{\\pi/2}\\frac{\\cos^{2}x}{\\cos^{2}x+4\\sin^{2}x}\\,dx$ by converting it into a rational integral in $\\tan x$ and applying partial fractions. Choose the correct option.",
+      "options": [
+        "A) $\\frac{\\pi}{3}$",
+        "B) $\\frac{\\pi}{4}$",
+        "C) $\\frac{\\pi}{6}$",
+        "D) $\\frac{\\pi}{12}$"
+      ],
+      "answer": "C",
+      "explanation": "Dividing numerator and denominator by $\\cos^{2}x$ and putting $t=\\tan x$, so $dx=\\frac{dt}{1+t^{2}}$, the integral becomes $\\int_0^\\infty\\frac{dt}{(1+4t^{2})(1+t^{2})}$. Partial fractions give $\\frac{4/3}{1+4t^{2}}-\\frac{1/3}{1+t^{2}}$, and the two integrals over $[0,\\infty)$ are $\\frac{\\pi}{4}$ and $\\frac{\\pi}{2}$. The value is $\\frac{\\pi}{3}-\\frac{\\pi}{6}=\\frac{\\pi}{6}$. Option A ignores the negative second term of the partial fraction."
+    },
+    {
+      "id": "di_c01_032",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate $\\int_{0}^{\\pi/2}\\frac{\\cos x}{(2+\\sin x)^{2}}\\,dx$ by using a substitution for $\\sin x$ and evaluating the result at both limits. Choose the correct value.",
+      "options": [
+        "A) $\\frac{1}{3}$",
+        "B) $\\frac{1}{6}$",
+        "C) $-\\frac{1}{6}$",
+        "D) $\\frac{1}{2}$"
+      ],
+      "answer": "B",
+      "explanation": "The antiderivative of $\\frac{\\cos x}{(2+\\sin x)^{2}}$ is $-\\frac{1}{2+\\sin x}$. Evaluating gives $-\\frac{1}{3}-\\left(-\\frac{1}{2}\\right)=\\frac{1}{6}$. Option A keeps only the upper-limit value $\\frac{1}{3}$, and option C flips the sign of the difference."
+    },
+    {
+      "id": "di_c01_033",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate $\\int_{0}^{2}\\max(1,x)\\,dx$, where $\\max(1,x)$ denotes the larger of the two numbers $1$ and $x$ at each point. Split the interval at the point where the two expressions are equal. Choose the correct value.",
+      "options": [
+        "A) $\\frac{3}{2}$",
+        "B) $2$",
+        "C) $\\frac{5}{2}$",
+        "D) $\\frac{7}{2}$"
+      ],
+      "answer": "C",
+      "explanation": "On $[0,1]$ the maximum is $1$, and on $[1,2]$ it is $x$. The integral is $1+\\frac{3}{2}=\\frac{5}{2}$. Option A uses the minimum $\\min(1,x)$ by mistake, which gives $\\frac{1}{2}+1=\\frac{3}{2}$."
+    },
+    {
+      "id": "di_c01_034",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate $\\int_{0}^{1}\\ln(1+x)\\,dx$ using integration by parts, and check that the boundary terms and the remaining integral are both handled. Choose the correct value.",
+      "options": [
+        "A) $\\ln 2$",
+        "B) $2\\ln 2-1$",
+        "C) $1-2\\ln 2$",
+        "D) $\\ln 2-1$"
+      ],
+      "answer": "B",
+      "explanation": "Taking $u=\\ln(1+x)$ and $dv=dx$ gives $\\left[x\\ln(1+x)\\right]_0^1-\\int_0^1\\frac{x}{1+x}\\,dx=\\ln 2-\\left(1-\\ln 2\\right)=2\\ln 2-1$. Option A drops the integral $\\int_0^1\\frac{x}{1+x}\\,dx$ after integrating by parts, and option C flips the sign of the whole result."
+    },
+    {
+      "id": "di_c01_035",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Evaluate $2\\int_{0}^{2}x\\lfloor x\\rfloor\\,dx$, where $\\lfloor x\\rfloor$ is the greatest integer function. Split the interval at the integer points before integrating. Enter the integer value of the expression.",
+      "options": [],
+      "answer": "3",
+      "explanation": "On $[0,1)$ the floor is $0$, and on $[1,2)$ it is $1$. So the integral is $\\int_1^2 x\\,dx=\\frac{3}{2}$, and multiplying by $2$ gives $3$."
+    },
+    {
+      "id": "di_c01_036",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the following statements about definite integrals over $[0,1]$. Select all statements that are correct, where more than one option may be correct.",
+      "options": [
+        "A) $\\int_0^1 e^{-x^{2}}\\,dx>\\int_0^1 e^{-x}\\,dx$",
+        "B) $\\int_0^1 e^{x^{2}}\\,dx<\\int_0^1 e^{x}\\,dx$",
+        "C) $\\int_0^1 \\sqrt{x}\\,dx<\\int_0^1 x\\,dx$",
+        "D) $\\int_0^1 \\ln(1+x)\\,dx>\\int_0^1 x\\,dx$"
+      ],
+      "answer": "A,B",
+      "explanation": "For $x\\in[0,1]$ we have $x^{2}\\le x$, so $e^{-x^{2}}\\ge e^{-x}$ and $e^{x^{2}}\\le e^{x}$, making A and B correct. Since $\\int_0^1\\sqrt{x}\\,dx=\\frac{2}{3}>\\frac{1}{2}=\\int_0^1 x\\,dx$, option C is false. Also $\\int_0^1\\ln(1+x)\\,dx=2\\ln 2-1\\approx 0.386<\\frac{1}{2}$, so D is false. Option C reflects reversing the power comparison."
+    },
+    {
+      "id": "di_c01_037",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "For $n\\ge 1$ let $I_n=\\int_0^{\\pi/2}\\frac{\\sin^{n}x}{\\sin^{n}x+\\cos^{n}x}\\,dx$. Select all statements that are correct, where more than one option may be correct.",
+      "options": [
+        "A) $I_n=\\frac{\\pi}{4}$ for every $n\\ge 1$",
+        "B) $\\int_0^{\\pi/2}\\frac{\\sin^{2}x}{\\sin^{2}x+\\cos^{2}x}\\,dx=\\frac{\\pi}{2}$",
+        "C) $\\int_0^{\\pi/2}\\frac{\\cos^{3}x}{\\cos^{3}x+\\sin^{3}x}\\,dx=\\frac{\\pi}{4}$",
+        "D) $\\int_0^{\\pi/2}\\frac{\\sin^{3}x}{\\sin^{3}x+\\cos^{3}x}\\,dx=\\frac{\\pi}{2}$"
+      ],
+      "answer": "A,C",
+      "explanation": "Under $x\\to\\frac{\\pi}{2}-x$ the integrand $f(x)$ satisfies $f(x)+f\\left(\\frac{\\pi}{2}-x\\right)=1$ for every $n$, so $2I_n=\\frac{\\pi}{2}$ and A is correct. Statement C is the same identity with $\\cos^{3}$ and is also correct. Since $\\sin^{2}x+\\cos^{2}x=1$, the integral in B equals $\\int_0^{\\pi/2}\\sin^{2}x\\,dx=\\frac{\\pi}{4}$, so B is false. D is false because its value is $\\frac{\\pi}{4}$, not $\\frac{\\pi}{2}$. Option B reflects treating the integrand as $1$."
+    },
+    {
+      "id": "di_c01_038",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $F(x)=\\int_{0}^{x}(t-1)(t-2)\\,dt$ for all real $x$. Select all statements that are correct, where more than one option may be correct.",
+      "options": [
+        "A) $F$ has a local maximum at $x=1$",
+        "B) $F$ has a local minimum at $x=2$",
+        "C) $F(3)=\\frac{3}{2}$",
+        "D) $F$ has a local maximum at $x=2$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "By the fundamental theorem of calculus, $F'(x)=(x-1)(x-2)$, which is positive for $x<1$, negative on $(1,2)$ and positive for $x>2$. So $F$ has a local maximum at $1$ and a local minimum at $2$, making A and B correct and D false. Expanding gives $F(x)=\\frac{x^{3}}{3}-\\frac{3x^{2}}{2}+2x$, so $F(3)=9-\\frac{27}{2}+6=\\frac{3}{2}$, making C correct. Option D reflects reversing the sign pattern of $F'$."
+    },
+    {
+      "id": "di_c01_039",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $f(x)=\\int_{0}^{x}|t-1|\\,dt$ for $0\\le x\\le 2$. Select all statements that are correct, where more than one option may be correct.",
+      "options": [
+        "A) $f$ is not differentiable at $x=1$",
+        "B) $f'(1)=0$",
+        "C) $f(2)=2$",
+        "D) $f(x)\\ge 0$ for all $x\\in[0,2]$"
+      ],
+      "answer": "B,D",
+      "explanation": "The integrand $|t-1|$ is continuous, so $f'(x)=|x-1|$ everywhere, including at $x=1$ where $f'(1)=0$. This makes B true and A false; A reflects the mistaken belief that an absolute value in the integrand creates a corner in the antiderivative. Evaluating, $f(2)=\\int_0^1(1-t)\\,dt+\\int_1^2(t-1)\\,dt=\\frac{1}{2}+\\frac{1}{2}=1$, so C is false. Since $f'\\ge 0$ and $f(0)=0$, we have $f\\ge 0$ on $[0,2]$, making D true."
+    },
+    {
+      "id": "di_c01_040",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate $J=\\int_{0}^{\\pi/2}\\frac{x}{\\sin x+\\cos x}\\,dx$ by combining the King property with a standard integral of $\\frac{1}{\\sin x+\\cos x}$. Choose the correct option.",
+      "options": [
+        "A) $\\frac{\\pi}{\\sqrt{2}}\\ln(1+\\sqrt{2})$",
+        "B) $\\frac{\\pi}{4}\\ln(1+\\sqrt{2})$",
+        "C) $\\frac{\\pi}{2\\sqrt{2}}\\ln(1+\\sqrt{2})$",
+        "D) $\\frac{\\pi}{2\\sqrt{2}}$"
+      ],
+      "answer": "C",
+      "explanation": "Using $x\\to\\frac{\\pi}{2}-x$ and adding gives $2J=\\frac{\\pi}{2}K$ where $K=\\int_0^{\\pi/2}\\frac{dx}{\\sin x+\\cos x}$. Writing $\\sin x+\\cos x=\\sqrt{2}\\sin\\left(x+\\frac{\\pi}{4}\\right)$ and using $\\int\\csc u\\,du=\\ln\\tan\\frac{u}{2}$ gives $K=\\sqrt{2}\\ln(1+\\sqrt{2})$, so $J=\\frac{\\pi}{4}K=\\frac{\\pi}{2\\sqrt{2}}\\ln(1+\\sqrt{2})$. Option A forgets to halve $2J$, and option B drops the factor $\\sqrt{2}$ in $K$."
+    },
+    {
+      "id": "di_c01_041",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Evaluate $\\lim_{x\\to 0}\\frac{1}{x^{3}}\\int_{0}^{x}\\frac{6t\\sin t}{1+t}\\,dt$ by applying L'Hopital's rule to the integral. Enter the integer value of the limit.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Numerator and denominator both tend to $0$, so apply L'Hopital's rule. The derivatives are $\\frac{6x\\sin x}{1+x}$ and $3x^{2}$, and their ratio is $\\frac{2}{1+x}\\cdot\\frac{\\sin x}{x}$, which tends to $2$ because $\\frac{\\sin x}{x}\\to 1$. The limit is $2$."
+    },
+    {
+      "id": "di_c01_042",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Evaluate $\\int_{-2}^{2}\\frac{|x|^{3}}{1+e^{x}}\\,dx$ by pairing the integrand with its reflection about the origin. Enter the integer value of the integral.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Let $I$ be the integral and substitute $x\\to -x$. Since $\\frac{1}{1+e^{x}}+\\frac{1}{1+e^{-x}}=1$, adding the two forms gives $2I=\\int_{-2}^{2}|x|^{3}\\,dx=2\\int_0^2 x^{3}\\,dx=8$. Hence $I=4$."
+    },
+    {
+      "id": "di_c01_043",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate $\\int_{0}^{\\pi/2}\\frac{\\sin 2x}{\\sin^{4}x+\\cos^{4}x}\\,dx$ using a substitution that reduces the denominator to a quadratic in a new variable. Choose the correct option.",
+      "options": [
+        "A) $\\frac{\\pi}{4}$",
+        "B) $\\frac{\\pi}{2}$",
+        "C) $\\pi$",
+        "D) $1$"
+      ],
+      "answer": "B",
+      "explanation": "Put $u=\\sin^{2}x$, so $du=\\sin 2x\\,dx$ and $\\sin^{4}x+\\cos^{4}x=2u^{2}-2u+1=\\frac{v^{2}+1}{2}$ with $v=2u-1$. Since $dv=2\\,du$, the integral becomes $\\int_{-1}^{1}\\frac{dv}{v^{2}+1}=\\frac{\\pi}{2}$. Option A uses the limits $v\\in[0,1]$ instead of $[-1,1]$, and option C drops the factor $2$ from $dv=2\\,du$."
+    },
+    {
+      "id": "di_c01_044",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate $I=\\int_{0}^{\\pi/4}\\ln(1+\\tan x)\\,dx$ by pairing $x$ with $\\frac{\\pi}{4}-x$ and using the tangent subtraction formula. Choose the correct option.",
+      "options": [
+        "A) $\\frac{\\pi}{4}\\ln 2$",
+        "B) $\\frac{\\pi}{8}$",
+        "C) $\\ln 2$",
+        "D) $\\frac{\\pi}{8}\\ln 2$"
+      ],
+      "answer": "D",
+      "explanation": "Under $x\\to\\frac{\\pi}{4}-x$ we have $\\tan\\left(\\frac{\\pi}{4}-x\\right)=\\frac{1-\\tan x}{1+\\tan x}$, so $\\ln(1+\\tan x)+\\ln\\left(1+\\tan\\left(\\frac{\\pi}{4}-x\\right)\\right)=\\ln 2$. Integrating this sum over $[0,\\frac{\\pi}{4}]$ gives $2I=\\frac{\\pi}{4}\\ln 2$, so $I=\\frac{\\pi}{8}\\ln 2$. Option A forgets the averaging factor $\\frac{1}{2}$."
+    },
+    {
+      "id": "di_c01_045",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Find the integer $k$ such that $\\int_{0}^{1}\\frac{x^{3}-1}{\\ln x}\\,dx=k\\ln 2$, using a parameter $a$ in the exponent and differentiation under the integral sign. Enter the value of $k$.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Define $\\Phi(a)=\\int_0^1\\frac{x^{a}-1}{\\ln x}\\,dx$. Then $\\Phi'(a)=\\int_0^1 x^{a}\\,dx=\\frac{1}{a+1}$ and $\\Phi(0)=0$, so $\\Phi(a)=\\ln(a+1)$. With $a=3$, $\\Phi(3)=\\ln 4=2\\ln 2$, so $k=2$."
+    },
+    {
+      "id": "di_c01_048",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate $\\int_{0}^{\\pi/2}\\sqrt{\\tan x}\\,dx$ by substituting $t=\\tan x$ and using a standard result for $\\int_0^\\infty \\frac{t^{a-1}}{1+t^{2}}\\,dt$. Choose the correct option.",
+      "options": [
+        "A) $\\frac{\\pi}{2}$",
+        "B) $\\frac{\\pi}{4}$",
+        "C) $\\frac{\\pi}{\\sqrt{2}}$",
+        "D) $\\sqrt{2}$"
+      ],
+      "answer": "C",
+      "explanation": "With $t=\\tan x$ we have $dx=\\frac{dt}{1+t^{2}}$, so the integral is $\\int_0^\\infty\\frac{\\sqrt{t}}{1+t^{2}}\\,dt$. Using $\\int_0^\\infty\\frac{t^{a-1}}{1+t^{2}}\\,dt=\\frac{\\pi}{2\\sin(a\\pi/2)}$ with $a=\\frac{3}{2}$ gives $\\frac{\\pi}{2\\cdot\\frac{\\sqrt{2}}{2}}=\\frac{\\pi}{\\sqrt{2}}$. Option A drops the $\\sqrt{t}$ factor, which leaves $\\int_0^\\infty\\frac{dt}{1+t^{2}}=\\frac{\\pi}{2}$."
+    },
+    {
+      "id": "di_c01_049",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $F(x)=\\int_{0}^{x}(x-t)^{3}\\cos t\\,dt$. Find $F^{(4)}(0)$ by differentiating under the integral sign repeatedly, and enter the integer value.",
+      "options": [],
+      "answer": "6",
+      "explanation": "Each differentiation under the integral has a vanishing boundary term because of the factor $(x-t)^{k}$ at $t=x$. This gives $F'''(x)=6\\int_0^x\\cos t\\,dt=6\\sin x$. Then $F^{(4)}(x)=6\\cos x$, so $F^{(4)}(0)=6$."
+    },
+    {
+      "id": "di_c01_050",
+      "subject": "Mathematics",
+      "topic": "Definite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate $\\int_{0}^{1}\\frac{\\ln x}{1+x}\\,dx$ by expanding $\\frac{1}{1+x}$ as a series and integrating term by term. Choose the correct value.",
+      "options": [
+        "A) $\\frac{\\pi^{2}}{12}$",
+        "B) $-\\frac{\\pi^{2}}{6}$",
+        "C) $-\\frac{\\pi^{2}}{12}$",
+        "D) $-\\ln 2$"
+      ],
+      "answer": "C",
+      "explanation": "Using $\\frac{1}{1+x}=\\sum_{k\\ge 0}(-1)^{k}x^{k}$ and $\\int_0^1 x^{k}\\ln x\\,dx=-\\frac{1}{(k+1)^{2}}$, the integral is $-\\sum_{k\\ge 0}\\frac{(-1)^{k}}{(k+1)^{2}}=-\\left(1-\\frac{1}{4}+\\frac{1}{9}-\\cdots\\right)=-\\frac{\\pi^{2}}{12}$. Option A is the sign error, and option B uses $\\frac{\\pi^{2}}{6}$, which is the sum of the reciprocal squares without the alternating signs."
+    }
+  ]
+}

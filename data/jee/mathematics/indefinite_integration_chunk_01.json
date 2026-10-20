@@ -1,0 +1,809 @@
+{
+  "questions": [
+    {
+      "id": "ii_c01_001",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the indefinite integral $\\int \\frac{x^2 + 1}{x^4 + 1}\\,dx$ on the domain $x > 0$. Which of the following expressions represents the antiderivative, where $C$ is an arbitrary constant of integration?",
+      "options": [
+        "A) $\\frac{1}{\\sqrt{2}}\\tan^{-1}\\left(\\frac{x^2 - 1}{\\sqrt{2}x}\\right) + C$",
+        "B) $\\frac{1}{\\sqrt{2}}\\tan^{-1}\\left(\\frac{x^2 + 1}{\\sqrt{2}x}\\right) + C$",
+        "C) $\\frac{1}{2}\\ln\\left|\\frac{x^2 - \\sqrt{2}x + 1}{x^2 + \\sqrt{2}x + 1}\\right| + C$",
+        "D) $\\frac{1}{2\\sqrt{2}}\\tan^{-1}\\left(\\frac{x^2 - 1}{x}\\right) + C$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Divide the numerator and denominator by $x^2$: $\\int \\frac{1 + x^{-2}}{x^2 + x^{-2}}\\,dx$. Step 2: Rewrite the denominator as a perfect square matching the numerator differential: $x^2 + x^{-2} = (x - x^{-1})^2 + 2$. Step 3: Setting $u = x - x^{-1}$ yields $du = (1 + x^{-2})dx$. The integral transforms to $\\int \\frac{du}{u^2 + (\\sqrt{2})^2} = \\frac{1}{\\sqrt{2}}\\tan^{-1}\\left(\\frac{u}{\\sqrt{2}}\\right) + C = \\frac{1}{\\sqrt{2}}\\tan^{-1}\\left(\\frac{x^2 - 1}{\\sqrt{2}x}\\right) + C$. Substituting $(x+x^{-1})^2 - 2$ instead leads to an invalid logarithmic form, while forgetting the $\\sqrt{2}$ factor in the denominator distorts the scale."
+    },
+    {
+      "id": "ii_c01_002",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the indefinite integral $\\int \\frac{dx}{x(x^5 + 1)}$ for $x > 0$. Which of the following functions is a correct antiderivative with constant of integration $C$?",
+      "options": [
+        "A) $\\frac{1}{5}\\ln\\left(\\frac{x^5 + 1}{x^5}\\right) + C$",
+        "B) $\\frac{1}{5}\\ln\\left(\\frac{x^5}{x^5 + 1}\\right) + C$",
+        "C) $\\ln\\left(\\frac{x^5}{x^5 + 1}\\right) + C$",
+        "D) $\\frac{1}{5}\\ln(x^5 + 1) - \\ln x + C$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Multiply numerator and denominator by $x^4$ to create the differential of $x^5$: $\\int \\frac{x^4\\,dx}{x^5(x^5 + 1)}$. Step 2: Substitute $t = x^5$, giving $dt = 5x^4\\,dx$. Step 3: Applying partial fractions to the transformed integral: $\\frac{1}{5}\\int \\frac{dt}{t(t+1)} = \\frac{1}{5}\\int \\left(\\frac{1}{t} - \\frac{1}{t+1}\\right)dt = \\frac{1}{5}\\left(\\ln t - \\ln(t+1)\\right) + C = \\frac{1}{5}\\ln\\left(\\frac{x^5}{x^5+1}\\right) + C$. Inverting the argument of the logarithm corresponds to swapping the partial fraction signs, and omitting the factor of $1/5$ comes from failing to account for the chain derivative of $x^5$."
+    },
+    {
+      "id": "ii_c01_003",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let the indefinite integral be expressed in the form $\\int \\frac{x^2 - 1}{(x^2 + 1)\\sqrt{x^4 + 1}}\\,dx = \\frac{1}{\\sqrt{k}}\\sec^{-1}\\left(\\frac{x^2 + 1}{\\sqrt{k}x}\\right) + C$ for $x > 0$, where $C$ is an arbitrary constant. Determine the value of the positive integer $k$.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: Divide both the numerator and denominator by $x^2$: $\\int \\frac{1 - x^{-2}}{(x + x^{-1})\\sqrt{x^2 + x^{-2}}}\\,dx$. Step 2: Complete the square inside the radical in terms of $u = x + x^{-1}$: note that $x^2 + x^{-2} = (x + x^{-1})^2 - 2 = u^2 - 2$. Step 3: Differentiating $u = x + x^{-1}$ gives $du = (1 - x^{-2})dx$. The integral becomes $\\int \\frac{du}{u\\sqrt{u^2 - (\\sqrt{2})^2}} = \\frac{1}{\\sqrt{2}}\\sec^{-1}\\left(\\frac{u}{\\sqrt{2}}\\right) + C = \\frac{1}{\\sqrt{2}}\\sec^{-1}\\left(\\frac{x^2 + 1}{\\sqrt{2}x}\\right) + C$. Comparing this expression with $\\frac{1}{\\sqrt{k}}\\sec^{-1}\\left(\\frac{x^2+1}{\\sqrt{k}x}\\right) + C$ yields $k = 2$."
+    },
+    {
+      "id": "ii_c01_004",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the indefinite integral $\\int \\frac{dx}{\\sin(x - a)\\sin(x - b)}$, where $a - b \\ne k\\pi$ for any integer $k$. Which of the following functions represents the general antiderivative?",
+      "options": [
+        "A) $\\frac{1}{\\cos(a - b)}\\ln\\left|\\frac{\\sin(x - a)}{\\sin(x - b)}\\right| + C$",
+        "B) $\\frac{1}{\\sin(a - b)}\\ln\\left|\\frac{\\sin(x - b)}{\\sin(x - a)}\\right| + C$",
+        "C) $\\frac{1}{\\sin(a - b)}\\ln\\left|\\frac{\\sin(x - a)}{\\sin(x - b)}\\right| + C$",
+        "D) $\\frac{1}{\\sin(a - b)}\\ln|\\sin(x - a)\\sin(x - b)| + C$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Multiply and divide the integrand by the constant $\\sin(a - b)$ and write the numerator angle as $(x - b) - (x - a)$: $\\frac{1}{\\sin(a - b)}\\int \\frac{\\sin((x - b) - (x - a))}{\\sin(x - a)\\sin(x - b)}\\,dx$. Step 2: Expand using the sine difference identity $\\sin(A - B) = \\sin A\\cos B - \\cos A\\sin B$: $\\frac{\\sin(x - b)\\cos(x - a) - \\cos(x - b)\\sin(x - a)}{\\sin(x - a)\\sin(x - b)} = \\cot(x - a) - \\cot(x - b)$. Step 3: Integrating each term yields $\\frac{1}{\\sin(a - b)}[\\ln|\\sin(x - a)| - \\ln|\\sin(x - b)|] + C = \\frac{1}{\\sin(a - b)}\\ln\\left|\\frac{\\sin(x - a)}{\\sin(x - b)}\\right| + C$. Using $\\cos(a - b)$ instead fails because it introduces unmatched tangent/cotangent pairs, while inverting the logarithmic ratio corresponds to an overall sign error."
+    },
+    {
+      "id": "ii_c01_005",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Compute the indefinite integral $\\int e^x \\frac{x^2 + 1}{(x + 1)^2}\\,dx$. Which of the following expressions provides the correct antiderivative, where $C$ is an integration constant?",
+      "options": [
+        "A) $e^x \\frac{x + 1}{x - 1} + C$",
+        "B) $e^x \\frac{1}{(x + 1)^2} + C$",
+        "C) $e^x \\frac{x}{x + 1} + C$",
+        "D) $e^x \\frac{x - 1}{x + 1} + C$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Rewrite the rational factor by separating $(x^2 - 1) + 2$: $\\frac{x^2 + 1}{(x+1)^2} = \\frac{(x-1)(x+1) + 2}{(x+1)^2} = \\frac{x-1}{x+1} + \\frac{2}{(x+1)^2}$. Step 2: Define $f(x) = \\frac{x-1}{x+1}$ and compute its derivative using the quotient rule: $f'(x) = \\frac{1(x+1) - (x-1)(1)}{(x+1)^2} = \\frac{2}{(x+1)^2}$. Step 3: The integral matches the classical cancellation identity $\\int e^x [f(x) + f'(x)]\\,dx = e^x f(x) + C = e^x \\frac{x-1}{x+1} + C$. Forgetting to split the numerator appropriately leads to extraneous rational factors, while an incorrect sign in the derivative calculation reverses the fraction."
+    },
+    {
+      "id": "ii_c01_006",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the antiderivative $\\int \\frac{dx}{\\sqrt{x} + \\sqrt[3]{x}}$ for $x > 0$. Which of the following expressions is correct with arbitrary constant $C$?",
+      "options": [
+        "A) $2\\sqrt{x} - 3x^{1/3} + 6x^{1/6} - 6\\ln|x^{1/6} + 1| + C$",
+        "B) $3\\sqrt{x} - 2x^{1/3} + 6x^{1/6} - 6\\ln|x^{1/6} + 1| + C$",
+        "C) $2\\sqrt{x} - 3x^{1/3} + 3x^{1/6} - 3\\ln|x^{1/6} + 1| + C$",
+        "D) $2\\sqrt{x} + 3x^{1/3} - 6x^{1/6} + 6\\ln|x^{1/6} + 1| + C$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The least common multiple of the radical indices 2 and 3 is 6. Substitute $x = t^6$, yielding $dx = 6t^5\\,dt$. Step 2: The integrand transforms to $\\int \\frac{6t^5\\,dt}{t^3 + t^2} = 6\\int \\frac{t^3}{t+1}\\,dt$. Step 3: Perform polynomial long division: $\\frac{t^3}{t+1} = t^2 - t + 1 - \\frac{1}{t+1}$. Integrating term-by-term: $6\\left(\\frac{t^3}{3} - \\frac{t^2}{2} + t - \\ln|t+1|\\right) + C = 2t^3 - 3t^2 + 6t - 6\\ln|t+1| + C$. Step 4: Back-substituting $t = x^{1/6}$ gives $2\\sqrt{x} - 3x^{1/3} + 6x^{1/6} - 6\\ln|x^{1/6} + 1| + C$. Swapping the fractional power coefficients or mishandling the alternating signs during polynomial division generates common distractors."
+    },
+    {
+      "id": "ii_c01_007",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the indefinite integral $\\int \\frac{dx}{\\sin^{3/2}x\\,\\cos^{5/2}x}$ for $x \\in \\left(0, \\frac{\\pi}{2}\\right)$. Which of the following represents the correct antiderivative?",
+      "options": [
+        "A) $2\\sqrt{\\tan x} - \\frac{2}{3}(\\tan x)^{-3/2} + C$",
+        "B) $-\\frac{2}{\\sqrt{\\tan x}} + \\frac{2}{3}(\\tan x)^{3/2} + C$",
+        "C) $-\\frac{2}{\\sqrt{\\tan x}} - \\frac{2}{3}(\\tan x)^{3/2} + C$",
+        "D) $\\frac{2}{\\sqrt{\\tan x}} + \\frac{2}{3}(\\tan x)^{3/2} + C$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The sum of powers of sine and cosine in the denominator is $3/2 + 5/2 = 4$, an even positive integer. Divide numerator and denominator by $\\cos^4 x$: $\\int \\frac{\\sec^4 x\\,dx}{\\tan^{3/2}x} = \\int \\frac{(1 + \\tan^2 x)\\sec^2 x\\,dx}{\\tan^{3/2}x}$. Step 2: Substitute $u = \\tan x$, giving $du = \\sec^2 x\\,dx$. Step 3: Integrate term by term: $\\int (u^{-3/2} + u^{1/2})du = \\frac{u^{-1/2}}{-1/2} + \\frac{u^{3/2}}{3/2} + C = -2u^{-1/2} + \\frac{2}{3}u^{3/2} + C = -\\frac{2}{\\sqrt{\\tan x}} + \\frac{2}{3}(\\tan x)^{3/2} + C$. Missing the minus sign on the integration of $u^{-3/2}$ or miscalculating the fractional power exponent results in erroneous distractor expressions."
+    },
+    {
+      "id": "ii_c01_008",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let the indefinite integral be given by $\\int \\frac{2x^{12} + 5x^9}{(x^5 + x^3 + 1)^3}\\,dx = \\frac{x^{10}}{k(x^5 + x^3 + 1)^2} + C$ for $x > 0$, where $C$ is the constant of integration. Determine the value of the positive integer $k$.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: Factor out $x^{15}$ from the denominator: $(x^5 + x^3 + 1)^3 = x^{15}(1 + x^{-2} + x^{-5})^3$. Step 2: Divide both terms in the numerator by $x^{15}$: $\\frac{2x^{12} + 5x^9}{x^{15}} = 2x^{-3} + 5x^{-6}$. The integral becomes $\\int \\frac{2x^{-3} + 5x^{-6}}{(1 + x^{-2} + x^{-5})^3}\\,dx$. Step 3: Let $u = 1 + x^{-2} + x^{-5}$, so that $du = (-2x^{-3} - 5x^{-6})dx = -(2x^{-3} + 5x^{-6})dx$. Step 4: The transformed integral is $\\int -u^{-3}\\,du = \\frac{u^{-2}}{2} + C = \\frac{1}{2(1 + x^{-2} + x^{-5})^2} + C = \\frac{x^{10}}{2(x^5 + x^3 + 1)^2} + C$. Comparing with the target expression $\\frac{x^{10}}{k(x^5+x^3+1)^2} + C$ gives $k = 2$."
+    },
+    {
+      "id": "ii_c01_009",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the indefinite integral $\\int \\frac{x\\,dx}{(x - 1)(x^2 + 1)}$ on the domain $x > 1$. Which of the following expressions provides the correct antiderivative?",
+      "options": [
+        "A) $\\frac{1}{2}\\ln|x - 1| - \\frac{1}{2}\\ln(x^2 + 1) + \\frac{1}{2}\\tan^{-1}x + C$",
+        "B) $\\ln|x - 1| - \\frac{1}{2}\\ln(x^2 + 1) + \\tan^{-1}x + C$",
+        "C) $\\frac{1}{2}\\ln|x - 1| - \\frac{1}{4}\\ln(x^2 + 1) + \\frac{1}{2}\\tan^{-1}x + C$",
+        "D) $\\frac{1}{4}\\ln|x - 1| - \\frac{1}{4}\\ln(x^2 + 1) + \\tan^{-1}x + C$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Decompose the integrand into partial fractions: $\\frac{x}{(x-1)(x^2+1)} = \\frac{A}{x-1} + \\frac{Bx + D}{x^2+1}$. Step 2: Clear denominators: $x = A(x^2+1) + (Bx+D)(x-1)$. Substituting $x = 1$ gives $1 = 2A \\implies A = 1/2$. Comparing coefficients of $x^2$: $A + B = 0 \\implies B = -1/2$. Comparing constant terms: $A - D = 0 \\implies D = 1/2$. Step 3: Integrate each component: $\\frac{1}{2}\\int \\frac{dx}{x-1} - \\frac{1}{2}\\int \\frac{x\\,dx}{x^2+1} + \\frac{1}{2}\\int \\frac{dx}{x^2+1} = \\frac{1}{2}\\ln|x-1| - \\frac{1}{4}\\ln(x^2+1) + \\frac{1}{2}\\tan^{-1}x + C$. Forgetting the factor of $1/2$ when integrating $\\frac{x}{x^2+1}$ gives $-\\frac{1}{2}\\ln(x^2+1)$, which is a frequent algebraic slip."
+    },
+    {
+      "id": "ii_c01_010",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the antiderivative $\\int \\frac{\\sin^3 x}{\\cos^4 x}\\,dx$ on the interval $\\left(0, \\frac{\\pi}{2}\\right)$. Which of the following functions matches the result, with arbitrary constant $C$?",
+      "options": [
+        "A) $\\frac{1}{3}\\sec^3 x + \\sec x + C$",
+        "B) $\\sec x - \\frac{1}{3}\\sec^3 x + C$",
+        "C) $\\frac{1}{4}\\sec^4 x - \\frac{1}{2}\\sec^2 x + C$",
+        "D) $\\frac{1}{3}\\sec^3 x - \\sec x + C$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Factor out $\\sin x$ and convert the remaining sine terms to cosine using $\\sin^2 x = 1 - \\cos^2 x$: $\\int \\frac{(1 - \\cos^2 x)\\sin x}{\\cos^4 x}\\,dx$. Step 2: Substitute $u = \\cos x$, which yields $du = -\\sin x\\,dx$. Step 3: The integral becomes $\\int \\frac{-(1 - u^2)}{u^4}\\,du = \\int (-u^{-4} + u^{-2})du = \\frac{u^{-3}}{3} - u^{-1} + C = \\frac{1}{3\\cos^3 x} - \\frac{1}{\\cos x} + C = \\frac{1}{3}\\sec^3 x - \\sec x + C$. Dropping the negative sign from $du = -\\sin x\\,dx$ inverts the terms to $\\sec x - \\frac{1}{3}\\sec^3 x$, while integrating directly without substitution leads to polynomial errors."
+    },
+    {
+      "id": "ii_c01_011",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the indefinite integral $\\int x\\tan^{-1}x\\,dx$. Which of the following expressions gives the correct antiderivative, where $C$ is an integration constant?",
+      "options": [
+        "A) $\\frac{x^2 + 1}{2}\\tan^{-1}x - \\frac{x}{2} + C$",
+        "B) $\\frac{x^2}{2}\\tan^{-1}x - \\frac{x}{2} + C$",
+        "C) $\\frac{x^2 + 1}{2}\\tan^{-1}x - x + C$",
+        "D) $\\frac{x^2 - 1}{2}\\tan^{-1}x + \\frac{x}{2} + C$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Apply integration by parts setting $u = \\tan^{-1}x$ and $dv = x\\,dx$. Then $du = \\frac{dx}{x^2+1}$ and $v = \\frac{x^2}{2}$. Step 2: The integration by parts formula yields $\\int x\\tan^{-1}x\\,dx = \\frac{x^2}{2}\\tan^{-1}x - \\frac{1}{2}\\int \\frac{x^2}{x^2+1}\\,dx$. Step 3: Rewrite $\\frac{x^2}{x^2+1} = 1 - \\frac{1}{x^2+1}$. Integrating this gives $\\int \\left(1 - \\frac{1}{x^2+1}\\right)dx = x - \\tan^{-1}x$. Step 4: Combining terms: $\\frac{x^2}{2}\\tan^{-1}x - \\frac{1}{2}(x - \\tan^{-1}x) + C = \\frac{x^2+1}{2}\\tan^{-1}x - \\frac{x}{2} + C$. Forgetting to group the $\\tan^{-1}x$ terms together leaves an unsimplified expression, and miscalculating the sign when expanding $-(1/2)(x - \\tan^{-1}x)$ produces sign errors."
+    },
+    {
+      "id": "ii_c01_012",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Compute the indefinite integral $\\int \\frac{dx}{x^2\\sqrt{1 - x^2}}$ for $x \\in (0, 1)$. Which of the following functions represents the correct antiderivative with constant $C$?",
+      "options": [
+        "A) $\\frac{\\sqrt{1 - x^2}}{x} + C$",
+        "B) $-\\frac{\\sqrt{1 - x^2}}{x} + C$",
+        "C) $-\\sqrt{1 - x^2} + C$",
+        "D) $-\\frac{x}{\\sqrt{1 - x^2}} + C$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Substitute $x = \\sin\\theta$, so that $dx = \\cos\\theta\\,d\\theta$ and $\\sqrt{1 - x^2} = \\cos\\theta$ for $\\theta \\in (0, \\pi/2)$. Step 2: The integrand becomes $\\int \\frac{\\cos\\theta\\,d\\theta}{\\sin^2\\theta\\cos\\theta} = \\int \\csc^2\\theta\\,d\\theta$. Step 3: Integrating yields $-\\cot\\theta + C$. Step 4: Express $\\cot\\theta$ in terms of $x$: $\\cot\\theta = \\frac{\\cos\\theta}{\\sin\\theta} = \\frac{\\sqrt{1-x^2}}{x}$. Hence the antiderivative is $-\\frac{\\sqrt{1-x^2}}{x} + C$. Missing the negative sign in the integral of $\\csc^2\\theta$ yields the positive counterpart, while confusing $\\cot\\theta$ with $\\tan\\theta$ gives the reciprocal ratio."
+    },
+    {
+      "id": "ii_c01_013",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "If the indefinite integral $\\int \\frac{dx}{(x^2 + 4x + 13)^2}$ is expressed in the form $\\frac{1}{p}\\left[ \\frac{x+2}{x^2 + 4x + 13} + \\frac{1}{3}\\tan^{-1}\\left(\\frac{x+2}{3}\\right)\\right] + C$, where $p$ is a positive integer and $C$ is an arbitrary constant, determine the value of $p$.",
+      "options": [],
+      "answer": "18",
+      "explanation": "Step 1: Complete the square in the quadratic: $x^2 + 4x + 13 = (x+2)^2 + 9$. Step 2: Substitute $x + 2 = 3\\tan\\theta$, giving $dx = 3\\sec^2\\theta\\,d\\theta$. The denominator becomes $[9\\tan^2\\theta + 9]^2 = 81\\sec^4\\theta$. Step 3: The integral transforms to $\\int \\frac{3\\sec^2\\theta\\,d\\theta}{81\\sec^4\\theta} = \\frac{1}{27}\\int \\cos^2\\theta\\,d\\theta = \\frac{1}{54}\\int (1 + \\cos 2\\theta)d\\theta = \\frac{1}{54}(\\theta + \\sin\\theta\\cos\\theta) + C$. Step 4: Back-substitute $\\theta = \\tan^{-1}\\left(\\frac{x+2}{3}\\right)$ and $\\sin\\theta\\cos\\theta = \\frac{3(x+2)}{(x+2)^2 + 9} = \\frac{3(x+2)}{x^2+4x+13}$. Then $\\frac{1}{54}\\left[\\frac{3(x+2)}{x^2+4x+13} + \\tan^{-1}\\left(\\frac{x+2}{3}\\right)\\right] = \\frac{1}{18}\\left[\\frac{x+2}{x^2+4x+13} + \\frac{1}{3}\\tan^{-1}\\left(\\frac{x+2}{3}\\right)\\right] + C$. Comparing coefficients yields $p = 18$."
+    },
+    {
+      "id": "ii_c01_014",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the indefinite integral $\\int \\frac{dx}{\\sqrt{e^x - 1}}$ for $x > 0$. Which of the following expressions provides the correct antiderivative, where $C$ is an arbitrary constant?",
+      "options": [
+        "A) $\\tan^{-1}\\left(\\sqrt{e^x - 1}\\right) + C$",
+        "B) $2\\ln\\left|\\sqrt{e^x - 1} + 1\\right| + C$",
+        "C) $2\\tan^{-1}\\left(\\sqrt{e^x - 1}\\right) + C$",
+        "D) $\\frac{1}{2}\\tan^{-1}\\left(\\sqrt{e^x - 1}\\right) + C$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Substitute $u = \\sqrt{e^x - 1}$, so that $u^2 = e^x - 1 \\implies e^x = u^2 + 1$. Step 2: Differentiating both sides gives $2u\\,du = e^x\\,dx = (u^2 + 1)dx$, which means $dx = \\frac{2u\\,du}{u^2 + 1}$. Step 3: Substitute into the integral: $\\int \\frac{1}{u} \\frac{2u\\,du}{u^2 + 1} = 2\\int \\frac{du}{u^2 + 1} = 2\\tan^{-1}(u) + C = 2\\tan^{-1}\\left(\\sqrt{e^x - 1}\\right) + C$. Forgetting the factor of 2 coming from $d(u^2) = 2u\\,du$ produces $\\tan^{-1}(\\sqrt{e^x-1})$, while mistakenly treating the integrand as a logarithmic derivative produces spurious logarithms."
+    },
+    {
+      "id": "ii_c01_015",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the indefinite integral $\\int \\frac{\\sec^2 x\\,dx}{(\\sec x + \\tan x)^{9/2}}$ for $x \\in \\left(0, \\frac{\\pi}{2}\\right)$. Which of the following functions matches the antiderivative with constant $C$?",
+      "options": [
+        "A) $-\\frac{2}{7}(\\sec x + \\tan x)^{-7/2} - \\frac{2}{11}(\\sec x + \\tan x)^{-11/2} + C$",
+        "B) $\\frac{1}{7}(\\sec x + \\tan x)^{-7/2} - \\frac{1}{11}(\\sec x + \\tan x)^{-11/2} + C$",
+        "C) $-\\frac{1}{9}(\\sec x + \\tan x)^{-9/2} + C$",
+        "D) $-\\frac{1}{7}(\\sec x + \\tan x)^{-7/2} - \\frac{1}{11}(\\sec x + \\tan x)^{-11/2} + C$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Substitute $t = \\sec x + \\tan x$. Then $\\sec x - \\tan x = \\frac{1}{t}$, which implies $\\sec x = \\frac{1}{2}\\left(t + \\frac{1}{t}\\right)$. Step 2: Differentiating gives $dt = (\\sec x\\tan x + \\sec^2 x)dx = t\\sec x\\,dx$, so $\\sec x\\,dx = \\frac{dt}{t}$. Therefore $\\sec^2 x\\,dx = \\frac{1}{2}\\left(t + \\frac{1}{t}\\right)\\frac{dt}{t} = \\frac{1}{2}(1 + t^{-2})dt$. Step 3: Substitute into the integral: $\\frac{1}{2}\\int \\frac{1 + t^{-2}}{t^{9/2}}\\,dt = \\frac{1}{2}\\int (t^{-9/2} + t^{-13/2})dt = \\frac{1}{2}\\left(-\\frac{2}{7}t^{-7/2} - \\frac{2}{11}t^{-11/2}\\right) + C = -\\frac{1}{7}t^{-7/2} - \\frac{1}{11}t^{-11/2} + C$. Step 4: Replacing $t = \\sec x + \\tan x$ produces the result. Missing the factor of $1/2$ from expressing $\\sec x$ generates coefficients of $2/7$ and $2/11$."
+    },
+    {
+      "id": "ii_c01_016",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $I_n = \\int \\sec^n x\\,dx$ for $n \\ge 2$. If the reduction relation is given by $(n - 1)I_n = f(x) + (n - 2)I_{n-2}$, which of the following expressions represents the function $f(x)$?",
+      "options": [
+        "A) $\\sec^{n-2}x \\tan x$",
+        "B) $\\sec^{n-1}x \\tan x$",
+        "C) $\\sec^{n-2}x \\tan^2 x$",
+        "D) $\\sec^n x \\tan x$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write the integrand as $\\sec^{n-2}x \\sec^2 x$ and apply integration by parts. Let $u = \\sec^{n-2}x$ and $dv = \\sec^2 x\\,dx$. Step 2: Differentiating $u$ gives $du = (n-2)\\sec^{n-3}x (\\sec x\\tan x)dx = (n-2)\\sec^{n-2}x\\tan x\\,dx$, and integrating $dv$ yields $v = \\tan x$. Step 3: By integration by parts, $I_n = \\sec^{n-2}x\\tan x - (n-2)\\int \\sec^{n-2}x\\tan^2 x\\,dx$. Step 4: Substitute $\\tan^2 x = \\sec^2 x - 1$: $(n-2)\\int \\sec^{n-2}x(\\sec^2 x - 1)dx = (n-2)I_n - (n-2)I_{n-2}$. Rearranging yields $(n-1)I_n = \\sec^{n-2}x\\tan x + (n-2)I_{n-2}$. Thus $f(x) = \\sec^{n-2}x\\tan x$. Forgetting the chain rule when differentiating $\\sec^{n-2}x$ or confusing powers of secant results in the other options."
+    },
+    {
+      "id": "ii_c01_017",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $J_n = \\int (\\ln x)^n\\,dx$ for $x > 0$ and non-negative integers $n$. Using the reduction relation $J_n = x(\\ln x)^n - n J_{n-1}$, compute the integral $J_3 = \\int (\\ln x)^3\\,dx$. Which of the following expressions is correct, where $C$ is an integration constant?",
+      "options": [
+        "A) $x(\\ln x)^3 - 3x(\\ln x)^2 + 3x\\ln x - 3x + C$",
+        "B) $x(\\ln x)^3 - 3x(\\ln x)^2 + 6x\\ln x - 6x + C$",
+        "C) $x(\\ln x)^3 - 3x(\\ln x)^2 + 6x\\ln x - 3x + C$",
+        "D) $x(\\ln x)^3 + 3x(\\ln x)^2 - 6x\\ln x + 6x + C$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Compute base integrals using integration by parts: $J_0 = \\int 1\\,dx = x$, and $J_1 = x\\ln x - x$. Step 2: Use the recurrence $J_n = x(\\ln x)^n - n J_{n-1}$ for $n = 2$: $J_2 = x(\\ln x)^2 - 2J_1 = x(\\ln x)^2 - 2(x\\ln x - x) = x(\\ln x)^2 - 2x\\ln x + 2x$. Step 3: Apply the recurrence again for $n = 3$: $J_3 = x(\\ln x)^3 - 3J_2 = x(\\ln x)^3 - 3[x(\\ln x)^2 - 2x\\ln x + 2x] + C = x(\\ln x)^3 - 3x(\\ln x)^2 + 6x\\ln x - 6x + C$. Omitting the factorial multiplier $3 \\times 2 = 6$ yields a coefficient of 3, while sign errors during distribution produce incorrect signs."
+    },
+    {
+      "id": "ii_c01_018",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $I_n = \\int x^n e^{-x}\\,dx$ for non-negative integers $n$. If the indefinite integral for $n = 4$ is written as $I_4 = -e^{-x}(x^4 + a x^3 + b x^2 + c x + d) + C$, where $a, b, c, d$ are positive integers and $C$ is an arbitrary constant, determine the sum $a + b + c + d$.",
+      "options": [],
+      "answer": "64",
+      "explanation": "Step 1: Applying integration by parts with $u = x^n$ and $dv = e^{-x}dx$ gives $du = n x^{n-1}dx$ and $v = -e^{-x}$, yielding $I_n = -x^n e^{-x} + n I_{n-1}$. Step 2: Evaluating recursively: $I_0 = -e^{-x}$, $I_1 = -e^{-x}(x + 1)$, $I_2 = -e^{-x}(x^2 + 2x + 2)$, and $I_3 = -e^{-x}(x^3 + 3x^2 + 6x + 6)$. Step 3: For $n = 4$, $I_4 = -x^4 e^{-x} + 4I_3 = -e^{-x}[x^4 + 4(x^3 + 3x^2 + 6x + 6)] + C = -e^{-x}(x^4 + 4x^3 + 12x^2 + 24x + 24) + C$. Step 4: The coefficients are $a = 4$, $b = 12$, $c = 24$, and $d = 24$. Thus their sum is $a + b + c + d = 4 + 12 + 24 + 24 = 64$."
+    },
+    {
+      "id": "ii_c01_019",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the indefinite integral $\\int \\frac{dx}{5 + 4\\cos x}$ for $x \\in (-\\pi, \\pi)$. Which of the following expressions represents the antiderivative with integration constant $C$?",
+      "options": [
+        "A) $\\frac{1}{3}\\tan^{-1}\\left(\\frac{\\tan(x/2)}{3}\\right) + C$",
+        "B) $\\frac{2}{9}\\tan^{-1}\\left(\\frac{\\tan(x/2)}{3}\\right) + C$",
+        "C) $\\frac{2}{3}\\tan^{-1}\\left(\\frac{\\tan(x/2)}{3}\\right) + C$",
+        "D) $\\frac{1}{3}\\tan^{-1}\\left(3\\tan\\frac{x}{2}\\right) + C$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Apply the Weierstrass half-angle substitution $t = \\tan(x/2)$, where $dx = \\frac{2\\,dt}{1 + t^2}$ and $\\cos x = \\frac{1 - t^2}{1 + t^2}$. Step 2: The denominator transforms to $5 + 4\\left(\\frac{1 - t^2}{1 + t^2}\\right) = \\frac{5(1 + t^2) + 4(1 - t^2)}{1 + t^2} = \\frac{t^2 + 9}{1 + t^2}$. Step 3: Substituting into the integral: $\\int \\frac{\\frac{2\\,dt}{1 + t^2}}{\\frac{t^2 + 9}{1 + t^2}} = \\int \\frac{2\\,dt}{t^2 + 3^2}$. Step 4: Integrating gives $\\frac{2}{3}\\tan^{-1}\\left(\\frac{t}{3}\\right) + C = \\frac{2}{3}\\tan^{-1}\\left(\\frac{\\tan(x/2)}{3}\\right) + C$. Missing the factor of 2 from $dx = 2dt/(1+t^2)$ yields $1/3$, while squaring the coefficient yields $2/9$."
+    },
+    {
+      "id": "ii_c01_020",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the indefinite integral $\\int \\frac{dx}{3 + 2\\sin x + \\cos x}$ for $x \\in (-\\pi, \\pi)$. Which of the following functions matches the antiderivative with constant $C$?",
+      "options": [
+        "A) $\\frac{1}{2}\\tan^{-1}\\left(\\tan\\frac{x}{2} + 1\\right) + C$",
+        "B) $\\tan^{-1}\\left(2\\tan\\frac{x}{2} + 1\\right) + C$",
+        "C) $\\ln\\left|3 + 2\\sin x + \\cos x\\right| + C$",
+        "D) $\\tan^{-1}\\left(\\tan\\frac{x}{2} + 1\\right) + C$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Set $t = \\tan(x/2)$, which gives $dx = \\frac{2\\,dt}{1 + t^2}$, $\\sin x = \\frac{2t}{1 + t^2}$, and $\\cos x = \\frac{1 - t^2}{1 + t^2}$. Step 2: Rewrite the denominator: $3 + 2\\left(\\frac{2t}{1+t^2}\\right) + \\frac{1-t^2}{1+t^2} = \\frac{3(1+t^2) + 4t + 1 - t^2}{1+t^2} = \\frac{2t^2 + 4t + 4}{1+t^2} = \\frac{2(t^2 + 2t + 2)}{1+t^2}$. Step 3: The integral becomes $\\int \\frac{\\frac{2\\,dt}{1+t^2}}{\\frac{2(t^2+2t+2)}{1+t^2}} = \\int \\frac{dt}{t^2 + 2t + 2} = \\int \\frac{dt}{(t+1)^2 + 1}$. Step 4: Integrating gives $\\tan^{-1}(t + 1) + C = \\tan^{-1}\\left(\\tan\\frac{x}{2} + 1\\right) + C$. Forgetting to cancel the common factor 2 introduces an erroneous $1/2$ coefficient, and misgrouping the linear term leads to incorrect arguments."
+    },
+    {
+      "id": "ii_c01_021",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the indefinite integral $\\int \\frac{dx}{(x + 1)\\sqrt{x^2 + 2x + 2}}$ for $x > -1$. Which of the following expressions gives the correct antiderivative, where $C$ is an arbitrary constant?",
+      "options": [
+        "A) $-\\ln\\left(\\frac{1 + \\sqrt{x^2 + 2x + 2}}{x + 1}\\right) + C$",
+        "B) $\\ln\\left(\\frac{1 + \\sqrt{x^2 + 2x + 2}}{x + 1}\\right) + C$",
+        "C) $\\frac{1}{2}\\ln\\left(x^2 + 2x + 2\\right) + C$",
+        "D) $-\\tan^{-1}\\left(\\frac{\\sqrt{x^2 + 2x + 2}}{x + 1}\\right) + C$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Notice that $x^2 + 2x + 2 = (x+1)^2 + 1$. Substitute $u = x + 1$, yielding $du = dx$, which simplifies the integral to $\\int \\frac{du}{u\\sqrt{u^2 + 1}}$. Step 2: Apply the substitution $u = 1/t$, so that $du = -t^{-2}dt$. Step 3: The integral transforms to $\\int \\frac{-t^{-2}dt}{(1/t)\\sqrt{t^{-2} + 1}} = -\\int \\frac{dt}{\\sqrt{t^2 + 1}} = -\\ln|t + \\sqrt{t^2 + 1}| + C$. Step 4: Back-substituting $t = 1/u = \\frac{1}{x+1}$ gives $-\\ln\\left|\\frac{1}{x+1} + \\sqrt{\\frac{1}{(x+1)^2} + 1}\\right| + C = -\\ln\\left(\\frac{1 + \\sqrt{x^2 + 2x + 2}}{x + 1}\\right) + C$. A sign error when evaluating the integral of $-1/\\sqrt{t^2+1}$ produces the positive logarithm in the distractor."
+    },
+    {
+      "id": "ii_c01_022",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "By decomposing the rational function with repeated irreducible quadratic factors, determine the antiderivative $\\int \\frac{x^2}{(x^2 + 1)^2}\\,dx$. Which of the following expressions is correct with arbitrary constant $C$?",
+      "options": [
+        "A) $\\frac{x}{2(x^2 + 1)} + \\frac{1}{2}\\tan^{-1}x + C$",
+        "B) $-\\frac{x}{2(x^2 + 1)} + \\frac{1}{2}\\tan^{-1}x + C$",
+        "C) $-\\frac{x}{x^2 + 1} + \\tan^{-1}x + C$",
+        "D) $\\frac{1}{2(x^2 + 1)} - \\frac{1}{2}\\tan^{-1}x + C$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Set up the Ostrogradsky-Hermite ansatz: $\\int \\frac{x^2}{(x^2+1)^2}\\,dx = \\frac{Ax + B}{x^2+1} + \\int \\frac{Dx + E}{x^2+1}\\,dx$. Step 2: Differentiate both sides: $\\frac{x^2}{(x^2+1)^2} = \\frac{A(x^2+1) - 2x(Ax+B)}{(x^2+1)^2} + \\frac{Dx + E}{x^2+1} = \\frac{-Ax^2 - 2Bx + A + (Dx+E)(x^2+1)}{(x^2+1)^2}$. Step 3: Equate coefficients of powers of $x$: $D = 0$, $E - A = 1$, $-2B = 0 \\implies B = 0$, and $A + E = 0 \\implies E = -A$. Combining these yields $-A - A = 1 \\implies A = -1/2$, and $E = 1/2$. Step 4: The integral evaluates to $-\\frac{x}{2(x^2+1)} + \\frac{1}{2}\\int \\frac{dx}{x^2+1} = -\\frac{x}{2(x^2+1)} + \\frac{1}{2}\\tan^{-1}x + C$. Dropping the negative sign in the quotient rule differentiation produces a positive algebraic term, while missing the factor of $1/2$ doubles the terms."
+    },
+    {
+      "id": "ii_c01_023",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "If the indefinite integral $\\int \\frac{x^4 + 1}{(x^2 + 1)^2}\\,dx$ is expressed in the form $x + \\frac{\\alpha x}{x^2 + 1} + \\beta\\tan^{-1}x + C$, where $\\alpha, \\beta$ are integers and $C$ is an arbitrary constant, determine the value of the integer expression $(2\\alpha - 3\\beta)^2$.",
+      "options": [],
+      "answer": "25",
+      "explanation": "Step 1: Rewrite the numerator by completing the square of the denominator: $x^4 + 1 = (x^2 + 1)^2 - 2x^2$. Step 2: The integrand splits into $\\frac{x^4 + 1}{(x^2 + 1)^2} = 1 - \\frac{2x^2}{(x^2 + 1)^2}$. Step 3: Using the known antiderivative $\\int \\frac{x^2}{(x^2+1)^2}\\,dx = -\\frac{x}{2(x^2+1)} + \\frac{1}{2}\\tan^{-1}x$: $\\int \\frac{x^4 + 1}{(x^2 + 1)^2}\\,dx = \\int 1\\,dx - 2\\left(-\\frac{x}{2(x^2+1)} + \\frac{1}{2}\\tan^{-1}x\\right) + C = x + \\frac{x}{x^2+1} - \\tan^{-1}x + C$. Step 4: Comparing this with the given form gives $\\alpha = 1$ and $\\beta = -1$. Evaluating the target expression: $(2\\alpha - 3\\beta)^2 = (2(1) - 3(-1))^2 = (2 + 3)^2 = 5^2 = 25$."
+    },
+    {
+      "id": "ii_c01_024",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the indefinite integral $\\int \\frac{dx}{(x - 1)\\sqrt{2 - x - x^2}}$ on the interval $x \\in (-2, 1)$. Which of the following expressions represents the antiderivative with constant $C$?",
+      "options": [
+        "A) $\\frac{2}{3}\\sqrt{\\frac{x + 2}{1 - x}} + C$",
+        "B) $-\\frac{1}{3}\\sqrt{\\frac{x + 2}{1 - x}} + C$",
+        "C) $-\\frac{2}{3}\\sqrt{\\frac{x + 2}{1 - x}} + C$",
+        "D) $-\\frac{2}{3}\\sqrt{\\frac{1 - x}{x + 2}} + C$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Factor the quadratic inside the square root: $2 - x - x^2 = -(x^2 + x - 2) = (x + 2)(1 - x)$. Step 2: Apply Euler's third substitution $t = \\sqrt{\\frac{x+2}{1-x}}$. Squaring both sides: $t^2(1 - x) = x + 2 \\implies x(t^2 + 1) = t^2 - 2$, so $x = \\frac{t^2 - 2}{t^2 + 1} = 1 - \\frac{3}{t^2 + 1}$. Step 3: Differentiate to find $dx = \\frac{6t\\,dt}{(t^2+1)^2}$. Also $x - 1 = -\\frac{3}{t^2+1}$, and $\\sqrt{2 - x - x^2} = (1 - x)t = \\frac{3t}{t^2 + 1}$. Step 4: The denominator is $(x-1)\\sqrt{2-x-x^2} = -\\frac{9t}{(t^2+1)^2}$. Thus the integral simplifies to $\\int \\frac{\\frac{6t\\,dt}{(t^2+1)^2}}{-\\frac{9t}{(t^2+1)^2}} = \\int -\\frac{2}{3}\\,dt = -\\frac{2}{3}t + C = -\\frac{2}{3}\\sqrt{\\frac{x+2}{1-x}} + C$. A sign error when evaluating $x - 1$ leads to positive $2/3$, while confusing $t$ with $1/t$ inverts the fraction under the radical."
+    },
+    {
+      "id": "ii_c01_025",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $I_n = \\int \\tan^n x\\,dx$ for $n \\ge 2$. Using the reduction identity $I_n + I_{n-2} = \\frac{\\tan^{n-1}x}{n-1}$, evaluate $I_6 = \\int \\tan^6 x\\,dx$. Which of the following expressions represents the antiderivative, where $C$ is an integration constant?",
+      "options": [
+        "A) $\\frac{1}{5}\\tan^5 x + \\frac{1}{3}\\tan^3 x + \\tan x - x + C$",
+        "B) $\\frac{1}{5}\\tan^5 x - \\frac{1}{3}\\tan^3 x - \\tan x + x + C$",
+        "C) $\\frac{1}{6}\\tan^6 x - \\frac{1}{4}\\tan^4 x + \\frac{1}{2}\\tan^2 x - x + C$",
+        "D) $\\frac{1}{5}\\tan^5 x - \\frac{1}{3}\\tan^3 x + \\tan x - x + C$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Write $I_n = \\int \\tan^{n-2}x(\\sec^2 x - 1)dx = \\frac{\\tan^{n-1}x}{n-1} - I_{n-2}$, which establishes the recurrence $I_n = \\frac{\\tan^{n-1}x}{n-1} - I_{n-2}$. Step 2: Compute $I_0 = \\int 1\\,dx = x$. Step 3: For $n = 2$, $I_2 = \\tan x - I_0 = \\tan x - x$. Step 4: For $n = 4$, $I_4 = \\frac{\\tan^3 x}{3} - I_2 = \\frac{\\tan^3 x}{3} - \\tan x + x$. Step 5: For $n = 6$, $I_6 = \\frac{\\tan^5 x}{5} - I_4 = \\frac{\\tan^5 x}{5} - \\left(\\frac{\\tan^3 x}{3} - \\tan x + x\\right) + C = \\frac{\\tan^5 x}{5} - \\frac{\\tan^3 x}{3} + \\tan x - x + C$. Neglecting the alternating signs produced by repeated subtractions results in all positive signs, and treating the integral as a direct power yields an incorrect polynomial in even powers."
+    },
+    {
+      "id": "ii_c01_026",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the indefinite integral $\\int \\frac{2\\sin x + 3\\cos x}{3\\sin x + 4\\cos x}\\,dx$. Which of the following expressions gives the correct antiderivative, where $C$ is an arbitrary constant?",
+      "options": [
+        "A) $\\frac{18}{25}x + \\frac{1}{25}\\ln|3\\sin x + 4\\cos x| + C$",
+        "B) $\\frac{18}{25}x - \\frac{1}{25}\\ln|3\\sin x + 4\\cos x| + C$",
+        "C) $\\frac{6}{25}x + \\frac{17}{25}\\ln|3\\sin x + 4\\cos x| + C$",
+        "D) $\\frac{1}{25}x + \\frac{18}{25}\\ln|3\\sin x + 4\\cos x| + C$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Express the numerator as a linear combination of the denominator and its derivative: $2\\sin x + 3\\cos x = A(3\\sin x + 4\\cos x) + B\\frac{d}{dx}(3\\sin x + 4\\cos x) = A(3\\sin x + 4\\cos x) + B(3\\cos x - 4\\sin x)$. Step 2: Group sine and cosine terms: $(3A - 4B)\\sin x + (4A + 3B)\\cos x = 2\\sin x + 3\\cos x$. Step 3: Solve the simultaneous equations: $3A - 4B = 2$ and $4A + 3B = 3$. Multiplying the first equation by 3 and the second by 4 yields $9A - 12B = 6$ and $16A + 12B = 12$. Adding gives $25A = 18 \\implies A = 18/25$. Substituting back: $B = \\frac{3A - 2}{4} = \\frac{54/25 - 50/25}{4} = 1/25$. Step 4: The integral is $A\\int 1\\,dx + B\\int \\frac{d(3\\sin x + 4\\cos x)}{3\\sin x + 4\\cos x} = \\frac{18}{25}x + \\frac{1}{25}\\ln|3\\sin x + 4\\cos x| + C$. Swapping coefficients or introducing sign errors in solving the system produces the distractor options."
+    },
+    {
+      "id": "ii_c01_027",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let the indefinite integral $\\int \\frac{4e^x + 6e^{-x}}{9e^x - 4e^{-x}}\\,dx$ be expressed in the form $\\frac{1}{36}\\left[m x + n \\ln\\left|9e^x - 4e^{-x}\\right|\\right] + C$, where $m, n$ are integers and $C$ is an arbitrary constant. Determine the integer value of $m + n$.",
+      "options": [],
+      "answer": "16",
+      "explanation": "Step 1: Let $D(x) = 9e^x - 4e^{-x}$, so that $D'(x) = 9e^x + 4e^{-x}$. Step 2: Express the numerator as $4e^x + 6e^{-x} = A(9e^x - 4e^{-x}) + B(9e^x + 4e^{-x}) = (9A + 9B)e^x + (-4A + 4B)e^{-x}$. Step 3: Equating coefficients: $9(A + B) = 4 \\implies A + B = 4/9$, and $4(B - A) = 6 \\implies B - A = 3/2$. Step 4: Adding the two equations: $2B = 4/9 + 3/2 = 35/18 \\implies B = 35/36$. Subtracting gives $2A = 4/9 - 3/2 = -19/18 \\implies A = -19/36$. Step 5: Integrating yields $\\int \\frac{4e^x + 6e^{-x}}{9e^x - 4e^{-x}}\\,dx = A x + B \\ln|9e^x - 4e^{-x}| + C = \\frac{1}{36}[-19x + 35\\ln|9e^x - 4e^{-x}|] + C$. Step 6: Hence $m = -19$ and $n = 35$. Their sum is $m + n = -19 + 35 = 16$."
+    },
+    {
+      "id": "ii_c01_028",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Compute the indefinite integral $\\int \\frac{x\\,dx}{(x^2 - 1)\\sqrt{x^4 - 1}}$ on the domain $x > 1$. Which of the following expressions represents the antiderivative with constant $C$?",
+      "options": [
+        "A) $\\frac{1}{2}\\sqrt{\\frac{x^2 + 1}{x^2 - 1}} + C$",
+        "B) $-\\frac{1}{2}\\sqrt{\\frac{x^2 + 1}{x^2 - 1}} + C$",
+        "C) $-\\sqrt{\\frac{x^2 - 1}{x^2 + 1}} + C$",
+        "D) $-\\frac{1}{4}\\sqrt{\\frac{x^2 + 1}{x^2 - 1}} + C$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Substitute $u = x^2$, which gives $du = 2x\\,dx$. The integral transforms to $\\frac{1}{2}\\int \\frac{du}{(u - 1)\\sqrt{u^2 - 1}}$. Step 2: Apply the substitution $u - 1 = 1/t$, so $u = 1 + 1/t$ and $du = -t^{-2}dt$. Step 3: Express $u^2 - 1$ in terms of $t$: $u^2 - 1 = (1 + 1/t)^2 - 1 = \\frac{2}{t} + \\frac{1}{t^2} = \\frac{2t + 1}{t^2}$. The integral becomes $\\frac{1}{2}\\int \\frac{-t^{-2}dt}{(1/t)\\frac{\\sqrt{2t+1}}{t}} = -\\frac{1}{2}\\int \\frac{dt}{\\sqrt{2t+1}}$. Step 4: Integrating yields $-\\frac{1}{2}\\sqrt{2t+1} + C$. Step 5: Substitute back $t = \\frac{1}{u-1} = \\frac{1}{x^2-1}$: $2t + 1 = \\frac{2}{x^2-1} + 1 = \\frac{x^2+1}{x^2-1}$. Hence the antiderivative is $-\\frac{1}{2}\\sqrt{\\frac{x^2+1}{x^2-1}} + C$. Missing the negative sign coming from $du = -t^{-2}dt$ gives the positive branch, and errors in the chain rule factor generate wrong coefficients."
+    },
+    {
+      "id": "ii_c01_029",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the indefinite integral $\\int \\frac{dx}{1 + 3\\cos^2 x}$. Which of the following expressions provides the correct antiderivative, where $C$ is an arbitrary constant?",
+      "options": [
+        "A) $\\tan^{-1}\\left(\\frac{\\tan x}{2}\\right) + C$",
+        "B) $\\frac{1}{4}\\tan^{-1}\\left(\\frac{\\tan x}{2}\\right) + C$",
+        "C) $\\frac{1}{2}\\tan^{-1}\\left(\\frac{\\tan x}{2}\\right) + C$",
+        "D) $\\frac{1}{2}\\tan^{-1}(2\\tan x) + C$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Divide both the numerator and denominator by $\\cos^2 x$: $\\int \\frac{\\sec^2 x}{\\sec^2 x + 3}\\,dx$. Step 2: Use the identity $\\sec^2 x = 1 + \\tan^2 x$ in the denominator: $\\sec^2 x + 3 = \\tan^2 x + 4$. Step 3: Substitute $u = \\tan x$, so that $du = \\sec^2 x\\,dx$. Step 4: The transformed integral is $\\int \\frac{du}{u^2 + 2^2} = \\frac{1}{2}\\tan^{-1}\\left(\\frac{u}{2}\\right) + C = \\frac{1}{2}\\tan^{-1}\\left(\\frac{\\tan x}{2}\\right) + C$. Neglecting the $1/a$ factor in $\\int \\frac{du}{u^2+a^2} = \\frac{1}{a}\\tan^{-1}(u/a)$ gives an unscaled arctangent, while inverting the constant leads to $2\\tan x$."
+    },
+    {
+      "id": "ii_c01_030",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the antiderivative $\\int \\frac{\\sqrt{x + 1} - \\sqrt{x - 1}}{\\sqrt{x + 1} + \\sqrt{x - 1}}\\,dx$ for $x > 1$. Which of the following expressions represents the result with arbitrary constant $C$?",
+      "options": [
+        "A) $x^2 - x\\sqrt{x^2 - 1} + \\ln\\left|x + \\sqrt{x^2 - 1}\\right| + C$",
+        "B) $\\frac{x^2 + x\\sqrt{x^2 - 1} - \\ln\\left|x + \\sqrt{x^2 - 1}\\right|}{2} + C$",
+        "C) $\\frac{x^2 - x\\sqrt{x^2 - 1} - \\ln\\left|x + \\sqrt{x^2 - 1}\\right|}{2} + C$",
+        "D) $\\frac{x^2 - x\\sqrt{x^2 - 1} + \\ln\\left|x + \\sqrt{x^2 - 1}\\right|}{2} + C$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Rationalize the denominator by multiplying numerator and denominator by $\\sqrt{x+1} - \\sqrt{x-1}$. The denominator becomes $(\\sqrt{x+1})^2 - (\\sqrt{x-1})^2 = (x+1) - (x-1) = 2$. Step 2: The numerator expands to $(\\sqrt{x+1} - \\sqrt{x-1})^2 = (x+1) + (x-1) - 2\\sqrt{x^2 - 1} = 2x - 2\\sqrt{x^2 - 1}$. Step 3: Dividing by 2, the integral simplifies to $\\int (x - \\sqrt{x^2 - 1})dx$. Step 4: Integrate term-by-term: $\\int x\\,dx = \\frac{x^2}{2}$, and $\\int \\sqrt{x^2 - 1}\\,dx = \\frac{x}{2}\\sqrt{x^2 - 1} - \\frac{1}{2}\\ln|x + \\sqrt{x^2 - 1}|$. Step 5: Combining gives $\\frac{x^2}{2} - \\frac{x}{2}\\sqrt{x^2 - 1} + \\frac{1}{2}\\ln|x + \\sqrt{x^2 - 1}| + C = \\frac{x^2 - x\\sqrt{x^2-1} + \\ln|x + \\sqrt{x^2-1}|}{2} + C$. Missing the minus-times-minus sign change on the logarithmic term or forgetting to divide by 2 yields standard algebraic distractors."
+    },
+    {
+      "id": "ii_c01_031",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the indefinite integral $\\int e^{2x} \\cos^2\\left(\\frac{3x}{2}\\right)dx$. Which of the following expressions represents the antiderivative, where $C$ is an integration constant?",
+      "options": [
+        "A) $\\frac{e^{2x}}{4} + \\frac{e^{2x}}{26}\\left(2\\cos 3x + 3\\sin 3x\\right) + C$",
+        "B) $\\frac{e^{2x}}{4} + \\frac{e^{2x}}{26}\\left(2\\cos 3x - 3\\sin 3x\\right) + C$",
+        "C) $\\frac{e^{2x}}{2} + \\frac{e^{2x}}{13}\\left(2\\cos 3x + 3\\sin 3x\\right) + C$",
+        "D) $\\frac{e^{2x}}{4} + \\frac{e^{2x}}{52}\\left(2\\cos 3x + 3\\sin 3x\\right) + C$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Use the power-reduction identity $\\cos^2\\left(\\frac{3x}{2}\\right) = \\frac{1 + \\cos 3x}{2}$. Step 2: The integral splits into $\\frac{1}{2}\\int e^{2x}\\,dx + \\frac{1}{2}\\int e^{2x}\\cos 3x\\,dx$. Step 3: The first integral evaluates directly to $\\frac{1}{2}\\left(\\frac{e^{2x}}{2}\\right) = \\frac{e^{2x}}{4}$. Step 4: The second integral uses the standard formula $\\int e^{ax}\\cos bx\\,dx = \\frac{e^{ax}}{a^2 + b^2}(a\\cos bx + b\\sin bx)$ with $a = 2$ and $b = 3$: $\\int e^{2x}\\cos 3x\\,dx = \\frac{e^{2x}}{2^2 + 3^2}(2\\cos 3x + 3\\sin 3x) = \\frac{e^{2x}}{13}(2\\cos 3x + 3\\sin 3x)$. Step 5: Multiplying by the outer factor $1/2$ gives $\\frac{e^{2x}}{26}(2\\cos 3x + 3\\sin 3x)$. Combining all terms yields $\\frac{e^{2x}}{4} + \\frac{e^{2x}}{26}(2\\cos 3x + 3\\sin 3x) + C$. An incorrect sign in the integration formula or forgetting the outer $1/2$ factor produces distractor options."
+    },
+    {
+      "id": "ii_c01_032",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The trigonometric product $\\sin^4 x \\cos^2 x$ has an antiderivative of the form $F(x) = \\frac{1}{K}\\left(12x - 3\\sin 4x - 4\\sin^3 2x\\right) + C$, where $K$ is a positive integer and $C$ denotes the constant of integration. Find the value of $K$.",
+      "options": [],
+      "answer": "192",
+      "explanation": "Step 1: Rewrite the integrand using half-angle identities: $\\sin^4 x \\cos^2 x = (\\sin x\\cos x)^2 \\sin^2 x = \\left(\\frac{\\sin 2x}{2}\\right)^2 \\left(\\frac{1 - \\cos 2x}{2}\\right) = \\frac{\\sin^2 2x}{8}(1 - \\cos 2x)$. Step 2: Split into two integrals: $I = \\frac{1}{8}\\int \\sin^2 2x\\,dx - \\frac{1}{8}\\int \\sin^2 2x\\cos 2x\\,dx$. Step 3: For the first term, use $\\sin^2 2x = \\frac{1 - \\cos 4x}{2}$: $\\frac{1}{16}\\int (1 - \\cos 4x)dx = \\frac{x}{16} - \\frac{\\sin 4x}{64}$. Step 4: For the second term, substitute $u = \\sin 2x$, so $du = 2\\cos 2x\\,dx$: $\\frac{1}{8}\\int u^2 \\frac{du}{2} = \\frac{u^3}{48} = \\frac{\\sin^3 2x}{48}$. Step 5: Combining both parts: $I = \\frac{x}{16} - \\frac{\\sin 4x}{64} - \\frac{\\sin^3 2x}{48} + C$. Step 6: Find a common denominator of 16, 64, and 48: $\\operatorname{lcm}(16, 64, 48) = 192$. Then $I = \\frac{12x - 3\\sin 4x - 4\\sin^3 2x}{192} + C$. Comparing with the target expression yields $K = 192$."
+    },
+    {
+      "id": "ii_c01_033",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the indefinite integral $\\int \\frac{dx}{x\\sqrt{4 - x^2}}$ for $x \\in (0, 2)$. Which of the following expressions represents the antiderivative with constant $C$?",
+      "options": [
+        "A) $-\\ln\\left|\\frac{2 + \\sqrt{4 - x^2}}{x}\\right| + C$",
+        "B) $-\\frac{1}{2}\\ln\\left(\\frac{2 + \\sqrt{4 - x^2}}{x}\\right) + C$",
+        "C) $\\frac{1}{2}\\ln\\left(\\frac{2 + \\sqrt{4 - x^2}}{x}\\right) + C$",
+        "D) $-\\frac{1}{2}\\tan^{-1}\\left(\\frac{\\sqrt{4 - x^2}}{x}\\right) + C$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Substitute $x = 1/t$, which gives $dx = -t^{-2}dt$. Step 2: The radical becomes $\\sqrt{4 - x^2} = \\sqrt{4 - t^{-2}} = \\frac{\\sqrt{4t^2 - 1}}{t}$ for $t > 1/2$. Step 3: The integral transforms to $\\int \\frac{-t^{-2}dt}{(1/t)\\frac{\\sqrt{4t^2-1}}{t}} = -\\int \\frac{dt}{\\sqrt{4t^2 - 1}} = -\\frac{1}{2}\\int \\frac{2\\,dt}{\\sqrt{(2t)^2 - 1}}$. Step 4: Integrating yields $-\\frac{1}{2}\\ln|2t + \\sqrt{4t^2 - 1}| + C$. Step 5: Substitute back $t = 1/x$: $2t + \\sqrt{4t^2 - 1} = \\frac{2 + \\sqrt{4 - x^2}}{x}$. Therefore the antiderivative is $-\\frac{1}{2}\\ln\\left(\\frac{2 + \\sqrt{4 - x^2}}{x}\\right) + C$. Omitting the factor $1/2$ when integrating $\\frac{1}{\\sqrt{(2t)^2-1}}$ gives the unscaled logarithm, while a sign omission drops the negative sign."
+    },
+    {
+      "id": "ii_c01_034",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the indefinite integral $\\int \\frac{x^2 + 1}{x^3 - x}\\,dx$ for $x > 1$. Which of the following expressions provides the correct antiderivative, where $C$ is an arbitrary constant?",
+      "options": [
+        "A) $\\ln\\left|\\frac{x}{x^2 - 1}\\right| + C$",
+        "B) $\\ln|x(x^2 - 1)| + C$",
+        "C) $\\ln\\left|\\frac{x^2 - 1}{x}\\right| + C$",
+        "D) $\\frac{1}{2}\\ln\\left|\\frac{x^2 - 1}{x^2}\\right| + C$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Factor the denominator: $x^3 - x = x(x - 1)(x + 1)$. Step 2: Decompose the integrand into partial fractions: $\\frac{x^2 + 1}{x(x - 1)(x + 1)} = \\frac{A}{x} + \\frac{B}{x - 1} + \\frac{D}{x + 1}$. Step 3: Determine the coefficients using the cover-up method: $A = \\lim_{x \\to 0} \\frac{x^2+1}{(x-1)(x+1)} = \\frac{1}{-1} = -1$. $B = \\lim_{x \\to 1} \\frac{x^2+1}{x(x+1)} = \\frac{2}{2} = 1$. $D = \\lim_{x \\to -1} \\frac{x^2+1}{x(x-1)} = \\frac{2}{(-1)(-2)} = 1$. Step 4: Integrate term-by-term: $-\\int \\frac{dx}{x} + \\int \\frac{dx}{x-1} + \\int \\frac{dx}{x+1} = -\\ln|x| + \\ln|x-1| + \\ln|x+1| + C = \\ln\\left|\\frac{(x-1)(x+1)}{x}\\right| + C = \\ln\\left|\\frac{x^2 - 1}{x}\\right| + C$. A sign error on $A$ inverts the ratio to $x/(x^2-1)$."
+    },
+    {
+      "id": "ii_c01_035",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the rational trigonometric function $f(x) = \\frac{\\cos x}{2 - \\cos x}$ defined on $(-\\pi, \\pi)$. Find the antiderivative $\\int f(x)\\,dx$, where $C$ is an arbitrary constant of integration.",
+      "options": [
+        "A) $x - \\frac{4}{\\sqrt{3}}\\tan^{-1}\\left(\\sqrt{3}\\tan\\frac{x}{2}\\right) + C$",
+        "B) $-x + \\frac{2}{\\sqrt{3}}\\tan^{-1}\\left(\\sqrt{3}\\tan\\frac{x}{2}\\right) + C$",
+        "C) $-x + \\frac{4}{3}\\tan^{-1}\\left(\\sqrt{3}\\tan\\frac{x}{2}\\right) + C$",
+        "D) $-x + \\frac{4}{\\sqrt{3}}\\tan^{-1}\\left(\\sqrt{3}\\tan\\frac{x}{2}\\right) + C$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Add and subtract 2 in the numerator: $\\frac{\\cos x}{2 - \\cos x} = \\frac{-(2 - \\cos x) + 2}{2 - \\cos x} = -1 + \\frac{2}{2 - \\cos x}$. Step 2: The integral splits into $-\\int 1\\,dx + 2\\int \\frac{dx}{2 - \\cos x} = -x + 2\\int \\frac{dx}{2 - \\cos x}$. Step 3: For the second integral, substitute $t = \\tan(x/2)$, where $dx = \\frac{2\\,dt}{1+t^2}$ and $\\cos x = \\frac{1-t^2}{1+t^2}$. The denominator becomes $2 - \\frac{1-t^2}{1+t^2} = \\frac{2(1+t^2) - (1-t^2)}{1+t^2} = \\frac{3t^2 + 1}{1+t^2}$. Step 4: The second integral transforms to $2\\int \\frac{\\frac{2\\,dt}{1+t^2}}{\\frac{3t^2+1}{1+t^2}} = 4\\int \\frac{dt}{(\\sqrt{3}t)^2 + 1} = \\frac{4}{\\sqrt{3}}\\tan^{-1}(\\sqrt{3}t) = \\frac{4}{\\sqrt{3}}\\tan^{-1}\\left(\\sqrt{3}\\tan\\frac{x}{2}\\right)$. Step 5: Combining both parts yields $-x + \\frac{4}{\\sqrt{3}}\\tan^{-1}\\left(\\sqrt{3}\\tan\\frac{x}{2}\\right) + C$. An incorrect sign when rewriting the numerator leads to $+x$, while forgetting the multiplier 4 or $\\sqrt{3}$ alters the arctangent coefficient."
+    },
+    {
+      "id": "ii_c01_036",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the indefinite integral $I = \\int e^x \\left(\\ln x + \\frac{2}{x} - \\frac{1}{x^2}\\right)dx$ for $x > 0$. Let $F(x)$ be the specific antiderivative satisfying $\\lim_{x \\to 1} F(x) = e$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The integrand can be written in the form $e^x[g(x) + g'(x)]$, where $g(x) = \\ln x + \\frac{1}{x}$.",
+        "B) The antiderivative is given by $F(x) = e^x\\left(\\ln x + \\frac{1}{x}\\right)$.",
+        "C) For all $x \\in (0, \\infty)$, $F(x) > 0$.",
+        "D) The derivative $F'(x)$ vanishes at exactly one point in $(0, \\infty)$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Decompose the integrand into the cancellation structure $e^x[g(x) + g'(x)]$. Notice that $\\ln x + \\frac{2}{x} - \\frac{1}{x^2} = \\left(\\ln x + \\frac{1}{x}\\right) + \\left(\\frac{1}{x} - \\frac{1}{x^2}\\right)$. With $g(x) = \\ln x + \\frac{1}{x}$, its derivative is $g'(x) = \\frac{1}{x} - \\frac{1}{x^2}$. Thus statement A is correct. Step 2: Integrating $\\int e^x[g(x) + g'(x)]dx$ gives $e^x g(x) + C = e^x\\left(\\ln x + \\frac{1}{x}\\right) + C$. Setting $\\lim_{x \\to 1} F(x) = e^1(0 + 1) + C = e \\implies C = 0$, which yields $F(x) = e^x\\left(\\ln x + \\frac{1}{x}\\right)$. Hence statement B is correct. Step 3: To determine the sign of $F(x)$, consider $g(x) = \\ln x + \\frac{1}{x}$. Its derivative $g'(x) = \\frac{x-1}{x^2}$ shows that $g(x)$ attains a strict global minimum at $x = 1$, where $g(1) = 1 > 0$. Since $g(x) \\ge 1 > 0$ for all $x > 0$ and $e^x > 0$, we have $F(x) > 0$ for all $x > 0$. Hence statement C is correct. Step 4: For statement D, $F'(x) = e^x\\left(\\ln x + \\frac{2}{x} - \\frac{1}{x^2}\\right)$. Let $h(x) = \\ln x + \\frac{2}{x} - \\frac{1}{x^2}$. Then $h'(x) = \\frac{1}{x} - \\frac{2}{x^2} + \\frac{2}{x^3} = \\frac{x^2 - 2x + 2}{x^3} = \\frac{(x-1)^2 + 1}{x^3} > 0$ for all $x > 0$. Because $h(x)$ is strictly increasing with $\\lim_{x \\to 0^+} h(x) = -\\infty$ and $\\lim_{x \\to \\infty} h(x) = \\infty$, by the intermediate value theorem $h(x) = 0$ has exactly one real root in $(0, \\infty)$. Therefore statement D is correct."
+    },
+    {
+      "id": "ii_c01_037",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the indefinite integral $\\int \\frac{(x^2 - 1)\\,dx}{(x^4 + 3x^2 + 1)\\tan^{-1}\\left(x + \\frac{1}{x}\\right)}$ for $x > 0$. Which of the following expressions provides the correct antiderivative, where $C$ is an arbitrary constant?",
+      "options": [
+        "A) $\\ln\\left|\\tan^{-1}\\left(x + \\frac{1}{x}\\right)\\right| + C$",
+        "B) $\\frac{1}{2}\\left[\\tan^{-1}\\left(x + \\frac{1}{x}\\right)\\right]^2 + C$",
+        "C) $\\ln\\left|\\tan^{-1}\\left(x - \\frac{1}{x}\\right)\\right| + C$",
+        "D) $\\frac{1}{\\sqrt{5}}\\ln\\left|\\tan^{-1}\\left(x + \\frac{1}{x}\\right)\\right| + C$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Divide both numerator and denominator by $x^2$: $\\int \\frac{(1 - x^{-2})\\,dx}{(x^2 + 3 + x^{-2})\\tan^{-1}(x + x^{-1})}$. Step 2: Express the quadratic factor in the denominator as a function of $u = x + x^{-1}$: note that $x^2 + x^{-2} + 3 = (x + x^{-1})^2 + 1 = u^2 + 1$. Step 3: Differentiating $u = x + x^{-1}$ gives $du = (1 - x^{-2})dx$. The integral becomes $\\int \\frac{du}{(u^2 + 1)\\tan^{-1}u}$. Step 4: Substitute $v = \\tan^{-1}u$, which gives $dv = \\frac{du}{u^2 + 1}$. The integral simplifies to $\\int \\frac{dv}{v} = \\ln|v| + C = \\ln\\left|\\tan^{-1}u\\right| + C = \\ln\\left|\\tan^{-1}\\left(x + \\frac{1}{x}\\right)\\right| + C$. Confusing $\\int \\frac{dv}{v}$ with $\\int v\\,dv$ yields the squared arctangent, while an algebraic sign error produces $(x - 1/x)$."
+    },
+    {
+      "id": "ii_c01_038",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $n \\ge 2$ be an integer and consider the indefinite integral $I = \\int \\frac{dx}{x(x^n + 1)}$ on the domain $x > 0$. Which of the following functions represents a mathematically valid antiderivative of the integrand on this domain?",
+      "options": [
+        "A) $\\frac{1}{n}\\ln\\left(\\frac{x^n}{x^n + 1}\\right) + C_1$",
+        "B) $-\\frac{1}{n}\\ln\\left(1 + x^{-n}\\right) + C_2$",
+        "C) $\\ln x - \\frac{1}{n}\\ln(x^n + 1) + C_3$",
+        "D) $\\frac{1}{n}\\ln(x^n + 1) - \\ln x + C_4$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Factor out $x^n$ from the denominator or multiply numerator and denominator by $x^{n-1}$: $\\int \\frac{x^{n-1}dx}{x^n(x^n + 1)}$. Let $t = x^n$, so $dt = n x^{n-1}dx$. The integral becomes $\\frac{1}{n}\\int \\frac{dt}{t(t+1)} = \\frac{1}{n}\\int \\left(\\frac{1}{t} - \\frac{1}{t+1}\\right)dt = \\frac{1}{n}\\ln\\left(\\frac{t}{t+1}\\right) + C_1 = \\frac{1}{n}\\ln\\left(\\frac{x^n}{x^n+1}\\right) + C_1$. Hence statement A is correct. Step 2: Notice that $\\frac{x^n}{x^n+1} = \\frac{1}{1 + x^{-n}} = (1 + x^{-n})^{-1}$. Therefore $\\frac{1}{n}\\ln\\left(\\frac{x^n}{x^n+1}\\right) = -\\frac{1}{n}\\ln(1 + x^{-n})$, which confirms statement B is correct. Step 3: Expanding the logarithm in statement A: $\\frac{1}{n}[\\ln(x^n) - \\ln(x^n+1)] = \\frac{1}{n}[n\\ln x - \\ln(x^n+1)] = \\ln x - \\frac{1}{n}\\ln(x^n+1)$, so statement C is correct. Step 4: Statement D has the opposite sign: $\\frac{d}{dx}\\left[\\frac{1}{n}\\ln(x^n+1) - \\ln x\\right] = \\frac{x^{n-1}}{x^n+1} - \\frac{1}{x} = -\\frac{1}{x(x^n+1)}$, which is the negative of the integrand. Thus statement D is incorrect."
+    },
+    {
+      "id": "ii_c01_039",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "If the indefinite integral $\\int \\frac{dx}{x^5(x^{10} + 1)^{3/5}}$ is written in the form $-\\frac{(x^{10} + 1)^{2/5}}{k x^4} + C$ for $x > 0$, where $k$ is a positive integer and $C$ is an arbitrary constant, determine the value of $k$.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: Factor out $x^{10}$ from the binomial inside the fractional power: $(x^{10} + 1)^{3/5} = [x^{10}(1 + x^{-10})]^{3/5} = x^6(1 + x^{-10})^{3/5}$. Step 2: Combine powers of $x$ in the denominator: $x^5 \\cdot x^6 = x^{11}$. The integral becomes $\\int \\frac{x^{-11}dx}{(1 + x^{-10})^{3/5}}$. Step 3: Substitute $u = 1 + x^{-10}$, giving $du = -10x^{-11}dx$, so $x^{-11}dx = -\\frac{1}{10}du$. Step 4: The transformed integral is $-\\frac{1}{10}\\int u^{-3/5}du = -\\frac{1}{10}\\frac{u^{2/5}}{2/5} + C = -\\frac{1}{4}u^{2/5} + C$. Step 5: Back-substitute $u = 1 + x^{-10} = \\frac{x^{10} + 1}{x^{10}}$: $-\\frac{1}{4}\\left(\\frac{x^{10} + 1}{x^{10}}\\right)^{2/5} + C = -\\frac{(x^{10} + 1)^{2/5}}{4x^4} + C$. Comparing with the target expression yields $k = 4$."
+    },
+    {
+      "id": "ii_c01_040",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Find the indefinite integral $\\int \\left[\\ln(\\ln x) + \\frac{1}{(\\ln x)^2}\\right]dx$ on the domain $x > 1$. Which of the following expressions represents the antiderivative with constant $C$?",
+      "options": [
+        "A) $x\\ln(\\ln x) + \\frac{x}{\\ln x} + C$",
+        "B) $x\\ln(\\ln x) - \\frac{x}{\\ln x} + C$",
+        "C) $x\\ln(\\ln x) - \\frac{1}{\\ln x} + C$",
+        "D) $\\frac{x\\ln(\\ln x)}{\\ln x} + C$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Apply integration by parts to the first term $\\int \\ln(\\ln x)\\,dx$. Let $u = \\ln(\\ln x)$ and $dv = dx$, so $du = \\frac{1}{\\ln x}\\frac{1}{x}dx$ and $v = x$. Step 2: Then $\\int \\ln(\\ln x)\\,dx = x\\ln(\\ln x) - \\int \\frac{dx}{\\ln x}$. Step 3: Now apply integration by parts to $\\int \\frac{dx}{\\ln x} = \\int (\\ln x)^{-1}dx$. Let $u_1 = (\\ln x)^{-1}$ and $dv_1 = dx$, so $du_1 = -(\\ln x)^{-2}\\frac{1}{x}dx$ and $v_1 = x$. Step 4: This yields $\\int \\frac{dx}{\\ln x} = \\frac{x}{\\ln x} - \\int x\\left(-\\frac{1}{x(\\ln x)^2}\\right)dx = \\frac{x}{\\ln x} + \\int \\frac{dx}{(\\ln x)^2}$. Step 5: Substituting back into the original expression: $\\int \\ln(\\ln x)\\,dx = x\\ln(\\ln x) - \\left[\\frac{x}{\\ln x} + \\int \\frac{dx}{(\\ln x)^2}\\right]$. Step 6: Rearranging gives $\\int \\left[\\ln(\\ln x) + \\frac{1}{(\\ln x)^2}\\right]dx = x\\ln(\\ln x) - \\frac{x}{\\ln x} + C$. A sign error during integration by parts leads to $+ \\frac{x}{\\ln x}$, while forgetting to multiply by $v = x$ leaves $- \\frac{1}{\\ln x}$."
+    },
+    {
+      "id": "ii_c01_041",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the indefinite integral $I = \\int \\frac{(x^2 - 1)\\,dx}{(x^2 + 1)\\sqrt{x^4 + 3x^2 + 1}}$ for $x > 0$. Which of the following statements is/are correct regarding the evaluation and properties of $I$?",
+      "options": [
+        "A) The transformation $u = x + \\frac{1}{x}$ reduces the integral to $\\int \\frac{du}{u\\sqrt{u^2 + 1}}$.",
+        "B) An antiderivative on $(0, \\infty)$ is $\\ln\\left(\\frac{x^2 + 1}{x + \\sqrt{x^4 + 3x^2 + 1}}\\right) + C$.",
+        "C) An equivalent form of the antiderivative is $-\\sinh^{-1}\\left(\\frac{x}{x^2 + 1}\\right) + C$.",
+        "D) The integrand is an odd function of $x$ on its entire real domain."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Divide both numerator and denominator by $x^2$: $\\int \\frac{(1 - x^{-2})dx}{(x + x^{-1})\\sqrt{x^2 + 3 + x^{-2}}}$. Using $x^2 + x^{-2} + 3 = (x + x^{-1})^2 + 1$, let $u = x + x^{-1}$, which gives $du = (1 - x^{-2})dx$. The integral transforms to $\\int \\frac{du}{u\\sqrt{u^2 + 1}}$, so statement A is correct. Step 2: Setting $u = 1/t$ with $du = -t^{-2}dt$ gives $-\\int \\frac{dt}{\\sqrt{t^2 + 1}} = -\\ln|t + \\sqrt{t^2 + 1}| + C = \\ln\\left|\\frac{u}{1 + \\sqrt{u^2 + 1}}\\right| + C$. Substituting $u = \\frac{x^2+1}{x}$ and $\\sqrt{u^2+1} = \\frac{\\sqrt{x^4+3x^2+1}}{x}$ yields $\\ln\\left(\\frac{x^2+1}{x + \\sqrt{x^4+3x^2+1}}\\right) + C$. Thus statement B is correct. Step 3: Notice that $\\operatorname{csch}^{-1}(u) = \\sinh^{-1}(1/u) = \\sinh^{-1}\\left(\\frac{x}{x^2+1}\\right)$. Because $\\ln\\left(\\frac{1+\\sqrt{u^2+1}}{u}\\right) = \\operatorname{csch}^{-1}(u)$, the negative of this logarithm is $-\\sinh^{-1}\\left(\\frac{x}{x^2+1}\\right) + C$, so statement C is correct. Step 4: For statement D, let $f(x) = \\frac{x^2 - 1}{(x^2+1)\\sqrt{x^4+3x^2+1}}$. Since $f(-x) = \\frac{(-x)^2 - 1}{((-x)^2+1)\\sqrt{(-x)^4+3(-x)^2+1}} = f(x)$, $f(x)$ is an even function, not odd. Hence statement D is incorrect."
+    },
+    {
+      "id": "ii_c01_042",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the indefinite integral $\\int \\frac{dx}{(x + 1)^{3/4}(x - 2)^{5/4}}$ on the domain $x > 2$. Which of the following expressions represents the antiderivative, where $C$ is an integration constant?",
+      "options": [
+        "A) $-\\frac{4}{3}\\left(\\frac{x - 2}{x + 1}\\right)^{1/4} + C$",
+        "B) $\\frac{4}{3}\\left(\\frac{x + 1}{x - 2}\\right)^{1/4} + C$",
+        "C) $-\\frac{4}{3}\\left(\\frac{x + 1}{x - 2}\\right)^{1/4} + C$",
+        "D) $-\\frac{1}{3}\\left(\\frac{x + 1}{x - 2}\\right)^{1/4} + C$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Group the denominator as a rational fraction: notice that $(x+1)^{3/4}(x-2)^{5/4} = (x-2)^2 \\left(\\frac{x+1}{x-2}\\right)^{3/4}$. Step 2: Let $t = \\frac{x+1}{x-2} = 1 + \\frac{3}{x-2}$. Step 3: Differentiating $t$ yields $dt = -\\frac{3}{(x-2)^2}dx$, which means $\\frac{dx}{(x-2)^2} = -\\frac{1}{3}dt$. Step 4: Substitute into the integral: $\\int \\frac{-\\frac{1}{3}dt}{t^{3/4}} = -\\frac{1}{3}\\int t^{-3/4}dt = -\\frac{1}{3}\\frac{t^{1/4}}{1/4} + C = -\\frac{4}{3}t^{1/4} + C$. Step 5: Back-substituting $t = \\frac{x+1}{x-2}$ gives $-\\frac{4}{3}\\left(\\frac{x+1}{x-2}\\right)^{1/4} + C$. Missing the minus sign from differentiation produces the positive counterpart, while forgetting the integration factor of 4 yields $-1/3$."
+    },
+    {
+      "id": "ii_c01_043",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the indefinite integral $I = \\int \\frac{\\sqrt{x^2 + 1}\\left[\\ln(x^2 + 1) - 2\\ln x\\right]}{x^4}\\,dx$ for $x > 0$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The substitution $u = 1 + \\frac{1}{x^2}$ transforms the integral into $-\\frac{1}{2}\\int \\sqrt{u}\\ln u\\,du$.",
+        "B) An antiderivative is $\\frac{1}{3}\\left(1 + \\frac{1}{x^2}\\right)^{3/2}\\left[\\frac{2}{3} - \\ln\\left(1 + \\frac{1}{x^2}\\right)\\right] + C$.",
+        "C) If $F(x)$ is the antiderivative with $C = 0$, then $\\lim_{x \\to \\infty} F(x) = \\frac{2}{9}$.",
+        "D) The integrand is strictly positive for all $x \\in (0, \\infty)$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Combine the logarithmic terms: $\\ln(x^2 + 1) - 2\\ln x = \\ln\\left(\\frac{x^2 + 1}{x^2}\\right) = \\ln\\left(1 + x^{-2}\\right)$. Step 2: Rewrite the algebraic factor: $\\frac{\\sqrt{x^2 + 1}}{x^4} = \\frac{x\\sqrt{1 + x^{-2}}}{x^4} = x^{-3}\\sqrt{1 + x^{-2}}$. Step 3: Let $u = 1 + x^{-2}$, which gives $du = -2x^{-3}dx$, so $x^{-3}dx = -\\frac{1}{2}du$. The integral becomes $-\\frac{1}{2}\\int \\sqrt{u}\\ln u\\,du$, confirming statement A. Step 4: Apply integration by parts with $v = \\ln u$ and $dw = u^{1/2}du$: $\\int u^{1/2}\\ln u\\,du = \\frac{2}{3}u^{3/2}\\ln u - \\frac{2}{3}\\int u^{1/2}du = \\frac{2}{3}u^{3/2}\\ln u - \\frac{4}{9}u^{3/2}$. Multiplying by $-1/2$: $-\\frac{1}{3}u^{3/2}\\ln u + \\frac{2}{9}u^{3/2} + C = \\frac{1}{3}u^{3/2}\\left[\\frac{2}{3} - \\ln u\\right] + C$. Substituting $u = 1 + x^{-2}$ validates statement B. Step 5: As $x \\to \\infty$, $u = 1 + x^{-2} \\to 1$ and $\\ln u \\to 0$, so $\\lim_{x \\to \\infty} F(x) = \\frac{1}{3}(1)^{3/2}\\left[\\frac{2}{3} - 0\\right] = \\frac{2}{9}$, confirming statement C. Step 6: For $x > 0$, $x^2 + 1 > x^2 \\implies \\ln(x^2 + 1) > 2\\ln x$, so the numerator is strictly positive while $x^4 > 0$. Hence the integrand is strictly positive on $(0, \\infty)$, confirming statement D."
+    },
+    {
+      "id": "ii_c01_044",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the indefinite integral $\\int \\frac{\\sec x}{\\sqrt{\\sin(2x + \\alpha) + \\sin\\alpha}}\\,dx$ for $x \\in \\left(0, \\frac{\\pi}{2}\\right)$, where $\\alpha \\in \\left(0, \\frac{\\pi}{2}\\right)$ is a fixed parameter. Which of the following expressions gives the correct antiderivative, where $C$ is an arbitrary constant?",
+      "options": [
+        "A) $\\frac{\\sqrt{2}}{\\sin\\alpha}\\sqrt{\\tan x\\cos\\alpha + \\sin\\alpha} + C$",
+        "B) $\\frac{1}{\\sqrt{2}\\cos\\alpha}\\sqrt{\\tan x\\cos\\alpha + \\sin\\alpha} + C$",
+        "C) $\\frac{\\sqrt{2}}{\\cos\\alpha}\\left(\\tan x\\cos\\alpha + \\sin\\alpha\\right)^{3/2} + C$",
+        "D) $\\frac{\\sqrt{2}}{\\cos\\alpha}\\sqrt{\\tan x\\cos\\alpha + \\sin\\alpha} + C$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Use sum-to-product trigonometric identities on the argument of the square root: $\\sin(2x + \\alpha) + \\sin\\alpha = 2\\sin(x + \\alpha)\\cos x$. Step 2: Expand $\\sin(x + \\alpha) = \\sin x\\cos\\alpha + \\cos x\\sin\\alpha$. Then $2\\sin(x+\\alpha)\\cos x = 2(\\sin x\\cos\\alpha + \\cos x\\sin\\alpha)\\cos x = 2\\cos^2 x(\\tan x\\cos\\alpha + \\sin\\alpha)$. Step 3: Taking the square root for $x \\in (0, \\pi/2)$: $\\sqrt{\\sin(2x+\\alpha)+\\sin\\alpha} = \\sqrt{2}\\cos x\\sqrt{\\tan x\\cos\\alpha + \\sin\\alpha}$. Step 4: The integrand becomes $\\frac{\\sec x}{\\sqrt{2}\\cos x\\sqrt{\\tan x\\cos\\alpha + \\sin\\alpha}} = \\frac{\\sec^2 x}{\\sqrt{2}\\sqrt{\\tan x\\cos\\alpha + \\sin\\alpha}}$. Step 5: Substitute $u = \\tan x\\cos\\alpha + \\sin\\alpha$, which gives $du = \\cos\\alpha\\sec^2 x\\,dx$. The integral transforms to $\\frac{1}{\\sqrt{2}\\cos\\alpha}\\int u^{-1/2}du = \\frac{1}{\\sqrt{2}\\cos\\alpha}(2u^{1/2}) + C = \\frac{\\sqrt{2}}{\\cos\\alpha}\\sqrt{\\tan x\\cos\\alpha + \\sin\\alpha} + C$. Missing the factor of 2 during integration of $u^{-1/2}$ produces $1/(\\sqrt{2}\\cos\\alpha)$, while confusing sine and cosine leads to $\\sin\\alpha$ in the denominator."
+    },
+    {
+      "id": "ii_c01_045",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "If the indefinite integral $\\int \\frac{x^2 - 1}{x^3\\sqrt{2x^4 - 2x^2 + 1}}\\,dx$ is expressed in the form $\\frac{\\sqrt{2x^4 - 2x^2 + 1}}{k x^2} + C$ for $x > 1$, where $k$ is a positive integer and $C$ is an arbitrary constant, determine the value of $k$.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: Divide both terms in the numerator by $x^3$: $\\frac{x^2 - 1}{x^3} = x^{-1} - x^{-3}$. Factor out $x^2$ from the square root: $\\sqrt{2x^4 - 2x^2 + 1} = x^2\\sqrt{2 - 2x^{-2} + x^{-4}}$. Step 2: Combine the powers of $x$: $\\frac{x^{-1} - x^{-3}}{x^2\\sqrt{2 - 2x^{-2} + x^{-4}}} = \\frac{x^{-3} - x^{-5}}{\\sqrt{2 - 2x^{-2} + x^{-4}}}$. Step 3: Substitute $u = 2 - 2x^{-2} + x^{-4}$. Differentiating yields $du = (4x^{-3} - 4x^{-5})dx = 4(x^{-3} - x^{-5})dx$. Step 4: The integral transforms to $\\int \\frac{\\frac{1}{4}du}{\\sqrt{u}} = \\frac{1}{4}(2\\sqrt{u}) + C = \\frac{1}{2}\\sqrt{u} + C$. Step 5: Back-substitute $u = \\frac{2x^4 - 2x^2 + 1}{x^4}$: $\\frac{1}{2}\\frac{\\sqrt{2x^4 - 2x^2 + 1}}{x^2} + C = \\frac{\\sqrt{2x^4 - 2x^2 + 1}}{2x^2} + C$. Comparing this expression with $\\frac{\\sqrt{2x^4 - 2x^2 + 1}}{k x^2} + C$ gives $k = 2$."
+    },
+    {
+      "id": "ii_c01_046",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the indefinite integral $I = \\int \\frac{\\cos 4x - 1}{\\cot x - \\tan x}\\,dx$ on the domain $x \\in \\left(0, \\frac{\\pi}{4}\\right)$. Which of the following expressions represents a valid antiderivative of the integrand?",
+      "options": [
+        "A) $\\frac{1}{2}\\ln(\\cos 2x) - \\frac{1}{4}\\cos^2 2x + C_1$",
+        "B) $\\frac{1}{2}\\ln(\\cos 2x) + \\frac{1}{4}\\sin^2 2x + C_2$",
+        "C) $\\frac{1}{2}\\ln(\\cos 2x) - \\frac{1}{8}\\cos 4x + C_3$",
+        "D) $\\frac{1}{2}\\ln(\\sin 2x) - \\frac{1}{4}\\cos^2 2x + C_4$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Simplify the trigonometric integrand. Notice that $\\cot x - \\tan x = \\frac{\\cos^2 x - \\sin^2 x}{\\sin x\\cos x} = \\frac{\\cos 2x}{\\frac{1}{2}\\sin 2x} = 2\\cot 2x$. Step 2: Using the half-angle formula, $\\cos 4x - 1 = -2\\sin^2 2x$. The integrand simplifies to $\\frac{-2\\sin^2 2x}{2\\cot 2x} = -\\frac{\\sin^3 2x}{\\cos 2x}$. Step 3: Write $-\\frac{\\sin^3 2x}{\\cos 2x} = -\\frac{\\sin 2x(1 - \\cos^2 2x)}{\\cos 2x}$. Substitute $u = \\cos 2x$, so $du = -2\\sin 2x\\,dx$. The integral becomes $\\frac{1}{2}\\int \\frac{1 - u^2}{u}du = \\frac{1}{2}\\int \\left(\\frac{1}{u} - u\\right)du = \\frac{1}{2}\\ln|u| - \\frac{u^2}{4} + C_1 = \\frac{1}{2}\\ln(\\cos 2x) - \\frac{1}{4}\\cos^2 2x + C_1$. Thus statement A is correct. Step 4: Using $\\cos^2 2x = 1 - \\sin^2 2x$, $-\\frac{1}{4}\\cos^2 2x = \\frac{1}{4}\\sin^2 2x - \\frac{1}{4}$, which can be absorbed into the constant $C_2$. Thus statement B is correct. Step 5: Using $\\cos^2 2x = \\frac{1 + \\cos 4x}{2}$, $-\\frac{1}{4}\\cos^2 2x = -\\frac{1}{8}\\cos 4x - \\frac{1}{8}$, which confirms statement C is correct. Step 6: Statement D replaces $\\cos 2x$ in the logarithm with $\\sin 2x$, which differentiates to $\\cot 2x$, an entirely different function. Hence statement D is incorrect."
+    },
+    {
+      "id": "ii_c01_047",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the indefinite integral $\\int \\frac{dx}{(x - 1)^3 \\sqrt{x^2 - 2x - 1}}$ on the domain $x > 1 + \\sqrt{2}$. Which of the following expressions gives the correct antiderivative, where $C$ is an arbitrary constant?",
+      "options": [
+        "A) $-\\frac{1}{4\\sqrt{2}}\\sin^{-1}\\left(\\frac{\\sqrt{2}}{x - 1}\\right) + \\frac{\\sqrt{x^2 - 2x - 1}}{4(x - 1)^2} + C$",
+        "B) $\\frac{1}{4\\sqrt{2}}\\sin^{-1}\\left(\\frac{\\sqrt{2}}{x - 1}\\right) + \\frac{\\sqrt{x^2 - 2x - 1}}{4(x - 1)^2} + C$",
+        "C) $-\\frac{1}{2\\sqrt{2}}\\sin^{-1}\\left(\\frac{\\sqrt{2}}{x - 1}\\right) + \\frac{\\sqrt{x^2 - 2x - 1}}{2(x - 1)^2} + C$",
+        "D) $-\\frac{1}{4\\sqrt{2}}\\tan^{-1}\\left(\\frac{\\sqrt{2}}{x - 1}\\right) + \\frac{\\sqrt{x^2 - 2x - 1}}{4(x - 1)^2} + C$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Notice that $x^2 - 2x - 1 = (x-1)^2 - 2$. Substitute $x - 1 = 1/t$, which gives $dx = -t^{-2}dt$. Step 2: The radical transforms to $\\sqrt{t^{-2} - 2} = \\frac{\\sqrt{1 - 2t^2}}{t}$. Step 3: The integrand transforms to $\\int \\frac{-t^{-2}dt}{t^{-3}\\frac{\\sqrt{1-2t^2}}{t}} = -\\int \\frac{t^2\\,dt}{\\sqrt{1 - 2t^2}}$. Step 4: Substitute $\\sqrt{2}t = \\sin\\theta$, giving $\\sqrt{2}dt = \\cos\\theta\\,d\\theta$. The integral becomes $-\\int \\frac{\\frac{\\sin^2\\theta}{2}\\frac{\\cos\\theta\\,d\\theta}{\\sqrt{2}}}{\\cos\\theta} = -\\frac{1}{2\\sqrt{2}}\\int \\sin^2\\theta\\,d\\theta = -\\frac{1}{4\\sqrt{2}}(\\theta - \\sin\\theta\\cos\\theta) + C$. Step 5: Express in terms of $t$: $\\theta = \\sin^{-1}(\\sqrt{2}t)$ and $\\sin\\theta\\cos\\theta = \\sqrt{2}t\\sqrt{1 - 2t^2}$. Then $-\\frac{1}{4\\sqrt{2}}\\sin^{-1}(\\sqrt{2}t) + \\frac{t\\sqrt{1-2t^2}}{4} + C$. Step 6: Back-substitute $t = \\frac{1}{x-1}$: $t\\sqrt{1-2t^2} = \\frac{1}{x-1}\\frac{\\sqrt{x^2-2x-1}}{x-1} = \\frac{\\sqrt{x^2-2x-1}}{(x-1)^2}$. Hence the antiderivative is $-\\frac{1}{4\\sqrt{2}}\\sin^{-1}\\left(\\frac{\\sqrt{2}}{x-1}\\right) + \\frac{\\sqrt{x^2-2x-1}}{4(x-1)^2} + C$. Sign errors or missing factors of 2 from $\\sin^2\\theta$ produce the distractor options."
+    },
+    {
+      "id": "ii_c01_048",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be the antiderivative function defined by $f(x) = \\int_0^x \\frac{|t|}{t^2 + 1}\\,dt$. Which of the following statements is/are correct regarding $f(x)$?",
+      "options": [
+        "A) The function $f(x)$ is continuous for all $x \\in \\mathbb{R}$.",
+        "B) The function $f(x)$ is differentiable at $x = 0$, with $f'(0) = 0$.",
+        "C) The function $f(x)$ is an odd function on $\\mathbb{R}$.",
+        "D) The function $f(x)$ is strictly increasing on $\\mathbb{R}$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Evaluate $f(x)$ piecewise. For $x \\ge 0$, $|t| = t$, so $f(x) = \\int_0^x \\frac{t}{t^2 + 1}\\,dt = \\frac{1}{2}\\ln(x^2 + 1)$. For $x < 0$, $|t| = -t$, so $f(x) = \\int_0^x \\frac{-t}{t^2 + 1}\\,dt = -\\frac{1}{2}\\ln(x^2 + 1)$. Step 2: Check continuity at $x = 0$: $\\lim_{x \\to 0^+} f(x) = 0 = \\lim_{x \\to 0^-} f(x) = f(0)$, so $f(x)$ is continuous everywhere on $\\mathbb{R}$. Statement A is correct. Step 3: Check differentiability at $x = 0$: $f'(0^+) = \\lim_{x \\to 0^+} \\frac{\\frac{1}{2}\\ln(x^2+1)}{x} = \\lim_{x \\to 0^+} \\frac{x^2/2}{x} = 0$, and $f'(0^-) = \\lim_{x \\to 0^-} \\frac{-\\frac{1}{2}\\ln(x^2+1)}{x} = 0$. Since left and right derivatives agree, $f'(0) = 0$, confirming statement B. Step 4: Check symmetry: for $x > 0$, $f(-x) = -\\frac{1}{2}\\ln((-x)^2+1) = -\\frac{1}{2}\\ln(x^2+1) = -f(x)$, so $f(x)$ is an odd function, confirming statement C. Step 5: For all $x \\ne 0$, $f'(x) = \\frac{|x|}{x^2 + 1} > 0$. Combined with continuity and $f'(0) = 0$, $f(x)$ is strictly increasing on $\\mathbb{R}$. Thus statement D is correct."
+    },
+    {
+      "id": "ii_c01_049",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "For integers $n \\ge 2$, let $I_n = \\int x^n \\cos x\\,dx$ and $J_n = \\int x^n \\sin x\\,dx$. Which of the following statements is/are correct for these antiderivatives?",
+      "options": [
+        "A) $I_n + n J_{n-1} = x^n \\sin x + C_1$",
+        "B) $J_n - n I_{n-1} = -x^n \\cos x + C_2$",
+        "C) $I_n + n(n - 1)I_{n-2} = x^{n-1}(x\\sin x + n\\cos x) + C_3$",
+        "D) The integral for $n = 2$ evaluates to $I_2 = (x^2 - 2)\\sin x + 2x\\cos x + C_4$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Apply integration by parts to $I_n = \\int x^n \\cos x\\,dx$ with $u = x^n$ and $dv = \\cos x\\,dx$: $du = n x^{n-1}dx$ and $v = \\sin x$. This yields $I_n = x^n \\sin x - n\\int x^{n-1}\\sin x\\,dx = x^n \\sin x - n J_{n-1}$. Rearranging gives $I_n + n J_{n-1} = x^n \\sin x + C_1$, confirming statement A. Step 2: Apply integration by parts to $J_n = \\int x^n \\sin x\\,dx$ with $u = x^n$ and $dv = \\sin x\\,dx$: $du = n x^{n-1}dx$ and $v = -\\cos x$. This yields $J_n = -x^n \\cos x + n\\int x^{n-1}\\cos x\\,dx = -x^n \\cos x + n I_{n-1}$. Rearranging gives $J_n - n I_{n-1} = -x^n \\cos x + C_2$, confirming statement B. Step 3: From statement B with index $n-1$, $J_{n-1} = -x^{n-1}\\cos x + (n-1)I_{n-2}$. Substituting into statement A: $I_n = x^n \\sin x - n[-x^{n-1}\\cos x + (n-1)I_{n-2}] = x^n \\sin x + n x^{n-1}\\cos x - n(n-1)I_{n-2}$. Rearranging yields $I_n + n(n-1)I_{n-2} = x^{n-1}(x\\sin x + n\\cos x) + C_3$, confirming statement C. Step 4: For $n = 2$, $I_2 = x(x\\sin x + 2\\cos x) - 2(1)I_0 + C_4$. Since $I_0 = \\int \\cos x\\,dx = \\sin x$, we find $I_2 = x^2 \\sin x + 2x\\cos x - 2\\sin x + C_4 = (x^2 - 2)\\sin x + 2x\\cos x + C_4$, confirming statement D."
+    },
+    {
+      "id": "ii_c01_050",
+      "subject": "Mathematics",
+      "topic": "Indefinite Integration",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "For all real $x$, find the antiderivative of $g(x) = e^x \\frac{x^3 + x + 1}{(x^2 + 1)^{3/2}}$. Which of the following represents $\\int g(x)\\,dx$, with $C$ being the constant of integration?",
+      "options": [
+        "A) $\\frac{e^x}{\\sqrt{x^2 + 1}} + C$",
+        "B) $\\frac{x e^x}{\\sqrt{x^2 + 1}} + C$",
+        "C) $\\frac{(x + 1)e^x}{\\sqrt{x^2 + 1}} + C$",
+        "D) $\\frac{x^2 e^x}{(x^2 + 1)^{3/2}} + C$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Separate the numerator into two parts: $x^3 + x + 1 = x(x^2 + 1) + 1$. Step 2: Divide each term by $(x^2 + 1)^{3/2}$: $\\frac{x(x^2+1)}{(x^2+1)^{3/2}} + \\frac{1}{(x^2+1)^{3/2}} = \\frac{x}{\\sqrt{x^2+1}} + \\frac{1}{(x^2+1)^{3/2}}$. Step 3: Define $f(x) = \\frac{x}{\\sqrt{x^2+1}}$ and compute its derivative: $f'(x) = \\frac{\\sqrt{x^2+1}(1) - x\\frac{x}{\\sqrt{x^2+1}}}{x^2+1} = \\frac{(x^2+1) - x^2}{(x^2+1)^{3/2}} = \\frac{1}{(x^2+1)^{3/2}}$. Step 4: The integral is in the standard cancellation form $\\int e^x [f(x) + f'(x)]dx = e^x f(x) + C = \\frac{x e^x}{\\sqrt{x^2+1}} + C$. Setting $f(x) = 1/\\sqrt{x^2+1}$ results in an unmatched derivative $-x/(x^2+1)^{3/2}$ and generates the distractor options."
+    }
+  ]
+}

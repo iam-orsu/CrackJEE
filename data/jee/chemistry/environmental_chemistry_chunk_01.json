@@ -1,0 +1,804 @@
+{
+  "questions": [
+    {
+      "id": "enc_c01_001",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $25.0\\text{ mL}$ aliquot of domestic wastewater is diluted to a total volume of $500.0\\text{ mL}$ with aerated nutrient dilution water having an initial dissolved oxygen concentration of $DO_i = 8.80\\text{ mg L}^{-1}$. After incubation in a sealed BOD bottle at $20^\\circ\\text{C}$ for $5\\text{ days}$ in darkness, the residual dissolved oxygen is found to be $DO_f = 3.60\\text{ mg L}^{-1}$. A parallel blank containing only the dilution water undergoes a DO drop of $0.20\\text{ mg L}^{-1}$ over the same period. Calculate the $5\\text{-day}$ biochemical oxygen demand ($BOD_5$) of the unadulterated wastewater sample in $\\text{mg L}^{-1}$.",
+      "options": [
+        "A) $100\\text{ mg L}^{-1}$",
+        "B) $104\\text{ mg L}^{-1}$",
+        "C) $5.0\\text{ mg L}^{-1}$",
+        "D) $108\\text{ mg L}^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "The volumetric dilution factor is the fraction of sample in the total mixture: $P = \\frac{25.0\\text{ mL}}{500.0\\text{ mL}} = 0.050$. The gross DO depletion observed in the diluted sample bottle is $(DO_i - DO_f) = 8.80 - 3.60 = 5.20\\text{ mg L}^{-1}$. Correcting for the endogenous seed respiration observed in the dilution water blank ($\\Delta DO_{\\text{blank}} = 0.20\\text{ mg L}^{-1}$) gives a net sample DO consumption of $5.20 - 0.20 = 5.00\\text{ mg L}^{-1}$. Applying the dilution equation yields: $BOD_5 = \\frac{(DO_i - DO_f) - \\Delta DO_{\\text{blank}}}{P} = \\frac{5.00\\text{ mg L}^{-1}}{0.050} = 100\\text{ mg L}^{-1}$. Neglecting the blank seed correction yields $104\\text{ mg L}^{-1}$; forgetting to divide by the dilution factor $P$ leaves the unscaled bottle depletion of $5.0\\text{ mg L}^{-1}$; erroneously adding the blank depletion instead of subtracting it yields $108\\text{ mg L}^{-1}$."
+    },
+    {
+      "id": "enc_c01_002",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A thermal power station emits $640\\text{ kg}$ of sulfur dioxide gas ($SO_2$, molar mass $64.0\\text{ g mol}^{-1}$) during a storm event. Heterogeneous droplet catalysis completely oxidizes all of this $SO_2$ into sulfuric acid ($H_2SO_4$, molar mass $98.0\\text{ g mol}^{-1}$), which is scavenged quantitatively by $1.0 \\times 10^7\\text{ L}$ of precipitation over the surrounding watershed. Assuming $H_2SO_4$ undergoes complete diprotic ionization in the rainwater and neglecting ambient carbon dioxide dissolution, determine the pH of this acid precipitation.",
+      "options": [
+        "A) $3.00$",
+        "B) $2.70$",
+        "C) $2.40$",
+        "D) $3.30$"
+      ],
+      "answer": "B",
+      "explanation": "First, determine the total moles of sulfur dioxide oxidized: $n_{SO_2} = \\frac{640 \\times 10^3\\text{ g}}{64.0\\text{ g mol}^{-1}} = 1.0 \\times 10^4\\text{ mol}$. Complete atmospheric oxidation converts $SO_2$ into $H_2SO_4$ in a $1:1$ stoichiometric ratio: $SO_2 + \\frac{1}{2}O_2 + H_2O \\to H_2SO_4$, yielding $1.0 \\times 10^4\\text{ mol}$ of $H_2SO_4$. The analytical molarity of sulfuric acid in rainwater is: $[H_2SO_4] = \\frac{1.0 \\times 10^4\\text{ mol}}{1.0 \\times 10^7\\text{ L}} = 1.0 \\times 10^{-3}\\text{ M}$. Because sulfuric acid behaves diprotically with both protons dissociated at this dilution, the hydronium ion concentration is: $[H^+] = 2 \\times [H_2SO_4] = 2.0 \\times 10^{-3}\\text{ M}$. Calculating the pH gives: $\\text{pH} = -\\log_{10}[H^+] = -\\log_{10}(2.0 \\times 10^{-3}) = 3.00 - 0.3010 = 2.70$. Treating sulfuric acid as a monoprotic acid with $[H^+] = 1.0 \\times 10^{-3}\\text{ M}$ results in an erroneous pH of $3.00$; double-counting diprotic dissociation by taking $[H^+] = 4.0 \\times 10^{-3}\\text{ M}$ gives $2.40$; an arithmetic sign error in subtracting the logarithm gives $3.30$."
+    },
+    {
+      "id": "enc_c01_003",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An outdoor marble sculpture composed of pure calcium carbonate ($CaCO_3$, molar mass $100.0\\text{ g mol}^{-1}$) is weathered by $5.0 \\times 10^4\\text{ L}$ of acid rain having a pH of $4.00$, where the acidity is caused exclusively by sulfuric acid. Assuming complete stoichiometric reaction according to $CaCO_3(s) + H_2SO_4(aq) \\to CaSO_4(s) + H_2O(l) + CO_2(g)$, calculate the minimum mass of marble eroded and converted into calcium sulfate.",
+      "options": [
+        "A) $500\\text{ g}$",
+        "B) $125\\text{ g}$",
+        "C) $250\\text{ g}$",
+        "D) $50\\text{ g}$"
+      ],
+      "answer": "C",
+      "explanation": "From the defined rain pH of $4.00$, the hydronium ion concentration is $[H^+] = 10^{-\\text{pH}} = 1.0 \\times 10^{-4}\\text{ M}$. Because each mole of sulfuric acid provides two moles of hydronium ions ($H_2SO_4 \\to 2H^+ + SO_4^{2-}$), the concentration of sulfuric acid is $[H_2SO_4] = \\frac{[H^+]}{2} = 5.0 \\times 10^{-5}\\text{ M}$. The total moles of sulfuric acid delivered in $5.0 \\times 10^4\\text{ L}$ of rain is: $n_{H_2SO_4} = (5.0 \\times 10^{-5}\\text{ mol L}^{-1}) \\times (5.0 \\times 10^4\\text{ L}) = 2.50\\text{ mol}$. Since each mole of $H_2SO_4$ dissolves exactly one mole of $CaCO_3$, the mass of marble eroded is: $m_{CaCO_3} = 2.50\\text{ mol} \\times 100.0\\text{ g mol}^{-1} = 250\\text{ g}$. Treating sulfuric acid as monoprotic with $[H_2SO_4] = 1.0 \\times 10^{-4}\\text{ M}$ incorrectly doubles the mass to $500\\text{ g}$; halving the stoichiometric consumption factor yields $125\\text{ g}$; failing to convert volume units properly leads to $50\\text{ g}$."
+    },
+    {
+      "id": "enc_c01_004",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "At $293\\text{ K}$, the Henry's law solubility constant for molecular oxygen ($O_2$, molar mass $32.0\\text{ g mol}^{-1}$) dissolving in unpolluted freshwater is $K_H = 1.30 \\times 10^{-3}\\text{ mol L}^{-1}\\text{ bar}^{-1}$. Ambient air contains $21.0\\%$ oxygen by volume at a total barometric pressure of $1.00\\text{ bar}$. Determine the equilibrium concentration of dissolved oxygen in this surface water body expressed in $\\text{mg L}^{-1}$ (ppm).",
+      "options": [
+        "A) $4.16\\text{ mg L}^{-1}$",
+        "B) $41.6\\text{ mg L}^{-1}$",
+        "C) $18.3\\text{ mg L}^{-1}$",
+        "D) $8.74\\text{ mg L}^{-1}$"
+      ],
+      "answer": "D",
+      "explanation": "Applying Dalton's law of partial pressures, the partial pressure of oxygen in dry atmospheric air is: $P_{O_2} = 0.210 \\times 1.00\\text{ bar} = 0.210\\text{ bar}$. Applying Henry's law, the molar solubility of oxygen in water is: $[O_2] = K_H \\times P_{O_2} = (1.30 \\times 10^{-3}\\text{ mol L}^{-1}\\text{ bar}^{-1}) \\times 0.210\\text{ bar} = 2.73 \\times 10^{-4}\\text{ mol L}^{-1}$. To convert molarity to mass concentration in $\\text{mg L}^{-1}$, multiply by the molar mass of diatomic oxygen: $C_{O_2} = 2.73 \\times 10^{-4}\\text{ mol L}^{-1} \\times 32.0 \\times 10^3\\text{ mg mol}^{-1} = 8.74\\text{ mg L}^{-1}$. Using atomic mass of oxygen ($16.0\\text{ g mol}^{-1}$) instead of molecular oxygen gives $4.16\\text{ mg L}^{-1}$; a tenfold unit conversion mistake on milligram to gram conversion yields $41.6\\text{ mg L}^{-1}$; dividing by partial pressure instead of multiplying yields $18.3\\text{ mg L}^{-1}$."
+    },
+    {
+      "id": "enc_c01_005",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Carbon monoxide binds reversibly to human hemoglobin ($Hb$) to form carboxyhemoglobin ($HbCO$) with an affinity constant approximately $210$ times greater than that of oxygen forming oxyhemoglobin ($HbO_2$), governed by the Haldane equilibrium: $\\frac{[HbCO]}{[HbO_2]} = 210 \\times \\frac{P_{CO}}{P_{O_2}}$. If a human subject breathes alveolar air with an oxygen partial pressure of $P_{O_2} = 100\\text{ Torr}$, calculate the minimum partial pressure of carbon monoxide ($P_{CO}$, in $\\text{Torr}$) that causes $50.0\\%$ of active hemoglobin to be tied up as carboxyhemoglobin (i.e. $[HbCO] = [HbO_2]$).",
+      "options": [
+        "A) $0.476\\text{ Torr}$",
+        "B) $2.10\\text{ Torr}$",
+        "C) $0.238\\text{ Torr}$",
+        "D) $4.76\\text{ Torr}$"
+      ],
+      "answer": "A",
+      "explanation": "When $50.0\\%$ of the bound hemoglobin exists as carboxyhemoglobin and $50.0\\%$ exists as oxyhemoglobin, the molar ratio is exactly unity: $\\frac{[HbCO]}{[HbO_2]} = 1.00$. Substituting this boundary condition into the competitive Haldane relationship gives: $1.00 = 210 \\times \\frac{P_{CO}}{100\\text{ Torr}}$. Rearranging to isolate $P_{CO}$ yields: $P_{CO} = \\frac{100\\text{ Torr}}{210} = 0.476\\text{ Torr}$. Inverting the ratio or mistaking percentage coordinates leads to $2.10\\text{ Torr}$; assuming two oxygen molecules per heme unit gives $0.238\\text{ Torr}$; a factor-of-ten decimal error produces $4.76\\text{ Torr}$."
+    },
+    {
+      "id": "enc_c01_006",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A municipal water reservoir containing $2.0 \\times 10^6\\text{ L}$ of raw water requires fluoridation to reach the recommended concentration of $1.00\\text{ mg L}^{-1}$ of fluoride ion ($F^-$) to protect teeth from enamel demineralization. If sodium fluorosilicate ($Na_2SiF_6$, molar mass $188.06\\text{ g mol}^{-1}$) is employed as the fluoridation chemical, determine the total mass of pure $Na_2SiF_6$ in kilograms that must be dissolved. (Atomic mass: $F = 19.00\\text{ g mol}^{-1}$).",
+      "options": [
+        "A) $1.21\\text{ kg}$",
+        "B) $3.30\\text{ kg}$",
+        "C) $9.90\\text{ kg}$",
+        "D) $19.8\\text{ kg}$"
+      ],
+      "answer": "B",
+      "explanation": "The required total mass of fluoride ion in the reservoir is: $m_{F^-} = 1.00\\text{ mg L}^{-1} \\times 2.0 \\times 10^6\\text{ L} = 2.0 \\times 10^6\\text{ mg} = 2.00\\text{ kg}$. In one mole of $Na_2SiF_6$, there are $6$ moles of fluoride atoms. The mass percentage of fluoride in sodium fluorosilicate is: $\\%F = \\frac{6 \\times 19.00\\text{ g mol}^{-1}}{188.06\\text{ g mol}^{-1}} \\times 100\\% = \\frac{114.0\\text{ g mol}^{-1}}{188.06\\text{ g mol}^{-1}} \\times 100\\% = 60.62\\%$. Therefore, the total mass of salt required is: $m_{Na_2SiF_6} = \\frac{2.00\\text{ kg}}{0.6062} = 3.30\\text{ kg}$. Multiplying by the mass fraction instead of dividing yields $1.21\\text{ kg}$; assuming only two fluorides are liberated per formula unit yields $9.90\\text{ kg}$; assuming only one fluoride atom per formula unit yields $19.8\\text{ kg}$."
+    },
+    {
+      "id": "enc_c01_007",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A sample of industrial effluent contains $0.414\\text{ mg L}^{-1}$ of dissolved lead(II) nitrate ($Pb(NO_3)_2$, molar mass $331.2\\text{ g mol}^{-1}$). According to the Bureau of Indian Standards (BIS) and WHO drinking water specifications, the maximum permissible limit for lead ($Pb$) is $50.0\\text{ ppb}$ (where $1\\text{ ppb} = 1\\ \\mu\\text{g L}^{-1}$). By what factor does the lead ion concentration in this effluent exceed the maximum permissible drinking water limit? (Atomic mass: $Pb = 207.2\\text{ g mol}^{-1}$).",
+      "options": [
+        "A) $8.28$",
+        "B) $2.59$",
+        "C) $5.18$",
+        "D) $10.4$"
+      ],
+      "answer": "C",
+      "explanation": "First, compute the gravimetric fraction of lead in lead(II) nitrate: $f_{Pb} = \\frac{207.2\\text{ g mol}^{-1}}{331.2\\text{ g mol}^{-1}} = 0.6256$. The actual concentration of elemental lead in the water sample is: $C_{Pb} = 0.414\\text{ mg L}^{-1} \\times 0.6256 = 0.259\\text{ mg L}^{-1} = 259\\ \\mu\\text{g L}^{-1} = 259\\text{ ppb}$. The maximum permissible threshold is $50.0\\text{ ppb}$. Evaluating the exceedance ratio gives: $\\text{Factor} = \\frac{259\\text{ ppb}}{50.0\\text{ ppb}} = 5.18$. Using the gross mass of lead nitrate without factoring in the lead mass fraction yields $8.28$; dividing by $100\\text{ ppb}$ instead of $50\\text{ ppb}$ yields $2.59$; doubling the threshold ratio produces $10.4$."
+    },
+    {
+      "id": "enc_c01_008",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Agricultural runoff from excessive fertilizer usage contaminates a shallow domestic well to a nitrate ion ($NO_3^-$, molar mass $62.0\\text{ g mol}^{-1}$) concentration of $2.00 \\times 10^{-3}\\text{ M}$. The prescribed drinking water limit for nitrate is $50.0\\text{ mg L}^{-1}$ to avert infantile methemoglobinemia. If an infant is fed formula milk reconstituted with $1.50\\text{ L}$ of this well water per day, determine the excess mass of nitrate ingested daily above the intake corresponding to water at the permissible limit.",
+      "options": [
+        "A) $186\\text{ mg}$",
+        "B) $74.0\\text{ mg}$",
+        "C) $37.0\\text{ mg}$",
+        "D) $111\\text{ mg}$"
+      ],
+      "answer": "D",
+      "explanation": "First, convert the well water nitrate molarity into mass concentration: $C_{NO_3^-} = 2.00 \\times 10^{-3}\\text{ mol L}^{-1} \\times 62.0 \\times 10^3\\text{ mg mol}^{-1} = 124.0\\text{ mg L}^{-1}$. The actual daily intake of nitrate from consuming $1.50\\text{ L}$ is: $\\text{Intake}_{\\text{actual}} = 124.0\\text{ mg L}^{-1} \\times 1.50\\text{ L} = 186.0\\text{ mg}$. The allowable daily intake at the permissible benchmark of $50.0\\text{ mg L}^{-1}$ is: $\\text{Intake}_{\\text{limit}} = 50.0\\text{ mg L}^{-1} \\times 1.50\\text{ L} = 75.0\\text{ mg}$. The excess nitrate ingested daily is: $\\Delta m = 186.0 - 75.0 = 111.0\\text{ mg}$. Stating total daily consumption without subtracting the baseline allowance gives $186\\text{ mg}$; taking the difference per litre without multiplying by the $1.50\\text{ L}$ volume gives $74.0\\text{ mg}$; halving the volume factor gives $37.0\\text{ mg}$."
+    },
+    {
+      "id": "enc_c01_009",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A high-volume air sampling station operates continuously for $24.0\\text{ hours}$ at an intake rate of $1.20\\text{ m}^3\\text{ min}^{-1}$ to measure fine particulate matter ($PM_{2.5}$). The quartz-fiber filter had an initial desiccated tare weight of $2.4510\\text{ g}$. Following the $24\\text{-hour}$ exposure cycle, the equilibrated filter mass was measured at $2.5547\\text{ g}$. Calculate the average atmospheric mass loading of $PM_{2.5}$ in $\\mu\\text{g m}^{-3}$.",
+      "options": [
+        "A) $60.0\\ \\mu\\text{g m}^{-3}$",
+        "B) $103.7\\ \\mu\\text{g m}^{-3}$",
+        "C) $72.0\\ \\mu\\text{g m}^{-3}$",
+        "D) $43.2\\ \\mu\\text{g m}^{-3}$"
+      ],
+      "answer": "A",
+      "explanation": "First, calculate the total volumetric throughput of ambient air drawn through the filter during the sampling run: $V = 1.20\\text{ m}^3\\text{ min}^{-1} \\times 60\\text{ min h}^{-1} \\times 24.0\\text{ h} = 1728.0\\text{ m}^3$. The gravimetric mass of particulate trapped on the filter is: $\\Delta m = 2.5547 - 2.4510 = 0.1037\\text{ g} = 1.037 \\times 10^5\\ \\mu\\text{g}$. Dividing the captured mass by the sampled air volume gives: $C_{PM_{2.5}} = \\frac{1.037 \\times 10^5\\ \\mu\\text{g}}{1728.0\\text{ m}^3} = 60.01\\ \\mu\\text{g m}^{-3} \\approx 60.0\\ \\mu\\text{g m}^{-3}$. Dividing mass in milligrams directly by $1000$ without considering the sampling flow rate produces $103.7\\ \\mu\\text{g m}^{-3}$; omitting the $60\\text{ min h}^{-1}$ conversion factor produces $72.0\\ \\mu\\text{g m}^{-3}$; using standard temperature-pressure volume contraction erroneously gives $43.2\\ \\mu\\text{g m}^{-3}$."
+    },
+    {
+      "id": "enc_c01_010",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In an automobile exhaust catalytic converter, unburnt octane ($C_8H_{18}$, molar mass $114.0\\text{ g mol}^{-1}$) acts as a reducing agent for toxic nitrogen monoxide ($NO$, molar mass $30.0\\text{ g mol}^{-1}$) over a platinum-rhodium surface according to: $2C_8H_{18}(g) + 50NO(g) \\to 16CO_2(g) + 25N_2(g) + 18H_2O(g)$. If a vehicle engine expels $2.28\\text{ g}$ of unburnt octane per kilometer, calculate the maximum mass of $NO$ in grams that can be simultaneously abated to dinitrogen gas by this amount of fuel slip.",
+      "options": [
+        "A) $30.0\\text{ g}$",
+        "B) $15.0\\text{ g}$",
+        "C) $0.60\\text{ g}$",
+        "D) $7.50\\text{ g}$"
+      ],
+      "answer": "B",
+      "explanation": "First, determine the moles of octane expelled per kilometer: $n_{C_8H_{18}} = \\frac{2.28\\text{ g}}{114.0\\text{ g mol}^{-1}} = 0.0200\\text{ mol}$. From the stoichiometric coefficients of the balanced catalytic redox equation, $2\\text{ mol}$ of $C_8H_{18}$ reacts with $50\\text{ mol}$ of $NO$, giving a molar ratio of $\\frac{50}{2} = 25\\text{ mol } NO / \\text{mol } C_8H_{18}$. The moles of $NO$ reduced are: $n_{NO} = 25 \\times 0.0200\\text{ mol} = 0.500\\text{ mol}$. The corresponding mass of $NO$ abated is: $m_{NO} = 0.500\\text{ mol} \\times 30.0\\text{ g mol}^{-1} = 15.0\\text{ g}$. Forgetting the factor of 2 in the denominator of the mole ratio gives $30.0\\text{ g}$; assuming a $1:1$ molar stoichiometry gives $0.60\\text{ g}$; halving the required molar mass yields $7.50\\text{ g}$."
+    },
+    {
+      "id": "enc_c01_011",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Excessive dissolved sulfate in potable water imparts a bitter taste and produces a pronounced cathartic laxative effect. Analysis of a groundwater bore reveals a magnesium sulfate ($MgSO_4$) concentration of $7.50 \\times 10^{-3}\\text{ M}$. If the acceptable maximum limit for sulfate ion ($SO_4^{2-}$, molar mass $96.0\\text{ g mol}^{-1}$) in drinking water is $500\\text{ mg L}^{-1}$, determine the concentration of sulfate ions in this water that is in excess of the permissible threshold, expressed in $\\text{mg L}^{-1}$.",
+      "options": [
+        "A) $720\\text{ mg L}^{-1}$",
+        "B) $400\\text{ mg L}^{-1}$",
+        "C) $220\\text{ mg L}^{-1}$",
+        "D) $120\\text{ mg L}^{-1}$"
+      ],
+      "answer": "C",
+      "explanation": "Dissolution of magnesium sulfate yields equimolar sulfate ions: $[SO_4^{2-}] = 7.50 \\times 10^{-3}\\text{ M}$. Multiplying by the formula mass of sulfate gives the total mass concentration: $C_{SO_4^{2-}} = (7.50 \\times 10^{-3}\\text{ mol L}^{-1}) \\times (96.0 \\times 10^3\\text{ mg mol}^{-1}) = 720.0\\text{ mg L}^{-1}$. The prescribed maximum allowable limit is $500.0\\text{ mg L}^{-1}$. The excess sulfate concentration is obtained by subtraction: $\\Delta C = 720.0 - 500.0 = 220.0\\text{ mg L}^{-1}$. Reporting the gross concentration without subtracting the threshold baseline gives $720\\text{ mg L}^{-1}$; subtracting the magnesium mass fraction mistakenly yields $400\\text{ mg L}^{-1}$; miscalculating the molar mass of sulfate as $80.0\\text{ g mol}^{-1}$ leads to $120\\text{ mg L}^{-1}$."
+    },
+    {
+      "id": "enc_c01_012",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An industrial furnace stack releases $11.2\\text{ m}^3$ of sulfur dioxide gas ($SO_2$) measured at STP ($273\\text{ K}$, $1.00\\text{ atm}$) into a stagnant humid winter valley, fueling reducing London smog. To prevent atmospheric discharge, the flue gas is scrubbed with an aqueous lime slurry containing calcium hydroxide ($Ca(OH)_2$), precipitating calcium sulfite hemihydrate according to: $SO_2(g) + Ca(OH)_2(s) \\to CaSO_3\\cdot \\frac{1}{2}H_2O(s) + \\frac{1}{2}H_2O(l)$. Calculate the theoretical dry mass of solid $CaSO_3\\cdot \\frac{1}{2}H_2O$ sludge (molar mass $129.1\\text{ g mol}^{-1}$) generated in kilograms.",
+      "options": [
+        "A) $60.0\\text{ kg}$",
+        "B) $129.1\\text{ kg}$",
+        "C) $32.3\\text{ kg}$",
+        "D) $64.6\\text{ kg}$"
+      ],
+      "answer": "D",
+      "explanation": "First, determine the moles of sulfur dioxide present at standard temperature and pressure ($V_m = 22.4\\text{ L mol}^{-1}$): $n_{SO_2} = \\frac{11.2 \\times 10^3\\text{ L}}{22.4\\text{ L mol}^{-1}} = 500\\text{ mol}$. From the reaction stoichiometry, each mole of $SO_2$ captured produces one mole of $CaSO_3\\cdot \\frac{1}{2}H_2O$ precipitate. Thus, $500\\text{ mol}$ of the hemihydrate salt is produced. The resulting mass is: $m = 500\\text{ mol} \\times 129.1\\text{ g mol}^{-1} = 64,550\\text{ g} = 64.55\\text{ kg} \\approx 64.6\\text{ kg}$. Neglecting the water of crystallization by using anhydrous $CaSO_3$ ($120.1\\text{ g mol}^{-1}$) gives $60.0\\text{ kg}$; assuming $1000\\text{ mol}$ of gas gives $129.1\\text{ kg}$; dividing by $2$ unnecessarily yields $32.3\\text{ kg}$."
+    },
+    {
+      "id": "enc_c01_013",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In an urban boundary layer at midday, the primary photolytic cycle generating tropospheric ozone is governed by: $NO_2 + h\\nu \\xrightarrow{k_1} NO + O(^3P)$ followed by ultrafast reaction $O(^3P) + O_2 + M \\to O_3 + M$, and titration $NO + O_3 \\xrightarrow{k_3} NO_2 + O_2$. Here, $k_1 = 1.00 \\times 10^{-2}\\text{ s}^{-1}$ and $k_3 = 2.50 \\times 10^7\\text{ L mol}^{-1}\\text{ s}^{-1}$. Under photostationary steady-state conditions where $[NO_2] = 5.00 \\times 10^{-8}\\text{ mol L}^{-1}$ and $[NO] = 1.00 \\times 10^{-8}\\text{ mol L}^{-1}$, determine the steady-state concentration of tropospheric ozone $[O_3]$ in units of $10^{-10}\\text{ mol L}^{-1}$.",
+      "options": [],
+      "answer": "20",
+      "explanation": "Under the Leighton photostationary state, the rate of ozone production equals its rate of destruction by nitric oxide: $\\frac{d[O_3]}{dt} = k_1[NO_2] - k_3[NO][O_3] = 0$. Solving for the steady-state concentration of ozone yields: $[O_3] = \\frac{k_1[NO_2]}{k_3[NO]}$. Substituting the numerical values: $[O_3] = \\frac{(1.00 \\times 10^{-2}\\text{ s}^{-1})(5.00 \\times 10^{-8}\\text{ mol L}^{-1})}{(2.50 \\times 10^7\\text{ L mol}^{-1}\\text{ s}^{-1})(1.00 \\times 10^{-8}\\text{ mol L}^{-1})} = \\frac{5.00 \\times 10^{-10}}{2.50 \\times 10^{-1}} = 2.00 \\times 10^{-9}\\text{ mol L}^{-1}$. Expressed in units of $10^{-10}\\text{ mol L}^{-1}$, this gives $2.00 \\times 10^{-9} / 10^{-10} = 20$."
+    },
+    {
+      "id": "enc_c01_014",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Chemical Oxygen Demand (COD) of an industrial wastewater sample is quantified via reflux with acidified potassium dichromate. A $50.0\\text{ mL}$ sample of wastewater is digested with $25.0\\text{ mL}$ of $0.040\\text{ N } K_2Cr_2O_7$ in concentrated sulfuric acid. The residual unreacted dichromate is back-titrated against $0.050\\text{ N}$ ferrous ammonium sulfate (FAS), requiring $15.0\\text{ mL}$ to reach the ferroin end point. An identical blank determination using $50.0\\text{ mL}$ of distilled water consumes $20.0\\text{ mL}$ of the same FAS solution. Calculate the Chemical Oxygen Demand (COD) of the wastewater sample in $\\text{mg L}^{-1}$ (ppm).",
+      "options": [],
+      "answer": "40",
+      "explanation": "COD measures the mass of oxygen equivalent consumed per litre of sample: $COD = \\frac{(V_{\\text{blank}} - V_{\\text{sample}}) \\times N_{\\text{FAS}} \\times 8000}{V_{\\text{sample, mL}}}$. Here, the volume difference of FAS titrant between the blank and sample is: $V_{\\text{blank}} - V_{\\text{sample}} = 20.0 - 15.0 = 5.0\\text{ mL}$. Substituting into the standard titrimetric formula: $COD = \\frac{5.0\\text{ mL} \\times 0.050\\text{ meq mL}^{-1} \\times 8000\\text{ mg eq}^{-1}}{50.0\\text{ mL}} = \\frac{0.25 \\times 8000}{50.0} = \\frac{2000}{50.0} = 40\\text{ mg L}^{-1}$."
+    },
+    {
+      "id": "enc_c01_015",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A sample of food-processing dairy effluent has an anticipated 5-day Biochemical Oxygen Demand ($BOD_5$) of $150\\text{ mg L}^{-1}$. A quality analyst sets up a dilution assay in a standard $300\\text{ mL}$ BOD incubation bottle using saturated nutrient dilution water. To maintain aerobic conditions without suffocating the microbial consortium, the maximum allowable dissolved oxygen depletion over the 5-day test period is established as $6.00\\text{ mg L}^{-1}$ (with zero blank depletion). What volume of the raw undiluted dairy effluent (in $\\text{mL}$) must be introduced into the $300\\text{ mL}$ bottle?",
+      "options": [],
+      "answer": "12",
+      "explanation": "The standard dilution formula for biochemical oxygen demand is: $BOD_5 = \\frac{DO_i - DO_f}{P}$, where $P = \\frac{V_{\\text{sample}}}{V_{\\text{bottle}}}$ is the volumetric dilution factor. Given $BOD_5 = 150\\text{ mg L}^{-1}$ and $\\Delta DO = DO_i - DO_f = 6.00\\text{ mg L}^{-1}$, solving for the dilution fraction yields: $P = \\frac{\\Delta DO}{BOD_5} = \\frac{6.00\\text{ mg L}^{-1}}{150\\text{ mg L}^{-1}} = 0.040$. For a standard BOD bottle volume of $V_{\\text{bottle}} = 300\\text{ mL}$, the volume of raw effluent required is: $V_{\\text{sample}} = P \\times V_{\\text{bottle}} = 0.040 \\times 300\\text{ mL} = 12\\text{ mL}$."
+    },
+    {
+      "id": "enc_c01_016",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "During photochemical smog episodes, peroxyacetyl nitrate (PAN, $CH_3C(=O)OONO_2$), a potent lachrymator and phytotoxin, exists in dynamic chemical equilibrium with the peroxyacetyl radical and nitrogen dioxide: $CH_3C(=O)OO^\\bullet(g) + NO_2(g) \\rightleftharpoons CH_3C(=O)OONO_2(g)$. At $298\\text{ K}$, the equilibrium association constant is $K_p = 2.50 \\times 10^7\\text{ atm}^{-1}$. In a heavily polluted basin, the atmospheric partial pressures of the peroxyacetyl radical and nitrogen dioxide are measured as $P_{\\text{PA}} = 1.00 \\times 10^{-9}\\text{ atm}$ and $P_{NO_2} = 4.00 \\times 10^{-8}\\text{ atm}$, respectively. Determine the equilibrium partial pressure of PAN in parts per billion (ppb), where $1\\text{ ppb} = 1.00 \\times 10^{-9}\\text{ atm}$.",
+      "options": [
+        "A) $1.00\\text{ ppb}$",
+        "B) $2.50\\text{ ppb}$",
+        "C) $0.40\\text{ ppb}$",
+        "D) $10.0\\text{ ppb}$"
+      ],
+      "answer": "A",
+      "explanation": "The equilibrium expression for PAN formation is written as: $K_p = \\frac{P_{\\text{PAN}}}{P_{\\text{PA}} \\times P_{NO_2}}$. Rearranging this expression to solve for the partial pressure of PAN yields: $P_{\\text{PAN}} = K_p \\times P_{\\text{PA}} \\times P_{NO_2}$. Substituting the known values: $P_{\\text{PAN}} = (2.50 \\times 10^7\\text{ atm}^{-1}) \\times (1.00 \\times 10^{-9}\\text{ atm}) \\times (4.00 \\times 10^{-8}\\text{ atm}) = 1.00 \\times 10^{-9}\\text{ atm}$. Since $1\\text{ ppb} = 1.00 \\times 10^{-9}\\text{ atm}$, the equilibrium concentration of PAN is exactly $1.00\\text{ ppb}$. Omitting the nitrogen dioxide partial pressure yields $2.50\\text{ ppb}$; inverting the equilibrium constant produces $0.40\\text{ ppb}$; an arithmetic power-of-ten mistake produces $10.0\\text{ ppb}$."
+    },
+    {
+      "id": "enc_c01_017",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the stratosphere, chlorofluorocarbons release chlorine atoms ($Cl^\\bullet$) that catalytically destroy ozone through the cycle: (1) $Cl^\\bullet + O_3 \\xrightarrow{k_1} ClO^\\bullet + O_2$, (2) $ClO^\\bullet + O \\xrightarrow{k_2} Cl^\\bullet + O_2$. The catalytic propagation chain is terminated when chlorine atoms abstract hydrogen from methane: (3) $Cl^\\bullet + CH_4 \\xrightarrow{k_t} HCl + ^\\bullet CH_3$. The catalytic chain length $\\Lambda$ is defined as the ratio of the rate of propagation to the rate of termination: $\\Lambda = \\frac{k_1[O_3]}{k_t[CH_4]}$. At an altitude of $30\\text{ km}$, $[O_3] = 4.00 \\times 10^{12}\\text{ molecules cm}^{-3}$, $[CH_4] = 8.00 \\times 10^{11}\\text{ molecules cm}^{-3}$, $k_1 = 1.20 \\times 10^{-11}\\text{ cm}^3\\text{ molecule}^{-1}\\text{ s}^{-1}$, and $k_t = 6.00 \\times 10^{-14}\\text{ cm}^3\\text{ molecule}^{-1}\\text{ s}^{-1}$. Calculate the catalytic chain length $\\Lambda$.",
+      "options": [
+        "A) $500$",
+        "B) $1000$",
+        "C) $2000$",
+        "D) $100$"
+      ],
+      "answer": "B",
+      "explanation": "First, compute the rate factor for ozone propagation: $R_{\\text{prop}} = k_1[O_3] = (1.20 \\times 10^{-11}) \\times (4.00 \\times 10^{12}) = 48.0\\text{ s}^{-1}$. Next, compute the rate factor for chain termination via methane: $R_{\\text{term}} = k_t[CH_4] = (6.00 \\times 10^{-14}) \\times (8.00 \\times 10^{11}) = 4.80 \\times 10^{-2}\\text{ s}^{-1}$. Dividing propagation by termination gives the catalytic chain length: $\\Lambda = \\frac{R_{\\text{prop}}}{R_{\\text{term}}} = \\frac{48.0}{4.80 \\times 10^{-2}} = 1000$. This indicates each liberated chlorine radical destroys an average of 1000 ozone molecules before being temporarily sequestered as unreactive hydrogen chloride ($HCl$). Forgetting the ratio of reactant concentrations gives $200$; halving the propagation rate gives $500$; doubling the chain factor produces $2000$; omitting a power of ten produces $100$."
+    },
+    {
+      "id": "enc_c01_018",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the standard titrimetric protocol for evaluating Chemical Oxygen Demand (COD) of wastewater containing substantial salinity using acidified potassium dichromate ($K_2Cr_2O_7$), what specific roles are fulfilled by the addition of silver sulfate ($Ag_2SO_4$) and mercuric sulfate ($HgSO_4$) prior to reflux?",
+      "options": [
+        "A) $HgSO_4$ serves as an oxidation catalyst for refractory polyaromatic hydrocarbons, while $Ag_2SO_4$ precipitates chloride as insoluble silver chloride.",
+        "B) $Ag_2SO_4$ suppresses bubble foaming during vigorous boiling, while $HgSO_4$ oxidizes straight-chain aliphatic carboxylic acids.",
+        "C) $Ag_2SO_4$ acts as a catalyst for the oxidation of straight-chain aliphatic hydrocarbons and alcohols, while $HgSO_4$ complexes chloride ions into soluble, unreactive $[HgCl_4]^{2-}$, preventing false-positive oxidation of chloride by dichromate.",
+        "D) Both $Ag_2SO_4$ and $HgSO_4$ act synergistically as redox indicators that transition from blue to purple at the exact equivalence point."
+      ],
+      "answer": "C",
+      "explanation": "Straight-chain aliphatic hydrocarbons, alcohols, and organic acids are refractory to uncatalyzed chromic acid oxidation; silver sulfate ($Ag_2SO_4$) acts as an indispensable catalyst to facilitate their complete oxidation. Concurrently, chloride ions ($Cl^-$) readily reduce dichromate under hot acidic conditions ($Cr_2O_7^{2-} + 6Cl^- + 14H^+ \\to 2Cr^{3+} + 3Cl_2 + 7H_2O$), which would impart a severe positive error to the COD value. Mercuric sulfate ($HgSO_4$) binds chloride tightly as stable, soluble chloro-complexes ($HgCl_2$ and $[HgCl_4]^{2-}$), sequestering chloride from oxidation without producing precipitates. Confusing the roles of silver and mercury reflects misunderstanding of organometallic catalysis; describing silver as a simple chloride precipitant neglects the fact that $AgCl$ would precipitate and partially inactivate the catalyst; confusing the salts with redox indicators conflates reagents with ferroin."
+    },
+    {
+      "id": "enc_c01_019",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Trivalent arsenite ($As(III)$) found in contaminated groundwater is markedly more toxic to mammalian cellular metabolism than pentavalent arsenate ($As(V)$). What is the molecular mechanism by which arsenite inhibits the pyruvate dehydrogenase multi-enzyme complex in cellular respiration?",
+      "options": [
+        "A) Arsenite acts as a structural analogue of inorganic phosphate, competitively binding ATP synthase and uncoupling oxidative phosphorylation.",
+        "B) Arsenite oxidizes the active-site ferrous ion of cytochrome c oxidase to the ferric state, irreversibly blocking electron transport.",
+        "C) Arsenite undergoes irreversible methylation in the mitochondrial matrix, alkylating essential guanine bases in mitochondrial DNA.",
+        "D) Arsenite reacts covalently with the two neighboring sulfhydryl ($-SH$) groups of the reduced lipoic acid cofactor, forming a stable five-membered cyclic thioarsenite chelate that inactivates dihydrolipoyl transacetylase."
+      ],
+      "answer": "D",
+      "explanation": "Arsenite ($AsO_3^{3-}$ or $H_3AsO_3$) has high specific affinity for vicinal dithiols. In the pyruvate dehydrogenase multienzyme complex, reduced lipoamide on the $E_2$ subunit contains two adjacent thiol ($-SH$) groups separated by two carbon atoms. Arsenite reacts with both thiols to form a remarkably stable, strained five-membered cyclic thioarsenite diester ring. This completely arrests the catalytic transfer of acetyl groups to Coenzyme A, terminating the Krebs cycle and cellular ATP production. Confusing arsenite toxicity with arsenate toxicity mistakenly attributes the phosphate analogue / uncoupling mechanism to arsenite; describing direct oxidation of cytochrome heme confuses arsenic with cyanide or carbon monoxide; proposing alkylation of DNA misidentifies an electrophilic mutational mechanism instead of heavy-metal thiol coordination."
+    },
+    {
+      "id": "enc_c01_020",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Chronic exposure to lead ($Pb^{2+}$) at concentrations exceeding the permissible limit ($50\\text{ ppb}$) impairs the biosynthesis of hemoglobin, culminating in microcytic hypochromic anemia. Which essential zinc-dependent sulfhydryl enzyme in the heme biosynthetic pathway is directly and most sensitively inhibited by lead, leading to prominent urinary excretion of its substrate?",
+      "options": [
+        "A) $\\delta$-Aminolevulinic acid dehydratase ($\\delta$-ALAD, porphobilinogen synthase), causing marked elevation and urinary excretion of $\\delta$-aminolevulinic acid ($\\delta$-ALA)",
+        "B) Ferrochelatase, which selectively prevents the reduction of biliverdin to bilirubin in the spleen",
+        "C) $\\delta$-Aminolevulinic acid synthase, which prevents the initial condensation of glycine with succinyl-CoA",
+        "D) Uroporphyrinogen decarboxylase, which halts the conversion of coproporphyrinogen to protoporphyrin IX"
+      ],
+      "answer": "A",
+      "explanation": "Lead ($Pb^{2+}$) has a very high thiophilicity and selectively displaces catalytic $Zn^{2+}$ ions from the active site of cytosolic $\\delta$-aminolevulinic acid dehydratase ($\\delta$-ALAD), coordinating irreversibly to its cysteine sulfhydryl groups. This blocks the condensation of two molecules of $\\delta$-aminolevulinic acid ($\\delta$-ALA) into porphobilinogen (PBG). Consequently, $\\delta$-ALA accumulates in blood plasma and is excreted in high amounts in urine, serving as a primary diagnostic clinical biomarker for lead poisoning. Although lead also inhibits mitochondrial ferrochelatase at later stages, ferrochelatase inserts $Fe^{2+}$ into protoporphyrin IX rather than acting on biliverdin; $\\delta$-ALA synthase is actually upregulated via loss of negative feedback by free heme; uroporphyrinogen decarboxylase is affected in porphyria cutanea tarda rather than being the primary target of lead."
+    },
+    {
+      "id": "enc_c01_021",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Cadmium ($Cd$) pollution of the Jinzu River basin in Japan famously caused widespread cases of 'Itai-itai' disease, characterized by excruciating skeletal pain, severe osteomalacia, and multiple pathological bone fractures. Which biochemical and physiological mechanism explains how chronic cadmium accumulation induces this severe bone demineralization?",
+      "options": [
+        "A) Cadmium directly substitutes for phosphorus in the hydroxyapatite matrix, forming water-soluble cadmium phosphite salts that leach out of bone tissue.",
+        "B) Cadmium concentrates in renal proximal tubular cells where it causes reabsorptive Fanconi syndrome and inhibits renal $1\\alpha$-hydroxylase, preventing conversion of calcidiol to active calcitriol ($1,25-(OH)_2D_3$) and triggering massive urinary calcium loss.",
+        "C) Cadmium competitively binds to parathyroid calcium-sensing receptors, completely shutting down all endogenous parathyroid hormone release.",
+        "D) Cadmium irreversibly cross-links osteoclast lysosomal enzymes, totally suppressing normal osteoclastic bone turnover and remodeling."
+      ],
+      "answer": "B",
+      "explanation": "Cadmium ($Cd^{2+}$) is filtered by renal glomeruli and taken up by proximal convoluted tubular epithelial cells, where it binds metallothionein. Over decades, free cadmium accumulates, causing proximal tubular necrosis and secondary Fanconi syndrome. This impairs tubular reabsorption of calcium and phosphate (hypercalciuria and hyperphosphaturia). Crucially, $Cd^{2+}$ also displaces $Zn^{2+}$ in the mitochondrial enzyme $1\\alpha$-hydroxylase, inhibiting the bio-activation of $25\\text{-hydroxyvitamin } D_3$ into active $1,25\\text{-dihydroxyvitamin } D_3$ (calcitriol). The resulting calcium deficit triggers secondary hyperparathyroidism, which strips calcium from bones to defend serum calcium levels, causing osteomalacia and multiple fractures. Describing cadmium replacing phosphate mistakes an anion for a cation; claiming cadmium shuts down PTH release contradicts the pathological reality of secondary hyperparathyroidism; claiming suppression of osteoclasts ignores that osteoclastic resorption is actually stimulated by high PTH."
+    },
+    {
+      "id": "enc_c01_022",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "During the dark polar winter over Antarctica, a stable circumpolar vortex isolates stratospheric air, allowing temperatures to drop below $-78^\\circ\\text{C}$ and precipitating Polar Stratospheric Clouds (PSCs). What key heterogeneous reactions take place on the crystalline surfaces of these PSCs to prime the atmosphere for sudden springtime ozone depletion?",
+      "options": [
+        "A) $2O_3(g) \\xrightarrow{\\text{PSC ice}} 3O_2(g)$ directly via ice-catalyzed cleavage of the $O-O$ coordinate bond in darkness.",
+        "B) $NO_2(g) + O_3(g) \\to NO_3(g) + O_2(g)$ followed by reaction with $NO$ to regenerate active nitrous fumes.",
+        "C) $ClONO_2(g) + HCl(s) \\to Cl_2(g) + HNO_3(s)$ and $ClONO_2(g) + H_2O(s) \\to HOCl(g) + HNO_3(s)$, converting stable reservoir species into photolabile halogens while locking reactive nitrogen as solid nitric acid trihydrate.",
+        "D) $CF_2Cl_2(g) + H_2O(s) \\to CO_2(g) + 2HF(g) + 2HCl(g)$ by direct surface-mediated thermochemical hydrolysis in darkness."
+      ],
+      "answer": "C",
+      "explanation": "In the ordinary gas phase, atmospheric chlorine is locked up in inert, non-ozone-destroying reservoir species: chlorine nitrate ($ClONO_2$) and hydrogen chloride ($HCl$). On the frozen surfaces of Polar Stratospheric Clouds (Type I nitric acid trihydrate and Type II water ice), heterogeneous reactions rapidly occur in darkness: $ClONO_2(g) + HCl(s) \\to Cl_2(g) + HNO_3(s)$ and $ClONO_2(g) + H_2O(s) \\to HOCl(g) + HNO_3(s)$. The gaseous products $Cl_2$ and $HOCl$ accumulate in darkness; when spring sunlight returns, they photolyze instantly to release a massive burst of $Cl^\\bullet$ radicals. Simultaneously, the co-product $HNO_3$ remains trapped in the sinking ice particles (denitrification), preventing $NO_2$ from scavenging $ClO^\\bullet$ back into $ClONO_2$. Proposing direct ozone decomposition on ice overlooks the stability of ozone in darkness; proposing CFC hydrolysis on ice is chemically inaccurate since CFCs do not hydrolyze under stratospheric temperatures; proposing simple $NO_x$ reactions ignores the critical chlorine activation mechanism."
+    },
+    {
+      "id": "enc_c01_023",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In dental enamel chemistry, the incorporation of optimal fluoride ion ($F^-$) concentrations ($~1.0\\text{ ppm}$) transforms surface hydroxyapatite, $[Ca_3(PO_4)_2]_3\\cdot Ca(OH)_2$, into fluorapatite, $[Ca_3(PO_4)_2]_3\\cdot CaF_2$. What is the fundamental crystallographic and thermodynamic reason that fluorapatite resists acid demineralization by oral bacterial lactic acid far more effectively than hydroxyapatite?",
+      "options": [
+        "A) Fluoride is a strong Lewis base that neutralizes bacterial acids directly at the tooth surface, maintaining oral plaque pH strictly above 8.0.",
+        "B) Fluoride ions oxidize organic plaque bacteria, destroying bacterial cell walls before lactic acid can be synthesized.",
+        "C) Fluorapatite forms an amorphous covalent polymer coating over enamel that is completely impenetrable to hydronium ions.",
+        "D) The smaller ionic radius and higher electronegativity of $F^-$ ($133\\text{ pm}$) compared to $OH^-$ ($137\\text{ pm}$) allows $F^-$ to sit precisely at the center of the calcium triangle in the hexagonal lattice, maximizing lattice enthalpy and sharply reducing the solubility product ($K_{sp}$)."
+      ],
+      "answer": "D",
+      "explanation": "In the hexagonal unit cell of hydroxyapatite, the hydroxide ion ($OH^-$, radius $137\\text{ pm}$) is slightly too bulky to fit exactly coplanar within the triangular plane of $Ca^{2+}$ ions and is displaced above or below the plane, creating slight structural strain. When replaced by the smaller, symmetric, and highly electronegative fluoride ion ($F^-$, radius $133\\text{ pm}$), $F^-$ fits perfectly into the center of the calcium triangle. This tighter electrostatic coordination substantially increases crystal lattice energy, contracts the crystallographic a-axis, and decreases the solubility product ($K_{sp}$ of fluorapatite is $\\approx 10^{-60}$ versus $\\approx 10^{-58}$ for hydroxyapatite). Consequently, fluorapatite remains insoluble down to a critical pH of $4.5$, whereas hydroxyapatite dissolves rapidly below pH $5.5$. Attributing acid resistance to fluoride acting as a base is incorrect because fluoride is a very weak conjugate base; claiming direct bacterial oxidation conflates fluoride with chlorine disinfectants; proposing a covalent polymer coating misrepresents ionic crystal mineralization."
+    },
+    {
+      "id": "enc_c01_024",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consumption of well water containing excessive nitrate ($NO_3^- > 50\\text{ mg L}^{-1}$) poses a severe clinical risk of methemoglobinemia ('blue baby syndrome') in infants under six months of age. What is the precise chemical and physiological basis for this infant-specific vulnerability?",
+      "options": [
+        "A) Ingested nitrate is directly converted to nitric oxide in stomach acid, which binds irreversibly to carbonic anhydrase and blocks oxygen transport.",
+        "B) High gastric pH in infants promotes colonizing bacteria that reduce ingested $NO_3^-$ to $NO_2^-$; nitrite then oxidizes heme iron from $Fe^{2+}$ to $Fe^{3+}$, forming methemoglobin which cannot bind oxygen, while fetal hemoglobin is more susceptible to oxidation and infant methemoglobin reductase activity is low.",
+        "C) Nitrate ions chelate dietary calcium, which prevents the proper folding of the globin alpha and beta chains in erythroid precursor cells.",
+        "D) Nitrite selectively reduces ferric iron ($Fe^{3+}$) to ferrous iron ($Fe^{2+}$) within mitochondrial complexes, precipitating insoluble iron oxides inside red blood cells."
+      ],
+      "answer": "B",
+      "explanation": "Infants under 6 months have low gastric acid secretion (gastric pH > 4), allowing nitrate-reducing bacteria to proliferate in the upper gastrointestinal tract. Ingested nitrate ($NO_3^-$) is reduced to nitrite ($NO_2^-$). Nitrite is absorbed into blood, where it oxidizes the ferrous iron ($Fe^{2+}$) of hemoglobin to the ferric state ($Fe^{3+}$): $4Hb(Fe^{2+})O_2 + 4NO_2^- + 4H^+ \\to 4MetHb(Fe^{3+}) + 4NO_3^- + O_2 + 2H_2O$. Ferric iron in methemoglobin cannot reversibly bind $O_2$, severely compromising oxygen delivery to tissues. Infants are uniquely susceptible because fetal hemoglobin ($HbF$) is more readily oxidized than adult hemoglobin, and the enzyme that reduces methemoglobin back to active hemoglobin (NADH-cytochrome $b_5$ methemoglobin reductase) possesses only about half of adult activity levels. Claiming direct nitric oxide binding to carbonic anhydrase misidentifies both the toxic agent and the target protein; claiming calcium chelation misrepresents nitrate chemistry; claiming nitrite reduces ferric to ferrous reverses the oxidation states."
+    },
+    {
+      "id": "enc_c01_025",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Methane ($CH_4$) possesses a 100-year Global Warming Potential ($GWP_{100}$) approximately $28$ times greater than that of carbon dioxide on a per-mass basis, even though its atmospheric residence time (~12 years) is substantially shorter than that of $CO_2$ (>100 years). What is the primary physical reason for methane's disproportionately intense radiative forcing?",
+      "options": [
+        "A) Methane molecules reflect incoming ultraviolet solar radiation back toward Earth's surface via Rayleigh scattering.",
+        "B) Methane has active vibrational absorption bands located in the spectral 'atmospheric window' ($7.5\\text{--}8.5\\ \\mu\\text{m}$) where water vapor and carbon dioxide absorption is minimal and optical saturation has not occurred.",
+        "C) Methane rapidly photolyzes in the upper stratosphere to form elemental carbon nanoparticles that absorb infrared radiation as blackbody emitters.",
+        "D) Methane forms coordinate covalent adducts with tropospheric nitrogen gas, shifting the rotational absorption of $N_2$ into the thermal infrared spectrum."
+      ],
+      "answer": "B",
+      "explanation": "The thermal infrared emission from Earth's surface peaks between $7\\ \\mu\\text{m}$ and $14\\ \\mu\\text{m}$. Major greenhouse gases ($CO_2$ and $H_2O$) absorb heavily around $15\\ \\mu\\text{m}$ and below $7\\ \\mu\\text{m}$, creating an 'atmospheric window' ($8\\text{--}13\\ \\mu\\text{m}$) through which terrestrial thermal radiation escapes directly to space. Methane possesses strong fundamental bending vibrational modes ($\\nu_4$) at $7.66\\ \\mu\\text{m}$ ($1306\\text{ cm}^{-1}$), right at the edge of this window. Moreover, because atmospheric methane concentrations (~1.9 ppm) are much lower than $CO_2$ (~420 ppm), its infrared absorption bands are not optically saturated (linear/square-root absorption regime), meaning every incremental methane molecule absorbs thermal photons with maximum efficiency. Attributing warming to UV scattering by methane contradicts the definition of greenhouse trapping of outgoing infrared radiation; claiming methane photolyzes to blackbody carbon nanoparticles is physically untrue; proposing nitrogen adducts violates standard molecular structure and gas laws."
+    },
+    {
+      "id": "enc_c01_026",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An aquatic food web in a freshwater lake is exposed to a steady ambient concentration of $0.0020\\ \\mu\\text{g L}^{-1}$ of dichlorodiphenyltrichloroethane (DDT). Because DDT is non-biodegradable and highly lipophilic (octanol-water partition coefficient $\\log K_{ow} = 6.2$), it undergoes biomagnification across trophic levels: water $\\to$ phytoplankton (bioaccumulation factor $= 200$), phytoplankton $\\to$ zooplankton (transfer factor $= 10$), zooplankton $\\to$ small fish (transfer factor $= 15$), and small fish $\\to$ piscivorous apex raptor (transfer factor $= 25$). Calculate the resulting concentration of DDT in the apex raptor tissue in $\\text{mg kg}^{-1}$ (ppm), assuming unit density for biomass.",
+      "options": [
+        "A) $0.15\\text{ mg kg}^{-1}$",
+        "B) $15.0\\text{ mg kg}^{-1}$",
+        "C) $1.50\\text{ mg kg}^{-1}$",
+        "D) $0.75\\text{ mg kg}^{-1}$"
+      ],
+      "answer": "C",
+      "explanation": "Biomagnification operates multiplicatively across sequential trophic steps. The overall biomagnification factor from ambient water to the apex bird is: $BMF_{\\text{total}} = 200 \\times 10 \\times 15 \\times 25 = 750,000$. Multiplying the initial water concentration by this cumulative factor yields: $C_{\\text{raptor}} = (0.0020\\ \\mu\\text{g L}^{-1}) \\times 750,000 = 1500\\ \\mu\\text{g kg}^{-1}$. Converting micrograms per kilogram to milligrams per kilogram: $1500\\ \\mu\\text{g kg}^{-1} = 1.50\\text{ mg kg}^{-1}$ ($1.50\\text{ ppm}$). A decimal conversion mistake gives $0.15\\text{ mg kg}^{-1}$; adding an extra factor of ten yields $15.0\\text{ mg kg}^{-1}$; omitting the final raptor trophic transfer step gives $0.06\\text{ mg kg}^{-1}$ or miscalculating factors gives $0.75\\text{ mg kg}^{-1}$."
+    },
+    {
+      "id": "enc_c01_027",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "To assess adherence to the 12 Principles of Green Chemistry, compare the classic chlorohydrin route to ethylene oxide: $2C_2H_4 + 2Cl_2 + Ca(OH)_2 \\to 2C_2H_4O + CaCl_2 + 2H_2O$ with the modern green catalytic oxidation: $C_2H_4 + \\frac{1}{2}O_2 \\xrightarrow{Ag} C_2H_4O$. Determine the theoretical percentage Atom Economy ($AE$) for the modern green oxidation compared to the classic chlorohydrin route, respectively. (Atomic weights: $C = 12.0, H = 1.0, O = 16.0, Cl = 35.5, Ca = 40.1$).",
+      "options": [
+        "A) $100\\%$ and $50.0\\%$",
+        "B) $80.0\\%$ and $25.4\\%$",
+        "C) $75.0\\%$ and $44.0\\%$",
+        "D) $100\\%$ and $32.3\\%$"
+      ],
+      "answer": "D",
+      "explanation": "Atom Economy is defined as: $AE = \\frac{\\text{Molar mass of desired product}}{\\sum \\text{Molar mass of all reactants}} \\times 100\\%$. For the modern catalytic oxidation: Desired product: $C_2H_4O$ ($M = 44.0\\text{ g mol}^{-1}$). Reactants: $C_2H_4$ ($28.0$) $+ 0.5 O_2$ ($16.0$) $= 44.0\\text{ g mol}^{-1}$. Therefore, $AE_{\\text{green}} = \\frac{44.0}{44.0} \\times 100\\% = 100\\%$. For the classic chlorohydrin route: Desired product: $2\\text{ mol of } C_2H_4O$, total mass $= 2 \\times 44.0 = 88.0\\text{ g}$. Reactants: $2C_2H_4$ ($2 \\times 28.0 = 56.0$) $+ 2Cl_2$ ($2 \\times 71.0 = 142.0$) $+ Ca(OH)_2$ ($40.1 + 34.0 = 74.1$) $= 56.0 + 142.0 + 74.1 = 272.1\\text{ g}$. Thus, $AE_{\\text{chlorohydrin}} = \\frac{88.0}{272.1} \\times 100\\% = 32.34\\% \\approx 32.3\\%$. Failing to include calcium hydroxide in the reactants gives $50.0\\%$; ignoring oxygen stoichiometry gives $80.0\\%$; calculating based on one mole of product without adjusting reactant coefficients yields $44.0\\%$."
+    },
+    {
+      "id": "enc_c01_028",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When chronic acid rain exhausts the base cation exchange buffer of a forest soil, mineral dissolution of gibbsite, $Al(OH)_3(s) + 3H^+(aq) \\rightleftharpoons Al^{3+}(aq) + 3H_2O(l)$, buffers the system. The apparent equilibrium quotient is governed by: $\\frac{[Al^{3+}]}{[H^+]^3} = 1.00 \\times 10^8\\text{ L}^2\\text{ mol}^{-2}$. If severe acid deposition lowers the soil porewater pH from $5.00$ to $4.00$, calculate the factor by which the equilibrium concentration of phytotoxic free aluminium ions ($[Al^{3+}]$) increases.",
+      "options": [
+        "A) $1000$",
+        "B) $100$",
+        "C) $10$",
+        "D) $30$"
+      ],
+      "answer": "A",
+      "explanation": "From the equilibrium expression: $[Al^{3+}] = K^* \\times [H^+]^3$. At an initial pH of $5.00$, $[H^+]_1 = 1.00 \\times 10^{-5}\\text{ M}$, so $[Al^{3+}]_1 = (1.00 \\times 10^8) \\times (1.00 \\times 10^{-5})^3 = (1.00 \\times 10^8) \\times (1.00 \\times 10^{-15}) = 1.00 \\times 10^{-7}\\text{ M}$. At the acidified pH of $4.00$, $[H^+]_2 = 1.00 \\times 10^{-4}\\text{ M}$, so $[Al^{3+}]_2 = (1.00 \\times 10^8) \\times (1.00 \\times 10^{-4})^3 = (1.00 \\times 10^8) \\times (1.00 \\times 10^{-12}) = 1.00 \\times 10^{-4}\\text{ M}$. The ratio of increase is: $\\frac{[Al^{3+}]_2}{[Al^{3+}]_1} = \\frac{1.00 \\times 10^{-4}}{1.00 \\times 10^{-7}} = 10^3 = 1000$. Assuming a linear dependence on $[H^+]$ instead of a cubic dependence gives a factor of $10$; assuming a quadratic dependence gives $100$; multiplying the change in pH by ten produces $30$."
+    },
+    {
+      "id": "enc_c01_029",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Urban air quality modeling demonstrates that in 'VOC-limited' (or $NO_x$-saturated) regimes, an increase in automotive nitrogen dioxide ($NO_x$) emissions counterintuitively suppresses daytime peak tropospheric ozone ($O_3$) production. What is the fundamental chemical reason for this ozone suppression?",
+      "options": [
+        "A) Excess $NO_2$ directly reacts with ground-state $O_2$ to form unreactive dinitrogen pentoxide ($N_2O_5$).",
+        "B) At elevated $[NO_x]$, the terminating termolecular reaction $OH^\\bullet + NO_2 + M \\to HNO_3 + M$ outcompetes hydrocarbon oxidation, effectively scavenging the hydroxyl radicals needed to sustain peroxy radical cycling.",
+        "C) $NO_2$ forms an aerosol mist that reflects visible sunlight back to space, shutting down the photolysis of $O_2$.",
+        "D) $NO$ reduces tropospheric ozone to water vapor in an endothermic termolecular condensation."
+      ],
+      "answer": "B",
+      "explanation": "Tropospheric ozone formation requires peroxy radicals ($RO_2^\\bullet$ and $HO_2^\\bullet$), which are generated when hydroxyl radicals ($OH^\\bullet$) attack volatile organic compounds (VOCs). In a VOC-limited regime, $[NO_x]$ is high relative to VOCs. Under these conditions, $OH^\\bullet$ radicals react preferentially with $NO_2$ via the termolecular chain-terminating reaction: $OH^\\bullet + NO_2 + M \\to HNO_3 + M$. This reaction rapidly removes the essential $OH^\\bullet$ radicals from the atmosphere, shutting down the oxidation of hydrocarbons and preventing the formation of peroxy radicals that convert $NO$ to $NO_2$ without destroying ozone. Consequently, adding more $NO_x$ increases radical scavenging and depresses peak ozone. Stating that $NO_2$ reacts with $O_2$ to form $N_2O_5$ is chemically false; claiming $NO_2$ forms an aerosol mist that shuts down $O_2$ photolysis ignores that $O_2$ does not photolyze in the troposphere; claiming $NO$ reduces ozone to water vapor is stoichiometrically impossible."
+    },
+    {
+      "id": "enc_c01_030",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Dissolution of atmospheric carbon dioxide into ocean surface water represents an essential planetary carbon sink: $CO_2(g) \\rightleftharpoons CO_2(aq)$. At $298\\text{ K}$, the Henry's law constant is $K_H = 3.00 \\times 10^{-2}\\text{ mol L}^{-1}\\text{ atm}^{-1}$. If anthropogenic emissions have raised the atmospheric mixing ratio of carbon dioxide from a pre-industrial baseline of $280\\text{ ppm}$ ($2.80 \\times 10^{-4}\\text{ atm}$) to a contemporary level of $420\\text{ ppm}$ ($4.20 \\times 10^{-4}\\text{ atm}$), determine the increase in the equilibrium concentration of dissolved un-ionized aqueous carbon dioxide ($\\Delta [CO_2(aq)]$) in $\\mu\\text{mol L}^{-1}$.",
+      "options": [
+        "A) $1.40\\ \\mu\\text{mol L}^{-1}$",
+        "B) $8.40\\ \\mu\\text{mol L}^{-1}$",
+        "C) $4.20\\ \\mu\\text{mol L}^{-1}$",
+        "D) $12.60\\ \\mu\\text{mol L}^{-1}$"
+      ],
+      "answer": "C",
+      "explanation": "Applying Henry's law directly: $[CO_2(aq)] = K_H \\times P_{CO_2}$. The change in dissolved carbon dioxide concentration is: $\\Delta [CO_2(aq)] = K_H \\times \\Delta P_{CO_2} = K_H \\times (P_{\\text{contemporary}} - P_{\\text{pre-industrial}})$. Substituting the values: $\\Delta P_{CO_2} = (4.20 \\times 10^{-4} - 2.80 \\times 10^{-4})\\text{ atm} = 1.40 \\times 10^{-4}\\text{ atm}$. Thus: $\\Delta [CO_2(aq)] = (3.00 \\times 10^{-2}\\text{ mol L}^{-1}\\text{ atm}^{-1}) \\times (1.40 \\times 10^{-4}\\text{ atm}) = 4.20 \\times 10^{-6}\\text{ mol L}^{-1}$. Converting to micromoles per litre: $4.20 \\times 10^{-6}\\text{ mol L}^{-1} = 4.20\\ \\mu\\text{mol L}^{-1}$. Reporting the change in partial pressure without multiplying by Henry's constant gives $1.40\\ \\mu\\text{mol L}^{-1}$; giving the baseline pre-industrial concentration gives $8.40\\ \\mu\\text{mol L}^{-1}$; reporting the final total concentration gives $12.60\\ \\mu\\text{mol L}^{-1}$."
+    },
+    {
+      "id": "enc_c01_031",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The hydroxyl radical ($OH^\\bullet$), frequently termed the atmospheric 'detergent', controls the oxidative lifetime of reduced greenhouse gases like methane ($CH_4$) and toxic carbon monoxide ($CO$) in the troposphere. What is the primary photochemical sequence that generates $OH^\\bullet$ radicals in the clean troposphere during daylight hours?",
+      "options": [
+        "A) Direct photolysis of liquid water droplets by visible solar irradiance: $H_2O(l) + h\\nu(\\text{visible}) \\to H^\\bullet + OH^\\bullet$.",
+        "B) Thermally driven cleavage of ambient hydrogen peroxide by molecular nitrogen: $H_2O_2 + N_2 \\to 2OH^\\bullet + N_2$.",
+        "C) High-temperature combustion synthesis of $OH^\\bullet$ via the endothermic equilibrium $H_2 + O_2 \\rightleftharpoons 2OH^\\bullet$.",
+        "D) Ultraviolet photolysis of tropospheric ozone ($\\lambda < 320\\text{ nm}$) generating singlet oxygen atoms, $O_3 + h\\nu \\to O_2 + O(^1D)$, followed by reaction with water vapor: $O(^1D) + H_2O \\to 2OH^\\bullet$."
+      ],
+      "answer": "D",
+      "explanation": "Solar UV radiation with wavelengths $\\lambda < 320\\text{ nm}$ penetrates into the troposphere and possesses sufficient photon energy to photolyze ozone into electronically excited singlet oxygen atoms: $O_3 + h\\nu \\to O_2(^1\\Delta_g) + O(^1D)$. While over $90\\%$ of $O(^1D)$ is de-excited to ground-state triplet oxygen $O(^3P)$ by collision with $N_2$ and $O_2$, approximately $1\\text{--}10\\%$ collides with ambient water vapor molecules, undergoing reactive hydrogen abstraction: $O(^1D) + H_2O \\to 2OH^\\bullet$. This reaction sequence represents the primary source of hydroxyl radicals that initiate the atmospheric removal of volatile organic pollutants. Proposing water photolysis by visible light violates photochemical energetics because water is transparent to visible light and requires vacuum UV; claiming thermal cleavage of $H_2O_2$ by $N_2$ is kinetic nonsense at ambient temperatures; suggesting $H_2 + O_2$ equilibrium confuses combustion flame chemistry with atmospheric photochemistry."
+    },
+    {
+      "id": "enc_c01_032",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A food industry effluent contains $0.120\\text{ g}$ of dissolved acetic acid ($CH_3COOH$, molar mass $60.0\\text{ g mol}^{-1}$) per litre of wastewater with no other oxidizable species. Assuming complete dichromate oxidation of acetic acid during a Chemical Oxygen Demand (COD) reflux assay according to the stoichiometry: $CH_3COOH + 2O_2 \\to 2CO_2 + 2H_2O$, determine the theoretical Chemical Oxygen Demand ($ThOD$) of this effluent in $\\text{mg L}^{-1}$ (ppm).",
+      "options": [],
+      "answer": "128",
+      "explanation": "First, calculate the molar concentration of acetic acid in the effluent: $[CH_3COOH] = \\frac{0.120\\text{ g L}^{-1}}{60.0\\text{ g mol}^{-1}} = 2.00 \\times 10^{-3}\\text{ mol L}^{-1}$. From the balanced stoichiometric oxidation equation, each mole of acetic acid requires exactly $2$ moles of molecular oxygen ($O_2$): $n_{O_2} = 2 \\times [CH_3COOH] = 2 \\times (2.00 \\times 10^{-3}\\text{ mol L}^{-1}) = 4.00 \\times 10^{-3}\\text{ mol L}^{-1}$. The theoretical Chemical Oxygen Demand is the mass of $O_2$ consumed per litre: $COD = n_{O_2} \\times M_{O_2} = (4.00 \\times 10^{-3}\\text{ mol L}^{-1}) \\times (32.0 \\times 10^3\\text{ mg mol}^{-1}) = 128\\text{ mg L}^{-1}$."
+    },
+    {
+      "id": "enc_c01_033",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Industrial synthesis of adipic acid ($C_6H_{10}O_4$, molar mass $146.1\\text{ g mol}^{-1}$) traditionally employs the oxidation of cyclohexanone/cyclohexanol with concentrated nitric acid, which emits ozone-depleting and greenhouse-active nitrous oxide ($N_2O$). A green chemical pathway developed by Noyori utilizes cyclohexene ($C_6H_{10}$, molar mass $82.1\\text{ g mol}^{-1}$) and aqueous hydrogen peroxide ($H_2O_2$, molar mass $34.0\\text{ g mol}^{-1}$) in the presence of a sodium tungstate phase-transfer catalyst: $C_6H_{10} + 4H_2O_2 \\xrightarrow{Na_2WO_4} C_6H_{10}O_4 + 4H_2O$. Calculate the percentage Atom Economy ($AE$) of this green catalytic synthesis, rounded to the nearest integer.",
+      "options": [],
+      "answer": "67",
+      "explanation": "Atom economy measures the proportion of reactant mass incorporated into the target product: $AE = \\frac{\\text{Molar mass of desired product}}{\\sum \\text{Molar mass of all stoichiometric reactants}} \\times 100\\%$. Desired product: adipic acid ($C_6H_{10}O_4$, $M = 146.1\\text{ g mol}^{-1}$). Stoichiometric reactants: $1\\text{ mol of } C_6H_{10}$ ($82.1\\text{ g mol}^{-1}$) and $4\\text{ mol of } H_2O_2$ ($4 \\times 34.0 = 136.0\\text{ g mol}^{-1}$). Total reactant mass $= 82.1 + 136.0 = 218.1\\text{ g mol}^{-1}$. Calculating the percentage Atom Economy: $AE = \\frac{146.1}{218.1} \\times 100\\% = 66.987\\%$. Rounded to the nearest whole integer, the atom economy is $67$."
+    },
+    {
+      "id": "enc_c01_034",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In the middle stratosphere, an active chlorine radical ($Cl^\\bullet$) engages in the catalytic ozone destruction cycle: $Cl^\\bullet + O_3 \\to ClO^\\bullet + O_2$ followed by $ClO^\\bullet + O \\to Cl^\\bullet + O_2$. The turnover frequency of this catalytic cycle is measured as $k_{\\text{cycle}} = 2.0\\text{ s}^{-1}$. If the mean stratospheric lifetime of the active chlorine radical before sequestration into inactive reservoir molecules ($HCl$ or $ClONO_2$) is $\\tau = 5.0 \\times 10^4\\text{ s}$, calculate the total number of ozone molecules destroyed by this single chlorine radical over its active lifetime, divided by $10^4$.",
+      "options": [],
+      "answer": "10",
+      "explanation": "The total number of catalytic cycles completed by a single active chlorine atom over its kinetic lifetime is given by: $N_{\\text{cycles}} = k_{\\text{cycle}} \\times \\tau$. Substituting the given values: $N_{\\text{cycles}} = (2.0\\text{ s}^{-1}) \\times (5.0 \\times 10^4\\text{ s}) = 1.0 \\times 10^5\\text{ cycles}$. Since each completed catalytic turnover destroys exactly one ozone molecule ($O_3$), the total number of ozone molecules destroyed is $1.0 \\times 10^5$. Dividing this value by $10^4$ gives: $\\frac{1.0 \\times 10^5}{10^4} = 10$."
+    },
+    {
+      "id": "enc_c01_035",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A municipal sewage treatment facility discharges treated effluent with a $5\\text{-day}$ Biochemical Oxygen Demand of $BOD_5 = 80\\text{ mg L}^{-1}$ at a volumetric discharge rate of $Q_w = 1.0\\text{ m}^3\\text{ s}^{-1}$ into a pristine river flowing at $Q_r = 9.0\\text{ m}^3\\text{ s}^{-1}$. Upstream of the discharge outfall, the pristine river has a background $BOD_5$ of $0.0\\text{ mg L}^{-1}$. Assuming complete and instantaneous turbulent mixing across the river cross-section at the confluence, calculate the blended $BOD_5$ of the river water immediately downstream of the outfall in $\\text{mg L}^{-1}$.",
+      "options": [],
+      "answer": "8",
+      "explanation": "Applying the principle of conservation of mass under steady-state conditions, the mixed mass loading equals the sum of the individual stream mass loadings: $Q_{\\text{mix}} \\times BOD_{\\text{mix}} = Q_w \\times BOD_w + Q_r \\times BOD_r$. The total combined discharge rate is: $Q_{\\text{mix}} = Q_w + Q_r = 1.0 + 9.0 = 10.0\\text{ m}^3\\text{ s}^{-1}$. Substituting the parameters: $10.0 \\times BOD_{\\text{mix}} = (1.0\\text{ m}^3\\text{ s}^{-1} \\times 80\\text{ mg L}^{-1}) + (9.0\\text{ m}^3\\text{ s}^{-1} \\times 0.0\\text{ mg L}^{-1}) = 80\\text{ mg s}^{-1} \\text{m}^{-3} \\text{L}^{-1}$. Solving for the mixed downstream concentration: $BOD_{\\text{mix}} = \\frac{80}{10.0} = 8\\text{ mg L}^{-1}$."
+    },
+    {
+      "id": "enc_c01_036",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In a commercial pharmaceutical synthesis campaign, $100\\text{ kg}$ of a purified active drug substance is produced. The process generates a total of $400\\text{ kg}$ of waste consisting of three discrete streams: $250\\text{ kg}$ of benign neutral saline water (environmental hazard quotient $Q_1 = 1.0$), $100\\text{ kg}$ of volatile acetone solvent (environmental hazard quotient $Q_2 = 3.0$), and $50.0\\text{ kg}$ of heavy metal catalyst effluent (environmental hazard quotient $Q_3 = 50.0$). The Environmental Factor is defined as $E = \\frac{\\sum m_{\\text{waste}}}{m_{\\text{product}}}$ and the composite Environmental Quotient is defined as $EQ = \\frac{\\sum (m_i \\times Q_i)}{m_{\\text{product}}}$. Determine the values of $E$ and $EQ$ for this chemical manufacture.",
+      "options": [
+        "A) $E = 4.0$ and $EQ = 30.5$",
+        "B) $E = 4.0$ and $EQ = 12.0$",
+        "C) $E = 5.0$ and $EQ = 30.5$",
+        "D) $E = 0.25$ and $EQ = 7.6$"
+      ],
+      "answer": "A",
+      "explanation": "First, applying the definition of the Environmental Factor ($E\\text{-factor}$): $E = \\frac{m_{\\text{waste, total}}}{m_{\\text{product}}} = \\frac{400\\text{ kg}}{100\\text{ kg}} = 4.0$. Next, calculating the weighted environmental impact of the individual waste streams, we get the total hazard load: $L = (m_1 \\times Q_1) + (m_2 \\times Q_2) + (m_3 \\times Q_3) = (250 \\times 1.0) + (100 \\times 3.0) + (50.0 \\times 50.0) = 250 + 300 + 2500 = 3050\\text{ kg equivalents}$. Dividing this unfriendliness total by the mass of target product gives the Environmental Quotient: $EQ = \\frac{3050}{100\\text{ kg}} = 30.5$. Therefore, the parameters are $E = 4.0$ and $EQ = 30.5$. Hence, unweighted averaging of the hazard quotients yields $12.0$; adding product mass to the waste numerator gives $E = 5.0$; inverting the ratio yields $E = 0.25$ and $EQ = 7.6$."
+    },
+    {
+      "id": "enc_c01_037",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In the natural stratosphere, the Chapman photochemical mechanism regulates the concentration of the protective ozone layer through four elementary steps: (1) $O_2 + h\\nu \\xrightarrow{j_1} 2O$, (2) $O + O_2 + M \\xrightarrow{k_2} O_3 + M$, (3) $O_3 + h\\nu \\xrightarrow{j_3} O_2 + O$, and (4) $O + O_3 \\xrightarrow{k_4} 2O_2$. Assuming odd-oxygen steady state where $[O_3]_{ss} = [O_2]\\sqrt{\\frac{j_1 k_2[M]}{j_3 k_4}}$, determine $[O_3]_{ss}$ at an altitude where $j_1 = 2.00 \\times 10^{-11}\\text{ s}^{-1}$, $j_3 = 1.00 \\times 10^{-3}\\text{ s}^{-1}$, $k_2[M] = 1.00 \\times 10^{-15}\\text{ cm}^3\\text{ molecule}^{-1}\\text{ s}^{-1}$, $k_4 = 5.00 \\times 10^{-16}\\text{ cm}^3\\text{ molecule}^{-1}\\text{ s}^{-1}$, and $[O_2] = 1.00 \\times 10^{17}\\text{ molecules cm}^{-3}$.",
+      "options": [
+        "A) $4.00 \\times 10^{13}\\text{ molecules cm}^{-3}$",
+        "B) $2.00 \\times 10^{13}\\text{ molecules cm}^{-3}$",
+        "C) $1.00 \\times 10^{14}\\text{ molecules cm}^{-3}$",
+        "D) $2.00 \\times 10^{12}\\text{ molecules cm}^{-3}$"
+      ],
+      "answer": "B",
+      "explanation": "Under the Chapman steady-state framework, odd-oxygen ($O_x = O + O_3$) is produced by step (1) at rate $2j_1[O_2]$ and lost by step (4) at rate $2k_4[O][O_3]$. Equating production and loss gives $j_1[O_2] = k_4[O][O_3]$. Fast interconversion between $O$ and $O_3$ via steps (2) and (3) yields $[O] = \\frac{j_3[O_3]}{k_2[O_2][M]}$. Substituting this expression into the odd-oxygen balance yields: $[O_3]_{ss} = [O_2]\\sqrt{\\frac{j_1 k_2[M]}{j_3 k_4}}$. Evaluating the term inside the square root: $\\frac{j_1 k_2[M]}{j_3 k_4} = \\frac{(2.00 \\times 10^{-11})(1.00 \\times 10^{-15})}{(1.00 \\times 10^{-3})(5.00 \\times 10^{-16})} = \\frac{2.00 \\times 10^{-26}}{5.00 \\times 10^{-19}} = 4.00 \\times 10^{-8}$. Taking the square root gives $\\sqrt{4.00 \\times 10^{-8}} = 2.00 \\times 10^{-4}$. Multiplying by $[O_2]$ gives: $[O_3]_{ss} = (1.00 \\times 10^{17})(2.00 \\times 10^{-4}) = 2.00 \\times 10^{13}\\text{ molecules cm}^{-3}$. Therefore, forgetting to take the square root yields $4.00 \\times 10^{9}$; omitting $k_4$ yields $1.00 \\times 10^{14}$; a power-of-ten mistake produces $2.00 \\times 10^{12}$."
+    },
+    {
+      "id": "enc_c01_038",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In marine surface waters, the calcium carbonate saturation state with respect to aragonite is defined as $\\Omega_{\\text{arag}} = \\frac{[Ca^{2+}][CO_3^{2-}]}{K'_{sp}}$, where $[Ca^{2+}] = 1.00 \\times 10^{-2}\\text{ M}$ and $K'_{sp} = 6.60 \\times 10^{-7}\\text{ M}^2$. Carbonate speciation is governed by the second dissociation of carbonic acid: $K_{a2}' = \\frac{[H^+][CO_3^{2-}]}{[HCO_3^-]} = 1.00 \\times 10^{-9}\\text{ M}$. Due to atmospheric $CO_2$ absorption, seawater acidification shifts the hydronium ion concentration from an initial $[H^+]_1 = 6.31 \\times 10^{-9}\\text{ M}$ (pH $8.20$) to a acidified $[H^+]_2 = 1.26 \\times 10^{-8}\\text{ M}$ (pH $7.90$), while $[HCO_3^-]$ remains buffered at $2.00 \\times 10^{-3}\\text{ M}$. Calculate the decrease in saturation state, $\\Delta \\Omega_{\\text{arag}} = \\Omega_1 - \\Omega_2$.",
+      "options": [
+        "A) $1.20$",
+        "B) $4.80$",
+        "C) $2.40$",
+        "D) $0.60$"
+      ],
+      "answer": "C",
+      "explanation": "First, solving for $[CO_3^{2-}]$ from the second dissociation equilibrium: $[CO_3^{2-}] = \\frac{K_{a2}'[HCO_3^-]}{[H^+]}$. At the initial state where $[H^+]_1 = 6.31 \\times 10^{-9}\\text{ M}$, substituting the concentrations gives: $[CO_3^{2-}]_1 = \\frac{(1.00 \\times 10^{-9})(2.00 \\times 10^{-3})}{6.31 \\times 10^{-9}} = 3.17 \\times 10^{-4}\\text{ M}$. The initial aragonite saturation state is: $\\Omega_1 = \\frac{(1.00 \\times 10^{-2})(3.17 \\times 10^{-4})}{6.60 \\times 10^{-7}} = \\frac{3.17 \\times 10^{-6}}{6.60 \\times 10^{-7}} = 4.80$. At the acidified state where $[H^+]_2 = 1.26 \\times 10^{-8}\\text{ M}$, substituting gives: $[CO_3^{2-}]_2 = \\frac{(1.00 \\times 10^{-9})(2.00 \\times 10^{-3})}{1.26 \\times 10^{-8}} = 1.587 \\times 10^{-4}\\text{ M}$. The corresponding saturation state is: $\\Omega_2 = \\frac{(1.00 \\times 10^{-2})(1.587 \\times 10^{-4})}{6.60 \\times 10^{-7}} = 2.40$. Therefore, the net reduction in aragonite saturation is: $\\Delta \\Omega_{\\text{arag}} = 4.80 - 2.40 = 2.40$. Hence, reporting only the final state gives $2.40$ or $1.20$ by miscalculating $[Ca^{2+}]$; reporting the initial state gives $4.80$; taking half the change yields $0.60$."
+    },
+    {
+      "id": "enc_c01_039",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The atmospheric chemical lifetime of methane ($CH_4$), a key driver of the anthropogenic greenhouse effect, is governed by its gas-phase oxidation by tropospheric hydroxyl radicals: $CH_4 + OH^\\bullet \\xrightarrow{k} CH_3^\\bullet + H_2O$. At the global mean tropospheric temperature of $273\\text{ K}$, the bimolecular rate constant is $k = 4.00 \\times 10^{-15}\\text{ cm}^3\\text{ molecule}^{-1}\\text{ s}^{-1}$. Assuming a global steady-state diurnally averaged hydroxyl radical concentration of $[OH^\\bullet] = 1.00 \\times 10^6\\text{ molecules cm}^{-3}$, calculate the pseudo-first-order atmospheric residence lifetime $\\tau_{CH_4}$ in years ($1\\text{ year} = 3.15 \\times 10^7\\text{ s}$).",
+      "options": [
+        "A) $2.5\\text{ years}$",
+        "B) $15.8\\text{ years}$",
+        "C) $1.2\\text{ years}$",
+        "D) $7.9\\text{ years}$"
+      ],
+      "answer": "D",
+      "explanation": "The rate equation for methane oxidation is $-\\frac{d[CH_4]}{dt} = k[OH^\\bullet][CH_4]$. Since the hydroxyl radical concentration is maintained at a steady-state level by photochemical cycles, we define the pseudo-first-order rate constant as: $k' = k[OH^\\bullet] = (4.00 \\times 10^{-15}\\text{ cm}^3\\text{ molecule}^{-1}\\text{ s}^{-1})(1.00 \\times 10^6\\text{ molecules cm}^{-3}) = 4.00 \\times 10^{-9}\\text{ s}^{-1}$. The mean atmospheric lifetime is therefore the reciprocal of this rate constant: $\\tau_{CH_4} = \\frac{1}{k'} = \\frac{1}{4.00 \\times 10^{-9}\\text{ s}^{-1}} = 2.50 \\times 10^8\\text{ s}$. Converting this time from seconds to years: $\\tau_{CH_4} = \\frac{2.50 \\times 10^8\\text{ s}}{3.15 \\times 10^7\\text{ s yr}^{-1}} = 7.94\\text{ years} \\approx 7.9\\text{ years}$. Hence, failing to convert seconds to years yields $2.5\\text{ years}$; doubling the lifetime gives $15.8\\text{ years}$; multiplying by the rate constant instead of inverting gives $1.2\\text{ years}$."
+    },
+    {
+      "id": "enc_c01_040",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The top-of-atmosphere radiative forcing ($\\Delta F$, in $\\text{W m}^{-2}$) induced by an increase in atmospheric carbon dioxide concentration from a baseline level $C_0$ to an elevated level $C$ is described by the logarithmic relationship: $\\Delta F = \\alpha \\ln\\left(\\frac{C}{C_0}\\right)$, where $\\alpha = 5.35\\text{ W m}^{-2}$. If the climate sensitivity parameter is $\\lambda = 0.80\\text{ K (W m}^{-2})^{-1}$, calculate the equilibrium global mean surface temperature change ($\\Delta T_s = \\lambda \\Delta F$) resulting from an exact doubling of atmospheric carbon dioxide ($C = 2C_0$). (Take $\\ln 2 = 0.693$).",
+      "options": [
+        "A) $3.71\\text{ K}$",
+        "B) $1.48\\text{ K}$",
+        "C) $5.35\\text{ K}$",
+        "D) $2.97\\text{ K}$"
+      ],
+      "answer": "D",
+      "explanation": "First, applying the logarithmic radiative forcing relation for a doubling of carbon dioxide concentration ($C/C_0 = 2$): $\\Delta F = 5.35 \\times \\ln(2) = 5.35 \\times 0.693 = 3.708\\text{ W m}^{-2}$. Next, applying the climate sensitivity relation, the equilibrium surface temperature response is obtained by multiplying the radiative forcing by the sensitivity parameter: $\\Delta T_s = \\lambda \\times \\Delta F = 0.80\\text{ K (W m}^{-2})^{-1} \\times 3.708\\text{ W m}^{-2} = 2.966\\text{ K} \\approx 2.97\\text{ K}$. Therefore, reporting the radiative forcing directly without multiplying by $\\lambda$ gives $3.71\\text{ K}$; halving the sensitivity factor yields $1.48\\text{ K}$; using $\\alpha$ directly gives $5.35\\text{ K}$."
+    },
+    {
+      "id": "enc_c01_041",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Which of the following statements regarding the Antarctic ozone hole and stratospheric halogen chemistry is/are correct?",
+      "options": [
+        "A) The formation of the circumpolar vortex during polar winter thermally isolates the Antarctic stratosphere, dropping temperatures below $-78^\\circ\\text{C}$ and precipitating nitric acid trihydrate (Type I PSCs).",
+        "B) Heterogeneous reactions on PSC ice crystals convert stable chlorine reservoirs ($HCl, ClONO_2$) into photolabile species ($Cl_2, HOCl$), while sedimentation of large particles causes severe denitrification.",
+        "C) With the return of sunlight in spring, photolysis of $Cl_2$ releases $Cl^\\bullet$, triggering the catalytic dimer cycle ($2ClO^\\bullet + M \\to ClOOCl + M$) that rapidly destroys ozone without atomic oxygen.",
+        "D) The ozone hole persists indefinitely through mid-summer because the polar vortex strengthens as solar irradiance warms the upper stratosphere."
+      ],
+      "answer": "A,B,C",
+      "explanation": "During the polar winter, strong westerly winds create a stable circumpolar vortex over Antarctica, preventing air exchange with mid-latitudes and cooling the stratosphere below $-78^\\circ\\text{C}$. This induces the condensation of Type I polar stratospheric clouds (nitric acid trihydrate, $HNO_3\\cdot 3H_2O$) and Type II clouds (water ice). Heterogeneous reactions on these ice surfaces rapidly convert unreactive reservoirs into active halogens: $ClONO_2 + HCl \\to Cl_2 + HNO_3$ and $ClONO_2 + H_2O \\to HOCl + HNO_3$. Sedimentation of the ice crystals removes $HNO_3$ from the stratosphere (denitrification), which prevents reactive $NO_2$ from reforming the reservoir $ClONO_2$. When early spring sunlight strikes the vortex, $Cl_2$ and $HOCl$ readily photolyze to liberate chlorine radicals, driving Molina's $ClO$ dimer catalytic cycle: $2ClO^\\bullet + M \\to ClOOCl + M$, which catalytically destroys ozone without requiring free oxygen atoms. The assertion in the fourth option is false because solar warming breaks down the polar vortex by late spring (November), allowing ozone-rich air from lower latitudes to refill the hole."
+    },
+    {
+      "id": "enc_c01_042",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In an urban air basin experiencing intense photochemical smog on a hot, sunny day, which of the following statements correctly describe the temporal evolution and chemical transformations of air pollutants?",
+      "options": [
+        "A) Early morning vehicular emissions produce sharp initial concentration peaks of primary pollutants, specifically nitric oxide ($NO$) and unburnt reactive hydrocarbons.",
+        "B) Ground-level ozone ($O_3$) concentration peaks simultaneously with the morning traffic rush hour at 08:00 AM.",
+        "C) The conversion of $NO$ to $NO_2$ without the consumption of ozone is driven primarily by organic peroxy radicals ($RO_2^\\bullet$) and hydroperoxyl radicals ($HO_2^\\bullet$).",
+        "D) Peroxyacetyl nitrate (PAN) and secondary aldehydes (such as acrolein and formaldehyde) accumulate in the afternoon, causing intense ocular irritation and phytotoxicity."
+      ],
+      "answer": "A,C,D",
+      "explanation": "During morning rush hours (07:00 to 09:00 AM), vehicular exhaust discharges high levels of primary pollutants, namely $NO$ and volatile hydrocarbons. Hydroxyl radicals ($OH^\\bullet$) oxidize these hydrocarbons into alkyl radicals, which rapidly add $O_2$ to generate alkylperoxy radicals ($RO_2^\\bullet$) and hydroperoxyl radicals ($HO_2^\\bullet$). These peroxy radicals oxidize $NO$ to $NO_2$ ($RO_2^\\bullet + NO \\to RO^\\bullet + NO_2$). This pathway bypasses the ozone titration reaction ($NO + O_3 \\to NO_2 + O_2$), allowing ozone produced from $NO_2$ photolysis ($NO_2 + h\\nu \\to NO + O(^3P); O + O_2 + M \\to O_3 + M$) to accumulate to peak concentrations in early-to-mid afternoon (13:00 to 15:00) rather than early morning. Meanwhile, reactions of acetylperoxy radicals with $NO_2$ form peroxyacetyl nitrate (PAN), which along with acrolein and formaldehyde, causes severe eye irritation and crop damage. The second statement is incorrect because ozone formation requires hours of photochemical processing and peaks in the afternoon."
+    },
+    {
+      "id": "enc_c01_043",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Which of the following statements correctly describe the quantitative metrics and core principles of Green Chemistry?",
+      "options": [
+        "A) A chemical transformation exhibiting an Atom Economy of $100\\%$ is guaranteed to have an Environmental Factor ($E\\text{-factor}$) of zero under all industrial operating conditions.",
+        "B) Reaction Mass Efficiency ($RME$) incorporates both atom economy and chemical yield, defined as $RME = \\frac{\\text{mass of isolated desired product}}{\\sum \\text{mass of stoichiometric reactants}} \\times 100\\%$.",
+        "C) Replacing hazardous volatile organic solvents like dichloromethane ($CH_2Cl_2$) with supercritical carbon dioxide ($scCO_2$) or water embodies Principle 5 (Safer Solvents and Auxiliaries).",
+        "D) Process Mass Intensity ($PMI$) is defined as the ratio of the total mass of waste generated to the mass of desired product, making it identically equal to the $E\\text{-factor}$."
+      ],
+      "answer": "B,C",
+      "explanation": "Reaction Mass Efficiency ($RME$) combines the intrinsic atom economy with reaction yield and stoichiometric excess: $RME = \\frac{m_{\\text{product}}}{\\sum m_{\\text{reactants}}} \\times 100\\% = AE \\times \\text{Yield} \\times \\frac{1}{\\text{stoichiometric excess}}$, fulfilling statement B. Replacing toxic, volatile, or chlorinated solvents with benign media such as supercritical $CO_2$ or water directly implements Principle 5 (Safer Solvents and Auxiliaries), making statement C correct. Statement A is false because $E\\text{-factor} = \\frac{m_{\\text{waste}}}{m_{\\text{product}}}$ includes solvents, workup acids/bases, drying agents, and unreacted reagents; even if $AE = 100\\%$, low conversion, excess reagents, or solvent losses produce substantial waste ($E > 0$). Statement D is false because Process Mass Intensity is defined as $PMI = \\frac{\\sum m_{\\text{all input materials}}}{m_{\\text{product}}} = \\frac{m_{\\text{waste}} + m_{\\text{product}}}{m_{\\text{product}}} = E + 1$, so it is never equal to the $E\\text{-factor}$."
+    },
+    {
+      "id": "enc_c01_044",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "As rising atmospheric carbon dioxide ($CO_2$) dissolves into upper ocean waters, which of the following chemical shifts occur within the marine carbonate equilibrium system?",
+      "options": [
+        "A) Dissolved $CO_2$ reacts with water and native carbonate ions to form bicarbonate: $CO_2 + H_2O + CO_3^{2-} \\rightleftharpoons 2HCO_3^-$, causing a decrease in free $[CO_3^{2-}]$ and a rise in $[H^+]$.",
+        "B) The depletion of $[CO_3^{2-}]$ reduces the calcium carbonate saturation state ($\\Omega = \\frac{[Ca^{2+}][CO_3^{2-}]}{K'_{sp}}$), enhancing the thermodynamic dissolution of aragonite and calcite shells.",
+        "C) The concentration of dissolved bicarbonate ions ($[HCO_3^-]$) decreases substantially as ocean pH drops from 8.2 to 7.8.",
+        "D) Ocean total alkalinity ($TA \\approx [HCO_3^-] + 2[CO_3^{2-}] + [B(OH)_4^-]$) remains essentially conservative upon the dissolution and hydration of atmospheric $CO_2$."
+      ],
+      "answer": "A,B,D",
+      "explanation": "When atmospheric $CO_2$ dissolves in seawater, it hydrates to form carbonic acid: $CO_2(aq) + H_2O \\rightleftharpoons H_2CO_3 \\rightleftharpoons H^+ + HCO_3^-$. The newly released protons are buffered by consuming carbonate ions: $H^+ + CO_3^{2-} \\rightleftharpoons HCO_3^-$. The net reaction is $CO_2 + H_2O + CO_3^{2-} \\rightleftharpoons 2HCO_3^-$. Consequently, $[H^+]$ increases (pH decreases), $[CO_3^{2-}]$ decreases, and $[HCO_3^-]$ actually increases, which makes statement A correct and statement C false. The decrease in $[CO_3^{2-}]$ directly depresses the saturation state $\\Omega = \\frac{[Ca^{2+}][CO_3^{2-}]}{K'_{sp}}$, causing biogenic calcium carbonate (aragonite in corals/pteropods and calcite in coccolithophores) to dissolve, validating statement B. Total alkalinity ($TA$) is defined by charge balance of conservative cations and anions; addition or loss of neutral $CO_2$ gas does not alter proton-accepting equivalent charge capacity, so $TA$ remains strictly conservative, validating statement D."
+    },
+    {
+      "id": "enc_c01_045",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "During the chemical disinfection of municipal drinking water via chlorination, which of the following statements is/are correct regarding water chemistry and disinfection by-products (DBPs)?",
+      "options": [
+        "A) Hypochlorite ion ($OCl^-$) is approximately $80$ to $100$ times more effective as a germicidal agent than neutral hypochlorous acid ($HOCl$).",
+        "B) The germicidal potency of free available chlorine decreases sharply above pH $7.5$, because the equilibrium $HOCl \\rightleftharpoons H^+ + OCl^-$ ($pK_a \\approx 7.53$) shifts toward the less biocidal $OCl^-$ anion.",
+        "C) Beyond the 'breakpoint chlorination' threshold, all residual chlorine exists exclusively as mono- and dichloramines.",
+        "D) Reaction of free chlorine with natural dissolved organic matter (humic and fulvic substances) generates toxic trihalomethanes (THMs, such as $CHCl_3$) and haloacetic acids (HAAs)."
+      ],
+      "answer": "B,D",
+      "explanation": "When chlorine gas or hypochlorite dissolves in water, it establishes the equilibrium: $HOCl \\rightleftharpoons H^+ + OCl^-$ with $pK_a \\approx 7.53$ at $25^\\circ\\text{C}$. Uncharged hypochlorous acid ($HOCl$) is electrically neutral and lipophilic, allowing it to rapidly penetrate negative bacterial cell membranes and oxidize essential intracellular sulfhydryl enzymes. In contrast, the negatively charged hypochlorite ion ($OCl^-$) experiences electrostatic repulsion from bacterial cell surfaces and is roughly $80$ to $100$ times less biocidal than $HOCl$. Therefore, as pH rises above $7.5$, the concentration of $HOCl$ drops precipitously, diminishing disinfection efficiency, making statement B correct and statement A false. At breakpoint chlorination, all inorganic ammonia is completely oxidized to nitrogen gas ($2NH_3 + 3HOCl \\to N_2 + 3H_2O + 3HCl$); adding chlorine beyond breakpoint produces uncombined, free available chlorine ($HOCl$ and $OCl^-$), not chloramines, making statement C false. Chlorination of waters containing natural organic matter (humic and fulvic acids) undergoes haloform reactions, generating carcinogenic trihalomethanes ($THMs$) and haloacetic acids ($HAAs$), validating statement D."
+    },
+    {
+      "id": "enc_c01_046",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Which of the following statements correctly describe the atmospheric sinks and chemical reaction pathways of major greenhouse gases?",
+      "options": [
+        "A) Methane ($CH_4$) is removed from the troposphere primarily through hydrogen abstraction by hydroxyl radicals ($OH^\\bullet$), while soil methanotrophic bacterial uptake serves as a minor sink.",
+        "B) Nitrous oxide ($N_2O$) is scrubbed within weeks from the troposphere through rainout precipitation and rapid gas-phase reaction with hydroxyl radicals.",
+        "C) In the stratosphere, photolysis of nitrous oxide ($N_2O + h\\nu \\to N_2 + O(^1D)$) and its reaction with excited singlet oxygen ($N_2O + O(^1D) \\to 2NO$) produces nitric oxide, a primary catalyst for ozone destruction.",
+        "D) Sulfur hexafluoride ($SF_6$) is rapidly hydrolyzed in the lower troposphere by alkaline sea-spray aerosol droplets to harmless sulfate salts."
+      ],
+      "answer": "A,C",
+      "explanation": "Over $90\\%$ of tropospheric methane is removed via gas-phase reaction with hydroxyl radicals ($CH_4 + OH^\\bullet \\to CH_3^\\bullet + H_2O$), with biological oxidation by methanotrophic bacteria in soils accounting for the remaining sink, validating statement A. Nitrous oxide ($N_2O$) is chemically inert in the troposphere; it has no significant tropospheric sinks, does not react with $OH^\\bullet$, and does not dissolve appreciably in rain, giving it an atmospheric lifetime of approximately $114\\text{ years}$. This makes statement B false. The sole major sink for $N_2O$ is transport into the stratosphere, where $90\\%$ undergoes UV photolysis ($N_2O + h\\nu \\to N_2 + O(^1D)$) and $10\\%$ reacts with excited oxygen atoms: $N_2O + O(^1D) \\to 2NO$. The produced nitric oxide initiates the catalytic ozone destruction cycle ($NO + O_3 \\to NO_2 + O_2$), making statement C correct. Sulfur hexafluoride ($SF_6$) has an octahedrally shielded sulfur atom that is kinetically inert to water, acids, and bases, with an atmospheric residence time exceeding $1000\\text{ years}$, making statement D completely false."
+    },
+    {
+      "id": "enc_c01_047",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Which of the following statements correctly describe the bioinorganic coordination chemistry of heavy metal toxicity and therapeutic chelation?",
+      "options": [
+        "A) Dimercaprol (British Anti-Lewisite, BAL) and dimercaptosuccinic acid (DMSA) chelate heavy metal cations like $As(III)$ and $Pb(II)$ through adjacent dithiol ($-SH$) donors, forming stable five-membered chelate rings.",
+        "B) Calcium disodium EDTA ($CaNa_2EDTA$) is administered instead of disodium EDTA ($Na_2EDTA$) for lead poisoning to prevent acute, life-threatening hypocalcemia.",
+        "C) Methylmercury ($CH_3Hg^+$) crosses the blood-brain barrier by mimicking large neutral amino acids as a methylmercury-L-cysteine coordination complex ($CH_3Hg\\text{-S-Cys}$).",
+        "D) Minamata disease is a neurotoxic disorder resulting from the biomagnification of methylmercury through aquatic food chains, causing progressive cerebral cortex damage and cerebellar ataxia."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "BAL (2,3-dimercaptopropan-1-ol) and DMSA possess adjacent thiol groups that bind soft heavy metal ions such as $As^{3+}, Pb^{2+}$, and $Hg^{2+}$ to form stable five-membered cyclic bis-thiolate chelates, facilitating their renal excretion, validating statement A. If free disodium EDTA ($Na_2H_2EDTA$) were infused rapidly, its high stability constant for calcium ($K_f \\approx 10^{10.7}$) would bind free serum $Ca^{2+}$ ions, inducing fatal hypocalcemic tetany; administering $CaNa_2EDTA$ ensures that lead displaces the bound calcium without depressing serum calcium levels, validating statement B. Methylmercury ($CH_3Hg^+$) binds tightly to the sulfhydryl group of cysteine, forming a complex that structurally mimics the essential amino acid L-methionine, thereby tricking the L-type neutral amino acid transporter (LAT1) into actively transporting it across the blood-brain and placental barriers, validating statement C. Minamata disease was caused by industrial discharges of inorganic and methylmercury into Minamata Bay, leading to severe bioaccumulation in fish and crippling sensory constriction, tremors, and ataxia in the human population, validating statement D."
+    },
+    {
+      "id": "enc_c01_048",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "The industrial manufacture of the anti-inflammatory drug ibuprofen ($C_{13}H_{18}O_2$, molar mass $206.3\\text{ g mol}^{-1}$) is a benchmark case in green chemistry. The classic Boots process requires six stoichiometric steps with an Atom Economy of only $40.0\\%$. The BHC Company green route synthesizes ibuprofen in three catalytic steps: (Step 1) Isobutylbenzene ($C_{10}H_{14}$, $134.2\\text{ g mol}^{-1}$) $+ C_4H_6O_3$ ($102.1\\text{ g mol}^{-1}$) $\\xrightarrow{HF} C_{12}H_{16}O + CH_3COOH$ ($60.1\\text{ g mol}^{-1}$); (Step 2) Hydrogenation with Raney Ni: $C_{12}H_{16}O + H_2$ ($2.0\\text{ g mol}^{-1}$) $\\to$ alcohol; (Step 3) Carbonylation with Pd catalyst: alcohol $+ CO$ ($28.0\\text{ g mol}^{-1}$) $\\to C_{13}H_{18}O_2$. Determine the percentage Atom Economy ($AE$) of this BHC catalytic process if the co-product acetic acid generated in Step 1 is not recycled, rounded to the nearest integer.",
+      "options": [],
+      "answer": "77",
+      "explanation": "Atom Economy is defined as: $AE = \\frac{\\text{Molar mass of desired product}}{\\sum \\text{Molar mass of all stoichiometric reactants}} \\times 100\\%$. The target product is ibuprofen ($C_{13}H_{18}O_2$), which has a molar mass of $206.3\\text{ g mol}^{-1}$. Summing the stoichiometric reactants across all three steps: Isobutylbenzene ($C_{10}H_{14} = 134.2\\text{ g mol}^{-1}$) $+$ Acetic anhydride ($C_4H_6O_3 = 102.1\\text{ g mol}^{-1}$) $+$ Hydrogen gas ($H_2 = 2.0\\text{ g mol}^{-1}$) $+$ Carbon monoxide ($CO = 28.0\\text{ g mol}^{-1}$). The total mass of reactants is: $M_{\\text{reactants}} = 134.2 + 102.1 + 2.0 + 28.0 = 266.3\\text{ g mol}^{-1}$. Substituting these molar values into the Atom Economy equation: $AE = \\frac{206.3\\text{ g mol}^{-1}}{266.3\\text{ g mol}^{-1}} \\times 100\\% = 77.469\\%$. Rounding to the nearest whole integer gives $77$."
+    },
+    {
+      "id": "enc_c01_049",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In the springtime Antarctic stratosphere, catalytic ozone destruction proceeds primarily through the Molina chlorine monoxide dimer cycle: (1) $2ClO^\\bullet + M \\xrightarrow{k_1} ClOOCl + M$ (rate-determining step), followed by rapid photolysis and halogen atom recycling: (2) $ClOOCl + h\\nu \\to Cl^\\bullet + ClOO^\\bullet$, (3) $ClOO^\\bullet + M \\to Cl^\\bullet + O_2 + M$, and (4) $2(Cl^\\bullet + O_3 \\to ClO^\\bullet + O_2)$, yielding the net reaction $2O_3 \\to 3O_2$. The rate of ozone loss is governed by: $-\\frac{d[O_3]}{dt} = 2k_1[ClO^\\bullet]^2[M]$. At a polar altitude where $k_1 = 5.00 \\times 10^{-32}\\text{ cm}^6\\text{ molecule}^{-2}\\text{ s}^{-1}$, $[M] = 1.50 \\times 10^{18}\\text{ molecules cm}^{-3}$, and $[ClO^\\bullet] = 1.00 \\times 10^{10}\\text{ molecules cm}^{-3}$, calculate the instantaneous rate of ozone destruction $-\\frac{d[O_3]}{dt}$ in units of $10^6\\text{ molecules cm}^{-3}\\text{ s}^{-1}$.",
+      "options": [],
+      "answer": "15",
+      "explanation": "Applying the rate equation for ozone destruction via the $ClO$ dimer catalytic cycle: $-\\frac{d[O_3]}{dt} = 2k_1[ClO^\\bullet]^2[M]$. Substituting the specified kinetic rate constant and molecular concentrations: $-\\frac{d[O_3]}{dt} = 2 \\times (5.00 \\times 10^{-32}\\text{ cm}^6\\text{ molecule}^{-2}\\text{ s}^{-1}) \\times (1.00 \\times 10^{10}\\text{ molecules cm}^{-3})^2 \\times (1.50 \\times 10^{18}\\text{ molecules cm}^{-3})$. Evaluating step-by-step: $(1.00 \\times 10^{10})^2 = 1.00 \\times 10^{20}\\text{ molecules}^2\\text{ cm}^{-6}$. Multiplying the constants together yields: $-\\frac{d[O_3]}{dt} = 2 \\times (5.00 \\times 10^{-32}) \\times (1.00 \\times 10^{20}) \\times (1.50 \\times 10^{18}) = (1.00 \\times 10^{-31}) \\times (1.50 \\times 10^{38}) = 1.50 \\times 10^7\\text{ molecules cm}^{-3}\\text{ s}^{-1}$. Expressing this value in units of $10^6\\text{ molecules cm}^{-3}\\text{ s}^{-1}$ gives: $\\frac{1.50 \\times 10^7}{10^6} = 15$."
+    },
+    {
+      "id": "enc_c01_050",
+      "subject": "Chemistry",
+      "topic": "Environmental Chemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "An industrial green chemistry plant synthesizes a batch of specialty bio-pesticide. The manufacturing process consumes $500\\text{ kg}$ of chemical starting reagents, $1250\\text{ kg}$ of process solvents, and $250\\text{ kg}$ of aqueous extraction agents, yielding $400\\text{ kg}$ of pure isolated crystalline product. None of the spent solvents or aqueous phases are recovered or recycled. The Environmental Factor is defined as the ratio of total mass of waste generated to the mass of finished product: $E\\text{-factor} = \\frac{m_{\\text{waste}}}{m_{\\text{product}}}$. Calculate the exact numerical value of the $E\\text{-factor}$ for this manufacturing run.",
+      "options": [],
+      "answer": "4",
+      "explanation": "First, applying the law of conservation of mass, the total mass of materials entering the manufacturing process is the sum of all inputs: $m_{\\text{input, total}} = m_{\\text{reagents}} + m_{\\text{solvents}} + m_{\\text{aqueous}} = 500 + 1250 + 250 = 2000\\text{ kg}$. The mass of the isolated target product is $m_{\\text{product}} = 400\\text{ kg}$. Since all unrecovered input mass becomes waste, the total waste mass is: $m_{\\text{waste}} = m_{\\text{input, total}} - m_{\\text{product}} = 2000 - 400 = 1600\\text{ kg}$. Applying the standard definition of the Environmental Factor ($E\\text{-factor}$): $E = \\frac{m_{\\text{waste}}}{m_{\\text{product}}} = \\frac{1600\\text{ kg}}{400\\text{ kg}} = 4$. (Alternatively, Process Mass Intensity is $PMI = \\frac{2000}{400} = 5$, and $E = PMI - 1 = 5 - 1 = 4$)."
+    }
+  ]
+}

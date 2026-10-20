@@ -1,0 +1,779 @@
+{
+  "questions": [
+    {
+      "id": "hyd_c01_001",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A hard water sample contains $16.2\\text{ mg}$ of $\\text{Ca(HCO}_3)_2$ (molar mass $162\\text{ g mol}^{-1}$) and $11.1\\text{ mg}$ of $\\text{CaCl}_2$ (molar mass $111\\text{ g mol}^{-1}$) dissolved per litre of solution. Calculate the total hardness of the water sample expressed in $\\text{ppm}$ of $\\text{CaCO}_3$ equivalent.",
+      "options": [],
+      "answer": "20",
+      "explanation": "Step 1: Convert each salt concentration to $\\text{CaCO}_3$ equivalents (molar mass $100\\text{ g mol}^{-1}$). Hardness from $\\text{Ca(HCO}_3)_2 = 16.2\\text{ mg L}^{-1} \\times \\frac{100}{162} = 10.0\\text{ mg L}^{-1}$. Hardness from $\\text{CaCl}_2 = 11.1\\text{ mg L}^{-1} \\times \\frac{100}{111} = 10.0\\text{ mg L}^{-1}$. Step 2: Summing the contributions gives total hardness $= 10.0 + 10.0 = 20.0\\text{ mg L}^{-1} = 20\\text{ ppm}$. Therefore, the integer value is 20."
+    },
+    {
+      "id": "hyd_c01_002",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $20.0\\text{ mL}$ aliquot of an aqueous hydrogen peroxide solution requires $30.0\\text{ mL}$ of $0.020\\text{ M } \\text{KMnO}_4$ solution for complete oxidation in acidic medium. Taking the molar volume of an ideal gas at STP as $22.4\\text{ L mol}^{-1}$, the volume strength of the $\\text{H}_2\\text{O}_2$ solution is:",
+      "options": [
+        "A) $1.68\\text{ volume}$",
+        "B) $0.84\\text{ volume}$",
+        "C) $0.42\\text{ volume}$",
+        "D) $1.12\\text{ volume}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The balanced redox equation in acidic medium is $2\\text{MnO}_4^- + 5\\text{H}_2\\text{O}_2 + 6\\text{H}^+ \\to 2\\text{Mn}^{2+} + 5\\text{O}_2 + 8\\text{H}_2\\text{O}$. Millimoles of $\\text{KMnO}_4 = 30.0\\text{ mL} \\times 0.020\\text{ M} = 0.60\\text{ mmol}$. Millimoles of $\\text{H}_2\\text{O}_2 = 0.60 \\times \\frac{5}{2} = 1.50\\text{ mmol}$. Step 2: Molarity of $\\text{H}_2\\text{O}_2 = \\frac{1.50\\text{ mmol}}{20.0\\text{ mL}} = 0.075\\text{ M}$. Step 3: Decomposition reaction $2\\text{H}_2\\text{O}_2 \\to 2\\text{H}_2\\text{O} + \\text{O}_2$ shows that $1\\text{ M } \\text{H}_2\\text{O}_2$ produces $0.5\\text{ mol } \\text{O}_2$ per litre, which corresponds to $11.2\\text{ L of } \\text{O}_2$ at STP. Hence, volume strength $= 0.075 \\times 11.2 = 0.84\\text{ volume}$. Forgetting the $5/2$ stoichiometric factor gives $0.42\\text{ volume}$, whereas treating the factor as $5$ yields $1.68\\text{ volume}$."
+    },
+    {
+      "id": "hyd_c01_003",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A sample of water has permanent hardness due to the presence of $136\\text{ mg L}^{-1}$ of dissolved $\\text{CaSO}_4$ (molar mass $136\\text{ g mol}^{-1}$). How many millimoles of anhydrous $\\text{Na}_2\\text{CO}_3$ are stoichiometrically required to precipitate all calcium ions from $100\\text{ L}$ of this water sample?",
+      "options": [],
+      "answer": "100",
+      "explanation": "Step 1: Precipitation of permanent hardness proceeds via $\\text{CaSO}_4 + \\text{Na}_2\\text{CO}_3 \\to \\text{CaCO}_3\\downarrow + \\text{Na}_2\\text{SO}_4$. Concentration of $\\text{CaSO}_4 = \\frac{136\\text{ mg L}^{-1}}{136\\text{ g mol}^{-1}} = 1.0\\text{ mmol L}^{-1}$. Step 2: For $100\\text{ L}$ of water, total moles of $\\text{Ca}^{2+} = 100\\text{ L} \\times 1.0\\text{ mmol L}^{-1} = 100\\text{ mmol}$. Since the reaction stoichiometry is $1:1$, the required amount of anhydrous $\\text{Na}_2\\text{CO}_3$ is exactly $100\\text{ mmol}$."
+    },
+    {
+      "id": "hyd_c01_004",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In Clark's process for softening water with temporary hardness, slaked lime $\\text{Ca(OH)}_2$ (molar mass $74.0\\text{ g mol}^{-1}$) is added to neutralize $\\text{Ca(HCO}_3)_2$ (molar mass $162\\text{ g mol}^{-1}$). What mass of pure $\\text{Ca(OH)}_2$ is required to treat $200\\text{ L}$ of water containing $81.0\\text{ mg L}^{-1}$ of $\\text{Ca(HCO}_3)_2$?",
+      "options": [
+        "A) $14.8\\text{ g}$",
+        "B) $3.70\\text{ g}$",
+        "C) $7.40\\text{ g}$",
+        "D) $11.1\\text{ g}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The stoichiometric neutralization reaction is $\\text{Ca(HCO}_3)_2 + \\text{Ca(OH)}_2 \\to 2\\text{CaCO}_3\\downarrow + 2\\text{H}_2\\text{O}$. Total mass of $\\text{Ca(HCO}_3)_2$ in $200\\text{ L} = 200\\text{ L} \\times 81.0\\times 10^{-3}\\text{ g L}^{-1} = 16.2\\text{ g}$. Moles of $\\text{Ca(HCO}_3)_2 = \\frac{16.2}{162} = 0.10\\text{ mol}$. Step 2: Since $1\\text{ mol}$ of $\\text{Ca(HCO}_3)_2$ reacts with $1\\text{ mol}$ of $\\text{Ca(OH)}_2$, moles of $\\text{Ca(OH)}_2$ required $= 0.10\\text{ mol}$. Step 3: Required mass $= 0.10\\text{ mol} \\times 74.0\\text{ g mol}^{-1} = 7.40\\text{ g}$. Assuming each bicarbonate requires two units of hydroxide yields $14.8\\text{ g}$, while miscalculating moles of bicarbonate as $0.05\\text{ mol}$ gives $3.70\\text{ g}$."
+    },
+    {
+      "id": "hyd_c01_005",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Phosphorus trichloride undergoes complete solvolysis upon reaction with heavy water according to $\\text{PCl}_3 + 3\\text{D}_2\\text{O} \\to \\text{D}_3\\text{PO}_3 + 3\\text{DCl}$. If $0.20\\text{ mol}$ of $\\text{PCl}_3$ is treated with excess $\\text{D}_2\\text{O}$, how many moles of deuterons ($\\text{D}^+$) can be completely neutralized by reaction with aqueous $\\text{NaOD}$?",
+      "options": [
+        "A) $1.00\\text{ mol}$",
+        "B) $1.20\\text{ mol}$",
+        "C) $0.60\\text{ mol}$",
+        "D) $0.40\\text{ mol}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: From the reaction stoichiometry, $0.20\\text{ mol of } \\text{PCl}_3$ produces $0.20\\text{ mol of } \\text{D}_3\\text{PO}_3$ and $0.60\\text{ mol of } \\text{DCl}$. Step 2: $\\text{DCl}$ is a monoprotic acid that furnishes $0.60\\text{ mol of } \\text{D}^+$. Phosphorus acid (and its deuterated isotopologue $\\text{D}_3\\text{PO}_3$) has the tetrahedral structure $\\text{O}=\\text{P(D)(OD)}_2$, meaning it possesses only two ionizable $-\\text{OD}$ groups while the $\\text{P}-\\text{D}$ bond is non-ionizable. Step 3: Therefore, $0.20\\text{ mol of } \\text{D}_3\\text{PO}_3$ contributes $2 \\times 0.20 = 0.40\\text{ mol of } \\text{D}^+$. Summing the ionizable deuterons: $0.60 + 0.40 = 1.00\\text{ mol}$. Treating $\\text{D}_3\\text{PO}_3$ as a triprotic acid incorrectly gives $0.60 + 0.60 = 1.20\\text{ mol}$."
+    },
+    {
+      "id": "hyd_c01_006",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $20.0\\text{ mL}$ sample of an aqueous $\\text{H}_2\\text{O}_2$ solution is completely oxidised by $25.0\\text{ mL}$ of $0.040\\text{ M } \\text{K}_2\\text{Cr}_2\\text{O}_7$ in dilute sulphuric acid medium. What is the concentration of the $\\text{H}_2\\text{O}_2$ solution in $\\text{millimoles per litre}$ ($\\text{mM}$)?",
+      "options": [],
+      "answer": "150",
+      "explanation": "Step 1: The balanced redox equation in acidic solution is $\\text{Cr}_2\\text{O}_7^{2-} + 3\\text{H}_2\\text{O}_2 + 8\\text{H}^+ \\to 2\\text{Cr}^{3+} + 3\\text{O}_2 + 7\\text{H}_2\\text{O}$. Millimoles of $\\text{K}_2\\text{Cr}_2\\text{O}_7 = 25.0\\text{ mL} \\times 0.040\\text{ M} = 1.00\\text{ mmol}$. Step 2: Stoichiometric ratio of $\\text{Cr}_2\\text{O}_7^{2-}$ to $\\text{H}_2\\text{O}_2$ is $1:3$, so millimoles of $\\text{H}_2\\text{O}_2 = 3 \\times 1.00 = 3.00\\text{ mmol}$. Step 3: Molarity of $\\text{H}_2\\text{O}_2 = \\frac{3.00\\text{ mmol}}{20.0\\text{ mL}} = 0.150\\text{ M} = 150\\text{ mM}$. Hence, the required integer value is 150."
+    },
+    {
+      "id": "hyd_c01_007",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A cation exchange resin column packed with sulphonated polystyrene ($R-\\text{SO}_3\\text{H}$) is employed to soften $100\\text{ L}$ of hard water containing $120\\text{ mg L}^{-1}$ of $\\text{Mg}^{2+}$ ions (molar mass $24.0\\text{ g mol}^{-1}$). If the total exchange capacity of the dry resin is $2.50\\text{ milliequivalents of } \\text{H}^+ \\text{ per gram}$, calculate the minimum mass of dry resin required.",
+      "options": [
+        "A) $200\\text{ g}$",
+        "B) $800\\text{ g}$",
+        "C) $100\\text{ g}$",
+        "D) $400\\text{ g}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The cation exchange process is $2(R-\\text{SO}_3\\text{H}) + \\text{Mg}^{2+} \\to (R-\\text{SO}_3)_2\\text{Mg} + 2\\text{H}^+$. Total mass of $\\text{Mg}^{2+} = 100\\text{ L} \\times 0.120\\text{ g L}^{-1} = 12.0\\text{ g}$. Moles of $\\text{Mg}^{2+} = \\frac{12.0\\text{ g}}{24.0\\text{ g mol}^{-1}} = 0.50\\text{ mol}$. Step 2: Each mole of $\\text{Mg}^{2+}$ has valence $2$, requiring $2 \\times 0.50 = 1.00\\text{ equivalents} = 1000\\text{ meq of } \\text{H}^+$. Step 3: Minimum dry resin mass $= \\frac{1000\\text{ meq}}{2.50\\text{ meq g}^{-1}} = 400\\text{ g}$. Forgetting that magnesium is bivalent gives $200\\text{ g}$, whereas an inverted exchange calculation gives $800\\text{ g}$."
+    },
+    {
+      "id": "hyd_c01_008",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the industrial water gas shift reaction, equimolar amounts of carbon monoxide and steam ($1.0\\text{ mol}$ of each) are introduced into a reaction vessel at $673\\text{ K}$ where $\\text{CO}(g) + \\text{H}_2\\text{O}(g) \\rightleftharpoons \\text{CO}_2(g) + \\text{H}_2(g)$ reaches equilibrium with $K_c = 4.0$. After condensing all unreacted steam, the mole fraction of $\\text{H}_2(g)$ in the dry product gas mixture is:",
+      "options": [
+        "A) $0.25$",
+        "B) $0.40$",
+        "C) $0.50$",
+        "D) $0.67$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Let $x$ be the moles of $\\text{CO}$ reacted at equilibrium. Moles at equilibrium: $n_{\\text{CO}} = 1 - x$, $n_{\\text{H}_2\\text{O}} = 1 - x$, $n_{\\text{CO}_2} = x$, $n_{\\text{H}_2} = x$. Step 2: Substituting into $K_c$: $\\frac{x^2}{(1 - x)^2} = 4.0 \\implies \\frac{x}{1 - x} = 2.0 \\implies x = \\frac{2}{3}\\text{ mol}$. Step 3: When water vapor is condensed out, the dry gas mixture contains $\\text{CO}$ ($1 - 2/3 = 1/3\\text{ mol}$), $\\text{CO}_2$ ($2/3\\text{ mol}$), and $\\text{H}_2$ ($2/3\\text{ mol}$). Total dry gas moles $= 1/3 + 2/3 + 2/3 = 5/3\\text{ mol}$. Mole fraction of $\\text{H}_2 = \\frac{2/3}{5/3} = \\frac{2}{5} = 0.40$. Neglecting unreacted $\\text{CO}$ gives $0.50$, while including steam in the total mole count gives $0.33$."
+    },
+    {
+      "id": "hyd_c01_009",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Calgon, sodium hexametaphosphate ($\\text{Na}_6\\text{P}_6\\text{O}_{18}$), softs hard water by exchanging its sodium ions with calcium ions to form a soluble complex anion according to $\\text{Na}_6\\text{P}_6\\text{O}_{18} + 2\\text{Ca}^{2+} \\to \\text{Na}_2[\\text{Ca}_2\\text{P}_6\\text{O}_{18}] + 4\\text{Na}^+$. How many moles of $\\text{Ca}^{2+}$ ions are sequestered per mole of Calgon?",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: Calgon ionizes in aqueous solution as $\\text{Na}_6\\text{P}_6\\text{O}_{18} \\to 2\\text{Na}^+ + [\\text{Na}_4\\text{P}_6\\text{O}_{18}]^{2-}$. Step 2: The complex anion $[\\text{Na}_4\\text{P}_6\\text{O}_{18}]^{2-}$ sequesters calcium ions through replacement of sodium ions inside the polyphosphate cage: $[\\text{Na}_4\\text{P}_6\\text{O}_{18}]^{2-} + 2\\text{Ca}^{2+} \\to [\\text{Ca}_2\\text{P}_6\\text{O}_{18}]^{2-} + 4\\text{Na}^+$. Step 3: By stoichiometric inspection, one mole of the hexametaphosphate unit binds exactly two moles of bivalent calcium ions. Therefore, the answer is 2."
+    },
+    {
+      "id": "hyd_c01_010",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the industrial electrolytic preparation of hydrogen peroxide, $50\\%$ aqueous sulphuric acid is electrolyzed at high current density: $2\\text{HSO}_4^- \\to \\text{H}_2\\text{S}_2\\text{O}_8 + 2e^-$, followed by hydrolysis $\\text{H}_2\\text{S}_2\\text{O}_8 + 2\\text{H}_2\\text{O} \\to 2\\text{H}_2\\text{SO}_4 + \\text{H}_2\\text{O}_2$. If a constant current of $9.65\\text{ A}$ is passed for $2000\\text{ s}$ with a current efficiency of $75\\%$, what mass of pure $\\text{H}_2\\text{O}_2$ (molar mass $34.0\\text{ g mol}^{-1}$) is produced? (Take $1\\text{ F} = 96500\\text{ C}$).",
+      "options": [
+        "A) $5.10\\text{ g}$",
+        "B) $3.40\\text{ g}$",
+        "C) $2.55\\text{ g}$",
+        "D) $1.70\\text{ g}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Total electric charge passed $Q = I \\times t = 9.65\\text{ A} \\times 2000\\text{ s} = 19300\\text{ C} = 0.20\\text{ F}$. Useful charge at $75\\%$ efficiency $= 0.20 \\times 0.75 = 0.15\\text{ F}$. Step 2: The net reaction requires $2\\text{ F}$ to generate $1\\text{ mol of } \\text{H}_2\\text{S}_2\\text{O}_8$, which upon hydrolysis produces $1\\text{ mol of } \\text{H}_2\\text{O}_2$. Moles of $\\text{H}_2\\text{O}_2 = \\frac{0.15\\text{ F}}{2} = 0.075\\text{ mol}$. Step 3: Mass of $\\text{H}_2\\text{O}_2 = 0.075\\text{ mol} \\times 34.0\\text{ g mol}^{-1} = 2.55\\text{ g}$. Forgetting the 2-electron requirement yields $5.10\\text{ g}$, whereas ignoring the current efficiency yields $3.40\\text{ g}$."
+    },
+    {
+      "id": "hyd_c01_011",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Calcium hydride, $\\text{CaH}_2$ (molar mass $42.0\\text{ g mol}^{-1}$), commonly known as 'Hydrolith', reacts vigorously with excess water to liberate dihydrogen gas according to $\\text{CaH}_2(s) + 2\\text{H}_2\\text{O}(l) \\to \\text{Ca(OH)}_2(aq) + 2\\text{H}_2(g)$. What volume of dry dihydrogen gas is liberated at STP ($273\\text{ K}, 1\\text{ atm}$, molar volume $22.4\\text{ L mol}^{-1}$) when $4.20\\text{ g}$ of pure $\\text{CaH}_2$ undergoes complete reaction?",
+      "options": [
+        "A) $4.48\\text{ L}$",
+        "B) $2.24\\text{ L}$",
+        "C) $1.12\\text{ L}$",
+        "D) $8.96\\text{ L}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate moles of $\\text{CaH}_2$: $n = \\frac{4.20\\text{ g}}{42.0\\text{ g mol}^{-1}} = 0.100\\text{ mol}$. Step 2: From the reaction stoichiometry, each mole of $\\text{CaH}_2$ produces two moles of $\\text{H}_2$ gas: $n_{\\text{H}_2} = 2 \\times 0.100 = 0.200\\text{ mol}$. Step 3: Volume of $\\text{H}_2$ at STP $= 0.200\\text{ mol} \\times 22.4\\text{ L mol}^{-1} = 4.48\\text{ L}$. Assuming a $1:1$ stoichiometric ratio gives $2.24\\text{ L}$, while treating $\\text{CaH}_2$ as liberating half a mole of $\\text{H}_2$ leads to $1.12\\text{ L}$."
+    },
+    {
+      "id": "hyd_c01_012",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $100.0\\text{ mL}$ sample of hard water containing bivalent ions $\\text{Ca}^{2+}$ and $\\text{Mg}^{2+}$ is buffered at $\\text{pH } 10$ and titrated using Eriochrome Black T indicator. It requires exactly $25.0\\text{ mL}$ of $0.0080\\text{ M}$ disodium EDTA solution to reach the wine-red to blue end point. Determine the total hardness of the water sample in $\\text{ppm}$ of $\\text{CaCO}_3$ equivalent.",
+      "options": [],
+      "answer": "200",
+      "explanation": "Step 1: EDTA forms a $1:1$ chelate complex with bivalent metal cations: $\\text{M}^{2+} + \\text{EDTA}^{4-} \\to [\\text{M(EDTA)}]^{2-}$. Millimoles of EDTA consumed $= 25.0\\text{ mL} \\times 0.0080\\text{ M} = 0.200\\text{ mmol}$. Step 2: Hence, total millimoles of bivalent ions $= 0.200\\text{ mmol}$. Molar mass of $\\text{CaCO}_3 = 100\\text{ g mol}^{-1} = 100\\text{ mg mmol}^{-1}$. Equivalent mass of $\\text{CaCO}_3 = 0.200\\text{ mmol} \\times 100\\text{ mg mmol}^{-1} = 20.0\\text{ mg}$. Step 3: This mass is contained in $100.0\\text{ mL} = 0.100\\text{ L}$. Hardness $= \\frac{20.0\\text{ mg}}{0.100\\text{ L}} = 200\\text{ mg L}^{-1} = 200\\text{ ppm}$. Therefore, the integer value is 200."
+    },
+    {
+      "id": "hyd_c01_013",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A fresh aqueous hydrogen peroxide solution is labeled as '$20.0\\text{ volume}$'. During prolonged storage in a poorly sealed amber bottle, $25.0\\%$ of the hydrogen peroxide decomposes catalytically into water and oxygen. Assuming the total solution volume remains unchanged, what is the new volume strength of the degraded solution at STP?",
+      "options": [
+        "A) $5.0\\text{ volume}$",
+        "B) $10.0\\text{ volume}$",
+        "C) $12.5\\text{ volume}$",
+        "D) $15.0\\text{ volume}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Volume strength is directly proportional to the molar concentration of $\\text{H}_2\\text{O}_2$ according to the decomposition equation $2\\text{H}_2\\text{O}_2 \\to 2\\text{H}_2\\text{O} + \\text{O}_2$. Volume strength $= 11.2 \\times M$. Step 2: Decomposition of $25.0\\%$ of the solute implies that $75.0\\%$ of the original $\\text{H}_2\\text{O}_2$ remains intact in the solution. Step 3: New volume strength $= 20.0\\text{ volume} \\times (1 - 0.25) = 20.0 \\times 0.75 = 15.0\\text{ volume}$. Confusing the decomposed portion ($25\\%$) with the remaining strength yields $5.0\\text{ volume}$, whereas halving the strength gives $10.0\\text{ volume}$."
+    },
+    {
+      "id": "hyd_c01_014",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Heavy water undergoes solvolytic exchange with metal carbides. Aluminium carbide ($\\text{Al}_4\\text{C}_3$) and calcium carbide ($\\text{CaC}_2$) react with excess $\\text{D}_2\\text{O}$ to release deuterated organic gases. What are the molar masses of the gaseous deuterated hydrocarbons formed from $\\text{Al}_4\\text{C}_3$ and $\\text{CaC}_2$, respectively? (Atomic masses: $\\text{C} = 12.0$, $\\text{D} = 2.0$).",
+      "options": [
+        "A) $16.0\\text{ g mol}^{-1} \\text{ and } 26.0\\text{ g mol}^{-1}$",
+        "B) $20.0\\text{ g mol}^{-1} \\text{ and } 28.0\\text{ g mol}^{-1}$",
+        "C) $20.0\\text{ g mol}^{-1} \\text{ and } 32.0\\text{ g mol}^{-1}$",
+        "D) $18.0\\text{ g mol}^{-1} \\text{ and } 28.0\\text{ g mol}^{-1}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The solvolysis of $\\text{Al}_4\\text{C}_3$ with $\\text{D}_2\\text{O}$ yields fully deuterated methane (methane-d4): $\\text{Al}_4\\text{C}_3 + 12\\text{D}_2\\text{O} \\to 4\\text{Al(OD)}_3 + 3\\text{CD}_4$. Molar mass of $\\text{CD}_4 = 12.0 + 4(2.0) = 20.0\\text{ g mol}^{-1}$. Step 2: The solvolysis of $\\text{CaC}_2$ yields fully deuterated ethyne (acetylene-d2): $\\text{CaC}_2 + 2\\text{D}_2\\text{O} \\to \\text{Ca(OD)}_2 + \\text{C}_2\\text{D}_2$. Molar mass of $\\text{C}_2\\text{D}_2 = 2(12.0) + 2(2.0) = 28.0\\text{ g mol}^{-1}$. Confusing protium with deuterium gives $16.0$ and $26.0\\text{ g mol}^{-1}$, while misidentifying calcium carbide product as ethylene-d4 gives $32.0\\text{ g mol}^{-1}$."
+    },
+    {
+      "id": "hyd_c01_015",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In the context of the hydrogen economy, the enthalpy of combustion of dihydrogen gas is $\\Delta H_c^\\circ(\\text{H}_2) = -286\\text{ kJ mol}^{-1}$ (molar mass $2.0\\text{ g mol}^{-1}$), while that of methane gas is $\\Delta H_c^\\circ(\\text{CH}_4) = -896\\text{ kJ mol}^{-1}$ (molar mass $16.0\\text{ g mol}^{-1}$). On a per-gram basis, dihydrogen releases $q_{\\text{H}_2}\\text{ kJ g}^{-1}$ and methane releases $q_{\\text{CH}_4}\\text{ kJ g}^{-1}$. What is the value of $(q_{\\text{H}_2} - q_{\\text{CH}_4})$ in $\\text{kJ g}^{-1}$?",
+      "options": [],
+      "answer": "87",
+      "explanation": "Step 1: Calculate heat released per gram of dihydrogen fuel: $q_{\\text{H}_2} = \\frac{286\\text{ kJ mol}^{-1}}{2.0\\text{ g mol}^{-1}} = 143.0\\text{ kJ g}^{-1}$. Step 2: Calculate heat released per gram of methane fuel: $q_{\\text{CH}_4} = \\frac{896\\text{ kJ mol}^{-1}}{16.0\\text{ g mol}^{-1}} = 56.0\\text{ kJ g}^{-1}$. Step 3: Determine the gravimetric energy density advantage: $q_{\\text{H}_2} - q_{\\text{CH}_4} = 143.0 - 56.0 = 87\\text{ kJ g}^{-1}$. Therefore, the required integer is 87."
+    },
+    {
+      "id": "hyd_c01_016",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Molecular dihydrogen exists in two nuclear spin isomeric forms: ortho-hydrogen and para-hydrogen. Which statement regarding their nuclear spin states, rotational energy levels, and temperature-dependent interconversion is CORRECT?",
+      "options": [
+        "A) Ortho-hydrogen has nuclear spin $I_{\\text{tot}} = 1$ (triplet state) and occupies odd rotational levels ($J = 1, 3, ...$), reaching a maximum equilibrium abundance of $75\\%$ at room temperature.",
+        "B) Para-hydrogen has nuclear spin $I_{\\text{tot}} = 1$ and occupies even rotational levels ($J = 0, 2, ...$), dominating the equilibrium mixture at temperatures above $300\\text{ K}$.",
+        "C) At absolute zero ($0\\text{ K}$), equilibrium hydrogen consists of $100\\%$ ortho-hydrogen because it possesses lower zero-point rotational energy.",
+        "D) At high temperatures ($T \\ge 300\\text{ K}$), the equilibrium ratio of ortho- to para-hydrogen converges to $1:1$ due to equal spin state degeneracies."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Proton has nuclear spin $I = 1/2$. In dihydrogen, vector addition of nuclear spins yields two states: ortho-hydrogen with symmetric nuclear spin function ($I_{\\text{tot}} = 1$, triplet, spin degeneracy $2I+1 = 3$) and para-hydrogen with antisymmetric nuclear spin function ($I_{\\text{tot}} = 0$, singlet, spin degeneracy $2I+1 = 1$). Step 2: The Pauli exclusion principle mandates that the total molecular wavefunction must be antisymmetric with respect to proton exchange. Therefore, ortho-hydrogen must combine with antisymmetric (odd $J = 1, 3, 5, ...$) rotational wavefunctions, while para-hydrogen combines with symmetric (even $J = 0, 2, 4, ...$) rotational states. Step 3: At $0\\text{ K}$, all molecules settle into the lowest available rotational state $J = 0$, making equilibrium hydrogen $100\\%$ para. At room temperature ($T \\ge 300\\text{ K}$), high rotational states are populated, and the equilibrium ortho : para ratio is determined solely by the nuclear spin degeneracy ratio $3:1$ ($75\\%$ ortho, $25\\%$ para). Inverting the spin assignments leads to incorrect conclusions, while assuming high temperature equimolar mixing ignores nuclear spin degeneracy."
+    },
+    {
+      "id": "hyd_c01_017",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Considering a carbon-hydrogen bond as a simple harmonic oscillator with force constant $k$, the fundamental stretching frequency is $\\nu = \\frac{1}{2\\pi}\\sqrt{\\frac{k}{\\mu}}$. Given atomic masses of $^{12}\\text{C} = 12$, $^{1}\\text{H} = 1$, and $^{2}\\text{H} = 2$, which option correctly gives the ratio $\\nu_{\\text{C}-\\text{H}} / \\nu_{\\text{C}-\\text{D}}$ and accounts for the primary kinetic isotope effect?",
+      "options": [
+        "A) $\\sqrt{2/1} \\approx 1.41$; dihydrogen forms a weaker chemical bond due to higher bond polarizability.",
+        "B) $\\sqrt{7/13} \\approx 0.73$; deuterium has lower electronegativity than protium, strengthening the bond.",
+        "C) $\\sqrt{13/7} \\approx 1.36$; the higher zero-point vibrational energy of $\\text{C}-\\text{H}$ lowers its activation energy barrier for bond cleavage compared to $\\text{C}-\\text{D}$.",
+        "D) $2.00$; the activation energy barrier is halved because deuterium has twice the atomic mass of protium."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate the reduced mass for each bond: $\\mu_{\\text{C}-\\text{H}} = \\frac{12 \\times 1}{12 + 1} = \\frac{12}{13}\\text{ amu}$, and $\\mu_{\\text{C}-\\text{D}} = \\frac{12 \\times 2}{12 + 2} = \\frac{24}{14} = \\frac{12}{7}\\text{ amu}$. Step 2: Since the electronic structure and force constant $k$ are identical for both isotopes, the frequency ratio is $\\frac{\\nu_{\\text{C}-\\text{H}}}{\\nu_{\\text{C}-\\text{D}}} = \\sqrt{\\frac{\\mu_{\\text{C}-\\text{D}}}{\\mu_{\\text{C}-\\text{H}}}} = \\sqrt{\\frac{12/7}{12/13}} = \\sqrt{\\frac{13}{7}} \\approx 1.36$. Step 3: Zero-point energy is $E_0 = \\frac{1}{2}h\\nu$. Because $\\nu_{\\text{C}-\\text{H}} > \\nu_{\\text{C}-\\text{D}}$, the $\\text{C}-\\text{H}$ bond starts from a higher energy ground state in the potential well. The activation energy required to reach the transition state is therefore lower for $\\text{C}-\\text{H}$ than for $\\text{C}-\\text{D}$, resulting in a faster rate of reaction ($k_{\\text{H}}/k_{\\text{D}} > 1$). Assuming the carbon atom has infinite mass yields the distractor $\\sqrt{2} \\approx 1.41$, while an inverted mass ratio yields $0.73$."
+    },
+    {
+      "id": "hyd_c01_018",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Palladium forms a non-stoichiometric interstitial hydride of composition $\\text{PdH}_{0.70}$. Palladium metal maintains its face-centered cubic ($fcc$) lattice ($Z = 4\\text{ Pd atoms per unit cell}$) upon hydrogen uptake. If all the absorbed hydrogen atoms occupy octahedral interstitial voids within the $fcc$ palladium lattice, what percentage of the available octahedral interstitial voids are occupied by hydrogen?",
+      "options": [],
+      "answer": "70",
+      "explanation": "Step 1: In an $fcc$ crystal lattice containing $Z = 4$ lattice atoms per unit cell, the total number of octahedral interstitial voids is equal to $Z$, which is $4$ octahedral voids per unit cell. Step 2: The chemical formula $\\text{PdH}_{0.70}$ indicates that for every $1.00\\text{ mole of Pd}$, there are $0.70\\text{ moles of H}$ atoms located in octahedral interstices. Step 3: Fraction of occupied octahedral voids $= \\frac{0.70}{1.00} = 0.70$. Step 4: Expressing this as a percentage: $0.70 \\times 100\\% = 70\\%$. Therefore, the required integer value is 70."
+    },
+    {
+      "id": "hyd_c01_019",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The physical properties of the isotopes of dihydrogen ($\\text{H}_2$, $\\text{D}_2$, and $\\text{T}_2$) display clear isotopic trends. Which option correctly reflects the increasing order of both standard bond dissociation enthalpy and normal boiling point across these molecular species?",
+      "options": [
+        "A) Bond dissociation enthalpy: $\\text{T}_2 < \\text{D}_2 < \\text{H}_2$; Boiling point: $\\text{H}_2 < \\text{D}_2 < \\text{T}_2$",
+        "B) Bond dissociation enthalpy: $\\text{H}_2 < \\text{T}_2 < \\text{D}_2$; Boiling point: $\\text{T}_2 < \\text{D}_2 < \\text{H}_2$",
+        "C) Bond dissociation enthalpy: $\\text{D}_2 < \\text{H}_2 < \\text{T}_2$; Boiling point: $\\text{H}_2 < \\text{T}_2 < \\text{D}_2$",
+        "D) Bond dissociation enthalpy: $\\text{H}_2 < \\text{D}_2 < \\text{T}_2$; Boiling point: $\\text{H}_2 < \\text{D}_2 < \\text{T}_2$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Zero-point vibrational energy is given by $E_0 = \\frac{1}{2}h\\nu \\propto \\frac{1}{\\sqrt{\\mu}}$. As isotopic mass increases, the reduced mass increases: $\\mu_{\\text{H}_2} < \\mu_{\\text{D}_2} < \\mu_{\\text{T}_2}$, so zero-point energy follows $E_0(\\text{H}_2) > E_0(\\text{D}_2) > E_0(\\text{T}_2)$. Step 2: Since all three isotopes share identical electronic potential energy surfaces, the lower zero-point energy of heavier isotopes requires more energy to reach the dissociation limit. Thus, bond dissociation enthalpy increases in the sequence $\\text{H}_2 (435.9\\text{ kJ mol}^{-1}) < \\text{D}_2 (443.4\\text{ kJ mol}^{-1}) < \\text{T}_2 (446.9\\text{ kJ mol}^{-1})$. Step 3: Heavier molecules have slightly stronger dispersion interactions and lower thermal velocity, raising the boiling points: $\\text{H}_2 (20.39\\text{ K}) < \\text{D}_2 (23.67\\text{ K}) < \\text{T}_2 (25.0\\text{ K})$. Assuming heavier isotopes have weaker bonds due to mass inertia gives the erroneous inverted trend."
+    },
+    {
+      "id": "hyd_c01_020",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Alkali metal hydrides (saline hydrides) exhibit pronounced variations in thermal stability and synthetic utility. Which statement regarding their stability order and synthetic reaction with aluminium chloride to prepare lithium aluminium hydride is CORRECT?",
+      "options": [
+        "A) Thermal stability follows $\\text{CsH} > \\text{RbH} > \\text{KH} > \\text{NaH} > \\text{LiH}$, and $\\text{CsH}$ is preferred industrially to prepare complex hydrides.",
+        "B) Thermal stability follows $\\text{LiH} > \\text{NaH} > \\text{KH} > \\text{RbH} > \\text{CsH}$, and $\\text{LiH}$ reacts with $\\text{Al}_2\\text{Cl}_6$ in dry ether according to $8\\text{LiH} + \\text{Al}_2\\text{Cl}_6 \\to 2\\text{LiAlH}_4 + 6\\text{LiCl}$.",
+        "C) All saline hydrides are covalent liquids that decompose spontaneously at room temperature into alkali metal and hydrogen gas.",
+        "D) Saline hydrides react with proton donors such as water without releasing hydrogen gas, forming metal oxides exclusively."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The lattice energy of ionic hydrides ($U \\propto \\frac{1}{r_+ + r_-}$) decreases as the alkali metal cation size increases from $\\text{Li}^+$ to $\\text{Cs}^+$. Consequently, thermal stability decreases in the order $\\text{LiH} > \\text{NaH} > \\text{KH} > \\text{RbH} > \\text{CsH}$ ($\\text{LiH}$ is stable up to $\\approx 900\\text{ K}$, whereas $\\text{CsH}$ decomposes at much lower temperatures). Step 2: Due to its unique stability and high covalent character upon reaction in aprotic solvents, $\\text{LiH}$ reacts with dimeric aluminium chloride in anhydrous diethyl ether to form lithium aluminium hydride: $8\\text{LiH} + \\text{Al}_2\\text{Cl}_6 \\to 2\\text{LiAlH}_4 + 6\\text{LiCl}$. Inverting the lattice energy stability order leads to option A, while misrepresenting the ionic lattice as covalent leads to option C."
+    },
+    {
+      "id": "hyd_c01_021",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The conversion of ortho-hydrogen to para-hydrogen at low temperatures is spin-forbidden and proceeds very slowly in the gas phase. However, it is rapidly catalyzed by contact with paramagnetic substances such as iron(III) oxide ($\\text{Fe}_2\\text{O}_3$). How many unpaired electrons are present in the ground state of the high-spin iron(III) cation responsible for this catalytic magnetic gradient?",
+      "options": [],
+      "answer": "5",
+      "explanation": "Step 1: The electron configuration of neutral iron ($Z = 26$) is $[\\text{Ar}] 3d^6 4s^2$. Step 2: Formation of the $\\text{Fe}^{3+}$ cation involves removal of the two $4s$ electrons and one $3d$ electron, giving the configuration $[\\text{Ar}] 3d^5$. Step 3: In a high-spin octahedral oxide environment (as in $\\text{Fe}_2\\text{O}_3$), oxide is a weak field ligand, resulting in the high-spin configuration $t_{2g}^3 e_g^2$. According to Hund's rule, all five $3d$ electrons occupy separate orbitals with parallel spins. Step 4: Thus, the number of unpaired electrons is exactly 5. This strong local paramagnetic field gradient breaks the nuclear spin selection rule, facilitating fast ortho-to-para conversion."
+    },
+    {
+      "id": "hyd_c01_022",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Intermetallic alloys such as $\\text{LaNi}_5$ are widely investigated for solid-state hydrogen storage due to their ability to reversibly absorb dihydrogen to form metal-hydride phases such as $\\text{LaNi}_5\\text{H}_6$. Which of the following statements concerning hydrogen storage in $\\text{LaNi}_5\\text{H}_6$ is CORRECT?",
+      "options": [
+        "A) The volumetric density of hydrogen stored in $\\text{LaNi}_5\\text{H}_6$ exceeds the volumetric density of pure liquid hydrogen at its normal boiling point ($20\\text{ K}$).",
+        "B) Desorption of dihydrogen from $\\text{LaNi}_5\\text{H}_6$ is completely irreversible and requires destructive smelting of the alloy above $1200^\\circ\\text{C}$.",
+        "C) $\\text{LaNi}_5\\text{H}_6$ stores hydrogen by chemical oxidation of nickel to nickel(IV) oxide accompanied by water expulsion.",
+        "D) The gravimetric capacity (weight percentage of hydrogen) of $\\text{LaNi}_5\\text{H}_6$ is higher than that of light metal hydrides such as $\\text{LiBH}_4$."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Liquid hydrogen at $20\\text{ K}$ has a density of approximately $71\\text{ g L}^{-1}$. In $\\text{LaNi}_5\\text{H}_6$ (density $\\approx 8.25\\text{ g cm}^{-3}$, molar mass $\\approx 438.5\\text{ g mol}^{-1}$), $1\\text{ L}$ contains about $8250\\text{ g}$ of the hydride, which incorporates $6\\text{ moles of H}$ per mole of alloy. Step 2: Mass of hydrogen stored per litre $= \\frac{8250}{438.5} \\times 6 \\times 1.008 \\approx 113.6\\text{ g L}^{-1}$, which remarkably surpasses liquid hydrogen ($71\\text{ g L}^{-1}$) and compressed gas at $200\\text{ bar}$ ($15\\text{ g L}^{-1}$). Step 3: The process is fully reversible at moderate temperatures and pressures ($1-2\\text{ atm}$ at $25^\\circ\\text{C}$). However, because $\\text{La}$ and $\\text{Ni}$ are heavy elements, the gravimetric capacity is modest (only $\\approx 1.4\\text{ wt}\\%$), far lower than $\\text{LiBH}_4$ ($18.5\\text{ wt}\\%$). Confusing gravimetric with volumetric density leads to option D."
+    },
+    {
+      "id": "hyd_c01_023",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the periodic table, the transition elements exhibit distinctive trends in hydride formation, including the phenomenon termed the 'hydride gap'. Which group(s) of transition metals constitute this hydride gap, and what is the electrical conductivity behavior of the interstitial hydrides formed by Groups 3, 4, and 5?",
+      "options": [
+        "A) Groups 3, 4, and 5 form no hydrides, and all transition metal hydrides are perfect electrical insulators.",
+        "B) Groups 11 and 12 constitute the hydride gap, and their hydrides conduct electricity via mobile proton jumping.",
+        "C) Groups 7, 8, and 9 constitute the hydride gap, and the interstitial hydrides of Groups 3, 4, and 5 conduct electricity, though generally less than the parent metals.",
+        "D) Group 6 is the only group that completely fails to form any hydride under any known experimental conditions."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The transition metals of Groups 7, 8, and 9 (such as $\\text{Mn}$, $\\text{Fe}$, $\\text{Co}$, $\\text{Ru}$, $\\text{Rh}$) do not form hydrides under standard conditions, creating a well-known discontinuity known as the 'hydride gap'. In Group 6, chromium is the solitary element that forms a hydride ($\\text{CrH}$). Step 2: The metallic/interstitial hydrides of Groups 3, 4, and 5 (such as $\\text{ScH}_2$, $\\text{TiH}_{1.7}$, $\\text{VH}_{0.56}$) retain metallic bonding characteristics and exhibit electrical and thermal conductivity, although electron scattering by interstitial hydrogen slightly lowers conductivity relative to the pure parent metal. Claiming all metal hydrides are insulators confuses interstitial hydrides with stoichiometric saline hydrides."
+    },
+    {
+      "id": "hyd_c01_024",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In the multi-stage electrolytic enrichment of heavy water from natural water, the electrolytic separation factor across cathode discharge is defined as $\\alpha = \\frac{k_{\\text{H}}}{k_{\\text{D}}}$, representing the ratio of specific rate constants for the evolution of $\\text{H}_2$ versus $\\text{D}_2$. Under standard alkaline conditions on a polished nickel cathode, $\\alpha = 6.0$. Determine the numerical value of $\\alpha^2$.",
+      "options": [],
+      "answer": "36",
+      "explanation": "Step 1: Due to the lower activation energy of protium ion reduction resulting from zero-point energy differences, protium ions discharge significantly faster than deuterons at the cathode. Step 2: The separation factor is $\\alpha = \\frac{k_{\\text{H}}}{k_{\\text{D}}} = 6.0$. Step 3: Squaring this value gives $\\alpha^2 = (6.0)^2 = 36$. Therefore, the required integer value is 36."
+    },
+    {
+      "id": "hyd_c01_025",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Covalent hydrides of $p$-block elements are systematically classified into electron-deficient, electron-precise, and electron-rich hydrides. Which of the following options correctly categorizes diborane ($\\text{B}_2\\text{H}_6$), methane ($\\text{CH}_4$), and ammonia ($\\text{NH}_3$), along with their characteristic Lewis acid-base properties?",
+      "options": [
+        "A) $\\text{B}_2\\text{H}_6$: Electron-precise (Lewis neutral); $\\text{CH}_4$: Electron-deficient (Lewis acid); $\\text{NH}_3$: Electron-rich (Lewis base)",
+        "B) $\\text{B}_2\\text{H}_6$: Electron-rich (Lewis base); $\\text{CH}_4$: Electron-precise (Lewis neutral); $\\text{NH}_3$: Electron-deficient (Lewis acid)",
+        "C) $\\text{B}_2\\text{H}_6$: Electron-deficient (Lewis base); $\\text{CH}_4$: Electron-rich (Lewis acid); $\\text{NH}_3$: Electron-precise (Lewis neutral)",
+        "D) $\\text{B}_2\\text{H}_6$: Electron-deficient (Lewis acid); $\\text{CH}_4$: Electron-precise (Lewis neutral); $\\text{NH}_3$: Electron-rich (Lewis base)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Group 13 hydrides like $\\text{B}_2\\text{H}_6$ have fewer valence electrons than required for conventional octet two-center two-electron bonds ($12$ valence electrons for $8$ bonds), making them electron-deficient and strong Lewis acids (electron pair acceptors). Step 2: Group 14 hydrides like $\\text{CH}_4$ have the exact number of valence electrons to form four shared electron pairs with complete octets, making them electron-precise with negligible Lewis acidity or basicity. Step 3: Groups 15-17 hydrides like $\\text{NH}_3$ contain non-bonding lone pairs, classifying them as electron-rich species that function as Lewis bases (electron pair donors). Misclassifying electron-deficient species as Lewis bases violates fundamental coordination principles."
+    },
+    {
+      "id": "hyd_c01_026",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Heavy water ($\\text{D}_2\\text{O}$) undergoes solvolysis with ionic nitrides such as magnesium nitride ($\\text{Mg}_3\\text{N}_2$). Which of the following statements regarding the product of this solvolysis and the comparative auto-ionization constant of $\\text{D}_2\\text{O}$ versus $\\text{H}_2\\text{O}$ at $298\\text{ K}$ is CORRECT?",
+      "options": [
+        "A) Complete reaction of $\\text{Mg}_3\\text{N}_2$ with $\\text{D}_2\\text{O}$ yields deuterated ammonia ($\\text{ND}_3$), and $\\text{D}_2\\text{O}$ has a smaller auto-ionization constant than $\\text{H}_2\\text{O}$ at $298\\text{ K}$.",
+        "B) $\\text{Mg}_3\\text{N}_2$ reacts with $\\text{D}_2\\text{O}$ to release elemental dinitrogen and dideuterium gases quantitatively.",
+        "C) $\\text{D}_2\\text{O}$ has a larger auto-ionization constant than $\\text{H}_2\\text{O}$ because deuterium forms weaker hydrogen bonds in liquid state.",
+        "D) The solvolysis product of $\\text{Mg}_3\\text{N}_2$ in $\\text{D}_2\\text{O}$ is hydroxylamine-d3 and magnesium hydride."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The solvolytic reaction of magnesium nitride with heavy water follows $\\text{Mg}_3\\text{N}_2 + 6\\text{D}_2\\text{O} \\to 3\\text{Mg(OD)}_2 + 2\\text{ND}_3$, producing deutero-ammonia. Step 2: At $298\\text{ K}$, the ionic auto-ionization product of heavy water is $K_w(\\text{D}_2\\text{O}) = [\\text{D}^+][\\text{OD}^-] \\approx 1.35 \\times 10^{-15}$, which is significantly smaller than that of normal water ($K_w(\\text{H}_2\\text{O}) = 1.00 \\times 10^{-14}$) because the $\\text{O}-\\text{D}$ covalent bond is stronger due to lower zero-point energy. Asserting that $\\text{D}_2\\text{O}$ is more ionized than $\\text{H}_2\\text{O}$ is conceptually incorrect."
+    },
+    {
+      "id": "hyd_c01_027",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The fundamental harmonic vibrational wave numbers of gaseous $\\text{H}_2$ and $\\text{D}_2$ are $\\tilde{\\nu}_{\\text{H}_2} = 4400\\text{ cm}^{-1}$ and $\\tilde{\\nu}_{\\text{D}_2} = 3111\\text{ cm}^{-1}$, respectively. Using the spectroscopic conversion factor $1.00\\text{ cm}^{-1} = 0.0120\\text{ kJ mol}^{-1}$, calculate the zero-point energy difference $\\Delta E_0 = E_0(\\text{H}_2) - E_0(\\text{D}_2)$ in $\\text{kJ mol}^{-1}$ rounded to the nearest integer.",
+      "options": [],
+      "answer": "8",
+      "explanation": "Step 1: The zero-point vibrational energy of a diatomic harmonic oscillator is $E_0 = \\frac{1}{2}hc\\tilde{\\nu}$. Step 2: The difference in zero-point vibrational energy per mole is $\\Delta E_0 = \\frac{1}{2}(\\tilde{\\nu}_{\\text{H}_2} - \\tilde{\\nu}_{\\text{D}_2}) \\times (0.0120\\text{ kJ mol}^{-1} \\text{cm})$. Step 3: $\\Delta\\tilde{\\nu} = 4400 - 3111 = 1289\\text{ cm}^{-1}$. Step 4: $\\Delta E_0 = \\frac{1}{2} \\times 1289 \\times 0.0120 = 7.734\\text{ kJ mol}^{-1}$. Rounding $7.734$ to the nearest integer yields 8."
+    },
+    {
+      "id": "hyd_c01_028",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Industrial synthesis gas ('syngas') is generated by steam reforming of natural gas and coal gasification. Which of the following statements comparing the stoichiometric $\\text{H}_2 : \\text{CO}$ ratio obtained from steam reforming of methane with the requirement for methanol synthesis is CORRECT?",
+      "options": [
+        "A) Steam reforming of methane produces syngas with an $\\text{H}_2 : \\text{CO}$ molar ratio of $1:1$, which matches the exact requirement for industrial hydrocarbon synthesis via the Fischer-Tropsch process.",
+        "B) Steam reforming of methane yields syngas with an $\\text{H}_2 : \\text{CO}$ ratio of $3:1$, whereas industrial methanol synthesis stoichiometrically consumes $\\text{CO} + 2\\text{H}_2 \\to \\text{CH}_3\\text{OH}$ (a $2:1$ ratio).",
+        "C) Coal gasification directly generates syngas with an $\\text{H}_2 : \\text{CO}$ ratio of $3:1$ without requiring any catalyst or steam.",
+        "D) The water gas shift reaction is used industrially to decrease the proportion of $\\text{H}_2$ by converting it into steam and carbon monoxide."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Steam reforming of methane follows $\\text{CH}_4 + \\text{H}_2\\text{O} \\xrightarrow{\\text{Ni, } 1270\\text{ K}} \\text{CO} + 3\\text{H}_2$, giving an $\\text{H}_2 : \\text{CO}$ molar ratio of $3:1$. Step 2: Industrial synthesis of methanol proceeds via $\\text{CO} + 2\\text{H}_2 \\xrightarrow{\\text{ZnO/Cr}_2\\text{O}_3} \\text{CH}_3\\text{OH}$, which requires an $\\text{H}_2 : \\text{CO}$ ratio of exactly $2:1$. Step 3: Coal gasification ($\\text{C} + \\text{H}_2\\text{O} \\to \\text{CO} + \\text{H}_2$) yields a $1:1$ ratio, which is enriched in hydrogen using the water gas shift reaction ($\\text{CO} + \\text{H}_2\\text{O} \\to \\text{CO}_2 + \\text{H}_2$). Misidentifying steam reforming stoichiometry as $1:1$ neglects the three moles of dihydrogen produced per mole of methane."
+    },
+    {
+      "id": "hyd_c01_029",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Beryllium hydride ($\\text{BeH}_2$) and magnesium hydride ($\\text{MgH}_2$) exhibit structural and bonding motifs distinct from the ionic hydrides of the heavier alkaline earth metals. Which of the following statements regarding the solid-state structure and bonding in $\\text{BeH}_2$ is CORRECT?",
+      "options": [
+        "A) Solid $\\text{BeH}_2$ consists of discrete linear monomers with $sp$ hybridized beryllium atoms held together only by weak London dispersion forces.",
+        "B) Solid $\\text{BeH}_2$ forms a rock-salt cubic crystal lattice composed of isolated $\\text{Be}^{2+}$ cations and $\\text{H}^-$ anions.",
+        "C) Solid $\\text{BeH}_2$ forms a polymeric network containing electron-deficient three-center two-electron ($3c-2e$) $\\text{Be}-\\text{H}-\\text{Be}$ bridging bonds.",
+        "D) Solid $\\text{BeH}_2$ decomposes explosively at room temperature because beryllium cannot expand its coordination sphere."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Due to the high ionization energy and small ionic radius of $\\text{Be}^{2+}$, $\\text{BeH}_2$ is predominantly covalent. Step 2: In the solid state, isolated monomeric $\\text{BeH}_2$ would have only 4 valence electrons around beryllium, leaving empty $2p$ orbitals. To alleviate electron deficiency, it polymerizes into $(\\text{BeH}_2)_n$ chains where each beryllium is tetrahedrally surrounded by four hydrogen atoms through multicenter $3c-2e$ $\\text{Be}-\\text{H}-\\text{Be}$ bridge bonds. Step 3: In contrast, heavier alkaline earth hydrides like $\\text{CaH}_2$ are ionic solids. Assuming $\\text{BeH}_2$ remains a monomer ignores the strong driving force to overcome valence electron deficiency."
+    },
+    {
+      "id": "hyd_c01_030",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "At $298\\text{ K}$, the auto-ionization product of heavy water is $pK_w(\\text{D}_2\\text{O}) = 14.88$ (where $K_w(\\text{D}_2\\text{O}) = [\\text{D}^+][\\text{OD}^-]$). For a sample of pure neutral heavy water at $298\\text{ K}$, calculate the value of $p\\text{D}$ (defined as $p\\text{D} = -\\log_{10}[\\text{D}^+]$) multiplied by $100$.",
+      "options": [],
+      "answer": "744",
+      "explanation": "Step 1: In pure neutral heavy water, stoichiometry demands that $[\\text{D}^+] = [\\text{OD}^-]$. Step 2: Substituting into the auto-ionization expression: $K_w(\\text{D}_2\\text{O}) = [\\text{D}^+]^2$. Taking the negative logarithm: $-\\log_{10} K_w(\\text{D}_2\\text{O}) = -2\\log_{10}[\\text{D}^+] \\implies pK_w(\\text{D}_2\\text{O}) = 2 p\\text{D}$. Step 3: Solving for $p\\text{D}$: $p\\text{D} = \\frac{pK_w(\\text{D}_2\\text{O})}{2} = \\frac{14.88}{2} = 7.44$. Step 4: Multiplying by $100$ gives $7.44 \\times 100 = 744$. Hence, the integer answer is 744."
+    },
+    {
+      "id": "hyd_c01_031",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Hydrogen peroxide displays dual redox behavior, capable of functioning as an oxidizing agent or a reducing agent in both acidic and basic solutions. Which of the following balanced reactions illustrates $\\text{H}_2\\text{O}_2$ acting as a REDUCING agent in an ALKALINE medium?",
+      "options": [
+        "A) $2\\text{Fe}^{2+} + \\text{H}_2\\text{O}_2 + 2\\text{H}^+ \\to 2\\text{Fe}^{3+} + 2\\text{H}_2\\text{O}$",
+        "B) $\\text{Mn}^{2+} + \\text{H}_2\\text{O}_2 + 2\\text{OH}^- \\to \\text{MnO}_2 + 2\\text{H}_2\\text{O}$",
+        "C) $2\\text{MnO}_4^- + 5\\text{H}_2\\text{O}_2 + 6\\text{H}^+ \\to 2\\text{Mn}^{2+} + 5\\text{O}_2 + 8\\text{H}_2\\text{O}$",
+        "D) $2[\\text{Fe(CN)}_6]^{3-} + \\text{H}_2\\text{O}_2 + 2\\text{OH}^- \\to 2[\\text{Fe(CN)}_6]^{4-} + 2\\text{H}_2\\text{O} + \\text{O}_2$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: When $\\text{H}_2\\text{O}_2$ acts as a reducing agent, the oxygen atoms are oxidised from oxidation state $-1$ to $0$, liberating $\\text{O}_2$ gas. Step 2: Reaction A shows $\\text{H}_2\\text{O}_2$ acting as an oxidant in acid (iron oxidised from $+2$ to $+3$). Reaction B shows $\\text{H}_2\\text{O}_2$ acting as an oxidant in alkali (manganese oxidised from $+2$ to $+4$). Reaction C shows $\\text{H}_2\\text{O}_2$ acting as a reducing agent, but in acidic medium. Step 3: In Reaction D, $[\\text{Fe(CN)}_6]^{3-}$ is reduced to $[\\text{Fe(CN)}_6]^{4-}$ (iron reduced from $+3$ to $+2$) while $\\text{H}_2\\text{O}_2$ is oxidised to $\\text{O}_2$ in the presence of $\\text{OH}^-$. Thus, D is the unique reaction representing reduction in alkaline medium."
+    },
+    {
+      "id": "hyd_c01_032",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Complex metal hydrides such as lithium aluminium hydride ($\\text{LiAlH}_4$) and sodium borohydride ($\\text{NaBH}_4$) differ markedly in their reducing selectivity and reactivity toward protic solvents. Which of the following statements provides the correct chemical rationale for these differences?",
+      "options": [
+        "A) $\\text{LiAlH}_4$ reduces carboxylic acids and esters whereas $\\text{NaBH}_4$ does not, because the $\\text{Al}-\\text{H}$ bond is longer, more polar, and weaker than the $\\text{B}-\\text{H}$ bond, imparting greater nucleophilic hydride character.",
+        "B) $\\text{NaBH}_4$ is violently decomposed by dry air while $\\text{LiAlH}_4$ is completely non-reactive toward liquid water.",
+        "C) The electronegativity of aluminium is higher than that of boron, causing the hydride in $\\text{LiAlH}_4$ to carry a partial positive charge.",
+        "D) Both $\\text{LiAlH}_4$ and $\\text{NaBH}_4$ reduce isolated carbon-carbon double bonds in unactivated alkenes rapidly at room temperature."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Aluminium has a lower electronegativity ($1.61$) than boron ($2.04$), which creates a larger electronegativity difference with hydrogen ($2.20$). Consequently, the $\\text{Al}-\\text{H}$ bond is more polarized ($\\text{Al}^{\\delta+} - \\text{H}^{\\delta-}$) and weaker (due to poorer $3p-1s$ overlap compared to $2p-1s$ in $\\text{B}-\\text{H}$). Step 2: This makes $[\\text{AlH}_4]^-$ a much more powerful nucleophilic hydride donor capable of reducing less electrophilic carbonyl compounds such as esters and carboxylic acids, whereas $[\\text{BH}_4]^-$ reduces only reactive aldehydes and ketones. Step 3: Furthermore, $\\text{LiAlH}_4$ hydrolyzes explosively in water to release dihydrogen, while $\\text{NaBH}_4$ hydrolyzes sluggishly and can be used in cold alkaline water or alcohol. Inverting the electronegativity trend or solvent reactivity leads to the distractors."
+    },
+    {
+      "id": "hyd_c01_033",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $10.0\\text{ mL}$ aliquot of an aqueous hydrogen peroxide solution is acidified with dilute sulphuric acid and treated with excess potassium iodide in the presence of ammonium molybdate catalyst. The liberated iodine requires exactly $20.0\\text{ mL}$ of $0.250\\text{ M } \\text{Na}_2\\text{S}_2\\text{O}_3$ solution for complete titration to the starch endpoint. Taking the molar volume of an ideal gas at STP as $22.4\\text{ L mol}^{-1}$, calculate the volume strength of the $\\text{H}_2\\text{O}_2$ solution multiplied by $10$.",
+      "options": [],
+      "answer": "28",
+      "explanation": "Step 1: The oxidation of iodide proceeds via $\\text{H}_2\\text{O}_2 + 2\\text{I}^- + 2\\text{H}^+ \\to \\text{I}_2 + 2\\text{H}_2\\text{O}$. Step 2: Titration of iodine with thiosulphate follows $\\text{I}_2 + 2\\text{S}_2\\text{O}_3^{2-} \\to 2\\text{I}^- + \\text{S}_4\\text{O}_6^{2-}$. Hence, $1\\text{ mol of } \\text{H}_2\\text{O}_2 \\equiv 1\\text{ mol of } \\text{I}_2 \\equiv 2\\text{ mol of } \\text{S}_2\\text{O}_3^{2-}$. Step 3: Millimoles of $\\text{Na}_2\\text{S}_2\\text{O}_3 = 20.0\\text{ mL} \\times 0.250\\text{ M} = 5.00\\text{ mmol}$. Millimoles of $\\text{H}_2\\text{O}_2 = \\frac{5.00}{2} = 2.50\\text{ mmol}$. Step 4: Molarity of $\\text{H}_2\\text{O}_2 = \\frac{2.50\\text{ mmol}}{10.0\\text{ mL}} = 0.250\\text{ M}$. Volume strength $= 0.250\\text{ M} \\times 11.2\\text{ L mol}^{-1} = 2.80\\text{ volume}$. Step 5: Multiplying by $10$ gives $2.80 \\times 10 = 28$. Hence, the integer answer is 28."
+    },
+    {
+      "id": "hyd_c01_034",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The structure of ordinary hexagonal ice (Ice Ih) and the anomalous thermal properties of water and heavy water are intimately linked to intermolecular hydrogen bonding. Which of the following statements regarding the coordination in ice and the density maximum of $\\text{D}_2\\text{O}$ is CORRECT?",
+      "options": [
+        "A) In hexagonal ice, each oxygen atom is octahedrally surrounded by six hydrogen-bonded water molecules, resulting in high close-packing density.",
+        "B) In hexagonal ice, each oxygen atom is tetrahedrally coordinated to four other oxygen atoms via hydrogen bonds, and heavy water ($\\text{D}_2\\text{O}$) reaches its maximum density at a higher temperature ($11.2^\\circ\\text{C}$) than normal water ($3.98^\\circ\\text{C}$).",
+        "C) Liquid $\\text{D}_2\\text{O}$ reaches its density maximum at $-3.8^\\circ\\text{C}$ because deuterium bonding is weaker than protium hydrogen bonding.",
+        "D) Ice Ih has a higher density than liquid water at $0^\\circ\\text{C}$ because the hydrogen bonds in liquid water force molecules farther apart."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In ordinary hexagonal ice (Ice Ih), each water molecule participates in four hydrogen bonds directed toward the vertices of a regular tetrahedron, giving an open cage-like framework with large hexagonal channels. Step 2: Upon melting, thermal energy collapses part of the open cage framework, allowing water molecules to enter interstitial spaces, which increases the density up to $3.98^\\circ\\text{C}$ ($277.13\\text{ K}$) for normal water. Step 3: For heavy water ($\\text{D}_2\\text{O}$), the zero-point energy of the $\\text{O}-\\text{D}\\cdots\\text{O}$ hydrogen bond is lower, making deuterium bonds stronger and more rigid. Consequently, more thermal energy is needed to collapse the ice-like structural clusters, shifting the density maximum upward to $11.2^\\circ\\text{C}$ ($284.35\\text{ K}$). Proposing octahedral coordination contradicts the fundamental $sp^3$ tetrahedral geometry of water."
+    },
+    {
+      "id": "hyd_c01_035",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When a molten mixture of lithium chloride and potassium chloride containing dissolved lithium hydride ($\\text{LiH}$) is subjected to electrolysis using inert electrodes, dihydrogen gas is liberated at one of the electrodes. Which statement correctly identifies the electrode of evolution and its chemical significance regarding the nature of hydrogen in saline hydrides?",
+      "options": [
+        "A) Dihydrogen gas is liberated at the cathode, demonstrating that hydrogen exists as a positively charged proton ($\\text{H}^+$).",
+        "B) Dihydrogen gas is liberated at the cathode because the alkali metal is preferentially oxidized at the anode.",
+        "C) Dihydrogen gas is liberated at the anode, confirming that hydrogen exists as the negatively charged hydride anion ($\\text{H}^-$).",
+        "D) Dihydrogen gas is evolved at both electrodes simultaneously because dihydrogen decomposes symmetrically in ionic melts."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Saline hydrides are true ionic salts containing alkali metal cations and hydride anions ($\\text{H}^-$). Step 2: During electrolysis of fused $\\text{LiH}$, lithium cations migrate to the cathode (reduction: $\\text{Li}^+ + e^- \\to \\text{Li}(l)$) while hydride anions migrate to the positively charged anode. Step 3: At the anode, oxidation occurs: $2\\text{H}^- \\to \\text{H}_2(g) + 2e^-$. The evolution of dihydrogen gas at the anode provides incontrovertible experimental evidence that hydrogen exists as an anion with an oxidation state of $-1$. Claiming cathode evolution contradicts Faraday's laws of electrolysis for anionic oxidation."
+    },
+    {
+      "id": "hyd_c01_036",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Hydrogen peroxide possesses a non-planar 'open-book' molecular structure that undergoes conformational and metric changes upon condensation from the gas phase to the crystalline solid state. Which of the following statements regarding its geometry and phase transition is/are CORRECT?",
+      "options": [
+        "A) The dihedral angle of $\\text{H}_2\\text{O}_2$ narrows from approximately $111.5^\\circ$ in the gas phase to approximately $90.2^\\circ$ in the crystalline solid phase due to the formation of intermolecular hydrogen bonds.",
+        "B) The $\\text{O}-\\text{O}$ bond distance in the crystalline solid phase ($1.458\\text{ \\AA}$) is shorter than that in the gas phase ($1.475\\text{ \\AA}$), while the $\\text{O}-\\text{H}$ bond distance elongates from $0.950\\text{ \\AA}$ to $0.988\\text{ \\AA}$.",
+        "C) The non-planar skew conformation in the gas phase arises fundamentally from electrostatic and Pauli repulsions between the non-bonding electron lone pairs on adjacent oxygen atoms.",
+        "D) In the gas phase, isolated $\\text{H}_2\\text{O}_2$ molecules adopt a strictly planar $trans$-geometry with a dihedral angle of $180.0^\\circ$ to minimize the net molecular dipole moment."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Gas-phase electron diffraction and spectroscopic measurements show that isolated $\\text{H}_2\\text{O}_2$ adopts a non-planar skew structure with dihedral angle $\\phi = 111.5^\\circ$, $\\text{O}-\\text{O} = 1.475\\text{ \\AA}$, $\\text{O}-\\text{H} = 0.950\\text{ \\AA}$, and $\\angle\\text{H}-\\text{O}-\\text{O} = 94.8^\\circ$. Step 2: In the crystalline phase, X-ray crystallography reveals that each molecule participates in four intermolecular hydrogen bonds, which compress the dihedral angle to $\\phi = 90.2^\\circ$, lengthen the $\\text{O}-\\text{H}$ bond to $0.988\\text{ \\AA}$, shorten the $\\text{O}-\\text{O}$ bond to $1.458\\text{ \\AA}$, and open the $\\angle\\text{H}-\\text{O}-\\text{O}$ angle to $101.9^\\circ$. Step 3: The skew non-planar conformation is dictated by mutual repulsion between the $sp^3$-like lone pairs on adjacent oxygen atoms, preventing planar alignment. Hence, statements A, B, and C are correct, while statement D is incorrect because the planar trans-conformation represents an energy saddle point rather than the equilibrium ground state."
+    },
+    {
+      "id": "hyd_c01_037",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Hydrogen peroxide participates in intricate inorganic redox pathways where it can act as either an electron donor (reducing agent) or an electron acceptor (oxidizing agent). Which of the following statements regarding its redox mechanisms and isotopic tracer behavior is/are CORRECT?",
+      "options": [
+        "A) When $^{18}\\text{O}$-enriched hydrogen peroxide ($\\text{H}_2^{18}\\text{O}_2$) reduces alkaline potassium ferricyanide according to $2[\\text{Fe(CN)}_6]^{3-} + \\text{H}_2\\text{O}_2 + 2\\text{OH}^- \\to 2[\\text{Fe(CN)}_6]^{4-} + 2\\text{H}_2\\text{O} + \\text{O}_2$, the evolved di-oxygen consists entirely of $^{18}\\text{O}_2$.",
+        "B) In alkaline solution, $\\text{H}_2\\text{O}_2$ reduces $[\\text{Fe(CN)}_6]^{3-}$ to $[\\text{Fe(CN)}_6]^{4-}$, with peroxide oxygen undergoing oxidation from an oxidation state of $-1$ to $0$.",
+        "C) When $\\text{H}_2\\text{O}_2$ oxidizes acidified potassium ferrocyanide according to $2[\\text{Fe(CN)}_6]^{4-} + \\text{H}_2\\text{O}_2 + 2\\text{H}^+ \\to 2[\\text{Fe(CN)}_6]^{3-} + 2\\text{H}_2\\text{O}$, oxygen acts as an oxidant and is reduced from $-1$ to $-2$.",
+        "D) The standard reduction potential of the $\\text{H}_2\\text{O}_2 / \\text{H}_2\\text{O}$ couple is completely independent of solution $\\text{pH}$ because hydroxide ions do not alter the chemical structure of peroxide."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Isotopic tracer experiments utilizing $^{18}\\text{O}$-labeled hydrogen peroxide demonstrate that when $\\text{H}_2\\text{O}_2$ functions as a reducing agent, the evolved $\\text{O}_2$ is derived exclusively from the peroxide moiety without cleavage of the original $\\text{O}-\\text{O}$ bond: $\\text{H}_2^{18}\\text{O}_2 \\to ^{18}\\text{O}_2 + 2\\text{H}^+ + 2e^-$. Thus, statement A is correct. Step 2: During the reduction of alkaline ferricyanide, the iron center is reduced from $+3$ to $+2$ while oxygen in $\\text{H}_2\\text{O}_2$ is oxidised from $-1$ to $0$, validating statement B. Step 3: In acidic solution, $\\text{H}_2\\text{O}_2$ oxidizes ferrocyanide ($[\\text{Fe(CN)}_6]^{4-}$ to $[\\text{Fe(CN)}_6]^{3-}$), with peroxide accepting two electrons to form water (oxidation state $-2$), making statement C correct. Step 4: The redox half-reaction $\\text{H}_2\\text{O}_2 + 2\\text{H}^+ + 2e^- \\to 2\\text{H}_2\\text{O}$ has a Nernst reduction potential $E = E^\\circ - \\frac{0.0591}{2}\\log\\frac{1}{[\\text{H}^+]^2} = E^\\circ - 0.0591\\,\\text{pH}$, proving that the oxidizing strength decreases markedly as $\\text{pH}$ increases. Therefore, statement D is false."
+    },
+    {
+      "id": "hyd_c01_038",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The quantum statistical mechanics of homonuclear diatomic molecules requires the overall molecular wavefunction to satisfy permutation symmetry. For molecular dihydrogen ($\\text{H}_2$) and its nuclear spin isomers, which of the following statements is/are CORRECT?",
+      "options": [
+        "A) Because the two protons are identical fermions with nuclear spin $I = 1/2$, the total molecular wavefunction must be antisymmetric with respect to the simultaneous exchange of both spatial and spin coordinates of the two protons.",
+        "B) The uncatalyzed storage of liquid normal hydrogen ($75\\%$ ortho, $25\\%$ para) at $20\\text{ K}$ leads to substantial boil-off because the exothermic ortho-to-para conversion enthalpy ($\\Delta H \\approx -1.45\\text{ kJ mol}^{-1}$) exceeds the latent heat of vaporization of dihydrogen ($\\Delta H_{\\text{vap}} \\approx 0.90\\text{ kJ mol}^{-1}$).",
+        "C) Para-hydrogen corresponds to the nuclear singlet state with total nuclear spin $I_{\\text{tot}} = 0$ (degeneracy $1$) and is paired with symmetric even rotational quantum states ($J = 0, 2, ...$).",
+        "D) Molecular dideuterium ($\\text{D}_2$) exhibits identical nuclear spin statistics to dihydrogen because deuterons also form an equilibrium mixture consisting of $75\\%$ ortho and $25\\%$ para isomers at room temperature."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Protons possess half-integer spin ($I = 1/2$) and obey Fermi-Dirac statistics, mandating that the total wavefunction $\\psi_{\\text{tot}} = \\psi_{\\text{elec}} \\psi_{\\text{vib}} \\psi_{\\text{rot}} \\psi_{\\text{nuc}}$ must be antisymmetric under permutation of the two protons. Since $\\psi_{\\text{elec}}$ and $\\psi_{\\text{vib}}$ are symmetric in the ground state, $\\psi_{\\text{rot}} \\psi_{\\text{nuc}}$ must be strictly antisymmetric, confirming statement A. Step 2: Para-hydrogen has an antisymmetric nuclear spin state ($I_{\\text{tot}} = 0$, degeneracy $1$) and even $J$ rotational states, making statement C correct. Step 3: Ortho-hydrogen resides at an excited rotational level ($J = 1$) relative to para-hydrogen ($J = 0$). In liquid storage at $20\\text{ K}$, the uncatalyzed nuclear spin relaxation ortho $\\to$ para releases $1.45\\text{ kJ mol}^{-1}$, which exceeds $\\Delta H_{\\text{vap}} \\approx 0.90\\text{ kJ mol}^{-1}$, triggering spontaneous boil-off of liquid dihydrogen, confirming statement B. Step 4: Statement D is false because deuterons have integer spin ($I = 1$) and are bosons obeying Bose-Einstein statistics; their symmetric nuclear states have degeneracy $6$ (ortho) and antisymmetric states have degeneracy $3$ (para), resulting in a $2:1$ ($66.7\\%$ ortho, $33.3\\%$ para) high-temperature equilibrium ratio."
+    },
+    {
+      "id": "hyd_c01_039",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Heavy water ($\\text{D}_2\\text{O}$) exhibits pronounced macroscopic and microscopic deviations from light water ($\\text{H}_2\\text{O}$), resulting in biological toxicity in higher organisms at elevated concentrations ($>50\\%$). Which of the following statements correctly rationalizes these differences based on isotope effects?",
+      "options": [
+        "A) Liquid $\\text{D}_2\\text{O}$ possesses higher dynamic viscosity ($1.25\\text{ cP}$ vs $1.00\\text{ cP}$ at $298\\text{ K}$) and a higher normal boiling point ($101.4^\\circ\\text{C}$ vs $100.0^\\circ\\text{C}$) because the $\\text{O}-\\text{D}\\cdots\\text{O}$ deuterium bond has lower zero-point energy and is stronger than the $\\text{O}-\\text{H}\\cdots\\text{O}$ hydrogen bond.",
+        "B) Heavy water causes mitotic arrest in dividing eukaryotic cells by stabilizing tubulin microtubules against dynamic depolymerization during mitotic spindle assembly.",
+        "C) Enzymatic biochemical reactions involving rate-limiting proton transfers are significantly decelerated in heavy water due to primary kinetic isotope effects ($k_{\\text{H}} / k_{\\text{D}} > 1$).",
+        "D) Heavy water has a significantly larger auto-ionization constant ($K_w$) and dielectric constant than normal water, causing intracellular hyper-acidification."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: The heavier mass of deuterium lowers the zero-point vibrational frequency of both covalent $\\text{O}-\\text{D}$ bonds and intermolecular $\\text{O}-\\text{D}\\cdots\\text{O}$ bridges. This lower zero-point energy increases the energy required to disrupt the hydrogen-bonding network, yielding higher melting point ($3.8^\\circ\\text{C}$), boiling point ($101.4^\\circ\\text{C}$), and viscosity ($1.25\\text{ cP}$), validating statement A. Step 2: In living cells, the stronger deuterium bonds excessively stabilize the polymeric structure of tubulin microtubules, inhibiting the dynamic instability required for chromosome segregation during mitosis, confirming statement B. Step 3: Cleavage of $\\text{C}-\\text{H}$ vs $\\text{C}-\\text{D}$ bonds in enzyme active sites exhibits substantial primary kinetic isotope effects ($k_{\\text{H}}/k_{\\text{D}} \\approx 2-8$), disrupting metabolic homeostasis, confirming statement C. Step 4: Statement D is incorrect because the auto-ionization constant of $\\text{D}_2\\text{O}$ ($1.35 \\times 10^{-15}$) and its dielectric constant ($78.06$) are both smaller than those of $\\text{H}_2\\text{O}$ ($1.00 \\times 10^{-14}$ and $78.54$, respectively)."
+    },
+    {
+      "id": "hyd_c01_040",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Transition metals in Groups 3, 4, and 5 absorb hydrogen gas reversibly or irreversibly to form interstitial (metallic) hydrides. Which of the following thermodynamic and structural statements concerning interstitial hydrides is/are CORRECT?",
+      "options": [
+        "A) The equilibrium solubility of hydrogen in dilute solid solution within the metal lattice obeys Sieverts' law ($c_{\\text{H}} = K_S \\sqrt{p_{\\text{H}_2}}$) because molecular dihydrogen dissociatively adsorbs into interstitial sites as atomic hydrogen.",
+        "B) The formation of interstitial hydrides causes an isotropic or anisotropic expansion of the host metal crystal lattice, resulting in a bulk density that is lower than that of the pure parent transition metal.",
+        "C) Interstitial hydrides preserve metallic electrical conductivity and luster, although electron scattering from interstitial hydrogen atoms causes their electrical resistivity to be slightly higher than that of the pure host metal.",
+        "D) The hydrogen atoms in interstitial hydrides are covalently bonded to four adjacent metal atoms in rigid, stoichiometric tetrahedral units that do not allow non-stoichiometric variation."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Dissolution of dihydrogen into metallic lattices proceeds by the dissociative adsorption equilibrium $\\frac{1}{2}\\text{H}_2(g) \\rightleftharpoons [\\text{H}]_{\\text{metal}}$. Applying the law of mass action yields $[\\text{H}] = K_S \\sqrt{p_{\\text{H}_2}}$, known as Sieverts' law, which validates statement A. Step 2: Uptake of hydrogen into octahedral or tetrahedral interstitial cavities forces the host metal cations slightly apart, expanding the unit cell volume and decreasing bulk density, confirming statement B. Step 3: Metallic character is preserved because electrons from hydrogen enter the conduction band of the transition metal; however, thermal and electrical conductivities are somewhat reduced due to conduction electron scattering off interstitial protons, validating statement C. Step 4: Statement D is false because interstitial hydrides are quintessential non-stoichiometric compounds (e.g. $\\text{TiH}_{1.73}$, $\\text{VH}_{0.56}$) where occupation of voids varies continuously with temperature and pressure."
+    },
+    {
+      "id": "hyd_c01_041",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Peroxodisulphuric acid ($\\text{H}_2\\text{S}_2\\text{O}_8$, Marshall's acid) and peroxomonosulphuric acid ($\\text{H}_2\\text{SO}_5$, Caro's acid) are important oxoacids of sulphur containing peroxy linkages. Which of the following statements regarding their molecular structures, oxidation states, and chemical reactivity is/are CORRECT?",
+      "options": [
+        "A) Both sulphur atoms in $\\text{H}_2\\text{S}_2\\text{O}_8$ possess an oxidation state of $+6$, and the molecule contains one peroxy link ($-\\text{O}-\\text{O}-$).",
+        "B) Controlled partial hydrolysis of peroxodisulphuric acid yields peroxomonosulphuric acid and sulphuric acid according to $\\text{H}_2\\text{S}_2\\text{O}_8 + \\text{H}_2\\text{O} \\to \\text{H}_2\\text{SO}_5 + \\text{H}_2\\text{SO}_4$.",
+        "C) The central sulphur atom in Caro's acid ($\\text{H}_2\\text{SO}_5$) has an oxidation state of $+8$ because five oxygen atoms are covalently bound to it.",
+        "D) Caro's acid is a powerful electrophilic oxidizing agent capable of oxidizing primary aromatic amines such as aniline cleanly to nitrosobenzene."
+      ],
+      "answer": "A,B,D",
+      "explanation": "Step 1: The structural formula of Marshall's acid is $\\text{HO}-\\text{SO}_2-\\text{O}-\\text{O}-\\text{SO}_2-\\text{OH}$. The two peroxy oxygen atoms have an oxidation state of $-1$ while the remaining six oxygen atoms are in the $-2$ oxidation state. Solving for sulphur: $2(+1) + 2(S) + 6(-2) + 2(-1) = 0 \\implies S = +6$. Thus, statement A is correct. Step 2: Stepwise hydrolysis of $\\text{H}_2\\text{S}_2\\text{O}_8$ first yields Caro's acid ($\\text{H}_2\\text{SO}_5 + \\text{H}_2\\text{SO}_4$), which on further hydrolysis generates $\\text{H}_2\\text{O}_2 + 2\\text{H}_2\\text{SO}_4$, confirming statement B. Step 3: In Caro's acid ($\\text{HO}-\\text{SO}_2-\\text{O}-\\text{OH}$), there are three oxo/hydroxy oxygens ($-2$) and two peroxy oxygens ($-1$). Setting up the oxidation equation: $2(+1) + S + 3(-2) + 2(-1) = 0 \\implies S = +6$. Assigning an oxidation state of $+8$ violates the valence octet limit of sulphur; hence statement C is false. Step 4: Caro's acid selectively oxidizes primary aromatic amines like $\\text{PhNH}_2$ to nitrosobenzene ($\\text{PhNO}$), confirming statement D."
+    },
+    {
+      "id": "hyd_c01_042",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Fenton's reagent, an aqueous mixture of ferrous iron and hydrogen peroxide ($\\text{Fe}^{2+} + \\text{H}_2\\text{O}_2$), is a benchmark advanced oxidation system used to destroy recalcitrant organic contaminants. Which of the following statements regarding the reaction mechanism and radical intermediates of Fenton's reagent is/are CORRECT?",
+      "options": [
+        "A) The initiation step consists of a one-electron transfer from $\\text{Fe}^{2+}$ to $\\text{H}_2\\text{O}_2$, cleaving the $\\text{O}-\\text{O}$ bond to generate $\\text{Fe}^{3+}$, a hydroxide ion, and a highly reactive hydroxyl radical ($\\cdot\\text{OH}$).",
+        "B) The propagation cycle includes the reaction of $\\text{Fe}^{3+}$ with $\\text{H}_2\\text{O}_2$, regenerating the catalytic $\\text{Fe}^{2+}$ ion alongside the formation of hydroperoxyl radicals ($\\cdot\\text{OOH}$).",
+        "C) The overall catalytic reaction represents the iron-catalyzed disproportionation of hydrogen peroxide into water and di-oxygen: $2\\text{H}_2\\text{O}_2 \\xrightarrow{\\text{Fe}^{2+}/\\text{Fe}^{3+}} 2\\text{H}_2\\text{O} + \\text{O}_2$.",
+        "D) Fenton's oxidation proceeds exclusively via two-electron hydride-ion transfer without producing any paramagnetic or free-radical species."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: The classic Fenton initiation step is $\\text{Fe}^{2+} + \\text{H}_2\\text{O}_2 \\to \\text{Fe}^{3+} + \\cdot\\text{OH} + \\text{OH}^-$. The generated hydroxyl radical ($\\cdot\\text{OH}$) has a standard reduction potential of $+2.80\\text{ V}$, making it one of the most powerful oxidants known, validating statement A. Step 2: The Haber-Weiss propagation sequence involves reduction of $\\text{Fe}^{3+}$ by $\\text{H}_2\\text{O}_2$: $\\text{Fe}^{3+} + \\text{H}_2\\text{O}_2 \\to \\text{Fe}^{2+} + \\cdot\\text{OOH} + \\text{H}^+$, regenerating $\\text{Fe}^{2+}$, validating statement B. Step 3: Coupling these radical cycles yields the net catalytic decomposition $2\\text{H}_2\\text{O}_2 \\to 2\\text{H}_2\\text{O} + \\text{O}_2$, confirming statement C. Step 4: Statement D is incorrect because the entire Fenton chemistry relies upon one-electron redox cascades generating transient free radicals ($\\cdot\\text{OH}$ and $\\cdot\\text{OOH}$)."
+    },
+    {
+      "id": "hyd_c01_043",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Diborane ($\\text{B}_2\\text{H}_6$) contains two distinct types of hydrogen atoms and undergoes characteristic symmetrical versus unsymmetrical cleavage reactions when treated with Lewis bases. Which of the following statements is/are CORRECT?",
+      "options": [
+        "A) Symmetrical cleavage of diborane occurs with bulky Lewis bases such as trimethylamine ($\\text{NMe}_3$), yielding two moles of the neutral monomeric Lewis adduct $\\text{Me}_3\\text{N}\\cdot\\text{BH}_3$.",
+        "B) Unsymmetrical cleavage of diborane occurs with small, hard Lewis bases such as ammonia ($\\text{NH}_3$) at low temperatures, producing the ionic coordination complex $[\\text{BH}_2(\\text{NH}_3)_2]^+[\\text{BH}_4]^-$.",
+        "C) Hydrolysis of diborane with water yields boric acid and dihydrogen gas ($\\text{B}_2\\text{H}_6 + 6\\text{H}_2\\text{O} \\to 2\\text{H}_3\\text{BO}_3 + 6\\text{H}_2$), in which hydridic hydrogen from borane combines with protic hydrogen from water.",
+        "D) In the diborane molecule, the bridging $\\text{B}-\\text{H}-\\text{B}$ bonds are conventional two-center two-electron ($2c-2e$) bonds, whereas the terminal $\\text{B}-\\text{H}$ bonds are three-center two-electron ($3c-2e$) bonds."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Sterically demanding or soft Lewis bases (such as $\\text{NMe}_3$, $\\text{CO}$, $\\text{THF}$) cleave diborane symmetrically across both bridging bonds: $\\text{B}_2\\text{H}_6 + 2\\text{L} \\to 2\\text{L}\\cdot\\text{BH}_3$, confirming statement A. Step 2: Small, non-bulky bases (such as $\\text{NH}_3$ and $\\text{MeNH}_2$) cleave diborane unsymmetrically to generate a cationic boron complex and a borohydride anion: $\\text{B}_2\\text{H}_6 + 2\\text{NH}_3 \\to [\\text{BH}_2(\\text{NH}_3)_2]^+[\\text{BH}_4]^-$, validating statement B. Step 3: Complete hydrolysis produces dihydrogen through redox comproportionation between hydridic $\\text{B}^{\\delta+}-\\text{H}^{\\delta-}$ hydrogens and protic $\\text{O}^{\\delta-}-\\text{H}^{\\delta+}$ hydrogens, confirming statement C. Step 4: Statement D is false because the bridging $\\text{B}-\\text{H}-\\text{B}$ bonds are electron-deficient three-center two-electron ($3c-2e$) bonds, while the four terminal $\\text{B}-\\text{H}$ bonds are conventional two-center two-electron ($2c-2e$) bonds."
+    },
+    {
+      "id": "hyd_c01_044",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "An aqueous solution containing $0.10\\text{ mol}$ of ferrous oxalate ($\\text{FeC}_2\\text{O}_4$) is acidified with dilute $\\text{H}_2\\text{SO}_4$ and titrated completely with hydrogen peroxide according to $2\\text{FeC}_2\\text{O}_4 + 3\\text{H}_2\\text{O}_2 + 6\\text{H}^+ \\to 2\\text{Fe}^{3+} + 4\\text{CO}_2 + 6\\text{H}_2\\text{O}$. If the exact amount of $\\text{H}_2\\text{O}_2$ consumed in this titration were instead subjected to catalytic decomposition into water and di-oxygen ($2\\text{H}_2\\text{O}_2 \\to 2\\text{H}_2\\text{O} + \\text{O}_2$), what volume of dry di-oxygen gas in $\\text{mL}$ would be evolved at STP (taking molar volume at STP as $22400\\text{ mL mol}^{-1}$)?",
+      "options": [],
+      "answer": "1680",
+      "explanation": "Step 1: In ferrous oxalate, both the ferrous cation and the oxalate anion are oxidised: $\\text{Fe}^{2+} \\to \\text{Fe}^{3+} + e^-$, and $\\text{C}_2\\text{O}_4^{2-} \\to 2\\text{CO}_2 + 2e^-$. Total moles of electrons released per mole of $\\text{FeC}_2\\text{O}_4$ is $1 + 2 = 3\\text{ mol } e^-$. Step 2: For $0.10\\text{ mol of } \\text{FeC}_2\\text{O}_4$, total electrons released $= 0.10 \\times 3 = 0.30\\text{ mol } e^-$. Reduction of $\\text{H}_2\\text{O}_2$ in acid requires $2e^-$ per molecule: $\\text{H}_2\\text{O}_2 + 2\\text{H}^+ + 2e^- \\to 2\\text{H}_2\\text{O}$. Moles of $\\text{H}_2\\text{O}_2$ consumed $= \\frac{0.30}{2} = 0.15\\text{ mol}$. Step 3: In the catalytic decomposition $2\\text{H}_2\\text{O}_2 \\to 2\\text{H}_2\\text{O} + \\text{O}_2$, each mole of $\\text{H}_2\\text{O}_2$ yields $0.5\\text{ mol of } \\text{O}_2$. Moles of $\\text{O}_2$ evolved $= \\frac{0.15}{2} = 0.075\\text{ mol}$. Step 4: Volume of $\\text{O}_2$ at STP $= 0.075\\text{ mol} \\times 22400\\text{ mL mol}^{-1} = 1680\\text{ mL}$. Therefore, the integer value is 1680."
+    },
+    {
+      "id": "hyd_c01_045",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "For the gas-phase isotopic exchange equilibrium $\\text{H}_2(g) + \\text{D}_2(g) \\rightleftharpoons 2\\text{HD}(g)$, the rotational symmetry numbers are $\\sigma_{\\text{H}_2} = 2$, $\\sigma_{\\text{D}_2} = 2$, and $\\sigma_{\\text{HD}} = 1$. In the high-temperature classical limit where vibrational and electronic partition functions become identical except for rotational symmetry factors, calculate the theoretical equilibrium constant $K_p$ for this reaction.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: The statistical mechanical equilibrium constant in terms of molecular partition functions $q_i$ is $K_p = \\frac{q_{\\text{HD}}^2}{q_{\\text{H}_2} q_{\\text{D}_2}}$. Step 2: At temperatures well above the rotational temperatures of the diatomics ($T \\gg \\theta_{\\text{rot}}$), the rotational partition function is $q_{\\text{rot}} = \\frac{T}{\\sigma \\theta_{\\text{rot}}}$, where $\\sigma$ is the rotational symmetry number. Step 3: In the classical limit where mass-dependent zero-point vibrational corrections become negligible compared to $k_B T$, the symmetry numbers dictate the ratio: $K_p \\to \\frac{(1/\\sigma_{\\text{HD}})^2}{(1/\\sigma_{\\text{H}_2})(1/\\sigma_{\\text{D}_2})}$. Step 4: Substituting $\\sigma_{\\text{H}_2} = 2$, $\\sigma_{\\text{D}_2} = 2$, and $\\sigma_{\\text{HD}} = 1$ yields $K_p = \\frac{(1/1)^2}{(1/2)(1/2)} = \\frac{1}{1/4} = 4$. Therefore, the integer value is 4."
+    },
+    {
+      "id": "hyd_c01_046",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A $25.0\\text{ mL}$ aliquot of an aqueous $\\text{H}_2\\text{O}_2$ solution requires $40.0\\text{ mL}$ of $0.050\\text{ M } \\text{Ce(SO}_4)_2$ in acidic solution for complete titration according to $2\\text{Ce}^{4+} + \\text{H}_2\\text{O}_2 \\to 2\\text{Ce}^{3+} + 2\\text{H}^+ + \\text{O}_2$. What mass of pure solid diarsenic trioxide ($\\text{As}_2\\text{O}_3$, molar mass $198.0\\text{ g mol}^{-1}$) can be completely oxidized in alkaline solution to arsenate ions ($\\text{AsO}_4^{3-}$) by a second $50.0\\text{ mL}$ aliquot of this same $\\text{H}_2\\text{O}_2$ solution according to $\\text{As}_2\\text{O}_3 + 2\\text{H}_2\\text{O}_2 + 4\\text{OH}^- \\to 2\\text{AsO}_4^{3-} + 2\\text{H}_2\\text{O}$?",
+      "options": [
+        "A) $198.0\\text{ mg}$",
+        "B) $396.0\\text{ mg}$",
+        "C) $99.0\\text{ mg}$",
+        "D) $49.5\\text{ mg}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: From the cerium(IV) titration, millimoles of $\\text{Ce}^{4+} = 40.0\\text{ mL} \\times 0.050\\text{ M} = 2.00\\text{ mmol}$. Since $2\\text{ mol of } \\text{Ce}^{4+}$ react with $1\\text{ mol of } \\text{H}_2\\text{O}_2$, millimoles of $\\text{H}_2\\text{O}_2$ in $25.0\\text{ mL} = 1.00\\text{ mmol}$. Step 2: The molarity of the $\\text{H}_2\\text{O}_2$ solution is $M = \\frac{1.00\\text{ mmol}}{25.0\\text{ mL}} = 0.040\\text{ M}$. Step 3: In a $50.0\\text{ mL}$ aliquot, millimoles of $\\text{H}_2\\text{O}_2 = 50.0\\text{ mL} \\times 0.040\\text{ M} = 2.00\\text{ mmol}$. Step 4: The oxidation of $\\text{As}_2\\text{O}_3$ consumes $2\\text{ moles of } \\text{H}_2\\text{O}_2$ per mole of $\\text{As}_2\\text{O}_3$. Thus, millimoles of $\\text{As}_2\\text{O}_3 = \\frac{2.00\\text{ mmol}}{2} = 1.00\\text{ mmol} = 1.00 \\times 10^{-3}\\text{ mol}$. Step 5: Required mass of $\\text{As}_2\\text{O}_3 = 1.00 \\times 10^{-3}\\text{ mol} \\times 198.0\\text{ g mol}^{-1} = 0.1980\\text{ g} = 198.0\\text{ mg}$. Forgetting the $2:1$ stoichiometry in the arsenic oxidation gives $396.0\\text{ mg}$, whereas misinterpreting the cerium ratio gives $99.0\\text{ mg}$."
+    },
+    {
+      "id": "hyd_c01_047",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The conformational energy profile of hydrogen peroxide as a function of the dihedral angle $\\phi$ reveals two distinct rotational barriers around the $\\text{O}-\\text{O}$ single bond. Which of the following options correctly identifies the relative heights of the $cis$- and $trans$-rotational barriers and explains their physical origin?",
+      "options": [
+        "A) The $trans$-barrier ($\\approx 29.3\\text{ kJ mol}^{-1}$) is significantly higher than the $cis$-barrier ($\\approx 4.6\\text{ kJ mol}^{-1}$) because the molecular dipole moment completely vanishes at the $trans$-planar geometry.",
+        "B) The $cis$-barrier ($\\approx 29.3\\text{ kJ mol}^{-1}$) is significantly higher than the $trans$-barrier ($\\approx 4.6\\text{ kJ mol}^{-1}$) due to simultaneous eclipsing repulsions between both the polar $\\text{O}-\\text{H}$ bond pairs and the adjacent oxygen lone pairs.",
+        "C) Both $cis$ and $trans$ barriers are identical ($12.5\\text{ kJ mol}^{-1}$) because the single $\\sigma$-bond connecting the two oxygen atoms possesses cylindrical electron density.",
+        "D) The minimum potential energy corresponds strictly to the planar $trans$-geometry ($\\phi = 180^\\circ$) because hyperconjugative interaction between lone pairs stabilizes planar conformations."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In the planar $cis$-geometry (dihedral angle $\\phi = 0^\\circ$), both the polar $\\text{O}-\\text{H}$ bonds and the oxygen lone pairs are fully eclipsed, causing maximal electrostatic and Pauli exchange repulsions. This results in a large rotational barrier of approximately $29.3\\text{ kJ mol}^{-1}$ ($7.0\\text{ kcal mol}^{-1}$). Step 2: In the planar $trans$-geometry ($\\phi = 180^\\circ$), the $\\text{O}-\\text{H}$ bonds are anti-periplanar, but adjacent oxygen lone pairs still experience partial repulsive interactions, leading to a much smaller rotational barrier of approximately $4.6\\text{ kJ mol}^{-1}$ ($1.1\\text{ kcal mol}^{-1}$). Step 3: The balance between lone pair-lone pair repulsions and bond pair-lone pair hyperconjugation stabilizes the non-planar skew ground state at $\\phi \\approx 111.5^\\circ$. Reversing the barrier heights contradicts fundamental electrostatic repulsion principles."
+    },
+    {
+      "id": "hyd_c01_048",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Tritium gas undergoes pure $\\beta^-$ decay to helium-3 according to $^3\\text{T} \\to ^3\\text{He} + e^- + \\bar{\\nu}_e$ with a radioactive half-life of $t_{1/2} = 12.30\\text{ years}$. A sealed rigid container is initially loaded with $12.0\\text{ g}$ of pure molecular tritium gas ($\\text{T}_2$, molar mass $6.0\\text{ g mol}^{-1}$) at $298\\text{ K}$. Assuming all generated helium-3 remains trapped in the gas phase as a monoatomic noble gas while un-decayed tritium remains as $\\text{T}_2$, what is the total number of moles of gas ($\\text{T}_2 + ^3\\text{He}$) present in the container after $24.60\\text{ years}$?",
+      "options": [
+        "A) $1.00\\text{ mol}$",
+        "B) $2.00\\text{ mol}$",
+        "C) $2.50\\text{ mol}$",
+        "D) $3.50\\text{ mol}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Calculate initial moles of $\\text{T}_2$: $n_0 = \\frac{12.0\\text{ g}}{6.0\\text{ g mol}^{-1}} = 2.00\\text{ mol of } \\text{T}_2$, corresponding to $4.00\\text{ mol of } ^3\\text{T}$ atoms. Step 2: The storage time is $t = 24.60\\text{ years}$, which corresponds to exactly $\\frac{24.60}{12.30} = 2\\text{ half-lives}$. The fraction of tritium atoms remaining is $(1/2)^2 = 1/4 = 0.25$. Step 3: Remaining tritium atoms $= 4.00 \\times 0.25 = 1.00\\text{ mol of } ^3\\text{T}$ atoms, which recombine to form $\\frac{1.00}{2} = 0.50\\text{ mol of } \\text{T}_2$ gas. Step 4: Number of decayed tritium atoms $= 4.00 - 1.00 = 3.00\\text{ mol}$. Each decayed atom produces one monoatomic $^3\\text{He}$ atom, giving $3.00\\text{ mol of } ^3\\text{He}$ gas. Step 5: Total gas moles $= n_{\\text{T}_2} + n_{\\text{He}} = 0.50 + 3.00 = 3.50\\text{ mol}$. Incorrectly treating helium as diatomic yields $0.50 + 1.50 = 2.00\\text{ mol}$, while ignoring decay leaves $1.00\\text{ mol}$."
+    },
+    {
+      "id": "hyd_c01_049",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The standard enthalpy of formation of solid sodium hydride is $\\Delta H_f^\\circ(\\text{NaH}, s) = -90.0\\text{ kJ mol}^{-1}$ and its standard entropy of formation is $\\Delta S_f^\\circ(\\text{NaH}, s) = -125.0\\text{ J K}^{-1} \\text{mol}^{-1}$ according to $\\text{Na}(s) + \\frac{1}{2}\\text{H}_2(g) \\to \\text{NaH}(s)$. Assuming $\\Delta H_f^\\circ$ and $\\Delta S_f^\\circ$ remain constant with temperature, determine the decomposition temperature $T_{\\text{dec}}$ at $1\\text{ atm}$ pressure above which sodium hydride becomes thermodynamically unstable with respect to decomposition into its elements.",
+      "options": [
+        "A) $360.0\\text{ K}$",
+        "B) $1440.0\\text{ K}$",
+        "C) $720.0\\text{ K}$",
+        "D) $576.0\\text{ K}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The thermodynamic criterion for stability is given by the standard Gibbs free energy of formation: $\\Delta G_f^\\circ = \\Delta H_f^\\circ - T\\Delta S_f^\\circ$. Step 2: At temperatures where $\\Delta G_f^\\circ < 0$, $\\text{NaH}(s)$ is thermodynamically stable against decomposition. Because dihydrogen gas is consumed, $\\Delta S_f^\\circ$ is negative, causing the $-T\\Delta S_f^\\circ$ term to become increasingly positive as temperature rises. Step 3: Decomposition occurs when $\\Delta G_f^\\circ = 0 \\implies T_{\\text{dec}} = \\frac{\\Delta H_f^\\circ}{\\Delta S_f^\\circ}$. Step 4: Substituting the values: $T_{\\text{dec}} = \\frac{-90000\\text{ J mol}^{-1}}{-125.0\\text{ J K}^{-1} \\text{mol}^{-1}} = 720.0\\text{ K}$ ($447^\\circ\\text{C}$). Above $720\\text{ K}$, $\\Delta G_f^\\circ > 0$, driving spontaneous decomposition. Forgetting to convert kilojoules to joules or inverting the ratio produces the incorrect distractor options."
+    },
+    {
+      "id": "hyd_c01_050",
+      "subject": "Chemistry",
+      "topic": "Hydrogen",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "The Zerewitinoff determination of active hydrogen utilizes methyl magnesium iodide in an inert high-boiling ether to react quantitatively with active protic hydrogens according to $R-\\text{OH} + \\text{CH}_3\\text{MgI} \\to R-\\text{OMgI} + \\text{CH}_4(g)$. A $0.460\\text{ g}$ sample of pure glycerol (propane-$1,2,3$-triol, $\\text{C}_3\\text{H}_8\\text{O}_3$, molar mass $92.0\\text{ g mol}^{-1}$) is completely reacted with excess methyl magnesium iodide. What volume of dry methane gas in $\\text{mL}$ is evolved at STP (taking the molar volume of an ideal gas at STP as $22400\\text{ mL mol}^{-1}$)?",
+      "options": [],
+      "answer": "336",
+      "explanation": "Step 1: Glycerol possesses three active alcoholic hydroxyl groups ($-OH$) per molecule: $\\text{C}_3\\text{H}_5(\\text{OH})_3 + 3\\text{CH}_3\\text{MgI} \\to \\text{C}_3\\text{H}_5(\\text{OMgI})_3 + 3\\text{CH}_4(g)$. Step 2: Calculate moles of glycerol reacted: $n = \\frac{0.460\\text{ g}}{92.0\\text{ g mol}^{-1}} = 0.00500\\text{ mol} = 5.00\\text{ mmol}$. Step 3: From the reaction stoichiometry, each mole of glycerol produces three moles of methane gas: $n_{\\text{CH}_4} = 3 \\times 0.00500\\text{ mol} = 0.0150\\text{ mol}$. Step 4: Volume of methane gas evolved at STP $= 0.0150\\text{ mol} \\times 22400\\text{ mL mol}^{-1} = 336\\text{ mL}$. Therefore, the required integer value is 336."
+    }
+  ]
+}

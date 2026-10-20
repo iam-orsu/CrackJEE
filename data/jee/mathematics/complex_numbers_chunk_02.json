@@ -1,0 +1,512 @@
+{
+  "chunkIndex": 2,
+  "subject": "Mathematics",
+  "topic": "Complex Numbers",
+  "totalQuestions": 32,
+  "questions": [
+    {
+      "id": "cn_c02_001",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $z$ be a complex number satisfying the circular disk inequality $|z - (3 + 2i)| \\le 2$. If $M$ and $m$ denote the maximum and minimum values of the distance $|z - (6 + 6i)|$, respectively, then the value of $M^2 + m^2$ is equal to:",
+      "options": [
+        "A) $58$",
+        "B) $50$",
+        "C) $54$",
+        "D) $62$"
+      ],
+      "answer": "A",
+      "explanation": "Geometrically, the inequality $|z - (3 + 2i)| \\le 2$ represents the region on and inside a circle centered at $z_0 = 3 + 2i$ with radius $R = 2$. We are required to find the maximum and minimum distances from the external point $w = 6 + 6i$ to any point $z$ in this disk. The distance between the center $z_0$ and the external point $w$ is calculated as $d = |w - z_0| = |(6 - 3) + i(6 - 2)| = |3 + 4i| = \\sqrt{3^2 + 4^2} = 5$. Since $d = 5 > R = 2$, the point $w$ lies strictly outside the circular disk. By triangle inequality, the minimum distance from $w$ to the disk is given by $m = d - R = 5 - 2 = 3$, and the maximum distance is given by $M = d + R = 5 + 2 = 7$. Hence, substituting these values into the required expression, we get $M^2 + m^2 = 7^2 + 3^2 = 49 + 9 = 58$. Therefore, option A is correct. The distractor 50 arises from neglecting the radius $2d^2 = 50$, whereas 54 and 62 arise from sign errors during the expansion of $(d+R)^2 + (d-R)^2$."
+    },
+    {
+      "id": "cn_c02_002",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $a, b, c$ be distinct non-zero real numbers and let $\\omega$ denote a non-real complex cube root of unity satisfying $1 + \\omega + \\omega^2 = 0$. If the expression $K$ is defined by $$K = \\left(\\frac{a + b\\omega + c\\omega^2}{c + a\\omega + b\\omega^2}\\right)^{2026} + \\left(\\frac{a + b\\omega + c\\omega^2}{b + c\\omega + a\\omega^2}\\right)^{2026}$$ then the value of $K$ is equal to:",
+      "options": [
+        "A) $-1$",
+        "B) $1$",
+        "C) $2$",
+        "D) $0$"
+      ],
+      "answer": "A",
+      "explanation": "To simplify the first rational fraction, consider multiplying the denominator by $\\omega^2$. Since $\\omega^3 = 1$, we observe that $\\omega^2(c + a\\omega + b\\omega^2) = c\\omega^2 + a\\omega^3 + b\\omega^4 = a + b\\omega + c\\omega^2$. Therefore, dividing the numerator by the denominator yields $\\frac{a + b\\omega + c\\omega^2}{c + a\\omega + b\\omega^2} = \\omega^2$. Similarly, for the second rational fraction, multiplying its denominator by $\\omega$ yields $\\omega(b + c\\omega + a\\omega^2) = b\\omega + c\\omega^2 + a\\omega^3 = a + b\\omega + c\\omega^2$. Hence, the second fraction simplifies to $\\frac{a + b\\omega + c\\omega^2}{b + c\\omega + a\\omega^2} = \\omega$. Substituting these reductions into the given expression yields $K = (\\omega^2)^{2026} + (\\omega)^{2026} = \\omega^{4052} + \\omega^{2026}$. Reducing the exponents modulo 3, we have $4052 = 3(1350) + 2 \\equiv 2 \\pmod 3$ and $2026 = 3(675) + 1 \\equiv 1 \\pmod 3$. Therefore, $K = \\omega^2 + \\omega$. Applying the fundamental identity $1 + \\omega + \\omega^2 = 0$, we get $\\omega^2 + \\omega = -1$. Hence, $K = -1$."
+    },
+    {
+      "id": "cn_c02_003",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $z = x + iy$ be a complex number satisfying the equation $|z - (1 + 2i)| = |z - (3 - 4i)|$. The locus of $z$ represents a straight line in the Argand plane which intersects the circle $|z| = 5$ at points $P$ and $Q$. The length of the chord $PQ$ is equal to:",
+      "options": [
+        "A) $3\\sqrt{10}$",
+        "B) $\\sqrt{45}$",
+        "C) $2\\sqrt{10}$",
+        "D) $3\\sqrt{5}$"
+      ],
+      "answer": "A",
+      "explanation": "The equation $|z - z_1| = |z - z_2|$ represents the perpendicular bisector of the line segment joining $z_1 = 1 + 2i$ and $z_2 = 3 - 4i$. Expanding the modulus square gives $(x - 1)^2 + (y - 2)^2 = (x - 3)^2 + (y + 4)^2$. Expanding both sides, we obtain $x^2 - 2x + 1 + y^2 - 4y + 4 = x^2 - 6x + 9 + y^2 + 8y + 16$. Cancelling $x^2 + y^2$ and combining like terms yields $-2x - 4y + 5 = -6x + 8y + 25$, which simplifies to $4x - 12y - 20 = 0$, or dividing by 4, $x - 3y - 5 = 0$. The circle $|z| = 5$ is centered at the origin $(0,0)$ with radius $R = 5$. The perpendicular distance from the center $(0,0)$ to the line $x - 3y - 5 = 0$ is $d = \\frac{|0 - 3(0) - 5|}{\\sqrt{1^2 + (-3)^2}} = \\frac{5}{\\sqrt{10}} = \\sqrt{\\frac{5}{2}}$. The length of the chord $PQ$ is given by $L = 2\\sqrt{R^2 - d^2} = 2\\sqrt{25 - \\frac{5}{2}} = 2\\sqrt{\\frac{45}{2}} = 2\\cdot \\frac{3\\sqrt{5}}{\\sqrt{2}} = 3\\sqrt{10}$. Distractor B corresponds to omitting the factor of 2, while D arises from an error in rationalizing the square root."
+    },
+    {
+      "id": "cn_c02_004",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $z$ be a complex number different from $-1 - i$ such that the ratio $\\frac{z - (1 + i)}{z + (1 + i)}$ is purely imaginary. If the distance from $z$ to the point $3 + 4i$ attains its minimum value $m$ and maximum value $M$, then the product $M \\cdot m$ is equal to:",
+      "options": [
+        "A) $23$",
+        "B) $25$",
+        "C) $21$",
+        "D) $27$"
+      ],
+      "answer": "A",
+      "explanation": "Let $z_1 = 1 + i$. The ratio $w = \\frac{z - z_1}{z + z_1}$ is purely imaginary if and only if $\\text{Re}(w) = 0$, which implies $w + \\bar{w} = 0$. Substituting the definition, we have $\\frac{z - z_1}{z + z_1} + \\frac{\\bar{z} - \\bar{z}_1}{\\bar{z} + \\bar{z}_1} = 0$. Cross-multiplying yields $(z - z_1)(\\bar{z} + \\bar{z}_1) + (z + z_1)(\\bar{z} - \\bar{z}_1) = 0$. Expanding both terms gives $|z|^2 + z\\bar{z}_1 - \\bar{z}z_1 - |z_1|^2 + |z|^2 - z\\bar{z}_1 + \\bar{z}z_1 - |z_1|^2 = 0$, which reduces to $2|z|^2 - 2|z_1|^2 = 0$, implying $|z| = |z_1|$. Since $|z_1| = |1 + i| = \\sqrt{1^2 + 1^2} = \\sqrt{2}$, the locus of $z$ is the circle centered at the origin with radius $r = \\sqrt{2}$ (excluding the isolated singularity $z = -1 - i$). The distance from the external point $z_0 = 3 + 4i$ to the origin is $|z_0| = \\sqrt{3^2 + 4^2} = 5$. Since $5 > \\sqrt{2}$, the minimum distance to the circle is $m = 5 - \\sqrt{2}$ and the maximum distance is $M = 5 + \\sqrt{2}$. Therefore, their product is $M \\cdot m = (5 + \\sqrt{2})(5 - \\sqrt{2}) = 25 - 2 = 23$."
+    },
+    {
+      "id": "cn_c02_005",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $S$ denote the set of all complex numbers $z$ satisfying the equation $z^2 + 2|z|^2 = 15 + 4\\sqrt{3}i$. If $N$ is the number of distinct elements in $S$ and $M$ is the maximum value of $|z|^2$ for $z \\in S$, then the value of $N + M$ is equal to:",
+      "options": [
+        "A) $17$",
+        "B) $15$",
+        "C) $11$",
+        "D) $19$"
+      ],
+      "answer": "A",
+      "explanation": "Let $z = x + iy$ with $x, y \\in \\mathbb{R}$. Then $z^2 = x^2 - y^2 + 2ixy$ and $|z|^2 = x^2 + y^2$. Substituting these into the given equation yields $(x^2 - y^2 + 2ixy) + 2(x^2 + y^2) = 15 + 4\\sqrt{3}i$, which simplifies to $3x^2 + y^2 + 2ixy = 15 + 4\\sqrt{3}i$. Equating real and imaginary parts gives: (1) $3x^2 + y^2 = 15$, and (2) $2xy = 4\\sqrt{3} \\implies y = \\frac{2\\sqrt{3}}{x}$. Substituting $y$ into equation (1) yields $3x^2 + \\frac{12}{x^2} = 15$. Letting $u = x^2 > 0$, we have $3u + \\frac{12}{u} = 15 \\implies 3u^2 - 15u + 12 = 0 \\implies u^2 - 5u + 4 = 0$. Solving this quadratic gives $(u - 1)(u - 4) = 0$, so $u = 1$ or $u = 4$. If $u = 4$, then $x = \\pm 2$, which gives $y = \\pm \\sqrt{3}$, leading to solutions $z = \\pm(2 + i\\sqrt{3})$ with $|z|^2 = 4 + 3 = 7$. If $u = 1$, then $x = \\pm 1$, which gives $y = \\pm 2\\sqrt{3}$, leading to solutions $z = \\pm(1 + 2i\\sqrt{3})$ with $|z|^2 = 1 + 12 = 13$. Thus, there are $N = 4$ distinct solutions in $S$, and the maximum value of $|z|^2$ is $M = 13$. Hence, $N + M = 4 + 13 = 17$."
+    },
+    {
+      "id": "cn_c02_006",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $z_1$ and $z_2$ be two non-zero complex numbers satisfying $|z_1 + z_2| = |z_1 - z_2|$ with $|z_1| = 3$ and $|z_2| = 4$. If $w = \\frac{z_1 + z_2}{z_1 - z_2}$, then the real part of $w$, denoted by $\\text{Re}(w)$, is equal to:",
+      "options": [
+        "A) $-\\frac{7}{25}$",
+        "B) $\\frac{7}{25}$",
+        "C) $-\\frac{1}{5}$",
+        "D) $0$"
+      ],
+      "answer": "A",
+      "explanation": "Squaring both sides of the condition $|z_1 + z_2| = |z_1 - z_2|$ gives $|z_1|^2 + |z_2|^2 + 2\\text{Re}(z_1\\bar{z}_2) = |z_1|^2 + |z_2|^2 - 2\\text{Re}(z_1\\bar{z}_2)$, which implies $4\\text{Re}(z_1\\bar{z}_2) = 0$. Therefore, $z_1\\bar{z}_2$ is purely imaginary, which implies that $\\frac{z_1}{z_2}$ is purely imaginary. Setting $\\frac{z_1}{z_2} = ik$ for some non-zero real number $k$, we have $|k| = \\left|\\frac{z_1}{z_2}\\right| = \\frac{|z_1|}{|z_2|} = \\frac{3}{4}$, so $k = \\pm \\frac{3}{4}$. Now we express $w$ in terms of this ratio: $w = \\frac{\\frac{z_1}{z_2} + 1}{\\frac{z_1}{z_2} - 1} = \\frac{1 + ik}{-1 + ik}$. Multiplying numerator and denominator by the conjugate $-1 - ik$, we obtain $w = \\frac{(1 + ik)(-1 - ik)}{(-1)^2 + k^2} = \\frac{-1 - ik - ik + k^2}{1 + k^2} = \\frac{(k^2 - 1) - 2ik}{1 + k^2}$. Thus, the real part is $\\text{Re}(w) = \\frac{k^2 - 1}{k^2 + 1}$. Substituting $k^2 = \\left(\\pm \\frac{3}{4}\\right)^2 = \\frac{9}{16}$, we get $\\text{Re}(w) = \\frac{\\frac{9}{16} - 1}{\\frac{9}{16} + 1} = \\frac{-\\frac{7}{16}}{\\frac{25}{16}} = -\\frac{7}{25}$."
+    },
+    {
+      "id": "cn_c02_007",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\alpha_k = e^{i 2k\\pi/7}$ for $k = 1, 2, \\dots, 6$ be the non-real seventh roots of unity. The value of the finite sum $S = \\sum_{k=1}^6 \\frac{1}{2 - \\alpha_k}$ is equal to:",
+      "options": [
+        "A) $\\frac{321}{127}$",
+        "B) $\\frac{448}{127}$",
+        "C) $\\frac{321}{128}$",
+        "D) $\\frac{194}{127}$"
+      ],
+      "answer": "A",
+      "explanation": "The numbers $\\alpha_1, \\alpha_2, \\dots, \\alpha_6$ are the six roots of the cyclotomic polynomial $P(x) = \\frac{x^7 - 1}{x - 1} = x^6 + x^5 + x^4 + x^3 + x^2 + x + 1$. Thus, we can factorize $P(x) = \\prod_{k=1}^6 (x - \\alpha_k)$. Taking the natural logarithm of both sides and differentiating with respect to $x$ yields the logarithmic derivative: $\\frac{P'(x)}{P(x)} = \\sum_{k=1}^6 \\frac{1}{x - \\alpha_k}$. From the identity $(x - 1)P(x) = x^7 - 1$, differentiating both sides gives $P(x) + (x - 1)P'(x) = 7x^6$. Evaluating this equation at $x = 2$, we first compute $P(2) = \\frac{2^7 - 1}{2 - 1} = 127$. Substituting $x = 2$ into the derivative identity gives $127 + (2 - 1)P'(2) = 7(2^6) = 7(64) = 448$. Solving for $P'(2)$, we get $P'(2) = 448 - 127 = 321$. Therefore, the required sum is $S = \\sum_{k=1}^6 \\frac{1}{2 - \\alpha_k} = \\frac{P'(2)}{P(2)} = \\frac{321}{127}$. Option B corresponds to omitting the subtraction of $P(2)$, while option C mistakenly uses $2^7 = 128$ in the denominator."
+    },
+    {
+      "id": "cn_c02_008",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $z_1, z_2, z_3$ be the vertices of an equilateral triangle inscribed in the circle $|z| = R$ with center at the origin, such that $z_1 + z_2 + z_3 = 0$. If $z_1 = \\sqrt{3} + i$, then the value of $z_1^3 + z_2^3 + z_3^3$ is equal to:",
+      "options": [
+        "A) $24i$",
+        "B) $0$",
+        "C) $-24i$",
+        "D) $8i$"
+      ],
+      "answer": "A",
+      "explanation": "First, express $z_1$ in polar form: $|z_1| = \\sqrt{(\\sqrt{3})^2 + 1^2} = 2$, and $\\arg(z_1) = \\arctan(1/\\sqrt{3}) = \\frac{\\pi}{6}$. Thus, $z_1 = 2e^{i\\pi/6}$. Its cube is $z_1^3 = (2e^{i\\pi/6})^3 = 8e^{i\\pi/2} = 8i$. Since the vertices form an equilateral triangle inscribed in a circle centered at the origin, the angles between consecutive vertices are $\\frac{2\\pi}{3}$. Therefore, $z_2 = z_1 e^{i 2\\pi/3} = z_1\\omega$ and $z_3 = z_1 e^{i 4\\pi/3} = z_1\\omega^2$, where $\\omega$ is a non-real cube root of unity. Cubing each vertex yields $z_2^3 = (z_1\\omega)^3 = z_1^3\\omega^3 = z_1^3 = 8i$, and similarly $z_3^3 = (z_1\\omega^2)^3 = z_1^3\\omega^6 = z_1^3 = 8i$. Summing all three cubes, we obtain $z_1^3 + z_2^3 + z_3^3 = 8i + 8i + 8i = 24i$. Distractor B is chosen by students who confuse $z_1^3 + z_2^3 + z_3^3$ with $z_1 + z_2 + z_3 = 0$ or $z_1^2 + z_2^2 + z_3^2 = 0$, while D corresponds to computing only a single term $z_1^3$."
+    },
+    {
+      "id": "cn_c02_009",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $\\omega = -\\frac{1}{2} + i\\frac{\\sqrt{3}}{2}$ be a non-real cube root of unity. If a sequence of real numbers is defined by $f(n) = \\omega^n + \\omega^{-n}$ for each positive integer $n$, evaluate the sum $\\sum_{n=1}^{100} [f(n)]^2$.",
+      "options": [],
+      "answer": "199",
+      "explanation": "Since $\\omega = e^{i 2\\pi/3}$, we can analyze $f(n) = \\omega^n + \\omega^{-n} = 2\\cos\\left(\\frac{2n\\pi}{3}\\right)$. For positive integers $n$, the value of $f(n)$ depends on the residue of $n$ modulo 3: (1) If $n \\equiv 0 \\pmod 3$, then $\\omega^n = 1$ and $\\omega^{-n} = 1$, so $f(n) = 1 + 1 = 2$, yielding $[f(n)]^2 = 2^2 = 4$. (2) If $n \\equiv 1 \\pmod 3$ or $n \\equiv 2 \\pmod 3$, then $\\omega^n + \\omega^{-n} = \\omega + \\omega^2 = -1$, yielding $[f(n)]^2 = (-1)^2 = 1$. Thus, the sequence $[f(n)]^2$ is periodic with period 3, having values $(1, 1, 4)$. The sum of each 3-element block is $1 + 1 + 4 = 6$. In the range from $n = 1$ to $n = 100$, there are $\\lfloor 100/3 \\rfloor = 33$ complete blocks of length 3, and one leftover term for $n = 100$. The sum of the 33 complete blocks is $33 \\times 6 = 198$. The 100th term has $n = 100 \\equiv 1 \\pmod 3$, which gives $[f(100)]^2 = 1$. Therefore, the total sum is $198 + 1 = 199$."
+    },
+    {
+      "id": "cn_c02_010",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $z$ be a complex number constrained to lie on the circle $|z| = 2$ in the Argand plane. If the maximum value attained by the sum $|z + 1| + |z - 1|$ is denoted by $M$, find the value of $M^2$.",
+      "options": [],
+      "answer": "20",
+      "explanation": "Let $z = 2(\\cos\\theta + i\\sin\\theta)$ with $\\theta \\in [0, 2\\pi)$. We compute the squared magnitudes of $z + 1$ and $z - 1$: $|z + 1|^2 = |2\\cos\\theta + 1 + 2i\\sin\\theta|^2 = (2\\cos\\theta + 1)^2 + 4\\sin^2\\theta = 4\\cos^2\\theta + 4\\cos\\theta + 1 + 4\\sin^2\\theta = 5 + 4\\cos\\theta$. Similarly, $|z - 1|^2 = (2\\cos\\theta - 1)^2 + 4\\sin^2\\theta = 5 - 4\\cos\\theta$. Let $S(\\theta) = |z + 1| + |z - 1| = \\sqrt{5 + 4\\cos\\theta} + \\sqrt{5 - 4\\cos\\theta}$. Squaring $S(\\theta)$ gives $S^2 = (5 + 4\\cos\\theta) + (5 - 4\\cos\\theta) + 2\\sqrt{(5 + 4\\cos\\theta)(5 - 4\\cos\\theta)} = 10 + 2\\sqrt{25 - 16\\cos^2\\theta}$. To maximize $S^2$, we must maximize the square root term, which occurs when $\\cos^2\\theta$ is minimized, i.e., when $\\cos^2\\theta = 0$ (which corresponds to $\\theta = \\frac{\\pi}{2}$ or $\\frac{3\\pi}{2}$, meaning $z = \\pm 2i$). At this point, the maximum value of the square is $S_{\\max}^2 = 10 + 2\\sqrt{25 - 0} = 10 + 2(5) = 20$. Therefore, the maximum value is $M = \\sqrt{20} = 2\\sqrt{5}$, and $M^2 = 20$."
+    },
+    {
+      "id": "cn_c02_011",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $A(z_1)$ and $B(z_2)$ be two given vertices of an equilateral triangle $ABC$ described in the counter-clockwise sense in the Argand plane. If $z_1 = 1 + 2i$ and $z_2 = 3 + 4i$, then the complex number $z_3$ representing the third vertex $C$ is equal to:",
+      "options": [
+        "A) $(2 - \\sqrt{3}) + i(3 + \\sqrt{3})$",
+        "B) $(2 + \\sqrt{3}) + i(3 - \\sqrt{3})$",
+        "C) $(1 - \\sqrt{3}) + i(2 + \\sqrt{3})$",
+        "D) $(2 - \\sqrt{3}) + i(3 - \\sqrt{3})$"
+      ],
+      "answer": "A",
+      "explanation": "In an equilateral triangle $ABC$ traversed in the counter-clockwise direction, the vector $\\vec{AC} = z_3 - z_1$ is obtained by rotating the vector $\\vec{AB} = z_2 - z_1$ through an angle of $+\\frac{\\pi}{3}$ radians about the vertex $z_1$. Therefore, applying the rotation formula in the Argand plane, we have $z_3 - z_1 = (z_2 - z_1)e^{i\\pi/3}$. We first calculate the difference vector: $z_2 - z_1 = (3 + 4i) - (1 + 2i) = 2 + 2i$. Expressing the rotation operator in Cartesian form, $e^{i\\pi/3} = \\cos\\left(\\frac{\\pi}{3}\\right) + i\\sin\\left(\\frac{\\pi}{3}\\right) = \\frac{1}{2} + i\\frac{\\sqrt{3}}{2}$. Multiplying the vector by the rotation operator gives $(z_2 - z_1)e^{i\\pi/3} = (2 + 2i)\\left(\\frac{1}{2} + i\\frac{\\sqrt{3}}{2}\\right) = (1 + i)(1 + i\\sqrt{3}) = (1 - \\sqrt{3}) + i(1 + \\sqrt{3})$. Solving for $z_3$, we add $z_1$ to both sides: $z_3 = (1 + 2i) + [(1 - \\sqrt{3}) + i(1 + \\sqrt{3})] = (2 - \\sqrt{3}) + i(3 + \\sqrt{3})$. Distractor B corresponds to a clockwise rotation by $-\\frac{\\pi}{3}$, while C results from forgetting to add $z_1$."
+    },
+    {
+      "id": "cn_c02_012",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A circle in the Argand plane is given by the equation $z\\bar{z} - (3 + 2i)z - (3 - 2i)\\bar{z} + 9 = 0$. A straight line $L$ passing through the center of this circle has slope $1$. If the line $L$ intersects the circle at points $P(z_1)$ and $Q(z_2)$, then the value of $|z_1|^2 + |z_2|^2$ is equal to:",
+      "options": [
+        "A) $34$",
+        "B) $30$",
+        "C) $26$",
+        "D) $38$"
+      ],
+      "answer": "A",
+      "explanation": "The general equation of a circle in the complex plane is $z\\bar{z} + \\bar{\\alpha}z + \\alpha\\bar{z} + r = 0$, where the center is $z_0 = -\\alpha$ and the radius is $R = \\sqrt{|\\alpha|^2 - r}$. Comparing with the given equation $z\\bar{z} - (3 + 2i)z - (3 - 2i)\\bar{z} + 9 = 0$, we identify $\\alpha = -(3 - 2i)$, so the center is $z_0 = 3 + 2i$ and $r = 9$. We compute $|\\alpha|^2 = |3 - 2i|^2 = 3^2 + (-2)^2 = 13$. The radius of the circle is $R = \\sqrt{13 - 9} = \\sqrt{4} = 2$. Since the straight line $L$ passes through the center $z_0$, the points of intersection $P(z_1)$ and $Q(z_2)$ form the endpoints of a diameter. Hence, the center $z_0$ is the midpoint of segment $PQ$, meaning $\\frac{z_1 + z_2}{2} = z_0$, and $|z_1 - z_2| = 2R = 4$. Applying the parallelogram law (Apollonius identity) for complex numbers, $|z_1 + z_2|^2 + |z_1 - z_2|^2 = 2(|z_1|^2 + |z_2|^2)$. Substituting $|z_1 + z_2|^2 = |2z_0|^2 = 4|z_0|^2 = 4(13) = 52$ and $|z_1 - z_2|^2 = (2R)^2 = 16$, we get $52 + 16 = 2(|z_1|^2 + |z_2|^2) \\implies 68 = 2(|z_1|^2 + |z_2|^2)$. Dividing by 2 yields $|z_1|^2 + |z_2|^2 = 34$. Alternatively, this identity holds for any diameter since $|z_1|^2 + |z_2|^2 = 2|z_0|^2 + 2R^2 = 2(13) + 2(4) = 34$."
+    },
+    {
+      "id": "cn_c02_013",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $z_1, z_2, \\dots, z_6$ be the six distinct complex roots of the polynomial equation $(z - 1)^6 + (z + 1)^6 = 0$. The value of the sum of the squares of their moduli, $\\sum_{k=1}^6 |z_k|^2$, is equal to:",
+      "options": [
+        "A) $30$",
+        "B) $15$",
+        "C) $60$",
+        "D) $28$"
+      ],
+      "answer": "A",
+      "explanation": "We rewrite the given equation as $\\left(\\frac{z - 1}{z + 1}\\right)^6 = -1$. Using De Moivre's theorem, the six values of $(-1)^{1/6}$ are given by $e^{i\\theta_k}$ where $\\theta_k = \\frac{(2k + 1)\\pi}{6}$ for $k = 0, 1, 2, 3, 4, 5$. Applying componendo and dividendo to $\\frac{z - 1}{z + 1} = e^{i\\theta_k}$, we obtain $\\frac{(z - 1) + (z + 1)}{(z - 1) - (z + 1)} = \\frac{e^{i\\theta_k} + 1}{e^{i\\theta_k} - 1}$, which implies $-z = \\frac{2\\cos(\\theta_k/2)}{2i\\sin(\\theta_k/2)} = -i\\cot\\left(\\frac{\\theta_k}{2}\\right)$. Thus, the roots are purely imaginary: $z_k = i\\cot\\left(\\frac{(2k + 1)\\pi}{12}\\right)$ for $k = 0, 1, 2, 3, 4, 5$. Since each root is purely imaginary, $|z_k|^2 = -z_k^2$. Alternatively, expanding the original polynomial equation using the binomial theorem gives $2(z^6 + 15z^4 + 15z^2 + 1) = 0$. Letting $w = z^2$, this becomes $w^3 + 15w^2 + 15w + 1 = 0$. The three roots $w_1, w_2, w_3$ of this cubic are negative real numbers because $z_k = i y_k \\implies w_k = -y_k^2 \\le 0$. The sum of the roots of the cubic is $w_1 + w_2 + w_3 = -15$. Each $w_j$ generates two roots $z = \\pm \\sqrt{w_j}$, each satisfying $|z|^2 = -w_j$. Therefore, summing over all six roots yields $\\sum_{k=1}^6 |z_k|^2 = 2(-w_1 - w_2 - w_3) = -2(w_1 + w_2 + w_3) = -2(-15) = 30$."
+    },
+    {
+      "id": "cn_c02_014",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $z$ be a complex number satisfying $\\arg\\left(\\frac{z - 2}{z + 2}\\right) = \\frac{\\pi}{4}$, where $\\arg(w) \\in (-\\pi, \\pi]$. The locus of $z$ forms a circular arc belonging to a circle with center $z_0$ and radius $R$. Then the value of $|z_0|^2 + R^2$ is equal to:",
+      "options": [
+        "A) $12$",
+        "B) $8$",
+        "C) $16$",
+        "D) $10$"
+      ],
+      "answer": "A",
+      "explanation": "The condition $\\arg\\left(\\frac{z - 2}{z + 2}\\right) = \\frac{\\pi}{4}$ states that the line segments from $z$ to $A(2, 0)$ and $B(-2, 0)$ make an angle of $\\frac{\\pi}{4}$ subtended at $z$. Geometrically, the locus of $z$ is an arc of a circle passing through $A(2, 0)$ and $B(-2, 0)$ lying in the upper half-plane since $\\arg > 0$. The length of the chord joining $A$ and $B$ is $AB = 2 - (-2) = 4$. By the inscribed angle theorem, the angle subtended by the chord $AB$ at the center $C(0, y_0)$ is twice the angle at the circumference: $2 \\times \\frac{\\pi}{4} = \\frac{\\pi}{2}$. Thus, the triangle formed by the center $C$ and the chord endpoints $A, B$ is an isosceles right triangle. The radius of this circle is $R = \\frac{AB/2}{\\sin(\\pi/4)} = \\frac{2}{1/\\sqrt{2}} = 2\\sqrt{2}$, which gives $R^2 = (2\\sqrt{2})^2 = 8$. The distance from the center $C$ to the chord on the real axis is $y_0 = \\frac{AB/2}{\\tan(\\pi/4)} = \\frac{2}{1} = 2$. Since the arc lies in the upper half-plane, the center is $z_0 = 0 + 2i = 2i$, so $|z_0|^2 = 2^2 = 4$. Substituting these into the required expression yields $|z_0|^2 + R^2 = 4 + 8 = 12$."
+    },
+    {
+      "id": "cn_c02_015",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let the roots of the cubic polynomial $P(z) = z^3 - 6(1 + i)z^2 + kz - 8i = 0$ represent the vertices of an equilateral triangle in the Argand plane, where $k \\in \\mathbb{C}$ is a constant. Then the value of $k$ is equal to:",
+      "options": [
+        "A) $24i$",
+        "B) $12i$",
+        "C) $-24i$",
+        "D) $36i$"
+      ],
+      "answer": "A",
+      "explanation": "Let $z_1, z_2, z_3$ be the roots of the polynomial equation $z^3 + a_1 z^2 + a_2 z + a_3 = 0$. By Vieta's formulas, $z_1 + z_2 + z_3 = -a_1 = 6(1 + i)$ and $z_1 z_2 + z_2 z_3 + z_3 z_1 = a_2 = k$. A necessary and sufficient condition for three complex numbers $z_1, z_2, z_3$ to form an equilateral triangle in the Argand plane is $z_1^2 + z_2^2 + z_3^2 = z_1 z_2 + z_2 z_3 + z_3 z_1$. Rewriting this identity in terms of elementary symmetric polynomials, we have $(z_1 + z_2 + z_3)^2 - 2(z_1 z_2 + z_2 z_3 + z_3 z_1) = z_1 z_2 + z_2 z_3 + z_3 z_1$, which simplifies directly to $(z_1 + z_2 + z_3)^2 = 3(z_1 z_2 + z_2 z_3 + z_3 z_1)$. Substituting the Vieta relations into this condition, we obtain $[6(1 + i)]^2 = 3k$. Expanding the left-hand side yields $36(1 + i)^2 = 36(1 + 2i - 1) = 36(2i) = 72i$. Equating this to $3k$, we solve for $k$: $3k = 72i \\implies k = 24i$. Distractor B arises from forgetting the factor of 2 in $(1+i)^2$, while C arises from an erroneous minus sign."
+    },
+    {
+      "id": "cn_c02_016",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $z$ be a complex number lying on the unit circle $|z| = 1$ with $z \\ne \\pm 1$. Consider the complex transformation $w = \\frac{z - 1}{z + 1}$. Which of the following statements is/are correct?",
+      "options": [
+        "A) $\\text{Re}(w) = 0$ for all admissible values of $z$.",
+        "B) $\\arg(w) = \\frac{\\pi}{2}$ whenever $\\text{Im}(z) > 0$.",
+        "C) $|w + 1| = |w - 1|$ for all admissible values of $z$.",
+        "D) $|w| \\le 1$ for all admissible values of $z$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Since $|z| = 1$ and $z \\ne -1$, we can express $z$ in polar form as $z = e^{i\\theta}$ for $\\theta \\in (-\\pi, \\pi) \\setminus \\{0\\}$. Substituting into $w$, we have $w = \\frac{e^{i\\theta} - 1}{e^{i\\theta} + 1}$. Factoring out $e^{i\\theta/2}$ from numerator and denominator gives $w = \\frac{e^{i\\theta/2}(e^{i\\theta/2} - e^{-i\\theta/2})}{e^{i\\theta/2}(e^{i\\theta/2} + e^{-i\\theta/2})} = \\frac{2i\\sin(\\theta/2)}{2\\cos(\\theta/2)} = i\\tan\\left(\\frac{\\theta}{2}\\right)$. Since $\\tan(\\theta/2) \\in \\mathbb{R}$, $w$ is purely imaginary, so $\\text{Re}(w) = 0$ for all admissible $z$, proving statement A. When $\\text{Im}(z) > 0$, we have $\\theta \\in (0, \\pi)$, which implies $\\frac{\\theta}{2} \\in (0, \\frac{\\pi}{2})$, so $\\tan(\\theta/2) > 0$. Hence $w = ik$ with $k > 0$, so $\\arg(w) = \\frac{\\pi}{2}$, proving statement B. Statement C asserts $|w + 1| = |w - 1|$, which represents the perpendicular bisector of $-1$ and $1$, namely the imaginary axis $\\text{Re}(w) = 0$; since $\\text{Re}(w) = 0$ holds identically, statement C is true. Finally, $|w| = |\\tan(\\theta/2)|$ can take any positive real value as $\\theta \\to \\pi$, meaning $|w|$ is not bounded by 1, so statement D is false."
+    },
+    {
+      "id": "cn_c02_017",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $A(z_1)$ and $C(z_3)$ be two opposite vertices of a square $ABCD$ in the Argand plane, where $z_1 = 1 + i$ and $z_3 = 5 + 3i$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The other two vertices $B$ and $D$ are represented by the complex numbers $4$ and $2 + 4i$.",
+        "B) The area of the square $ABCD$ is equal to $10$.",
+        "C) The circle circumscribing the square has the equation $|z - (3 + 2i)| = \\sqrt{5}$.",
+        "D) The equation of the straight line passing through the diagonal $BD$ is $2x + y - 8 = 0$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "The center of the square is the midpoint of the diagonal $AC$: $z_0 = \\frac{z_1 + z_3}{2} = \\frac{(1 + 1) + i(1 + 3)}{2} = 3 + 2i$. The vector from the center to vertex $A$ is $z_1 - z_0 = (1 + i) - (3 + 2i) = -2 - i$. In a square, the other two vertices $B$ and $D$ are obtained by rotating $z_1 - z_0$ by angles of $+\\frac{\\pi}{2}$ and $-\\frac{\\pi}{2}$ about $z_0$. Rotating by $+\\frac{\\pi}{2}$: $i(z_1 - z_0) = i(-2 - i) = 1 - 2i$. Thus, $z_2 = z_0 + (1 - 2i) = (3 + 2i) + (1 - 2i) = 4 + 0i = 4$. Rotating by $-\\frac{\\pi}{2}$: $-i(z_1 - z_0) = -1 + 2i$. Thus, $z_4 = z_0 + (-1 + 2i) = (3 + 2i) + (-1 + 2i) = 2 + 4i$. Hence, statement A is correct. The diagonal length is $d = |z_3 - z_1| = |4 + 2i| = \\sqrt{4^2 + 2^2} = \\sqrt{20}$. The area of the square is $\\frac{1}{2}d^2 = \\frac{1}{2}(20) = 10$, so statement B is correct. The circumradius is $R = \\frac{d}{2} = \\frac{\\sqrt{20}}{2} = \\sqrt{5}$, and the center is $z_0 = 3 + 2i$, so the circumcircle equation is $|z - (3 + 2i)| = \\sqrt{5}$, proving statement C. The line containing the diagonal $BD$ passes through $(4, 0)$ and $(2, 4)$. Its slope is $m = \\frac{4 - 0}{2 - 4} = -2$, so its equation is $y - 0 = -2(x - 4) \\implies 2x + y - 8 = 0$, proving statement D."
+    },
+    {
+      "id": "cn_c02_018",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the polynomial equation $(z + 1)^5 = z^5$ in the complex variable $z$. Which of the following statements is/are correct regarding the roots of this equation?",
+      "options": [
+        "A) All roots of the equation have real part equal to $-\\frac{1}{2}$.",
+        "B) The roots lie on a straight line parallel to the imaginary axis at a distance of $\\frac{1}{2}$ units from it.",
+        "C) The sum of the real parts of all four roots is $-2$.",
+        "D) All roots lie on the unit circle $|z| = 1$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Since $z = 0$ is not a solution, we divide both sides by $z^5$ to obtain $\\left(1 + \\frac{1}{z}\\right)^5 = 1$. The solutions to this equation are given by $1 + \\frac{1}{z} = e^{i 2k\\pi/5}$ for $k = 1, 2, 3, 4$ (excluding $k = 0$ because that would require $1/z = 0$, which has no finite solution). Rearranging yields $\\frac{1}{z} = e^{i 2k\\pi/5} - 1$. Inverting, we find $z = \\frac{1}{e^{i 2k\\pi/5} - 1} = \\frac{1}{e^{i k\\pi/5}(e^{i k\\pi/5} - e^{-i k\\pi/5})} = \\frac{e^{-i k\\pi/5}}{2i\\sin(k\\pi/5)} = \\frac{\\cos(k\\pi/5) - i\\sin(k\\pi/5)}{2i\\sin(k\\pi/5)} = -\\frac{1}{2} - \\frac{i}{2}\\cot\\left(\\frac{k\\pi}{5}\\right)$. Therefore, the real part of every root is $\\text{Re}(z) = -\\frac{1}{2}$, proving statement A. Since all roots have $x = -\\frac{1}{2}$, they lie on the vertical line $x = -\\frac{1}{2}$, which is parallel to the imaginary axis and at a distance of $\\frac{1}{2}$ units from it, proving statement B. The equation is of degree 4 (the $z^5$ terms cancel: $5z^4 + 10z^3 + 10z^2 + 5z + 1 = 0$), so there are 4 roots. The sum of their real parts is $4 \\times \\left(-\\frac{1}{2}\\right) = -2$, confirming statement C. For $k = 1$, $|z|^2 = \\frac{1}{4} + \\frac{1}{4}\\cot^2(\\pi/5) = \\frac{1}{4\\sin^2(\\pi/5)} \\ne 1$, so the roots do not lie on the unit circle $|z| = 1$, making statement D false."
+    },
+    {
+      "id": "cn_c02_019",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $z$ be a non-zero complex number satisfying $\\left|z - \\frac{4}{z}\\right| = 2$. If $M$ and $m$ denote the maximum and minimum possible values of $|z|$ respectively, find the value of $M^2 + m^2$.",
+      "options": [],
+      "answer": "12",
+      "explanation": "By the reverse triangle inequality, we have $|z| = \\left|\\left(z - \\frac{4}{z}\\right) + \\frac{4}{z}\\right| \\le \\left|z - \\frac{4}{z}\\right| + \\frac{4}{|z|} = 2 + \\frac{4}{|z|}$. Multiplying both sides by $|z| > 0$ yields the quadratic inequality $|z|^2 - 2|z| - 4 \\le 0$. Completing the square gives $(|z| - 1)^2 - 5 \\le 0 \\implies (|z| - 1)^2 \\le 5$. Solving for $|z|$, we obtain $|z| \\le \\sqrt{5} + 1$. Thus, the maximum possible value of $|z|$ is $M = \\sqrt{5} + 1$. Similarly, applying the lower triangle inequality, $|z| = \\left|z - \\frac{4}{z} + \\frac{4}{z}\\right| \\ge \\left| \\left|z - \\frac{4}{z}\\right| - \\frac{4}{|z|} \\right|$, which yields $|z| \\ge \\sqrt{5} - 1$. Thus, the minimum possible value of $|z|$ is $m = \\sqrt{5} - 1$. Both bounds are attainable: setting $z = \\sqrt{5} + 1$ (real) gives $z - 4/z = (\\sqrt{5}+1) - (\\sqrt{5}-1) = 2$, and setting $z = \\sqrt{5} - 1$ gives $z - 4/z = -2$, both of modulus 2. We now calculate $M^2 + m^2 = (\\sqrt{5} + 1)^2 + (\\sqrt{5} - 1)^2 = (5 + 2\\sqrt{5} + 1) + (5 - 2\\sqrt{5} + 1) = 6 + 2\\sqrt{5} + 6 - 2\\sqrt{5} = 12$."
+    },
+    {
+      "id": "cn_c02_020",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $\\alpha_k = e^{i 2k\\pi/7}$ for $k = 1, 2, \\dots, 6$ be the non-real seventh roots of unity. Evaluate the integer value of the difference $E = \\prod_{k=1}^6 (2 - \\alpha_k) - \\prod_{k=1}^6 (1 - \\alpha_k)$.",
+      "options": [],
+      "answer": "120",
+      "explanation": "The roots $\\alpha_1, \\alpha_2, \\dots, \\alpha_6$ together with $1$ are the complete set of roots of $z^7 - 1 = 0$. Since $\\alpha_k \\ne 1$, they are the roots of the cyclotomic polynomial $P(z) = \\frac{z^7 - 1}{z - 1} = z^6 + z^5 + z^4 + z^3 + z^2 + z + 1$. Therefore, by the fundamental theorem of algebra, we have the identity $\\prod_{k=1}^6 (z - \\alpha_k) = z^6 + z^5 + z^4 + z^3 + z^2 + z + 1$. Evaluating this polynomial identity at $z = 2$, we get $\\prod_{k=1}^6 (2 - \\alpha_k) = 2^6 + 2^5 + 2^4 + 2^3 + 2^2 + 2 + 1 = \\frac{2^7 - 1}{2 - 1} = 128 - 1 = 127$. Next, evaluating the same polynomial identity at $z = 1$, we get $\\prod_{k=1}^6 (1 - \\alpha_k) = 1^6 + 1^5 + 1^4 + 1^3 + 1^2 + 1 + 1 = 7$. Substituting these two values into the required expression yields $E = 127 - 7 = 120$."
+    },
+    {
+      "id": "cn_c02_021",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $A_0, A_1, A_2, A_3, A_4, A_5$ be the vertices of a regular hexagon inscribed in the unit circle $|z| = 1$ in the complex plane, with vertex $A_0$ located at $z = 1$. Let $P$ be a point in the Argand plane represented by the complex number $z_0 = \\sqrt{3} + i$. Then the product of the Euclidean distances from $P$ to all six vertices of the hexagon, $\\prod_{k=0}^5 |P A_k|$, is equal to:",
+      "options": [
+        "A) $65$",
+        "B) $63$",
+        "C) $64$",
+        "D) $128$"
+      ],
+      "answer": "A",
+      "explanation": "The six vertices of the regular hexagon inscribed in the unit circle with $A_0$ at $1$ are represented by the sixth roots of unity $\\alpha_k = e^{i 2k\\pi/6} = e^{i k\\pi/3}$ for $k = 0, 1, 2, 3, 4, 5$. By the polynomial factorization of roots of unity, we have the identity $\\prod_{k=0}^5 (z - \\alpha_k) = z^6 - 1$. Taking the modulus on both sides for any complex number $z = z_0$, the product of the distances from $P(z_0)$ to the vertices is given by $\\prod_{k=0}^5 |P A_k| = \\prod_{k=0}^5 |z_0 - \\alpha_k| = |z_0^6 - 1|$. We first write $z_0 = \\sqrt{3} + i$ in exponential polar form: $|z_0| = \\sqrt{(\\sqrt{3})^2 + 1^2} = 2$, and $\\arg(z_0) = \\frac{\\pi}{6}$. Therefore, $z_0 = 2e^{i\\pi/6}$. Raising $z_0$ to the sixth power, we apply De Moivre's theorem: $z_0^6 = (2e^{i\\pi/6})^6 = 2^6 e^{i\\pi} = 64(-1) = -64$. Substituting this value into the modulus identity, we obtain $\\prod_{k=0}^5 |P A_k| = |-64 - 1| = |-65| = 65$. Distractor B corresponds to mistakenly taking $e^{i 2\\pi} = 1$, yielding $|64 - 1| = 63$, whereas C omits the subtraction of 1."
+    },
+    {
+      "id": "cn_c02_022",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $z$ be a complex number satisfying the Apollonius circle relation $\\left|\\frac{z - 3}{z + 3}\\right| = 2$. If the principal argument $\\text{Arg}(z) \\in (-\\pi, \\pi]$ attains its maximum possible value at a point $z_0$ on this locus, then the value of $|z_0|^2$ is equal to:",
+      "options": [
+        "A) $9$",
+        "B) $16$",
+        "C) $25$",
+        "D) $1$"
+      ],
+      "answer": "A",
+      "explanation": "We first determine the Cartesian locus of the Apollonius condition $|z - 3| = 2|z + 3|$. Squaring both sides yields $|z - 3|^2 = 4|z + 3|^2$. Letting $z = x + iy$, we expand $(x - 3)^2 + y^2 = 4[(x + 3)^2 + y^2]$, which gives $x^2 - 6x + 9 + y^2 = 4x^2 + 24x + 36 + 4y^2$. Grouping all terms to one side yields $3x^2 + 3y^2 + 30x + 27 = 0$, or dividing by 3, $x^2 + y^2 + 10x + 9 = 0$. Completing the square gives $(x + 5)^2 + y^2 = 25 - 9 = 16 = 4^2$. This is a circle with center $C(-5, 0)$ and radius $R = 4$. Geometrically, the circle lies entirely in the left half-plane since $x \\in [-9, -1]$. The origin $O(0, 0)$ lies outside the circle at a distance $d = |-5 - 0| = 5$ from the center. A ray from the origin to a point $z$ on the circle has argument $\\theta$. The maximum argument occurs at the point of tangency $T(z_0)$ from the origin to the circle in the upper half-plane. In the right-angled triangle $OTC$, the tangent $OT$ is perpendicular to the radius $CT = R = 4$, and the hypotenuse is $OC = d = 5$. By the Pythagorean theorem, the length of the tangent segment is $|z_0| = \\sqrt{d^2 - R^2} = \\sqrt{5^2 - 4^2} = \\sqrt{25 - 16} = \\sqrt{9} = 3$. Therefore, $|z_0|^2 = 3^2 = 9$."
+    },
+    {
+      "id": "cn_c02_023",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $A(z_1), B(z_2), C(z_3)$ be three points representing the vertices of an equilateral triangle inscribed in the circle $|z| = 2$ in the Argand plane. Let $P(z)$ be a point lying on the minor arc $BC$ of the circumcircle. If the product of the chord lengths satisfies $PB \\cdot PC = 3$, then the distance $PA = |z - z_1|$ is equal to:",
+      "options": [
+        "A) $\\sqrt{15}$",
+        "B) $\\sqrt{21}$",
+        "C) $3\\sqrt{3}$",
+        "D) $\\sqrt{12}$"
+      ],
+      "answer": "A",
+      "explanation": "For any point $P(z)$ lying on the circumcircle of an equilateral triangle $ABC$ with circumradius $R = 2$, we have two fundamental geometric identities. First, since the centroid of the equilateral triangle coincides with the circumcenter (origin), $z_1 + z_2 + z_3 = 0$. For any point $P(z)$ on the circle $|z| = R$, the sum of the squared distances to the vertices satisfies $\\sum_{k=1}^3 |z - z_k|^2 = \\sum_{k=1}^3 (|z|^2 + |z_k|^2 - 2\\text{Re}(z\\bar{z}_k)) = 3R^2 + 3R^2 - 2\\text{Re}\\left(z\\sum\\bar{z}_k\\right) = 6R^2$. Since $R = 2$, this sum is $PA^2 + PB^2 + PC^2 = 6(2^2) = 24$. Second, since $P$ lies on the minor arc $BC$, the cyclic quadrilateral $ABPC$ satisfies Ptolemy's theorem in the complex plane: $PA \\cdot BC = PB \\cdot AC + PC \\cdot AB$. Since the triangle is equilateral, $AB = BC = CA$, so dividing by the side length yields $PA = PB + PC$. Squaring this relation gives $PA^2 = (PB + PC)^2 = PB^2 + PC^2 + 2 PB \\cdot PC$, which implies $PB^2 + PC^2 = PA^2 - 2 PB \\cdot PC$. Substituting this into the sum of squares yields $PA^2 + (PA^2 - 2 PB \\cdot PC) = 24$, so $2 PA^2 - 2 PB \\cdot PC = 24 \\implies PA^2 = 12 + PB \\cdot PC$. Given that $PB \\cdot PC = 3$, substituting this value yields $PA^2 = 12 + 3 = 15$. Hence, $PA = \\sqrt{15}$."
+    },
+    {
+      "id": "cn_c02_024",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Under the bilinear transformation $w = \\frac{z - i}{z + i}$, the circle $|z - 1| = 1$ in the complex $z$-plane is mapped onto a circle $C'$ in the $w$-plane. If the circle $C'$ has center $w_0$ and radius $R$, then the value of $|w_0|^2 + R^2$ is equal to:",
+      "options": [
+        "A) $9$",
+        "B) $5$",
+        "C) $8$",
+        "D) $13$"
+      ],
+      "answer": "A",
+      "explanation": "We invert the bilinear mapping to express $z$ in terms of $w$: $w(z + i) = z - i \\implies wz + iw = z - i \\implies z(w - 1) = -i(w + 1)$. Solving for $z$, we get $z = \\frac{-i(w + 1)}{w - 1} = i\\frac{1 + w}{1 - w}$. We are given that $z$ lies on the circle $|z - 1| = 1$. Substituting the expression for $z$ into the circle condition gives $\\left|i\\frac{1 + w}{1 - w} - 1\\right| = 1$. Combining over a common denominator yields $\\left|\\frac{i(1 + w) - (1 - w)}{1 - w}\\right| = 1 \\implies |(i - 1) + w(1 + i)| = |1 - w|$. Let $w = u + iv$ with $u, v \\in \\mathbb{R}$. Expanding the left-hand side: $(i - 1) + (u + iv)(1 + i) = (i - 1) + (u - v) + i(u + v) = (u - v - 1) + i(u + v + 1)$. The squared magnitude is $(u - v - 1)^2 + (u + v + 1)^2 = [u - (v + 1)]^2 + [u + (v + 1)]^2 = 2u^2 + 2(v + 1)^2 = 2u^2 + 2v^2 + 4v + 2$. The squared magnitude of the right-hand side is $|1 - u - iv|^2 = (1 - u)^2 + v^2 = u^2 - 2u + 1 + v^2$. Equating the two sides gives $2u^2 + 2v^2 + 4v + 2 = u^2 + v^2 - 2u + 1 \\implies u^2 + v^2 + 2u + 4v + 1 = 0$. Completing the square: $(u + 1)^2 + (v + 2)^2 = 1^2 + 2^2 - 1 = 4 = 2^2$. Therefore, the image circle $C'$ has center $w_0 = -1 - 2i$ and radius $R = 2$. We compute $|w_0|^2 = (-1)^2 + (-2)^2 = 5$ and $R^2 = 4$. Hence, $|w_0|^2 + R^2 = 5 + 4 = 9$."
+    },
+    {
+      "id": "cn_c02_025",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $\\alpha = e^{i 2\\pi/7}$ be a primitive seventh root of unity, and consider the finite sum $S = \\sum_{k=1}^6 k \\alpha^k$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The real part of $S$ satisfies $\\text{Re}(S) = -\\frac{7}{2}$.",
+        "B) The imaginary part of $S$ satisfies $\\text{Im}(S) = -\\frac{7}{2}\\cot\\left(\\frac{\\pi}{7}\\right)$.",
+        "C) The trigonometric sum $\\sum_{k=1}^6 k \\cos\\left(\\frac{2k\\pi}{7}\\right)$ is equal to $-\\frac{7}{2}$.",
+        "D) The modulus of $S$ satisfies $|S| = \\frac{7}{2}\\csc\\left(\\frac{\\pi}{7}\\right)$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Consider the geometric polynomial $f(z) = \\sum_{k=0}^6 z^k = \\frac{z^7 - 1}{z - 1}$. Differentiating both sides with respect to $z$ gives $\\sum_{k=1}^6 k z^{k-1} = \\frac{7z^6(z - 1) - (z^7 - 1)}{(z - 1)^2}$. Multiplying by $z$ yields $\\sum_{k=1}^6 k z^k = \\frac{7z^7(z - 1) - z(z^7 - 1)}{(z - 1)^2}$. Evaluating this identity at $z = \\alpha$, where $\\alpha^7 = 1$ and $\\alpha \\ne 1$, the numerator simplifies: $7(1)(\\alpha - 1) - \\alpha(0) = 7(\\alpha - 1)$. Therefore, $S = \\frac{7(\\alpha - 1)}{(\\alpha - 1)^2} = \\frac{7}{\\alpha - 1}$. Now we simplify the reciprocal $\\frac{1}{\\alpha - 1}$: $\\alpha - 1 = e^{i 2\\pi/7} - 1 = e^{i\\pi/7}(e^{i\\pi/7} - e^{-i\\pi/7}) = 2i e^{i\\pi/7}\\sin(\\pi/7)$. Taking the reciprocal, $\\frac{1}{\\alpha - 1} = \\frac{e^{-i\\pi/7}}{2i\\sin(\\pi/7)} = \\frac{\\cos(\\pi/7) - i\\sin(\\pi/7)}{2i\\sin(\\pi/7)} = -\\frac{1}{2} - \\frac{i}{2}\\cot\\left(\\frac{\\pi}{7}\\right)$. Multiplying by 7 gives $S = -\\frac{7}{2} - \\frac{7i}{2}\\cot\\left(\\frac{\\pi}{7}\\right)$. Thus, $\\text{Re}(S) = -\\frac{7}{2}$, confirming statement A. Statement B is confirmed because $\\text{Im}(S) = -\\frac{7}{2}\\cot(\\pi/7)$. Statement C is confirmed because $\\text{Re}(S) = \\sum_{k=1}^6 k \\cos(2k\\pi/7) = -\\frac{7}{2}$. Finally, computing the modulus: $|S|^2 = \\left(-\\frac{7}{2}\\right)^2 + \\left(-\\frac{7}{2}\\cot\\frac{\\pi}{7}\\right)^2 = \\frac{49}{4}(1 + \\cot^2\\frac{\\pi}{7}) = \\frac{49}{4}\\csc^2\\frac{\\pi}{7}$, so $|S| = \\frac{7}{2}\\csc(\\frac{\\pi}{7})$, confirming statement D."
+    },
+    {
+      "id": "cn_c02_026",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the fourth-degree polynomial equation $z^4 - 4z^3 + 6z^2 - 4z + 2 = 0$ in the complex variable $z$. Let the four roots be represented by points $A, B, C, D$ in the Argand plane. Which of the following statements is/are correct?",
+      "options": [
+        "A) The points $A, B, C, D$ form the vertices of a square centered at $1 + 0i$.",
+        "B) The area of the polygon formed by the four roots in the Argand plane is equal to $2$.",
+        "C) The sum of the squares of all four roots is equal to $4$.",
+        "D) All four roots lie on the unit circle $|z| = 1$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Notice that the binomial expansion of $(z - 1)^4$ is $z^4 - 4z^3 + 6z^2 - 4z + 1$. Thus, the given equation can be rewritten as $(z - 1)^4 + 1 = 0 \\implies (z - 1)^4 = -1$. Using Euler's formula, $-1 = e^{i(2k+1)\\pi}$. Taking the fourth root gives $z_k - 1 = e^{i(2k+1)\\pi/4}$ for $k = 0, 1, 2, 3$. The four fourth roots of $-1$ are $\\frac{1 + i}{\\sqrt{2}}, \\frac{-1 + i}{\\sqrt{2}}, \\frac{-1 - i}{\\sqrt{2}}, \\frac{1 - i}{\\sqrt{2}}$. Geometrically, these four points form a square centered at the point $1 + 0i$ with circumradius $R = |e^{i(2k+1)\\pi/4}| = 1$. Hence statement A is correct. The diagonal length of this square is $d = 2R = 2$. Therefore, the area of the square is $\\frac{1}{2}d^2 = \\frac{1}{2}(2^2) = 2$, proving statement B. By Vieta's formulas for $z^4 - 4z^3 + 6z^2 - 4z + 2 = 0$, the elementary symmetric sums are $e_1 = \\sum z_k = 4$ and $e_2 = \\sum_{j < k} z_j z_k = 6$. The sum of the squares of the roots is given by $\\sum_{k=1}^4 z_k^2 = e_1^2 - 2e_2 = 4^2 - 2(6) = 16 - 12 = 4$, which proves statement C. Finally, the roots are $z = 1 + e^{i(2k+1)\\pi/4}$. For $k = 0$, $z = 1 + \\frac{1+i}{\\sqrt{2}}$, whose squared modulus is $|z|^2 = \\left(1 + \\frac{1}{\\sqrt{2}}\\right)^2 + \\left(\\frac{1}{\\sqrt{2}}\\right)^2 = 1 + \\sqrt{2} + \\frac{1}{2} + \\frac{1}{2} = 2 + \\sqrt{2} \\ne 1$. Thus, the roots do not lie on $|z| = 1$, so statement D is false."
+    },
+    {
+      "id": "cn_c02_027",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $z$ and $w$ be two complex numbers satisfying the system of equations $|z| = 1$, $|w| = 1$, and $z + w + zw = 1$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The number of distinct ordered pairs $(z, w)$ satisfying the given equations is $2$.",
+        "B) For every solution pair $(z, w)$, the relation $z + w = 0$ holds.",
+        "C) For every solution pair $(z, w)$, the distance $|z - w|$ is equal to $2$.",
+        "D) For every solution pair $(z, w)$, the sum $z^4 + w^4$ is equal to $2$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Add 1 to both sides of the relation $z + w + zw = 1$: $z + w + zw + 1 = 2 \\implies (z + 1)(w + 1) = 2$. Taking the modulus on both sides yields $|z + 1||w + 1| = 2$. Since $|z| = 1$, we can express $z = e^{i\\alpha}$, which implies $|z + 1| = |e^{i\\alpha} + 1| = 2|\\cos(\\alpha/2)| \\le 2$. Similarly, $|w + 1| = 2|\\cos(\\beta/2)| \\le 2$. The product satisfies $|z + 1||w + 1| = 4|\\cos(\\alpha/2)\\cos(\\beta/2)| = 2$, so $|\\cos(\\alpha/2)\\cos(\\beta/2)| = \\frac{1}{2}$. Furthermore, because $(z + 1)(w + 1) = 2$ is positive and real, the argument $\\arg(z + 1) + \\arg(w + 1) \\equiv 0 \\pmod{2\\pi}$. Since $\\arg(z + 1) = \\frac{\\alpha}{2}$ and $\\arg(w + 1) = \\frac{\\beta}{2}$, we obtain $\\frac{\\alpha + \\beta}{2} = 0 \\implies \\beta = -\\alpha$. This implies $w = e^{-i\\alpha} = \\bar{z} = z^{-1}$. Substituting $w = \\bar{z}$ into the factored equation yields $(z + 1)(\\bar{z} + 1) = 2 \\implies |z + 1|^2 = 2$. Expanding $|z + 1|^2 = |z|^2 + 1 + 2\\text{Re}(z) = 1 + 1 + 2x = 2 + 2x = 2$, which implies $2x = 0 \\implies x = \\text{Re}(z) = 0$. Since $|z| = 1$ and $\\text{Re}(z) = 0$, we have $z = \\pm i$. If $z = i$, then $w = \\bar{z} = -i$, and $(i)(-i) = 1$, $i + (-i) + 1 = 1$, which is valid. If $z = -i$, then $w = i$, which is valid. Thus, there are exactly 2 distinct pairs $(i, -i)$ and $(-i, i)$, proving statement A. For both solutions, $z + w = i + (-i) = 0$, confirming statement B. The distance is $|z - w| = |i - (-i)| = |2i| = 2$, confirming statement C. Finally, $z^4 + w^4 = (\\pm i)^4 + (\\mp i)^4 = 1 + 1 = 2$, confirming statement D."
+    },
+    {
+      "id": "cn_c02_028",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $S$ denote the closed region in the Argand plane defined by $S = \\left\\{z \\in \\mathbb{C} : \\text{Re}\\left(\\frac{z - 4}{z - 2i}\\right) \\le 0 \\text{ and } |z| \\ge 2\\right\\}$. Which of the following statements is/are correct regarding the region $S$?",
+      "options": [
+        "A) The maximum value of $|z|$ for all $z \\in S$ is equal to $2\\sqrt{5}$.",
+        "B) The minimum value of $|z|$ for all $z \\in S$ is equal to $2$.",
+        "C) The complex number $4 + 2i$ belongs to the region $S$.",
+        "D) The total area of the circular disk defined by $\\text{Re}\\left(\\frac{z - 4}{z - 2i}\\right) \\le 0$ is equal to $5\\pi$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Let $z = x + iy$ with $x, y \\in \\mathbb{R}$. We first analyze the condition $\\text{Re}\\left(\\frac{z - 4}{z - 2i}\\right) \\le 0$: $\\frac{z - 4}{z - 2i} = \\frac{(x - 4) + iy}{x + i(y - 2)} = \\frac{[(x - 4) + iy][x - i(y - 2)]}{x^2 + (y - 2)^2}$. The real part is the numerator: $x(x - 4) + y(y - 2) = x^2 - 4x + y^2 - 2y \\le 0$. Completing the square gives $(x - 2)^2 + (y - 1)^2 \\le 2^2 + 1^2 = 5$. Geometrically, this defines a closed circular disk with center $C(2, 1)$ and radius $R = \\sqrt{5}$. The area of this circular disk is $\\pi R^2 = 5\\pi$, proving statement D. The boundary of the disk passes through the origin $O(0, 0)$ since $0^2 - 4(0) + 0^2 - 2(0) = 0$. The diametrically opposite point from the origin is $2C = 4 + 2i$, which satisfies $|4 + 2i|^2 = 4^2 + 2^2 = 20 \\ge 4$, so $4 + 2i \\in S$, proving statement C. The maximum distance from the origin to any point in the disk is the diameter through the origin, which has length $2R = 2\\sqrt{5}$, and this maximum is attained at $4 + 2i \\in S$, proving statement A. The second constraint is $|z| \\ge 2$. The circle $|z| = 2$ intersects the disk boundary at $(0, 2)$, since $0^2 - 4(0) + 2^2 - 2(2) = 0$ and $0^2 + 2^2 = 4$. Thus, the point $2i$ lies in $S$ with $|2i| = 2$, proving statement B."
+    },
+    {
+      "id": "cn_c02_029",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $\\omega_k = e^{i 2k\\pi/11}$ for $k = 1, 2, \\dots, 10$ denote the non-real eleventh roots of unity. Evaluate the integer value of the finite trigonometric product $P = \\prod_{k=1}^5 \\left(2 - 2\\cos\\left(\\frac{2k\\pi}{11}\\right)\\right)$.",
+      "options": [],
+      "answer": "11",
+      "explanation": "Using the half-angle trigonometric identity, we rewrite each factor as $2 - 2\\cos\\theta = 4\\sin^2(\\theta/2)$. For $\\theta = \\frac{2k\\pi}{11}$, this gives $2 - 2\\cos\\left(\\frac{2k\\pi}{11}\\right) = 4\\sin^2\\left(\\frac{k\\pi}{11}\\right)$. We observe that the distance from $1$ to the root of unity $\\omega_k = e^{i 2k\\pi/11}$ is $|1 - \\omega_k| = \\left|1 - e^{i 2k\\pi/11}\\right| = 2\\sin\\left(\\frac{k\\pi}{11}\\right)$. Squaring this relation gives $|1 - \\omega_k|^2 = 4\\sin^2\\left(\\frac{k\\pi}{11}\\right) = 2 - 2\\cos\\left(\\frac{2k\\pi}{11}\\right)$. Furthermore, since $\\omega_{11-k} = \\overline{\\omega_k}$, we have $|1 - \\omega_{11-k}| = |1 - \\omega_k|$. Therefore, the product of the squared distances over $k = 1, 2, 3, 4, 5$ is precisely the full product over all non-real eleventh roots of unity: $P = \\prod_{k=1}^5 |1 - \\omega_k|^2 = \\prod_{k=1}^5 |1 - \\omega_k| \\cdot |1 - \\omega_{11-k}| = \\prod_{k=1}^{10} |1 - \\omega_k|$. From the cyclotomic factorization of $z^{11} - 1$, we have $\\prod_{k=1}^{10} (z - \\omega_k) = \\frac{z^{11} - 1}{z - 1} = z^{10} + z^9 + \\dots + z + 1$. Evaluating this polynomial identity at $z = 1$, we obtain $\\prod_{k=1}^{10} (1 - \\omega_k) = 1^{10} + 1^9 + \\dots + 1 + 1 = 11$. Taking absolute values on both sides, we conclude that $P = \\prod_{k=1}^{10} |1 - \\omega_k| = 11$."
+    },
+    {
+      "id": "cn_c02_030",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $z_1, z_2, z_3, z_4, z_5$ be five distinct complex numbers lying on the circle $|z| = 2$ in the Argand plane such that their centroid is located at the origin (that is, $\\sum_{k=1}^5 z_k = 0$). Evaluate the sum of the squares of the distances between all pairs of these five points: $S = \\sum_{1 \\le j < k \\le 5} |z_j - z_k|^2$.",
+      "options": [],
+      "answer": "100",
+      "explanation": "For any collection of $n$ complex numbers $z_1, z_2, \\dots, z_n$, the sum of the squared pairwise distances can be expanded using symmetry: $S = \\sum_{1 \\le j < k \\le n} |z_j - z_k|^2 = \\frac{1}{2} \\sum_{j=1}^n \\sum_{k=1}^n |z_j - z_k|^2$. Expanding the modulus square inside the double sum, we have $|z_j - z_k|^2 = |z_j|^2 + |z_k|^2 - 2\\text{Re}(z_j\\bar{z}_k)$. Substituting this into the sum gives $S = \\frac{1}{2} \\left[ \\sum_{j=1}^n \\sum_{k=1}^n |z_j|^2 + \\sum_{j=1}^n \\sum_{k=1}^n |z_k|^2 - 2\\text{Re}\\left(\\sum_{j=1}^n z_j \\sum_{k=1}^n \\bar{z}_k\\right) \\right]$. The first double sum evaluates to $n \\sum_{j=1}^n |z_j|^2$, and by symmetry the second double sum also evaluates to $n \\sum_{k=1}^n |z_k|^2$. Therefore, $S = \\frac{1}{2} \\left[ 2n \\sum_{k=1}^n |z_k|^2 - 2\\left|\\sum_{k=1}^n z_k\\right|^2 \\right] = n \\sum_{k=1}^n |z_k|^2 - \\left|\\sum_{k=1}^n z_k\\right|^2$. Here, $n = 5$, and every point lies on the circle $|z| = 2$, so $|z_k|^2 = 2^2 = 4$ for each $k = 1, 2, \\dots, 5$. Hence, $\\sum_{k=1}^5 |z_k|^2 = 5 \\times 4 = 20$. Furthermore, the centroid is at the origin, which implies $\\sum_{k=1}^5 z_k = 0$. Substituting these values into the derived formula yields $S = 5(20) - |0|^2 = 100$."
+    },
+    {
+      "id": "cn_c02_031",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $\\alpha = e^{i 2\\pi/7}$ denote a primitive seventh root of unity. Evaluate the integer value of the algebraic expression $V = \\prod_{k=1}^6 (1 - 2\\alpha^k) - \\prod_{k=1}^6 (1 + 2\\alpha^k)$.",
+      "options": [],
+      "answer": "84",
+      "explanation": "The roots $\\alpha, \\alpha^2, \\dots, \\alpha^6$ are the roots of the cyclotomic polynomial $P(z) = \\prod_{k=1}^6 (z - \\alpha^k) = \\frac{z^7 - 1}{z - 1} = z^6 + z^5 + z^4 + z^3 + z^2 + z + 1$. To evaluate the first product, factor out $2^6$: $\\prod_{k=1}^6 (1 - 2\\alpha^k) = 2^6 \\prod_{k=1}^6 \\left(\\frac{1}{2} - \\alpha^k\\right) = 64 P\\left(\\frac{1}{2}\\right)$. Using the closed form $P(z) = \\frac{z^7 - 1}{z - 1}$, we evaluate at $z = \\frac{1}{2}$: $P\\left(\\frac{1}{2}\\right) = \\frac{(1/2)^7 - 1}{1/2 - 1} = \\frac{1/128 - 1}{-1/2} = \\frac{-127/128}{-1/2} = \\frac{127}{64}$. Multiplying by 64 gives $\\prod_{k=1}^6 (1 - 2\\alpha^k) = 64 \\times \\frac{127}{64} = 127$. To evaluate the second product, factor out $(-2)^6 = 64$: $\\prod_{k=1}^6 (1 + 2\\alpha^k) = (-2)^6 \\prod_{k=1}^6 \\left(-\\frac{1}{2} - \\alpha^k\\right) = 64 P\\left(-\\frac{1}{2}\\right)$. Evaluating $P(z)$ at $z = -\\frac{1}{2}$, we get $P\\left(-\\frac{1}{2}\\right) = \\frac{(-1/2)^7 - 1}{-1/2 - 1} = \\frac{-1/128 - 1}{-3/2} = \\frac{-129/128}{-3/2} = \\frac{129}{128} \\times \\frac{2}{3} = \\frac{43}{64}$. Multiplying by 64 gives $\\prod_{k=1}^6 (1 + 2\\alpha^k) = 64 \\times \\frac{43}{64} = 43$. Subtracting the two evaluated products yields $V = 127 - 43 = 84$."
+    },
+    {
+      "id": "cn_c02_032",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $z$ be a complex number constrained to lie on the perpendicular bisector of the line segment joining $4$ and $4i$ in the Argand plane. If a function is defined by $f(z) = |z - 3|^2 + |z - 3i|^2 + |z - 6 - 6i|^2$, find the minimum value of $f(z)$.",
+      "options": [],
+      "answer": "36",
+      "explanation": "The perpendicular bisector of the line segment joining $z_1 = 4$ and $z_2 = 4i$ is given by the modulus equation $|z - 4| = |z - 4i|$. Letting $z = x + iy$, we have $(x - 4)^2 + y^2 = x^2 + (y - 4)^2 \\implies x^2 - 8x + 16 + y^2 = x^2 + y^2 - 8y + 16$. Cancelling common terms yields $-8x = -8y \\implies y = x$. Thus, any point on this locus can be parametrized as $z = x + ix$ with $x \\in \\mathbb{R}$. We now express each term of $f(z)$ in terms of $x$: (1) $|z - 3|^2 = |(x - 3) + ix|^2 = (x - 3)^2 + x^2 = 2x^2 - 6x + 9$. (2) $|z - 3i|^2 = |x + i(x - 3)|^2 = x^2 + (x - 3)^2 = 2x^2 - 6x + 9$. (3) $|z - (6 + 6i)|^2 = |(x - 6) + i(x - 6)|^2 = (x - 6)^2 + (x - 6)^2 = 2(x - 6)^2 = 2(x^2 - 12x + 36) = 2x^2 - 24x + 72$. Summing all three expressions gives $f(x) = (2x^2 - 6x + 9) + (2x^2 - 6x + 9) + (2x^2 - 24x + 72) = 6x^2 - 36x + 90$. Factoring out 6 and completing the square yields $f(x) = 6(x^2 - 6x + 9) + 90 - 54 = 6(x - 3)^2 + 36$. Since $6(x - 3)^2 \\ge 0$ for all real $x$, the minimum value of $f(z)$ is attained when $x = 3$ (corresponding to $z = 3 + 3i$). Therefore, the minimum value is $36$."
+    }
+  ]
+}

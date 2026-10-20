@@ -1,0 +1,794 @@
+{
+  "questions": [
+    {
+      "id": "ieq_c02_001",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Silver chromate has $K_{sp} = 1.2 \\times 10^{-12}$ at $25\\,^\\circ$C for $Ag_2CrO_4(s) \\rightleftharpoons 2Ag^+ + CrO_4^{2-}$. What is its molar solubility in pure water?",
+      "options": [
+        "A) $6.7 \\times 10^{-5}$ M, because $K_{sp} = 4s^3$ gives $s = (3.0 \\times 10^{-13})^{1/3}$",
+        "B) $1.1 \\times 10^{-6}$ M, because $s = \\sqrt{K_{sp}}$ is used as for a 1:1 salt",
+        "C) $1.1 \\times 10^{-4}$ M, because the factor $2^2$ in $K_{sp} = 4s^3$ is forgotten",
+        "D) $3.0 \\times 10^{-13}$ M, because $K_{sp}/4$ is reported without taking the cube root"
+      ],
+      "answer": "A",
+      "explanation": "Let $s$ be the molar solubility. Then $[Ag^+] = 2s$ and $[CrO_4^{2-}] = s$, so $K_{sp} = (2s)^2 s = 4s^3$. Thus $s^3 = 3.0 \\times 10^{-13}$, giving $s = 6.7 \\times 10^{-5}$ M."
+    },
+    {
+      "id": "ieq_c02_002",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A sparingly soluble salt PbX$_2$ has $K_{sp} = 4.0 \\times 10^{-9}$ at $25\\,^\\circ$C. Its molar solubility in pure water is $10^{-x}$ M. What is the value of $x$?",
+      "options": [],
+      "answer": "3",
+      "explanation": "For PbX$_2$, $[Pb^{2+}] = s$ and $[X^-] = 2s$, so $K_{sp} = 4s^3$. Then $s^3 = 1.0 \\times 10^{-9}$, $s = 1.0 \\times 10^{-3}$ M, and $x = 3$. Ignoring the factor 4 would give a non-integer exponent."
+    },
+    {
+      "id": "ieq_c02_003",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Equal volumes of $0.020$ M Pb(NO$_3$)$_2$ and $0.020$ M NaCl are mixed at $25\\,^\\circ$C. For PbCl$_2$, $K_{sp} = 1.6 \\times 10^{-5}$. Will a precipitate form?",
+      "options": [
+        "A) No precipitate, because after dilution $Q_{sp} = [Pb^{2+}][Cl^-]^2 = 1.0 \\times 10^{-6}$ is below $K_{sp}$",
+        "B) A precipitate forms, because $Q_{sp} = [Pb^{2+}][Cl^-]$ is taken as $1.0 \\times 10^{-4}$",
+        "C) A precipitate forms, because the sum $[Pb^{2+}] + [Cl^-] = 0.02$ M is compared with $K_{sp}$",
+        "D) A precipitate forms, because the undiluted $[Pb^{2+}][Cl^-]^2 = 8.0 \\times 10^{-6}$ is compared with $K_{sp}$"
+      ],
+      "answer": "A",
+      "explanation": "Mixing doubles the volume, so $[Pb^{2+}] = 0.010$ M and $[Cl^-] = 0.010$ M. Then $Q_{sp} = (0.010)(0.010)^2 = 1.0 \\times 10^{-6}$. Since $Q_{sp} < K_{sp} = 1.6 \\times 10^{-5}$, the solution is unsaturated and no solid forms."
+    },
+    {
+      "id": "ieq_c02_004",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Lead iodide has $K_{sp} = 8.0 \\times 10^{-9}$ at $25\\,^\\circ$C for $PbI_2(s) \\rightleftharpoons Pb^{2+} + 2I^-$. What is its molar solubility in pure water?",
+      "options": [
+        "A) $1.3 \\times 10^{-3}$ M, because $K_{sp} = 4s^3$ gives $s = (2.0 \\times 10^{-9})^{1/3}$",
+        "B) $2.0 \\times 10^{-9}$ M, because $s = K_{sp}/4$ is used directly",
+        "C) $8.9 \\times 10^{-5}$ M, because $s = \\sqrt{K_{sp}}$ is used as for a 1:1 salt",
+        "D) $2.0 \\times 10^{-3}$ M, because $K_{sp} = s^3$ is used and the factor 4 is forgotten"
+      ],
+      "answer": "A",
+      "explanation": "With $[Pb^{2+}] = s$ and $[I^-] = 2s$, $K_{sp} = s(2s)^2 = 4s^3$. So $s^3 = 2.0 \\times 10^{-9}$ and $s = 1.3 \\times 10^{-3}$ M."
+    },
+    {
+      "id": "ieq_c02_005",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Barium sulphate has $K_{sp} = 1.0 \\times 10^{-10}$ at $25\\,^\\circ$C. In a $1.0 \\times 10^{-3}$ M Na$_2$SO$_4$ solution, its molar solubility is $10^{-x}$ M. What is the integer value of $x$?",
+      "options": [],
+      "answer": "7",
+      "explanation": "The sulphate from Na$_2$SO$_4$ fixes $[SO_4^{2-}] = 1.0 \\times 10^{-3}$ M, so the barium solubility is $s = K_{sp}/[SO_4^{2-}] = 1.0 \\times 10^{-7}$ M and $x = 7$. Using the pure-water value $10^{-5}$ M would give $x = 5$."
+    },
+    {
+      "id": "ieq_c02_006",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Barium sulphate (molar mass $233$ g/mol) has $K_{sp} = 1.0 \\times 10^{-10}$ at $25\\,^\\circ$C. What mass of BaSO$_4$ dissolves in one litre of pure water?",
+      "options": [
+        "A) $2.3 \\times 10^{-3}$ g, because $s = \\sqrt{K_{sp}} = 1.0 \\times 10^{-5}$ M is multiplied by the molar mass",
+        "B) $1.0 \\times 10^{-5}$ g, because moles are reported as grams without multiplying by the molar mass",
+        "C) $2.3 \\times 10^{-8}$ g, because $s = K_{sp}$ is taken as the molar solubility",
+        "D) $4.7 \\times 10^{-3}$ g, because the barium ion is counted twice in $s$"
+      ],
+      "answer": "A",
+      "explanation": "BaSO$_4$ dissolves as $Ba^{2+} + SO_4^{2-}$, so $K_{sp} = s^2$ and $s = 1.0 \\times 10^{-5}$ M. The mass dissolved per litre is $1.0 \\times 10^{-5} \\times 233 = 2.3 \\times 10^{-3}$ g."
+    },
+    {
+      "id": "ieq_c02_007",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Magnesium hydroxide has $K_{sp} = 1.0 \\times 10^{-12}$ at $25\\,^\\circ$C. A solution is buffered at pH 10 and is saturated with the solid. What is the integer $x$ such that $[Mg^{2+}] = 10^{-x}$ M?",
+      "options": [],
+      "answer": "4",
+      "explanation": "At pH 10, $[OH^-] = 10^{-4}$ M. Then $[Mg^{2+}] = K_{sp}/[OH^-]^2 = 10^{-12}/10^{-8} = 10^{-4}$ M, so $x = 4$. Forgetting the square on $[OH^-]$ would give $x = 8$."
+    },
+    {
+      "id": "ieq_c02_008",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Lead chloride has $K_{sp} = 1.6 \\times 10^{-5}$ at $25\\,^\\circ$C. What is the molar solubility of PbCl$_2$ in $0.10$ M HCl?",
+      "options": [
+        "A) $1.6 \\times 10^{-3}$ M, because $[Pb^{2+}] = K_{sp}/[Cl^-]^2 = 1.6 \\times 10^{-5}/0.010$",
+        "B) $1.6 \\times 10^{-4}$ M, because the chloride is counted once instead of twice",
+        "C) $4.0 \\times 10^{-3}$ M, because $\\sqrt{K_{sp}}$ is taken while the HCl is ignored",
+        "D) $1.6 \\times 10^{-5}$ M, because $K_{sp}$ itself is reported as the solubility"
+      ],
+      "answer": "A",
+      "explanation": "The common chloride from HCl fixes $[Cl^-] \\approx 0.10$ M. From $K_{sp} = [Pb^{2+}][Cl^-]^2$, $[Pb^{2+}] = 1.6 \\times 10^{-5}/(0.10)^2 = 1.6 \\times 10^{-3}$ M."
+    },
+    {
+      "id": "ieq_c02_009",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Equal volumes of $2.0 \\times 10^{-4}$ M AgNO$_3$ and $2.0 \\times 10^{-4}$ M NaCl are mixed at $25\\,^\\circ$C. With $K_{sp}(AgCl) = 1.8 \\times 10^{-10}$, which statement is correct?",
+      "options": [
+        "A) A precipitate forms, because $Q_{sp} = 1.0 \\times 10^{-8}$ after mixing exceeds $K_{sp}$",
+        "B) No precipitate forms, because the volumes are doubled and $Q_{sp}$ is halved to $5.0 \\times 10^{-9}$, which is below $K_{sp}$",
+        "C) A precipitate forms, because the sum of the two concentrations is compared with $K_{sp}$",
+        "D) No precipitate forms, because AgCl is soluble at every chloride concentration"
+      ],
+      "answer": "A",
+      "explanation": "After mixing, $[Ag^+] = [Cl^-] = 1.0 \\times 10^{-4}$ M. Then $Q_{sp} = (1.0 \\times 10^{-4})^2 = 1.0 \\times 10^{-8}$, far above $K_{sp} = 1.8 \\times 10^{-10}$, so AgCl precipitates."
+    },
+    {
+      "id": "ieq_c02_010",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Strontium fluoride has $K_{sp} = 2.0 \\times 10^{-10}$ at $25\\,^\\circ$C for $SrF_2(s) \\rightleftharpoons Sr^{2+} + 2F^-$. What is its molar solubility in pure water?",
+      "options": [
+        "A) $3.7 \\times 10^{-4}$ M, because $K_{sp} = 4s^3$ gives $s = (5.0 \\times 10^{-11})^{1/3}$",
+        "B) $1.4 \\times 10^{-5}$ M, because $s = \\sqrt{K_{sp}}$ is used as for a 1:1 salt",
+        "C) $5.0 \\times 10^{-11}$ M, because $s = K_{sp}/4$ is reported without the cube root",
+        "D) $5.8 \\times 10^{-4}$ M, because $K_{sp} = s^3$ is used and the factor 4 is forgotten"
+      ],
+      "answer": "A",
+      "explanation": "With $[Sr^{2+}] = s$ and $[F^-] = 2s$, $K_{sp} = s(2s)^2 = 4s^3$. Then $s^3 = 5.0 \\times 10^{-11}$, so $s = 3.7 \\times 10^{-4}$ M."
+    },
+    {
+      "id": "ieq_c02_011",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Calcium sulphate has $K_{sp} = 2.4 \\times 10^{-5}$ at $25\\,^\\circ$C. What is the molar solubility of CaSO$_4$ in a $0.10$ M CaCl$_2$ solution?",
+      "options": [
+        "A) $2.4 \\times 10^{-4}$ M, because $[SO_4^{2-}] = K_{sp}/[Ca^{2+}] = 2.4 \\times 10^{-5}/0.10$",
+        "B) $4.9 \\times 10^{-3}$ M, because $\\sqrt{K_{sp}}$ is used while the common calcium ion is ignored",
+        "C) $2.4 \\times 10^{-5}$ M, because $K_{sp}$ is divided by 1.0 instead of 0.10",
+        "D) $2.4 \\times 10^{-3}$ M, because the common-ion term is squared in $K_{sp} = [Ca^{2+}][SO_4^{2-}]$"
+      ],
+      "answer": "A",
+      "explanation": "CaSO$_4$ supplies $[SO_4^{2-}] = s$, while CaCl$_2$ fixes $[Ca^{2+}] \\approx 0.10$ M. Then $K_{sp} = 0.10\\,s$, so $s = 2.4 \\times 10^{-5}/0.10 = 2.4 \\times 10^{-4}$ M."
+    },
+    {
+      "id": "ieq_c02_012",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Calcium hydroxide (molar mass $74$ g/mol) has $K_{sp} = 5.5 \\times 10^{-6}$ at $25\\,^\\circ$C. What is the solubility of Ca(OH)$_2$ in pure water in grams per litre?",
+      "options": [
+        "A) 0.82 g/L, because $K_{sp} = 4s^3$ gives $s = 1.1 \\times 10^{-2}$ M, and $s$ is multiplied by 74",
+        "B) 0.41 g/L, because $s$ is divided by 2 for the two hydroxide ions",
+        "C) 0.011 g/L, because the molar mass is not multiplied in",
+        "D) 1.3 g/L, because $K_{sp} = s^3$ is used and the factor 4 is forgotten"
+      ],
+      "answer": "A",
+      "explanation": "With $[Ca^{2+}] = s$ and $[OH^-] = 2s$, $K_{sp} = 4s^3$, so $s^3 = 1.375 \\times 10^{-6}$ and $s = 1.11 \\times 10^{-2}$ M. Mass per litre is $1.11 \\times 10^{-2} \\times 74 = 0.82$ g."
+    },
+    {
+      "id": "ieq_c02_013",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Given $K_{sp}(AgCl) = 1.0 \\times 10^{-10}$ and $K_{sp}(Ag_2CrO_4) = 1.2 \\times 10^{-12}$ at $25\\,^\\circ$C, which statement comparing their molar solubilities in pure water is correct?",
+      "options": [
+        "A) Ag$_2$CrO$_4$ is more soluble, because its molar solubility is $6.7 \\times 10^{-5}$ M against $1.0 \\times 10^{-5}$ M for AgCl",
+        "B) AgCl is more soluble, because its $K_{sp}$ is numerically larger than that of Ag$_2$CrO$_4$",
+        "C) Both are equally soluble, because each contains one silver ion per formula unit",
+        "D) Ag$_2$CrO$_4$ is less soluble, because its $K_{sp}$ value is numerically smaller"
+      ],
+      "answer": "A",
+      "explanation": "For AgCl, $s^2 = 1.0 \\times 10^{-10}$ gives $s = 1.0 \\times 10^{-5}$ M. For Ag$_2$CrO$_4$, $4s^3 = 1.2 \\times 10^{-12}$ gives $s = 6.7 \\times 10^{-5}$ M. Comparing $K_{sp}$ values directly ignores the different stoichiometry."
+    },
+    {
+      "id": "ieq_c02_014",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Zinc hydroxide has $K_{sp} = 1.0 \\times 10^{-17}$ at $25\\,^\\circ$C. The saturated solid is held in a buffer at pH 9. Report the integer $x$ such that the equilibrium zinc concentration is $10^{-x}$ M.",
+      "options": [],
+      "answer": "7",
+      "explanation": "At pH 9, $[OH^-] = 10^{-5}$ M. Then $[Zn^{2+}] = K_{sp}/[OH^-]^2 = 10^{-17}/10^{-10} = 10^{-7}$ M, so $x = 7$. Forgetting the square would give $x = 12$."
+    },
+    {
+      "id": "ieq_c02_015",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Barium fluoride has $K_{sp} = 1.7 \\times 10^{-6}$ at $25\\,^\\circ$C. What is its molar solubility in a $0.20$ M NaF solution?",
+      "options": [
+        "A) $4.3 \\times 10^{-5}$ M, because $[Ba^{2+}] = K_{sp}/[F^-]^2 = 1.7 \\times 10^{-6}/0.040$",
+        "B) $8.5 \\times 10^{-6}$ M, because $K_{sp}$ is divided by $[F^-]$ instead of $[F^-]^2$",
+        "C) $7.5 \\times 10^{-3}$ M, because the common fluoride from NaF is ignored and pure-water solubility is used",
+        "D) $2.9 \\times 10^{-3}$ M, because the square root of $K_{sp}/[F^-]$ is taken"
+      ],
+      "answer": "A",
+      "explanation": "NaF fixes $[F^-] \\approx 0.20$ M. Then $K_{sp} = [Ba^{2+}][F^-]^2$ gives $[Ba^{2+}] = 1.7 \\times 10^{-6}/(0.20)^2 = 4.3 \\times 10^{-5}$ M."
+    },
+    {
+      "id": "ieq_c02_016",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $0.10$ M solution of Zn$^{2+}$ is saturated with $0.10$ M H$_2$S. The overall ionisation constant of H$_2$S is $K_{ov} = 1.0 \\times 10^{-20}$ and $K_{sp}(ZnS) = 1.0 \\times 10^{-21}$ at $25\\,^\\circ$C. At what pH does ZnS first precipitate?",
+      "options": [
+        "A) pH 0.50, because $[S^{2-}] = K_{ov}[H_2S]/[H^+]^2$ and $[H^+]^2 = 0.10$ when $Q_{sp} = K_{sp}$",
+        "B) pH 1.00, because $[H^+]^2$ is replaced by $[H^+]$ in the sulphide expression",
+        "C) pH 5.00, because the sulphide is computed as $K_{ov}[H_2S]$ without any hydrogen-ion term",
+        "D) pH 13.50, because the pOH of 0.50 is subtracted from 13 instead of 14"
+      ],
+      "answer": "A",
+      "explanation": "Precipitation starts when $[Zn^{2+}][S^{2-}] = K_{sp}$, so $[S^{2-}] = 1.0 \\times 10^{-20}$ M. From $K_{ov}$, $[S^{2-}] = 10^{-21}/[H^+]^2$. Setting this to $10^{-20}$ gives $[H^+]^2 = 0.10$, so $[H^+] = 0.316$ and pH $= 0.50$."
+    },
+    {
+      "id": "ieq_c02_017",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Equal volumes of $0.20$ M Pb(NO$_3$)$_2$ and $0.20$ M KI are mixed at $25\\,^\\circ$C. Given $K_{sp}(PbI_2) = 8.0 \\times 10^{-9}$, what is the equilibrium concentration of I$^-$ in the solution?",
+      "options": [
+        "A) $4.0 \\times 10^{-4}$ M, because the excess Pb$^{2+}$ is about $0.050$ M and $[I^-]^2 = K_{sp}/0.050$",
+        "B) $1.6 \\times 10^{-7}$ M, because $[I^-] = K_{sp}/[Pb^{2+}]$ is used without squaring the iodide",
+        "C) $0.10$ M, because no precipitation occurs at these concentrations",
+        "D) $2.0 \\times 10^{-4}$ M, because the dissolved lead concentration is reported as the iodide concentration"
+      ],
+      "answer": "A",
+      "explanation": "The 0.10 M of I$^-$ precipitates 0.050 M of Pb$^{2+}$ as PbI$_2$, leaving $[Pb^{2+}] \\approx 0.050$ M. From $K_{sp} = [Pb^{2+}][I^-]^2$, $[I^-]^2 = 8.0 \\times 10^{-9}/0.050 = 1.6 \\times 10^{-7}$, so $[I^-] = 4.0 \\times 10^{-4}$ M."
+    },
+    {
+      "id": "ieq_c02_018",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Using $K_{sp}(AgCl) = 1.0 \\times 10^{-10}$ at $25\\,^\\circ$C, which statement about the molar solubility of AgCl is correct?",
+      "options": [
+        "A) In $0.10$ M AgNO$_3$ the molar solubility is about $1.0 \\times 10^{-9}$ M, because silver is the common ion",
+        "B) In $0.10$ M NaCl the molar solubility exceeds that in pure water, because the sodium ion raises the ionic strength",
+        "C) In $0.10$ M NaCl the molar solubility stays near $1.0 \\times 10^{-5}$ M, because chloride does not affect the equilibrium",
+        "D) In $0.10$ M AgNO$_3$ the molar solubility is about $1.0 \\times 10^{-4}$ M, because nitrate adds to the dissolved silver"
+      ],
+      "answer": "A",
+      "explanation": "AgNO$_3$ supplies $[Ag^+] = 0.10$ M, so $[Cl^-] = K_{sp}/0.10 = 1.0 \\times 10^{-9}$ M and the molar solubility of AgCl is $1.0 \\times 10^{-9}$ M. This is $10^4$ times lower than in pure water."
+    },
+    {
+      "id": "ieq_c02_019",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $0.10$ M Fe$^{3+}$ solution is slowly made alkaline at $25\\,^\\circ$C. Given $K_{sp}[Fe(OH)_3] = 4.0 \\times 10^{-38}$, at what pH does Fe(OH)$_3$ first precipitate?",
+      "options": [
+        "A) pH 1.87, because $[OH^-]^3 = K_{sp}/0.10 = 4.0 \\times 10^{-37}$ at onset",
+        "B) pH 12.13, because the pOH at onset is reported as the pH",
+        "C) pH 2.20, because the Fe$^{3+}$ concentration is taken as $0.010$ M instead of $0.10$ M",
+        "D) pH 7.00, because Fe(OH)$_3$ precipitates only in neutral solutions"
+      ],
+      "answer": "A",
+      "explanation": "Onset occurs when $[Fe^{3+}][OH^-]^3 = K_{sp}$, so $[OH^-]^3 = 4.0 \\times 10^{-37}$ and $[OH^-] = 7.4 \\times 10^{-13}$ M. Then pOH $= 12.13$ and pH $= 1.87$."
+    },
+    {
+      "id": "ieq_c02_020",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The molar solubility of AgCl ($K_{sp} = 1.0 \\times 10^{-10}$) in pure water is divided by its molar solubility in $5.0 \\times 10^{-4}$ M NaCl. What is this ratio as an integer?",
+      "options": [],
+      "answer": "50",
+      "explanation": "In pure water $s = \\sqrt{K_{sp}} = 1.0 \\times 10^{-5}$ M. In $5.0 \\times 10^{-4}$ M NaCl, $s = K_{sp}/(5.0 \\times 10^{-4}) = 2.0 \\times 10^{-7}$ M. The ratio is $10^{-5}/(2.0 \\times 10^{-7}) = 50$."
+    },
+    {
+      "id": "ieq_c02_021",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Lead chloride has $K_{sp} = 1.6 \\times 10^{-5}$ at $25\\,^\\circ$C. What is the molar solubility of PbCl$_2$ in a $0.20$ M NaCl solution?",
+      "options": [
+        "A) $4.0 \\times 10^{-4}$ M, because $[Pb^{2+}] = K_{sp}/[Cl^-]^2 = 1.6 \\times 10^{-5}/0.040$",
+        "B) $8.0 \\times 10^{-5}$ M, because $[Pb^{2+}] = K_{sp}/[Cl^-]$ is used with a single chloride",
+        "C) $4.0 \\times 10^{-3}$ M, because $\\sqrt{K_{sp}}$ is taken while the chloride is ignored",
+        "D) $1.6 \\times 10^{-5}$ M, because $K_{sp}$ itself is reported as the molar solubility"
+      ],
+      "answer": "A",
+      "explanation": "NaCl fixes $[Cl^-] \\approx 0.20$ M, so $[Pb^{2+}] = K_{sp}/[Cl^-]^2 = 1.6 \\times 10^{-5}/0.040 = 4.0 \\times 10^{-4}$ M."
+    },
+    {
+      "id": "ieq_c02_022",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Manganese(II) hydroxide has $K_{sp} = 2.0 \\times 10^{-14}$ at $25\\,^\\circ$C. A $0.020$ M Mn$^{2+}$ solution is made alkaline. Report the integer pH at which precipitation begins.",
+      "options": [],
+      "answer": "8",
+      "explanation": "At onset $[OH^-]^2 = K_{sp}/0.020 = 1.0 \\times 10^{-12}$, so $[OH^-] = 1.0 \\times 10^{-6}$ M, pOH $= 6$ and pH $= 8$. Using $[Mn^{2+}] = 0.20$ M instead would give pH 7.5."
+    },
+    {
+      "id": "ieq_c02_023",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Equal volumes of $0.0020$ M CaCl$_2$ and $0.0020$ M Na$_2$CO$_3$ are mixed at $25\\,^\\circ$C. Given $K_{sp}(CaCO_3) = 4.8 \\times 10^{-9}$, which statement is correct?",
+      "options": [
+        "A) A precipitate forms, because $Q_{sp} = (1.0 \\times 10^{-3})^2 = 1.0 \\times 10^{-6}$ exceeds $K_{sp}$",
+        "B) No precipitate forms, because the $0.0020$ M values are below the solubility limit of CaCO$_3$",
+        "C) A precipitate forms, because $Q_{sp}$ is taken as $[Ca^{2+}] + [CO_3^{2-}] = 2.0 \\times 10^{-3}$ M",
+        "D) No precipitate forms, because $Q_{sp}$ is computed as $[Ca^{2+}][CO_3^{2-}]^2$ using the same 0.0010 M values"
+      ],
+      "answer": "A",
+      "explanation": "After mixing, $[Ca^{2+}] = [CO_3^{2-}] = 1.0 \\times 10^{-3}$ M, so $Q_{sp} = 1.0 \\times 10^{-6}$. This is far above $K_{sp} = 4.8 \\times 10^{-9}$, so CaCO$_3$ precipitates."
+    },
+    {
+      "id": "ieq_c02_024",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Silver oxalate, Ag$_2$C$_2$O$_4$, has $K_{sp} = 3.5 \\times 10^{-11}$ at $25\\,^\\circ$C. What is its molar solubility in pure water?",
+      "options": [
+        "A) $2.1 \\times 10^{-4}$ M, because $K_{sp} = 4s^3$ gives $s = (8.75 \\times 10^{-12})^{1/3}$",
+        "B) $5.9 \\times 10^{-6}$ M, because $s = \\sqrt{K_{sp}}$ is used as for a 1:1 salt",
+        "C) $8.8 \\times 10^{-12}$ M, because $K_{sp}/4$ is reported without the cube root",
+        "D) $3.3 \\times 10^{-4}$ M, because $K_{sp} = s^3$ is used and the factor 4 is forgotten"
+      ],
+      "answer": "A",
+      "explanation": "With $[Ag^+] = 2s$ and $[C_2O_4^{2-}] = s$, $K_{sp} = (2s)^2 s = 4s^3$. So $s^3 = 8.75 \\times 10^{-12}$ and $s = 2.1 \\times 10^{-4}$ M."
+    },
+    {
+      "id": "ieq_c02_025",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $0.020$ M Fe$^{2+}$ solution is made alkaline at $25\\,^\\circ$C. Given $K_{sp}[Fe(OH)_2] = 8.0 \\times 10^{-16}$, what is the pH at which Fe(OH)$_2$ begins to precipitate? Use $\\log 2 = 0.30$.",
+      "options": [
+        "A) pH 7.30, because $[OH^-]^2 = K_{sp}/0.020 = 4.0 \\times 10^{-14}$ gives $[OH^-] = 2.0 \\times 10^{-7}$ M",
+        "B) pH 6.70, because the pOH at onset is reported as the pH",
+        "C) pH 7.00, because Fe(OH)$_2$ precipitates only in neutral solutions",
+        "D) pH 0.60, because $[OH^-] = K_{sp}/0.020$ is used without the square root"
+      ],
+      "answer": "A",
+      "explanation": "Onset requires $[Fe^{2+}][OH^-]^2 = K_{sp}$, so $[OH^-]^2 = 4.0 \\times 10^{-14}$ and $[OH^-] = 2.0 \\times 10^{-7}$ M. Then pOH $= 6.70$ and pH $= 7.30$."
+    },
+    {
+      "id": "ieq_c02_026",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Calcium phosphate, Ca$_3$(PO$_4$)$_2$, has $K_{sp} = 2.0 \\times 10^{-29}$ at $25\\,^\\circ$C. What is its molar solubility in pure water?",
+      "options": [
+        "A) $7.1 \\times 10^{-7}$ M, because $K_{sp} = 108\\,s^5$ gives $s^5 = 1.85 \\times 10^{-31}$",
+        "B) $1.8 \\times 10^{-6}$ M, because the coefficient 108 is forgotten and $K_{sp} = s^5$ is used",
+        "C) $2.0 \\times 10^{-29}$ M, because $K_{sp}$ itself is reported as the solubility",
+        "D) $2.4 \\times 10^{-7}$ M, because the solubility is divided by 3 for the three calcium ions"
+      ],
+      "answer": "A",
+      "explanation": "$[Ca^{2+}] = 3s$ and $[PO_4^{3-}] = 2s$, so $K_{sp} = (3s)^3(2s)^2 = 108\\,s^5$. Then $s^5 = 1.85 \\times 10^{-31}$ and $s = 7.1 \\times 10^{-7}$ M."
+    },
+    {
+      "id": "ieq_c02_027",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Calcium fluoride has $K_{sp} = 4.0 \\times 10^{-11}$ at $25\\,^\\circ$C. What is its molar solubility in a $0.10$ M CaCl$_2$ solution?",
+      "options": [
+        "A) $1.0 \\times 10^{-5}$ M, because $[F^-]^2 = K_{sp}/[Ca^{2+}] = 4.0 \\times 10^{-10}$ and the molar solubility is half of $[F^-]$",
+        "B) $2.0 \\times 10^{-5}$ M, because $[F^-]$ is reported as the molar solubility",
+        "C) $4.0 \\times 10^{-10}$ M, because $[F^-] = K_{sp}/[Ca^{2+}]$ is used linearly",
+        "D) $2.2 \\times 10^{-4}$ M, because the common calcium ion is ignored and pure-water solubility is used"
+      ],
+      "answer": "A",
+      "explanation": "CaCl$_2$ fixes $[Ca^{2+}] \\approx 0.10$ M. From $K_{sp} = [Ca^{2+}][F^-]^2$, $[F^-]^2 = 4.0 \\times 10^{-10}$ and $[F^-] = 2.0 \\times 10^{-5}$ M. Since each CaF$_2$ releases two fluoride ions, $s = [F^-]/2 = 1.0 \\times 10^{-5}$ M."
+    },
+    {
+      "id": "ieq_c02_028",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Nickel(II) hydroxide has $K_{sp} = 2.0 \\times 10^{-15}$ at $25\\,^\\circ$C. The solid is in contact with a solution buffered at pH 10. What is the equilibrium concentration of Ni$^{2+}$?",
+      "options": [
+        "A) $2.0 \\times 10^{-7}$ M, because $[Ni^{2+}] = K_{sp}/[OH^-]^2$ with $[OH^-] = 10^{-4}$ M",
+        "B) $2.0 \\times 10^{-11}$ M, because $[Ni^{2+}] = K_{sp}/[OH^-]$ is used without squaring",
+        "C) $2.0 \\times 10^{-15}$ M, because $K_{sp}$ itself is reported as $[Ni^{2+}]$",
+        "D) $0.20$ M, because $[OH^-] = 10^{-7}$ M is used for pH 10"
+      ],
+      "answer": "A",
+      "explanation": "At pH 10, $[OH^-] = 10^{-4}$ M. Then $[Ni^{2+}] = K_{sp}/[OH^-]^2 = 2.0 \\times 10^{-15}/10^{-8} = 2.0 \\times 10^{-7}$ M."
+    },
+    {
+      "id": "ieq_c02_029",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Barium carbonate has $K_{sp} = 1.0 \\times 10^{-9}$ at $25\\,^\\circ$C. Its molar solubility in $0.10$ M Na$_2$CO$_3$ is $10^{-x}$ M. What is the integer value of $x$?",
+      "options": [],
+      "answer": "8",
+      "explanation": "Na$_2$CO$_3$ fixes $[CO_3^{2-}] = 0.10$ M, so $[Ba^{2+}] = s = K_{sp}/0.10 = 1.0 \\times 10^{-8}$ M and $x = 8$. The pure-water value $\\sqrt{K_{sp}}$ would not give an integer exponent."
+    },
+    {
+      "id": "ieq_c02_030",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Calcium hydroxide ($K_{sp} = 5.5 \\times 10^{-6}$) and calcium fluoride ($K_{sp} = 4.0 \\times 10^{-11}$) both have a 1:2 cation-to-anion ratio at $25\\,^\\circ$C. Which statement about their molar solubilities in pure water is correct?",
+      "options": [
+        "A) Ca(OH)$_2$ is about 50 times more soluble, because both salts follow $K_{sp} = 4s^3$, so solubility scales with $K_{sp}^{1/3}$",
+        "B) CaF$_2$ is more soluble, because fluoride is smaller than hydroxide and dissolves more readily",
+        "C) CaF$_2$ is about 50 times more soluble, because its $K_{sp}$ is the smaller number",
+        "D) Both salts have equal molar solubility, because both contain the calcium ion"
+      ],
+      "answer": "A",
+      "explanation": "For each salt $K_{sp} = 4s^3$, so $s = (K_{sp}/4)^{1/3}$. Ca(OH)$_2$ gives $s = 1.1 \\times 10^{-2}$ M and CaF$_2$ gives $s = 2.2 \\times 10^{-4}$ M. The ratio is about 50."
+    },
+    {
+      "id": "ieq_c02_031",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Silver phosphate, Ag$_3$PO$_4$, has $K_{sp} = 8.9 \\times 10^{-17}$ at $25\\,^\\circ$C. What is its molar solubility in pure water?",
+      "options": [
+        "A) $4.3 \\times 10^{-5}$ M, because $K_{sp} = 27\\,s^4$ gives $s^4 = 3.3 \\times 10^{-18}$",
+        "B) $9.7 \\times 10^{-5}$ M, because the coefficient 27 is forgotten and $K_{sp} = s^4$ is used",
+        "C) $3.3 \\times 10^{-18}$ M, because $s^4$ is reported as the solubility",
+        "D) $1.5 \\times 10^{-6}$ M, because $K_{sp} = 27\\,s^3$ is used"
+      ],
+      "answer": "A",
+      "explanation": "With $[Ag^+] = 3s$ and $[PO_4^{3-}] = s$, $K_{sp} = (3s)^3 s = 27\\,s^4$. Then $s^4 = 3.3 \\times 10^{-18}$, so $s = 4.3 \\times 10^{-5}$ M."
+    },
+    {
+      "id": "ieq_c02_032",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Lead sulphide has $K_{sp} = 1.0 \\times 10^{-28}$ at $25\\,^\\circ$C. In a $1.0 \\times 10^{-4}$ M Na$_2$S solution, its molar solubility is $10^{-x}$ M. What is the integer value of $x$?",
+      "options": [],
+      "answer": "24",
+      "explanation": "Na$_2$S fixes $[S^{2-}] = 1.0 \\times 10^{-4}$ M, so the lead concentration is $K_{sp}/[S^{2-}] = 1.0 \\times 10^{-24}$ M and $x = 24$. Taking $[S^{2-}]$ as 1 M would give $x = 28$."
+    },
+    {
+      "id": "ieq_c02_033",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $0.10$ M Mn$^{2+}$ solution is saturated with $0.10$ M H$_2$S at pH 2. Given $K_{ov}(H_2S) = 1.0 \\times 10^{-20}$ and $K_{sp}(MnS) = 3.0 \\times 10^{-14}$, which statement is correct?",
+      "options": [
+        "A) No precipitate forms, because $[S^{2-}] = 10^{-17}$ M gives $Q_{sp} = 1.0 \\times 10^{-18}$, below $K_{sp}$",
+        "B) MnS precipitates, because $[S^{2-}]$ is taken as the H$_2$S concentration of $0.10$ M",
+        "C) MnS precipitates, because MnS is insoluble in acidic solutions at all pH values",
+        "D) No precipitate forms, because $[S^{2-}]$ is computed without squaring $[H^+]$ and gives $10^{-19}$ M"
+      ],
+      "answer": "A",
+      "explanation": "At pH 2, $[H^+]^2 = 10^{-4}$, so $[S^{2-}] = K_{ov}[H_2S]/[H^+]^2 = 10^{-20} \\times 0.10/10^{-4} = 10^{-17}$ M. Then $Q_{sp} = (0.10)(10^{-17}) = 10^{-18}$, below $K_{sp} = 3.0 \\times 10^{-14}$, so no MnS forms."
+    },
+    {
+      "id": "ieq_c02_034",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Silver bromide has $K_{sp} = 1.0 \\times 10^{-13}$ at $25\\,^\\circ$C. In a solution containing $1.0 \\times 10^{-3}$ M KBr, the equilibrium concentration of Ag$^+$ is $10^{-x}$ M. What is the integer $x$?",
+      "options": [],
+      "answer": "10",
+      "explanation": "KBr fixes $[Br^-] = 1.0 \\times 10^{-3}$ M, so $[Ag^+] = K_{sp}/[Br^-] = 1.0 \\times 10^{-13}/1.0 \\times 10^{-3} = 1.0 \\times 10^{-10}$ M, and $x = 10$. Taking $[Ag^+] = \\sqrt{K_{sp}}$ would give a non-integer exponent."
+    },
+    {
+      "id": "ieq_c02_035",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $0.010$ M Pb$^{2+}$ solution at $25\\,^\\circ$C is slowly treated with NaCl. Given $K_{sp}(PbCl_2) = 1.6 \\times 10^{-5}$, what chloride concentration is needed for PbCl$_2$ to begin precipitating?",
+      "options": [
+        "A) $0.040$ M, because $[Cl^-]^2 = K_{sp}/[Pb^{2+}] = 1.6 \\times 10^{-3}$",
+        "B) $1.6 \\times 10^{-3}$ M, because the squared value $[Cl^-]^2$ is treated as $[Cl^-]$",
+        "C) $4.0 \\times 10^{-3}$ M, because $\\sqrt{K_{sp}}$ is taken and the lead ion is ignored",
+        "D) $0.13$ M, because $[Cl^-]^2 = K_{sp}/[Pb^{2+}]$ is evaluated with $[Pb^{2+}] = 0.0010$ M"
+      ],
+      "answer": "A",
+      "explanation": "Onset occurs when $[Pb^{2+}][Cl^-]^2 = K_{sp}$, so $[Cl^-]^2 = 1.6 \\times 10^{-5}/0.010 = 1.6 \\times 10^{-3}$. Therefore $[Cl^-] = 0.040$ M."
+    },
+    {
+      "id": "ieq_c02_036",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Silver iodide has $K_{sp} = 8.5 \\times 10^{-17}$ at $25\\,^\\circ$C. Silver forms $[Ag(CN)_2]^-$ with overall formation constant $\\beta_2 = 1.0 \\times 10^{21}$. Which of the following statements is/are correct for a solution of $1.0$ M KCN at $25\\,^\\circ$C?",
+      "options": [
+        "A) The molar solubility of AgI in pure water is approximately $9.2 \\times 10^{-9}$ M.",
+        "B) The molar solubility of AgI in $1.0$ M KCN is approximately $0.50$ M.",
+        "C) The free Ag$^+$ concentration in $1.0$ M KCN is approximately $0.50$ M.",
+        "D) Adding $0.10$ M KI to the $1.0$ M KCN solution increases the molar solubility of AgI."
+      ],
+      "answer": "A,B",
+      "explanation": "In pure water $s = \\sqrt{K_{sp}} = 9.2 \\times 10^{-9}$ M. The overall reaction $AgI(s) + 2CN^- \\rightleftharpoons [Ag(CN)_2]^- + I^-$ has $K = K_{sp}\\beta_2 = 8.5 \\times 10^{4}$. With molar solubility $s$, $s^2/(1-2s)^2 = 8.5 \\times 10^4$, so $s/(1-2s) = 291.5$ and $s \\approx 0.50$ M. Free Ag$^+$ is negligible because almost all silver is complexed."
+    },
+    {
+      "id": "ieq_c02_037",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A saturated solution of calcium hydroxide at $25\\,^\\circ$C has $K_{sp} = 5.5 \\times 10^{-6}$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The molar solubility of Ca(OH)$_2$ in pure water is approximately $1.1 \\times 10^{-2}$ M.",
+        "B) The pH of the saturated solution in pure water is approximately 12.35.",
+        "C) In $0.10$ M NaOH the molar solubility of Ca(OH)$_2$ increases above its pure-water value.",
+        "D) In $0.10$ M CaCl$_2$ the hydroxide concentration of the saturated solution is approximately $7.4 \\times 10^{-3}$ M."
+      ],
+      "answer": "A,B,D",
+      "explanation": "From $K_{sp} = 4s^3$, $s = 1.1 \\times 10^{-2}$ M and $[OH^-] = 2s = 2.2 \\times 10^{-2}$ M, giving pOH $= 1.65$ and pH $\\approx 12.35$. In $0.10$ M CaCl$_2$, $[Ca^{2+}] \\approx 0.10$ M, so $[OH^-]^2 = K_{sp}/0.10 = 5.5 \\times 10^{-5}$ and $[OH^-] = 7.4 \\times 10^{-3}$ M. Extra OH$^-$ from NaOH suppresses dissolution, so statement C is false."
+    },
+    {
+      "id": "ieq_c02_038",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A $0.010$ M Fe$^{3+}$ solution is made alkaline until $99.9\\%$ of the iron has precipitated as Fe(OH)$_3$. Given $K_{sp} = 4.0 \\times 10^{-38}$ at $25\\,^\\circ$C, what is the pH of the solution at this point?",
+      "options": [
+        "A) pH 3.20, because the residual $[Fe^{3+}] = 1.0 \\times 10^{-5}$ M gives $[OH^-]^3 = 4.0 \\times 10^{-33}$",
+        "B) pH 2.20, because the onset value for $[Fe^{3+}] = 0.010$ M is used",
+        "C) pH 2.87, because $99\\%$ removal is treated as the residual $[Fe^{3+}] = 1.0 \\times 10^{-4}$ M",
+        "D) pH 11.80, because the pOH of the onset condition is reported as the pH"
+      ],
+      "answer": "A",
+      "explanation": "The residual iron is $0.1\\%$ of $0.010$ M, that is $[Fe^{3+}] = 1.0 \\times 10^{-5}$ M. Then $[OH^-]^3 = K_{sp}/[Fe^{3+}] = 4.0 \\times 10^{-33}$, so $[OH^-] = 1.6 \\times 10^{-11}$ M, pOH $= 10.80$ and pH $= 3.20$."
+    },
+    {
+      "id": "ieq_c02_039",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Silver chromate has $K_{sp} = 1.2 \\times 10^{-12}$ at $25\\,^\\circ$C. What is the molar solubility of Ag$_2$CrO$_4$ in a $0.10$ M K$_2$CrO$_4$ solution?",
+      "options": [
+        "A) $1.7 \\times 10^{-6}$ M, because $(2s)^2(0.10) = K_{sp}$ with the chromate fixed near $0.10$ M",
+        "B) $6.7 \\times 10^{-5}$ M, because the pure-water solubility is used and the common ion is ignored",
+        "C) $3.5 \\times 10^{-6}$ M, because $[Ag^+]$ is set equal to $s$ rather than $2s$",
+        "D) $1.2 \\times 10^{-11}$ M, because $K_{sp}/0.10$ is reported as the solubility"
+      ],
+      "answer": "A",
+      "explanation": "Chromate from K$_2$CrO$_4$ fixes $[CrO_4^{2-}] \\approx 0.10$ M. Then $K_{sp} = [Ag^+]^2[CrO_4^{2-}] = (2s)^2(0.10) = 0.40\\,s^2$, so $s^2 = 3.0 \\times 10^{-12}$ and $s = 1.7 \\times 10^{-6}$ M."
+    },
+    {
+      "id": "ieq_c02_040",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A $0.10$ M solution of a metal ion M$^{2+}$ is made alkaline at $25\\,^\\circ$C. The hydroxide M(OH)$_2$ has $K_{sp} = 1.0 \\times 10^{-11}$. Report the integer pH at which precipitation begins.",
+      "options": [],
+      "answer": "9",
+      "explanation": "Onset requires $[M^{2+}][OH^-]^2 = K_{sp}$, so $[OH^-]^2 = 1.0 \\times 10^{-10}$ and $[OH^-] = 1.0 \\times 10^{-5}$ M. Then pOH $= 5$ and pH $= 9$. Omitting the square root would give pH 4."
+    },
+    {
+      "id": "ieq_c02_041",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Silver chromate has $K_{sp} = 1.0 \\times 10^{-11}$ at $25\\,^\\circ$C. In a $0.010$ M AgNO$_3$ solution, the chromate concentration of the saturated solution is $10^{-x}$ M. What is the integer value of $x$?",
+      "options": [],
+      "answer": "7",
+      "explanation": "AgNO$_3$ fixes $[Ag^+] = 0.010$ M, so $[CrO_4^{2-}] = K_{sp}/[Ag^+]^2 = 10^{-11}/10^{-4} = 10^{-7}$ M and $x = 7$. Using the unsquared silver term would give $x = 9$."
+    },
+    {
+      "id": "ieq_c02_042",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Magnesium hydroxide has $K_{sp} = 5.6 \\times 10^{-12}$ at $25\\,^\\circ$C. A saturated solution is buffered at pH 9. What is the molar solubility of Mg(OH)$_2$ under these conditions?",
+      "options": [
+        "A) $5.6 \\times 10^{-2}$ M, because $[Mg^{2+}] = K_{sp}/[OH^-]^2$ with $[OH^-] = 10^{-5}$ M",
+        "B) $5.6 \\times 10^{-4}$ M, because pOH 4 is used in place of pOH 5",
+        "C) $5.6 \\times 10^{-12}$ M, because $K_{sp}$ is reported as the solubility",
+        "D) $2.8 \\times 10^{-2}$ M, because the solubility is taken as $K_{sp}/(2[OH^-]^2)$"
+      ],
+      "answer": "A",
+      "explanation": "At pH 9, $[OH^-] = 10^{-5}$ M is fixed by the buffer, so $[Mg^{2+}] = 5.6 \\times 10^{-12}/10^{-10} = 5.6 \\times 10^{-2}$ M. Because the hydroxide is held constant, this is the molar solubility."
+    },
+    {
+      "id": "ieq_c02_043",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A solution has total dissolved silver of $0.010$ M, all present as $[Ag(NH_3)_2]^+$, with $0.10$ M free ammonia at equilibrium. The overall formation constant is $\\beta_2 = 1.7 \\times 10^{7}$. What is the free Ag$^+$ concentration?",
+      "options": [
+        "A) $5.9 \\times 10^{-8}$ M, because $[Ag^+] = [complex]/(\\beta_2[NH_3]^2)$ with $[NH_3]^2 = 0.010$",
+        "B) $5.9 \\times 10^{-10}$ M, because the $[NH_3]^2$ term is omitted",
+        "C) $1.0 \\times 10^{-2}$ M, because complexation is ignored in the silver balance",
+        "D) $5.9 \\times 10^{-9}$ M, because $[NH_3]$ is used to the first power instead of squared"
+      ],
+      "answer": "A",
+      "explanation": "$\\beta_2 = [Ag(NH_3)_2^+]/([Ag^+][NH_3]^2)$, so $[Ag^+] = 0.010/(1.7 \\times 10^{7} \\times 0.010) = 5.9 \\times 10^{-8}$ M. Free silver is tiny because nearly all of it is held in the complex."
+    },
+    {
+      "id": "ieq_c02_044",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Lead iodide has $K_{sp} = 8.0 \\times 10^{-9}$ at $25\\,^\\circ$C. Which of the following statements about its solubility is/are correct?",
+      "options": [
+        "A) The molar solubility in pure water is approximately $1.3 \\times 10^{-3}$ M.",
+        "B) The molar solubility in $0.10$ M KI is approximately $8.0 \\times 10^{-7}$ M.",
+        "C) The iodide concentration in a solution saturated with PbI$_2$ and $0.10$ M Pb(NO$_3$)$_2$ is approximately $2.0 \\times 10^{-4}$ M.",
+        "D) Adding KI to a saturated PbI$_2$ solution increases the molar solubility of PbI$_2$."
+      ],
+      "answer": "A,B",
+      "explanation": "In pure water $K_{sp} = 4s^3$, so $s = 1.3 \\times 10^{-3}$ M. In $0.10$ M KI, $[Pb^{2+}] = K_{sp}/[I^-]^2 = 8.0 \\times 10^{-9}/0.010 = 8.0 \\times 10^{-7}$ M. With $0.10$ M Pb$^{2+}$, $[I^-] = \\sqrt{8.0 \\times 10^{-8}} = 2.8 \\times 10^{-4}$ M, so statement C is false. Adding iodide shifts the equilibrium left and lowers solubility."
+    },
+    {
+      "id": "ieq_c02_045",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Manganese(II) hydroxide has $K_{sp} = 2.0 \\times 10^{-13}$ at $25\\,^\\circ$C. Two saturated solutions are buffered at pH 8 and at pH 10. Which of the following statements is/are correct?",
+      "options": [
+        "A) The molar solubility at pH 8 is approximately 0.20 M.",
+        "B) The molar solubility at pH 10 is approximately $2.0 \\times 10^{-5}$ M.",
+        "C) Going from pH 8 to pH 10 lowers the solubility by a factor of about 100.",
+        "D) The molar solubility of Mn(OH)$_2$ is unaffected by the pH of the buffer."
+      ],
+      "answer": "A,B",
+      "explanation": "The buffer fixes $[OH^-]$, so $[Mn^{2+}] = K_{sp}/[OH^-]^2$. At pH 8, $[OH^-] = 10^{-6}$ M and $[Mn^{2+}] = 2.0 \\times 10^{-13}/10^{-12} = 0.20$ M. At pH 10, $[OH^-] = 10^{-4}$ M and $[Mn^{2+}] = 2.0 \\times 10^{-5}$ M. The drop is a factor of $10^4$, not 100, so statement C is false."
+    },
+    {
+      "id": "ieq_c02_046",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A solution contains $0.10$ M I$^-$ and $0.10$ M Cl$^-$. Silver nitrate is added slowly with no change in volume. Given $K_{sp}(AgI) = 8.5 \\times 10^{-17}$ and $K_{sp}(AgCl) = 1.8 \\times 10^{-10}$ at $25\\,^\\circ$C, which of the following statements is/are correct?",
+      "options": [
+        "A) AgI begins to precipitate first, because its onset requires only $[Ag^+] = 8.5 \\times 10^{-16}$ M.",
+        "B) AgCl begins to precipitate first, because its $K_{sp}$ is numerically larger.",
+        "C) When AgCl begins to precipitate, the iodide concentration is about $4.7 \\times 10^{-8}$ M.",
+        "D) Both salts begin to precipitate at the same silver concentration of $1.0 \\times 10^{-9}$ M."
+      ],
+      "answer": "A,C",
+      "explanation": "AgI onset: $[Ag^+] = K_{sp}/[I^-] = 8.5 \\times 10^{-16}$ M. AgCl onset: $[Ag^+] = 1.8 \\times 10^{-10}/0.10 = 1.8 \\times 10^{-9}$ M. Since the iodide threshold is far lower, AgI forms first. At the AgCl onset, $[I^-] = K_{sp}(AgI)/[Ag^+] = 8.5 \\times 10^{-17}/1.8 \\times 10^{-9} = 4.7 \\times 10^{-8}$ M."
+    },
+    {
+      "id": "ieq_c02_047",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Calcium oxalate has $K_{sp} = 2.3 \\times 10^{-9}$ at $25\\,^\\circ$C. Oxalic acid has $K_{a1} = 5.6 \\times 10^{-2}$ and $K_{a2} = 1.5 \\times 10^{-4}$. Solutions are buffered at pH 4.0 and at pH 1.0. Which of the following statements is/are correct?",
+      "options": [
+        "A) At pH 4.0, about 60% of the total oxalate is present as C$_2$O$_4^{2-}$.",
+        "B) At pH 4.0, the molar solubility of CaC$_2$O$_4$ is approximately $6.2 \\times 10^{-5}$ M.",
+        "C) At pH 1.0, the molar solubility of CaC$_2$O$_4$ is approximately $4.8 \\times 10^{-5}$ M.",
+        "D) Lowering the pH from 4.0 to 1.0 decreases the molar solubility of CaC$_2$O$_4$."
+      ],
+      "answer": "A,B",
+      "explanation": "The fraction of oxalate as $C_2O_4^{2-}$ is $\\alpha_2 = K_{a1}K_{a2}/([H^+]^2 + K_{a1}[H^+] + K_{a1}K_{a2})$. At pH 4, $\\alpha_2 = 8.4 \\times 10^{-6}/(1.0 \\times 10^{-8} + 5.6 \\times 10^{-6} + 8.4 \\times 10^{-6}) = 0.60$. Then $K_{sp} = s \\cdot \\alpha_2 s$ gives $s = 6.2 \\times 10^{-5}$ M. At pH 1, $\\alpha_2 \\approx 5.4 \\times 10^{-4}$, so the solubility is about $2.1 \\times 10^{-3}$ M, which is larger."
+    },
+    {
+      "id": "ieq_c02_048",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A solution contains $0.010$ M Cl$^-$ and $0.010$ M CrO$_4^{2-}$. Silver nitrate is added slowly. Given $K_{sp}(AgCl) = 1.8 \\times 10^{-10}$ and $K_{sp}(Ag_2CrO_4) = 1.2 \\times 10^{-12}$, what fraction of the original chloride remains when Ag$_2$CrO$_4$ first precipitates?",
+      "options": [
+        "A) About 0.16%, because $[Ag^+] = 1.1 \\times 10^{-5}$ M at chromate onset, which gives $[Cl^-] = 1.6 \\times 10^{-5}$ M",
+        "B) About 100%, because chromate precipitates before any AgCl forms",
+        "C) About 50%, because half of the chloride is assumed to precipitate before the chromate",
+        "D) About 1.6%, because the chloride concentration is taken as $1.6 \\times 10^{-4}$ M"
+      ],
+      "answer": "A",
+      "explanation": "Chromate onset: $[Ag^+]^2 = K_{sp}/0.010 = 1.2 \\times 10^{-10}$, so $[Ag^+] = 1.1 \\times 10^{-5}$ M. Silver at this level is already in equilibrium with AgCl, so $[Cl^-] = K_{sp}/[Ag^+] = 1.8 \\times 10^{-10}/1.1 \\times 10^{-5} = 1.6 \\times 10^{-5}$ M. The remaining fraction is $1.6 \\times 10^{-5}/0.010 = 0.16\\%$."
+    },
+    {
+      "id": "ieq_c02_049",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Calcium fluoride has $K_{sp} = 4.0 \\times 10^{-11}$ at $25\\,^\\circ$C. In a $0.20$ M NaF solution, its molar solubility is $10^{-n}$ M. What is the integer value of $n$?",
+      "options": [],
+      "answer": "9",
+      "explanation": "NaF fixes $[F^-] \\approx 0.20$ M, so $[F^-]^2 = 0.040$ and $[Ca^{2+}] = 4.0 \\times 10^{-11}/0.040 = 1.0 \\times 10^{-9}$ M, giving $n = 9$. The pure-water solubility of $2.2 \\times 10^{-4}$ M would be far larger and is not relevant here."
+    },
+    {
+      "id": "ieq_c02_050",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Zinc hydroxide has $K_{sp} = 1.2 \\times 10^{-17}$ at $25\\,^\\circ$C. A solution containing $0.010$ M Zn$^{2+}$ is made alkaline. Using $\\log 3.46 = 0.54$, what is the pH at which Zn(OH)$_2$ first precipitates?",
+      "options": [
+        "A) pH 6.54, because $[OH^-]^2 = K_{sp}/0.010 = 1.2 \\times 10^{-15}$ gives $[OH^-] = 3.46 \\times 10^{-8}$ M",
+        "B) pH 7.46, because the pOH at onset is reported as the pH",
+        "C) pH -0.92, because $[OH^-] = K_{sp}/0.010$ is used without the square root",
+        "D) pH 6.04, because $[Zn^{2+}]$ is taken as $0.10$ M instead of $0.010$ M"
+      ],
+      "answer": "A",
+      "explanation": "Onset requires $[Zn^{2+}][OH^-]^2 = K_{sp}$, so $[OH^-]^2 = 1.2 \\times 10^{-15}$ and $[OH^-] = 3.46 \\times 10^{-8}$ M. Then pOH $= 7.46$ and pH $= 6.54$."
+    }
+  ]
+}

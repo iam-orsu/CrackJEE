@@ -139,7 +139,7 @@ async function seed(filePath: string): Promise<void> {
 }
 
 const filePath =
-  process.argv[2] ?? path.resolve(__dirname, '../../data/master_questions.json');
+  process.argv[2] ?? path.resolve(__dirname, '../../data/jee/jee_master_questions.json');
 
 seed(filePath)
   .catch((err: unknown) => {
