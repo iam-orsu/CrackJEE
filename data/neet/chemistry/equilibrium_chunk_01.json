@@ -1,0 +1,943 @@
+{
+  "subject": "Chemistry",
+  "topic": "Equilibrium",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "chem_equilibrium_c01_001",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding solid-liquid physical equilibrium:\nStatement I: For any pure substance at atmospheric pressure ($1\\text{ atm}$), the temperature at which the solid phase and liquid phase coexist in dynamic equilibrium is called the normal melting point or normal freezing point.\nStatement II: In an isolated system containing an equilibrium mixture of ice and water at $273.15\\text{ K}$ and $1\\text{ atm}$, the rate of melting of ice equals the rate of freezing of water, and the masses of ice and water remain constant over time.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. According to NCERT, for any pure substance at atmospheric pressure ($1\\text{ atm}$), the temperature at which the solid and liquid phases coexist in dynamic equilibrium is defined as the normal melting point or normal freezing point. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. At dynamic equilibrium $\\text{Ice} \\rightleftharpoons \\text{Water}$, the rate of transfer of molecules from ice to water equals the rate of transfer of molecules from water to ice. In an isolated system (such as a perfectly insulated thermos flask) at $273.15\\text{ K}$ ($0^\\circ\\text{C}$) and $1\\text{ atm}$, no heat enters or leaves, so the total amount of ice and water remains strictly constant. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_equilibrium_c01_002",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): At high altitudes such as hill stations, water boils at a temperature significantly lower than $100^\\circ\\text{C}$.\nReason (R): Boiling point is the temperature at which the vapour pressure of the liquid becomes equal to the external atmospheric pressure, and external atmospheric pressure decreases with increasing altitude.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Understand the definition of boiling point in liquid-vapour equilibrium. Boiling occurs at the temperature where the saturated vapour pressure of the liquid equals the surrounding atmospheric pressure.\nStep 2: Evaluate Reason (R). At higher altitudes, the column of air above is thinner, causing the atmospheric pressure to be less than $1.013\\text{ bar}$ ($1\\text{ atm}$). Thus, the vapour pressure of water equals the external pressure at a lower temperature. Reason (R) is true.\nStep 3: Evaluate Assertion (A). Because atmospheric pressure is lower at high altitudes, water reaches the external pressure below $100^\\circ\\text{C}$ (e.g., at $95^\\circ\\text{C}$ or lower), prolonging cooking time. Assertion (A) is true, and Reason (R) correctly explains Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_equilibrium_c01_003",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding the distinction between normal and standard boiling points:\nStatement I: The normal boiling point of a liquid is the temperature at which its vapour pressure is equal to $1\\text{ atm}$ ($1.01325\\text{ bar}$).\nStatement II: The standard boiling point of a liquid is the temperature at which its vapour pressure is equal to $1\\text{ bar}$, and for water, the standard boiling point ($99.6^\\circ\\text{C}$) is slightly lower than its normal boiling point ($100.0^\\circ\\text{C}$).\nChoose the correct option:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Statement I is incorrect but Statement II is correct.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Both Statement I and Statement II are incorrect."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I. By IUPAC definition in NCERT, when the external pressure is $1\\text{ atm}$, the boiling temperature is designated as the normal boiling point of the liquid. For water, this is $100.0^\\circ\\text{C}$ ($373.15\\text{ K}$). Statement I is correct.\nStep 2: Analyze Statement II. When the external pressure is standard pressure of $1\\text{ bar}$ ($10^5\\text{ Pa}$), the boiling temperature is designated as the standard boiling point. Since $1\\text{ bar} < 1\\text{ atm}$ ($1\\text{ atm} = 1.01325\\text{ bar}$), water reaches $1\\text{ bar}$ of vapour pressure at a slightly lower temperature, specifically $99.6^\\circ\\text{C}$ ($372.75\\text{ K}$). Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_equilibrium_c01_004",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Solid-vapour equilibrium is established when a volatile solid undergoes sublimation in a closed vessel. Which of the following substances can establish dynamic solid-vapour equilibrium at room temperature upon sublimation?\nI. Camphor\nII. Ammonium chloride ($\\text{NH}_4\\text{Cl}$)\nIII. Iodine ($\\text{I}_2$)\nIV. Sodium chloride ($\\text{NaCl}$)\nChoose the correct combination:",
+      "options": [
+        "A) I and III only",
+        "B) II and IV only",
+        "C) I, II, III and IV",
+        "D) I, II and III only"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Identify solids capable of sublimation as discussed in NCERT physical equilibrium. Sublimation is the direct transition from solid to vapour phase without passing through the liquid phase.\nStep 2: Camphor, ammonium chloride ($\\text{NH}_4\\text{Cl}$), and solid iodine ($\\text{I}_2$) readily sublime in a closed vessel, developing a constant intensity of colour or vapour pressure at equilibrium where $\\text{rate of sublimation} = \\text{rate of condensation}$.\nStep 3: Sodium chloride ($\\text{NaCl}$) is a high-melting ionic lattice (melting point $> 800^\\circ\\text{C}$) that does not sublime at room temperature.\nConclusion: Only I, II, and III undergo solid-vapour equilibrium via sublimation."
+    },
+    {
+      "id": "chem_equilibrium_c01_005",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In a saturated solution of sugar in water containing undissolved solid sugar at constant temperature, the dynamic nature of equilibrium can be experimentally confirmed using radioactive $^{14}\\text{C}$-labelled sugar.\nReason (R): Upon adding radioactive sugar to a saturated solution, radioactivity is detected in the solution phase, while the total concentration of dissolved sugar remains strictly unchanged.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Recall the dynamic nature of solid-liquid dissolution equilibrium $\\text{Sugar (solid)} \\rightleftharpoons \\text{Sugar (solution)}$. At saturation, the rate of dissolution equals the rate of crystallization.\nStep 2: Evaluate Reason (R). When radioactive $^{14}\\text{C}$-sugar crystals are added to the saturated solution, radioactive sugar molecules dissolve into the solution, while an equal number of non-radioactive sugar molecules crystallize out. Consequently, radioactivity appears in the liquid phase without altering the total molar concentration of sugar. Reason (R) is true.\nStep 3: Evaluate Assertion (A). This isotopic exchange confirms that dissolution and crystallization continue at equal rates, proving the dynamic nature of equilibrium. Assertion (A) is true and Reason (R) correctly explains Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_equilibrium_c01_006",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding dissolution of gases in liquids and Henry's law:\nStatement I: Henry's law states that the mass or mole fraction of a gas dissolved in a given volume of a liquid is directly proportional to the partial pressure of the gas above the liquid: $p = K_H \\chi$.\nStatement II: At a given pressure and temperature, a gas having a higher value of Henry's law constant ($K_H$) has a greater solubility in water.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I. According to Henry's law, the partial pressure of a gas in the vapour phase ($p$) is directly proportional to the mole fraction of the gas ($\\chi$) in the solution, given by $p = K_H \\chi$, where $K_H$ is Henry's law constant. Statement I is correct.\nStep 2: Analyze Statement II. Rearranging Henry's law gives $\\chi = \\frac{p}{K_H}$. At a specified partial pressure $p$, as $K_H$ increases, the mole fraction $\\chi$ (and hence solubility) decreases. Therefore, higher $K_H$ implies lower solubility of the gas, not greater solubility. Statement II is incorrect.\nConclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_equilibrium_c01_007",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Aquatic species such as fish are far more comfortable and active in cold water than in warm water.\nReason (R): The dissolution of oxygen gas in water is an exothermic process, and consequently, the solubility of oxygen in water increases with a decrease in temperature.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) (A) is false but (R) is true.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) Both (A) and (R) are true but (R) is not the correct explanation of (A)."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Reason (R). Dissolution of a gas in a liquid involves condensation-like interactions and is accompanied by evolution of heat ($\\Delta H_{\\text{dissolution}} < 0$, exothermic). In accordance with Le Chatelier's principle, lowering the temperature shifts the dissolution equilibrium $\\text{O}_2(\\text{g}) + \\text{H}_2\\text{O}(\\text{l}) \\rightleftharpoons \\text{O}_2(\\text{aq}) + \\text{heat}$ forward, increasing dissolved oxygen concentration. Reason (R) is true.\nStep 2: Evaluate Assertion (A). Because cold water contains a significantly higher concentration of dissolved oxygen required for cellular respiration, aquatic animals thrive and are more comfortable in cold water. Assertion (A) is true and Reason (R) correctly explains Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_equilibrium_c01_008",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding chemical equilibrium and the Haber synthesis of ammonia:\nStatement I: Chemical equilibrium is dynamic because the forward reaction and the reverse reaction proceed at identical non-zero rates at equilibrium.\nStatement II: When deuterium gas ($\\text{D}_2$) was added to an equilibrium mixture of $\\text{N}_2$, $\\text{H}_2$, and $\\text{NH}_3$, the subsequent detection of $\\text{NH}_2\\text{D}$, $\\text{NHD}_2$, and $\\text{ND}_3$ by mass spectrometry demonstrated that forward and reverse reactions continue at equilibrium.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Statement I. Chemical equilibrium does not represent a static halt in reaction; rather, rate of forward reaction ($r_f$) equals rate of reverse reaction ($r_b$), maintaining invariant concentrations. Statement I is correct.\nStep 2: Analyze Statement II. NCERT describes this classic experiment: starting with an equilibrium mixture of $\\text{N}_2, \\text{H}_2, \\text{NH}_3$ and injecting $\\text{D}_2$, the isotopic exchange produces $\\text{NH}_2\\text{D}, \\text{NHD}_2, \\text{ND}_3$ and $\\text{HD}$, confirming that chemical bonds continue to break and reform at dynamic equilibrium. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_equilibrium_c01_009",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements is INCORRECT regarding the general characteristics of a chemical equilibrium in a closed system?",
+      "options": [
+        "A) The equilibrium constant depends strongly on the initial concentrations of reactants and products taken.",
+        "B) Equilibrium is possible only in a closed system at a constant temperature.",
+        "C) Equilibrium can be approached and attained starting from either reactants or products alone.",
+        "D) At equilibrium, all observable macroscopic properties such as concentration, pressure, and colour remain constant."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Examine the properties of chemical equilibrium. In a closed vessel at constant temperature, equilibrium can be reached from either side (reactants or products).\nStep 2: Macroscopic constancy: concentrations, pressure, refractive index, and colour remain invariant at equilibrium.\nStep 3: Evaluate concentration independence: The equilibrium constant $K$ is a thermodynamic constant at a given temperature; it is completely independent of the initial concentrations of reactants or products. Hence, stating that $K$ depends strongly on initial concentrations is incorrect.\nConclusion: The equilibrium constant does not depend on initial concentrations."
+    },
+    {
+      "id": "chem_equilibrium_c01_010",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For the general homogeneous gaseous equilibrium reaction:\n$a\\text{A}(\\text{g}) + b\\text{B}(\\text{g}) \\rightleftharpoons c\\text{C}(\\text{g}) + d\\text{D}(\\text{g})$\nAssuming ideal gas behaviour, which of the following expressions correctly relates the equilibrium constant in terms of partial pressures ($K_p$) to the equilibrium constant in terms of molar concentrations ($K_c$)?",
+      "options": [
+        "A) $K_p = K_c \\left(\\frac{R}{T}\\right)^{\\Delta n_g}$, where $\\Delta n_g = (c + d) - (a + b)$",
+        "B) $K_p = K_c (RT)^{\\Delta n_g}$, where $\\Delta n_g = (c + d) - (a + b)$",
+        "C) $K_c = K_p (RT)^{\\Delta n_g}$, where $\\Delta n_g = (c + d) - (a + b)$",
+        "D) $K_p = K_c (RT)^{-\\Delta n_g}$, where $\\Delta n_g = (c + d) - (a + b)$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Write ideal gas equation for each component: $p_i V = n_i R T \\implies p_i = \\left(\\frac{n_i}{V}\\right) R T = [\\text{i}] R T$.\nStep 2: Express $K_p$ in terms of partial pressures:\n$K_p = \\frac{p_{\\text{C}}^c \\cdot p_{\\text{D}}^d}{p_{\\text{A}}^a \\cdot p_{\\text{B}}^b} = \\frac{([\\text{C}]RT)^c ([\\text{D}]RT)^d}{([\\text{A}]RT)^a ([\\text{B}]RT)^b} = \\frac{[\\text{C}]^c [\\text{D}]^d}{[\\text{A}]^a [\\text{B}]^b} \\times (RT)^{(c + d) - (a + b)}$.\nStep 3: Substitute $K_c$ and define $\\Delta n_g = (c + d) - (a + b)$ (moles of gaseous products minus moles of gaseous reactants):\n$K_p = K_c (RT)^{\\Delta n_g}$.\nConclusion: $K_p = K_c (RT)^{\\Delta n_g}$."
+    },
+    {
+      "id": "chem_equilibrium_c01_011",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Reversible reaction) with List II (Relationship between $K_p$ and $K_c$ at room temperature where $RT > 1$):\n\nList I:\nP. $\\text{H}_2(\\text{g}) + \\text{I}_2(\\text{g}) \\rightleftharpoons 2\\text{HI}(\\text{g})$\nQ. $\\text{PCl}_5(\\text{g}) \\rightleftharpoons \\text{PCl}_3(\\text{g}) + \\text{Cl}_2(\\text{g})$\nR. $\\text{N}_2(\\text{g}) + 3\\text{H}_2(\\text{g}) \\rightleftharpoons 2\\text{NH}_3(\\text{g})$\nS. $2\\text{SO}_2(\\text{g}) + \\text{O}_2(\\text{g}) \\rightleftharpoons 2\\text{SO}_3(\\text{g})$\n\nList II:\n1. $\\Delta n_g = 0 \\implies K_p = K_c$\n2. $\\Delta n_g = +1 \\implies K_p > K_c$\n3. $\\Delta n_g = -2 \\implies K_p < K_c$\n4. $\\Delta n_g = -1 \\implies K_p < K_c$\n\nChoose the correct match from the options given below:",
+      "options": [
+        "A) P-1, Q-3, R-2, S-4",
+        "B) P-4, Q-2, R-1, S-3",
+        "C) P-1, Q-2, R-3, S-4",
+        "D) P-2, Q-1, R-4, S-3"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate $\\Delta n_g = \\sum n_{\\text{g, products}} - \\sum n_{\\text{g, reactants}}$ for each reaction.\nStep 2: For P: $\\Delta n_g = 2 - (1 + 1) = 0$, hence $K_p = K_c(RT)^0 = K_c$ (P matches 1).\nStep 3: For Q: $\\Delta n_g = (1 + 1) - 1 = +1$, hence $K_p = K_c(RT)^1$. Since $RT > 1$, $K_p > K_c$ (Q matches 2).\nStep 4: For R: $\\Delta n_g = 2 - (1 + 3) = -2$, hence $K_p = K_c(RT)^{-2} < K_c$ (R matches 3).\nStep 5: For S: $\\Delta n_g = 2 - (2 + 1) = -1$, hence $K_p = K_c(RT)^{-1} < K_c$ (S matches 4).\nConclusion: The correct matching is P-1, Q-2, R-3, S-4."
+    },
+    {
+      "id": "chem_equilibrium_c01_012",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding units of equilibrium constants:\nStatement I: The unit of $K_c$ for the reaction $\\text{N}_2(\\text{g}) + 3\\text{H}_2(\\text{g}) \\rightleftharpoons 2\\text{NH}_3(\\text{g})$ is $\\text{L}^2\\text{ mol}^{-2}$.\nStatement II: For any reversible reaction where the change in stoichiometric gaseous moles is zero ($\\Delta n_g = 0$), both $K_p$ and $K_c$ are dimensionless numbers and have identical numerical values.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Statement I. The general unit of $K_c$ is $(\\text{mol L}^{-1})^{\\Delta n_g}$. For $\\text{N}_2 + 3\\text{H}_2 \\rightleftharpoons 2\\text{NH}_3$, $\\Delta n_g = 2 - 4 = -2$. Thus, the unit of $K_c$ is $(\\text{mol L}^{-1})^{-2} = \\text{mol}^{-2}\\text{ L}^2 = \\text{L}^2\\text{ mol}^{-2}$. Statement I is correct.\nStep 2: Analyze Statement II. When $\\Delta n_g = 0$ (e.g., in $\\text{H}_2 + \\text{I}_2 \\rightleftharpoons 2\\text{HI}$), $(\\text{mol L}^{-1})^0 = 1$ and $(\\text{atm})^0 = 1$, making both dimensionless. Furthermore, $K_p = K_c (RT)^0 = K_c$, so their numerical values are identical. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_equilibrium_c01_013",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For the gaseous equilibrium reaction:\n$\\text{N}_2\\text{O}_4(\\text{g}) \\rightleftharpoons 2\\text{NO}_2(\\text{g})$\nthe value of $K_c$ at $300\\text{ K}$ is $2.0 \\times 10^{-3}\\text{ mol L}^{-1}$. Taking the universal gas constant $R = 0.0821\\text{ L atm K}^{-1}\\text{ mol}^{-1}$, the value of $K_p$ (in $\\text{atm}$) for this reaction at $300\\text{ K}$ is approximately:",
+      "options": [
+        "A) $4.93 \\times 10^{-2}$",
+        "B) $8.13 \\times 10^{-5}$",
+        "C) $2.00 \\times 10^{-3}$",
+        "D) $1.64 \\times 10^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Identify $\\Delta n_g$ for the reaction $\\text{N}_2\\text{O}_4(\\text{g}) \\rightleftharpoons 2\\text{NO}_2(\\text{g})$. Here, $\\Delta n_g = 2 - 1 = +1$.\nStep 2: Use the relation $K_p = K_c (RT)^{\\Delta n_g} = K_c (RT)^1$.\nStep 3: Calculate the product $RT$ at $T = 300\\text{ K}$:\n$RT = 0.0821 \\times 300 = 24.63\\text{ L atm mol}^{-1}$.\nStep 4: Compute $K_p$:\n$K_p = 2.0 \\times 10^{-3} \\times 24.63 = 49.26 \\times 10^{-3} = 4.93 \\times 10^{-2}\\text{ atm}$.\nConclusion: $K_p \\approx 4.93 \\times 10^{-2}$."
+    },
+    {
+      "id": "chem_equilibrium_c01_014",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For the synthesis of ammonia from its constituent elements:\n$\\text{N}_2(\\text{g}) + 3\\text{H}_2(\\text{g}) \\rightleftharpoons 2\\text{NH}_3(\\text{g})$\nthe equilibrium constant is $K_1$. What is the equilibrium constant $K_2$ for the decomposition reaction represented by:\n$\\text{NH}_3(\\text{g}) \\rightleftharpoons \\frac{1}{2}\\text{N}_2(\\text{g}) + \\frac{3}{2}\\text{H}_2(\\text{g})$?",
+      "options": [
+        "A) $K_2 = -\\frac{1}{2}K_1$",
+        "B) $K_2 = \\frac{1}{\\sqrt{K_1}}$",
+        "C) $K_2 = \\sqrt{K_1}$",
+        "D) $K_2 = \\frac{1}{K_1^2}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Write expression for $K_1$:\n$K_1 = \\frac{[\\text{NH}_3]^2}{[\\text{N}_2][\\text{H}_2]^3}$.\nStep 2: Write expression for $K_2$ for the given decomposition reaction:\n$K_2 = \\frac{[\\text{N}_2]^{1/2} [\\text{H}_2]^{3/2}}{[\\text{NH}_3]}$.\nStep 3: Relate $K_2$ to $K_1$. Notice that $K_2$ is the inverse of the square root of $K_1$:\n$K_2 = \\left(\\frac{1}{K_1}\\right)^{1/2} = \\frac{1}{\\sqrt{K_1}}$.\nConclusion: $K_2 = \\frac{1}{\\sqrt{K_1}}$."
+    },
+    {
+      "id": "chem_equilibrium_c01_015",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The equilibrium constants for the following reactions at a constant temperature $T$ are given:\n(1) $\\text{N}_2(\\text{g}) + \\text{O}_2(\\text{g}) \\rightleftharpoons 2\\text{NO}(\\text{g}); \\quad K_1$\n(2) $2\\text{NO}(\\text{g}) + \\text{O}_2(\\text{g}) \\rightleftharpoons 2\\text{NO}_2(\\text{g}); \\quad K_2$\nThe equilibrium constant $K_3$ for the reaction:\n$\\text{NO}_2(\\text{g}) \\rightleftharpoons \\frac{1}{2}\\text{N}_2(\\text{g}) + \\text{O}_2(\\text{g})$ is expressed as:",
+      "options": [
+        "A) $K_3 = \\frac{1}{K_1 \\cdot K_2}$",
+        "B) $K_3 = \\frac{K_1}{K_2}$",
+        "C) $K_3 = \\frac{1}{\\sqrt{K_1 \\cdot K_2}}$",
+        "D) $K_3 = \\sqrt{K_1 \\cdot K_2}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Add reactions (1) and (2):\n$\\text{N}_2(\\text{g}) + \\text{O}_2(\\text{g}) + 2\\text{NO}(\\text{g}) + \\text{O}_2(\\text{g}) \\rightleftharpoons 2\\text{NO}(\\text{g}) + 2\\text{NO}_2(\\text{g})$\nCancelling $2\\text{NO}(\\text{g})$ gives:\n$\\text{N}_2(\\text{g}) + 2\\text{O}_2(\\text{g}) \\rightleftharpoons 2\\text{NO}_2(\\text{g})$.\nAccording to equilibrium rules, when two reactions are added, their equilibrium constants multiply: $K_{\\text{sum}} = K_1 \\cdot K_2$.\nStep 2: The target reaction is:\n$\\text{NO}_2(\\text{g}) \\rightleftharpoons \\frac{1}{2}\\text{N}_2(\\text{g}) + \\text{O}_2(\\text{g})$.\nThis target reaction is obtained by reversing the combined reaction and multiplying all coefficients by $\\frac{1}{2}$.\nStep 3: Reversing inverts the constant ($1 / K_{\\text{sum}}$) and multiplying by $\\frac{1}{2}$ raises it to the power $\\frac{1}{2}$:\n$K_3 = \\left(\\frac{1}{K_1 \\cdot K_2}\\right)^{1/2} = \\frac{1}{\\sqrt{K_1 \\cdot K_2}}$.\nConclusion: $K_3 = \\frac{1}{\\sqrt{K_1 \\cdot K_2}}$."
+    },
+    {
+      "id": "chem_equilibrium_c01_016",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding heterogeneous chemical equilibrium:\nStatement I: In the thermal decomposition of solid calcium carbonate, $\\text{CaCO}_3(\\text{s}) \\rightleftharpoons \\text{CaO}(\\text{s}) + \\text{CO}_2(\\text{g})$, the molar concentrations of pure solids $\\text{CaCO}_3(\\text{s})$ and $\\text{CaO}(\\text{s})$ remain constant at a given temperature regardless of their amounts.\nStatement II: The equilibrium constant expression in terms of partial pressure for this reaction is $K_p = p_{\\text{CO}_2}$, meaning that at a fixed temperature, the pressure of $\\text{CO}_2$ gas at equilibrium is constant and independent of the masses of solid present.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Statement I. The molar concentration of a pure solid or pure liquid is given by $\\text{density}/\\text{molar mass}$. Since density and molar mass are intrinsic properties, concentration is invariant as long as some solid remains. Hence, their activities are assigned a constant value of unity. Statement I is correct.\nStep 2: Analyze Statement II. For $\\text{CaCO}_3(\\text{s}) \\rightleftharpoons \\text{CaO}(\\text{s}) + \\text{CO}_2(\\text{g})$, $K_p = p_{\\text{CO}_2}$. At a given temperature, the partial pressure of $\\text{CO}_2$ reaches a characteristic fixed value known as the decomposition pressure, completely independent of the amounts of $\\text{CaCO}_3(\\text{s})$ or $\\text{CaO}(\\text{s})$. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_equilibrium_c01_017",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For the liquid-vapour equilibrium of water in a closed container, $\\text{H}_2\\text{O}(\\text{l}) \\rightleftharpoons \\text{H}_2\\text{O}(\\text{g})$, the equilibrium constant in terms of partial pressure is $K_p = p_{\\text{H}_2\\text{O}}$, which is numerically equal to the saturated vapour pressure of water at that temperature.\nReason (R): The active mass (activity) of a pure liquid is constant and, by thermodynamic convention, is taken as unity in equilibrium constant expressions.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Reason (R). Pure liquids have constant density and molar mass, so their molar concentration does not change with quantity. By thermodynamic convention, their activity is set to $1$. Reason (R) is true.\nStep 2: Evaluate Assertion (A). For $\\text{H}_2\\text{O}(\\text{l}) \\rightleftharpoons \\text{H}_2\\text{O}(\\text{g})$, $K_p = \\frac{p_{\\text{H}_2\\text{O}}}{a_{\\text{H}_2\\text{O}(\\text{l})}} = p_{\\text{H}_2\\text{O}}$. At equilibrium, the partial pressure of water vapour corresponds precisely to the saturated vapour pressure (aqueous tension). Assertion (A) is true and Reason (R) correctly explains Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_equilibrium_c01_018",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding the reaction quotient ($Q_c$) and prediction of the direction of a reaction:\nStatement I: If $Q_c < K_c$, the net reaction will proceed in the forward direction from left to right to produce more products until equilibrium is established.\nStatement II: If $Q_c > K_c$, the net reaction will proceed in the reverse direction from right to left to consume products and form reactants until equilibrium is established.\nChoose the correct option:",
+      "options": [
+        "A) Statement I is incorrect but Statement II is correct.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Both Statement I and Statement II are incorrect.",
+        "D) Statement I is correct but Statement II is incorrect."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Statement I. The reaction quotient $Q_c$ has the same algebraic form as $K_c$ but is calculated using non-equilibrium concentrations. When $Q_c < K_c$, the concentration of products is lower than that at equilibrium. To increase $Q_c$ to $K_c$, reactants must convert into products, meaning the reaction proceeds forward. Statement I is correct.\nStep 2: Evaluate Statement II. When $Q_c > K_c$, products are present in excess relative to equilibrium. To lower $Q_c$ to $K_c$, products must convert back into reactants, meaning the reaction proceeds in the reverse direction. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_equilibrium_c01_019",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For the reaction $\\text{H}_2(\\text{g}) + \\text{I}_2(\\text{g}) \\rightleftharpoons 2\\text{HI}(\\text{g})$, the equilibrium constant $K_c = 50.0$ at $720\\text{ K}$. At a particular stage of the reaction, a $1.0\\text{ L}$ closed vessel contains $0.10\\text{ mol}$ of $\\text{H}_2$, $0.20\\text{ mol}$ of $\\text{I}_2$, and $0.40\\text{ mol}$ of $\\text{HI}$. Which of the following statements correctly predicts the behaviour of the system?",
+      "options": [
+        "A) $Q_c = 80.0 > K_c$, so the reaction will proceed in the reverse direction.",
+        "B) $Q_c = 50.0 = K_c$, so the system is already at dynamic equilibrium.",
+        "C) $Q_c = 8.0 < K_c$, so the reaction will proceed in the forward direction.",
+        "D) $Q_c = 20.0 < K_c$, so the reaction will proceed in the forward direction."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Determine the molar concentrations in the $1.0\\text{ L}$ vessel:\n$[\\text{H}_2] = \\frac{0.10\\text{ mol}}{1.0\\text{ L}} = 0.10\\text{ M}$,\n$[\\text{I}_2] = \\frac{0.20\\text{ mol}}{1.0\\text{ L}} = 0.20\\text{ M}$,\n$[\\text{HI}] = \\frac{0.40\\text{ mol}}{1.0\\text{ L}} = 0.40\\text{ M}$.\nStep 2: Calculate the reaction quotient $Q_c$:\n$Q_c = \\frac{[\\text{HI}]^2}{[\\text{H}_2][\\text{I}_2]} = \\frac{(0.40)^2}{(0.10)(0.20)} = \\frac{0.16}{0.02} = 8.0$.\nStep 3: Compare $Q_c$ with $K_c$:\nSince $Q_c = 8.0 < K_c = 50.0$, the reaction mixture contains less product than at equilibrium. Hence, the net reaction must proceed in the forward direction.\nConclusion: $Q_c = 8.0 < K_c$, so the reaction will proceed in the forward direction."
+    },
+    {
+      "id": "chem_equilibrium_c01_020",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding the relationship between the equilibrium constant and standard Gibbs free energy change:\nStatement I: The standard Gibbs energy change ($\\Delta G^\\circ$) is related to the equilibrium constant ($K$) by the equation $\\Delta G^\\circ = -RT \\ln K = -2.303 RT \\log_{10} K$.\nStatement II: If $\\Delta G^\\circ < 0$ for a reaction at a given temperature, then $\\ln K > 0$, which implies $K > 1$, meaning that the forward reaction is spontaneous under standard conditions and products predominate at equilibrium.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Statement I. Thermodynamics relates Gibbs free energy to the equilibrium state via $\\Delta G = \\Delta G^\\circ + RT \\ln Q$. At equilibrium, $\\Delta G = 0$ and $Q = K$, yielding $\\Delta G^\\circ = -RT \\ln K = -2.303 RT \\log_{10} K$. Statement I is correct.\nStep 2: Analyze Statement II. If $\\Delta G^\\circ < 0$, then $-RT \\ln K < 0 \\implies \\ln K > 0 \\implies K > 1$. An equilibrium constant greater than $1$ means products predominate over reactants at equilibrium, reflecting a thermodynamically spontaneous reaction from standard state. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_equilibrium_c01_021",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For any chemical system at dynamic equilibrium at a constant temperature and pressure, the Gibbs free energy change of the reaction is zero ($\\Delta G = 0$).\nReason (R): At equilibrium, the standard Gibbs free energy change of the reaction must also be zero ($\\Delta G^\\circ = 0$).\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) (A) is false but (R) is true.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) Both (A) and (R) are true but (R) is not the correct explanation of (A)."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). At dynamic equilibrium under constant temperature and pressure, the chemical potentials of reactants and products are equal, and the system reaches minimum Gibbs free energy ($G$). Therefore, the change in Gibbs free energy is zero: $\\Delta G = 0$. Assertion (A) is true.\nStep 2: Evaluate Reason (R). $\\Delta G^\\circ$ is the standard Gibbs free energy change, defined as $\\Delta G^\\circ = -RT \\ln K$. $\\Delta G^\\circ = 0$ only in the rare special case where $K = 1$. In general, $\\Delta G^\\circ$ is non-zero (positive when $K < 1$ and negative when $K > 1$) even when the system is at equilibrium. Hence, Reason (R) is false.\nConclusion: (A) is true but (R) is false."
+    },
+    {
+      "id": "chem_equilibrium_c01_022",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Thermodynamic state / Criterion) with List II (Equilibrium status / Physical significance):\n\nList I:\nP. $\\Delta G < 0$ and $Q < K$\nQ. $\\Delta G = 0$ and $Q = K$\nR. $\\Delta G > 0$ and $Q > K$\nS. $\\Delta G^\\circ < 0$\n\nList II:\n1. Net reaction proceeds spontaneously in the forward direction\n2. Dynamic equilibrium attained with no macroscopic change\n3. Net reaction proceeds spontaneously in the reverse direction\n4. Equilibrium constant $K > 1$, products favoured at equilibrium\n\nChoose the correct match from the options given below:",
+      "options": [
+        "A) P-2, Q-1, R-4, S-3",
+        "B) P-1, Q-2, R-3, S-4",
+        "C) P-3, Q-2, R-1, S-4",
+        "D) P-1, Q-4, R-3, S-2"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Match P: When $\\Delta G < 0$ and $Q < K$, the forward reaction is spontaneous and proceeds until equilibrium is reached (P matches 1).\nStep 2: Match Q: When $\\Delta G = 0$ and $Q = K$, rates of forward and reverse reactions are equal; dynamic equilibrium is attained (Q matches 2).\nStep 3: Match R: When $\\Delta G > 0$ and $Q > K$, the forward process is non-spontaneous and the reverse process occurs spontaneously (R matches 3).\nStep 4: Match S: Since $\\Delta G^\\circ = -RT \\ln K$, $\\Delta G^\\circ < 0$ implies $\\ln K > 0 \\implies K > 1$, which means products predominate at equilibrium (S matches 4).\nConclusion: The correct matching is P-1, Q-2, R-3, S-4."
+    },
+    {
+      "id": "chem_equilibrium_c01_023",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding Le Chatelier's principle:\nStatement I: If a chemical system at equilibrium is subjected to a change in concentration, temperature, or pressure, the system readjusts itself in a direction that tends to counteract the imposed change.\nStatement II: According to Le Chatelier's principle, continuously removing one of the products from the reaction vessel as it forms drives the equilibrium in the forward direction, thereby increasing the conversion of reactants.\nChoose the correct option:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Statement I is incorrect but Statement II is correct.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Both Statement I and Statement II are incorrect."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I. Henri Le Chatelier (1884) formulated that any change in concentration, temperature, or pressure in a system at equilibrium induces a shift in such a direction as to undo or minimize the effect of the change. Statement I is correct.\nStep 2: Analyze Statement II. When a product is continuously removed, its concentration/partial pressure drops below its equilibrium value ($Q_c < K_c$). In response, the system continuously shifts forward to replenish the lost product, converting more reactants into products. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_equilibrium_c01_024",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): When dilute sulfuric acid is added to an aqueous yellow solution of potassium chromate ($\\text{K}_2\\text{CrO}_4$), the solution immediately turns intense orange.\nReason (R): In the equilibrium $2\\text{CrO}_4^{2-}(\\text{aq}) + 2\\text{H}^+(\\text{aq}) \\rightleftharpoons \\text{Cr}_2\\text{O}_7^{2-}(\\text{aq}) + \\text{H}_2\\text{O}(\\text{l})$, increasing the concentration of $\\text{H}^+$ shifts the equilibrium position toward orange dichromate ions.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Examine the chromate-dichromate equilibrium:\n$2\\text{CrO}_4^{2-}(\\text{aq, yellow}) + 2\\text{H}^+(\\text{aq}) \\rightleftharpoons \\text{Cr}_2\\text{O}_7^{2-}(\\text{aq, orange}) + \\text{H}_2\\text{O}(\\text{l})$.\nStep 2: Evaluate Reason (R). Adding dilute acid increases $[\\text{H}^+]$. By Le Chatelier's principle, the system consumes the added $[\\text{H}^+]$ by shifting in the forward direction, forming dichromate ions ($\\text{Cr}_2\\text{O}_7^{2-}$). Reason (R) is true.\nStep 3: Evaluate Assertion (A). As chromate ions are converted into dichromate ions, the yellow colour transitions to orange. Assertion (A) is true and Reason (R) correctly explains Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_equilibrium_c01_025",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Methanol is industrially synthesized via the reversible gas-phase hydrogenation of carbon monoxide:\n$\\text{CO}(\\text{g}) + 2\\text{H}_2(\\text{g}) \\rightleftharpoons \\text{CH}_3\\text{OH}(\\text{g}); \\quad \\Delta H^\\circ = -90.7\\text{ kJ mol}^{-1}$\nAccording to Le Chatelier's principle, which combination of operating pressure and temperature will maximize the equilibrium yield of $\\text{CH}_3\\text{OH}$?",
+      "options": [
+        "A) High pressure and low temperature",
+        "B) Low pressure and high temperature",
+        "C) High pressure and high temperature",
+        "D) Low pressure and low temperature"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze the pressure effect. Calculate the change in gaseous moles:\n$\\Delta n_g = n_{\\text{products}} - n_{\\text{reactants}} = 1 - (1 + 2) = -2$.\nSince $\\Delta n_g < 0$, increasing pressure shifts the equilibrium in the direction of fewer gaseous moles, which is the forward direction (forming methanol).\nStep 2: Analyze the temperature effect. The forward reaction is exothermic ($\\Delta H^\\circ < 0$). By Le Chatelier's principle, lowering temperature removes heat and shifts the equilibrium forward to generate heat, increasing the equilibrium yield of methanol.\nStep 3: Combine both factors: high pressure and low temperature favour maximum equilibrium yield of methanol.\nConclusion: High pressure and low temperature."
+    },
+    {
+      "id": "chem_equilibrium_c01_026",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the water-gas shift reaction at equilibrium in a closed vessel:\n$\\text{CO}(\\text{g}) + \\text{H}_2\\text{O}(\\text{g}) \\rightleftharpoons \\text{CO}_2(\\text{g}) + \\text{H}_2(\\text{g})$\nWhich of the following changes will have NO effect on the equilibrium yield or mole fraction of $\\text{CO}_2$ at a constant temperature?",
+      "options": [
+        "A) Selectively condensing and removing $\\text{CO}_2$ from the vessel",
+        "B) Doubling the total pressure by halving the volume of the reaction vessel",
+        "C) Injecting additional water vapour into the vessel",
+        "D) Removing carbon monoxide gas from the vessel"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Calculate $\\Delta n_g$ for the reaction:\n$\\Delta n_g = (1 + 1) - (1 + 1) = 0$.\nStep 2: Formulate $K_p$ in terms of mole fractions ($\\chi_i$) and total pressure ($P$):\n$K_p = \\frac{\\chi_{\\text{CO}_2} \\chi_{\\text{H}_2}}{\\chi_{\\text{CO}} \\chi_{\\text{H}_2\\text{O}}} P^{\\Delta n_g} = K_\\chi P^0 = K_\\chi$.\nStep 3: Because $\\Delta n_g = 0$, $K_\\chi$ is completely independent of the total pressure or volume. Hence, doubling the pressure by compressing the volume changes concentrations proportionally but leaves mole fractions and equilibrium yield unchanged.\nStep 4: Analyze concentration changes: Adding or removing reactants or products alters their partial pressures, causing the reaction quotient $Q$ to deviate from $K$ and shifting the equilibrium.\nConclusion: Doubling the total pressure by halving the volume of the reaction vessel has no effect on equilibrium yield."
+    },
+    {
+      "id": "chem_equilibrium_c01_027",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding the effect of adding an inert gas (such as helium or argon) to a chemical reaction at equilibrium:\nStatement I: Addition of an inert gas at constant volume to a reaction at equilibrium does not cause any shift in the equilibrium position because the partial pressures and molar concentrations of the reacting gases remain unchanged.\nStatement II: Addition of an inert gas at constant pressure increases the total volume of the system, decreasing the partial pressures of all reactants and products, and thus shifts the equilibrium in the direction having a larger number of gaseous moles ($\\Delta n_g > 0$).\nChoose the correct option:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Statement I is incorrect but Statement II is correct.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Both Statement I and Statement II are incorrect."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I. At constant volume ($V = \\text{constant}$), adding an inert gas increases total pressure, but for any reactant gas $i$, $p_i = \\frac{n_i R T}{V}$ and $[i] = \\frac{n_i}{V}$, which remain strictly constant. Thus, the reaction quotient $Q$ remains equal to $K$, and there is no shift in equilibrium. Statement I is correct.\nStep 2: Analyze Statement II. At constant pressure ($P = \\text{constant}$), adding inert gas necessitates an increase in container volume ($V$). The partial pressure of each reacting gas $p_i = \\chi_i P = \\frac{n_i}{n_{\\text{total}}} P$ decreases because $n_{\\text{total}}$ increases. The system responds to this effective expansion by shifting toward the side with more moles of gas (larger stoichiometric coefficient). Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_equilibrium_c01_028",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For the equilibrium $\\text{PCl}_5(\\text{g}) \\rightleftharpoons \\text{PCl}_3(\\text{g}) + \\text{Cl}_2(\\text{g})$, the degree of dissociation of $\\text{PCl}_5$ increases when argon gas is introduced at constant total pressure.\nReason (R): Introduction of an inert gas at constant pressure expands the system volume, which decreases the partial pressures of reacting gases and shifts the equilibrium toward the side having a greater number of gaseous moles.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Calculate $\\Delta n_g$ for the dissociation of $\\text{PCl}_5$:\n$\\Delta n_g = (1 + 1) - 1 = +1 > 0$.\nStep 2: Evaluate Reason (R). When argon is added while keeping total pressure constant, the total volume must increase to accommodate the extra gas molecules. The concentration/partial pressure of each component decreases, causing $Q_p < K_p$. Hence, the system shifts toward the side with more gaseous moles. Reason (R) is true.\nStep 3: Evaluate Assertion (A). Shifting toward the side with more moles means dissociation of $\\text{PCl}_5$ into $\\text{PCl}_3$ and $\\text{Cl}_2$ is favoured, thereby increasing the degree of dissociation $\\alpha$. Assertion (A) is true and Reason (R) correctly explains Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_equilibrium_c01_029",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding the temperature dependence of equilibrium constants:\nStatement I: The temperature dependence of the equilibrium constant is quantitatively governed by the van 't Hoff equation: $\\ln\\left(\\frac{K_2}{K_1}\\right) = \\frac{\\Delta H^\\circ}{R}\\left(\\frac{1}{T_1} - \\frac{1}{T_2}\\right)$.\nStatement II: For an endothermic reaction ($\\Delta H^\\circ > 0$), the value of the equilibrium constant increases with an increase in temperature, whereas for an exothermic reaction ($\\Delta H^\\circ < 0$), the equilibrium constant decreases with an increase in temperature.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I. Combining $\\Delta G^\\circ = -RT \\ln K$ with $\\Delta G^\\circ = \\Delta H^\\circ - T\\Delta S^\\circ$ gives $\\ln K = -\\frac{\\Delta H^\\circ}{RT} + \\frac{\\Delta S^\\circ}{R}$. Integrating between temperatures $T_1$ and $T_2$ yields the integrated van 't Hoff equation: $\\ln\\left(\\frac{K_2}{K_1}\\right) = \\frac{\\Delta H^\\circ}{R}\\left(\\frac{1}{T_1} - \\frac{1}{T_2}\\right)$. Statement I is correct.\nStep 2: Analyze Statement II. If $T_2 > T_1$, the term $\\left(\\frac{1}{T_1} - \\frac{1}{T_2}\\right) > 0$. If $\\Delta H^\\circ > 0$ (endothermic), $\\ln(K_2/K_1) > 0 \\implies K_2 > K_1$. If $\\Delta H^\\circ < 0$ (exothermic), $\\ln(K_2/K_1) < 0 \\implies K_2 < K_1$. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_equilibrium_c01_030",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In the industrial Haber process for ammonia synthesis ($\\text{N}_2 + 3\\text{H}_2 \\rightleftharpoons 2\\text{NH}_3; \\Delta H^\\circ = -92.4\\text{ kJ mol}^{-1}$), an optimum temperature around $700\\text{ K}$ is used rather than room temperature.\nReason (R): Although lower temperature thermodynamically favors a higher equilibrium yield of ammonia, the rate of reaching equilibrium becomes impractically sluggish at lower temperatures.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Reason (R). Because the synthesis of ammonia is exothermic, $K$ is larger at lower temperatures, meaning thermodynamic yield is maximized at low temperatures. However, kinetic energy of reacting molecules drops significantly, and according to the Arrhenius law, reaction rate becomes extremely slow. Reason (R) is true.\nStep 2: Evaluate Assertion (A). In chemical industry, an optimum temperature ($\\,\\sim 700\\text{ K}$) alongside iron catalyst with $\\text{K}_2\\text{O}$ and $\\text{Al}_2\\text{O}_3$ promoters is used to strike a balance between acceptable yield and commercial rate of production. Assertion (A) is true and Reason (R) correctly explains Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_equilibrium_c01_031",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding the influence of a catalyst on a reversible chemical reaction:\nStatement I: A catalyst does not alter the equilibrium constant ($K$) or the final equilibrium composition of a reaction mixture.\nStatement II: A catalyst accelerates the forward and reverse reactions by lowering the activation energies of both the forward and reverse reaction pathways by the exact same amount.\nChoose the correct option:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Statement I is incorrect but Statement II is correct.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Both Statement I and Statement II are incorrect."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I. A catalyst increases the rates of forward and reverse reactions equally. It does not affect the free energies of reactants or products, meaning $\\Delta G^\\circ$ remains unchanged, and therefore $K$ is invariant. Statement I is correct.\nStep 2: Analyze Statement II. A catalyst provides an alternative reaction pathway involving a lower energy transition state. The decrease in activation energy ($\\Delta E_a$) is identical for both the forward and reverse directions ($E_{a,f}' = E_{a,f} - \\Delta E_a$ and $E_{a,b}' = E_{a,b} - \\Delta E_a$). Consequently, both rate constants ($k_f$ and $k_b$) increase by the same factor, leaving $K = k_f / k_b$ unchanged. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_equilibrium_c01_032",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Equilibrium system and disturbance) with List II (Direction of equilibrium shift according to Le Chatelier's principle):\n\nList I:\nP. $\\text{N}_2(\\text{g}) + 3\\text{H}_2(\\text{g}) \\rightleftharpoons 2\\text{NH}_3(\\text{g}); \\Delta H < 0$, temperature is increased\nQ. $\\text{PCl}_5(\\text{g}) \\rightleftharpoons \\text{PCl}_3(\\text{g}) + \\text{Cl}_2(\\text{g}); \\Delta H > 0$, volume of vessel is halved (pressure doubled)\nR. $\\text{H}_2(\\text{g}) + \\text{I}_2(\\text{g}) \\rightleftharpoons 2\\text{HI}(\\text{g})$, helium gas is added at constant pressure\nS. $2\\text{SO}_2(\\text{g}) + \\text{O}_2(\\text{g}) \\rightleftharpoons 2\\text{SO}_3(\\text{g})$, excess oxygen gas is injected at constant volume\n\nList II:\n1. Shifts in reverse direction (towards reactants)\n2. Shifts in reverse direction (towards fewer gaseous moles)\n3. No shift in equilibrium position ($\\Delta n_g = 0$)\n4. Shifts in forward direction (towards products)\n\nChoose the correct match from the options given below:",
+      "options": [
+        "A) P-4, Q-1, R-3, S-2",
+        "B) P-1, Q-3, R-2, S-4",
+        "C) P-2, Q-1, R-4, S-3",
+        "D) P-1, Q-2, R-3, S-4"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Match P: The reaction is exothermic ($\\Delta H < 0$). Raising temperature supplies heat, causing the system to shift in the endothermic (reverse) direction to absorb heat (P matches 1).\nStep 2: Match Q: $\\Delta n_g = (1 + 1) - 1 = +1$. Decreasing volume (increasing pressure) shifts the system toward fewer gaseous moles, which is the reactant side (reverse direction) (Q matches 2).\nStep 3: Match R: $\\Delta n_g = 2 - (1 + 1) = 0$. For a reaction with $\\Delta n_g = 0$, addition of inert gas at constant pressure has no effect on equilibrium composition (R matches 3).\nStep 4: Match S: Injecting reactant ($\\text{O}_2$) increases its concentration, shifting the equilibrium in the forward direction to consume added $\\text{O}_2$ (S matches 4).\nConclusion: The correct matching is P-1, Q-2, R-3, S-4."
+    },
+    {
+      "id": "chem_equilibrium_c01_033",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Phosphorus pentachloride decomposes upon heating according to the equation:\n$\\text{PCl}_5(\\text{g}) \\rightleftharpoons \\text{PCl}_3(\\text{g}) + \\text{Cl}_2(\\text{g})$\nStarting with $1\\text{ mol}$ of pure $\\text{PCl}_5(\\text{g})$, if the degree of dissociation at equilibrium is $\\alpha$ and the total equilibrium pressure is $P$, which of the following is the correct expression for $K_p$?",
+      "options": [
+        "A) $K_p = \\frac{\\alpha^2 P}{1 - \\alpha^2}$",
+        "B) $K_p = \\frac{\\alpha^2 P^2}{1 - \\alpha^2}$",
+        "C) $K_p = \\frac{\\alpha P}{1 - \\alpha}$",
+        "D) $K_p = \\frac{4\\alpha^2 P}{1 - \\alpha^2}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Construct the ICE table for $1\\text{ mol}$ initial $\\text{PCl}_5$:\n$\\text{PCl}_5 \\rightleftharpoons \\text{PCl}_3 + \\text{Cl}_2$\nInitial moles: $1, 0, 0$\nEquilibrium moles: $1 - \\alpha, \\alpha, \\alpha$\nStep 2: Calculate total moles at equilibrium:\n$n_{\\text{total}} = (1 - \\alpha) + \\alpha + \\alpha = 1 + \\alpha$.\nStep 3: Write partial pressures using Dalton's law ($p_i = \\chi_i P$):\n$p_{\\text{PCl}_5} = \\left(\\frac{1 - \\alpha}{1 + \\alpha}\\right) P$,\n$p_{\\text{PCl}_3} = \\left(\\frac{\\alpha}{1 + \\alpha}\\right) P$,\n$p_{\\text{Cl}_2} = \\left(\\frac{\\alpha}{1 + \\alpha}\\right) P$.\nStep 4: Substitute into $K_p$:\n$K_p = \\frac{p_{\\text{PCl}_3} \\cdot p_{\\text{Cl}_2}}{p_{\\text{PCl}_5}} = \\frac{\\left(\\frac{\\alpha}{1 + \\alpha} P\\right) \\left(\\frac{\\alpha}{1 + \\alpha} P\\right)}{\\left(\\frac{1 - \\alpha}{1 + \\alpha} P\\right)} = \\frac{\\alpha^2 P}{(1 + \\alpha)(1 - \\alpha)} = \\frac{\\alpha^2 P}{1 - \\alpha^2}$.\nConclusion: $K_p = \\frac{\\alpha^2 P}{1 - \\alpha^2}$."
+    },
+    {
+      "id": "chem_equilibrium_c01_034",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "At a total pressure of $1.0\\text{ atm}$, $\\text{PCl}_5(\\text{g})$ is found to be $50\\%$ dissociated into $\\text{PCl}_3(\\text{g})$ and $\\text{Cl}_2(\\text{g})$ at a constant temperature $T$:\n$\\text{PCl}_5(\\text{g}) \\rightleftharpoons \\text{PCl}_3(\\text{g}) + \\text{Cl}_2(\\text{g})$\nThe value of the equilibrium constant $K_p$ (in $\\text{atm}$) for this reaction at temperature $T$ is:",
+      "options": [
+        "A) $1.000$",
+        "B) $0.333$",
+        "C) $0.250$",
+        "D) $0.500$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Identify given parameters:\nDegree of dissociation $\\alpha = 50\\% = 0.50$, total pressure $P = 1.0\\text{ atm}$.\nStep 2: Use the formula for $K_p$:\n$K_p = \\frac{\\alpha^2 P}{1 - \\alpha^2}$.\nStep 3: Substitute the numerical values:\n$K_p = \\frac{(0.50)^2 \\times 1.0}{1 - (0.50)^2} = \\frac{0.25}{1 - 0.25} = \\frac{0.25}{0.75} = \\frac{1}{3} \\approx 0.333\\text{ atm}$.\nConclusion: $K_p = 0.333$."
+    },
+    {
+      "id": "chem_equilibrium_c01_035",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For the dissociation equilibrium of dinitrogen tetroxide:\n$\\text{N}_2\\text{O}_4(\\text{g}) \\rightleftharpoons 2\\text{NO}_2(\\text{g})$\nStarting with $1\\text{ mol}$ of pure $\\text{N}_2\\text{O}_4$, if the fraction dissociated at equilibrium is $\\alpha$ and the total equilibrium pressure is $P$, the equilibrium constant $K_p$ is expressed as:",
+      "options": [
+        "A) $K_p = \\frac{\\alpha^2 P}{1 - \\alpha^2}$",
+        "B) $K_p = \\frac{4\\alpha P}{(1 - \\alpha)^2}$",
+        "C) $K_p = \\frac{4\\alpha^2 P}{1 - \\alpha^2}$",
+        "D) $K_p = \\frac{2\\alpha^2 P}{1 - \\alpha^2}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Tabulate moles at equilibrium for initial $1\\text{ mol}$ of $\\text{N}_2\\text{O}_4$:\n$\\text{N}_2\\text{O}_4 \\rightleftharpoons 2\\text{NO}_2$\nMoles at equilibrium: $1 - \\alpha$ and $2\\alpha$.\nStep 2: Calculate total moles at equilibrium:\n$n_{\\text{total}} = (1 - \\alpha) + 2\\alpha = 1 + \\alpha$.\nStep 3: Determine partial pressures:\n$p_{\\text{N}_2\\text{O}_4} = \\left(\\frac{1 - \\alpha}{1 + \\alpha}\\right) P$,\n$p_{\\text{NO}_2} = \\left(\\frac{2\\alpha}{1 + \\alpha}\\right) P$.\nStep 4: Calculate $K_p$:\n$K_p = \\frac{(p_{\\text{NO}_2})^2}{p_{\\text{N}_2\\text{O}_4}} = \\frac{\\left(\\frac{2\\alpha}{1 + \\alpha} P\\right)^2}{\\left(\\frac{1 - \\alpha}{1 + \\alpha} P\\right)} = \\frac{4\\alpha^2 P^2}{(1 + \\alpha)^2} \\times \\frac{1 + \\alpha}{(1 - \\alpha) P} = \\frac{4\\alpha^2 P}{(1 + \\alpha)(1 - \\alpha)} = \\frac{4\\alpha^2 P}{1 - \\alpha^2}$.\nConclusion: $K_p = \\frac{4\\alpha^2 P}{1 - \\alpha^2}$."
+    },
+    {
+      "id": "chem_equilibrium_c01_036",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "At $300\\text{ K}$ and a total equilibrium pressure of $1.5\\text{ atm}$, dinitrogen tetroxide gas is $20\\%$ dissociated into nitrogen dioxide gas:\n$\\text{N}_2\\text{O}_4(\\text{g}) \\rightleftharpoons 2\\text{NO}_2(\\text{g})$\nThe value of the equilibrium constant $K_p$ (in $\\text{atm}$) for this reaction at $300\\text{ K}$ is:",
+      "options": [
+        "A) $0.50$",
+        "B) $0.125$",
+        "C) $1.00$",
+        "D) $0.25$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Extract given values:\nDegree of dissociation $\\alpha = 20\\% = 0.20$, total pressure $P = 1.5\\text{ atm}$.\nStep 2: Use the formula for $K_p$ of the $\\text{N}_2\\text{O}_4 \\rightleftharpoons 2\\text{NO}_2$ system:\n$K_p = \\frac{4\\alpha^2 P}{1 - \\alpha^2}$.\nStep 3: Substitute the parameters:\n$K_p = \\frac{4(0.20)^2 \\times 1.5}{1 - (0.20)^2} = \\frac{4(0.04) \\times 1.5}{1 - 0.04} = \\frac{0.16 \\times 1.5}{0.96} = \\frac{0.24}{0.96} = \\frac{1}{4} = 0.25\\text{ atm}$.\nConclusion: $K_p = 0.25$."
+    },
+    {
+      "id": "chem_equilibrium_c01_037",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding determination of degree of dissociation ($\\alpha$) using the vapour density method:\nStatement I: For a gas undergoing thermal dissociation according to $A_n(\\text{g}) \\rightleftharpoons nA(\\text{g})$, the degree of dissociation $\\alpha$ is given by $\\alpha = \\frac{D - d}{(n - 1)d}$, where $D$ is the theoretical vapour density of the reactant and $d$ is the observed vapour density of the equilibrium mixture.\nStatement II: During dissociation, the total number of moles of gas increases, which causes the observed average molar mass and observed vapour density of the equilibrium mixture to be less than the theoretical vapour density ($d < D$).\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I. Starting with $1\\text{ mol}$ of reactant producing $n$ moles of product, total equilibrium moles $n_{\\text{total}} = 1 + (n - 1)\\alpha$. Since vapour density is inversely proportional to number of moles for a given mass ($d = \\frac{D}{1 + (n - 1)\\alpha}$), solving for $\\alpha$ gives $\\alpha = \\frac{D - d}{(n - 1)d}$. Statement I is correct.\nStep 2: Analyze Statement II. Because dissociation produces more particles for the same total mass, the average molar mass $M_{\\text{obs}} = \\frac{\\text{total mass}}{n_{\\text{total}}}$ decreases. Since vapour density is half the molar mass ($d = M_{\\text{obs}} / 2$), $d$ is necessarily smaller than $D$. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_equilibrium_c01_038",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The theoretical vapour density of phosphorus pentachloride ($\\text{PCl}_5$) is $104.25$ (molar mass $= 208.5\\text{ g mol}^{-1}$). At a specific temperature, the observed vapour density of an equilibrium mixture of decomposing $\\text{PCl}_5(\\text{g}) \\rightleftharpoons \\text{PCl}_3(\\text{g}) + \\text{Cl}_2(\\text{g})$ is found to be $69.5$. The degree of dissociation of $\\text{PCl}_5$ at this temperature is:",
+      "options": [
+        "A) $0.33$",
+        "B) $0.50$",
+        "C) $0.25$",
+        "D) $0.75$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Identify stoichiometric factor $n$. For $\\text{PCl}_5(\\text{g}) \\rightleftharpoons \\text{PCl}_3(\\text{g}) + \\text{Cl}_2(\\text{g})$, $1\\text{ mol}$ of gas dissociates into $1 + 1 = 2\\text{ mol}$ of gaseous products, so $n = 2$.\nStep 2: Identify given densities: theoretical vapour density $D = 104.25$ and observed vapour density $d = 69.5$.\nStep 3: Apply the vapour density relation for $\\alpha$:\n$\\alpha = \\frac{D - d}{(n - 1)d} = \\frac{104.25 - 69.5}{(2 - 1) \\times 69.5} = \\frac{34.75}{69.5} = 0.50$.\nStep 4: Thus, $\\text{PCl}_5$ is $50\\%$ dissociated at this temperature.\nConclusion: $\\alpha = 0.50$."
+    },
+    {
+      "id": "chem_equilibrium_c01_039",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Solid ammonium carbamate decomposes in an evacuated closed container according to the equation:\n$\\text{NH}_2\\text{COONH}_4(\\text{s}) \\rightleftharpoons 2\\text{NH}_3(\\text{g}) + \\text{CO}_2(\\text{g})$\nIf the total equilibrium pressure developed inside the container at temperature $T$ is $3.0\\text{ atm}$, what is the value of the equilibrium constant $K_p$ (in $\\text{atm}^3$)?",
+      "options": [
+        "A) $1.0$",
+        "B) $27.0$",
+        "C) $4.0$",
+        "D) $2.0$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Determine the mole ratio of the gaseous products from stoichiometry. For each mole of $\\text{CO}_2$ produced, $2\\text{ moles}$ of $\\text{NH}_3$ are produced.\nStep 2: Express partial pressures: let $p_{\\text{CO}_2} = p$, then $p_{\\text{NH}_3} = 2p$.\nStep 3: Total pressure $P_{\\text{total}} = p_{\\text{NH}_3} + p_{\\text{CO}_2} = 2p + p = 3p$.\nGiven $P_{\\text{total}} = 3.0\\text{ atm}$, we have $3p = 3.0\\text{ atm} \\implies p = 1.0\\text{ atm}$.\nThus, $p_{\\text{CO}_2} = 1.0\\text{ atm}$ and $p_{\\text{NH}_3} = 2.0\\text{ atm}$.\nStep 4: Compute $K_p$ (solid ammonium carbamate has unit activity):\n$K_p = (p_{\\text{NH}_3})^2 (p_{\\text{CO}_2}) = (2.0)^2 \\times (1.0) = 4.0\\text{ atm}^3$.\nConclusion: $K_p = 4.0$."
+    },
+    {
+      "id": "chem_equilibrium_c01_040",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Solid ammonium hydrogen sulfide decomposes in an evacuated closed vessel according to the reaction:\n$\\text{NH}_4\\text{HS}(\\text{s}) \\rightleftharpoons \\text{NH}_3(\\text{g}) + \\text{H}_2\\text{S}(\\text{g})$\nIf the value of the equilibrium constant $K_p$ at a given temperature is $0.25\\text{ atm}^2$, what is the total pressure of the gases at equilibrium inside the vessel?",
+      "options": [
+        "A) $0.50\\text{ atm}$",
+        "B) $0.25\\text{ atm}$",
+        "C) $2.00\\text{ atm}$",
+        "D) $1.00\\text{ atm}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Write the decomposition stoichiometry: $1\\text{ mol}$ of solid produces $1\\text{ mol}$ of $\\text{NH}_3(\\text{g})$ and $1\\text{ mol}$ of $\\text{H}_2\\text{S}(\\text{g})$.\nStep 2: In an evacuated vessel, the partial pressures of both gases must be equal: $p_{\\text{NH}_3} = p_{\\text{H}_2\\text{S}} = p$.\nStep 3: Relate to $K_p$:\n$K_p = p_{\\text{NH}_3} \\cdot p_{\\text{H}_2\\text{S}} = p^2 = 0.25\\text{ atm}^2 \\implies p = \\sqrt{0.25} = 0.50\\text{ atm}$.\nStep 4: Calculate total pressure:\n$P_{\\text{total}} = p_{\\text{NH}_3} + p_{\\text{H}_2\\text{S}} = 0.50\\text{ atm} + 0.50\\text{ atm} = 1.00\\text{ atm}$.\nConclusion: The total pressure is $1.00\\text{ atm}$."
+    },
+    {
+      "id": "chem_equilibrium_c01_041",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the application of Le Chatelier's principle to physical and chemical equilibria:\nI. For the melting of ice, $\\text{Ice} \\rightleftharpoons \\text{Water}$ (where density of water is greater than ice, so volume decreases upon melting), an increase in external pressure lowers the melting point of ice.\nII. For the endothermic formation of nitric oxide, $\\text{N}_2(\\text{g}) + \\text{O}_2(\\text{g}) \\rightleftharpoons 2\\text{NO}(\\text{g}); \\Delta H^\\circ > 0$, an increase in temperature increases the equilibrium yield of $\\text{NO}$.\nIII. For the contact process stage, $2\\text{SO}_2(\\text{g}) + \\text{O}_2(\\text{g}) \\rightleftharpoons 2\\text{SO}_3(\\text{g}); \\Delta H^\\circ = -196\\text{ kJ mol}^{-1}$, a combination of high pressure and optimum low temperature favours maximum conversion to $\\text{SO}_3$.\nIV. Adding neon gas at constant volume to the equilibrium mixture $\\text{N}_2(\\text{g}) + 3\\text{H}_2(\\text{g}) \\rightleftharpoons 2\\text{NH}_3(\\text{g})$ shifts the equilibrium toward the product side.\nWhich of the above statements are correct?",
+      "options": [
+        "A) I, II and III only",
+        "B) I and II only",
+        "C) II, III and IV only",
+        "D) I, II, III and IV"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. When ice melts to water, volume decreases ($V_{\\text{water}} < V_{\\text{ice}}$). By Le Chatelier's principle, applying pressure favours the phase with smaller volume (water), which lowers the melting point. Statement I is correct.\nStep 2: Evaluate Statement II. Nitric oxide synthesis is endothermic ($\\Delta H^\\circ > 0$). Supplying heat by increasing temperature drives the reaction forward, increasing the yield of $\\text{NO}$. Statement II is correct.\nStep 3: Evaluate Statement III. In $2\\text{SO}_2 + \\text{O}_2 \\rightleftharpoons 2\\text{SO}_3$, $\\Delta n_g = -1 < 0$ and $\\Delta H^\\circ < 0$. High pressure shifts forward (fewer moles) and lower temperature shifts forward (exothermic). Statement III is correct.\nStep 4: Evaluate Statement IV. Addition of inert gas at constant volume does not change partial pressures of reactants or products; hence it has zero effect on the equilibrium position. Statement IV is incorrect.\nConclusion: Only I, II and III are correct."
+    },
+    {
+      "id": "chem_equilibrium_c01_042",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Chemical species) with List II (Acid-base classification according to Arrhenius, Bronsted-Lowry, or Lewis theories):\n\nList I:\nP. $\\text{BF}_3$\nQ. $\\text{HSO}_4^-$\nR. $\\text{NH}_3$\nS. $\\text{Al}^{3+}$\n\nList II:\n1. Lewis acid due to electron deficiency (incomplete central octet)\n2. Amphiprotic species acting as both Bronsted acid and Bronsted base\n3. Lewis base (lone pair donor) and Bronsted base (proton acceptor)\n4. Lewis acid due to high charge density and vacant d-orbitals\n\nChoose the correct match from the options given below:",
+      "options": [
+        "A) P-4, Q-2, R-1, S-3",
+        "B) P-1, Q-2, R-3, S-4",
+        "C) P-3, Q-1, R-4, S-2",
+        "D) P-1, Q-3, R-2, S-4"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Match P: Boron trifluoride ($\\text{BF}_3$) has only six valence electrons around the central boron atom (an incomplete octet), allowing it to accept an electron pair as a Lewis acid (P matches 1).\nStep 2: Match Q: Hydrogen sulfate ion ($\\text{HSO}_4^-$) can donate a proton to form $\\text{SO}_4^{2-}$ (acting as Bronsted acid) or accept a proton to form $\\text{H}_2\\text{SO}_4$ (acting as Bronsted base); hence it is amphiprotic (Q matches 2).\nStep 3: Match R: Ammonia ($\\text{NH}_3$) has a lone pair on nitrogen to donate to a Lewis acid and can also accept a proton to form $\\text{NH}_4^+$ (R matches 3).\nStep 4: Match S: The $\\text{Al}^{3+}$ cation has a high positive charge density and vacant valence orbitals that can accept electron pairs from coordinating ligands (such as $\\text{H}_2\\text{O}$ to form $[\\text{Al}(\\text{H}_2\\text{O})_6]^{3+}$), acting as a Lewis acid (S matches 4).\nConclusion: The correct matching is P-1, Q-2, R-3, S-4."
+    },
+    {
+      "id": "chem_equilibrium_c01_043",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding the auto-ionization of water and the $\\text{pH}$ scale at elevated temperatures:\nStatement I: The self-ionization of water, $2\\text{H}_2\\text{O}(\\text{l}) \\rightleftharpoons \\text{H}_3\\text{O}^+(\\text{aq}) + \\text{OH}^-(\\text{aq})$, is an endothermic process ($\\Delta H^\\circ > 0$), and therefore the ionic product of water ($K_w$) increases as temperature increases.\nStatement II: At $60^\\circ\\text{C}$ where $K_w = 1.0 \\times 10^{-13}$, the $\\text{pH}$ of pure water is $6.5$, but pure water remains strictly neutral because the concentration of hydronium ions equals the concentration of hydroxide ions.\nChoose the correct option:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Statement I is incorrect but Statement II is correct.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Both Statement I and Statement II are incorrect."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I. The auto-ionization of water involves breaking covalent bonds, which absorbs heat ($\\Delta H^\\circ \\approx +57.3\\text{ kJ mol}^{-1}$). In accordance with the van 't Hoff equation, raising the temperature shifts the equilibrium forward, causing $K_w = [\\text{H}_3\\text{O}^+][\\text{OH}^-]$ to increase (e.g., from $1.0 \\times 10^{-14}$ at $25^\\circ\\text{C}$ to $1.0 \\times 10^{-13}$ at $60^\\circ\\text{C}$). Statement I is correct.\nStep 2: Analyze Statement II. In pure water, stoichiometry dictates $[\\text{H}_3\\text{O}^+] = [\\text{OH}^-] = \\sqrt{K_w} = \\sqrt{1.0 \\times 10^{-13}} = 1.0 \\times 10^{-6.5}\\text{ M}$. Thus, $\\text{pH} = 6.5$. A solution is defined as neutral whenever $[\\text{H}_3\\text{O}^+] = [\\text{OH}^-]$, regardless of the numerical $\\text{pH}$ value. Hence, water at $60^\\circ\\text{C}$ with $\\text{pH} = 6.5$ is strictly neutral. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_equilibrium_c01_044",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The $\\text{pH}$ of a $1.0 \\times 10^{-8}\\text{ M}$ aqueous hydrochloric acid ($\\text{HCl}$) solution at $25^\\circ\\text{C}$ is approximately $6.96$, and not $8.0$.\nReason (R): In highly dilute solutions of strong acids ($[\\text{acid}] < 10^{-6}\\text{ M}$), the hydronium ions contributed by the self-ionization of water must be accounted for alongside the hydronium ions from the acid.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Reason (R). Water auto-ionizes as $\\text{H}_2\\text{O} \\rightleftharpoons \\text{H}^+ + \\text{OH}^-$, providing $[\\text{H}^+]_{\\text{water}} = x$. In the presence of $10^{-8}\\text{ M HCl}$, total $[\\text{H}^+] = 10^{-8} + x$ and $[\\text{OH}^-] = x$. Since $K_w = (10^{-8} + x)(x) = 1.0 \\times 10^{-14}$, solving the quadratic equation gives $x = 0.95 \\times 10^{-7}\\text{ M}$. Reason (R) is true.\nStep 2: Evaluate Assertion (A). Total $[\\text{H}^+] = 10^{-8} + 0.95 \\times 10^{-7} = 1.05 \\times 10^{-7}\\text{ M}$. Then $\\text{pH} = -\\log_{10}(1.05 \\times 10^{-7}) = 7 - 0.021 = 6.98 \\approx 6.96$. An acidic solution cannot have a basic $\\text{pH}$ of $8.0$ at room temperature. Assertion (A) is true and Reason (R) correctly explains Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_equilibrium_c01_045",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A $0.10\\text{ M}$ aqueous solution of a weak monobasic acid $\\text{HA}$ has an acid dissociation constant $K_a = 1.0 \\times 10^{-5}$ at $298\\text{ K}$. Applying Ostwald's dilution law, what is the degree of dissociation ($\\alpha$) and the $\\text{pH}$ of the solution?",
+      "options": [
+        "A) $\\alpha = 0.010, \\quad \\text{pH} = 3.00$",
+        "B) $\\alpha = 0.001, \\quad \\text{pH} = 4.00$",
+        "C) $\\alpha = 0.050, \\quad \\text{pH} = 2.30$",
+        "D) $\\alpha = 0.100, \\quad \\text{pH} = 1.00$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Apply Ostwald's dilution law for a weak acid: $K_a = \\frac{C \\alpha^2}{1 - \\alpha}$. Assuming $\\alpha \\ll 1$, $\\alpha = \\sqrt{\\frac{K_a}{C}}$.\nStep 2: Calculate $\\alpha$:\n$\\alpha = \\sqrt{\\frac{1.0 \\times 10^{-5}}{0.10}} = \\sqrt{1.0 \\times 10^{-4}} = 1.0 \\times 10^{-2} = 0.010$ (which is $1\\%$, validating the approximation $\\alpha < 0.05$).\nStep 3: Determine $[\\text{H}^+]$:\n$[\\text{H}^+] = C \\alpha = 0.10 \\times 0.010 = 1.0 \\times 10^{-3}\\text{ M}$.\nStep 4: Calculate $\\text{pH}$:\n$\\text{pH} = -\\log_{10}[\\text{H}^+] = -\\log_{10}(1.0 \\times 10^{-3}) = 3.00$.\nConclusion: $\\alpha = 0.010, \\text{pH} = 3.00$."
+    },
+    {
+      "id": "chem_equilibrium_c01_046",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the stepwise ionization of tribasic phosphoric acid in water:\n(1) $\\text{H}_3\\text{PO}_4 \\rightleftharpoons \\text{H}^+ + \\text{H}_2\\text{PO}_4^-; \\quad K_{a1} = 7.5 \\times 10^{-3}$\n(2) $\\text{H}_2\\text{PO}_4^- \\rightleftharpoons \\text{H}^+ + \\text{HPO}_4^{2-}; \\quad K_{a2} = 6.2 \\times 10^{-8}$\n(3) $\\text{HPO}_4^{2-} \\rightleftharpoons \\text{H}^+ + \\text{PO}_4^{3-}; \\quad K_{a3} = 4.2 \\times 10^{-13}$\n\nConsider the following two statements:\nStatement I: The values of stepwise ionization constants decrease dramatically in the order $K_{a1} \\gg K_{a2} \\gg K_{a3}$.\nStatement II: Electrostatic attraction makes it progressively much more difficult to remove a positively charged proton ($\\text{H}^+$) from an anion with increasing negative charge than from a neutral parent acid molecule.\nChoose the correct option:",
+      "options": [
+        "A) Statement I is incorrect but Statement II is correct.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Both Statement I and Statement II are incorrect.",
+        "D) Statement I is correct but Statement II is incorrect."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I. For polyprotic acids, the observed ionization constants always follow $K_{a1} \\gg K_{a2} \\gg K_{a3}$. Here, $K_{a1}$ ($10^{-3}$) is five orders of magnitude greater than $K_{a2}$ ($10^{-8}$), which is five orders greater than $K_{a3}$ ($10^{-13}$). Statement I is correct.\nStep 2: Analyze Statement II. In the first step, $\\text{H}^+$ separates from a neutral molecule ($\\text{H}_3\\text{PO}_4$). In the second step, $\\text{H}^+$ must be removed against electrostatic Coulombic attraction from a uninegative anion ($\\text{H}_2\\text{PO}_4^-$), and in the third step from a dinegative anion ($\\text{HPO}_4^{2-}$). This requires progressively more energy, causing $K_a$ to decrease sharply. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_equilibrium_c01_047",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In qualitative salt analysis, Group II cations (such as $\\text{Cu}^{2+}, \\text{Pb}^{2+}, \\text{Bi}^{3+}$) are precipitated as sulfides by passing $\\text{H}_2\\text{S}$ gas in the presence of dilute $\\text{HCl}$, whereas Group IV cations (such as $\\text{Zn}^{2+}, \\text{Mn}^{2+}, \\text{Ni}^{2+}$) do not precipitate.\nReason (R): Hydrochloric acid is a strong electrolyte providing a high concentration of common ion $\\text{H}^+$, which suppresses the dissociation of weak acid $\\text{H}_2\\text{S}$ via common ion effect, keeping $[\\text{S}^{2-}]$ low enough that only sulfides with very small $K_{sp}$ precipitate.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) (A) is false but (R) is true.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) Both (A) and (R) are true but (R) is not the correct explanation of (A)."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Reason (R). In aqueous solution, $\\text{H}_2\\text{S} \\rightleftharpoons 2\\text{H}^+ + \\text{S}^{2-}$. Dilute $\\text{HCl}$ fully dissociates into $\\text{H}^+$ and $\\text{Cl}^-$. The high $[\\text{H}^+]$ shifts the $\\text{H}_2\\text{S}$ dissociation equilibrium backwards according to Le Chatelier's principle (common ion effect), sharply decreasing the sulfide ion concentration $[\\text{S}^{2-}]$. Reason (R) is true.\nStep 2: Evaluate Assertion (A). Group II metal sulfides have extremely low solubility products ($K_{sp} \\sim 10^{-30}$ to $10^{-45}$), so their ionic product exceeds $K_{sp}$ even at this very low $[\\text{S}^{2-}]$. In contrast, Group IV sulfides have much higher $K_{sp}$ ($10^{-15}$ to $10^{-23}$) and remain in solution. Assertion (A) is true and Reason (R) correctly explains Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_equilibrium_c01_048",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Salt type and example in aqueous solution) with List II (Formula for $\\text{pH}$ at $298\\text{ K}$):\n\nList I:\nP. Salt of Strong Acid + Weak Base ($\\text{NH}_4\\text{Cl}$)\nQ. Salt of Weak Acid + Strong Base ($\\text{CH}_3\\text{COONa}$)\nR. Salt of Weak Acid + Weak Base ($\\text{CH}_3\\text{COONH}_4$)\nS. Salt of Strong Acid + Strong Base ($\\text{NaCl}$)\n\nList II:\n1. $\\text{pH} = 7 - \\frac{1}{2}\\text{p}K_b - \\frac{1}{2}\\log_{10} C$\n2. $\\text{pH} = 7 + \\frac{1}{2}\\text{p}K_a + \\frac{1}{2}\\log_{10} C$\n3. $\\text{pH} = 7 + \\frac{1}{2}\\text{p}K_a - \\frac{1}{2}\\text{p}K_b$\n4. $\\text{pH} = 7.00$ (no hydrolysis of either ion)\n\nChoose the correct match from the options given below:",
+      "options": [
+        "A) P-2, Q-1, R-3, S-4",
+        "B) P-1, Q-3, R-2, S-4",
+        "C) P-3, Q-2, R-1, S-4",
+        "D) P-1, Q-2, R-3, S-4"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Match P: For $\\text{NH}_4\\text{Cl}$ (cationic hydrolysis, acidic solution), $K_h = \\frac{K_w}{K_b}$, $[\\text{H}^+] = \\sqrt{\\frac{K_w C}{K_b}}$, leading to $\\text{pH} = 7 - \\frac{1}{2}\\text{p}K_b - \\frac{1}{2}\\log_{10} C$ (P matches 1).\nStep 2: Match Q: For $\\text{CH}_3\\text{COONa}$ (anionic hydrolysis, basic solution), $K_h = \\frac{K_w}{K_a}$, $[\\text{OH}^-] = \\sqrt{\\frac{K_w C}{K_a}}$, leading to $\\text{pH} = 7 + \\frac{1}{2}\\text{p}K_a + \\frac{1}{2}\\log_{10} C$ (Q matches 2).\nStep 3: Match R: For $\\text{CH}_3\\text{COONH}_4$ (both cation and anion hydrolyze), $[\\text{H}^+] = \\sqrt{\\frac{K_w K_a}{K_b}}$, leading to $\\text{pH} = 7 + \\frac{1}{2}\\text{p}K_a - \\frac{1}{2}\\text{p}K_b$, which is concentration-independent (R matches 3).\nStep 4: Match S: For $\\text{NaCl}$, neither $\\text{Na}^+$ nor $\\text{Cl}^-$ hydrolyzes; the solution is neutral with $\\text{pH} = 7.00$ at $298\\text{ K}$ (S matches 4).\nConclusion: The correct matching is P-1, Q-2, R-3, S-4."
+    },
+    {
+      "id": "chem_equilibrium_c01_049",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The $\\text{pH}$ of an aqueous solution of ammonium acetate ($\\text{CH}_3\\text{COONH}_4$) at $25^\\circ\\text{C}$ is independent of the molar concentration of the salt.\nReason (R): For a salt derived from a weak acid and a weak base, the hydronium ion concentration is given by $[\\text{H}^+] = \\sqrt{\\frac{K_w \\cdot K_a}{K_b}}$, which contains no concentration term ($C$).\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Reason (R). In the simultaneous hydrolysis of weak acid anion and weak base cation ($\\text{CH}_3\\text{COO}^- + \\text{NH}_4^+ + \\text{H}_2\\text{O} \\rightleftharpoons \\text{CH}_3\\text{COOH} + \\text{NH}_4\\text{OH}$), the hydrolysis constant is $K_h = \\frac{K_w}{K_a K_b} = \\frac{h^2}{(1 - h)^2}$. Since $C$ cancels out, the degree of hydrolysis $h$ is independent of concentration. Consequently, $[\\text{H}^+] = K_a \\frac{[\\text{CH}_3\\text{COOH}]}{[\\text{CH}_3\\text{COO}^-]} = K_a \\frac{Ch}{C(1-h)} = \\sqrt{\\frac{K_w K_a}{K_b}}$, which contains no $C$. Reason (R) is true.\nStep 2: Evaluate Assertion (A). Taking negative logarithms, $\\text{pH} = \\frac{1}{2}[\\text{p}K_w + \\text{p}K_a - \\text{p}K_b] = 7 + \\frac{1}{2}\\text{p}K_a - \\frac{1}{2}\\text{p}K_b$. Diluting the solution changes neither $\\text{p}K_a$, $\\text{p}K_b$, nor $K_w$, so $\\text{pH}$ remains constant. Assertion (A) is true and Reason (R) correctly explains Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_equilibrium_c01_050",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An acidic buffer solution is prepared by mixing $50\\text{ mL}$ of $0.20\\text{ M CH}_3\\text{COOH}$ with $50\\text{ mL}$ of $0.10\\text{ M CH}_3\\text{COONa}$. Given that $\\text{p}K_a$ of acetic acid is $4.74$ and $\\log_{10} 2 = 0.30$, what is the $\\text{pH}$ of the resulting buffer solution at $298\\text{ K}$?",
+      "options": [
+        "A) $3.74$",
+        "B) $4.44$",
+        "C) $5.04$",
+        "D) $4.74$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Calculate millimoles of weak acid ($\\text{CH}_3\\text{COOH}$) and conjugate base salt ($\\text{CH}_3\\text{COONa}$):\n$\\text{mmol of CH}_3\\text{COOH} = 50\\text{ mL} \\times 0.20\\text{ M} = 10.0\\text{ mmol}$,\n$\\text{mmol of CH}_3\\text{COONa} = 50\\text{ mL} \\times 0.10\\text{ M} = 5.0\\text{ mmol}$.\nStep 2: Total volume of the mixture is $50 + 50 = 100\\text{ mL}$. In the Henderson-Hasselbalch equation, the volume term cancels out:\n$\\text{pH} = \\text{p}K_a + \\log_{10}\\left(\\frac{[\\text{Salt}]}{[\\text{Acid}]}\\right) = \\text{p}K_a + \\log_{10}\\left(\\frac{\\text{mmol of Salt}}{\\text{mmol of Acid}}\\right)$.\nStep 3: Substitute the known quantities:\n$\\text{pH} = 4.74 + \\log_{10}\\left(\\frac{5.0}{10.0}\\right) = 4.74 + \\log_{10}(0.5) = 4.74 + \\log_{10}\\left(\\frac{1}{2}\\right) = 4.74 - \\log_{10} 2$.\nStep 4: Compute the final numerical value:\n$\\text{pH} = 4.74 - 0.30 = 4.44$.\nConclusion: $\\text{pH} = 4.44$."
+    },
+    {
+      "id": "chem_equilibrium_c01_051",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding buffer solutions and buffer capacity:\nStatement I: The buffer capacity of an acidic buffer is maximum when the molar concentrations of the weak acid and its conjugate salt are equal, in which case $\\text{pH} = \\text{p}K_a$.\nStatement II: For a basic buffer composed of ammonium hydroxide ($\\text{NH}_4\\text{OH}$) and ammonium chloride ($\\text{NH}_4\\text{Cl}$), the maximum resistance to $\\text{pH}$ change upon addition of small amounts of acid or base occurs when $\\text{pOH} = \\text{p}K_b$.\nChoose the correct option:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Statement I is incorrect but Statement II is correct.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Both Statement I and Statement II are incorrect."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I. Buffer capacity represents the number of moles of strong acid or base required to change the $\\text{pH}$ of one litre of buffer by one unit. Mathematically, the derivative $\\frac{d[\\text{pH}]}{d[\\text{acid}]}$ is minimized when $[\\text{salt}] = [\\text{acid}]$, which corresponds to $\\text{pH} = \\text{p}K_a + \\log 1 = \\text{p}K_a$. Statement I is correct.\nStep 2: Analyze Statement II. For a basic buffer, Henderson-Hasselbalch equation is $\\text{pOH} = \\text{p}K_b + \\log\\frac{[\\text{salt}]}{[\\text{base}]}$. When $[\\text{NH}_4\\text{Cl}] = [\\text{NH}_4\\text{OH}]$, the buffer possesses equal reserve to neutralize both incoming $\\text{H}^+$ and $\\text{OH}^-$ ions, providing maximum buffer capacity at $\\text{pOH} = \\text{p}K_b$ (or $\\text{pH} = 14 - \\text{p}K_b$ at $298\\text{ K}$). Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_equilibrium_c01_052",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Sparingly soluble salt) with List II (Relationship between solubility product constant $K_{sp}$ and molar solubility $S$ in pure water at equilibrium):\n\nList I:\nP. $\\text{AgCl}$ ($AB$ type)\nQ. $\\text{PbI}_2$ ($AB_2$ type)\nR. $\\text{Al(OH)}_3$ ($AB_3$ type)\nS. $\\text{Ca}_3(\\text{PO}_4)_2$ ($A_3B_2$ type)\n\nList II:\n1. $K_{sp} = S^2$\n2. $K_{sp} = 4S^3$\n3. $K_{sp} = 27S^4$\n4. $K_{sp} = 108S^5$\n\nChoose the correct match from the options given below:",
+      "options": [
+        "A) P-2, Q-1, R-4, S-3",
+        "B) P-1, Q-3, R-2, S-4",
+        "C) P-4, Q-2, R-1, S-3",
+        "D) P-1, Q-2, R-3, S-4"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: General formula for salt $A_x B_y \\rightleftharpoons x A^{y+} + y B^{x-}$: $K_{sp} = (x S)^x (y S)^y = x^x y^y S^{x+y}$.\nStep 2: For P ($\\text{AgCl}$): $x = 1, y = 1 \\implies K_{sp} = 1^1 \\cdot 1^1 \\cdot S^{1+1} = S^2$ (P matches 1).\nStep 3: For Q ($\\text{PbI}_2$): $x = 1, y = 2 \\implies K_{sp} = 1^1 \\cdot 2^2 \\cdot S^{1+2} = 4S^3$ (Q matches 2).\nStep 4: For R ($\\text{Al(OH)}_3$): $x = 1, y = 3 \\implies K_{sp} = 1^1 \\cdot 3^3 \\cdot S^{1+3} = 27S^4$ (R matches 3).\nStep 5: For S ($\\text{Ca}_3(\\text{PO}_4)_2$): $x = 3, y = 2 \\implies K_{sp} = 3^3 \\cdot 2^2 \\cdot S^{3+2} = 27 \\times 4 \\times S^5 = 108S^5$ (S matches 4).\nConclusion: The correct matching is P-1, Q-2, R-3, S-4."
+    },
+    {
+      "id": "chem_equilibrium_c01_053",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The solubility product constant ($K_{sp}$) of magnesium hydroxide, $\\text{Mg(OH)}_2$, at $298\\text{ K}$ is $4.0 \\times 10^{-12}$. What is the molar solubility ($S$) of $\\text{Mg(OH)}_2$ in pure water, and what is the $\\text{pH}$ of its saturated aqueous solution? (Take $\\log_{10} 2 = 0.30$)",
+      "options": [
+        "A) $S = 1.0 \\times 10^{-4}\\text{ M}, \\quad \\text{pH} = 10.30$",
+        "B) $S = 2.0 \\times 10^{-4}\\text{ M}, \\quad \\text{pH} = 10.00$",
+        "C) $S = 1.0 \\times 10^{-4}\\text{ M}, \\quad \\text{pH} = 9.70$",
+        "D) $S = 1.0 \\times 10^{-6}\\text{ M}, \\quad \\text{pH} = 8.00$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write the dissolution equilibrium for $\\text{Mg(OH)}_2$:\n$\\text{Mg(OH)}_2(\\text{s}) \\rightleftharpoons \\text{Mg}^{2+}(\\text{aq}) + 2\\text{OH}^-(\\text{aq})$\n$[\\text{Mg}^{2+}] = S$, and $[\\text{OH}^-] = 2S$.\nStep 2: Set up the $K_{sp}$ expression:\n$K_{sp} = [\\text{Mg}^{2+}][\\text{OH}^-]^2 = (S)(2S)^2 = 4S^3$.\nStep 3: Solve for molar solubility $S$:\n$4S^3 = 4.0 \\times 10^{-12} \\implies S^3 = 1.0 \\times 10^{-12} \\implies S = 1.0 \\times 10^{-4}\\text{ mol L}^{-1}$.\nStep 4: Calculate $[\\text{OH}^-]$ and $\\text{pOH}$:\n$[\\text{OH}^-] = 2S = 2 \\times (1.0 \\times 10^{-4}) = 2.0 \\times 10^{-4}\\text{ M}$.\n$\\text{pOH} = -\\log_{10}(2.0 \\times 10^{-4}) = 4 - \\log_{10} 2 = 4 - 0.30 = 3.70$.\nStep 5: Calculate $\\text{pH}$ at $298\\text{ K}$:\n$\\text{pH} = 14 - \\text{pOH} = 14 - 3.70 = 10.30$.\nConclusion: $S = 1.0 \\times 10^{-4}\\text{ M}, \\text{pH} = 10.30$."
+    },
+    {
+      "id": "chem_equilibrium_c01_054",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding the solubility of a sparingly soluble salt in the presence of a common ion:\nStatement I: The molar solubility of silver chloride ($\\text{AgCl}$) is substantially lower in a $0.10\\text{ M NaCl}$ aqueous solution than in pure water due to the common ion effect of chloride ions ($\\text{Cl}^-$).\nStatement II: The addition of $\\text{NaCl}$ to a saturated solution of $\\text{AgCl}$ causes the numerical value of the solubility product constant ($K_{sp}$) of $\\text{AgCl}$ to decrease.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I. For $\\text{AgCl}(\\text{s}) \\rightleftharpoons \\text{Ag}^+(\\text{aq}) + \\text{Cl}^-(\\text{aq})$, adding $\\text{NaCl}$ introduces a high concentration of common ion $\\text{Cl}^-$. By Le Chatelier's principle, the equilibrium shifts in the reverse direction to consume excess $\\text{Cl}^-$, causing $\\text{AgCl}$ to precipitate and drastically reducing the molar solubility of $\\text{Ag}^+$. Statement I is correct.\nStep 2: Analyze Statement II. The solubility product $K_{sp}$ is an equilibrium constant, which depends solely on temperature and is completely independent of the concentrations of individual ions. While the solubility ($S$) decreases markedly, the value of $K_{sp}$ remains strictly constant at a specified temperature. Statement II is incorrect.\nConclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_equilibrium_c01_055",
+      "subject": "Chemistry",
+      "topic": "Equilibrium",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Equal volumes of $2.0 \\times 10^{-4}\\text{ M BaCl}_2$ solution and $2.0 \\times 10^{-4}\\text{ M Na}_2\\text{SO}_4$ solution are mixed together at $298\\text{ K}$. Given that the solubility product constant $K_{sp}$ of barium sulfate ($\\text{BaSO}_4$) is $1.0 \\times 10^{-10}$ at this temperature, which of the following statements correctly predicts the outcome?",
+      "options": [
+        "A) $Q_{sp} = 1.0 \\times 10^{-10} = K_{sp}$, hence the solution remains exactly saturated with no precipitation.",
+        "B) $Q_{sp} = 1.0 \\times 10^{-12} < K_{sp}$, hence no precipitate of $\\text{BaSO}_4$ will form.",
+        "C) $Q_{sp} = 1.0 \\times 10^{-8} > K_{sp}$, hence a precipitate of $\\text{BaSO}_4$ will form.",
+        "D) $Q_{sp} = 4.0 \\times 10^{-8} > K_{sp}$, hence a precipitate of $\\text{BaSO}_4$ will form."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate the ion concentrations immediately upon mixing. Since equal volumes of the two solutions are mixed, the total volume doubles, halving each solute concentration:\n$[\\text{Ba}^{2+}] = \\frac{2.0 \\times 10^{-4}\\text{ M}}{2} = 1.0 \\times 10^{-4}\\text{ M}$,\n$[\\text{SO}_4^{2-}] = \\frac{2.0 \\times 10^{-4}\\text{ M}}{2} = 1.0 \\times 10^{-4}\\text{ M}$.\nStep 2: Compute the ionic product quotient $Q_{sp}$:\n$Q_{sp} = [\\text{Ba}^{2+}][\\text{SO}_4^{2-}] = (1.0 \\times 10^{-4}) \\times (1.0 \\times 10^{-4}) = 1.0 \\times 10^{-8}$.\nStep 3: Compare $Q_{sp}$ with $K_{sp}$:\nSince $Q_{sp} = 1.0 \\times 10^{-8} > K_{sp} = 1.0 \\times 10^{-10}$, the ionic product exceeds the solubility product, and precipitation of barium sulfate ($\\text{BaSO}_4$) will occur until the ionic concentrations satisfy $K_{sp}$.\nConclusion: $Q_{sp} = 1.0 \\times 10^{-8} > K_{sp}$, hence a precipitate of $\\text{BaSO}_4$ will form."
+    }
+  ]
+}

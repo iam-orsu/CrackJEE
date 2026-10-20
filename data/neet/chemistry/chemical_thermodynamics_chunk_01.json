@@ -1,0 +1,943 @@
+{
+  "subject": "Chemistry",
+  "topic": "Chemical Thermodynamics",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "chem_chemical_thermodynamics_c01_001",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding thermodynamic systems and boundaries:\nStatement I: In thermodynamics, the universe is divided into the system and the surroundings, separated by a real or imaginary boundary across which matter and energy may be exchanged.\nStatement II: The surroundings comprise everything in the universe except the system, but in practice, only that portion of the universe which can interact with the system is considered as surroundings.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I: According to NCERT thermodynamics, the system refers to that part of the universe in which observations are made, and the remaining universe constitutes the surroundings. They are separated by a real or imaginary wall called the boundary across which exchange of matter and/or energy may take place. Thus, Statement I is correct.\nStep 2: Analyze Statement II: Although the surroundings formally encompass the entire remaining universe, in practical thermodynamic analysis, only that region of the universe that can interact directly and exchange energy or matter with the system is relevant and treated as the surroundings. Thus, Statement II is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_002",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Boiling water placed in an open glass beaker represents an open thermodynamic system.\nReason (R): In an open system, there is exchange of both energy and matter between the system and its surroundings.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "D) (A) is true but (R) is false"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Assertion (A): Water boiling in an open beaker allows water vapor (matter) to escape freely into the atmosphere, and heat energy is transferred into the beaker from the burner and out from the surface into the air. Hence, it is an open system. Thus, (A) is true.\nStep 2: Analyze Reason (R): By definition in NCERT thermodynamics, an open system is one where boundary conditions allow the simultaneous transfer of both matter and energy between the system and surroundings. Thus, (R) is true.\nStep 3: Evaluate connection: Reason (R) provides the exact defining criterion that explains why boiling water in an open beaker is categorized as an open system. Therefore, (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_003",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding thermodynamic systems and their defining exchange characteristics:\nList I (System Type):\n(P) Open system\n(Q) Closed system\n(R) Isolated system\n(S) Adiabatic closed system\nList II (Exchange Characteristics):\n(1) Exchanges neither matter nor energy with surroundings\n(2) Exchanges energy in the form of work only, not heat or matter\n(3) Exchanges both matter and energy with surroundings\n(4) Exchanges energy with surroundings, but not matter\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (P) $\\rightarrow$ (4), (Q) $\\rightarrow$ (3), (R) $\\rightarrow$ (1), (S) $\\rightarrow$ (2)",
+        "B) (P) $\\rightarrow$ (3), (Q) $\\rightarrow$ (4), (R) $\\rightarrow$ (2), (S) $\\rightarrow$ (1)",
+        "C) (P) $\\rightarrow$ (3), (Q) $\\rightarrow$ (4), (R) $\\rightarrow$ (1), (S) $\\rightarrow$ (2)",
+        "D) (P) $\\rightarrow$ (3), (Q) $\\rightarrow$ (1), (R) $\\rightarrow$ (4), (S) $\\rightarrow$ (2)"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Map (P) Open system: An open system can exchange both energy and matter with its surroundings, corresponding to (3).\nStep 2: Map (Q) Closed system: A closed system possesses boundaries sealed to matter exchange but can exchange energy across its diathermic boundaries, corresponding to (4).\nStep 3: Map (R) Isolated system: An isolated system has insulated and sealed boundaries, exchanging neither matter nor energy, corresponding to (1).\nStep 4: Map (S) Adiabatic closed system: Being sealed to matter, and having adiabatic walls ($q = 0$), it can exchange energy solely as work, corresponding to (2).\nStep 5: Conclusion: The correct matching is (P) $\\rightarrow$ (3), (Q) $\\rightarrow$ (4), (R) $\\rightarrow$ (1), (S) $\\rightarrow$ (2)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_004",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding state functions and path functions:\nStatement I: State functions are thermodynamic properties whose values depend exclusively on the current initial and final states of the system, and are independent of how the state is attained.\nStatement II: Heat ($q$) and work ($w$) are state functions because their magnitudes can be expressed in units of Joules.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is incorrect but Statement II is correct",
+        "D) Statement I is correct but Statement II is incorrect"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Statement I: State functions (such as $P, V, T, U, H, S, G$) depend strictly on the state of the system and not on the process path taken to reach that state. Thus, Statement I is correct.\nStep 2: Analyze Statement II: Heat ($q$) and work ($w$) are path functions, not state functions. Their numerical values depend on the specific path followed by the transformation, even though their units are Joules. Units do not define state versus path functions. Thus, Statement II is incorrect.\nStep 3: Conclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_005",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following thermodynamic properties of a macroscopic system:\n(I) Temperature ($T$)\n(II) Internal energy ($U$)\n(III) Density ($\\rho$)\n(IV) Refractive index\n(V) Heat capacity ($C$)\n(VI) Molar heat capacity ($C_m$)\nWhich of the following sets contains ONLY intensive properties?",
+      "options": [
+        "A) (I), (III), (IV), and (VI)",
+        "B) (I), (II), (III), and (V)",
+        "C) (II), (V), and (VI)",
+        "D) (I), (III), (V), and (VI)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Distinguish intensive vs extensive properties: Intensive properties do not depend on the quantity or size of matter present in the system, whereas extensive properties depend directly on mass/size.\nStep 2: Classify each property:\n- (I) Temperature: intensive.\n- (II) Internal energy: extensive (proportional to amount of substance).\n- (III) Density: intensive (ratio of two extensive properties mass/volume).\n- (IV) Refractive index: intensive (characteristic of substance).\n- (V) Heat capacity ($C$): extensive ($C = q/\\Delta T$, depends on mass).\n- (VI) Molar heat capacity ($C_m$): intensive ($C_m = C/n$, property per mole).\nStep 3: Select the group containing exclusively intensive properties: (I), (III), (IV), and (VI)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_006",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The ratio of any two extensive properties of a homogeneous thermodynamic system is always an intensive property.\nReason (R): Both mass and volume are extensive properties, but their ratio, density ($\\rho = \\frac{\\text{mass}}{\\text{volume}}$), is independent of the total quantity of matter in the sample.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "D) (A) is true but (R) is false"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Assertion (A): If an extensive property $X$ doubles when the system size doubles, and another extensive property $Y$ also doubles, their ratio $X/Y$ remains constant, rendering the quotient intensive. Thus, (A) is true.\nStep 2: Analyze Reason (R): Mass ($m$) and volume ($V$) are extensive properties because dividing a system in half halves both $m$ and $V$. However, the density $\\rho = m/V$ remains unchanged, demonstrating that the ratio is intensive. Thus, (R) is true.\nStep 3: Evaluate connection: Reason (R) provides the exact mathematical and physical foundation demonstrating why the ratio of two extensive variables results in an intensive property. Therefore, (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_007",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding heat capacity and its specific forms:\nStatement I: Total heat capacity ($C$) of a substance is an extensive property, whereas specific heat capacity ($c$) and molar heat capacity ($C_m$) are intensive properties.\nStatement II: Specific heat capacity is defined as the quantity of heat required to raise the temperature of one mole of a substance by one unit Kelvin.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect",
+        "B) Statement I is incorrect but Statement II is correct",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Both Statement I and Statement II are correct"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I: Total heat capacity $C = q/\\Delta T$ scales directly with the amount of substance and is therefore extensive. In contrast, specific heat capacity ($c = C/m$, per unit mass) and molar heat capacity ($C_m = C/n$, per mole) do not depend on the sample size and are intensive. Thus, Statement I is correct.\nStep 2: Analyze Statement II: Specific heat capacity is defined as the heat required to raise the temperature of one unit mass (e.g., $1\\text{ g}$ or $1\\text{ kg}$) of a substance by one degree ($1\\text{ K}$ or $1^\\circ\\text{C}$). Heat capacity for one mole is the molar heat capacity ($C_m$), not specific heat capacity. Thus, Statement II is incorrect.\nStep 3: Conclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_008",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II for various thermodynamic processes:\nList I (Thermodynamic Process):\n(P) Isothermal process\n(Q) Adiabatic process\n(R) Isobaric process\n(S) Isochoric process\nList II (Characteristic Condition):\n(1) $q = 0$ (no heat exchange across boundary)\n(2) $\\Delta V = 0$ (volume remains constant)\n(3) $\\Delta T = 0$ (temperature remains constant)\n(4) $\\Delta P = 0$ (pressure remains constant)\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (P) $\\rightarrow$ (3), (Q) $\\rightarrow$ (4), (R) $\\rightarrow$ (1), (S) $\\rightarrow$ (2)",
+        "B) (P) $\\rightarrow$ (1), (Q) $\\rightarrow$ (3), (R) $\\rightarrow$ (4), (S) $\\rightarrow$ (2)",
+        "C) (P) $\\rightarrow$ (3), (Q) $\\rightarrow$ (1), (R) $\\rightarrow$ (2), (S) $\\rightarrow$ (4)",
+        "D) (P) $\\rightarrow$ (3), (Q) $\\rightarrow$ (1), (R) $\\rightarrow$ (4), (S) $\\rightarrow$ (2)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Map (P) Isothermal process: Temperature is kept constant throughout the process, so $\\Delta T = 0$, matching (3).\nStep 2: Map (Q) Adiabatic process: The system is thermally insulated so no heat enters or leaves the system, $q = 0$, matching (1).\nStep 3: Map (R) Isobaric process: Pressure is held constant throughout the change, $\\Delta P = 0$, matching (4).\nStep 4: Map (S) Isochoric process: Volume of the system is held constant throughout the change, $\\Delta V = 0$, matching (2).\nStep 5: Conclusion: The correct matching is (P) $\\rightarrow$ (3), (Q) $\\rightarrow$ (1), (R) $\\rightarrow$ (4), (S) $\\rightarrow$ (2)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_009",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding reversible and irreversible processes:\nStatement I: A reversible process is a quasi-static process that occurs infinitesimally slowly such that the system remains in virtual thermodynamic equilibrium with its surroundings at every intermediate stage.\nStatement II: In a reversible process, the driving force differs from the opposing force by an infinitesimally small amount ($dP$), and the direction of the process can be reversed by an infinitesimal change in external conditions.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I: According to NCERT, a process or change is said to be reversible if it takes place infinitesimally slowly in a succession of very small steps, maintaining thermodynamic equilibrium at every stage. Thus, Statement I is correct.\nStep 2: Analyze Statement II: In a reversible process, the driving force and opposing force differ only by an infinitesimal quantity $dP$, meaning that a minute change in conditions can reverse the direction of the process at any point. Thus, Statement II is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_010",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For any cyclic process undergone by a thermodynamic system, the net change in internal energy ($\\Delta U$) and the net change in enthalpy ($\\Delta H$) are both identically zero.\nReason (R): Internal energy ($U$) and enthalpy ($H$) are state functions whose values depend solely on the thermodynamic state and not on the path traversed.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "D) (A) is true but (R) is false"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Assertion (A): In a cyclic process, the system returns to its initial thermodynamic state after completing a series of changes. Since initial state = final state, $\\Delta U = U_f - U_i = 0$ and $\\Delta H = H_f - H_i = 0$. Thus, (A) is true.\nStep 2: Analyze Reason (R): $U$ and $H$ are state functions. The change in any state function over a complete cycle is zero ($\\oint dU = 0$, $\\oint dH = 0$). Thus, (R) is true.\nStep 3: Evaluate connection: Because $U$ and $H$ are state functions, their net changes over any path returning to the original state must equal zero. Hence, (R) correctly explains (A)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_011",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding internal energy ($U$):\nStatement I: The absolute value of the total internal energy ($U$) of a substance cannot be experimentally determined because it represents the sum of all microscopic forms of energy including translational, vibrational, rotational, electronic, and nuclear energies.\nStatement II: In chemical thermodynamics, the measurement of absolute internal energy is necessary to determine the heat exchanged and work done during a chemical reaction.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect",
+        "B) Statement I is incorrect but Statement II is correct",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Both Statement I and Statement II are correct"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I: Internal energy $U$ comprises translational, rotational, vibrational kinetic energies of molecules, intermolecular potential energies, bonding energies, electronic energies, and subatomic energies. It is impossible to determine its absolute value. Thus, Statement I is correct.\nStep 2: Analyze Statement II: In chemical thermodynamics, we are solely concerned with changes in internal energy ($\\Delta U = U_2 - U_1$) that accompany a physical or chemical process. The absolute value of $U$ is never required. Thus, Statement II is incorrect.\nStep 3: Conclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_012",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "During a thermodynamic process, a system absorbs $701\\text{ J}$ of heat from the surroundings and simultaneously performs $394\\text{ J}$ of expansion work on the surroundings. According to the First Law of Thermodynamics and IUPAC conventions, what is the net change in internal energy ($\\Delta U$) of the system?",
+      "options": [
+        "A) $-307\\text{ J}$",
+        "B) $+1095\\text{ J}$",
+        "C) $-1095\\text{ J}$",
+        "D) $+307\\text{ J}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Identify given quantities and IUPAC sign conventions:\n- Heat absorbed by the system: $q = +701\\text{ J}$ (positive when heat enters the system).\n- Work done by the system on surroundings: $w = -394\\text{ J}$ (negative when system does expansion work).\nStep 2: Apply the First Law of Thermodynamics:\n$$\\Delta U = q + w$$\n$$\\Delta U = (+701\\text{ J}) + (-394\\text{ J}) = +307\\text{ J}$$\nStep 3: Conclusion: The change in internal energy is $+307\\text{ J}$."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_013",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An ideal gas expands from an initial volume of $2.0\\text{ L}$ to a final volume of $12.0\\text{ L}$ at constant temperature against a constant external opposing pressure of $2.5\\text{ bar}$. Given that $1\\text{ L bar} = 100\\text{ J}$, the work done ($w$) by the gas on the surroundings is:",
+      "options": [
+        "A) $-2500\\text{ J}$",
+        "B) $+2500\\text{ J}$",
+        "C) $-250\\text{ J}$",
+        "D) $+250\\text{ J}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Formula for work done against constant external pressure:\n$$w = -P_{\\text{ext}} \\Delta V = -P_{\\text{ext}} (V_2 - V_1)$$\nStep 2: Substitute the numerical values:\n$$V_1 = 2.0\\text{ L}, \\quad V_2 = 12.0\\text{ L}, \\quad \\Delta V = 12.0 - 2.0 = 10.0\\text{ L}$$\n$$P_{\\text{ext}} = 2.5\\text{ bar}$$\n$$w = -(2.5\\text{ bar}) \\times (10.0\\text{ L}) = -25.0\\text{ L bar}$$\nStep 3: Convert $\\text{L bar}$ to Joules:\n$$w = -25.0 \\times 100\\text{ J} = -2500\\text{ J}$$\nStep 4: Conclusion: The work done is $-2500\\text{ J}$."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_014",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): When an ideal gas undergoes free expansion into an evacuated chamber (vacuum), no work is performed by the gas ($w = 0$).\nReason (R): In free expansion, the external opposing pressure against which the gas expands is zero ($P_{\\text{ext}} = 0$).\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "D) (A) is true but (R) is false"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Assertion (A): Expansion of a gas into an evacuated space (vacuum) is termed free expansion. During free expansion, the gas does not push against any resisting boundary or opposing force, so work done $w = 0$. Thus, (A) is true.\nStep 2: Analyze Reason (R): The thermodynamic definition of mechanical work is $w = -\\int P_{\\text{ext}} dV$. Since a vacuum exerts no pressure, $P_{\\text{ext}} = 0$, which leads directly to $w = 0$. Thus, (R) is true.\nStep 3: Evaluate connection: The condition $P_{\\text{ext}} = 0$ in Reason (R) directly explains why free expansion results in zero work. Therefore, (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_015",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding isothermal expansion of an ideal gas:\nStatement I: The magnitude of work done by an ideal gas in an isothermal reversible expansion is always greater than that done in an isothermal irreversible expansion between the same initial and final volumes.\nStatement II: For an isothermal reversible expansion of $n$ moles of an ideal gas from volume $V_1$ to $V_2$, the work done is given by $w = -2.303 n R T \\log_{10}\\left(\\frac{V_2}{V_1}\\right)$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect",
+        "B) Statement I is incorrect but Statement II is correct",
+        "C) Both Statement I and Statement II are correct",
+        "D) Both Statement I and Statement II are incorrect"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I: In a reversible expansion, the internal gas pressure is matched at every stage by an opposing pressure that is only infinitesimally smaller ($P_{\\text{ext}} = P_{\\text{int}} - dP$), maximizing the area under the $P-V$ indicator diagram. In an irreversible expansion, the opposing pressure is strictly less throughout the stroke, producing less work ($|w_{\\text{rev}}| > |w_{\\text{irrev}}|$). Thus, Statement I is correct.\nStep 2: Analyze Statement II: Integrating $w = -\\int_{V_1}^{V_2} P dV$ for an ideal gas ($P = nRT/V$) yields $w = -nRT \\ln(V_2/V_1) = -2.303 nRT \\log_{10}(V_2/V_1)$. Thus, Statement II is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_016",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements is INCORRECT regarding thermodynamic work and heat transferred across a system boundary during a process?",
+      "options": [
+        "A) Work and heat are boundary phenomena that appear only during a thermodynamic transition",
+        "B) In an adiabatic process, there is no heat transfer across the boundary, so $q = 0$",
+        "C) For an adiabatic change, the change in internal energy equals the adiabatic work: $\\Delta U = w_{\\text{ad}}$",
+        "D) Heat and work are state functions because they represent forms of energy stored within a system"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate work and heat as state vs path functions: Heat ($q$) and work ($w$) are path functions, not state functions. A system contains internal energy ($U$), not heat or work. Heat and work are transient boundary phenomena observed only during a change of state. Thus, the statement claiming heat and work are state functions is incorrect.\nStep 2: Evaluate boundary phenomena: Work and heat appear only at the boundaries of a system during a transformation, which is correct.\nStep 3: Evaluate adiabatic conditions: In an adiabatic process, the boundary is thermally insulated, so $q = 0$. By the First Law $\\Delta U = q + w = w_{\\text{ad}}$. Both are correct.\nStep 4: Conclusion: The incorrect statement is that heat and work are state functions stored within a system."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_017",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For an adiabatic process, the work done ($w_{\\text{ad}}$) is independent of the path taken between the initial and final states.\nReason (R): In an adiabatic process, $q = 0$, and according to the First Law of Thermodynamics, $w_{\\text{ad}} = \\Delta U$, where $\\Delta U$ is a change in a state function.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Assertion (A): When a system changes adiabatically from state 1 to state 2, the work done depends solely on the initial and final states and not on whether the adiabatic path is direct or multi-step. Thus, (A) is true.\nStep 2: Analyze Reason (R): From the First Law of Thermodynamics, $\\Delta U = q + w$. Since an adiabatic process restricts heat flow ($q = 0$), we have $\\Delta U = w_{\\text{ad}}$. Since internal energy $U$ is a state function, $\\Delta U = U_2 - U_1$ depends only on the endpoints, forcing $w_{\\text{ad}}$ to be independent of path. Thus, (R) is true.\nStep 3: Evaluate connection: Reason (R) provides the exact mathematical derivation explaining why adiabatic work behaves as a state function. Therefore, (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_018",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Calculate the work done when $2.0\\text{ mol}$ of an ideal gas expands isothermally and reversibly from an initial volume of $10.0\\text{ L}$ to a final volume of $100.0\\text{ L}$ at $300\\text{ K}$. [Take: $R = 8.314\\text{ J K}^{-1}\\text{ mol}^{-1}$, $\\log_{10}(10) = 1$]",
+      "options": [
+        "A) $+5744\\text{ J}$",
+        "B) $-11488\\text{ J}$",
+        "C) $+11488\\text{ J}$",
+        "D) $-5744\\text{ J}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Formula for isothermal reversible expansion of an ideal gas:\n$$w = -2.303 n R T \\log_{10}\\left(\\frac{V_2}{V_1}\\right)$$\nStep 2: Substitute the given values:\n$$n = 2.0\\text{ mol}, \\quad R = 8.314\\text{ J K}^{-1}\\text{ mol}^{-1}, \\quad T = 300\\text{ K}$$\n$$\\frac{V_2}{V_1} = \\frac{100.0}{10.0} = 10 \\implies \\log_{10}(10) = 1$$\nStep 3: Compute the work done:\n$$w = -2.303 \\times 2.0 \\times 8.314 \\times 300 \\times 1$$\n$$w = -2.303 \\times 600 \\times 8.314 = -1381.8 \\times 8.314 = -11488.3\\text{ J} \\approx -11488\\text{ J}$$\nStep 4: Conclusion: The work done is $-11488\\text{ J}$ (or $-11.49\\text{ kJ}$)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_019",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding thermodynamic boundaries and their functional characteristics:\nList I (Thermodynamic Boundary):\n(P) Diathermic wall\n(Q) Adiabatic wall\n(R) Rigid wall\n(S) Permeable wall\nList II (Physical Permissibility):\n(1) Prevents mechanical work by fixing volume ($\\Delta V = 0$)\n(2) Permits exchange of heat between system and surroundings\n(3) Completely insulates the system against heat transfer ($q = 0$)\n(4) Permits transport of chemical matter across the boundary\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (P) $\\rightarrow$ (2), (Q) $\\rightarrow$ (1), (R) $\\rightarrow$ (3), (S) $\\rightarrow$ (4)",
+        "B) (P) $\\rightarrow$ (4), (Q) $\\rightarrow$ (3), (R) $\\rightarrow$ (1), (S) $\\rightarrow$ (2)",
+        "C) (P) $\\rightarrow$ (2), (Q) $\\rightarrow$ (3), (R) $\\rightarrow$ (1), (S) $\\rightarrow$ (4)",
+        "D) (P) $\\rightarrow$ (3), (Q) $\\rightarrow$ (2), (R) $\\rightarrow$ (1), (S) $\\rightarrow$ (4)"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Map (P) Diathermic wall: A diathermic wall is thermally conducting and permits heat transfer between system and surroundings, matching (2).\nStep 2: Map (Q) Adiabatic wall: An adiabatic wall is a thermal insulator that strictly prevents heat exchange ($q = 0$), matching (3).\nStep 3: Map (R) Rigid wall: A rigid boundary cannot be displaced, maintaining constant volume ($\\Delta V = 0$) and preventing expansion/compression work, matching (1).\nStep 4: Map (S) Permeable wall: A permeable boundary allows chemical species (matter) to pass across it, matching (4).\nStep 5: Conclusion: The correct matching is (P) $\\rightarrow$ (2), (Q) $\\rightarrow$ (3), (R) $\\rightarrow$ (1), (S) $\\rightarrow$ (4)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_020",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding thermodynamic sign conventions according to IUPAC:\nStatement I: Heat absorbed by a system from its surroundings is assigned a positive sign ($q > 0$), while heat released by the system to its surroundings is assigned a negative sign ($q < 0$).\nStatement II: Work done by the system on the surroundings (expansion) is assigned a positive sign ($w > 0$), while work done on the system by the surroundings (compression) is assigned a negative sign ($w < 0$).\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is incorrect but Statement II is correct",
+        "D) Statement I is correct but Statement II is incorrect"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Statement I: Under IUPAC convention, any energy transferred into the system increases its internal energy. Thus, heat absorbed by the system is positive ($q > 0$), and heat lost to surroundings is negative ($q < 0$). Statement I is correct.\nStep 2: Analyze Statement II: Under IUPAC convention, work done ON the system (compression) adds energy to the system, so $w > 0$. Work done BY the system on the surroundings (expansion) expends internal energy, so $w < 0$. Statement II states the exact opposite. Thus, Statement II is incorrect.\nStep 3: Conclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_021",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For an isothermal expansion of an ideal gas, the change in internal energy is zero ($\\Delta U = 0$), and the heat absorbed by the gas equals the work done by the gas ($q = -w$).\nReason (R): The internal energy of an ideal gas depends solely on its absolute temperature and is independent of its volume and pressure.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Assertion (A): In an isothermal process, temperature remains constant ($\\Delta T = 0$). For an ideal gas, $\\Delta U = n C_v \\Delta T = 0$. By the First Law $\\Delta U = q + w$, $0 = q + w \\implies q = -w$. Thus, (A) is true.\nStep 2: Analyze Reason (R): According to Joule's law of ideal gases, intermolecular forces in an ideal gas are zero, so its internal energy is purely a function of temperature: $U = f(T)$. At constant $T$, $U$ does not change regardless of changes in $P$ or $V$. Thus, (R) is true.\nStep 3: Evaluate connection: Because internal energy of an ideal gas depends exclusively on temperature, an isothermal process guarantees $\\Delta U = 0$, which leads directly to $q = -w$. Therefore, (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_022",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements regarding the Zeroth Law of Thermodynamics and conditions for thermal equilibrium is INCORRECT?",
+      "options": [
+        "A) The Zeroth Law provides the theoretical basis for the concept of temperature and thermometry",
+        "B) Thermal equilibrium implies that all macroscopic state variables ($P, V, T, n$) must be identical across both systems",
+        "C) Two systems are said to be in thermal equilibrium if no net heat flows when they are brought into thermal contact",
+        "D) The Zeroth Law states that if system A is in thermal equilibrium with system B, and system B is in thermal equilibrium with system C, then system A is also in thermal equilibrium with system C"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze conditions for thermal equilibrium: Thermal equilibrium between two or more systems strictly requires that they have the same temperature ($T_A = T_B$), ensuring zero net heat exchange.\nStep 2: Evaluate other state variables: Systems in thermal equilibrium do not need identical values for pressure, volume, or molar quantities ($P, V, n$). For example, $1\\text{ L}$ of helium at $1\\text{ bar}$ can be in thermal equilibrium at $300\\text{ K}$ with $10\\text{ L}$ of argon at $5\\text{ bar}$. Hence, the statement that all macroscopic state variables must be identical is incorrect.\nStep 3: Evaluate Zeroth Law principles: The Zeroth Law establishes temperature as a valid physical property and forms the operational foundation of thermometry.\nStep 4: Conclusion: The incorrect statement is that all macroscopic state variables ($P, V, T, n$) must be identical across both systems."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_023",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding enthalpy ($H$) and heat exchanged during chemical reactions:\nStatement I: Enthalpy is defined mathematically as $H = U + PV$, and for a process occurring at constant pressure, the heat absorbed by the system ($q_p$) equals the change in enthalpy ($\\Delta H$).\nStatement II: For a process conducted in a closed vessel of fixed volume, the heat exchanged ($q_v$) equals the change in internal energy ($\\Delta U$).\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect",
+        "B) Statement I is incorrect but Statement II is correct",
+        "C) Both Statement I and Statement II are correct",
+        "D) Both Statement I and Statement II are incorrect"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I: By thermodynamic definition, $H = U + PV$. Differentiating at constant pressure gives $dH = dU + P dV$. From the First Law ($dU = dq + dw = dq - P dV$ for expansion work), substituting gives $dH = dq_p - P dV + P dV = dq_p$. Thus, $\\Delta H = q_p$. Statement I is correct.\nStep 2: Analyze Statement II: At constant volume, $dV = 0$, meaning no mechanical expansion work is done ($w = 0$). By the First Law $\\Delta U = q + w = q_v$. Thus, $q_v = \\Delta U$. Statement II is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_024",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For the complete combustion of liquid benzene at $298\\text{ K}$:\n$$\\text{C}_6\\text{H}_6(l) + \\frac{15}{2}\\text{O}_2(g) \\longrightarrow 6\\text{CO}_2(g) + 3\\text{H}_2\\text{O}(l)$$\nWhat is the relationship and numerical difference between the enthalpy change ($\\Delta H$) and internal energy change ($\\Delta U$) for this reaction in terms of the gas constant $R$ and absolute temperature $T$?",
+      "options": [
+        "A) $\\Delta H - \\Delta U = +1.5 R T$",
+        "B) $\\Delta H - \\Delta U = -0.5 R T$",
+        "C) $\\Delta H - \\Delta U = +0.5 R T$",
+        "D) $\\Delta H - \\Delta U = -1.5 R T$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Recall the relation between enthalpy change and internal energy change for gas-phase reactions:\n$$\\Delta H = \\Delta U + \\Delta n_g R T \\implies \\Delta H - \\Delta U = \\Delta n_g R T$$\nStep 2: Calculate the change in moles of gaseous species ($\\Delta n_g$):\n$$\\Delta n_g = \\sum n_{g,\\text{products}} - \\sum n_{g,\\text{reactants}}$$\nFrom the balanced equation, $\\text{C}_6\\text{H}_6(l)$ and $\\text{H}_2\\text{O}(l)$ are liquids and do not contribute to $\\Delta n_g$.\nGaseous product: $6\\text{ moles of } \\text{CO}_2(g)$.\nGaseous reactant: $\\frac{15}{2} = 7.5\\text{ moles of } \\text{O}_2(g)$.\n$$\\Delta n_g = 6 - 7.5 = -1.5$$\nStep 3: Compute the difference:\n$$\\Delta H - \\Delta U = -1.5 R T$$\nStep 4: Conclusion: The difference $\\Delta H - \\Delta U$ is equal to $-1.5 R T$."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_025",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For one mole of an ideal gas, the molar heat capacity at constant pressure ($C_p$) is always greater than the molar heat capacity at constant volume ($C_v$) by an amount equal to the universal gas constant $R$ ($C_p - C_v = R$).\nReason (R): When heat is supplied at constant pressure, a portion of the thermal energy is utilized to perform mechanical expansion work against the external atmosphere in addition to raising the internal energy of the gas.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Assertion (A): For an ideal gas, $H = U + PV = U + RT$ (for 1 mole). Differentiating with respect to temperature gives $\\frac{dH}{dT} = \\frac{dU}{dT} + R$, which simplifies to $C_p - C_v = R$ (Mayer's relation). Thus, (A) is true.\nStep 2: Analyze Reason (R): At constant volume, no expansion occurs ($w = 0$), so all heat supplied directly increases internal energy (temperature). At constant pressure, the gas expands upon heating against external pressure, consuming energy as work ($P\\Delta V = R\\Delta T$). Hence, extra heat must be supplied at constant pressure to achieve the same temperature rise. Thus, (R) is true.\nStep 3: Evaluate connection: Reason (R) provides the physical origin for why more heat is needed at constant pressure, justifying $C_p - C_v = R$. Therefore, (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_026",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the molar heat capacities and Poisson's ratio ($\\gamma = C_p / C_v$) of various ideal gases. Which of the following statements is INCORRECT?",
+      "options": [
+        "A) For a non-linear triatomic ideal gas (e.g., $\\text{H}_2\\text{O}$ vapor without vibrational modes), $C_v = 3R$, $C_p = 4R$, and $\\gamma = \\frac{4}{3} \\approx 1.33$",
+        "B) As the atomicity and molecular complexity of a gas increase, its Poisson's ratio $\\gamma$ increases progressively beyond $1.67$",
+        "C) For a monatomic ideal gas, $C_v = \\frac{3}{2}R$, $C_p = \\frac{5}{2}R$, and $\\gamma = \\frac{5}{3} \\approx 1.67$",
+        "D) For a rigid diatomic ideal gas, $C_v = \\frac{5}{2}R$, $C_p = \\frac{7}{2}R$, and $\\gamma = \\frac{7}{5} = 1.40$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze heat capacities and degrees of freedom: A monatomic gas has 3 translational degrees of freedom ($C_v = 1.5R, C_p = 2.5R, \\gamma = 1.67$). A diatomic gas has 3 translational and 2 rotational degrees of freedom ($C_v = 2.5R, C_p = 3.5R, \\gamma = 1.40$). A non-linear triatomic gas has 3 translational and 3 rotational degrees of freedom ($C_v = 3R, C_p = 4R, \\gamma = 1.33$).\nStep 2: Evaluate the trend with molecular complexity: As atomicity and degrees of freedom increase, $C_v$ increases. Because $\\gamma = \\frac{C_p}{C_v} = 1 + \\frac{R}{C_v}$, an increase in $C_v$ causes $\\gamma$ to DECREASE toward $1.0$, never increasing beyond $1.67$.\nStep 3: Conclusion: The incorrect statement is that Poisson's ratio increases progressively beyond $1.67$ with increasing molecular complexity."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_027",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For the gaseous decomposition reaction:\n$$\\text{PCl}_5(g) \\rightleftharpoons \\text{PCl}_3(g) + \\text{Cl}_2(g)$$\nthe change in internal energy at $300\\text{ K}$ is $\\Delta U = +80.0\\text{ kJ mol}^{-1}$. Given $R = 8.314\\text{ J K}^{-1}\\text{ mol}^{-1}$, what is the value of the enthalpy change ($\\Delta H$) for this reaction at $300\\text{ K}$?",
+      "options": [
+        "A) $+80.00\\text{ kJ mol}^{-1}$",
+        "B) $+84.99\\text{ kJ mol}^{-1}$",
+        "C) $+82.49\\text{ kJ mol}^{-1}$",
+        "D) $+77.51\\text{ kJ mol}^{-1}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Write down the relation between $\\Delta H$ and $\\Delta U$:\n$$\\Delta H = \\Delta U + \\Delta n_g R T$$\nStep 2: Determine $\\Delta n_g$ for the reaction:\n$$\\Delta n_g = n_{g,\\text{products}} - n_{g,\\text{reactants}} = (1 + 1) - 1 = +1\\text{ mol}$$\nStep 3: Calculate $\\Delta n_g R T$ in kilojoules:\n$$\\Delta n_g R T = 1\\text{ mol} \\times 8.314\\text{ J K}^{-1}\\text{ mol}^{-1} \\times 300\\text{ K} = 2494.2\\text{ J} = 2.494\\text{ kJ}$$\nStep 4: Compute $\\Delta H$:\n$$\\Delta H = +80.0\\text{ kJ} + 2.494\\text{ kJ} = +82.494\\text{ kJ mol}^{-1} \\approx +82.49\\text{ kJ mol}^{-1}$$\nStep 5: Conclusion: The value of $\\Delta H$ is $+82.49\\text{ kJ mol}^{-1}$."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_028",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the reversible adiabatic expansion of an ideal gas:\nStatement I: In a reversible adiabatic process for an ideal gas, the thermodynamic relationship between temperature and volume is given by $T V^{\\gamma - 1} = \\text{constant}$, where $\\gamma = C_p / C_v$.\nStatement II: When an ideal gas undergoes adiabatic expansion, the temperature of the gas increases because work is performed on the gas by the surroundings.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is incorrect but Statement II is correct",
+        "D) Statement I is correct but Statement II is incorrect"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Statement I: For a reversible adiabatic process, $d q = 0 \\implies dU = dw \\implies n C_v dT = -P dV = -\\frac{nRT}{V}dV$. Integrating yields $\\ln(T) + (\\gamma - 1)\\ln(V) = \\text{const}$, or $T V^{\\gamma - 1} = \\text{constant}$. Thus, Statement I is correct.\nStep 2: Analyze Statement II: In an adiabatic expansion, the gas does work on the surroundings ($w < 0$). Since $q = 0$, $\\Delta U = w < 0$. For an ideal gas, $\\Delta U = n C_v \\Delta T$, which means $\\Delta T < 0$. Therefore, the temperature of the gas DECREASES (cooling effect), it does not increase. Thus, Statement II is incorrect.\nStep 3: Conclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_029",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding calorimetric measurements and thermodynamic relationships:\nList I (Calorimetric / Thermodynamic Quantity):\n(P) Bomb calorimeter\n(Q) Coffee-cup calorimeter\n(R) Heat capacity at constant volume ($C_v$)\n(S) Heat capacity at constant pressure ($C_p$)\nList II (Thermodynamic Definition / Measured Quantity):\n(1) Measured at constant atmospheric pressure, directly yields $\\Delta H = q_p$\n(2) $\\left(\\frac{\\partial H}{\\partial T}\\right)_p$\n(3) Measured at constant volume in a rigid vessel, directly yields $\\Delta U = q_v$\n(4) $\\left(\\frac{\\partial U}{\\partial T}\\right)_v$\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (P) $\\rightarrow$ (3), (Q) $\\rightarrow$ (1), (R) $\\rightarrow$ (4), (S) $\\rightarrow$ (2)",
+        "B) (P) $\\rightarrow$ (1), (Q) $\\rightarrow$ (3), (R) $\\rightarrow$ (4), (S) $\\rightarrow$ (2)",
+        "C) (P) $\\rightarrow$ (3), (Q) $\\rightarrow$ (1), (R) $\\rightarrow$ (2), (S) $\\rightarrow$ (4)",
+        "D) (P) $\\rightarrow$ (4), (Q) $\\rightarrow$ (2), (R) $\\rightarrow$ (3), (S) $\\rightarrow$ (1)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Map (P) Bomb calorimeter: It operates under constant volume conditions ($\\Delta V = 0$) inside a rigid steel container, measuring $q_v = \\Delta U$, matching (3).\nStep 2: Map (Q) Coffee-cup calorimeter: It operates under constant atmospheric pressure ($\\Delta P = 0$), measuring $q_p = \\Delta H$, matching (1).\nStep 3: Map (R) Heat capacity at constant volume ($C_v$): By thermodynamic definition, $C_v = \\left(\\frac{\\partial U}{\\partial T}\\right)_v$, matching (4).\nStep 4: Map (S) Heat capacity at constant pressure ($C_p$): By thermodynamic definition, $C_p = \\left(\\frac{\\partial H}{\\partial T}\\right)_p$, matching (2).\nStep 5: Conclusion: The correct matching is (P) $\\rightarrow$ (3), (Q) $\\rightarrow$ (1), (R) $\\rightarrow$ (4), (S) $\\rightarrow$ (2)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_030",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The combustion of an organic compound in a bomb calorimeter directly provides the change in internal energy ($\\Delta U$) of the reaction rather than the enthalpy change ($\\Delta H$).\nReason (R): A bomb calorimeter consists of a sealed, rigid, heavy steel vessel immersed in a water bath where the volume remains strictly constant ($\\Delta V = 0$), resulting in zero expansion work ($w = 0$).\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "D) (A) is true but (R) is false"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Assertion (A): In a bomb calorimeter, the heat of reaction is determined at constant volume, which by definition equals $q_v = \\Delta U$. To find $\\Delta H$, one must use the relation $\\Delta H = \\Delta U + \\Delta n_g R T$. Thus, (A) is true.\nStep 2: Analyze Reason (R): The bomb is constructed of high-strength steel and is sealed rigidly. Because its volume cannot change ($\\Delta V = 0$), $w = -P\\Delta V = 0$. By the First Law, $\\Delta U = q_v + w = q_v$. Thus, (R) is true.\nStep 3: Evaluate connection: Reason (R) directly accounts for the constant volume condition that makes $q_v$ equal to $\\Delta U$ rather than $\\Delta H$. Therefore, (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_031",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding standard enthalpy of formation ($\\Delta_f H^\\circ$):\nStatement I: By international convention, the standard molar enthalpy of formation ($\\Delta_f H^\\circ$) of every pure chemical element in its most stable standard physical state at $298.15\\text{ K}$ and $1\\text{ bar}$ is assigned a value of zero.\nStatement II: The standard enthalpies of formation of graphite ($\\text{C}$), rhombic sulfur ($\\text{S}$), and white phosphorus ($\\text{P}_4$) are zero, whereas those of diamond and monoclinic sulfur are non-zero.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect",
+        "B) Statement I is incorrect but Statement II is correct",
+        "C) Both Statement I and Statement II are correct",
+        "D) Both Statement I and Statement II are incorrect"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I: NCERT states that the standard enthalpy of formation of every element in its most stable state of aggregation at $298.15\\text{ K}$ and $1\\text{ bar}$ pressure is arbitrarily taken as zero. Thus, Statement I is correct.\nStep 2: Analyze Statement II: For carbon, graphite is the reference standard ($\\Delta_f H^\\circ = 0$), while diamond has $\\Delta_f H^\\circ = +1.90\\text{ kJ mol}^{-1}$. For sulfur, rhombic sulfur is the reference standard ($\\Delta_f H^\\circ = 0$), while monoclinic sulfur has $\\Delta_f H^\\circ = +0.33\\text{ kJ mol}^{-1}$. For phosphorus, white phosphorus is the reference standard ($\\Delta_f H^\\circ = 0$). Thus, Statement II is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_032",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following chemical species at $298\\text{ K}$ and $1\\text{ bar}$ pressure:\n(I) $\\text{C}(\\text{graphite})$\n(II) $\\text{C}(\\text{diamond})$\n(III) $\\text{Br}_2(l)$\n(IV) $\\text{Br}_2(g)$\n(V) $\\text{S}(\\text{rhombic})$\n(VI) $\\text{P}_4(\\text{white})$\nWhich of the following combinations contains ONLY species whose standard molar enthalpy of formation ($\\Delta_f H^\\circ$) is identically zero?",
+      "options": [
+        "A) (I), (II), (III), and (V)",
+        "B) (II), (IV), and (VI)",
+        "C) (I), (IV), (V), and (VI)",
+        "D) (I), (III), (V), and (VI)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Identify reference standard states for each element at $298\\text{ K}$ and $1\\text{ bar}$:\n- Carbon: graphite is reference form $\\implies \\Delta_f H^\\circ[\\text{C}(\\text{graphite})] = 0$, but diamond is $\\neq 0$.\n- Bromine: liquid is the stable physical state at $298\\text{ K} \\implies \\Delta_f H^\\circ[\\text{Br}_2(l)] = 0$, but $\\text{Br}_2(g)$ is $\\neq 0$ (it has enthalpy of vaporization).\n- Sulfur: rhombic sulfur is the reference state $\\implies \\Delta_f H^\\circ[\\text{S}(\\text{rhombic})] = 0$, but monoclinic sulfur is $\\neq 0$.\n- Phosphorus: white phosphorus is the reference standard in NCERT $\\implies \\Delta_f H^\\circ[\\text{P}_4(\\text{white})] = 0$.\nStep 2: Collect the species with $\\Delta_f H^\\circ = 0$: (I), (III), (V), and (VI).\nStep 3: Conclusion: The combination containing only zero enthalpy of formation species is (I), (III), (V), and (VI)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_033",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given the following thermochemical equations at $298\\text{ K}$:\n(1) $\\text{C}(\\text{graphite}) + \\text{O}_2(g) \\longrightarrow \\text{CO}_2(g), \\quad \\Delta_r H_1^\\circ = -393.5\\text{ kJ mol}^{-1}$\n(2) $\\text{CO}(g) + \\frac{1}{2}\\text{O}_2(g) \\longrightarrow \\text{CO}_2(g), \\quad \\Delta_r H_2^\\circ = -283.0\\text{ kJ mol}^{-1}$\nAccording to Hess's Law of Constant Heat Summation, what is the standard molar enthalpy of formation of carbon monoxide, $\\Delta_f H^\\circ[\\text{CO}(g)]$?",
+      "options": [
+        "A) $-110.5\\text{ kJ mol}^{-1}$",
+        "B) $+110.5\\text{ kJ mol}^{-1}$",
+        "C) $-676.5\\text{ kJ mol}^{-1}$",
+        "D) $+676.5\\text{ kJ mol}^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write the formation reaction for $\\text{CO}(g)$:\n$$\\text{C}(\\text{graphite}) + \\frac{1}{2}\\text{O}_2(g) \\longrightarrow \\text{CO}(g), \\quad \\Delta_f H^\\circ = ?$$\nStep 2: Manipulate the given reactions to obtain the target reaction:\nTarget equation = Reaction (1) $-$ Reaction (2):\n$$\\left[\\text{C}(\\text{graphite}) + \\text{O}_2(g) \\longrightarrow \\text{CO}_2(g)\\right] - \\left[\\text{CO}(g) + \\frac{1}{2}\\text{O}_2(g) \\longrightarrow \\text{CO}_2(g)\\right]$$\n$$\\implies \\text{C}(\\text{graphite}) + \\frac{1}{2}\\text{O}_2(g) \\longrightarrow \\text{CO}(g)$$\nStep 3: Calculate the enthalpy change:\n$$\\Delta_f H^\\circ = \\Delta_r H_1^\\circ - \\Delta_r H_2^\\circ = (-393.5\\text{ kJ mol}^{-1}) - (-283.0\\text{ kJ mol}^{-1})$$\n$$\\Delta_f H^\\circ = -393.5 + 283.0 = -110.5\\text{ kJ mol}^{-1}$$\nStep 4: Conclusion: The standard enthalpy of formation of $\\text{CO}(g)$ is $-110.5\\text{ kJ mol}^{-1}$."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_034",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The total standard enthalpy change for a chemical transformation is identical whether the reaction is accomplished in a single direct step or through a series of intermediate stages.\nReason (R): Enthalpy ($H$) is a state function; hence, the change in enthalpy ($\\Delta H$) depends exclusively on the initial and final states of the chemical system and is independent of the pathway taken.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "D) (A) is true but (R) is false"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Assertion (A): This statement is the formal definition of Hess's Law of Constant Heat Summation. If a reaction takes place in several steps, its standard reaction enthalpy is the sum of the standard enthalpies of the intermediate reactions. Thus, (A) is true.\nStep 2: Analyze Reason (R): Enthalpy is defined by state variables ($H = U + PV$) and is therefore a state function. The integral $\\Delta H = \\int dH$ is path-independent. Thus, (R) is true.\nStep 3: Evaluate connection: Hess's Law is a direct mathematical consequence of enthalpy being a state function. Therefore, (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_035",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The standard enthalpies of formation at $298\\text{ K}$ for propane [$\\text{C}_3\\text{H}_8(g)$], carbon dioxide [$\\text{CO}_2(g)$], and liquid water [$\\text{H}_2\\text{O}(l)$] are $-104.0\\text{ kJ mol}^{-1}$, $-393.5\\text{ kJ mol}^{-1}$, and $-285.5\\text{ kJ mol}^{-1}$ respectively. What is the standard enthalpy of combustion ($\\Delta_c H^\\circ$) of propane at $298\\text{ K}$?",
+      "options": [
+        "A) $-2322.5\\text{ kJ mol}^{-1}$",
+        "B) $-2114.5\\text{ kJ mol}^{-1}$",
+        "C) $-2218.5\\text{ kJ mol}^{-1}$",
+        "D) $+2218.5\\text{ kJ mol}^{-1}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Write the balanced combustion reaction for propane:\n$$\\text{C}_3\\text{H}_8(g) + 5\\text{O}_2(g) \\longrightarrow 3\\text{CO}_2(g) + 4\\text{H}_2\\text{O}(l)$$\nStep 2: Recall the formula for standard reaction enthalpy using enthalpies of formation:\n$$\\Delta_c H^\\circ = \\sum \\Delta_f H^\\circ(\\text{products}) - \\sum \\Delta_f H^\\circ(\\text{reactants})$$\nNote: $\\Delta_f H^\\circ[\\text{O}_2(g)] = 0$.\nStep 3: Calculate sum for products and reactants:\n$$\\sum \\Delta_f H^\\circ(\\text{products}) = 3(-393.5) + 4(-285.5) = -1180.5 - 1142.0 = -2322.5\\text{ kJ mol}^{-1}$$\n$$\\sum \\Delta_f H^\\circ(\\text{reactants}) = \\Delta_f H^\\circ[\\text{C}_3\\text{H}_8(g)] = -104.0\\text{ kJ mol}^{-1}$$\nStep 4: Compute $\\Delta_c H^\\circ$:\n$$\\Delta_c H^\\circ = (-2322.5) - (-104.0) = -2322.5 + 104.0 = -2218.5\\text{ kJ mol}^{-1}$$\nStep 5: Conclusion: The standard enthalpy of combustion is $-2218.5\\text{ kJ mol}^{-1}$."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_036",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding enthalpy of atomization ($\\Delta_a H^\\circ$) and bond dissociation enthalpy:\nStatement I: The enthalpy of atomization is the enthalpy change accompanying the complete cleavage of all chemical bonds in one mole of a substance to produce isolated gaseous atoms.\nStatement II: For homonuclear diatomic gaseous molecules such as $\\text{H}_2(g)$, $\\text{O}_2(g)$, and $\\text{Cl}_2(g)$, the standard enthalpy of atomization is exactly identical to their bond dissociation enthalpy.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect",
+        "B) Statement I is correct but Statement II is incorrect",
+        "C) Statement I is incorrect but Statement II is correct",
+        "D) Both Statement I and Statement II are correct"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Statement I: Enthalpy of atomization $\\Delta_a H^\\circ$ is defined in NCERT as the enthalpy change on breaking one mole of bonds completely to obtain atoms in the gas phase (e.g., $\\text{CH}_4(g) \\rightarrow \\text{C}(g) + 4\\text{H}(g)$). Thus, Statement I is correct.\nStep 2: Analyze Statement II: For a diatomic molecule like $\\text{H}_2(g) \\rightarrow 2\\text{H}(g)$, the dissociation of one mole of gas into atoms involves breaking exactly one mole of $\\text{H}-\\text{H}$ bonds. Hence, $\\Delta_a H^\\circ = \\Delta_{\\text{bond}} H^\\circ$. Thus, Statement II is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_037",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Estimate the standard enthalpy change ($\\Delta_r H^\\circ$) for the gas-phase chlorination of methane:\n$$\\text{CH}_4(g) + \\text{Cl}_2(g) \\longrightarrow \\text{CH}_3\\text{Cl}(g) + \\text{HCl}(g)$$\nusing the following bond enthalpy data:\n$\\text{B.E.}(\\text{C}-\\text{H}) = 414\\text{ kJ mol}^{-1}$\n$\\text{B.E.}(\\text{Cl}-\\text{Cl}) = 243\\text{ kJ mol}^{-1}$\n$\\text{B.E.}(\\text{C}-\\text{Cl}) = 330\\text{ kJ mol}^{-1}$\n$\\text{B.E.}(\\text{H}-\\text{Cl}) = 431\\text{ kJ mol}^{-1}$",
+      "options": [
+        "A) $-104\\text{ kJ mol}^{-1}$",
+        "B) $+104\\text{ kJ mol}^{-1}$",
+        "C) $-208\\text{ kJ mol}^{-1}$",
+        "D) $+208\\text{ kJ mol}^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Recall the formula for reaction enthalpy from bond enthalpies:\n$$\\Delta_r H^\\circ = \\sum \\text{B.E.}(\\text{bonds broken in reactants}) - \\sum \\text{B.E.}(\\text{bonds formed in products})$$\nStep 2: Identify bonds broken and formed:\n- Bonds broken: $1\\text{ mol of } \\text{C}-\\text{H}$ bonds and $1\\text{ mol of } \\text{Cl}-\\text{Cl}$ bonds.\n  $$\\text{Energy absorbed} = 414 + 243 = 657\\text{ kJ mol}^{-1}$$\n- Bonds formed: $1\\text{ mol of } \\text{C}-\\text{Cl}$ bonds and $1\\text{ mol of } \\text{H}-\\text{Cl}$ bonds.\n  $$\\text{Energy released} = 330 + 431 = 761\\text{ kJ mol}^{-1}$$\nStep 3: Calculate $\\Delta_r H^\\circ$:\n$$\\Delta_r H^\\circ = 657 - 761 = -104\\text{ kJ mol}^{-1}$$\nStep 4: Conclusion: The standard reaction enthalpy is $-104\\text{ kJ mol}^{-1}$."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_038",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding thermochemical definitions and representative processes:\nList I (Enthalpy Term):\n(P) Enthalpy of sublimation ($\\Delta_{\\text{sub}} H^\\circ$)\n(Q) Enthalpy of combustion ($\\Delta_c H^\\circ$)\n(R) Lattice enthalpy ($\\Delta_{\\text{lattice}} H^\\circ$)\n(S) Enthalpy of formation ($\\Delta_f H^\\circ$)\nList II (Representative Process):\n(1) One mole of ionic solid is dissociated completely into its constituent gaseous ions\n(2) One mole of solid substance converts directly into gaseous phase at a temperature below melting point\n(3) One mole of a chemical compound is formed from its constituent elements in their reference standard states\n(4) One mole of a substance undergoes complete oxidation in presence of excess dioxygen\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (P) $\\rightarrow$ (2), (Q) $\\rightarrow$ (4), (R) $\\rightarrow$ (3), (S) $\\rightarrow$ (1)",
+        "B) (P) $\\rightarrow$ (2), (Q) $\\rightarrow$ (4), (R) $\\rightarrow$ (1), (S) $\\rightarrow$ (3)",
+        "C) (P) $\\rightarrow$ (2), (Q) $\\rightarrow$ (1), (R) $\\rightarrow$ (4), (S) $\\rightarrow$ (3)",
+        "D) (P) $\\rightarrow$ (4), (Q) $\\rightarrow$ (2), (R) $\\rightarrow$ (1), (S) $\\rightarrow$ (3)"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Map (P) Enthalpy of sublimation: Conversion of 1 mole of solid directly into gas, matching (2).\nStep 2: Map (Q) Enthalpy of combustion: Complete oxidation of 1 mole of a substance in excess $\\text{O}_2$, matching (4).\nStep 3: Map (R) Lattice enthalpy: Dissociation of 1 mole of an ionic crystal into gaseous constituent ions, matching (1).\nStep 4: Map (S) Enthalpy of formation: Formation of 1 mole of a compound from its constituent elements in standard states, matching (3).\nStep 5: Conclusion: The correct matching is (P) $\\rightarrow$ (2), (Q) $\\rightarrow$ (4), (R) $\\rightarrow$ (1), (S) $\\rightarrow$ (3)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_039",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Calculate the lattice dissociation enthalpy of crystalline sodium chloride, $\\text{NaCl}(s) \\longrightarrow \\text{Na}^+(g) + \\text{Cl}^-(g)$, using the following Born-Haber cycle data:\n$\\Delta_f H^\\circ[\\text{NaCl}(s)] = -411.0\\text{ kJ mol}^{-1}$\nSublimation enthalpy of sodium, $\\Delta_{\\text{sub}} H^\\circ[\\text{Na}(s)] = +108.0\\text{ kJ mol}^{-1}$\nIonization enthalpy of sodium, $\\Delta_i H^\\circ[\\text{Na}(g)] = +496.0\\text{ kJ mol}^{-1}$\nBond dissociation enthalpy of chlorine, $\\Delta_{\\text{bond}} H^\\circ[\\text{Cl}_2(g)] = +242.0\\text{ kJ mol}^{-1}$\nElectron gain enthalpy of chlorine, $\\Delta_{\\text{eg}} H^\\circ[\\text{Cl}(g)] = -349.0\\text{ kJ mol}^{-1}$",
+      "options": [
+        "A) $+376.0\\text{ kJ mol}^{-1}$",
+        "B) $+888.0\\text{ kJ mol}^{-1}$",
+        "C) $+787.0\\text{ kJ mol}^{-1}$",
+        "D) $-787.0\\text{ kJ mol}^{-1}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Express the Born-Haber cycle equation for formation of $\\text{NaCl}(s)$:\n$$\\Delta_f H^\\circ = \\Delta_{\\text{sub}} H^\\circ[\\text{Na}] + \\Delta_i H^\\circ[\\text{Na}] + \\frac{1}{2}\\Delta_{\\text{bond}} H^\\circ[\\text{Cl}_2] + \\Delta_{\\text{eg}} H^\\circ[\\text{Cl}] - \\Delta_{\\text{lattice}} H^\\circ$$\n(where $\\Delta_{\\text{lattice}} H^\\circ$ is defined as positive lattice dissociation enthalpy: $\\text{NaCl}(s) \\rightarrow \\text{Na}^+(g) + \\text{Cl}^-(g)$).\nStep 2: Substitute the known values:\n$$-411.0 = +108.0 + 496.0 + \\frac{1}{2}(242.0) + (-349.0) - \\Delta_{\\text{lattice}} H^\\circ$$\n$$-411.0 = 108.0 + 496.0 + 121.0 - 349.0 - \\Delta_{\\text{lattice}} H^\\circ$$\n$$-411.0 = 376.0 - \\Delta_{\\text{lattice}} H^\\circ$$\nStep 3: Solve for $\\Delta_{\\text{lattice}} H^\\circ$:\n$$\\Delta_{\\text{lattice}} H^\\circ = 376.0 - (-411.0) = 376.0 + 411.0 = +787.0\\text{ kJ mol}^{-1}$$\nStep 4: Conclusion: The lattice dissociation enthalpy of $\\text{NaCl}(s)$ is $+787.0\\text{ kJ mol}^{-1}$."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_040",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In a polyatomic molecule such as water ($\\text{H}_2\\text{O}$), the bond dissociation enthalpy of the first $\\text{O}-\\text{H}$ bond ($502\\text{ kJ mol}^{-1}$) is distinctly different from that of the second $\\text{O}-\\text{H}$ bond ($427\\text{ kJ mol}^{-1}$).\nReason (R): Cleavage of the first $\\text{O}-\\text{H}$ bond alters the electronic environment, nuclear shielding, and radical character of the remaining hydroxyl moiety ($\\text{OH}^\\bullet$), changing the bond strength of the second $\\text{O}-\\text{H}$ bond.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "B) (A) is true but (R) is false",
+        "C) (A) is false but (R) is true",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Assertion (A): In polyatomic molecules, bond dissociation enthalpies for identical chemical bonds differ as stepwise cleavage occurs. For water, $\\text{H}_2\\text{O}(g) \\rightarrow \\text{H}(g) + \\text{OH}(g)$ requires $502\\text{ kJ mol}^{-1}$, whereas $\\text{OH}(g) \\rightarrow \\text{O}(g) + \\text{H}(g)$ requires $427\\text{ kJ mol}^{-1}$. Hence, mean bond enthalpy $\\approx 464.5\\text{ kJ mol}^{-1}$ is used. Thus, (A) is true.\nStep 2: Analyze Reason (R): After the first hydrogen atom leaves, the remaining chemical species is a radical ($\\text{OH}^\\bullet$). The changed electronic structure and orbital overlap alter the bonding energy required to dissociate the second bond. Thus, (R) is true.\nStep 3: Evaluate connection: The electronic reorganization explained in (R) directly accounts for why the two stepwise bond energies are not identical. Therefore, (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_041",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the dissolution of an ionic compound $\\text{AB}(s)$ in water: $\\text{AB}(s) + \\text{aq} \\longrightarrow \\text{A}^+(aq) + \\text{B}^-(aq)$. Which of the following statements regarding the standard enthalpy of solution ($\\Delta_{\\text{sol}} H^\\circ$) is INCORRECT?",
+      "options": [
+        "A) An ionic salt with $\\Delta_{\\text{sol}} H^\\circ > 0$ can never dissolve spontaneously in water under any condition",
+        "B) $\\Delta_{\\text{sol}} H^\\circ = \\Delta_{\\text{lattice}} H^\\circ + \\Delta_{\\text{hyd}} H^\\circ$, where $\\Delta_{\\text{lattice}} H^\\circ > 0$ and $\\Delta_{\\text{hyd}} H^\\circ < 0$",
+        "C) If the magnitude of hydration enthalpy exceeds lattice enthalpy ($|\\Delta_{\\text{hyd}} H^\\circ| > \\Delta_{\\text{lattice}} H^\\circ$), the dissolution process is exothermic ($\\Delta_{\\text{sol}} H^\\circ < 0$)",
+        "D) If the magnitude of hydration enthalpy is smaller than lattice enthalpy ($|\\Delta_{\\text{hyd}} H^\\circ| < \\Delta_{\\text{lattice}} H^\\circ$), the dissolution process is endothermic ($\\Delta_{\\text{sol}} H^\\circ > 0$)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze enthalpy of solution components: The enthalpy of solution is given by $\\Delta_{\\text{sol}} H^\\circ = \\Delta_{\\text{lattice}} H^\\circ + \\Delta_{\\text{hyd}} H^\\circ$. The lattice dissociation enthalpy is endothermic ($> 0$) and the hydration enthalpy is exothermic ($< 0$). If $|\\Delta_{\\text{hyd}} H^\\circ| > \\Delta_{\\text{lattice}} H^\\circ$, $\\Delta_{\\text{sol}} H^\\circ$ is negative (exothermic). If $|\\Delta_{\\text{hyd}} H^\\circ| < \\Delta_{\\text{lattice}} H^\\circ$, $\\Delta_{\\text{sol}} H^\\circ$ is positive (endothermic).\nStep 2: Evaluate spontaneity of dissolution: Spontaneity is determined by $\\Delta G = \\Delta H - T\\Delta S$. Even when dissolution is endothermic ($\\Delta_{\\text{sol}} H^\\circ > 0$, as in $\\text{NaCl}$ or $\\text{NH}_4\\text{NO}_3$), the entropy of dissolution is positive ($\\Delta_{\\text{sol}} S > 0$) due to ion dispersion in water. At room temperature, $T\\Delta_{\\text{sol}} S > \\Delta_{\\text{sol}} H$, yielding $\\Delta_{\\text{sol}} G < 0$. Therefore, salts with positive enthalpy of solution can and do dissolve spontaneously.\nStep 3: Conclusion: The incorrect statement is that an ionic salt with $\\Delta_{\\text{sol}} H^\\circ > 0$ can never dissolve spontaneously in water."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_042",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding entropy ($S$) and the Second Law of Thermodynamics:\nStatement I: For any spontaneous, irreversible process occurring in an isolated system, the entropy of the system strictly increases ($\\Delta S_{\\text{sys}} > 0$).\nStatement II: For a cyclic reversible process, the net change in entropy of the universe is zero ($\\Delta S_{\\text{universe}} = 0$), whereas for any spontaneous irreversible process, $\\Delta S_{\\text{universe}} > 0$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is incorrect but Statement II is correct",
+        "B) Both Statement I and Statement II are correct",
+        "C) Both Statement I and Statement II are incorrect",
+        "D) Statement I is correct but Statement II is incorrect"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I: An isolated system exchanges neither energy nor matter with its surroundings ($\\Delta S_{\\text{surr}} = 0$). By the Second Law of Thermodynamics, all natural (spontaneous) processes tend toward increased disorder, so $\\Delta S_{\\text{total}} = \\Delta S_{\\text{sys}} > 0$. Thus, Statement I is correct.\nStep 2: Analyze Statement II: For any reversible process, entropy changes of the system and surroundings are equal and opposite ($\\Delta S_{\\text{sys}} + \\Delta S_{\\text{surr}} = 0$). However, every spontaneous real process produces net entropy in the universe, so $\\Delta S_{\\text{universe}} = \\Delta S_{\\text{sys}} + \\Delta S_{\\text{surr}} > 0$. Thus, Statement II is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_043",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The standard molar enthalpy of fusion of ice at its normal melting point ($0^\\circ\\text{C}$ or $273.15\\text{ K}$) is $\\Delta_{\\text{fus}} H = +6.006\\text{ kJ mol}^{-1}$. What is the standard molar entropy of fusion ($\\Delta_{\\text{fus}} S$) of ice at this transition equilibrium?",
+      "options": [
+        "A) $+2.199\\text{ J K}^{-1}\\text{ mol}^{-1}$",
+        "B) $+43.98\\text{ J K}^{-1}\\text{ mol}^{-1}$",
+        "C) $+21.99\\text{ J K}^{-1}\\text{ mol}^{-1}$",
+        "D) $-21.99\\text{ J K}^{-1}\\text{ mol}^{-1}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Identify the phase transition condition: Melting of ice at $273.15\\text{ K}$ and $1\\text{ atm}$ occurs under thermodynamic phase equilibrium where $\\Delta G = 0$.\nStep 2: Recall the formula for entropy of fusion:\n$$\\Delta G = \\Delta H - T\\Delta S = 0 \\implies \\Delta_{\\text{fus}} S = \\frac{\\Delta_{\\text{fus}} H}{T_f}$$\nStep 3: Substitute the numerical values:\n$$\\Delta_{\\text{fus}} H = +6.006\\text{ kJ mol}^{-1} = +6006\\text{ J mol}^{-1}$$\n$$T_f = 273.15\\text{ K}$$\n$$\\Delta_{\\text{fus}} S = \\frac{6006\\text{ J mol}^{-1}}{273.15\\text{ K}} \\approx +21.99\\text{ J K}^{-1}\\text{ mol}^{-1}$$\nStep 4: Conclusion: The molar entropy of fusion of ice is $+21.99\\text{ J K}^{-1}\\text{ mol}^{-1}$."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_044",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For most non-polar and non-associated liquids (such as benzene, cyclohexane, and tetrachloromethane), the molar entropy of vaporization at their normal boiling points is approximately constant at $\\Delta_{\\text{vap}} S \\approx 88\\text{ J K}^{-1}\\text{ mol}^{-1}$ (Trouton's rule).\nReason (R): For non-associated liquids, vaporizing one mole of liquid into one mole of gas produces nearly identical increments in translational disorder and molecular volume irrespective of molecular identity.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "B) (A) is true but (R) is false",
+        "C) (A) is false but (R) is true",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Assertion (A): Trouton's empirical rule states that the standard molar entropy of vaporization for typical non-associated liquids at normal boiling points is approximately $85\\text{--}88\\text{ J K}^{-1}\\text{ mol}^{-1}$. Thus, (A) is true.\nStep 2: Analyze Reason (R): In any non-associated liquid, molecules are randomly oriented with moderate intermolecular interactions. Upon vaporization, one mole of substance transitions to a dilute gas occupying $\\sim 22.4\\text{--}30\\text{ L}$, causing a remarkably uniform expansion and gain in positional and translational entropy. Thus, (R) is true.\nStep 3: Evaluate connection: The common translational volume expansion of ideal-like gas molecules explains why $\\Delta_{\\text{vap}} S$ has a nearly constant value across typical non-associated liquids. Therefore, (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_045",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "One mole of an ideal gas undergoes an isothermal reversible expansion from an initial volume of $5.0\\text{ L}$ to a final volume of $50.0\\text{ L}$ at a constant temperature of $300\\text{ K}$. Given $R = 8.314\\text{ J K}^{-1}\\text{ mol}^{-1}$ and $\\log_{10}(10) = 1$, what is the entropy change ($\\Delta S$) of the gas?",
+      "options": [
+        "A) $+19.15\\text{ J K}^{-1}$",
+        "B) $-19.15\\text{ J K}^{-1}$",
+        "C) $+38.30\\text{ J K}^{-1}$",
+        "D) $0\\text{ J K}^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Formula for entropy change of an ideal gas during an isothermal process:\n$$\\Delta S = n R \\ln\\left(\\frac{V_2}{V_1}\\right) = 2.303 n R \\log_{10}\\left(\\frac{V_2}{V_1}\\right)$$\nStep 2: Substitute the given parameters:\n$$n = 1.0\\text{ mol}, \\quad R = 8.314\\text{ J K}^{-1}\\text{ mol}^{-1}$$\n$$\\frac{V_2}{V_1} = \\frac{50.0}{5.0} = 10 \\implies \\log_{10}(10) = 1$$\nStep 3: Calculate $\\Delta S$:\n$$\\Delta S = 2.303 \\times 1.0\\text{ mol} \\times 8.314\\text{ J K}^{-1}\\text{ mol}^{-1} \\times 1$$\n$$\\Delta S = +19.147\\text{ J K}^{-1} \\approx +19.15\\text{ J K}^{-1}$$\nStep 4: Conclusion: The entropy change of the gas is $+19.15\\text{ J K}^{-1}$."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_046",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II for the entropy change ($\\Delta S$) of an ideal gas undergoing various thermodynamic processes:\nList I (Thermodynamic Process):\n(P) Reversible isothermal expansion from $V_1$ to $V_2$\n(Q) Reversible isochoric heating from $T_1$ to $T_2$\n(R) Reversible isobaric heating from $T_1$ to $T_2$\n(S) Reversible adiabatic expansion from state 1 to state 2\nList II (Entropy Expression):\n(1) $\\Delta S = n C_p \\ln\\left(\\frac{T_2}{T_1}\\right)$\n(2) $\\Delta S = 0$ (isentropic process)\n(3) $\\Delta S = n R \\ln\\left(\\frac{V_2}{V_1}\\right)$\n(4) $\\Delta S = n C_v \\ln\\left(\\frac{T_2}{T_1}\\right)$\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (P) $\\rightarrow$ (3), (Q) $\\rightarrow$ (4), (R) $\\rightarrow$ (2), (S) $\\rightarrow$ (1)",
+        "B) (P) $\\rightarrow$ (3), (Q) $\\rightarrow$ (4), (R) $\\rightarrow$ (1), (S) $\\rightarrow$ (2)",
+        "C) (P) $\\rightarrow$ (3), (Q) $\\rightarrow$ (1), (R) $\\rightarrow$ (4), (S) $\\rightarrow$ (2)",
+        "D) (P) $\\rightarrow$ (4), (Q) $\\rightarrow$ (3), (R) $\\rightarrow$ (1), (S) $\\rightarrow$ (2)"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Map (P) Reversible isothermal expansion: Since $T$ is constant, $\\Delta S = n R \\ln(V_2/V_1)$, matching (3).\nStep 2: Map (Q) Reversible isochoric heating: Since $V$ is constant ($dV = 0$), $dq = n C_v dT \\implies \\Delta S = \\int \\frac{n C_v dT}{T} = n C_v \\ln(T_2/T_1)$, matching (4).\nStep 3: Map (R) Reversible isobaric heating: Since $P$ is constant ($dP = 0$), $dq = n C_p dT \\implies \\Delta S = \\int \\frac{n C_p dT}{T} = n C_p \\ln(T_2/T_1)$, matching (1).\nStep 4: Map (S) Reversible adiabatic expansion: Since $dq_{\\text{rev}} = 0$, $\\Delta S = 0$, an isentropic transformation, matching (2).\nStep 5: Conclusion: The correct matching is (P) $\\rightarrow$ (3), (Q) $\\rightarrow$ (4), (R) $\\rightarrow$ (1), (S) $\\rightarrow$ (2)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_047",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): At constant temperature and pressure, a spontaneous chemical process is accompanied by a decrease in Gibbs free energy of the system ($\\Delta G_{\\text{sys}} < 0$).\nReason (R): At constant temperature and pressure, the change in Gibbs free energy of the system is related to the total entropy change of the universe by $\\Delta G_{\\text{sys}} = -T \\Delta S_{\\text{total}}$, where $\\Delta S_{\\text{total}} > 0$ for a spontaneous process.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false",
+        "B) (A) is false but (R) is true",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "D) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Assertion (A): According to NCERT, the fundamental criterion for spontaneity at constant $T$ and $P$ is $\\Delta G < 0$. If $\\Delta G = 0$, the system is in dynamic equilibrium; if $\\Delta G > 0$, the forward process is non-spontaneous. Thus, (A) is true.\nStep 2: Analyze Reason (R): At constant $P$, heat transferred to surroundings is $q_{\\text{surr}} = -q_p = -\\Delta H_{\\text{sys}}$. Thus, $\\Delta S_{\\text{surr}} = -\\frac{\\Delta H_{\\text{sys}}}{T}$. The total entropy change is $\\Delta S_{\\text{total}} = \\Delta S_{\\text{sys}} - \\frac{\\Delta H_{\\text{sys}}}{T}$. Multiplying through by $-T$ gives $-T\\Delta S_{\\text{total}} = \\Delta H_{\\text{sys}} - T\\Delta S_{\\text{sys}} = \\Delta G_{\\text{sys}}$. Since the Second Law demands $\\Delta S_{\\text{total}} > 0$, $\\Delta G_{\\text{sys}}$ must be negative. Thus, (R) is true.\nStep 3: Evaluate connection: Reason (R) provides the thermodynamic derivation linking $\\Delta G_{\\text{sys}} < 0$ directly to the universal Second Law criterion $\\Delta S_{\\text{total}} > 0$. Therefore, (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_048",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Gibbs free energy and non-expansion work:\nStatement I: The decrease in Gibbs free energy ($-\\Delta G$) of a closed system at constant temperature and pressure represents the maximum useful non-expansion work ($w_{\\text{non-PV}}$) obtainable from the system.\nStatement II: For a reversible electrochemical cell operating at constant temperature and pressure, the standard electrical work done is related to the standard cell potential by $\\Delta_r G^\\circ = -n F E_{\\text{cell}}^\\circ$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect",
+        "B) Statement I is correct but Statement II is incorrect",
+        "C) Statement I is incorrect but Statement II is correct",
+        "D) Both Statement I and Statement II are correct"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Statement I: Thermodynamically, $dG = V dP - S dT + dw_{\\text{non-PV}}$. At constant $T$ and $P$ ($dT = 0, dP = 0$), $dG = dw_{\\text{non-PV}}$, which means $-\\Delta G = -w_{\\text{non-PV}} = w_{\\text{useful, max}}$. Statement I is correct.\nStep 2: Analyze Statement II: Electrical work performed by an electrochemical cell equals the total charge passed multiplied by the electromotive force ($w_{\\text{elec}} = n F E_{\\text{cell}}$). Because $-\\Delta_r G = w_{\\text{elec}}$, we have $\\Delta_r G = -n F E_{\\text{cell}}$, and in the standard state, $\\Delta_r G^\\circ = -n F E_{\\text{cell}}^\\circ$. Statement II is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_049",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "According to the Gibbs-Helmholtz relationship ($\\Delta G = \\Delta H - T\\Delta S$), which of the following combinations of enthalpy change ($\\Delta H$) and entropy change ($\\Delta S$) describes a process that is NON-SPONTANEOUS at all temperatures?",
+      "options": [
+        "A) $\\Delta H > 0$ and $\\Delta S < 0$",
+        "B) $\\Delta H < 0$ and $\\Delta S > 0$",
+        "C) $\\Delta H > 0$ and $\\Delta S > 0$",
+        "D) $\\Delta H < 0$ and $\\Delta S < 0$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Examine the Gibbs-Helmholtz equation: $\\Delta G = \\Delta H - T\\Delta S$, where $T$ is absolute temperature in Kelvin ($T > 0$).\nStep 2: Test each sign combination:\n- If $\\Delta H < 0$ and $\\Delta S > 0$: $\\Delta G = (\\text{negative}) - T(\\text{positive}) = \\text{negative}$ at ALL temperatures (always spontaneous).\n- If $\\Delta H > 0$ and $\\Delta S < 0$: $\\Delta G = (\\text{positive}) - T(\\text{negative}) = (\\text{positive}) + T(\\text{positive}) = \\text{positive}$ at ALL temperatures. Hence, $\\Delta G$ is never negative, making it non-spontaneous at all temperatures.\n- If $\\Delta H > 0$ and $\\Delta S > 0$: Spontaneous only at high temperatures ($T > \\Delta H / \\Delta S$).\n- If $\\Delta H < 0$ and $\\Delta S < 0$: Spontaneous only at low temperatures ($T < \\Delta H / \\Delta S$).\nStep 3: Conclusion: A process with $\\Delta H > 0$ and $\\Delta S < 0$ is non-spontaneous at all temperatures."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_050",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For a certain endothermic chemical reaction, the standard enthalpy change is $\\Delta H^\\circ = +66.0\\text{ kJ mol}^{-1}$ and the standard entropy change is $\\Delta S^\\circ = +165.0\\text{ J K}^{-1}\\text{ mol}^{-1}$. Assuming $\\Delta H^\\circ$ and $\\Delta S^\\circ$ remain essentially constant with temperature, above what minimum temperature does the reaction become spontaneous at $1\\text{ bar}$ pressure?",
+      "options": [
+        "A) $600\\text{ K}$",
+        "B) $400\\text{ K}$",
+        "C) $250\\text{ K}$",
+        "D) $500\\text{ K}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Set up the spontaneity condition:\nA reaction is spontaneous when $\\Delta G^\\circ < 0$, which requires:\n$$\\Delta H^\\circ - T \\Delta S^\\circ < 0 \\implies T \\Delta S^\\circ > \\Delta H^\\circ$$\nStep 2: Solve for the threshold temperature $T$:\n$$T > \\frac{\\Delta H^\\circ}{\\Delta S^\\circ}$$\nStep 3: Convert units to be consistent and substitute values:\n$$\\Delta H^\\circ = +66.0\\text{ kJ mol}^{-1} = +66000\\text{ J mol}^{-1}$$\n$$\\Delta S^\\circ = +165.0\\text{ J K}^{-1}\\text{ mol}^{-1}$$\n$$T > \\frac{66000\\text{ J mol}^{-1}}{165.0\\text{ J K}^{-1}\\text{ mol}^{-1}} = 400\\text{ K}$$\nStep 4: Conclusion: The reaction becomes spontaneous at temperatures greater than $400\\text{ K}$."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_051",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For a reversible chemical reaction at $298\\text{ K}$, the standard Gibbs free energy change is $\\Delta_r G^\\circ = -17.13\\text{ kJ mol}^{-1}$. Given $R = 8.314\\text{ J K}^{-1}\\text{ mol}^{-1}$ and $2.303 R T = 5.71\\text{ kJ mol}^{-1}$ at $298\\text{ K}$, what is the value of the equilibrium constant ($K$) for this reaction?",
+      "options": [
+        "A) $3.0 \\times 10^2$",
+        "B) $1.0 \\times 10^2$",
+        "C) $1.0 \\times 10^3$",
+        "D) $1.0 \\times 10^{-3}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Recall the mathematical relation between standard Gibbs energy and equilibrium constant:\n$$\\Delta_r G^\\circ = -2.303 R T \\log_{10} K$$\nStep 2: Rearrange to solve for $\\log_{10} K$:\n$$\\log_{10} K = -\\frac{\\Delta_r G^\\circ}{2.303 R T}$$\nStep 3: Substitute the numerical values:\n$$\\log_{10} K = -\\frac{-17.13\\text{ kJ mol}^{-1}}{5.71\\text{ kJ mol}^{-1}} = +3.0$$\nStep 4: Take the antilogarithm:\n$$K = 10^{3.0} = 1.0 \\times 10^3$$\nStep 5: Conclusion: The equilibrium constant $K$ is $1.0 \\times 10^3$."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_052",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the Third Law of Thermodynamics:\nStatement I: According to the Third Law of Thermodynamics, the entropy of every perfectly crystalline, pure substance approaches zero as the absolute temperature approaches zero Kelvin ($\\lim_{T \\to 0} S = 0$).\nStatement II: Unlike absolute enthalpies and internal energies which cannot be determined experimentally, the absolute standard molar entropy ($S^\\circ$) of a pure substance at $298\\text{ K}$ can be determined using heat capacity measurements from absolute zero.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect",
+        "B) Statement I is correct but Statement II is incorrect",
+        "C) Statement I is incorrect but Statement II is correct",
+        "D) Both Statement I and Statement II are correct"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Statement I: The Nernst heat theorem and Planck's formulation of the Third Law state that the entropy of a pure, perfectly ordered crystal approaches zero at $0\\text{ K}$ because thermal motions cease and the system possesses a single microstate ($W = 1, S = k_B \\ln 1 = 0$). Statement I is correct.\nStep 2: Analyze Statement II: Because $S = 0$ at $0\\text{ K}$, the absolute entropy at any temperature $T$ is $S_T = \\int_0^T \\frac{C_p}{T} dT + \\sum \\frac{\\Delta H_{\\text{transition}}}{T_{\\text{transition}}}$. Hence, absolute entropies $S^\\circ$ can be uniquely determined, unlike $H$ or $U$ where only changes ($\\Delta H, \\Delta U$) are measurable. Statement II is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_053",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Crystalline carbon monoxide ($\\text{CO}$) and crystalline nitrous oxide ($\\text{N}_2\\text{O}$) do not possess strictly zero entropy at absolute zero ($0\\text{ K}$), exhibiting a phenomenon known as residual entropy.\nReason (R): In solid $\\text{CO}$ and $\\text{N}_2\\text{O}$, small dipole moments and similar atomic sizes allow molecules to freeze into arbitrary head-to-tail orientations in the lattice, preserving orientational disorder even at $0\\text{ K}$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Assertion (A): Real crystals of $\\text{CO}$, $\\text{NO}$, $\\text{N}_2\\text{O}$, and ice ($\text{H}_2\text{O}$) have measurable non-zero entropy at $0\\text{ K}$ (residual entropy $\\approx R \\ln 2 \\approx 5.8\\text{ J K}^{-1}\\text{ mol}^{-1}$ for $\\text{CO}$). Thus, (A) is true.\nStep 2: Analyze Reason (R): Because the dipole moment of $\\text{CO}$ is very small ($0.11\\text{ D}$), the energy difference between orientations $\\cdots \\text{C}-\\text{O}\\cdots\\text{C}-\\text{O}\\cdots$ and $\\cdots \\text{C}-\\text{O}\\cdots\\text{O}-\\text{C}\\cdots$ is extremely small. As temperature drops, the molecules lack sufficient thermal energy to reorient into a perfectly ordered arrangement, locking in random orientations ($W > 1$). Thus, (R) is true.\nStep 3: Evaluate connection: The orientational randomness described in Reason (R) is the exact physical origin of residual entropy at $0\\text{ K}$. Therefore, (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_054",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following chemical and physical processes:\n(I) Dissolution of crystalline table sugar (sucrose) in water\n(II) Rusting of metallic iron: $4\\text{Fe}(s) + 3\\text{O}_2(g) \\longrightarrow 2\\text{Fe}_2\\text{O}_3(s)$\n(III) Thermal decomposition: $\\text{CaCO}_3(s) \\longrightarrow \\text{CaO}(s) + \\text{CO}_2(g)$\n(IV) Condensation of water vapor: $\\text{H}_2\\text{O}(g) \\longrightarrow \\text{H}_2\\text{O}(l)$\n(V) Denaturation of globular egg albumin protein upon boiling\n(VI) Polymerization of ethene: $n\\text{CH}_2=\\text{CH}_2(g) \\longrightarrow -(\\text{CH}_2-\\text{CH}_2)_n-(s)$\nWhich of the following combinations represents ALL the processes in which entropy increases ($\\Delta S > 0$)?",
+      "options": [
+        "A) (II), (IV), and (VI)",
+        "B) (I), (III), and (V)",
+        "C) (I), (II), and (III)",
+        "D) (III), (IV), and (VI)"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate entropy changes for each process:\n- (I) Sugar dissolving in water: Solid ordered crystal breaks into dispersed hydrated molecules, increasing disorder $\\implies \\Delta S > 0$.\n- (II) Rusting of iron: $3\\text{ moles of gas}$ are consumed to form a solid, leading to substantial loss of randomness $\\implies \\Delta S < 0$.\n- (III) Decomposition of $\\text{CaCO}_3$: Gaseous $\\text{CO}_2$ is liberated from solid, increasing gaseous moles $\\implies \\Delta S > 0$.\n- (IV) Condensation of steam: Gas transitions to ordered liquid $\\implies \\Delta S < 0$.\n- (V) Denaturation of protein: Ordered globular tertiary/secondary structure unfolds into randomized coiled chains $\\implies \\Delta S > 0$.\n- (VI) Polymerization: Many free gaseous monomer molecules become constrained in a single polymer chain $\\implies \\Delta S < 0$.\nStep 2: Collect all processes with $\\Delta S > 0$: (I), (III), and (V).\nStep 3: Conclusion: The combination showing an increase in entropy is (I), (III), and (V)."
+    },
+    {
+      "id": "chem_chemical_thermodynamics_c01_055",
+      "subject": "Chemistry",
+      "topic": "Chemical Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For the standard electrochemical Daniell cell reaction:\n$$\\text{Zn}(s) + \\text{Cu}^{2+}(aq) \\rightleftharpoons \\text{Zn}^{2+}(aq) + \\text{Cu}(s)$$\nthe standard cell potential at $298\\text{ K}$ is $E_{\\text{cell}}^\\circ = +1.10\\text{ V}$. Given Faraday's constant $F = 96500\\text{ C mol}^{-1}$, what is the standard Gibbs free energy change ($\\Delta_r G^\\circ$) for this cell reaction at $298\\text{ K}$?",
+      "options": [
+        "A) $-106.15\\text{ kJ mol}^{-1}$",
+        "B) $+106.15\\text{ kJ mol}^{-1}$",
+        "C) $-212.3\\text{ kJ mol}^{-1}$",
+        "D) $+212.3\\text{ kJ mol}^{-1}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Identify the number of electrons transferred ($n$):\n$$\\text{Zn}(s) \\longrightarrow \\text{Zn}^{2+}(aq) + 2e^-\\quad (\\text{oxidation half-reaction})$$\n$$\\text{Cu}^{2+}(aq) + 2e^- \\longrightarrow \\text{Cu}(s)\\quad (\\text{reduction half-reaction})$$\nHere, $n = 2\\text{ moles of electrons}$.\nStep 2: Use the thermodynamic relationship between $\\Delta_r G^\\circ$ and $E_{\\text{cell}}^\\circ$:\n$$\\Delta_r G^\\circ = -n F E_{\\text{cell}}^\\circ$$\nStep 3: Calculate $\\Delta_r G^\\circ$:\n$$\\Delta_r G^\\circ = -2 \\times 96500\\text{ C mol}^{-1} \\times 1.10\\text{ V}$$\nSince $1\\text{ J} = 1\\text{ C} \\cdot \\text{V}$:\n$$\\Delta_r G^\\circ = -212300\\text{ J mol}^{-1} = -212.3\\text{ kJ mol}^{-1}$$\nStep 4: Conclusion: The standard Gibbs free energy change is $-212.3\\text{ kJ mol}^{-1}$."
+    }
+  ]
+}

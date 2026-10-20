@@ -9,13 +9,13 @@
 
 Any agent or subagent that wakes up or loses conversational context **MUST read this section first**:
 
-* **Master Compiled Questions**: **1,375 / 17,940** (Tracked in `data/neet/neet_master_questions.json`)
+* **Master Compiled Questions**: **2,255 / 17,940 (12.57%)** (Tracked in `data/neet/neet_master_questions.json`)
 * **Registry Progress Ledger**: `data/neet/registry/neet_progress.json`
-* **Deduplication Hash Ledger**: `data/neet/registry/neet_hashes.json` (1,375 SHA-256 hashes recorded, 0 duplicates)
+* **Deduplication Hash Ledger**: `data/neet/registry/neet_hashes.json` (2,255 SHA-256 hashes recorded, 0 duplicates)
 * **Master Compiler Command**: `node data/neet/neet_compiler.js`
 
-### Topics Progress Status (25 Certified Chunks Completed):
-1. **Botany (11/20 Topics Completed — 605 Questions)**:
+### Topics Progress Status (41 Certified Chunks Completed):
+1. **Botany (15/20 Topics Completed — 825 Questions)**:
    - ✅ Topic 1: **The Living World** (`chunk_01`: **55 Qs**, depth: 6.5) — `data/neet/botany/the_living_world_chunk_01.json`
    - ✅ Topic 2: **Biological Classification** (`chunk_01`: **55 Qs**, depth: 6.5) — `data/neet/botany/biological_classification_chunk_01.json`
    - ✅ Topic 3: **Plant Kingdom** (`chunk_01`: **55 Qs**, depth: 7.8) — `data/neet/botany/plant_kingdom_chunk_01.json`
@@ -27,8 +27,12 @@ Any agent or subagent that wakes up or loses conversational context **MUST read 
    - ✅ Topic 9: **Respiration in Plants** (`chunk_01`: **55 Qs**, depth: 7.7) — `data/neet/botany/respiration_in_plants_chunk_01.json`
    - ✅ Topic 10: **Plant Growth and Development** (`chunk_01`: **55 Qs**, depth: 8.3) — `data/neet/botany/plant_growth_and_development_chunk_01.json`
    - ✅ Topic 11: **Sexual Reproduction in Flowering Plants** (`chunk_01`: **55 Qs**, depth: 7.9) — `data/neet/botany/sexual_reproduction_in_flowering_plants_chunk_01.json`
-   - 🎯 Wave 3 Next Queue: *Principles of Inheritance and Variation*, *Molecular Basis of Inheritance*, *Microbes in Human Welfare*, *Biotechnology: Principles and Processes*
-2. **Zoology (8/12 Topics Completed — 440 Questions; Class 11 100% COMPLETE)**:
+   - ✅ Topic 12: **Principles of Inheritance and Variation** (`chunk_01`: **55 Qs**, depth: 7.9) — `data/neet/botany/principles_of_inheritance_and_variation_chunk_01.json`
+   - ✅ Topic 13: **Molecular Basis of Inheritance** (`chunk_01`: **55 Qs**, depth: 8.4) — `data/neet/botany/molecular_basis_of_inheritance_chunk_01.json`
+   - ✅ Topic 14: **Microbes in Human Welfare** (`chunk_01`: **55 Qs**, depth: 8.6) — `data/neet/botany/microbes_in_human_welfare_chunk_01.json`
+   - ✅ Topic 15: **Biotechnology: Principles and Processes** (`chunk_01`: **55 Qs**, depth: 7.6) — `data/neet/botany/biotechnology_principles_and_processes_chunk_01.json`
+   - 🎯 Wave 4 Next Queue (Final 5 Botany Topics): *Biotechnology and its Applications*, *Organisms and Populations*, *Ecosystem*, *Biodiversity and Conservation*, *Biomolecules (Botany)*
+2. **Zoology (12/12 Topics Completed — 660 Questions; 100% COMPLETE)**:
    - ✅ Topic 1: **Animal Kingdom** (`chunk_01`: **55 Qs**, depth: 7.7) — `data/neet/zoology/animal_kingdom_chunk_01.json`
    - ✅ Topic 2: **Structural Organisation in Animals** (`chunk_01`: **55 Qs**, depth: 7.5) — `data/neet/zoology/structural_organisation_in_animals_chunk_01.json`
    - ✅ Topic 3: **Breathing and Exchange of Gases** (`chunk_01`: **55 Qs**, depth: 8.0) — `data/neet/zoology/breathing_and_exchange_of_gases_chunk_01.json`
@@ -37,17 +41,29 @@ Any agent or subagent that wakes up or loses conversational context **MUST read 
    - ✅ Topic 6: **Locomotion and Movement** (`chunk_01`: **55 Qs**, depth: 7.7) — `data/neet/zoology/locomotion_and_movement_chunk_01.json`
    - ✅ Topic 7: **Neural Control and Coordination** (`chunk_01`: **55 Qs**, depth: 7.4) — `data/neet/zoology/neural_control_and_coordination_chunk_01.json`
    - ✅ Topic 8: **Chemical Coordination and Integration** (`chunk_01`: **55 Qs**, depth: 8.4) — `data/neet/zoology/chemical_coordination_and_integration_chunk_01.json`
-   - 🎯 Wave 3 Next Queue: *Human Reproduction*, *Reproductive Health*, *Evolution*, *Human Health and Disease*
-3. **Chemistry (3/21 Topics Completed — 165 Questions)**:
+   - ✅ Topic 9: **Human Reproduction** (`chunk_01`: **55 Qs**, depth: 8.4) — `data/neet/zoology/human_reproduction_chunk_01.json`
+   - ✅ Topic 10: **Reproductive Health** (`chunk_01`: **55 Qs**, depth: 8.0) — `data/neet/zoology/reproductive_health_chunk_01.json`
+   - ✅ Topic 11: **Evolution** (`chunk_01`: **55 Qs**, depth: 8.4) — `data/neet/zoology/evolution_chunk_01.json`
+   - ✅ Topic 12: **Human Health and Disease** (`chunk_01`: **55 Qs**, depth: 8.5) — `data/neet/zoology/human_health_and_disease_chunk_01.json`
+   - 🏆 **ALL 12 NEET ZOOLOGY TOPICS ARE 100% COMPLETE!**
+3. **Chemistry (7/21 Topics Completed — 385 Questions)**:
    - ✅ Topic 1: **Some Basic Concepts of Chemistry** (`chunk_01`: **55 Qs**, depth: 8.1) — `data/neet/chemistry/some_basic_concepts_of_chemistry_chunk_01.json`
    - ✅ Topic 2: **Structure of Atom** (`chunk_01`: **55 Qs**, depth: 8.4) — `data/neet/chemistry/structure_of_atom_chunk_01.json`
+   - ✅ Topic 3: **Classification of Elements and Periodicity in Properties** (`chunk_01`: **55 Qs**, depth: 8.9) — `data/neet/chemistry/classification_of_elements_and_periodicity_in_properties_chunk_01.json`
    - ✅ Topic 4: **Chemical Bonding and Molecular Structure** (`chunk_01`: **55 Qs**, depth: 8.4) — `data/neet/chemistry/chemical_bonding_and_molecular_structure_chunk_01.json`
-   - 🎯 Wave 3 Next Queue: *Classification of Elements and Periodicity in Properties*, *Chemical Thermodynamics*, *Equilibrium*, *Redox Reactions*
-4. **Physics (3/25 Topics Completed — 165 Questions)**:
+   - ✅ Topic 5: **Chemical Thermodynamics** (`chunk_01`: **55 Qs**, depth: 8.6) — `data/neet/chemistry/chemical_thermodynamics_chunk_01.json`
+   - ✅ Topic 6: **Equilibrium** (`chunk_01`: **55 Qs**, depth: 8.7) — `data/neet/chemistry/equilibrium_chunk_01.json`
+   - ✅ Topic 7: **Redox Reactions** (`chunk_01`: **55 Qs**, depth: 8.7) — `data/neet/chemistry/redox_reactions_chunk_01.json`
+   - 🎯 Wave 4 Next Queue: *Hydrocarbons*, *Solutions*, *Electrochemistry*, *Chemical Kinetics*, *The p-Block Elements*
+4. **Physics (7/25 Topics Completed — 385 Questions)**:
    - ✅ Topic 1: **Units and Measurements** (`chunk_01`: **55 Qs**, depth: 8.0) — `data/neet/physics/units_and_measurements_chunk_01.json`
    - ✅ Topic 2: **Motion in a Straight Line** (`chunk_01`: **55 Qs**, depth: 8.1) — `data/neet/physics/motion_in_a_straight_line_chunk_01.json`
    - ✅ Topic 3: **Motion in a Plane** (`chunk_01`: **55 Qs**, depth: 8.4) — `data/neet/physics/motion_in_a_plane_chunk_01.json`
-   - 🎯 Wave 3 Next Queue: *Laws of Motion*, *Work, Energy, and Power*, *System of Particles and Rotational Motion*, *Gravitation*
+   - ✅ Topic 4: **Laws of Motion** (`chunk_01`: **55 Qs**, depth: 8.2) — `data/neet/physics/laws_of_motion_chunk_01.json`
+   - ✅ Topic 5: **Work, Energy, and Power** (`chunk_01`: **55 Qs**, depth: 8.5) — `data/neet/physics/work_energy_and_power_chunk_01.json`
+   - ✅ Topic 6: **System of Particles and Rotational Motion** (`chunk_01`: **55 Qs**, depth: 8.3) — `data/neet/physics/system_of_particles_and_rotational_motion_chunk_01.json`
+   - ✅ Topic 7: **Gravitation** (`chunk_01`: **55 Qs**, depth: 8.3) — `data/neet/physics/gravitation_chunk_01.json`
+   - 🎯 Wave 4 Next Queue: *Mechanical Properties of Solids*, *Mechanical Properties of Fluids*, *Thermal Properties of Matter*, *Thermodynamics*, *Kinetic Theory of Gases*
 
 ### How to Resume Immediately:
 1. **Check Live Progress**: Run `node data/neet/neet_compiler.js` to see exact verified question count across all 4 subjects.
