@@ -582,7 +582,7 @@ export async function getMockHistory(req: AuthRequest, res: Response, next: Next
   try {
     const userId = req.user!.userId;
     const exams = await prisma.mockExam.findMany({
-      where: { userId },
+      where: { userId, status: { not: 'error' } },
       select: {
         id: true, examType: true, difficultyMode: true, status: true, createdAt: true, submittedAt: true,
         result: { select: { totalScore: true, maxScore: true, correct: true, partial: true, incorrect: true, unattempted: true } },
