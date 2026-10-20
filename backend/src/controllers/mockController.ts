@@ -4,9 +4,10 @@ import type { AuthRequest, Subject, Difficulty, QuestionType } from '../types/in
 import { JEE_TOPICS_BY_CLASS, NEET_TOPICS_BY_CLASS, NEET_SUBJECTS } from '../types/index';
 import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
-import { getNextQuestion, distributeTopicSlots, fisherYatesShuffle } from '../services/questionService';
+import { generateFreshMockBatch, distributeTopicSlots, fisherYatesShuffle } from '../services/questionService';
+import { getSharedPool, setSharedPool, appendQuestionsToMasterJson } from '../services/mockPoolService';
+import type { MockPoolItem } from '../services/mockPoolService';
 import { scoreQuestion, getMaxMarkPerQuestion } from '../services/scoringService';
-import type { Question } from '@prisma/client';
 
 const startSchema = z.object({
   examType: z.enum(['Main', 'Advanced', 'NEET']),
@@ -19,7 +20,7 @@ const answerSchema = z.object({
   markedForReview: z.boolean().optional(),
 });
 
-/* ── Question plan ─────────────────────────────────────────────── */
+/* ── Question slot type ─────────────────────────────────────────── */
 
 interface QuestionSlot {
   subject: Subject;
@@ -30,26 +31,26 @@ interface QuestionSlot {
   subjectIndex: number;
 }
 
+/* ── Difficulty distribution ────────────────────────────────────── */
+
 function pickDifficulty(examType: 'Main' | 'Advanced', seed: number, difficultyMode: 'easy' | 'medium' | 'hard'): Difficulty {
   if (difficultyMode === 'easy') {
-    // 60% beginner, 35% intermediate, 5% advanced
     if (seed < 0.60) return 'beginner';
     if (seed < 0.95) return 'intermediate';
     return 'advanced';
   }
   if (difficultyMode === 'hard') {
-    // JEE Advanced is inherently hard — skew maximally toward advanced
     if (examType === 'Advanced') return seed < 0.12 ? 'intermediate' : 'advanced';
-    // JEE Main hard: 0% beginner, 25% intermediate, 75% advanced
     if (seed < 0.25) return 'intermediate';
     return 'advanced';
   }
-  // medium (default): existing distribution
   if (examType === 'Advanced') return seed < 0.35 ? 'intermediate' : 'advanced';
   if (seed < 0.2) return 'beginner';
   if (seed < 0.65) return 'intermediate';
   return 'advanced';
 }
+
+/* ── JEE question plan (kept for buildJEESlots) ─────────────────── */
 
 function buildQuestionPlan(examType: 'Main' | 'Advanced', difficultyMode: 'easy' | 'medium' | 'hard'): QuestionSlot[] {
   const subjects: Subject[] = ['Physics', 'Chemistry', 'Mathematics'];
@@ -65,11 +66,7 @@ function buildQuestionPlan(examType: 'Main' | 'Advanced', difficultyMode: 'easy'
 
   for (const subject of subjects) {
     const subjectTopics = JEE_TOPICS_BY_CLASS[subject] ?? { class11: [], class12: [] };
-    const allTopics = [
-      ...subjectTopics.class11,
-      ...subjectTopics.class12,
-    ];
-    // Distribute topics ensuring min 1, max 2 rule across topics
+    const allTopics = [...subjectTopics.class11, ...subjectTopics.class12];
     const allocatedTopics = distributeTopicSlots(allTopics, totalPerSubject);
     let topicCursor = 0;
     let subjectIndex = 0;
@@ -91,201 +88,156 @@ function buildQuestionPlan(examType: 'Main' | 'Advanced', difficultyMode: 'easy'
   return plan;
 }
 
-/* ── NEET mock generation (DeepSeek-backed, cache-first) ──────────── */
+/* ── Slot builders ──────────────────────────────────────────────── */
 
-async function generateNEETMockQuestions(
+type SlotInput = {
+  subject: Subject;
+  topic: string;
+  difficulty: Difficulty;
+  examType: 'Main' | 'Advanced' | 'NEET';
+  questionType: QuestionType;
+};
+
+function buildJEESlots(examType: 'Main' | 'Advanced', difficultyMode: 'easy' | 'medium' | 'hard'): SlotInput[] {
+  return buildQuestionPlan(examType, difficultyMode).map((slot) => ({
+    subject: slot.subject,
+    topic: slot.topic,
+    difficulty: slot.difficulty,
+    examType,
+    questionType: slot.type,
+  }));
+}
+
+function buildNEETSlots(difficultyMode: 'easy' | 'medium' | 'hard'): SlotInput[] {
+  const slots: SlotInput[] = [];
+  for (const subject of NEET_SUBJECTS) {
+    const allTopics = [
+      ...NEET_TOPICS_BY_CLASS[subject]!.class11,
+      ...NEET_TOPICS_BY_CLASS[subject]!.class12,
+    ];
+    for (const topic of distributeTopicSlots(allTopics, 45)) {
+      slots.push({
+        subject,
+        topic,
+        difficulty: pickDifficulty('Main', Math.random(), difficultyMode),
+        examType: 'NEET',
+        questionType: 'mcq_single',
+      });
+    }
+  }
+  return slots;
+}
+
+/* ── Overlap check ──────────────────────────────────────────────── */
+
+async function getOverlapRatio(userId: string, examType: string, poolIds: string[]): Promise<number> {
+  if (poolIds.length === 0) return 0;
+  const past = await prisma.mockExamQuestion.findMany({
+    where: { exam: { userId, examType } },
+    select: { questionId: true },
+  });
+  const seen = new Set(past.map((r) => r.questionId));
+  return poolIds.filter((id) => seen.has(id)).length / poolIds.length;
+}
+
+/* ── Fresh generation + pool save ──────────────────────────────── */
+
+async function generateAndSavePool(
+  examType: 'Main' | 'Advanced' | 'NEET',
+  difficultyMode: 'easy' | 'medium' | 'hard',
+  saveToSharedPool: boolean,
+): Promise<MockPoolItem[]> {
+  const slots = examType === 'NEET'
+    ? buildNEETSlots(difficultyMode)
+    : buildJEESlots(examType, difficultyMode);
+
+  const questions = await generateFreshMockBatch(slots, 4);
+
+  const items: MockPoolItem[] = questions.map((q) => ({
+    questionId: q.id,
+    subject: q.subject,
+    questionType: q.questionType,
+  }));
+
+  if (saveToSharedPool && items.length >= 20) {
+    await setSharedPool(examType, difficultyMode, items);
+  }
+
+  // Append to master JSON in background — never block mock generation
+  appendQuestionsToMasterJson(examType, questions).catch(() => {});
+
+  return items;
+}
+
+/* ── Assign question numbers and persist rows ───────────────────── */
+
+async function createExamQuestionsFromPool(
+  examId: string,
+  examType: 'Main' | 'Advanced' | 'NEET',
+  items: MockPoolItem[],
+): Promise<void> {
+  const subjects: Subject[] =
+    examType === 'NEET' ? [...NEET_SUBJECTS] : ['Physics', 'Chemistry', 'Mathematics'];
+
+  const bySubject = new Map<string, MockPoolItem[]>();
+  for (const s of subjects) bySubject.set(s, []);
+  for (const item of items) {
+    bySubject.get(item.subject)?.push(item);
+  }
+
+  const questionData: Array<{
+    examId: string; questionId: string; subject: string;
+    questionNumber: number; subjectIndex: number;
+  }> = [];
+  let gNum = 1;
+
+  for (const subj of subjects) {
+    const subjItems = fisherYatesShuffle(bySubject.get(subj) ?? []);
+    let subjIdx = 0;
+    for (const item of subjItems) {
+      questionData.push({
+        examId, questionId: item.questionId, subject: subj,
+        questionNumber: gNum++, subjectIndex: subjIdx++,
+      });
+    }
+  }
+
+  await prisma.mockExamQuestion.createMany({ data: questionData });
+  await prisma.mockExam.update({ where: { id: examId }, data: { status: 'ready' } });
+}
+
+/* ── Unified background generator ──────────────────────────────── */
+
+async function runMockGeneration(
   examId: string,
   userId: string,
+  examType: 'Main' | 'Advanced' | 'NEET',
   difficultyMode: 'easy' | 'medium' | 'hard',
 ): Promise<void> {
   try {
-    const QUESTIONS_PER_SUBJECT = 45;
+    let poolItems: MockPoolItem[];
+    const sharedPool = await getSharedPool(examType, difficultyMode);
 
-    // Build plan: 45 mcq_single slots per subject across all NEET topics
-    const plan: QuestionSlot[] = [];
-    let globalNum = 1;
-
-    for (const subject of NEET_SUBJECTS) {
-      const subjectTopics = NEET_TOPICS_BY_CLASS[subject]!;
-      const allTopics = [...subjectTopics.class11, ...subjectTopics.class12];
-      const allocatedTopics = distributeTopicSlots(allTopics, QUESTIONS_PER_SUBJECT);
-      let subjectIndex = 0;
-
-      for (const topic of allocatedTopics) {
-        plan.push({
-          subject,
-          topic,
-          difficulty: pickDifficulty('Main', Math.random(), difficultyMode),
-          type: 'mcq_single',
-          number: globalNum++,
-          subjectIndex: subjectIndex++,
-        });
+    if (sharedPool && sharedPool.length >= 20) {
+      const overlap = await getOverlapRatio(userId, examType, sharedPool.map((p) => p.questionId));
+      if (overlap <= 0.30) {
+        // Reuse shared pool — shuffle gives this student a unique order
+        poolItems = sharedPool;
+      } else {
+        // >30% overlap: generate fresh for this student, keep shared pool intact
+        poolItems = await generateAndSavePool(examType, difficultyMode, false);
       }
+    } else {
+      // No pool yet — generate fresh and publish as the shared pool
+      poolItems = await generateAndSavePool(examType, difficultyMode, true);
     }
 
-    // Concurrency-4 matches JEE — avoids DeepSeek 429s.
-    // getNextQuestion is cache-first (Redis → DB → DeepSeek), so seeded bank
-    // questions are reused at no cost; DeepSeek only fires for exhausted topics.
-    const results = await mapConcurrentSettled(
-      plan,
-      4,
-      (slot) =>
-        getNextQuestion(
-          userId, slot.subject, slot.topic, slot.difficulty,
-          'NEET', 'Dropper', [], 'mcq_single',
-        ),
-    );
-
-    const seenIds = new Set<string>();
-    const bySubject = new Map<Subject, string[]>();
-    for (const subj of NEET_SUBJECTS) bySubject.set(subj, []);
-
-    for (let i = 0; i < results.length; i++) {
-      const r = results[i]!;
-      const slot = plan[i]!;
-      if (r.status === 'fulfilled' && !seenIds.has(r.value.id)) {
-        seenIds.add(r.value.id);
-        bySubject.get(slot.subject as Subject)!.push(r.value.id);
-      }
-    }
-
-    if (seenIds.size < 20) {
+    if (poolItems.length < 10) {
       await prisma.mockExam.update({ where: { id: examId }, data: { status: 'error' } });
       return;
     }
 
-    const questionData: Array<{
-      examId: string; questionId: string; subject: string;
-      questionNumber: number; subjectIndex: number;
-    }> = [];
-    let gNum = 1;
-
-    for (const subj of NEET_SUBJECTS) {
-      const shuffled = fisherYatesShuffle(bySubject.get(subj)!);
-      let subjIdx = 0;
-      for (const questionId of shuffled) {
-        questionData.push({ examId, questionId, subject: subj, questionNumber: gNum++, subjectIndex: subjIdx++ });
-      }
-    }
-
-    await prisma.mockExamQuestion.createMany({ data: questionData });
-    await prisma.mockExam.update({ where: { id: examId }, data: { status: 'ready' } });
-  } catch {
-    await prisma.mockExam.update({ where: { id: examId }, data: { status: 'error' } }).catch(() => {});
-  }
-}
-
-/* ── Concurrency-limited promise pool ───────────────────────────── */
-
-async function mapConcurrentSettled<T, R>(
-  items: T[],
-  concurrency: number,
-  fn: (item: T, index: number) => Promise<R>,
-): Promise<PromiseSettledResult<R>[]> {
-  const results: PromiseSettledResult<R>[] = new Array(items.length);
-  let nextIndex = 0;
-
-  async function worker(): Promise<void> {
-    while (nextIndex < items.length) {
-      const idx = nextIndex++;
-      const item = items[idx]!;
-      try {
-        const val = await fn(item, idx);
-        results[idx] = { status: 'fulfilled', value: val };
-      } catch (err) {
-        results[idx] = { status: 'rejected', reason: err };
-      }
-    }
-  }
-
-  const workers = Array.from(
-    { length: Math.min(concurrency, items.length) },
-    () => worker(),
-  );
-  await Promise.all(workers);
-  return results;
-}
-
-/* ── Background generation ─────────────────────────────────────── */
-
-async function generateMockQuestions(
-  examId: string,
-  userId: string,
-  examType: 'Main' | 'Advanced',
-  difficultyMode: 'easy' | 'medium' | 'hard',
-): Promise<void> {
-  try {
-    const plan = buildQuestionPlan(examType, difficultyMode);
-
-    // Limit concurrent DeepSeek calls to 4 to prevent 429 rate limits and socket timeouts
-    const results = await mapConcurrentSettled(
-      plan,
-      4,
-      (slot) =>
-        getNextQuestion(
-          userId, slot.subject, slot.topic, slot.difficulty,
-          examType, 'Dropper', [], slot.type,
-        ),
-    );
-
-    const seenIds = new Set<string>();
-    const fulfilledSlots: Array<{
-      questionId: string;
-      subject: Subject;
-      type: QuestionType;
-    }> = [];
-
-    for (let i = 0; i < results.length; i++) {
-      const r = results[i]!;
-      const slot = plan[i]!;
-      if (r.status === 'fulfilled' && !seenIds.has(r.value.id)) {
-        seenIds.add(r.value.id);
-        fulfilledSlots.push({
-          questionId: r.value.id,
-          subject: slot.subject,
-          type: slot.type,
-        });
-      }
-    }
-
-    if (fulfilledSlots.length < 10) {
-      await prisma.mockExam.update({ where: { id: examId }, data: { status: 'error' } });
-      return;
-    }
-
-    // Assign randomized question numbers and indices per student:
-    // Organize by standard JEE subject order (Physics, Chemistry, Mathematics).
-    // Within each subject, independently Fisher-Yates shuffle questions within
-    // Section A (MCQs) and Section B (Numerical/Integer) so students receive unique question sequences!
-    const questionData: Array<{
-      examId: string;
-      questionId: string;
-      subject: string;
-      questionNumber: number;
-      subjectIndex: number;
-    }> = [];
-
-    const subjects: Subject[] = ['Physics', 'Chemistry', 'Mathematics'];
-    let globalNum = 1;
-
-    for (const subj of subjects) {
-      const subjQuestions = fulfilledSlots.filter((q) => q.subject === subj);
-      // Shuffle all types together so integers, MCQ single and multi-correct are interleaved
-      const orderedSubjQuestions = fisherYatesShuffle(subjQuestions);
-      let subjIdx = 0;
-      for (const q of orderedSubjQuestions) {
-        questionData.push({
-          examId,
-          questionId: q.questionId,
-          subject: q.subject,
-          questionNumber: globalNum++,
-          subjectIndex: subjIdx++,
-        });
-      }
-    }
-
-    await prisma.mockExamQuestion.createMany({ data: questionData });
-    await prisma.mockExam.update({ where: { id: examId }, data: { status: 'ready' } });
+    await createExamQuestionsFromPool(examId, examType, poolItems);
   } catch {
     await prisma.mockExam.update({ where: { id: examId }, data: { status: 'error' } }).catch(() => {});
   }
@@ -301,14 +253,13 @@ export async function startMock(req: AuthRequest, res: Response, next: NextFunct
     const { examType, difficultyMode } = body.data;
     const userId = req.user!.userId;
 
-    // Generation runs in the background. If the server restarted mid-way, the exam would stay
-    // 'generating' forever and block new exams, so fail anything stuck for over 10 minutes.
+    // Fail exams stuck in 'generating' for >10 minutes (e.g. after server restart)
     await prisma.mockExam.updateMany({
       where: { userId, status: 'generating', createdAt: { lt: new Date(Date.now() - 10 * 60 * 1000) } },
       data: { status: 'error' },
     });
 
-    // If student already has an active exam of the SAME type, return it
+    // If student already has an active exam of the same type, return it
     const active = await prisma.mockExam.findFirst({
       where: { userId, examType, status: { in: ['generating', 'ready', 'in_progress'] } },
       orderBy: { createdAt: 'desc' },
@@ -322,12 +273,8 @@ export async function startMock(req: AuthRequest, res: Response, next: NextFunct
       data: { userId, examType, difficultyMode, status: 'generating', durationSeconds: 10800 },
     });
 
-    // Fire and forget — background question generation
-    if (examType === 'NEET') {
-      generateNEETMockQuestions(mockExam.id, userId, difficultyMode).catch(() => {});
-    } else {
-      generateMockQuestions(mockExam.id, userId, examType, difficultyMode).catch(() => {});
-    }
+    // Fire and forget — runMockGeneration handles pool hit/miss + fresh generation
+    runMockGeneration(mockExam.id, userId, examType, difficultyMode).catch(() => {});
 
     res.json({ success: true, data: { id: mockExam.id, status: 'generating' } });
   } catch (err) {
@@ -412,7 +359,6 @@ export async function beginMock(req: AuthRequest, res: Response, next: NextFunct
     const exam = await prisma.mockExam.findUnique({ where: { id } });
     if (!exam || exam.userId !== userId) throw new AppError(404, 'Exam not found');
 
-    // Idempotent — if already started, return existing startedAt
     if (exam.startedAt) {
       res.json({ success: true, data: { startedAt: exam.startedAt.toISOString() } });
       return;
@@ -497,15 +443,10 @@ export async function submitMock(req: AuthRequest, res: Response, next: NextFunc
       const maxMarks = getMaxMarkPerQuestion(examType, q.questionType);
       maxScore += maxMarks;
 
-      if (!mq.savedAnswer) {
-        unattempted++;
-      } else if (marks === maxMarks) {
-        correct++;
-      } else if (marks > 0) {
-        partial++;
-      } else {
-        incorrect++;
-      }
+      if (!mq.savedAnswer) unattempted++;
+      else if (marks === maxMarks) correct++;
+      else if (marks > 0) partial++;
+      else incorrect++;
 
       if (mq.subject === 'Physics') physicsScore += marks;
       else if (mq.subject === 'Chemistry') chemistryScore += marks;
@@ -513,13 +454,9 @@ export async function submitMock(req: AuthRequest, res: Response, next: NextFunc
       else mathScore += marks;
 
       breakdown[mq.id] = {
-        questionId: mq.questionId,
-        subject: mq.subject,
-        submitted: mq.savedAnswer,
-        correctAnswer: q.answer,
-        awarded: marks,
-        maxMarks,
-        questionType: q.questionType,
+        questionId: mq.questionId, subject: mq.subject,
+        submitted: mq.savedAnswer, correctAnswer: q.answer,
+        awarded: marks, maxMarks, questionType: q.questionType,
       };
     }
 
@@ -531,18 +468,9 @@ export async function submitMock(req: AuthRequest, res: Response, next: NextFunc
     const [result] = await prisma.$transaction([
       prisma.mockExamResult.create({
         data: {
-          examId: id,
-          totalScore,
-          maxScore,
-          physicsScore,
-          chemistryScore,
-          mathScore,
-          biologyScore,
-          correct,
-          partial,
-          incorrect,
-          unattempted,
-          timeTaken,
+          examId: id, totalScore, maxScore,
+          physicsScore, chemistryScore, mathScore, biologyScore,
+          correct, partial, incorrect, unattempted, timeTaken,
           scoreBreakdown: breakdown,
         },
       }),

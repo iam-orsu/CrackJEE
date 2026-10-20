@@ -528,3 +528,100 @@ export async function getQuestionBatch(
   // Independently shuffle questions for this student
   return fisherYatesShuffle(finalQuestions);
 }
+
+/**
+ * Generate fresh AI questions for a mock exam.
+ * Always calls DeepSeek — never reads from the seeded DB or practice cache.
+ * Groups slots by key to minimise API calls (1 DeepSeek batch = 3 questions).
+ * Saves generated questions to DB + updates practice cache as a side-benefit.
+ */
+export async function generateFreshMockBatch(
+  slots: Array<{
+    subject: Subject;
+    topic: string;
+    difficulty: Difficulty;
+    examType: ExamType;
+    questionType: QuestionType;
+  }>,
+  concurrency = 4,
+): Promise<Question[]> {
+  // Group by unique key so the same topic+diff only calls DeepSeek once
+  const groups = new Map<string, typeof slots>();
+  for (const slot of slots) {
+    const k = `${slot.subject}|${slot.topic}|${slot.difficulty}|${slot.examType}|${slot.questionType}`;
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k)!.push(slot);
+  }
+
+  const allGenerated: Question[] = [];
+  const seenIds = new Set<string>();
+  const groupEntries = [...groups.entries()];
+  let cursor = 0;
+
+  async function worker(): Promise<void> {
+    while (cursor < groupEntries.length) {
+      const idx = cursor++;
+      const [, groupSlots] = groupEntries[idx]!;
+      const { subject, topic, difficulty, examType, questionType } = groupSlots[0]!;
+      const needed = groupSlots.length;
+      const cacheKey = `q:${subject}:${topic}:${difficulty}:${examType}:Dropper:${questionType}`;
+
+      const generated: Question[] = [];
+      // One DeepSeek batch call per ceil(needed / BATCH_SIZE) iterations
+      for (let b = 0; b < Math.ceil(needed / BATCH_SIZE); b++) {
+        try {
+          let batch = await generateQuestionBatch(
+            BATCH_SIZE, subject, topic, difficulty, examType, 'Dropper', questionType,
+          ).catch(async () => {
+            const s = await generateQuestion(subject, topic, difficulty, examType, 'Dropper', questionType);
+            return [s];
+          });
+
+          if (difficulty !== 'beginner' && batch.length > 0) {
+            const ok = await validateQuestion(batch[0]!);
+            if (!ok && batch.length > 1) {
+              [batch[0], batch[1]] = [batch[1]!, batch[0]!];
+            }
+          }
+
+          const created = await prisma.$transaction(
+            batch.map((q) =>
+              prisma.question.create({
+                data: {
+                  topic, subject,
+                  questionText: q.question,
+                  options: q.options,
+                  answer: q.correct_answer,
+                  explanation: q.answer_explanation,
+                  diagram: q.diagram ? JSON.parse(JSON.stringify(q.diagram)) : undefined,
+                  difficulty, examType, questionType,
+                  validatedAt: new Date(),
+                },
+              }),
+            ),
+          );
+          generated.push(...created);
+        } catch {
+          // skip failed batch — slot may go unfulfilled
+        }
+      }
+
+      // Update practice cache so practice sessions also benefit
+      if (generated.length > 0) {
+        const existing = (await cacheGetJson<Question[]>(cacheKey)) ?? [];
+        await cacheSetJson(cacheKey, [...existing, ...generated], 3600 * 24);
+      }
+
+      for (const q of generated) {
+        if (!seenIds.has(q.id)) {
+          seenIds.add(q.id);
+          allGenerated.push(q);
+        }
+      }
+    }
+  }
+
+  const workerCount = Math.min(concurrency, Math.max(1, groups.size));
+  await Promise.all(Array.from({ length: workerCount }, () => worker()));
+  return allGenerated;
+}
