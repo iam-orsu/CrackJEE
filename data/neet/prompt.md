@@ -1,0 +1,230 @@
+# 🩺 Master Swarm Orchestration Prompt: NEET-UG Production Question Bank
+
+> **Directive**: You are an elite medical entrance curriculum architect and senior NEET-UG question setter (ex-NTA expert panelist & senior academic faculty from Allen Kota, Aakash Institute, and Sri Chaitanya).
+> **Objective**: Generate **17,940 authentic, rigorous, high-cognitive-depth NEET-UG questions** evenly distributed across all 78 official syllabus topics in `data/neet/registry/neet_topics.json`, validated, deduplicated, and compiled into `data/neet/neet_master_questions.json`.
+
+---
+
+## ⚡ LIVE STATUS & EXECUTION TRACKER (Updated October 2026)
+
+Any agent or subagent that wakes up or loses conversational context **MUST read this section first**:
+
+* **Master Compiled Questions**: **110 / 17,940** (Tracked in `data/neet/neet_master_questions.json`)
+* **Registry Progress Ledger**: `data/neet/registry/neet_progress.json`
+* **Deduplication Hash Ledger**: `data/neet/registry/neet_hashes.json` (110 SHA-256 hashes recorded)
+* **Master Compiler Command**: `node data/neet/neet_compiler.js`
+
+### Topics Progress Status:
+1. **Botany (20 Topics Total)**:
+   - ✅ Topic 1: **The Living World** (`chunk_01` complete: **55 Qs** [22 beg, 19 int, 14 adv]) — `data/neet/botany/the_living_world_chunk_01.json`
+   - ✅ Topic 2: **Biological Classification** (`chunk_01` complete: **55 Qs** [22 beg, 19 int, 14 adv]) — `data/neet/botany/biological_classification_chunk_01.json`
+   - 🎯 Topic 3 (NEXT IN QUEUE): **Plant Kingdom** (`chunk_01`: target 55 Qs) — `data/neet/botany/plant_kingdom_chunk_01.json`
+   - ⏳ Topics 4–20: PENDING
+2. **Zoology (12 Topics Total)**: ⏳ All PENDING
+3. **Chemistry (21 Topics Total)**: ⏳ All PENDING
+4. **Physics (25 Topics Total)**: ⏳ All PENDING
+
+### How to Resume Immediately:
+1. Read `data/neet/registry/neet_progress.json` to identify the first topic with status `"PENDING"` or `"IN_PROGRESS"`.
+2. Generate its next chunk of **55 questions** (40% beginner = 22, 35% intermediate = 19, 25% advanced = 14) in `scratch/`.
+3. Balance answer distribution (A, B, C, D ~13–14 each) and write to `data/neet/<subject>/<snake_topic>_chunk_<nn>.json`.
+4. Update `neet_progress.json` and `neet_hashes.json`.
+5. Run `node data/neet/neet_compiler.js` to compile into `neet_master_questions.json`.
+
+---
+
+## 0. Project Background & Core Business Objective: Offline High-Yield Engine
+
+### The Core Problem CrackNEET Solves:
+1. **The Cost Crisis**: Querying real-time LLM APIs (e.g., DeepSeek/GPT-4) for every single practice question burns excessive API credits and drives operating costs unsustainably high.
+2. **The Dual-Track Architecture**:
+   * **Live Adaptive Assessments**: Dynamic API generation for full-length 200-minute timed mock tests.
+   * **Daily Practice Engine (Zero-Cost Offline Core)**: Served 100% offline at **ZERO API COST** from pre-seeded PostgreSQL databases containing thousands of pre-verified, high-yield questions.
+3. **The Non-Negotiable Quality Standard**:
+   * NEET is won or lost on **precision, time stamina, and active discrimination of NCERT statements**.
+   * If questions degrade into trivial kindergarten recall (*"Which organelle is the powerhouse of the cell?"* or *$v = u + at$ with direct 1-step division*), students immediately lose trust in the platform.
+   * Every question must be authentic, medically and scientifically rigorous, with carefully engineered distractors modeling real student traps.
+
+---
+
+## 1. Deep Research & Empirical Analysis of NEET (2024–2026 Reality)
+
+### 1.1 The Exam Structure & Format
+- **Mode of Examination**: Pen-and-Paper (OMR sheet based), conducted in 13 languages across India and international centers.
+- **Duration**: 3 Hours (180 minutes) [in transitional years 3 Hours 20 Minutes (200 minutes)].
+- **Question Volume**:
+  - **Standard NMC Pattern**: **180 Compulsory MCQs** (45 Physics, 45 Chemistry, 45 Botany, 45 Zoology). Total Marks: **720**.
+  - **Transitional Optional Pattern (Section A & B)**: 200 Questions total (Section A: 35 mandatory, Section B: 15 with attempt any 10 per subject).
+- **Marking Scheme**:
+  - Correct Answer: **+4 Marks**
+  - Incorrect Answer: **-1 Mark** (Negative marking)
+  - Unattempted / Blank: **0 Marks**
+- **Weightage Distribution**:
+  - **Biology (Botany + Zoology)**: 90 Questions / **360 Marks (50% of the entire exam)**.
+  - **Physics**: 45 Questions / **180 Marks (25%)**.
+  - **Chemistry**: 45 Questions / **180 Marks (25%)**.
+
+### 1.2 Cut-Off Analysis & Competitive Realities
+Understanding the marks distribution is crucial for calibrating difficulty:
+- **Baseline Qualifying Cut-Off (NTA Eligibility - 50th Percentile UR, 40th Percentile Reserved)**:
+  - **NEET 2024**: General/EWS: **164 – 720**, OBC/SC/ST: **129 – 163** (Marks inflation year with 67 candidates scoring 720/720).
+  - **NEET 2025**: General/EWS: **144 – 686**, OBC/SC/ST: **113 – 143**.
+  - **NEET 2026 Target**: General/EWS: **~140 – 165**, OBC/SC/ST: **~115 – 140**.
+- **Actual Admission Cut-Off for Government Medical Colleges (MBBS via 15% All India Quota - AIQ)**:
+  - **General (UR) / EWS**: Closing score ~**650 – 655+** (AIR ~24,000 – 25,500). Top institutes (AIIMS Delhi, MAMC, VMMC, JIPMER, KGMU) close between **685 and 720**.
+  - **OBC**: Closing score ~**650 – 652+** (virtually identical to General).
+  - **SC**: Closing score ~**540 – 555+** (AIR ~135,000).
+  - **ST**: Closing score ~**515 – 530+** (AIR ~165,000).
+- **Takeaway for Question Design**: Because top students score between 650 and 715+, the difference maker in NEET is **error traps** (distractors) and **speed under cognitive load**, not Olympiad-level math.
+
+### 1.3 Post-2024 Exam Reforms & Security Architecture
+Following the 2024 high-level review committee (headed by Dr. K. Radhakrishnan):
+- Strict biometric and multi-stage facial verification.
+- Tamper-evident digital tracking of question papers and OMR sheets.
+- Zero tolerance for ambiguous questions: Questions with dual interpretations or contradictory textbook wording are eliminated. Every question must have an unequivocal, defensible correct answer.
+
+---
+
+## 2. Updated NMC Rationalized Syllabus Blueprint
+
+All question setters and subagents **MUST strictly adhere** to the NMC rationalized curriculum. Do NOT generate questions from deleted chapters or trimmed subtopics.
+
+### 2.1 Physics Syllabus (25 Topics)
+* **Class 11**: Units and Measurements, Motion in a Straight Line, Motion in a Plane, Laws of Motion, Work Energy and Power, System of Particles and Rotational Motion, Gravitation, Mechanical Properties of Solids, Mechanical Properties of Fluids, Thermal Properties of Matter, Thermodynamics (excluding heat engines & refrigerators), Kinetic Theory of Gases, Oscillations, Waves (excluding Doppler effect).
+* **Class 12**: Electrostatics, Current Electricity, Moving Charges and Magnetism (excluding Earth magnetism & magnetic materials), Electromagnetic Induction and Alternating Currents, Electromagnetic Waves, Ray Optics and Optical Instruments, Wave Optics (excluding resolving power, scattering, Brewster's angle), Dual Nature of Radiation and Matter, Atoms and Nuclei, Semiconductor Electronics (excluding transistors and logic gates), Experimental Skills in Physics.
+* **Experimental Skills (Added/Highlighted)**: Vernier callipers, screw gauge, simple pendulum, meter bridge, resonance tube, surface tension by capillary rise, coefficient of viscosity, Young's modulus, focal length of spherical mirrors/lenses using $u$-$v$ plots, diode characteristics.
+
+### 2.2 Chemistry Syllabus (21 Topics)
+* **Physical Chemistry**: Some Basic Concepts of Chemistry, Structure of Atom, Chemical Thermodynamics, Equilibrium, Redox Reactions, Solutions, Electrochemistry, Chemical Kinetics.
+* **Inorganic Chemistry**: Classification of Elements and Periodicity in Properties, Chemical Bonding and Molecular Structure, The p-Block Elements (Groups 13 to 18 general trends), The d- and f-Block Elements, Coordination Compounds.
+* **Organic Chemistry**: Organic Chemistry - Some Basic Principles and Techniques, Hydrocarbons, Haloalkanes and Haloarenes, Alcohols, Phenols and Ethers, Aldehydes, Ketones and Carboxylic Acids, Amines, Biomolecules.
+* **Practical Chemistry (Added/Highlighted)**: Principles Related to Practical Chemistry (detection of extra elements N, S, halogens; functional groups; titrations: oxalic acid, Mohr's salt, $\text{KMnO}_4$; qualitative salt analysis).
+* **BANNED DELETED CHAPTERS**: States of Matter, Solid State, Surface Chemistry, Hydrogen, s-Block Elements, General Principles of Metallurgy, Polymers, Chemistry in Everyday Life, Environmental Chemistry.
+
+### 2.3 Botany Syllabus (20 Topics)
+* **Class 11**: The Living World, Biological Classification, Plant Kingdom, Morphology of Flowering Plants (including family floral formulas & diagrams: Malvaceae, Brassicaceae, Fabaceae, Asteraceae, Poaceae), Anatomy of Flowering Plants, Cell: The Unit of Life, Biomolecules (Botany), Cell Cycle and Cell Division, Photosynthesis in Higher Plants, Respiration in Plants, Plant Growth and Development.
+* **Class 12**: Sexual Reproduction in Flowering Plants, Principles of Inheritance and Variation, Molecular Basis of Inheritance, Microbes in Human Welfare, Biotechnology: Principles and Processes, Biotechnology and its Applications, Organisms and Populations, Ecosystem, Biodiversity and Conservation.
+* **BANNED DELETED TOPICS**: Transport in Plants, Mineral Nutrition, Plant Succession, Strategies for Enhancement in Food Production (plant breeding).
+
+### 2.4 Zoology Syllabus (12 Topics)
+* **Class 11**: Animal Kingdom, Structural Organisation in Animals (Animal Tissues, Frog and Cockroach anatomy), Breathing and Exchange of Gases, Body Fluids and Circulation, Excretory Products and their Elimination, Locomotion and Movement, Neural Control and Coordination (excluding ear & eye histology), Chemical Coordination and Integration.
+* **Class 12**: Human Reproduction, Reproductive Health, Evolution, Human Health and Disease.
+* **BANNED DELETED TOPICS**: Digestion and Absorption, Reproduction in Organisms (intro chapter), Environmental Issues.
+
+---
+
+## 3. The 5 Core NEET Question Archetypes
+
+NEET questions are not simple recall; they are structured into distinct cognitive archetypes:
+
+### Archetype 1: Statement I and Statement II
+Two statements are presented. The student evaluates the truth value of each independently.
+```text
+Given below are two statements:
+Statement I: In C4 plants, photorespiration does not occur because they have a mechanism that increases the concentration of CO2 at the enzyme site.
+Statement II: RuBisCO functions purely as an oxygenase in bundle sheath cells of C4 plants.
+In the light of the above statements, choose the correct answer:
+A) Both Statement I and Statement II are correct.
+B) Both Statement I and Statement II are incorrect.
+C) Statement I is correct but Statement II is incorrect.
+D) Statement I is incorrect but Statement II is correct.
+```
+
+### Archetype 2: Assertion and Reason (A&R)
+An Assertion (A) and a Reason (R) are provided. Requires testing independent veracity AND whether R is the causal mechanism of A.
+```text
+Assertion (A): Secondary growth does not occur in monocotyledonous stems.
+Reason (R): Vascular bundles in monocotyledonous stems are conjoint, collateral, and closed, lacking an intrafascicular cambium.
+A) Both A and R are true and R is the correct explanation of A.
+B) Both A and R are true but R is NOT the correct explanation of A.
+C) A is true but R is false.
+D) A is false but R is true.
+```
+
+### Archetype 3: Match the Column (List I to List II)
+Pairing items across two lists (e.g., cell organelles with functions, hormones with disorders, reagents with reactions, physical quantities with dimensional formulas). Engineered so simple 1-pair elimination is not trivial.
+
+### Archetype 4: Multi-Statement Evaluation ("How many / Which of the following")
+Presents 4 to 5 statements labeled (a), (b), (c), (d), (e). Asks:
+- *"Which of the above statements are correct / incorrect?"* (Options: (a) and (c) only; (b), (c) and (d) only; etc.)
+- *"How many of the above statements are correct?"* (Options: Only one, Only two, Only three, All four).
+
+### Archetype 5: Rapid Multi-Step Numericals & Graphical Interpretations
+For Physics and Physical Chemistry:
+- Calculation must be solvable within **60 to 90 seconds** without a calculator.
+- Numbers must be clean ($g = 10\text{ m/s}^2$ or $9.8\text{ m/s}^2$, $R = 8.314\text{ J/mol}\cdot\text{K}$, $h = 6.63 \times 10^{-34}\text{ J}\cdot\text{s}$).
+- Requires combining 2 linked concepts (e.g., De Broglie wavelength + photoelectric stopping potential).
+
+---
+
+## 4. Micro-Chunk Specification & Schema
+
+### 4.1 Chunk Size & File Naming
+- Each topic chunk contains exactly **55 questions**.
+- Distribution per 55-question chunk:
+  - **22 Beginner Questions** (40%)
+  - **19 Intermediate Questions** (35%)
+  - **14 Advanced Questions** (25%)
+- File naming pattern:
+  - `data/neet/<subject>/<topic_snake_case>_chunk_<nn>.json`
+  - Example: `data/neet/botany/the_living_world_chunk_01.json`
+
+### 4.2 Standard Question JSON Schema
+```json
+{
+  "id": "bot_living_world_c01_001",
+  "subject": "Botany",
+  "topic": "The Living World",
+  "difficulty": "beginner",
+  "examType": "NEET",
+  "questionType": "mcq_single",
+  "questionText": "Question stem with $...$ KaTeX for all formulas.",
+  "options": [
+    "A) First option text",
+    "B) Second option text",
+    "C) Third option text",
+    "D) Fourth option text"
+  ],
+  "answer": "B",
+  "explanation": "Step 1: Why correct. Step 2: Specific error analysis for wrong options."
+}
+```
+
+### 4.3 Subject Abbreviations for Question IDs:
+* Botany: `bot` (e.g. `bot_plant_kingdom_c01_001`)
+* Zoology: `zoo` (e.g. `zoo_animal_kingdom_c01_001`)
+* Physics: `phy` (e.g. `phy_laws_of_motion_c01_001`)
+* Chemistry: `chem` (e.g. `chem_chemical_bonding_c01_001`)
+
+---
+
+## 5. Gatekeeper & Quality Enforcement Rules
+
+1. **Zero-NCERT-Trivia Violation**: Any direct 1-step definition check without application or discrimination is purged.
+2. **Formula-Plug Violation**: Any Physics question requiring only a 1-step calculator plug-in (e.g., $F = ma$) is purged.
+3. **KaTeX Delimiter Rule**: All math symbols, equations, units, chemical formulas, and variables must be enclosed in valid KaTeX (`$...$` or `$$...$$`). Unclosed or mismatched braces (`{` without `}`) cause instant rejection.
+4. **Distractor Distribution Balance**: Across any 55-question chunk, correct answers must be evenly distributed across A, B, C, and D (~13–14 each; no single letter exceeding 35%).
+5. **Content-Identified Distractors**: Explanations must explain the error represented by each distractor, never merely stating *"Option B is wrong"*.
+
+---
+
+## 6. Self-Resuming Subagent Execution Protocol
+
+When launching a subagent swarm to author NEET questions, invoke subagents using the standardized template below:
+
+```text
+Generate an authentic, high-cognitive-depth micro-chunk of 55 NEET-UG questions for:
+Subject: <Subject: Botany | Zoology | Physics | Chemistry>
+Topic: <Exact Official Topic Name from data/neet/registry/neet_topics.json>
+Target File: <Absolute Path to data/neet/<subject_lowercase>/<topic_snake_case>_chunk_01.json>
+
+Execution Protocol (Mandatory):
+- MUST write in 3 modular parts in scratch/:
+  1. part1_beg.js (22 Beginner Qs: NCERT line discrimination, 2-step calculations)
+  2. part2_int.js (19 Intermediate Qs: Assertion-Reason, Statement I & II, Match the Column)
+  3. part3_adv.js (14 Advanced Qs: Multi-concept integration, multi-statement evaluation)
+- Assemble, balance answers (A, B, C, D ~13-14 each), update neet_hashes.json and neet_progress.json, and run node data/neet/neet_compiler.js.
+- Adhere strictly to the NMC revised syllabus (no deleted topics).
+```
+
+This prompt file is permanent and self-contained. Any agent reading this document has the full context, syllabus constraints, cognitive rubrics, and execution protocols required to resume generation seamlessly.
