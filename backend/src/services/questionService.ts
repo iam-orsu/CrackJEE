@@ -569,40 +569,44 @@ export async function generateFreshMockBatch(
       const generated: Question[] = [];
       // One DeepSeek batch call per ceil(needed / BATCH_SIZE) iterations
       for (let b = 0; b < Math.ceil(needed / BATCH_SIZE); b++) {
-        try {
-          let batch = await generateQuestionBatch(
-            BATCH_SIZE, subject, topic, difficulty, examType, 'Dropper', questionType,
-          ).catch(async () => {
-            const s = await generateQuestion(subject, topic, difficulty, examType, 'Dropper', questionType);
-            return [s];
-          });
+        // Retry once on transient failures so slots don't silently go unfulfilled
+        for (let attempt = 0; attempt < 2; attempt++) {
+          try {
+            let batch = await generateQuestionBatch(
+              BATCH_SIZE, subject, topic, difficulty, examType, 'Dropper', questionType,
+            ).catch(async () => {
+              const s = await generateQuestion(subject, topic, difficulty, examType, 'Dropper', questionType);
+              return [s];
+            });
 
-          if (difficulty !== 'beginner' && batch.length > 0) {
-            const ok = await validateQuestion(batch[0]!);
-            if (!ok && batch.length > 1) {
-              [batch[0], batch[1]] = [batch[1]!, batch[0]!];
+            if (difficulty !== 'beginner' && batch.length > 0) {
+              const ok = await validateQuestion(batch[0]!);
+              if (!ok && batch.length > 1) {
+                [batch[0], batch[1]] = [batch[1]!, batch[0]!];
+              }
             }
-          }
 
-          const created = await prisma.$transaction(
-            batch.map((q) =>
-              prisma.question.create({
-                data: {
-                  topic, subject,
-                  questionText: q.question,
-                  options: q.options,
-                  answer: q.correct_answer,
-                  explanation: q.answer_explanation,
-                  diagram: q.diagram ? JSON.parse(JSON.stringify(q.diagram)) : undefined,
-                  difficulty, examType, questionType,
-                  validatedAt: new Date(),
-                },
-              }),
-            ),
-          );
-          generated.push(...created);
-        } catch {
-          // skip failed batch — slot may go unfulfilled
+            const created = await prisma.$transaction(
+              batch.map((q) =>
+                prisma.question.create({
+                  data: {
+                    topic, subject,
+                    questionText: q.question,
+                    options: q.options,
+                    answer: q.correct_answer,
+                    explanation: q.answer_explanation,
+                    diagram: q.diagram ? JSON.parse(JSON.stringify(q.diagram)) : undefined,
+                    difficulty, examType, questionType,
+                    validatedAt: new Date(),
+                  },
+                }),
+              ),
+            );
+            generated.push(...created);
+            break; // success — don't retry
+          } catch {
+            // retry once; if second attempt also fails the slot goes unfulfilled
+          }
         }
       }
 
