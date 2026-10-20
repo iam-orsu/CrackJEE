@@ -23,9 +23,10 @@ const MockIcon = () => (
   </svg>
 );
 const links = [
-  { href: '/dashboard', label: 'Dashboard',  Icon: DashIcon },
-  { href: '/practice',  label: 'Practice',   Icon: PracticeIcon },
-  { href: '/mock',      label: 'Mock Test',  Icon: MockIcon },
+  { href: '/dashboard',      label: 'Dashboard',      Icon: DashIcon },
+  { href: '/practice',       label: 'JEE Practice',   Icon: PracticeIcon },
+  { href: '/neet/practice',  label: 'NEET Practice',  Icon: PracticeIcon },
+  { href: '/mock',           label: 'Mock Test',      Icon: MockIcon },
 ];
 
 export function Sidebar() {

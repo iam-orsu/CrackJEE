@@ -41,6 +41,23 @@ const EXAM_INFO = {
       'Integer: +4 correct, 0 wrong',
     ],
   },
+  NEET: {
+    title: 'NEET UG',
+    subtitle: 'NMC Pattern 2025',
+    duration: '3 hours 20 min',
+    questions: '180 questions',
+    marks: '720 marks',
+    pattern: [
+      'Physics: 45 MCQ (Single Correct)',
+      'Chemistry: 45 MCQ (Single Correct)',
+      'Botany: 45 MCQ (Single Correct)',
+      'Zoology: 45 MCQ (Single Correct)',
+    ],
+    marking: [
+      'MCQ Single Correct: +4 correct, −1 wrong, 0 unattempted',
+      'No integer or multi-correct type',
+    ],
+  },
 } as const;
 
 type DifficultyMode = 'easy' | 'medium' | 'hard';
@@ -59,7 +76,7 @@ const DIFFICULTY_COLORS: Record<DifficultyMode, { bg: string; text: string }> = 
 
 export default function MockPage() {
   const router = useRouter();
-  const [selected, setSelected] = useState<'Main' | 'Advanced' | null>(null);
+  const [selected, setSelected] = useState<'Main' | 'Advanced' | 'NEET' | null>(null);
   const [difficultyMode, setDifficultyMode] = useState<DifficultyMode>('medium');
   const [starting, setStarting] = useState(false);
   const [error, setError] = useState('');
@@ -97,13 +114,13 @@ export default function MockPage() {
         </div>
 
         {/* Exam type selection */}
-        <div style={{ display: 'flex', gap: 16, marginBottom: 28 }}>
-          {(['Main', 'Advanced'] as const).map((type) => (
+        <div style={{ display: 'flex', gap: 16, marginBottom: 28, flexWrap: 'wrap' }}>
+          {(['Main', 'Advanced', 'NEET'] as const).map((type) => (
             <button
               key={type}
               onClick={() => setSelected(type)}
               style={{
-                flex: 1,
+                flex: '1 1 160px',
                 padding: '20px 24px',
                 border: `2px solid ${selected === type ? 'var(--gray-900)' : 'var(--gray-200)'}`,
                 borderRadius: 8,
@@ -114,7 +131,9 @@ export default function MockPage() {
                 transition: 'all 0.15s',
               }}
             >
-              <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 4 }}>JEE {type}</div>
+              <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 4 }}>
+                {type === 'NEET' ? 'NEET UG' : `JEE ${type}`}
+              </div>
               <div style={{ fontSize: 13, opacity: 0.75 }}>{EXAM_INFO[type].questions} · {EXAM_INFO[type].duration}</div>
             </button>
           ))}
@@ -192,7 +211,10 @@ export default function MockPage() {
               fontSize: 13,
               color: '#92400e',
             }}>
-              ⚠ Questions are AI-generated. The exam will take 20–40 seconds to prepare. Do not close the tab during loading.
+              {selected === 'NEET'
+                ? '⚡ Questions are drawn from the pre-built NEET question bank. The exam will be ready in seconds.'
+                : '⚠ Questions are AI-generated. The exam will take 20–40 seconds to prepare. Do not close the tab during loading.'
+              }
             </div>
           </div>
         )}
@@ -235,7 +257,9 @@ export default function MockPage() {
                 <tbody>
                   {history.map((item) => (
                     <tr key={item.id} style={{ borderBottom: '1px solid var(--gray-100)' }}>
-                      <td style={{ padding: '10px 14px', fontWeight: 500 }}>JEE {item.examType}</td>
+                      <td style={{ padding: '10px 14px', fontWeight: 500 }}>
+                        {item.examType === 'NEET' ? 'NEET UG' : `JEE ${item.examType}`}
+                      </td>
                       <td style={{ padding: '10px 14px' }}>
                         {item.difficultyMode ? (
                           <span style={{

@@ -75,7 +75,7 @@ export interface DashboardData {
   subjectAccuracy: SubjectAccuracy[];
 }
 
-export type Subject = 'Mathematics' | 'Physics' | 'Chemistry';
+export type Subject = 'Mathematics' | 'Physics' | 'Chemistry' | 'Botany' | 'Zoology';
 export type Difficulty = 'beginner' | 'intermediate' | 'advanced';
 
 /* ── Question paper row (practice page) ───────────────────────── */
@@ -117,7 +117,7 @@ export interface MockExamQuestion {
 
 export interface MockExam {
   id: string;
-  examType: 'Main' | 'Advanced';
+  examType: 'Main' | 'Advanced' | 'NEET';
   difficultyMode?: string;
   status: 'generating' | 'ready' | 'in_progress' | 'submitted' | 'error';
   durationSeconds: number;
@@ -145,6 +145,7 @@ export interface MockExamResult {
   physicsScore: number;
   chemistryScore: number;
   mathScore: number;
+  biologyScore?: number;
   correct: number;
   partial: number;
   incorrect: number;
