@@ -9,45 +9,45 @@
 
 Any agent or subagent that wakes up or loses conversational context **MUST read this section first**:
 
-* **Master Compiled Questions**: **715 / 17,940** (Tracked in `data/neet/neet_master_questions.json`)
+* **Master Compiled Questions**: **1,375 / 17,940** (Tracked in `data/neet/neet_master_questions.json`)
 * **Registry Progress Ledger**: `data/neet/registry/neet_progress.json`
-* **Deduplication Hash Ledger**: `data/neet/registry/neet_hashes.json` (715 SHA-256 hashes recorded)
+* **Deduplication Hash Ledger**: `data/neet/registry/neet_hashes.json` (1,375 SHA-256 hashes recorded, 0 duplicates)
 * **Master Compiler Command**: `node data/neet/neet_compiler.js`
 
-### Topics Progress Status:
-1. **Botany (20 Topics Total)**:
-   - ✅ Topic 1: **The Living World** (`chunk_01`: **55 Qs**) — `data/neet/botany/the_living_world_chunk_01.json`
-   - ✅ Topic 2: **Biological Classification** (`chunk_01`: **55 Qs**) — `data/neet/botany/biological_classification_chunk_01.json`
-   - ✅ Topic 3: **Plant Kingdom** (`chunk_01`: **55 Qs**) — `data/neet/botany/plant_kingdom_chunk_01.json`
-   - ✅ Topic 4: **Morphology of Flowering Plants** (`chunk_01`: **55 Qs**) — `data/neet/botany/morphology_of_flowering_plants_chunk_01.json`
-   - ✅ Topic 5: **Anatomy of Flowering Plants** (`chunk_01`: **55 Qs**) — `data/neet/botany/anatomy_of_flowering_plants_chunk_01.json`
-   - ✅ Topic 6: **Cell: The Unit of Life** (`chunk_01`: **55 Qs**) — `data/neet/botany/cell_the_unit_of_life_chunk_01.json`
-   - ✅ Topic 7: **Cell Cycle and Cell Division** (`chunk_01`: **55 Qs**) — `data/neet/botany/cell_cycle_and_cell_division_chunk_01.json`
-   - ⚡ Topic 8 (ACTIVE WAVE): **Photosynthesis in Higher Plants** (`chunk_01`: 55 Qs)
-   - ⚡ Topic 9 (ACTIVE WAVE): **Respiration in Plants** (`chunk_01`: 55 Qs)
-   - ⚡ Topic 10 (ACTIVE WAVE): **Plant Growth and Development** (`chunk_01`: 55 Qs)
-   - ⚡ Topic 11 (ACTIVE WAVE): **Sexual Reproduction in Flowering Plants** (`chunk_01`: 55 Qs)
-   - ⏳ Topics 12–20: PENDING
-2. **Zoology (12 Topics Total)**:
-   - ✅ Topic 1: **Animal Kingdom** (`chunk_01`: **55 Qs**) — `data/neet/zoology/animal_kingdom_chunk_01.json`
-   - ✅ Topic 2: **Structural Organisation in Animals** (`chunk_01`: **55 Qs**) — `data/neet/zoology/structural_organisation_in_animals_chunk_01.json`
-   - ✅ Topic 3: **Breathing and Exchange of Gases** (`chunk_01`: **55 Qs**) — `data/neet/zoology/breathing_and_exchange_of_gases_chunk_01.json`
-   - ✅ Topic 4: **Body Fluids and Circulation** (`chunk_01`: **55 Qs**) — `data/neet/zoology/body_fluids_and_circulation_chunk_01.json`
-   - ⚡ Topic 5 (ACTIVE WAVE): **Excretory Products and their Elimination** (`chunk_01`: 55 Qs)
-   - ⚡ Topic 6 (ACTIVE WAVE): **Locomotion and Movement** (`chunk_01`: 55 Qs)
-   - ⚡ Topic 7 (ACTIVE WAVE): **Neural Control and Coordination** (`chunk_01`: 55 Qs)
-   - ⚡ Topic 8 (ACTIVE WAVE): **Chemical Coordination and Integration** (`chunk_01`: 55 Qs)
-   - ⏳ Topics 9–12: PENDING
-3. **Chemistry (21 Topics Total)**:
-   - ✅ Topic 4: **Chemical Bonding and Molecular Structure** (`chunk_01`: **55 Qs**) — `data/neet/chemistry/chemical_bonding_and_molecular_structure_chunk_01.json`
-   - ⚡ Topic 1 (ACTIVE WAVE): **Some Basic Concepts of Chemistry** (`chunk_01`: 55 Qs)
-   - ⚡ Topic 2 (ACTIVE WAVE): **Structure of Atom** (`chunk_01`: 55 Qs)
-   - ⏳ Topics 3, 5–21: PENDING
-4. **Physics (25 Topics Total)**:
-   - ✅ Topic 1: **Units and Measurements** (`chunk_01`: **55 Qs**) — `data/neet/physics/units_and_measurements_chunk_01.json`
-   - ⚡ Topic 2 (ACTIVE WAVE): **Motion in a Straight Line** (`chunk_01`: 55 Qs)
-   - ⚡ Topic 3 (ACTIVE WAVE): **Motion in a Plane** (`chunk_01`: 55 Qs)
-   - ⏳ Topics 4–25: PENDING
+### Topics Progress Status (25 Certified Chunks Completed):
+1. **Botany (11/20 Topics Completed — 605 Questions)**:
+   - ✅ Topic 1: **The Living World** (`chunk_01`: **55 Qs**, depth: 6.5) — `data/neet/botany/the_living_world_chunk_01.json`
+   - ✅ Topic 2: **Biological Classification** (`chunk_01`: **55 Qs**, depth: 6.5) — `data/neet/botany/biological_classification_chunk_01.json`
+   - ✅ Topic 3: **Plant Kingdom** (`chunk_01`: **55 Qs**, depth: 7.8) — `data/neet/botany/plant_kingdom_chunk_01.json`
+   - ✅ Topic 4: **Morphology of Flowering Plants** (`chunk_01`: **55 Qs**, depth: 8.1) — `data/neet/botany/morphology_of_flowering_plants_chunk_01.json`
+   - ✅ Topic 5: **Anatomy of Flowering Plants** (`chunk_01`: **55 Qs**, depth: 7.5) — `data/neet/botany/anatomy_of_flowering_plants_chunk_01.json`
+   - ✅ Topic 6: **Cell: The Unit of Life** (`chunk_01`: **55 Qs**, depth: 7.3) — `data/neet/botany/cell_the_unit_of_life_chunk_01.json`
+   - ✅ Topic 7: **Cell Cycle and Cell Division** (`chunk_01`: **55 Qs**, depth: 7.7) — `data/neet/botany/cell_cycle_and_cell_division_chunk_01.json`
+   - ✅ Topic 8: **Photosynthesis in Higher Plants** (`chunk_01`: **55 Qs**, depth: 8.0) — `data/neet/botany/photosynthesis_in_higher_plants_chunk_01.json`
+   - ✅ Topic 9: **Respiration in Plants** (`chunk_01`: **55 Qs**, depth: 7.7) — `data/neet/botany/respiration_in_plants_chunk_01.json`
+   - ✅ Topic 10: **Plant Growth and Development** (`chunk_01`: **55 Qs**, depth: 8.3) — `data/neet/botany/plant_growth_and_development_chunk_01.json`
+   - ✅ Topic 11: **Sexual Reproduction in Flowering Plants** (`chunk_01`: **55 Qs**, depth: 7.9) — `data/neet/botany/sexual_reproduction_in_flowering_plants_chunk_01.json`
+   - 🎯 Wave 3 Next Queue: *Principles of Inheritance and Variation*, *Molecular Basis of Inheritance*, *Microbes in Human Welfare*, *Biotechnology: Principles and Processes*
+2. **Zoology (8/12 Topics Completed — 440 Questions; Class 11 100% COMPLETE)**:
+   - ✅ Topic 1: **Animal Kingdom** (`chunk_01`: **55 Qs**, depth: 7.7) — `data/neet/zoology/animal_kingdom_chunk_01.json`
+   - ✅ Topic 2: **Structural Organisation in Animals** (`chunk_01`: **55 Qs**, depth: 7.5) — `data/neet/zoology/structural_organisation_in_animals_chunk_01.json`
+   - ✅ Topic 3: **Breathing and Exchange of Gases** (`chunk_01`: **55 Qs**, depth: 8.0) — `data/neet/zoology/breathing_and_exchange_of_gases_chunk_01.json`
+   - ✅ Topic 4: **Body Fluids and Circulation** (`chunk_01`: **55 Qs**, depth: 8.0) — `data/neet/zoology/body_fluids_and_circulation_chunk_01.json`
+   - ✅ Topic 5: **Excretory Products and their Elimination** (`chunk_01`: **55 Qs**, depth: 7.9) — `data/neet/zoology/excretory_products_and_their_elimination_chunk_01.json`
+   - ✅ Topic 6: **Locomotion and Movement** (`chunk_01`: **55 Qs**, depth: 7.7) — `data/neet/zoology/locomotion_and_movement_chunk_01.json`
+   - ✅ Topic 7: **Neural Control and Coordination** (`chunk_01`: **55 Qs**, depth: 7.4) — `data/neet/zoology/neural_control_and_coordination_chunk_01.json`
+   - ✅ Topic 8: **Chemical Coordination and Integration** (`chunk_01`: **55 Qs**, depth: 8.4) — `data/neet/zoology/chemical_coordination_and_integration_chunk_01.json`
+   - 🎯 Wave 3 Next Queue: *Human Reproduction*, *Reproductive Health*, *Evolution*, *Human Health and Disease*
+3. **Chemistry (3/21 Topics Completed — 165 Questions)**:
+   - ✅ Topic 1: **Some Basic Concepts of Chemistry** (`chunk_01`: **55 Qs**, depth: 8.1) — `data/neet/chemistry/some_basic_concepts_of_chemistry_chunk_01.json`
+   - ✅ Topic 2: **Structure of Atom** (`chunk_01`: **55 Qs**, depth: 8.4) — `data/neet/chemistry/structure_of_atom_chunk_01.json`
+   - ✅ Topic 4: **Chemical Bonding and Molecular Structure** (`chunk_01`: **55 Qs**, depth: 8.4) — `data/neet/chemistry/chemical_bonding_and_molecular_structure_chunk_01.json`
+   - 🎯 Wave 3 Next Queue: *Classification of Elements and Periodicity in Properties*, *Chemical Thermodynamics*, *Equilibrium*, *Redox Reactions*
+4. **Physics (3/25 Topics Completed — 165 Questions)**:
+   - ✅ Topic 1: **Units and Measurements** (`chunk_01`: **55 Qs**, depth: 8.0) — `data/neet/physics/units_and_measurements_chunk_01.json`
+   - ✅ Topic 2: **Motion in a Straight Line** (`chunk_01`: **55 Qs**, depth: 8.1) — `data/neet/physics/motion_in_a_straight_line_chunk_01.json`
+   - ✅ Topic 3: **Motion in a Plane** (`chunk_01`: **55 Qs**, depth: 8.4) — `data/neet/physics/motion_in_a_plane_chunk_01.json`
+   - 🎯 Wave 3 Next Queue: *Laws of Motion*, *Work, Energy, and Power*, *System of Particles and Rotational Motion*, *Gravitation*
 
 ### How to Resume Immediately:
 1. **Check Live Progress**: Run `node data/neet/neet_compiler.js` to see exact verified question count across all 4 subjects.
