@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Motion in a Plane",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_motion_in_a_plane_c01_001",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding scalar and vector physical quantities:\nStatement I: A physical quantity having both magnitude and a specified direction is not necessarily a vector quantity unless it obeys the laws of vector addition.\nStatement II: Electric current possesses both magnitude and direction, yet it is treated as a scalar quantity because it follows algebraic addition rather than vector addition.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: By definition in NCERT Physics, a vector quantity must not only possess magnitude and a definite direction in space, but it must also satisfy the commutative laws of vector addition (the triangle law or parallelogram law).\nStep 2: Electric current has a definite direction of flow in a circuit (from higher to lower potential) and a definite magnitude. However, the total current meeting at a junction satisfies Kirchhoff's current law ($sum I = 0$), which is purely algebraic ($I = I_1 + I_2$) and independent of the physical angle between the intersecting wires. Hence, Statement II correctly justifies Statement I.\nStep 3: Distractor rejection: Options B, C, and D are incorrect because both Statement I and Statement II are strictly true according to NCERT mechanics principles."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_002",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the null vector (zero vector $\\vec{0}$):\nStatement I: The physical necessity of introducing a null vector arises when two equal vectors are subtracted, such that $\\vec{A} - \\vec{A} = \\vec{0}$.\nStatement II: A null vector has zero magnitude and a uniquely defined, fixed direction in space along the positive x-axis.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Statement I is correct. According to NCERT, subtracting a vector from itself ($\u000bec{A} - \u000bec{A}$) or multiplying a vector by the scalar zero ($0\\vec{A}$) results in a vector with zero magnitude, termed a null vector $\\vec{0}$.\nStep 2: Statement II is incorrect. By definition, a null vector has zero magnitude, but its direction cannot be specified; its direction is arbitrary or indeterminate, not fixed along the positive x-axis or any particular coordinate axis.\nStep 3: Distractor rejection: The remaining options are eliminated because Statement I is an accurate NCERT postulate while Statement II incorrectly claims a fixed unique direction for $\\vec{0}$."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_003",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two vectors $\\vec{A}$ and $\\vec{B}$ have equal magnitudes, $|\u000bec{A}| = |\u000bec{B}| = F$. If the magnitude of their resultant vector $\\vec{R} = \\vec{A} + \\vec{B}$ is also equal to $F$, the angle $\\theta$ between the two vectors is:",
+      "options": [
+        "A) $60^\\circ$",
+        "B) $90^\\circ$",
+        "C) $120^\\circ$",
+        "D) $150^\\circ$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: According to the parallelogram law of vector addition, the magnitude of the resultant $\\vec{R}$ is $R = \\sqrt{A^2 + B^2 + 2AB\\cos\\theta}$.\nStep 2: Substitute $A = B = R = F$ into the equation: $F^2 = F^2 + F^2 + 2F^2\\cos\\theta \\implies F^2 = 2F^2(1 + \\cos\\theta)$.\nStep 3: Divide both sides by $F^2$: $1 = 2 + 2\\cos\\theta \\implies 2\\cos\\theta = -1 \\implies \\cos\\theta = -\\frac{1}{2}$.\nStep 4: Since $\\cos 120^\\circ = -\\frac{1}{2}$, the angle between the vectors is $\\theta = 120^\\circ$.\nDistractor rejection: If $\\theta = 60^\\circ$, $R = \\sqrt{3}F$; if $\\theta = 90^\\circ$, $R = \\sqrt{2}F$; if $\\theta = 150^\\circ$, $R = F\\sqrt{2 - \\sqrt{3}}$."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_004",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): If the magnitude of the sum of two non-zero vectors is equal to the magnitude of their difference, $|\u000bec{A} + \\vec{B}| = |\\vec{A} - \\vec{B}|$, then the vectors $\\vec{A}$ and $\\vec{B}$ must be mutually perpendicular.\nReason (R): The scalar product of two mutually perpendicular non-zero vectors is strictly zero, that is, $\\vec{A} \\cdot \\vec{B} = 0$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Assertion (A): $|\u000bec{A} + \\vec{B}|^2 = A^2 + B^2 + 2\\vec{A}\\cdot\\vec{B}$ and $|\u000bec{A} - \\vec{B}|^2 = A^2 + B^2 - 2\\vec{A}\\cdot\\vec{B}$. Equating them gives $A^2 + B^2 + 2\\vec{A}\\cdot\\vec{B} = A^2 + B^2 - 2\\vec{A}\\cdot\\vec{B} \\implies 4\\vec{A}\\cdot\\vec{B} = 0 \\implies \\vec{A}\\cdot\\vec{B} = 0$. Since $\\vec{A}$ and $\\vec{B}$ are non-zero, this implies $\\cos\\theta = 0 \\implies \\theta = 90^\\circ$. Thus (A) is true.\nStep 2: Evaluate Reason (R): By definition, $\\vec{A}\\cdot\\vec{B} = AB\\cos 90^\\circ = 0$. Reason (R) is true and directly explains why $|\u000bec{A} + \\vec{B}| = |\\vec{A} - \\vec{B}|$ leads to perpendicularity.\nStep 3: Distractor rejection: Since (R) provides the mathematical proof for (A), Option D is the correct answer and The remaining options are eliminated."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_005",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The maximum and minimum magnitudes of the resultant of two forces $\\vec{F}_1$ and $\\vec{F}_2$ acting at a point are $17\\text{ N}$ and $7\\text{ N}$, respectively. If these two forces act on the body at right angles to each other ($\theta = 90^\\circ$), the magnitude of their resultant is:",
+      "options": [
+        "A) $13\\text{ N}$",
+        "B) $15\\text{ N}$",
+        "C) $10\\text{ N}$",
+        "D) $12\\text{ N}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The maximum resultant occurs when the forces are parallel ($\theta = 0^\\circ$): $F_1 + F_2 = 17\\text{ N}$.\nStep 2: The minimum resultant occurs when the forces are antiparallel ($\theta = 180^\\circ$): $F_1 - F_2 = 7\\text{ N}$.\nStep 3: Add the two equations: $2F_1 = 24 \\implies F_1 = 12\\text{ N}$. Then $F_2 = 17 - 12 = 5\\text{ N}$.\nStep 4: When the forces act at an angle of $90^\\circ$, their resultant magnitude is $R = \\sqrt{F_1^2 + F_2^2} = \\sqrt{12^2 + 5^2} = \\sqrt{144 + 25} = \\sqrt{169} = 13\\text{ N}$.\nDistractor rejection: Option C is $F_1 - F_2 + 3$; Option D is simply $F_1$; Option B is an arbitrary estimate."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_006",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding polygon law and equilibrium of vectors:\nStatement I: If a number of coplanar vectors acting at a point can be represented completely in magnitude and direction by the sides of a closed polygon taken in order, their resultant is a null vector.\nStatement II: Three coplanar forces of magnitudes $4\\text{ N}$, $7\\text{ N}$, and $12\\text{ N}$ acting simultaneously on a particle can maintain it in static equilibrium.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Statement I represents the standard polygon law of vector addition. When vectors form a closed polygon taken in the same cyclic order, the terminating point of the last vector coincides with the initial point of the first vector, so the displacement resultant $sum \\vec{F} = \\vec{0}$. Statement I is correct.\nStep 2: For three forces to be in equilibrium, the sum of any two forces must be greater than or equal to the third force (triangle inequality: $A + B \\ge C$). Here, $4 + 7 = 11\\text{ N} < 12\\text{ N}$. Hence, a closed triangle cannot be formed, and these three forces cannot maintain static equilibrium. Thus Statement II is incorrect.\nStep 3: Distractor rejection: The remaining options are eliminated because Statement I is valid while Statement II violates the triangle inequality."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_007",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A velocity vector is given by $\\vec{v} = (2\\hat{i} + 4\\hat{j} - 4\\hat{k})\\text{ m/s}$. The unit vector $\\hat{v}$ pointing in the direction of $\\vec{v}$ is:",
+      "options": [
+        "A) $\\frac{1}{6}\\hat{i} + \\frac{2}{6}\\hat{j} - \\frac{2}{6}\\hat{k}$",
+        "B) $\\frac{1}{2}\\hat{i} + \\hat{j} - \\hat{k}$",
+        "C) $\\frac{1}{3}\\hat{i} + \\frac{2}{3}\\hat{j} - \\frac{2}{3}\\hat{k}$",
+        "D) $\\frac{2}{5}\\hat{i} + \\frac{4}{5}\\hat{j} - \\frac{4}{5}\\hat{k}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The unit vector in the direction of any non-zero vector $\\vec{v}$ is defined by $\\hat{v} = \\frac{\\vec{v}}{|\\vec{v}|}$.\nStep 2: Calculate the magnitude $|\\vec{v}|$: $|\\vec{v}| = \\sqrt{2^2 + 4^2 + (-4)^2} = \\sqrt{4 + 16 + 16} = \\sqrt{36} = 6\\text{ m/s}$.\nStep 3: Divide each component by $|\\vec{v}| = 6$: $\\hat{v} = \\frac{2\\hat{i} + 4\\hat{j} - 4\\hat{k}}{6} = \\frac{1}{3}\\hat{i} + \\frac{2}{3}\\hat{j} - \\frac{2}{3}\\hat{k}$.\nDistractor rejection: Option D incorrectly divides by $\\sqrt{4^2+3^2} = 5$; Option A erroneously divides by 12 or squares incorrectly; Option B divides by 4 without normalizing."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_008",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A force vector $\\vec{F}$ of magnitude $60\\text{ N}$ lies in the xy-plane and is oriented at an angle of $30^\\circ$ with the positive y-axis, pointing into the first quadrant. The rectangular x and y components $(F_x, F_y)$ of this force vector are:",
+      "options": [
+        "A) $F_x = 30\\sqrt{2}\\text{ N},\\; F_y = 30\\sqrt{2}\\text{ N}$",
+        "B) $F_x = 60\\text{ N},\\; F_y = 30\\text{ N}$",
+        "C) $F_x = 30\\sqrt{3}\\text{ N},\\; F_y = 30\\text{ N}$",
+        "D) $F_x = 30\\text{ N},\\; F_y = 30\\sqrt{3}\\text{ N}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Pay careful attention to the angle reference. The angle $\\theta = 30^\\circ$ is specified with the positive y-axis, not the x-axis.\nStep 2: Resolving along the coordinate axes: $F_y = F\\cos(30^\\circ) = 60 \\times \\frac{\\sqrt{3}}{2} = 30\\sqrt{3}\\text{ N}$.\nStep 3: Resolving along the x-axis: $F_x = F\\sin(30^\\circ) = 60 \\times \\frac{1}{2} = 30\\text{ N}$.\nStep 4: Distractor rejection: Option C is the common trap where the student mistakenly assumes the $30^\\circ$ angle is with the x-axis ($F_x = F\\cos 30^\\circ$); Option A assumes $45^\\circ$; Option B does not resolve properly."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_009",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A vector $\\vec{A}$ in 3D space makes an angle of $60^\\circ$ with the positive x-axis and $60^\\circ$ with the positive y-axis. The acute angle $\\gamma$ that vector $\\vec{A}$ makes with the positive z-axis is:",
+      "options": [
+        "A) $45^\\circ$",
+        "B) $60^\\circ$",
+        "C) $90^\\circ$",
+        "D) $30^\\circ$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let $\\alpha, \\beta, \\gamma$ be the angles made by vector $\\vec{A}$ with the positive x, y, and z axes, respectively. The direction cosines satisfy the fundamental identity: $\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$.\nStep 2: Given $\\alpha = 60^\\circ$ and $\\beta = 60^\\circ$, we have $\\cos 60^\\circ = \\frac{1}{2}$.\nStep 3: Substitute the known values: $\\left(\\frac{1}{2}\\right)^2 + \\left(\\frac{1}{2}\\right)^2 + \\cos^2\\gamma = 1 \\implies \\frac{1}{4} + \\frac{1}{4} + \\cos^2\\gamma = 1 \\implies \\frac{1}{2} + \\cos^2\\gamma = 1 \\implies \\cos^2\\gamma = \\frac{1}{2}$.\nStep 4: Therefore, $\\cos\\gamma = \\frac{1}{\\sqrt{2}}$, which gives the acute angle $\\gamma = 45^\\circ$.\nDistractor rejection: Option D corresponds to $\\cos\\gamma = \\sqrt{3}/2$; Option B corresponds to $\\cos\\gamma = 1/2$; Option C corresponds to $\\cos\\gamma = 0$."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_010",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle moves in the xy-plane from an initial position $\\vec{r}_1 = (3\\hat{i} + 2\\hat{j})\\text{ m}$ to a final position $\\vec{r}_2 = (9\\hat{i} + 10\\hat{j})\\text{ m}$ during a time interval of $\\Delta t = 2\\text{ s}$. The magnitude of the average velocity vector $\\vec{v}_{\\text{avg}}$ of the particle is:",
+      "options": [
+        "A) $3\\text{ m/s}$",
+        "B) $5\\text{ m/s}$",
+        "C) $7\\text{ m/s}$",
+        "D) $10\\text{ m/s}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The displacement vector $\\Delta\\vec{r}$ is given by $\\Delta\\vec{r} = \\vec{r}_2 - \\vec{r}_1 = (9 - 3)\\hat{i} + (10 - 2)\\hat{j} = (6\\hat{i} + 8\\hat{j})\\text{ m}$.\nStep 2: The average velocity vector is $\\vec{v}_{\\text{avg}} = \\frac{\\Delta\\vec{r}}{\\Delta t} = \\frac{6\\hat{i} + 8\\hat{j}}{2} = (3\\hat{i} + 4\\hat{j})\\text{ m/s}$.\nStep 3: Calculate the magnitude of $\\vec{v}_{\\text{avg}}$: $|\\vec{v}_{\\text{avg}}| = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5\\text{ m/s}$.\nDistractor rejection: Option A is just the x-component; Option D is the magnitude of the displacement vector $|\\Delta\\vec{r}| = 10\\text{ m}$ without dividing by $\\Delta t = 2\\text{ s}$; Option C is $(3+4)=7$ (scalar addition of components)."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_011",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the scalar (dot) product of vectors:\nStatement I: The scalar product of two vectors is commutative, such that $\\vec{A} \\cdot \\vec{B} = \\vec{B} \\cdot \\vec{A}$.\nStatement II: For any two non-zero vectors $\\vec{A}$ and $\\vec{B}$, if $\\vec{A} \\cdot \\vec{B} < 0$, the angle $\\theta$ between the two vectors must be acute ($0^\\circ \\le \\theta < 90^\\circ$).\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Statement I is correct: $\\vec{A} \\cdot \\vec{B} = AB\\cos\\theta = BA\\cos\\theta = \\vec{B} \\cdot \\vec{A}$. The dot product is strictly commutative.\nStep 2: Statement II is incorrect: $\\vec{A} \\cdot \\vec{B} = AB\\cos\\theta$. Since $A > 0$ and $B > 0$, $\\vec{A} \\cdot \\vec{B} < 0$ implies $\\cos\\theta < 0$. In the domain $0^\\circ \\le \\theta \\le 180^\\circ$, $\\cos\\theta$ is negative when $90^\\circ < \\theta \\le 180^\\circ$ (an obtuse angle), not an acute angle.\nStep 3: Distractor rejection: Options A, B, and D are incorrect because Statement I is an essential vector theorem while Statement II confuses obtuse and acute angles."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_012",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two vectors are given by $\\vec{A} = 3\\hat{i} - 2\\hat{j} + 4\\hat{k}$ and $\\vec{B} = 2\\hat{i} + 5\\hat{j} + c\\hat{k}$. If $\\vec{A}$ and $\\vec{B}$ are mutually orthogonal (perpendicular), the scalar constant $c$ must be equal to:",
+      "options": [
+        "A) $2$",
+        "B) $-2$",
+        "C) $-1$",
+        "D) $1$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The necessary and sufficient condition for two non-zero vectors $\\vec{A}$ and $\\vec{B}$ to be perpendicular is that their scalar product vanishes: $\\vec{A} \\cdot \\vec{B} = 0$.\nStep 2: Express the dot product in terms of components: $\\vec{A} \\cdot \\vec{B} = A_x B_x + A_y B_y + A_z B_z$.\nStep 3: Substitute the given component values: $(3)(2) + (-2)(5) + (4)(c) = 0 \\implies 6 - 10 + 4c = 0 \\implies -4 + 4c = 0 \\implies 4c = 4 \\implies c = 1$.\nDistractor rejection: Option C gives $\\vec{A}\\cdot\\vec{B} = -8$; Option A gives $\\vec{A}\\cdot\\vec{B} = 4$; Option B gives $\\vec{A}\\cdot\\vec{B} = -12$."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_013",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The projection of vector $\\vec{A} = 2\\hat{i} + 3\\hat{j} + 2\\hat{k}$ on the vector $\\vec{B} = \\hat{i} + 2\\hat{j} + 2\\hat{k}$ is:",
+      "options": [
+        "A) $4$",
+        "B) $5$",
+        "C) $6$",
+        "D) $3$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The scalar projection of vector $\\vec{A}$ onto vector $\\vec{B}$ is given by $A_{\\parallel} = \\vec{A} \\cdot \\hat{B} = \\frac{\\vec{A} \\cdot \\vec{B}}{|\\vec{B}|}$.\nStep 2: Calculate the dot product $\\vec{A} \\cdot \\vec{B}$: $\\vec{A} \\cdot \\vec{B} = (2)(1) + (3)(2) + (2)(2) = 2 + 6 + 4 = 12$.\nStep 3: Calculate the magnitude $|\\vec{B}|$: $|\\vec{B}| = \\sqrt{1^2 + 2^2 + 2^2} = \\sqrt{1 + 4 + 4} = \\sqrt{9} = 3$.\nStep 4: Compute the projection: $A_{\\parallel} = \\frac{12}{3} = 4$.\nDistractor rejection: Option D is $12/4$; Option B is an arithmetic slip; Option C is $12/2$."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_014",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The angle $\\theta$ between the two vectors $\\vec{A} = \\hat{i} + \\hat{j}$ and $\\vec{B} = \\hat{j} + \\hat{k}$ is:",
+      "options": [
+        "A) $45^\\circ$",
+        "B) $60^\\circ$",
+        "C) $90^\\circ$",
+        "D) $30^\\circ$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Use the dot product definition: $\\cos\\theta = \\frac{\\vec{A} \\cdot \\vec{B}}{|\\vec{A}||\\vec{B}|}$.\nStep 2: Evaluate the dot product: $\\vec{A} \\cdot \\vec{B} = (1)(0) + (1)(1) + (0)(1) = 1$.\nStep 3: Evaluate the magnitudes: $|\\vec{A}| = \\sqrt{1^2 + 1^2 + 0} = \\sqrt{2}$, and $|\\vec{B}| = \\sqrt{0 + 1^2 + 1^2} = \\sqrt{2}$.\nStep 4: Substitute into the cosine formula: $\\cos\\theta = \\frac{1}{\\sqrt{2} \\times \\sqrt{2}} = \\frac{1}{2}$.\nStep 5: Since $\\cos\\theta = \\frac{1}{2}$, we have $\\theta = 60^\\circ$.\nDistractor rejection: $\\cos 45^\\circ = 1/\\sqrt{2}$ (Option A); $\\cos 30^\\circ = \\sqrt{3}/2$ (Option D); $\\cos 90^\\circ = 0$ (Option C)."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_015",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The vector product of two vectors is anti-commutative, which means $\\vec{A} \\times \\vec{B} = -(\\vec{B} \\times \\vec{A})$.\nReason (R): The magnitude of $(\\vec{A} \\times \\vec{B})$ equals the magnitude of $(\\vec{B} \\times \\vec{A})$, but reversing the cyclic order of vectors reverses the direction of the normal unit vector according to the right-hand rule.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) (A) is false but (R) is true.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Assertion (A): By definition of cross product, $\\vec{A} \\times \\vec{B} = AB\\sin\\theta\\,\\hat{n}$. Reversing the order gives $\\vec{B} \\times \\vec{A} = BA\\sin\\theta(-\\hat{n}) = -(\\vec{A} \\times \\vec{B})$. Thus Assertion (A) is true.\nStep 2: Evaluate Reason (R): The magnitude $|\\vec{A} \\times \\vec{B}| = AB\\sin\\theta = |\\vec{B} \\times \\vec{A}|$, while the right-hand grip rule shows that sweeping fingers from $\\vec{B}$ to $\\vec{A}$ points the thumb in the exact opposite direction to sweeping from $\\vec{A}$ to $\\vec{B}$. Reason (R) is true and correctly explains Assertion (A).\nStep 3: Distractor rejection: The remaining options are eliminated because (R) is the precise physical and mathematical justification for anti-commutativity."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_016",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The adjacent sides of a parallelogram are represented by the vectors $\\vec{a} = 3\\hat{i} + \\hat{j} + 2\\hat{k}$ and $\\vec{b} = 2\\hat{i} - 2\\hat{j} + 4\\hat{k}$. The area of the parallelogram is:",
+      "options": [
+        "A) $6\\sqrt{3}\\text{ sq units}$",
+        "B) $12\\text{ sq units}$",
+        "C) $14\\text{ sq units}$",
+        "D) $8\\sqrt{3}\\text{ sq units}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The area of a parallelogram formed by adjacent vectors $\\vec{a}$ and $\\vec{b}$ is equal to the magnitude of their cross product: $\\text{Area} = |\\vec{a} \\times \\vec{b}|$.\nStep 2: Compute $\\vec{a} \\times \\vec{b}$ via determinant:\n$\\vec{a} \\times \\vec{b} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 3 & 1 & 2 \\\\ 2 & -2 & 4 \\end{vmatrix} = \\hat{i}(4 - (-4)) - \\hat{j}(12 - 4) + \\hat{k}(-6 - 2) = 8\\hat{i} - 8\\hat{j} - 8\\hat{k}$.\nStep 3: Calculate the magnitude: $|\\vec{a} \\times \\vec{b}| = \\sqrt{8^2 + (-8)^2 + (-8)^2} = \\sqrt{64 + 64 + 64} = \\sqrt{64 \\times 3} = 8\\sqrt{3}\\text{ sq units}$.\nDistractor rejection: Option A is $6\\sqrt{3}$; Option B is $\\sqrt{144} = 12$; Option C is $8+6 = 14$."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_017",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two vectors representing adjacent sides of a triangle are $\\vec{p} = 2\\hat{i} + 3\\hat{j}$ and $\\vec{q} = -3\\hat{i} + 4\\hat{j}$. The area of this triangle is:",
+      "options": [
+        "A) $8.5\\text{ sq units}$",
+        "B) $12.5\\text{ sq units}$",
+        "C) $17.0\\text{ sq units}$",
+        "D) $25.0\\text{ sq units}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The area of a triangle formed by vectors $\\vec{p}$ and $\\vec{q}$ is half the magnitude of their cross product: $\\text{Area} = \\frac{1}{2}|\\vec{p} \\times \\vec{q}|$.\nStep 2: Calculate $\\vec{p} \\times \\vec{q}$:\n$\\vec{p} \\times \\vec{q} = (2\\hat{i} + 3\\hat{j}) \\times (-3\\hat{i} + 4\\hat{j}) = (2)(4)(\\hat{i} \\times \\hat{j}) + (3)(-3)(\\hat{j} \\times \\hat{i}) = 8\\hat{k} - 9(-\\hat{k}) = (8 + 9)\\hat{k} = 17\\hat{k}$.\nStep 3: Find the magnitude and divide by 2: $|\\vec{p} \\times \\vec{q}| = 17 \\implies \\text{Area} = \\frac{17}{2} = 8.5\\text{ sq units}$.\nDistractor rejection: Option C is $17.0$, which is the area of the full parallelogram (forgetting the factor of $1/2$); Options B and D are arithmetic distractors."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_018",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "If the two vectors $\\vec{A} = 4\\hat{i} - 6\\hat{j} + 8\\hat{k}$ and $\\vec{B} = 6\\hat{i} + m\\hat{j} + 12\\hat{k}$ are parallel (collinear) to each other, the value of the scalar parameter $m$ is:",
+      "options": [
+        "A) $4$",
+        "B) $-9$",
+        "C) $-6$",
+        "D) $9$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Two non-zero vectors $\\vec{A}$ and $\\vec{B}$ are parallel if and only if their corresponding components are proportional: $\\frac{A_x}{B_x} = \\frac{A_y}{B_y} = \\frac{A_z}{B_z} = k$.\nStep 2: Check the ratio for x and z components: $\\frac{A_x}{B_x} = \\frac{4}{6} = \\frac{2}{3}$, and $\\frac{A_z}{B_z} = \\frac{8}{12} = \\frac{2}{3}$.\nStep 3: Equate the y-ratio to the same proportionality factor: $\\frac{A_y}{B_y} = \\frac{-6}{m} = \\frac{2}{3} \\implies 2m = -18 \\implies m = -9$.\nDistractor rejection: Option D (+9) forgets the negative sign in $A_y = -6$; Option C is just $A_y$; Option A is an arbitrary choice."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_019",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): If two vectors of equal magnitude are inclined at an angle $\\theta$ to each other, their resultant vector always bisects the angle between them.\nReason (R): The angle $\\alpha$ which the resultant of two vectors $\\vec{A}$ and $\\vec{B}$ makes with $\\vec{A}$ satisfies $\\tan\\alpha = \\frac{B\\sin\\theta}{A + B\\cos\\theta}$, which reduces to $\\alpha = \\frac{\\theta}{2}$ when $A = B$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) (A) is false but (R) is true.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Reason (R): From the parallelogram law, $\\tan\\alpha = \\frac{B\\sin\\theta}{A + B\\cos\\theta}$. When $A = B$, this becomes $\\tan\\alpha = \\frac{A\\sin\\theta}{A(1 + \\cos\\theta)} = \\frac{2\\sin(\\theta/2)\\cos(\\theta/2)}{2\\cos^2(\\theta/2)} = \\tan\\left(\\frac{\\theta}{2}\\right) \\implies \\alpha = \\frac{\\theta}{2}$. Thus (R) is mathematically true.\nStep 2: Evaluate Assertion (A): Since $\\alpha = \\theta/2$, the resultant makes equal angles $(\\theta/2)$ with both vectors, meaning it bisects the angle between them. Thus (A) is true, and (R) directly explains (A).\nStep 3: Distractor rejection: The remaining options are eliminated because both statements are correct and (R) provides the exact analytic proof for (A)."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_020",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Physical Vector Relation) with List II (Mathematical Expression & Nature):\nList I:\nP. Torque ($\\vec{\\tau}$)\nQ. Work done ($W$)\nR. Electric Flux ($\\Phi_E$)\nS. Magnetic Lorentz force on charge ($q\\vec{v}$)\n\nList II:\n1. $\\vec{E} \\cdot \\vec{A}$ (Scalar quantity)\n2. $\\vec{r} \\times \\vec{F}$ (Axial vector)\n3. $\\vec{F} \\cdot \\vec{d}$ (Scalar quantity)\n4. $q(\\vec{v} \\times \\vec{B})$ (Polar vector)\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-3, Q-2, R-4, S-1",
+        "B) P-2, Q-1, R-3, S-4",
+        "C) P-4, Q-3, R-1, S-2",
+        "D) P-2, Q-3, R-1, S-4"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Torque is the rotational analogue of force, defined as the cross product of position vector and force: $\\vec{\\tau} = \\vec{r} \\times \\vec{F}$, which is an axial vector perpendicular to the plane of $\\vec{r}$ and $\\vec{F}$ (P matches 2).\nStep 2: Work done is the dot product of force and displacement: $W = \\vec{F} \\cdot \\vec{d}$, which is a scalar quantity (Q matches 3).\nStep 3: Electric flux is the dot product of electric field and area vector: $\\Phi_E = \\vec{E} \\cdot \\vec{A}$, which is a scalar quantity (R matches 1).\nStep 4: Magnetic Lorentz force on a moving charge is $\\vec{F} = q(\\vec{v} \\times \\vec{B})$, which is a polar vector pointing along the direction of force (S matches 4).\nStep 5: Distractor rejection: Only Option D provides the correct mapping (P-2, Q-3, R-1, S-4)."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_021",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding vector addition and subtraction:\nStatement I: For any two vectors $\\vec{A}$ and $\\vec{B}$, the sum of the squares of the magnitudes of their resultant sum and resultant difference satisfies $|\u000bec{A} + \\vec{B}|^2 + |\\vec{A} - \\vec{B}|^2 = 2(A^2 + B^2)$.\nStatement II: The magnitude of the resultant of two vectors $\\vec{A}$ and $\\vec{B}$ can never be less than $|A - B|$ nor greater than $(A + B)$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Expand $|\u000bec{A} + \\vec{B}|^2 = A^2 + B^2 + 2AB\\cos\\theta$ and $|\u000bec{A} - \\vec{B}|^2 = A^2 + B^2 - 2AB\\cos\\theta$. Adding these two expressions eliminates the cosine cross-term: $|\u000bec{A} + \\vec{B}|^2 + |\\vec{A} - \\vec{B}|^2 = 2(A^2 + B^2)$. This is the classic parallelogram law of geometry. Hence Statement I is correct.\nStep 2: The resultant magnitude is $R = \\sqrt{A^2 + B^2 + 2AB\\cos\\theta}$. Since $-1 \\le \\cos\\theta \\le 1$, the minimum possible value occurs at $\\cos\\theta = -1$, yielding $R_{\\min} = |A - B|$, and the maximum occurs at $\\cos\\theta = 1$, yielding $R_{\\max} = A + B$. Thus $|A - B| \\le R \\le (A + B)$, making Statement II strictly correct.\nStep 3: Distractor rejection: Options B, C, and D are incorrect because both statements are well-established foundational theorems of vector algebra."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_022",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the resolution of a vector in a plane:\nI. A vector can be resolved into a maximum of two rectangular components in a plane.\nII. The magnitude of any rectangular component of a vector can never exceed the magnitude of the vector itself.\nIII. If the magnitude of a vector is zero, each of its rectangular components must individually be zero.\nWhich of the statements given above are correct?",
+      "options": [
+        "A) I and III only",
+        "B) I, II and III",
+        "C) I and II only",
+        "D) II and III only"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Statement I: In a two-dimensional plane, a vector can be resolved into two mutually perpendicular (rectangular) components along the two orthogonal basis vectors ($hat{i}$ and $hat{j}$). Thus Statement I is correct.\nStep 2: Evaluate Statement II: For any vector $\u000bec{A} = A_x\\hat{i} + A_y\\hat{j}$, we have $A_x = A\\cos\\theta$ and $A_y = A\\sin\\theta$. Since $|cos\\theta| \\le 1$ and $|sin\\theta| \\le 1$, $|A_x| \\le A$ and $|A_y| \\le A$. Thus no component magnitude can exceed the vector's magnitude. Statement II is correct.\nStep 3: Evaluate Statement III: Since $A = \\sqrt{A_x^2 + A_y^2}$, $A = 0 \\implies A_x^2 + A_y^2 = 0$. Since squares of real numbers are non-negative, this requires $A_x = 0$ and $A_y = 0$. Statement III is correct.\nStep 4: Distractor rejection: Since all three statements (I, II, and III) are correct, Option B is the only correct choice."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_023",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the trajectory of a projectile near Earth's surface (neglecting air resistance):\nStatement I: The horizontal component of the velocity of a projectile remains strictly constant throughout its entire motion because there is no horizontal force acting on it.\nStatement II: The trajectory equation $y = x\\tan\\theta - \\frac{g x^2}{2 u^2 \\cos^2\\theta}$ represents a parabola whose axis of symmetry is vertical and parallel to the y-axis.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Statement I is incorrect but Statement II is correct.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Both Statement I and Statement II are incorrect."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In the absence of air resistance, the only force acting on the projectile is gravity directed vertically downwards ($a_x = 0, a_y = -g$). Since $a_x = 0$, the horizontal velocity component remains constant at $v_x = u\\cos\\theta$ throughout the trajectory. Statement I is correct.\nStep 2: By substituting $t = \\frac{x}{u\\cos\\theta}$ into the vertical displacement equation $y = u\\sin\\theta\\, t - \\frac{1}{2}gt^2$, we obtain the trajectory equation $y = x\\tan\\theta - \\frac{g}{2u^2\\cos^2\\theta}x^2$. This is a quadratic equation of the form $y = ax - bx^2$, which mathematically describes a concave downward parabola with a vertical axis of symmetry at $x = \\frac{R}{2}$. Statement II is correct.\nStep 3: Distractor rejection: The remaining options are eliminated because both Statement I and Statement II are fundamental, exact NCERT concepts."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_024",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A projectile is launched from ground level with speed $u$ at an angle $\\theta$ with the horizontal. If the horizontal range $R$ of the projectile is equal to $4\\sqrt{3}$ times its maximum height $H$ ($R = 4\\sqrt{3}\\, H$), the angle of projection $\\theta$ is:",
+      "options": [
+        "A) $45^\\circ$",
+        "B) $60^\\circ$",
+        "C) $75^\\circ$",
+        "D) $30^\\circ$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Write the standard formulas for maximum height $H$ and horizontal range $R$:\n$H = \\frac{u^2\\sin^2\\theta}{2g}$ and $R = \\frac{u^2\\sin 2\\theta}{g} = \\frac{2u^2\\sin\\theta\\cos\\theta}{g}$.\nStep 2: Establish the general relationship between $H$ and $R$:\n$\\frac{H}{R} = \\frac{u^2\\sin^2\\theta / (2g)}{2u^2\\sin\\theta\\cos\\theta / g} = \\frac{\\tan\\theta}{4} \\implies R\\tan\\theta = 4H$.\nStep 3: Substitute the given condition $R = 4\\sqrt{3}\\, H$ into the relation:\n$(4\\sqrt{3}\\, H)\\tan\\theta = 4H \\implies \\sqrt{3}\\tan\\theta = 1 \\implies \\tan\\theta = \\frac{1}{\\sqrt{3}}$.\nStep 4: Since $\\tan 30^\\circ = \\frac{1}{\\sqrt{3}}$, the angle of projection is $\\theta = 30^\\circ$.\nDistractor rejection: Option A ($45^\\circ$) corresponds to $R = 4H$; Option B ($60^\\circ$) corresponds to $R = \\frac{4}{\\sqrt{3}}H$; Option C ($75^\\circ$) corresponds to $\\tan 75^\\circ = 2+\\sqrt{3}$."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_025",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A body of mass $m$ is projected from ground level with an initial kinetic energy $E$ at an angle of $60^\\circ$ to the horizontal. Assuming ground level as the reference for zero potential energy and neglecting air resistance, the kinetic energy ($K$) and gravitational potential energy ($U$) of the body at the highest point of its trajectory are:",
+      "options": [
+        "A) $K = \\frac{E}{4},\\; U = \\frac{3E}{4}$",
+        "B) $K = \\frac{E}{2},\\; U = \\frac{E}{2}$",
+        "C) $K = \\frac{3E}{4},\\; U = \\frac{E}{4}$",
+        "D) $K = 0,\\; U = E$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The initial kinetic energy at launch is $E = \\frac{1}{2}mu^2$.\nStep 2: At the highest point of the trajectory, the vertical component of velocity becomes zero ($v_y = 0$), so the particle only possesses its horizontal velocity component $v_x = u\\cos\\theta = u\\cos 60^\\circ = \\frac{u}{2}$.\nStep 3: The kinetic energy at the highest point is $K = \\frac{1}{2}m v_x^2 = \\frac{1}{2}m \\left(\\frac{u}{2}\\right)^2 = \\frac{1}{4}\\left(\\frac{1}{2}mu^2\\right) = \\frac{E}{4}$.\nStep 4: According to the law of conservation of mechanical energy ($E_{\\text{total}} = K + U = E$), the gravitational potential energy at the peak is $U = E - K = E - \\frac{E}{4} = \\frac{3E}{4}$.\nDistractor rejection: Option B corresponds to an angle of $45^\\circ$; Option C reverses kinetic and potential energy; Option D mistakenly assumes the particle stops completely at the peak (as in 1D vertical motion)."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_026",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For a given speed of projection $u$, the horizontal range of a projectile is identical for two angles of projection $\\theta$ and $(90^\\circ - \\theta)$.\nReason (R): The product of the times of flight $T_1$ and $T_2$ corresponding to these two complementary angles of projection is directly proportional to the horizontal range $R$, such that $T_1 T_2 = \\frac{2R}{g}$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Assertion (A): Horizontal range is $R = \\frac{u^2\\sin 2\\theta}{g}$. Replacing $\\theta$ with $(90^\\circ - \\theta)$ gives $\\sin(2(90^\\circ - \\theta)) = \\sin(180^\\circ - 2\\theta) = \\sin 2\\theta$. Thus the range is identical for complementary angles. Assertion (A) is true.\nStep 2: Evaluate Reason (R): Times of flight are $T_1 = \\frac{2u\\sin\\theta}{g}$ and $T_2 = \\frac{2u\\sin(90^\\circ - \\theta)}{g} = \\frac{2u\\cos\\theta}{g}$. Multiplying them yields $T_1 T_2 = \\frac{4u^2\\sin\\theta\\cos\\theta}{g^2} = \\frac{2}{g}\\left(\\frac{u^2\\sin 2\\theta}{g}\\right) = \\frac{2R}{g}$. Hence Reason (R) is true.\nStep 3: Evaluate explanation: Assertion (A) is a direct consequence of the trigonometric identity $\\sin(180^\\circ - 2\\theta) = \\sin 2\\theta$, not caused by the relation $T_1 T_2 = 2R/g$. Therefore, (R) is a true property but NOT the correct explanatory cause of (A).\nStep 4: Distractor rejection: Option A is ruled out because (R) does not explain the equality of ranges; Options C and D are ruled out as both statements are factually correct."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_027",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two projectiles are thrown with the same initial speed $u$ at two complementary angles of projection $\\theta_1$ and $\\theta_2 = 90^\\circ - \\theta_1$. If the ratio of their maximum heights is $\\frac{H_1}{H_2} = \\frac{1}{3}$, the values of the angles of projection $\\theta_1$ and $\\theta_2$ are, respectively:",
+      "options": [
+        "A) $15^\\circ$ and $75^\\circ$",
+        "B) $20^\\circ$ and $70^\\circ$",
+        "C) $30^\\circ$ and $60^\\circ$",
+        "D) $45^\\circ$ and $45^\\circ$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The maximum height attained by a projectile is $H = \\frac{u^2\\sin^2\\theta}{2g}$.\nStep 2: For complementary angles $\\theta_1$ and $\\theta_2 = 90^\\circ - \\theta_1$, we have $H_1 = \\frac{u^2\\sin^2\\theta_1}{2g}$ and $H_2 = \\frac{u^2\\sin^2(90^\\circ - \\theta_1)}{2g} = \\frac{u^2\\cos^2\\theta_1}{2g}$.\nStep 3: The ratio of the maximum heights is $\\frac{H_1}{H_2} = \\frac{\\sin^2\\theta_1}{\\cos^2\\theta_1} = \\tan^2\\theta_1$.\nStep 4: Set this ratio equal to the given value: $\\tan^2\\theta_1 = \\frac{1}{3} \\implies \\tan\\theta_1 = \\frac{1}{\\sqrt{3}}$ (taking the acute angle).\nStep 5: Therefore, $\\theta_1 = 30^\\circ$ and $\\theta_2 = 90^\\circ - 30^\\circ = 60^\\circ$.\nDistractor rejection: Option D gives $H_1/H_2 = 1$; Option A gives $\\tan^2 15^\\circ = (2-\\sqrt{3})^2 = 7 - 4\\sqrt{3} \\approx 0.0718 \\ne 1/3$; Option B does not satisfy the ratio."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_028",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the maximum heights $H_1$ and $H_2$ attained by two projectiles launched with the same speed $u$ at complementary angles $\\theta$ and $(90^\\circ - \\theta)$:\nStatement I: The sum of the two maximum heights is independent of the angle of projection and is equal to $\\frac{u^2}{2g}$.\nStatement II: The geometric mean of the two maximum heights satisfies $\\sqrt{H_1 H_2} = \\frac{R}{4}$, where $R$ is the common horizontal range.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement I: $H_1 = \\frac{u^2\\sin^2\\theta}{2g}$ and $H_2 = \\frac{u^2\\cos^2\\theta}{2g}$. Adding them gives $H_1 + H_2 = \\frac{u^2}{2g}(\\sin^2\\theta + \\cos^2\\theta) = \\frac{u^2}{2g}$. This sum depends solely on the initial speed $u$ and gravitational acceleration $g$, completely independent of $\\theta$. Thus Statement I is correct.\nStep 2: Evaluate Statement II: The product is $H_1 H_2 = \\frac{u^4\\sin^2\\theta\\cos^2\\theta}{4g^2} = \\frac{(u^2\\sin 2\\theta / g)^2}{16} = \\frac{R^2}{16}$. Taking the square root gives $\\sqrt{H_1 H_2} = \\frac{R}{4} \\implies R = 4\\sqrt{H_1 H_2}$. Thus Statement II is correct.\nStep 3: Distractor rejection: The remaining options are eliminated because both mathematical identities are standard, established NEET relations."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_029",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A ball is projected from the ground with a velocity of $40\\text{ m/s}$ at an angle of $30^\\circ$ above the horizontal. Taking acceleration due to gravity $g = 10\\text{ m/s}^2$, the total time of flight $T$ and the maximum height $H$ reached by the ball are:",
+      "options": [
+        "A) $T = 4\\text{ s},\\; H = 20\\text{ m}$",
+        "B) $T = 4\\text{ s},\\; H = 40\\text{ m}$",
+        "C) $T = 2\\text{ s},\\; H = 20\\text{ m}$",
+        "D) $T = 8\\text{ s},\\; H = 80\\text{ m}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate the vertical and horizontal components of the initial velocity:\n$u_y = u\\sin 30^\\circ = 40 \\times \\frac{1}{2} = 20\\text{ m/s}$,\n$u_x = u\\cos 30^\\circ = 40 \\times \\frac{\\sqrt{3}}{2} = 20\\sqrt{3}\\text{ m/s}$.\nStep 2: Calculate the total time of flight $T$:\n$T = \\frac{2u_y}{g} = \\frac{2 \\times 20}{10} = 4\\text{ s}$.\nStep 3: Calculate the maximum height $H$:\n$H = \\frac{u_y^2}{2g} = \\frac{20^2}{2 \\times 10} = \\frac{400}{20} = 20\\text{ m}$.\nDistractor rejection: Option B erroneously uses $H = u_y^2 / g = 40\\text{ m}$; Option C gives the time to reach maximum height ($t = 2\\text{ s}$) instead of total time of flight; Option D doubles the time and height."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_030",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The equation of the trajectory of a projectile launched from the origin is given by $y = x - \\frac{x^2}{20}$, where $x$ and $y$ are measured in meters. Taking $g = 10\\text{ m/s}^2$, the angle of projection $\\theta$ and the initial speed of projection $u$ are, respectively:",
+      "options": [
+        "A) $\\theta = 30^\\circ$ and $u = 10\\sqrt{2}\\text{ m/s}$",
+        "B) $\\theta = 45^\\circ$ and $u = 10\\sqrt{2}\\text{ m/s}$",
+        "C) $\\theta = 45^\\circ$ and $u = 10\\text{ m/s}$",
+        "D) $\\theta = 60^\\circ$ and $u = 20\\text{ m/s}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Compare the given equation $y = x - \\frac{x^2}{20}$ with the standard trajectory equation $y = x\\tan\\theta - \\frac{g}{2u^2\\cos^2\\theta}x^2$.\nStep 2: Equating the coefficients of $x$ gives $\\tan\\theta = 1 \\implies \\theta = 45^\\circ$.\nStep 3: Equating the coefficients of $x^2$ gives $\\frac{g}{2u^2\\cos^2\\theta} = \\frac{1}{20}$.\nStep 4: Substitute $g = 10\\text{ m/s}^2$ and $\\cos 45^\\circ = \\frac{1}{\\sqrt{2}}$: $\\frac{10}{2u^2 (1/2)} = \\frac{1}{20} \\implies \\frac{10}{u^2} = \\frac{1}{20} \\implies u^2 = 200 \\implies u = \\sqrt{200} = 10\\sqrt{2}\\text{ m/s}$.\nDistractor rejection: Option C forgets the factor of 2 or squares improperly; Option D assumes $\\tan\\theta = \\sqrt{3}$; Option A assumes $\\theta = 30^\\circ$."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_031",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle is projected from horizontal ground with speed $u$ at an angle $\\theta$ ($> 45^\\circ$) with the horizontal. The time $t$ elapsed from the instant of projection when the particle's velocity vector $\\vec{v}$ becomes perpendicular to its initial velocity vector $\\vec{u}$ is:",
+      "options": [
+        "A) $t = \\frac{u\\sin\\theta}{g}$",
+        "B) $t = \\frac{2u\\sin\\theta}{g}$",
+        "C) $t = \\frac{u}{g\\sin\\theta}$",
+        "D) $t = \\frac{u}{g\\cos\\theta}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The initial velocity vector is $\\vec{u} = (u\\cos\\theta)\\hat{i} + (u\\sin\\theta)\\hat{j}$.\nStep 2: The velocity vector at time $t$ is $\\vec{v} = (u\\cos\\theta)\\hat{i} + (u\\sin\\theta - gt)\\hat{j}$.\nStep 3: The condition for $\\vec{v}$ to be perpendicular to $\\vec{u}$ is $\\vec{u} \\cdot \\vec{v} = 0$.\nStep 4: Expand the scalar product:\n$(u\\cos\\theta)(u\\cos\\theta) + (u\\sin\\theta)(u\\sin\\theta - gt) = 0 \\implies u^2\\cos^2\\theta + u^2\\sin^2\\theta - ugt\\sin\\theta = 0$.\nStep 5: Using $\\cos^2\\theta + \\sin^2\\theta = 1$, we get $u^2 - ugt\\sin\\theta = 0 \\implies u(u - gt\\sin\\theta) = 0 \\implies t = \\frac{u}{g\\sin\\theta}$.\nDistractor rejection: Option D has $\\cos\\theta$ in the denominator; Option A is the time to reach the apex; Option B is the total time of flight."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_032",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the change in linear momentum of a projectile of mass $m$ launched with velocity $u$ at an angle $\\theta$ to the horizontal:\nStatement I: The magnitude of the change in linear momentum from the point of projection to the highest point of its trajectory is $m u\\sin\\theta$.\nStatement II: The magnitude of the change in linear momentum between the point of projection and the point where it strikes the ground at the same horizontal level is $2m u\\sin\\theta$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement I: Initial momentum is $\\vec{p}_i = m(u\\cos\\theta\\hat{i} + u\\sin\\theta\\hat{j})$. At the highest point, vertical velocity is zero, so $\\vec{p}_H = m(u\\cos\\theta\\hat{i})$. Change in momentum is $\\Delta\\vec{p} = \\vec{p}_H - \\vec{p}_i = -m u\\sin\\theta\\hat{j}$. The magnitude is $|\\Delta\\vec{p}| = m u\\sin\\theta$. Statement I is correct.\nStep 2: Evaluate Statement II: When returning to ground level, the velocity is $\\vec{v}_f = u\\cos\\theta\\hat{i} - u\\sin\\theta\\hat{j}$, so final momentum is $\\vec{p}_f = m(u\\cos\\theta\\hat{i} - u\\sin\\theta\\hat{j})$. The total change in momentum is $\\Delta\\vec{p}_{\\text{total}} = \\vec{p}_f - \\vec{p}_i = -2m u\\sin\\theta\\hat{j}$. The magnitude is $|\\Delta\\vec{p}_{\\text{total}}| = 2m u\\sin\\theta$. Statement II is correct.\nStep 3: Distractor rejection: The remaining options are eliminated because both statements correctly apply Newton's momentum definitions to projectile motion."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_033",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A projectile is launched from ground level with an initial velocity $\\vec{u} = u_x\\hat{i} + u_y\\hat{j}$. The magnitude and direction of the average velocity vector $\\vec{v}_{\\text{avg}}$ between the instant of launch and the instant it reaches its maximum height are given by:",
+      "options": [
+        "A) $\\vec{v}_{\\text{avg}} = u_x\\hat{i} + \\frac{u_y}{2}\\hat{j}$",
+        "B) $\\vec{v}_{\\text{avg}} = \\frac{u_x}{2}\\hat{i} + u_y\\hat{j}$",
+        "C) $\\vec{v}_{\\text{avg}} = u_x\\hat{i} + u_y\\hat{j}$",
+        "D) $\\vec{v}_{\\text{avg}} = u_x\\hat{i}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The time taken to reach the maximum height is $t_H = \\frac{u_y}{g}$.\nStep 2: During this time, the horizontal displacement is $x = u_x t_H = u_x \\left(\\frac{u_y}{g}\\right)$.\nStep 3: The vertical displacement at maximum height is $y = H = \\frac{u_y^2}{2g}$.\nStep 4: The total displacement vector to the highest point is $\\Delta\\vec{r} = x\\hat{i} + y\\hat{j} = \\left(\\frac{u_x u_y}{g}\\right)\\hat{i} + \\left(\\frac{u_y^2}{2g}\\right)\\hat{j}$.\nStep 5: The average velocity is $\\vec{v}_{\\text{avg}} = \\frac{\\Delta\\vec{r}}{t_H} = \\frac{\\left(\\frac{u_x u_y}{g}\\right)\\hat{i} + \\left(\\frac{u_y^2}{2g}\\right)\\hat{j}}{\\frac{u_y}{g}} = u_x\\hat{i} + \\frac{u_y}{2}\\hat{j}$.\nDistractor rejection: Option B halves the horizontal component which is constant; Option C assumes average velocity equals initial velocity; Option D neglects the vertical displacement entirely."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_034",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A projectile launched from the origin $(0,0)$ lands on horizontal ground at a distance of $80\\text{ m}$ ($R = 80\\text{ m}$). If the projectile passes through a point with coordinates $(x, y) = (20\\text{ m}, 15\\text{ m})$ during its flight, the angle of projection $\\theta$ is:",
+      "options": [
+        "A) $30^\\circ$",
+        "B) $45^\\circ$",
+        "C) $60^\\circ$",
+        "D) $\\tan^{-1}(2)$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Recall the alternate form of the trajectory equation in terms of horizontal range $R$: $y = x\\tan\\theta\\left(1 - \\frac{x}{R}\\right)$.\nStep 2: Substitute the known values $x = 20\\text{ m}$, $y = 15\\text{ m}$, and $R = 80\\text{ m}$ into the equation:\n$15 = 20\\tan\\theta\\left(1 - \\frac{20}{80}\\right)$.\nStep 3: Simplify the term inside the parentheses: $1 - \\frac{20}{80} = 1 - \\frac{1}{4} = \\frac{3}{4}$.\nStep 4: Solve for $\\tan\\theta$: $15 = 20\\tan\\theta \\left(\\frac{3}{4}\\right) \\implies 15 = 15\\tan\\theta \\implies \\tan\\theta = 1$.\nStep 5: Therefore, the angle of projection is $\\theta = 45^\\circ$.\nDistractor rejection: Option A ($\theta = 30^\\circ$) would give $y = 15/\\sqrt{3} = 5\\sqrt{3} \\approx 8.66\\text{ m}$; Option C ($\theta = 60^\\circ$) would give $y = 15\\sqrt{3} \\approx 26\\text{ m}$; Option D would give $y = 30\\text{ m}$."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_035",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (State / Quantity of Projectile) with List II (Value / Direction at Highest Point):\nList I:\nP. Vertical velocity component ($v_y$)\nQ. Acceleration vector ($\\vec{a}$)\nR. Kinetic energy for launch angle $\\theta = 45^\\circ$ ($K$)\nS. Angle between velocity and acceleration vectors\n\nList II:\n1. $90^\\circ$\n2. $g$ vertically downwards\n3. Zero\n4. $\\frac{1}{2} K_0$ (where $K_0$ is initial KE)\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-2, Q-3, R-1, S-4",
+        "B) P-4, Q-2, R-3, S-1",
+        "C) P-3, Q-2, R-4, S-1",
+        "D) P-3, Q-1, R-4, S-2"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: At the highest point, vertical velocity momentarily vanishes, so $v_y = 0$ (P matches 3).\nStep 2: Gravity is the sole force acting, so acceleration is $\\vec{a} = g$ directed vertically downwards throughout the motion (Q matches 2).\nStep 3: At $\\theta = 45^\\circ$, $v = u\\cos 45^\\circ = u/\\sqrt{2}$. Thus $K = \\frac{1}{2}m(u/\\sqrt{2})^2 = \\frac{1}{2}K_0$ (R matches 4).\nStep 4: At the apex, velocity is purely horizontal while acceleration is strictly vertical downwards, making the angle between them exactly $90^\\circ$ (S matches 1).\nStep 5: Distractor rejection: Only Option C contains the precise mapping (P-3, Q-2, R-4, S-1)."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_036",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A projectile is thrown from the ground with an initial speed of $50\\text{ m/s}$ at an angle of $53^\\circ$ above the horizontal (take $\\cos 53^\\circ = 0.6$, $\\sin 53^\\circ = 0.8$, and $g = 10\\text{ m/s}^2$). The angle $\\beta$ that the velocity vector makes with the horizontal at time $t = 1\\text{ s}$ after launch is:",
+      "options": [
+        "A) $60^\\circ$",
+        "B) $30^\\circ$",
+        "C) $37^\\circ$",
+        "D) $45^\\circ$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Calculate the initial velocity components: $u_x = u\\cos 53^\\circ = 50 \\times 0.6 = 30\\text{ m/s}$, and $u_y = u\\sin 53^\\circ = 50 \\times 0.8 = 40\\text{ m/s}$.\nStep 2: At time $t = 1\\text{ s}$, the horizontal velocity component remains unchanged: $v_x = u_x = 30\\text{ m/s}$.\nStep 3: The vertical velocity component at $t = 1\\text{ s}$ is $v_y = u_y - gt = 40 - (10 \\times 1) = 30\\text{ m/s}$.\nStep 4: The angle $\\beta$ made with the horizontal satisfies $\\tan\\beta = \\frac{v_y}{v_x} = \\frac{30}{30} = 1$.\nStep 5: Since $\\tan\\beta = 1$, the angle is $\\beta = 45^\\circ$.\nDistractor rejection: Option B corresponds to $\\tan\\beta = 1/\\sqrt{3}$; Option C corresponds to $\\tan\\beta = 3/4$; Option A corresponds to $\\tan\\beta = \\sqrt{3}$."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_037",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): If an athlete can throw a javelin to a maximum horizontal distance of $100\\text{ m}$, the maximum vertical height to which the athlete can throw the same javelin with the same launch speed is $50\\text{ m}$.\nReason (R): The maximum horizontal range is $R_{\\max} = \\frac{u^2}{g}$ (at $\\theta = 45^\\circ$), whereas the maximum vertical height attained in purely vertical projection ($\theta = 90^\\circ$) is $H_{\\max} = \\frac{u^2}{2g} = \\frac{R_{\\max}}{2}$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Reason (R): The maximum horizontal range occurs at $\\theta = 45^\\circ$ where $\\sin 2\\theta = 1$, giving $R_{\\max} = \\frac{u^2}{g}$. To achieve maximum vertical height, the body must be thrown straight up ($\theta = 90^\\circ$), which yields $H_{\\max} = \\frac{u^2\\sin^2 90^\\circ}{2g} = \\frac{u^2}{2g}$. Comparing the two reveals $H_{\\max} = \\frac{R_{\\max}}{2}$. Reason (R) is mathematically true.\nStep 2: Evaluate Assertion (A): Given $R_{\\max} = 100\\text{ m}$, the maximum vertical height possible with the same speed is $H_{\\max} = \\frac{100}{2} = 50\\text{ m}$. Thus Assertion (A) is true, and (R) correctly explains (A).\nStep 3: Distractor rejection: A common misconception among students is using the height achieved during the $45^\\circ$ throw ($H_{45^\\circ} = R_{\\max}/4 = 25\\text{ m}$), but maximum vertical height means reorienting the throw vertically ($\theta = 90^\\circ$), so Option A is correct."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_038",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the work done by the gravitational force on a projectile of mass $m$ launched with velocity $u$ at an angle $\\theta$ from ground level:\nI. The work done by gravity on the projectile from the instant of projection to the highest point is negative and equal to $-\\frac{1}{2}m u^2\\sin^2\\theta$.\nII. The total work done by gravity over the entire flight until the projectile returns to the same ground level is zero.\nIII. The instantaneous power delivered by gravity to the projectile at the highest point of its path is zero.\nWhich of the statements given above are correct?",
+      "options": [
+        "A) I and III only",
+        "B) I, II and III",
+        "C) I and II only",
+        "D) II and III only"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Statement I: Gravitational force is $\\vec{F}_g = -mg\\hat{j}$ and vertical displacement to the peak is $H = \\frac{u^2\\sin^2\\theta}{2g}\\hat{j}$. The work done by gravity is $W_g = \\vec{F}_g \\cdot \\vec{d} = -mg H = -mg\\left(\\frac{u^2\\sin^2\\theta}{2g}\\right) = -\\frac{1}{2}mu^2\\sin^2\\theta$. Thus Statement I is correct.\nStep 2: Evaluate Statement II: Since gravity is a conservative force and the net vertical displacement for the entire trajectory is zero ($y_f - y_i = 0$), the total work done by gravity is $W_{\\text{total}} = -mg(0) = 0$. Thus Statement II is correct.\nStep 3: Evaluate Statement III: Instantaneous power is $P = \\vec{F} \\cdot \\vec{v} = (-mg\\hat{j}) \\cdot (u\\cos\\theta\\hat{i}) = 0$, because velocity at the peak is purely horizontal and force is purely vertical. Thus Statement III is correct.\nStep 4: Distractor rejection: Since statements I, II, and III are all correct, Option B is the only valid choice."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_039",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two projectiles $A$ and $B$ are thrown with the same initial speed from the same point at angles $30^\\circ$ and $60^\\circ$ with the horizontal, respectively. If $T_A$ and $T_B$ denote their times of flight and $R_A$ and $R_B$ denote their horizontal ranges, then:",
+      "options": [
+        "A) $R_A > R_B$ and $\\frac{T_A}{T_B} = 1$",
+        "B) $R_A < R_B$ and $\\frac{T_A}{T_B} = \\frac{1}{3}$",
+        "C) $R_A = R_B$ and $\\frac{T_A}{T_B} = \\frac{1}{\\sqrt{3}}$",
+        "D) $R_A = R_B$ and $\\frac{T_A}{T_B} = \\sqrt{3}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Since $30^\\circ$ and $60^\\circ$ are complementary angles ($30^\\circ + 60^\\circ = 90^\\circ$), the horizontal ranges are equal: $R_A = R_B = \\frac{u^2\\sin 60^\\circ}{g}$.\nStep 2: The times of flight are $T_A = \\frac{2u\\sin 30^\\circ}{g} = \\frac{2u(1/2)}{g} = \\frac{u}{g}$ and $T_B = \\frac{2u\\sin 60^\\circ}{g} = \\frac{2u(\\sqrt{3}/2)}{g} = \\frac{\\sqrt{3}u}{g}$.\nStep 3: Compute the ratio: $\\frac{T_A}{T_B} = \\frac{u/g}{\\sqrt{3}u/g} = \\frac{1}{\\sqrt{3}}$.\nDistractor rejection: Option D inverts the ratio; Option A incorrectly states $R_A > R_B$; Option B incorrectly asserts different ranges."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_040",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the speed of a projectile at a vertical height $h$ above its launch point:\nStatement I: The speed of a projectile at height $h$ is given by $v = \\sqrt{u^2 - 2gh}$, which depends only on the initial launch speed $u$ and height $h$, and is completely independent of the angle of projection $\\theta$.\nStatement II: The direction of the velocity vector at height $h$ is also completely independent of the angle of projection $\\theta$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is incorrect but Statement II is correct.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Both Statement I and Statement II are incorrect.",
+        "D) Statement I is correct but Statement II is incorrect."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement I: By conservation of mechanical energy in a uniform gravitational field, $E_{\\text{total}} = \\frac{1}{2}mu^2 = \\frac{1}{2}mv^2 + mgh \\implies v = \\sqrt{u^2 - 2gh}$. The speed $v$ is determined solely by $u$ and $h$, irrespective of the projection angle $\\theta$ (provided $h \\le H_{\\max}$). Statement I is correct.\nStep 2: Evaluate Statement II: The horizontal component of velocity is $v_x = u\\cos\\theta$, which depends directly on $\\theta$. The angle of the velocity vector with the horizontal at height $h$ is $\\tan\\beta = \\frac{v_y}{v_x} = \\frac{\\sqrt{u^2\\sin^2\\theta - 2gh}}{u\\cos\\theta}$, which strongly depends on $\\theta$. Statement II is incorrect.\nStep 3: Distractor rejection: The remaining options are eliminated because Statement I is an exact energetic truth while Statement II falsely claims direction is angle-independent."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_041",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle of mass $m$ is projected with speed $u$ at an angle $\\theta$ with the horizontal from the origin. The magnitude of the angular momentum of the particle about the origin when it reaches the highest point of its trajectory is:",
+      "options": [
+        "A) $\\frac{m u^3 \\sin^2\\theta \\cos\\theta}{2g}$",
+        "B) $\\frac{m u^3 \\sin\\theta \\cos^2\\theta}{2g}$",
+        "C) $\\frac{m u^3 \\sin 2\\theta}{2g}$",
+        "D) $\\frac{m u^3 \\cos^3\\theta}{2g}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Angular momentum of a particle about the origin is defined as $\\vec{L} = \\vec{r} \\times \\vec{p}$.\nStep 2: At the highest point, the coordinates of the projectile are $(x_H, y_H) = \\left(\\frac{R}{2}, H\\right)$, so $\\vec{r} = \\frac{R}{2}\\hat{i} + H\\hat{j}$.\nStep 3: The linear momentum at the highest point is purely horizontal: $\\vec{p} = m(u\\cos\\theta)\\hat{i}$.\nStep 4: Compute the cross product $\\vec{L} = \\left(\\frac{R}{2}\\hat{i} + H\\hat{j}\\right) \\times (mu\\cos\\theta\\hat{i}) = -H(mu\\cos\\theta)\\hat{k}$.\nStep 5: The magnitude is $L = m u\\cos\\theta\\, H$. Substitute $H = \\frac{u^2\\sin^2\\theta}{2g}$:\n$L = m u\\cos\\theta \\left(\\frac{u^2\\sin^2\\theta}{2g}\\right) = \\frac{m u^3 \\sin^2\\theta\\cos\\theta}{2g}$.\nDistractor rejection: Option B has $\\sin\\theta\\cos^2\\theta$ (incorrect powers); Option C is dimensionally missing a sine/cosine term; Option D ignores the vertical height factor $\\sin^2\\theta$."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_042",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An aircraft is flying horizontally at a constant altitude of $490\\text{ m}$ above flat ground with a uniform speed of $100\\text{ m/s}$. A relief package is dropped from the aircraft. Taking acceleration due to gravity $g = 9.8\\text{ m/s}^2$ and neglecting air resistance, the time taken $t$ for the package to reach the ground and the horizontal distance $x$ traveled by the package from the release point are:",
+      "options": [
+        "A) $t = 14.1\\text{ s},\\; x = 1410\\text{ m}$",
+        "B) $t = 10\\text{ s},\\; x = 1000\\text{ m}$",
+        "C) $t = 10\\text{ s},\\; x = 490\\text{ m}$",
+        "D) $t = 5\\text{ s},\\; x = 500\\text{ m}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The initial vertical velocity of the released package is zero ($u_y = 0$). The time to fall through vertical height $h = 490\\text{ m}$ is given by $h = \\frac{1}{2}gt^2 \\implies t = \\sqrt{\\frac{2h}{g}}$.\nStep 2: Calculate the time of flight: $t = \\sqrt{\\frac{2 \\times 490}{9.8}} = \\sqrt{\\frac{980}{9.8}} = \\sqrt{100} = 10\\text{ s}$.\nStep 3: Since there is no horizontal acceleration ($a_x = 0$), the horizontal velocity remains constant at $u_x = 100\\text{ m/s}$.\nStep 4: The horizontal distance traveled is $x = u_x t = 100\\text{ m/s} \\times 10\\text{ s} = 1000\\text{ m}$.\nDistractor rejection: Option C confuses horizontal range with vertical altitude; Option D uses $h = gt^2$; Option A uses $g = 4.9\\text{ m/s}^2$ improperly."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_043",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A stone is thrown horizontally with an initial speed of $40\\text{ m/s}$ from the top of a cliff of height $45\\text{ m}$. Taking $g = 10\\text{ m/s}^2$, the magnitude of the velocity vector and the angle $\\beta$ that the velocity vector makes with the horizontal just before the stone strikes the ground are:",
+      "options": [
+        "A) $v = 40\\sqrt{2}\\text{ m/s},\\; \\beta = 45^\\circ$",
+        "B) $v = 70\\text{ m/s},\\; \\beta = 30^\\circ$",
+        "C) $v = 50\\text{ m/s},\\; \\beta = 37^\\circ$",
+        "D) $v = 50\\text{ m/s},\\; \\beta = 53^\\circ$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The horizontal velocity component remains constant throughout the motion: $v_x = u_x = 40\\text{ m/s}$.\nStep 2: The vertical velocity component just before impact is obtained from the third equation of motion: $v_y^2 = u_y^2 + 2gh = 0 + 2(10)(45) = 900 \\implies v_y = 30\\text{ m/s}$ (downwards).\nStep 3: The magnitude of the resultant velocity is $v = \\sqrt{v_x^2 + v_y^2} = \\sqrt{40^2 + 30^2} = \\sqrt{1600 + 900} = \\sqrt{2500} = 50\\text{ m/s}$.\nStep 4: The angle made with the horizontal satisfies $\\tan\\beta = \\frac{v_y}{v_x} = \\frac{30}{40} = \\frac{3}{4} = 0.75 \\implies \\beta = 37^\\circ$.\nDistractor rejection: Option D is $53^\\circ$, which is the angle made with the vertical; Option A assumes equal components $v_x = v_y$; Option B is simple scalar addition $(40+30=70)$."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_044",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the radius of curvature $\\rho$ of the trajectory of a projectile launched with speed $u$ at an angle $\\theta$ with the horizontal:\nStatement I: The radius of curvature of the projectile's trajectory at the highest point of its flight is $\\rho = \\frac{u^2\\cos^2\\theta}{g}$.\nStatement II: At the highest point of the trajectory, the radius of curvature is at its absolute minimum compared to any other point on the trajectory.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement I: The radius of curvature is given by $\\rho = \\frac{v^2}{a_\\perp}$, where $v$ is the instantaneous speed and $a_\\perp$ is the component of acceleration perpendicular to the instantaneous velocity. At the highest point, the velocity is purely horizontal ($v = u\\cos\\theta$) and the acceleration is purely vertical ($a_\\perp = g$). Therefore, $\\rho = \\frac{(u\\cos\\theta)^2}{g} = \\frac{u^2\\cos^2\\theta}{g}$. Statement I is correct.\nStep 2: Evaluate Statement II: At any point on the trajectory, $\\rho = \\frac{v^2}{g\\cos\\phi}$, where $\\phi$ is the angle of velocity with the horizontal. Since $v_x = v\\cos\\phi = u\\cos\\theta$, we have $v = \\frac{u\\cos\\theta}{\\cos\\phi}$, which yields $\\rho = \\frac{u^2\\cos^2\\theta}{g\\cos^3\\phi}$. Because $\\cos\\phi$ achieves its maximum value of $1$ at the peak (where $\\phi = 0^\\circ$), the radius of curvature $\\rho$ is at its minimum value at the peak. Thus Statement II is correct.\nStep 3: Distractor rejection: The remaining options are eliminated because both statements are mathematically rigorous and true."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_045",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For a projectile launched with initial velocity $u$ at an angle $\\theta$ with the horizontal, the radius of curvature of the trajectory at the point of projection is $\\rho_0 = \\frac{u^2}{g\\cos\\theta}$.\nReason (R): At the point of projection, the component of gravitational acceleration acting perpendicular to the initial velocity vector is $a_\\perp = g\\cos\\theta$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Reason (R): At launch, the velocity vector is directed at angle $\\theta$ above the horizontal, while acceleration due to gravity $\\vec{g}$ is directed vertically downwards. The angle between $\\vec{u}$ and $\\vec{g}$ is $(90^\\circ + \\theta)$. The component of $\\vec{g}$ perpendicular to the velocity vector is $g\\sin(90^\\circ + \\theta) = g\\cos\\theta$. Thus Reason (R) is true.\nStep 2: Evaluate Assertion (A): By definition of radius of curvature, $\\rho = \\frac{v^2}{a_\\perp}$. At launch, $v = u$ and $a_\\perp = g\\cos\\theta$, which yields $\\rho_0 = \\frac{u^2}{g\\cos\\theta}$. Thus Assertion (A) is true.\nStep 3: Evaluate explanation: Reason (R) provides the exact perpendicular acceleration component necessary to calculate the radius of curvature via $\\rho = v^2/a_\\perp$. Therefore, (R) is the correct explanation of (A).\nStep 4: Distractor rejection: Options B, C, and D are rejected because (A) and (R) are both true and logically chained."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_046",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A river of width $400\\text{ m}$ is flowing with a current speed of $5\\text{ m/s}$. A motorboat can travel with a speed of $10\\text{ m/s}$ in still water. If the boat is steered in such a way that it crosses the river in the minimum possible time, the time taken to cross the river and the downstream drift of the boat are, respectively:",
+      "options": [
+        "A) $46.2\\text{ s}$ and $231\\text{ m}$",
+        "B) $40\\text{ s}$ and $200\\text{ m}$",
+        "C) $40\\text{ s}$ and $0\\text{ m}$",
+        "D) $80\\text{ s}$ and $400\\text{ m}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: For the boat to cross the river in minimum time, the velocity of the boat relative to water must be directed perpendicular to the river bank ($\theta = 90^\\circ$ relative to the flow direction).\nStep 2: The component of velocity perpendicular to the river flow is $v_y = v_b = 10\\text{ m/s}$.\nStep 3: The minimum time of crossing is $t_{\\min} = \\frac{d}{v_b} = \\frac{400\\text{ m}}{10\\text{ m/s}} = 40\\text{ s}$.\nStep 4: During this crossing time, the river current carries the boat downstream. The drift $x$ is given by $x = v_r \\times t_{\\min} = 5\\text{ m/s} \\times 40\\text{ s} = 200\\text{ m}$.\nDistractor rejection: Option C is zero drift, which requires steering upstream and results in a longer crossing time ($t = 400/\\sqrt{10^2-5^2} = 46.2\\text{ s}$); Option D doubles the time; Option A gives the shortest path values."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_047",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A swimmer wishes to cross a river of width $400\\text{ m}$ to reach a point directly opposite to the starting point on the other bank (zero drift). The speed of the river current is $3\\text{ m/s}$ and the swimmer's speed in still water is $5\\text{ m/s}$. The angle at which the swimmer must steer relative to the upstream bank and the time taken to cross the river are, respectively:",
+      "options": [
+        "A) $90^\\circ$ with downstream flow and $80\\text{ s}$",
+        "B) $120^\\circ$ with downstream flow and $100\\text{ s}$",
+        "C) $127^\\circ$ with downstream flow and $100\\text{ s}$",
+        "D) $143^\\circ$ with downstream flow and $80\\text{ s}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: For zero drift, the net velocity of the swimmer relative to ground must be directed straight across the river along the y-axis ($\u000bec{v}_{sg} = v_{\\text{eff}}\\hat{j}$).\nStep 2: The swimmer must steer at an angle $\\alpha$ upstream with respect to the line perpendicular to the bank, such that $v_s\\sin\\alpha = v_r \\implies \\sin\\alpha = \\frac{v_r}{v_s} = \\frac{3}{5} = 0.6 \\implies \\alpha = 37^\\circ$.\nStep 3: The total angle with the downstream direction of flow is $\\theta = 90^\\circ + \\alpha = 90^\\circ + 37^\\circ = 127^\\circ$.\nStep 4: The effective speed across the river is $v_{\\text{eff}} = \\sqrt{v_s^2 - v_r^2} = \\sqrt{5^2 - 3^2} = \\sqrt{25 - 9} = \\sqrt{16} = 4\\text{ m/s}$.\nStep 5: The time taken to cross is $t = \\frac{d}{v_{\\text{eff}}} = \\frac{400\\text{ m}}{4\\text{ m/s}} = 100\\text{ s}$.\nDistractor rejection: Option D uses $\\alpha = 53^\\circ$; Option A represents minimum time crossing, not zero drift; Option B uses an angle corresponding to $\\sin\\alpha = 1/2$."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_048",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Rain is falling vertically downwards with a speed of $30\\text{ m/s}$. A cyclist rides horizontally along a straight road with a speed of $10\\sqrt{3}\\text{ m/s}$ towards the east. To protect himself from the rain, the cyclist must hold his umbrella at an angle $\\theta$ with the vertical given by:",
+      "options": [
+        "A) $60^\\circ$ inclined towards the east",
+        "B) $30^\\circ$ inclined towards the west",
+        "C) $45^\\circ$ inclined towards the east",
+        "D) $30^\\circ$ inclined towards the east"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Let the east direction be $+\\hat{i}$ and the upward vertical direction be $+\\hat{j}$. The velocity of rain is $\\vec{v}_r = -30\\hat{j}\\text{ m/s}$ and the velocity of the cyclist is $\\vec{v}_m = 10\\sqrt{3}\\hat{i}\\text{ m/s}$.\nStep 2: The velocity of rain relative to the cyclist is $\\vec{v}_{rm} = \\vec{v}_r - \\vec{v}_m = -10\\sqrt{3}\\hat{i} - 30\\hat{j}\\text{ m/s}$.\nStep 3: To the cyclist, the rain appears to come from the direction opposite to $\\vec{v}_{rm}$, which is $+10\\sqrt{3}\\hat{i} + 30\\hat{j}$. Therefore, the umbrella must be held tilted towards the east (the direction of motion).\nStep 4: The angle $\\theta$ made with the vertical satisfies $\\tan\\theta = \\frac{|v_m|}{|v_r|} = \\frac{10\\sqrt{3}}{30} = \\frac{\\sqrt{3}}{3} = \\frac{1}{\\sqrt{3}}$.\nStep 5: Since $\\tan 30^\\circ = \\frac{1}{\\sqrt{3}}$, the angle is $\\theta = 30^\\circ$ inclined towards the east.\nDistractor rejection: Option A ($60^\\circ$) is the angle with the horizontal; Option B tilts towards the west, which would leave the cyclist exposed to the oncoming rain; Option C corresponds to equal speeds."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_049",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding rain-man relative kinematics:\nStatement I: When a man walks with a horizontal velocity $v$, rain appears to fall vertically. When he doubles his speed to $2v$ in the same direction, the rain appears to hit him at an angle of $45^\\circ$ with the vertical.\nStatement II: The actual speed of the raindrops with respect to the ground is $v\\sqrt{2}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let the true velocity of rain relative to the ground be $\\vec{v}_r = v_{rx}\\hat{i} + v_{ry}\\hat{j}$, where $v_{ry} < 0$.\nStep 2: Case 1: Man's velocity is $\\vec{v}_{m1} = v\\hat{i}$. Relative velocity is $\\vec{v}_{rm1} = (v_{rx} - v)\\hat{i} + v_{ry}\\hat{j}$. For this to be purely vertical, the horizontal component must be zero: $v_{rx} - v = 0 \\implies v_{rx} = v$.\nStep 3: Case 2: Man doubles his speed: $\\vec{v}_{m2} = 2v\\hat{i}$. The new relative velocity is $\\vec{v}_{rm2} = (v - 2v)\\hat{i} + v_{ry}\\hat{j} = -v\\hat{i} + v_{ry}\\hat{j}$.\nStep 4: Since this relative velocity makes an angle of $45^\\circ$ with the vertical, $\\tan 45^\\circ = \\frac{|v_{rmx}|}{|v_{rmy}|} = \\frac{v}{|v_{ry}|} = 1 \\implies |v_{ry}| = v$.\nStep 5: The true velocity of the rain is $\\vec{v}_r = v\\hat{i} - v\\hat{j}$. The true speed of the raindrops relative to ground is $v_r = \\sqrt{v^2 + (-v)^2} = v\\sqrt{2}$. Thus Statement II correctly follows from Statement I, and both are correct.\nStep 6: Distractor rejection: Options B, C, and D are ruled out because both statements are fully consistent and true."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_050",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding a particle executing Uniform Circular Motion (UCM) of radius $r$ with constant speed $v$:\nI. The velocity vector is constantly changing in direction, so the acceleration is non-zero.\nII. The instantaneous acceleration vector is strictly directed along the radius towards the center of the circle with magnitude $a_c = \\frac{v^2}{r} = \\omega^2 r$.\nIII. The net work done by the centripetal force on the particle in any time interval is strictly zero because the force is always perpendicular to the instantaneous velocity.\nWhich of the statements given above are correct?",
+      "options": [
+        "A) I and III only",
+        "B) I, II and III",
+        "C) I and II only",
+        "D) II and III only"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Statement I: Velocity is a vector quantity having both magnitude (speed) and direction. In circular motion, although speed $v$ is constant, the direction of the velocity vector is continuously tangential to the circle, meaning $\\frac{d\\vec{v}}{dt} \\ne 0$. Hence acceleration is non-zero. Statement I is correct.\nStep 2: Evaluate Statement II: In uniform circular motion, there is no tangential acceleration ($a_t = \\frac{dv}{dt} = 0$). The only acceleration is centripetal (radial), directed towards the center with magnitude $a_c = \\frac{v^2}{r} = \\omega^2 r$. Statement II is correct.\nStep 3: Evaluate Statement III: The centripetal force $\\vec{F}_c$ acts radially inward while instantaneous displacement $d\\vec{r}$ is tangential. Thus $\\vec{F}_c \\cdot d\\vec{r} = F_c \\, dr \\cos 90^\\circ = 0$. The work done by centripetal force over any interval is identically zero. Statement III is correct.\nStep 4: Distractor rejection: Since statements I, II, and III are all correct, Option B is the only valid choice."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_051",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A small object moves in a circular path of radius $r = 0.5\\text{ m}$ at a constant speed of $v = 10\\text{ m/s}$. The angular velocity $\\omega$, the period of revolution $T$, and the magnitude of the centripetal acceleration $a_c$ of the object are, respectively:",
+      "options": [
+        "A) $\\omega = 20\\text{ rad/s},\\; T = \\frac{\\pi}{5}\\text{ s},\\; a_c = 100\\text{ m/s}^2$",
+        "B) $\\omega = 5\\text{ rad/s},\\; T = \\frac{2\\pi}{5}\\text{ s},\\; a_c = 50\\text{ m/s}^2$",
+        "C) $\\omega = 20\\text{ rad/s},\\; T = \\frac{\\pi}{10}\\text{ s},\\; a_c = 200\\text{ m/s}^2$",
+        "D) $\\omega = 10\\text{ rad/s},\\; T = \\frac{\\pi}{5}\\text{ s},\\; a_c = 100\\text{ m/s}^2$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Linear speed and angular velocity are related by $v = \\omega r$. Therefore, $\\omega = \\frac{v}{r} = \\frac{10}{0.5} = 20\\text{ rad/s}$.\nStep 2: The period of revolution is given by $T = \\frac{2\\pi}{\\omega} = \\frac{2\\pi}{20} = \\frac{\\pi}{10}\\text{ s}$.\nStep 3: The centripetal acceleration is $a_c = \\frac{v^2}{r} = \\frac{10^2}{0.5} = \\frac{100}{0.5} = 200\\text{ m/s}^2$ (or $a_c = \\omega^2 r = 20^2 \\times 0.5 = 400 \\times 0.5 = 200\\text{ m/s}^2$).\nDistractor rejection: Option D uses $r = 1\\text{ m}$; Option A has incorrect time period $T$; Option B uses $\\omega = v r$ instead of $v/r$."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_052",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A car is traveling along a circular track of radius $R = 25\\text{ m}$. At a particular instant, its speed is $v = 10\\text{ m/s}$ and its tangential acceleration is $a_t = 3\\text{ m/s}^2$. The magnitude of the net acceleration vector $\\vec{a}_{\\text{net}}$ of the car at this instant is:",
+      "options": [
+        "A) $4\\text{ m/s}^2$",
+        "B) $7\\text{ m/s}^2$",
+        "C) $1\\text{ m/s}^2$",
+        "D) $5\\text{ m/s}^2$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In non-uniform circular motion, the particle experiences two mutually perpendicular acceleration components: the radial (centripetal) acceleration $a_c$ and the tangential acceleration $a_t$.\nStep 2: Calculate the centripetal acceleration: $a_c = \\frac{v^2}{R} = \\frac{10^2}{25} = \\frac{100}{25} = 4\\text{ m/s}^2$.\nStep 3: The tangential acceleration is given as $a_t = 3\\text{ m/s}^2$.\nStep 4: Since $\\vec{a}_c$ and $\\vec{a}_t$ are orthogonal, the net acceleration magnitude is $a_{\\text{net}} = \\sqrt{a_c^2 + a_t^2} = \\sqrt{4^2 + 3^2} = \\sqrt{16 + 9} = \\sqrt{25} = 5\\text{ m/s}^2$.\nDistractor rejection: Option A is only the centripetal acceleration; Option B is scalar sum $(4 + 3 = 7)$; Option C is scalar difference $(4 - 3 = 1)$."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_053",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For a particle revolving in a circle in the xy-plane with constant angular velocity $\\vec{\\omega} = \\omega\\hat{k}$ about the origin, the centripetal acceleration vector is $\\vec{a}_c = -\\omega^2\\vec{r}$.\nReason (R): The linear velocity vector is related to the angular velocity by $\\vec{v} = \\vec{\\omega} \\times \\vec{r}$, and differentiating this relation with constant $\\vec{\\omega}$ yields $\\vec{a} = \\vec{\\omega} \\times \\vec{v} = \\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}) = -\\omega^2\\vec{r}$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Reason (R): Linear velocity is defined as $\\vec{v} = \\vec{\\omega} \\times \\vec{r}$. Differentiating with respect to time for constant $\\vec{\\omega}$ gives $\\vec{a} = \\frac{d\\vec{v}}{dt} = \\vec{\\omega} \\times \\frac{d\\vec{r}}{dt} = \\vec{\\omega} \\times \\vec{v} = \\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r})$. Using the vector triple product identity $\\vec{A} \\times (\\vec{B} \\times \\vec{C}) = (\\vec{A} \\cdot \\vec{C})\\vec{B} - (\\vec{A} \\cdot \\vec{B})\\vec{C}$, since $\\vec{\\omega} \\perp \\vec{r}$ (so $\\vec{\\omega} \\cdot \\vec{r} = 0$), this simplifies to $-(\\vec{\\omega} \\cdot \\vec{\\omega})\\vec{r} = -\\omega^2\\vec{r}$. Reason (R) is mathematically true.\nStep 2: Evaluate Assertion (A): The acceleration vector is $\\vec{a}_c = -\\omega^2\\vec{r}$, which shows that the acceleration is directed opposite to the position vector $\\vec{r}$, i.e., directed radially inward toward the center. Thus Assertion (A) is true.\nStep 3: Evaluate explanation: Reason (R) provides the complete vector-calculus derivation of the centripetal acceleration formula given in Assertion (A). Therefore, Option A is correct.\nStep 4: Distractor rejection: Options B, C, and D are ruled out because (A) and (R) are true and (R) correctly explains (A)."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_054",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Kinematical Condition in 2D Motion) with List II (Governing Physical Equation):\nList I:\nP. Minimum time to cross a river of width $d$\nQ. Zero drift crossing condition ($v_b > v_r$)\nR. Centripetal acceleration in circular motion\nS. Radius of curvature at highest point of projectile\n\nList II:\n1. $\\sin\\alpha = \\frac{v_r}{v_b}$\n2. $t_{\\min} = \\frac{d}{v_b}$\n3. $\\rho = \\frac{u^2\\cos^2\\theta}{g}$\n4. $a_c = \\omega^2 r$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-3, Q-4, R-1, S-2",
+        "B) P-2, Q-1, R-4, S-3",
+        "C) P-1, Q-2, R-3, S-4",
+        "D) P-2, Q-1, R-3, S-4"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Minimum time to cross a river occurs when the boat heads directly perpendicular to the bank, giving $t_{\\min} = \\frac{d}{v_b}$ (P matches 2).\nStep 2: For zero drift crossing with $v_b > v_r$, the boat must steer at angle $\\alpha$ upstream where $\\sin\\alpha = \\frac{v_r}{v_b}$ (Q matches 1).\nStep 3: Centripetal acceleration in circular motion of radius $r$ is $a_c = \\omega^2 r = \\frac{v^2}{r}$ (R matches 4).\nStep 4: The radius of curvature of a projectile at its apex is $\\rho = \\frac{v_x^2}{g} = \\frac{u^2\\cos^2\\theta}{g}$ (S matches 3).\nStep 5: Distractor rejection: Only Option B contains the correct matching sequence (P-2, Q-1, R-4, S-3)."
+    },
+    {
+      "id": "phy_motion_in_a_plane_c01_055",
+      "subject": "Physics",
+      "topic": "Motion in a Plane",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding acceleration in two-dimensional circular motion:\nStatement I: In uniform circular motion, the dot product of the instantaneous velocity vector and the instantaneous acceleration vector is strictly zero ($\\vec{v} \\cdot \\vec{a} = 0$).\nStatement II: In non-uniform circular motion where the speed of the particle is decreasing with time, the dot product of the instantaneous velocity vector and the net acceleration vector is negative ($\\vec{v} \\cdot \\vec{a} < 0$).\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Statement I is incorrect but Statement II is correct.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Both Statement I and Statement II are incorrect."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I: In uniform circular motion, speed $v = |\\vec{v}|$ is constant. Since $v^2 = \\vec{v} \\cdot \\vec{v}$, differentiating with respect to time gives $\\frac{d}{dt}(v^2) = 2\\vec{v} \\cdot \\frac{d\\vec{v}}{dt} = 2(\\vec{v} \\cdot \\vec{a}) = 0 \\implies \\vec{v} \\cdot \\vec{a} = 0$. Velocity and acceleration are strictly perpendicular. Statement I is correct.\nStep 2: Evaluate Statement II: In non-uniform circular motion, net acceleration is $\\vec{a} = \\vec{a}_c + \\vec{a}_t$. Since $\\vec{v} \\cdot \\vec{a}_c = 0$, we have $\\vec{v} \\cdot \\vec{a} = \\vec{v} \\cdot \\vec{a}_t = v a_t$. When the particle is slowing down (speed decreasing), the tangential acceleration $\\vec{a}_t$ is antiparallel to velocity $\\vec{v}$, which means $a_t < 0$ and therefore $\\vec{v} \\cdot \\vec{a} < 0$. Statement II is correct.\nStep 3: Distractor rejection: The remaining options are eliminated because both statements are rigorously proved using vector differentiation in circular kinematics."
+    }
+  ]
+}

@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Motion in a Straight Line",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_motion_in_a_straight_line_c01_001",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): An aeroplane having a wingspan of $40\\text{ m}$ flying from New Delhi to New York (a distance of approximately $11,500\\text{ km}$) can be treated as a point object during its flight.\nReason (R): An object can be modeled as a point mass if the linear distance it traverses over a given duration is substantially larger than its own physical dimensions.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In classical kinematics, a body is treated as a point object if the linear distance traversed by it during motion is far greater than its own geometric dimensions.\nStep 2: The wingspan of the aeroplane is $40\\text{ m} = 0.04\\text{ km}$, whereas the distance between New Delhi and New York is $11,500\\text{ km}$. Here, $11,500\\text{ km} \\gg 0.04\\text{ km}$ (the travel distance exceeds the plane size by a factor of nearly $3 \\times 10^5$).\nStep 3: Therefore, the internal structure and orientation of the plane can be neglected in studying its translational motion across continents, making Assertion (A) true and Reason (R) its strictly correct theoretical justification.\nDistractor Analysis: Option B incorrectly denies the direct causal link; Option C and Option D incorrectly claim either statement is false."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_002",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding one-dimensional motion of a particle:\n\nStatement I: The magnitude of displacement of a particle moving along a straight line can never exceed the total path length traversed in the same time interval.\nStatement II: The ratio of the magnitude of displacement to the total path length is equal to $1$ if and only if the particle moves along a straight line without reversing its direction of motion.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is false but Statement II is true.",
+        "B) Both Statement I and Statement II are true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Path length is the total actual distance traversed along the trajectory, which is a scalar and always monotonically non-decreasing ($\\Delta s \\ge 0$). Displacement is the shortest vector distance between initial and final positions, so $|\\Delta \\vec{x}| \\le \\Delta s$. Thus, Statement I is strictly true.\nStep 2: If a particle moves unidirectionally along a straight line, the path length equals the magnitude of the displacement, giving the ratio $\\frac{|\\Delta \\vec{x}|}{\\Delta s} = 1$.\nStep 3: If the particle turns back at any point, the path length continues to accumulate while the net displacement decreases, resulting in $\\frac{|\\Delta \\vec{x}|}{\\Delta s} < 1$. Thus, the ratio is unity if and only if there is no reversal of direction. Hence, Statement II is also strictly true.\nDistractor Analysis: The remaining options are eliminated as both statements represent foundational principles of NCERT kinematics."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_003",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A delivery van travels along a straight road from point $P$ to point $Q$ at a steady speed of $60\\text{ km/h}$, and immediately returns from $Q$ to $P$ along the identical route at a steady speed of $40\\text{ km/h}$. What are the magnitudes of its average velocity and its average speed for the complete round trip?",
+      "options": [
+        "A) Average velocity $= 0\\text{ km/h}$, Average speed $= 50\\text{ km/h}$",
+        "B) Average velocity $= 48\\text{ km/h}$, Average speed $= 48\\text{ km/h}$",
+        "C) Average velocity $= 0\\text{ km/h}$, Average speed $= 48\\text{ km/h}$",
+        "D) Average velocity $= 50\\text{ km/h}$, Average speed $= 50\\text{ km/h}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Average velocity is defined as the net displacement divided by the total time elapsed: $\\vec{v}_{\\text{avg}} = \\frac{\\Delta \\vec{x}}{\\Delta t}$. Because the delivery van returns to its initial position $P$, net displacement $\\Delta \\vec{x} = 0$, giving average velocity $= 0\\text{ km/h}$.\nStep 2: Let the straight-line distance between $P$ and $Q$ be $d$. Total distance covered is $d + d = 2d$.\nStep 3: Time taken for the onward journey is $t_1 = \\frac{d}{60}$, and for the return journey is $t_2 = \\frac{d}{40}$. Total time $T = t_1 + t_2 = \\frac{d}{60} + \\frac{d}{40} = \\frac{2d + 3d}{120} = \\frac{5d}{120} = \\frac{d}{24}\\text{ h}$.\nStep 4: Average speed $v_{\\text{avg}} = \\frac{\\text{Total Distance}}{\\text{Total Time}} = \\frac{2d}{d/24} = 48\\text{ km/h}$ (which is the harmonic mean $\\frac{2 v_1 v_2}{v_1 + v_2} = \\frac{2 \\times 60 \\times 40}{60 + 40} = 48\\text{ km/h}$).\nDistractor Analysis: Option D incorrectly takes the simple arithmetic mean for both; Option A takes arithmetic mean for speed; Option B incorrectly assumes displacement equals total distance."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_004",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle moving in a straight line covers the first one-third of the total distance with a speed of $10\\text{ m/s}$, the second one-third with a speed of $20\\text{ m/s}$, and the final one-third with a speed of $60\\text{ m/s}$. The average speed of the particle over the entire journey is:",
+      "options": [
+        "A) $30\\text{ m/s}$",
+        "B) $24\\text{ m/s}$",
+        "C) $15\\text{ m/s}$",
+        "D) $18\\text{ m/s}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Let the total distance be $3s$. The three segments each have length $s$.\nStep 2: The time intervals for the three successive segments are: $t_1 = \\frac{s}{10}$, $t_2 = \\frac{s}{20}$, and $t_3 = \\frac{s}{60}$.\nStep 3: Total time elapsed is $T = t_1 + t_2 + t_3 = s\\left(\\frac{1}{10} + \\frac{1}{20} + \\frac{1}{60}\\right) = s\\left(\\frac{6 + 3 + 1}{60}\\right) = s\\left(\\frac{10}{60}\\right) = \\frac{s}{6}\\text{ s}$.\nStep 4: The average speed is given by $v_{\\text{avg}} = \\frac{\\text{Total Distance}}{\\text{Total Time}} = \\frac{3s}{s/6} = 3 \\times 6 = 18\\text{ m/s}$.\nDistractor Analysis: Option A is the arithmetic mean $\\frac{10 + 20 + 60}{3} = 30\\text{ m/s}$ (incorrect when distances are equal); Option B is an arbitrary intermediate value; Option C is $\\frac{60}{4} = 15\\text{ m/s}$."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_005",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A car traverses a straight path such that the first half of the total distance is covered at a constant speed of $30\\text{ km/h}$. The second half of the distance is covered in two equal time intervals with constant speeds of $40\\text{ km/h}$ and $60\\text{ km/h}$ respectively. The average speed of the car for the entire journey is:",
+      "options": [
+        "A) $37.5\\text{ km/h}$",
+        "B) $43.3\\text{ km/h}$",
+        "C) $40.0\\text{ km/h}$",
+        "D) $35.0\\text{ km/h}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let the total distance be $2d$. The first half distance $d$ is traversed at speed $v_1 = 30\\text{ km/h}$. Time taken $t_1 = \\frac{d}{30}$.\nStep 2: For the second half distance $d$, let each equal time interval be $t'$. Then the distance covered in this half is $d = 40t' + 60t' = 100t' \\implies t' = \\frac{d}{100}$.\nStep 3: The total time for the second half is $t_2 = 2t' = \\frac{2d}{100} = \\frac{d}{50}\\text{ h}$. (Notice the effective speed for the second half is the arithmetic mean: $\\frac{40 + 60}{2} = 50\\text{ km/h}$).\nStep 4: Total time for the entire journey is $T = t_1 + t_2 = \\frac{d}{30} + \\frac{d}{50} = d\\left(\\frac{5 + 3}{150}\\right) = \\frac{8d}{150} = \\frac{4d}{75}$.\nStep 5: Average speed for the full journey is $v_{\\text{avg}} = \\frac{\\text{Total Distance}}{\\text{Total Time}} = \\frac{2d}{4d/75} = \\frac{2 \\times 75}{4} = 37.5\\text{ km/h}$.\nDistractor Analysis: Option B is the arithmetic mean of all three speeds $\\frac{30+40+60}{3} = 43.3\\text{ km/h}$; Option C is $\\frac{30+50}{2} = 40\\text{ km/h}$; Option D is a miscalculated weighting."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_006",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The position $x$ of a particle moving along the $x$-axis as a function of time $t$ is given by $x(t) = 2t^3 - 9t^2 + 12t + 4$, where $x$ is in meters and $t$ is in seconds ($t \\ge 0$). At what instant does the particle come to momentary rest, and what is its acceleration at that instant?",
+      "options": [
+        "A) At $t = 1.5\\text{ s}$, acceleration is $0\\text{ m/s}^2$",
+        "B) At $t = 1\\text{ s}$, acceleration is $-6\\text{ m/s}^2$; at $t = 2\\text{ s}$, acceleration is $+6\\text{ m/s}^2$",
+        "C) At $t = 1\\text{ s}$, acceleration is $+6\\text{ m/s}^2$; at $t = 2\\text{ s}$, acceleration is $-6\\text{ m/s}^2$",
+        "D) At $t = 3\\text{ s}$, acceleration is $+18\\text{ m/s}^2$; at $t = 0\\text{ s}$, acceleration is $-18\\text{ m/s}^2$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Velocity is the time derivative of position: $v(t) = \\frac{dx}{dt} = \\frac{d}{dt}(2t^3 - 9t^2 + 12t + 4) = 6t^2 - 18t + 12$.\nStep 2: The particle comes to momentary rest when $v(t) = 0 \\implies 6(t^2 - 3t + 2) = 0 \\implies 6(t - 1)(t - 2) = 0$. Hence, rest occurs at $t = 1\\text{ s}$ and $t = 2\\text{ s}$.\nStep 3: Acceleration is the time derivative of velocity: $a(t) = \\frac{dv}{dt} = \\frac{d}{dt}(6t^2 - 18t + 12) = 12t - 18$.\nStep 4: At $t = 1\\text{ s}$: $a(1) = 12(1) - 18 = -6\\text{ m/s}^2$.\nAt $t = 2\\text{ s}$: $a(2) = 12(2) - 18 = +6\\text{ m/s}^2$.\nDistractor Analysis: Option C inverts the signs of acceleration at the two instants; Option D finds roots of acceleration instead; Option A identifies the inflection point where $a = 0$ ($t = 1.5\\text{ s}$), where velocity is actually non-zero ($v(1.5) = -1.5\\text{ m/s}$)."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_007",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The instantaneous speed of a moving particle at any instant is always strictly equal to the magnitude of its instantaneous velocity at that exact instant.\nReason (R): In the mathematical limit as the time interval $\\Delta t \\to 0$, the magnitude of the displacement vector $|\\Delta \\vec{r}|$ becomes equal to the infinitesimal path length $\\Delta s$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) (A) is false but (R) is true.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Instantaneous velocity is defined as $\\vec{v} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{r}}{\\Delta t} = \\frac{d\\vec{r}}{dt}$. Its magnitude is $|\\vec{v}| = \\lim_{\\Delta t \\to 0} \\frac{|\\Delta \\vec{r}|}{\\Delta t}$.\nStep 2: Instantaneous speed is defined as the time rate of distance traversed: $v = \\lim_{\\Delta t \\to 0} \\frac{\\Delta s}{\\Delta t} = \\frac{ds}{dt}$.\nStep 3: In the limit $\\Delta t \\to 0$, the path traversed by any particle approximates a straight-line differential element, so the arc length $\\Delta s$ equals the magnitude of the chord $|\\Delta \\vec{r}|$, i.e., $\\lim_{\\Delta t \\to 0} |\\Delta \\vec{r}| = \\Delta s$.\nStep 4: Consequently, $|\\vec{v}| = v$ is always true at any instant, and Reason (R) is the precise mathematical and physical justification for Assertion (A).\nDistractor Analysis: Option D fails to acknowledge Reason as the direct derivative definition; Options C and D incorrectly reject valid NCERT kinematics definitions."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_008",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the motion of a particle along the $x$-axis:\n\nStatement I: A particle is speeding up (its speed is increasing) whenever its velocity and acceleration have the same algebraic sign.\nStatement II: A particle moving in the negative $x$-direction ($v < 0$) with a negative acceleration ($a < 0$) is slowing down.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Speed is the magnitude of velocity: $v_{\\text{speed}} = |v|$. Its rate of change is $\\frac{d}{dt}(|v|) = \\frac{d}{dt}(\\sqrt{v^2}) = \\frac{v}{|v|} \\frac{dv}{dt} = \\frac{v \\cdot a}{|v|}$.\nStep 2: If velocity $v$ and acceleration $a$ have the same sign (both positive or both negative), their product $v \\cdot a > 0$, meaning speed $|v|$ is increasing (the particle is speeding up). Thus, Statement I is strictly true.\nStep 3: In Statement II, $v < 0$ and $a < 0$. Since both have negative signs, the particle's velocity is becoming more negative (e.g., from $-5\\text{ m/s}$ to $-10\\text{ m/s}$), which means its speed $|v|$ increases from $5\\text{ m/s}$ to $10\\text{ m/s}$. Thus, the particle is speeding up, NOT slowing down. Hence, Statement II is false.\nDistractor Analysis: Option A is the common student misconception equating negative acceleration automatically with 'slowing down' (deceleration); Option B and Option C incorrectly evaluate Statement I."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_009",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): A particle moving along a straight line can have zero instantaneous velocity and simultaneously possess a non-zero instantaneous acceleration.\nReason (R): Acceleration is the instantaneous rate of change of velocity ($a = \\frac{dv}{dt}$), which depends on how rapidly velocity changes with time, not on the value of velocity at that particular instant.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: When a ball is thrown vertically upwards under gravity, at the highest point of its trajectory, its instantaneous velocity momentarily becomes zero ($v = 0$).\nStep 2: However, gravity continuously acts downward with an acceleration of $g = 9.8\\text{ m/s}^2$ downward at every point, including the highest point. Thus, $v = 0$ while $a \\ne 0$. Assertion (A) is true.\nStep 3: Acceleration represents the derivative $a = \\frac{dv}{dt}$. A function can pass through zero while having a non-zero slope (rate of change). Therefore, the instantaneous value of velocity does not dictate whether the acceleration is zero or non-zero. Reason (R) is true and correctly explains Assertion (A).\nDistractor Analysis: Option B fails to identify the direct definitional connection; Options C and D mistakenly contradict NCERT 1D kinematics principles."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_010",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The velocity $v$ of a body moving along a straight line varies with its position coordinate $x$ as $v(x) = \\sqrt{6x + 25}$, where $x$ is in meters and $v$ is in $\\text{m/s}$. The acceleration of the body is:",
+      "options": [
+        "A) $0\\text{ m/s}^2$, since speed increases continuously",
+        "B) $3\\text{ m/s}^2$, constant throughout the motion",
+        "C) $6\\text{ m/s}^2$, constant throughout the motion",
+        "D) Dependent on position $x$ as $3/\\sqrt{6x + 25}\\text{ m/s}^2$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The instantaneous acceleration expressed in terms of position is given by $a = v \\frac{dv}{dx}$.\nStep 2: Alternatively, squaring the relation gives $v^2 = 6x + 25$.\nStep 3: Differentiating both sides with respect to position $x$:\n$\\frac{d}{dx}(v^2) = \\frac{d}{dx}(6x + 25) \\implies 2v \\frac{dv}{dx} = 6$.\nStep 4: Since $a = v \\frac{dv}{dx}$, we have $2a = 6 \\implies a = 3\\text{ m/s}^2$.\nStep 5: The acceleration is completely independent of $x$ and $t$, hence it is uniform and equals $3\\text{ m/s}^2$.\nDistractor Analysis: Option C forgets the factor of $2$ from the chain rule $\\frac{d(v^2)}{dx} = 2a$; Option D confuses $\\frac{dv}{dx}$ with $a = v \\frac{dv}{dx}$; Option A confuses acceleration with change in speed rate."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_011",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding frames of reference in kinematics:\n\nStatement I: A frame of reference consists of a chosen coordinate system along with a synchronized clock attached to the observer to record instants of time.\nStatement II: The state of rest or motion of an object is not absolute; an object that is at rest relative to one frame of reference may be moving with non-zero velocity relative to another frame of reference.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are true.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: According to NCERT Chapter 3, to specify position, we need a reference point and a set of axes (coordinate system). This coordinate system along with a clock constitutes a frame of reference. Thus, Statement I is strictly true.\nStep 2: Motion is inherently relative. For example, a passenger sitting in a moving train is at rest with respect to the co-passengers and the train carriage, but is moving relative to an observer standing on the railway platform. Absolute rest has no physical meaning in mechanics. Thus, Statement II is strictly true.\nDistractor Analysis: The remaining options are eliminated because both statements represent direct verbatim NCERT definitions regarding the relativity of motion and the construct of reference frames."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_012",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): For any moving particle over a finite time interval, the average speed is always greater than or equal to the magnitude of its average velocity.\nReason (R): For any motion over a finite time interval, the total path length traversed is always greater than or equal to the magnitude of the net displacement vector.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Average speed is defined as $v_{\\text{avg}} = \\frac{\\text{Path length}}{\\Delta t}$, where $\\Delta t$ is the elapsed time interval ($> 0$).\nStep 2: Average velocity magnitude is $|\\vec{v}_{\\text{avg}}| = \\frac{|\\Delta \\vec{r}|}{\\Delta t}$, where $|\\Delta \\vec{r}|$ is the magnitude of the displacement vector.\nStep 3: Since the shortest path connecting any initial and final points in space is a straight line, the path length $\\Delta s$ is always $\\ge |\\Delta \\vec{r}|$.\nStep 4: Dividing both sides of $\\Delta s \\ge |\\Delta \\vec{r}|$ by the positive scalar $\\Delta t$ yields $v_{\\text{avg}} \\ge |\\vec{v}_{\\text{avg}}|$. Hence, Assertion (A) is true and Reason (R) provides the exact mathematical and physical basis.\nDistractor Analysis: Option A fails to acknowledge Reason as the direct proof; Options C and D contradict the geometric foundation of Euclidean space."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_013",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the features of a position-time ($x-t$) graph in List I with their corresponding physical interpretations in List II:\n\nList I:\nP. Slope of the tangent at any specific instant\nQ. Straight line inclined to time axis with positive constant slope\nR. Horizontal straight line parallel to the time axis\nS. Curve with upward concavity (slope continuously increasing)\n\nList II:\n1. Particle is stationary (at rest, $v = 0$)\n2. Instantaneous velocity\n3. Accelerated motion with positive acceleration ($a > 0$)\n4. Uniform motion with constant positive velocity ($a = 0$)\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-2, Q-4, R-1, S-3",
+        "B) P-1, Q-3, R-2, S-4",
+        "C) P-2, Q-1, R-4, S-3",
+        "D) P-4, Q-2, R-1, S-3"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The slope of the tangent to an $x-t$ curve at any instant $t$ is $\\frac{dx}{dt}$, which represents instantaneous velocity $\\implies$ P matches with 2.\nStep 2: A straight line on an $x-t$ graph has constant slope ($\\frac{dx}{dt} = \\text{constant}$), meaning the particle moves with uniform positive velocity and zero acceleration $\\implies$ Q matches with 4.\nStep 3: A horizontal straight line on an $x-t$ graph has zero slope ($\\frac{dx}{dt} = 0$), meaning position does not change with time and the particle is at rest $\\implies$ R matches with 1.\nStep 4: Upward concavity means $\\frac{d^2x}{dt^2} > 0$, so the slope (velocity) is increasing with time, corresponding to motion with positive acceleration $\\implies$ S matches with 3.\nTherefore, the correct match is P-2, Q-4, R-1, S-3.\nDistractor Analysis: Options B, C, and D contain incorrect pairings of geometric slopes with kinematic definitions."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_014",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle moves along the $x$-axis from an initial position $x_1 = -20\\text{ m}$ to an intermediate position $x_2 = +30\\text{ m}$, and subsequently moves to a final position $x_3 = -10\\text{ m}$. What are the total path length traversed and the net displacement of the particle?",
+      "options": [
+        "A) Path length $= 40\\text{ m}$, Net displacement $= +10\\text{ m}$",
+        "B) Path length $= 90\\text{ m}$, Net displacement $= +10\\text{ m}$",
+        "C) Path length $= 50\\text{ m}$, Net displacement $= -10\\text{ m}$",
+        "D) Path length $= 90\\text{ m}$, Net displacement $= -10\\text{ m}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Net displacement depends solely on the initial position and the final position: $\\Delta x = x_{\\text{final}} - x_{\\text{initial}} = x_3 - x_1 = (-10\\text{ m}) - (-20\\text{ m}) = +10\\text{ m}$.\nStep 2: Path length is the sum of magnitudes of distances in each individual leg of motion.\nStep 3: First leg from $x_1 = -20\\text{ m}$ to $x_2 = +30\\text{ m}$: distance $d_1 = |30 - (-20)| = 50\\text{ m}$.\nStep 4: Second leg from $x_2 = +30\\text{ m}$ to $x_3 = -10\\text{ m}$: distance $d_2 = |-10 - 30| = 40\\text{ m}$.\nStep 5: Total path length $= d_1 + d_2 = 50\\text{ m} + 40\\text{ m} = 90\\text{ m}$.\nDistractor Analysis: Option C takes displacement as $-10\\text{ m}$ (forgetting initial position was $-20\\text{ m}$); Option D has incorrect displacement sign; Option A subtracts intermediate segments incorrectly."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_015",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A cyclist travels along a straight track such that for the first one-third of the total elapsed time he moves at a constant speed of $12\\text{ km/h}$, for the second one-third of the time at $18\\text{ km/h}$, and for the final one-third of the time at $24\\text{ km/h}$. The average speed of the cyclist for the entire duration of motion is:",
+      "options": [
+        "A) $20.0\\text{ km/h}$",
+        "B) $15.5\\text{ km/h}$",
+        "C) $18.0\\text{ km/h}$",
+        "D) $16.6\\text{ km/h}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Let the total time of travel be $T = 3t$. Thus, the duration of each interval is $t$.\nStep 2: Distance covered in first interval: $s_1 = v_1 t = 12 t$.\nDistance covered in second interval: $s_2 = v_2 t = 18 t$.\nDistance covered in third interval: $s_3 = v_3 t = 24 t$.\nStep 3: Total distance covered is $S = s_1 + s_2 + s_3 = (12 + 18 + 24)t = 54 t$.\nStep 4: Average speed is $v_{\\text{avg}} = \\frac{\\text{Total Distance}}{\\text{Total Time}} = \\frac{54 t}{3 t} = 18.0\\text{ km/h}$.\nStep 5: When equal time intervals are involved, the average speed is simply the arithmetic mean: $v_{\\text{avg}} = \\frac{v_1 + v_2 + v_3}{3} = \\frac{12 + 18 + 24}{3} = 18.0\\text{ km/h}$.\nDistractor Analysis: Option D calculates the harmonic mean (which applies to equal distances, not equal times); The remaining options are eliminated computational guesses."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_016",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The direction of acceleration of a particle moving along a straight line does not uniquely determine the direction in which the particle is currently moving.\nReason (R): The direction of motion of a particle at any given instant is determined exclusively by the direction of its instantaneous velocity, whereas acceleration specifies the direction of rate of change of velocity.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The instantaneous velocity vector $\\vec{v}$ specifies the direction of instantaneous displacement and therefore the direction of motion at that moment.\nStep 2: Acceleration $\\vec{a} = \\frac{d\\vec{v}}{dt}$ specifies how $\\vec{v}$ is changing with time. A body moving in the positive $x$-direction ($v > 0$) can experience a negative acceleration ($a < 0$, slowing down). In this case, the motion is to the right while the acceleration is to the left.\nStep 3: Thus, direction of motion is given solely by velocity, not acceleration. Assertion (A) is true, and Reason (R) correctly explains it.\nDistractor Analysis: Option A fails to acknowledge Reason as the conceptual cause; Option B and Option C reject standard NCERT kinematics principles."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_017",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding one-dimensional motion:\n\nStatement I: A particle executing motion along a straight line can have an average velocity of zero over a finite time interval while its average speed over that same interval is strictly non-zero.\nStatement II: If a particle moving along a straight line has an average velocity of zero over a time interval $[0, T]$, its instantaneous speed must be zero at at least one instant within that interval.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Average velocity is zero whenever net displacement is zero ($\\Delta x = x(T) - x(0) = 0$). If the particle moved at all, path length is strictly positive, hence average speed $> 0$. Thus, Statement I is true.\nStep 2: If the particle moves along a straight line and returns to its initial position $x(0) = x(T)$, position $x(t)$ is continuous and differentiable. By Rolle's theorem (or basic kinematics), the particle must reverse its direction of motion at some turning point $t^* \\in (0, T)$.\nStep 3: At this turning point, the velocity must change sign, passing continuously through zero ($v(t^*) = 0$). Consequently, instantaneous speed $|v(t^*)| = 0$. Hence, Statement II is also strictly true.\nDistractor Analysis: Option C falsely asserts that a particle can reverse direction instantaneously in 1D without stopping (which would require infinite acceleration); Options B and D are similarly incorrect."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_018",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A remote-controlled toy vehicle moves along a straight track. Its velocity is $+4\\text{ m/s}$ for the first $3\\text{ s}$, then $-2\\text{ m/s}$ for the next $4\\text{ s}$, and finally $+3\\text{ m/s}$ for the subsequent $2\\text{ s}$. The net displacement and total path length traversed by the vehicle over the complete $9\\text{ s}$ duration are, respectively:",
+      "options": [
+        "A) Net displacement $= -10\\text{ m}$, Total path length $= 26\\text{ m}$",
+        "B) Net displacement $= +10\\text{ m}$, Total path length $= 26\\text{ m}$",
+        "C) Net displacement $= +26\\text{ m}$, Total path length $= 26\\text{ m}$",
+        "D) Net displacement $= +10\\text{ m}$, Total path length $= 10\\text{ m}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Displacement is given by $\\Delta x = \\sum (v_i \\cdot \\Delta t_i)$:\n$\\Delta x_1 = (+4\\text{ m/s}) \\times (3\\text{ s}) = +12\\text{ m}$\n$\\Delta x_2 = (-2\\text{ m/s}) \\times (4\\text{ s}) = -8\\text{ m}$\n$\\Delta x_3 = (+3\\text{ m/s}) \\times (2\\text{ s}) = +6\\text{ m}$\nNet displacement $\\Delta x = +12 - 8 + 6 = +10\\text{ m}$.\nStep 2: Path length (distance) is the scalar sum of absolute values of individual displacements:\n$d = |\\Delta x_1| + |\\Delta x_2| + |\\Delta x_3| = 12\\text{ m} + 8\\text{ m} + 6\\text{ m} = 26\\text{ m}$.\nStep 3: Thus, net displacement is $+10\\text{ m}$ and path length is $26\\text{ m}$.\nDistractor Analysis: Option C erroneously takes distance as displacement; Option D confuses distance with displacement; Option A assigns a negative sign to the net displacement."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_019",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following four statements regarding path length and displacement of a moving body:\n\nI. Path length is a scalar quantity that can never decrease with time for any continuous motion.\nII. Net displacement is a vector quantity that can be positive, negative, or zero.\nIII. In any round trip where a body starts from and returns to the initial point, both displacement and path length are zero.\nIV. The SI unit of both path length and displacement is meter ($\\text{m}$).\n\nWhich of the above statements is/are INCORRECT?",
+      "options": [
+        "A) II and IV only",
+        "B) I, II, and IV only",
+        "C) III only",
+        "D) I and III only"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Statement I is correct: Path length is the accumulated distance, which is monotonically non-decreasing ($\\frac{ds}{dt} \\ge 0$).\nStep 2: Statement II is correct: In 1D, displacement $\\Delta x = x_f - x_i$ can be positive, negative, or zero depending on the direction and positions.\nStep 3: Statement III is INCORRECT: In a round trip returning to the starting point, displacement is indeed zero ($\\Delta \\vec{x} = 0$), but the path length traversed is strictly positive ($s > 0$) because distance travelled can never be zero for a moving body.\nStep 4: Statement IV is correct: Both path length and displacement have dimensions of length $[L]$ and their SI unit is meter ($\\text{m}$).\nStep 5: The question asks which statement is INCORRECT, which is Statement III only.\nDistractor Analysis: Options B, C, and D mistakenly classify correct NCERT kinematics properties as incorrect."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_020",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding uniform motion in a straight line:\n\nStatement I: For a particle undergoing uniform motion along a straight line, the average velocity over any arbitrary time interval is identical to the instantaneous velocity at every instant within that interval.\nStatement II: In uniform motion, the instantaneous acceleration of the particle is strictly zero at all times.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: By definition of uniform motion in a straight line, the velocity remains constant in both magnitude and direction at every instant of time: $\\vec{v}(t) = \\vec{v}_0 = \\text{constant}$.\nStep 2: The average velocity over any interval $[t_1, t_2]$ is $\\vec{v}_{\\text{avg}} = \\frac{\\Delta \\vec{x}}{\\Delta t} = \\frac{\\vec{v}_0(t_2 - t_1)}{t_2 - t_1} = \\vec{v}_0$. Thus, average velocity equals instantaneous velocity at all times. Statement I is true.\nStep 3: Instantaneous acceleration is $a = \\frac{dv}{dt}$. Since velocity is invariant with time, $\\frac{dv}{dt} = 0$ everywhere. Thus, Statement II is true.\nDistractor Analysis: The remaining options are eliminated because uniform motion requires zero acceleration and constant velocity by NCERT definition."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_021",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle travels from point $A$ to point $B$ with speed $v_1$ and then from $B$ to $C$ with speed $v_2$ along a straight road. In Case I, the distances are equal ($AB = BC$), and the average speed is found to be $v_I$. In Case II, the particle travels with speed $v_1$ for time interval $t_0$ and with speed $v_2$ for the same time interval $t_0$, and the average speed is found to be $v_{II}$. If $v_1 \\ne v_2$, which of the following relations is mathematically always correct?",
+      "options": [
+        "A) $v_{II} > v_I$",
+        "B) $v_I > v_{II}$",
+        "C) $v_I = v_{II}$",
+        "D) $v_I \\cdot v_{II} = v_1 v_2$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In Case I (equal distances), average speed is the harmonic mean of the two speeds: $v_I = \\frac{2 v_1 v_2}{v_1 + v_2}$.\nStep 2: In Case II (equal times), average speed is the arithmetic mean of the two speeds: $v_{II} = \\frac{v_1 + v_2}{2}$.\nStep 3: Consider the difference: $v_{II} - v_I = \\frac{v_1 + v_2}{2} - \\frac{2 v_1 v_2}{v_1 + v_2} = \\frac{(v_1 + v_2)^2 - 4 v_1 v_2}{2(v_1 + v_2)} = \\frac{(v_1 - v_2)^2}{2(v_1 + v_2)}$.\nStep 4: Since $v_1 > 0$, $v_2 > 0$, and $v_1 \\ne v_2$, the numerator $(v_1 - v_2)^2 > 0$ and the denominator is positive. Therefore, $v_{II} - v_I > 0$, which proves $v_{II} > v_I$ (Arithmetic Mean is strictly greater than Harmonic Mean for distinct positive numbers).\nDistractor Analysis: Option B violates the Cauchy-Schwarz/AM-HM inequality; Option C is only valid if $v_1 = v_2$; Option D asserts a false algebraic relation."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_022",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The position of an object moving along the $x$-axis is given by $x(t) = 8.5 + 2.5 t^2$, where $x$ is in meters and $t$ is in seconds. What is its instantaneous velocity at $t = 3.0\\text{ s}$, and what is its average velocity between $t = 2.0\\text{ s}$ and $t = 4.0\\text{ s}$?",
+      "options": [
+        "A) Instantaneous velocity $= 23.5\\text{ m/s}$, Average velocity $= 18.0\\text{ m/s}$",
+        "B) Instantaneous velocity $= 15.0\\text{ m/s}$, Average velocity $= 15.0\\text{ m/s}$",
+        "C) Instantaneous velocity $= 15.0\\text{ m/s}$, Average velocity $= 12.5\\text{ m/s}$",
+        "D) Instantaneous velocity $= 7.5\\text{ m/s}$, Average velocity $= 15.0\\text{ m/s}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Instantaneous velocity is the derivative $v(t) = \\frac{dx}{dt} = \\frac{d}{dt}(8.5 + 2.5 t^2) = 5.0 t$.\nStep 2: At $t = 3.0\\text{ s}$, $v(3.0) = 5.0 \\times 3.0 = 15.0\\text{ m/s}$.\nStep 3: Average velocity between $t_1 = 2.0\\text{ s}$ and $t_2 = 4.0\\text{ s}$ is $v_{\\text{avg}} = \\frac{x(4.0) - x(2.0)}{4.0 - 2.0}$.\nStep 4: Calculate positions: $x(4.0) = 8.5 + 2.5(16) = 8.5 + 40.0 = 48.5\\text{ m}$.\n$x(2.0) = 8.5 + 2.5(4) = 8.5 + 10.0 = 18.5\\text{ m}$.\nStep 5: $v_{\\text{avg}} = \\frac{48.5 - 18.5}{2.0} = \\frac{30.0}{2.0} = 15.0\\text{ m/s}$.\n(Note: For uniformly accelerated motion, the average velocity over a symmetric time interval $[t_1, t_2]$ equals the instantaneous velocity at the midpoint $t_{\\text{mid}} = \\frac{2 + 4}{2} = 3\\text{ s}$). Hence, both values are $15.0\\text{ m/s}$.\nDistractor Analysis: Option C makes an arithmetic error in average velocity; Option D forgets to multiply by the power derivative; Option A adds the constant offset incorrectly."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_023",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A small heavy sphere is released from rest from a very high tower and falls freely under gravity (neglect air resistance). According to Galileo's law of odd numbers, what is the ratio of the vertical distances traversed by the sphere during the $1^{\\text{st}}$, $2^{\\text{nd}}$, $3^{\\text{rd}}$, and $4^{\\text{th}}$ second of its motion?",
+      "options": [
+        "A) $1 : 2 : 3 : 4$",
+        "B) $1 : 3 : 7 : 11$",
+        "C) $1 : 3 : 5 : 7$",
+        "D) $1 : 4 : 9 : 16$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The distance traversed by a body starting from rest ($u = 0$) during the $n$-th second under constant acceleration $g$ is given by:\n$s_n = u + \\frac{g}{2}(2n - 1) = \\frac{g}{2}(2n - 1)$.\nStep 2: Substituting $n = 1, 2, 3, 4$:\nFor $n = 1$: $s_1 = \\frac{g}{2}(2 \\times 1 - 1) = 1 \\cdot \\left(\\frac{g}{2}\\right)$\nFor $n = 2$: $s_2 = \\frac{g}{2}(2 \\times 2 - 1) = 3 \\cdot \\left(\\frac{g}{2}\\right)$\nFor $n = 3$: $s_3 = \\frac{g}{2}(2 \\times 3 - 1) = 5 \\cdot \\left(\\frac{g}{2}\\right)$\nFor $n = 4$: $s_4 = \\frac{g}{2}(2 \\times 4 - 1) = 7 \\cdot \\left(\\frac{g}{2}\\right)$\nStep 3: The ratio of distances is $s_1 : s_2 : s_3 : s_4 = 1 : 3 : 5 : 7$. This is Galileo's famous law of odd numbers for bodies falling from rest.\nDistractor Analysis: Option D represents the total cumulative distances $S_t = \\frac{1}{2}gt^2$ at $t = 1, 2, 3, 4\\text{ s}$, which scale as $1 : 4 : 9 : 16$; Option A confuses distance in the $n$-th second with velocity; Option B has incorrect arithmetic increments."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_024",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the kinematic equation for displacement in the $n$-th second:\n\nStatement I: The displacement in the $n$-th second is given by $s_n = u + \\frac{a}{2}(2n - 1)$, where $u$ is initial velocity, $a$ is constant acceleration, and $n$ represents the specific second.\nStatement II: Although the equation appears to equate a displacement to a sum of velocity and acceleration, it is dimensionally consistent because the numerical factors implicitly contain unit time ($1\\text{ s}$ and $1\\text{ s}^2$).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The displacement in the $n$-th second is obtained by subtracting the displacement in $(n-1)$ seconds from the displacement in $n$ seconds:\n$s_n = S_n - S_{n-1} = \\left[u n + \\frac{1}{2} a n^2\\right] - \\left[u(n - 1) + \\frac{1}{2} a(n - 1)^2\\right] = u(1) + \\frac{a}{2}(2n - 1)(1)$. Thus, Statement I is true.\nStep 2: In standard abbreviated form, $s_n = u + \\frac{a}{2}(2n - 1)$ appears to have dimensions $[L]$ on the left, $[LT^{-1}]$ in the first term, and $[LT^{-2}]$ in the second term.\nStep 3: However, the derivation strictly involves time intervals: $u \\times (1\\text{ s})$ has dimension $[LT^{-1}][T] = [L]$, and $\\frac{a}{2}(2n - 1\\text{ s})(1\\text{ s})$ has dimension $[LT^{-2}][T][T] = [L]$. Thus, both sides have the dimension of length $[L]$, making it dimensionally consistent. Hence, Statement II is true.\nDistractor Analysis: The remaining options are eliminated as both statements accurately describe this classic NCERT dimensional analysis paradox."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_025",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A car travelling at $54\\text{ km/h}$ along a straight road is brought to a stop by applying brakes that produce a constant retarding acceleration over a distance of $18\\text{ m}$. If the same car travelling at $108\\text{ km/h}$ is braked with the identical retarding acceleration, what will be its stopping distance and stopping time, respectively?",
+      "options": [
+        "A) Stopping distance $= 72\\text{ m}$, Stopping time $= 4.8\\text{ s}$",
+        "B) Stopping distance $= 36\\text{ m}$, Stopping time $= 2.4\\text{ s}$",
+        "C) Stopping distance $= 72\\text{ m}$, Stopping time $= 2.4\\text{ s}$",
+        "D) Stopping distance $= 54\\text{ m}$, Stopping time $= 3.6\\text{ s}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Convert speeds to SI units:\n$u_1 = 54\\text{ km/h} = 54 \\times \\frac{5}{18} = 15\\text{ m/s}$\n$u_2 = 108\\text{ km/h} = 108 \\times \\frac{5}{18} = 30\\text{ m/s}$.\nStep 2: Stopping distance is given by $v^2 - u^2 = 2as \\implies 0 - u^2 = -2as \\implies s = \\frac{u^2}{2a}$.\nHence, for constant retardation $a$, stopping distance scales as $s \\propto u^2$.\nSince $u_2 = 2u_1$, the new stopping distance is $s_2 = 2^2 \\times s_1 = 4 \\times 18\\text{ m} = 72\\text{ m}$.\nStep 3: Stopping time is given by $v = u - at \\implies 0 = u - at \\implies t = \\frac{u}{a}$.\nHence, stopping time scales linearly with initial speed: $t \\propto u$.\nStep 4: Find acceleration from the first case: $a = \\frac{u_1^2}{2s_1} = \\frac{15^2}{2 \\times 18} = \\frac{225}{36} = 6.25\\text{ m/s}^2$.\nTherefore, stopping time in the second case is $t_2 = \\frac{u_2}{a} = \\frac{30}{6.25} = 4.8\\text{ s}$.\nDistractor Analysis: Option B incorrectly assumes stopping distance scales linearly with speed; Option C uses the stopping time from the first case ($t_1 = 2.4\\text{ s}$); Option D assumes a linear proportion based on velocity ratio."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_026",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A ball is thrown vertically upwards from the ground with an initial speed $u$. It passes an observation window located at height $h$ above the ground at two instants of time: $t_1 = 2.0\\text{ s}$ during ascent and $t_2 = 6.0\\text{ s}$ during descent. Taking $g = 10\\text{ m/s}^2$ and neglecting air drag, the initial speed $u$ and the height $h$ of the window are:",
+      "options": [
+        "A) $u = 30\\text{ m/s}$, $h = 45\\text{ m}$",
+        "B) $u = 40\\text{ m/s}$, $h = 60\\text{ m}$",
+        "C) $u = 80\\text{ m/s}$, $h = 120\\text{ m}$",
+        "D) $u = 40\\text{ m/s}$, $h = 80\\text{ m}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The equation of motion under gravity for height $h$ is $h = ut - \\frac{1}{2}gt^2 \\implies \\frac{1}{2}gt^2 - ut + h = 0$.\nStep 2: The roots of this quadratic equation are $t_1$ and $t_2$. By Vieta's formulas:\nSum of roots: $t_1 + t_2 = \\frac{u}{g/2} = \\frac{2u}{g}$.\nProduct of roots: $t_1 t_2 = \\frac{h}{g/2} = \\frac{2h}{g} \\implies h = \\frac{1}{2}g t_1 t_2$.\nStep 3: Calculate initial speed $u$:\n$t_1 + t_2 = 2.0 + 6.0 = 8.0\\text{ s} \\implies \\frac{2u}{10} = 8.0 \\implies u = \\frac{8.0 \\times 10}{2} = 40\\text{ m/s}$.\nStep 4: Calculate height $h$:\n$h = \\frac{1}{2} g t_1 t_2 = \\frac{1}{2} \\times 10 \\times 2.0 \\times 6.0 = 60\\text{ m}$.\n(Check: $h = ut_1 - \\frac{1}{2}gt_1^2 = 40(2) - 5(4) = 80 - 20 = 60\\text{ m}$. Consistent!)\nDistractor Analysis: Option C erroneously doubles the initial speed; Option D computes the maximum height ($H_{\\max} = 80\\text{ m}$) instead of the window height; Option A uses incorrect time factors."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_027",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A stone thrown vertically upwards with speed $u$ from the top of a tower of height $h$ reaches the ground in time $t_1$. A second stone thrown vertically downwards with the same speed $u$ from the same spot reaches the ground in time $t_2$. If a third stone is released from rest from the same spot, what is the time $t$ taken by it to hit the ground, and what is the relation between $h, g, t_1$, and $t_2$?",
+      "options": [
+        "A) $t = \\sqrt{t_1^2 + t_2^2}$ and $h = g t_1 t_2$",
+        "B) $t = \\frac{t_1 t_2}{t_1 + t_2}$ and $h = \\frac{1}{2} g (t_1 + t_2)^2$",
+        "C) $t = \\sqrt{t_1 t_2}$ and $h = \\frac{1}{2} g t_1 t_2$",
+        "D) $t = \\frac{t_1 + t_2}{2}$ and $h = \\frac{1}{4} g t_1 t_2$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Taking vertically downward direction as positive and tower top as origin:\nFor stone 1 (thrown up with $u$): displacement is $+h$, initial velocity is $-u$.\n$h = -u t_1 + \\frac{1}{2} g t_1^2 \\implies u t_1 = \\frac{1}{2} g t_1^2 - h$.\nFor stone 2 (thrown down with $u$): displacement is $+h$, initial velocity is $+u$.\n$h = u t_2 + \\frac{1}{2} g t_2^2 \\implies u t_2 = h - \\frac{1}{2} g t_2^2$.\nStep 2: Eliminating $u$:\nFrom stone 1: $u = \\frac{1}{2} g t_1 - \\frac{h}{t_1}$.\nFrom stone 2: $u = \\frac{h}{t_2} - \\frac{1}{2} g t_2$.\nEquating: $\\frac{1}{2} g t_1 - \\frac{h}{t_1} = \\frac{h}{t_2} - \\frac{1}{2} g t_2 \\implies \\frac{1}{2} g (t_1 + t_2) = h\\left(\\frac{1}{t_1} + \\frac{1}{t_2}\\right) = h \\frac{t_1 + t_2}{t_1 t_2}$.\nCancelling $(t_1 + t_2)$ yields $h = \\frac{1}{2} g t_1 t_2$.\nStep 3: For the third stone released from rest ($u = 0$):\n$h = \\frac{1}{2} g t^2$.\nEquating the two expressions for $h$: $\\frac{1}{2} g t^2 = \\frac{1}{2} g t_1 t_2 \\implies t^2 = t_1 t_2 \\implies t = \\sqrt{t_1 t_2}$.\nDistractor Analysis: Option D takes arithmetic mean for time and incorrect height; Option A uses Pythagorean sum; Option B uses harmonic mean for time."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_028",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A body is dropped from rest from the top of a tall vertical cliff of height $H$ and falls freely under gravity. If $t_1$ is the time taken by the body to fall through the upper half of the cliff ($H/2$) and $t_2$ is the time taken to fall through the remaining lower half ($H/2$), then the ratio $t_1 : t_2$ is:",
+      "options": [
+        "A) $1 : 1$",
+        "B) $1 : \\sqrt{2}$",
+        "C) $1 : (\\sqrt{2} + 1)$",
+        "D) $1 : (\\sqrt{2} - 1)$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For a body falling from rest, the distance fallen in time $t$ is $s = \\frac{1}{2} g t^2 \\implies t = \\sqrt{\\frac{2s}{g}}$.\nStep 2: For the first half height $s_1 = \\frac{H}{2}$, the time taken is:\n$t_1 = \\sqrt{\\frac{2(H/2)}{g}} = \\sqrt{\\frac{H}{g}}$.\nStep 3: For the entire height $H$, the total time elapsed is:\n$T = \\sqrt{\\frac{2H}{g}} = \\sqrt{2} \\sqrt{\\frac{H}{g}} = \\sqrt{2} t_1$.\nStep 4: The time taken to fall through the second half is:\n$t_2 = T - t_1 = \\sqrt{2} t_1 - t_1 = (\\sqrt{2} - 1) t_1$.\nStep 5: The ratio is therefore:\n$\\frac{t_1}{t_2} = \\frac{t_1}{(\\sqrt{2} - 1)t_1} = \\frac{1}{\\sqrt{2} - 1}$. Thus, $t_1 : t_2 = 1 : (\\sqrt{2} - 1)$.\nDistractor Analysis: Option A incorrectly assumes equal times for equal distances (forgetting the body is speeding up); Option B compares $t_1$ with total time $T$; Option C inverts the time ratio."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_029",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A stone released from rest from the top of a vertical tower falls freely under gravity. In the very last second of its descent, it traverses a distance equal to $\\frac{9}{25}$ of the total height of the tower. Taking $g = 10\\text{ m/s}^2$, what is the total height of the tower?",
+      "options": [
+        "A) $125\\text{ m}$",
+        "B) $100\\text{ m}$",
+        "C) $80\\text{ m}$",
+        "D) $144\\text{ m}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let the total time of fall be $n$ seconds. The total height of the tower is $H = \\frac{1}{2} g n^2$.\nStep 2: The distance traversed in the $n$-th (last) second is $s_n = \\frac{g}{2}(2n - 1)$.\nStep 3: According to the problem statement: $s_n = \\frac{9}{25} H$.\n$\\frac{g}{2}(2n - 1) = \\frac{9}{25} \\left(\\frac{1}{2} g n^2\\right)$.\nStep 4: Cancelling $\\frac{g}{2}$ from both sides:\n$2n - 1 = \\frac{9}{25} n^2 \\implies 9n^2 - 50n + 25 = 0$.\nStep 5: Factoring the quadratic equation:\n$9n^2 - 45n - 5n + 25 = 0 \\implies 9n(n - 5) - 5(n - 5) = 0 \\implies (9n - 5)(n - 5) = 0$.\nSince the time of descent must be greater than $1\\text{ s}$ (the last second is a full second), $n = \\frac{5}{9}\\text{ s} < 1\\text{ s}$ is physically unfeasible. Hence, $n = 5\\text{ s}$.\nStep 6: Total height of the tower is $H = \\frac{1}{2} g n^2 = \\frac{1}{2} \\times 10 \\times 5^2 = 5 \\times 25 = 125\\text{ m}$.\n(Check: $s_5 = 5(2 \\times 5 - 1) = 45\\text{ m}$, and $\\frac{45}{125} = \\frac{9}{25}$. Perfectly matches!)\nDistractor Analysis: Option B corresponds to a fall time of $n = 4.47\\text{ s}$; Option C is $H = 80\\text{ m}$ ($n=4\\text{ s}$); Option D corresponds to incorrect root manipulation."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_030",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A commuter train accelerates from rest with a uniform acceleration $a_1$ for time $t_1$, and immediately decelerates to rest at a uniform rate $a_2$ for time $t_2$. If the total distance covered along the straight track is $S$, which expression correctly gives the maximum speed $v_{\\max}$ attained by the train?",
+      "options": [
+        "A) $v_{\\max} = \\sqrt{2(a_1 + a_2)S}$",
+        "B) $v_{\\max} = \\sqrt{\\frac{2 a_1 a_2 S}{a_1 + a_2}}$",
+        "C) $v_{\\max} = \\sqrt{\\frac{a_1 a_2 S}{2(a_1 + a_2)}}$",
+        "D) $v_{\\max} = \\frac{2S(a_1 + a_2)}{a_1 a_2}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: From the $v-t$ graph, the motion is a triangle with base equal to total time $T = t_1 + t_2$ and height $v_{\\max}$.\nArea under the graph gives total distance: $S = \\frac{1}{2} v_{\\max} T \\implies T = \\frac{2S}{v_{\\max}}$.\nStep 2: From acceleration relations:\nDuring acceleration: $v_{\\max} = a_1 t_1 \\implies t_1 = \\frac{v_{\\max}}{a_1}$.\nDuring deceleration: $0 = v_{\\max} - a_2 t_2 \\implies t_2 = \\frac{v_{\\max}}{a_2}$.\nStep 3: Total time is $T = t_1 + t_2 = v_{\\max}\\left(\\frac{1}{a_1} + \\frac{1}{a_2}\\right) = v_{\\max}\\left(\\frac{a_1 + a_2}{a_1 a_2}\\right)$.\nStep 4: Equating the two expressions for $T$:\n$\\frac{2S}{v_{\\max}} = v_{\\max}\\left(\\frac{a_1 + a_2}{a_1 a_2}\\right) \\implies v_{\\max}^2 = \\frac{2 a_1 a_2 S}{a_1 + a_2} \\implies v_{\\max} = \\sqrt{\\frac{2 a_1 a_2 S}{a_1 + a_2}}$.\nDistractor Analysis: Option C misses the factor of 2 in the numerator; Option D is dimensionally incorrect (has dimensions of $[T]$); Option A incorrectly combines the accelerations additively."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_031",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The velocity-time graph of a body moving along a straight line is described as follows: from $t = 0$ to $t = 4\\text{ s}$, velocity increases linearly from $0$ to $+10\\text{ m/s}$ and then decreases linearly back to $0\\text{ m/s}$ at $t = 4\\text{ s}$ (triangular shape of base $4\\text{ s}$ and height $10\\text{ m/s}$). From $t = 4\\text{ s}$ to $t = 8\\text{ s}$, the velocity decreases into the negative region, forming a trapezoid bounded below by $v = -6\\text{ m/s}$ with parallel horizontal base from $t = 5\\text{ s}$ to $t = 7\\text{ s}$, reaching $0$ at $t = 8\\text{ s}$. The net displacement and total path length from $t = 0$ to $t = 8\\text{ s}$ are:",
+      "options": [
+        "A) Net displacement $= +20\\text{ m}$, Total path length $= 18\\text{ m}$",
+        "B) Net displacement $= -2\\text{ m}$, Total path length $= 38\\text{ m}$",
+        "C) Net displacement $= +2\\text{ m}$, Total path length $= 38\\text{ m}$",
+        "D) Net displacement $= +38\\text{ m}$, Total path length $= 38\\text{ m}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The area under the $v-t$ curve above the time axis represents positive displacement, while the area below represents negative displacement.\nStep 2: Area $A_1$ (from $t = 0$ to $4\\text{ s}$): Triangle with base $4\\text{ s}$ and height $+10\\text{ m/s}$:\n$A_1 = \\frac{1}{2} \\times 4 \\times 10 = +20\\text{ m}$.\nStep 3: Area $A_2$ (from $t = 4$ to $8\\text{ s}$): Trapezoid below time axis with bottom parallel side length $7 - 5 = 2\\text{ s}$, top side along axis length $8 - 4 = 4\\text{ s}$, and height $-6\\text{ m/s}$:\n$A_2 = -\\left[\\frac{4 + 2}{2} \\times 6\\right] = -[3 \\times 6] = -18\\text{ m}$.\nStep 4: Net displacement is the algebraic sum of areas:\n$\\Delta x = A_1 + A_2 = +20 - 18 = +2\\text{ m}$.\nStep 5: Total path length is the sum of magnitudes of areas:\n$d = |A_1| + |A_2| = 20 + 18 = 38\\text{ m}$.\nDistractor Analysis: Option D confuses displacement with total path length; Option A reports individual areas separately; Option B has the wrong sign for displacement."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_032",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the kinematic graph characteristics in List I with their physical descriptions in List II:\n\nList I:\nP. A $v-t$ graph having a straight line with a non-zero negative slope\nQ. An $x-t$ graph showing a parabola opening downwards\nR. An $a-t$ graph with a horizontal line below the time axis\nS. An area bounded by the $a-t$ graph and the time axis between $t_1$ and $t_2$\n\nList II:\n1. Motion with uniform negative acceleration (constant retardation)\n2. Change in instantaneous velocity ($\\Delta v = v_2 - v_1$)\n3. Position varying with constant negative acceleration\n4. Velocity decreasing at a constant rate with time\n\nChoose the correct option from the choices given below:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-4, Q-1, R-3, S-2",
+        "C) P-3, Q-4, R-1, S-2",
+        "D) P-4, Q-3, R-1, S-2"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For P, a $v-t$ graph with a straight line and negative slope means $\\frac{dv}{dt} = \\text{constant} < 0$, which signifies that velocity decreases at a constant rate with time $\\implies$ P matches with 4.\nStep 2: For Q, an $x-t$ parabola opening downwards corresponds to $x(t) = x_0 + ut - \\frac{1}{2}at^2$, where the second derivative $\\frac{d^2x}{dt^2} < 0$, representing motion with constant negative acceleration $\\implies$ Q matches with 3.\nStep 3: For R, an $a-t$ graph with a horizontal line below the axis represents a uniform, constant negative acceleration ($a = -a_0$) $\\implies$ R matches with 1.\nStep 4: For S, by definition, $\\int_{t_1}^{t_2} a\\,dt = \\int_{t_1}^{t_2} \\frac{dv}{dt}\\,dt = v_2 - v_1 = \\Delta v$, which is the net change in instantaneous velocity $\\implies$ S matches with 2.\nStep 5: Thus, the correct sequence is P-4, Q-3, R-1, S-2.\nDistractor Analysis: Options B, C, and D contain incorrect pairings of kinematic derivatives and geometric integrals."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_033",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A body starting from rest moves along a straight line with uniform acceleration $a$. If the distance traversed by the body during the $5^{\\text{th}}$ second of its motion is $36\\text{ m}$, what is the total distance covered by the body in the first $5\\text{ s}$ of its motion?",
+      "options": [
+        "A) $100\\text{ m}$",
+        "B) $80\\text{ m}$",
+        "C) $125\\text{ m}$",
+        "D) $72\\text{ m}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Distance traversed in the $n$-th second for $u = 0$ is:\n$s_n = \\frac{a}{2}(2n - 1)$.\nStep 2: For $n = 5$, we are given $s_5 = 36\\text{ m}$:\n$36 = \\frac{a}{2}(2 \\times 5 - 1) = \\frac{9a}{2} \\implies 9a = 72 \\implies a = 8\\text{ m/s}^2$.\nStep 3: The total distance covered in the first $t = 5\\text{ s}$ is:\n$S_5 = ut + \\frac{1}{2} a t^2 = 0 + \\frac{1}{2} \\times 8 \\times (5)^2 = 4 \\times 25 = 100\\text{ m}$.\nStep 4: (Alternative check using Galileo's odd numbers: $s_1 : s_2 : s_3 : s_4 : s_5 = 1 : 3 : 5 : 7 : 9$. The 5th second corresponds to 9 parts $= 36\\text{ m} \\implies 1\\text{ part} = 4\\text{ m}$. Total distance in 5 seconds is $1 + 3 + 5 + 7 + 9 = 25\\text{ parts} = 25 \\times 4 = 100\\text{ m}$. Perfectly verified!)\nDistractor Analysis: Option B calculates $S_4 = 4 \\times 16 = 64$ or a miscalculated product; Option C assumes $a = 10\\text{ m/s}^2$; Option D merely doubles the 5th second distance."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_034",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle starts from rest ($u = 0$) at $t = 0$ and moves along a straight line. Its acceleration-time ($a-t$) graph is triangular: acceleration decreases linearly from $+6\\text{ m/s}^2$ at $t = 0$ to $0\\text{ m/s}^2$ at $t = 4\\text{ s}$, and then continues decreasing linearly from $0\\text{ m/s}^2$ at $t = 4\\text{ s}$ to $-4\\text{ m/s}^2$ at $t = 8\\text{ s}$. The instantaneous velocity of the particle at $t = 8\\text{ s}$ is:",
+      "options": [
+        "A) $+20\\text{ m/s}$",
+        "B) $+4\\text{ m/s}$",
+        "C) $+12\\text{ m/s}$",
+        "D) $-8\\text{ m/s}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The change in velocity is given by the definite integral of acceleration with respect to time, which corresponds to the area under the $a-t$ graph:\n$\\Delta v = v(8) - v(0) = \\int_0^8 a(t)\\,dt$.\nStep 2: Area of positive region (from $t = 0$ to $t = 4\\text{ s}$):\n$A_1 = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times 4\\text{ s} \\times 6\\text{ m/s}^2 = +12\\text{ m/s}$.\nStep 3: Area of negative region (from $t = 4\\text{ s}$ to $t = 8\\text{ s}$):\n$A_2 = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times (8 - 4)\\text{ s} \\times (-4\\text{ m/s}^2) = -8\\text{ m/s}$.\nStep 4: Net change in velocity is:\n$\\Delta v = A_1 + A_2 = +12 - 8 = +4\\text{ m/s}$.\nStep 5: Since the particle starts from rest, $v(0) = 0$, so $v(8) = v(0) + \\Delta v = 0 + 4 = +4\\text{ m/s}$.\nDistractor Analysis: Option C is the peak velocity at $t = 4\\text{ s}$; Option D only accounts for the second triangle's area; Option A adds the absolute values of the areas ($12 + 8 = 20\\text{ m/s}$)."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_035",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A ball is thrown vertically upward with an initial speed of $20\\text{ m/s}$ from the edge of a flat roof of a building of height $25\\text{ m}$ above the ground. Taking $g = 10\\text{ m/s}^2$ and neglecting air resistance, the maximum height reached by the ball above the ground and the total time taken to reach the ground are, respectively:",
+      "options": [
+        "A) $45\\text{ m}$ and $4.0\\text{ s}$",
+        "B) $25\\text{ m}$ and $5.0\\text{ s}$",
+        "C) $45\\text{ m}$ and $5.0\\text{ s}$",
+        "D) $20\\text{ m}$ and $4.0\\text{ s}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Maximum height reached above the roof is given by:\n$h_{\\text{roof}} = \\frac{u^2}{2g} = \\frac{(20)^2}{2 \\times 10} = \\frac{400}{20} = 20\\text{ m}$.\nStep 2: Total height above the ground is:\n$H = h_{\\text{building}} + h_{\\text{roof}} = 25\\text{ m} + 20\\text{ m} = 45\\text{ m}$.\nStep 3: To find the total time of flight, choose the origin at the roof with upward as positive. The ground is at displacement $y = -25\\text{ m}$:\n$y = ut - \\frac{1}{2}gt^2 \\implies -25 = 20t - 5t^2$.\nStep 4: Rearranging into standard quadratic form:\n$5t^2 - 20t - 25 = 0 \\implies t^2 - 4t - 5 = 0$.\nFactoring: $(t - 5)(t + 1) = 0$.\nSince time $t > 0$, we have $t = 5.0\\text{ s}$.\n(Check: Time to reach highest point is $t_{\\text{up}} = \\frac{u}{g} = 2\\text{ s}$. Time to fall from $45\\text{ m}$ is $t_{\\text{fall}} = \\sqrt{\\frac{2 \\times 45}{10}} = \\sqrt{9} = 3\\text{ s}$. Total time $= 2 + 3 = 5\\text{ s}$. Perfectly consistent!)\nDistractor Analysis: Option D takes height above roof and round-trip time back to roof level ($4\\text{ s}$); Option A pairs the correct height with the round-trip time; Option B overlooks the additional height above the building."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_036",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A car moving with an initial velocity $u$ on a straight level road is brought to rest with uniform retardation in total time $T$. If $s_1$ is the distance traversed by the car during the first half of the stopping time ($0$ to $T/2$) and $s_2$ is the distance traversed during the second half ($T/2$ to $T$), then the ratio $s_1 : s_2$ is:",
+      "options": [
+        "A) $1 : 1$",
+        "B) $2 : 1$",
+        "C) $4 : 1$",
+        "D) $3 : 1$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Let the uniform retardation be $a$. Since the car stops in time $T$, we have $0 = u - aT \\implies u = aT$.\nStep 2: Total stopping distance is $S = uT - \\frac{1}{2}aT^2 = aT^2 - \\frac{1}{2}aT^2 = \\frac{1}{2}aT^2$.\nStep 3: Distance covered in the first half of the time ($t = T/2$):\n$s_1 = u\\left(\\frac{T}{2}\\right) - \\frac{1}{2}a\\left(\\frac{T}{2}\\right)^2 = (aT)\\left(\\frac{T}{2}\\right) - \\frac{1}{8}aT^2 = \\frac{1}{2}aT^2 - \\frac{1}{8}aT^2 = \\frac{3}{8}aT^2$.\nStep 4: Distance covered in the second half of the time:\n$s_2 = S - s_1 = \\frac{1}{2}aT^2 - \\frac{3}{8}aT^2 = \\frac{1}{8}aT^2$.\nStep 5: The ratio is therefore:\n$\\frac{s_1}{s_2} = \\frac{\\frac{3}{8}aT^2}{\\frac{1}{8}aT^2} = \\frac{3}{1} = 3 : 1$.\n(Note: This is Galileo's law of odd numbers viewed in time-reversal from rest).\nDistractor Analysis: Option A incorrectly assumes equal distances in equal times; Option B is an arbitrary ratio; Option C confuses distance ratio with velocity square ratio."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_037",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding a particle thrown vertically upwards under uniform gravitational acceleration $g$ (in vacuum):\n\nI. The time of ascent is strictly equal to the time of descent.\nII. At the highest point of the trajectory, the acceleration of the particle is momentarily zero because the velocity is momentarily zero.\nIII. The speed of the particle at any given altitude during ascent is equal to its speed at that same altitude during descent.\nIV. The total distance covered by the particle over its complete flight is equal to twice the maximum height ($2 H_{\\max}$).\n\nWhich of the above statements are strictly CORRECT?",
+      "options": [
+        "A) I, III, and IV only",
+        "B) I and III only",
+        "C) II, III, and IV only",
+        "D) I, II, III, and IV"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In vacuum, the upward journey is governed by $v = u - gt$ and the downward journey from rest is governed by $v = gt$. The symmetry of the parabolic path guarantees time of ascent $t_{\\text{ascent}} = \\frac{u}{g} = t_{\\text{descent}}$. Hence, Statement I is correct.\nStep 2: Gravitational force acts continuously downward on the particle at all times. Therefore, at the topmost point, although instantaneous velocity $v = 0$, the acceleration is still $g = 9.8\\text{ m/s}^2$ vertically downward. Hence, Statement II is INCORRECT.\nStep 3: By conservation of mechanical energy (or kinematics $v^2 = u^2 - 2gh$), at any given height $h$, the speed $|v| = \\sqrt{u^2 - 2gh}$ is identical both on the way up and on the way down. Hence, Statement III is correct.\nStep 4: The particle rises to $H_{\\max}$ and then descends through $H_{\\max}$ back to the launch level, so total distance is $H_{\\max} + H_{\\max} = 2 H_{\\max}$. Hence, Statement IV is correct.\nStep 5: Thus, statements I, III, and IV are correct.\nDistractor Analysis: Option B misses Statement IV; Option C accepts false Statement II; Option D fails to recognize that acceleration never vanishes under gravity."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_038",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A train of length $L$ travels along a straight track with constant acceleration $a$. The front end of the locomotive passes a stationary signal pole with a speed $u$, and the rear end of the last carriage passes the same signal pole with a speed $v$. With what speed does the middle point of the train pass the signal pole?",
+      "options": [
+        "A) $\\frac{\\sqrt{u^2 + v^2}}{2}$",
+        "B) $\\sqrt{\\frac{u^2 + v^2}{2}}$",
+        "C) $\\frac{u + v}{2}$",
+        "D) $\\sqrt{u v}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Let the pole be at position $x = 0$. When the front passes the pole, the velocity is $u$. When the rear passes the pole, the train has traveled a distance equal to its total length $L$.\nStep 2: Using the third kinematic equation for the entire train passing the pole:\n$v^2 - u^2 = 2 a L \\implies a L = \\frac{v^2 - u^2}{2}$.\nStep 3: When the middle point of the train reaches the pole, the train has traveled a distance equal to $\\frac{L}{2}$.\nStep 4: Let the speed of the middle point be $v_{\\text{mid}}$. Applying the third equation of motion for this displacement $\\frac{L}{2}$:\n$v_{\\text{mid}}^2 - u^2 = 2 a \\left(\\frac{L}{2}\\right) = a L$.\nStep 5: Substitute $a L$ from Step 2:\n$v_{\\text{mid}}^2 - u^2 = \\frac{v^2 - u^2}{2} \\implies v_{\\text{mid}}^2 = u^2 + \\frac{v^2 - u^2}{2} = \\frac{u^2 + v^2}{2}$.\nStep 6: Taking the square root gives $v_{\\text{mid}} = \\sqrt{\\frac{u^2 + v^2}{2}}$ (the root-mean-square of the two speeds).\nDistractor Analysis: Option C is the arithmetic mean (which represents average velocity with respect to time, not midpoint position); Option D is the geometric mean; Option A has the square root outside incorrectly."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_039",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Ball $A$ is dropped from rest from the top of a tower of height $100\\text{ m}$. At the exact same instant, Ball $B$ is projected vertically upwards from the base of the tower with an initial speed of $50\\text{ m/s}$ along the same vertical line. Taking $g = 10\\text{ m/s}^2$, at what time $t$ and at what height above the ground do the two balls cross each other?",
+      "options": [
+        "A) $t = 2.5\\text{ s}$, height $= 68.75\\text{ m}$",
+        "B) $t = 1.5\\text{ s}$, height $= 88.75\\text{ m}$",
+        "C) $t = 2.0\\text{ s}$, height $= 80\\text{ m}$",
+        "D) $t = 2.0\\text{ s}$, height $= 20\\text{ m}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Choose the ground as origin ($y = 0$) and vertically upward as positive.\nStep 2: Position of Ball $A$ (dropped from $y = 100\\text{ m}$ from rest):\n$y_A(t) = 100 - \\frac{1}{2}gt^2 = 100 - 5t^2$.\nStep 3: Position of Ball $B$ (projected up from $y = 0$ with $u = 50\\text{ m/s}$):\n$y_B(t) = 50t - \\frac{1}{2}gt^2 = 50t - 5t^2$.\nStep 4: The two balls cross when their heights are equal: $y_A(t) = y_B(t)$:\n$100 - 5t^2 = 50t - 5t^2 \\implies 100 = 50t \\implies t = 2.0\\text{ s}$.\n(Notice that the quadratic terms in $g$ cancel out because relative acceleration between two freely falling bodies is strictly zero: $a_{\\text{rel}} = g - g = 0$).\nStep 5: Find the crossing height by substituting $t = 2.0\\text{ s}$:\n$y = y_B(2.0) = 50(2.0) - 5(2.0)^2 = 100 - 20 = 80\\text{ m}$ above the ground.\nDistractor Analysis: Option D calculates the distance fallen by ball $A$ ($20\\text{ m}$) from the top, rather than its height above the ground; Options C and D arise from calculation errors in the relative speed."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_040",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An electric sports car accelerates from rest at a constant rate $\\alpha$ for some time, after which it decelerates at a constant rate $\\beta$ until it comes to a complete halt. If the total time elapsed from start to finish is $T$, what is the total distance $S$ covered by the car?",
+      "options": [
+        "A) $S = \\left(\\frac{\\alpha \\beta}{\\alpha + \\beta}\\right) T^2$",
+        "B) $S = \\frac{1}{2} \\left(\\frac{\\alpha + \\beta}{\\alpha \\beta}\\right) T^2$",
+        "C) $S = \\frac{1}{4} (\\alpha + \\beta) T^2$",
+        "D) $S = \\frac{1}{2} \\left(\\frac{\\alpha \\beta}{\\alpha + \\beta}\\right) T^2$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Let the time of acceleration be $t_1$ and deceleration be $t_2$, so $t_1 + t_2 = T$.\nStep 2: The peak velocity is $v_{\\max} = \\alpha t_1 = \\beta t_2 \\implies t_1 = \\frac{v_{\\max}}{\\alpha}$ and $t_2 = \\frac{v_{\\max}}{\\beta}$.\nStep 3: Adding the times: $T = t_1 + t_2 = v_{\\max}\\left(\\frac{1}{\\alpha} + \\frac{1}{\\beta}\\right) = v_{\\max}\\left(\\frac{\\alpha + \\beta}{\\alpha \\beta}\\right)$.\nTherefore, peak velocity is $v_{\\max} = \\left(\\frac{\\alpha \\beta}{\\alpha + \\beta}\\right) T$.\nStep 4: The velocity-time profile is a triangle with base $T$ and height $v_{\\max}$. Total distance $S$ is the area of this triangle:\n$S = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} T v_{\\max} = \\frac{1}{2} T \\left[\\left(\\frac{\\alpha \\beta}{\\alpha + \\beta}\\right) T\\right] = \\frac{1}{2} \\left(\\frac{\\alpha \\beta}{\\alpha + \\beta}\\right) T^2$.\nDistractor Analysis: Option A forgets the factor of $\\frac{1}{2}$ for the triangle area; Option B inverts the acceleration harmonic combination; Option C uses an arithmetic sum instead."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_041",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): On a position-time ($x-t$) graph of a particle moving along a straight line, if the curve is concave downwards at an instant, the particle has a negative acceleration at that instant.\nReason (R): Concavity of a curve $x(t)$ is governed mathematically by its second derivative $\\frac{d^2x}{dt^2}$, and concave downward curvature corresponds to $\\frac{d^2x}{dt^2} < 0$, which is the physical definition of acceleration.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In differential calculus, the concavity of any curve $y = f(t)$ is determined by the sign of its second derivative $f''(t)$. A curve is concave downwards if and only if $f''(t) < 0$.\nStep 2: In kinematics, the instantaneous acceleration is defined precisely as the second time derivative of position: $a(t) = \\frac{d^2x}{dt^2}$.\nStep 3: Therefore, when an $x-t$ graph curves downwards (concave downward), its slope $\\frac{dx}{dt}$ (velocity) is continuously decreasing with time, which means $\\frac{d^2x}{dt^2} = a(t) < 0$.\nStep 4: Thus, Assertion (A) is true and Reason (R) provides the exact mathematical and physical explanation.\nDistractor Analysis: Option B fails to acknowledge Reason as the direct derivative proof; Options C and D contradict standard NCERT calculus-based graphical mechanics."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_042",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Water drops fall at regular, equal time intervals from a leaking tap located at the roof of a building of height $20.0\\text{ m}$ above the ground. At the exact instant when the $5^{\\text{th}}$ drop detaches from the tap, the $1^{\\text{st}}$ drop strikes the ground. Taking $g = 10.0\\text{ m/s}^2$ and neglecting air resistance, what is the height of the $3^{\\text{rd}}$ drop above the ground at that precise instant?",
+      "options": [
+        "A) $8.75\\text{ m}$",
+        "B) $15.0\\text{ m}$",
+        "C) $11.25\\text{ m}$",
+        "D) $5.0\\text{ m}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Calculate the total time taken by the $1^{\\text{st}}$ drop to fall through the full height $H = 20.0\\text{ m}$:\n$H = \\frac{1}{2} g T^2 \\implies 20.0 = \\frac{1}{2}(10.0) T^2 = 5 T^2 \\implies T^2 = 4 \\implies T = 2.0\\text{ s}$.\nStep 2: Between the detachment of the $1^{\\text{st}}$ drop and the $5^{\\text{th}}$ drop, there are $5 - 1 = 4$ equal time intervals $\\Delta t$:\n$4 \\Delta t = T = 2.0\\text{ s} \\implies \\Delta t = \\frac{2.0}{4} = 0.5\\text{ s}$.\nStep 3: At the instant the $5^{\\text{th}}$ drop detaches ($t = 0$ for drop 5):\n- Drop 4 has been falling for $1 \\times \\Delta t = 0.5\\text{ s}$\n- Drop 3 has been falling for $2 \\times \\Delta t = 1.0\\text{ s}$\n- Drop 2 has been falling for $3 \\times \\Delta t = 1.5\\text{ s}$\n- Drop 1 has been falling for $4 \\times \\Delta t = 2.0\\text{ s}$ (striking ground).\nStep 4: Distance fallen by the $3^{\\text{rd}}$ drop from the tap is:\n$y_3 = \\frac{1}{2} g t_3^2 = \\frac{1}{2} \\times 10.0 \\times (1.0)^2 = 5.0\\text{ m}$.\nStep 5: The height of the $3^{\\text{rd}}$ drop above the ground is:\n$h_3 = H - y_3 = 20.0\\text{ m} - 5.0\\text{ m} = 15.0\\text{ m}$.\nDistractor Analysis: Option C ($11.25\\text{ m}$) is the distance fallen by the 2nd drop; Option D ($5.0\\text{ m}$) is the distance fallen from the tap, not the height above the ground; Option A ($8.75\\text{ m}$) is the height of the 2nd drop above ground."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_043",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A motorist is cruising along a straight road at a steady speed of $72.0\\text{ km/h}$. Suddenly, the driver spots a fallen tree across the road and applies the brakes. If the human reaction time is $0.50\\text{ s}$ and the braking system generates a uniform deceleration of $5.0\\text{ m/s}^2$, what is the total distance traversed by the car from the instant the obstruction is first sighted until the vehicle comes to a complete halt?",
+      "options": [
+        "A) $10.0\\text{ m}$",
+        "B) $60.0\\text{ m}$",
+        "C) $50.0\\text{ m}$",
+        "D) $40.0\\text{ m}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Convert the initial speed into SI units:\n$u = 72.0\\text{ km/h} = 72.0 \\times \\frac{5}{18} = 20.0\\text{ m/s}$.\nStep 2: During the reaction time $t_r = 0.50\\text{ s}$, the driver does not yet apply the brakes, so the car continues at uniform speed $u$. The reaction distance is:\n$d_{\\text{reaction}} = u \\cdot t_r = 20.0\\text{ m/s} \\times 0.50\\text{ s} = 10.0\\text{ m}$.\nStep 3: After the brakes are applied, the car decelerates uniformly at $a = 5.0\\text{ m/s}^2$ until $v = 0$. The braking distance is:\n$d_{\\text{braking}} = \\frac{u^2}{2a} = \\frac{(20.0)^2}{2 \\times 5.0} = \\frac{400}{10.0} = 40.0\\text{ m}$.\nStep 4: The total stopping distance is the sum of both distances:\n$d_{\\text{total}} = d_{\\text{reaction}} + d_{\\text{braking}} = 10.0\\text{ m} + 40.0\\text{ m} = 50.0\\text{ m}$.\nDistractor Analysis: Option D accounts only for the braking distance ($40.0\\text{ m}$), ignoring reaction time; Option A accounts only for the reaction distance; Option B erroneously adds an extra time factor."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_044",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two passenger trains, each traveling at $72.0\\text{ km/h}$ on the same straight railway line, are approaching each other head-on. When the distance separating them is $400\\text{ m}$, both train drivers simultaneously spot each other and apply emergency brakes. Assuming both trains produce the same uniform retarding deceleration, what is the minimum magnitude of deceleration required to avert a head-on collision?",
+      "options": [
+        "A) $0.5\\text{ m/s}^2$",
+        "B) $2.0\\text{ m/s}^2$",
+        "C) $4.0\\text{ m/s}^2$",
+        "D) $1.0\\text{ m/s}^2$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Convert the speeds of both trains to SI units:\n$u_A = 72.0\\text{ km/h} = 20.0\\text{ m/s}$\n$u_B = -20.0\\text{ m/s}$ (opposite direction).\nStep 2: Work in the relative reference frame of Train $B$:\nInitial relative velocity: $u_{\\text{rel}} = u_A - u_B = 20.0 - (-20.0) = 40.0\\text{ m/s}$.\nSince both trains decelerate at rate $a$ towards each other, the relative deceleration is:\n$a_{\\text{rel}} = a_A + a_B = a + a = 2a$.\nStep 3: To just avert collision, the relative velocity must drop to zero ($v_{\\text{rel}} = 0$) within the initial separation distance $s_{\\text{rel}} = 400\\text{ m}$:\n$v_{\\text{rel}}^2 - u_{\\text{rel}}^2 = 2(-a_{\\text{rel}}) s_{\\text{rel}} \\implies 0 - (40.0)^2 = -2(2a)(400)$.\nStep 4: Solve for $a$:\n$1600 = 1600 a \\implies a = 1.0\\text{ m/s}^2$.\n(Alternative verification: By symmetry, each train must come to a halt in half the separation distance, i.e., $s = 200\\text{ m}$. Using $v^2 - u^2 = 2(-a)s \\implies 0 - (20)^2 = -2a(200) \\implies 400 = 400a \\implies a = 1.0\\text{ m/s}^2$).\nDistractor Analysis: Option A erroneously divides the stopping distance by 2 twice; Option B computes relative acceleration instead of each train's acceleration; Option C uses full separation without accounting for both trains stopping."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_045",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A car is waiting at a red traffic light. The moment the light turns green ($t = 0$), the car accelerates from rest with a uniform acceleration of $2.0\\text{ m/s}^2$. At the exact same instant, a truck traveling at a constant speed of $16.0\\text{ m/s}$ overtakes the car. At what distance from the traffic signal will the car overtake the truck, and what will be the speed of the car at that moment?",
+      "options": [
+        "A) Distance $= 256\\text{ m}$, Speed $= 32.0\\text{ m/s}$",
+        "B) Distance $= 128\\text{ m}$, Speed $= 16.0\\text{ m/s}$",
+        "C) Distance $= 256\\text{ m}$, Speed $= 16.0\\text{ m/s}$",
+        "D) Distance $= 512\\text{ m}$, Speed $= 32.0\\text{ m/s}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write the position equations of the truck and the car taking the traffic signal as origin ($x = 0$):\nFor the truck (constant velocity): $x_{\\text{truck}}(t) = v_{\\text{truck}} \\cdot t = 16.0 t$.\nFor the car (constant acceleration from rest): $x_{\\text{car}}(t) = \\frac{1}{2} a t^2 = \\frac{1}{2} (2.0) t^2 = t^2$.\nStep 2: The car overtakes the truck when their positions coincide ($x_{\\text{car}} = x_{\\text{truck}}$):\n$t^2 = 16.0 t \\implies t(t - 16.0) = 0$.\nSince $t > 0$, overtake occurs at $t = 16.0\\text{ s}$.\nStep 3: Distance from the traffic signal is:\n$x = (16.0)^2 = 256\\text{ m}$.\nStep 4: Speed of the car at the instant of overtaking is:\n$v_{\\text{car}} = a t = 2.0 \\times 16.0 = 32.0\\text{ m/s}$.\n(Notice that for motion starting from rest with uniform acceleration, the overtaking speed is always exactly twice the constant speed of the overtaken vehicle: $v_{\\text{car}} = 2 v_{\\text{truck}}$).\nDistractor Analysis: Option B calculates the point of maximum separation between them ($t = 8\\text{ s}$); Option C pairs the correct distance with the truck's speed; Option D doubles the overtaking distance."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_046",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle starts from rest at $t = 0$ and moves along the $x$-axis. Its acceleration varies with time according to $a(t) = 6.0 - 2.0 t$ (where $a$ is in $\\text{m/s}^2$ and $t$ is in seconds). What is the maximum velocity attained by the particle, and what is its displacement from the starting point at the instant this maximum velocity is reached?",
+      "options": [
+        "A) Maximum velocity $= 18.0\\text{ m/s}$, Displacement $= 18.0\\text{ m}$",
+        "B) Maximum velocity $= 9.0\\text{ m/s}$, Displacement $= 18.0\\text{ m}$",
+        "C) Maximum velocity $= 6.0\\text{ m/s}$, Displacement $= 12.0\\text{ m}$",
+        "D) Maximum velocity $= 9.0\\text{ m/s}$, Displacement $= 27.0\\text{ m}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Velocity is the time integral of acceleration: $v(t) = \\int a(t)\\,dt = \\int (6.0 - 2.0t)\\,dt = 6.0t - t^2 + C$.\nSince $v(0) = 0$, the integration constant $C = 0 \\implies v(t) = 6.0t - t^2$.\nStep 2: Velocity reaches an extremum when $\\frac{dv}{dt} = a(t) = 0$:\n$6.0 - 2.0t = 0 \\implies t = 3.0\\text{ s}$.\nSince $\\frac{d^2v}{dt^2} = \\frac{da}{dt} = -2.0 < 0$, this extremum is a true maximum.\nStep 3: Maximum velocity attained is:\n$v_{\\max} = v(3.0) = 6.0(3.0) - (3.0)^2 = 18.0 - 9.0 = 9.0\\text{ m/s}$.\nStep 4: Displacement is the time integral of velocity: $x(t) = \\int_0^t (6.0t' - t'^2)\\,dt' = \\left[3.0t'^2 - \\frac{t'^3}{3}\\right]_0^t$.\nAt $t = 3.0\\text{ s}$:\n$x(3.0) = 3.0(3.0)^2 - \\frac{(3.0)^3}{3} = 3.0(9.0) - 9.0 = 27.0 - 9.0 = 18.0\\text{ m}$.\nDistractor Analysis: Option C assumes $t = 2.0\\text{ s}$; Option D computes $3t^2 = 27\\text{ m}$ forgetting to subtract the cubic term; Option A doubles the velocity value."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_047",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle moves along a straight line such that its velocity $v$ is proportional to the square root of its position coordinate $x$, given by $v = 4.0 \\sqrt{x}$ (where $x$ is in meters and $v$ is in $\\text{m/s}$). If the particle is at $x = 0$ at $t = 0$, what are its instantaneous acceleration and its position as a function of time $t$?",
+      "options": [
+        "A) Acceleration $= 4.0\\text{ m/s}^2$ (constant), $x(t) = 2.0 t^2$",
+        "B) Acceleration varies as $2.0/\\sqrt{x}$, $x(t) = 16.0 t$",
+        "C) Acceleration $= 8.0\\text{ m/s}^2$ (constant), $x(t) = 4.0 t^2$",
+        "D) Acceleration $= 16.0\\text{ m/s}^2$ (constant), $x(t) = 8.0 t^2$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Use the chain rule for acceleration in terms of position: $a = v \\frac{dv}{dx}$.\nGiven $v = 4.0 x^{1/2}$, compute the spatial derivative:\n$\\frac{dv}{dx} = 4.0 \\times \\frac{1}{2} x^{-1/2} = \\frac{2.0}{\\sqrt{x}}$.\nStep 2: Evaluate acceleration:\n$a = v \\frac{dv}{dx} = (4.0 \\sqrt{x}) \\left(\\frac{2.0}{\\sqrt{x}}\\right) = 8.0\\text{ m/s}^2$.\nNotice that the variable $x$ cancels out completely, demonstrating that the acceleration is constant.\nStep 3: To find $x(t)$, integrate $v = \\frac{dx}{dt} = 4.0 \\sqrt{x}$:\n$\\frac{dx}{\\sqrt{x}} = 4.0\\,dt \\implies \\int_0^x x^{-1/2}\\,dx = \\int_0^t 4.0\\,dt \\implies 2\\sqrt{x} = 4.0 t$.\nStep 4: Dividing by 2 and squaring both sides:\n$\\sqrt{x} = 2.0 t \\implies x(t) = 4.0 t^2$.\n(Check: $a = \\frac{d^2x}{dt^2} = \\frac{d^2}{dt^2}(4.0 t^2) = 8.0\\text{ m/s}^2$. Perfectly consistent!)\nDistractor Analysis: Option D misses the factor of $1/2$ in $\\frac{d(\\sqrt{x})}{dx}$; Option A uses $a = 4.0\\text{ m/s}^2$; Option B confuses $\\frac{dv}{dx}$ with acceleration $a$."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_048",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A speedboat moving with an initial speed $v_0 = 20.0\\text{ m/s}$ in a lake shuts down its engine at $t = 0$. The drag force from the water generates a retarding acceleration proportional to the instantaneous velocity: $a = -0.20 v$ (where $a$ is in $\\text{m/s}^2$ and $v$ is in $\\text{m/s}$). What is the total distance traveled by the speedboat before it comes to rest?",
+      "options": [
+        "A) $50.0\\text{ m}$",
+        "B) $200.0\\text{ m}$",
+        "C) Infinite distance, since it takes infinite time to stop",
+        "D) $100.0\\text{ m}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Express acceleration in terms of velocity and position: $a = v \\frac{dv}{dx}$.\nGiven $a = -k v$, where $k = 0.20\\text{ s}^{-1}$:\n$v \\frac{dv}{dx} = -k v$.\nStep 2: For $v > 0$, cancel $v$ on both sides:\n$\\frac{dv}{dx} = -k \\implies dv = -k\\,dx$.\nStep 3: Integrate both sides from the initial state ($x = 0, v = v_0$) to the final state at rest ($x = x_{\\max}, v = 0$):\n$\\int_{v_0}^0 dv = -k \\int_0^{x_{\\max}} dx \\implies 0 - v_0 = -k x_{\\max} \\implies x_{\\max} = \\frac{v_0}{k}$.\nStep 4: Substitute the given numerical values:\n$x_{\\max} = \\frac{20.0\\text{ m/s}}{0.20\\text{ s}^{-1}} = 100.0\\text{ m}$.\nStep 5: (Note: While $v(t) = v_0 e^{-kt} \\to 0$ asymptotically as $t \\to \\infty$, the spatial integral converges to a strictly finite distance $x_{\\max} = 100.0\\text{ m}$).\nDistractor Analysis: Option A divides $v_0$ by $2k$; Option B uses $k = 0.10$; Option C falls into the classic conceptual trap confusing infinite time with infinite distance."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_049",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The velocity-position ($v-x$) graph of an object moving along the $x$-axis is a straight line decreasing linearly from $v = v_0$ at $x = 0$ to $v = 0$ at $x = x_0$. Which of the following expressions correctly gives the acceleration $a$ of the object as a function of its position $x$?",
+      "options": [
+        "A) $a(x) = \\frac{v_0^2}{x_0} \\left(\\frac{x}{x_0} - 1\\right)$",
+        "B) $a(x) = -\\frac{v_0^2}{2x_0}$ (constant)",
+        "C) $a(x) = -\\frac{v_0}{x_0}$ (constant)",
+        "D) $a(x) = -\\frac{v_0^2}{x_0} \\left(\\frac{x}{x_0} + 1\\right)$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write the equation for the straight line on the $v-x$ plane using intercept form:\n$\\frac{v}{v_0} + \\frac{x}{x_0} = 1 \\implies v(x) = v_0 \\left(1 - \\frac{x}{x_0}\\right)$.\nStep 2: Find the spatial derivative $\\frac{dv}{dx}$:\n$\\frac{dv}{dx} = \\frac{d}{dx}\\left[v_0 - \\frac{v_0}{x_0} x\\right] = -\\frac{v_0}{x_0}$ (constant negative slope).\nStep 3: Instantaneous acceleration is given by $a = v \\frac{dv}{dx}$:\n$a(x) = \\left[v_0 \\left(1 - \\frac{x}{x_0}\\right)\\right] \\left(-\\frac{v_0}{x_0}\\right) = -\\frac{v_0^2}{x_0} \\left(1 - \\frac{x}{x_0}\\right) = \\frac{v_0^2}{x_0} \\left(\\frac{x}{x_0} - 1\\right)$.\nStep 4: Notice that at $x = 0$, $a(0) = -\\frac{v_0^2}{x_0}$, and at $x = x_0$, $a(x_0) = 0$. The acceleration is NOT constant; it varies linearly with position $x$.\nDistractor Analysis: Option B treats the motion as uniformly accelerated (which only holds if $v^2-x$ is linear, not $v-x$); Option C confuses the slope $\\frac{dv}{dx}$ with acceleration $a$; Option D has the incorrect sign inside the parenthesis."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_050",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A commuter bus is parked at a stop. When it begins to move with a constant forward acceleration of $1.0\\text{ m/s}^2$, a passenger who is initially standing $18.0\\text{ m}$ behind the bus immediately starts running forward with a uniform speed $v$. What is the minimum running speed $v_{\\min}$ that the passenger must maintain in order to catch the bus?",
+      "options": [
+        "A) $3.0\\text{ m/s}$",
+        "B) $6.0\\text{ m/s}$",
+        "C) $4.5\\text{ m/s}$",
+        "D) $9.0\\text{ m/s}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Set up the position coordinates with the initial position of the passenger as the origin ($x = 0$):\nPassenger: $x_{\\text{man}}(t) = v \\cdot t$.\nBus (starting from rest at $x_0 = 18.0\\text{ m}$ with $a = 1.0\\text{ m/s}^2$):\n$x_{\\text{bus}}(t) = 18.0 + \\frac{1}{2} a t^2 = 18.0 + 0.5 t^2$.\nStep 2: The passenger catches the bus when $x_{\\text{man}} = x_{\\text{bus}}$:\n$v t = 18.0 + 0.5 t^2 \\implies 0.5 t^2 - v t + 18.0 = 0 \\implies t^2 - 2v t + 36.0 = 0$.\nStep 3: For the passenger to catch the bus, the quadratic equation in $t$ must have real roots. The discriminant must satisfy $D \\ge 0$:\n$D = (-2v)^2 - 4(1)(36.0) \\ge 0 \\implies 4v^2 - 144 \\ge 0 \\implies v^2 \\ge 36.0 \\implies v \\ge 6.0\\text{ m/s}$.\nStep 4: Therefore, the minimum running speed is $v_{\\min} = 6.0\\text{ m/s}$.\n(At $v = 6.0\\text{ m/s}$, the time taken to catch the bus is $t = \\frac{2(6.0)}{2} = 6.0\\text{ s}$, at which instant the speed of the bus is $a t = 1.0 \\times 6.0 = 6.0\\text{ m/s} = v$, so their relative velocity momentarily reaches zero).\nDistractor Analysis: Option C corresponds to an incorrect discriminant calculation; Option D uses an arithmetic average of separation and acceleration; Option A takes $\\sqrt{v^2/4}$."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_051",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The time $t$ elapsed and position $x$ of a particle moving along the $x$-axis are related by $t = \\alpha x^2 + \\beta x$, where $\\alpha$ and $\\beta$ are positive constants. The magnitude of deceleration (retardation) of the particle expressed in terms of its instantaneous velocity $v$ is:",
+      "options": [
+        "A) $2\\beta v^3$",
+        "B) $\\frac{2\\alpha}{v^2}$",
+        "C) $2\\alpha v^3$",
+        "D) $2\\alpha v^2$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Differentiate the given relation $t = \\alpha x^2 + \\beta x$ with respect to position $x$:\n$\\frac{dt}{dx} = \\frac{d}{dx}(\\alpha x^2 + \\beta x) = 2\\alpha x + \\beta$.\nStep 2: Instantaneous velocity is the reciprocal of $\\frac{dt}{dx}$:\n$v = \\frac{dx}{dt} = \\frac{1}{2\\alpha x + \\beta} = (2\\alpha x + \\beta)^{-1}$.\nStep 3: Acceleration can be found using the chain rule: $a = v \\frac{dv}{dx}$:\n$\\frac{dv}{dx} = \\frac{d}{dx}[(2\\alpha x + \\beta)^{-1}] = -(2\\alpha x + \\beta)^{-2} \\cdot (2\\alpha) = -2\\alpha (2\\alpha x + \\beta)^{-2}$.\nStep 4: Since $(2\\alpha x + \\beta)^{-1} = v$, we have $(2\\alpha x + \\beta)^{-2} = v^2$. Thus:\n$\\frac{dv}{dx} = -2\\alpha v^2$.\nStep 5: Therefore, acceleration is:\n$a = v \\frac{dv}{dx} = v (-2\\alpha v^2) = -2\\alpha v^3$.\nStep 6: The magnitude of deceleration (retardation) is $|a| = 2\\alpha v^3$.\nDistractor Analysis: Option D misses the additional power of $v$ from $a = v \\frac{dv}{dx}$; Option A incorrectly involves $\\beta$ in the second derivative; Option B inverts the velocity power."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_052",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A small stone $A$ is dropped from rest from the top of a cliff of height $180.0\\text{ m}$. Exactly $1.0\\text{ s}$ later, a second stone $B$ is thrown vertically downwards from the same spot with an initial velocity $u$. If both stones strike the ground at the identical moment, what is the initial projection speed $u$ of stone $B$? (Take $g = 10.0\\text{ m/s}^2$).",
+      "options": [
+        "A) $15.0\\text{ m/s}$",
+        "B) $9.8\\text{ m/s}$",
+        "C) $20.0\\text{ m/s}$",
+        "D) $11.0\\text{ m/s}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Determine the total time of fall for stone $A$ (dropped from rest, $u_A = 0$):\n$H = \\frac{1}{2} g t_A^2 \\implies 180.0 = \\frac{1}{2}(10.0) t_A^2 = 5 t_A^2$.\n$t_A^2 = \\frac{180.0}{5} = 36.0 \\implies t_A = 6.0\\text{ s}$.\nStep 2: Stone $B$ is released $1.0\\text{ s}$ after stone $A$ and hits the ground at the same moment as stone $A$. Therefore, the duration of travel for stone $B$ is:\n$t_B = t_A - 1.0\\text{ s} = 6.0\\text{ s} - 1.0\\text{ s} = 5.0\\text{ s}$.\nStep 3: Apply the second equation of motion for stone $B$ through height $H = 180.0\\text{ m}$:\n$H = u t_B + \\frac{1}{2} g t_B^2 \\implies 180.0 = u(5.0) + \\frac{1}{2}(10.0)(5.0)^2$.\n$180.0 = 5.0 u + 5(25.0) = 5.0 u + 125.0$.\nStep 4: Solve for $u$:\n$5.0 u = 180.0 - 125.0 = 55.0 \\implies u = \\frac{55.0}{5.0} = 11.0\\text{ m/s}$.\nDistractor Analysis: Option A corresponds to a $2.0\\text{ s}$ delay; Option B is standard $g$; Option C uses $t_B = 4.0\\text{ s}$."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_053",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A commuter subway train travels along a straight track between two stations situated $1000.0\\text{ m}$ apart. The maximum acceleration of the train is $2.0\\text{ m/s}^2$, its maximum cruising speed is restricted to $20.0\\text{ m/s}$, and its maximum braking deceleration is $4.0\\text{ m/s}^2$. What is the minimum time required for the train to complete the journey between the two stations starting from rest and coming to a complete halt?",
+      "options": [
+        "A) $57.5\\text{ s}$",
+        "B) $50.0\\text{ s}$",
+        "C) $65.0\\text{ s}$",
+        "D) $45.0\\text{ s}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Acceleration phase (from rest to $v_{\\max} = 20.0\\text{ m/s}$ with $a_1 = 2.0\\text{ m/s}^2$):\nTime taken: $t_1 = \\frac{v_{\\max}}{a_1} = \\frac{20.0}{2.0} = 10.0\\text{ s}$.\nDistance covered: $s_1 = \\frac{v_{\\max}^2}{2a_1} = \\frac{(20.0)^2}{2 \\times 2.0} = \\frac{400}{4.0} = 100.0\\text{ m}$.\nStep 2: Deceleration phase (from $v_{\\max} = 20.0\\text{ m/s}$ to rest with $a_2 = 4.0\\text{ m/s}^2$):\nTime taken: $t_3 = \\frac{v_{\\max}}{a_2} = \\frac{20.0}{4.0} = 5.0\\text{ s}$.\nDistance covered: $s_3 = \\frac{v_{\\max}^2}{2a_2} = \\frac{(20.0)^2}{2 \\times 4.0} = \\frac{400}{8.0} = 50.0\\text{ m}$.\nStep 3: Cruising phase (at constant maximum speed $v_{\\max} = 20.0\\text{ m/s}$):\nTotal distance during acceleration and deceleration is $s_1 + s_3 = 100.0 + 50.0 = 150.0\\text{ m}$.\nRemaining distance to cruise: $s_2 = 1000.0\\text{ m} - 150.0\\text{ m} = 850.0\\text{ m}$.\nTime spent cruising: $t_2 = \\frac{s_2}{v_{\\max}} = \\frac{850.0}{20.0} = 42.5\\text{ s}$.\nStep 4: Total minimum travel time is:\n$T_{\\text{total}} = t_1 + t_2 + t_3 = 10.0\\text{ s} + 42.5\\text{ s} + 5.0\\text{ s} = 57.5\\text{ s}$.\nDistractor Analysis: Option B ignores the acceleration and deceleration distances ($1000/20 = 50\\text{ s}$); Option C miscalculates the cruising distance; Option D erroneously omits the deceleration phase time."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_054",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An elevator is ascending vertically with a uniform upward acceleration of $2.0\\text{ m/s}^2$. A passenger standing inside the elevator releases a coin gently from a height of $1.5\\text{ m}$ above the elevator floor. Taking $g = 10.0\\text{ m/s}^2$, what is the acceleration of the coin relative to the elevator floor, and how long does it take for the coin to reach the floor?",
+      "options": [
+        "A) Relative acceleration $= 12.0\\text{ m/s}^2$ upwards, Time $= 0.50\\text{ s}$",
+        "B) Relative acceleration $= 12.0\\text{ m/s}^2$ downwards, Time $= 0.50\\text{ s}$",
+        "C) Relative acceleration $= 8.0\\text{ m/s}^2$ downwards, Time $= 0.61\\text{ s}$",
+        "D) Relative acceleration $= 10.0\\text{ m/s}^2$ downwards, Time $= 0.55\\text{ s}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Choose a non-inertial reference frame attached to the ascending elevator.\nAcceleration of the elevator frame relative to the ground is $\\vec{a}_{\\text{lift}} = +2.0\\text{ m/s}^2$ (upwards).\nStep 2: The fictitious (pseudo) acceleration on the coin in this frame is directed opposite to the elevator's acceleration: $\\vec{a}_{\\text{pseudo}} = -2.0\\text{ m/s}^2$ (downwards).\nStep 3: Real gravitational acceleration on the coin is $\\vec{g} = -10.0\\text{ m/s}^2$ (downwards).\nStep 4: Effective (relative) acceleration of the coin with respect to the elevator floor is:\n$\\vec{a}_{\\text{rel}} = \\vec{g} - \\vec{a}_{\\text{lift}} = (-10.0) - (+2.0) = -12.0\\text{ m/s}^2$, which has a magnitude of $12.0\\text{ m/s}^2$ directed downwards.\nStep 5: The coin is released from relative rest ($u_{\\text{rel}} = 0$) from height $h = 1.5\\text{ m}$. Applying the equation of motion in the elevator frame:\n$h = \\frac{1}{2} a_{\\text{rel}} t^2 \\implies 1.5 = \\frac{1}{2}(12.0) t^2 = 6.0 t^2$.\n$t^2 = \\frac{1.5}{6.0} = \\frac{1}{4} = 0.25 \\implies t = 0.50\\text{ s}$.\nDistractor Analysis: Option C subtracts the acceleration ($g - a = 8.0\\text{ m/s}^2$), which is the case for a descending elevator; Option D neglects the elevator's acceleration ($a_{\\text{rel}} = g$); Option A gives an upward relative acceleration."
+    },
+    {
+      "id": "phy_motion_in_a_straight_line_c01_055",
+      "subject": "Physics",
+      "topic": "Motion in a Straight Line",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A high-velocity bullet penetrates into a viscous gel medium. The resistive drag force generates a deceleration proportional to the square of its instantaneous speed: $a = -k v^2$, where $k$ is a positive dimensional constant. If the bullet enters the gel at $x = 0$ with initial speed $v_0$, what is its velocity $v$ after penetrating a distance $x$ into the gel?",
+      "options": [
+        "A) $v(x) = \\frac{v_0}{1 + k v_0 x}$",
+        "B) $v(x) = v_0 e^{-k x^2}$",
+        "C) $v(x) = v_0 e^{-kx}$",
+        "D) $v(x) = v_0 (1 - kx)$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Write acceleration using the differential chain rule in terms of spatial coordinate $x$:\n$a = v \\frac{dv}{dx}$.\nStep 2: Equate this to the given drag law: $v \\frac{dv}{dx} = -k v^2$.\nStep 3: For non-zero velocity ($v > 0$), divide both sides by $v$ to separate the variables:\n$\\frac{dv}{dx} = -k v \\implies \\frac{dv}{v} = -k\\,dx$.\nStep 4: Integrate both sides between the initial boundary condition ($x = 0, v = v_0$) and position $x$ ($v(x)$):\n$\\int_{v_0}^v \\frac{dv'}{v'} = -k \\int_0^x dx' \\implies \\left[\\ln v'\\right]_{v_0}^v = -k x$.\nStep 5: Apply logarithm laws:\n$\\ln\\left(\\frac{v}{v_0}\\right) = -k x \\implies \\frac{v}{v_0} = e^{-kx} \\implies v(x) = v_0 e^{-kx}$.\n(Note: Speed decays exponentially with penetration distance $x$, showing that the bullet decelerates continuously as it penetrates deeper into the gel).\nDistractor Analysis: Option D is a linear approximation valid only for tiny $kx \\ll 1$; Option A is the solution for $v(t)$ with respect to time ($a = \\frac{dv}{dt} = -kv^2$), not distance $x$; Option B has an unphysical quadratic exponent."
+    }
+  ]
+}
