@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Atoms and Nuclei",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_atoms_and_nuclei_c01_001",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the Geiger-Marsden $\\alpha$-particle scattering experiment:\nStatement I: A very thin gold foil of thickness approximately $2.1 \\times 10^{-7}\\text{ m}$ (about $400$ atoms thick) was selected as the target to ensure that each $\\alpha$-particle suffered at most one collision before emerging.\nStatement II: The scattered $\\alpha$-particles were detected using a rotatable detector consisting of a zinc sulphide ($\\text{ZnS}$) screen coupled with a microscope to observe scintillations.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In the landmark Geiger-Marsden experiment (1911), performed under Ernest Rutherford's direction, a thin target foil was essential so that multiple scatterings could be avoided. Rutherford and his coworkers used a gold foil of thickness $2.1 \\times 10^{-7}\\text{ m}$ (roughly 400 atoms thick), ensuring that an $\\alpha$-particle underwent practically a single electrostatic deflection. Thus, Statement I is factually correct according to NCERT.\nStep 2: The detection system comprised a fluorescent screen coated with zinc sulphide ($\\text{ZnS}$) and an observing microscope. Each incident $\\alpha$-particle striking the $\\text{ZnS}$ phosphorescent screen produced a fleeting flash of light (scintillation) that could be counted visually at various scattering angles $\\theta$. Thus, Statement II is factually correct.\nStep 3: Distractor rejection: Both statements directly state verified NCERT experimental parameters of the $\\alpha$-particle scattering arrangement; therefore, any choice claiming either statement to be incorrect is invalid."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_002",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In the $\\alpha$-particle scattering experiment, an $\\alpha$-particle undergoing a head-on collision with a target gold nucleus is scattered back along its original path through an angle $\\theta = 180^\\circ$.\nReason (R): For a head-on collision, the impact parameter $b = 0$, which corresponds to $\\cot(\\theta/2) = 0$ in Rutherford's scattering formula, resulting in a scattering angle $\\theta = 180^\\circ$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The impact parameter $b$ is defined as the perpendicular distance between the initial velocity vector of the projectile $\\alpha$-particle and the center of the target nucleus. Rutherford's analytical scattering derivation yields $b = \\frac{1}{4\\pi\\epsilon_0} \\frac{Z e^2 \\cot(\\theta/2)}{K_\\alpha}$, where $K_\\alpha$ is the kinetic energy of the $\\alpha$-particle.\nStep 2: In a direct head-on collision, the trajectory line passes directly through the center of the nucleus, meaning $b = 0$. Setting $b = 0$ in the formula gives $\\cot(\\theta/2) = 0$, which yields $\\theta/2 = 90^\\circ$, or $\\theta = 180^\\circ$. The $\\alpha$-particle is brought to rest momentarily at the distance of closest approach and retraces its initial trajectory. Thus, both Assertion (A) and Reason (R) are true.\nStep 3: Distractor rejection: Reason (R) provides the exact mathematical and physical foundation for the $180^\\circ$ rebound described in Assertion (A), making it the correct explanation."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_003",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a Rutherford scattering experiment, an $\\alpha$-particle of kinetic energy $K = 5.0\\text{ MeV}$ is directed head-on towards a stationary gold nucleus ($Z = 79$). Given that $\\frac{1}{4\\pi\\epsilon_0} = 9.0 \\times 10^9\\text{ N}\\cdot\\text{m}^2/\\text{C}^2$ and elementary charge $e = 1.6 \\times 10^{-19}\\text{ C}$, what is the distance of closest approach ($r_0$) of the $\\alpha$-particle?",
+      "options": [
+        "A) $22.8\\text{ fm}$",
+        "B) $91.0\\text{ fm}$",
+        "C) $45.5\\text{ fm}$",
+        "D) $11.4\\text{ fm}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: At the distance of closest approach $r_0$ during a head-on collision, the initial kinetic energy of the $\\alpha$-particle is entirely converted into electrostatic potential energy: $K = \\frac{1}{4\\pi\\epsilon_0} \\frac{(2e)(Ze)}{r_0}$.\nStep 2: Solving for $r_0$ gives $r_0 = \\frac{1}{4\\pi\\epsilon_0} \\frac{2 Z e^2}{K}$. Convert kinetic energy into joules: $K = 5.0\\text{ MeV} = 5.0 \\times 10^6 \\times 1.6 \\times 10^{-19}\\text{ J} = 8.0 \\times 10^{-13}\\text{ J}$.\nStep 3: Substitute the known values: $r_0 = \\frac{(9.0 \\times 10^9) \\times 2 \\times 79 \\times (1.6 \\times 10^{-19})^2}{8.0 \\times 10^{-13}} = \\frac{9.0 \\times 158 \\times 2.56 \\times 10^{-29}}{8.0 \\times 10^{-13}} = \\frac{3640.32 \\times 10^{-29}}{8.0 \\times 10^{-13}} = 455.04 \\times 10^{-16}\\text{ m} \\approx 45.5 \\times 10^{-15}\\text{ m} = 45.5\\text{ fm}$.\nDistractor rejection: Other choices arise from omitting the factor of 2 for the $\\alpha$-particle charge ($q = 2e$), forgetting to convert $\\text{MeV}$ to joules, or numerical squaring errors."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_004",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the spectral series of the hydrogen atom listed in List I with their corresponding regions of the electromagnetic spectrum listed in List II:\nList I:\nP. Lyman series\nQ. Balmer series\nR. Paschen series\nS. Brackett series\nList II:\n1. Visible region\n2. Ultraviolet region\n3. Infrared region\n4. Far-infrared region\nChoose the correct match from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-3, Q-1, R-2, S-4",
+        "C) P-2, Q-3, R-1, S-4",
+        "D) P-2, Q-1, R-3, S-3"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The Lyman series results from electronic transitions from higher orbits ($n_2 = 2, 3, 4, \\dots$) down to the ground state $n_1 = 1$. The energy differences are large ($10.2\\text{ eV}$ to $13.6\\text{ eV}$), placing the emitted wavelengths entirely in the Ultraviolet region ($91.2\\text{ nm} - 121.6\\text{ nm}$). Thus, P matches with 2.\nStep 2: The Balmer series corresponds to transitions ending at $n_1 = 2$. Its principal lines ($H_\\alpha, H_\\beta, H_\\gamma, H_\\delta$) fall directly in the Visible region ($364.6\\text{ nm} - 656.3\\text{ nm}$). Thus, Q matches with 1.\nStep 3: The Paschen series ($n_1 = 3$) and Brackett series ($n_1 = 4$) correspond to smaller transition energies and therefore both lie in the Infrared region of the spectrum. Thus, R and S both match with 3.\nDistractor rejection: Choices placing the Lyman series in the visible or infrared region violate the high-energy Rydberg formula values."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_005",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Bohr's postulates for the hydrogen atom:\nStatement I: An electron in an atom can revolve in certain specified circular orbits without radiating electromagnetic energy; these orbits are known as non-radiating or stationary orbits.\nStatement II: Radiation of energy in the form of a single photon occurs only when an electron makes a transition from one non-radiating orbit of higher energy to another of lower energy.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Bohr's first postulate states that despite continuous centripetal acceleration, an electron in certain stable orbits does not radiate electromagnetic energy. These discrete paths are termed stationary orbits. Thus, Statement I is strictly correct.\nStep 2: Bohr's third postulate (frequency condition) states that an atom radiates energy only when an electron jumps from a higher stationary energy state $E_i$ to a lower stationary energy state $E_f$, emitting a single photon of frequency $\\nu = \\frac{E_i - E_f}{h}$. Thus, Statement II is strictly correct.\nStep 3: Distractor rejection: Since both statements are verbatim reflections of Niels Bohr's postulates from NCERT Physics Class 12, choices claiming either statement is incorrect must be rejected."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_006",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Classical electromagnetic theory fails to account for the physical stability of Rutherford's planetary model of the atom.\nReason (R): According to Maxwellian electrodynamics, an electron undergoing centripetal acceleration in a circular orbit must continuously radiate electromagnetic waves, causing it to lose energy and spiral into the nucleus in approximately $10^{-8}\\text{ s}$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Rutherford's nuclear model pictured electrons orbiting the positive nucleus like planets around the Sun. However, circular motion is accelerated motion with acceleration $a = v^2/r$.\nStep 2: According to classical electromagnetic theory, an accelerated electric charge must radiate electromagnetic energy continuously. As the orbiting electron loses energy, its orbital radius must continually shrink, and calculations show it would spiral into the nucleus within roughly $10^{-8}\\text{ s}$, destroying the atom. Hence, classical physics predicts the Rutherford atom to be intrinsically unstable, contradicting the observed stability of matter.\nStep 3: Both Assertion (A) and Reason (R) are true, and Reason (R) provides the exact theoretical mechanism by which classical electrodynamics predicts the collapse of Rutherford's model."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_007",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For an electron revolving in the $n$-th stationary orbit of a hydrogen atom, if the total energy of the electron is denoted by $E$, which of the following relations correctly gives its kinetic energy ($K$) and electrostatic potential energy ($U$)?",
+      "options": [
+        "A) $K = E$ and $U = 0$",
+        "B) $K = -E$ and $U = -2E$",
+        "C) $K = -E$ and $U = 2E$",
+        "D) $K = 2E$ and $U = -E$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: For a bound electron revolving in an orbit of radius $r$ around a nucleus of charge $+e$, the centripetal force is supplied by the Coulomb attraction: $\\frac{m v^2}{r} = \\frac{1}{4\\pi\\epsilon_0}\\frac{e^2}{r^2}$.\nStep 2: The kinetic energy is $K = \\frac{1}{2}m v^2 = \\frac{1}{8\\pi\\epsilon_0}\\frac{e^2}{r}$. The electrostatic potential energy is $U = -\\frac{1}{4\\pi\\epsilon_0}\\frac{e^2}{r} = -2K$. The total mechanical energy is $E = K + U = K - 2K = -K$, which is negative because the electron is bound.\nStep 3: From $E = -K$, we obtain $K = -E$. Substituting this into the potential energy relation yields $U = -2K = 2E$. Therefore, $K = -E$ and $U = 2E$.\nDistractor rejection: Choices with $U = -2E$ fail the sign convention since $E$ is already negative, which would erroneously make potential energy positive."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_008",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The radius of the first Bohr orbit of the hydrogen atom ($n = 1$) is $r_1 = 0.53\\text{ \\AA}$. What is the radius of the second Bohr orbit ($n = 2$) for a singly ionized helium ion ($\\text{He}^+, Z = 2$)?",
+      "options": [
+        "A) $0.53\\text{ \\AA}$",
+        "B) $2.12\\text{ \\AA}$",
+        "C) $0.265\\text{ \\AA}$",
+        "D) $1.06\\text{ \\AA}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: According to Bohr's model, the radius of the $n$-th orbit for a hydrogen-like atom of atomic number $Z$ is given by $r_n = r_1 \\frac{n^2}{Z}$, where $r_1 = 0.53\\text{ \\AA}$ is the first Bohr radius of hydrogen ($Z = 1, n = 1$).\nStep 2: For a singly ionized helium ion ($\\text{He}^+$), the nuclear charge corresponds to atomic number $Z = 2$. For the second Bohr orbit, the principal quantum number is $n = 2$.\nStep 3: Substituting these values into the scaling relation: $r_2(\\text{He}^+) = 0.53 \\times \\frac{2^2}{2} = 0.53 \\times \\frac{4}{2} = 0.53 \\times 2 = 1.06\\text{ \\AA}$.\nDistractor rejection: Taking $r \\propto n/Z$ gives $0.53\\text{ \\AA}$, neglecting the nuclear charge $Z = 2$ gives $2.12\\text{ \\AA}$, and taking $r \\propto Z/n^2$ gives $0.265\\text{ \\AA}$."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_009",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Louis de Broglie's physical explanation of Bohr's second postulate of angular momentum quantization:\nStatement I: De Broglie proposed that an electron revolving in a stable Bohr orbit behaves as a stationary matter wave circulating around the nucleus.\nStatement II: To establish a stable standing wave without destructive interference, the circumference of the electron's orbit must contain an integral number of de Broglie wavelengths, satisfying $2\\pi r = n\\lambda$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Louis de Broglie in 1923 provided the physical justification for Bohr's quantization condition by viewing the revolving electron as a standing matter wave. If waves traveling around the circular path interfered destructively, the wave would quickly cancel itself out; hence, only standing waves with nodes and antinodes can persist. Thus, Statement I is correct.\nStep 2: For constructive resonance in a circular orbit of radius $r$, the total path perimeter must equal an integral number of wavelengths: $2\\pi r = n\\lambda$, where $n = 1, 2, 3, \\dots$. Using de Broglie's relation $\\lambda = \\frac{h}{p} = \\frac{h}{mv}$, we have $2\\pi r = n \\left(\\frac{h}{mv}\\right)$, which directly rearranges to $mvr = \\frac{nh}{2\\pi}$. Thus, Statement II is correct.\nStep 3: Distractor rejection: Both statements accurately state the conceptual and mathematical foundation of de Broglie's standing-wave derivation presented in NCERT Physics."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_010",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Among all spectral series of atomic hydrogen, only the Balmer series exhibits spectral lines lying in the visible region of the electromagnetic spectrum.\nReason (R): For the Balmer series, the lower energy level has principal quantum number $n_1 = 2$, and electronic transitions ending at this level emit photons with energies ranging between approximately $1.89\\text{ eV}$ and $3.40\\text{ eV}$, matching visible photon energies.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: For the hydrogen atom, the transition energy for the Balmer series is given by $\\Delta E = 13.6 \\left(\\frac{1}{2^2} - \\frac{1}{n_2^2}\\right)\\text{ eV}$ with $n_2 = 3, 4, 5, \\dots$. The minimum photon energy (for $n_2 = 3$, $H_\\alpha$) is $\\Delta E = 13.6 \\left(\\frac{1}{4} - \\frac{1}{9}\\right) = 13.6 \\times \\frac{5}{36} \\approx 1.89\\text{ eV}$ (corresponding to $\\lambda \\approx 656.3\\text{ nm}$, red light).\nStep 2: The series limit ($n_2 \\to \\infty$) corresponds to $\\Delta E = 13.6 \\left(\\frac{1}{4} - 0\\right) = 3.40\\text{ eV}$ (corresponding to $\\lambda \\approx 364.6\\text{ nm}$, near ultraviolet/violet edge). Since visible light spans roughly $1.8\\text{ eV}$ to $3.1\\text{ eV}$ ($400\\text{ nm}$ to $700\\text{ nm}$), the first four lines of the Balmer series fall squarely into the visible spectrum.\nStep 3: All other series (Lyman in UV; Paschen, Brackett, Pfund in IR) lie outside the visible range. Therefore, Assertion (A) and Reason (R) are both true, and Reason (R) correctly explains why Balmer lines fall in the visible region."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_011",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the physical dimensions and density of atomic nuclei:\n(a) The radius of a nucleus of mass number $A$ is given by $R = R_0 A^{1/3}$, where $R_0 \\approx 1.2 \\times 10^{-15}\\text{ m}$.\n(b) The nuclear density is virtually constant (approximately $2.3 \\times 10^{17}\\text{ kg/m}^3$) and is independent of the mass number $A$.\n(c) The nuclear volume is directly proportional to the mass number $A$.\n(d) Heavy nuclei have a drastically higher nuclear density than light nuclei.\nWhich of the statements given above are correct?",
+      "options": [
+        "A) (a) and (d) only",
+        "B) (b) and (d) only",
+        "C) (a), (b) and (c) only",
+        "D) (a), (b), (c) and (d)"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: High-energy electron scattering experiments establish that the nuclear radius follows the empirical relation $R = R_0 A^{1/3}$, with $R_0 \\approx 1.2\\text{ fm}$. Thus, statement (a) is correct.\nStep 2: Nuclear volume is $V = \\frac{4}{3}\\pi R^3 = \\frac{4}{3}\\pi R_0^3 A$, which is strictly proportional to mass number $A$. Thus, statement (c) is correct.\nStep 3: Nuclear mass is $M \\approx m A$, where $m$ is the average mass of a nucleon. The nuclear density is $\\rho = \\frac{M}{V} = \\frac{m A}{\\frac{4}{3}\\pi R_0^3 A} = \\frac{3m}{4\\pi R_0^3} \\approx 2.3 \\times 10^{17}\\text{ kg/m}^3$. Since $A$ cancels out entirely, the nuclear matter density is constant across the entire periodic table, from hydrogen to uranium. Thus, statement (b) is correct and statement (d) is incorrect.\nDistractor rejection: Choices including statement (d) confuse nuclear total mass (which increases with $A$) with nuclear density (which remains constant)."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_012",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "What is the ratio of the nuclear radius of an aluminum nucleus ($^{27}_{13}\\text{Al}$) to that of a tellurium nucleus ($^{125}_{52}\\text{Te}$)?",
+      "options": [
+        "A) $9 : 25$",
+        "B) $27 : 125$",
+        "C) $5 : 3$",
+        "D) $3 : 5$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The nuclear radius is related to the mass number $A$ by the formula $R = R_0 A^{1/3}$, where $R_0$ is a constant.\nStep 2: The ratio of the radii of two nuclei with mass numbers $A_1$ and $A_2$ is given by $\\frac{R_1}{R_2} = \\left(\\frac{A_1}{A_2}\\right)^{1/3}$.\nStep 3: For $^{27}_{13}\\text{Al}$, $A_1 = 27$. For $^{125}_{52}\\text{Te}$, $A_2 = 125$. Substituting these values gives $\\frac{R(\\text{Al})}{R(\\text{Te})} = \\left(\\frac{27}{125}\\right)^{1/3} = \\frac{3}{5}$. Hence, the ratio is $3 : 5$.\nDistractor rejection: Taking the ratio of mass numbers directly gives $27 : 125$, taking the square of the cubic root ratio gives $9 : 25$, and inverting the ratio gives $5 : 3$."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_013",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding mass defect and nuclear binding energy:\nStatement I: The measured rest mass of any stable atomic nucleus is always strictly less than the sum of the individual rest masses of its constituent free protons and neutrons.\nStatement II: The mass defect $\\Delta m$ represents the equivalent mass converted into binding energy according to Einstein's mass-energy equation $E_b = \\Delta m c^2$ when the nucleus was formed.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The rest mass $M$ of a bound nucleus containing $Z$ protons and $(A - Z)$ neutrons is always found experimentally to be less than the combined mass of the separated constituents: $M < [Z m_p + (A - Z) m_n]$. The difference is called the mass defect: $\\Delta m = [Z m_p + (A - Z) m_n] - M > 0$. Thus, Statement I is correct.\nStep 2: When separated nucleons coalesce to form a bound nucleus, energy equal to $E_b = \\Delta m c^2$ is released. Conversely, to dissociate a nucleus completely into its constituent nucleons, an amount of external energy equal to $E_b$ must be supplied. Thus, Statement II is correct.\nStep 3: Distractor rejection: Both statements represent standard NCERT definitions of mass defect and nuclear binding energy; therefore, alternatives asserting falsehood in either statement are incorrect."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_014",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Heavy nuclei such as uranium-235 ($^{235}_{92}\\text{U}$) can release large quantities of energy by undergoing nuclear fission into two intermediate-mass nuclei.\nReason (R): For nuclei with mass number $A > 170$, the binding energy per nucleon ($E_{bn}$) decreases from its peak value of $8.75\\text{ MeV}$ down to about $7.6\\text{ MeV}$ due to increasing electrostatic Coulomb repulsion among the large number of protons.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The binding energy per nucleon ($E_{bn}$) curve reaches a broad maximum of $\\approx 8.75\\text{ MeV}$ per nucleon around $^{56}\\text{Fe}$ and gradually declines to $\\approx 7.6\\text{ MeV}$ for heavy nuclei like $^{238}\\text{U}$. This drop occurs because the long-range electrostatic repulsive force between the protons grows as $Z(Z-1)$, overcoming the short-range saturated nuclear attraction. Thus, Reason (R) is true.\nStep 2: When a heavy nucleus with lower $E_{bn}$ ($7.6\\text{ MeV/nucleon}$) splits into two middle-weight fragments with higher $E_{bn}$ (around $8.5\\text{ MeV/nucleon}$), the nucleons in the daughter nuclei become more tightly bound. The difference in binding energy ($\\approx 0.9\\text{ MeV}$ per nucleon $\\times 235 \\approx 200\\text{ MeV}$) is liberated as kinetic energy and radiation. Thus, Assertion (A) is true.\nStep 3: Distractor rejection: The drop in $E_{bn}$ explained in Reason (R) is the exact thermodynamic reason why fission of heavy nuclei is exothermic and releases energy."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_015",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the nuclear reactor components in List I with their primary functional roles or typical materials in List II:\nList I:\nP. Moderator\nQ. Control rods\nR. Coolant\nS. Shielding\nList II:\n1. Cadmium or boron rods used to absorb excess neutrons\n2. Heavy water or graphite used to slow down fast neutrons to thermal energies\n3. Liquid sodium or water used to extract heat from the core\n4. Thick concrete enclosure used to prevent radiation leakage\nChoose the correct match from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-2, Q-3, R-1, S-4",
+        "C) P-2, Q-1, R-3, S-4",
+        "D) P-3, Q-1, R-2, S-4"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The moderator in a fission reactor slows down energetic fission neutrons ($\\sim 2\\text{ MeV}$) to thermal speeds ($\\sim 0.025\\text{ eV}$) through elastic collisions with light nuclei such as deuterium in heavy water ($D_2O$) or carbon in graphite. Thus, P matches with 2.\nStep 2: Control rods are made of neutron-absorbing materials such as cadmium or boron to control the neutron multiplication factor $k$ and maintain steady criticality. Thus, Q matches with 1.\nStep 3: The coolant (such as pressurized water, heavy water, or liquid sodium) circulates through the reactor core to transfer the enormous thermal energy generated by fission to a steam turbine. Thus, R matches with 3.\nStep 4: Shielding consists of thick steel and high-density concrete walls surrounding the reactor vessel to absorb escaping gamma rays and neutrons, protecting operating personnel and the environment. Thus, S matches with 4.\nDistractor rejection: The unique correspondence is P-2, Q-1, R-3, S-4."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_016",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements correctly describe the fundamental properties of the strong nuclear force?\n(a) It is charge-independent, exerting practically identical attractive nuclear forces between $p-p$, $n-n$, and $p-n$.\n(b) It is a long-range force that obeys the inverse-square law like gravitation and electrostatics.\n(c) It exhibits saturation, meaning that a nucleon interacts only with its immediate nearest neighbors.\n(d) It is attractive at distances greater than $0.8\\text{ fm}$, but becomes strongly repulsive at separations less than $0.8\\text{ fm}$.\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (a) and (b) only",
+        "B) (b), (c) and (d) only",
+        "C) (a) and (d) only",
+        "D) (a), (c) and (d) only"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The strong nuclear force is independent of electric charge; the nuclear interaction between two protons, two neutrons, or a proton and a neutron is identical once electromagnetic repulsion is subtracted. Thus, statement (a) is correct.\nStep 2: Nuclear force is extremely short-range (acting over distances of only $1 - 2\\text{ fm}$ and dropping precipitously to zero beyond that); it does NOT obey an inverse-square law. Thus, statement (b) is incorrect.\nStep 3: A nucleon inside a nucleus is surrounded by a limited number of neighbors and only interacts with those in its immediate vicinity. This property is known as saturation. Thus, statement (c) is correct.\nStep 4: The nuclear potential energy has a minimum near $r_0 \\approx 0.8\\text{ fm}$. For $r > 0.8\\text{ fm}$, the force is attractive; for $r < 0.8\\text{ fm}$, the force becomes strongly repulsive, preventing nucleons from collapsing into each other. Thus, statement (d) is correct.\nDistractor rejection: Any choice containing statement (b) is false because nuclear force is strictly short-range, not long-range."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_017",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding nuclear fusion reactions:\nStatement I: For nuclear fusion of light nuclei to occur, extremely high temperatures on the order of $10^7\\text{ K}$ to $10^8\\text{ K}$ are necessary.\nStatement II: Such elevated temperatures give the light positively charged nuclei sufficient thermal kinetic energy to overcome the repulsive electrostatic Coulomb barrier preventing their close approach.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: When two positively charged nuclei approach each other to fuse, they experience a repulsive electrostatic Coulomb potential barrier: $U = \\frac{1}{4\\pi\\epsilon_0}\\frac{q_1 q_2}{r_1 + r_2}$. For two protons or deuterons, this barrier height is roughly $400\\text{ keV}$.\nStep 2: To overcome this barrier by thermal motion, the average thermal kinetic energy $\\frac{3}{2}k_B T$ must be sufficiently high. Even with quantum mechanical tunneling, temperatures on the order of $10^7\\text{ K}$ to $10^8\\text{ K}$ (as in stellar interiors or thermonuclear weapons) are required. Thus, Statement I is correct.\nStep 3: High thermal kinetic energy provides the nuclei with high relative velocities so they penetrate within the short range of the attractive nuclear force ($< 1\\text{ fm}$). Thus, Statement II correctly states the physical reason. Both statements are correct.\nDistractor rejection: Choices claiming either statement is incorrect fail to recognize the thermodynamic requirement of thermonuclear fusion."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_018",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The nuclear binding energy per nucleon ($E_{bn}$) remains remarkably constant (around $8.5\\text{ MeV/nucleon}$) for a wide range of nuclei with mass numbers $30 < A < 170$.\nReason (R): The strong nuclear force exhibits a saturation property, whereby each nucleon interacts only with a constant number of its nearest neighbors rather than interacting with all $A$ nucleons in the nucleus.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: If every nucleon in a nucleus interacted with every other nucleon (as in long-range gravity or electrostatics), the total binding energy would be proportional to the number of nucleon pairs, i.e., $A(A - 1) \\approx A^2$, and $E_{bn} = E_b / A$ would be proportional to $A$.\nStep 2: However, because the nuclear force is extremely short-range, a nucleon inside the nuclear volume interacts only with a fixed number of immediate neighbors (typically around 12 nearest neighbors in close packing). Adding more nucleons to a large nucleus does not increase the binding of an interior nucleon; each added nucleon merely interacts with its own neighbors. Consequently, the total binding energy is proportional to $A$, which means $E_{bn} = E_b / A \\approx \\text{constant} \\approx 8.5\\text{ MeV/nucleon}$.\nStep 3: Thus, both Assertion (A) and Reason (R) are true, and Reason (R) provides the precise theoretical explanation for the constancy of $E_{bn}$ in intermediate nuclei."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_019",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "If the ionization energy of a hydrogen atom in its ground state ($n = 1$) is $13.6\\text{ eV}$, what is the excitation energy required to raise the electron from the ground state to its first excited state ($n = 2$)?",
+      "options": [
+        "A) $3.40\\text{ eV}$",
+        "B) $13.60\\text{ eV}$",
+        "C) $10.20\\text{ eV}$",
+        "D) $1.51\\text{ eV}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The energy of an electron in the $n$-th orbit of the hydrogen atom is given by $E_n = -\\frac{13.6}{n^2}\\text{ eV}$.\nStep 2: For the ground state ($n = 1$), the energy is $E_1 = -\\frac{13.6}{1^2} = -13.60\\text{ eV}$. For the first excited state ($n = 2$), the energy is $E_2 = -\\frac{13.6}{2^2} = -\\frac{13.6}{4} = -3.40\\text{ eV}$.\nStep 3: The excitation energy is the energy required to promote the electron from $n = 1$ to $n = 2$: $\\Delta E = E_2 - E_1 = -3.40 - (-13.60) = +10.20\\text{ eV}$.\nDistractor rejection: $3.40\\text{ eV}$ is the binding energy of the $n=2$ state itself, $13.60\\text{ eV}$ is the ionization energy from the ground state, and $1.51\\text{ eV}$ corresponds to the binding energy of the $n=3$ state."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_020",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\lambda_L$ denote the series limit wavelength (shortest wavelength) of the Lyman series for atomic hydrogen. What is the series limit wavelength ($\\lambda_B$) of the Balmer series in terms of $\\lambda_L$?",
+      "options": [
+        "A) $2\\lambda_L$",
+        "B) $\\frac{\\lambda_L}{4}$",
+        "C) $9\\lambda_L$",
+        "D) $4\\lambda_L$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The series limit corresponds to a transition from $n_2 = \\infty$ to the lower principal quantum level $n_1$. The Rydberg formula gives $\\frac{1}{\\lambda} = R \\left(\\frac{1}{n_1^2} - \\frac{1}{\\infty^2}\\right) = \\frac{R}{n_1^2}$, where $R$ is the Rydberg constant.\nStep 2: For the Lyman series limit, $n_1 = 1$, so $\\frac{1}{\\lambda_L} = \\frac{R}{1^2} = R \\implies \\lambda_L = \\frac{1}{R}$.\nStep 3: For the Balmer series limit, $n_1 = 2$, so $\\frac{1}{\\lambda_B} = \\frac{R}{2^2} = \\frac{R}{4} \\implies \\lambda_B = \\frac{4}{R}$. Substituting $R = \\frac{1}{\\lambda_L}$ into this equation gives $\\lambda_B = 4 \\lambda_L$.\nDistractor rejection: Confusing the principal quantum number $n$ with $n^2$ yields $2\\lambda_L$, inverting the ratio gives $\\frac{\\lambda_L}{4}$, and using $n_1 = 3$ gives $9\\lambda_L$."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_021",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding nuclear classifications:\nStatement I: Isobars are nuclides having the same mass number $A$ but different atomic numbers $Z$, such as $^{40}_{18}\\text{Ar}$ and $^{40}_{20}\\text{Ca}$.\nStatement II: Isotones are nuclides having the same neutron number $N = A - Z$ but different atomic numbers $Z$, such as $^{198}_{80}\\text{Hg}$ and $^{197}_{79}\\text{Au}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Isobars are nuclides that share an identical mass number $A$ (total nucleon count) but possess different atomic numbers $Z$ (and different neutron counts $N$). For $^{40}_{18}\\text{Ar}$, $A = 40, Z = 18$; for $^{40}_{20}\\text{Ca}$, $A = 40, Z = 20$. They have identical $A$, so they are isobars. Thus, Statement I is correct.\nStep 2: Isotones are nuclides that share identical neutron numbers $N = A - Z$. For $^{198}_{80}\\text{Hg}$, $N = 198 - 80 = 118$. For $^{197}_{79}\\text{Au}$, $N = 197 - 79 = 118$. Since both have 118 neutrons but different atomic numbers, they are isotones. Thus, Statement II is correct.\nStep 3: Distractor rejection: Both statements represent precise NCERT definitions of isobars and isotones."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_022",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The primary energy-producing mechanism operating continuously in the core of our Sun is the thermonuclear fusion of hydrogen into helium via the proton-proton ($p-p$) chain cycle.\nReason (R): In the net proton-proton cycle, four protons and two electrons fuse to form a stable $^{4}_{2}\\text{He}$ nucleus, releasing approximately $26.7\\text{ MeV}$ of energy due to the conversion of mass defect into energy.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Hans Bethe proposed the proton-proton ($p-p$) cycle as the dominant thermonuclear fusion mechanism in stars of solar mass. Four hydrogen nuclei (protons) combine in a multistep sequence involving positrons and neutrinos to produce a single helium-4 nucleus ($^{4}_{2}\\text{He}$). Thus, Assertion (A) is true.\nStep 2: The net reaction can be represented as: $4\\,^{1}_{1}\\text{H} + 2e^- \\to \\,^{4}_{2}\\text{He} + 2\\nu_e + 6\\gamma + 26.7\\text{ MeV}$. The total mass of the reactants ($4 m_p + 2 m_e$) exceeds the rest mass of $^{4}_{2}\\text{He}$ by $\\Delta m \\approx 0.0287\\text{ u}$, releasing $\\Delta m c^2 \\approx 26.7\\text{ MeV}$ of radiant and kinetic energy. Thus, Reason (R) is true.\nStep 3: Distractor rejection: Reason (R) describes the exact nuclear reaction and energetics that substantiate the assertion regarding the solar energy source."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_023",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a Geiger-Marsden $\\alpha$-particle scattering experiment, the number of $\\alpha$-particles scattered per unit area at an angle $\\theta = 60^\\circ$ is observed to be $N_0$. According to Rutherford's scattering formula, what is the number of $\\alpha$-particles scattered per unit area at an angle $\\theta = 90^\\circ$?",
+      "options": [
+        "A) $\\frac{N_0}{4}$",
+        "B) $\\frac{N_0}{2}$",
+        "C) $\\frac{N_0}{16}$",
+        "D) $4 N_0$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Rutherford's scattering formula states that the number of scattered $\\alpha$-particles per unit area detected at a scattering angle $\\theta$ is inversely proportional to the fourth power of $\\sin(\\theta/2)$: $N(\\theta) \\propto \\frac{1}{\\sin^4(\\theta/2)}$.\nStep 2: At $\\theta = 60^\\circ$, the half-angle is $\\theta/2 = 30^\\circ$, and $\\sin(30^\\circ) = \\frac{1}{2}$. Thus, $\\sin^4(30^\\circ) = \\left(\\frac{1}{2}\\right)^4 = \\frac{1}{16}$. Therefore, $N_0 = N(60^\\circ) \\propto 16$.\nStep 3: At $\\theta = 90^\\circ$, the half-angle is $\\theta/2 = 45^\\circ$, and $\\sin(45^\\circ) = \\frac{1}{\\sqrt{2}}$. Thus, $\\sin^4(45^\\circ) = \\left(\\frac{1}{\\sqrt{2}}\\right)^4 = \\frac{1}{4}$. Therefore, $N(90^\\circ) \\propto 4$. Taking the ratio gives $\\frac{N(90^\\circ)}{N(60^\\circ)} = \\frac{4}{16} = \\frac{1}{4} \\implies N(90^\\circ) = \\frac{N_0}{4}$.\nDistractor rejection: Using $\\sin^2(\\theta/2)$ instead of $\\sin^4(\\theta/2)$ leads to $\\frac{N_0}{2}$, while inverting the angles leads to $4 N_0$."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_024",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The orbital speed of an electron revolving in the $n$-th stationary orbit of a hydrogen-like atom of atomic number $Z$ is directly proportional to $Z$ and inversely proportional to $n$.\nReason (R): Balancing the electrostatic Coulomb attraction $\\frac{Z e^2}{4\\pi\\epsilon_0 r_n^2}$ with the required centripetal force $\\frac{m v_n^2}{r_n}$ and applying Bohr's quantization condition $m v_n r_n = \\frac{n h}{2\\pi}$ yields the orbital speed $v_n = \\frac{Z e^2}{2\\epsilon_0 n h}$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Bohr's first postulate sets the centripetal force equal to the Coulomb electrostatic force: $\\frac{m v_n^2}{r_n} = \\frac{1}{4\\pi\\epsilon_0}\\frac{Z e^2}{r_n^2}$, which simplifies to $m v_n^2 r_n = \\frac{Z e^2}{4\\pi\\epsilon_0}$.\nStep 2: Bohr's second postulate quantizes orbital angular momentum: $m v_n r_n = \\frac{n h}{2\\pi}$. Dividing the first equation by the second equation eliminates $r_n$ and $m$: $v_n = \\frac{m v_n^2 r_n}{m v_n r_n} = \\frac{\\frac{Z e^2}{4\\pi\\epsilon_0}}{\\frac{n h}{2\\pi}} = \\frac{Z e^2}{2\\epsilon_0 n h}$. Hence, Reason (R) is mathematically and conceptually true.\nStep 3: From the derived equation, $v_n \\propto \\frac{Z}{n}$, showing that speed increases linearly with nuclear charge $Z$ and decreases inversely with principal quantum number $n$. Thus, Assertion (A) is true, and Reason (R) correctly explains it."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_025",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An electron in a sample of atomic hydrogen gas is excited to the fifth energy level ($n = 5$). What is the maximum number of distinct spectral emission lines that can be observed as the atoms de-excite to the ground state ($n = 1$), and which electronic transition emits the photon of maximum frequency?",
+      "options": [
+        "A) $15$ lines, transition $n = 5 \\to n = 4$",
+        "B) $10$ lines, transition $n = 5 \\to n = 4$",
+        "C) $10$ lines, transition $n = 5 \\to n = 1$",
+        "D) $5$ lines, transition $n = 5 \\to n = 1$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The total number of distinct spectral emission lines possible when an electron cascades from an excited level $n$ to the ground state is given by the combination formula $N = \\frac{n(n - 1)}{2}$. For $n = 5$, $N = \\frac{5 \\times 4}{2} = 10$ lines.\nStep 2: The frequency of the emitted photon is related to the transition energy difference by Planck's relation: $\\nu = \\frac{\\Delta E}{h} = \\frac{E_i - E_f}{h}$. Therefore, the maximum frequency photon corresponds to the maximum energy gap between the initial state $n = 5$ and any available lower state.\nStep 3: In hydrogen, the energy levels are given by $E_n = -\\frac{13.6}{n^2}\\text{ eV}$. The largest energy change occurs in a direct jump from the highest occupied state to the lowest energy state, i.e., $n = 5 \\to n = 1$, where $\\Delta E = -0.54 - (-13.6) = 13.06\\text{ eV}$. Hence, there are 10 distinct spectral lines, and the maximum frequency occurs for the $n = 5 \\to n = 1$ transition.\nDistractor rejection: The transition $n = 5 \\to n = 4$ produces the minimum frequency photon of the set, while $N = 15$ corresponds to $n = 6$."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_026",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the orbital parameters of an electron in Bohr's model of a hydrogen-like atom of atomic number $Z$:\nStatement I: The orbital time period of an electron revolving in the $n$-th Bohr orbit is directly proportional to $n^3$ and inversely proportional to $Z^2$ ($T_n \\propto \\frac{n^3}{Z^2}$).\nStatement II: The equivalent orbital electric current produced by the revolving electron in the $n$-th Bohr orbit is directly proportional to $Z^2$ and inversely proportional to $n^3$ ($I_n \\propto \\frac{Z^2}{n^3}$).\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The orbital radius scales as $r_n \\propto \\frac{n^2}{Z}$, and the orbital velocity scales as $v_n \\propto \\frac{Z}{n}$. The orbital period is $T_n = \\frac{2\\pi r_n}{v_n} \\propto \\frac{n^2/Z}{Z/n} = \\frac{n^3}{Z^2}$. Thus, Statement I is true.\nStep 2: The equivalent orbital electric current is defined as charge passing a point per second: $I_n = \\frac{e}{T_n} = e f_n$, where $f_n = \\frac{1}{T_n}$ is the orbital revolution frequency. Substituting the proportionality for $T_n$ yields $I_n \\propto \\frac{1}{T_n} \\propto \\frac{Z^2}{n^3}$. Thus, Statement II is true.\nStep 3: Distractor rejection: Both statements accurately state the fundamental proportionalities derived from Bohr's model in NCERT physics; choices claiming either statement is false are incorrect."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_027",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In the emission spectrum of atomic hydrogen, what is the ratio of the wavelength of the first line of the Balmer series ($H_\\alpha$, transition $n = 3 \\to 2$) to the wavelength of the second line of the Balmer series ($H_\\beta$, transition $n = 4 \\to 2$)?",
+      "options": [
+        "A) $\\frac{27}{20}$",
+        "B) $\\frac{20}{27}$",
+        "C) $\\frac{5}{9}$",
+        "D) $\\frac{9}{5}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: According to the Rydberg formula for hydrogen ($Z = 1$), the wave number is given by $\\frac{1}{\\lambda} = R \\left(\\frac{1}{n_1^2} - \\frac{1}{n_2^2}\\right)$.\nStep 2: For the first Balmer line ($H_\\alpha$, $n_1 = 2, n_2 = 3$): $\\frac{1}{\\lambda_\\alpha} = R \\left(\\frac{1}{4} - \\frac{1}{9}\\right) = R \\left(\\frac{5}{36}\\right) \\implies \\lambda_\\alpha = \\frac{36}{5R}$.\nStep 3: For the second Balmer line ($H_\\beta$, $n_1 = 2, n_2 = 4$): $\\frac{1}{\\lambda_\\beta} = R \\left(\\frac{1}{4} - \\frac{1}{16}\\right) = R \\left(\\frac{3}{16}\\right) \\implies \\lambda_\\beta = \\frac{16}{3R}$.\nStep 4: The ratio of the wavelengths is $\\frac{\\lambda_\\alpha}{\\lambda_\\beta} = \\frac{36/(5R)}{16/(3R)} = \\frac{36}{5} \\times \\frac{3}{16} = \\frac{108}{80} = \\frac{27}{20}$.\nDistractor rejection: The inverted ratio $\\frac{20}{27}$ represents $\\frac{\\lambda_\\beta}{\\lambda_\\alpha}$, while $\\frac{5}{9}$ arises from improperly taking energy differences directly."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_028",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The fission of a heavy nucleus like uranium-235 ($^{235}_{92}\\text{U}$) by a thermal neutron is an energetically exothermic process, releasing roughly $200\\text{ MeV}$ of energy per fission event.\nReason (R): The binding energy per nucleon of intermediate-mass fission fragments ($A \\approx 100 - 140$) is approximately $8.5\\text{ MeV}$, whereas the binding energy per nucleon of the parent $^{235}\\text{U}$ nucleus is only about $7.6\\text{ MeV}$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The total binding energy of a nucleus is equal to its mass number multiplied by its binding energy per nucleon: $E_b = A \\times E_{bn}$. For $^{235}\\text{U}$, $E_b(\\text{parent}) \\approx 235 \\times 7.6\\text{ MeV} \\approx 1786\\text{ MeV}$.\nStep 2: When it splits into two middle-mass fragments ($A_1 + A_2 \\approx 235$) where $E_{bn} \\approx 8.5\\text{ MeV/nucleon}$, the total binding energy of the daughter fragments is $E_b(\\text{daughters}) \\approx 235 \\times 8.5\\text{ MeV} \\approx 1997.5\\text{ MeV}$.\nStep 3: The energy released in the reaction is $Q = E_b(\\text{daughters}) - E_b(\\text{parent}) \\approx 1997.5 - 1786 \\approx 211.5\\text{ MeV} \\approx 200\\text{ MeV}$. Because intermediate nuclei are more tightly bound, energy is released. Both Assertion (A) and Reason (R) are true, and Reason (R) provides the exact quantitative explanation for Assertion (A)."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_029",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "According to Bohr's model of a hydrogen-like atom of atomic number $Z$, how does the magnetic field ($B_n$) created at the center of the nucleus by the circular orbital motion of the electron scale with the principal quantum number $n$ and atomic number $Z$?",
+      "options": [
+        "A) $B_n \\propto \\frac{Z^2}{n^3}$",
+        "B) $B_n \\propto \\frac{Z^2}{n^4}$",
+        "C) $B_n \\propto \\frac{Z^3}{n^5}$",
+        "D) $B_n \\propto \\frac{Z^4}{n^6}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: An electron revolving in a circular orbit of radius $r_n$ with speed $v_n$ constitutes a current loop with equivalent current $I_n = \\frac{e}{T_n} = \\frac{e v_n}{2\\pi r_n}$.\nStep 2: The magnetic field at the center of a circular current loop of radius $r_n$ is given by Biot-Savart law: $B_n = \\frac{\\mu_0 I_n}{2 r_n} = \\frac{\\mu_0 e v_n}{4\\pi r_n^2}$.\nStep 3: From Bohr's theory, the orbital speed scales as $v_n \\propto \\frac{Z}{n}$, and the orbital radius scales as $r_n \\propto \\frac{n^2}{Z}$. Substituting these proportionalities yields $B_n \\propto \\frac{v_n}{r_n^2} \\propto \\frac{Z/n}{(n^2/Z)^2} = \\frac{Z/n}{n^4/Z^2} = \\frac{Z^3}{n^5}$.\nDistractor rejection: Neglecting one factor of $r_n$ yields $\\frac{Z^2}{n^3}$, while incorrect power combinations like $\\frac{Z^2}{n^4}$ or $\\frac{Z^4}{n^6}$ arise from algebra errors in squaring $r_n$."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_030",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the operating principles of a nuclear fission reactor:\n(a) Heavy water ($D_2O$) and high-purity graphite serve as effective moderators because their nuclei have small masses comparable to neutrons and low neutron capture cross-sections.\n(b) Cadmium and boron rods are utilized as control rods because of their exceptionally high capture cross-sections for thermal neutrons.\n(c) A neutron multiplication factor of exactly $k = 1$ ensures that the nuclear chain reaction is critical, operating at a steady and safe power level.\n(d) Fast neutrons with energies $\\approx 2\\text{ MeV}$ have a much higher cross-section for inducing fission in uranium-235 than thermal neutrons ($0.025\\text{ eV}$).\nWhich of the statements given above are correct?",
+      "options": [
+        "A) (a) and (d) only",
+        "B) (b) and (d) only",
+        "C) (a), (b), (c) and (d)",
+        "D) (a), (b) and (c) only"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Moderators must slow down fast neutrons without absorbing them. Collision mechanics dictates that kinetic energy transfer is maximized when colliding particles have similar masses. Protons or deuterons (in $H_2O$ or $D_2O$) and carbon nuclei satisfy this, making statement (a) correct.\nStep 2: Control rods adjust the neutron population by absorption. Cadmium ($^{113}\\text{Cd}$) and Boron ($^{10}\\text{B}$) have massive thermal neutron absorption cross-sections, making statement (b) correct.\nStep 3: The multiplication factor $k$ is the ratio of neutrons produced in one generation to those in the preceding generation. For steady power operation, $k = 1$ (critical). If $k > 1$, it is supercritical; if $k < 1$, it is subcritical. Thus, statement (c) is correct.\nStep 4: The fission cross-section of $^{235}\\text{U}$ for thermal neutrons (energy $\\sim 0.025\\text{ eV}$) is roughly $580\\text{ barns}$, whereas for fast neutrons (energy $\\sim 2\\text{ MeV}$) it is only about $1 - 2\\text{ barns}$. Hence, thermal neutrons are hundreds of times more effective at causing fission than fast neutrons. Thus, statement (d) is completely false.\nDistractor rejection: Choices including (d) contradict the fundamental reason why nuclear moderators are necessary in thermal reactors."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_031",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two deuterons ($^{2}_{1}\\text{H}$) fuse together to produce a helium nucleus ($^{4}_{2}\\text{He}$). If the binding energy per nucleon of deuteron is $1.10\\text{ MeV/nucleon}$ and that of helium-4 is $7.00\\text{ MeV/nucleon}$, what is the total energy released ($Q$-value) in this fusion reaction?",
+      "options": [
+        "A) $23.60\\text{ MeV}$",
+        "B) $11.80\\text{ MeV}$",
+        "C) $28.00\\text{ MeV}$",
+        "D) $5.90\\text{ MeV}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The nuclear fusion reaction is: $^{2}_{1}\\text{H} + \\,^{2}_{1}\\text{H} \\to \\,^{4}_{2}\\text{He} + Q$.\nStep 2: The total binding energy of the reactants (two deuterons, each having mass number $A = 2$) is: $BE_{\\text{reactants}} = 2 \\times [A \\times E_{bn}(\\text{deuteron})] = 2 \\times [2 \\times 1.10\\text{ MeV}] = 4 \\times 1.10 = 4.40\\text{ MeV}$.\nStep 3: The total binding energy of the product (one helium-4 nucleus, mass number $A = 4$) is: $BE_{\\text{product}} = 4 \\times E_{bn}(\\text{helium}) = 4 \\times 7.00\\text{ MeV} = 28.00\\text{ MeV}$.\nStep 4: The energy liberated in the reaction is the increase in total binding energy: $Q = BE_{\\text{product}} - BE_{\\text{reactants}} = 28.00 - 4.40 = 23.60\\text{ MeV}$.\nDistractor rejection: Calculating $Q$ per deuteron yields $11.80\\text{ MeV}$, forgetting the initial binding energy yields $28.00\\text{ MeV}$, and calculating $Q$ per nucleon yields $5.90\\text{ MeV}$."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_032",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In Rutherford's $\\alpha$-particle scattering experiment, an $\\alpha$-particle directed straight along the nuclear axis towards a gold nucleus comes to rest momentarily and then retraces its path back through $180^\\circ$.\nReason (R): At the distance of closest approach ($r_0$), the entire initial kinetic energy of the $\\alpha$-particle is transformed into electrostatic Coulomb potential energy, resulting in zero instantaneous velocity before being repelled in the reverse direction.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: During a head-on collision (impact parameter $b = 0$), the $\\alpha$-particle moves radially directly toward the heavy target nucleus under the action of a central conservative repulsive Coulomb force.\nStep 2: As the $\\alpha$-particle approaches the nucleus, it decelerates because work is done against the repulsive electric force. By the conservation of mechanical energy: $K + U = \\text{constant}$. At the point of closest approach $r_0$, the radial velocity drops to zero, and the kinetic energy vanishes completely: $K_i = U(r_0) = \\frac{1}{4\\pi\\epsilon_0}\\frac{2 Z e^2}{r_0}$.\nStep 3: At this turning point, the intense electrostatic repulsion accelerates the $\\alpha$-particle backwards along the line of incidence, causing it to scatter at an angle $\\theta = 180^\\circ$. Hence, both Assertion (A) and Reason (R) are true, and Reason (R) provides the exact energetic and mechanical explanation for Assertion (A)."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_033",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the spectral transitions in atomic hydrogen listed in List I with the corresponding emitted photon wavelengths in terms of the Rydberg constant $R$ listed in List II:\nList I:\nP. First line of Lyman series ($n = 2 \\to 1$)\nQ. Series limit of Lyman series ($n = \\infty \\to 1$)\nR. First line of Balmer series ($n = 3 \\to 2$)\nS. Series limit of Balmer series ($n = \\infty \\to 2$)\nList II:\n1. $\\frac{4}{R}$\n2. $\\frac{4}{3R}$\n3. $\\frac{1}{R}$\n4. $\\frac{36}{5R}$\nChoose the correct match from the options given below:",
+      "options": [
+        "A) P-3, Q-2, R-1, S-4",
+        "B) P-2, Q-1, R-4, S-3",
+        "C) P-2, Q-3, R-4, S-1",
+        "D) P-4, Q-3, R-2, S-1"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Using the Rydberg formula $\\frac{1}{\\lambda} = R \\left(\\frac{1}{n_1^2} - \\frac{1}{n_2^2}\\right)$:\nFor P (first line of Lyman series, $n_1 = 1, n_2 = 2$): $\\frac{1}{\\lambda} = R \\left(1 - \\frac{1}{4}\\right) = \\frac{3R}{4} \\implies \\lambda = \\frac{4}{3R}$. Thus, P matches with 2.\nStep 2: For Q (series limit of Lyman series, $n_1 = 1, n_2 = \\infty$): $\\frac{1}{\\lambda} = R \\left(1 - 0\\right) = R \\implies \\lambda = \\frac{1}{R}$. Thus, Q matches with 3.\nStep 3: For R (first line of Balmer series, $n_1 = 2, n_2 = 3$): $\\frac{1}{\\lambda} = R \\left(\\frac{1}{4} - \\frac{1}{9}\\right) = \\frac{5R}{36} \\implies \\lambda = \\frac{36}{5R}$. Thus, R matches with 4.\nStep 4: For S (series limit of Balmer series, $n_1 = 2, n_2 = \\infty$): $\\frac{1}{\\lambda} = R \\left(\\frac{1}{4} - 0\\right) = \\frac{R}{4} \\implies \\lambda = \\frac{4}{R}$. Thus, S matches with 1.\nDistractor rejection: The unique correspondence is P-2, Q-3, R-4, S-1."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_034",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the wave-particle duality of the electron in Bohr's orbits:\nStatement I: The circumference of the $n$-th Bohr orbit in a hydrogen atom is equal to $n$ times the de Broglie wavelength of the electron revolving in that orbit ($2\\pi r_n = n \\lambda_n$).\nStatement II: The de Broglie wavelength $\\lambda_n$ of the electron in the $n$-th stationary orbit of the hydrogen atom is directly proportional to the principal quantum number $n$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In de Broglie's standing wave hypothesis, an integral number of wavelengths must fit into the circumference of the orbit to avoid destructive interference: $2\\pi r_n = n \\lambda_n$. Thus, Statement I is strictly true.\nStep 2: The de Broglie wavelength is $\\lambda_n = \\frac{h}{p_n} = \\frac{h}{m v_n}$. In Bohr's model, the velocity of the electron in the $n$-th orbit is $v_n = \\frac{v_1}{n}$. Substituting this into the de Broglie relation gives $\\lambda_n = \\frac{h}{m (v_1/n)} = n \\left(\\frac{h}{m v_1}\\right) = n \\lambda_1$. Therefore, the de Broglie wavelength is directly proportional to $n$ ($\\lambda_n \\propto n$). Thus, Statement II is true.\nStep 3: Alternatively, check consistency: $2\\pi r_n = 2\\pi (a_0 n^2) = n (2\\pi a_0 n) = n \\lambda_n$, which again confirms $\\lambda_n = 2\\pi a_0 n \\propto n$. Both statements are true.\nDistractor rejection: Statements I and II are both exact mathematical identities within Bohr-de Broglie quantum mechanics."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_035",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a hydrogen atom, an electron undergoes a radiative transition from the energy level $n = 4$ down to the ground state $n = 1$. Given that the Rydberg constant is $R = 1.097 \\times 10^7\\text{ m}^{-1}$, what is the wavelength of the emitted photon?",
+      "options": [
+        "A) $97.2\\text{ nm}$",
+        "B) $121.6\\text{ nm}$",
+        "C) $486.1\\text{ nm}$",
+        "D) $102.6\\text{ nm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The wavelength of the photon emitted in a transition from $n_2 = 4$ to $n_1 = 1$ is calculated using the Rydberg formula: $\\frac{1}{\\lambda} = R \\left(\\frac{1}{n_1^2} - \\frac{1}{n_2^2}\\right)$.\nStep 2: Substitute $n_1 = 1$ and $n_2 = 4$: $\\frac{1}{\\lambda} = R \\left(\\frac{1}{1} - \\frac{1}{16}\\right) = \\frac{15 R}{16}$.\nStep 3: Solving for $\\lambda$: $\\lambda = \\frac{16}{15 R} = \\frac{16}{15 \\times (1.097 \\times 10^7\\text{ m}^{-1})} = \\frac{16}{1.6455 \\times 10^8\\text{ m}^{-1}} \\approx 9.7235 \\times 10^{-8}\\text{ m} \\approx 97.2\\text{ nm}$.\nDistractor rejection: $121.6\\text{ nm}$ corresponds to the $n = 2 \\to 1$ transition ($H_\\alpha$ of Lyman), $102.6\\text{ nm}$ corresponds to the $n = 3 \\to 1$ transition, and $486.1\\text{ nm}$ is the $H_\\beta$ line of the Balmer series in the visible region."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_036",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The strong nuclear force between two nucleons is not a central force.\nReason (R): The magnitude of the nuclear interaction depends not only on the distance between the two interacting nucleons, but also explicitly on the relative orientation of their intrinsic spin angular momenta.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: A central force is one whose magnitude depends solely on the distance between the centers of two particles and whose direction is along the line joining their centers (such as Coulomb's law or Newton's law of gravitation).\nStep 2: In nuclear physics, the force between nucleons possesses a significant non-central (tensor) component. For instance, the ground state of the deuteron has parallel nucleon spins ($S = 1$, triplet state) and is bound, whereas the anti-parallel spin state ($S = 0$, singlet state) is unbound, proving that the nuclear force depends directly on spin orientation. Hence, Reason (R) is true.\nStep 3: Because the nuclear force depends on the direction of spin vectors relative to the position vector connecting the nucleons, it cannot be described as a central force. Thus, Assertion (A) is true, and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_037",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the Bohr model of the hydrogen atom:\n(a) The orbital angular momentum of the electron is quantized as $L = \\frac{n h}{2\\pi}$, where $n$ is an integer.\n(b) The radius of the $n$-th Bohr orbit is directly proportional to $n^2$.\n(c) The kinetic energy of the electron in any stationary orbit is equal to half the magnitude of its electrostatic potential energy ($K = |U|/2$).\n(d) An electron revolving in a stationary orbit continuously radiates electromagnetic waves whose frequency equals its orbital frequency.\nWhich of the statements given above are correct?",
+      "options": [
+        "A) (a) and (d) only",
+        "B) (b) and (d) only",
+        "C) (a), (b) and (c) only",
+        "D) (a), (b), (c) and (d)"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Bohr's quantization condition explicitly states $L = mvr = \\frac{nh}{2\\pi}$. Thus, statement (a) is correct.\nStep 2: From $r_n = \\frac{\\epsilon_0 h^2 n^2}{\\pi m e^2}$, the radius of the $n$-th orbit is strictly proportional to $n^2$. Thus, statement (b) is correct.\nStep 3: By the virial theorem for an inverse-square Coulomb potential, $U = -\\frac{e^2}{4\\pi\\epsilon_0 r}$ and $K = \\frac{e^2}{8\\pi\\epsilon_0 r} = \\frac{|U|}{2}$. Thus, statement (c) is correct.\nStep 4: Bohr's first postulate fundamentally asserts that stationary orbits are non-radiating states; the electron radiates only during transitions between distinct stationary orbits. Thus, statement (d) is incorrect.\nDistractor rejection: Options containing (d) fail because non-radiation in stationary states is the central axiom of Bohr's atomic model."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_038",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "What is the minimum energy required to completely ionize a doubly ionized lithium ion ($\\text{Li}^{2+}, Z = 3$) from its first excited state ($n = 2$)?",
+      "options": [
+        "A) $13.60\\text{ eV}$",
+        "B) $122.40\\text{ eV}$",
+        "C) $15.30\\text{ eV}$",
+        "D) $30.60\\text{ eV}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For any hydrogen-like ion of atomic number $Z$, the energy of the electron in the $n$-th orbit is given by Bohr's energy formula: $E_n = -13.60 \\frac{Z^2}{n^2}\\text{ eV}$.\nStep 2: For a doubly ionized lithium ion ($\\text{Li}^{2+}$), the atomic number is $Z = 3$. The first excited state corresponds to the principal quantum number $n = 2$.\nStep 3: Substituting $Z = 3$ and $n = 2$: $E_2 = -13.60 \\times \\frac{3^2}{2^2} = -13.60 \\times \\frac{9}{4} = -13.60 \\times 2.25 = -30.60\\text{ eV}$.\nStep 4: Ionization from this state requires supplying enough energy to move the electron to infinity ($E_\\infty = 0$): $E_{\\text{ion}} = E_\\infty - E_2 = 0 - (-30.60\\text{ eV}) = +30.60\\text{ eV}$.\nDistractor rejection: $122.40\\text{ eV}$ is the ground-state ($n = 1$) ionization energy of $\\text{Li}^{2+}$, $15.30\\text{ eV}$ arises from omitting the square of $Z$, and $13.60\\text{ eV}$ is the ground-state ionization energy of neutral hydrogen."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_039",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A nuclear power reactor utilizing uranium-235 ($^{235}_{92}\\text{U}$) operates steadily at a thermal power output of $320\\text{ MW}$. If the average energy released per fission event is $200\\text{ MeV}$, how many fission events occur per second in the reactor core? (Take $1\\text{ eV} = 1.6 \\times 10^{-19}\\text{ J}$).",
+      "options": [
+        "A) $1.0 \\times 10^{19}$",
+        "B) $2.0 \\times 10^{19}$",
+        "C) $1.0 \\times 10^{18}$",
+        "D) $3.2 \\times 10^{20}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate the energy released per single fission event in joules: $E_{\\text{fiss}} = 200\\text{ MeV} = 200 \\times 10^6 \\times (1.6 \\times 10^{-19}\\text{ J}) = 3.2 \\times 10^{-11}\\text{ J}$.\nStep 2: The total thermal power generated by the reactor is $P = 320\\text{ MW} = 320 \\times 10^6\\text{ W} = 3.2 \\times 10^8\\text{ J/s}$.\nStep 3: The rate of fission events per second ($N$) is given by $N = \\frac{P}{E_{\\text{fiss}}} = \\frac{3.2 \\times 10^8\\text{ J/s}}{3.2 \\times 10^{-11}\\text{ J/fission}} = 1.0 \\times 10^{19}\\text{ fissions/s}$.\nDistractor rejection: Errors in unit conversion (such as using $10^{-16}$ instead of $10^{-19}$ for $\\text{eV}$) lead to incorrect powers of 10 such as $1.0 \\times 10^{18}$ or $3.2 \\times 10^{20}$."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_040",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Within an atomic nucleus, the attractive strong nuclear force acting between two neutrons is equal in magnitude to the attractive strong nuclear force acting between a proton and a neutron at the same separation distance.\nReason (R): The strong nuclear force is charge-independent and interacts identically between nucleons irrespective of whether they carry an electric charge.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Proton-proton scattering, neutron-proton scattering, and mirror nuclei experiments conclusively establish that the nuclear force has the exact same strength for all nucleon pairs ($F_{nn} = F_{pp} = F_{pn}$) when compared at the same separation and in the same spin-isospin state (after subtracting the electromagnetic Coulomb repulsion between protons). Thus, Reason (R) is true.\nStep 2: Consequently, the nuclear attraction between two neutrons is equal to that between a proton and a neutron at the same separation. Thus, Assertion (A) is true.\nStep 3: Reason (R) directly states the fundamental principle of charge independence that explains Assertion (A). Therefore, both are true, and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_041",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "What is the ratio of the ground-state ($n = 1$) ionization energy of a triply ionized beryllium ion ($\\text{Be}^{3+}, Z = 4$) to that of a singly ionized helium ion ($\\text{He}^+, Z = 2$)?",
+      "options": [
+        "A) $2 : 1$",
+        "B) $1 : 2$",
+        "C) $4 : 1$",
+        "D) $16 : 1$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The ionization energy of a hydrogen-like atom or ion from its ground state ($n = 1$) is given by $E_{\\text{ion}} = 13.6 Z^2\\text{ eV}$.\nStep 2: For a triply ionized beryllium ion ($\\text{Be}^{3+}$), the atomic number is $Z_1 = 4$, so its ionization energy is $E_{\\text{ion}}(\\text{Be}^{3+}) = 13.6 \\times 4^2 = 13.6 \\times 16\\text{ eV} = 217.6\\text{ eV}$.\nStep 3: For a singly ionized helium ion ($\\text{He}^+$), the atomic number is $Z_2 = 2$, so its ionization energy is $E_{\\text{ion}}(\\text{He}^+) = 13.6 \\times 2^2 = 13.6 \\times 4\\text{ eV} = 54.4\\text{ eV}$.\nStep 4: The ratio of the ionization energies is $\\frac{E_{\\text{ion}}(\\text{Be}^{3+})}{E_{\\text{ion}}(\\text{He}^+)} = \\frac{16}{4} = \\frac{4}{1} = 4 : 1$.\nDistractor rejection: Taking a linear dependence on $Z$ yields $2 : 1$, inverting the ratio yields $1 : 2$, and taking $Z^4$ yields $16 : 1$."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_042",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An isolated hydrogen atom initially at rest in its first excited state ($n = 2$) undergoes a radiative transition to the ground state ($n = 1$), emitting a single photon. Taking the mass of the hydrogen atom as $M \\approx 1.67 \\times 10^{-27}\\text{ kg}$ and the speed of light as $c = 3.0 \\times 10^8\\text{ m/s}$, what is the recoil speed of the hydrogen atom?",
+      "options": [
+        "A) $3.26\\text{ m/s}$",
+        "B) $0.81\\text{ m/s}$",
+        "C) $6.52\\text{ m/s}$",
+        "D) $1.63\\text{ m/s}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The transition energy between $n = 2$ and $n = 1$ in atomic hydrogen is: $\\Delta E = E_2 - E_1 = -3.40\\text{ eV} - (-13.60\\text{ eV}) = 10.20\\text{ eV}$.\nStep 2: Convert this energy into joules: $\\Delta E = 10.20 \\times (1.60 \\times 10^{-19}\\text{ J}) = 1.632 \\times 10^{-18}\\text{ J}$. The linear momentum of the emitted photon is given by de Broglie-Einstein relation: $p_{\\text{photon}} = \\frac{\\Delta E}{c} = \\frac{1.632 \\times 10^{-18}\\text{ J}}{3.0 \\times 10^8\\text{ m/s}} = 5.44 \\times 10^{-27}\\text{ kg}\\cdot\\text{m/s}$.\nStep 3: By conservation of linear momentum, the initially stationary atom acquires a recoil momentum of equal magnitude in the opposite direction: $p_{\\text{recoil}} = M v_{\\text{recoil}} = p_{\\text{photon}}$. Solving for the recoil velocity: $v_{\\text{recoil}} = \\frac{p_{\\text{photon}}}{M} = \\frac{5.44 \\times 10^{-27}\\text{ kg}\\cdot\\text{m/s}}{1.67 \\times 10^{-27}\\text{ kg}} \\approx 3.26\\text{ m/s}$.\nDistractor rejection: Using $E_2 = 3.40\\text{ eV}$ instead of $\\Delta E$ yields $1.09\\text{ m/s}$, omitting the factor of 2 in conversion gives $1.63\\text{ m/s}$, and doubling gives $6.52\\text{ m/s}$."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_043",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For transitions between adjacent energy states having very large principal quantum numbers ($n \\gg 1$, such that $n \\to n - 1$), the frequency of the emitted photon calculated from Bohr's quantum formula matches the classical orbital revolution frequency of the electron.\nReason (R): According to Bohr's Correspondence Principle, the predictions of quantum mechanics approach and merge with the predictions of classical physics in the macroscopic limit of very large quantum numbers ($n \\to \\infty$).\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The quantum frequency emitted in a transition from $n$ to $n - 1$ is $\\nu_{\\text{quantum}} = \\frac{E_n - E_{n-1}}{h} = \\frac{m e^4}{8\\epsilon_0^2 h^3}\\left(\\frac{1}{(n-1)^2} - \\frac{1}{n^2}\\right) = \\frac{m e^4}{8\\epsilon_0^2 h^3}\\left(\\frac{2n - 1}{n^2 (n-1)^2}\\right)$. For $n \\gg 1$, $2n - 1 \\approx 2n$ and $n^2 (n - 1)^2 \\approx n^4$, so $\\nu_{\\text{quantum}} \\approx \\frac{m e^4}{4\\epsilon_0^2 h^3 n^3}$.\nStep 2: The classical orbital revolution frequency of the electron is $f_{\\text{classical}} = \\frac{v_n}{2\\pi r_n} = \\frac{e^2 / (2\\epsilon_0 n h)}{2\\pi [\\epsilon_0 n^2 h^2 / (\\pi m e^2)]} = \\frac{m e^4}{4\\epsilon_0^2 h^3 n^3}$. Thus, $\\nu_{\\text{quantum}} = f_{\\text{classical}}$ in the limit $n \\gg 1$. Hence, Assertion (A) is true.\nStep 3: Bohr's Correspondence Principle establishes that quantum physics must smoothly reproduce classical physics at high quantum numbers where energy levels become quasi-continuous. Thus, Reason (R) is true and correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_044",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An $\\alpha$-particle of mass $m$ and initial kinetic energy $K$ is projected with a non-zero impact parameter $b$ towards a stationary heavy nucleus of charge $Ze$. If $r_m$ denotes the distance of closest approach for this trajectory and $r_0 = \\frac{1}{4\\pi\\epsilon_0}\\frac{2 Z e^2}{K}$ is the distance of closest approach for a direct head-on collision ($b = 0$), which of the following relations correctly governs $r_m$?",
+      "options": [
+        "A) $1 + \\left(\\frac{b}{r_m}\\right)^2 = \\frac{r_0}{r_m}$",
+        "B) $\\left(\\frac{b}{r_m}\\right)^2 - 1 = \\frac{r_0}{r_m}$",
+        "C) $1 - \\left(\\frac{b}{r_m}\\right)^2 = \\frac{r_0}{r_m}$",
+        "D) $1 - \\frac{b}{r_m} = \\left(\\frac{r_0}{r_m}\\right)^2$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: At the point of closest approach ($r = r_m$), the radial component of velocity vanishes ($\\frac{dr}{dt} = 0$), so the particle moves purely perpendicular to the radius vector with speed $v_m$.\nStep 2: Conservation of angular momentum about the target nucleus gives: $m v_0 b = m v_m r_m \\implies v_m = v_0 \\frac{b}{r_m}$, where $v_0$ is the initial speed ($K = \\frac{1}{2}m v_0^2$).\nStep 3: Conservation of total mechanical energy gives: $K = \\frac{1}{2}m v_m^2 + \\frac{1}{4\\pi\\epsilon_0}\\frac{2Ze^2}{r_m} = \\frac{1}{2}m v_0^2 \\left(\\frac{b}{r_m}\\right)^2 + \\frac{1}{4\\pi\\epsilon_0}\\frac{2Ze^2}{r_m} = K \\left(\\frac{b}{r_m}\\right)^2 + K \\left(\\frac{r_0}{r_m}\\right)$.\nStep 4: Dividing both sides by $K$ yields: $1 = \\left(\\frac{b}{r_m}\\right)^2 + \\frac{r_0}{r_m}$, which rearranges directly to $1 - \\left(\\frac{b}{r_m}\\right)^2 = \\frac{r_0}{r_m}$.\nDistractor rejection: Other choices violate either conservation of energy or angular momentum at the periapsis of the hyperbolic orbit."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_045",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the physical quantities describing an electron in the $n$-th orbit of a hydrogen-like atom of atomic number $Z$ listed in List I with their corresponding proportionalities listed in List II:\nList I:\nP. Radius of the orbit ($r_n$)\nQ. Orbital speed of the electron ($v_n$)\nR. Orbital revolution frequency ($f_n$)\nS. Magnetic field at the nucleus ($B_n$)\nList II:\n1. $\\propto \\frac{Z^3}{n^5}$\n2. $\\propto \\frac{Z^2}{n^3}$\n3. $\\propto \\frac{Z}{n}$\n4. $\\propto \\frac{n^2}{Z}$\nChoose the correct match from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-3, Q-4, R-1, S-2",
+        "C) P-4, Q-2, R-3, S-1",
+        "D) P-4, Q-3, R-2, S-1"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In Bohr's model, the orbital radius is given by $r_n = \\frac{\\epsilon_0 h^2 n^2}{\\pi m Z e^2} \\propto \\frac{n^2}{Z}$. Thus, P matches with 4.\nStep 2: The orbital speed is given by $v_n = \\frac{Z e^2}{2\\epsilon_0 n h} \\propto \\frac{Z}{n}$. Thus, Q matches with 3.\nStep 3: The orbital revolution frequency is $f_n = \\frac{v_n}{2\\pi r_n} \\propto \\frac{Z/n}{n^2/Z} = \\frac{Z^2}{n^3}$. Thus, R matches with 2.\nStep 4: The magnetic field produced at the nucleus is $B_n = \\frac{\\mu_0 I_n}{2 r_n} = \\frac{\\mu_0 (e f_n)}{2 r_n} \\propto \\frac{Z^2/n^3}{n^2/Z} = \\frac{Z^3}{n^5}$. Thus, S matches with 1.\nDistractor rejection: The unique correspondence is P-4, Q-3, R-2, S-1."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_046",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In the thermonuclear core of the Sun, the net reaction of the proton-proton fusion cycle is:\n$4\\,^{1}_{1}\\text{H} + 2e^- \\to \\,^{4}_{2}\\text{He} + 2\\nu_e + 6\\gamma + Q$.\nGiven that the atomic mass of $^{1}_{1}\\text{H}$ is $1.007825\\text{ u}$, the atomic mass of $^{4}_{2}\\text{He}$ is $4.002603\\text{ u}$, and $1\\text{ u} = 931.5\\text{ MeV}$, what is the total energy $Q$ released during the synthesis of one $^{4}_{2}\\text{He}$ nucleus?",
+      "options": [
+        "A) $26.73\\text{ MeV}$",
+        "B) $17.59\\text{ MeV}$",
+        "C) $200.00\\text{ MeV}$",
+        "D) $6.68\\text{ MeV}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The atomic mass of $4\\,^{1}_{1}\\text{H}$ atoms includes the mass of 4 protons and 4 electrons. The atomic mass of one $^{4}_{2}\\text{He}$ atom includes the mass of 1 helium nucleus and 2 electrons.\nStep 2: The net reaction converts four protons and two electrons into one $^{4}_{2}\\text{He}$ nucleus, with two positrons annihilating with two additional electrons (totaling 4 initial electrons). Therefore, using atomic masses automatically accounts for both nucleon and electron masses without extra adjustments.\nStep 3: Calculate the mass defect: $\\Delta m = 4 \\times m(^{1}_{1}\\text{H}) - m(^{4}_{2}\\text{He}) = 4 \\times (1.007825\\text{ u}) - 4.002603\\text{ u} = 4.031300\\text{ u} - 4.002603\\text{ u} = 0.028697\\text{ u}$.\nStep 4: Multiply by the energy equivalent of one atomic mass unit ($931.5\\text{ MeV/u}$): $Q = 0.028697 \\times 931.5\\text{ MeV} \\approx 26.73\\text{ MeV}$.\nDistractor rejection: $17.59\\text{ MeV}$ is the energy released in the D-T fusion reaction, $200.00\\text{ MeV}$ is the energy per uranium fission, and $6.68\\text{ MeV}$ is the energy per nucleon."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_047",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In the thermal-neutron-induced fission of a uranium-235 ($^{235}_{92}\\text{U}$) nucleus, approximately $80\\%$ to $85\\%$ of the total energy released (about $167\\text{ MeV}$ out of $200\\text{ MeV}$) appears as the kinetic energy of the two massive primary fission fragments.\nReason (R): At the instant of nuclear scission, the two newly formed positively charged primary fragments are in close proximity, experiencing an enormous mutual electrostatic Coulomb repulsion that rapidly accelerates them apart.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: When a $^{235}\\text{U}$ nucleus absorbs a thermal neutron, it forms an excited compound nucleus $^{236}\\text{U}^*$, which elongates and necks down until it undergoes scission into two primary fragments (such as barium and krypton).\nStep 2: At scission, the two fragments possess large positive nuclear charges ($Z_1 \\sim 56, Z_2 \\sim 36$) and their separation is roughly $R_1 + R_2 \\sim 10 - 12\\text{ fm}$. The electrostatic potential energy between them is $U_c = \\frac{1}{4\\pi\\epsilon_0}\\frac{Z_1 Z_2 e^2}{R_1 + R_2} \\approx 167\\text{ MeV}$. Thus, Reason (R) is true.\nStep 3: This immense Coulomb potential energy is converted almost instantaneously into the kinetic energy of the flying fragments as they fly apart in opposite directions. The remaining $\\sim 33\\text{ MeV}$ is divided among prompt neutrons, prompt gamma rays, and subsequent beta/gamma decays. Thus, Assertion (A) is true, and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_048",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A free electron of kinetic energy $K_e$ collides with a stationary hydrogen atom in its ground state ($n = 1$). Assuming the collision is completely inelastic and neglecting the recoil kinetic energy of the hydrogen atom (since $m_e \\ll M_H$), what is the minimum kinetic energy $K_{e,\\min}$ the electron must possess to excite the hydrogen atom to its second excited state ($n = 3$)?",
+      "options": [
+        "A) $10.20\\text{ eV}$",
+        "B) $13.60\\text{ eV}$",
+        "C) $12.09\\text{ eV}$",
+        "D) $1.51\\text{ eV}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The ground state of the hydrogen atom has principal quantum number $n = 1$, and its energy is $E_1 = -13.60\\text{ eV}$.\nStep 2: The second excited state corresponds to principal quantum number $n = 3$ (since $n = 2$ is the first excited state). Its energy is $E_3 = -\\frac{13.60}{3^2}\\text{ eV} = -\\frac{13.60}{9}\\text{ eV} \\approx -1.51\\text{ eV}$.\nStep 3: The excitation energy required to promote the bound electron from $n = 1$ to $n = 3$ is: $\\Delta E = E_3 - E_1 = -1.51\\text{ eV} - (-13.60\\text{ eV}) = +12.09\\text{ eV}$.\nStep 4: Because the mass of the incident electron ($m_e$) is much smaller than the mass of the target hydrogen atom ($M_H \\approx 1836\\,m_e$), the fraction of kinetic energy unavoidably locked into center-of-mass motion is $\\frac{m_e}{m_e + M_H} \\approx \\frac{1}{1837} \\approx 0.05\\%$. Hence, practically all the kinetic energy of the incident electron is available for internal atomic excitation: $K_{e,\\min} \\approx \\Delta E = 12.09\\text{ eV}$.\nDistractor rejection: $10.20\\text{ eV}$ excites the atom only to the first excited state ($n = 2$), $13.60\\text{ eV}$ completely ionizes the atom, and $1.51\\text{ eV}$ is the binding energy of the $n = 3$ state."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_049",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the potential energy curve of two nucleons as a function of their internucleon separation $r$:\nStatement I: The potential energy of a pair of nucleons reaches a minimum value (representing maximum attractive binding) at an equilibrium separation distance of approximately $r_0 \\approx 0.8\\text{ fm}$.\nStatement II: For separation distances $r < 0.8\\text{ fm}$, the nuclear force becomes strongly repulsive, preventing the collapse of the nucleus into an arbitrarily dense volume.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The standard nuclear potential energy curve $V(r)$ plotted against distance $r$ shows that the potential energy drops to a negative minimum at approximately $r_0 \\approx 0.8\\text{ fm}$ (where the nuclear force $F = -\\frac{dV}{dr} = 0$). Thus, Statement I is true.\nStep 2: For $r > 0.8\\text{ fm}$, the slope $\\frac{dV}{dr}$ is positive, which means the force $F = -\\frac{dV}{dr}$ is negative (attractive). For $r < 0.8\\text{ fm}$, the potential energy rises extremely steeply as $r \\to 0$, producing a strongly negative slope $\\frac{dV}{dr}$ and hence a very large positive (repulsive) force. This hard repulsive core prevents nucleons from coalescing together and maintains finite nuclear sizes. Thus, Statement II is true.\nStep 3: Distractor rejection: Both statements correctly describe the essential features of the NCERT Class 12 nuclear potential energy graph."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_050",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A nuclear power plant operating with an overall thermal-to-electrical efficiency of $25.0\\%$ delivers an electrical power output of $500\\text{ MW}$. If each fission of uranium-235 ($^{235}\\text{U}$) releases $200\\text{ MeV}$ of energy and Avogadro's number is $N_A = 6.023 \\times 10^{23}\\text{ mol}^{-1}$, what is the mass of pure $^{235}\\text{U}$ consumed by fission per day ($24\\text{ hours}$)? (Take $1\\text{ eV} = 1.6 \\times 10^{-19}\\text{ J}$).",
+      "options": [
+        "A) $2.11\\text{ kg}$",
+        "B) $8.43\\text{ kg}$",
+        "C) $0.53\\text{ kg}$",
+        "D) $0.21\\text{ kg}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Determine the total thermal power generated in the reactor core: $P_{\\text{th}} = \\frac{P_{\\text{elec}}}{\\eta} = \\frac{500\\text{ MW}}{0.25} = 2000\\text{ MW} = 2.0 \\times 10^9\\text{ J/s}$.\nStep 2: Energy released per fission event in joules is: $E_{\\text{fiss}} = 200 \\times 10^6 \\times (1.6 \\times 10^{-19}\\text{ J}) = 3.2 \\times 10^{-11}\\text{ J}$.\nStep 3: Number of fissions occurring per second: $R = \\frac{P_{\\text{th}}}{E_{\\text{fiss}}} = \\frac{2.0 \\times 10^9\\text{ J/s}}{3.2 \\times 10^{-11}\\text{ J/fission}} = 6.25 \\times 10^{19}\\text{ fissions/s}$.\nStep 4: Total fissions in one day ($86400\\text{ s}$): $N = 6.25 \\times 10^{19} \\times 86400 = 5.40 \\times 10^{24}$ nuclei.\nStep 5: Mass of $^{235}\\text{U}$ consumed: $m = \\frac{N}{N_A} \\times M_{\\text{molar}} = \\frac{5.40 \\times 10^{24}}{6.023 \\times 10^{23}\\text{ mol}^{-1}} \\times 235\\text{ g/mol} \\approx 8.9656\\text{ mol} \\times 235\\text{ g/mol} \\approx 2106.9\\text{ g} \\approx 2.11\\text{ kg}$.\nDistractor rejection: Omitting the 25% efficiency factor yields $0.53\\text{ kg}$, while multiplying instead of dividing by efficiency yields $0.21\\text{ kg}$."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_051",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In a hydrogen atom, the de Broglie wavelength of an electron revolving in the $n$-th stationary Bohr orbit is directly proportional to the principal quantum number $n$ ($\\lambda_n \\propto n$).\nReason (R): The orbital radius scales as $r_n \\propto n^2$, and according to the stationary matter-wave condition, the orbital circumference must accommodate exactly $n$ de Broglie wavelengths ($2\\pi r_n = n \\lambda_n$).\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The de Broglie wavelength of a moving electron is defined as $\\lambda_n = \\frac{h}{p_n} = \\frac{h}{m v_n}$. From Bohr's model, the velocity of the electron in the $n$-th orbit is $v_n = \\frac{v_1}{n}$, so $\\lambda_n = \\frac{h}{m (v_1/n)} = n \\left(\\frac{h}{m v_1}\\right) \\propto n$. Thus, Assertion (A) is true.\nStep 2: Louis de Broglie showed that stationary Bohr orbits correspond to constructive circular standing waves, which requires $2\\pi r_n = n \\lambda_n$. Since the Bohr radius scales as $r_n = a_0 n^2$, substituting this gives $2\\pi (a_0 n^2) = n \\lambda_n \\implies \\lambda_n = 2\\pi a_0 n \\propto n$. Thus, Reason (R) is true.\nStep 3: Reason (R) provides the geometric standing-wave mechanism that directly determines why the de Broglie wavelength scales linearly with $n$. Therefore, both are true, and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_052",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For the Paschen spectral series of atomic hydrogen ($n_1 = 3$), the longest wavelength line ($\\lambda_{\\max}$) corresponds to the transition from $n_2 = 4$ to $n_1 = 3$, and the shortest wavelength line ($\\lambda_{\\min}$, series limit) corresponds to the transition from $n_2 = \\infty$ to $n_1 = 3$. What is the ratio $\\frac{\\lambda_{\\max}}{\\lambda_{\\min}}$?",
+      "options": [
+        "A) $\\frac{9}{7}$",
+        "B) $\\frac{7}{16}$",
+        "C) $\\frac{16}{7}$",
+        "D) $\\frac{25}{16}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The Rydberg equation for hydrogen ($Z = 1$) is $\\frac{1}{\\lambda} = R \\left(\\frac{1}{n_1^2} - \\frac{1}{n_2^2}\\right)$.\nStep 2: For the longest wavelength line of the Paschen series ($n_1 = 3, n_2 = 4$): $\\frac{1}{\\lambda_{\\max}} = R \\left(\\frac{1}{3^2} - \\frac{1}{4^2}\\right) = R \\left(\\frac{1}{9} - \\frac{1}{16}\\right) = R \\left(\\frac{16 - 9}{144}\\right) = \\frac{7R}{144} \\implies \\lambda_{\\max} = \\frac{144}{7R}$.\nStep 3: For the shortest wavelength line of the Paschen series ($n_1 = 3, n_2 = \\infty$): $\\frac{1}{\\lambda_{\\min}} = R \\left(\\frac{1}{3^2} - 0\\right) = \\frac{R}{9} \\implies \\lambda_{\\min} = \\frac{9}{R}$.\nStep 4: The ratio of the wavelengths is $\\frac{\\lambda_{\\max}}{\\lambda_{\\min}} = \\frac{144 / (7R)}{9 / R} = \\frac{144}{7 \\times 9} = \\frac{16}{7}$.\nDistractor rejection: The inverted ratio $\\frac{7}{16}$ represents $\\frac{\\lambda_{\\min}}{\\lambda_{\\max}}$, while $\\frac{9}{7}$ and $\\frac{25}{16}$ arise from arithmetic errors in evaluating common denominators."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_053",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements concerning the binding energy per nucleon ($E_{bn}$) curve as a function of mass number $A$:\n(a) The curve achieves a broad maximum of approximately $8.75\\text{ MeV/nucleon}$ around mass number $A = 56$ ($^{56}_{26}\\text{Fe}$).\n(b) Pronounced local peaks occur at nuclei such as $^{4}_{2}\\text{He}, ^{12}_{6}\\text{C},$ and $^{16}_{8}\\text{O}$, reflecting their enhanced nuclear stability as alpha-particle-like structures.\n(c) The progressive decline in $E_{bn}$ for heavy nuclei ($A > 170$) is caused by long-range Coulomb repulsion among protons accumulating across the nuclear volume.\n(d) Very light nuclei with $A < 10$ have extremely high values of $E_{bn}$ exceeding $9.0\\text{ MeV/nucleon}$.\nWhich of the statements given above are correct?",
+      "options": [
+        "A) (a) and (d) only",
+        "B) (b) and (d) only",
+        "C) (a), (b), (c) and (d)",
+        "D) (a), (b) and (c) only"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The binding energy per nucleon curve shows that the most tightly bound nucleus is iron-56 ($^{56}_{26}\\text{Fe}$), with an $E_{bn}$ of about $8.75\\text{ MeV/nucleon}$. Thus, statement (a) is correct.\nStep 2: Superimposed on the general upward trend for light nuclei are distinct local maxima at $^{4}\\text{He}, ^{12}\\text{C},$ and $^{16}\\text{O}$. These are tightly bound 'magic' or even-even $\\alpha$-cluster nuclei. Thus, statement (b) is correct.\nStep 3: For heavy nuclei ($A > 170$), the electrostatic repulsive potential energy among the $Z$ protons scales as $\\sim Z(Z - 1) / R \\propto Z^2 / A^{1/3}$, which grows faster than the attractive saturated nuclear volume binding energy ($\\propto A$). This net repulsion decreases $E_{bn}$ to about $7.6\\text{ MeV}$ at uranium. Thus, statement (c) is correct.\nStep 4: Light nuclei have low $E_{bn}$ (for example, deuteron $^{2}\\text{H}$ has only $1.11\\text{ MeV/nucleon}$, and tritium $^{3}\\text{H}$ has $2.83\\text{ MeV/nucleon}$). No nucleus has an $E_{bn}$ exceeding $8.8\\text{ MeV/nucleon}$. Thus, statement (d) is incorrect.\nDistractor rejection: Options containing (d) fail because light nuclei possess substantially lower binding energy per nucleon than intermediate nuclei."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_054",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "When an electron in a hydrogen-like atom transitions from an orbital state with principal quantum number $n$ to an adjacent lower state with principal quantum number $(n - 1)$, what is the magnitude of the change in the orbital angular momentum ($|\\Delta L|$) of the electron according to Bohr's model?",
+      "options": [
+        "A) $\\frac{h}{\\pi}$",
+        "B) $n \\frac{h}{2\\pi}$",
+        "C) $\\frac{h}{2\\pi}$",
+        "D) $\\frac{2h}{\\pi}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: According to Bohr's second postulate of quantization, the orbital angular momentum of an electron in any stationary orbit of principal quantum number $n$ is given by $L_n = \\frac{n h}{2\\pi}$.\nStep 2: For the adjacent lower stationary orbit characterized by principal quantum number $(n - 1)$, the orbital angular momentum is $L_{n-1} = \\frac{(n - 1)h}{2\\pi}$.\nStep 3: The magnitude of the change in orbital angular momentum between these two states is: $|\\Delta L| = |L_n - L_{n-1}| = \\frac{n h}{2\\pi} - \\frac{(n - 1)h}{2\\pi} = \\frac{h}{2\\pi} [n - (n - 1)] = \\frac{h}{2\\pi}$.\nStep 4: Remarkably, this change is a universal constant ($\\hbar = \\frac{h}{2\\pi}$) for any adjacent orbital transition, regardless of the value of $n$ or the nuclear charge $Z$.\nDistractor rejection: Choices with $\\frac{h}{\\pi}$ miss the factor of 2 in Bohr's postulate, while $n \\frac{h}{2\\pi}$ gives the total angular momentum of the initial state rather than the change."
+    },
+    {
+      "id": "phy_atoms_and_nuclei_c01_055",
+      "subject": "Physics",
+      "topic": "Atoms and Nuclei",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An electron in a hydrogen atom is excited from the ground state ($n = 1$) to the third excited state ($n = 4$). Which of the following statements correctly describes the changes in its orbital kinetic energy ($K$) and electrostatic potential energy ($U$)?",
+      "options": [
+        "A) Kinetic energy increases by a factor of 16 and potential energy decreases by a factor of 16.",
+        "B) Kinetic energy decreases to $\\frac{1}{4}$ of its initial value and potential energy increases by $\\frac{1}{4}$.",
+        "C) Both kinetic energy and potential energy decrease in magnitude by a factor of 4.",
+        "D) Kinetic energy decreases by a factor of 16 while potential energy increases (becomes less negative) by $25.50\\text{ eV}$."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In Bohr's model for hydrogen ($Z = 1$), the kinetic energy in orbit $n$ is $K_n = +\\frac{13.60}{n^2}\\text{ eV}$, and the potential energy is $U_n = -\\frac{27.20}{n^2}\\text{ eV}$.\nStep 2: For the ground state ($n = 1$): $K_1 = 13.60\\text{ eV}$ and $U_1 = -27.20\\text{ eV}$.\nStep 3: For the third excited state ($n = 4$): $K_4 = \\frac{13.60}{4^2} = \\frac{13.60}{16} = 0.85\\text{ eV}$. Thus, the kinetic energy decreases by a factor of $16$ (since $K_4 = \\frac{K_1}{16}$).\nStep 4: The potential energy in the $n = 4$ state is $U_4 = -\\frac{27.20}{4^2} = -\\frac{27.20}{16} = -1.70\\text{ eV}$. The change in potential energy is $\\Delta U = U_4 - U_1 = -1.70\\text{ eV} - (-27.20\\text{ eV}) = +25.50\\text{ eV}$. Because $-1.70\\text{ eV} > -27.20\\text{ eV}$, the potential energy has increased (become less negative) by $25.50\\text{ eV}$.\nDistractor rejection: As an electron moves to higher orbits, its speed slows down (decreasing kinetic energy) while it moves farther from the positive nucleus (increasing potential energy towards zero)."
+    }
+  ]
+}

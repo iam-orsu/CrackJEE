@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Electromagnetic Waves",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_electromagnetic_waves_c01_001",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Ampere's circuital law and Maxwell's displacement current:\n\nStatement I: Ampere's circuital law in its original formulation, $\\oint \\vec{B}\\cdot d\\vec{l} = \\mu_0 I_c$, was logically inconsistent when applied to time-dependent electric fields, such as in the space between capacitor plates during charging.\nStatement II: Maxwell resolved this inconsistency by proposing the concept of displacement current, $I_d = \\epsilon_0 \\frac{d\\Phi_E}{dt}$, which is proportional to the time rate of change of electric flux.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In a circuit containing a charging parallel-plate capacitor, applying the original Ampere's circuital law $\\oint \\vec{B}\\cdot d\\vec{l} = \\mu_0 I_c$ to a planar surface bounded by a circular loop around the connecting wire gives $\\mu_0 I_c \\neq 0$. However, if a pot-shaped surface sharing the exact same boundary passes between the capacitor plates, no conduction current pierces it ($I_c = 0$), implying $\\oint \\vec{B}\\cdot d\\vec{l} = 0$. This logical contradiction proved the original law incomplete.\nStep 2: Maxwell observed that an accumulating charge on the capacitor plates creates a time-varying electric field and thus a time-dependent electric flux $\\Phi_E$ between the plates. He introduced the displacement current defined as $I_d = \\epsilon_0 \\frac{d\\Phi_E}{dt}$.\nStep 3: The modified Ampere-Maxwell law $\\oint \\vec{B}\\cdot d\\vec{l} = \\mu_0(I_c + I_d)$ maintains continuity of current and eliminates the contradiction entirely. Therefore, both Statement I and Statement II are true.\nDistractor Analysis: Any choice declaring either statement to be false contradicts Maxwell's foundational 1865 formulation and NCERT Chapter 8."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_002",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): An electric charge undergoing accelerated motion radiates electromagnetic waves continuously into surrounding space.\nReason (R): An accelerating charge creates a time-varying electric field, which induces a time-varying magnetic field, and these alternating coupled fields propagate through space as a self-sustaining wave.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: A static charge produces only an electrostatic field. A charge moving with uniform velocity produces both electric and magnetic fields, but their energy remains localized with the moving charge and is not radiated away.\nStep 2: An accelerated charge creates non-stationary, time-varying electric and magnetic fields. In accordance with Faraday's law of induction, a changing magnetic field produces an electric field, and by the Ampere-Maxwell law, a changing electric field produces a magnetic field.\nStep 3: These time-dependent mutually perpendicular fields regenerate each other and propagate outward through empty space at the speed of light $c$. Hence, Reason (R) provides the complete physical mechanism explaining Assertion (A).\nDistractor Analysis: Alternative options asserting that either (A) or (R) is false or that (R) does not explain (A) fail to recognize mutual induction of alternating fields as the core origin of radiation."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_003",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Maxwell's Equation in Integral Form) with List II (Physical Significance):\n\nList I:\nP. $\\oint \\vec{E}\\cdot d\\vec{A} = \\frac{q}{\\epsilon_0}$\nQ. $\\oint \\vec{B}\\cdot d\\vec{A} = 0$\nR. $\\oint \\vec{E}\\cdot d\\vec{l} = -\\frac{d\\Phi_B}{dt}$\nS. $\\oint \\vec{B}\\cdot d\\vec{l} = \\mu_0 I_c + \\mu_0 \\epsilon_0 \\frac{d\\Phi_E}{dt}$\n\nList II:\n1. Non-existence of isolated magnetic monopoles\n2. Electric charges act as sources of electrostatic fields\n3. Both conduction current and time-varying electric flux act as sources of magnetic circulation\n4. A time-varying magnetic flux generates an induced non-conservative electric field\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-3, Q-4, R-1, S-2",
+        "C) P-2, Q-1, R-4, S-3",
+        "D) P-2, Q-3, R-4, S-1"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Equation P is Gauss's law for electrostatics, relating net outward electric flux to enclosed electric charge (List II-2).\nStep 2: Equation Q is Gauss's law for magnetism, stating that net magnetic flux through any closed surface is identically zero because magnetic poles always occur in equal opposite pairs, implying isolated magnetic monopoles do not exist (List II-1).\nStep 3: Equation R is Faraday's law of electromagnetic induction, showing that changing magnetic flux generates an electric field circulation (List II-4). Equation S is the Ampere-Maxwell law, establishing that conduction current and displacement current generate magnetic circulation (List II-3). Thus, the correct matching is P-2, Q-1, R-4, S-3.\nDistractor Analysis: Pairings that swap Gauss's law for electrostatics with magnetism or confuse Faraday's law with the Ampere-Maxwell law are incorrect."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_004",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A parallel-plate capacitor is connected across an external power source such that the electric flux through the plates increases uniformly at the rate of $\\frac{d\\Phi_E}{dt} = 1.0 \\times 10^{11}\\text{ V}\\cdot\\text{m/s}$. Taking the permittivity of free space as $\\epsilon_0 = 8.85 \\times 10^{-12}\\text{ C}^2/(\\text{N}\\cdot\\text{m}^2)$, the displacement current in the gap between the plates is:",
+      "options": [
+        "A) $8.85\\text{ A}$",
+        "B) $0.0885\\text{ A}$",
+        "C) $88.5\\text{ A}$",
+        "D) $0.885\\text{ A}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Maxwell defined displacement current as $I_d = \\epsilon_0 \\frac{d\\Phi_E}{dt}$, where $\\Phi_E$ is the electric flux passing through the region.\nStep 2: Substitute the given values into the displacement current formula:\n$I_d = (8.85 \\times 10^{-12}\\text{ F/m}) \\times (1.0 \\times 10^{11}\\text{ V}\\cdot\\text{m/s})$.\nStep 3: Multiply the numerical terms:\n$I_d = 8.85 \\times 10^{-1} = 0.885\\text{ A}$.\nDistractor Analysis: Values like $8.85\\text{ A}$ or $0.0885\\text{ A}$ arise from arithmetic errors in the exponent of 10."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_005",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A plane electromagnetic wave propagates through vacuum along the positive $z$-axis ($+z$). At a certain instant of time and position, the electric field vector is directed along the positive $x$-axis ($\\vec{E} = E_0 \\hat{i}$). Which of the following vectors correctly specifies the direction of the magnetic field vector $\\vec{B}$ at that same instant and position?",
+      "options": [
+        "A) Along the positive $y$-axis ($+\\hat{j}$)",
+        "B) Along the negative $y$-axis ($-\\hat{j}$)",
+        "C) Along the positive $x$-axis ($+\\hat{i}$)",
+        "D) Along the negative $z$-axis ($-\\hat{k}$)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In an electromagnetic wave, the propagation direction is given by the cross product of the electric field and magnetic field vectors: $\\hat{k}_{prop} = \\frac{\\vec{E} \\times \\vec{B}}{|\\vec{E} \\times \\vec{B}|}$.\nStep 2: Here, the wave travels in the $+z$ direction, so $\\hat{k}_{prop} = +\\hat{k}$. The electric field vector points along $+x$, so $\\hat{E} = +\\hat{i}$.\nStep 3: From vector algebra of Cartesian unit vectors, $\\hat{i} \\times \\hat{j} = +\\hat{k}$. Hence, the unit vector of the magnetic field must be $\\hat{B} = +\\hat{j}$, which points along the positive $y$-axis.\nDistractor Analysis: The negative $y$-direction would produce wave propagation in the $-\\hat{k}$ direction because $\\hat{i} \\times (-\\hat{j}) = -\\hat{k}$, which contradicts forward propagation along $+z$."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_006",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the energy densities of electric and magnetic fields in an electromagnetic wave in vacuum:\n\nStatement I: In a plane electromagnetic wave travelling through vacuum, the average energy density of the electric field $\\langle u_E \\rangle$ is equal to the average energy density of the magnetic field $\\langle u_B \\rangle$.\nStatement II: The amplitude ratio of the electric field and magnetic field in vacuum is given by $\\frac{E_0}{B_0} = c$, where $c = \\frac{1}{\\sqrt{\\mu_0\\epsilon_0}}$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Both Statement I and Statement II are true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The average electric energy density is $\\langle u_E \\rangle = \\frac{1}{4}\\epsilon_0 E_0^2$ and the average magnetic energy density is $\\langle u_B \\rangle = \\frac{B_0^2}{4\\mu_0}$.\nStep 2: Using the relationship $E_0 = c B_0$ and $c^2 = \\frac{1}{\\mu_0\\epsilon_0}$, we substitute for $E_0$:\n$\\langle u_E \\rangle = \\frac{1}{4}\\epsilon_0 (c B_0)^2 = \\frac{1}{4}\\epsilon_0 \\left(\\frac{1}{\\mu_0\\epsilon_0}\\right) B_0^2 = \\frac{B_0^2}{4\\mu_0} = \\langle u_B \\rangle$.\nStep 3: This confirms that electromagnetic wave energy is divided equally between electric and magnetic fields in free space. Both Statement I and Statement II are true.\nDistractor Analysis: Claiming that either statement is false contradicts Maxwell's wave theory and equipartition of electromagnetic energy in free space."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_007",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An electromagnetic wave propagates through a non-magnetic insulating medium having relative permeability $\\mu_r = 1.0$ and relative permittivity (dielectric constant) $\\epsilon_r = 2.25$. Taking the speed of light in vacuum as $c = 3.0 \\times 10^8\\text{ m/s}$, the speed of propagation of the wave in this medium is:",
+      "options": [
+        "A) $1.33 \\times 10^8\\text{ m/s}$",
+        "B) $2.25 \\times 10^8\\text{ m/s}$",
+        "C) $2.0 \\times 10^8\\text{ m/s}$",
+        "D) $3.0 \\times 10^8\\text{ m/s}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The speed of an electromagnetic wave in any material medium is given by $v = \\frac{1}{\\sqrt{\\mu\\epsilon}} = \\frac{c}{\\sqrt{\\mu_r\\epsilon_r}}$.\nStep 2: Here, the medium is non-magnetic, so $\\mu_r = 1.0$, and the dielectric constant is $\\epsilon_r = 2.25$.\nStep 3: Calculate the refractive index $n = \\sqrt{\\mu_r \\epsilon_r} = \\sqrt{1.0 \\times 2.25} = 1.5$. Thus, the speed in the medium is:\n$v = \\frac{3.0 \\times 10^8\\text{ m/s}}{1.5} = 2.0 \\times 10^8\\text{ m/s}$.\nDistractor Analysis: The value $1.33 \\times 10^8\\text{ m/s}$ corresponds to dividing by $2.25$ directly instead of taking the square root $\\sqrt{\\epsilon_r}$."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_008",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Electromagnetic Wave Region) with List II (Primary Practical Application):\n\nList I:\nP. Microwaves\nQ. Infrared waves\nR. Ultraviolet radiation\nS. Gamma rays\n\nList II:\n1. Treatment of muscular aches and maintaining Earth's warmth via greenhouse effect\n2. Aircraft navigation radar systems and microwave ovens\n3. Radiotherapy for destroying malignant cancerous tumors\n4. Water purification systems and LASIK corneal eye surgery\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-3, Q-4, R-1, S-2",
+        "C) P-4, Q-1, R-2, S-3",
+        "D) P-2, Q-1, R-4, S-3"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Microwaves have wavelengths in the millimeter-to-centimeter range and are used in radar aircraft navigation and microwave ovens (List II-2).\nStep 2: Infrared waves are absorbed by water molecules, producing heat used in physical therapy and greenhouse effect (List II-1).\nStep 3: Ultraviolet radiation kills germs in water purifiers and is used in excimer lasers for LASIK eye surgery (List II-4). Gamma rays have the highest energy and are used in cancer radiotherapy (List II-3). Thus, the correct matching is P-2, Q-1, R-4, S-3.\nDistractor Analysis: Confusing microwave radar with infrared therapy or swapping ultraviolet with gamma rays leads to incorrect matchings."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_009",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In a domestic microwave oven, food items containing water are heated rapidly and efficiently, whereas containers made of porcelain or glass do not get heated directly by microwaves.\nReason (R): The frequency of microwaves generated in the oven matches the resonant rotational frequency of water molecules, facilitating efficient energy transfer, while porcelain and glass molecules lack resonance at this frequency.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: As explained in NCERT Class 12 Physics, microwave ovens operate at a frequency of approximately $2.45\\text{ GHz}$.\nStep 2: At this frequency, microwaves resonate with the rotational modes of polar water molecules in food, causing rapid absorption of electromagnetic energy that converts into thermal motion.\nStep 3: Glass and porcelain vessels are non-polar or rigid matrices without free molecular dipoles that can rotate at this microwave frequency, so they do not absorb microwaves directly and remain cool (except by conductive heat transfer from the food). Reason (R) correctly explains Assertion (A).\nDistractor Analysis: Options denying the causal link between resonant absorption by polar water molecules and selective heating contradict standard NCERT physics."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_010",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding electromagnetic waves propagating in vacuum:\n\nStatement I: Electromagnetic waves carry both energy density $u = \\epsilon_0 E_{rms}^2$ and linear momentum $p = U/c$.\nStatement II: Electromagnetic waves are deflected when traversing strong static transverse electric and magnetic fields.\nStatement III: In vacuum, the oscillating electric field and magnetic field vectors reach their peaks at the same spatial points and instants (zero phase difference, $\\Delta \\phi = 0$).\nStatement IV: The propagation speed of electromagnetic waves in vacuum depends on their frequency $\\nu$.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) Statement I, Statement II, and Statement III only",
+        "B) Statement I and Statement III only",
+        "C) Statement II and Statement IV only",
+        "D) Statement I, Statement III, and Statement IV only"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Statement I is correct: electromagnetic waves carry energy density $u$ and linear momentum density $p = u/c$.\nStep 2: Statement II is incorrect: electromagnetic waves consist of uncharged oscillating fields (photons with zero rest mass and zero electric charge) and therefore cannot be deflected by static electric or magnetic fields.\nStep 3: Statement III is correct: in vacuum, $\\vec{E}$ and $\\vec{B}$ oscillate in phase ($\\Delta \\phi = 0$). Statement IV is incorrect: the speed in vacuum is a universal constant $c = \\frac{1}{\\sqrt{\\mu_0\\epsilon_0}} = \\nu \\lambda$, which is independent of frequency. Thus, only Statement I and Statement III are correct.\nDistractor Analysis: Choices containing Statement II or Statement IV mistakenly assume electromagnetic waves have electric charge or experience chromatic dispersion in vacuum."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_011",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a plane electromagnetic wave travelling in free space, the peak amplitude of the electric field oscillations is $E_0 = 450\\text{ V/m}$. Taking the speed of light in vacuum as $c = 3.0 \\times 10^8\\text{ m/s}$, the amplitude of the magnetic field oscillations $B_0$ is:",
+      "options": [
+        "A) $1.5 \\times 10^{-5}\\text{ T}$",
+        "B) $1.35 \\times 10^{11}\\text{ T}$",
+        "C) $1.5 \\times 10^{-6}\\text{ T}$",
+        "D) $4.5 \\times 10^{-7}\\text{ T}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In an electromagnetic wave propagating through vacuum, the relation between electric and magnetic field amplitudes is given by $c = \\frac{E_0}{B_0}$.\nStep 2: Rearranging for the magnetic field amplitude: $B_0 = \\frac{E_0}{c}$.\nStep 3: Substitute $E_0 = 450\\text{ V/m}$ and $c = 3.0 \\times 10^8\\text{ m/s}$:\n$B_0 = \\frac{450}{3.0 \\times 10^8} = 150 \\times 10^{-8} = 1.5 \\times 10^{-6}\\text{ T}$.\nDistractor Analysis: Multiplying $E_0$ by $c$ yields $1.35 \\times 10^{11}\\text{ T}$, which violates dimensional correctness ($B_0 = E_0/c$)."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_012",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding ultraviolet radiation and eye protection:\n\nStatement I: Welders wear protective goggles or face shields equipped with special glass filters to protect their eyes from large amounts of ultraviolet (UV) radiation emitted by welding arcs.\nStatement II: Ordinary window glass transmits ultraviolet radiation freely while selectively absorbing visible light.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement I is true: electric welding arcs produce intense ultraviolet radiation that can cause severe corneal flash burns (photokeratitis). Welders must wear protective face masks with special glass filters to shield their eyes.\nStep 2: Statement II is false: ordinary window glass strongly absorbs ultraviolet radiation (which is why one does not get sunburned through a closed glass window) and transmits visible light freely.\nStep 3: Therefore, Statement I is true but Statement II is false.\nDistractor Analysis: Choices claiming Statement II is true confuse the optical properties of ordinary glass with crystalline quartz, which is transparent to ultraviolet light."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_013",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Electromagnetic Wave Type) with List II (Mode of Production):\n\nList I:\nP. Radio waves\nQ. X-rays\nR. Gamma rays\nS. Microwaves\n\nList II:\n1. Accelerated motion of electrons in conducting aerials or circuits\n2. Sudden deceleration of high-energy electrons colliding with a heavy metallic target\n3. Radioactive decay and nuclear transitions in atomic nuclei\n4. Special vacuum tubes such as magnetrons, klystrons, or Gunn diodes\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-2, Q-1, R-4, S-3",
+        "C) P-4, Q-3, R-1, S-2",
+        "D) P-1, Q-4, R-2, S-3"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Radio waves are generated by accelerating charges in conducting antennas (List II-1).\nStep 2: X-rays are produced when energetic electrons strike a heavy metal target (such as tungsten in a Coolidge tube), decelerating abruptly (List II-2).\nStep 3: Gamma rays are emitted during nuclear decay and nuclear reactions (List II-3). Microwaves are produced by special vacuum tubes like magnetrons and klystrons (List II-4). Thus, the correct matching is P-1, Q-2, R-3, S-4.\nDistractor Analysis: Swapping the production of radio waves with microwaves or X-rays with gamma rays violates NCERT classification."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_014",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Infrared waves are commonly referred to as 'heat waves' in practical and scientific descriptions.\nReason (R): Water molecules and other chemical bonds present in most substances readily absorb infrared radiation, which increases their thermal vibrational motion and raises the temperature of the material.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: NCERT explicitly defines infrared waves as 'heat waves' because they are emitted by all hot bodies and molecules.\nStep 2: The frequencies of infrared radiation match the natural vibrational frequencies of many molecular bonds, particularly water molecules abundant in materials and living tissues.\nStep 3: Absorption of this radiation increases the internal kinetic energy and temperature of the substance, making Reason (R) the precise scientific explanation of Assertion (A).\nDistractor Analysis: Options denying that (R) correctly explains (A) fail to recognize that molecular vibrational resonance is why infrared radiation manifests as sensible heat."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_015",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the ordering and frequency relations of the electromagnetic spectrum:\n\nStatement I: In the electromagnetic spectrum, the frequency of ultraviolet radiation is higher than that of infrared radiation but lower than that of X-rays.\nStatement II: The frequency $\\nu$ of an electromagnetic wave in vacuum is inversely proportional to its wavelength $\\lambda$ through the universal relation $c = \\nu \\lambda$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are true.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The electromagnetic spectrum in order of increasing frequency (and decreasing wavelength) is: Radio waves $\\rightarrow$ Microwaves $\\rightarrow$ Infrared $\\rightarrow$ Visible light $\\rightarrow$ Ultraviolet $\\rightarrow$ X-rays $\\rightarrow$ Gamma rays.\nStep 2: Ultraviolet radiation ($\\nu \\sim 10^{15} - 10^{17}\\text{ Hz}$) has higher frequency than infrared ($\\nu \\sim 10^{11} - 10^{14}\\text{ Hz}$) and lower frequency than X-rays ($\\nu \\sim 10^{17} - 10^{19}\\text{ Hz}$), confirming Statement I is true.\nStep 3: In vacuum, all electromagnetic waves travel at the speed of light $c = \\nu \\lambda$, so frequency is inversely proportional to wavelength $\\nu = c/\\lambda$, confirming Statement II is true. Therefore, both Statement I and Statement II are true.\nDistractor Analysis: Choices claiming either statement is false contradict the fundamental wave equation $c = \\nu \\lambda$ or standard NCERT spectral classification."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_016",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A parallel beam of electromagnetic radiation with an average intensity $I = 900\\text{ W/m}^2$ strikes a flat surface at normal incidence. If the surface completely absorbs all incident radiation, what is the radiation pressure exerted on the surface? (Speed of light $c = 3.0 \\times 10^8\\text{ m/s}$)",
+      "options": [
+        "A) $6.0 \\times 10^{-6}\\text{ N/m}^2$",
+        "B) $1.5 \\times 10^{-6}\\text{ N/m}^2$",
+        "C) $9.0 \\times 10^{-6}\\text{ N/m}^2$",
+        "D) $3.0 \\times 10^{-6}\\text{ N/m}^2$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Radiation pressure on a perfectly absorbing surface at normal incidence is given by $P_{rad} = \\frac{I}{c}$, where $I$ is the wave intensity and $c$ is the speed of light.\nStep 2: Substitute the given parameters: $I = 900\\text{ W/m}^2$ and $c = 3.0 \\times 10^8\\text{ m/s}$.\nStep 3: Calculate the pressure:\n$P_{rad} = \\frac{900}{3.0 \\times 10^8} = 3.0 \\times 10^{-6}\\text{ N/m}^2$.\nDistractor Analysis: The value $6.0 \\times 10^{-6}\\text{ N/m}^2$ corresponds to a perfectly reflecting surface ($P_{rad} = 2I/c$), which is not applicable for complete absorption."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_017",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a plane electromagnetic wave travelling through vacuum, the root-mean-square value of the electric field is $E_{rms} = 50\\text{ V/m}$. Taking $\\epsilon_0 = 8.85 \\times 10^{-12}\\text{ C}^2/(\\text{N}\\cdot\\text{m}^2)$, the total average energy density $\\langle u \\rangle$ of the wave is:",
+      "options": [
+        "A) $2.21 \\times 10^{-8}\\text{ J/m}^3$",
+        "B) $1.11 \\times 10^{-8}\\text{ J/m}^3$",
+        "C) $4.42 \\times 10^{-8}\\text{ J/m}^3$",
+        "D) $8.85 \\times 10^{-8}\\text{ J/m}^3$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The total average energy density of an electromagnetic wave in vacuum is the sum of electric and magnetic average energy densities: $\\langle u \\rangle = \\langle u_E \\rangle + \\langle u_B \\rangle = 2\\langle u_E \\rangle$.\nStep 2: In terms of $E_{rms}$, $\\langle u_E \\rangle = \\frac{1}{2}\\epsilon_0 E_{rms}^2$. Therefore, the total average energy density is:\n$\\langle u \\rangle = 2 \\times \\left(\\frac{1}{2}\\epsilon_0 E_{rms}^2\\right) = \\epsilon_0 E_{rms}^2$.\nStep 3: Substitute $E_{rms} = 50\\text{ V/m}$ and $\\epsilon_0 = 8.85 \\times 10^{-12}\\text{ F/m}$:\n$\\langle u \\rangle = (8.85 \\times 10^{-12}) \\times (50)^2 = 8.85 \\times 10^{-12} \\times 2500 = 2.2125 \\times 10^{-8}\\text{ J/m}^3 \\approx 2.21 \\times 10^{-8}\\text{ J/m}^3$.\nDistractor Analysis: The value $1.11 \\times 10^{-8}\\text{ J/m}^3$ considers only the electric component $\\langle u_E \\rangle$, forgetting to include the equal magnetic energy density $\\langle u_B \\rangle$."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_018",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding current continuity in a charging capacitor circuit:\n\nStatement I: During the charging of a capacitor connected to a DC source, the conduction current flowing through the external connecting wires equals the displacement current across the gap between the plates at every instant.\nStatement II: The continuity of total current $(I_c + I_d)$ holds across any cross-section of the circuit, ensuring that the generalized current is continuous throughout the entire path.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Both Statement I and Statement II are true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Inside the external wire, there is conduction current $I_c = \\frac{dq}{dt}$ and no time-varying electric flux ($I_d = 0$).\nStep 2: Across the gap between capacitor plates, no charges jump across the vacuum/insulator ($I_c = 0$), but the electric field $E = \\frac{q}{\\epsilon_0 A}$ changes with time, giving $I_d = \\epsilon_0 \\frac{d\\Phi_E}{dt} = \\epsilon_0 A \\frac{dE}{dt} = \\frac{dq}{dt} = I_c$.\nStep 3: Thus, $I_d$ in the gap precisely equals $I_c$ in the wire at every instant, and the total current $I_{total} = I_c + I_d$ remains strictly constant along the circuit. Therefore, both Statement I and Statement II are true.\nDistractor Analysis: Choices stating that either statement is false contradict the fundamental physical principle of displacement current introduced by Maxwell."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_019",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Gauss's law for magnetism states that the net magnetic flux passing through any closed Gaussian surface is always identically zero ($\\oint \\vec{B}\\cdot d\\vec{A} = 0$).\nReason (R): Magnetic field lines always form continuous closed loops without beginning or end because isolated magnetic monopoles do not exist in nature.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Gauss's law for magnetism is mathematically formulated as $\\oint \\vec{B}\\cdot d\\vec{A} = 0$ for any closed surface.\nStep 2: Unlike electric charges where positive and negative charges can exist independently as sources and sinks, magnetic poles always occur as dipoles (North and South inseparable).\nStep 3: Every magnetic field line entering a closed surface must also exit that surface, forming endless continuous loops. Hence, isolated magnetic monopoles do not exist, which directly explains why net magnetic flux through any closed surface is zero. Both (A) and (R) are true and (R) correctly explains (A).\nDistractor Analysis: Denying that (R) explains (A) contradicts Maxwell's formulation of magnetic flux."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_020",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An electromagnetic radiation source delivers a total radiant energy of $U = 150\\text{ J}$ to a target surface that completely absorbs all incident radiation over a time interval of $5.0\\text{ s}$. Taking the speed of light as $c = 3.0 \\times 10^8\\text{ m/s}$, the magnitude of linear momentum transferred to the target is:",
+      "options": [
+        "A) $1.0 \\times 10^{-6}\\text{ kg}\\cdot\\text{m/s}$",
+        "B) $2.5 \\times 10^{-7}\\text{ kg}\\cdot\\text{m/s}$",
+        "C) $1.5 \\times 10^{-6}\\text{ kg}\\cdot\\text{m/s}$",
+        "D) $5.0 \\times 10^{-7}\\text{ kg}\\cdot\\text{m/s}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: When an electromagnetic wave delivers energy $U$ to a completely absorbing surface, the linear momentum transferred to the surface is given by $p = \\frac{U}{c}$.\nStep 2: Substitute $U = 150\\text{ J}$ and $c = 3.0 \\times 10^8\\text{ m/s}$ into the formula:\n$p = \\frac{150}{3.0 \\times 10^8\\text{ m/s}}$.\nStep 3: Calculate the transferred momentum:\n$p = 50 \\times 10^{-8} = 5.0 \\times 10^{-7}\\text{ kg}\\cdot\\text{m/s}$.\nDistractor Analysis: Dividing by the time duration of $5.0\\text{ s}$ yields the average radiation force $F = 1.0 \\times 10^{-7}\\text{ N}$, not the total momentum transferred."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_021",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Approximate Wavelength Range in Vacuum) with List II (Electromagnetic Spectral Band):\n\nList I:\nP. $\\lambda > 0.1\\text{ m}$\nQ. $1\\text{ mm} \\ge \\lambda \\ge 700\\text{ nm}$\nR. $400\\text{ nm} \\ge \\lambda \\ge 1\\text{ nm}$\nS. $\\lambda < 10^{-3}\\text{ nm}$\n\nList II:\n1. Radio waves\n2. Infrared waves\n3. Ultraviolet radiation\n4. Gamma rays\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-2, Q-1, R-4, S-3",
+        "C) P-4, Q-3, R-1, S-2",
+        "D) P-1, Q-4, R-2, S-3"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: As per NCERT Chapter 8 Table 8.1, radio waves have wavelengths greater than $0.1\\text{ m}$ (List II-1).\nStep 2: Infrared waves extend from the edge of the visible spectrum ($700\\text{ nm}$) up to approximately $1\\text{ mm}$ (List II-2).\nStep 3: Ultraviolet radiation spans from approximately $400\\text{ nm}$ down to $1\\text{ nm}$ (List II-3). Gamma rays have the shortest wavelengths, typically less than $10^{-3}\\text{ nm} = 10^{-12}\\text{ m}$ (List II-4). Thus, the correct matching is P-1, Q-2, R-3, S-4.\nDistractor Analysis: Inverting the wavelength ranges between infrared and ultraviolet contradicts established electromagnetic spectrum boundaries."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_022",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding atmospheric absorption of solar ultraviolet radiation and its biological impact:\n\nStatement I: The stratospheric ozone layer serves as a vital shield for biological organisms on Earth by absorbing hazardous ultraviolet radiation emitted by the Sun.\nStatement II: Excessive exposure to solar ultraviolet radiation is known to induce erythema (sunburn), accelerate skin aging, and promote cataract formation in human eyes.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Both Statement I and Statement II are true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Stratospheric ozone ($O_3$) strongly absorbs solar ultraviolet radiation (particularly UV-C and most of UV-B with wavelengths below $300\\text{ nm}$), shielding terrestrial life from lethal cellular damage.\nStep 2: Extensive medical and biological research highlighted in NCERT confirms that UV radiation damages cellular DNA, causing sunburn, premature aging of skin, cataracts in ocular lenses, and cutaneous malignancies.\nStep 3: Therefore, both Statement I and Statement II are scientifically true statements.\nDistractor Analysis: Asserting that either statement is false contradicts well-documented NCERT environmental physics and medical biophysics."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_023",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A circular parallel-plate capacitor with plate radius $R = 6.0\\text{ cm}$ is connected to an external charging circuit such that a displacement current $I_d = 2.4\\text{ A}$ is established uniformly between the plates. What is the magnitude of the induced magnetic field $B$ at a radial distance $r = 3.0\\text{ cm}$ from the central symmetry axis between the plates? (Take $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T}\\cdot\\text{m/A}$)",
+      "options": [
+        "A) $4.0 \\times 10^{-6}\\text{ T}$",
+        "B) $8.0 \\times 10^{-6}\\text{ T}$",
+        "C) $2.0 \\times 10^{-6}\\text{ T}$",
+        "D) $1.0 \\times 10^{-5}\\text{ T}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The displacement current is distributed uniformly across the cross-sectional area of radius $R$. For any interior radius $r < R$, the displacement current enclosed by a concentric circular loop of radius $r$ is $I_{d,\\text{enc}} = I_d \\frac{\\pi r^2}{\\pi R^2} = I_d \\frac{r^2}{R^2}$.\nStep 2: By the Ampere-Maxwell law, $\\oint \\vec{B}\\cdot d\\vec{l} = B(2\\pi r) = \\mu_0 I_{d,\\text{enc}} = \\mu_0 I_d \\frac{r^2}{R^2}$, which simplifies to $B = \\frac{\\mu_0 I_d r}{2\\pi R^2}$.\nStep 3: Substitute the given values: $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T}\\cdot\\text{m/A}$, $I_d = 2.4\\text{ A}$, $r = 0.03\\text{ m}$, and $R = 0.06\\text{ m}$:\n$B = \\frac{(4\\pi \\times 10^{-7}) \\times 2.4 \\times 0.03}{2\\pi \\times (0.06)^2} = \\frac{(2 \\times 10^{-7}) \\times 0.072}{0.0036} = 2 \\times 10^{-7} \\times 20 = 4.0 \\times 10^{-6}\\text{ T}$.\nDistractor Analysis: Using $B = \\frac{\\mu_0 I_d}{2\\pi r}$ without the area reduction factor yields $1.6 \\times 10^{-5}\\text{ T}$, which erroneously treats all displacement current as enclosed."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_024",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a plane electromagnetic wave propagating in free space with electric field $\\vec{E}(x,t) = 60\\hat{j}\\sin(1.8 \\times 10^7 t - 0.06 x)\\text{ V/m}$ (where $x$ is in meters and $t$ is in seconds):\n\nStatement I: The wavelength of this electromagnetic wave is $\\lambda \\approx 104.7\\text{ m}$ and its propagation speed is $3.0 \\times 10^8\\text{ m/s}$.\nStatement II: The corresponding magnetic field vector of the wave is $\\vec{B}(x,t) = 2.0 \\times 10^{-7}\\hat{k}\\sin(1.8 \\times 10^7 t - 0.06 x)\\text{ T}$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Both Statement I and Statement II are true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Comparing with the standard wave form $E_y = E_0 \\sin(\\omega t - k x)$, we identify $E_0 = 60\\text{ V/m}$, $\\omega = 1.8 \\times 10^7\\text{ rad/s}$, and $k = 0.06\\text{ rad/m}$.\nStep 2: The wavelength is $\\lambda = \\frac{2\\pi}{k} = \\frac{2\\pi}{0.06} = \\frac{100\\pi}{3} \\approx 104.72\\text{ m}$, and the wave propagation speed is $v = \\frac{\\omega}{k} = \\frac{1.8 \\times 10^7}{0.06} = 3.0 \\times 10^8\\text{ m/s} = c$, verifying Statement I.\nStep 3: The magnetic field amplitude is $B_0 = \\frac{E_0}{c} = \\frac{60}{3.0 \\times 10^8} = 2.0 \\times 10^{-7}\\text{ T}$. Since the wave propagates in $+x$ ($+\\hat{i}$) and $\\vec{E}$ points along $+\\hat{j}$, $\\hat{k}_{prop} = \\hat{E} \\times \\hat{B} \\implies \\hat{i} = \\hat{j} \\times \\hat{B} \\implies \\hat{B} = +\\hat{k}$. Thus $\\vec{B}(x,t) = 2.0 \\times 10^{-7}\\hat{k}\\sin(1.8 \\times 10^7 t - 0.06 x)\\text{ T}$, verifying Statement II. Both Statement I and Statement II are true.\nDistractor Analysis: Inverting the sign of $\\vec{B}$ would yield propagation along $-\\hat{i}$, contradicting the $-0.06x$ phase factor."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_025",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): A time-varying electric field in the empty space between the plates of a charging capacitor produces a magnetic field indistinguishable in character from that produced by a steady conduction current.\nReason (R): According to Maxwell's formulation, displacement current density $j_d = \\epsilon_0 \\frac{\\partial E}{\\partial t}$ acts as a source term for magnetic circulation in exactly the same mathematical manner as conduction current density $j_c$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Maxwell showed that magnetic fields can be generated not only by moving physical charges (conduction current) but also by changing electric fields (displacement current).\nStep 2: In the differential form of the Ampere-Maxwell law, $\\nabla \\times \\vec{B} = \\mu_0 (\\vec{j}_c + \\vec{j}_d) = \\mu_0 \\left(\\vec{j}_c + \\epsilon_0 \\frac{\\partial \\vec{E}}{\\partial t}\\right)$, both current densities contribute symmetrically to the curl of $\\vec{B}$.\nStep 3: Experiments measuring the magnetic field inside the gap of a charging capacitor confirm circular magnetic field lines identical to those around a current-carrying wire of equal current. Hence, Reason (R) correctly explains Assertion (A).\nDistractor Analysis: Asserting that displacement current does not produce a true magnetic field contradicts experimental observations and Maxwellian electrodynamics."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_026",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the relationship between the dielectric constant and optical refractive index of materials:\n\nStatement I: For non-magnetic transparent optical media ($\\mu_r \\approx 1$), Maxwell's equations predict that the optical refractive index is given by $n \\approx \\sqrt{\\epsilon_r}$.\nStatement II: Liquid water has a static dielectric constant of $\\epsilon_r \\approx 80.4$, yet its refractive index for visible light is $n \\approx 1.33$, because permanent molecular dipoles of water cannot rotate rapidly enough to follow alternating electric fields at optical frequencies ($\\sim 10^{14}\\text{ Hz}$).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: From Maxwell's wave speed relation in non-magnetic media ($\\mu_r = 1$), the wave speed is $v = \\frac{c}{\\sqrt{\\epsilon_r}}$, which implies the refractive index is $n = \\frac{c}{v} = \\sqrt{\\epsilon_r}$, confirming Statement I.\nStep 2: The static dielectric constant $\\epsilon_r \\approx 80$ of water is dominated by the orientational polarization of permanent electric dipoles of $\\text{H}_2\\text{O}$ molecules.\nStep 3: At optical frequencies ($\\sim 5 \\times 10^{14}\\text{ Hz}$), molecular inertia prevents permanent dipoles from rotating with the oscillating field. Only electronic polarization contributes, reducing the effective optical dielectric constant to $\\epsilon_r \\approx (1.33)^2 \\approx 1.77$. Thus, both Statement I and Statement II are true.\nDistractor Analysis: Claiming that either statement is false overlooks the well-established frequency-dependent dispersion of dielectric permittivity explained in NCERT."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_027",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A continuous-wave laser emits a narrow parallel beam of power $P = 45\\text{ mW}$. The beam is incident normally on a flat, perfectly reflecting mirror surface. Taking the speed of light in vacuum as $c = 3.0 \\times 10^8\\text{ m/s}$, the radiation force exerted by the beam on the mirror is:",
+      "options": [
+        "A) $3.0 \\times 10^{-10}\\text{ N}$",
+        "B) $1.5 \\times 10^{-10}\\text{ N}$",
+        "C) $6.0 \\times 10^{-10}\\text{ N}$",
+        "D) $9.0 \\times 10^{-11}\\text{ N}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For a beam of electromagnetic radiation of power $P$ incident normally on a perfectly reflecting surface, each photon of energy $E$ carries momentum $p = E/c$. Upon complete elastic reflection, its momentum changes by $\\Delta p = 2E/c$.\nStep 2: The total rate of change of momentum, which equals the net radiation force exerted on the surface, is $F = \\frac{2P}{c}$.\nStep 3: Substitute $P = 45\\text{ mW} = 45 \\times 10^{-3}\\text{ W}$ and $c = 3.0 \\times 10^8\\text{ m/s}$:\n$F = \\frac{2 \\times (45 \\times 10^{-3})}{3.0 \\times 10^8} = \\frac{90 \\times 10^{-3}}{3.0 \\times 10^8} = 3.0 \\times 10^{-10}\\text{ N}$.\nDistractor Analysis: The value $1.5 \\times 10^{-10}\\text{ N}$ applies to a completely absorbing surface ($F = P/c$), omitting the factor of 2 arising from reflection momentum reversal."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_028",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Electromagnetic Spectral Band) with List II (Standard Detection Instrument):\n\nList I:\nP. Radio waves\nQ. Infrared waves\nR. Ultraviolet radiation\nS. X-rays\n\nList II:\n1. Thermopiles, bolometers, or infrared photographic emulsions\n2. Photographic film, Geiger counters, or ionization chambers\n3. Tuned circuit resonant receivers and aerial antennas\n4. Photocells or photographic plates with fluorescent screens\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-3, Q-1, R-4, S-2",
+        "C) P-3, Q-4, R-1, S-2",
+        "D) P-2, Q-1, R-4, S-3"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Radio waves are detected by conducting aerial antennas connected to tuned LC resonant circuits (List II-3).\nStep 2: Infrared waves produce measurable thermal heating and are detected by sensitive thermal detectors like thermopiles and bolometers (List II-1).\nStep 3: Ultraviolet rays induce photoelectric emission in photocells or fluorescence on sensitized plates (List II-4). X-rays are highly ionizing and are detected by Geiger counters, ionization chambers, or photographic film (List II-2). Thus, the correct matching is P-3, Q-1, R-4, S-2.\nDistractor Analysis: Inverting the detection methods between ionizing X-rays and thermal infrared radiation leads to incorrect pairings."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_029",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A plane sinusoidal electromagnetic wave travels in free space. The peak value of the oscillating electric field is $E_0 = 120\\text{ V/m}$. Taking $\\epsilon_0 = 8.85 \\times 10^{-12}\\text{ C}^2/(\\text{N}\\cdot\\text{m}^2)$ and $c = 3.0 \\times 10^8\\text{ m/s}$, the magnitude of the time-averaged Poynting vector $\\langle |\\vec{S}| \\rangle$ (intensity of the wave) is approximately:",
+      "options": [
+        "A) $38.2\\text{ W/m}^2$",
+        "B) $9.56\\text{ W/m}^2$",
+        "C) $19.1\\text{ W/m}^2$",
+        "D) $27.4\\text{ W/m}^2$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The time-averaged Poynting vector represents the intensity of the electromagnetic wave: $I = \\langle |\\vec{S}| \\rangle = \\frac{1}{2}\\epsilon_0 c E_0^2$.\nStep 2: Calculate the product $\\epsilon_0 c = (8.85 \\times 10^{-12}\\text{ F/m}) \\times (3.0 \\times 10^8\\text{ m/s}) = 2.655 \\times 10^{-3}\\text{ A/V}$.\nStep 3: Substitute $E_0 = 120\\text{ V/m}$:\n$I = \\frac{1}{2} \\times (2.655 \\times 10^{-3}) \\times (120)^2 = \\frac{1}{2} \\times (2.655 \\times 10^{-3}) \\times 14400 = 2.655 \\times 7.2 = 19.116\\text{ W/m}^2 \\approx 19.1\\text{ W/m}^2$.\nDistractor Analysis: Omitting the factor of $1/2$ (using instantaneous peak intensity instead of time-average) yields $38.2\\text{ W/m}^2$."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_030",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the experimental discovery and early history of electromagnetic waves:\n\nStatement I: Heinrich Hertz in 1887 first successfully demonstrated the existence of electromagnetic waves experimentally using spark-gap oscillators, producing waves of wavelength around $6\\text{ m}$.\nStatement II: Jagdish Chandra Bose in Calcutta succeeded in producing and observing electromagnetic waves of much shorter wavelengths in the range of $5\\text{ mm}$ to $25\\text{ mm}$.\nStatement III: Guglielmo Marconi first demonstrated transmission of electromagnetic signals over distances of several kilometers, ushering in the era of wireless communication.\nStatement IV: Hertz's experimental observations showed that electromagnetic waves do not undergo reflection or refraction.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) Statement I and Statement IV only",
+        "B) Statement II and Statement III only",
+        "C) Statement I, Statement II, Statement III, and Statement IV",
+        "D) Statement I, Statement II, and Statement III only"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Hertz confirmed Maxwell's prediction in 1887 using an LC spark gap oscillator, producing waves with wavelength $\\lambda \\approx 6\\text{ m}$, verifying Statement I.\nStep 2: J.C. Bose developed millimeter-wave generators and detectors, achieving wavelengths between $5\\text{ mm}$ and $25\\text{ mm}$, verifying Statement II.\nStep 3: Marconi utilized antenna systems to transmit electromagnetic signals across kilometers, verifying Statement III. Statement IV is completely false: Hertz explicitly proved that electromagnetic waves exhibit reflection, refraction, and polarization identical to light waves. Thus, only Statements I, II, and III are correct.\nDistractor Analysis: Including Statement IV contradicts Hertz's landmark proof that electromagnetic waves behave as optical waves."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_031",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A parallel-plate capacitor with circular plates of radius $R = 10.0\\text{ cm}$ has an electric field between its plates changing at the rate of $\\frac{dE}{dt} = 4.0 \\times 10^{11}\\text{ V/(m}\\cdot\\text{s)}$. Given $\\epsilon_0 = 8.85 \\times 10^{-12}\\text{ C}^2/(\\text{N}\\cdot\\text{m}^2)$ and taking $\\pi \\approx 3.14$, the displacement current density $j_d$ and the total displacement current $I_d$ in the dielectric gap are respectively:",
+      "options": [
+        "A) $j_d = 3.54\\text{ A/m}^2,\\ I_d \\approx 0.111\\text{ A}$",
+        "B) $j_d = 1.77\\text{ A/m}^2,\\ I_d \\approx 0.056\\text{ A}$",
+        "C) $j_d = 7.08\\text{ A/m}^2,\\ I_d \\approx 0.222\\text{ A}$",
+        "D) $j_d = 3.54\\text{ A/m}^2,\\ I_d \\approx 1.11\\text{ A}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The displacement current density is defined as $j_d = \\epsilon_0 \\frac{\\partial E}{\\partial t}$.\nStep 2: Substitute the given rate of electric field change: $j_d = (8.85 \\times 10^{-12}\\text{ F/m}) \\times (4.0 \\times 10^{11}\\text{ V/(m}\\cdot\\text{s)}) = 3.54\\text{ A/m}^2$.\nStep 3: The plate area is $A = \\pi R^2 = 3.14 \\times (0.10\\text{ m})^2 = 0.0314\\text{ m}^2$. The total displacement current is:\n$I_d = j_d \\times A = (3.54\\text{ A/m}^2) \\times (0.0314\\text{ m}^2) \\approx 0.111\\text{ A}$.\nDistractor Analysis: Using $R = 10\\text{ cm} = 1.0\\text{ m}$ erroneously yields $I_d = 1.11\\text{ A}$, representing a unit conversion error."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_032",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Electromagnetic waves can be polarized using polarizing filters, whereas sound waves propagating through air cannot be polarized.\nReason (R): Polarization is an exclusive characteristic property of transverse waves where oscillations occur perpendicular to the direction of propagation, whereas sound waves in air are purely longitudinal.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Polarization refers to the confinement of wave oscillations to a single plane containing the direction of propagation.\nStep 2: Longitudinal waves oscillate strictly parallel to the direction of wave travel, possessing axial symmetry that admits no transverse orientation. Hence, sound waves in fluids cannot exhibit polarization.\nStep 3: Electromagnetic waves have transverse electric and magnetic vectors oscillating perpendicular to the direction of propagation $\\vec{k}$. Therefore, electromagnetic waves can be polarized, and Reason (R) correctly explains Assertion (A).\nDistractor Analysis: Denying that polarization requires transverse oscillations contradicts a fundamental law of wave mechanics."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_033",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The solar constant (intensity of sunlight) reaching the upper atmosphere of Earth is approximately $I = 1380\\text{ W/m}^2$. Treating sunlight as an ideal plane electromagnetic wave in free space, what is the peak amplitude of the electric field $E_0$ of this radiation? (Take $\\epsilon_0 = 8.85 \\times 10^{-12}\\text{ C}^2/(\\text{N}\\cdot\\text{m}^2)$ and $c = 3.0 \\times 10^8\\text{ m/s}$)",
+      "options": [
+        "A) $510\\text{ V/m}$",
+        "B) $721\\text{ V/m}$",
+        "C) $1020\\text{ V/m}$",
+        "D) $2040\\text{ V/m}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Wave intensity $I$ is related to electric field amplitude $E_0$ by $I = \\frac{1}{2}\\epsilon_0 c E_0^2$.\nStep 2: Solve for $E_0$: $E_0 = \\sqrt{\\frac{2I}{\\epsilon_0 c}}$.\nStep 3: Compute the denominator: $\\epsilon_0 c = (8.85 \\times 10^{-12}) \\times (3.0 \\times 10^8) = 2.655 \\times 10^{-3}\\text{ A/V}$.\nThen, $\\frac{2I}{\\epsilon_0 c} = \\frac{2 \\times 1380}{2.655 \\times 10^{-3}} = \\frac{2760}{2.655 \\times 10^{-3}} \\approx 1.0395 \\times 10^6\\text{ V}^2/\\text{m}^2$.\nTaking the square root: $E_0 = \\sqrt{1.0395 \\times 10^6} \\approx 1020\\text{ V/m}$.\nDistractor Analysis: Calculating $E_{rms} = E_0 / \\sqrt{2} \\approx 721\\text{ V/m}$ confuses the root-mean-square value with the requested peak amplitude $E_0$."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_034",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding electromagnetic waves used in cellular telephony:\n\nStatement I: Cellular mobile telephone networks operate using electromagnetic waves in the Ultra High Frequency (UHF) band of the radio spectrum (typically $800\\text{ - }950\\text{ MHz}$).\nStatement II: Electromagnetic waves in the UHF band travel across long distances via sky wave propagation through continuous total internal reflection from the ionosphere.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement I is true: NCERT Class 12 states that cellular phones operate in the Ultra High Frequency (UHF) band of radio waves (around $800 - 950\\text{ MHz}$).\nStep 2: Statement II is false: The ionosphere can reflect electromagnetic waves only up to a critical frequency of roughly $30 - 40\\text{ MHz}$. Electromagnetic waves in the UHF band ($> 300\\text{ MHz}$) penetrate straight through the ionospheric plasma without reflection.\nStep 3: Consequently, cellular networks use line-of-sight space wave propagation and ground-based cellular relay towers, not sky wave ionospheric reflection. Thus, Statement I is true but Statement II is false.\nDistractor Analysis: Asserting that Statement II is true contradicts ionospheric plasma physics, where high-frequency waves fail total internal reflection."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_035",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A plane electromagnetic wave travelling in free space has an electric field amplitude $E_0 = 100\\text{ V/m}$. Taking $\\epsilon_0 = 8.85 \\times 10^{-12}\\text{ C}^2/(\\text{N}\\cdot\\text{m}^2)$, what is the average magnetic energy stored in a spatial volume of $V = 2.0 \\times 10^{-3}\\text{ m}^3$ through which the wave is passing?",
+      "options": [
+        "A) $4.43 \\times 10^{-11}\\text{ J}$",
+        "B) $8.85 \\times 10^{-11}\\text{ J}$",
+        "C) $2.21 \\times 10^{-11}\\text{ J}$",
+        "D) $1.77 \\times 10^{-10}\\text{ J}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The average magnetic energy density in a plane electromagnetic wave equals the average electric energy density: $\\langle u_B \\rangle = \\langle u_E \\rangle = \\frac{1}{4}\\epsilon_0 E_0^2$.\nStep 2: Substitute $E_0 = 100\\text{ V/m}$ and $\\epsilon_0 = 8.85 \\times 10^{-12}\\text{ F/m}$:\n$\\langle u_B \\rangle = \\frac{1}{4} \\times (8.85 \\times 10^{-12}) \\times (100)^2 = 2.2125 \\times 10^{-8}\\text{ J/m}^3$.\nStep 3: The average magnetic energy stored in volume $V$ is:\n$U_B = \\langle u_B \\rangle \\times V = (2.2125 \\times 10^{-8}\\text{ J/m}^3) \\times (2.0 \\times 10^{-3}\\text{ m}^3) = 4.425 \\times 10^{-11}\\text{ J} \\approx 4.43 \\times 10^{-11}\\text{ J}$.\nDistractor Analysis: The value $8.85 \\times 10^{-11}\\text{ J}$ corresponds to the total (electric + magnetic) electromagnetic energy in that volume."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_036",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Electromagnetic Spectral Band) with List II (Characteristic Feature / Physical Origin):\n\nList I:\nP. Radio waves\nQ. Microwaves\nR. Infrared waves\nS. X-rays\n\nList II:\n1. Trapped by atmospheric greenhouse gases $\\text{CO}_2$ and water vapor to maintain Earth's ambient thermal balance\n2. Emitted in Coolidge tubes when high-energy electrons suddenly decelerate upon hitting a heavy metallic anode\n3. Generated by vacuum tubes like klystrons and magnetrons; ideal for short-range radar detection\n4. Frequencies typically from $500\\text{ kHz}$ to $1000\\text{ MHz}$, modulated for commercial AM and FM audio broadcast\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-4, Q-3, R-1, S-2",
+        "C) P-4, Q-1, R-3, S-2",
+        "D) P-3, Q-4, R-1, S-2"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Radio waves are used in AM/FM telecommunication and broadcast (List II-4).\nStep 2: Microwaves are produced by special vacuum tubes like klystrons and magnetrons for radar and communications (List II-3).\nStep 3: Infrared waves are trapped by atmospheric $\\text{CO}_2$ and water vapor, driving the greenhouse effect (List II-1). X-rays are produced by decelerating high-speed electrons striking heavy metal anodes (List II-2). Thus, the correct matching is P-4, Q-3, R-1, S-2.\nDistractor Analysis: Inverting the roles of radio waves and microwaves or swapping X-rays with infrared disrupts the physical mapping."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_037",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a plane electromagnetic wave propagating through vacuum, the magnetic field component is given by $\\vec{B}(z,t) = 3.0 \\times 10^{-7}\\hat{i}\\sin(kz + \\omega t)\\text{ T}$. Which of the following vector expressions correctly represents the electric field $\\vec{E}(z,t)$ of this wave? (Take $c = 3.0 \\times 10^8\\text{ m/s}$)",
+      "options": [
+        "A) $\\vec{E}(z,t) = -90\\hat{j}\\sin(kz + \\omega t)\\text{ V/m}$",
+        "B) $\\vec{E}(z,t) = 90\\hat{k}\\sin(kz + \\omega t)\\text{ V/m}$",
+        "C) $\\vec{E}(z,t) = 90\\hat{j}\\sin(kz + \\omega t)\\text{ V/m}$",
+        "D) $\\vec{E}(z,t) = -90\\hat{i}\\sin(kz + \\omega t)\\text{ V/m}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The phase term $(kz + \\omega t)$ indicates that the wave travels along the negative $z$-axis ($-\\hat{k}$).\nStep 2: The amplitude of the electric field is $E_0 = c B_0 = (3.0 \\times 10^8\\text{ m/s}) \\times (3.0 \\times 10^{-7}\\text{ T}) = 90\\text{ V/m}$.\nStep 3: The direction of wave propagation satisfies $\\hat{k}_{prop} = \\hat{E} \\times \\hat{B}$. Here $\\hat{k}_{prop} = -\\hat{k}$ and $\\hat{B} = +\\hat{i}$. We must determine $\\hat{E}$ such that $\\hat{E} \\times \\hat{i} = -\\hat{k}$. Since $\\hat{j} \\times \\hat{i} = -\\hat{k}$, it follows that $\\hat{E} = +\\hat{j}$. Thus, $\\vec{E}(z,t) = 90\\hat{j}\\sin(kz + \\omega t)\\text{ V/m}$.\nDistractor Analysis: Choosing $-90\\hat{j}$ would give $(-\\hat{j}) \\times \\hat{i} = +\\hat{k}$, corresponding to wave propagation in $+z$, which contradicts the $(kz + \\omega t)$ phase."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_038",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): An X-ray photon and a gamma-ray photon can possess identical wavelengths and photon energies, yet they are categorized into distinct spectral classifications.\nReason (R): Electromagnetic radiations are classified into regions of the spectrum primarily on the basis of how they are produced and their physical origin rather than solely on their wavelength in space.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The wavelength ranges of hard X-rays and soft gamma rays overlap significantly in the region around $10^{-11} - 10^{-12}\\text{ m}$. Hence, two photons from these regions can have identical wavelength and energy.\nStep 2: Despite having the same wavelength, X-rays originate from atomic electron decelerations or inner-shell transitions, whereas gamma rays originate from nuclear transitions and radioactive decay.\nStep 3: Because the spectral nomenclature is defined historically and operationally by the generation mechanism, Reason (R) provides the exact explanation for Assertion (A). Both (A) and (R) are true and (R) is the correct explanation of (A).\nDistractor Analysis: Claiming that spectral bands are defined without reference to origin contradicts NCERT text on the overlap between X-rays and gamma rays."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_039",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A parallel-plate capacitor of capacitance $C = 20\\ \\mu\\text{F}$ is charged through a series resistor $R = 50\\ \\Omega$ from a DC battery of electromotive force $V_0 = 10\\text{ V}$. What is the displacement current $I_d$ in the dielectric gap between the capacitor plates at the instant $t = 0$ (immediately after closing the switch) and at $t = \\tau = RC$ (one capacitive time constant)?",
+      "options": [
+        "A) At $t=0$, $I_d = 200\\text{ mA}$; at $t=\\tau$, $I_d \\approx 74\\text{ mA}$",
+        "B) At $t=0$, $I_d = 0$; at $t=\\tau$, $I_d = 200\\text{ mA}$",
+        "C) At $t=0$, $I_d = 100\\text{ mA}$; at $t=\\tau$, $I_d \\approx 37\\text{ mA}$",
+        "D) At $t=0$, $I_d = 200\\text{ mA}$; at $t=\\tau$, $I_d = 200\\text{ mA}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In an RC charging circuit, the charging conduction current is $I_c(t) = \\frac{V_0}{R} e^{-t/RC}$.\nStep 2: By current continuity across the capacitor plates, the displacement current equals the conduction current at every instant: $I_d(t) = I_c(t) = \\frac{V_0}{R} e^{-t/\\tau}$.\nStep 3: At $t = 0$, $I_d(0) = \\frac{V_0}{R} = \\frac{10\\text{ V}}{50\\ \\Omega} = 0.20\\text{ A} = 200\\text{ mA}$. At $t = \\tau$, $I_d(\\tau) = 0.20 \\times e^{-1} = \\frac{0.20}{2.718} \\approx 0.0736\\text{ A} \\approx 74\\text{ mA}$.\nDistractor Analysis: Claiming that $I_d = 0$ at $t = 0$ confuses the uncharged voltage across the capacitor with the maximum initial displacement current."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_040",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the applications and biological effects of ultraviolet (UV) radiation:\n\nStatement I: Excimer lasers operating in the ultraviolet range are utilized in LASIK (Laser-Assisted in Situ Keratomileusis) eye surgery to precisely ablate thin layers of corneal tissue.\nStatement II: Ultraviolet lamps are used in water purifiers because UV radiation inactivates harmful microorganisms by disrupting their nucleic acid structure.\nStatement III: Crystalline quartz lenses absorb ultraviolet rays completely while transmitting visible light, making quartz the ideal material for welder goggles.\nStatement IV: Controlled moderate exposure to solar ultraviolet radiation stimulates the photochemical synthesis of vitamin D in human skin.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) Statement I, Statement II, and Statement III only",
+        "B) Statement I, Statement II, and Statement IV only",
+        "C) Statement II and Statement IV only",
+        "D) Statement I, Statement II, Statement III, and Statement IV"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Statement I is true: UV excimer lasers provide focused precision used in LASIK eye surgery without thermal damage to surrounding tissue.\nStep 2: Statement II is true: Germicidal UV lamps kill bacteria and pathogens in water purifiers by breaking DNA bonds.\nStep 3: Statement III is false: Crystalline quartz transmits ultraviolet radiation freely, which is why quartz prisms and lenses are used in UV optics. Ordinary glass absorbs UV rays, making special glass goggles suitable for welders. Statement IV is true: UV-B catalyzes vitamin D production in human epidermis. Thus, Statements I, II, and IV only are correct.\nDistractor Analysis: Including Statement III reverses the optical transmission properties of quartz and ordinary glass."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_041",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding electromagnetic field symmetry:\n\nStatement I: According to Faraday's law of induction, a time-varying magnetic field induces an electric field with non-zero line integral ($\\oint \\vec{E}\\cdot d\\vec{l} = -\\frac{d\\Phi_B}{dt}$).\nStatement II: According to the Ampere-Maxwell law, a time-varying electric flux induces a magnetic field with non-zero line integral in free space ($\\oint \\vec{B}\\cdot d\\vec{l} = \\mu_0\\epsilon_0 \\frac{d\\Phi_E}{dt}$).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are true.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Faraday's law of induction demonstrates that a changing magnetic flux induces a circulating, non-conservative electric field: $\\oint \\vec{E}\\cdot d\\vec{l} = -\\frac{d\\Phi_B}{dt}$, verifying Statement I.\nStep 2: Maxwell introduced displacement current, demonstrating that a changing electric flux induces a circulating magnetic field in free space where conduction current $I_c = 0$: $\\oint \\vec{B}\\cdot d\\vec{l} = \\mu_0\\epsilon_0 \\frac{d\\Phi_E}{dt}$, verifying Statement II.\nStep 3: This mutual symmetry between electric and magnetic fields forms the theoretical foundation for the propagation of self-sustaining electromagnetic waves. Both Statement I and Statement II are true.\nDistractor Analysis: Asserting that either statement is false fails to recognize Maxwell's unification of electromagnetism."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_042",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A circular parallel-plate capacitor with plate radius $R$ is being charged by a steady current $I$. At a given instant during charging, what is the ratio of the induced magnetic field magnitude $B_1$ at a distance $r_1 = \\frac{R}{3}$ from the central axis (inside the plates) to the magnetic field magnitude $B_2$ at a distance $r_2 = 3R$ from the central axis (outside the plates)?",
+      "options": [
+        "A) $1 : 9$",
+        "B) $9 : 1$",
+        "C) $1 : 1$",
+        "D) $1 : 3$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Inside the capacitor ($r_1 < R$), the enclosed displacement current is proportional to the area: $I_{d,\\text{enc}} = I \\left(\\frac{r_1^2}{R^2}\\right)$. Applying the Ampere-Maxwell law: $B_1(2\\pi r_1) = \\mu_0 I \\left(\\frac{r_1^2}{R^2}\\right) \\implies B_1 = \\frac{\\mu_0 I r_1}{2\\pi R^2}$. Substituting $r_1 = \\frac{R}{3}$ gives $B_1 = \\frac{\\mu_0 I (R/3)}{2\\pi R^2} = \\frac{\\mu_0 I}{6\\pi R}$.\nStep 2: Outside the capacitor ($r_2 > R$), a circular loop of radius $r_2$ encloses the entire displacement current $I$. By the Ampere-Maxwell law: $B_2(2\\pi r_2) = \\mu_0 I \\implies B_2 = \\frac{\\mu_0 I}{2\\pi r_2}$. Substituting $r_2 = 3R$ gives $B_2 = \\frac{\\mu_0 I}{2\\pi (3R)} = \\frac{\\mu_0 I}{6\\pi R}$.\nStep 3: Taking the ratio of the two magnetic field magnitudes: $\\frac{B_1}{B_2} = \\frac{\\mu_0 I / (6\\pi R)}{\\mu_0 I / (6\\pi R)} = 1 : 1$.\nDistractor Analysis: Inverting the radial dependence or squaring the radial coordinates leads to incorrect ratios such as $1 : 9$ or $9 : 1$."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_043",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A spherical microscopic dust particle of cross-sectional area $A = 1.0 \\times 10^{-12}\\text{ m}^2$ and mass $m = 2.0 \\times 10^{-14}\\text{ kg}$ is suspended in deep vacuum. A collimated laser beam of uniform intensity $I = 3.0 \\times 10^4\\text{ W/m}^2$ strikes the particle normally. Assuming the particle surface is perfectly reflecting ($R = 1.0$) and taking $c = 3.0 \\times 10^8\\text{ m/s}$, the magnitude of the radiation force $F$ and the initial acceleration $a$ of the particle are:",
+      "options": [
+        "A) $F = 1.0 \\times 10^{-16}\\text{ N},\\ a = 0.005\\text{ m/s}^2$",
+        "B) $F = 2.0 \\times 10^{-16}\\text{ N},\\ a = 0.10\\text{ m/s}^2$",
+        "C) $F = 4.0 \\times 10^{-16}\\text{ N},\\ a = 0.02\\text{ m/s}^2$",
+        "D) $F = 2.0 \\times 10^{-16}\\text{ N},\\ a = 0.01\\text{ m/s}^2$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For a completely reflecting flat or projected cross-sectional area $A$ under normal incidence, each photon experiences a momentum reversal of $\\Delta p = 2E/c$. Thus, radiation pressure is $P_{rad} = \\frac{2I}{c}$.\nStep 2: The radiation force exerted on the particle is $F = P_{rad} A = \\frac{2IA}{c}$. Substituting the given values: $F = \\frac{2 \\times (3.0 \\times 10^4\\text{ W/m}^2) \\times (1.0 \\times 10^{-12}\\text{ m}^2)}{3.0 \\times 10^8\\text{ m/s}} = \\frac{6.0 \\times 10^{-8}}{3.0 \\times 10^8} = 2.0 \\times 10^{-16}\\text{ N}$.\nStep 3: By Newton's second law, the acceleration of the dust particle is $a = \\frac{F}{m} = \\frac{2.0 \\times 10^{-16}\\text{ N}}{2.0 \\times 10^{-14}\\text{ kg}} = 1.0 \\times 10^{-2}\\text{ m/s}^2 = 0.01\\text{ m/s}^2$.\nDistractor Analysis: Omitting the reflection factor of 2 yields $F = 1.0 \\times 10^{-16}\\text{ N}$ and $a = 0.005\\text{ m/s}^2$, which corresponds to a purely absorbing particle."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_044",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When a plane electromagnetic wave enters from vacuum into a non-magnetic non-conducting dielectric medium of refractive index $n$, the ratio of the electric field amplitude to magnetic field amplitude becomes $\\frac{E_0}{B_0} = \\frac{c}{n}$.\nReason (R): In any non-magnetic dielectric medium, the speed of propagation of the electromagnetic wave is reduced to $v = \\frac{c}{n}$, and the intrinsic relation between field amplitudes is given by $E_0 = v B_0$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In vacuum, the relation between field amplitudes is $\\frac{E_0}{B_0} = c = \\frac{1}{\\sqrt{\\mu_0\\epsilon_0}}$.\nStep 2: In a material medium with permittivity $\\epsilon$ and permeability $\\mu$, Maxwell's curl equations yield the phase speed $v = \\frac{1}{\\sqrt{\\mu\\epsilon}} = \\frac{c}{n}$, where $n = \\sqrt{\\mu_r \\epsilon_r}$. For non-magnetic media, $\\mu_r = 1$, so $n = \\sqrt{\\epsilon_r}$ and $v = \\frac{c}{n}$.\nStep 3: In the medium, the field amplitudes satisfy $E_0 = v B_0$, which gives $\\frac{E_0}{B_0} = v = \\frac{c}{n}$. Thus, Reason (R) correctly explains Assertion (A). Both (A) and (R) are true and (R) is the correct explanation of (A).\nDistractor Analysis: Asserting that $\\frac{E_0}{B_0}$ remains equal to $c$ in a dielectric ignores the altered permittivity and slower wave speed in the medium."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_045",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Maxwell's Integral Equation) with List II (Fundamental Physical Consequence / Field Property):\n\nList I:\nP. $\\oint \\vec{E}\\cdot d\\vec{A} = \\frac{q_{enc}}{\\epsilon_0}$\nQ. $\\oint \\vec{B}\\cdot d\\vec{A} = 0$\nR. $\\oint \\vec{E}\\cdot d\\vec{l} = -\\frac{d}{dt}\\int \\vec{B}\\cdot d\\vec{A}$\nS. $\\oint \\vec{B}\\cdot d\\vec{l} = \\mu_0 I_c + \\mu_0\\epsilon_0\\frac{d}{dt}\\int \\vec{E}\\cdot d\\vec{A}$\n\nList II:\n1. Circulation of magnetic field is sustained by charge transport and time-dependent electric flux\n2. Magnetic field lines form continuous closed loops without sources or sinks, ruling out isolated monopoles\n3. Time-varying magnetic flux generates a non-conservative, curly electric field\n4. Electrostatic field lines diverge from positive charges and converge onto negative charges\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-4, Q-2, R-3, S-1",
+        "C) P-4, Q-3, R-2, S-1",
+        "D) P-2, Q-4, R-1, S-3"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Equation P is Gauss's law for electrostatics, showing that electric field lines diverge from net enclosed electric charge (List II-4).\nStep 2: Equation Q is Gauss's law for magnetism, indicating that net magnetic flux through any closed boundary is zero, confirming magnetic field lines form closed loops with no monopoles (List II-2).\nStep 3: Equation R is Faraday's law, demonstrating that changing magnetic flux generates a non-electrostatic curly electric field (List II-3). Equation S is the Ampere-Maxwell law, establishing that magnetic circulation is produced by conduction and displacement currents (List II-1). Thus, the correct matching is P-4, Q-2, R-3, S-1.\nDistractor Analysis: Inverting the physical meaning of Gauss's law for magnetism with the Ampere-Maxwell law creates an incorrect mapping."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_046",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding radiation pressure exerted by an electromagnetic wave at oblique incidence:\n\nStatement I: When an electromagnetic wave of intensity $I$ is incident at an angle $\\theta$ with respect to the normal on a perfectly absorbing flat surface, the radiation pressure exerted normal to the surface is $P_{rad} = \\frac{I}{c}\\cos^2\\theta$.\nStatement II: The factor $\\cos^2\\theta$ appears because the projected surface area intercepting the incident beam decreases by a factor of $\\cos\\theta$, and the normal component of momentum transferred per photon is reduced by an additional factor of $\\cos\\theta$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are true.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Consider a beam of cross-sectional area $A_0$ and intensity $I$ striking a surface of area $A = A_0 / \\cos\\theta$ at angle of incidence $\\theta$.\nStep 2: The total energy striking area $A$ per second is $U = I A_0 = I A \\cos\\theta$. The total momentum delivered per second is $p = \\frac{U}{c} = \\frac{I A \\cos\\theta}{c}$.\nStep 3: For an absorbing surface, the normal component of the transferred momentum is $p_{\\perp} = p \\cos\\theta = \\frac{I A \\cos^2\\theta}{c}$. The normal force is $F_{\\perp} = \\frac{p_{\\perp}}{\\Delta t} = \\frac{I A \\cos^2\\theta}{c}$, and the radiation pressure is $P_{rad} = \\frac{F_{\\perp}}{A} = \\frac{I}{c}\\cos^2\\theta$. Both Statement I and Statement II are true.\nDistractor Analysis: Claiming that the dependence is linear in $\\cos\\theta$ overlooks the fact that both projected cross-section and normal momentum projection contribute separate $\\cos\\theta$ terms."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_047",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a vacuum, the magnetic field component of a plane electromagnetic wave is given by:\n$\\vec{B}(y,t) = (2.0 \\times 10^{-7}\\text{ T})\\hat{i}\\sin(1.5 \\times 10^7 y + 4.5 \\times 10^{15} t)$\nwhere $y$ is in meters and $t$ is in seconds. Which of the following sets correctly specifies the direction of wave propagation, the wavelength $\\lambda$, and the mathematical vector expression for the electric field $\\vec{E}(y,t)$? (Take $c = 3.0 \\times 10^8\\text{ m/s}$)",
+      "options": [
+        "A) Direction: $+y$, $\\lambda \\approx 419\\text{ nm}$, $\\vec{E}(y,t) = 60\\hat{k}\\sin(1.5 \\times 10^7 y + 4.5 \\times 10^{15} t)\\text{ V/m}$",
+        "B) Direction: $-y$, $\\lambda \\approx 628\\text{ nm}$, $\\vec{E}(y,t) = 60\\hat{j}\\sin(1.5 \\times 10^7 y + 4.5 \\times 10^{15} t)\\text{ V/m}$",
+        "C) Direction: $+y$, $\\lambda \\approx 419\\text{ nm}$, $\\vec{E}(y,t) = -60\\hat{k}\\sin(1.5 \\times 10^7 y + 4.5 \\times 10^{15} t)\\text{ V/m}$",
+        "D) Direction: $-y$, $\\lambda \\approx 419\\text{ nm}$, $\\vec{E}(y,t) = -60\\hat{k}\\sin(1.5 \\times 10^7 y + 4.5 \\times 10^{15} t)\\text{ V/m}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The phase $(ky + \\omega t)$ with positive signs on both terms demonstrates that the wave travels along the negative $y$-direction ($-\\hat{j}$).\nStep 2: The wave number is $k = 1.5 \\times 10^7\\text{ m}^{-1}$. The wavelength is $\\lambda = \\frac{2\\pi}{k} = \\frac{2\\pi}{1.5 \\times 10^7} \\approx 4.189 \\times 10^{-7}\\text{ m} \\approx 419\\text{ nm}$.\nStep 3: The electric field amplitude is $E_0 = c B_0 = (3.0 \\times 10^8\\text{ m/s}) \\times (2.0 \\times 10^{-7}\\text{ T}) = 60\\text{ V/m}$. The propagation direction satisfies $\\hat{k}_{prop} = \\hat{E} \\times \\hat{B} = -\\hat{j}$. Since $\\hat{B} = +\\hat{i}$, we require $\\hat{E} \\times \\hat{i} = -\\hat{j}$. Because $(-\\hat{k}) \\times \\hat{i} = -\\hat{j}$, we obtain $\\hat{E} = -\\hat{k}$. Thus, $\\vec{E}(y,t) = -60\\hat{k}\\sin(1.5 \\times 10^7 y + 4.5 \\times 10^{15} t)\\text{ V/m}$.\nDistractor Analysis: Choosing $+\\hat{k}$ for the electric field direction yields $\\hat{k} \\times \\hat{i} = +\\hat{j}$, which contradicts propagation in the negative $y$-direction."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_048",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the propagation of electromagnetic waves through the Earth's ionosphere:\n\nStatement I: The ionosphere acts as a refracting and reflecting medium for sky waves because solar ultraviolet and X-ray radiation ionize gases at high altitudes, creating layers of free electrons.\nStatement II: Electromagnetic waves with frequencies exceeding the critical frequency (typically $\\sim 30 - 40\\text{ MHz}$) penetrate straight through the ionosphere into outer space.\nStatement III: Satellite communications and GPS rely on microwave frequencies specifically because these high frequencies penetrate the ionosphere without experiencing total internal reflection.\nStatement IV: Ground wave propagation is effective for transmitting high-frequency gamma rays over long distances around the spherical curvature of the Earth.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) Statement I, Statement II, and Statement III only",
+        "B) Statement I and Statement IV only",
+        "C) Statement II and Statement IV only",
+        "D) Statement I, Statement II, Statement III, and Statement IV"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Statement I is true: Solar radiation ionizes gas molecules in the upper atmosphere, producing plasma layers that refract radio waves back toward Earth.\nStep 2: Statement II is true: The critical frequency of reflection is given by $f_c \\approx 9\\sqrt{N_{max}}$ (where $N_{max}$ is maximum electron density); frequencies above $30 - 40\\text{ MHz}$ cannot be reflected and penetrate into space.\nStep 3: Statement III is true: Satellite telecommunication uses microwave frequencies ($> 1\\text{ GHz}$) to ensure transparent transmission through the ionosphere. Statement IV is completely false: Ground wave attenuation increases rapidly with frequency due to terrestrial dielectric absorption; ground waves are practically useful only below $\\sim 2\\text{ MHz}$ (medium/low radio waves), not for gamma rays. Thus, Statements I, II, and III only are correct.\nDistractor Analysis: Including Statement IV ignores the severe ground attenuation and high photon absorption of gamma rays in air."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_049",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When a dielectric slab of dielectric constant $\\kappa > 1$ completely fills the space between the plates of a parallel-plate capacitor connected to an alternating voltage $V(t) = V_0 \\sin(\\omega t)$, the amplitude of the displacement current between the plates increases by a factor of $\\kappa$.\nReason (R): In a dielectric medium of permittivity $\\epsilon = \\kappa \\epsilon_0$, the generalized displacement current is given by $I_d = \\epsilon \\frac{d\\Phi_E}{dt}$, which scales directly with the capacitance $C = \\frac{\\kappa \\epsilon_0 A}{d}$ through the relation $I_d = C \\frac{dV}{dt}$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In a dielectric-filled capacitor, the electric field between the plates is $E(t) = \\frac{V(t)}{d}$. The electric flux is $\\Phi_E = E A = \\frac{V(t) A}{d}$.\nStep 2: In a dielectric medium, the displacement current includes bound polarization charge variations: $I_d = \\epsilon \\frac{d\\Phi_E}{dt} = (\\kappa \\epsilon_0) A \\frac{d}{dt}\\left(\\frac{V}{d}\\right) = \\left(\\frac{\\kappa \\epsilon_0 A}{d}\\right)\\frac{dV}{dt} = C \\frac{dV}{dt}$.\nStep 3: With $V(t) = V_0 \\sin(\\omega t)$, the current amplitude is $I_{d,0} = \\omega C V_0 = \\omega \\left(\\frac{\\kappa \\epsilon_0 A}{d}\\right) V_0$. Because capacitance increases by $\\kappa$, the displacement current amplitude increases by the same factor $\\kappa$. Hence, Reason (R) correctly explains Assertion (A). Both (A) and (R) are true and (R) is the correct explanation of (A).\nDistractor Analysis: Claiming that displacement current is independent of the dielectric medium overlooks the polarization contribution $\\frac{\\partial \\vec{P}}{\\partial t}$ to the total displacement current."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_050",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A continuous monochromatic laser beam of power $P = 60\\text{ W}$ falls at normal incidence on a target surface having an optical reflection coefficient $R = 0.60$ (the remaining $40\\%$ of incident radiation is completely absorbed). Taking the speed of light in vacuum as $c = 3.0 \\times 10^8\\text{ m/s}$, the net radiation force exerted on the target is:",
+      "options": [
+        "A) $2.0 \\times 10^{-7}\\text{ N}$",
+        "B) $4.0 \\times 10^{-7}\\text{ N}$",
+        "C) $3.2 \\times 10^{-7}\\text{ N}$",
+        "D) $1.6 \\times 10^{-7}\\text{ N}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The incident radiation carries momentum per unit time of $\\frac{P}{c}$.\nStep 2: The absorbed fraction $(1 - R)$ transfers momentum at rate $F_{abs} = \\frac{P(1 - R)}{c}$. The reflected fraction $R$ undergoes elastic reflection, reversing direction and transferring momentum at rate $F_{refl} = \\frac{2 P R}{c}$.\nStep 3: The total radiation force is the sum of both contributions: $F = F_{abs} + F_{refl} = \\frac{P(1 - R) + 2 P R}{c} = \\frac{P(1 + R)}{c}$. Substituting $P = 60\\text{ W}$, $R = 0.60$, and $c = 3.0 \\times 10^8\\text{ m/s}$:\n$F = \\frac{60 \\times (1 + 0.60)}{3.0 \\times 10^8} = \\frac{60 \\times 1.6}{3.0 \\times 10^8} = \\frac{96}{3.0 \\times 10^8} = 3.2 \\times 10^{-7}\\text{ N}$.\nDistractor Analysis: Treating the surface as completely absorbing ($R = 0$) gives $2.0 \\times 10^{-7}\\text{ N}$, while treating it as completely reflecting ($R = 1$) gives $4.0 \\times 10^{-7}\\text{ N}$."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_051",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the Poynting vector $\\vec{S} = \\frac{1}{\\mu_0}(\\vec{E} \\times \\vec{B})$:\n\nStatement I: The surface integral of the Poynting vector, $\\oint \\vec{S}\\cdot d\\vec{A}$, over any closed bounding surface represents the net rate at which electromagnetic energy flows across that boundary into or out of the enclosed volume.\nStatement II: For a straight cylindrical metallic wire carrying a steady direct current $I$, the Poynting vector at the outer surface of the wire points radially inward toward the wire's central axis, representing the transfer of electromagnetic energy from surrounding fields into Joule dissipation heat.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement I is true: Poynting's theorem expresses electromagnetic energy conservation, where $-\\oint \\vec{S}\\cdot d\\vec{A} = \\frac{d}{dt}\\int u\\, dV + \\int \\vec{j}\\cdot\\vec{E}\\, dV$.\nStep 2: Inside a current-carrying wire of radius $a$ and resistance $R$, the electric field $\\vec{E}$ points along the wire axis, while the magnetic field $\\vec{B}$ forms azimuthal loops around the wire.\nStep 3: By the right-hand rule, $\\vec{E} \\times \\vec{B}$ at the surface points radially inward toward the central axis. Integrating the inward flux of $\\vec{S}$ over the cylindrical boundary yields exactly $S(2\\pi a L) = \\left(\\frac{E B}{\\mu_0}\\right)(2\\pi a L) = I^2 R$, which precisely accounts for Joule heating. Both Statement I and Statement II are true.\nDistractor Analysis: Believing that electrical energy flows solely through the interior of the metal conductor overlooks Maxwell's field picture where energy enters radially through the surrounding electromagnetic field."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_052",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Electromagnetic Spectral Band) with List II (Typical Characteristic Frequency and Physical Generation Process):\n\nList I:\nP. Gamma rays\nQ. X-rays\nR. Microwaves\nS. Infrared rays\n\nList II:\n1. Frequency $\\sim 10^{20}\\text{ Hz}$, emitted during transitions between nuclear quantum energy states\n2. Frequency $\\sim 10^{18}\\text{ Hz}$, generated by rapid deceleration of energetic cathode electrons in a Coolidge tube\n3. Frequency $\\sim 10^{10}\\text{ Hz}$, produced by electromagnetic cavity resonators such as klystrons and magnetrons\n4. Frequency $\\sim 10^{13}\\text{ Hz}$, emitted during molecular rotational and vibrational transitions in heated objects\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-2, Q-1, R-4, S-3",
+        "C) P-1, Q-3, R-2, S-4",
+        "D) P-3, Q-4, R-1, S-2"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Gamma rays have frequencies exceeding $10^{19}\\text{ Hz}$ (typically $\\sim 10^{20}\\text{ Hz}$) and arise from nuclear transitions (List II-1).\nStep 2: X-rays have frequencies around $10^{16} - 10^{19}\\text{ Hz}$ and are generated by bremsstrahlung or inner-shell transitions in Coolidge tubes (List II-2).\nStep 3: Microwaves have frequencies of $10^9 - 10^{11}\\text{ Hz}$ and are generated in cavity magnetrons or klystrons (List II-3). Infrared waves have frequencies of $10^{11} - 10^{14}\\text{ Hz}$ from molecular vibrations (List II-4). Thus, the correct matching is P-1, Q-2, R-3, S-4.\nDistractor Analysis: Swapping the frequency order of nuclear gamma transitions with atomic X-ray transitions violates fundamental quantum scales."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_053",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a circular parallel-plate capacitor of radius $R$ charging at a constant rate with current $I$:\n\nStatement I: The displacement current enclosed by a coaxial circular loop of radius $r < R$ positioned symmetrically between the capacitor plates is given by $I_{d,\\text{enc}} = I \\left(\\frac{r^2}{R^2}\\right)$.\nStatement II: The circulation of the magnetic field along the perimeter of this circular loop satisfies $\\oint \\vec{B}\\cdot d\\vec{l} = \\mu_0 I \\left(\\frac{r^2}{R^2}\\right)$, yielding an induced magnetic field magnitude that increases linearly with distance $r$ from the central axis.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Both Statement I and Statement II are true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Between the circular plates, the time rate of change of electric field $\\frac{dE}{dt}$ is spatially uniform. Hence, displacement current density $j_d = \\epsilon_0 \\frac{dE}{dt} = \\frac{I}{\\pi R^2}$ is uniform.\nStep 2: The displacement current passing through a circular loop of radius $r < R$ is $I_{d,\\text{enc}} = j_d (\\pi r^2) = I \\left(\\frac{r^2}{R^2}\\right)$, confirming Statement I.\nStep 3: Applying the Ampere-Maxwell law to the circular loop gives $\\oint \\vec{B}\\cdot d\\vec{l} = B(2\\pi r) = \\mu_0 I_{d,\\text{enc}} = \\mu_0 I \\left(\\frac{r^2}{R^2}\\right)$. Solving for magnetic field yields $B(r) = \\frac{\\mu_0 I r}{2\\pi R^2}$, which is directly proportional to radial distance $r$. Thus, both Statement I and Statement II are true.\nDistractor Analysis: Contending that $B(r)$ is constant or inversely proportional to $r$ inside the capacitor plates contradicts the linear radial field profile derived from the Ampere-Maxwell law."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_054",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An isotropic point source in vacuum radiates electromagnetic waves uniformly in all directions with an average power $P = 1500\\text{ W}$. Taking $\\epsilon_0 = 8.85 \\times 10^{-12}\\text{ C}^2/(\\text{N}\\cdot\\text{m}^2)$, $c = 3.0 \\times 10^8\\text{ m/s}$, and $\\pi \\approx 3.1416$, what is the peak amplitude of the electric field $E_0$ at a radial distance of $r = 5.0\\text{ m}$ from the source?",
+      "options": [
+        "A) $120.0\\text{ V/m}$",
+        "B) $30.0\\text{ V/m}$",
+        "C) $60.0\\text{ V/m}$",
+        "D) $84.9\\text{ V/m}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The intensity of electromagnetic radiation at distance $r$ from an isotropic source is $I = \\frac{P}{4\\pi r^2}$.\nStep 2: For $P = 1500\\text{ W}$ and $r = 5.0\\text{ m}$, the surface area is $4\\pi r^2 = 4\\pi (25) = 100\\pi\\text{ m}^2$. Thus, $I = \\frac{1500}{100\\pi} = \\frac{15}{\\pi} \\approx 4.7746\\text{ W/m}^2$.\nStep 3: Intensity is related to electric field amplitude $E_0$ by $I = \\frac{1}{2}\\epsilon_0 c E_0^2$. Using $\\epsilon_0 c = (8.85 \\times 10^{-12}) \\times (3.0 \\times 10^8) = 2.655 \\times 10^{-3}\\text{ A/V}$, we calculate:\n$E_0 = \\sqrt{\\frac{2I}{\\epsilon_0 c}} = \\sqrt{\\frac{2 \\times 4.7746}{2.655 \\times 10^{-3}}} = \\sqrt{\\frac{9.5493}{2.655 \\times 10^{-3}}} = \\sqrt{3596.7} \\approx 60.0\\text{ V/m}$.\nDistractor Analysis: Calculating $E_{rms} = \\frac{E_0}{\\sqrt{2}} \\approx 42.4\\text{ V/m}$ or doubling to $120.0\\text{ V/m}$ results from neglecting the factor of $1/2$ in time-averaged intensity."
+    },
+    {
+      "id": "phy_electromagnetic_waves_c01_055",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the theoretical synthesis and experimental validation of electromagnetic wave theory:\n\nStatement I: James Clerk Maxwell demonstrated that Ampere's circuital law was incomplete and added the displacement current term, successfully unifying electricity, magnetism, and optics.\nStatement II: Maxwell's equations theoretically predicted that electromagnetic waves travel in free space at a speed $c = \\frac{1}{\\sqrt{\\mu_0\\epsilon_0}}$, matching the experimentally measured speed of light.\nStatement III: Heinrich Hertz provided definitive experimental confirmation in 1887 by producing and detecting radio waves using spark-gap oscillators.\nStatement IV: The propagation of electromagnetic waves through space requires a mechanical medium known as the 'luminiferous ether' to sustain transverse field oscillations.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) Statement I and Statement IV only",
+        "B) Statement II and Statement IV only",
+        "C) Statement I, Statement II, Statement III, and Statement IV",
+        "D) Statement I, Statement II, and Statement III only"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statements I, II, and III are historically and theoretically correct: Maxwell unified electromagnetism and optics through his 4 equations, predicting wave speed $c = 1/\\sqrt{\\mu_0\\epsilon_0}$, which Hertz experimentally proved in 1887.\nStep 2: Statement IV is false: Maxwell's electromagnetic waves require no mechanical medium to propagate through space. The nineteenth-century hypothesis of a luminiferous ether was conclusively disproved by the Michelson-Morley experiment and rendered obsolete by Einstein's special theory of relativity.\nStep 3: Electromagnetic fields are self-sustaining physical entities that propagate through empty vacuum. Therefore, Statements I, II, and III only are correct.\nDistractor Analysis: Retaining Statement IV repeats the classical nineteenth-century misconception that wave propagation strictly demands an elastic material carrier."
+    }
+  ]
+}

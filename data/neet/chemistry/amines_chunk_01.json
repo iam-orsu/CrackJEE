@@ -1,0 +1,943 @@
+{
+  "subject": "Chemistry",
+  "topic": "Amines",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "chem_amines_c01_001",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the molecular geometry and electronic structure of aliphatic amines:\nStatement I: Nitrogen in aliphatic amines is $sp^3$-hybridized, and the geometry around nitrogen is pyramidal due to the presence of an unshared pair of electrons.\nStatement II: In trimethylamine, the $\\text{C-N-C}$ bond angle is slightly less than the tetrahedral angle of $109.5^\\circ$ ($108^\\circ$) due to the steric repulsion between bulky methyl groups partially counteracting lone pair-bond pair repulsion.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I. The nitrogen atom in alkylamines possesses four electron domains (three $\\sigma$-bonding pairs and one lone pair), conferring $sp^3$ hybridization. The molecular shape (excluding the unshared pair) is trigonal pyramidal, exactly matching ammonia derivatives. Thus, Statement I is correct.\nStep 2: Analyze Statement II. Although lone pair-bond pair repulsion tends to compress the bond angle below $109.5^\\circ$, the spatial crowding between the three bulky methyl groups in $(\\text{CH}_3)_3\\text{N}$ resists severe compression, leading to an observed $\\text{C-N-C}$ bond angle of $108^\\circ$, which is slightly less than $109.5^\\circ$. Thus, Statement II is correct.\nStep 3: Both statements accurately reflect the structural parameters described in NCERT Class 12 Chemistry."
+    },
+    {
+      "id": "chem_amines_c01_002",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Classification of amines into primary ($1^\\circ$), secondary ($2^\\circ$), and tertiary ($3^\\circ$) is based upon the number of alkyl or aryl groups attached to the nitrogen atom. Consider the following pairs of compounds:\n(I) 2-Methylpropan-2-amine (tert-butylamine)\n(II) N-Methylbenzenamine (N-methylaniline)\nWhich of the following correctly classifies compound (I) and compound (II)?",
+      "options": [
+        "A) (I) is a tertiary ($3^\\circ$) amine, and (II) is a primary ($1^\\circ$) amine",
+        "B) (I) is a primary ($1^\\circ$) amine, and (II) is a secondary ($2^\\circ$) amine",
+        "C) (I) is a tertiary ($3^\\circ$) amine, and (II) is a secondary ($2^\\circ$) amine",
+        "D) (I) is a primary ($1^\\circ$) amine, and (II) is a tertiary ($3^\\circ$) amine"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Understand the definition of amine classification. Unlike alcohols and alkyl halides, where classification depends on the nature of the carbon bearing the functional group, amines are classified according to the number of hydrogen atoms of ammonia ($\\text{NH}_3$) replaced by alkyl/aryl groups.\nStep 2: Compound (I) is tert-butylamine, $(\\text{CH}_3)_3\\text{C-NH}_2$. Only one hydrogen atom of ammonia is replaced by a tert-butyl group, and the nitrogen bears two hydrogen atoms ($-\\text{NH}_2$). Hence, it is a primary ($1^\\circ$) amine despite the alkyl group being tertiary.\nStep 3: Compound (II) is N-methylaniline, $\\text{C}_6\\text{H}_5\\text{-NH-CH}_3$. Two hydrogen atoms of ammonia are replaced (one by a phenyl group and one by a methyl group), leaving one hydrogen on nitrogen ($-\\text{NH}-$). Hence, it is a secondary ($2^\\circ$) amine."
+    },
+    {
+      "id": "chem_amines_c01_003",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The correct IUPAC names of the amine $\\text{CH}_3\\text{-CH(NH}_2\\text{)-CH}_2\\text{-CH}_3$ and the secondary amine $\\text{CH}_3\\text{-NH-CH}_2\\text{-CH}_2\\text{-CH}_3$ are respectively:",
+      "options": [
+        "A) 1-Methylpropan-1-amine and N-propylmethanamine",
+        "B) Butan-3-amine and Methylpropylamine",
+        "C) Butan-2-amine and N-Methylpropan-1-amine",
+        "D) 2-Aminobutane and N,N-dimethylpropanamine"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Determine the IUPAC name of $\\text{CH}_3\\text{-CH(NH}_2\\text{)-CH}_2\\text{-CH}_3$. The longest continuous carbon chain contains 4 carbon atoms (butane). Numbering from the left gives the amino substituent the lower locant 2. Thus, the IUPAC name is butan-2-amine.\nStep 2: Determine the IUPAC name of $\\text{CH}_3\\text{-NH-CH}_2\\text{-CH}_2\\text{-CH}_3$. For secondary amines, the largest alkyl group attached to nitrogen is chosen as the parent alkane chain (3 carbons = propan-1-amine). The smaller alkyl group (methyl) is treated as an N-substituent. Hence, the IUPAC name is N-methylpropan-1-amine.\nStep 3: In IUPAC terminology, older terms like '2-aminobutane' are retained as common or secondary descriptors, but systematic names are alkanamines."
+    },
+    {
+      "id": "chem_amines_c01_004",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In the industrial preparation of aromatic primary amines, reduction of nitro compounds using iron scrap and hydrochloric acid ($\\text{Fe} + \\text{HCl}$) is preferred over catalytic hydrogenation or reduction with tin and hydrochloric acid.\nReason (R): Hydrochloric acid cannot reduce nitrobenzene because iron is a non-reactive metal that acts merely as an inert surface.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Assertion (A). Reduction of nitroarenes with $\\text{Fe}$ scrap and concentrated $\\text{HCl}$ is preferred because $\\text{FeCl}_2$ formed during the reaction gets hydrolysed by water to release $\\text{HCl}$:\n$$\\text{FeCl}_2 + 2\\text{H}_2\\text{O} \\rightarrow \\text{Fe(OH)}_2 + 2\\text{HCl}$$\nTherefore, only a small catalytic quantity of hydrochloric acid is required to initiate the entire reduction process, making it highly economical. Assertion (A) is true.\nStep 2: Evaluate Reason (R). Iron is a reactive reducing metal that readily reacts with $\\text{HCl}$ to generate nascent hydrogen and ferrous ions, actively reducing $-\\text{NO}_2$ to $-\\text{NH}_2$. Stating that iron acts merely as an inert surface is completely false.\nStep 3: Since Assertion (A) is true but Reason (R) is false, the proper classification is established."
+    },
+    {
+      "id": "chem_amines_c01_005",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "During the ammonolysis of alkyl halides (Hoffmann's ammonolysis), which of the following represents the correct decreasing order of reactivity of alkyl halides towards nucleophilic substitution by ammonia?",
+      "options": [
+        "A) $\\text{R-Cl} > \\text{R-Br} > \\text{R-I}$",
+        "B) $\\text{R-Br} > \\text{R-I} > \\text{R-Cl}$",
+        "C) $\\text{R-I} > \\text{R-Br} > \\text{R-Cl}$",
+        "D) $\\text{R-I} > \\text{R-Cl} > \\text{R-Br}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In Hoffmann's ammonolysis, ammonia acts as a nucleophile attacking the carbon-halogen bond via nucleophilic substitution ($S_N2$ pathway for primary halides):\n$$\\text{NH}_3 + \\text{R-X} \\rightarrow \\text{R-NH}_3^+\\text{X}^- \\xrightarrow{\\text{NH}_3} \\text{R-NH}_2 + \\text{NH}_4^+\\text{X}^-$$\nStep 2: The rate-determining cleavage of the carbon-halogen bond depends directly on the bond dissociation enthalpy and leaving group ability of the halide ion. The bond dissociation enthalpy follows: $\\text{C-I} < \\text{C-Br} < \\text{C-Cl}$.\nStep 3: Iodide ion is the largest halide ion with the lowest charge density, making it the best leaving group. Therefore, the reactivity order of alkyl halides towards ammonolysis is $\\text{R-I} > \\text{R-Br} > \\text{R-Cl}$."
+    },
+    {
+      "id": "chem_amines_c01_006",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the synthetic reduction of nitriles and amides to amines:\nStatement I: Reduction of alkyl nitriles ($\\text{R-C}\\equiv\\text{N}$) with lithium aluminium hydride ($\\text{LiAlH}_4$) yields a primary amine containing one carbon atom less than the starting alkyl halide from which the nitrile was prepared.\nStatement II: Reduction of ethanamide ($\\text{CH}_3\\text{CONH}_2$) with $\\text{LiAlH}_4$ followed by hydrolysis produces methanamine via elimination of the carbonyl carbon.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I. The conversion of an alkyl halide ($\\text{R-X}$) to a nitrile ($\\text{R-CN}$) by reaction with $\\text{KCN}$ introduces an extra carbon atom. Subsequent reduction with $\\text{LiAlH}_4$ yields $\\text{R-CH}_2\\text{NH}_2$, which contains one carbon atom MORE than the starting alkyl halide (ascent of homologous series). Statement I is incorrect.\nStep 2: Analyze Statement II. Reduction of an amide with $\\text{LiAlH}_4$ reduces the carbonyl group ($>\\!\\text{C=O}$) into a methylene group ($-\\text{CH}_2-$) without any loss of carbon atoms:\n$$\\text{CH}_3\\text{CONH}_2 \\xrightarrow{(i)\\,\\text{LiAlH}_4,\\,(ii)\\,\\text{H}_2\\text{O}} \\text{CH}_3\\text{CH}_2\\text{NH}_2$$\nThis yields ethanamine, not methanamine. Carbon loss occurs in Hoffmann bromamide degradation, not in $\\text{LiAlH}_4$ reduction. Statement II is incorrect.\nStep 3: Since both statements are factually incorrect, the proper selection is verified."
+    },
+    {
+      "id": "chem_amines_c01_007",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Aniline cannot be prepared from chlorobenzene by Gabriel phthalimide synthesis.\nReason (R): Aryl halides do not undergo nucleophilic substitution with the anion formed by phthalimide under normal laboratory conditions.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). Gabriel phthalimide synthesis is exclusively used for the preparation of aliphatic primary amines. Aromatic primary amines such as aniline cannot be synthesized by this method. Assertion (A) is true.\nStep 2: Evaluate Reason (R). In Gabriel synthesis, the nucleophile is the potassium phthalimide anion. To form an N-arylphthalimide, the phthalimide anion would need to displace the halogen from an aryl halide (e.g., chlorobenzene). However, aryl halides do not undergo nucleophilic substitution ($S_N2$) due to partial double bond character of the $\\text{C-X}$ bond from resonance, $sp^2$ hybridization of phenyl carbon, and electron-electron repulsion by the aromatic $\\pi$-electron cloud. Reason (R) is true.\nStep 3: Reason (R) directly and correctly explains why Assertion (A) occurs."
+    },
+    {
+      "id": "chem_amines_c01_008",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In the Hoffmann bromamide degradation reaction for the conversion of an acid amide into a primary amine, the stoichiometric ratio of amide, bromine ($\\text{Br}_2$), and potassium hydroxide ($\\text{KOH}$) required per mole of primary amine formed is:",
+      "options": [
+        "A) $1 : 2 : 2$",
+        "B) $1 : 1 : 2$",
+        "C) $2 : 1 : 4$",
+        "D) $1 : 1 : 4$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Write the balanced chemical equation for the Hoffmann bromamide degradation reaction:\n$$\\text{R-CONH}_2 + \\text{Br}_2 + 4\\text{KOH} \\xrightarrow{\\Delta} \\text{R-NH}_2 + \\text{K}_2\\text{CO}_3 + 2\\text{KBr} + 2\\text{H}_2\\text{O}$$\nStep 2: Analyze the stoichiometric coefficients:\n- Amide ($\\text{R-CONH}_2$): $1\\text{ mol}$\n- Bromine ($\\text{Br}_2$): $1\\text{ mol}$\n- Potassium hydroxide ($\\text{KOH}$): $4\\text{ mol}$\nStep 3: The ratio of amide : $\\text{Br}_2$ : $\\text{KOH}$ consumed per mole of primary amine product is precisely $1 : 1 : 4$."
+    },
+    {
+      "id": "chem_amines_c01_009",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Among the isomeric amines of molecular formula $\\text{C}_4\\text{H}_{11}\\text{N}$, namely butan-1-amine ($1^\\circ$), N-ethylethanamine ($2^\\circ$), and N,N-dimethylethanamine ($3^\\circ$), which of the following represents the correct decreasing order of their boiling points?",
+      "options": [
+        "A) $\\text{N,N-Dimethylethanamine} > \\text{N-Ethylethanamine} > \\text{Butan-1-amine}$",
+        "B) $\\text{N-Ethylethanamine} > \\text{Butan-1-amine} > \\text{N,N-Dimethylethanamine}$",
+        "C) $\\text{Butan-1-amine} > \\text{N,N-Dimethylethanamine} > \\text{N-Ethylethanamine}$",
+        "D) $\\text{Butan-1-amine} > \\text{N-Ethylethanamine} > \\text{N,N-Dimethylethanamine}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Understand the nature of intermolecular forces in isomeric amines. The boiling point of amines depends primarily on the extent of intermolecular hydrogen bonding.\nStep 2: Primary amines (butan-1-amine) have two hydrogen atoms bonded to the electronegative nitrogen atom ($-\\text{NH}_2$), allowing extensive hydrogen bonding. Secondary amines (N-ethylethanamine) possess only one hydrogen atom on nitrogen ($-\\text{NH}-$), leading to less intermolecular association than primary amines.\nStep 3: Tertiary amines (N,N-dimethylethanamine) have no hydrogen atoms attached to nitrogen, which completely precludes intermolecular hydrogen bonding between its own molecules. They are held together only by dipole-dipole interactions. Hence, the boiling point order is $1^\\circ > 2^\\circ > 3^\\circ$."
+    },
+    {
+      "id": "chem_amines_c01_010",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements comparing the boiling points and polarities of ethanamine and ethanol:\nStatement I: Ethanamine ($\\text{CH}_3\\text{CH}_2\\text{NH}_2$, molar mass $45\\text{ g/mol}$) has a significantly higher boiling point than ethanol ($\\text{CH}_3\\text{CH}_2\\text{OH}$, molar mass $46\\text{ g/mol}$).\nStatement II: Nitrogen is more electronegative than oxygen, resulting in a stronger dipole moment and stronger intermolecular hydrogen bonding in amines compared to alcohols.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I. The boiling point of ethanamine is $290.3\\text{ K}$ ($17^\\circ\\text{C}$), whereas ethanol boils at $351.1\\text{ K}$ ($78.5^\\circ\\text{C}$). Ethanol has a much higher boiling point than ethanamine of comparable molar mass. Statement I is incorrect.\nStep 2: Analyze Statement II. The Pauling electronegativity of oxygen ($3.5$) is higher than that of nitrogen ($3.0$). Consequently, the $\\text{O-H}$ bond is substantially more polar than the $\\text{N-H}$ bond, creating significantly stronger intermolecular hydrogen bonds in alcohols compared to amines. Statement II is incorrect.\nStep 3: Both statements contradict standard NCERT physical data."
+    },
+    {
+      "id": "chem_amines_c01_011",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Lower aliphatic amines such as methanamine and ethanamine are readily miscible with water in all proportions.\nReason (R): As the molar mass of an amine increases, its solubility in water increases due to the increasing magnitude of van der Waals attractive forces with water.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Assertion (A). Lower aliphatic amines can form intermolecular hydrogen bonds with water molecules using their unshared electron pair on nitrogen and $\\text{N-H}$ hydrogens. As a result, methanamine, ethanamine, and propanamine are completely miscible with water. Assertion (A) is true.\nStep 2: Evaluate Reason (R). With an increase in the molar mass of amines, the size of the non-polar, hydrophobic hydrocarbon part (alkyl group) increases. This hydrophobic part hinders hydrogen bonding with water molecules, causing a sharp decrease in aqueous solubility with increasing molar mass. Reason (R) is false.\nStep 3: Since Assertion (A) is true while Reason (R) is false, the appropriate evaluation is determined."
+    },
+    {
+      "id": "chem_amines_c01_012",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In the gaseous phase, where hydration (solvation) and steric effects are completely absent, the basic strength of alkyl-substituted amines and ammonia is dictated solely by the electron-donating inductive effect ($+I$) of alkyl groups. Which of the following represents the correct order of basic strength in the gas phase?",
+      "options": [
+        "A) $\\text{NH}_3 > 1^\\circ\\text{ amine} > 2^\\circ\\text{ amine} > 3^\\circ\\text{ amine}$",
+        "B) $2^\\circ\\text{ amine} > 1^\\circ\\text{ amine} > 3^\\circ\\text{ amine} > \\text{NH}_3$",
+        "C) $2^\\circ\\text{ amine} > 3^\\circ\\text{ amine} > 1^\\circ\\text{ amine} > \\text{NH}_3$",
+        "D) $3^\\circ\\text{ amine} > 2^\\circ\\text{ amine} > 1^\\circ\\text{ amine} > \\text{NH}_3$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Understand the factors governing gas-phase basicity. In the absence of solvent molecules, there is no solvation energy (hydration) and no steric hindrance to solvation.\nStep 2: The basicity of amines depends strictly on the electron density on nitrogen and the stabilization of the conjugate cation ($\\text{R}_n\\text{NH}_{4-n}^+$) through charge dispersal by the $+I$ effect of alkyl groups.\nStep 3: Tertiary amines have three $+I$ alkyl groups, secondary amines have two, and primary amines have one. Thus, electron density on nitrogen and cation stabilization follow the sequence: $3^\\circ > 2^\\circ > 1^\\circ > \\text{NH}_3$."
+    },
+    {
+      "id": "chem_amines_c01_013",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In aqueous solution, the basic strength of methyl-substituted aliphatic amines and ammonia follows the order:\n$$(\\text{CH}_3)_2\\text{NH} > \\text{CH}_3\\text{NH}_2 > (\\text{CH}_3)_3\\text{N} > \\text{NH}_3$$\nWhich of the following statements correctly explains why dimethylamine is a stronger base in water than trimethylamine?",
+      "options": [
+        "A) The conjugate cation of dimethylamine is stabilized by greater hydration through hydrogen bonding compared to trimethylamine, compensating for having one fewer inductive group",
+        "B) Trimethylamine cannot donate its electron pair because nitrogen is $sp^2$-hybridized",
+        "C) Dimethylamine exhibits no steric hindrance, whereas trimethylamine undergoes planar inversion that destroys basicity",
+        "D) Methyl groups exert an electron-withdrawing ($-I$) effect when three are attached simultaneously"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In aqueous solution, basicity is governed by an interplay of three factors: inductive effect ($+I$), hydration effect (solvation), and steric hindrance.\nStep 2: The conjugate cation of dimethylamine ($(\\text{CH}_3)_2\\text{NH}_2^+$) has two hydrogens available for hydrogen bonding with water molecules, providing substantial hydration stabilization energy.\nStep 3: The conjugate cation of trimethylamine ($(\\text{CH}_3)_3\\text{NH}^+$) has only one hydrogen available for hydrogen bonding, and the three methyl groups create steric crowding that inhibits hydration. Despite greater $+I$ effect in $(CH_3)_3N$, the severe loss of hydration stability causes $(CH_3)_2NH$ to be a stronger base than $(CH_3)_3N$ in aqueous medium."
+    },
+    {
+      "id": "chem_amines_c01_014",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the basicity of ethyl-substituted amines in aqueous medium:\nStatement I: The basic strength of ethylamines in aqueous solution follows the order: $(\\text{C}_2\\text{H}_5)_2\\text{NH} > \\text{C}_2\\text{H}_5\\text{NH}_2 > (\\text{C}_2\\text{H}_5)_3\\text{N} > \\text{NH}_3$.\nStatement II: The $pK_b$ value of diethylamine is greater than that of triethylamine in aqueous medium.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I. For ethyl-substituted amines in aqueous solution, the bulkier ethyl group enhances the inductive effect over the methyl group, leading to the order: $(\\text{C}_2\\text{H}_5)_2\\text{NH} > (\\text{C}_2\\text{H}_5)_3\\text{N} > \\text{C}_2\\text{H}_5\\text{NH}_2 > \\text{NH}_3$ ($2^\\circ > 3^\\circ > 1^\\circ > \\text{NH}_3$). Statement I lists $1^\\circ$ before $3^\\circ$, which is the methyl series order, not the ethyl series order. Statement I is incorrect.\nStep 2: Analyze Statement II. Since basic strength is inversely proportional to $pK_b$ (stronger base = smaller $pK_b$), and diethylamine is a stronger base than triethylamine in water (experimental $pK_b$ of diethylamine is $3.00$, while triethylamine is $3.25$), the $pK_b$ of diethylamine is smaller, not greater. Statement II is incorrect.\nStep 3: Both statements are therefore incorrect."
+    },
+    {
+      "id": "chem_amines_c01_015",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Aniline ($\\text{C}_6\\text{H}_5\\text{NH}_2$, $pK_b = 9.38$) is a much weaker base than ethanamine ($\\text{CH}_3\\text{CH}_2\\text{NH}_2$, $pK_b = 3.29$).\nReason (R): In aniline, the unshared electron pair on nitrogen is localized in an $sp^3$ hybrid orbital, while in ethanamine, it is delocalized over the ethyl chain via hyperconjugation.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Assertion (A). Aniline has a significantly higher $pK_b$ ($9.38$) than ethanamine ($3.29$), meaning aniline is approximately six orders of magnitude weaker as a base. Assertion (A) is true.\nStep 2: Evaluate Reason (R). In aniline, the lone pair on the nitrogen atom is conjugated with the benzene $\\pi$-system and delocalized over the ortho and para positions of the aromatic ring through resonance across five canonical structures. In contrast, in ethanamine, the electron pair remains localized on nitrogen and is enriched by the $+I$ effect of the ethyl group. Reason (R) asserts the exact opposite and is false.\nStep 3: Hence, Assertion (A) is true but Reason (R) is false."
+    },
+    {
+      "id": "chem_amines_c01_016",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The carbylamine reaction (isocyanide test) is carried out by heating an amine with chloroform and ethanolic potassium hydroxide to produce an extremely foul-smelling isocyanide. Which of the following compounds will give a positive carbylamine test?",
+      "options": [
+        "A) N-Methylaniline",
+        "B) Trimethylamine",
+        "C) Diethylamine",
+        "D) Aniline"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Understand the specificity of the carbylamine reaction. The carbylamine test is exclusively given by primary amines (both aliphatic and aromatic):\n$$\\text{R/Ar-NH}_2 + \\text{CHCl}_3 + 3\\text{KOH (alc.)} \\xrightarrow{\\Delta} \\text{R/Ar-NC} + 3\\text{KCl} + 3\\text{H}_2\\text{O}$$\nStep 2: Secondary amines (such as diethylamine and N-methylaniline) and tertiary amines (such as trimethylamine) do not have two replaceable protons on nitrogen and do not undergo this reaction.\nStep 3: Aniline ($\\text{C}_6\\text{H}_5\\text{NH}_2$) is an aromatic primary amine and therefore reacts positively to produce phenyl isocyanide (phenyl carbylamine), which has an offensive odor."
+    },
+    {
+      "id": "chem_amines_c01_017",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Amine reacted with benzenesulphonyl chloride, Hinsberg's reagent) with List II (Observed chemical behaviour in aqueous alkali):\n\nList I:\nA. Ethanamine ($1^\\circ$)\nB. N-Ethylethanamine ($2^\\circ$)\nC. N,N-Diethylethanamine ($3^\\circ$)\nD. Potassium phthalimide\n\nList II:\nI. Forms a precipitate insoluble in aqueous alkali\nII. Forms a clear solution in aqueous alkali which precipitates upon acidification\nIII. Does not react with Hinsberg's reagent\nIV. Reagent for Gabriel synthesis\n\nChoose the correct match from the options given below:",
+      "options": [
+        "A) A-II, B-I, C-III, D-IV",
+        "B) A-I, B-II, C-III, D-IV",
+        "C) A-II, B-III, C-I, D-IV",
+        "D) A-III, B-I, C-II, D-IV"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Ethanamine ($1^\\circ$ amine) reacts with benzenesulphonyl chloride to yield N-ethylbenzenesulphonamide. The hydrogen attached to nitrogen is strongly acidic due to the electron-withdrawing $-\\text{SO}_2-$ group, so it dissolves in aqueous alkali to form a clear salt solution, which reprecipitates upon subsequent acidification (A matches II).\nStep 2: N-Ethylethanamine ($2^\\circ$ amine) forms N,N-diethylbenzenesulphonamide, which has no acidic hydrogen on nitrogen and remains insoluble in aqueous alkali (B matches I).\nStep 3: N,N-Diethylethanamine ($3^\\circ$ amine) has no hydrogen on nitrogen and does not react with benzenesulphonyl chloride (C matches III).\nStep 4: Potassium phthalimide is the nucleophilic substrate used in the Gabriel phthalimide synthesis of primary aliphatic amines (D matches IV)."
+    },
+    {
+      "id": "chem_amines_c01_018",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the reaction of primary amines with nitrous acid ($\\text{HNO}_2$):\nStatement I: Primary aliphatic amines react with nitrous acid to yield highly stable diazonium salts that can be isolated as crystals at room temperature.\nStatement II: The quantitative evolution of nitrogen gas during the reaction of primary aliphatic amines with nitrous acid is utilized in the estimation of amino acids and proteins.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Statement I is incorrect but Statement II is correct",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Both Statement I and Statement II are incorrect"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I. Primary aliphatic amines react with nitrous acid ($\\text{NaNO}_2 + \\text{HCl}$) to form aliphatic diazonium salts ($\\text{R-N}_2^+\\text{Cl}^-$). These salts are extremely unstable even at $0^\\circ\\text{C}$ and decompose immediately with evolution of $\\text{N}_2$ to yield carbocations that give a mixture of alcohols, alkenes, and alkyl chlorides. They cannot be isolated. Statement I is incorrect.\nStep 2: Analyze Statement II. The evolution of nitrogen gas from aliphatic primary amino groups is strictly stoichiometric and quantitative:\n$$\\text{R-NH}_2 + \\text{HNO}_2 \\rightarrow \\text{ROH} + \\text{H}_2\\text{O} + \\text{N}_2 \\uparrow$$\nThis reaction forms the basis of the Van Slyke method used for quantitative estimation of amino acids and proteins. Statement II is correct.\nStep 3: Hence, Statement I is incorrect but Statement II is correct."
+    },
+    {
+      "id": "chem_amines_c01_019",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In the diazotization of aniline, the reaction temperature is strictly maintained between $273\\text{ K}$ and $278\\text{ K}$ ($0-5^\\circ\\text{C}$).\nReason (R): Benzenediazonium chloride decomposes rapidly above $278\\text{ K}$ with evolution of nitrogen gas and undergoes hydrolysis to form phenol.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). Aniline reacts with nitrous acid (generated in situ from $\\text{NaNO}_2 + \\text{HCl}$) at an ice-cold temperature of $0-5^\\circ\\text{C}$ ($273-278\\text{ K}$) to prepare benzenediazonium chloride. Assertion (A) is true.\nStep 2: Evaluate Reason (R). Arenediazonium salts are stable in cold aqueous solution due to resonance delocalization of the diazonium group over the aromatic ring. However, at temperatures above $278\\text{ K}$, thermal cleavage of the $\\text{C-N}$ bond occurs, releasing nitrogen gas and forming a phenyl cation that immediately reacts with water to form phenol. Reason (R) is true.\nStep 3: Reason (R) correctly explains why temperature must be kept below $5^\\circ\\text{C}$ during diazotization."
+    },
+    {
+      "id": "chem_amines_c01_020",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "When aniline is treated with bromine water at room temperature in the absence of any Lewis acid catalyst, the product formed and its characteristic observation are:",
+      "options": [
+        "A) 4-Bromoaniline as an orange oil",
+        "B) 2-Bromoaniline as a yellow liquid",
+        "C) 3-Bromoaniline as a brown crystalline solid",
+        "D) 2,4,6-Tribromoaniline as a white precipitate"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Understand the activating power of the amino group. The $-\\text{NH}_2$ group in aniline is an exceptionally powerful activating group due to the $+R$ resonance donation of its nitrogen lone pair into the aromatic ring.\nStep 2: The ortho and para positions of aniline become electron-rich to such an extent that electrophilic bromination occurs spontaneously at all three vacant activated positions (2, 4, and 6) even in aqueous solution without requiring a Lewis acid (like $\\text{FeBr}_3$).\nStep 3: The reaction yields 2,4,6-tribromoaniline as an insoluble white precipitate:\n$$\\text{C}_6\\text{H}_5\\text{NH}_2 + 3\\text{Br}_2 \\xrightarrow{\\text{H}_2\\text{O}} \\text{C}_6\\text{H}_2\\text{Br}_3\\text{NH}_2 \\downarrow + 3\\text{HBr}$$"
+    },
+    {
+      "id": "chem_amines_c01_021",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the direct nitration of aniline with concentrated nitric acid and concentrated sulphuric acid at $288\\text{ K}$:\nStatement I: Direct nitration of aniline produces an unexpectedly significant proportion ($47\\%$) of the meta-nitro isomer alongside the para ($51\\%$) and ortho ($2\\%$) isomers.\nStatement II: In strongly acidic nitrating mixture, aniline gets protonated to form anilinium ion ($-\\text{NH}_3^+$), which acts as a meta-directing and deactivating group.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I. Direct nitration of aniline with a nitrating mixture at $288\\text{ K}$ affords $51\\%$ para-nitroaniline, $47\\%$ meta-nitroaniline, and $2\\%$ ortho-nitroaniline. The formation of nearly equal amounts of meta product is a classic hallmark of aniline chemistry. Thus, Statement I is correct.\nStep 2: Analyze Statement II. Aniline is basic and readily accepts a proton in the strongly acidic nitrating medium (conc. $\\text{HNO}_3 +$ conc. $\\text{H}_2\\text{SO}_4$) to form the positively charged anilinium ion ($\\text{C}_6\\text{H}_5\\text{NH}_3^+$). The $-\\text{NH}_3^+$ group exerts a powerful $-I$ effect without $+R$ resonance, making it strongly deactivating and meta-directing. Thus, Statement II is correct.\nStep 3: Both statements are factually correct and follow NCERT line-by-line."
+    },
+    {
+      "id": "chem_amines_c01_022",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Azo coupling reaction of benzenediazonium chloride) with List II (Reaction conditions and resulting azo dye):\n\nList I:\nA. Coupling with Phenol\nB. Coupling with Aniline\nC. Reduction with $\\text{H}_3\\text{PO}_2$\nD. Replacement by Fluorine (Balz-Schiemann)\n\nList II:\nI. Mildly acidic medium (pH $4-5$), yielding yellow p-aminoazobenzene\nII. Alkaline medium (pH $9-10$), yielding orange p-hydroxyazobenzene\nIII. Treatment with $\\text{HBF}_4$ followed by heating, yielding fluorobenzene\nIV. Reduction yielding benzene, with phosphorous acid as byproduct\n\nChoose the correct match from the options given below:",
+      "options": [
+        "A) A-I, B-II, C-IV, D-III",
+        "B) A-II, B-I, C-IV, D-III",
+        "C) A-II, B-I, C-III, D-IV",
+        "D) A-I, B-IV, C-II, D-III"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Benzenediazonium chloride couples with phenol in basic medium (pH $9-10$) where phenol is converted to the more nucleophilic phenoxide ion, yielding 4-hydroxyazobenzene (orange dye). Hence, A matches II.\nStep 2: Coupling with aniline is carried out in weakly acidic medium (pH $4-5$) to prevent nucleophilic attack at the amino nitrogen and favor electrophilic attack at the para position, yielding 4-aminoazobenzene (yellow dye). Hence, B matches I.\nStep 3: Hypophosphorous acid ($\\text{H}_3\\text{PO}_2$) reduces benzenediazonium chloride to benzene, being itself oxidized to phosphorous acid ($\\text{H}_3\\text{PO}_3$). Hence, C matches IV.\nStep 4: Reaction of diazonium salt with fluoroboric acid ($\\text{HBF}_4$) gives diazonium fluoroborate which decomposes upon heating to yield fluorobenzene, known as the Balz-Schiemann reaction. Hence, D matches III."
+    },
+    {
+      "id": "chem_amines_c01_023",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the controlled electrophilic aromatic substitution of aniline:\nStatement I: Direct bromination or nitration of aniline without protection results in poly-substituted derivatives or oxidative degradation of the benzene ring.\nStatement II: Acetylation of aniline with acetic anhydride in pyridine protects the amino group because the nitrogen lone pair becomes delocalized to the carbonyl oxygen through resonance, reducing its activating power.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I. The $-\\text{NH}_2$ group in aniline is an exceptionally powerful activating group that activates the ortho and para positions so strongly that poly-substitution occurs instantly (e.g., 2,4,6-tribromoaniline with $\\text{Br}_2$ water). Furthermore, strong oxidizing nitrating mixtures cause oxidative degradation and tar formation. Statement I is correct.\nStep 2: Analyze Statement II. Acetylation transforms aniline into acetanilide ($\\text{C}_6\\text{H}_5\\text{-NH-COCH}_3$). In acetanilide, the lone pair on nitrogen is conjugated with the carbonyl group:\n$$-\\ddot{\\text{N}}\\text{H}-\\text{C}(=\\text{O})-\\text{CH}_3 \\longleftrightarrow -\\overset{+}{\\text{N}}\\text{H}=\\text{C}(\\text{O}^-)-\\text{CH}_3$$\nThis resonance delocalization significantly diminishes the availability of the unshared electron pair for donation into the benzene ring, moderating ring activation and enabling clean monobromination or mononitration. Statement II is correct.\nStep 3: Both statements accurately describe the NCERT mechanism for amino group protection."
+    },
+    {
+      "id": "chem_amines_c01_024",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the sulphonation of aniline and the physical nature of sulphanilic acid:\nStatement I: Sulphonation of aniline by heating anilinium hydrogen sulphate with concentrated sulphuric acid at $453-473\\text{ K}$ produces ortho-aminobenzenesulphonic acid as the principal major product.\nStatement II: Sulphanilic acid exists predominantly as a dipolar ion (zwitterion) containing a positively charged ammonio group ($-\\text{NH}_3^+$) and a negatively charged sulphonate group ($-\\text{SO}_3^-$).\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Statement I is incorrect but Statement II is correct",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Both Statement I and Statement II are incorrect"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I. Heating aniline with concentrated sulphuric acid initially forms anilinium hydrogen sulphate, which upon sustained heating at $453-473\\text{ K}$ rearranges to yield p-aminobenzenesulphonic acid (sulphanilic acid) as the major product due to steric hindrance at the ortho positions. Statement I is incorrect.\nStep 2: Analyze Statement II. Sulphanilic acid contains both an acidic sulphonic group ($-\\text{SO}_3\\text{H}$) and a basic amino group ($-\\text{NH}_2$) within the same molecule. An internal acid-base neutralization occurs wherein the acidic proton of $-\\text{SO}_3\\text{H}$ is transferred to the nitrogen lone pair, producing the dipolar zwitterionic structure:\n$$^+\\text{H}_3\\text{N}-\\text{C}_6\\text{H}_4-\\text{SO}_3^-$$\nStatement II is correct.\nStep 3: Hence, Statement I is incorrect while Statement II is correct."
+    },
+    {
+      "id": "chem_amines_c01_025",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Aniline does not undergo Friedel-Crafts alkylation or acylation reactions when treated with an alkyl or acyl halide in the presence of anhydrous aluminium chloride ($\\text{AlCl}_3$).\nReason (R): Aluminium chloride reduces the amino group of aniline into an alkyl group via hydride transfer.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Assertion (A). Aniline fails to undergo Friedel-Crafts alkylation or acylation under standard Friedel-Crafts conditions using anhydrous $\\text{AlCl}_3$. Assertion (A) is true.\nStep 2: Evaluate Reason (R). Anhydrous $\\text{AlCl}_3$ is a strong Lewis acid, whereas the nitrogen atom of aniline has an unshared electron pair and behaves as a Lewis base. Instead of catalyzing electrophile formation from the alkyl/acyl halide, $\\text{AlCl}_3$ forms a strong coordination complex with aniline:\n$$\\text{C}_6\\text{H}_5\\text{NH}_2 + \\text{AlCl}_3 \\rightarrow \\text{C}_6\\text{H}_5\\overset{+}{\\text{N}}\\text{H}_2-\\bar{\\text{Al}}\\text{Cl}_3$$\nBecause nitrogen develops a positive charge, it becomes strongly electron-withdrawing ($-I$) and deactivates the benzene ring towards electrophilic attack. Aluminium chloride does not reduce the amino group; it forms a Lewis adduct. Reason (R) is false.\nStep 3: Thus, Assertion (A) is true but Reason (R) is false."
+    },
+    {
+      "id": "chem_amines_c01_026",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following represents the correct decreasing order of basic strength (or increasing order of $pK_b$ values) for the substituted anilines:\n(I) 4-Methylaniline (p-toluidine)\n(II) Aniline\n(III) 3-Nitroaniline (m-nitroaniline)\n(IV) 4-Nitroaniline (p-nitroaniline)?",
+      "options": [
+        "A) $\\text{IV} > \\text{III} > \\text{II} > \\text{I}$",
+        "B) $\\text{I} > \\text{III} > \\text{II} > \\text{IV}$",
+        "C) $\\text{II} > \\text{I} > \\text{IV} > \\text{III}$",
+        "D) $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze electronic substituent effects on aromatic amine basicity. Electron-donating groups ($+I, +R$) increase the electron density on nitrogen and stabilize the conjugate anilinium ion, increasing basicity. Electron-withdrawing groups ($-I, -R$) decrease basicity.\nStep 2: In 4-methylaniline (I), the methyl group donates electron density through $+I$ and hyperconjugation, making it more basic than aniline (II).\nStep 3: In 4-nitroaniline (IV), the $-\\text{NO}_2$ group exerts both a strong $-I$ effect and a strong $-R$ resonance withdrawal directly conjugated with the amino group, drastically diminishing electron density on nitrogen. In 3-nitroaniline (III), $-\\text{NO}_2$ acts only via $-I$ (resonance withdrawal is absent at the meta position). Therefore, 3-nitroaniline is less basic than aniline, but more basic than 4-nitroaniline.\nStep 4: The correct sequence of decreasing basic strength is $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$."
+    },
+    {
+      "id": "chem_amines_c01_027",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Sandmeyer and Gatterman reactions:\nStatement I: The Sandmeyer reaction involves treating a freshly prepared benzenediazonium salt with cuprous chloride ($\\text{Cu}_2\\text{Cl}_2/\\text{HCl}$) or cuprous bromide ($\\text{Cu}_2\\text{Br}_2/\\text{HBr}$) to yield chlorobenzene or bromobenzene.\nStatement II: The Gatterman reaction yields haloarenes by reacting benzenediazonium salts with halogen acids in the presence of copper powder, and generally provides higher percentage yields than the Sandmeyer reaction.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Statement I is correct but Statement II is incorrect",
+        "C) Statement I is incorrect but Statement II is correct",
+        "D) Both Statement I and Statement II are incorrect"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I. The replacement of the diazonium group by $-\\text{Cl}$, $-\\text{Br}$, or $-\\text{CN}$ using cuprous salts ($\text{Cu}_2\\text{Cl}_2$, $\text{Cu}_2\\text{Br}_2$, $\\text{CuCN}$) in the corresponding acid is explicitly known as the Sandmeyer reaction. Statement I is correct.\nStep 2: Analyze Statement II. The Gatterman reaction employs copper powder in the presence of halogen acids ($\\text{Cu} + \\text{HCl}$ or $\\text{Cu} + \\text{HBr}$) to introduce chlorine or bromine into the aromatic ring. However, NCERT explicitly notes that the yield in the Sandmeyer reaction is found to be significantly better than in the Gatterman reaction. Statement II is incorrect.\nStep 3: Therefore, Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_amines_c01_028",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For replacing the diazonium group of benzenediazonium chloride with an iodine atom to synthesize iodobenzene, the use of cuprous iodide ($\\text{Cu}_2\\text{I}_2$) catalyst is not required.\nReason (R): Iodide ion is a powerful nucleophile and readily reduces benzenediazonium cation to an aryl radical upon simply warming with aqueous potassium iodide ($\\text{KI}$).\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). Unlike chlorination and bromination which require cuprous halides (Sandmeyer) or copper powder (Gatterman), iodobenzene is synthesized simply by shaking or warming the diazonium salt solution with aqueous potassium iodide ($\\text{KI}$):\n$$\\text{ArN}_2^+\\text{Cl}^- + \\text{KI} \\rightarrow \\text{ArI} + \\text{KCl} + \\text{N}_2$$\nNo cuprous catalyst is required. Assertion (A) is true.\nStep 2: Evaluate Reason (R). Iodide ion is an easily oxidizable, strong nucleophilic reducing agent. It transfers an electron to the arenediazonium ion to initiate a radical pathway generating aryl radicals that rapidly combine with iodine to produce iodobenzene. Reason (R) is true and correctly explains Assertion (A).\nStep 3: Both Assertion (A) and Reason (R) are true, and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "chem_amines_c01_029",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Benzenediazonium chloride on treatment with hypophosphorous acid ($\\text{H}_3\\text{PO}_2$) in the presence of copper(I) ions or with ethanol ($\\text{CH}_3\\text{CH}_2\\text{OH}$) undergoes reductive deamination to produce benzene. The respective oxidized byproducts formed in these two reactions are:",
+      "options": [
+        "A) Orthophosphoric acid ($\\text{H}_3\\text{PO}_4$) and Ethanoic acid ($\\text{CH}_3\\text{COOH}$)",
+        "B) Metaphosphoric acid ($\\text{HPO}_3$) and Ethene ($\\text{CH}_2=\\text{CH}_2$)",
+        "C) Phosphorous acid ($\\text{H}_3\\text{PO}_3$) and Ethanal ($\\text{CH}_3\\text{CHO}$)",
+        "D) Pyrophosphoric acid ($\\text{H}_4\\text{P}_2\\text{O}_7$) and Carbon dioxide ($\\text{CO}_2$)"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Write the equation for reduction of benzenediazonium chloride by hypophosphorous acid (phosphinic acid, $\\text{H}_3\\text{PO}_2$):\n$$\\text{C}_6\\text{H}_5\\text{N}_2^+\\text{Cl}^- + \\text{H}_3\\text{PO}_2 + \\text{H}_2\\text{O} \\xrightarrow{\\text{Cu}^+} \\text{C}_6\\text{H}_6 + \\text{N}_2 + \\text{H}_3\\text{PO}_3 + \\text{HCl}$$\nHypophosphorous acid ($\\text{H}_3\\text{PO}_2$) is oxidized to phosphorous acid ($\\text{H}_3\\text{PO}_3$).\nStep 2: Write the equation for reduction of benzenediazonium chloride by ethanol ($\\text{CH}_3\\text{CH}_2\\text{OH}$):\n$$\\text{C}_6\\text{H}_5\\text{N}_2^+\\text{Cl}^- + \\text{CH}_3\\text{CH}_2\\text{OH} \\rightarrow \\text{C}_6\\text{H}_6 + \\text{N}_2 + \\text{CH}_3\\text{CHO} + \\text{HCl}$$\nEthanol is oxidized to ethanal (acetaldehyde, $\\text{CH}_3\\text{CHO}$).\nStep 3: Therefore, the oxidized byproducts are phosphorous acid and ethanal."
+    },
+    {
+      "id": "chem_amines_c01_030",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the mechanism of the Hoffmann bromamide degradation of propanamide ($\\text{CH}_3\\text{CH}_2\\text{CONH}_2$) with $\\text{Br}_2$ and $\\text{KOH}$. Which of the following statements correctly identifies the reactive intermediate that undergoes nucleophilic attack by water/hydroxide, and the stereochemical outcome if a chiral alkyl group migrates?",
+      "options": [
+        "A) Acyl nitrene intermediate; inversion of configuration at the chiral migrating center",
+        "B) Carbocation intermediate; complete racemization at the migrating center",
+        "C) Free radical intermediate; retention of configuration with dimerization",
+        "D) Alkyl isocyanate intermediate; complete retention of configuration at the chiral migrating center"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In the Hoffmann bromamide degradation, the amide is deprotonated and brominated to form an N-bromoamide ($\\text{R-CONHBr}$). Base-catalyzed loss of bromide induces an intramolecular 1,2-rearrangement.\nStep 2: The alkyl group $\\text{R}$ migrates from the carbonyl carbon to the electron-deficient nitrogen atom synchronously with the departure of bromide ion, forming an alkyl isocyanate intermediate ($\\text{R-N=C=O}$):\n$$\\text{R-CO-}\\bar{\\text{N}}\\text{-Br} \\rightarrow \\text{R-N=C=O} + \\text{Br}^-$$\nStep 3: Because the migration of the alkyl group is strictly intramolecular and concerted, the configuration of a chiral migrating group is completely retained (100% retention). Subsequent alkaline hydrolysis of the isocyanate yields the primary amine and carbonate."
+    },
+    {
+      "id": "chem_amines_c01_031",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Gabriel phthalimide synthesis:\nStatement I: Gabriel phthalimide synthesis cannot be employed to prepare pure tert-butylamine from tert-butyl bromide.\nStatement II: Potassium phthalimide is a bulky nucleophile that acts predominantly as a base towards tertiary alkyl halides, causing elimination to form 2-methylpropene rather than nucleophilic substitution.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I. Gabriel phthalimide synthesis is suitable only for the preparation of primary alkylamines derived from primary ($1^\\circ$) alkyl halides. Secondary and tertiary amines, as well as primary amines with tertiary alkyl groups (like tert-butylamine), cannot be prepared by this method. Statement I is correct.\nStep 2: Analyze Statement II. The potassium phthalimide anion is sterically hindered and basic. When reacted with a tertiary alkyl halide such as tert-butyl bromide, steric crowding prevents backside $S_N2$ displacement. Instead, an $E2$ elimination reaction predominates, yielding an alkene (2-methylpropene or isobutylene) and regenerating phthalimide. Statement II is correct.\nStep 3: Both statements are fully substantiated by organic reaction mechanisms."
+    },
+    {
+      "id": "chem_amines_c01_032",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Chemical reaction / test) with List II (Distinctive diagnostic observation or reagent role):\n\nList I:\nA. Carbylamine test\nB. Hinsberg test on $2^\\circ$ amine\nC. Libermann's nitroso test\nD. Reaction of $1^\\circ$ aromatic amine with $\\text{HNO}_2$ at $273-278\\text{ K}$\n\nList II:\nI. Formation of an insoluble precipitate in aqueous alkali\nII. Formation of a foul-smelling isocyanide\nIII. Formation of a cold stable arenediazonium chloride\nIV. Formation of yellow oily N-nitrosamine giving green-to-blue coloration with phenol\n\nChoose the correct match from the options given below:",
+      "options": [
+        "A) A-I, B-II, C-IV, D-III",
+        "B) A-II, B-I, C-IV, D-III",
+        "C) A-II, B-III, C-I, D-IV",
+        "D) A-IV, B-I, C-II, D-III"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Carbylamine test is specific for primary amines ($1^\\circ$), yielding an extremely foul-smelling isocyanide (A matches II).\nStep 2: Hinsberg test on a secondary amine produces N,N-dialkylbenzenesulphonamide, which has no acidic hydrogen on nitrogen and remains insoluble in aqueous alkali (B matches I).\nStep 3: Libermann's nitroso test is characteristic of secondary amines reacting with nitrous acid to form yellow oily N-nitrosamines, which on warming with phenol and conc. $\\text{H}_2\\text{SO}_4$ give a green solution that turns blue on adding alkali (C matches IV).\nStep 4: Primary aromatic amines on reaction with $\\text{HNO}_2$ at $0-5^\\circ\\text{C}$ form stable benzenediazonium chloride solutions (D matches III)."
+    },
+    {
+      "id": "chem_amines_c01_033",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following sequential reaction pathways starting from bromoethane ($\\text{CH}_3\\text{CH}_2\\text{Br}$):\nPathway 1: $\\text{CH}_3\\text{CH}_2\\text{Br} \\xrightarrow{\\text{alcoholic KCN}} A \\xrightarrow{\\text{LiAlH}_4} B$\nPathway 2: $\\text{CH}_3\\text{CH}_2\\text{Br} \\xrightarrow{\\text{alcoholic AgCN}} C \\xrightarrow{\\text{LiAlH}_4} D$\nThe final products $B$ and $D$ are respectively:",
+      "options": [
+        "A) Propan-1-amine and Propan-2-amine",
+        "B) Ethanamine and N-Methylethanamine",
+        "C) Propan-1-amine and N-Methylethanamine",
+        "D) Propanenitrile and Ethyl isocyanide"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In Pathway 1, $\\text{KCN}$ is predominantly ionic ($[\\text{K}^+][\\text{C}\\equiv\\text{N}^-]$). Attack takes place primarily through the carbon atom due to greater $\\text{C-C}$ bond strength compared to $\\text{C-N}$, forming propanenitrile ($A = \\text{CH}_3\\text{CH}_2\\text{CN}$). Reduction of propanenitrile with $\\text{LiAlH}_4$ gives propan-1-amine ($B = \\text{CH}_3\\text{CH}_2\\text{CH}_2\\text{NH}_2$).\nStep 2: In Pathway 2, $\\text{AgCN}$ is predominantly covalent, and the silver atom shields the carbon atom. The nucleophilic attack occurs through the unshared pair of electrons on nitrogen, forming ethyl isocyanide ($C = \\text{CH}_3\\text{CH}_2\\text{NC}$). Reduction of alkyl isocyanides with $\\text{LiAlH}_4$ yields secondary amines, specifically N-methylethanamine ($D = \\text{CH}_3\\text{CH}_2\\text{-NH-CH}_3$).\nStep 3: Thus, compounds $B$ and $D$ are propan-1-amine and N-methylethanamine."
+    },
+    {
+      "id": "chem_amines_c01_034",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An organic compound $X$ (molecular formula $\\text{C}_3\\text{H}_9\\text{N}$) dissolves in dilute hydrochloric acid. When an aqueous solution of $X$ is treated with nitrous acid ($\\text{NaNO}_2 + \\text{HCl}$) at room temperature, no evolution of nitrogen gas is observed, nor is any yellow oily liquid separated; instead, a clear water-soluble salt solution is formed. When treated with benzenesulphonyl chloride, no reaction occurs. Compound $X$ is:",
+      "options": [
+        "A) Propan-1-amine",
+        "B) Propan-2-amine",
+        "C) N-Methylethanamine",
+        "D) N,N-Dimethylmethanamine"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze the reaction with benzenesulphonyl chloride (Hinsberg's reagent). Primary and secondary amines react with Hinsberg's reagent. Only tertiary amines fail to react because they possess no hydrogen atoms attached to nitrogen. This restricts $X$ to a tertiary amine.\nStep 2: Analyze the reaction with nitrous acid ($\\text{HNO}_2$). Primary aliphatic amines produce brisk effervescence of nitrogen gas. Secondary aliphatic amines form water-insoluble, yellow oily N-nitrosamines. Tertiary aliphatic amines merely form soluble trialkylammonium nitrite salts ($\\text{R}_3\\text{NH}^+\\text{NO}_2^-$), producing a clear homogeneous solution.\nStep 3: The only tertiary amine of formula $\\text{C}_3\\text{H}_9\\text{N}$ is trimethylamine (N,N-dimethylmethanamine, $(\\text{CH}_3)_3\\text{N}$)."
+    },
+    {
+      "id": "chem_amines_c01_035",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Arenediazonium fluoroborate ($\\text{ArN}_2^+\\text{BF}_4^-$) is water-insoluble and sufficiently stable to be isolated and dried as a solid at room temperature.\nReason (R): The large, non-coordinating tetrafluoroborate anion ($\\text{BF}_4^-$) stabilizes the diazonium cation through high lattice energy and minimal nucleophilic counter-attack.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). While arenediazonium chlorides ($\\text{ArN}_2^+\\text{Cl}^-$) are readily soluble in water and unstable when dry (exploding violently upon drying), arenediazonium fluoroborates ($\\text{ArN}_2^+\\text{BF}_4^-$) precipitate out of aqueous solution, can be filtered, dried, and stored safely at room temperature. Assertion (A) is true.\nStep 2: Evaluate Reason (R). The tetrafluoroborate anion ($\\text{BF}_4^-$) has a large ionic radius and low charge density, imparting low aqueous solubility and high crystal lattice stability. Furthermore, $\\text{BF}_4^-$ is a non-nucleophilic counterion that does not attack the diazonium group under ambient conditions. Reason (R) is true and correctly explains Assertion (A).\nStep 3: Both Assertion (A) and Reason (R) are true, and Reason (R) provides the valid scientific explanation."
+    },
+    {
+      "id": "chem_amines_c01_036",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the acylation of amines with acetyl chloride or acetic anhydride:\nStatement I: The acylation of primary and secondary aliphatic amines is carried out in the presence of a base stronger than the amine, such as pyridine.\nStatement II: Pyridine acts as an oxidizing catalyst that converts the secondary amine into an imine before acetylation occurs.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Statement I is correct but Statement II is incorrect",
+        "C) Statement I is incorrect but Statement II is correct",
+        "D) Both Statement I and Statement II are incorrect"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I. Acylation involves nucleophilic acyl substitution on acid chlorides or anhydrides. During the reaction with acetyl chloride, hydrochloric acid ($\\text{HCl}$) is formed as a byproduct. A base stronger than the amine, such as pyridine, is added to neutralize $\\text{HCl}$ as pyridinium chloride, preventing protonation of unreacted amine and driving the equilibrium forward (Le Chatelier's principle). Statement I is correct.\nStep 2: Analyze Statement II. Pyridine does not act as an oxidizing agent, nor does it convert amines into imines. It serves strictly as an acid scavenger (proton acceptor) and nucleophilic catalyst. Statement II is incorrect.\nStep 3: Hence, Statement I is correct while Statement II is incorrect."
+    },
+    {
+      "id": "chem_amines_c01_037",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following amines:\n(I) Cyclohexanamine\n(II) Phenylmethanamine (benzylamine)\n(III) Benzenamine (aniline)\nWhich of the following represents the correct decreasing order of their basic strength in aqueous solution?",
+      "options": [
+        "A) $\\text{III} > \\text{II} > \\text{I}$",
+        "B) $\\text{II} > \\text{I} > \\text{III}$",
+        "C) $\\text{I} > \\text{II} > \\text{III}$",
+        "D) $\\text{I} > \\text{III} > \\text{II}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Cyclohexanamine (I). Cyclohexanamine is a fully saturated alicyclic primary amine. The cyclohexyl group exerts an electron-releasing inductive effect ($+I$) without any aromatic resonance delocalization. Its nitrogen lone pair is fully localized, making it the strongest base among the three ($pK_b \\approx 3.33$).\nStep 2: Evaluate Benzylamine (II). In benzylamine ($\\text{C}_6\\text{H}_5\\text{CH}_2\\text{NH}_2$), the $-\\text{NH}_2$ group is attached to an $sp^3$-hybridized benzylic carbon. The methylene bridge ($-\\text{CH}_2-$) insulates the nitrogen lone pair from resonance delocalization into the aromatic ring. However, the phenyl group exerts a mild electron-withdrawing inductive effect ($-I$). Thus, benzylamine is weaker than cyclohexanamine but substantially stronger than aniline ($pK_b \\approx 4.6$).\nStep 3: Evaluate Aniline (III). In aniline, the unshared electron pair on nitrogen is directly delocalized over the aromatic ring via resonance, severely diminishing electron density on nitrogen ($pK_b = 9.38$).\nStep 4: The correct sequence of decreasing basicity is $\\text{I} > \\text{II} > \\text{III}$."
+    },
+    {
+      "id": "chem_amines_c01_038",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "To synthesize 4-nitroaniline as the exclusive major product from aniline, the amino group must be protected. Consider the synthetic scheme:\n$$\\text{Aniline} \\xrightarrow{(\\text{CH}_3\\text{CO})_2\\text{O},\\,\\text{pyridine}} X \\xrightarrow{\\text{conc. HNO}_3 + \\text{conc. H}_2\\text{SO}_4,\\,288\\text{ K}} Y \\xrightarrow{\\text{H}^+\\text{ or OH}^-,\\,\\text{H}_2\\text{O}} Z$$\nCompounds $X$, $Y$, and $Z$ are respectively:",
+      "options": [
+        "A) Benzanilide, 2-Nitrobenzanilide, and 2-Nitroaniline",
+        "B) Acetanilide, 3-Nitroacetanilide, and 3-Nitroaniline",
+        "C) N,N-Diacetylaniline, 4-Nitroacetanilide, and 4-Nitrophenol",
+        "D) Acetanilide, 4-Nitroacetanilide, and 4-Nitroaniline"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Aniline reacts with acetic anhydride in pyridine to yield acetanilide ($X = \\text{C}_6\\text{H}_5\\text{-NH-COCH}_3$). Acetylation moderates the activating effect of the amino group.\nStep 2: Nitration of acetanilide with a nitrating mixture (conc. $\\text{HNO}_3 +$ conc. $\\text{H}_2\\text{SO}_4$) at $288\\text{ K}$ gives 4-nitroacetanilide ($Y$) as the predominant major product due to the bulky $-\\text{NHCOCH}_3$ group sterically hindering the ortho positions.\nStep 3: Acidic or alkaline hydrolysis of 4-nitroacetanilide ($Y$) cleaves the amide bond, regenerating the free amino group and producing 4-nitroaniline ($Z = \\text{p-NO}_2\\text{-C}_6\\text{H}_4\\text{-NH}_2$).\nStep 4: Thus, $X$, $Y$, and $Z$ are acetanilide, 4-nitroacetanilide, and 4-nitroaniline."
+    },
+    {
+      "id": "chem_amines_c01_039",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the pH dependence of azo coupling reactions:\nStatement I: Coupling of benzenediazonium chloride with phenol is carried out in an alkaline medium at pH $9-10$, where phenol is converted into the more strongly nucleophilic phenoxide ion.\nStatement II: Coupling of benzenediazonium chloride with aniline is carried out in a weakly acidic medium at pH $4-5$ to maintain an optimum balance between free unprotonated aniline and active diazonium cations.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Statement I is correct but Statement II is incorrect",
+        "C) Statement I is incorrect but Statement II is correct",
+        "D) Both Statement I and Statement II are incorrect"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I. The benzenediazonium cation is a weak electrophile. Phenol itself is insufficiently activated to react rapidly at ambient temperatures. In alkaline medium (pH $9-10$), phenol loses a proton to form the phenoxide ion ($\\text{C}_6\\text{H}_5\\text{O}^-$), which possesses a dramatically higher electron density due to uninhibited $+R$ donation, facilitating smooth electrophilic attack at the para position to form p-hydroxyazobenzene. Statement I is correct.\nStep 2: Analyze Statement II. Coupling of benzenediazonium chloride with aniline is conducted in weakly acidic medium (pH $4-5$). Under these buffered conditions, sufficient unprotonated aniline remains to provide an electron-rich nucleophilic center, while preventing the formation of unreactive diazohydroxides or diazotates that form in alkaline solutions. Statement II is correct.\nStep 3: Therefore, both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_amines_c01_040",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Direct fluorination of benzene via electrophilic aromatic substitution fails, but fluorobenzene can be prepared in high yield by the Balz-Schiemann reaction.\nReason (R): Heating benzenediazonium fluoroborate causes controlled thermal decomposition to evolve nitrogen gas and boron trifluoride, leaving fluorobenzene.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is not the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Assertion (A). Direct fluorination of benzene with fluorine gas is violent and uncontrollable due to the high exothermicity of the reaction, causing extensive $\\text{C-C}$ bond cleavage. The Balz-Schiemann reaction provides a safe, highly selective synthetic route to fluorobenzene from aniline via benzenediazonium fluoroborate. Assertion (A) is true.\nStep 2: Evaluate Reason (R). In the Balz-Schiemann reaction, benzenediazonium chloride is treated with fluoroboric acid ($\\text{HBF}_4$) to precipitate benzenediazonium fluoroborate ($\\text{C}_6\\text{H}_5\\text{N}_2^+\\text{BF}_4^-$). On dry heating, it undergoes unimolecular cleavage:\n$$\\text{C}_6\\text{H}_5\\text{N}_2^+\\text{BF}_4^- \\xrightarrow{\\Delta} \\text{C}_6\\text{H}_5\\text{F} + \\text{BF}_3 + \\text{N}_2$$\nReason (R) is true.\nStep 3: Reason (R) provides the exact chemical mechanism by which fluorobenzene is produced, thereby explaining Assertion (A)."
+    },
+    {
+      "id": "chem_amines_c01_041",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the physical and chemical behaviour of amines:\n(i) In the carbylamine reaction, the reactive electrophilic intermediate is singlet dichlorocarbene ($:\\text{CCl}_2$).\n(ii) Primary amines have higher boiling points than tertiary amines of identical molecular mass because primary amines participate in intermolecular hydrogen bonding.\n(iii) In the gas phase, triethylamine is less basic than ethylamine because ethylamine has greater steric freedom.\n(iv) Benzenesulphonyl chloride is known as Hinsberg's reagent and is used to distinguish primary, secondary, and tertiary amines.\nWhich of the above statements are correct?",
+      "options": [
+        "A) (i), (iii), and (iv) only",
+        "B) (ii) and (iii) only",
+        "C) (i), (ii), and (iv) only",
+        "D) (i), (ii), (iii), and (iv)"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate statement (i). In the carbylamine test, base abstracts a proton from chloroform followed by loss of chloride to generate the neutral divalent carbon intermediate, dichlorocarbene ($:\\text{CCl}_2$), which acts as an electrophile attacking the primary amine nitrogen. Statement (i) is correct.\nStep 2: Evaluate statement (ii). Primary amines possess two $\\text{N-H}$ bonds and undergo intermolecular hydrogen bonding, whereas tertiary amines lack $\\text{N-H}$ bonds and cannot form intermolecular hydrogen bonds with each other. Consequently, primary amines have higher boiling points than their tertiary isomers. Statement (ii) is correct.\nStep 3: Evaluate statement (iii). In the gas phase, basicity is governed purely by the electron-donating inductive effect ($+I$). Triethylamine has three ethyl groups and is substantially more basic than ethylamine, which has only one. Statement (iii) is incorrect.\nStep 4: Evaluate statement (iv). Benzenesulphonyl chloride ($\\text{C}_6\\text{H}_5\\text{SO}_2\\text{Cl}$) is Hinsberg's reagent, reacting distinctly with $1^\\circ, 2^\\circ$, and $3^\\circ$ amines. Statement (iv) is correct.\nStep 5: Thus, statements (i), (ii), and (iv) are correct."
+    },
+    {
+      "id": "chem_amines_c01_042",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An optically pure sample of $(R)$-2-phenylpropanamide is subjected to the following synthetic sequence:\n$$(R)\\text{-2-phenylpropanamide} \\xrightarrow{\\text{Br}_2 + 4\\text{KOH},\\,\\Delta} A \\xrightarrow{\\text{CHCl}_3 + \\text{alcoholic KOH},\\,\\Delta} B \\xrightarrow{\\text{LiAlH}_4} C$$\nWhich of the following statements correctly specifies the absolute configuration of intermediate $A$ and the IUPAC structure of final product $C$?",
+      "options": [
+        "A) Intermediate $A$ has $(R)$-configuration; product $C$ is $(R)$-N-methyl-1-phenylethanamine",
+        "B) Intermediate $A$ has $(S)$-configuration; product $C$ is $(S)$-N-methyl-2-phenylethanamine",
+        "C) Intermediate $A$ is completely racemic; product $C$ is $(\\pm)$-N-ethylaniline",
+        "D) Intermediate $A$ has $(R)$-configuration; product $C$ is $(R)$-N,N-dimethylbenzenamine"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze the first transformation: Hoffmann bromamide degradation of $(R)$-2-phenylpropanamide. The migrating chiral center is the $(R)$-1-phenylethyl group. Because the 1,2-migration from the carbonyl carbon to nitrogen is an intramolecular, concerted process, it occurs with 100% retention of stereochemical configuration at the migrating carbon. Thus, intermediate $A$ is $(R)$-1-phenylethanamine.\nStep 2: Analyze the second transformation: Carbylamine reaction. Intermediate $A$ reacts with $\\text{CHCl}_3$ and alcoholic $\\text{KOH}$ to convert the primary amino group ($-\\text{NH}_2$) into an isocyanide group ($-\\text{NC}$), leaving the chiral benzylic center untouched. Intermediate $B$ is $(R)$-1-isocyanoethylbenzene.\nStep 3: Analyze the third transformation: Reduction of isocyanide with $\\text{LiAlH}_4$. Isocyanides are reduced selectively to N-methyl substituted secondary amines ($-\\text{NC} \\xrightarrow{\\text{LiAlH}_4} -\\text{NH-CH}_3$). Again, the chiral center is undisturbed. Thus, product $C$ is $(R)$-N-methyl-1-phenylethanamine."
+    },
+    {
+      "id": "chem_amines_c01_043",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the relative basic strength of methyl-substituted anilines (toluidines) and the ortho-effect:\nStatement I: In aqueous solution, 4-methylaniline (p-toluidine) is a stronger base than aniline, whereas 2-methylaniline (o-toluidine) is a weaker base than aniline.\nStatement II: The ortho-effect in substituted anilines causes ortho-substituted anilines to be weaker bases than aniline regardless of whether the substituent is electron-donating or electron-withdrawing, primarily due to steric hindrance to protonation and steric inhibition of solvation in the conjugate anilinium ion.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect",
+        "B) Both Statement I and Statement II are correct",
+        "C) Statement I is incorrect but Statement II is correct",
+        "D) Both Statement I and Statement II are incorrect"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I. In 4-methylaniline, the methyl group exerts $+I$ and hyperconjugative electron donation from the para position, increasing electron density on nitrogen and yielding a stronger base ($pK_b = 8.92$) than aniline ($pK_b = 9.38$). In contrast, 2-methylaniline has a $pK_b$ of $9.56$, making it a weaker base than aniline despite the electron-releasing nature of the methyl group. Statement I is correct.\nStep 2: Analyze Statement II. This anomaly is the ortho-effect. When a substituent is located ortho to the amino group, it creates steric hindrance around the nitrogen atom. This steric crowding destabilizes the conjugate anilinium ion ($-\\text{NH}_3^+$) by sterically hindering hydrogen bonding with water molecules (steric inhibition of solvation) and impeding the approach of hydronium ions. Consequently, nearly all ortho-substituted anilines are weaker bases than aniline. Statement II is correct.\nStep 3: Both statements provide a complete, rigorous thermodynamic explanation."
+    },
+    {
+      "id": "chem_amines_c01_044",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The symmetrical compound 1,3,5-tribromobenzene cannot be synthesized directly by electrophilic bromination of benzene. Instead, it is prepared from aniline via a multi-step sequence involving arenediazonium chemistry:\n$$\\text{Aniline} \\xrightarrow{\\text{Br}_2/\\text{H}_2\\text{O}} P \\xrightarrow{\\text{NaNO}_2 + \\text{HCl},\\,273-278\\text{ K}} Q \\xrightarrow{R} 1,3,5\\text{-tribromobenzene}$$\nWhich of the following correctly identifies intermediate $P$, diazonium salt $Q$, and reducing reagent $R$?",
+      "options": [
+        "A) $P = 2,4,6\\text{-tribromonitrobenzene}$; $Q = 2,4,6\\text{-tribromophenol}$; $R = \\text{NaBH}_4$",
+        "B) $P = 3,4,5\\text{-tribromoaniline}$; $Q = 3,4,5\\text{-tribromobenzenediazonium chloride}$; $R = \\text{LiAlH}_4$",
+        "C) $P = 2,4,6\\text{-tribromoaniline}$; $Q = 2,4,6\\text{-tribromobenzenediazonium chloride}$; $R = \\text{H}_3\\text{PO}_2\\text{ / H}_2\\text{O (or }\\text{CH}_3\\text{CH}_2\\text{OH)}$",
+        "D) $P = 2,4,6\\text{-tribromophenol}$; $Q = 2,4,6\\text{-tribromobenzenediazonium fluoroborate}$; $R = \\text{Cu powder / }\\Delta$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Bromination of aniline with bromine water yields 2,4,6-tribromoaniline as a white precipitate ($P = \\text{C}_6\\text{H}_2\\text{Br}_3\\text{NH}_2$) due to strong ortho/para activating power of the amino group.\nStep 2: Diazotization of $P$ with nitrous acid ($\\text{NaNO}_2 + \\text{HCl}$) at $273-278\\text{ K}$ converts the $-\\text{NH}_2$ group into a diazonium group, producing 2,4,6-tribromobenzenediazonium chloride ($Q = \\text{C}_6\\text{H}_2\\text{Br}_3\\text{N}_2^+\\text{Cl}^-$).\nStep 3: Reductive deamination of $Q$ using hypophosphorous acid ($\\text{H}_3\\text{PO}_2$) in water or ethanol ($\\text{CH}_3\\text{CH}_2\\text{OH}$) displaces the diazonium group with hydrogen, leaving the three bromine atoms at positions 1, 3, and 5 relative to one another, yielding 1,3,5-tribromobenzene ($R = \\text{H}_3\\text{PO}_2\\text{ / H}_2\\text{O}$).\nStep 4: This sequence exploits $-\\text{NH}_2$ as an orienting and activating temporary directing group, removed cleanly after directing bromines to the mutual meta positions."
+    },
+    {
+      "id": "chem_amines_c01_045",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Gabriel phthalimide synthesis is modified to prepare ethane-1,2-diamine (ethylenediamine) in the laboratory according to the following reaction protocol:\n$$\\text{Phthalimide} \\xrightarrow{\\text{ethanolic KOH}} P \\xrightarrow{\\text{1,2-dichloroethane (2 : 1 molar ratio)}} Q \\xrightarrow{2\\,\\text{NaOH (aq)},\\,\\Delta} S + \\text{Sodium phthalate}$$\nWhat is the structure of intermediate $Q$ and final diamine $S$?",
+      "options": [
+        "A) $Q$ is N-(2-chloroethyl)phthalimide; $S$ is 2-chloroethanamine",
+        "B) $Q$ is 1,2-diphthalimidoethene; $S$ is ethanimine",
+        "C) $Q$ is N-ethylphthalimide; $S$ is ethanamine",
+        "D) $Q$ is 1,2-bis(phthalimido)ethane; $S$ is ethane-1,2-diamine"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Phthalimide reacts with ethanolic $\\text{KOH}$ to form potassium phthalimide ($P$).\nStep 2: Two moles of potassium phthalimide undergo dual nucleophilic displacement ($S_N2$) with one mole of 1,2-dichloroethane ($\\text{Cl-CH}_2\\text{-CH}_2\\text{-Cl}$), displacing both chlorine atoms to yield 1,2-bis(phthalimido)ethane (ethylene diphthalimide, $Q$):\n$$2\\text{ Potassium phthalimide} + \\text{ClCH}_2\\text{CH}_2\\text{Cl} \\rightarrow \\text{PhthN-CH}_2\\text{CH}_2\\text{-NPhth} + 2\\text{KCl}$$\nStep 3: Subsequent alkaline hydrolysis of $Q$ with aqueous sodium hydroxide cleaves both imide rings, liberating ethane-1,2-diamine ($S = \\text{H}_2\\text{N-CH}_2\\text{CH}_2\\text{-NH}_2$) and two moles of sodium phthalate.\nStep 4: Thus, $Q$ is 1,2-bis(phthalimido)ethane and $S$ is ethane-1,2-diamine."
+    },
+    {
+      "id": "chem_amines_c01_046",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Direct nitration of aniline with concentrated $\\text{HNO}_3$ and concentrated $\\text{H}_2\\text{SO}_4$ gives an unusually high percentage of meta-nitroaniline ($47\\%$), but nitration of acetanilide followed by acid hydrolysis yields virtually zero meta-nitroaniline.\nReason (R): In strongly acidic media, aniline exists in equilibrium with anilinium ion ($-\\text{NH}_3^+$), which possesses a full positive formal charge that strongly deactivates the aromatic ring and directs electrophiles to the meta position; in contrast, acetanilide is not significantly protonated, and its $-\\text{NHCOCH}_3$ group directs electrophilic nitration predominantly to the para position.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). Direct nitration of aniline yields $51\\%$ para, $47\\%$ meta, and $2\\%$ ortho-nitroaniline. Conversely, nitration of acetanilide followed by hydrolysis yields almost exclusively 4-nitroaniline with negligible meta isomer. Assertion (A) is true.\nStep 2: Evaluate Reason (R). In concentrated sulphuric acid, aniline acts as a base and is largely protonated to anilinium ion ($\\text{C}_6\\text{H}_5\\text{NH}_3^+$). The positively charged $-\\text{NH}_3^+$ group cannot donate electrons by resonance and exerts a very strong electron-withdrawing inductive effect ($-I$), which strongly destabilizes ortho and para Wheland intermediates, directing nitronium ion attack to the meta position. In acetanilide, the carbonyl group delocalizes the nitrogen lone pair, drastically reducing basicity so that protonation does not occur extensively, and the bulky $-\\text{NHCOCH}_3$ group directs nitration cleanly to the para position. Reason (R) is true and correctly explains Assertion (A).\nStep 3: Both statements are true and Reason (R) provides the definitive mechanistic explanation."
+    },
+    {
+      "id": "chem_amines_c01_047",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A mixture containing ethanamine ($1^\\circ$), N-ethylethanamine ($2^\\circ$), and N,N-diethylethanamine ($3^\\circ$) is treated with benzenesulphonyl chloride (Hinsberg's reagent) in the presence of excess aqueous potassium hydroxide. The resulting reaction mixture is extracted with diethyl ether. Which of the following statements correctly describes the distribution and separation of the amine derivatives?",
+      "options": [
+        "A) Ethanamine derivative is in the ethereal layer, while N-ethylethanamine derivative is in the aqueous layer as a soluble salt",
+        "B) N-Ethylethanamine forms an insoluble solid in the aqueous alkaline layer, ethanamine derivative dissolves as a potassium salt in the aqueous layer, and unreacted N,N-diethylethanamine remains in the ethereal layer",
+        "C) All three amines react to form precipitates insoluble in both ether and aqueous alkali",
+        "D) N,N-Diethylethanamine dissolves in aqueous alkali, whereas ethanamine forms an insoluble gum"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Ethanamine ($1^\\circ$) reacts with $\\text{C}_6\\text{H}_5\\text{SO}_2\\text{Cl}$ to form N-ethylbenzenesulphonamide, $\\text{C}_6\\text{H}_5\\text{SO}_2\\text{N(H)C}_2\\text{H}_5$. The hydrogen attached to nitrogen is strongly acidic and is deprotonated by $\\text{KOH}$ to form a water-soluble potassium salt, $[\\text{C}_6\\text{H}_5\\text{SO}_2\\text{N(C}_2\\text{H}_5)]^-\\text{K}^+$, remaining completely in the aqueous layer.\nStep 2: N-Ethylethanamine ($2^\\circ$) reacts to form N,N-diethylbenzenesulphonamide, $\\text{C}_6\\text{H}_5\\text{SO}_2\\text{N(C}_2\\text{H}_5)_2$. Because it lacks an acidic hydrogen on nitrogen, it does not form a salt with $\\text{KOH}$ and separates out as an insoluble precipitate in the aqueous alkaline phase.\nStep 3: N,N-Diethylethanamine ($3^\\circ$) has no hydrogen on nitrogen and does not react at all. It dissolves preferentially in the non-polar diethyl ether layer and can be distilled off.\nStep 4: Acidification of the aqueous alkaline solution precipitates the primary amine derivative, enabling complete three-component separation."
+    },
+    {
+      "id": "chem_amines_c01_048",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following reaction sequences represents the most correct and chemically viable synthetic route for preparing 3-bromofluorobenzene from nitrobenzene?",
+      "options": [
+        "A) $\\text{Nitrobenzene} \\xrightarrow{\\text{Fe/HCl}} \\text{Aniline} \\xrightarrow{\\text{Br}_2/\\text{FeBr}_3} \\text{3-Bromoaniline} \\xrightarrow{\\text{NaNO}_2/\\text{HBF}_4} \\xrightarrow{\\Delta} \\text{3-Bromofluorobenzene}$",
+        "B) $\\text{Nitrobenzene} \\xrightarrow{\\text{NaNO}_2/\\text{HCl}} \\xrightarrow{\\text{HBF}_4,\\,\\Delta} \\text{Fluorobenzene} \\xrightarrow{\\text{Br}_2/\\text{FeBr}_3} \\text{3-Bromofluorobenzene}$",
+        "C) $\\text{Nitrobenzene} \\xrightarrow{\\text{Br}_2/\\text{FeBr}_3} \\text{3-Bromonitrobenzene} \\xrightarrow{\\text{Fe/HCl}} \\text{3-Bromoaniline} \\xrightarrow{\\text{NaNO}_2/\\text{HCl},\\,273\\text{ K}} \\xrightarrow{\\text{HBF}_4} \\xrightarrow{\\Delta} \\text{3-Bromofluorobenzene}$",
+        "D) $\\text{Nitrobenzene} \\xrightarrow{\\text{Fe/HCl}} \\text{Aniline} \\xrightarrow{\\text{NaNO}_2/\\text{HBF}_4} \\xrightarrow{\\Delta} \\text{Fluorobenzene} \\xrightarrow{\\text{Br}_2/\\text{FeBr}_3} \\text{3-Bromofluorobenzene}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In 3-bromofluorobenzene, the bromine and fluorine substituents are oriented meta to each other. Both $-\\text{Br}$ and $-\\text{F}$ are ortho/para-directing groups; neither can direct the other to the meta position.\nStep 2: In nitrobenzene, the $-\\text{NO}_2$ group is strongly meta-directing. Therefore, bromination must be performed first on nitrobenzene using $\\text{Br}_2/\\text{FeBr}_3$ to introduce bromine at the meta position, cleanly forming 3-bromonitrobenzene.\nStep 3: Reduction of 3-bromonitrobenzene with $\\text{Fe/HCl}$ reduces $-\\text{NO}_2$ to $-\\text{NH}_2$ without affecting the aromatic bromine, yielding 3-bromoaniline.\nStep 4: Diazotization of 3-bromoaniline with $\\text{NaNO}_2 + \\text{HCl}$ at $273\\text{ K}$ followed by addition of $\\text{HBF}_4$ precipitates 3-bromobenzenediazonium fluoroborate.\nStep 5: Controlled thermal decomposition (Balz-Schiemann reaction) of the dry diazonium fluoroborate affords 3-bromofluorobenzene in high yield."
+    },
+    {
+      "id": "chem_amines_c01_049",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "When benzenediazonium chloride is reacted with 2-naphthol ($\\beta$-naphthol) in dilute sodium hydroxide solution (pH $9-10$), an insoluble brilliant orange-red azo dye is formed. The electrophilic diazonium cation attacks exclusively at:",
+      "options": [
+        "A) Position 3 of 2-naphthol, due to minimal steric clash with the hydroxyl group",
+        "B) Position 6 of 2-naphthol, due to resonance donation into the distant ring",
+        "C) Position 8 of 2-naphthol, due to peri-position electrostatic attraction",
+        "D) Position 1 of 2-naphthol, because the Wheland intermediate retains the aromatic octet of the adjacent benzene ring"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: 2-Naphthol dissolves in dilute $\\text{NaOH}$ to form the 2-naphtholate anion, activating the positions adjacent to the oxygen atom for electrophilic aromatic attack.\nStep 2: Attack of the electrophilic benzenediazonium ion at position 1 (the $\\alpha$-position adjacent to $\\text{C-2}$) yields a arenium intermediate in which the remaining six-membered benzenoid ring preserves its fully aromatic $6\\pi$-electron sextet.\nStep 3: If attack were to occur at position 3, the carbocation intermediate would disrupt the aromaticity of both rings, requiring substantially higher activation energy. Consequently, azo coupling takes place exclusively at position 1, producing 1-(phenyldiazenyl)naphthalen-2-ol (1-phenylazo-2-naphthol), a prominent red-orange dye."
+    },
+    {
+      "id": "chem_amines_c01_050",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding heterocyclic nitrogen compounds and their basic strengths:\nStatement I: Piperidine (a saturated 6-membered cyclic secondary amine) is a dramatically stronger base in aqueous solution ($pK_b \\approx 2.8$) than pyridine ($pK_b \\approx 8.8$).\nStatement II: In piperidine, the nitrogen unshared electron pair occupies an $sp^3$ hybrid orbital with low s-character ($25\\%$), whereas in pyridine, the lone pair occupies an $sp^2$ hybrid orbital with higher s-character ($33.3\\%$) that holds electrons more tightly to the nucleus.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I. Piperidine is a fully saturated alicyclic secondary amine whose $pK_b$ is approximately $2.8$, comparable to open-chain secondary dialkylamines. In contrast, pyridine is an aromatic amine with a $pK_b$ of $8.8$, making it six orders of magnitude weaker as a base. Statement I is correct.\nStep 2: Analyze Statement II. The nitrogen atom in piperidine is $sp^3$-hybridized. Orbitals with $25\\%$ s-character are more elongated and have lower electronegativity, allowing the electron pair to be donated readily to protons. In pyridine, the nitrogen atom is $sp^2$-hybridized, and its lone pair resides in an $sp^2$ hybrid orbital with $33.3\\%$ s-character. Because s-orbitals are closer to the positively charged nucleus, greater s-character increases orbital electronegativity, holding the lone pair much more tightly and reducing basicity. Statement II is correct.\nStep 3: Both statements provide accurate hybridization and thermodynamic rationale."
+    },
+    {
+      "id": "chem_amines_c01_051",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the thermal elimination of quaternary ammonium hydroxides (Hofmann elimination):\nStatement I: Pyrolysis of sec-butyltrimethylammonium hydroxide ($[\\text{CH}_3\\text{CH}_2\\text{CH(CH}_3)\\overset{+}{\\text{N}}(\\text{CH}_3)_3]\\text{OH}^-$) yields but-1-ene as the predominant major alkene product rather than but-2-ene.\nStatement II: In Hofmann elimination, the bulky trialkylammonium leaving group imposes substantial steric hindrance, causing the base to abstract a $\\beta$-proton preferentially from the less substituted, sterically more accessible methyl carbon that possesses greater carbanion-like character.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect",
+        "B) Both Statement I and Statement II are correct",
+        "C) Statement I is incorrect but Statement II is correct",
+        "D) Both Statement I and Statement II are incorrect"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I. In Hofmann elimination, quaternary ammonium hydroxides undergo base-induced $E2$ elimination upon heating to yield the least substituted alkene (Hofmann rule). For sec-butyltrimethylammonium hydroxide, but-1-ene is formed in roughly $75-80\\%$ yield, while but-2-ene accounts for only $20-25\\%$. Statement I is correct.\nStep 2: Analyze Statement II. Because $-\\overset{+}{\\text{N}}(\\text{CH}_3)_3$ is an extremely bulky and strongly electron-withdrawing leaving group, the transition state has pronounced carbanion character (poor leaving group ability shifts the transition state towards carbanion rather than carbocation). Primary carbanions are more stable and less sterically congested than secondary carbanions. Hence, hydroxide abstracts a proton from the terminal methyl group ($1^\\circ\\;\\beta$-hydrogen) much faster than from the methylene group ($2^\\circ\\;\\beta$-hydrogen). Statement II is correct.\nStep 3: Both statements correctly explain the classic anti-Zaitsev regioselectivity of Hofmann elimination."
+    },
+    {
+      "id": "chem_amines_c01_052",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Starting material and target conversion) with List II (Appropriate sequential reaction reagents):\n\nList I:\nA. Benzoic acid to Aniline\nB. Aniline to Phenol\nC. Aniline to Benzonitrile\nD. Nitrobenzene to Acetanilide\n\nList II:\nI. (i) $\\text{NaNO}_2 + \\text{HCl},\\,273-278\\text{ K}$; (ii) $\\text{CuCN} / \\text{KCN}$\nII. (i) $\\text{Fe} + \\text{HCl}$; (ii) $(\\text{CH}_3\\text{CO})_2\\text{O} / \\text{pyridine}$\nIII. (i) $\\text{NH}_3,\\,\\Delta$; (ii) $\\text{Br}_2 + 4\\text{KOH},\\,\\Delta$\nIV. (i) $\\text{NaNO}_2 + \\text{HCl},\\,273-278\\text{ K}$; (ii) $\\text{H}_2\\text{O},\\,283\\text{ K}$\n\nChoose the correct match from the options given below:",
+      "options": [
+        "A) A-I, B-IV, C-III, D-II",
+        "B) A-III, B-I, C-IV, D-II",
+        "C) A-III, B-IV, C-I, D-II",
+        "D) A-IV, B-III, C-II, D-I"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Benzoic acid is converted to benzamide with $\\text{NH}_3/\\Delta$, which undergoes Hoffmann bromamide degradation with $\\text{Br}_2 + \\text{KOH}$ to give aniline (A matches III).\nStep 2: Aniline is diazotized with $\\text{NaNO}_2 + \\text{HCl}$ at $273-278\\text{ K}$ to benzenediazonium chloride, which upon warming in water to $283\\text{ K}$ hydrolyses to phenol (B matches IV).\nStep 3: Aniline is diazotized to benzenediazonium chloride and subjected to the Sandmeyer reaction with $\\text{CuCN}/\\text{KCN}$ to give benzonitrile (C matches I).\nStep 4: Nitrobenzene is reduced with $\\text{Fe}/\\text{HCl}$ to aniline, which is acetylated with acetic anhydride in pyridine to yield acetanilide (D matches II)."
+    },
+    {
+      "id": "chem_amines_c01_053",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In the industrial preparation of benzenediazonium chloride from aniline, a minimum of 3 equivalents of hydrochloric acid ($\\text{HCl}$) is routinely employed per mole of aniline. Which of the following statements correctly accounts for this specific stoichiometric requirement?",
+      "options": [
+        "A) 1 mole converts $\\text{NaNO}_2$ to $\\text{NaCl}$; 2 moles oxidize aniline to nitrosobenzene",
+        "B) 2 moles decompose nitrous acid into nitrogen dioxide; 1 mole acts as solvent",
+        "C) 3 moles of $\\text{HCl}$ act as a dehydrating agent to eliminate 3 moles of water formed during condensation",
+        "D) 1 mole converts $\\text{NaNO}_2$ to nitrous acid; 1 mole converts aniline into water-soluble anilinium chloride; 1 mole maintains strongly acidic medium to prevent coupling of diazonium salt with unreacted free aniline"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze the stoichiometry of acid in diazotization:\n$$\\text{NaNO}_2 + \\text{HCl} \\rightarrow \\text{HNO}_2 + \\text{NaCl} \\quad (1\\text{ equivalent consumed})$$\nStep 2: Aniline is an insoluble oil. A second equivalent of $\\text{HCl}$ converts it into water-soluble anilinium chloride:\n$$\\text{C}_6\\text{H}_5\\text{NH}_2 + \\text{HCl} \\rightarrow \\text{C}_6\\text{H}_5\\text{NH}_3^+\\text{Cl}^- \\quad (1\\text{ equivalent consumed})$$\nStep 3: The third equivalent maintains high hydronium ion concentration (pH $< 2$). If the solution becomes insufficiently acidic, benzenediazonium chloride immediately couples with unreacted free aniline to produce an undesirable diazoamino compound (diazoaminobenzene, $\\text{C}_6\\text{H}_5\\text{-N=N-NH-C}_6\\text{H}_5$). Excess acid suppresses this side reaction by keeping all unreacted aniline in protonated form.\nStep 4: Therefore, exactly 3 equivalents of acid serve these three distinct chemical functions."
+    },
+    {
+      "id": "chem_amines_c01_054",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "When N,N-dimethylaniline is treated with nitrous acid ($\\text{NaNO}_2 + \\text{HCl}$) at $273-278\\text{ K}$, it does not form a diazonium salt or an N-nitrosamine. Instead, it undergoes electrophilic aromatic substitution to produce an intense green compound. The name and structure of this product are:",
+      "options": [
+        "A) N-Nitroso-N-methylaniline",
+        "B) 2-Nitroso-N,N-dimethylaniline",
+        "C) 4-Nitroso-N,N-dimethylaniline",
+        "D) 4-Nitro-N,N-dimethylaniline"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Understand the reactivity of tertiary aromatic amines towards nitrous acid. Unlike primary amines (which form diazonium salts) and secondary amines (which undergo nitrosation at nitrogen to form yellow N-nitrosamines), tertiary aromatic amines have no replaceable hydrogen on nitrogen.\nStep 2: The dimethylamino group ($-\\text{N(CH}_3)_2$) is a strongly activating, ortho/para-directing group with high electron density. The weak nitrosonium electrophile ($^+\\text{NO}$) generated from $\\text{HNO}_2$ attacks the activated aromatic ring.\nStep 3: Due to the steric bulk of the $-\\text{N(CH}_3)_2$ group, electrophilic substitution occurs exclusively at the unhindered para position, yielding 4-nitroso-N,N-dimethylaniline (p-nitroso-N,N-dimethylaniline) as a dark green crystalline product:\n$$\\text{C}_6\\text{H}_5\\text{N(CH}_3)_2 + \\text{HNO}_2 \\xrightarrow{273-278\\text{ K}} \\text{p-O=N-C}_6\\text{H}_4\\text{-N(CH}_3)_2 + \\text{H}_2\\text{O}$$\nStep 4: Thus, the product is 4-nitroso-N,N-dimethylaniline."
+    },
+    {
+      "id": "chem_amines_c01_055",
+      "subject": "Chemistry",
+      "topic": "Amines",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An organic compound $A$ (molecular formula $\\text{C}_7\\text{H}_7\\text{NO}$) on heating with bromine and alcoholic $\\text{KOH}$ gives compound $B$ (molecular formula $\\text{C}_6\\text{H}_7\\text{N}$). Compound $B$ on diazotization at $0-5^\\circ\\text{C}$ followed by treatment with cuprous cyanide and potassium cyanide gives compound $C$ (molecular formula $\\text{C}_7\\text{H}_5\\text{N}$). Complete acidic hydrolysis of compound $C$ yields compound $D$ (molecular formula $\\text{C}_7\\text{H}_6\\text{O}_2$), which upon reaction with thionyl chloride followed by excess ammonia regenerates compound $A$. Compounds $A$, $B$, $C$, and $D$ are respectively:",
+      "options": [
+        "A) Phenylacetamide, Benzylamine, Benzonitrile, and Phenylacetic acid",
+        "B) N-Methylbenzamide, N-Methylaniline, Benzonitrile, and Benzoic acid",
+        "C) Benzamide, Aniline, Phenyl isocyanide, and Benzoic acid",
+        "D) Benzamide, Aniline, Benzonitrile, and Benzoic acid"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Compound $A$ has formula $\\text{C}_7\\text{H}_7\\text{NO}$ and reacts with $\\text{Br}_2 + \\text{KOH}$ to give $B$ ($\text{C}_6\\text{H}_7\\text{N}$). The loss of one carbon atom indicates a Hoffmann bromamide degradation of a primary acid amide. Hence, $A$ is benzamide ($\\text{C}_6\\text{H}_5\\text{CONH}_2$) and $B$ is aniline ($\\text{C}_6\\text{H}_5\\text{NH}_2$).\nStep 2: Aniline ($B$) undergoes diazotization to benzenediazonium chloride, which reacts with $\\text{CuCN}/\\text{KCN}$ in a Sandmeyer reaction to replace the diazonium group by $-\\text{CN}$, giving benzonitrile ($C = \\text{C}_6\\text{H}_5\\text{CN}$, formula $\\text{C}_7\\text{H}_5\\text{N}$).\nStep 3: Complete acidic hydrolysis of benzonitrile ($C$) converts the nitrile group into a carboxylic acid, producing benzoic acid ($D = \\text{C}_6\\text{H}_5\\text{COOH}$, formula $\\text{C}_7\\text{H}_6\\text{O}_2$).\nStep 4: Benzoic acid ($D$) reacts with $\\text{SOCl}_2$ to yield benzoyl chloride ($\\text{C}_6\\text{H}_5\\text{COCl}$), which upon treatment with excess ammonia undergoes nucleophilic acyl substitution to regenerate benzamide ($A$).\nStep 5: Therefore, compounds $A, B, C$, and $D$ are benzamide, aniline, benzonitrile, and benzoic acid."
+    }
+  ]
+}

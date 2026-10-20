@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Experimental Skills in Physics",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_experimental_skills_in_physics_c01_001",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the principle and least count of a standard Vernier caliper:\nStatement I: The least count of a Vernier caliper is defined as the difference in length between one main scale division (MSD) and one Vernier scale division (VSD), expressed as $\\text{LC} = 1\\text{ MSD} - 1\\text{ VSD}$.\nStatement II: If $1\\text{ cm}$ on the main scale is divided into $10$ equal parts, and $10$ divisions on the Vernier scale coincide with $9$ divisions on the main scale, the least count of the caliper is $0.01\\text{ cm}$ (or $0.1\\text{ mm}$).\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The vernier principle states that the smallest length measurable by the instrument is the difference between one main scale division and one vernier scale division: $\\text{LC} = 1\\text{ MSD} - 1\\text{ VSD}$. Hence Statement I is correct.\nStep 2: Here, $1\\text{ cm}$ has $10$ main scale divisions, so $1\\text{ MSD} = 1/10\\text{ cm} = 0.1\\text{ cm} = 1\\text{ mm}$. Since $10\\text{ VSD} = 9\\text{ MSD}$, we have $1\\text{ VSD} = 0.9\\text{ MSD} = 0.9\\text{ mm} = 0.09\\text{ cm}$.\nStep 3: Calculating least count gives $\\text{LC} = 1\\text{ MSD} - 1\\text{ VSD} = 0.1\\text{ cm} - 0.09\\text{ cm} = 0.01\\text{ cm} = 0.1\\text{ mm}$. Hence Statement II is also correct. Both statements are factually accurate."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_002",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): When the two measuring jaws of a Vernier caliper are brought into intimate contact and the zero mark of the Vernier scale lies to the right of the zero mark of the main scale, the instrument is said to possess a positive zero error, which must be subtracted from the observed reading.\nReason (R): A positive zero error indicates that the instrument registers a positive non-zero value even when the jaws are fully closed, thereby systematically overestimating the true length.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: When the movable jaw touches the fixed jaw and the vernier zero lies to the right of the main scale zero, the reading recorded is already positive ($+e$). Hence the zero error is defined as positive.\nStep 2: Because the caliper already records a positive length at zero separation, every measured value will be an overestimate by $+e$: $\\text{Observed reading} = \\text{True reading} + e$.\nStep 3: Therefore, to obtain the true reading, the positive zero error must be subtracted: $\\text{True reading} = \\text{Observed reading} - (+\\text{Zero Error})$. Thus, both Assertion and Reason are true, and Reason correctly explains the Assertion."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_003",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A student uses a micrometer screw gauge to measure the thickness of a glass slide. The linear spindle advances by $0.5\\text{ mm}$ along the pitch scale when the circular thimble is given $1$ complete rotation. The circular scale is divided into $50$ equal divisions. The least count (LC) of this screw gauge is:",
+      "options": [
+        "A) $0.02\\text{ mm}$",
+        "B) $0.001\\text{ mm}$",
+        "C) $0.01\\text{ mm}$",
+        "D) $0.05\\text{ mm}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The pitch of a screw gauge is defined as the linear distance traversed by the screw along the main scale in one full rotation of the circular cap: $\\text{Pitch} = 0.5\\text{ mm}$.\nStep 2: The least count is defined as the pitch divided by the total number of divisions on the circular scale: $\\text{LC} = \\frac{\\text{Pitch}}{N}$.\nStep 3: Substituting the values: $\\text{LC} = \\frac{0.5\\text{ mm}}{50} = 0.01\\text{ mm} = 10^{-3}\\text{ cm} = 10^{-5}\\text{ m}$. Other values arise from neglecting the $0.5\\text{ mm}$ pitch or dividing by incorrect factors."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_004",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding zero error in a micrometer screw gauge:\nStatement I: When the anvil and spindle are in contact, if the zero mark of the circular scale lies above the reference baseline of the main scale, the screw gauge is said to have a negative zero error.\nStatement II: To determine the correct diameter of a wire, a negative zero error must be subtracted algebraically from the observed reading, which effectively adds the magnitude of the zero error to the observed reading.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is incorrect but Statement II is correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: When the faces are brought together, if the zero mark on the circular scale has moved past the reference line (lying above it), the screw has turned too far, indicating a negative reading at zero contact. Thus Statement I is correct.\nStep 2: The standard formula for any instrument is: $\\text{True reading} = \\text{Observed reading} - (\\text{Zero Error})$.\nStep 3: When the zero error is negative, say $-e$, the corrected reading becomes $\\text{True reading} = \\text{Observed reading} - (-e) = \\text{Observed reading} + e$. Hence the magnitude is added, confirming Statement II is correct."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_005",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In an experiment with a simple pendulum to evaluate the local acceleration due to gravity $g$, a student plots effective length $L$ along the vertical axis (y-axis) against the square of the time period $T^2$ along the horizontal axis (x-axis). If the resulting straight line passing through the origin has a slope denoted by $S$, then $g$ is equal to:",
+      "options": [
+        "A) $4\\pi^2 S$",
+        "B) $\\frac{4\\pi^2}{S}$",
+        "C) $\\frac{S}{4\\pi^2}$",
+        "D) $\\frac{2\\pi}{S^2}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The time period of a simple pendulum for small angular amplitudes is $T = 2\\pi \\sqrt{\\frac{L}{g}}$.\nStep 2: Squaring both sides yields $T^2 = \\frac{4\\pi^2}{g} L$, which rearranges to $L = \\left(\\frac{g}{4\\pi^2}\\right) T^2$.\nStep 3: Comparing with the linear relation $y = S x$ where $y = L$ and $x = T^2$, the slope is $S = \\frac{g}{4\\pi^2}$. Therefore, $g = 4\\pi^2 S$. (Notice that if $T^2$ were on the vertical axis and $L$ on the horizontal axis, the slope would be $4\\pi^2/g$, which is the inverse relation)."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_006",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform metre scale of balanced symmetry is pivoted at its center of gravity at the $50\\text{ cm}$ mark on a sharp knife-edge. An unknown mass $m$ is suspended at the $20\\text{ cm}$ mark, and equilibrium is restored by suspending a known mass of $60\\text{ g}$ at the $70\\text{ cm}$ mark. By the principle of moments, the unknown mass $m$ is:",
+      "options": [
+        "A) $60\\text{ g}$",
+        "B) $40\\text{ g}$",
+        "C) $90\\text{ g}$",
+        "D) $30\\text{ g}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: According to the principle of moments for rotational equilibrium about a pivot: $\\sum \\tau = 0$, meaning the anticlockwise moment equals the clockwise moment: $m_1 g d_1 = m_2 g d_2$.\nStep 2: The knife-edge pivot is at the $50\\text{ cm}$ mark. The distance of the unknown mass $m$ is $d_1 = 50\\text{ cm} - 20\\text{ cm} = 30\\text{ cm}$. The distance of the known mass $60\\text{ g}$ is $d_2 = 70\\text{ cm} - 50\\text{ cm} = 20\\text{ cm}$.\nStep 3: Equating moments: $m \\times 30 = 60 \\times 20 \\implies 30m = 1200 \\implies m = 40\\text{ g}$. The other choices fail to subtract the pivot position from the mark coordinates."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_007",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the determination of the radius of curvature of a spherical watch glass using a spherometer:\nStatement I: The radius of curvature $R$ of the spherical surface is calculated using the formula $R = \\frac{l^2}{6h} + \\frac{h}{2}$, where $l$ is the mean distance between the outer three legs and $h$ is the sagitta (height of the central screw relative to the planar base).\nStatement II: The term $h/2$ in the formula arises from the geometric property of intersecting chords of a sphere and cannot be omitted when high experimental precision is demanded.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The three outer fixed legs form an equilateral triangle of side $l$, with circumradius $r = l/\\sqrt{3}$. For a sphere of radius $R$, by the theorem of intersecting chords, $h(2R - h) = r^2 = l^2/3$.\nStep 2: Solving for $R$ yields $2Rh - h^2 = \\frac{l^2}{3} \\implies 2Rh = \\frac{l^2}{3} + h^2 \\implies R = \\frac{l^2}{6h} + \\frac{h}{2}$. Thus Statement I is strictly correct.\nStep 3: The term $h/2$ comes directly from the sagitta geometry; neglecting it is only an approximation valid for extremely flat surfaces ($h \\ll l$). For accurate measurement it must be retained, confirming Statement II is correct."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_008",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In Searle's apparatus used for the determination of Young's modulus of elasticity of a metal wire, two identical wires—a reference (compensating) wire and an experimental wire—are suspended side by side from the very same rigid ceiling support.\nReason (R): Suspending two identical wires of the same material and length from a common support automatically compensates for room temperature fluctuations and any mechanical yielding or sagging of the support.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Searle's apparatus uses two wires hung from the same rigid frame. The reference wire carries a constant load and holds the spirit level frame, while the experimental wire carries the variable slotted weights.\nStep 2: If the ambient temperature changes during the experiment, both wires expand identically. If the ceiling or bracket flexes under load, both wires experience the same vertical displacement.\nStep 3: Because the spirit level and micrometer measure only the relative displacement between the experimental wire and the reference wire, all common-mode errors (thermal expansion, support yield) cancel out. Thus (A) and (R) are true and (R) is the correct explanation."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_009",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the determination of the surface tension of water by the capillary rise method:\nStatement I: The meniscus correction is incorporated into the capillary rise formula by replacing the observed height $h$ with an effective height $h' = h + \\frac{r}{3}$, where $r$ is the inner radius of the capillary tube.\nStatement II: The term $r/3$ accounts for the weight of the water column enclosed inside the curved concave hemispherical meniscus above the lowest point of the meniscus.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For a liquid of zero contact angle (like clean water in clean glass), the meniscus is hemispherical with radius equal to the bore radius $r$.\nStep 2: The volume of liquid in the meniscus above the horizontal plane touching the bottom of the meniscus is equal to the volume of a cylinder of radius $r$ and height $r$ minus the volume of the hemisphere: $V = \\pi r^2(r) - \\frac{2}{3}\\pi r^3 = \\frac{1}{3}\\pi r^3$.\nStep 3: Dividing this volume by the cross-sectional area $\\pi r^2$ gives an equivalent height $\\Delta h = \\frac{\\frac{1}{3}\\pi r^3}{\\pi r^2} = \\frac{r}{3}$. Thus the effective height is $h' = h + \\frac{r}{3}$, making both Statement I and Statement II correct."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_010",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In an experiment to determine the coefficient of viscosity $\\eta$ of a viscous liquid (glycerol) by Stokes' method, a small spherical lead ball of mass $m$, radius $r$, and density $\\rho$ falls vertically under gravity through the liquid of density $\\sigma$. When the ball attains its steady terminal velocity $v_t$, the exact dynamic equilibrium condition is:",
+      "options": [
+        "A) $mg + F_b = 6\\pi \\eta r v_t$",
+        "B) $mg = 6\\pi \\eta r v_t + F_b$, where $F_b$ is the buoyant force.",
+        "C) $6\\pi \\eta r v_t = mg$, with buoyant force being negligible.",
+        "D) $mg = F_b - 6\\pi \\eta r v_t$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: When a body moves vertically downward in a viscous medium, three forces act on it: downward gravitational force $W = mg = \\frac{4}{3}\\pi r^3 \\rho g$, upward buoyant force $F_b = \\frac{4}{3}\\pi r^3 \\sigma g$, and upward viscous retarding force given by Stokes' law $F_v = 6\\pi \\eta r v$.\nStep 2: At terminal velocity $v_t$, acceleration becomes zero ($\\sum F = 0$), so the downward force must be balanced by the sum of the upward forces: $mg = F_v + F_b = 6\\pi \\eta r v_t + F_b$.\nStep 3: Equating these gives $6\\pi \\eta r v_t = \\frac{4}{3}\\pi r^3(\\rho - \\sigma)g$, leading directly to $\\eta = \\frac{2}{9}\\frac{r^2(\\rho - \\sigma)g}{v_t}$. Other formulations violate vector equilibrium by setting opposing forces in the wrong direction."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_011",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a resonance tube experiment conducted with a vibrating tuning fork of fixed frequency $f$, the first resonance position occurs at an air column length $l_1$ and the second resonance position occurs at length $l_2$. If $e$ is the end correction, the speed of sound $v$ in air is expressed by:",
+      "options": [
+        "A) $v = 4f(l_2 - l_1)$",
+        "B) $v = f(l_2 - l_1)$",
+        "C) $v = 2f(l_2 - l_1)$",
+        "D) $v = \\frac{f(l_2 + l_1)}{2}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: A resonance tube closed at the water surface acts as a pipe closed at one end. For the first resonance: $l_1 + e = \\frac{\\lambda}{4}$.\nStep 2: For the second resonance: $l_2 + e = \\frac{3\\lambda}{4}$.\nStep 3: Subtracting the first equation from the second eliminates the end correction $e$: $l_2 - l_1 = \\frac{3\\lambda}{4} - \\frac{\\lambda}{4} = \\frac{\\lambda}{2} \\implies \\lambda = 2(l_2 - l_1)$. Since speed of sound is $v = f\\lambda$, we obtain $v = 2f(l_2 - l_1)$, completely independent of the end correction."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_012",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The water equivalent $W$ of a calorimeter of mass $m_c$ and specific heat capacity $s_c$ is given by $W = m_c \\left(\\frac{s_c}{s_w}\\right)$ and has the physical dimension of mass ($[M]$).\nReason (R): Water equivalent is defined as the mass of water that absorbs or evolves the same quantity of heat as the calorimeter itself when subjected to an identical temperature change.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: By definition, the heat absorbed by a calorimeter of mass $m_c$ and specific heat capacity $s_c$ for a temperature change $\\Delta T$ is $Q = m_c s_c \\Delta T$.\nStep 2: If an equivalent mass $W$ of water (specific heat $s_w$) absorbs the same heat $Q$ for the same $\\Delta T$, then $Q = W s_w \\Delta T$. Equating these gives $W s_w \\Delta T = m_c s_c \\Delta T \\implies W = m_c (s_c / s_w)$.\nStep 3: In SI units, $W$ is measured in kilograms (dimension $[M]$). In CGS units where $s_w = 1\\text{ cal}/(\\text{g}\\cdot^\\circ\\text{C})$, $W$ is numerically equal to $m_c s_c$ in grams. Thus, both (A) and (R) are true, and (R) correctly explains (A)."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_013",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the laboratory verification of Ohm's law:\nStatement I: An ideal voltmeter has infinite resistance and is always connected in parallel across the resistance wire, while an ideal ammeter has zero resistance and is connected in series with the wire.\nStatement II: In order to obtain steady readings, the plug key should be kept inserted in the circuit continuously throughout the entire laboratory session.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Both Statement I and Statement II are incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: A voltmeter must draw negligible current so that it does not alter the potential drop across the component, requiring infinite resistance in parallel. An ammeter must have zero resistance in series so that it adds no extra potential drop. Hence Statement I is correct.\nStep 2: Keeping the circuit key continuously closed allows continuous current flow, causing substantial Joule heating ($H = I^2 R t$).\nStep 3: Since metals have a positive temperature coefficient of resistance, heating increases the resistance of the wire, causing the $V-I$ graph to bend away from a straight line. Thus, the key must only be inserted momentarily when recording a reading, making Statement II incorrect."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_014",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In a metre bridge experiment to determine the resistance of a given metallic wire, the resistance in the resistance box is adjusted such that the null balance point is obtained near the center ($50\\text{ cm}$ mark) of the bridge wire.\nReason (R): The sensitivity of a Wheatstone bridge is maximum when all four arms have nearly equal resistances, which minimizes the percentage error in measuring the balance length.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The unknown resistance in a metre bridge is calculated using $X = R\\frac{100 - l}{l}$. Fractional error in $X$ is $\\frac{\\Delta X}{X} = \\frac{\\Delta l}{l} + \\frac{\\Delta l}{100 - l} = \\frac{100 \\Delta l}{l(100 - l)}$.\nStep 2: The denominator $l(100 - l)$ is maximized when $l = 50\\text{ cm}$, which minimizes the fractional error $\\Delta X/X$.\nStep 3: Furthermore, Wheatstone bridge theory proves that galvanometer deflection per unit change in unknown resistance is greatest when $P \\approx Q \\approx R \\approx S$, which corresponds to $l \\approx 50\\text{ cm}$. Thus, Assertion and Reason are true, and Reason is the correct explanation."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_015",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The figure of merit $k$ of a moving coil galvanometer is experimentally determined by connecting it in series with a cell of emf $E$ and a high resistance box $R$. If the internal resistance of the cell is negligible, the galvanometer resistance is $G$, and a steady angular deflection of $\\theta$ divisions is observed, the figure of merit $k$ is given by:",
+      "options": [
+        "A) $k = \\frac{E \\theta}{R + G}$",
+        "B) $k = \\frac{(R + G)\\theta}{E}$",
+        "C) $k = \\frac{E}{(R + G)\\theta}$",
+        "D) $k = \\frac{E}{(R - G)\\theta}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The figure of merit $k$ of a galvanometer is defined as the current required to produce a deflection of one unit scale division: $k = \\frac{I}{\\theta}$. Its SI unit is $\\text{A}/\\text{division}$.\nStep 2: In the series circuit with emf $E$, high series resistance $R$, and galvanometer resistance $G$, total resistance is $R + G$. By Ohm's law, the current flowing through the coil is $I = \\frac{E}{R + G}$.\nStep 3: Substituting $I$ into the definition yields $k = \\frac{E}{(R + G)\\theta}$. Any other algebraic arrangement contradicts the definition of current sensitivity and figure of merit."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_016",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding the electrical conversion and properties of a moving coil galvanometer:\n\nList I (Conversion / Instrument):\nP. Conversion of galvanometer into an ammeter\nQ. Conversion of galvanometer into a voltmeter\nR. Ideal resistance of an ammeter\nS. Ideal resistance of a voltmeter\n\nList II (Modification / Value):\n1. Low resistance (shunt) connected in parallel\n2. High resistance connected in series\n3. Strictly zero\n4. Infinitely large\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-2, Q-1, R-4, S-3",
+        "B) P-2, Q-1, R-3, S-4",
+        "C) P-1, Q-2, R-4, S-3",
+        "D) P-1, Q-2, R-3, S-4"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: To convert a sensitive galvanometer into an ammeter capable of measuring large currents without disrupting the branch, a very small resistance (shunt $S$) is connected in parallel with the coil (P matches 1).\nStep 2: To convert a galvanometer into a voltmeter, a very large resistance $R$ is connected in series so that negligible current is drawn from the test circuit (Q matches 2).\nStep 3: An ideal ammeter inserted in series should add zero resistance to the circuit so that the measured current remains unaffected (R matches 3). An ideal voltmeter must draw zero current, requiring infinite resistance (S matches 4). This matches P-1, Q-2, R-3, S-4."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_017",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In an optical bench experiment to determine the focal length of a convex lens using the $u-v$ method, a sharp, real, inverted image is obtained on the screen having exactly the same size as the illuminated object pin. If the object distance from the optical center is measured to be $u = -30\\text{ cm}$, the focal length $f$ and image distance $v$ are:",
+      "options": [
+        "A) $f = +15\\text{ cm}$ and $v = +30\\text{ cm}$",
+        "B) $f = +30\\text{ cm}$ and $v = +30\\text{ cm}$",
+        "C) $f = -15\\text{ cm}$ and $v = +30\\text{ cm}$",
+        "D) $f = +15\\text{ cm}$ and $v = -30\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For a convex lens, magnification for a real inverted image of equal size is $m = \\frac{v}{u} = -1$, which implies $v = -u$.\nStep 2: Since $u = -30\\text{ cm}$, the real image distance on the opposite side is $v = -(-30\\text{ cm}) = +30\\text{ cm}$. This corresponds to an object placed at $2f$, so $2f = 30\\text{ cm}$.\nStep 3: Using the thin lens formula $\\frac{1}{f} = \\frac{1}{v} - \\frac{1}{u} = \\frac{1}{30} - \\left(-\\frac{1}{30}\\right) = \\frac{2}{30} = \\frac{1}{15\\text{ cm}}$, we find $f = +15\\text{ cm}$. Convex lenses have positive focal lengths and form real images on the positive side ($v = +30\\text{ cm}$)."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_018",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the displacement method for finding the focal length of a convex lens:\nStatement I: For a fixed distance $D$ between an object pin and a screen, two clear real images can be focused on the screen by translating the convex lens between two positions if and only if $D > 4f$.\nStatement II: If the measured separation between the two lens positions is $d$, the focal length of the convex lens is given by $f = \\frac{D^2 - d^2}{4D}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In the displacement method, object and screen positions are fixed with separation $D$. The lens equation is $\\frac{1}{v} - \\frac{1}{-u} = \\frac{1}{f}$ with $u + v = D$.\nStep 2: Substituting $v = D - u$ leads to the quadratic equation $u^2 - Du + Df = 0$. For real and distinct roots of $u$, the discriminant must be positive: $D^2 - 4Df > 0 \\implies D > 4f$. Hence Statement I is correct.\nStep 3: The separation between the two lens positions is $d = u_2 - u_1 = \\sqrt{D^2 - 4Df}$. Squaring gives $d^2 = D^2 - 4Df \\implies 4Df = D^2 - d^2 \\implies f = \\frac{D^2 - d^2}{4D}$. Hence Statement II is correct."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_019",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): At the position of minimum deviation in an equilateral triangular glass prism, the refracted light ray propagating inside the prism travels parallel to the base of the prism.\nReason (R): At the minimum deviation position, the ray traverses the prism symmetrically such that the angle of incidence equals the angle of emergence ($i = e$) and the internal angles of refraction satisfy $r_1 = r_2 = \\frac{A}{2}$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The deviation produced by a prism is $\\delta = i + e - A$. Experimentally, the $i-\\delta$ curve shows a single unique minimum where deviation is $\\delta_m$.\nStep 2: Due to the principle of reversibility of light, the path is symmetric at minimum deviation, meaning $i = e$. From Snell's law at both interfaces, $r_1 = r_2$. Since $r_1 + r_2 = A$, we have $r_1 = r_2 = A/2$.\nStep 3: For an equilateral prism with apex angle $A = 60^\\circ$, base angles are both $60^\\circ$. Symmetrical refraction means the refracted ray inside makes equal angles with both refracting faces, making it strictly parallel to the third face (the base). Thus (A) and (R) are true, and (R) is the correct explanation."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_020",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "To determine the refractive index $\\mu$ of a transparent glass slab using a vertical travelling microscope, three readings are taken:\n$R_1$: Microscope focused on an ink dot on paper without the slab.\n$R_2$: Microscope focused on the same ink dot viewed through the slab placed over it.\n$R_3$: Microscope focused on lycopodium powder sprinkled on the top face of the slab.\nThe refractive index $\\mu$ of the glass slab material is correctly given by:",
+      "options": [
+        "A) $\\mu = \\frac{R_3 - R_1}{R_2 - R_1}$",
+        "B) $\\mu = \\frac{R_3 - R_2}{R_3 - R_1}$",
+        "C) $\\mu = \\frac{R_2 - R_1}{R_3 - R_1}$",
+        "D) $\\mu = \\frac{R_3 - R_1}{R_3 - R_2}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The real thickness (real depth) of the glass slab is the vertical distance between the top surface (where lycopodium powder sits) and the bottom surface (the paper): $\\text{Real depth} = R_3 - R_1$.\nStep 2: When viewed through the slab, the ink dot appears raised to a position $R_2$. The apparent depth of the ink dot from the top surface is $\\text{Apparent depth} = R_3 - R_2$.\nStep 3: By definition, refractive index is $\\mu = \\frac{\\text{Real depth}}{\\text{Apparent depth}} = \\frac{R_3 - R_1}{R_3 - R_2}$. The apparent upward shift is $\\Delta t = R_2 - R_1$, so choices with $\\Delta t$ in the denominator represent $t/\\Delta t$ rather than $\\mu$."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_021",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the choice of measuring instruments for plotting the characteristic curves of a semiconductor p-n junction diode:\nStatement I: In forward bias, current is measured using a milliammeter (mA) and potential drop is measured using a voltmeter of range $0 - 3\\text{ V}$.\nStatement II: In reverse bias, current is measured using a microammeter ($\\mu\\text{A}$) and voltage is adjusted using a higher range voltmeter (e.g., $0 - 30\\text{ V}$) because reverse saturation current is carried by minority charge carriers and is very small.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Under forward bias, majority carriers overcome the reduced junction barrier once the threshold voltage (knee voltage $\\approx 0.7\\text{ V}$ for Si, $\\approx 0.3\\text{ V}$ for Ge) is exceeded, resulting in large currents in the order of milliamperes (mA). Thus a $0 - 3\\text{ V}$ voltmeter and a milliammeter are appropriate. Statement I is correct.\nStep 2: Under reverse bias, the barrier height increases, blocking majority carriers. Only thermally generated minority carriers drift across the junction, giving rise to an extremely small reverse saturation current in the microampere range ($\\mu\\text{A}$) or nanoamperes for silicon. Statement II is correct.\nStep 3: Therefore, a sensitive microammeter and a power supply with a larger voltage range are necessary to observe reverse characteristics up to breakdown. Both statements are accurate."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_022",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding standard physics laboratory experiments and the fundamental quantity or property they are designed to determine:\n\nList I (Laboratory Apparatus):\nP. Spherometer\nQ. Resonance Tube\nR. Half-deflection circuit with high resistance\nS. Travelling microscope with capillary tube\n\nList II (Primary Physical Property Measured):\n1. Radius of curvature of a curved optical surface\n2. Speed of sound in ambient air\n3. Galvanometer coil resistance and figure of merit\n4. Internal bore radius and capillary rise for surface tension\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-4, S-3",
+        "B) P-2, Q-1, R-3, S-4",
+        "C) P-1, Q-2, R-3, S-4",
+        "D) P-3, Q-4, R-1, S-2"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: A spherometer is used to measure the sagitta $h$ of concave or convex spherical lenses/mirrors to compute their radius of curvature $R$ (P matches 1).\nStep 2: A resonance tube uses acoustic resonance columns excited by a tuning fork to determine the wavelength and speed of sound in air (Q matches 2).\nStep 3: The half-deflection method uses a high resistance box and a shunt resistance box to measure the galvanometer internal resistance $G$ and figure of merit $k$ (R matches 3).\nStep 4: A travelling microscope has horizontal and vertical vernier scales used to measure the height of capillary rise and the inner bore diameter of the capillary to compute surface tension (S matches 4). This matches P-1, Q-2, R-3, S-4."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_023",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A Vernier caliper has main scale divisions of $1.0\\text{ mm}$ each. A student notices that $20$ divisions on the Vernier scale coincide with $16$ divisions on the main scale. When the measuring jaws are in contact with no object between them, the zero of the Vernier scale lies to the right of the main scale zero, and the $6\\text{th}$ Vernier division coincides with a main scale mark. When a solid metallic cylinder is held between the jaws, the main scale reads $2.4\\text{ cm}$ and the $12\\text{th}$ Vernier division coincides with a main scale mark. The true diameter of the cylinder is:",
+      "options": [
+        "A) $2.52\\text{ cm}$",
+        "B) $2.64\\text{ cm}$",
+        "C) $2.76\\text{ cm}$",
+        "D) $2.40\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate the least count: $1\\text{ MSD} = 1.0\\text{ mm} = 0.1\\text{ cm}$. Given $20\\text{ VSD} = 16\\text{ MSD}$, so $1\\text{ VSD} = \\frac{16}{20}\\text{ MSD} = 0.8\\text{ mm}$. Least count $\\text{LC} = 1\\text{ MSD} - 1\\text{ VSD} = 1.0\\text{ mm} - 0.8\\text{ mm} = 0.2\\text{ mm} = 0.02\\text{ cm}$.\nStep 2: Calculate the zero error: The vernier zero is to the right of the main scale zero, so the error is positive: $\\text{Zero Error} = +6 \\times \\text{LC} = +6 \\times 0.02\\text{ cm} = +0.12\\text{ cm}$.\nStep 3: Calculate the observed reading: $\\text{Observed reading} = \\text{MSR} + (\\text{VSR} \\times \\text{LC}) = 2.4\\text{ cm} + (12 \\times 0.02\\text{ cm}) = 2.4\\text{ cm} + 0.24\\text{ cm} = 2.64\\text{ cm}$. Correcting for zero error: $\\text{True diameter} = \\text{Observed reading} - \\text{Zero Error} = 2.64\\text{ cm} - 0.12\\text{ cm} = 2.52\\text{ cm}$. Choices that add the positive zero error or fail to subtract it yield incorrect values."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_024",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding screw gauge measurements and systematic errors:\nStatement I: Backlash error in a screw gauge occurs due to looseness or wear of the screw threads in the nut, and it can be eliminated experimentally by rotating the screw always in one and the same direction during a single set of measurements.\nStatement II: A screw gauge has a pitch of $1.0\\text{ mm}$ and $100$ circular scale divisions. When the spindle touches the anvil, the $4\\text{th}$ circular division lies on the reference line while the circular zero is below the line. When measuring the diameter of a wire, the main scale reads $3\\text{ mm}$ and the circular scale reads $46$ divisions. The true diameter of the wire is $3.42\\text{ mm}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Backlash error is play between the screw and internal nut threads caused by wear. Reversing the direction of rotation causes the screw to turn without moving forward linearly. Turning it continuously in only one direction ensures the threads remain engaged on the same flank, avoiding backlash. Hence Statement I is correct.\nStep 2: Least count $\\text{LC} = \\frac{\\text{Pitch}}{N} = \\frac{1.0\\text{ mm}}{100} = 0.01\\text{ mm}$. When circular zero is below the reference line and the $4\\text{th}$ division coincides, the reading is $+4 \\times 0.01\\text{ mm} = +0.04\\text{ mm}$ (positive zero error).\nStep 3: The observed reading is $\\text{MSR} + (\\text{CSR} \\times \\text{LC}) = 3\\text{ mm} + (46 \\times 0.01\\text{ mm}) = 3.46\\text{ mm}$. The true diameter is $\\text{Observed reading} - (+\\text{Zero Error}) = 3.46\\text{ mm} - 0.04\\text{ mm} = 3.42\\text{ mm}$. Hence Statement II is correct."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_025",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a laboratory experiment to evaluate $g$ using a simple pendulum, the length of the pendulum is measured as $L = (100.0 \\pm 0.1)\\text{ cm}$ using a metre scale. The total time for $20$ oscillations is timed as $t = (40.0 \\pm 0.2)\\text{ s}$ using a digital stopwatch. The maximum percentage error in the calculated acceleration due to gravity $g$ is:",
+      "options": [
+        "A) $1.6\\%$",
+        "B) $0.6\\%$",
+        "C) $1.1\\%$",
+        "D) $0.3\\%$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The time period is $T = t/n$, where $n = 20$. Acceleration due to gravity is $g = 4\\pi^2 \\frac{L}{T^2} = 4\\pi^2 n^2 \\frac{L}{t^2}$.\nStep 2: In fractional error form: $\\frac{\\Delta g}{g} = \\frac{\\Delta L}{L} + 2\\frac{\\Delta t}{t}$. Note that the factor $2$ arises from the power of $t$ in the denominator.\nStep 3: Substituting the fractional values: $\\frac{\\Delta L}{L} = \\frac{0.1}{100.0} = 0.001 = 0.1\\%$. For time: $2\\frac{\\Delta t}{t} = 2 \\times \\frac{0.2}{40.0} = 2 \\times 0.005 = 0.010 = 1.0\\%$. Total percentage error is $0.1\\% + 1.0\\% = 1.1\\%$. Omitting the exponent factor 2 gives $0.6\\%$, which is a common calculation error."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_026",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform metre scale of unknown mass $M$ is balanced horizontally on a knife-edge placed at the $40\\text{ cm}$ mark when a known mass of $60\\text{ g}$ is suspended at the $10\\text{ cm}$ mark. Assuming the center of gravity of the uniform scale lies at the $50\\text{ cm}$ mark, the mass $M$ of the metre scale is:",
+      "options": [
+        "A) $240\\text{ g}$",
+        "B) $120\\text{ g}$",
+        "C) $90\\text{ g}$",
+        "D) $180\\text{ g}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The metre scale is uniform, so its entire weight $Mg$ acts vertically downward at its geometric midpoint, which is the center of gravity at the $50\\text{ cm}$ mark.\nStep 2: The pivot knife-edge is located at the $40\\text{ cm}$ mark. The suspended mass of $60\\text{ g}$ is located at $10\\text{ cm}$, providing an anticlockwise torque with lever arm $d_1 = 40\\text{ cm} - 10\\text{ cm} = 30\\text{ cm}$.\nStep 3: The weight of the scale acts at $50\\text{ cm}$, providing a clockwise torque with lever arm $d_2 = 50\\text{ cm} - 40\\text{ cm} = 10\\text{ cm}$. Equating the clockwise and anticlockwise torques: $60\\text{ g} \\times 30\\text{ cm} = M \\times 10\\text{ cm} \\implies 1800 = 10 M \\implies M = 180\\text{ g}$. Distractors arise from measuring distances from the zero end instead of the knife-edge."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_027",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In an experiment to determine the radius of curvature $R$ of a concave spherical mirror using a spherometer, the distance between any two outer legs is measured to be $l = 6.0\\text{ cm}$. When the spherometer is placed on a flat glass plate, the central screw is level with the three legs at zero reading. When placed on the concave mirror, the central screw is turned downwards through $3$ full turns of pitch $1.0\\text{ mm}$ each (with zero circular division coincident) to touch the mirror surface. The radius of curvature $R$ of the mirror is:",
+      "options": [
+        "A) $20.15\\text{ cm}$",
+        "B) $20.00\\text{ cm}$",
+        "C) $10.15\\text{ cm}$",
+        "D) $24.15\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The sagitta $h$ is the downward displacement of the central screw: $h = 3 \\times 1.0\\text{ mm} = 3.0\\text{ mm} = 0.3\\text{ cm}$. The mean separation between the legs is $l = 6.0\\text{ cm}$.\nStep 2: The exact spherometer formula for radius of curvature is $R = \\frac{l^2}{6h} + \\frac{h}{2}$.\nStep 3: Calculating each term: $\\frac{l^2}{6h} = \\frac{(6.0\\text{ cm})^2}{6 \\times 0.3\\text{ cm}} = \\frac{36.0}{1.8} = 20.0\\text{ cm}$. The second term is $\\frac{h}{2} = \\frac{0.3\\text{ cm}}{2} = 0.15\\text{ cm}$. Thus $R = 20.0\\text{ cm} + 0.15\\text{ cm} = 20.15\\text{ cm}$. Neglecting the $h/2$ term gives $20.00\\text{ cm}$, which is an incomplete approximation."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_028",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A clean glass capillary tube of internal bore radius $r = 0.30\\text{ mm} = 3.0 \\times 10^{-4}\\text{ m}$ is dipped vertically into a beaker of distilled water. The lower meniscus of water inside the capillary rises to a height of $h = 4.99\\text{ cm}$ above the flat water level outside. Taking density of water $\\rho = 1000\\text{ kg/m}^3$, acceleration due to gravity $g = 9.8\\text{ m/s}^2$, and contact angle $\\theta = 0^\\circ$, the surface tension $T$ of water calculated with the meniscus correction is:",
+      "options": [
+        "A) $7.20 \\times 10^{-2}\\text{ N/m}$",
+        "B) $7.35 \\times 10^{-2}\\text{ N/m}$",
+        "C) $3.68 \\times 10^{-2}\\text{ N/m}$",
+        "D) $1.47 \\times 10^{-1}\\text{ N/m}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The bore radius is $r = 0.30\\text{ mm} = 0.030\\text{ cm}$. Meniscus correction adds $\\frac{r}{3} = \\frac{0.030\\text{ cm}}{3} = 0.010\\text{ cm}$ to the observed height.\nStep 2: The effective height is $h' = h + \\frac{r}{3} = 4.99\\text{ cm} + 0.010\\text{ cm} = 5.00\\text{ cm} = 5.00 \\times 10^{-2}\\text{ m}$.\nStep 3: The surface tension formula is $T = \\frac{r h' \\rho g}{2 \\cos\\theta} = \\frac{(3.0 \\times 10^{-4}\\text{ m}) \\times (5.00 \\times 10^{-2}\\text{ m}) \\times (1000\\text{ kg/m}^3) \\times (9.8\\text{ m/s}^2)}{2 \\times 1} = \\frac{0.147}{2} = 0.0735\\text{ N/m} = 7.35 \\times 10^{-2}\\text{ N/m}$. Omitting the meniscus correction yields $7.335 \\times 10^{-2}\\text{ N/m}$."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_029",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two solid lead spheres $A$ and $B$ of the same material having radii $r_A = r$ and $r_B = 2r$ are allowed to fall freely from rest under gravity through a tall cylinder containing pure castor oil of viscosity $\\eta$. After covering a sufficient depth, both spheres attain their respective constant terminal velocities $v_A$ and $v_B$. The ratio of their terminal velocities $\\frac{v_A}{v_B}$ and the ratio of the viscous forces $\\frac{F_{vA}}{F_{vB}}$ acting on them at terminal velocity are:",
+      "options": [
+        "A) $\\frac{v_A}{v_B} = \\frac{1}{4}$ and $\\frac{F_{vA}}{F_{vB}} = \\frac{1}{4}$",
+        "B) $\\frac{v_A}{v_B} = \\frac{1}{2}$ and $\\frac{F_{vA}}{F_{vB}} = \\frac{1}{4}$",
+        "C) $\\frac{v_A}{v_B} = \\frac{1}{4}$ and $\\frac{F_{vA}}{F_{vB}} = \\frac{1}{8}$",
+        "D) $\\frac{v_A}{v_B} = \\frac{1}{8}$ and $\\frac{F_{vA}}{F_{vB}} = \\frac{1}{8}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Terminal velocity by Stokes' law is $v_t = \\frac{2}{9}\\frac{r^2(\\rho - \\sigma)g}{\\eta}$. Since material density $\\rho$, liquid density $\\sigma$, and viscosity $\\eta$ are identical, $v_t \\propto r^2$.\nStep 2: Therefore, the ratio of terminal speeds is $\\frac{v_A}{v_B} = \\left(\\frac{r_A}{r_B}\\right)^2 = \\left(\\frac{r}{2r}\\right)^2 = \\frac{1}{4}$.\nStep 3: The viscous retarding force at terminal velocity is $F_v = 6\\pi \\eta r v_t$. Substituting $v_t \\propto r^2$ gives $F_v \\propto r \\cdot r^2 = r^3$ (which also equals the net submerged weight $mg - F_b \\propto r^3$). Thus, $\\frac{F_{vA}}{F_{vB}} = \\left(\\frac{r_A}{r_B}\\right)^3 = \\left(\\frac{r}{2r}\\right)^3 = \\frac{1}{8}$. Distractors confuse the power dependence of velocity ($r^2$) with force ($r^3$)."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_030",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a resonance tube experiment conducted with a tuning fork of frequency $f = 500\\text{ Hz}$, the first two successive resonance lengths of the air column are observed at $l_1 = 16.0\\text{ cm}$ and $l_2 = 50.0\\text{ cm}$. The speed of sound in air $v$ and the end correction $e$ of the resonance tube are:",
+      "options": [
+        "A) $v = 330\\text{ m/s}$ and $e = 0.5\\text{ cm}$",
+        "B) $v = 340\\text{ m/s}$ and $e = 2.0\\text{ cm}$",
+        "C) $v = 320\\text{ m/s}$ and $e = 1.0\\text{ cm}$",
+        "D) $v = 340\\text{ m/s}$ and $e = 1.0\\text{ cm}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In a resonance tube, $l_1 + e = \\frac{\\lambda}{4}$ and $l_2 + e = \\frac{3\\lambda}{4}$. Subtracting these equations gives $l_2 - l_1 = \\frac{\\lambda}{2} \\implies \\lambda = 2(l_2 - l_1) = 2(50.0 - 16.0)\\text{ cm} = 68.0\\text{ cm} = 0.68\\text{ m}$.\nStep 2: Speed of sound is $v = f\\lambda = 500\\text{ s}^{-1} \\times 0.68\\text{ m} = 340\\text{ m/s}$.\nStep 3: Calculating end correction: multiplying the first equation by $3$ gives $3l_1 + 3e = \\frac{3\\lambda}{4} = l_2 + e \\implies 2e = l_2 - 3l_1 \\implies e = \\frac{l_2 - 3l_1}{2} = \\frac{50.0 - 3(16.0)}{2} = \\frac{50.0 - 48.0}{2} = 1.0\\text{ cm}$. Other choices calculate the speed or end correction incorrectly."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_031",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a calorimetry experiment using the method of mixtures, a metallic piece of mass $m_s = 100\\text{ g}$ is heated in a steam chamber to $100^\\circ\\text{C}$ and quickly dropped into a calorimeter of mass $80\\text{ g}$ (specific heat $s_c = 0.10\\text{ cal}/(\\text{g}\\cdot^\\circ\\text{C})$) containing $112\\text{ g}$ of water (specific heat $s_w = 1.0\\text{ cal}/(\\text{g}\\cdot^\\circ\\text{C})$) at $20^\\circ\\text{C}$. The final steady equilibrium temperature reached by the mixture is $25^\\circ\\text{C}$. Neglecting heat losses to the environment, the specific heat capacity of the metal is:",
+      "options": [
+        "A) $0.080\\text{ cal}/(\\text{g}\\cdot^\\circ\\text{C})$",
+        "B) $0.100\\text{ cal}/(\\text{g}\\cdot^\\circ\\text{C})$",
+        "C) $0.050\\text{ cal}/(\\text{g}\\cdot^\\circ\\text{C})$",
+        "D) $0.125\\text{ cal}/(\\text{g}\\cdot^\\circ\\text{C})$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate the water equivalent $W$ of the calorimeter: $W = m_c \\left(\\frac{s_c}{s_w}\\right) = 80 \\times \\frac{0.10}{1.0} = 8.0\\text{ g}$.\nStep 2: Total equivalent water mass heated is $M_{\\text{eq}} = m_w + W = 112\\text{ g} + 8.0\\text{ g} = 120\\text{ g}$. Heat gained by water and calorimeter: $Q_{\\text{gained}} = M_{\\text{eq}} s_w \\Delta T = 120\\text{ g} \\times 1.0\\text{ cal}/(\\text{g}\\cdot^\\circ\\text{C}) \\times (25 - 20)^\\circ\\text{C} = 600\\text{ cal}$.\nStep 3: Heat lost by the metal: $Q_{\\text{lost}} = m_s s_s (T_s - T_f) = 100\\text{ g} \\times s_s \\times (100 - 25)^\\circ\\text{C} = 7500 s_s$. By conservation of energy, $7500 s_s = 600 \\implies s_s = \\frac{600}{7500} = 0.080\\text{ cal}/(\\text{g}\\cdot^\\circ\\text{C})$. Neglecting the calorimeter's water equivalent gives $s_s = 0.0747$, which leads to an erroneous value."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_032",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In a metre bridge experiment, if end resistances corresponding to equivalent lengths $\\alpha$ and $\\beta$ exist at the $0\\text{ cm}$ and $100\\text{ cm}$ ends respectively, the true balance relation for left resistance $R$ and right resistance $X$ becomes $\\frac{R}{X} = \\frac{l + \\alpha}{100 - l + \\beta}$.\nReason (R): End errors arise from the finite resistance of the thick copper connector strips and contact resistances between the wire ends and the terminal binding screws.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The scale of the metre bridge starts from $0\\text{ cm}$ and ends at $100\\text{ cm}$, but the actual resistance in each arm includes the resistance of the copper binding strips and contacts at both ends.\nStep 2: If the left end has an effective extra resistance equivalent to length $\\alpha$ of bridge wire, the actual resistance of the left segment is proportional to $(l + \\alpha)$. Similarly, the right end resistance corresponds to length $\\beta$, making the right segment proportional to $(100 - l + \\beta)$.\nStep 3: Applying Wheatstone's principle: $\\frac{R}{X} = \\frac{l + \\alpha}{100 - l + \\beta}$. End resistances originate entirely from contact imperfections and strip resistance. Thus, both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_033",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A standard resistance $R = 3.00\\ \\Omega$ is introduced in the left gap of a metre bridge, and an unknown resistance wire of length $L = 100.0\\text{ cm}$ is connected across the right gap. The null balance point is found at $l = 60.0\\text{ cm}$ from the left zero mark. The diameter of the wire is measured with a micrometer screw gauge to be $d = 0.40\\text{ mm} = 4.0 \\times 10^{-4}\\text{ m}$. The resistance $X$ of the wire and its specific resistance (resistivity $\\rho$) are:",
+      "options": [
+        "A) $X = 2.00\\ \\Omega$ and $\\rho = 1.26 \\times 10^{-7}\\ \\Omega\\cdot\\text{m}$",
+        "B) $X = 4.50\\ \\Omega$ and $\\rho = 5.65 \\times 10^{-7}\\ \\Omega\\cdot\\text{m}$",
+        "C) $X = 2.00\\ \\Omega$ and $\\rho = 2.51 \\times 10^{-7}\\ \\Omega\\cdot\\text{m}$",
+        "D) $X = 1.50\\ \\Omega$ and $\\rho = 1.88 \\times 10^{-7}\\ \\Omega\\cdot\\text{m}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: From the metre bridge balance condition: $\\frac{R}{X} = \\frac{l}{100 - l} \\implies \\frac{3.00\\ \\Omega}{X} = \\frac{60.0}{40.0} = 1.50 \\implies X = \\frac{3.00}{1.50} = 2.00\\ \\Omega$.\nStep 2: The cross-sectional area of the wire of diameter $d = 4.0 \\times 10^{-4}\\text{ m}$ is $A = \\frac{\\pi d^2}{4} = \\frac{\\pi (4.0 \\times 10^{-4})^2}{4} = 4\\pi \\times 10^{-8}\\text{ m}^2 \\approx 1.257 \\times 10^{-7}\\text{ m}^2$.\nStep 3: Specific resistance is $\\rho = \\frac{X A}{L} = \\frac{2.00\\ \\Omega \\times 4\\pi \\times 10^{-8}\\text{ m}^2}{1.00\\text{ m}} = 8\\pi \\times 10^{-8}\\ \\Omega\\cdot\\text{m} \\approx 2.51 \\times 10^{-7}\\ \\Omega\\cdot\\text{m}$. Swapping arms in the bridge formula leads to $X = 4.50\\ \\Omega$."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_034",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a half-deflection method to determine the resistance $G$ of a moving coil galvanometer, a high resistance $R = 9950\\ \\Omega$ is connected in series with a cell of negligible internal resistance, producing a full deflection of $\\theta = 30$ divisions. When a shunt resistance $S = 50\\ \\Omega$ is connected across the galvanometer, the deflection reduces to $\\theta/2 = 15$ divisions. Using the exact formula $G = \\frac{R S}{R - S}$, the resistance of the galvanometer is:",
+      "options": [
+        "A) $55.00\\ \\Omega$",
+        "B) $50.00\\ \\Omega$",
+        "C) $49.75\\ \\Omega$",
+        "D) $50.25\\ \\Omega$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In the half-deflection circuit, before shunting, current through the galvanometer is $I_1 = \\frac{E}{R + G} = k\\theta$.\nStep 2: When shunt $S$ is connected, the parallel combination resistance is $\\frac{G S}{G + S}$. The total circuit current is $I_2 = \\frac{E}{R + \\frac{G S}{G + S}}$, and current through galvanometer is $I_g = I_2 \\left(\\frac{S}{G + S}\\right) = \\frac{E S}{R(G + S) + G S} = k \\frac{\\theta}{2}$.\nStep 3: Dividing the first relation by the second: $\\frac{2}{1} = \\frac{R(G + S) + G S}{S(R + G)} = \\frac{R G + R S + G S}{R S + G S}$. Solving for $G$ gives the exact expression $G = \\frac{R S}{R - S} = \\frac{9950 \\times 50}{9950 - 50} = \\frac{497500}{9900} = 50.25\\ \\Omega$. Approximating $R \\gg S$ yields $50.00\\ \\Omega$."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_035",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A moving coil galvanometer has a coil resistance of $G = 25\\ \\Omega$ and shows full-scale deflection for a current of $I_g = 2.0\\text{ mA}$. The values of resistance required to convert it into (i) an ammeter of range $0 - 2.0\\text{ A}$ and (ii) a voltmeter of range $0 - 10.0\\text{ V}$ are, respectively:",
+      "options": [
+        "A) Shunt resistance $S \\approx 0.025\\ \\Omega$ in parallel; series resistance $R_s = 4975\\ \\Omega$ in series",
+        "B) Shunt resistance $S \\approx 0.050\\ \\Omega$ in series; series resistance $R_s = 5000\\ \\Omega$ in parallel",
+        "C) Shunt resistance $S \\approx 0.025\\ \\Omega$ in series; series resistance $R_s = 4975\\ \\Omega$ in parallel",
+        "D) Shunt resistance $S \\approx 0.050\\ \\Omega$ in parallel; series resistance $R_s = 5000\\ \\Omega$ in series"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For the ammeter conversion, a shunt resistor $S$ is placed in parallel so that $I_g G = (I - I_g)S$. Here $I_g = 2.0\\text{ mA} = 2.0 \\times 10^{-3}\\text{ A}$, $I = 2.0\\text{ A}$, and $G = 25\\ \\Omega$.\nStep 2: $S = \\frac{I_g G}{I - I_g} = \\frac{(2.0 \\times 10^{-3})(25)}{2.0 - 0.002} = \\frac{0.050}{1.998} \\approx 0.02502\\ \\Omega \\approx 0.025\\ \\Omega$ in parallel.\nStep 3: For the voltmeter conversion, a multiplier resistor $R_s$ is connected in series: $V = I_g(G + R_s) \\implies R_s = \\frac{V}{I_g} - G = \\frac{10.0\\text{ V}}{2.0 \\times 10^{-3}\\text{ A}} - 25\\ \\Omega = 5000\\ \\Omega - 25\\ \\Omega = 4975\\ \\Omega$ in series. Connecting shunt in series or multiplier in parallel contradicts circuit principles."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_036",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the graphical analysis of the $u-v$ method for determining the focal length $f$ of a convex lens using Cartesian sign conventions:\nStatement I: A plot of $\\frac{1}{v}$ on the vertical y-axis against $\\frac{1}{u}$ on the horizontal x-axis yields a straight line with a slope of $+1$.\nStatement II: On this $\\frac{1}{v}$ versus $\\frac{1}{u}$ graph, the vertical y-intercept is equal to $+\\frac{1}{f}$, while the horizontal x-intercept is equal to $-\\frac{1}{f}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The thin lens formula according to Cartesian sign conventions is $\\frac{1}{v} - \\frac{1}{u} = \\frac{1}{f}$.\nStep 2: Rearranging in slope-intercept form $y = m x + c$ with $y = \\frac{1}{v}$ and $x = \\frac{1}{u}$: $\\frac{1}{v} = (+1)\\left(\\frac{1}{u}\\right) + \\frac{1}{f}$. The slope $m = +1$. Hence Statement I is correct.\nStep 3: The y-intercept occurs where $x = 0 \\implies \\frac{1}{v} = +\\frac{1}{f}$. The x-intercept occurs where $y = 0 \\implies 0 = \\frac{1}{u} + \\frac{1}{f} \\implies \\frac{1}{u} = -\\frac{1}{f}$. Thus Statement II is also correct. Both statements are accurate."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_037",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a lens displacement experiment on an optical bench, the fixed separation between the illuminated object and the screen is $D = 90\\text{ cm}$. A convex lens of focal length $f = 20\\text{ cm}$ forms sharp real images on the screen for two distinct positions. If the heights of the two images are measured as $I_1 = 8.0\\text{ cm}$ and $I_2 = 2.0\\text{ cm}$, the actual height $O$ of the object and the displacement distance $d$ between the two lens positions are:",
+      "options": [
+        "A) $O = 4.0\\text{ cm}$ and $d = 45\\text{ cm}$",
+        "B) $O = 5.0\\text{ cm}$ and $d = 30\\text{ cm}$",
+        "C) $O = 4.0\\text{ cm}$ and $d = 30\\text{ cm}$",
+        "D) $O = 16.0\\text{ cm}$ and $d = 20\\text{ cm}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In the displacement method, the magnifications for the two conjugate positions are $m_1 = \\frac{I_1}{O} = \\frac{v_1}{u_1}$ and $m_2 = \\frac{I_2}{O} = \\frac{v_2}{u_2}$. By conjugate foci property, $v_1 = u_2$ and $u_1 = v_2$, so $m_1 \\times m_2 = 1$.\nStep 2: Therefore, $\\left(\\frac{I_1}{O}\\right)\\left(\\frac{I_2}{O}\\right) = 1 \\implies O^2 = I_1 I_2 \\implies O = \\sqrt{I_1 I_2} = \\sqrt{8.0 \\times 2.0} = \\sqrt{16.0} = 4.0\\text{ cm}$.\nStep 3: The separation $d$ between the two positions satisfies $f = \\frac{D^2 - d^2}{4D} \\implies 20 = \\frac{90^2 - d^2}{4 \\times 90} \\implies 20 \\times 360 = 8100 - d^2 \\implies 7200 = 8100 - d^2 \\implies d^2 = 900 \\implies d = 30\\text{ cm}$. Choices failing to take the geometric mean calculate arithmetic mean $5.0\\text{ cm}$."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_038",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A beam of monochromatic light is incident on an equilateral triangular glass prism of refracting angle $A = 60^\\circ$. By plotting the $i-\\delta$ curve, the angle of minimum deviation is determined to be $\\delta_m = 30^\\circ$. Taking the speed of light in vacuum as $c = 3.0 \\times 10^8\\text{ m/s}$, the refractive index $\\mu$ of the prism material and the speed of light $v$ inside the prism are:",
+      "options": [
+        "A) $\\mu = 1.333$ and $v = 2.25 \\times 10^8\\text{ m/s}$",
+        "B) $\\mu = \\sqrt{3} \\approx 1.732$ and $v = 1.73 \\times 10^8\\text{ m/s}$",
+        "C) $\\mu = 1.500$ and $v = 2.00 \\times 10^8\\text{ m/s}$",
+        "D) $\\mu = \\sqrt{2} \\approx 1.414$ and $v = 2.12 \\times 10^8\\text{ m/s}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The prism formula for refractive index at minimum deviation is $\\mu = \\frac{\\sin\\left(\\frac{A + \\delta_m}{2}\\right)}{\\sin\\left(\\frac{A}{2}\\right)}$.\nStep 2: Here $A = 60^\\circ$ and $\\delta_m = 30^\\circ$. Substituting gives: $\\mu = \\frac{\\sin\\left(\\frac{60^\\circ + 30^\\circ}{2}\\right)}{\\sin(30^\\circ)} = \\frac{\\sin(45^\\circ)}{\\sin(30^\\circ)} = \\frac{1/\\sqrt{2}}{1/2} = \\frac{2}{\\sqrt{2}} = \\sqrt{2} \\approx 1.414$.\nStep 3: The speed of light in the prism is $v = \\frac{c}{\\mu} = \\frac{3.0 \\times 10^8\\text{ m/s}}{\\sqrt{2}} \\approx 2.12 \\times 10^8\\text{ m/s}$. Assuming standard crown glass index $\\mu = 1.50$ ignores the experimentally measured $\\delta_m$."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_039",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a laboratory experiment to measure the refractive index of a rectangular glass slab using a vertical travelling microscope, the following scale readings are recorded:\n- Reading on an ink cross on paper: $R_1 = 1.500\\text{ cm}$\n- Reading on the ink cross viewed through the slab: $R_2 = 2.500\\text{ cm}$\n- Reading on lycopodium powder on top surface of slab: $R_3 = 4.500\\text{ cm}$\nThe actual thickness $t$, the apparent upward shift $\\Delta t$, and the refractive index $\\mu$ of the glass slab are:",
+      "options": [
+        "A) $t = 3.000\\text{ cm},\\ \\Delta t = 1.000\\text{ cm},\\ \\mu = 1.50$",
+        "B) $t = 3.000\\text{ cm},\\ \\Delta t = 2.000\\text{ cm},\\ \\mu = 1.33$",
+        "C) $t = 2.000\\text{ cm},\\ \\Delta t = 1.000\\text{ cm},\\ \\mu = 1.50$",
+        "D) $t = 4.500\\text{ cm},\\ \\Delta t = 1.000\\text{ cm},\\ \\mu = 1.80$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The real thickness of the slab is the distance between the top surface (powder) and the bottom surface (paper): $t = R_3 - R_1 = 4.500\\text{ cm} - 1.500\\text{ cm} = 3.000\\text{ cm}$.\nStep 2: The apparent upward shift of the ink mark is the difference between the microscope focus with the slab and without the slab: $\\Delta t = R_2 - R_1 = 2.500\\text{ cm} - 1.500\\text{ cm} = 1.000\\text{ cm}$.\nStep 3: The apparent depth of the mark from the top surface is $R_3 - R_2 = 4.500\\text{ cm} - 2.500\\text{ cm} = 2.000\\text{ cm}$. By definition, refractive index is $\\mu = \\frac{\\text{Real depth}}{\\text{Apparent depth}} = \\frac{R_3 - R_1}{R_3 - R_2} = \\frac{3.000\\text{ cm}}{2.000\\text{ cm}} = 1.50$. Alternatively, $\\Delta t = t(1 - 1/\\mu) \\implies 1.0 = 3.0(1 - 1/\\mu) \\implies 1/\\mu = 2/3 \\implies \\mu = 1.50$."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_040",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "While plotting the forward characteristic curve of a silicon p-n junction diode in the laboratory, a student observes that when the forward voltage is increased from $0.70\\text{ V}$ to $0.75\\text{ V}$, the forward current increases from $10.0\\text{ mA}$ to $35.0\\text{ mA}$. The dynamic forward resistance $r_d$ of the diode in this operational segment is:",
+      "options": [
+        "A) $0.5\\ \\Omega$",
+        "B) $2.0\\ \\Omega$",
+        "C) $5.0\\ \\Omega$",
+        "D) $20.0\\ \\Omega$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The dynamic (ac) resistance of a semiconductor diode is defined as the reciprocal of the slope of the $V-I$ characteristic curve: $r_d = \\frac{\\Delta V_f}{\\Delta I_f}$.\nStep 2: The change in forward voltage is $\\Delta V_f = 0.75\\text{ V} - 0.70\\text{ V} = 0.05\\text{ V} = 50\\text{ mV}$. The change in forward current is $\\Delta I_f = 35.0\\text{ mA} - 10.0\\text{ mA} = 25.0\\text{ mA} = 25.0 \\times 10^{-3}\\text{ A}$.\nStep 3: Computing the dynamic resistance: $r_d = \\frac{0.05\\text{ V}}{25.0 \\times 10^{-3}\\text{ A}} = \\frac{50}{25}\\ \\Omega = 2.0\\ \\Omega$. Failing to convert milliamperes to amperes or taking total values ($V/I$) instead of increments ($\\Delta V / \\Delta I$) leads to erroneous resistances."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_041",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding key experimental precautions and sources of systematic error in standard physics practicals:\n\nList I (Experiment):\nP. Simple pendulum ($g$ evaluation)\nQ. Resonance tube ($v$ evaluation)\nR. Metre bridge ($X$ evaluation)\nS. Searle's apparatus ($Y$ evaluation)\n\nList II (Primary Precaution / Error Mitigation):\n1. Maintain small angular amplitude ($< 4^\\circ$) so that $\\sin\\theta \\approx \\theta$\n2. Eliminate acoustic end correction by taking the difference between two resonant lengths ($l_2 - l_1$)\n3. Minimize contact resistances and end errors by interchanging known and unknown resistors in the gaps\n4. Use a matching reference wire from the same support to cancel thermal expansion and support sag\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-4, S-3",
+        "B) P-2, Q-1, R-3, S-4",
+        "C) P-1, Q-2, R-3, S-4",
+        "D) P-3, Q-4, R-1, S-2"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The simple pendulum formula $T = 2\\pi\\sqrt{L/g}$ assumes simple harmonic motion, which requires $\\sin\\theta \\approx \\theta$; hence angular amplitude must remain small ($< 4^\\circ$, P matches 1).\nStep 2: The antinode formed outside the tube opening creates an unknown end correction $e$; subtracting two resonance lengths eliminates $e$ via $l_2 - l_1 = \\lambda/2$ (Q matches 2).\nStep 3: End errors caused by copper strips in a metre bridge are neutralized by interchanging the resistances in the left and right gaps and taking the mean (R matches 3).\nStep 4: Searle's apparatus uses a reference wire to eliminate common-mode thermal elongation and frame yielding under load (S matches 4). This matches P-1, Q-2, R-3, S-4."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_042",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A specialized laboratory Vernier caliper has $1\\text{ cm}$ on its main scale divided into $20$ equal divisions. On the Vernier scale, $25$ divisions coincide with $24$ divisions of the main scale. When measuring the internal diameter of a small calorimeter using the upper internal jaws, the main scale reads $3.25\\text{ cm}$, and the $15\\text{th}$ Vernier division coincides with a main scale mark. If this caliper has a negative zero error of $-0.006\\text{ cm}$, the true internal diameter of the calorimeter is:",
+      "options": [
+        "A) $3.286\\text{ cm}$",
+        "B) $3.274\\text{ cm}$",
+        "C) $3.310\\text{ cm}$",
+        "D) $3.280\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Determine the value of one main scale division: $1\\text{ MSD} = \\frac{1\\text{ cm}}{20} = 0.05\\text{ cm} = 0.5\\text{ mm}$. Since $25\\text{ VSD} = 24\\text{ MSD}$, $1\\text{ VSD} = \\frac{24}{25}\\text{ MSD}$. Least count is $\\text{LC} = 1\\text{ MSD} - 1\\text{ VSD} = \\left(1 - \\frac{24}{25}\\right)\\text{ MSD} = \\frac{0.05\\text{ cm}}{25} = 0.002\\text{ cm}$.\nStep 2: Calculate the observed reading: $\\text{Observed reading} = \\text{MSR} + (\\text{VSR} \\times \\text{LC}) = 3.25\\text{ cm} + (15 \\times 0.002\\text{ cm}) = 3.25\\text{ cm} + 0.030\\text{ cm} = 3.280\\text{ cm}$.\nStep 3: Correct for the zero error: $\\text{True diameter} = \\text{Observed reading} - (\\text{Zero Error}) = 3.280\\text{ cm} - (-0.006\\text{ cm}) = 3.280\\text{ cm} + 0.006\\text{ cm} = 3.286\\text{ cm}$. Subtracting the magnitude instead of adding it gives $3.274\\text{ cm}$, which incorrectly treats a negative zero error as positive."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_043",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A micrometer screw gauge has a pitch of $0.5\\text{ mm}$ and $50$ divisions on its circular scale. When the spindle and anvil are brought into contact, the zero of the circular scale lies above the reference baseline of the main scale, such that the $47\\text{th}$ division on the circular scale aligns with the baseline (indicating that the circular scale has stopped $3$ divisions short of complete zero). When a thin metal wire is clamped between the studs, the linear main scale reads $2.5\\text{ mm}$ and the circular scale reads $38$ divisions. The true diameter of the wire is:",
+      "options": [
+        "A) $2.85\\text{ mm}$",
+        "B) $2.91\\text{ mm}$",
+        "C) $2.88\\text{ mm}$",
+        "D) $3.35\\text{ mm}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Calculate the least count: $\\text{LC} = \\frac{\\text{Pitch}}{N} = \\frac{0.5\\text{ mm}}{50} = 0.01\\text{ mm}$.\nStep 2: Determine the zero error: Since the zero of the circular scale lies above the reference line by $3$ divisions (the $47\\text{th}$ division aligns), the gauge has a negative zero error: $\\text{Zero Error} = -(50 - 47) \\times 0.01\\text{ mm} = -3 \\times 0.01\\text{ mm} = -0.03\\text{ mm}$.\nStep 3: Calculate the observed and true readings: $\\text{Observed reading} = \\text{MSR} + (\\text{CSR} \\times \\text{LC}) = 2.5\\text{ mm} + (38 \\times 0.01\\text{ mm}) = 2.5\\text{ mm} + 0.38\\text{ mm} = 2.88\\text{ mm}$. True diameter is $\\text{True reading} = \\text{Observed reading} - (\\text{Zero Error}) = 2.88\\text{ mm} - (-0.03\\text{ mm}) = 2.88 + 0.03 = 2.91\\text{ mm}$. Subtracting $+0.03\\text{ mm}$ gives $2.85\\text{ mm}$."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_044",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the experimental optimization and systematic error analysis in a simple pendulum experiment:\nStatement I: Increasing the number of timed oscillations $n$ from $20$ to $100$ reduces the percentage uncertainty in the evaluated time period $T$ contributed by the experimenter's reaction time in operating the stopwatch by a factor of $5$.\nStatement II: If the angular amplitude of swing $\\theta_0$ is allowed to exceed $4^\\circ$, the true time period of the pendulum becomes slightly greater than $2\\pi\\sqrt{\\frac{L}{g}}$, causing a systematic underestimation of the calculated value of $g$ when using the simple harmonic formula $g = \\frac{4\\pi^2 L}{T^2}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Human reaction time introduces an approximately constant absolute uncertainty $\\Delta t$ (typically $\\approx 0.2\\text{ s}$) in starting and stopping the timer. The total time for $n$ oscillations is $t = nT$. The fractional uncertainty in time is $\\frac{\\Delta t}{t} = \\frac{\\Delta t}{n T}$. Increasing $n$ from $20$ to $100$ (a factor of 5) reduces the fractional error by a factor of 5. Statement I is correct.\nStep 2: The exact period of a simple pendulum for finite amplitude $\\theta_0$ is given by the series $T = 2\\pi\\sqrt{\\frac{L}{g}}\\left(1 + \\frac{1}{4}\\sin^2\\left(\\frac{\\theta_0}{2}\\right) + \\dots\\right)$. For $\\theta_0 > 4^\\circ$, $T$ is demonstrably larger than the ideal SHM period $T_0 = 2\\pi\\sqrt{\\frac{L}{g}}$.\nStep 3: Calculating $g$ from $g = \\frac{4\\pi^2 L}{T^2}$ with an experimental $T > T_0$ places a larger denominator in the formula, leading to a calculated value of $g$ that is systematically lower than the true local $g$. Statement II is correct. Both statements are accurate."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_045",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In Searle's apparatus, an experimental steel wire of initial length $L = 2.00\\text{ m}$ and uniform radius $r = 0.50\\text{ mm} = 5.0 \\times 10^{-4}\\text{ m}$ is loaded by adding a mass of $M = 4.00\\text{ kg}$. The elongation $\\Delta L$ is measured with a micrometer screw attached to the spirit level frame. The micrometer has a pitch of $0.50\\text{ mm}$ and $100$ circular divisions. The elongation restores the level bubble after $1$ complete rotation of the screw plus $6$ circular divisions. Taking $g = 9.80\\text{ m/s}^2$ and $\\pi = 3.14$, Young's modulus $Y$ of the steel wire is:",
+      "options": [
+        "A) $9.42 \\times 10^{10}\\text{ N/m}^2$",
+        "B) $2.00 \\times 10^{11}\\text{ N/m}^2$",
+        "C) $1.50 \\times 10^{11}\\text{ N/m}^2$",
+        "D) $1.88 \\times 10^{11}\\text{ N/m}^2$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Calculate the least count of the micrometer: $\\text{LC} = \\frac{0.50\\text{ mm}}{100} = 0.005\\text{ mm} = 5.0 \\times 10^{-6}\\text{ m}$. The elongation is $\\Delta L = 1 \\times 0.50\\text{ mm} + 6 \\times 0.005\\text{ mm} = 0.50\\text{ mm} + 0.030\\text{ mm} = 0.530\\text{ mm} = 5.30 \\times 10^{-4}\\text{ m}$.\nStep 2: The tension force applied by the load is $F = Mg = 4.00\\text{ kg} \\times 9.80\\text{ m/s}^2 = 39.2\\text{ N}$. Cross-sectional area of the wire is $A = \\pi r^2 = 3.14 \\times (5.0 \\times 10^{-4}\\text{ m})^2 = 3.14 \\times 2.50 \\times 10^{-7}\\text{ m}^2 = 7.85 \\times 10^{-7}\\text{ m}^2$.\nStep 3: Calculate Young's modulus: $Y = \\frac{F L}{A \\Delta L} = \\frac{39.2\\text{ N} \\times 2.00\\text{ m}}{(7.85 \\times 10^{-7}\\text{ m}^2) \\times (5.30 \\times 10^{-4}\\text{ m})} = \\frac{78.4}{4.1605 \\times 10^{-10}} \\approx 1.884 \\times 10^{11}\\text{ N/m}^2 \\approx 1.88 \\times 10^{11}\\text{ N/m}^2$. Distractors result from using diameter instead of radius or missing the circular scale contribution."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_046",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a capillary tube of insufficient length dipped vertically in water:\nStatement I: When a clean glass capillary tube of length $l$ less than the equilibrium capillary rise height $h$ ($l < h$) is dipped into water, water reaches the top edge of the tube but does NOT overflow or spill out.\nStatement II: At the upper rim of the insufficient tube, the liquid meniscus adjusts its radius of curvature from $R$ to a larger value $R'$ such that $h R = l R'$, causing the apparent contact angle $\\theta'$ to increase until the upward surface tension force precisely balances the weight of the shortened column.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Capillary rise is governed by Laplace's pressure difference: $\\Delta P = \\frac{2T}{R} = \\rho g h$, where $R$ is the radius of curvature of the meniscus. Hence $h R = \\frac{2T}{\\rho g} = \\text{constant}$.\nStep 2: If the tube has length $l < h$, liquid rises to the top end. If it were to overflow, it would create a perpetual motion machine of the first kind (continuous flow without energy input), which is physically impossible. Thus water does not overflow. Statement I is correct.\nStep 3: At the top rim, the meniscus flattens, increasing its radius of curvature from $R$ to $R'$ such that $l R' = h R$. Since $R = r / \\cos\\theta$, the apparent contact angle increases: $\\cos\\theta' = \\frac{l}{h}\\cos\\theta < \\cos\\theta$. The upward vertical force $2\\pi r T \\cos\\theta'$ exactly matches the weight $\\pi r^2 l \\rho g$. Statement II is correct. Both statements are accurate."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_047",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In determining the coefficient of viscosity of glycerol by Stokes' terminal velocity method, the inner diameter of the cylindrical container must be substantially larger (at least $10$ to $20$ times) than the diameter of the falling spherical ball.\nReason (R): In a narrow container, the upward flow of liquid displaced by the falling sphere and the viscous shear against the container's cylindrical boundaries generate an additional retardation (wall effect), causing the observed terminal velocity to be lower than predicted by Stokes' law.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Stokes' law $F_v = 6\\pi \\eta r v$ strictly assumes that the spherical body is moving in an infinitely extended, unbounded fluid medium without edge or boundary interference.\nStep 2: In a practical laboratory tube of finite radius $R_c$, the liquid displaced by the descending ball must flow upward through the narrow annular space between the ball and the tube wall. This generates shear gradients and velocity profiles that increase the drag force on the sphere (accounted for by Faxen's correction: $v_{\\infty} = v_t(1 + 2.4\\frac{r}{R_c})$).\nStep 3: To ensure this systematic wall effect is negligible without applying complex corrections, the laboratory manual prescribes that the tube diameter must be at least $10$ to $20$ times the ball diameter ($r/R_c \\ll 1$). Thus, both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_048",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a resonance tube experiment, two tuning forks of frequencies $f_1 = 250\\text{ Hz}$ and $f_2 = 500\\text{ Hz}$ are excited in succession above the open end of the tube. The first resonance air column lengths obtained are $l_1 = 32.5\\text{ cm}$ and $l_1' = 15.5\\text{ cm}$ respectively. Assuming the acoustic end correction $e$ is the same for both frequencies, the end correction $e$ and the speed of sound $v$ in air are:",
+      "options": [
+        "A) $e = 2.0\\text{ cm}$ and $v = 340\\text{ m/s}$",
+        "B) $e = 1.0\\text{ cm}$ and $v = 330\\text{ m/s}$",
+        "C) $e = 1.5\\text{ cm}$ and $v = 340\\text{ m/s}$",
+        "D) $e = 1.5\\text{ cm}$ and $v = 320\\text{ m/s}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: For the first resonance of each tuning fork: $l_1 + e = \\frac{\\lambda_1}{4} = \\frac{v}{4 f_1}$ and $l_1' + e = \\frac{\\lambda_2}{4} = \\frac{v}{4 f_2}$.\nStep 2: Multiply the first equation by $f_1$ and the second by $f_2$: $f_1(l_1 + e) = \\frac{v}{4}$ and $f_2(l_1' + e) = \\frac{v}{4}$. Equating these gives $f_1 l_1 + f_1 e = f_2 l_1' + f_2 e \\implies e(f_2 - f_1) = f_1 l_1 - f_2 l_1'$.\nStep 3: Substitute the given numbers: $e = \\frac{250(32.5) - 500(15.5)}{500 - 250} = \\frac{8125 - 7750}{250} = \\frac{375}{250} = 1.5\\text{ cm} = 0.015\\text{ m}$.\nNow compute the speed of sound: $v = 4 f_1(l_1 + e) = 4 \\times 250\\text{ s}^{-1} \\times (0.325\\text{ m} + 0.015\\text{ m}) = 1000 \\times 0.340\\text{ m} = 340\\text{ m/s}$. Both values are consistent and accurate."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_049",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In a metre bridge experiment, the percentage error in the determined unknown resistance $X$ is minimized when the balance point is obtained near the midpoint of the wire ($l \\approx 50.0\\text{ cm}$).\nReason (R): For the metre bridge formula $X = R\\left(\\frac{100 - l}{l}\\right)$, the fractional error is given by $\\frac{\\Delta X}{X} = \\frac{100 \\Delta l}{l(100 - l)}$, and the denominator $f(l) = l(100 - l)$ attains its global maximum when $l = 50\\text{ cm}$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Taking natural logarithms of the balance equation: $\\ln X = \\ln R + \\ln(100 - l) - \\ln l$. Differentiating gives $\\frac{dX}{X} = -\\frac{dl}{100 - l} - \\frac{dl}{l}$.\nStep 2: For maximum uncertainty, combining absolute contributions: $\\frac{\\Delta X}{X} = \\frac{\\Delta l}{100 - l} + \\frac{\\Delta l}{l} = \\frac{100 \\Delta l}{l(100 - l)}$.\nStep 3: To minimize $\\frac{\\Delta X}{X}$ for a fixed reading error $\\Delta l$, the denominator $f(l) = 100l - l^2$ must be maximized. Differentiating $f(l)$ with respect to $l$: $f'(l) = 100 - 2l = 0 \\implies l = 50\\text{ cm}$. Since $f''(l) = -2 < 0$, this is a true maximum. Thus, the error is minimized at $50\\text{ cm}$, making both (A) and (R) true, and (R) the correct explanation of (A)."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_050",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the half-deflection method for measuring galvanometer resistance $G$:\nStatement I: The approximation $G \\approx S$ (where $S$ is the shunt resistance that reduces the deflection to half) is valid if and only if the series resistance $R$ in the main circuit is chosen to be much larger than the galvanometer resistance ($R \\gg G$).\nStatement II: If the series resistance $R$ is of the same order of magnitude as $G$, connecting the shunt $S$ across the galvanometer significantly lowers the net equivalent resistance of the entire circuit, causing an appreciable increase in the total current drawn from the battery and invalidating the assumption of constant total current.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In the half-deflection method, initial current is $I_1 = \\frac{E}{R + G}$. When shunt $S$ is added across $G$, the effective resistance of the circuit drops from $R + G$ to $R + \\frac{G S}{G + S}$.\nStep 2: If $R \\gg G$, then $R + \\frac{G S}{G + S} \\approx R$, so the total current drawn from the battery remains virtually constant ($I_{\\text{total}} \\approx E/R$). The current through the galvanometer is then purely determined by current division: $I_g = I_{\\text{total}} \\left(\\frac{S}{G + S}\\right)$. Halving the deflection requires $I_g = I_1 / 2 \\implies \\frac{S}{G + S} = \\frac{1}{2} \\implies G = S$. Hence Statement I is correct.\nStep 3: If $R$ is not very large, total current increases appreciably when the shunt is connected, meaning the current through the galvanometer does not equal half the original total current. The exact formula $G = \\frac{R S}{R - S}$ must then be used. Statement II is correct. Both statements are accurate."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_051",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the removal of parallax in an optical bench experiment involving a convex lens or concave mirror:\nStatement I: The condition of 'no-parallax' between an inverted real image and an observation search pin is established when the tips of both the image and the pin remain in coincidence without any relative lateral shift when the observer moves their eye sideways from left to right.\nStatement II: If the search pin is placed farther away from the observer's eye than the real image, then upon shifting the eye to the right, the search pin will appear to shift to the right relative to the real image.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Parallax is the apparent relative displacement between two objects at different distances from the eye when the line of sight is changed. When two objects occupy the exact same spatial position, their lines of sight coincide from all viewing angles, so shifting the eye causes zero relative displacement. This defines the no-parallax condition. Statement I is correct.\nStep 2: By basic perspective geometry, when viewing two objects at different depths, shifting the vantage point to the right makes the closer object shift leftward across the visual field while the farther object appears shifted rightward relative to the closer one (motion parallax).\nStep 3: Hence, if the search pin lies farther from the eye than the real image, moving the eye to the right causes the search pin to appear displaced to the right of the real image. This diagnostic rule instructs the experimenter to move the search pin closer to the lens/mirror. Statement II is correct. Both statements are accurate."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_052",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A monochromatic light ray is incident on the first face of an equilateral triangular glass prism of refracting angle $A = 60^\\circ$ and refractive index $\\mu = \\sqrt{2}$. In order for the light ray inside the prism to strike the second face precisely at the critical angle $\\theta_c$ (such that the emerging ray just grazes along the second face, $e = 90^\\circ$), the required angle of incidence $i$ on the first face must be:",
+      "options": [
+        "A) $i = 45^\\circ$",
+        "B) $i = \\sin^{-1}\\left(\\frac{\\sqrt{3} + 1}{2\\sqrt{2}}\\right)$",
+        "C) $i = \\sin^{-1}\\left(\\frac{\\sqrt{3} - 1}{2}\\right)$",
+        "D) $i = 30^\\circ$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: At the second refracting face of the prism, for grazing emergence ($e = 90^\\circ$), the angle of incidence inside the glass must equal the critical angle $\\theta_c$: $\\sin\\theta_c = \\frac{1}{\\mu} = \\frac{1}{\\sqrt{2}} \\implies r_2 = \\theta_c = 45^\\circ$.\nStep 2: In any triangular prism, the refracting angle satisfies $A = r_1 + r_2$. Given $A = 60^\\circ$, the angle of refraction at the first face is $r_1 = A - r_2 = 60^\\circ - 45^\\circ = 15^\\circ$.\nStep 3: Apply Snell's law at the first air-glass interface: $1 \\cdot \\sin i = \\mu \\sin r_1 = \\sqrt{2} \\sin(15^\\circ)$. Using the trigonometric identity $\\sin(15^\\circ) = \\sin(45^\\circ - 30^\\circ) = \\sin 45^\\circ \\cos 30^\\circ - \\cos 45^\\circ \\sin 30^\\circ = \\frac{\\sqrt{3} - 1}{2\\sqrt{2}}$, we get $\\sin i = \\sqrt{2} \\times \\frac{\\sqrt{3} - 1}{2\\sqrt{2}} = \\frac{\\sqrt{3} - 1}{2}$. Thus, $i = \\sin^{-1}\\left(\\frac{\\sqrt{3} - 1}{2}\\right)$. Other options arise from adding angles or using $r_1 = 30^\\circ$."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_053",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "To determine the radius of curvature $R$ and refractive index $\\mu$ of a plano-convex glass lens, a student uses a spherometer and a travelling microscope:\n1. The distance between the outer legs of the spherometer is $l = 3.0\\text{ cm}$. When placed on the curved face, the central screw advances by sagitta $h = 0.075\\text{ cm}$.\n2. The travelling microscope is focused on a fine ink mark on paper directly below the lens placed with its curved face upward. The real thickness at the center is $t = 0.60\\text{ cm}$, while the apparent thickness measured is $d_{\\text{app}} = 0.40\\text{ cm}$.\nApproximating $R \\approx \\frac{l^2}{6h}$, the radius of curvature $R$ and the refractive index $\\mu$ of the glass lens are:",
+      "options": [
+        "A) $R = 15.0\\text{ cm}$ and $\\mu = 1.60$",
+        "B) $R = 10.0\\text{ cm}$ and $\\mu = 1.33$",
+        "C) $R = 20.0\\text{ cm}$ and $\\mu = 1.25$",
+        "D) $R = 20.0\\text{ cm}$ and $\\mu = 1.50$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Compute the radius of curvature of the curved face using the spherometer formula: $R \\approx \\frac{l^2}{6h} = \\frac{(3.0\\text{ cm})^2}{6 \\times 0.075\\text{ cm}} = \\frac{9.0}{0.45} = 20.0\\text{ cm}$.\nStep 2: The refractive index of a transparent medium is defined as the ratio of its real thickness (depth) to its apparent thickness: $\\mu = \\frac{\\text{Real thickness}}{\\text{Apparent thickness}} = \\frac{t}{d_{\\text{app}}} = \\frac{0.60\\text{ cm}}{0.40\\text{ cm}} = 1.50$.\nStep 3: Combining these results gives $R = 20.0\\text{ cm}$ and $\\mu = 1.50$. (Note that using the lens maker's formula $\\frac{1}{f} = (\\mu - 1)\\left(\\frac{1}{R}\\right)$, the focal length of this plano-convex lens in air would be $f = \\frac{R}{\\mu - 1} = \\frac{20.0}{0.50} = 40.0\\text{ cm}$). Choices with $R = 10.0\\text{ cm}$ or $\\mu = 1.33$ represent mathematical calculation errors."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_054",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In plotting the reverse characteristic curve of a silicon p-n junction diode at room temperature, the reverse current remains nearly constant at a few microamperes (or nanoamperes) over a wide range of reverse voltage until avalanche or Zener breakdown is approached, but this saturation current increases steeply if the diode temperature is elevated.\nReason (R): The reverse saturation current in a p-n junction is governed entirely by the diffusion of minority charge carriers generated thermally within a diffusion length of the depletion layer, whose intrinsic concentration increases exponentially with temperature according to $n_i^2 \\propto T^3 \\exp\\left(-\\frac{E_g}{k_B T}\\right)$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Under reverse bias, the electric field in the depletion layer opposes the flow of majority carriers. The only current that crosses the junction is due to minority carriers (electrons in p-side, holes in n-side) that diffuse to the junction margin and get swept across by the barrier field.\nStep 2: Because the electric field is already strong enough to sweep all arriving minority carriers, increasing the reverse voltage does not increase the carrier supply, resulting in a nearly flat reverse saturation current $I_0$ until breakdown occurs. Assertion (A) is true.\nStep 3: Minority carrier generation is thermally driven across the energy bandgap $E_g$. As temperature rises, thermal agitation creates many more electron-hole pairs, causing $I_0$ to double approximately every $7^\\circ\\text{C}$ to $10^\\circ\\text{C}$ in silicon. Thus, both (A) and (R) are true, and (R) correctly explains (A)."
+    },
+    {
+      "id": "phy_experimental_skills_in_physics_c01_055",
+      "subject": "Physics",
+      "topic": "Experimental Skills in Physics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding standard physics laboratory plots and the physical parameters directly deduced from their slopes or intercepts:\n\nList I (Experimental Graph):\nP. Metre scale lever arm: $d_1$ on y-axis versus $1/m_1$ on x-axis with constant counter-torque $m_2 d_2$\nQ. Simple pendulum: Effective length $L$ on y-axis versus $T^2$ on x-axis\nR. Ohm's law: Current $I$ on y-axis versus Potential difference $V$ on x-axis\nS. Thin convex lens: $\\frac{1}{v}$ on y-axis versus $\\frac{1}{u}$ on x-axis\n\nList II (Slope / Intercept Deduction):\n1. Slope represents the counterbalancing moment $m_2 d_2$\n2. Slope represents $\\frac{g}{4\\pi^2}$\n3. Slope represents electrical conductance $\\frac{1}{R}$\n4. Slope is $+1$ and y-intercept is $+\\frac{1}{f}$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-3, Q-4, R-1, S-2",
+        "B) P-2, Q-1, R-3, S-4",
+        "C) P-1, Q-2, R-4, S-3",
+        "D) P-1, Q-2, R-3, S-4"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In the metre scale experiment, $m_1 d_1 = m_2 d_2 \\implies d_1 = (m_2 d_2)\\left(\\frac{1}{m_1}\\right)$. A plot of $d_1$ vs $1/m_1$ is a straight line through the origin with slope equal to the counterbalancing moment $m_2 d_2$ (P matches 1).\nStep 2: For a simple pendulum, $L = \\left(\\frac{g}{4\\pi^2}\\right) T^2$. A plot of $L$ vs $T^2$ has slope $\\frac{g}{4\\pi^2}$ (Q matches 2).\nStep 3: By Ohm's law, $I = \\left(\\frac{1}{R}\\right) V$. Plotting $I$ vs $V$ gives a straight line with slope equal to conductance $G = 1/R$ (R matches 3).\nStep 4: Thin lens equation $\\frac{1}{v} - \\frac{1}{u} = \\frac{1}{f} \\implies \\frac{1}{v} = (+1)\\left(\\frac{1}{u}\\right) + \\frac{1}{f}$. Plotting $1/v$ vs $1/u$ has slope $+1$ and y-intercept $+1/f$ (S matches 4). This matches P-1, Q-2, R-3, S-4."
+    }
+  ]
+}

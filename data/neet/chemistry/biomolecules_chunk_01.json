@@ -1,0 +1,943 @@
+{
+  "subject": "Chemistry",
+  "topic": "Biomolecules",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "chem_biomolecules_c01_001",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding the classification of carbohydrates:\nStatement I: All monosaccharides, whether they are aldoses or ketoses, act as reducing sugars because they contain a free or potentially free carbonyl group that reduces Fehling's solution and Tollens' reagent.\nStatement II: In disaccharides like sucrose, where the reducing groups of both monosaccharide units participate in glycosidic linkage formation, the sugar behaves as a non-reducing sugar.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. Monosaccharides are simple sugars possessing aldehyde or ketone groups. Even ketoses like $\\text{D}$-fructose reduce Fehling's and Tollens' solutions due to alkali-induced enediol rearrangement converting ketoses to aldoses. Thus, all monosaccharides are reducing sugars. Statement I is correct.\nStep 2: Evaluate Statement II. Disaccharides are reducing if they retain an unbonded hemiacetal or hemiketal group. In sucrose, the hemiacetal $-\\text{OH}$ of $\\alpha\\text{-D}$-glucose (at $\\text{C}-1$) and the hemiketal $-\\text{OH}$ of $\\beta\\text{-D}$-fructose (at $\\text{C}-2$) are mutually engaged in a glycosidic bond. No free carbonyl group can open up, making sucrose non-reducing. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_biomolecules_c01_002",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements labeled as Assertion (A) and Reason (R):\nAssertion (A): Naturally occurring glucose is designated as $\\text{D-(+)}$-glucose because the $-\\text{OH}$ group on the penultimate chiral carbon atom ($\\text{C}-5$) lies on the right side in the Fischer projection.\nReason (R): In its open-chain structure, glucose contains four chiral carbon atoms and reacts with hydroxylamine to yield an oxime.\nChoose the correct option:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Assertion (A). Carbohydrates are assigned $\\text{D}$- or $\\text{L}$-configuration based on the configuration of the highest-numbered chiral carbon (penultimate carbon). In glucose, $\\text{C}-5$ has the $-\\text{OH}$ group on the right, identical to $(+)$-glyceraldehyde. Thus, it is designated $\\text{D}$-glucose. Assertion (A) is true.\nStep 2: Analyze Reason (R). The open-chain aldohexose structure of glucose has four chiral carbons ($\\text{C}-2, \\text{C}-3, \\text{C}-4, \\text{C}-5$) and an aldehydic group that condenses with hydroxylamine ($\\text{NH}_2\\text{OH}$) to form glucose oxime. Reason (R) is true.\nStep 3: Evaluate explanation relationship. While both statements are scientifically true NCERT facts, the existence of four chiral centers and oxime formation does not explain the spatial convention used to assign the $\\text{D}$-configuration relative to glyceraldehyde.\nConclusion: Both (A) and (R) are true but (R) is not the correct explanation of (A)."
+    },
+    {
+      "id": "chem_biomolecules_c01_003",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding laboratory and commercial preparation of glucose:\nStatement I: When sucrose is boiled with dilute $\\text{HCl}$ or $\\text{H}_2\\text{SO}_4$ in an alcoholic solution, glucose and fructose are obtained in equimolar amounts, and glucose separates out by crystallization because it is less soluble in alcohol than fructose.\nStatement II: On an industrial scale, glucose is obtained by the hydrolysis of starch by boiling it with dilute aqueous $\\text{NaOH}$ solution at room temperature under atmospheric pressure.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. In the laboratory, sucrose is hydrolyzed with dilute mineral acid in alcohol. Glucose and fructose are produced in equal molar proportions. Glucose is much less soluble in alcohol than fructose, so upon cooling, glucose crystallizes out while fructose remains dissolved in the filtrate. Statement I is correct.\nStep 2: Evaluate Statement II. Commercially, glucose is prepared by hydrolyzing starch with dilute mineral acid ($\\text{H}_2\\text{SO}_4$), not a base like $\\text{NaOH}$, by heating at $393\\text{ K}$ under an elevated pressure of $2\\text{--}3\\text{ atm}$. Starch does not hydrolyze into glucose in cold alkaline solution. Statement II is incorrect.\nConclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_biomolecules_c01_004",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Prolonged heating of glucose with hydroiodic acid ($\\text{HI}$) in the presence of red phosphorus produces $n$-hexane:\n$$\\text{C}_6\\text{H}_{12}\\text{O}_6 \\xrightarrow{\\text{HI},\\,\\Delta} \\text{CH}_3\\text{--}(\\text{CH}_2)_4\\text{--}\\text{CH}_3$$\nThis observation provides direct experimental proof that in the glucose molecule:\nChoose the correct option:",
+      "options": [
+        "A) The carbonyl group is present in the form of a terminal aldehyde.",
+        "B) Five hydroxyl groups are present on five different carbon atoms.",
+        "C) The six carbon atoms form a stable pyranose ring system.",
+        "D) All six carbon atoms are bonded together in an unbranched straight chain."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze the reaction conditions. Heating with concentrated $\\text{HI}$ and red phosphorus is a vigorous reducing procedure that reduces all $-\\text{OH}$ and carbonyl groups to hydrocarbons.\nStep 2: Relate the product to structure. The formation of $n$-hexane (an unbranched straight chain six-carbon alkane) specifically proves that all six carbon atoms of glucose are linked in a continuous unbranched straight chain.\nStep 3: Evaluate distractors. Terminal aldehyde nature is proved by oxidation with mild $\\text{Br}_2$ water. Presence of five $-\\text{OH}$ groups is confirmed by acetylation to pentaacetate. Cyclic pyranose structure is evidenced by the absence of reactions with Schiff's reagent and $\\text{NaHSO}_3$.\nConclusion: All six carbon atoms are bonded together in an unbranched straight chain."
+    },
+    {
+      "id": "chem_biomolecules_c01_005",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the reactions of glucose:\nStatement I: Glucose reacts with hydroxylamine ($\\text{NH}_2\\text{OH}$) to form an oxime, and adds a molecule of hydrogen cyanide ($\\text{HCN}$) to give a cyanohydrin.\nStatement II: These condensation and addition reactions specifically confirm that the carbonyl group in glucose must be a ketone ($>\\text{C}=\\text{O}$) rather than an aldehyde ($-\\text{CHO}$).\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. Aldoses and ketoses react with nucleophiles like hydroxylamine via nucleophilic addition-elimination to yield oximes ($>\\text{C}=\\text{N}-\\text{OH}$), and with $\\text{HCN}$ via nucleophilic addition to yield cyanohydrins ($>\\text{C}(\\text{OH})(\\text{CN})$). Glucose undergoes both reactions smoothly. Statement I is correct.\nStep 2: Evaluate Statement II. Oxime and cyanohydrin formations prove the general presence of a carbonyl group ($>\\text{C}=\\text{O}$), but they do not distinguish between an aldehyde and a ketone. Mild oxidation with bromine water ($\\text{Br}_2/\\text{H}_2\\text{O}$) selectively oxidizes aldehydes to gluconic acid, confirming the aldehyde group. Thus, Statement II is incorrect.\nConclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_biomolecules_c01_006",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the reagent used for treating glucose in List I with the corresponding primary structural inference deduced from the reaction in List II:\n\nList I (Reagent / Reaction)\nP. Bromine water ($\\text{Br}_2 / \\text{H}_2\\text{O}$)\nQ. Concentrated nitric acid ($\\text{HNO}_3$)\nR. Acetic anhydride ($\\text{Ac}_2\\text{O}$)\nS. Prolonged heating with $\\text{HI}$\n\nList II (Structural Deduction)\n1. Presence of a primary alcoholic group ($-\\text{CH}_2\\text{OH}$)\n2. Presence of a terminal aldehyde group ($-\\text{CHO}$)\n3. Straight chain of six carbon atoms\n4. Presence of five hydroxyl groups\n\nChoose the correct option:",
+      "options": [
+        "A) P-1, Q-2, R-4, S-3",
+        "B) P-2, Q-1, R-4, S-3",
+        "C) P-2, Q-4, R-1, S-3",
+        "D) P-3, Q-1, R-4, S-2"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze reaction P. Bromine water is a mild oxidizing agent that selectively oxidizes the aldehyde group to a carboxylic acid yielding gluconic acid. This confirms the carbonyl group is an aldehyde ($\\text{P} \\rightarrow 2$).\nStep 2: Analyze reaction Q. Concentrated nitric acid is a strong oxidizing agent that oxidizes both the terminal aldehyde and the primary alcoholic group to yield saccharic acid (a dicarboxylic acid), proving the presence of a primary alcoholic group ($-\\text{CH}_2\\text{OH}$) ($\\text{Q} \\rightarrow 1$).\nStep 3: Analyze reaction R. Acetylation with acetic anhydride yields glucose pentaacetate, indicating the presence of five $-\\text{OH}$ groups ($\\text{R} \\rightarrow 4$).\nStep 4: Analyze reaction S. Prolonged heating with $\\text{HI}$ yields $n$-hexane, establishing a continuous unbranched straight chain of six carbon atoms ($\\text{S} \\rightarrow 3$).\nConclusion: The correct matching is P-2, Q-1, R-4, S-3."
+    },
+    {
+      "id": "chem_biomolecules_c01_007",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements labeled as Assertion (A) and Reason (R):\nAssertion (A): Acetylation of glucose with acetic anhydride in the presence of pyridine yields a pentaacetate derivative, confirming that glucose contains five hydroxyl groups.\nReason (R): Since glucose is a stable compound that does not spontaneously dehydrate, each of the five hydroxyl groups must be attached to a different carbon atom in the six-carbon skeleton.\nChoose the correct option:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). Reaction of glucose with acetic anhydride acetylates all available alcoholic and hemiacetal $-\\text{OH}$ groups, producing glucose pentaacetate. This stoichiometric 1:5 esterification demonstrates the presence of five hydroxyl groups. Assertion (A) is true.\nStep 2: Evaluate Reason (R). A compound with two or more hydroxyl groups attached to the same carbon atom is inherently unstable and spontaneously loses water to form a carbonyl compound (gem-diol instability). Because glucose is completely stable under ordinary conditions, the five $-\\text{OH}$ groups must be located on five distinct carbon atoms. Reason (R) is true.\nStep 3: Evaluate explanation relationship. Reason (R) provides the chemical basis explaining how five stable $-\\text{OH}$ groups are accommodated in a stable hexose molecule. Both statements are true and (R) correctly explains (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_biomolecules_c01_008",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following experimental facts cannot be explained on the basis of the open-chain polyhydroxy aldehyde structure of $\\text{D}$-glucose?\n(i) Glucose does not form a 2,4-dinitrophenylhydrazone derivative.\n(ii) Glucose does not form a bisulphite addition compound with $\\text{NaHSO}_3$.\n(iii) Glucose does not restore the pink colour of Schiff's reagent.\n(iv) Glucose pentaacetate does not react with hydroxylamine ($\\text{NH}_2\\text{OH}$).\nChoose the correct option:",
+      "options": [
+        "A) Only (i) and (iii)",
+        "B) Only (ii) and (iv)",
+        "C) Only (i), (ii), and (iii)",
+        "D) (i), (ii), (iii), and (iv)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Review open-chain aldohexose predictions. If glucose possessed a permanent free aldehyde group in open-chain form, it should readily give characteristic aldehyde reactions: form bisulphite adduct with $\\text{NaHSO}_3$, give a 2,4-DNP adduct, restore Schiff's pink reagent, and its pentaacetate should form an oxime with $\\text{NH}_2\\text{OH}$.\nStep 2: Compare with experimental reality. In laboratory tests, glucose fails to give Schiff's test, fails to form $\\text{NaHSO}_3$ adduct, and fails to give 2,4-DNP test. Furthermore, glucose pentaacetate lacks a free hemiacetal $-\\text{OH}$ at $\\text{C}-1$, so it cannot open to generate a free $-\\text{CHO}$ and fails to react with $\\text{NH}_2\\text{OH}$.\nStep 3: Conclude. All four experimental observations (i, ii, iii, and iv) contradict the open-chain aldehyde formulation and led to the cyclic hemiacetal model.\nConclusion: (i), (ii), (iii), and (iv) are all correct."
+    },
+    {
+      "id": "chem_biomolecules_c01_009",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the cyclic structure and anomers of $\\text{D}$-glucose:\nStatement I: The cyclic six-membered ring structure of $\\text{D}$-glucose is formed by intramolecular hemiacetal addition between the $-\\text{CHO}$ group at $\\text{C}-1$ and the $-\\text{OH}$ group at $\\text{C}-4$.\nStatement II: The $\\alpha\\text{-D-(+)}$-glucopyranose and $\\beta\\text{-D-(+)}$-glucopyranose isomers are called anomers because they differ only in the spatial configuration of the hydroxyl group at the anomeric carbon ($\\text{C}-1$).\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement I. The six-membered pyranose ring of glucose is formed by nucleophilic addition of the $-\\text{OH}$ group at $\\text{C}-5$ (not $\\text{C}-4$) to the aldehyde carbon at $\\text{C}-1$. Addition involving the $-\\text{OH}$ at $\\text{C}-4$ would yield a five-membered furanose ring. Thus, Statement I is incorrect.\nStep 2: Evaluate Statement II. Cyclization creates a new asymmetric center at $\\text{C}-1$, designated the anomeric carbon. In Haworth projections, the $\\alpha$-anomer has the $\\text{C}-1$ $-\\text{OH}$ pointing downward (trans to $-\\text{CH}_2\\text{OH}$ at $\\text{C}-5$), while the $\\beta$-anomer has it pointing upward (cis to $-\\text{CH}_2\\text{OH}$). Since they differ strictly at $\\text{C}-1$, they are anomers. Statement II is correct.\nConclusion: Statement I is incorrect but Statement II is correct."
+    },
+    {
+      "id": "chem_biomolecules_c01_010",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements labeled as Assertion (A) and Reason (R):\nAssertion (A): $\\text{D-(-)}$-fructose exists as a five-membered cyclic furanose ring in its combined forms in disaccharides like sucrose.\nReason (R): The cyclic furanose ring of fructose is formed by an intramolecular hemiketal linkage between the keto group at $\\text{C}-2$ and the hydroxyl group at $\\text{C}-5$.\nChoose the correct option:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). In sucrose and the polysaccharide inulin, fructose exists as a five-membered furanose ring named fructofuranose, analogous to the heterocyclic parent compound furan. Assertion (A) is true.\nStep 2: Evaluate Reason (R). Intramolecular attack of the $-\\text{OH}$ group on $\\text{C}-5$ upon the carbonyl carbon at $\\text{C}-2$ generates a hemiketal ring containing four carbon atoms ($\\text{C}-2, \\text{C}-3, \\text{C}-4, \\text{C}-5$) and one ring oxygen atom, forming a five-membered furanose ring. Reason (R) is true.\nStep 3: Evaluate explanation relationship. The intramolecular hemiketal formation between $\\text{C}-2$ and $\\text{C}-5$ directly explains why the furanose ring contains exactly five members. Thus, (R) correctly explains (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_biomolecules_c01_011",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Sucrose is dextrorotatory with a specific rotation of $+66.5^\\circ$. On hydrolysis with dilute mineral acid or the enzyme invertase, the resulting equimolar mixture of glucose and fructose becomes levorotatory with a net specific rotation of $-19.9^\\circ$. This phenomenon is termed:\nChoose the correct option:",
+      "options": [
+        "A) Mutarotation of anomeric glucopyranose",
+        "B) Inversion of cane sugar (forming invert sugar)",
+        "C) Epimerization of aldoses",
+        "D) Racemization of chiral center at $\\text{C}-2$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze the optical rotations of reactant and products. Sucrose is dextrorotatory ($+66.5^\\circ$). Acid hydrolysis breaks the glycosidic linkage yielding an equimolar mixture of $\\text{D-(+)}$-glucose ($+52.5^\\circ$) and $\\text{D-(-)}$-fructose ($-92.4^\\circ$).\nStep 2: Calculate net rotation. The average specific rotation is $\\frac{+52.5^\\circ + (-92.4^\\circ)}{2} = -19.95^\\circ \\approx -19.9^\\circ$. The sign of optical rotation changes from dextro (+) to levo (-).\nStep 3: Define the terminology. This reversal in the sign of optical rotation is called the 'inversion of cane sugar', and the resulting hydrolyzed product mixture is known as 'invert sugar'.\nConclusion: Inversion of cane sugar (forming invert sugar)."
+    },
+    {
+      "id": "chem_biomolecules_c01_012",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the disaccharide maltose:\nStatement I: Maltose is composed of two $\\alpha\\text{-D}$-glucopyranose units linked together by an $\\alpha-1,4$-glycosidic linkage between $\\text{C}-1$ of one glucose and $\\text{C}-4$ of the other.\nStatement II: In maltose, both anomeric carbons ($\\text{C}-1$) are locked in glycosidic linkages, rendering maltose a non-reducing sugar.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. Maltose is produced by the enzymatic hydrolysis of starch by diastase or amylase. It is composed of two $\\alpha\\text{-D}$-glucose units connected through an ether bridge between $\\text{C}-1$ of the first unit and $\\text{C}-4$ of the second unit (an $\\alpha-1,4$-glycosidic bond). Statement I is correct.\nStep 2: Evaluate Statement II. In the second glucose unit, the anomeric carbon at $\\text{C}-1$ is free (possessing a hemiacetal $-\\text{OH}$ group). In aqueous solution, this ring can open to expose a free aldehyde group capable of reducing Fehling's solution and Tollens' reagent. Hence, maltose is a reducing sugar, making Statement II incorrect.\nConclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_biomolecules_c01_013",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements regarding lactose (milk sugar) is incorrect?\nChoose the correct option:",
+      "options": [
+        "A) Lactose is a disaccharide composed of $\\beta\\text{-D}$-galactose and $\\beta\\text{-D}$-glucose units.",
+        "B) Lactose behaves as a non-reducing sugar because both anomeric carbons are locked in the glycosidic bond.",
+        "C) The glycosidic linkage in lactose connects $\\text{C}-1$ of $\\beta\\text{-D}$-galactose to $\\text{C}-4$ of $\\beta\\text{-D}$-glucose.",
+        "D) Hydrolysis of lactose is catalyzed by the enzyme lactase in the human digestive system."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze statement A. Lactose consists of one unit of $\\beta\\text{-D}$-galactopyranose and one unit of $\\beta\\text{-D}$-glucopyranose. Statement A is correct.\nStep 2: Analyze statement B. In lactose, $\\text{C}-1$ of the glucose unit is free (not engaged in the glycosidic bond) and exists as a cyclic hemiacetal. Therefore, lactose can open into an aldehyde form and reduces Fehling's solution. Thus, lactose is a reducing sugar, making statement B incorrect.\nStep 3: Analyze statement C. The glycosidic bond is formed between $\\text{C}-1$ of galactose and $\\text{C}-4$ of glucose (a $\\beta-1,4$-glycosidic linkage). Statement C is correct.\nStep 4: Analyze statement D. Lactase hydrolyzes lactose into galactose and glucose in the small intestine. Statement D is correct.\nConclusion: Lactose behaves as a non-reducing sugar because both anomeric carbons are locked in the glycosidic bond is the incorrect statement."
+    },
+    {
+      "id": "chem_biomolecules_c01_014",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the two structural components of starch:\nStatement I: Amylose is a water-soluble component comprising $15\\text{--}20\\%$ of starch, consisting of an unbranched helical chain of $\\alpha\\text{-D-(+)}$-glucose units held exclusively by $\\alpha-1,4$-glycosidic linkages.\nStatement II: Amylopectin is a water-insoluble component comprising $80\\text{--}85\\%$ of starch, where the continuous chains are linked by $\\beta-1,4$-bonds and branch points occur via $\\beta-1,6$-bonds.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. Amylose constitutes about $15\\text{--}20\\%$ of natural starch. It is soluble in water and forms an unbranched helical polymer of $200\\text{--}1000$ $\\alpha\\text{-D}$-glucose residues linked solely through $\\alpha-1,4$-glycosidic bonds. Statement I is correct.\nStep 2: Evaluate Statement II. Amylopectin comprises $80\\text{--}85\\%$ of starch and is insoluble in water. However, its constituent monomers are $\\alpha\\text{-D}$-glucose units (not $\\beta$), with linear chains linked by $\\alpha-1,4$-glycosidic bonds and branching occurring via $\\alpha-1,6$-glycosidic bonds. $\\beta$-glycosidic bonds are found in cellulose, not starch. Thus, Statement II is incorrect.\nConclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_biomolecules_c01_015",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements labeled as Assertion (A) and Reason (R):\nAssertion (A): Human beings are unable to digest cellulose and cannot utilize it as an energy source, even though cellulose is composed solely of glucose units.\nReason (R): Cellulose is a straight-chain polysaccharide consisting of $\\beta\\text{-D}$-glucose units joined by $\\beta-1,4$-glycosidic linkages, and the human gastrointestinal tract lacks the cellulase enzyme required to cleave $\\beta-1,4$-glycosidic bonds.\nChoose the correct option:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). Humans cannot hydrolyze cellulose to obtain glucose for cellular respiration, so cellulose passes through the gut as dietary fibre (roughage). Assertion (A) is true.\nStep 2: Evaluate Reason (R). Cellulose is a linear homopolymer of $\\beta\\text{-D}$-glucopyranose units linked via $\\beta-1,4$-glycosidic bonds. Digestive enzymes in humans (such as salivary and pancreatic $\\alpha$-amylase) only recognize and hydrolyze $\\alpha-1,4$-glycosidic bonds found in starch and glycogen. The enzyme cellulase is absent in humans. Reason (R) is true.\nStep 3: Evaluate explanation relationship. The stereochemical difference in the glycosidic bond ($\beta$ vs $alpha$) and the absence of the corresponding stereospecific enzyme directly explains why humans cannot digest cellulose. Thus, (R) correctly explains (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_biomolecules_c01_016",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding glycogen:\nStatement I: Glycogen is synthesized solely from cellulose in the human stomach by hydrochloric acid hydrolysis.\nStatement II: When the human body requires glucose, glycogen stored in the liver and skeletal muscles is enzymatically broken down into glucose by the action of glucagon and adrenaline.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement I. Humans cannot digest cellulose, and glycogen is not formed from cellulose in the stomach. Glycogen is synthesized intracellularly in the liver and muscles from excess blood glucose via glycogenesis. Thus, Statement I is incorrect.\nStep 2: Evaluate Statement II. When blood glucose drops, alpha cells of the pancreas secrete glucagon (and the adrenal medulla secretes adrenaline during stress), activating glycogen phosphorylase to break down glycogen into glucose-1-phosphate and free glucose. Statement II is correct.\nConclusion: Statement I is incorrect but Statement II is correct."
+    },
+    {
+      "id": "chem_biomolecules_c01_017",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In aqueous solution, an $\\alpha$-amino acid exists predominantly as a dipolar ion known as a zwitterion:\n$$\\text{R}-\\text{CH}(\\text{NH}_2)-\\text{COOH} \\rightleftharpoons \\text{R}-\\text{CH}(\\text{NH}_3^+)-\\text{COO}^-$$\nWhich of the following physical or chemical properties of amino acids cannot be explained by this zwitterionic structure?\nChoose the correct option:",
+      "options": [
+        "A) Their crystalline solid state and high melting points above $200^\\circ\\text{C}$",
+        "B) Their optical inactivity in all naturally occurring forms",
+        "C) Their high solubility in water compared to non-polar organic solvents",
+        "D) Their amphoteric behavior in reacting with both acids and bases"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze zwitterionic properties. Due to internal proton transfer from $-\\text{COOH}$ to $-\\text{NH}_2$, an amino acid carries both a positive and a negative charge on the same molecule, behaving like an internal salt.\nStep 2: Evaluate options A, C, and D. High melting points (A) and high water solubility (C) stem directly from strong electrostatic lattice forces and polar solvation of the dipolar zwitterion. Amphoteric behavior (D) results from the carboxylate ion acting as a base (${}^-\\text{COO}^- + \\text{H}^+ \\rightarrow -\\text{COOH}$) and the ammonium ion acting as an acid (${}^+\\text{NH}_3 \\rightarrow -\\text{NH}_2 + \\text{H}^+$).\nStep 3: Evaluate option B. Optical activity is governed by the presence of a chiral $\\alpha$-carbon, not zwitterion formation. Furthermore, with the exception of glycine, all naturally occurring $\\alpha$-amino acids are optically active, not inactive. Thus, property B is false and unrelated to zwitterion structure.\nConclusion: Their optical inactivity in all naturally occurring forms."
+    },
+    {
+      "id": "chem_biomolecules_c01_018",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding amino acids:\n(i) Glycine is the only naturally occurring $\\alpha$-amino acid that is optically inactive.\n(ii) Most naturally occurring chiral $\\alpha$-amino acids belong to the $\\text{L}$-series, having the $-\\text{NH}_2$ group on the left in the Fischer projection.\n(iii) Essential amino acids are synthesized by human tissues in adequate amounts and do not need to be supplied in the diet.\n(iv) Valine, leucine, and lysine are examples of essential amino acids.\nWhich of the above statements are correct?\nChoose the correct option:",
+      "options": [
+        "A) (i), (iii), and (iv) only",
+        "B) (ii) and (iii) only",
+        "C) (i), (ii), and (iv) only",
+        "D) (i), (ii), (iii), and (iv)"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate statement (i). In glycine ($\\text{H}_2\\text{N}-\\text{CH}_2-\\text{COOH}$), the $\\alpha$-carbon is bonded to two identical hydrogen atoms; hence it lacks an asymmetric carbon and is optically inactive. Statement (i) is correct.\nStep 2: Evaluate statement (ii). By convention, natural $\\alpha$-amino acids written with $-\\text{COOH}$ at the top and side chain $\\text{R}$ at the bottom have the $-\\text{NH}_2$ group on the left, corresponding to $\\text{L}$-configuration. Statement (ii) is correct.\nStep 3: Evaluate statement (iii). Amino acids that cannot be synthesized in the body and must be acquired through the diet are defined as essential amino acids. Non-essential amino acids can be synthesized in the body. Statement (iii) is incorrect.\nStep 4: Evaluate statement (iv). Valine, leucine, isoleucine, lysine, threonine, methionine, phenylalanine, and tryptophan are essential amino acids. Statement (iv) is correct.\nConclusion: Only (i), (ii), and (iv) are correct."
+    },
+    {
+      "id": "chem_biomolecules_c01_019",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding protein structure:\nStatement I: A peptide linkage is an amide linkage ($-\\text{CO}-\\text{NH}-$) formed between the carboxyl group of one $\\alpha$-amino acid and the amino group of another with the elimination of a water molecule.\nStatement II: The sequence of amino acids in a polypeptide chain constitutes the primary structure of a protein, and any change in this sequence alters the biological function of the protein.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. When the $-\\text{COOH}$ group of one amino acid condenses with the $-\\text{NH}_2$ group of a second amino acid, a molecule of water is eliminated, forming an amide bond ($-\\text{C}(=\\text{O})-\\text{NH}-$), known in biochemistry as a peptide bond. Statement I is correct.\nStep 2: Evaluate Statement II. The primary structure defines the precise covalent sequence of amino acids from the N-terminus to the C-terminus. Even a single amino acid substitution (such as Glu to Val at position 6 of $\\beta$-globin in sickle-cell anaemia) creates a dysfunctional protein. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_biomolecules_c01_020",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the type of protein in List I with its characteristic property and examples in List II:\n\nList I (Protein Type)\nP. Fibrous proteins\nQ. Globular proteins\n\nList II (Properties & Examples)\n1. Polypeptide chains fold into spherical shapes; generally soluble in water (e.g., insulin and albumin).\n2. Polypeptide chains run parallel to each other held by hydrogen and disulphide bonds; insoluble in water (e.g., keratin and myosin).\n3. Easily hydrolyzed by simple cold water to form branched polysaccharides.\n\nChoose the correct option:",
+      "options": [
+        "A) P-1, Q-2",
+        "B) P-1, Q-3",
+        "C) P-3, Q-1",
+        "D) P-2, Q-1"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Fibrous proteins (P). In fibrous proteins, polypeptide chains run parallel and form long linear fibers stabilized by intermolecular hydrogen and disulphide bonds. They are insoluble in water; typical examples include keratin (found in hair, wool, nails) and myosin (in muscles) ($\\text{P} \\rightarrow 2$).\nStep 2: Analyze Globular proteins (Q). In globular proteins, the polypeptide chains coil and fold upon themselves to yield a compact spherical shape. Hydrophilic residues point outwards, making them soluble in water; typical examples are insulin and albumin ($\\text{Q} \\rightarrow 1$).\nConclusion: The correct match is P-2, Q-1."
+    },
+    {
+      "id": "chem_biomolecules_c01_021",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding vitamins:\nStatement I: Fat-soluble vitamins (A, D, E, and K) are stored in the liver and adipose tissues; hence, their excessive intake can lead to toxic accumulation (hypervitaminosis).\nStatement II: Water-soluble vitamins (B-complex and vitamin C) must be supplied regularly in the diet because they are readily excreted in urine and cannot be stored in the body, with the sole exception of vitamin $\\text{B}_{12}$ which is stored in the liver for several months.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. Vitamins A, D, E, and K dissolve in lipids and organic solvents but are insoluble in water. They are stored in adipose tissue and hepatic reserves. Excessive accumulation causes hypervitaminosis. Statement I is correct.\nStep 2: Evaluate Statement II. B-complex vitamins and vitamin C are water-soluble and excreted continuously in the urine, necessitating regular dietary replenishment. Vitamin $\\text{B}_{12}$ (cyanocobalamin) is an exception because the liver stores enough $\\text{B}_{12}$ to meet physiological demands for months to years. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_biomolecules_c01_022",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the structural components of nucleic acids:\nStatement I: A nucleoside contains only a nitrogenous base and a phosphoric acid molecule, with no pentose sugar involved.\nStatement II: A nucleotide lacks a phosphate group and consists solely of a nitrogenous base linked to the $\\text{C}-1'$ position of a pentose sugar.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Statement I. A nucleoside consists of a nitrogenous base covalently linked to $\\text{C}-1'$ of a pentose sugar (ribose or 2-deoxyribose) through a $\\beta\\text{-N}$-glycosidic bond. It does not contain any phosphoric acid. Thus, Statement I is incorrect.\nStep 2: Evaluate Statement II. A nucleotide is formed when the nucleoside is esterified with phosphoric acid at the $\\text{C}-5'$ hydroxyl group of the pentose sugar. It is the nucleoside that lacks a phosphate group, while a nucleotide always contains a phosphate group. Thus, Statement II is incorrect.\nConclusion: Both Statement I and Statement II are incorrect."
+    },
+    {
+      "id": "chem_biomolecules_c01_023",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the reaction of $\\text{D}$-glucose in List I with the respective oxidation/reduction product obtained in List II:\n\nList I (Reaction of Glucose)\nP. Oxidation with bromine water ($\\text{Br}_2 / \\text{H}_2\\text{O}$)\nQ. Oxidation with concentrated nitric acid ($\\text{HNO}_3$)\nR. Reduction with sodium amalgam and water ($\\text{Na-Hg} / \\text{H}_2\\text{O}$)\nS. Prolonged reduction with excess $\\text{HI}$ and red phosphorus at $373\\text{ K}$\n\nList II (Product Formed)\n1. Saccharic acid (glucaric acid)\n2. $n$-Hexane\n3. Gluconic acid\n4. Sorbitol (glucitol)\n\nChoose the correct option:",
+      "options": [
+        "A) P-3, Q-1, R-4, S-2",
+        "B) P-1, Q-3, R-4, S-2",
+        "C) P-3, Q-4, R-1, S-2",
+        "D) P-2, Q-1, R-4, S-3"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze reaction P. Bromine water is a mild, selective oxidizing agent that oxidizes only the aldehydic group ($-\\text{CHO}$) of $\\text{D}$-glucose to a monocarboxylic acid without affecting the alcoholic groups, yielding gluconic acid ($\\text{P} \\rightarrow 3$).\nStep 2: Analyze reaction Q. Concentrated $\\text{HNO}_3$ is a strong oxidizing agent that oxidizes both the terminal aldehyde group ($-\\text{CHO}$) and the primary alcohol group ($-\\text{CH}_2\\text{OH}$) to carboxylic acids, yielding saccharic acid ($\\text{Q} \\rightarrow 1$).\nStep 3: Analyze reaction R. Sodium amalgam ($\\text{Na-Hg}$) and water acts as a mild reducing agent reducing the aldehyde group ($-\\text{CHO}$) to a primary alcohol ($-\\text{CH}_2\\text{OH}$), producing the hexahydric alcohol sorbitol ($\\text{R} \\rightarrow 4$).\nStep 4: Analyze reaction S. Heating with hydroiodic acid and red phosphorus completely reduces all oxygenated functional groups to hydrocarbons, yielding $n$-hexane ($\\text{S} \\rightarrow 2$).\nConclusion: The correct matching is P-3, Q-1, R-4, S-2."
+    },
+    {
+      "id": "chem_biomolecules_c01_024",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements labeled as Assertion (A) and Reason (R):\nAssertion (A): When pure crystalline $\\alpha\\text{-D}$-glucopyranose ($[\\alpha]_D = +112^\\circ$) or $\\beta\\text{-D}$-glucopyranose ($[\\alpha]_D = +19^\\circ$) is dissolved in water, the specific optical rotation spontaneously changes over time until an equilibrium value of $+52.7^\\circ$ is reached.\nReason (R): In aqueous solution, the cyclic hemiacetal pyranose rings spontaneously open via reversible ring opening into the acyclic open-chain aldehyde form, establishing an equilibrium mixture containing both $\\alpha$ and $\\beta$ anomers.\nChoose the correct option:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). Mutarotation is the spontaneous change in specific rotation of an optically active sugar upon dissolution in water. Crystalline $\\alpha\\text{-D}$-glucose has an initial specific rotation of $+112^\\circ$, while pure $\\beta\\text{-D}$-glucose has $+19^\\circ$. Both converge to an identical equilibrium value of $+52.7^\\circ$ ($36\\%\\;\\alpha$ and $64\\%\\;\\beta$). Assertion (A) is true.\nStep 2: Evaluate Reason (R). Mutarotation occurs because the cyclic hemiacetal linkage opens reversibly to regenerate a minute concentration (about $0.02\\%$) of the open-chain aldehyde intermediate. Re-closure of the ring can occur from either face of the planar carbonyl group, interconverting the $\\alpha$- and $\\beta$-anomers until thermodynamic equilibrium is attained. Reason (R) is true.\nStep 3: Evaluate explanation relationship. The reversible interconversion between anomers via the open-chain form is the precise mechanistic explanation of the optical rotation change. Thus, (R) correctly explains (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_biomolecules_c01_025",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the behavior of glucose and its acetate derivatives:\nStatement I: Although $\\text{D}$-glucose readily forms an oxime upon treatment with hydroxylamine ($\\text{NH}_2\\text{OH}$), glucose pentaacetate completely fails to react with hydroxylamine.\nStatement II: Glucose pentaacetate cannot react with hydroxylamine because all six hydroxyl groups are completely oxidized to keto groups during acetylation.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. In free glucose, the hemiacetal ring is in equilibrium with a small fraction of open-chain form having a free $-\\text{CHO}$ group. As hydroxylamine consumes the aldehyde to form an oxime, Le Chatelier's principle shifts the equilibrium to open more rings. In contrast, glucose pentaacetate has an acetylated anomeric $-\\text{OH}$ at $\\text{C}-1$. This esterified hemiacetal is locked and cannot spontaneously open in solution to generate a free $-\\text{CHO}$ group; therefore, it does not react with $\\text{NH}_2\\text{OH}$. Statement I is correct.\nStep 2: Evaluate Statement II. Acetylation is an esterification reaction, not an oxidation reaction. Glucose pentaacetate contains five esterified $-\\text{OCOCH}_3$ groups (not six keto groups), because glucose only has five $-\\text{OH}$ groups. Statement II is incorrect.\nConclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_biomolecules_c01_026",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements labeled as Assertion (A) and Reason (R):\nAssertion (A): Even though $\\text{D}$-fructose is a ketose (containing a keto group at $\\text{C}-2$), it reduces Tollens' reagent and Fehling's solution just like aldoses.\nReason (R): In alkaline media used in Tollens' and Fehling's tests, $\\text{D}$-fructose undergoes Lobry de Bruyn-van Ekenstein rearrangement via an enediol intermediate to isomerize into $\\text{D}$-glucose and $\\text{D}$-mannose.\nChoose the correct option:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). Typically, simple ketones do not reduce mild oxidizing reagents like Fehling's or Tollens' solution. However, $\\alpha$-hydroxyketones like fructose readily reduce both reagents, giving positive silver mirror and red $\\text{Cu}_2\\text{O}$ precipitate tests. Assertion (A) is true.\nStep 2: Evaluate Reason (R). The alkaline reaction conditions (aqueous $\\text{NaOH}$ or tartrate/ammonia buffers) promote base-catalyzed tautomerization of fructose into an 1,2-enediol intermediate: $\\text{CH}_2\\text{OH}-\\text{CO}-(\\text{CHOH})_3-\\text{CH}_2\\text{OH} \\rightleftharpoons \\text{CHOH}=\\text{C}(\\text{OH})-(\\text{CHOH})_3-\\text{CH}_2\\text{OH}$. This enediol rapidly rearranges into aldoses ($\\text{D}$-glucose and $\\text{D}$-mannose), which then reduce Tollens' and Fehling's reagents. Reason (R) is true.\nStep 3: Evaluate explanation relationship. The alkaline enediol rearrangement directly provides the chemical mechanism by which a ketose presents oxidizable aldose forms to the reagents. Thus, (R) correctly explains (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_biomolecules_c01_027",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding disaccharides:\nStatement I: Maltose and lactose both contain at least one hemiacetal hydroxyl group at an anomeric carbon that remains free to open into a carbonyl form, making both of them reducing sugars that exhibit mutarotation.\nStatement II: Sucrose lacks a free hemiacetal or hemiketal hydroxyl group because the anomeric carbon ($\\text{C}-1$) of $\\alpha\\text{-D}$-glucose is linked directly to the anomeric carbon ($\\text{C}-2$) of $\\beta\\text{-D}$-fructose, rendering it a non-reducing sugar that does not show mutarotation.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. In maltose ($\\alpha-1,4$ linkage), $\\text{C}-1$ of the second glucose unit has a free hemiacetal group. In lactose ($\\beta-1,4$ linkage), $\\text{C}-1$ of the glucose unit has a free hemiacetal group. Because these rings can undergo reversible opening to aldehyde forms, both maltose and lactose act as reducing sugars, form osazones, and exhibit mutarotation. Statement I is correct.\nStep 2: Evaluate Statement II. In sucrose, the linkage is $\\alpha\\text{-D}$-glucopyranosyl-$(1\\rightarrow 2)$-$\\beta\\text{-D}$-fructofuranoside. Both potential carbonyl carbons ($\\text{C}-1$ of glucose and $\\text{C}-2$ of fructose) are tied up in the glycosidic bond. Sucrose cannot open into an open-chain carbonyl form; hence it does not reduce Fehling's solution, cannot form an osazone, and does not show mutarotation. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_biomolecules_c01_028",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the iodine test for polysaccharides:\nStatement I: Cellulose gives an intense deep blue colour when treated with elemental iodine ($\\text{I}_2$) solution because its tightly packed linear chains trap iodine atoms in planar arrays.\nStatement II: Amylose gives a characteristic deep blue-black colour with iodine because its unbranched $\\alpha-1,4$-polyglucose chain adopts a helical conformation that accommodates polyiodide species ($I_3^-$ and $I_5^-$) inside the central hydrophobic cavity of the helix.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement I. Cellulose consists of $\\beta-1,4$-glycosidic linkages that produce fully extended, rigid, straight crystalline microfibrils stabilized by extensive intermolecular hydrogen bonding. Cellulose lacks the helical coil required to trap iodine molecules; hence, it does not give a blue colour with iodine solution. Thus, Statement I is incorrect.\nStep 2: Evaluate Statement II. Amylose contains $\\alpha-1,4$-glycosidic bonds that cause the polysaccharide chain to curl into a hollow, right-handed helix (with roughly 6 glucose units per turn). Molecular iodine (in the form of polyiodide ions like $I_3^-$ and $I_5^-$) slips inside this helical tunnel, creating a charge-transfer complex that absorbs yellow-red wavelengths and reflects deep blue-black light. Statement II is correct.\nConclusion: Statement I is incorrect but Statement II is correct."
+    },
+    {
+      "id": "chem_biomolecules_c01_029",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the secondary structure of proteins:\nStatement I: In an $\\alpha$-helix, a polypeptide chain coils into a right-handed screw stabilized by intramolecular hydrogen bonds formed between the $-\\text{NH}-$ group of each amino acid residue and the $>\text{C}=\\text{O}$ group of the fourth amino acid residue situated ahead in the sequence.\nStatement II: In a $\\beta$-pleated sheet structure, all polypeptide chains are held together exclusively by covalent disulphide ($-\\text{S}-\\text{S}-$) linkages formed between adjacent side-chain functional groups.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. In the classical Pauling-Corey $\\alpha$-helix, the polypeptide backbone twists into a right-handed helix. Every backbone $-\\text{NH}-$ group donates a hydrogen bond to the backbone $>\text{C}=\\text{O}$ group of the residue four positions earlier (residue $n$ to $n+4$). This intramolecular hydrogen bonding stabilizes the helical turn. Statement I is correct.\nStep 2: Evaluate Statement II. In $\\beta$-pleated sheets, polypeptide chains are extended side by side and are held together by intermolecular hydrogen bonds between the $-\\text{NH}-$ and $>\text{C}=\\text{O}$ groups of adjacent peptide chains (not covalent disulphide linkages). Disulphide linkages contribute to tertiary and quaternary structures, not the secondary $\\beta$-sheet backbone. Statement II is incorrect.\nConclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_biomolecules_c01_030",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following non-covalent and covalent interactions are responsible for stabilizing the specific three-dimensional tertiary structure of globular proteins?\n(i) Hydrogen bonds between polar side chain groups\n(ii) Disulphide linkages ($-\\text{S}-\\text{S}-$) between cysteine residues\n(iii) Electrostatic ionic interactions (salt bridges) between oppositely charged side chains\n(iv) Hydrophobic interactions and van der Waals forces between non-polar side chains\nChoose the correct option:",
+      "options": [
+        "A) Only (i) and (ii)",
+        "B) Only (i), (ii), and (iii)",
+        "C) Only (ii) and (iv)",
+        "D) (i), (ii), (iii), and (iv)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Identify tertiary structure forces. The tertiary structure represents the overall spatial folding of secondary structural elements into a biologically active globular conformation.\nStep 2: Evaluate interactions. (i) Hydrogen bonding occurs between side chain groups such as serine $-\\text{OH}$ and aspartate carboxylate. (ii) Disulphide bonds ($-\\text{S}-\\text{S}-$) are covalent linkages formed by the oxidation of two cysteine $-\\text{SH}$ groups. (iii) Ionic bonds (salt bridges) form between basic amino acids (e.g. Lys, Arg carrying ${}^+\\text{NH}_3$) and acidic amino acids (e.g. Asp, Glu carrying ${}^-\\text{COO}^-$). (iv) Hydrophobic interactions cause non-polar residues (Leu, Ile, Val, Phe) to cluster within the interior away from water, stabilized by van der Waals dispersion forces.\nStep 3: Conclude. All four listed forces (i, ii, iii, and iv) actively stabilize the tertiary structure.\nConclusion: (i), (ii), (iii), and (iv) are all responsible."
+    },
+    {
+      "id": "chem_biomolecules_c01_031",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements labeled as Assertion (A) and Reason (R):\nAssertion (A): During the denaturation of a globular protein by heating or extreme change in $\\text{pH}$, the primary structure of the protein remains completely unaffected.\nReason (R): Coagulation of egg white upon boiling and curdling of milk upon acidification are classic biological manifestations of protein denaturation.\nChoose the correct option:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Assertion (A). Denaturation breaks the weaker non-covalent bonds (hydrogen bonds, ionic attractions, hydrophobic forces) and disulphide bridges that maintain secondary, tertiary, and quaternary structures. However, strong covalent peptide bonds ($-\\text{CO}-\\text{NH}-$) comprising the primary amino acid sequence are not cleaved under mild thermal or pH changes. Thus, primary structure remains fully intact. Assertion (A) is true.\nStep 2: Evaluate Reason (R). Boiling egg white irreversibly denatures albumin into an insoluble white solid, and lactic acid bacteria produce lactic acid which lowers pH, precipitating denatured casein in milk curdling. Both are textbook examples of denaturation. Reason (R) is true.\nStep 3: Evaluate explanation relationship. While both statements are true NCERT facts, citing examples of denaturation in (R) does not explain why peptide bonds resist denaturation and maintain the primary structure. Thus, (R) is not the correct explanation of (A).\nConclusion: Both (A) and (R) are true but (R) is not the correct explanation of (A)."
+    },
+    {
+      "id": "chem_biomolecules_c01_032",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the molecular basis of sickle-cell anaemia:\nStatement I: Sickle-cell anaemia is caused by a precise point mutation in the primary structure of haemoglobin, where a single amino acid residue at position 6 of the $\\beta$-globin chain is altered.\nStatement II: In sickle-cell haemoglobin ($\\text{HbS}$), the normal negatively charged, polar glutamic acid residue is replaced by a neutral, hydrophobic valine residue, leading to polymerization of deoxygenated haemoglobin into fibrous precipitates that distort erythrocytes into sickle shapes.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. Sickle-cell anaemia demonstrates how altering a single amino acid in the primary sequence changes the structure and function of a protein. Normal adult haemoglobin ($\\text{HbA}$) contains two $\\alpha$ and two $\\beta$ chains. In sickle-cell anaemia, only position 6 of the $\\beta$-chain is altered. Statement I is correct.\nStep 2: Evaluate Statement II. The wild-type codon $\\text{GAG}$ (encoding hydrophilic glutamic acid) undergoes a transversion to $\\text{GUG}$ (encoding hydrophobic valine). Under low oxygen tension, the exposed non-polar valine patch creates hydrophobic sticky contacts between adjacent $\\beta$-globin chains, driving fibrous polymer aggregation and red cell sickling. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_biomolecules_c01_033",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the vitamin in List I with its deficiency disease or physiological manifestation in List II:\n\nList I (Vitamin)\nP. Thiamine (Vitamin $\\text{B}_1$)\nQ. Riboflavin (Vitamin $\\text{B}_2$)\nR. Pyridoxine (Vitamin $\\text{B}_6$)\nS. Cyanocobalamin (Vitamin $\\text{B}_{12}$)\n\nList II (Deficiency Disorder)\n1. Convulsions and peripheral neuropathy\n2. Pernicious anaemia\n3. Beri-beri (loss of appetite, muscle wasting)\n4. Cheilosis (fissuring at corners of mouth and lips)\n\nChoose the correct option:",
+      "options": [
+        "A) P-3, Q-1, R-4, S-2",
+        "B) P-3, Q-4, R-1, S-2",
+        "C) P-4, Q-3, R-1, S-2",
+        "D) P-2, Q-4, R-1, S-3"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Thiamine ($\\text{B}_1$). Deficiency of vitamin $\\text{B}_1$ leads to Beri-beri, characterized by neurological deficits, cardiovascular weakness, and loss of appetite ($\\text{P} \\rightarrow 3$).\nStep 2: Analyze Riboflavin ($\\text{B}_2$). Deficiency of vitamin $\\text{B}_2$ causes Cheilosis (cracking/fissuring of the lips and mouth corners), glossitis, and burning skin sensations ($\\text{Q} \\rightarrow 4$).\nStep 3: Analyze Pyridoxine ($\\text{B}_6$). Deficiency of vitamin $\\text{B}_6$ impairs neurotransmitter synthesis, causing convulsions and nervous irritability ($\\text{R} \\rightarrow 1$).\nStep 4: Analyze Cyanocobalamin ($\\text{B}_{12}$). Deficiency of vitamin $\\text{B}_{12}$ impairs red blood cell maturation, resulting in pernicious anaemia ($\\text{S} \\rightarrow 2$).\nConclusion: The correct matching is P-3, Q-4, R-1, S-2."
+    },
+    {
+      "id": "chem_biomolecules_c01_034",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding vitamins D, E, and K:\nStatement I: Deficiency of vitamin D causes rickets in children (characterized by bent bones and bowlegs) and osteomalacia in adults (characterized by soft, fragile bones and joint pain).\nStatement II: Vitamin K is a water-soluble vitamin required for visual pigment formation, and its deficiency leads directly to xerophthalmia and night blindness.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. Vitamin D promotes calcium absorption in intestines and bone mineralization. Deficiency in growing children causes rickets, while in adults with fused epiphyseal plates it results in osteomalacia. Statement I is correct.\nStep 2: Evaluate Statement II. Vitamin K is a fat-soluble (not water-soluble) vitamin required by the liver for the post-translational carboxylation of clotting factors (prothrombin, factors VII, IX, X); its deficiency causes delayed blood clotting. Xerophthalmia and night blindness are caused by deficiency of vitamin A (retinol), not vitamin K. Statement II is incorrect.\nConclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_biomolecules_c01_035",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements labeled as Assertion (A) and Reason (R):\nAssertion (A): In a polynucleotide chain of DNA or RNA, successive nucleotide monomer units are linked together covalently through phosphodiester linkages between the $\\text{C}-3'$ hydroxyl of one pentose sugar and the $\\text{C}-5'$ hydroxyl of the next pentose sugar.\nReason (R): Purines always pair with pyrimidines across opposite antiparallel strands through hydrogen bonds in a DNA double helix.\nChoose the correct option:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Assertion (A). Nucleotides are joined together to form polynucleotide chains by phosphodiester bridges: the phosphate group at $\\text{C}-5'$ of one nucleotide is esterified with the $-\\text{OH}$ group at $\\text{C}-3'$ of the preceding nucleotide, creating a repeating sugar-phosphate-sugar backbone. Assertion (A) is true.\nStep 2: Evaluate Reason (R). In double-stranded DNA, adenine pairs with thymine ($A=T$) and guanine pairs with cytosine ($G\\equiv C$). Because a two-ring purine always pairs with a single-ring pyrimidine, the inter-strand diameter remains uniform along the helix. Reason (R) is true.\nStep 3: Evaluate explanation relationship. While both statements are fundamental and true NCERT principles of nucleic acid architecture, Reason (R) describes horizontal hydrogen-bonded base pairing between strands, which does not explain the vertical covalent phosphodiester linkage along a single strand. Thus, (R) is not the correct explanation of (A).\nConclusion: Both (A) and (R) are true but (R) is not the correct explanation of (A)."
+    },
+    {
+      "id": "chem_biomolecules_c01_036",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "According to the Watson and Crick double-helix model of B-DNA, which of the following structural statements are correct?\n(i) The two polynucleotide chains are antiparallel, meaning one chain runs $5' \\rightarrow 3'$ and the other runs $3' \\rightarrow 5'$.\n(ii) The sugar-phosphate backbone lies on the exterior while the nitrogenous bases project inwards, perpendicular to the helical axis.\n(iii) Adenine pairs with thymine through three hydrogen bonds ($A\\equiv T$), while guanine pairs with cytosine through two hydrogen bonds ($G=C$).\n(iv) The pitch of the helix is $3.4\\text{ nm}$ ($34\\text{ \\AA}$) with roughly $10$ base pairs per helical turn.\nChoose the correct option:",
+      "options": [
+        "A) (i), (ii), and (iii) only",
+        "B) (ii), (iii), and (iv) only",
+        "C) (i), (ii), and (iv) only",
+        "D) (i), (ii), (iii), and (iv)"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate statement (i). DNA strands are antiparallel with opposing phosphodiester directionalities ($5' \\rightarrow 3'$ and $3' \\rightarrow 5'$). Statement (i) is correct.\nStep 2: Evaluate statement (ii). Hydrophilic deoxyribose and negatively charged phosphate groups form the outer surface facing water, whereas hydrophobic nitrogenous bases are stacked inside perpendicular to the central axis. Statement (ii) is correct.\nStep 3: Evaluate statement (iii). Adenine pairs with thymine via TWO hydrogen bonds ($A=T$), whereas guanine pairs with cytosine via THREE hydrogen bonds ($G\\equiv C$). Statement (iii) reverses these bond numbers and is incorrect.\nStep 4: Evaluate statement (iv). B-DNA has a helical pitch of $3.4\\text{ nm}$ with approximately 10 base pairs per helical turn, giving an axial distance of $0.34\\text{ nm}$ between successive base pairs. Statement (iv) is correct.\nConclusion: Only (i), (ii), and (iv) are correct."
+    },
+    {
+      "id": "chem_biomolecules_c01_037",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A double-stranded DNA sample was subjected to quantitative chemical analysis and found to contain $28\\%$ adenine based on total molar base composition. Consider the following statements:\nStatement I: According to Chargaff's rules, the molar percentages of thymine and guanine in this DNA sample are $28\\%$ and $22\\%$, respectively.\nStatement II: In any double-stranded DNA, the base ratio $\\frac{\\text{A} + \\text{T}}{\\text{G} + \\text{C}}$ is always strictly equal to $1.0$, regardless of the organism or species.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. By Chargaff's rules for double-stranded DNA, $[\\text{A}] = [\\text{T}]$ and $[\\text{G}] = [\\text{C}]$. Given $[\\text{A}] = 28\\%$, we have $[\\text{T}] = 28\\%$. Total $\\text{A} + \\text{T} = 56\\%$. The remainder is $\\text{G} + \\text{C} = 100\\% - 56\\% = 44\\%$. Therefore, $[\\text{G}] = [\\text{C}] = \\frac{44\\%}{2} = 22\\%$. Statement I is correct.\nStep 2: Evaluate Statement II. Chargaff's rule states that the ratio of purines to pyrimidines is unity, $\\frac{\\text{A} + \\text{G}}{\\text{T} + \\text{C}} = 1.0$. However, the dissymmetry ratio $\\frac{\\text{A} + \\text{T}}{\\text{G} + \\text{C}}$ varies widely among species (it is characteristic of an organism and is not required to be 1.0; here $\\frac{28+28}{22+22} = \\frac{56}{44} \\approx 1.27$). Statement II is incorrect.\nConclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_biomolecules_c01_038",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements labeled as Assertion (A) and Reason (R):\nAssertion (A): DNA is chemically less reactive and structurally more stable than RNA, making DNA a far superior reservoir for long-term genetic storage.\nReason (R): Both DNA and RNA share adenine, guanine, and cytosine as common heterocyclic nitrogenous bases.\nChoose the correct option:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Assertion (A). DNA is significantly more stable than RNA because 2-deoxyribose lacks the reactive $2'-\\text{OH}$ group present in ribose, preventing spontaneous intramolecular nucleophilic attack on the phosphodiester backbone. In addition, thymine (5-methyluracil) is more resistant to photochemical deamination than uracil. Assertion (A) is true.\nStep 2: Evaluate Reason (R). Adenine and guanine (purines) and cytosine (pyrimidine) are present in both DNA and RNA; only thymine (in DNA) and uracil (in RNA) differ. Reason (R) is true.\nStep 3: Evaluate explanation relationship. While both statements are true NCERT facts, sharing three identical bases does not explain why DNA possesses greater thermodynamic and chemical stability than RNA. Thus, (R) is not the correct explanation of (A).\nConclusion: Both (A) and (R) are true but (R) is not the correct explanation of (A)."
+    },
+    {
+      "id": "chem_biomolecules_c01_039",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the hormone in List I with its chemical classification in List II:\n\nList I (Hormone)\nP. Insulin\nQ. Testosterone\nR. Thyroxine\nS. Adrenaline (epinephrine)\n\nList II (Chemical Class)\n1. Steroid hormone\n2. Peptide / protein hormone\n3. Iodinated amino acid derivative\n4. Catecholamine (amine derivative)\n\nChoose the correct option:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-2, Q-1, R-4, S-3",
+        "C) P-3, Q-1, R-2, S-4",
+        "D) P-2, Q-1, R-3, S-4"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Classify Insulin (P). Insulin is a peptide hormone consisting of 51 amino acids organized in two polypeptide chains (chain A and B) joined by disulphide bonds ($\\text{P} \\rightarrow 2$).\nStep 2: Classify Testosterone (Q). Testosterone is a steroid sex hormone derived from cyclopentanoperhydrophenanthrene ring system ($\\text{Q} \\rightarrow 1$).\nStep 3: Classify Thyroxine (R). Thyroxine is an iodinated derivative of the amino acid tyrosine produced by the thyroid gland ($\\text{R} \\rightarrow 3$).\nStep 4: Classify Adrenaline (S). Adrenaline is a catecholamine amine hormone synthesized from tyrosine in the adrenal medulla ($\\text{S} \\rightarrow 4$).\nConclusion: The correct matching is P-2, Q-1, R-3, S-4."
+    },
+    {
+      "id": "chem_biomolecules_c01_040",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding pancreatic hormones:\nStatement I: Insulin is secreted by the $\\alpha$-cells of the islets of Langerhans and its primary function is to increase blood glucose concentration by stimulating glycogenolysis in the liver.\nStatement II: Glucagon is secreted by the $\\beta$-cells of the islets of Langerhans and acts to decrease blood glucose concentration by promoting cellular uptake and utilization of glucose.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Statement I. Insulin is secreted by $\\beta$-cells (not $\\alpha$-cells) of the islets of Langerhans. Its physiological action lowers blood glucose levels by accelerating glycogenesis, glucose uptake, and lipid synthesis. Statement I is incorrect.\nStep 2: Evaluate Statement II. Glucagon is secreted by $\\alpha$-cells (not $\\beta$-cells) of the islets of Langerhans. It is a hyperglycemic hormone that acts antagonistically to insulin by stimulating hepatic glycogenolysis and gluconeogenesis, thereby elevating blood glucose concentration. Statement II is incorrect.\nConclusion: Both Statement I and Statement II are incorrect."
+    },
+    {
+      "id": "chem_biomolecules_c01_041",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding adrenal hormones:\nStatement I: The adrenal medulla produces steroid hormones called glucocorticoids, which regulate carbohydrate metabolism and suppress inflammatory reactions in the body.\nStatement II: Adrenaline (epinephrine) and noradrenaline (norepinephrine) are rapidly released by the adrenal medulla in response to stress or danger to mediate the 'fight or flight' response by raising blood pressure, heart rate, and blood glucose.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement I. Glucocorticoids (such as cortisol and corticosterone) are steroid hormones secreted by the adrenal cortex (specifically the zona fasciculata), not the adrenal medulla. The adrenal medulla secretes catecholamines. Thus, Statement I is incorrect.\nStep 2: Evaluate Statement II. In emergency situations, the sympathetic nervous system triggers the adrenal medulla to secrete adrenaline and noradrenaline into the circulation. These catecholamines increase cardiac output, dilate bronchioles, and stimulate glycogenolysis in liver and muscles to supply energy for emergency response. Statement II is correct.\nConclusion: Statement I is incorrect but Statement II is correct."
+    },
+    {
+      "id": "chem_biomolecules_c01_042",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements labeled as Assertion (A) and Reason (R):\nAssertion (A): $\\text{D}$-glucose, $\\text{D}$-mannose, and $\\text{D}$-fructose all react with three equivalents of phenylhydrazine to produce the exact same crystalline phenylosazone (glucosazone) with identical melting points.\nReason (R): During osazone formation, chemical modification and oxidation involve only $\\text{C}-1$ and $\\text{C}-2$ of the hexose skeleton, while the stereochemical configurations at the remaining chiral carbons ($\\text{C}-3, \\text{C}-4,$ and $\\text{C}-5$) are completely identical in $\\text{D}$-glucose, $\\text{D}$-mannose, and $\\text{D}$-fructose.\nChoose the correct option:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). When $\\text{D}$-glucose, $\\text{D}$-mannose, or $\\text{D}$-fructose is warmed with excess phenylhydrazine ($\\text{PhNHNH}_2$), all three sugars yield identical bright yellow needle-shaped crystals of glucosazone (melting point $205^\\circ\\text{C}$). Assertion (A) is true.\nStep 2: Evaluate Reason (R). In osazone synthesis, one equivalent of phenylhydrazine forms a hydrazone at the carbonyl carbon, a second equivalent oxidizes the adjacent carbon ($\\text{C}-2$ in glucose/mannose or $\\text{C}-1$ in fructose) to a carbonyl group with liberation of aniline and ammonia, and a third equivalent forms a bis-phenylhydrazone. Since $\\text{C}-1$ and $\\text{C}-2$ lose their initial chirality and become $sp^2$-hybridized, and because $\\text{C}-3, \\text{C}-4,$ and $\\text{C}-5$ have identical configurations in all three hexoses, the resulting osazones are identical. Reason (R) is true.\nStep 3: Evaluate explanation relationship. Reason (R) directly explains why the three distinct sugars converge to a single product. Thus, (R) correctly explains (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_biomolecules_c01_043",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the stereoisomerism of aldohexoses:\nStatement I: $\\text{D}$-glucose and $\\text{D}$-mannose are epimers differing in spatial configuration solely at $\\text{C}-2$, whereas $\\text{D}$-glucose and $\\text{D}$-galactose are epimers differing in spatial configuration solely at $\\text{C}-4$.\nStatement II: The open-chain form of an aldohexose contains four asymmetric carbon atoms ($\\text{C}-2, \\text{C}-3, \\text{C}-4, \\text{C}-5$), giving rise to $2^4 = 16$ possible optical stereoisomers consisting of 8 pairs of enantiomers (8 $\\text{D}$-aldohexoses and 8 $\\text{L}$-aldohexoses).\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. Epimers are diastereomers that differ in configuration at only one chiral center. $\\text{D}$-mannose has the $-\\text{OH}$ at $\\text{C}-2$ on the left, making it the $\\text{C}-2$ epimer of $\\text{D}$-glucose. $\\text{D}$-galactose has the $-\\text{OH}$ at $\\text{C}-4$ on the left, making it the $\\text{C}-4$ epimer of $\\text{D}$-glucose. Statement I is correct.\nStep 2: Evaluate Statement II. Aldohexoses have the general structure $\\text{CHO}-(\\text{CHOH})_4-\\text{CH}_2\\text{OH}$ with 4 non-identical chiral carbons. By the van 't Hoff rule, the total number of stereoisomers is $2^n = 2^4 = 16$. These form 8 enantiomeric pairs, corresponding to 8 $\\text{D}$-aldohexoses (allose, altrose, glucose, mannose, gulose, idose, galactose, talose) and their 8 $\\text{L}$-enantiomers. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_biomolecules_c01_044",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the conformational stability and Haworth representations of $\\text{D}$-glucopyranose anomers:\nStatement I: In the chair conformation of $\\beta\\text{-D}$-glucopyranose, all non-hydrogen bulky substituents (the four $-\\text{OH}$ groups and the $-\\text{CH}_2\\text{OH}$ group) occupy equatorial positions, minimizing 1,3-diaxial steric repulsions and making $\\beta\\text{-D}$-glucopyranose more stable than $\\alpha\\text{-D}$-glucopyranose in aqueous solution.\nStatement II: In the standard Haworth projection of $\\alpha\\text{-D}$-glucopyranose, the anomeric hydroxyl group at $\\text{C}-1$ is depicted pointing upwards in a cis orientation relative to the $-\\text{CH}_2\\text{OH}$ group at $\\text{C}-5$.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. In the predominant ${}^4\\text{C}_1$ chair conformation of $\\beta\\text{-D}$-glucopyranose, every hydroxyl group at $\\text{C}-1, \\text{C}-2, \\text{C}-3, \\text{C}-4$ and the hydroxymethyl group at $\\text{C}-5$ reside in equatorial positions. In $\\alpha\\text{-D}$-glucopyranose, the $\\text{C}-1$ $-\\text{OH}$ is axial, experiencing 1,3-diaxial interactions. Hence, the $\\beta$-anomer is thermodynamically more stable (representing $\\sim 64\\%$ of the equilibrium mixture in water). Statement I is correct.\nStep 2: Evaluate Statement II. In Haworth projections of $\\text{D}$-aldopyranoses, the $\\alpha$-anomer has the anomeric $-\\text{OH}$ pointing downwards (trans to $-\\text{CH}_2\\text{OH}$ at $\\text{C}-5$). The $\\beta$-anomer has the anomeric $-\\text{OH}$ pointing upwards (cis to $-\\text{CH}_2\\text{OH}$). Statement II incorrectly describes the $\\alpha$-anomer as pointing upward. Statement II is incorrect.\nConclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_biomolecules_c01_045",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the kinetics and polarimetry of the inversion of cane sugar:\nStatement I: The acid-catalyzed hydrolysis of sucrose follows pseudo-first-order kinetics because water is present in large excess, so its concentration remains effectively constant during the reaction.\nStatement II: At complete hydrolysis ($t = \\infty$), the net specific optical rotation of the solution ($r_\\infty$) becomes positive ($+19.9^\\circ$) because glucose has a higher positive specific rotation than fructose.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. Hydrolysis of sucrose proceeds via: $\\text{C}_{12}\\text{H}_{22}\\text{O}_{11} + \\text{H}_2\\text{O} \\xrightarrow{\\text{H}^+} \\text{C}_6\\text{H}_{12}\\text{O}_6 + \\text{C}_6\\text{H}_{12}\\text{O}_6$. Because water is the solvent and present in huge molar excess, its concentration does not change measurably. The rate equation is $\\text{Rate} = k' [\\text{sucrose}][\\text{H}_2\\text{O}] = k [\\text{sucrose}]$, which is pseudo-first-order. Statement I is correct.\nStep 2: Evaluate Statement II. Sucrose has $[\\alpha]_D = +66.5^\\circ$. The products are equimolar $\\text{D-(+)}$-glucose ($[\\alpha]_D = +52.5^\\circ$) and $\\text{D-(-)}$-fructose ($[\\alpha]_D = -92.4^\\circ$). Because the levorotation of fructose is significantly stronger than the dextrorotation of glucose, the final net specific rotation at $t = \\infty$ is levorotatory, with $[\\alpha]_D = \\frac{+52.5^\\circ + (-92.4^\\circ)}{2} = -19.9^\\circ$, not $+19.9^\\circ$. Statement II is incorrect.\nConclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_biomolecules_c01_046",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "To elucidate the structure and ring size of sucrose, a chemist subjected sucrose to exhaustive methylation using dimethyl sulphate and aqueous $\\text{NaOH}$ to yield octamethylsucrose, which was subsequently cleaved by acid-catalyzed hydrolysis. The two methylated monosaccharide derivatives isolated from this reaction are:\nChoose the correct option:",
+      "options": [
+        "A) 2,3,4,6-Tetra-O-methyl-D-glucose and 2,3,4,6-tetra-O-methyl-D-galactose",
+        "B) 2,3,4,6-Tetra-O-methyl-D-glucose and 1,3,4,6-tetra-O-methyl-D-fructose",
+        "C) 2,3,4-Tri-O-methyl-D-glucose and 1,3,4-tri-O-methyl-D-fructose",
+        "D) 1,2,3,4-Tetra-O-methyl-D-glucose and 2,3,4,5-tetra-O-methyl-D-fructose"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Identify functional linkages in sucrose. Sucrose is $\\alpha\\text{-D}$-glucopyranosyl-$(1\\rightarrow 2)$-$\\beta\\text{-D}$-fructofuranoside. $\\text{C}-1$ of the glucopyranose ring and $\\text{C}-2$ of the fructofuranose ring form the glycosidic bond.\nStep 2: Trace methylation in glucopyranose. In glucose, the ring oxygen spans $\\text{C}-1$ to $\\text{C}-5$. The glycosidic bond is at $\\text{C}-1$. Thus, free hydroxyls exist at $\\text{C}-2, \\text{C}-3, \\text{C}-4,$ and $\\text{C}-6$. Exhaustive methylation etherifies these four positions, yielding 2,3,4,6-tetra-O-methyl-D-glucose upon hydrolysis.\nStep 3: Trace methylation in fructofuranose. In fructose, the furanose ring spans $\\text{C}-2$ to $\\text{C}-5$. The glycosidic bond is at $\\text{C}-2$. Thus, free hydroxyls exist at $\\text{C}-1, \\text{C}-3, \\text{C}-4,$ and $\\text{C}-6$. Methylation etherifies these four positions, yielding 1,3,4,6-tetra-O-methyl-D-fructose upon hydrolysis.\nConclusion: 2,3,4,6-Tetra-O-methyl-D-glucose and 1,3,4,6-tetra-O-methyl-D-fructose."
+    },
+    {
+      "id": "chem_biomolecules_c01_047",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following comparative statements regarding amylose, amylopectin, glycogen, and cellulose is incorrect?\nChoose the correct option:",
+      "options": [
+        "A) Both amylopectin and glycogen contain linear $\\alpha-1,4$-glycosidic bonds and $\\alpha-1,6$-glycosidic branch linkages.",
+        "B) Cellulose forms unbranched linear chains joined exclusively by $\\beta-1,4$-glycosidic bonds stabilized by extensive interchain hydrogen bonds.",
+        "C) Amylose forms a continuous unbranched helical coil that entraps molecular iodine, producing a characteristic blue inclusion complex.",
+        "D) Glycogen is less branched than amylopectin, with branch points occurring infrequently once every $50\\text{--}60$ glucose residues."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate option A. Both amylopectin and glycogen are branched homopolymers of $\\alpha\\text{-D}$-glucose containing $\\alpha-1,4$ main chains and $\\alpha-1,6$ branch points. Option A is correct.\nStep 2: Evaluate option B. Cellulose is a linear polymer of $\\beta\\text{-D}$-glucose linked by $\\beta-1,4$-glycosidic bonds. Neighboring parallel chains form dense sheets stabilized by strong intermolecular hydrogen bonds. Option B is correct.\nStep 3: Evaluate option C. Amylose consists solely of $\\alpha-1,4$ linkages which naturally curl into a hollow helix that encloses polyiodide ions to produce a deep blue colour. Option C is correct.\nStep 4: Evaluate option D. Amylopectin branches every 20 to 30 residues, whereas glycogen is much more densely and frequently branched, with branch points occurring every 8 to 12 residues. Claiming that glycogen branches less frequently (every 50-60 residues) is completely false. Option D is incorrect.\nConclusion: Glycogen is less branched than amylopectin, with branch points occurring infrequently once every 50-60 glucose residues is the incorrect statement."
+    },
+    {
+      "id": "chem_biomolecules_c01_048",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider an aqueous solution containing the neutral amino acid alanine, which has an isoelectric point of $\\text{pI} = 6.0$:\nStatement I: At $\\text{pH} = 2.0$, alanine exists predominantly in the cationic form (${}^+\\text{H}_3\\text{N}-\\text{CH}(\\text{CH}_3)-\\text{COOH}$) with a net positive charge and migrates toward the cathode during gel electrophoresis.\nStatement II: At $\\text{pH} = 10.0$, alanine exists predominantly in the zwitterionic dipolar form with zero net charge and shows no net migration in an electric field.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. At $\\text{pH} = 2.0$ (strongly acidic, $\\text{pH} < \\text{pI}$), excess hydronium ions suppress carboxylate ionization: ${}^-\\text{COO}^- + \\text{H}^+ \\rightarrow -\\text{COOH}$. The amino group remains fully protonated as ${}^+\\text{NH}_3$. Hence, alanine carries a net charge of $+1$ and migrates toward the negatively charged cathode. Statement I is correct.\nStep 2: Evaluate Statement II. At $\\text{pH} = 10.0$ (strongly basic, $\\text{pH} > \\text{pI}$), hydroxide ions remove protons from the ammonium group: ${}^+\\text{H}_3\\text{N}-\\text{CH}(\\text{CH}_3)-\\text{COO}^- + \\text{OH}^- \\rightarrow \\text{H}_2\\text{N}-\\text{CH}(\\text{CH}_3)-\\text{COO}^- + \\text{H}_2\\text{O}$. Alanine exists predominantly as an anion carrying a net charge of $-1$ and migrates toward the positively charged anode. It does not exist as a neutral zwitterion at $\\text{pH} = 10.0$. Statement II is incorrect.\nConclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_biomolecules_c01_049",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements labeled as Assertion (A) and Reason (R):\nAssertion (A): During the thermal denaturation of a native globular protein into an unfolded random coil, the conformational entropy of the polypeptide chain increases significantly ($\\Delta S_{\\text{conf}} > 0$).\nReason (R): In its folded native state, the polypeptide chain is constrained into a single unique three-dimensional conformation, whereas unfolding releases these steric restrictions, allowing the chain to access a vast ensemble of disordered microstates.\nChoose the correct option:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). Denaturation unfolds the compact, highly ordered tertiary and secondary structures of a protein into flexible, unstructured random coils. According to Boltzmann's entropy formula ($S = k_B \\ln W$), the number of accessible conformational states ($W$) expands dramatically, producing a large positive change in conformational entropy ($\\Delta S_{\\text{conf}} > 0$). Assertion (A) is true.\nStep 2: Evaluate Reason (R). A native functional protein possesses a precisely defined, rigid 3D fold maintained by specific intramolecular interactions. Thermal denaturation breaks these stabilizing bonds, liberating the polypeptide backbone and side chains to sample astronomical numbers of rotational and vibrational conformations. Reason (R) is true.\nStep 3: Evaluate explanation relationship. The release of conformational constraints described in (R) is the fundamental statistical thermodynamic origin of the entropy increase stated in (A). Thus, (R) correctly explains (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_biomolecules_c01_050",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding enzyme kinetics and coenzymes:\nStatement I: Enzymes accelerate chemical reactions by altering the overall thermodynamic equilibrium constant ($K_{\\text{eq}}$) of the reaction and converting endergonic non-spontaneous reactions into spontaneous ones ($\\Delta G < 0$).\nStatement II: Coenzymes such as $\\text{FAD}$ and $\\text{NAD}^+$ are derived from fat-soluble vitamins (vitamins A and E) and act as permanent structural elements of cell wall cellulose in plants.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Statement I. Enzymes are biological catalysts that accelerate reaction rates strictly by lowering the activation energy ($\\Delta G^\\ddagger$) of both forward and reverse pathways. Enzymes do NOT change the free energies of reactants or products, do NOT alter the net free energy change ($\\Delta G$), and do NOT change the equilibrium constant ($K_{\\text{eq}}$). Statement I is incorrect.\nStep 2: Evaluate Statement II. Flavin adenine dinucleotide ($\\text{FAD}$) is synthesized from riboflavin (vitamin $\\text{B}_2$), and nicotinamide adenine dinucleotide ($\\text{NAD}^+$) is synthesized from niacin (vitamin $\\text{B}_3$). Both are water-soluble B-complex vitamins, not fat-soluble vitamins. Furthermore, they are redox coenzymes involved in cellular respiration, not structural components of plant cell walls. Statement II is incorrect.\nConclusion: Both Statement I and Statement II are incorrect."
+    },
+    {
+      "id": "chem_biomolecules_c01_051",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the chemical mechanism of DNA chain elongation during enzymatic replication:\nStatement I: During the synthesis of a new DNA strand, incoming nucleoside triphosphates attach covalently to the $5'$-triphosphate group of the growing strand with the simultaneous elimination of a molecule of water.\nStatement II: Chain elongation occurs strictly in the $5' \\rightarrow 3'$ direction because the free $3'-\\text{OH}$ group of the growing primer strand performs a nucleophilic attack on the $\\alpha$-phosphorus atom of an incoming deoxynucleoside triphosphate ($\\text{dNTP}$), with the release of inorganic pyrophosphate ($\\text{PP}_i$).\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement I. Chain growth does not occur at the $5'$-terminus. The $5'$-end carries a phosphate group that does not serve as the nucleophilic receiving end for incoming nucleotides. Furthermore, no water molecule is eliminated; pyrophosphate ($\\text{PP}_i$) is released. Thus, Statement I is incorrect.\nStep 2: Evaluate Statement II. DNA polymerases require a free $3'-\\text{OH}$ group on the primer terminus. The $3'-\\text{OH}$ acts as a nucleophile attacking the electrophilic $\\alpha$-phosphate of the incoming $\\text{dNTP}$, forming a new phosphodiester bond and expelling $\\text{PP}_i$. Subsequent hydrolysis of pyrophosphate by pyrophosphatase ($\\text{PP}_i + \\text{H}_2\\text{O} \\rightarrow 2\\text{P}_i$) provides thermodynamic irreversibility, ensuring synthesis proceeds strictly in the $5' \\rightarrow 3'$ direction. Statement II is correct.\nConclusion: Statement I is incorrect but Statement II is correct."
+    },
+    {
+      "id": "chem_biomolecules_c01_052",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements labeled as Assertion (A) and Reason (R):\nAssertion (A): A double-stranded DNA duplex containing a higher $(\\text{G}+\\text{C})$ percentage exhibits a substantially higher thermal melting temperature ($T_m$) than an equimolar DNA duplex of identical length with higher $(\\text{A}+\\text{T})$ content.\nReason (R): When duplex DNA undergoes thermal denaturation into separate single strands, its ultraviolet light absorbance at $260\\text{ nm}$ increases dramatically, a phenomenon termed the hyperchromic effect.\nChoose the correct option:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Assertion (A). Guanine and cytosine pair with three hydrogen bonds ($G\\equiv C$), and their planar aromatic systems participate in stronger base-stacking interactions than adenine-thymine pairs, which share only two hydrogen bonds ($A=T$). Consequently, duplexes with higher $(\\text{G}+\\text{C})$ content require higher temperatures to denature, resulting in an elevated $T_m$. Assertion (A) is true.\nStep 2: Evaluate Reason (R). In double-stranded DNA, stacked aromatic bases quench UV absorption. Upon heating above $T_m$, the unstacking of bases in single strands increases UV absorption at $260\\text{ nm}$ by $30\\text{--}40\\%$, which defines the hyperchromic effect. Reason (R) is true.\nStep 3: Evaluate explanation relationship. While both statements are true scientific principles, the hyperchromic effect describes the optical consequence of base unstacking, which does not explain why $\\text{G}+\\text{C}$ pairs provide greater thermal stability than $\\text{A}+\\text{T}$ pairs (which is caused by three hydrogen bonds and superior stacking enthalpy). Thus, (R) is not the correct explanation of (A).\nConclusion: Both (A) and (R) are true but (R) is not the correct explanation of (A)."
+    },
+    {
+      "id": "chem_biomolecules_c01_053",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the active coenzyme form in List I with its biochemical role and clinical deficiency hallmark in List II:\n\nList I (Active Coenzyme / Vitamin Form)\nP. Thiamine pyrophosphate (TPP)\nQ. Flavin adenine dinucleotide (FAD)\nR. Pyridoxal phosphate (PLP)\nS. Methylcobalamin / Adenosylcobalamin\n\nList II (Biochemical Role & Deficiency)\n1. Coenzyme for oxidative decarboxylation of $\\alpha$-keto acids; deficiency causes Beri-beri\n2. Coenzyme for methionine synthesis and nucleotide metabolism; deficiency causes Pernicious anaemia\n3. Coenzyme for amino acid transamination and decarboxylation; deficiency causes Convulsions\n4. Electron carrier in cellular redox pathways derived from riboflavin; deficiency causes Cheilosis\n\nChoose the correct option:",
+      "options": [
+        "A) P-1, Q-3, R-4, S-2",
+        "B) P-3, Q-4, R-1, S-2",
+        "C) P-1, Q-2, R-3, S-4",
+        "D) P-1, Q-4, R-3, S-2"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Match TPP (P). Thiamine pyrophosphate is the active coenzyme of vitamin $\\text{B}_1$ (thiamine), catalyzing the oxidative decarboxylation of pyruvate to acetyl-CoA. Deficiency impairs carbohydrate metabolism, leading to Beri-beri ($\\text{P} \\rightarrow 1$).\nStep 2: Match FAD (Q). Flavin adenine dinucleotide is derived from vitamin $\\text{B}_2$ (riboflavin) and serves as a two-electron redox cofactor in the citric acid cycle and electron transport chain. Deficiency causes Cheilosis and glossitis ($\\text{Q} \\rightarrow 4$).\nStep 3: Match PLP (R). Pyridoxal phosphate is the active coenzyme form of vitamin $\\text{B}_6$ (pyridoxine), essential for aminotransferases and glutamate decarboxylase (producing GABA). Deficiency causes neurological convulsions ($\\text{R} \\rightarrow 3$).\nStep 4: Match Cobalamin (S). Methylcobalamin is the active coenzyme of vitamin $\\text{B}_{12}$ required for homocysteine methylation and normal erythropoiesis. Deficiency causes pernicious anaemia ($\\text{S} \\rightarrow 2$).\nConclusion: The correct matching is P-1, Q-4, R-3, S-2."
+    },
+    {
+      "id": "chem_biomolecules_c01_054",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding thyroid and adrenal steroid hormones:\nStatement I: Thyroxine ($\\text{T}_4$) is synthesized by the iodination of tyrosine residues within thyroglobulin, and dietary deficiency of iodine impairs its synthesis, causing thyroid enlargement termed endemic goitre.\nStatement II: Mineralocorticoids like aldosterone are secreted by the thyroid gland and function solely to accelerate glucose degradation into ethanol and lactic acid in skeletal muscles.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. Thyroxine (tetraiodothyronine or $\\text{T}_4$) is an iodinated amino acid derivative synthesized in thyroid follicular cells by the iodination of tyrosine rings in the protein thyroglobulin. Insufficient dietary iodine lowers $\\text{T}_4$ levels, triggering compensatory oversecretion of thyroid-stimulating hormone (TSH), causing thyroid hypertrophy known as endemic goitre. Statement I is correct.\nStep 2: Evaluate Statement II. Aldosterone is a mineralocorticoid hormone secreted by the adrenal cortex (specifically zona glomerulosa), not the thyroid gland. Its primary biological function is to promote $\\text{Na}^+$ and water reabsorption and $\\text{K}^+$ excretion in the distal nephrons of the kidney, regulating blood volume and blood pressure. It does not produce ethanol or accelerate muscle fermentation. Statement II is incorrect.\nConclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_biomolecules_c01_055",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following biochemical events that occur in human metabolism during prolonged fasting:\n(i) Glucagon secreted by pancreatic $\\alpha$-cells stimulates glycogen phosphorylase in the liver to break down stored glycogen into glucose.\n(ii) Gluconeogenesis is stimulated in hepatic tissue, converting non-carbohydrate substrates like glucogenic amino acids and glycerol into glucose.\n(iii) Glucocorticoids released from the adrenal cortex promote peripheral protein mobilization to supply amino acid precursors for gluconeogenesis.\n(iv) Denaturation of muscle globular proteins occurs spontaneously at normal body temperature ($37^\\circ\\text{C}$) without any proteolytic enzyme activity.\nWhich of the above statements are correct physiological and biochemical adaptations to fasting?\nChoose the correct option:",
+      "options": [
+        "A) (i) and (iv) only",
+        "B) (ii) and (iv) only",
+        "C) (i), (ii), (iii), and (iv)",
+        "D) (i), (ii), and (iii) only"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate statement (i). When blood glucose falls during fasting, glucagon triggers hepatic glycogenolysis by phosphorylating and activating glycogen phosphorylase, releasing glucose-1-phosphate which is converted to free glucose. Statement (i) is correct.\nStep 2: Evaluate statement (ii). As hepatic glycogen reserves deplete within 24 hours, liver cells synthesize glucose de novo via gluconeogenesis from lactate, glycerol, and carbon skeletons of amino acids (alanine, glutamine). Statement (ii) is correct.\nStep 3: Evaluate statement (iii). Cortisol and other glucocorticoids enhance transcription of enzymes involved in extrahepatic protein catabolism, liberating glucogenic amino acids for hepatic gluconeogenesis. Statement (iii) is correct.\nStep 4: Evaluate statement (iv). Muscle proteins are broken down by regulated intracellular proteases and the ubiquitin-proteasome system, not by spontaneous thermal denaturation. Globular proteins are thermodynamically stable at physiological body temperature ($37^\\circ\\text{C}$) and do not spontaneously denature. Statement (iv) is incorrect.\nConclusion: Only (i), (ii), and (iii) are correct."
+    }
+  ]
+}

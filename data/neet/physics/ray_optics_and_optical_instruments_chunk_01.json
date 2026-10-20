@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Ray Optics and Optical Instruments",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_001",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding spherical mirrors and Cartesian sign conventions:\n\nStatement I: According to the Cartesian sign convention, distances measured in the direction of incident light are taken as positive, while distances measured opposite to the direction of incident light are taken as negative.\nStatement II: A concave mirror can form both real and virtual images depending on whether the real object is placed outside or within its focal length.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In Cartesian sign conventions adopted by NCERT, the pole ($P$) of the mirror is taken as the origin, and the principal axis is taken as the $x$-axis. Distances measured in the direction of propagation of incident light are positive, while those opposite to incident light are negative. Thus, Statement I is strictly true.\nStep 2: For a concave mirror, when a real object is placed beyond the focus ($u > f$), the reflected rays converge to form a real, inverted image in front of the mirror. When placed between the pole and focus ($u < f$), the rays diverge upon reflection and appear to diverge from behind the mirror, forming an erect, virtual image. Thus, Statement II is strictly true.\nDistractor Analysis: Statements declaring either assertion false contradict basic Cartesian sign rules and ray-tracing properties of concave mirrors."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_002",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The linear magnification produced by a convex mirror is always positive and less than unity ($0 < m < 1$) for any real object placed in front of it.\nReason (R): A convex mirror always forms a virtual, erect, and diminished image of a real object behind the mirror between its pole and principal focus.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Linear magnification is defined as $m = -\\frac{v}{u} = \\frac{h_i}{h_o}$. For a real object in front of a convex mirror, $u < 0$ and $f > 0$. Using the mirror formula $\\frac{1}{v} = \\frac{1}{f} - \\frac{1}{u}$, since $u$ is negative, $\\frac{1}{v} = \\frac{1}{f} + \\frac{1}{|u|} > 0$, giving a positive image distance $v$ such that $0 < v < f$.\nStep 2: Because $v$ is positive and $u$ is negative, $m = -\\frac{v}{u} = +\\frac{v}{|u|}$. Since $v < |u|$, the magnification satisfies $0 < m < 1$. Thus, the image is erect (positive $m$) and diminished ($m < 1$). Assertion (A) is true.\nStep 3: Reason (R) states that the image formed is virtual, erect, and diminished between pole and focus, which directly provides the physical cause for $m$ being positive and less than unity. Thus, (R) correctly explains (A).\nDistractor Analysis: Denying that (R) explains (A) ignores that magnification definition directly maps image character and position to numeric bounds."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_003",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An object is placed at a distance of $30\\text{ cm}$ in front of a concave mirror of focal length $20\\text{ cm}$. The position of the image formed ($v$) and its linear magnification ($m$) are respectively:",
+      "options": [
+        "A) $v = +60\\text{ cm}$, $m = +2.0$",
+        "B) $v = -12\\text{ cm}$, $m = -0.4$",
+        "C) $v = -60\\text{ cm}$, $m = -2.0$",
+        "D) $v = +12\\text{ cm}$, $m = +0.4$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Applying Cartesian sign conventions: object distance $u = -30\\text{ cm}$, focal length of concave mirror $f = -20\\text{ cm}$.\nStep 2: Applying the mirror formula:\n$$\\frac{1}{v} + \\frac{1}{u} = \\frac{1}{f} \\implies \\frac{1}{v} = \\frac{1}{f} - \\frac{1}{u} = \\frac{1}{-20} - \\frac{1}{-30} = -\\frac{1}{20} + \\frac{1}{30} = \\frac{-3 + 2}{60} = -\\frac{1}{60}\\text{ cm}^{-1}$$\nTherefore, $v = -60\\text{ cm}$ (a real image formed $60\\text{ cm}$ in front of the mirror).\nStep 3: Calculating linear magnification:\n$$m = -\\frac{v}{u} = -\\frac{-60}{-30} = -2.0$$\nThe negative sign indicates an inverted, real image, magnified by a factor of $2$.\nDistractor Analysis: An answer of $+60\\text{ cm}$ incorrectly assumes a virtual image; values like $\\pm 12\\text{ cm}$ result from erroneously using the lens formula $\\frac{1}{v} - \\frac{1}{u} = \\frac{1}{f}$."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_004",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the approximations used in deriving spherical mirror formulas:\n\nStatement I: The mirror formula $\\frac{1}{v} + \\frac{1}{u} = \\frac{1}{f}$ and focal relation $f = \\frac{R}{2}$ strictly hold under the paraxial ray approximation, where rays make small angles with the principal axis.\nStatement II: For marginal rays incident at large distances from the principal axis, rays parallel to the principal axis fail to converge at a single focal point, a phenomenon known as spherical aberration.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In NCERT Physics, the derivation of $f = R/2$ and $\\frac{1}{v} + \\frac{1}{u} = \\frac{1}{f}$ explicitly assumes paraxial rays—rays that travel very close to the principal axis and make very small angles with it, so that $\\sin\\theta \\approx \\tan\\theta \\approx \\theta$. Hence, Statement I is strictly true.\nStep 2: Rays striking the outer periphery of a spherical mirror (marginal rays) suffer greater deviation and intersect the principal axis closer to the mirror pole than paraxial rays. This failure of all parallel rays to focus at a unique point is called spherical aberration. Hence, Statement II is strictly true.\nDistractor Analysis: Options claiming either statement to be false contradict fundamental geometrical optics definitions of paraxial optics and optical aberrations."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_005",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When a monochromatic ray of light travels from vacuum into a denser medium of refractive index $\\mu$, its speed and wavelength decrease by a factor of $\\mu$, but its frequency remains unchanged.\nReason (R): Frequency is an intrinsic characteristic of the light source producing the wave oscillations and is invariant during refraction across media boundaries.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Refraction occurs when an electromagnetic wave enters a new medium. By definition of refractive index, speed of light in the medium is $v = c/\\mu$. The frequency $\\nu$ is determined strictly by the oscillating source driving the electric field and does not change upon crossing the interface.\nStep 2: Using the fundamental relation $v = \\nu \\lambda$, since $v = c/\\mu$ and $\\nu$ is invariant, the wavelength in the medium becomes $\\lambda' = v/\\nu = (c/\\mu)/\\nu = \\lambda_0/\\mu$. Assertion (A) is true.\nStep 3: Reason (R) states the physical principle that frequency depends entirely on the source and is conserved across boundaries, which explains why wavelength must compress when wave speed decreases. Thus, (R) correctly explains (A).\nDistractor Analysis: Claiming that frequency changes in optical media violates continuous boundary matching of electromagnetic fields."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_006",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A small coin is resting at the bottom of a water tank of real depth $24\\text{ cm}$. When viewed from air directly above at near-normal incidence, the apparent depth of the coin and its apparent upward shift are respectively: (Refractive index of water $\\mu = \\frac{4}{3}$)",
+      "options": [
+        "A) $32\\text{ cm}$ and $8\\text{ cm}$",
+        "B) $18\\text{ cm}$ and $6\\text{ cm}$",
+        "C) $16\\text{ cm}$ and $8\\text{ cm}$",
+        "D) $20\\text{ cm}$ and $4\\text{ cm}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: When an object in a denser medium of refractive index $\\mu$ is viewed from a rarer medium (air, $\\mu_{air} \\approx 1$) along near-normal rays, the apparent depth $d'$ is given by:\n$$d' = \\frac{d}{\\mu} = \\frac{24\\text{ cm}}{4/3} = 24 \\times \\frac{3}{4} = 18\\text{ cm}$$\nStep 2: The apparent upward shift $\\Delta t$ of the coin is:\n$$\\Delta t = d - d' = d\\left(1 - \\frac{1}{\\mu}\\right) = 24\\left(1 - \\frac{3}{4}\\right) = 24 \\times \\frac{1}{4} = 6\\text{ cm}$$\nDistractor Analysis: An apparent depth of $32\\text{ cm}$ mistakenly multiplies real depth by $\\mu$ (which occurs when viewing from denser into rarer medium); $16\\text{ cm}$ and $8\\text{ cm}$ assume $\\mu = 1.5$ instead of $4/3$."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_007",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the refraction of light through a rectangular glass slab with parallel faces:\n\nStatement I: The perpendicular lateral displacement ($x$) of a light ray traversing a slab of thickness $t$ at an angle of incidence $i$ is given by $x = \\frac{t \\sin(i - r)}{\\cos r}$, where $r$ is the angle of refraction.\nStatement II: The emergent ray from the parallel-sided glass slab is deviated by an angle of $90^\\circ$ relative to the original direction of the incident ray.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In a rectangular glass slab with parallel faces, geometric ray tracing shows that lateral displacement between the incident ray and emergent ray is $x = \\frac{t \\sin(i - r)}{\\cos r}$. Thus, Statement I is strictly true.\nStep 2: Because the opposing refracting surfaces are parallel, Snell's law gives $1 \\cdot \\sin i = \\mu \\sin r$ at the first surface, and $\\mu \\sin r = 1 \\cdot \\sin e$ at the second surface. Therefore, the angle of emergence equals the angle of incidence ($e = i$). The emergent ray emerges parallel to the incident ray, resulting in zero net angular deviation ($\\delta = 0^\\circ$), not $90^\\circ$. Thus, Statement II is false.\nDistractor Analysis: Stating that the ray deviates by $90^\\circ$ confuses a parallel plate with a totally reflecting $90^\\circ$ right-angled prism."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_008",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Optical phenomenon or formula) with List II (Associated physical expression or condition):\n\nList I:\n(A) Necessary condition for Total Internal Reflection\n(B) Relation between critical angle $i_c$ and refractive index $\\mu$\n(C) Apparent upward shift through a transparent slab\n(D) Focal length of an ideal plane mirror\n\nList II:\n(I) $\\sin i_c = \\frac{1}{\\mu}$\n(II) Ray travels from denser to rarer medium with $i > i_c$\n(III) Infinity ($\\infty$)\n(IV) $\\Delta t = t\\left(1 - \\frac{1}{\\mu}\\right)$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (A)-(I), (B)-(II), (C)-(III), (D)-(IV)",
+        "B) (A)-(II), (B)-(I), (C)-(IV), (D)-(III)",
+        "C) (A)-(II), (B)-(IV), (C)-(I), (D)-(III)",
+        "D) (A)-(IV), (B)-(I), (C)-(II), (D)-(III)"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Total internal reflection occurs only when light propagates from an optically denser medium into a rarer medium at an angle of incidence greater than the critical angle ($i > i_c$). Hence, (A) matches (II).\nStep 2: By Snell's law at the critical condition, $\\mu \\sin i_c = 1 \\cdot \\sin 90^\\circ = 1$, yielding $\\sin i_c = 1/\\mu$. Hence, (B) matches (I).\nStep 3: The apparent shift for an object viewed through a slab of thickness $t$ and refractive index $\\mu$ is $\\Delta t = t\\left(1 - \\frac{1}{\\mu}\\right)$. Hence, (C) matches (IV).\nStep 4: A plane mirror has zero surface curvature ($R = \\infty$), giving focal length $f = R/2 = \\infty$. Hence, (D) matches (III).\nDistractor Analysis: Matching (A) with (I) confuses the phenomenon condition with the mathematical formula for critical angle."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_009",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): On a hot summer day, an observer on a highway often sees an optical illusion of shimmering water puddles ahead, known as a mirage.\nReason (R): Near the hot ground, the temperature of air is higher, causing its density and refractive index to be lower than cooler layers above; light rays from the sky bend progressively upwards until total internal reflection occurs.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The highway mirage is a classical natural manifestation of refraction and total internal reflection. Assertion (A) accurately describes the observed phenomenon.\nStep 2: The ground heats the air immediately in contact with it. Air density increases with height, so the refractive index of air increases upwards. Light rays travelling downwards from the sky travel from an optically denser layer to a rarer layer, bending away from the normal.\nStep 3: When the angle of incidence exceeds the critical angle for the hot layer, total internal reflection occurs, bending rays upward toward the observer's eye, who perceives an inverted image of the sky resembling reflection from water. Thus, Reason (R) provides the complete physical mechanism explaining (A).\nDistractor Analysis: Options denying (R) as the explanation ignore NCERT Section 9.4 on natural optical phenomena."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_010",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the optical properties of diamond:\n\nStatement I: The brilliant sparkling of a skillfully cut diamond is predominantly due to multiple total internal reflections of light occurring inside the diamond.\nStatement II: Diamond has an exceptionally low refractive index ($\\mu \\approx 1.33$) which results in an unusually large critical angle of approximately $60^\\circ$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: When light enters a diamond, skilled lapidaries cut the facets such that light enters easily but strikes internal faces at angles exceeding the critical angle, undergoing multiple total internal reflections before exiting through specific top faces, producing brilliant sparkle. Statement I is true.\nStep 2: Diamond possesses one of the highest refractive indices of transparent materials, $\\mu \\approx 2.42$ (not $1.33$, which is water). Consequently, its critical angle is very small:\n$$\\sin i_c = \\frac{1}{2.42} \\implies i_c \\approx 24.4^\\circ$$\nBecause $i_c$ is tiny, rays are far more likely to undergo total internal reflection. Statement II is false.\nDistractor Analysis: Asserting that diamond has $\\mu = 1.33$ confuses diamond with water and reverses the fundamental reason for diamond's brilliance."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_011",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Optical fibres can guide light signals across tortuous, bent paths over kilometres with negligible transmission loss.\nReason (R): Optical fibres consist of an inner core of refractive index $\\mu_1$ surrounded by a cladding of refractive index $\\mu_2$ such that $\\mu_1 > \\mu_2$, causing light to undergo repeated total internal reflection along the core.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Optical fibres act as light guides (dielectric waveguides) capable of transmitting optical signals over vast distances with very low attenuation. Assertion (A) is correct.\nStep 2: For total internal reflection to occur within the optical fibre, light must travel inside a higher refractive index material (core, $\\mu_1$) and reflect off the boundary with a lower refractive index coating (cladding, $\\mu_2$), meaning $\\mu_1 > \\mu_2$. Light injected within the acceptance cone strikes the core-cladding boundary at angles exceeding the critical angle $i_c = \\arcsin(\\mu_2/\\mu_1)$, propagating via successive total internal reflections without escaping into the cladding.\nStep 3: Reason (R) states this structural and physical condition, precisely explaining the low-loss guidance asserted in (A).\nDistractor Analysis: Reversing the refractive index relationship ($\\mu_1 < \\mu_2$) would cause total refraction out of the core into cladding, destroying signal transmission."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_012",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding total internal reflection in a $45^\\circ-90^\\circ-45^\\circ$ right-angled isosceles crown glass prism (refractive index $\\mu = 1.5$):\n\n(i) The critical angle for the crown glass-air interface is approximately $41.8^\\circ$.\n(ii) A ray incident normally on one of the legs strikes the hypotenuse face at $45^\\circ$ and is deviated through an angle of $90^\\circ$ by total internal reflection.\n(iii) A ray incident normally on the hypotenuse face undergoes two successive total internal reflections at the two leg faces and is deviated through an angle of $180^\\circ$.\n(iv) A totally reflecting prism cannot invert an image without altering the direction of ray propagation.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) (i), (ii) and (iv) only",
+        "B) (i), (ii) and (iii) only",
+        "C) (ii), (iii) and (iv) only",
+        "D) (i), (iii) and (iv) only"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The critical angle is $\\sin i_c = 1/\\mu = 1/1.5 = 2/3 \\approx 0.667 \\implies i_c \\approx 41.8^\\circ$. Statement (i) is correct.\nStep 2: For normal incidence on one leg ($i = 0^\\circ$), the ray reaches the hypotenuse at an angle of incidence of $45^\\circ$. Since $45^\\circ > 41.8^\\circ$, it undergoes TIR and emerges perpendicular through the other leg, undergoing a $90^\\circ$ deviation (used in periscopes). Statement (ii) is correct.\nStep 3: For normal incidence on the hypotenuse, rays strike the first leg at $45^\\circ$ (TIR), reflect across to the second leg at $45^\\circ$ (TIR), and emerge back parallel through the hypotenuse, deviating through $180^\\circ$ (used in binoculars). Statement (iii) is correct.\nStep 4: An erecting prism (Porro prism or Dove prism) can invert an image without changing the overall direction of propagation. Statement (iv) is incorrect.\nDistractor Analysis: Including statement (iv) is erroneous because inversion without deviation is a standard application described in NCERT Figure 9.13."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_013",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding refraction at a single spherical surface separating two media of refractive indices $\\mu_1$ and $\\mu_2$:\n\nStatement I: Under paraxial ray approximations, the relation connecting object distance $u$, image distance $v$, and radius of curvature $R$ is $\\frac{\\mu_2}{v} - \\frac{\\mu_1}{u} = \\frac{\\mu_2 - \\mu_1}{R}$.\nStatement II: A ray of light directed towards the center of curvature of any spherical refracting surface passes through the interface undeviated because the angle of incidence at the interface is $90^\\circ$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The standard formula for refraction at a single spherical surface separating a medium of refractive index $\\mu_1$ containing the object from a second medium $\\mu_2$ containing the image is $\\frac{\\mu_2}{v} - \\frac{\\mu_1}{u} = \\frac{\\mu_2 - \\mu_1}{R}$. Statement I is strictly true.\nStep 2: A ray directed toward or passing through the center of curvature $C$ is collinear with the surface normal at the point of incidence. Therefore, the angle of incidence is $i = 0^\\circ$, not $90^\\circ$. By Snell's law, $\\mu_1 \\sin 0^\\circ = \\mu_2 \\sin r \\implies r = 0^\\circ$, so the ray continues undeviated. Statement II is false because it misstates the angle of incidence as $90^\\circ$ instead of $0^\\circ$.\nDistractor Analysis: Confusing the angle with the tangent ($90^\\circ$) with the normal angle of incidence ($0^\\circ$) is a common student trap."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_014",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): An equiconvex thin glass lens of refractive index $\\mu = 1.5$ having surfaces of radius of curvature $R$ has a focal length in air equal to $R$.\nReason (R): According to the Lens Maker's formula, $\\frac{1}{f} = (\\mu - 1)\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right)$; for an equiconvex lens, $R_1 = +R$ and $R_2 = -R$, which yields $\\frac{1}{f} = (1.5 - 1)\\left(\\frac{1}{R} - \\left(-\\frac{1}{R}\\right)\\right) = 0.5 \\times \\frac{2}{R} = \\frac{1}{R}$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: According to the Lens Maker's formula for a thin lens in air:\n$$\\frac{1}{f} = (\\mu - 1)\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right)$$\nStep 2: For an equiconvex lens, the first surface is convex towards the object ($R_1 = +R$) and the second surface is concave towards the object ($R_2 = -R$).\nStep 3: Substituting $\\mu = 1.5$:\n$$\\frac{1}{f} = (1.5 - 1)\\left(\\frac{1}{R} - \\left(-\\frac{1}{R}\\right)\\right) = 0.5 \\times \\frac{2}{R} = \\frac{1}{R} \\implies f = R$$\nAssertion (A) is true, and Reason (R) provides the complete mathematical and physical explanation. Thus, (R) correctly explains (A).\nDistractor Analysis: Claiming $R_2 = +R$ would lead to $1/f = 0$ ($f = \\infty$), which applies to a parallel glass plate rather than an equiconvex lens."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_015",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a convex glass lens ($\\mu_g = 1.5$) immersed in a transparent liquid:\n\nStatement I: When the lens is completely immersed in a liquid having the exact same refractive index as glass ($\\mu_l = 1.5$), it becomes completely invisible and rays pass through it without any refraction.\nStatement II: Under the condition $\\mu_l = \\mu_g$, the focal length of the immersed lens becomes zero and its optical power becomes infinite.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: When light encounters a boundary between two media with identical refractive indices ($\\mu_g = \\mu_l$), no change in speed occurs. By Snell's law, no bending (refraction) or reflection takes place at the interface. The lens is optically indistinguishable from the liquid and becomes invisible. Statement I is true.\nStep 2: According to the Lens Maker's formula for a lens in a medium:\n$$\\frac{1}{f_m} = \\left(\\frac{\\mu_g}{\\mu_l} - 1\\right)\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right) = (1 - 1)\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right) = 0$$\nTherefore, the focal length becomes infinite ($f_m \\to \\infty$), not zero. Consequently, its optical power becomes $P = 1/f_m = 0$, not infinite. Statement II is false.\nDistractor Analysis: Inverting the relationship between focal length and power ($f = \\infty \\iff P = 0$) is a frequent conceptual misconception."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_016",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two thin lenses of focal lengths $f_1 = +20\\text{ cm}$ and $f_2 = -50\\text{ cm}$ are placed in coaxial contact with each other. The optical power of this combination and its effective focal length are respectively:",
+      "options": [
+        "A) $+3.0\\text{ D}$ and $+33.3\\text{ cm}$",
+        "B) $-3.0\\text{ D}$ and $-33.3\\text{ cm}$",
+        "C) $+7.0\\text{ D}$ and $+14.3\\text{ cm}$",
+        "D) $+2.5\\text{ D}$ and $+40.0\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Convert the focal lengths of the individual lenses into metres:\n$$f_1 = +0.20\\text{ m}, \\quad f_2 = -0.50\\text{ m}$$\nStep 2: Determine individual optical powers:\n$$P_1 = \\frac{1}{f_1} = \\frac{1}{+0.20} = +5.0\\text{ D}$$\n$$P_2 = \\frac{1}{f_2} = \\frac{1}{-0.50} = -2.0\\text{ D}$$\nStep 3: For thin lenses placed in contact, the total power is the algebraic sum:\n$$P = P_1 + P_2 = +5.0\\text{ D} + (-2.0\\text{ D}) = +3.0\\text{ D}$$\nStep 4: The effective focal length of the combination is:\n$$F = \\frac{1}{P} = \\frac{1}{+3.0}\\text{ m} = +\\frac{100}{3}\\text{ cm} \\approx +33.3\\text{ cm}$$\nDistractor Analysis: Getting $+7.0\\text{ D}$ comes from ignoring the negative sign of the diverging lens ($5 + 2 = 7$); $-3.0\\text{ D}$ reverses the converging dominance."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_017",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When an equiconvex lens of focal length $f$ is sliced along its principal axis into two identical halves, the focal length of each half remains $f$.\nReason (R): Slicing a lens along its principal axis alters neither the radii of curvature of the two refracting surfaces nor the refractive index of the lens material.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Lens Maker's formula states $\\frac{1}{f} = (\\mu - 1)\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right)$.\nStep 2: When the lens is cut along the principal axis (longitudinally), each resulting half still retains the original front surface radius $R_1 = +R$ and rear surface radius $R_2 = -R$. The refractive index $\\mu$ is an intrinsic material property and remains unchanged.\nStep 3: Hence, the focal length of each half is still $f$, while the aperture area is halved, reducing the intensity of the formed image to half ($I/2$). Assertion (A) is true, and Reason (R) provides the exact structural reason. Thus, (R) is the correct explanation of (A).\nDistractor Analysis: Confusing a longitudinal cut (focal length $f$) with a transverse cut perpendicular to the axis (which doubles focal length to $2f$) is a frequent student error."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_018",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding refraction of light through a triangular prism:\n\nStatement I: For a triangular prism of refracting angle $A$, the net angular deviation $\\delta$ suffered by a ray of light is related to the angle of incidence $i$ and angle of emergence $e$ by $\\delta = i + e - A$.\nStatement II: The sum of the internal angles of refraction $r_1$ and $r_2$ at the two refracting faces of the prism is strictly equal to the prism angle $A$, i.e., $r_1 + r_2 = A$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are true.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In a triangular glass prism $ABC$, consider a ray entering at angle $i$ and refracting at angle $r_1$. In the triangle formed by the two surface normals and the apex $A$, the angle between normals is $180^\\circ - A$. Therefore, in the internal ray triangle, $r_1 + r_2 + (180^\\circ - A) = 180^\\circ$, giving $r_1 + r_2 = A$. Thus, Statement II is strictly true.\nStep 2: The deviation at the first face is $\\delta_1 = i - r_1$, and at the second face is $\\delta_2 = e - r_2$. The total deviation is the sum of these deviations:\n$$\\delta = \\delta_1 + \\delta_2 = (i - r_1) + (e - r_2) = i + e - (r_1 + r_2) = i + e - A$$\nThus, Statement I is strictly true.\nDistractor Analysis: Claiming $\\delta = i + e + A$ violates the exterior angle theorem applied to the deviation geometry."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_019",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When an equilateral triangular prism is positioned at the angle of minimum deviation $D_m$, the refracted ray inside the prism travels completely parallel to the base of the prism.\nReason (R): At the condition of minimum deviation, the angle of incidence equals the angle of emergence ($i = e$), and the two internal angles of refraction are equal ($r_1 = r_2 = \\frac{A}{2}$).\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The deviation-incidence curve ($\\\\delta$ vs $i$) for a prism exhibits a unique minimum. By the principle of reversibility of light, reversing the emergent ray must follow the identical path; hence at the unique minimum deviation $\\\\delta = D_m$, we must have $i = e$.\nStep 2: Since $r_1 + r_2 = A$ and $\\\\sin i / \\\\sin r_1 = \\\\sin e / \\\\sin r_2 = \\\\mu$, $i = e$ implies $r_1 = r_2 = A/2$. Reason (R) is true.\nStep 3: In an equilateral prism with two equal sides meeting the base at equal base angles ($60^\\circ$), having $r_1 = r_2 = 30^\\circ$ makes the ray pass symmetrically through the prism, parallel to the third side (the base). Assertion (A) is true, and (R) provides the exact geometrical proof. Thus, (R) correctly explains (A).\nDistractor Analysis: Options denying the explanation overlook the geometric symmetry established by $i = e$."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_020",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding dispersion of white light by a glass prism:\n\nStatement I: When a beam of white light passes through a glass prism, violet light undergoes the maximum angular deviation while red light undergoes the minimum angular deviation.\nStatement II: In a dispersive glass medium, the speed of red light is greater than the speed of violet light, which makes the refractive index for red light greater than that for violet light.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: For a small-angle prism, deviation is $\\delta = (\\mu - 1)A$. According to Cauchy's empirical formula, $\\mu(\\lambda) = A + \\frac{B}{\\lambda^2}$, so refractive index decreases with increasing wavelength. Since $\\lambda_V < \\lambda_R$, $\\mu_V > \\mu_R$, which means violet deviates the most ($\\delta_V > \\delta_R$). Statement I is true.\nStep 2: Since refractive index is $\\mu = c/v$, the speed of light in glass is $v = c/\\mu$. Because $\\mu_V > \\mu_R$, the speed of red light is indeed greater than violet ($v_R > v_V$). However, Statement II claims this makes the refractive index for red light greater than violet light, which is directly false ($\\mu_R < \\mu_V$). Statement II is false.\nDistractor Analysis: Overlooking the inverse proportionality $\\mu = c/v$ leads to the erroneous conclusion that greater speed means greater refractive index."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_021",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding a simple microscope (magnifying glass) having a converging lens of focal length $f$:\n\n(i) When the final image is formed at the near point ($D = 25\\text{ cm}$), the angular magnification is $m = 1 + \\frac{D}{f}$.\n(ii) When the final image is formed at infinity (normal adjustment), the eye is relaxed and the angular magnification is $m = \\frac{D}{f}$.\n(iii) The image formed by a simple microscope is real, inverted, and magnified.\n(iv) To obtain a higher magnification, a convex lens of smaller focal length must be selected.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) (i), (ii) and (iv) only",
+        "B) (i), (ii) and (iii) only",
+        "C) (ii), (iii) and (iv) only",
+        "D) (i), (iii) and (iv) only"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For a simple microscope, when the image is formed at the near point ($v = -D$), using $1/v - 1/u = 1/f$ gives magnification $m = 1 + D/f$. Statement (i) is correct.\nStep 2: When the object is placed at the principal focus ($u = f$), the image forms at infinity, allowing the eye muscles to be completely relaxed. The angular magnification is $m = D/f$. Statement (ii) is correct.\nStep 3: The object is placed within the focal length ($u < f$), producing a virtual, erect, and magnified image on the same side as the object. Statement (iii) is incorrect because it claims the image is real and inverted.\nStep 4: Because both $m = 1 + D/f$ and $m = D/f$ are inversely proportional to $f$, decreasing focal length $f$ increases the magnifying power. Statement (iv) is correct.\nDistractor Analysis: Statements containing (iii) are incorrect because an inverted real image cannot be viewed directly by looking through a magnifying lens."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_022",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding an astronomical refracting telescope in normal adjustment:\n\nStatement I: The objective lens has a large focal length $f_o$ and a large aperture to gather abundant light, whereas the eyepiece lens has a small focal length $f_e$ and a small aperture.\nStatement II: In normal adjustment (image formed at infinity), the magnifying power of the telescope is $m = \\frac{f_o}{f_e}$ and the distance between the two lenses (tube length) is $L = f_o + f_e$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In an astronomical telescope, the objective must collect light from faint, distant celestial bodies, requiring a large aperture to ensure high light-gathering power and high angular resolution ($\\theta = 1.22\\lambda/D$). A large focal length $f_o$ is needed to produce a large intermediate image. The eyepiece acts as a simple magnifier, so a small focal length $f_e$ is used to achieve high magnification. Statement I is true.\nStep 2: In normal adjustment, parallel rays from a distant object focus at the focal plane of the objective ($v_o = f_o$). To produce parallel emergent rays (image at infinity), this intermediate image must lie in the focal plane of the eyepiece ($u_e = f_e$). Thus, tube length $L = f_o + f_e$, and the angular magnification is $m = \\beta/\\alpha = f_o/f_e$. Statement II is true.\nDistractor Analysis: Claiming $m = f_e/f_o$ or $L = f_o - f_e$ reverses the telescope optics with compound microscope or Galilean configurations."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_023",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A concave mirror produces a real image that is $3$ times magnified when a real object is placed at a distance of $20\\text{ cm}$ in front of it. At what distance in front of the mirror should the object be placed so that the mirror forms a virtual image that is also $3$ times magnified?",
+      "options": [
+        "A) $15\\text{ cm}$",
+        "B) $12\\text{ cm}$",
+        "C) $10\\text{ cm}$",
+        "D) $5\\text{ cm}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: For a concave mirror forming a real image, linear magnification is negative: $m = -3$. The object distance is $u_1 = -20\\text{ cm}$.\nStep 2: Use the magnification formula in terms of $f$ and $u$:\n$$m = \\frac{f}{f - u} \\implies -3 = \\frac{f}{f - (-20)} = \\frac{f}{f + 20}$$\n$$-3(f + 20) = f \\implies -3f - 60 = f \\implies 4f = -60 \\implies f = -15\\text{ cm}$$\nStep 3: For a virtual image with magnification $3$, magnification is positive: $m = +3$. Let the new object distance be $u_2$:\n$$+3 = \\frac{f}{f - u_2} = \\frac{-15}{-15 - u_2}$$\n$$3(-15 - u_2) = -15 \\implies -45 - 3u_2 = -15 \\implies -3u_2 = 30 \\implies u_2 = -10\\text{ cm}$$\nThus, the object must be placed at a distance of $10\\text{ cm}$ in front of the concave mirror.\nDistractor Analysis: Distances like $15\\text{ cm}$ place the object at the focal point (image at infinity); $12\\text{ cm}$ or $5\\text{ cm}$ stem from arithmetic errors or confusing mirror magnification with lens magnification."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_024",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When an object moves toward the pole of a convex mirror with a constant speed $v_0$ along the principal axis, the speed of its virtual image is not constant and is always less than $v_0$.\nReason (R): For a spherical mirror, differentiating the mirror formula with respect to time yields an instantaneous image speed $v_i = \\left(\\frac{v}{u}\\right)^2 v_0 = m^2 v_0$; since $|m| < 1$ for all real objects in front of a convex mirror, $v_i < v_0$ at all points.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Differentiating the spherical mirror formula $\\frac{1}{v} + \\frac{1}{u} = \\frac{1}{f}$ with respect to time $t$ (noting $f$ is constant):\n$$-\\frac{1}{v^2}\\frac{dv}{dt} - \\frac{1}{u^2}\\frac{du}{dt} = 0 \\implies \\frac{dv}{dt} = -\\left(\\frac{v}{u}\\right)^2 \\frac{du}{dt} = -m^2 \\frac{du}{dt}$$\nStep 2: Taking magnitudes, the instantaneous speed of the image is $v_i = m^2 v_0$. Since the object moves closer, $u$ changes, meaning magnification $m = \\frac{f}{f - u}$ changes dynamically, so $v_i$ is not constant. Assertion (A) is true.\nStep 3: For a convex mirror, $f > 0$ and $u < 0$, which ensures $0 < m < 1$ for every real object distance. Consequently, $m^2 < 1$, which strictly dictates that $v_i = m^2 v_0 < v_0$. Reason (R) provides the exact mathematical and physical foundation for (A). Thus, (R) correctly explains (A).\nDistractor Analysis: Claiming image speed equals object speed ignores the quadratic demagnification factor $m^2$ inherent in spherical mirror optics."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_025",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An ink mark placed on a sheet of paper is viewed normally through two stacked transparent glass slabs of equal thickness $t_1 = t_2 = 3.0\\text{ cm}$. The bottom slab has a refractive index $\\mu_1 = 1.50$ and the top slab has a refractive index $\\mu_2 = 2.00$. The total apparent upward shift of the ink mark is:",
+      "options": [
+        "A) $1.5\\text{ cm}$",
+        "B) $2.5\\text{ cm}$",
+        "C) $3.5\\text{ cm}$",
+        "D) $2.0\\text{ cm}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: When an object is viewed normally through multiple composite transparent slabs of thicknesses $t_i$ and refractive indices $\\mu_i$, the total apparent upward shift $\\Delta t$ is the algebraic sum of the individual shifts produced by each slab:\n$$\\Delta t = \\sum \\Delta t_i = t_1\\left(1 - \\frac{1}{\\mu_1}\\right) + t_2\\left(1 - \\frac{1}{\\mu_2}\\right)$$\nStep 2: Calculate the shift produced by the first slab:\n$$\\Delta t_1 = 3.0\\left(1 - \\frac{1}{1.5}\\right) = 3.0\\left(1 - \\frac{2}{3}\\right) = 3.0 \\times \\frac{1}{3} = 1.0\\text{ cm}$$\nStep 3: Calculate the shift produced by the second slab:\n$$\\Delta t_2 = 3.0\\left(1 - \\frac{1}{2.0}\\right) = 3.0\\left(1 - \\frac{1}{2}\\right) = 3.0 \\times 0.5 = 1.5\\text{ cm}$$\nStep 4: The total shift is:\n$$\\Delta t = 1.0\\text{ cm} + 1.5\\text{ cm} = 2.5\\text{ cm}$$\nDistractor Analysis: An answer of $3.5\\text{ cm}$ comes from calculating apparent depth $d' = 2.0 + 1.5 = 3.5\\text{ cm}$ and confusing it with the upward shift; $2.0\\text{ cm}$ assumes both slabs have refractive index $1.5$."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_026",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A small isotropic point source of light is placed at a depth of $4.0\\text{ m}$ below the surface of a large, calm pool filled with a liquid of refractive index $\\mu = \\frac{5}{3}$. Light rays emerge through a circular patch on the liquid surface. The radius of this illuminated circular patch is:",
+      "options": [
+        "A) $5.0\\text{ m}$",
+        "B) $4.0\\text{ m}$",
+        "C) $3.0\\text{ m}$",
+        "D) $2.4\\text{ m}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Light rays from the submerged point source strike the liquid-air interface. Rays incident at angles greater than the critical angle $i_c$ undergo total internal reflection and cannot emerge into air. The boundary of the illuminated region corresponds to rays incident at exactly $i_c$.\nStep 2: The critical angle $i_c$ satisfies:\n$$\\sin i_c = \\frac{1}{\\mu} = \\frac{1}{5/3} = \\frac{3}{5}$$\nStep 3: From trigonometry, if $\\sin i_c = \\frac{3}{5}$, then $\\cos i_c = \\sqrt{1 - (3/5)^2} = \\frac{4}{5}$, giving:\n$$\\tan i_c = \\frac{\\sin i_c}{\\cos i_c} = \\frac{3/5}{4/5} = \\frac{3}{4}$$\nStep 4: The geometry of the right triangle formed by the depth $h$, radius $r$, and the critical ray gives:\n$$r = h \\tan i_c = 4.0 \\times \\frac{3}{4} = 3.0\\text{ m}$$\nDistractor Analysis: A radius of $5.0\\text{ m}$ mistakenly uses the hypotenuse; $2.4\\text{ m}$ erroneously computes $h \\sin i_c = 4 \\times 0.6 = 2.4\\text{ m}$."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_027",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding an optical fibre with a core of refractive index $\\mu_1$ and a cladding of refractive index $\\mu_2$ surrounded by air ($\\mu_0 = 1$):\n\nStatement I: The maximum angle of incidence $\\theta_{max}$ in air at the entrance face of the fibre for which guided transmission by total internal reflection occurs is given by $\\sin\\theta_{max} = \\sqrt{\\mu_1^2 - \\mu_2^2}$.\nStatement II: If a light ray enters the core at an incident angle $\\theta > \\theta_{max}$, its angle of incidence at the core-cladding boundary becomes less than the critical angle $i_c$, causing the ray to refract into the cladding and be lost.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: At the flat entrance face, Snell's law gives $1 \\cdot \\sin\\theta = \\mu_1 \\sin r$. Inside the core, the ray strikes the cylindrical core-cladding wall at an angle of incidence $\\phi = 90^\\circ - r$. Statement I is evaluated from the TIR condition $\\phi \\ge i_c$, which requires $\\sin\\phi \\ge \\sin i_c = \\mu_2/\\mu_1$.\nStep 2: Since $\\sin\\phi = \\cos r = \\sqrt{1 - \\sin^2 r} = \\sqrt{1 - \\frac{\\sin^2\\theta}{\\mu_1^2}}$, the condition $\\cos r \\ge \\frac{\\mu_2}{\\mu_1}$ yields:\n$$1 - \\frac{\\sin^2\\theta}{\\mu_1^2} \\ge \\frac{\\mu_2^2}{\\mu_1^2} \\implies \\sin^2\\theta \\le \\mu_1^2 - \\mu_2^2 \\implies \\sin\\theta_{max} = \\sqrt{\\mu_1^2 - \\mu_2^2}$$\nThis quantity is the numerical aperture ($NA$). Thus, Statement I is strictly true.\nStep 3: If $\\theta > \\theta_{max}$, the angle of refraction $r$ increases, which reduces the internal angle of incidence $\\phi = 90^\\circ - r$ below $i_c$. Consequently, the ray fails TIR and escapes into the cladding. Thus, Statement II is strictly true.\nDistractor Analysis: Claiming that larger entrance angles promote greater TIR reverses the inverse relationship between entrance angle and wall incidence angle."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_028",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A small air bubble is trapped inside a solid glass sphere of radius $R = 6.0\\text{ cm}$ and refractive index $\\mu = 1.50$. The bubble is located at a distance of $3.0\\text{ cm}$ from the front surface of the sphere. When viewed from outside along the diameter passing through the bubble, the apparent distance of the bubble from the front pole of the sphere is:",
+      "options": [
+        "A) $2.4\\text{ cm}$",
+        "B) $3.6\\text{ cm}$",
+        "C) $2.0\\text{ cm}$",
+        "D) $1.5\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Identify the optical parameters with Cartesian sign conventions taking the pole $P$ at the front spherical surface where light emerges into air:\n- Refracting medium containing object (glass): $\\mu_1 = 1.50$\n- Emerging medium (air): $\\mu_2 = 1.00$\n- Object distance (bubble is $3\\text{ cm}$ behind the pole): $u = -3.0\\text{ cm}$\n- Center of curvature lies inside the glass: $R = -6.0\\text{ cm}$\nStep 2: Apply the spherical interface refraction formula $\\frac{\\mu_2}{v} - \\frac{\\mu_1}{u} = \\frac{\\mu_2 - \\mu_1}{R}$:\n$$\\frac{1.00}{v} - \\frac{1.50}{-3.0} = \\frac{1.00 - 1.50}{-6.0}$$\n$$\\frac{1}{v} + 0.50 = \\frac{-0.50}{-6.0} = +\\frac{1}{12}$$\nStep 3: Solve for $v$:\n$$\\frac{1}{v} = \\frac{1}{12} - \\frac{1}{2} = \\frac{1 - 6}{12} = -\\frac{5}{12}\\text{ cm}^{-1} \\implies v = -\\frac{12}{5} = -2.4\\text{ cm}$$\nThe negative sign indicates that a virtual image forms $2.4\\text{ cm}$ behind the pole (inside the glass).\nDistractor Analysis: An answer of $2.0\\text{ cm}$ naively uses plane surface apparent depth $d/\\mu = 3/1.5 = 2.0\\text{ cm}$, ignoring the surface curvature $R$."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_029",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When a biconvex glass lens ($\\mu_g = 1.5$) of focal length $f$ in air is completely submerged in water ($\\mu_w = \\frac{4}{3}$), its focal length becomes $4f$.\nReason (R): By the Lens Maker's formula, the focal length of a lens in a liquid medium $f_l$ relative to that in air $f_a$ is given by $\\frac{f_l}{f_a} = \\frac{\\mu_g - 1}{\\frac{\\mu_g}{\\mu_w} - 1}$; substituting $\\mu_g = 1.5$ and $\\mu_w = \\frac{4}{3}$ yields $\\frac{f_l}{f_a} = \\frac{1.5 - 1}{\\frac{1.5}{4/3} - 1} = \\frac{0.5}{1.125 - 1} = \\frac{0.5}{0.125} = 4$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Lens Maker's formula in air is $\\frac{1}{f_a} = (\\mu_g - 1)\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right)$.\nStep 2: In water, the relative refractive index is $\\frac{\\mu_g}{\\mu_w}$, so $\\frac{1}{f_l} = \\left(\\frac{\\mu_g}{\\mu_w} - 1\\right)\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right)$.\nStep 3: Dividing the two equations:\n$$\\frac{f_l}{f_a} = \\frac{\\mu_g - 1}{\\frac{\\mu_g}{\\mu_w} - 1} = \\frac{1.5 - 1}{\\frac{1.5}{4/3} - 1} = \\frac{0.5}{\\frac{9}{8} - 1} = \\frac{0.5}{\\frac{1}{8}} = 0.5 \\times 8 = 4$$\nTherefore, $f_l = 4f_a = 4f$. Assertion (A) is true.\nStep 4: Reason (R) states the ratio formula derived from the Lens Maker's formula and shows the step-by-step arithmetic. Thus, Reason (R) is the exact explanation of (A).\nDistractor Analysis: Claiming that focal length in water decreases fails to appreciate that lower relative optical contrast $(\\mu_{rel} - 1)$ weakens the refractive bending power, extending the focal length."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_030",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): A convex lens made of crown glass ($\\mu_g = 1.50$) behaves as a diverging lens when immersed in carbon disulphide liquid ($\\mu_l = 1.63$).\nReason (R): When a lens is placed in a surrounding medium that is optically denser than the lens material ($\\mu_m > \\mu_L$), the factor $\\left(\\frac{\\mu_L}{\\mu_m} - 1\\right)$ becomes negative, inverting the sign of its focal length.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In the Lens Maker's formula for a lens immersed in a medium:\n$$\\frac{1}{f_m} = \\left(\\frac{\\mu_L}{\\mu_m} - 1\\right)\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right)$$\nFor a convex lens, $\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right) > 0$.\nStep 2: When the lens material is crown glass ($\\mu_L = 1.50$) and the liquid is carbon disulphide ($\\mu_m = 1.63$), we have $\\mu_m > \\mu_L$. Consequently, $\\frac{\\mu_L}{\\mu_m} = \\frac{1.50}{1.63} < 1$, which makes the bracket $\\left(\\frac{\\mu_L}{\\mu_m} - 1\\right) < 0$. Assertion (A) is true.\nStep 3: A negative focal length ($f_m < 0$) signifies diverging (concave-like) optical behavior. Reason (R) states this general principle correctly and explains (A). Thus, (R) correctly explains (A).\nDistractor Analysis: Believing a lens retains its converging or diverging character in all media ignores the fundamental role of relative refractive index."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_031",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding two thin coaxial converging lenses of focal lengths $f_1$ and $f_2$ separated by a distance $d$ in air:\n\nStatement I: A beam of parallel light incident on the first lens will emerge from the second lens as a parallel beam if and only if the separation distance is $d = f_1 + f_2$.\nStatement II: The equivalent focal length $F$ of this separated two-lens system is given by $\\frac{1}{F} = \\frac{1}{f_1} + \\frac{1}{f_2} - \\frac{d}{f_1 f_2}$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Parallel rays incident on lens 1 converge at its focal point, a distance $f_1$ behind lens 1. For rays to emerge parallel from lens 2, this focal point must coincide with the first focal point of lens 2, which is located a distance $f_2$ in front of lens 2. Therefore, the distance between the lenses must be $d = f_1 + f_2$. Statement I is true.\nStep 2: By Gaussian matrix optics or two-lens geometric derivation, two coaxial thin lenses separated by an axial distance $d$ have an equivalent optical power $P = P_1 + P_2 - d P_1 P_2$, which in terms of focal lengths is $\\frac{1}{F} = \\frac{1}{f_1} + \\frac{1}{f_2} - \\frac{d}{f_1 f_2}$. Statement II is true.\nDistractor Analysis: Claiming that $d$ must equal $\\sqrt{f_1 f_2}$ confuses the afocal telescopic separation with minimum spherical aberration condition ($d = f_1 - f_2$ for Huygens eyepiece)."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_032",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An equiconvex thin glass lens of focal length $f$ produces an image of intensity $I$ on a screen. Match the lens modification in List I with its corresponding optical consequence in List II:\n\nList I:\n(A) Cut transversely into two halves perpendicular to the principal axis\n(B) Cut longitudinally into two halves along the principal axis\n(C) Central circular zone of diameter $D/2$ painted black ($D$ is lens diameter)\n(D) Two halves from transverse cut placed in contact with plane faces touching\n\nList II:\n(I) Focal length remains $f$, image brightness becomes $I/2$\n(II) Focal length of each half becomes $2f$\n(III) Focal length of combination is $f$, full image formed\n(IV) Focal length remains $f$, image brightness becomes $\\frac{3}{4}I$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (A)-(II), (B)-(I), (C)-(IV), (D)-(III)",
+        "B) (A)-(I), (B)-(II), (C)-(IV), (D)-(III)",
+        "C) (A)-(II), (B)-(IV), (C)-(I), (D)-(III)",
+        "D) (A)-(III), (B)-(I), (C)-(IV), (D)-(II)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For a transverse cut perpendicular to the axis, each half becomes plano-convex ($R_1 = R, R_2 = \\infty$), so $1/f' = (\\mu - 1)(1/R) = 1/(2f) \\implies f' = 2f$. Hence, (A) matches (II).\nStep 2: For a longitudinal cut along the principal axis, both radii $R_1$ and $R_2$ are unchanged, so $f' = f$. However, the light-collecting area is halved, reducing intensity to $I/2$. Hence, (B) matches (I).\nStep 3: Covering a central circle of diameter $D/2$ blocks an area $\\pi (D/4)^2 = \\frac{1}{4}(\\pi D^2/4) = \\frac{1}{4}A_{total}$. The transmitting area remaining is $1 - 1/4 = 3/4$, so intensity becomes $\\frac{3}{4}I$ while focal length is unaffected. Hence, (C) matches (IV).\nStep 4: Placing the two plano-convex halves in contact with plane faces touching yields $1/F = 1/(2f) + 1/(2f) = 1/f \\implies F = f$. Hence, (D) matches (III).\nDistractor Analysis: Matching (A) with (I) confuses transverse cutting with longitudinal cutting."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_033",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A beam of monochromatic light undergoes refraction through an equilateral triangular glass prism of refracting angle $A = 60^\\circ$. If the refractive index of the prism material is $\\mu = \\sqrt{3}$, the angle of minimum deviation $D_m$ and the angle of incidence $i$ at minimum deviation are respectively:",
+      "options": [
+        "A) $30^\\circ$ and $45^\\circ$",
+        "B) $60^\\circ$ and $60^\\circ$",
+        "C) $45^\\circ$ and $60^\\circ$",
+        "D) $60^\\circ$ and $45^\\circ$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The prism formula relates the refractive index $\\mu$, refracting angle $A$, and minimum deviation $D_m$:\n$$\\mu = \\frac{\\sin\\left(\\frac{A + D_m}{2}\\right)}{\\sin\\left(\\frac{A}{2}\\right)}$$\nStep 2: Substitute $A = 60^\\circ$ and $\\mu = \\sqrt{3}$:\n$$\\sqrt{3} = \\frac{\\sin\\left(\\frac{60^\\circ + D_m}{2}\\right)}{\\sin 30^\\circ} = \\frac{\\sin\\left(\\frac{60^\\circ + D_m}{2}\\right)}{0.5}$$\n$$\\sin\\left(\\frac{60^\\circ + D_m}{2}\\right) = \\frac{\\sqrt{3}}{2}$$\nStep 3: Since $\\sin 60^\\circ = \\frac{\\sqrt{3}}{2}$:\n$$\\frac{60^\\circ + D_m}{2} = 60^\\circ \\implies 60^\\circ + D_m = 120^\\circ \\implies D_m = 60^\\circ$$\nStep 4: At minimum deviation, the angle of incidence is:\n$$i = \\frac{A + D_m}{2} = \\frac{60^\\circ + 60^\\circ}{2} = 60^\\circ$$\nDistractor Analysis: An answer of $30^\\circ$ for $D_m$ would give $\\sin(45^\\circ)/\\sin(30^\\circ) = \\sqrt{2}$, which corresponds to $\\mu = 1.414$ instead of $\\sqrt{3}$."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_034",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding deviation and dispersion by small-angle thin prisms:\n\nStatement I: For a thin prism of small refracting angle $A$ ($A \\le 10^\\circ$), the angular deviation produced for paraxial rays at small angles of incidence is approximately $\\delta = (\\mu - 1)A$, which is independent of the angle of incidence.\nStatement II: The angular dispersion produced between violet and red light by a thin prism is $\\theta = (\\mu_V - \\mu_R)A$, and the dispersive power of the material is $\\omega = \\frac{\\mu_V - \\mu_R}{\\mu_Y - 1}$, where $\\mu_Y$ is the refractive index for mean yellow light.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are true.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: For a small angle prism, by Snell's law at both faces for small angles: $i \\approx \\mu r_1$ and $e \\approx \\mu r_2$. Therefore, deviation $\\delta = i + e - A \\approx \\mu(r_1 + r_2) - A = \\mu A - A = (\\mu - 1)A$. This expression is independent of small $i$. Statement I is true.\nStep 2: Angular dispersion $\\theta$ is defined as the difference in deviation between extreme wavelengths: $\\theta = \\delta_V - \\delta_R = (\\mu_V - 1)A - (\\mu_R - 1)A = (\\mu_V - \\mu_R)A$. Statement II correctly defines this.\nStep 3: Dispersive power $\\omega$ measures the ratio of angular dispersion to mean deviation: $\\omega = \\frac{\\delta_V - \\delta_R}{\\delta_Y} = \\frac{(\\mu_V - \\mu_R)A}{(\\mu_Y - 1)A} = \\frac{\\mu_V - \\mu_R}{\\mu_Y - 1}$. Thus, Statement II is completely true.\nDistractor Analysis: Claiming that dispersive power depends on prism angle $A$ is false because $A$ cancels out in the ratio definition."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_035",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Two thin prisms made of different glass varieties (crown glass and flint glass) can be arranged in opposition to achieve dispersion without mean deviation (a direct-vision spectroscope).\nReason (R): The condition for zero net deviation of mean yellow light is $(\\mu_1 - 1)A_1 + (\\mu_2 - 1)A_2 = 0$, and since crown and flint glasses have different dispersive powers ($\\omega_1 \\ne \\omega_2$), their net angular dispersion $(\\mu_{V1} - \\mu_{R1})A_1 + (\\mu_{V2} - \\mu_{R2})A_2$ does not vanish.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: A direct-vision spectroscope disperses light into its spectral colors while transmitting the central mean beam undeviated along the original optical axis. Assertion (A) is true.\nStep 2: The net deviation for mean light is $\\delta_{net} = \\delta_1 + \\delta_2 = (\\mu_1 - 1)A_1 + (\\mu_2 - 1)A_2$. Setting $\\delta_{net} = 0$ requires opposing apex orientations: $A_2 = -\\frac{\\mu_1 - 1}{\\mu_2 - 1}A_1$.\nStep 3: The net angular dispersion is $\\theta_{net} = \\omega_1 \\delta_1 + \\omega_2 \\delta_2 = \\delta_1(\\omega_1 - \\omega_2)$. Because the materials differ, $\\omega_1 \\ne \\omega_2$, so $\\theta_{net} \\ne 0$. Reason (R) provides the exact mathematical and physical condition for this combination. Thus, (R) correctly explains (A).\nDistractor Analysis: If the two prisms were made of the exact same glass, zero deviation would inevitably force zero dispersion as well, demonstrating why different glasses are required."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_036",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the optical elements and image characteristics of a standard compound microscope in List I with their descriptions in List II:\n\nList I:\n(A) Objective lens\n(B) Eyepiece lens\n(C) Intermediate image formed by objective\n(D) Final image seen by relaxed observer\n\nList II:\n(I) Real, inverted, and magnified image formed inside the focal length of the eyepiece\n(II) Virtual, erect with respect to intermediate image (inverted with respect to object), formed at infinity\n(III) Short focal length $f_o$ and small aperture to place object close to focus\n(IV) Larger focal length $f_e$ and larger aperture, acts as a simple magnifier\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (A)-(III), (B)-(IV), (C)-(I), (D)-(II)",
+        "B) (A)-(IV), (B)-(III), (C)-(I), (D)-(II)",
+        "C) (A)-(III), (B)-(IV), (C)-(II), (D)-(I)",
+        "D) (A)-(I), (B)-(II), (C)-(III), (D)-(IV)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The objective lens has a very short focal length $f_o$ and small aperture so that the tiny object placed just beyond its focus produces a strongly magnified real image. Hence, (A) matches (III).\nStep 2: The eyepiece has a comparatively larger focal length $f_e$ and larger aperture to provide a comfortable field of view for the eye. Hence, (B) matches (IV).\nStep 3: The intermediate image formed by the objective is real, inverted, and magnified, and it lies just inside the front focal plane of the eyepiece. Hence, (C) matches (I).\nStep 4: For a relaxed observer (normal adjustment), the eyepiece forms the final virtual image at infinity; it is inverted with respect to the original object. Hence, (D) matches (II).\nDistractor Analysis: Reversing the roles of objective and eyepiece ((A)-(IV), (B)-(III)) describes an astronomical telescope rather than a compound microscope."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_037",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A compound microscope has an objective lens of focal length $f_o = 1.0\\text{ cm}$ and an eyepiece of focal length $f_e = 5.0\\text{ cm}$. An object is placed at a distance of $1.1\\text{ cm}$ in front of the objective lens. If the final image is formed at the near point of distinct vision ($D = 25\\text{ cm}$), the total magnifying power of the microscope is:",
+      "options": [
+        "A) $50$",
+        "B) $60$",
+        "C) $55$",
+        "D) $66$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Apply the thin lens formula to the objective lens to find image distance $v_o$:\n$$\\frac{1}{v_o} - \\frac{1}{u_o} = \\frac{1}{f_o} \\implies \\frac{1}{v_o} - \\frac{1}{-1.1} = \\frac{1}{1.0}$$\n$$\\frac{1}{v_o} = 1 - \\frac{10}{11} = \\frac{1}{11} \\implies v_o = +11.0\\text{ cm}$$\nStep 2: The linear magnification produced by the objective is:\n$$m_o = \\frac{v_o}{|u_o|} = \\frac{11.0}{1.1} = 10$$\nStep 3: The angular magnification of the eyepiece when the final image is formed at the near point ($D = 25\\text{ cm}$) is:\n$$m_e = 1 + \\frac{D}{f_e} = 1 + \\frac{25}{5.0} = 1 + 5 = 6$$\nStep 4: The total magnifying power is the product of individual magnifications:\n$$m = m_o \\times m_e = 10 \\times 6 = 60$$\nDistractor Analysis: Calculating $m = 50$ erroneously uses normal adjustment ($m_e = D/f_e = 5$, ignoring the $+1$ near point term); $55$ or $66$ arise from arithmetic errors in $v_o$."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_038",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding an astronomical refracting telescope:\n\nStatement I: The magnifying power of an astronomical telescope when the final image is formed at the near point ($D = 25\\text{ cm}$) is given by $m = \\frac{f_o}{f_e}\\left(1 + \\frac{f_e}{D}\\right)$, which is strictly greater than its magnifying power in normal adjustment ($m = \\frac{f_o}{f_e}$).\nStatement II: The tube length of the telescope when focused at the near point is $L = f_o + u_e$, which is slightly less than the tube length in normal adjustment ($L = f_o + f_e$).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are true.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In near point adjustment, the eyepiece forms the final virtual image at $v = -D$. By the lens formula, $\\frac{1}{-D} - \\frac{1}{-u_e} = \\frac{1}{f_e} \\implies \\frac{1}{u_e} = \\frac{1}{f_e} + \\frac{1}{D} = \\frac{1}{f_e}\\left(1 + \\frac{f_e}{D}\\right)$. The angular magnification is $m = \\frac{f_o}{u_e} = \\frac{f_o}{f_e}\\left(1 + \\frac{f_e}{D}\\right)$. Since $\\left(1 + \\frac{f_e}{D}\\right) > 1$, this magnification is strictly greater than the normal adjustment value $\\frac{f_o}{f_e}$. Statement I is true.\nStep 2: The tube length is $L = f_o + u_e$. Since $\\frac{1}{u_e} = \\frac{1}{f_e} + \\frac{1}{D}$, $u_e = \\frac{f_e D}{f_e + D} < f_e$. Therefore, $L_{near} = f_o + u_e < f_o + f_e = L_{normal}$. Statement II is true.\nDistractor Analysis: Claiming that the tube length increases for near point viewing contradicts the optical fact that moving an image from infinity to near point requires moving the eyepiece closer to the intermediate image."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_039",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Modern large-aperture astronomical research observatories universally utilize reflecting telescope designs (such as the Cassegrain telescope) rather than refracting lens telescopes.\nReason (R): Reflecting telescopes are completely free from chromatic aberration because reflection is independent of wavelength, and large primary parabolic mirrors can be mechanically supported across their entire back surface.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The world's largest astronomical telescopes (Keck, VLT, James Webb) are all reflecting systems. Assertion (A) accurately describes modern astronomical design.\nStep 2: Large lenses suffer from severe chromatic aberration (dispersion of colors) and spherical aberration, and can only be mechanically supported along their thin edges, causing heavy lenses to sag under gravity. Furthermore, manufacturing giant bubble-free glass lenses is prohibitively expensive.\nStep 3: In reflecting telescopes, the law of reflection ($\\\\angle i = \\\\angle r$) does not depend on wavelength, totally eliminating chromatic aberration. A paraboloidal primary mirror also eliminates spherical aberration, and the entire back surface of the mirror can be solidly supported. Thus, Reason (R) provides the complete physical and mechanical justification for (A). Hence, (R) correctly explains (A).\nDistractor Analysis: Believing reflecting telescopes have chromatic aberration confuses reflection with refraction."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_040",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A ray of light is incident normally on one of the refracting faces of a right-angled prism having a refracting angle of $30^\\circ$. The ray enters the prism undeviated and emerges grazing along the hypotenuse face into air. The refractive index $\\mu$ of the prism material is:",
+      "options": [
+        "A) $2.00$",
+        "B) $1.50$",
+        "C) $\\sqrt{2} \\approx 1.414$",
+        "D) $\\frac{2}{\\sqrt{3}} \\approx 1.155$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Normal incidence on the first face implies an angle of incidence $i = 0^\\circ$, so the angle of refraction inside is $r_1 = 0^\\circ$.\nStep 2: The relation between prism angle and internal angles is $r_1 + r_2 = A$. With $r_1 = 0^\\circ$ and $A = 30^\\circ$, we have:\n$$r_2 = A - r_1 = 30^\\circ - 0^\\circ = 30^\\circ$$\nStep 3: At the hypotenuse face, the ray emerges grazing the surface into air, meaning the angle of emergence is $e = 90^\\circ$.\nStep 4: Apply Snell's law at this second interface:\n$$\\mu \\sin r_2 = 1 \\cdot \\sin e \\implies \\mu \\sin 30^\\circ = \\sin 90^\\circ$$\n$$\\mu \\times \\frac{1}{2} = 1 \\implies \\mu = 2.00$$\nDistractor Analysis: A refractive index of $1.50$ would produce an angle of emergence of $\\arcsin(1.5 \\times 0.5) = \\arcsin(0.75) \\approx 48.6^\\circ$, far from grazing emergence."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_041",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the optical behavior of a thin converging lens of focal length $f$:\n\n(i) The graph between image distance $v$ and object distance $u$ for real images formed by the convex lens is a rectangular hyperbola.\n(ii) The linear magnification $m$ plotted as a function of image distance $v$ yields a straight line with slope $-\\frac{1}{f}$.\n(iii) The minimum distance between a real object and its real image formed by the lens is $4f$.\n(iv) If the bottom half of the lens is covered with opaque black paper, the bottom half of the real image formed on the screen completely disappears.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) (i), (iii) and (iv) only",
+        "B) (i), (ii) and (iii) only",
+        "C) (ii), (iii) and (iv) only",
+        "D) (i) and (iv) only"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: From the thin lens formula $\\frac{1}{v} - \\frac{1}{u} = \\frac{1}{f}$, rewritten as $(v - f)(u + f) = -f^2$, shifting origin to $(-f, f)$ reveals that the curve of $v$ vs $u$ is a rectangular hyperbola. Statement (i) is correct.\nStep 2: Magnification is $m = \\frac{v}{u}$. Since $\\frac{1}{u} = \\frac{1}{v} - \\frac{1}{f}$, multiplying by $v$ gives $m = 1 - \\frac{v}{f} = -\\frac{1}{f}v + 1$. This is a linear equation in $v$ with slope $-\\frac{1}{f}$ and intercept $+1$. Statement (ii) is correct.\nStep 3: The separation between real object and real image is $D = |u| + v$. Setting $\\frac{dD}{du} = 0$ yields $|u| = v = 2f$, giving minimum separation $D_{min} = 2f + 2f = 4f$. Statement (iii) is correct.\nStep 4: Every portion of the lens forms a complete image of the object. Blocking the lower half merely blocks half of the light rays, forming a complete image with halved brightness/intensity ($I/2$), without cutting off any part of the image. Statement (iv) is incorrect.\nDistractor Analysis: Statements containing (iv) reflect the common misconception that different halves of a lens form different halves of the image."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_042",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A plano-convex thin lens made of glass of refractive index $\\mu = 1.50$ has a curved surface of radius of curvature $R = 30.0\\text{ cm}$. If its curved surface is silvered to act as a mirror, the equivalent focal length of the resulting silvered optical system is:",
+      "options": [
+        "A) $-10.0\\text{ cm}$",
+        "B) $-15.0\\text{ cm}$",
+        "C) $-20.0\\text{ cm}$",
+        "D) $-30.0\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In a silvered lens system, light refracts through the lens, reflects off the silvered mirror, and refracts back through the lens. The net optical power of the equivalent mirror is:\n$$P_{eq} = 2P_L + P_M$$\nwhere $P_L = \\frac{1}{f_L}$ is the power of the refracting lens and $P_M = -\\frac{1}{f_M}$ is the power of the mirror.\nStep 2: For the plano-convex lens with curved surface ($R_1 = \\infty, R_2 = -R$):\n$$P_L = (\\mu - 1)\\left(\\frac{1}{\\infty} - \\left(-\\frac{1}{R}\\right)\\right) = \\frac{\\mu - 1}{R}$$\nStep 3: The curved surface acts as a concave mirror of radius $R$, so its focal length is $f_M = -\\frac{R}{2}$, giving power:\n$$P_M = -\\frac{1}{f_M} = +\\frac{2}{R}$$\nStep 4: Substituting into the equivalent power relation:\n$$P_{eq} = 2\\left(\\frac{\\mu - 1}{R}\\right) + \\frac{2}{R} = \\frac{2\\mu - 2 + 2}{R} = \\frac{2\\mu}{R}$$\nStep 5: The equivalent focal length $F_{eq}$ of the resulting mirror is:\n$$F_{eq} = -\\frac{1}{P_{eq}} = -\\frac{R}{2\\mu} = -\\frac{30.0}{2(1.50)} = -\\frac{30.0}{3.0} = -10.0\\text{ cm}$$\nThe negative sign indicates equivalent concave mirror behavior.\nDistractor Analysis: An answer of $-15.0\\text{ cm}$ corresponds to silvering the plane face instead of the curved face; $-30.0\\text{ cm}$ ignores the double refraction through the lens."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_043",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the silvering of thin lenses:\n\nStatement I: When the flat plane surface of a plano-convex lens of refractive index $\\mu$ and radius of curvature $R$ is silvered, the system acts as a concave mirror of equivalent focal length $F_{eq} = -\\frac{R}{2(\\mu - 1)}$.\nStatement II: The equivalent optical power of any silvered lens system satisfies $P_{eq} = 2P_L + P_M$, because light passes through the refracting lens element twice (once before reflection and once after reflection).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Both Statement I and Statement II are true.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: When light strikes a silvered lens, it enters through the lens ($P_L$), reflects at the mirror surface ($P_M$), and emerges back through the lens ($P_L$). Summing the optical powers yields $P_{eq} = P_L + P_M + P_L = 2P_L + P_M$. Statement II is strictly true.\nStep 2: For a plano-convex lens whose plane surface is silvered:\n- Power of the plano-convex lens: $P_L = (\\mu - 1)\\left(\\frac{1}{R}\\right) = \\frac{\\mu - 1}{R}$.\n- The silvered plane face acts as a plane mirror with $R_M = \\infty$, so $f_M = \\infty$ and $P_M = 0$.\nStep 3: The equivalent power is:\n$$P_{eq} = 2P_L + P_M = 2\\left(\\frac{\\mu - 1}{R}\\right) + 0 = \\frac{2(\\mu - 1)}{R}$$\nStep 4: The equivalent focal length is:\n$$F_{eq} = -\\frac{1}{P_{eq}} = -\\frac{R}{2(\\mu - 1)}$$\nThis represents a concave mirror system. Statement I is strictly true.\nDistractor Analysis: Claiming $F_{eq} = -R/(2\\mu)$ applies to silvering the curved face rather than the plane face."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_044",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A rectangular glass slab of thickness $t = 6.0\\text{ cm}$ and refractive index $\\mu = 1.50$ has its bottom surface silvered to act as a plane mirror. A small pin is held in air at a distance of $10.0\\text{ cm}$ vertically above the upper unsilvered face of the slab. When viewed normally from above, the distance of the final image of the pin from the upper face of the slab is:",
+      "options": [
+        "A) $14.0\\text{ cm}$",
+        "B) $16.0\\text{ cm}$",
+        "C) $18.0\\text{ cm}$",
+        "D) $22.0\\text{ cm}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Consider the apparent position of the silvered mirror when viewed from air through the glass slab. The glass slab of thickness $t = 6.0\\text{ cm}$ and refractive index $\\mu = 1.50$ produces an apparent upward shift of the mirror equal to:\n$$\\Delta t = t\\left(1 - \\frac{1}{\\mu}\\right) = 6.0\\left(1 - \\frac{1}{1.5}\\right) = 6.0 \\times \\frac{1}{3} = 2.0\\text{ cm}$$\nStep 2: The apparent position of the mirror from the top surface is therefore:\n$$d_M' = t - \\Delta t = 6.0 - 2.0 = 4.0\\text{ cm}$$\nStep 3: The pin is situated $10.0\\text{ cm}$ above the top surface. Hence, the distance of the object from the apparent mirror is:\n$$u' = 10.0\\text{ cm} + 4.0\\text{ cm} = 14.0\\text{ cm}$$\nStep 4: A plane mirror forms an image at an equal distance behind it. Thus, the image is formed $14.0\\text{ cm}$ below the apparent mirror.\nStep 5: The depth of the final image below the top face of the slab is:\n$$d_{image} = d_M' + 14.0 = 4.0\\text{ cm} + 14.0\\text{ cm} = 18.0\\text{ cm}$$\n(Alternatively, by complete ray tracing: object in glass is at depth $10 \\times 1.5 + 6 = 21\\text{ cm}$ above mirror; reflection forms image at $21\\text{ cm}$ below mirror; distance from top face in glass is $21 + 6 = 27\\text{ cm}$; apparent position in air is $27/1.5 = 18.0\\text{ cm}$. Both methods yield identically $18.0\\text{ cm}$.)\nDistractor Analysis: An answer of $14.0\\text{ cm}$ ignores the depth of the apparent mirror; $22.0\\text{ cm}$ mistakenly adds the real thickness twice without refraction correction."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_045",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In the displacement method for determining the focal length of a convex lens, if the fixed distance $D$ between an object and a screen is greater than $4f$, there exist exactly two positions of the lens separated by a distance $d$ that cast sharp images on the screen, and the focal length is given by $f = \\frac{D^2 - d^2}{4D}$.\nReason (R): The two positions of the lens are conjugate to each other such that the object distance in the first position equals the image distance in the second position ($u_1 = v_2$), which guarantees that the true size of the object $O$ is the geometric mean of the two image heights: $O = \\sqrt{I_1 I_2}$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In the displacement method, with a fixed separation $D$ between object and screen, let the object distance be $u$ and image distance be $v = D - u$. Substituting into the thin lens formula $\\frac{1}{D - u} + \\frac{1}{u} = \\frac{1}{f}$ gives the quadratic equation $u^2 - Du + Df = 0$.\nStep 2: For real roots, the discriminant must be non-negative: $D^2 - 4Df \\ge 0 \\implies D \\ge 4f$. The two roots $u_1, u_2 = \\frac{D \\pm \\sqrt{D^2 - 4Df}}{2}$ represent the two lens positions. The separation between these two positions is $d = u_1 - u_2 = \\sqrt{D^2 - 4Df}$. Squaring gives $d^2 = D^2 - 4Df \\implies f = \\frac{D^2 - d^2}{4D}$. Assertion (A) is true.\nStep 3: The roots satisfy $u_1 + u_2 = D$, meaning $u_1 = v_2$ and $v_1 = u_2$ (conjugate positions). The magnifications are $m_1 = \\frac{I_1}{O} = \\frac{v_1}{u_1}$ and $m_2 = \\frac{I_2}{O} = \\frac{v_2}{u_2} = \\frac{u_1}{v_1} = \\frac{1}{m_1}$. Multiplying gives $\\frac{I_1 I_2}{O^2} = 1 \\implies O = \\sqrt{I_1 I_2}$. Reason (R) is true and explains the underlying optical reversibility and conjugate symmetry of the method. Thus, (R) correctly explains (A).\nDistractor Analysis: Claiming $O = (I_1 + I_2)/2$ uses an arithmetic mean instead of the mathematically correct geometric mean."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_046",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding image formation by a converging lens on a fixed screen:\n\nStatement I: The minimum physical separation between a real object and its sharp real image formed by a thin convex lens of focal length $f$ is strictly equal to $4f$.\nStatement II: If the separation distance between a real illuminated object and a projection screen is strictly less than $4f$, no position of the convex lens between them can produce a sharp, focused image on the screen.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Both Statement I and Statement II are true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Let the distance between the real object and the real image on the screen be $D = u + v$ (where $u, v > 0$). From the lens formula $\\frac{1}{v} + \\frac{1}{u} = \\frac{1}{f}$, we have $v = \\frac{uf}{u - f}$.\nStep 2: Thus, $D = u + \\frac{uf}{u - f} = \\frac{u^2}{u - f}$. To find the minimum separation, differentiate with respect to $u$:\n$$\\frac{dD}{du} = \\frac{2u(u - f) - u^2(1)}{(u - f)^2} = \\frac{u^2 - 2uf}{(u - f)^2} = 0 \\implies u = 2f$$\nAt $u = 2f$, the image forms at $v = 2f$, giving $D_{min} = 2f + 2f = 4f$. Statement I is strictly true.\nStep 3: From the quadratic equation $u^2 - Du + Df = 0$, real solutions for the lens position $u$ require the discriminant $\\Delta = D^2 - 4Df \\ge 0$, which mandates $D \\ge 4f$. If $D < 4f$, the discriminant is strictly negative ($\\Delta < 0$), yielding imaginary values for $u$. This physically means rays cannot be brought to a focus on the screen for any real lens position. Statement II is strictly true.\nDistractor Analysis: Claiming $D_{min} = 2f$ confuses the object distance $u = 2f$ with the total distance $D = u + v = 4f$."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_047",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A ray of light is incident at an arbitrary angle on one face of a triangular glass prism of refractive index $\\mu = \\sqrt{2}$. The minimum value of the prism refracting angle $A$ such that no light ray can emerge from the opposite refracting face, regardless of the angle of incidence, is:",
+      "options": [
+        "A) $45^\\circ$",
+        "B) $60^\\circ$",
+        "C) $90^\\circ$",
+        "D) $120^\\circ$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: For light to be totally internally reflected at the second face for all possible incident rays, the angle of incidence at the second face $r_2$ must exceed the critical angle $i_c$ for every ray: $r_2 > i_c$.\nStep 2: The critical angle $i_c$ for glass of $\\mu = \\sqrt{2}$ in air is:\n$$\\sin i_c = \\frac{1}{\\mu} = \\frac{1}{\\sqrt{2}} \\implies i_c = 45^\\circ$$\nStep 3: The relation between prism angles is $r_1 + r_2 = A \\implies r_2 = A - r_1$. The minimum value of $r_2$ occurs when $r_1$ is at its maximum possible value. The maximum value of $r_1$ occurs at grazing incidence ($i = 90^\\circ$), where $\\sin r_{1,max} = \\frac{\\sin 90^\\circ}{\\mu} = \\frac{1}{\\mu} = \\sin i_c \\implies r_{1,max} = i_c$.\nStep 4: Therefore, the minimum value of $r_2$ is $r_{2,min} = A - r_{1,max} = A - i_c$. For total internal reflection to occur even for this minimum angle, we must have:\n$$r_{2,min} > i_c \\implies A - i_c > i_c \\implies A > 2i_c$$\nStep 5: Substituting $i_c = 45^\\circ$:\n$$A_{min} = 2i_c = 2 \\times 45^\\circ = 90^\\circ$$\nIf $A > 90^\\circ$, no ray can ever emerge from the second face.\nDistractor Analysis: Selecting $45^\\circ$ corresponds to $i_c$ rather than $2i_c$; $60^\\circ$ corresponds to an equilateral prism rather than the total non-emergence threshold."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_048",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A convex glass lens of focal length $f_1 = +20.0\\text{ cm}$ is placed horizontally over a plane mirror. An optical pin held on the axis coincides with its own image at a height of $20.0\\text{ cm}$ above the lens. When a few drops of a liquid are introduced between the lens and the plane mirror, the pin has to be raised to a height of $30.0\\text{ cm}$ to again coincide with its image. If the lower surface of the convex lens touching the liquid has a radius of curvature $R = 20.0\\text{ cm}$, the focal length of the liquid lens ($f_2$) and the refractive index of the liquid ($\\mu_l$) are respectively:",
+      "options": [
+        "A) $f_2 = -60.0\\text{ cm}$ and $\\mu_l = 1.33$",
+        "B) $f_2 = -30.0\\text{ cm}$ and $\\mu_l = 1.50$",
+        "C) $f_2 = +60.0\\text{ cm}$ and $\\mu_l = 1.33$",
+        "D) $f_2 = -40.0\\text{ cm}$ and $\\mu_l = 1.67$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: When rays from the pin retrace their path to form an image coinciding with the pin, rays emerge parallel from the lens system, reflect perpendicularly off the plane mirror, and reconverge at the focus. Thus, the height of coincidence gives the effective focal length of the lens system.\nStep 2: Initially without liquid, $F_1 = 20.0\\text{ cm}$, confirming the focal length of the glass lens $f_1 = +20.0\\text{ cm}$.\nStep 3: With the liquid layer, the new effective focal length is $F = +30.0\\text{ cm}$. For two thin lenses in contact:\n$$\\frac{1}{F} = \\frac{1}{f_1} + \\frac{1}{f_2} \\implies \\frac{1}{30.0} = \\frac{1}{20.0} + \\frac{1}{f_2}$$\n$$\\frac{1}{f_2} = \\frac{1}{30.0} - \\frac{1}{20.0} = \\frac{2 - 3}{60.0} = -\\frac{1}{60.0}\\text{ cm}^{-1} \\implies f_2 = -60.0\\text{ cm}$$\nStep 4: The liquid forms a plano-concave lens bounded by the convex surface ($R_1 = -R = -20.0\\text{ cm}$) and the flat plane mirror ($R_2 = \\infty$). Apply the Lens Maker's formula:\n$$\\frac{1}{f_2} = (\\mu_l - 1)\\left(-\\frac{1}{R}\\right) = -\\frac{\\mu_l - 1}{20.0}$$\n$$-\\frac{1}{60.0} = -\\frac{\\mu_l - 1}{20.0} \\implies \\mu_l - 1 = \\frac{20.0}{60.0} = \\frac{1}{3} \\implies \\mu_l = 1 + \\frac{1}{3} = \\frac{4}{3} \\approx 1.33$$\nDistractor Analysis: Selecting $f_2 = -30.0\\text{ cm}$ forgets that powers subtract and mistakes $F$ for $f_2$."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_049",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A Cassegrain reflecting telescope is constructed using two coaxial mirrors spaced $20.0\\text{ mm}$ apart. The large concave primary mirror has a radius of curvature $R_1 = 220.0\\text{ mm}$, and the small convex secondary mirror has a radius of curvature $R_2 = 140.0\\text{ mm}$. If parallel light from a distant star enters the telescope, the distance from the secondary mirror at which the final real image is formed is:",
+      "options": [
+        "A) $315.0\\text{ mm}$",
+        "B) $280.0\\text{ mm}$",
+        "C) $350.0\\text{ mm}$",
+        "D) $420.0\\text{ mm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The concave primary mirror has focal length:\n$$f_1 = \\frac{R_1}{2} = \\frac{220.0}{2} = 110.0\\text{ mm}$$\nIncident parallel rays would converge to form an image at a distance of $110.0\\text{ mm}$ behind the primary mirror.\nStep 2: The convex secondary mirror is placed $20.0\\text{ mm}$ in front of the primary mirror (between primary mirror and its focus). The distance of this converging beam's focal point from the secondary mirror is:\n$$u = 110.0\\text{ mm} - 20.0\\text{ mm} = 90.0\\text{ mm}$$\nBecause rays are converging towards this point behind the secondary mirror, this serves as a virtual object: $u = +90.0\\text{ mm}$ (taking direction of converging light as positive).\nStep 3: The convex secondary mirror has focal length:\n$$f_2 = +\\frac{R_2}{2} = +\\frac{140.0}{2} = +70.0\\text{ mm}$$\nStep 4: Apply the spherical mirror formula $\\frac{1}{v} + \\frac{1}{u} = \\frac{1}{f_2}$:\n$$\\frac{1}{v} + \\frac{1}{+90.0} = \\frac{1}{+70.0} \\implies \\frac{1}{v} = \\frac{1}{70.0} - \\frac{1}{90.0} = \\frac{9 - 7}{630.0} = \\frac{2}{630.0} = \\frac{1}{315.0}\\text{ mm}^{-1}$$\n$$v = +315.0\\text{ mm}$$\nThus, the final image is formed at a distance of $315.0\\text{ mm}$ from the secondary mirror (passing back through the hole in the primary mirror).\nDistractor Analysis: An answer of $280.0\\text{ mm}$ or $350.0\\text{ mm}$ arises from misidentifying the virtual object distance $u$ as $110\\text{ mm}$ or $70\\text{ mm}$."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_050",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding pulse propagation and dispersion in optical fibres:\n\nStatement I: The maximum transit time difference per unit length (modal dispersion $\\frac{\\Delta t}{L}$) between the longest (critical zigzag) ray and the shortest (axial) ray in a step-index optical fibre is $\\frac{\\Delta t}{L} = \\frac{\\mu_1}{c}\\left(\\frac{\\mu_1}{\\mu_2} - 1\\right)$, where $\\mu_1$ is core index and $\\mu_2$ is cladding index.\nStatement II: Modal dispersion causes optical pulse broadening that limits the maximum bit-rate transmission capacity, which is why graded-index and single-mode fibres are utilized for high-speed, long-distance telecommunications.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Both Statement I and Statement II are true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In a step-index fibre, an axial ray travels distance $L$ at speed $v = c/\\mu_1$, taking time $t_{min} = \\frac{L}{v} = \\frac{L\\mu_1}{c}$.\nStep 2: The ray following the most oblique path strikes the core-cladding boundary at the critical angle $i_c$ (where $\\sin i_c = \\mu_2/\\mu_1$). The total path length travelled is $L' = \\frac{L}{\\sin i_c} = \\frac{L\\mu_1}{\\mu_2}$, taking time $t_{max} = \\frac{L'}{v} = \\frac{L\\mu_1^2}{c\\mu_2}$.\nStep 3: The transit time delay difference per unit length is:\n$$\\frac{\\Delta t}{L} = \\frac{t_{max} - t_{min}}{L} = \\frac{\\mu_1}{c}\\left(\\frac{\\mu_1}{\\mu_2} - 1\\right)$$\nThus, Statement I is strictly true.\nStep 4: As optical pulses travel along a multimode step-index fibre, different modes arrive at different times, spreading and overlapping successive digital bits (pulse broadening). This modal dispersion restricts the channel bandwidth. Single-mode fibres eliminate modal dispersion, and graded-index fibres equalize transit times by curving ray paths. Thus, Statement II is strictly true.\nDistractor Analysis: Claiming that modal dispersion does not affect digital pulse integrity ignores the foundational principle of optical fiber communication."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_051",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two identical thin converging lenses, each having a focal length $f = 10.0\\text{ cm}$, are placed coaxially in air separated by an axial distance $d = 5.0\\text{ cm}$. A beam of light parallel to the principal axis is incident from the left on the first lens. The distance of the final point of convergence from the second lens is:",
+      "options": [
+        "A) $+5.00\\text{ cm}$",
+        "B) $+6.67\\text{ cm}$",
+        "C) $+3.33\\text{ cm}$",
+        "D) $+2.50\\text{ cm}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: A parallel beam incident on lens 1 is refracted and converges toward the principal focus of lens 1, located at distance $f_1 = +10.0\\text{ cm}$ to the right of lens 1.\nStep 2: Lens 2 is situated at distance $d = 5.0\\text{ cm}$ to the right of lens 1. Therefore, before converging, the rays intercept lens 2. The point of convergence serves as a virtual object for lens 2.\nStep 3: The object distance for lens 2 is:\n$$u_2 = +(f_1 - d) = +(10.0 - 5.0) = +5.0\\text{ cm}$$\nStep 4: The focal length of lens 2 is $f_2 = +10.0\\text{ cm}$. Apply the thin lens formula $\\frac{1}{v_2} - \\frac{1}{u_2} = \\frac{1}{f_2}$:\n$$\\frac{1}{v_2} - \\frac{1}{+5.0} = \\frac{1}{+10.0}$$\n$$\\frac{1}{v_2} = \\frac{1}{10.0} + \\frac{1}{5.0} = \\frac{1 + 2}{10.0} = \\frac{3}{10.0}\\text{ cm}^{-1} \\implies v_2 = +\\frac{10.0}{3}\\text{ cm} \\approx +3.33\\text{ cm}$$\nThus, the final focused image forms at $+3.33\\text{ cm}$ behind the second lens.\nDistractor Analysis: An answer of $+5.00\\text{ cm}$ ignores the converging power of the second lens; $+6.67\\text{ cm}$ incorrectly uses $1/v_2 = 1/5 - 1/10$ with wrong signs."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_052",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the optical systems in List I with their governing quantitative relations or properties in List II:\n\nList I:\n(A) Equivalent focal length of plano-convex lens with silvered plane face\n(B) Equivalent focal length of plano-convex lens with silvered curved face\n(C) Angle of minimum deviation for equilateral prism with $\\mu = \\sqrt{2}$\n(D) Magnifying power of compound microscope in normal adjustment\n\nList II:\n(I) $F_{eq} = -\\frac{R}{2\\mu}$\n(II) $m = \\left(\\frac{L}{f_o}\\right)\\left(\\frac{D}{f_e}\\right)$\n(III) $F_{eq} = -\\frac{R}{2(\\mu - 1)}$\n(IV) $D_m = 30^\\circ$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (A)-(I), (B)-(III), (C)-(IV), (D)-(II)",
+        "B) (A)-(III), (B)-(I), (C)-(II), (D)-(IV)",
+        "C) (A)-(I), (B)-(II), (C)-(III), (D)-(IV)",
+        "D) (A)-(III), (B)-(I), (C)-(IV), (D)-(II)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: When the plane face of a plano-convex lens is silvered, $P_M = 0$, giving $P_{eq} = 2P_L = \\frac{2(\\mu - 1)}{R} \\implies F_{eq} = -\\frac{R}{2(\\mu - 1)}$. Hence, (A) matches (III).\nStep 2: When the curved face is silvered, $P_M = \\frac{2}{R}$, giving $P_{eq} = 2\\left(\\frac{\\mu - 1}{R}\\right) + \\frac{2}{R} = \\frac{2\\mu}{R} \\implies F_{eq} = -\\frac{R}{2\\mu}$. Hence, (B) matches (I).\nStep 3: For an equilateral prism ($A = 60^\\circ$) with $\\mu = \\sqrt{2}$, $\\sqrt{2} = \\frac{\\sin((60^\\circ + D_m)/2)}{\\sin 30^\\circ} \\implies \\sin((60^\\circ + D_m)/2) = \\frac{\\sqrt{2}}{2} = \\frac{1}{\\sqrt{2}} = \\sin 45^\\circ \\implies D_m = 30^\\circ$. Hence, (C) matches (IV).\nStep 4: For a compound microscope in normal adjustment (image at infinity), $m = m_o \\times m_e = \\left(\\frac{L}{f_o}\\right)\\left(\\frac{D}{f_e}\\right)$. Hence, (D) matches (II).\nDistractor Analysis: Inverting (A) and (B) is a frequent error caused by confusing which surface is silvered."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_053",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): For a triangular glass prism of refracting angle $A$, the deviation $\\delta$ is maximum when the angle of incidence is $i = 90^\\circ$ (grazing incidence) or the angle of emergence is $e = 90^\\circ$ (grazing emergence).\nReason (R): As the angle of incidence increases from the critical cut-off value up to $90^\\circ$, the deviation curve $\\delta$ decreases monotonically to a unique minimum $D_m$ at $i = e$ and then increases monotonically up to the grazing boundary.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The deviation $\\delta = i + e - A$ plotted against angle of incidence $i$ forms a characteristic asymmetric U-shaped curve. Assertion (A) states that maximum deviation occurs at the extreme boundary values of incidence or emergence ($i = 90^\\circ$ or $e = 90^\\circ$), which is an established property in prism optics. Assertion (A) is true.\nStep 2: Due to the reversibility of light rays, swapping $i$ and $e$ yields the identical deviation $\\delta$. Therefore, starting from grazing emergence ($e = 90^\\circ$, corresponding to minimum $i$), as $i$ increases, $\\delta$ decreases steadily until it reaches the unique stationary minimum value $D_m$ where $i = e$.\nStep 3: Beyond this minimum deviation configuration, increasing $i$ further causes $\\delta$ to climb monotonically until it terminates at grazing incidence ($i = 90^\\circ$). Reason (R) describes this variation and explains why the maxima must occur at the boundaries $i = 90^\\circ$ or $e = 90^\\circ$. Thus, (R) correctly explains (A).\nDistractor Analysis: Denying that maximum deviation occurs at grazing angles ignores the physical boundaries of the $\\delta-i$ curve."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_054",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding resolving power and angular resolution in optical instruments according to Rayleigh's diffraction criterion:\n\nStatement I: The resolving power of an astronomical telescope is proportional to the diameter $D$ of its objective aperture, expressed as $R.P. = \\frac{1}{\\Delta\\theta} = \\frac{D}{1.22\\lambda}$, where $\\lambda$ is the wavelength of light.\nStatement II: The resolving power of a microscope increases when an oil-immersion objective is employed because the shorter wavelength in oil reduces the minimum resolvable distance $d_{min} = \\frac{1.22\\lambda_0}{2\\mu\\sin\\beta}$, where $\\mu\\sin\\beta$ is the numerical aperture.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Both Statement I and Statement II are true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: According to Rayleigh's criterion, the minimum angular separation resolvable by a circular telescope aperture of diameter $D$ is $\\Delta\\theta = \\frac{1.22\\lambda}{D}$. The resolving power is the reciprocal of this angular resolution: $R.P. = \\frac{1}{\\Delta\\theta} = \\frac{D}{1.22\\lambda}$. Hence, larger apertures provide higher resolving power. Statement I is true.\nStep 2: For a microscope, the minimum linear separation between two point objects that can just be resolved is $d_{min} = \\frac{1.22\\lambda_0}{2\\mu\\sin\\beta} = \\frac{1.22\\lambda_0}{2(NA)}$, where $\\mu$ is the refractive index of the medium between object and objective lens and $\\beta$ is the semi-vertical angle of the cone of rays. When an oil immersion lens ($\\mu \\approx 1.5$) is used instead of air ($\\mu = 1$), the numerical aperture increases and $d_{min}$ decreases, increasing the resolving power $R.P. = 1/d_{min}$. Statement II is true.\nDistractor Analysis: Claiming that resolving power decreases with larger diameter confuses angular resolution $\\Delta\\theta$ (which decreases, meaning finer detail) with resolving power $1/\\Delta\\theta$ (which increases)."
+    },
+    {
+      "id": "phy_ray_optics_and_optical_instruments_c01_055",
+      "subject": "Physics",
+      "topic": "Ray Optics and Optical Instruments",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements comparing reflecting telescopes (such as the Cassegrain telescope) with refracting astronomical telescopes:\n\n(i) Reflecting telescopes suffer from severe chromatic aberration because reflection at curved mirror surfaces disperses light into its component wavelengths.\n(ii) A parabolic primary mirror completely eliminates spherical aberration for parallel rays incident along the principal axis.\n(iii) In a Cassegrain reflecting telescope, a secondary convex mirror redirects rays back through a central aperture in the primary concave mirror to form the final focused image.\n(iv) Giant refracting lenses are impractical for modern observatories because massive glass lenses sag under gravity and can only be supported along their outer rim.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) (i), (ii) and (iv) only",
+        "B) (i), (iii) and (iv) only",
+        "C) (ii), (iii) and (iv) only",
+        "D) (i), (ii), (iii) and (iv)"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The law of reflection (angle of incidence equals angle of reflection) is purely geometric and holds identically for all wavelengths of light. Therefore, mirrors produce zero chromatic aberration. Statement (i) is false.\nStep 2: A paraboloidal mirror focuses all parallel rays incident parallel to the axis to a single sharp focus, entirely eliminating spherical aberration. Statement (ii) is correct.\nStep 3: In the Cassegrain design (NCERT Figure 9.30), incoming rays strike a large concave parabolic primary mirror, converge toward a secondary convex mirror placed near the focus, and reflect back through a central hole in the primary mirror to reach the eyepiece/detector. Statement (iii) is correct.\nStep 4: Refracting lenses must be supported only at their circumference, causing enormous heavy lenses to sag and distort under their own weight. Furthermore, thick glass absorbs significant light. Statement (iv) is correct.\nDistractor Analysis: Statements containing (i) are incorrect because zero chromatic aberration is the paramount advantage of mirrors over lenses in astronomical instrumentation."
+    }
+  ]
+}
