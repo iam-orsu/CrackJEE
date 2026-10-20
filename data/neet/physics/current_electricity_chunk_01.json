@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Current Electricity",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_current_electricity_c01_001",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the fundamental nature of electric current and current density:\n\nStatement I: Electric current is treated as a scalar quantity because it obeys the ordinary laws of algebra rather than the laws of vector addition, even though it possesses a specific direction of flow.\nStatement II: Current density $\\vec{j}$ at any point inside a conductor is a vector quantity oriented in the direction of the electric field at that point, having magnitude $j = \\lim_{\\Delta A \\to 0} \\frac{\\Delta I}{\\Delta A_{\\perp}}$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Both Statement I and Statement II are true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Electric current ($I$) has both magnitude and a definite direction along a conductor, but it does not obey vector algebra (e.g., triangle or parallelogram laws of vector addition). When two currents meet at a junction, the resultant current is simply the scalar algebraic sum ($I = I_1 + I_2$), regardless of the angle between the conducting wires. Thus, Statement I is true.\nStep 2: Current density $\\vec{j}$ is defined microscopically as the electric current flowing per unit cross-sectional area perpendicular to the direction of flow: $dI = \\vec{j} \\cdot d\\vec{A}$. It is a vector quantity directed parallel to the electric field $\\vec{E}$ in an isotropic conductor ($\\vec{j} = \\sigma \\vec{E}$). Thus, Statement II is true.\nStep 3: Since both statements accurately convey NCERT definitions, both Statement I and Statement II are true.\nDistractor Analysis: Assertions that current is a vector or that current density is a scalar represent classic physical misconceptions."
+    },
+    {
+      "id": "phy_current_electricity_c01_002",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In a domestic electrical circuit, an incandescent lamp turns on almost instantaneously when the power switch is flipped, even though the average drift speed of conduction electrons along the copper connecting wires is only about $10^{-4}\\text{ m/s}$.\nReason (R): Closing the switch establishes an electromagnetic field that propagates through the circuit conductors at nearly the speed of light, exerting an accelerating force on conduction electrons throughout the circuit almost simultaneously.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The drift velocity of conduction electrons in a metal carrying typical currents is extremely small, typically $v_d \\approx 10^{-4}\\text{ m/s}$ ($0.1\\text{ mm/s}$). If an electron had to travel from the switch to the bulb filament physically, it would take several hours for the lamp to turn on.\nStep 2: When the circuit is closed, a potential gradient and electric field propagate through the conductor at the speed of electromagnetic waves (approximately $3 \\times 10^8\\text{ m/s}$). This field sets electrons into coordinated drift motion simultaneously everywhere in the circuit.\nStep 3: Hence, energy transmission occurs via the electromagnetic field, resulting in near-instantaneous illumination. Both (A) and (R) are true, and (R) correctly explains (A).\nDistractor Analysis: Claiming that electrons travel at the speed of light confuses the propagation speed of the electric field with the drift speed of individual charge carriers."
+    },
+    {
+      "id": "phy_current_electricity_c01_003",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A steady electric current $I$ flows through a metallic conductor of non-uniform cross-section having cross-sectional area $A_1$ at end 1 and $A_2$ at end 2, such that $A_1 < A_2$. If $v_{d1}, v_{d2}$ denote the electron drift velocities and $E_1, E_2$ denote the electric field strengths at ends 1 and 2 respectively, which of the following relations is correct?",
+      "options": [
+        "A) $v_{d1} = v_{d2}$ and $E_1 = E_2$",
+        "B) $v_{d1} < v_{d2}$ and $E_1 < E_2$",
+        "C) $v_{d1} > v_{d2}$ and $E_1 > E_2$",
+        "D) $v_{d1} > v_{d2}$ and $E_1 < E_2$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In a steady state, the electric current $I$ passing through any transverse cross-section of the conductor must be identical to satisfy charge conservation ($I_1 = I_2 = I$).\nStep 2: The current is related to the drift velocity by $I = n e A v_d$. Because the electron number density $n$ and elementary charge $e$ are material constants, drift velocity is inversely proportional to cross-sectional area: $v_d = \\frac{I}{n e A} \\propto \\frac{1}{A}$. Since $A_1 < A_2$, it follows that $v_{d1} > v_{d2}$.\nStep 3: The microscopic form of Ohm's law gives current density $j = \\sigma E = \\frac{I}{A}$. Therefore, the electric field is $E = \\frac{I}{\\sigma A} \\propto \\frac{1}{A}$. Since $A_1 < A_2$, the electric field at the narrower end is stronger: $E_1 > E_2$.\nDistractor Analysis: Confusing the invariance of current $I$ with current density $j$ leads to the erroneous conclusion that drift velocity or electric field remains uniform."
+    },
+    {
+      "id": "phy_current_electricity_c01_004",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Ohm's law and electrical conduction:\n\nStatement I: Ohm's law is a universal fundamental law of nature, on par with Coulomb's law of electrostatics and Newton's law of universal gravitation, and is strictly obeyed by all electrical conductors without exception.\nStatement II: Materials and practical electronic devices that do not obey Ohm's law include p-n junction diodes, thyristors, and gallium arsenide ($\\text{GaAs}$), the latter of which exhibits a region where current decreases as voltage increases (negative differential resistance).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Ohm's law ($V = IR$ or $\\vec{j} = \\sigma \\vec{E}$) is an empirical relationship valid for a wide class of conducting materials over limited ranges of physical conditions (such as constant temperature and strain). It is not a fundamental universal law of physics. Many non-ohmic devices routinely violate linearity. Therefore, Statement I is false.\nStep 2: Non-ohmic devices exhibit non-linear $V-I$ characteristics. In semiconductor diodes, the $V-I$ relation is exponential and non-symmetric upon voltage reversal. In gallium arsenide ($\\text{GaAs}$), after a certain threshold voltage, the current decreases as voltage increases, displaying negative differential resistance ($\\frac{dV}{dI} < 0$). Therefore, Statement II is true.\nStep 3: Hence, Statement I is false but Statement II is true.\nDistractor Analysis: Elevated status of Ohm's law to a universal law is a common misconception explicitly warned against in NCERT Class 12 Physics Chapter 3."
+    },
+    {
+      "id": "phy_current_electricity_c01_005",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Physical Quantity) with List II (Standard SI Unit):\n\nList I:\nA. Electrical conductivity ($\\sigma$)\nB. Electrical resistivity ($\\rho$)\nC. Charge carrier mobility ($\\mu$)\nD. Current density ($j$)\n\nList II:\nI. $\\Omega\\cdot\\text{m}$\nII. $\\Omega^{-1}\\cdot\\text{m}^{-1}$ or $\\text{S}\\cdot\\text{m}^{-1}$\nIII. $\\text{m}^2\\cdot\\text{V}^{-1}\\cdot\\text{s}^{-1}$\nIV. $\\text{A}\\cdot\\text{m}^{-2}$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-(II), B-(I), C-(III), D-(IV)",
+        "B) A-(I), B-(II), C-(III), D-(IV)",
+        "C) A-(II), B-(I), C-(IV), D-(III)",
+        "D) A-(III), B-(IV), C-(I), D-(II)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Electrical resistivity $\\rho$ is defined via $R = \\rho \\frac{L}{A}$, so $[\\rho] = \\Omega\\cdot\\text{m}^2 / \\text{m} = \\Omega\\cdot\\text{m}$. Thus, B matches with I.\nStep 2: Electrical conductivity $\\sigma$ is the reciprocal of resistivity ($\\sigma = 1/\\rho$), giving units of $\\Omega^{-1}\\cdot\\text{m}^{-1}$ or siemens per meter ($\\text{S}\\cdot\\text{m}^{-1}$). Thus, A matches with II.\nStep 3: Mobility $\\mu$ is defined as drift velocity per unit electric field: $\\mu = \\frac{v_d}{E}$. The SI units are $\\frac{\\text{m/s}}{\\text{V/m}} = \\text{m}^2\\cdot\\text{V}^{-1}\\cdot\\text{s}^{-1}$. Thus, C matches with III.\nStep 4: Current density $j = I/A$ has units of amperes per square meter ($\\text{A}\\cdot\\text{m}^{-2}$). Thus, D matches with IV.\nMatching yields A-(II), B-(I), C-(III), D-(IV).\nDistractor Analysis: Inverting conductivity and resistivity units leads to the reversed assignment A-(I), B-(II)."
+    },
+    {
+      "id": "phy_current_electricity_c01_006",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): For typical metallic conductors such as copper and aluminum, electrical resistivity increases with rising temperature, corresponding to a positive temperature coefficient of resistivity ($\\alpha > 0$).\nReason (R): In metallic conductors, increasing temperature causes lattice ions to vibrate with greater amplitude, increasing the frequency of electron-ion collisions and thereby reducing the mean relaxation time $\\tau$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The electrical resistivity of a material is given microscopically by $\\rho = \\frac{m}{n e^2 \\tau}$, where $m$ is electron mass, $e$ is elementary charge, $n$ is free electron density, and $\\tau$ is mean relaxation time.\nStep 2: In metals, the density of conduction electrons $n$ is exceptionally high and virtually independent of temperature. As temperature increases, the amplitude of thermal vibrations of the lattice ions increases, making electron scattering more frequent.\nStep 3: This increased scattering shortens the average time between successive collisions (decreases $\\tau$). Since $\\rho \\propto 1/\\tau$, resistivity increases with temperature, which defines a positive temperature coefficient ($\\alpha > 0$). Both (A) and (R) are true, and (R) correctly explains (A).\nDistractor Analysis: Confusing metals with semiconductors where $n$ changes rapidly with temperature would lead to an incorrect negative coefficient."
+    },
+    {
+      "id": "phy_current_electricity_c01_007",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A cylindrical metallic wire of uniform cross-section has an electrical resistance of $R = 10\\,\\Omega$. The wire is drawn out and stretched uniformly until its length becomes three times its initial length ($L' = 3L$) without any change in its mass or density. The new electrical resistance of the stretched wire is:",
+      "options": [
+        "A) $30\\,\\Omega$",
+        "B) $60\\,\\Omega$",
+        "C) $3.33\\,\\Omega$",
+        "D) $90\\,\\Omega$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The initial resistance of the wire is $R = \\rho \\frac{L}{A} = 10\\,\\Omega$.\nStep 2: When the wire is stretched uniformly, its mass and density remain constant, which requires its total volume $V = A L$ to remain constant. Therefore, $A L = A' L'$. Given $L' = 3L$, the new cross-sectional area is $A' = \\frac{A L}{3L} = \\frac{A}{3}$.\nStep 3: The new resistance $R'$ is given by $R' = \\rho \\frac{L'}{A'} = \\rho \\frac{3L}{A/3} = 9 \\left(\\rho \\frac{L}{A}\\right) = 9 R$.\nStep 4: Substituting the initial resistance: $R' = 9 \\times 10\\,\\Omega = 90\\,\\Omega$.\nDistractor Analysis: Assuming area remains constant gives $R' = 3R = 30\\,\\Omega$, which violates conservation of mass and volume."
+    },
+    {
+      "id": "phy_current_electricity_c01_008",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding materials used for manufacturing standard resistance coils:\n\nStatement I: Standard resistance coils used in laboratory resistance boxes and meter bridges are widely fabricated using alloys such as manganin and constantan rather than pure elemental metals like copper.\nStatement II: Manganin and constantan exhibit high electrical resistivity and an extraordinarily small temperature coefficient of resistance ($\\alpha \\approx 0$), ensuring their resistance remains practically invariant over ordinary room temperature variations.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Standard resistors require materials whose resistance does not fluctuate with ambient temperature changes during experiments or due to moderate Joule heating.\nStep 2: Alloys such as manganin (an alloy of copper, manganese, and nickel) and constantan (copper and nickel) have resistivities much higher than pure copper, requiring shorter lengths of wire to achieve desired resistance values.\nStep 3: Furthermore, their temperature coefficient of resistance $\\alpha$ is nearly zero (order of $10^{-5}\\text{ K}^{-1}$ or smaller), meaning their resistance changes negligibly with temperature. Hence, both Statement I and Statement II are true according to NCERT Class 12.\nDistractor Analysis: Asserting that pure copper is used for standard resistors ignores its relatively high $\\alpha$ ($0.0039\\text{ K}^{-1}$), which would cause significant drift during measurements."
+    },
+    {
+      "id": "phy_current_electricity_c01_009",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Kirchhoff's junction rule ($\\sum I = 0$ at any node in an electrical circuit) is a direct consequence of the universal law of conservation of electric charge.\nReason (R): In any steady-state direct current circuit, electric charge cannot accumulate or deplete at any junction point over time.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Kirchhoff's first rule (junction rule) states that the algebraic sum of electric currents entering and leaving any node must be zero: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.\nStep 2: Under steady-state conditions, electric charge flows continuously without build-up. The rate of charge arrival at a junction must exactly match the rate of charge departure: $\\frac{dQ_{\\text{in}}}{dt} = \\frac{dQ_{\\text{out}}}{dt}$.\nStep 3: Because charge can neither be created nor destroyed, no accumulation occurs at a node. Thus, the junction rule directly expresses conservation of electric charge. Both (A) and (R) are true, and (R) correctly explains (A).\nDistractor Analysis: Conflating the junction rule (conservation of charge) with the loop rule (conservation of energy) is an error often tested in NEET."
+    },
+    {
+      "id": "phy_current_electricity_c01_010",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Material Category) with List II (Temperature Dependence of Electrical Resistivity $\\rho$):\n\nList I:\nA. Copper (Conductor)\nB. Nichrome (Alloy)\nC. Silicon (Semiconductor)\nD. Lead below $7.2\\text{ K}$ (Superconductor)\n\nList II:\nI. Resistivity drops abruptly to strictly zero below a critical temperature $T_c$\nII. Resistivity decreases exponentially with increasing temperature ($\\alpha < 0$)\nIII. Resistivity exhibits very weak, nearly linear temperature dependence with nearly zero $\\alpha$\nIV. Resistivity increases non-linearly at low temperatures and linearly around room temperature ($\\alpha > 0$)\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-(IV), B-(III), C-(II), D-(I)",
+        "B) A-(III), B-(IV), C-(II), D-(I)",
+        "C) A-(IV), B-(II), C-(III), D-(I)",
+        "D) A-(II), B-(III), C-(IV), D-(I)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For metallic copper, NCERT Figure 3.9 illustrates that resistivity increases non-linearly at cryogenic temperatures and linearly above room temperature ($\\alpha > 0$). Thus, A matches with IV.\nStep 2: For alloys like nichrome, NCERT Figure 3.10 shows a high residual resistivity at $0\\text{ K}$ and an exceptionally weak, nearly linear increase with temperature. Thus, B matches with III.\nStep 3: For semiconductors like silicon, NCERT Figure 3.11 displays an exponential decline in resistivity with increasing temperature due to the rapid thermal generation of electron-hole pairs ($\\alpha < 0$). Thus, C matches with II.\nStep 4: For superconductors like lead, below critical temperature $T_c = 7.2\\text{ K}$, resistivity drops abruptly to identically zero. Thus, D matches with I.\nMatching yields A-(IV), B-(III), C-(II), D-(I).\nDistractor Analysis: Interchanging the behavior of alloys with semiconductors overlooks the negative sign of $\\alpha$ in intrinsic semiconductors."
+    },
+    {
+      "id": "phy_current_electricity_c01_011",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two incandescent electric bulbs rated at $220\\text{ V}, 40\\text{ W}$ and $220\\text{ V}, 100\\text{ W}$ are connected in series across a $220\\text{ V}$ mains supply line. Which bulb will glow brighter, and what is the ratio of the power dissipated in the $40\\text{ W}$ bulb to that in the $100\\text{ W}$ bulb?",
+      "options": [
+        "A) The $100\\text{ W}$ bulb glows brighter; ratio of power is $2 : 5$",
+        "B) Both bulbs glow with equal brightness; ratio of power is $1 : 1$",
+        "C) The $40\\text{ W}$ bulb glows brighter; ratio of power is $5 : 2$",
+        "D) The $40\\text{ W}$ bulb glows brighter; ratio of power is $25 : 4$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The nominal resistance of an electrical appliance is given by $R = \\frac{V_{\\text{rated}}^2}{P_{\\text{rated}}}$. For the two bulbs: $R_{40} = \\frac{220^2}{40}$ and $R_{100} = \\frac{220^2}{100}$.\nStep 2: The resistance ratio is $\\frac{R_{40}}{R_{100}} = \\frac{100}{40} = \\frac{5}{2} = 2.5$. The $40\\text{ W}$ bulb has $2.5$ times greater filament resistance.\nStep 3: When connected in series, the same electric current $I$ passes through both bulbs ($I = \\frac{V}{R_{40} + R_{100}}$). The power dissipated in each bulb is given by $P = I^2 R$.\nStep 4: Therefore, the ratio of actual power consumed is $\\frac{P_{40}}{P_{100}} = \\frac{I^2 R_{40}}{I^2 R_{100}} = \\frac{R_{40}}{R_{100}} = \\frac{5}{2}$. Because brightness is proportional to actual power dissipated, the $40\\text{ W}$ bulb glows brighter.\nDistractor Analysis: In parallel connection the $100\\text{ W}$ bulb consumes more power, but in series connection the higher-resistance ($40\\text{ W}$) bulb dissipates more power."
+    },
+    {
+      "id": "phy_current_electricity_c01_012",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the terminal potential difference ($V$) across an electrochemical cell of electromotive force $E$ and internal resistance $r$:\n\nStatement I: The terminal potential difference $V$ across a real cell is always strictly less than its electromotive force $E$ under all operating conditions.\nStatement II: When a secondary cell of EMF $E$ and internal resistance $r$ is being charged by an external DC charger delivering current $I$ into its positive terminal, the terminal potential difference across the cell is given by $V = E + Ir$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: When a cell discharges through an external circuit, current leaves its positive terminal, and the terminal potential difference is $V = E - Ir < E$. In an open circuit ($I = 0$), $V = E$.\nStep 2: However, when a secondary cell is being recharged by an external power source, current is driven into its positive terminal (opposite to discharge direction). Applying Kirchhoff's loop rule gives $V = E + Ir > E$. Therefore, $V$ is not always strictly less than $E$, making Statement I false.\nStep 3: Statement II correctly states the formula for terminal potential difference during charging: $V = E + Ir$. Therefore, Statement II is true.\nStep 4: Hence, Statement I is false but Statement II is true.\nDistractor Analysis: Overlooking the charging condition leads to the mistaken belief that terminal voltage can never exceed the EMF."
+    },
+    {
+      "id": "phy_current_electricity_c01_013",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): A Wheatstone bridge arrangement provides the highest experimental sensitivity in locating the null balance point when all four arms have resistances of approximately the same order of magnitude ($P \\approx Q \\approx R \\approx S$).\nReason (R): When the arm resistances are of comparable magnitude, any small fractional unbalance in the unknown resistor produces the maximum potential difference across the galvanometer terminals, yielding the largest detectable galvanometer deflection.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The sensitivity of a Wheatstone bridge is defined as the galvanometer deflection per unit fractional change in the unknown resistance: $S_b = \\frac{\\theta}{\\Delta R / R}$.\nStep 2: Circuit analysis demonstrates that the open-circuit output voltage across the galvanometer branch for a fractional imbalance $\\frac{\\Delta R}{R}$ is maximized when the bridge arms are balanced and equal in magnitude ($P = Q = R = S$).\nStep 3: If one arm is drastically larger or smaller than the others (e.g., $10^5\\,\\Omega$ vs $1\\,\\Omega$), the galvanometer current becomes heavily attenuated, making null detection insensitive. Hence, both Assertion (A) and Reason (R) are true, and Reason (R) correctly explains Assertion (A).\nDistractor Analysis: Disparate arm resistances degrade sensitivity; equal arms guarantee optimal impedance matching with standard laboratory galvanometers."
+    },
+    {
+      "id": "phy_current_electricity_c01_014",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A real electrochemical cell has an electromotive force of $E = 12.0\\text{ V}$ and an internal resistance of $r = 3.0\\,\\Omega$. When an external load resistor of resistance $R = 3.0\\,\\Omega$ is connected across the terminals of the cell, what is the terminal potential difference $V$ across the cell?",
+      "options": [
+        "A) $6.0\\text{ V}$",
+        "B) $12.0\\text{ V}$",
+        "C) $4.0\\text{ V}$",
+        "D) $9.0\\text{ V}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The total resistance of the closed circuit is $R_{\\text{total}} = R + r = 3.0\\,\\Omega + 3.0\\,\\Omega = 6.0\\,\\Omega$.\nStep 2: The current flowing through the circuit is given by Ohm's law: $I = \\frac{E}{R + r} = \\frac{12.0\\text{ V}}{6.0\\,\\Omega} = 2.0\\text{ A}$.\nStep 3: The terminal potential difference $V$ across the cell during discharge can be calculated either by $V = I R = 2.0\\text{ A} \\times 3.0\\,\\Omega = 6.0\\text{ V}$, or equivalently by $V = E - I r = 12.0\\text{ V} - (2.0\\text{ A} \\times 3.0\\,\\Omega) = 6.0\\text{ V}$.\nStep 4: Thus, the terminal potential difference is $6.0\\text{ V}$.\nDistractor Analysis: Choosing $12.0\\text{ V}$ ignores the internal voltage drop $Ir = 6.0\\text{ V}$ across the cell."
+    },
+    {
+      "id": "phy_current_electricity_c01_015",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the mobility ($\\mu$) of mobile charge carriers in a conducting medium:\n\n(i) Mobility is defined as the magnitude of the drift velocity acquired per unit applied electric field: $\\mu = \\frac{|v_d|}{E}$.\n(ii) In the SI system of units, mobility is expressed in $\\text{m}^2\\cdot\\text{V}^{-1}\\cdot\\text{s}^{-1}$.\n(iii) For conduction electrons in a metal, $\\mu = \\frac{e\\tau}{m}$, where $\\tau$ is the mean relaxation time and $m$ is the electron mass.\n(iv) Mobility is defined as a negative quantity for electrons because electrons carry negative charge.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) (i) and (iv) only",
+        "B) (i), (ii) and (iv) only",
+        "C) (i), (ii) and (iii) only",
+        "D) (ii), (iii) and (iv) only"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: NCERT Class 12 Physics Chapter 3 defines mobility explicitly as the magnitude of drift velocity per unit electric field: $\\mu = \\frac{|v_d|}{E}$. Hence, mobility is intrinsically a positive scalar quantity, making statement (iv) incorrect.\nStep 2: The SI unit of mobility is $\\frac{\\text{m/s}}{\\text{V/m}} = \\text{m}^2\\cdot\\text{V}^{-1}\\cdot\\text{s}^{-1}$. Hence, statement (ii) is correct.\nStep 3: Since $v_d = \\frac{e E \\tau}{m}$, substitution yields $\\mu = \\frac{e\\tau}{m}$, which is independent of the electric field for small fields. Hence, statement (iii) is correct.\nStep 4: Statements (i), (ii), and (iii) are correct.\nDistractor Analysis: Stating that mobility is negative confuses the sign of carrier charge with the positive magnitude definition of mobility."
+    },
+    {
+      "id": "phy_current_electricity_c01_016",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a laboratory experiment to determine the electromotive force and internal resistance of a DC cell, the terminal potential difference $V$ across the cell is recorded as a function of the discharging current $I$. The resulting linear plot intercepts the vertical voltage axis at $V = 1.50\\text{ V}$ and intercepts the horizontal current axis at $I = 3.00\\text{ A}$. What are the EMF ($E$) and internal resistance ($r$) of the cell?",
+      "options": [
+        "A) $E = 1.50\\text{ V}$ and $r = 0.50\\,\\Omega$",
+        "B) $E = 1.50\\text{ V}$ and $r = 2.00\\,\\Omega$",
+        "C) $E = 3.00\\text{ V}$ and $r = 0.50\\,\\Omega$",
+        "D) $E = 0.75\\text{ V}$ and $r = 0.25\\,\\Omega$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The relation between terminal potential difference $V$ and discharging current $I$ for a real cell is $V = E - Ir$.\nStep 2: The vertical intercept occurs when $I = 0$ (open-circuit condition), which directly gives the electromotive force: $E = 1.50\\text{ V}$.\nStep 3: The horizontal intercept occurs when $V = 0$ (short-circuit condition), where $0 = E - I_{\\text{sc}} r \\implies I_{\\text{sc}} = \\frac{E}{r} = 3.00\\text{ A}$.\nStep 4: Solving for internal resistance: $r = \\frac{E}{I_{\\text{sc}}} = \\frac{1.50\\text{ V}}{3.00\\text{ A}} = 0.50\\,\\Omega$. Note that the magnitude of the negative slope of the $V-I$ graph also equals $r = |\\Delta V / \\Delta I| = 1.50 / 3.00 = 0.50\\,\\Omega$.\nDistractor Analysis: Inverting the slope formula ($3.00 / 1.50 = 2.00\\,\\Omega$) yields an incorrect internal resistance."
+    },
+    {
+      "id": "phy_current_electricity_c01_017",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Circuit Rule / Network Principle) with List II (Fundamental Conservation Law / Condition):\n\nList I:\nA. Kirchhoff's Junction Rule ($\\sum I = 0$)\nB. Kirchhoff's Loop Rule ($\\sum \\Delta V = 0$)\nC. Balanced Wheatstone Bridge\nD. Maximum Power Transfer to a load\n\nList II:\nI. Conservation of energy around any closed circuit path\nII. Conservation of electric charge at any circuit node\nIII. Load resistance equals internal resistance of the power source ($R = r$)\nIV. Zero potential difference across the detector branch ($I_g = 0$)\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-(I), B-(II), C-(III), D-(IV)",
+        "B) A-(II), B-(I), C-(IV), D-(III)",
+        "C) A-(II), B-(I), C-(III), D-(IV)",
+        "D) A-(IV), B-(III), C-(II), D-(I)"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Kirchhoff's Junction Rule states that the net current entering a node is zero, which is an expression of conservation of electric charge. Thus, A matches with II.\nStep 2: Kirchhoff's Loop Rule states that the sum of changes in potential around any closed loop must be zero, expressing conservation of energy for a unit test charge moving in a conservative electrostatic field. Thus, B matches with I.\nStep 3: A balanced Wheatstone bridge is characterized by equal potentials at the galvanometer terminals, resulting in null current ($I_g = 0$). Thus, C matches with IV.\nStep 4: Maximum power is transferred from a DC source with internal resistance $r$ to an external load resistor $R$ when $R = r$. Thus, D matches with III.\nMatching yields A-(II), B-(I), C-(IV), D-(III).\nDistractor Analysis: Swapping the conservation principles between junction and loop rules is a common distractor."
+    },
+    {
+      "id": "phy_current_electricity_c01_018",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the meter bridge apparatus used for measuring an unknown electrical resistance:\n\nStatement I: In a meter bridge setup, a uniform manganin or constantan wire of length $1\\text{ m}$ and uniform cross-section is stretched taut along a meter scale between thick metallic copper strips.\nStatement II: Thick copper strips are specifically chosen for connecting the bridge components because they introduce large contact resistances that dampen high current surges from the driver cell.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: A meter bridge consists of a wire of length $1\\text{ m} = 100\\text{ cm}$ made of an alloy with low temperature coefficient and high resistivity (such as manganin or constantan), stretched along a meter scale. Thus, Statement I is true.\nStep 2: Copper strips are made thick specifically to minimize their electrical resistance ($R = \\rho L / A$, where large $A$ and small $\\rho$ yield negligible strip resistance). This ensures that the resistances of the bridge arms reside entirely in the wire and the known/unknown resistors, minimizing end resistance errors.\nStep 3: Thick copper strips do not introduce large contact resistance; they minimize resistance. Thus, Statement II is completely false.\nStep 4: Hence, Statement I is true but Statement II is false.\nDistractor Analysis: Confusing the role of thick copper strips (used to minimize parasitic resistance) leads to falsely accepting Statement II."
+    },
+    {
+      "id": "phy_current_electricity_c01_019",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In a balanced Wheatstone bridge network, if the positions of the driver battery and the galvanometer are interchanged, the bridge network remains balanced and the galvanometer continues to show zero deflection.\nReason (R): Interchanging the battery and galvanometer transforms the balance ratio $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$ into the algebraically equivalent condition $\\frac{R_1}{R_3} = \\frac{R_2}{R_4}$, which ensures equipotential detector terminals.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In a standard Wheatstone bridge with arms $R_1, R_2, R_3, R_4$, the condition for null deflection in the galvanometer connected between the junction of $(R_1, R_2)$ and $(R_3, R_4)$ is $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$.\nStep 2: By basic algebra, $\\frac{R_1}{R_2} = \\frac{R_3}{R_4} \\iff \\frac{R_1}{R_3} = \\frac{R_2}{R_4}$.\nStep 3: When the battery and the galvanometer are swapped, the branches that were connected to the battery are now connected to the galvanometer and vice versa. The new balance condition corresponds precisely to $\\frac{R_1}{R_3} = \\frac{R_2}{R_4}$, which is identical.\nStep 4: Both Assertion (A) and Reason (R) are true, and (R) correctly explains (A).\nDistractor Analysis: Believing that swapping source and detector disrupts bridge balance is a common trap; the conjugate arms of a Wheatstone bridge are completely symmetric."
+    },
+    {
+      "id": "phy_current_electricity_c01_020",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A student is provided with $n$ identical resistors, each having a resistance of $R$. When all $n$ resistors are connected in series, their equivalent resistance is found to be $R_s$. When all $n$ resistors are connected in parallel, their equivalent resistance is found to be $R_p$. What is the ratio $\\frac{R_s}{R_p}$?",
+      "options": [
+        "A) $1$",
+        "B) $n$",
+        "C) $\\frac{1}{n^2}$",
+        "D) $n^2$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: When $n$ identical resistors of resistance $R$ are connected in series, the total equivalent resistance is $R_s = R + R + \\dots + R = nR$.\nStep 2: When the same $n$ resistors are connected in parallel, the reciprocal equivalent resistance is $\\frac{1}{R_p} = \\frac{1}{R} + \\frac{1}{R} + \\dots + \\frac{1}{R} = \\frac{n}{R}$, so $R_p = \\frac{R}{n}$.\nStep 3: Calculating the ratio of series to parallel equivalent resistance: $\\frac{R_s}{R_p} = \\frac{nR}{R/n} = n \\times n = n^2$.\nStep 4: Thus, the ratio of equivalent resistances is $n^2$.\nDistractor Analysis: Inverting the ratio yields $1/n^2$, whereas confusing series and parallel formulas leads to $n$."
+    },
+    {
+      "id": "phy_current_electricity_c01_021",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the maximum power transfer theorem in direct current circuits:\n\nStatement I: The electrical power delivered by a real DC source of electromotive force $E$ and constant internal resistance $r$ to a variable external load resistor $R$ reaches its maximum value when the load resistance equals the internal resistance ($R = r$).\nStatement II: Under the condition of maximum power transfer ($R = r$), the overall electrical efficiency of power delivery from the source to the load resistor is $100\\%$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The power delivered to the external load is $P(R) = I^2 R = \\frac{E^2 R}{(R + r)^2}$. Setting $\\frac{dP}{dR} = 0$ gives $R = r$, at which $P_{\\text{max}} = \\frac{E^2}{4r}$. Thus, Statement I is true.\nStep 2: Total power generated by the source is $P_{\\text{total}} = E I = I^2 (R + r)$. When $R = r$, the power dissipated in the external load is $I^2 r$, and the power lost internally as heat is also $I^2 r$.\nStep 3: The efficiency of power transfer is $\\eta = \\frac{P_{\\text{load}}}{P_{\\text{total}}} \\times 100\\% = \\frac{I^2 R}{I^2 (R + r)} \\times 100\\% = \\frac{r}{2r} \\times 100\\% = 50\\%$, not $100\\%$. Thus, Statement II is false.\nStep 4: Hence, Statement I is true but Statement II is false.\nDistractor Analysis: Maximum power transfer does not correspond to maximum efficiency; maximum efficiency ($100\\%$) is approached as $R \\to \\infty$, where power delivered approaches zero."
+    },
+    {
+      "id": "phy_current_electricity_c01_022",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A steady direct current flows through a cylindrical metallic conductor of non-uniform cross-section along its length. Which of the following physical quantities remain(s) constant at every cross-section along the conductor?\n\n(i) Electric current ($I$)\n(ii) Current density ($j$)\n(iii) Electric field inside the conductor ($E$)\n(iv) Conduction electron drift speed ($v_d$)\n\nChoose the correct option from the choices given below:",
+      "options": [
+        "A) (i) only",
+        "B) (i) and (ii) only",
+        "C) (i), (ii), and (iv) only",
+        "D) (ii), (iii), and (iv) only"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In steady-state conditions, electric charge cannot accumulate anywhere along the wire. By conservation of charge, the rate of charge flow through any transverse cross-section must be identical. Hence, electric current $I$ is strictly constant throughout.\nStep 2: Current density is defined as $j = \\frac{I}{A}$. Because the cross-sectional area $A$ varies along the length, current density $j$ varies inversely with area ($j \\propto 1/A$).\nStep 3: By the microscopic Ohm's law, $E = \\frac{j}{\\sigma} = \\frac{I}{\\sigma A}$, which also varies inversely with $A$.\nStep 4: The electron drift speed is $v_d = \\frac{j}{n e} = \\frac{I}{n e A}$, which also varies inversely with $A$. Therefore, only electric current (i) remains constant.\nDistractor Analysis: Assuming current density or electric field remains uniform ignores the geometry-dependent nature of microscopic field quantities."
+    },
+    {
+      "id": "phy_current_electricity_c01_023",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the microscopic speeds of conduction electrons in a metal:\n\nStatement I: At room temperature ($T = 300\\text{ K}$), conduction electrons inside a metal undergo random thermal motion with root-mean-square speeds of the order of $10^5\\text{ m/s}$ to $10^6\\text{ m/s}$, yet their net vector velocity in the absence of an applied electric field is strictly zero.\nStatement II: When an external electric field $\\vec{E}$ is applied across the conductor, the steady drift speed $v_d$ acquired by the conduction electrons between collisions is vastly greater than their random thermal speed, typically exceeding $10^3\\text{ m/s}$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In the absence of an external electric field, conduction electrons move in random directions with thermal speeds $v_{\\text{th}} \\approx \\sqrt{\\frac{3 k_B T}{m}} \\approx 10^5 - 10^6\\text{ m/s}$. Because the motion is completely isotropic, the average thermal velocity is $\\langle \\vec{v} \\rangle = \\frac{1}{N} \\sum \\vec{v}_i = 0$, producing zero net current. Thus, Statement I is true.\nStep 2: When an electric field $\\vec{E}$ is applied, an electron accelerates between collisions with acceleration $\\vec{a} = -\\frac{e\\vec{E}}{m}$. The resultant drift velocity is $v_d = \\frac{e E \\tau}{m}$. For typical laboratory and domestic currents, $v_d$ is of the order of $10^{-4}\\text{ m/s}$ ($0.1\\text{ mm/s}$), which is nearly nine orders of magnitude smaller than thermal speed, not $10^3\\text{ m/s}$. Thus, Statement II is false.\nStep 3: Hence, Statement I is true but Statement II is false.\nDistractor Analysis: Equating drift speed to thermal speed or electromagnetic signal propagation speed leads to the erroneous acceptance of Statement II."
+    },
+    {
+      "id": "phy_current_electricity_c01_024",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In a precise meter bridge experiment, the elementary bridge equation $\\frac{R}{S} = \\frac{l_1}{100 - l_1}$ must be modified by incorporating end corrections $\\alpha_1$ and $\\alpha_2$ to the measured segment lengths.\nReason (R): End errors arise because the zero and $100\\text{ cm}$ marks of the meter scale may not align perfectly with the ends of the bridge wire, and the soldered contacts and thick copper strips introduce finite non-zero contact resistances.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The standard meter bridge formula assumes that the resistance of the wire segments is strictly proportional to their measured scale lengths $l_1$ and $(100 - l_1)$.\nStep 2: In physical apparatus, the wire terminals are clamped or soldered to thick copper strips. The contact resistance of these joints plus the small resistance of the copper strips is equivalent to an extra length of bridge wire (end errors $\\alpha_1$ and $\\alpha_2$ at the left and right ends respectively).\nStep 3: Furthermore, mechanical alignment errors between the wire termination and the meter scale zero mark contribute to end errors. Therefore, the corrected balancing formula becomes $\\frac{R}{S} = \\frac{l_1 + \\alpha_1}{100 - l_1 + \\alpha_2}$.\nStep 4: Both Assertion (A) and Reason (R) are true, and (R) correctly explains (A).\nDistractor Analysis: Claiming end corrections are negligible ignores the primary systematic error addressed in NCERT laboratory practicals."
+    },
+    {
+      "id": "phy_current_electricity_c01_025",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two electrochemical cells having electromotive forces $E_1 = 6.0\\text{ V}$, internal resistance $r_1 = 1.0\\,\\Omega$, and $E_2 = 4.0\\text{ V}$, internal resistance $r_2 = 2.0\\,\\Omega$, are connected in parallel with their positive terminals connected together and negative terminals connected together. What are the equivalent electromotive force ($E_{\\text{eq}}$) and equivalent internal resistance ($r_{\\text{eq}}$) of this parallel combination?",
+      "options": [
+        "A) $E_{\\text{eq}} = \\frac{16}{3}\\text{ V}$ and $r_{\\text{eq}} = \\frac{2}{3}\\,\\Omega$",
+        "B) $E_{\\text{eq}} = 5.0\\text{ V}$ and $r_{\\text{eq}} = 1.5\\,\\Omega$",
+        "C) $E_{\\text{eq}} = 10.0\\text{ V}$ and $r_{\\text{eq}} = 3.0\\,\\Omega$",
+        "D) $E_{\\text{eq}} = 2.0\\text{ V}$ and $r_{\\text{eq}} = \\frac{2}{3}\\,\\Omega$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For two cells connected in parallel with like terminals joined, the equivalent internal resistance $r_{\\text{eq}}$ is given by $\\frac{1}{r_{\\text{eq}}} = \\frac{1}{r_1} + \\frac{1}{r_2}$.\nStep 2: Substituting values: $\\frac{1}{r_{\\text{eq}}} = \\frac{1}{1.0} + \\frac{1}{2.0} = 1 + 0.5 = 1.5\\,\\Omega^{-1} = \\frac{3}{2}\\,\\Omega^{-1} \\implies r_{\\text{eq}} = \\frac{2}{3}\\,\\Omega$.\nStep 3: The equivalent electromotive force $E_{\\text{eq}}$ is given by $\\frac{E_{\\text{eq}}}{r_{\\text{eq}}} = \\frac{E_1}{r_1} + \\frac{E_2}{r_2}$.\nStep 4: Evaluating the sum: $\\frac{6.0}{1.0} + \\frac{4.0}{2.0} = 6.0 + 2.0 = 8.0\\text{ A}$.\nStep 5: Multiplying by $r_{\\text{eq}}$ gives $E_{\\text{eq}} = 8.0 \\times \\frac{2}{3} = \\frac{16}{3}\\text{ V} \\approx 5.33\\text{ V}$.\nDistractor Analysis: Simply averaging the EMFs ($E_{\\text{eq}} = 5.0\\text{ V}$) ignores the unequal weighting introduced by unequal internal resistances."
+    },
+    {
+      "id": "phy_current_electricity_c01_026",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Circuit Configuration) with List II (Characteristic Equivalent Parameter):\n\nList I:\nA. $n$ identical resistors of resistance $R$ connected in parallel\nB. $n$ identical cells each of EMF $E$ and internal resistance $r$ connected in series\nC. $n$ identical cells each of EMF $E$ and internal resistance $r$ connected in parallel\nD. Two resistors $R_1, R_2$ connected in series across total potential difference $V$\n\nList II:\nI. Total EMF is $E$, total internal resistance is $\\frac{r}{n}$\nII. Potential difference across $R_1$ is $V \\left(\\frac{R_1}{R_1 + R_2}\\right)$\nIII. Total equivalent resistance is $\\frac{R}{n}$\nIV. Total EMF is $nE$, total internal resistance is $nr$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-(III), B-(I), C-(IV), D-(II)",
+        "B) A-(I), B-(IV), C-(III), D-(II)",
+        "C) A-(II), B-(III), C-(IV), D-(I)",
+        "D) A-(III), B-(IV), C-(I), D-(II)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: When $n$ identical resistors of resistance $R$ are placed in parallel, each branch carries $I/n$, yielding an equivalent resistance of $R_{\\text{eq}} = R/n$. Thus, A matches with III.\nStep 2: Connecting $n$ identical cells in aiding series adds their EMFs ($E_{\\text{eq}} = nE$) and their internal resistances ($r_{\\text{eq}} = nr$). Thus, B matches with IV.\nStep 3: Connecting $n$ identical cells in parallel maintains the open-circuit terminal voltage at $E_{\\text{eq}} = E$, while their parallel internal resistances yield $r_{\\text{eq}} = r/n$. Thus, C matches with I.\nStep 4: For two series resistors connected across supply voltage $V$, current is $I = \\frac{V}{R_1 + R_2}$. The potential drop across $R_1$ is $V_1 = I R_1 = V \\left(\\frac{R_1}{R_1 + R_2}\\right)$. Thus, D matches with II.\nMatching yields A-(III), B-(IV), C-(I), D-(II).\nDistractor Analysis: Inverting series and parallel cell combinations leads to mismatched assignments for B and C."
+    },
+    {
+      "id": "phy_current_electricity_c01_027",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the non-linear electrical behavior of materials and electronic devices as discussed in NCERT:\n\n(i) In a p-n junction diode, the current $I$ does not vary linearly with the applied voltage $V$, exhibiting forward exponential growth and reverse current saturation.\n(ii) In a semiconductor diode, the direction of current is non-symmetric; reversing the polarity of the applied voltage of the same magnitude changes the magnitude of current drastically.\n(iii) In gallium arsenide ($\\text{GaAs}$), there exists a distinct operational region where an increase in applied voltage results in a decrease in electric current, exhibiting negative dynamic resistance ($\\frac{dV}{dI} < 0$).\n(iv) A pure metallic copper wire cooled to liquid nitrogen temperature ($77\\text{ K}$) exhibits negative dynamic resistance.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) (i) and (iv) only",
+        "B) (ii) and (iv) only",
+        "C) (i), (ii) and (iii) only",
+        "D) (i), (ii), (iii) and (iv)"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: NCERT Section 3.6 ('Limitations of Ohm's Law') details non-ohmic devices. A semiconductor diode exhibits non-linear $I-V$ curves and strong directional asymmetry upon voltage reversal, validating statements (i) and (ii).\nStep 2: NCERT Figure 3.8 explicitly depicts the $I-V$ characteristic of gallium arsenide ($\\text{GaAs}$), featuring a non-linear region followed by a negative resistance region where $\\frac{\\Delta V}{\\Delta I} < 0$. Thus, statement (iii) is correct.\nStep 3: In pure copper, reducing temperature to $77\\text{ K}$ decreases resistivity due to suppressed thermal phonons, but the conductor remains strictly ohmic with a positive resistance ($\\frac{dV}{dI} > 0$). It never exhibits negative dynamic resistance. Thus, statement (iv) is incorrect.\nStep 4: Statements (i), (ii), and (iii) are correct.\nDistractor Analysis: Attributing semiconductor electronic properties like negative resistance to low-temperature metals is physically incorrect."
+    },
+    {
+      "id": "phy_current_electricity_c01_028",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A solid metallic wire having a uniform electrical resistance of $16.0\\,\\Omega$ is melted down and completely recast into a new uniform wire whose length is exactly one-fourth of the initial length ($L' = L/4$). Assuming the density and resistivity of the metal remain unaltered during the recasting process, what is the electrical resistance of the recast wire?",
+      "options": [
+        "A) $1.0\\,\\Omega$",
+        "B) $4.0\\,\\Omega$",
+        "C) $0.25\\,\\Omega$",
+        "D) $64.0\\,\\Omega$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The original resistance of the wire is $R = \\rho \\frac{L}{A} = 16.0\\,\\Omega$.\nStep 2: When the wire is melted and recast, total volume $V = A L$ is strictly conserved. Therefore, $A' L' = A L$.\nStep 3: Given $L' = \\frac{L}{4}$, the new cross-sectional area becomes $A' = A \\left(\\frac{L}{L'}\\right) = 4A$.\nStep 4: The new resistance $R'$ is given by $R' = \\rho \\frac{L'}{A'} = \\rho \\frac{L/4}{4A} = \\frac{1}{16} \\left(\\rho \\frac{L}{A}\\right) = \\frac{R}{16}$.\nStep 5: Substituting the given initial resistance: $R' = \\frac{16.0\\,\\Omega}{16} = 1.0\\,\\Omega$.\nDistractor Analysis: Neglecting the four-fold increase in cross-sectional area gives $R' = R/4 = 4.0\\,\\Omega$, which violates volume conservation."
+    },
+    {
+      "id": "phy_current_electricity_c01_029",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When two identical DC cells, each of electromotive force $E$ and internal resistance $r$, are connected to power an external load resistor $R$ where $R \\gg r$, connecting the cells in series delivers approximately twice the current into the load compared to connecting them in parallel.\nReason (R): In series combination, the total electromotive force doubles to $2E$ while the total circuit resistance $(R + 2r) \\approx R$ is dominated by the large load resistance; in parallel combination, the equivalent electromotive force remains $E$ while the circuit resistance is $(R + r/2) \\approx R$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: When two identical cells are connected in series across load $R$, the current is $I_{\\text{series}} = \\frac{2E}{R + 2r}$. Because $R \\gg r$, $2r$ is negligible compared to $R$, so $I_{\\text{series}} \\approx \\frac{2E}{R}$.\nStep 2: When the two identical cells are connected in parallel across load $R$, the equivalent EMF is $E$ and equivalent internal resistance is $r/2$. The current is $I_{\\text{parallel}} = \\frac{E}{R + r/2} \\approx \\frac{E}{R}$.\nStep 3: Comparing the two currents: $\\frac{I_{\\text{series}}}{I_{\\text{parallel}}} \\approx \\frac{2E/R}{E/R} = 2$. Therefore, the series combination delivers twice the current into a high-resistance load.\nStep 4: Both Assertion (A) and Reason (R) are true, and Reason (R) correctly explains Assertion (A).\nDistractor Analysis: If the load resistance were much smaller than internal resistance ($R \\ll r$), the parallel combination would deliver greater current ($I_{\\text{parallel}} \\approx 2E/r$ vs $I_{\\text{series}} \\approx E/r$)."
+    },
+    {
+      "id": "phy_current_electricity_c01_030",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding temperature sensing and resistance variation:\n\nStatement I: The electrical resistance of a platinum resistance thermometer wire is $R_0 = 5.00\\,\\Omega$ at the ice point ($0^\\circ\\text{C}$) and $R_{100} = 5.79\\,\\Omega$ at the steam point ($100^\\circ\\text{C}$). When immersed in a heated fluid bath, its measured resistance is $5.9875\\,\\Omega$; the temperature of the bath is calculated to be $125^\\circ\\text{C}$.\nStatement II: The linear resistance relationship $R(T) = R_0 [1 + \\alpha (T - T_0)]$ remains strictly accurate across all temperature ranges from absolute zero ($0\\text{ K}$) to the vaporization point of all elemental metals.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Using the definition of the temperature scale for a platinum resistance thermometer: $t = \\frac{R_t - R_0}{R_{100} - R_0} \\times 100^\\circ\\text{C}$.\nStep 2: Here $R_{100} - R_0 = 5.79 - 5.00 = 0.79\\,\\Omega$ and $R_t - R_0 = 5.9875 - 5.00 = 0.9875\\,\\Omega$.\nStep 3: Calculating temperature: $t = \\frac{0.9875}{0.79} \\times 100^\\circ\\text{C} = 1.25 \\times 100^\\circ\\text{C} = 125^\\circ\\text{C}$. Thus, Statement I is true.\nStep 4: NCERT explicitly notes that the linear relation $R(T) = R_0 [1 + \\alpha \\Delta T]$ is only an approximation over a limited temperature range near room temperature. At cryogenic temperatures, metal resistivity varies non-linearly with $T^5$ due to electron-phonon scattering, and at high temperatures non-linearities and melting occur. Thus, Statement II is completely false.\nStep 5: Hence, Statement I is true but Statement II is false.\nDistractor Analysis: Believing that linear approximations hold without physical boundaries leads to accepting Statement II."
+    },
+    {
+      "id": "phy_current_electricity_c01_031",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Four identical uniform conducting wires, each having an electrical resistance of $R = 12.0\\,\\Omega$, are connected to form a planar square frame $ABCD$. A fifth identical wire of resistance $12.0\\,\\Omega$ is connected diagonally between vertices $B$ and $D$. What is the equivalent electrical resistance between the diagonally opposite vertices $A$ and $C$?",
+      "options": [
+        "A) $12.0\\,\\Omega$",
+        "B) $6.0\\,\\Omega$",
+        "C) $24.0\\,\\Omega$",
+        "D) $8.0\\,\\Omega$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In the bridge network, the source connects across vertices $A$ and $C$. Path $A \\to B \\to C$ consists of resistors $R_{AB} = R$ and $R_{BC} = R$ in series.\nStep 2: Path $A \\to D \\to C$ consists of resistors $R_{AD} = R$ and $R_{DC} = R$ in series.\nStep 3: By bilateral symmetry about the diagonal $AC$, vertices $B$ and $D$ are at identical electrical potentials ($V_B = V_D$).\nStep 4: Because there is zero potential difference across the diagonal branch $BD$ ($V_B - V_D = 0$), no current flows through the diagonal resistor. It can be removed without altering the current or potential distribution in the network.\nStep 5: The equivalent resistance is therefore the parallel combination of the two remaining branches: $R_{AC} = (R_{AB} + R_{BC}) \\parallel (R_{AD} + R_{DC}) = (12.0 + 12.0) \\parallel (12.0 + 12.0) = 24.0\\,\\Omega \\parallel 24.0\\,\\Omega = 12.0\\,\\Omega$.\nDistractor Analysis: Including the diagonal resistor in a delta-star conversion without recognizing bridge balance complicates the problem but yields the same $12.0\\,\\Omega$."
+    },
+    {
+      "id": "phy_current_electricity_c01_032",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Macroscopic / Microscopic Quantity) with List II (Microscopic Expression in terms of electron mass $m$, charge $e$, relaxation time $\\tau$, and density $n$):\n\nList I:\nA. Conduction electron drift speed ($v_d$)\nB. Electrical conductivity ($\\sigma$)\nC. Electrical resistivity ($\\rho$)\nD. Electric current density ($j$)\n\nList II:\nI. $\\frac{n e^2 \\tau}{m}$\nII. $\\frac{e E \\tau}{m}$\nIII. $n e v_d$\nIV. $\\frac{m}{n e^2 \\tau}$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-(I), B-(II), C-(IV), D-(III)",
+        "B) A-(II), B-(I), C-(IV), D-(III)",
+        "C) A-(II), B-(IV), C-(I), D-(III)",
+        "D) A-(IV), B-(I), C-(II), D-(III)"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Drift speed is given by the product of electron acceleration and mean relaxation time: $v_d = a \\tau = \\frac{e E \\tau}{m}$. Thus, A matches with II.\nStep 2: Conductivity relates current density to electric field ($j = \\sigma E$). Substituting $j = n e v_d = n e \\left(\\frac{e E \\tau}{m}\\right) = \\left(\\frac{n e^2 \\tau}{m}\\right) E$ gives $\\sigma = \\frac{n e^2 \\tau}{m}$. Thus, B matches with I.\nStep 3: Electrical resistivity is the reciprocal of conductivity: $\\rho = \\frac{1}{\\sigma} = \\frac{m}{n e^2 \\tau}$. Thus, C matches with IV.\nStep 4: Current density is the charge passing per unit area per unit time: $j = n e v_d$. Thus, D matches with III.\nMatching yields A-(II), B-(I), C-(IV), D-(III).\nDistractor Analysis: Confusing the reciprocal relationship between conductivity and resistivity causes inverted pairings for B and C."
+    },
+    {
+      "id": "phy_current_electricity_c01_033",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A real DC cell supplies an electric current of $I_1 = 2.0\\text{ A}$ when connected across an external load resistor of $R_1 = 5.0\\,\\Omega$. When the same cell is connected across an external load resistor of $R_2 = 11.0\\,\\Omega$, the supplied current drops to $I_2 = 1.0\\text{ A}$. What are the electromotive force ($E$) and the internal resistance ($r$) of the cell?",
+      "options": [
+        "A) $E = 6.0\\text{ V}$ and $r = 0.5\\,\\Omega$",
+        "B) $E = 10.0\\text{ V}$ and $r = 2.0\\,\\Omega$",
+        "C) $E = 12.0\\text{ V}$ and $r = 1.0\\,\\Omega$",
+        "D) $E = 15.0\\text{ V}$ and $r = 1.5\\,\\Omega$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Applying Ohm's law to the complete circuit for the first load condition: $E = I_1 (R_1 + r) = 2.0 (5.0 + r) = 10.0 + 2.0r$.\nStep 2: Applying Ohm's law to the complete circuit for the second load condition: $E = I_2 (R_2 + r) = 1.0 (11.0 + r) = 11.0 + 1.0r$.\nStep 3: Equating the two expressions for EMF: $10.0 + 2.0r = 11.0 + 1.0r \\implies 2.0r - 1.0r = 11.0 - 10.0 \\implies r = 1.0\\,\\Omega$.\nStep 4: Substituting $r = 1.0\\,\\Omega$ back to determine EMF: $E = 2.0 \\times (5.0 + 1.0) = 2.0 \\times 6.0 = 12.0\\text{ V}$.\nStep 5: Verifying with the second case: $E = 1.0 \\times (11.0 + 1.0) = 12.0\\text{ V}$. Both conditions are fully consistent.\nDistractor Analysis: Omitting internal resistance in the terminal equation leads to erroneous results where $E$ appears to change with load."
+    },
+    {
+      "id": "phy_current_electricity_c01_034",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding long-distance transmission of electrical energy:\n\nStatement I: Electrical energy generated at central power plants is stepped up to very high voltages ($132\\text{ kV}$ or higher) for long-distance transmission to reduce Joule heating losses along the transmission cables.\nStatement II: For transmitting a specified electrical power $P$ across a transmission line of total electrical resistance $R_c$, the rate of power dissipation in the line varies inversely with the square of the transmission operating voltage ($P_{\\text{loss}} \\propto \\frac{1}{V^2}$).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: If electrical power $P$ is transmitted at voltage $V$, the transmission current carried by the line is $I = \\frac{P}{V}$.\nStep 2: The power dissipated as Joule heat in the transmission lines of resistance $R_c$ is $P_{\\text{loss}} = I^2 R_c = \\left(\\frac{P}{V}\\right)^2 R_c = \\frac{P^2 R_c}{V^2}$.\nStep 3: This explicitly shows that $P_{\\text{loss}} \\propto \\frac{1}{V^2}$. Transmitting at 10 times higher voltage decreases transmission line power losses by a factor of 100. Thus, Statement II is true.\nStep 4: Because high voltage minimizes wasteful thermal loss, national power grids universally transmit power at hundreds of kilovolts. Thus, Statement I is true.\nStep 5: Hence, both Statement I and Statement II are true.\nDistractor Analysis: Applying $P = V^2 / R_c$ mistakenly to the whole transmission voltage fails because $V$ is the line-to-neutral voltage across the load, not the small potential drop along the transmission wire."
+    },
+    {
+      "id": "phy_current_electricity_c01_035",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In a laboratory meter bridge experiment, it is best practice to adjust the known resistance $S$ such that the null balance point is obtained near the central region of the wire ($40\\text{ cm} \\le l_1 \\le 60\\text{ cm}$).\nReason (R): Positioning the balance point near the center of the meter bridge wire minimizes the fractional experimental uncertainty $\\frac{\\Delta R}{R} = \\frac{\\Delta l_1}{l_1} + \\frac{\\Delta l_1}{100 - l_1}$ resulting from scale reading limitations.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In a meter bridge, the unknown resistance is calculated from $R = S \\frac{l_1}{100 - l_1}$.\nStep 2: Differentiating logarithmically gives the fractional error: $\\frac{\\Delta R}{R} = \\frac{\\Delta l_1}{l_1} + \\frac{\\Delta l_1}{100 - l_1} = \\Delta l_1 \\left[\\frac{100}{l_1 (100 - l_1)}\\right]$.\nStep 3: The error is minimized when the denominator product $f(l_1) = l_1 (100 - l_1)$ is maximized. Differentiating with respect to $l_1$ and setting to zero yields $100 - 2 l_1 = 0 \\implies l_1 = 50\\text{ cm}$.\nStep 4: Near the extreme ends ($l_1 \\to 0$ or $l_1 \\to 100\\text{ cm}$), one of the terms diverges, causing large fractional errors. Therefore, obtaining the null point near $50\\text{ cm}$ minimizes fractional error. Both Assertion (A) and Reason (R) are true, and (R) correctly explains (A).\nDistractor Analysis: Claiming that balance can be taken anywhere on the wire with equal accuracy ignores basic experimental propagation of errors."
+    },
+    {
+      "id": "phy_current_electricity_c01_036",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a two-loop direct current circuit, an ideal battery of EMF $E_1 = 18.0\\text{ V}$ is connected in series with resistor $R_1 = 6.0\\,\\Omega$ in the left branch, and an ideal battery of EMF $E_2 = 12.0\\text{ V}$ is connected in series with resistor $R_3 = 6.0\\,\\Omega$ in the right branch (both positive terminals oriented toward top junction $J$). A central branch containing resistor $R_2 = 3.0\\,\\Omega$ connects junction $J$ to the bottom reference junction ($0\\text{ V}$). What is the electric current flowing downward through the central resistor $R_2$?",
+      "options": [
+        "A) $2.5\\text{ A}$",
+        "B) $1.5\\text{ A}$",
+        "C) $3.0\\text{ A}$",
+        "D) $4.0\\text{ A}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Apply Kirchhoff's Junction Rule (nodal analysis) at the upper junction $J$, whose electrical potential is denoted by $V_J$.\nStep 2: The current entering $J$ from the left branch is $\\frac{E_1 - V_J}{R_1} = \\frac{18.0 - V_J}{6.0}$.\nStep 3: The current entering $J$ from the right branch is $\\frac{E_2 - V_J}{R_3} = \\frac{12.0 - V_J}{6.0}$.\nStep 4: The current leaving $J$ through the central resistor is $\\frac{V_J}{R_2} = \\frac{V_J}{3.0}$.\nStep 5: Setting total incoming current equal to outgoing current: $\\frac{18.0 - V_J}{6.0} + \\frac{12.0 - V_J}{6.0} = \\frac{V_J}{3.0}$.\nStep 6: Multiplying the entire equation by $6.0$: $(18.0 - V_J) + (12.0 - V_J) = 2.0 V_J \\implies 30.0 - 2.0 V_J = 2.0 V_J \\implies 4.0 V_J = 30.0 \\implies V_J = 7.5\\text{ V}$.\nStep 7: The current through $R_2$ is $I_2 = \\frac{V_J}{R_2} = \\frac{7.5\\text{ V}}{3.0\\,\\Omega} = 2.5\\text{ A}$.\nDistractor Analysis: Simple arithmetic errors in nodal summing, such as adding voltages directly without dividing by branch resistances, lead to distractors like $3.0\\text{ A}$ or $4.0\\text{ A}$."
+    },
+    {
+      "id": "phy_current_electricity_c01_037",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the microscopic mechanisms underlying the temperature dependence of electrical resistivity in different classes of materials:\n\n(i) In metallic conductors, the free electron density $n$ is practically independent of temperature; the increase in resistivity with temperature is governed almost entirely by the decrease in relaxation time $\\tau$.\n(ii) In intrinsic semiconductors, the relaxation time $\\tau$ decreases with rising temperature, but this effect is heavily dominated by the rapid exponential increase in the charge carrier density $n(T)$, resulting in a net decrease in resistivity.\n(iii) In commercial heating alloys such as nichrome, the electrical resistivity remains substantial even as temperature approaches absolute zero ($0\\text{ K}$), exhibiting a large residual resistivity.\n(iv) In pure semiconductors, the temperature coefficient of resistivity $\\alpha$ is positive at all temperatures.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) (i) and (iv) only",
+        "B) (ii) and (iv) only",
+        "C) (i), (ii) and (iii) only",
+        "D) (i), (ii), (iii) and (iv)"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In conductors, $n$ is determined by valence electron count and remains constant ($\\approx 10^{29}\\text{ m}^{-3}$). Higher temperature intensifies thermal ion vibrations, shortening $\\tau$, so $\\rho \\propto 1/\\tau$ increases. Thus, statement (i) is correct.\nStep 2: In semiconductors, the electron-hole pair density increases exponentially according to $n(T) \\propto e^{-E_g / (2 k_B T)}$. This exponential surge completely overwhelms the moderate decrease in $\\tau$, making $\\rho = \\frac{m}{n e^2 \\tau}$ drop sharply with increasing temperature ($\\alpha < 0$). Thus, statement (ii) is correct and statement (iv) is incorrect.\nStep 3: In disordered alloys like nichrome, impurity and structural scattering dominate over thermal phonon scattering, resulting in a large residual resistivity at cryogenic temperatures (NCERT Fig 3.10). Thus, statement (iii) is correct.\nStep 4: Statements (i), (ii), and (iii) are correct.\nDistractor Analysis: Claiming that semiconductors have a positive temperature coefficient reverses the fundamental distinction between metals and semiconductors."
+    },
+    {
+      "id": "phy_current_electricity_c01_038",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A DC battery has an electromotive force of $E = 12.0\\text{ V}$ and an internal resistance of $r = 3.0\\,\\Omega$. The battery is connected across an adjustable external load resistor $R$. What is the maximum power that can be delivered to and dissipated in the load resistor $R$?",
+      "options": [
+        "A) $12.0\\text{ W}$",
+        "B) $24.0\\text{ W}$",
+        "C) $48.0\\text{ W}$",
+        "D) $6.0\\text{ W}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The electrical power dissipated in the external load resistor $R$ is $P(R) = I^2 R = \\left(\\frac{E}{R + r}\\right)^2 R = \\frac{E^2 R}{(R + r)^2}$.\nStep 2: According to the maximum power transfer theorem, maximum power delivery occurs when the load resistance equals the internal resistance: $R = r = 3.0\\,\\Omega$.\nStep 3: Substituting $R = r$ into the power formula gives $P_{\\text{max}} = \\frac{E^2 r}{(2r)^2} = \\frac{E^2}{4r}$.\nStep 4: Substituting the given numerical values: $P_{\\text{max}} = \\frac{(12.0\\text{ V})^2}{4 \\times 3.0\\,\\Omega} = \\frac{144}{12.0} = 12.0\\text{ W}$.\nDistractor Analysis: Evaluating $P = E^2 / r = 144 / 3 = 48\\text{ W}$ ignores circuit division and internal voltage drop, while $E^2 / (2r) = 24\\text{ W}$ forgets the factor of 4 in the denominator."
+    },
+    {
+      "id": "phy_current_electricity_c01_039",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the internal resistance of chemical cells:\n\nStatement I: The internal resistance of an electrochemical cell increases with increasing distance between its electrodes, and decreases when the submerged surface area of the electrodes within the electrolyte is increased.\nStatement II: Unlike metallic conductors whose resistance increases with temperature, the internal resistance of an electrochemical cell generally decreases as the temperature of the electrolyte is increased due to decreased fluid viscosity and enhanced ionic mobility.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The internal resistance of a cell is determined by the ionic conduction between the two electrodes in the electrolyte. Just like resistance of a conductor ($R = \\rho L / A$), internal resistance $r$ is directly proportional to electrode separation distance $L$ and inversely proportional to submerged electrode area $A$. Thus, Statement I is true.\nStep 2: In liquid electrolytes, electric current is transported by mobile positive and negative ions. As temperature increases, the viscosity of the solvent decreases markedly, facilitating faster ionic transport and increasing ionic mobility. Consequently, electrolytic resistivity decreases, causing the internal resistance of the cell to decrease with rising temperature. Thus, Statement II is true.\nStep 3: Hence, both Statement I and Statement II are true.\nDistractor Analysis: Assuming that all resistances must increase with temperature confuses electronic conduction in crystalline metallic lattices with ionic transport in fluid electrolytes."
+    },
+    {
+      "id": "phy_current_electricity_c01_040",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Condition in a Four-Arm Bridge Network with bridge arms $P, Q, R, S$) with List II (Circuit Consequence):\n\nList I:\nA. $\\frac{P}{Q} = \\frac{R}{S}$ with galvanometer across junctions $B$ and $D$\nB. $\\frac{P}{Q} > \\frac{R}{S}$ with source positive connected at input junction $A$\nC. Bridge balanced, then source battery and galvanometer are interchanged\nD. Arm resistor $S$ burns out and becomes an open circuit ($S \\to \\infty$)\n\nList II:\nI. Balance is fully preserved; galvanometer still reads zero deflection\nII. Potential at junction $B$ is lower than at junction $D$ ($V_B < V_D$)\nIII. Galvanometer current is zero ($I_g = 0$)\nIV. Bridge becomes heavily unbalanced with maximal current diverted into the intact branches\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-(III), B-(I), C-(II), D-(IV)",
+        "B) A-(III), B-(II), C-(I), D-(IV)",
+        "C) A-(II), B-(III), C-(I), D-(IV)",
+        "D) A-(I), B-(II), C-(IV), D-(III)"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: When the bridge balance condition $\\frac{P}{Q} = \\frac{R}{S}$ is satisfied, the potentials at nodes $B$ and $D$ are identical ($V_B = V_D$), resulting in zero galvanometer current ($I_g = 0$). Thus, A matches with III.\nStep 2: When $\\frac{P}{Q} > \\frac{R}{S}$, the fraction of potential dropped across $P$ is greater than across $R$. Since potential drop $V_A - V_B > V_A - V_D$, it follows that $V_B < V_D$. Thus, B matches with II.\nStep 3: Interchanging the battery and galvanometer transforms conjugate branches into each other; the new balance condition is $\\frac{P}{R} = \\frac{Q}{S}$, which is algebraically identical to $\\frac{P}{Q} = \\frac{R}{S}$. The bridge remains balanced. Thus, C matches with I.\nStep 4: If resistor $S$ opens ($S \\to \\infty$), the branch containing $S$ carries zero current, pulling the bridge far out of balance and diverting current through the detector. Thus, D matches with IV.\nMatching yields A-(III), B-(II), C-(I), D-(IV).\nDistractor Analysis: Reversing the sign of potential difference in unbalanced conditions overlooks that larger resistance drops more potential from the positive rail."
+    },
+    {
+      "id": "phy_current_electricity_c01_041",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform cylindrical copper wire of cross-sectional area $A = 1.0 \\times 10^{-6}\\text{ m}^2$ carries a steady electric current of $I = 1.60\\text{ A}$. The conduction electron number density in copper is $n = 5.0 \\times 10^{28}\\text{ m}^{-3}$ and the elementary charge is $e = 1.6 \\times 10^{-19}\\text{ C}$. What is the magnitude of the drift velocity of the conduction electrons in this wire?",
+      "options": [
+        "A) $1.0 \\times 10^{-3}\\text{ m/s}$",
+        "B) $4.0 \\times 10^{-5}\\text{ m/s}$",
+        "C) $2.0 \\times 10^{-4}\\text{ m/s}$",
+        "D) $8.0 \\times 10^{-4}\\text{ m/s}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The steady electric current $I$ is related to electron drift velocity $v_d$ by the formula $I = n e A v_d$.\nStep 2: Rearranging to solve for the drift velocity: $v_d = \\frac{I}{n e A}$.\nStep 3: Calculating the product in the denominator: $n e A = (5.0 \\times 10^{28}\\text{ m}^{-3}) \\times (1.6 \\times 10^{-19}\\text{ C}) \\times (1.0 \\times 10^{-6}\\text{ m}^2) = 8.0 \\times 10^3\\text{ C/m}$.\nStep 4: Substituting the current: $v_d = \\frac{1.60\\text{ A}}{8.0 \\times 10^3\\text{ C/m}} = 2.0 \\times 10^{-4}\\text{ m/s} = 0.20\\text{ mm/s}$.\nDistractor Analysis: Arithmetic slips such as multiplying by area instead of dividing, or missing powers of ten in electron charge, yield incorrect orders of magnitude."
+    },
+    {
+      "id": "phy_current_electricity_c01_042",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding sign conventions and physical principles in Kirchhoff's loop rule ($\\sum \\Delta V = 0$):\n\nStatement I: In traversing a closed circuit mesh, passing through an electromotive force source from its negative terminal to its positive terminal represents a potential gain ($+\\mathcal{E}$), regardless of the actual magnitude and direction of the electric current flowing through that cell.\nStatement II: When traversing a resistor in the direction against the electric current flowing through it, the electric potential changes by $-IR$, because the path moves in the direction of the internal electrostatic field.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The terminal electromotive force $\\mathcal{E}$ of a DC cell represents the work done per unit charge by internal chemical non-electrostatic forces. Moving from the negative plate to the positive plate always climbs to a higher potential, so the potential change is $+\\mathcal{E}$, completely independent of whether current is discharging, charging, or zero. Thus, Statement I is true.\nStep 2: Electric current in an ohmic resistor naturally flows from higher potential to lower potential (along the direction of the internal electric field $\\vec{E}$). When traversing a resistor against the flow of current, one moves from lower potential to higher potential (upstream).\nStep 3: Therefore, the change in potential is a potential rise ($+IR$), not a potential drop ($-IR$). Thus, Statement II is false.\nStep 4: Hence, Statement I is true but Statement II is false.\nDistractor Analysis: Inverting the sign convention when traversing upstream against the current leads to erroneous loop equations."
+    },
+    {
+      "id": "phy_current_electricity_c01_043",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In a steady-state current-carrying uniform copper wire connected to a battery, the net volume charge density $\\rho_v$ inside the bulk interior of the wire is strictly zero, yet non-zero electrostatic surface charges reside along the outer surface boundary of the wire.\nReason (R): These surface charge distributions establish the necessary steady axial electric field inside the wire and exert lateral electrostatic forces that guide conduction electrons around bends and curves in the circuit path.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In a uniform conductor carrying a steady current, Gauss's law gives $\\vec{\\nabla} \\cdot \\vec{E} = \\frac{\\rho_v}{\\varepsilon_0}$. By Ohm's law, $\\vec{E} = \\vec{j}/\\sigma$. In a uniform wire with steady current, $\\vec{j}$ is uniform and constant, so $\\vec{\\nabla} \\cdot \\vec{j} = 0$, which proves that the volume charge density inside the bulk conductor is identically zero ($\\rho_v = 0$).\nStep 2: However, an electric field must exist inside the wire to maintain the current ($j = \\sigma E$). This axial field cannot be produced solely by the distant battery terminals.\nStep 3: As highlighted in NCERT Chapter 3 'Points to Ponder', microscopic surface charges accumulate on the wire boundaries whenever the wire bends or changes cross-section. These surface charges shape the electric field lines to follow the wire's geometry precisely.\nStep 4: Both Assertion (A) and Reason (R) are true, and (R) correctly explains (A).\nDistractor Analysis: Believing that current-carrying wires have interior net volume charges ignores Gauss's law and current continuity in steady state."
+    },
+    {
+      "id": "phy_current_electricity_c01_044",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A student performs a meter bridge experiment to measure an unknown resistance $R$ mounted in the left gap using a standard resistance box $S = 9.0\\,\\Omega$ in the right gap. Due to copper strip end resistance and scale misalignment, the apparatus exhibits end corrections of $\\alpha_1 = +1.0\\text{ cm}$ at the left end and $\\alpha_2 = -1.0\\text{ cm}$ at the right end. If the null balance point is recorded at a scale reading of $l_1 = 39.0\\text{ cm}$ from the left end, what is the true corrected value of the unknown resistance $R$?",
+      "options": [
+        "A) $6.0\\,\\Omega$",
+        "B) $5.75\\,\\Omega$",
+        "C) $9.0\\,\\Omega$",
+        "D) $4.5\\,\\Omega$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The standard meter bridge balancing relation with end corrections is $\\frac{R}{S} = \\frac{L_1}{L_2} = \\frac{l_1 + \\alpha_1}{(100 - l_1) + \\alpha_2}$.\nStep 2: The measured scale reading is $l_1 = 39.0\\text{ cm}$. The effective length of the left wire segment is $L_1 = 39.0\\text{ cm} + 1.0\\text{ cm} = 40.0\\text{ cm}$.\nStep 3: The nominal right segment length is $100 - l_1 = 100 - 39.0 = 61.0\\text{ cm}$. Applying the right end correction gives $L_2 = 61.0\\text{ cm} + (-1.0\\text{ cm}) = 60.0\\text{ cm}$.\nStep 4: Substituting these corrected lengths and $S = 9.0\\,\\Omega$ into the balance condition: $R = S \\left(\\frac{L_1}{L_2}\\right) = 9.0\\,\\Omega \\times \\left(\\frac{40.0\\text{ cm}}{60.0\\text{ cm}}\\right) = 9.0 \\times \\frac{2}{3} = 6.0\\,\\Omega$.\nDistractor Analysis: Neglecting the end corrections gives an uncorrected estimate $R = 9.0 \\times \\frac{39}{61} \\approx 5.75\\,\\Omega$, illustrating the necessity of end correction in precision measurements."
+    },
+    {
+      "id": "phy_current_electricity_c01_045",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Complex Resistor Network) with List II (Equivalent Resistance between specified terminals):\n\nList I:\nA. Twelve identical resistors of resistance $R$ forming the edges of a cube, measured across body-diagonal corners\nB. Twelve identical resistors of resistance $R$ forming the edges of a cube, measured across face-diagonal corners\nC. Twelve identical resistors of resistance $R$ forming the edges of a cube, measured across adjacent edge corners\nD. An infinite ladder network consisting of repeating sections with series resistor $1.0\\,\\Omega$ and shunt resistor $2.0\\,\\Omega$\n\nList II:\nI. $\\frac{3}{4}R$\nII. $\\frac{7}{12}R$\nIII. $2.0\\,\\Omega$\nIV. $\\frac{5}{6}R$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-(I), B-(IV), C-(II), D-(III)",
+        "B) A-(IV), B-(II), C-(I), D-(III)",
+        "C) A-(II), B-(I), C-(IV), D-(III)",
+        "D) A-(IV), B-(I), C-(II), D-(III)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For the cube body diagonal, current $I$ splits into three equal currents of $I/3$ at the input vertex, which then split into six branches of $I/6$, and recombine into three branches of $I/3$ at the output vertex. Total potential drop is $V = \\frac{I}{3}R + \\frac{I}{6}R + \\frac{I}{3}R = \\frac{5}{6}IR \\implies R_{\\text{body}} = \\frac{5}{6}R$. Thus, A matches with IV.\nStep 2: For the cube face diagonal, symmetry yields an equivalent resistance of $R_{\\text{face}} = \\frac{3}{4}R$. Thus, B matches with I.\nStep 3: For two adjacent edge corners of the cube, current distribution analysis yields $R_{\\text{edge}} = \\frac{7}{12}R$. Thus, C matches with II.\nStep 4: For the infinite ladder, adding one more identical stage leaves the total equivalent resistance $R_{\\text{eq}}$ unchanged: $R_{\\text{eq}} = 1.0 + \\frac{2.0 \\times R_{\\text{eq}}}{2.0 + R_{\\text{eq}}}$. This simplifies to $R_{\\text{eq}}^2 - R_{\\text{eq}} - 2.0 = 0$, giving physical root $R_{\\text{eq}} = 2.0\\,\\Omega$. Thus, D matches with III.\nMatching yields A-(IV), B-(I), C-(II), D-(III).\nDistractor Analysis: Transposing body diagonal ($\\frac{5}{6}R$) and edge ($\\frac{7}{12}R$) values is a common mistake."
+    },
+    {
+      "id": "phy_current_electricity_c01_046",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A laboratory has $N = 36$ identical secondary cells, each having an electromotive force of $E = 1.5\\text{ V}$ and an internal resistance of $r = 0.5\\,\\Omega$. The cells are to be arranged in a mixed grouping of $m$ identical parallel rows, each containing $n$ cells in series ($n \\times m = 36$), to drive the maximum possible electric current through an external load resistor of $R = 4.5\\,\\Omega$. What are the required values of $n$ (cells per row) and $m$ (number of rows), and what is the value of this maximum load current?",
+      "options": [
+        "A) $n = 18, m = 2$, and $I_{\\text{max}} = 3.0\\text{ A}$",
+        "B) $n = 12, m = 3$, and $I_{\\text{max}} = 2.0\\text{ A}$",
+        "C) $n = 36, m = 1$, and $I_{\\text{max}} = 2.4\\text{ A}$",
+        "D) $n = 6, m = 6$, and $I_{\\text{max}} = 1.8\\text{ A}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In a mixed grouping of $m$ rows with $n$ cells per row, the equivalent EMF is $E_{\\text{eq}} = n E$ and the equivalent internal resistance is $r_{\\text{eq}} = \\frac{n r}{m}$.\nStep 2: The current through external load $R$ is $I = \\frac{n E}{R + \\frac{n r}{m}} = \\frac{m n E}{m R + n r}$. To maximize current for fixed total cells $N = m n$, the condition is internal resistance matching load resistance: $R = \\frac{n r}{m}$.\nStep 3: Substituting the given values: $4.5 = \\frac{n \\times 0.5}{m} \\implies \\frac{n}{m} = \\frac{4.5}{0.5} = 9 \\implies n = 9m$.\nStep 4: Using $n \\times m = 36$: $(9m) \\times m = 36 \\implies 9m^2 = 36 \\implies m^2 = 4 \\implies m = 2$. Therefore, $n = 9 \\times 2 = 18$.\nStep 5: The maximum current is $I_{\\text{max}} = \\frac{n E}{R + \\frac{n r}{m}} = \\frac{18 \\times 1.5\\text{ V}}{4.5\\,\\Omega + 4.5\\,\\Omega} = \\frac{27.0\\text{ V}}{9.0\\,\\Omega} = 3.0\\text{ A}$.\nDistractor Analysis: Using $n = 12, m = 3$ gives $r_{\\text{eq}} = 12 \\times 0.5 / 3 = 2.0\\,\\Omega \\neq 4.5\\,\\Omega$, failing the maximum power impedance match."
+    },
+    {
+      "id": "phy_current_electricity_c01_047",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding two DC cells connected in a single closed loop opposing each other:\n\nStatement I: When two real cells of unequal electromotive forces $E_1 > E_2$ and internal resistances $r_1, r_2$ are connected in a single closed circuit with their like terminals facing each other (positive connected to positive and negative to negative, bucking configuration), cell 1 discharges while cell 2 is charged by cell 1.\nStatement II: Under this opposing connection, if the parameters satisfy the condition $E_1 r_2 = E_2 r_1$, the terminal potential difference across cell 2 drops to identically zero during the charging process.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The net EMF in the opposing loop is $E_{\\text{net}} = E_1 - E_2 > 0$, driving a counter-clockwise current $I = \\frac{E_1 - E_2}{r_1 + r_2}$. Current leaves the positive terminal of cell 1 (discharging) and enters the positive terminal of cell 2 (charging). Thus, Statement I is true.\nStep 2: During charging of cell 2, its terminal potential difference is given by $V_2 = E_2 + I r_2 = E_2 + \\frac{(E_1 - E_2)r_2}{r_1 + r_2} = \\frac{E_2 r_1 + E_1 r_2}{r_1 + r_2}$.\nStep 3: Because $E_1, E_2, r_1, r_2$ are all positive quantities, the numerator $E_2 r_1 + E_1 r_2$ is strictly positive and can never be zero under any physical condition. Thus, $V_2$ never drops to zero, making Statement II false.\nStep 4: Hence, Statement I is true but Statement II is false.\nDistractor Analysis: Confusing the discharging formula $V = E - Ir$ with the charging formula $V = E + Ir$ leads to incorrectly asserting that $V_2$ can become zero."
+    },
+    {
+      "id": "phy_current_electricity_c01_048",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In practical laboratory circuits, connecting a conventional moving-coil voltmeter of finite internal resistance $R_V$ across a resistor $R$ always records a potential difference that is systematically lower than the true undisturbed potential difference across $R$.\nReason (R): Connecting the voltmeter in parallel with resistor $R$ creates an equivalent resistance $R_{\\text{p}} = \\frac{R R_V}{R + R_V} < R$, which diverts a portion of the circuit current and reduces the effective potential drop across that branch (voltmeter loading effect).\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: An ideal voltmeter possesses infinite electrical resistance ($R_V = \\infty$), drawing zero current from the test circuit and leaving the circuit potentials completely undisturbed.\nStep 2: Any real moving-coil voltmeter has a large but finite internal resistance $R_V$. Placing it in parallel with resistor $R$ reduces the branch resistance from $R$ to $R_{\\text{p}} = \\frac{R R_V}{R + R_V} = R \\left(1 - \\frac{R}{R + R_V}\\right) < R$.\nStep 3: Because the branch resistance decreases, the potential difference across it drops according to Ohm's law. The voltmeter reads this reduced voltage, known as the loading error.\nStep 4: Both Assertion (A) and Reason (R) are true, and (R) correctly explains (A).\nDistractor Analysis: Believing that voltmeters are completely non-invasive ignores the fundamental loading effect that motivates the use of high-input-impedance meters."
+    },
+    {
+      "id": "phy_current_electricity_c01_049",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A metallic conductor of length $L$ and uniform electrical resistivity $\\rho$ is machined into the shape of a truncated circular cone. The circular end faces have radii $a$ and $b$ (with $b > a$). Assuming the cone's taper angle is sufficiently small that current density is uniform across any circular planar cross-section perpendicular to its longitudinal axis, what is the total electrical resistance of this conductor between its two end faces?",
+      "options": [
+        "A) $\\frac{\\rho L}{\\pi a b}$",
+        "B) $\\frac{\\rho L}{\\pi (a + b)^2}$",
+        "C) $\\frac{2 \\rho L}{\\pi (a^2 + b^2)}$",
+        "D) $\\frac{\\rho L}{\\pi (b - a)^2}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Set up a coordinate axis $x$ along the axis of the cone from $x = 0$ (radius $a$) to $x = L$ (radius $b$). The radius at any axial position $x$ is given by $r(x) = a + \\left(\\frac{b - a}{L}\\right) x$.\nStep 2: Consider a thin transverse disc slice of thickness $dx$ at position $x$. The cross-sectional area of this slice is $A(x) = \\pi [r(x)]^2$.\nStep 3: The elemental electrical resistance of this slice is $dR = \\rho \\frac{dx}{A(x)} = \\frac{\\rho dx}{\\pi [r(x)]^2}$.\nStep 4: Integrating from $x = 0$ to $x = L$, let $u = r(x)$, so $du = \\left(\\frac{b - a}{L}\\right) dx \\implies dx = \\frac{L}{b - a} du$. The limits transform from $u = a$ to $u = b$.\nStep 5: Evaluating the integral: $R = \\int_a^b \\frac{\\rho}{\\pi u^2} \\left(\\frac{L}{b - a}\\right) du = \\frac{\\rho L}{\\pi (b - a)} \\left[ -\\frac{1}{u} \\right]_a^b = \\frac{\\rho L}{\\pi (b - a)} \\left( \\frac{1}{a} - \\frac{1}{b} \\right) = \\frac{\\rho L}{\\pi (b - a)} \\left( \\frac{b - a}{a b} \\right) = \\frac{\\rho L}{\\pi a b}$.\nDistractor Analysis: Simply averaging the end radii to compute area as $\\pi \\left(\\frac{a+b}{2}\\right)^2$ yields distractor B, which fails because the harmonic mean of areas governs series integration."
+    },
+    {
+      "id": "phy_current_electricity_c01_050",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider an unbalanced Wheatstone bridge network $ABCD$ where four arms have resistances $P = 10.0\\,\\Omega$ ($AB$), $Q = 20.0\\,\\Omega$ ($BC$), $R = 15.0\\,\\Omega$ ($AD$), and $S = 15.0\\,\\Omega$ ($DC$). An ideal DC voltage source of $10.0\\text{ V}$ is connected across input junctions $A$ and $C$ ($V_A = 10.0\\text{ V}, V_C = 0\\text{ V}$). A sensitive galvanometer of internal resistance $G = 30.0\\,\\Omega$ connects junctions $B$ and $D$.\n\nConsider the following statements:\n(i) In the absence of current through the galvanometer, the open-circuit electrical potential at junction $B$ is $\\frac{20}{3}\\text{ V} \\approx 6.67\\text{ V}$.\n(ii) In the absence of current through the galvanometer, the open-circuit electrical potential at junction $D$ is $5.0\\text{ V}$.\n(iii) When the galvanometer is connected between junctions $B$ and $D$, current flows through the galvanometer branch from junction $B$ to junction $D$.\n(iv) The bridge is balanced because the sum of resistances $P + S = 25.0\\,\\Omega$ equals $Q + R = 35.0\\,\\Omega$.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) (i) and (iv) only",
+        "B) (ii) and (iv) only",
+        "C) (i), (ii) and (iii) only",
+        "D) (i), (ii), (iii) and (iv)"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Along branch $ABC$, the total series resistance is $P + Q = 10.0 + 20.0 = 30.0\\,\\Omega$. The potential drop across $P$ is $\\Delta V_P = 10.0\\text{ V} \\times \\frac{10.0}{30.0} = \\frac{10}{3}\\text{ V}$. Therefore, $V_B = V_A - \\Delta V_P = 10.0 - \\frac{10}{3} = \\frac{20}{3}\\text{ V} \\approx 6.67\\text{ V}$. Thus, statement (i) is correct.\nStep 2: Along branch $ADC$, the total series resistance is $R + S = 15.0 + 15.0 = 30.0\\,\\Omega$. The potential drop across $R$ is $\\Delta V_R = 10.0\\text{ V} \\times \\frac{15.0}{30.0} = 5.0\\text{ V}$. Therefore, $V_D = 10.0 - 5.0 = 5.0\\text{ V}$. Thus, statement (ii) is correct.\nStep 3: Comparing potentials: $V_B = 6.67\\text{ V} > V_D = 5.0\\text{ V}$. Because junction $B$ is at a higher electric potential than junction $D$, current must flow through the detector branch from $B$ to $D$. Thus, statement (iii) is correct.\nStep 4: Bridge balance requires equality of arm resistance ratios $\\frac{P}{Q} = \\frac{R}{S}$ ($10/20 = 0.5$ vs $15/15 = 1.0$), not equality of sums. Thus, statement (iv) is incorrect.\nStep 5: Statements (i), (ii), and (iii) are correct.\nDistractor Analysis: Claiming that balance depends on sums rather than ratios is an erroneous concept."
+    },
+    {
+      "id": "phy_current_electricity_c01_051",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A secondary storage battery having an electromotive force of $E_b = 8.0\\text{ V}$ and an internal resistance of $r = 0.5\\,\\Omega$ is being recharged by connecting it across a $120.0\\text{ V}$ direct current charging supply line in series with a protective current-limiting resistor $R_s = 15.5\\,\\Omega$. What is the terminal potential difference across the battery during this recharging process?",
+      "options": [
+        "A) $8.0\\text{ V}$",
+        "B) $4.5\\text{ V}$",
+        "C) $120.0\\text{ V}$",
+        "D) $11.5\\text{ V}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: During charging, the external supply voltage $V_s = 120.0\\text{ V}$ opposes the battery's electromotive force $E_b = 8.0\\text{ V}$. The net driving EMF in the closed circuit is $E_{\\text{net}} = V_s - E_b = 120.0\\text{ V} - 8.0\\text{ V} = 112.0\\text{ V}$.\nStep 2: The total series resistance of the circuit consists of the current-limiting resistor $R_s$ and the internal resistance $r$: $R_{\\text{total}} = R_s + r = 15.5\\,\\Omega + 0.5\\,\\Omega = 16.0\\,\\Omega$.\nStep 3: The charging current forced into the positive terminal of the battery is $I_{\\text{charge}} = \\frac{E_{\\text{net}}}{R_{\\text{total}}} = \\frac{112.0\\text{ V}}{16.0\\,\\Omega} = 7.0\\text{ A}$.\nStep 4: The terminal potential difference across a cell being charged is given by $V = E_b + I_{\\text{charge}} r$. Substituting values: $V = 8.0\\text{ V} + (7.0\\text{ A} \\times 0.5\\,\\Omega) = 8.0\\text{ V} + 3.5\\text{ V} = 11.5\\text{ V}$.\nDistractor Analysis: Subtracting the internal drop ($8.0 - 3.5 = 4.5\\text{ V}$) mistakenly treats the battery as discharging rather than charging."
+    },
+    {
+      "id": "phy_current_electricity_c01_052",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding temperature coefficients and electrolytic conduction:\n\nStatement I: The temperature coefficient of electrical resistivity ($\\alpha$) is strictly positive for all classes of materials, including elemental metals, semiconductors, insulators, and electrolytic solutions.\nStatement II: In electrolytic solutions, electrical conductivity increases with rising temperature primarily because increased thermal energy reduces solvent viscosity and enhances the drift mobility of solvated ions.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The temperature coefficient of resistivity $\\alpha$ is defined as $\\alpha = \\frac{1}{\\rho_0} \\frac{d\\rho}{dT}$. While metallic conductors have $\\alpha > 0$, intrinsic semiconductors, carbon, and insulators have $\\alpha < 0$ because carrier concentration increases exponentially with temperature. Therefore, $\\alpha$ is not strictly positive for all materials, making Statement I false.\nStep 2: In liquid electrolytic solutions, charge conduction occurs via migration of cations and anions. As temperature rises, thermal agitation weakens intermolecular hydrogen bonding and cohesion in the solvent, sharply lowering its dynamic viscosity.\nStep 3: According to Stokes-Einstein and Walden relations, lower viscosity reduces hydrodynamic drag on moving ions, markedly enhancing their mobility and increasing electrolytic conductivity. Thus, Statement II is true.\nStep 4: Hence, Statement I is false but Statement II is true.\nDistractor Analysis: Overlooking that semiconductors and electrolytes have negative temperature coefficients of resistivity leads to false acceptance of Statement I."
+    },
+    {
+      "id": "phy_current_electricity_c01_053",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When an adjustable external load resistor $R$ is connected across a real DC source of electromotive force $E$ and internal resistance $r$, there exist two distinct load resistance values $R_1$ and $R_2$ ($R_1 \\neq R_2$) that dissipate exactly the same electrical power, such that their geometric mean equals the internal resistance ($r = \\sqrt{R_1 R_2}$).\nReason (R): The power delivered to the load is given by $P = \\frac{E^2 R}{(R + r)^2}$, which can be rearranged into a quadratic equation in $R$ having the product of its roots equal to $r^2$ for any specified power level below $P_{\\text{max}}$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The electrical power dissipated in the load resistor is $P = \\frac{E^2 R}{(R + r)^2}$. Expanding the denominator gives $P (R^2 + 2rR + r^2) = E^2 R$.\nStep 2: Rearranging into standard quadratic form: $P R^2 - (E^2 - 2Pr) R + P r^2 = 0$, or $R^2 - \\left(\\frac{E^2 - 2Pr}{P}\\right) R + r^2 = 0$.\nStep 3: For any valid power $P < P_{\\text{max}} = \\frac{E^2}{4r}$, this quadratic equation has two real, distinct positive roots $R_1$ and $R_2$.\nStep 4: By Vieta's formulas, the product of the two roots is the constant term: $R_1 R_2 = r^2 \\implies r = \\sqrt{R_1 R_2}$.\nStep 5: Both Assertion (A) and Reason (R) are true, and (R) correctly explains (A).\nDistractor Analysis: Claiming that the arithmetic mean equals $r$ confuses Vieta's product with the sum of roots."
+    },
+    {
+      "id": "phy_current_electricity_c01_054",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Symmetric Three-Dimensional Resistor Frame) with List II (Equivalent Resistance between specified vertices):\n\nList I:\nA. Twelve identical resistors $R$ forming a wire cube, measured across body-diagonal corners\nB. Twelve identical resistors $R$ forming a wire cube, measured across face-diagonal corners\nC. Twelve identical resistors $R$ forming a wire cube, measured across adjacent edge corners\nD. Six identical resistors $R$ forming a regular tetrahedron, measured across any one edge\n\nList II:\nI. $\\frac{R}{2}$\nII. $\\frac{7}{12}R$\nIII. $\\frac{3}{4}R$\nIV. $\\frac{5}{6}R$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-(III), B-(IV), C-(II), D-(I)",
+        "B) A-(IV), B-(II), C-(III), D-(I)",
+        "C) A-(II), B-(III), C-(IV), D-(I)",
+        "D) A-(IV), B-(III), C-(II), D-(I)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For the wire cube body diagonal, current splits symmetrically into $I/3$, $I/6$, and $I/3$ segments, yielding $R_{\\text{eq}} = \\frac{5}{6}R$. Thus, A matches with IV.\nStep 2: For the wire cube face diagonal, plane-of-symmetry analysis yields $R_{\\text{eq}} = \\frac{3}{4}R$. Thus, B matches with III.\nStep 3: For the wire cube adjacent edge, superposition yields $R_{\\text{eq}} = \\frac{7}{12}R$. Thus, C matches with II.\nStep 4: For a regular tetrahedron of 6 equal resistors $R$ measured across edge $AB$: vertices $C$ and $D$ are equidistant from terminals $A$ and $B$, establishing equal potentials ($V_C = V_D$). Consequently, no current flows through resistor $CD$. The remaining network consists of branch $AB$ ($R$) in parallel with branch $ACB$ ($2R$) and branch $ADB$ ($2R$). Equivalent resistance is $\\frac{1}{R_{\\text{eq}}} = \\frac{1}{R} + \\frac{1}{2R} + \\frac{1}{2R} = \\frac{2}{R} \\implies R_{\\text{eq}} = \\frac{R}{2}$. Thus, D matches with I.\nMatching yields A-(IV), B-(III), C-(II), D-(I).\nDistractor Analysis: Inverting the face diagonal and edge diagonal assignments is a standard distractor in network symmetry questions."
+    },
+    {
+      "id": "phy_current_electricity_c01_055",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Twelve identical uniform ohmic resistors, each having a resistance of $R = 24.0\\,\\Omega$, are connected together to construct the skeleton edges of a regular cube. What is the equivalent electrical resistance between two adjacent corner vertices that form an edge of the cube?",
+      "options": [
+        "A) $20.0\\,\\Omega$",
+        "B) $18.0\\,\\Omega$",
+        "C) $14.0\\,\\Omega$",
+        "D) $12.0\\,\\Omega$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Let the two adjacent edge vertices be denoted as vertex 1 and vertex 2. When a current $I$ enters vertex 1 and exits vertex 2, the current distribution across the cube can be solved by the principle of superposition.\nStep 2: If current $I$ enters vertex 1 and flows out to infinity, it splits into $\\frac{I}{3}$ through each of the three concurrent edges at vertex 1.\nStep 3: If current $I$ enters from infinity and leaves vertex 2, by identical symmetry $\\frac{I}{3}$ flows through the direct edge into vertex 2.\nStep 4: Superimposing these states and applying network symmetry to the remaining edges reveals that the net current through the direct edge 1-2 is $I_{12} = \\frac{7}{12}I$.\nStep 5: Therefore, the potential difference between vertices 1 and 2 is $V = I_{12} R_{\\text{branch}} = \\left(\\frac{7}{12}I\\right) R = I \\left(\\frac{7}{12}R\\right)$, which gives the equivalent resistance $R_{\\text{edge}} = \\frac{7}{12}R$.\nStep 6: Substituting the given resistance value $R = 24.0\\,\\Omega$: $R_{\\text{edge}} = \\frac{7}{12} \\times 24.0\\,\\Omega = 7 \\times 2.0\\,\\Omega = 14.0\\,\\Omega$.\nDistractor Analysis: Evaluating body diagonal resistance $\\frac{5}{6}R = \\frac{5}{6} \\times 24.0 = 20.0\\,\\Omega$ or face diagonal resistance $\\frac{3}{4}R = \\frac{3}{4} \\times 24.0 = 18.0\\,\\Omega$ confuses edge terminals with body or face terminals."
+    }
+  ]
+}

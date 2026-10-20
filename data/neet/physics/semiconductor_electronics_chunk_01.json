@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Semiconductor Electronics",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_semiconductor_electronics_c01_001",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding energy band gaps in solid materials:\n\nStatement I: At room temperature, carbon in diamond form behaves as an insulator because its forbidden energy bandgap is approximately $E_g \\approx 5.4\\text{ eV}$.\nStatement II: At room temperature, silicon and germanium have forbidden energy bandgaps of approximately $E_g \\approx 1.1\\text{ eV}$ and $E_g \\approx 0.7\\text{ eV}$ respectively, allowing a measurable number of valence electrons to cross into the conduction band via thermal excitation.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: According to NCERT Class 12 Physics, solid materials are classified into insulators, semiconductors, and conductors based on the magnitude of the forbidden energy bandgap $E_g$. For diamond (carbon in tetrahedral lattice), the energy bandgap is exceptionally wide ($E_g \\approx 5.4\\text{ eV} > 3\\text{ eV}$), meaning negligible thermal energy is available at room temperature to promote electrons from the valence band to the conduction band. Hence, diamond behaves as an insulator, making Statement I correct.\nStep 2: Elemental semiconductors such as silicon and germanium have moderate energy gaps ($E_g \\approx 1.1\\text{ eV}$ for $\\text{Si}$ and $E_g \\approx 0.7\\text{ eV}$ for $\\text{Ge}$ at room temperature, $T \\approx 300\\text{ K}$). Thermal energy $k_B T \\approx 0.026\\text{ eV}$ imparts sufficient energy to break a small fraction of covalent bonds, exciting electrons into the conduction band and creating equal holes in the valence band. Hence, Statement II is correct.\nStep 3: Since both statements accurately convey NCERT definitions and quantitative values, the correct choice affirms that both Statement I and Statement II are true.\nDistractor Analysis: Any choice claiming either Statement I or Statement II is false contradicts established NCERT physical data for diamond, silicon, and germanium."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_002",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): An n-type silicon crystal doped with phosphorus impurity atoms has a high concentration of conduction electrons, yet the crystal as a whole remains electrically neutral.\nReason (R): For every extra conduction electron provided by a pentavalent phosphorus atom, a stationary, positively charged ionized donor core $\\text{P}^+$ remains fixed in the silicon crystal lattice.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: A common misconception is that because an n-type semiconductor has majority negative charge carriers (electrons), the material carries a net negative electrical charge. However, the dopant phosphorus atom is initially electrically neutral with $15$ protons and $15$ electrons.\nStep 2: When phosphorus replaces a tetravalent silicon atom in the lattice, four valence electrons form covalent bonds with adjacent silicon atoms, while the fifth loosely bound electron is contributed to the conduction band. The remaining phosphorus nucleus and inner core form an immobile positive ion $\\text{P}^+$.\nStep 3: Total positive charge from stationary donor ions plus thermally generated holes exactly equals the total negative charge from free electrons: $n_e = N_D^+ + n_h$. Thus, the crystal remains strictly electrically neutral. Hence, Assertion (A) and Reason (R) are both true, and (R) provides the direct microscopic justification for (A).\nDistractor Analysis: Statements suggesting net negative charge fail to account for the stationary positive donor ions that balance the donated electrons."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_003",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Semiconductor Material Classification) with List II (Representative Chemical Example) according to NCERT:\n\nList I:\n(P) Elemental semiconductor\n(Q) Inorganic compound semiconductor\n(R) Organic molecular semiconductor\n(S) Conducting polymer semiconductor\n\nList II:\n(i) Anthracene\n(ii) Polyaniline\n(iii) Germanium (Ge)\n(iv) Gallium Arsenide (GaAs)\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (P)-(iii), (Q)-(iv), (R)-(i), (S)-(ii)",
+        "B) (P)-(iv), (Q)-(iii), (R)-(ii), (S)-(i)",
+        "C) (P)-(iii), (Q)-(i), (R)-(iv), (S)-(ii)",
+        "D) (P)-(ii), (Q)-(iv), (R)-(i), (S)-(iii)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: NCERT Section 14.1 classifies semiconductors into elementary semiconductors and compound semiconductors.\nStep 2: Elemental semiconductors are pure group-14 elements like Silicon (Si) and Germanium (Ge). Thus, (P) matches with (iii).\nStep 3: Inorganic compound semiconductors include binary compounds such as Gallium Arsenide (GaAs), Cadmium Sulfide (CdS), Cadmium Selenide (CdSe), and Indium Phosphide (InP). Thus, (Q) matches with (iv).\nStep 4: Organic molecular semiconductors include condensed ring systems such as Anthracene and doped Phthalocyanines. Thus, (R) matches with (i).\nStep 5: Conducting organic polymers include Polyaniline, Polypyrrole, and Polythiophene. Thus, (S) matches with (ii).\nDistractor Analysis: Matching configurations that pair polymers with elemental forms or anthracene with inorganic compounds violate the clear NCERT classification."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_004",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the temperature dependence of electrical resistivity in semiconductors:\n\nStatement I: In an intrinsic semiconductor, the electrical conductivity increases exponentially with an increase in absolute temperature due to the rapid thermal generation of electron-hole pairs across the bandgap.\nStatement II: Unlike metallic conductors which have a positive temperature coefficient of resistivity, intrinsic semiconductors possess a positive temperature coefficient of resistance as well.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In intrinsic semiconductors, the number density of charge carriers increases exponentially with temperature according to $n_i \\propto T^{3/2} \\exp\\left(-\\frac{E_g}{2 k_B T}\\right)$. Because carrier concentration grows exponentially, conductivity $\\sigma = e(n_e \\mu_e + n_h \\mu_h)$ rises sharply as temperature increases. Therefore, Statement I is strictly true.\nStep 2: Since electrical resistance $R$ decreases as temperature rises ($\\frac{dR}{dT} < 0$), the temperature coefficient of resistance $\\alpha = \\frac{1}{R}\\frac{dR}{dT}$ is negative for semiconductors, whereas metals have a positive temperature coefficient ($\\alpha > 0$). Therefore, Statement II is completely false.\nStep 3: Consequently, Statement I is true but Statement II is false.\nDistractor Analysis: Confusing the sign of $\\alpha$ leads to incorrectly asserting Statement II as true; in semiconductors, resistance drops with temperature, indicating a negative temperature coefficient."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_005",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A pure crystal of Germanium has an energy bandgap of $E_g = 0.70\\text{ eV}$. As the temperature of this pure semiconductor crystal is decreased to absolute zero ($T = 0\\text{ K}$), what happens to the occupancy of its energy bands and its electrical conductivity?",
+      "options": [
+        "A) The valence band is completely full, the conduction band is completely empty, and electrical conductivity becomes zero.",
+        "B) Both the valence band and the conduction band become half-filled, and electrical conductivity increases.",
+        "C) The conduction band becomes completely full of electrons, and it behaves as a superconductor.",
+        "D) The energy bandgap collapses to zero, and the crystal behaves as a perfect conductor."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: At absolute zero temperature ($T = 0\\text{ K}$), no thermal energy is available ($k_B T = 0$). All valence electrons remain firmly held in the four covalent bonds surrounding each Ge atom.\nStep 2: Under these zero-thermal conditions, not a single electron has sufficient energy to jump across the forbidden energy gap $E_g = 0.70\\text{ eV}$ into the conduction band.\nStep 3: As a result, the valence band is completely full, the conduction band is entirely devoid of free electrons, and no free charge carriers exist ($n_e = 0$, $n_h = 0$). The electrical conductivity $\\sigma = 0$, meaning the intrinsic semiconductor behaves as a perfect insulator at $T = 0\\text{ K}$.\nDistractor Analysis: Assertions that bandgaps collapse or that materials become superconducting at absolute zero contradict fundamental semiconductor band theory."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_006",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In an n-type semiconductor, the discrete donor energy level $E_D$ is positioned in the forbidden band gap just below the conduction band edge $E_C$.\nReason (R): The ionization energy required to free the fifth valence electron from a pentavalent impurity atom into the conduction band is very small (about $0.01\\text{ eV}$ for Ge and $0.05\\text{ eV}$ for Si).\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: When a pentavalent impurity atom (such as P, As, or Sb) is introduced into a tetravalent semiconductor lattice, four electrons participate in bonding, and the fifth electron orbits the positively charged donor core in a hydrogen-like orbit.\nStep 2: Because of the high relative permittivity of the semiconductor medium ($\\epsilon_r \\approx 12$ for Si, $16$ for Ge), the electrostatic binding energy of this fifth electron is drastically reduced to approximately $E_C - E_D \\approx 0.05\\text{ eV}$ for Si and $0.01\\text{ eV}$ for Ge.\nStep 3: This small ionization energy positions the donor energy level $E_D$ just below the bottom of the conduction band $E_C$. At room temperature ($k_B T \\approx 0.026\\text{ eV}$), this minute energy barrier is easily overcome, exciting practically all donor electrons into the conduction band. Thus, both (A) and (R) are true, and (R) provides the exact quantitative and physical reason for (A).\nDistractor Analysis: The donor level does not lie near the valence band; placing $E_D$ near $E_V$ would represent an acceptor state, not a donor state."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_007",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A sample of pure silicon at room temperature has an intrinsic carrier concentration of $n_i = 1.5 \\times 10^{10}\\text{ cm}^{-3}$. It is doped with phosphorus atoms at a concentration of $N_D = 1.0 \\times 10^{17}\\text{ cm}^{-3}$. Assuming complete ionization of all donor atoms at thermal equilibrium, what is the concentration of minority holes ($n_h$) in the doped silicon?",
+      "options": [
+        "A) $1.5 \\times 10^{3}\\text{ cm}^{-3}$",
+        "B) $1.0 \\times 10^{7}\\text{ cm}^{-3}$",
+        "C) $2.25 \\times 10^{3}\\text{ cm}^{-3}$",
+        "D) $2.25 \\times 10^{7}\\text{ cm}^{-3}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Under thermal equilibrium, the mass action law states that the product of conduction electron concentration $n_e$ and valence hole concentration $n_h$ is constant and equal to the square of the intrinsic carrier concentration: $n_e \\cdot n_h = n_i^2$.\nStep 2: For an n-type semiconductor where donor concentration $N_D \\gg n_i$, complete ionization gives $n_e \\approx N_D = 1.0 \\times 10^{17}\\text{ cm}^{-3}$.\nStep 3: Applying the mass action law to calculate the minority hole concentration:\n$$n_h = \\frac{n_i^2}{n_e} = \\frac{(1.5 \\times 10^{10}\\text{ cm}^{-3})^2}{1.0 \\times 10^{17}\\text{ cm}^{-3}} = \\frac{2.25 \\times 10^{20}}{1.0 \\times 10^{17}} = 2.25 \\times 10^3\\text{ cm}^{-3}$$\nDistractor Analysis: Alternative calculations that forget to square $n_i$ yield $1.5 \\times 10^{-7}$, while arithmetic power errors produce $2.25 \\times 10^7\\text{ cm}^{-3}$."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_008",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the formation of an unbiased p-n junction. Which of the following statements regarding the depletion layer and built-in electric field are correct?\n\n(i) The depletion layer is formed as a direct result of majority carrier diffusion across the metallurgical junction.\n(ii) The depletion layer consists of immobile ionized donor ions on the n-side and immobile ionized acceptor ions on the p-side.\n(iii) The depletion region contains a high density of mobile free electrons and holes.\n(iv) The direction of the built-in barrier electric field is directed from the n-side toward the p-side.\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (i), (ii), and (iii) only",
+        "B) (ii), (iii), and (iv) only",
+        "C) (i) and (iv) only",
+        "D) (i), (ii), and (iv) only"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: During p-n junction formation, holes diffuse from the p-side to the n-side, and electrons diffuse from the n-side to the p-side due to large concentration gradients. Thus, statement (i) is correct.\nStep 2: As majority carriers diffuse across, they leave behind uncompensated, immobile positive donor ions on the n-side and immobile negative acceptor ions on the p-side in the vicinity of the junction. This space-charge region is called the depletion layer. Thus, statement (ii) is correct.\nStep 3: The region is termed 'depletion' layer precisely because it is depleted of mobile, free charge carriers (electrons and holes). Thus, statement (iii) is incorrect.\nStep 4: The positive immobile ions on the n-side and negative immobile ions on the p-side set up an internal built-in electric field directed from positive charges (n-side) to negative charges (p-side). Thus, statement (iv) is correct.\nStep 5: Therefore, statements (i), (ii), and (iv) are correct.\nDistractor Analysis: Choices including statement (iii) contradict the fundamental definition of the depletion region as being swept clean of mobile carriers."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_009",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the biasing of a p-n junction diode:\n\nStatement I: When a p-n junction is forward biased by connecting the p-side to the positive terminal and the n-side to the negative terminal of an external battery, the applied voltage opposes the built-in barrier potential, reducing the width of the depletion layer.\nStatement II: When a p-n junction is reverse biased by connecting the p-side to the negative terminal and the n-side to the positive terminal, the applied voltage aids the built-in barrier potential, increasing both the effective barrier height and the depletion layer width.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In forward bias, the positive battery terminal is connected to the p-region and negative to the n-region. The applied external electric field opposes the internal built-in electric field. The effective barrier potential drops from $V_0$ to $(V_0 - V)$, allowing majority carriers to cross more easily and narrowing the depletion layer width. Thus, Statement I is correct.\nStep 2: In reverse bias, the positive battery terminal is connected to the n-region and negative to the p-region. The applied field reinforces the built-in electric field. The effective barrier potential increases from $V_0$ to $(V_0 + V)$, pulling majority carriers away from the junction and widening the depletion layer. Thus, Statement II is correct.\nStep 3: Because both statements faithfully describe the physical changes in barrier height and depletion width under biasing, both Statement I and Statement II are true.\nDistractor Analysis: Any option asserting that reverse bias narrows the depletion layer or that forward bias raises the barrier contradicts basic semiconductor diode behavior."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_010",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In a forward-biased silicon p-n junction diode, the current is typically of the order of milliamperes ($\\text{mA}$), whereas under reverse bias, the current is extremely small and measured in microamperes ($\\mu\\text{A}$) or nanoamperes ($\\text{nA}$).\nReason (R): Forward current is produced by majority carrier diffusion across a lowered potential barrier, while reverse current is governed by the drift of thermally generated minority charge carriers across an elevated barrier.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In forward bias, the potential barrier is lowered to $(V_0 - V)$, allowing abundant majority carriers (electrons in n-side, holes in p-side) to diffuse across the junction. Because majority carrier densities are very large ($10^{15} - 10^{18}\\text{ cm}^{-3}$), this produces a large forward current in milliamperes ($\\text{mA}$).\nStep 2: In reverse bias, the potential barrier is raised to $(V_0 + V)$, completely stopping majority carrier diffusion. Only minority carriers (holes on the n-side and electrons on the p-side) that are thermally generated within a diffusion length of the depletion region drift across the junction.\nStep 3: Because minority carrier density is extremely small (typically $10^3 - 10^7\\text{ cm}^{-3}$ in Si), the resulting reverse saturation current is minute, on the order of $\\text{nA}$ for silicon and $\\mu\\text{A}$ for germanium. Hence, both Assertion (A) and Reason (R) are true, and (R) directly explains the difference in current magnitudes.\nDistractor Analysis: Denying (R) ignores the fact that carrier density directly determines the order of magnitude of electric current in semiconductor devices."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_011",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In the forward $I-V$ characteristic of a silicon diode, when the applied forward voltage is increased from $0.65\\text{ V}$ to $0.70\\text{ V}$, the forward current increases from $5.0\\text{ mA}$ to $25.0\\text{ mA}$. What is the dynamic resistance ($r_d$) of the diode in this operating range?",
+      "options": [
+        "A) $2.5\\ \\Omega$",
+        "B) $4.0\\ \\Omega$",
+        "C) $0.25\\ \\Omega$",
+        "D) $10.0\\ \\Omega$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: According to NCERT, the dynamic (or AC) resistance of a p-n junction diode is defined as the ratio of a small change in voltage $\\Delta V$ to the resulting small change in current $\\Delta I$:\n$$r_d = \\frac{\\Delta V}{\\Delta I}$$\nStep 2: Calculate the change in forward voltage:\n$$\\Delta V = 0.70\\text{ V} - 0.65\\text{ V} = 0.05\\text{ V}$$\nStep 3: Calculate the change in forward current:\n$$\\Delta I = 25.0\\text{ mA} - 5.0\\text{ mA} = 20.0\\text{ mA} = 20.0 \\times 10^{-3}\\text{ A}$$\nStep 4: Substitute into the dynamic resistance formula:\n$$r_d = \\frac{0.05\\text{ V}}{20.0 \\times 10^{-3}\\text{ A}} = \\frac{50}{20} = 2.5\\ \\Omega$$\nDistractor Analysis: Taking static resistance $V/I$ at either point yields $0.70/0.025 = 28\\ \\Omega$, which is distinct from dynamic resistance $r_d = \\Delta V / \\Delta I$."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_012",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a half-wave rectifier circuit:\n\nStatement I: When an alternating voltage of frequency $50\\text{ Hz}$ is fed to the input of a half-wave rectifier, the fundamental ripple frequency of the output pulsating DC voltage across the load is $50\\text{ Hz}$.\nStatement II: The maximum theoretical efficiency of rectification of an ideal half-wave rectifier (neglecting diode forward resistance and transformer resistance) is $40.6\\%$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In a half-wave rectifier, the single diode conducts only during one half-cycle of the AC input (e.g. positive half-cycle) and remains non-conducting during the opposite half-cycle. Thus, one output pulse occurs for every full cycle of the input wave. The output frequency matches the input frequency: $f_{out} = f_{in} = 50\\text{ Hz}$. Hence, Statement I is true.\nStep 2: Rectification efficiency is defined as $\\eta = \\frac{P_{dc}}{P_{ac}} = \\frac{I_{dc}^2 R_L}{I_{rms}^2 (r_f + R_L)}$. For a half-wave rectifier, $I_{dc} = \\frac{I_m}{\\pi}$ and $I_{rms} = \\frac{I_m}{2}$. For an ideal diode with $r_f = 0$:\n$$\\eta = \\frac{(I_m / \\pi)^2 R_L}{(I_m / 2)^2 R_L} = \\frac{4}{\\pi^2} \\approx \\frac{4}{9.8696} = 0.406 = 40.6\\%$$\nHence, Statement II is true.\nStep 3: Therefore, both Statement I and Statement II are true.\nDistractor Analysis: Options claiming $100\\text{ Hz}$ confuse the half-wave rectifier with a full-wave rectifier, whose ripple frequency is doubled ($2 f_{in} = 100\\text{ Hz}$)."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_013",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A sinusoidal alternating voltage of mains frequency $f = 60\\text{ Hz}$ is supplied to the primary winding of a center-tapped transformer in a full-wave rectifier circuit. What is the fundamental ripple frequency of the rectified voltage appearing across the load resistor?",
+      "options": [
+        "A) $30\\text{ Hz}$",
+        "B) $60\\text{ Hz}$",
+        "C) $120\\text{ Hz}$",
+        "D) $240\\text{ Hz}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In a full-wave rectifier (both center-tapped and bridge types), the two diodes conduct alternately during successive half-cycles of the AC input.\nStep 2: Diode $D_1$ conducts during the positive half-cycle, and diode $D_2$ conducts during the negative half-cycle. In both half-cycles, current flows through the load resistor in the exact same direction.\nStep 3: As a consequence, two unidirectional pulses appear at the load for every single cycle of the AC input waveform. Therefore, the output ripple frequency is twice the input frequency:\n$$f_{out} = 2 \\times f_{in} = 2 \\times 60\\text{ Hz} = 120\\text{ Hz}$$\nDistractor Analysis: An answer of $60\\text{ Hz}$ corresponds to a half-wave rectifier, whereas $30\\text{ Hz}$ erroneously halves the frequency."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_014",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Optoelectronic / Junction Device) with List II (Operational Mode & Principle):\n\nList I:\n(P) Photodiode\n(Q) Light Emitting Diode (LED)\n(R) Solar Cell\n(S) Rectifier Diode\n\nList II:\n(i) Forward biased; spontaneous emission of radiation upon carrier recombination\n(ii) Reverse biased; detection of optical signals via photon-generated minority carriers\n(iii) Unbiased; converts incident solar radiation directly into electrical electromotive force\n(iv) Alternately forward and reverse biased; converts alternating voltage into unidirectional current\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (P)-(ii), (Q)-(i), (R)-(iii), (S)-(iv)",
+        "B) (P)-(i), (Q)-(ii), (R)-(iii), (S)-(iv)",
+        "C) (P)-(ii), (Q)-(iv), (R)-(i), (S)-(iii)",
+        "D) (P)-(iii), (Q)-(i), (R)-(ii), (S)-(iv)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: A photodiode is specifically operated in reverse bias because the fractional change in reverse current under illumination is much more easily detected. Thus, (P) matches with (ii).\nStep 2: A light emitting diode (LED) is operated under forward bias so that majority electrons and holes are injected across the junction and recombine, releasing energy as photons. Thus, (Q) matches with (i).\nStep 3: A solar cell generates an open-circuit voltage and short-circuit current from incident light without any external bias battery. Thus, (R) matches with (iii).\nStep 4: A standard rectifier diode conducts heavily during the forward half-cycle and blocks during the reverse half-cycle, converting AC to DC. Thus, (S) matches with (iv).\nStep 5: The resulting mapping is (P)-(ii), (Q)-(i), (R)-(iii), (S)-(iv).\nDistractor Analysis: Reversing the biasing requirements of photodiodes and LEDs represents a major student misconception."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_015",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): For a light-emitting diode (LED) to emit visible light, the semiconductor material used must have an energy bandgap of at least $E_g \\ge 1.8\\text{ eV}$.\nReason (R): The visible light spectrum spans photon energies from approximately $1.8\\text{ eV}$ (corresponding to red light, $\\lambda \\approx 700\\text{ nm}$) to $3.1\\text{ eV}$ (corresponding to violet light, $\\lambda \\approx 400\\text{ nm}$), and the energy of emitted recombination photons is approximately equal to $E_g$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: When an LED is forward-biased, electrons and holes recombine near the junction. The energy released during recombination is emitted in the form of a photon of energy $h\\nu \\approx E_g$.\nStep 2: The visible spectrum ranges in wavelength from about $\\lambda = 400\\text{ nm}$ (violet) to $\\lambda = 700\\text{ nm}$ (red). Using the relation $E = \\frac{hc}{\\lambda} \\approx \\frac{1240\\text{ eV}\\cdot\\text{nm}}{\\lambda}$:\nFor red light ($\\lambda = 700\\text{ nm}$): $E = \\frac{1240}{700} \\approx 1.77\\text{ eV} \\approx 1.8\\text{ eV}$.\nFor violet light ($\\lambda = 400\\text{ nm}$): $E = \\frac{1240}{400} = 3.1\\text{ eV}$.\nStep 3: Hence, to emit photons within the visible spectrum, the bandgap $E_g$ must be at least $1.8\\text{ eV}$. Materials with smaller bandgaps (like Silicon $1.1\\text{ eV}$ and Germanium $0.7\\text{ eV}$) emit in the invisible infrared spectrum. Thus, both (A) and (R) are true, and (R) provides the exact physical explanation.\nDistractor Analysis: If $E_g < 1.8\\text{ eV}$, emitted radiation is in the infrared, proving that $E_g \\ge 1.8\\text{ eV}$ is a strict requirement for visible emission."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_016",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "According to NCERT, why is a photodiode preferably operated in the reverse-biased condition when used for detecting optical signals, rather than in forward bias?",
+      "options": [
+        "A) Because forward bias completely prevents the generation of electron-hole pairs by incident photons.",
+        "B) Because the depletion layer disappears completely under reverse bias, allowing maximum light penetration.",
+        "C) Because the fractional change in the minority carrier current under illumination is significantly larger and far more measurable than in the majority carrier current.",
+        "D) Because reverse bias decreases the barrier potential to zero, making current flow effortless."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Let the initial majority and minority carrier densities in an n-type semiconductor be $n_e$ and $n_h$ respectively, with $n_e \\gg n_h$. When illuminated, equal densities of electrons and holes are generated: $\\Delta n_e = \\Delta n_h$.\nStep 2: In forward bias, the current is dominated by majority carriers ($n_e$). The fractional change is $\\frac{\\Delta n_e}{n_e}$, which is negligible because the baseline $n_e$ is extremely large.\nStep 3: In reverse bias, the dark current is governed strictly by minority carriers ($n_h$). The fractional change is $\\frac{\\Delta n_h}{n_h}$. Because baseline $n_h$ is tiny, even a modest photon flux causes a huge percentage increase in reverse current (often hundreds of percent).\nStep 4: This high fractional change makes optical detection far more sensitive and reliable in reverse bias.\nDistractor Analysis: Choices claiming that reverse bias eliminates the depletion layer are physically false; reverse bias widens the depletion layer."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_017",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements regarding the operation and design of a semiconductor solar cell are correct?\n\n(i) A solar cell is essentially a p-n junction diode operated without applying any external bias voltage.\n(ii) The current-voltage ($I-V$) characteristic curve of a solar cell is drawn in the fourth quadrant of the coordinate axes because it supplies power to an external load.\n(iii) Silicon ($E_g = 1.1\\text{ eV}$) and Gallium Arsenide ($E_g = 1.43\\text{ eV}$) are suitable materials because their energy bandgaps match well with the peak solar radiation spectrum.\n(iv) A solar cell operates strictly at the reverse breakdown voltage point to produce maximum current.\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (i) and (iv) only",
+        "B) (ii) and (iv) only",
+        "C) (iii) and (iv) only",
+        "D) (i), (ii), and (iii) only"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: A solar cell is an unbiased p-n junction designed to generate electrical power directly from sunlight. Thus, statement (i) is correct.\nStep 2: Because the solar cell delivers current out of its positive terminal to an external load (acting as a power generator rather than consuming power), its $I-V$ characteristic is plotted in the fourth quadrant ($V > 0, I < 0$). Thus, statement (ii) is correct.\nStep 3: The solar radiation spectrum received on Earth has maximum intensity at photon energies near $1.5\\text{ eV}$. Materials with bandgaps close to $1.5\\text{ eV}$ (such as $\\text{Si}$ with $E_g = 1.1\\text{ eV}$ and $\\text{GaAs}$ with $E_g = 1.43\\text{ eV}$) provide optimal solar conversion. Thus, statement (iii) is correct.\nStep 4: A solar cell does not operate in reverse breakdown; it operates without an external power source. Thus, statement (iv) is incorrect.\nStep 5: Hence, statements (i), (ii), and (iii) are correct.\nDistractor Analysis: Options containing (iv) confuse solar cells with voltage regulation mechanisms."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_018",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A silicon p-n junction diode with a forward knee (cut-in) voltage of $V_0 = 0.70\\text{ V}$ is connected in series with a resistor $R = 220\\ \\Omega$ across a $5.10\\text{ V}$ DC power supply. Assuming that the diode's internal dynamic resistance above the knee voltage is negligible, what is the steady forward current flowing through the circuit?",
+      "options": [
+        "A) $20.0\\text{ mA}$",
+        "B) $23.2\\text{ mA}$",
+        "C) $15.5\\text{ mA}$",
+        "D) $3.2\\text{ mA}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: When a silicon diode is forward-biased beyond its knee voltage, it maintains a constant threshold voltage drop of $V_0 = 0.70\\text{ V}$ across its terminals.\nStep 2: Applying Kirchhoff's Voltage Law (KVL) around the single loop circuit:\n$$V_S - V_0 - I R = 0$$\n$$5.10\\text{ V} - 0.70\\text{ V} - I (220\\ \\Omega) = 0$$\nStep 3: Calculate the voltage across the series resistor:\n$$V_R = 5.10\\text{ V} - 0.70\\text{ V} = 4.40\\text{ V}$$\nStep 4: Calculate the forward circuit current:\n$$I = \\frac{V_R}{R} = \\frac{4.40\\text{ V}}{220\\ \\Omega} = 0.020\\text{ A} = 20.0\\text{ mA}$$\nDistractor Analysis: Ignoring the $0.70\\text{ V}$ knee voltage drop leads to $I = 5.10 / 220 = 23.2\\text{ mA}$, which represents an uncompensated ideal diode error."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_019",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding extrinsic semiconductor doping:\n\nStatement I: When pure silicon is doped with trivalent impurity atoms such as Boron (B) or Aluminum (Al), an acceptor energy level $E_A$ is created in the forbidden energy gap slightly above the valence band edge $E_V$.\nStatement II: Doping an intrinsic semiconductor with pentavalent donor atoms increases the concentration of conduction electrons while keeping the concentration of valence holes completely unchanged.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Trivalent impurities have three valence electrons. When substituting for tetravalent silicon, a vacancy (hole) is created. An electron from an adjacent bond requires very little energy ($\\sim 0.01 - 0.05\\text{ eV}$) to jump into this vacancy. Hence, an acceptor energy level $E_A$ is formed just above the top of the valence band $E_V$. Thus, Statement I is true.\nStep 2: According to the mass action law, at constant temperature in thermal equilibrium, the product of carrier concentrations is strictly conserved: $n_e \\cdot n_h = n_i^2$.\nStep 3: When donor atoms are introduced, $n_e$ increases dramatically. Consequently, the rate of electron-hole recombination increases, causing the hole concentration $n_h = n_i^2 / n_e$ to drop significantly below the intrinsic level $n_i$. Hence, hole concentration does not remain unchanged. Statement II is false.\nStep 4: Therefore, Statement I is true but Statement II is false.\nDistractor Analysis: Claiming Statement II is true ignores the law of mass action ($n_e n_h = n_i^2$), which dictates that increasing majority electrons reduces minority holes."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_020",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In any given semiconductor (such as silicon or germanium), the drift mobility of conduction electrons ($\\mu_e$) is fundamentally greater than the drift mobility of valence holes ($\\mu_h$).\nReason (R): Conduction electrons move through empty states in the conduction band, whereas hole transport involves the constrained step-by-step displacement of bound electrons among covalent bonds in the valence band, resulting in a larger effective mass for holes.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Mobility is defined as drift speed per unit electric field: $\\mu = \\frac{v_d}{E} = \\frac{e \\tau}{m^*}$, where $m^*$ is the effective mass of the charge carrier and $\\tau$ is the relaxation time.\nStep 2: Electrons in the conduction band move relatively freely across numerous unoccupied quantum states with lower effective mass and higher relaxation time.\nStep 3: In contrast, holes reside in the valence band. A hole can only move when a bound electron from an adjacent covalent bond jumps into the empty vacancy, leaving behind a new vacancy. This sequential hopping in a nearly filled band gives holes a higher effective mass and lower mobility ($\\mu_e > \\mu_h$ in all common semiconductors; e.g. for Ge, $\\mu_e \\approx 3800\\text{ cm}^2/(\\text{V}\\cdot\\text{s})$ vs $\\mu_h \\approx 1800\\text{ cm}^2/(\\text{V}\\cdot\\text{s})$).\nStep 4: Thus, Assertion (A) and Reason (R) are both true, and (R) correctly explains (A).\nDistractor Analysis: Holes do not move as independent free particles in vacuum; their motion represents collective bound-electron transitions, explaining their intrinsically lower mobility."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_021",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An alternating sinusoidal voltage having an RMS value of $V_{rms} = 10\\sqrt{2}\\text{ V}$ is supplied to: (i) a half-wave rectifier, and (ii) a center-tapped full-wave rectifier, each employing ideal diodes. What are the Peak Inverse Voltages (PIV) across the diodes in the half-wave rectifier and the center-tapped full-wave rectifier, respectively?",
+      "options": [
+        "A) $10\\text{ V}$ and $20\\text{ V}$",
+        "B) $20\\text{ V}$ and $20\\text{ V}$",
+        "C) $20\\text{ V}$ and $40\\text{ V}$",
+        "D) $40\\text{ V}$ and $20\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The peak (maximum) voltage of the alternating supply is related to the root-mean-square (RMS) voltage by:\n$$V_m = \\sqrt{2} \\times V_{rms} = \\sqrt{2} \\times (10\\sqrt{2}\\text{ V}) = 20\\text{ V}$$\nStep 2: For a half-wave rectifier, during the non-conducting half-cycle, the maximum reverse voltage across the single diode is simply the peak voltage:\n$$\\text{PIV}_{\\text{half-wave}} = V_m = 20\\text{ V}$$\nStep 3: For a center-tapped full-wave rectifier, when one diode is conducting (acting as a short circuit with zero drop), the non-conducting diode is subjected to the full voltage of both halves of the secondary winding:\n$$\\text{PIV}_{\\text{center-tapped}} = 2 V_m = 2 \\times 20\\text{ V} = 40\\text{ V}$$\nStep 4: Therefore, the respective peak inverse voltages are $20\\text{ V}$ and $40\\text{ V}$.\nDistractor Analysis: Claiming $20\\text{ V}$ for both ignores the center-tapped secondary geometry where the reverse diode must withstand $2V_m$ across the full winding."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_022",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Semiconductor State / Doping Condition) with List II (Carrier Concentration Relationship):\n\nList I:\n(P) Pure Silicon at room temperature ($300\\text{ K}$)\n(Q) Silicon doped with Arsenic at $300\\text{ K}$\n(R) Silicon doped with Indium at $300\\text{ K}$\n(S) Pure Silicon at absolute zero ($0\\text{ K}$)\n\nList II:\n(i) $n_e \\approx 0$ and $n_h \\approx 0$\n(ii) $n_e = n_h = n_i$\n(iii) $n_e \\gg n_h$\n(iv) $n_h \\gg n_e$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (P)-(ii), (Q)-(iii), (R)-(iv), (S)-(i)",
+        "B) (P)-(ii), (Q)-(iv), (R)-(iii), (S)-(i)",
+        "C) (P)-(i), (Q)-(iii), (R)-(iv), (S)-(ii)",
+        "D) (P)-(iii), (Q)-(ii), (R)-(i), (S)-(iv)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In an intrinsic semiconductor at room temperature, thermal generation produces identical densities of conduction electrons and valence holes: $n_e = n_h = n_i$. Thus, (P) matches with (ii).\nStep 2: Arsenic is a pentavalent donor impurity (Group 15). Doping silicon with arsenic yields an n-type semiconductor where conduction electrons outnumber holes by many orders of magnitude: $n_e \\gg n_h$. Thus, (Q) matches with (iii).\nStep 3: Indium is a trivalent acceptor impurity (Group 13). Doping silicon with indium yields a p-type semiconductor where valence holes are the majority carriers: $n_h \\gg n_e$. Thus, (R) matches with (iv).\nStep 4: At absolute zero ($T = 0\\text{ K}$), all electrons remain locked in covalent bonds, leaving conduction bands empty and valence bands filled with zero vacancies: $n_e = 0, n_h = 0$. Thus, (S) matches with (i).\nStep 5: The resulting mapping is (P)-(ii), (Q)-(iii), (R)-(iv), (S)-(i).\nDistractor Analysis: Swapping (Q) and (R) confuses pentavalent (n-type) with trivalent (p-type) dopants."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_023",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A pure sample of silicon at a temperature of $300\\text{ K}$ has an intrinsic charge carrier concentration of $n_i = 1.5 \\times 10^{16}\\text{ m}^{-3}$. The mobility of electrons is $\\mu_e = 0.135\\text{ m}^2/(\\text{V}\\cdot\\text{s})$ and the mobility of holes is $\\mu_h = 0.045\\text{ m}^2/(\\text{V}\\cdot\\text{s})$. What is the total electrical conductivity of this intrinsic silicon sample? (Take the elementary charge $e = 1.6 \\times 10^{-19}\\text{ C}$).",
+      "options": [
+        "A) $2.16 \\times 10^{-4}\\ \\text{S}\\cdot\\text{m}^{-1}$",
+        "B) $4.32 \\times 10^{-4}\\ \\text{S}\\cdot\\text{m}^{-1}$",
+        "C) $8.64 \\times 10^{-4}\\ \\text{S}\\cdot\\text{m}^{-1}$",
+        "D) $3.24 \\times 10^{-3}\\ \\text{S}\\cdot\\text{m}^{-1}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In an intrinsic semiconductor, current conduction is shared by both electrons and holes, with equal concentrations $n_e = n_h = n_i$.\nStep 2: The total electrical conductivity $\\sigma$ is given by the formula:\n$$\\sigma = e (n_e \\mu_e + n_h \\mu_h) = e n_i (\\mu_e + \\mu_h)$$\nStep 3: Calculate the sum of the mobilities:\n$$\\mu_e + \\mu_h = 0.135\\text{ m}^2/(\\text{V}\\cdot\\text{s}) + 0.045\\text{ m}^2/(\\text{V}\\cdot\\text{s}) = 0.180\\text{ m}^2/(\\text{V}\\cdot\\text{s})$$\nStep 4: Substitute the values to find $\\sigma$:\n$$\\sigma = (1.6 \\times 10^{-19}\\text{ C}) \\times (1.5 \\times 10^{16}\\text{ m}^{-3}) \\times (0.180\\text{ m}^2/(\\text{V}\\cdot\\text{s}))$$\n$$\\sigma = (2.4 \\times 10^{-3}) \\times 0.180 = 0.432 \\times 10^{-3} = 4.32 \\times 10^{-4}\\ \\text{S}\\cdot\\text{m}^{-1}$$\nDistractor Analysis: Omitting hole contribution yields $1.6 \\times 10^{-19} \\times 1.5 \\times 10^{16} \\times 0.135 = 3.24 \\times 10^{-4}\\ \\text{S}\\cdot\\text{m}^{-1}$, while miscalculating the mobility sum leads to incorrect alternatives."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_024",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding energy bands and carrier concentrations in extrinsic semiconductors:\n\nStatement I: In an n-type semiconductor at room temperature, the Fermi energy level lies in the forbidden gap substantially closer to the bottom edge of the conduction band than to the top edge of the valence band.\nStatement II: When the temperature of a doped extrinsic semiconductor is raised to very high temperatures, thermal generation of electron-hole pairs across the full bandgap overwhelms the dopant concentration, causing the material to behave essentially as an intrinsic semiconductor.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In an n-type semiconductor, the introduction of donor atoms creates states just below the conduction band edge $E_C$. As donor electrons are ionized into the conduction band, the probability of finding electrons near $E_C$ increases, shifting the Fermi level $E_F$ upward toward $E_C$. Thus, Statement I is correct.\nStep 2: At moderate room temperatures, conduction electrons are dominated by ionized donors ($n_e \\approx N_D$). However, intrinsic carrier concentration increases exponentially with temperature: $n_i(T) \\propto T^{3/2} e^{-E_g / (2k_B T)}$.\nStep 3: At elevated temperatures, $n_i$ exceeds $N_D$ by many orders of magnitude. Under this condition, $n_e \\approx n_h \\approx n_i$, and the extrinsic material transitions into the intrinsic regime with its Fermi level shifting back toward the middle of the bandgap. Thus, Statement II is correct.\nStep 4: Therefore, both Statement I and Statement II are true.\nDistractor Analysis: Claiming an extrinsic semiconductor permanently retains its majority carrier dominance at extreme temperatures ignores the exponential nature of intrinsic thermal excitation."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_025",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In an unbiased p-n junction under steady-state thermal equilibrium, the net electric current flowing across the junction is identically zero, even though continuous carrier movement occurs.\nReason (R): The diffusion current caused by majority charge carriers diffusing down their concentration gradients is exactly balanced in magnitude and opposite in direction by the drift current caused by minority charge carriers swept by the built-in junction electric field.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Across an open-circuited p-n junction, holes diffuse from the p-side to the n-side, and electrons diffuse from the n-side to the p-side, constituting a net diffusion current directed from the p-region to the n-region ($I_{diff} > 0$).\nStep 2: The accumulation of uncompensated ions in the depletion region establishes an internal electric field pointing from the n-region to the p-region. This field sweeps minority electrons from the p-side to the n-side and minority holes from the n-side to the p-side, producing a drift current directed from the n-region to the p-region ($I_{drift}$). \nStep 3: Under thermodynamic equilibrium, the built-in potential barrier adjusts its height $V_0$ so that the rate of majority carrier diffusion exactly equals the rate of minority carrier drift: $I_{diff} = I_{drift}$, yielding $I_{net} = I_{diff} - I_{drift} = 0$.\nStep 4: Therefore, both (A) and (R) are true, and (R) correctly explains (A).\nDistractor Analysis: Denying (R) contradicts the principle of detailed balance in semiconductor thermal equilibrium."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_026",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The barrier potential of an abrupt silicon p-n junction diode is $0.70\\text{ V}$ and the total width of the depletion layer is $0.50\\ \\mu\\text{m}$ ($0.50 \\times 10^{-6}\\text{ m}$). Assuming that the built-in electric field is approximately uniform across the depletion region, what are the magnitude of this electric field and the electrostatic force it exerts on a conduction electron?",
+      "options": [
+        "A) $E = 1.4 \\times 10^6\\text{ V/m}$ and $F = 2.24 \\times 10^{-13}\\text{ N}$",
+        "B) $E = 3.5 \\times 10^5\\text{ V/m}$ and $F = 5.60 \\times 10^{-14}\\text{ N}$",
+        "C) $E = 1.4 \\times 10^6\\text{ V/m}$ and $F = 1.12 \\times 10^{-13}\\text{ N}$",
+        "D) $E = 7.0 \\times 10^5\\text{ V/m}$ and $F = 2.24 \\times 10^{-13}\\text{ N}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The average electric field across a barrier potential $V_0$ over a depletion width $d$ is given by:\n$$E = \\frac{V_0}{d}$$\nStep 2: Substituting $V_0 = 0.70\\text{ V}$ and $d = 0.50 \\times 10^{-6}\\text{ m}$:\n$$E = \\frac{0.70\\text{ V}}{0.50 \\times 10^{-6}\\text{ m}} = 1.4 \\times 10^6\\text{ V/m}$$\nStep 3: The electrostatic force exerted on an electron of elementary charge $e = 1.6 \\times 10^{-19}\\text{ C}$ is:\n$$F = e E = (1.6 \\times 10^{-19}\\text{ C}) \\times (1.4 \\times 10^6\\text{ V/m}) = 2.24 \\times 10^{-13}\\text{ N}$$\nStep 4: This demonstrates that despite small barrier voltages, the microscopic electric field in a p-n junction is remarkably intense (over a million volts per meter).\nDistractor Analysis: Calculating $E = V_0 \\cdot d = 0.35 \\times 10^{-6}$ inverts the dimensional definition of electric field."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_027",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two diodes, $D_1$ (silicon with cut-in voltage $0.70\\text{ V}$) and $D_2$ (germanium with cut-in voltage $0.30\\text{ V}$), are connected in parallel with their anodes joined to a common positive terminal and their cathodes grounded. The common anode terminal is connected to a $+12.0\\text{ V}$ DC source through a series current-limiting resistor $R = 1.0\\text{ k}\\Omega$. Assuming the dynamic resistance of each diode is zero above cut-in, what is the steady voltage at the common anode ($V_{out}$) and the current flowing through resistor $R$?",
+      "options": [
+        "A) $V_{out} = 0.70\\text{ V}$ and $I = 11.3\\text{ mA}$",
+        "B) $V_{out} = 1.00\\text{ V}$ and $I = 11.0\\text{ mA}$",
+        "C) $V_{out} = 0.30\\text{ V}$ and $I = 11.7\\text{ mA}$",
+        "D) $V_{out} = 0.50\\text{ V}$ and $I = 11.5\\text{ mA}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: As the supply voltage increases from zero, diode $D_2$ (Germanium) reaches its conduction threshold at $0.30\\text{ V}$, turning ON first.\nStep 2: Once diode $D_2$ conducts, it clamps the common anode node to its threshold voltage of $0.30\\text{ V}$.\nStep 3: Because the anode potential is clamped at $0.30\\text{ V}$, which is strictly lower than the $0.70\\text{ V}$ required to turn on diode $D_1$ (Silicon), $D_1$ never conducts and remains in the OFF state.\nStep 4: The voltage across resistor $R$ is:\n$$V_R = V_S - V_{out} = 12.0\\text{ V} - 0.30\\text{ V} = 11.70\\text{ V}$$\nStep 5: The current through resistor $R$ is:\n$$I = \\frac{V_R}{R} = \\frac{11.70\\text{ V}}{1.0 \\times 10^3\\ \\Omega} = 11.7 \\times 10^{-3}\\text{ A} = 11.7\\text{ mA}$$\nDistractor Analysis: Assuming both diodes conduct simultaneously violates circuit physics, because two ideal voltage clamps of different voltages cannot exist in parallel; the lower voltage diode dominates and keeps the higher voltage diode OFF."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_028",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements regarding rectification circuits are correct?\n\n(i) In a full-wave bridge rectifier, four diodes are used, and each diode experiences a maximum Peak Inverse Voltage of $\\text{PIV} = V_m$.\n(ii) In a center-tapped full-wave rectifier, each of the two diodes must withstand a maximum Peak Inverse Voltage of $\\text{PIV} = 2V_m$.\n(iii) The ripple factor of a half-wave rectifier is approximately $1.21$, whereas that of an unfiltered full-wave rectifier is approximately $0.48$.\n(iv) With ideal diodes and pure resistive load, the rectification efficiency of a full-wave rectifier can theoretically reach $100\\%$.\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (i), (ii), and (iii) only",
+        "B) (i), (iii), and (iv) only",
+        "C) (ii) and (iv) only",
+        "D) (i), (ii), (iii), and (iv)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In a bridge rectifier, two diodes conduct in series during each half-cycle, sharing the reverse loop such that the maximum reverse voltage across any non-conducting diode is $\\text{PIV} = V_m$. Thus, statement (i) is correct.\nStep 2: In a center-tapped rectifier, when one diode conducts, the non-conducting diode is placed across the entire secondary winding having a total peak voltage of $2V_m$. Thus, statement (ii) is correct.\nStep 3: The ripple factor is $r = \\sqrt{(I_{rms}/I_{dc})^2 - 1}$. For half-wave, $r = \\sqrt{(\\pi/2)^2 - 1} \\approx 1.21$. For full-wave, $r = \\sqrt{(\\pi / 2\\sqrt{2})^2 - 1} = \\sqrt{\\pi^2 / 8 - 1} \\approx 0.482$. Thus, statement (iii) is correct.\nStep 4: The maximum theoretical efficiency of a full-wave rectifier is $\\eta_{max} = \\frac{8}{\\pi^2} \\approx 81.2\\%$, because the pulsating DC waveform still contains AC harmonic components. It never reaches $100\\%$. Thus, statement (iv) is incorrect.\nStep 5: Therefore, statements (i), (ii), and (iii) are correct.\nDistractor Analysis: Claiming $100\\%$ efficiency ignores the inherent harmonic AC power present in an unfiltered pulsating DC sine wave."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_029",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a center-tapped full-wave rectifier circuit, the instantaneous alternating voltage across each half of the secondary transformer winding is given by $v(t) = 20 \\sin(100\\pi t)\\text{ V}$. Assuming ideal diodes (zero forward resistance and zero cut-in voltage), what are the average DC output voltage ($V_{dc}$) across the load resistor and the fundamental ripple frequency ($f_{out}$) of the output?",
+      "options": [
+        "A) $V_{dc} = \\frac{20}{\\pi}\\text{ V}$ and $f_{out} = 50\\text{ Hz}$",
+        "B) $V_{dc} = \\frac{40}{\\pi}\\text{ V}$ and $f_{out} = 100\\text{ Hz}$",
+        "C) $V_{dc} = \\frac{40}{\\pi}\\text{ V}$ and $f_{out} = 50\\text{ Hz}$",
+        "D) $V_{dc} = 10\\sqrt{2}\\text{ V}$ and $f_{out} = 100\\text{ Hz}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: From the voltage equation $v(t) = V_m \\sin(\\omega t)$, the peak voltage across each half winding is $V_m = 20\\text{ V}$, and the angular frequency is $\\omega = 100\\pi\\text{ rad/s}$.\nStep 2: The AC input frequency is:\n$$f_{in} = \\frac{\\omega}{2\\pi} = \\frac{100\\pi}{2\\pi} = 50\\text{ Hz}$$\nStep 3: In a full-wave rectifier, both half-cycles are converted into positive pulses, so the fundamental ripple frequency is doubled:\n$$f_{out} = 2 \\times f_{in} = 2 \\times 50\\text{ Hz} = 100\\text{ Hz}$$\nStep 4: The average (DC) value of a full-wave rectified sine wave is given by:\n$$V_{dc} = \\frac{1}{\\pi} \\int_0^\\pi V_m \\sin(\\theta) d\\theta = \\frac{2 V_m}{\\pi} = \\frac{2 \\times 20}{\\pi} = \\frac{40}{\\pi}\\text{ V}$$\nDistractor Analysis: Taking $V_{dc} = V_m / \\pi$ is the formula for a half-wave rectifier, while failing to double the frequency confuses full-wave with half-wave operation."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_030",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Circuit Configuration with Ideal Diodes) with List II (Operational Current Status):\n\nList I:\n(P) Two parallel branches with opposite diode orientations connected across a positive DC voltage source\n(Q) Two diodes in series facing cathode-to-cathode across a DC source\n(R) Full-wave bridge rectifier during any single half-cycle\n(S) Single diode connected with cathode at $+5\\text{ V}$ and anode at $+2\\text{ V}$\n\nList II:\n(i) Zero total circuit current (both directions blocked)\n(ii) Exactly two diagonally opposite diodes conduct simultaneously\n(iii) Current flows exclusively through the forward-facing parallel branch\n(iv) Reverse biased state with zero conduction current\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (P)-(i), (Q)-(iii), (R)-(ii), (S)-(iv)",
+        "B) (P)-(iii), (Q)-(ii), (R)-(i), (S)-(iv)",
+        "C) (P)-(ii), (Q)-(i), (R)-(iii), (S)-(iv)",
+        "D) (P)-(iii), (Q)-(i), (R)-(ii), (S)-(iv)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: When two diodes are connected in parallel with opposite polarity across a DC source, the forward-facing diode conducts while the reverse-facing diode blocks, directing all current through the forward branch. Thus, (P) matches with (iii).\nStep 2: When two diodes are connected series cathode-to-cathode, one diode will inevitably be reverse biased regardless of battery polarity, resulting in zero current flow. Thus, (Q) matches with (i).\nStep 3: In a bridge rectifier, during each half-cycle, exactly one pair of diagonally opposite diodes conducts the load current. Thus, (R) matches with (ii).\nStep 4: When anode is at $+2\\text{ V}$ and cathode is at $+5\\text{ V}$, the p-n junction is reverse biased by $V_A - V_K = -3\\text{ V}$, preventing conduction. Thus, (S) matches with (iv).\nStep 5: The correct mapping is (P)-(iii), (Q)-(i), (R)-(ii), (S)-(iv).\nDistractor Analysis: Any assignment that assumes series back-to-back diodes can conduct contradicts the blocking nature of a reverse-biased diode."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_031",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A light emitting diode (LED) is constructed from a direct bandgap semiconductor compound having an energy bandgap of $E_g = 2.48\\text{ eV}$. What is the wavelength of the light emitted by this LED upon electron-hole recombination? (Take $hc \\approx 1240\\text{ eV}\\cdot\\text{nm}$).",
+      "options": [
+        "A) $450\\text{ nm}$",
+        "B) $620\\text{ nm}$",
+        "C) $500\\text{ nm}$",
+        "D) $550\\text{ nm}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In an LED, an electron from the bottom of the conduction band recombines with a hole at the top of the valence band, releasing energy in the form of a photon.\nStep 2: The energy of the emitted photon is approximately equal to the bandgap of the semiconductor:\n$$E_{ph} = h\\nu = \\frac{hc}{\\lambda} \\approx E_g$$\nStep 3: Rearranging for wavelength $\\lambda$:\n$$\\lambda = \\frac{hc}{E_g}$$\nStep 4: Substituting $hc \\approx 1240\\text{ eV}\\cdot\\text{nm}$ and $E_g = 2.48\\text{ eV}$:\n$$\\lambda = \\frac{1240\\text{ eV}\\cdot\\text{nm}}{2.48\\text{ eV}} = 500\\text{ nm}$$\nStep 5: A wavelength of $500\\text{ nm}$ lies in the blue-green region of the visible spectrum.\nDistractor Analysis: Using $E = 2.0\\text{ eV}$ yields $620\\text{ nm}$ (red light), whereas arithmetic errors in division produce $450\\text{ nm}$ or $550\\text{ nm}$."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_032",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the characteristics of a semiconductor solar cell:\n\nStatement I: The current-voltage ($I-V$) characteristic of a solar cell is drawn in the fourth quadrant of the coordinate axes because the cell acts as a power generator that delivers electrical power to an external load.\nStatement II: The short-circuit current ($I_{sc}$) of a solar cell represents the current flowing through the junction when the external load resistance connected across its terminals is infinitely large ($R_L \\to \\infty$).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Standard electrical convention defines current entering the positive terminal as positive (power dissipation). Because a solar cell generates power and forces current out of its positive terminal, the terminal current has a negative sign while the terminal voltage is positive. Hence, the $I-V$ characteristic lies in the fourth quadrant. Statement I is true.\nStep 2: By definition, short-circuit current ($I_{sc}$) is measured when the external terminals are connected together with zero resistance ($R_L = 0$), so that the voltage across the cell is zero ($V = 0$).\nStep 3: When the load resistance is infinitely large ($R_L \\to \\infty$), the external current is zero ($I = 0$), and the voltage across the open terminals is the open-circuit voltage ($V_{oc}$). Therefore, Statement II mistakenly describes $V_{oc}$ as $I_{sc}$ and is false.\nStep 4: Thus, Statement I is true but Statement II is false.\nDistractor Analysis: Conflating open-circuit ($R_L = \\infty, I=0$) with short-circuit ($R_L = 0, V=0$) is a common error among students."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_033",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Connecting a capacitor of large capacitance in parallel across the load resistor in a rectifier circuit significantly smoothens the pulsating DC voltage into a nearly steady DC voltage.\nReason (R): The capacitor charges rapidly to the peak input voltage $V_m$ during the conducting interval of the diode, and discharges slowly through the load resistor with a time constant $\\tau = R_L C$ that is much larger than the time period between successive rectification peaks.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The output of an unfiltered rectifier consists of large pulsating fluctuations (ripple). When a shunt capacitor $C$ is placed in parallel with $R_L$, it acts as a low-pass filter.\nStep 2: As the rectifier output rises towards its peak value $V_m$, the diode conducts with very low forward resistance, rapidly charging the capacitor to $V_m$.\nStep 3: When the input AC voltage falls below $V_m$, the diode becomes reverse-biased and stops conducting. The capacitor then supplies current to the load resistor $R_L$, discharging exponentially with time constant $\\tau = R_L C$.\nStep 4: If $\\tau = R_L C \\gg T/2$, the capacitor voltage drops only slightly before the next positive pulse arrives to recharge it, keeping the output voltage near $V_m$ with minimal ripple. Thus, both (A) and (R) are true, and (R) provides the exact physical explanation of (A).\nDistractor Analysis: If $R_L C \\ll T/2$, the capacitor discharges completely between peaks, failing to provide filtering action."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_034",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A pure Germanium crystal has an intrinsic carrier concentration of $n_i = 2.5 \\times 10^{19}\\text{ m}^{-3}$ at $300\\text{ K}$. It is doped with antimony (Sb) atoms to produce an n-type semiconductor with donor concentration $N_D = 1.0 \\times 10^{23}\\text{ m}^{-3}$. Assuming complete ionization of donors and mobilities $\\mu_e = 0.38\\text{ m}^2/(\\text{V}\\cdot\\text{s})$ and $\\mu_h = 0.18\\text{ m}^2/(\\text{V}\\cdot\\text{s})$, what is the minority hole concentration $n_h$ and the approximate ratio of conductivity of the doped crystal to that of the intrinsic crystal ($\\sigma_n / \\sigma_i$)?",
+      "options": [
+        "A) $n_h = 6.25 \\times 10^{15}\\text{ m}^{-3}$ and $\\sigma_n / \\sigma_i \\approx 2.7 \\times 10^3$",
+        "B) $n_h = 2.50 \\times 10^{15}\\text{ m}^{-3}$ and $\\sigma_n / \\sigma_i \\approx 1.4 \\times 10^3$",
+        "C) $n_h = 6.25 \\times 10^{15}\\text{ m}^{-3}$ and $\\sigma_n / \\sigma_i \\approx 4.0 \\times 10^2$",
+        "D) $n_h = 1.00 \\times 10^{16}\\text{ m}^{-3}$ and $\\sigma_n / \\sigma_i \\approx 5.4 \\times 10^3$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Using the mass action law $n_e n_h = n_i^2$, with $n_e \\approx N_D = 1.0 \\times 10^{23}\\text{ m}^{-3}$:\n$$n_h = \\frac{n_i^2}{N_D} = \\frac{(2.5 \\times 10^{19})^2}{1.0 \\times 10^{23}} = \\frac{6.25 \\times 10^{38}}{1.0 \\times 10^{23}} = 6.25 \\times 10^{15}\\text{ m}^{-3}$$\nStep 2: Intrinsic conductivity is:\n$$\\sigma_i = e n_i (\\mu_e + \\mu_h) = (1.6 \\times 10^{-19}) \\times (2.5 \\times 10^{19}) \\times (0.38 + 0.18) = 4.0 \\times 0.56 = 2.24\\ \\text{S}\\cdot\\text{m}^{-1}$$\nStep 3: Doped n-type conductivity is dominated by majority electrons:\n$$\\sigma_n \\approx e N_D \\mu_e = (1.6 \\times 10^{-19}) \\times (1.0 \\times 10^{23}) \\times 0.38 = 1.6 \\times 10^4 \\times 0.38 = 6080\\ \\text{S}\\cdot\\text{m}^{-1}$$\nStep 4: The ratio of conductivities is:\n$$\\frac{\\sigma_n}{\\sigma_i} = \\frac{6080}{2.24} \\approx 2714 \\approx 2.7 \\times 10^3$$\nDistractor Analysis: Forgetting to square $n_i$ gives erroneous minority densities, while neglecting hole mobility in the intrinsic state distorts the conductivity ratio."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_035",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a bridge rectifier circuit supplied by an AC voltage $v(t) = 15.0 \\sin(\\omega t)\\text{ V}$, four identical silicon diodes are used, each having a forward threshold voltage drop of $V_D = 0.70\\text{ V}$ and negligible dynamic resistance. If the load resistor is $R_L = 100\\ \\Omega$, what is the peak current flowing through the load resistor during each conduction cycle?",
+      "options": [
+        "A) $150\\text{ mA}$",
+        "B) $143\\text{ mA}$",
+        "C) $122\\text{ mA}$",
+        "D) $136\\text{ mA}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In a bridge rectifier, the load current passes through two diodes in series during each half-cycle.\nStep 2: Each conducting diode has a forward voltage drop of $V_D = 0.70\\text{ V}$. Therefore, the total diode forward drop across the conducting pair is:\n$$V_{drop} = 2 \\times V_D = 2 \\times 0.70\\text{ V} = 1.40\\text{ V}$$\nStep 3: The peak voltage available across the load resistor $R_L$ is:\n$$V_{L,peak} = V_m - V_{drop} = 15.0\\text{ V} - 1.40\\text{ V} = 13.60\\text{ V}$$\nStep 4: The peak current through the load resistor is:\n$$I_{peak} = \\frac{V_{L,peak}}{R_L} = \\frac{13.60\\text{ V}}{100\\ \\Omega} = 0.136\\text{ A} = 136\\text{ mA}$$\nDistractor Analysis: Subtracting only one diode drop ($0.70\\text{ V}$) yields $14.3 / 100 = 143\\text{ mA}$, which fails to account for the two series conducting diodes in a bridge rectifier."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_036",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the operating principles of a photodiode:\n\nStatement I: When a photodiode is illuminated with photons having energy greater than its bandgap ($h\\nu > E_g$), electron-hole pairs generated in and near the depletion layer are separated by the internal junction electric field before recombination can occur.\nStatement II: Under a constant reverse-bias voltage below breakdown, the photocurrent flowing through a photodiode is directly proportional to the intensity (optical power flux) of the incident light.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: When light of photon energy $h\\nu > E_g$ falls on the depletion region, photons are absorbed, generating electron-hole pairs. The built-in reverse electric field rapidly sweeps electrons into the n-side and holes into the p-side before they can recombine, creating an external photocurrent. Hence, Statement I is true.\nStep 2: The number of electron-hole pairs generated per second is directly proportional to the number of incident photons arriving per second (optical intensity). Consequently, the reverse photocurrent $\\Delta I$ increases linearly with light intensity $I_{light}$. Hence, Statement II is true.\nStep 3: Therefore, both Statement I and Statement II are true.\nDistractor Analysis: Denying linearity between photocurrent and light intensity contradicts experimental $I-V$ curves of photodiodes presented in NCERT Section 14.8."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_037",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An experimental p-n junction diode exhibits the following electrical characteristics:\n(i) In forward bias, increasing the voltage from $0.70\\text{ V}$ to $0.74\\text{ V}$ increases the current from $10.0\\text{ mA}$ to $30.0\\text{ mA}$.\n(ii) In reverse bias, increasing the reverse voltage from $2.0\\text{ V}$ to $12.0\\text{ V}$ increases the leakage current from $1.0\\ \\mu\\text{A}$ to $1.2\\ \\mu\\text{A}$.\n\nWhat are the forward dynamic resistance ($r_f$) and reverse dynamic resistance ($r_r$) of the diode in these operating regions?",
+      "options": [
+        "A) $r_f = 2.0\\ \\Omega$ and $r_r = 10\\text{ M}\\Omega$",
+        "B) $r_f = 2.0\\ \\Omega$ and $r_r = 50\\text{ M}\\Omega$",
+        "C) $r_f = 4.0\\ \\Omega$ and $r_r = 50\\text{ M}\\Omega$",
+        "D) $r_f = 0.5\\ \\Omega$ and $r_r = 5\\text{ M}\\Omega$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Dynamic resistance is defined as $r = \\frac{\\Delta V}{\\Delta I}$.\nStep 2: Calculate the forward dynamic resistance $r_f$:\n$$\\Delta V_f = 0.74\\text{ V} - 0.70\\text{ V} = 0.04\\text{ V}$$\n$$\\Delta I_f = 30.0\\text{ mA} - 10.0\\text{ mA} = 20.0\\text{ mA} = 20.0 \\times 10^{-3}\\text{ A}$$\n$$r_f = \\frac{0.04\\text{ V}}{20.0 \\times 10^{-3}\\text{ A}} = 2.0\\ \\Omega$$\nStep 3: Calculate the reverse dynamic resistance $r_r$:\n$$\\Delta V_r = 12.0\\text{ V} - 2.0\\text{ V} = 10.0\\text{ V}$$\n$$\\Delta I_r = 1.2\\ \\mu\\text{A} - 1.0\\ \\mu\\text{A} = 0.2\\ \\mu\\text{A} = 0.2 \\times 10^{-6}\\text{ A}$$\n$$r_r = \\frac{10.0\\text{ V}}{0.2 \\times 10^{-6}\\text{ A}} = 50 \\times 10^6\\ \\Omega = 50\\text{ M}\\Omega$$\nStep 4: Thus, $r_f = 2.0\\ \\Omega$ and $r_r = 50\\text{ M}\\Omega$.\nDistractor Analysis: An answer of $10\\text{ M}\\Omega$ results from using total reverse voltage instead of the difference $\\Delta V_r$."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_038",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The maximum theoretical rectification efficiency of a full-wave center-tapped rectifier is $81.2\\%$, which is exactly twice the maximum efficiency of an ideal half-wave rectifier ($40.6\\%$).\nReason (R): In a full-wave rectifier, conduction occurs during both alternate half-cycles of the AC input voltage, whereas a half-wave rectifier utilizes only alternate half-cycles and wastes the remaining half-cycles.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: For a half-wave rectifier, output DC current is $I_{dc} = \\frac{I_m}{\\pi}$ and RMS current is $I_{rms} = \\frac{I_m}{2}$. The maximum efficiency is:\n$$\\eta_{HW} = \\frac{I_{dc}^2 R_L}{I_{rms}^2 R_L} = \\frac{(I_m/\\pi)^2}{(I_m/2)^2} = \\frac{4}{\\pi^2} \\approx 40.6\\%$$\nStep 2: For a full-wave rectifier, both half-cycles are converted to DC, giving $I_{dc} = \\frac{2I_m}{\\pi}$ and $I_{rms} = \\frac{I_m}{\\sqrt{2}}$. The maximum efficiency is:\n$$\\eta_{FW} = \\frac{(2I_m/\\pi)^2}{(I_m/\\sqrt{2})^2} = \\frac{8}{\\pi^2} \\approx 81.2\\% = 2 \\times \\eta_{HW}$$\nStep 3: This doubling of efficiency arises directly because the full-wave circuit conducts continuously over the entire AC period rather than idling for half the period. Thus, both (A) and (R) are true, and (R) correctly explains (A).\nDistractor Analysis: Asserting that efficiency exceeds $81.2\\%$ without a filter neglects the unavoidable harmonic AC ripple content in rectified sinusoidal pulses."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_039",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements regarding energy levels and carrier concentrations in extrinsic semiconductors are correct?\n\n(i) In silicon, the donor energy level $E_D$ lies approximately $0.05\\text{ eV}$ below the conduction band edge $E_C$.\n(ii) In germanium, the acceptor energy level $E_A$ lies approximately $0.01\\text{ eV}$ above the valence band edge $E_V$.\n(iii) At room temperature ($k_B T \\approx 0.026\\text{ eV}$), practically all donor and acceptor impurity atoms are thermally ionized.\n(iv) In a p-type semiconductor, the minority electron concentration in the conduction band is greater than the intrinsic carrier concentration $n_i$.\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (i), (ii), and (iii) only",
+        "B) (i) and (iv) only",
+        "C) (ii), (iii), and (iv) only",
+        "D) (i), (ii), (iii), and (iv)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: According to NCERT Chapter 14, donor ionization energies are $\\approx 0.05\\text{ eV}$ for Si and $\\approx 0.01\\text{ eV}$ for Ge. Thus, statements (i) and (ii) are correct.\nStep 2: Since thermal energy at room temperature ($k_B T \\approx 0.026\\text{ eV}$) is comparable to or exceeds these dopant binding energies, virtually all dopant atoms are ionized at $300\\text{ K}$. Thus, statement (iii) is correct.\nStep 3: In a p-type semiconductor, the hole concentration is large ($n_h \\approx N_A \\gg n_i$). By the mass action law, $n_e = n_i^2 / n_h$. Because $n_h \\gg n_i$, it follows mathematically that $n_e \\ll n_i$. Thus, the minority electron concentration is far smaller than $n_i$, not greater. Statement (iv) is false.\nStep 4: Therefore, statements (i), (ii), and (iii) are correct.\nDistractor Analysis: Believing statement (iv) is true violates the mass action law, which dictates that an increase in majority holes suppresses minority electrons via enhanced recombination."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_040",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A red light-emitting diode (LED) with a constant forward voltage drop of $V_{LED} = 2.0\\text{ V}$ is operated from a $9.0\\text{ V}$ DC battery. If the recommended safe continuous forward operating current is $I_F = 14.0\\text{ mA}$, what value of series current-limiting resistor $R$ should be connected in the circuit, and what power is dissipated across this resistor?",
+      "options": [
+        "A) $R = 250\\ \\Omega$ and $P_R = 49\\text{ mW}$",
+        "B) $R = 643\\ \\Omega$ and $P_R = 126\\text{ mW}$",
+        "C) $R = 500\\ \\Omega$ and $P_R = 98\\text{ mW}$",
+        "D) $R = 500\\ \\Omega$ and $P_R = 126\\text{ mW}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The voltage drop across the series current-limiting resistor $R$ is:\n$$V_R = V_S - V_{LED} = 9.0\\text{ V} - 2.0\\text{ V} = 7.0\\text{ V}$$\nStep 2: The required resistance to limit current to $I_F = 14.0\\text{ mA} = 14.0 \\times 10^{-3}\\text{ A}$ is:\n$$R = \\frac{V_R}{I_F} = \\frac{7.0\\text{ V}}{14.0 \\times 10^{-3}\\text{ A}} = 500\\ \\Omega$$\nStep 3: The electrical power dissipated in the series resistor is:\n$$P_R = V_R \\times I_F = 7.0\\text{ V} \\times (14.0 \\times 10^{-3}\\text{ A}) = 98.0 \\times 10^{-3}\\text{ W} = 98\\text{ mW}$$\nStep 4: Alternatively, $P_R = I_F^2 R = (0.014)^2 \\times 500 = 0.000196 \\times 500 = 0.098\\text{ W} = 98\\text{ mW}$.\nDistractor Analysis: Using total voltage $9.0\\text{ V}$ instead of $7.0\\text{ V}$ gives $R = 9 / 0.014 = 643\\ \\Omega$ and $P = 126\\text{ mW}$, erroneously omitting the diode voltage drop."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_041",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Device Operating Characteristic) with List II (Underlying Semiconductor Mechanism):\n\nList I:\n(P) Solar Cell $I-V$ characteristic in fourth quadrant\n(Q) Photodiode reverse-bias operation\n(R) Light Emitting Diode forward-bias emission\n(S) Half-wave rectifier pulsating output\n\nList II:\n(i) Delivers electrical energy to an external load via photo-generated carrier separation\n(ii) High fractional change in minority carrier current ensures superior optical sensitivity\n(iii) Radiative recombination of injected majority electrons and holes across the bandgap\n(iv) Unidirectional conduction blocking alternate half-cycles of alternating voltage\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (P)-(ii), (Q)-(i), (R)-(iv), (S)-(iii)",
+        "B) (P)-(i), (Q)-(iii), (R)-(ii), (S)-(iv)",
+        "C) (P)-(iii), (Q)-(ii), (R)-(i), (S)-(iv)",
+        "D) (P)-(i), (Q)-(ii), (R)-(iii), (S)-(iv)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: A solar cell operates in the 4th quadrant because it supplies power directly to an external load via separation of photo-generated electron-hole pairs by the junction electric field. Thus, (P) matches with (i).\nStep 2: A photodiode operates in reverse bias because the fractional increase in minority carrier current upon illumination is substantially larger than that in majority current, providing high sensitivity. Thus, (Q) matches with (ii).\nStep 3: An LED operates in forward bias where injected carriers undergo radiative recombination, emitting photons of energy $h\\nu \\approx E_g$. Thus, (R) matches with (iii).\nStep 4: A half-wave rectifier passes current in one direction only, blocking alternate cycles to create pulsating DC. Thus, (S) matches with (iv).\nStep 5: The correct mapping is (P)-(i), (Q)-(ii), (R)-(iii), (S)-(iv).\nDistractor Analysis: Inverting the roles of solar cell generation and photodiode detection disrupts the accurate physical mapping."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_042",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In the dual-source diode circuit shown below, ideal diode $D_1$ is connected in series with a resistor $R_1 = 2.0\\text{ k}\\Omega$ to a fixed potential of $+10.0\\text{ V}$ at node A. A second ideal diode $D_2$ is connected in series with a resistor $R_2 = 3.0\\text{ k}\\Omega$ to a fixed potential of $+5.0\\text{ V}$ at node B. Both diode paths meet at a common node X, which is connected to ground ($0\\text{ V}$) through a load resistor $R_L = 5.0\\text{ k}\\Omega$. Both diodes face toward node X (anodes connected to nodes A and B, cathodes connected to node X). What is the steady potential of node X ($V_X$) and the current flowing through diode $D_1$?",
+      "options": [
+        "A) $V_X = \\frac{50}{7}\\text{ V} \\approx 7.14\\text{ V}$ and $I_{D1} \\approx 1.43\\text{ mA}$",
+        "B) $V_X = 5.00\\text{ V}$ and $I_{D1} = 2.50\\text{ mA}$",
+        "C) $V_X = 6.25\\text{ V}$ and $I_{D1} = 1.88\\text{ mA}$",
+        "D) $V_X = \\frac{75}{11}\\text{ V} \\approx 6.82\\text{ V}$ and $I_{D1} \\approx 1.59\\text{ mA}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Test diode conduction states. Assume diode $D_1$ conducts (ON) because node A is at the highest potential ($+10.0\\text{ V}$). If $D_1$ is ON and $D_2$ is OFF, diode $D_1$ acts as a short circuit.\nStep 2: Calculate the potential at node X under this assumption using the voltage divider formed by $R_1$ and $R_L$:\n$$V_X = 10.0\\text{ V} \\times \\frac{R_L}{R_1 + R_L} = 10.0\\text{ V} \\times \\frac{5.0\\text{ k}\\Omega}{2.0\\text{ k}\\Omega + 5.0\\text{ k}\\Omega} = \\frac{50}{7}\\text{ V} \\approx 7.14\\text{ V}$$\nStep 3: Now check the bias state of diode $D_2$. The anode of $D_2$ is connected to $+5.0\\text{ V}$ (node B), while its cathode is at $V_X \\approx 7.14\\text{ V}$. The voltage across $D_2$ is $V_{D2} = 5.0\\text{ V} - 7.14\\text{ V} = -2.14\\text{ V} < 0$. Diode $D_2$ is reverse-biased (OFF), which confirms the initial assumption.\nStep 4: Calculate the current flowing through $D_1$:\n$$I_{D1} = \\frac{10.0\\text{ V} - V_X}{R_1} = \\frac{10.0\\text{ V} - 50/7\\text{ V}}{2.0 \\times 10^3\\ \\Omega} = \\frac{20/7\\text{ V}}{2000\\ \\Omega} = \\frac{1}{700}\\text{ A} \\approx 1.43 \\times 10^{-3}\\text{ A} = 1.43\\text{ mA}$$\nDistractor Analysis: Assuming both diodes conduct simultaneously yields $V_X = 6.82\\text{ V}$, but that would require $D_2$ to conduct with anode at $+5\\text{ V}$ and cathode at $6.82\\text{ V}$, which is physically impossible for an ideal diode."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_043",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A photodiode is fabricated from a semiconductor material having an energy bandgap of $E_g = 1.50\\text{ eV}$. It is illuminated by a monochromatic optical signal of wavelength $\\lambda = 620\\text{ nm}$ with an incident optical power of $P_{in} = 2.0\\text{ mW}$. If the quantum efficiency of the photodiode is $\\eta = 80\\%$ (meaning $80\\%$ of incident photons generate electron-hole pairs that contribute to photocurrent), what are the cut-off wavelength ($\\lambda_c$) of this photodiode and the generated photocurrent ($I_{ph}$)? (Take $hc \\approx 1240\\text{ eV}\\cdot\\text{nm}$ and elementary charge $e = 1.6 \\times 10^{-19}\\text{ C}$).",
+      "options": [
+        "A) $\\lambda_c = 620\\text{ nm}$ and $I_{ph} = 1.00\\text{ mA}$",
+        "B) $\\lambda_c = 827\\text{ nm}$ and $I_{ph} = 1.25\\text{ mA}$",
+        "C) $\\lambda_c = 827\\text{ nm}$ and $I_{ph} = 0.80\\text{ mA}$",
+        "D) $\\lambda_c = 930\\text{ nm}$ and $I_{ph} = 0.80\\text{ mA}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The cut-off wavelength $\\lambda_c$ is the longest wavelength capable of exciting electrons across the bandgap $E_g$:\n$$\\lambda_c = \\frac{hc}{E_g} = \\frac{1240\\text{ eV}\\cdot\\text{nm}}{1.50\\text{ eV}} \\approx 826.7\\text{ nm} \\approx 827\\text{ nm}$$\nBecause the incident wavelength $\\lambda = 620\\text{ nm} < \\lambda_c$, photon absorption occurs readily.\nStep 2: The energy of each incident photon is:\n$$E_{ph} = \\frac{hc}{\\lambda} = \\frac{1240\\text{ eV}\\cdot\\text{nm}}{620\\text{ nm}} = 2.00\\text{ eV} = 2.00 \\times 1.6 \\times 10^{-19}\\text{ J} = 3.20 \\times 10^{-19}\\text{ J}$$\nStep 3: The rate of incident photons arriving per second is:\n$$N_{ph} = \\frac{P_{in}}{E_{ph}} = \\frac{2.0 \\times 10^{-3}\\text{ W}}{3.20 \\times 10^{-19}\\text{ J}} = 6.25 \\times 10^{15}\\text{ photons/s}$$\nStep 4: The rate of generated charge carriers contributing to photocurrent is:\n$$N_e = \\eta \\times N_{ph} = 0.80 \\times 6.25 \\times 10^{15} = 5.00 \\times 10^{15}\\text{ electrons/s}$$\nStep 5: The resulting photocurrent is:\n$$I_{ph} = N_e \\times e = (5.00 \\times 10^{15}\\text{ s}^{-1}) \\times (1.6 \\times 10^{-19}\\text{ C}) = 8.00 \\times 10^{-4}\\text{ A} = 0.80\\text{ mA}$$\nDistractor Analysis: Omitting quantum efficiency $\\eta$ yields $I_{ph} = 1.00\\text{ mA}$, while confusing bandgap energy calculation produces incorrect cut-off wavelengths."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_044",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a full-wave rectifier equipped with a shunt capacitor filter:\n\nStatement I: In a full-wave rectifier with a parallel capacitor filter $C$ and load resistance $R_L$, the peak-to-peak ripple voltage $V_r$ is inversely proportional to both the filter capacitance $C$ and the supply frequency $f$.\nStatement II: To achieve effective filtering with negligible ripple in the DC output voltage, the discharge time constant $\\tau = R_L C$ must be substantially smaller than the time period $T$ of the AC input voltage.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In a full-wave rectifier with a shunt capacitor filter, the peak-to-peak ripple voltage is given by the standard relation:\n$$V_r = \\frac{I_{dc}}{2 f C} = \\frac{V_m}{2 f R_L C}$$\nwhere $f$ is the AC input frequency (so $2f$ is the ripple frequency). Thus, $V_r \\propto \\frac{1}{f C}$, meaning ripple is inversely proportional to both capacitance and frequency. Hence, Statement I is true.\nStep 2: To keep the output voltage nearly constant, the capacitor must discharge very little during the non-conduction period between successive peaks.\nStep 3: This requires that the discharge time constant be much greater than the time interval between peaks:\n$$\\tau = R_L C \\gg \\frac{T}{2}$$\nIf $\\tau$ were substantially smaller than $T$, the capacitor would discharge completely within each half-cycle, resulting in high ripple and failing to filter. Therefore, Statement II is false.\nStep 4: Thus, Statement I is true but Statement II is false.\nDistractor Analysis: Inverting the filtering criterion ($\\,R_L C \\ll T\\,$ instead of $\\,R_L C \\gg T/2\\,$) leads to the erroneous conclusion that Statement II is true."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_045",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): As the temperature of an n-type semiconductor crystal is progressively increased from $0\\text{ K}$ to very high temperatures, its conduction electron density first increases sharply, then reaches a broad nearly constant plateau, and eventually rises exponentially at elevated temperatures.\nReason (R): As temperature increases, donor electrons are progressively ionized in the freeze-out regime, all donor impurities become completely ionized while intrinsic generation is negligible in the extrinsic saturation regime, and band-to-band intrinsic excitation dominates over donor density in the intrinsic regime.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: At extremely low temperatures ($T \\to 0\\text{ K}$), thermal energy is insufficient to ionize donor impurities, so electrons are frozen onto donor atoms ($n_e \\approx 0$, freeze-out regime). As $T$ rises slightly, donor electrons are rapidly ionized, causing a steep rise in $n_e$.\nStep 2: At moderate temperatures around room temperature ($100\\text{ K} - 450\\text{ K}$), all donor atoms are completely ionized ($n_e \\approx N_D$), while thermal energy is not yet high enough to break significant host covalent bonds ($n_i \\ll N_D$). This produces a flat plateau in carrier concentration (extrinsic saturation regime).\nStep 3: At very high temperatures ($T > 500\\text{ K}$), intrinsic electron-hole generation across the full bandgap increases exponentially ($n_i(T) \\propto e^{-E_g / (2k_B T)}$) and far exceeds $N_D$ ($n_i \\gg N_D$, intrinsic regime).\nStep 4: Thus, both Assertion (A) and Reason (R) are true, and (R) precisely details the microscopic mechanism explaining (A).\nDistractor Analysis: Rejecting (R) contradicts the standard three-regime temperature behavior (freeze-out, saturation, intrinsic) of extrinsic semiconductors."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_046",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A photovoltaic solar cell with an active surface area of $A = 4.0\\text{ cm}^2$ is illuminated by sunlight with a total irradiance of $I_0 = 1000\\text{ W/m}^2$. Under these standard test conditions, the cell generates an open-circuit voltage of $V_{oc} = 0.60\\text{ V}$ and a short-circuit current of $I_{sc} = 160\\text{ mA}$. If the fill factor of the solar cell is $\\text{FF} = 0.75$, what are the maximum electrical power output ($P_{max}$) deliverable to a matched load and the percentage power conversion efficiency ($\\eta$) of the solar cell?",
+      "options": [
+        "A) $P_{max} = 96\\text{ mW}$ and $\\eta = 24.0\\%$",
+        "B) $P_{max} = 72\\text{ mW}$ and $\\eta = 14.4\\%$",
+        "C) $P_{max} = 120\\text{ mW}$ and $\\eta = 30.0\\%$",
+        "D) $P_{max} = 72\\text{ mW}$ and $\\eta = 18.0\\%$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Calculate the total incident solar optical power on the active cell area:\n$$A = 4.0\\text{ cm}^2 = 4.0 \\times 10^{-4}\\text{ m}^2$$\n$$P_{in} = I_0 \\times A = (1000\\text{ W/m}^2) \\times (4.0 \\times 10^{-4}\\text{ m}^2) = 0.40\\text{ W} = 400\\text{ mW}$$\nStep 2: The fill factor is defined as $\\text{FF} = \\frac{P_{max}}{V_{oc} \\times I_{sc}}$, which gives the maximum deliverable power:\n$$P_{max} = V_{oc} \\times I_{sc} \\times \\text{FF}$$\n$$P_{max} = (0.60\\text{ V}) \\times (160\\text{ mA}) \\times 0.75 = (96\\text{ mW}) \\times 0.75 = 72.0\\text{ mW}$$\nStep 3: Calculate the percentage power conversion efficiency $\\eta$:\n$$\\eta = \\frac{P_{max}}{P_{in}} \\times 100\\% = \\frac{72.0\\text{ mW}}{400\\text{ mW}} \\times 100\\% = 0.18 \\times 100\\% = 18.0\\%$$\nDistractor Analysis: Omitting the fill factor gives $P_{max} = 96\\text{ mW}$ and $\\eta = 24\\%$, which represents the non-physical upper bound where the cell characteristic is perfectly rectangular."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_047",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements regarding the solid-state physics of a semiconductor p-n junction are correct?\n\n(i) The width of the depletion layer varies inversely with the square root of the doping concentration ($d \\propto 1/\\sqrt{N}$), such that heavier doping produces a narrower depletion region.\n(ii) In forward bias, the potential barrier height is lowered to $(V_0 - V)$, allowing exponential injection of majority charge carriers across the junction.\n(iii) In reverse bias, the reverse saturation current increases linearly with the applied reverse bias voltage over a wide operating range.\n(iv) In thermal equilibrium under open-circuit conditions, the Fermi energy level is perfectly constant and uniform throughout the entire p-n structure.\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (i), (ii), and (iv) only",
+        "B) (i) and (iii) only",
+        "C) (ii), (iii), and (iv) only",
+        "D) (i), (ii), (iii), and (iv)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The width of the depletion layer is given by $d = \\sqrt{\\frac{2 \\epsilon (V_0 \\pm V)}{e}\\left(\\frac{1}{N_A} + \\frac{1}{N_D}\\right)}$. Hence, higher dopant density concentrates space charge into a much narrower physical distance ($d \\propto 1/\\sqrt{N}$). Thus, statement (i) is correct.\nStep 2: Under forward bias, the applied voltage opposes the built-in potential, lowering the barrier to $(V_0 - V)$ and enabling majority carriers with sufficient thermal energy to diffuse across exponentially. Thus, statement (ii) is correct.\nStep 3: In reverse bias, the current is governed strictly by the thermal generation rate of minority carriers within a diffusion length of the junction. Once a small reverse voltage (a few tenths of a volt) is applied, all generated minority carriers are collected, and the current saturates at a constant value $I_0$ independent of voltage until breakdown. Thus, statement (iii) is incorrect.\nStep 4: Thermodynamic equilibrium requires that the electrochemical potential (Fermi level $E_F$) be flat and spatially invariant across the entire system. Thus, statement (iv) is correct.\nStep 5: Therefore, statements (i), (ii), and (iv) are correct.\nDistractor Analysis: Selecting statement (iii) confuses the saturation region with an ohmic resistor."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_048",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A piecewise-linear model of a silicon p-n junction diode specifies that the diode is completely non-conducting for forward voltages $V < 0.70\\text{ V}$, and exhibits a constant internal dynamic forward resistance of $r_d = 10.0\\ \\Omega$ for $V \\ge 0.70\\text{ V}$. This diode is connected in series with a load resistor $R_L = 90.0\\ \\Omega$ across a DC power supply of EMF $E = 4.70\\text{ V}$. What is the forward current flowing through the circuit ($I$) and the actual terminal voltage drop across the diode ($V_D$)?",
+      "options": [
+        "A) $I = 47.0\\text{ mA}$ and $V_D = 0.70\\text{ V}$",
+        "B) $I = 44.4\\text{ mA}$ and $V_D = 0.70\\text{ V}$",
+        "C) $I = 40.0\\text{ mA}$ and $V_D = 0.70\\text{ V}$",
+        "D) $I = 40.0\\text{ mA}$ and $V_D = 1.10\\text{ V}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: When conducting, the diode is modeled as an ideal battery of threshold voltage $V_0 = 0.70\\text{ V}$ in series with its dynamic resistance $r_d = 10.0\\ \\Omega$.\nStep 2: Applying Kirchhoff's Voltage Law around the single series loop:\n$$E - V_0 - I(R_L + r_d) = 0$$\n$$4.70\\text{ V} - 0.70\\text{ V} - I(90.0\\ \\Omega + 10.0\\ \\Omega) = 0$$\n$$4.00\\text{ V} = I \\times (100.0\\ \\Omega)$$\nStep 3: Solve for the circuit current $I$:\n$$I = \\frac{4.00\\text{ V}}{100.0\\ \\Omega} = 0.040\\text{ A} = 40.0\\text{ mA}$$\nStep 4: The total voltage drop across the diode includes both the threshold voltage and the internal resistive drop:\n$$V_D = V_0 + I r_d = 0.70\\text{ V} + (0.040\\text{ A} \\times 10.0\\ \\Omega) = 0.70\\text{ V} + 0.40\\text{ V} = 1.10\\text{ V}$$\nStep 5: Verify using the load voltage: $V_L = I R_L = 0.040 \\times 90.0 = 3.60\\text{ V}$, and $V_D + V_L = 1.10\\text{ V} + 3.60\\text{ V} = 4.70\\text{ V} = E$.\nDistractor Analysis: Omitting the dynamic resistance drop gives $V_D = 0.70\\text{ V}$, which violates the piecewise linear forward model under finite dynamic resistance."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_049",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A center-tapped full-wave rectifier operates from a $50\\text{ Hz}$ AC line. Across the load resistor $R_L = 500\\ \\Omega$, a shunt filter capacitor of capacitance $C = 200\\ \\mu\\text{F}$ is connected. If the peak secondary voltage across each half of the center-tapped winding is $V_m = 25.0\\text{ V}$, what is the approximate peak-to-peak ripple voltage ($V_r$) at the DC output? (Use the standard full-wave approximation $V_r = \\frac{V_m}{2 f R_L C}$, where $f$ is the supply frequency).",
+      "options": [
+        "A) $5.0\\text{ V}$",
+        "B) $2.5\\text{ V}$",
+        "C) $1.25\\text{ V}$",
+        "D) $0.25\\text{ V}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In a full-wave rectifier, the capacitor is charged twice per AC cycle, so the discharge interval is approximately $\\Delta t \\approx \\frac{1}{2f}$.\nStep 2: The peak-to-peak ripple voltage formula for a full-wave capacitor filter is:\n$$V_r = \\frac{V_m}{2 f R_L C}$$\nStep 3: Substitute the given parameters:\n$$f = 50\\text{ Hz}$$\n$$R_L = 500\\ \\Omega$$\n$$C = 200\\ \\mu\\text{F} = 200 \\times 10^{-6}\\text{ F} = 2.0 \\times 10^{-4}\\text{ F}$$\n$$V_m = 25.0\\text{ V}$$\nStep 4: Compute the denominator product:\n$$\\text{Denominator} = 2 \\times 50 \\times 500 \\times (2.0 \\times 10^{-4}) = 100 \\times 500 \\times (2.0 \\times 10^{-4}) = 50000 \\times 2.0 \\times 10^{-4} = 10.0$$\nStep 5: Calculate the ripple voltage:\n$$V_r = \\frac{25.0\\text{ V}}{10.0} = 2.50\\text{ V}$$\nDistractor Analysis: Using $f$ instead of $2f$ in the denominator produces $5.0\\text{ V}$, which corresponds to a half-wave rectifier ripple."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_050",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Fundamental Semiconductor Relation) with List II (Governing Mathematical Equation):\n\nList I:\n(P) Law of mass action under thermal equilibrium\n(Q) Total electrical conductivity of an extrinsic semiconductor\n(R) Einstein relation connecting carrier diffusion constant and mobility\n(S) Open-circuit photovoltage developed across an illuminated solar cell\n\nList II:\n(i) $\\frac{D}{\\mu} = \\frac{k_B T}{e}$\n(ii) $V_{oc} = \\frac{k_B T}{e} \\ln\\left(1 + \\frac{I_{sc}}{I_0}\\right)$\n(iii) $n_e \\cdot n_h = n_i^2$\n(iv) $\\sigma = e(n_e \\mu_e + n_h \\mu_h)$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (P)-(iii), (Q)-(iv), (R)-(i), (S)-(ii)",
+        "B) (P)-(iv), (Q)-(iii), (R)-(i), (S)-(ii)",
+        "C) (P)-(iii), (Q)-(iv), (R)-(ii), (S)-(i)",
+        "D) (P)-(ii), (Q)-(i), (R)-(iv), (S)-(iii)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The law of mass action states that for any non-degenerate semiconductor in thermal equilibrium, the product of carrier concentrations depends only on temperature and bandgap: $n_e \\cdot n_h = n_i^2$. Thus, (P) matches with (iii).\nStep 2: Electrical conductivity is the sum of electron and hole drift contributions: $\\sigma = e(n_e \\mu_e + n_h \\mu_h)$. Thus, (Q) matches with (iv).\nStep 3: The Einstein relation relates thermal diffusion of carriers to their drift mobility via thermal voltage: $\\frac{D}{\\mu} = \\frac{k_B T}{e}$. Thus, (R) matches with (i).\nStep 4: Setting the total solar cell terminal current $I = I_{sc} - I_0 (e^{e V / k_B T} - 1) = 0$ gives the open-circuit photovoltage: $V_{oc} = \\frac{k_B T}{e} \\ln\\left(1 + \\frac{I_{sc}}{I_0}\\right)$. Thus, (S) matches with (ii).\nStep 5: The resulting mapping is (P)-(iii), (Q)-(iv), (R)-(i), (S)-(ii).\nDistractor Analysis: Confusing the logarithmic solar cell photovoltage equation with the Einstein relation swaps (R) and (S)."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_051",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An alternating sinusoidal voltage $v_{in}(t) = 10.0 \\sin(\\omega t)\\text{ V}$ is applied across a circuit consisting of a series resistor $R = 1.0\\text{ k}\\Omega$ followed by two parallel clamping branches connected across the output terminals. Branch 1 contains ideal diode $D_1$ connected in series with a $+3.0\\text{ V}$ reference battery (cathode of $D_1$ facing the positive battery terminal). Branch 2 contains ideal diode $D_2$ in opposite orientation connected in series with a $+5.0\\text{ V}$ reference battery (anode of $D_2$ facing the negative battery terminal). What are the maximum and minimum output voltages ($v_{max}$ and $v_{min}$) across the output terminals?",
+      "options": [
+        "A) $v_{max} = +10.0\\text{ V}$ and $v_{min} = -10.0\\text{ V}$",
+        "B) $v_{max} = +5.0\\text{ V}$ and $v_{min} = -3.0\\text{ V}$",
+        "C) $v_{max} = +3.0\\text{ V}$ and $v_{min} = -5.0\\text{ V}$",
+        "D) $v_{max} = +3.0\\text{ V}$ and $v_{min} = 0.0\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: During the positive half-cycle, as $v_{in}(t)$ rises, diode $D_1$ is reverse-biased as long as $v_{in} < +3.0\\text{ V}$. When $v_{in}(t) > +3.0\\text{ V}$, the anode of $D_1$ becomes more positive than its cathode (which is held at $+3.0\\text{ V}$ by the reference battery).\nStep 2: Diode $D_1$ turns ON and acts as a short circuit, clamping the output voltage to $v_{max} = +3.0\\text{ V}$. Any excess voltage $(v_{in} - 3.0\\text{ V})$ drops across the series resistor $R$.\nStep 3: During the negative half-cycle, diode $D_2$ is oriented such that its cathode is connected to the output node and its anode is connected to $-5.0\\text{ V}$. When $v_{in}(t)$ drops below $-5.0\\text{ V}$, diode $D_2$ turns ON, clamping the output voltage to $v_{min} = -5.0\\text{ V}$.\nStep 4: For input voltages between $-5.0\\text{ V}$ and $+3.0\\text{ V}$, both diodes remain OFF, and $v_{out}(t) = v_{in}(t)$.\nStep 5: Hence, the waveform is clipped such that $v_{max} = +3.0\\text{ V}$ and $v_{min} = -5.0\\text{ V}$.\nDistractor Analysis: Inverting the clipping thresholds yields $+5\\text{ V}$ and $-3\\text{ V}$, which reverses the physical polarities of the respective branches."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_052",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding direct and indirect bandgap semiconductors:\n\nStatement I: Elemental semiconductors such as Silicon and Germanium are fundamentally poor materials for fabricating light-emitting diodes because they possess indirect bandgaps, where electron-hole recombination requires interaction with a crystal lattice vibration (phonon), releasing energy predominantly as heat.\nStatement II: Compound semiconductors such as Gallium Arsenide (GaAs) and Gallium Nitride (GaN) possess direct bandgaps, where the conduction band minimum and valence band maximum align at the same crystal momentum ($k = 0$), allowing rapid radiative recombination with spontaneous photon emission.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In silicon and germanium, the minimum of the conduction band does not line up with the maximum of the valence band in momentum space ($k$-space). Therefore, an electron transitioning from $E_C$ to $E_V$ cannot conserve momentum simply by emitting a photon (which carries negligible momentum).\nStep 2: Conservation of momentum demands the simultaneous absorption or emission of a lattice phonon (heat). This three-body process has a very low probability, making radiative recombination exceedingly inefficient; essentially all recombination energy is dissipated as heat. Thus, Statement I is true.\nStep 3: In direct bandgap compound semiconductors like GaAs, GaN, and InP, the conduction band minimum lies directly above the valence band maximum at $k = 0$. Electrons can recombine directly with holes while conserving energy and momentum, emitting photons with high quantum efficiency. Thus, Statement II is true.\nStep 4: Therefore, both Statement I and Statement II are true.\nDistractor Analysis: Believing silicon is suitable for LEDs overlooks the fundamental quantum mechanical restriction imposed by its indirect bandgap."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_053",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The forbidden energy bandgap of crystalline silicon is $E_g = 1.12\\text{ eV}$. The temperature dependence of its intrinsic carrier concentration is governed by the relation $n_i(T) \\propto T^{3/2} \\exp\\left(-\\frac{E_g}{2 k_B T}\\right)$. By approximately what factor does the exponential Boltzmann factor $\\exp\\left(-\\frac{E_g}{2 k_B T}\\right)$ increase when the temperature of pure silicon rises from $T_1 = 300\\text{ K}$ to $T_2 = 350\\text{ K}$? (Take Boltzmann constant $k_B \\approx 8.62 \\times 10^{-5}\\text{ eV/K}$, and $e^{3.09} \\approx 22$).",
+      "options": [
+        "A) $\\approx 22$",
+        "B) $\\approx 1.17$",
+        "C) $\\approx 4.5$",
+        "D) $\\approx 150$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate the argument $\\frac{E_g}{2 k_B T}$ at temperature $T_1 = 300\\text{ K}$:\n$$2 k_B T_1 = 2 \\times (8.62 \\times 10^{-5}\\text{ eV/K}) \\times 300\\text{ K} = 0.05172\\text{ eV}$$\n$$\\frac{E_g}{2 k_B T_1} = \\frac{1.12\\text{ eV}}{0.05172\\text{ eV}} \\approx 21.65$$\nStep 2: Calculate the argument $\\frac{E_g}{2 k_B T}$ at temperature $T_2 = 350\\text{ K}$:\n$$2 k_B T_2 = 2 \\times (8.62 \\times 10^{-5}\\text{ eV/K}) \\times 350\\text{ K} = 0.06034\\text{ eV}$$\n$$\\frac{E_g}{2 k_B T_2} = \\frac{1.12\\text{ eV}}{0.06034\\text{ eV}} \\approx 18.56$$\nStep 3: Calculate the ratio of the exponential terms:\n$$\\text{Ratio} = \\frac{\\exp(-18.56)}{\\exp(-21.65)} = \\exp(21.65 - 18.56) = \\exp(3.09)$$\nStep 4: Evaluating $\\exp(3.09) \\approx 22.0$.\nStep 5: Thus, the exponential factor increases by a factor of approximately $22$.\nDistractor Analysis: Taking the ratio of temperatures $(350/300) = 1.17$ completely ignores the dominant role of the exponential Boltzmann activation factor."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_054",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A silicon p-n junction diode conducting a steady forward current of $I_F = 10.0\\text{ mA}$ is abruptly switched to a reverse-bias voltage of $V_R = 10.0\\text{ V}$ through a series loop resistance of $R = 1.0\\text{ k}\\Omega$. For a brief transient duration called the reverse storage time ($t_s$), the reverse current does not immediately drop to the microampere saturation level, but instead maintains a substantial value $I_R$. What is the magnitude of this initial reverse transient current $I_R$, and what physical process is responsible for it?",
+      "options": [
+        "A) $I_R \\approx 0.10\\text{ mA}$, caused by rapid electron-hole pair generation inside the depletion layer",
+        "B) $I_R \\approx 1.0\\ \\mu\\text{A}$, caused by the standard thermal drift of minority carriers",
+        "C) $I_R \\approx 10.0\\text{ mA}$, caused by the sweep-out of excess minority carriers stored in the neutral regions adjacent to the junction",
+        "D) $I_R \\approx 0.0\\text{ mA}$, because an ideal diode blocks reverse current instantaneously"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: During steady forward conduction, minority carriers (holes injected into the n-side and electrons injected into the p-side) accumulate and are stored in the neutral regions adjacent to the depletion layer.\nStep 2: When the applied voltage is abruptly switched to reverse polarity ($V_R = 10.0\\text{ V}$), this stored minority charge cannot vanish instantaneously; it must either recombine or be swept back across the junction by the applied electric field.\nStep 3: While this excess minority charge is being swept out (the storage phase $t_s$), the junction remains flooded with carriers and maintains a low impedance with near-zero junction voltage drop.\nStep 4: Consequently, the initial reverse current is limited strictly by the external circuit resistor:\n$$I_R \\approx \\frac{V_R}{R} = \\frac{10.0\\text{ V}}{1.0 \\times 10^3\\ \\Omega} = 10.0 \\times 10^{-3}\\text{ A} = 10.0\\text{ mA}$$\nStep 5: Only after the excess carriers are fully depleted does the reverse current drop to the steady-state reverse saturation current $I_0$.\nDistractor Analysis: Assuming the diode turns off instantaneously ($I_R = 0$) ignores the physical reality of stored minority charge, which is a key design consideration in high-speed rectifier circuits."
+    },
+    {
+      "id": "phy_semiconductor_electronics_c01_055",
+      "subject": "Physics",
+      "topic": "Semiconductor Electronics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Silicon ($E_g = 1.1\\text{ eV}$) and Gallium Arsenide ($E_g = 1.43\\text{ eV}$) are preferred semiconductor materials for terrestrial photovoltaic solar cells over Cadmium Sulfide ($\\text{CdS}$, $E_g = 2.4\\text{ eV}$) and Lead Sulfide ($\\text{PbS}$, $E_g = 0.4\\text{ eV}$).\nReason (R): The solar emission spectrum reaching Earth has its peak photon intensity near $h\\nu \\approx 1.5\\text{ eV}$; semiconductors with $E_g \\approx 1.5\\text{ eV}$ maximize the product of photon absorption and generated open-circuit voltage, whereas materials with $E_g \\ge 2.4\\text{ eV}$ absorb only a small high-energy fraction of sunlight and materials with $E_g \\le 0.4\\text{ eV}$ generate an extremely small photovoltage.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Solar radiation follows roughly a blackbody spectrum with the peak intensity occurring around photon energies of $1.5\\text{ eV}$.\nStep 2: Photons with energy $h\\nu < E_g$ cannot be absorbed and pass through the material unused. If a material has a large bandgap such as $\\text{CdS}$ ($E_g = 2.4\\text{ eV}$), most solar photons lack sufficient energy to generate electron-hole pairs, resulting in a very low short-circuit current.\nStep 3: On the other hand, if a material has a very small bandgap such as $\\text{PbS}$ ($E_g = 0.4\\text{ eV}$), it absorbs many photons, but the excess energy $(h\\nu - E_g)$ is wasted as heat, and the resulting open-circuit voltage $V_{oc} < E_g/e$ is severely limited, drastically reducing total power output ($P = V_{oc} \\times I_{sc} \\times \\text{FF}$).\nStep 4: Consequently, optimum conversion efficiency occurs for semiconductors with bandgaps near $1.5\\text{ eV}$, making $\\text{Si}$ ($1.1\\text{ eV}$) and $\\text{GaAs}$ ($1.43\\text{ eV}$) ideal candidates. Thus, Assertion (A) and Reason (R) are both true, and (R) provides the exact scientific explanation of (A).\nDistractor Analysis: Claiming that bandgap doesn't matter or that smaller bandgaps always produce more electrical power ignores the fundamental trade-off between current and open-circuit voltage."
+    }
+  ]
+}

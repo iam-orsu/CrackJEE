@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Wave Optics",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_wave_optics_c01_001",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the propagation of light waves and the concept of wavefront:\n\nStatement I: A wavefront is defined as the locus of all constituent particles or points in a medium that oscillate in the same phase at any given instant.\nStatement II: The direction of propagation of light energy (a light ray) is perpendicular to the wavefront at every point in an isotropic medium.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: According to wave optics (NCERT Class 12), a wavefront is geometrically defined as a surface of constant phase, which represents the locus of all spatial points oscillating in identical phase at a given instant.\nStep 2: By definition, light rays are lines perpendicular to the wavefront pointing in the direction of energy propagation. In an isotropic medium (where speed of light is independent of direction), rays are strictly normal to the wavefront at every point.\nStep 3: Therefore, both Statement I and Statement II are scientifically accurate and follow directly from NCERT principles.\nDistractor Analysis: Assertions claiming that either statement is false contradict the fundamental wave-optical definitions of wavefronts and rays."
+    },
+    {
+      "id": "phy_wave_optics_c01_002",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Light emitted from a narrow, long linear slit source at a finite distance produces a cylindrical wavefront in an isotropic medium.\nReason (R): In an isotropic medium, all points equidistant from a linear source lie on the surface of a cylinder coaxial with the slit, so disturbances arrive at this surface in the same phase.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: A point source at a finite distance emits disturbances that spread equally in all directions with speed $v$, producing spherical wavefronts of radius $r = vt$.\nStep 2: For a narrow linear slit, each point on the slit acts as a source of spherical wavelets. The envelope of these spherical wavelets at a distance $r$ from the linear axis forms a cylinder of radius $r = vt$.\nStep 3: Because the medium is isotropic, disturbances take equal time to travel the perpendicular distance $r$, ensuring that all points on the coaxial cylindrical surface have identical phase. Thus, (R) correctly explains (A).\nDistractor Analysis: Alternative choices asserting that (A) is false, (R) is false, or that (R) does not explain (A) overlook the geometric envelope of wavelets emitted from a line source."
+    },
+    {
+      "id": "phy_wave_optics_c01_003",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "According to Huygens' principle, which of the following statements correctly describes how the position and shape of a new wavefront are determined at a subsequent time $t + \\Delta t$?",
+      "options": [
+        "A) By drawing lines connecting the primary source directly to the center of all secondary sources.",
+        "B) By drawing a surface tangent to the back-wavelets traveling toward the primary source.",
+        "C) By constructing the forward envelope (common tangential surface) to all secondary spherical wavelets of radius $v\\Delta t$.",
+        "D) By taking the arithmetic average of the coordinates of all secondary wavelets in the medium."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Huygens' principle states that each point of a primary wavefront acts as a secondary source of spherical wavelets spreading out in the forward direction with the speed of light $v$ in that medium.\nStep 2: To find the wavefront after time $\\Delta t$, spheres of radius $r = v\\Delta t$ are drawn centered at points along the initial wavefront.\nStep 3: The forward envelope (a surface tangential to all these secondary wavelets in the forward direction) gives the new position and profile of the wavefront at time $t + \\Delta t$.\nDistractor Analysis: Huygens explicitly ruled out backward wavelets (later justified by Kirchhoff's obliquity factor $(1+\\cos\\theta)/2$), and the wavefront is neither an arithmetic average nor direct radial connecting lines."
+    },
+    {
+      "id": "phy_wave_optics_c01_004",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A monochromatic beam of light of wavelength $\\lambda = 600\\text{ nm}$ in vacuum enters a transparent liquid of refractive index $\\mu = 1.5$. The speed of light in vacuum is $c = 3.0 \\times 10^8\\text{ m/s}$. What are the frequency $\\nu$, wavelength $\\lambda'$, and speed $v$ of the light beam inside the liquid?",
+      "options": [
+        "A) $\\nu = 3.33 \\times 10^{14}\\text{ Hz},\\ \\lambda' = 600\\text{ nm},\\ v = 2.0 \\times 10^8\\text{ m/s}$",
+        "B) $\\nu = 5.0 \\times 10^{14}\\text{ Hz},\\ \\lambda' = 900\\text{ nm},\\ v = 3.0 \\times 10^8\\text{ m/s}$",
+        "C) $\\nu = 7.5 \\times 10^{14}\\text{ Hz},\\ \\lambda' = 400\\text{ nm},\\ v = 1.5 \\times 10^8\\text{ m/s}$",
+        "D) $\\nu = 5.0 \\times 10^{14}\\text{ Hz},\\ \\lambda' = 400\\text{ nm},\\ v = 2.0 \\times 10^8\\text{ m/s}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Frequency is an intrinsic characteristic of the light source and remains completely invariant when light crosses an optical boundary: $\\nu = \\frac{c}{\\lambda} = \\frac{3.0 \\times 10^8\\text{ m/s}}{600 \\times 10^{-9}\\text{ m}} = 5.0 \\times 10^{14}\\text{ Hz}$.\nStep 2: Speed in the liquid decreases by the refractive index factor: $v = \\frac{c}{\\mu} = \\frac{3.0 \\times 10^8}{1.5} = 2.0 \\times 10^8\\text{ m/s}$.\nStep 3: Wavelength inside the liquid is compressed proportionally: $\\lambda' = \\frac{\\lambda}{\\mu} = \\frac{600\\text{ nm}}{1.5} = 400\\text{ nm}$.\nDistractor Analysis: Incorrect options either alter the frequency across the interface or invert the refractive index dependence ($900\\text{ nm}$ instead of $400\\text{ nm}$)."
+    },
+    {
+      "id": "phy_wave_optics_c01_005",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the modification of wavefronts by optical devices:\n\nStatement I: When a plane wavefront is incident normally on a thin convex lens, the emerging wavefront is spherical and converges toward the principal focus.\nStatement II: When a plane wavefront passes through a thin glass prism, the emerging wavefront remains plane but is tilted toward the thicker base of the prism.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: A convex lens is thicker at the center than at the edges. Since light travels slower in glass ($v = c/\\mu$), the central portion of the incident plane wavefront experiences the greatest time delay, while the peripheral parts travel mostly through air. Thus, the emerging wavefront becomes concave forward (converging spherical wavefront centered at the focus).\nStep 2: For a prism, the base is thicker than the apex. Waves traversing the base travel through more glass and suffer more time delay than waves near the apex, causing the wavefront to tilt toward the base while remaining planar for a thin prism.\nStep 3: Both statements correctly state NCERT Chapter 10 descriptions of wavefront behavior through lenses and prisms.\nDistractor Analysis: Any choice declaring either statement false ignores the physical optical path delays induced by the thickness gradients of lenses and prisms."
+    },
+    {
+      "id": "phy_wave_optics_c01_006",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When a plane wavefront is incident normally on a concave mirror, the reflected wavefront is spherical and converges toward the focus of the mirror.\nReason (R): During reflection in air, light rays striking the center of the concave mirror slow down, thereby delaying the central wavelets relative to the peripheral wavelets.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: When a plane wavefront strikes a concave mirror, the outer edges of the mirror reflect the wave earlier than the center (vertex) because the mirror curves inward. Thus, peripheral parts of the reflected wave advance further into space while the central part is reflected later.\nStep 2: This geometric path difference produces a reflected spherical wavefront that converges toward the focal point. Thus, Assertion (A) is true.\nStep 3: The speed of light in air remains constant ($c$) throughout reflection. Light does not slow down at the mirror surface; reflection alters propagation direction, not wave speed in the medium. Thus, Reason (R) is entirely false.\nDistractor Analysis: Claiming that Reason (R) is true violates the principle that wave speed is determined solely by the properties of the propagation medium."
+    },
+    {
+      "id": "phy_wave_optics_c01_007",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the source/optical system in List I with the corresponding shape of the wavefront produced in an isotropic medium in List II:\n\nList I:\n(P) A point source of light situated at a finite distance\n(Q) A narrow, long linear slit illuminated by light\n(R) Light emerging from a convex lens with a point source at its principal focus\n(S) Light reaching the surface of the Earth from a distant star\n\nList II:\n(1) Cylindrical wavefront\n(2) Spherical diverging wavefront\n(3) Plane wavefront of finite aperture\n(4) Plane wavefront over macroscopic terrestrial dimensions\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-4, S-3",
+        "B) P-2, Q-1, R-3, S-4",
+        "C) P-2, Q-3, R-1, S-4",
+        "D) P-3, Q-1, R-2, S-4"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: A point source at a finite distance radiates uniformly in three dimensions, generating spherical diverging wavefronts (P matches 2).\nStep 2: A long, narrow linear slit source produces wavelets whose envelope forms a cylindrical surface coaxial with the slit (Q matches 1).\nStep 3: When a point source is placed at the principal focus of a convex lens, refracted rays emerge parallel to each other, producing a plane wavefront bounded by the lens aperture (R matches 3).\nStep 4: A star is situated at an effectively infinite distance; spherical wavefronts originating from it expand so much that their curvature is negligible over terrestrial distances, arriving as plane wavefronts (S matches 4).\nDistractor Analysis: The correct pairing is P-2, Q-1, R-3, S-4; permutations switching cylindrical and spherical geometries represent invalid source-wavefront associations."
+    },
+    {
+      "id": "phy_wave_optics_c01_008",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding coherence and interference of light:\n\nStatement I: Two independent monochromatic sodium lamps placed close to each other cannot produce a sustained interference pattern on a screen.\nStatement II: Independent conventional light sources emit light through independent atomic de-excitations with random, uncorrelated phase shifts occurring every $10^{-8}\\text{ s}$ to $10^{-10}\\text{ s}$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Sustained interference requires coherent sources, which means the phase difference between the interfering waves must remain constant with time.\nStep 2: In independent thermal or discharge lamps (like two sodium lamps), light is produced by billions of distinct atoms emitting wave packets spontaneously. Each wave packet lasts for about $10^{-8}\\text{ s}$, after which the phase abruptly changes randomly.\nStep 3: Because the phase difference fluctuates millions of times per second, the intensity at any point on the screen averages out over time to $I_1 + I_2$, resulting in uniform illumination rather than a stable fringe pattern. Thus, both Statement I and Statement II are true.\nDistractor Analysis: Denying either statement contradicts NCERT Section 10.4, which emphasizes that independent sources can never be coherent."
+    },
+    {
+      "id": "phy_wave_optics_c01_009",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In an optical interference setup using monochromatic light of wavelength $\\lambda = 500\\text{ nm}$, two coherent waves arrive at a point $P$ on a screen with a geometric path difference of $\\Delta x = 125\\text{ nm}$. What is the phase difference $\\Delta\\phi$ between the two waves at point $P$?",
+      "options": [
+        "A) $\\pi\\text{ rad}$",
+        "B) $\\frac{\\pi}{4}\\text{ rad}$",
+        "C) $\\frac{3\\pi}{2}\\text{ rad}$",
+        "D) $\\frac{\\pi}{2}\\text{ rad}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The fundamental relation between phase difference $\\Delta\\phi$ and path difference $\\Delta x$ is given by $\\Delta\\phi = \\frac{2\\pi}{\\lambda}\\Delta x$.\nStep 2: Substituting $\\lambda = 500\\text{ nm}$ and $\\Delta x = 125\\text{ nm}$:\n$$\\Delta\\phi = \\frac{2\\pi}{500\\text{ nm}} \\times 125\\text{ nm} = 2\\pi \\times \\frac{1}{4} = \\frac{\\pi}{2}\\text{ rad}$$\nStep 3: In degrees, $\\Delta\\phi = 90^\\circ$. The waves are in quadrature.\nDistractor Analysis: Selecting $\\pi\\text{ rad}$ corresponds to $\\Delta x = \\lambda/2 = 250\\text{ nm}$; selecting $\\pi/4\\text{ rad}$ assumes an incorrect factor of $\\pi/\\lambda$ instead of $2\\pi/\\lambda$."
+    },
+    {
+      "id": "phy_wave_optics_c01_010",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In Young's double-slit experiment illuminated by monochromatic light of wavelength $\\lambda$, what are the path differences corresponding to the $n\\text{th}$ bright fringe (maxima) and the $n\\text{th}$ dark fringe (minima) measured from the central maximum ($n = 1, 2, 3, \\dots$)?",
+      "options": [
+        "A) $n\\lambda$ for the $n\\text{th}$ bright fringe, and $(2n-1)\\frac{\\lambda}{2}$ for the $n\\text{th}$ dark fringe",
+        "B) $(2n-1)\\frac{\\lambda}{2}$ for the $n\\text{th}$ bright fringe, and $n\\lambda$ for the $n\\text{th}$ dark fringe",
+        "C) $n\\lambda$ for the $n\\text{th}$ bright fringe, and $(n+1)\\frac{\\lambda}{2}$ for the $n\\text{th}$ dark fringe",
+        "D) $(2n+1)\\lambda$ for the $n\\text{th}$ bright fringe, and $n\\frac{\\lambda}{2}$ for the $n\\text{th}$ dark fringe"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Constructive interference occurs when crest meets crest and trough meets trough, requiring path difference to be an integer multiple of wavelength: $\\Delta x = n\\lambda$ for $n = 0, 1, 2, \\dots$.\nStep 2: Destructive interference occurs when waves arrive in exact antiphase (phase difference $(2n-1)\\pi$), corresponding to odd half-integral multiples of wavelength: $\\Delta x = (2n-1)\\frac{\\lambda}{2}$ for $n = 1, 2, 3, \\dots$.\nStep 3: For $n = 1$, the first dark fringe has $\\Delta x = \\lambda/2$, and the first bright fringe has $\\Delta x = \\lambda$.\nDistractor Analysis: Inverting the conditions for bright and dark fringes is a common student trap, as is using $(n+1)\\lambda/2$ which incorrectly yields integer multiples for odd $n$."
+    },
+    {
+      "id": "phy_wave_optics_c01_011",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a Young's double-slit experiment, the slit separation is $d = 1.0\\text{ mm}$ and the distance from the plane of the slits to the viewing screen is $D = 1.0\\text{ m}$. If light of wavelength $\\lambda = 600\\text{ nm}$ is used, what is the fringe width $\\beta$ on the screen?",
+      "options": [
+        "A) $0.30\\text{ mm}$",
+        "B) $0.60\\text{ mm}$",
+        "C) $1.20\\text{ mm}$",
+        "D) $0.06\\text{ mm}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In Young's double-slit experiment, fringe width $\\beta$ is the distance between any two consecutive bright or dark fringes: $\\beta = \\frac{\\lambda D}{d}$.\nStep 2: Convert all quantities to SI units:\n$$\\lambda = 600 \\times 10^{-9}\\text{ m}, \\quad D = 1.0\\text{ m}, \\quad d = 1.0 \\times 10^{-3}\\text{ m}$$\nStep 3: Calculate $\\beta$:\n$$\\beta = \\frac{(600 \\times 10^{-9}\\text{ m}) \\times (1.0\\text{ m})}{1.0 \\times 10^{-3}\\text{ m}} = 6.0 \\times 10^{-4}\\text{ m} = 0.60\\text{ mm}$$\nDistractor Analysis: $0.30\\text{ mm}$ incorrectly divides by $2d$; $1.20\\text{ mm}$ doubles the result by confusing full fringe width with central maximum diffraction width."
+    },
+    {
+      "id": "phy_wave_optics_c01_012",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In Young's double-slit experiment, if the distance $D$ between the slits and the screen is doubled while keeping the slit separation $d$ unchanged, the angular fringe width $\\theta$ remains constant.\nReason (R): The angular fringe width is given by $\\theta = \\frac{\\beta}{D} = \\frac{\\lambda}{d}$, which depends solely on the wavelength $\\lambda$ and slit separation $d$, and is independent of $D$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The linear fringe width is $\\beta = \\frac{\\lambda D}{d}$. When $D$ is doubled, $\\beta$ doubles.\nStep 2: The angular fringe width $\\theta$ subtended by a fringe at the slits is $\\theta = \\frac{\\beta}{D} = \\frac{\\lambda D / d}{D} = \\frac{\\lambda}{d}$.\nStep 3: Because $\\theta = \\lambda / d$, it does not contain $D$. Hence, doubling $D$ increases the linear separation on screen but leaves the angular separation between adjacent fringes unchanged. Reason (R) correctly explains Assertion (A).\nDistractor Analysis: Believing that $\\theta$ doubles like $\\beta$ confuses linear dimensions with angular dimensions."
+    },
+    {
+      "id": "phy_wave_optics_c01_013",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a Young's double-slit experiment conducted in air, the fringe width is measured to be $\\beta = 0.80\\text{ mm}$. If the entire experimental setup is completely immersed in water of refractive index $\\mu = 4/3$ without changing any of the geometric parameters ($d$ and $D$), what will be the new fringe width $\\beta'$?",
+      "options": [
+        "A) $1.07\\text{ mm}$",
+        "B) $0.80\\text{ mm}$",
+        "C) $0.60\\text{ mm}$",
+        "D) $0.45\\text{ mm}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: When the apparatus is immersed in a liquid of refractive index $\\mu$, the wavelength of light decreases to $\\lambda' = \\frac{\\lambda}{\\mu}$.\nStep 2: The new fringe width is therefore given by:\n$$\\beta' = \\frac{\\lambda' D}{d} = \\frac{(\\lambda / \\mu) D}{d} = \\frac{\\beta}{\\mu}$$\nStep 3: Substitute $\\beta = 0.80\\text{ mm}$ and $\\mu = 4/3$:\n$$\\beta' = \\frac{0.80\\text{ mm}}{4/3} = 0.80 \\times \\frac{3}{4} = 0.60\\text{ mm}$$\nDistractor Analysis: $1.07\\text{ mm}$ results from multiplying by $\\mu$ ($0.80 \\times 4/3$), which violates the wave property that light compresses in wavelength in denser media."
+    },
+    {
+      "id": "phy_wave_optics_c01_014",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the interference pattern observed when white light is used in Young's double-slit experiment:\n\nStatement I: The central fringe at the midpoint of the screen is white because the optical path difference between the two waves is zero for all wavelengths.\nStatement II: The colored fringe observed closest to the central white fringe on either side has a violet/blue tint because violet light has the shortest wavelength in the visible spectrum.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: At the central position $y = 0$, path difference $\\Delta x = 0$ for every constituent wavelength of white light. Hence, constructive interference occurs for all colors simultaneously, superposing to form a pure white central fringe.\nStep 2: As one moves away from $y = 0$, the first maximum occurs at $y_1 = \\frac{\\lambda D}{d}$. Because violet has the smallest wavelength ($\\approx 400\\text{ nm}$), its first bright fringe occurs closest to the center.\nStep 3: Red light ($\\approx 700\\text{ nm}$) has the largest fringe width, so its first bright fringe appears further out. Hence, the fringe closest to the central white fringe appears violet/blue, making both statements true.\nDistractor Analysis: Claiming that the closest fringe is red reverses the direct proportionality $y_1 \\propto \\lambda$."
+    },
+    {
+      "id": "phy_wave_optics_c01_015",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a Young's double-slit experiment, monochromatic light of wavelength $\\lambda = 500\\text{ nm}$ illuminates two slits separated by $d = 0.50\\text{ mm}$. A screen is located at a distance $D = 1.0\\text{ m}$ from the slit plane. What is the linear distance from the central maximum to the third ($n = 3$) bright fringe?",
+      "options": [
+        "A) $1.5\\text{ mm}$",
+        "B) $2.0\\text{ mm}$",
+        "C) $3.0\\text{ mm}$",
+        "D) $4.5\\text{ mm}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The linear position of the $n\\text{th}$ bright fringe from the central maximum is given by $y_n = \\frac{n\\lambda D}{d}$.\nStep 2: Substitute $n = 3$, $\\lambda = 500 \\times 10^{-9}\\text{ m}$, $D = 1.0\\text{ m}$, and $d = 0.50 \\times 10^{-3}\\text{ m}$:\n$$y_3 = \\frac{3 \\times (500 \\times 10^{-9}\\text{ m}) \\times 1.0\\text{ m}}{0.50 \\times 10^{-3}\\text{ m}}$$\nStep 3: Simplify the calculation:\n$$y_3 = \\frac{1500 \\times 10^{-9}}{0.50 \\times 10^{-3}} = 3000 \\times 10^{-6}\\text{ m} = 3.0\\text{ mm}$$\nDistractor Analysis: $1.5\\text{ mm}$ represents the distance to the 3rd dark fringe or incorrect fringe index $n=1.5$; $4.5\\text{ mm}$ uses $(2n-1)$ or incorrect scaling."
+    },
+    {
+      "id": "phy_wave_optics_c01_016",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a Young's double-slit experiment, the slit separation is $d = 0.40\\text{ mm}$, the screen distance is $D = 1.2\\text{ m}$, and light of wavelength $\\lambda = 600\\text{ nm}$ is used. What is the linear distance of the second ($n = 2$) dark fringe from the central bright maximum?",
+      "options": [
+        "A) $0.9\\text{ mm}$",
+        "B) $1.8\\text{ mm}$",
+        "C) $3.6\\text{ mm}$",
+        "D) $2.7\\text{ mm}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The position of the $n\\text{th}$ dark fringe from the central maximum is given by $y_n' = (2n - 1)\\frac{\\lambda D}{2d}$.\nStep 2: For the second dark fringe, set $n = 2$:\n$$y_2' = (2(2) - 1)\\frac{\\lambda D}{2d} = \\frac{3\\lambda D}{2d}$$\nStep 3: Substitute the numerical values:\n$$y_2' = \\frac{3 \\times (600 \\times 10^{-9}\\text{ m}) \\times 1.2\\text{ m}}{2 \\times (0.40 \\times 10^{-3}\\text{ m})} = \\frac{2.16 \\times 10^{-6}}{0.80 \\times 10^{-3}} = 2.7 \\times 10^{-3}\\text{ m} = 2.7\\text{ mm}$$\nDistractor Analysis: $0.9\\text{ mm}$ corresponds to the 1st dark fringe ($n=1$); $1.8\\text{ mm}$ corresponds to the 1st bright fringe ($n=1$); $3.6\\text{ mm}$ corresponds to the 2nd bright fringe ($n=2$)."
+    },
+    {
+      "id": "phy_wave_optics_c01_017",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When two identical coherent light waves, each of intensity $I_0$, interfere constructively, the maximum intensity obtained is $4I_0$ rather than $2I_0$.\nReason (R): For coherent wave superposition, resultant amplitude is the algebraic/vector sum of the component amplitudes ($A = A_1 + A_2 = 2A_0$), and wave intensity is directly proportional to the square of the resultant amplitude ($I \\propto A^2$).\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In coherent superposition, waves add at the amplitude level: $\\vec{A}_{\\text{res}} = \\vec{A}_1 + \\vec{A}_2$. For constructive interference in phase, $A_{\\max} = A_0 + A_0 = 2A_0$.\nStep 2: Since intensity is proportional to the square of amplitude ($I \\propto A^2$), $I_{\\max} \\propto (2A_0)^2 = 4A_0^2 = 4I_0$.\nStep 3: If sources were incoherent, intensities would add directly ($I = I_0 + I_0 = 2I_0$). Thus, Reason (R) provides the exact mathematical and physical foundation for Assertion (A).\nDistractor Analysis: Thinking that energy conservation prohibits $4I_0$ overlooks the fact that dark fringes have $0$ intensity, giving an average intensity over the screen of $\\frac{4I_0 + 0}{2} = 2I_0$."
+    },
+    {
+      "id": "phy_wave_optics_c01_018",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a single-slit Fraunhofer diffraction experiment using monochromatic light of wavelength $\\lambda$ incident normally on a slit of width $a$, what is the condition for the first diffraction minimum to occur at an angle of diffraction $\\theta$?",
+      "options": [
+        "A) $a\\sin\\theta = \\frac{\\lambda}{2}$",
+        "B) $a\\sin\\theta = \\frac{3\\lambda}{2}$",
+        "C) $a\\sin\\theta = \\lambda$",
+        "D) $a\\sin\\theta = 2\\lambda$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In single-slit diffraction, the slit of width $a$ can be divided into two equal halves of width $a/2$.\nStep 2: When the path difference between wavelets from the extreme edges of the slit is $a\\sin\\theta = \\lambda$, the path difference between corresponding wavelets from the upper half and lower half is $\\frac{a}{2}\\sin\\theta = \\frac{\\lambda}{2}$.\nStep 3: Every wavelet from the upper half interferes destructively with a corresponding wavelet from the lower half, producing zero resultant intensity (the first diffraction minimum). Thus, the condition is $a\\sin\\theta = \\lambda$.\nDistractor Analysis: $a\\sin\\theta = \\lambda/2$ is an intuitive student trap confusing single-slit diffraction minimum with two-slit interference destructive condition."
+    },
+    {
+      "id": "phy_wave_optics_c01_019",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding single-slit Fraunhofer diffraction:\n\nStatement I: The linear width of the central maximum on a screen placed at distance $D$ from a slit of width $a$ is $2\\beta_0 = \\frac{2\\lambda D}{a}$, which is twice the width of any secondary maximum.\nStatement II: The angular width of the central diffraction maximum is $2\\theta_0 = \\frac{2\\lambda}{a}$, subtended between the first minima on either side of the center.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The first minima on either side of the central axis occur at angular positions $\\sin\\theta \\approx \\theta = \\pm \\frac{\\lambda}{a}$.\nStep 2: The total angular width of the central maximum between these two minima is $2\\theta_0 = \\frac{\\lambda}{a} - \\left(-\\frac{\\lambda}{a}\\right) = \\frac{2\\lambda}{a}$.\nStep 3: On a screen at distance $D$, the linear width of the central maximum is $2y_1 = 2\\theta_0 D = \\frac{2\\lambda D}{a}$. In contrast, any secondary maximum lies between two consecutive minima separated by $\\Delta\\theta = \\frac{\\lambda}{a}$, giving linear width $\\frac{\\lambda D}{a}$. Hence, the central maximum is twice as wide as secondary maxima. Both statements are true.\nDistractor Analysis: Denying either statement contradicts the standard NCERT derivation of the single-slit diffraction profile."
+    },
+    {
+      "id": "phy_wave_optics_c01_020",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A narrow slit of width $a = 0.10\\text{ mm}$ is illuminated normally by a parallel beam of monochromatic light of wavelength $\\lambda = 600\\text{ nm}$. What is the angular width of the central diffraction maximum in radians?",
+      "options": [
+        "A) $3.0 \\times 10^{-3}\\text{ rad}$",
+        "B) $6.0 \\times 10^{-3}\\text{ rad}$",
+        "C) $2.4 \\times 10^{-2}\\text{ rad}$",
+        "D) $1.2 \\times 10^{-2}\\text{ rad}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The angular width of the central diffraction maximum is bounded by the first minima on either side, given by $2\\theta_0 = \\frac{2\\lambda}{a}$.\nStep 2: Express $\\lambda$ and $a$ in consistent SI units:\n$$\\lambda = 600 \\times 10^{-9}\\text{ m}, \\quad a = 0.10 \\times 10^{-3}\\text{ m}$$\nStep 3: Calculate $2\\theta_0$:\n$$2\\theta_0 = \\frac{2 \\times (600 \\times 10^{-9}\\text{ m})}{0.10 \\times 10^{-3}\\text{ m}} = \\frac{1200 \\times 10^{-9}}{10^{-4}} = 1.2 \\times 10^{-2}\\text{ rad}$$\nDistractor Analysis: $6.0 \\times 10^{-3}\\text{ rad}$ is the angular half-width ($\\theta_0 = \\lambda/a$), omitting the factor of 2; $3.0 \\times 10^{-3}\\text{ rad}$ incorrectly introduces an extra factor of $1/2$."
+    },
+    {
+      "id": "phy_wave_optics_c01_021",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the physical differences between two-slit interference (YDSE) and single-slit Fraunhofer diffraction:\n\nI. In interference, all bright fringes have equal width, whereas in diffraction, the central maximum has twice the width of any secondary maximum.\nII. In idealized two-slit interference, all bright fringes have equal peak intensity, whereas in diffraction, the intensity of secondary maxima falls off rapidly.\nIII. Interference is the result of superposition of waves from two separate coherent slits, whereas diffraction is the superposition of continuous wavelets originating from different parts of the same wavefront.\n\nWhich of the statements given above are correct?",
+      "options": [
+        "A) I and II only",
+        "B) II and III only",
+        "C) I, II and III",
+        "D) I and III only"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Statement I is correct: interference fringes have uniform width $\\beta = \\frac{\\lambda D}{d}$, while in diffraction, the central maximum width is $\\frac{2\\lambda D}{a}$ compared to secondary maxima of width $\\frac{\\lambda D}{a}$.\nStep 2: Statement II is correct: for two identical slits, interference bright fringes all reach peak intensity $4I_0$, whereas in diffraction, the intensity drops dramatically (the first secondary maximum is only about $4.5\\%$ of the central peak).\nStep 3: Statement III is correct: NCERT explicitly defines interference as superposition of waves originating from two discrete wavefront divisions, while diffraction arises from continuous wavelets within an aperture. Thus, all three statements I, II, and III are correct.\nDistractor Analysis: Selecting only a subset of statements fails to recognize that all three points are established NCERT criteria for contrasting interference and diffraction."
+    },
+    {
+      "id": "phy_wave_optics_c01_022",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A parallel beam of light of wavelength $\\lambda = 500\\text{ nm}$ is incident on a narrow slit of width $a = 2.0\\text{ mm}$. What is the Fresnel distance $Z_F$ over which ray optics remains a valid approximation?",
+      "options": [
+        "A) $8.0\\text{ m}$",
+        "B) $4.0\\text{ m}$",
+        "C) $16.0\\text{ m}$",
+        "D) $2.0\\text{ m}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The Fresnel distance $Z_F$ is the propagation distance at which the diffraction spreading of a beam ($\\Delta y \\approx \\frac{\\lambda Z_F}{a}$) becomes equal to the size of the aperture $a$.\nStep 2: Equating $\\frac{\\lambda Z_F}{a} = a$ yields the formula: $Z_F = \\frac{a^2}{\\lambda}$.\nStep 3: Substitute $a = 2.0 \\times 10^{-3}\\text{ m}$ and $\\lambda = 500 \\times 10^{-9}\\text{ m}$:\n$$Z_F = \\frac{(2.0 \\times 10^{-3}\\text{ m})^2}{500 \\times 10^{-9}\\text{ m}} = \\frac{4.0 \\times 10^{-6}\\text{ m}^2}{5.0 \\times 10^{-7}\\text{ m}} = 8.0\\text{ m}$$\nFor propagation distances much smaller than $8.0\\text{ m}$, diffraction spreading is negligible and ray optics is valid.\nDistractor Analysis: $4.0\\text{ m}$ results from omitting the squaring of $a$ or dividing by $2$; $16.0\\text{ m}$ introduces an erroneous factor of 2."
+    },
+    {
+      "id": "phy_wave_optics_c01_023",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the wave-theoretical explanation of refraction using Huygens' principle for a plane wave incident from a vacuum into a denser medium of refractive index $\\mu > 1$:\n\nI. The refracted wavefront bends toward the normal because secondary wavelets propagate more slowly in the denser medium ($v = c/\\mu$).\nII. The ratio of the sine of the angle of incidence to the sine of the angle of refraction satisfies $\\frac{\\sin i}{\\sin r} = \\frac{v_1}{v_2} = \\mu$, verifying Snell's law.\nIII. The frequency of the light wave increases in the denser medium because wave energy must remain conserved.\nIV. The wavelength of the light wave in the medium decreases according to $\\lambda' = \\frac{\\lambda}{\\mu}$.\n\nWhich of the statements given above are correct?",
+      "options": [
+        "A) I, II and III only",
+        "B) I, II and IV only",
+        "C) II and IV only",
+        "D) I, III and IV only"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In Huygens' construction for refraction, wavelets travel distance $v_1 \\tau$ in medium 1 and $v_2 \\tau$ in medium 2 during the same time interval $\\tau$. Since $v_2 < v_1$, the refracted wavefront travels a shorter distance, bending toward the normal (Statement I is correct).\nStep 2: From geometry of the incident and refracted triangles, $\\sin i = \\frac{v_1 \\tau}{BC}$ and $\\sin r = \\frac{v_2 \\tau}{BC}$, yielding $\\frac{\\sin i}{\\sin r} = \\frac{v_1}{v_2} = \\mu$, which is Snell's law (Statement II is correct).\nStep 3: Frequency $\\nu$ is determined strictly by the oscillating source and remains invariant across media. Speed decreases ($v = c/\\mu$), so wavelength decreases ($\\lambda' = v/\\nu = \\lambda/\\mu$). Statement III is false, while Statement IV is correct. Hence, I, II, and IV are correct.\nDistractor Analysis: Any combination containing III is incorrect because frequency never changes during refraction."
+    },
+    {
+      "id": "phy_wave_optics_c01_024",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a Young's double-slit experiment, two slits of unequal widths are used such that the ratio of their slit widths is $w_1 : w_2 = 9 : 1$. Assuming that the intensity transmitted through each slit is directly proportional to its width, what is the ratio of the maximum intensity to the minimum intensity ($I_{\\max} : I_{\\min}$) in the resulting interference pattern?",
+      "options": [
+        "A) $9 : 1$",
+        "B) $25 : 1$",
+        "C) $4 : 1$",
+        "D) $16 : 1$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Slit width is directly proportional to transmitted intensity: $\\frac{I_1}{I_2} = \\frac{w_1}{w_2} = \\frac{9}{1}$.\nStep 2: Intensity is proportional to the square of amplitude ($I \\propto A^2$), so the amplitude ratio is $\\frac{A_1}{A_2} = \\sqrt{\\frac{I_1}{I_2}} = \\sqrt{\\frac{9}{1}} = 3$, meaning $A_1 = 3A_2$.\nStep 3: Maximum and minimum intensities are given by:\n$$I_{\\max} = (A_1 + A_2)^2 = (3A_2 + A_2)^2 = (4A_2)^2 = 16A_2^2$$\n$$I_{\\min} = (A_1 - A_2)^2 = (3A_2 - A_2)^2 = (2A_2)^2 = 4A_2^2$$\nTherefore, the ratio is $\\frac{I_{\\max}}{I_{\\min}} = \\frac{16}{4} = 4 : 1$.\nDistractor Analysis: $9 : 1$ directly equates intensity ratio to fringe ratio; $25 : 1$ incorrectly assumes $A_1/A_2 = 9/1$ giving $(10/8)^2$; $16 : 1$ forgets the subtraction in $I_{\\min}$."
+    },
+    {
+      "id": "phy_wave_optics_c01_025",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding fringe visibility in Young's double-slit experiment:\n\nStatement I: If one of the two slits in a Young's double-slit experiment is completely covered with an opaque block, the two-slit interference pattern disappears and is replaced by the diffraction pattern of the remaining open slit.\nStatement II: The fringe visibility $V = \\frac{I_{\\max} - I_{\\min}}{I_{\\max} + I_{\\min}}$ attains its maximum theoretical value of $1$ when the interfering waves have equal amplitudes ($A_1 = A_2$), resulting in completely dark minima ($I_{\\min} = 0$).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: When one slit is blocked, light only passes through a single aperture of finite width, so two-beam interference cannot occur. Instead, light diffracts through the single open slit, producing a single-slit Fraunhofer diffraction pattern on the screen. Thus, Statement I is true.\nStep 2: Fringe visibility is defined as $V = \\frac{I_{\\max} - I_{\\min}}{I_{\\max} + I_{\\min}} = \\frac{2\\sqrt{I_1 I_2}}{I_1 + I_2}$. When $I_1 = I_2$, $I_{\\min} = (\\sqrt{I_1} - \\sqrt{I_2})^2 = 0$, giving $V = \\frac{I_{\\max} - 0}{I_{\\max} + 0} = 1$, which represents maximum contrast. Thus, Statement II is true.\nStep 3: Both statements correctly describe fundamental NCERT wave optics phenomena.\nDistractor Analysis: Confusing the complete disappearance of interference with loss of illumination overlooks that single-slit diffraction continues to illuminate the screen."
+    },
+    {
+      "id": "phy_wave_optics_c01_026",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a Young's double-slit experiment with two identical slits, the maximum intensity at the center of the screen is $I_{\\max}$. What is the intensity at a point on the screen where the geometric path difference between the waves arriving from the two slits is $\\Delta x = \\frac{\\lambda}{6}$?",
+      "options": [
+        "A) $\\frac{1}{4}I_{\\max}$",
+        "B) $\\frac{1}{2}I_{\\max}$",
+        "C) $\\frac{\\sqrt{3}}{2}I_{\\max}$",
+        "D) $\\frac{3}{4}I_{\\max}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Find the phase difference $\\phi$ corresponding to a path difference $\\Delta x = \\frac{\\lambda}{6}$:\n$$\\phi = \\frac{2\\pi}{\\lambda}\\Delta x = \\frac{2\\pi}{\\lambda}\\left(\\frac{\\lambda}{6}\\right) = \\frac{\\pi}{3}\\text{ rad} = 60^\\circ$$\nStep 2: The resultant intensity from two identical coherent sources of individual intensity $I_0$ (where $I_{\\max} = 4I_0$) is given by:\n$$I = I_{\\max}\\cos^2\\left(\\frac{\\phi}{2}\\right)$$\nStep 3: Substitute $\\phi = 60^\\circ$:\n$$I = I_{\\max}\\cos^2(30^\\circ) = I_{\\max}\\left(\\frac{\\sqrt{3}}{2}\\right)^2 = \\frac{3}{4}I_{\\max} = 0.75 I_{\\max}$$\nDistractor Analysis: $\\frac{1}{4}I_{\\max}$ comes from evaluating $\\cos^2(60^\\circ)$ without the half-angle; $\\frac{1}{2}I_{\\max}$ corresponds to $\\Delta x = \\lambda/4$; $\\frac{\\sqrt{3}}{2}I_{\\max}$ omits squaring the cosine term."
+    },
+    {
+      "id": "phy_wave_optics_c01_027",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A Young's double-slit apparatus is illuminated simultaneously by two monochromatic wavelengths $\\lambda_1 = 600\\text{ nm}$ and $\\lambda_2 = 480\\text{ nm}$. The slit separation is $d = 1.0\\text{ mm}$ and the distance to the screen is $D = 1.0\\text{ m}$. What is the minimum non-zero linear distance from the central maximum at which a bright fringe of $\\lambda_1$ coincides with a bright fringe of $\\lambda_2$?",
+      "options": [
+        "A) $1.2\\text{ mm}$",
+        "B) $2.4\\text{ mm}$",
+        "C) $3.6\\text{ mm}$",
+        "D) $4.8\\text{ mm}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The position of the $n\\text{th}$ bright fringe is $y = \\frac{n\\lambda D}{d}$. For bright fringes of $\\lambda_1$ and $\\lambda_2$ to coincide at position $y$:\n$$y = \\frac{n_1 \\lambda_1 D}{d} = \\frac{n_2 \\lambda_2 D}{d} \\implies n_1 \\lambda_1 = n_2 \\lambda_2$$\nStep 2: Substitute the wavelengths to find the integer ratio:\n$$n_1 (600\\text{ nm}) = n_2 (480\\text{ nm}) \\implies \\frac{n_1}{n_2} = \\frac{480}{600} = \\frac{4}{5}$$\nStep 3: The minimum non-zero integers are $n_1 = 4$ and $n_2 = 5$. Thus, the 4th bright fringe of $\\lambda_1$ coincides with the 5th bright fringe of $\\lambda_2$:\n$$y = \\frac{4 \\times (600 \\times 10^{-9}\\text{ m}) \\times 1.0\\text{ m}}{1.0 \\times 10^{-3}\\text{ m}} = 2.4 \\times 10^{-3}\\text{ m} = 2.4\\text{ mm}$$\nDistractor Analysis: $1.2\\text{ mm}$ corresponds to an unphysical half-integer index; $4.8\\text{ mm}$ is the second coincidence point ($n_1 = 8, n_2 = 10$)."
+    },
+    {
+      "id": "phy_wave_optics_c01_028",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In Young's double-slit experiment, when a thin transparent mica sheet of thickness $t$ and refractive index $\\mu$ is placed across one of the slits, the entire fringe pattern shifts toward that slit, but the fringe width remains unchanged.\nReason (R): The mica sheet introduces an extra optical path length $(\\mu - 1)t$ in the covered beam, translating the zero-path-difference central fringe by $\\Delta y = \\frac{D}{d}(\\mu - 1)t$, while the fringe width $\\beta = \\frac{\\lambda D}{d}$ depends only on $\\lambda, D,$ and $d$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: When light travels through a sheet of thickness $t$ and refractive index $\\mu$, its optical path length is $\\mu t$ instead of geometric path $t$, creating an extra optical path of $(\\mu - 1)t$.\nStep 2: To restore zero path difference for the central bright fringe, the path in air from the other slit must be longer, which occurs on the side of the covered slit. The central fringe shifts by $\\Delta y = \\frac{D}{d}(\\mu - 1)t$.\nStep 3: Because every fringe shifts by the exact same amount $\\Delta y$, the separation between adjacent fringes remains $\\beta = y_{n+1} - y_n = \\frac{\\lambda D}{d}$, completely unaffected by $t$ or $\\mu$. Thus, Reason (R) provides the complete mathematical explanation of Assertion (A).\nDistractor Analysis: Claiming that the fringe width changes is incorrect because the derivative $\\frac{d(\\Delta y)}{dn} = 0$; all fringes shift uniformly like a rigid body."
+    },
+    {
+      "id": "phy_wave_optics_c01_029",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a Young's double-slit experiment using monochromatic light of wavelength $\\lambda = 500\\text{ nm}$, a thin transparent glass plate of refractive index $\\mu = 1.50$ is placed in the path of one of the interfering beams. As a result, the central bright fringe shifts to the position originally occupied by the 5th bright fringe. What is the thickness $t$ of the glass plate?",
+      "options": [
+        "A) $2.5\\ \\mu\\text{m}$",
+        "B) $10.0\\ \\mu\\text{m}$",
+        "C) $5.0\\ \\mu\\text{m}$",
+        "D) $1.25\\ \\mu\\text{m}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The shift in the fringe pattern produced by a plate of thickness $t$ and refractive index $\\mu$ is $\\Delta y = \\frac{D}{d}(\\mu - 1)t$.\nStep 2: The position of the 5th bright fringe in the original pattern was $y_5 = 5\\beta = 5\\frac{\\lambda D}{d}$. Setting $\\Delta y = y_5$:\n$$\\frac{D}{d}(\\mu - 1)t = 5\\frac{\\lambda D}{d} \\implies (\\mu - 1)t = 5\\lambda$$\nStep 3: Substitute $\\mu = 1.50$ and $\\lambda = 500\\text{ nm} = 0.50\\ \\mu\\text{m}$:\n$$(1.50 - 1.0)t = 5(0.50\\ \\mu\\text{m}) \\implies 0.50 t = 2.50\\ \\mu\\text{m} \\implies t = \\frac{2.50}{0.50} = 5.0\\ \\mu\\text{m}$$\nDistractor Analysis: $2.5\\ \\mu\\text{m}$ is $(\\mu-1)t$ before dividing by $0.50$; $10.0\\ \\mu\\text{m}$ erroneously divides by $(\\mu-1)^2$ or doubles the thickness."
+    },
+    {
+      "id": "phy_wave_optics_c01_030",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the modification applied to an original Young's double-slit experiment in List I with the resulting effect on the linear fringe width $\\beta$ and angular fringe width $\\theta$ in List II:\n\nList I:\n(P) Distance $D$ between slits and screen is doubled\n(Q) Slit separation $d$ is halved\n(R) Entire apparatus is immersed in a liquid of refractive index $\\mu = 1.5$\n(S) The wavelength $\\lambda$ of monochromatic light is halved\n\nList II:\n(1) Both $\\beta$ and $\\theta$ are halved\n(2) Both $\\beta$ and $\\theta$ are reduced to $\\frac{2}{3}$ of their original values\n(3) $\\beta$ is doubled, but $\\theta$ remains unchanged\n(4) Both $\\beta$ and $\\theta$ are doubled\n\nChoose the correct match from the options given below:",
+      "options": [
+        "A) P-4, Q-3, R-1, S-2",
+        "B) P-3, Q-1, R-2, S-4",
+        "C) P-4, Q-3, R-2, S-1",
+        "D) P-3, Q-4, R-2, S-1"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Linear fringe width is $\\beta = \\frac{\\lambda D}{d}$, and angular fringe width is $\\theta = \\frac{\\lambda}{d}$.\nStep 2: For (P), doubling $D$ doubles $\\beta$, but $\\theta$ does not depend on $D$, so $\\theta$ is unchanged (P matches 3).\nStep 3: For (Q), halving $d$ doubles both $\\beta$ and $\\theta$ (Q matches 4).\nStep 4: For (R), immersing in liquid of $\\mu = 1.5 = 3/2$ scales $\\lambda$ by $2/3$, reducing both $\\beta$ and $\\theta$ to $\\frac{2}{3}$ of their original values (R matches 2).\nStep 5: For (S), halving $\\lambda$ halves both $\\beta$ and $\\theta$ (S matches 1). Thus, the correct sequence is P-3, Q-4, R-2, S-1.\nDistractor Analysis: The pairing P-3, Q-4, R-2, S-1 is unique; other combinations confuse the independence of angular width $\\theta$ from screen distance $D$."
+    },
+    {
+      "id": "phy_wave_optics_c01_031",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a single-slit Fraunhofer diffraction experiment, a slit of width $a = 0.20\\text{ mm}$ is illuminated normally by light of wavelength $\\lambda = 500\\text{ nm}$. The diffraction pattern is projected onto a screen placed at a distance $D = 2.0\\text{ m}$ from the slit. What is the linear distance between the first diffraction minimum on the left and the first diffraction minimum on the right of the central axis?",
+      "options": [
+        "A) $1.0\\text{ cm}$",
+        "B) $0.5\\text{ cm}$",
+        "C) $2.0\\text{ cm}$",
+        "D) $0.25\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The condition for the first diffraction minimum is $a\\sin\\theta = \\lambda \\implies y_1 = \\frac{\\lambda D}{a}$.\nStep 2: The linear distance between the first minimum on the left ($-y_1$) and the first minimum on the right ($+y_1$) is the linear width of the central maximum: $w_0 = 2y_1 = \\frac{2\\lambda D}{a}$.\nStep 3: Substitute the numerical values:\n$$w_0 = \\frac{2 \\times (500 \\times 10^{-9}\\text{ m}) \\times 2.0\\text{ m}}{0.20 \\times 10^{-3}\\text{ m}} = \\frac{2.0 \\times 10^{-6}}{0.20 \\times 10^{-3}} = 1.0 \\times 10^{-2}\\text{ m} = 1.0\\text{ cm}$$\nDistractor Analysis: $0.5\\text{ cm}$ is the half-width ($y_1$) from center to first minimum; $2.0\\text{ cm}$ mistakenly uses a factor of 4."
+    },
+    {
+      "id": "phy_wave_optics_c01_032",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding secondary maxima in single-slit Fraunhofer diffraction:\n\nStatement I: In single-slit Fraunhofer diffraction, the angular positions of the secondary maxima are given approximately by $a\\sin\\theta \\approx (2n + 1)\\frac{\\lambda}{2}$, where $n = 1, 2, 3, \\dots$.\nStatement II: The peak intensities of all secondary maxima are equal to the intensity of the central maximum because light wave energy is distributed uniformly across all diffraction zones.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In single-slit diffraction, secondary maxima lie approximately halfway between successive minima, where the slit is divided into $(2n + 1)$ odd half-wavelength wavelet zones: $a\\sin\\theta \\approx (2n + 1)\\frac{\\lambda}{2}$ for $n = 1, 2, 3, \\dots$. Thus, Statement I is true.\nStep 2: At the $n\\text{th}$ secondary maximum, $2n$ zones cancel each other pairwise, leaving only $\\frac{1}{2n+1}$ of the wave amplitude uncancelled. Hence, the intensity drops precipitously: $I_n \\approx \\frac{I_0}{(n + 1/2)^2 \\pi^2}$.\nStep 3: For $n = 1$, the intensity is only about $4.5\\%$ of the central maximum, and for $n = 2$, it is about $1.6\\%$. Secondary maxima are vastly weaker than the central peak. Thus, Statement II is completely false.\nDistractor Analysis: Believing that all maxima have identical intensity confuses two-slit interference (where all bright fringes ideally have equal intensity) with single-slit diffraction."
+    },
+    {
+      "id": "phy_wave_optics_c01_033",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a double-slit experiment, the two slits each have a width $a = 0.10\\text{ mm}$ and their centers are separated by a distance $d = 0.50\\text{ mm}$. How many complete interference bright fringes are contained within the central diffraction maximum?",
+      "options": [
+        "A) $10$",
+        "B) $9$",
+        "C) $11$",
+        "D) $5$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The central diffraction peak is bounded by the first diffraction minima on either side, given by $\\sin\\theta = \\pm \\frac{\\lambda}{a}$.\nStep 2: Interference bright fringes occur at angular positions given by $\\sin\\theta = \\frac{n\\lambda}{d}$.\nStep 3: Finding which order of interference falls at the first diffraction minimum:\n$$\\frac{n\\lambda}{d} = \\frac{\\lambda}{a} \\implies n = \\frac{d}{a} = \\frac{0.50\\text{ mm}}{0.10\\text{ mm}} = 5$$\nBecause the 5th interference bright fringe coincides exactly with the first diffraction zero, its intensity is multiplied by zero; it is a missing order (extinguished).\nStep 4: The bright fringes actually visible inside the central diffraction maximum are the central maximum ($n = 0$) plus $n = \\pm 1, \\pm 2, \\pm 3, \\pm 4$. Total number of bright fringes is $1 + 2 \\times 4 = 9$.\nDistractor Analysis: 10 bright fringes erroneously includes the two missing 5th order fringes; 11 mistakenly includes boundaries; 5 only counts positive orders."
+    },
+    {
+      "id": "phy_wave_optics_c01_034",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): For an aperture of width $a = 1.0\\text{ mm}$ illuminated by visible light of wavelength $\\lambda = 500\\text{ nm}$, ray optics remains an excellent approximation over propagation distances up to about $2.0\\text{ m}$.\nReason (R): The diffraction spreading $\\Delta y \\approx \\frac{\\lambda z}{a}$ is much smaller than the aperture dimension $a$ as long as the travel distance $z$ is substantially less than the Fresnel distance $Z_F = \\frac{a^2}{\\lambda} = 2.0\\text{ m}$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The divergence angle due to diffraction at an aperture of width $a$ is $\\theta \\approx \\frac{\\lambda}{a}$. Over distance $z$, the beam spreads by $\\Delta y = z\\theta = \\frac{z\\lambda}{a}$.\nStep 2: Ray optics treats light as traveling along straight geometric lines without spreading. This holds true as long as $\\Delta y \\ll a \\implies z \\ll \\frac{a^2}{\\lambda} = Z_F$.\nStep 3: Calculating $Z_F$ for $a = 1.0 \\times 10^{-3}\\text{ m}$ and $\\lambda = 500 \\times 10^{-9}\\text{ m}$:\n$$Z_F = \\frac{(10^{-3}\\text{ m})^2}{5 \\times 10^{-7}\\text{ m}} = \\frac{10^{-6}}{5 \\times 10^{-7}} = 2.0\\text{ m}$$\nThus, over distances $z < 2.0\\text{ m}$, diffraction spreading is less than the aperture size itself, validating ray optics. Reason (R) provides the exact quantitative foundation for Assertion (A).\nDistractor Analysis: Asserting that ray optics is never valid for visible light contradicts the Fresnel criterion defined in NCERT Section 10.6."
+    },
+    {
+      "id": "phy_wave_optics_c01_035",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two coherent monochromatic light waves have electric field amplitudes in the ratio $A_1 : A_2 = 3 : 1$. When these two beams interfere, what is the ratio of the minimum intensity $I_{\\min}$ to the maximum intensity $I_{\\max}$ in the interference fringe pattern?",
+      "options": [
+        "A) $1 : 16$",
+        "B) $1 : 9$",
+        "C) $1 : 2$",
+        "D) $1 : 4$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Let the amplitudes be $A_1 = 3A_0$ and $A_2 = A_0$.\nStep 2: The maximum resultant amplitude occurs at constructive interference:\n$$A_{\\max} = A_1 + A_2 = 3A_0 + A_0 = 4A_0 \\implies I_{\\max} \\propto (4A_0)^2 = 16A_0^2$$\nStep 3: The minimum resultant amplitude occurs at destructive interference:\n$$A_{\\min} = A_1 - A_2 = 3A_0 - A_0 = 2A_0 \\implies I_{\\min} \\propto (2A_0)^2 = 4A_0^2$$\nStep 4: The ratio of minimum to maximum intensity is:\n$$\\frac{I_{\\min}}{I_{\\max}} = \\frac{4A_0^2}{16A_0^2} = \\frac{1}{4} = 1 : 4$$\nDistractor Analysis: $1 : 16$ mistakenly squares the amplitude ratio $(1/4)^2$; $1 : 9$ squares the individual amplitude ratio $(1/3)^2$."
+    },
+    {
+      "id": "phy_wave_optics_c01_036",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a Young's double-slit experiment illuminated with light of wavelength $\\lambda = 600\\text{ nm}$, the slit separation is $d = 1.2\\text{ mm}$ and the screen is placed at a distance $D = 1.5\\text{ m}$. What is the phase difference $\\Delta\\phi$ between the two interfering waves at a point $P$ situated at a distance $y = 0.25\\text{ mm}$ from the center of the screen?",
+      "options": [
+        "A) $\\frac{\\pi}{3}\\text{ rad}$",
+        "B) $\\frac{\\pi}{2}\\text{ rad}$",
+        "C) $\\frac{2\\pi}{3}\\text{ rad}$",
+        "D) $\\frac{5\\pi}{6}\\text{ rad}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The geometric path difference $\\Delta x$ at screen position $y$ is given by $\\Delta x = \\frac{y d}{D}$.\nStep 2: Substitute $y = 0.25 \\times 10^{-3}\\text{ m}$, $d = 1.2 \\times 10^{-3}\\text{ m}$, and $D = 1.5\\text{ m}$:\n$$\\Delta x = \\frac{(0.25 \\times 10^{-3}\\text{ m}) \\times (1.2 \\times 10^{-3}\\text{ m})}{1.5\\text{ m}} = \\frac{0.30 \\times 10^{-6}}{1.5} = 2.0 \\times 10^{-7}\\text{ m} = 200\\text{ nm}$$\nStep 3: Convert the path difference into phase difference $\\Delta\\phi$:\n$$\\Delta\\phi = \\frac{2\\pi}{\\lambda}\\Delta x = \\frac{2\\pi}{600\\text{ nm}} \\times 200\\text{ nm} = \\frac{2\\pi}{3}\\text{ rad}$$\nDistractor Analysis: $\\pi/3\\text{ rad}$ uses $\\pi/\\lambda$ instead of $2\\pi/\\lambda$; $\\pi/2\\text{ rad}$ assumes $\\Delta x = 150\\text{ nm}$."
+    },
+    {
+      "id": "phy_wave_optics_c01_037",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the law of conservation of energy in wave interference:\n\nStatement I: In optical interference, light energy is neither created at the bright fringes nor destroyed at the dark fringes; rather, wave energy is spatially redistributed from regions of destructive interference to regions of constructive interference.\nStatement II: When two identical coherent waves each of intensity $I_0$ superpose, the spatial average of the intensity over the entire fringe pattern equals $2I_0$, which exactly equals the sum of the individual intensities.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: At constructive interference, the intensity is $I_{\\max} = 4I_0$, whereas at destructive interference, the intensity is $I_{\\min} = 0$.\nStep 2: The intensity distribution across a fringe is given by $I(\\phi) = 4I_0 \\cos^2(\\phi/2)$. The average value of $\\cos^2(\\phi/2)$ over a complete $2\\pi$ cycle is $\\frac{1}{2}$.\nStep 3: Therefore, the spatial average intensity is $\\langle I \\rangle = 4I_0 \\times \\frac{1}{2} = 2I_0$. This precisely equals $I_1 + I_2 = I_0 + I_0 = 2I_0$, proving that energy is strictly conserved and merely redistributed. Both statements are true.\nDistractor Analysis: The belief that $4I_0$ violates conservation of energy fails to account for the energy deficit at the dark fringes where intensity drops to zero."
+    },
+    {
+      "id": "phy_wave_optics_c01_038",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Monochromatic light of wavelength $\\lambda = 500\\text{ nm}$ is incident normally on a narrow slit of width $a = 2.50\\ \\mu\\text{m}$. What is the value of $\\sin\\theta$ corresponding to the first secondary maximum in the resulting Fraunhofer diffraction pattern?",
+      "options": [
+        "A) $0.10$",
+        "B) $0.20$",
+        "C) $0.40$",
+        "D) $0.30$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The condition for secondary maxima in single-slit Fraunhofer diffraction is approximately given by $a\\sin\\theta = (2n + 1)\\frac{\\lambda}{2}$.\nStep 2: For the first secondary maximum, set $n = 1$:\n$$a\\sin\\theta = \\frac{3\\lambda}{2} \\implies \\sin\\theta = \\frac{3\\lambda}{2a}$$\nStep 3: Substitute $\\lambda = 500\\text{ nm} = 0.50\\ \\mu\\text{m}$ and $a = 2.50\\ \\mu\\text{m}$:\n$$\\sin\\theta = \\frac{3 \\times 0.50\\ \\mu\\text{m}}{2 \\times 2.50\\ \\mu\\text{m}} = \\frac{1.50}{5.00} = 0.30$$\nDistractor Analysis: $0.20$ is the position of the first minimum ($\\sin\\theta = \\lambda/a = 0.50/2.50 = 0.20$); $0.40$ is the position of the second minimum ($\\sin\\theta = 2\\lambda/a = 0.40$)."
+    },
+    {
+      "id": "phy_wave_optics_c01_039",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In Young's double-slit experiment, the primary narrow slit $S$ is placed symmetrically at a distance $s_0$ from the plane of the two slits $S_1$ and $S_2$. Consider the effects of displacing the primary source slit $S$ vertically upward by a small distance $s$ parallel to the plane of the slits:\n\nI. The central bright fringe on the viewing screen shifts vertically downward by a distance $y_0 = \\frac{D}{s_0} s$.\nII. The linear fringe width $\\beta = \\frac{\\lambda D}{d}$ remains completely unchanged.\nIII. The interference pattern immediately disappears because spatial coherence is instantly destroyed for any non-zero displacement $s$.\nIV. To ensure that distinct interference fringes remain visible, the angular size of the source slit must satisfy $\\frac{s}{s_0} < \\frac{\\lambda}{d}$.\n\nWhich of the statements given above are correct?",
+      "options": [
+        "A) I and II only",
+        "B) II, III and IV only",
+        "C) I, II and IV only",
+        "D) I, III and IV only"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: When source slit $S$ moves upward by $s$, the incident path difference between $S S_2$ and $S S_1$ is $\\frac{s d}{s_0}$. To cancel this at the screen, the path difference between $S_2 P$ and $S_1 P$ must be $-\\frac{y d}{D}$. Equating these gives a downward shift $y_0 = \\frac{D}{s_0} s$ (Statement I is correct).\nStep 2: Fringe width $\\beta = \\frac{\\lambda D}{d}$ depends solely on $\\lambda, D,$ and $d$, and is unaffected by source displacement (Statement II is correct).\nStep 3: Fringes do not vanish for small displacements; they simply translate rigidly. Fringes only blur out if the source slit width exceeds the coherence limit $\\frac{s}{s_0} < \\frac{\\lambda}{d}$ (NCERT criteria). Statement III is false, while Statement IV is correct. Hence, I, II, and IV are correct.\nDistractor Analysis: Any option including III is incorrect because a small transverse displacement of the primary source slit merely shifts the position of the central fringe without eliminating interference."
+    },
+    {
+      "id": "phy_wave_optics_c01_040",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a single-slit Fraunhofer diffraction experiment conducted in air, the central diffraction maximum has a linear width of $12.0\\text{ mm}$ on a screen. If the entire apparatus is completely immersed in water of refractive index $\\mu = 4/3$ without changing the slit width or the slit-to-screen distance, what is the new linear width of the central maximum?",
+      "options": [
+        "A) $16.0\\text{ mm}$",
+        "B) $12.0\\text{ mm}$",
+        "C) $6.0\\text{ mm}$",
+        "D) $9.0\\text{ mm}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The linear width of the central maximum in single-slit diffraction is $w_0 = \\frac{2\\lambda D}{a}$.\nStep 2: When the system is immersed in a medium of refractive index $\\mu$, the wavelength reduces to $\\lambda' = \\frac{\\lambda}{\\mu}$.\nStep 3: The new width of the central maximum is therefore:\n$$w_0' = \\frac{2\\lambda' D}{a} = \\frac{2(\\lambda / \\mu) D}{a} = \\frac{w_0}{\\mu}$$\nStep 4: Substitute $w_0 = 12.0\\text{ mm}$ and $\\mu = 4/3$:\n$$w_0' = \\frac{12.0\\text{ mm}}{4/3} = 12.0 \\times \\frac{3}{4} = 9.0\\text{ mm}$$\nDistractor Analysis: $16.0\\text{ mm}$ multiplies by $\\mu$ ($12 \\times 4/3$), which violates the physical principle of wavelength compression in optically denser media; $6.0\\text{ mm}$ assumes half-width."
+    },
+    {
+      "id": "phy_wave_optics_c01_041",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In Young's double-slit experiment, coherent sources are produced by division of wavefront, whereas in thin-film interference (such as colors on an oil slick), coherent beams are produced by division of amplitude.\nReason (R): In YDSE, two distinct spatial segments of the same incident wavefront are selected by two apertures, whereas at a thin-film interface, the incident wave is partially reflected and partially transmitted, splitting its amplitude.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Coherence can be achieved by two primary optical techniques: division of wavefront and division of amplitude.\nStep 2: In Young's double-slit experiment (and Fresnel biprism / Lloyd's mirror), an incident wavefront is divided into two separate spatial components propagating from two distinct slits. This is known as division of wavefront.\nStep 3: In thin films (soap bubbles, oil films), an incoming wave encounters an optical boundary where part of its electric field amplitude is reflected and part is transmitted. These two derived waves originate from the exact same spatial point on the wavefront and superpose after reflection, representing division of amplitude. Thus, Reason (R) correctly explains Assertion (A).\nDistractor Analysis: Denying that YDSE uses division of wavefront or asserting that thin films divide wavefronts confuses spatial sampling with interface reflection/transmission."
+    },
+    {
+      "id": "phy_wave_optics_c01_042",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a Young's double-slit experiment using monochromatic light of wavelength $\\lambda = 500\\text{ nm}$, slit $S_1$ is covered with a transparent film of thickness $t_1 = 4.0\\ \\mu\\text{m}$ and refractive index $\\mu_1 = 1.60$, while slit $S_2$ is covered with another transparent film of thickness $t_2 = 7.0\\ \\mu\\text{m}$ and refractive index $\\mu_2 = 1.40$. In which direction and by how many fringe widths ($\\beta$) does the central bright fringe shift on the screen?",
+      "options": [
+        "A) $0.40\\beta$ toward $S_1$",
+        "B) $0.80\\beta$ toward $S_2$",
+        "C) $0.80\\beta$ toward $S_1$",
+        "D) $1.20\\beta$ toward $S_2$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The additional optical path introduced by the film in front of $S_1$ is:\n$$\\Delta x_1 = (\\mu_1 - 1)t_1 = (1.60 - 1.0)(4.0\\ \\mu\\text{m}) = 0.60 \\times 4.0\\ \\mu\\text{m} = 2.40\\ \\mu\\text{m}$$\nStep 2: The additional optical path introduced by the film in front of $S_2$ is:\n$$\\Delta x_2 = (\\mu_2 - 1)t_2 = (1.40 - 1.0)(7.0\\ \\mu\\text{m}) = 0.40 \\times 7.0\\ \\mu\\text{m} = 2.80\\ \\mu\\text{m}$$\nStep 3: The net extra optical path is in beam 2: $\\Delta x_{\\text{net}} = \\Delta x_2 - \\Delta x_1 = 2.80\\ \\mu\\text{m} - 2.40\\ \\mu\\text{m} = 0.40\\ \\mu\\text{m} = 400\\text{ nm}$.\nBecause beam 2 has traversed more optical path, the central bright fringe shifts toward $S_2$.\nStep 4: The shift in terms of fringe width $\\beta$ is:\n$$\\frac{\\Delta y}{\\beta} = \\frac{\\Delta x_{\\text{net}}}{\\lambda} = \\frac{400\\text{ nm}}{500\\text{ nm}} = 0.80$$\nThus, the central maximum shifts by $0.80\\beta$ toward $S_2$.\nDistractor Analysis: Shifting toward $S_1$ incorrectly assumes $\\mu_1 > \\mu_2$ dominates without multiplying by thickness; $0.40\\beta$ omits the $(\\mu - 1)$ factor."
+    },
+    {
+      "id": "phy_wave_optics_c01_043",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In Young's double-slit experiment, if the width $s$ of the primary source slit placed at distance $s_0$ from the double slits exceeds the critical limit $s_{\\max} \\approx \\frac{\\lambda s_0}{d}$, the interference pattern on the screen completely fades into uniform illumination.\nReason (R): Different points across a broad primary source slit act as mutually incoherent independent sources, producing separate fringe patterns on the screen that are laterally displaced relative to one another; when the displacement causes the bright fringes of one pattern to overlap with the dark fringes of another, overall fringe contrast is destroyed.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: A single primary slit is used in YDSE to produce spatially coherent illumination on the two secondary slits $S_1$ and $S_2$.\nStep 2: If the primary slit is wide, it can be viewed as a continuous collection of independent point sources. Each point source at offset $y_s$ produces its own fringe pattern shifted by $\\Delta y = \\frac{D}{s_0} y_s$.\nStep 3: When the total spread of shifts across the source slit equals half the fringe width ($\\frac{D}{s_0} s \\approx \\frac{\\beta}{2} = \\frac{\\lambda D}{2d} \\implies \\frac{s}{s_0} \\approx \\frac{\\lambda}{2d}$), the maxima of patterns from one edge coincide with the minima from the other edge.\nStep 4: For $s > \\frac{\\lambda s_0}{d}$, destructive and constructive regions overlap entirely, averaging the intensity across the screen to a uniform blur. Thus, Reason (R) provides the complete physical mechanism explaining Assertion (A).\nDistractor Analysis: Claiming that fringe visibility is independent of source width neglects spatial coherence, a cornerstone of NCERT Section 10.4."
+    },
+    {
+      "id": "phy_wave_optics_c01_044",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A parallel monochromatic beam of light of wavelength $\\lambda = 600\\text{ nm}$ is incident on two slits separated by $d = 0.60\\text{ mm}$ at a small angle of incidence $\\alpha = 0.001\\text{ rad}$ above the normal to the slit plane. The viewing screen is positioned at a distance $D = 1.5\\text{ m}$ parallel to the slit plane. Where on the screen is the central bright fringe (corresponding to zero net path difference) located relative to the central geometric axis?",
+      "options": [
+        "A) $0.75\\text{ mm}$ above the axis",
+        "B) $1.5\\text{ mm}$ above the axis",
+        "C) At the central axis ($y = 0$)",
+        "D) $1.5\\text{ mm}$ below the axis"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Because the incident plane wave strikes the slit plane at angle $\\alpha$ above the normal, waves entering $S_1$ (upper slit) travel an extra initial path before reaching the slit plane: $\\Delta x_{\\text{inc}} = d\\sin\\alpha \\approx d\\alpha$.\nStep 2: For an arbitrary point $P$ at angle $\\theta$ below the central axis on the screen, the path difference between waves traveling from the slits to the screen is $\\Delta x_{\\text{screen}} = d\\sin\\theta \\approx d\\theta$.\nStep 3: The net path difference at point $P$ is $\\Delta x_{\\text{net}} = d\\alpha - d\\theta$. For the central bright fringe, $\\Delta x_{\\text{net}} = 0 \\implies d\\theta = d\\alpha \\implies \\theta = \\alpha$.\nStep 4: The linear coordinate on the screen is $y = -D\\theta = -D\\alpha$ (below the axis):\n$$y = -(1.5\\text{ m}) \\times (0.001\\text{ rad}) = -1.5 \\times 10^{-3}\\text{ m} = -1.5\\text{ mm}$$\nThus, the central fringe is located $1.5\\text{ mm}$ below the central axis.\nDistractor Analysis: Placing the central fringe above the axis fails to realize that the beam arriving from above requires a compensating downward path to the screen to equalize total path length."
+    },
+    {
+      "id": "phy_wave_optics_c01_045",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding temporal coherence and wave packet duration:\n\nStatement I: Light emitted from conventional thermal or gas-discharge sources consists of wave packets of finite duration $\\tau_c \\approx 10^{-10}\\text{ s}$ to $10^{-8}\\text{ s}$, corresponding to a coherence length $L_c = c \\tau_c$ of several millimeters to centimeters.\nStatement II: Sustained interference fringes can be observed with high visibility even if the geometric path difference between the two interfering beams significantly exceeds the coherence length $L_c$ of the light source.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In ordinary light sources, atomic emissions occur via independent radiative decays lasting $\\tau_c \\approx 10^{-10}\\text{ s}$ to $10^{-8}\\text{ s}$. The length of these uninterrupted sinusoidal wave trains is the coherence length $L_c = c\\tau_c$, which is typically a few millimeters to tens of centimeters. Thus, Statement I is true.\nStep 2: If the optical path difference $\\Delta x$ between two beams exceeds the coherence length $L_c$, the delayed wave packet from one slit reaches the screen after the corresponding wave packet from the other slit has already passed. The two overlapping fields belong to independent de-excitations with uncorrelated phases.\nStep 3: As a consequence, the interference terms average to zero over time and all fringe contrast is completely lost. Fringes cannot be observed when $\\Delta x > L_c$. Thus, Statement II is false.\nDistractor Analysis: Claiming that interference persists indefinitely regardless of path difference ignores the finite coherence length of all non-ideal light sources."
+    },
+    {
+      "id": "phy_wave_optics_c01_046",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the path difference $\\Delta x$ between two identical coherent monochromatic beams (each of intensity $I_0$) in List I with the resulting intensity $I$ in List II:\n\nList I (Path difference $\\Delta x$):\n(P) $\\Delta x = \\lambda$\n(Q) $\\Delta x = \\frac{\\lambda}{4}$\n(R) $\\Delta x = \\frac{\\lambda}{3}$\n(S) $\\Delta x = \\frac{\\lambda}{2}$\n\nList II (Resultant Intensity $I$):\n(1) $I = 0$\n(2) $I = I_0$\n(3) $I = 2I_0$\n(4) $I = 4I_0$\n\nChoose the correct match from the options given below:",
+      "options": [
+        "A) P-3, Q-4, R-1, S-2",
+        "B) P-4, Q-2, R-3, S-1",
+        "C) P-4, Q-1, R-2, S-3",
+        "D) P-4, Q-3, R-2, S-1"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The general intensity formula for two identical coherent beams is $I = 4I_0 \\cos^2\\left(\\frac{\\phi}{2}\\right)$, where $\\phi = \\frac{2\\pi}{\\lambda}\\Delta x$.\nStep 2: For (P), $\\Delta x = \\lambda \\implies \\phi = 2\\pi \\implies I = 4I_0 \\cos^2(\\pi) = 4I_0$ (P matches 4).\nStep 3: For (Q), $\\Delta x = \\frac{\\lambda}{4} \\implies \\phi = \\frac{\\pi}{2} \\implies I = 4I_0 \\cos^2\\left(\\frac{\\pi}{4}\\right) = 4I_0 \\left(\\frac{1}{\\sqrt{2}}\\right)^2 = 2I_0$ (Q matches 3).\nStep 4: For (R), $\\Delta x = \\frac{\\lambda}{3} \\implies \\phi = \\frac{2\\pi}{3} \\implies I = 4I_0 \\cos^2\\left(\\frac{\\pi}{3}\\right) = 4I_0 \\left(\\frac{1}{2}\\right)^2 = I_0$ (R matches 2).\nStep 5: For (S), $\\Delta x = \\frac{\\lambda}{2} \\implies \\phi = \\pi \\implies I = 4I_0 \\cos^2\\left(\\frac{\\pi}{2}\\right) = 0$ (S matches 1). Thus, the correct matching is P-4, Q-3, R-2, S-1.\nDistractor Analysis: Reversing the roles of $\\lambda/4$ and $\\lambda/3$ is a common error resulting from forgetting the $\\cos^2(\\phi/2)$ half-angle relationship."
+    },
+    {
+      "id": "phy_wave_optics_c01_047",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements analyzing the structural and physical properties of interference and diffraction patterns:\n\nI. In Young's double-slit interference, all bright fringes have uniform linear width, whereas in single-slit Fraunhofer diffraction, the central maximum is twice as wide as any secondary maximum.\nII. In single-slit Fraunhofer diffraction, the peak intensity drops sharply with order, such that the second secondary maximum has less than $2\\%$ of the central peak intensity.\nIII. In single-slit diffraction, the first minimum on either side of the center occurs at an angle satisfying $a\\sin\\theta = \\frac{\\lambda}{2}$.\nIV. The angular width of the central diffraction maximum is directly proportional to the wavelength $\\lambda$ and inversely proportional to the slit aperture width $a$.\n\nWhich of the statements given above are correct?",
+      "options": [
+        "A) I, II and III only",
+        "B) I, II and IV only",
+        "C) II, III and IV only",
+        "D) I, III and IV only"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Statement I is correct: interference fringes have constant width $\\beta = \\frac{\\lambda D}{d}$, whereas in diffraction, the central maximum width is $\\frac{2\\lambda D}{a}$ while secondary maxima have width $\\frac{\\lambda D}{a}$.\nStep 2: Statement II is correct: for the second secondary maximum ($n = 2$), intensity is $I_2 \\approx \\frac{I_0}{(2.5\\pi)^2} = \\frac{4}{25\\pi^2} I_0 \\approx 0.0162 I_0 \\approx 1.62\\%$, which is strictly less than $2\\%$.\nStep 3: Statement III is false: the first diffraction minimum occurs at $a\\sin\\theta = \\lambda$ (not $\\lambda/2$). At $a\\sin\\theta = \\lambda$, the slit is divided into two zones that cancel pairwise.\nStep 4: Statement IV is correct: the angular width is $2\\theta_0 = \\frac{2\\lambda}{a}$, which is directly proportional to $\\lambda$ and inversely proportional to $a$. Hence, statements I, II, and IV are correct.\nDistractor Analysis: Any option that includes statement III is incorrect due to the misconception that diffraction minima follow the interference dark-fringe formula."
+    },
+    {
+      "id": "phy_wave_optics_c01_048",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a single-slit Fraunhofer diffraction experiment, the intensity distribution on a distant screen is given by $I(\\theta) = I_0 \\left(\\frac{\\sin\\beta}{\\beta}\\right)^2$, where $\\beta = \\frac{\\pi a\\sin\\theta}{\\lambda}$. For the first secondary maximum occurring at $\\beta \\approx \\frac{3\\pi}{2}$, what is the theoretical ratio of its peak intensity $I_1$ to the central maximum intensity $I_0$?",
+      "options": [
+        "A) $\\frac{4}{9\\pi^2} \\approx 4.5\\%$",
+        "B) $\\frac{4}{25\\pi^2} \\approx 1.6\\%$",
+        "C) $\\frac{1}{9} \\approx 11.1\\%$",
+        "D) $\\frac{2}{3\\pi} \\approx 21.2\\%$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: At the first secondary maximum, $\\beta \\approx \\frac{3\\pi}{2}$.\nStep 2: Evaluate the numerator: $\\sin\\left(\\frac{3\\pi}{2}\\right) = -1$, so $\\left[\\sin\\left(\\frac{3\\pi}{2}\\right)\\right]^2 = 1$.\nStep 3: Evaluate the denominator: $\\beta^2 = \\left(\\frac{3\\pi}{2}\\right)^2 = \\frac{9\\pi^2}{4}$.\nStep 4: The intensity ratio is therefore:\n$$\\frac{I_1}{I_0} = \\frac{1}{9\\pi^2 / 4} = \\frac{4}{9\\pi^2}$$\nUsing $\\pi^2 \\approx 9.87$:\n$$\\frac{I_1}{I_0} = \\frac{4}{9 \\times 9.87} = \\frac{4}{88.83} \\approx 0.0450 = 4.5\\%$$\nDistractor Analysis: $\\frac{4}{25\\pi^2} \\approx 1.6\\%$ corresponds to the second secondary maximum ($\\beta = 5\\pi/2$); $\\frac{1}{9}$ forgets the $\\pi^2/4$ factor."
+    },
+    {
+      "id": "phy_wave_optics_c01_049",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a Young's double-slit experiment illuminated with light of wavelength $\\lambda_1 = 600\\text{ nm}$, a thin transparent sheet of mica is introduced into the path of one of the beams. As a result, the central bright fringe shifts to the position originally occupied by the 6th bright fringe of the initial pattern. If the light source is subsequently replaced with one of wavelength $\\lambda_2 = 450\\text{ nm}$ without moving the mica sheet or altering any other experimental parameter, to which order bright fringe does the central fringe now shift?",
+      "options": [
+        "A) 4th bright fringe",
+        "B) 6th bright fringe",
+        "C) 9th bright fringe",
+        "D) 8th bright fringe"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The optical path difference introduced by the sheet of thickness $t$ and refractive index $\\mu$ is $\\Delta x = (\\mu - 1)t$. This optical path is an intrinsic property of the sheet and is independent of the external fringe pattern.\nStep 2: For wavelength $\\lambda_1 = 600\\text{ nm}$, the shift equals 6 fringe widths, meaning the introduced path difference is:\n$$\\Delta x = 6\\lambda_1 = 6 \\times 600\\text{ nm} = 3600\\text{ nm}$$\nStep 3: When light of wavelength $\\lambda_2 = 450\\text{ nm}$ is used, the same path difference $\\Delta x$ shifts the central fringe by an order $n_2$:\n$$\\Delta x = n_2 \\lambda_2 \\implies 3600\\text{ nm} = n_2 (450\\text{ nm})$$\nStep 4: Solve for $n_2$:\n$$n_2 = \\frac{3600\\text{ nm}}{450\\text{ nm}} = 8$$\nThus, the central maximum now shifts to the position of the 8th bright fringe.\nDistractor Analysis: 4th bright fringe results from multiplying by $\\lambda_2/\\lambda_1$ instead of dividing; 6th bright fringe assumes the fringe order is invariant."
+    },
+    {
+      "id": "phy_wave_optics_c01_050",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When a plane wavefront is incident normally on a thin biconvex lens, the emerging wavefront is a converging spherical surface centered at the principal focus.\nReason (R): Because a biconvex lens is thicker at its optical center than at its edges and the speed of light in glass is less than in air ($v = c/\\mu$), the central portion of the wavefront suffers the greatest time delay, causing the emerging wavefront to be concave forward.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In wave optics, the transformation of a wavefront by an optical element is governed by the time of flight of wavelets along different ray paths.\nStep 2: For a convex lens, the center has the maximum physical glass thickness $t_c$, while the edges have negligible glass thickness. Light propagates at speed $v = c/\\mu$ in glass and speed $c$ in air.\nStep 3: Therefore, wavelets passing through the center are delayed by $\\Delta t = \\frac{(\\mu - 1)t_c}{c}$ relative to wavelets passing near the edge. The edges of the wavefront advance ahead of the center, curving the planar wavefront into a concave-forward spherical surface that converges to the focal point.\nStep 4: Reason (R) provides the exact optical-path and time-delay explanation for Assertion (A).\nDistractor Analysis: Denying that the central delay causes curvature overlooks Huygens' fundamental geometric derivation of refraction through lenses."
+    },
+    {
+      "id": "phy_wave_optics_c01_051",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Light containing two discrete wavelengths $\\lambda_A = 600\\text{ nm}$ and $\\lambda_B = 400\\text{ nm}$ is used in a Young's double-slit experiment. What is the lowest positive order $n$ of a dark fringe of wavelength $\\lambda_B$ that coincides with a bright fringe of wavelength $\\lambda_A$ on the screen?",
+      "options": [
+        "A) $n = 1$",
+        "B) $n = 3$",
+        "C) $n = 2$",
+        "D) $n = 4$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The position of the $n\\text{th}$ dark fringe of wavelength $\\lambda_B$ is given by $y_n' = (2n - 1)\\frac{\\lambda_B D}{2d}$.\nStep 2: The position of the $m\\text{th}$ bright fringe of wavelength $\\lambda_A$ is given by $y_m = m\\frac{\\lambda_A D}{d}$.\nStep 3: Equating the two screen positions:\n$$(2n - 1)\\frac{\\lambda_B D}{2d} = m\\frac{\\lambda_A D}{d} \\implies (2n - 1)\\frac{\\lambda_B}{2} = m \\lambda_A$$\nStep 4: Substitute $\\lambda_A = 600\\text{ nm}$ and $\\lambda_B = 400\\text{ nm}$:\n$$(2n - 1)\\frac{400}{2} = m(600) \\implies (2n - 1)(200) = m(600) \\implies 2n - 1 = 3m$$\nStep 5: For the smallest positive integer $m$, let $m = 1$:\n$$2n - 1 = 3(1) = 3 \\implies 2n = 4 \\implies n = 2$$\nCheck: For $n = 2$, $y_2' = (2(2)-1)\\frac{400 D}{2d} = 3 \\times \\frac{200 D}{d} = 600\\frac{D}{d}$. For $m = 1$, $y_1 = 1 \\times 600\\frac{D}{d} = 600\\frac{D}{d}$. They coincide identically.\nThus, the lowest order dark fringe of $\\lambda_B$ is $n = 2$.\nDistractor Analysis: $n = 1$ gives $2n-1 = 1$, which requires $m = 1/3$ (non-integer); $n = 3$ yields $2n-1 = 5$, requiring $m = 5/3$ (non-integer)."
+    },
+    {
+      "id": "phy_wave_optics_c01_052",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a Young's double-slit experiment where each slit originally transmits intensity $I_0$, a neutral density filter is placed over one slit, reducing its transmitted intensity to $I_2 = \\frac{I_0}{4}$ while the other slit continues to transmit $I_1 = I_0$. Consider the following statements regarding the modified fringe pattern:\n\nI. The maximum intensity at constructive interference is $I_{\\max} = 2.25 I_0$.\nII. The minimum intensity is no longer zero, but becomes $I_{\\min} = 0.25 I_0$.\nIII. The fringe visibility is reduced from $1.0$ to $0.80$.\nIV. The linear fringe width $\\beta$ decreases by $25\\%$.\n\nWhich of the statements given above are correct?",
+      "options": [
+        "A) I, II and III only",
+        "B) I, II and IV only",
+        "C) II and III only",
+        "D) I and III only"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Compute maximum intensity with $I_1 = I_0$ and $I_2 = I_0/4$:\n$$I_{\\max} = (\\sqrt{I_1} + \\sqrt{I_2})^2 = (\\sqrt{I_0} + 0.5\\sqrt{I_0})^2 = (1.5)^2 I_0 = 2.25 I_0$$\nStatement I is correct.\nStep 2: Compute minimum intensity:\n$$I_{\\min} = (\\sqrt{I_1} - \\sqrt{I_2})^2 = (\\sqrt{I_0} - 0.5\\sqrt{I_0})^2 = (0.5)^2 I_0 = 0.25 I_0$$\nStatement II is correct.\nStep 3: Compute fringe visibility $V$:\n$$V = \\frac{I_{\\max} - I_{\\min}}{I_{\\max} + I_{\\min}} = \\frac{2.25 I_0 - 0.25 I_0}{2.25 I_0 + 0.25 I_0} = \\frac{2.00}{2.50} = 0.80$$\nStatement III is correct.\nStep 4: The fringe width $\\beta = \\frac{\\lambda D}{d}$ is determined strictly by geometry and wavelength, independent of the slit intensities. Thus, $\\beta$ remains unchanged. Statement IV is false. Hence, I, II, and III are correct.\nDistractor Analysis: Any option including IV is incorrect because attenuation of a slit never affects the geometric spatial frequency (fringe width) of the interference pattern."
+    },
+    {
+      "id": "phy_wave_optics_c01_053",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a double-slit experiment, the width of each slit is $a = 0.08\\text{ mm}$ and the center-to-center separation between the two slits is $d = 0.40\\text{ mm}$. Which of the following sets represents the orders $m$ of interference bright fringes that are completely missing (extinguished) from the double-slit interference pattern due to diffraction envelopes?",
+      "options": [
+        "A) $m = 2, 4, 6, 8, \\dots$",
+        "B) $m = 4, 8, 12, 16, \\dots$",
+        "C) $m = 5, 10, 15, 20, \\dots$",
+        "D) $m = 3, 6, 9, 12, \\dots$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: An interference maximum of order $m$ occurs at angular position $\\sin\\theta = \\frac{m\\lambda}{d}$.\nStep 2: A diffraction minimum of order $n$ for each individual slit occurs at $\\sin\\theta = \\frac{n\\lambda}{a}$ (where $n = 1, 2, 3, \\dots$).\nStep 3: When these two angular positions coincide, the intensity of the interference maximum is modulated by a diffraction zero, causing that interference order to be completely absent (missing order):\n$$\\frac{m\\lambda}{d} = \\frac{n\\lambda}{a} \\implies m = n \\left(\\frac{d}{a}\\right)$$\nStep 4: Substitute $d = 0.40\\text{ mm}$ and $a = 0.08\\text{ mm}$:\n$$m = n \\left(\\frac{0.40\\text{ mm}}{0.08\\text{ mm}}\\right) = 5n$$\nFor $n = 1, 2, 3, 4, \\dots$, the missing interference orders are $m = 5, 10, 15, 20, \\dots$.\nDistractor Analysis: $m = 4, 8, 12, \\dots$ assumes $d/a = 4$; $m = 2, 4, 6, \\dots$ uses $d/a = 2$; missing orders must be exact integral multiples of the ratio $d/a = 5$."
+    },
+    {
+      "id": "phy_wave_optics_c01_054",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): While Huygens' geometrical construction of secondary wavelets successfully explains the laws of reflection and refraction, it cannot fundamentally explain why light waves propagate exclusively in the forward direction without producing a backward wave.\nReason (R): Huygens assumed as an ad hoc hypothesis that the amplitude of secondary wavelets is zero in the backward direction; a rigorous mathematical justification was provided later by Kirchhoff by introducing an obliquity (inclination) factor $F(\\theta) = \\frac{1 + \\cos\\theta}{2}$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In Huygens' original construction, secondary wavelets are spherical, which geometrically implies that an envelope could also be drawn backward toward the source (a back-wave).\nStep 2: However, physically no backward-propagating wave exists when a wavefront moves through a uniform medium. Huygens simply ignored this back-wave without theoretical justification.\nStep 3: Kirchhoff formulated the rigorous wave theory of diffraction from the wave equation, showing that the effective amplitude of secondary wavelets emitted at angle $\\theta$ to the forward normal is weighted by the obliquity factor $F(\\theta) = \\frac{1 + \\cos\\theta}{2}$.\nStep 4: For the forward direction ($\\theta = 0^\\circ$), $F(0) = \\frac{1 + 1}{2} = 1$. For the backward direction ($\\theta = 180^\\circ$), $F(\\pi) = \\frac{1 - 1}{2} = 0$. This mathematically explains the absence of backward waves. Hence, Reason (R) correctly explains Assertion (A).\nDistractor Analysis: Claiming that Huygens' principle inherently forbade backward waves without Kirchhoff's factor contradicts the historical and theoretical critique documented in NCERT Chapter 10."
+    },
+    {
+      "id": "phy_wave_optics_c01_055",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a Young's double-slit experiment illuminated by monochromatic light of wavelength $\\lambda = 600\\text{ nm}$, two identical coherent slits are separated by $d = 1.0\\text{ mm}$. A screen is initially placed at distance $D_1 = 1.0\\text{ m}$ from the slits. At a fixed physical point $P$ on the screen located at distance $y = 0.20\\text{ mm}$ from the central axis, the intensity is measured to be $I_1$. The screen is subsequently moved to a new distance $D_2 = 2.0\\text{ m}$. What is the ratio $\\frac{I_2}{I_1}$ of the new intensity $I_2$ at the same physical point $P$ to the initial intensity $I_1$?",
+      "options": [
+        "A) $1$",
+        "B) $2$",
+        "C) $4$",
+        "D) $3$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The path difference at distance $y$ on a screen at distance $D$ is $\\Delta x = \\frac{y d}{D}$. The resultant intensity for identical slits of individual intensity $I_0$ ($I_{\\max} = 4I_0$) is $I = I_{\\max}\\cos^2\\left(\\frac{\\phi}{2}\\right) = I_{\\max}\\cos^2\\left(\\frac{\\pi \\Delta x}{\\lambda}\\right)$.\nStep 2: At $D_1 = 1.0\\text{ m}$:\n$$\\Delta x_1 = \\frac{(0.20 \\times 10^{-3}\\text{ m}) \\times (1.0 \\times 10^{-3}\\text{ m})}{1.0\\text{ m}} = 2.0 \\times 10^{-7}\\text{ m} = 200\\text{ nm} = \\frac{\\lambda}{3}$$\nPhase difference $\\phi_1 = \\frac{2\\pi}{\\lambda}\\left(\\frac{\\lambda}{3}\\right) = \\frac{2\\pi}{3}\\text{ rad} = 120^\\circ$. Thus:\n$$I_1 = I_{\\max}\\cos^2(60^\\circ) = I_{\\max}\\left(\\frac{1}{2}\\right)^2 = \\frac{1}{4}I_{\\max}$$\nStep 3: At $D_2 = 2.0\\text{ m}$:\n$$\\Delta x_2 = \\frac{(0.20 \\times 10^{-3}\\text{ m}) \\times (1.0 \\times 10^{-3}\\text{ m})}{2.0\\text{ m}} = 1.0 \\times 10^{-7}\\text{ m} = 100\\text{ nm} = \\frac{\\lambda}{6}$$\nPhase difference $\\phi_2 = \\frac{2\\pi}{\\lambda}\\left(\\frac{\\lambda}{6}\\right) = \\frac{\\pi}{3}\\text{ rad} = 60^\\circ$. Thus:\n$$I_2 = I_{\\max}\\cos^2(30^\\circ) = I_{\\max}\\left(\\frac{\\sqrt{3}}{2}\\right)^2 = \\frac{3}{4}I_{\\max}$$\nStep 4: The intensity ratio is:\n$$\\frac{I_2}{I_1} = \\frac{\\frac{3}{4}I_{\\max}}{\\frac{1}{4}I_{\\max}} = 3$$\nDistractor Analysis: $1$ assumes intensity is invariant under screen displacement; $2$ assumes a linear inverse dependence on $D$; $4$ inverts or squares the trigonometric values."
+    }
+  ]
+}

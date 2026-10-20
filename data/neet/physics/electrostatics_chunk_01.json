@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Electrostatics",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_electrostatics_c01_001",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the quantization and macroscopic behavior of electric charge:\n\nStatement I: The quantization of electric charge states that any observable charge is an integral multiple of the basic elementary charge $e$, such that $q = ne$, where $n$ is an integer.\nStatement II: At the macroscopic scale where charges are of the order of microcoulombs ($mu\\text{C}$), the discrete nature of electric charge can be practically ignored and charge can be treated as a continuous distribution.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Quantization of charge is an experimentally verified fundamental property stating that the total charge of any body is always an integral multiple of elementary charge $e = 1.6 \\times 10^{-19}\\text{ C}$, expressed as $q = ne$, where $n = 0, \\pm 1, \\pm 2, \\dots$. Thus, Statement I is correct.\nStep 2: At macroscopic scales, a charge of $1\\text{ }\\mu\\text{C}$ involves approximately $n = \\frac{10^{-6}}{1.6 \\times 10^{-19}} \\approx 6 \\times 10^{12}$ electrons. Adding or removing a few electrons causes imperceptible fractional changes, allowing charge to be treated as continuous rather than discrete. Thus, Statement II is also correct.\nStep 3: Distractor Analysis: Statements denying the validity of quantization or asserting that graininess is significant at the macroscopic scale contradict NCERT physics principles."
+    },
+    {
+      "id": "phy_electrostatics_c01_002",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Electrostatic forces between two stationary point charges strictly obey Newton's third law of motion.\nReason (R): In vector notation of Coulomb's law, the electrostatic force $\\vec{F}_{12}$ exerted by charge $q_1$ on charge $q_2$ is equal in magnitude and opposite in direction to the force $\\vec{F}_{21}$ exerted by charge $q_2$ on charge $q_1$, acting along the line joining the two charges.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Coulomb's law in vector form gives the force on $q_2$ due to $q_1$ as $\\vec{F}_{21} = \\frac{1}{4\\pi\\epsilon_0}\\frac{q_1 q_2}{r^2}\\hat{r}_{12}$. Conversely, the force on $q_1$ due to $q_2$ is $\\vec{F}_{12} = \\frac{1}{4\\pi\\epsilon_0}\\frac{q_1 q_2}{r^2}\\hat{r}_{21} = -\\vec{F}_{21}$.\nStep 2: Because $\\vec{F}_{12} = -\\vec{F}_{21}$ and the forces act along the line connecting the centers of the two charges (central forces), they form an action-reaction pair in full accordance with Newton's third law of motion.\nStep 3: Distractor Analysis: Both statements are true and Reason (R) directly explains Assertion (A) by providing the vector mathematical formulation of Newton's third law for Coulomb interactions."
+    },
+    {
+      "id": "phy_electrostatics_c01_003",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two stationary point charges placed at a distance $r$ in vacuum experience an electrostatic repulsive force of $72\\text{ N}$. If these charges are placed in an insulating dielectric medium having relative permittivity (dielectric constant) $K = 4$ and the distance between them is reduced to $r/3$, what is the new electrostatic force between them?",
+      "options": [
+        "A) $72\\text{ N}$",
+        "B) $18\\text{ N}$",
+        "C) $162\\text{ N}$",
+        "D) $324\\text{ N}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The electrostatic force in vacuum is $F_0 = \\frac{1}{4\\pi\\epsilon_0}\\frac{q_1 q_2}{r^2} = 72\\text{ N}$.\nStep 2: In a dielectric medium of dielectric constant $K$, with new distance $r' = r/3$, the force is given by $F' = \\frac{1}{4\\pi\\epsilon_0 K}\\frac{q_1 q_2}{(r/3)^2} = \\frac{9}{K} \\left(\\frac{1}{4\\pi\\epsilon_0}\\frac{q_1 q_2}{r^2}\\right) = \\frac{9}{K} F_0$.\nStep 3: Substituting $K = 4$ and $F_0 = 72\\text{ N}$: $F' = \\frac{9}{4} \\times 72\\text{ N} = 9 \\times 18\\text{ N} = 162\\text{ N}$.\nDistractor Analysis: Values such as $72\\text{ N}$ overlook both changes, $18\\text{ N}$ considers only dielectric attenuation without distance change, and $324\\text{ N}$ ignores the dielectric factor $K=4$."
+    },
+    {
+      "id": "phy_electrostatics_c01_004",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding electric field lines in an electrostatic field:\n\nStatement I: Electrostatic field lines originate on positive charges and terminate on negative charges, and two field lines can never cross each other.\nStatement II: Electrostatic field lines can form closed continuous loops in charge-free space because the electrostatic field is conservative in nature.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement I is true: electric field lines start from positive charges and end at negative charges (or extend to infinity). Two lines cannot intersect because if they did, the field would have two different directions at the point of intersection, which is physically impossible.\nStep 2: Statement II is false: electrostatic field lines can never form closed loops. If an electrostatic line formed a closed loop, the line integral of the electric field along that closed loop $\\oint \\vec{E}\\cdot d\\vec{l}$ would be non-zero, which violates the conservative nature of electrostatic fields (where $\\oint \\vec{E}\\cdot d\\vec{l} = 0$).\nStep 3: Distractor Analysis: Options claiming Statement II is true confuse electrostatic fields with time-varying induced magnetic or electric fields."
+    },
+    {
+      "id": "phy_electrostatics_c01_005",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the electrostatic charge distributions in List I with their corresponding electric field distance dependences $E(r)$ at large distances $r$ in List II:\n\nList I:\nA. Point charge\nB. Short electric dipole\nC. Infinitely long straight uniformly charged wire\nD. Uniformly charged infinite flat planar sheet\n\nList II:\nI. $E \\propto r^{-1}$\nII. $E \\propto r^0$ (independent of $r$)\nIII. $E \\propto r^{-2}$\nIV. $E \\propto r^{-3}$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-III, B-IV, C-I, D-II",
+        "B) A-IV, B-III, C-II, D-I",
+        "C) A-III, B-I, C-IV, D-II",
+        "D) A-II, B-IV, C-I, D-III"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Point charge field is given by $E = \\frac{1}{4\\pi\\epsilon_0}\\frac{q}{r^2} \\implies E \\propto r^{-2}$ (A matches III).\nStep 2: Short electric dipole field at large distance $r \\gg a$ is given by $E \\propto \\frac{p}{r^3} \\implies E \\propto r^{-3}$ (B matches IV).\nStep 3: Infinitely long straight uniformly charged wire has $E = \\frac{\\lambda}{2\\pi\\epsilon_0 r} \\implies E \\propto r^{-1}$ (C matches I).\nStep 4: Uniformly charged infinite sheet has $E = \\frac{\\sigma}{2\\epsilon_0}$, which is constant and independent of distance $\\implies E \\propto r^0$ (D matches II).\nDistractor Analysis: Combining these gives A-III, B-IV, C-I, D-II. Other permutations incorrectly assign field geometries."
+    },
+    {
+      "id": "phy_electrostatics_c01_006",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): If the net electric flux through a closed Gaussian surface is zero, it does not necessarily imply that the electric field is zero at every point on that surface.\nReason (R): According to Gauss's law, the net electric flux $\\Phi = \\oint \\vec{E}\\cdot d\\vec{A}$ depends strictly on the net enclosed charge $q_{\\text{encl}}$, while the electric field $\\vec{E}$ at any point on the surface is produced by all charges, both inside and outside the surface.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: By Gauss's law, $\\oint \\vec{E}\\cdot d\\vec{A} = \\frac{q_{\\text{encl}}}{\\epsilon_0}$. When $q_{\\text{encl}} = 0$, the total flux is zero. However, if external charges are present, their field lines enter the surface and leave it, creating non-zero local electric fields at points on the surface even though the net integral over the closed surface vanishes.\nStep 2: The electric field $\\vec{E}$ appearing in Gauss's law represents the total resultant electric field due to all charges in the universe (inside as well as outside), whereas the flux integral equates strictly to $q_{\\text{encl}}/\\epsilon_0$.\nStep 3: Distractor Analysis: Both statements are true and Reason (R) provides the exact theoretical foundation explaining why Assertion (A) holds."
+    },
+    {
+      "id": "phy_electrostatics_c01_007",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A point charge $q = +8.85 \\times 10^{-12}\\text{ C}$ is placed at the exact center of a closed cubical Gaussian surface of side length $0.1\\text{ m}$. Taking the permittivity of free space as $\\epsilon_0 = 8.85 \\times 10^{-12}\\text{ C}^2/(\\text{N}\\cdot\\text{m}^2)$, what is the electric flux passing through any one face of the cube?",
+      "options": [
+        "A) $1.0\\text{ N}\\cdot\\text{m}^2/\\text{C}$",
+        "B) $0.50\\text{ N}\\cdot\\text{m}^2/\\text{C}$",
+        "C) $\\frac{1}{6}\\text{ N}\\cdot\\text{m}^2/\\text{C}$",
+        "D) $\\frac{1}{24}\\text{ N}\\cdot\\text{m}^2/\\text{C}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: According to Gauss's law, the total electric flux passing through the entire closed cubical surface enclosing charge $q$ is $\\Phi_{\\text{total}} = \\frac{q}{\\epsilon_0} = \\frac{8.85 \\times 10^{-12}}{8.85 \\times 10^{-12}} = 1.0\\text{ N}\\cdot\\text{m}^2/\\text{C}$.\nStep 2: Since the point charge is situated at the exact symmetric center of the cube, the electric flux distributes symmetrically and equally among all six identical planar faces.\nStep 3: The flux through any single face is $\\Phi_1 = \\frac{\\Phi_{\\text{total}}}{6} = \\frac{1}{6}\\text{ N}\\cdot\\text{m}^2/\\text{C}$.\nDistractor Analysis: $1.0\\text{ N}\\cdot\\text{m}^2/\\text{C}$ is the total flux through all 6 faces, and $\\frac{1}{24}\\text{ N}\\cdot\\text{m}^2/\\text{C}$ corresponds to a charge placed at a corner of the cube."
+    },
+    {
+      "id": "phy_electrostatics_c01_008",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the electrostatic properties of a uniformly charged thin spherical shell of radius $R$ carrying total charge $Q$:\n\nStatement I: The electric field at any interior point ($r < R$) inside the spherical shell is strictly zero.\nStatement II: The electrostatic potential at any interior point ($r < R$) inside the shell decreases linearly with distance $r$ from the center towards the surface.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement I is true: constructing a concentric spherical Gaussian surface of radius $r < R$, the enclosed charge is zero ($q_{\\text{encl}} = 0$). By Gauss's law, $E(4\\pi r^2) = 0 \\implies E = 0$ everywhere inside.\nStep 2: Statement II is false: since $\\vec{E} = -\\frac{dV}{dr}\\hat{r}$ and $E = 0$ throughout the interior, $\\frac{dV}{dr} = 0$, meaning $V$ is constant at all interior points and equals its value on the shell surface, $V = \\frac{1}{4\\pi\\epsilon_0}\\frac{Q}{R}$, rather than decreasing linearly.\nStep 3: Distractor Analysis: Any option asserting that electrostatic potential varies inside a uniformly charged conducting or thin spherical shell is incorrect."
+    },
+    {
+      "id": "phy_electrostatics_c01_009",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding equipotential surfaces in an electrostatic field:\n\n(a) The electric field is always perpendicular to an equipotential surface at every point.\n(b) The work done in moving a test charge between any two points lying on the same equipotential surface is zero.\n(c) Two equipotential surfaces corresponding to different potential values can intersect each other.\n(d) Equipotential surfaces are spaced closer together in regions where the electric field is stronger.\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (a), (b), and (d) only",
+        "B) (a) and (c) only",
+        "C) (b), (c), and (d) only",
+        "D) (a), (b), (c), and (d)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Statement (a) is correct because if the field had a parallel component, work would be done moving along the surface, which contradicts constant potential. Thus, $\\vec{E}$ is normal to the surface.\nStep 2: Statement (b) is correct because $W = q\\Delta V = q(V_B - V_A) = 0$ since $V_B = V_A$.\nStep 3: Statement (c) is incorrect: if two equipotential surfaces intersected, the point of intersection would have two different potential values and two different electric field directions, which is physically impossible.\nStep 4: Statement (d) is correct because $E = -\\frac{dV}{dr} \\implies dr = \\frac{|dV|}{E}$. For a fixed potential difference $dV$, larger $E$ yields smaller separation $dr$.\nDistractor Analysis: Statements (a), (b), and (d) are correct while (c) is false."
+    },
+    {
+      "id": "phy_electrostatics_c01_010",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The work done by an external agent in slowly rotating an electric dipole of dipole moment $\\vec{p}$ from stable equilibrium to unstable equilibrium in a uniform electric field $\\vec{E}$ is equal to $+2pE$.\nReason (R): In a uniform electric field $\\vec{E}$, the electrostatic potential energy of a dipole is $U = -\\vec{p}\\cdot\\vec{E}$, where $\\theta = 0^\\circ$ corresponds to stable equilibrium with minimum potential energy $-pE$, and $\\theta = 180^\\circ$ corresponds to unstable equilibrium with maximum potential energy $+pE$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) Both (A) and (R) are false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The electrostatic potential energy of a dipole in a uniform electric field is $U(\\theta) = -\\vec{p}\\cdot\\vec{E} = -pE\\cos\\theta$. For stable equilibrium, $\\theta = 0^\\circ$, giving $U_1 = -pE$. For unstable equilibrium, $\\theta = 180^\\circ$, giving $U_2 = -pE\\cos 180^\\circ = +pE$.\nStep 2: The external work done in rotating the dipole without acceleration is $W_{\\text{ext}} = \\Delta U = U_2 - U_1 = (+pE) - (-pE) = +2pE$.\nStep 3: Distractor Analysis: Both statements are true and Reason (R) provides the exact formula and potential energy values that derive the work calculated in Assertion (A)."
+    },
+    {
+      "id": "phy_electrostatics_c01_011",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An electric dipole consists of two equal and opposite charges of magnitude $q = 2.0\\text{ }\\mu\\text{C}$ separated by a distance of $3.0\\text{ cm}$. The dipole is placed in a uniform electric field of magnitude $E = 4.0 \\times 10^5\\text{ N/C}$ such that its dipole moment vector makes an angle of $30^\\circ$ with the field lines. What is the magnitude of the torque acting on the dipole?",
+      "options": [
+        "A) $2.4 \\times 10^{-2}\\text{ N}\\cdot\\text{m}$",
+        "B) $4.8 \\times 10^{-2}\\text{ N}\\cdot\\text{m}$",
+        "C) $1.2 \\times 10^{-2}\\text{ N}\\cdot\\text{m}$",
+        "D) $0.6 \\times 10^{-2}\\text{ N}\\cdot\\text{m}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The electric dipole moment magnitude is $p = q(2a) = (2.0 \\times 10^{-6}\\text{ C}) \\times (0.03\\text{ m}) = 6.0 \\times 10^{-8}\\text{ C}\\cdot\\text{m}$.\nStep 2: The torque acting on a dipole in a uniform electric field is given by $\\vec{\\tau} = \\vec{p} \\times \\vec{E}$, with magnitude $\\tau = pE\\sin\\theta$.\nStep 3: Substituting the values: $\\tau = (6.0 \\times 10^{-8}\\text{ C}\\cdot\\text{m}) \\times (4.0 \\times 10^5\\text{ N/C}) \\times \\sin 30^\\circ = 2.4 \\times 10^{-2} \\times 0.5 = 1.2 \\times 10^{-2}\\text{ N}\\cdot\\text{m}$.\nDistractor Analysis: $2.4 \\times 10^{-2}\\text{ N}\\cdot\\text{m}$ omits $\\sin 30^\\circ = 0.5$, while $4.8 \\times 10^{-2}\\text{ N}\\cdot\\text{m}$ erroneously doubles the separation."
+    },
+    {
+      "id": "phy_electrostatics_c01_012",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the electrostatic properties of an isolated conductor in electrostatic equilibrium:\n\nStatement I: The electric field is zero everywhere inside the conducting material, and the electrostatic potential is constant throughout the volume of the conductor.\nStatement II: Any excess electrostatic charge placed on a solid isolated conductor distributes itself uniformly across the entire interior bulk volume of the conductor.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement I is true: inside a conductor in electrostatic equilibrium, free charges rearrange until the net internal electric field becomes zero ($E = 0$). Since $E = -\\frac{dV}{dr} = 0$, the electrostatic potential $V$ is uniform and constant throughout the entire volume.\nStep 2: Statement II is false: if a Gaussian surface is drawn just inside the conductor's outer boundary, $E = 0$ everywhere on it, meaning $q_{\\text{encl}} = 0$ by Gauss's law. Therefore, no excess charge can reside in the interior; all excess charge resides entirely on the outer surface.\nStep 3: Distractor Analysis: Statement I is an essential NCERT principle, whereas Statement II falsely claims charge enters the bulk material."
+    },
+    {
+      "id": "phy_electrostatics_c01_013",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A parallel plate air capacitor has a capacitance of $C_0 = 12\\text{ pF}$. If the plate separation is halved ($d' = d/2$) and the entire space between the plates is filled with a dielectric material of dielectric constant $K = 5$, what is the new capacitance of the capacitor?",
+      "options": [
+        "A) $120\\text{ pF}$",
+        "B) $60\\text{ pF}$",
+        "C) $30\\text{ pF}$",
+        "D) $24\\text{ pF}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The capacitance of a parallel plate capacitor in air is given by $C_0 = \\frac{\\epsilon_0 A}{d} = 12\\text{ pF}$.\nStep 2: When the separation is modified to $d' = d/2$ and filled with dielectric $K$, the new capacitance is $C = \\frac{K \\epsilon_0 A}{d'} = \\frac{K \\epsilon_0 A}{d/2} = 2K \\left(\\frac{\\epsilon_0 A}{d}\\right) = 2K C_0$.\nStep 3: Substituting $K = 5$ and $C_0 = 12\\text{ pF}$: $C = 2 \\times 5 \\times 12\\text{ pF} = 120\\text{ pF}$.\nDistractor Analysis: $60\\text{ pF}$ accounts only for dielectric insertion ($KC_0$) without halving $d$, and $24\\text{ pF}$ accounts only for halving distance ($2C_0$) without dielectric."
+    },
+    {
+      "id": "phy_electrostatics_c01_014",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When a dielectric slab is inserted between the plates of an isolated charged parallel plate capacitor (with the charging battery disconnected), the electrostatic potential difference across the plates decreases by a factor of $K$.\nReason (R): The inserted dielectric undergoes electric polarization, creating bound surface charges that establish an internal electric field $\\vec{E}_p$ opposing the original field $\\vec{E}_0$, thereby reducing the net electric field to $E = E_0/K$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: For an isolated capacitor, the charge $Q$ on the plates remains constant after the battery is disconnected.\nStep 2: When a dielectric of constant $K$ is introduced, polarization produces surface charges with density $\\sigma_p = \\sigma(1 - 1/K)$. The opposing polarization field reduces the net electric field to $E = E_0 - E_p = E_0/K$.\nStep 3: Since potential difference is $V = Ed$, the new potential difference is $V = (E_0/K)d = V_0/K$. Hence, Assertion (A) is true, and Reason (R) correctly explains the microscopic mechanism behind the potential reduction.\nDistractor Analysis: Both statements are true and Reason (R) provides the direct causal physical explanation for Assertion (A)."
+    },
+    {
+      "id": "phy_electrostatics_c01_015",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match the modifications of a parallel plate capacitor connected to a constant DC voltage source $V_0$ in List I with the resulting change in its capacitance in List II:\n\nList I:\nA. Dielectric slab of constant $K$ inserted filling the entire space\nB. Plate separation $d$ doubled\nC. Area of plates $A$ doubled\nD. Dielectric of constant $K = 2$ inserted and plate separation doubled\n\nList II:\nI. Capacitance becomes $C_0/2$\nII. Capacitance becomes $2C_0$\nIII. Capacitance becomes $K C_0$\nIV. Capacitance remains unchanged ($C_0$)\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-I, C-III, D-IV",
+        "B) A-III, B-II, C-I, D-IV",
+        "C) A-III, B-I, C-II, D-IV",
+        "D) A-IV, B-III, C-II, D-I"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Filling with dielectric $K$ multiplies capacitance by $K$, giving $C = K C_0$ (A matches III).\nStep 2: Doubling plate separation with fixed area gives $C = \\frac{\\epsilon_0 A}{2d} = \\frac{C_0}{2}$ (B matches I).\nStep 3: Doubling plate area gives $C = \\frac{\\epsilon_0 (2A)}{d} = 2C_0$ (C matches II).\nStep 4: Inserting $K = 2$ and doubling separation gives $C = \\frac{2\\epsilon_0 A}{2d} = \\frac{\\epsilon_0 A}{d} = C_0$, leaving it unchanged (D matches IV).\nDistractor Analysis: The correct correspondence is A-III, B-I, C-II, D-IV."
+    },
+    {
+      "id": "phy_electrostatics_c01_016",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding an electric dipole:\n\nStatement I: The electrostatic potential at any point lying on the equatorial plane of an electric dipole is zero.\nStatement II: The electric field at any point lying on the equatorial plane of an electric dipole is zero.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement I is true: any point on the equatorial plane is equidistant from charges $+q$ and $-q$. The electrostatic potential is $V = \\frac{1}{4\\pi\\epsilon_0}\\left(\\frac{q}{r} - \\frac{q}{r}\\right) = 0$. Alternatively, $V(r, \\theta) = \\frac{kp\\cos 90^\\circ}{r^2} = 0$.\nStep 2: Statement II is false: the electric fields due to $+q$ and $-q$ add vectorially. While their perpendicular components cancel, their parallel components reinforce, yielding a non-zero net field $E_{\\text{eq}} = \\frac{1}{4\\pi\\epsilon_0}\\frac{p}{r^3}$ oriented antiparallel to the dipole moment $\\vec{p}$.\nStep 3: Distractor Analysis: Electric field is the negative gradient of potential; zero potential does not mean zero gradient (electric field is non-zero)."
+    },
+    {
+      "id": "phy_electrostatics_c01_017",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A capacitor of capacitance $C = 25\\text{ }\\mu\\text{F}$ is connected across a $200\\text{ V}$ DC power supply until fully charged. What is the total electrostatic energy stored in the electric field between the plates of this capacitor?",
+      "options": [
+        "A) $0.50\\text{ J}$",
+        "B) $0.25\\text{ J}$",
+        "C) $1.00\\text{ J}$",
+        "D) $0.05\\text{ J}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The electrostatic energy stored in a capacitor of capacitance $C$ charged to potential difference $V$ is given by $U = \\frac{1}{2} C V^2$.\nStep 2: Substituting $C = 25 \\times 10^{-6}\\text{ F}$ and $V = 200\\text{ V}$:\n$U = \\frac{1}{2} \\times (25 \\times 10^{-6}\\text{ F}) \\times (200\\text{ V})^2 = \\frac{1}{2} \\times 25 \\times 10^{-6} \\times 40000$.\nStep 3: Simplifying: $U = 25 \\times 10^{-6} \\times 20000 = 0.50\\text{ J}$.\nDistractor Analysis: $0.25\\text{ J}$ divides by 4, $1.00\\text{ J}$ forgets the factor of $\\frac{1}{2}$ ($CV^2$), and $0.05\\text{ J}$ results from an arithmetic decimal error."
+    },
+    {
+      "id": "phy_electrostatics_c01_018",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Two identical conducting spheres carrying initial charges of $+5\\text{ }\\mu\\text{C}$ and $-1\\text{ }\\mu\\text{C}$ are brought into momentary contact and then returned to their original positions; the force between them is now repulsive.\nReason (R): Upon contact, the total charge is conserved and distributes equally between the two identical spheres, resulting in each sphere acquiring an identical charge of $+2\\text{ }\\mu\\text{C}$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: By charge conservation, the net charge of the isolated two-sphere system is $Q_{\\text{net}} = (+5\\text{ }\\mu\\text{C}) + (-1\\text{ }\\mu\\text{C}) = +4\\text{ }\\mu\\text{C}$.\nStep 2: Because the spheres are identical in geometry and size, the net charge divides equally upon physical contact: $q' = \\frac{Q_{\\text{net}}}{2} = \\frac{+4\\text{ }\\mu\\text{C}}{2} = +2\\text{ }\\mu\\text{C}$ on each sphere.\nStep 3: Since both spheres now carry like charges of $+2\\text{ }\\mu\\text{C}$, the Coulomb force between them is repulsive. Reason (R) provides the exact mathematical rationale for Assertion (A).\nDistractor Analysis: Both statements are completely correct and Reason (R) directly explains Assertion (A)."
+    },
+    {
+      "id": "phy_electrostatics_c01_019",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding electrostatic shielding:\n\nStatement I: Electrostatic shielding is the phenomenon where a cavity inside a conductor is completely shielded from external electrostatic fields, ensuring that the electric field inside the empty cavity is identically zero.\nStatement II: Sensitive electronic instruments and delicate apparatus are often enclosed in metallic cases to shield them from external electrostatic disturbances.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Both Statement I and Statement II are true.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Statement I is true: inside any empty cavity of a conductor (with no enclosed charges), the electrostatic field is identically zero regardless of the magnitude and configuration of external electric fields or surface charges on the conductor.\nStep 2: Statement II is true: Faraday cages and metallic enclosures utilize this principle of electrostatic shielding to protect delicate scientific instruments and microelectronics from stray external electric fields.\nStep 3: Distractor Analysis: Both statements are standard NCERT principles of electrostatic shielding, making choices stating either is false incorrect."
+    },
+    {
+      "id": "phy_electrostatics_c01_020",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding combinations of capacitors:\n\nStatement I: In a series combination of two unequal capacitors $C_1$ and $C_2$, the equivalent capacitance is always strictly smaller than the smaller of the two individual capacitances.\nStatement II: In a parallel combination of two unequal capacitors $C_1$ and $C_2$, the electric charge stored on each capacitor is strictly identical.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In a series combination, $\\frac{1}{C_{\\text{eq}}} = \\frac{1}{C_1} + \\frac{1}{C_2} \\implies C_{\\text{eq}} = \\frac{C_1 C_2}{C_1 + C_2}$. Mathematically, $C_{\\text{eq}} = C_1 \\left(\\frac{C_2}{C_1 + C_2}\\right) < C_1$ and $C_{\\text{eq}} < C_2$, so $C_{\\text{eq}}$ is less than the smallest capacitor. Statement I is true.\nStep 2: In a parallel combination, the potential difference $V$ across each capacitor is identical, but the charge stored is $Q_1 = C_1 V$ and $Q_2 = C_2 V$. When $C_1 \\neq C_2$, the charges $Q_1$ and $Q_2$ are unequal. Therefore, Statement II is false.\nStep 3: Distractor Analysis: Identical charge is the hallmark of series combinations, not parallel combinations."
+    },
+    {
+      "id": "phy_electrostatics_c01_021",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two capacitors of capacitances $C_1 = 6\\text{ }\\mu\\text{F}$ and $C_2 = 12\\text{ }\\mu\\text{F}$ are connected in series across a $90\\text{ V}$ DC voltage supply. What is the electrostatic potential difference across the $6\\text{ }\\mu\\text{F}$ capacitor?",
+      "options": [
+        "A) $60\\text{ V}$",
+        "B) $30\\text{ V}$",
+        "C) $45\\text{ V}$",
+        "D) $90\\text{ V}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The equivalent capacitance of two capacitors in series is $C_{\\text{eq}} = \\frac{C_1 C_2}{C_1 + C_2} = \\frac{6 \\times 12}{6 + 12} = \\frac{72}{18} = 4\\text{ }\\mu\\text{F}$.\nStep 2: The total charge drawn from the battery is $Q = C_{\\text{eq}} V = 4\\text{ }\\mu\\text{F} \\times 90\\text{ V} = 360\\text{ }\\mu\\text{C}$. In series, each capacitor carries this same charge $Q = 360\\text{ }\\mu\\text{C}$.\nStep 3: The potential difference across $C_1 = 6\\text{ }\\mu\\text{F}$ is $V_1 = \\frac{Q}{C_1} = \\frac{360\\text{ }\\mu\\text{C}}{6\\text{ }\\mu\\text{F}} = 60\\text{ V}$. Alternatively, by potential division: $V_1 = V \\left(\\frac{C_2}{C_1 + C_2}\\right) = 90 \\times \\frac{12}{18} = 60\\text{ V}$.\nDistractor Analysis: $30\\text{ V}$ is the potential difference across the $12\\text{ }\\mu\\text{F}$ capacitor, $45\\text{ V}$ assumes equal division, and $90\\text{ V}$ assumes the full voltage drops across one capacitor."
+    },
+    {
+      "id": "phy_electrostatics_c01_022",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A parallel plate capacitor with plate area $A$ and separation $d$ has an initial capacitance $C_0$ in air. A metallic conducting slab of thickness $t = d/3$ is introduced between the plates without touching either plate. What is the new capacitance of this capacitor?",
+      "options": [
+        "A) $\\frac{2}{3} C_0$",
+        "B) $\\frac{4}{3} C_0$",
+        "C) $\\frac{3}{2} C_0$",
+        "D) $3 C_0$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: For a conducting slab of thickness $t$, the dielectric constant is effectively infinite ($K \\to \\infty$), so the electric field inside the slab is zero.\nStep 2: The general formula for capacitance with a slab of thickness $t$ is $C = \\frac{\\epsilon_0 A}{d - t(1 - 1/K)}$. For a conducting slab ($K \\to \\infty$), this reduces to $C = \\frac{\\epsilon_0 A}{d - t}$.\nStep 3: Substituting $t = d/3$: $C = \\frac{\\epsilon_0 A}{d - d/3} = \\frac{\\epsilon_0 A}{\\frac{2}{3}d} = \\frac{3}{2} \\left(\\frac{\\epsilon_0 A}{d}\\right) = \\frac{3}{2} C_0$.\nDistractor Analysis: $\\frac{2}{3}C_0$ inverts the factor, $\\frac{4}{3}C_0$ uses incorrect algebra, and $3C_0$ assumes the effective gap is $d/3$ instead of $2d/3$."
+    },
+    {
+      "id": "phy_electrostatics_c01_023",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Three point charges $+q$, $+q$, and $-q$ are situated at the three vertices of an equilateral triangle of side length $a$ in vacuum. What is the magnitude of the net electrostatic force acting on the charge $-q$?",
+      "options": [
+        "A) \\frac{\\sqrt{3} q^2}{4\\pi\\epsilon_0 a^2}",
+        "B) \\frac{q^2}{4\\pi\\epsilon_0 a^2}",
+        "C) \\frac{2 q^2}{4\\pi\\epsilon_0 a^2}",
+        "D) \\frac{\\sqrt{2} q^2}{4\\pi\\epsilon_0 a^2}"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The charge $-q$ experiences attractive forces towards each of the two $+q$ charges. By Coulomb's law, the magnitude of each attractive force is $F_1 = F_2 = F_0 = \\frac{1}{4\\pi\\epsilon_0}\\frac{q^2}{a^2}$.\nStep 2: The angle between the two force vectors acting on $-q$ is equal to the vertex angle of the equilateral triangle, which is $\\theta = 60^\\circ$.\nStep 3: The resultant force magnitude is $F_{\\text{net}} = \\sqrt{F_0^2 + F_0^2 + 2F_0^2\\cos 60^\\circ} = \\sqrt{F_0^2 + F_0^2 + F_0^2} = \\sqrt{3} F_0 = \\frac{\\sqrt{3} q^2}{4\\pi\\epsilon_0 a^2}$, directed along the internal angle bisector.\nDistractor Analysis: $\\frac{q^2}{4\\pi\\epsilon_0 a^2}$ accounts for only one charge, $\\frac{2q^2}{4\\pi\\epsilon_0 a^2}$ assumes collinear addition ($\theta = 0^\\circ$), and $\\frac{\\sqrt{2}q^2}{4\\pi\\epsilon_0 a^2}$ assumes a right-angled geometry ($\theta = 90^\\circ$)."
+    },
+    {
+      "id": "phy_electrostatics_c01_024",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The electric field at a perpendicular distance $r$ from an infinitely long straight wire carrying uniform linear charge density $\\lambda$ varies inversely with distance $r$.\nReason (R): Applying Gauss's law using a coaxial cylindrical Gaussian surface of radius $r$ and length $l$, the electric flux through the curved surface is $E(2\\pi r l) = \\frac{\\lambda l}{\\epsilon_0}$, which directly yields $E = \\frac{\\lambda}{2\\pi\\epsilon_0 r}$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: By cylindrical symmetry of an infinitely long straight wire, the electric field is strictly radial and perpendicular to the wire. The flux through the two circular flat end caps of the cylinder is zero because $\\vec{E} \\cdot \\hat{n} = 0$.\nStep 2: The curved surface area is $2\\pi r l$, so the total electric flux is $\\Phi = E(2\\pi r l)$. By Gauss's law, $\\Phi = \\frac{q_{\\text{encl}}}{\\epsilon_0} = \\frac{\\lambda l}{\\epsilon_0}$.\nStep 3: Equating the two expressions gives $E(2\\pi r l) = \\frac{\\lambda l}{\\epsilon_0} \\implies E = \\frac{\\lambda}{2\\pi\\epsilon_0 r}$, confirming that $E \\propto 1/r$. Reason (R) provides the exact mathematical derivation for Assertion (A).\nDistractor Analysis: Both statements are true and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_electrostatics_c01_025",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two large, thin, parallel conducting plates are placed close to each other in vacuum. The plates carry uniform surface charge densities of opposite signs, $+\\sigma$ and $-\\sigma$, where $\\sigma = 1.77 \\times 10^{-9}\\text{ C/m}^2$. Taking $\\epsilon_0 = 8.85 \\times 10^{-12}\\text{ C}^2/(\\text{N}\\cdot\\text{m}^2)$, what is the magnitude of the electric field in the space between the plates?",
+      "options": [
+        "A) $0\\text{ N/C}$",
+        "B) $100\\text{ N/C}$",
+        "C) $200\\text{ N/C}$",
+        "D) $400\\text{ N/C}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The electric field produced by an infinite plane sheet of charge with uniform surface charge density $\\sigma$ has magnitude $E_1 = \\frac{\\sigma}{2\\epsilon_0}$.\nStep 2: Between two oppositely charged sheets ($+\\sigma$ and $-\\sigma$), the field due to the positive plate points away from it and towards the negative plate, while the field due to the negative plate points towards itself. The two fields point in the same direction and reinforce: $E = \\frac{\\sigma}{2\\epsilon_0} + \\frac{\\sigma}{2\\epsilon_0} = \\frac{\\sigma}{\\epsilon_0}$.\nStep 3: Substituting the values: $E = \\frac{1.77 \\times 10^{-9}\\text{ C/m}^2}{8.85 \\times 10^{-12}\\text{ C}^2/(\\text{N}\\cdot\\text{m}^2)} = 200\\text{ N/C}$.\nDistractor Analysis: $0\\text{ N/C}$ is the field outside the two plates, $100\\text{ N/C}$ is the field from a single sheet ($E = \\sigma/(2\\epsilon_0)$), and $400\\text{ N/C}$ doubles the correct sum."
+    },
+    {
+      "id": "phy_electrostatics_c01_026",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the electrostatic relationship between electric field and potential:\n\nStatement I: The electric field $\\vec{E}$ at any point in space is directed along the direction in which the electrostatic potential $V$ decreases most rapidly.\nStatement II: If the electrostatic potential is constant throughout a given volume of space, the electric field in that region must be non-zero and spatially uniform.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The differential relation between electric field and potential is $\\vec{E} = -\\vec{\\nabla} V = -\\left(\\frac{\\partial V}{\\partial x}\\hat{i} + \\frac{\\partial V}{\\partial y}\\hat{j} + \\frac{\\partial V}{\\partial z}\\hat{k}\\right)$. The gradient vector $\\vec{\\nabla} V$ points in the direction of maximum rate of increase of potential; therefore, $-\\vec{\\nabla} V$ points in the direction of steepest decrease of potential. Statement I is true.\nStep 2: If the potential $V$ is constant throughout a volume, all spatial derivatives are zero: $\\frac{\\partial V}{\\partial x} = \\frac{\\partial V}{\\partial y} = \\frac{\\partial V}{\\partial z} = 0$. Consequently, the electric field is strictly zero ($\\vec{E} = \\vec{0}$) throughout that volume, not non-zero. Statement II is false.\nStep 3: Distractor Analysis: Uniform non-zero electric fields correspond to linearly changing potential, not constant potential."
+    },
+    {
+      "id": "phy_electrostatics_c01_027",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The electrostatic potential in a certain region of space is given by the function $V(x, y, z) = 6x - 8xy - 8y + 6yz$, where $V$ is in volts and $x, y, z$ are in meters. What is the magnitude of the electrostatic force experienced by a point charge of $q = 2.0\\text{ C}$ located at the origin $(0, 0, 0)$?",
+      "options": [
+        "A) $20\\text{ N}$",
+        "B) $10\\text{ N}$",
+        "C) $14\\text{ N}$",
+        "D) $28\\text{ N}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The components of the electric field are calculated via negative partial derivatives: $E_x = -\\frac{\\partial V}{\\partial x} = -(6 - 8y) = -6 + 8y$. At $(0,0,0)$, $E_x = -6\\text{ V/m}$.\nStep 2: $E_y = -\\frac{\\partial V}{\\partial y} = -(-8x - 8 + 6z) = 8x + 8 - 6z$. At $(0,0,0)$, $E_y = +8\\text{ V/m}$.\nStep 3: $E_z = -\\frac{\\partial V}{\\partial z} = -(6y) = -6y$. At $(0,0,0)$, $E_z = 0\\text{ V/m}$.\nStep 4: The magnitude of the net electric field at the origin is $E = \\sqrt{(-6)^2 + (8)^2 + (0)^2} = \\sqrt{36 + 64} = 10\\text{ V/m}$. The force on $q = 2.0\\text{ C}$ is $F = qE = 2.0 \\times 10 = 20\\text{ N}$.\nDistractor Analysis: $10\\text{ N}$ is the electric field magnitude, $14\\text{ N}$ results from arithmetic addition ($6+8$), and $28\\text{ N}$ doubles the scalar sum."
+    },
+    {
+      "id": "phy_electrostatics_c01_028",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): An electric dipole placed in a non-uniform electrostatic field experiences, in general, both a net non-zero translational force and a net non-zero torque.\nReason (R): In a non-uniform electrostatic field, the electric forces acting on the positive and negative constituent charges of the dipole are unequal in magnitude and act at different locations, producing a net force along the direction of increasing field and a torque tending to align the dipole with the field.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In a uniform electric field, the forces $+q\\vec{E}$ and $-q\\vec{E}$ cancel exactly, resulting in zero net translational force (only torque can act). In a non-uniform field, $\\vec{E}$ varies with position, so $\\vec{F}_+ = q\\vec{E}(\\vec{r}_+)$ and $\\vec{F}_- = -q\\vec{E}(\\vec{r}_-)$ do not cancel.\nStep 2: The net force on a small dipole is given by $\\vec{F} = (\\vec{p}\\cdot\\vec{\\nabla})\\vec{E} \\neq \\vec{0}$. Simultaneously, unless the forces are collinear, a non-zero torque $\\vec{\\tau}$ also acts on the dipole.\nStep 3: Reason (R) provides the complete physical mechanism explaining why both a net force and torque arise in non-uniform fields.\nDistractor Analysis: Both statements are true and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_electrostatics_c01_029",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A thin circular ring of radius $R$ carries a uniformly distributed total positive charge $Q$. At what axial distance $x$ from the center of the ring is the magnitude of the electric field maximum?",
+      "options": [
+        "A) $x = R$",
+        "B) $x = \\sqrt{2} R$",
+        "C) $x = \\frac{R}{\\sqrt{2}}$",
+        "D) $x = \\frac{R}{2}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The electric field on the axis of a uniformly charged ring of radius $R$ at a distance $x$ from the center is given by $E(x) = \\frac{1}{4\\pi\\epsilon_0}\\frac{Qx}{(x^2 + R^2)^{3/2}}$.\nStep 2: To find the location of maximum field, differentiate $E(x)$ with respect to $x$ and set $\\frac{dE}{dx} = 0$: $\\frac{d}{dx}\\left[\\frac{x}{(x^2 + R^2)^{3/2}}\\right] = \\frac{(x^2 + R^2)^{3/2} - x \\cdot \\frac{3}{2}(x^2 + R^2)^{1/2}(2x)}{(x^2 + R^2)^3} = 0$.\nStep 3: Simplifying the numerator: $(x^2 + R^2) - 3x^2 = 0 \\implies R^2 - 2x^2 = 0 \\implies x = \\frac{R}{\\sqrt{2}}$.\nDistractor Analysis: $x = R$ is where potential gradient changes slope, $x = \\sqrt{2}R$ inverts the fraction, and $x = R/2$ is an incorrect estimate."
+    },
+    {
+      "id": "phy_electrostatics_c01_030",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding charge sharing between two capacitors:\n\nStatement I: When two capacitors charged to different electrostatic potentials $V_1$ and $V_2$ are connected in parallel with plates of identical polarity joined together, the common electrostatic potential is given by $V_{\\text{common}} = \\frac{C_1 V_1 + C_2 V_2}{C_1 + C_2}$.\nStatement II: During this process of charge redistribution between the two capacitors, the total electrostatic potential energy of the two-capacitor system is strictly conserved.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: By conservation of charge, total charge before connection is $Q_{\\text{total}} = C_1 V_1 + C_2 V_2$. In parallel, equivalent capacitance is $C_{\\text{eq}} = C_1 + C_2$. Therefore, the common potential is $V_{\\text{common}} = \\frac{Q_{\\text{total}}}{C_{\\text{eq}}} = \\frac{C_1 V_1 + C_2 V_2}{C_1 + C_2}$. Statement I is true.\nStep 2: The final electrostatic energy is strictly less than the initial electrostatic energy. The energy loss is given by $\\Delta U = \\frac{C_1 C_2 (V_1 - V_2)^2}{2(C_1 + C_2)}$, which is strictly positive whenever $V_1 \\neq V_2$. This energy is dissipated as heat in connecting wires and as electromagnetic radiation. Therefore, electrostatic energy is not conserved, and Statement II is false.\nStep 3: Distractor Analysis: While charge is strictly conserved, electrostatic potential energy is dissipated during charge redistribution."
+    },
+    {
+      "id": "phy_electrostatics_c01_031",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A capacitor of capacitance $C_1 = 4.0\\text{ }\\mu\\text{F}$ is charged to a potential difference of $V_1 = 200\\text{ V}$ and then disconnected from the power supply. It is then connected in parallel across an initially uncharged capacitor of capacitance $C_2 = 6.0\\text{ }\\mu\\text{F}$. What is the total electrostatic potential energy lost during the process of charge redistribution?",
+      "options": [
+        "A) $48\\text{ mJ}$",
+        "B) $24\\text{ mJ}$",
+        "C) $80\\text{ mJ}$",
+        "D) $32\\text{ mJ}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The electrostatic energy lost during charge sharing when an uncharged capacitor ($V_2 = 0$) is connected across a charged capacitor is given by $\\Delta U = \\frac{C_1 C_2 (V_1 - V_2)^2}{2(C_1 + C_2)}$.\nStep 2: Substituting the given parameters: $C_1 = 4.0 \\times 10^{-6}\\text{ F}$, $C_2 = 6.0 \\times 10^{-6}\\text{ F}$, $V_1 = 200\\text{ V}$, $V_2 = 0\\text{ V}$.\nStep 3: Calculating: $\\Delta U = \\frac{(4.0 \\times 10^{-6})(6.0 \\times 10^{-6})(200)^2}{2(4.0 + 6.0) \\times 10^{-6}} = \\frac{24 \\times 10^{-12} \\times 40000}{20 \\times 10^{-6}} = \\frac{96 \\times 10^{-8}}{20 \\times 10^{-6}} = 4.8 \\times 10^{-2}\\text{ J} = 48\\text{ mJ}$.\nDistractor Analysis: $80\\text{ mJ}$ is the initial total energy ($U_i = \\frac{1}{2} C_1 V_1^2 = 80\\text{ mJ}$), $32\\text{ mJ}$ is the final stored energy, and $24\\text{ mJ}$ omits the factor of 2 in the denominator."
+    },
+    {
+      "id": "phy_electrostatics_c01_032",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When a dielectric slab of dielectric constant $K$ is completely inserted into a parallel plate capacitor while it remains connected across a battery of voltage $V$, the stored electrostatic potential energy increases by a factor of $K$.\nReason (R): Because the battery maintains a constant potential difference $V$ across the plates, the capacitance increases to $K C_0$, and the stored energy $U = \\frac{1}{2} C V^2$ increases proportionally to $K U_0$, with the battery supplying work $W = \\Delta Q \\cdot V = 2\\Delta U$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: When the battery remains connected, the potential difference across the capacitor plates is held constant at $V$.\nStep 2: Upon inserting the dielectric slab, the capacitance increases from $C_0$ to $C = K C_0$. The stored electrostatic potential energy is $U_f = \\frac{1}{2} C V^2 = \\frac{1}{2} (K C_0) V^2 = K \\left(\\frac{1}{2} C_0 V^2\\right) = K U_0$. Thus, Assertion (A) is true.\nStep 3: The battery delivers extra charge $\\Delta Q = (K - 1) C_0 V$. The work done by the battery is $W_{\\text{batt}} = \\Delta Q \\cdot V = (K - 1) C_0 V^2 = 2\\Delta U$. Half of this energy increases the capacitor's stored energy and the other half is dissipated or converted into mechanical work. Reason (R) provides the exact thermodynamic and electrodynamic explanation for Assertion (A).\nDistractor Analysis: Both statements are true and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_electrostatics_c01_033",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two concentric conducting thin spherical shells of radii $R_1$ and $R_2$ ($R_1 < R_2$) carry net charges $Q_1$ and $Q_2$ respectively. Match the radial locations in List I with the corresponding electrostatic potential in List II:\n\nList I:\nA. On the surface of the inner shell ($r = R_1$)\nB. At an intermediate radial distance ($R_1 < r < R_2$)\nC. On the surface of the outer shell ($r = R_2$)\nD. At an external point outside both shells ($r > R_2$)\n\nList II:\nI. $\\frac{1}{4\\pi\\epsilon_0}\\left(\\frac{Q_1 + Q_2}{r}\\right)$\nII. $\\frac{1}{4\\pi\\epsilon_0}\\left(\\frac{Q_1}{r} + \\frac{Q_2}{R_2}\\right)$\nIII. $\\frac{1}{4\\pi\\epsilon_0}\\left(\\frac{Q_1}{R_1} + \\frac{Q_2}{R_2}\\right)$\nIV. $\\frac{1}{4\\pi\\epsilon_0}\\left(\\frac{Q_1 + Q_2}{R_2}\\right)$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-III, C-I, D-IV",
+        "B) A-III, B-IV, C-II, D-I",
+        "C) A-III, B-II, C-IV, D-I",
+        "D) A-IV, B-II, C-III, D-I"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: At $r = R_1$, the point is on the surface of the inner shell and inside the outer shell: $V = \\frac{1}{4\\pi\\epsilon_0}\\left(\\frac{Q_1}{R_1} + \\frac{Q_2}{R_2}\\right)$ (A matches III).\nStep 2: At $R_1 < r < R_2$, the point is outside the inner shell but inside the outer shell: $V = \\frac{1}{4\\pi\\epsilon_0}\\left(\\frac{Q_1}{r} + \\frac{Q_2}{R_2}\\right)$ (B matches II).\nStep 3: At $r = R_2$, on the surface of the outer shell: $V = \\frac{1}{4\\pi\\epsilon_0}\\left(\\frac{Q_1}{R_2} + \\frac{Q_2}{R_2}\\right) = \\frac{1}{4\\pi\\epsilon_0}\\left(\\frac{Q_1 + Q_2}{R_2}\\right)$ (C matches IV).\nStep 4: At $r > R_2$, outside both shells: $V = \\frac{1}{4\\pi\\epsilon_0}\\left(\\frac{Q_1 + Q_2}{r}\\right)$ (D matches I).\nDistractor Analysis: The correct pairing is A-III, B-II, C-IV, D-I."
+    },
+    {
+      "id": "phy_electrostatics_c01_034",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the electrostatic field and surface charge density on conductors:\n\nStatement I: The electric field immediately outside the surface of a charged conductor of any arbitrary shape is given by $\\vec{E} = \\frac{\\sigma}{\\epsilon_0}\\hat{n}$, where $\\sigma$ is the local surface charge density and $\\hat{n}$ is a unit vector normal to the surface in the outward direction.\nStatement II: The electrostatic surface charge density $\\sigma$ is strictly uniform across the entire surface of an isolated charged conductor of any arbitrary asymmetrical shape.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement I is true: constructing a small pillbox Gaussian surface across the conductor boundary, the interior field is zero while the outward flux through the exterior cap of area $\\Delta A$ is $E\\Delta A = \\frac{\\sigma \\Delta A}{\\epsilon_0} \\implies E = \\frac{\\sigma}{\\epsilon_0}$, directed normally outwards.\nStep 2: Statement II is false: for an asymmetrical conductor, the surface charge density $\\sigma$ is not uniform. The surface of a conductor is an equipotential surface, and charge concentrates at points of higher curvature such that $\\sigma \\propto \\frac{1}{R_{\\text{curv}}}$, being highest at sharp edges and corners.\nStep 3: Distractor Analysis: Uniform surface charge density occurs only on highly symmetric geometries such as isolated spheres."
+    },
+    {
+      "id": "phy_electrostatics_c01_035",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Three point charges $+q$, $+q$, and $-q$ are situated at the three vertices of an equilateral triangle of side length $L$ in vacuum. What is the total electrostatic potential energy of this three-charge configuration?",
+      "options": [
+        "A) -\\frac{q^2}{4\\pi\\epsilon_0 L}",
+        "B) +\\frac{q^2}{4\\pi\\epsilon_0 L}",
+        "C) -\\frac{3q^2}{4\\pi\\epsilon_0 L}",
+        "D) $0$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The electrostatic potential energy of a system of three point charges is given by the pairwise sum: $U = \\frac{1}{4\\pi\\epsilon_0}\\left(\\frac{q_1 q_2}{r_{12}} + \\frac{q_2 q_3}{r_{23}} + \\frac{q_3 q_1}{r_{31}}\\right)$.\nStep 2: Let the charges be $q_1 = +q$, $q_2 = +q$, and $q_3 = -q$, with pairwise distance $r_{12} = r_{23} = r_{31} = L$.\nStep 3: Substituting the charges: $U = \\frac{1}{4\\pi\\epsilon_0 L}\\left[(+q)(+q) + (+q)(-q) + (-q)(+q)\\right] = \\frac{1}{4\\pi\\epsilon_0 L}(q^2 - q^2 - q^2) = -\\frac{q^2}{4\\pi\\epsilon_0 L}$.\nDistractor Analysis: $+\\frac{q^2}{4\\pi\\epsilon_0 L}$ inverts the algebraic sign, $-\\frac{3q^2}{4\\pi\\epsilon_0 L}$ treats all three pairs as attractive, and $0$ incorrectly assumes pairwise cancellation."
+    },
+    {
+      "id": "phy_electrostatics_c01_036",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The work done by an electrostatic field in moving a test charge along any closed path on an equipotential surface is identically zero.\nReason (R): The electrostatic field is a conservative force field, which guarantees that the closed line integral of the electric field $\\oint \\vec{E}\\cdot d\\vec{l}$ around any arbitrary closed loop in space is zero.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The work done by an electrostatic field in moving a charge $q_0$ from point $A$ to point $B$ is given by $W = -q_0(V_B - V_A)$. When the trajectory forms a closed loop, the starting and ending points coincide ($V_B = V_A$), yielding $W = 0$.\nStep 2: This property is a direct consequence of the electrostatic field being conservative, which mathematically means that $\\oint \\vec{E}\\cdot d\\vec{l} = 0$ along any closed path in space.\nStep 3: Furthermore, at every point on an equipotential surface, $\\vec{E} \\perp d\\vec{l}$, meaning $\\vec{E}\\cdot d\\vec{l} = 0$ at every infinitesimal step. Reason (R) provides the broader fundamental principle governing Assertion (A).\nDistractor Analysis: Both statements are completely true and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_electrostatics_c01_037",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the insertion of a dielectric slab of thickness $t$ ($t < d$) and dielectric constant $K$ between the plates of a parallel plate capacitor having plate area $A$ and initial plate separation $d$:\n\n(a) The new capacitance is given by $C = \\frac{\\epsilon_0 A}{d - t\\left(1 - \\frac{1}{K}\\right)}$.\n(b) The effective vacuum separation between the plates is reduced by $t\\left(1 - \\frac{1}{K}\\right)$.\n(c) If the slab is replaced by a conducting metallic plate of thickness $t$, the capacitance becomes $C = \\frac{\\epsilon_0 A}{d - t}$.\n(d) If the dielectric slab completely fills the entire gap between the plates ($t = d$), the capacitance becomes $C = K C_0$.\n\nWhich of the statements given above are correct?",
+      "options": [
+        "A) (a) and (c) only",
+        "B) (b) and (d) only",
+        "C) (a), (b), and (c) only",
+        "D) (a), (b), (c), and (d)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement (a) is the standard NCERT formula derived from $V = E_0(d - t) + \\frac{E_0}{K}t = E_0\\left[d - t\\left(1 - \\frac{1}{K}\\right)\\right]$. Since $C = \\frac{Q}{V} = \\frac{\\sigma A}{E_0\\left[d - t(1 - 1/K)\\right]}$, statement (a) is correct.\nStep 2: Statement (b) is correct because the effective electrical separation in vacuum is $d_{\\text{eff}} = d - t + \\frac{t}{K} = d - t\\left(1 - \\frac{1}{K}\\right)$, representing a reduction of $t\\left(1 - \\frac{1}{K}\\right)$.\nStep 3: Statement (c) is correct because for a conductor, $K \\to \\infty$, so $1 - 1/K = 1$, giving $C = \\frac{\\epsilon_0 A}{d - t}$.\nStep 4: Statement (d) is correct because setting $t = d$ in the formula yields $C = \\frac{\\epsilon_0 A}{d - d(1 - 1/K)} = \\frac{\\epsilon_0 A}{d/K} = K \\frac{\\epsilon_0 A}{d} = K C_0$.\nDistractor Analysis: All four statements (a), (b), (c), and (d) are rigorously true."
+    },
+    {
+      "id": "phy_electrostatics_c01_038",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A circuit network of four identical capacitors, each of capacitance $C = 12\\text{ }\\mu\\text{F}$, is arranged such that three capacitors are connected in series with each other, and this entire series branch is connected in parallel with the fourth capacitor across terminals $A$ and $B$. What is the equivalent capacitance of this network between $A$ and $B$?",
+      "options": [
+        "A) $16\\text{ }\\mu\\text{F}$",
+        "B) $4\\text{ }\\mu\\text{F}$",
+        "C) $9\\text{ }\\mu\\text{F}$",
+        "D) $48\\text{ }\\mu\\text{F}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For the three capacitors connected in series, the equivalent capacitance $C_s$ is given by $\\frac{1}{C_s} = \\frac{1}{C} + \\frac{1}{C} + \\frac{1}{C} = \\frac{3}{C} \\implies C_s = \\frac{C}{3}$.\nStep 2: Substituting $C = 12\\text{ }\\mu\\text{F}$: $C_s = \\frac{12\\text{ }\\mu\\text{F}}{3} = 4\\text{ }\\mu\\text{F}$.\nStep 3: This series branch is connected in parallel with the fourth capacitor of capacitance $C = 12\\text{ }\\mu\\text{F}$. The equivalent capacitance between terminals $A$ and $B$ is $C_{\\text{eq}} = C_s + C = 4\\text{ }\\mu\\text{F} + 12\\text{ }\\mu\\text{F} = 16\\text{ }\\mu\\text{F}$.\nDistractor Analysis: $4\\text{ }\\mu\\text{F}$ is the series branch alone, $48\\text{ }\\mu\\text{F}$ assumes all four in parallel ($4C$), and $9\\text{ }\\mu\\text{F}$ is an erroneous fractional calculation."
+    },
+    {
+      "id": "phy_electrostatics_c01_039",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Sharp pointed ends of an electrically charged conductor discharge electrostatic charge into the surrounding air much more rapidly than flat or gently curved regions.\nReason (R): For a charged conductor in electrostatic equilibrium, the electric field just outside the surface is $E = \\frac{\\sigma}{\\epsilon_0}$, and the surface charge density $\\sigma$ is inversely proportional to the local radius of curvature ($\\sigma \\propto 1/R_{\\text{curv}}$), creating intensely strong fields at sharp points that ionize air molecules.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Because a conductor's surface is an equipotential surface, two spherical regions connected to each other have equal potential $V = \\frac{q_1}{4\\pi\\epsilon_0 R_1} = \\frac{q_2}{4\\pi\\epsilon_0 R_2} \\implies \\sigma_1 R_1 = \\sigma_2 R_2$, meaning $\\sigma \\propto 1/R_{\\text{curv}}$.\nStep 2: At sharp points, $R_{\\text{curv}} \\to 0$, causing $\\sigma$ and consequently the local electric field $E = \\sigma/\\epsilon_0$ to reach exceptionally high values.\nStep 3: When this field exceeds the dielectric breakdown strength of air ($\\sim 3 \\times 10^6\\text{ V/m}$), the surrounding air is ionized, resulting in a continuous leakage of charge known as corona discharge (action of points). Reason (R) provides the exact scientific mechanism for Assertion (A).\nDistractor Analysis: Both statements are true and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_electrostatics_c01_040",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a certain region of vacuum, an electrostatic field has a uniform magnitude of $E = 2.0 \\times 10^4\\text{ V/m}$. Taking the permittivity of free space as $\\epsilon_0 = 8.85 \\times 10^{-12}\\text{ C}^2/(\\text{N}\\cdot\\text{m}^2)$, what is the electrostatic energy density stored in this electric field?",
+      "options": [
+        "A) $3.54 \\times 10^{-3}\\text{ J/m}^3$",
+        "B) $0.885 \\times 10^{-3}\\text{ J/m}^3$",
+        "C) $1.77 \\times 10^{-3}\\text{ J/m}^3$",
+        "D) $7.08 \\times 10^{-3}\\text{ J/m}^3$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The electrostatic energy density stored in an electric field in vacuum is given by $u = \\frac{1}{2}\\epsilon_0 E^2$.\nStep 2: Substituting $\\epsilon_0 = 8.85 \\times 10^{-12}\\text{ C}^2/(\\text{N}\\cdot\\text{m}^2)$ and $E = 2.0 \\times 10^4\\text{ V/m}$:\n$u = \\frac{1}{2} \\times (8.85 \\times 10^{-12}) \\times (2.0 \\times 10^4)^2 = \\frac{1}{2} \\times (8.85 \\times 10^{-12}) \\times (4.0 \\times 10^8)$.\nStep 3: Calculating: $u = 8.85 \\times 10^{-12} \\times 2.0 \\times 10^8 = 17.7 \\times 10^{-4} = 1.77 \\times 10^{-3}\\text{ J/m}^3$.\nDistractor Analysis: $3.54 \\times 10^{-3}\\text{ J/m}^3$ omits the factor of $1/2$ (giving $\\epsilon_0 E^2$), $0.885 \\times 10^{-3}\\text{ J/m}^3$ divides by 4, and $7.08 \\times 10^{-3}\\text{ J/m}^3$ doubles the unfiltered product."
+    },
+    {
+      "id": "phy_electrostatics_c01_041",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the motion of a charged particle in a uniform electrostatic field:\n\nStatement I: A charged particle of mass $m$ and positive charge $q$ projected with initial velocity $\\vec{v}_0 = v_0\\hat{i}$ into a region of uniform electric field $\\vec{E} = E_0\\hat{j}$ follows a parabolic trajectory.\nStatement II: The work done by this uniform electrostatic field on the charged particle along any finite segment of its parabolic path is identically zero because the electric field is perpendicular to the initial velocity.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The particle moves with constant horizontal velocity $v_x = v_0$, so $x = v_0 t$. Along the $y$-direction, it experiences a constant electric force $F_y = qE_0$, giving acceleration $a_y = \\frac{qE_0}{m}$. The vertical displacement is $y = \\frac{1}{2}a_y t^2 = \\frac{qE_0}{2m v_0^2}x^2$, which is the equation of a parabola. Statement I is true.\nStep 2: As the particle deflects along the $y$-axis, the electrostatic force $\\vec{F} = qE_0\\hat{j}$ has a non-zero component along the instantaneous velocity $\\vec{v} = v_0\\hat{i} + a_y t\\hat{j}$. The work done is $W = \\vec{F} \\cdot \\Delta\\vec{r} = qE_0 y = \\frac{1}{2}m v_y^2 > 0$, which increases the kinetic energy of the particle. Statement II is false.\nStep 3: Distractor Analysis: Statement I correctly describes the parabolic trajectory, while Statement II erroneously claims electrostatic work is zero."
+    },
+    {
+      "id": "phy_electrostatics_c01_042",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A parallel plate capacitor having plate area $A$ and plate separation $d$ has an initial capacitance $C_0$ in air. The space between the plates is modified by filling one-half of the area ($A/2$) with a dielectric material of constant $K_1 = 3$ and the other half ($A/2$) with a dielectric of constant $K_2 = 6$, both slabs extending across the entire thickness $d$. What is the equivalent capacitance of this composite capacitor?",
+      "options": [
+        "A) \\frac{9}{2} C_0",
+        "B) \\frac{9}{4} C_0",
+        "C) 4 C_0",
+        "D) 9 C_0"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: When dielectrics divide the plate area with the same separation $d$, the configuration corresponds to two capacitors connected in parallel across the same potential difference.\nStep 2: The capacitance of the first section of area $A_1 = A/2$ is $C_1 = \\frac{K_1 \\epsilon_0 (A/2)}{d} = \\frac{K_1}{2}\\left(\\frac{\\epsilon_0 A}{d}\\right) = \\frac{3}{2} C_0$.\nStep 3: The capacitance of the second section of area $A_2 = A/2$ is $C_2 = \\frac{K_2 \\epsilon_0 (A/2)}{d} = \\frac{K_2}{2}\\left(\\frac{\\epsilon_0 A}{d}\\right) = \\frac{6}{2} C_0 = 3 C_0$.\nStep 4: In parallel, the equivalent capacitance is the direct sum: $C_{\\text{eq}} = C_1 + C_2 = \\frac{3}{2} C_0 + 3 C_0 = \\frac{9}{2} C_0 = 4.5 C_0$.\nDistractor Analysis: $\\frac{9}{4} C_0$ incorrectly divides by another factor of 2, $4 C_0$ uses the harmonic mean (series combination), and $9 C_0$ fails to divide the area by 2."
+    },
+    {
+      "id": "phy_electrostatics_c01_043",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When an outer conducting spherical shell of radius $R_2$ concentric with an inner conducting spherical shell of radius $R_1$ carrying charge $+Q$ is connected to earth, the net electrostatic potential of the outer shell becomes zero and an induced charge $-Q$ appears on its inner surface while zero charge resides on its outer surface.\nReason (R): Earthing a conductor forces its electrostatic potential to be equal to zero ($V = 0$), so the outer shell acquires an induced charge $q' = -Q$ from the earth to cancel the potential $\\frac{1}{4\\pi\\epsilon_0}\\frac{Q}{R_2}$ produced by the inner shell.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The condition for earthing a conductor is that its electrostatic potential must become zero ($V_{\\text{outer}} = 0$).\nStep 2: The potential of the outer shell is contributed by the inner charge $+Q$ and the acquired charge $q'$ on the outer shell: $V_{\\text{outer}} = \\frac{1}{4\\pi\\epsilon_0}\\frac{Q}{R_2} + \\frac{1}{4\\pi\\epsilon_0}\\frac{q'}{R_2} = 0 \\implies q' = -Q$.\nStep 3: This charge $q' = -Q$ resides entirely on the inner surface of the outer shell to terminate all field lines originating from $+Q$. The outer surface of the outer shell carries zero charge and the electric field outside the outer shell is zero. Reason (R) provides the exact mathematical rationale for Assertion (A).\nDistractor Analysis: Both statements are completely true and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_electrostatics_c01_044",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Four point charges $+q$, $-q$, $+q$, and $-q$ are placed in alternating sequential order at the four vertices of a square of side length $a$ in vacuum. What is the total electrostatic potential energy of this four-charge system?",
+      "options": [
+        "A) +\\frac{q^2}{4\\pi\\epsilon_0 a}(4 - \\sqrt{2})",
+        "B) -\\frac{4 q^2}{4\\pi\\epsilon_0 a}",
+        "C) -\\frac{q^2}{4\\pi\\epsilon_0 a}(4 - \\sqrt{2})",
+        "D) $0$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: A system of four charges has $\\frac{4 \\times 3}{2} = 6$ unique interacting pairs: 4 pairs along the adjacent edges of length $a$ and 2 pairs across the diagonals of length $\\sqrt{2}a$.\nStep 2: The 4 adjacent edge pairs are $(q_1, q_2) = (+q, -q)$, $(q_2, q_3) = (-q, +q)$, $(q_3, q_4) = (+q, -q)$, and $(q_4, q_1) = (-q, +q)$. The potential energy of these 4 pairs is $U_{\\text{edges}} = 4 \\times \\left[\\frac{1}{4\\pi\\epsilon_0}\\frac{(+q)(-q)}{a}\\right] = -\\frac{4 q^2}{4\\pi\\epsilon_0 a}$.\nStep 3: The 2 diagonal pairs are $(q_1, q_3) = (+q, +q)$ and $(q_2, q_4) = (-q, -q)$, separated by distance $\\sqrt{2}a$. The potential energy of these 2 pairs is $U_{\\text{diag}} = 2 \\times \\left[\\frac{1}{4\\pi\\epsilon_0}\\frac{q^2}{\\sqrt{2}a}\\right] = +\\frac{\\sqrt{2} q^2}{4\\pi\\epsilon_0 a}$.\nStep 4: Summing all interactions: $U_{\\text{total}} = -\\frac{4 q^2}{4\\pi\\epsilon_0 a} + \\frac{\\sqrt{2} q^2}{4\\pi\\epsilon_0 a} = -\\frac{q^2}{4\\pi\\epsilon_0 a}(4 - \\sqrt{2})$.\nDistractor Analysis: Positive sign inverts binding energy, $-\\frac{4q^2}{4\\pi\\epsilon_0 a}$ neglects diagonal interactions, and $0$ erroneously assumes complete cancellation."
+    },
+    {
+      "id": "phy_electrostatics_c01_045",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the electrostatic field and pressure on a charged surface:\n\nStatement I: The normal component of an electrostatic field experiences a finite discontinuity across any charged surface carrying surface charge density $\\sigma$, given by $(E_{2n} - E_{1n}) = \\frac{\\sigma}{\\epsilon_0}$.\nStatement II: The electrostatic force per unit area (electrostatic pressure) experienced by the surface of a charged conductor is directed normally inward into the conductor and has magnitude $P = \\frac{\\sigma^2}{\\epsilon_0}$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement I is true: constructing a pillbox Gaussian surface across any surface with surface charge density $\\sigma$, Gauss's law gives $\\oint \\vec{E}\\cdot d\\vec{A} = (E_{2n} - E_{1n})\\Delta A = \\frac{\\sigma \\Delta A}{\\epsilon_0} \\implies E_{2n} - E_{1n} = \\frac{\\sigma}{\\epsilon_0}$.\nStep 2: Statement II is false: the electrostatic pressure acting on any element of a charged conductor surface is directed normally outward (tending to expand the conductor due to mutual repulsion of like surface charges). Furthermore, its magnitude is $P = \\frac{1}{2}\\epsilon_0 E^2 = \\frac{\\sigma^2}{2\\epsilon_0}$, not $\\frac{\\sigma^2}{\\epsilon_0}$.\nStep 3: Distractor Analysis: Electrostatic pressure is always repulsive (directed outward) and contains the factor of $\\frac{1}{2}$."
+    },
+    {
+      "id": "phy_electrostatics_c01_046",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A stationary point charge $q$ is placed at the exact geometric center of the flat circular base of an open hollow hemispherical bowl of radius $R$. What is the total electric flux passing through the curved curved surface of the hemisphere?",
+      "options": [
+        "A) \\frac{q}{2\\epsilon_0}",
+        "B) \\frac{q}{\\epsilon_0}",
+        "C) \\frac{q}{4\\epsilon_0}",
+        "D) $0$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: By Gauss's law, a complete closed spherical surface centered on point charge $q$ would enclose the charge entirely and intercept a total electric flux of $\\Phi_{\\text{sphere}} = \\frac{q}{\\epsilon_0}$.\nStep 2: By spherical symmetry, the electric field lines radiate isotropically in all solid angles ($4\\pi$ steradians). The hemispherical bowl intercepts exactly one-half of the complete solid angle ($2\\pi$ steradians).\nStep 3: Since the flat circular base lies directly in the plane passing through the charge, field lines do not pass across the flat base; rather, all lines radiating into the upper half-space pass through the curved dome. Therefore, the flux through the curved surface is $\\Phi = \\frac{1}{2}\\Phi_{\\text{sphere}} = \\frac{q}{2\\epsilon_0}$.\nDistractor Analysis: $\\frac{q}{\\epsilon_0}$ is the total flux through a complete sphere, and $\\frac{q}{4\\epsilon_0}$ corresponds to a quarter-sphere."
+    },
+    {
+      "id": "phy_electrostatics_c01_047",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The electric field at any general point $(r, \\theta)$ due to a short electric dipole of dipole moment $p$ has magnitude $E = \\frac{1}{4\\pi\\epsilon_0}\\frac{p}{r^3}\\sqrt{1 + 3\\cos^2\\theta}$, and the angle $\\alpha$ that the net electric field makes with the position vector $\\vec{r}$ satisfies $\\tan\\alpha = \\frac{1}{2}\\tan\\theta$.\nReason (R): Resolving the dipole moment $\\vec{p}$ into a radial component $p_r = p\\cos\\theta$ and a transverse component $p_\\theta = p\\sin\\theta$, the radial electric field is $E_r = \\frac{1}{4\\pi\\epsilon_0}\\frac{2p\\cos\\theta}{r^3}$ and the transverse electric field is $E_\\theta = \\frac{1}{4\\pi\\epsilon_0}\\frac{p\\sin\\theta}{r^3}$, yielding $\\tan\\alpha = \\frac{E_\\theta}{E_r} = \\frac{1}{2}\\tan\\theta$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Any short dipole $\\vec{p}$ can be resolved into two mutually orthogonal components: $p\\cos\\theta$ along the position vector $\\vec{r}$ (for which the observation point is axial) and $p\\sin\\theta$ perpendicular to $\\vec{r}$ (for which the observation point is equatorial).\nStep 2: The radial component is $E_r = \\frac{1}{4\\pi\\epsilon_0}\\frac{2(p\\cos\\theta)}{r^3}$, and the transverse component is $E_\\theta = \\frac{1}{4\\pi\\epsilon_0}\\frac{p\\sin\\theta}{r^3}$.\nStep 3: The magnitude of the net field is $E = \\sqrt{E_r^2 + E_\\theta^2} = \\frac{p}{4\\pi\\epsilon_0 r^3}\\sqrt{4\\cos^2\\theta + \\sin^2\\theta} = \\frac{p}{4\\pi\\epsilon_0 r^3}\\sqrt{1 + 3\\cos^2\\theta}$. The angle $\\alpha$ is given by $\\tan\\alpha = \\frac{E_\\theta}{E_r} = \\frac{p\\sin\\theta}{2p\\cos\\theta} = \\frac{1}{2}\\tan\\theta$. Reason (R) provides the complete mathematical derivation of Assertion (A).\nDistractor Analysis: Both statements are completely true and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_electrostatics_c01_048",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A parallel plate capacitor has initial capacitance $C_0$ in air. Match the dielectric configurations described in List I with the resulting equivalent capacitance in List II:\n\nList I:\nA. Half the plate area filled with a dielectric slab of constant $K$ across full plate separation\nB. Half the plate separation filled with a dielectric slab of constant $K$ across full plate area\nC. Half the plate separation filled with a metallic conducting slab across full plate area\nD. Entire volume between plates filled with a dielectric slab of constant $K$\n\nList II:\nI. $K C_0$\nII. $2 C_0$\nIII. \\frac{K + 1}{2} C_0\nIV. \\frac{2K}{K + 1} C_0\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-III, C-I, D-IV",
+        "B) A-III, B-II, C-IV, D-I",
+        "C) A-III, B-IV, C-II, D-I",
+        "D) A-IV, B-III, C-II, D-I"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Splitting area in halves creates two capacitors in parallel: $C = \\frac{K\\epsilon_0 (A/2)}{d} + \\frac{\\epsilon_0 (A/2)}{d} = \\frac{K+1}{2} C_0$ (A matches III).\nStep 2: Splitting separation in halves creates two capacitors in series: $C_1 = \\frac{K\\epsilon_0 A}{d/2} = 2K C_0$ and $C_2 = \\frac{\\epsilon_0 A}{d/2} = 2 C_0$. The series combination is $C_{\\text{eq}} = \\frac{C_1 C_2}{C_1 + C_2} = \\frac{(2KC_0)(2C_0)}{2C_0(K + 1)} = \\frac{2K}{K + 1} C_0$ (B matches IV).\nStep 3: Inserting a conducting slab of thickness $t = d/2$ leaves an effective air gap of $d - t = d/2$: $C = \\frac{\\epsilon_0 A}{d/2} = 2 C_0$ (C matches II).\nStep 4: Completely filling with dielectric $K$ yields $C = K C_0$ (D matches I).\nDistractor Analysis: Combining these yields A-III, B-IV, C-II, D-I."
+    },
+    {
+      "id": "phy_electrostatics_c01_049",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): An electric dipole of dipole moment $\\vec{p}$ and moment of inertia $I$ displaced by a small angle $\\theta$ from its stable equilibrium orientation in a uniform electric field $\\vec{E}$ executes angular simple harmonic motion with time period $T = 2\\pi\\sqrt{\\frac{I}{pE}}$.\nReason (R): For small angular displacements ($\\,\\theta \\ll 1\\text{ rad}$), the restoring torque is $\\tau = -pE\\sin\\theta \\approx -pE\\theta$, which is directly proportional to angular displacement and directed opposite to the displacement.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In a uniform electric field, the torque tending to restore the dipole to its aligned equilibrium orientation is $\\tau = -pE\\sin\\theta$.\nStep 2: For small angular oscillations where $\\theta$ is small, $\\sin\\theta \\approx \\theta$. The equation of rotational motion becomes $I\\frac{d^2\\theta}{dt^2} = -pE\\theta \\implies \\frac{d^2\\theta}{dt^2} + \\left(\\frac{pE}{I}\\right)\\theta = 0$.\nStep 3: This is the standard equation of simple harmonic motion $\\frac{d^2\\theta}{dt^2} + \\omega^2\\theta = 0$ with angular frequency $\\omega = \\sqrt{\\frac{pE}{I}}$, yielding time period $T = \\frac{2\\pi}{\\omega} = 2\\pi\\sqrt{\\frac{I}{pE}}$. Reason (R) provides the exact dynamical derivation for Assertion (A).\nDistractor Analysis: Both statements are completely true and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_electrostatics_c01_050",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A capacitor of capacitance $C_1 = 3.0\\text{ }\\mu\\text{F}$ is charged to a potential difference of $V_1 = 100\\text{ V}$ and disconnected from the power supply. A second capacitor of capacitance $C_2 = 2.0\\text{ }\\mu\\text{F}$ is charged to $V_2 = 50\\text{ V}$ and disconnected. The two capacitors are then connected together in parallel such that plates of opposite polarities are joined. What is the final common potential difference across the parallel combination?",
+      "options": [
+        "A) $80\\text{ V}$",
+        "B) $70\\text{ V}$",
+        "C) $40\\text{ V}$",
+        "D) $50\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The initial charges on the two capacitors are $Q_1 = C_1 V_1 = (3.0\\text{ }\\mu\\text{F}) \\times (100\\text{ V}) = 300\\text{ }\\mu\\text{C}$ and $Q_2 = C_2 V_2 = (2.0\\text{ }\\mu\\text{F}) \\times (50\\text{ V}) = 100\\text{ }\\mu\\text{C}$.\nStep 2: When plates of opposite polarity are connected together, the charges partially neutralize each other. The net available charge on the interconnected plates is $Q_{\\text{net}} = |Q_1 - Q_2| = |300\\text{ }\\mu\\text{C} - 100\\text{ }\\mu\\text{C}| = 200\\text{ }\\mu\\text{C}$.\nStep 3: The equivalent capacitance of the parallel combination is $C_{\\text{eq}} = C_1 + C_2 = 3.0\\text{ }\\mu\\text{F} + 2.0\\text{ }\\mu\\text{F} = 5.0\\text{ }\\mu\\text{F}$.\nStep 4: The final common potential difference is $V_{\\text{common}} = \\frac{Q_{\\text{net}}}{C_{\\text{eq}}} = \\frac{200\\text{ }\\mu\\text{C}}{5.0\\text{ }\\mu\\text{F}} = 40\\text{ V}$.\nDistractor Analysis: $80\\text{ V}$ assumes identical polarities were joined ($\\frac{300+100}{5} = 80\\text{ V}$), $70\\text{ V}$ is the algebraic mean voltage, and $50\\text{ V}$ is $V_2$ unchanged."
+    },
+    {
+      "id": "phy_electrostatics_c01_051",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a uniformly charged solid non-conducting insulating sphere of radius $R$ carrying total charge $Q$ distributed uniformly throughout its volume:\n\nStatement I: The electric field inside the sphere at distance $r$ from the center ($r < R$) increases linearly with radial distance $r$, such that $E = \\frac{Q r}{4\\pi\\epsilon_0 R^3}$.\nStatement II: The electrostatic potential at the geometric center ($r = 0$) of this uniformly charged non-conducting sphere is equal to the electrostatic potential at its surface ($r = R$).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement I is true: constructing a spherical Gaussian surface of radius $r < R$, the enclosed charge is $q_{\\text{encl}} = Q \\left(\\frac{r^3}{R^3}\\right)$. Applying Gauss's law gives $E(4\\pi r^2) = \\frac{Q r^3}{\\epsilon_0 R^3} \\implies E = \\frac{Q r}{4\\pi\\epsilon_0 R^3}$.\nStep 2: Statement II is false: the electrostatic potential inside the non-conducting sphere is given by $V(r) = \\frac{Q(3R^2 - r^2)}{8\\pi\\epsilon_0 R^3}$. At the center ($r = 0$), $V_{\\text{center}} = \\frac{3}{2}\\left(\\frac{Q}{4\\pi\\epsilon_0 R}\\right) = 1.5 V_{\\text{surface}}$. Therefore, the potential at the center is $1.5$ times the potential at the surface, not equal to it.\nStep 3: Distractor Analysis: Statement I correctly expresses the linear field inside a uniformly charged dielectric sphere, while Statement II confuses solid insulators with conductors."
+    },
+    {
+      "id": "phy_electrostatics_c01_052",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A parallel plate capacitor with plate area $A = 1.0 \\times 10^{-2}\\text{ m}^2$ stores an electrostatic field of magnitude $E = 2.0 \\times 10^5\\text{ V/m}$ between its plates in vacuum. Taking the permittivity of free space as $\\epsilon_0 = 8.85 \\times 10^{-12}\\text{ C}^2/(\\text{N}\\cdot\\text{m}^2)$, what is the magnitude of the electrostatic attractive force exerted by one plate on the other?",
+      "options": [
+        "A) $1.77 \\times 10^{-3}\\text{ N}$",
+        "B) $3.54 \\times 10^{-3}\\text{ N}$",
+        "C) $0.885 \\times 10^{-3}\\text{ N}$",
+        "D) $7.08 \\times 10^{-3}\\text{ N}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The electric field due to a single plate is $E_1 = \\frac{\\sigma}{2\\epsilon_0} = \\frac{E}{2}$, where $E = \\frac{\\sigma}{\\epsilon_0}$ is the total field between both plates.\nStep 2: The charge on the other plate is $Q = \\sigma A = \\epsilon_0 E A$. The attractive force is $F = Q E_1 = (\\epsilon_0 E A)\\left(\\frac{E}{2}\\right) = \\frac{1}{2}\\epsilon_0 E^2 A$.\nStep 3: Substituting the values: $F = \\frac{1}{2} \\times (8.85 \\times 10^{-12}) \\times (2.0 \\times 10^5)^2 \\times (1.0 \\times 10^{-2}) = \\frac{1}{2} \\times (8.85 \\times 10^{-12}) \\times (4.0 \\times 10^{10}) \\times 10^{-2} = 1.77 \\times 10^{-3}\\text{ N}$.\nDistractor Analysis: $3.54 \\times 10^{-3}\\text{ N}$ erroneously uses $F = QE = \\epsilon_0 E^2 A$ (forgetting the factor of $1/2$), while $0.885 \\times 10^{-3}\\text{ N}$ divides by 4."
+    },
+    {
+      "id": "phy_electrostatics_c01_053",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Gauss's law is mathematically valid for any arbitrary closed Gaussian surface of any size or shape, but it is practically useful for determining the electric field $\\vec{E}$ only when the charge configuration exhibits a high degree of spatial symmetry.\nReason (R): For charge distributions lacking spherical, cylindrical, or planar symmetry, the electric field $\\vec{E}$ varies in magnitude and angle across the surface and cannot be factored out of the closed surface integral $\\oint \\vec{E}\\cdot d\\vec{A} = \\frac{q_{\\text{encl}}}{\\epsilon_0}$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Gauss's law $\\oint \\vec{E}\\cdot d\\vec{A} = \\frac{q_{\\text{encl}}}{\\epsilon_0}$ is universally true for any closed surface in electrostatics, as it directly follows from Coulomb's inverse-square law.\nStep 2: However, calculating $\\vec{E}$ from this scalar equation requires taking $E$ outside the integral sign, which is only possible when $|\\vec{E}|$ is constant over the surface and $\\vec{E}$ is everywhere parallel or perpendicular to $d\\vec{A}$.\nStep 3: In asymmetric systems, evaluating the integral yields a scalar flux number but does not allow isolating $E(\\vec{r})$. Reason (R) provides the exact mathematical and physical justification for Assertion (A).\nDistractor Analysis: Both statements are completely true and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_electrostatics_c01_054",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Five identical capacitors, each of capacitance $C = 10\\text{ }\\mu\\text{F}$, are connected in a bridge network between terminals $A$ and $B$. Four of the capacitors form the four arms of the bridge ($C_1 = C_2 = C_3 = C_4 = C$), and the fifth capacitor ($C_5 = C$) is connected across the central bridge diagonal between the intermediate nodes. What is the equivalent capacitance of this network between terminals $A$ and $B$?",
+      "options": [
+        "A) $5\\text{ }\\mu\\text{F}$",
+        "B) $20\\text{ }\\mu\\text{F}$",
+        "C) $10\\text{ }\\mu\\text{F}$",
+        "D) $50\\text{ }\\mu\\text{F}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The condition for a balanced bridge network is $\\frac{C_1}{C_2} = \\frac{C_3}{C_4}$. Here, all four arm capacitors have identical capacitance $C$, so $\\frac{C}{C} = \\frac{C}{C} = 1$. The bridge is balanced.\nStep 2: Due to symmetry and equal division of potential across the upper and lower branches, the intermediate junction nodes have identical electrostatic potentials ($V_C = V_D$). The potential difference across the diagonal capacitor $C_5$ is zero, so it carries no charge and can be removed from the circuit.\nStep 3: The circuit simplifies to two parallel branches, each consisting of two capacitors in series: $C_{\\text{branch}} = \\frac{C \\times C}{C + C} = \\frac{C}{2} = 5\\text{ }\\mu\\text{F}$.\nStep 4: The total equivalent capacitance across terminals $A$ and $B$ is the sum of the two parallel branches: $C_{\\text{eq}} = \\frac{C}{2} + \\frac{C}{2} = C = 10\\text{ }\\mu\\text{F}$.\nDistractor Analysis: $5\\text{ }\\mu\\text{F}$ is a single series branch, $20\\text{ }\\mu\\text{F}$ incorrectly treats them in parallel, and $50\\text{ }\\mu\\text{F}$ sums all five."
+    },
+    {
+      "id": "phy_electrostatics_c01_055",
+      "subject": "Physics",
+      "topic": "Electrostatics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding electric flux through surfaces:\n\nStatement I: The electric flux through a flat circular disk of radius $R$ situated at an axial distance $d$ from a point charge $q$ is given by $\\Phi = \\frac{q}{2\\epsilon_0}(1 - \\cos\\theta)$, where $\\cos\\theta = \\frac{d}{\\sqrt{d^2 + R^2}}$.\nStatement II: If a point charge $q$ is placed outside an arbitrary closed surface, the net electric flux entering one side of the surface is strictly greater than the net electric flux exiting the opposite side.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The solid angle subtended by a circular disk of radius $R$ at a point on its axis at distance $d$ is $\\Omega = 2\\pi(1 - \\cos\\theta)$, where $\\cos\\theta = \\frac{d}{\\sqrt{d^2 + R^2}}$. Since a point charge emits total flux $\\frac{q}{\\epsilon_0}$ over $4\\pi$ steradians, the flux subtended by the disk is $\\Phi = \\frac{q}{4\\pi\\epsilon_0}\\Omega = \\frac{q}{2\\epsilon_0}(1 - \\cos\\theta)$. Statement I is true.\nStep 2: By Gauss's law, when a charge is located entirely outside a closed surface, the enclosed charge is zero ($q_{\\text{encl}} = 0$), so the net electric flux through the entire closed surface is strictly zero: $\\Phi_{\\text{net}} = \\Phi_{\\text{in}} + \\Phi_{\\text{out}} = 0 \\implies |\\Phi_{\\text{in}}| = |\\Phi_{\\text{out}}|$. Every electric field line that enters the surface must exit it. Therefore, Statement II is false.\nStep 3: Distractor Analysis: Statement I is an elegant application of Gauss's law and solid angle, while Statement II directly contradicts Gauss's law for external charges."
+    }
+  ]
+}

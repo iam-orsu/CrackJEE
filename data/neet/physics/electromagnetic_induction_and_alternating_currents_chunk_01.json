@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Electromagnetic Induction and Alternating Currents",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_001",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): An induced electromotive force appears across a closed metallic loop only as long as the magnetic flux linked with the loop changes with time.\nReason (R): According to Faraday's law of electromagnetic induction, the magnitude of the induced electromotive force in a circuit is directly proportional to the time rate of change of magnetic flux linked with the circuit.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Assertion (A) is false but Reason (R) is true.",
+        "B) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).",
+        "C) Both Assertion (A) and Reason (R) are true but Reason (R) is NOT the correct explanation of Assertion (A).",
+        "D) Assertion (A) is true but Reason (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Faraday's law of electromagnetic induction states that the magnitude of induced EMF is $\\varepsilon = -\\frac{d\\Phi_B}{dt}$.\nStep 2: If the magnetic flux $\\Phi_B$ linked with the loop is static or constant ($\\frac{d\\Phi_B}{dt} = 0$), no EMF is induced. An induced EMF persists only while the flux is varying with time.\nStep 3: Reason (R) provides the foundational mathematical and physical law that explains why a non-zero time derivative of flux is required for the existence of an induced EMF. Thus, both statements are true, and the Reason correctly explains the Assertion.\nDistractor Analysis: Explanations claiming that the reason does not explain the assertion are incorrect because Faraday's rate equation directly dictates the temporal condition for the existence of induced EMF."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_002",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements:\n\nStatement I: Lenz's law is an immediate consequence of the fundamental principle of conservation of energy.\nStatement II: The mechanical work done by an external agent in pushing a magnet towards a closed conducting coil against the magnetic repulsive force is converted into electrical energy, which is subsequently dissipated as Joule heat.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Lenz's law states that the polarity of induced EMF is such that it produces an induced current whose magnetic field opposes the change in magnetic flux that produces it.\nStep 2: If a north pole of a magnet is moved towards a coil, the induced current creates a north pole on the face facing the magnet, repelling it. To maintain the motion, mechanical work must be done against this repulsive force.\nStep 3: According to the principle of conservation of energy, this mechanical work done by the external agent is quantitatively transformed into electrical energy, which appears as Joule heating ($I^2 R$) in the coil. If the induced current assisted the motion instead, energy would be created from nothing, violating the first law of thermodynamics. Therefore, both Statement I and Statement II are correct.\nDistractor Analysis: Alternative options asserting either statement to be false contradict NCERT Chapter 6 Section 6.4 on Lenz's law and energy conservation."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_003",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A planar conducting circular coil of resistance $R$ is placed in a uniform magnetic field. The magnetic flux linked with the coil changes from an initial value $\\Phi_1$ to a final value $\\Phi_2$. In Case 1, this flux change occurs rapidly over a time interval $\\Delta t_1 = 0.05\\text{ s}$. In Case 2, the exact same flux change occurs slowly over a time interval $\\Delta t_2 = 0.50\\text{ s}$. The total electric charge flowing through the cross-section of the coil wire in Case 1 is $\\Delta Q_1$ and in Case 2 is $\\Delta Q_2$. Which of the following relationships is correct?",
+      "options": [
+        "A) $\\Delta Q_1 = 10 \\Delta Q_2$",
+        "B) $\\Delta Q_2 = 10 \\Delta Q_1$",
+        "C) $\\Delta Q_1 = \\Delta Q_2$",
+        "D) $\\Delta Q_1 = 100 \\Delta Q_2$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: According to Faraday's law, the magnitude of induced EMF is $\\varepsilon = \\frac{\\Delta \\Phi_B}{\\Delta t}$.\nStep 2: The induced current in the coil of resistance $R$ is $I = \\frac{\\varepsilon}{R} = \\frac{1}{R}\\frac{\\Delta \\Phi_B}{\\Delta t}$.\nStep 3: The total induced charge $\\Delta Q$ passing through the cross-section of the wire is given by $\\Delta Q = I \\Delta t = \\frac{\\Delta \\Phi_B}{R}$.\nStep 4: Notice that $\\Delta Q$ depends strictly on the net change in magnetic flux $\\Delta \\Phi_B = |\\Phi_2 - \\Phi_1|$ and the circuit resistance $R$, and is completely independent of the time interval $\\Delta t$ or the rate at which the flux change occurs. Since both cases involve identical flux changes and identical resistance, $\\Delta Q_1 = \\Delta Q_2$.\nDistractor Analysis: Distractors assuming charge depends on time confuse induced current (which is ten times larger in the faster case) with total induced charge (which is the integral of current over time)."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_004",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A straight conducting rod of length $l$ moves with a constant speed $v$ in a direction perpendicular to its length through a uniform transverse magnetic field $B$. If the length of the conducting rod is halved while its translational speed is doubled in the same magnetic field, the induced motional electromotive force across the ends of the rod will:",
+      "options": [
+        "A) Become four times its initial value",
+        "B) Be halved",
+        "C) Be doubled",
+        "D) Remain unchanged"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The motional electromotive force $\\varepsilon$ induced across the ends of a straight conductor of length $l$ moving with velocity $v$ perpendicular to both its length and a uniform magnetic field $B$ is given by $\\varepsilon = B v l$.\nStep 2: Let the initial motional EMF be $\\varepsilon_1 = B v l$.\nStep 3: When the length is halved ($l' = \\frac{l}{2}$) and the speed is doubled ($v' = 2v$) in the same magnetic field $B$, the new motional EMF is $\\varepsilon_2 = B (2v) \\left(\\frac{l}{2}\\right) = B v l = \\varepsilon_1$.\nStep 4: Thus, the induced motional electromotive force remains unchanged.\nDistractor Analysis: Claims of doubling or quadrupling arise from improperly squaring the terms or incorrectly combining the reciprocal factors of 2 and 1/2."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_005",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Practical Application of Eddy Currents) with List II (Primary Operating Principle / Purpose):\n\nList I:\nP. Electromagnetic braking in electric trains\nQ. Induction furnace\nR. Dead-beat galvanometer\nS. Laminated core in transformers\n\nList II:\nI. Rapid damping of oscillations using a metallic frame\nII. Breaking circulating current paths to minimize Joule heat loss\nIII. Producing high temperatures to melt constituent metals\nIV. Decelerating motion via opposing magnetic torque without mechanical friction\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-IV, Q-III, R-I, S-II",
+        "B) P-III, Q-IV, R-II, S-I",
+        "C) P-IV, Q-I, R-III, S-II",
+        "D) P-I, Q-III, R-IV, S-II"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Electromagnetic braking uses strong electromagnets activated above the rails; eddy currents induced in the rails create an opposing magnetic torque that decelerates the train smoothly without mechanical wear (P matches IV).\nStep 2: Induction furnaces utilize intense eddy currents generated by high-frequency alternating magnetic fields to produce rapid Joule heating capable of melting metals inside a non-conducting crucible (Q matches III).\nStep 3: In dead-beat galvanometers, the coil is wound on a light metallic (aluminum) frame; eddy currents induced in the frame quickly damp mechanical oscillations so the pointer comes to rest promptly at the steady deflection (R matches I).\nStep 4: Transformer cores are assembled from thin laminated iron sheets insulated with lacquer; this structure interrupts large circulating eddy current loops, substantially minimizing energy dissipation as heat (S matches II).\nStep 5: Combining these matches gives P-IV, Q-III, R-I, S-II.\nDistractor Analysis: Alternative pairings mismatch the distinct thermal, mechanical damping, and energy-conservation roles outlined in NCERT Section 6.6."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_006",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements:\n\nStatement I: The self-inductance of an air-core long solenoid depends strictly on its geometric parameters, namely the number of turns per unit length, cross-sectional area, and total length.\nStatement II: If a soft iron core having a relative magnetic permeability $\\mu_r = 1000$ is completely inserted into the core of the solenoid, its self-inductance increases by a factor of 1000.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Both Statement I and Statement II are incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The self-inductance of a long air-core solenoid of length $l$, total turns $N$, and cross-sectional area $A$ is given by $L_0 = \\mu_0 n^2 A l = \\mu_0 \\frac{N^2}{l} A$, where $n = N/l$ is the turn density. Thus, $L_0$ depends purely on geometry and the medium inside. Statement I is correct.\nStep 2: When a ferromagnetic material of relative permeability $\\mu_r$ fills the interior of the solenoid, the permeability of the medium becomes $\\mu = \\mu_r \\mu_0$.\nStep 3: The new self-inductance becomes $L = \\mu n^2 A l = \\mu_r (\\mu_0 n^2 A l) = \\mu_r L_0$. With $\\mu_r = 1000$, the self-inductance increases exactly by a factor of 1000. Statement II is correct.\nDistractor Analysis: Misconceptions that self-inductance depends on the current flowing through the inductor confuse the geometric coefficient $L$ with the magnetic flux $\\Phi = L I$."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_007",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An inductor of self-inductance $L = 0.5\\text{ H}$ carries an initial steady current of $I_1 = 2.0\\text{ A}$. If the current passing through the inductor is steadily increased to a new value $I_2 = 6.0\\text{ A}$, the total increase in the magnetic potential energy stored in the inductor is:",
+      "options": [
+        "A) $4.0\\text{ J}$",
+        "B) $6.0\\text{ J}$",
+        "C) $8.0\\text{ J}$",
+        "D) $16.0\\text{ J}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The magnetic potential energy stored in an inductor carrying current $I$ is given by $U = \\frac{1}{2} L I^2$.\nStep 2: Initial stored magnetic energy is $U_1 = \\frac{1}{2} L I_1^2 = \\frac{1}{2} \\times 0.5 \\times (2.0)^2 = 0.25 \\times 4 = 1.0\\text{ J}$.\nStep 3: Final stored magnetic energy is $U_2 = \\frac{1}{2} L I_2^2 = \\frac{1}{2} \\times 0.5 \\times (6.0)^2 = 0.25 \\times 36 = 9.0\\text{ J}$.\nStep 4: The total increase in stored magnetic potential energy is $\\Delta U = U_2 - U_1 = 9.0\\text{ J} - 1.0\\text{ J} = 8.0\\text{ J}$.\nDistractor Analysis: Calculating $\\frac{1}{2} L (I_2 - I_1)^2 = \\frac{1}{2} \\times 0.5 \\times (4)^2 = 4\\text{ J}$ is a classic student error that squares the difference of currents rather than taking the difference of the squares of the currents."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_008",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): A standard domestic alternating voltage supply rated at $220\\text{ V}\\text{ AC}$ has a peak voltage of approximately $311\\text{ V}$, making it more hazardous than a $220\\text{ V}\\text{ DC}$ steady voltage.\nReason (R): The specified domestic AC voltage rating refers to the root-mean-square (RMS) voltage, which is related to the peak amplitude by $V_{rms} = \\frac{V_0}{\\sqrt{2}}$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Assertion (A) is true but Reason (R) is false.",
+        "B) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).",
+        "C) Both Assertion (A) and Reason (R) are true but Reason (R) is NOT the correct explanation of Assertion (A).",
+        "D) Assertion (A) is false but Reason (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Alternating voltage supplies are universally rated by their root-mean-square (RMS) values. For a domestic line voltage of $V_{rms} = 220\\text{ V}$, the peak voltage is $V_0 = \\sqrt{2} V_{rms} = 1.414 \\times 220\\text{ V} \\approx 311.1\\text{ V}$.\nStep 2: A peak voltage of $311\\text{ V}$ can cause severe dielectric breakdown of human tissue compared to a steady $220\\text{ V}$ direct current supply.\nStep 3: Reason (R) correctly specifies that the quoted rating is the RMS value and provides the exact relationship $V_{rms} = V_0/\\sqrt{2}$ explaining why the peak voltage reaches $311\\text{ V}$. Thus, both statements are true and Reason (R) correctly explains Assertion (A).\nDistractor Analysis: Claiming that the reason is not the correct explanation overlooks that the mathematical relation directly determines the $311\\text{ V}$ peak value from the $220\\text{ V}$ rating."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_009",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements:\n\nStatement I: In an alternating current circuit containing only an ideal inductor of self-inductance $L$, the alternating current lags behind the alternating voltage by a phase angle of $\\frac{\\pi}{2}$ radians ($90^\\circ$).\nStatement II: The average power dissipated by an ideal inductor over a complete alternating cycle is zero because the power factor of the circuit is zero.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: When an alternating voltage $V = V_0 \\sin(\\omega t)$ is connected across a pure inductor, Faraday's back-EMF gives $V - L \\frac{dI}{dt} = 0 \\implies \\frac{dI}{dt} = \\frac{V_0}{L}\\sin(\\omega t)$.\nStep 2: Integrating yields $I = -\\frac{V_0}{\\omega L}\\cos(\\omega t) = I_0 \\sin(\\omega t - \\pi/2)$. Hence, the current lags the voltage by $\\frac{\\pi}{2}$ radians. Statement I is correct.\nStep 3: The average power in an AC circuit is $P_{avg} = V_{rms} I_{rms} \\cos\\phi$. For a pure inductor, the phase angle is $\\phi = \\frac{\\pi}{2}$, so the power factor is $\\cos\\left(\\frac{\\pi}{2}\\right) = 0$. Thus, $P_{avg} = 0$. Statement II is correct.\nDistractor Analysis: Asserting that energy is dissipated as heat in an ideal inductor ignores that energy is temporarily stored in the magnetic field during quarter-cycles and returned to the source during subsequent quarter-cycles."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_010",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An alternating voltage source of variable angular frequency $\\omega$ is connected across an ideal capacitor of capacitance $C$. If the frequency of the AC source is doubled while keeping the amplitude of the alternating voltage constant, the capacitive reactance $X_C$ and the amplitude of the alternating current $I_0$ will respectively:",
+      "options": [
+        "A) Double and be halved",
+        "B) Be halved and be halved",
+        "C) Double and double",
+        "D) Be halved and double"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The capacitive reactance of a capacitor of capacitance $C$ in an AC circuit of angular frequency $\\omega = 2\\pi f$ is given by $X_C = \\frac{1}{\\omega C} = \\frac{1}{2\\pi f C}$.\nStep 2: If the frequency $f$ is doubled ($f' = 2f$), the new capacitive reactance becomes $X_C' = \\frac{1}{2\\pi (2f) C} = \\frac{X_C}{2}$, so it is halved.\nStep 3: The peak current amplitude is $I_0 = \\frac{V_0}{X_C} = V_0 \\omega C$. When $\\omega$ is doubled at constant $V_0$, the peak current becomes $I_0' = V_0 (2\\omega C) = 2 I_0$, which is doubled.\nStep 4: Therefore, the capacitive reactance is halved and the current amplitude is doubled.\nDistractor Analysis: Confusing capacitive reactance $X_C \\propto 1/f$ with inductive reactance $X_L \\propto f$ is the primary trap leading to the reversed choice where reactance is doubled."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_011",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Alternating current measuring instruments, such as hot-wire ammeters, have non-uniform scales where the division intervals are narrow at lower values and progressively wider at higher values.\nReason (R): The thermal deflection in a hot-wire instrument depends on the heating effect produced in a resistance wire, which is directly proportional to the square of the root-mean-square current ($H \\propto I^2$).\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Assertion (A) is false but Reason (R) is true.",
+        "B) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).",
+        "C) Both Assertion (A) and Reason (R) are true but Reason (R) is NOT the correct explanation of Assertion (A).",
+        "D) Assertion (A) is true but Reason (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Hot-wire ammeters measure alternating currents by the thermal expansion of a wire heated by the current.\nStep 2: According to Joule's law of heating, the heat produced per second is $P = I_{rms}^2 R$, so the temperature rise and the resulting elongation or angular deflection $\\theta$ is proportional to $I_{rms}^2$ ($\\theta \\propto I^2$).\nStep 3: Because deflection scales quadratically rather than linearly with current, equal increments of current correspond to increasing increments of deflection. Consequently, the scale divisions are non-uniform (crowded at the lower end and spaced out at the higher end).\nStep 4: Thus, Assertion (A) is true, Reason (R) is true, and Reason (R) is the precise physical explanation of Assertion (A).\nDistractor Analysis: Distractor claiming the scale is linear confuses moving-coil DC galvanometers ($\\theta \\propto I$) with hot-wire AC instruments ($\\theta \\propto I^2$)."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_012",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements:\n\nStatement I: An ideal capacitor connected across a steady direct current (DC) source acts as an open circuit in the steady state, completely blocking the direct current.\nStatement II: In an alternating current (AC) circuit containing an ideal capacitor, the instantaneous alternating current leads the instantaneous alternating voltage by a phase angle of $\\frac{\\pi}{2}$ radians ($90^\\circ$).\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is incorrect but Statement II is correct.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Statement I is correct but Statement II is incorrect."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The capacitive reactance is $X_C = \\frac{1}{2\\pi f C}$. For direct current (DC), the frequency is zero ($f = 0$), so $X_C \\to \\infty$. In the steady state after the capacitor is fully charged, it blocks any further flow of direct current, acting as an open circuit. Statement I is correct.\nStep 2: For an alternating voltage $V = V_0 \\sin(\\omega t)$, the charge on the capacitor plates is $q = C V = C V_0 \\sin(\\omega t)$.\nStep 3: The alternating current is $I = \\frac{dq}{dt} = \\omega C V_0 \\cos(\\omega t) = I_0 \\sin(\\omega t + \\pi/2)$. Hence, current leads the voltage by $\\frac{\\pi}{2}$ radians. Statement II is correct.\nDistractor Analysis: Statements claiming that capacitors pass DC or that current lags voltage in a capacitive circuit violate basic electrodynamics and NCERT Chapter 7 principles."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_013",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a series LCR alternating current circuit, the inductive reactance is $X_L$, the capacitive reactance is $X_C$, and the ohmic resistance is $R$. When the frequency of the AC source is adjusted such that electrical resonance occurs ($X_L = X_C$), which set of properties correctly describes the circuit?",
+      "options": [
+        "A) Total impedance is minimum ($Z = R$), current is in phase with voltage ($\\phi = 0$), and power factor is unity ($\\cos\\phi = 1$).",
+        "B) Total impedance is zero ($Z = 0$), current lags voltage by $\\frac{\\pi}{2}$, and power factor is zero.",
+        "C) Total impedance is maximum ($Z = R + X_L$), current leads voltage by $\\frac{\\pi}{4}$, and power factor is $0.707$.",
+        "D) Total impedance is minimum ($Z = R$), current leads voltage by $\\frac{\\pi}{2}$, and power factor is zero."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The impedance of a series LCR circuit is given by $Z = \\sqrt{R^2 + (X_L - X_C)^2}$.\nStep 2: At electrical resonance, the inductive reactance equals the capacitive reactance: $X_L = X_C$.\nStep 3: Substituting $X_L = X_C$ into the impedance expression yields $Z = \\sqrt{R^2 + 0} = R$. This is the absolute minimum possible impedance of the circuit.\nStep 4: The phase angle is given by $\\tan\\phi = \\frac{X_L - X_C}{R} = 0 \\implies \\phi = 0^\\circ$. Therefore, current and voltage are strictly in phase.\nStep 5: The power factor is $\\cos\\phi = \\cos(0^\\circ) = \\frac{R}{Z} = 1$ (unity).\nDistractor Analysis: Assuming impedance drops to zero neglects the non-zero ohmic resistance $R$ present in any real series LCR circuit."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_014",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Physical Quantity) with List II (SI Unit / Dimensional Formula):\n\nList I:\nP. Magnetic flux ($\\Phi_B$)\nQ. Self-inductance ($L$)\nR. Capacitive reactance ($X_C$)\nS. Quality factor ($Q$)\n\nList II:\nI. $\\Omega$ (Ohm), with dimensions $[M L^2 T^{-3} A^{-2}]$\nII. Dimensionless, $[M^0 L^0 T^0 A^0]$\nIII. $\\text{Wb}$ (Weber), with dimensions $[M L^2 T^{-2} A^{-1}]$\nIV. $\\text{H}$ (Henry), with dimensions $[M L^2 T^{-2} A^{-2}]$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-IV, Q-III, R-I, S-II",
+        "B) P-III, Q-I, R-IV, S-II",
+        "C) P-I, Q-IV, R-III, S-II",
+        "D) P-III, Q-IV, R-I, S-II"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Magnetic flux $\\Phi_B = B A$. $[B] = [M T^{-2} A^{-1}]$, so $[\\Phi_B] = [M L^2 T^{-2} A^{-1}]$, with SI unit Weber ($\\text{Wb}$). Thus, P matches III.\nStep 2: Self-inductance $L = \\frac{\\Phi_B}{I} = \\frac{[M L^2 T^{-2} A^{-1}]}{[A]} = [M L^2 T^{-2} A^{-2}]$, with SI unit Henry ($\\text{H}$). Thus, Q matches IV.\nStep 3: Capacitive reactance $X_C = \\frac{1}{\\omega C}$ represents opposition to alternating current and has the SI unit Ohm ($\\Omega$), with dimensions of resistance $[M L^2 T^{-3} A^{-2}]$. Thus, R matches I.\nStep 4: Quality factor $Q = \\frac{\\omega_0 L}{R} = \\frac{\\text{reactance}}{\\text{resistance}}$ is a ratio of identical physical quantities and is therefore completely dimensionless $[M^0 L^0 T^0 A^0]$. Thus, S matches II.\nStep 5: Combining these matches yields P-III, Q-IV, R-I, S-II.\nDistractor Analysis: Swapping the dimensions of magnetic flux and inductance is a frequent error stemming from forgetting that inductance divides flux by current."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_015",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements:\n\nStatement I: An ideal step-up transformer increases the alternating voltage by a factor of $k$ while simultaneously reducing the alternating current by the same factor of $k$, ensuring that electrical power is conserved.\nStatement II: A transformer operates on the principle of mutual induction and therefore cannot be used to step up or step down a constant, steady direct current (DC) voltage.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Both Statement I and Statement II are incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In an ideal transformer with zero energy loss, the input power equals the output power: $P_{in} = P_{out} \\implies V_p I_p = V_s I_s$.\nStep 2: If the voltage is stepped up by a factor of $k = \\frac{N_s}{N_p} > 1$ ($V_s = k V_p$), the current is stepped down by the same factor ($I_s = \\frac{I_p}{k}$). This satisfies the law of conservation of energy. Statement I is correct.\nStep 3: The working principle of a transformer relies on Faraday's law of mutual induction ($\\varepsilon_s = -M \\frac{dI_p}{dt}$). For a constant DC current, $\\frac{dI_p}{dt} = 0$, so no time-varying magnetic flux is produced in the core and no EMF is induced in the secondary winding. Hence, a transformer cannot transform steady DC voltage. Statement II is correct.\nDistractor Analysis: Claiming that a step-up transformer increases power violates conservation of energy, while claiming transformers work on DC overlooks the fundamental requirement of flux variation."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_016",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform metallic rod of length $l = 1.0\\text{ m}$ rotates with a constant angular frequency $\\omega = 40\\text{ rad/s}$ in a plane perpendicular to a uniform magnetic field $B = 0.5\\text{ T}$. If the axis of rotation passes through one end of the rod and is parallel to the magnetic field, the electromotive force induced between the two ends of the rod is:",
+      "options": [
+        "A) $5\\text{ V}$",
+        "B) $20\\text{ V}$",
+        "C) $10\\text{ V}$",
+        "D) $40\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Consider an infinitesimal element of the rotating rod of length $dr$ located at a distance $r$ from the pivot axis.\nStep 2: The linear speed of this element is $v = \\omega r$, moving perpendicular to the magnetic field $B$.\nStep 3: The motional EMF induced across this small element is $d\\varepsilon = B v dr = B (\\omega r) dr$.\nStep 4: Integrating from $r = 0$ to $r = l$ across the entire length of the rod gives:\n$\\varepsilon = \\int_0^l B \\omega r \\, dr = \\frac{1}{2} B \\omega l^2$.\nStep 5: Substituting the given numerical values:\n$\\varepsilon = \\frac{1}{2} \\times 0.5\\text{ T} \\times 40\\text{ rad/s} \\times (1.0\\text{ m})^2 = 0.25 \\times 40 = 10\\text{ V}$.\nDistractor Analysis: Omitting the factor of $\\frac{1}{2}$ by mistakenly using the linear velocity of the tip ($v = \\omega l$) yields $B \\omega l^2 = 20\\text{ V}$, which ignores that the linear velocity varies linearly from zero at the center to $\\omega l$ at the tip."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_017",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In an AC circuit containing only a pure inductor or only a pure capacitor, the alternating current that flows through the component is referred to as wattless current.\nReason (R): For a purely inductive or purely capacitive circuit, the phase angle between alternating voltage and current is $\\frac{\\pi}{2}$, resulting in zero average power dissipation over a complete cycle.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Assertion (A) is false but Reason (R) is true.",
+        "B) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).",
+        "C) Both Assertion (A) and Reason (R) are true but Reason (R) is NOT the correct explanation of Assertion (A).",
+        "D) Assertion (A) is true but Reason (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Wattless current refers to an alternating current component that consumes zero average electrical power from the source.\nStep 2: The average power dissipated in an AC circuit over a full cycle is given by $P_{avg} = V_{rms} I_{rms} \\cos\\phi$.\nStep 3: For a pure inductor, current lags voltage by $\\phi = 90^\\circ$ ($\\pi/2\\text{ rad}$). For a pure capacitor, current leads voltage by $\\phi = 90^\\circ$ ($\\pi/2\\text{ rad}$).\nStep 4: In both cases, the power factor is $\\cos(90^\\circ) = 0$, giving $P_{avg} = V_{rms} I_{rms} (0) = 0$. Hence, the current produces no net electrical power dissipation and is wattless.\nStep 5: Both Assertion (A) and Reason (R) are true, and Reason (R) correctly provides the exact physical justification for the term wattless current.\nDistractor Analysis: Distractor claims asserting that real inductors have zero resistance are incorrect, but the assertion explicitly specifies pure (ideal) inductors and capacitors."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_018",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements:\n\nStatement I: The dimensional formula of self-inductance is $[M L^2 T^{-2} A^{-2}]$, which is identical to the dimensional formula of mutual inductance.\nStatement II: The inductive time constant of an $LR$ circuit, represented by the ratio $\\frac{L}{R}$, possesses the physical dimension of time $[T]$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Self-inductance is defined by $\\varepsilon = -L \\frac{dI}{dt}$, so $[L] = \\frac{[\\varepsilon][dt]}{[dI]} = \\frac{[M L^2 T^{-3} A^{-1}][T]}{[A]} = [M L^2 T^{-2} A^{-2}]$. Mutual inductance is defined by $\\varepsilon = -M \\frac{dI}{dt}$ and shares the exact same dimensional formula $[M L^2 T^{-2} A^{-2}]$. Statement I is correct.\nStep 2: Resistance $R$ has dimensions $[R] = \\frac{[V]}{[I]} = [M L^2 T^{-3} A^{-2}]$.\nStep 3: The ratio $\\frac{L}{R}$ has dimensions $\\frac{[M L^2 T^{-2} A^{-2}]}{[M L^2 T^{-3} A^{-2}]} = [T^1] = [T]$. This represents the inductive relaxation time constant $\\tau_L$. Statement II is correct.\nDistractor Analysis: Any option indicating one or both statements are incorrect fails to recognize standard dimensional analysis from NCERT Chapters 6 and 7."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_019",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A flat rectangular coil consisting of $N = 200$ closely wound turns, each of cross-sectional area $A = 0.04\\text{ m}^2$, is rotated at a constant angular speed of $\\omega = 50\\text{ rad/s}$ about an axis perpendicular to a uniform horizontal magnetic field $B = 0.15\\text{ T}$. The maximum electromotive force (peak EMF $\\varepsilon_0$) induced in the coil is:",
+      "options": [
+        "A) $12\\text{ V}$",
+        "B) $24\\text{ V}$",
+        "C) $30\\text{ V}$",
+        "D) $60\\text{ V}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The magnetic flux linked with a rotating coil of $N$ turns having area $A$ in a uniform magnetic field $B$ is $\\Phi_B = N B A \\cos(\\omega t)$.\nStep 2: According to Faraday's law of electromagnetic induction, the instantaneous induced EMF is:\n$\\varepsilon = -\\frac{d\\Phi_B}{dt} = N B A \\omega \\sin(\\omega t)$.\nStep 3: The peak electromotive force occurs when $\\sin(\\omega t) = 1$, which gives:\n$\\varepsilon_0 = N B A \\omega$.\nStep 4: Substituting the given numerical parameters:\n$\\varepsilon_0 = (200) \\times (0.15\\text{ T}) \\times (0.04\\text{ m}^2) \\times (50\\text{ rad/s}) = 200 \\times 0.15 \\times 2.0 = 60\\text{ V}$.\nDistractor Analysis: Forgetting the factor of $N$ or miscalculating the product leads to distractors like $30\\text{ V}$ or $12\\text{ V}$."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_020",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The magnetic energy stored per unit volume (energy density $u_B$) within a region of space containing a uniform magnetic field $B$ in vacuum is given by $u_B = \\frac{B^2}{2\\mu_0}$. If the magnetic field strength in this region is increased to three times its initial value ($3B$), the new magnetic energy density will be:",
+      "options": [
+        "A) $3$ times the initial energy density",
+        "B) $6$ times the initial energy density",
+        "C) $9$ times the initial energy density",
+        "D) $27$ times the initial energy density"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The magnetic energy density in a vacuum is given by the formula $u_B = \\frac{B^2}{2\\mu_0}$.\nStep 2: Let the initial energy density be $u_{B,1} = \\frac{B^2}{2\\mu_0}$.\nStep 3: When the magnetic field is increased to $B' = 3B$, the new energy density is:\n$u_{B,2} = \\frac{(3B)^2}{2\\mu_0} = \\frac{9B^2}{2\\mu_0} = 9 u_{B,1}$.\nStep 4: Therefore, the magnetic energy density increases by a factor of 9.\nDistractor Analysis: Distractor claiming a 3-fold increase erroneously assumes a linear relationship between magnetic field strength and stored energy density."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_021",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An alternating voltage given by $V = 100 \\sqrt{2} \\sin(100\\pi t)\\text{ V}$ is applied across an AC circuit, resulting in a steady alternating current of $I = 4\\sqrt{2} \\sin\\left(100\\pi t - \\frac{\\pi}{3}\\right)\\text{ A}$. The average power dissipated in the circuit over a full cycle is:",
+      "options": [
+        "A) $200\\text{ W}$",
+        "B) $400\\text{ W}$",
+        "C) $800\\text{ W}$",
+        "D) $100\\text{ W}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The peak voltage amplitude is $V_0 = 100\\sqrt{2}\\text{ V}$, so the RMS voltage is $V_{rms} = \\frac{V_0}{\\sqrt{2}} = 100\\text{ V}$.\nStep 2: The peak current amplitude is $I_0 = 4\\sqrt{2}\\text{ A}$, so the RMS current is $I_{rms} = \\frac{I_0}{\\sqrt{2}} = 4\\text{ A}$.\nStep 3: The phase difference between the voltage and the current is $\\phi = \\frac{\\pi}{3}$ radians ($60^\\circ$).\nStep 4: The power factor is $\\cos\\phi = \\cos\\left(\\frac{\\pi}{3}\\right) = 0.5$.\nStep 5: The average power dissipated over a complete cycle is:\n$P_{avg} = V_{rms} I_{rms} \\cos\\phi = (100\\text{ V}) \\times (4\\text{ A}) \\times 0.5 = 200\\text{ W}$.\nDistractor Analysis: Calculating $V_0 I_0 \\cos\\phi = 100\\sqrt{2} \\times 4\\sqrt{2} \\times 0.5 = 400\\text{ W}$ forgets that average power requires RMS values, not peak amplitudes, introducing an erroneous factor of 2."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_022",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A series LCR circuit contains an inductor of self-inductance $L = 0.25\\text{ H}$, a capacitor of capacitance $C = 4.0\\ \\mu\\text{F}$, and an ohmic resistor of resistance $R = 25\\ \\Omega$. The resonant angular frequency $\\omega_0$ of the circuit is:",
+      "options": [
+        "A) $250\\text{ rad/s}$",
+        "B) $500\\text{ rad/s}$",
+        "C) $750\\text{ rad/s}$",
+        "D) $1000\\text{ rad/s}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Electrical resonance in a series LCR circuit occurs when inductive reactance equals capacitive reactance: $\\omega_0 L = \\frac{1}{\\omega_0 C}$.\nStep 2: Solving for the resonant angular frequency gives $\\omega_0 = \\frac{1}{\\sqrt{LC}}$.\nStep 3: Substitute the provided values: $L = 0.25\\text{ H}$ and $C = 4.0 \\times 10^{-6}\\text{ F}$.\nStep 4: Compute the product: $L C = 0.25 \\times 4.0 \\times 10^{-6} = 1.0 \\times 10^{-6}\\text{ s}^2$.\nStep 5: Therefore, $\\omega_0 = \\frac{1}{\\sqrt{1.0 \\times 10^{-6}}} = \\frac{1}{10^{-3}} = 1000\\text{ rad/s}$.\nDistractor Analysis: Common miscalculations involve neglecting the micro ($\\mu = 10^{-6}$) conversion factor or incorrectly multiplying $L$ and $C$."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_023",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A circular conducting coil of radius $r = 10\\text{ cm}$ and electrical resistance $R = 5\\ \\Omega$ is placed in a region where a perpendicular magnetic field varies with time as $B(t) = 0.5 t^2 + 2.0 t + 0.2$ (where $B$ is in Tesla and $t$ is in seconds). The magnitude of the induced current in the coil at $t = 2.0\\text{ s}$ is:",
+      "options": [
+        "A) $4\\pi\\text{ mA}$",
+        "B) $8\\pi\\text{ mA}$",
+        "C) $16\\pi\\text{ mA}$",
+        "D) $20\\pi\\text{ mA}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The area of the circular coil is $A = \\pi r^2 = \\pi (0.1\\text{ m})^2 = 0.01\\pi\\text{ m}^2$.\nStep 2: The magnetic flux linked with the coil is $\\Phi_B(t) = B(t) A = (0.5 t^2 + 2.0 t + 0.2)(0.01\\pi)$.\nStep 3: By Faraday's law of induction, the magnitude of induced EMF is $\\varepsilon = \\frac{d\\Phi_B}{dt} = A \\frac{dB}{dt} = (0.01\\pi)(t + 2.0)$.\nStep 4: At $t = 2.0\\text{ s}$, the induced EMF is $\\varepsilon = (0.01\\pi)(2.0 + 2.0) = 0.04\\pi\\text{ V}$.\nStep 5: The induced current is $I = \\frac{\\varepsilon}{R} = \\frac{0.04\\pi\\text{ V}}{5\\ \\Omega} = 0.008\\pi\\text{ A} = 8\\pi\\text{ mA}$.\nDistractor Analysis: Omitting the time derivative of the linear term $2.0t$ or forgetting the resistance divisor leads to distractor values such as $4\\pi\\text{ mA}$ or $16\\pi\\text{ mA}$."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_024",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A square conducting loop of side length $l = 0.2\\text{ m}$ and total electrical resistance $R = 2.0\\ \\Omega$ is pulled at a constant horizontal speed $v = 5.0\\text{ m/s}$ into a region of uniform magnetic field $B = 1.0\\text{ T}$ directed perpendicular to the plane of the loop. While the loop is partially entering the magnetic field, the external mechanical force required to maintain its constant velocity and the rate of Joule heating in the loop are respectively:",
+      "options": [
+        "A) $0.1\\text{ N}$ and $0.5\\text{ W}$",
+        "B) $0.2\\text{ N}$ and $1.0\\text{ W}$",
+        "C) $0.5\\text{ N}$ and $2.5\\text{ W}$",
+        "D) $0.1\\text{ N}$ and $0.25\\text{ W}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The motional EMF induced across the leading edge of the square loop entering the magnetic field is $\\varepsilon = B v l = (1.0\\text{ T}) \\times (5.0\\text{ m/s}) \\times (0.2\\text{ m}) = 1.0\\text{ V}$.\nStep 2: The induced electric current circulating in the loop is $I = \\frac{\\varepsilon}{R} = \\frac{1.0\\text{ V}}{2.0\\ \\Omega} = 0.5\\text{ A}$.\nStep 3: The magnetic force opposing the entry of the loop is $F_{mag} = I l B = (0.5\\text{ A}) \\times (0.2\\text{ m}) \\times (1.0\\text{ T}) = 0.1\\text{ N}$. To maintain constant velocity, the external applied force must equal $F_{ext} = 0.1\\text{ N}$.\nStep 4: The rate of Joule heat dissipation is $P_{heat} = I^2 R = (0.5\\text{ A})^2 \\times 2.0\\ \\Omega = 0.5\\text{ W}$. Notice that the mechanical power input is $P_{mech} = F_{ext} v = (0.1\\text{ N}) \\times (5.0\\text{ m/s}) = 0.5\\text{ W}$, perfectly balancing energy conservation.\nDistractor Analysis: Inconsistencies arise when candidates calculate the force without dividing by resistance, resulting in exaggerated force values such as $0.5\\text{ N}$."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_025",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An inductor of self-inductance $L = 80\\text{ mH}$ carries a steady electric current. If the current decreases uniformly from an initial value of $I_1 = 5.0\\text{ A}$ to zero in a time interval of $\\Delta t = 20\\text{ ms}$, the average back electromotive force induced across the inductor during this interval is:",
+      "options": [
+        "A) $5\\text{ V}$",
+        "B) $10\\text{ V}$",
+        "C) $20\\text{ V}$",
+        "D) $40\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The self-induced electromotive force in an inductor is given by Faraday-Henry's formula $\\varepsilon = -L \\frac{\\Delta I}{\\Delta t}$.\nStep 2: The change in current is $\\Delta I = I_2 - I_1 = 0 - 5.0\\text{ A} = -5.0\\text{ A}$.\nStep 3: The time interval is $\\Delta t = 20\\text{ ms} = 20 \\times 10^{-3}\\text{ s} = 0.02\\text{ s}$.\nStep 4: The rate of change of current is $\\frac{\\Delta I}{\\Delta t} = \\frac{-5.0\\text{ A}}{0.02\\text{ s}} = -250\\text{ A/s}$.\nStep 5: Therefore, the induced back-EMF is $\\varepsilon = -(80 \\times 10^{-3}\\text{ H}) \\times (-250\\text{ A/s}) = +20\\text{ V}$.\nDistractor Analysis: Forgetting the milli prefix ($10^{-3}$) on either the inductance or the time duration introduces power-of-ten errors, while incorrect division produces options like $10\\text{ V}$ or $40\\text{ V}$."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_026",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two coupled coaxial coils $X$ and $Y$ have self-inductances of $L_1 = 32\\text{ mH}$ and $L_2 = 50\\text{ mH}$, respectively. If the measured mutual inductance between the two coils is $M = 24\\text{ mH}$, the magnetic coupling coefficient $k$ between the coils is:",
+      "options": [
+        "A) $0.48$",
+        "B) $0.60$",
+        "C) $0.75$",
+        "D) $0.80$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The mutual inductance $M$ between two magnetically coupled coils of self-inductances $L_1$ and $L_2$ is related to their coupling coefficient $k$ by $M = k \\sqrt{L_1 L_2}$.\nStep 2: The maximum theoretical mutual inductance (under perfect flux linkage, $k = 1$) is $M_{max} = \\sqrt{L_1 L_2} = \\sqrt{32\\text{ mH} \\times 50\\text{ mH}} = \\sqrt{1600} = 40\\text{ mH}$.\nStep 3: The coefficient of coupling is therefore $k = \\frac{M}{\\sqrt{L_1 L_2}} = \\frac{24\\text{ mH}}{40\\text{ mH}} = 0.60$.\nStep 4: Since $0 \\le k \\le 1$, this indicates that $60\\%$ of the magnetic flux produced by one coil links with the other coil.\nDistractor Analysis: Calculating $k$ using the arithmetic mean $\\frac{M}{(L_1 + L_2)/2} = \\frac{24}{41} \\approx 0.585$ or using $\\frac{M}{L_2} = \\frac{24}{50} = 0.48$ are common errors caused by ignoring the geometric mean in the coupling formula."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_027",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements:\n\nStatement I: When a steady electric current is passed through a dead-beat moving coil galvanometer, the coil deflects smoothly and settles to its final equilibrium position almost immediately without oscillatory overshoot.\nStatement II: The coil of a dead-beat galvanometer is wound on a light metallic (aluminum) frame in which strong eddy currents are induced as the frame oscillates within the permanent magnetic field, providing critical electromagnetic damping.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In a conventional galvanometer without damping, an incoming current causes the coil to oscillate about its mean position for a long duration due to inertia before coming to rest. Statement I describes a dead-beat galvanometer which eliminates this swinging.\nStep 2: To achieve this dead-beat behavior, the coil is wound on a non-magnetic metallic frame made of aluminum. As the frame rotates in the magnetic field, the changing magnetic flux induces circulating eddy currents in the metallic frame.\nStep 3: By Lenz's law, these induced eddy currents produce an opposing electromagnetic torque proportional to angular velocity, quickly dissipating kinetic energy and bringing the pointer to rest immediately at its deflection. Hence, Statement II correctly states the physical mechanism. Both Statement I and Statement II are correct.\nDistractor Analysis: Asserting that eddy currents are undesirable in every application ignores deliberate damping designs such as dead-beat galvanometers and induction brakes."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_028",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A series LCR circuit connected to an alternating voltage source of angular frequency $\\omega$ has resistance $R = 30\\ \\Omega$, inductive reactance $X_L = 80\\ \\Omega$, and capacitive reactance $X_C = 40\\ \\Omega$. The total impedance of the circuit and the phase relationship between the alternating voltage and current are:",
+      "options": [
+        "A) Impedance is $50\\ \\Omega$, and current leads the applied voltage by $\\tan^{-1}(4/3)$ (capacitive nature)",
+        "B) Impedance is $70\\ \\Omega$, and voltage leads the current by $\\tan^{-1}(3/4)$ (inductive nature)",
+        "C) Impedance is $50\\ \\Omega$, and voltage leads the current by $\\tan^{-1}(4/3)$ (inductive nature)",
+        "D) Impedance is $150\\ \\Omega$, and voltage and current are in phase (resistive nature)"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The net reactance of the series LCR circuit is $X = X_L - X_C = 80\\ \\Omega - 40\\ \\Omega = 40\\ \\Omega$.\nStep 2: The total circuit impedance is $Z = \\sqrt{R^2 + (X_L - X_C)^2} = \\sqrt{30^2 + 40^2} = \\sqrt{900 + 1600} = \\sqrt{2500} = 50\\ \\Omega$.\nStep 3: The phase angle $\\phi$ between voltage and current is given by $\\tan\\phi = \\frac{X_L - X_C}{R} = \\frac{40}{30} = \\frac{4}{3}$, which gives $\\phi = \\tan^{-1}\\left(\\frac{4}{3}\\right)$.\nStep 4: Because $X_L > X_C$, the circuit is predominantly inductive, meaning the alternating voltage leads the alternating current by $\\tan^{-1}(4/3)$.\nDistractor Analysis: Simple algebraic addition of resistances and reactances ($30 + 80 + 40 = 150\\ \\Omega$) disregards phasor geometry, while swapping phase dominance incorrectly labels the circuit as capacitive."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_029",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A series resonant AC circuit contains an inductor of self-inductance $L = 1.0\\text{ H}$, a capacitor of capacitance $C = 1.0\\ \\mu\\text{F}$, and an ohmic resistor of resistance $R = 10\\ \\Omega$. The Quality factor ($Q$) and the bandwidth ($\\Delta\\omega$) of the resonant circuit are respectively:",
+      "options": [
+        "A) $Q = 50$ and $\\Delta\\omega = 20\\text{ rad/s}$",
+        "B) $Q = 10$ and $\\Delta\\omega = 100\\text{ rad/s}$",
+        "C) $Q = 100$ and $\\Delta\\omega = 20\\text{ rad/s}$",
+        "D) $Q = 100$ and $\\Delta\\omega = 10\\text{ rad/s}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The resonant angular frequency of the series circuit is $\\omega_0 = \\frac{1}{\\sqrt{LC}} = \\frac{1}{\\sqrt{1.0\\text{ H} \\times 10^{-6}\\text{ F}}} = 1000\\text{ rad/s}$.\nStep 2: The Quality factor is given by $Q = \\frac{\\omega_0 L}{R} = \\frac{1}{R}\\sqrt{\\frac{L}{C}} = \\frac{1000\\text{ rad/s} \\times 1.0\\text{ H}}{10\\ \\Omega} = 100$.\nStep 3: The bandwidth $\\Delta\\omega$ (the difference between the two half-power angular frequencies) is defined by $\\Delta\\omega = \\frac{\\omega_0}{Q} = \\frac{R}{L}$.\nStep 4: Evaluating the bandwidth gives $\\Delta\\omega = \\frac{10\\ \\Omega}{1.0\\text{ H}} = 10\\text{ rad/s}$.\nStep 5: Thus, $Q = 100$ and $\\Delta\\omega = 10\\text{ rad/s}$.\nDistractor Analysis: Confusing the full bandwidth with the half-bandwidth $\\Delta\\omega_{half} = \\frac{R}{2L} = 5\\text{ rad/s}$ or doubling it gives incorrect paired values."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_030",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Energy Loss in a Practical Transformer) with List II (Physical Mechanism and Primary Method of Minimization):\n\nList I:\nP. Copper loss (Joule heating in windings)\nQ. Eddy current loss in the iron core\nR. Hysteresis loss\nS. Flux leakage loss\n\nList II:\nI. Continuous magnetic reversal of core; minimized by using core material with a narrow B-H loop (soft iron)\nII. Ohmic resistance of primary and secondary wire; minimized by using thick copper wire with low resistance\nIII. Incomplete magnetic coupling between primary and secondary; minimized by winding coils coaxially one over the other\nIV. Circulating electric currents induced in bulk core; minimized by using laminated core sheets insulated with lacquer\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-II, Q-IV, R-I, S-III",
+        "B) P-IV, Q-II, R-I, S-III",
+        "C) P-II, Q-I, R-IV, S-III",
+        "D) P-I, Q-IV, R-II, S-III"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Copper loss is caused by the finite resistance of the copper windings ($I^2 R$) and is minimized by using thicker wire with lower resistance (P matches II).\nStep 2: Eddy current loss is caused by circulating currents induced in the conducting iron core and is minimized by assembling the core from thin, lacquer-insulated laminations to break circulating loops (Q matches IV).\nStep 3: Hysteresis loss represents magnetic energy dissipated per unit volume over each alternating magnetization cycle and is minimized by selecting soft magnetic materials like soft iron or silicon steel having a slender hysteresis loop (R matches I).\nStep 4: Flux leakage occurs when some lines of magnetic induction fail to link both coils and is minimized by winding primary and secondary coils concentrically on top of each other (S matches III).\nStep 5: Combining these matches yields P-II, Q-IV, R-I, S-III.\nDistractor Analysis: Swapping eddy current loss with hysteresis loss is a frequent error stemming from conflating the role of laminations with the intrinsic magnetic properties of soft iron."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_031",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In an ideal $LC$ circuit with zero electrical resistance, the total electromagnetic energy stored in the circuit remains strictly constant in time, oscillating periodically between the electrostatic energy of the capacitor and the magnetic energy of the inductor.\nReason (R): When the electric charge on the capacitor is maximum ($q = Q_0$), the current through the inductor is zero ($I = 0$), and when the charge on the capacitor is zero ($q = 0$), the current through the inductor reaches its peak value ($I_0 = \\omega Q_0$).\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Assertion (A) is false but Reason (R) is true.",
+        "B) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).",
+        "C) Both Assertion (A) and Reason (R) are true but Reason (R) is NOT the correct explanation of Assertion (A).",
+        "D) Assertion (A) is true but Reason (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In an ideal $LC$ circuit, Kirchhoff's loop rule gives $\\frac{q}{C} + L \\frac{d^2q}{dt^2} = 0$, representing simple harmonic oscillations of charge with angular frequency $\\omega = \\frac{1}{\\sqrt{LC}}$.\nStep 2: Total energy is $U(t) = \\frac{q(t)^2}{2C} + \\frac{1}{2} L I(t)^2$. Taking the time derivative: $\\frac{dU}{dt} = \\frac{q}{C}\\frac{dq}{dt} + L I \\frac{dI}{dt} = I\\left(\\frac{q}{C} + L \\frac{dI}{dt}\\right) = 0$. Thus, total energy is strictly conserved.\nStep 3: Reason (R) accurately captures the quarter-cycle phase shift: when $q = Q_0 \\cos(\\omega t)$ is at maximum, $I = -\\frac{dq}{dt} = Q_0 \\omega \\sin(\\omega t) = 0$. At quarter period, $q = 0$ and $I = I_0 = Q_0 \\omega$, where all energy transfers completely from electrostatic $\\frac{Q_0^2}{2C}$ to magnetic $\\frac{1}{2} L I_0^2 = \\frac{1}{2} L (\\omega^2 Q_0^2) = \\frac{Q_0^2}{2C}$.\nStep 4: Hence, both statements are true, and Reason (R) provides the complete energy-exchange explanation of Assertion (A).\nDistractor Analysis: Claiming that electromagnetic radiation immediately damps ideal LC oscillations ignores the textbook assumption of an ideal non-radiating LC tank circuit."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_032",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A coil having a self-inductance of $L = \\frac{0.4}{\\pi}\\text{ H}$ and an ohmic resistance of $R = 30\\ \\Omega$ is connected across an alternating voltage supply of $V_{rms} = 100\\text{ V}$ and frequency $f = 50\\text{ Hz}$. The root-mean-square current flowing through the coil and the average power consumed by the coil are respectively:",
+      "options": [
+        "A) $2.0\\text{ A}$ and $200\\text{ W}$",
+        "B) $2.5\\text{ A}$ and $150\\text{ W}$",
+        "C) $2.0\\text{ A}$ and $120\\text{ W}$",
+        "D) $1.5\\text{ A}$ and $90\\text{ W}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The inductive reactance of the coil is $X_L = 2\\pi f L = 2\\pi (50\\text{ Hz}) \\left(\\frac{0.4}{\\pi}\\text{ H}\\right) = 100 \\times 0.4 = 40\\ \\Omega$.\nStep 2: The total impedance of the inductive circuit is $Z = \\sqrt{R^2 + X_L^2} = \\sqrt{30^2 + 40^2} = 50\\ \\Omega$.\nStep 3: The root-mean-square current is $I_{rms} = \\frac{V_{rms}}{Z} = \\frac{100\\text{ V}}{50\\ \\Omega} = 2.0\\text{ A}$.\nStep 4: The power factor of the circuit is $\\cos\\phi = \\frac{R}{Z} = \\frac{30}{50} = 0.60$.\nStep 5: The average power consumed is $P_{avg} = V_{rms} I_{rms} \\cos\\phi = (100\\text{ V}) \\times (2.0\\text{ A}) \\times 0.60 = 120\\text{ W}$ (equivalently, $P_{avg} = I_{rms}^2 R = (2.0)^2 \\times 30 = 120\\text{ W}$).\nDistractor Analysis: Calculating apparent power $S = V_{rms} I_{rms} = 200\\text{ W}$ ignores the power factor $\\cos\\phi$, while miscalculating impedance as $R + X_L = 70\\ \\Omega$ gives wrong current values."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_033",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A series RC circuit is connected across an alternating sinusoidal voltage supply of root-mean-square voltage $V$. An AC voltmeter connected across the resistor reads $V_R = 120\\text{ V}$, and when connected across the capacitor it reads $V_C = 160\\text{ V}$. The RMS voltage $V$ of the alternating supply and the circuit power factor are respectively:",
+      "options": [
+        "A) $280\\text{ V}$ and $0.43$",
+        "B) $200\\text{ V}$ and $0.60$",
+        "C) $200\\text{ V}$ and $0.80$",
+        "D) $40\\text{ V}$ and $0.60$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In a series RC circuit, the current $I$ is common. The voltage across the resistor $V_R$ is in phase with $I$, while the voltage across the capacitor $V_C$ lags $I$ by $90^\\circ$.\nStep 2: By phasor addition, the supply voltage is $V = \\sqrt{V_R^2 + V_C^2} = \\sqrt{(120\\text{ V})^2 + (160\\text{ V})^2} = \\sqrt{14400 + 25600} = \\sqrt{40000} = 200\\text{ V}$.\nStep 3: The circuit power factor is $\\cos\\phi = \\frac{V_R}{V} = \\frac{120\\text{ V}}{200\\text{ V}} = 0.60$.\nDistractor Analysis: Simple arithmetic addition ($V_R + V_C = 120 + 160 = 280\\text{ V}$) is a classic misconception that treats alternating voltages as scalar quantities rather than orthogonal phasors."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_034",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A cylindrical bar magnet is dropped vertically along the axis of two long vertical tubes: Tube A is made of copper (a high-conductivity metal), and Tube B is made of non-conducting glass. Consider the following observations:\n\nI. Inside the copper tube, the downward acceleration of the falling magnet is initially less than $g$ and rapidly approaches zero as the magnet reaches a constant terminal velocity.\nII. Inside the glass tube, the downward acceleration of the magnet remains equal to $g$ throughout its entire fall (neglecting air resistance).\nIII. The braking force retarding the magnet inside the copper tube is produced by the magnetic interaction of circulating eddy currents induced in the copper walls.\nIV. If the copper tube has a continuous longitudinal slit cut along its entire length, the circular eddy current paths are broken, drastically diminishing the retarding magnetic force.\n\nWhich of the statements given above are correct?",
+      "options": [
+        "A) I and III only",
+        "B) II and IV only",
+        "C) I, II, III, and IV",
+        "D) I, II, and III only"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: As the magnet falls through the copper tube, the changing magnetic flux induces circular eddy currents in the pipe walls above and below the magnet.\nStep 2: By Lenz's law, the eddy currents above the magnet attract it upward, and the eddy currents below the magnet repel it upward. This upward magnetic drag force increases with speed until it equals the gravitational force $m g$, producing terminal velocity with net acceleration zero (Statement I is correct).\nStep 3: Glass is an insulator with zero electrical conductivity, so no eddy currents can flow; the magnet falls freely under gravity with acceleration $a = g$ (Statement II is correct).\nStep 4: The opposing retarding force is entirely magnetic, arising from the Lorentz force on the induced eddy currents (Statement III is correct).\nStep 5: A continuous longitudinal cut prevents complete circumferential loops around the tube, drastically increasing loop resistance and minimizing eddy currents and damping (Statement IV is correct). Therefore, all four statements (I, II, III, and IV) are correct.\nDistractor Analysis: Claiming that the longitudinal slit has no effect contradicts the fundamental topological requirement of closed electrical paths for circulating eddy currents."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_035",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a series LCR circuit connected across an alternating sinusoidal voltage source, root-mean-square voltmeters connected across the individual components indicate: $V_R = 80\\text{ V}$, $V_L = 100\\text{ V}$, and $V_C = 40\\text{ V}$. The root-mean-square voltage of the AC source is:",
+      "options": [
+        "A) $100\\text{ V}$",
+        "B) $140\\text{ V}$",
+        "C) $220\\text{ V}$",
+        "D) $60\\text{ V}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In a series LCR circuit, the reactive voltages across the inductor ($V_L$) and capacitor ($V_C$) are directly out of phase by $180^\\circ$ ($\\pi$ radians).\nStep 2: The net reactive voltage across the $LC$ combination is $V_X = V_L - V_C = 100\\text{ V} - 40\\text{ V} = 60\\text{ V}$.\nStep 3: The resistive voltage $V_R$ is in quadrature ($90^\\circ$) with the net reactive voltage.\nStep 4: The total supply voltage is calculated by phasor summation: $V = \\sqrt{V_R^2 + (V_L - V_C)^2} = \\sqrt{(80\\text{ V})^2 + (60\\text{ V})^2} = \\sqrt{6400 + 3600} = \\sqrt{10000} = 100\\text{ V}$.\nDistractor Analysis: Arithmetic summation ($80 + 100 + 40 = 220\\text{ V}$) is invalid in AC circuits because it ignores relative phase angles between voltages."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_036",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A step-down transformer having an efficiency of $\\eta = 90\\%$ is connected to a $2200\\text{ V}$ primary transmission line to supply electricity at $220\\text{ V}$ to an output load drawing an alternating current of $I_s = 10\\text{ A}$ at unity power factor. The electric current drawn by the primary coil of the transformer from the mains is:",
+      "options": [
+        "A) $0.90\\text{ A}$",
+        "B) $1.00\\text{ A}$",
+        "C) $1.25\\text{ A}$",
+        "D) $\\frac{10}{9}\\text{ A}$ (approximately $1.11\\text{ A}$)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The electrical power delivered by the secondary coil to the load is $P_{out} = V_s I_s \\cos\\phi_s = (220\\text{ V}) \\times (10\\text{ A}) \\times 1 = 2200\\text{ W}$.\nStep 2: The transformer efficiency is given by $\\eta = \\frac{P_{out}}{P_{in}} \\implies 0.90 = \\frac{2200\\text{ W}}{P_{in}}$, which yields $P_{in} = \\frac{2200}{0.90} = \\frac{22000}{9}\\text{ W}$.\nStep 3: The input power drawn from the primary line is $P_{in} = V_p I_p$.\nStep 4: Equating expressions gives $(2200\\text{ V}) \\times I_p = \\frac{22000}{9}\\text{ W} \\implies I_p = \\frac{22000}{9 \\times 2200} = \\frac{10}{9}\\text{ A} \\approx 1.11\\text{ A}$.\nDistractor Analysis: Assuming an ideal $100\\%$ efficient transformer yields $I_p = 1.0\\text{ A}$, while multiplying rather than dividing by efficiency gives $0.90\\text{ A}$."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_037",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A flat circular coil consisting of $N = 500$ turns and radius $r = 0.1\\text{ m}$ has an internal electrical resistance of $R = 10\\ \\Omega$. The plane of the coil is initially perpendicular to a uniform magnetic field $B = 0.2\\text{ T}$. If the coil is flipped through an angle of $180^\\circ$ about one of its coplanar diameters in a time interval of $0.1\\text{ s}$, the total electric charge that flows through the coil cross-section is:",
+      "options": [
+        "A) $0.1\\pi\\text{ C}$",
+        "B) $0.4\\pi\\text{ C}$",
+        "C) $\\text{Zero}$",
+        "D) $0.2\\pi\\text{ C}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The cross-sectional area of the coil is $A = \\pi r^2 = \\pi (0.1\\text{ m})^2 = 0.01\\pi\\text{ m}^2$.\nStep 2: The initial magnetic flux linked with all $N$ turns when normal to the field is $\\Phi_1 = N B A = 500 \\times 0.2\\text{ T} \\times 0.01\\pi\\text{ m}^2 = \\pi\\text{ Wb}$.\nStep 3: When the coil is rotated by $180^\\circ$, its normal vector points in the opposite direction ($\\\\theta = 180^\\circ$), so the final magnetic flux is $\\Phi_2 = N B A \\cos(180^\\circ) = -\\pi\\text{ Wb}$.\nStep 4: The total magnitude of change in magnetic flux is $\\Delta\\Phi_B = |\\Phi_2 - \\Phi_1| = |-\\pi - \\pi| = 2\\pi\\text{ Wb}$.\nStep 5: The total induced charge flowing through the circuit of resistance $R = 10\\ \\Omega$ is $\\Delta Q = \\frac{\\Delta\\Phi_B}{R} = \\frac{2\\pi\\text{ Wb}}{10\\ \\Omega} = 0.2\\pi\\text{ C}$.\nDistractor Analysis: Failing to recognize that reversing the orientation doubles the net flux change gives $\\Delta\\Phi = \\pi\\text{ Wb}$ and $\\Delta Q = 0.1\\pi\\text{ C}$."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_038",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements:\n\nStatement I: A choke coil used to control alternating current in fluorescent tube circuits is engineered with a high self-inductance and a minimal ohmic resistance.\nStatement II: A choke coil regulates alternating current with negligible loss of electrical energy because its power factor ($\\cos\\phi \\approx 0$) is practically zero, whereas an ohmic rheostat would dissipate significant electrical energy as Joule heat ($I^2 R$).\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: A choke coil consists of an insulated copper coil with a large number of turns wound over a laminated soft iron core, providing very large inductance $L$ and minimal resistance $R$. Statement I is correct.\nStep 2: In an AC circuit, the impedance is $Z = \\sqrt{R^2 + \\omega^2 L^2} \\approx \\omega L$. The large inductive reactance limits the AC current without requiring high resistance.\nStep 3: The average power consumed is $P_{avg} = V_{rms} I_{rms} \\cos\\phi$, where $\\cos\\phi = \\frac{R}{Z} \\approx 0$. Thus, virtually no electrical power is wasted as heat, unlike an ohmic resistor where all controlled power is converted to Joule heating. Statement II is correct.\nDistractor Analysis: Asserting that a choke coil can control DC current ignores that for DC, $\\omega = 0$ and $X_L = 0$, so the choke coil provides almost zero opposition to DC."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_039",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In a series LCR resonant circuit, decreasing the ohmic resistance $R$ makes the resonance peak sharper and increases the tuning selectivity of the circuit.\nReason (R): The Quality factor of a series resonant circuit is defined by $Q = \\frac{1}{R}\\sqrt{\\frac{L}{C}}$, and the bandwidth between half-power points is directly proportional to the resistance ($\\Delta\\omega = \\frac{R}{L}$).\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Assertion (A) is false but Reason (R) is true.",
+        "B) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).",
+        "C) Both Assertion (A) and Reason (R) are true but Reason (R) is NOT the correct explanation of Assertion (A).",
+        "D) Assertion (A) is true but Reason (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Sharpness of resonance refers to how steeply the current amplitude drops as the operating frequency departs from the resonant frequency $\\omega_0$.\nStep 2: The bandwidth of the resonance curve is $\\Delta\\omega = \\frac{R}{L}$. A smaller resistance $R$ narrows the bandwidth, making the resonance peak tall and narrow (sharp), which improves selectivity in radio tuning circuits. Assertion (A) is true.\nStep 3: The Quality factor is inversely proportional to resistance: $Q = \\frac{\\omega_0}{\\Delta\\omega} = \\frac{\\omega_0 L}{R} = \\frac{1}{R}\\sqrt{\\frac{L}{C}}$. Reason (R) correctly states this definition and relates it directly to bandwidth $\\Delta\\omega = R/L$.\nStep 4: Because Reason (R) provides the exact mathematical rationale for why smaller $R$ sharpens the resonance peak, both statements are true and Reason (R) correctly explains Assertion (A).\nDistractor Analysis: Claiming that high resistance sharpens resonance is physically backward, as higher damping broadens and flattens the frequency response curve."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_040",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A rectangular coil of $N$ turns and area $A$ rotates with a uniform angular velocity $\\omega$ in a uniform magnetic field $B$. The instantaneous induced EMF is $\\varepsilon(t) = \\varepsilon_0 \\sin(\\omega t)$, where $\\varepsilon_0 = N B A \\omega$. If the coil rotates from $\\omega t = 0$ to $\\omega t = \\frac{\\pi}{2}$ during the first quarter of a cycle, the ratio of the peak induced EMF $\\varepsilon_0$ to the average induced EMF $\\varepsilon_{avg}$ over this quarter cycle is:",
+      "options": [
+        "A) $\\frac{2}{\\pi}$",
+        "B) $\\sqrt{2}$",
+        "C) $\\frac{\\pi}{2}$",
+        "D) $\\frac{\\pi}{\\sqrt{2}}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The instantaneous EMF is $\\varepsilon(t) = \\varepsilon_0 \\sin(\\omega t)$.\nStep 2: The average EMF over the quarter cycle from $t = 0$ to $t = \\frac{T}{4} = \\frac{\\pi}{2\\omega}$ is calculated as:\n$\\varepsilon_{avg} = \\frac{1}{\\pi/(2\\omega)} \\int_0^{\\pi/(2\\omega)} \\varepsilon_0 \\sin(\\omega t) \\, dt = \\frac{2\\omega}{\\pi} \\left[ -\\frac{\\varepsilon_0}{\\omega} \\cos(\\omega t) \\right]_0^{\\pi/(2\\omega)}$.\nStep 3: Evaluating the limits: $[-\\cos(\\pi/2) - (-\\cos 0)] = [0 - (-1)] = 1$. Therefore, $\\varepsilon_{avg} = \\frac{2}{\\pi} \\varepsilon_0$.\nStep 4: The required ratio of peak EMF $\\varepsilon_0$ to average EMF $\\varepsilon_{avg}$ is:\n$\\frac{\\varepsilon_0}{\\varepsilon_{avg}} = \\frac{\\varepsilon_0}{\\frac{2}{\\pi}\\varepsilon_0} = \\frac{\\pi}{2}$.\nDistractor Analysis: Inverting the ratio yields $\\frac{2}{\\pi} \\approx 0.637$, while confusing average EMF with RMS EMF introduces factors containing $\\sqrt{2}$."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_041",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider a series LCR circuit driven by an alternating voltage supply of variable frequency $f$. Let $f_0 = \\frac{1}{2\\pi\\sqrt{LC}}$ denote the resonant frequency. Consider the following statements regarding the behavior of the circuit:\n\nI. At frequencies below resonance ($f < f_0$), capacitive reactance dominates inductive reactance ($X_C > X_L$), causing the current to lead the applied voltage.\nII. At the resonant frequency ($f = f_0$), inductive reactance equals capacitive reactance ($X_L = X_C$), making the circuit purely resistive with unity power factor.\nIII. At frequencies above resonance ($f > f_0$), inductive reactance exceeds capacitive reactance ($X_L > X_C$), causing the current to lag behind the applied voltage.\n\nWhich of the statements given above are correct?",
+      "options": [
+        "A) I and II only",
+        "B) II and III only",
+        "C) I and III only",
+        "D) I, II, and III"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Inductive reactance is $X_L = 2\\pi f L$ (directly proportional to $f$), while capacitive reactance is $X_C = \\frac{1}{2\\pi f C}$ (inversely proportional to $f$).\nStep 2: Below resonance ($f < f_0$), $X_C > X_L$, so net reactance is capacitive ($X_L - X_C < 0$). In a capacitive circuit, current leads the applied voltage (Statement I is correct).\nStep 3: At resonance ($f = f_0$), $X_L = X_C$, so net reactance is zero. The impedance is purely resistive ($Z = R$), the phase angle is $\\phi = 0$, and power factor is $\\cos 0 = 1$ (Statement II is correct).\nStep 4: Above resonance ($f > f_0$), $X_L > X_C$, so net reactance is inductive ($X_L - X_C > 0$). In an inductive circuit, voltage leads current, which means current lags behind the applied voltage (Statement III is correct).\nStep 5: Therefore, all three statements (I, II, and III) are correct.\nDistractor Analysis: Reversing the lead/lag convention between capacitive and inductive regimes is the standard source of error for this topic."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_042",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A conducting rod of mass $m$ and length $l$ slides without friction along two parallel horizontal conducting rails placed a distance $l$ apart in a uniform vertical magnetic field $B$. The rails are connected at one end through an ohmic resistor of resistance $R$. A constant horizontal force $F_0$ pulls the rod perpendicular to its length. Consider the following two statements:\n\nStatement I: As the speed of the rod increases, the magnetic retarding force grows until the rod attains a constant terminal velocity given by $v_T = \\frac{F_0 R}{B^2 l^2}$.\nStatement II: Once the rod moves at terminal velocity, $100\\%$ of the mechanical power delivered by the external pulling force is converted into Joule heat in the resistor.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: As the rod moves with velocity $v$, the motional EMF induced across it is $\\varepsilon = B v l$, driving a current $I = \\frac{B v l}{R}$.\nStep 2: The magnetic Lorentz force opposing the motion is $F_{mag} = I l B = \\frac{B^2 l^2 v}{R}$. The net equation of motion is $m \\frac{dv}{dt} = F_0 - \\frac{B^2 l^2 v}{R}$.\nStep 3: At terminal velocity ($v = v_T$), acceleration is zero ($\\frac{dv}{dt} = 0$), which gives $F_0 = \\frac{B^2 l^2 v_T}{R} \\implies v_T = \\frac{F_0 R}{B^2 l^2}$. Statement I is correct.\nStep 4: At terminal velocity, the mechanical power supplied by the external force is $P_{mech} = F_0 v_T = F_0 \\left(\\frac{F_0 R}{B^2 l^2}\\right) = \\frac{F_0^2 R}{B^2 l^2}$.\nStep 5: The rate of Joule heat dissipation in the resistor is $P_{Joule} = I^2 R = \\left(\\frac{B l v_T}{R}\\right)^2 R = \\frac{B^2 l^2 v_T^2}{R} = \\frac{F_0^2 R}{B^2 l^2}$. Since $P_{mech} = P_{Joule}$, mechanical power is completely converted into thermal energy. Statement II is correct.\nDistractor Analysis: Claiming that energy is lost to kinetic energy accumulation ignores that kinetic energy is constant once terminal velocity is attained."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_043",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A circular metallic disc of radius $R = 0.5\\text{ m}$ is rotated with a constant angular frequency $\\omega = 120\\text{ rad/s}$ about its central axis in a uniform axial magnetic field $B = 0.4\\text{ T}$. Sliding brushes connect the central axle and the outer rim to an external resistor $R_{ext} = 3.0\\ \\Omega$ (disc internal resistance is negligible). The induced electromotive force between the center and rim, and the retarding magnetic torque opposing rotation are respectively:",
+      "options": [
+        "A) $\\varepsilon = 12.0\\text{ V}$ and $\\tau = 0.2\\text{ N}\\cdot\\text{m}$",
+        "B) $\\varepsilon = 6.0\\text{ V}$ and $\\tau = 0.1\\text{ N}\\cdot\\text{m}$",
+        "C) $\\varepsilon = 3.0\\text{ V}$ and $\\tau = 0.05\\text{ N}\\cdot\\text{m}$",
+        "D) $\\varepsilon = 6.0\\text{ V}$ and $\\tau = 0.2\\text{ N}\\cdot\\text{m}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The induced EMF between the center and rim of a rotating disc is $\\varepsilon = \\frac{1}{2} B \\omega R^2$.\nStep 2: Substituting values gives $\\varepsilon = \\frac{1}{2} \\times (0.4\\text{ T}) \\times (120\\text{ rad/s}) \\times (0.5\\text{ m})^2 = 0.2 \\times 120 \\times 0.25 = 6.0\\text{ V}$.\nStep 3: The radial electric current flowing through the disc and external resistor is $I = \\frac{\\varepsilon}{R_{ext}} = \\frac{6.0\\text{ V}}{3.0\\ \\Omega} = 2.0\\text{ A}$.\nStep 4: The magnetic force on a radial current element $dr$ at distance $r$ is $dF = I B dr$, producing a retarding torque $d\\tau = r dF = I B r dr$.\nStep 5: Integrating from $r = 0$ to $R$: $\\tau = I B \\int_0^R r \\, dr = \\frac{1}{2} I B R^2 = \\frac{1}{2} \\times (2.0\\text{ A}) \\times (0.4\\text{ T}) \\times (0.5\\text{ m})^2 = 0.4 \\times 0.25 = 0.1\\text{ N}\\cdot\\text{m}$.\nStep 6: The retarding power is $\\tau \\omega = 0.1 \\times 120 = 12\\text{ W}$, which perfectly equals the electrical power $I^2 R_{ext} = 2^2 \\times 3 = 12\\text{ W}$.\nDistractor Analysis: Omitting the factor of $1/2$ in the EMF integration leads to double the voltage ($12\\text{ V}$) and double the torque ($0.2\\text{ N}\\cdot\\text{m}$)."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_044",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): For two coplanar concentric circular loops of radii $r$ and $R$ situated in air with $r \\ll R$, the mutual inductance between them is given by $M = \\frac{\\mu_0 \\pi r^2}{2R}$.\nReason (R): By the reciprocity theorem of mutual induction ($M_{12} = M_{21}$), the magnetic flux linked with the smaller loop when current $I$ passes through the larger loop equals the flux linked with the larger loop when the same current $I$ passes through the smaller loop.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Assertion (A) is false but Reason (R) is true.",
+        "B) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).",
+        "C) Both Assertion (A) and Reason (R) are true but Reason (R) is NOT the correct explanation of Assertion (A).",
+        "D) Assertion (A) is true but Reason (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: If an electric current $I$ is established in the large outer circular loop of radius $R$, the magnetic field produced at its center is $B = \\frac{\\mu_0 I}{2R}$.\nStep 2: Because $r \\ll R$, the magnetic field throughout the cross-sectional area of the smaller loop ($A = \\pi r^2$) is virtually uniform and equal to the central field value $B$.\nStep 3: The magnetic flux linked with the small inner loop is $\\Phi_{small} = B A = \\left(\\frac{\\mu_0 I}{2R}\\right)(\\pi r^2) = \\frac{\\mu_0 \\pi r^2}{2R} I$. By definition of mutual inductance $\\Phi_{small} = M I$, so $M = \\frac{\\mu_0 \\pi r^2}{2R}$. Assertion (A) is true.\nStep 4: Computing the flux linked with the large loop due to current in the small loop directly is mathematically complicated due to non-uniform field geometry; the reciprocity theorem $M_{12} = M_{21}$ guarantees that calculating the reverse flux linkage gives the exact mutual inductance. Thus, Reason (R) provides the foundational justification. Both statements are true and Reason (R) correctly explains Assertion (A).\nDistractor Analysis: Inverting the radii ratio ($R^2 / r$) violates dimensional analysis and physical intuition, as mutual inductance must depend symmetrically on geometry."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_045",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a series LCR circuit driven by an alternating sinusoidal voltage source of amplitude $V_0$, the current amplitude $I_0$ attains the exact same value at two distinctly different operating angular frequencies $\\omega_1$ and $\\omega_2$ (where $\\omega_1 \\ne \\omega_2$). The resonant angular frequency $\\omega_0$ of the circuit is given by:",
+      "options": [
+        "A) $\\omega_0 = \\frac{\\omega_1 + \\omega_2}{2}$",
+        "B) $\\omega_0 = \\frac{\\omega_1 \\omega_2}{\\omega_1 + \\omega_2}$",
+        "C) $\\omega_0 = \\sqrt{\\omega_1 \\omega_2}$",
+        "D) $\\omega_0 = \\sqrt{\\omega_1^2 + \\omega_2^2}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The amplitude of current in a series LCR circuit is $I_0 = \\frac{V_0}{\\sqrt{R^2 + \\left(\\omega L - \\frac{1}{\\omega C}\\right)^2}}$.\nStep 2: For $I_0$ to have the identical value at two distinct frequencies $\\omega_1$ and $\\omega_2$, the net reactances must have equal magnitudes but opposite signs:\n$\\omega_1 L - \\frac{1}{\\omega_1 C} = -\\left(\\omega_2 L - \\frac{1}{\\omega_2 C}\\right)$.\nStep 3: Rearranging the terms gives:\n$(\\omega_1 + \\omega_2) L = \\frac{1}{C} \\left( \\frac{1}{\\omega_1} + \\frac{1}{\\omega_2} \\right) = \\frac{1}{C} \\left( \\frac{\\omega_1 + \\omega_2}{\\omega_1 \\omega_2} \\right)$.\nStep 4: Dividing both sides by $(\\omega_1 + \\omega_2) \\ne 0$ yields:\n$L = \\frac{1}{C \\omega_1 \\omega_2} \\implies \\omega_1 \\omega_2 = \\frac{1}{L C}$.\nStep 5: Since the resonant angular frequency is defined as $\\omega_0 = \\frac{1}{\\sqrt{LC}}$, we have $\\omega_0^2 = \\frac{1}{LC} = \\omega_1 \\omega_2 \\implies \\omega_0 = \\sqrt{\\omega_1 \\omega_2}$.\nDistractor Analysis: Arithmetic mean $\\frac{\\omega_1 + \\omega_2}{2}$ is an approximation valid only for extremely sharp resonances with very narrow bandwidth, whereas the geometric mean is exact for all bandwidths."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_046",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In an ideal $LC$ oscillatory circuit, a capacitor initially charged to a peak charge $Q_0$ is connected across an inductor of inductance $L$ at $t = 0$. At an instant when the charge on the capacitor has fallen to $q = \\frac{Q_0}{2}$, the ratio of the magnetic energy stored in the inductor to the electrostatic energy stored in the capacitor ($\\frac{U_B}{U_E}$) and the instantaneous current $I$ (in terms of peak current $I_0$) are respectively:",
+      "options": [
+        "A) $\\frac{U_B}{U_E} = 1$ and $I = \\frac{I_0}{2}$",
+        "B) $\\frac{U_B}{U_E} = 2$ and $I = \\frac{I_0}{\\sqrt{2}}$",
+        "C) $\\frac{U_B}{U_E} = 3$ and $I = \\frac{\\sqrt{3}}{2} I_0$",
+        "D) $\\frac{U_B}{U_E} = 4$ and $I = \\frac{\\sqrt{3}}{2} I_0$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The total electromagnetic energy in the circuit is conserved: $U_{total} = \\frac{Q_0^2}{2C} = \\frac{1}{2} L I_0^2$.\nStep 2: When the instantaneous charge is $q = \\frac{Q_0}{2}$, the electrostatic energy stored in the capacitor is $U_E = \\frac{q^2}{2C} = \\frac{(Q_0/2)^2}{2C} = \\frac{1}{4} \\left( \\frac{Q_0^2}{2C} \\right) = \\frac{1}{4} U_{total}$.\nStep 3: By energy conservation, the magnetic energy stored in the inductor is $U_B = U_{total} - U_E = U_{total} - \\frac{1}{4} U_{total} = \\frac{3}{4} U_{total}$.\nStep 4: The ratio of stored magnetic energy to electrostatic energy is $\\frac{U_B}{U_E} = \\frac{3/4}{1/4} = 3$.\nStep 5: The magnetic energy is also $U_B = \\frac{1}{2} L I^2 = \\frac{3}{4} \\left(\\frac{1}{2} L I_0^2\\right) \\implies I^2 = \\frac{3}{4} I_0^2 \\implies I = \\frac{\\sqrt{3}}{2} I_0$.\nDistractor Analysis: Linear reasoning erroneously suggests that halving the charge halves the energy, leading to an incorrect 1:1 energy ratio and $I = I_0/2$."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_047",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An AC electrical load consisting of a non-inductive resistance $R = 60\\ \\Omega$ connected in series with an inductive reactance $X_L = 80\\ \\Omega$ is connected across a $200\\text{ V}$, $50\\text{ Hz}$ alternating line. To make the power factor of the circuit unity ($\\cos\\phi = 1.0$), a capacitor is connected in series with the circuit. The capacitive reactance $X_C$ of the added capacitor and the resulting total circuit impedance $Z$ will be:",
+      "options": [
+        "A) $X_C = 60\\ \\Omega$ and $Z = 80\\ \\Omega$",
+        "B) $X_C = 80\\ \\Omega$ and $Z = 100\\ \\Omega$",
+        "C) $X_C = 100\\ \\Omega$ and $Z = 60\\ \\Omega$",
+        "D) $X_C = 80\\ \\Omega$ and $Z = 60\\ \\Omega$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The initial impedance of the RL circuit is $Z_1 = \\sqrt{R^2 + X_L^2} = \\sqrt{60^2 + 80^2} = 100\\ \\Omega$.\nStep 2: When a series capacitor of reactance $X_C$ is inserted, the new impedance is $Z = \\sqrt{R^2 + (X_L - X_C)^2}$ and the power factor is $\\cos\\phi = \\frac{R}{Z}$.\nStep 3: To achieve unity power factor ($\\cos\\phi = 1.0$), the phase angle must be $\\phi = 0^\\circ$, which requires the net reactance to vanish: $X_L - X_C = 0 \\implies X_C = X_L = 80\\ \\Omega$.\nStep 4: At this resonant condition, the reactive terms cancel completely, leaving the circuit purely resistive: $Z = \\sqrt{R^2 + 0} = R = 60\\ \\Omega$.\nDistractor Analysis: Confusing the required capacitive reactance with the resistance ($60\\ \\Omega$) or setting the final impedance to the initial impedance ($100\\ \\Omega$) represents common algebraic mistakes in AC power factor correction."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_048",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform magnetic field is confined within a cylindrical region of radius $R$ and is directed parallel to the cylinder's axis. The magnetic field strength increases with time at a constant rate $\\frac{dB}{dt} = \\alpha > 0$. Consider the following statements regarding the induced electric field $\\vec{E}_{ind}$ produced by this time-varying magnetic field:\n\nI. The induced electric field is non-conservative because its line integral around a closed loop enclosing the changing flux is non-zero ($\\oint \\vec{E}_{ind} \\cdot d\\vec{l} \\ne 0$).\nII. For points inside the cylindrical region ($r < R$), the magnitude of the induced electric field is directly proportional to radial distance $r$ ($E_{ind} \\propto r$).\nIII. For points outside the cylindrical region ($r > R$), the magnitude of the induced electric field is inversely proportional to radial distance $r$ ($E_{ind} \\propto \\frac{1}{r}$).\nIV. The induced electric field lines form continuous closed concentric circles centered on the cylindrical axis.\n\nWhich of the statements given above are correct?",
+      "options": [
+        "A) I, II, and III only",
+        "B) II and III only",
+        "C) I, II, III, and IV",
+        "D) I and IV only"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: By Faraday's law of induction in integral form, $\\oint \\vec{E}_{ind} \\cdot d\\vec{l} = -\\frac{d\\Phi_B}{dt} \\ne 0$. Because the closed-loop line integral does not vanish, the induced electric field cannot be expressed as the gradient of a scalar potential and is strictly non-conservative (Statement I is correct).\nStep 2: By cylindrical symmetry, the field lines form closed concentric circles around the axis (Statement IV is correct).\nStep 3: For an interior circular path of radius $r < R$: $E_{ind}(2\\pi r) = \\frac{d}{dt}(B \\cdot \\pi r^2) = \\pi r^2 \\alpha \\implies E_{ind} = \\frac{\\alpha r}{2}$. Hence, $E_{ind} \\propto r$ (Statement II is correct).\nStep 4: For an exterior circular path of radius $r > R$: the enclosed magnetic flux is limited to the cylinder of radius $R$, so $E_{ind}(2\\pi r) = \\frac{d}{dt}(B \\cdot \\pi R^2) = \\pi R^2 \\alpha \\implies E_{ind} = \\frac{\\alpha R^2}{2r}$. Hence, $E_{ind} \\propto \\frac{1}{r}$ (Statement III is correct).\nStep 5: Therefore, all four statements (I, II, III, and IV) are correct.\nDistractor Analysis: Assuming electrodynamic induced electric fields obey electrostatic properties (conservative, terminating on charges) contradicts Maxwell-Faraday field theory."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_049",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two inductors of self-inductances $L_1$ and $L_2$ have mutual inductance $M$. When they are connected in series aiding (fluxes reinforcing each other), the equivalent inductance is measured to be $1.9\\text{ H}$. When connected in series opposing (fluxes opposing each other), the equivalent inductance is $0.7\\text{ H}$. If the self-inductance of the first coil is $L_1 = 0.4\\text{ H}$, the mutual inductance $M$, the self-inductance $L_2$, and the coupling coefficient $k$ are respectively:",
+      "options": [
+        "A) $M = 0.3\\text{ H}$, $L_2 = 0.9\\text{ H}$, and $k = 0.50$",
+        "B) $M = 0.6\\text{ H}$, $L_2 = 0.9\\text{ H}$, and $k = 0.80$",
+        "C) $M = 0.3\\text{ H}$, $L_2 = 0.6\\text{ H}$, and $k = 0.60$",
+        "D) $M = 0.15\\text{ H}$, $L_2 = 0.9\\text{ H}$, and $k = 0.25$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The equivalent inductance for series aiding is $L_{aid} = L_1 + L_2 + 2M = 1.9\\text{ H}$.\nStep 2: The equivalent inductance for series opposing is $L_{opp} = L_1 + L_2 - 2M = 0.7\\text{ H}$.\nStep 3: Subtracting the two equations gives $4M = L_{aid} - L_{opp} = 1.9 - 0.7 = 1.2\\text{ H} \\implies M = \\frac{1.2}{4} = 0.3\\text{ H}$.\nStep 4: Adding the two equations gives $2(L_1 + L_2) = 1.9 + 0.7 = 2.6\\text{ H} \\implies L_1 + L_2 = 1.3\\text{ H}$.\nStep 5: Given $L_1 = 0.4\\text{ H}$, we have $L_2 = 1.3 - 0.4 = 0.9\\text{ H}$.\nStep 6: The coupling coefficient is $k = \\frac{M}{\\sqrt{L_1 L_2}} = \\frac{0.3\\text{ H}}{\\sqrt{0.4 \\times 0.9\\text{ H}^2}} = \\frac{0.3}{\\sqrt{0.36}} = \\frac{0.3}{0.6} = 0.50$.\nDistractor Analysis: Dividing the difference by 2 instead of 4 leads to an erroneous mutual inductance of $0.6\\text{ H}$ and coupling coefficient exceeding permissible physical bounds."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_050",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A series LCR resonant circuit has $R = 5\\ \\Omega$, $L = 0.2\\text{ H}$, and $C = 20\\ \\mu\\text{F}$, and is driven by an alternating voltage supply of root-mean-square value $V_{rms} = 10\\text{ V}$ operating at the resonant frequency $\\omega_0$. The root-mean-square voltage across the inductor ($V_L$) and the net root-mean-square voltage across the series combination of the inductor and capacitor ($V_{LC}$) are respectively:",
+      "options": [
+        "A) $V_L = 10\\text{ V}$ and $V_{LC} = 20\\text{ V}$",
+        "B) $V_L = 100\\text{ V}$ and $V_{LC} = 100\\text{ V}$",
+        "C) $V_L = 200\\text{ V}$ and $V_{LC} = 400\\text{ V}$",
+        "D) $V_L = 200\\text{ V}$ and $V_{LC} = 0\\text{ V}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The resonant angular frequency is $\\omega_0 = \\frac{1}{\\sqrt{LC}} = \\frac{1}{\\sqrt{0.2\\text{ H} \\times 20 \\times 10^{-6}\\text{ F}}} = \\frac{1}{\\sqrt{4 \\times 10^{-6}}} = 500\\text{ rad/s}$.\nStep 2: At resonance, circuit impedance is purely resistive: $Z = R = 5\\ \\Omega$.\nStep 3: The root-mean-square current is $I_{rms} = \\frac{V_{rms}}{R} = \\frac{10\\text{ V}}{5\\ \\Omega} = 2.0\\text{ A}$.\nStep 4: Inductive reactance is $X_L = \\omega_0 L = 500 \\times 0.2 = 100\\ \\Omega$, and capacitive reactance is $X_C = \\frac{1}{\\omega_0 C} = \\frac{1}{500 \\times 20 \\times 10^{-6}} = 100\\ \\Omega$.\nStep 5: The RMS voltage across the inductor is $V_L = I_{rms} X_L = 2.0\\text{ A} \\times 100\\ \\Omega = 200\\text{ V}$ (which is 20 times the supply voltage, demonstrating resonant magnification by $Q = 20$).\nStep 6: The voltage across the capacitor is also $V_C = I_{rms} X_C = 200\\text{ V}$. Because $V_L$ and $V_C$ are $180^\\circ$ out of phase, their phasor sum across the LC combination is $V_{LC} = |V_L - V_C| = 200\\text{ V} - 200\\text{ V} = 0\\text{ V}$.\nDistractor Analysis: Scalar addition of $V_L$ and $V_C$ yields $400\\text{ V}$, completely missing that inductive and capacitive reactances cancel out at resonance."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_051",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An inductor of self-inductance $L = 2.0\\text{ H}$ and resistance $R = 10\\ \\Omega$ is connected across an ideal DC battery of electromotive force $\\mathcal{E} = 50\\text{ V}$ at time $t = 0$. Consider the following statements:\n\nI. The inductive time constant of the circuit is $\\tau = 0.2\\text{ s}$.\nII. The initial time rate of growth of current at the instant of switch closure ($t = 0$) is $25\\text{ A/s}$.\nIII. In the steady state as $t \\to \\infty$, the total magnetic energy stored in the inductor is $25.0\\text{ J}$.\nIV. At time $t = \\tau$, the current through the inductor reaches approximately $63.2\\%$ of its final steady-state value.\n\nWhich of the statements given above are correct?",
+      "options": [
+        "A) I and II only",
+        "B) II, III, and IV only",
+        "C) I, III, and IV only",
+        "D) I, II, III, and IV"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The inductive relaxation time constant is $\\tau = \\frac{L}{R} = \\frac{2.0\\text{ H}}{10\\ \\Omega} = 0.2\\text{ s}$ (Statement I is correct).\nStep 2: At $t = 0$, current $I = 0$, so no potential drop occurs across the resistor ($I R = 0$). Kirchhoff's loop rule gives $\\mathcal{E} - L\\left.\\frac{dI}{dt}\\right|_{t=0} = 0 \\implies \\left.\\frac{dI}{dt}\\right|_{t=0} = \\frac{\\mathcal{E}}{L} = \\frac{50\\text{ V}}{2.0\\text{ H}} = 25\\text{ A/s}$ (Statement II is correct).\nStep 3: In the steady state ($t \\to \\infty$), the inductor acts as a short circuit ($\\frac{dI}{dt} = 0$). The steady-state current is $I_{max} = \\frac{\\mathcal{E}}{R} = \\frac{50\\text{ V}}{10\\ \\Omega} = 5.0\\text{ A}$. The stored magnetic energy is $U = \\frac{1}{2} L I_{max}^2 = \\frac{1}{2} \\times (2.0\\text{ H}) \\times (5.0\\text{ A})^2 = 25.0\\text{ J}$ (Statement III is correct).\nStep 4: The instantaneous current follows $I(t) = I_{max}(1 - e^{-t/\\tau})$. At $t = \\tau$, $I(\\tau) = I_{max}(1 - e^{-1}) \\approx I_{max}(1 - 0.368) = 0.632 I_{max}$, which is $63.2\\%$ of maximum current (Statement IV is correct).\nStep 5: Therefore, all four statements (I, II, III, and IV) are correct.\nDistractor Analysis: Confusing the inductive time constant ($L/R$) with the capacitive time constant ($RC$) or evaluating initial rate of growth as $\\mathcal{E}/R$ are classic conceptual traps."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_052",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Phenomenon / Circuit Parameter) with List II (Characteristic Mathematical Expression):\n\nList I:\nP. Motional EMF across a rod rotating about one end in a transverse field\nQ. Peak EMF generated by an AC generator\nR. Quality factor expressed in terms of bandwidth in series resonance\nS. Natural angular frequency of an LC oscillator circuit\n\nList II:\nI. $\\omega_0 = \\frac{1}{\\sqrt{LC}}$\nII. $\\varepsilon = \\frac{1}{2} B \\omega l^2$\nIII. $Q = \\frac{\\omega_0}{\\Delta\\omega}$\nIV. $\\varepsilon_0 = N B A \\omega$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-II, Q-IV, R-III, S-I",
+        "B) P-IV, Q-II, R-I, S-III",
+        "C) P-II, Q-I, R-IV, S-III",
+        "D) P-III, Q-IV, R-II, S-I"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The motional EMF induced in a conductor of length $l$ rotating with angular velocity $\\omega$ about one end in a perpendicular magnetic field $B$ is $\\varepsilon = \\int_0^l B \\omega r \\, dr = \\frac{1}{2} B \\omega l^2$. Thus, P matches II.\nStep 2: An AC generator of $N$ turns and area $A$ rotating at angular speed $\\omega$ in a uniform magnetic field $B$ produces a peak EMF $\\varepsilon_0 = N B A \\omega$. Thus, Q matches IV.\nStep 3: The Quality factor is defined as the ratio of resonant frequency to the full bandwidth at half-power: $Q = \\frac{\\omega_0}{\\Delta\\omega}$. Thus, R matches III.\nStep 4: The natural frequency of LC oscillations is obtained from $\\frac{q}{C} + L\\frac{d^2q}{dt^2} = 0$, giving $\\omega_0 = \\frac{1}{\\sqrt{LC}}$. Thus, S matches I.\nStep 5: Combining these matches gives P-II, Q-IV, R-III, S-I.\nDistractor Analysis: Swapping the formulas for rotating rod EMF and AC generator peak EMF is prevented by noting the factor of $1/2$ arising from integration of radial velocity $\\omega r$ in a rotating rod."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_053",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): At electrical resonance in a series LCR circuit, the root-mean-square potential difference across the inductor or capacitor can be significantly larger than the root-mean-square voltage of the driving AC source.\nReason (R): The ratio of the voltage across the inductor (or capacitor) at resonance to the applied supply voltage is equal to the Quality factor $Q = \\frac{\\omega_0 L}{R}$, which can be much greater than unity when the ohmic resistance $R$ is small.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Assertion (A) is false but Reason (R) is true.",
+        "B) Both Assertion (A) and Reason (R) are true and Reason (R) is NOT the correct explanation of Assertion (A).",
+        "C) Assertion (A) is true but Reason (R) is false.",
+        "D) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: At series resonance, the current is $I_{rms} = \\frac{V_{rms}}{R}$ because the inductive and capacitive reactances cancel ($X_L = X_C$).\nStep 2: The RMS voltage across the inductor is $V_L = I_{rms} X_L = \\left(\\frac{V_{rms}}{R}\\right)(\\omega_0 L) = \\left(\\frac{\\omega_0 L}{R}\\right) V_{rms} = Q V_{rms}$.\nStep 3: Similarly, the RMS voltage across the capacitor is $V_C = I_{rms} X_C = \\left(\\frac{1}{\\omega_0 C R}\\right) V_{rms} = Q V_{rms}$.\nStep 4: If the resistance $R$ is very small, the Quality factor $Q$ can easily reach values of 20 to 100, meaning the reactive voltage across $L$ or $C$ is tens or hundreds of times larger than the driving source voltage. Assertion (A) is true.\nStep 5: Reason (R) precisely provides this mathematical relationship ($V_L = Q V_{rms}$) and explains that small $R$ drives $Q \\gg 1$. Thus, both statements are true and Reason (R) correctly explains Assertion (A).\nDistractor Analysis: Intuitive thinking based on DC voltage division where no component voltage can exceed the source voltage is fundamentally invalidated by reactive phase cancellation in AC resonant circuits."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_054",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A step-down transformer connected to a $2400\\text{ V}$ primary supply delivers electrical power at $240\\text{ V}$ to an AC load. The load consumes an active electrical power of $9.6\\text{ kW}$ at a lagging power factor of $\\cos\\phi_s = 0.80$. The transformer has an overall operating efficiency of $\\eta = 80\\%$. Assuming that the primary circuit operates at unity power factor ($\\cos\\phi_p = 1.0$), the secondary RMS current $I_s$ and the primary RMS current $I_p$ are respectively:",
+      "options": [
+        "A) $I_s = 40\\text{ A}$ and $I_p = 4.0\\text{ A}$",
+        "B) $I_s = 50\\text{ A}$ and $I_p = 4.0\\text{ A}$",
+        "C) $I_s = 50\\text{ A}$ and $I_p = 5.0\\text{ A}$",
+        "D) $I_s = 60\\text{ A}$ and $I_p = 6.0\\text{ A}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The active power delivered to the secondary load is $P_{out} = V_s I_s \\cos\\phi_s$.\nStep 2: Substituting values: $9600\\text{ W} = (240\\text{ V}) \\times I_s \\times 0.80 \\implies 9600 = 192 I_s \\implies I_s = \\frac{9600}{192} = 50\\text{ A}$.\nStep 3: The transformer efficiency is $\\eta = \\frac{P_{out}}{P_{in}} \\implies 0.80 = \\frac{9600\\text{ W}}{P_{in}}$, which gives $P_{in} = \\frac{9600}{0.80} = 12000\\text{ W} = 12\\text{ kW}$.\nStep 4: The active power drawn by the primary winding from the mains is $P_{in} = V_p I_p \\cos\\phi_p$.\nStep 5: With $\\cos\\phi_p = 1.0$: $12000\\text{ W} = (2400\\text{ V}) \\times I_p \\times 1.0 \\implies I_p = \\frac{12000}{2400} = 5.0\\text{ A}$.\nStep 6: Thus, $I_s = 50\\text{ A}$ and $I_p = 5.0\\text{ A}$.\nDistractor Analysis: Omitting the load power factor $\\cos\\phi_s = 0.80$ produces an underestimated secondary current of $I_s = 40\\text{ A}$, which subsequently distorts primary current calculations."
+    },
+    {
+      "id": "phy_electromagnetic_induction_and_alternating_currents_c01_055",
+      "subject": "Physics",
+      "topic": "Electromagnetic Induction and Alternating Currents",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements:\n\nStatement I: The mutual inductance between two circular coils depends not only on the number of turns and radii of the coils, but also critically on their mutual spatial orientation and distance of separation.\nStatement II: If two planar circular coils are placed with their planes mutually perpendicular to each other and their centers coincident, the mutual inductance between them is zero because magnetic flux produced by either coil does not link through the area of the other coil.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Both Statement I and Statement II are incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Mutual inductance $M = k \\sqrt{L_1 L_2}$ depends strongly on the geometric coupling coefficient $k$. The factor $k$ is determined by the separation distance between coils and their relative angular orientation. Statement I is correct.\nStep 2: When two flat coils are oriented with their planes mutually perpendicular, the magnetic field produced by current circulating in one coil lies entirely parallel to the plane of the other coil.\nStep 3: Since the magnetic field vector $\\vec{B}$ is perpendicular to the area normal vector $\\vec{A}$ of the second coil ($\\theta = 90^\\circ$), the linked magnetic flux is $\\Phi_B = \\vec{B} \\cdot \\vec{A} = B A \\cos(90^\\circ) = 0$.\nStep 4: Because zero flux links the second coil for any current in the first coil, the mutual inductance between them vanishes completely ($M = 0$). Statement II is correct.\nStep 5: Therefore, both Statement I and Statement II are correct.\nDistractor Analysis: Asserting that perpendicular coils still possess significant mutual inductance neglects the fundamental scalar product definition of magnetic flux $\\Phi_B = \\vec{B}\\cdot\\vec{A}$."
+    }
+  ]
+}
