@@ -81,6 +81,20 @@ export default function MockPage() {
   const [starting, setStarting] = useState(false);
   const [error, setError] = useState('');
   const [history, setHistory] = useState<MockHistoryItem[]>([]);
+  const [terminating, setTerminating] = useState<string | null>(null);
+
+  async function handleTerminate(id: string) {
+    if (!confirm('Terminate this exam session? This cannot be undone.')) return;
+    setTerminating(id);
+    try {
+      await api.mock.cancel(id);
+      setHistory((prev) => prev.map((h) => h.id === id ? { ...h, status: 'error' } : h));
+    } catch {
+      // ignore
+    } finally {
+      setTerminating(null);
+    }
+  }
 
   useEffect(() => {
     if (!isAuthenticated()) { router.replace('/login'); return; }
@@ -294,10 +308,20 @@ export default function MockPage() {
                             View result
                           </a>
                         )}
-                        {item.status === 'in_progress' && (
-                          <a href={`/mock/${item.id}`} style={{ color: 'var(--gray-700)', fontWeight: 500, fontSize: 12, textDecoration: 'underline' }}>
-                            Resume
-                          </a>
+                        {(item.status === 'ready' || item.status === 'in_progress') && (
+                          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                            <a href={`/mock/${item.id}`} style={{ color: 'var(--gray-700)', fontWeight: 500, fontSize: 12, textDecoration: 'underline' }}>
+                              {item.status === 'in_progress' ? 'Resume' : 'Open'}
+                            </a>
+                            <span style={{ color: 'var(--gray-300)' }}>·</span>
+                            <button
+                              onClick={() => handleTerminate(item.id)}
+                              disabled={terminating === item.id}
+                              style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#dc2626', fontWeight: 500, fontSize: 12, textDecoration: 'underline', padding: 0 }}
+                            >
+                              {terminating === item.id ? 'Terminating…' : 'Terminate'}
+                            </button>
+                          </div>
                         )}
                       </td>
                     </tr>
