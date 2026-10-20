@@ -211,10 +211,7 @@ export default function MockPage() {
               fontSize: 13,
               color: '#92400e',
             }}>
-              {selected === 'NEET'
-                ? '⚡ Questions are drawn from the pre-built NEET question bank. The exam will be ready in seconds.'
-                : '⚠ Questions are AI-generated. The exam will take 20–40 seconds to prepare. Do not close the tab during loading.'
-              }
+              {'⚠ Questions are AI-generated. The exam will take 20–40 seconds to prepare. Do not close the tab during loading.'}
             </div>
           </div>
         )}

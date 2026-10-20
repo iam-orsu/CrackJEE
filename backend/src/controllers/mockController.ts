@@ -4,7 +4,7 @@ import type { AuthRequest, Subject, Difficulty, QuestionType } from '../types/in
 import { JEE_TOPICS_BY_CLASS, NEET_TOPICS_BY_CLASS, NEET_SUBJECTS } from '../types/index';
 import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
-import { getNextQuestion, getPracticeQuestion, distributeTopicSlots, fisherYatesShuffle } from '../services/questionService';
+import { getNextQuestion, distributeTopicSlots, fisherYatesShuffle } from '../services/questionService';
 import { scoreQuestion, getMaxMarkPerQuestion } from '../services/scoringService';
 import type { Question } from '@prisma/client';
 
@@ -91,7 +91,7 @@ function buildQuestionPlan(examType: 'Main' | 'Advanced', difficultyMode: 'easy'
   return plan;
 }
 
-/* ── NEET bank-based mock generation ──────────────────────────────── */
+/* ── NEET mock generation (DeepSeek-backed, cache-first) ──────────── */
 
 async function generateNEETMockQuestions(
   examId: string,
@@ -100,56 +100,72 @@ async function generateNEETMockQuestions(
 ): Promise<void> {
   try {
     const QUESTIONS_PER_SUBJECT = 45;
+
+    // Build plan: 45 mcq_single slots per subject across all NEET topics
+    const plan: QuestionSlot[] = [];
+    let globalNum = 1;
+
+    for (const subject of NEET_SUBJECTS) {
+      const subjectTopics = NEET_TOPICS_BY_CLASS[subject]!;
+      const allTopics = [...subjectTopics.class11, ...subjectTopics.class12];
+      const allocatedTopics = distributeTopicSlots(allTopics, QUESTIONS_PER_SUBJECT);
+      let subjectIndex = 0;
+
+      for (const topic of allocatedTopics) {
+        plan.push({
+          subject,
+          topic,
+          difficulty: pickDifficulty('Main', Math.random(), difficultyMode),
+          type: 'mcq_single',
+          number: globalNum++,
+          subjectIndex: subjectIndex++,
+        });
+      }
+    }
+
+    // Concurrency-4 matches JEE — avoids DeepSeek 429s.
+    // getNextQuestion is cache-first (Redis → DB → DeepSeek), so seeded bank
+    // questions are reused at no cost; DeepSeek only fires for exhausted topics.
+    const results = await mapConcurrentSettled(
+      plan,
+      4,
+      (slot) =>
+        getNextQuestion(
+          userId, slot.subject, slot.topic, slot.difficulty,
+          'NEET', 'Dropper', [], 'mcq_single',
+        ),
+    );
+
     const seenIds = new Set<string>();
+    const bySubject = new Map<Subject, string[]>();
+    for (const subj of NEET_SUBJECTS) bySubject.set(subj, []);
+
+    for (let i = 0; i < results.length; i++) {
+      const r = results[i]!;
+      const slot = plan[i]!;
+      if (r.status === 'fulfilled' && !seenIds.has(r.value.id)) {
+        seenIds.add(r.value.id);
+        bySubject.get(slot.subject as Subject)!.push(r.value.id);
+      }
+    }
+
+    if (seenIds.size < 20) {
+      await prisma.mockExam.update({ where: { id: examId }, data: { status: 'error' } });
+      return;
+    }
+
     const questionData: Array<{
       examId: string; questionId: string; subject: string;
       questionNumber: number; subjectIndex: number;
     }> = [];
-    let globalNum = 1;
+    let gNum = 1;
 
-    for (const subject of NEET_SUBJECTS) {
-      const syllabusTopics = [
-        ...NEET_TOPICS_BY_CLASS[subject]!.class11,
-        ...NEET_TOPICS_BY_CLASS[subject]!.class12,
-      ];
-      // Only use topics that have actual NEET questions in the DB — empty topics would
-      // fail silently and reduce the total question count below the 45-per-subject target.
-      const topicRows = await prisma.question.findMany({
-        where: { subject, examType: 'NEET', validatedAt: { not: null }, topic: { in: syllabusTopics } },
-        select: { topic: true },
-        distinct: ['topic'],
-      });
-      const validTopics = new Set(topicRows.map((r) => r.topic));
-      const allTopics = syllabusTopics.filter((t) => validTopics.has(t));
-      const allocatedTopics = distributeTopicSlots(allTopics.length > 0 ? allTopics : syllabusTopics, QUESTIONS_PER_SUBJECT);
-      const subjectQuestions: string[] = [];
-      const excludeIds: string[] = [];
-
-      for (const topic of allocatedTopics) {
-        if (subjectQuestions.length >= QUESTIONS_PER_SUBJECT) break;
-        try {
-          const difficulty = pickDifficulty('Main', Math.random(), difficultyMode);
-          const q = await getPracticeQuestion(userId, subject, topic, difficulty, 'NEET', excludeIds);
-          if (!seenIds.has(q.id)) {
-            seenIds.add(q.id);
-            excludeIds.push(q.id);
-            subjectQuestions.push(q.id);
-          }
-        } catch {
-          // no question for this topic — skip
-        }
-      }
-
-      const shuffled = fisherYatesShuffle(subjectQuestions);
+    for (const subj of NEET_SUBJECTS) {
+      const shuffled = fisherYatesShuffle(bySubject.get(subj)!);
       let subjIdx = 0;
       for (const questionId of shuffled) {
-        questionData.push({ examId, questionId, subject, questionNumber: globalNum++, subjectIndex: subjIdx++ });
+        questionData.push({ examId, questionId, subject: subj, questionNumber: gNum++, subjectIndex: subjIdx++ });
       }
-    }
-
-    if (questionData.length < 20) {
-      await prisma.mockExam.update({ where: { id: examId }, data: { status: 'error' } });
-      return;
     }
 
     await prisma.mockExamQuestion.createMany({ data: questionData });
