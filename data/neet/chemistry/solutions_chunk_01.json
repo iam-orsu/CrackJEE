@@ -1,0 +1,943 @@
+{
+  "subject": "Chemistry",
+  "topic": "Solutions",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "chem_solutions_c01_001",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Type of solution) with List II (Example from NCERT classification of solutions):\nList I:\nA. Gas in solid\nB. Liquid in solid\nC. Solid in solid\nD. Liquid in gas\n\nList II:\nI. Copper dissolved in gold\nII. Solution of hydrogen in palladium\nIII. Amalgam of mercury with sodium\nIV. Chloroform mixed with nitrogen gas\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-III, C-I, D-IV",
+        "B) A-III, B-II, C-I, D-IV",
+        "C) A-II, B-I, C-III, D-IV",
+        "D) A-IV, B-III, C-I, D-II"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Identify the solute and solvent in each pair according to NCERT Table 2.1 (Types of Solutions).\nStep 2: Match the pairs:\n- Gas in solid: Hydrogen gas (solute) adsorbed/dissolved in palladium metal (solvent) $\\rightarrow$ II.\n- Liquid in solid: Mercury liquid (solute) in sodium metal (solvent), forming sodium amalgam $\\rightarrow$ III.\n- Solid in solid: Copper (solute) dissolved in gold (solvent), forming a substitutional solid solution $\\rightarrow$ I.\n- Liquid in gas: Chloroform vapours/droplets (solute) mixed with nitrogen gas (solvent) $\\rightarrow$ IV.\nConclusion: A-II, B-III, C-I, D-IV."
+    },
+    {
+      "id": "chem_solutions_c01_002",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding concentration terms of solutions:\nStatement I: Molarity ($M$) of a solution is defined as the number of moles of solute dissolved in one litre of solution and is temperature-dependent because volume changes with temperature.\nStatement II: Molality ($m$) and mole fraction ($x$) are independent of temperature because they are defined on the basis of masses of components, and mass is unaffected by temperature.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Statement I. Molarity ($M = \\frac{n_2}{V_{\\text{solution}}(\\text{L})}$) involves the volume of the solution. Because liquids expand or contract with temperature fluctuations, volume changes, making molarity temperature-dependent. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. Molality ($m = \\frac{n_2}{w_1(\\text{kg})}$) and mole fraction ($x_2 = \\frac{n_2}{n_1 + n_2}$) depend only on the masses and moles of solute and solvent. Since mass is invariant with temperature, both molality and mole fraction do not change with temperature. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_003",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding parts per million ($\\text{ppm}$) concentration units:\nStatement I: When a solute is present in extremely minute or trace quantities, the concentration is conveniently expressed in parts per million ($\\text{ppm}$), defined as $\\text{ppm} = \\frac{\\text{Mass of solute component}}{\\text{Total mass of solution}} \\times 10^6$.\nStatement II: The concentration of toxic pollutants in atmospheric air or water, such as dissolved chlorine or sulfur dioxide, is commonly reported in $\\text{ppm}$ or $\\mu\\text{g mL}^{-1}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. NCERT states that when a solute is present in trace quantities, expressing concentration in parts per million ($\\text{ppm}$) is appropriate: $\\text{ppm} = \\frac{\\text{Number of parts of the component}}{\\text{Total number of parts of all components}} \\times 10^6$. When expressed in terms of mass, it is $\\frac{\\text{mass of solute}}{\\text{total mass of solution}} \\times 10^6$. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. Pollution levels in the atmosphere (such as $\\text{SO}_2$ or lead particles) or tap water chlorination (e.g., $1\\text{ ppm}$ of $\\text{Cl}_2$ corresponding to $1\\text{ g}$ of $\\text{Cl}_2$ per $10^6\\text{ g}$ of water, or $\\approx 1\\ \\mu\\text{g mL}^{-1}$) are routinely expressed in $\\text{ppm}$. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_004",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For a solid solute whose dissolution process in a liquid is endothermic ($\\Delta_{\\text{sol}} H > 0$), its solubility in the liquid increases with a rise in temperature.\nReason (R): According to Le Chatelier's principle, an increase in temperature shifts a dynamic equilibrium in the direction that absorbs heat, thereby favouring forward dissolution for an endothermic process.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate the dissolution equilibrium: $\\text{Solute} + \\text{Solvent} \\rightleftharpoons \\text{Solution}$.\nStep 2: Evaluate Reason (R). According to Le Chatelier's principle, when a system in dynamic equilibrium is subjected to an increase in temperature, the equilibrium shifts in the direction that consumes thermal energy (the endothermic direction). Reason (R) is true.\nStep 3: Evaluate Assertion (A). For an endothermic dissolution ($\\Delta_{\\text{sol}} H > 0$), heat is a reactant: $\\text{Solute} + \\text{Solvent} + \\text{Heat} \\rightleftharpoons \\text{Solution}$. Raising temperature pushes the equilibrium to the right, increasing solubility. Assertion (A) is true, and Reason (R) correctly explains Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_solutions_c01_005",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding Henry's law for the solubility of a gas in a liquid:\nStatement I: Henry's law states that at a constant temperature, the solubility of a gas in a liquid is directly proportional to the partial pressure of the gas above the solution.\nStatement II: Expressed in terms of mole fraction ($x$) of the gas in the solution, the partial pressure ($p$) of the gas in the vapour phase is given by $p = K_{\\text{H}} x$, where $K_{\\text{H}}$ is Henry's law constant.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. According to NCERT, Henry's law formulation by William Henry states that at a constant temperature, the solubility of a gas in a liquid is directly proportional to the partial pressure of the gas present above the surface of the liquid or solution. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. John Dalton independently concluded that if mole fraction ($x$) is chosen as the measure of solubility, Henry's law can be stated as: the partial pressure of the gas in vapour phase ($p$) is proportional to the mole fraction of the gas ($x$) in the solution, written as $p = K_{\\text{H}} x$. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_006",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Aquatic species such as fish are generally much more comfortable in cold water bodies than in warm water bodies.\nReason (R): The value of Henry's law constant ($K_{\\text{H}}$) for gases like oxygen increases with an increase in temperature, leading to lower solubility of oxygen in warm water at the same partial pressure.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Understand the relation between $K_{\\text{H}}$ and solubility. From Henry's law, $p = K_{\\text{H}} x \\implies x = \\frac{p}{K_{\\text{H}}}$. At a constant partial pressure $p$, a higher $K_{\\text{H}}$ corresponds to a lower mole fraction (lower solubility) of the dissolved gas.\nStep 2: Evaluate Reason (R). NCERT states that $K_{\\text{H}}$ values for gases increase with increasing temperature. Consequently, the solubility of dissolved oxygen is lower at higher temperatures. Reason (R) is true.\nStep 3: Evaluate Assertion (A). Because colder water contains a significantly higher concentration of dissolved oxygen, aquatic life experiences easier respiration and greater metabolic vitality in cold waters. Assertion (A) is true, and Reason (R) correctly explains Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_solutions_c01_007",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding deep-sea scuba diving:\nStatement I: Scuba divers breathe air diluted with helium ($11.7\\%\\text{ He}, 56.2\\%\\text{ N}_2, \\text{and } 32.1\\%\\text{ O}_2$) to prevent decompression sickness, known as the 'bends'.\nStatement II: When divers descend, increased hydrostatic pressure increases the solubility of atmospheric gases in blood; upon rapid ascent, the sudden drop in pressure causes dissolved nitrogen to come out of solution as gas bubbles that block capillaries.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. According to NCERT Section 2.3.2, scuba divers breathe air diluted with helium having the exact composition of $11.7\\%\\text{ He}$, $56.2\\%\\text{ N}_2$, and $32.1\\%\\text{ O}_2$ to avoid toxic nitrogen narcosis and the bends. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. At deep levels under water, the elevated pressure forces higher amounts of nitrogen to dissolve in the blood. As the diver ascends towards the surface, the ambient pressure decreases, reducing nitrogen solubility. Rapid ascent causes nitrogen gas to form bubbles in the bloodstream, blocking capillaries and creating the painful, dangerous medical condition known as bends. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_008",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements regarding the applications of Henry's law are correct?\n(i) To increase the solubility of $\\text{CO}_2$ in soft drinks and soda water, the bottle is sealed under high pressure.\n(ii) At high altitudes, the partial pressure of oxygen is less than that at sea level, which leads to lower concentrations of oxygen in the blood of climbers.\n(iii) The clinical condition resulting from low blood oxygen concentration, which causes climbers to feel weak and unable to think clearly, is termed hypoxia.\n(iv) The solubility of gases in liquids increases with an increase in temperature because dissolution of a gas is an endothermic process.\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (i) and (ii) only",
+        "B) (ii), (iii), and (iv) only",
+        "C) (i), (iii), and (iv) only",
+        "D) (i), (ii), and (iii) only"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate statement (i). Sealing soda bottles under elevated pressure increases the partial pressure of $\\text{CO}_2$, thereby increasing its solubility by Henry's law. This is correct.\nStep 2: Evaluate statements (ii) and (iii). At high altitudes, atmospheric pressure is low, so the partial pressure of $\\text{O}_2$ is lower. The resulting reduced oxygen concentration in blood and tissues causes hypoxia, leading to fatigue and impaired cognitive function. Statements (ii) and (iii) are correct.\nStep 3: Evaluate statement (iv). Dissolution of a gas in a liquid involves condensation of gaseous molecules into the liquid phase, releasing heat ($\\Delta_{\\text{sol}} H < 0$, exothermic). Thus, gas solubility decreases with increasing temperature, making statement (iv) incorrect.\nConclusion: Only statements (i), (ii), and (iii) are correct."
+    },
+    {
+      "id": "chem_solutions_c01_009",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding Raoult's law for liquid-liquid solutions:\nStatement I: Raoult's law states that for a solution of volatile liquids, the partial vapour pressure of each component in the solution is directly proportional to its mole fraction present in the solution.\nStatement II: For a binary solution of two volatile liquids $1$ and $2$, the total vapour pressure $p_{\\text{total}}$ can be expressed as $p_{\\text{total}} = p_1^\\circ + (p_2^\\circ - p_1^\\circ) x_2$, where $x_2$ is the mole fraction of component $2$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. Raoult's law for a binary solution of volatile liquids states that $p_1 = p_1^\\circ x_1$ and $p_2 = p_2^\\circ x_2$. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. According to Dalton's law of partial pressures: $p_{\\text{total}} = p_1 + p_2 = p_1^\\circ x_1 + p_2^\\circ x_2$. Substituting $x_1 = 1 - x_2$ gives: $p_{\\text{total}} = p_1^\\circ (1 - x_2) + p_2^\\circ x_2 = p_1^\\circ + (p_2^\\circ - p_1^\\circ) x_2$. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_010",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Raoult's law can be regarded as a special case of Henry's law.\nReason (R): In both laws, the partial vapour pressure of the volatile component is directly proportional to its mole fraction in the liquid phase, and Raoult's law is obtained when Henry's constant $K_{\\text{H}}$ becomes equal to the vapour pressure of the pure component ($p_1^\\circ$).\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Examine the mathematical equations: According to Henry's law, $p = K_{\\text{H}} x$. According to Raoult's law for a volatile liquid component, $p_1 = p_1^\\circ x_1$.\nStep 2: Compare the two relationships: In both expressions, the partial vapour pressure of the volatile species is proportional to its mole fraction in the solution phase. The only difference is the proportionality constant ($K_{\\text{H}}$ versus $p_1^\\circ$).\nStep 3: If $K_{\\text{H}}$ becomes identical to $p_1^\\circ$, Henry's law directly reduces to Raoult's law. Therefore, Assertion (A) is true, and Reason (R) is the correct explanation of (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_solutions_c01_011",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following thermodynamic criteria are strictly obeyed by an ideal binary liquid solution formed by components $A$ and $B$ at all temperatures and concentrations?\n(i) $\\Delta_{\\text{mix}} H = 0$\n(ii) $\\Delta_{\\text{mix}} V = 0$\n(iii) $\\Delta_{\\text{mix}} S > 0$\n(iv) $\\Delta_{\\text{mix}} G < 0$\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (i) and (ii) only",
+        "B) (i), (ii), and (iii) only",
+        "C) (i), (ii), (iii), and (iv)",
+        "D) (iii) and (iv) only"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Check enthalpy and volume of mixing: For an ideal solution, the intermolecular forces between $A-B$ are identical to those between $A-A$ and $B-B$. Hence, no heat is absorbed or evolved ($\\Delta_{\\text{mix}} H = 0$), and no contraction or expansion occurs ($\\Delta_{\\text{mix}} V = 0$). Criteria (i) and (ii) are true.\nStep 2: Check entropy and Gibbs energy: Mixing is an irreversible, spontaneous process that increases randomness, so the entropy of mixing is always positive ($\\Delta_{\\text{mix}} S > 0$).\nStep 3: Since $\\Delta_{\\text{mix}} G = \\Delta_{\\text{mix}} H - T\\Delta_{\\text{mix}} S = 0 - T\\Delta_{\\text{mix}} S < 0$, the Gibbs energy of mixing is always negative ($\\Delta_{\\text{mix}} G < 0$) for spontaneous mixing. Criteria (iii) and (iv) are true.\nConclusion: All statements (i), (ii), (iii), and (iv) are correct."
+    },
+    {
+      "id": "chem_solutions_c01_012",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following liquid pairs:\n(i) n-Hexane and n-heptane\n(ii) Bromoethane and chloroethane\n(iii) Benzene and toluene\n(iv) Acetone and aniline\nWhich of the above pairs form nearly ideal solutions over the entire range of concentration?\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (i) and (ii) only",
+        "B) (ii), (iii), and (iv) only",
+        "C) (i), (ii), (iii), and (iv)",
+        "D) (i), (ii), and (iii) only"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Identify the criteria for ideal solutions. Ideal solutions are formed between liquid components of nearly identical molecular size, shape, and intermolecular force polarity.\nStep 2: Pairs (i) n-hexane + n-heptane, (ii) bromoethane + chloroethane, and (iii) benzene + toluene all possess nearly identical dispersion/dipole forces, so $A-B \\approx A-A \\approx B-B$. Hence, they behave as ideal solutions.\nStep 3: Acetone and aniline form strong intermolecular hydrogen bonds between the carbonyl oxygen of acetone and the amino hydrogen of aniline, leading to a negative deviation from Raoult's law. Hence, pair (iv) is non-ideal.\nConclusion: Only (i), (ii), and (iii) form nearly ideal solutions."
+    },
+    {
+      "id": "chem_solutions_c01_013",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding binary solutions showing positive deviations from Raoult's law:\nStatement I: In solutions showing positive deviation, the intermolecular attractive forces between solute-solvent molecules ($A-B$) are weaker than those between solvent-solvent ($A-A$) and solute-solute ($B-B$) molecules.\nStatement II: The dissolution process for solutions showing positive deviation is accompanied by absorption of heat ($\\Delta_{\\text{mix}} H > 0$) and an increase in total volume ($\\Delta_{\\text{mix}} V > 0$).\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. In positive deviations, the $A-B$ interactions are weaker than $A-A$ and $B-B$ interactions. Because of weaker attractions, molecules can escape more easily into the vapour phase, causing the observed vapour pressure to be higher than predicted by Raoult's law. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. Since energy must be supplied to overcome the stronger $A-A$ and $B-B$ attractions compared to the weaker $A-B$ bonds formed, heat is absorbed, so $\\Delta_{\\text{mix}} H > 0$. Furthermore, weaker attractions lead to a looser packing of molecules, causing expansion: $\\Delta_{\\text{mix}} V > 0$. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_014",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): A binary mixture of ethanol and acetone exhibits a positive deviation from Raoult's law.\nReason (R): In pure ethanol, molecules are held together by hydrogen bonds; upon addition of acetone, acetone molecules get in between the ethanol molecules and break some of these hydrogen bonds.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Examine the interactions in pure ethanol: Molecules of pure ethanol are held together by extensive intermolecular hydrogen bonding.\nStep 2: Examine what occurs upon mixing: When acetone is added to ethanol, the acetone molecules intercalate between ethanol molecules and disrupt the existing hydrogen bonds, weakening the overall intermolecular attractive forces ($A-B < A-A$).\nStep 3: This increases the escaping tendency of both components, raising the vapour pressure above that calculated by Raoult's law. Thus, Assertion (A) is true, and Reason (R) is the correct explanation of (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_solutions_c01_015",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding binary solutions showing negative deviations from Raoult's law:\nStatement I: In solutions exhibiting negative deviation, the intermolecular attractive forces between solute-solvent ($A-B$) are stronger than those between solvent-solvent ($A-A$) and solute-solute ($B-B$).\nStatement II: The mixing process for solutions exhibiting negative deviation is characterized by evolution of heat ($\\Delta_{\\text{mix}} H < 0$) and contraction in total volume ($\\Delta_{\\text{mix}} V < 0$).\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. In negative deviations, $A-B$ attractive interactions are stronger than $A-A$ and $B-B$ interactions. Stronger attractions bind the molecules more tightly in the liquid phase, decreasing their escaping tendency and resulting in a lower vapour pressure than predicted by Raoult's law. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. Because stronger bonds are formed during mixing than were broken, energy is released: $\\Delta_{\\text{mix}} H < 0$ (exothermic). Additionally, tighter molecular packing causes a decrease in total volume: $\\Delta_{\\text{mix}} V < 0$. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_016",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): A mixture of chloroform ($\\text{CHCl}_3$) and acetone ($\\text{CH}_3\\text{COCH}_3$) shows a negative deviation from Raoult's law.\nReason (R): A chloroform molecule can form an intermolecular hydrogen bond with the carbonyl oxygen atom of an acetone molecule, leading to stronger solute-solvent interactions.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze molecular interactions in pure liquids: Pure chloroform molecules interact via weak dipole-dipole attractions, and pure acetone molecules interact via dipole-dipole attractions.\nStep 2: Analyze molecular interactions upon mixing: The hydrogen atom of chloroform is bonded to carbon attached to three strongly electronegative chlorine atoms, making the hydrogen distinctly acidic. It forms a strong intermolecular hydrogen bond with the electronegative carbonyl oxygen of acetone: $\\text{Cl}_3\\text{C}-\\text{H}\\cdots\\text{O}=\\text{C}(\\text{CH}_3)_2$.\nStep 3: This creates $A-B$ interactions that are stronger than $A-A$ and $B-B$ interactions, causing negative deviation from Raoult's law. Thus, Assertion (A) is true, and Reason (R) is the correct explanation of (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_solutions_c01_017",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding azeotropes:\nStatement I: Azeotropes are binary mixtures of liquids that boil at a constant temperature and have the same composition in both liquid and vapour phases.\nStatement II: The individual components of an azeotropic mixture cannot be separated into pure components by fractional distillation.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. By definition in NCERT, azeotropes (constant boiling mixtures) are binary mixtures having the identical composition in both the liquid phase and vapour phase, boiling at a constant temperature like a pure chemical compound. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. Fractional distillation relies on differences in composition between vapour and liquid phases ($y_i \\neq x_i$). Because liquid and vapour compositions are identical at the azeotropic point ($y_i = x_i$), fractional distillation yields only the azeotrope without further separation into pure components. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_018",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Azeotropic mixture / deviation type) with List II (Specific NCERT example / composition):\nList I:\nA. Minimum boiling azeotrope\nB. Maximum boiling azeotrope\nC. Positive deviation solution\nD. Negative deviation solution\n\nList II:\nI. Nitric acid ($68\\%$) and water ($32\\%$) by mass\nII. Ethanol ($95.4\\%$) and water ($4.6\\%$) by volume\nIII. Acetone and carbon disulfide\nIV. Phenol and aniline\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-I, B-II, C-III, D-IV",
+        "B) A-II, B-I, C-III, D-IV",
+        "C) A-II, B-I, C-IV, D-III",
+        "D) A-III, B-IV, C-II, D-I"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze each type according to NCERT Section 2.4.2:\n- Minimum boiling azeotrope: Solutions showing large positive deviation form minimum boiling azeotropes at a specific composition. Ethanol-water mixture containing $95.4\\%$ ethanol by volume boils at $351.15\\text{ K}$, lower than pure ethanol ($351.3\\text{ K}$) $\\rightarrow$ A-II.\n- Maximum boiling azeotrope: Solutions showing large negative deviation form maximum boiling azeotropes. Nitric acid and water mixture containing $68\\%\\text{ HNO}_3$ and $32\\%\\text{ H}_2\\text{O}$ by mass boils at $393.5\\text{ K}$, higher than pure water and pure $\\text{HNO}_3$ $\\rightarrow$ B-I.\n- Positive deviation solution: Acetone + carbon disulfide ($\\text{CS}_2$) shows positive deviation $\\rightarrow$ C-III.\n- Negative deviation solution: Phenol + aniline forms intermolecular hydrogen bonds, showing negative deviation $\\rightarrow$ D-IV.\nConclusion: A-II, B-I, C-III, D-IV."
+    },
+    {
+      "id": "chem_solutions_c01_019",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding colligative properties:\nStatement I: Colligative properties are those properties of dilute solutions that depend strictly on the total number of solute particles relative to the total number of particles in solution, and not on the chemical nature of the solute.\nStatement II: The four colligative properties of dilute solutions are relative lowering of vapour pressure, elevation of boiling point, depression of freezing point, and osmotic pressure.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. Colligative (derived from Latin *colligatus*, meaning 'bound together') properties depend entirely on the number of solute particles (ions, molecules, or aggregates) present per unit quantity of solvent, regardless of their identity, size, or chemical nature. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. NCERT lists four colligative properties: relative lowering of vapour pressure, elevation of boiling point, depression of freezing point, and osmotic pressure. Lowering of vapour pressure itself is not colligative, but *relative* lowering of vapour pressure is colligative. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_020",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding relative lowering of vapour pressure:\nStatement I: When a non-volatile solute is dissolved in a volatile solvent, the vapour pressure of the solvent decreases because solute particles occupy surface sites, reducing the surface area available for solvent vaporization.\nStatement II: For a dilute solution containing a non-volatile solute, Raoult's law states that the relative lowering of vapour pressure equals the mole fraction of the solute: $\\frac{p_1^\\circ - p_1}{p_1^\\circ} = x_2$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement I. In a pure solvent, the entire liquid surface is occupied by solvent molecules. When a non-volatile solute is dissolved, a fraction of the surface is occupied by solute particles. As a result, fewer solvent molecules escape into the vapour phase per unit time, lowering the equilibrium vapour pressure. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. According to Raoult's law: $p_1 = p_1^\\circ x_1 = p_1^\\circ (1 - x_2) \\implies p_1^\\circ - p_1 = p_1^\\circ x_2$. Dividing both sides by $p_1^\\circ$ gives the relative lowering: $\\frac{p_1^\\circ - p_1}{p_1^\\circ} = x_2$. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_021",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding boiling point elevation and the molal elevation constant:\nStatement I: The boiling point of a solution containing a non-volatile solute is always higher than that of the pure solvent because the solute lowers the vapour pressure, requiring a higher temperature to match the atmospheric pressure.\nStatement II: The molal boiling point elevation constant ($K_b$), also called the ebullioscopic constant, depends solely on the nature of the solvent and has the SI unit $\\text{K kg mol}^{-1}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. The boiling point is the temperature at which the vapour pressure of the liquid equals external atmospheric pressure. Since adding a non-volatile solute decreases vapour pressure at all temperatures, the solution vapour pressure curve lies below the pure solvent curve and intersects the atmospheric pressure line at a higher temperature ($T_b > T_b^\\circ$). Hence, Statement I is correct.\nStep 2: Evaluate Statement II. $K_b = \\frac{\\Delta T_b}{m}$, where $\\Delta T_b$ is in Kelvin and $m$ is in $\\text{mol kg}^{-1}$. Therefore, the unit of $K_b$ is $\\text{K kg mol}^{-1}$. Furthermore, $K_b = \\frac{R M_1 T_b^{\\circ 2}}{1000 \\Delta_{\\text{vap}} H}$, which depends exclusively on properties of the solvent ($M_1, T_b^\\circ, \\Delta_{\\text{vap}} H$), not on the solute. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_022",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Ethylene glycol is widely used as an antifreeze in car cooling systems in cold geographical regions.\nReason (R): Addition of ethylene glycol (a non-volatile solute) to water depresses the freezing point of water below $0^\\circ\\text{C}$ while elevating its boiling point above $100^\\circ\\text{C}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Examine the properties of ethylene glycol: Ethylene glycol ($\\text{CH}_2\\text{OH}-\\text{CH}_2\\text{OH}$) is a completely water-miscible, non-volatile liquid.\nStep 2: Examine colligative effects: Dissolving ethylene glycol in water lowers the freezing point of the aqueous solution ($\\Delta T_f = K_f m$) below $0^\\circ\\text{C}$, preventing the radiator liquid from freezing into solid ice (which would crack the engine block due to volume expansion). Simultaneously, it raises the boiling point, preventing coolant boil-over.\nStep 3: Thus, Assertion (A) is true, and Reason (R) correctly explains Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_solutions_c01_023",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements highlight the distinct advantages of using osmotic pressure ($\\Pi$) over other colligative properties (such as $\\Delta T_b$ or $\\Delta T_f$) for the determination of molar masses of proteins, polymers, and other biomacromolecules?\n(i) Osmotic pressure measurements are performed around room temperature ($298\\text{ K}$), preventing thermal denaturation of heat-sensitive biomolecules.\n(ii) Osmotic pressure uses molarity rather than molality, which is experimentally convenient to prepare in volumetric flasks.\n(iii) Even for very dilute solutions of high-molar-mass polymers, the magnitude of osmotic pressure is sufficiently large to be accurately measured using liquid manometers.\n(iv) Changes in boiling point ($\\Delta T_b$) and freezing point ($\\Delta T_f$) for solutions of high-molar-mass polymers are so tiny (of the order of $10^{-3}\\text{ K}$ to $10^{-4}\\text{ K}$) that they cannot be measured with standard laboratory precision.\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (i) and (iii) only",
+        "B) (i), (iii), and (iv) only",
+        "C) (i), (ii), (iii), and (iv)",
+        "D) (ii) and (iv) only"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate statement (i). Biomacromolecules like proteins and enzymes decompose or denature at elevated temperatures; because osmotic pressure is measured at room temperature, it avoids thermal damage. This is correct.\nStep 2: Evaluate statement (ii). Unlike $\\Delta T_b$ and $\\Delta T_f$ which require molality ($m$), osmotic pressure relies on molarity ($M = n/V$), which is directly determined volumetrically at a given temperature. This is correct.\nStep 3: Evaluate statements (iii) and (iv). Due to large molar masses ($10^4$ to $10^6\\text{ g mol}^{-1}$), molality is extremely low ($10^{-4}\\text{ m}$), yielding undetectable freezing point depressions ($\\approx 0.0002\\text{ K}$). However, osmotic pressure $\\Pi = CRT$ at $300\\text{ K}$ yields measurable liquid column heights of several millimetres or centimetres of water/mercury. Both statements (iii) and (iv) are correct.\nConclusion: All statements (i), (ii), (iii), and (iv) are correct."
+    },
+    {
+      "id": "chem_solutions_c01_024",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding osmosis in biological systems:\nStatement I: A $0.9\\%$ (mass/volume) aqueous sodium chloride ($\\text{NaCl}$) solution is isotonic with the intracellular fluid of normal human red blood cells (RBCs), making it safe for intravenous injection.\nStatement II: When red blood cells are suspended in an aqueous solution containing more than $0.9\\%$ (mass/volume) $\\text{NaCl}$, water flows out of the cells by osmosis, causing the cells to shrink (crenation or plasmolysis).\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement I. According to NCERT Section 2.6.4, an aqueous solution containing $0.9\\%$ (mass/volume) of $\\text{NaCl}$ (normal saline) has an osmotic pressure equal to that inside human red blood cells. Thus, it is strictly isotonic and suitable for intravenous infusion. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. A solution with $> 0.9\\%\\text{ (w/V) NaCl}$ has a higher osmotic pressure than the cellular fluid (it is hypertonic). Consequently, water flows out of the cells across the semipermeable cell membrane into the hypertonic surrounding solution, leading to cell shrinkage (plasmolysis/crenation). Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_025",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding reverse osmosis:\nStatement I: If an external hydrostatic pressure greater than the osmotic pressure is applied to the solution side separated from pure solvent by a semipermeable membrane, pure solvent molecules flow from the solution into the solvent phase.\nStatement II: In modern commercial desalination plants, a thin film of cellulose acetate supported on a porous sheet is widely employed as a semipermeable membrane because it is permeable to water but impermeable to hydrated salt ions.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. Under normal osmosis, solvent flows spontaneously from low solute concentration to high solute concentration. When an external pressure exceeding the osmotic pressure ($P > \\Pi$) is exerted on the solution, the chemical potential of the solvent in the solution exceeds that of the pure solvent, reversing the direction of flow. This phenomenon is reverse osmosis. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. NCERT states that cellulose acetate polymer film supported over a porous backing plate is the standard membrane in water desalination plants, allowing water molecules to pass while completely rejecting ions and impurities. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_026",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider an aqueous solution prepared by dissolving $18\\text{ g}$ of glucose ($\\text{C}_6\\text{H}_{12}\\text{O}_6$, molar mass $= 180\\text{ g mol}^{-1}$) in $250\\text{ g}$ of pure water:\nStatement I: The molality of this glucose solution is $0.40\\text{ mol kg}^{-1}$.\nStatement II: If the temperature of this solution is increased from $20^\\circ\\text{C}$ to $50^\\circ\\text{C}$, its molality remains strictly unchanged at $0.40\\text{ mol kg}^{-1}$ because mass is invariant with temperature.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Calculate moles of glucose ($n_2$): $n_2 = \\frac{18\\text{ g}}{180\\text{ g mol}^{-1}} = 0.10\\text{ mol}$.\nStep 2: Calculate mass of solvent ($w_1$) in kilograms: $w_1 = 250\\text{ g} = 0.250\\text{ kg}$.\nStep 3: Calculate molality: $m = \\frac{n_2}{w_1(\\text{kg})} = \\frac{0.10\\text{ mol}}{0.250\\text{ kg}} = 0.40\\text{ mol kg}^{-1}$. Statement I is correct.\nStep 4: Molality depends solely on the mass of solute and mass of solvent. Since mass does not expand or contract with temperature, molality is temperature-independent. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_027",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two volatile liquids $A$ and $B$ form an ideal solution at $300\\text{ K}$. At this temperature, the vapour pressure of pure $A$ is $100\\text{ mm Hg}$ and that of pure $B$ is $200\\text{ mm Hg}$. What is the total vapour pressure of a solution prepared by mixing $1\\text{ mol}$ of liquid $A$ with $3\\text{ mol}$ of liquid $B$?\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) $150\\text{ mm Hg}$",
+        "B) $125\\text{ mm Hg}$",
+        "C) $175\\text{ mm Hg}$",
+        "D) $180\\text{ mm Hg}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate the mole fraction of each component in the liquid phase:\n$x_A = \\frac{1}{1 + 3} = \\frac{1}{4} = 0.25$.\n$x_B = \\frac{3}{1 + 3} = \\frac{3}{4} = 0.75$.\nStep 2: Apply Raoult's law for each volatile component:\n$p_A = p_A^\\circ x_A = 100\\text{ mm Hg} \\times 0.25 = 25\\text{ mm Hg}$.\n$p_B = p_B^\\circ x_B = 200\\text{ mm Hg} \\times 0.75 = 150\\text{ mm Hg}$.\nStep 3: Calculate total vapour pressure by Dalton's law:\n$p_{\\text{total}} = p_A + p_B = 25\\text{ mm Hg} + 150\\text{ mm Hg} = 175\\text{ mm Hg}$.\nConclusion: The total vapour pressure is $175\\text{ mm Hg}$."
+    },
+    {
+      "id": "chem_solutions_c01_028",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In a binary ideal solution of benzene and toluene where benzene is more volatile than toluene ($p_{\\text{benzene}}^\\circ > p_{\\text{toluene}}^\\circ$), the mole fraction of benzene in the equilibrium vapour phase is always greater than its mole fraction in the liquid phase ($y_{\\text{benzene}} > x_{\\text{benzene}}$).\nReason (R): According to Dalton's law of partial pressures, the vapour phase mole fraction is given by $y_i = \\frac{p_i}{p_{\\text{total}}} = \\frac{p_i^\\circ x_i}{p_{\\text{total}}}$, so the component with the higher pure-state vapour pressure is always enriched in the vapour phase.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Express the ratio of mole fractions in the vapour phase to the liquid phase:\n$y_{\\text{benzene}} = \\frac{p_{\\text{benzene}}}{p_{\\text{total}}} = \\frac{p_{\\text{benzene}}^\\circ x_{\\text{benzene}}}{p_{\\text{total}}}$.\nStep 2: Since $p_{\\text{total}} = p_{\\text{benzene}}^\\circ x_{\\text{benzene}} + p_{\\text{toluene}}^\\circ (1 - x_{\\text{benzene}})$, and $p_{\\text{benzene}}^\\circ > p_{\\text{toluene}}^\\circ$, it follows that $p_{\\text{total}} < p_{\\text{benzene}}^\\circ$.\nStep 3: Therefore, $\\frac{y_{\\text{benzene}}}{x_{\\text{benzene}}} = \\frac{p_{\\text{benzene}}^\\circ}{p_{\\text{total}}} > 1 \\implies y_{\\text{benzene}} > x_{\\text{benzene}}$.\nThus, the more volatile component is always enriched in the vapour phase (Konovalov's rule). Assertion (A) is true, and Reason (R) is the correct explanation of (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_solutions_c01_029",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A solution is prepared by dissolving $10.0\\text{ g}$ of a non-volatile, non-electrolyte solute in $180\\text{ g}$ of pure water at $298\\text{ K}$. The vapour pressure of pure water at this temperature is $24.0\\text{ mm Hg}$ and the vapour pressure of the resulting solution is $23.76\\text{ mm Hg}$. What is the molar mass of the non-volatile solute? (Molar mass of water $= 18\\text{ g mol}^{-1}$)\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) $100\\text{ g mol}^{-1}$",
+        "B) $120\\text{ g mol}^{-1}$",
+        "C) $80\\text{ g mol}^{-1}$",
+        "D) $150\\text{ g mol}^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Apply Raoult's law for relative lowering of vapour pressure:\n$\\frac{p_1^\\circ - p_1}{p_1^\\circ} = x_2 = \\frac{n_2}{n_1 + n_2} \\approx \\frac{n_2}{n_1}$ (for dilute solutions).\nStep 2: Compute relative lowering of vapour pressure:\n$\\frac{24.0 - 23.76}{24.0} = \\frac{0.24}{24.0} = 0.010 = \\frac{1}{100}$.\nStep 3: Determine moles of water ($n_1$):\n$n_1 = \\frac{180\\text{ g}}{18\\text{ g mol}^{-1}} = 10.0\\text{ mol}$.\nStep 4: Relate moles of solute ($n_2$) to $n_1$:\n$\\frac{n_2}{n_1} = 0.010 \\implies n_2 = 0.010 \\times 10.0 = 0.10\\text{ mol}$.\nStep 5: Compute molar mass ($M_2$):\n$M_2 = \\frac{w_2}{n_2} = \\frac{10.0\\text{ g}}{0.10\\text{ mol}} = 100\\text{ g mol}^{-1}$.\nConclusion: The molar mass of the solute is $100\\text{ g mol}^{-1}$."
+    },
+    {
+      "id": "chem_solutions_c01_030",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "When $18.0\\text{ g}$ of a non-volatile, non-electrolyte organic substance is dissolved in $100.0\\text{ g}$ of water, the solution boils at $100.52^\\circ\\text{C}$ under $1\\text{ atm}$ pressure. If the molal boiling point elevation constant ($K_b$) for water is $0.52\\text{ K kg mol}^{-1}$ and pure water boils at $100.00^\\circ\\text{C}$, what is the molar mass of the organic substance?\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) $90\\text{ g mol}^{-1}$",
+        "B) $180\\text{ g mol}^{-1}$",
+        "C) $342\\text{ g mol}^{-1}$",
+        "D) $60\\text{ g mol}^{-1}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Calculate the boiling point elevation ($\\Delta T_b$):\n$\\Delta T_b = T_b - T_b^\\circ = 100.52^\\circ\\text{C} - 100.00^\\circ\\text{C} = 0.52^\\circ\\text{C} = 0.52\\text{ K}$.\nStep 2: Use the boiling point elevation formula:\n$\\Delta T_b = K_b \\times m = K_b \\times \\frac{w_2 \\times 1000}{M_2 \\times w_1}$.\nStep 3: Substitute the known values into the equation:\n$0.52 = 0.52 \\times \\frac{18.0 \\times 1000}{M_2 \\times 100.0}$.\nStep 4: Solve for $M_2$:\n$1 = \\frac{180}{M_2} \\implies M_2 = 180\\text{ g mol}^{-1}$.\nConclusion: The molar mass of the organic substance is $180\\text{ g mol}^{-1}$."
+    },
+    {
+      "id": "chem_solutions_c01_031",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An aqueous solution of a non-volatile, non-electrolyte solute freezes at $-0.372^\\circ\\text{C}$. Given that the cryoscopic constant ($K_f$) for water is $1.86\\text{ K kg mol}^{-1}$ and the normal freezing point of pure water is $0.000^\\circ\\text{C}$:\nStatement I: The molality of this non-electrolyte solution is $0.20\\text{ mol kg}^{-1}$.\nStatement II: If this solution is diluted by adding an equal mass of pure water, the freezing point of the resulting diluted solution will be $-0.186^\\circ\\text{C}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate the depression in freezing point: $\\Delta T_f = T_f^\\circ - T_f = 0.000 - (-0.372) = 0.372\\text{ K}$.\nStep 2: Determine molality: $m = \\frac{\\Delta T_f}{K_f} = \\frac{0.372\\text{ K}}{1.86\\text{ K kg mol}^{-1}} = 0.20\\text{ mol kg}^{-1}$. Statement I is correct.\nStep 3: Analyze the effect of dilution: Adding an equal mass of pure water doubles the total mass of the solvent while the moles of solute remain constant. Thus, the new molality is halved: $m' = \\frac{0.20}{2} = 0.10\\text{ mol kg}^{-1}$.\nStep 4: Calculate new freezing point depression: $\\Delta T_f' = K_f \\times m' = 1.86 \\times 0.10 = 0.186\\text{ K}$.\nTherefore, the new freezing point is $T_f' = 0.000 - 0.186 = -0.186^\\circ\\text{C}$. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_032",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Colligative constant / property) with List II (Mathematical relationship / unit from NCERT thermodynamics):\nList I:\nA. Molal elevation constant ($K_b$)\nB. Molal depression constant ($K_f$)\nC. Common unit of $K_b$ and $K_f$\nD. Relative lowering of vapour pressure\n\nList II:\nI. $\\frac{R M_1 T_f^{\\circ 2}}{1000 \\Delta_{\\text{fus}} H}$\nII. $\\frac{R M_1 T_b^{\\circ 2}}{1000 \\Delta_{\\text{vap}} H}$\nIII. $\\text{K kg mol}^{-1}$\nIV. $\\frac{p_1^\\circ - p_1}{p_1^\\circ} = x_2$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-I, B-II, C-III, D-IV",
+        "B) A-II, B-I, C-IV, D-III",
+        "C) A-III, B-I, C-II, D-IV",
+        "D) A-II, B-I, C-III, D-IV"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Check NCERT thermodynamic relations for ebullioscopic and cryoscopic constants:\n- Molal elevation constant: $K_b = \\frac{R M_1 T_b^{\\circ 2}}{1000 \\Delta_{\\text{vap}} H} \\rightarrow$ II.\n- Molal depression constant: $K_f = \\frac{R M_1 T_f^{\\circ 2}}{1000 \\Delta_{\\text{fus}} H} \\rightarrow$ I.\nStep 2: Check units: Both $K_b$ and $K_f$ express temperature change per unit molality ($\\text{K}/(\\text{mol kg}^{-1})$), which is $\\text{K kg mol}^{-1} \\rightarrow$ III.\nStep 3: Check relative lowering of vapour pressure: Raoult's law gives $\\frac{p_1^\\circ - p_1}{p_1^\\circ} = x_2 \\rightarrow$ IV.\nConclusion: A-II, B-I, C-III, D-IV."
+    },
+    {
+      "id": "chem_solutions_c01_033",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An aqueous solution containing $1.00\\text{ g}$ of a synthetic polymer dissolved in $100\\text{ mL}$ of solution at $300\\text{ K}$ exhibits an osmotic pressure of $2.49 \\times 10^{-3}\\text{ bar}$. Given the gas constant $R = 0.083\\text{ L bar K}^{-1}\\text{ mol}^{-1}$, what is the molar mass of the polymer?\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) $1.00 \\times 10^5\\text{ g mol}^{-1}$",
+        "B) $5.00 \\times 10^4\\text{ g mol}^{-1}$",
+        "C) $2.00 \\times 10^5\\text{ g mol}^{-1}$",
+        "D) $1.00 \\times 10^4\\text{ g mol}^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: State the osmotic pressure formula:\n$\\Pi = C R T = \\frac{w_2 R T}{M_2 V}$.\nStep 2: Identify and convert the given parameters into compatible units:\n$w_2 = 1.00\\text{ g}$, $V = 100\\text{ mL} = 0.100\\text{ L}$, $T = 300\\text{ K}$, $R = 0.083\\text{ L bar K}^{-1}\\text{ mol}^{-1}$, $\\Pi = 2.49 \\times 10^{-3}\\text{ bar}$.\nStep 3: Rearrange to solve for the molar mass $M_2$:\n$M_2 = \\frac{w_2 R T}{\\Pi V} = \\frac{1.00 \\times 0.083 \\times 300}{(2.49 \\times 10^{-3}) \\times 0.100}$.\nStep 4: Carry out the arithmetic:\nNumerator: $0.083 \\times 300 = 24.9\\text{ L bar mol}^{-1}$.\nDenominator: $2.49 \\times 10^{-3} \\times 0.100 = 2.49 \\times 10^{-4}\\text{ L bar}$.\n$M_2 = \\frac{24.9}{2.49 \\times 10^{-4}} = 10^5 = 100,000\\text{ g mol}^{-1} = 1.00 \\times 10^5\\text{ g mol}^{-1}$.\nConclusion: The molar mass of the polymer is $1.00 \\times 10^5\\text{ g mol}^{-1}$."
+    },
+    {
+      "id": "chem_solutions_c01_034",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding abnormal molar masses and the van 't Hoff factor ($i$):\nStatement I: The van 't Hoff factor ($i$) is defined as the ratio of normal (theoretical) molar mass to the abnormal (experimentally determined) molar mass: $i = \\frac{\\text{Normal molar mass}}{\\text{Abnormal molar mass}}$.\nStatement II: When a solute undergoes dissociation in solution, the total number of dissolved particles increases, which increases the observed colligative property and causes the experimentally determined molar mass to be lower than the normal molar mass ($i > 1$).\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Statement I. By definition in NCERT Section 2.7, $i = \\frac{\\text{Normal molar mass}}{\\text{Abnormal molar mass}} = \\frac{\\text{Observed colligative property}}{\\text{Calculated colligative property}} = \\frac{\\text{Total moles after dissociation/association}}{\\text{Moles before dissociation/association}}$. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. Colligative properties are inversely proportional to molar mass: $\\text{Property} \\propto \\frac{1}{M_{\\text{obs}}}$. When a solute dissociates, particle count increases, producing a larger colligative effect (observed property > calculated property). Consequently, the calculated molar mass $M_{\\text{obs}}$ is lower than the true formula mass ($M_{\\text{normal}}$), yielding $i > 1$. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_035",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding the van 't Hoff factor ($i$) and degree of dissociation ($\\alpha$):\nStatement I: For an electrolyte that dissociates into $n$ ions per formula unit with degree of dissociation $\\alpha$, the relationship between $i$ and $\\alpha$ is given by $i = 1 + (n - 1)\\alpha$.\nStatement II: For a dilute aqueous solution of calcium chloride ($\\text{CaCl}_2$) assuming complete dissociation ($\\alpha = 1$, $n = 3$), the boiling point elevation is approximately three times that of an equimolar glucose solution.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Derive the relation for dissociation: Starting with $1\\text{ mol}$ of electrolyte, at degree of dissociation $\\alpha$:\n$\\text{Moles of undissociated solute} = 1 - \\alpha$,\n$\\text{Moles of ions produced} = n\\alpha$.\n$\\text{Total moles at equilibrium} = (1 - \\alpha) + n\\alpha = 1 + (n - 1)\\alpha$. Hence, $i = 1 + (n - 1)\\alpha$. Statement I is correct.\nStep 2: For $\\text{CaCl}_2 \\rightarrow \\text{Ca}^{2+} + 2\\text{Cl}^-$, $n = 3$. At complete dissociation ($\\alpha = 1$), $i = 1 + (3 - 1)(1) = 3$.\nSince glucose is a non-electrolyte ($i = 1$), $\\Delta T_b(\\text{CaCl}_2) = 3 K_b m = 3 \\Delta T_b(\\text{glucose})$. Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_036",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): When benzoic acid ($\\text{C}_6\\text{H}_5\\text{COOH}$) is dissolved in benzene, its experimentally determined molar mass is approximately $244\\text{ g mol}^{-1}$, which is nearly double its normal molar mass of $122\\text{ g mol}^{-1}$.\nReason (R): In a non-polar solvent like benzene, benzoic acid molecules undergo dimerization through two intermolecular hydrogen bonds formed between their carboxyl groups, resulting in a van 't Hoff factor close to $0.5$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Understand the association equilibrium: $2\\text{C}_6\\text{H}_5\\text{COOH} \\rightleftharpoons (\\text{C}_6\\text{H}_5\\text{COOH})_2$.\nStep 2: Reason (R) explanation: In benzene (a non-polar solvent), carboxylic acids stabilize themselves by forming cyclic dimers held by two strong intermolecular $\\text{O}-\\text{H}\\cdots\\text{O}=\\text{C}$ hydrogen bonds. In the case of complete dimerization, $2\\text{ moles}$ associate into $1\\text{ mole}$, giving $i = 1 - \\frac{\\alpha}{2} = 0.5$. Reason (R) is true.\nStep 3: Assertion (A) explanation: Since $i = \\frac{\\text{Normal molar mass}}{\\text{Observed molar mass}}$, an $i$ of $0.5$ means $M_{\\text{obs}} = \\frac{122}{0.5} = 244\\text{ g mol}^{-1}$. Assertion (A) is true, and Reason (R) correctly explains Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_solutions_c01_037",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider $0.10\\text{ m}$ aqueous solutions of the following four solutes at $1\\text{ atm}$:\n(i) Glucose ($\\text{C}_6\\text{H}_{12}\\text{O}_6$)\n(ii) Sodium chloride ($\\text{NaCl}$)\n(iii) Calcium chloride ($\\text{CaCl}_2$)\n(iv) Ferric chloride ($\\text{FeCl}_3$)\nAssuming complete dissociation of all electrolytes, which of the following statements are correct?\n(a) The order of depression of freezing point ($\\Delta T_f$) is: $\\text{FeCl}_3 > \\text{CaCl}_2 > \\text{NaCl} > \\text{Glucose}$.\n(b) The order of actual freezing point ($T_f$) of the solutions is: $\\text{Glucose} > \\text{NaCl} > \\text{CaCl}_2 > \\text{FeCl}_3$.\n(c) The order of elevation of boiling point ($\\Delta T_b$) is: $\\text{FeCl}_3 > \\text{CaCl}_2 > \\text{NaCl} > \\text{Glucose}$.\n(d) The order of vapour pressure of the solutions at $298\\text{ K}$ is: $\\text{FeCl}_3 > \\text{CaCl}_2 > \\text{NaCl} > \\text{Glucose}$.\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (a), (b), and (c) only",
+        "B) (a) and (c) only",
+        "C) (b), (c), and (d) only",
+        "D) (a), (b), (c), and (d)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Determine the van 't Hoff factor ($i$) for each solute assuming complete dissociation:\n- Glucose: $i = 1$\n- $\\text{NaCl} \\rightarrow \\text{Na}^+ + \\text{Cl}^-$: $i = 2$\n- $\\text{CaCl}_2 \\rightarrow \\text{Ca}^{2+} + 2\\text{Cl}^-$: $i = 3$\n- $\\text{FeCl}_3 \\rightarrow \\text{Fe}^{3+} + 3\\text{Cl}^-$: $i = 4$\nStep 2: Evaluate statement (a): $\\Delta T_f = i K_f m$. Since molality is constant ($0.10\\text{ m}$), $\\Delta T_f$ is directly proportional to $i$: $\\text{FeCl}_3 (0.4 K_f) > \\text{CaCl}_2 (0.3 K_f) > \\text{NaCl} (0.2 K_f) > \\text{Glucose} (0.1 K_f)$. Statement (a) is correct.\nStep 3: Evaluate statement (b): Freezing point $T_f = T_f^\\circ - \\Delta T_f = 0 - \\Delta T_f$. Larger depression means lower freezing point. Thus, the actual freezing point order is $\\text{Glucose} > \\text{NaCl} > \\text{CaCl}_2 > \\text{FeCl}_3$. Statement (b) is correct.\nStep 4: Evaluate statement (c): $\\Delta T_b = i K_b m \\propto i$, so $\\text{FeCl}_3 > \\text{CaCl}_2 > \\text{NaCl} > \\text{Glucose}$. Statement (c) is correct.\nStep 5: Evaluate statement (d): Higher $i$ causes greater lowering of vapour pressure, so $\\text{FeCl}_3$ has the lowest vapour pressure, not the highest. Statement (d) is incorrect.\nConclusion: Only statements (a), (b), and (c) are correct."
+    },
+    {
+      "id": "chem_solutions_c01_038",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding boiling points and osmotic pressures of aqueous electrolyte solutions:\nStatement I: Among $0.10\\text{ M}$ aqueous solutions of urea, potassium chloride ($\\text{KCl}$), and sodium sulphate ($\\text{Na}_2\\text{SO}_4$) at $298\\text{ K}$, the sodium sulphate solution exhibits the highest osmotic pressure and the highest boiling point.\nStatement II: At constant temperature and volume, both osmotic pressure ($\\Pi = iCRT$) and boiling point elevation ($\\Delta T_b = iK_b m$) depend directly on the total effective particle concentration ($i \\times C$).\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate the effective particle concentration ($i C$) for each solution at $0.10\\text{ M}$:\n- Urea: non-electrolyte, $i = 1 \\implies i C = 0.10\\text{ M}$.\n- $\\text{KCl}$: binary electrolyte, $i = 2 \\implies i C = 0.20\\text{ M}$.\n- $\\text{Na}_2\\text{SO}_4$: ternary electrolyte ($2\\text{Na}^+ + \\text{SO}_4^{2-}$), $i = 3 \\implies i C = 0.30\\text{ M}$.\nStep 2: Evaluate Statement I. Because $\\text{Na}_2\\text{SO}_4$ has the highest effective particle concentration ($0.30\\text{ M}$), it produces the largest osmotic pressure ($\\Pi = 0.30 RT$) and the greatest boiling point elevation (highest boiling point). Hence, Statement I is correct.\nStep 3: Evaluate Statement II. Colligative properties are governed by the number of solute particles in solution, represented by the product $i \\times C$. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_039",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A $0.10\\text{ m}$ aqueous solution of a monobasic electrolyte $AB$ (which dissociates into $A^+$ and $B^-$) freezes at $-0.3348^\\circ\\text{C}$. Given that the cryoscopic constant for water is $K_f = 1.86\\text{ K kg mol}^{-1}$, what is the degree of dissociation ($\\alpha$) of the electrolyte?\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) $60\\%$",
+        "B) $90\\%$",
+        "C) $80\\%$",
+        "D) $75\\%$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate the observed freezing point depression ($\\Delta T_f$):\n$\\Delta T_f = 0.000^\\circ\\text{C} - (-0.3348^\\circ\\text{C}) = 0.3348\\text{ K}$.\nStep 2: Relate $\\Delta T_f$ to the van 't Hoff factor ($i$):\n$\\Delta T_f = i \\times K_f \\times m$.\n$0.3348 = i \\times 1.86 \\times 0.10 = i \\times 0.186$.\nStep 3: Calculate $i$:\n$i = \\frac{0.3348}{0.186} = 1.80$.\nStep 4: Relate $i$ to the degree of dissociation $\\alpha$ for a binary electrolyte ($n = 2$):\n$i = 1 + (n - 1)\\alpha = 1 + \\alpha$.\n$1.80 = 1 + \\alpha \\implies \\alpha = 0.80 = 80\\%$.\nConclusion: The degree of dissociation of the electrolyte is $80\\%$."
+    },
+    {
+      "id": "chem_solutions_c01_040",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding the vapour pressure-composition phase diagrams of binary solutions:\nStatement I: For a binary liquid solution displaying positive deviation from Raoult's law, the total vapour pressure curve passes through a maximum at an intermediate composition, which corresponds to a minimum boiling azeotrope.\nStatement II: For a binary liquid solution displaying negative deviation from Raoult's law, the total vapour pressure curve passes through a minimum at an intermediate composition, which corresponds to a maximum boiling azeotrope.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement I. In solutions showing large positive deviation, escaping tendency of molecules is higher than ideal, resulting in a maximum in the vapour pressure curve. Since boiling point is inversely related to vapour pressure, a maximum vapour pressure corresponds to a minimum boiling temperature (minimum boiling azeotrope). Hence, Statement I is correct.\nStep 2: Evaluate Statement II. In solutions showing large negative deviation, stronger intermolecular interactions reduce the escaping tendency, creating a minimum in the vapour pressure curve. This minimum vapour pressure corresponds to a maximum boiling temperature (maximum boiling azeotrope). Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_041",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Binary liquid system) with List II (Solution characteristics and thermodynamic behavior):\nList I:\nA. Benzene + toluene\nB. Acetone + carbon disulfide\nC. Chloroform + acetone\nD. Ethanol + water ($95.4\\%$ by volume)\n\nList II:\nI. Ideal solution ($\\Delta_{\\text{mix}} H = 0, \\Delta_{\\text{mix}} V = 0$)\nII. Positive deviation from Raoult's law ($\\Delta_{\\text{mix}} H > 0, \\Delta_{\\text{mix}} V > 0$)\nIII. Negative deviation from Raoult's law ($\\Delta_{\\text{mix}} H < 0, \\Delta_{\\text{mix}} V < 0$)\nIV. Minimum boiling azeotrope boiling at $351.15\\text{ K}$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-I, B-II, C-III, D-IV",
+        "B) A-II, B-I, C-III, D-IV",
+        "C) A-I, B-III, C-II, D-IV",
+        "D) A-IV, B-II, C-III, D-I"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Benzene + toluene: Structurally similar hydrocarbons with identical dispersion forces; forms an ideal solution with $\\Delta_{\\text{mix}} H = 0$ and $\\Delta_{\\text{mix}} V = 0 \\rightarrow$ A-I.\nStep 2: Acetone + carbon disulfide ($\\text{CS}_2$): Dipolar acetone mixed with non-polar $\\text{CS}_2$ weakens dipolar interactions ($A-B < A-A, B-B$), causing positive deviation ($\\Delta_{\\text{mix}} H > 0, \\Delta_{\\text{mix}} V > 0$) $\\rightarrow$ B-II.\nStep 3: Chloroform + acetone: Forms strong inter-molecular hydrogen bonding between acidic hydrogen of $\\text{CHCl}_3$ and carbonyl oxygen of acetone, causing negative deviation ($\\Delta_{\\text{mix}} H < 0, \\Delta_{\\text{mix}} V < 0$) $\\rightarrow$ C-III.\nStep 4: Ethanol + water ($95.4\\%$ by volume): NCERT specific composition of minimum boiling azeotrope boiling at $351.15\\text{ K}$ $\\rightarrow$ D-IV.\nConclusion: A-I, B-II, C-III, D-IV."
+    },
+    {
+      "id": "chem_solutions_c01_042",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A $0.010\\text{ m}$ aqueous solution of a weak monobasic acid $HA$ has a freezing point of $-0.02232^\\circ\\text{C}$. Given that the cryoscopic constant ($K_f$) for water is $1.86\\text{ K kg mol}^{-1}$ and assuming molality equals molarity for dilute aqueous solutions, what is the acid dissociation constant ($K_a$) of the weak acid?\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) $2.5 \\times 10^{-4}\\text{ mol L}^{-1}$",
+        "B) $5.0 \\times 10^{-4}\\text{ mol L}^{-1}$",
+        "C) $1.0 \\times 10^{-4}\\text{ mol L}^{-1}$",
+        "D) $4.0 \\times 10^{-5}\\text{ mol L}^{-1}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Calculate the observed depression in freezing point:\n$\\Delta T_f = 0.0000^\\circ\\text{C} - (-0.02232^\\circ\\text{C}) = 0.02232\\text{ K}$.\nStep 2: Calculate the theoretical freezing point depression for an un-ionized solute:\n$\\Delta T_{f,\\text{calculated}} = K_f \\times m = 1.86 \\times 0.010 = 0.0186\\text{ K}$.\nStep 3: Determine the van 't Hoff factor ($i$):\n$i = \\frac{\\Delta T_f}{\\Delta T_{f,\\text{calculated}}} = \\frac{0.02232}{0.0186} = 1.20$.\nStep 4: Determine the degree of dissociation ($\\alpha$) for the weak monobasic acid ($HA \\rightleftharpoons H^+ + A^-$, where $n = 2$):\n$i = 1 + \\alpha \\implies \\alpha = i - 1 = 1.20 - 1.00 = 0.20$.\nStep 5: Calculate the acid dissociation constant ($K_a$):\n$K_a = \\frac{C \\alpha^2}{1 - \\alpha} = \\frac{0.010 \\times (0.20)^2}{1 - 0.20} = \\frac{0.010 \\times 0.040}{0.80} = \\frac{4.0 \\times 10^{-4}}{0.80} = 5.0 \\times 10^{-4}\\text{ mol L}^{-1}$.\nConclusion: The acid dissociation constant $K_a$ is $5.0 \\times 10^{-4}\\text{ mol L}^{-1}$."
+    },
+    {
+      "id": "chem_solutions_c01_043",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "When $2.0\\text{ g}$ of benzoic acid ($\\text{C}_6\\text{H}_5\\text{COOH}$, molar mass $= 122\\text{ g mol}^{-1}$) is dissolved in $25.0\\text{ g}$ of benzene, the observed depression in freezing point is $1.62\\text{ K}$. Given that the molal depression constant ($K_f$) for benzene is $4.9\\text{ K kg mol}^{-1}$, what is the percentage association of benzoic acid into dimers ($2\\text{C}_6\\text{H}_5\\text{COOH} \\rightleftharpoons (\\text{C}_6\\text{H}_5\\text{COOH})_2$) in the solution?\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) $80.5\\%$",
+        "B) $50.4\\%$",
+        "C) $99.2\\%$",
+        "D) $89.6\\%$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate the apparent (abnormal) molar mass of benzoic acid ($M_{\\text{obs}}$) using the freezing point depression formula:\n$M_{\\text{obs}} = \\frac{K_f \\times w_2 \\times 1000}{\\Delta T_f \\times w_1} = \\frac{4.9 \\times 2.0 \\times 1000}{1.62 \\times 25.0} = \\frac{9800}{40.5} \\approx 241.98\\text{ g mol}^{-1}$.\nStep 2: Calculate the van 't Hoff factor ($i$):\n$i = \\frac{\\text{Normal molar mass}}{M_{\\text{obs}}} = \\frac{122}{241.98} \\approx 0.504$.\nStep 3: Relate $i$ to the degree of association ($\\alpha$) for dimerization ($n = 2$):\n$2A \\rightleftharpoons A_2$\nInitial moles: $1$, Equilibrium moles: $1 - \\alpha + \\frac{\\alpha}{2} = 1 - \\frac{\\alpha}{2}$.\n$i = 1 - \\frac{\\alpha}{2} \\implies \\frac{\\alpha}{2} = 1 - 0.504 = 0.496 \\implies \\alpha = 0.992 = 99.2\\%$.\nConclusion: The percentage association of benzoic acid is $99.2\\%$."
+    },
+    {
+      "id": "chem_solutions_c01_044",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Coordination compound in aqueous solution) with List II (Theoretical van 't Hoff factor $i$ assuming $100\\%$ complete electrolytic dissociation):\nList I:\nA. $[\\text{Co}(\\text{NH}_3)_6]\\text{Cl}_3$\nB. $[\\text{Co}(\\text{NH}_3)_5\\text{Cl}]\\text{Cl}_2$\nC. $[\\text{Co}(\\text{NH}_3)_4\\text{Cl}_2]\\text{Cl}$\nD. $[\\text{Co}(\\text{NH}_3)_3\\text{Cl}_3]$\n\nList II:\nI. $i = 4$\nII. $i = 3$\nIII. $i = 2$\nIV. $i = 1$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-I, C-III, D-IV",
+        "B) A-I, B-III, C-II, D-IV",
+        "C) A-IV, B-III, C-II, D-I",
+        "D) A-I, B-II, C-III, D-IV"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Write the electrolytic ionization equation for each complex:\n- $[\\text{Co}(\\text{NH}_3)_6]\\text{Cl}_3 \\rightarrow [\\text{Co}(\\text{NH}_3)_6]^{3+} + 3\\text{Cl}^-$, total $4\\text{ ions} \\implies i = 4 \\rightarrow$ A-I.\n- $[\\text{Co}(\\text{NH}_3)_5\\text{Cl}]\\text{Cl}_2 \\rightarrow [\\text{Co}(\\text{NH}_3)_5\\text{Cl}]^{2+} + 2\\text{Cl}^-$, total $3\\text{ ions} \\implies i = 3 \\rightarrow$ B-II.\n- $[\\text{Co}(\\text{NH}_3)_4\\text{Cl}_2]\\text{Cl} \\rightarrow [\\text{Co}(\\text{NH}_3)_4\\text{Cl}_2]^+ + \\text{Cl}^-$, total $2\\text{ ions} \\implies i = 2 \\rightarrow$ C-III.\n- $[\\text{Co}(\\text{NH}_3)_3\\text{Cl}_3]$ is a neutral coordination sphere that does not ionize in water ($1\\text{ particle} \\implies i = 1$) $\\rightarrow$ D-IV.\nConclusion: A-I, B-II, C-III, D-IV."
+    },
+    {
+      "id": "chem_solutions_c01_045",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following four aqueous solutions:\n(i) $0.050\\text{ m } \\text{CaCl}_2$\n(ii) $0.100\\text{ m } \\text{NaCl}$\n(iii) $0.100\\text{ m } \\text{Glucose}$\n(iv) $0.040\\text{ m } \\text{Al}_2(\\text{SO}_4)_3$\nAssuming complete ionization for all electrolytes, which of the following statements are correct?\n(a) Solutions (ii) and (iv) have identical effective particle concentrations ($0.200\\text{ m}$), identical freezing point depressions, and are isotonic at the same temperature.\n(b) Solution (iii) has the highest freezing point ($T_f$) among all four solutions.\n(c) The order of boiling point elevation is: $\\text{NaCl} = \\text{Al}_2(\\text{SO}_4)_3 > \\text{CaCl}_2 > \\text{Glucose}$.\n(d) Solution (iv) has a lower vapour pressure than solution (i) at the same temperature.\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (a), (b), (c), and (d)",
+        "B) (a) and (b) only",
+        "C) (a), (c), and (d) only",
+        "D) (b) and (c) only"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate the effective particle concentration ($i \\times m$) for each solution:\n- Solution (i) $\\text{CaCl}_2$: $n = 3, i = 3 \\implies i \\times m = 3 \\times 0.050 = 0.150\\text{ m}$.\n- Solution (ii) $\\text{NaCl}$: $n = 2, i = 2 \\implies i \\times m = 2 \\times 0.100 = 0.200\\text{ m}$.\n- Solution (iii) Glucose: $i = 1 \\implies i \\times m = 1 \\times 0.100 = 0.100\\text{ m}$.\n- Solution (iv) $\\text{Al}_2(\\text{SO}_4)_3$: $n = 5, i = 5 \\implies i \\times m = 5 \\times 0.040 = 0.200\\text{ m}$.\nStep 2: Evaluate statement (a): Both solutions (ii) and (iv) have $i m = 0.200\\text{ m}$, so they have the same $\\Delta T_f$, identical freezing points, and are isotonic. Statement (a) is correct.\nStep 3: Evaluate statement (b): Glucose has the smallest effective molality ($0.100\\text{ m}$), meaning the lowest depression $\\Delta T_f$ and therefore the highest freezing point ($T_f = 0 - \\Delta T_f$). Statement (b) is correct.\nStep 4: Evaluate statement (c): Boiling point elevation $\\Delta T_b \\propto i m$, so $\\text{NaCl} (0.200) = \\text{Al}_2(\\text{SO}_4)_3 (0.200) > \\text{CaCl}_2 (0.150) > \\text{Glucose} (0.100)$. Statement (c) is correct.\nStep 5: Evaluate statement (d): Relative lowering of vapour pressure is proportional to $i m$; since $0.200 > 0.150$, solution (iv) lowers vapour pressure more than (i), giving solution (iv) a lower vapour pressure. Statement (d) is correct.\nConclusion: All statements (a), (b), (c), and (d) are correct."
+    },
+    {
+      "id": "chem_solutions_c01_046",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two volatile liquids $A$ and $B$ form an ideal solution at $300\\text{ K}$. At this temperature, the vapour pressure of pure $A$ is $300\\text{ mm Hg}$ and that of pure $B$ is $100\\text{ mm Hg}$. If the mole fraction of $A$ in the liquid solution is $x_A = 0.40$, what is the mole fraction of $A$ in the vapour phase ($y_A$) in equilibrium with the liquid solution?\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) $0.40$",
+        "B) $0.67$",
+        "C) $0.50$",
+        "D) $0.33$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Calculate the mole fraction of $B$ in the liquid phase:\n$x_B = 1 - x_A = 1 - 0.40 = 0.60$.\nStep 2: Apply Raoult's law to calculate the partial vapour pressure of each component:\n$p_A = p_A^\\circ x_A = 300\\text{ mm Hg} \\times 0.40 = 120\\text{ mm Hg}$.\n$p_B = p_B^\\circ x_B = 100\\text{ mm Hg} \\times 0.60 = 60\\text{ mm Hg}$.\nStep 3: Calculate the total vapour pressure using Dalton's law:\n$p_{\\text{total}} = p_A + p_B = 120 + 60 = 180\\text{ mm Hg}$.\nStep 4: Determine the mole fraction of component $A$ in the vapour phase ($y_A$):\n$y_A = \\frac{p_A}{p_{\\text{total}}} = \\frac{120\\text{ mm Hg}}{180\\text{ mm Hg}} = \\frac{2}{3} \\approx 0.67$.\nConclusion: The mole fraction of $A$ in the vapour phase is $0.67$."
+    },
+    {
+      "id": "chem_solutions_c01_047",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "What mass of ethylene glycol ($\\text{C}_2\\text{H}_6\\text{O}_2$, molar mass $= 62.0\\text{ g mol}^{-1}$) must be dissolved in $4.00\\text{ kg}$ of water in a car radiator so that the cooling system will not freeze until the temperature drops to $-9.30^\\circ\\text{C}$? (Cryoscopic constant for water $K_f = 1.86\\text{ K kg mol}^{-1}$, normal freezing point of pure water $= 0.00^\\circ\\text{C}$)\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) $620\\text{ g}$",
+        "B) $2480\\text{ g}$",
+        "C) $1240\\text{ g}$",
+        "D) $930\\text{ g}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate the required depression in freezing point:\n$\\Delta T_f = T_f^\\circ - T_f = 0.00^\\circ\\text{C} - (-9.30^\\circ\\text{C}) = 9.30\\text{ K}$.\nStep 2: Use the freezing point depression formula for a non-electrolyte ($i = 1$):\n$\\Delta T_f = K_f \\times m$.\n$9.30 = 1.86 \\times m \\implies m = \\frac{9.30}{1.86} = 5.00\\text{ mol kg}^{-1}$.\nStep 3: Relate molality to the mass of solute ($w_2$) and mass of solvent ($w_1$ in $\\text{kg}$):\n$m = \\frac{w_2}{M_2 \\times w_1(\\text{kg})}$.\n$5.00 = \\frac{w_2}{62.0 \\times 4.00}$.\nStep 4: Solve for the mass of ethylene glycol ($w_2$):\n$w_2 = 5.00 \\times 62.0 \\times 4.00 = 5.00 \\times 248.0 = 1240\\text{ g}$.\nConclusion: The mass of ethylene glycol required is $1240\\text{ g}$."
+    },
+    {
+      "id": "chem_solutions_c01_048",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding thermodynamics of binary liquid mixtures and azeotropes:\nStatement I: For any spontaneous mixing of two completely miscible volatile liquids to form an ideal or non-ideal solution, the entropy of mixing is always positive ($\\Delta_{\\text{mix}} S > 0$) and the Gibbs free energy of mixing is always negative ($\\Delta_{\\text{mix}} G < 0$).\nStatement II: At the azeotropic composition of a minimum boiling azeotrope, the boiling point of the solution is lower than the boiling points of both individual pure components, and the liquid and vapour phases have the exact same mole fraction of each component ($y_i = x_i$).\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement I. Spontaneous mixing of two miscible liquids is an irreversible process driven by an increase in positional disorder, meaning $\\Delta_{\\text{mix}} S > 0$. At constant temperature and pressure, the criterion for spontaneity is $\\Delta_{\\text{mix}} G < 0$. This thermodynamic condition holds for ideal solutions and non-ideal solutions (both positive and negative deviations) that mix spontaneously. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. Solutions showing large positive deviations from Raoult's law reach a maximum in their vapour pressure curve. Since boiling temperature is inversely related to vapour pressure, this maximum vapour pressure corresponds to a minimum boiling temperature lower than either pure component. At this stationary point, the liquid and vapour compositions are identical ($y_i = x_i$), defining an azeotrope. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_049",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements regarding Henry's law constants ($K_{\\text{H}}$) and gas solubility in water are correct based on NCERT data?\n(i) At a fixed temperature and partial pressure, a gas with a higher value of $K_{\\text{H}}$ is less soluble in water than a gas with a lower value of $K_{\\text{H}}$.\n(ii) For both nitrogen ($\\text{N}_2$) and oxygen ($\\text{O}_2$), the value of $K_{\\text{H}}$ increases with an increase in temperature, demonstrating that the solubility of these gases decreases as water warms.\n(iii) At $293\\text{ K}$, $K_{\\text{H}}$ for $\\text{N}_2$ ($76.48\\text{ kbar}$) is greater than $K_{\\text{H}}$ for $\\text{O}_2$ ($34.86\\text{ kbar}$), indicating that at the same partial pressure, $\\text{O}_2$ is roughly twice as soluble in water as $\\text{N}_2$.\n(iv) The solubility of gases in liquids is unaffected by changes in hydrostatic pressure because liquids are virtually incompressible.\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (i), (ii), and (iii) only",
+        "B) (i) and (ii) only",
+        "C) (ii), (iii), and (iv) only",
+        "D) (i), (iii), and (iv) only"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate statement (i). From Henry's law $p = K_{\\text{H}} x$, solubility $x = \\frac{p}{K_{\\text{H}}}$. At constant $p$, higher $K_{\\text{H}}$ corresponds directly to lower mole fraction $x$ in solution. Statement (i) is correct.\nStep 2: Evaluate statement (ii). NCERT Table 2.2 shows $K_{\\text{H}}$ for $\\text{N}_2$ increases from $76.48\\text{ kbar}$ at $293\\text{ K}$ to $88.84\\text{ kbar}$ at $303\\text{ K}$, and for $\\text{O}_2$ from $34.86\\text{ kbar}$ at $293\\text{ K}$ to $46.82\\text{ kbar}$ at $303\\text{ K}$. Thus, gas solubility drops with increasing temperature. Statement (ii) is correct.\nStep 3: Evaluate statement (iii). At $293\\text{ K}$, $K_{\\text{H}}(\\text{N}_2) \\approx 76.48\\text{ kbar}$ and $K_{\\text{H}}(\\text{O}_2) \\approx 34.86\\text{ kbar}$. Because $K_{\\text{H}}(\\text{N}_2) \\approx 2.2 \\times K_{\\text{H}}(\\text{O}_2)$, oxygen is more than twice as soluble as nitrogen in water at the same partial pressure. Statement (iii) is correct.\nStep 4: Evaluate statement (iv). Gas solubility in liquids is profoundly sensitive to external gas pressure ($p = K_{\\text{H}} x$). The incompressibility of liquids applies to the effect of pressure on solid/liquid solubility, not gas solubility. Statement (iv) is incorrect.\nConclusion: Only statements (i), (ii), and (iii) are correct."
+    },
+    {
+      "id": "chem_solutions_c01_050",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two separate non-electrolyte aqueous solutions at $300\\text{ K}$ are mixed together without any chemical reaction:\n- Solution 1: $200\\text{ mL}$ of a solution exhibiting an osmotic pressure $\\Pi_1 = 1.50\\text{ atm}$.\n- Solution 2: $300\\text{ mL}$ of a solution exhibiting an osmotic pressure $\\Pi_2 = 2.50\\text{ atm}$.\nAssuming ideal solution behavior and additive volumes ($V_{\\text{total}} = V_1 + V_2$), what is the osmotic pressure of the resulting mixture at $300\\text{ K}$?\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) $2.00\\text{ atm}$",
+        "B) $2.10\\text{ atm}$",
+        "C) $1.90\\text{ atm}$",
+        "D) $2.25\\text{ atm}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Express total moles of solute from osmotic pressure formula:\n$\\Pi = \\frac{n}{V} R T \\implies n = \\frac{\\Pi V}{R T}$.\nStep 2: Sum the total moles of solute in the final combined mixture:\n$n_{\\text{total}} = n_1 + n_2 = \\frac{\\Pi_1 V_1}{R T} + \\frac{\\Pi_2 V_2}{R T}$.\nStep 3: Relate total osmotic pressure $\\Pi_{\\text{mix}}$ to total volume $V_{\\text{total}} = V_1 + V_2$:\n$\\Pi_{\\text{mix}} = \\frac{n_{\\text{total}} R T}{V_{\\text{total}}} = \\frac{\\Pi_1 V_1 + \\Pi_2 V_2}{V_1 + V_2}$.\nStep 4: Substitute the given numerical values:\n$\\Pi_1 V_1 = 1.50\\text{ atm} \\times 200\\text{ mL} = 300\\text{ atm mL}$.\n$\\Pi_2 V_2 = 2.50\\text{ atm} \\times 300\\text{ mL} = 750\\text{ atm mL}$.\n$V_{\\text{total}} = 200\\text{ mL} + 300\\text{ mL} = 500\\text{ mL}$.\n$\\Pi_{\\text{mix}} = \\frac{300 + 750}{500} = \\frac{1050}{500} = 2.10\\text{ atm}$.\nConclusion: The osmotic pressure of the resulting mixture is $2.10\\text{ atm}$."
+    },
+    {
+      "id": "chem_solutions_c01_051",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): If the experimentally observed molar mass of potassium chloride ($\\text{KCl}$) in water determined by cryoscopic measurement is $39.21\\text{ g mol}^{-1}$ (normal formula mass $= 74.50\\text{ g mol}^{-1}$), its degree of dissociation in the solution is $90\\%$.\nReason (R): For a binary 1:1 electrolyte ($n = 2$), the degree of dissociation $\\alpha$ is related to the normal and observed molar masses by the exact relation $\\alpha = \\frac{M_{\\text{normal}} - M_{\\text{obs}}}{M_{\\text{obs}}}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Check Reason (R): The van 't Hoff factor is $i = \\frac{M_{\\text{normal}}}{M_{\\text{obs}}}$. For an electrolyte dissociating into $n$ ions, $i = 1 + (n - 1)\\alpha \\implies \\alpha = \\frac{i - 1}{n - 1}$. For a binary 1:1 electrolyte ($n = 2$), this simplifies to $\\alpha = i - 1 = \\frac{M_{\\text{normal}}}{M_{\\text{obs}}} - 1 = \\frac{M_{\\text{normal}} - M_{\\text{obs}}}{M_{\\text{obs}}}$. Reason (R) is true.\nStep 2: Check Assertion (A): Given $M_{\\text{normal}} = 74.50\\text{ g mol}^{-1}$ and $M_{\\text{obs}} = 39.21\\text{ g mol}^{-1}$:\n$\\alpha = \\frac{74.50 - 39.21}{39.21} = \\frac{35.29}{39.21} \\approx 0.900 = 90\\%$.\nAssertion (A) is true, and Reason (R) correctly explains Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_solutions_c01_052",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements linking colligative properties for dilute solutions of non-volatile solutes:\nStatement I: For a dilute solution containing a non-volatile solute in a solvent of molar mass $M_1\\text{ (in g mol}^{-1})$, the molality $m$ can be expressed in terms of relative lowering of vapour pressure as $m \\approx \\frac{\\Delta p}{p_1^\\circ} \\times \\frac{1000}{M_1}$.\nStatement II: Combining this expression with the boiling point elevation equation allows the boiling point elevation to be directly calculated from vapour pressure lowering as $\\Delta T_b \\approx K_b \\times \\frac{1000}{M_1} \\times \\frac{\\Delta p}{p_1^\\circ}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement I. By Raoult's law, relative lowering of vapour pressure is $\\frac{\\Delta p}{p_1^\\circ} = x_2 = \\frac{n_2}{n_1 + n_2}$. For dilute solutions, $n_2 \\ll n_1$, so $\\frac{\\Delta p}{p_1^\\circ} \\approx \\frac{n_2}{n_1} = \\frac{n_2}{w_1 / M_1} = \\frac{n_2 M_1}{w_1}$. Since molality is $m = \\frac{n_2 \\times 1000}{w_1}$, substituting gives $\\frac{\\Delta p}{p_1^\\circ} \\approx \\frac{m M_1}{1000} \\implies m \\approx \\frac{\\Delta p}{p_1^\\circ} \\times \\frac{1000}{M_1}$. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. The boiling point elevation is $\\Delta T_b = K_b m$. Substituting the expression for $m$ from Statement I gives $\\Delta T_b \\approx K_b \\times \\frac{1000}{M_1} \\times \\frac{\\Delta p}{p_1^\\circ}$. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_solutions_c01_053",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Classical experimental colligative technique) with List II (Operational principle and primary measurement):\nList I:\nA. Berkeley and Hartley's method\nB. Beckmann's method\nC. Landsberger's method\nD. Ostwald and Walker's dynamic method\n\nList II:\nI. Measurement of external pressure applied to prevent the passage of solvent into solution through a semipermeable membrane\nII. High-precision measurement of freezing point depression using an adjustable differential thermometer\nIII. Measurement of boiling point elevation by bubbling solvent vapour directly through the solution\nIV. Measurement of relative lowering of vapour pressure by passing dry air successively through solution and solvent bulbs\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-I, B-II, C-III, D-IV",
+        "B) A-II, B-I, C-III, D-IV",
+        "C) A-I, B-III, C-II, D-IV",
+        "D) A-IV, B-II, C-III, D-I"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze each classical experimental technique described in physical chemistry:\n- Berkeley and Hartley's method: Uses a porous porcelain tube containing copper ferrocyanide membrane; measures the exact hydrostatic pressure applied to the solution to stop the entry of solvent, directly giving osmotic pressure ($\\Pi$) $\\rightarrow$ A-I.\n- Beckmann's method: Determines $\\Delta T_f$ using an enclosed freezing tube and Beckmann differential thermometer capable of reading temperature differences of $0.001\\text{ K}$ $\\rightarrow$ B-II.\n- Landsberger's method: Measures boiling point elevation ($\\Delta T_b$) by passing solvent vapour into the solution flask, avoiding superheating of the solution $\\rightarrow$ C-III.\n- Ostwald and Walker's dynamic method: A stream of dry air is drawn through weighed bulbs containing solution and solvent; the loss in mass gives the relative lowering of vapour pressure $\\rightarrow$ D-IV.\nConclusion: A-I, B-II, C-III, D-IV."
+    },
+    {
+      "id": "chem_solutions_c01_054",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A $0.050\\text{ m}$ aqueous solution of potassium sulphate ($\\text{K}_2\\text{SO}_4$) is $70.0\\%$ dissociated into potassium and sulphate ions. Given that the cryoscopic constant ($K_f$) for water is $1.86\\text{ K kg mol}^{-1}$, what is the depression in freezing point ($\\Delta T_f$) of this solution?\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) $0.0930\\text{ K}$",
+        "B) $0.2232\\text{ K}$",
+        "C) $0.2790\\text{ K}$",
+        "D) $0.1860\\text{ K}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Write the dissociation reaction for potassium sulphate:\n$\\text{K}_2\\text{SO}_4 \\rightarrow 2\\text{K}^+ + \\text{SO}_4^{2-}$.\nNumber of ions produced per formula unit: $n = 2 + 1 = 3$.\nStep 2: Calculate the van 't Hoff factor ($i$) using the degree of dissociation $\\alpha = 0.700$:\n$i = 1 + (n - 1)\\alpha = 1 + (3 - 1)(0.700) = 1 + 2(0.700) = 1 + 1.400 = 2.400$.\nStep 3: Apply the freezing point depression formula:\n$\\Delta T_f = i \\times K_f \\times m$.\n$\\Delta T_f = 2.400 \\times 1.86\\text{ K kg mol}^{-1} \\times 0.050\\text{ mol kg}^{-1}$.\nStep 4: Perform the multiplication:\n$2.400 \\times 0.050 = 0.120$.\n$\\Delta T_f = 0.120 \\times 1.86 = 0.2232\\text{ K}$.\nConclusion: The depression in freezing point is $0.2232\\text{ K}$."
+    },
+    {
+      "id": "chem_solutions_c01_055",
+      "subject": "Chemistry",
+      "topic": "Solutions",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements regarding colligative properties, osmosis, and the van 't Hoff factor are correct?\n(i) Osmotic pressure is classified as a colligative property because it depends strictly on the total molar concentration of solute particles in solution, independent of their chemical nature.\n(ii) In reverse osmosis, when a hydrostatic pressure greater than the osmotic pressure is applied to a saltwater solution, pure water molecules pass from the saltwater through the semipermeable membrane into pure water.\n(iii) An equimolar aqueous solution of barium chloride ($\\text{BaCl}_2$) has a higher boiling point than an equimolar aqueous solution of sodium chloride ($\\text{NaCl}$) because complete ionization of $\\text{BaCl}_2$ produces three moles of ions per formula unit ($i = 3$) compared to two moles for $\\text{NaCl}$ ($i = 2$).\n(iv) If a solute undergoes complete association into trimers ($3A \\rightleftharpoons A_3$) in a non-polar solvent, the theoretical van 't Hoff factor is $i = \\frac{1}{3}$.\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (i), (ii), and (iii) only",
+        "B) (ii), (iii), and (iv) only",
+        "C) (i), (ii), (iii), and (iv)",
+        "D) (i) and (iv) only"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate statement (i). Colligative properties depend solely on particle number/concentration; osmotic pressure $\\Pi = iCRT$ is directly proportional to solute particle concentration. Statement (i) is correct.\nStep 2: Evaluate statement (ii). Applying external pressure $P > \\Pi$ on the solution side forces solvent molecules to flow against the natural osmotic concentration gradient, desalting the water. Statement (ii) is correct.\nStep 3: Evaluate statement (iii). Boiling point elevation $\\Delta T_b = i K_b m$. For $\\text{BaCl}_2$, $i = 3$; for $\\text{NaCl}$, $i = 2$. At the same molality, $\\text{BaCl}_2$ produces a larger $\\Delta T_b$, resulting in a higher boiling point. Statement (iii) is correct.\nStep 4: Evaluate statement (iv). For association $n A \\rightleftharpoons A_n$, $i = 1 + \\left(\\frac{1}{n} - 1\\right)\\alpha$. For trimerization ($n = 3$) with complete association ($\\alpha = 1$), $i = 1 + \\left(\\frac{1}{3} - 1\\right)(1) = \\frac{1}{3}$. Statement (iv) is correct.\nConclusion: All statements (i), (ii), (iii), and (iv) are correct."
+    }
+  ]
+}

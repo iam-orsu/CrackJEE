@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Thermodynamics",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_thermodynamics_c01_001",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): If two thermodynamic systems $A$ and $B$ are each in thermal equilibrium with a third system $C$, then systems $A$ and $B$ are also in thermal equilibrium with each other.\nReason (R): Temperature is a macroscopic thermodynamic state variable whose equality represents the necessary and sufficient condition for thermal equilibrium between physical systems.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The Zeroth Law of Thermodynamics explicitly states that if two systems $A$ and $B$ are separately in thermal equilibrium with a third system $C$, then $A$ and $B$ are in thermal equilibrium with each other.\nStep 2: Thermal equilibrium implies the absence of net heat transfer between bodies placed in diathermic contact. The physical property that determines whether two systems are in thermal equilibrium is temperature.\nStep 3: Since $A$ is in equilibrium with $C$, $T_A = T_C$. Since $B$ is in equilibrium with $C$, $T_B = T_C$. It follows algebraically and physically that $T_A = T_B$, ensuring mutual thermal equilibrium between $A$ and $B$. Thus, (R) provides the exact causal and conceptual justification for (A).\nDistractor Analysis: Assertions that (R) is not the explanation fail because the Zeroth Law is the very operational foundation for defining temperature as the state variable governing equilibrium."
+    },
+    {
+      "id": "phy_thermodynamics_c01_002",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding thermodynamic boundaries:\n\nStatement I: An adiabatic wall between two thermodynamic systems is an ideal insulating boundary that does not allow any exchange of heat or energy between the systems.\nStatement II: A diathermic wall between two systems is a conducting boundary that permits spontaneous heat transfer until the systems reach mutual thermal equilibrium.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In NCERT thermodynamics, an adiabatic wall is defined as an ideal non-conducting (insulating) wall that completely prevents the transfer of heat between two systems ($Q = 0$). Hence, Statement I is strictly correct.\nStep 2: A diathermic wall is defined as an ideal heat-conducting partition that allows heat to pass freely through it. When separated by a diathermic boundary, two systems exchange thermal energy until their temperatures equalize ($T_1 = T_2$), establishing thermal equilibrium. Hence, Statement II is strictly correct.\nDistractor Analysis: Statements declaring either definition false contradict the standard axiomatic vocabulary established in NCERT Class 11 Physics Chapter 12."
+    },
+    {
+      "id": "phy_thermodynamics_c01_003",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the First Law of Thermodynamics and its sign conventions:\n\nStatement I: In physics, the First Law of Thermodynamics is formulated as $\\Delta Q = \\Delta U + \\Delta W$, where $\\Delta W = \\int P\\,dV$ is taken as positive when an ideal gas expands.\nStatement II: When heat is added to an ideal gas while the gas performs no external work, its internal energy decreases according to $\\Delta U = -\\Delta Q$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In physics (NCERT convention), the First Law of Thermodynamics is stated as $\\Delta Q = \\Delta U + \\Delta W$, where $\\Delta Q$ is heat added to the system, $\\Delta U$ is change in internal energy, and $\\Delta W$ is work done by the system. During expansion ($dV > 0$), work done by the system is positive ($\\Delta W > 0$). Hence, Statement I is true.\nStep 2: If no external work is performed ($\\Delta W = 0$), the first law reduces to $\\Delta Q = \\Delta U$. Adding heat ($\\Delta Q > 0$) therefore increases the internal energy ($\\Delta U > 0$), which raises the temperature. The claim that $\\Delta U = -\\Delta Q$ represents an erroneous sign reversal. Hence, Statement II is false.\nDistractor Analysis: Options considering Statement II as true confuse heat absorption with heat loss or misapply work sign conventions."
+    },
+    {
+      "id": "phy_thermodynamics_c01_004",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): For an ideal gas undergoing any arbitrary cyclic process, the net change in internal energy over one complete cycle is strictly zero ($\\Delta U_\\text{net} = 0$).\nReason (R): Internal energy of an ideal gas is a thermodynamic state function that depends solely on its absolute temperature and is completely independent of the thermodynamic path followed.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: A cyclic process is one in which the working substance returns to its initial thermodynamic state after completing a series of changes. Since the initial and final states are identical ($T_f = T_i$, $P_f = P_i$, $V_f = V_i$), the net change in internal energy is $\\Delta U = U_f - U_i = 0$. Thus, Assertion (A) is true.\nStep 2: Internal energy $U$ of an ideal gas is given by $U = n C_v T$, which is purely a function of temperature (a state variable). Because $U$ is a state function (an exact differential), its cyclic integral is identically zero: $\\oint dU = 0$. Thus, Reason (R) is true and directly explains Assertion (A).\nDistractor Analysis: Claims stating (R) is not the explanation fail because the state function nature of $U$ is the fundamental physical reason why cyclic changes in internal energy vanish."
+    },
+    {
+      "id": "phy_thermodynamics_c01_005",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding quasi-static thermodynamic processes:\n\nStatement I: A quasi-static process is an idealized, infinitely slow process in which the system departs from thermodynamic equilibrium by only an infinitesimal amount at every stage.\nStatement II: The sudden free expansion of an ideal gas into an evacuated insulated vessel through a ruptured membrane is a quasi-static process because no work is done against external pressure.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: According to NCERT Class 11 Physics, a quasi-static process is an idealization where changes occur infinitely slowly, allowing the pressure, volume, and temperature of the system to remain uniform and in near-perfect equilibrium with surroundings at all intermediate points. Hence, Statement I is true.\nStep 2: Free expansion into a vacuum is an uncontrolled, rapid, non-equilibrium phenomenon during which intermediate states cannot even be mapped on an indicator ($P-V$) diagram. It is intrinsically non-quasi-static and completely irreversible, despite $\\Delta W = 0$. Hence, Statement II is false.\nDistractor Analysis: Options considering Statement II true confuse the condition of zero work with quasi-static equilibrium."
+    },
+    {
+      "id": "phy_thermodynamics_c01_006",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II to categorize the thermodynamic quantities with their physical nature:\n\nList I:\nP. Heat supplied ($\\Delta Q$)\nQ. Work done by system ($\\Delta W$)\nR. Internal energy change ($\\Delta U$)\nS. Temperature ($T$)\n\nList II:\n1. Intensive state variable\n2. Extensive state variable change\n3. Path-dependent boundary energy transfer governed by thermal gradient\n4. Path-dependent boundary energy transfer governed by mechanical displacement\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-3, Q-4, R-2, S-1",
+        "B) P-4, Q-3, R-1, S-2",
+        "C) P-3, Q-2, R-4, S-1",
+        "D) P-1, Q-4, R-2, S-3"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Heat ($\\Delta Q$) is a path-dependent form of energy transfer across the boundary driven by a temperature gradient, corresponding to Match 3 for P.\nStep 2: Work done ($\\Delta W$) is a path-dependent energy transfer across the boundary resulting from macroscopically ordered mechanical displacement ($P\\,dV$), corresponding to Match 4 for Q.\nStep 3: Internal energy ($U$) is an extensive state function that scales with mass and depends solely on state; its change ($\\Delta U$) is path-independent, matching 2 for R.\nStep 4: Temperature ($T$) is an intensive state variable that does not depend on system size or mass, matching 1 for S.\nDistractor Analysis: Alternative pairings incorrectly classify path functions as state variables or swap thermal and mechanical definitions."
+    },
+    {
+      "id": "phy_thermodynamics_c01_007",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding an isothermal process of an ideal gas:\n\nStatement I: During an isothermal expansion of an ideal gas, the temperature remains constant throughout, so the change in internal energy is zero ($\\Delta U = 0$).\nStatement II: From the First Law of Thermodynamics, all the heat absorbed by an ideal gas during an isothermal expansion is completely converted into work done by the gas ($\\Delta Q = \\Delta W$).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Both Statement I and Statement II are true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: For an ideal gas, internal energy is strictly a function of temperature: $U = n C_v T$. In an isothermal process, $T = \\text{constant}$, which means $\\Delta T = 0$ and consequently $\\Delta U = 0$. Hence, Statement I is true.\nStep 2: Applying the First Law of Thermodynamics, $\\Delta Q = \\Delta U + \\Delta W$. Substituting $\\Delta U = 0$ yields $\\Delta Q = \\Delta W$. This indicates that all heat absorbed across the boundary appears as mechanical expansion work. Hence, Statement II is true.\nDistractor Analysis: Choices claiming either statement is false neglect the fundamental definition $dU = n C_v dT$ for an ideal gas."
+    },
+    {
+      "id": "phy_thermodynamics_c01_008",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two moles ($n = 2.0\\text{ mol}$) of an ideal gas undergo a reversible isothermal expansion at a steady temperature of $T = 300\\text{ K}$ from an initial volume of $V_1 = 1.0\\text{ L}$ to a final volume of $V_2 = 10.0\\text{ L}$. Given $R = 8.314\\text{ J}\\cdot\\text{mol}^{-1}\\cdot\\text{K}^{-1}$ and $\\ln(10) \\approx 2.303$, what is the total work done by the gas?",
+      "options": [
+        "A) $5.74 \\times 10^3\\text{ J}$",
+        "B) $1.15 \\times 10^4\\text{ J}$",
+        "C) $2.49 \\times 10^3\\text{ J}$",
+        "D) $4.99 \\times 10^4\\text{ J}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The work done during a reversible isothermal expansion of an ideal gas is given by the formula $W = nRT \\ln\\left(\\frac{V_2}{V_1}\\right)$.\nStep 2: Substitute the given parameters: $n = 2.0\\text{ mol}$, $R = 8.314\\text{ J}\\cdot\\text{mol}^{-1}\\cdot\\text{K}^{-1}$, $T = 300\\text{ K}$, and $\\frac{V_2}{V_1} = \\frac{10.0}{1.0} = 10$.\nStep 3: Calculating $W$: $W = 2.0 \\times 8.314 \\times 300 \\times \\ln(10) = 4988.4 \\times 2.303 \\approx 11488\\text{ J} \\approx 1.15 \\times 10^4\\text{ J}$.\nDistractor Analysis: The value $5.74 \\times 10^3\\text{ J}$ results from taking $n = 1\\text{ mol}$ instead of $2\\text{ mol}$; $2.49 \\times 10^3\\text{ J}$ omits the factor $\\ln(10)$."
+    },
+    {
+      "id": "phy_thermodynamics_c01_009",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When heat is supplied to an ideal gas contained in a rigid, fixed-volume vessel, the work done by the gas is identically zero ($\\Delta W = 0$).\nReason (R): For an isochoric process, the change in volume is zero ($\\Delta V = 0$), and mechanical work done against boundary displacement is defined as $\\Delta W = \\int P\\,dV$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In a rigid container, the volume of the gas cannot alter (isochoric condition, $V = \\text{constant}$, $dV = 0$). Hence, no expansion or compression occurs, and $\\Delta W = 0$. Assertion (A) is true.\nStep 2: Thermodynamic work done by a fluid system against a movable boundary is given by $W = \\int P\\,dV$. With $dV = 0$ throughout the heating, this integral evaluates to zero. Hence, Reason (R) is true and provides the direct physical basis for Assertion (A).\nDistractor Analysis: Alternative choices stating that (R) is not the explanation fail because the definition of boundary work as the integral of $P\\,dV$ is precisely why isochoric work is zero."
+    },
+    {
+      "id": "phy_thermodynamics_c01_010",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding an isobaric process of an ideal gas:\n\nStatement I: During an isobaric expansion of $n$ moles of an ideal gas when temperature rises by $\\Delta T$, the work done by the gas is $\\Delta W = P\\Delta V = nR\\Delta T$.\nStatement II: The total heat absorbed by the gas in this isobaric process is $\\Delta Q = n C_p \\Delta T$, where $C_p$ is the molar heat capacity at constant pressure.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For an isobaric process, pressure $P$ remains constant. Differentiating the ideal gas equation of state $PV = nRT$ at constant $P$ gives $P\\Delta V = nR\\Delta T$. Therefore, work done is $\\Delta W = P\\Delta V = nR\\Delta T$. Statement I is true.\nStep 2: By definition of molar heat capacity at constant pressure, heat supplied at constant pressure is given by $\\Delta Q = n C_p \\Delta T$. Statement II is true.\nDistractor Analysis: Choices claiming either statement is false contradict the primary textbook definitions of work and heat in constant-pressure expansions."
+    },
+    {
+      "id": "phy_thermodynamics_c01_011",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When an ideal gas undergoes a quasi-static adiabatic expansion against external pressure, its temperature decreases.\nReason (R): In an adiabatic process, no heat enters or leaves the system ($\\Delta Q = 0$), so the work done by the expanding gas is supplied entirely by depleting its internal energy ($\\Delta W = -\\Delta U$).\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In an adiabatic expansion, the system is thermally insulated from its surroundings, meaning $\\Delta Q = 0$. By the First Law, $\\Delta Q = \\Delta U + \\Delta W \\implies \\Delta U = -\\Delta W$. Thus, Reason (R) is true.\nStep 2: For expansion, work done by the gas is positive ($\\Delta W > 0$), which necessitates that $\\Delta U < 0$. For an ideal gas, $\\Delta U = n C_v \\Delta T < 0$, which directly implies that temperature decreases ($\\Delta T < 0$). Thus, Assertion (A) is true and (R) correctly explains (A).\nDistractor Analysis: Assertions that temperature remains constant during adiabatic expansion confuse adiabatic conditions with isothermal ones."
+    },
+    {
+      "id": "phy_thermodynamics_c01_012",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For a reversible adiabatic process involving an ideal gas with ratio of specific heats $\\gamma = C_p/C_v$, which of the following mathematical equations are valid?\n\n(I) $P V^\\gamma = \\text{constant}$\n(II) $T V^{\\gamma - 1} = \\text{constant}$\n(III) $T^\\gamma P^{1 - \\gamma} = \\text{constant}$\n(IV) $P T^\\gamma = \\text{constant}$\n\nChoose the correct option from the choices given below:",
+      "options": [
+        "A) (I), (II), and (III) only",
+        "B) (I) and (II) only",
+        "C) (II) and (IV) only",
+        "D) (I), (II), and (IV) only"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Equation (I) is the standard adiabatic relation: $P V^\\gamma = \\text{constant}$. This is valid.\nStep 2: From the ideal gas law $P = \\frac{nRT}{V}$, substituting into (I) gives $\\left(\\frac{nRT}{V}\\right) V^\\gamma = \\text{constant} \\implies T V^{\\gamma - 1} = \\text{constant}$. Thus, (II) is valid.\nStep 3: Expressing volume as $V = \\frac{nRT}{P}$ and substituting into (I) yields $P \\left(\\frac{nRT}{P}\\right)^\\gamma = \\text{constant} \\implies P^{1 - \\gamma} T^\\gamma = \\text{constant}$. Thus, (III) is valid.\nStep 4: Equation (IV) asserts $P T^\\gamma = \\text{constant}$, which is dimensionally and physically incorrect. Hence, only (I), (II), and (III) are valid.\nDistractor Analysis: Options including (IV) fail because the exponent on pressure must be $1-\\gamma$, not $1$."
+    },
+    {
+      "id": "phy_thermodynamics_c01_013",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the slopes of indicator diagrams for an ideal gas:\n\nStatement I: On a standard $P-V$ diagram, the magnitude of the slope of an adiabatic curve at any point is steeper than that of an isothermal curve passing through the same state point by a factor of $\\gamma = C_p/C_v$.\nStatement II: The adiabatic slope is given by $\\left(\\frac{dP}{dV}\\right)_\\text{adi} = -\\gamma \\frac{P}{V}$, whereas the isothermal slope is given by $\\left(\\frac{dP}{dV}\\right)_\\text{iso} = -\\frac{P}{V}$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are true.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Differentiating the isothermal condition $PV = \\text{constant}$ gives $P\\,dV + V\\,dP = 0 \\implies \\left(\\frac{dP}{dV}\\right)_\\text{iso} = -\\frac{P}{V}$.\nStep 2: Differentiating the adiabatic condition $PV^\\gamma = \\text{constant}$ gives $V^\\gamma\\,dP + \\gamma P V^{\\gamma - 1}\\,dV = 0 \\implies \\left(\\frac{dP}{dV}\\right)_\\text{adi} = -\\gamma \\frac{P}{V}$. Thus, Statement II is true.\nStep 3: Comparing the two slopes: $\\left(\\frac{dP}{dV}\\right)_\\text{adi} = \\gamma \\left(\\frac{dP}{dV}\\right)_\\text{iso}$. Since $\\gamma > 1$ for all gases, the adiabatic slope is steeper by a factor of $\\gamma$. Thus, Statement I is true.\nDistractor Analysis: Choices claiming either statement is false confuse the derivative rules or inverse factors of $\\gamma$."
+    },
+    {
+      "id": "phy_thermodynamics_c01_014",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The net work done by a working substance in a clockwise cyclic process represented on a standard $P-V$ diagram is positive.\nReason (R): In a clockwise cycle, the forward expansion path lies at higher pressures than the return compression path, so the work done during expansion exceeds the work done during compression.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The area under a curve on a $P-V$ diagram represents the work done $\\int P\\,dV$. For a clockwise cycle, the upper curve (moving from smaller volume to larger volume) represents expansion ($W_1 > 0$), and the lower curve (moving back from larger to smaller volume) represents compression ($W_2 < 0$).\nStep 2: Because the expansion occurs along the higher pressure curve, the positive area under the expansion curve is strictly greater than the negative area under the compression curve. The net work $W_\\text{net} = W_1 + W_2 > 0$ equals the enclosed area. Assertion (A) is true.\nStep 3: Reason (R) provides the exact mathematical and geometrical explanation of why the net enclosed area yields positive work. Hence, (R) correctly explains (A).\nDistractor Analysis: Alternative choices fail because Reason (R) accurately captures the graphical calculus of cyclic integration."
+    },
+    {
+      "id": "phy_thermodynamics_c01_015",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the Second Law of Thermodynamics:\n\nStatement I: The Kelvin-Planck statement asserts that no process is possible whose sole result is the absorption of heat from a single thermal reservoir and its complete conversion into work.\nStatement II: The Clausius statement asserts that no process is possible whose sole result is the transfer of heat from a cooler body to a hotter body without requiring external work.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The Kelvin-Planck statement of the Second Law of Thermodynamics formally states that no heat engine can operate in a cycle and absorb heat from a single source to produce equivalent mechanical work without rejecting some heat to a sink (i.e., a 100% efficient heat engine is impossible). Statement I is true.\nStep 2: The Clausius statement of the Second Law states that thermal energy cannot spontaneously flow from a reservoir at a lower temperature to one at a higher temperature without the performance of external mechanical work (i.e., a refrigerator requires external work). Statement II is true.\nDistractor Analysis: Statements asserting that either Kelvin-Planck or Clausius formulations are false contradict the foundational postulates of thermodynamics in NCERT."
+    },
+    {
+      "id": "phy_thermodynamics_c01_016",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II for the thermodynamic processes and their distinguishing equations:\n\nList I:\nP. Isothermal process\nQ. Adiabatic process\nR. Isochoric process\nS. Isobaric process\n\nList II:\n1. $\\Delta Q = 0$ and $\\Delta W = -\\Delta U$\n2. $\\Delta T = 0$ and $\\Delta U = 0$\n3. $\\Delta V = 0$ and $\\Delta W = 0$\n4. $\\Delta P = 0$ and $\\Delta W = P\\Delta V$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-2, Q-1, R-4, S-3",
+        "C) P-2, Q-1, R-3, S-4",
+        "D) P-3, Q-4, R-1, S-2"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: An isothermal process occurs at constant temperature ($\\Delta T = 0$), so $\\Delta U = 0$ for an ideal gas, matching 2 for P.\nStep 2: An adiabatic process has zero heat exchange ($\\Delta Q = 0$), meaning $\\Delta W = -\\Delta U$, matching 1 for Q.\nStep 3: An isochoric process occurs at constant volume ($\\Delta V = 0$), so work done $\\Delta W = 0$, matching 3 for R.\nStep 4: An isobaric process occurs at constant pressure ($\\Delta P = 0$), where work done is $\\Delta W = P\\Delta V$, matching 4 for S.\nDistractor Analysis: Other combinations incorrectly swap adiabatic and isothermal conditions or confuse isochoric work with isobaric work."
+    },
+    {
+      "id": "phy_thermodynamics_c01_017",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding thermodynamic reversibility:\n\nStatement I: A thermodynamic process is reversible only if it is quasi-static and completely free of dissipative mechanisms such as friction, viscosity, and electrical resistance.\nStatement II: Any naturally occurring spontaneous process, such as free expansion of a gas or heat conduction through a finite temperature gradient, can be reversed by merely executing it in the opposite direction.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Both Statement I and Statement II are true.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: According to NCERT, two essential conditions are required for reversibility: (i) the process must be quasi-static (proceeding through equilibrium states), and (ii) dissipative forces (friction, viscosity, turbulence, inelasticity) must be completely absent. Hence, Statement I is true.\nStep 2: Spontaneous natural processes involve finite driving gradients and dissipative dissipation of energy, which permanently increase the entropy of the universe. They are intrinsically irreversible and cannot be restored without leaving changes in the surroundings. Hence, Statement II is false.\nDistractor Analysis: Choices claiming Statement II is true violate the Second Law of Thermodynamics and the Arrow of Time."
+    },
+    {
+      "id": "phy_thermodynamics_c01_018",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The thermal efficiency of any real or ideal heat engine operating in a cyclic manner is always strictly less than $100\\%$ ($\\eta < 1$).\nReason (R): According to the Second Law of Thermodynamics, a cyclic engine must reject a non-zero quantity of heat to a low-temperature sink in order to return to its initial state.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The thermal efficiency of a heat engine is defined as $\\eta = \\frac{W}{Q_1} = 1 - \\frac{Q_2}{Q_1}$, where $Q_1$ is heat absorbed from the hot source and $Q_2$ is heat rejected to the cold sink.\nStep 2: For efficiency to equal $100\\%$ ($\\eta = 1$), the rejected heat $Q_2$ must be identically zero. However, the Kelvin-Planck statement of the Second Law explicitly forbids a cyclic engine from absorbing heat and completely converting it to work without rejecting heat ($Q_2 > 0$). Thus, Reason (R) is true.\nStep 3: Because $Q_2 > 0$, $\\eta = 1 - \\frac{Q_2}{Q_1} < 1$ always. Assertion (A) is true, and (R) directly explains (A).\nDistractor Analysis: Alternative options asserting that $\\eta = 1$ is theoretically possible violate the Kelvin-Planck formulation."
+    },
+    {
+      "id": "phy_thermodynamics_c01_019",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II to arrange the four successive operations comprising an ideal Carnot cycle in chronological order:\n\nList I:\nP. First operation\nQ. Second operation\nR. Third operation\nS. Fourth operation\n\nList II:\n1. Reversible adiabatic expansion ($T_1 \\to T_2$)\n2. Reversible isothermal expansion at source temperature $T_1$\n3. Reversible adiabatic compression ($T_2 \\to T_1$)\n4. Reversible isothermal compression at sink temperature $T_2$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-2, Q-1, R-4, S-3",
+        "B) P-1, Q-2, R-3, S-4",
+        "C) P-2, Q-4, R-1, S-3",
+        "D) P-4, Q-3, R-2, S-1"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In the Carnot cycle, the working cylinder is first placed on the hot reservoir at temperature $T_1$, undergoing reversible isothermal expansion where heat $Q_1$ is absorbed (P matches 2).\nStep 2: The cylinder is placed on an insulating stand, undergoing reversible adiabatic expansion where the gas cools from $T_1$ to $T_2$ (Q matches 1).\nStep 3: The cylinder is placed on the cold sink at temperature $T_2$, undergoing reversible isothermal compression where heat $Q_2$ is rejected (R matches 4).\nStep 4: Finally, the cylinder is placed back on the insulating stand, undergoing reversible adiabatic compression to restore temperature back to $T_1$ (S matches 3).\nDistractor Analysis: The correct sequence is strictly Isothermal Expansion $\\to$ Adiabatic Expansion $\\to$ Isothermal Compression $\\to$ Adiabatic Compression."
+    },
+    {
+      "id": "phy_thermodynamics_c01_020",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A Carnot engine operates between a source at $T_1 = 327^\\circ\\text{C}$ and a sink at $T_2 = 27^\\circ\\text{C}$. If the engine absorbs $1200\\text{ J}$ of heat from the source during each cycle, what are its thermal efficiency $\\eta$ and the net mechanical work output $W$ per cycle?",
+      "options": [
+        "A) $\\eta = 0.50$ and $W = 600\\text{ J}$",
+        "B) $\\eta = 0.92$ and $W = 1104\\text{ J}$",
+        "C) $\\eta = 0.40$ and $W = 480\\text{ J}$",
+        "D) $\\eta = 0.60$ and $W = 720\\text{ J}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Temperatures must be converted to the Kelvin scale: $T_1 = 327 + 273 = 600\\text{ K}$, and $T_2 = 27 + 273 = 300\\text{ K}$.\nStep 2: The efficiency of a Carnot engine is given by $\\eta = 1 - \\frac{T_2}{T_1} = 1 - \\frac{300}{600} = 1 - 0.50 = 0.50$ ($50\\%$).\nStep 3: The net work output per cycle is $W = \\eta Q_1 = 0.50 \\times 1200\\text{ J} = 600\\text{ J}$.\nDistractor Analysis: The erroneous efficiency $\\eta = 0.92$ occurs if temperatures are incorrectly calculated using degrees Celsius: $1 - 27/327 \\approx 0.917$."
+    },
+    {
+      "id": "phy_thermodynamics_c01_021",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Carnot's Theorem:\n\nStatement I: No heat engine operating between two given temperatures of source and sink can have a greater thermal efficiency than a reversible Carnot engine operating between the same two temperatures.\nStatement II: The thermal efficiency of all reversible engines operating between the same two thermal reservoirs is identical, completely independent of the working substance used.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is false but Statement II is true.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Carnot's theorem consists of two core propositions. Proposition 1: No engine operating between two given temperatures can be more efficient than a Carnot engine operating between the same two temperatures. Statement I is true.\nStep 2: Proposition 2: The efficiency of any Carnot engine operating between two temperatures depends solely on the temperatures of the source and sink and is completely independent of the nature of the working substance (whether ideal gas, steam, or liquid). Statement II is true.\nDistractor Analysis: Both statements are direct verbatim propositions formulated by Sadi Carnot and codified in NCERT Class 11 Physics Chapter 12."
+    },
+    {
+      "id": "phy_thermodynamics_c01_022",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The coefficient of performance (COP, $\\beta$) of a Carnot refrigerator decreases as the temperature inside the cold compartment ($T_2$) is lowered.\nReason (R): For a Carnot refrigerator operating between a warm reservoir $T_1$ and a cold reservoir $T_2$, the coefficient of performance is given by $\\beta = \\frac{T_2}{T_1 - T_2}$, which diminishes continuously as $T_2$ decreases.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The coefficient of performance of a refrigerator is defined as $\\beta = \\frac{Q_2}{W} = \\frac{Q_2}{Q_1 - Q_2}$. For a reversible Carnot cycle, $\\frac{Q_2}{Q_1} = \\frac{T_2}{T_1}$, which leads directly to $\\beta = \\frac{T_2}{T_1 - T_2}$. Reason (R) is true.\nStep 2: Differentiating $\\beta$ with respect to $T_2$ with $T_1$ constant: $\\frac{d\\beta}{dT_2} = \\frac{(T_1 - T_2)(1) - T_2(-1)}{(T_1 - T_2)^2} = \\frac{T_1}{(T_1 - T_2)^2} > 0$. This confirms that as $T_2$ decreases, $\\beta$ decreases monotonically. Assertion (A) is true and (R) is the correct explanation.\nDistractor Analysis: Alternative choices fail because cooling to lower temperatures inherently demands more mechanical work per joule of heat extracted, reducing the COP."
+    },
+    {
+      "id": "phy_thermodynamics_c01_023",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An ideal monatomic gas ($\\gamma = 5/3$) absorbs an amount of heat $Q$ at constant pressure. What fractions of this total heat are converted into mechanical work done by the gas ($W/Q$) and used to increase its internal energy ($\\Delta U / Q$), respectively?",
+      "options": [
+        "A) $W/Q = \\frac{2}{5}$ and $\\Delta U/Q = \\frac{3}{5}$",
+        "B) $W/Q = \\frac{3}{5}$ and $\\Delta U/Q = \\frac{2}{5}$",
+        "C) $W/Q = \\frac{1}{3}$ and $\\Delta U/Q = \\frac{2}{3}$",
+        "D) $W/Q = \\frac{2}{7}$ and $\\Delta U/Q = \\frac{5}{7}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For an isobaric heating process of an ideal gas, the heat absorbed is $Q = n C_p \\Delta T$, the change in internal energy is $\\Delta U = n C_v \\Delta T$, and the boundary work done is $W = P\\Delta V = nR\\Delta T$.\nStep 2: The fraction of heat converted into work is $\\frac{W}{Q} = \\frac{nR\\Delta T}{n C_p \\Delta T} = \\frac{R}{C_p}$. For a monatomic gas, $C_p = \\frac{5}{2}R$, giving $\\frac{W}{Q} = \\frac{R}{\\frac{5}{2}R} = \\frac{2}{5} = 0.40$.\nStep 3: The fraction of heat used to increase internal energy is $\\frac{\\Delta U}{Q} = \\frac{n C_v \\Delta T}{n C_p \\Delta T} = \\frac{C_v}{C_p} = \\frac{1}{\\gamma}$. For a monatomic gas, $\\frac{1}{5/3} = \\frac{3}{5} = 0.60$.\nDistractor Analysis: Inverting the fractions yields $\\frac{3}{5}$ and $\\frac{2}{5}$, which incorrectly swaps the roles of $C_p$ and $C_v$. The pair $\\frac{2}{7}$ and $\\frac{5}{7}$ corresponds to a diatomic gas."
+    },
+    {
+      "id": "phy_thermodynamics_c01_024",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): For one mole of an ideal gas, the molar heat capacity at constant pressure ($C_p$) exceeds that at constant volume ($C_v$) by the universal gas constant $R$ ($C_p - C_v = R$).\nReason (R): When heat is added at constant pressure, a portion of the thermal energy is expended as mechanical expansion work against external pressure, whereas at constant volume all heat is stored as internal energy.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: At constant volume, $dV = 0$, so no work is done ($W = 0$). Hence, by the First Law, heat supplied goes entirely into increasing internal energy: $\\Delta Q_v = \\Delta U = C_v \\Delta T$.\nStep 2: At constant pressure, the gas expands as temperature rises, doing boundary work $W = P\\Delta V = R\\Delta T$ (for 1 mole). The heat supplied must both increase internal energy and do this work: $\\Delta Q_p = \\Delta U + W = C_v \\Delta T + R\\Delta T = (C_v + R)\\Delta T$.\nStep 3: Since $\\Delta Q_p = C_p \\Delta T$, equating gives $C_p = C_v + R$, or $C_p - C_v = R$. Thus, Assertion (A) is true and Reason (R) provides the exact physical and mathematical mechanism explaining it.\nDistractor Analysis: Alternative choices stating that (R) is not the explanation fail because the expansion work $P\\Delta V = R\\Delta T$ is the sole cause of the difference between $C_p$ and $C_v$ in an ideal gas."
+    },
+    {
+      "id": "phy_thermodynamics_c01_025",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A given mass of an ideal diatomic gas with adiabatic index $\\gamma = 7/5 = 1.40$ initially at a temperature of $T_1 = 400\\text{ K}$ and volume $V_1$ undergoes a quasi-static reversible adiabatic expansion until its volume reaches $V_2 = 32 V_1$. What is the final temperature $T_2$ of the gas?",
+      "options": [
+        "A) $200\\text{ K}$",
+        "B) $150\\text{ K}$",
+        "C) $100\\text{ K}$",
+        "D) $250\\text{ K}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: For a reversible adiabatic process of an ideal gas, the temperature and volume are governed by the relation $T_1 V_1^{\\gamma - 1} = T_2 V_2^{\\gamma - 1}$.\nStep 2: Rearranging for $T_2$: $T_2 = T_1 \\left(\\frac{V_1}{V_2}\\right)^{\\gamma - 1}$. Here, $\\gamma - 1 = \\frac{7}{5} - 1 = \\frac{2}{5} = 0.40$, and $\\frac{V_1}{V_2} = \\frac{1}{32}$.\nStep 3: Evaluating the ratio: $\\left(\\frac{1}{32}\\right)^{2/5} = \\left(2^{-5}\\right)^{2/5} = 2^{-2} = \\frac{1}{4}$.\nStep 4: Therefore, $T_2 = 400 \\times \\frac{1}{4} = 100\\text{ K}$.\nDistractor Analysis: The value $200\\text{ K}$ results from erroneously using an exponent of $1/5$ instead of $2/5$; $250\\text{ K}$ arises from treating the expansion as linear with volume."
+    },
+    {
+      "id": "phy_thermodynamics_c01_026",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the comparison between isothermal and adiabatic expansions:\n\nStatement I: Starting from the identical initial state $(P_0, V_0)$, when an ideal gas expands to double its initial volume ($2V_0$), the work done in the isothermal process is strictly greater than that in the reversible adiabatic process ($W_\\text{iso} > W_\\text{adi}$).\nStatement II: In adiabatic expansion, pressure drops more steeply than in isothermal expansion because work is done entirely at the expense of internal energy causing temperature to fall, so the adiabatic curve lies below the isothermal curve on a $P-V$ diagram.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: On a $P-V$ diagram starting from $(P_0, V_0)$, the slope of the adiabatic curve is $\\left(\\frac{dP}{dV}\\right)_\\text{adi} = -\\gamma \\frac{P}{V}$, while the isothermal slope is $\\left(\\frac{dP}{dV}\\right)_\\text{iso} = -\\frac{P}{V}$. Since $\\gamma > 1$, the adiabatic curve drops more steeply.\nStep 2: During expansion ($V > V_0$), the adiabatic curve lies entirely below the isothermal curve. Because work done is the area under the curve ($\\int P\\,dV$), the area under the isothermal path is strictly greater: $W_\\text{iso} > W_\\text{adi}$. Thus, Statement I is true.\nStep 3: The physical origin of the steeper pressure decline is that no heat is absorbed from outside ($\\Delta Q = 0$); internal energy is depleted to perform work ($\\Delta U = -W < 0$), causing the gas to cool ($T < T_0$). In contrast, an isothermal process absorbs heat from a reservoir to maintain constant temperature. Thus, Statement II is true.\nDistractor Analysis: Choices claiming either statement is false contradict the fundamental geometrical comparison of indicator diagrams."
+    },
+    {
+      "id": "phy_thermodynamics_c01_027",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A sample of an ideal gas is taken through the cyclic process $A \\to B \\to C \\to A$ on a $P-V$ diagram. Leg $A \\to B$ is an isobaric expansion at constant pressure $P = 4.0 \\times 10^5\\text{ Pa}$ from $V_A = 2.0 \\times 10^{-3}\\text{ m}^3$ to $V_B = 6.0 \\times 10^{-3}\\text{ m}^3$. Leg $B \\to C$ is an isochoric cooling to $P = 1.0 \\times 10^5\\text{ Pa}$. Leg $C \\to A$ is a direct linear return path connecting $(P_C, V_C)$ back to $(P_A, V_A)$. What are the net work done by the gas and the net heat absorbed per cycle?",
+      "options": [
+        "A) $W_\\text{net} = 300\\text{ J}$ and $Q_\\text{net} = 300\\text{ J}$",
+        "B) $W_\\text{net} = 600\\text{ J}$ and $Q_\\text{net} = 600\\text{ J}$",
+        "C) $W_\\text{net} = 1200\\text{ J}$ and $Q_\\text{net} = 1200\\text{ J}$",
+        "D) $W_\\text{net} = 600\\text{ J}$ and $Q_\\text{net} = 0\\text{ J}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: On the $P-V$ plane, the cycle forms a right-angled triangle enclosed by the paths $A(4.0\\times 10^5, 2.0\\times 10^{-3}) \\to B(4.0\\times 10^5, 6.0\\times 10^{-3}) \\to C(1.0\\times 10^5, 6.0\\times 10^{-3}) \\to A$.\nStep 2: The cycle is traversed clockwise, so the net work done is positive and equals the area of the triangle: $W_\\text{net} = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times (V_B - V_A) \\times (P_A - P_C) = \\frac{1}{2} \\times (4.0 \\times 10^{-3}\\text{ m}^3) \\times (3.0 \\times 10^5\\text{ Pa}) = 600\\text{ J}$.\nStep 3: For any complete thermodynamic cycle, internal energy change is zero ($\\Delta U_\\text{net} = 0$). By the First Law of Thermodynamics, $Q_\\text{net} = \\Delta U_\\text{net} + W_\\text{net} = 0 + 600\\text{ J} = 600\\text{ J}$.\nDistractor Analysis: The value $300\\text{ J}$ omits the factor of $1/2$ or miscalculates coordinates; $1200\\text{ J}$ represents the full rectangular bounding box without dividing by 2; setting $Q_\\text{net} = 0$ incorrectly treats the entire cycle as adiabatic."
+    },
+    {
+      "id": "phy_thermodynamics_c01_028",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding elastic bulk moduli of an ideal gas:\n\nStatement I: The isothermal bulk modulus of an ideal gas at pressure $P$ is $B_T = P$, whereas its adiabatic bulk modulus is $B_S = \\gamma P$.\nStatement II: The ratio of adiabatic bulk modulus to isothermal bulk modulus ($B_S / B_T$) equals the ratio of specific heats $\\gamma = C_p/C_v$, which explains why Laplace's formula for the speed of sound is a factor of $\\sqrt{\\gamma}$ higher than Newton's formula.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: By definition, volume elasticity (bulk modulus) is $B = -V \\frac{dP}{dV}$. For an isothermal process, $PV = \\text{constant} \\implies \\frac{dP}{dV} = -\\frac{P}{V}$, yielding $B_T = -V\\left(-\\frac{P}{V}\\right) = P$. For an adiabatic process, $PV^\\gamma = \\text{constant} \\implies \\frac{dP}{dV} = -\\gamma \\frac{P}{V}$, yielding $B_S = -V\\left(-\\gamma \\frac{P}{V}\\right) = \\gamma P$. Hence, Statement I is true.\nStep 2: Taking the ratio: $\\frac{B_S}{B_T} = \\frac{\\gamma P}{P} = \\gamma$. Newton originally assumed sound propagation through air is isothermal ($v = \\sqrt{B_T / \\rho} = \\sqrt{P / \\rho}$). Laplace corrected this by recognizing that rapid compressions and rarefactions are adiabatic ($v = \\sqrt{B_S / \\rho} = \\sqrt{\\gamma P / \\rho} = \\sqrt{\\gamma} \\, v_\\text{Newton}$). Hence, Statement II is true.\nDistractor Analysis: Choices claiming either statement is false contradict the classical derivation connecting thermodynamic bulk moduli to acoustic propagation in NCERT."
+    },
+    {
+      "id": "phy_thermodynamics_c01_029",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II for ideal gases of different molecular structures with their respective molar heat capacities and adiabatic ratios:\n\nList I:\nP. Monatomic gas (e.g., Helium)\nQ. Diatomic gas without vibrational modes (e.g., Nitrogen)\nR. Non-linear triatomic gas (e.g., rigid Water vapor)\nS. Diatomic gas with one active vibrational mode\n\nList II:\n1. $C_v = \\frac{5}{2}R$ and $\\gamma = \\frac{7}{5} = 1.40$\n2. $C_v = \\frac{3}{2}R$ and $\\gamma = \\frac{5}{3} \\approx 1.67$\n3. $C_v = 3R$ and $\\gamma = \\frac{4}{3} \\approx 1.33$\n4. $C_v = \\frac{7}{2}R$ and $\\gamma = \\frac{9}{7} \\approx 1.29$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-2, Q-1, R-3, S-4",
+        "B) P-1, Q-2, R-3, S-4",
+        "C) P-2, Q-4, R-1, S-3",
+        "D) P-3, Q-1, R-4, S-2"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Monatomic gases have 3 translational degrees of freedom ($f = 3$), giving $C_v = \\frac{3}{2}R$, $C_p = \\frac{5}{2}R$, and $\\gamma = \\frac{5}{3}$ (P matches 2).\nStep 2: Diatomic rigid molecules have 3 translational + 2 rotational degrees of freedom ($f = 5$), giving $C_v = \\frac{5}{2}R$, $C_p = \\frac{7}{2}R$, and $\\gamma = \\frac{7}{5}$ (Q matches 1).\nStep 3: Non-linear polyatomic rigid molecules have 3 translational + 3 rotational degrees of freedom ($f = 6$), giving $C_v = \\frac{6}{2}R = 3R$, $C_p = 4R$, and $\\gamma = \\frac{4}{3}$ (R matches 3).\nStep 4: A diatomic gas with an active vibrational mode contributes 2 additional energy quadratic terms (kinetic and potential), so $f = 5 + 2 = 7$, giving $C_v = \\frac{7}{2}R$, $C_p = \\frac{9}{2}R$, and $\\gamma = \\frac{9}{7}$ (S matches 4).\nDistractor Analysis: Alternative pairings swap monatomic and diatomic values or misassign vibrational degree of freedom contributions."
+    },
+    {
+      "id": "phy_thermodynamics_c01_030",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When an ideal gas undergoes free expansion into an evacuated, thermally insulated container, its final temperature equals its initial temperature ($T_f = T_i$).\nReason (R): In a free expansion, no external mechanical work is performed ($W = 0$) and no heat is exchanged across the boundary ($Q = 0$), so the internal energy of the ideal gas remains constant ($\\Delta U = 0$).\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Free expansion occurs into a vacuum (opposing pressure $P_\\text{ext} = 0$), so the mechanical work done is $W = \\int P_\\text{ext}\\,dV = 0$. Since the vessel is thermally insulated, $Q = 0$. By the First Law, $\\Delta U = Q - W = 0 - 0 = 0$. Reason (R) is true.\nStep 2: For an ideal gas, internal energy depends solely on temperature: $\\Delta U = n C_v \\Delta T$. Since $\\Delta U = 0$, it follows directly that $\\Delta T = 0$, meaning $T_f = T_i$. Assertion (A) is true.\nStep 3: Reason (R) provides the exact deductive justification showing why the temperature remains unchanged for an ideal gas. Hence, (R) correctly explains (A).\nDistractor Analysis: For real gases with intermolecular attraction (van der Waals gases), free expansion causes slight cooling (Joule effect) because work is done against internal cohesive forces; but for an ideal gas, $T_f = T_i$ strictly holds."
+    },
+    {
+      "id": "phy_thermodynamics_c01_031",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "One mole of an ideal gas with ratio of specific heats $\\gamma = 1.50$ initially at a temperature of $T_1 = 300\\text{ K}$ expands quasi-statically and adiabatically until its temperature falls to $T_2 = 240\\text{ K}$. Given $R = 8.314\\text{ J}\\cdot\\text{mol}^{-1}\\cdot\\text{K}^{-1}$, what is the work done by the gas during this expansion?",
+      "options": [
+        "A) $499\\text{ J}$",
+        "B) $665\\text{ J}$",
+        "C) $998\\text{ J}$",
+        "D) $1496\\text{ J}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The work done by an expanding ideal gas during a reversible adiabatic process is given by $W = \\frac{nR(T_1 - T_2)}{\\gamma - 1}$.\nStep 2: Substitute the known values: $n = 1.0\\text{ mol}$, $R = 8.314\\text{ J}\\cdot\\text{mol}^{-1}\\cdot\\text{K}^{-1}$, $T_1 = 300\\text{ K}$, $T_2 = 240\\text{ K}$, and $\\gamma = 1.50$.\nStep 3: Calculate: $W = \\frac{1.0 \\times 8.314 \\times (300 - 240)}{1.50 - 1.0} = \\frac{8.314 \\times 60}{0.50} = 8.314 \\times 120 = 997.68\\text{ J} \\approx 998\\text{ J}$.\nDistractor Analysis: The value $499\\text{ J}$ arises from dividing by $1.0$ instead of $0.50$; $1496\\text{ J}$ incorrectly uses $C_p$ instead of $R/(\\gamma - 1)$."
+    },
+    {
+      "id": "phy_thermodynamics_c01_032",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding two Carnot engines operating in series between a source at $T_1$ and a sink at $T_2$, where the first engine rejects heat at an intermediate temperature $T$ which is absorbed by the second engine:\n\nStatement I: If both engines perform equal amounts of mechanical work per cycle ($W_1 = W_2$), the intermediate temperature is the arithmetic mean of the source and sink temperatures: $T = \\frac{T_1 + T_2}{2}$.\nStatement II: If both engines operate at identical thermal efficiencies ($\\eta_1 = \\eta_2$), the intermediate temperature is the geometric mean of the source and sink temperatures: $T = \\sqrt{T_1 T_2}$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: When work outputs are equal ($W_1 = W_2$), $Q_1 - Q = Q - Q_2 \\implies Q_1\\left(1 - \\frac{T}{T_1}\\right) = Q\\left(1 - \\frac{T_2}{T}\\right)$. Since heat transfers are proportional to temperatures in reversible cycles ($Q_1/T_1 = Q/T = Q_2/T_2$), this simplifies to $T_1 - T = T - T_2 \\implies 2T = T_1 + T_2 \\implies T = \\frac{T_1 + T_2}{2}$. Statement I is true.\nStep 2: When thermal efficiencies are identical ($\\eta_1 = \\eta_2$), $1 - \\frac{T}{T_1} = 1 - \\frac{T_2}{T} \\implies \\frac{T}{T_1} = \\frac{T_2}{T} \\implies T^2 = T_1 T_2 \\implies T = \\sqrt{T_1 T_2}$. Statement II is true.\nDistractor Analysis: Inverting the two conditions (claiming geometric mean for equal work or arithmetic mean for equal efficiency) is a common misconception."
+    },
+    {
+      "id": "phy_thermodynamics_c01_033",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A domestic refrigerator operating on a reversed Carnot cycle has a coefficient of performance $\\beta = 5.0$. If it extracts heat from the freezing chamber at a continuous rate of $250\\text{ W}$, what is the mechanical power input required to drive the compressor, and at what rate is heat discarded into the surrounding kitchen?",
+      "options": [
+        "A) Power input $= 50\\text{ W}$ and heat discharge rate $= 300\\text{ W}$",
+        "B) Power input $= 50\\text{ W}$ and heat discharge rate $= 250\\text{ W}$",
+        "C) Power input $= 1250\\text{ W}$ and heat discharge rate $= 1500\\text{ W}$",
+        "D) Power input $= 200\\text{ W}$ and heat discharge rate $= 450\\text{ W}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The coefficient of performance of a refrigerator is given by $\\beta = \\frac{Q_2}{W} = \\frac{\\dot{Q}_2}{P}$, where $\\dot{Q}_2$ is the rate of heat removal and $P$ is the power input.\nStep 2: Solving for power input: $P = \\frac{\\dot{Q}_2}{\\beta} = \\frac{250\\text{ W}}{5.0} = 50\\text{ W}$.\nStep 3: By conservation of energy, the rate of heat rejected into the room from the condenser coils is $\\dot{Q}_1 = \\dot{Q}_2 + P = 250\\text{ W} + 50\\text{ W} = 300\\text{ W}$.\nDistractor Analysis: Option B ignores the electrical work converted into additional heat; Option C multiplies rather than divides by $\\beta$, yielding an unrealistically high compressor power."
+    },
+    {
+      "id": "phy_thermodynamics_c01_034",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): If the door of an operating electric refrigerator is kept continuously open in a closed, thermally insulated room, the temperature of the room will gradually increase.\nReason (R): The refrigerator discharges heat into the room from its condenser coils at a rate of $Q_1 = Q_2 + W$, which exceeds the heat absorbed from the room ($Q_2$) by the electrical work $W$ dissipated by the motor.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The open refrigerator absorbs heat $Q_2$ directly from the air inside the room and rejects heat $Q_1$ into the same room from the external coils at the back.\nStep 2: From the First Law of Thermodynamics, the heat expelled to the surroundings is $Q_1 = Q_2 + W$, where $W$ is the electrical work delivered to run the motor.\nStep 3: The net thermal energy added to the room is $\\Delta Q_\\text{net} = Q_1 - Q_2 = W > 0$. Because the room is thermally insulated from the outside, this positive net heat input inevitably causes the air temperature to rise. Assertion (A) is true and (R) provides the exact explanation.\nDistractor Analysis: Common misconceptions assume the refrigerator acts as an air conditioner and cools the room, neglecting the electrical energy input $W$ that is converted into heat."
+    },
+    {
+      "id": "phy_thermodynamics_c01_035",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a polytropic process $P V^n = \\text{constant}$ of an ideal gas:\n\nStatement I: For an ideal gas undergoing a reversible polytropic process $P V^n = \\text{constant}$ (where $n \\ne 1$), the molar heat capacity is given by $C = C_v + \\frac{R}{1 - n}$.\nStatement II: A thermodynamic process can exhibit a negative molar heat capacity ($C < 0$), which occurs when the work done by the expanding gas exceeds the heat supplied, causing the temperature to drop while heat is being absorbed.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In a polytropic process, $dQ = dU + dW$. For 1 mole, $C\\,dT = C_v\\,dT + P\\,dV$. Differentiating $PV^n = \\text{constant}$ yields $P\\,dV = \\frac{R\\,dT}{1 - n}$. Substituting gives $C = C_v + \\frac{R}{1 - n}$. Statement I is true.\nStep 2: If the expansion index $n$ lies in the interval $1 < n < \\gamma$, $\\frac{R}{1 - n}$ is negative and its magnitude exceeds $C_v = \\frac{R}{\\gamma - 1}$, causing $C < 0$. Under this condition, $dQ > 0$ accompanied by large work expansion results in $dT < 0$. Statement II is true.\nDistractor Analysis: Many students believe heat capacity cannot be negative, but in open expanding systems where work extraction outpaces heat input, negative molar heat capacity is physically realized."
+    },
+    {
+      "id": "phy_thermodynamics_c01_036",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An ideal gas undergoes a cyclic process represented by an ellipse on a $P-V$ diagram. The maximum and minimum pressures reached during the cycle are $P_\\text{max} = 5.0 \\times 10^5\\text{ Pa}$ and $P_\\text{min} = 1.0 \\times 10^5\\text{ Pa}$, and the maximum and minimum volumes are $V_\\text{max} = 6.0 \\times 10^{-3}\\text{ m}^3$ and $V_\\text{min} = 2.0 \\times 10^{-3}\\text{ m}^3$. If the cycle is executed in a clockwise sense, what is the net work done by the gas during each complete cycle? (Take $\\pi = 3.14$)",
+      "options": [
+        "A) $628\\text{ J}$",
+        "B) $2512\\text{ J}$",
+        "C) $1256\\text{ J}$",
+        "D) $5024\\text{ J}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The area enclosed by an ellipse is given by Area $= \\pi a b$, where $a$ and $b$ are the semi-major and semi-minor axes.\nStep 2: Along the volume axis: semi-axis $a = \\frac{V_\\text{max} - V_\\text{min}}{2} = \\frac{(6.0 - 2.0) \\times 10^{-3}}{2} = 2.0 \\times 10^{-3}\\text{ m}^3$.\nStep 3: Along the pressure axis: semi-axis $b = \\frac{P_\\text{max} - P_\\text{min}}{2} = \\frac{(5.0 - 1.0) \\times 10^5}{2} = 2.0 \\times 10^5\\text{ Pa}$.\nStep 4: The net work done is the enclosed area: $W_\\text{net} = \\pi a b = 3.14 \\times (2.0 \\times 10^{-3}) \\times (2.0 \\times 10^5) = 3.14 \\times 400 = 1256\\text{ J}$.\nDistractor Analysis: The value $5024\\text{ J}$ uses the full diameters $\\Delta P \\times \\Delta V$ rather than semi-axes; $628\\text{ J}$ erroneously introduces an extra factor of $1/2$."
+    },
+    {
+      "id": "phy_thermodynamics_c01_037",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When an ideal gas is carried from a defined initial state $i$ to a final state $f$ via three different paths on a $P-V$ diagram, the heat absorbed satisfies $Q_1 \\ne Q_2 \\ne Q_3$ if the areas under the three paths differ.\nReason (R): While the change in internal energy $\\Delta U = U_f - U_i$ is identical for all paths connecting the same two end states, the mechanical work $W = \\int P\\,dV$ is path-dependent, making the heat transfer $Q = \\Delta U + W$ path-dependent.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The change in internal energy $\\Delta U = U_f - U_i$ depends exclusively on the state variables of the initial and final states; hence, $\\Delta U_1 = \\Delta U_2 = \\Delta U_3$.\nStep 2: The boundary work $W = \\int P\\,dV$ is represented by the geometric area under each curve on the $P-V$ diagram. Since the three paths enclose different areas under their curves, $W_1 \\ne W_2 \\ne W_3$.\nStep 3: From the First Law, $Q = \\Delta U + W$. Because $\\Delta U$ is constant across all paths while $W$ varies, the heat absorbed $Q$ must differ between paths ($Q_1 \\ne Q_2 \\ne Q_3$). Thus, Assertion (A) is true and Reason (R) provides the exact explanation.\nDistractor Analysis: Choices claiming (R) does not explain (A) fail to recognize that heat is an inexact differential precisely because work is path-dependent."
+    },
+    {
+      "id": "phy_thermodynamics_c01_038",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A gas mixture contains $2.0\\text{ moles}$ of helium (monatomic, $C_{v1} = \\frac{3}{2}R$) and $3.0\\text{ moles}$ of oxygen (diatomic rigid, $C_{v2} = \\frac{5}{2}R$). What are the effective molar heat capacity at constant volume ($C_{v,\\text{mix}}$) and the effective adiabatic ratio ($\\gamma_\\text{mix}$) of the mixture?",
+      "options": [
+        "A) $C_{v,\\text{mix}} = \\frac{19}{10}R$ and $\\gamma_\\text{mix} = \\frac{29}{19}$",
+        "B) $C_{v,\\text{mix}} = \\frac{21}{10}R$ and $\\gamma_\\text{mix} = \\frac{31}{21}$",
+        "C) $C_{v,\\text{mix}} = 2R$ and $\\gamma_\\text{mix} = 1.50$",
+        "D) $C_{v,\\text{mix}} = \\frac{23}{10}R$ and $\\gamma_\\text{mix} = \\frac{33}{23}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The effective molar heat capacity at constant volume of a non-reacting ideal gas mixture is given by $C_{v,\\text{mix}} = \\frac{n_1 C_{v1} + n_2 C_{v2}}{n_1 + n_2}$.\nStep 2: Substituting $n_1 = 2.0$, $C_{v1} = \\frac{3}{2}R$ and $n_2 = 3.0$, $C_{v2} = \\frac{5}{2}R$: $C_{v,\\text{mix}} = \\frac{2\\left(\\frac{3}{2}R\\right) + 3\\left(\\frac{5}{2}R\\right)}{2 + 3} = \\frac{3R + 7.5R}{5} = \\frac{10.5R}{5} = \\frac{21}{10}R = 2.1R$.\nStep 3: Using Mayer's relation for the mixture: $C_{p,\\text{mix}} = C_{v,\\text{mix}} + R = 2.1R + R = 3.1R = \\frac{31}{10}R$.\nStep 4: The effective adiabatic ratio is $\\gamma_\\text{mix} = \\frac{C_{p,\\text{mix}}}{C_{v,\\text{mix}}} = \\frac{31/10}{21/10} = \\frac{31}{21} \\approx 1.48$.\nDistractor Analysis: Taking a simple unweighted arithmetic mean of $C_v$ yields $2.0R$ and $\\gamma = 1.50$, which neglects the unequal molar proportions ($2\\text{ mol}$ vs $3\\text{ mol}$)."
+    },
+    {
+      "id": "phy_thermodynamics_c01_039",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding methods to boost the thermal efficiency of a Carnot heat engine:\n\nStatement I: For a Carnot engine operating between source temperature $T_1$ and sink temperature $T_2$, lowering the sink temperature by $\\Delta T$ yields a greater increase in efficiency than raising the source temperature by the same amount $\\Delta T$.\nStatement II: The rate of change of efficiency with respect to sink temperature $\\left|\\frac{\\partial \\eta}{\\partial T_2}\\right| = \\frac{1}{T_1}$ is strictly greater than that with respect to source temperature $\\frac{\\partial \\eta}{\\partial T_1} = \\frac{T_2}{T_1^2}$ because $T_1 > T_2$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The Carnot efficiency is $\\eta = 1 - \\frac{T_2}{T_1}$. Differentiating partially with respect to $T_2$: $\\frac{\\partial \\eta}{\\partial T_2} = -\\frac{1}{T_1}$, so its magnitude is $\\frac{1}{T_1}$.\nStep 2: Differentiating partially with respect to $T_1$: $\\frac{\\partial \\eta}{\\partial T_1} = \\frac{T_2}{T_1^2} = \\frac{1}{T_1} \\left(\\frac{T_2}{T_1}\\right)$.\nStep 3: Because a heat engine must have $T_1 > T_2$, the ratio $\\frac{T_2}{T_1} < 1$. Consequently, $\\frac{1}{T_1} > \\frac{T_2}{T_1^2}$, proving that lowering $T_2$ produces a steeper gain in efficiency than increasing $T_1$ by the same $\\Delta T$. Thus, both Statement I and Statement II are true.\nDistractor Analysis: Alternative choices asserting Statement I is false contradict the standard calculus optimization of the Carnot cycle."
+    },
+    {
+      "id": "phy_thermodynamics_c01_040",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the Clausius Inequality and cyclic thermodynamic processes:\n\nStatement I: For any closed thermodynamic cycle executed by a working substance, the cyclic integral of heat transfer divided by temperature satisfies $\\oint \\frac{dQ}{T} \\le 0$, where the equality holds strictly for reversible cycles.\nStatement II: For an internally irreversible cyclic process, $\\oint \\frac{dQ}{T} > 0$ because entropy generation inside the system converts mechanical energy into additional heat.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The Clausius Inequality is a direct consequence of the Second Law of Thermodynamics, stating that for any cyclic process, $\\oint \\frac{dQ}{T} \\le 0$. For a completely reversible cycle, $\\oint \\frac{dQ_\\text{rev}}{T} = 0$, defining the state function entropy $S$. Statement I is true.\nStep 2: For an irreversible cycle, entropy generation is positive ($S_\\text{gen} > 0$). Because the system returns to its initial state ($\\Delta S = 0 = \\oint \\frac{dQ}{T} + S_\\text{gen}$), it follows that $\\oint \\frac{dQ}{T} = -S_\\text{gen} < 0$. The cyclic integral is strictly negative, never positive. Statement II is false.\nDistractor Analysis: Choices claiming Statement II is true confuse entropy generation ($S_\\text{gen} > 0$) with the boundary integral of heat transfer."
+    },
+    {
+      "id": "phy_thermodynamics_c01_041",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When an ideal gas is compressed to half its initial volume ($V_0 \\to V_0/2$), more mechanical work is required to compress the gas adiabatically than isothermally ($|W_\\text{adi}| > |W_\\text{iso}|$).\nReason (R): During adiabatic compression, temperature rises due to the work done on the gas being trapped as internal energy, causing the pressure to rise faster than in isothermal compression where temperature is held constant.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: During compression from $V_0$ to $V_0/2$, the volume decreases ($dV < 0$). On a $P-V$ diagram, the adiabatic curve is steeper than the isothermal curve: $\\left|\\frac{dP}{dV}\\right|_\\text{adi} = \\gamma \\left|\\frac{dP}{dV}\\right|_\\text{iso}$.\nStep 2: As volume decreases below $V_0$, the adiabatic curve rises above the isothermal curve. Consequently, the area under the adiabatic compression curve is greater than that under the isothermal curve, meaning $|W_\\text{adi}| > |W_\\text{iso}|$. Assertion (A) is true.\nStep 3: In adiabatic compression, $\\Delta Q = 0$, so work done on the gas increases its internal energy ($W_\\text{on} = \\Delta U > 0$), driving the temperature up ($T > T_0$). This elevated temperature enhances the pressure rise beyond that predicted by Boyle's law alone. Reason (R) is true and directly explains (A).\nDistractor Analysis: Choices claiming (R) is not the explanation fail because the thermal heating during adiabatic compression is the exact physical origin of the higher pressure and greater work input."
+    },
+    {
+      "id": "phy_thermodynamics_c01_042",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "One mole of an ideal monatomic gas ($C_v = \\frac{3}{2}R$) undergoes a thermodynamic process in which its pressure is directly proportional to its volume ($P = \\alpha V$, where $\\alpha$ is a positive constant). As the gas expands from an initial volume $V_0$ to a final volume $2V_0$, what is the molar heat capacity $C$ of the gas for this process?",
+      "options": [
+        "A) $C = \\frac{3}{2}R$",
+        "B) $C = \\frac{5}{2}R$",
+        "C) $C = 2R$",
+        "D) $C = 3R$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: By the First Law of Thermodynamics for 1 mole, $dQ = dU + dW = C_v\\,dT + P\\,dV$. The molar heat capacity is defined as $C = \\frac{dQ}{dT} = C_v + P\\frac{dV}{dT}$.\nStep 2: The process equation is $P = \\alpha V$. Using the ideal gas law $PV = RT$ gives $\\alpha V^2 = RT$, which upon differentiation yields $2\\alpha V\\,dV = R\\,dT$, or $\\frac{dV}{dT} = \\frac{R}{2\\alpha V}$.\nStep 3: Substitute $\\frac{dV}{dT}$ and $P = \\alpha V$ into the heat capacity expression: $C = C_v + (\\alpha V)\\left(\\frac{R}{2\\alpha V}\\right) = C_v + \\frac{R}{2}$.\nStep 4: For a monatomic gas, $C_v = \\frac{3}{2}R$. Therefore, $C = \\frac{3}{2}R + \\frac{R}{2} = 2R$.\nDistractor Analysis: Values such as $\\frac{5}{2}R$ represent the standard isobaric heat capacity $C_p$; $\\frac{3}{2}R$ corresponds to isochoric heating where work is zero."
+    },
+    {
+      "id": "phy_thermodynamics_c01_043",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When a fully inflated automobile tyre bursts suddenly, the escaping compressed air feels noticeably colder than the surrounding ambient air, whereas air escaping slowly from a small pinhole puncture remains at ambient temperature.\nReason (R): A sudden burst is an extremely rapid expansion allowing negligible time for heat exchange (adiabatic expansion, $\\Delta Q = 0$), so the gas expands by depleting internal energy ($\\Delta T < 0$), whereas slow leakage allows continuous heat conduction to maintain isothermal equilibrium.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In a sudden tyre blowout, air expands against the opposing atmospheric pressure in a fraction of a millisecond. Because the time interval is vanishingly small, thermal conduction between the gas and the rubber casing or surroundings is negligible: $\\Delta Q \\approx 0$, making it an adiabatic expansion. Assertion (A) is true.\nStep 2: In an adiabatic expansion, the mechanical work done in pushing away the atmosphere comes entirely from the internal kinetic energy of the molecules: $\\Delta U = -W < 0$. For an ideal gas, $\\Delta U = n C_v \\Delta T$, leading to a sharp drop in temperature ($\\Delta T < 0$).\nStep 3: In contrast, a slow pinhole puncture occurs at a low rate where the metallic valve and rubber walls act as diathermic boundaries, supplying heat continuously to keep $T = \\text{constant}$ (isothermal process). Reason (R) is true and directly explains (A).\nDistractor Analysis: Alternative assessments claiming (R) does not explain (A) fail because the timescale comparison between mechanical expansion and thermal relaxation is the exact reason for the observed temperature difference."
+    },
+    {
+      "id": "phy_thermodynamics_c01_044",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A reversible Carnot heat pump is deployed to maintain the interior of an auditorium at a comfortable temperature of $T_1 = 27^\\circ\\text{C}$ ($300\\text{ K}$) when the outside freezing temperature is $T_2 = -23^\\circ\\text{C}$ ($250\\text{ K}$). If the building loses heat through its walls at a steady rate of $1800\\text{ W}$, what is the coefficient of performance (COP) of the heat pump, and what electrical power input is required to run its motor?",
+      "options": [
+        "A) $\\text{COP} = 5.0$ and Power $= 360\\text{ W}$",
+        "B) $\\text{COP} = 1.2$ and Power $= 1500\\text{ W}$",
+        "C) $\\text{COP} = 6.0$ and Power $= 300\\text{ W}$",
+        "D) $\\text{COP} = 0.83$ and Power $= 2160\\text{ W}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The coefficient of performance (COP) of a Carnot heat pump ($\\alpha$) is defined as the ratio of heat delivered to the warm space ($Q_1$) to the mechanical work input ($W$): $\\alpha = \\frac{Q_1}{W} = \\frac{T_1}{T_1 - T_2}$.\nStep 2: Converting temperatures to Kelvin: $T_1 = 27 + 273 = 300\\text{ K}$ and $T_2 = -23 + 273 = 250\\text{ K}$.\nStep 3: Calculating COP: $\\alpha = \\frac{300}{300 - 250} = \\frac{300}{50} = 6.0$. (Note that for a refrigerator operating between the same temperatures, $\\beta = \\frac{T_2}{T_1 - T_2} = 5.0$, confirming $\\alpha = \\beta + 1 = 6.0$).\nStep 4: The electrical power input required to supply heat at the rate of $\\dot{Q}_1 = 1800\\text{ W}$ is $P = \\frac{\\dot{Q}_1}{\\alpha} = \\frac{1800\\text{ W}}{6.0} = 300\\text{ W}$.\nDistractor Analysis: Calculating $\\text{COP} = 5.0$ and $\\text{Power} = 360\\text{ W}$ confuses the heat pump COP (delivering $Q_1$) with the refrigerator COP (extracting $Q_2$)."
+    },
+    {
+      "id": "phy_thermodynamics_c01_045",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An ideal diatomic gas with adiabatic index $\\gamma = 7/5$ undergoes a quasi-static reversible expansion. The relationship between pressure $P$ and absolute temperature $T$ during this process is described by $P \\propto T^c$. If the process is strictly adiabatic, what is the exact value of the exponent $c$?",
+      "options": [
+        "A) $c = \\frac{7}{2}$",
+        "B) $c = \\frac{5}{2}$",
+        "C) $c = -\\frac{5}{2}$",
+        "D) $c = \\frac{2}{7}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For a reversible adiabatic process of an ideal gas, the governing equation in terms of pressure and volume is $P V^\\gamma = \\text{constant}$.\nStep 2: From the ideal gas law, $V = \\frac{nRT}{P}$. Substituting this into the adiabatic formula gives $P \\left(\\frac{nRT}{P}\\right)^\\gamma = \\text{constant} \\implies P^{1 - \\gamma} T^\\gamma = \\text{constant}$.\nStep 3: Rearranging for $P$ in terms of $T$: $P^{1 - \\gamma} \\propto T^{-\\gamma} \\implies P \\propto T^{\\frac{\\gamma}{\\gamma - 1}}$. Thus, the exponent is $c = \\frac{\\gamma}{\\gamma - 1}$.\nStep 4: Substituting $\\gamma = \\frac{7}{5}$: $c = \\frac{7/5}{7/5 - 1} = \\frac{7/5}{2/5} = \\frac{7}{2} = 3.5$.\nDistractor Analysis: The value $\\frac{5}{2}$ results from erroneously inverting $\\frac{\\gamma - 1}{\\gamma}$; $\\frac{2}{7}$ represents the reciprocal $\\frac{1}{c}$."
+    },
+    {
+      "id": "phy_thermodynamics_c01_046",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding an ideal gas undergoing a process along a straight line connecting state $(P_0, V_0)$ to state $(2P_0, 2V_0)$ on a $P-V$ diagram:\n\nStatement I: The temperature of the gas increases monotonically from the initial state to the final state along this linear trajectory.\nStatement II: Along this straight line path, the pressure as a function of volume is $P(V) = \\frac{P_0}{V_0}V$, so the temperature satisfies $T(V) = \\frac{P_0}{n R V_0}V^2$, which increases continuously as volume increases from $V_0$ to $2V_0$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is false but Statement II is true.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Both Statement I and Statement II are true.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The straight line connects $(P_0, V_0)$ to $(2P_0, 2V_0)$ on the $P-V$ diagram. The slope is $m = \\frac{2P_0 - P_0}{2V_0 - V_0} = \\frac{P_0}{V_0}$. The line passes through the origin, so its equation is $P(V) = \\left(\\frac{P_0}{V_0}\\right) V$. Statement II correctly states this equation.\nStep 2: From the ideal gas law $PV = nRT$, temperature is given by $T(V) = \\frac{P(V) \\cdot V}{nR} = \\frac{P_0}{n R V_0} V^2$. Differentiating with respect to $V$: $\\frac{dT}{dV} = \\frac{2 P_0}{n R V_0} V > 0$ for all $V > 0$.\nStep 3: Because the first derivative is strictly positive throughout the domain $V_0 \\le V \\le 2V_0$, the temperature increases monotonically from $T_i = \\frac{P_0 V_0}{nR}$ to $T_f = \\frac{4 P_0 V_0}{nR} = 4 T_i$. Statement I is true.\nDistractor Analysis: In contrast to straight lines with negative slopes (which have a parabolic temperature profile with a local maximum), lines through the origin with positive slopes produce monotonic temperature increases."
+    },
+    {
+      "id": "phy_thermodynamics_c01_047",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An ideal diatomic gas ($C_v = \\frac{5}{2}R$, $C_p = \\frac{7}{2}R$) undergoes a cyclic process $1 \\to 2 \\to 3 \\to 1$. Leg $1 \\to 2$ is an isobaric expansion at pressure $P_0$ from volume $V_0$ to $2V_0$. Leg $2 \\to 3$ is an isochoric cooling to pressure $P_0/2$. Leg $3 \\to 1$ is an isothermal compression back to $(P_0, V_0)$. Match List I with List II for the thermodynamic quantities:\n\nList I:\nP. Work done in leg $1 \\to 2$ ($W_{12}$)\nQ. Heat supplied in leg $1 \\to 2$ ($Q_{12}$)\nR. Work done in leg $2 \\to 3$ ($W_{23}$)\nS. Change in internal energy in leg $2 \\to 3$ ($\\Delta U_{23}$)\n\nList II:\n1. Zero\n2. $P_0 V_0$\n3. $\\frac{7}{2}P_0 V_0$\n4. $-\\frac{5}{2}P_0 V_0$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-3, R-2, S-4",
+        "B) P-2, Q-3, R-1, S-4",
+        "C) P-2, Q-4, R-1, S-3",
+        "D) P-3, Q-2, R-1, S-4"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In leg $1 \\to 2$ (isobaric), $W_{12} = P_0 (2V_0 - V_0) = P_0 V_0$. Hence, P matches 2.\nStep 2: Heat supplied in isobaric expansion is $Q_{12} = n C_p \\Delta T = C_p \\frac{P_0 \\Delta V}{R} = \\left(\\frac{7}{2}R\\right) \\frac{P_0 V_0}{R} = \\frac{7}{2}P_0 V_0$. Hence, Q matches 3.\nStep 3: In leg $2 \\to 3$ (isochoric), volume is held constant at $2V_0$ ($dV = 0$), so $W_{23} = 0$. Hence, R matches 1.\nStep 4: Change in internal energy in leg $2 \\to 3$ is $\\Delta U_{23} = n C_v \\Delta T = \\frac{C_v}{R} V_2 \\Delta P = \\left(\\frac{5}{2}\\right)(2V_0)\\left(\\frac{P_0}{2} - P_0\\right) = 5V_0 \\left(-\\frac{P_0}{2}\\right) = -\\frac{5}{2}P_0 V_0$. Hence, S matches 4.\nDistractor Analysis: Alternative options fail by confusing isobaric heat with isochoric heat or miscalculating the volume multiplier in $\\Delta U_{23}$."
+    },
+    {
+      "id": "phy_thermodynamics_c01_048",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Two rigid, thermally insulated chambers containing ideal gases at different temperatures $T_1$ and $T_2$ are connected by a valve. When the valve is opened and the gases mix adiabatically without chemical reaction, the final equilibrium temperature is $T_f = \\frac{n_1 C_{v1} T_1 + n_2 C_{v2} T_2}{n_1 C_{v1} + n_2 C_{v2}}$.\nReason (R): For the combined composite system, no heat enters or leaves through the insulating walls ($Q = 0$) and no external work is performed against the rigid boundaries ($W = 0$), so total internal energy is conserved ($\\Delta U_\\text{total} = 0$).\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The composite system comprising both chambers is surrounded by rigid walls ($dV_\\text{total} = 0 \\implies W = 0$) and adiabatic insulation ($Q = 0$). Applying the First Law of Thermodynamics: $\\Delta U_\\text{total} = Q - W = 0$. Reason (R) is true.\nStep 2: Internal energy of an ideal gas mixture is the sum of the individual internal energies: $U_\\text{initial} = n_1 C_{v1} T_1 + n_2 C_{v2} T_2$. After reaching thermal equilibrium at temperature $T_f$, $U_\\text{final} = (n_1 C_{v1} + n_2 C_{v2}) T_f$.\nStep 3: Setting $U_\\text{initial} = U_\\text{final}$ yields $T_f = \\frac{n_1 C_{v1} T_1 + n_2 C_{v2} T_2}{n_1 C_{v1} + n_2 C_{v2}}$. Thus, Assertion (A) is true and Reason (R) provides the exact theoretical derivation.\nDistractor Analysis: Alternative options asserting (R) is not the explanation fail because the adiabatic conservation of internal energy is the direct cause of the temperature formula."
+    },
+    {
+      "id": "phy_thermodynamics_c01_049",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the representation of thermodynamic cycles on a Temperature-Entropy ($T-S$) diagram:\n\nStatement I: On a $T-S$ diagram, a Carnot cycle executed by an ideal gas forms a perfect rectangle whose area is exactly equal to the net mechanical work performed by the engine per cycle ($W_\\text{net} = \\oint T\\,dS$).\nStatement II: The thermal efficiency of any reversible heat engine represented on a $T-S$ diagram equals the ratio of the enclosed area of the cycle to the total area under the upper heat-addition curve extending down to the absolute zero axis ($S$-axis).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In a Carnot cycle, the four stages are: isothermal heat addition at constant $T_1$, isentropic (reversible adiabatic) expansion where entropy is constant ($S = \\text{const}$), isothermal heat rejection at constant $T_2$, and isentropic compression ($S = \\text{const}$). Plotted on a $T-S$ plane, these form two horizontal and two vertical lines—a perfect rectangle. Statement I is true.\nStep 2: In thermodynamics, infinitesimal reversible heat transfer is $dQ_\\text{rev} = T\\,dS$. The total heat absorbed from the hot reservoir is $Q_1 = \\int T_1\\,dS$, which is the area under the top horizontal line extending to the $S$-axis. The heat rejected is $Q_2 = \\int T_2\\,dS$, the area under the lower line. The net work is $W = Q_1 - Q_2$, which is the area enclosed by the rectangle.\nStep 3: The thermal efficiency is $\\eta = \\frac{W}{Q_1} = \\frac{\\text{Enclosed Area}}{\\text{Area under Upper Curve}} = \\frac{(T_1 - T_2)\\Delta S}{T_1 \\Delta S} = 1 - \\frac{T_2}{T_1}$. Thus, Statement II is true.\nDistractor Analysis: Choices claiming either statement is false contradict the geometric equivalence between indicator ($P-V$) and thermodynamic ($T-S$) diagrams."
+    },
+    {
+      "id": "phy_thermodynamics_c01_050",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A cylinder containing $n$ moles of an ideal gas is fitted with a frictionless piston of cross-sectional area $A$. The piston is connected to an external linear spring of spring constant $k$. Initially, the gas is at atmospheric pressure $P_0$ and volume $V_0$, with the spring relaxed. When heated, the gas expands to volume $V_0 + \\Delta V$. Which of the following expressions correctly represents the total mechanical work $W$ done by the gas during this expansion?",
+      "options": [
+        "A) $W = P_0 \\Delta V + \\frac{k(\\Delta V)^2}{A}$",
+        "B) $W = P_0 \\Delta V$",
+        "C) $W = P_0 \\Delta V + \\frac{k(\\Delta V)^2}{2 A^2}$",
+        "D) $W = \\frac{k(\\Delta V)^2}{2 A^2}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: When the gas expands by $\\Delta V$, the piston of area $A$ moves through a displacement $x = \\frac{\\Delta V}{A}$.\nStep 2: The total opposing force acting on the piston at displacement $x$ consists of two parts: the atmospheric force $F_\\text{atm} = P_0 A$ and the restoring force of the compressed spring $F_\\text{spring} = k x$.\nStep 3: The total work done by the gas in moving the piston quasi-statically is $W = \\int_0^x F_\\text{total}\\,dx = \\int_0^x (P_0 A + k x)\\,dx = P_0 A x + \\frac{1}{2} k x^2$.\nStep 4: Substituting $x = \\frac{\\Delta V}{A}$ into the work expression: $W = P_0 A \\left(\\frac{\\Delta V}{A}\\right) + \\frac{1}{2} k \\left(\\frac{\\Delta V}{A}\\right)^2 = P_0 \\Delta V + \\frac{k(\\Delta V)^2}{2 A^2}$.\nDistractor Analysis: Option B accounts only for work against the atmosphere, ignoring elastic energy stored in the spring; Option D omits the work done against atmospheric pressure; Option A fails to divide the spring term by the required factor of 2."
+    },
+    {
+      "id": "phy_thermodynamics_c01_051",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Any hypothetical machine that violates the Kelvin-Planck statement of the Second Law of Thermodynamics can be coupled with a standard refrigerator to violate the Clausius statement.\nReason (R): If an engine could convert all heat absorbed from a high-temperature reservoir into mechanical work with $100\\%$ efficiency, that work could be used to drive a refrigerator that pumps heat from a cold reservoir to the hot reservoir, resulting in a net transfer of heat from cold to hot with zero net work input.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The Kelvin-Planck and Clausius statements of the Second Law are completely equivalent. To prove this logically, suppose an engine violates Kelvin-Planck by absorbing heat $Q_1$ from reservoir $T_1$ and delivering work $W = Q_1$ with no heat rejected ($Q_2 = 0$). Assertion (A) is true.\nStep 2: Let this work $W$ drive a conventional refrigerator operating between cold reservoir $T_2$ and hot reservoir $T_1$. The refrigerator absorbs heat $Q_2'$ from $T_2$ and discharges heat $Q_1' = Q_2' + W = Q_2' + Q_1$ into $T_1$.\nStep 3: Considering the combined engine-refrigerator system, the net heat absorbed from the hot reservoir is $Q_1 - Q_1' = -Q_2'$, meaning heat $Q_2'$ is delivered to $T_1$ directly from $T_2$ without any net external work input. This violates the Clausius statement. Reason (R) is true and provides the exact logical deduction for (A).\nDistractor Analysis: Choices claiming (R) is not the explanation fail because this proof-by-contradiction coupling is the classic demonstration of equivalence presented in NCERT and standard thermodynamic physics."
+    },
+    {
+      "id": "phy_thermodynamics_c01_052",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II for the thermodynamic processes and their specific thermodynamic properties:\n\nList I:\nP. Reversible Isothermal process\nQ. Reversible Adiabatic process\nR. Isobaric process\nS. Isochoric process\n\nList II:\n1. Molar heat capacity $C = 0$\n2. Molar heat capacity $C = \\infty$\n3. Boundary work $W = P\\Delta V$\n4. Heat exchange $\\Delta Q = \\Delta U$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-2, Q-1, R-4, S-3",
+        "C) P-2, Q-1, R-3, S-4",
+        "D) P-3, Q-4, R-1, S-2"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: For an isothermal process, temperature change is zero ($\\Delta T = 0$) while heat is transferred, so molar heat capacity $C = \\frac{\\Delta Q}{n\\Delta T} = \\frac{\\Delta Q}{0} = \\infty$. Hence, P matches 2.\nStep 2: For an adiabatic process, heat exchange is zero ($\\Delta Q = 0$) while temperature changes ($\\Delta T \\ne 0$), so molar heat capacity $C = \\frac{0}{n\\Delta T} = 0$. Hence, Q matches 1.\nStep 3: For an isobaric process, pressure is constant and boundary work is $W = P\\Delta V$. Hence, R matches 3.\nStep 4: For an isochoric process, volume is constant so $W = 0$, meaning all heat transferred equals the internal energy change: $\\Delta Q = \\Delta U$. Hence, S matches 4.\nDistractor Analysis: Inverting the values for isothermal and adiabatic heat capacities ($0$ and $\\infty$) is a frequent pitfall among candidates."
+    },
+    {
+      "id": "phy_thermodynamics_c01_053",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding two reversible Carnot engines $E_A$ and $E_B$ connected in series, where $E_A$ absorbs heat from a reservoir at $T_1 = 800\\text{ K}$ and rejects heat to an intermediate reservoir at temperature $T$, while $E_B$ absorbs this rejected heat and discharges heat into a sink at $T_3 = 200\\text{ K}$:\n\nStatement I: If both engines perform equal amounts of work per cycle ($W_A = W_B$), the intermediate temperature is $T = 500\\text{ K}$.\nStatement II: If both engines have identical thermal efficiencies ($\\eta_A = \\eta_B$), the intermediate temperature is $T = 400\\text{ K}$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: When both engines do equal work ($W_A = W_B$), the temperature relations give $T_1 - T = T - T_3 \\implies 2T = T_1 + T_3$. Substituting $T_1 = 800\\text{ K}$ and $T_3 = 200\\text{ K}$: $T = \\frac{800 + 200}{2} = \\frac{1000}{2} = 500\\text{ K}$. Hence, Statement I is true.\nStep 2: When both engines have equal efficiencies ($\\eta_A = \\eta_B$), $1 - \\frac{T}{T_1} = 1 - \\frac{T_3}{T} \\implies \\frac{T}{T_1} = \\frac{T_3}{T} \\implies T^2 = T_1 T_3$. Substituting values: $T = \\sqrt{800 \\times 200} = \\sqrt{160000} = 400\\text{ K}$. Hence, Statement II is true.\nDistractor Analysis: Swapping the temperatures (associating $400\\text{ K}$ with equal work and $500\\text{ K}$ with equal efficiency) is a common calculation error."
+    },
+    {
+      "id": "phy_thermodynamics_c01_054",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An idealized four-stroke heat engine operates on a cycle consisting of two reversible adiabatic processes alternating with two reversible isochoric processes (an ideal Otto cycle) using an ideal gas with ratio of specific heats $\\gamma = 1.40$. If the volumetric compression ratio is $r = \\frac{V_1}{V_2} = 4.0$, what is the theoretical thermal efficiency $\\eta$ of this engine? (Given $4^{0.4} \\approx 1.74$)",
+      "options": [
+        "A) $\\eta \\approx 42.5\\%$",
+        "B) $\\eta \\approx 57.5\\%$",
+        "C) $\\eta \\approx 25.0\\%$",
+        "D) $\\eta \\approx 74.0\\%$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The thermal efficiency of an idealized air-standard Otto cycle is given by $\\eta = 1 - \\frac{1}{r^{\\gamma - 1}}$, where $r = \\frac{V_1}{V_2}$ is the compression ratio and $\\gamma$ is the adiabatic index.\nStep 2: Here, $r = 4.0$ and $\\gamma = 1.40$, which gives $\\gamma - 1 = 0.40$.\nStep 3: Calculating $r^{\\gamma - 1} = 4^{0.4} \\approx 1.741$.\nStep 4: The efficiency is $\\eta = 1 - \\frac{1}{1.741} \\approx 1 - 0.5744 = 0.4256 \\approx 42.5\\%$.\nDistractor Analysis: The value $57.5\\%$ corresponds to $\\frac{1}{r^{\\gamma - 1}} = 0.575$, which is the fraction of heat rejected rather than the efficiency; $74.0\\%$ incorrectly uses the factor $1.74$ directly."
+    },
+    {
+      "id": "phy_thermodynamics_c01_055",
+      "subject": "Physics",
+      "topic": "Thermodynamics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the thermodynamic arrow of time and the principle of entropy increase:\n\nStatement I: In any reversible thermodynamic process executed by a closed system and its environment, the net change in entropy of the universe is strictly zero ($\\Delta S_\\text{universe} = 0$).\nStatement II: In any naturally occurring irreversible spontaneous process, the total entropy of the universe strictly increases ($\\Delta S_\\text{universe} > 0$), establishing the irreversibility of macroscopic natural processes.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For a reversible process, heat lost by one body at temperature $T$ is gained by another at the same temperature ($dQ/T - dQ/T = 0$), so the sum of entropy changes of system and surroundings is strictly zero: $\\Delta S_\\text{universe} = \\Delta S_\\text{sys} + \\Delta S_\\text{surr} = 0$. Statement I is true.\nStep 2: According to the Second Law of Thermodynamics (Principle of Increase of Entropy), all natural spontaneous processes involve finite gradients (irreversibilities), resulting in positive internal entropy generation ($S_\\text{gen} > 0$). Therefore, the entropy of an isolated system (such as the entire universe) always increases: $\\Delta S_\\text{universe} > 0$. Statement II is true.\nDistractor Analysis: Assertions that entropy can decrease for the universe as a whole violate the Second Law of Thermodynamics."
+    }
+  ]
+}

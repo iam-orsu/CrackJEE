@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Thermal Properties of Matter",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_thermal_properties_of_matter_c01_001",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding temperature scales:\n\nStatement I: The numerical readings on the Celsius thermometer scale and the Fahrenheit thermometer scale are identical at a temperature of $-40^{\\circ}$.\nStatement II: The linear mathematical transformation relating temperature on the Celsius scale ($T_C$) and Fahrenheit scale ($T_F$) is $\\frac{T_C}{5} = \\frac{T_F - 32}{9}$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The standard conversion between the Celsius scale and Fahrenheit scale is derived from comparing the lower and upper fixed points: $\\frac{T_C - 0}{100 - 0} = \\frac{T_F - 32}{212 - 32} \\implies \\frac{T_C}{5} = \\frac{T_F - 32}{9}$. Thus, Statement II is mathematically correct.\nStep 2: To find the temperature where both scales indicate the exact same numerical value, set $T_C = T_F = \\theta$: $\\frac{\\theta}{5} = \\frac{\\theta - 32}{9} \\implies 9\\theta = 5\\theta - 160 \\implies 4\\theta = -160 \\implies \\theta = -40^{\\circ}$. Hence, $-40^{\\circ}\\text{C} = -40^{\\circ}\\text{F}$, so Statement I is also correct.\nStep 3: Since both statements are factually sound according to standard NCERT thermometry principles, both Statement I and Statement II are true.\nDistractor Analysis: Alternative choices falsely claim that either or both statements are invalid, missing the fundamental equivalence at $-40$ and the foundational conversion formula."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_002",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): On the absolute Kelvin temperature scale, a temperature of $0\\text{ K}$ ($-273.15^{\\circ}\\text{C}$) represents the absolute lower limit of temperature below which no system can be cooled.\nReason (R): According to the kinetic interpretation of temperature, the average translational kinetic energy of molecules in an ideal gas is directly proportional to the absolute temperature $T$ and approaches zero as $T \\to 0\\text{ K}$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The absolute zero of temperature is defined as $0\\text{ K} = -273.15^{\\circ}\\text{C}$. At this temperature, the pressure and volume of an ideal gas extrapolate to zero, establishing it as the fundamental lower limit of temperature. Assertion (A) is true.\nStep 2: Kinetic theory establishes that the mean translational kinetic energy of an ideal gas molecule is $\\frac{1}{2}m\\overline{v^2} = \\frac{3}{2}k_B T$. As $T \\to 0\\text{ K}$, molecular translational motion ceases classically, so kinetic energy cannot become negative. Thus, Reason (R) is true.\nStep 3: Reason (R) provides the direct microscopic, thermodynamic justification for why a temperature below $0\\text{ K}$ cannot exist. Therefore, both (A) and (R) are true and (R) correctly explains (A).\nDistractor Analysis: Claiming that (R) does not explain (A) ignores the statistical physics definition of temperature connecting molecular kinetic energy to the Kelvin scale."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_003",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II for the standard fixed thermodynamic temperature points:\n\nList I (Thermodynamic Reference Point)\nA. Triple point of pure water\nB. Normal ice point (melting point of ice at $1\\text{ atm}$)\nC. Normal steam point (boiling point of water at $1\\text{ atm}$)\nD. Absolute zero of temperature\n\nList II (Value on Kelvin Scale)\nI. $373.15\\text{ K}$\nII. $273.16\\text{ K}$\nIII. $0\\text{ K}$\nIV. $273.15\\text{ K}$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-IV, C-I, D-III",
+        "B) A-IV, B-II, C-I, D-III",
+        "C) A-II, B-IV, C-III, D-I",
+        "D) A-IV, B-I, C-II, D-III"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The triple point of water is uniquely defined in modern thermometry as exactly $273.16\\text{ K}$ ($0.01^{\\circ}\\text{C}$) at a partial vapor pressure of $611.65\\text{ Pa}$. Hence, A corresponds to II.\nStep 2: The normal melting point of ice at standard atmospheric pressure ($1.013 \\times 10^5\\text{ Pa}$) is $0.00^{\\circ}\\text{C} = 273.15\\text{ K}$. Hence, B corresponds to IV.\nStep 3: The normal boiling point of water at standard atmospheric pressure is $100.00^{\\circ}\\text{C} = 373.15\\text{ K}$. Hence, C corresponds to I. The absolute zero of temperature is $0\\text{ K}$. Hence, D corresponds to III.\nDistractor Analysis: Common student traps confuse the triple point ($273.16\\text{ K}$) with the normal ice point ($273.15\\text{ K}$), which differs by $0.01\\text{ K}$."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_004",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding coefficients of thermal expansion in isotropic solids:\n\nStatement I: For an isotropic solid material, the coefficient of volume expansion (cubical expansivity, $\\gamma$) is related to the coefficient of linear expansion ($\\alpha$) by the relation $\\gamma \\approx 3\\alpha$.\nStatement II: The coefficient of superficial (areal) expansion ($\\beta$) for an isotropic solid material is related to the coefficient of linear expansion by $\\beta \\approx 2\\alpha$, establishing the ratio $\\alpha : \\beta : \\gamma = 1 : 2 : 3$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Both Statement I and Statement II are true.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: For an isotropic solid cube of initial edge length $L_0$, heating by $\\Delta T$ causes each side to become $L = L_0(1 + \\alpha \\Delta T)$. The new volume is $V = L^3 = L_0^3(1 + \\alpha \\Delta T)^3 \\approx V_0(1 + 3\\alpha \\Delta T)$, neglecting higher powers of $\\alpha \\Delta T$. Thus $\\gamma = 3\\alpha$, confirming Statement I.\nStep 2: For a square sheet of initial side $L_0$, the expanded area is $A = L^2 = L_0^2(1 + \\alpha \\Delta T)^2 \\approx A_0(1 + 2\\alpha \\Delta T)$. Thus $\\beta = 2\\alpha$, which yields the classic proportion $\\alpha : \\beta : \\gamma = 1 : 2 : 3$, confirming Statement II.\nStep 3: Both statements precisely match the standard textbook derivations and approximations for isotropic solids.\nDistractor Analysis: Assertions that the ratio is $1:1:1$ or that higher-order terms prevent the relation $\\alpha : \\beta : \\gamma = 1 : 2 : 3$ for typical small thermal strains are false."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_005",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When a flat metallic sheet containing a circular hole in its center is heated uniformly, the diameter of the hole increases.\nReason (R): Thermal expansion of an isotropic solid is identical to a photographic magnification; the separation between every pair of constituent particles in the body increases proportionally.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Consider the circular hole imagined to be filled with the same metallic material. On heating, that imaginary metal disc would expand according to $\\Delta D = D_0 \\alpha \\Delta T$. The surrounding metal expands outward away from the center in exactly the same way to accommodate this disc, so the diameter of the hole must increase. Thus, Assertion (A) is true.\nStep 2: Thermal expansion of an isotropic body acts like a geometric scaling (photographic enlargement) from any arbitrary point. The distance between any two atoms increases, regardless of whether there is material or empty space between them. Thus, Reason (R) is true.\nStep 3: Reason (R) provides the exact microscopic rationale for why cavities and holes expand rather than contract upon heating. Both statements are true and Reason (R) correctly explains Assertion (A).\nDistractor Analysis: A widespread misconception is that metal expands inward into the hole; this distractor violates the universal scaling principle of thermal expansion."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_006",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the thermal properties of water:\n\nStatement I: Water contracts upon being heated from $0^{\\circ}\\text{C}$ to $4^{\\circ}\\text{C}$, exhibiting a negative coefficient of volume expansion in this range and attaining its maximum density at $4^{\\circ}\\text{C}$.\nStatement II: Due to the anomalous expansion of water, natural lakes in cold regions freeze from the bottom upwards, ensuring that fish and aquatic plants are encased in ice while surface water stays liquid.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Between $0^{\\circ}\\text{C}$ and $4^{\\circ}\\text{C}$, water exhibits anomalous expansion: its volume decreases as temperature rises from $0^{\\circ}\\text{C}$ to $4^{\\circ}\\text{C}$, reaching minimum volume and maximum density ($\\approx 1000\\text{ kg/m}^3$) at $4^{\\circ}\\text{C}$. Thus, Statement I is true.\nStep 2: In winter, surface water cools down towards $4^{\\circ}\\text{C}$, becomes denser, and sinks to the bottom. Once all water reaches $4^{\\circ}\\text{C}$, further cooling of the surface below $4^{\\circ}\\text{C}$ makes surface water less dense, so it stays on top and eventually freezes into ice at $0^{\\circ}\\text{C}$.\nStep 3: Because ice and cold water below $4^{\\circ}\\text{C}$ float, freezing occurs from the top surface downwards, leaving the bottom at $4^{\\circ}\\text{C}$ where aquatic life survives protected by the insulating ice layer. Thus, Statement II is completely false.\nDistractor Analysis: Confusing top-down freezing with bottom-up freezing is a classic error; ice floats because its density ($917\\text{ kg/m}^3$) is less than water."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_007",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A bimetallic strip is fabricated by welding together equal lengths of a brass strip and a steel strip side-by-side at room temperature ($20^{\\circ}\\text{C}$). The coefficient of linear expansion of brass is $\\alpha_{\\text{brass}} = 1.9 \\times 10^{-5}\\text{ K}^{-1}$ and that of steel is $\\alpha_{\\text{steel}} = 1.2 \\times 10^{-5}\\text{ K}^{-1}$. When the temperature of the composite strip is raised to $120^{\\circ}\\text{C}$, the strip will:",
+      "options": [
+        "A) Bend into an arc with the brass strip on the convex side.",
+        "B) Bend into an arc with the steel strip on the convex side.",
+        "C) Remain perfectly straight but elongate linearly without bending.",
+        "D) Twist into a three-dimensional helix without planar bending."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The fractional increase in length of a free bar due to temperature rise $\\Delta T$ is $\\frac{\\Delta L}{L_0} = \\alpha \\Delta T$. Since $\\alpha_{\\text{brass}} > \\alpha_{\\text{steel}}$, brass expands more than steel for the same temperature change $\\Delta T = 100^{\\circ}\\text{C}$.\nStep 2: Because the two strips are rigidly bonded along their interface, the brass layer must become longer than the steel layer. For a curved strip, the outer arc (convex side) has a larger radius and longer perimeter than the inner arc (concave side).\nStep 3: Consequently, the strip bends into a planar circular arc such that brass lies on the convex (outer) side and steel lies on the concave (inner) side.\nDistractor Analysis: If the strip were cooled below room temperature, brass would contract more, putting steel on the convex side; but on heating, brass is always on the convex side."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_008",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the specific heat capacity of water:\n\nStatement I: Liquid water has an exceptionally high specific heat capacity ($s \\approx 4184\\text{ J}\\cdot\\text{kg}^{-1}\\cdot\\text{K}^{-1} \\approx 1\\text{ cal}\\cdot\\text{g}^{-1}\\cdot^{\\circ}\\text{C}^{-1}$) compared to most other common liquids and structural materials.\nStatement II: Due to this high specific heat capacity, water warms up very rapidly when heated and cools down very rapidly when heat is removed, which makes it an ideal coolant.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The specific heat capacity of water is approximately $4184\\text{ J}\\cdot\\text{kg}^{-1}\\cdot\\text{K}^{-1}$, which is notably higher than almost all common substances (e.g., copper $\\approx 385\\text{ J/kg}\\cdot\\text{K}$, aluminium $\\approx 900\\text{ J/kg}\\cdot\\text{K}$). Statement I is true.\nStep 2: The temperature change for a given heat exchange $\\Delta Q$ is given by $\\Delta T = \\frac{\\Delta Q}{m s}$. A large value of $s$ means that for a given amount of heat absorbed or released, the temperature change $\\Delta T$ is very small. Hence, water warms up and cools down slowly, not rapidly.\nStep 3: This ability to absorb huge quantities of heat with minimal temperature rise is precisely why water is used as an engine coolant and why maritime climates have moderate temperature extremes. Thus, Statement II is false.\nDistractor Analysis: Claiming that high specific heat implies rapid temperature change confuses large heat capacity with high thermal diffusivity or conductivity."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_009",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Thermal quantity) with List II (SI unit):\n\nList I\nA. Thermal conductivity ($K$)\nB. Specific heat capacity ($s$)\nC. Latent heat ($L$)\nD. Stefan-Boltzmann constant ($\\sigma$)\n\nList II\nI. $\\text{J}\\cdot\\text{kg}^{-1}$\nII. $\\text{W}\\cdot\\text{m}^{-2}\\cdot\\text{K}^{-4}$\nIII. $\\text{W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$\nIV. $\\text{J}\\cdot\\text{kg}^{-1}\\cdot\\text{K}^{-1}$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-IV, B-III, C-I, D-II",
+        "B) A-III, B-I, C-IV, D-II",
+        "C) A-II, B-IV, C-I, D-III",
+        "D) A-III, B-IV, C-I, D-II"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: From Fourier's law of heat conduction, $\\frac{dQ}{dt} = K A \\frac{\\Delta T}{L} \\implies K = \\frac{dQ/dt}{A (\\Delta T/L)}$. Units: $\\frac{\\text{W}}{\\text{m}^2 (\\text{K}/\\text{m})} = \\text{W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$. Hence, A corresponds to III.\nStep 2: Specific heat capacity is defined by $s = \\frac{\\Delta Q}{m \\Delta T}$, so its SI unit is $\\text{J}\\cdot\\text{kg}^{-1}\\cdot\\text{K}^{-1}$. Hence, B corresponds to IV.\nStep 3: Latent heat is defined by $L = \\frac{Q}{m}$, having units of $\\text{J}\\cdot\\text{kg}^{-1}$. Hence, C corresponds to I. From Stefan-Boltzmann law, $E = \\sigma T^4 \\implies \\sigma = \\frac{E}{T^4}$, where $E$ is power per unit area ($\\text{W/m}^2$). Thus $\\sigma$ has units $\\text{W}\\cdot\\text{m}^{-2}\\cdot\\text{K}^{-4}$. Hence, D corresponds to II.\nDistractor Analysis: Matching errors usually invert the units of thermal conductivity and specific heat capacity or omit the per-Kelvin term in latent heat."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_010",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Food cooks significantly faster inside a sealed pressure cooker than in an ordinary open pan at sea level.\nReason (R): The steam trapped inside the pressure cooker raises the internal pressure above $1\\text{ atm}$, which elevates the boiling point of water to approximately $120^{\\circ}\\text{C}$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The boiling point of a liquid is the temperature at which its saturated vapor pressure equals the external pressure. In an open pan at sea level, water boils at $100^{\\circ}\\text{C}$ and cannot reach higher temperatures because added heat goes into vaporization.\nStep 2: In a sealed pressure cooker, accumulated steam increases the pressure inside to roughly $2\\text{ atm}$. The boiling point of water increases with pressure, reaching roughly $120^{\\circ}\\text{C}$ to $125^{\\circ}\\text{C}$. Both Assertion (A) and Reason (R) are true.\nStep 3: Because cooking involves chemical reactions that proceed exponentially faster at higher temperatures, cooking at $120^{\\circ}\\text{C}$ cooks food much faster than boiling at $100^{\\circ}\\text{C}$. Thus, Reason (R) correctly explains Assertion (A).\nDistractor Analysis: Options denying that Reason explains Assertion overlook that chemical reaction kinetics depend directly on cooking temperature governed by the elevated boiling point."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_011",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the three fundamental modes of heat transfer:\n\n(i) Conduction is the transfer of heat through matter by molecular collisions and vibration of lattice atoms without bulk displacement of the medium.\n(ii) Convection involves the macroscopic transport of matter and is capable of transferring heat through both fluids and rigid solid crystalline lattices.\n(iii) Thermal radiation does not require any material medium for its propagation and travels through vacuum at the speed of light ($c$).\n(iv) Gravity is essential for natural (free) buoyant convection currents to occur.\n\nWhich of the statements given above are correct?",
+      "options": [
+        "A) (i), (iii) and (iv) only",
+        "B) (i) and (ii) only",
+        "C) (ii), (iii) and (iv) only",
+        "D) (i), (ii), (iii) and (iv)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Statement (i) accurately defines thermal conduction: heat flows via adjacent particle vibrations and free electrons without bodily transport of the material.\nStep 2: Statement (ii) is false because convection requires fluidity — the freedom of molecules to flow in bulk. It is impossible in rigid crystalline solids where atoms are bound in fixed equilibrium sites.\nStep 3: Statement (iii) correctly defines electromagnetic thermal radiation, which propagates through vacuum at $c \\approx 3 \\times 10^8\\text{ m/s}$. Statement (iv) is correct because natural convection relies on buoyant force $\\Delta \\rho g V$, which vanishes in zero-gravity environments (e.g., inside orbiting space stations).\nDistractor Analysis: Statements (i), (iii), and (iv) are strictly valid, while statement (ii) incorrectly includes rigid solids."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_012",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Prevost's theory of heat exchanges:\n\nStatement I: According to Prevost's theory, every body emits thermal radiation at all temperatures above absolute zero ($0\\text{ K}$), with the rate of emission depending solely on the nature of its surface and absolute temperature.\nStatement II: When a body achieves thermal equilibrium with its surrounding environment, it completely stops emitting thermal radiation.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Prevost's theory states that thermal radiation emission is an intrinsic, continuous physical process occurring in all bodies at any temperature above $T = 0\\text{ K}$. The rate of emission depends only on the body's surface characteristics, area, and temperature, completely independent of the surrounding temperature. Thus, Statement I is true.\nStep 2: At thermal equilibrium, the body does not cease radiating. Instead, dynamic equilibrium is achieved: the rate of emission of radiant energy exactly equals the rate of absorption of radiant energy from the surrounding environment.\nStep 3: Because radiation continues unabated in dynamic balance, Statement II is entirely false.\nDistractor Analysis: Stating that emission halts at thermal equilibrium is a classic confusion between net heat transfer (which is zero) and gross emission (which remains non-zero)."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_013",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a laboratory calorimetry experiment, a sample of $100\\text{ g}$ of liquid water at $80^{\\circ}\\text{C}$ is mixed thoroughly with $100\\text{ g}$ of liquid water at $20^{\\circ}\\text{C}$ in a well-insulated calorimeter vessel of negligible heat capacity. Assuming no heat exchange with the surrounding environment, what is the final equilibrium temperature of the mixture?",
+      "options": [
+        "A) $40^{\\circ}\\text{C}$",
+        "B) $50^{\\circ}\\text{C}$",
+        "C) $60^{\\circ}\\text{C}$",
+        "D) $55^{\\circ}\\text{C}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: According to the principle of calorimetry for an isolated system: $\\text{Heat lost by hot water} = \\text{Heat gained by cold water}$.\nStep 2: Let $T_f$ be the final equilibrium temperature. Then $m_1 s (T_1 - T_f) = m_2 s (T_f - T_2)$. Here $m_1 = m_2 = 100\\text{ g}$, and the specific heat capacity $s$ is the same for both samples.\nStep 3: Dividing both sides by $m s$ gives $80 - T_f = T_f - 20 \\implies 2T_f = 100 \\implies T_f = 50^{\\circ}\\text{C}$.\nDistractor Analysis: Any temperature other than $50^{\\circ}\\text{C}$ violates the equal mass and identical specific heat condition where the equilibrium temperature is the exact arithmetic mean."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_014",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): During daytime along a coastline, a refreshing sea breeze originates and blows steadily from the sea towards the land.\nReason (R): Water has a much greater specific heat capacity than land/soil, so during sunny daylight hours, the land warms up faster, causing warm air over land to expand, become buoyant, and rise while cooler air from the sea rushes in to replace it.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Sea breeze is an established daytime coastal meteorological phenomenon where wind blows from water to land. Assertion (A) is true.\nStep 2: Land has a lower specific heat capacity ($s_{\\text{soil}} \\approx 800\\text{ J/kg}\\cdot\\text{K}$) than water ($s_{\\text{water}} \\approx 4184\\text{ J/kg}\\cdot\\text{K}$). When subjected to identical solar insolation, the temperature rise of land is much greater than that of sea water.\nStep 3: The hot air column above land expands, its density decreases, and it rises, creating a local low-pressure zone. Denser, cooler air from the sea moves inland to fill this void, establishing a convective sea breeze. Reason (R) is true and directly explains Assertion (A).\nDistractor Analysis: Claiming that land breeze occurs during daytime reverses day and night convection; at night, land cools faster than the sea, creating a land breeze blowing seaward."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_015",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding blackbody radiation and thermal emissive characteristics:\n\nStatement I: A perfectly black body is defined as an ideal idealized physical body that absorbs completely all electromagnetic radiation incident upon it, regardless of frequency or angle of incidence ($a = 1$).\nStatement II: According to Kirchhoff's law of thermal radiation, at any given temperature, good absorbers of radiation are also good emitters, so the absorptive power of any body equals its emissivity ($a_\\lambda = e_\\lambda$).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: A black body absorbs $100\\%$ of incident thermal radiation across all wavelengths without reflection or transmission; thus its absorptive power is unity ($a = 1$). Statement I is true.\nStep 2: Kirchhoff's law of heat radiation states that at thermal equilibrium, the ratio of emissive power to absorptive power for any body is a universal function of wavelength and temperature, equal to the emissive power of a black body: $\\frac{e_\\lambda}{a_\\lambda} = E_{\\text{bb},\\lambda}$.\nStep 3: Since emissivity is defined as $\\epsilon_\\lambda = \\frac{e_\\lambda}{E_{\\text{bb},\\lambda}}$, it follows that $\\epsilon_\\lambda = a_\\lambda$. Thus, a good absorber is inherently a good emitter. Statement II is true.\nDistractor Analysis: Both statements are textbook tenets of thermal radiation; options alleging either statement to be false contradict NCERT."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_016",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The photosphere of a distant yellow dwarf star has an effective surface temperature of $5800\\text{ K}$. Given that Wien's displacement constant is $b = 2.90 \\times 10^{-3}\\text{ m}\\cdot\\text{K}$, what is the peak wavelength $\\lambda_{\\max}$ at which the star emits its maximum radiant power per unit wavelength interval?",
+      "options": [
+        "A) $500\\text{ nm}$",
+        "B) $580\\text{ nm}$",
+        "C) $400\\text{ nm}$",
+        "D) $290\\text{ nm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Wien's displacement law governs the relationship between the absolute temperature $T$ of a radiating blackbody and the wavelength $\\lambda_{\\max}$ of maximum emission: $\\lambda_{\\max} T = b$.\nStep 2: Rearranging to solve for the peak wavelength gives $\\lambda_{\\max} = \\frac{b}{T} = \\frac{2.90 \\times 10^{-3}\\text{ m}\\cdot\\text{K}}{5800\\text{ K}}$.\nStep 3: Calculating: $\\lambda_{\\max} = \\frac{2.90 \\times 10^{-3}}{5.80 \\times 10^3} = 0.50 \\times 10^{-6}\\text{ m} = 500\\text{ nm}$. This peak lies right in the green-yellow region of the visible electromagnetic spectrum.\nDistractor Analysis: Distractors arise from powers-of-ten errors or confusing $580\\text{ nm}$ by multiplying rather than dividing constants."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_017",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Newton's Law of Cooling:\n\nStatement I: Newton's law of cooling states that the rate of loss of heat of a hot body is directly proportional to the temperature difference between the body and its surroundings.\nStatement II: Newton's law of cooling holds with high mathematical accuracy for arbitrarily large temperature differences between the body and the ambient surroundings (e.g., $\\Delta T > 500^{\\circ}\\text{C}$).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Newton's law of cooling states $-\\frac{dQ}{dt} \\propto (T - T_0)$ or $-\\frac{dT}{dt} = k(T - T_0)$, where $T$ is the temperature of the body and $T_0$ is the ambient temperature. Thus, Statement I is true.\nStep 2: The law is derived as a first-order Taylor approximation of the Stefan-Boltzmann law $P = \\sigma e A (T^4 - T_0^4)$. Expanding for $T = T_0 + \\Delta T$ gives $T^4 - T_0^4 \\approx 4 T_0^3 \\Delta T$, which is strictly valid only when $\\Delta T \\ll T_0$.\nStep 3: For very large temperature differences (e.g., hundreds of degrees), radiative loss is dominated by non-linear $T^4$ dependence and convection becomes turbulent, rendering Newton's linear law invalid. Hence, Statement II is false.\nDistractor Analysis: Statement II incorrectly generalizes a linear approximation beyond its well-defined mathematical boundary condition of small temperature excess."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_018",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding structural components of a vacuum (Thermos) flask and their thermodynamic roles:\n\nList I (Design Feature)\nA. Evacuated space between double glass walls\nB. Silvered reflective coating on interior glass surfaces\nC. Low thermal conductivity cork / plastic stopper\nD. Outer protective casing with shock-absorbing support\n\nList II (Primary Mechanism)\nI. Minimizes heat transfer by thermal radiation\nII. Minimizes heat transfer by conduction and convection\nIII. Prevents mechanical shock and outer convective air currents\nIV. Minimizes heat transfer by conduction through the container neck\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-I, B-II, C-IV, D-III",
+        "B) A-II, B-I, C-IV, D-III",
+        "C) A-II, B-I, C-III, D-IV",
+        "D) A-IV, B-II, C-I, D-III"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The vacuum between the double glass walls eliminates any material medium, effectively preventing heat transfer via conduction and convection. Thus, A matches II.\nStep 2: The silvered reflective coating on both facing surfaces reflects radiated infrared rays back into the contents or prevents external radiation from entering, minimizing heat transfer by radiation. Thus, B matches I.\nStep 3: The cork or plastic stopper has very poor thermal conductivity and seals the mouth, minimizing conductive heat transfer through the top neck. Thus, C matches IV. The outer casing provides mechanical protection and structure. Thus, D matches III.\nDistractor Analysis: Interchanging the role of vacuum (conduction/convection barrier) with that of silvering (radiation reflector) is the primary trap."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_019",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When a weighted metallic wire is slung over a block of ice at $0^{\\circ}\\text{C}$, the wire cuts entirely through the block without dividing it into two separate halves.\nReason (R): For substances that expand upon freezing (such as water), an increase in pressure lowers the melting point; once the wire passes, the pressure drops back to $1\\text{ atm}$ and the water refreezes.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The phenomenon described is regelation. As the weighted thin wire exerts high pressure on the ice directly underneath it, the melting point drops below $0^{\\circ}\\text{C}$, causing the ice to melt. Assertion (A) is true.\nStep 2: By the Clausius-Clapeyron equation, because ice expands on freezing (volume of ice is greater than volume of water, $\\Delta V < 0$ on melting), $\\frac{dP}{dT} < 0$. An increase in pressure depresses the melting point.\nStep 3: As the wire sinks, water flows around to the top of the wire where pressure returns to atmospheric pressure. At $1\\text{ atm}$, the melting point rises back to $0^{\\circ}\\text{C}$, so the water refreezes, welding the block intact. Thus Reason (R) is true and correctly explains Assertion (A).\nDistractor Analysis: Claiming that pressure increases the melting point of ice is false; that applies only to substances that contract on freezing (like paraffin wax)."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_020",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A solid copper slab has a thickness of $0.20\\text{ m}$ and a cross-sectional area of $0.50\\text{ m}^2$. In the steady state, its two opposing faces are maintained at constant temperatures of $100^{\\circ}\\text{C}$ and $20^{\\circ}\\text{C}$, respectively. If the thermal conductivity of copper is $400\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$, what is the steady-state rate of heat transfer through the slab?",
+      "options": [
+        "A) $40\\text{ kW}$",
+        "B) $160\\text{ kW}$",
+        "C) $80\\text{ kW}$",
+        "D) $20\\text{ kW}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Fourier's law of heat conduction in steady state gives the rate of heat flow as $H = \\frac{dQ}{dt} = \\frac{K A (T_1 - T_2)}{L}$.\nStep 2: Identify the given quantities: thermal conductivity $K = 400\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$, area $A = 0.50\\text{ m}^2$, thickness $L = 0.20\\text{ m}$, and temperature difference $\\Delta T = 100 - 20 = 80^{\\circ}\\text{C} = 80\\text{ K}$.\nStep 3: Substitute the numerical values: $H = \\frac{400 \\times 0.50 \\times 80}{0.20} = \\frac{200 \\times 80}{0.20} = \\frac{16000}{0.20} = 80000\\text{ W} = 80\\text{ kW}$.\nDistractor Analysis: Common miscalculations include omitting the thickness $L$ ($16\\text{ kW}$), doubling the thickness ($40\\text{ kW}$), or misplacing the decimal factor."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_021",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the latent heats of phase transitions in water:\n\nStatement I: The latent heat of vaporization of water ($L_v \\approx 2.26 \\times 10^6\\text{ J/kg}$) is much greater than its latent heat of fusion ($L_f \\approx 3.33 \\times 10^5\\text{ J/kg}$).\nStatement II: In vaporization, work must be performed to completely overcome intermolecular hydrogen bonding forces and expand against external atmospheric pressure, whereas in fusion, the molecular bonds are only partially loosened.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For water at standard atmospheric pressure, $L_f \\approx 3.33 \\times 10^5\\text{ J/kg}$ ($80\\text{ cal/g}$) and $L_v \\approx 2.26 \\times 10^6\\text{ J/kg}$ ($540\\text{ cal/g}$). Thus $L_v$ is nearly seven times $L_f$. Statement I is true.\nStep 2: In melting (ice to water), the rigid crystalline lattice structure is broken down into a liquid state where molecules remain in close proximity with substantial attractive interactions. The volume change is minimal (slight contraction).\nStep 3: In boiling (water to steam), molecules are pulled completely apart into the gas phase against intermolecular cohesive forces, and the volume expands by a factor of roughly 1600, doing significant work $P\\Delta V$ against the atmosphere. Both statements are true.\nDistractor Analysis: A common distractor claims fusion requires more energy because breaking a solid crystal lattice is harder; this confuses bond distortion with total separation."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_022",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements regarding thermal expansion in solids and liquids are correct?\n\n(i) The density of a material generally decreases with increasing temperature according to $\\rho \\approx \\rho_0(1 - \\gamma \\Delta T)$ for small temperature changes.\n(ii) The apparent coefficient of volume expansion of a liquid measured in a container is $\\gamma_{\\text{app}} = \\gamma_{\\text{real}} - \\gamma_{\\text{vessel}}$.\n(iii) Invar is an alloy of iron and nickel widely used in precision clocks because it possesses an extraordinarily high coefficient of linear expansion.\n(iv) If a vessel is completely filled with a liquid and heated, the liquid will not overflow if the real coefficient of volume expansion of the liquid equals the cubical expansivity of the vessel material.\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) (i), (ii) and (iv) only",
+        "B) (i) and (iii) only",
+        "C) (ii), (iii) and (iv) only",
+        "D) (i), (ii), (iii) and (iv)"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Density is mass divided by volume: $\\rho = \\frac{m}{V} = \\frac{m}{V_0(1 + \\gamma \\Delta T)} \\approx \\rho_0(1 - \\gamma \\Delta T)$. Thus statement (i) is correct.\nStep 2: When a liquid expands inside an expanding container, the observed change in liquid volume is the real liquid expansion minus the vessel expansion: $\\Delta V_{\\text{app}} = \\Delta V_{\\text{real}} - \\Delta V_{\\text{vessel}} \\implies \\gamma_{\\text{app}} = \\gamma_{\\text{real}} - \\gamma_{\\text{vessel}}$. Thus statement (ii) is correct.\nStep 3: Statement (iii) is incorrect because Invar is famous for having an almost negligible (extremely low) coefficient of linear expansion ($\\alpha \\sim 1.2 \\times 10^{-6}\\text{ K}^{-1}$), preventing thermal expansion errors in pendulum clocks.\nStep 4: If $\\gamma_{\\text{real}} = \\gamma_{\\text{vessel}}$, then $\\gamma_{\\text{app}} = 0$, meaning the vessel capacity grows at the exact same rate as the liquid volume, so no liquid overflows. Thus statement (iv) is correct.\nDistractor Analysis: Statement (iii) is false; options including (iii) are incorrect."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_023",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A faulty mercury thermometer has its lower fixed point (melting point of pure ice) calibrated incorrectly as $-5^{\\circ}\\text{X}$ and its upper fixed point (boiling point of pure water at $1\\text{ atm}$) calibrated as $105^{\\circ}\\text{X}$. If this faulty thermometer is immersed in a liquid bath and records a temperature of $50^{\\circ}\\text{X}$, what is the true temperature of the bath on the standard Celsius scale?",
+      "options": [
+        "A) $45^{\\circ}\\text{C}$",
+        "B) $50^{\\circ}\\text{C}$",
+        "C) $55^{\\circ}\\text{C}$",
+        "D) $60^{\\circ}\\text{C}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Any linear temperature scale $X$ relates to the standard Celsius scale via the fixed-point ratio: $\\frac{X - \\text{LFP}_X}{\\text{UFP}_X - \\text{LFP}_X} = \\frac{C - \\text{LFP}_C}{\\text{UFP}_C - \\text{LFP}_C}$.\nStep 2: Here, $\\text{LFP}_X = -5^{\\circ}\\text{X}$, $\\text{UFP}_X = 105^{\\circ}\\text{X}$, $\\text{LFP}_C = 0^{\\circ}\\text{C}$, and $\\text{UFP}_C = 100^{\\circ}\\text{C}$. Substituting the reading $X = 50^{\\circ}\\text{X}$:\n$\\frac{50 - (-5)}{105 - (-5)} = \\frac{C - 0}{100} \\implies \\frac{55}{110} = \\frac{C}{100}$.\nStep 3: Simplifying the fraction gives $\\frac{1}{2} = \\frac{C}{100} \\implies C = 50^{\\circ}\\text{C}$. Thus, the true temperature of the liquid bath is $50^{\\circ}\\text{C}$.\nDistractor Analysis: Attempting to directly subtract $5^{\\circ}$ or add $5^{\\circ}$ ignores that the fundamental interval on the faulty scale is $(105 - (-5)) = 110$ divisions rather than 100 divisions."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_024",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform cylindrical steel rod of length $L = 1.0\\text{ m}$ and cross-sectional area $A = 2.0 \\times 10^{-4}\\text{ m}^2$ is clamped rigidly between two immovable, unyielding rigid supports at an initial temperature of $20^{\\circ}\\text{C}$. Young's modulus of steel is $Y = 2.0 \\times 10^{11}\\text{ N/m}^2$ and its coefficient of linear expansion is $\\alpha = 1.2 \\times 10^{-5}\\text{ K}^{-1}$. When the temperature of the rod is raised to $70^{\\circ}\\text{C}$, what is the magnitude of the thermal compressive force exerted by the rod against the supports?",
+      "options": [
+        "A) $12\\text{ kN}$",
+        "B) $48\\text{ kN}$",
+        "C) $24\\text{ kN}$",
+        "D) $36\\text{ kN}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: If the rod were free to expand, its thermal elongation would be $\\Delta L = L \\alpha \\Delta T$, where $\\Delta T = 70 - 20 = 50\\text{ K}$.\nStep 2: Because the supports are unyielding, the rod cannot expand physically. This induces a thermal compressive strain of $\\frac{\\Delta L}{L} = \\alpha \\Delta T$. The resulting thermal stress developed within the material is $\\sigma = Y \\left(\\frac{\\Delta L}{L}\\right) = Y \\alpha \\Delta T$.\nStep 3: The compressive force exerted on the supports is $F = \\sigma A = Y A \\alpha \\Delta T$. Substituting the values:\n$F = (2.0 \\times 10^{11}\\text{ N/m}^2) \\times (2.0 \\times 10^{-4}\\text{ m}^2) \\times (1.2 \\times 10^{-5}\\text{ K}^{-1}) \\times (50\\text{ K})$\n$F = 4.0 \\times 10^7 \\times 6.0 \\times 10^{-4} = 2.4 \\times 10^4\\text{ N} = 24\\text{ kN}$.\nDistractor Analysis: Values such as $12\\text{ kN}$ or $48\\text{ kN}$ result from forgetting the factor of 2 in cross-sectional area or miscalculating $\\Delta T$."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_025",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A pendulum clock governed by a simple pendulum with a slender brass rod keeps precise, correct time at a calibrated temperature of $20^{\\circ}\\text{C}$. The coefficient of linear expansion of brass is $\\alpha = 2.0 \\times 10^{-5}\\text{ K}^{-1}$. During summer, the ambient temperature rises and stabilizes at $30^{\\circ}\\text{C}$. How much time does the clock lose or gain per solar day ($86400\\text{ s}$)?",
+      "options": [
+        "A) Loses $8.64\\text{ s}$ per day",
+        "B) Gains $8.64\\text{ s}$ per day",
+        "C) Loses $17.28\\text{ s}$ per day",
+        "D) Gains $17.28\\text{ s}$ per day"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The time period of a simple pendulum of length $L$ is $T_p = 2\\pi \\sqrt{\\frac{L}{g}}$. Fractional change in time period due to thermal expansion is $\\frac{\\Delta T_p}{T_p} = \\frac{1}{2} \\frac{\\Delta L}{L} = \\frac{1}{2} \\alpha \\Delta \\theta$.\nStep 2: Here $\\Delta \\theta = 30^{\\circ}\\text{C} - 20^{\\circ}\\text{C} = 10\\text{ K}$. Hence:\n$\\frac{\\Delta T_p}{T_p} = \\frac{1}{2} \\times (2.0 \\times 10^{-5}\\text{ K}^{-1}) \\times (10\\text{ K}) = 1.0 \\times 10^{-4}$.\nStep 3: Since $T_p$ increases, each tick takes longer; the clock runs slower and loses time. Time lost per day is $\\Delta t = \\left(\\frac{\\Delta T_p}{T_p}\\right) \\times 86400\\text{ s} = 1.0 \\times 10^{-4} \\times 86400 = 8.64\\text{ s}$.\nDistractor Analysis: Omitting the factor of $\\frac{1}{2}$ from the square root leads to the erroneous distractor of $17.28\\text{ s}$; claiming that the clock gains time reverses the effect of increased pendulum length."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_026",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When a solid body floating partially submerged in a liquid is heated uniformly along with the liquid, the fraction of the solid's total volume that remains submerged increases, provided the coefficient of cubical expansion of the liquid ($\\gamma_l$) is greater than that of the solid ($\\gamma_s$).\nReason (R): By the law of floatation, the submerged fractional volume is $f_{\\text{sub}} = \\frac{\\rho_s}{\\rho_l}$; since $\\gamma_l > \\gamma_s$, the density of the liquid decreases faster with rising temperature than the density of the solid, requiring a greater displaced liquid volume to support the solid's weight.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Equilibrium of a floating body requires: $\\text{Weight of body} = \\text{Buoyant force} \\implies V_s \\rho_s g = V_{\\text{sub}} \\rho_l g \\implies f_{\\text{sub}} = \\frac{V_{\\text{sub}}}{V_s} = \\frac{\\rho_s}{\\rho_l}$. Assertion (A) is true.\nStep 2: With temperature increase $\\Delta T$, the densities vary as $\\rho_s = \\frac{\\rho_{s0}}{1 + \\gamma_s \\Delta T}$ and $\\rho_l = \\frac{\\rho_{l0}}{1 + \\gamma_l \\Delta T}$.\nStep 3: The ratio becomes $f_{\\text{sub}} = \\frac{\\rho_{s0}}{\\rho_{l0}} \\left(\\frac{1 + \\gamma_l \\Delta T}{1 + \\gamma_s \\Delta T}\\right) \\approx f_{\\text{sub},0} [1 + (\\gamma_l - \\gamma_s)\\Delta T]$. If $\\gamma_l > \\gamma_s$, then $(\\gamma_l - \\gamma_s) > 0$, so $f_{\\text{sub}}$ increases. Reason (R) is true and provides the direct mathematical explanation for Assertion (A).\nDistractor Analysis: Claiming that the solid sinks or rises independently of the relative expansivities violates Archimedes' principle."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_027",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two metallic rods of identical length $L$ and identical uniform cross-sectional area $A$ are joined end-to-end in series to form a combined rod of total length $2L$. The thermal conductivities of the two rods are $K_1 = 200\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$ and $K_2 = 300\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$, respectively. In steady state, what is the equivalent thermal conductivity $K_{\\text{eq}}$ of this composite rod?",
+      "options": [
+        "A) $250\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$",
+        "B) $240\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$",
+        "C) $120\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$",
+        "D) $500\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The thermal resistance of a conductor is $R = \\frac{L}{K A}$. For two conductors connected in series, the total equivalent thermal resistance is the sum: $R_{\\text{eq}} = R_1 + R_2$.\nStep 2: Substituting the respective parameters: $\\frac{2L}{K_{\\text{eq}} A} = \\frac{L}{K_1 A} + \\frac{L}{K_2 A}$. Canceling $\\frac{L}{A}$ on both sides yields the harmonic mean relation: $\\frac{2}{K_{\\text{eq}}} = \\frac{1}{K_1} + \\frac{1}{K_2} = \\frac{K_1 + K_2}{K_1 K_2}$.\nStep 3: Solving for $K_{\\text{eq}}$: $K_{\\text{eq}} = \\frac{2 K_1 K_2}{K_1 + K_2} = \\frac{2 \\times 200 \\times 300}{200 + 300} = \\frac{120000}{500} = 240\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$.\nDistractor Analysis: Simply taking the arithmetic average $\\frac{200 + 300}{2} = 250\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$ incorrectly applies parallel rule to a series configuration."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_028",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two rectangular slabs of equal length $L$ and equal cross-sectional area $A$ are placed side-by-side in a parallel configuration between two thermal reservoirs maintained at constant temperatures $T_1$ and $T_2$ ($T_1 > T_2$). The thermal conductivities of the two slabs are $K_1 = 160\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$ and $K_2 = 240\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$, respectively. What is the effective thermal conductivity $K_{\\text{eq}}$ of this parallel composite system?",
+      "options": [
+        "A) $200\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$",
+        "B) $192\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$",
+        "C) $400\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$",
+        "D) $100\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In a parallel heat conduction arrangement, both slabs experience the identical temperature difference $\\Delta T = T_1 - T_2$ across the same length $L$. The total rate of heat flow is the sum of flows through both slabs: $H_{\\text{total}} = H_1 + H_2$.\nStep 2: Expressing heat currents using equivalent conductivity: $\\frac{K_{\\text{eq}} (2A) \\Delta T}{L} = \\frac{K_1 A \\Delta T}{L} + \\frac{K_2 A \\Delta T}{L}$.\nStep 3: Dividing both sides by $\\frac{A \\Delta T}{L}$ gives: $2 K_{\\text{eq}} = K_1 + K_2 \\implies K_{\\text{eq}} = \\frac{K_1 + K_2}{2} = \\frac{160 + 240}{2} = \\frac{400}{2} = 200\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$.\nDistractor Analysis: Calculating $192\\text{ W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}$ incorrectly applies the series harmonic formula $\\frac{2 K_1 K_2}{K_1 + K_2}$ to a parallel system."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_029",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two cylindrical rods $P$ and $Q$ of equal length and identical cross-sectional area are connected in series. The exposed end of rod $P$ is placed in contact with boiling water at $100^{\\circ}\\text{C}$ and the exposed end of rod $Q$ is maintained in an ice bath at $0^{\\circ}\\text{C}$. The lateral surfaces are thermally insulated. If the thermal conductivity of rod $P$ is three times that of rod $Q$ ($K_P = 3 K_Q$), what is the steady-state junction temperature $T_{\\text{int}}$ at the contact interface?",
+      "options": [
+        "A) $25^{\\circ}\\text{C}$",
+        "B) $50^{\\circ}\\text{C}$",
+        "C) $75^{\\circ}\\text{C}$",
+        "D) $33.3^{\\circ}\\text{C}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Under steady-state conditions without lateral heat loss, the rate of heat conduction through rod $P$ must strictly equal the rate of heat conduction through rod $Q$: $H_P = H_Q$.\nStep 2: Applying Fourier's law across each section: $\\frac{K_P A (100 - T_{\\text{int}})}{L} = \\frac{K_Q A (T_{\\text{int}} - 0)}{L}$.\nStep 3: Substituting $K_P = 3 K_Q$ and canceling $\\frac{K_Q A}{L}$ gives: $3(100 - T_{\\text{int}}) = T_{\\text{int}} \\implies 300 - 3 T_{\\text{int}} = T_{\\text{int}} \\implies 4 T_{\\text{int}} = 300 \\implies T_{\\text{int}} = 75^{\\circ}\\text{C}$.\nDistractor Analysis: Obtaining $25^{\\circ}\\text{C}$ results from erroneously setting $K_Q = 3 K_P$ or reversing the temperature gradient."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_030",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding thermal radiation laws:\n\nStatement I: According to the Stefan-Boltzmann law, the total energy emitted per second per unit surface area of an ideal blackbody is directly proportional to the fourth power of its thermodynamic absolute temperature ($E = \\sigma T^4$).\nStatement II: If the absolute temperature of a blackbody is doubled from $300\\text{ K}$ to $600\\text{ K}$, the total radiant power emitted by the blackbody increases by a factor of 8.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The Stefan-Boltzmann law states that emissive power $E$ of a blackbody is given by $E = \\sigma T^4$, where $\\sigma \\approx 5.67 \\times 10^{-8}\\text{ W}\\cdot\\text{m}^{-2}\\cdot\\text{K}^{-4}$ is the Stefan-Boltzmann constant. Statement I is true.\nStep 2: When the absolute temperature increases by a factor of 2 (from $T$ to $2T$), the new emissive power is $E' = \\sigma (2T)^4 = 2^4 \\sigma T^4 = 16 E$.\nStep 3: The radiant power increases by a factor of $2^4 = 16$, not $2^3 = 8$. Statement II is false.\nDistractor Analysis: Claiming an 8-fold increase confuses a cubic dependence (such as volume expansion) with the fourth-power Stefan-Boltzmann dependence."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_031",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A vessel containing hot liquid cools from $70^{\\circ}\\text{C}$ to $60^{\\circ}\\text{C}$ in exactly $5\\text{ minutes}$ in a laboratory environment maintained at a steady ambient temperature of $30^{\\circ}\\text{C}$. Using the average-temperature form of Newton's law of cooling, how much time will it take for the liquid to cool from $60^{\\circ}\\text{C}$ to $50^{\\circ}\\text{C}$ in the same room?",
+      "options": [
+        "A) $7\\text{ minutes}$",
+        "B) $6\\text{ minutes}$",
+        "C) $8\\text{ minutes}$",
+        "D) $5\\text{ minutes}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Newton's law of cooling in average form states: $\\frac{T_1 - T_2}{t} = k \\left(\\frac{T_1 + T_2}{2} - T_0\\right)$, where $T_0 = 30^{\\circ}\\text{C}$ is the ambient temperature and $k$ is the cooling constant.\nStep 2: For cooling from $70^{\\circ}\\text{C}$ to $60^{\\circ}\\text{C}$ in $t_1 = 5\\text{ min}$:\n$\\frac{70 - 60}{5} = k \\left(\\frac{70 + 60}{2} - 30\\right) \\implies 2 = k(65 - 30) = 35 k \\implies k = \\frac{2}{35}\\text{ min}^{-1}$.\nStep 3: For cooling from $60^{\\circ}\\text{C}$ to $50^{\\circ}\\text{C}$ in time $t_2$:\n$\\frac{60 - 50}{t_2} = k \\left(\\frac{60 + 50}{2} - 30\\right) \\implies \\frac{10}{t_2} = \\left(\\frac{2}{35}\\right)(55 - 30) = \\left(\\frac{2}{35}\\right) \\times 25 = \\frac{50}{35} = \\frac{10}{7}$.\nSolving gives $t_2 = 7\\text{ minutes}$.\nDistractor Analysis: Expecting the second interval to also take $5\\text{ minutes}$ fails to account for the reduced cooling rate as the temperature excess decreases."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_032",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Thermal phenomenon/condition) with List II (Governing physical relation):\n\nList I\nA. Difference in lengths of two metal rods $(L_2 - L_1)$ is invariant with temperature\nB. Apparent expansion of a liquid inside a heated container is zero\nC. Coexistence of ice, water, and steam in stable thermodynamic equilibrium\nD. Local depression of melting point under applied mechanical pressure\n\nList II\nI. $\\gamma_{\\text{liquid}} = \\gamma_{\\text{vessel}} = 3\\alpha_{\\text{vessel}}$\nII. $L_1 \\alpha_1 = L_2 \\alpha_2$\nIII. Triple point of water ($273.16\\text{ K}, 611.65\\text{ Pa}$)\nIV. Regelation\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-I, B-II, C-III, D-IV",
+        "B) A-II, B-I, C-IV, D-III",
+        "C) A-II, B-III, C-I, D-IV",
+        "D) A-II, B-I, C-III, D-IV"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: If the difference in lengths $(L_2 - L_1)$ remains constant for any temperature variation $\\Delta T$, then $\\Delta L_1 = \\Delta L_2 \\implies L_1 \\alpha_1 \\Delta T = L_2 \\alpha_2 \\Delta T \\implies L_1 \\alpha_1 = L_2 \\alpha_2$. Hence, A corresponds to II.\nStep 2: Apparent volume expansion is $\\gamma_{\\text{app}} = \\gamma_{\\text{liquid}} - \\gamma_{\\text{vessel}}$. Setting $\\gamma_{\\text{app}} = 0$ gives $\\gamma_{\\text{liquid}} = \\gamma_{\\text{vessel}} = 3\\alpha_{\\text{vessel}}$. Hence, B corresponds to I.\nStep 3: The unique condition of temperature and pressure at which solid, liquid, and vapor phases coexist in dynamic equilibrium is the triple point of water ($273.16\\text{ K}, 611.65\\text{ Pa}$). Hence, C corresponds to III. Melting of ice under pressure followed by refreezing upon release of pressure is regelation. Hence, D corresponds to IV.\nDistractor Analysis: Confusing the triple point with normal atmospheric boiling or inversion of expansion coefficients produces mismatched combinations."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_033",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A piece of ice of mass $50\\text{ g}$ at $0^{\\circ}\\text{C}$ is placed into $200\\text{ g}$ of liquid water at $40^{\\circ}\\text{C}$ contained in a thermally insulated calorimeter of negligible heat capacity. Taking the specific heat capacity of water as $s = 1.0\\text{ cal}\\cdot\\text{g}^{-1}\\cdot^{\\circ}\\text{C}^{-1}$ and the latent heat of fusion of ice as $L_f = 80\\text{ cal/g}$, what is the final equilibrium temperature of the mixture?",
+      "options": [
+        "A) $10^{\\circ}\\text{C}$",
+        "B) $16^{\\circ}\\text{C}$",
+        "C) $20^{\\circ}\\text{C}$",
+        "D) $24^{\\circ}\\text{C}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Compute heat required to completely melt the ice: $Q_{\\text{melt}} = m_{\\text{ice}} L_f = 50\\text{ g} \\times 80\\text{ cal/g} = 4000\\text{ cal}$.\nStep 2: Compute maximum heat released by warm water if cooled to $0^{\\circ}\\text{C}$: $Q_{\\text{cool}} = m_{\\text{water}} s (40 - 0) = 200\\text{ g} \\times 1.0\\text{ cal/g}\\cdot^{\\circ}\\text{C} \\times 40^{\\circ}\\text{C} = 8000\\text{ cal}$.\nStep 3: Since $Q_{\\text{cool}} > Q_{\\text{melt}}$, all the ice melts completely, and surplus heat remains to raise the combined mass $(50 + 200) = 250\\text{ g}$ to final temperature $T_f$:\n$8000 - 4000 = (m_{\\text{ice}} + m_{\\text{water}}) s (T_f - 0) \\implies 4000 = 250 \\times 1.0 \\times T_f \\implies T_f = \\frac{4000}{250} = 16^{\\circ}\\text{C}$.\nDistractor Analysis: Miscalculating the total mass as $200\\text{ g}$ instead of $250\\text{ g}$ gives $\\frac{4000}{200} = 20^{\\circ}\\text{C}$; failing to account for latent heat gives an unphysical arithmetic mean."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_034",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When continuous solar radiation emitted by the inner photosphere of the Sun traverses its cooler outer gaseous atmosphere (chromosphere), distinct dark absorption lines, known as Fraunhofer lines, appear in the observed solar spectrum.\nReason (R): According to Kirchhoff's law of radiation, gaseous atoms at a lower temperature selectively absorb precisely those characteristic wavelengths of electromagnetic radiation that they are capable of emitting when excited at higher temperatures.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The solar core and photosphere emit a continuous thermal radiation spectrum. When this light passes through the cooler gases of the chromosphere, certain discrete frequencies are absorbed, forming Fraunhofer dark lines. Assertion (A) is true.\nStep 2: Kirchhoff's law states that for any wavelength $\\lambda$, the ratio of emissive power to absorptive power is equal to the emissive power of a black body ($e_\\lambda = a_\\lambda E_{\\text{bb}}$). Therefore, good emitters at wavelength $\\lambda$ are also good absorbers at that exact same wavelength. Reason (R) is true.\nStep 3: Reason (R) directly explains the origin of Fraunhofer absorption lines: vaporized elements in the cooler chromosphere absorb their own resonant emission wavelengths from the continuous white light passing through them. Both statements are true and (R) explains (A).\nDistractor Analysis: Claiming that Fraunhofer lines arise from atmospheric scattering (Rayleigh scattering) rather than resonant atomic absorption contradicts Kirchhoff's radiation principles."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_035",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two astronomical bodies $X$ and $Y$ behave as ideal blackbody radiators. Star $X$ has an effective surface temperature of $T_X = 6000\\text{ K}$, and Star $Y$ has an effective surface temperature of $T_Y = 3000\\text{ K}$. If the peak wavelength of spectral emissive power for Star $X$ is $\\lambda_X = 480\\text{ nm}$, what is the peak wavelength $\\lambda_Y$ for Star $Y$, and what is the ratio of total radiant power emitted per unit area $\\frac{E_X}{E_Y}$?",
+      "options": [
+        "A) $\\lambda_Y = 240\\text{ nm}$ and $\\frac{E_X}{E_Y} = 4$",
+        "B) $\\lambda_Y = 960\\text{ nm}$ and $\\frac{E_X}{E_Y} = 16$",
+        "C) $\\lambda_Y = 960\\text{ nm}$ and $\\frac{E_X}{E_Y} = 8$",
+        "D) $\\lambda_Y = 480\\text{ nm}$ and $\\frac{E_X}{E_Y} = 16$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: From Wien's displacement law, $\\lambda_{\\max} T = b = \\text{constant}$. Therefore, $\\lambda_Y T_Y = \\lambda_X T_X \\implies \\lambda_Y = \\lambda_X \\left(\\frac{T_X}{T_Y}\\right)$.\nStep 2: Substituting the values: $\\lambda_Y = 480\\text{ nm} \\times \\left(\\frac{6000\\text{ K}}{3000\\text{ K}}\\right) = 480 \\times 2 = 960\\text{ nm}$.\nStep 3: From the Stefan-Boltzmann law, the total emissive power per unit area is $E = \\sigma T^4$. The ratio is: $\\frac{E_X}{E_Y} = \\left(\\frac{T_X}{T_Y}\\right)^4 = \\left(\\frac{6000}{3000}\\right)^4 = 2^4 = 16$.\nDistractor Analysis: Predicting $\\lambda_Y = 240\\text{ nm}$ inverts Wien's inverse temperature dependence; calculating a power ratio of 8 or 4 confuses fourth-power radiative scaling with cubic or quadratic scaling."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_036",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the rate of ice formation on the surface of a pond during winter:\n\nStatement I: The time $t$ required for a layer of surface ice on a still lake to increase its thickness from $y_1$ to $y_2$ is proportional to $(y_2^2 - y_1^2)$, assuming a constant sub-zero atmospheric air temperature $-\\theta^{\\circ}\\text{C}$.\nStatement II: As the ice sheet grows thicker, its thermal resistance decreases, allowing heat to escape from the water below to the cold air at an ever-increasing rate.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: When a layer of thickness $dy$ freezes, latent heat released is $dQ = \\rho A dy L_f$. This heat conducts upward through the existing ice thickness $y$ in time $dt$: $\\frac{dQ}{dt} = \\frac{K A \\theta}{y}$.\nStep 2: Equating the two expressions: $\\rho A L_f \\frac{dy}{dt} = \\frac{K A \\theta}{y} \\implies y dy = \\frac{K \\theta}{\\rho L_f} dt$. Integrating from $y_1$ to $y_2$ yields $t = \\frac{\\rho L_f}{2 K \\theta} (y_2^2 - y_1^2)$. Hence, $t \\propto (y_2^2 - y_1^2)$, confirming Statement I is true.\nStep 3: The thermal resistance of the ice layer is $R_{\\text{th}} = \\frac{y}{KA}$. As the ice layer grows thicker ($y$ increases), its thermal resistance increases, which dramatically slows down heat conduction and the rate of subsequent ice formation ($ or \\frac{dy}{dt} \\propto \\frac{1}{y}$). Thus, Statement II is completely false.\nDistractor Analysis: Claiming that ice becomes a better conductor as it thickens directly contradicts Fourier's law where thermal resistance scales directly with thickness."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_037",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding thermal and calorimetric phenomena:\n\n(i) The water equivalent of a body is defined as the mass of water that would absorb or release the exact same quantity of heat as the body for an identical temperature change.\n(ii) When a pendulum clock is moved to a colder climate, the pendulum rod contracts thermally, which shortens its time period and causes the clock to gain time.\n(iii) During a first-order phase transition at constant pressure (such as boiling or melting), the temperature remains constant because the latent heat absorbed alters intermolecular potential energy rather than kinetic energy.\n(iv) The apparent volume expansion of mercury in a glass thermometer is greater than its real expansion because glass contracts upon heating.\n\nWhich of the statements given above are correct?",
+      "options": [
+        "A) (i) and (iv) only",
+        "B) (ii) and (iv) only",
+        "C) (i), (ii), (iii) and (iv)",
+        "D) (i), (ii) and (iii) only"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Statement (i) correctly defines water equivalent $W = m s / s_w$, which represents the equivalent mass of water exhibiting the same heat capacity.\nStep 2: Statement (ii) is correct: as temperature drops, length $L$ decreases ($L = L_0(1 - \\alpha \\Delta T)$), causing period $T_p = 2\\pi\\sqrt{L/g}$ to decrease. A shorter period means more oscillations per day, so the clock runs fast (gains time).\nStep 3: Statement (iii) is correct: latent heat breaks lattice or hydrogen bonds, changing molecular potential energy without changing the mean molecular kinetic energy (which is measured by temperature).\nStep 4: Statement (iv) is incorrect: glass expands upon heating, so the apparent expansion of mercury is strictly less than its real expansion ($\\gamma_{\\text{app}} = \\gamma_{\\text{real}} - 3\\alpha_{\\text{glass}}$).\nDistractor Analysis: Since statement (iv) is false, any option including (iv) is incorrect."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_038",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A mass of $10\\text{ g}$ of ice at $0^{\\circ}\\text{C}$ is mixed with $1.0\\text{ g}$ of steam at $100^{\\circ}\\text{C}$ in an insulated calorimeter of negligible thermal capacity. (Given: latent heat of fusion of ice $L_f = 80\\text{ cal/g}$, latent heat of vaporization of water $L_v = 540\\text{ cal/g}$, specific heat capacity of water $s = 1.0\\text{ cal}\\cdot\\text{g}^{-1}\\cdot^{\\circ}\\text{C}^{-1}$). What is the final equilibrium state of the mixture?",
+      "options": [
+        "A) Equilibrium temperature is $0^{\\circ}\\text{C}$ with $9.0\\text{ g}$ of water and $2.0\\text{ g}$ of ice.",
+        "B) Equilibrium temperature is $10^{\\circ}\\text{C}$ with all ice completely melted.",
+        "C) Equilibrium temperature is $0^{\\circ}\\text{C}$ with $5.0\\text{ g}$ of water and $6.0\\text{ g}$ of ice.",
+        "D) Equilibrium temperature is $100^{\\circ}\\text{C}$ with some steam remaining unevaporated."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate heat required to melt all $10\\text{ g}$ of ice at $0^{\\circ}\\text{C}$: $Q_{\\text{melt}} = 10\\text{ g} \\times 80\\text{ cal/g} = 800\\text{ cal}$.\nStep 2: Calculate maximum heat liberated by condensing $1.0\\text{ g}$ of steam and cooling the resulting water to $0^{\\circ}\\text{C}$:\n$Q_{\\text{condensation}} = 1.0\\text{ g} \\times 540\\text{ cal/g} = 540\\text{ cal}$.\n$Q_{\\text{cooling}} = 1.0\\text{ g} \\times 1.0\\text{ cal/g}\\cdot^{\\circ}\\text{C} \\times (100 - 0) = 100\\text{ cal}$.\nTotal heat released by steam: $Q_{\\text{total, steam}} = 540 + 100 = 640\\text{ cal}$.\nStep 3: Since $640\\text{ cal} < 800\\text{ cal}$, the steam condensates and cools entirely to $0^{\\circ}\\text{C}$, but does not possess enough heat to melt all the ice. The mass of ice melted is $m_{\\text{melted}} = \\frac{640\\text{ cal}}{80\\text{ cal/g}} = 8.0\\text{ g}$.\nStep 4: Remaining ice = $10.0 - 8.0 = 2.0\\text{ g}$. Total liquid water present = $1.0\\text{ g (condensed steam)} + 8.0\\text{ g (melted ice)} = 9.0\\text{ g}$. Because ice and water coexist, the final temperature is $0^{\\circ}\\text{C}$.\nDistractor Analysis: Assuming all ice melts leads to an incorrect temperature calculation because the available enthalpy of steam is insufficient."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_039",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Three identical conducting rods $OA$, $OB$, and $OC$, each of length $L$, uniform cross-sectional area $A$, and thermal conductivity $K$, are joined together at a central junction $O$ in a Y-shaped geometry. The outer free ends $A$, $B$, and $C$ are maintained at constant temperatures of $90^{\\circ}\\text{C}$, $60^{\\circ}\\text{C}$, and $30^{\\circ}\\text{C}$, respectively. Assuming steady-state conditions and no lateral heat loss from the surfaces, what is the temperature $T_O$ of the junction $O$?",
+      "options": [
+        "A) $50^{\\circ}\\text{C}$",
+        "B) $70^{\\circ}\\text{C}$",
+        "C) $60^{\\circ}\\text{C}$",
+        "D) $45^{\\circ}\\text{C}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Under steady-state conditions, thermal energy cannot accumulate at the junction $O$. By the junction rule (analogous to Kirchhoff's current law for electric circuits), the sum of heat currents leaving or entering junction $O$ must be zero: $\\sum H = 0$.\nStep 2: Let heat currents flowing towards $O$ from ends $A$, $B$, and $C$ be $H_A$, $H_B$, and $H_C$. Then: $\\frac{KA}{L}(90 - T_O) + \\frac{KA}{L}(60 - T_O) + \\frac{KA}{L}(30 - T_O) = 0$.\nStep 3: Since all rods have identical $\\frac{KA}{L}$, divide the equation through by $\\frac{KA}{L}$:\n$(90 - T_O) + (60 - T_O) + (30 - T_O) = 0 \\implies 180 - 3 T_O = 0 \\implies 3 T_O = 180 \\implies T_O = 60^{\\circ}\\text{C}$.\nDistractor Analysis: Calculating values other than the arithmetic average fails because all branches have identical thermal resistances ($R_{\\text{th}} = \\frac{L}{KA}$)."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_040",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Without the natural greenhouse effect, the average global surface temperature of planet Earth would be approximately $-18^{\\circ}\\text{C}$, making the biosphere largely inhospitable to life as we know it.\nReason (R): Greenhouse gases present in the atmosphere (principally water vapor and carbon dioxide) are largely transparent to incoming short-wavelength visible solar radiation, but absorb and re-emit the long-wavelength infrared radiation radiated back into space by Earth's surface.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Simple radiative equilibrium balancing incoming solar radiation against blackbody emission without an atmosphere gives an equilibrium temperature of $T_e \\approx 255\\text{ K} = -18^{\\circ}\\text{C}$. The actual mean surface temperature is $\\approx +15^{\\circ}\\text{C}$ ($288\\text{ K}$). Thus, Assertion (A) is true.\nStep 2: Incoming solar radiation peaks in the visible spectrum ($\\approx 500\\text{ nm}$), which passes easily through greenhouse gases. Earth's surface, radiating at $\\approx 300\\text{ K}$, emits in the thermal infrared spectrum ($\\lambda_{\\max} \\approx 10\\,\\mu\\text{m}$). These infrared wavelengths are strongly absorbed by vibrational modes of greenhouse gas molecules ($H_2\\text{O}$, $\\text{CO}_2$), which re-emit radiation in all directions, including back toward the surface. Reason (R) is true.\nStep 3: Reason (R) provides the exact scientific explanation for the warming described in Assertion (A). Therefore, both (A) and (R) are true and (R) is the correct explanation of (A).\nDistractor Analysis: Claiming that greenhouse gases trap incoming sunlight rather than terrestrial infrared radiation is a frequent conceptual misconception."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_041",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the molar heat capacities of ideal gases:\n\nStatement I: For an ideal gas, the molar heat capacity at constant pressure ($C_p$) is strictly greater than the molar heat capacity at constant volume ($C_v$), with their difference satisfying Mayer's relation $C_p - C_v = R$.\nStatement II: When heat is supplied to an ideal gas at constant pressure, a portion of the supplied energy is expended in doing external mechanical work of expansion ($P\\Delta V$) against the surroundings, in addition to increasing the internal thermal energy of the gas.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Mayer's relation for an ideal gas is derived from the first law of thermodynamics: $dQ = dU + dW$. At constant volume, $dW = 0$, so all heat goes into raising internal energy: $dQ_v = dU = n C_v dT$.\nStep 2: At constant pressure, the gas expands as it is heated, performing work $dW = P dV = n R dT$. Thus $dQ_p = dU + dW = n C_v dT + n R dT = n(C_v + R)dT$.\nStep 3: Comparing with $dQ_p = n C_p dT$ yields $C_p = C_v + R$, or $C_p - C_v = R$. Both Statement I and Statement II are completely true.\nDistractor Analysis: Assertions that $C_v > C_p$ fail because no work is done at constant volume, requiring less heat for the same temperature rise."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_042",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A solid cylindrical metal rod of initial length $L$, uniform cross-sectional area $A$, Young's modulus $Y$, and coefficient of linear expansion $\\alpha$ is clamped rigidly between two immovable and unyielding walls. The temperature of the rod is raised uniformly by $\\Delta T$. Assuming purely elastic deformation without buckling, what is the total mechanical strain energy $U$ stored in the rod as a result of thermal compression?",
+      "options": [
+        "A) $U = \\frac{1}{2} Y A L \\alpha \\Delta T$",
+        "B) $U = Y A L \\alpha^2 (\\Delta T)^2$",
+        "C) $U = \\frac{1}{2} Y A L \\alpha^2 (\\Delta T)^2$",
+        "D) $U = \\frac{1}{2 Y} A L \\alpha^2 (\\Delta T)^2$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The unrestrained thermal elongation of the rod would be $\\Delta L = L \\alpha \\Delta T$. Because the rigid supports prevent any expansion, the compressive thermal strain induced in the rod is $\\epsilon = \\frac{\\Delta L}{L} = \\alpha \\Delta T$.\nStep 2: By Hooke's law, the compressive thermal stress is $\\sigma = Y \\epsilon = Y \\alpha \\Delta T$.\nStep 3: The elastic strain energy per unit volume is $u = \\frac{1}{2} \\times \\text{Stress} \\times \\text{Strain} = \\frac{1}{2} \\sigma \\epsilon = \\frac{1}{2} (Y \\alpha \\Delta T)(\\alpha \\Delta T) = \\frac{1}{2} Y \\alpha^2 (\\Delta T)^2$.\nMultiplying by the volume $V = A L$ gives the total stored strain energy: $U = u V = \\frac{1}{2} Y A L \\alpha^2 (\\Delta T)^2$.\nDistractor Analysis: Omitting the factor of $\\frac{1}{2}$ gives the work done at full load without integration; using $\\frac{1}{2Y}$ incorrectly inverts Young's modulus."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_043",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Heat is conducted under steady-state conditions through a solid truncated circular cone (frustum) of thermal conductivity $K$ and length $L$. The two flat parallel end faces have circular cross-sections of radii $r_1$ and $r_2$, and are maintained at constant temperatures $T_1$ and $T_2$, respectively, with $T_1 > T_2$. The tapered lateral surface is perfectly insulated. What is the steady-state rate of heat conduction $H = \\frac{dQ}{dt}$ through the frustum?",
+      "options": [
+        "A) $H = \\frac{\\pi K (r_1 + r_2)^2 (T_1 - T_2)}{4L}$",
+        "B) $H = \\frac{\\pi K (r_1^2 + r_2^2) (T_1 - T_2)}{2L}$",
+        "C) $H = \\frac{2\\pi K r_1 r_2 (T_1 - T_2)}{L}$",
+        "D) $H = \\frac{\\pi K r_1 r_2 (T_1 - T_2)}{L}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In steady state with no lateral heat loss, the heat current $H = \\frac{dQ}{dt}$ is constant through every cross-section along the axial coordinate $x$. At distance $x$ from the face of radius $r_1$, the radius is $r(x) = r_1 + \\left(\\frac{r_2 - r_1}{L}\\right)x$.\nStep 2: By Fourier's law of conduction across an infinitesimal slice of thickness $dx$: $H = -K [\\pi r(x)^2] \\frac{dT}{dx} \\implies \\frac{H}{\\pi K} \\frac{dx}{[r(x)]^2} = -dT$.\nStep 3: Integrating from $x = 0$ ($T = T_1$) to $x = L$ ($T = T_2$):\n$\\frac{H}{\\pi K} \\int_0^L \\frac{dx}{[r_1 + \\frac{r_2 - r_1}{L}x]^2} = -\\int_{T_1}^{T_2} dT = (T_1 - T_2)$.\nThe integral evaluates to $\\frac{L}{r_1 r_2}$. Substituting back gives $\\frac{H}{\\pi K} \\frac{L}{r_1 r_2} = (T_1 - T_2) \\implies H = \\frac{\\pi K r_1 r_2 (T_1 - T_2)}{L}$.\nDistractor Analysis: Substituting the arithmetic mean area $\\frac{\\pi(r_1^2 + r_2^2)}{2}$ or average radius $\\frac{r_1+r_2}{2}$ incorrectly assumes a linear temperature profile, which does not hold for varying cross-sections."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_044",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A straight bimetallic strip consists of two different thin metal strips of identical initial length $L_0$ and equal thickness $d$, bonded rigidly face-to-face along their interface at temperature $T_0$. The coefficients of linear expansion of the two metals are $\\alpha_1$ and $\\alpha_2$, with $\\alpha_1 > \\alpha_2$. When heated uniformly to a temperature $T_0 + \\Delta T$, the composite strip bends into a planar circular arc. Assuming the thickness $d$ is very small compared to the radius of curvature $R$ ($R \\gg d$), what is the radius of curvature $R$ of the neutral interface?",
+      "options": [
+        "A) $R \\approx \\frac{d}{(\\alpha_1 - \\alpha_2)\\Delta T}$",
+        "B) $R \\approx \\frac{2d}{(\\alpha_1 - \\alpha_2)\\Delta T}$",
+        "C) $R \\approx \\frac{d}{2(\\alpha_1 - \\alpha_2)\\Delta T}$",
+        "D) $R \\approx \\frac{(\\alpha_1 - \\alpha_2)d}{\\Delta T}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let $R$ be the radius of curvature of the bonding interface and $\\theta$ be the angle subtended by the bent arc at its center of curvature. The central axis of strip 1 (outer curve) has radius $R_1 = R + \\frac{d}{2}$, and that of strip 2 (inner curve) has radius $R_2 = R - \\frac{d}{2}$.\nStep 2: The expanded lengths of the two strips along their central axes are:\n$L_1 = R_1 \\theta = \\left(R + \\frac{d}{2}\\right)\\theta = L_0(1 + \\alpha_1 \\Delta T)$\n$L_2 = R_2 \\theta = \\left(R - \\frac{d}{2}\\right)\\theta = L_0(1 + \\alpha_2 \\Delta T)$.\nStep 3: Subtracting the two equations gives: $\\left(R + \\frac{d}{2} - R + \\frac{d}{2}\\right)\\theta = d \\theta = L_0(\\alpha_1 - \\alpha_2)\\Delta T$. Dividing by $L_0 \\approx R\\theta$ (since $R \\gg d$) yields:\n$\\frac{d\\theta}{R\\theta} = \\frac{d}{R} = (\\alpha_1 - \\alpha_2)\\Delta T \\implies R = \\frac{d}{(\\alpha_1 - \\alpha_2)\\Delta T}$.\nDistractor Analysis: Factors of 2 or $\\frac{1}{2}$ arise from misidentifying the distance between the centerlines of the two strips (which is $\\frac{d}{2} + \\frac{d}{2} = d$)."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_045",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): For a hot radiator with emissivity $e$ cooling primarily by radiation in an enclosure kept at ambient absolute temperature $T_0$, the cooling constant $k$ in Newton's linear law of cooling $-\\frac{dT}{dt} = k(T - T_0)$ is proportional to the third power of the ambient temperature ($k \\propto T_0^3$).\nReason (R): When the temperature difference $\\Delta T = T - T_0$ is small compared to $T_0$, a first-order Taylor binomial expansion of the Stefan-Boltzmann radiation exchange law yields $(T_0 + \\Delta T)^4 - T_0^4 \\approx 4 T_0^3 \\Delta T$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Net rate of heat loss by thermal radiation to the surrounding environment at $T_0$ is given by the Stefan-Boltzmann law: $P = e \\sigma A (T^4 - T_0^4)$.\nStep 2: Let $T = T_0 + \\Delta T$. Since $\\Delta T \\ll T_0$, expand $(T_0 + \\Delta T)^4 = T_0^4 \\left(1 + \\frac{\\Delta T}{T_0}\\right)^4 \\approx T_0^4 \\left(1 + 4\\frac{\\Delta T}{T_0}\\right) = T_0^4 + 4 T_0^3 \\Delta T$. Thus, $T^4 - T_0^4 \\approx 4 T_0^3 \\Delta T$. Reason (R) is true.\nStep 3: The rate of cooling of the body of mass $m$ and specific heat $s$ is $-\\frac{dT}{dt} = \\frac{P}{ms} = \\frac{4 e \\sigma A T_0^3}{ms} (T - T_0) = k(T - T_0)$, where $k = \\frac{4 e \\sigma A T_0^3}{ms}$. Thus, $k \\propto T_0^3$, proving Assertion (A) is true and directly explained by Reason (R).\nDistractor Analysis: Claiming that $k$ is independent of $T_0$ confuses empirical Newton cooling with its underlying microphysical Stefan-Boltzmann radiative origin."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_046",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Five identical uniform metallic rods, each having a thermal resistance of $R_{\\text{th}}$, are joined together in the configuration of a Wheatstone bridge network: four rods form the bridge arms $AB$, $BC$, $AD$, and $DC$, while the fifth rod forms the cross-connection bridging junctions $B$ and $D$. Junctions $A$ and $C$ are held at constant steady temperatures $T_A = 100^{\\circ}\\text{C}$ and $T_C = 0^{\\circ}\\text{C}$, respectively. What is the steady-state heat current flowing through the bridging rod $BD$, and what is the equivalent thermal resistance of the entire network between junctions $A$ and $C$?",
+      "options": [
+        "A) Heat current is $\\frac{50}{R_{\\text{th}}}$ and equivalent thermal resistance is $2 R_{\\text{th}}$",
+        "B) Heat current is $\\frac{100}{R_{\\text{th}}}$ and equivalent thermal resistance is $\\frac{R_{\\text{th}}}{2}$",
+        "C) Heat current through rod $BD$ is zero and equivalent thermal resistance is $R_{\\text{th}}$",
+        "D) Heat current through rod $BD$ is zero and equivalent thermal resistance is $\\frac{5}{2} R_{\\text{th}}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The thermal conduction network is directly analogous to an electrical resistor bridge network. The ratio of thermal resistances of adjacent arms is $\\frac{R_{AB}}{R_{BC}} = \\frac{R_{\\text{th}}}{R_{\\text{th}}} = 1$ and $\\frac{R_{AD}}{R_{DC}} = \\frac{R_{\\text{th}}}{R_{\\text{th}}} = 1$.\nStep 2: Because $\\frac{R_{AB}}{R_{BC}} = \\frac{R_{AD}}{R_{DC}}$, the thermal Wheatstone bridge is balanced. Consequently, the steady-state temperatures at junctions $B$ and $D$ are identical: $T_B = T_D = \\frac{T_A + T_C}{2} = \\frac{100 + 0}{2} = 50^{\\circ}\\text{C}$.\nStep 3: Since the temperature difference across the central bridge rod $BD$ is $\\Delta T = T_B - T_D = 0$, the heat current through rod $BD$ is identically zero. Removing the central arm, the network consists of two parallel branches, each having resistance $R_{\\text{th}} + R_{\\text{th}} = 2 R_{\\text{th}}$.\nThe equivalent thermal resistance is $R_{\\text{eq}} = \\frac{(2 R_{\\text{th}})(2 R_{\\text{th}})}{2 R_{\\text{th}} + 2 R_{\\text{th}}} = R_{\\text{th}}$.\nDistractor Analysis: Incorrectly including the bridge rod as conducting heat fails to exploit the bridge symmetry principle."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_047",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Inside an ideal thermally insulated calorimeter of negligible thermal capacity, a sample of $10.0\\text{ g}$ of ice at $-10.0^{\\circ}\\text{C}$ is mixed with $10.0\\text{ g}$ of steam at $100.0^{\\circ}\\text{C}$. Take the specific heat capacity of ice as $s_{\\text{ice}} = 0.50\\text{ cal}\\cdot\\text{g}^{-1}\\cdot^{\\circ}\\text{C}^{-1}$, latent heat of fusion of ice as $L_f = 80\\text{ cal/g}$, specific heat capacity of water as $s_{\\text{water}} = 1.00\\text{ cal}\\cdot\\text{g}^{-1}\\cdot^{\\circ}\\text{C}^{-1}$, and latent heat of vaporization as $L_v = 540\\text{ cal/g}$. What is the final equilibrium temperature and composition of the system?",
+      "options": [
+        "A) Final temperature is $50.0^{\\circ}\\text{C}$ with $20.0\\text{ g}$ of liquid water and no steam or ice.",
+        "B) Final temperature is $0.0^{\\circ}\\text{C}$ with a mixture of ice and liquid water.",
+        "C) Final temperature is $100.0^{\\circ}\\text{C}$ with all steam condensed into $20.0\\text{ g}$ of boiling water.",
+        "D) Final temperature is $100.0^{\\circ}\\text{C}$ with approximately $13.4\\text{ g}$ of water and $6.6\\text{ g}$ of steam."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Calculate the total enthalpy required to bring $10.0\\text{ g}$ of ice at $-10.0^{\\circ}\\text{C}$ completely to water at $100.0^{\\circ}\\text{C}$:\n- Warming ice from $-10.0^{\\circ}\\text{C}$ to $0.0^{\\circ}\\text{C}$: $Q_1 = 10.0 \\times 0.50 \\times 10.0 = 50\\text{ cal}$.\n- Melting ice to water at $0.0^{\\circ}\\text{C}$: $Q_2 = 10.0 \\times 80 = 800\\text{ cal}$.\n- Heating liquid water from $0.0^{\\circ}\\text{C}$ to $100.0^{\\circ}\\text{C}$: $Q_3 = 10.0 \\times 1.00 \\times 100.0 = 1000\\text{ cal}$.\nTotal heat required: $Q_{\\text{req}} = 50 + 800 + 1000 = 1850\\text{ cal}$.\nStep 2: Total heat available from condensing all $10.0\\text{ g}$ of steam at $100.0^{\\circ}\\text{C}$: $Q_{\\text{avail}} = 10.0 \\times 540 = 5400\\text{ cal}$.\nStep 3: Since $Q_{\\text{avail}} > Q_{\\text{req}}$, only a fraction of the steam needs to condense to supply $1850\\text{ cal}$. The mass of steam condensed is:\n$m_{\\text{condensed}} = \\frac{1850\\text{ cal}}{540\\text{ cal/g}} \\approx 3.43\\text{ g}$.\nStep 4: The system settles at $100.0^{\\circ}\\text{C}$ containing a mixture of liquid water and steam:\nTotal liquid water = $10.0\\text{ g (from ice)} + 3.43\\text{ g (condensed)} \\approx 13.4\\text{ g}$.\nRemaining steam = $10.0 - 3.43 \\approx 6.6\\text{ g}$.\nDistractor Analysis: Assuming all steam condenses and cools to an intermediate temperature ($50^{\\circ}\\text{C}$) violates energy conservation because $5400\\text{ cal}$ vastly exceeds the $1850\\text{ cal}$ demand."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_048",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Newton's Law of Cooling:\n\nStatement I: According to the differential formulation of Newton's law of cooling $\\frac{dT}{dt} = -k(T - T_0)$, the temperature excess $\\theta(t) = T(t) - T_0$ decays exponentially with elapsed time according to $\\theta(t) = \\theta_0 e^{-kt}$.\nStatement II: When using the standard average approximation $\\frac{T_1 - T_2}{t} = k\\left(\\frac{T_1 + T_2}{2} - T_0\\right)$, the computed rate of cooling is slightly underestimated over large temperature drops because the authentic physical cooling curve is concave upward ($\\frac{d^2 T}{dt^2} > 0$).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Both Statement I and Statement II are true.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Separating variables in $\\frac{dT}{dt} = -k(T - T_0)$ gives $\\frac{d\\theta}{\\theta} = -k dt$, which integrates directly to $\\ln\\left(\\frac{\\theta}{\\theta_0}\\right) = -kt \\implies \\theta(t) = \\theta_0 e^{-kt}$. Statement I is true.\nStep 2: Differentiating $\\frac{dT}{dt} = -k(T - T_0)$ with respect to time yields $\\frac{d^2 T}{dt^2} = -k \\frac{dT}{dt} = +k^2(T - T_0) > 0$. Because the second derivative is positive, the $T(t)$ curve is strictly convex (concave upward).\nStep 3: By Jensen's inequality for convex functions, the chord connecting two points on the exponential curve lies strictly above the curve, so the arithmetic midpoint temperature $\\frac{T_1 + T_2}{2}$ is greater than the true time-averaged temperature $\\frac{1}{t}\\int_0^t T dt$. This slight difference leads to a systematic divergence for large intervals. Statement II is mathematically sound and true.\nDistractor Analysis: Both statements accurately reflect the exact analytical and numerical aspects of cooling dynamics."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_049",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The solar constant measured just above Earth's atmosphere at a mean Sun-Earth distance of $R_{\\text{SE}} = 1.50 \\times 10^{11}\\text{ m}$ is $S = 1360\\text{ W/m}^2$. The radius of the Sun is $R_S = 7.00 \\times 10^8\\text{ m}$. Assuming the Sun radiates as a spherical blackbody ($e = 1$) and taking the Stefan-Boltzmann constant as $\\sigma = 5.67 \\times 10^{-8}\\text{ W}\\cdot\\text{m}^{-2}\\cdot\\text{K}^{-4}$, which expression gives the effective surface temperature $T_S$ of the Sun, and what is its calculated value to the nearest hundred Kelvin?",
+      "options": [
+        "A) $T_S = \\left(\\frac{R_{\\text{SE}}^2 S}{R_S^2 \\sigma}\\right)^{1/4} \\approx 5800\\text{ K}$",
+        "B) $T_S = \\left(\\frac{R_S^2 S}{R_{\\text{SE}}^2 \\sigma}\\right)^{1/4} \\approx 5800\\text{ K}$",
+        "C) $T_S = \\left(\\frac{R_{\\text{SE}} S}{R_S \\sigma}\\right)^{1/2} \\approx 6200\\text{ K}$",
+        "D) $T_S = \\left(\\frac{4\\pi R_{\\text{SE}}^2 S}{\\sigma}\\right)^{1/4} \\approx 5400\\text{ K}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The total radiant power (luminosity) emitted by the Sun of radius $R_S$ is given by the Stefan-Boltzmann law: $L = 4\\pi R_S^2 \\sigma T_S^4$.\nStep 2: This total power is distributed uniformly over a sphere of radius $R_{\\text{SE}}$ at Earth's orbit. Thus, the solar constant (intensity at Earth) is $S = \\frac{L}{4\\pi R_{\\text{SE}}^2} = \\frac{4\\pi R_S^2 \\sigma T_S^4}{4\\pi R_{\\text{SE}}^2} = \\left(\\frac{R_S}{R_{\\text{SE}}}\\right)^2 \\sigma T_S^4$.\nStep 3: Solving for $T_S$: $T_S^4 = \\frac{R_{\\text{SE}}^2 S}{R_S^2 \\sigma} \\implies T_S = \\left(\\frac{R_{\\text{SE}}^2 S}{R_S^2 \\sigma}\\right)^{1/4}$.\nSubstituting values:\n$\\frac{R_{\\text{SE}}}{R_S} = \\frac{1.50 \\times 10^{11}}{7.00 \\times 10^8} \\approx 214.3 \\implies \\left(\\frac{R_{\\text{SE}}}{R_S}\\right)^2 \\approx 4.59 \\times 10^4$.\n$T_S^4 = \\frac{4.59 \\times 10^4 \\times 1360}{5.67 \\times 10^{-8}} \\approx \\frac{6.24 \\times 10^7}{5.67 \\times 10^{-8}} \\approx 1.10 \\times 10^{15}\\text{ K}^4$.\n$T_S \\approx (1.10 \\times 10^{15})^{1/4} \\approx 5770\\text{ K} \\approx 5800\\text{ K}$.\nDistractor Analysis: Inverting the ratio $\\frac{R_{\\text{SE}}}{R_S}$ or omitting fourth root produces incorrect dimensional or astronomical values."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_050",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A glass flask has an internal volume of exactly $1000\\text{ cm}^3$ at $0^{\\circ}\\text{C}$ and is completely filled to the brim with liquid mercury at this temperature. The coefficient of volume expansion of mercury is $\\gamma_{\\text{Hg}} = 1.80 \\times 10^{-4}\\text{ K}^{-1}$ and the coefficient of linear expansion of the glass is $\\alpha_{\\text{glass}} = 1.00 \\times 10^{-5}\\text{ K}^{-1}$. When the flask and mercury are heated together uniformly to $100^{\\circ}\\text{C}$, what volume of mercury will overflow?",
+      "options": [
+        "A) $18.0\\text{ cm}^3$",
+        "B) $3.0\\text{ cm}^3$",
+        "C) $15.0\\text{ cm}^3$",
+        "D) $17.0\\text{ cm}^3$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The coefficient of volume expansion of the glass flask is $\\gamma_{\\text{glass}} = 3 \\alpha_{\\text{glass}} = 3 \\times (1.00 \\times 10^{-5}\\text{ K}^{-1}) = 3.00 \\times 10^{-5}\\text{ K}^{-1}$.\nStep 2: The apparent coefficient of volume expansion of mercury in this glass flask is:\n$\\gamma_{\\text{app}} = \\gamma_{\\text{Hg}} - \\gamma_{\\text{glass}} = (1.80 \\times 10^{-4}\\text{ K}^{-1}) - (0.30 \\times 10^{-4}\\text{ K}^{-1}) = 1.50 \\times 10^{-4}\\text{ K}^{-1}$.\nStep 3: The volume of mercury that overflows upon heating through $\\Delta T = 100 - 0 = 100\\text{ K}$ is:\n$\\Delta V_{\\text{overflow}} = V_0 \\gamma_{\\text{app}} \\Delta T = (1000\\text{ cm}^3) \\times (1.50 \\times 10^{-4}\\text{ K}^{-1}) \\times (100\\text{ K}) = 1000 \\times 1.50 \\times 10^{-2} = 15.0\\text{ cm}^3$.\nDistractor Analysis: If glass expansion is neglected, $\\Delta V = 1000 \\times 1.80 \\times 10^{-4} \\times 100 = 18.0\\text{ cm}^3$; using $\\alpha_{\\text{glass}}$ instead of $3\\alpha_{\\text{glass}}$ gives $17.0\\text{ cm}^3$."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_051",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Thermal phenomenon / law) with List II (Fundamental differential or algebraic governing equation):\n\nList I\nA. Fourier's law of steady one-dimensional heat conduction\nB. Stefan-Boltzmann law of net radiation exchange\nC. Wien's displacement law for blackbody radiation\nD. Newton's law of cooling for small temperature excess\n\nList II\nI. $\\lambda_{\\max} T = b$\nII. $H = -K A \\frac{dT}{dx}$\nIII. $\\frac{dT}{dt} = -k(T - T_0)$\nIV. $P_{\\text{net}} = e \\sigma A (T^4 - T_0^4)$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-I, B-IV, C-II, D-III",
+        "B) A-II, B-I, C-IV, D-III",
+        "C) A-II, B-III, C-I, D-IV",
+        "D) A-II, B-IV, C-I, D-III"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Fourier's law defines heat current proportional to temperature gradient: $H = -K A \\frac{dT}{dx}$. Hence, A corresponds to II.\nStep 2: Stefan-Boltzmann law for net radiant power exchanged with surroundings at $T_0$ is $P_{\\text{net}} = e \\sigma A (T^4 - T_0^4)$. Hence, B corresponds to IV.\nStep 3: Wien's displacement law governs the peak wavelength: $\\lambda_{\\max} T = b$. Hence, C corresponds to I. Newton's law of cooling establishes $\\frac{dT}{dt} = -k(T - T_0)$. Hence, D corresponds to III.\nDistractor Analysis: Swapping Fourier's law with Wien's law or confounding Stefan-Boltzmann exchange with Newton cooling yields erroneous match pairs."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_052",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In Graham's mercury-compensated pendulum clock, the time period of oscillation remains virtually unaffected despite substantial seasonal fluctuations in ambient temperature.\nReason (R): As the temperature rises, the downward displacement of the center of oscillation caused by the linear thermal expansion of the steel suspension rod is exactly counterbalanced by the upward displacement caused by the cubical thermal expansion of the mercury reservoir in the pendulum bob.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In high-precision pendulum horology, temperature changes alter the pendulum's effective length $L$, altering period $T_p = 2\\pi \\sqrt{L/g}$. Graham's design achieves temperature compensation. Assertion (A) is true.\nStep 2: The pendulum bob contains a glass cylinder holding mercury. When heated, the steel rod of length $L$ expands downward by $\\Delta L = L \\alpha_{\\text{steel}} \\Delta T$. Concurrently, the mercury of column height $h$ expands upward by $\\Delta h = h \\alpha_{\\text{app}} \\Delta T$, shifting its center of mass upward by $\\frac{\\Delta h}{2}$.\nStep 3: By designing the dimensions such that $L \\alpha_{\\text{steel}} = \\frac{h}{2} \\alpha_{\\text{app}}$, the effective distance from the knife-edge pivot to the center of oscillation remains perfectly constant. Reason (R) is true and provides the precise physical explanation for Assertion (A).\nDistractor Analysis: Claiming that mercury acts merely as dead weight ignores its deliberate role in thermal center-of-mass counter-balancing."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_053",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A long hollow cylindrical steam pipe of length $L$, inner radius $r_1$, and outer radius $r_2$ is constructed of a metal with thermal conductivity $K$. In the steady state, the inner cylindrical wall is maintained at a uniform constant temperature $T_1$ and the outer cylindrical wall is maintained at a constant lower temperature $T_2$ ($T_1 > T_2$). Neglecting end effects and assuming strictly radial heat flow, what is the steady-state heat current $H = \\frac{dQ}{dt}$ conducted radially outward through the pipe wall?",
+      "options": [
+        "A) $H = \\frac{2\\pi K L (T_1 - T_2)}{\\frac{r_2}{r_1}}$",
+        "B) $H = \\frac{\\pi K L (r_2^2 - r_1^2)(T_1 - T_2)}{(r_2 - r_1)}$",
+        "C) $H = \\frac{2\\pi K L (T_1 - T_2)}{\\ln(r_2 / r_1)}$",
+        "D) $H = \\frac{4\\pi K L (T_1 - T_2)}{\\ln(r_2 / r_1)}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Consider an infinitesimal cylindrical coaxial shell of radius $r$, thickness $dr$, and length $L$. The cross-sectional surface area for radial heat conduction is $A(r) = 2\\pi r L$.\nStep 2: By Fourier's law of heat conduction, the radial heat current is: $H = -K A(r) \\frac{dT}{dr} = -K (2\\pi r L) \\frac{dT}{dr}$.\nStep 3: Separating variables gives: $\\frac{dr}{r} = -\\frac{2\\pi K L}{H} dT$. Integrating from the inner radius $r_1$ (temperature $T_1$) to the outer radius $r_2$ (temperature $T_2$):\n$\\int_{r_1}^{r_2} \\frac{dr}{r} = -\\frac{2\\pi K L}{H} \\int_{T_1}^{T_2} dT \\implies \\ln\\left(\\frac{r_2}{r_1}\\right) = \\frac{2\\pi K L (T_1 - T_2)}{H}$.\nRearranging for $H$ yields: $H = \\frac{2\\pi K L (T_1 - T_2)}{\\ln(r_2 / r_1)}$.\nDistractor Analysis: Using linear thickness $(r_2 - r_1)$ or omitting the natural logarithm fails to account for the cylindrical divergence of heat flow lines."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_054",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the thermodynamic phase behavior and phase diagrams of water:\n\n(i) In the pressure-temperature ($P-T$) phase diagram of water, the slope of the solid-liquid coexistence (fusion) curve is negative ($\\frac{dP}{dT} < 0$), because ice has a larger specific volume than liquid water.\n(ii) At the triple point of water ($T_{\\text{tr}} = 273.16\\text{ K}$, $P_{\\text{tr}} = 611.65\\text{ Pa}$), the system has zero thermodynamic degrees of freedom ($F = 0$), so the three phases can only coexist at this singular unique point.\n(iii) Above the critical temperature ($T_c \\approx 647\\text{ K}$) and critical pressure ($P_c \\approx 22.06\\text{ MPa}$), the distinction between liquid and gas ceases to exist, forming a supercritical fluid.\n(iv) Direct sublimation of ice into water vapor without passing through the liquid phase can occur at pressures higher than $1\\text{ atm}$.\n\nWhich of the statements given above are correct?",
+      "options": [
+        "A) (i) and (iv) only",
+        "B) (i), (ii) and (iii) only",
+        "C) (ii), (iii) and (iv) only",
+        "D) (i), (ii), (iii) and (iv)"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Statement (i) is correct: from the Clapeyron equation $\\frac{dP}{dT} = \\frac{L_f}{T(v_l - v_s)}$, since $v_s > v_l$ (ice expands on freezing), $(v_l - v_s) < 0$, giving a negative melting curve slope.\nStep 2: Statement (ii) is correct: by Gibbs phase rule $F = C - P + 2$, with $C = 1$ component (water) and $P = 3$ phases (solid, liquid, vapor), $F = 1 - 3 + 2 = 0$. The triple point is invariant.\nStep 3: Statement (iii) is correct: beyond the critical point $(T_c, P_c)$, the meniscus between liquid and gas vanishes, producing a single supercritical phase where gas cannot be liquefied by compression alone.\nStep 4: Statement (iv) is incorrect: sublimation can only take place at pressures below the triple point pressure ($P_{\\text{tr}} = 611.65\\text{ Pa} \\approx 0.006\\text{ atm}$). At pressures above $611.65\\text{ Pa}$ (such as $1\\text{ atm}$), warming ice always melts into liquid water first.\nDistractor Analysis: Any option including (iv) is incorrect because atmospheric pressure ($1\\text{ atm}$) is over 160 times higher than the triple point pressure."
+    },
+    {
+      "id": "phy_thermal_properties_of_matter_c01_055",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding thermal radiation and thermodynamic equilibrium inside an enclosure:\n\nStatement I: Inside an evacuated isothermal cavity with opaque walls maintained at uniform temperature $T$, the spectral energy density and radiation flux are completely isotropic and depend solely on the thermodynamic temperature $T$, irrespective of the cavity's geometric shape or wall material.\nStatement II: A highly polished silver sphere and a rough blackened carbon sphere placed inside the same isothermal enclosure at thermal equilibrium will both absorb incident radiant power per unit area at the exact same rate.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Inside a closed isothermal cavity at temperature $T$, blackbody radiation field develops. By the second law of thermodynamics, this cavity radiation depends only on temperature $T$ and is completely independent of the shape, volume, or wall materials. Thus, Statement I is true.\nStep 2: In thermal equilibrium, the silver sphere has a very low absorptivity ($a_{\\text{Ag}} \\ll 1$), reflecting almost all incident radiation and absorbing only a tiny fraction $a_{\\text{Ag}} E_{\\text{bb}}$. The carbon sphere has high absorptivity ($a_{\\text{C}} \\approx 1$), absorbing nearly all incident radiation $a_{\\text{C}} E_{\\text{bb}}$.\nStep 3: Therefore, the blackened carbon sphere absorbs far more radiant energy per unit area than the silver sphere. Each sphere remains at equilibrium temperature $T$ because its emission rate exactly equals its own absorption rate ($e_{\\text{Ag}} = a_{\\text{Ag}}$ and $e_{\\text{C}} = a_{\\text{C}}$), not because their absorption rates are equal. Thus, Statement II is completely false.\nDistractor Analysis: Confusing the equilibrium condition (absorbed power = emitted power for each individual body) with equal absorption rates across bodies of different absorptivities is a prevalent misconception."
+    }
+  ]
+}

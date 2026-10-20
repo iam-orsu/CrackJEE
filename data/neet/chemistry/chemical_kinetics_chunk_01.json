@@ -1,0 +1,943 @@
+{
+  "subject": "Chemistry",
+  "topic": "Chemical Kinetics",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "chem_chemical_kinetics_c01_001",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding average and instantaneous rates of a chemical reaction:\nStatement I: The average rate of a reaction over a finite time interval $\\Delta t$ is expressed as $-\\frac{\\Delta [R]}{\\Delta t}$ with respect to reactants, whereas the instantaneous rate represents the rate at a specific moment in time given by $-\\frac{d[R]}{dt}$.\nStatement II: As the time interval $\\Delta t$ approaches zero, the average rate becomes equal to the instantaneous rate, which corresponds to the negative slope of the tangent drawn to the concentration of reactant versus time curve at that moment.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I: NCERT defines the average rate ($r_{\\text{avg}}$) as the change in concentration of reactant divided by the finite time interval, $r_{\\text{avg}} = -\\frac{\\Delta [R]}{\\Delta t}$. The instantaneous rate ($r_{\\text{inst}}$) is defined as the rate at a particular instant of time, expressed mathematically as $r_{\\text{inst}} = -\\frac{d[R]}{dt}$. Hence, Statement I is correct.\nStep 2: Analyze Statement II: In calculus, as $\\Delta t \\rightarrow 0$, $\\lim_{\\Delta t \\rightarrow 0}\\left(-\\frac{\\Delta [R]}{\\Delta t}\\right) = -\\frac{d[R]}{dt}$. Graphically, this corresponds to the negative value of the slope of the tangent to the curve of $[R]$ plotted against time $t$ at that specific instant. Hence, Statement II is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_002",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The unit of rate of a chemical reaction in aqueous solution is always $\\text{mol L}^{-1}\\text{s}^{-1}$, irrespective of the overall order of the reaction.\nReason (R): The rate of a chemical reaction is defined as the change in molar concentration of a reactant or product per unit time.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Assertion (A): By definition, the rate of reaction is the rate of change of concentration of any reactant or product divided by its stoichiometric coefficient. Concentration is measured in $\\text{mol L}^{-1}$ and time in seconds (or minutes), so the unit of rate is always $\\text{mol L}^{-1}\\text{s}^{-1}$ (or $\\text{mol}\\cdot\\text{L}^{-1}\\cdot\\text{time}^{-1}$) regardless of whether the reaction is zero, first, second, or fractional order. Thus, (A) is true.\nStep 2: Evaluate Reason (R): Rate of reaction $= \\pm\\frac{\\Delta C}{\\Delta t} = \\frac{\\text{change in molar concentration}}{\\text{time taken}}$. Therefore, Reason (R) defines rate of reaction correctly and directly accounts for why the unit of rate is universally $\\text{mol L}^{-1}\\text{s}^{-1}$. Thus, (R) is true.\nStep 3: Evaluate connection: Reason (R) is the exact scientific definition that explains why the unit of reaction rate is constant across all reaction orders. Therefore, both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_003",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For the gas-phase decomposition reaction: $2\\text{N}_2\\text{O}_5(g) \\rightarrow 4\\text{NO}_2(g) + \\text{O}_2(g)$, consider the following statements:\nStatement I: The rate of appearance of $\\text{NO}_2$ is twice the rate of disappearance of $\\text{N}_2\\text{O}_5$.\nStatement II: The unique reaction rate expression is given by $-\\frac{1}{2}\\frac{d[\\text{N}_2\\text{O}_5]}{dt} = +\\frac{1}{4}\\frac{d[\\text{NO}_2]}{dt} = +\\frac{d[\\text{O}_2]}{dt}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect",
+        "B) Statement I is correct but Statement II is incorrect",
+        "C) Both Statement I and Statement II are correct",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I: The stoichiometric coefficients in the balanced equation are $2$ for $\\text{N}_2\\text{O}_5$ and $4$ for $\\text{NO}_2$. Equating the rates gives: $-\\frac{1}{2}\\frac{d[\\text{N}_2\\text{O}_5]}{dt} = \\frac{1}{4}\\frac{d[\\text{NO}_2]}{dt}$. Multiplying both sides by $4$, we get $\\frac{d[\\text{NO}_2]}{dt} = 2\\left(-\\frac{d[\\text{N}_2\\text{O}_5]}{dt}\\right)$. Thus, the rate of appearance of $\\text{NO}_2$ is indeed twice the rate of disappearance of $\\text{N}_2\\text{O}_5$. Statement I is correct.\nStep 2: Analyze Statement II: To obtain a single, unique value for the reaction rate, the rate of change of concentration of each species is divided by its respective stoichiometric coefficient (with negative sign for reactants and positive sign for products). Thus, Rate $= -\\frac{1}{2}\\frac{d[\\text{N}_2\\text{O}_5]}{dt} = +\\frac{1}{4}\\frac{d[\\text{NO}_2]}{dt} = +\\frac{d[\\text{O}_2]}{dt}$. Statement II is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_004",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The order of a chemical reaction is an experimental quantity that can be zero, positive, fractional, or negative.\nReason (R): The order of a reaction cannot be deduced merely by looking at the stoichiometric coefficients of a balanced overall chemical equation.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "B) (A) is true but (R) is false",
+        "C) (A) is false but (R) is true",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Assertion (A): According to NCERT, the order of a reaction is defined as the sum of powers of the concentration terms in the rate law expression. It is purely an experimentally determined quantity and can be zero, whole numbers, fractional, or even negative with respect to a particular species. Thus, (A) is true.\nStep 2: Evaluate Reason (R): Most reactions are complex reactions proceeding through a sequence of elementary steps. Therefore, the stoichiometric coefficients in a balanced chemical equation do not indicate the actual exponents in the rate law. The rate law and order must be determined experimentally. Thus, (R) is true.\nStep 3: Evaluate connection: Because stoichiometric coefficients do not govern the kinetics of complex reactions, order must be determined experimentally and is not restricted to positive stoichiometric integers; it can take zero, fractional, or negative values. Hence, (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_005",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the molecularity of chemical reactions:\nStatement I: Molecularity is the number of reacting species (atoms, ions, or molecules) taking part in an elementary reaction that must collide simultaneously to bring about a chemical change.\nStatement II: Molecularity of an elementary reaction can be zero, fractional, or negative under specific conditions of temperature and pressure.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect",
+        "B) Both Statement I and Statement II are correct",
+        "C) Both Statement I and Statement II are incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I: NCERT defines molecularity as the number of reacting species colliding simultaneously in an elementary step to cause a chemical reaction. For unimolecular, bimolecular, and trimolecular reactions, molecularity is $1, 2,$ and $3$ respectively. Hence, Statement I is correct.\nStep 2: Analyze Statement II: Since molecularity represents the physical count of molecules colliding simultaneously in an elementary event, it must always be a non-zero positive integer ($1, 2,$ or $3$). It can never be zero, fractional, or negative. Hence, Statement II is incorrect.\nStep 3: Conclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_006",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II to identify the correct SI-derived units for the specific rate constant ($k$) of different reaction orders:\nList I (Order of Reaction)\nA. Zero order reaction\nB. First order reaction\nC. Second order reaction\nD. Half order ($n = 1/2$) reaction\nList II (Units of Rate Constant $k$)\nI. $\\text{s}^{-1}$\nII. $\\text{mol L}^{-1}\\text{s}^{-1}$\nIII. $\\text{mol}^{-1}\\text{L s}^{-1}$\nIV. $\\text{mol}^{1/2}\\text{L}^{-1/2}\\text{s}^{-1}$\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-I, B-II, C-IV, D-III",
+        "B) A-II, B-I, C-III, D-IV",
+        "C) A-II, B-III, C-I, D-IV",
+        "D) A-IV, B-I, C-III, D-II"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Determine the general unit formula for rate constant $k$: For an $n^{\\text{th}}$ order reaction, $\\text{Rate} = k[A]^n \\implies k = \\frac{\\text{Rate}}{[A]^n} = \\frac{\\text{mol L}^{-1}\\text{s}^{-1}}{(\\text{mol L}^{-1})^n} = (\\text{mol L}^{-1})^{1-n}\\text{s}^{-1}$.\nStep 2: Match each item:\n- A. For zero order ($n = 0$): $(\\text{mol L}^{-1})^{1-0}\\text{s}^{-1} = \\text{mol L}^{-1}\\text{s}^{-1}$. Matches II.\n- B. For first order ($n = 1$): $(\\text{mol L}^{-1})^{1-1}\\text{s}^{-1} = \\text{s}^{-1}$. Matches I.\n- C. For second order ($n = 2$): $(\\text{mol L}^{-1})^{-1}\\text{s}^{-1} = \\text{mol}^{-1}\\text{L s}^{-1}$. Matches III.\n- D. For half order ($n = 1/2$): $(\\text{mol L}^{-1})^{1/2}\\text{s}^{-1} = \\text{mol}^{1/2}\\text{L}^{-1/2}\\text{s}^{-1}$. Matches IV.\nStep 3: Conclusion: The correct matching is A-II, B-I, C-III, D-IV."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_007",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Elementary reactions having a molecularity greater than three are extremely rare and practically non-existent.\nReason (R): The probability that more than three molecules will collide simultaneously with sufficient threshold energy and proper mutual spatial orientation is vanishingly small.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "B) (A) is true but (R) is false",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Assertion (A): In chemical kinetics, reactions with molecularity greater than three are exceedingly rare. Almost all reactions involving more than three reactant molecules proceed via a multi-step sequence of elementary steps having molecularity of $1$ or $2$, and rarely $3$. Thus, (A) is true.\nStep 2: Evaluate Reason (R): A reaction occurs when colliding species possess energy equal to or greater than the threshold energy and hit each other with proper spatial orientation. The statistical chance of four or more distinct particles colliding simultaneously at the exact same point in space and time with proper orientation is practically zero. Thus, (R) is true.\nStep 3: Evaluate connection: Reason (R) provides the statistical mechanical reason why elementary molecularity rarely exceeds three. Thus, both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_008",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding complex reactions:\nStatement I: In a complex multistep reaction, the overall rate of the reaction is controlled by the slowest elementary step, known as the rate determining step.\nStatement II: For a complex reaction, the overall molecularity is obtained by adding the molecularities of all the individual elementary steps involved in the mechanism.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is incorrect but Statement II is correct",
+        "D) Statement I is correct but Statement II is incorrect"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Statement I: In a multi-step (complex) reaction, each step proceeds at a characteristic speed. The overall speed is throttled by the slowest step, exactly like the slowest runner in a relay race determines the team's completion time. This slowest step is called the Rate Determining Step (RDS). Statement I is correct.\nStep 2: Analyze Statement II: According to NCERT, molecularity is defined only for an elementary step. For a complex reaction, the term 'overall molecularity' has no physical meaning because all the molecules participating in the entire mechanism never collide simultaneously. Statement II is incorrect.\nStep 3: Conclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_009",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding zero-order reactions:\nStatement I: In a zero-order reaction $R \\rightarrow P$, the rate of reaction is entirely independent of the instantaneous concentration of the reactant $R$.\nStatement II: A plot of reactant concentration $[R]$ versus time $t$ for a zero-order reaction yields a straight line with a slope equal to $-k$ and a y-intercept equal to $[R]_0$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I: For a zero-order reaction, $\\text{Rate} = -\\frac{d[R]}{dt} = k[R]^0 = k$. The rate is constant and does not change as the reactant is consumed over time. Statement I is correct.\nStep 2: Analyze Statement II: Integrating $-d[R] = k dt$ from $[R]_0$ to $[R]$ gives $[R] = [R]_0 - kt$, which is of the linear form $y = mx + c$, where $y = [R]$, $x = t$, slope $m = -k$, and intercept $c = [R]_0$. Statement II is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_010",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For a zero-order chemical reaction, doubling the initial concentration of the reactant doubles its half-life period ($t_{1/2}$).\nReason (R): The half-life of a zero-order reaction is inversely proportional to the initial concentration of the reactant, given by $t_{1/2} = \\frac{k}{2[R]_0}$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) (A) is true but (R) is false",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Assertion (A): For a zero-order reaction, at $t = t_{1/2}$, $[R] = \\frac{[R]_0}{2}$. Substituting into $[R]_0 - [R] = kt_{1/2}$ yields $[R]_0 - \\frac{[R]_0}{2} = k t_{1/2} \\implies t_{1/2} = \\frac{[R]_0}{2k}$. Since $t_{1/2} \\propto [R]_0$, doubling $[R]_0$ will double $t_{1/2}$. Thus, (A) is true.\nStep 2: Evaluate Reason (R): The half-life formula for a zero-order reaction is $t_{1/2} = \\frac{[R]_0}{2k}$, which shows a direct proportionality to $[R]_0$, not an inverse proportionality. The expression $t_{1/2} = \\frac{k}{2[R]_0}$ given in Reason (R) is mathematically incorrect. Thus, (R) is false.\nStep 3: Conclusion: (A) is true but (R) is false."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_011",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a first-order chemical reaction:\nStatement I: The half-life period ($t_{1/2}$) of a first-order reaction is completely independent of the initial concentration of the reacting species.\nStatement II: A plot of $\\ln[R]$ versus time $t$ for a first-order reaction yields a straight line with a positive slope equal to $+k$ and an intercept equal to $\\ln[R]_0$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I: For a first-order reaction, $k = \\frac{2.303}{t}\\log\\frac{[R]_0}{[R]}$. Setting $[R] = \\frac{[R]_0}{2}$ at $t = t_{1/2}$ gives $t_{1/2} = \\frac{\\ln 2}{k} = \\frac{0.693}{k}$. Since initial concentration $[R]_0$ does not appear in this expression, $t_{1/2}$ is independent of $[R]_0$. Statement I is correct.\nStep 2: Analyze Statement II: The integrated rate law in logarithmic form is $\\ln[R] = -kt + \\ln[R]_0$. Comparing with the straight-line equation $y = mx + c$, where $y = \\ln[R]$ and $x = t$, the slope is $m = -k$ (a negative slope), not $+k$. Statement II is incorrect.\nStep 3: Conclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_012",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The acid-catalyzed hydrolysis of ethyl acetate: $\\text{CH}_3\\text{COOC}_2\\text{H}_5 + \\text{H}_2\\text{O} \\xrightarrow{\\text{H}^+} \\text{CH}_3\\text{COOH} + \\text{C}_2\\text{H}_5\\text{OH}$ is classified as a pseudo-first order reaction.\nReason (R): Water is present in such large stoichiometric excess that its concentration remains practically unaltered during the entire course of the reaction.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "B) (A) is true but (R) is false",
+        "C) (A) is false but (R) is true",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Assertion (A): The reaction involves two molecules in the rate expression: $\\text{Rate} = k'[\\text{CH}_3\\text{COOC}_2\\text{H}_5][\\text{H}_2\\text{O}]$. However, because it behaves kinetically as a first-order process, it is designated as a pseudo-first order reaction. Thus, (A) is true.\nStep 2: Evaluate Reason (R): In typical aqueous solutions, water is the solvent ($\\approx 55.5\\text{ mol L}^{-1}$), while the ester is present in low concentration (e.g., $0.01\\text{ mol L}^{-1}$). The change in water concentration is negligible, so $[\\text{H}_2\\text{O}]$ is incorporated into the rate constant: $k = k'[\\text{H}_2\\text{O}]$, giving $\\text{Rate} = k[\\text{CH}_3\\text{COOC}_2\\text{H}_5]$. Thus, (R) is true.\nStep 3: Evaluate connection: The massive excess and virtually constant concentration of water is the direct physical cause that reduces the true second-order law to an apparent first-order law. Hence, both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_013",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II for the graphical representations of chemical kinetics:\nList I (Plot / Coordinates)\nA. $[R]$ versus time $t$ for zero order reaction\nB. $\\log\\frac{[R]_0}{[R]}$ versus time $t$ for first order reaction\nC. Half-life period $t_{1/2}$ versus initial concentration $[R]_0$ for first order reaction\nD. Rate versus initial concentration $[R]_0$ for zero order reaction\nList II (Nature of Graph / Slope)\nI. Straight line parallel to x-axis (slope $= 0$)\nII. Straight line passing through origin with slope $= \\frac{k}{2.303}$\nIII. Straight line with negative slope equal to $-k$\nIV. Horizontal line parallel to concentration axis (slope $= 0$)\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-III, B-II, C-I, D-IV",
+        "B) A-II, B-III, C-IV, D-I",
+        "C) A-III, B-I, C-II, D-IV",
+        "D) A-I, B-II, C-III, D-IV"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze item A: For zero order, $[R] = [R]_0 - kt$. Plotted as $[R]$ vs $t$, it is a straight line with intercept $[R]_0$ and negative slope $m = -k$. Matches III.\nStep 2: Analyze item B: For first order, $k = \\frac{2.303}{t}\\log\\frac{[R]_0}{[R]} \\implies \\log\\frac{[R]_0}{[R]} = \\frac{k}{2.303}t$. Plotted as $\\log\\frac{[R]_0}{[R]}$ vs $t$, it is a straight line passing through the origin with positive slope $m = \\frac{k}{2.303}$. Matches II.\nStep 3: Analyze item C: For first order, $t_{1/2} = \\frac{0.693}{k}$, which is a constant independent of $[R]_0$. A plot of $t_{1/2}$ vs $[R]_0$ is a horizontal straight line parallel to the x-axis (slope $= 0$). Matches I.\nStep 4: Analyze item D: For zero order, $\\text{Rate} = k[R]^0 = k$. The rate is independent of $[R]_0$, giving a horizontal line parallel to the concentration axis. Matches IV.\nStep 5: Conclusion: The correct match is A-III, B-II, C-I, D-IV."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_014",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the inversion of cane sugar:\nStatement I: The hydrolysis of sucrose (cane sugar) in the presence of dilute mineral acid is an experimental example of a pseudo-first order reaction.\nStatement II: During the acid hydrolysis of sucrose, an optical rotation change from dextrorotatory to levorotatory is observed because the specific levorotation of D-(-)-fructose exceeds the specific dextrorotation of D-(+)-glucose.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect",
+        "B) Both Statement I and Statement II are correct",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I: The reaction $\\text{C}_{12}\\text{H}_{22}\\text{O}_{11} + \\text{H}_2\\text{O} \\xrightarrow{\\text{H}^+} \\text{C}_6\\text{H}_{12}\\text{O}_6 (\\text{glucose}) + \\text{C}_6\\text{H}_{12}\\text{O}_6 (\\text{fructose})$ involves water in large excess. The rate depends only on sucrose concentration: $\\text{Rate} = k[\\text{C}_{12}\\text{H}_{22}\\text{O}_{11}]$, making it a pseudo-first order reaction. Statement I is correct.\nStep 2: Analyze Statement II: Sucrose is dextrorotatory ($+66.5^\\circ$). On hydrolysis, it produces equimolar amounts of D-(+)-glucose ($+52.5^\\circ$) and D-(-)-fructose ($-92.4^\\circ$). Because the magnitude of levorotation of fructose is greater than the dextrorotation of glucose, the net mixture is levorotatory, causing inversion of the sign of optical rotation. Statement II is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_015",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The decomposition of gaseous ammonia on a hot platinum catalyst surface at high pressure is a zero-order reaction.\nReason (R): At high pressure, the catalytic metal surface becomes completely saturated with adsorbed ammonia molecules, so the rate becomes independent of further increase in ammonia pressure.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "B) (A) is true but (R) is false",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Assertion (A): In NCERT, $2\\text{NH}_3(g) \\xrightarrow{\\text{Pt, } 1130\\text{ K}} \\text{N}_2(g) + 3\\text{H}_2(g)$ at high pressure is explicitly cited as a classic example of a zero-order reaction, where $\\text{Rate} = k[\\text{NH}_3]^0 = k$. Thus, (A) is true.\nStep 2: Evaluate Reason (R): At high pressure, all active catalytic sites on the platinum surface are occupied by ammonia molecules (complete surface coverage, $\\theta \\approx 1$). Adding more ammonia molecules to the gas phase cannot increase the number of adsorbed reacting molecules on the surface. Hence, the rate becomes independent of concentration/pressure. Thus, (R) is true.\nStep 3: Evaluate connection: Surface saturation explains why the kinetics transition from first order at low pressure to zero order at high pressure. Hence, both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_016",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the Arrhenius equation $k = A e^{-E_a/RT}$:\nStatement I: The exponential term $e^{-E_a/RT}$ represents the fraction of colliding molecules that possess kinetic energy equal to or greater than the activation energy $E_a$.\nStatement II: The Arrhenius pre-exponential factor $A$ is a dimensionless pure number that has no physical units.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is incorrect but Statement II is correct",
+        "D) Statement I is correct but Statement II is incorrect"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Statement I: According to the Boltzmann distribution and NCERT, the factor $e^{-E_a/RT}$ corresponds to the fraction of molecules with kinetic energies $\\ge E_a$. Hence, Statement I is correct.\nStep 2: Analyze Statement II: Since the exponent $-E_a/RT$ is dimensionless, the exponential term $e^{-E_a/RT}$ is dimensionless. Therefore, the pre-exponential factor $A$ must possess the exact same units as the rate constant $k$ (e.g., $\\text{s}^{-1}$ for first-order or $\\text{L mol}^{-1}\\text{s}^{-1}$ for second-order). It is not dimensionless. Hence, Statement II is incorrect.\nStep 3: Conclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_017",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For most chemical reactions, a rise in temperature by $10^\\circ\\text{C}$ leads to a two-fold to three-fold increase in the reaction rate.\nReason (R): A temperature increase of $10^\\circ\\text{C}$ doubles the average kinetic energy of the reacting molecules in the system.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A): It is an established empirical observation cited in NCERT that the rate of a chemical reaction nearly doubles or triples for every $10^\\circ\\text{C}$ (or $10\\text{ K}$) rise in temperature; the temperature coefficient $\\frac{k_{T+10}}{k_T}$ is usually between $2$ and $3$. Thus, (A) is true.\nStep 2: Evaluate Reason (R): Average kinetic energy is proportional to absolute temperature ($E_k = \\frac{3}{2}RT$). Raising temperature from $298\\text{ K}$ to $308\\text{ K}$ increases the average kinetic energy by only $\\frac{10}{298} \\approx 3.3\\%$, not $100\\%$ (doubling). The dramatic rate increase is caused because the fraction of molecules possessing energy exceeding activation energy ($E \\ge E_a$, the area under the Maxwell-Boltzmann tail) approximately doubles. Thus, (R) is false.\nStep 3: Conclusion: (A) is true but (R) is false."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_018",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the action of a catalyst in a reversible chemical reaction:\nStatement I: A positive catalyst speeds up the reaction by providing an alternative reaction pathway involving a lower activation energy barrier.\nStatement II: A catalyst alters the standard Gibbs free energy change ($\\Delta G^\\circ$) of the reaction and shifts the equilibrium composition toward higher product yield.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Statement I is correct but Statement II is incorrect",
+        "C) Both Statement I and Statement II are incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I: A catalyst participates in the formation of an intermediate activated complex that has lower potential energy than the uncatalyzed transition state, thereby reducing the activation energy $E_a$ and increasing the reaction rate. Statement I is correct.\nStep 2: Analyze Statement II: A catalyst lowers the activation energy of both the forward and backward reactions by the exact same amount. Consequently, it accelerates both rates equally, enabling the system to reach equilibrium faster without altering the equilibrium constant $K_{\\text{eq}}$, the equilibrium composition, or thermodynamic state functions like $\\Delta G^\\circ$, $\\Delta H^\\circ$, and $\\Delta S^\\circ$. Statement II is incorrect.\nStep 3: Conclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_019",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II for the parameters related to the temperature dependence of rate constant according to the Arrhenius theory:\nList I (Kinetic Parameter / Plot)\nA. Slope of the graph of $\\ln k$ versus $\\frac{1}{T}$\nB. Slope of the graph of $\\log_{10} k$ versus $\\frac{1}{T}$\nC. Intercept on the y-axis for the plot of $\\log_{10} k$ versus $\\frac{1}{T}$\nD. Intercept on the y-axis for the plot of $\\ln k$ versus $\\frac{1}{T}$\nList II (Mathematical Expression)\nI. $-\\frac{E_a}{R}$\nII. $-\\frac{E_a}{2.303 R}$\nIII. $\\log_{10} A$\nIV. $\\ln A$\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-I, C-IV, D-III",
+        "B) A-I, B-II, C-IV, D-III",
+        "C) A-I, B-II, C-III, D-IV",
+        "D) A-II, B-I, C-III, D-IV"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Write Arrhenius equation in natural logarithmic form: $\\ln k = \\ln A - \\frac{E_a}{RT} = \\left(-\\frac{E_a}{R}\\right)\\left(\\frac{1}{T}\\right) + \\ln A$. For a plot of $\\ln k$ vs $1/T$, slope is $-\\frac{E_a}{R}$ (A matches I) and y-intercept is $\\ln A$ (D matches IV).\nStep 2: Convert to common logarithm (base 10): $\\log_{10} k = \\log_{10} A - \\frac{E_a}{2.303 RT} = \\left(-\\frac{E_a}{2.303 R}\\right)\\left(\\frac{1}{T}\\right) + \\log_{10} A$. For a plot of $\\log_{10} k$ vs $1/T$, slope is $-\\frac{E_a}{2.303 R}$ (B matches II) and y-intercept is $\\log_{10} A$ (C matches III).\nStep 3: Conclusion: The correct match is A-I, B-II, C-III, D-IV."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_020",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Every collision between reactant molecules possessing kinetic energy equal to or exceeding the threshold energy results in the formation of chemical products.\nReason (R): For an effective collision to occur, reacting molecules must not only possess sufficient activation energy but must also collide with proper spatial orientation.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Assertion (A): Even if colliding molecules have kinetic energy greater than or equal to the threshold energy, product formation will fail if the colliding atoms/groups are improperly aligned in space (improper orientation). Hence, not all collisions having sufficient energy lead to product formation. Thus, (A) is false.\nStep 2: Evaluate Reason (R): Collision theory explicitly establishes two independent criteria for an effective collision: (1) Energy criterion: molecules must have energy $\\ge$ threshold energy ($E_a$ barrier); and (2) Orientation criterion: bonds must be aligned so existing bonds can break and new bonds can form. Thus, (R) is true.\nStep 3: Conclusion: (A) is false but (R) is true."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_021",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding collision theory of chemical reactions:\nStatement I: In collision theory, the steric factor (or probability factor) $P$ is introduced into the rate equation to account for the proper orientational requirements of colliding molecules.\nStatement II: A recognized limitation of collision theory is that it treats reactant molecules as hard spheres and completely ignores their structural features and rotational/vibrational motions.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I: The modified collision theory expression incorporates the steric factor $P$: $\\text{Rate} = P Z_{AB} e^{-E_a/RT}$. Here $P$ represents the fraction of collisions that have the proper mutual orientation of reacting bonds. Statement I is correct.\nStep 2: Analyze Statement II: NCERT explicitly highlights this drawback of collision theory: it considers reacting atoms or molecules as rigid, hard, structureless spheres, completely ignoring their real polyatomic geometries, internal electron distributions, and rotational-vibrational degrees of freedom. Statement II is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_022",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding a first-order chemical reaction $A \\rightarrow B$:\nI. The time required for $75\\%$ completion ($t_{75\\%}$) is exactly equal to twice its half-life ($2 t_{1/2}$).\nII. The concentration of reactant $A$ decreases exponentially with time according to $[A]_t = [A]_0 e^{-kt}$.\nIII. The unit of the rate constant $k$ is independent of the units used to measure concentration.\nIV. If the initial concentration of reactant $A$ is tripled, its half-life period also triples.\nWhich of the above statements are correct?",
+      "options": [
+        "A) I, II, and IV only",
+        "B) I, II, and III only",
+        "C) II, III, and IV only",
+        "D) I and IV only"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze statement I: At $75\\%$ completion, the remaining reactant is $25\\% = [A]_0/4 = [A]_0/2^2$. Therefore, $t_{75\\%} = 2 \\times t_{1/2}$. Statement I is correct.\nStep 2: Analyze statement II: Integrating $-d[A]/dt = k[A]$ yields $[A]_t = [A]_0 e^{-kt}$, showing pure exponential decay. Statement II is correct.\nStep 3: Analyze statement III: The rate constant for a first-order reaction has the dimension of $\\text{time}^{-1}$ (e.g., $\\text{s}^{-1}$ or $\\text{min}^{-1}$), which contains no concentration term. Statement III is correct.\nStep 4: Analyze statement IV: For a first-order reaction, $t_{1/2} = \\frac{0.693}{k}$, which is entirely independent of initial concentration $[A]_0$. Tripling $[A]_0$ leaves $t_{1/2}$ unchanged. Statement IV is incorrect.\nStep 5: Conclusion: Statements I, II, and III only are correct."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_023",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The initial rate data for the reaction $A + 2B \\rightarrow C$ at $300\\text{ K}$ were obtained as follows:\n- Experiment 1: $[A] = 0.10\\text{ mol L}^{-1}$, $[B] = 0.10\\text{ mol L}^{-1}$, Initial Rate $= 2.0 \\times 10^{-3}\\text{ mol L}^{-1}\\text{s}^{-1}$\n- Experiment 2: $[A] = 0.20\\text{ mol L}^{-1}$, $[B] = 0.10\\text{ mol L}^{-1}$, Initial Rate $= 4.0 \\times 10^{-3}\\text{ mol L}^{-1}\\text{s}^{-1}$\n- Experiment 3: $[A] = 0.20\\text{ mol L}^{-1}$, $[B] = 0.20\\text{ mol L}^{-1}$, Initial Rate $= 1.6 \\times 10^{-2}\\text{ mol L}^{-1}\\text{s}^{-1}$\nWhat is the correct differential rate law for this reaction?",
+      "options": [
+        "A) $\\text{Rate} = k[A]^2[B]$",
+        "B) $\\text{Rate} = k[A][B]$",
+        "C) $\\text{Rate} = k[A][B]^2$",
+        "D) $\\text{Rate} = k[A]^2[B]^2$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Set up the general rate equation: $\\text{Rate} = k[A]^x[B]^y$.\nStep 2: Determine order with respect to $A$ ($x$): Compare Experiments 1 and 2 where $[B]$ is held constant at $0.10\\text{ mol L}^{-1}$:\n$\\frac{\\text{Rate}_2}{\\text{Rate}_1} = \\frac{4.0 \\times 10^{-3}}{2.0 \\times 10^{-3}} = \\left(\\frac{0.20}{0.10}\\right)^x \\implies 2 = 2^x \\implies x = 1$.\nStep 3: Determine order with respect to $B$ ($y$): Compare Experiments 2 and 3 where $[A]$ is held constant at $0.20\\text{ mol L}^{-1}$:\n$\\frac{\\text{Rate}_3}{\\text{Rate}_2} = \\frac{1.6 \\times 10^{-2}}{4.0 \\times 10^{-3}} = 4 = \\left(\\frac{0.20}{0.10}\\right)^y \\implies 4 = 2^y \\implies y = 2$.\nTherefore, the rate law is $\\text{Rate} = k[A][B]^2$."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_024",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): A chemical reaction possessing a higher activation energy ($E_a$) exhibits greater sensitivity to temperature fluctuations than a reaction with a lower activation energy.\nReason (R): According to the differential Arrhenius relation, $\\frac{d\\ln k}{dT} = \\frac{E_a}{RT^2}$, the fractional change in the specific rate constant with temperature is directly proportional to the activation energy.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "B) (A) is true but (R) is false",
+        "C) (A) is false but (R) is true",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Assertion (A): From the integrated Arrhenius equation $\\ln\\left(\\frac{k_2}{k_1}\\right) = \\frac{E_a}{R}\\left(\\frac{T_2 - T_1}{T_1 T_2}\\right)$, for a given temperature increase $\\Delta T$, a larger value of $E_a$ leads to a larger value of $\\ln(k_2/k_1)$ and hence a much steeper percentage increase in $k$. Thus, reactions with high $E_a$ are significantly more temperature-sensitive. Assertion (A) is true.\nStep 2: Evaluate Reason (R): Differentiating the Arrhenius equation $\\ln k = \\ln A - \\frac{E_a}{RT}$ with respect to temperature gives $\\frac{d\\ln k}{dT} = \\frac{E_a}{RT^2}$. This mathematically proves that the rate of fractional change in $k$ with temperature is directly proportional to $E_a$. Reason (R) is true.\nStep 3: Evaluate connection: The differential Arrhenius relationship given in Reason (R) is the exact mathematical foundation of the physical behavior stated in Assertion (A). Therefore, both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_025",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the kinetics of first-order reactions:\nStatement I: For any first-order chemical reaction, the time required for $99.9\\%$ of the reaction to be completed ($t_{99.9\\%}$) is approximately equal to $10$ times its half-life period ($t_{1/2}$).\nStatement II: For a first-order reaction, the time required for $99.9\\%$ completion is calculated as $t_{99.9\\%} = \\frac{2.303}{k}\\log\\left(\\frac{100}{0.1}\\right) = \\frac{6.909}{k}$, whereas $t_{1/2} = \\frac{0.693}{k}$, giving $\\frac{t_{99.9\\%}}{t_{1/2}} \\approx 10$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I: When $99.9\\%$ of the reactant has reacted, the fraction remaining is $100\\% - 99.9\\% = 0.1\\% = 10^{-3}$. Since $\\left(\\frac{1}{2}\\right)^{10} = \\frac{1}{1024} \\approx 10^{-3}$, ten half-lives reduce the initial reactant concentration to roughly $0.1\\%$, making $t_{99.9\\%} \\approx 10 t_{1/2}$. Statement I is correct.\nStep 2: Analyze Statement II: Using the first-order integrated rate law: $t_{99.9\\%} = \\frac{2.303}{k}\\log\\left(\\frac{[R]_0}{0.001 [R]_0}\\right) = \\frac{2.303}{k}\\log(10^3) = \\frac{2.303 \\times 3}{k} = \\frac{6.909}{k}$. Since $t_{1/2} = \\frac{0.693}{k}$, the ratio is $\\frac{t_{99.9\\%}}{t_{1/2}} = \\frac{6.909}{0.693} = 9.97 \\approx 10$. Statement II is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_026",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For the chemical reaction: $2\\text{A} + 3\\text{B} \\rightarrow 4\\text{C} + \\text{D}$, the rate of disappearance of reactant $B$ is observed to be $6.0 \\times 10^{-3}\\text{ mol L}^{-1}\\text{s}^{-1}$. What is the rate of formation of product $C$ at that same instant?",
+      "options": [
+        "A) $4.5 \\times 10^{-3}\\text{ mol L}^{-1}\\text{s}^{-1}$",
+        "B) $8.0 \\times 10^{-3}\\text{ mol L}^{-1}\\text{s}^{-1}$",
+        "C) $6.0 \\times 10^{-3}\\text{ mol L}^{-1}\\text{s}^{-1}$",
+        "D) $1.2 \\times 10^{-2}\\text{ mol L}^{-1}\\text{s}^{-1}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Write the stoichiometric relation for the reaction rate: $\\text{Rate} = -\\frac{1}{2}\\frac{d[A]}{dt} = -\\frac{1}{3}\\frac{d[B]}{dt} = +\\frac{1}{4}\\frac{d[C]}{dt} = +\\frac{d[D]}{dt}$.\nStep 2: Equate the terms involving species $B$ and $C$:\n$-\\frac{1}{3}\\frac{d[B]}{dt} = +\\frac{1}{4}\\frac{d[C]}{dt}$.\nStep 3: Substitute the given rate of disappearance of $B$, $-\\frac{d[B]}{dt} = 6.0 \\times 10^{-3}\\text{ mol L}^{-1}\\text{s}^{-1}$:\n$\\frac{d[C]}{dt} = \\frac{4}{3}\\left(-\\frac{d[B]}{dt}\\right) = \\frac{4}{3} \\times (6.0 \\times 10^{-3}\\text{ mol L}^{-1}\\text{s}^{-1}) = 8.0 \\times 10^{-3}\\text{ mol L}^{-1}\\text{s}^{-1}$.\nTherefore, the rate of formation of $C$ is $8.0 \\times 10^{-3}\\text{ mol L}^{-1}\\text{s}^{-1}$."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_027",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II to identify the relationship between the half-life period ($t_{1/2}$) and initial reactant concentration ($[A]_0$) for reactions of various orders:\nList I (Order of Reaction $n$)\nA. Zero order ($n = 0$)\nB. First order ($n = 1$)\nC. Second order ($n = 2$)\nD. Third order ($n = 3$)\nList II (Dependence of $t_{1/2}$ on $[A]_0$)\nI. $t_{1/2} \\propto [A]_0^1$\nII. $t_{1/2} \\propto [A]_0^0$ (independent of $[A]_0$)\nIII. $t_{1/2} \\propto [A]_0^{-1}$\nIV. $t_{1/2} \\propto [A]_0^{-2}$\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-I, C-IV, D-III",
+        "B) A-I, B-III, C-II, D-IV",
+        "C) A-I, B-II, C-III, D-IV",
+        "D) A-III, B-II, C-I, D-IV"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: State the general formula for the dependence of half-life on initial concentration for an $n^{\\text{th}}$ order reaction: $t_{1/2} \\propto \\frac{1}{[A]_0^{n-1}} = [A]_0^{1-n}$.\nStep 2: Match each reaction order:\n- A. For $n = 0$: $t_{1/2} \\propto [A]_0^{1-0} = [A]_0^1$. Matches I.\n- B. For $n = 1$: $t_{1/2} \\propto [A]_0^{1-1} = [A]_0^0$ (constant, independent of initial concentration). Matches II.\n- C. For $n = 2$: $t_{1/2} \\propto [A]_0^{1-2} = [A]_0^{-1}$. Matches III.\n- D. For $n = 3$: $t_{1/2} \\propto [A]_0^{1-3} = [A]_0^{-2}$. Matches IV.\nStep 3: Conclusion: The correct match is A-I, B-II, C-III, D-IV."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_028",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): A zero-order chemical reaction reaches $100\\%$ completion in a finite time period, whereas a first-order chemical reaction theoretically requires infinite time to achieve $100\\%$ completion.\nReason (R): For a zero-order reaction, the time required for complete consumption of reactant is $t = \\frac{[R]_0}{k}$, whereas for a first-order reaction, $[R]_t = [R]_0 e^{-kt}$, meaning $[R]_t$ becomes zero only as $t \\rightarrow \\infty$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "B) (A) is true but (R) is false",
+        "C) (A) is false but (R) is true",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Assertion (A): For a zero-order reaction, the reaction rate is constant until all reactant is consumed, leading to a definitive completion at a finite time. In contrast, for a first-order reaction, the rate decreases continuously in proportion to the remaining reactant, so the concentration approaches zero asymptotically. Thus, (A) is true.\nStep 2: Evaluate Reason (R): From the zero-order integrated rate law $[R] = [R]_0 - kt$, setting $[R] = 0$ gives $t_{100\\%} = \\frac{[R]_0}{k}$, which is a finite number. From the first-order integrated rate law $[R] = [R]_0 e^{-kt}$, $[R] = 0$ requires $e^{-kt} = 0$, which occurs strictly at $t = \\infty$. Thus, (R) is true.\nStep 3: Evaluate connection: Reason (R) provides the exact mathematical derivations of the integrated rate laws that validate the conceptual assertion. Therefore, both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_029",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding nuclear radioactivity in the context of chemical kinetics:\nStatement I: All natural and artificial radioactive disintegration processes follow first-order reaction kinetics.\nStatement II: The decay constant ($\\lambda$) of a radioactive nuclide increases markedly with an increase in ambient temperature according to the Arrhenius equation.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect",
+        "B) Both Statement I and Statement II are correct",
+        "C) Both Statement I and Statement II are incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I: NCERT explicitly states under first-order kinetics that all natural and artificial radioactive decays obey first-order rate laws ($-\\frac{dN}{dt} = \\lambda N$). Statement I is correct.\nStep 2: Analyze Statement II: Radioactive decay is a spontaneous nuclear phenomenon that originates within the atomic nucleus. It is completely independent of external physical or chemical factors such as temperature, pressure, physical state, or chemical combination. The Arrhenius equation applies to electronic chemical reactions, not nuclear decays. Statement II is incorrect.\nStep 3: Conclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_030",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A first-order chemical reaction is found to be $50\\%$ complete in $20\\text{ minutes}$ at $300\\text{ K}$. What percentage of the initial reactant will remain unreacted after $80\\text{ minutes}$ from the start of the reaction?",
+      "options": [
+        "A) $12.5\\%$",
+        "B) $6.25\\%$",
+        "C) $25.0\\%$",
+        "D) $3.125\\%$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Identify the half-life: Since the reaction is $50\\%$ complete in $20\\text{ minutes}$, its half-life period is $t_{1/2} = 20\\text{ minutes}$.\nStep 2: Determine the number of half-lives ($n$) that elapse in $80\\text{ minutes}$:\n$n = \\frac{\\text{Total time}}{t_{1/2}} = \\frac{80\\text{ min}}{20\\text{ min}} = 4$.\nStep 3: Calculate the fraction of reactant remaining after $n$ half-lives:\n$\\frac{[R]}{[R]_0} = \\left(\\frac{1}{2}\\right)^n = \\left(\\frac{1}{2}\\right)^4 = \\frac{1}{16}$.\nStep 4: Convert to percentage:\nPercentage remaining $= \\frac{1}{16} \\times 100\\% = 6.25\\%$.\nTherefore, $6.25\\%$ of the initial reactant remains unreacted."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_031",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The activated complex formed during an elementary chemical step represents an unstable molecular configuration with the highest potential energy along the reaction coordinate.\nReason (R): In an activated complex, the original reactant bonds are partially broken while the new product bonds are partially formed, representing a high-energy transition state.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "B) (A) is true but (R) is false",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Assertion (A): In transition state theory, the activated complex sits at the peak of the potential energy diagram (the saddle point). Because it has the maximum potential energy, it has a fleeting existence (lifetime $\\sim 10^{-13}\\text{ s}$) and cannot be isolated. Thus, (A) is true.\nStep 2: Evaluate Reason (R): At the activated state, old chemical bonds are partially stretched and weakened while new bonds are partially established. This strained, distorted arrangement of electron clouds corresponds to the maximum repulsive potential energy barrier that must be overcome. Thus, (R) is true.\nStep 3: Evaluate connection: The partial bond breaking and forming directly accounts for why the activated complex possesses the highest potential energy along the reaction coordinate. Therefore, both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_032",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For the overall reaction: $2\\text{NO}(g) + \\text{O}_2(g) \\rightarrow 2\\text{NO}_2(g)$, the following two-step mechanism has been proposed:\nStep 1: $\\text{NO}(g) + \\text{O}_2(g) \\xrightleftharpoons[k_{-1}]{k_1} \\text{NO}_3(g)$ (fast equilibrium, equilibrium constant $K_c$)\nStep 2: $\\text{NO}_3(g) + \\text{NO}(g) \\xrightarrow{k_2} 2\\text{NO}_2(g)$ (slow)\nWhat is the expected overall rate law and the overall reaction order?",
+      "options": [
+        "A) $\\text{Rate} = k[\\text{NO}][\\text{O}_2]$, overall order $= 2$",
+        "B) $\\text{Rate} = k[\\text{NO}][\\text{O}_2]^2$, overall order $= 3$",
+        "C) $\\text{Rate} = k[\\text{NO}]^2[\\text{O}_2]^2$, overall order $= 4$",
+        "D) $\\text{Rate} = k[\\text{NO}]^2[\\text{O}_2]$, overall order $= 3$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Identify the rate determining step (RDS): Step 2 is the slow step, so the rate law is based on Step 2: $\\text{Rate} = k_2 [\\text{NO}_3][\\text{NO}]$.\nStep 2: Express the concentration of the intermediate $[\\text{NO}_3]$ in terms of stable reactants: From the fast equilibrium of Step 1, $K_c = \\frac{[\\text{NO}_3]}{[\\text{NO}][\\text{O}_2]} \\implies [\\text{NO}_3] = K_c [\\text{NO}][\\text{O}_2]$.\nStep 3: Substitute $[\\text{NO}_3]$ into the rate expression:\n$\\text{Rate} = k_2 (K_c [\\text{NO}][\\text{O}_2])[\\text{NO}] = (k_2 K_c)[\\text{NO}]^2[\\text{O}_2] = k[\\text{NO}]^2[\\text{O}_2]$.\nStep 4: Find the overall order: The overall order is $2 + 1 = 3$.\nTherefore, the rate law is $\\text{Rate} = k[\\text{NO}]^2[\\text{O}_2]$ with an overall order of $3$."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_033",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Maxwell-Boltzmann distribution curves of molecular kinetic energy:\nStatement I: The peak of the Maxwell-Boltzmann distribution curve corresponds to the most probable kinetic energy ($E_{\\text{mp}}$) possessed by the maximum fraction of molecules.\nStatement II: When the temperature of the gaseous mixture is increased from $T$ to $T + 10\\text{ K}$, the peak of the curve shifts to the right and rises higher along the y-axis.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect",
+        "B) Both Statement I and Statement II are correct",
+        "C) Both Statement I and Statement II are incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I: The maximum of the curve plotting fraction of molecules versus kinetic energy represents the kinetic energy value shared by the greatest number of molecules, termed the most probable kinetic energy ($E_{\\text{mp}}$). Statement I is correct.\nStep 2: Analyze Statement II: As temperature increases, molecular velocities increase, shifting $E_{\\text{mp}}$ toward higher kinetic energy (to the right). However, because the total area under the curve represents the total fraction of molecules and must remain equal to $1$, the curve broadens and its peak lowers (shifts down and to the right), rather than rising higher. Statement II is incorrect.\nStep 3: Conclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_034",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In an experimental study of a chemical reaction, the slope of the straight line obtained in a plot of $\\log_{10} k$ versus $\\frac{1}{T}$ is found to be $-4.0 \\times 10^3\\text{ K}$. Given $R = 8.314\\text{ J K}^{-1}\\text{mol}^{-1}$ and $2.303 \\times 8.314 = 19.15$, what is the activation energy ($E_a$) of the reaction?",
+      "options": [
+        "A) $33.3\\text{ kJ mol}^{-1}$",
+        "B) $76.6\\text{ kJ mol}^{-1}$",
+        "C) $153.2\\text{ kJ mol}^{-1}$",
+        "D) $48.2\\text{ kJ mol}^{-1}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Write the logarithmic Arrhenius equation: $\\log_{10} k = \\log_{10} A - \\frac{E_a}{2.303 RT}$.\nStep 2: Relate the slope to activation energy: The slope of $\\log_{10} k$ vs $\\frac{1}{T}$ is $\\text{Slope} = -\\frac{E_a}{2.303 R}$.\nStep 3: Equate and solve for $E_a$:\n$-\\frac{E_a}{2.303 R} = -4.0 \\times 10^3\\text{ K} \\implies E_a = (4.0 \\times 10^3\\text{ K}) \\times 2.303 \\times (8.314\\text{ J K}^{-1}\\text{mol}^{-1})$.\n$E_a = 4.0 \\times 10^3 \\times 19.147\\text{ J mol}^{-1} = 76588\\text{ J mol}^{-1} \\approx 76.6\\text{ kJ mol}^{-1}$.\nTherefore, the activation energy of the reaction is $76.6\\text{ kJ mol}^{-1}$."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_035",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For an exothermic elementary chemical reaction, the activation energy of the reverse reaction ($E_{a,r}$) is always greater than the activation energy of the forward reaction ($E_{a,f}$).\nReason (R): For any elementary reversible process, the enthalpy change is related to the activation energies by $\\Delta H = E_{a,f} - E_{a,r}$, and for an exothermic reaction, $\\Delta H$ is negative.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "B) (A) is true but (R) is false",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Reason (R): From the potential energy diagram of an elementary reaction, the difference between the forward activation energy and the reverse activation energy gives the net enthalpy change of the reaction: $\\Delta H = E_{a,f} - E_{a,r}$. For an exothermic process, heat is released, so $\\Delta H < 0$. Thus, (R) is true.\nStep 2: Evaluate Assertion (A): Since $\\Delta H = E_{a,f} - E_{a,r} < 0$, rearranging gives $E_{a,f} < E_{a,r}$, which means $E_{a,r} > E_{a,f}$. Therefore, the reverse activation energy must exceed the forward activation energy. Thus, (A) is true.\nStep 3: Evaluate connection: The thermodynamic relation $\\Delta H = E_{a,f} - E_{a,r}$ along with the negative sign of $\\Delta H$ directly explains why $E_{a,r} > E_{a,f}$. Therefore, both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_036",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II to link key chemical kinetics concepts with their standard definitions:\nList I (Kinetic Concept)\nA. Specific reaction rate ($k$)\nB. Pseudo-unimolecular reaction\nC. Temperature coefficient\nD. Threshold energy\nList II (Defining Feature)\nI. The ratio of the rate constant at $(T + 10\\text{ K})$ to that at $T\\text{ K}$\nII. The minimum total energy that reacting molecules must possess to produce products upon collision\nIII. The rate of the reaction when the concentration of each reactant species is maintained at unity\nIV. A higher-order reaction that behaves kinetically as first order due to one reactant being in large stoichiometric excess\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-I, C-IV, D-III",
+        "B) A-III, B-I, C-IV, D-II",
+        "C) A-IV, B-III, C-I, D-II",
+        "D) A-III, B-IV, C-I, D-II"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze each term:\n- A. Specific reaction rate ($k$): By definition, when $[A] = [B] = 1\\text{ mol L}^{-1}$, $\\text{Rate} = k(1)^x(1)^y = k$. Matches III.\n- B. Pseudo-unimolecular reaction: A reaction of higher molecularity (e.g. ester hydrolysis in water) where excess solvent concentration remains virtually constant, behaving as first order. Matches IV.\n- C. Temperature coefficient: Defined as $\\frac{k_{T+10}}{k_T}$, typically having a value between $2$ and $3$. Matches I.\n- D. Threshold energy: The minimum total energy (internal energy + kinetic energy) required for an effective collision: $E_{\\text{threshold}} = E_{\\text{reactants}} + E_a$. Matches II.\nStep 2: Conclusion: The correct match is A-III, B-IV, C-I, D-II."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_037",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A gaseous decomposition reaction: $A(g) \\rightarrow B(g) + C(g)$ follows first-order kinetics at constant volume and temperature. Let $p_i$ be the initial pressure of pure gas $A$, and let $p_t$ be the total pressure of the reaction mixture at time $t$. Which of the following expressions correctly gives the rate constant $k$?",
+      "options": [
+        "A) $k = \\frac{2.303}{t}\\log\\left(\\frac{p_i}{2p_i - p_t}\\right)$",
+        "B) $k = \\frac{2.303}{t}\\log\\left(\\frac{p_i}{p_i - p_t}\\right)$",
+        "C) $k = \\frac{2.303}{t}\\log\\left(\\frac{2p_i}{p_i - p_t}\\right)$",
+        "D) $k = \\frac{2.303}{t}\\log\\left(\\frac{p_i}{p_t - p_i}\\right)$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Set up partial pressures table at $t = 0$ and at time $t$:\n- At $t = 0$: $p_A = p_i$, $p_B = 0$, $p_C = 0$.\n- At time $t$: $p_A = p_i - x$, $p_B = x$, $p_C = x$.\nStep 2: Express total pressure $p_t$ in terms of $p_i$ and $x$:\n$p_t = p_A + p_B + p_C = (p_i - x) + x + x = p_i + x \\implies x = p_t - p_i$.\nStep 3: Determine partial pressure of $A$ at time $t$:\n$p_A = p_i - x = p_i - (p_t - p_i) = 2p_i - p_t$.\nStep 4: Substitute into the first-order integrated rate law:\n$k = \\frac{2.303}{t}\\log\\left(\\frac{p_i}{p_A}\\right) = \\frac{2.303}{t}\\log\\left(\\frac{p_i}{2p_i - p_t}\\right)$.\nTherefore, the correct expression is $k = \\frac{2.303}{t}\\log\\left(\\frac{p_i}{2p_i - p_t}\\right)$."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_038",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding rate constants and equilibrium constants:\nStatement I: For an elementary reversible reaction $A \\xrightleftharpoons[k_r]{k_f} B$, the equilibrium constant $K_{\\text{eq}}$ is equal to the ratio of the forward rate constant to the reverse rate constant ($\\frac{k_f}{k_r}$).\nStatement II: Adding a positive catalyst to this equilibrium system increases the forward rate constant $k_f$ while decreasing the reverse rate constant $k_r$, thereby increasing the equilibrium constant $K_{\\text{eq}}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Statement I is correct but Statement II is incorrect",
+        "C) Both Statement I and Statement II are incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I: At chemical equilibrium, the rate of the forward reaction equals the rate of the reverse reaction: $r_f = r_r \\implies k_f [A]_{\\text{eq}} = k_r [B]_{\\text{eq}}$. Rearranging gives $K_{\\text{eq}} = \\frac{[B]_{\\text{eq}}}{[A]_{\\text{eq}}} = \\frac{k_f}{k_r}$. Statement I is correct.\nStep 2: Analyze Statement II: A catalyst provides an alternative pathway that lowers the activation energy of both the forward and reverse reactions by the exact same amount $\\Delta E_a$. Consequently, both $k_f$ and $k_r$ increase by the exact same multiplier ($e^{\\Delta E_a/RT}$). Their ratio $\\frac{k_f}{k_r} = K_{\\text{eq}}$ remains completely unchanged. Statement II is incorrect.\nStep 3: Conclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_039",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements comparing zero-order and first-order chemical reactions:\nI. For a zero-order reaction, the reaction rate remains constant over time, whereas for a first-order reaction, the reaction rate continuously decreases with time.\nII. A plot of half-life period ($t_{1/2}$) versus initial reactant concentration ($[A]_0$) yields a straight line passing through the origin for a zero-order reaction, but a horizontal line parallel to the concentration axis for a first-order reaction.\nIII. The percentage of reactant consumed after $n$ half-lives in a first-order reaction is given by $\\left[1 - \\left(\\frac{1}{2}\\right)^n\\right] \\times 100\\%$.\nIV. Doubling the initial reactant concentration quadruples the initial rate of a zero-order reaction.\nWhich of the above statements are correct?",
+      "options": [
+        "A) I and IV only",
+        "B) II, III, and IV only",
+        "C) I, II, and III only",
+        "D) I, II, III, and IV"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate statement I: For zero order, Rate $= k[A]^0 = k$ (constant). For first order, Rate $= k[A]$, which decreases as $[A]$ decreases. Statement I is correct.\nStep 2: Evaluate statement II: For zero order, $t_{1/2} = \\frac{[A]_0}{2k}$, giving a straight line with slope $\\frac{1}{2k}$ passing through the origin. For first order, $t_{1/2} = \\frac{0.693}{k}$, which is independent of $[A]_0$ (slope $= 0$, horizontal line). Statement II is correct.\nStep 3: Evaluate statement III: The fraction of reactant remaining after $n$ half-lives is $(1/2)^n$. Therefore, the fraction consumed is $1 - (1/2)^n$, and percentage consumed is $[1 - (1/2)^n] \\times 100\\%$. Statement III is correct.\nStep 4: Evaluate statement IV: For a zero-order reaction, the rate is independent of initial concentration ($[A]^0$). Doubling the concentration leaves the rate unchanged. Statement IV is incorrect.\nStep 5: Conclusion: Statements I, II, and III only are correct."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_040",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For chemical reactions involving large, complex organic molecules, the experimentally measured rate constant is often several orders of magnitude smaller than the collision frequency factor predicted by basic collision theory.\nReason (R): In collisions involving complex molecules, only collisions in which the reacting functional groups are oriented in a very specific geometry can lead to product formation, resulting in a steric factor $P \\ll 1$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "B) (A) is true but (R) is false",
+        "C) (A) is false but (R) is true",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Assertion (A): In many reactions, especially those involving polyatomic or bulky organic molecules, the observed rate constant is drastically smaller than $Z_{AB} e^{-E_a/RT}$. Thus, (A) is true.\nStep 2: Evaluate Reason (R): The collision theory rate equation is modified as $k = P Z_{AB} e^{-E_a/RT}$. Complex molecules have only specific active sites that must come into contact. Random tumbling means most collisions occur at non-reactive parts of the molecule, so the probability of proper orientation (steric factor $P$) is often much less than $1$ (e.g. $10^{-2}$ to $10^{-6}$). Thus, (R) is true.\nStep 3: Evaluate connection: The low value of the steric factor $P$ directly explains why the observed rate constant is significantly lower than the simple collision frequency prediction. Therefore, both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_041",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A first-order chemical reaction $A \\rightarrow \\text{Products}$ has a half-life period of $138.6\\text{ seconds}$. Given $\\ln 2 = 0.693$, what is the rate of the reaction when the concentration of reactant $A$ is $0.050\\text{ mol L}^{-1}$?",
+      "options": [
+        "A) $2.5 \\times 10^{-4}\\text{ mol L}^{-1}\\text{s}^{-1}$",
+        "B) $5.0 \\times 10^{-4}\\text{ mol L}^{-1}\\text{s}^{-1}$",
+        "C) $1.25 \\times 10^{-3}\\text{ mol L}^{-1}\\text{s}^{-1}$",
+        "D) $3.6 \\times 10^{-5}\\text{ mol L}^{-1}\\text{s}^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate the first-order rate constant $k$ from the half-life:\n$k = \\frac{\\ln 2}{t_{1/2}} = \\frac{0.693}{138.6\\text{ s}} = 0.0050\\text{ s}^{-1} = 5.0 \\times 10^{-3}\\text{ s}^{-1}$.\nStep 2: Calculate the reaction rate at $[A] = 0.050\\text{ mol L}^{-1}$:\n$\\text{Rate} = k[A] = (5.0 \\times 10^{-3}\\text{ s}^{-1}) \\times (0.050\\text{ mol L}^{-1}) = 2.5 \\times 10^{-4}\\text{ mol L}^{-1}\\text{s}^{-1}$.\nTherefore, the rate of the reaction is $2.5 \\times 10^{-4}\\text{ mol L}^{-1}\\text{s}^{-1}$."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_042",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The thermal decomposition of ozone proceeds according to the equation: $2\\text{O}_3(g) \\rightarrow 3\\text{O}_2(g)$. The accepted mechanism is:\nStep 1: $\\text{O}_3(g) \\xrightleftharpoons[k_{-1}]{k_1} \\text{O}_2(g) + \\text{O}(g)$ (fast equilibrium, equilibrium constant $K_c$)\nStep 2: $\\text{O}_3(g) + \\text{O}(g) \\xrightarrow{k_2} 2\\text{O}_2(g)$ (slow)\nWhat is the overall rate law for this reaction and what is the order with respect to $\\text{O}_2$?",
+      "options": [
+        "A) $\\text{Rate} = k[\\text{O}_3][\\text{O}_2]$, order with respect to $\\text{O}_2$ is $1$",
+        "B) $\\text{Rate} = k[\\text{O}_3]^2[\\text{O}_2]^{-1}$, order with respect to $\\text{O}_2$ is $-1$",
+        "C) $\\text{Rate} = k[\\text{O}_3]^2[\\text{O}_2]$, order with respect to $\\text{O}_2$ is $1$",
+        "D) $\\text{Rate} = k[\\text{O}_3][\\text{O}_2]^{-1}$, order with respect to $\\text{O}_2$ is $-1$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Write the rate expression for the slow rate-determining step (Step 2):\n$\\text{Rate} = k_2 [\\text{O}_3][\\text{O}]$.\nStep 2: Express the concentration of the intermediate $[\\text{O}]$ in terms of reactants and products using the fast equilibrium in Step 1:\n$K_c = \\frac{[\\text{O}_2][\\text{O}]}{[\\text{O}_3]} \\implies [\\text{O}] = K_c \\frac{[\\text{O}_3]}{[\\text{O}_2]}$.\nStep 3: Substitute $[\\text{O}]$ into the rate law from Step 1:\n$\\text{Rate} = k_2 \\left(K_c \\frac{[\\text{O}_3]}{[\\text{O}_2]}\\right) [\\text{O}_3] = (k_2 K_c) \\frac{[\\text{O}_3]^2}{[\\text{O}_2]} = k [\\text{O}_3]^2 [\\text{O}_2]^{-1}$.\nStep 4: Identify the order with respect to $\\text{O}_2$: The exponent of $[\\text{O}_2]$ in the rate law is $-1$.\nTherefore, the rate law is $\\text{Rate} = k[\\text{O}_3]^2[\\text{O}_2]^{-1}$ and the order with respect to $\\text{O}_2$ is $-1$."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_043",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In the gas-phase decomposition of ozone to molecular oxygen ($2\\text{O}_3 \\rightarrow 3\\text{O}_2$), the rate of reaction is significantly retarded when additional oxygen ($\\text{O}_2$) is introduced into the reaction vessel.\nReason (R): Molecular oxygen acts as an inhibitor because it shifts the initial fast reversible dissociation step ($\\text{O}_3 \\rightleftharpoons \\text{O}_2 + \\text{O}$) backward, thereby reducing the steady-state concentration of reactive oxygen atoms.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "B) (A) is true but (R) is false",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Assertion (A): The experimental rate law for ozone decomposition is $\\text{Rate} = k[\\text{O}_3]^2[\\text{O}_2]^{-1}$. Because the exponent of $[\\text{O}_2]$ is negative ($-1$), increasing the concentration of $\\text{O}_2$ decreases the overall reaction rate (retardation). Thus, (A) is true.\nStep 2: Evaluate Reason (R): The first step is the fast pre-equilibrium: $\\text{O}_3 \\rightleftharpoons \\text{O}_2 + \\text{O}$. Adding $\\text{O}_2$ increases the rate of the reverse recombination step ($\\text{O}_2 + \\text{O} \\rightarrow \\text{O}_3$), shifting the equilibrium to the left according to Le Chatelier's principle and lowering the concentration of reactive $[\\text{O}]$ atoms required for the rate-determining step ($\\text{O}_3 + \\text{O} \\rightarrow 2\\text{O}_2$). Thus, (R) is true.\nStep 3: Evaluate connection: The mechanistic shift of the pre-equilibrium caused by $\\text{O}_2$ is the exact physical origin of the negative reaction order and rate retardation. Therefore, both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_044",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The rate constant of a chemical reaction doubles when the temperature is raised from $300\\text{ K}$ to $310\\text{ K}$. Given $R = 8.314\\text{ J K}^{-1}\\text{mol}^{-1}$, $\\log_{10} 2 = 0.3010$, and $2.303 \\times 8.314 = 19.15$, what is the activation energy ($E_a$) of the reaction?",
+      "options": [
+        "A) $107.2\\text{ kJ mol}^{-1}$",
+        "B) $26.8\\text{ kJ mol}^{-1}$",
+        "C) $75.4\\text{ kJ mol}^{-1}$",
+        "D) $53.6\\text{ kJ mol}^{-1}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: State the two-temperature Arrhenius equation:\n$\\log_{10}\\left(\\frac{k_2}{k_1}\\right) = \\frac{E_a}{2.303 R}\\left(\\frac{T_2 - T_1}{T_1 T_2}\\right)$.\nStep 2: Substitute the given values ($k_2/k_1 = 2$, $T_1 = 300\\text{ K}$, $T_2 = 310\\text{ K}$):\n$\\log_{10}(2) = \\frac{E_a}{19.148}\\left(\\frac{310 - 300}{300 \\times 310}\\right) \\implies 0.3010 = \\frac{E_a}{19.148} \\times \\left(\\frac{10}{93000}\\right)$.\nStep 3: Solve for $E_a$:\n$E_a = \\frac{0.3010 \\times 19.148 \\times 93000}{10} = 0.3010 \\times 19.148 \\times 9300\\text{ J mol}^{-1}$.\n$E_a = 5.7635 \\times 9300\\text{ J mol}^{-1} = 53601\\text{ J mol}^{-1} \\approx 53.6\\text{ kJ mol}^{-1}$.\nTherefore, the activation energy of the reaction is $53.6\\text{ kJ mol}^{-1}$."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_045",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An uncatalyzed chemical reaction has an activation energy of $75.0\\text{ kJ mol}^{-1}$ at $300\\text{ K}$. When a catalyst is added, the rate of the reaction increases by a factor of $10^5$ at the same temperature. Assuming the pre-exponential frequency factor $A$ remains unchanged, what is the activation energy of the catalyzed reaction ($E_{a,\\text{cat}}$)? (Take $2.303 \\times R \\times 300\\text{ K} = 5.744\\text{ kJ mol}^{-1}$)",
+      "options": [
+        "A) $46.3\\text{ kJ mol}^{-1}$",
+        "B) $28.7\\text{ kJ mol}^{-1}$",
+        "C) $103.7\\text{ kJ mol}^{-1}$",
+        "D) $15.0\\text{ kJ mol}^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Relate the ratio of catalyzed to uncatalyzed rate constants to the difference in activation energies:\n$\\frac{k_{\\text{cat}}}{k_{\\text{uncat}}} = \\frac{A e^{-E_{a,\\text{cat}}/RT}}{A e^{-E_{a,\\text{uncat}}/RT}} = e^{(E_{a,\\text{uncat}} - E_{a,\\text{cat}})/RT}$.\nStep 2: Express in logarithmic form:\n$\\log_{10}\\left(\\frac{k_{\\text{cat}}}{k_{\\text{uncat}}}\\right) = \\frac{E_{a,\\text{uncat}} - E_{a,\\text{cat}}}{2.303 RT}$.\nStep 3: Substitute the known values: $\\frac{k_{\\text{cat}}}{k_{\\text{uncat}}} = 10^5$, so $\\log_{10}(10^5) = 5$:\n$5 = \\frac{75.0\\text{ kJ mol}^{-1} - E_{a,\\text{cat}}}{5.744\\text{ kJ mol}^{-1}}$.\nStep 4: Calculate the lowering of activation energy ($\\Delta E_a$):\n$\\Delta E_a = 5 \\times 5.744\\text{ kJ mol}^{-1} = 28.72\\text{ kJ mol}^{-1}$.\n$E_{a,\\text{cat}} = 75.0\\text{ kJ mol}^{-1} - 28.72\\text{ kJ mol}^{-1} = 46.28\\text{ kJ mol}^{-1} \\approx 46.3\\text{ kJ mol}^{-1}$.\nTherefore, the activation energy of the catalyzed reaction is $46.3\\text{ kJ mol}^{-1}$."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_046",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A substance $A$ undergoes simultaneous decomposition via two parallel first-order reaction pathways:\nPathway 1: $A \\xrightarrow{k_1} B$, with rate constant $k_1 = 1.2 \\times 10^{-3}\\text{ s}^{-1}$\nPathway 2: $A \\xrightarrow{k_2} C$, with rate constant $k_2 = 2.8 \\times 10^{-3}\\text{ s}^{-1}$\nStarting with pure $A$, what is the percentage yield of product $C$ in the reaction mixture at any subsequent time?",
+      "options": [
+        "A) $30\\%$",
+        "B) $70\\%$",
+        "C) $42.8\\%$",
+        "D) $57.1\\%$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Write the differential rate equations for the parallel reactions:\n$-\\frac{d[A]}{dt} = (k_1 + k_2)[A]$, $\\frac{d[B]}{dt} = k_1 [A]$, and $\\frac{d[C]}{dt} = k_2 [A]$.\nStep 2: Determine the ratio of formation of products $B$ and $C$:\n$\\frac{d[C]}{d[B]} = \\frac{k_2 [A]}{k_1 [A]} = \\frac{k_2}{k_1}$. Integrating from $t = 0$ gives $\\frac{[C]}{[B]} = \\frac{k_2}{k_1}$ at all times.\nStep 3: Calculate the fractional and percentage yield of $C$:\n$\\text{Fractional yield of } C = \\frac{k_2}{k_1 + k_2} = \\frac{2.8 \\times 10^{-3}\\text{ s}^{-1}}{(1.2 \\times 10^{-3} + 2.8 \\times 10^{-3})\\text{ s}^{-1}} = \\frac{2.8 \\times 10^{-3}}{4.0 \\times 10^{-3}} = 0.70$.\n$\\text{Percentage yield of } C = 0.70 \\times 100\\% = 70\\%$.\nTherefore, the percentage yield of product $C$ is $70\\%$."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_047",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding parallel first-order reactions:\nStatement I: For a parallel reaction where reactant $A$ decomposes simultaneously to form product $B$ (rate constant $k_1$, activation energy $E_{a1}$) and product $C$ (rate constant $k_2$, activation energy $E_{a2}$), the total rate of disappearance of $A$ is given by $-\\frac{d[A]}{dt} = (k_1 + k_2)[A]$.\nStatement II: The overall effective activation energy ($E_{a,\\text{eff}}$) for the disappearance of reactant $A$ is given by the weighted average $E_{a,\\text{eff}} = \\frac{k_1 E_{a1} + k_2 E_{a2}}{k_1 + k_2}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect",
+        "B) Statement I is correct but Statement II is incorrect",
+        "C) Both Statement I and Statement II are correct",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I: Reactant $A$ is consumed concurrently through both channels, so its total rate of loss is the sum of rates of both individual pathways: $-\\frac{d[A]}{dt} = k_1[A] + k_2[A] = (k_1 + k_2)[A] = k_{\\text{total}}[A]$. Statement I is correct.\nStep 2: Analyze Statement II: Since $k_{\\text{total}} = k_1 + k_2$, differentiating with respect to temperature gives $\\frac{d k_{\\text{total}}}{dT} = \\frac{d k_1}{dT} + \\frac{d k_2}{dT}$. Applying the Arrhenius relation $\\frac{d k}{dT} = \\frac{k E_a}{RT^2}$, we get $\\frac{k_{\\text{total}} E_{a,\\text{eff}}}{RT^2} = \\frac{k_1 E_{a1}}{RT^2} + \\frac{k_2 E_{a2}}{RT^2} \\implies E_{a,\\text{eff}} = \\frac{k_1 E_{a1} + k_2 E_{a2}}{k_{\\text{total}}} = \\frac{k_1 E_{a1} + k_2 E_{a2}}{k_1 + k_2}$. Statement II is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_048",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The gas-phase thermal decomposition of compound $A$: $A(g) \\rightarrow B(g) + C(g)$ follows first-order kinetics in a closed container of constant volume at $500\\text{ K}$. Initially, only pure gas $A$ is present at a pressure of $100\\text{ mm Hg}$. After $10\\text{ minutes}$, the total pressure of the reaction system increases to $150\\text{ mm Hg}$. Given $\\ln 2 = 0.693$, what is the first-order rate constant $k$ for this reaction?",
+      "options": [
+        "A) $0.0347\\text{ min}^{-1}$",
+        "B) $0.1386\\text{ min}^{-1}$",
+        "C) $0.0500\\text{ min}^{-1}$",
+        "D) $0.0693\\text{ min}^{-1}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Set up the partial pressure changes for $A(g) \\rightarrow B(g) + C(g)$:\n- At $t = 0$: $p_A = 100\\text{ mm Hg}$, $p_B = 0$, $p_C = 0$, Total pressure $p_0 = 100\\text{ mm Hg}$.\n- At $t = 10\\text{ min}$: $p_A = 100 - x$, $p_B = x$, $p_C = x$.\nStep 2: Relate total pressure to $x$:\n$p_t = (100 - x) + x + x = 100 + x = 150\\text{ mm Hg} \\implies x = 50\\text{ mm Hg}$.\nStep 3: Calculate the partial pressure of $A$ at $t = 10\\text{ min}$:\n$p_A = 100 - 50 = 50\\text{ mm Hg}$.\nNotice that $p_A$ has halved from $100\\text{ mm Hg}$ to $50\\text{ mm Hg}$, so the half-life $t_{1/2} = 10\\text{ minutes}$.\nStep 4: Calculate the rate constant $k$:\n$k = \\frac{\\ln 2}{t_{1/2}} = \\frac{0.693}{10\\text{ min}} = 0.0693\\text{ min}^{-1}$.\nTherefore, the first-order rate constant is $0.0693\\text{ min}^{-1}$."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_049",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II to identify the linear graphical relationship characteristic of reactions possessing different kinetic orders ($[A]$ represents reactant concentration at time $t$):\nList I (Reaction Order)\nA. Zero order reaction\nB. First order reaction\nC. Second order reaction ($2A \\rightarrow \\text{Products}$)\nD. Half order reaction ($A \\rightarrow \\text{Products}$)\nList II (Plot that yields a straight line)\nI. $\\ln[A]$ versus time $t$ with slope $-k$\nII. $[A]$ versus time $t$ with slope $-k$\nIII. $\\frac{1}{[A]}$ versus time $t$ with slope $+2k$\nIV. $\\sqrt{[A]}$ versus time $t$ with slope $-\\frac{k}{2}$\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-I, C-III, D-IV",
+        "B) A-I, B-II, C-IV, D-III",
+        "C) A-II, B-III, C-I, D-IV",
+        "D) A-IV, B-I, C-III, D-II"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze item A: For zero order, $[A] = [A]_0 - kt$. A plot of $[A]$ vs $t$ gives a straight line with slope $-k$. Matches II.\nStep 2: Analyze item B: For first order, $\\ln[A] = \\ln[A]_0 - kt$. A plot of $\\ln[A]$ vs $t$ gives a straight line with slope $-k$. Matches I.\nStep 3: Analyze item C: For second order ($2A \\rightarrow P$), $-\\frac{1}{2}\\frac{d[A]}{dt} = k[A]^2 \\implies \\frac{1}{[A]} = \\frac{1}{[A]_0} + 2kt$. A plot of $\\frac{1}{[A]}$ vs $t$ is linear with slope $+2k$. Matches III.\nStep 4: Analyze item D: For half order, $-\\frac{d[A]}{dt} = k[A]^{1/2} \\implies [A]^{-1/2} d[A] = -k dt$. Integrating gives $2\\sqrt{[A]} = 2\\sqrt{[A]_0} - kt \\implies \\sqrt{[A]} = \\sqrt{[A]_0} - \\frac{k}{2}t$. A plot of $\\sqrt{[A]}$ vs $t$ is linear with slope $-\\frac{k}{2}$. Matches IV.\nStep 5: Conclusion: The correct match is A-II, B-I, C-III, D-IV."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_050",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The catalytic decomposition of phosphine gas ($\\text{PH}_3$) on a hot tungsten filament exhibits first-order kinetics at low pressures, but transitions to zero-order kinetics at high gas pressures.\nReason (R): At low gas pressures, the fraction of the tungsten surface covered by adsorbed $\\text{PH}_3$ molecules is directly proportional to pressure, whereas at high pressures, the tungsten surface achieves complete monolayer saturation.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Assertion (A): Heterogeneous catalytic reactions on solid surfaces follow Langmuir kinetics where $\\text{Rate} = \\frac{k' K p}{1 + K p}$. At low pressure ($Kp \\ll 1$), $\\text{Rate} \\approx k' K p$ (first order). At high pressure ($Kp \\gg 1$), $\\text{Rate} \\approx k'$ (zero order). Thus, (A) is true.\nStep 2: Evaluate Reason (R): At low pressure, only a small fraction of catalytic active sites are covered, so surface coverage $\\theta \\propto p$. At high pressure, all active sites are occupied ($\\theta \\approx 1$, surface saturation), and adding more gas molecules cannot increase the surface concentration of reacting species. Thus, (R) is true.\nStep 3: Evaluate connection: The transition in surface coverage from proportional to pressure at low $p$ to saturated at high $p$ is the exact physical mechanism responsible for the shift from first order to zero order. Therefore, both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_051",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding theoretical models of chemical reaction rates:\nStatement I: In simple collision theory, the activation energy barrier is treated strictly as the minimum translational kinetic energy along the line of centers required to cause bond rupture.\nStatement II: In activated complex theory (transition state theory), the reacting molecules are postulated to be in a state of quasi-thermodynamic equilibrium with an activated complex that decomposes into products at a definite frequency.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect",
+        "B) Statement I is correct but Statement II is incorrect",
+        "C) Both Statement I and Statement II are correct",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I: Simple collision theory views reacting species as hard, spherical particles, where only kinetic energy directed along the collision line of centers contributes toward overcoming the activation energy barrier. Statement I is correct.\nStep 2: Analyze Statement II: Eyring's transition state theory assumes a rapid pre-equilibrium between reactants and the activated complex ($A + B \\rightleftharpoons [AB]^\\ddagger \\rightarrow \\text{Products}$). The reaction rate is given by the product of the concentration of the activated complex $[AB]^\\ddagger$ and the universal frequency factor $\\nu = \\frac{k_B T}{h}$ with which it crosses the barrier. Statement II is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_052",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For the gas-phase reaction: $2\\text{NO}_2(g) + \\text{F}_2(g) \\rightarrow 2\\text{NO}_2\\text{F}(g)$, the following two-step mechanism has been experimentally established:\nStep 1: $\\text{NO}_2 + \\text{F}_2 \\xrightarrow{k_1} \\text{NO}_2\\text{F} + \\text{F}$ (slow)\nStep 2: $\\text{NO}_2 + \\text{F} \\xrightarrow{k_2} \\text{NO}_2\\text{F}$ (fast)\nWhich of the following statements correctly describes the differential rate law, overall reaction order, and kinetic role of atomic fluorine ($\\text{F}$)?",
+      "options": [
+        "A) $\\text{Rate} = k_1 [\\text{NO}_2]^2[\\text{F}_2]$, overall order $= 3$, and $\\text{F}$ is a catalyst",
+        "B) $\\text{Rate} = k_2 [\\text{NO}_2][\\text{F}]$, overall order $= 2$, and $\\text{F}$ is a catalyst",
+        "C) $\\text{Rate} = k_1 [\\text{NO}_2][\\text{F}_2]^2$, overall order $= 3$, and $\\text{F}$ is a reaction intermediate",
+        "D) $\\text{Rate} = k_1 [\\text{NO}_2][\\text{F}_2]$, overall order $= 2$, and $\\text{F}$ is a reaction intermediate"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Identify the rate-determining step: Step 1 is the slow step. Therefore, the overall rate of reaction is dictated by the rate of Step 1:\n$\\text{Rate} = k_1 [\\text{NO}_2][\\text{F}_2]$.\nStep 2: Determine the overall order: The rate law contains $[\\text{NO}_2]^1$ and $[\\text{F}_2]^1$. The overall order is $1 + 1 = 2$.\nStep 3: Identify the role of $\\text{F}$: Atomic fluorine ($\\text{F}$) is produced in Step 1 and subsequently consumed in Step 2; it does not appear in the overall balanced stoichiometric equation ($2\\text{NO}_2 + \\text{F}_2 \\rightarrow 2\\text{NO}_2\\text{F}$). Hence, it is a reaction intermediate (not a catalyst).\nTherefore, the rate law is $\\text{Rate} = k_1 [\\text{NO}_2][\\text{F}_2]$, overall order is $2$, and $\\text{F}$ is a reaction intermediate."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_053",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding fractional completion times of a first-order chemical reaction:\nStatement I: For any first-order reaction, the time required for $87.5\\%$ of the reaction to be completed ($t_{87.5\\%}$) is exactly $1.5$ times the time required for $75\\%$ completion ($t_{75\\%}$).\nStatement II: In a first-order reaction, the percentage completion after $2$ half-lives is $75\\%$ ($t_{75\\%} = 2 t_{1/2}$), and after $3$ half-lives is $87.5\\%$ ($t_{87.5\\%} = 3 t_{1/2}$), which yields the ratio $\\frac{t_{87.5\\%}}{t_{75\\%}} = \\frac{3 t_{1/2}}{2 t_{1/2}} = 1.5$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement II: After $1$ half-life, $50\\%$ remains. After $2$ half-lives, $(1/2)^2 = 25\\%$ remains, meaning $75\\%$ has reacted, so $t_{75\\%} = 2 t_{1/2}$. After $3$ half-lives, $(1/2)^3 = 12.5\\%$ remains, meaning $87.5\\%$ has reacted, so $t_{87.5\\%} = 3 t_{1/2}$. Thus, $\\frac{t_{87.5\\%}}{t_{75\\%}} = \\frac{3}{2} = 1.5$. Statement II is correct.\nStep 2: Analyze Statement I: Because $t_{87.5\\%} = 3 t_{1/2}$ and $t_{75\\%} = 2 t_{1/2}$, $t_{87.5\\%} = 1.5 \\times t_{75\\%}$. Statement I is correct.\nStep 3: Conclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_054",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): As the operating temperature of a reaction mixture increases to very high values, the temperature coefficient ($\\frac{k_{T+10}}{k_T}$) of the reaction progressively decreases toward unity.\nReason (R): In the Arrhenius relation, $\\ln\\left(\\frac{k_{T+10}}{k_T}\\right) = \\frac{E_a}{R}\\left(\\frac{10}{T(T+10)}\\right)$, the product $T(T+10)$ in the denominator increases rapidly with temperature, making the fractional rate acceleration smaller at elevated temperatures.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "C) (A) is true but (R) is false",
+        "D) (A) is false but (R) is true"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Assertion (A): The temperature coefficient $\\frac{k_{T+10}}{k_T}$ is typically around $2$ to $3$ near room temperature ($300\\text{ K}$), but at high temperatures (e.g. $1000\\text{ K}$), a $10\\text{ K}$ increase has a much smaller relative impact, so $\\frac{k_{T+10}}{k_T} \\rightarrow 1$. Thus, (A) is true.\nStep 2: Evaluate Reason (R): From the integrated Arrhenius equation for $T_1 = T$ and $T_2 = T + 10$: $\\ln\\left(\\frac{k_{T+10}}{k_T}\\right) = \\frac{E_a}{R}\\left(\\frac{10}{T(T+10)}\\right)$. As $T \\rightarrow \\infty$, $T(T+10) \\rightarrow \\infty$, which causes $\\ln\\left(\\frac{k_{T+10}}{k_T}\\right) \\rightarrow 0$, meaning $\\frac{k_{T+10}}{k_T} \\rightarrow 1$. Thus, (R) is true.\nStep 3: Evaluate connection: The mathematical dependence on the denominator $T(T+10)$ directly explains why the temperature coefficient diminishes at higher operating temperatures. Therefore, both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_chemical_kinetics_c01_055",
+      "subject": "Chemistry",
+      "topic": "Chemical Kinetics",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the fundamentals of chemical kinetics:\nI. For an endothermic elementary reaction, the activation energy of the forward reaction ($E_{a,f}$) must be strictly greater than the standard enthalpy of reaction ($\\Delta H^\\circ$).\nII. The introduction of a positive catalyst accelerates a reaction by altering the standard reaction Gibbs free energy ($\\Delta G^\\circ$) and increasing the equilibrium constant $K_{\\text{eq}}$.\nIII. In the Arrhenius plot of $\\ln k$ versus $\\frac{1}{T}$, the y-intercept at $\\frac{1}{T} = 0$ corresponds to the natural logarithm of the pre-exponential frequency factor ($\\ln A$).\nIV. If an elementary reaction has an overall molecularity of $2$, its overall kinetic order must also be equal to $2$.\nWhich of the above statements are correct?",
+      "options": [
+        "A) I, II, and III only",
+        "B) II, III, and IV only",
+        "C) I, III, and IV only",
+        "D) I and IV only"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate statement I: For an elementary reaction, $\\Delta H^\\circ = E_{a,f} - E_{a,r}$. For an endothermic reaction, $\\Delta H^\\circ > 0$. Since the reverse activation energy must be positive ($E_{a,r} > 0$), we have $E_{a,f} = \\Delta H^\\circ + E_{a,r} > \\Delta H^\\circ$. Statement I is correct.\nStep 2: Evaluate statement II: A catalyst lowers the activation energy of both forward and reverse paths equally without affecting thermodynamic state functions ($\\Delta H^\\circ$, $\\Delta G^\\circ$) or the equilibrium constant $K_{\\text{eq}}$. Statement II is incorrect.\nStep 3: Evaluate statement III: From $\\ln k = \\left(-\\frac{E_a}{R}\\right)\\left(\\frac{1}{T}\\right) + \\ln A$, the y-intercept at $1/T = 0$ is equal to $\\ln A$. Statement III is correct.\nStep 4: Evaluate statement IV: For an elementary reaction, the reaction mechanism consists of a single step, so the stoichiometric coefficients of reactants in that step represent the molecularity and are identical to the partial orders in the rate law. Thus, for an elementary bimolecular reaction, overall order is always $2$. Statement IV is correct.\nStep 5: Conclusion: Statements I, III, and IV only are correct."
+    }
+  ]
+}

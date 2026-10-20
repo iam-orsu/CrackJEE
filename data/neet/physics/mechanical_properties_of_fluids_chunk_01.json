@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Mechanical Properties of Fluids",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_001",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the physical nature of pressure in a static fluid:\n\nStatement I: Pressure is defined as the normal compressive force per unit area, and it is a scalar quantity because hydrostatic pressure acts isotropically in all directions at a given point in a static fluid.\nStatement II: Hydraulic pressure is a vector quantity because the buoyant thrust acting on an immersed solid always acts in a specific upward direction against gravity.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Fluid pressure is defined as $P = \\lim_{\\Delta A \\to 0} \\frac{\\Delta F_{\\perp}}{\\Delta A}$, where $\\Delta F_{\\perp}$ is the normal force component. At any given point in a static fluid, pressure exerts an isotropic compressive stress, transmitting force perpendicular to any surface oriented in any arbitrary direction. Thus, it has no unique fixed direction in space, making pressure a scalar physical quantity.\nStep 2: Buoyant force is indeed a vector quantity (an integrated upward net force due to vertical pressure differences across the body), but fluid pressure itself remains an isotropic scalar. The direction of the thrust on a surface is determined by the normal vector of the oriented surface ($\\vec{F} = P \\vec{A}$), not by pressure having an intrinsic directional property.\nStep 3: Hence, the proposition that hydraulic pressure is a vector quantity is scientifically incorrect. Statement I is true, while Statement II is false.\nDistractor Analysis: Assertions that both statements are true or that pressure is a vector confuse the directional nature of the resultant contact force with the scalar character of fluid pressure."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_002",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In a hydraulic lift, applying a small downward force on a narrow piston can lift a massive automobile placed on a wide piston without violating the principle of conservation of energy.\nReason (R): The work done on the smaller piston equals the work done by the larger piston because the smaller piston moves through a proportionally larger displacement than the heavier load.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: By Pascal's law, pressure applied to an enclosed incompressible fluid is transmitted undiminished: $P_1 = P_2 \\implies \\frac{F_1}{A_1} = \\frac{F_2}{A_2}$. Since $A_2 \\gg A_1$, the output force is multiplied: $F_2 = F_1 \\left(\\frac{A_2}{A_1}\\right)$.\nStep 2: Because the fluid is incompressible, the volume displaced by the smaller piston equals the volume entering the larger cylinder: $V = A_1 d_1 = A_2 d_2 \\implies d_2 = d_1 \\left(\\frac{A_1}{A_2}\\right)$.\nStep 3: The mechanical work done on the input piston is $W_1 = F_1 d_1$, and the work delivered to the load is $W_2 = F_2 d_2 = \\left[F_1 \\left(\\frac{A_2}{A_1}\\right)\\right] \\left[d_1 \\left(\\frac{A_1}{A_2}\\right)\\right] = F_1 d_1 = W_1$. Therefore, force multiplication occurs at the expense of distance, strictly conserving mechanical energy. Reason (R) correctly explains Assertion (A).\nDistractor Analysis: Alternative options fail because energy conservation is maintained precisely through the inverse relationship between force and displacement."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_003",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In an automobile service station, a hydraulic lift has an input piston of radius $r_1 = 5\\text{ cm}$ and an output piston of radius $r_2 = 20\\text{ cm}$. What minimum force must be applied to the smaller input piston to support a vehicle of mass $M = 1600\\text{ kg}$ placed on the larger piston? (Take $g = 10\\text{ m/s}^2$)",
+      "options": [
+        "A) $1000\\text{ N}$",
+        "B) $4000\\text{ N}$",
+        "C) $250\\text{ N}$",
+        "D) $800\\text{ N}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: According to Pascal's principle, the fluid pressure is equal throughout the enclosed static fluid at the same horizontal level: $P = \\frac{F_1}{A_1} = \\frac{F_2}{A_2}$.\nStep 2: The cross-sectional areas of circular pistons scale with the square of their radii: $\\frac{A_2}{A_1} = \\left(\\frac{r_2}{r_1}\\right)^2 = \\left(\\frac{20\\text{ cm}}{5\\text{ cm}}\\right)^2 = 4^2 = 16$.\nStep 3: The weight of the vehicle to be supported is $F_2 = M g = 1600\\text{ kg} \\times 10\\text{ m/s}^2 = 16000\\text{ N}$. The required input force on the smaller piston is $F_1 = F_2 \\times \\frac{A_1}{A_2} = \\frac{16000\\text{ N}}{16} = 1000\\text{ N}$.\nDistractor Analysis: A force of $4000\\text{ N}$ incorrectly scales inversely with linear radius $(r_2/r_1)$ instead of area $(r_2/r_1)^2$. Other values arise from miscalculating the radius ratio."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_004",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the hydrostatic paradox and pressure in static liquids:\n\nStatement I: The hydrostatic paradox demonstrates that the liquid pressure at the base of a stationary vessel depends exclusively on the vertical depth of the liquid column and fluid density, remaining independent of the shape, volume, or total weight of liquid in the vessel.\nStatement II: At the bottom of two open vessels containing water to the identical height $h$, the base pressure is identical, but the downward normal force exerted by the liquid on the base must always equal the total weight of water contained in the vessel.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The hydrostatic equation $P = P_0 + \\rho g h$ shows that pressure in a static, incompressible fluid in a uniform gravitational field depends solely on atmospheric pressure $P_0$, density $\\rho$, gravitational acceleration $g$, and vertical depth $h$. It does not depend on the cross-sectional profile, wall tilt, or total liquid volume. This counterintuitive fact is known as the hydrostatic paradox. Thus, Statement I is true.\nStep 2: The downward force on the horizontal base is $F_{\\text{base}} = P_{\\text{base}} \\times A_{\\text{base}}$. In a vessel with sloping walls (conical or flared), the liquid exerts normal reaction forces on the sloping sides. For a vessel widening upwards, the inclined walls exert an upward component of normal force on the liquid, meaning the downward force on the flat bottom is strictly less than the total weight of liquid. For a vessel narrowing upwards, the base force exceeds the liquid weight.\nStep 3: Therefore, the normal force on the base equals the liquid weight only for straight cylindrical or rectangular vessels with vertical walls. Thus, Statement II is false.\nDistractor Analysis: Asserting that base force always equals the total weight of the fluid neglects the vertical reaction components exerted by inclined vessel walls."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_005",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A research submarine descends to a depth of $h = 500\\text{ m}$ in an ocean where the average density of sea water is $\\rho = 1030\\text{ kg/m}^3$. If the atmospheric pressure at the ocean surface is $P_0 = 1.01 \\times 10^5\\text{ Pa}$ and $g = 10\\text{ m/s}^2$, what are the gauge pressure and absolute pressure experienced by the submarine hull?",
+      "options": [
+        "A) $P_{\\text{gauge}} = 5.15\\text{ MPa}$, $P_{\\text{absolute}} = 5.25\\text{ MPa}$",
+        "B) $P_{\\text{gauge}} = 5.25\\text{ MPa}$, $P_{\\text{absolute}} = 5.15\\text{ MPa}$",
+        "C) $P_{\\text{gauge}} = 5.15\\text{ kPa}$, $P_{\\text{absolute}} = 15.15\\text{ kPa}$",
+        "D) $P_{\\text{gauge}} = 51.5\\text{ MPa}$, $P_{\\text{absolute}} = 52.5\\text{ MPa}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Gauge pressure represents the pressure excess above local atmospheric pressure: $P_{\\text{gauge}} = \\rho g h$.\nStep 2: Substituting the values: $P_{\\text{gauge}} = 1030\\text{ kg/m}^3 \\times 10\\text{ m/s}^2 \\times 500\\text{ m} = 5,150,000\\text{ Pa} = 5.15 \\times 10^6\\text{ Pa} = 5.15\\text{ MPa}$.\nStep 3: Absolute (total) pressure is obtained by adding the ambient surface atmospheric pressure: $P_{\\text{absolute}} = P_0 + P_{\\text{gauge}} = 1.01 \\times 10^5\\text{ Pa} + 51.5 \\times 10^5\\text{ Pa} = 52.51 \\times 10^5\\text{ Pa} \\approx 5.25\\text{ MPa}$.\nDistractor Analysis: Inverting the gauge and absolute values confuses the baseline reference pressure; power-of-ten errors miss the conversion from pascals to megapascals."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_006",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Measuring Device / Apparatus) with List II (Working Principle / Function):\n\nList I:\nA. Mercury barometer\nB. Open-tube manometer\nC. Venturi-meter\nD. Hydraulic brakes\n\nList II:\nI. Pascal's law of undiminished transmission of pressure in fluids\nII. Direct measurement of absolute atmospheric pressure using Torricellian vacuum\nIII. Bernoulli's principle relating flow constriction to static pressure reduction\nIV. Measurement of gauge pressure relative to ambient atmosphere\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-IV, B-II, C-I, D-III",
+        "B) A-II, B-IV, C-I, D-III",
+        "C) A-II, B-IV, C-III, D-I",
+        "D) A-III, B-I, C-IV, D-II"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: A mercury barometer, devised by Torricelli, measures absolute atmospheric pressure using the vertical height of a mercury column supported against an evacuated space (Torricellian vacuum). Thus, A matches II.\nStep 2: An open-tube manometer consists of a U-tube containing liquid with one limb exposed to the atmosphere, thereby measuring gauge pressure ($P - P_a = \\rho g h$). Thus, B matches IV.\nStep 3: A Venturi-meter is a constriction device used to measure flow speed and discharge of an incompressible fluid based on Bernoulli's theorem ($P_1 - P_2 = \\frac{1}{2}\\rho(v_2^2 - v_1^2)$). Thus, C matches III.\nStep 4: Hydraulic brakes operate directly on Pascal's principle, transmitting foot pedal pressure through brake fluid equally to all wheel cylinders. Thus, D matches I.\nDistractor Analysis: Permutations interchanging the barometer and manometer confuse absolute vs gauge pressure measurements; pairing Venturi-meter with Pascal's law ignores fluid dynamics."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_007",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a Torricellian mercury barometer:\n\nStatement I: In a simple mercury barometer, if the uniform glass tube is tilted at an angle $\\theta$ with the vertical, the vertical height of the mercury column remains unchanged, while the length of the mercury column along the tube increases.\nStatement II: If a tiny hole is punctured in the glass tube in the region of the Torricellian vacuum above the mercury column, the mercury will spray out of the hole like a fountain.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Hydrostatic pressure in a continuous static fluid depends solely on vertical depth: $P_{\\text{atm}} = \\rho g h_{\\text{vert}}$. When the barometer tube is tilted at an angle $\\theta$ relative to the vertical, the vertical height $h_{\\text{vert}}$ must remain constant ($76\\text{ cm Hg}$ at standard atmospheric pressure). The length of mercury along the slanted tube becomes $L = h_{\\text{vert}}/\\cos\\theta$, which is greater than $h_{\\text{vert}}$. Thus, Statement I is true.\nStep 2: If a hole is punctured into the glass tube in the evacuated space above the mercury column, atmospheric air at pressure $P_{\\text{atm}}$ rushes into the space. The pressure on top of the mercury column becomes equal to $P_{\\text{atm}}$.\nStep 3: The downward pressure inside the tube at the reservoir level becomes $P_{\\text{atm}} + \\rho g h$, which exceeds the external atmospheric pressure $P_{\\text{atm}}$ pushing up on the reservoir. Consequently, the mercury column drops immediately until the liquid level inside the tube aligns with the level in the trough. Mercury will not spray out. Thus, Statement II is false.\nDistractor Analysis: Claiming that mercury sprays out assumes an impossible upward pressure gradient; atmospheric air entering the top destroys the Torricellian vacuum and forces the column down."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_008",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A U-tube open to the atmosphere at both ends contains mercury of density $\\rho_m = 13.6 \\times 10^3\\text{ kg/m}^3$. Water of density $\\rho_w = 1.0 \\times 10^3\\text{ kg/m}^3$ is poured into one arm until a vertical water column of height $h_w = 27.2\\text{ cm}$ is established. What is the difference in mercury levels ($\\Delta h$) between the two arms of the U-tube?",
+      "options": [
+        "A) $2.0\\text{ cm}$",
+        "B) $4.0\\text{ cm}$",
+        "C) $1.0\\text{ cm}$",
+        "D) $2.72\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In a continuous static liquid, points at the same horizontal level must be at the same hydrostatic pressure.\nStep 2: Let the horizontal datum pass through the mercury-water interface in the first arm. The pressure at this level in the water limb is $P_1 = P_0 + \\rho_w g h_w$. In the opposite limb, the pressure at the same horizontal level is $P_2 = P_0 + \\rho_m g \\Delta h$, where $\\Delta h$ is the height of the mercury column above the interface level.\nStep 3: Equating the two pressures: $P_0 + \\rho_w g h_w = P_0 + \\rho_m g \\Delta h \\implies \\Delta h = h_w \\left(\\frac{\\rho_w}{\\rho_m}\\right)$. Substituting the given values: $\\Delta h = 27.2\\text{ cm} \\times \\frac{1.0 \\times 10^3}{13.6 \\times 10^3} = \\frac{27.2}{13.6} = 2.0\\text{ cm}$.\nDistractor Analysis: Values such as $2.72\\text{ cm}$ or $4.0\\text{ cm}$ result from improper arithmetic or confusing relative density with reciprocal density."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_009",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Archimedes' principle and buoyant force:\n\nStatement I: Archimedes' principle states that when a body is wholly or partially immersed in a fluid at rest, it experiences an upward buoyant force equal to the weight of the fluid displaced by the body.\nStatement II: The buoyant force acts vertically upward through the center of gravity of the entire body, regardless of whether the body is fully or partially submerged.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: According to Archimedes' principle, the resultant hydrostatic force exerted by the surrounding fluid on an immersed body is directed vertically upward and equals the weight of the displaced volume of fluid: $F_B = \\rho_f V_{\\text{disp}} g$. Thus, Statement I is completely true.\nStep 2: The buoyant force is the resultant of the pressure forces distributed over the immersed boundary. Hydrodynamically, this upward force acts through the centroid of the displaced fluid volume, a point termed the center of buoyancy ($B$).\nStep 3: For a partially submerged or non-uniformly dense body, the center of buoyancy ($B$) does not generally coincide with the center of gravity ($G$) of the solid body. The relative positions of $B$ and $G$ (and the metacenter) determine rotational stability. Thus, Statement II is false.\nDistractor Analysis: Claiming that buoyant force acts through the body's center of gravity confuses the center of mass of the solid object with the center of mass of the displaced fluid volume."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_010",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform block of wood of density $\\rho_b = 600\\text{ kg/m}^3$ floats peacefully in a container filled with an organic oil of density $\\rho_l = 800\\text{ kg/m}^3$. What fraction of the total volume of the wooden block remains submerged beneath the oil surface?",
+      "options": [
+        "A) $0.25$",
+        "B) $0.80$",
+        "C) $0.60$",
+        "D) $0.75$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For any floating object in static equilibrium, the downward gravitational force (weight of the object) is balanced exactly by the upward buoyant force: $W = F_B$.\nStep 2: Expressing both forces in terms of volume and density: $\\rho_b V_{\\text{total}} g = \\rho_l V_{\\text{sub}} g$, where $V_{\\text{sub}}$ is the volume submerged in the liquid.\nStep 3: Dividing both sides by $\\rho_l V_{\\text{total}} g$ yields the submerged volume fraction: $\\frac{V_{\\text{sub}}}{V_{\\text{total}}} = \\frac{\\rho_b}{\\rho_l} = \\frac{600\\text{ kg/m}^3}{800\\text{ kg/m}^3} = \\frac{3}{4} = 0.75$ (or $75\\%$).\nDistractor Analysis: A value of $0.25$ corresponds to the fraction exposed above the liquid surface rather than the fraction submerged beneath the liquid surface."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_011",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When a solid piece of iron suspended from a sensitive spring balance is lowered into water, the reading of the spring balance decreases.\nReason (R): The water exerts an upward buoyant force on the submerged iron piece, so the spring balance records an apparent weight equal to the true weight minus the buoyant force.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The spring balance measures the tension $T$ in the supporting wire. In air (neglecting air buoyancy), the tension balances the true gravitational weight: $T_{\\text{air}} = W = m g$.\nStep 2: When submerged in water, the surrounding liquid exerts an upward hydrostatic buoyant force $F_B = \\rho_w V g$. The equilibrium condition for the suspended mass becomes $T + F_B = W \\implies T = W - F_B$.\nStep 3: Because $F_B > 0$, the recorded tension $T$ (apparent weight) is strictly less than the true weight $W$. Reason (R) directly explains why the balance reading decreases.\nDistractor Analysis: Alternative options asserting that the balance reading decreases due to loss of mass are unphysical; the mass of the iron remains constant while the net downward force on the spring decreases."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_012",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding steady streamline flow in fluids:\n\nStatement I: In steady (streamline) fluid flow, the velocity of every fluid particle passing a particular fixed point in space remains constant with respect to time, both in magnitude and in direction.\nStatement II: Two streamlines in a steady fluid flow can occasionally cross each other if the fluid undergoes local acceleration through a narrow nozzle.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: By definition of steady flow (streamline flow), the velocity field $\\vec{v}(x, y, z)$ at any fixed geometric location is independent of time ($\\partial \\vec{v}/\\partial t = 0$). Although a single particle may accelerate as it moves from one position to another, every successive particle reaching a given point has the exact same velocity. Thus, Statement I is true.\nStep 2: A streamline is a curve whose tangent at any point gives the instantaneous direction of fluid velocity at that point.\nStep 3: If two streamlines were to intersect at some point, a fluid particle arriving at that point of intersection would have two distinct velocity directions simultaneously, which is physically impossible in continuous fluid flow. Hence, streamlines can never cross each other under any circumstances. Statement II is false.\nDistractor Analysis: Suggesting that streamlines can intersect during acceleration violates the single-valued property of the velocity vector field at any spatial coordinate."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_013",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Water flows steadily through a horizontal pipe of non-uniform circular cross-section. At a wider section where the inner pipe diameter is $d_1 = 4.0\\text{ cm}$, the flow speed of water is $v_1 = 1.5\\text{ m/s}$. What is the flow speed of water at a constricted section where the inner pipe diameter narrows down to $d_2 = 2.0\\text{ cm}$?",
+      "options": [
+        "A) $3.0\\text{ m/s}$",
+        "B) $12.0\\text{ m/s}$",
+        "C) $0.75\\text{ m/s}$",
+        "D) $6.0\\text{ m/s}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For the steady flow of an incompressible fluid, the equation of continuity states that the volume flow rate remains constant across all sections: $A_1 v_1 = A_2 v_2$.\nStep 2: For a pipe of circular cross-section, area is proportional to the square of diameter: $A = \\frac{\\pi d^2}{4}$. Thus, the continuity equation simplifies to $d_1^2 v_1 = d_2^2 v_2$.\nStep 3: Solving for the speed in the constricted section: $v_2 = v_1 \\left(\\frac{d_1}{d_2}\\right)^2 = 1.5\\text{ m/s} \\times \\left(\\frac{4.0\\text{ cm}}{2.0\\text{ cm}}\\right)^2 = 1.5 \\times 2^2 = 1.5 \\times 4 = 6.0\\text{ m/s}$.\nDistractor Analysis: A value of $3.0\\text{ m/s}$ mistakenly scales linearly with diameter $(d_1/d_2)$ instead of diameter squared $(d_1/d_2)^2$; $0.75\\text{ m/s}$ erroneously inverts the ratio."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_014",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Bernoulli's equation is a statement of the principle of conservation of energy applied to an ideal fluid in motion.\nReason (R): Bernoulli's equation in the standard form $P + \\frac{1}{2}\\rho v^2 + \\rho g h = \\text{constant}$ is strictly valid only for steady, irrotational, incompressible, and non-viscous fluid flow.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Bernoulli's equation equates the work done by pressure forces on a fluid element to the change in its kinetic and gravitational potential energies (work-energy theorem for fluids), representing energy conservation per unit volume.\nStep 2: To derive the conservation equation without energy dissipation or non-conservative losses, the fluid flow must be steady (no time-varying fields), incompressible (constant density $\\rho$), non-viscous (zero internal shear friction/viscous dissipation), and irrotational (no vorticity).\nStep 3: Thus, both Assertion (A) and Reason (R) are true, and (R) defines the exact idealized conditions under which mechanical energy is conserved along a streamline.\nDistractor Analysis: Alternative options fail because the absence of viscous dissipation and compressibility is the necessary prerequisite for total mechanical energy constancy."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_015",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Torricelli's law of efflux:\n\nStatement I: Torricelli's law states that the speed of efflux of a liquid through a small hole at a depth $h$ below the free surface of an open tank equals the speed that a body acquires in falling freely from rest through the same vertical height $h$.\nStatement II: Torricelli's efflux speed $v = \\sqrt{2gh}$ remains valid even if the cross-sectional area of the orifice is comparable to or larger than the cross-sectional area of the open tank.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: For an open tank where the top surface is at atmospheric pressure $P_0$ and has cross-sectional area $A_1$, fluid exits through an orifice of area $A_2$ at depth $h$ where pressure is also $P_0$.\nStep 2: Applying Bernoulli's equation between the top surface and the orifice: $P_0 + \\rho g h + \\frac{1}{2}\\rho v_1^2 = P_0 + \\frac{1}{2}\\rho v_2^2$. By continuity, $v_1 = (A_2 / A_1) v_2$. If $A_1 \\gg A_2$, the surface descent velocity $v_1 \\approx 0$, leading directly to $v_2 = \\sqrt{2gh}$, which is identical to the speed of a freely falling body. Thus, Statement I is true.\nStep 3: If the orifice area $A_2$ is comparable to $A_1$, the term $v_1^2$ cannot be neglected, and the exact efflux speed becomes $v_2 = \\sqrt{\\frac{2gh}{1 - (A_2/A_1)^2}} > \\sqrt{2gh}$. Therefore, the formula $v = \\sqrt{2gh}$ is strictly an approximation valid only when $A_1 \\gg A_2$. Thus, Statement II is false.\nDistractor Analysis: Options claiming Statement II is true overlook the surface velocity term in Bernoulli's equation when the hole is wide."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_016",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A wide open cylindrical tank containing water has a small hole punctured in its side wall at a depth of $h = 5.0\\text{ m}$ below the free surface of water. Taking $g = 10\\text{ m/s}^2$ and assuming the top surface area is vastly larger than the orifice area, what is the speed of efflux of water through the hole?",
+      "options": [
+        "A) $5.0\\text{ m/s}$",
+        "B) $14.1\\text{ m/s}$",
+        "C) $20.0\\text{ m/s}$",
+        "D) $10.0\\text{ m/s}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: By Torricelli's law, the speed of efflux from a small hole in an open vessel at depth $h$ below the free surface is $v = \\sqrt{2gh}$.\nStep 2: Substituting the given parameters: $g = 10\\text{ m/s}^2$ and $h = 5.0\\text{ m}$.\nStep 3: Calculating: $v = \\sqrt{2 \\times 10\\text{ m/s}^2 \\times 5.0\\text{ m}} = \\sqrt{100} = 10.0\\text{ m/s}$.\nDistractor Analysis: A value of $5.0\\text{ m/s}$ forgets the factor of $2$ in $\\sqrt{2gh}$; $14.1\\text{ m/s}$ uses $\\sqrt{200}$ from mistakenly doubling depth."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_017",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding aerodynamic lift and the Magnus effect:\n\nStatement I: The dynamic lift on an aircraft wing (aerofoil) arises because streamlines are crowded together above the curved upper wing surface, creating higher airflow speed and consequently lower pressure compared to the flatter lower surface.\nStatement II: The Magnus effect causes a spinning cricket ball moving through air to curve along a curved trajectory because the dynamic pressure is identical on both sides of the ball.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: An aerofoil is shaped such that air streamlines flow faster over its cambered upper surface than under its lower surface ($v_{\\text{top}} > v_{\\text{bottom}}$). By Bernoulli's equation ($P + \\frac{1}{2}\\rho v^2 = \\text{const}$), the static pressure above the wing is lower than beneath it ($P_{\\text{top}} < P_{\\text{bottom}}$). This pressure differential produces an upward net aerodynamic force known as dynamic lift. Thus, Statement I is true.\nStep 2: In the Magnus effect, a spinning ball drags boundary layer air along its surface. On the side where surface motion aligns with the relative airflow, the air velocity increases, lowering static pressure; on the opposite side where surface motion opposes airflow, velocity decreases, raising static pressure.\nStep 3: It is precisely this pressure imbalance (not an identical dynamic pressure) that generates a sideways lateral aerodynamic force causing the ball to curve. Thus, Statement II is false.\nDistractor Analysis: Claims that pressure is identical on both sides of a spinning ball contradict the fundamental physical origin of the Magnus effect."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_018",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Physical Quantity) with List II (SI Unit / Dimensional Nature):\n\nList I:\nA. Coefficient of dynamic viscosity ($\\eta$)\nB. Reynolds number ($R_e$)\nC. Surface tension ($T$)\nD. Kinematic viscosity ($\\nu = \\eta/\\rho$)\n\nList II:\nI. Dimensionless (pure scalar number)\nII. $\\text{N}\\cdot\\text{s}\\cdot\\text{m}^{-2}$ (or $\\text{Pa}\\cdot\\text{s}$)\nIII. $\\text{m}^2\\cdot\\text{s}^{-1}$\nIV. $\\text{N}\\cdot\\text{m}^{-1}$ (or $\\text{J}\\cdot\\text{m}^{-2}$)\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-I, C-IV, D-III",
+        "B) A-IV, B-I, C-II, D-III",
+        "C) A-II, B-III, C-IV, D-I",
+        "D) A-III, B-I, C-IV, D-II"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Newton's law of viscosity is $F = \\eta A \\frac{dv}{dx}$, so $\\eta = \\frac{F}{A(dv/dx)}$, giving SI units $\\frac{\\text{N}}{\\text{m}^2 \\cdot (\\text{m/s}/\\text{m})} = \\text{N}\\cdot\\text{s}\\cdot\\text{m}^{-2} = \\text{Pa}\\cdot\\text{s}$. Thus, A matches II.\nStep 2: Reynolds number is defined as $R_e = \\frac{\\rho v d}{\\eta}$, representing the ratio of inertial force to viscous force, which is completely dimensionless. Thus, B matches I.\nStep 3: Surface tension is defined as force per unit length ($T = F/L$) or surface energy per unit area ($T = \\Delta U/\\Delta A$), with SI units $\\text{N}\\cdot\\text{m}^{-1}$ or $\\text{J}\\cdot\\text{m}^{-2}$. Thus, C matches IV.\nStep 4: Kinematic viscosity is $\\nu = \\frac{\\eta}{\\rho} = \\frac{\\text{kg}\\cdot\\text{m}^{-1}\\cdot\\text{s}^{-1}}{\\text{kg}\\cdot\\text{m}^{-3}} = \\text{m}^2\\cdot\\text{s}^{-1}$. Thus, D matches III.\nDistractor Analysis: Other combinations misassign kinematic viscosity as dynamic viscosity or confuse surface tension with viscosity."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_019",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the temperature dependence of viscosity in fluids:\n\nStatement I: As the temperature of a liquid increases, its coefficient of viscosity decreases because increased thermal agitation weakens the cohesive intermolecular forces between liquid layers.\nStatement II: As the temperature of a gas increases, its coefficient of viscosity also decreases because gas molecules move much faster at elevated temperatures.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In liquids, viscosity arises predominantly from cohesive intermolecular forces holding adjacent molecular layers together. When temperature rises, thermal energy increases molecular kinetic separation, diminishing cohesive attraction. Consequently, liquid viscosity decreases markedly with rising temperature. Thus, Statement I is true.\nStep 2: In gases, viscosity does not stem from cohesive attraction, but rather from momentum transfer across flow layers via random thermal molecular collisions.\nStep 3: As gas temperature increases, the mean molecular speed increases ($\\bar{v} \\propto \\sqrt{T}$), which enhances the rate of transverse momentum exchange between adjacent layers. Hence, the viscosity of gases increases with temperature ($\\eta \\propto \\sqrt{T}$). Statement II is false.\nDistractor Analysis: Claiming that gas viscosity decreases with temperature falsely extrapolates liquid behavior to gases, ignoring the kinetic theory mechanism of momentum diffusion."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_020",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two small solid lead spheres of radii $r_1 = 1.0\\text{ mm}$ and $r_2 = 2.0\\text{ mm}$ are released from rest in a tall cylinder filled with viscous glycerin. If both spheres attain terminal velocity, what is the ratio of their terminal velocities $\\frac{v_{t,1}}{v_{t,2}}$?",
+      "options": [
+        "A) $1 : 4$",
+        "B) $1 : 8$",
+        "C) $1 : 2$",
+        "D) $4 : 1$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: When a sphere of radius $r$ and density $\\rho$ falls through a fluid of density $\\sigma$ and viscosity $\\eta$, it reaches terminal velocity when the net force vanishes: $F_v + F_B = W$.\nStep 2: By Stokes' law, $6\\pi\\eta r v_t + \\frac{4}{3}\\pi r^3 \\sigma g = \\frac{4}{3}\\pi r^3 \\rho g \\implies v_t = \\frac{2}{9}\\frac{r^2(\\rho - \\sigma)g}{\\eta}$.\nStep 3: Since both spheres are made of the same material and fall through the same fluid, terminal velocity is directly proportional to the square of radius: $v_t \\propto r^2$. Therefore, the ratio is $\\frac{v_{t,1}}{v_{t,2}} = \\left(\\frac{r_1}{r_2}\\right)^2 = \\left(\\frac{1.0\\text{ mm}}{2.0\\text{ mm}}\\right)^2 = \\frac{1}{4}$ (or $1:4$).\nDistractor Analysis: A ratio of $1:2$ incorrectly assumes linear scaling with radius ($v_t \\propto r$); $1:8$ incorrectly scales with volume ($r^3$)."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_021",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding excess pressure across curved fluid interfaces:\n\nStatement I: The excess pressure inside a spherical liquid drop of radius $R$ suspended in air is $\\Delta P = \\frac{2T}{R}$, because the drop possesses only a single liquid-gas interface.\nStatement II: The excess pressure inside a hollow soap bubble of radius $R$ floating in air is $\\Delta P = \\frac{4T}{R}$, because a soap film has two distinct liquid-gas interfaces (an inner surface and an outer surface).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: A liquid drop contains liquid on the inside and air on the outside, creating a single spherical boundary interface. The work done by excess pressure $\\Delta P$ in expanding the drop by $dR$ is $dW = \\Delta P (4\\pi R^2 dR)$. This equals the increase in surface energy $T d(4\\pi R^2) = T(8\\pi R dR)$. Equating both yields $\\Delta P = \\frac{2T}{R}$. Thus, Statement I is true.\nStep 2: A soap bubble consists of a thin spherical liquid film enclosing an air cavity and surrounded by external air. Consequently, it possesses two separate spherical surfaces of radius $\\approx R$: one inside and one outside.\nStep 3: The total increase in surface area upon expansion is $2 \\times d(4\\pi R^2) = 16\\pi R dR$. Equating work done $\\Delta P (4\\pi R^2 dR) = 16\\pi R T dR$ gives $\\Delta P = \\frac{4T}{R}$. Thus, Statement II is also true.\nDistractor Analysis: Confusing the number of active interfaces between solid droplets and thin films leads to a factor-of-two error in excess pressure."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_022",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A spherical soap bubble floating in air has a radius of $R = 2.0\\text{ cm}$. If the surface tension of the soap solution is $T = 0.03\\text{ N/m}$, what is the excess pressure inside the soap bubble relative to the outside atmosphere?",
+      "options": [
+        "A) $3.0\\text{ Pa}$",
+        "B) $12.0\\text{ Pa}$",
+        "C) $1.5\\text{ Pa}$",
+        "D) $6.0\\text{ Pa}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: A soap bubble in air has two free surfaces (inner and outer), so the excess pressure formula is $\\Delta P = \\frac{4T}{R}$.\nStep 2: Convert the radius to SI units: $R = 2.0\\text{ cm} = 0.02\\text{ m} = 2.0 \\times 10^{-2}\\text{ m}$. The surface tension is $T = 0.03\\text{ N/m} = 3.0 \\times 10^{-2}\\text{ N/m}$.\nStep 3: Calculating excess pressure: $\\Delta P = \\frac{4 \\times 0.03\\text{ N/m}}{0.02\\text{ m}} = \\frac{0.12}{0.02} = 6.0\\text{ Pa}$.\nDistractor Analysis: A value of $3.0\\text{ Pa}$ is obtained if one erroneously uses the single-surface liquid drop formula $\\Delta P = \\frac{2T}{R}$; $12.0\\text{ Pa}$ results from an extraneous factor of 2."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_023",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When an open rectangular tank partially filled with liquid accelerates horizontally with a constant acceleration $a$, the free surface of the liquid tilts at an angle $\\theta$ to the horizontal such that $\\tan\\theta = a/g$.\nReason (R): In the accelerating reference frame of the tank, a fictitious pseudo-force per unit mass of magnitude $a$ acts opposite to the acceleration, combining with gravity to produce an effective gravity $\\vec{g}_{\\text{eff}} = \\vec{g} - \\vec{a}$, and the liquid free surface always rests perpendicular to $\\vec{g}_{\\text{eff}}$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Consider a small liquid element of mass $m$ on the free surface in the non-inertial frame of the accelerating container. The forces acting on it are gravity $m\\vec{g}$ downwards, a horizontal pseudo-force $-m\\vec{a}$ backwards, and the normal force $\\vec{N}$ from surrounding liquid.\nStep 2: For relative equilibrium in the accelerated frame, the net force must be perpendicular to the free surface. The effective gravitational acceleration is $\\vec{g}_{\\text{eff}} = \\vec{g} - \\vec{a}$. The angle of inclination $\\theta$ that $\\vec{g}_{\\text{eff}}$ makes with the vertical satisfies $\\tan\\theta = a/g$.\nStep 3: Because a fluid at rest cannot sustain shear stress, its free surface must always align perpendicular to the effective gravity vector $\\vec{g}_{\\text{eff}}$. Thus, both (A) and (R) are true, and (R) provides the exact theoretical reason for the surface tilt.\nDistractor Analysis: Alternative options fail because the surface inclination is a direct consequence of establishing an equipotential surface perpendicular to the vector sum of real and fictitious field accelerations."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_024",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A U-tube of uniform cross-section partially filled with an incompressible liquid of density $\\rho$ has a horizontal base of length $L = 20\\text{ cm}$. When the entire U-tube is accelerated horizontally with a constant acceleration $a = 2.0\\text{ m/s}^2$ directed along the horizontal base, what is the resulting difference in liquid levels ($\\Delta h$) between the two vertical limbs? (Take $g = 10\\text{ m/s}^2$)",
+      "options": [
+        "A) $2.0\\text{ cm}$",
+        "B) $1.0\\text{ cm}$",
+        "C) $8.0\\text{ cm}$",
+        "D) $4.0\\text{ cm}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Consider the horizontal column of liquid of length $L$ connecting the two vertical limbs. The horizontal acceleration $a$ requires a net horizontal force: $(P_2 - P_1) A = m a = (\\rho A L) a \\implies P_2 - P_1 = \\rho a L$, where $P_2$ is the pressure at the rear corner and $P_1$ is at the front corner.\nStep 2: In the vertical limbs, hydrostatic pressure relates to liquid column heights: $P_1 = P_0 + \\rho g h_1$ and $P_2 = P_0 + \\rho g h_2$. Therefore, the pressure difference between the corners is $P_2 - P_1 = \\rho g (h_2 - h_1) = \\rho g \\Delta h$.\nStep 3: Equating the two expressions: $\\rho g \\Delta h = \\rho a L \\implies \\Delta h = \\frac{a L}{g}$. Substituting the given parameters: $\\Delta h = \\frac{2.0\\text{ m/s}^2 \\times 0.20\\text{ m}}{10\\text{ m/s}^2} = 0.040\\text{ m} = 4.0\\text{ cm}$.\nDistractor Analysis: A value of $2.0\\text{ cm}$ forgets the length factor $L = 0.20\\text{ m}$; other choices stem from misapplying the ratio $a/g$."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_025",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding buoyant force in an accelerated elevator:\n\nStatement I: A wooden block floating in a beaker of water placed inside an elevator will experience an increased fraction of its volume submerged when the elevator accelerates vertically upward with an acceleration $a$.\nStatement II: If the elevator's supporting cable snaps and the elevator falls freely under gravity ($a = g$), the buoyant force on any submerged object vanishes, and an immersed object released from rest experiences no buoyant acceleration relative to the liquid.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In an elevator accelerating upward with acceleration $a$, the effective gravitational field inside the frame becomes $g_{\\text{eff}} = g + a$. The weight of the body is $W = \\rho_s V_{\\text{total}} g_{\\text{eff}}$ and the buoyant force is $F_B = \\rho_l V_{\\text{sub}} g_{\\text{eff}}$.\nStep 2: Equating weight and buoyant force for floating equilibrium: $\\rho_s V_{\\text{total}} g_{\\text{eff}} = \\rho_l V_{\\text{sub}} g_{\\text{eff}} \\implies \\frac{V_{\\text{sub}}}{V_{\\text{total}}} = \\frac{\\rho_s}{\\rho_l}$. The submerged fraction depends exclusively on the relative densities of the solid and liquid, completely independent of $g_{\\text{eff}}$. Hence, Statement I is false.\nStep 3: During free fall, the effective acceleration of gravity in the elevator's frame is $g_{\\text{eff}} = g - g = 0$. The hydrostatic pressure gradient vanishes ($\\frac{\\partial P}{\\partial z} = \\rho g_{\\text{eff}} = 0$), so the buoyant force becomes zero ($F_B = 0$). Any submerged body experiences zero buoyant acceleration relative to the fluid. Thus, Statement II is true.\nDistractor Analysis: Believing that upward elevator acceleration increases the submerged fraction confuses the increase in absolute buoyant force with a change in submerged fractional volume."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_026",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding floating ice and changes in water level upon melting:\n\nStatement I: When an ice cube floating in a beaker of pure water completely melts, the water level in the beaker remains strictly unchanged.\nStatement II: When an ice cube containing an embedded dense lead shot floats in water and the ice completely melts, the water level in the beaker falls.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For a pure ice cube of mass $m$, floating equilibrium requires buoyant force to balance weight: $\\rho_w V_{\\text{sub}} g = m g \\implies V_{\\text{sub}} = m/\\rho_w$. When the ice melts, its mass $m$ turns into liquid water whose volume is $V_{\\text{melt}} = m/\\rho_w$. Since $V_{\\text{melt}} = V_{\\text{sub}}$, the melted water exactly fills the submerged cavity, leaving the water level unchanged. Statement I is true.\nStep 2: For ice of mass $m_i$ containing an embedded lead shot of mass $m_l$, the combination floats initially, displacing water volume $V_{\\text{disp, initial}} = \\frac{m_i + m_l}{\\rho_w} = \\frac{m_i}{\\rho_w} + \\frac{m_l}{\\rho_w}$.\nStep 3: When the ice melts, the lead shot sinks to the bottom because $\\rho_l > \\rho_w$. The sunken lead displaces only its own volume $V_l = m_l/\\rho_l$. Since $\\rho_l > \\rho_w$, we have $\\frac{m_l}{\\rho_l} < \\frac{m_l}{\\rho_w}$. The total volume occupied by the melted water and lead is less than the volume initially displaced, causing the water level to fall. Thus, Statement II is also true.\nDistractor Analysis: Assuming that the water level always remains constant overlooks the phase-change transition of the dense lead from floating to sinking."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_027",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A piece of ice of density $\\rho_i = 0.90\\text{ g/cm}^3$ and mass $M_i = 72.0\\text{ g}$ has a small metal pellet of density $\\rho_m = 9.0\\text{ g/cm}^3$ embedded inside it. What must be the mass $m$ of the embedded metal pellet so that the entire composite piece just floats completely submerged in water of density $\\rho_w = 1.0\\text{ g/cm}^3$?",
+      "options": [
+        "A) $9.0\\text{ g}$",
+        "B) $18.0\\text{ g}$",
+        "C) $12.0\\text{ g}$",
+        "D) $8.0\\text{ g}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For the composite body to just float completely submerged, the total gravitational weight must equal the total upward buoyant force: $(M_i + m) g = \\rho_w V_{\\text{total}} g$.\nStep 2: The total volume of the composite body is the sum of the volume of ice and volume of metal: $V_{\\text{total}} = \\frac{M_i}{\\rho_i} + \\frac{m}{\\rho_m}$.\nStep 3: Substituting into the equilibrium condition: $M_i + m = \\rho_w \\left[\\frac{M_i}{\\rho_i} + \\frac{m}{\\rho_m}\\right]$. Using $\\rho_w = 1.0\\text{ g/cm}^3$, $\\rho_i = 0.90\\text{ g/cm}^3$, and $\\rho_m = 9.0\\text{ g/cm}^3$:\n$72 + m = 1.0 \\left[\\frac{72}{0.9} + \\frac{m}{9.0}\\right] = 80 + \\frac{m}{9}$.\nRearranging: $m - \\frac{m}{9} = 80 - 72 \\implies \\frac{8m}{9} = 8 \\implies m = 9.0\\text{ g}$.\nDistractor Analysis: Values such as $18.0\\text{ g}$ or $8.0\\text{ g}$ result from arithmetic slips or ignoring the volume occupied by the metal piece itself."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_028",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A horizontal Venturi-meter has a wide inlet of cross-sectional area $A_1 = 30.0\\text{ cm}^2$ and a narrow throat of cross-sectional area $A_2 = 10.0\\text{ cm}^2$. An incompressible liquid of density $\\rho = 1000\\text{ kg/m}^3$ flows steadily through the meter. If the static pressure difference between the inlet and the throat is $\\Delta P = 4000\\text{ Pa}$, what is the volume flow rate ($Q$) through the pipe?",
+      "options": [
+        "A) $1.0\\text{ L/s}$",
+        "B) $3.0\\text{ L/s}$",
+        "C) $6.0\\text{ L/s}$",
+        "D) $9.0\\text{ L/s}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: By the equation of continuity, $Q = A_1 v_1 = A_2 v_2 \\implies v_2 = \\left(\\frac{A_1}{A_2}\\right) v_1 = \\left(\\frac{30}{10}\\right) v_1 = 3 v_1$.\nStep 2: Applying Bernoulli's equation across the horizontal centerline: $P_1 + \\frac{1}{2}\\rho v_1^2 = P_2 + \\frac{1}{2}\\rho v_2^2 \\implies \\Delta P = P_1 - P_2 = \\frac{1}{2}\\rho (v_2^2 - v_1^2)$.\nStep 3: Substituting $v_2 = 3v_1$: $\\Delta P = \\frac{1}{2}\\rho [(3v_1)^2 - v_1^2] = \\frac{1}{2}\\rho (8v_1^2) = 4\\rho v_1^2$.\nSetting $\\Delta P = 4000\\text{ Pa}$: $4000 = 4 \\times 1000 \\times v_1^2 \\implies v_1^2 = 1 \\implies v_1 = 1.0\\text{ m/s}$.\nThe volume flow rate is $Q = A_1 v_1 = (30 \\times 10^{-4}\\text{ m}^2) \\times 1.0\\text{ m/s} = 3.0 \\times 10^{-3}\\text{ m}^3/\\text{s} = 3.0\\text{ L/s}$.\nDistractor Analysis: Flow rates like $1.0\\text{ L/s}$ use the throat area instead of inlet area; $6.0\\text{ L/s}$ misapplies the factor of $\\frac{1}{2}$ in dynamic pressure."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_029",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When an artery is partially constricted due to the accumulation of plaque on its inner walls, the artery may suddenly collapse inward, precipitating an acute cardiac event.\nReason (R): According to the continuity equation and Bernoulli's principle, blood flows faster through the constricted section, causing a substantial drop in internal static pressure that allows the external tissue pressure to compress the artery.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: By the equation of continuity $A v = \\text{const}$, as the lumen cross-sectional area $A$ decreases due to plaque deposition, the blood flow velocity $v$ must increase to maintain cardiac output.\nStep 2: According to Bernoulli's equation ($P + \\frac{1}{2}\\rho v^2 = \\text{const}$), an increase in kinetic energy per unit volume leads to a corresponding decrease in static lateral pressure $P$ inside the artery.\nStep 3: When the internal fluid pressure falls below the external tissue pressure exerted by surrounding tissues, a net inward compressive force acts on the elastic arterial wall, causing it to collapse. Reason (R) directly and accurately explains Assertion (A).\nDistractor Analysis: Alternative options fail because the hydrodynamic suction effect described by Bernoulli's theorem is the recognized physiological mechanism behind arterial collapse."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_030",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A tall cylindrical vessel of height $H = 80\\text{ cm}$ filled completely with water stands upright on a horizontal table. Two small orifices $O_1$ and $O_2$ are punctured on its vertical side. Orifice $O_1$ is at a depth $h_1 = 20\\text{ cm}$ below the free surface. At what depth $h_2$ below the free surface should the second orifice $O_2$ be pierced so that the horizontal water jets from both holes hit the table at the exact same location?",
+      "options": [
+        "A) $30\\text{ cm}$",
+        "B) $40\\text{ cm}$",
+        "C) $50\\text{ cm}$",
+        "D) $60\\text{ cm}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Liquid exiting an orifice at depth $h$ below the surface has horizontal efflux velocity $v = \\sqrt{2gh}$.\nStep 2: The orifice is located at a height $y = H - h$ above the base table. The time of free flight under gravity is $t = \\sqrt{\\frac{2(H - h)}{g}}$. The horizontal range is $R = v t = \\sqrt{2gh} \\times \\sqrt{\\frac{2(H - h)}{g}} = 2\\sqrt{h(H - h)}$.\nStep 3: For two distinct depths $h_1$ and $h_2$ to produce the identical range: $h_1(H - h_1) = h_2(H - h_2) \\implies h_2^2 - H h_2 + h_1(H - h_1) = 0$. The non-trivial root is $h_2 = H - h_1$. Substituting the given values: $h_2 = 80\\text{ cm} - 20\\text{ cm} = 60\\text{ cm}$.\nDistractor Analysis: A depth of $40\\text{ cm}$ gives the maximum possible range ($R_{\\max} = H$), but does not match the range produced by the orifice at $20\\text{ cm}$."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_031",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Torricelli's efflux from a closed, pressurized container:\n\nStatement I: For an airtight closed container with trapped air at absolute pressure $P$ above a liquid of density $\\rho$, the speed of efflux from a small hole at depth $h$ discharging into atmospheric pressure $P_a$ is $v = \\sqrt{\\frac{2(P - P_a)}{\\rho} + 2gh}$.\nStatement II: If the air above the liquid is evacuated such that $P < P_a$, efflux of liquid through the hole will completely stop if $P_a - P \\ge \\rho g h$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Applying Bernoulli's equation between the liquid surface (pressure $P$, velocity $\\approx 0$, elevation $h$) and the orifice exit (pressure $P_a$, velocity $v$, elevation $0$): $P + \\rho g h = P_a + \\frac{1}{2}\\rho v^2$.\nStep 2: Rearranging for efflux velocity: $\\frac{1}{2}\\rho v^2 = (P - P_a) + \\rho g h \\implies v = \\sqrt{\\frac{2(P - P_a)}{\\rho} + 2gh}$. Thus, Statement I is true.\nStep 3: If the overhead space is partially evacuated such that $P < P_a$, the term $(P - P_a)$ is negative. The net pressure difference driving fluid out is $\\Delta P_{\\text{drive}} = (P - P_a) + \\rho g h$. If $P_a - P \\ge \\rho g h$, then $\\Delta P_{\\text{drive}} \\le 0$, meaning the external atmosphere holds the fluid in and efflux completely stops. Thus, Statement II is also true.\nDistractor Analysis: Confusing gauge and absolute overhead pressures leads to incorrect conclusions regarding the cessation of flow under partial vacuum."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_032",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A flat rectangular metal plate of area $A = 0.20\\text{ m}^2$ rests upon a horizontal oil film of thickness $d = 2.0\\text{ mm}$ spread over a stationary lab bench. If a steady horizontal pulling force of $F = 4.0\\text{ N}$ is required to drag the plate at a constant velocity of $v = 1.0\\text{ m/s}$, what is the dynamic viscosity ($\\eta$) of the oil?",
+      "options": [
+        "A) $0.02\\text{ Pa}\\cdot\\text{s}$",
+        "B) $0.04\\text{ Pa}\\cdot\\text{s}$",
+        "C) $0.40\\text{ Pa}\\cdot\\text{s}$",
+        "D) $0.08\\text{ Pa}\\cdot\\text{s}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: According to Newton's law of viscosity, the viscous shear force resisting the motion of a flat plate over a uniform fluid film is $F = \\eta A \\frac{dv}{dx} = \\eta A \\frac{v}{d}$.\nStep 2: Rearranging to solve for the dynamic viscosity: $\\eta = \\frac{F d}{A v}$.\nStep 3: Substitute the given numerical values into SI units: $F = 4.0\\text{ N}$, $d = 2.0\\text{ mm} = 2.0 \\times 10^{-3}\\text{ m}$, $A = 0.20\\text{ m}^2$, and $v = 1.0\\text{ m/s}$.\n$\\eta = \\frac{4.0\\text{ N} \\times 2.0 \\times 10^{-3}\\text{ m}}{0.20\\text{ m}^2 \\times 1.0\\text{ m/s}} = \\frac{8.0 \\times 10^{-3}}{0.20} = 0.040\\text{ Pa}\\cdot\\text{s}$.\nDistractor Analysis: A value of $0.40\\text{ Pa}\\cdot\\text{s}$ results from misplacing the decimal in thickness ($10^{-2}$ instead of $10^{-3}$); $0.02\\text{ Pa}\\cdot\\text{s}$ drops the factor of 2."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_033",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When a spherical marble is dropped from rest into a tall graduated cylinder filled with viscous castor oil, its acceleration continuously decreases with time and eventually asymptotically approaches zero.\nReason (R): As the downward speed of the marble increases, the viscous drag force ($F_v = 6\\pi\\eta r v$) opposing its downward motion increases linearly until the combined upward forces (viscous drag plus buoyant force) exactly balance the downward gravitational weight.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The equation of motion for a sphere of mass $m$ falling through a viscous fluid is $m \\frac{dv}{dt} = m g - F_B - 6\\pi\\eta r v$.\nStep 2: Initially at $v = 0$, the downward acceleration is maximum: $a_0 = g(1 - \\sigma/\\rho)$. As velocity $v$ increases, the opposing Stokes' drag force $6\\pi\\eta r v$ increases linearly, which progressively reduces the net downward force and acceleration: $a(t) = a_0 e^{-t/\\tau}$.\nStep 3: When $6\\pi\\eta r v + F_B = mg$, the net force becomes zero, acceleration vanishes ($a = 0$), and the sphere achieves a constant terminal velocity $v_t$. Reason (R) directly explains why acceleration continuously diminishes to zero. Both statements are true and (R) correctly explains (A).\nDistractor Analysis: Alternative options fail because the velocity dependence of Stokes' drag is the precise physical cause of decreasing acceleration toward terminal state."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_034",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A small spherical air bubble of radius $r = 1.0\\text{ mm}$ rises steadily through a tall column of viscous liquid of density $\\sigma = 900\\text{ kg/m}^3$ and dynamic viscosity $\\eta = 0.20\\text{ Pa}\\cdot\\text{s}$. Neglecting the negligible density of air ($\\rho_{\\text{air}} \\approx 0$) and taking $g = 10\\text{ m/s}^2$, what is the terminal rising velocity ($v_t$) of the bubble?",
+      "options": [
+        "A) $1.0\\text{ cm/s}$",
+        "B) $2.0\\text{ cm/s}$",
+        "C) $0.5\\text{ cm/s}$",
+        "D) $4.0\\text{ cm/s}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For an air bubble rising through a liquid, the upward buoyant force exceeds the bubble's negligible gravitational weight, directing the net driving force upward. Viscous drag opposes this upward motion downwards.\nStep 2: Terminal velocity is achieved when upward buoyant force balances downward Stokes' drag: $\\frac{4}{3}\\pi r^3 \\sigma g = 6\\pi\\eta r v_t \\implies v_t = \\frac{2}{9}\\frac{r^2 \\sigma g}{\\eta}$.\nStep 3: Substitute the given numerical parameters into SI units: $r = 1.0 \\times 10^{-3}\\text{ m}$, $\\sigma = 900\\text{ kg/m}^3$, $\\eta = 0.20\\text{ Pa}\\cdot\\text{s}$, and $g = 10\\text{ m/s}^2$.\n$v_t = \\frac{2}{9} \\times \\frac{(1.0 \\times 10^{-3}\\text{ m})^2 \\times 900\\text{ kg/m}^3 \\times 10\\text{ m/s}^2}{0.20\\text{ Pa}\\cdot\\text{s}} = \\frac{2}{9} \\times \\frac{10^{-6} \\times 9000}{0.20} = \\frac{2}{9} \\times \\frac{9 \\times 10^{-3}}{0.20} = \\frac{2 \\times 10^{-3}}{0.20} = 1.0 \\times 10^{-2}\\text{ m/s} = 1.0\\text{ cm/s}$.\nDistractor Analysis: A velocity of $2.0\\text{ cm/s}$ omits the factor of $1/2$ from dividing by $\\eta = 0.20$; $0.5\\text{ cm/s}$ doubles the denominator viscosity."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_035",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Reynolds number and the onset of turbulence:\n\nStatement I: For fluid flow through a cylindrical pipe of diameter $d$, the flow remains laminar and steady when the dimensionless Reynolds number $R_e < 1000$, whereas the flow becomes turbulent and chaotic when $R_e > 2000$.\nStatement II: For a given fluid flowing through a narrow pipe, the critical velocity ($v_c$) at which the flow transitions from laminar to turbulent is directly proportional to the viscosity of the fluid and inversely proportional to the pipe diameter and fluid density.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In accordance with standard NCERT specifications, for flow through cylindrical conduits, the flow is laminar and streamline when $R_e < 1000$, unsteady and transitional when $1000 < R_e < 2000$, and fully turbulent when $R_e > 2000$. Thus, Statement I is true.\nStep 2: The Reynolds number is defined by $R_e = \\frac{\\rho v d}{\\eta}$, where $\\rho$ is fluid density, $v$ is flow speed, $d$ is pipe diameter, and $\\eta$ is dynamic viscosity.\nStep 3: Setting $R_e$ equal to the critical threshold value $R_{e,c}$ yields the critical flow velocity: $v_c = \\frac{R_{e,c} \\eta}{\\rho d}$. This demonstrates that $v_c$ is directly proportional to viscosity $\\eta$ and inversely proportional to pipe diameter $d$ and density $\\rho$. Thus, Statement II is also true.\nDistractor Analysis: Options rejecting Statement II mistakenly believe critical velocity increases with pipe diameter, confusing volumetric flow rate with linear speed."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_036",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The surface tension of a soap solution is $T = 0.030\\text{ N/m}$. What is the mechanical work done in blowing a spherical soap bubble from an initial radius $R_1 = 5.0\\text{ cm}$ to a final radius $R_2 = 10.0\\text{ cm}$? (Take $\\pi = 3.14$)",
+      "options": [
+        "A) $2.83\\text{ mJ}$",
+        "B) $5.65\\text{ mJ}$",
+        "C) $1.41\\text{ mJ}$",
+        "D) $11.30\\text{ mJ}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: A soap bubble in air has two free surfaces (an interior and an exterior surface). Therefore, the total change in surface area is $\\Delta A = 2 \\times [4\\pi R_2^2 - 4\\pi R_1^2] = 8\\pi (R_2^2 - R_1^2)$.\nStep 2: Calculating the change in surface area: $R_2 = 0.10\\text{ m}$, $R_1 = 0.05\\text{ m}$.\n$R_2^2 - R_1^2 = (0.10)^2 - (0.05)^2 = 0.0100 - 0.0025 = 0.0075\\text{ m}^2 = 7.5 \\times 10^{-3}\\text{ m}^2$.\n$\\Delta A = 8 \\times 3.14 \\times 7.5 \\times 10^{-3}\\text{ m}^2 = 0.1884\\text{ m}^2$.\nStep 3: The mechanical work done equals the increase in surface energy: $W = T \\Delta A = 0.030\\text{ N/m} \\times 0.1884\\text{ m}^2 = 5.652 \\times 10^{-3}\\text{ J} \\approx 5.65\\text{ mJ}$.\nDistractor Analysis: A value of $2.83\\text{ mJ}$ considers only a single surface (a drop rather than a soap bubble), halving the required work."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_037",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A large water drop of radius $R = 1.0\\text{ cm}$ is atomized into $n = 1000$ identical spherical droplets under isothermal conditions. If the surface tension of water is $T = 0.070\\text{ N/m}$, what is the total mechanical work required to perform this breakup? (Take $\\pi = 22/7$)",
+      "options": [
+        "A) $7.92 \\times 10^{-4}\\text{ J}$",
+        "B) $7.92 \\times 10^{-3}\\text{ J}$",
+        "C) $8.80 \\times 10^{-4}\\text{ J}$",
+        "D) $3.96 \\times 10^{-4}\\text{ J}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: By conservation of fluid volume during atomization: $\\frac{4}{3}\\pi R^3 = n \\left(\\frac{4}{3}\\pi r^3\\right) \\implies r = R n^{-1/3}$. For $n = 1000$, $r = R (1000)^{-1/3} = R / 10 = 1.0\\text{ mm}$.\nStep 2: The total final surface area of $n$ droplets is $A_f = n(4\\pi r^2) = n \\left(4\\pi R^2 n^{-2/3}\\right) = 4\\pi R^2 n^{1/3}$. The initial surface area was $A_i = 4\\pi R^2$.\nThe increase in surface area is $\\Delta A = 4\\pi R^2 (n^{1/3} - 1) = 4\\pi R^2 (10 - 1) = 36\\pi R^2$.\nStep 3: Work required is $W = T \\Delta A = 36\\pi T R^2 = 36 \\times \\frac{22}{7} \\times 0.070\\text{ N/m} \\times (10^{-2}\\text{ m})^2 = 36 \\times 22 \\times 10^{-2} \\times 10^{-4} = 792 \\times 10^{-6}\\text{ J} = 7.92 \\times 10^{-4}\\text{ J}$.\nDistractor Analysis: An answer of $7.92 \\times 10^{-3}\\text{ J}$ makes a power-of-ten mistake in squaring the initial radius; $3.96 \\times 10^{-4}\\text{ J}$ omits a factor of 2 in surface geometry."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_038",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding angle of contact and detergent action:\n\nStatement I: For a liquid that wets the solid surface (such as clean water on glass), the angle of contact $\\theta$ is acute ($\\theta < 90^\\circ$), producing a concave liquid meniscus and capillary elevation.\nStatement II: Adding a synthetic detergent to washing water increases its surface tension and increases its angle of contact with fabric fibers, allowing water to form rounded droplets that easily roll off and carry away dirt.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: When adhesive forces between liquid and solid molecules exceed cohesive forces between liquid molecules, the liquid wets the solid. The liquid crawls up the container walls, producing an acute contact angle ($\\theta < 90^\\circ$) and a concave meniscus, resulting in positive capillary rise. Thus, Statement I is true.\nStep 2: Synthetic detergents are surface-active agents (surfactants). Their polar heads and non-polar hydrocarbon tails disrupt hydrogen bonding at the water interface, which drastically reduces the surface tension of water.\nStep 3: This reduction in surface tension causes the contact angle with fabric fibers to decrease significantly toward zero ($\\theta \\to 0^\\circ$), transforming water from non-wetting beads into a wetting liquid that penetrates the tight pores between fibers to dislodge dirt particles. Thus, Statement II is completely false.\nDistractor Analysis: Claiming that detergent increases surface tension directly contradicts the basic physical principle of surfactant action in laundry cleansing."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_039",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A clean glass capillary tube of internal radius $r = 0.50\\text{ mm}$ is dipped vertically into a beaker of water having surface tension $T = 0.075\\text{ N/m}$ and density $\\rho = 1000\\text{ kg/m}^3$. Assuming complete wetting with an angle of contact $\\theta = 0^\\circ$ and taking $g = 10\\text{ m/s}^2$, what is the equilibrium height $h$ to which water rises in the capillary tube?",
+      "options": [
+        "A) $1.5\\text{ cm}$",
+        "B) $6.0\\text{ cm}$",
+        "C) $3.0\\text{ cm}$",
+        "D) $4.5\\text{ cm}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Capillary rise is governed by Jurin's law, derived from equating the upward vertical component of surface tension force to the weight of the elevated liquid column: $(2\\pi r T)\\cos\\theta = (\\pi r^2 h)\\rho g \\implies h = \\frac{2T\\cos\\theta}{\\rho g r}$.\nStep 2: For water on clean glass, complete wetting gives $\\theta = 0^\\circ$, hence $\\cos 0^\\circ = 1$.\nStep 3: Substituting the given parameters in SI units: $T = 0.075\\text{ N/m}$, $\\rho = 1000\\text{ kg/m}^3$, $g = 10\\text{ m/s}^2$, and $r = 0.50 \\times 10^{-3}\\text{ m}$.\n$h = \\frac{2 \\times 0.075 \\times 1}{1000 \\times 10 \\times 0.50 \\times 10^{-3}} = \\frac{0.150}{5.0} = 0.030\\text{ m} = 3.0\\text{ cm}$.\nDistractor Analysis: A height of $1.5\\text{ cm}$ drops the factor of 2 in Jurin's formula; $6.0\\text{ cm}$ incorrectly uses tube diameter instead of radius in the denominator."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_040",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): If a capillary tube of insufficient length $l$ (where $l < h$, the natural equilibrium capillary rise height) is dipped vertically into water, water reaches the top edge of the tube but does NOT overflow.\nReason (R): Upon reaching the top lip of the shortened tube, the liquid meniscus flattens to a larger radius of curvature $R'$ such that $h R = l R'$, adjusting the excess hydrostatic pressure to precisely match the shorter liquid column.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Capillary rise is driven by the pressure deficiency under the curved concave meniscus: $\\Delta P = \\frac{2T}{R} = \\rho g h$, where $R = r/\\cos\\theta$ is the radius of curvature of the meniscus. Thus, $h R = \\frac{2T}{\\rho g} = \\text{constant}$.\nStep 2: If the capillary tube is cut to an insufficient length $l < h$, liquid rises to the upper rim. If it were to overflow, it would create a perpetual motion machine of the first kind, violating the law of conservation of energy.\nStep 3: Instead, the meniscus automatically flattens, increasing its radius of curvature from $R$ to $R'$ such that $l R' = h R$. As a result, the upward surface tension force exactly balances the reduced weight of the liquid column without overflowing. Both (A) and (R) are true, and (R) correctly explains (A).\nDistractor Analysis: Alternative options fail because the dynamic geometric adaptation of the meniscus curvature at the upper rim prevents overflow while satisfying energy conservation."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_041",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Observable Physical Phenomenon) with List II (Governing Fluid Mechanics Principle):\n\nList I:\nA. Perfume atomizer producing a fine mist of liquid droplets\nB. Pond strider insect walking effortlessly across water surface\nC. Falling raindrop descending at a steady constant speed\nD. Hydraulic brake pedal slowing down a motor car\n\nList II:\nI. Stokes' viscous drag balancing net gravitational force\nII. Bernoulli's principle producing local pressure drop via high air velocity\nIII. Pascal's law of undiminished transmission of pressure in an enclosed fluid\nIV. Surface tension acting like a stretched elastic membrane\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-IV, C-I, D-III",
+        "B) A-IV, B-II, C-I, D-III",
+        "C) A-II, B-I, C-IV, D-III",
+        "D) A-III, B-IV, C-II, D-I"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In a perfume atomizer, squeezing the bulb blows air at high speed over the top of a vertical tube, lowering static pressure by Bernoulli's principle and drawing liquid upwards into the airstream. Thus, A matches II.\nStep 2: A pond skater insect rests on water without sinking because the weight of the insect is supported by the vertical components of surface tension acting along the depressed liquid surface. Thus, B matches IV.\nStep 3: A falling raindrop accelerates until the upward Stokes' viscous drag force (plus buoyancy) equals its weight, reaching a constant terminal velocity. Thus, C matches I.\nStep 4: Hydraulic brakes operate directly via Pascal's law, transmitting hydraulic pressure from the master cylinder to all wheel cylinders equally. Thus, D matches III.\nDistractor Analysis: Mismatches confuse aerodynamic suction with surface tension or Stokes' viscous drag with Pascal's static pressure law."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_042",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): During the capillary elevation of a wetting liquid inside a vertical glass capillary tube, exactly half of the total mechanical work performed by the surface tension force is converted into gravitational potential energy of the elevated liquid column, while the remaining half is dissipated as heat.\nReason (R): The upward surface tension force $F = 2\\pi r T$ acts over the entire vertical displacement $h$ doing work $W = 2\\pi r T h$, whereas the center of mass of the raised liquid column rises by only $h/2$, resulting in a gravitational potential energy gain of $U = m g (h/2) = \\frac{1}{2} W$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The upward vertical force exerted by surface tension along the inner contact perimeter of the capillary tube (assuming complete wetting $\\theta = 0^\\circ$) is $F = 2\\pi r T$. As the liquid rises through a total height $h$, the work done by this surface tension force is $W = F \\times h = 2\\pi r T h$.\nStep 2: The elevated liquid column has a uniform cylindrical shape of mass $m = \\rho \\pi r^2 h$. Its center of mass is located at half the height ($y_{\\text{cm}} = h/2$). The gain in gravitational potential energy is $U = m g (h/2) = (\\rho \\pi r^2 h) g (h/2) = \\frac{1}{2}\\pi r^2 \\rho g h^2$.\nStep 3: From Jurin's law, $h = \\frac{2T}{\\rho g r} \\implies 2\\pi r T = \\pi r^2 \\rho g h$. Substituting this into the energy gain gives $U = \\frac{1}{2}(2\\pi r T) h = \\frac{1}{2} W$. By the work-energy theorem, the difference $W - U = \\frac{1}{2} W$ is dissipated as thermal energy due to viscous friction during the ascent. Reason (R) directly and completely explains Assertion (A).\nDistractor Analysis: Alternative options fail because the factor of one-half emerges strictly from the location of the center of mass at half the total column height."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_043",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two spherical soap bubbles of radii $r_1 = 3.0\\text{ cm}$ and $r_2 = 6.0\\text{ cm}$ floating in air come into contact and coalesce to form a double bubble sharing a common internal spherical film interface. What is the radius of curvature ($R$) of this common internal interface, and toward which bubble does it bulge?",
+      "options": [
+        "A) $R = 6.0\\text{ cm}$, bulging into the larger bubble",
+        "B) $R = 6.0\\text{ cm}$, bulging into the smaller bubble",
+        "C) $R = 2.0\\text{ cm}$, bulging into the larger bubble",
+        "D) $R = 9.0\\text{ cm}$, forming a flat interface"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The excess pressure inside the smaller bubble (radius $r_1$) is $P_1 - P_0 = \\frac{4T}{r_1}$, and inside the larger bubble (radius $r_2$) is $P_2 - P_0 = \\frac{4T}{r_2}$.\nStep 2: The pressure difference across the common dividing soap film is $\\Delta P = P_1 - P_2 = 4T \\left(\\frac{1}{r_1} - \\frac{1}{r_2}\\right)$. The common interface must satisfy Laplace's excess pressure relation $\\Delta P = \\frac{4T}{R}$, giving $\\frac{1}{R} = \\frac{1}{r_1} - \\frac{1}{r_2} \\implies R = \\frac{r_1 r_2}{r_2 - r_1}$.\nStep 3: Substituting the values: $R = \\frac{3.0\\text{ cm} \\times 6.0\\text{ cm}}{6.0\\text{ cm} - 3.0\\text{ cm}} = \\frac{18.0}{3.0} = 6.0\\text{ cm}$. Because $r_1 < r_2$, the pressure inside the smaller bubble is strictly greater ($P_1 > P_2$), meaning the common interface must curve convexly away from the high pressure side and bulge into the larger bubble (concave towards the smaller bubble).\nDistractor Analysis: Suggesting that the film bulges into the smaller bubble contradicts hydrostatic balance, as curved interfaces always bow toward the region of lower pressure; $2.0\\text{ cm}$ mistakenly adds reciprocals instead of subtracting."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_044",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two spherical soap bubbles of radii $r_1 = 3.0\\text{ cm}$ and $r_2 = 4.0\\text{ cm}$ coalesce isothermally in vacuum ($P_{\\text{ext}} = 0$) to form a single larger spherical soap bubble of radius $R$. Assuming the temperature of the trapped air remains constant, what is the radius $R$ of the newly formed single soap bubble?",
+      "options": [
+        "A) $5.0\\text{ cm}$",
+        "B) $7.0\\text{ cm}$",
+        "C) $3.5\\text{ cm}$",
+        "D) $4.2\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In a vacuum ($P_{\\text{ext}} = 0$), the internal absolute pressure of a soap bubble of radius $r$ is given purely by the excess Laplace pressure: $P = \\frac{4T}{r}$.\nStep 2: By the ideal gas equation $P V = n R_g T_0$, the number of moles of trapped air in a bubble of radius $r$ is $n = \\frac{1}{R_g T_0} \\left(\\frac{4T}{r}\\right) \\left(\\frac{4}{3}\\pi r^3\\right) = \\frac{16\\pi T}{3 R_g T_0} r^2$. Thus, the quantity of trapped gas is directly proportional to $r^2$.\nStep 3: By conservation of matter, total moles of trapped air are conserved: $n_1 + n_2 = n_{\\text{final}} \\implies r_1^2 + r_2^2 = R^2 \\implies R = \\sqrt{r_1^2 + r_2^2}$.\nSubstituting the given radii: $R = \\sqrt{(3.0\\text{ cm})^2 + (4.0\\text{ cm})^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5.0\\text{ cm}$.\nDistractor Analysis: A radius of $7.0\\text{ cm}$ incorrectly assumes conservation of linear radius ($r_1 + r_2$); conservation of volume ($r^3$) would give $\\sqrt[3]{3^3 + 4^3} \\approx 4.5\\text{ cm}$, which ignores internal pressure dependence on radius."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_045",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the operational limits of a siphon:\n\nStatement I: A siphon tube can continuously drain liquid from an elevated reservoir over an intermediate crest into a lower vessel because of the net hydrostatic head difference between the free liquid levels of the two reservoirs.\nStatement II: A siphon filled with water can function at standard sea-level atmospheric pressure even if the vertical elevation of the siphon crest above the upper reservoir surface exceeds $10.3\\text{ m}$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: A siphon operates through hydrostatic pressure and Bernoulli's principles: the liquid discharge velocity is governed by the total vertical head difference $h$ between upper and lower free surfaces ($v = \\sqrt{2gh}$), while atmospheric pressure supports the liquid column up to the crest. Thus, Statement I is true.\nStep 2: Applying Bernoulli's equation between the upper reservoir surface and the siphon crest (at vertical height $h_c$ above the reservoir), the absolute hydrostatic pressure at the crest is $P_{\\text{crest}} = P_{\\text{atm}} - \\rho g h_c - \\frac{1}{2}\\rho v^2$.\nStep 3: For water flow to remain continuous without vaporizing, the absolute pressure at the crest must not drop below the saturated vapor pressure of water ($P_{\\text{vapor}} \\approx 0$). Thus, the maximum theoretical height of the crest is $h_{c,\\max} \\approx \\frac{P_{\\text{atm}}}{\\rho g} = \\frac{1.013 \\times 10^5\\text{ Pa}}{1000\\text{ kg/m}^3 \\times 9.8\\text{ m/s}^2} \\approx 10.3\\text{ m}$. If the crest height exceeds $10.3\\text{ m}$, cavitation occurs, the water column ruptures into vapor pockets, and siphon action immediately ceases. Statement II is false.\nDistractor Analysis: Claiming that a siphon can function above $10.3\\text{ m}$ ignores cavitation and vapor lock produced when absolute pressure drops to zero."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_046",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A large vertical cylindrical water storage tank of cross-sectional area $A = 1.0\\text{ m}^2$ is filled with water to an initial depth of $H = 5.0\\text{ m}$. A small circular drain orifice of cross-sectional area $a = 1.0\\text{ cm}^2$ is opened at the flat bottom of the tank. Taking $g = 10\\text{ m/s}^2$, what is the total time $T$ required to completely empty the tank through the bottom orifice?",
+      "options": [
+        "A) $5000\\text{ s}$",
+        "B) $10000\\text{ s}$",
+        "C) $20000\\text{ s}$",
+        "D) $1414\\text{ s}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: At any instantaneous water level $h$, Torricelli's theorem gives the efflux velocity as $v = \\sqrt{2gh}$. By the equation of continuity, the rate of water depletion is $-A \\frac{dh}{dt} = a v = a \\sqrt{2gh}$.\nStep 2: Separating variables to integrate: $dt = -\\frac{A}{a\\sqrt{2g}} h^{-1/2} dh$. Integrating from $h = H$ to $h = 0$ gives the total drainage time:\n$T = \\frac{A}{a\\sqrt{2g}} \\int_0^H h^{-1/2} dh = \\frac{A}{a\\sqrt{2g}} \\left[2\\sqrt{H}\\right] = \\frac{A}{a} \\sqrt{\\frac{2H}{g}}$.\nStep 3: Convert areas and parameters to SI units: $A = 1.0\\text{ m}^2$, $a = 1.0\\text{ cm}^2 = 1.0 \\times 10^{-4}\\text{ m}^2 \\implies \\frac{A}{a} = 10^4$.\nEvaluate the square-root term: $\\sqrt{\\frac{2H}{g}} = \\sqrt{\\frac{2 \\times 5.0\\text{ m}}{10\\text{ m/s}^2}} = \\sqrt{1.0} = 1.0\\text{ s}$.\nThus, $T = 10^4 \\times 1.0\\text{ s} = 10000\\text{ s}$.\nDistractor Analysis: A time of $5000\\text{ s}$ mistakenly assumes a constant initial discharge rate without integrating over the progressively declining efflux speed; $20000\\text{ s}$ introduces an extraneous factor of 2."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_047",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding multi-phase fluid equilibrium in connected vessels:\n\nStatement I: When three mutually immiscible liquids of distinct densities $\\rho_1 < \\rho_2 < \\rho_3$ are poured into a vertical U-tube and allowed to reach static equilibrium under gravity, the densest liquid ($\\rho_3$) must occupy the lowest bottom bend of the U-tube.\nStatement II: In any static fluid system containing multiple immiscible liquids under uniform gravity, every boundary interface separating two adjacent immiscible liquids must form a strictly horizontal planar surface.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Under uniform vertical gravity, static mechanical equilibrium is stable only when the total gravitational potential energy of the fluid system is minimized. If a lighter liquid were positioned beneath a denser liquid, Rayleigh-Taylor instability would spontaneously cause the denser liquid to displace the lighter one downwards. Thus, the densest liquid ($\\rho_3$) must settle at the lowest position at the base of the U-tube. Statement I is true.\nStep 2: In a static fluid under uniform gravity, the Navier-Stokes hydrostatic equation reduces to $\\nabla P = \\rho \\vec{g} = -\\rho g \\hat{k}$. The pressure gradient is purely vertical, which implies that surfaces of constant hydrostatic pressure (isobars) are horizontal planes.\nStep 3: At the interface separating two immiscible static liquids, pressure must be continuous across the boundary. Therefore, the boundary interface must coincide with an isobaric equipotential surface, which is strictly planar and horizontal. Statement II is also true.\nDistractor Analysis: Rejecting Statement II overlooks the fundamental hydrostatic requirement that static fluid interfaces cannot sustain lateral shear stress."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_048",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A hydraulic cargo press is operated to lift a load of total mass $M = 3000\\text{ kg}$ through a vertical elevation of $h = 2.0\\text{ m}$ at a steady rate in a time of $t = 30\\text{ s}$. The radius of the output ram cylinder is $R = 25\\text{ cm}$ and the radius of the input pump plunger is $r = 2.5\\text{ cm}$. Due to hydraulic fluid friction and mechanical packing drag, the overall mechanical efficiency of the press is $\\eta_{\\text{eff}} = 80\\%$. Taking $g = 10\\text{ m/s}^2$, what average power input is required to drive the press?",
+      "options": [
+        "A) $2.0\\text{ kW}$",
+        "B) $2.5\\text{ kW}$",
+        "C) $1.6\\text{ kW}$",
+        "D) $3.125\\text{ kW}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The useful mechanical work delivered in lifting the cargo is $W_{\\text{out}} = M g h = 3000\\text{ kg} \\times 10\\text{ m/s}^2 \\times 2.0\\text{ m} = 60,000\\text{ J} = 60\\text{ kJ}$.\nStep 2: The average useful output power delivered to the load is $P_{\\text{out}} = \\frac{W_{\\text{out}}}{t} = \\frac{60,000\\text{ J}}{30\\text{ s}} = 2000\\text{ W} = 2.0\\text{ kW}$.\nStep 3: By definition of mechanical efficiency, $\\eta_{\\text{eff}} = \\frac{P_{\\text{out}}}{P_{\\text{in}}} \\implies P_{\\text{in}} = \\frac{P_{\\text{out}}}{\\eta_{\\text{eff}}}$. With $\\eta_{\\text{eff}} = 0.80$, the required input power is $P_{\\text{in}} = \\frac{2000\\text{ W}}{0.80} = 2500\\text{ W} = 2.5\\text{ kW}$.\nDistractor Analysis: An answer of $2.0\\text{ kW}$ represents the ideal output power ignoring mechanical losses; $1.6\\text{ kW}$ mistakenly multiplies output power by efficiency rather than dividing."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_049",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Sixty-four ($n = 64$) identical tiny water droplets, each falling vertically through calm air at an individual terminal speed of $v_t = 1.5\\text{ cm/s}$, coalesce together to form a single larger spherical raindrop. Assuming air resistance obeys Stokes' law and the density of air is negligible compared to water, what is the terminal velocity ($V_t$) of the single coalesced raindrop?",
+      "options": [
+        "A) $6.0\\text{ cm/s}$",
+        "B) $96.0\\text{ cm/s}$",
+        "C) $24.0\\text{ cm/s}$",
+        "D) $12.0\\text{ cm/s}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: By conservation of fluid mass and volume, if $n$ droplets of radius $r$ combine into a single drop of radius $R$: $\\frac{4}{3}\\pi R^3 = n \\left(\\frac{4}{3}\\pi r^3\\right) \\implies R = r n^{1/3}$. For $n = 64$, $R = r (64)^{1/3} = 4r$.\nStep 2: According to Stokes' law for terminal velocity, $v_t = \\frac{2}{9}\\frac{r^2(\\rho - \\sigma)g}{\\eta}$. Since all environmental properties remain unchanged, terminal velocity scales directly with the square of the droplet radius: $v_t \\propto r^2$.\nStep 3: The ratio of terminal velocities is $\\frac{V_t}{v_t} = \\left(\\frac{R}{r}\\right)^2 = (n^{1/3})^2 = n^{2/3}$. For $n = 64$, $n^{2/3} = (4)^2 = 16$. Therefore, the new terminal velocity is $V_t = 16 \\times v_t = 16 \\times 1.5\\text{ cm/s} = 24.0\\text{ cm/s}$.\nDistractor Analysis: A velocity of $6.0\\text{ cm/s}$ incorrectly assumes linear scaling with radius ($4 \\times 1.5$); $96.0\\text{ cm/s}$ mistakenly multiplies by $n = 64$ directly."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_050",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In wind tunnel testing, to ensure that the streamline airflow pattern around a 1:10 scaled-down model aircraft is dynamically similar to that around the full-scale aircraft flying in air of identical properties, the test air speed in the wind tunnel must be ten times greater than the flight speed of the actual aircraft.\nReason (R): Dynamic similarity between two geometrically similar flow configurations requires their Reynolds numbers to be identical ($R_e = \\frac{\\rho v L}{\\eta} = \\text{constant}$); hence, reducing the characteristic linear length dimension $L$ by a factor of 10 requires the flow velocity $v$ to increase tenfold.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Dynamic similarity in fluid dynamics dictates that the ratio of inertial forces to viscous forces must be preserved between model and prototype. This condition is satisfied when the Reynolds numbers are equal: $R_{e,\\text{model}} = R_{e,\\text{prototype}}$.\nStep 2: Reynolds number is defined as $R_e = \\frac{\\rho v L}{\\eta}$. If the test is conducted in air under identical atmospheric density $\\rho$ and viscosity $\\eta$, the equality requires: $v_{\\text{model}} L_{\\text{model}} = v_{\\text{proto}} L_{\\text{proto}}$.\nStep 3: Given the scale ratio $L_{\\text{model}} = \\frac{1}{10} L_{\\text{proto}}$, we obtain $v_{\\text{model}} = v_{\\text{proto}} \\left(\\frac{L_{\\text{proto}}}{L_{\\text{model}}}\\right) = 10 v_{\\text{proto}}$. Thus, wind tunnel speed must be increased by a factor of 10. Reason (R) provides the exact mathematical and physical foundation for Assertion (A).\nDistractor Analysis: Alternative options fail because preserving Reynolds number similarity is the foundational principle of experimental aerodynamic scaling."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_051",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A medical syringe filled with an aqueous saline solution of density $\\rho = 1000\\text{ kg/m}^3$ has a horizontal barrel of cross-sectional area $A = 2.0\\text{ cm}^2$ fitted with a fine horizontal needle of cross-sectional area $a = 0.02\\text{ cm}^2$. Neglecting viscous dissipation and friction, what horizontal pushing force $F$ must be applied to the syringe plunger to eject the saline solution through the needle into atmospheric air at a speed of $v = 10\\text{ m/s}$?",
+      "options": [
+        "A) $10.0\\text{ N}$",
+        "B) $5.0\\text{ N}$",
+        "C) $20.0\\text{ N}$",
+        "D) $1.0\\text{ N}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: By the equation of continuity, the fluid speed $v_b$ inside the syringe barrel is $A v_b = a v \\implies v_b = \\left(\\frac{a}{A}\\right) v = \\left(\\frac{0.02\\text{ cm}^2}{2.0\\text{ cm}^2}\\right) (10\\text{ m/s}) = 0.10\\text{ m/s}$.\nStep 2: Applying Bernoulli's equation along the horizontal centerline between the plunger face (pressure $P_b$) and the needle exit (atmospheric pressure $P_{\\text{atm}}$): $P_b + \\frac{1}{2}\\rho v_b^2 = P_{\\text{atm}} + \\frac{1}{2}\\rho v^2$.\nThe gauge pressure required at the plunger face is $\\Delta P = P_b - P_{\\text{atm}} = \\frac{1}{2}\\rho (v^2 - v_b^2) \\approx \\frac{1}{2}\\rho v^2$ (since $v_b^2 = 0.01 \\ll 100$).\n$\\Delta P = \\frac{1}{2} \\times 1000\\text{ kg/m}^3 \\times (10\\text{ m/s})^2 = 50,000\\text{ Pa}$.\nStep 3: The pushing force applied to the plunger is $F = \\Delta P \\times A = 50,000\\text{ Pa} \\times (2.0 \\times 10^{-4}\\text{ m}^2) = 10.0\\text{ N}$.\nDistractor Analysis: A force of $5.0\\text{ N}$ forgets to multiply by the factor of 2 in barrel cross-section; $20.0\\text{ N}$ doubles the dynamic pressure term."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_052",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding liquid rotation in a cylindrical container:\n\nStatement I: When an open cylindrical vessel partially filled with liquid is rotated at a constant angular velocity $\\omega$ about its central vertical axis, the liquid free surface deforms into a paraboloid of revolution described by $y = \\frac{\\omega^2 r^2}{2g}$ relative to the lowest vertex.\nStatement II: At any point on the curved free surface of the rotating liquid, the hydrostatic pressure is uniform and equals atmospheric pressure, and the resultant of gravity and the centrifugal pseudo-force is oriented normal to the tangent of the parabolic profile.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In the non-inertial frame rotating with angular velocity $\\omega$, a fluid element of mass $m$ at distance $r$ from the axis experiences a downward gravitational force $mg$ and a horizontal radially outward centrifugal pseudo-force $m\\omega^2 r$.\nStep 2: For relative equilibrium of the free surface, the net force must be perpendicular to the surface. The slope of the surface profile is given by $\\tan\\theta = \\frac{dy}{dr} = \\frac{m\\omega^2 r}{mg} = \\frac{\\omega^2 r}{g}$. Integrating from $r = 0$ with $y(0) = 0$ yields $y(r) = \\frac{\\omega^2 r^2}{2g}$, which mathematically describes a paraboloid of revolution. Thus, Statement I is true.\nStep 3: Because the free surface is exposed to ambient atmosphere, every point on the surface is at constant atmospheric pressure $P_0$. An equipotential surface in a force field is always orthogonal to the local net effective force vector (gravity plus centrifugal force). Thus, Statement II is also true.\nDistractor Analysis: Rejecting Statement II ignores the fundamental definition of a fluid free surface as an isobaric equipotential boundary."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_053",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A small spherical air bubble of radius $r$ is trapped at a depth $h$ below the free surface of a liquid of density $\\rho$ and surface tension $T$. A hollow spherical soap bubble blown in atmospheric air ($P_0$) from a solution of identical surface tension $T$ has an external radius $R$. If the absolute internal pressure inside the submerged air bubble equals the absolute internal pressure inside the soap bubble, what is the depth $h$?",
+      "options": [
+        "A) $h = \\frac{2T}{\\rho g}\\left(\\frac{2}{R} - \\frac{1}{r}\\right)$",
+        "B) $h = \\frac{4T}{\\rho g}\\left(\\frac{1}{R} - \\frac{1}{r}\\right)$",
+        "C) $h = \\frac{2T}{\\rho g}\\left(\\frac{1}{R} - \\frac{1}{r}\\right)$",
+        "D) $h = \\frac{T}{\\rho g}\\left(\\frac{4}{R} - \\frac{1}{r}\\right)$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For an air bubble inside a liquid, there is only a single liquid-gas interface. The excess pressure across this interface is $\\Delta P_{\\text{air}} = \\frac{2T}{r}$. The ambient hydrostatic pressure at depth $h$ in the liquid is $P_h = P_0 + \\rho g h$. Hence, the absolute internal pressure inside the submerged air bubble is $P_{\\text{in, air}} = P_0 + \\rho g h + \\frac{2T}{r}$.\nStep 2: A soap bubble in air has two distinct interfaces (interior and exterior), so its excess pressure is $\\Delta P_{\\text{soap}} = \\frac{4T}{R}$. Its absolute internal pressure is $P_{\\text{in, soap}} = P_0 + \\frac{4T}{R}$.\nStep 3: Equating the two absolute internal pressures: $P_0 + \\rho g h + \\frac{2T}{r} = P_0 + \\frac{4T}{R}$.\nSubtracting $P_0$: $\\rho g h = \\frac{4T}{R} - \\frac{2T}{r} = 2T\\left(\\frac{2}{R} - \\frac{1}{r}\\right)$.\nSolving for depth: $h = \\frac{2T}{\\rho g}\\left(\\frac{2}{R} - \\frac{1}{r}\\right)$.\nDistractor Analysis: Alternative options fail by treating the soap bubble as having only one interface or by treating the air bubble as having two interfaces."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_054",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Physical System / Configuration) with List II (Characteristic Dynamical Behavior / Principle):\n\nList I:\nA. Clean capillary tube placed inside an artificial satellite orbiting Earth in free fall\nB. Floating uniform wooden cylinder given a slight vertical downward displacement and released\nC. Rapidly spinning cylinder placed transversely across a uniform wind stream\nD. Small steel ball falling through a tall column of thick viscous grease at steady speed\n\nList II:\nI. Generation of a lateral aerodynamic dynamic lift force via Magnus effect\nII. Execution of Simple Harmonic Motion governed by a linear buoyant restoring force\nIII. Water rises to completely fill the entire length of the tube regardless of how tall it is\nIV. Non-accelerating motion where downward weight is balanced by viscous drag and buoyancy\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-III, B-II, C-I, D-IV",
+        "B) A-II, B-III, C-I, D-IV",
+        "C) A-III, B-I, C-II, D-IV",
+        "D) A-IV, B-II, C-I, D-III"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Inside an orbiting satellite, effective gravity vanishes ($g_{\\text{eff}} = 0$). In the capillary rise formula $h = \\frac{2T\\cos\\theta}{\\rho g_{\\text{eff}} r}$, as $g_{\\text{eff}} \\to 0$, $h \\to \\infty$. The water rises to the very top rim of the tube and flattens its meniscus, filling the entire available length. Thus, A matches III.\nStep 2: When a floating cylinder of area $A$ is displaced downward by a small distance $y$, the extra submerged volume generates an additional upward buoyant force $\\Delta F = -(\\rho A g) y$. This linear restoring force produces Simple Harmonic Motion ($F \\propto -y$). Thus, B matches II.\nStep 3: A spinning cylinder in a transverse airflow drags air along its boundary layer, causing velocity asymmetry and a lateral pressure difference that produces aerodynamic lift via the Magnus effect. Thus, C matches I.\nStep 4: A steel ball falling in viscous grease accelerates until the downward weight equals the sum of upward buoyant force and Stokes' viscous drag, reaching a constant terminal velocity with zero acceleration. Thus, D matches IV.\nDistractor Analysis: Misalignments interchange simple harmonic buoyant oscillations with the weightless capillary column effect or confuse Magnus dynamic lift with Stokes' terminal drag."
+    },
+    {
+      "id": "phy_mechanical_properties_of_fluids_c01_055",
+      "subject": "Physics",
+      "topic": "Mechanical Properties of Fluids",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two clean, wide vertical glass plates are mounted parallel to each other with a small uniform separation gap of $d = 1.0\\text{ mm}$ between them. The lower ends of the plates are dipped into a trough of water of surface tension $T = 0.075\\text{ N/m}$ and density $\\rho = 1000\\text{ kg/m}^3$. Assuming complete wetting (angle of contact $\\theta = 0^\\circ$) and taking $g = 10\\text{ m/s}^2$, what is the equilibrium height $h$ to which the water rises between the parallel plates?",
+      "options": [
+        "A) $3.0\\text{ cm}$",
+        "B) $0.75\\text{ cm}$",
+        "C) $1.5\\text{ cm}$",
+        "D) $2.0\\text{ cm}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Consider a segment of the parallel plates of lateral width $L$. Water wets both glass plates, creating two contact lines along the width. The upward surface tension force acting on the liquid sheet is $F_{\\text{up}} = 2 \\times (T L \\cos\\theta) = 2 T L$ (for $\\theta = 0^\\circ$).\nStep 2: The volume of the elevated rectangular water sheet between the plates is $V = L \\times d \\times h$. The downward gravitational weight of this elevated water sheet is $W = \\rho V g = \\rho L d h g$.\nStep 3: In hydrostatic equilibrium, the upward surface tension force equals the weight of the elevated water: $2 T L = \\rho L d h g \\implies h = \\frac{2T}{\\rho g d}$.\nSubstituting the given parameters: $T = 0.075\\text{ N/m}$, $\\rho = 1000\\text{ kg/m}^3$, $g = 10\\text{ m/s}^2$, and $d = 1.0\\text{ mm} = 1.0 \\times 10^{-3}\\text{ m}$.\n$h = \\frac{2 \\times 0.075\\text{ N/m}}{1000\\text{ kg/m}^3 \\times 10\\text{ m/s}^2 \\times 1.0 \\times 10^{-3}\\text{ m}} = \\frac{0.150}{10.0} = 0.015\\text{ m} = 1.5\\text{ cm}$.\nDistractor Analysis: A height of $3.0\\text{ cm}$ considers capillary rise in a cylindrical tube of radius $r = d$; $0.75\\text{ cm}$ forgets that surface tension acts along both inner faces of the plates."
+    }
+  ]
+}
