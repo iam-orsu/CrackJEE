@@ -59,8 +59,11 @@ COPY --from=builder --chown=nodejs:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=nodejs:nodejs /app/prisma      ./prisma
 COPY --from=deps    --chown=nodejs:nodejs /app/package.json ./package.json
 
-# Copy the pre-generated question bank so the seeder can find it at runtime
-COPY --chown=nodejs:nodejs data/master_questions.json ./data/master_questions.json
+# Copy JEE question bank (required)
+COPY --chown=nodejs:nodejs data/jee/jee_master_questions.json ./data/jee/jee_master_questions.json
+# Copy NEET question bank (optional — only present once Gemini generation is complete)
+# Uncomment when data/neet/neet_master_questions.json is ready:
+# COPY --chown=nodejs:nodejs data/neet/neet_master_questions.json ./data/neet/neet_master_questions.json
 
 USER nodejs
 
@@ -69,4 +72,4 @@ EXPOSE 3001
 HEALTHCHECK --interval=15s --timeout=5s --start-period=20s --retries=3 \
   CMD wget -qO- http://127.0.0.1:3001/health || exit 1
 
-CMD ["sh", "-c", "migrate_out=$(node_modules/.bin/prisma migrate deploy 2>&1); if echo \"$migrate_out\" | grep -q 'P3005'; then echo '[migrate] Baseline: marking migrations as applied...'; node_modules/.bin/prisma migrate resolve --applied 20241001000000_init 2>&1 || true; node_modules/.bin/prisma migrate resolve --applied 20241002000000_add_partial_count 2>&1 || true; node_modules/.bin/prisma migrate deploy; else echo \"$migrate_out\"; fi && (node dist/scripts/seedQuestions.js || echo '[warn] Seeding failed — continuing with existing data') && node dist/index.js"]
+CMD ["sh", "-c", "migrate_out=$(node_modules/.bin/prisma migrate deploy 2>&1); if echo \"$migrate_out\" | grep -q 'P3005'; then echo '[migrate] Baseline: marking migrations as applied...'; node_modules/.bin/prisma migrate resolve --applied 20241001000000_init 2>&1 || true; node_modules/.bin/prisma migrate resolve --applied 20241002000000_add_partial_count 2>&1 || true; node_modules/.bin/prisma migrate deploy; else echo \"$migrate_out\"; fi && (node dist/scripts/seedQuestions.js /app/data/jee/jee_master_questions.json || echo '[warn] JEE seeding failed — continuing with existing data') && ([ -f /app/data/neet/neet_master_questions.json ] && (node dist/scripts/seedQuestions.js /app/data/neet/neet_master_questions.json || echo '[warn] NEET seeding failed') || echo '[info] NEET question bank not present — skipping') && node dist/index.js"]

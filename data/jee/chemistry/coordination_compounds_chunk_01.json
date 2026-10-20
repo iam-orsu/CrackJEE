@@ -1,0 +1,641 @@
+{
+  "questions": [
+    {
+      "id": "cc_c01_003",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the octahedral complex $[\\text{Cr}(\\text{NH}_3)_6]^{3+}$. Which of the following statements is/are correct? I. The complex has 3 unpaired electrons. II. Its spin-only magnetic moment is about 3.87 BM. III. Its spin-only magnetic moment is about 2.83 BM.",
+      "options": [
+        "A) I only",
+        "B) I and II",
+        "C) II and III",
+        "D) I, II and III"
+      ],
+      "answer": "B",
+      "explanation": "Cr is $+3$ with $3d^3$. The three electrons occupy three separate $t_{2g}$ orbitals, so $n = 3$ and $\\mu = \\sqrt{3(3+2)} = \\sqrt{15} \\approx 3.87$ BM. Statement III is false. A student who takes $n = 2$ for a $d^3$ ion would wrongly accept statement III and choose C or D."
+    },
+    {
+      "id": "cc_c01_005",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the octahedral complex $[\\text{Co}(\\text{H}_2\\text{O})_6]^{2+}$. Which of the following statements is/are correct? I. Its crystal field stabilisation energy is $-0.8\\,\\Delta_o$. II. Each of the two $e_g$ electrons contributes $+0.6\\,\\Delta_o$. III. The complex is low spin.",
+      "options": [
+        "A) I only",
+        "B) I and II",
+        "C) I and III",
+        "D) I, II and III"
+      ],
+      "answer": "B",
+      "explanation": "Co is $+2$ with $3d^7$, and high spin filling gives $t_{2g}^5 e_g^2$. CFSE $= 5(-0.4\\Delta_o) + 2(+0.6\\Delta_o) = -0.8\\Delta_o$, so I and II are correct. Statement III is false because water is a weak field ligand. A student who believes the cobalt(II) aqua complex is low spin accepts statement III and chooses C or D."
+    },
+    {
+      "id": "cc_c01_007",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "For the complex salt $[\\text{Co}(\\text{en})_2\\text{Cl}_2]\\text{Cl}$, add the oxidation state of cobalt to the coordination number of cobalt and report the sum as an integer. Here en is ethylenediamine, a bidentate ligand.",
+      "options": [],
+      "answer": "9",
+      "explanation": "The complex cation $[\\text{Co}(\\text{en})_2\\text{Cl}_2]^+$ has charge $+1$, so $x + 2(0) + 2(-1) = +1$ gives $x = +3$. Two bidentate en ligands and two chloride ligands give a coordination number of $2 \\times 2 + 2 = 6$. Sum $= 3 + 6 = 9$. A student who counts each en as one donor gets $3 + 4 = 7$."
+    },
+    {
+      "id": "cc_c01_010",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the octahedral complex $[\\text{CoF}_6]^{3-}$. Which of the following statements is/are correct? I. Its CFSE is $-0.4\\,\\Delta_o$. II. It has 4 unpaired electrons. III. It is low spin with a CFSE of $-2.4\\,\\Delta_o$.",
+      "options": [
+        "A) I only",
+        "B) I and II",
+        "C) II and III",
+        "D) I, II and III"
+      ],
+      "answer": "B",
+      "explanation": "Co is $+3$ with $3d^6$. Since $\\text{F}^-$ is a weak field ligand, the electrons stay high spin as $t_{2g}^4 e_g^2$. CFSE $= 4(-0.4\\Delta_o) + 2(0.6\\Delta_o) = -0.4\\Delta_o$, and there are 4 unpaired electrons, so I and II are correct. Statement III describes the low spin case and is false. A student who treats fluoride as a strong field ligand accepts III and chooses C or D."
+    },
+    {
+      "id": "cc_c01_011",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A tetrahedral complex has the same metal and ligands as an octahedral complex whose $\\Delta_o = 18000\\ \\text{cm}^{-1}$. Taking $\\Delta_t = \\frac{4}{9}\\Delta_o$, the wavelength in nm of light absorbed to excite an electron across $\\Delta_t$ is closest to:",
+      "options": [
+        "A) 1250 nm",
+        "B) 555 nm",
+        "C) 2500 nm",
+        "D) 5000 nm"
+      ],
+      "answer": "A",
+      "explanation": "First, $\\Delta_t = \\frac{4}{9} \\times 18000 = 8000\\ \\text{cm}^{-1}$. Then $\\lambda = \\frac{10^7}{8000} = 1250$ nm. A student who uses $\\Delta_o$ directly without the $\\frac{4}{9}$ factor gets $\\frac{10^7}{18000} \\approx 555$ nm (option B). Using $\\frac{2}{9}$ instead of $\\frac{4}{9}$ gives 2500 nm (option C), and dividing by 9 instead of multiplying by $\\frac{4}{9}$ gives 5000 nm (option D)."
+    },
+    {
+      "id": "cc_c01_013",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the complexes $[\\text{Fe}(\\text{H}_2\\text{O})_6]^{2+}$ and $[\\text{Fe}(\\text{CN})_6]^{4-}$. Which of the following statements is/are correct? I. $[\\text{Fe}(\\text{H}_2\\text{O})_6]^{2+}$ has a spin-only magnetic moment of 4.90 BM. II. $[\\text{Fe}(\\text{CN})_6]^{4-}$ is paramagnetic. III. The crystal field splitting $\\Delta_o$ is larger for $[\\text{Fe}(\\text{CN})_6]^{4-}$ than for $[\\text{Fe}(\\text{H}_2\\text{O})_6]^{2+}$.",
+      "options": [
+        "A) I only",
+        "B) I and III",
+        "C) II and III",
+        "D) I, II and III"
+      ],
+      "answer": "B",
+      "explanation": "Fe is $+2$ with $3d^6$. Water is a weak field ligand, giving high spin $t_{2g}^4 e_g^2$ with 4 unpaired electrons and $\\mu = \\sqrt{24} \\approx 4.90$ BM, so I is correct. Cyanide is a strong field ligand, giving low spin $t_{2g}^6$ with no unpaired electrons, so II is false. $\\text{CN}^-$ also lies higher in the spectrochemical series, so III is correct. A student who thinks the cyanide complex is paramagnetic chooses C or D."
+    },
+    {
+      "id": "cc_c01_014",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the octahedral complex $[\\text{Fe}(\\text{CN})_6]^{3-}$. Which of the following statements is/are correct? I. Its spin-only magnetic moment is 1.73 BM. II. Its spin-only magnetic moment is 5.92 BM. III. It is a low spin complex.",
+      "options": [
+        "A) I only",
+        "B) II only",
+        "C) I and III",
+        "D) II and III"
+      ],
+      "answer": "C",
+      "explanation": "Fe is $+3$ with $3d^5$. The strong field $\\text{CN}^-$ forces low spin $t_{2g}^5 e_g^0$, which leaves 1 unpaired electron, so $\\mu = \\sqrt{3} \\approx 1.73$ BM. Statements I and III are correct and II is false. A student who treats cyanide as a weak field ligand gets 5 unpaired electrons, $\\mu = \\sqrt{35} \\approx 5.92$ BM, and chooses B or D."
+    },
+    {
+      "id": "cc_c01_016",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A transition metal complex ion has a spin-only magnetic moment of $\\sqrt{35}$ BM. Assuming the spin-only formula $\\mu = \\sqrt{n(n+2)}$ applies, find the number of unpaired electrons $n$. Report the answer as an integer.",
+      "options": [],
+      "answer": "5",
+      "explanation": "Set $\\sqrt{n(n+2)} = \\sqrt{35}$, so $n^2 + 2n - 35 = 0$. Factoring gives $(n+7)(n-5) = 0$, so $n = 5$ after rejecting the negative root. Five unpaired electrons corresponds to a high spin $d^5$ ion such as $\\text{Mn}^{2+}$ in an aqua complex. A student who uses $\\mu = n$ directly gets a non-integer value and cannot match the data."
+    },
+    {
+      "id": "cc_c01_017",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Ignoring pairing energy, what is the crystal field stabilisation energy of the octahedral complex $[\\text{Ni}(\\text{NH}_3)_6]^{2+}$ in units of $\\Delta_o$?",
+      "options": [
+        "A) $-0.6\\,\\Delta_o$",
+        "B) $-1.2\\,\\Delta_o$",
+        "C) $-2.4\\,\\Delta_o$",
+        "D) $-0.8\\,\\Delta_o$"
+      ],
+      "answer": "B",
+      "explanation": "Ni is $+2$ with $3d^8$, which gives $t_{2g}^6 e_g^2$ in an octahedral field. CFSE $= 6(-0.4\\Delta_o) + 2(+0.6\\Delta_o) = -1.2\\Delta_o$. A student who forgets that the $e_g$ electrons are destabilising and counts only the $t_{2g}$ electrons gets $-2.4\\Delta_o$ (option C). Options A and D do not correspond to any valid $d^8$ filling."
+    },
+    {
+      "id": "cc_c01_018",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Calculate the effective atomic number of cobalt in the complex $[\\text{Co}(\\text{en})_3]^{3+}$, where en is ethylenediamine and $Z(\\text{Co}) = 27$. Report the EAN as an integer.",
+      "options": [],
+      "answer": "36",
+      "explanation": "The oxidation state of Co is $+3$, so cobalt keeps $27 - 3 = 24$ electrons. Each en is bidentate and donates two lone pairs, that is 4 electrons, so three en ligands donate $3 \\times 4 = 12$ electrons. EAN $= 24 + 12 = 36$. A student who counts each en as one donor pair gets $24 + 6 = 30$."
+    },
+    {
+      "id": "cc_c01_019",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the complexes $[\\text{Co}(\\text{NH}_3)_4\\text{Cl}_2]^+$, $[\\text{Pt}(\\text{en})\\text{Cl}_2]$ and $[\\text{Co}(\\text{en})_3]^{3+}$. Which of the following statements is/are correct? I. $[\\text{Co}(\\text{NH}_3)_4\\text{Cl}_2]^+$ shows geometrical isomerism. II. $[\\text{Pt}(\\text{en})\\text{Cl}_2]$ shows geometrical isomerism. III. $[\\text{Co}(\\text{en})_3]^{3+}$ shows optical isomerism.",
+      "options": [
+        "A) I only",
+        "B) I and II",
+        "C) I and III",
+        "D) II and III"
+      ],
+      "answer": "C",
+      "explanation": "The octahedral $[\\text{Co}(\\text{NH}_3)_4\\text{Cl}_2]^+$ has cis and trans forms, so I is correct. In $[\\text{Pt}(\\text{en})\\text{Cl}_2]$ the bidentate en must occupy two adjacent sites, so only one arrangement exists and II is false. The tris-chelate $[\\text{Co}(\\text{en})_3]^{3+}$ is chiral with Delta and Lambda forms, so III is correct. A student who believes every chelate complex shows geometrical isomerism chooses B."
+    },
+    {
+      "id": "cc_c01_020",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Which reagent gives a precipitate with $[\\text{Co}(\\text{NH}_3)_5\\text{Br}]\\text{SO}_4$ but does not give a precipitate with $[\\text{Co}(\\text{NH}_3)_5\\text{SO}_4]\\text{Br}$?",
+      "options": [
+        "A) $\\text{AgNO}_3$ solution",
+        "B) $\\text{BaCl}_2$ solution",
+        "C) $\\text{NaCl}$ solution",
+        "D) Dilute $\\text{HNO}_3$"
+      ],
+      "answer": "B",
+      "explanation": "In $[\\text{Co}(\\text{NH}_3)_5\\text{Br}]\\text{SO}_4$ the sulfate is outside the coordination sphere, so $\\text{BaCl}_2$ gives a precipitate of $\\text{BaSO}_4$. In $[\\text{Co}(\\text{NH}_3)_5\\text{SO}_4]\\text{Br}$ the sulfate is coordinated, so no $\\text{BaSO}_4$ forms. A student who assumes the bromide is free in the first compound chooses A, but $\\text{AgNO}_3$ gives no $\\text{AgBr}$ there because the bromide is coordinated."
+    },
+    {
+      "id": "cc_c01_021",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The aqua complex $[\\text{Ti}(\\text{H}_2\\text{O})_6]^{3+}$ absorbs light of wavelength 500 nm in its single d-d transition. Find $\\Delta_o$ expressed in units of $10^3\\ \\text{cm}^{-1}$ and report the integer value.",
+      "options": [],
+      "answer": "20",
+      "explanation": "The wavenumber is $\\tilde{\\nu} = \\frac{1}{\\lambda} = \\frac{1}{500 \\times 10^{-7}\\ \\text{cm}} = 2.0 \\times 10^4\\ \\text{cm}^{-1}$, which is 20 in units of $10^3\\ \\text{cm}^{-1}$. For a $d^1$ ion the single d-d transition energy equals $\\Delta_o$, so the answer is 20. A student who forgets to convert nm to cm gets a value far outside the expected range."
+    },
+    {
+      "id": "cc_c01_022",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the tetrahedral complex $[\\text{CoCl}_4]^{2-}$ and the octahedral high spin complex $[\\text{Co}(\\text{H}_2\\text{O})_6]^{2+}$. Which of the following statements is/are correct? I. The CFSE of $[\\text{CoCl}_4]^{2-}$ is $-\\frac{8}{15}\\Delta_o$. II. $\\Delta_t$ equals $\\frac{4}{9}\\Delta_o$ for the same metal and ligands. III. The magnitude of the CFSE of $[\\text{CoCl}_4]^{2-}$ is larger than that of $[\\text{Co}(\\text{H}_2\\text{O})_6]^{2+}$ when both are expressed in units of $\\Delta_o$.",
+      "options": [
+        "A) I only",
+        "B) I and II",
+        "C) II and III",
+        "D) I, II and III"
+      ],
+      "answer": "B",
+      "explanation": "Co is $+2$ with $3d^7$. Tetrahedral filling is $e^4 t_2^3$, so CFSE $= 4(-0.6\\Delta_t) + 3(0.4\\Delta_t) = -1.2\\Delta_t$. With $\\Delta_t = \\frac{4}{9}\\Delta_o$ this gives $-\\frac{4.8}{9}\\Delta_o = -\\frac{8}{15}\\Delta_o$, so I and II are correct. The high spin octahedral value is $-0.8\\Delta_o$, which is larger in magnitude, so III is false. A student who thinks the tetrahedral CFSE is larger chooses D."
+    },
+    {
+      "id": "cc_c01_023",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Determine the number of unpaired electrons on the cobalt centre in the tetrahedral complex $[\\text{CoCl}_4]^{2-}$. Report the answer as an integer.",
+      "options": [],
+      "answer": "3",
+      "explanation": "Chloride is a weak field ligand, so $\\text{Co}^{2+}$ with $3d^7$ fills as $e^4 t_2^3$. The $e$ set holds 4 electrons in 2 orbitals, which gives 0 unpaired electrons. The $t_2$ set holds 3 electrons in 3 orbitals, which gives 3 unpaired electrons. A student who wrongly assumes low spin filling gets 1."
+    },
+    {
+      "id": "cc_c01_024",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The aqua complex $[\\text{Ti}(\\text{H}_2\\text{O})_6]^{3+}$ shows a d-d absorption at $\\tilde{\\nu} = 20300\\ \\text{cm}^{-1}$. Taking $1\\ \\text{cm}^{-1} \\approx 11.96\\ \\text{J mol}^{-1}$, the value of $\\Delta_o$ in kJ/mol is closest to:",
+      "options": [
+        "A) 81 kJ/mol",
+        "B) 122 kJ/mol",
+        "C) 243 kJ/mol",
+        "D) 486 kJ/mol"
+      ],
+      "answer": "C",
+      "explanation": "Compute $20300 \\times 11.96\\ \\text{J mol}^{-1} \\approx 2.43 \\times 10^5\\ \\text{J mol}^{-1}$, which is about 243 kJ/mol. A student who uses half the conversion factor, 5.98 J/mol per cm$^{-1}$, gets 122 kJ/mol (option B). A student who divides the result by 3 gets 81 kJ/mol (option A). Option D is the result of doubling the energy."
+    },
+    {
+      "id": "cc_c01_025",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the nickel complexes $[\\text{Ni}(\\text{CN})_4]^{2-}$, $[\\text{NiCl}_4]^{2-}$ and $[\\text{Ni}(\\text{CO})_4]$. Which of the following statements is/are correct? I. $[\\text{Ni}(\\text{CN})_4]^{2-}$ is diamagnetic. II. $[\\text{NiCl}_4]^{2-}$ is paramagnetic. III. $[\\text{Ni}(\\text{CO})_4]$ is paramagnetic.",
+      "options": [
+        "A) I only",
+        "B) I and II",
+        "C) II and III",
+        "D) I, II and III"
+      ],
+      "answer": "B",
+      "explanation": "In $[\\text{Ni}(\\text{CN})_4]^{2-}$, Ni is $+2$ with $3d^8$, and the strong field square planar arrangement pairs all electrons, so I is correct. $[\\text{NiCl}_4]^{2-}$ is tetrahedral with 2 unpaired electrons, so II is correct. In $[\\text{Ni}(\\text{CO})_4]$, Ni is in oxidation state zero with $3d^{10}$, so there are no unpaired electrons and III is false. A student who treats the Ni(0) centre as $d^8$ chooses D."
+    },
+    {
+      "id": "cc_c01_026",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Count the total number of stereoisomers, geometrical and optical forms combined, of the octahedral complex $[\\text{Co}(\\text{en})_2\\text{Cl}_2]^+$, where en is a bidentate ligand. Report the count as an integer.",
+      "options": [],
+      "answer": "3",
+      "explanation": "The two chlorides can be trans, which gives one achiral form, or cis. The cis form is chiral and exists as a pair of non-superimposable mirror images. Total stereoisomers $= 1 \\text{ (trans)} + 2 \\text{ (cis enantiomers)} = 3$. A student who counts only the geometrical isomers gets 2."
+    },
+    {
+      "id": "cc_c01_027",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For low spin $d^6$ iron(II) with $\\Delta_o = 33000\\ \\text{cm}^{-1}$ and pairing energy $P = 15000\\ \\text{cm}^{-1}$, what is the total crystal field energy including the pairing term, in $\\text{cm}^{-1}$?",
+      "options": [
+        "A) $-79200\\ \\text{cm}^{-1}$",
+        "B) $-45000\\ \\text{cm}^{-1}$",
+        "C) $-34200\\ \\text{cm}^{-1}$",
+        "D) $-64200\\ \\text{cm}^{-1}$"
+      ],
+      "answer": "C",
+      "explanation": "Low spin $t_{2g}^6$ gives CFSE $= 6(-0.4\\Delta_o) = -2.4\\Delta_o = -79200\\ \\text{cm}^{-1}$. It has 3 electron pairs, so the pairing term is $+3P = +45000\\ \\text{cm}^{-1}$. The total is $-79200 + 45000 = -34200\\ \\text{cm}^{-1}$. A student who ignores the pairing term chooses A, one who counts only the pairing energy chooses B, and one who counts a single pair chooses D."
+    },
+    {
+      "id": "cc_c01_028",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In an octahedral complex, $Dq = 1200\\ \\text{cm}^{-1}$. What is the CFSE, in $\\text{cm}^{-1}$, of a $d^3$ metal ion in this complex?",
+      "options": [
+        "A) $-4800\\ \\text{cm}^{-1}$",
+        "B) $-14400\\ \\text{cm}^{-1}$",
+        "C) $-8640\\ \\text{cm}^{-1}$",
+        "D) $-1440\\ \\text{cm}^{-1}$"
+      ],
+      "answer": "B",
+      "explanation": "Since $\\Delta_o = 10Dq = 12000\\ \\text{cm}^{-1}$, a $d^3$ ion has $t_{2g}^3$ and CFSE $= 3(-4Dq) = -12Dq = -14400\\ \\text{cm}^{-1}$. A student who counts only one electron gets $-4800$ (option A), one who takes $\\Delta_o = 6Dq$ gets $-8640$ (option C), and one who sets $\\Delta_o = Dq$ gets $-1440$ (option D)."
+    },
+    {
+      "id": "cc_c01_029",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "For the complex ion $[\\text{Fe}(\\text{C}_2\\text{O}_4)_3]^{3-}$, where oxalate $\\text{C}_2\\text{O}_4^{2-}$ is a bidentate ligand, add the coordination number of iron to the number of unpaired electrons on iron. Report the sum as an integer.",
+      "options": [],
+      "answer": "11",
+      "explanation": "Iron has oxidation state $x + 3(-2) = -3$, so $x = +3$ and the configuration is $3d^5$. Oxalate is a weak field ligand, so the ion is high spin with 5 unpaired electrons. Three bidentate oxalates give a coordination number of $3 \\times 2 = 6$. Sum $= 6 + 5 = 11$. A student who assumes low spin gets $6 + 1 = 7$."
+    },
+    {
+      "id": "cc_c01_030",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "What is the ratio of the spin-only magnetic moment of $[\\text{Mn}(\\text{H}_2\\text{O})_6]^{2+}$ to that of $[\\text{Mn}(\\text{CN})_6]^{4-}$? Give the ratio to two decimal places.",
+      "options": [
+        "A) 1.00",
+        "B) 2.45",
+        "C) 3.42",
+        "D) 5.92"
+      ],
+      "answer": "C",
+      "explanation": "Both ions are $\\text{Mn}^{2+}$ with $3d^5$. The aqua complex is high spin with 5 unpaired electrons, so $\\mu = \\sqrt{35} \\approx 5.92$ BM. Cyanide is a strong field ligand, giving low spin with 1 unpaired electron, so $\\mu = \\sqrt{3} \\approx 1.73$ BM. The ratio is $\\sqrt{35/3} \\approx 3.42$. A student who treats both complexes as high spin gets 1.00 (option A)."
+    },
+    {
+      "id": "cc_c01_031",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the nickel(II) complexes $[\\text{Ni}(\\text{en})_3]^{2+}$, $[\\text{Ni}(\\text{NH}_3)_4(\\text{H}_2\\text{O})_2]^{2+}$ and $[\\text{Ni}(\\text{en})(\\text{H}_2\\text{O})_4]^{2+}$. Which of the following statements is/are correct? I. $[\\text{Ni}(\\text{en})_3]^{2+}$ is optically active. II. $[\\text{Ni}(\\text{NH}_3)_4(\\text{H}_2\\text{O})_2]^{2+}$ shows geometrical isomerism. III. $[\\text{Ni}(\\text{en})(\\text{H}_2\\text{O})_4]^{2+}$ shows geometrical isomerism.",
+      "options": [
+        "A) I and II only",
+        "B) I and III only",
+        "C) II and III only",
+        "D) I, II and III"
+      ],
+      "answer": "A",
+      "explanation": "The tris-chelate $[\\text{Ni}(\\text{en})_3]^{2+}$ is chiral, so I is correct. The $\\text{M(A}_4\\text{B}_2)$ type complex has cis and trans isomers, so II is correct. In $[\\text{Ni}(\\text{en})(\\text{H}_2\\text{O})_4]^{2+}$ all four water ligands are equivalent, so there is only one geometrical arrangement and III is false. A student who believes any chelate complex shows geometrical isomerism chooses D."
+    },
+    {
+      "id": "cc_c01_032",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For an octahedral $\\text{Mn}^{2+}$ ion ($d^5$) with $\\Delta_o = 21000\\ \\text{cm}^{-1}$ and pairing energy $P = 25000\\ \\text{cm}^{-1}$, which statements are correct? I. The low spin CFSE including pairing is $+8000\\ \\text{cm}^{-1}$. II. The high spin configuration is favoured. III. The low spin configuration is favoured.",
+      "options": [
+        "A) I only",
+        "B) I and II",
+        "C) II and III",
+        "D) I, II and III"
+      ],
+      "answer": "B",
+      "explanation": "Low spin $t_{2g}^5$ gives $5(-0.4\\Delta_o) = -42000\\ \\text{cm}^{-1}$ and two electron pairs, so $+2P = +50000\\ \\text{cm}^{-1}$, for a total of $+8000\\ \\text{cm}^{-1}$. Statement I is correct. High spin $t_{2g}^3 e_g^2$ has no pairs and zero CFSE, so it is lower in energy and II is correct, while III is false. A student who treats the pairing term as stabilising will accept III and choose C or D."
+    },
+    {
+      "id": "cc_c01_033",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Ignoring pairing energy, what is the CFSE of the low spin complex $[\\text{Co}(\\text{CN})_6]^{4-}$ in units of $\\Delta_o$?",
+      "options": [
+        "A) $-1.8\\,\\Delta_o$",
+        "B) $-0.8\\,\\Delta_o$",
+        "C) $-2.4\\,\\Delta_o$",
+        "D) $-0.6\\,\\Delta_o$"
+      ],
+      "answer": "A",
+      "explanation": "Cobalt is $+2$ with $3d^7$. The strong field $\\text{CN}^-$ gives low spin $t_{2g}^6 e_g^1$, so CFSE $= 6(-0.4\\Delta_o) + 1(+0.6\\Delta_o) = -1.8\\Delta_o$. A student who copies the high spin value $-0.8\\Delta_o$ from $[\\text{Co}(\\text{H}_2\\text{O})_6]^{2+}$ chooses B, and one who ignores the $e_g$ electron chooses C."
+    },
+    {
+      "id": "cc_c01_034",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the linkage isomers $[\\text{Co}(\\text{NH}_3)_5(\\text{NO}_2)]\\text{Cl}_2$ (nitro) and $[\\text{Co}(\\text{NH}_3)_5(\\text{ONO})]\\text{Cl}_2$ (nitrito). Which of the following statements is/are correct? I. The two compounds are linkage isomers. II. In the nitrito form, the ligand is bound to cobalt through nitrogen. III. Excess $\\text{AgNO}_3$ precipitates 2 moles of $\\text{AgCl}$ per mole of either compound.",
+      "options": [
+        "A) I only",
+        "B) I and II",
+        "C) I and III",
+        "D) II and III"
+      ],
+      "answer": "C",
+      "explanation": "Both compounds have the same formula and differ only in the donor atom of the ambidentate nitrite ligand, so I is correct. The nitrito form is bound through oxygen, so II is false. Both are 1:2 electrolytes with two chlorides outside the coordination sphere, so III is correct. A student who reverses the donor atoms and believes nitrito is N-bound accepts II and chooses B."
+    },
+    {
+      "id": "cc_c01_035",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Determine the number of unpaired electrons on manganese in the octahedral complex $[\\text{Mn}(\\text{CN})_6]^{3-}$, where cyanide is a strong field ligand. Report the answer as an integer.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Oxidation state of Mn: $x + 6(-1) = -3$, so $x = +3$ and the configuration is $3d^4$. Strong field cyanide forces low spin $t_{2g}^4 e_g^0$, in which one $t_{2g}$ orbital is doubly occupied, leaving 2 unpaired electrons. A student who assumes high spin gets 4 unpaired electrons."
+    },
+    {
+      "id": "cc_c01_036",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider four complexes: $X = [\\text{Co}(\\text{en})_2\\text{Cl}_2]^+$, $Y = [\\text{Fe}(\\text{CN})_6]^{3-}$, $Z = [\\text{Mn}(\\text{H}_2\\text{O})_6]^{2+}$ and $W = [\\text{NiCl}_4]^{2-}$. Which of the following statement(s) is/are correct?",
+      "options": [
+        "A) $Y$ has exactly one unpaired electron",
+        "B) $Z$ has a spin-only magnetic moment of $\\sqrt{35}$ BM",
+        "C) $X$ has 3 stereoisomers in total, counting geometrical and optical forms",
+        "D) $W$ has a spin-only magnetic moment of 4.90 BM"
+      ],
+      "answer": "A,B,C",
+      "explanation": "For $Y$, Fe is $+3$ with $3d^5$, and the strong field $\\text{CN}^-$ gives $t_{2g}^5$ with one unpaired electron, so A is correct. For $Z$, $\\text{Mn}^{2+}$ is high spin $d^5$ with 5 unpaired electrons, so $\\mu = \\sqrt{5 \\times 7} = \\sqrt{35}$ and B is correct. For $X$, the trans form plus the pair of cis enantiomers gives 3 stereoisomers, so C is correct. For $W$, tetrahedral $\\text{Ni}^{2+}$ has 2 unpaired electrons, so $\\mu = 2.83$ BM and D is false. A student who assumes 4 unpaired electrons for $W$ chooses D."
+    },
+    {
+      "id": "cc_c01_037",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A $d^6$ metal ion in an octahedral field has $\\Delta_o = 1.4P$, where $P$ is the pairing energy. What is $E_{\\text{low spin}} - E_{\\text{high spin}}$, expressed in units of $P$, including both the CFSE and the pairing energy terms?",
+      "options": [
+        "A) $-0.8P$",
+        "B) $+0.8P$",
+        "C) $-0.36P$",
+        "D) $+0.2P$"
+      ],
+      "answer": "A",
+      "explanation": "High spin $t_{2g}^4 e_g^2$ has CFSE $= -0.4\\Delta_o = -0.56P$ and one electron pair, so $E_{\\text{HS}} = -0.56P + P = +0.44P$. Low spin $t_{2g}^6$ has CFSE $= -2.4\\Delta_o = -3.36P$ and three pairs, so $E_{\\text{LS}} = -3.36P + 3P = -0.36P$. The difference is $-0.36P - 0.44P = -0.8P$, so low spin is favoured. A student who omits the high spin pairing term gets $+0.2P$ (option D), and one who quotes $E_{\\text{LS}}$ alone gets option C."
+    },
+    {
+      "id": "cc_c01_038",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the following statements about the spin and optical properties of octahedral complexes. Which statement(s) is/are correct?",
+      "options": [
+        "A) $[\\text{Ti}(\\text{H}_2\\text{O})_6]^{3+}$ has a spin-only magnetic moment of $\\sqrt{3}$ BM",
+        "B) $[\\text{Ni}(\\text{en})_3]^{2+}$ is diamagnetic",
+        "C) $[\\text{Cr}(\\text{NH}_3)_6]^{3+}$ has 3 unpaired electrons",
+        "D) $[\\text{Ni}(\\text{en})_3]^{2+}$ is optically active"
+      ],
+      "answer": "A,C,D",
+      "explanation": "$\\text{Ti}^{3+}$ is $d^1$, so $\\mu = \\sqrt{1 \\times 3} = \\sqrt{3}$ BM and A is correct. $\\text{Cr}^{3+}$ is $d^3$ with 3 unpaired electrons, so C is correct. $\\text{Ni}^{2+}$ is $d^8$ with 2 unpaired electrons even in the strong field en complex, so B is false. The tris-chelate $[\\text{Ni}(\\text{en})_3]^{2+}$ has non-superimposable mirror images, so D is correct. A student who confuses octahedral $d^8$ with square planar low spin chooses B."
+    },
+    {
+      "id": "cc_c01_039",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The 18-electron rule predicts stability when the effective atomic number (EAN) equals 36. Which of the following statements about the 18-electron rule is/are correct?",
+      "options": [
+        "A) $[\\text{Fe}(\\text{CO})_5]$ obeys the 18-electron rule",
+        "B) $[\\text{Ni}(\\text{NH}_3)_6]^{2+}$ obeys the 18-electron rule",
+        "C) $[\\text{Co}(\\text{CO})_4]^-$ obeys the 18-electron rule",
+        "D) $[\\text{Ni}(\\text{CN})_4]^{2-}$ obeys the 18-electron rule"
+      ],
+      "answer": "A,C",
+      "explanation": "For $[\\text{Fe}(\\text{CO})_5]$, the EAN is $26 - 0 + 10 = 36$, so A is correct. For $[\\text{Co}(\\text{CO})_4]^-$, Co is in oxidation state $-1$, so the EAN is $27 + 1 + 8 = 36$ and C is correct. For $[\\text{Ni}(\\text{NH}_3)_6]^{2+}$ the EAN is $28 - 2 + 12 = 38$, and for $[\\text{Ni}(\\text{CN})_4]^{2-}$ it is $28 - 2 + 8 = 34$, so B and D are false. A student who drops the sign of the anionic cobalt oxidation state gets 34 for C and rejects it."
+    },
+    {
+      "id": "cc_c01_040",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the crystal field stabilisation energies (CFSE) of the following complexes. Which statement(s) is/are correct?",
+      "options": [
+        "A) The CFSE of $[\\text{CoCl}_4]^{2-}$ is $-1.2\\,\\Delta_t$",
+        "B) The CFSE of $[\\text{Ni}(\\text{H}_2\\text{O})_6]^{2+}$ is $-1.2\\,\\Delta_o$",
+        "C) The CFSE of high spin $[\\text{Fe}(\\text{H}_2\\text{O})_6]^{3+}$ is zero",
+        "D) The CFSE of $[\\text{CoCl}_4]^{2-}$ is $-1.2\\,\\Delta_o$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Tetrahedral $\\text{Co}^{2+}$ is $e^4 t_2^3$, so CFSE $= 4(-0.6\\Delta_t) + 3(0.4\\Delta_t) = -1.2\\Delta_t$, and A is correct. Octahedral $\\text{Ni}^{2+}$ is $t_{2g}^6 e_g^2$, giving $6(-0.4\\Delta_o) + 2(0.6\\Delta_o) = -1.2\\Delta_o$, so B is correct. High spin $\\text{Fe}^{3+}$ is $t_{2g}^3 e_g^2$, giving $-1.2\\Delta_o + 1.2\\Delta_o = 0$, so C is correct. Option D ignores that $\\Delta_t = \\frac{4}{9}\\Delta_o$, so it is false. A student who uses $\\Delta_o$ for the tetrahedral complex chooses D."
+    },
+    {
+      "id": "cc_c01_042",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the isomeric cobalt(III) complexes $[\\text{Co}(\\text{NH}_3)_5\\text{Br}]\\text{SO}_4$ and $[\\text{Co}(\\text{NH}_3)_5\\text{SO}_4]\\text{Br}$. Which statement(s) is/are correct?",
+      "options": [
+        "A) The two compounds are ionisation isomers of each other",
+        "B) Adding $\\text{AgNO}_3$ to $[\\text{Co}(\\text{NH}_3)_5\\text{Br}]\\text{SO}_4$ precipitates $\\text{AgBr}$",
+        "C) Adding $\\text{BaCl}_2$ to $[\\text{Co}(\\text{NH}_3)_5\\text{Br}]\\text{SO}_4$ precipitates $\\text{BaSO}_4$",
+        "D) Each compound gives 2 ions per formula unit in solution"
+      ],
+      "answer": "A,C,D",
+      "explanation": "The two compounds have the same formula but exchange the anion inside and outside the coordination sphere, so they are ionisation isomers and A is correct. In $[\\text{Co}(\\text{NH}_3)_5\\text{Br}]\\text{SO}_4$ the bromide is coordinated, so $\\text{AgNO}_3$ gives no $\\text{AgBr}$ and B is false, while the free sulfate precipitates $\\text{BaSO}_4$ with $\\text{BaCl}_2$, so C is correct. Each compound dissociates into one complex ion and one outer anion, so D is correct. A student who assumes the bromide is free in the first compound chooses B."
+    },
+    {
+      "id": "cc_c01_043",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Using $\\Delta_t = \\frac{4}{9}\\Delta_o$ for the same metal and ligands, what is the ratio of the magnitude of the CFSE of tetrahedral $[\\text{NiCl}_4]^{2-}$ to that of octahedral $[\\text{Ni}(\\text{H}_2\\text{O})_6]^{2+}$?",
+      "options": [
+        "A) $\\frac{8}{27}$",
+        "B) $\\frac{4}{9}$",
+        "C) $\\frac{2}{3}$",
+        "D) $1$"
+      ],
+      "answer": "A",
+      "explanation": "Tetrahedral $d^8$ is $e^4 t_2^4$, so CFSE $= 4(-0.6\\Delta_t) + 4(0.4\\Delta_t) = -0.8\\Delta_t = -\\frac{0.8 \\times 4}{9}\\Delta_o$. Octahedral $d^8$ has CFSE $= -1.2\\Delta_o$. The ratio is $\\frac{0.8 \\times 4/9}{1.2} = \\frac{8}{27}$. A student who uses only the conversion factor $\\frac{4}{9}$ and forgets the electron count chooses B, while one who assumes $\\Delta_t = \\Delta_o$ gets $\\frac{2}{3}$ and chooses C."
+    },
+    {
+      "id": "cc_c01_044",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Consider $[\\text{FeF}_6]^{3-}$, $[\\text{NiCl}_4]^{2-}$ and $[\\text{Ni}(\\text{CN})_4]^{2-}$. Which of the following statements is/are correct? I. $[\\text{FeF}_6]^{3-}$ has 5 unpaired electrons. II. $[\\text{NiCl}_4]^{2-}$ has 2 unpaired electrons. III. $[\\text{Ni}(\\text{CN})_4]^{2-}$ is paramagnetic.",
+      "options": [
+        "A) I only",
+        "B) I and II",
+        "C) II and III",
+        "D) I, II and III"
+      ],
+      "answer": "B",
+      "explanation": "Fe is $+3$ with $3d^5$. Fluoride is a weak field ligand, so the complex is high spin with 5 unpaired electrons and I is correct. Tetrahedral $[\\text{NiCl}_4]^{2-}$ has 2 unpaired electrons, so II is correct. Cyanide gives square planar $[\\text{Ni}(\\text{CN})_4]^{2-}$ with all electrons paired, so III is false. A student who mistakes the cyanide complex for a high spin octahedral $d^8$ complex chooses D."
+    },
+    {
+      "id": "cc_c01_045",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Consider the octahedral complexes $[\\text{Co}(\\text{en})_3]^{3+}$ and $[\\text{Co}(\\text{en})_2\\text{Cl}_2]^+$, where en is a bidentate ligand. What is the total number of stereoisomers of both complexes taken together? Report the answer as a single digit.",
+      "options": [],
+      "answer": "5",
+      "explanation": "$[\\text{Co}(\\text{en})_3]^{3+}$ has no geometrical isomers but exists as a pair of non-superimposable mirror images (Delta and Lambda), giving 2 stereoisomers. $[\\text{Co}(\\text{en})_2\\text{Cl}_2]^+$ has a trans form, which is achiral, and a cis pair of enantiomers, giving 3 stereoisomers. The total is $2 + 3 = 5$. A student who counts only geometrical isomers gets $1 + 2 = 3$."
+    },
+    {
+      "id": "cc_c01_046",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Consider the octahedral complexes $[\\text{Cr}(\\text{NH}_3)_6]^{3+}$ and $[\\text{CoF}_6]^{3-}$. What is the sum of the numbers of unpaired electrons on the two metal centres? Report the answer as a single digit.",
+      "options": [],
+      "answer": "7",
+      "explanation": "$\\text{Cr}^{3+}$ is $d^3$ and has 3 unpaired electrons in any field. $\\text{Co}^{3+}$ is $d^6$ with weak field fluoride, which gives high spin $t_{2g}^4 e_g^2$ with 4 unpaired electrons. The sum is $3 + 4 = 7$. A student who treats fluoride as a strong field ligand and assigns $[\\text{CoF}_6]^{3-}$ zero unpaired electrons gets 3."
+    },
+    {
+      "id": "cc_c01_047",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A $d^6$ metal ion in an octahedral field has $\\Delta_o = 2P$, where $P$ is the pairing energy. Find the magnitude of $E_{\\text{low spin}} - E_{\\text{high spin}}$ in units of $P$, including both CFSE and pairing energy terms. Report the integer value.",
+      "options": [],
+      "answer": "2",
+      "explanation": "High spin has CFSE $= -0.4\\Delta_o = -0.8P$ and one electron pair, so $E_{\\text{HS}} = -0.8P + P = +0.2P$. Low spin has CFSE $= -2.4\\Delta_o = -4.8P$ and three pairs, so $E_{\\text{LS}} = -4.8P + 3P = -1.8P$. The difference is $E_{\\text{LS}} - E_{\\text{HS}} = -2.0P$, so the magnitude is 2. A student who forgets the high spin pairing term gets a magnitude of 1."
+    },
+    {
+      "id": "cc_c01_048",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "For high spin $d^4$ $[\\text{Cr}(\\text{H}_2\\text{O})_6]^{2+}$ with $\\Delta_o = 13900\\ \\text{cm}^{-1}$ and pairing energy $P = 23500\\ \\text{cm}^{-1}$, what is $E_{\\text{low spin}} - E_{\\text{high spin}}$ in $\\text{cm}^{-1}$, including both CFSE and pairing energy?",
+      "options": [
+        "A) $-9600\\ \\text{cm}^{-1}$",
+        "B) $+9600\\ \\text{cm}^{-1}$",
+        "C) $+1260\\ \\text{cm}^{-1}$",
+        "D) $-22240\\ \\text{cm}^{-1}$"
+      ],
+      "answer": "B",
+      "explanation": "High spin $t_{2g}^3 e_g^1$ has CFSE $= -0.6\\Delta_o = -8340\\ \\text{cm}^{-1}$ and no electron pairs, so $E_{\\text{HS}} = -8340\\ \\text{cm}^{-1}$. Low spin $t_{2g}^4$ has CFSE $= -1.6\\Delta_o = -22240\\ \\text{cm}^{-1}$ and one pair, so $E_{\\text{LS}} = -22240 + 23500 = +1260\\ \\text{cm}^{-1}$. The difference is $1260 - (-8340) = +9600\\ \\text{cm}^{-1}$, so high spin is favoured. A student who forgets the high spin CFSE gets option C, reversing the subtraction gives A, and one who counts only the low spin CFSE gets D."
+    },
+    {
+      "id": "cc_c01_049",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "How many geometrical isomers does the square planar complex $[\\text{Pt}(\\text{NH}_3)(\\text{py})\\text{ClBr}]$ have, where py is pyridine and all four ligands are different? Report the answer as a single digit.",
+      "options": [],
+      "answer": "3",
+      "explanation": "A square planar complex with four different monodentate ligands can be arranged in $\\frac{(4-1)!}{2} = 3$ distinct ways, since rotations and reflections of the square do not create new isomers. The three forms correspond to the three ways of pairing the four ligands into two trans pairs. A student who counts all $3! = 6$ orderings without removing the mirror-equivalent forms gets 6."
+    },
+    {
+      "id": "cc_c01_050",
+      "subject": "Chemistry",
+      "topic": "Coordination Compounds",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Which complex has an EAN of 36 and is also paramagnetic? Use $Z(\\text{Co}) = 27$, $Z(\\text{Fe}) = 26$ and $Z(\\text{Ni}) = 28$.",
+      "options": [
+        "A) $[\\text{Co}(\\text{NH}_3)_6]^{3+}$",
+        "B) $[\\text{Fe}(\\text{CO})_5]$",
+        "C) $[\\text{CoF}_6]^{3-}$",
+        "D) $[\\text{Ni}(\\text{NH}_3)_6]^{2+}$"
+      ],
+      "answer": "C",
+      "explanation": "The EAN of $[\\text{Co}(\\text{NH}_3)_6]^{3+}$ is $27 - 3 + 12 = 36$, but low spin $d^6$ is diamagnetic, so A is false. $[\\text{Fe}(\\text{CO})_5]$ has EAN $26 + 10 = 36$ and is diamagnetic, so B is false. $[\\text{CoF}_6]^{3-}$ has EAN $27 - 3 + 12 = 36$ and is high spin $d^6$ with 4 unpaired electrons, so it is paramagnetic and C is correct. $[\\text{Ni}(\\text{NH}_3)_6]^{2+}$ is paramagnetic but has EAN $28 - 2 + 12 = 38$, so D is false. A student who ignores the magnetic test chooses A or B."
+    }
+  ]
+}

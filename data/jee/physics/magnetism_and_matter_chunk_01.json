@@ -1,0 +1,799 @@
+{
+  "questions": [
+    {
+      "id": "mam_c01_001",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A uniform thin bar magnet of magnetic dipole moment $M$, mass $m$, and length $L$ oscillates in a horizontal plane in a uniform magnetic field $B$ with a time period $T_0 = 4.0\\text{ s}$. The magnet is cut along its length into two identical halves, and one of these halves is then cut perpendicular to its length into two equal halves. One of the resulting quarter pieces is placed in the same magnetic field $B$. What is its new period of horizontal oscillation $T$?",
+      "options": [
+        "A) $2.0\\text{ s}$",
+        "B) $4.0\\text{ s}$",
+        "C) $1.0\\text{ s}$",
+        "D) $8.0\\text{ s}$"
+      ],
+      "answer": "A",
+      "explanation": "For the original magnet, the moment of inertia about the central transverse axis is $I_0 = \\frac{1}{12} m L^2$, and the oscillation period is $T_0 = 2\\pi\\sqrt{\\frac{I_0}{M B}} = 4.0\\text{ s}$. Cutting along the length into two equal halves halves the mass to $m/2$, keeps the length $L$, and halves the pole strength, giving magnetic moment $M/2$. Cutting this piece perpendicularly into two equal halves gives a final piece of mass $m' = \\frac{m}{4}$, length $L' = \\frac{L}{2}$, and magnetic moment $M' = \\frac{M}{4}$. The new moment of inertia is $I' = \\frac{1}{12} m' (L')^2 = \\frac{1}{12} \\left(\\frac{m}{4}\\right) \\left(\\frac{L}{2}\\right)^2 = \\frac{I_0}{16}$. Therefore, the new period is $T = 2\\pi\\sqrt{\\frac{I'}{M' B}} = 2\\pi\\sqrt{\\frac{I_0 / 16}{(M/4) B}} = 2\\pi\\sqrt{\\frac{I_0}{4 M B}} = \\frac{T_0}{2} = 2.0\\text{ s}$. Assuming the period remains unchanged overlooks the scaling of the moment of inertia with the square of the length. Halving both mass and length without squaring length leads to an erroneous factor of four reduction giving $1.0\\text{ s}$, while inverting the ratio yields $8.0\\text{ s}$."
+    },
+    {
+      "id": "mam_c01_002",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A dip circle is placed successively in two mutually perpendicular vertical planes, neither of which coincides with the magnetic meridian. The observed apparent dip angles in these two planes are $\\theta_1 = 45^\\circ$ and $\\theta_2 = 60^\\circ$, respectively. What is the true angle of dip $\\theta$ at this location?",
+      "options": [
+        "A) $\\tan^{-1}\\left(\\frac{2}{\\sqrt{3}}\\right)$",
+        "B) $\\cot^{-1}\\left(\\frac{2}{\\sqrt{3}}\\right)$",
+        "C) $\\tan^{-1}\\left(\\frac{4}{3}\\right)$",
+        "D) $\\cot^{-1}\\left(\\frac{4}{3}\\right)$"
+      ],
+      "answer": "B",
+      "explanation": "Let the first vertical plane make an angle $\\alpha$ with the magnetic meridian; the second perpendicular plane then makes an angle $90^\\circ - \\alpha$. The apparent dips satisfy $\\tan\\theta_1 = \\frac{\\tan\\theta}{\\cos\\alpha}$ and $\\tan\\theta_2 = \\frac{\\tan\\theta}{\\sin\\alpha}$, which yields $\\cot\\theta_1 = \\cot\\theta\\cos\\alpha$ and $\\cot\\theta_2 = \\cot\\theta\\sin\\alpha$. Squaring and adding gives the fundamental relation $\\cot^2\\theta = \\cot^2\\theta_1 + \\cot^2\\theta_2$. Substituting the measured values $\\cot 45^\\circ = 1$ and $\\cot 60^\\circ = \\frac{1}{\\sqrt{3}}$, we get $\\cot^2\\theta = 1^2 + \\left(\\frac{1}{\\sqrt{3}}\\right)^2 = 1 + \\frac{1}{3} = \\frac{4}{3}$. Taking the square root gives $\\cot\\theta = \\frac{2}{\\sqrt{3}}$, hence $\\theta = \\cot^{-1}\\left(\\frac{2}{\\sqrt{3}}\\right)$. Confusing cotangent with tangent in the final step yields $\\tan^{-1}(2/\\sqrt{3})$, whereas omitting the square root leads to expressions involving $4/3$."
+    },
+    {
+      "id": "mam_c01_003",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A short bar magnet of magnetic dipole moment $M = 0.8\\text{ J/T}$ is aligned initially parallel to a uniform horizontal magnetic field of magnitude $B = 0.5\\text{ T}$. How much mechanical work must be done by an external agent against the magnetic torque to slowly rotate the magnet from its initial stable equilibrium orientation to an angle $\\theta = 120^\\circ$ with the field direction?",
+      "options": [
+        "A) $0.2\\text{ J}$",
+        "B) $0.4\\text{ J}$",
+        "C) $0.6\\text{ J}$",
+        "D) $0.8\\text{ J}$"
+      ],
+      "answer": "C",
+      "explanation": "The potential energy of a magnetic dipole in an external field is $U(\\theta) = -M B \\cos\\theta$. In the initial stable equilibrium orientation, $\\theta_i = 0^\\circ$, giving $U_i = -M B \\cos 0^\\circ = -M B$. At the rotated orientation $\\theta_f = 120^\\circ$, the potential energy is $U_f = -M B \\cos 120^\\circ = -M B (-1/2) = +0.5 M B$. The work done by the external agent is the increase in potential energy: $W = U_f - U_i = 0.5 M B - (-M B) = 1.5 M B$. Substituting the given values $M = 0.8\\text{ J/T}$ and $B = 0.5\\text{ T}$, we have $M B = 0.8 \\times 0.5 = 0.4\\text{ J}$, so $W = 1.5 \\times 0.4\\text{ J} = 0.6\\text{ J}$. Evaluating $M B (1 - \\cos 60^\\circ)$ incorrectly yields $0.2\\text{ J}$, while simply computing $M B$ gives $0.4\\text{ J}$, and computing $2 M B$ for complete reversal gives $0.8\\text{ J}$."
+    },
+    {
+      "id": "mam_c01_004",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two thin bar magnets of identical mass, length, and moment of inertia are placed one on top of the other. When like poles are placed together, the combination oscillates in a horizontal magnetic field with a period $T_1 = 3\\text{ s}$. When one magnet is reversed so that unlike poles are together, the period of oscillation becomes $T_2 = 5\\text{ s}$. What is the ratio of their magnetic dipole moments $M_1/M_2$ (with $M_1 > M_2$)?",
+      "options": [
+        "A) $\\frac{5}{3}$",
+        "B) $\\frac{25}{9}$",
+        "C) $\\frac{8}{17}$",
+        "D) $\\frac{17}{8}$"
+      ],
+      "answer": "D",
+      "explanation": "The total moment of inertia in both configurations is $I_{net} = I_1 + I_2 = 2I$. In the sum position (like poles together), the net magnetic moment is $M_{net} = M_1 + M_2$, and the period is $T_1 = 2\\pi\\sqrt{\\frac{2I}{(M_1 + M_2)B}}$. In the difference position (unlike poles together), the net magnetic moment is $M_1 - M_2$, and the period is $T_2 = 2\\pi\\sqrt{\\frac{2I}{(M_1 - M_2)B}}$. Taking the ratio of squares gives $\\frac{T_1^2}{T_2^2} = \\frac{M_1 - M_2}{M_1 + M_2} = \\frac{9}{25}$. Applying componendo and dividendo yields $\\frac{(M_1 + M_2) + (M_1 - M_2)}{(M_1 + M_2) - (M_1 - M_2)} = \\frac{25 + 9}{25 - 9} \\implies \\frac{2M_1}{2M_2} = \\frac{34}{16} = \\frac{17}{8}$. Taking the direct ratio of periods $T_2/T_1$ produces $5/3$, using the direct square ratio gives $25/9$, and inverting the numerator and denominator produces $8/17$."
+    },
+    {
+      "id": "mam_c01_005",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "At a specific geographic location, the total magnetic field of the Earth has a magnitude $B = 0.6\\text{ G}$ and the angle of dip is $\\theta = 30^\\circ$. A horizontal overhead power cable carries a direct current $I = 20\\text{ A}$ along the magnetic North-South direction. If the magnetic force per unit length exerted on the cable by Earth's magnetic field is $F/L = k \\times 10^{-4}\\text{ N/m}$, determine the integer value of $k$. (Take $1\\text{ G} = 10^{-4}\\text{ T}$).",
+      "options": [],
+      "answer": "6",
+      "explanation": "The Earth's magnetic field lies in the magnetic meridian with a horizontal component $B_H = B\\cos\\theta$ directed toward magnetic North and a vertical downward component $B_V = B\\sin\\theta$. Since the current flows horizontally along the magnetic North-South direction, the conductor vector $\\vec{L}$ is parallel to $B_H$, meaning the cross product $\\vec{L} \\times \\vec{B}_H = \\vec{0}$. Thus, only the vertical component $B_V$ exerts a magnetic Lorentz force on the wire: $F/L = I B_V = I B \\sin\\theta$. Substituting $B = 0.6 \\times 10^{-4}\\text{ T}$, $\\theta = 30^\\circ$, and $I = 20\\text{ A}$, we find $B_V = 0.6 \\times 10^{-4} \\times 0.5 = 3.0 \\times 10^{-5}\\text{ T}$. Therefore, $F/L = 20 \\times (3.0 \\times 10^{-5}) = 6.0 \\times 10^{-4}\\text{ N/m}$. Comparing with $k \\times 10^{-4}\\text{ N/m}$ yields the integer $k = 6$."
+    },
+    {
+      "id": "mam_c01_006",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A short bar magnet produces a magnetic field of magnitude $B_1 = 3.2 \\times 10^{-5}\\text{ T}$ at a point on its axial line at a distance $d_1 = 20\\text{ cm}$ from its center. What is the magnitude of the magnetic field $B_2$ produced by the same magnet at a point on its equatorial line at a distance $d_2 = 10\\text{ cm}$ from its center?",
+      "options": [
+        "A) $1.28 \\times 10^{-4}\\text{ T}$",
+        "B) $6.4 \\times 10^{-5}\\text{ T}$",
+        "C) $3.2 \\times 10^{-4}\\text{ T}$",
+        "D) $1.6 \\times 10^{-5}\\text{ T}$"
+      ],
+      "answer": "A",
+      "explanation": "For a short magnetic dipole, the axial magnetic field is given by $B_{axial} = \\frac{\\mu_0}{4\\pi} \\frac{2M}{d_1^3}$, and the equatorial magnetic field is $B_{eq} = \\frac{\\mu_0}{4\\pi} \\frac{M}{d_2^3}$. Taking their ratio yields $\\frac{B_2}{B_1} = \\frac{B_{eq}(d_2)}{B_{axial}(d_1)} = \\frac{M/d_2^3}{2M/d_1^3} = \\frac{1}{2} \\left(\\frac{d_1}{d_2}\\right)^3$. Substituting $d_1 = 20\\text{ cm}$ and $d_2 = 10\\text{ cm}$, the distance ratio is $\\frac{d_1}{d_2} = 2$, so $\\frac{B_2}{B_1} = \\frac{1}{2} (2)^3 = \\frac{8}{2} = 4$. Therefore, $B_2 = 4 B_1 = 4 \\times (3.2 \\times 10^{-5}\\text{ T}) = 1.28 \\times 10^{-4}\\text{ T}$. Doubling the field without accounting for the inverse-cube dependence gives $6.4 \\times 10^{-5}\\text{ T}$, multiplying by 8 without the factor of $1/2$ gives $3.2 \\times 10^{-4}\\text{ T}$, and simply halving the axial field without adjusting for distance yields $1.6 \\times 10^{-5}\\text{ T}$."
+    },
+    {
+      "id": "mam_c01_007",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A long solenoid having $n = 400\\text{ turns/m}$ carries a steady current of $I = 1.5\\text{ A}$. The interior of the solenoid is completely filled with an iron core of relative permeability $\\mu_r = 501$. What is the magnitude of the magnetization $M_{mag}$ induced within the iron core?",
+      "options": [
+        "A) $3.6 \\times 10^5\\text{ A/m}$",
+        "B) $3.0 \\times 10^5\\text{ A/m}$",
+        "C) $6.0 \\times 10^2\\text{ A/m}$",
+        "D) $1.5 \\times 10^5\\text{ A/m}$"
+      ],
+      "answer": "B",
+      "explanation": "The magnetic intensity inside the solenoid is determined solely by the free current: $H = n I = 400\\text{ m}^{-1} \\times 1.5\\text{ A} = 600\\text{ A/m}$. The magnetic susceptibility $\\chi_m$ is related to relative permeability by $\\chi_m = \\mu_r - 1 = 501 - 1 = 500$. The magnetization $M_{mag}$ is the magnetic moment per unit volume, given by $M_{mag} = \\chi_m H = 500 \\times 600\\text{ A/m} = 3.0 \\times 10^5\\text{ A/m}$. Multiplying $\\mu_r$ directly by $H$ without subtracting unity gives $3.006 \\times 10^5\\text{ A/m}$, confusing magnetization with magnetic intensity $H$ yields $600\\text{ A/m}$, and neglecting the factor of two in current or turns gives $1.5 \\times 10^5\\text{ A/m}$."
+    },
+    {
+      "id": "mam_c01_008",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A short bar magnet is aligned horizontally in the magnetic meridian with its North pole pointing geographic North (magnetic North). A neutral point is detected at a distance $d = 20\\text{ cm}$ from its center on its broadside-on (equatorial) line. If the horizontal component of Earth's magnetic field is $B_H = 4.0 \\times 10^{-5}\\text{ T}$, find the magnetic dipole moment $M$ of the bar magnet. (Take $\\frac{\\mu_0}{4\\pi} = 10^{-7}\\text{ T}\\cdot\\text{m/A}$).",
+      "options": [
+        "A) $1.6\\text{ A}\\cdot\\text{m}^2$",
+        "B) $6.4\\text{ A}\\cdot\\text{m}^2$",
+        "C) $3.2\\text{ A}\\cdot\\text{m}^2$",
+        "D) $0.8\\text{ A}\\cdot\\text{m}^2$"
+      ],
+      "answer": "C",
+      "explanation": "When the North pole of the magnet points North, its magnetic dipole vector points North. On the equatorial line, the magnetic field of the dipole points South, directly opposing Earth's horizontal component $B_H$. At the neutral point, the two fields cancel exactly: $B_{eq} = B_H \\implies \\frac{\\mu_0}{4\\pi} \\frac{M}{d^3} = B_H$. Rearranging for $M$ gives $M = \\frac{B_H d^3}{\\mu_0 / 4\\pi}$. Substituting $B_H = 4.0 \\times 10^{-5}\\text{ T}$, $d = 0.2\\text{ m}$, and $\\frac{\\mu_0}{4\\pi} = 10^{-7}\\text{ T}\\cdot\\text{m/A}$, we get $d^3 = (0.2)^3 = 8 \\times 10^{-3}\\text{ m}^3$, so $M = \\frac{(4.0 \\times 10^{-5}) \\times (8 \\times 10^{-3})}{10^{-7}} = \\frac{3.2 \\times 10^{-7}}{10^{-7}} = 3.2\\text{ A}\\cdot\\text{m}^2$. Applying the axial formula with a factor of 2 in the denominator erroneously halves the result to $1.6\\text{ A}\\cdot\\text{m}^2$, while multiplying by 2 instead of dividing gives $6.4\\text{ A}\\cdot\\text{m}^2$, and dividing by 4 gives $0.8\\text{ A}\\cdot\\text{m}^2$."
+    },
+    {
+      "id": "mam_c01_009",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A small magnetic needle of magnetic moment $M = 0.05\\text{ A}\\cdot\\text{m}^2$ and moment of inertia $I = 1.8 \\times 10^{-6}\\text{ kg}\\cdot\\text{m}^2$ is held deflected at an angle of $30^\\circ$ from its equilibrium position in a uniform magnetic field $B = 0.36\\text{ T}$. Determine the magnitude of the restoring torque $\\tau$ acting on the needle at this instant, and its angular frequency $\\omega_0$ for small oscillations.",
+      "options": [
+        "A) $\\tau = 1.8 \\times 10^{-2}\\text{ N}\\cdot\\text{m},\\; \\omega_0 = 100\\text{ rad/s}$",
+        "B) $\\tau = 9.0 \\times 10^{-3}\\text{ N}\\cdot\\text{m},\\; \\omega_0 = 10\\text{ rad/s}$",
+        "C) $\\tau = 1.56 \\times 10^{-2}\\text{ N}\\cdot\\text{m},\\; \\omega_0 = 100\\text{ rad/s}$",
+        "D) $\\tau = 9.0 \\times 10^{-3}\\text{ N}\\cdot\\text{m},\\; \\omega_0 = 100\\text{ rad/s}$"
+      ],
+      "answer": "D",
+      "explanation": "The restoring torque on a magnetic needle is given by $\\tau = M B \\sin\\theta$. At $\\theta = 30^\\circ$, $\\tau = 0.05 \\times 0.36 \\times \\sin 30^\\circ = 0.018 \\times 0.5 = 9.0 \\times 10^{-3}\\text{ N}\\cdot\\text{m}$. For small angular displacements, the equation of motion is $I \\frac{d^2\\theta}{dt^2} + M B \\theta = 0$, giving an angular frequency $\\omega_0 = \\sqrt{\\frac{M B}{I}}$. Substituting the values: $\\omega_0 = \\sqrt{\\frac{0.05 \\times 0.36}{1.8 \\times 10^{-6}}} = \\sqrt{\\frac{0.018}{1.8 \\times 10^{-6}}} = \\sqrt{10^4} = 100\\text{ rad/s}$. Forgetting the $\\sin 30^\\circ$ factor yields $\\tau = 1.8 \\times 10^{-2}\\text{ N}\\cdot\\text{m}$, taking $\\cos 30^\\circ$ gives $1.56 \\times 10^{-2}\\text{ N}\\cdot\\text{m}$, and taking the square root of $100$ instead of $10^4$ gives $\\omega_0 = 10\\text{ rad/s}$."
+    },
+    {
+      "id": "mam_c01_010",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In the Bohr model of the hydrogen atom, an electron of charge $e$ and mass $m_e$ orbits the nucleus in a circular path. In the ground state ($n = 1$), its orbital magnetic dipole moment is $\\mu_1 = \\mu_B$, where $\\mu_B$ is the Bohr magneton. When the electron is excited to the principal quantum state $n = 4$, its orbital magnetic dipole moment becomes $\\mu_4 = k \\mu_B$. Determine the integer value of $k$.",
+      "options": [],
+      "answer": "4",
+      "explanation": "The orbital magnetic dipole moment of a revolving electron is proportional to its orbital angular momentum: $\\mu_L = \\frac{e}{2m_e} L$. According to Bohr's quantization postulate, the orbital angular momentum in the $n$-th principal quantum level is $L_n = n \\frac{h}{2\\pi} = n \\hbar$. Substituting this into the magnetic moment gives $\\mu_n = \\frac{e}{2m_e} (n \\hbar) = n \\left(\\frac{e\\hbar}{2m_e}\\right) = n \\mu_B$. Thus, the orbital magnetic dipole moment scales strictly linearly with the principal quantum number $n$. For $n = 4$, we obtain $\\mu_4 = 4 \\mu_B$, which implies that the integer value of $k$ is 4."
+    },
+    {
+      "id": "mam_c01_011",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A paramagnetic salt specimen placed in an external magnetic field $B_1 = 0.5\\text{ T}$ at an absolute temperature $T_1 = 300\\text{ K}$ exhibits a magnetization $M_1$. The absolute temperature of the specimen is subsequently lowered to $T_2 = 120\\text{ K}$ while the applied magnetic field is simultaneously doubled to $B_2 = 1.0\\text{ T}$. Assuming the material obeys Curie's law, what is the ratio of the new magnetization to the initial magnetization, $M_2/M_1$?",
+      "options": [
+        "A) $5.0$",
+        "B) $2.5$",
+        "C) $0.4$",
+        "D) $1.25$"
+      ],
+      "answer": "A",
+      "explanation": "According to Curie's law, the magnetic susceptibility of a paramagnetic substance is inversely proportional to absolute temperature: $\\chi_m = \\frac{C}{T}$. The magnetization is related to the magnetic field by $M = \\chi_m H = \\frac{\\chi_m B}{\\mu_0} = \\frac{C B}{\\mu_0 T}$. Therefore, magnetization scales as $M \\propto \\frac{B}{T}$. The ratio of the final magnetization to the initial magnetization is $\\frac{M_2}{M_1} = \\left(\\frac{B_2}{B_1}\\right) \\times \\left(\\frac{T_1}{T_2}\\right)$. Substituting the given values $B_2/B_1 = \\frac{1.0}{0.5} = 2$ and $T_1/T_2 = \\frac{300}{120} = 2.5$, we get $\\frac{M_2}{M_1} = 2 \\times 2.5 = 5.0$. Accounting only for the temperature reduction while ignoring field doubling gives $2.5$, inverting the temperature dependence yields $0.4$, and dividing the ratios instead of multiplying gives $1.25$."
+    },
+    {
+      "id": "mam_c01_012",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A tangent galvanometer has a flat circular coil of radius $R = 10\\text{ cm}$ wound with $N = 20\\text{ turns}$ of wire, positioned vertically in the magnetic meridian. When a direct current $I$ passes through the coil, a compass needle at the center of the coil deflects by an angle $\\theta = 45^\\circ$. If the horizontal component of Earth's magnetic field is $B_H = 4\\pi \\times 10^{-5}\\text{ T}$, calculate the current $I$. (Take $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T}\\cdot\\text{m/A}$).",
+      "options": [
+        "A) $0.5\\text{ A}$",
+        "B) $1.0\\text{ A}$",
+        "C) $2.0\\text{ A}$",
+        "D) $0.25\\text{ A}$"
+      ],
+      "answer": "B",
+      "explanation": "Because the coil lies in the magnetic meridian, the magnetic field $B_c$ produced at its center by the current is directed perpendicular to the magnetic meridian (East-West). By the tangent law, the equilibrium deflection of the compass needle satisfies $B_c = B_H \\tan\\theta$. At $\\theta = 45^\\circ$, $\\tan 45^\\circ = 1$, which gives $B_c = B_H$. The magnetic field at the center of a circular coil is $B_c = \\frac{\\mu_0 N I}{2R}$. Equating this to $B_H$ and solving for $I$: $I = \\frac{2 R B_H}{\\mu_0 N}$. Substituting the given parameters: $I = \\frac{2 \\times 0.10 \\times (4\\pi \\times 10^{-5})}{(4\\pi \\times 10^{-7}) \\times 20} = \\frac{0.20 \\times 10^2}{20} = \\frac{20}{20} = 1.0\\text{ A}$. Forgetting the factor of 2 in the circular coil field formula gives $0.5\\text{ A}$, doubling the current gives $2.0\\text{ A}$, and squaring the radius produces $0.25\\text{ A}$."
+    },
+    {
+      "id": "mam_c01_013",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A short magnetic dipole of dipole moment $M = 2.5\\text{ A}\\cdot\\text{m}^2$ is situated at the origin with its dipole axis aligned along the $z$-axis. What is the magnetic scalar potential $V_m$ at a point $P$ located at a distance $r = 0.5\\text{ m}$ from the origin along a line that makes an angle $\\theta = 60^\\circ$ with the positive $z$-axis? (Take $\\frac{\\mu_0}{4\\pi} = 10^{-7}\\text{ T}\\cdot\\text{m/A}$).",
+      "options": [
+        "A) $2.5 \\times 10^{-7}\\text{ T}\\cdot\\text{m}$",
+        "B) $1.0 \\times 10^{-6}\\text{ T}\\cdot\\text{m}$",
+        "C) $5.0 \\times 10^{-7}\\text{ T}\\cdot\\text{m}$",
+        "D) $8.66 \\times 10^{-7}\\text{ T}\\cdot\\text{m}$"
+      ],
+      "answer": "C",
+      "explanation": "The magnetic scalar potential $V_m$ due to a short magnetic dipole at distance $r$ and polar angle $\\theta$ from the dipole axis is given by $V_m = \\frac{\\mu_0}{4\\pi} \\frac{M \\cos\\theta}{r^2}$. Substituting the given parameters $M = 2.5\\text{ A}\\cdot\\text{m}^2$, $\\theta = 60^\\circ$, $r = 0.5\\text{ m}$, and $\\frac{\\mu_0}{4\\pi} = 10^{-7}\\text{ T}\\cdot\\text{m/A}$, we have $\\cos 60^\\circ = 0.5$ and $r^2 = (0.5)^2 = 0.25\\text{ m}^2$. Thus, $V_m = 10^{-7} \\times \\frac{2.5 \\times 0.5}{0.25} = 10^{-7} \\times \\frac{1.25}{0.25} = 5.0 \\times 10^{-7}\\text{ T}\\cdot\\text{m}$. Forgetting the factor of $0.5$ from $\\cos 60^\\circ$ gives $1.0 \\times 10^{-6}\\text{ T}\\cdot\\text{m}$, squaring the cosine factor yields $2.5 \\times 10^{-7}\\text{ T}\\cdot\\text{m}$, and replacing $\\cos 60^\\circ$ with $\\sin 60^\\circ$ leads to $8.66 \\times 10^{-7}\\text{ T}\\cdot\\text{m}$."
+    },
+    {
+      "id": "mam_c01_014",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two identical short bar magnets, each having magnetic dipole moment $M$, are arranged coaxially along a horizontal line separated by a center-to-center distance $r$ ($r$ being much greater than their lengths). The mutual interaction force between them is $F$. If the separation between the centers of the magnets is increased to $2r$, the new mutual interaction force $F'$ between them becomes:",
+      "options": [
+        "A) $\\frac{F}{4}$",
+        "B) $\\frac{F}{8}$",
+        "C) $\\frac{F}{2}$",
+        "D) $\\frac{F}{16}$"
+      ],
+      "answer": "D",
+      "explanation": "The axial magnetic field produced by the first dipole at the location of the second dipole is $B(r) = \\frac{\\mu_0}{4\\pi} \\frac{2M}{r^3}$. The magnetic interaction force exerted on the second dipole is $F = \\left| M \\frac{dB}{dr} \\right| = M \\left| \\frac{d}{dr}\\left(\\frac{\\mu_0}{4\\pi} \\frac{2M}{r^3}\\right) \\right| = \\frac{\\mu_0}{4\\pi} \\frac{6M^2}{r^4}$. This establishes that the interaction force between two small dipoles follows an inverse fourth-power distance dependence: $F \\propto \\frac{1}{r^4}$. When the distance is doubled from $r$ to $2r$, the new force is $F' = \\frac{F}{2^4} = \\frac{F}{16}$. Assuming an inverse-square law like Coulomb's law produces $F/4$, assuming an inverse-cube law like the field itself gives $F/8$, and assuming a simple linear scaling yields $F/2$."
+    },
+    {
+      "id": "mam_c01_015",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A spherical planet of radius $R = 5.0 \\times 10^6\\text{ m}$ possesses a magnetic field modeled as being generated by a single magnetic dipole of moment $M = 1.0 \\times 10^{23}\\text{ A}\\cdot\\text{m}^2$ situated at the center of the planet. At a point on the magnetic equator of this planet, the horizontal component of the magnetic field is $B_H = k \\times 10^{-5}\\text{ T}$. Determine the integer value of $k$. (Take $\\frac{\\mu_0}{4\\pi} = 10^{-7}\\text{ T}\\cdot\\text{m/A}$).",
+      "options": [],
+      "answer": "8",
+      "explanation": "At the magnetic equator of a dipolar planetary body, the magnetic dipole axis is perpendicular to the radial vector pointing to the surface point. Consequently, the magnetic field is purely horizontal (the angle of dip is zero), so $B_H = B_{eq}$. The equatorial magnetic field of a dipole at distance $R$ is $B_{eq} = \\frac{\\mu_0}{4\\pi} \\frac{M}{R^3}$. Substituting the values $M = 1.0 \\times 10^{23}\\text{ A}\\cdot\\text{m}^2$, $R = 5.0 \\times 10^6\\text{ m}$, and $\\frac{\\mu_0}{4\\pi} = 10^{-7}\\text{ T}\\cdot\\text{m/A}$, we compute $R^3 = (5.0 \\times 10^6)^3 = 125 \\times 10^{18}\\text{ m}^3 = 1.25 \\times 10^{20}\\text{ m}^3$. Therefore, $B_H = 10^{-7} \\times \\frac{1.0 \\times 10^{23}}{1.25 \\times 10^{20}} = 10^{-7} \\times 800 = 8.0 \\times 10^{-5}\\text{ T}$. Matching this with $k \\times 10^{-5}\\text{ T}$ gives $k = 8$."
+    },
+    {
+      "id": "mam_c01_016",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "At a distance $r$ from the center of a short magnetic dipole of magnetic moment $M$, the magnetic field vector $\\vec{B}$ makes an angle $\\alpha = 30^\\circ$ with the position vector $\\vec{r}$ of the observation point. What is the angle $\\theta$ that the position vector $\\vec{r}$ makes with the magnetic dipole axis?",
+      "options": [
+        "A) $\\tan^{-1}\\left(\\frac{2}{\\sqrt{3}}\\right)$",
+        "B) $\\tan^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right)$",
+        "C) $\\tan^{-1}\\left(\\frac{1}{2\\sqrt{3}}\\right)$",
+        "D) $\\tan^{-1}(\\sqrt{3})$"
+      ],
+      "answer": "A",
+      "explanation": "Resolving the magnetic field of a short dipole into its radial and transverse components yields $B_r = \\frac{\\mu_0}{4\\pi} \\frac{2M \\cos\\theta}{r^3}$ and $B_\\theta = \\frac{\\mu_0}{4\\pi} \\frac{M \\sin\\theta}{r^3}$. The angle $\\alpha$ between the total magnetic field vector $\\vec{B}$ and the radial position vector $\\vec{r}$ satisfies $\\tan\\alpha = \\frac{B_\\theta}{B_r} = \\frac{\\sin\\theta}{2\\cos\\theta} = \\frac{1}{2}\\tan\\theta$. Rearranging gives $\\tan\\theta = 2\\tan\\alpha$. Substituting $\\alpha = 30^\\circ$ where $\\tan 30^\\circ = \\frac{1}{\\sqrt{3}}$, we obtain $\\tan\\theta = 2 \\times \\frac{1}{\\sqrt{3}} = \\frac{2}{\\sqrt{3}}$, which implies $\\theta = \\tan^{-1}\\left(\\frac{2}{\\sqrt{3}}\\right)$. Inverting the factor of two in the relation gives $\\tan^{-1}(\\sqrt{3}/2)$, dividing by two gives $\\tan^{-1}(1/(2\\sqrt{3}))$, and omitting the component factor gives $\\tan^{-1}(\\sqrt{3})=60^\\circ$."
+    },
+    {
+      "id": "mam_c01_017",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The hysteresis loop of a ferromagnetic core of volume $V = 2.0 \\times 10^{-3}\\text{ m}^3$ has an enclosed area corresponding to an energy dissipation of $250\\text{ J/m}^3$ per cycle on a $B$-$H$ graph. The core is placed inside a coil driven by an alternating current of frequency $f = 50\\text{ Hz}$. What is the rate of heat generation (power dissipated in watts) in the core due to magnetic hysteresis?",
+      "options": [
+        "A) $50\\text{ W}$",
+        "B) $25\\text{ W}$",
+        "C) $12.5\\text{ W}$",
+        "D) $100\\text{ W}$"
+      ],
+      "answer": "B",
+      "explanation": "The work done per unit volume per cycle during magnetic cycling equals the area enclosed by the $B$-$H$ hysteresis loop: $w = \\oint B\\,dH = 250\\text{ J/m}^3$. In a specimen of total volume $V = 2.0 \\times 10^{-3}\\text{ m}^3$, the energy lost per cycle is $\\Delta E = w \\times V = 250\\text{ J/m}^3 \\times (2.0 \\times 10^{-3}\\text{ m}^3) = 0.50\\text{ J}$. Because the AC field completes $f = 50\\text{ cycles/s}$, the rate of heat generation is $P = f \\times \\Delta E = 50\\text{ s}^{-1} \\times 0.50\\text{ J} = 25\\text{ W}$. Forgetting the volume factor and multiplying area directly by frequency yields an unphysical value, dividing by two incorrectly gives $12.5\\text{ W}$, and doubling the cycle frequency gives $100\\text{ W}$, while taking $V = 10^{-3}\\text{ m}^3$ gives $50\\text{ W}$."
+    },
+    {
+      "id": "mam_c01_018",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A ferromagnetic material exhibits a ferromagnetic-to-paramagnetic phase transition at a Curie temperature $T_c = 400\\text{ K}$. At an absolute temperature $T_1 = 450\\text{ K}$ in the paramagnetic regime, its magnetic susceptibility is measured to be $\\chi_1 = 1.2 \\times 10^{-2}$. At what absolute temperature $T_2$ will its magnetic susceptibility decrease to $\\chi_2 = 4.0 \\times 10^{-3}$?",
+      "options": [
+        "A) $750\\text{ K}$",
+        "B) $500\\text{ K}$",
+        "C) $550\\text{ K}$",
+        "D) $600\\text{ K}$"
+      ],
+      "answer": "C",
+      "explanation": "Above the Curie temperature ($T > T_c$), the magnetic susceptibility of a ferromagnetic substance follows the Curie-Weiss law: $\\chi_m = \\frac{C}{T - T_c}$, where $C$ is the Curie-Weiss constant. At temperature $T_1 = 450\\text{ K}$, the temperature difference is $T_1 - T_c = 450 - 400 = 50\\text{ K}$. Thus, the constant is $C = \\chi_1 (T_1 - T_c) = (1.2 \\times 10^{-2}) \\times 50\\text{ K} = 0.60\\text{ K}$. To achieve a reduced susceptibility $\\chi_2 = 4.0 \\times 10^{-3}$, we solve for $T_2 - T_c$: $T_2 - T_c = \\frac{C}{\\chi_2} = \\frac{0.60}{4.0 \\times 10^{-3}} = 150\\text{ K}$. Therefore, $T_2 = T_c + 150\\text{ K} = 400 + 150 = 550\\text{ K}$. Applying Curie's law directly without the Curie temperature shift $T_c$ produces $T_2 = T_1 \\frac{\\chi_1}{\\chi_2} = 450 \\times 3 = 1350\\text{ K}$, while taking $T_1 - T_c = 100\\text{ K}$ gives $500\\text{ K}$, and miscalculating the ratio leads to $600\\text{ K}$ or $750\\text{ K}$."
+    },
+    {
+      "id": "mam_c01_019",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A short bar magnet of dipole moment $M$ is aligned horizontally in the magnetic meridian with its North pole pointing magnetic South. In this orientation, neutral points are formed on its axial line at a distance $d$ from its center. If the magnet is rotated by $180^\\circ$ so that its North pole points magnetic North, at what distance $d'$ from its center on its broadside-on (equatorial) line will the new neutral points be formed?",
+      "options": [
+        "A) $2^{1/3} d$",
+        "B) $\\frac{d}{2}$",
+        "C) $d$",
+        "D) $\\frac{d}{2^{1/3}}$"
+      ],
+      "answer": "D",
+      "explanation": "When the North pole points South, the magnetic dipole vector $\\vec{M}$ points South. On the axial line, the dipole's field is parallel to $\\vec{M}$ (directed South), directly opposing Earth's horizontal field $B_H$ (directed North). The condition for a neutral point at distance $d$ is $B_{axial} = B_H \\implies \\frac{\\mu_0}{4\\pi} \\frac{2M}{d^3} = B_H$. When the North pole is turned to point North, $\\vec{M}$ points North. On the equatorial line, the dipole's field points antiparallel to $\\vec{M}$ (directed South), opposing $B_H$. The condition for an equatorial neutral point at distance $d'$ is $B_{eq} = B_H \\implies \\frac{\\mu_0}{4\\pi} \\frac{M}{(d')^3} = B_H$. Equating the two expressions for $B_H$: $\\frac{2M}{d^3} = \\frac{M}{(d')^3} \\implies (d')^3 = \\frac{d^3}{2} \\implies d' = \\frac{d}{2^{1/3}}$. Inverting the ratio produces $2^{1/3} d$, assuming a linear distance dependence produces $d/2$, and ignoring the axial factor of two produces $d$."
+    },
+    {
+      "id": "mam_c01_020",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A cylindrical rod made of a paramagnetic material with relative magnetic permeability $\\mu_r = 1.05$ is placed coaxially inside a long current-carrying solenoid that produces a uniform magnetizing field of intensity $H_0 = 1000\\text{ A/m}$. If the magnitude of the magnetization induced in the rod is $M_{mag} = k \\times 10\\text{ A/m}$, determine the integer value of $k$.",
+      "options": [],
+      "answer": "5",
+      "explanation": "The magnetic susceptibility $\\chi_m$ of a medium is defined through its relative permeability by the fundamental relation $\\mu_r = 1 + \\chi_m$. For the paramagnetic rod, $\\chi_m = \\mu_r - 1 = 1.05 - 1 = 0.05$. In the interior of a long solenoid, the magnetizing field intensity $H$ is determined by the solenoid windings and equals $H_0 = 1000\\text{ A/m}$. The resulting intensity of magnetization is $M_{mag} = \\chi_m H_0 = 0.05 \\times 1000\\text{ A/m} = 50\\text{ A/m}$. Expressing this as $k \\times 10\\text{ A/m}$, we find $k = 5$."
+    },
+    {
+      "id": "mam_c01_021",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two identical thin bar magnets, each of mass $m$, length $L$, and magnetic dipole moment $M$, are fastened rigidly at their centers such that their magnetic axes are perpendicular ($90^\\circ$) to each other. The cross combination is suspended horizontally in a uniform magnetic field $B$ by a light torsionless thread. If the oscillation period of a single magnet about its center in the same field is $T_0$, what is the oscillation period $T$ of the rigid cross combination?",
+      "options": [
+        "A) $2^{1/4} T_0$",
+        "B) $\\sqrt{2} T_0$",
+        "C) $\\frac{T_0}{2^{1/4}}$",
+        "D) $2 T_0$"
+      ],
+      "answer": "A",
+      "explanation": "For a single magnet of moment of inertia $I$, the oscillation period is $T_0 = 2\\pi\\sqrt{\\frac{I}{M B}}$. For the rigid perpendicular combination: (1) Moments of inertia are scalar and add directly about the common rotation axis: $I_{net} = I + I = 2I$. (2) Magnetic moments are vectors; being mutually perpendicular, their vector resultant has magnitude $M_{net} = \\sqrt{M^2 + M^2} = \\sqrt{2} M$. (3) The oscillation period of the combination is $T = 2\\pi\\sqrt{\\frac{I_{net}}{M_{net} B}} = 2\\pi\\sqrt{\\frac{2I}{\\sqrt{2} M B}} = 2\\pi\\sqrt{\\frac{\\sqrt{2} I}{M B}} = (\\sqrt{2})^{1/2} T_0 = 2^{1/4} T_0$. Assuming scalar addition of magnetic moments gives $M_{net} = 2M$ and period $T_0$, taking $M_{net} = M$ gives $\\sqrt{2} T_0$, inverting the ratio gives $T_0 / 2^{1/4}$, and doubling the period gives $2 T_0$."
+    },
+    {
+      "id": "mam_c01_022",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A dip circle is rotated through an angle $\\alpha = 60^\\circ$ away from the magnetic meridian into a new vertical plane. In this rotated plane, the dip needle settles at an apparent dip angle $\\theta' = 60^\\circ$ relative to the horizontal. What is the true angle of dip $\\theta$ at this location on the Earth's surface?",
+      "options": [
+        "A) $\\tan^{-1}(2\\sqrt{3})$",
+        "B) $\\tan^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right)$",
+        "C) $30^\\circ$",
+        "D) $45^\\circ$"
+      ],
+      "answer": "B",
+      "explanation": "In a vertical plane inclined at an angle $\\alpha$ to the magnetic meridian, the vertical component of Earth's magnetic field remains unaltered ($B_V' = B_V = B\\sin\\theta$), while the horizontal component effective in that plane is reduced to $B_H' = B_H \\cos\\alpha = B\\cos\\theta \\cos\\alpha$. Consequently, the apparent dip $\\theta'$ is related to the true dip $\\theta$ by $\\tan\\theta' = \\frac{B_V'}{B_H'} = \\frac{\\tan\\theta}{\\cos\\alpha}$. Solving for the true dip gives $\\tan\\theta = \\tan\\theta' \\cos\\alpha$. Substituting $\\theta' = 60^\\circ$ (where $\\tan 60^\\circ = \\sqrt{3}$) and $\\alpha = 60^\\circ$ (where $\\cos 60^\\circ = 0.5$), we find $\\tan\\theta = \\sqrt{3} \\times 0.5 = \\frac{\\sqrt{3}}{2}$, which implies $\\theta = \\tan^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right)$. Dividing by $\\cos\\alpha$ instead of multiplying yields $\\tan^{-1}(2\\sqrt{3})$, whereas setting $\\theta = 60^\\circ - 30^\\circ$ or $45^\\circ$ represents unjustified arithmetic shortcuts."
+    },
+    {
+      "id": "mam_c01_023",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A small magnetic dipole of dipole moment $M = 0.5\\text{ A}\\cdot\\text{m}^2$ is oriented along the $x$-axis in a region containing a non-uniform magnetic field $\\vec{B}(x) = (\\alpha x^2)\\hat{i}$, where $\\alpha = 0.4\\text{ T/m}^2$. What is the magnitude of the magnetic translational force exerted on the dipole at the coordinate position $x = 5.0\\text{ m}$?",
+      "options": [
+        "A) $4.0\\text{ N}$",
+        "B) $1.0\\text{ N}$",
+        "C) $2.0\\text{ N}$",
+        "D) $10.0\\text{ N}$"
+      ],
+      "answer": "C",
+      "explanation": "The potential energy of a dipole aligned with the magnetic field is $U(x) = -\\vec{M}\\cdot\\vec{B}(x) = -M B(x)$. The translational force acting on the dipole is given by $F_x = -\\frac{\\partial U}{\\partial x} = M \\frac{dB}{dx}$. Differentiating the magnetic field with respect to position gives $\\frac{dB}{dx} = \\frac{d}{dx}(\\alpha x^2) = 2\\alpha x$. Evaluating this gradient at $x = 5.0\\text{ m}$ with $\\alpha = 0.4\\text{ T/m}^2$: $\\frac{dB}{dx} = 2 \\times 0.4 \\times 5.0 = 4.0\\text{ T/m}$. Therefore, the force on the dipole is $F = M \\frac{dB}{dx} = 0.5\\text{ A}\\cdot\\text{m}^2 \\times 4.0\\text{ T/m} = 2.0\\text{ N}$. Forgetting the factor of 2 when taking the derivative gives $1.0\\text{ N}$, multiplying field gradient directly by 1 gives $4.0\\text{ N}$, and evaluating $M \\times B(x)$ directly instead of the derivative yields $0.5 \\times (0.4 \\times 25) = 5.0\\text{ N}$ or $10.0\\text{ N}$."
+    },
+    {
+      "id": "mam_c01_024",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two short bar magnets $A$ and $B$, of magnetic dipole moments $M_A$ and $M_B$, are placed coaxially on a horizontal line with a separation $d = 30\\text{ cm}$ between their centers, such that their like magnetic poles face each other. A small magnetic needle placed on the line between them experiences zero net magnetic torque and zero net field at a distance $d_A = 20\\text{ cm}$ from magnet $A$. What is the ratio of their magnetic moments $M_A/M_B$?",
+      "options": [
+        "A) $2$",
+        "B) $4$",
+        "C) $\\frac{1}{8}$",
+        "D) $8$"
+      ],
+      "answer": "D",
+      "explanation": "The needle is situated at distance $d_A = 20\\text{ cm}$ from magnet $A$ and distance $d_B = d - d_A = 30 - 20 = 10\\text{ cm}$ from magnet $B$. Because like poles face each other, the axial magnetic fields created by the two dipoles along their common axis point in opposite directions. For the net field to vanish at the location of the needle, the magnitudes of the axial fields must balance: $B_A = B_B \\implies \\frac{\\mu_0}{4\\pi} \\frac{2M_A}{d_A^3} = \\frac{\\mu_0}{4\\pi} \\frac{2M_B}{d_B^3}$. Canceling common constants gives $\\frac{M_A}{M_B} = \\left(\\frac{d_A}{d_B}\\right)^3$. Substituting $d_A = 20\\text{ cm}$ and $d_B = 10\\text{ cm}$, the ratio of distances is $\\frac{d_A}{d_B} = 2$, yielding $\\frac{M_A}{M_B} = 2^3 = 8$. Assuming a linear dependence on distance yields $2$, assuming an inverse-square Coulomb law yields $4$, and inverting the ratio produces $1/8$."
+    },
+    {
+      "id": "mam_c01_025",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A vibration magnetometer has a magnetic needle that oscillates horizontally in Earth's horizontal field $B_{H1} = 4.0 \\times 10^{-5}\\text{ T}$ with a period of $T = 2\\text{ s}$. An external Helmholtz coil is now activated to produce an additional uniform horizontal magnetic field $B_{add}$ in the same direction as $B_{H1}$, causing the oscillation period to decrease to $T' = 1\\text{ s}$. If $B_{add} = k \\times 10^{-5}\\text{ T}$, find the integer value of $k$.",
+      "options": [],
+      "answer": "12",
+      "explanation": "The oscillation period of a magnetic needle in a horizontal magnetic field is given by $T = 2\\pi\\sqrt{\\frac{I}{M B_{net}}}$, which implies that $B_{net} \\propto \\frac{1}{T^2}$. In the initial state, $B_{net1} = B_{H1}$. In the final state with aiding field, $B_{net2} = B_{H1} + B_{add}$. Taking the ratio of squared periods gives $\\frac{B_{H1} + B_{add}}{B_{H1}} = \\left(\\frac{T}{T'}\\right)^2 = \\left(\\frac{2}{1}\\right)^2 = 4$. Solving for $B_{add}$ yields $B_{H1} + B_{add} = 4 B_{H1} \\implies B_{add} = 3 B_{H1}$. Substituting $B_{H1} = 4.0 \\times 10^{-5}\\text{ T}$, we find $B_{add} = 3 \\times (4.0 \\times 10^{-5}\\text{ T}) = 12 \\times 10^{-5}\\text{ T}$. Therefore, $k = 12$."
+    },
+    {
+      "id": "mam_c01_026",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A cylindrical bar of soft iron of length $L = 20\\text{ cm}$ and uniform cross-sectional area $A = 2.5\\text{ cm}^2$ is placed inside a magnetizing solenoid. The magnetic field inside the iron bar reaches $B = 1.6\\text{ T}$ when the magnetic intensity is $H = 800\\text{ A/m}$. Assuming linear magnetic response at this operating point, what is the total magnetic energy stored within the volume of the iron bar?",
+      "options": [
+        "A) $32\\text{ mJ}$",
+        "B) $64\\text{ mJ}$",
+        "C) $16\\text{ mJ}$",
+        "D) $128\\text{ mJ}$"
+      ],
+      "answer": "A",
+      "explanation": "For a linear magnetic material, the magnetic energy density stored in the medium is given by $u = \\frac{1}{2} B H$. Substituting $B = 1.6\\text{ T}$ and $H = 800\\text{ A/m}$, the energy density is $u = \\frac{1}{2} \\times 1.6 \\times 800 = 640\\text{ J/m}^3$. The volume of the iron bar is $V = L \\times A = 0.20\\text{ m} \\times (2.5 \\times 10^{-4}\\text{ m}^2) = 5.0 \\times 10^{-5}\\text{ m}^3$. The total magnetic energy stored in the bar is $U = u \\times V = 640\\text{ J/m}^3 \\times (5.0 \\times 10^{-5}\\text{ m}^3) = 3200 \\times 10^{-5}\\text{ J} = 0.032\\text{ J} = 32\\text{ mJ}$. Omitting the factor of $1/2$ in the energy density yields $64\\text{ mJ}$, dividing by four gives $16\\text{ mJ}$, and doubling the result leads to $128\\text{ mJ}$."
+    },
+    {
+      "id": "mam_c01_027",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A thin non-conducting disc of mass $m = 0.5\\text{ kg}$ and radius $R = 0.2\\text{ m}$ carries a total charge $Q = 2.0\\text{ C}$ distributed uniformly over its flat surface. The disc rotates with a constant angular speed $\\omega = 50\\text{ rad/s}$ about its central symmetry axis perpendicular to its plane. What is the magnitude of the resulting magnetic dipole moment $M$ of the rotating disc?",
+      "options": [
+        "A) $2.0\\text{ A}\\cdot\\text{m}^2$",
+        "B) $1.0\\text{ A}\\cdot\\text{m}^2$",
+        "C) $0.5\\text{ A}\\cdot\\text{m}^2$",
+        "D) $4.0\\text{ A}\\cdot\\text{m}^2$"
+      ],
+      "answer": "B",
+      "explanation": "Consider an infinitesimal annular ring of radius $r$ and width $dr$ on the disc. Its charge is $dq = \\frac{Q}{\\pi R^2} (2\\pi r dr) = \\frac{2Q}{R^2} r dr$. The revolving charge constitutes an effective circular current $dI = \\frac{\\omega}{2\\pi} dq = \\frac{\\omega Q}{\\pi R^2} r dr$. The magnetic dipole moment of this circular loop is $dM = dI (\\pi r^2) = \\frac{\\omega Q}{R^2} r^3 dr$. Integrating from $r = 0$ to $r = R$ gives $M = \\frac{\\omega Q}{R^2} \\int_0^R r^3 dr = \\frac{\\omega Q}{R^2} \\left(\\frac{R^4}{4}\\right) = \\frac{1}{4} Q \\omega R^2$. Substituting the values $Q = 2.0\\text{ C}$, $\\omega = 50\\text{ rad/s}$, and $R = 0.2\\text{ m}$: $M = \\frac{1}{4} \\times 2.0 \\times 50 \\times (0.2)^2 = \\frac{1}{4} \\times 100 \\times 0.04 = 1.0\\text{ A}\\cdot\\text{m}^2$. Applying the formula for a rotating ring ($\\frac{1}{2}Q\\omega R^2$) gives $2.0\\text{ A}\\cdot\\text{m}^2$, dividing by eight gives $0.5\\text{ A}\\cdot\\text{m}^2$, and using $Q\\omega R^2$ gives $4.0\\text{ A}\\cdot\\text{m}^2$."
+    },
+    {
+      "id": "mam_c01_028",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A toroidal ferromagnetic ring of mean circumference $C = 0.5\\text{ m}$ is wound uniformly with $N = 500\\text{ turns}$ of insulated copper wire. The material is first brought to magnetic saturation. After the magnetizing current is turned off, a reverse current of $I_c = 1.2\\text{ A}$ must be passed through the windings to completely reduce the remanent magnetic induction inside the core to zero. What is the coercivity $H_c$ of this ferromagnetic material?",
+      "options": [
+        "A) $600\\text{ A/m}$",
+        "B) $2400\\text{ A/m}$",
+        "C) $1200\\text{ A/m}$",
+        "D) $1500\\text{ A/m}$"
+      ],
+      "answer": "C",
+      "explanation": "Coercivity $H_c$ is defined as the magnitude of the reverse magnetic intensity required to completely demagnetize the material after saturation, bringing the magnetic induction $B$ back to zero. For a toroidal winding, the magnetic intensity $H$ inside the core is given by Ampere's circuital law: $H = n I = \\frac{N}{C} I$, where $n$ is the number of turns per unit length and $C$ is the mean circumference. Substituting $N = 500$ and $C = 0.5\\text{ m}$, we have $n = \\frac{500}{0.5} = 1000\\text{ turns/m}$. Thus, the coercivity is $H_c = n I_c = 1000\\text{ m}^{-1} \\times 1.2\\text{ A} = 1200\\text{ A/m}$. Halving the turns per meter yields $600\\text{ A/m}$, doubling the current gives $2400\\text{ A/m}$, and using an incorrect radius calculation yields $1500\\text{ A/m}$."
+    },
+    {
+      "id": "mam_c01_029",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A magnetic dip needle is constrained to oscillate in a vertical plane that is inclined at an angle $\\alpha = 60^\\circ$ to the magnetic meridian. At this geographic location, the true angle of dip is $\\theta = 45^\\circ$ and the horizontal component of Earth's magnetic field is $B_H$. What is the effective magnetic field $B_{eff}$ that governs the restoring torque on the needle in this inclined vertical plane?",
+      "options": [
+        "A) $\\frac{\\sqrt{3}}{2} B_H$",
+        "B) $\\sqrt{2} B_H$",
+        "C) $\\frac{3}{2} B_H$",
+        "D) $\\frac{\\sqrt{5}}{2} B_H$"
+      ],
+      "answer": "D",
+      "explanation": "In any vertical plane inclined at an angle $\\alpha$ to the magnetic meridian: (1) The vertical component of Earth's field lies fully within the vertical plane, so $B_V' = B_V$. Since the true dip is $\\theta = 45^\\circ$, we have $B_V = B_H \\tan 45^\\circ = B_H$. (2) The horizontal component effective in the plane is the projection of $B_H$ onto that vertical plane: $B_H' = B_H \\cos\\alpha = B_H \\cos 60^\\circ = \\frac{1}{2} B_H$. (3) Because $B_V'$ and $B_H'$ are perpendicular to each other within this vertical plane, the total effective field acting on the needle is $B_{eff} = \\sqrt{(B_H')^2 + (B_V')^2} = \\sqrt{\\left(\\frac{1}{2}B_H\\right)^2 + B_H^2} = \\sqrt{\\frac{1}{4} + 1}\\, B_H = \\frac{\\sqrt{5}}{2} B_H$. Considering only the horizontal component projection yields $\\frac{\\sqrt{3}}{2} B_H$, taking the total unprojected field gives $\\sqrt{2} B_H$, and simple arithmetic addition yields $\\frac{3}{2} B_H$."
+    },
+    {
+      "id": "mam_c01_030",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A ferromagnetic core of volume $V = 1.0 \\times 10^{-3}\\text{ m}^3$ is subjected to a sinusoidal magnetizing field at a cyclic frequency $f = 50\\text{ Hz}$. The area of the resulting $B$-$H$ hysteresis loop is measured to be $320\\text{ J/m}^3$. Determine the heat energy dissipated per second (power loss in watts) in the core due to hysteresis.",
+      "options": [],
+      "answer": "16",
+      "explanation": "The area of the $B$-$H$ hysteresis loop represents the energy dissipated as thermal heat per unit volume during each complete magnetizing cycle: $w_{loop} = \\oint B\\,dH = 320\\text{ J/m}^3$. In a core of volume $V = 1.0 \\times 10^{-3}\\text{ m}^3$, the energy dissipated in one cycle is $E_{cycle} = w_{loop} \\times V = 320 \\times (1.0 \\times 10^{-3}) = 0.32\\text{ J}$. Since the magnetizing cycle repeats at frequency $f = 50\\text{ Hz}$, the total power dissipated per second is $P = f \\times E_{cycle} = 50\\text{ s}^{-1} \\times 0.32\\text{ J} = 16\\text{ W}$. Thus, the power loss is 16 watts."
+    },
+    {
+      "id": "mam_c01_031",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A straight, thin, uniformly magnetized steel wire of length $L$ has a magnetic dipole moment $M$. It is carefully bent into a planar semicircular arc of radius $R$ without altering its total magnetization or mass. What is the new magnetic dipole moment $M'$ of the semicircular bent wire?",
+      "options": [
+        "A) $\\frac{2}{\\pi} M$",
+        "B) $\\frac{M}{\\pi}$",
+        "C) $\\frac{\\pi}{2} M$",
+        "D) $M$"
+      ],
+      "answer": "A",
+      "explanation": "For the original straight wire of length $L$, the magnetic dipole moment is $M = m_{pole} L$, where $m_{pole}$ is the magnetic pole strength. When the wire is bent into a semicircle of radius $R$, the arc length equals the original wire length: $L = \\pi R \\implies R = \\frac{L}{\\pi}$. The magnetic dipole moment of any shaped magnet is determined by the vector displacement between its two free poles. For a semicircle, the straight-line distance between the two ends is the diameter: $d = 2R = \\frac{2L}{\\pi}$. Therefore, the new magnetic dipole moment is $M' = m_{pole} d = m_{pole} \\left(\\frac{2L}{\\pi}\\right) = \\frac{2}{\\pi} (m_{pole} L) = \\frac{2}{\\pi} M$. Using the radius instead of the diameter gives $M/\\pi$, inverting the geometry ratio gives $\\frac{\\pi}{2} M$, and assuming the dipole moment is invariant under bending gives $M$."
+    },
+    {
+      "id": "mam_c01_032",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A magnetic material specimen has a relative magnetic permeability $\\mu_r = 4001$. When an external magnetizing field of intensity $H = 250\\text{ A/m}$ is applied to the specimen, what are the magnetic susceptibility $\\chi_m$ and the induced intensity of magnetization $M_{mag}$ of the material?",
+      "options": [
+        "A) $\\chi_m = 4001,\\; M_{mag} = 1.0 \\times 10^6\\text{ A/m}$",
+        "B) $\\chi_m = 4000,\\; M_{mag} = 1.0 \\times 10^6\\text{ A/m}$",
+        "C) $\\chi_m = 4000,\\; M_{mag} = 2.5 \\times 10^5\\text{ A/m}$",
+        "D) $\\chi_m = 3999,\\; M_{mag} = 1.0 \\times 10^6\\text{ A/m}$"
+      ],
+      "answer": "B",
+      "explanation": "Relative magnetic permeability $\\mu_r$ and magnetic susceptibility $\\chi_m$ are related by the definition $\\mu_r = 1 + \\chi_m$. Thus, $\\chi_m = \\mu_r - 1 = 4001 - 1 = 4000$. The intensity of magnetization represents the magnetic moment per unit volume induced by the applied field: $M_{mag} = \\chi_m H$. Substituting $\\chi_m = 4000$ and $H = 250\\text{ A/m}$: $M_{mag} = 4000 \\times 250\\text{ A/m} = 1,000,000\\text{ A/m} = 1.0 \\times 10^6\\text{ A/m}$. Equating susceptibility directly to relative permeability gives $\\chi_m = 4001$, using $H$ without the susceptibility factor yields $2.5 \\times 10^5\\text{ A/m}$, and subtracting 2 instead of 1 yields $\\chi_m = 3999$."
+    },
+    {
+      "id": "mam_c01_033",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A small bar magnet of magnetic dipole moment $M = 5.0\\text{ A}\\cdot\\text{m}^2$ is suspended horizontally in Earth's horizontal magnetic field $B_H = 4.0 \\times 10^{-5}\\text{ T}$. An external agent slowly deflects the magnet through an angle $\\theta = 60^\\circ$ from the magnetic meridian and holds it in static equilibrium. What is the external torque $\\tau$ required to hold the magnet at this angle, and how much mechanical work $W$ was done by the agent during the rotation?",
+      "options": [
+        "A) $\\tau = 1.0 \\times 10^{-4}\\text{ N}\\cdot\\text{m},\\; W = 1.732 \\times 10^{-4}\\text{ J}$",
+        "B) $\\tau = 2.0 \\times 10^{-4}\\text{ N}\\cdot\\text{m},\\; W = 1.0 \\times 10^{-4}\\text{ J}$",
+        "C) $\\tau = \\sqrt{3} \\times 10^{-4}\\text{ N}\\cdot\\text{m},\\; W = 1.0 \\times 10^{-4}\\text{ J}$",
+        "D) $\\tau = \\sqrt{3} \\times 10^{-4}\\text{ N}\\cdot\\text{m},\\; W = 2.0 \\times 10^{-4}\\text{ J}$"
+      ],
+      "answer": "C",
+      "explanation": "To maintain equilibrium at angle $\\theta = 60^\\circ$, the external torque must balance the restoring magnetic torque: $\\tau = M B_H \\sin\\theta$. We compute $M B_H = 5.0\\text{ A}\\cdot\\text{m}^2 \\times (4.0 \\times 10^{-5}\\text{ T}) = 2.0 \\times 10^{-4}\\text{ J}$. Then $\\tau = (2.0 \\times 10^{-4}) \\times \\sin 60^\\circ = (2.0 \\times 10^{-4}) \\times \\frac{\\sqrt{3}}{2} = \\sqrt{3} \\times 10^{-4}\\text{ N}\\cdot\\text{m} \\approx 1.732 \\times 10^{-4}\\text{ N}\\cdot\\text{m}$. The work done by the external agent against magnetic torque equals the increase in potential energy: $W = U(60^\\circ) - U(0^\\circ) = -M B_H \\cos 60^\\circ - (-M B_H) = M B_H (1 - \\cos 60^\\circ) = (2.0 \\times 10^{-4}) \\times (1 - 0.5) = 1.0 \\times 10^{-4}\\text{ J}$. Swapping torque and work produces the distractors, taking $\\tau = M B_H$ ignores the angular factor, and taking $W = M B_H$ ignores the $(1 - \\cos\\theta)$ factor."
+    },
+    {
+      "id": "mam_c01_034",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A bar magnet oscillates horizontally in Earth's magnetic field with a time period $T_1 = 3.0\\text{ s}$. A non-magnetic brass bar having identical geometric dimensions but a mass equal to $8$ times that of the magnet is placed symmetrically directly on top of the oscillating magnet. What is the new period of oscillation $T_2$ (in seconds) of the combined system?",
+      "options": [],
+      "answer": "9",
+      "explanation": "Because the brass bar has identical geometric dimensions and mass $m_{brass} = 8 m_{magnet}$, its moment of inertia about the transverse suspension axis is $I_{brass} = 8 I_{magnet}$. The total moment of inertia of the stacked system is $I_{total} = I_{magnet} + I_{brass} = I_{magnet} + 8 I_{magnet} = 9 I_{magnet}$. Since brass is strictly non-magnetic, it contributes zero additional magnetic dipole moment: $M_{total} = M_{magnet}$. The oscillation period is $T = 2\\pi\\sqrt{\\frac{I}{M B_H}}$. Thus, the new period scales as $T_2 = T_1 \\sqrt{\\frac{I_{total}}{I_{magnet}}} = T_1 \\sqrt{9} = 3 T_1$. Given $T_1 = 3.0\\text{ s}$, we obtain $T_2 = 3 \\times 3.0\\text{ s} = 9\\text{ s}$."
+    },
+    {
+      "id": "mam_c01_035",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A short bar magnet produces a magnetic field of magnitude $B_1$ at a distance $d_1 = 10\\text{ cm}$ along its axial line. At an axial distance $d_2 = 30\\text{ cm}$ from the center of the same magnet, the magnetic field has magnitude $B_2$. Determine the integer value of the ratio $B_1 / B_2$.",
+      "options": [],
+      "answer": "27",
+      "explanation": "For a short magnetic dipole of magnetic moment $M$, the magnetic field intensity at a distance $d$ along its axial line is given by $B_{axial} = \\frac{\\mu_0}{4\\pi} \\frac{2M}{d^3}$. Because the field exhibits an inverse-cube dependence on distance ($B \\propto d^{-3}$), the ratio of the field magnitudes at the two distances is $\\frac{B_1}{B_2} = \\left(\\frac{d_2}{d_1}\\right)^3$. Substituting $d_1 = 10\\text{ cm}$ and $d_2 = 30\\text{ cm}$, the ratio is $\\frac{d_2}{d_1} = \\frac{30}{10} = 3$. Cubing this ratio yields $\\frac{B_1}{B_2} = 3^3 = 27$."
+    },
+    {
+      "id": "mam_c01_036",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "An electron of charge $-e$ and mass $m_e$ orbits a heavy nucleus in a circular path of radius $r_0$ with angular speed $\\omega_0$ in the $xy$-plane. A weak uniform external magnetic field $\\vec{B} = B\\hat{k}$ is switched on perpendicular to the orbital plane. According to Larmor's theorem, the magnetic field induces an additional precession angular velocity $\\Delta\\vec{\\omega} = \\vec{\\omega}_L = -\\frac{e\\vec{B}}{2m_e}$ without altering the orbital radius to first order in $B$. What is the induced orbital magnetic dipole moment $\\Delta\\vec{\\mu}$ of this electron orbit?",
+      "options": [
+        "A) $-\\frac{e^2 r_0^2}{4m_e} \\vec{B}$",
+        "B) $-\\frac{e^2 r_0^2}{2m_e} \\vec{B}$",
+        "C) $+\\frac{e^2 r_0^2}{4m_e} \\vec{B}$",
+        "D) $-\\frac{e r_0^2}{4m_e} \\vec{B}$"
+      ],
+      "answer": "A",
+      "explanation": "Applying Larmor's theorem, the introduction of a weak magnetic field $\\vec{B}$ modifies the orbital angular velocity by $\\Delta\\omega = \\omega_L = \\frac{e B}{2m_e}$. The change in the effective orbital electric current is $\\Delta I = -\\frac{e}{T} = -\\frac{e \\Delta\\omega}{2\\pi} = -\\frac{e}{2\\pi} \\left(\\frac{e B}{2m_e}\\right) = -\\frac{e^2 B}{4\\pi m_e}$. The area enclosed by the circular electron orbit of radius $r_0$ is $A = \\pi r_0^2$. Therefore, the induced orbital magnetic dipole moment is $\\Delta\\vec{\\mu} = \\Delta I A \\hat{k} = \\left(-\\frac{e^2 B}{4\\pi m_e}\\right) (\\pi r_0^2) \\hat{k} = -\\frac{e^2 r_0^2}{4m_e} B\\hat{k} = -\\frac{e^2 r_0^2}{4m_e} \\vec{B}$. This negative sign implies that the induced magnetic moment directly opposes the applied field $\\vec{B}$, establishing the fundamental atomic origin of diamagnetism as a manifestation of Lenz's law. Forgetting the factor of two in the Larmor frequency yields $-\\frac{e^2 r_0^2}{2m_e} \\vec{B}$, violating Lenz's law gives a positive sign, and omitting the charge dimension gives the last choice."
+    },
+    {
+      "id": "mam_c01_037",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A solid spherical specimen of a type-I superconductor of radius $R$ is cooled below its critical transition temperature $T_c$ in the presence of a weak uniform external magnetic field $\\vec{B}_0 = B_0 \\hat{k}$. Persistent macroscopic surface supercurrents are spontaneously generated to expel the magnetic field completely from the interior bulk (the Meissner effect). Which of the following statements is/are correct regarding this superconducting sphere?",
+      "options": [
+        "A) The magnetic induction inside the bulk of the superconductor is identically zero ($\\vec{B}_{in} = \\vec{0}$).",
+        "B) The magnetic susceptibility of the superconductor in SI units is $\\chi_m = -1$, signifying ideal perfect diamagnetism.",
+        "C) The magnetic field at points on the equator of the sphere (transverse to $\\vec{B}_0$) just outside the surface has magnitude equal to $B_0$.",
+        "D) The net induced magnetic dipole moment of the sphere is $\\vec{M}_{net} = -\\frac{2\\pi R^3 B_0}{\\mu_0} \\hat{k}$."
+      ],
+      "answer": "A,B,D",
+      "explanation": "By the Meissner effect, a type-I superconductor exhibits complete expulsion of magnetic flux from its interior, hence $\\vec{B}_{in} = \\vec{0}$, confirming statement A. Inside the bulk, $\\vec{B}_{in} = \\mu_0 (\\vec{H} + \\vec{M}_{mag}) = \\vec{0}$, which implies $\\vec{M}_{mag} = -\\vec{H}$; substituting this gives $\\chi_m = \\frac{M_{mag}}{H} = -1$, establishing perfect diamagnetism and confirming statement B. For a uniformly magnetized sphere in an external field $\\vec{B}_0$, the internal field is $\\vec{B}_{in} = \\vec{B}_0 + \\frac{2}{3}\\mu_0 \\vec{M}_{mag} = \\vec{0}$, which yields $\\vec{M}_{mag} = -\\frac{3}{2\\mu_0} \\vec{B}_0$. Multiplying by the spherical volume $V = \\frac{4}{3}\\pi R^3$ yields the net induced dipole moment $\\vec{M}_{net} = \\vec{M}_{mag} V = -\\frac{3}{2\\mu_0} B_0 \\hat{k} \\left(\\frac{4}{3}\\pi R^3\\right) = -\\frac{2\\pi R^3 B_0}{\\mu_0} \\hat{k}$, confirming statement D. Just outside the equator, the dipole field adds to $\\vec{B}_0$ yielding $B_{surf} = B_0 + \\frac{\\mu_0 |M_{net}|}{4\\pi R^3} = B_0 + \\frac{1}{2} B_0 = \\frac{3}{2} B_0 \\ne B_0$, so statement C is false. Therefore, statements A, B, and D are correct."
+    },
+    {
+      "id": "mam_c01_038",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In a ferromagnetic single-crystal sample, a planar $180^\\circ$ Bloch domain wall of cross-sectional area $A = 1.0 \\times 10^{-8}\\text{ m}^2$ separates two adjacent magnetic domains with saturation magnetization $M_s = 1.6 \\times 10^6\\text{ A/m}$. An external magnetic field $B_{ext} = 2.5 \\times 10^{-4}\\text{ T}$ is applied parallel to the magnetization vector of one domain. The domain wall displaces by $\\Delta x = 5.0\\text{ }\\mu\\text{m}$, expanding the favorably oriented domain at the expense of the unfavorably oriented domain. What is the total mechanical work done by the magnetic pressure on the domain wall during this displacement?",
+      "options": [
+        "A) $2.0 \\times 10^{-11}\\text{ J}$",
+        "B) $4.0 \\times 10^{-11}\\text{ J}$",
+        "C) $8.0 \\times 10^{-11}\\text{ J}$",
+        "D) $1.0 \\times 10^{-11}\\text{ J}$"
+      ],
+      "answer": "B",
+      "explanation": "When a $180^\\circ$ domain wall moves by a distance $\\Delta x$, a volume $\\Delta V = A \\Delta x$ reverses its magnetization from $-\\vec{M}_s$ to $+\\vec{M}_s$ along the external field direction $\\vec{B}_{ext}$. The change in magnetic potential energy density is $\\Delta u = -\\vec{M}_s \\cdot \\vec{B}_{ext} - (-(-\\vec{M}_s) \\cdot \\vec{B}_{ext}) = -M_s B_{ext} - (+M_s B_{ext}) = -2 M_s B_{ext}$. Applying energy conservation, the mechanical work done by the effective magnetic pressure during this displacement is $W = -\\Delta U = 2 M_s B_{ext} \\Delta V = 2 M_s B_{ext} A \\Delta x$. Substituting the given parameters: $M_s = 1.6 \\times 10^6\\text{ A/m}$, $B_{ext} = 2.5 \\times 10^{-4}\\text{ T}$, $A = 1.0 \\times 10^{-8}\\text{ m}^2$, and $\\Delta x = 5.0 \\times 10^{-6}\\text{ m}$, we compute $2 M_s B_{ext} = 2 \\times (1.6 \\times 10^6) \\times (2.5 \\times 10^{-4}) = 800\\text{ J/m}^3$. Multiplying by $\\Delta V = A \\Delta x = (1.0 \\times 10^{-8}) \\times (5.0 \\times 10^{-6}) = 5.0 \\times 10^{-14}\\text{ m}^3$ gives $W = 800 \\times (5.0 \\times 10^{-14}) = 4.0 \\times 10^{-11}\\text{ J}$. Forgetting the factor of two for $180^\\circ$ spin reversal yields $2.0 \\times 10^{-11}\\text{ J}$, doubling erroneously gives $8.0 \\times 10^{-11}\\text{ J}$, and halving yields $1.0 \\times 10^{-11}\\text{ J}$."
+    },
+    {
+      "id": "mam_c01_039",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Three unmagnetized cylindrical rods $X$, $Y$, and $Z$ are suspended freely between the pole pieces of a powerful electromagnet that produces an inhomogeneous horizontal magnetic field. When the field is switched on: rod $X$ aligns perpendicular to the field lines and is repelled toward the weaker field region; rod $Y$ aligns parallel to the field lines and is weakly attracted toward the stronger field region; rod $Z$ aligns vigorously parallel to the field lines and is strongly drawn toward the stronger field region. Which of the following statements is/are correct regarding these specimens?",
+      "options": [
+        "A) Rod $X$ is diamagnetic, with a small negative magnetic susceptibility $\\chi_m < 0$ that is virtually independent of temperature.",
+        "B) Rod $Y$ is paramagnetic, with a magnetic susceptibility that follows the Curie-Weiss law $\\chi_m \\propto \\frac{1}{T - T_c}$ with a positive non-zero Curie temperature $T_c > 0$.",
+        "C) If rod $Z$ is heated above its Curie temperature $T_c$, it undergoes a phase transition and behaves like rod $Y$ with susceptibility $\\chi_m = \\frac{C}{T - T_c}$.",
+        "D) The relative magnetic permeability of rod $X$ satisfies $\\mu_r > 1$, while that of rod $Y$ satisfies $\\mu_r < 1$."
+      ],
+      "answer": "A,C",
+      "explanation": "The observed behavior of rod $X$ confirms it is diamagnetic: diamagnetic materials develop an opposing magnetization, are repelled toward weaker field regions, and align perpendicular to field lines; their susceptibility is negative ($\\chi_m < 0$) and temperature-independent, confirming statement A. Rod $Y$ is paramagnetic: it aligns parallel to the field and is weakly attracted to stronger field regions, satisfying Curie's law $\\chi_m = C/T$ rather than the Curie-Weiss law with $T_c > 0$, so statement B is false. Rod $Z$ is ferromagnetic: above its Curie temperature $T_c$, spontaneous domain magnetization is destroyed by thermal agitation, resulting in a paramagnetic phase obeying the Curie-Weiss law $\\chi_m = \\frac{C}{T - T_c}$ for $T > T_c$, confirming statement C. For diamagnetic materials, $\\mu_r = 1 + \\chi_m < 1$, whereas for paramagnetic materials $\\mu_r > 1$, so statement D is false. Therefore, statements A and C are correct."
+    },
+    {
+      "id": "mam_c01_040",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In the Langevin classical theory of paramagnetism, a macroscopic collection of $N$ non-interacting permanent magnetic dipoles per unit volume, each of dipole moment $\\mu$, is placed in a magnetic induction $B$ at an absolute temperature $T$. The magnetization is $M = N \\mu L(x)$, where $L(x) = \\coth(x) - \\frac{1}{x}$ is the Langevin function with dimensionless parameter $x = \\frac{\\mu B}{k_B T}$. In the weak-field / high-temperature limit ($x \\ll 1$), using the Taylor expansion $\\coth(x) = \\frac{1}{x} + \\frac{x}{3} - \\frac{x^3}{45} + \\dots$, what is the expression for the Curie constant $C$ defined in Curie's law $\\chi_m = \\frac{\\mu_0 M}{B} = \\frac{C}{T}$?",
+      "options": [
+        "A) $\\frac{\\mu_0 N \\mu^2}{k_B}$",
+        "B) $\\frac{\\mu_0 N \\mu^2}{2 k_B}$",
+        "C) $\\frac{\\mu_0 N \\mu^2}{3 k_B}$",
+        "D) $\\frac{3\\mu_0 N \\mu^2}{k_B}$"
+      ],
+      "answer": "C",
+      "explanation": "In the weak-field limit where $x = \\frac{\\mu B}{k_B T} \\ll 1$, we substitute the Taylor series expansion of $\\coth(x)$ into the Langevin function: $L(x) = \\left(\\frac{1}{x} + \\frac{x}{3} - \\frac{x^3}{45} + \\dots\\right) - \\frac{1}{x} \\approx \\frac{x}{3}$. Substituting this linear approximation yields the magnetization: $M \\approx N \\mu \\left(\\frac{x}{3}\\right) = N \\mu \\left(\\frac{\\mu B}{3 k_B T}\\right) = \\frac{N \\mu^2 B}{3 k_B T}$. The magnetic susceptibility in SI units is given by $\\chi_m = \\frac{\\mu_0 M}{B} = \\frac{\\mu_0 N \\mu^2}{3 k_B T}$. Comparing this expression with Curie's law $\\chi_m = \\frac{C}{T}$, we identify the Curie constant as $C = \\frac{\\mu_0 N \\mu^2}{3 k_B}$. Forgetting the spatial averaging factor of $1/3$ over a sphere gives $\\frac{\\mu_0 N \\mu^2}{k_B}$, using a two-dimensional projection gives a factor of $1/2$, and multiplying by 3 instead of dividing yields $\\frac{3\\mu_0 N \\mu^2}{k_B}$."
+    },
+    {
+      "id": "mam_c01_041",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A short bar magnet of magnetic dipole moment $\\vec{M} = M \\hat{i}$ is fixed at the origin in a region where the Earth's horizontal magnetic field is uniform and given by $\\vec{B}_E = B_0 \\hat{i}$. Which of the following statements is/are correct regarding the net magnetic field $\\vec{B}_{net}$ and the equilibrium dynamics of this system?",
+      "options": [
+        "A) Neutral points where $\\vec{B}_{net} = \\vec{0}$ are located along the $x$-axis at a distance $r = \\left(\\frac{\\mu_0 M}{2\\pi B_0}\\right)^{1/3}$.",
+        "B) Neutral points where $\\vec{B}_{net} = \\vec{0}$ form a circle in the $yz$-plane of radius $r = \\left(\\frac{\\mu_0 M}{4\\pi B_0}\\right)^{1/3}$ centered at the origin.",
+        "C) The magnetic potential energy of the dipole in Earth's field is $U = -M B_0$, representing a configuration of stable equilibrium.",
+        "D) If the dipole is mounted on a frictionless vertical spindle through its center and deflected by a small angle $\\theta$ in the $xy$-plane, it undergoes simple harmonic oscillations with angular frequency $\\omega = \\sqrt{\\frac{M B_0}{I}}$, where $I$ is its moment of inertia."
+      ],
+      "answer": "B,C,D",
+      "explanation": "The dipole moment points along $+\\hat{i}$, parallel to $\\vec{B}_E = B_0\\hat{i}$. Along the $x$-axis, the dipole field is $\\vec{B}_{axial} = \\frac{\\mu_0}{4\\pi} \\frac{2M}{x^3}\\hat{i}$, which points in the same direction as $\\vec{B}_E$, so the two fields add up and can never cancel, making statement A false. In the equatorial $yz$-plane, the dipole field points antiparallel to the dipole axis: $\\vec{B}_{eq} = -\\frac{\\mu_0}{4\\pi} \\frac{M}{r^3}\\hat{i}$. Setting the net field to zero gives $-\\frac{\\mu_0 M}{4\\pi r^3}\\hat{i} + B_0\\hat{i} = \\vec{0} \\implies r = \\left(\\frac{\\mu_0 M}{4\\pi B_0}\\right)^{1/3}$. By cylindrical symmetry about the $x$-axis, this condition defines a circle of radius $r$ in the $yz$-plane, confirming statement B. The potential energy is $U = -\\vec{M}\\cdot\\vec{B}_E = -M B_0$, a global minimum corresponding to stable equilibrium, confirming statement C. For small angular deflections $\\theta$ in the horizontal plane, the restoring torque is $\\tau = -M B_0 \\sin\\theta \\approx -M B_0 \\theta$, yielding $I\\ddot{\\theta} + M B_0 \\theta = 0$ with oscillation frequency $\\omega = \\sqrt{\\frac{M B_0}{I}}$, confirming statement D. Therefore, statements B, C, and D are correct."
+    },
+    {
+      "id": "mam_c01_042",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A planar interface located at $z = 0$ separates medium 1 ($z > 0$) having relative magnetic permeability $\\mu_{r1} = 2$ from medium 2 ($z < 0$) having relative magnetic permeability $\\mu_{r2} = 8$. There are no free surface currents on the interface boundary. In medium 1, the magnetic induction field is $\\vec{B}_1 = (3\\hat{i} + 4\\hat{k})\\text{ T}$. What is the magnetic induction field vector $\\vec{B}_2$ in medium 2 just across the boundary?",
+      "options": [
+        "A) $(3\\hat{i} + 16\\hat{k})\\text{ T}$",
+        "B) $(0.75\\hat{i} + 4\\hat{k})\\text{ T}$",
+        "C) $(12\\hat{i} + 16\\hat{k})\\text{ T}$",
+        "D) $(12\\hat{i} + 4\\hat{k})\\text{ T}$"
+      ],
+      "answer": "D",
+      "explanation": "The boundary conditions for magnetic fields at an interface with no free surface current are: (1) Continuity of the normal component of magnetic induction $\\vec{B}$: $B_{2z} = B_{1z} = 4\\text{ T}$, following from $\\nabla \\cdot \\vec{B} = 0$. (2) Continuity of the tangential component of magnetic intensity $\\vec{H}$: $H_{2x} = H_{1x}$, following from $\\nabla \\times \\vec{H} = \\vec{0}$. Because $\\vec{B} = \\mu_0 \\mu_r \\vec{H}$, this boundary condition implies $\\frac{B_{2x}}{\\mu_{r2}} = \\frac{B_{1x}}{\\mu_{r1}}$. Solving for the tangential component in medium 2 gives $B_{2x} = B_{1x} \\left(\\frac{\\mu_{r2}}{\\mu_{r1}}\\right) = 3\\text{ T} \\times \\left(\\frac{8}{2}\\right) = 3 \\times 4 = 12\\text{ T}$. Combining components gives $\\vec{B}_2 = (12\\hat{i} + 4\\hat{k})\\text{ T}$. Applying the permeability ratio to the normal component instead of tangential yields $(3\\hat{i} + 16\\hat{k})\\text{ T}$, inverting the ratio produces $(0.75\\hat{i} + 4\\hat{k})\\text{ T}$, and scaling both components yields $(12\\hat{i} + 16\\hat{k})\\text{ T}$."
+    },
+    {
+      "id": "mam_c01_043",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A soft ferromagnetic core of mass $m = 8.0\\text{ kg}$ and mass density $\\rho = 8000\\text{ kg/m}^3$ is subjected to cyclic magnetization at a frequency $f = 60\\text{ Hz}$. The area of the resulting $B$-$H$ hysteresis loop is $\\oint B\\,dH = 200\\text{ J/m}^3$, with remanence $B_r = 1.2\\text{ T}$ and coercivity $H_c = 40\\text{ A/m}$. The specific heat capacity of the core material is $c = 500\\text{ J}/(\\text{kg}\\cdot\\text{K})$. Which of the following statements is/are correct regarding the energy dissipation and thermal dynamics of this system?",
+      "options": [
+        "A) The volume of the core is $V = 1.0 \\times 10^{-3}\\text{ m}^3$, and the power dissipated as heat due to magnetic hysteresis is $P_h = 12\\text{ W}$.",
+        "B) Under adiabatic conditions, the initial rate of temperature rise of the core due to hysteresis heating is $\\frac{dT}{dt} = 3.0 \\times 10^{-3}\\text{ K/s}$.",
+        "C) If the magnetizing frequency is doubled to $2f = 120\\text{ Hz}$ at unchanged peak field, the hysteresis energy lost per cycle remains $200\\text{ J/m}^3$ while the hysteresis power loss doubles to $24\\text{ W}$.",
+        "D) The material is categorized as a hard ferromagnetic material because a coercivity of $H_c = 40\\text{ A/m}$ is exceptionally large, making it suitable for permanent magnets."
+      ],
+      "answer": "A,B,C",
+      "explanation": "First, calculating the core volume from mass and density yields $V = \\frac{m}{\\rho} = \\frac{8.0\\text{ kg}}{8000\\text{ kg/m}^3} = 1.0 \\times 10^{-3}\\text{ m}^3$. The energy dissipated per cycle in the core is $E_{cycle} = V \\oint B\\,dH = (1.0 \\times 10^{-3}\\text{ m}^3) \\times (200\\text{ J/m}^3) = 0.20\\text{ J}$. The hysteresis power loss is $P_h = f E_{cycle} = 60\\text{ s}^{-1} \\times 0.20\\text{ J} = 12\\text{ W}$, confirming statement A. Applying the heat equation under adiabatic conditions gives $P_h = m c \\frac{dT}{dt}$, so substituting values yields $\\frac{dT}{dt} = \\frac{P_h}{m c} = \\frac{12\\text{ W}}{8.0\\text{ kg} \\times 500\\text{ J}/(\\text{kg}\\cdot\\text{K})} = \\frac{12}{4000} = 3.0 \\times 10^{-3}\\text{ K/s}$, confirming statement B. Because the hysteresis loop area $\\oint B\\,dH$ depends solely on the peak field amplitude and material properties at power frequencies, it remains $200\\text{ J/m}^3$; hence doubling frequency doubles the rate of cycling, yielding $P_h' = 2 P_h = 24\\text{ W}$, confirming statement C. Statement D is false because $H_c = 40\\text{ A/m}$ is very small, characteristic of soft ferromagnetic materials; hard permanent magnets require $H_c > 10^4\\text{ A/m}$. Therefore, statements A, B, and C are correct."
+    },
+    {
+      "id": "mam_c01_044",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A uniform unmagnetized ferromagnetic cylinder of mass $m$, radius $R$, and volume $V$ is suspended freely from a thin torsionless vertical wire along its longitudinal axis. A vertical magnetic field is abruptly applied, causing complete saturation magnetization $M_s$ along the cylinder axis due to electron spin alignment. As a consequence of the conservation of angular momentum (the Einstein-de Haas effect), the cylinder begins to rotate about its axis. If the gyromagnetic ratio for electron spin is $\\gamma_s = \\frac{e}{m_e}$, what is the magnitude of the angular velocity $\\Omega$ acquired by the cylinder?",
+      "options": [
+        "A) $\\frac{m_e M_s V}{e m R^2}$",
+        "B) $\\frac{e M_s V}{2 m_e m R^2}$",
+        "C) $\\frac{4 m_e M_s V}{e m R^2}$",
+        "D) $\\frac{2 m_e M_s V}{e m R^2}$"
+      ],
+      "answer": "D",
+      "explanation": "The total magnetic dipole moment of the magnetized cylinder is $M_{total} = M_s V$. Because the magnetization is produced purely by the alignment of electron spins, the net spin angular momentum $S_z$ acquired by the electron system is related to $M_{total}$ via the spin gyromagnetic ratio $\\gamma_s = \\frac{M_{total}}{S_z} = \\frac{e}{m_e}$, giving $S_z = \\frac{m_e}{e} M_{total} = \\frac{m_e}{e} M_s V$. Because the suspension wire is torsionless and no external torque acts about the vertical axis, the total angular momentum of the isolated system (electrons plus lattice) must be conserved: $J_z = I_{cyl} \\Omega + S_z = 0$. The moment of inertia of the solid cylinder about its longitudinal axis is $I_{cyl} = \\frac{1}{2} m R^2$. Solving for the magnitude of the lattice angular velocity yields $\\Omega = \\frac{S_z}{I_{cyl}} = \\frac{\\frac{m_e}{e} M_s V}{\\frac{1}{2} m R^2} = \\frac{2 m_e M_s V}{e m R^2}$. Forgetting the factor of $1/2$ in the moment of inertia yields $\\frac{m_e M_s V}{e m R^2}$, inverting the gyromagnetic ratio produces $\\frac{e M_s V}{2 m_e m R^2}$, and doubling erroneously produces $\\frac{4 m_e M_s V}{e m R^2}$."
+    },
+    {
+      "id": "mam_c01_045",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Which of the following statements is/are correct regarding Gauss's law for magnetism, magnetic field topology, and the theoretical concept of magnetic monopoles?",
+      "options": [
+        "A) Gauss's law for magnetism, expressed differentially as $\\nabla \\cdot \\vec{B} = 0$ or integrally as $\\oint_S \\vec{B}\\cdot d\\vec{A} = 0$ over any closed Gaussian surface, implies that magnetic field lines never originate or terminate on charges, but always form continuous closed loops.",
+        "B) If isolated magnetic monopoles of magnetic charge $q_m$ existed, Gauss's law would become $\\nabla \\cdot \\vec{B} = \\mu_0 \\rho_m$, but the net magnetic flux through any closed surface enclosing a monopole would remain identically zero.",
+        "C) If a cylindrical bar magnet of length $L$ and dipole moment $M$ is severed transversely into two equal halves, each half becomes an independent dipolar bar magnet of dipole moment $M/2$, rather than yielding isolated magnetic monopoles.",
+        "D) According to Dirac's quantization condition, if even a single magnetic monopole of magnetic pole strength $q_m$ exists anywhere in the universe, electric charge must be quantized according to the condition $e q_m = 2\\pi n \\hbar$, where $n$ is an integer."
+      ],
+      "answer": "A,C,D",
+      "explanation": "The fundamental Maxwell equation $\\nabla \\cdot \\vec{B} = 0$ means that there are no isolated magnetic charges (monopoles); hence the net flux through any closed Gaussian surface is zero, and magnetic field lines form continuous closed loops, confirming statement A. If magnetic monopoles existed with magnetic volume charge density $\\rho_m$, Gauss's law would generalize to $\\nabla \\cdot \\vec{B} = \\mu_0 \\rho_m$, which by the divergence theorem gives $\\oint_S \\vec{B}\\cdot d\\vec{A} = \\mu_0 q_m \\ne 0$, so statement B is false. Severing a bar magnet results in new opposing poles at the cut faces due to microscopic domain alignment, yielding two complete dipoles of moment $M/2$, confirming statement C. Dirac demonstrated in 1931 that the quantum mechanics of a charged particle in the presence of a magnetic monopole requires electric charge to be quantized via $e q_m = 2\\pi n \\hbar$, confirming statement D. Therefore, statements A, C, and D are correct."
+    },
+    {
+      "id": "mam_c01_046",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A small particle of mass $m$ carrying a permanent magnetic dipole moment $\\vec{M} = -M \\hat{k}$ is constrained to slide along a frictionless vertical $z$-axis in a non-uniform magnetic field given by $\\vec{B}(z) = B_0 \\left(1 + \\beta z^2\\right) \\hat{k}$, where $B_0 > 0$ and $\\beta > 0$. The dipole maintains its orientation antiparallel to $\\vec{B}$. Which of the following statements is/are correct concerning the dynamics of the dipole for small displacements $z$ about the origin?",
+      "options": [
+        "A) The potential energy of the dipole has a local maximum at $z = 0$, making $z = 0$ an unstable equilibrium position.",
+        "B) The origin $z = 0$ is a position of stable equilibrium, and the particle executes simple harmonic motion about $z = 0$ for small displacements.",
+        "C) The restoring force acting on the particle is proportional to $z^3$.",
+        "D) The angular frequency of small oscillations about the origin is $\\omega = \\sqrt{\\frac{2 M B_0 \\beta}{m}}$."
+      ],
+      "answer": "B,D",
+      "explanation": "The potential energy of the dipole in the magnetic field is $U(z) = -\\vec{M}\\cdot\\vec{B}(z) = -(-M \\hat{k})\\cdot\\left[B_0 (1 + \\beta z^2)\\hat{k}\\right] = M B_0 (1 + \\beta z^2) = M B_0 + M B_0 \\beta z^2$. Taking the first derivative with respect to $z$: $\\frac{dU}{dz} = 2 M B_0 \\beta z$, which vanishes at $z = 0$. The second derivative is $\\frac{d^2 U}{dz^2} = 2 M B_0 \\beta > 0$, confirming that $U(z)$ has a local minimum at $z = 0$; hence $z = 0$ is a position of stable equilibrium, validating statement B and disproving statement A. The translational force acting on the particle is $F_z = -\\frac{dU}{dz} = -2 M B_0 \\beta z$, which is linear in $z$ and opposing the displacement, disproving statement C. The equation of motion is $m \\frac{d^2 z}{dt^2} + 2 M B_0 \\beta z = 0$, which is the equation of a simple harmonic oscillator with angular frequency $\\omega = \\sqrt{\\frac{2 M B_0 \\beta}{m}}$, validating statement D. Thus, statements B and D are correct."
+    },
+    {
+      "id": "mam_c01_047",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A point magnetic dipole of dipole moment $\\vec{M} = M \\hat{k}$ is situated at the origin. In spherical polar coordinates $(r, \\theta, \\phi)$ where $\\theta$ is the polar angle measured from the positive $z$-axis, which of the following statements is/are correct regarding the magnetic potentials and field of this dipole?",
+      "options": [
+        "A) The magnetic vector potential at any point $\\vec{r} \\ne \\vec{0}$ can be expressed as $\\vec{A}(\\vec{r}) = \\frac{\\mu_0}{4\\pi} \\frac{\\vec{M} \\times \\vec{r}}{r^3} = \\frac{\\mu_0 M \\sin\\theta}{4\\pi r^2} \\hat{\\phi}$.",
+        "B) Outside the origin ($r > 0$), the magnetic scalar potential satisfies Laplace's equation $\\nabla^2 V_m = 0$ and is given by $V_m(r, \\theta) = \\frac{\\mu_0 M \\cos\\theta}{4\\pi r^2}$.",
+        "C) The curl of the magnetic induction field $\\nabla \\times \\vec{B}$ is non-zero everywhere in space including the region $r > 0$.",
+        "D) The radial and polar components of the magnetic induction are $B_r = \\frac{\\mu_0 M \\cos\\theta}{2\\pi r^3}$ and $B_\\theta = \\frac{\\mu_0 M \\sin\\theta}{2\\pi r^3}$."
+      ],
+      "answer": "A,B",
+      "explanation": "The magnetic vector potential of a magnetic dipole is $\\vec{A}(\\vec{r}) = \\frac{\\mu_0}{4\\pi} \\frac{\\vec{M} \\times \\vec{r}}{r^3}$. Since $\\vec{M} = M\\hat{k}$ and $\\vec{r} = r\\hat{r}$, we have $\\hat{k} \\times \\hat{r} = \\sin\\theta \\hat{\\phi}$, so $\\vec{A}(\\vec{r}) = \\frac{\\mu_0 M \\sin\\theta}{4\\pi r^2} \\hat{\\phi}$, which validates statement A. In the region $r > 0$, there are no free electric currents; hence $\\nabla \\times \\vec{B} = \\vec{0}$, meaning $\\vec{B}$ can be derived from a scalar potential $\\vec{B} = -\\nabla V_m$. Since $\\nabla \\cdot \\vec{B} = 0$, we have $\\nabla^2 V_m = 0$, and the dipole potential is $V_m = \\frac{\\mu_0 M \\cos\\theta}{4\\pi r^2}$, validating statement B. Statement C is false because $\\nabla \\times \\vec{B} = \\vec{0}$ everywhere for $r > 0$. Statement D is false because the polar component has a denominator of $4\\pi$: $B_\\theta = -\\frac{1}{r}\\frac{\\partial V_m}{\\partial\\theta} = \\frac{\\mu_0 M \\sin\\theta}{4\\pi r^3}$, not $2\\pi$. Thus, statements A and B are correct."
+    },
+    {
+      "id": "mam_c01_048",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A magnetic dipole of moment $M = 1.0\\text{ A}\\cdot\\text{m}^2$ is aligned initially along the positive $x$-axis ($\\vec{M}_i = M\\hat{i}$) in a uniform external magnetic field $\\vec{B} = (2.0\\hat{i} - 1.0\\hat{j})\\text{ T}$. How much mechanical work $W$ (in joules) must be performed by an external agent to slowly rotate the dipole until it is aligned along the positive $y$-axis ($\\vec{M}_f = M\\hat{j}$)?",
+      "options": [],
+      "answer": "3",
+      "explanation": "The potential energy of a magnetic dipole $\\vec{M}$ in a magnetic field $\\vec{B}$ is given by $U = -\\vec{M}\\cdot\\vec{B}$. In the initial orientation with $\\vec{M}_i = 1.0\\hat{i}\\text{ A}\\cdot\\text{m}^2$, the initial potential energy is $U_i = -\\vec{M}_i\\cdot\\vec{B} = -(1.0\\hat{i})\\cdot(2.0\\hat{i} - 1.0\\hat{j}) = -2.0\\text{ J}$. In the final orientation with $\\vec{M}_f = 1.0\\hat{j}\\text{ A}\\cdot\\text{m}^2$, the final potential energy is $U_f = -\\vec{M}_f\\cdot\\vec{B} = -(1.0\\hat{j})\\cdot(2.0\\hat{i} - 1.0\\hat{j}) = -(-1.0) = +1.0\\text{ J}$. The work done by the external agent against the magnetic torque during the slow rotation is equal to the net increase in potential energy: $W = U_f - U_i = +1.0\\text{ J} - (-2.0\\text{ J}) = 3.0\\text{ J}$. Therefore, the work done is 3 joules."
+    },
+    {
+      "id": "mam_c01_049",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Two short bar magnets with magnetic dipole moments $M_1 = 16\\text{ A}\\cdot\\text{m}^2$ and $M_2 = 2\\text{ A}\\cdot\\text{m}^2$ are placed coaxially along a horizontal line separated by a center-to-center distance $d = 30\\text{ cm}$. Their magnetic moments are directed toward each other so that their like magnetic poles face each other. At what distance (in $\\text{cm}$) from the center of the weaker magnet $M_2$ along the line joining them does the net magnetic field vanish?",
+      "options": [],
+      "answer": "10",
+      "explanation": "Let the null point be located at a distance $x$ from magnet $M_1$ and distance $(d - x)$ from magnet $M_2$ along their common axis. Because like poles face each other, the axial magnetic fields created by the two dipoles point in opposite directions along the line between them. The condition for the net magnetic field to vanish is $B_1 = B_2 \\implies \\frac{\\mu_0}{4\\pi} \\frac{2M_1}{x^3} = \\frac{\\mu_0}{4\\pi} \\frac{2M_2}{(d - x)^3}$. Canceling constants gives $\\frac{M_1}{x^3} = \\frac{M_2}{(d - x)^3} \\implies \\frac{d - x}{x} = \\left(\\frac{M_2}{M_1}\\right)^{1/3}$. Substituting $M_1 = 16\\text{ A}\\cdot\\text{m}^2$ and $M_2 = 2\\text{ A}\\cdot\\text{m}^2$: $\\frac{M_2}{M_1} = \\frac{2}{16} = \\frac{1}{8}$, so $\\left(\\frac{1}{8}\\right)^{1/3} = \\frac{1}{2}$. Solving for $x$: $\\frac{d - x}{x} = \\frac{1}{2} \\implies 2(d - x) = x \\implies 2d = 3x \\implies x = \\frac{2}{3}d$. Given $d = 30\\text{ cm}$, the distance from $M_1$ is $x = \\frac{2}{3} \\times 30 = 20\\text{ cm}$. Therefore, the distance from the weaker magnet $M_2$ is $d - x = 30 - 20 = 10\\text{ cm}$."
+    },
+    {
+      "id": "mam_c01_050",
+      "subject": "Physics",
+      "topic": "Magnetism and Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In a Stern-Gerlach experiment, a collimated horizontal beam of neutral silver atoms in their ground state (having zero orbital angular momentum $L = 0$ and net electron spin $S = 1/2$) enters along the $y$-axis with a velocity $v = 400\\text{ m/s}$. The beam traverses a region of length $l = 10\\text{ cm}$ containing an inhomogeneous magnetic field with a vertical gradient $\\frac{\\partial B_z}{\\partial z} = 1.2 \\times 10^3\\text{ T/m}$. The mass of a silver atom is $m = 1.8 \\times 10^{-25}\\text{ kg}$, and the effective magnetic moment is one Bohr magneton $\\mu_B = 9.6 \\times 10^{-24}\\text{ J/T}$. Upon exiting the magnetic field region, the vertical deflection $z$ of each separated beam component from the central undeflected axis is $k\\text{ mm}$. Find the integer value of $k$.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Because $L = 0$ and $S = 1/2$, the magnetic dipole moment of each silver atom is due to the unpaired valence electron spin: $\\mu_z = \\pm \\mu_B$. The vertical magnetic force acting on an atom in the field gradient is $F_z = -\\frac{\\partial U}{\\partial z} = \\mu_z \\frac{\\partial B_z}{\\partial z}$. The vertical acceleration is $a_z = \\frac{F_z}{m} = \\frac{\\mu_B}{m} \\frac{\\partial B_z}{\\partial z}$. Substituting the given values: $a_z = \\frac{9.6 \\times 10^{-24} \\times (1.2 \\times 10^3)}{1.8 \\times 10^{-25}} = \\frac{11.52 \\times 10^{-21}}{1.8 \\times 10^{-25}} = 6.4 \\times 10^4\\text{ m/s}^2$. The time spent by an atom traversing the field of length $l = 0.10\\text{ m}$ is $t = \\frac{l}{v} = \\frac{0.10}{400} = 2.5 \\times 10^{-4}\\text{ s}$. The vertical deflection of each beam component upon exiting the field is $z = \\frac{1}{2} a_z t^2 = \\frac{1}{2} \\times (6.4 \\times 10^4) \\times (2.5 \\times 10^{-4})^2 = 3.2 \\times 10^4 \\times (6.25 \\times 10^{-8}) = 2.0 \\times 10^{-3}\\text{ m} = 2\\text{ mm}$. Thus, $k = 2$."
+    }
+  ]
+}

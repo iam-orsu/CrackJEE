@@ -1,0 +1,522 @@
+{
+  "chunkIndex": 2,
+  "subject": "Mathematics",
+  "topic": "Circles",
+  "totalQuestions": 32,
+  "questions": [
+    {
+      "id": "circ_c02_001",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A circle passes through the origin $(0, 0)$ and has its center on the line $x + 2y = 5$. If the circle intercepts a chord of length $4$ on the positive x-axis, find the length of the intercept made by the circle on the y-axis.",
+      "options": [
+        "A) $3$",
+        "B) $2\\sqrt{5}$",
+        "C) $6$",
+        "D) $\\frac{5}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The circle passes through $(0, 0)$ and makes an intercept of length $4$ on the positive x-axis, meaning it also passes through $(4, 0)$.\\nStep 2: The perpendicular bisector of the chord joining $(0,0)$ and $(4,0)$ is the vertical line $x = 2$. Therefore, the center $(h, k)$ has $h = 2$.\\nStep 3: Since the center lies on $x + 2y = 5$, substituting $h = 2$ gives $2 + 2k = 5 \\implies k = \\frac{3}{2}$.\\nStep 4: As the circle passes through the origin, the radius squared is $R^2 = h^2 + k^2 = 2^2 + \\left(\\frac{3}{2}\\right)^2 = \\frac{25}{4}$. The general equation of the circle is $x^2 + y^2 - 4x - 3y = 0$.\\nStep 5: Setting $x = 0$ yields the y-intercepts: $y^2 - 3y = 0 \\implies y = 0$ or $y = 3$. Hence, the length of the intercept on the y-axis is $|3 - 0| = 3$."
+    },
+    {
+      "id": "circ_c02_002",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A circle of radius $r = \\sqrt{10}$ is centered in the first quadrant, touches the straight line $3x - y = 0$, and passes through the point $(1, 1)$. Find the ordinate (y-coordinate) of the center of this circle.",
+      "options": [
+        "A) $2$",
+        "B) $4$",
+        "C) $3$",
+        "D) $\\sqrt{10}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let the center of the circle be $(h, k)$ with $h > 0, k > 0$. The perpendicular distance from $(h, k)$ to the line $3x - y = 0$ equals the radius $r = \\sqrt{10}$:\\n$$\\frac{|3h - k|}{\\sqrt{3^2 + (-1)^2}} = \\sqrt{10} \\implies |3h - k| = 10$$\\nStep 2: Since the circle passes through $(1, 1)$, we have $(h - 1)^2 + (k - 1)^2 = 10$.\\nStep 3: Consider $3h - k = 10 \\implies k = 3h - 10$. Substituting into the distance equation:\\n$$(h - 1)^2 + (3h - 11)^2 = 10 \\implies 10h^2 - 68h + 112 = 0 \\implies 5h^2 - 34h + 56 = 0$$\\nSolving this quadratic yields $h = 4$ or $h = 2.8$. If $h = 2.8$, then $k = 3(2.8) - 10 = -1.6 < 0$, which is outside the first quadrant.\\nStep 4: For $h = 4$, we get $k = 3(4) - 10 = 2 > 0$. Testing the second case $3h - k = -10$ yields $5h^2 + 26h + 36 = 0$, which has discriminant $\\Delta = 676 - 720 < 0$ (no real roots).\\nStep 5: Therefore, the center is uniquely $(4, 2)$, yielding the ordinate $k = 2$."
+    },
+    {
+      "id": "circ_c02_003",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the circle $x^2 + y^2 - 4x - 6y - 12 = 0$ and the point $P(6, 6)$ lying on it. The tangent line to the circle at $P$ intersects the coordinate axes at points $A$ and $B$. If $O$ is the origin, find the area of triangle $OAB$.",
+      "options": [
+        "A) $\\frac{147}{2}$",
+        "B) $147$",
+        "C) $\\frac{147}{4}$",
+        "D) $54$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: First verify that $P(6, 6)$ lies on the circle: $6^2 + 6^2 - 4(6) - 6(6) - 12 = 72 - 24 - 36 - 12 = 0$.\\nStep 2: The equation of the tangent at $(x_1, y_1) = (6, 6)$ is given by $T = 0$:\\n$$x x_1 + y y_1 - 2(x + x_1) - 3(y + y_1) - 12 = 0$$\\nSubstituting $x_1 = 6, y_1 = 6$ yields:\\n$$6x + 6y - 2(x + 6) - 3(y + 6) - 12 = 0 \\implies 4x + 3y - 42 = 0$$\\nStep 3: Finding the intercepts of this tangent line:\\nSetting $y = 0$ gives $x_A = \\frac{42}{4} = \\frac{21}{2}$.\\nSetting $x = 0$ gives $y_B = \\frac{42}{3} = 14$.\\nStep 4: The area of the right-angled triangle $OAB$ is given by:\\n$$\\text{Area} = \\frac{1}{2} |x_A \\cdot y_B| = \\frac{1}{2} \\times \\frac{21}{2} \\times 14 = \\frac{147}{2}$$\\nHence, the correct option is A."
+    },
+    {
+      "id": "circ_c02_004",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A circle passes through the vertices of the right-angled triangle formed by the coordinate axes and the line $3x + 4y = 24$. Find the equation of the normal to this circle at the origin $(0, 0)$.",
+      "options": [
+        "A) $3x - 4y = 0$",
+        "B) $4x + 3y = 0$",
+        "C) $3x + 4y = 0$",
+        "D) $4x - 3y = 0$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The vertices of the right-angled triangle are the origin $O(0, 0)$, $A(8, 0)$ (x-intercept), and $B(0, 6)$ (y-intercept).\\nStep 2: Since $\\angle AOB = 90^\\circ$, the hypotenuse $AB$ serves as a diameter of the circumscribing circle.\\nStep 3: The center of the circle is the midpoint of the diameter $AB$:\\n$$C = \\left(\\frac{8 + 0}{2}, \\frac{0 + 6}{2}\\right) = (4, 3)$$\\nStep 4: Every normal line to a circle passes through its center. Therefore, the normal at the origin $(0, 0)$ must pass through $(0, 0)$ and the center $(4, 3)$.\\nStep 5: The slope of this line is $m = \\frac{3 - 0}{4 - 0} = \\frac{3}{4}$, yielding the normal equation:\\n$$y - 0 = \\frac{3}{4}(x - 0) \\implies 3x - 4y = 0$$\\nThus, option A is correct."
+    },
+    {
+      "id": "circ_c02_005",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A circle $C$ has its center lying on the line $y = 2x$ and touches the line $3x + 4y = 10$ at the point $P(2, 1)$. Find the radius $R$ of the circle.",
+      "options": [
+        "A) $\\frac{15}{2}$",
+        "B) $\\frac{15}{4}$",
+        "C) $\\frac{9}{2}$",
+        "D) $\\frac{25}{4}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Notice that $P(2, 1)$ lies on the given tangent line since $3(2) + 4(1) = 10$. The slope of the tangent line $3x + 4y = 10$ is $m_T = -\\frac{3}{4}$.\\nStep 2: The normal to the circle at $P(2, 1)$ is perpendicular to the tangent line, so its slope is $m_N = \\frac{4}{3}$.\\nStep 3: The equation of this normal is:\\n$$y - 1 = \\frac{4}{3}(x - 2) \\implies 4x - 3y - 5 = 0$$\\nStep 4: The center $(h, k)$ lies on this normal and also on the line $y = 2x$. Substituting $y = 2x$ into the normal equation:\\n$$4x - 3(2x) - 5 = 0 \\implies -2x = 5 \\implies x = -\\frac{5}{2}$$\\nThus, $y = 2\\left(-\\frac{5}{2}\\right) = -5$, giving the center $C\\left(-\\frac{5}{2}, -5\\right)$.\\nStep 5: The radius $R$ is the distance $CP$:\\n$$R = \\sqrt{\\left(2 - \\left(-\\frac{5}{2}\\right)\\right)^2 + (1 - (-5))^2} = \\sqrt{\\left(\\frac{9}{2}\\right)^2 + 6^2} = \\sqrt{\\frac{81}{4} + 36} = \\sqrt{\\frac{225}{4}} = \\frac{15}{2}$$\\nHence, the correct option is A."
+    },
+    {
+      "id": "circ_c02_006",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A circle passes through the points $(1, 0)$ and $(5, 0)$ and touches the line $y = 4$. If the center of the circle lies below the line $y = 4$, find the length of the chord intercepted by the circle on the line $x = 3$.",
+      "options": [
+        "A) $5$",
+        "B) $\\frac{5}{2}$",
+        "C) $\\sqrt{21}$",
+        "D) $10$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The chord on the x-axis joins $(1, 0)$ and $(5, 0)$. The perpendicular bisector of this chord is the vertical line $x = \\frac{1 + 5}{2} = 3$. Hence, the center is $(3, k)$.\\nStep 2: Since the circle touches $y = 4$ and its center lies below it, the radius is $R = 4 - k > 0$.\\nStep 3: The distance from the center $(3, k)$ to the point $(1, 0)$ is also $R$:\\n$$R^2 = (3 - 1)^2 + (k - 0)^2 = 4 + k^2$$\\nEquating this to $(4 - k)^2$ gives:\\n$$(4 - k)^2 = 4 + k^2 \\implies 16 - 8k + k^2 = 4 + k^2 \\implies 8k = 12 \\implies k = \\frac{3}{2}$$\\nStep 4: The radius is $R = 4 - \\frac{3}{2} = \\frac{5}{2}$. The equation of the circle is $(x - 3)^2 + \\left(y - \\frac{3}{2}\\right)^2 = \\frac{25}{4}$.\\nStep 5: The line $x = 3$ passes directly through the center of the circle $(3, 3/2)$, meaning the chord intercepted on $x = 3$ is a diameter. Its length is $2R = 2 \\times \\frac{5}{2} = 5$."
+    },
+    {
+      "id": "circ_c02_007",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A normal to the circle $x^2 + y^2 - 8x - 2y + 12 = 0$ is parallel to the line $3x - 4y + 7 = 0$. This normal line intersects the coordinate axes at $A$ and $B$. If $O$ is the origin, find the perimeter of triangle $OAB$.",
+      "options": [
+        "A) $8$",
+        "B) $\\frac{26}{3}$",
+        "C) $10$",
+        "D) $\\frac{16}{3}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The center of the circle $x^2 + y^2 - 8x - 2y + 12 = 0$ is $C(4, 1)$.\\nStep 2: Every normal line to a circle must pass through its center. The normal is parallel to $3x - 4y + 7 = 0$, so its equation has the form $3x - 4y + \\lambda = 0$.\\nStep 3: Substituting the center $(4, 1)$ into this equation yields:\\n$$3(4) - 4(1) + \\lambda = 0 \\implies 12 - 4 + \\lambda = 0 \\implies \\lambda = -8$$\\nThus, the equation of the normal is $3x - 4y = 8$.\\nStep 4: Finding the intercepts of this normal line:\\nFor $y = 0$, $x_A = \\frac{8}{3}$, so $OA = \\frac{8}{3}$.\\nFor $x = 0$, $y_B = -2$, so $OB = |-2| = 2$.\\nStep 5: The hypotenuse $AB$ is given by:\\n$$AB = \\sqrt{\\left(\\frac{8}{3}\\right)^2 + 2^2} = \\sqrt{\\frac{64}{9} + 4} = \\sqrt{\\frac{100}{9}} = \\frac{10}{3}$$\\nStep 6: Therefore, the perimeter of triangle $OAB$ is:\\n$$\\text{Perimeter} = OA + OB + AB = \\frac{8}{3} + 2 + \\frac{10}{3} = \\frac{18}{3} + 2 = 6 + 2 = 8$$"
+    },
+    {
+      "id": "circ_c02_008",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two tangents are drawn from the origin $(0, 0)$ to the circle $x^2 + y^2 - 8x - 4y + 16 = 0$. If $\\theta$ denotes the angle between these two tangents, find the value of $\\cos \\theta$.",
+      "options": [
+        "A) $\\frac{3}{5}$",
+        "B) $\\frac{4}{5}$",
+        "C) $\\frac{1}{\\sqrt{5}}$",
+        "D) $\\frac{7}{25}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Completing the square for the circle: $(x - 4)^2 + (y - 2)^2 = 16 + 4 - 16 = 4$. The center is $C(4, 2)$ and the radius is $R = 2$.\\nStep 2: The distance from the origin $O(0, 0)$ to the center $C(4, 2)$ is $d = \\sqrt{4^2 + 2^2} = \\sqrt{20} = 2\\sqrt{5}$.\\nStep 3: The length of the tangent $L$ drawn from the origin is:\\n$$L = \\sqrt{d^2 - R^2} = \\sqrt{20 - 4} = \\sqrt{16} = 4$$\\nStep 4: If $\\theta$ is the angle between the two tangents, then each tangent makes an angle of $\\theta/2$ with the line joining the origin to the center. In the right-angled triangle formed by the origin, contact point, and center:\\n$$\\tan\\left(\\frac{\\theta}{2}\\right) = \\frac{R}{L} = \\frac{2}{4} = \\frac{1}{2}$$\\nStep 5: Applying the half-angle formula for cosine:\\n$$\\cos \\theta = \\frac{1 - \\tan^2(\\theta/2)}{1 + \\tan^2(\\theta/2)} = \\frac{1 - (1/2)^2}{1 + (1/2)^2} = \\frac{1 - 1/4}{1 + 1/4} = \\frac{3/4}{5/4} = \\frac{3}{5}$$\\nThus, the correct option is A."
+    },
+    {
+      "id": "circ_c02_009",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A circle lying in the upper half-plane ($y > 0$) touches the x-axis at the point $(3, 0)$ and passes through the point $(1, 2)$. Find the diameter of this circle.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: Since the circle lies in the upper half-plane and touches the x-axis at $(3, 0)$, its center must be $(3, R)$ where $R > 0$ is the radius of the circle.\\nStep 2: The equation of the circle is $(x - 3)^2 + (y - R)^2 = R^2$.\\nStep 3: Since the circle passes through $(1, 2)$, substituting these coordinates into the equation yields:\\n$$(1 - 3)^2 + (2 - R)^2 = R^2$$\\n$$(-2)^2 + 4 - 4R + R^2 = R^2 \\implies 4 + 4 - 4R = 0 \\implies 4R = 8 \\implies R = 2$$\\nStep 4: Therefore, the radius of the circle is $R = 2$, which implies the diameter is $2R = 2 \\times 2 = 4$."
+    },
+    {
+      "id": "circ_c02_010",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The circle $x^2 + y^2 - 30x - 26y + c = 0$ intercepts a chord of length $18$ on the x-axis. Find the length of the chord intercepted by this circle on the y-axis.",
+      "options": [],
+      "answer": "10",
+      "explanation": "Step 1: The standard formula for the length of the chord intercepted by the circle $x^2 + y^2 + 2gx + 2fy + c = 0$ on the x-axis is $2\\sqrt{g^2 - c}$.\\nStep 2: Here, $2g = -30 \\implies g = -15$. Given that the x-intercept length is $18$:\\n$$2\\sqrt{(-15)^2 - c} = 18 \\implies \\sqrt{225 - c} = 9 \\implies 225 - c = 81 \\implies c = 144$$\\nStep 3: The length of the chord intercepted on the y-axis is given by $2\\sqrt{f^2 - c}$. Here $2f = -26 \\implies f = -13$.\\nStep 4: Substituting $f = -13$ and $c = 144$ into the formula:\\n$$\\text{Length} = 2\\sqrt{(-13)^2 - 144} = 2\\sqrt{169 - 144} = 2\\sqrt{25} = 2 \\times 5 = 10$$\\nThus, the length of the intercepted chord on the y-axis is $10$."
+    },
+    {
+      "id": "circ_c02_011",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Tangents are drawn from the point $P(4, 3)$ to the circle $x^2 + y^2 = 9$, touching the circle at points $A$ and $B$. Find the area of the triangle $PAB$ formed by the tangents and the chord of contact.",
+      "options": [
+        "A) $\\frac{192}{25}$",
+        "B) $\\frac{96}{25}$",
+        "C) $\\frac{144}{25}$",
+        "D) $\\frac{192}{5}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The radius of the circle $x^2 + y^2 = 9$ is $R = 3$. The distance from the origin $O(0, 0)$ to $P(4, 3)$ is $OP = \\sqrt{4^2 + 3^2} = 5$.\\nStep 2: The length of the tangent $L$ from $P$ to the circle is:\\n$$L = \\sqrt{OP^2 - R^2} = \\sqrt{5^2 - 3^2} = \\sqrt{16} = 4$$\\nStep 3: Let $\\theta = \\angle APO$. In the right-angled triangle $OAP$, we have $\\sin \\theta = \\frac{R}{OP} = \\frac{3}{5}$ and $\\cos \\theta = \\frac{L}{OP} = \\frac{4}{5}$.\\nStep 4: The total angle subtended between the tangents is $\\angle APB = 2\\theta$. The area of $\\triangle PAB$ is given by:\\n$$\\text{Area} = \\frac{1}{2} PA \\cdot PB \\cdot \\sin(2\\theta) = \\frac{1}{2} L^2 (2 \\sin \\theta \\cos \\theta) = L^2 \\sin \\theta \\cos \\theta$$\\nSubstituting $L = 4, \\sin \\theta = \\frac{3}{5}, \\cos \\theta = \\frac{4}{5}$ yields:\\n$$\\text{Area} = 16 \\times \\frac{3}{5} \\times \\frac{4}{5} = \\frac{192}{25}$$\\nAlternatively, applying the standard formula $\\text{Area} = \\frac{R L^3}{R^2 + L^2} = \\frac{3 \\times 4^3}{3^2 + 4^2} = \\frac{192}{25}$ confirms the result."
+    },
+    {
+      "id": "circ_c02_012",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $C_1$ be the circle $x^2 + y^2 - 4x - 6y - 12 = 0$. Let $C_2$ be the director circle of $C_1$, and let $C_3$ be the director circle of $C_2$. If a point $P$ lies on the circle $C_3$, find the length of the tangent drawn from $P$ to the original circle $C_1$.",
+      "options": [
+        "A) $5\\sqrt{3}$",
+        "B) $5\\sqrt{2}$",
+        "C) $5$",
+        "D) $10$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The circle $C_1$ has equation $(x - 2)^2 + (y - 3)^2 = 12 + 4 + 9 = 25$. Its center is $C(2, 3)$ and radius is $R_1 = 5$.\\nStep 2: The director circle of any circle of radius $R$ is concentric with radius $R\\sqrt{2}$. Hence, circle $C_2$ has center $C(2, 3)$ and radius $R_2 = R_1\\sqrt{2} = 5\\sqrt{2}$.\\nStep 3: Similarly, $C_3$ is the director circle of $C_2$, so it is also concentric at $C(2, 3)$ with radius:\\n$$R_3 = R_2\\sqrt{2} = (5\\sqrt{2})\\sqrt{2} = 10$$\\nStep 4: For any point $P$ on $C_3$, the distance from $P$ to the center $C(2, 3)$ is $d = R_3 = 10$.\\nStep 5: The length of the tangent drawn from $P$ to the initial circle $C_1$ is:\\n$$L = \\sqrt{d^2 - R_1^2} = \\sqrt{10^2 - 5^2} = \\sqrt{100 - 25} = \\sqrt{75} = 5\\sqrt{3}$$\\nTherefore, option A is correct."
+    },
+    {
+      "id": "circ_c02_013",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Tangents are drawn from an arbitrary variable point $P$ on the straight line $2x - y + 4 = 0$ to the circle $x^2 + y^2 = 4$. Show that all chords of contact of these tangents pass through a fixed point $Q$, and determine the coordinates of $Q$.",
+      "options": [
+        "A) $(-2, 1)$",
+        "B) $(2, -1)$",
+        "C) $(-1, 2)$",
+        "D) $(-2, -1)$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let the coordinates of the variable point $P$ be $(h, k)$. Since $P$ lies on the line $2x - y + 4 = 0$, we have $2h - k + 4 = 0 \\implies k = 2h + 4$.\\nStep 2: The chord of contact of tangents drawn from $P(h, k)$ to the circle $x^2 + y^2 = 4$ is given by $T = 0$:\\n$$h x + k y = 4$$\\nStep 3: Substituting $k = 2h + 4$ into this equation yields:\\n$$h x + (2h + 4)y - 4 = 0 \\implies h(x + 2y) + (4y - 4) = 0$$\\nStep 4: This equation represents a family of straight lines passing through the point of intersection of $x + 2y = 0$ and $4y - 4 = 0$ for all real values of $h$.\\nStep 5: Solving these simultaneous equations:\\n$$4y - 4 = 0 \\implies y = 1$$\\n$$x + 2(1) = 0 \\implies x = -2$$\\nThus, every chord of contact passes through the fixed point $Q(-2, 1)$."
+    },
+    {
+      "id": "circ_c02_014",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The two transverse (internal) common tangents to the circles $C_1: x^2 + y^2 - 2x - 6y + 6 = 0$ and $C_2: x^2 + y^2 - 14x - 6y + 49 = 0$ intersect each other at point $P$. Find the coordinates of $P$.",
+      "options": [
+        "A) $\\left(\\frac{17}{5}, 3\\right)$",
+        "B) $(-11, 3)$",
+        "C) $\\left(\\frac{19}{5}, 3\\right)$",
+        "D) $(4, 3)$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For circle $C_1$, the center is $O_1(1, 3)$ and radius is $r_1 = \\sqrt{1^2 + 3^2 - 6} = \\sqrt{4} = 2$.\\nStep 2: For circle $C_2$, the center is $O_2(7, 3)$ and radius is $r_2 = \\sqrt{7^2 + 3^2 - 49} = \\sqrt{9} = 3$.\\nStep 3: The distance between centers is $d = O_1 O_2 = \\sqrt{(7 - 1)^2 + (3 - 3)^2} = 6$. Since $d = 6 > r_1 + r_2 = 5$, the circles are mutually external and possess two transverse common tangents.\\nStep 4: The transverse common tangents intersect at the internal center of similitude, which divides the line segment joining $O_1(1, 3)$ and $O_2(7, 3)$ internally in the ratio $r_1 : r_2 = 2 : 3$.\\nStep 5: Applying the section formula:\\n$$x_P = \\frac{2(7) + 3(1)}{2 + 3} = \\frac{14 + 3}{5} = \\frac{17}{5}$$\\n$$y_P = \\frac{2(3) + 3(3)}{2 + 3} = \\frac{6 + 9}{5} = 3$$\\nTherefore, the point of intersection is $P\\left(\\frac{17}{5}, 3\\right)$."
+    },
+    {
+      "id": "circ_c02_015",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two circles of radii $r_1 = 4$ and $r_2 = 2$ have their centers separated by a distance $d = 10$. If $L_D$ denotes the length of their direct common tangent and $L_T$ denotes the length of their transverse common tangent, find the value of $L_D^2 - L_T^2$.",
+      "options": [
+        "A) $32$",
+        "B) $16$",
+        "C) $48$",
+        "D) $64$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The standard formula for the length of a direct common tangent is $L_D = \\sqrt{d^2 - (r_1 - r_2)^2}$, which implies $L_D^2 = d^2 - (r_1 - r_2)^2$.\\nStep 2: The formula for the length of a transverse common tangent is $L_T = \\sqrt{d^2 - (r_1 + r_2)^2}$, which implies $L_T^2 = d^2 - (r_1 + r_2)^2$.\\nStep 3: Taking the difference of the squares:\\n$$L_D^2 - L_T^2 = \\left[d^2 - (r_1 - r_2)^2\\right] - \\left[d^2 - (r_1 + r_2)^2\\right] = (r_1 + r_2)^2 - (r_1 - r_2)^2 = 4 r_1 r_2$$\\nStep 4: Substituting $r_1 = 4$ and $r_2 = 2$ yields:\\n$$L_D^2 - L_T^2 = 4(4)(2) = 32$$\\nStep 5: We can verify directly: $L_D^2 = 10^2 - (4 - 2)^2 = 100 - 4 = 96$, and $L_T^2 = 10^2 - (4 + 2)^2 = 100 - 36 = 64$. Hence, $96 - 64 = 32$."
+    },
+    {
+      "id": "circ_c02_016",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Consider the two mutually external circles $C_1: x^2 + y^2 = 9$ and $C_2: (x - 8)^2 + y^2 = 25$. Find the slopes of the direct common tangents to these two circles.",
+      "options": [
+        "A) $\\pm \\frac{1}{\\sqrt{15}}$",
+        "B) $\\pm \\frac{1}{\\sqrt{7}}$",
+        "C) $\\pm \\frac{1}{4}$",
+        "D) $\\pm \\frac{\\sqrt{3}}{5}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Circle $C_1$ has center $O_1(0, 0)$ and radius $r_1 = 3$. Circle $C_2$ has center $O_2(8, 0)$ and radius $r_2 = 5$.\\nStep 2: The direct common tangents intersect at the external center of similitude $T_e$, which divides the segment joining $O_1(0, 0)$ and $O_2(8, 0)$ externally in the ratio $r_1 : r_2 = 3 : 5$:\\n$$x_{T_e} = \\frac{3(8) - 5(0)}{3 - 5} = \\frac{24}{-2} = -12, \\quad y_{T_e} = 0$$\\nThus, $T_e = (-12, 0)$.\\nStep 3: Any straight line passing through $T_e(-12, 0)$ has equation $y - 0 = m(x + 12) \\implies mx - y + 12m = 0$.\\nStep 4: Since this line is tangent to $C_1: x^2 + y^2 = 9$, the perpendicular distance from the origin $(0, 0)$ to the line must equal $r_1 = 3$:\\n$$\\frac{|12m|}{\\sqrt{m^2 + 1}} = 3 \\implies 4|m| = \\sqrt{m^2 + 1}$$\\nStep 5: Squaring both sides yields:\\n$$16m^2 = m^2 + 1 \\implies 15m^2 = 1 \\implies m = \\pm \\frac{1}{\\sqrt{15}}$$\\nThus, the slopes of the direct common tangents are $\\pm \\frac{1}{\\sqrt{15}}$."
+    },
+    {
+      "id": "circ_c02_017",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Tangents are drawn from a variable point $P(h, k)$ to the circle $S: x^2 + y^2 = a^2$. The chord of contact of these tangents touches the concentric circle $S_1: x^2 + y^2 = b^2$, where $0 < b < a$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The locus of $P$ is a concentric circle of radius $\\frac{a^2}{b}$.",
+        "B) The length of the tangent drawn from $P$ to the circle $S$ is $\\frac{a}{b}\\sqrt{a^2 - b^2}$.",
+        "C) For $a = 5$ and $b = 3$, the area of the quadrilateral formed by the tangents from $P$ and the radii to the points of contact is $\\frac{100}{3}$.",
+        "D) The locus of $P$ is an ellipse of eccentricity $\\sqrt{1 - b^2/a^2}$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: The chord of contact of tangents drawn from $P(h, k)$ to $x^2 + y^2 = a^2$ is given by $hx + ky = a^2$, or $hx + ky - a^2 = 0$.\\nStep 2: This line touches $S_1: x^2 + y^2 = b^2$. Hence, the perpendicular distance from the origin $(0, 0)$ to this line equals $b$:\\n$$\\frac{|-a^2|}{\\sqrt{h^2 + k^2}} = b \\implies \\sqrt{h^2 + k^2} = \\frac{a^2}{b} \\implies h^2 + k^2 = \\frac{a^4}{b^2}$$\\nThus, the locus of $P$ is a concentric circle of radius $R_P = \\frac{a^2}{b}$. Statement A is TRUE, and D is FALSE.\\nStep 3: The length of the tangent $L$ drawn from $P$ to $S$ is:\\n$$L = \\sqrt{OP^2 - a^2} = \\sqrt{\\left(\\frac{a^2}{b}\\right)^2 - a^2} = \\sqrt{\\frac{a^4 - a^2 b^2}{b^2}} = \\frac{a}{b}\\sqrt{a^2 - b^2}$$\\nThus, statement B is TRUE.\\nStep 4: The quadrilateral formed by the tangents from $P$ and radii to the points of contact is composed of two congruent right triangles with legs $a$ and $L$. The area is $\\text{Area} = 2 \\times \\left(\\frac{1}{2} a L\\right) = a L$.\\nStep 5: For $a = 5$ and $b = 3$, we have $L = \\frac{5}{3}\\sqrt{25 - 9} = \\frac{5}{3} \\times 4 = \\frac{20}{3}$. Thus, $\\text{Area} = 5 \\times \\frac{20}{3} = \\frac{100}{3}$. Statement C is TRUE."
+    },
+    {
+      "id": "circ_c02_018",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the two circles $C_1: x^2 + y^2 - 4x - 2y + 1 = 0$ and $C_2: x^2 + y^2 - 12x - 8y + 43 = 0$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The two circles touch each other externally and have exactly $3$ common tangents.",
+        "B) The equation of the common tangent passing through their point of contact is $4x + 3y - 21 = 0$.",
+        "C) The length of each direct common tangent is $2\\sqrt{6}$.",
+        "D) The two circles intersect at two distinct real points."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: For $C_1$, center is $O_1(2, 1)$ and radius $r_1 = \\sqrt{2^2 + 1^2 - 1} = 2$.\\nStep 2: For $C_2$, center is $O_2(6, 4)$ and radius $r_2 = \\sqrt{6^2 + 4^2 - 43} = \\sqrt{52 - 43} = 3$.\\nStep 3: Distance between centers is $d = \\sqrt{(6 - 2)^2 + (4 - 1)^2} = \\sqrt{16 + 9} = 5$. Since $d = r_1 + r_2 = 2 + 3 = 5$, the circles touch each other externally at a single point. Hence, there are exactly 3 common tangents. Statement A is TRUE, D is FALSE.\\nStep 4: The common tangent at their point of contact is the radical axis $C_1 - C_2 = 0$:\\n$$(x^2 + y^2 - 4x - 2y + 1) - (x^2 + y^2 - 12x - 8y + 43) = 0$$\\n$$8x + 6y - 42 = 0 \\implies 4x + 3y - 21 = 0$$\\nThus, statement B is TRUE.\\nStep 5: The length of each direct common tangent is:\\n$$L_D = \\sqrt{d^2 - (r_2 - r_1)^2} = \\sqrt{5^2 - (3 - 2)^2} = \\sqrt{25 - 1} = \\sqrt{24} = 2\\sqrt{6}$$\\nThus, statement C is TRUE."
+    },
+    {
+      "id": "circ_c02_019",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $P(x_0, y_0)$ be a point on the line $3x + 4y = 25$ such that the length of the tangent drawn from $P$ to the circle $x^2 + y^2 = 9$ is minimized. Find the square of this minimum tangent length.",
+      "options": [],
+      "answer": "16",
+      "explanation": "Step 1: The length of the tangent drawn from any point $P(x_0, y_0)$ to the circle $x^2 + y^2 = 9$ is given by $L = \\sqrt{OP^2 - R^2} = \\sqrt{OP^2 - 9}$, where $O$ is the origin.\\nStep 2: To minimize $L$, the distance $OP$ from the origin to the line $3x + 4y = 25$ must be minimized. The minimum distance is the perpendicular distance from the origin to the line:\\n$$OP_{\\min} = \\frac{|3(0) + 4(0) - 25|}{\\sqrt{3^2 + 4^2}} = \\frac{25}{5} = 5$$\\nStep 3: The minimum length of the tangent is therefore:\\n$$L_{\\min} = \\sqrt{OP_{\\min}^2 - R^2} = \\sqrt{5^2 - 9} = \\sqrt{25 - 9} = \\sqrt{16} = 4$$\\nStep 4: Hence, the square of this minimum tangent length is $L_{\\min}^2 = 4^2 = 16$."
+    },
+    {
+      "id": "circ_c02_020",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A pair of mutually perpendicular tangents is drawn to the circle $x^2 + y^2 - 6x - 8y + 9 = 0$ from a point $P(h, k)$. If the locus of $P$ has radius $R_D$, find the value of $R_D^2$.",
+      "options": [],
+      "answer": "32",
+      "explanation": "Step 1: The given circle is $x^2 + y^2 - 6x - 8y + 9 = 0$. Completing squares yields $(x - 3)^2 + (y - 4)^2 = 3^2 + 4^2 - 9 = 16$. The center is $(3, 4)$ and radius is $R = 4$.\\nStep 2: The locus of the point of intersection of mutually perpendicular tangents to a circle is its director circle.\\nStep 3: The director circle is concentric with the given circle and its radius $R_D$ satisfies $R_D = R\\sqrt{2}$.\\nStep 4: Substituting $R = 4$, we have $R_D = 4\\sqrt{2}$.\\nStep 5: Therefore, $R_D^2 = (4\\sqrt{2})^2 = 16 \\times 2 = 32$."
+    },
+    {
+      "id": "circ_c02_021",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The circle $C_1: x^2 + y^2 - 8x - 6y - 25 = 0$ intersects another circle $C_2$ orthogonally. The circle $C_2$ passes through the origin $(0, 0)$ and its center lies on the straight line $3x - 4y = 0$. Find the length of the common chord of $C_1$ and $C_2$.",
+      "options": [
+        "A) $\\frac{10\\sqrt{2}}{3}$",
+        "B) $\\frac{5\\sqrt{2}}{3}$",
+        "C) $\\frac{10\\sqrt{3}}{3}$",
+        "D) $\\frac{5\\sqrt{2}}{6}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For circle $C_1$, we have $2g_1 = -8 \\implies g_1 = -4$, $2f_1 = -6 \\implies f_1 = -3$, and $c_1 = -25$. The center is $O_1(4, 3)$ and its radius squared is $R_1^2 = (-4)^2 + (-3)^2 - (-25) = 50$, so $R_1 = 5\\sqrt{2}$.\\nStep 2: Circle $C_2$ passes through $(0, 0)$, hence $c_2 = 0$. Let its center be $(-g_2, -f_2)$. Since this center lies on $3x - 4y = 0$, we have $3(-g_2) - 4(-f_2) = 0 \\implies f_2 = \\frac{3}{4}g_2$.\\nStep 3: Applying the condition for orthogonality of two circles, $2g_1 g_2 + 2f_1 f_2 = c_1 + c_2$:\\n$$2(-4)g_2 + 2(-3)\\left(\\frac{3}{4}g_2\\right) = -25 + 0 \\implies -8g_2 - \\frac{9}{2}g_2 = -25$$\\n$$-\\frac{25}{2}g_2 = -25 \\implies g_2 = 2$$\\nStep 4: Substituting $g_2 = 2$ gives $f_2 = \\frac{3}{4}(2) = \\frac{3}{2}$. The radius of $C_2$ is $R_2 = \\sqrt{g_2^2 + f_2^2 - c_2} = \\sqrt{2^2 + (3/2)^2} = \\frac{5}{2}$. The center of $C_2$ is $O_2\\left(-2, -\\frac{3}{2}\\right)$.\\nStep 5: The distance between centers is $d = O_1 O_2 = \\sqrt{(4 - (-2))^2 + (3 - (-3/2))^2} = \\sqrt{36 + 81/4} = \\frac{15}{2}$.\\nStep 6: Since the circles cut orthogonally, the triangle formed by $O_1, O_2$ and a point of intersection $P$ is right-angled at $P$. The length of the semi-chord is the altitude $h$ to the hypotenuse:\\n$$h = \\frac{R_1 R_2}{d} = \\frac{5\\sqrt{2} \\times (5/2)}{15/2} = \\frac{5\\sqrt{2}}{3}$$\\nStep 7: Therefore, the total length of the common chord is $2h = \\frac{10\\sqrt{2}}{3}$."
+    },
+    {
+      "id": "circ_c02_022",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Consider the three circles $C_1: x^2 + y^2 + 4x + 2y - 4 = 0$, $C_2: x^2 + y^2 + 2x + y = 0$, and $C_3: x^2 + y^2 + 3x + 4y - 7 = 0$. Determine the coordinates of the radical center $R$ of these three circles, and find the length of the tangent drawn from $R$ to any of the circles.",
+      "options": [
+        "A) Radical center is $(1, 2)$ and tangent length is $3$",
+        "B) Radical center is $(1, 2)$ and tangent length is $9$",
+        "C) Radical center is $(2, 1)$ and tangent length is $3$",
+        "D) Radical center is $(-1, 2)$ and tangent length is $\\sqrt{5}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The radical axis of $C_1$ and $C_2$ is obtained by subtracting their equations, $S_1 - S_2 = 0$:\\n$$(x^2 + y^2 + 4x + 2y - 4) - (x^2 + y^2 + 2x + y) = 0 \\implies 2x + y - 4 = 0$$\\nStep 2: The radical axis of $C_1$ and $C_3$ is obtained by $S_1 - S_3 = 0$:\\n$$(x^2 + y^2 + 4x + 2y - 4) - (x^2 + y^2 + 3x + 4y - 7) = 0 \\implies x - 2y + 3 = 0$$\\nStep 3: Solving these two linear equations simultaneously for the radical center $R(x, y)$:\\nFrom the second equation, $x = 2y - 3$. Substituting into the first equation:\\n$$2(2y - 3) + y - 4 = 0 \\implies 5y - 10 = 0 \\implies y = 2$$\\n$$x = 2(2) - 3 = 1$$\\nThus, the radical center is $R(1, 2)$.\\nStep 4: The length of the tangent $L$ from the radical center $R(1, 2)$ to any of the three circles is given by $\\sqrt{S_1(1, 2)}$:\\n$$L = \\sqrt{1^2 + 2^2 + 4(1) + 2(2) - 4} = \\sqrt{1 + 4 + 4 + 4 - 4} = \\sqrt{9} = 3$$\\nStep 5: Hence, the radical center is $(1, 2)$ and the length of each tangent is $3$, matching option A."
+    },
+    {
+      "id": "circ_c02_023",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A family of circles passes through the two points of intersection of the circle $x^2 + y^2 - 2x - 4y - 20 = 0$ and the straight line $x + y - 1 = 0$. If a circle from this family has the minimum possible radius, find its radius squared $r^2$ and the coordinates of its center.",
+      "options": [
+        "A) $r^2 = 23$ and center is $(0, 1)$",
+        "B) $r^2 = 25$ and center is $(1, 2)$",
+        "C) $r^2 = 21$ and center is $(0, 1)$",
+        "D) $r^2 = 23$ and center is $(1, 0)$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The circle in the family having the minimum possible radius is the one whose diameter is the common chord intercepted by the given line on the given circle.\\nStep 2: The given circle has equation $(x - 1)^2 + (y - 2)^2 = 20 + 1 + 4 = 25$, so its center is $C(1, 2)$ and radius is $R = 5$.\\nStep 3: The perpendicular distance $p$ from the center $C(1, 2)$ to the chord line $x + y - 1 = 0$ is:\\n$$p = \\frac{|1 + 2 - 1|}{\\sqrt{1^2 + 1^2}} = \\frac{2}{\\sqrt{2}} = \\sqrt{2}$$\\nStep 4: The radius $r$ of the minimum circle equals half the length of this chord:\\n$$r^2 = R^2 - p^2 = 25 - (\\sqrt{2})^2 = 25 - 2 = 23$$\\nStep 5: The center of this circle is the foot of the perpendicular from $C(1, 2)$ onto the line $x + y - 1 = 0$:\\n$$\\frac{x - 1}{1} = \\frac{y - 2}{1} = -\\frac{1 + 2 - 1}{1^2 + 1^2} = -1 \\implies x = 0, \\; y = 1$$\\nStep 6: Therefore, the center is $(0, 1)$ and the radius squared is $r^2 = 23$, which corresponds to option A."
+    },
+    {
+      "id": "circ_c02_024",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A coaxial system of circles is determined by the two non-intersecting circles $C_1: x^2 + y^2 + 4x - 4y + 3 = 0$ and $C_2: x^2 + y^2 - 12x - 4y + 19 = 0$. Determine the coordinates of the two limiting points of this coaxial system.",
+      "options": [
+        "A) $(-1, 2)$ and $(3, 2)$",
+        "B) $(1, 2)$ and $(5, 2)$",
+        "C) $(-1, -2)$ and $(3, -2)$",
+        "D) $(2, -1)$ and $(2, 3)$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The radical axis of the coaxial system is given by $C_1 - C_2 = 0$:\\n$$(x^2 + y^2 + 4x - 4y + 3) - (x^2 + y^2 - 12x - 4y + 19) = 0$$\\n$$16x - 16 = 0 \\implies x - 1 = 0$$\\nStep 2: Any circle of this coaxial system can be written in the form $C_1 + \\lambda(x - 1) = 0$:\\n$$x^2 + y^2 + (4 + \\lambda)x - 4y + (3 - \\lambda) = 0$$\\nStep 3: The center of this circle is $(-g, -f) = \\left(-\\frac{4 + \\lambda}{2}, 2\\right)$, and its radius squared is:\\n$$R^2 = g^2 + f^2 - c = \\left(\\frac{4 + \\lambda}{2}\\right)^2 + 2^2 - (3 - \\lambda)$$\\nStep 4: Limiting points are the point circles of the coaxial system, which occur when the radius is zero ($R^2 = 0$):\\n$$\\frac{\\lambda^2 + 8\\lambda + 16}{4} + 1 + \\lambda = 0 \\implies \\lambda^2 + 8\\lambda + 16 + 4 + 4\\lambda = 0$$\\n$$\\lambda^2 + 12\\lambda + 20 = 0 \\implies (\\lambda + 2)(\\lambda + 10) = 0$$\\nThus, $\\lambda = -2$ or $\\lambda = -10$.\\nStep 5: For $\\lambda = -2$, the center is $\\left(-\\frac{4 - 2}{2}, 2\\right) = (-1, 2)$.\\nFor $\\lambda = -10$, the center is $\\left(-\\frac{4 - 10}{2}, 2\\right) = (3, 2)$.\\nHence, the limiting points of the system are $(-1, 2)$ and $(3, 2)$."
+    },
+    {
+      "id": "circ_c02_025",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A circle $C$ passes through the origin $(0, 0)$, has its center lying on the line $x + y = 4$, and cuts the circle $x^2 + y^2 - 4x - 2y + 4 = 0$ orthogonally. Find the radius $R$ of the circle $C$.",
+      "options": [
+        "A) $2\\sqrt{10}$",
+        "B) $\\sqrt{10}$",
+        "C) $4\\sqrt{10}$",
+        "D) $6$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Let the equation of circle $C$ be $x^2 + y^2 + 2gx + 2fy + c = 0$. Since $C$ passes through $(0, 0)$, we have $c = 0$.\\nStep 2: The center of $C$ is $(-g, -f)$, which lies on the line $x + y = 4$. Therefore:\\n$$-g - f = 4 \\implies g + f = -4 \\implies f = -g - 4$$\\nStep 3: Circle $C$ cuts $C_1: x^2 + y^2 - 4x - 2y + 4 = 0$ orthogonally. For $C_1$, $g_1 = -2, f_1 = -1, c_1 = 4$. Applying the orthogonality condition $2g g_1 + 2f f_1 = c + c_1$:\\n$$2g(-2) + 2f(-1) = 0 + 4 \\implies -4g - 2f = 4 \\implies 2g + f = -2$$\\nStep 4: Solving the system of linear equations:\\n$$g + f = -4$$\\n$$2g + f = -2$$\\nSubtracting the first equation from the second gives $g = -2 - (-4) = 2$. Then $f = -2 - 4 = -6$.\\nStep 5: The radius squared of circle $C$ is given by:\\n$$R^2 = g^2 + f^2 - c = 2^2 + (-6)^2 - 0 = 4 + 36 = 40$$\\nThus, the radius is $R = \\sqrt{40} = 2\\sqrt{10}$."
+    },
+    {
+      "id": "circ_c02_026",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A circle touches the straight line $x - y + 1 = 0$ at the point $(1, 2)$ and also passes through the point $(3, 2)$. Find the radius $R$ of this circle.",
+      "options": [
+        "A) $\\sqrt{2}$",
+        "B) $2$",
+        "C) $2\\sqrt{2}$",
+        "D) $1$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Any circle touching the line $L: x - y + 1 = 0$ at the point $P(1, 2)$ belongs to the family of circles:\\n$$(x - 1)^2 + (y - 2)^2 + \\lambda(x - y + 1) = 0$$\\nStep 2: Since this circle passes through the point $(3, 2)$, substituting $x = 3$ and $y = 2$ into the family equation yields:\\n$$(3 - 1)^2 + (2 - 2)^2 + \\lambda(3 - 2 + 1) = 0$$\\n$$4 + 0 + 2\\lambda = 0 \\implies 2\\lambda = -4 \\implies \\lambda = -2$$\\nStep 3: Substituting $\\lambda = -2$ back into the family equation:\\n$$(x^2 - 2x + 1) + (y^2 - 4y + 4) - 2(x - y + 1) = 0$$\\n$$x^2 + y^2 - 4x - 2y + 3 = 0$$\\nStep 4: The center of this circle is $(-g, -f) = (2, 1)$, and its constant term is $c = 3$.\\nStep 5: The radius is obtained by:\\n$$R = \\sqrt{g^2 + f^2 - c} = \\sqrt{2^2 + 1^2 - 3} = \\sqrt{4 + 1 - 3} = \\sqrt{2}$$\\nHence, the correct option is A."
+    },
+    {
+      "id": "circ_c02_027",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the two coaxial circles $C_1: x^2 + y^2 + 6x + 5 = 0$ and $C_2: x^2 + y^2 - 6x + 5 = 0$. Let a family of circles cut both $C_1$ and $C_2$ orthogonally. Which of the following statements is/are correct?",
+      "options": [
+        "A) The radical axis of $C_1$ and $C_2$ is the line $x = 0$.",
+        "B) The center of every circle that cuts both $C_1$ and $C_2$ orthogonally must lie on the line $x = 0$.",
+        "C) All circles cutting both $C_1$ and $C_2$ orthogonally pass through the two fixed points $(\\sqrt{5}, 0)$ and $(-\\sqrt{5}, 0)$.",
+        "D) The circle cutting both $C_1$ and $C_2$ orthogonally whose center is at the origin has radius $5$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: The radical axis of $C_1$ and $C_2$ is $C_1 - C_2 = 0$:\\n$$(x^2 + y^2 + 6x + 5) - (x^2 + y^2 - 6x + 5) = 0 \\implies 12x = 0 \\implies x = 0$$\\nThus, statement A is TRUE.\\nStep 2: By fundamental theorem of radical axes, the center of any circle orthogonal to two given circles must lie on their radical axis. Therefore, every such orthogonal circle has its center on $x = 0$. Statement B is TRUE.\\nStep 3: Let the center of an orthogonal circle be $(0, k)$. The power of $(0, k)$ with respect to $C_1$ is $S_1(0, k) = 0^2 + k^2 + 6(0) + 5 = k^2 + 5$. For orthogonality, the radius squared must equal this power, so $R^2 = k^2 + 5$.\\nStep 4: The equation of any such orthogonal circle is:\\n$$(x - 0)^2 + (y - k)^2 = k^2 + 5 \\implies x^2 + y^2 - 2ky - 5 = 0$$\\nSetting $y = 0$ yields $x^2 - 5 = 0 \\implies x = \\pm \\sqrt{5}$. Hence, every such circle passes through the fixed points $(\\sqrt{5}, 0)$ and $(-\\sqrt{5}, 0)$. Statement C is TRUE.\\nStep 5: For the circle with center at $(0, 0)$ (where $k = 0$), the equation is $x^2 + y^2 = 5$, giving radius $R = \\sqrt{5} \\ne 5$. Statement D is FALSE."
+    },
+    {
+      "id": "circ_c02_028",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the two intersecting circles $S_1: x^2 + y^2 - 6x - 4y + 8 = 0$ and $S_2: x^2 + y^2 - 2x - 8y + 12 = 0$. Let a family of circles pass through the points of intersection of $S_1$ and $S_2$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The common chord of $S_1$ and $S_2$ has equation $x - y + 1 = 0$.",
+        "B) The length of the common chord of $S_1$ and $S_2$ is $2\\sqrt{3}$.",
+        "C) The circle in this family having the minimum possible radius has center $(2, 3)$ and radius $\\sqrt{3}$.",
+        "D) The member of this family that passes through the origin has center $(7, 2)$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: The equation of the common chord of $S_1$ and $S_2$ is $S_1 - S_2 = 0$:\\n$$(x^2 + y^2 - 6x - 4y + 8) - (x^2 + y^2 - 2x - 8y + 12) = 0$$\\n$$-4x + 4y - 4 = 0 \\implies x - y + 1 = 0$$\\nThus, statement A is TRUE.\\nStep 2: Circle $S_1$ has center $C_1(3, 2)$ and radius $R_1 = \\sqrt{3^2 + 2^2 - 8} = \\sqrt{5}$.\\nStep 3: The perpendicular distance $p$ from $C_1(3, 2)$ to the common chord $x - y + 1 = 0$ is:\\n$$p = \\frac{|3 - 2 + 1|}{\\sqrt{1^2 + (-1)^2}} = \\frac{2}{\\sqrt{2}} = \\sqrt{2}$$\\nStep 4: The half-length of the common chord is $\\sqrt{R_1^2 - p^2} = \\sqrt{5 - 2} = \\sqrt{3}$. Hence, the full length of the common chord is $2\\sqrt{3}$. Statement B is TRUE.\\nStep 5: The circle in the family with minimum radius has the common chord as its diameter. Its radius is $\\sqrt{3}$. Its center is the foot of the perpendicular from $C_1(3, 2)$ onto $x - y + 1 = 0$, which is $(2, 3)$. Statement C is TRUE.\\nStep 6: Any circle through the intersections is $S_1 + \\lambda(x - y + 1) = 0$. Passing through $(0, 0)$ requires $8 + \\lambda(1) = 0 \\implies \\lambda = -8$. The circle is $x^2 + y^2 - 14x + 4y = 0$, which has center $(7, -2) \\ne (7, 2)$. Statement D is FALSE."
+    },
+    {
+      "id": "circ_c02_029",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the three circles $S_1: x^2 + y^2 + 2x - 1 = 0$, $S_2: x^2 + y^2 + 3x - y - 2 = 0$, and $S_3: x^2 + y^2 + 4x + y - 6 = 0$. Let $P$ denote the radical center of these three circles. Which of the following statements is/are correct?",
+      "options": [
+        "A) The radical center of the three circles is $P(2, 1)$.",
+        "B) The length of the tangent drawn from $P$ to each of the three circles is $2\\sqrt{2}$.",
+        "C) The circle orthogonal to all three circles has equation $x^2 + y^2 - 4x - 2y - 3 = 0$.",
+        "D) The radical center $P$ lies strictly inside circle $S_1$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: The radical axis of $S_1$ and $S_2$ is $S_2 - S_1 = 0$:\\n$$(x^2 + y^2 + 3x - y - 2) - (x^2 + y^2 + 2x - 1) = 0 \\implies x - y - 1 = 0$$\\nStep 2: The radical axis of $S_1$ and $S_3$ is $S_3 - S_1 = 0$:\\n$$(x^2 + y^2 + 4x + y - 6) - (x^2 + y^2 + 2x - 1) = 0 \\implies 2x + y - 5 = 0$$\\nStep 3: Adding the two radical axes:\\n$$(x - y - 1) + (2x + y - 5) = 0 \\implies 3x - 6 = 0 \\implies x = 2$$\\nSubstituting $x = 2$ gives $y = 2 - 1 = 1$. Thus, the radical center is $P(2, 1)$. Statement A is TRUE.\\nStep 4: The power of point $P(2, 1)$ with respect to $S_1$ is:\\n$$S_1(2, 1) = 2^2 + 1^2 + 2(2) - 1 = 4 + 1 + 4 - 1 = 8$$\\nSince $S_1(2, 1) > 0$, $P$ lies strictly outside the circles (D is FALSE), and the tangent length is $L = \\sqrt{8} = 2\\sqrt{2}$. Statement B is TRUE.\\nStep 5: The circle cutting all three circles orthogonally has its center at the radical center $P(2, 1)$ and its radius squared equal to the power $R^2 = 8$. Its equation is $(x - 2)^2 + (y - 1)^2 = 8 \\implies x^2 + y^2 - 4x - 2y - 3 = 0$. Statement C is TRUE."
+    },
+    {
+      "id": "circ_c02_030",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $C_1$ be the circle $x^2 + y^2 - 2x - 4y + 1 = 0$. A variable circle $C$ passes through the fixed points $A(0, 2)$ and $B(2, 4)$. Which of the following statements is/are correct regarding the circle $C$ that cuts $C_1$ orthogonally?",
+      "options": [
+        "A) The family of circles passing through $A$ and $B$ can be written as $(x^2 + y^2 - 2x - 6y + 8) + \\lambda(x - y + 2) = 0$.",
+        "B) There exists a unique member of this family that cuts circle $C_1$ orthogonally, corresponding to $\\lambda = 5$.",
+        "C) The radius of the orthogonal circle is $\\sqrt{\\frac{29}{2}}$.",
+        "D) The center of the orthogonal circle lies on the line $x + y = 2$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: The circle with diameter $AB$ has equation $(x - 0)(x - 2) + (y - 2)(y - 4) = 0 \\implies x^2 + y^2 - 2x - 6y + 8 = 0$. The line $AB$ has slope $m = \\frac{4 - 2}{2 - 0} = 1$ and equation $y - 2 = 1(x - 0) \\implies x - y + 2 = 0$.\\nStep 2: The family of circles passing through $A$ and $B$ is given by $S_\\lambda: (x^2 + y^2 - 2x - 6y + 8) + \\lambda(x - y + 2) = 0$. Statement A is TRUE.\\nStep 3: Rewriting $S_\\lambda$: $x^2 + y^2 + (\\lambda - 2)x - (\\lambda + 6)y + (8 + 2\\lambda) = 0$. For this circle, $g = \\frac{\\lambda - 2}{2}$, $f = -\\frac{\\lambda + 6}{2}$, and $c = 8 + 2\\lambda$.\\nStep 4: Circle $C_1$ has $g_1 = -1$, $f_1 = -2$, and $c_1 = 1$. The orthogonality condition $2g g_1 + 2f f_1 = c + c_1$ gives:\\n$$2\\left(\\frac{\\lambda - 2}{2}\\right)(-1) + 2\\left(-\\frac{\\lambda + 6}{2}\\right)(-2) = (8 + 2\\lambda) + 1$$\\n$$-(\\lambda - 2) + 2(\\lambda + 6) = 2\\lambda + 9 \\implies \\lambda + 14 = 2\\lambda + 9 \\implies \\lambda = 5$$\\nThus, statement B is TRUE.\\nStep 5: For $\\lambda = 5$, the circle is $x^2 + y^2 + 3x - 11y + 18 = 0$. The center is $\\left(-\\frac{3}{2}, \\frac{11}{2}\\right)$, and the radius squared is $R^2 = \\left(-\\frac{3}{2}\\right)^2 + \\left(\\frac{11}{2}\\right)^2 - 18 = \\frac{9 + 121}{4} - 18 = \\frac{65}{2} - 18 = \\frac{29}{2}$. Hence, $R = \\sqrt{\\frac{29}{2}}$, making statement C TRUE.\\nStep 6: The sum of coordinates of the center is $-\\frac{3}{2} + \\frac{11}{2} = \\frac{8}{2} = 4 \\ne 2$, so statement D is FALSE."
+    },
+    {
+      "id": "circ_c02_031",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "The two circles $C_1: x^2 + y^2 + 2x - 4y - 4 = 0$ and $C_2: x^2 + y^2 - 6x + 4y - 12 = 0$ intersect at two distinct points $A$ and $B$. A circle $C_3$ passing through $A$ and $B$ cuts the circle $C_4: x^2 + y^2 - 2x - 2y - 7 = 0$ orthogonally. If $C_3$ is represented by the equation $C_1 + k(x - y + 1) = 0$, find the value of the parameter $k$.",
+      "options": [],
+      "answer": "13",
+      "explanation": "Step 1: The radical axis (common chord line) of $C_1$ and $C_2$ is $C_1 - C_2 = 0$:\\n$$(x^2 + y^2 + 2x - 4y - 4) - (x^2 + y^2 - 6x + 4y - 12) = 0$$\\n$$8x - 8y + 8 = 0 \\implies x - y + 1 = 0$$\\nStep 2: The equation of any circle $C_3$ passing through $A$ and $B$ can be written as $C_1 + k(x - y + 1) = 0$:\\n$$x^2 + y^2 + (k + 2)x - (k + 4)y + (k - 4) = 0$$\\nStep 3: For circle $C_3$, we identify $g_3 = \\frac{k + 2}{2}$, $f_3 = -\\frac{k + 4}{2}$, and $c_3 = k - 4$.\\nStep 4: Circle $C_4: x^2 + y^2 - 2x - 2y - 7 = 0$ has parameters $g_4 = -1$, $f_4 = -1$, and $c_4 = -7$.\\nStep 5: Applying the orthogonality condition $2g_3 g_4 + 2f_3 f_4 = c_3 + c_4$:\\n$$2\\left(\\frac{k + 2}{2}\\right)(-1) + 2\\left(-\\frac{k + 4}{2}\\right)(-1) = (k - 4) + (-7)$$\\n$$-(k + 2) + (k + 4) = k - 11 \\implies 2 = k - 11 \\implies k = 13$$\\nTherefore, the required value of $k$ is $13$."
+    },
+    {
+      "id": "circ_c02_032",
+      "subject": "Mathematics",
+      "topic": "Circles",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "The limiting points of a coaxial system of circles are given by $L_1(0, 2)$ and $L_2(0, -2)$. A circle $C$ belonging to this coaxial system passes through the point $P(2, 2)$. If the radius of this circle is $R$, find the value of $R^2$.",
+      "options": [],
+      "answer": "5",
+      "explanation": "Step 1: The limiting points are $L_1(0, 2)$ and $L_2(0, -2)$. The line of centers is the y-axis ($x = 0$), and the radical axis is the perpendicular bisector of $L_1 L_2$, which is the x-axis ($y = 0$).\\nStep 2: A coaxial system of circles with the y-axis as the line of centers and the x-axis as the radical axis has the standard equation $x^2 + y^2 + 2fy + c = 0$.\\nStep 3: The limiting points correspond to zero radius: $R^2 = f^2 - c = 0 \\implies f = \\pm \\sqrt{c}$. The centers of these point circles are $(0, -f) = (0, \\mp \\sqrt{c})$. Since the limiting points are $(0, \\pm 2)$, we have $\\sqrt{c} = 2 \\implies c = 4$.\\nStep 4: Thus, any circle of the coaxial system has equation $x^2 + y^2 + 2fy + 4 = 0$.\\nStep 5: Since circle $C$ passes through $P(2, 2)$, substituting these coordinates gives:\\n$$2^2 + 2^2 + 2f(2) + 4 = 0 \\implies 4 + 4 + 4f + 4 = 0 \\implies 12 + 4f = 0 \\implies f = -3$$\\nStep 6: The equation of circle $C$ is $x^2 + y^2 - 6y + 4 = 0$. The radius squared is:\\n$$R^2 = g^2 + f^2 - c = 0^2 + (-3)^2 - 4 = 9 - 4 = 5$$\\nHence, the value of $R^2$ is $5$."
+    }
+  ]
+}

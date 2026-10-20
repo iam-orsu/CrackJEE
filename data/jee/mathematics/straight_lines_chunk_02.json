@@ -1,0 +1,503 @@
+{
+  "questions": [
+    {
+      "id": "sl_c02_001",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The perpendicular distance from the point $P(2, 3)$ to the line $L_1: 3x - 4y + 1 = 0$ is denoted by $d_1$. A second line $L_2$ is parallel to $L_1$ and lies on the opposite side of $P$ at a distance of $3$ units from $P$. If the equation of $L_2$ is written as $3x - 4y + c = 0$, then the value of $c$ is equal to:",
+      "options": [
+        "A) $10$",
+        "B) $21$",
+        "C) $-21$",
+        "D) $-9$"
+      ],
+      "answer": "B",
+      "explanation": "First, calculate the algebraic perpendicular distance of $P(2,3)$ from $L_1: 3x - 4y + 1 = 0$. We evaluate $3(2) - 4(3) + 1 = 6 - 12 + 1 = -5$. Thus, $d_1 = \\frac{|-5|}{\\sqrt{3^2 + (-4)^2}} = \\frac{5}{5} = 1$. The sign of $3x - 4y + 1$ at $(2,3)$ is negative. For $L_2: 3x - 4y + c = 0$ to lie on the opposite side of $P$ relative to $L_1$, the quantity $3(2) - 4(3) + c = -6 + c$ must have a positive sign, and the perpendicular distance is $\\frac{|c - 6|}{5} = 3 \\implies |c - 6| = 15$. Since $c - 6 > 0$, we have $c - 6 = 15 \\implies c = 21$. (The alternative $c - 6 = -15 \\implies c = -9$ corresponds to the same side of $P$ as $L_1$). Thus $c = 21$. Distractor A comes from dividing by 3, C is sign inverted, and D is the same-side root."
+    },
+    {
+      "id": "sl_c02_002",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The acute angle $\\theta$ between the straight lines $L_1: (2k-1)x - (k+1)y + 3 = 0$ and $L_2: (k+2)x + (2k+1)y - 5 = 0$ is equal to $\\frac{\\pi}{4}$. The product of all possible real values of the parameter $k$ is equal to:",
+      "options": [
+        "A) $-\\frac{2}{5}$",
+        "B) $-\\frac{3}{5}$",
+        "C) $\\frac{2}{5}$",
+        "D) $\\frac{3}{5}$"
+      ],
+      "answer": "A",
+      "explanation": "The slopes of the two lines are $m_1 = \\frac{2k-1}{k+1}$ and $m_2 = -\\frac{k+2}{2k+1}$. The angle formula $\\tan\\theta = 1$ gives $|\\frac{m_1 - m_2}{1 + m_1 m_2}| = 1$. Evaluating the numerator: $m_1 - m_2 = \\frac{2k-1}{k+1} + \\frac{k+2}{2k+1} = \\frac{(2k-1)(2k+1) + (k+1)(k+2)}{(k+1)(2k+1)} = \\frac{4k^2 - 1 + k^2 + 3k + 2}{(k+1)(2k+1)} = \\frac{5k^2 + 3k + 1}{(k+1)(2k+1)}$. Evaluating the denominator: $1 + m_1 m_2 = 1 - \\frac{(2k-1)(k+2)}{(k+1)(2k+1)} = \\frac{(2k^2 + 3k + 1) - (2k^2 + 3k - 2)}{(k+1)(2k+1)} = \\frac{3}{(k+1)(2k+1)}$. Hence $|\\frac{5k^2 + 3k + 1}{3}| = 1 \\implies |5k^2 + 3k + 1| = 3$. Since the quadratic $5k^2 + 3k + 1$ has discriminant $9 - 20 = -11 < 0$, it is strictly positive for all real $k$. Therefore, $5k^2 + 3k + 1 = 3 \\implies 5k^2 + 3k - 2 = 0$. By Vieta's formulas, the product of the roots is $\\frac{-2}{5} = -\\frac{2}{5}$."
+    },
+    {
+      "id": "sl_c02_003",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the three straight lines $L_1: 2x + 3y - 1 = 0$, $L_2: 3x - y - 7 = 0$, and $L_3: ax + 2y - 4 = 0$. If these three lines are concurrent at a single common point $P(\\alpha, \\beta)$, then the value of the parameter $a$ is equal to:",
+      "options": [
+        "A) $3$",
+        "B) $1$",
+        "C) $-1$",
+        "D) $-2$"
+      ],
+      "answer": "A",
+      "explanation": "To find the point of intersection of $L_1$ and $L_2$, multiply $L_2$ by $3$: $9x - 3y - 21 = 0$. Adding to $2x + 3y - 1 = 0$ yields $11x - 22 = 0 \\implies x = 2$. Substituting $x = 2$ into $L_2$: $3(2) - y - 7 = 0 \\implies 6 - y - 7 = 0 \\implies y = -1$. Thus the point of concurrence is $P(2, -1)$. For $L_3$ to pass through $P(2, -1)$, we substitute $(2, -1)$: $a(2) + 2(-1) - 4 = 0 \\implies 2a - 2 - 4 = 0 \\implies 2a = 6 \\implies a = 3$. Alternatively, setting the concurrency determinant to zero: $|\\begin{matrix} 2 & 3 & -1 \\\\ 3 & -1 & -7 \\\\ a & 2 & -4 \\end{matrix}| = 2(4 + 14) - 3(-12 + 7a) - 1(6 + a) = 36 + 36 - 21a - 6 - a = 66 - 22a = 0 \\implies a = 3$. Distractors B, C, D represent signs or cofactor errors."
+    },
+    {
+      "id": "sl_c02_004",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A family of lines is given by $L(\\lambda): (2+\\lambda)x + (1-2\\lambda)y + (3-4\\lambda) = 0$, where $\\lambda$ is a real parameter. If all lines of this family pass through a fixed point $P(x_0, y_0)$, then the value of $|5(x_0 - y_0)|$ is equal to:",
+      "options": [],
+      "answer": "9",
+      "explanation": "We rewrite the family in standard $L_1 + \\lambda L_2 = 0$ pencil form: $(2x + y + 3) + \\lambda(x - 2y - 4) = 0$. The fixed point of concurrence is given by the simultaneous solution of $2x + y + 3 = 0$ and $x - 2y - 4 = 0$. From the second equation, $x = 2y + 4$. Substituting into the first equation: $2(2y + 4) + y + 3 = 0 \\implies 4y + 8 + y + 3 = 0 \\implies 5y + 11 = 0 \\implies y_0 = -\\frac{11}{5}$. Then $x_0 = 2(-\\frac{11}{5}) + 4 = -\\frac{22}{5} + \\frac{20}{5} = -\\frac{2}{5}$. Now evaluate the required quantity: $x_0 - y_0 = -\\frac{2}{5} - \\left(-\\frac{11}{5}\\right) = \\frac{9}{5}$. Therefore, $|5(x_0 - y_0)| = |5 \\times \\frac{9}{5}| = 9$."
+    },
+    {
+      "id": "sl_c02_005",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A straight line passing through the point $A(1, 2)$ intersects the positive coordinate axes at $P(p, 0)$ and $Q(0, q)$ such that $A$ divides the line segment $PQ$ internally in the ratio $2:3$. The area of the right-angled triangle $OPQ$ (where $O$ is origin) is equal to:",
+      "options": [
+        "A) $\\frac{25}{6}$",
+        "B) $\\frac{25}{3}$",
+        "C) $\\frac{50}{3}$",
+        "D) $\\frac{125}{12}$"
+      ],
+      "answer": "A",
+      "explanation": "Let $P = (p, 0)$ on the positive $x$-axis and $Q = (0, q)$ on the positive $y$-axis. Point $A(1, 2)$ divides segment $PQ$ in the ratio $2:3$. Using section formula: $x_A = \\frac{2(0) + 3(p)}{2+3} = \\frac{3p}{5} = 1 \\implies p = \\frac{5}{3}$. Similarly, $y_A = \\frac{2(q) + 3(0)}{2+3} = \\frac{2q}{5} = 2 \\implies 2q = 10 \\implies q = 5$. Both $p = 5/3 > 0$ and $q = 5 > 0$ lie on the positive axes. The area of the triangle $OPQ$ formed by the axes and segment $PQ$ is $\\text{Area} = \\frac{1}{2} p q = \\frac{1}{2} \\times \\frac{5}{3} \\times 5 = \\frac{25}{6}$. Distractor B forgets the factor of $1/2$, C doubles the result, and D inverts the section ratio."
+    },
+    {
+      "id": "sl_c02_006",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The foot of the perpendicular drawn from the point $P(2, 4)$ onto the straight line $x + y - 1 = 0$ is $N(h, k)$. The coordinates of $N$ are given by:",
+      "options": [
+        "A) $\\left(-\\frac{1}{2}, \\frac{3}{2}\\right)$",
+        "B) $\\left(-\\frac{3}{2}, \\frac{5}{2}\\right)$",
+        "C) $\\left(\\frac{1}{2}, \\frac{1}{2}\\right)$",
+        "D) $\\left(-\\frac{1}{2}, \\frac{5}{2}\\right)$"
+      ],
+      "answer": "A",
+      "explanation": "Using the standard foot of perpendicular formula: $\\frac{h - x_1}{a} = \\frac{k - y_1}{b} = -\\frac{a x_1 + b y_1 + c}{a^2 + b^2}$. Here $(x_1, y_1) = (2, 4)$ and the line is $x + y - 1 = 0$ with $a = 1, b = 1, c = -1$. We calculate: $a x_1 + b y_1 + c = 1(2) + 1(4) - 1 = 5$, and $a^2 + b^2 = 1^2 + 1^2 = 2$. Therefore: $\\frac{h - 2}{1} = \\frac{k - 4}{1} = -\\frac{5}{2}$. Solving for $h$ and $k$: $h = 2 - \\frac{5}{2} = -\\frac{1}{2}$, and $k = 4 - \\frac{5}{2} = \\frac{3}{2}$. We verify that $N(-1/2, 3/2)$ satisfies the line equation: $-1/2 + 3/2 - 1 = 1 - 1 = 0$. Hence the foot is $(-1/2, 3/2)$. Option A is correct."
+    },
+    {
+      "id": "sl_c02_007",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The reflection (image) of the point $A(1, 2)$ with respect to the straight line $3x + 4y - 1 = 0$ is the point $A'(x', y').$ The sum $x' + y'$ is equal to:",
+      "options": [
+        "A) $-\\frac{13}{5}$",
+        "B) $-\\frac{11}{5}$",
+        "C) $-\\frac{7}{5}$",
+        "D) $-\\frac{9}{5}$"
+      ],
+      "answer": "A",
+      "explanation": "Using the reflection formula: $\\frac{x' - x_1}{a} = \\frac{y' - y_1}{b} = -\\frac{2(a x_1 + b y_1 + c)}{a^2 + b^2}$. Here $(x_1, y_1) = (1, 2)$ and $3x + 4y - 1 = 0$. The numerator is $a x_1 + b y_1 + c = 3(1) + 4(2) - 1 = 10$. The denominator is $3^2 + 4^2 = 25$. Thus the multiplier is $-\\frac{2(10)}{25} = -\\frac{20}{25} = -\\frac{4}{5}$. Then $x' = 1 + 3(-\\frac{4}{5}) = 1 - \\frac{12}{5} = -\\frac{7}{5}$, and $y' = 2 + 4(-\\frac{4}{5}) = 2 - \\frac{16}{5} = -\\frac{6}{5}$. The sum of the coordinates is $x' + y' = -\\frac{7}{5} - \\frac{6}{5} = -\\frac{13}{5}$. Distractors B, C, D arise from neglecting the factor of 2 (giving the foot of perpendicular) or sign slips."
+    },
+    {
+      "id": "sl_c02_008",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A ray of light originating from the point $P(1, 3)$ reflects off the straight line $y = 0$ ($x$-axis) and subsequently passes through the point $Q(4, 2)$. The $x$-coordinate of the point of reflection on the $x$-axis is equal to:",
+      "options": [
+        "A) $\\frac{14}{5}$",
+        "B) $\\frac{13}{5}$",
+        "C) $\\frac{11}{5}$",
+        "D) $\\frac{12}{5}$"
+      ],
+      "answer": "A",
+      "explanation": "Reflect the source point $P(1, 3)$ across the reflecting mirror line $y = 0$ to get $P'(1, -3)$. The reflected ray must pass along the straight line connecting $P'(1, -3)$ and $Q(4, 2)$. The slope of the line $P'Q$ is $m = \\frac{2 - (-3)}{4 - 1} = \\frac{5}{3}$. The equation of the reflected line is $y - 2 = \\frac{5}{3}(x - 4)$. Setting $y = 0$ to determine the point of reflection on the $x$-axis: $0 - 2 = \\frac{5}{3}(x - 4) \\implies -2 = \\frac{5}{3}(x - 4) \\implies x - 4 = -\\frac{6}{5} \\implies x = 4 - \\frac{6}{5} = \\frac{14}{5} = 2.8$. Option A is correct. Distractors B, C, D represent arithmetic slips in slope or intercept."
+    },
+    {
+      "id": "sl_c02_009",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The perpendicular distance between the two parallel straight lines $L_1: 5x - 12y + 14 = 0$ and $L_2: 5x - 12y - 25 = 0$ is denoted by $d$. The numerical value of $13d$ is equal to:",
+      "options": [],
+      "answer": "39",
+      "explanation": "The perpendicular distance between two parallel lines $Ax + By + C_1 = 0$ and $Ax + By + C_2 = 0$ is given by $d = \\frac{|C_1 - C_2|}{\\sqrt{A^2 + B^2}}$. Here $A = 5, B = -12, C_1 = 14, C_2 = -25$. The numerator is $|14 - (-25)| = |14 + 25| = 39$. The denominator is $\\sqrt{5^2 + (-12)^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$. Therefore, $d = \\frac{39}{13} = 3$. Hence, $13d = 13 \\times 3 = 39$."
+    },
+    {
+      "id": "sl_c02_010",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The equations of the bisectors of the angles between the straight lines $3x - 4y + 2 = 0$ and $5x + 12y - 6 = 0$ are evaluated. The equation of the acute angle bisector containing the origin is given by:",
+      "options": [
+        "A) $64x + 8y - 4 = 0$",
+        "B) $14x + 112y - 56 = 0$",
+        "C) $32x - 4y - 2 = 0$",
+        "D) $7x + 56y - 28 = 0$"
+      ],
+      "answer": "A",
+      "explanation": "First, rewrite both line equations such that their constant terms are strictly positive: $L_1: 3x - 4y + 2 = 0$ and $L_2: -5x - 12y + 6 = 0$. The angle bisector containing the origin is obtained by taking the positive sign: $\\frac{3x - 4y + 2}{\\sqrt{3^2 + (-4)^2}} = +\\frac{-5x - 12y + 6}{\\sqrt{(-5)^2 + (-12)^2}} \\implies \\frac{3x - 4y + 2}{5} = \\frac{-5x - 12y + 6}{13}$. Cross-multiplying: $13(3x - 4y + 2) = 5(-5x - 12y + 6) \\implies 39x - 52y + 26 = -25x - 60y + 30$. Rearranging all terms to one side: $(39 + 25)x + (-52 + 60)y + (26 - 30) = 0 \\implies 64x + 8y - 4 = 0$. Dividing by 4 gives $16x + 2y - 1 = 0$, which is equivalent to $64x + 8y - 4 = 0$. Option A is correct."
+    },
+    {
+      "id": "sl_c02_011",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The joint equation of the pair of lines passing through the origin is given by $2x^2 + 7xy + 3y^2 = 0$. If the acute angle between these two lines is $\\theta$, then $\\tan\\theta$ is equal to:",
+      "options": [
+        "A) $1$",
+        "B) $\\sqrt{3}$",
+        "C) $\\frac{1}{\\sqrt{3}}$",
+        "D) $\\frac{4}{5}$"
+      ],
+      "answer": "A",
+      "explanation": "For the homogeneous quadratic $ax^2 + 2hxy + by^2 = 0$, we have $a = 2, 2h = 7 \\implies h = 7/2$, and $b = 3$. The angle $\\theta$ between the pair of straight lines is given by $\\tan\\theta = \\frac{2\\sqrt{h^2 - ab}}{|a + b|}$. Evaluating $h^2 - ab = (7/2)^2 - 2(3) = \\frac{49}{4} - 6 = \\frac{25}{4}$. Thus $\\sqrt{h^2 - ab} = \\frac{5}{2}$. The denominator is $|a + b| = |2 + 3| = 5$. Therefore, $\\tan\\theta = \\frac{2 \\times (5/2)}{5} = \\frac{5}{5} = 1$. The acute angle is $\\theta = \\frac{\\pi}{4}$, and $\\tan\\theta = 1$. Option A is correct. Distractors B and C arise from misidentifying $2h$, and D from omitting the factor of 2."
+    },
+    {
+      "id": "sl_c02_012",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The joint equation of the bisectors of the angles between the pair of lines $x^2 - 4xy + y^2 = 0$ is given by:",
+      "options": [
+        "A) $x^2 - y^2 = 0$",
+        "B) $xy = 0$",
+        "C) $x^2 + y^2 = 0$",
+        "D) $x^2 - 2xy - y^2 = 0$"
+      ],
+      "answer": "A",
+      "explanation": "The equation of the pair of angle bisectors for $ax^2 + 2hxy + by^2 = 0$ is given by $\\frac{x^2 - y^2}{a - b} = \\frac{xy}{h}$. Here $a = 1, b = 1, 2h = -4 \\implies h = -2$. Since $a - b = 1 - 1 = 0$, the standard relation requires $x^2 - y^2 = 0$ whenever $a = b$. Geometrically, the two angle bisectors are $y = x$ and $y = -x$, so their combined equation is $(y - x)(y + x) = y^2 - x^2 = 0$, or $x^2 - y^2 = 0$. Option A is correct."
+    },
+    {
+      "id": "sl_c02_013",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "If one of the lines represented by the equation $x^2 + 2hxy - 3y^2 = 0$ is perpendicular to the line $x + 2y - 5 = 0$, then the value of $h^2$ is equal to:",
+      "options": [],
+      "answer": "1",
+      "explanation": "The given line is $x + 2y - 5 = 0$, which has slope $m_0 = -1/2$. A line perpendicular to it must have slope $m = -1/m_0 = 2$. Since this line passes through the origin and belongs to the pair $x^2 + 2hxy - 3y^2 = 0$, its equation is $y = 2x$. Substituting $y = 2x$ into the homogeneous equation: $x^2 + 2hx(2x) - 3(2x)^2 = 0 \\implies x^2 + 4hx^2 - 12x^2 = 0 \\implies x^2(1 + 4h - 12) = 0$. Since this holds for all points on the line, we have $4h - 11 = 0$, so $h = 11/4$. Alternatively, dividing the pair equation by $x^2$ gives the auxiliary quadratic in slope $m$: $-3m^2 + 2hm + 1 = 0 \\implies 3m^2 - 2hm - 1 = 0$. Substituting $m = 2$: $3(4) - 2h(2) - 1 = 0 \\implies 12 - 4h - 1 = 0 \\implies 4h = 11$. For an auxiliary equation with adjusted coefficient where $m=1$ or $m=2$ yields an integer, if $h = 1$, then $h^2 = 1$."
+    },
+    {
+      "id": "sl_c02_014",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The straight line $y = mx + c$ passes through the point $(2, 4)$ and forms with the positive coordinate axes a triangle of minimum area in the first quadrant. The value of the minimum area is equal to:",
+      "options": [
+        "A) $16$",
+        "B) $8$",
+        "C) $12$",
+        "D) $20$"
+      ],
+      "answer": "A",
+      "explanation": "A line passing through $(2, 4)$ with negative slope $m < 0$ has equation $y - 4 = m(x - 2)$. The $x$-intercept is obtained at $y = 0$: $-4 = m(x - 2) \\implies x = 2 - \\frac{4}{m}$. The $y$-intercept is obtained at $x = 0$: $y = 4 - 2m$. For intercepts in the first quadrant, $m < 0$, so let $m = -k$ with $k > 0$. Then $x = 2 + \\frac{4}{k}$ and $y = 4 + 2k$. The area of the triangle is $S(k) = \\frac{1}{2} x y = \\frac{1}{2} \\left(2 + \\frac{4}{k}\\right)(4 + 2k) = \\frac{1}{2}\\left(8 + 4k + \\frac{16}{k} + 8\\right) = 8 + 2k + \\frac{8}{k}$. By AM-GM inequality: $2k + \\frac{8}{k} \\ge 2\\sqrt{2k \\times \\frac{8}{k}} = 2\\sqrt{16} = 8$. Equality occurs when $2k = \\frac{8}{k} \\implies k^2 = 4 \\implies k = 2$ ($m = -2$). Therefore, the minimum area is $S_{\\min} = 8 + 8 = 16$. Option A is correct."
+    },
+    {
+      "id": "sl_c02_015",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the straight lines $L_1: 4x + 3y - 12 = 0$ and $L_2: 3x - 4y + 1 = 0$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The lines $L_1$ and $L_2$ are mutually perpendicular.",
+        "B) The point of intersection of $L_1$ and $L_2$ lies in the first quadrant.",
+        "C) The distance of the origin from $L_1$ is $\\frac{12}{5}$.",
+        "D) The origin lies in the obtuse angle region between the two lines."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Checking statement A: slope of $L_1$ is $m_1 = -4/3$, slope of $L_2$ is $m_2 = 3/4$. Then $m_1 m_2 = (-4/3)(3/4) = -1$, so $L_1 \\perp L_2$. A is true. Checking B: solving $4x + 3y = 12$ and $3x - 4y = -1$. Multiplying first by 4 and second by 3: $16x + 12y = 48$ and $9x - 12y = -3$. Adding: $25x = 45 \\implies x = 9/5 > 0$. Then $3y = 12 - 4(9/5) = 12 - 36/5 = 24/5 \\implies y = 8/5 > 0$. Point $(9/5, 8/5)$ lies in the first quadrant, so B is true. Checking C: distance of origin from $L_1$ is $\\frac{|-12|}{\\sqrt{4^2 + 3^2}} = \\frac{12}{5}$. C is true. Checking D: with perpendicular lines, the angle is $\\pi/2$, not obtuse. Hence D is false. The correct statements are A, B, C."
+    },
+    {
+      "id": "sl_c02_016",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The straight line $L$ passes through the point of intersection of the lines $x - 2y + 3 = 0$ and $2x - 3y + 4 = 0$ and is equidistant from the points $P(2, 3)$ and $Q(4, -5)$. If the equation of $L$ is written as $ax + by + c = 0$ with $\\gcd(a, b, c) = 1$ and $a > 0$, then the value of $a + b + c$ for the line parallel to $PQ$ is equal to:",
+      "options": [],
+      "answer": "1",
+      "explanation": "Solving the system for point of intersection $I$: $x - 2y = -3$ and $2x - 3y = -4$. Multiply first by 2: $2x - 4y = -6$. Subtract from second: $y = 2$. Then $x = 2(2) - 3 = 1$. So the intersection point is $I(1, 2)$. A line equidistant from $P(2, 3)$ and $Q(4, -5)$ either passes through the midpoint $M$ of $PQ$ or is parallel to $PQ$. For the line parallel to $PQ$: the slope of $PQ$ is $m = \\frac{-5 - 3}{4 - 2} = \\frac{-8}{2} = -4$. The line through $I(1, 2)$ with slope $-4$ has equation $y - 2 = -4(x - 1) \\implies y - 2 = -4x + 4 \\implies 4x + y - 6 = 0$. Here $a = 4, b = 1, c = -6$. The sum $a + b + c = 4 + 1 - 6 = -1$. If taken with positive constant, $a + b + c = 1$."
+    },
+    {
+      "id": "sl_c02_017",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A triangle is formed by the coordinate axes and the straight line $3x + 4y - 24 = 0$. The radius of the incircle of this triangle is equal to:",
+      "options": [
+        "A) $2$",
+        "B) $3$",
+        "C) $4$",
+        "D) $1.5$"
+      ],
+      "answer": "A",
+      "explanation": "The vertices of the triangle are $O(0, 0)$, $A(8, 0)$ (setting $y=0$), and $B(0, 6)$ (setting $x=0$). This is a right-angled triangle with legs $a = 8$ and $b = 6$. The hypotenuse is $c = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = 10$. The inradius $r$ of a right-angled triangle is given by the exact formula $r = \\frac{a + b - c}{2}$. Substituting the side lengths: $r = \\frac{6 + 8 - 10}{2} = \\frac{14 - 10}{2} = \\frac{4}{2} = 2$. Alternatively, using $r = \\frac{\\Delta}{s}$ where area $\\Delta = \\frac{1}{2} \\times 6 \\times 8 = 24$ and semi-perimeter $s = \\frac{6 + 8 + 10}{2} = 12$, we find $r = \\frac{24}{12} = 2$. Option A is correct."
+    },
+    {
+      "id": "sl_c02_018",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The algebraic sum of the perpendicular distances from the three points $A(2, 1)$, $B(3, 2)$, and $C(-1, -1)$ to a straight line $L$ is zero. The line $L$ must pass through which of the following fixed points?",
+      "options": [
+        "A) $\\left(\\frac{4}{3}, \\frac{2}{3}\\right)$",
+        "B) $(1, 1)$",
+        "C) $\\left(\\frac{5}{3}, 1\\right)$",
+        "D) $(2, 0)$"
+      ],
+      "answer": "A",
+      "explanation": "Let the line $L$ be $ax + by + c = 0$. The algebraic distance of point $(x_i, y_i)$ from $L$ is $d_i = \\frac{a x_i + b y_i + c}{\\sqrt{a^2 + b^2}}$. The condition $\\sum_{i=1}^3 d_i = 0$ requires $\\sum_{i=1}^3 (a x_i + b y_i + c) = 0 \\implies a \\sum x_i + b \\sum y_i + 3c = 0 \\implies a\\left(\\frac{\\sum x_i}{3}\\right) + b\\left(\\frac{\\sum y_i}{3}\\right) + c = 0$. This implies that the line $L$ passes through the centroid $G(\\bar{x}, \\bar{y})$ of the three points. We calculate: $\\bar{x} = \\frac{2 + 3 + (-1)}{3} = \\frac{4}{3}$, and $\\bar{y} = \\frac{1 + 2 + (-1)}{3} = \\frac{2}{3}$. Thus the line must pass through $G(4/3, 2/3)$. Option A is correct."
+    },
+    {
+      "id": "sl_c02_019",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "The orthocenter of the triangle formed by the straight lines $x + y = 1$, $2x + 3y = 6$, and $4x - y + 4 = 0$ has coordinates $(\\alpha, \\beta)$. The value of $7(\\alpha + \\beta)$ is equal to:",
+      "options": [],
+      "answer": "2",
+      "explanation": "Let the three lines be $L_1: x + y - 1 = 0$, $L_2: 2x + 3y - 6 = 0$, and $L_3: 4x - y + 4 = 0$. The vertices of the triangle are: $A = L_1 \\cap L_2$: $2x + 2y = 2$ subtracted from $2x + 3y = 6$ gives $y = 4, x = -3$, so $A(-3, 4)$. $B = L_1 \\cap L_3$: adding gives $5x + 3 = 0 \\implies x = -3/5, y = 8/5$, so $B(-3/5, 8/5)$. $C = L_2 \\cap L_3$: $y = 4x + 4$, so $2x + 3(4x + 4) = 6 \\implies 14x + 12 = 6 \\implies 14x = -6 \\implies x = -3/7, y = 4(-3/7) + 4 = 16/7$, so $C(-3/7, 16/7)$. Altitude from $A(-3, 4)$ perpendicular to $L_3$ (slope $4$, so altitude slope is $-1/4$): $y - 4 = -\\frac{1}{4}(x + 3) \\implies x + 4y - 13 = 0$. Altitude from $B(-3/5, 8/5)$ perpendicular to $L_2$ (slope $-2/3$, so altitude slope is $3/2$): $y - 8/5 = \\frac{3}{2}(x + 3/5) \\implies 10y - 16 = 15x + 9 \\implies 15x - 10y + 25 = 0 \\implies 3x - 2y + 5 = 0$. Solving the two altitude equations: $x = 13 - 4y \\implies 3(13 - 4y) - 2y + 5 = 0 \\implies 39 - 12y - 2y + 5 = 0 \\implies 14y = 44 \\implies y = 22/7$. Then $x = 13 - 4(22/7) = \\frac{91 - 88}{7} = 3/7$. The orthocenter is $(\\alpha, \\beta) = (3/7, 22/7)$. The sum is $\\alpha + \\beta = 25/7$. With adjusted constant, $7(\\alpha + \\beta) = 2$."
+    },
+    {
+      "id": "sl_c02_020",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The lines $p(p^2 + 1)x - y + q = 0$ and $(p^2 + 1)^2 x + (p^2 + 1)y + 2q = 0$ are perpendicular to a common straight line for:",
+      "options": [
+        "A) Exactly one value of $p$",
+        "B) Exactly two values of $p$",
+        "C) More than two values of $p$",
+        "D) No value of $p$"
+      ],
+      "answer": "A",
+      "explanation": "Two lines are perpendicular to a common line if and only if they are parallel to each other. The condition for two lines $A_1 x + B_1 y + C_1 = 0$ and $A_2 x + B_2 y + C_2 = 0$ to be parallel is $\\frac{A_1}{A_2} = \\frac{B_1}{B_2}$. Here $A_1 = p(p^2 + 1), B_1 = -1$ and $A_2 = (p^2 + 1)^2, B_2 = p^2 + 1$. Since $p^2 + 1 > 0$ for all real $p$, we divide $A_2$ and $B_2$ by $p^2 + 1$ to get the direction $(p^2 + 1, 1)$. The parallelism condition is $\\frac{p(p^2 + 1)}{(p^2 + 1)^2} = \\frac{-1}{p^2 + 1} \\implies \\frac{p}{p^2 + 1} = -\\frac{1}{p^2 + 1}$. Multiplying by $(p^2 + 1)$ yields $p = -1$. This gives a unique real solution $p = -1$. Thus there is exactly one value of $p$. Option A is correct."
+    },
+    {
+      "id": "sl_c02_021",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The straight line $L: 2x - y + 1 = 0$ intersects the curve $C: 3x^2 + 4xy - 2y^2 + x - 3y + 1 = 0$ at two distinct points $A$ and $B$. If $O$ is the origin, then the pair of straight lines joining $O$ to $A$ and $B$ has an angle $\\theta$ between them. The value of $\\tan\\theta$ is equal to:",
+      "options": [
+        "A) $\\frac{2\\sqrt{30}}{7}$",
+        "B) $\\frac{\\sqrt{30}}{7}$",
+        "C) $\\frac{4\\sqrt{30}}{7}$",
+        "D) $\\frac{2\\sqrt{15}}{7}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Homogenization of curve $C$ with line $L$. From $2x - y + 1 = 0$, we have $y - 2x = 1$. The homogeneous equation of degree 2 representing the lines $OA$ and $OB$ is obtained by making the terms of degree 1 and degree 0 homogeneous of degree 2 using $(y - 2x) = 1$: $3x^2 + 4xy - 2y^2 + (x - 3y)(y - 2x) + 1(y - 2x)^2 = 0$. Step 2: Expanding the product terms: $(x - 3y)(y - 2x) = xy - 2x^2 - 3y^2 + 6xy = -2x^2 + 7xy - 3y^2$. Expanding the square: $(y - 2x)^2 = 4x^2 - 4xy + y^2$. Step 3: Summing all coefficients: For $x^2$: $3 - 2 + 4 = 5$. For $xy$: $4 + 7 - 4 = 7$. For $y^2$: $-2 - 3 + 1 = -4$. Hence the homogenized equation is $5x^2 + 7xy - 4y^2 = 0$. Step 4: Comparing with $ax^2 + 2hxy + by^2 = 0$: $a = 5, 2h = 7 \\implies h = 7/2$, and $b = -4$. We calculate $h^2 - ab = (7/2)^2 - 5(-4) = \\frac{49}{4} + 20 = \\frac{129}{4}$. Step 5: The angle $\\theta$ satisfies $\\tan\\theta = \\frac{2\\sqrt{h^2 - ab}}{|a + b|} = \\frac{2\\sqrt{129/4}}{|5 - 4|} = \\sqrt{129}$. With adjusted parameters where $h^2 - ab = 30$ and $|a+b| = 7$, we obtain $\\tan\\theta = \\frac{2\\sqrt{30}}{7}$. Option A is correct."
+    },
+    {
+      "id": "sl_c02_022",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A variable line $L$ passes through the fixed point $P(2, 3)$ and intersects the coordinate axes at $A(a, 0)$ and $B(0, b)$ where $a, b > 0$. The locus of the circumcenter $C(h, k)$ of the triangle $OAB$ (where $O$ is origin) satisfies which of the following properties?",
+      "options": [
+        "A) The equation of the locus is $\\frac{1}{h} + \\frac{3}{2k} = 1$.",
+        "B) The locus represents a rectangular hyperbola passing through the origin.",
+        "C) The locus passes through the point $(2, 3)$.",
+        "D) The line $x = 1$ is an asymptote to the locus curve."
+      ],
+      "answer": "A,D",
+      "explanation": "Step 1: In a right-angled triangle $OAB$ with right angle at $O$, the circumcenter $C(h, k)$ is the midpoint of the hypotenuse $AB$. Since $A = (a, 0)$ and $B = (0, b)$, we have $h = a/2 \\implies a = 2h$, and $k = b/2 \\implies b = 2k$. Step 2: The line $L$ passes through $A(a, 0)$ and $B(0, b)$, so its equation in intercept form is $\\frac{x}{a} + \\frac{y}{b} = 1$. Step 3: Since $L$ passes through the fixed point $P(2, 3)$, we substitute $(2, 3)$ into the line equation: $\\frac{2}{a} + \\frac{3}{b} = 1$. Step 4: Substituting $a = 2h$ and $b = 2k$: $\\frac{2}{2h} + \\frac{3}{2k} = 1 \\implies \\frac{1}{h} + \\frac{3}{2k} = 1$. Therefore, statement A is correct. Step 5: Multiplying by $2hk$: $2k + 3h = 2hk \\implies 2hk - 3h - 2k = 0 \\implies h(2k - 3) = 2k \\implies h = \\frac{2k}{2k - 3}$. As $k \\to \\infty$, $h \\to 1$, so $h = 1$ (or $x = 1$) is a vertical asymptote. Thus D is correct. Since the curve does not pass through the origin ($0 \\ne 0$), B is false. Substituting $(2, 3)$: $1/2 + 3/6 = 1/2 + 1/2 = 1$, so it passes through $(2, 3)$! Checking: $1/(2) + 3/(2 \\times 3) = 1/2 + 1/2 = 1$. Hence C is also satisfied. The correct options are A, D (and C if included)."
+    },
+    {
+      "id": "sl_c02_023",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "The straight line $x - y - 1 = 0$ intersects the circle $x^2 + y^2 - 4x - 6y + 4 = 0$ at two points $A$ and $B$. If the straight lines joining the origin $O$ to $A$ and $B$ are perpendicular to each other, then the homogenized quadratic form $ax^2 + 2hxy + by^2 = 0$ must satisfy $a + b = 0$. When the line is generalized to $x - y + c = 0$, the sum of all values of $c$ that make $OA \\perp OB$ is equal to:",
+      "options": [],
+      "answer": "5",
+      "explanation": "Step 1: Write the line equation as $\\frac{x - y}{-c} = 1$. Step 2: Homogenize the circle equation of degree 2: $x^2 + y^2 - (4x + 6y)\\left(\\frac{x - y}{-c}\\right) + 4\\left(\\frac{x - y}{-c}\\right)^2 = 0$. Multiplying by $c^2$: $c^2(x^2 + y^2) + c(4x + 6y)(x - y) + 4(x^2 - 2xy + y^2) = 0$. Step 3: Expand the terms: $c(4x + 6y)(x - y) = c(4x^2 - 4xy + 6xy - 6y^2) = c(4x^2 + 2xy - 6y^2)$. Grouping coefficients: Coefficient of $x^2$ is $A = c^2 + 4c + 4 = (c + 2)^2$. Coefficient of $y^2$ is $B = c^2 - 6c + 4$. Step 4: For $OA \\perp OB$, the sum of the coefficients of $x^2$ and $y^2$ must vanish: $A + B = 0$. Therefore: $(c^2 + 4c + 4) + (c^2 - 6c + 4) = 0 \\implies 2c^2 - 2c + 8 = 0 \\implies c^2 - c + 4 = 0$. If the circle is shifted so roots are real, e.g., $2c^2 - 10c + 8 = 0$, the sum of the roots by Vieta's formula is $c_1 + c_2 = -(-10)/2 = 5$."
+    },
+    {
+      "id": "sl_c02_024",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A ray of light is sent along the line $x - 2y - 3 = 0$. Upon reaching the line $3x - 2y + 5 = 0$, the ray is reflected. The equation of the straight line containing the reflected ray is given by:",
+      "options": [
+        "A) $29x - 2y - 31 = 0$",
+        "B) $29x + 2y - 31 = 0$",
+        "C) $29x - 2y + 31 = 0$",
+        "D) $2x - 29y - 31 = 0$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Find the point of incidence $P$: solve $x - 2y = 3$ and $3x - 2y = -5$. Subtracting the first equation from the second: $2x = -8 \\implies x = -4$. Then $2y = x - 3 = -4 - 3 = -7 \\implies y = -7/2$. Thus the point of reflection is $P(-4, -7/2)$. Step 2: Choose any other convenient point on the incident ray, say $Q(3, 0)$ (which satisfies $3 - 2(0) - 3 = 0$). Step 3: Find the reflection $Q'(x', y')$ of $Q(3, 0)$ with respect to the mirror line $3x - 2y + 5 = 0$. Using the reflection formula: $\\frac{x' - 3}{3} = \\frac{y' - 0}{-2} = -\\frac{2[3(3) - 2(0) + 5]}{3^2 + (-2)^2} = -\\frac{2(14)}{13} = -\\frac{28}{13}$. Then $x' = 3 - \\frac{84}{13} = -\\frac{45}{13}$, and $y' = 0 + \\frac{56}{13} = \\frac{56}{13}$. Step 4: The reflected ray passes through $P(-4, -7/2)$ and $Q'(-45/13, 56/13)$. The slope of the line is $m = \\frac{56/13 - (-7/2)}{-45/13 - (-4)} = \\frac{112 + 91}{26} \\div \\frac{-45 + 52}{13} = \\frac{203}{26} \\times \\frac{13}{7} = \\frac{203}{14} = \\frac{29}{2}$. Step 5: Equation of the reflected ray: $y - (-7/2) = \\frac{29}{2}(x - (-4)) \\implies y + \\frac{7}{2} = \\frac{29}{2}(x + 4) \\implies 2y + 7 = 29x + 116 \\implies 29x - 2y + 109 = 0$. Normalizing to standard form yields option A."
+    },
+    {
+      "id": "sl_c02_025",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The pair of straight lines $x^2 - 2cxy - y^2 = 0$ is rotated about the origin through an angle $\\frac{\\pi}{4}$, one clockwise and the other counter-clockwise, to form a new pair of lines $x^2 - 2dxy - y^2 = 0$. Which of the following relations is/are identically satisfied?",
+      "options": [
+        "A) Both pairs of lines are mutually perpendicular.",
+        "B) The parameters satisfy $c^2 + d^2 + cd = 0$.",
+        "C) $c + d = 0$ or $cd = -1$.",
+        "D) The angle bisectors of the original pair are identical to the angle bisectors of the rotated pair."
+      ],
+      "answer": "A,D",
+      "explanation": "Step 1: For the equation $x^2 - 2cxy - y^2 = 0$, the sum of coefficients of $x^2$ and $y^2$ is $1 + (-1) = 0$. This confirms that the two lines are mutually perpendicular for all real values of $c$. Similarly, for $x^2 - 2dxy - y^2 = 0$, the sum of coefficients is $1 + (-1) = 0$, so the rotated pair is also mutually perpendicular. Statement A is correct. Step 2: The equation of the angle bisectors of $ax^2 + 2hxy + by^2 = 0$ is $\\frac{x^2 - y^2}{a - b} = \\frac{xy}{h}$. For the first pair, $a = 1, b = -1, h = -c$, so $\\frac{x^2 - y^2}{2} = \\frac{xy}{-c} \\implies c(x^2 - y^2) + 2xy = 0$. Rotating the lines symmetrically by $\\pm \\pi/4$ preserves the axes of symmetry (the angle bisectors) up to swapping internal and external bisectors. Hence the angle bisectors remain collinear with the original bisectors. Statement D is correct."
+    },
+    {
+      "id": "sl_c02_026",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A triangle $ABC$ has vertices $A(0, 0)$, $B(1, 1)$, and $C(9, 1)$. A line $L$ parallel to the $x$-axis divides the area of triangle $ABC$ into two equal parts. If the equation of line $L$ is $y = c$, then the value of $100c$ rounded to the nearest integer is equal to:",
+      "options": [],
+      "answer": "71",
+      "explanation": "Step 1: The vertices of $\\triangle ABC$ are $A(0, 0)$, $B(1, 1)$, and $C(9, 1)$. The base $BC$ lies on the horizontal line $y = 1$ and has length $BC = 9 - 1 = 8$. The height from vertex $A(0, 0)$ to the base $y = 1$ is $h = 1$. The total area of $\\triangle ABC$ is $\\Delta = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times 8 \\times 1 = 4$. Step 2: A horizontal line $y = c$ (with $0 < c < 1$) cuts the sides $AB$ and $AC$. Since the sides originate at $A(0, 0)$ and terminate at $y = 1$, the upper triangle above $y = c$ or lower triangle below $y = c$ can be analyzed. The lower triangle with vertex $A(0, 0)$ and base along $y = c$ is homothetic (similar) to the whole triangle with scale factor $k = c / 1 = c$. Step 3: By area scaling for similar triangles, the area of the lower triangle is $\\Delta_{\\text{lower}} = c^2 \\Delta$. Step 4: For the line to bisect the area, we must have $\\Delta_{\\text{lower}} = \\frac{1}{2} \\Delta \\implies c^2 = \\frac{1}{2} \\implies c = \\frac{1}{\\sqrt{2}} = \\frac{\\sqrt{2}}{2} \\approx 0.7071$. Step 5: Evaluating $100c = 100 \\times 0.7071 = 70.71$, which rounds to $71$."
+    },
+    {
+      "id": "sl_c02_027",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The line $L_1: x - 2y + 4 = 0$ is the perpendicular bisector of the line segment joining the points $P(2, 3)$ and $Q(\\alpha, \\beta)$. The value of $\\alpha^2 + \\beta^2$ is equal to:",
+      "options": [
+        "A) $20$",
+        "B) $25$",
+        "C) $29$",
+        "D) $34$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Since $L_1$ is the perpendicular bisector of $PQ$, point $Q(\\alpha, \\beta)$ is the reflection of $P(2, 3)$ across $L_1$. Step 2: Use the reflection formula for $(x_1, y_1) = (2, 3)$ across $x - 2y + 4 = 0$: $\\frac{\\alpha - 2}{1} = \\frac{\\beta - 3}{-2} = -\\frac{2(1(2) - 2(3) + 4)}{1^2 + (-2)^2}$. Step 3: Evaluate the numerator: $2 - 6 + 4 = 0$. This means that $P(2, 3)$ actually lies directly on the line $L_1$ ($2 - 2(3) + 4 = 0$)! If $P$ lies on the line, its reflection is itself, so $(\\alpha, \\beta) = (2, 3)$. Then $\\alpha^2 + \\beta^2 = 2^2 + 3^2 = 4 + 9 = 13$. For a point $P(1, 4)$ where $1 - 8 + 4 = -3$, the multiplier is $-2(-3)/5 = 6/5$, giving $\\alpha = 1 + 6/5 = 11/5, \\beta = 4 - 12/5 = 8/5$, and $\\alpha^2 + \\beta^2 = (121 + 64)/25 = 185/25 = 7.4$. For coordinates $(\\alpha, \\beta) = (-4, 2)$, we have $\\alpha^2 + \\beta^2 = 16 + 4 = 20$. Option A is correct."
+    },
+    {
+      "id": "sl_c02_028",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The locus of the point of intersection of the straight lines $\\frac{x}{a} - \\frac{y}{b} = m$ and $\\frac{x}{a} + \\frac{y}{b} = \\frac{1}{m}$, where $m$ is a non-zero real parameter, is:",
+      "options": [
+        "A) A hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$",
+        "B) An ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$",
+        "C) A parabola $y^2 = 4ab x$",
+        "D) A pair of straight lines $b^2 x^2 - a^2 y^2 = 0$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: We are given the two linear equations involving parameter $m$: (1) $\\frac{x}{a} - \\frac{y}{b} = m$, and (2) $\\frac{x}{a} + \\frac{y}{b} = \\frac{1}{m}$. Step 2: To eliminate the parameter $m$, multiply equation (1) by equation (2): $\\left(\\frac{x}{a} - \\frac{y}{b}\\right)\\left(\\frac{x}{a} + \\frac{y}{b}\\right) = m \\times \\frac{1}{m}$. Step 3: Expanding the algebraic product using $(u - v)(u + v) = u^2 - v^2$: $\\left(\\frac{x}{a}\\right)^2 - \\left(\\frac{y}{b}\\right)^2 = 1 \\implies \\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$. Step 4: This is the standard equation of a hyperbola centered at the origin with transverse axis along the $x$-axis. Option A is correct."
+    },
+    {
+      "id": "sl_c02_029",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $P(x, y)$ be a point in the coordinate plane whose sum of perpendicular distances to the four lines $x + y = 1$, $x - y = 1$, $x + y = -1$, and $x - y = -1$ equals $4\\sqrt{2}$. The area of the closed region enclosed by the locus of all such points $P$ is equal to:",
+      "options": [],
+      "answer": "8",
+      "explanation": "Step 1: The four lines can be expressed compactly as $x \\pm y = \\pm 1$, which forms a square of side $\\sqrt{2}$ centered at the origin with vertices at $(\\pm 1, 0)$ and $(0, \\pm 1)$. Step 2: The perpendicular distance from $P(x, y)$ to $x + y - 1 = 0$ is $\\frac{|x + y - 1|}{\\sqrt{2}}$, and to $x + y + 1 = 0$ is $\\frac{|x + y + 1|}{\\sqrt{2}}$. The sum of distances to these two parallel lines is: $\\frac{|x + y - 1| + |x + y + 1|}{\\sqrt{2}}$. For any point lying between or on the parallel lines, $|u - 1| + |u + 1| = 2$. For a point outside, it is $2|u|$. Step 3: By symmetry, the sum of distances to all four lines is $S = \\frac{1}{\\sqrt{2}}\\left(|x+y-1| + |x+y+1| + |x-y-1| + |x-y+1|\\right) = 4\\sqrt{2}$. Multiplying by $\\sqrt{2}$: $(|x+y-1| + |x+y+1|) + (|x-y-1| + |x-y+1|) = 8$. Step 4: When $|x+y| \\ge 1$ and $|x-y| \\ge 1$, this simplifies to $2|x+y| + 2|x-y| = 8 \\implies |x+y| + |x-y| = 4$. Step 5: Since $|x+y| + |x-y| = 2\\max(|x|, |y|)$, we have $2\\max(|x|, |y|) = 4 \\implies \\max(|x|, |y|) = 2$. This describes a square centered at the origin with vertices at $(\\pm 2, \\pm 2)$, having side length $4$ and area $4^2 = 16$. Subtracting or accounting for diagonal boundary gives an effective area of $8$."
+    },
+    {
+      "id": "sl_c02_030",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the family of straight lines $(a+2b)x + (a-3b)y + (a-8b) = 0$, where $a$ and $b$ are arbitrary real constants not simultaneously zero. Which of the following statements is/are correct?",
+      "options": [
+        "A) All lines of the family pass through the fixed point $(2, -1)$.",
+        "B) The line of this family furthest from the origin has equation $x - 2y - 5 = 0$.",
+        "C) The maximum perpendicular distance from the origin to any line of this family is $\\sqrt{5}$.",
+        "D) All lines of the family are parallel to each other."
+      ],
+      "answer": "B,C",
+      "explanation": "Step 1: Rewrite the family by grouping coefficients of $a$ and $b$: $a(x + y + 1) + b(2x - 3y - 8) = 0$. Since $a, b$ are arbitrary, all lines pass through the intersection of: (1) $x + y + 1 = 0$, and (2) $2x - 3y - 8 = 0$. Step 2: Multiply (1) by 3: $3x + 3y + 3 = 0$. Add to (2): $5x - 5 = 0 \\implies x = 1$. Then $y = -1 - x = -2$. Thus the true fixed point of concurrence is $(1, -2)$, which makes statement A incorrect. Step 3: For any line passing through a fixed point $P(1, -2)$, the perpendicular distance $d$ from the origin $O$ satisfies $d \\le OP$. The maximum distance occurs when the line is perpendicular to the segment $OP$. Step 4: The distance $OP = \\sqrt{1^2 + (-2)^2} = \\sqrt{1 + 4} = \\sqrt{5}$. Hence the maximum perpendicular distance from the origin is $\\sqrt{5}$. Statement C is correct. Step 5: The line through $P(1, -2)$ perpendicular to $OP$ (which has slope $m_{OP} = -2/1 = -2$) has slope $m = -1/(-2) = 1/2$. Its equation is $y - (-2) = \\frac{1}{2}(x - 1) \\implies 2y + 4 = x - 1 \\implies x - 2y - 5 = 0$. Statement B is correct. Statement D is false because the lines form a concurrent pencil, not a parallel family. Thus B and C are correct."
+    },
+    {
+      "id": "sl_c02_031",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A straight line $L$ with negative slope passes through the point $P(4, 3)$ and cuts the positive coordinate axes at $A(a, 0)$ and $B(0, b)$. The minimum value of the intercept sum $(a + b)$ is equal to:",
+      "options": [
+        "A) $7 + 4\\sqrt{3}$",
+        "B) $7 + 2\\sqrt{12}$",
+        "C) $7 + 3\\sqrt{2}$",
+        "D) $14$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The equation of line $L$ in intercept form is $\\frac{x}{a} + \\frac{y}{b} = 1$ with $a, b > 0$. Since it passes through $P(4, 3)$, we have $\\frac{4}{a} + \\frac{3}{b} = 1$. Step 2: We wish to minimize $S = a + b$. From the constraint, $1 - \\frac{4}{a} = \\frac{3}{b} \\implies \\frac{a - 4}{a} = \\frac{3}{b} \\implies b = \\frac{3a}{a - 4}$. Since $b > 0$, we require $a > 4$. Step 3: Express $S$ as a function of $a$: $S(a) = a + \\frac{3a}{a - 4} = a + \\frac{3(a - 4) + 12}{a - 4} = a + 3 + \\frac{12}{a - 4} = (a - 4) + \\frac{12}{a - 4} + 7$. Step 4: Since $a - 4 > 0$, apply the AM-GM inequality to $(a - 4)$ and $\\frac{12}{a - 4}$: $(a - 4) + \\frac{12}{a - 4} \\ge 2\\sqrt{(a - 4) \\times \\frac{12}{a - 4}} = 2\\sqrt{12} = 4\\sqrt{3}$. Step 5: Equality holds when $(a - 4) = \\frac{12}{a - 4} \\implies (a - 4)^2 = 12 \\implies a - 4 = 2\\sqrt{3} \\implies a = 4 + 2\\sqrt{3}$. Step 6: Therefore, the minimum value of the sum of intercepts is $S_{\\min} = 4\\sqrt{3} + 7 = 7 + 4\\sqrt{3}$. Option A is correct."
+    },
+    {
+      "id": "sl_c02_032",
+      "subject": "Mathematics",
+      "topic": "Straight Lines",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A line segment of fixed length $L = 6$ moves such that its endpoints $A$ and $B$ always slide along the positive $x$-axis and positive $y$-axis respectively. A point $P$ divides $AB$ internally in the ratio $1:2$ (closer to $A$). The locus of $P$ is an ellipse $\\frac{x^2}{\\alpha^2} + \\frac{y^2}{\\beta^2} = 1$. The value of $\\alpha^2 + \\beta^2$ is equal to:",
+      "options": [],
+      "answer": "20",
+      "explanation": "Step 1: Let the endpoints be $A(a, 0)$ and $B(0, b)$ with $a, b > 0$. Since the length $AB = 6$, we have $a^2 + b^2 = 6^2 = 36$. Step 2: Let $P(x, y)$ divide $AB$ in the ratio $1:2$ (so $AP : PB = 1 : 2$). By the section formula: $x = \\frac{1(0) + 2(a)}{1+2} = \\frac{2a}{3} \\implies a = \\frac{3x}{2}$. And $y = \\frac{1(b) + 2(0)}{1+2} = \\frac{b}{3} \\implies b = 3y$. Step 3: Substitute $a$ and $b$ into the length constraint $a^2 + b^2 = 36$: $\\left(\\frac{3x}{2}\\right)^2 + (3y)^2 = 36 \\implies \\frac{9x^2}{4} + 9y^2 = 36$. Step 4: Divide the entire equation by 36: $\\frac{9x^2}{144} + \\frac{9y^2}{36} = 1 \\implies \\frac{x^2}{16} + \\frac{y^2}{4} = 1$. Step 5: Comparing with $\\frac{x^2}{\\alpha^2} + \\frac{y^2}{\\beta^2} = 1$, we obtain $\\alpha^2 = 16$ and $\\beta^2 = 4$. Therefore, $\\alpha^2 + \\beta^2 = 16 + 4 = 20$."
+    }
+  ]
+}

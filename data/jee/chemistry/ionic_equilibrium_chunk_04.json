@@ -1,0 +1,779 @@
+{
+  "questions": [
+    {
+      "id": "ieq_c04_001",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $0.20$ M solution of sodium fluoride is prepared at $25\\,^\\circ$C, where $K_a(HF) = 4.0 \\times 10^{-4}$. What is the pH of this solution?",
+      "options": [
+        "A) The pH is 8.35, because $K_h = K_w/K_a = 2.5 \\times 10^{-11}$ gives $[OH^-] = 2.2 \\times 10^{-6}$ M",
+        "B) The pH is 5.65, because the pOH of the solution is reported as the pH",
+        "C) The pH is 11.95, because $K_a$ is used in place of $K_h$ in $[OH^-] = \\sqrt{K_a C}$",
+        "D) The pH is 7.00, because sodium salts of weak acids are assumed to be neutral"
+      ],
+      "answer": "A",
+      "explanation": "Fluoride hydrolyses with $K_h = K_w/K_a = 10^{-14}/(4.0 \\times 10^{-4}) = 2.5 \\times 10^{-11}$. Then $[OH^-] = \\sqrt{2.5 \\times 10^{-11} \\times 0.20} = 2.2 \\times 10^{-6}$ M, so pOH $= 5.65$ and pH $= 8.35$."
+    },
+    {
+      "id": "ieq_c04_002",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $0.010$ M solution of NaOH is diluted $100$-fold with pure water at $25\\,^\\circ$C. What is the pH of the diluted solution?",
+      "options": [
+        "A) The pH is 10.00, because $[OH^-] = 1.0 \\times 10^{-4}$ M gives pOH $= 4$",
+        "B) The pH is 12.00, because the undiluted $0.010$ M value is used",
+        "C) The pH is 4.00, because the pOH of the diluted solution is reported as the pH",
+        "D) The pH is 7.00, because dilution with water is assumed to make the solution neutral"
+      ],
+      "answer": "A",
+      "explanation": "After $100$-fold dilution, $[OH^-] = 0.010/100 = 1.0 \\times 10^{-4}$ M. Then pOH $= -\\log(1.0 \\times 10^{-4}) = 4$ and pH $= 14 - 4 = 10.00$."
+    },
+    {
+      "id": "ieq_c04_003",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The base $K_b$ of NH$_3$ is $1.8 \\times 10^{-5}$ at $25\\,^\\circ$C. What is the percentage degree of ionisation of a $0.10$ M NH$_3$ solution?",
+      "options": [
+        "A) About 1.3%, because $\\alpha = \\sqrt{K_b/C} = \\sqrt{1.8 \\times 10^{-4}} = 0.0134$",
+        "B) About 0.018%, because $\\alpha = K_b/C$ is used",
+        "C) About 13.4%, because the decimal $0.0134$ is multiplied by 1000 instead of 100",
+        "D) About 0.42%, because $\\alpha = \\sqrt{K_b}$ ignores the concentration"
+      ],
+      "answer": "A",
+      "explanation": "For a weak base, $[OH^-] = \\alpha C$ and $K_b = \\alpha^2 C$, so $\\alpha = \\sqrt{K_b/C} = \\sqrt{1.8 \\times 10^{-4}} = 0.0134$. As a percentage this is 1.3%."
+    },
+    {
+      "id": "ieq_c04_004",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Carbon dioxide dissolved in water to a saturated concentration of $0.033$ M forms H$_2$CO$_3$ with $K_{a1} = 4.5 \\times 10^{-7}$ at $25\\,^\\circ$C. What is the pH of this solution?",
+      "options": [
+        "A) The pH is 3.91, because $[H^+] = \\sqrt{K_{a1} C} = 1.2 \\times 10^{-4}$ M",
+        "B) The pH is 7.00, because dissolved carbon dioxide is treated as a neutral gas",
+        "C) The pH is 6.35, because $pK_{a1}$ is reported as the pH",
+        "D) The pH is 3.76, because the concentration is doubled for a diprotic acid"
+      ],
+      "answer": "A",
+      "explanation": "Only the first ionisation is significant, so $[H^+] \\approx \\sqrt{K_{a1} C} = \\sqrt{4.5 \\times 10^{-7} \\times 0.033} = 1.2 \\times 10^{-4}$ M. Then pH $= -\\log(1.2 \\times 10^{-4}) = 3.91$."
+    },
+    {
+      "id": "ieq_c04_005",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $1.0 \\times 10^{-3}$ M solution of sodium salt NaA is prepared, where HA has $K_a = 1.0 \\times 10^{-9}$ at $25\\,^\\circ$C. Report the integer pH of this solution.",
+      "options": [],
+      "answer": "10",
+      "explanation": "The hydrolysis constant is $K_h = K_w/K_a = 1.0 \\times 10^{-5}$. Then $[OH^-] = \\sqrt{K_h C} = \\sqrt{10^{-5} \\times 10^{-3}} = 10^{-4}$ M, pOH $= 4$, and pH $= 10$."
+    },
+    {
+      "id": "ieq_c04_006",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "$25$ mL of $0.20$ M NaOH is mixed with $75$ mL of $0.040$ M HCl at $25\\,^\\circ$C. What is the pH of the resulting solution?",
+      "options": [
+        "A) The pH is 12.30, because $2.0$ mmol of excess $OH^-$ in $100$ mL gives $[OH^-] = 0.020$ M",
+        "B) The pH is 1.70, because the pOH of the excess base is reported as the pH",
+        "C) The pH is 7.00, because neutralisation is assumed to be complete",
+        "D) The pH is 12.70, because the HCl is ignored and the NaOH is diluted to $0.050$ M"
+      ],
+      "answer": "A",
+      "explanation": "The base supplies $5.0$ mmol of $OH^-$ and the acid supplies $3.0$ mmol of $H^+$. The excess of $2.0$ mmol of $OH^-$ is in $100$ mL, so $[OH^-] = 0.020$ M, pOH $= 1.70$ and pH $= 12.30$."
+    },
+    {
+      "id": "ieq_c04_007",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Aniline, $C_6H_5NH_2$, has $K_b = 4.3 \\times 10^{-10}$ at $25\\,^\\circ$C. What is the pH of a $0.10$ M aqueous solution of aniline?",
+      "options": [
+        "A) pH 8.82, because $[OH^-] = \\sqrt{K_b C} = 6.6 \\times 10^{-6}$ M",
+        "B) pH 5.18, because the pOH of the solution is reported as its pH",
+        "C) pH 9.32, because $[OH^-] = \\sqrt{K_b}$ is used with the concentration ignored",
+        "D) pH 9.37, because $[H^+]$ is taken as $K_b$ directly"
+      ],
+      "answer": "A",
+      "explanation": "The base is weak, so $[OH^-] \\approx \\sqrt{K_b C} = \\sqrt{4.3 \\times 10^{-10} \\times 0.10} = 6.6 \\times 10^{-6}$ M. Then pOH $= 5.18$ and pH $= 8.82$."
+    },
+    {
+      "id": "ieq_c04_008",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Benzoic acid has $K_a = 6.3 \\times 10^{-5}$ at $25\\,^\\circ$C. What is the pH of a $0.20$ M solution of benzoic acid?",
+      "options": [
+        "A) pH 2.45, because $[H^+] = \\sqrt{K_a C} = 3.5 \\times 10^{-3}$ M",
+        "B) pH 4.20, because the $pK_a$ of benzoic acid is reported as the pH",
+        "C) pH 2.10, because $\\sqrt{K_a}$ is used as the hydrogen ion concentration",
+        "D) pH 0.70, because benzoic acid is treated as a strong acid at $0.20$ M"
+      ],
+      "answer": "A",
+      "explanation": "For a weak acid $[H^+] \\approx \\sqrt{K_a C} = \\sqrt{6.3 \\times 10^{-5} \\times 0.20} = 3.5 \\times 10^{-3}$ M. Then pH $= -\\log(3.5 \\times 10^{-3}) = 2.45$."
+    },
+    {
+      "id": "ieq_c04_009",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $0.020$ M solution of barium hydroxide, Ba(OH)$_2$, is fully dissociated at $25\\,^\\circ$C. What is the pH of this solution?",
+      "options": [
+        "A) pH 12.60, because $[OH^-] = 2 \\times 0.020 = 0.040$ M gives pOH $= 1.40$",
+        "B) pH 12.30, because $[OH^-] = 0.020$ M is used, forgetting that each formula unit releases two hydroxide ions",
+        "C) pH 1.40, because the pOH of the solution is reported as the pH",
+        "D) pH 13.00, because the hydroxide concentration is taken as $0.10$ M"
+      ],
+      "answer": "A",
+      "explanation": "Each Ba(OH)$_2$ releases two OH$^-$, so $[OH^-] = 0.040$ M. Then pOH $= -\\log(0.040) = 1.40$ and pH $= 12.60$."
+    },
+    {
+      "id": "ieq_c04_010",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "$50$ mL of $0.010$ M NaOH is mixed with $50$ mL of $0.010$ M acetic acid ($K_a = 1.8 \\times 10^{-5}$) at $25\\,^\\circ$C. What is the pH of the mixture?",
+      "options": [
+        "A) pH 8.22, because the equivalence point gives $0.0050$ M acetate with $K_h = 5.6 \\times 10^{-10}$",
+        "B) pH 4.74, because the mixture is a buffer of equal acid and salt",
+        "C) pH 5.78, because the pOH of the equivalence solution is reported as the pH",
+        "D) pH 7.00, because a mixture of a weak acid and a strong base is assumed neutral"
+      ],
+      "answer": "A",
+      "explanation": "Equal volumes of equal concentration give an equivalence point with $0.50$ mmol of acetate in $100$ mL, so $C = 0.0050$ M. Then $[OH^-] = \\sqrt{5.6 \\times 10^{-10} \\times 0.0050} = 1.7 \\times 10^{-6}$ M, pOH $= 5.78$, and pH $= 8.22$."
+    },
+    {
+      "id": "ieq_c04_011",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $0.10$ M solution of a weak monoprotic acid HX has $K_a = 1.0 \\times 10^{-5}$ at $25\\,^\\circ$C. Report the integer pOH of this solution.",
+      "options": [],
+      "answer": "11",
+      "explanation": "$[H^+] = \\sqrt{K_a C} = \\sqrt{10^{-5} \\times 10^{-1}} = 10^{-3}$ M, so pH $= 3$. Then pOH $= 14 - 3 = 11$."
+    },
+    {
+      "id": "ieq_c04_012",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "$40$ mL of $0.10$ M HCl is mixed with $60$ mL of $0.10$ M NaOH at $25\\,^\\circ$C. Report the integer pH of the mixture.",
+      "options": [],
+      "answer": "12",
+      "explanation": "The base supplies $6.0$ mmol of OH$^-$ and the acid supplies $4.0$ mmol of H$^+$. The excess of $2.0$ mmol OH$^-$ is in $100$ mL, so $[OH^-] = 0.020$ M, pOH $= 1.70$, and pH $= 12.30$, which rounds to 12."
+    },
+    {
+      "id": "ieq_c04_013",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $0.20$ M solution of nitrous acid, HNO$_2$, has $K_a = 5.0 \\times 10^{-4}$ at $25\\,^\\circ$C. If $[H^+] = 10^{-x}$ M, what is the integer value of $x$?",
+      "options": [],
+      "answer": "2",
+      "explanation": "$[H^+] = \\sqrt{K_a C} = \\sqrt{5.0 \\times 10^{-4} \\times 0.20} = \\sqrt{10^{-4}} = 10^{-2}$ M, so $x = 2$."
+    },
+    {
+      "id": "ieq_c04_014",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Equal volumes of $0.010$ M NaOH and $0.020$ M HCl are mixed at $25\\,^\\circ$C. Report the integer pH of the mixture.",
+      "options": [],
+      "answer": "2",
+      "explanation": "The excess of acid after mixing is $(0.020 - 0.010)/2 = 0.0050$ M of $H^+$, so pH $= -\\log(0.0050) = 2.30$, which rounds to 2."
+    },
+    {
+      "id": "ieq_c04_015",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $0.10$ M solution of sodium hypochlorite, NaClO, is prepared at $25\\,^\\circ$C, where the conjugate acid HClO has $K_a = 3.0 \\times 10^{-8}$. What is the pH of this solution?",
+      "options": [
+        "A) pH 10.26, because $K_h = K_w/K_a = 3.3 \\times 10^{-7}$ gives $[OH^-] = 1.8 \\times 10^{-4}$ M",
+        "B) pH 3.74, because the pOH of the solution is reported as the pH",
+        "C) pH 7.00, because sodium salts are assumed to give neutral solutions",
+        "D) pH 9.74, because $K_a$ is used in place of $K_h$ in $[OH^-] = \\sqrt{K_a C}$"
+      ],
+      "answer": "A",
+      "explanation": "The hypochlorite ion hydrolyses with $K_h = K_w/K_a = 3.3 \\times 10^{-7}$. Then $[OH^-] = \\sqrt{3.3 \\times 10^{-7} \\times 0.10} = 1.8 \\times 10^{-4}$ M, pOH $= 3.74$, and pH $= 10.26$."
+    },
+    {
+      "id": "ieq_c04_016",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $0.10$ M solution of hydrated aluminium ion, [Al(H$_2$O)$_6$]$^{3+}$, acts as a weak acid with $K_a = 1.0 \\times 10^{-5}$ at $25\\,^\\circ$C. What is the pH of this solution?",
+      "options": [
+        "A) pH 3.00, because $[H^+] = \\sqrt{K_a C} = 1.0 \\times 10^{-3}$ M",
+        "B) pH 1.00, because the aluminium ion is treated as a strong acid",
+        "C) pH 5.00, because $K_a$ is used directly as $[H^+]$",
+        "D) pH 4.00, because $[H^+]$ is taken as $K_a/C$"
+      ],
+      "answer": "A",
+      "explanation": "The hydrated ion behaves as a weak acid, so $[H^+] \\approx \\sqrt{K_a C} = \\sqrt{10^{-5} \\times 0.10} = 10^{-3}$ M. Then pH $= 3.00$."
+    },
+    {
+      "id": "ieq_c04_017",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Aluminium hydroxide has $K_{sp} = 1.0 \\times 10^{-32}$ at $25\\,^\\circ$C. A $0.010$ M solution of Al$^{3+}$ is made alkaline. Report the integer pH at which Al(OH)$_3$ first precipitates.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Onset requires $[Al^{3+}][OH^-]^3 = K_{sp}$, so $[OH^-]^3 = 1.0 \\times 10^{-30}$ and $[OH^-] = 1.0 \\times 10^{-10}$ M. Then pOH $= 10$ and pH $= 4$."
+    },
+    {
+      "id": "ieq_c04_018",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Equal volumes of $0.20$ M HCl and $0.20$ M NH$_3$ are mixed at $25\\,^\\circ$C, with $K_b = 1.8 \\times 10^{-5}$. What is the pH of the mixture?",
+      "options": [
+        "A) pH 5.13, because the NH$_4^+$ formed at $0.10$ M hydrolyses with $K_h = 5.6 \\times 10^{-10}$",
+        "B) pH 4.74, because the mixture is a 1:1 buffer of NH$_3$ and NH$_4^+$",
+        "C) pH 8.87, because the pOH of the ammonium solution is reported as the pH",
+        "D) pH 7.00, because equal amounts of acid and base are assumed to give neutrality"
+      ],
+      "answer": "A",
+      "explanation": "Full neutralisation leaves $0.10$ M NH$_4^+$ in the combined volume with no free base or acid. Then $[H^+] = \\sqrt{K_h C} = \\sqrt{5.6 \\times 10^{-10} \\times 0.10} = 7.5 \\times 10^{-6}$ M, so pH $= 5.13$."
+    },
+    {
+      "id": "ieq_c04_019",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Equal volumes of $0.10$ M NH$_4$Cl and $0.10$ M NaOH are mixed at $25\\,^\\circ$C, with $K_b(NH_3) = 1.8 \\times 10^{-5}$. What is the pH of the final solution?",
+      "options": [
+        "A) pH 10.98, because NaOH converts all NH$_4^+$ to NH$_3$ at $0.050$ M, which gives $[OH^-] = 9.5 \\times 10^{-4}$ M",
+        "B) pH 9.26, because the mixture is treated as a buffer of NH$_3$ and NH$_4^+$",
+        "C) pH 5.13, because the hydrolysis of NH$_4^+$ is considered and the NaOH is ignored",
+        "D) pH 7.00, because the mixture is assumed to be neutral after combining the two solutions"
+      ],
+      "answer": "A",
+      "explanation": "The mixture contains $0.050$ M NH$_4^+$ and $0.050$ M OH$^-$ per unit volume. Their reaction leaves $0.050$ M NH$_3$ and no NH$_4^+$. Then $[OH^-] = \\sqrt{1.8 \\times 10^{-5} \\times 0.050} = 9.5 \\times 10^{-4}$ M, pOH $= 3.02$, and pH $= 10.98$."
+    },
+    {
+      "id": "ieq_c04_020",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $0.10$ M solution of NaF is prepared, where HF has $K_a = 1.0 \\times 10^{-3}$ at $25\\,^\\circ$C. Report the integer pH of this solution.",
+      "options": [],
+      "answer": "8",
+      "explanation": "The hydrolysis constant is $K_h = K_w/K_a = 1.0 \\times 10^{-11}$. Then $[OH^-] = \\sqrt{10^{-11} \\times 0.10} = 10^{-6}$ M, pOH $= 6$, and pH $= 8$."
+    },
+    {
+      "id": "ieq_c04_021",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "How many grams of sodium acetate (molar mass $82$ g/mol) must be dissolved in $500$ mL of $0.20$ M acetic acid to give a buffer of pH $5.00$? Take $pK_a = 4.74$, $\\log 1.82 = 0.26$, and assume no volume change.",
+      "options": [
+        "A) 14.9 g, because the salt/acid ratio must be $10^{0.26} = 1.82$, so $0.364$ M acetate is needed",
+        "B) 8.2 g, because a 1:1 ratio of salt to acid is assumed",
+        "C) 2.1 g, because the pH difference of $0.26$ is used directly as the mole ratio",
+        "D) 29.8 g, because the volume is taken as 1.0 L instead of 0.50 L"
+      ],
+      "answer": "A",
+      "explanation": "$pH = pK_a + \\log([A^-]/[HA])$ gives $5.00 = 4.74 + \\log([A^-]/[HA])$, so $[A^-]/[HA] = 1.82$. With acid $= 0.20$ M, the salt is $0.364$ M, which in $0.50$ L is $0.182$ mol. Mass $= 0.182 \\times 82 = 14.9$ g."
+    },
+    {
+      "id": "ieq_c04_022",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two $0.10$ M aqueous solutions are compared at $25\\,^\\circ$C: HCOOH with $K_a = 1.8 \\times 10^{-4}$ and HCN with $K_a = 4.0 \\times 10^{-10}$. Which statement is correct?",
+      "options": [
+        "A) The HCOOH solution has the larger $[H^+]$, because its $K_a$ is far larger than that of HCN",
+        "B) The HCN solution has the larger $[H^+]$, because HCN is the weaker acid and is stronger when dilute",
+        "C) Both solutions have the same $[H^+]$, because both acids are monoprotic and weak",
+        "D) The two $[H^+]$ values are each equal to their own $K_a$ values"
+      ],
+      "answer": "A",
+      "explanation": "For HCOOH, $[H^+] = \\sqrt{1.8 \\times 10^{-4} \\times 0.10} = 4.2 \\times 10^{-3}$ M. For HCN, $[H^+] = \\sqrt{4.0 \\times 10^{-10} \\times 0.10} = 6.3 \\times 10^{-6}$ M. The formic acid solution is far more acidic."
+    },
+    {
+      "id": "ieq_c04_023",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $0.050$ M solution of a weak monoprotic acid is found to be $4\\%$ ionised at $25\\,^\\circ$C. What is the value of $K_a$?",
+      "options": [
+        "A) $8.3 \\times 10^{-5}$, because $K_a = C\\alpha^2/(1-\\alpha)$ with $\\alpha = 0.04$",
+        "B) $8.0 \\times 10^{-5}$, because the $(1-\\alpha)$ term is ignored",
+        "C) $2.0 \\times 10^{-3}$, because $K_a = C\\alpha$ is used",
+        "D) $4.0 \\times 10^{-5}$, because $K_a = C\\alpha^2/2$ is used"
+      ],
+      "answer": "A",
+      "explanation": "At equilibrium $[H^+] = [A^-] = C\\alpha$ and $[HA] = C(1-\\alpha)$. So $K_a = C\\alpha^2/(1-\\alpha) = (0.050)(0.04)^2/0.96 = 8.3 \\times 10^{-5}$."
+    },
+    {
+      "id": "ieq_c04_024",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $25$ mL sample of $0.10$ M HF ($K_a = 4.0 \\times 10^{-4}$) is titrated with $0.10$ M NaOH at $25\\,^\\circ$C. What is the pH at the equivalence point?",
+      "options": [
+        "A) pH 8.05, because the fluoride formed has $[OH^-] = \\sqrt{K_h C}$ with $C = 0.050$ M",
+        "B) pH 3.40, because the equivalence point is taken as the half-neutralised point",
+        "C) pH 7.00, because a titration always ends at a neutral solution",
+        "D) pH 5.95, because the pOH of the equivalence solution is reported as the pH"
+      ],
+      "answer": "A",
+      "explanation": "At equivalence the solution contains $0.050$ M fluoride, with $K_h = K_w/K_a = 2.5 \\times 10^{-11}$. Then $[OH^-] = \\sqrt{2.5 \\times 10^{-11} \\times 0.050} = 1.1 \\times 10^{-6}$ M, pOH $= 5.95$, and pH $= 8.05$."
+    },
+    {
+      "id": "ieq_c04_025",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the titration of $25$ mL of $0.10$ M weak acid HA with $0.10$ M NaOH, the pH at half-equivalence is $5.20$. What is $K_a$ for HA at $25\\,^\\circ$C?",
+      "options": [
+        "A) $6.3 \\times 10^{-6}$, because at half-equivalence $pH = pK_a$ so $K_a = 10^{-5.20}$",
+        "B) $5.2 \\times 10^{-6}$, because the pH value is used as the exponent directly",
+        "C) $1.6 \\times 10^{-9}$, because the pOH of $8.80$ is used as the exponent",
+        "D) $1.0 \\times 10^{-5}$, because $pK_a$ is assumed to be exactly 5 at this pH"
+      ],
+      "answer": "A",
+      "explanation": "At half-equivalence $[HA] = [A^-]$, so $[H^+] = K_a$ and $pH = pK_a = 5.20$. Then $K_a = 10^{-5.20} = 6.3 \\times 10^{-6}$."
+    },
+    {
+      "id": "ieq_c04_026",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the titration of a weak base B with HCl, the pH at half-neutralisation is $9.26$ at $25\\,^\\circ$C. What is $K_b$ for B?",
+      "options": [
+        "A) $1.8 \\times 10^{-5}$, because at half-neutralisation $pOH = pK_b = 4.74$",
+        "B) $5.5 \\times 10^{-10}$, because the Ka of the conjugate acid is used as $K_b$",
+        "C) $1.0 \\times 10^{-5}$, because the pOH is assumed to be exactly 5",
+        "D) $1.8 \\times 10^{-4}$, because $pK_b$ is taken as $3.74$"
+      ],
+      "answer": "A",
+      "explanation": "At half-neutralisation $[B] = [BH^+]$, so $pOH = pK_b$. Here $pOH = 14 - 9.26 = 4.74$, giving $K_b = 10^{-4.74} = 1.8 \\times 10^{-5}$."
+    },
+    {
+      "id": "ieq_c04_027",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "$5$ mL of $0.10$ M NaOH is added to $10$ mL of $0.10$ M HF ($K_a = 4.0 \\times 10^{-4}$) at $25\\,^\\circ$C. What is the pH of the resulting solution?",
+      "options": [
+        "A) pH 3.40, because the mixture is a 1:1 buffer of HF and F$^-$ after half the HF is neutralised",
+        "B) pH 8.05, because the mixture is treated as the equivalence point",
+        "C) pH 2.29, because the NaOH is ignored and the HF alone is considered",
+        "D) pH 1.00, because HF is treated as a strong acid"
+      ],
+      "answer": "A",
+      "explanation": "The mixture holds $1.0$ mmol HF and $0.50$ mmol NaOH. The base converts $0.50$ mmol HF into F$^-$, leaving $0.50$ mmol HF and $0.50$ mmol F$^-$. With equal amounts, $pH = pK_a = -\\log(4.0 \\times 10^{-4}) = 3.40$."
+    },
+    {
+      "id": "ieq_c04_028",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $0.10$ M solution of NH$_3$ ($K_b = 1.8 \\times 10^{-5}$) is mixed with NaOH so that the NaOH concentration is $0.010$ M. What is the pH of the solution at $25\\,^\\circ$C?",
+      "options": [
+        "A) pH 12.01, because the NaOH sets $[OH^-] \\approx 0.010$ M and the ammonia adds about $1.8 \\times 10^{-4}$ M",
+        "B) pH 12.00, because the ammonia's own contribution to $[OH^-]$ is ignored",
+        "C) pH 11.13, because the NaOH is ignored and the ammonia alone sets the pH",
+        "D) pH 9.26, because the solution is treated as a buffer of NH$_3$ and NH$_4^+$"
+      ],
+      "answer": "A",
+      "explanation": "The common-ion effect from NaOH suppresses ammonia ionisation. Writing $x = [NH_4^+]$, $K_b = x(0.010 + x)/(0.10 - x)$ gives $x \\approx 1.8 \\times 10^{-4}$ M, so $[OH^-] = 0.01018$ M, pOH $= 1.99$, and pH $= 12.01$."
+    },
+    {
+      "id": "ieq_c04_029",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider pure water at $60\\,^\\circ$C, where $K_w = 9.6 \\times 10^{-14}$. Which statement about its pH is correct?",
+      "options": [
+        "A) Neutral water at $60\\,^\\circ$C has pH below 7, because $K_w$ increases with temperature and $[H^+] = [OH^-]$ rises above $10^{-7}$ M",
+        "B) Neutral water always has pH 7.00, because it is neutral at every temperature",
+        "C) Neutral water at $60\\,^\\circ$C has pH above 7, because $K_w$ falls with temperature",
+        "D) Neutral water at $60\\,^\\circ$C has pH 7.00, because $[H^+]$ and $[OH^-]$ are each fixed at $10^{-7}$ M"
+      ],
+      "answer": "A",
+      "explanation": "Ionisation of water is endothermic, so $K_w$ rises with temperature. At 60 °C, $[H^+] = \\sqrt{9.6 \\times 10^{-14}} = 3.1 \\times 10^{-7}$ M, so neutral water has pH 6.51, which is below 7 even though it is still neutral."
+    },
+    {
+      "id": "ieq_c04_030",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "How many mL of $0.10$ M NaOH must be added to $50$ mL of $0.10$ M HF ($K_a = 4.0 \\times 10^{-4}$) to reach pH $4.00$ at $25\\,^\\circ$C? Take $\\log 4 = 0.60$.",
+      "options": [],
+      "answer": "40",
+      "explanation": "At pH 4.00, $pH = pK_a + \\log(F^-/HF)$ gives $\\log(F^-/HF) = 4.00 - 3.40 = 0.60$, so $F^-/HF = 4$. With $5.0$ mmol of HF initially and $x$ mmol of NaOH, $x/(5.0 - x) = 4$, so $x = 4.0$ mmol, which is $40$ mL of $0.10$ M NaOH."
+    },
+    {
+      "id": "ieq_c04_031",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A solution contains $0.20$ M HCN and $0.05$ M NaCN, with $K_a(HCN) = 4.0 \\times 10^{-10}$ at $25\\,^\\circ$C. Taking $\\log 4 = 0.60$, what is the pH of the solution?",
+      "options": [
+        "A) pH 8.80, because $pH = pK_a + \\log(0.05/0.20) = 9.40 - 0.60$",
+        "B) pH 10.00, because the ratio is inverted to $0.20/0.05$",
+        "C) pH 9.40, because the salt-to-acid ratio is ignored",
+        "D) pH 4.60, because the pOH of the solution is reported as its pH"
+      ],
+      "answer": "A",
+      "explanation": "The $pK_a$ of HCN is $-\\log(4.0 \\times 10^{-10}) = 9.40$. The salt-to-acid ratio is $0.05/0.20 = 0.25$, so $\\log(0.25) = -0.60$ and $pH = 9.40 - 0.60 = 8.80$."
+    },
+    {
+      "id": "ieq_c04_032",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Two $0.10$ M solutions are compared at $25\\,^\\circ$C: weak acid HA with $K_a = 4.0 \\times 10^{-6}$ and weak acid HF with $K_a = 4.0 \\times 10^{-4}$. What is the integer ratio of $[H^+]$ in the HF solution to $[H^+]$ in the HA solution?",
+      "options": [],
+      "answer": "10",
+      "explanation": "$[H^+]_{HF} = \\sqrt{4.0 \\times 10^{-4} \\times 0.10} = 6.3 \\times 10^{-3}$ M and $[H^+]_{HA} = \\sqrt{4.0 \\times 10^{-6} \\times 0.10} = 6.3 \\times 10^{-4}$ M. The ratio is exactly 10."
+    },
+    {
+      "id": "ieq_c04_033",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The acids HF ($K_a = 4.0 \\times 10^{-4}$) and HA ($K_a = 4.0 \\times 10^{-5}$) are compared at $25\\,^\\circ$C. What is the integer ratio of the hydrolysis constant of A$^-$ to that of F$^-$?",
+      "options": [],
+      "answer": "10",
+      "explanation": "Hydrolysis constants are $K_h = K_w/K_a$, so $K_h(A^-)/K_h(F^-) = K_a(HF)/K_a(HA) = 4.0 \\times 10^{-4}/4.0 \\times 10^{-5} = 10$."
+    },
+    {
+      "id": "ieq_c04_034",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Magnesium hydroxide has $K_{sp} = 1.0 \\times 10^{-10}$ at $25\\,^\\circ$C. A $0.010$ M solution of Mg$^{2+}$ is made alkaline. Report the integer pH at which precipitation begins.",
+      "options": [],
+      "answer": "10",
+      "explanation": "Onset requires $[OH^-]^2 = K_{sp}/0.010 = 1.0 \\times 10^{-8}$, so $[OH^-] = 1.0 \\times 10^{-4}$ M. Then pOH $= 4$ and pH $= 10$."
+    },
+    {
+      "id": "ieq_c04_035",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A buffer contains $0.20$ M HA with $K_a = 1.0 \\times 10^{-5}$ and $0.20$ M NaA. Then $0.020$ M HCl is added with no volume change. Report the integer pH of the final solution.",
+      "options": [],
+      "answer": "5",
+      "explanation": "The HCl converts $0.020$ M of A$^-$ into HA, giving $[HA] = 0.22$ M and $[A^-] = 0.18$ M. Then $pH = 5.00 + \\log(0.18/0.22) = 5.00 - 0.09 = 4.91$, which rounds to 5."
+    },
+    {
+      "id": "ieq_c04_036",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider a $0.10$ M solution of Na$_2$CO$_3$ at $25\\,^\\circ$C, with $K_{a1} = 4.5 \\times 10^{-7}$ and $K_{a2} = 4.7 \\times 10^{-11}$ for H$_2$CO$_3$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The pH of the solution is approximately 11.66.",
+        "B) The concentration of HCO$_3^-$ is approximately $4.6 \\times 10^{-3}$ M.",
+        "C) The concentration of H$_2$CO$_3$ is approximately $4.6 \\times 10^{-3}$ M.",
+        "D) A $0.10$ M solution of NaHCO$_3$ has a pH of approximately 11.66."
+      ],
+      "answer": "A,B",
+      "explanation": "The base CO$_3^{2-}$ has $K_{b1} = K_w/K_{a2} = 2.1 \\times 10^{-4}$, so $[OH^-] = \\sqrt{2.1 \\times 10^{-4} \\times 0.10} = 4.6 \\times 10^{-3}$ M, pOH $= 2.34$, and pH $= 11.66$. Each OH$^-$ creates one HCO$_3^-$, so $[HCO_3^-] \\approx 4.6 \\times 10^{-3}$ M. Then $[H_2CO_3] = [HCO_3^-][H^+]/K_{a1} \\approx 2.2 \\times 10^{-8}$ M, not $4.6 \\times 10^{-3}$ M. NaHCO$_3$ is amphiprotic with pH near 8.3, so statement D is false."
+    },
+    {
+      "id": "ieq_c04_037",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Iron(III) hydroxide has $K_{sp} = 4.0 \\times 10^{-38}$ at $25\\,^\\circ$C. Two saturated solutions are buffered at pH 3.0 and at pH 5.0. Which of the following statements is/are correct?",
+      "options": [
+        "A) The molar solubility of Fe(OH)$_3$ at pH 3.0 is approximately $4.0 \\times 10^{-5}$ M.",
+        "B) The molar solubility of Fe(OH)$_3$ at pH 5.0 is approximately $4.0 \\times 10^{-11}$ M.",
+        "C) Going from pH 3.0 to pH 5.0 lowers the molar solubility by a factor of about 100.",
+        "D) Fe(OH)$_3$ is more soluble at pH 5.0 than at pH 3.0."
+      ],
+      "answer": "A,B",
+      "explanation": "The buffer fixes $[OH^-]$, so $[Fe^{3+}] = K_{sp}/[OH^-]^3$. At pH 3.0, $[OH^-] = 10^{-11}$ M and $[Fe^{3+}] = 4.0 \\times 10^{-38}/10^{-33} = 4.0 \\times 10^{-5}$ M. At pH 5.0, $[OH^-] = 10^{-9}$ M and $[Fe^{3+}] = 4.0 \\times 10^{-11}$ M. The drop is a factor of $10^6$, not 100, so statement C is false."
+    },
+    {
+      "id": "ieq_c04_038",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A $0.010$ M solution of Mg$^{2+}$ is mixed with a buffer containing $0.10$ M NH$_3$ and $0.10$ M NH$_4$Cl, where $K_b(NH_3) = 1.8 \\times 10^{-5}$. Given $K_{sp}[Mg(OH)_2] = 5.6 \\times 10^{-12}$, will Mg(OH)$_2$ precipitate?",
+      "options": [
+        "A) No, because $Q = 0.010 \\times (1.8 \\times 10^{-5})^2 = 3.2 \\times 10^{-12}$ is below $K_{sp}$",
+        "B) Yes, because $Q = 0.010 \\times 1.8 \\times 10^{-5} = 1.8 \\times 10^{-7}$ is computed without squaring $[OH^-]$",
+        "C) Yes, because pH 9.26 is above the onset pH of Mg(OH)$_2$ for every Mg$^{2+}$ concentration",
+        "D) No, because ammonia dissolves Mg(OH)$_2$ through a stable complex that is not counted in $K_{sp}$"
+      ],
+      "answer": "A",
+      "explanation": "The buffer pH is 9.26, so $[OH^-] = K_b \\times C_{base}/C_{salt} = 1.8 \\times 10^{-5}$ M. Then $Q = [Mg^{2+}][OH^-]^2 = 0.010 \\times (1.8 \\times 10^{-5})^2 = 3.2 \\times 10^{-12}$, which is below $K_{sp} = 5.6 \\times 10^{-12}$, so no precipitate forms."
+    },
+    {
+      "id": "ieq_c04_039",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A solution is saturated with H$_2$S ($0.10$ M, overall $K_{ov} = 1.0 \\times 10^{-20}$), buffered at pH 1.0, and contains $0.010$ M Cd$^{2+}$. For CdS, $K_{sp} = 1.0 \\times 10^{-22}$ at $25\\,^\\circ$C. Does CdS precipitate?",
+      "options": [
+        "A) Yes, because $[S^{2-}] = K_{ov}[H_2S]/[H^+]^2 = 1.0 \\times 10^{-19}$ M gives $Q = 1.0 \\times 10^{-21}$, above $K_{sp}$",
+        "B) No, because pH 1 is too acidic for any metal sulphide to form",
+        "C) No, because $[S^{2-}]$ is computed as $K_{ov}[H_2S] = 1.0 \\times 10^{-21}$ M, giving $Q = 1.0 \\times 10^{-23}$",
+        "D) Yes, because the precipitate forms at any pH"
+      ],
+      "answer": "A",
+      "explanation": "At pH 1.0, $[H^+]^2 = 0.010$, so $[S^{2-}] = (1.0 \\times 10^{-20})(0.10)/0.010 = 1.0 \\times 10^{-19}$ M. Then $Q = (0.010)(1.0 \\times 10^{-19}) = 1.0 \\times 10^{-21}$, which exceeds $K_{sp} = 1.0 \\times 10^{-22}$, so CdS precipitates."
+    },
+    {
+      "id": "ieq_c04_040",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A $0.10$ M solution of Al$^{3+}$ is made alkaline at $25\\,^\\circ$C. Aluminium hydroxide has $K_{sp} = 1.0 \\times 10^{-33}$. Report the integer pH at which precipitation begins.",
+      "options": [],
+      "answer": "3",
+      "explanation": "Onset requires $[OH^-]^3 = K_{sp}/0.10 = 1.0 \\times 10^{-32}$, so $[OH^-] = 2.2 \\times 10^{-11}$ M. Then pOH $= 10.67$ and pH $= 3.33$, which rounds to 3."
+    },
+    {
+      "id": "ieq_c04_041",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A $0.10$ M solution of Na$_3$PO$_4$ is prepared at $25\\,^\\circ$C, where $K_{a3}$ of H$_3$PO$_4$ is $4.8 \\times 10^{-13}$. What is the pH of this solution?",
+      "options": [
+        "A) pH 12.56, because $K_{b1} = K_w/K_{a3} = 0.021$ and solving $x^2/(0.10 - x) = 0.021$ gives $x = 3.6 \\times 10^{-2}$ M",
+        "B) pH 13.00, because the phosphate ion hydrolyses completely",
+        "C) pH 12.66, because $\\sqrt{K_{b1}C}$ is used without solving the quadratic",
+        "D) pH 1.44, because the pOH is reported as the pH"
+      ],
+      "answer": "A",
+      "explanation": "The phosphate ion has $K_{b1} = K_w/K_{a3} = 0.021$. Setting $x = [OH^-]$ gives $x^2/(0.10 - x) = 0.021$, so $x^2 + 0.021x - 0.0021 = 0$ and $x = 3.6 \\times 10^{-2}$ M. Then pOH $= 1.44$ and pH $= 12.56$."
+    },
+    {
+      "id": "ieq_c04_042",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Equal volumes of $0.10$ M H$_3$PO$_4$ and $0.10$ M Na$_3$PO$_4$ are mixed at $25\\,^\\circ$C. Taking $pK_{a2} = 7.21$, what is the pH of the final solution?",
+      "options": [
+        "A) pH 7.21, because the mixture contains equal amounts of H$_2$PO$_4^-$ and HPO$_4^{2-}$",
+        "B) pH 4.67, because the H$_2$PO$_4^-$ formed is the only species present",
+        "C) pH 9.77, because the second equivalence point is reached",
+        "D) pH 12.32, because the third acid constant controls the mixture"
+      ],
+      "answer": "A",
+      "explanation": "Per unit volume the mixture has $0.050$ M H$_3$PO$_4$ and $0.050$ M PO$_4^{3-}$. Proton transfer gives $0.050$ M H$_2$PO$_4^-$ and $0.050$ M HPO$_4^{2-}$. With equal amounts, pH $= pK_{a2} = 7.21$."
+    },
+    {
+      "id": "ieq_c04_043",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A $0.10$ M solution of ammonium formate, HCOONH$_4$, is prepared at $25\\,^\\circ$C with $K_a(HCOOH) = 1.8 \\times 10^{-4}$ and $K_b(NH_3) = 1.8 \\times 10^{-5}$. What is the pH of this solution?",
+      "options": [
+        "A) pH 6.50, because $[H^+] = \\sqrt{K_w K_a/K_b} = 3.2 \\times 10^{-7}$ M",
+        "B) pH 7.00, because $K_a$ and $K_b$ are assumed to be equal",
+        "C) pH 5.13, because only the hydrolysis of NH$_4^+$ is considered",
+        "D) pH 3.74, because the $pK_a$ of formic acid is reported as the pH"
+      ],
+      "answer": "A",
+      "explanation": "For a salt of a weak acid and a weak base, $[H^+] = \\sqrt{K_w K_a/K_b} = \\sqrt{10^{-14} \\times 1.8 \\times 10^{-4}/1.8 \\times 10^{-5}} = \\sqrt{10^{-13}} = 3.2 \\times 10^{-7}$ M. Thus pH $= 6.50$."
+    },
+    {
+      "id": "ieq_c04_044",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A $0.10$ M solution of NH$_4$F is prepared at $25\\,^\\circ$C, with $K_a(HF) = 4.0 \\times 10^{-4}$ and $K_b(NH_3) = 1.8 \\times 10^{-5}$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The pH of the solution is approximately 6.33.",
+        "B) The hydroxide concentration in the solution is approximately $2.1 \\times 10^{-8}$ M.",
+        "C) The solution is basic, with pH above 7.",
+        "D) The pH equals the $pK_a$ of HF, which is 3.40."
+      ],
+      "answer": "A,B",
+      "explanation": "The ammonium ion and fluoride ion have comparable hydrolysis, giving $[H^+] = \\sqrt{K_w K_a/K_b} = \\sqrt{10^{-14} \\times 4.0 \\times 10^{-4}/1.8 \\times 10^{-5}} = 4.7 \\times 10^{-7}$ M and pH $= 6.33$. Then $[OH^-] = K_w/[H^+] = 2.1 \\times 10^{-8}$ M. The solution is slightly acidic, so statement C is false. The pH is not the $pK_a$ of HF, so statement D is false."
+    },
+    {
+      "id": "ieq_c04_045",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Silver chromate has $K_{sp} = 1.2 \\times 10^{-12}$ at $25\\,^\\circ$C, and the chromate ion is protonated with $K_a(HCrO_4^-) = 3.2 \\times 10^{-7}$. Two saturated solutions are buffered at pH 4.0 and pH 9.0. Which of the following statements is/are correct?",
+      "options": [
+        "A) At pH 4.0 the molar solubility exceeds its pure-water value of $6.7 \\times 10^{-5}$ M.",
+        "B) At pH 9.0 the molar solubility is approximately $6.7 \\times 10^{-5}$ M.",
+        "C) At pH 4.0 more than half of the chromate is present as unprotonated CrO$_4^{2-}$.",
+        "D) The molar solubility at pH 9.0 is greater than at pH 4.0."
+      ],
+      "answer": "A,B",
+      "explanation": "At pH 9.0 the fraction of unprotonated chromate is $K_a/(K_a + [H^+]) \\approx 0.997$, so solubility is essentially the pure-water value. At pH 4.0 the fraction is $3.2 \\times 10^{-7}/(3.2 \\times 10^{-7} + 1.0 \\times 10^{-4}) = 3.2 \\times 10^{-3}$. Then $s^3 = K_{sp}/(4\\alpha) = 9.4 \\times 10^{-11}$, so $s \\approx 4.5 \\times 10^{-4}$ M, which exceeds the pure-water value."
+    },
+    {
+      "id": "ieq_c04_046",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A $0.10$ M solution of a diprotic acid H$_2$A (with $K_{a1} = 1.0 \\times 10^{-3}$ and $K_{a2} = 1.0 \\times 10^{-7}$ at $25\\,^\\circ$C) is titrated with $0.10$ M NaOH. Which of the following statements is/are correct?",
+      "options": [
+        "A) The pH at the first equivalence point is approximately 5.00.",
+        "B) The pH at the second equivalence point is approximately 9.85.",
+        "C) Phenolphthalein, which changes colour between pH 8.2 and 10.0, is suitable for the second equivalence point.",
+        "D) Methyl orange, which changes colour between pH 3.1 and 4.4, is suitable for the second equivalence point."
+      ],
+      "answer": "A,B,C",
+      "explanation": "At the first equivalence point the amphiprotic HA$^-$ has $pH = (pK_{a1} + pK_{a2})/2 = 5.00$. At the second equivalence point the solution is $0.050$ M A$^{2-}$ with $K_{b1} = K_w/K_{a2} = 10^{-7}$, so $[OH^-] = \\sqrt{10^{-7} \\times 0.050} = 7.1 \\times 10^{-5}$ M and pH $= 9.85$. Phenolphthalein changes colour inside this region, while methyl orange changes far below it."
+    },
+    {
+      "id": "ieq_c04_047",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A $0.10$ M solution of Na$_2$CO$_3$ is titrated with $0.10$ M HCl at $25\\,^\\circ$C, with $K_{a1} = 4.5 \\times 10^{-7}$ and $K_{a2} = 4.7 \\times 10^{-11}$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The pH at the first equivalence point is approximately 8.34.",
+        "B) The pH at the second equivalence point is approximately 3.82.",
+        "C) Methyl orange, which changes colour between pH 3.1 and 4.4, is suitable for the second equivalence point.",
+        "D) Phenolphthalein, which changes colour between pH 8.2 and 10.0, is suitable for the second equivalence point."
+      ],
+      "answer": "A,B,C",
+      "explanation": "At the first equivalence point the solution is HCO$_3^-$, and $pH = (pK_{a1}+pK_{a2})/2 = (6.35 + 10.33)/2 = 8.34$. At the second equivalence point the solution is 0.050 M H$_2$CO$_3$, with $[H^+] = \\sqrt{K_{a1} \\times 0.050} = 1.5 \\times 10^{-4}$ M and pH $= 3.82$. Methyl orange changes colour in this region. Phenolphthalein does not."
+    },
+    {
+      "id": "ieq_c04_048",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A solution contains $0.10$ M NaCN and $0.10$ M NaF at $25\\,^\\circ$C, with $K_a(HCN) = 4.0 \\times 10^{-10}$ and $K_a(HF) = 4.0 \\times 10^{-4}$. What is the pH of the solution?",
+      "options": [
+        "A) pH 11.20, because cyanide is the dominant base and gives $[OH^-] \\approx \\sqrt{K_h(CN^-) C} = 1.6 \\times 10^{-3}$ M",
+        "B) pH 8.35, because only the hydrolysis of fluoride is considered",
+        "C) pH 7.00, because the mixture of two salts is assumed to be neutral",
+        "D) pH 9.40, because the mixture is treated as a buffer of HCN and CN$^-$"
+      ],
+      "answer": "A",
+      "explanation": "Cyanide has $K_h = K_w/K_a(HCN) = 2.5 \\times 10^{-5}$ and fluoride has $K_h = 2.5 \\times 10^{-11}$, so cyanide dominates. Then $[OH^-] = \\sqrt{2.5 \\times 10^{-5} \\times 0.10} = 1.6 \\times 10^{-3}$ M, pOH $= 2.80$, and pH $= 11.20$. Fluoride adds a negligible amount of hydroxide."
+    },
+    {
+      "id": "ieq_c04_049",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A buffer contains $0.20$ M NH$_3$ and $0.10$ M NH$_4$Cl, with $K_b = 1.0 \\times 10^{-5}$ at $25\\,^\\circ$C. Report the integer pH of this buffer.",
+      "options": [],
+      "answer": "9",
+      "explanation": "For a basic buffer $pOH = pK_b + \\log([NH_4^+]/[NH_3]) = 5.00 + \\log(0.10/0.20) = 5.00 - 0.30 = 4.70$. Then pH $= 9.30$, which rounds to 9."
+    },
+    {
+      "id": "ieq_c04_050",
+      "subject": "Chemistry",
+      "topic": "Ionic Equilibrium",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Equal volumes of $0.10$ M NH$_3$ (with $K_b = 1.0 \\times 10^{-5}$) and $0.10$ M HCl are mixed at $25\\,^\\circ$C. Report the integer pH of the mixture.",
+      "options": [],
+      "answer": "5",
+      "explanation": "The mixture holds $0.050$ M NH$_4^+$ with $K_h = K_w/K_b = 1.0 \\times 10^{-9}$. Then $[H^+] = \\sqrt{10^{-9} \\times 0.050} = 7.1 \\times 10^{-6}$ M, pH $= 5.15$, which rounds to 5."
+    }
+  ]
+}

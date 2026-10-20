@@ -1,0 +1,779 @@
+{
+  "questions": [
+    {
+      "id": "sbe_c01_001",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the industrial Solvay process, $117.0\\text{ kg}$ of pure sodium chloride ($\\text{NaCl}$, molar mass $58.5\\text{ g/mol}$) is converted into sodium hydrogen carbonate with an overall conversion efficiency of $80.0\\%$. If the isolated $\\text{NaHCO}_3$ is subsequently heated to undergo complete thermal decomposition into anhydrous soda ash ($\\text{Na}_2\\text{CO}_3$, molar mass $106.0\\text{ g/mol}$), what mass of pure $\\text{Na}_2\\text{CO}_3$ is obtained?",
+      "options": [
+        "A) $106.0\\text{ kg}$",
+        "B) $169.6\\text{ kg}$",
+        "C) $84.8\\text{ kg}$",
+        "D) $42.4\\text{ kg}$"
+      ],
+      "answer": "C",
+      "explanation": "First, calculating the moles of sodium chloride: $n(\\text{NaCl}) = \\frac{117.0 \\times 10^3\\text{ g}}{58.5\\text{ g/mol}} = 2000\\text{ mol}$. In the Solvay carbonating tower, $\\text{NaCl} + \\text{NH}_3 + \\text{CO}_2 + \\text{H}_2\\text{O} \\to \\text{NaHCO}_3 + \\text{NH}_4\\text{Cl}$. With an $80.0\\%$ yield, the moles of $\\text{NaHCO}_3$ obtained is $0.800 \\times 2000 = 1600\\text{ mol}$. Thermal decomposition follows $2\\text{NaHCO}_3 \\to \\text{Na}_2\\text{CO}_3 + \\text{CO}_2 + \\text{H}_2\\text{O}$, meaning two moles of bicarbonate yield one mole of soda ash. Therefore, $n(\\text{Na}_2\\text{CO}_3) = \\frac{1600}{2} = 800\\text{ mol}$. The resulting mass is $800\\text{ mol} \\times 106.0\\text{ g/mol} = 84800\\text{ g} = 84.8\\text{ kg}$. A value of $106.0\\text{ kg}$ results from assuming $100\\%$ yield with a $1:1$ stoichiometric ratio, $169.6\\text{ kg}$ forgets the stoichiometric factor of $1/2$ during calcination, and $42.4\\text{ kg}$ applies the factor of $1/2$ twice."
+    },
+    {
+      "id": "sbe_c01_002",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A solid mixture containing exactly $4.0\\text{ moles}$ of anhydrous $\\text{LiNO}_3$ and $4.0\\text{ moles}$ of anhydrous $\\text{NaNO}_3$ is placed in a closed inert vessel and heated strongly until complete thermal decomposition is achieved. What is the total number of moles of gaseous products ($\\text{NO}_2$ and $\\text{O}_2$) evolved?",
+      "options": [],
+      "answer": "7",
+      "explanation": "Lithium exhibits anomalous behavior in Group 1 due to its high polarizing power, decomposing like magnesium to the oxide: $4\\text{LiNO}_3(s) \\xrightarrow{\\Delta} 2\\text{Li}_2\\text{O}(s) + 4\\text{NO}_2(g) + \\text{O}_2(g)$. Hence, $4.0\\text{ moles}$ of $\\text{LiNO}_3$ produce $4.0\\text{ moles}$ of $\\text{NO}_2(g)$ and $1.0\\text{ mole}$ of $\\text{O}_2(g)$, yielding $5.0\\text{ moles}$ of gas. In contrast, heavier alkali nitrates decompose to nitrites without nitrogen dioxide evolution: $2\\text{NaNO}_3(s) \\xrightarrow{\\Delta} 2\\text{NaNO}_2(s) + \\text{O}_2(g)$. Thus, $4.0\\text{ moles}$ of $\\text{NaNO}_3$ produce $\\frac{4.0}{2} = 2.0\\text{ moles}$ of $\\text{O}_2(g)$. Summing both gaseous outputs gives $5.0 + 2.0 = 7\\text{ moles}$ of total gaseous products."
+    },
+    {
+      "id": "sbe_c01_003",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The dissolution thermodynamics of Group 2 sulfates is governed by the relation $\\Delta H^\\circ_{\\text{sol}} = \\Delta H^\\circ_{\\text{lattice}} + \\Delta H^\\circ_{\\text{hyd}}$. For beryllium sulfate ($\\text{BeSO}_4$), $\\Delta H^\\circ_{\\text{lattice}} = +3000\\text{ kJ/mol}$ and $\\Delta H^\\circ_{\\text{hyd}} = -3020\\text{ kJ/mol}$. For barium sulfate ($\\text{BaSO}_4$), $\\Delta H^\\circ_{\\text{lattice}} = +2470\\text{ kJ/mol}$ and $\\Delta H^\\circ_{\\text{hyd}} = -2444\\text{ kJ/mol}$. Which entry correctly states the standard enthalpy of solution for both compounds and identifies the salt that dissolves exothermically?",
+      "options": [
+        "A) $\\Delta H^\\circ_{\\text{sol}}(\\text{BeSO}_4) = -20\\text{ kJ/mol}$ and $\\Delta H^\\circ_{\\text{sol}}(\\text{BaSO}_4) = +26\\text{ kJ/mol}$; $\\text{BeSO}_4$ dissolves exothermically",
+        "B) $\\Delta H^\\circ_{\\text{sol}}(\\text{BeSO}_4) = +20\\text{ kJ/mol}$ and $\\Delta H^\\circ_{\\text{sol}}(\\text{BaSO}_4) = -26\\text{ kJ/mol}$; $\\text{BaSO}_4$ dissolves exothermically",
+        "C) $\\Delta H^\\circ_{\\text{sol}}(\\text{BeSO}_4) = -6020\\text{ kJ/mol}$ and $\\Delta H^\\circ_{\\text{sol}}(\\text{BaSO}_4) = -4914\\text{ kJ/mol}$; both dissolve exothermically",
+        "D) $\\Delta H^\\circ_{\\text{sol}}(\\text{BeSO}_4) = +20\\text{ kJ/mol}$ and $\\Delta H^\\circ_{\\text{sol}}(\\text{BaSO}_4) = +26\\text{ kJ/mol}$; both dissolve endothermically"
+      ],
+      "answer": "A",
+      "explanation": "Applying the thermodynamic relationship: For $\\text{BeSO}_4$, $\\Delta H^\\circ_{\\text{sol}} = (+3000) + (-3020) = -20\\text{ kJ/mol}$, which is negative and thus exothermic. For $\\text{BaSO}_4$, $\\Delta H^\\circ_{\\text{sol}} = (+2470) + (-2444) = +26\\text{ kJ/mol}$, which is positive and endothermic. The large hydration enthalpy of the small $\\text{Be}^{2+}$ cation overcomes its lattice energy, making $\\text{BeSO}_4$ highly water-soluble. Inverting signs yields $+20\\text{ kJ/mol}$ and $-26\\text{ kJ/mol}$ by confusing lattice breaking with bond formation, adding magnitudes yields $-6020\\text{ kJ/mol}$, and claiming both are positive violates the given signed values."
+    },
+    {
+      "id": "sbe_c01_004",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The standard thermodynamic parameters for the thermal decomposition $\\text{MCO}_3(s) \\rightleftharpoons \\text{MO}(s) + \\text{CO}_2(g)$ are: for $\\text{CaCO}_3$, $\\Delta H^\\circ = +178.0\\text{ kJ/mol}$ and $\\Delta S^\\circ = +160.0\\text{ J/(mol}\\cdot\\text{K)}$; for $\\text{BaCO}_3$, $\\Delta H^\\circ = +267.0\\text{ kJ/mol}$ and $\\Delta S^\\circ = +172.0\\text{ J/(mol}\\cdot\\text{K)}$. Assuming $\\Delta H^\\circ$ and $\\Delta S^\\circ$ remain constant with temperature, what are the minimum decomposition temperatures (in Kelvin, to the nearest integer) at which $\\text{CaCO}_3$ and $\\text{BaCO}_3$ decompose spontaneously under $1\\text{ bar}$ of $\\text{CO}_2$?",
+      "options": [
+        "A) $890\\text{ K}$ and $1250\\text{ K}$",
+        "B) $1552\\text{ K}$ and $1113\\text{ K}$",
+        "C) $1385\\text{ K}$ and $1840\\text{ K}$",
+        "D) $1113\\text{ K}$ and $1552\\text{ K}$"
+      ],
+      "answer": "D",
+      "explanation": "Thermal decomposition under standard partial pressure ($P_{\\text{CO}_2} = 1\\text{ bar}$) becomes spontaneous when $\\Delta G^\\circ = \\Delta H^\\circ - T\\Delta S^\\circ \\le 0$, yielding the threshold temperature $T = \\frac{\\Delta H^\\circ}{\\Delta S^\\circ}$. For $\\text{CaCO}_3$, $T_{\\text{decomp}} = \\frac{178000\\text{ J/mol}}{160.0\\text{ J/(mol}\\cdot\\text{K)}} = 1112.5\\text{ K} \\approx 1113\\text{ K}$. For $\\text{BaCO}_3$, $T_{\\text{decomp}} = \\frac{267000\\text{ J/mol}}{172.0\\text{ J/(mol}\\cdot\\text{K)}} = 1552.3\\text{ K} \\approx 1552\\text{ K}$. The thermal stability increases down Group 2 because the larger $\\text{Ba}^{2+}$ cation has lower polarizing power, stabilizing the large carbonate anion. Reversing the temperatures assigns the higher stability to calcium, $890\\text{ K}$ and $1250\\text{ K}$ result from using incorrect units of entropy, and $1385\\text{ K}$ is an arbitrary intermediate."
+    },
+    {
+      "id": "sbe_c01_005",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "When a $344.0\\text{ g}$ sample of pure mineral gypsum ($\\text{CaSO}_4 \\cdot 2\\text{H}_2\\text{O}$, molar mass $172.0\\text{ g/mol}$) is carefully heated in a rotary kiln at $393\\text{ K}$, it is converted quantitatively into Plaster of Paris ($\\text{CaSO}_4 \\cdot 0.5\\text{H}_2\\text{O}$). What is the total mass of water (in grams) released as steam during this conversion?",
+      "options": [],
+      "answer": "54",
+      "explanation": "The thermal dehydration of gypsum to Plaster of Paris proceeds according to the equation: $\\text{CaSO}_4 \\cdot 2\\text{H}_2\\text{O}(s) \\to \\text{CaSO}_4 \\cdot 0.5\\text{H}_2\\text{O}(s) + 1.5\\text{H}_2\\text{O}(g)$, or doubled as $2(\\text{CaSO}_4 \\cdot 2\\text{H}_2\\text{O}) \\to 2\\text{CaSO}_4 \\cdot \\text{H}_2\\text{O} + 3\\text{H}_2\\text{O}$. First, calculating the moles of gypsum taken: $n = \\frac{344.0\\text{ g}}{172.0\\text{ g/mol}} = 2.0\\text{ mol}$. Each mole of gypsum releases $1.5\\text{ moles}$ of water. Therefore, total moles of water lost is $2.0 \\times 1.5 = 3.0\\text{ mol}$. Converting to mass gives $m(\\text{H}_2\\text{O}) = 3.0\\text{ mol} \\times 18.0\\text{ g/mol} = 54\\text{ g}$."
+    },
+    {
+      "id": "sbe_c01_006",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $3.90\\text{ g}$ sample of pure sodium peroxide ($\\text{Na}_2\\text{O}_2$, molar mass $78.0\\text{ g/mol}$) is completely dissolved in ice-cold dilute $\\text{H}_2\\text{SO}_4$ according to $\\text{Na}_2\\text{O}_2 + \\text{H}_2\\text{SO}_4 \\to \\text{Na}_2\\text{SO}_4 + \\text{H}_2\\text{O}_2$. The generated hydrogen peroxide solution is then completely titrated in acidic medium against an aqueous solution of $0.050\\text{ M KMnO}_4$ ($2\\text{MnO}_4^- + 5\\text{H}_2\\text{O}_2 + 6\\text{H}^+ \\to 2\\text{Mn}^{2+} + 5\\text{O}_2 + 8\\text{H}_2\\text{O}$). What volume of the $\\text{KMnO}_4$ solution is required?",
+      "options": [
+        "A) $1000\\text{ mL}$",
+        "B) $400\\text{ mL}$",
+        "C) $250\\text{ mL}$",
+        "D) $160\\text{ mL}$"
+      ],
+      "answer": "B",
+      "explanation": "First, determine the moles of sodium peroxide: $n(\\text{Na}_2\\text{O}_2) = \\frac{3.90\\text{ g}}{78.0\\text{ g/mol}} = 0.050\\text{ mol}$. From the dissolution stoichiometry, $1\\text{ mol } \\text{Na}_2\\text{O}_2$ produces $1\\text{ mol } \\text{H}_2\\text{O}_2$, so $n(\\text{H}_2\\text{O}_2) = 0.050\\text{ mol}$. In the redox titration, $5\\text{ moles}$ of $\\text{H}_2\\text{O}_2$ react with $2\\text{ moles}$ of $\\text{MnO}_4^-$. Therefore, $n(\\text{MnO}_4^-) = 0.050 \\times \\frac{2}{5} = 0.020\\text{ mol}$. The volume of $0.050\\text{ M}$ permanganate required is $V = \\frac{0.020\\text{ mol}}{0.050\\text{ mol/L}} = 0.400\\text{ L} = 400\\text{ mL}$. An answer of $1000\\text{ mL}$ erroneously assumes a $1:1$ reaction stoichiometry, $250\\text{ mL}$ inverts the redox mole ratio to $5/2$, and $160\\text{ mL}$ incorrectly uses a factor of $2/25$."
+    },
+    {
+      "id": "sbe_c01_007",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A municipal water sample of volume $1000\\text{ L}$ has temporary hardness caused by $162\\text{ mg/L}$ of $\\text{Ca(HCO}_3)_2$ (molar mass $162\\text{ g/mol}$) and $146\\text{ mg/L}$ of $\\text{Mg(HCO}_3)_2$ (molar mass $146\\text{ g/mol}$). In Clark's softening process, pure slaked lime $\\text{Ca(OH)}_2$ (molar mass $74\\text{ g/mol}$) is added: $\\text{Ca(HCO}_3)_2 + \\text{Ca(OH)}_2 \\to 2\\text{CaCO}_3 \\downarrow + 2\\text{H}_2\\text{O}$ and $\\text{Mg(HCO}_3)_2 + 2\\text{Ca(OH)}_2 \\to 2\\text{CaCO}_3 \\downarrow + \\text{Mg(OH)}_2 \\downarrow + 2\\text{H}_2\\text{O}$. Calculate the total mass of pure $\\text{Ca(OH)}_2$ (in grams) required for complete removal of temporary hardness.",
+      "options": [],
+      "answer": "222",
+      "explanation": "First, calculate the total mass and moles of each bicarbonate in $1000\\text{ L}$: For $\\text{Ca(HCO}_3)_2$, total mass is $1000\\text{ L} \\times 162\\text{ mg/L} = 162000\\text{ mg} = 162\\text{ g}$, which corresponds to $\\frac{162\\text{ g}}{162\\text{ g/mol}} = 1.0\\text{ mol}$. For $\\text{Mg(HCO}_3)_2$, total mass is $1000\\text{ L} \\times 146\\text{ mg/L} = 146000\\text{ mg} = 146\\text{ g}$, which corresponds to $\\frac{146\\text{ g}}{146\\text{ g/mol}} = 1.0\\text{ mol}$. According to Clark's stoichiometry, precipitation of $\\text{Ca(HCO}_3)_2$ requires $1.0\\text{ mole}$ of $\\text{Ca(OH)}_2$. However, because $\\text{MgCO}_3$ is somewhat soluble, magnesium must be precipitated as the less soluble hydroxide $\\text{Mg(OH)}_2$, requiring $2.0\\text{ moles}$ of $\\text{Ca(OH)}_2$ per mole of $\\text{Mg(HCO}_3)_2$. Therefore, total moles of lime required is $1.0 + 2.0 = 3.0\\text{ mol}$. Total mass of lime is $3.0\\text{ mol} \\times 74\\text{ g/mol} = 222\\text{ g}$."
+    },
+    {
+      "id": "sbe_c01_008",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The gaseous ionic radii of alkali metal cations increase monotonically down Group 1: $\\text{Li}^+ (0.76\\text{ \\AA}) < \\text{Na}^+ (1.02\\text{ \\AA}) < \\text{K}^+ (1.38\\text{ \\AA}) < \\text{Rb}^+ (1.52\\text{ \\AA}) < \\text{Cs}^+ (1.67\\text{ \\AA})$. However, the hydration enthalpy is most exothermic for $\\text{Li}^+$ ($-520\\text{ kJ/mol}$) and least for $\\text{Cs}^+$ ($-276\\text{ kJ/mol}$). Which of the following statements correctly represents the resulting order of hydrated ionic radii and limiting molar ionic conductivity ($\\lambda^\\circ_m$) in aqueous solution at $298\\text{ K}$?",
+      "options": [
+        "A) Hydrated radius: $\\text{Cs}^+ > \\text{Rb}^+ > \\text{K}^+ > \\text{Na}^+ > \\text{Li}^+$; Conductivity: $\\text{Li}^+ > \\text{Na}^+ > \\text{K}^+ > \\text{Rb}^+ > \\text{Cs}^+$",
+        "B) Hydrated radius: $\\text{Li}^+ > \\text{Na}^+ > \\text{K}^+ > \\text{Rb}^+ > \\text{Cs}^+$; Conductivity: $\\text{Li}^+ > \\text{Na}^+ > \\text{K}^+ > \\text{Rb}^+ > \\text{Cs}^+$",
+        "C) Hydrated radius: $\\text{Li}^+ > \\text{Na}^+ > \\text{K}^+ > \\text{Rb}^+ > \\text{Cs}^+$; Conductivity: $\\text{Cs}^+ > \\text{Rb}^+ > \\text{K}^+ > \\text{Na}^+ > \\text{Li}^+$",
+        "D) Hydrated radius: $\\text{Cs}^+ > \\text{Rb}^+ > \\text{K}^+ > \\text{Na}^+ > \\text{Li}^+$; Conductivity: $\\text{Cs}^+ > \\text{Rb}^+ > \\text{K}^+ > \\text{Na}^+ > \\text{Li}^+$"
+      ],
+      "answer": "C",
+      "explanation": "Due to its tiny crystallographic radius and high surface charge density, $\\text{Li}^+$ holds multiple layers of water molecules firmly, giving it the largest effective hydrated radius among alkali metal cations: $\\text{Li}^+_{\\text{aq}} > \\text{Na}^+_{\\text{aq}} > \\text{K}^+_{\\text{aq}} > \\text{Rb}^+_{\\text{aq}} > \\text{Cs}^+_{\\text{aq}}$. In an electric field, ions migrate through the solvent; according to Stokes' law ($F_{\\text{drag}} = 6\\pi \\eta r_{\\text{hyd}} v$), larger hydrated ions encounter greater hydrodynamic resistance. Thus, ionic mobility and limiting molar conductivity follow the opposite sequence: $\\text{Cs}^+ > \\text{Rb}^+ > \\text{K}^+ > \\text{Na}^+ > \\text{Li}^+$. Inverting the hydrated radii confuses bare crystal radii with solvated radii, and asserting that the largest hydrated ion has the greatest conductivity violates Stokes' drag relations."
+    },
+    {
+      "id": "sbe_c01_009",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a Castner-Kellner mercury cathode cell, a brine solution is electrolyzed using a current of $96.5\\text{ A}$ for $2000\\text{ s}$. The cathode current efficiency for sodium amalgam formation ($\\text{Na}^+ + e^- + \\text{Hg} \\to \\text{Na-Hg}$) is $90.0\\%$. If the sodium amalgam is subsequently treated with water to produce sodium hydroxide ($2\\text{Na-Hg} + 2\\text{H}_2\\text{O} \\to 2\\text{NaOH} + \\text{H}_2 + 2\\text{Hg}$), what mass of pure $\\text{NaOH}$ (molar mass $40.0\\text{ g/mol}$) is formed? ($F = 96500\\text{ C/mol}$)",
+      "options": [
+        "A) $72.0\\text{ g}$",
+        "B) $80.0\\text{ g}$",
+        "C) $36.0\\text{ g}$",
+        "D) $144.0\\text{ g}$"
+      ],
+      "answer": "A",
+      "explanation": "First, determine the total electrical charge passed: $Q = I \\times t = 96.5\\text{ A} \\times 2000\\text{ s} = 193000\\text{ C}$. Taking into account the $90.0\\%$ current efficiency, the effective charge utilized for sodium deposition is $Q_{\\text{eff}} = 0.900 \\times 193000\\text{ C} = 173700\\text{ C}$. The moles of electrons transferred is $n(e^-) = \\frac{173700\\text{ C}}{96500\\text{ C/mol}} = 1.80\\text{ mol}$. Since reduction of $\\text{Na}^+$ to $\\text{Na}$ is a one-electron process, $n(\\text{Na}) = 1.80\\text{ mol}$. From the amalgam reaction with water, $1\\text{ mol of Na}$ produces $1\\text{ mol of NaOH}$, yielding $1.80\\text{ mol of NaOH}$. The resulting mass is $1.80\\text{ mol} \\times 40.0\\text{ g/mol} = 72.0\\text{ g}$. An answer of $80.0\\text{ g}$ ignores the current efficiency factor, $36.0\\text{ g}$ incorrectly divides by two based on the stoichiometry of $\\text{H}_2$, and $144.0\\text{ g}$ mistakenly doubles the mass."
+    },
+    {
+      "id": "sbe_c01_010",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $10.0\\text{ g}$ mixture consisting only of anhydrous sodium carbonate ($\\text{Na}_2\\text{CO}_3$, molar mass $106.0\\text{ g/mol}$) and sodium hydrogen carbonate ($\\text{NaHCO}_3$, molar mass $84.0\\text{ g/mol}$) is heated to $573\\text{ K}$ until no further mass loss is observed: $2\\text{NaHCO}_3(s) \\xrightarrow{\\Delta} \\text{Na}_2\\text{CO}_3(s) + \\text{CO}_2(g) + \\text{H}_2\\text{O}(g)$. If the residual solid mass after complete decomposition is $6.90\\text{ g}$, calculate the mass percentage of $\\text{NaHCO}_3$ in the original mixture.",
+      "options": [],
+      "answer": "84",
+      "explanation": "Sodium carbonate is thermally stable at $573\\text{ K}$ and does not decompose. The observed mass loss is entirely due to the volatilization of $\\text{CO}_2$ and $\\text{H}_2\\text{O}$ from sodium hydrogen carbonate. Total mass lost is $\\Delta m = 10.0\\text{ g} - 6.90\\text{ g} = 3.10\\text{ g}$. According to the stoichiometry, $2\\text{ moles}$ ($2 \\times 84.0 = 168.0\\text{ g}$) of $\\text{NaHCO}_3$ generate $1\\text{ mole}$ ($106.0\\text{ g}$) of solid $\\text{Na}_2\\text{CO}_3$ residue, resulting in a loss of $168.0 - 106.0 = 62.0\\text{ g}$ of volatile gases. Setting up the proportion: $\\text{Mass of } \\text{NaHCO}_3 = 3.10\\text{ g} \\times \\frac{168.0\\text{ g}}{62.0\\text{ g}} = 8.40\\text{ g}$. The mass percentage of $\\text{NaHCO}_3$ in the original mixture is therefore $\\frac{8.40\\text{ g}}{10.0\\text{ g}} \\times 100 = 84\\%$."
+    },
+    {
+      "id": "sbe_c01_011",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Among the alkali metal halides, lithium fluoride ($\\text{LiF}$) and cesium iodide ($\\text{CsI}$) are both sparingly soluble in water at $298\\text{ K}$, whereas lithium iodide ($\\text{LiI}$) and cesium fluoride ($\\text{CsF}$) are highly soluble. Which of the following thermodynamic comparisons correctly explains this solubility behavior?",
+      "options": [
+        "A) $\\text{LiF}$ is sparingly soluble due to its low hydration enthalpy, while $\\text{CsI}$ is sparingly soluble due to its unusually high lattice energy.",
+        "B) $\\text{LiF}$ is sparingly soluble because its exceptionally high lattice energy exceeds hydration enthalpy, whereas $\\text{CsI}$ is sparingly soluble because the combined hydration enthalpy of both large ions is too small to compensate its lattice energy.",
+        "C) $\\text{LiI}$ and $\\text{CsF}$ are soluble because covalent character increases solubility in polar solvents according to Fajan's rules.",
+        "D) Both $\\text{LiF}$ and $\\text{CsI}$ have zero enthalpy of solution and are precipitated exclusively by negative entropy of mixing."
+      ],
+      "answer": "B",
+      "explanation": "The standard enthalpy of solution is $\\Delta H^\\circ_{\\text{sol}} = \\Delta H^\\circ_{\\text{lattice}} + \\Delta H^\\circ_{\\text{hyd}}$. In $\\text{LiF}$, both $\\text{Li}^+$ and $\\text{F}^-$ are very small, yielding an exceptionally large lattice energy ($1036\\text{ kJ/mol}$) that is not compensated by the hydration enthalpy, resulting in low solubility. In $\\text{CsI}$, both $\\text{Cs}^+$ and $\\text{I}^-$ are large; although its lattice energy is moderate, the hydration enthalpies of both large ions are very small and diffuse, making $\\Delta H^\\circ_{\\text{sol}}$ unfavorable. For $\\text{LiI}$ and $\\text{CsF}$, size mismatch couples a moderate lattice energy with a huge hydration enthalpy of one tiny ion ($\\text{Li}^+$ in $\\text{LiI}$, $\\text{F}^-$ in $\\text{CsF}$), driving high solubility. Attributing low solubility of $\\text{LiF}$ to small hydration enthalpy ignores the huge charge density of lithium, and claiming covalency enhances aqueous solubility contradicts solvation thermodynamics."
+    },
+    {
+      "id": "sbe_c01_012",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The slaking of quicklime is an exothermic process: $\\text{CaO}(s) + \\text{H}_2\\text{O}(l) \\to \\text{Ca(OH)}_2(s)$, with $\\Delta H^\\circ = -65.2\\text{ kJ/mol}$. If $28.0\\text{ g}$ of pure calcium oxide (molar mass $56.0\\text{ g/mol}$) is added to $500.0\\text{ g}$ of liquid water at an initial temperature of $25.0^\\circ\\text{C}$ in an insulated vessel, what is the final temperature of the resulting suspension? (Assume total mass is $528.0\\text{ g}$, specific heat capacity of the suspension is $4.18\\text{ J/(g}\\cdot^\\circ\\text{C)}$, and heat loss to the vessel is negligible).",
+      "options": [
+        "A) $54.6^\\circ\\text{C}$",
+        "B) $32.4^\\circ\\text{C}$",
+        "C) $74.5^\\circ\\text{C}$",
+        "D) $39.8^\\circ\\text{C}$"
+      ],
+      "answer": "D",
+      "explanation": "First, determine the moles of calcium oxide reacted: $n(\\text{CaO}) = \\frac{28.0\\text{ g}}{56.0\\text{ g/mol}} = 0.500\\text{ mol}$. The quantity of heat liberated by the reaction is $q = 0.500\\text{ mol} \\times 65.2\\text{ kJ/mol} = 32.6\\text{ kJ} = 32600\\text{ J}$. Using the calorimetric relation $q = m \\cdot c \\cdot \\Delta T$, the temperature rise is $\\Delta T = \\frac{32600\\text{ J}}{528.0\\text{ g} \\times 4.18\\text{ J/(g}\\cdot^\\circ\\text{C)}} = \\frac{32600}{2207.04} \\approx 14.77^\\circ\\text{C}$. The final temperature is therefore $T_f = T_i + \\Delta T = 25.0^\\circ\\text{C} + 14.77^\\circ\\text{C} = 39.77^\\circ\\text{C} \\approx 39.8^\\circ\\text{C}$. Calculating with water mass alone ($500.0\\text{ g}$) gives $40.6^\\circ\\text{C}$, forgetting to divide by 2 yields $54.6^\\circ\\text{C}$, and $32.4^\\circ\\text{C}$ results from arithmetic error in specific heat."
+    },
+    {
+      "id": "sbe_c01_013",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $2.30\\text{ g}$ sample of clean sodium metal (atomic mass $23.0\\text{ g/mol}$) is dissolved in liquid ammonia under dry conditions to form a homogeneous blue solution. A trace amount of iron(III) oxide catalyst is added to catalyze the conversion into sodamide: $2\\text{Na} + 2\\text{NH}_3 \\xrightarrow{\\text{catalyst}} 2\\text{NaNH}_2 + \\text{H}_2(g)$. How many millimoles of dihydrogen gas ($\\text{H}_2$) are released upon complete reaction?",
+      "options": [],
+      "answer": "50",
+      "explanation": "First, determine the moles of sodium metal reacted: $n(\\text{Na}) = \\frac{2.30\\text{ g}}{23.0\\text{ g/mol}} = 0.100\\text{ mol}$. According to the chemical equation, two moles of sodium produce one mole of dihydrogen gas: $n(\\text{H}_2) = \\frac{n(\\text{Na})}{2} = \\frac{0.100\\text{ mol}}{2} = 0.050\\text{ mol}$. Expressing the quantity of dihydrogen in millimoles: $0.050\\text{ mol} \\times 1000\\text{ mmol/mol} = 50\\text{ mmol}$."
+    },
+    {
+      "id": "sbe_c01_014",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Beryllium hydroxide, $\\text{Be(OH)}_2$, is an amphoteric hydroxide that dissolves in both strong acids and strong aqueous bases. Consider the dissolution of exactly $1.0\\text{ mol}$ of solid $\\text{Be(OH)}_2$ to produce: (i) hydrated beryllium cations $[\\text{Be(H}_2\\text{O)}_4]^{2+}$ upon reaction with hydrochloric acid, and (ii) tetrahydroxoberyllate(II) anions $[\\text{Be(OH)}_4]^{2-}$ upon reaction with aqueous sodium hydroxide. What are the minimum stoichiometric amounts of $\\text{HCl}$ and $\\text{NaOH}$ (in moles) required for complete dissolution?",
+      "options": [
+        "A) $2.0\\text{ mol of HCl}$ and $2.0\\text{ mol of NaOH}$",
+        "B) $2.0\\text{ mol of HCl}$ and $4.0\\text{ mol of NaOH}$",
+        "C) $1.0\\text{ mol of HCl}$ and $2.0\\text{ mol of NaOH}$",
+        "D) $4.0\\text{ mol of HCl}$ and $2.0\\text{ mol of NaOH}$"
+      ],
+      "answer": "A",
+      "explanation": "In acidic medium, the dissolution proceeds via: $\\text{Be(OH)}_2(s) + 2\\text{HCl}(aq) + 2\\text{H}_2\\text{O}(l) \\to [\\text{Be(H}_2\\text{O)}_4]^{2+}(aq) + 2\\text{Cl}^-(aq)$, requiring exactly $2.0\\text{ moles}$ of $\\text{HCl}$ per mole of $\\text{Be(OH)}_2$. In basic medium, the reaction is: $\\text{Be(OH)}_2(s) + 2\\text{NaOH}(aq) \\to \\text{Na}_2[\\text{Be(OH)}_4](aq)$, requiring exactly $2.0\\text{ moles}$ of $\\text{NaOH}$ per mole of $\\text{Be(OH)}_2$ because the solid hydroxide already provides two $\\text{OH}^-$ ligands. A requirement of $4.0\\text{ moles of NaOH}$ assumes all four coordinated hydroxide ions must be supplied by the titrant base, while $1.0\\text{ mol of HCl}$ fails to balance neutralization of the two basic hydroxide units."
+    },
+    {
+      "id": "sbe_c01_015",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A $7.20\\text{ g}$ sample of magnesium metal (atomic mass $24.0\\text{ g/mol}$) is heated in an atmosphere of air, forming a solid residue containing magnesium oxide ($\\text{MgO}$) and magnesium nitride ($\\text{Mg}_3\\text{N}_2$). The residue is treated with excess hot water to hydrolyze all the nitride: $\\text{Mg}_3\\text{N}_2 + 6\\text{H}_2\\text{O} \\to 3\\text{Mg(OH)}_2 + 2\\text{NH}_3(g)$. If the evolved ammonia gas is completely absorbed and neutralizes exactly $100.0\\text{ mL}$ of $0.500\\text{ M HCl}$, what percentage of the initial magnesium was converted into magnesium nitride?",
+      "options": [
+        "A) $16.7\\%$",
+        "B) $25.0\\%$",
+        "C) $50.0\\%$",
+        "D) $8.33\\%$"
+      ],
+      "answer": "B",
+      "explanation": "First, find the moles of $\\text{HCl}$ consumed: $n(\\text{HCl}) = 0.1000\\text{ L} \\times 0.500\\text{ mol/L} = 0.0500\\text{ mol}$. Neutralization $\\text{NH}_3 + \\text{HCl} \\to \\text{NH}_4\\text{Cl}$ indicates $n(\\text{NH}_3) = 0.0500\\text{ mol}$. From the hydrolysis stoichiometry, $1\\text{ mol of } \\text{Mg}_3\\text{N}_2$ generates $2\\text{ moles of } \\text{NH}_3$, so $n(\\text{Mg}_3\\text{N}_2) = \\frac{0.0500}{2} = 0.0250\\text{ mol}$. Each mole of $\\text{Mg}_3\\text{N}_2$ contains $3\\text{ moles of Mg}$, meaning $n(\\text{Mg in nitride}) = 3 \\times 0.0250 = 0.0750\\text{ mol}$. Total initial moles of magnesium was $n_{\\text{total}}(\\text{Mg}) = \\frac{7.20\\text{ g}}{24.0\\text{ g/mol}} = 0.300\\text{ mol}$. The fraction converted to nitride is $\\frac{0.0750}{0.300} \\times 100 = 25.0\\%$. Omitting the factor of 3 gives $8.33\\%$, assuming a $1:1$ ratio of $\\text{Mg}$ to $\\text{NH}_3$ yields $16.7\\%$, and forgetting to divide by 2 yields $50.0\\%$."
+    },
+    {
+      "id": "sbe_c01_016",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Alkali metals dissolve reversibly in anhydrous liquid ammonia without chemical decomposition at low temperatures. A dilute solution ($< 0.1\\text{ M}$) exhibits a deep blue color and pronounced paramagnetism, whereas a concentrated solution ($> 3.0\\text{ M}$) assumes a copper-bronze metallic luster and becomes diamagnetic. Which of the following explanations correctly accounts for the changes in color and magnetic susceptibility?",
+      "options": [
+        "A) In dilute solution, individual ammoniated electrons $e^-(\\text{NH}_3)_y$ occupy solvent cavities of radius $\\sim 3.3\\text{ \\AA}$, imparting paramagnetism with $S = 1/2$; in concentrated solution, these electrons pair up with antiparallel spins ($2e^- \\rightleftharpoons e_2^{2-}$), resulting in diamagnetism and metallic band conduction.",
+        "B) In dilute solution, alkali metal atoms undergo homolytic fission to form free radicals; in concentrated solution, precipitation of solid metal hydride leaves only diamagnetic ions in solution.",
+        "C) In dilute solution, solvated electrons form triplet-state dimers ($S = 1$); in concentrated solution, dissociation into isolated ammoniated cations and amide anions destroys the paramagnetism.",
+        "D) The blue color is caused by d-d transitions of the alkali metal cation; the bronze color arises from charge-transfer complexation with traces of dissolved atmospheric dioxygen."
+      ],
+      "answer": "A",
+      "explanation": "The deep blue color of dilute alkali metal-ammonia solutions originates from excitation of solvated electrons residing in solvent voids created by polarization of surrounding ammonia molecules ($E_{\\text{max}} \\approx 0.8\\text{ eV}$ in near-IR, tailing into visible red). Because each cavity contains one isolated electron, the solution is paramagnetic with spin-only moment $\\mu = 1.73\\text{ B.M.}$. At higher concentrations ($> 3\\text{ M}$), cavity overlap favors spin pairing to form diamagnetic dielectron species $e_2^{2-}(\\text{NH}_3)_n$, while delocalization leads to a partially filled conduction band characteristic of liquid metals. Attributing the blue color to d-d transitions is impossible since alkali metal ions have closed noble gas configurations with no d-electrons, and assuming hydride precipitation misidentifies the physical phase equilibria."
+    },
+    {
+      "id": "sbe_c01_017",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The diagonal similarity between lithium and magnesium is governed by their comparable ionic potentials (polarizing power) $\\phi = \\frac{z}{r}$. Given crystallographic radii $r(\\text{Li}^+) = 76\\text{ pm}$ and $r(\\text{Mg}^{2+}) = 72\\text{ pm}$, what is the value of the ratio $\\frac{\\phi(\\text{Mg}^{2+})}{\\phi(\\text{Li}^+)}$, and which chemical behavior is exhibited uniquely by both $\\text{Li}$ and $\\text{Mg}$ but not by other alkali metals?",
+      "options": [
+        "A) $\\frac{\\phi(\\text{Mg}^{2+})}{\\phi(\\text{Li}^+)} = 1.05$; formation of stable solid bicarbonates upon evaporation of aqueous solutions.",
+        "B) $\\frac{\\phi(\\text{Mg}^{2+})}{\\phi(\\text{Li}^+)} \\approx 2.11$; direct reaction with gaseous nitrogen at elevated temperatures to form ionic nitrides ($\\text{Li}_3\\text{N}$ and $\\text{Mg}_3\\text{N}_2$) which yield ammonia upon hydrolysis.",
+        "C) $\\frac{\\phi(\\text{Mg}^{2+})}{\\phi(\\text{Li}^+)} = 0.47$; formation of soluble carbonates that do not thermally decompose below $1000^\\circ\\text{C}$.",
+        "D) $\\frac{\\phi(\\text{Mg}^{2+})}{\\phi(\\text{Li}^+)} \\approx 2.11$; insolubility of their anhydrous chlorides in organic solvents like ethanol and pyridine."
+      ],
+      "answer": "B",
+      "explanation": "Calculating polarizing power: $\\phi(\\text{Li}^+) = \\frac{1}{76} = 0.01316\\text{ pm}^{-1}$ and $\\phi(\\text{Mg}^{2+}) = \\frac{2}{72} = 0.02778\\text{ pm}^{-1}$. The ratio is $\\frac{\\phi(\\text{Mg}^{2+})}{\\phi(\\text{Li}^+)} = \\frac{0.02778}{0.01316} \\approx 2.11$. Due to high lattice enthalpy stabilization of the small, highly charged nitride anion $\\text{N}^{3-}$ by high charge density cations, both $\\text{Li}$ and $\\text{Mg}$ react directly with dry $\\text{N}_2$ to yield $\\text{Li}_3\\text{N}$ and $\\text{Mg}_3\\text{N}_2$, which hydrolyze quantitatively to $\\text{NH}_3$. Neither forms a stable solid bicarbonate (both exist only in solution), their carbonates decompose readily upon moderate heating, and their chlorides possess significant covalent character and dissolve readily in polar organic solvents like ethanol."
+    },
+    {
+      "id": "sbe_c01_018",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Macrocyclic polyethers (crown ethers) exhibit remarkable cation selectivity when the ionic diameter of the guest alkali metal cation matches the cavity diameter of the host crown ether. The cavity diameter of 18-crown-6 is $2.6\\text{ \\AA}$ to $3.2\\text{ \\AA}$, matching the ionic diameter of $\\text{K}^+$ ($2.76\\text{ \\AA}$), giving a stability constant $\\log K \\approx 6.1$ in methanol, far exceeding those for $\\text{Li}^+$ and $\\text{Na}^+$. What is the total number of ether oxygen atoms coordinated to the central potassium cation in the resulting symmetric $[\\text{K}(18\\text{-crown-}6)]^+$ complex?",
+      "options": [],
+      "answer": "6",
+      "explanation": "The systematic IUPAC formula of 18-crown-6 is $1,4,7,10,13,16\\text{-hexaoxacyclooctadecane}$, having the molecular formula $(\\text{C}_2\\text{H}_4\\text{O})_6$. It contains an 18-membered ring incorporating exactly 6 ether oxygen atoms. In the crystalline complex $[\\text{K}(18\\text{-crown-}6)]^+$, the potassium cation sits snugly in the plane of the macrocycle and coordinates directly to all 6 ring oxygen atoms in a distorted octahedral or hexagonal planar arrangement."
+    },
+    {
+      "id": "sbe_c01_019",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Beryllium and aluminum share a diagonal relationship due to similar charge-to-size ratios. Both form polymeric electron-deficient hydrides and bridged dimeric halides. Solid polymeric beryllium hydride, $(\\text{BeH}_2)_n$, features multi-center bridging bonds. Furthermore, their carbides $\\text{Be}_2\\text{C}$ and $\\text{Al}_4\\text{C}_3$ both yield the same hydrocarbon $Z$ upon hydrolysis. What is the electronic nature of the bridging $\\text{Be}-\\text{H}-\\text{Be}$ bonds in $(\\text{BeH}_2)_n$, and what volume of gas $Z$ (in liters, at STP where molar volume is $22.4\\text{ L/mol}$) is evolved upon complete hydrolysis of $0.20\\text{ mol}$ of $\\text{Al}_4\\text{C}_3$?",
+      "options": [
+        "A) Three-center two-electron ($3c-2e$) bonds; $4.48\\text{ L}$",
+        "B) Three-center four-electron ($3c-4e$) bonds; $13.44\\text{ L}$",
+        "C) Three-center two-electron ($3c-2e$) bonds; $13.44\\text{ L}$",
+        "D) Two-center two-electron ($2c-2e$) bonds; $6.72\\text{ L}$"
+      ],
+      "answer": "C",
+      "explanation": "In solid $(\\text{BeH}_2)_n$, each bridging hydrogen atom is bonded to two beryllium atoms. Since each Be has only two valence electrons and each H has one, there are insufficient valence electrons for localized two-center two-electron bonds; bridging occurs via three-center two-electron ($3c-2e$) banana bonds similar to diborane. Both $\\text{Be}_2\\text{C}$ and $\\text{Al}_4\\text{C}_3$ contain methanide $\\text{C}^{4-}$ anions and hydrolyze to yield methane gas ($\\text{CH}_4$): $\\text{Al}_4\\text{C}_3 + 12\\text{H}_2\\text{O} \\to 4\\text{Al(OH)}_3 + 3\\text{CH}_4$. Hydrolysis of $0.20\\text{ mol}$ of $\\text{Al}_4\\text{C}_3$ produces $0.20 \\times 3 = 0.60\\text{ mol}$ of $\\text{CH}_4$. At STP, the volume is $0.60\\text{ mol} \\times 22.4\\text{ L/mol} = 13.44\\text{ L}$. Treating the bridge as $3c-4e$ ignores the electron deficiency of beryllium, and $4.48\\text{ L}$ neglects the factor of 3 in the hydrolysis stoichiometry."
+    },
+    {
+      "id": "sbe_c01_020",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Anhydrous beryllium chloride ($\\text{BeCl}_2$) is predominantly covalent due to the high polarizing power of the $\\text{Be}^{2+}$ cation. Its physical structure undergoes profound transformations across different states: in the solid crystal, it forms an infinite edge-sharing tetrahedral polymer $[\\text{BeCl}_2]_n$; when vaporized at $750\\text{ K}$, it exists predominantly as a chloro-bridged planar dimer $[\\text{BeCl}_2]_2$; and upon heating above $1200\\text{ K}$, the dimer dissociates completely into monomeric $\\text{BeCl}_2$. What are the hybridization states of the central beryllium atom in the solid polymer, vapor dimer, and high-temperature monomer, respectively?",
+      "options": [
+        "A) $sp, sp^2, sp^3$",
+        "B) $sp^2, sp^3, sp$",
+        "C) $sp^3, sp^3, sp^2$",
+        "D) $sp^3, sp^2, sp$"
+      ],
+      "answer": "D",
+      "explanation": "In solid $[\\text{BeCl}_2]_n$, each beryllium atom is coordinated to four chlorine atoms (two normal single covalent bonds and two dative coordinate bonds from chlorine lone pairs) in a tetrahedral geometry, which requires $sp^3$ hybridization. In the vapor dimer $[\\text{BeCl}_2]_2$ at $750\\text{ K}$, each beryllium is bonded to one terminal chlorine and two bridging chlorines in a planar three-coordinate arrangement with bond angles near $120^\\circ$, corresponding to $sp^2$ hybridization. In the monomeric vapor above $1200\\text{ K}$, beryllium forms two collinear $\\text{Be}-\\text{Cl}$ single bonds at $180^\\circ$ with two unhybridized empty p-orbitals, which represents $sp$ hybridization. The sequence is therefore $sp^3, sp^2, sp$. Reversing the sequence confuses the solid chain with the linear monomer, while proposing $sp^3$ for the dimer ignores its planar tricoordinate structure."
+    },
+    {
+      "id": "sbe_c01_021",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "When mineral gypsum ($\\text{CaSO}_4 \\cdot 2\\text{H}_2\\text{O}$, molar mass $172.0\\text{ g/mol}$) is heated above $393\\text{ K}$, it dehydrates completely to anhydrous calcium sulfate ($\\text{CaSO}_4$, molar mass $136.0\\text{ g/mol}$), commonly known as \"dead burnt plaster\" because it sets very sluggishly when mixed with water. If an initial $86.0\\text{ g}$ sample of pure gypsum is heated at $473\\text{ K}$ until all water of crystallization is driven off, what is the final mass of the anhydrous $\\text{CaSO}_4$ residue in grams?",
+      "options": [],
+      "answer": "68",
+      "explanation": "The complete thermal dehydration of gypsum at elevated temperature follows the reaction: $\\text{CaSO}_4 \\cdot 2\\text{H}_2\\text{O}(s) \\xrightarrow{\\Delta} \\text{CaSO}_4(s) + 2\\text{H}_2\\text{O}(g)$. First, calculate the moles of gypsum taken: $n = \\frac{86.0\\text{ g}}{172.0\\text{ g/mol}} = 0.500\\text{ mol}$. Each mole of gypsum yields one mole of anhydrous $\\text{CaSO}_4$. The mass of the anhydrous residue is therefore $m(\\text{CaSO}_4) = 0.500\\text{ mol} \\times 136.0\\text{ g/mol} = 68.0\\text{ g}$."
+    },
+    {
+      "id": "sbe_c01_022",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Potassium superoxide ($\\text{KO}_2$, molar mass $71.1\\text{ g/mol}$) is widely utilized in closed-circuit breathing apparatus to absorb exhaled $\\text{CO}_2$ and regenerate $\\text{O}_2$: $4\\text{KO}_2(s) + 2\\text{CO}_2(g) \\to 2\\text{K}_2\\text{CO}_3(s) + 3\\text{O}_2(g)$. A rescue oxygen canister contains $568.8\\text{ g}$ of pure $\\text{KO}_2$. If all the $\\text{KO}_2$ is consumed by absorbing excess exhaled carbon dioxide, what volume of dry $\\text{O}_2$ gas (in liters, at $273\\text{ K}$ and $1\\text{ atm}$, where molar volume is $22.4\\text{ L/mol}$) is delivered to the wearer?",
+      "options": [
+        "A) $134.4\\text{ L}$",
+        "B) $179.2\\text{ L}$",
+        "C) $89.6\\text{ L}$",
+        "D) $268.8\\text{ L}$"
+      ],
+      "answer": "A",
+      "explanation": "First, calculate the moles of potassium superoxide present in the canister: $n(\\text{KO}_2) = \\frac{568.8\\text{ g}}{71.1\\text{ g/mol}} = 8.00\\text{ mol}$. From the balanced equation, $4\\text{ moles of } \\text{KO}_2$ generate $3\\text{ moles of } \\text{O}_2$. Therefore, the moles of $\\text{O}_2$ produced is $n(\\text{O}_2) = 8.00 \\times \\frac{3}{4} = 6.00\\text{ mol}$. The resulting gas volume at STP is $V = 6.00\\text{ mol} \\times 22.4\\text{ L/mol} = 134.4\\text{ L}$. An answer of $179.2\\text{ L}$ assumes an incorrect $1:1$ stoichiometric ratio ($8.00\\text{ mol}$ of gas), $89.6\\text{ L}$ incorrectly uses a ratio of $2:1$, and $268.8\\text{ L}$ mistakenly doubles the correct stoichiometric output."
+    },
+    {
+      "id": "sbe_c01_023",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the gas phase, the first ionization enthalpy of lithium ($520\\text{ kJ/mol}$) is significantly higher than that of cesium ($376\\text{ kJ/mol}$). However, in aqueous solution, the standard reduction potential of lithium ($E^\\circ_{\\text{Li}^+/\\text{Li}} = -3.04\\text{ V}$) is more negative than that of cesium ($E^\\circ_{\\text{Cs}^+/\\text{Cs}} = -2.93\\text{ V}$), establishing lithium as the strongest reducing agent in water. Which thermodynamic parameter in the Born-Haber cycle for standard electrode potential is primarily responsible for overcoming lithium's higher ionization energy and sublimation enthalpy?",
+      "options": [
+        "A) The low enthalpy of sublimation of metallic lithium.",
+        "B) The exceptionally large negative hydration enthalpy of the small $\\text{Li}^+$ cation ($-520\\text{ kJ/mol}$ vs $-276\\text{ kJ/mol}$ for $\\text{Cs}^+$).",
+        "C) The large positive electron gain enthalpy of gaseous lithium atoms.",
+        "D) The high polarizability of the lithium atom in water."
+      ],
+      "answer": "B",
+      "explanation": "The standard electrode potential $E^\\circ$ corresponds to the free energy change of the oxidation $\\text{M}(s) \\to \\text{M}^+(aq) + e^-$, which is governed by the Born-Haber cycle enthalpy $\\Delta H^\\circ = \\Delta H^\\circ_{\\text{sub}} + \\text{IE}_1 + \\Delta H^\\circ_{\\text{hyd}}$. Although lithium has a higher sublimation enthalpy ($+161\\text{ kJ/mol}$ vs $+76\\text{ kJ/mol}$ for $\\text{Cs}$) and a higher ionization enthalpy ($+520\\text{ kJ/mol}$ vs $+376\\text{ kJ/mol}$), the tiny ionic radius of $\\text{Li}^+$ ($76\\text{ pm}$) gives it an enormous surface charge density. This results in an exceptionally exothermic hydration enthalpy ($\\Delta H^\\circ_{\\text{hyd}} = -520\\text{ kJ/mol}$, compared to only $-276\\text{ kJ/mol}$ for $\\text{Cs}^+$). This $-244\\text{ kJ/mol}$ advantage in hydration enthalpy more than compensates for the higher ionization and atomization costs, making $\\Delta H^\\circ$ for lithium the most favorable and driving $E^\\circ$ to $-3.04\\text{ V}$. Attributing this to sublimation enthalpy is incorrect because lithium has the highest sublimation enthalpy in the group."
+    },
+    {
+      "id": "sbe_c01_024",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Alkaline earth metals form different crystalline carbides with distinct polyatomic carbon anions: calcium carbide contains the dicarbide ion $\\text{C}_2^{2-}$ and yields ethyne on hydrolysis; beryllium carbide contains the methanide ion $\\text{C}^{4-}$ and yields methane; magnesium sesquicarbide ($\\text{Mg}_2\\text{C}_3$) contains the linear allylenide ion $\\text{C}_3^{4-}$ and hydrolyzes to give propyne ($\\text{CH}_3-\\text{C}\\equiv\\text{CH}$). What is the total sum of all $\\sigma$ (sigma) bonds and $\\pi$ (pi) bonds present in one molecule of propyne?",
+      "options": [],
+      "answer": "8",
+      "explanation": "Writing out the complete Lewis structure of propyne: $\\text{H}_3\\text{C}-\\text{C}\\equiv\\text{C}-\\text{H}$. Counting individual bonds: The methyl group contains three $\\text{C}_{sp^3}-\\text{H}_{1s}$ single $\\sigma$ bonds. The carbon-carbon single bond is one $\\text{C}_{sp^3}-\\text{C}_{sp}$ single $\\sigma$ bond. The terminal acetylenic bond contains one $\\text{C}_{sp}-\\text{H}_{1s}$ single $\\sigma$ bond. The carbon-carbon triple bond consists of one $\\sigma$ bond and two orthogonal $\\pi$ bonds. Summing the components: Total number of $\\sigma$ bonds $= 3 + 1 + 1 + 1 = 6$. Total number of $\\pi$ bonds $= 2$. The total sum of $\\sigma$ plus $\\pi$ bonds is $6 + 2 = 8$."
+    },
+    {
+      "id": "sbe_c01_025",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The thermal decomposition behavior of alkali metal nitrates highlights the anomalous character of lithium. When sodium nitrate is heated to $500^\\circ\\text{C}$, it decomposes as: $2\\text{NaNO}_3(s) \\xrightarrow{\\Delta} 2\\text{NaNO}_2(s) + \\text{O}_2(g)$. Under identical heating, lithium nitrate decomposes as: $4\\text{LiNO}_3(s) \\xrightarrow{\\Delta} 2\\text{Li}_2\\text{O}(s) + 4\\text{NO}_2(g) + \\text{O}_2(g)$. What is the numerical ratio of total moles of gas evolved per mole of nitrate decomposed for $\\text{LiNO}_3$ relative to $\\text{NaNO}_3$?",
+      "options": [
+        "A) $0.40$",
+        "B) $1.50$",
+        "C) $2.50$",
+        "D) $5.00$"
+      ],
+      "answer": "C",
+      "explanation": "For lithium nitrate, the balanced decomposition equation shows that $4\\text{ moles of } \\text{LiNO}_3$ release $4\\text{ moles of } \\text{NO}_2(g)$ plus $1\\text{ mole of } \\text{O}_2(g)$, which equals $5\\text{ moles of gas}$. The gas evolved per mole of $\\text{LiNO}_3$ decomposed is $\\frac{5}{4} = 1.25\\text{ mol gas/mol salt}$. For sodium nitrate, $2\\text{ moles of } \\text{NaNO}_3$ release $1\\text{ mole of } \\text{O}_2(g)$, which gives $\\frac{1}{2} = 0.50\\text{ mol gas/mol salt}$. The ratio of gas evolved per mole of salt is $\\frac{1.25}{0.50} = 2.50$. An answer of $5.00$ compares the stoichiometric gas moles ($5$ vs $1$) without normalizing to per-mole of reactant, $0.40$ inverts the ratio, and $1.50$ counts only $\\text{NO}_2$ while omitting oxygen."
+    },
+    {
+      "id": "sbe_c01_026",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When sodium metal is dissolved in ethylamine in the presence of cryptand-[2.2.2] ($4,7,13,16,21,24\\text{-hexaoxa-}1,10\\text{-diazabicyclo}[8.8.8]\\text{hexacosane}$), shiny golden-yellow crystals of an alkalide salt $[\\text{Na}(\\text{crypt-222})]^+\\text{Na}^-$ can be crystallized. Which of the following statements regarding the electronic structures and properties of the ions in this alkalide salt is correct?",
+      "options": [
+        "A) The sodide anion $\\text{Na}^-$ is paramagnetic because it possesses an unpaired electron in its $3p$ orbital.",
+        "B) Cryptand-222 coordinates directly to the sodide anion $\\text{Na}^-$, while the cation $\\text{Na}^+$ remains uncomplexed.",
+        "C) The sodide anion $\\text{Na}^-$ has the electron configuration $[\\text{Ne}]\\,3s^1\\,3p^1$ and displays strong paramagnetism.",
+        "D) Both the complexed cation $[\\text{Na}(\\text{crypt-222})]^+$ and the sodide counter-anion $\\text{Na}^-$ are diamagnetic, with $\\text{Na}^-$ having a completely filled $3s^2$ valence subshell."
+      ],
+      "answer": "D",
+      "explanation": "In the synthesis of alkalides, the cryptand ligand encapsulates the sodium cation $\\text{Na}^+$ inside its three-dimensional bicyclic cavity, isolating it and preventing back-electron transfer. The displaced electron is captured by another neutral sodium atom to form the sodide anion $\\text{Na}^-$. The sodium cation $\\text{Na}^+$ has the noble gas configuration $[\\text{Ne}]$ with zero unpaired electrons (diamagnetic). The sodide anion $\\text{Na}^-$ gains an electron to completely fill its valence $s$-orbital ($[\\text{Ne}]\\,3s^2$), meaning all electrons are spin-paired, making it strictly diamagnetic ($S = 0$). Cryptand coordinates electrostatically to the positive cation, not the negative anion, and the sodide anion has no electrons in the $3p$ subshell in its ground state."
+    },
+    {
+      "id": "sbe_c01_027",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Tricalcium silicate ($\\text{Ca}_3\\text{SiO}_5$, often designated as $\\text{C}_3\\text{S}$ or $3\\text{CaO}\\cdot\\text{SiO}_2$, molar mass $228.32\\text{ g/mol}$) is the primary hydraulic constituent of Portland cement clinker responsible for developing early compressive strength within the first 7 to 28 days of hydration. What is the mass percentage of calcium oxide ($\\text{CaO}$, molar mass $56.08\\text{ g/mol}$) chemically bound in pure tricalcium silicate? (Round your final answer to the nearest whole integer).",
+      "options": [],
+      "answer": "74",
+      "explanation": "One mole of tricalcium silicate $\\text{C}_3\\text{S}$ ($3\\text{CaO} \\cdot \\text{SiO}_2$) contains exactly three moles of calcium oxide. The mass of three moles of $\\text{CaO}$ is $3 \\times 56.08\\text{ g/mol} = 168.24\\text{ g}$. The molar mass of $\\text{SiO}_2$ is $60.08\\text{ g/mol}$, giving a total formula mass of $168.24 + 60.08 = 228.32\\text{ g/mol}$. The mass percentage of $\\text{CaO}$ in pure $\\text{C}_3\\text{S}$ is calculated as: $\\%\\text{CaO} = \\frac{168.24\\text{ g}}{228.32\\text{ g}} \\times 100 = 73.686\\% \\approx 74\\%$."
+    },
+    {
+      "id": "sbe_c01_028",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Both the aqueous solubility and basic strength of Group 2 alkaline earth metal hydroxides increase dramatically down the group: $\\text{Be(OH)}_2 < \\text{Mg(OH)}_2 < \\text{Ca(OH)}_2 < \\text{Sr(OH)}_2 < \\text{Ba(OH)}_2$. Which of the following thermodynamic principles correctly explains why both properties increase simultaneously down Group 2?",
+      "options": [
+        "A) Because $\\text{OH}^-$ is a small anion, the lattice enthalpy drops much more rapidly down the group than the hydration enthalpy, making dissolution increasingly favorable; simultaneously, the larger cation radius weakens electrostatic $\\text{M}^{2+}-\\text{OH}^-$ attraction, facilitating dissociation into free hydroxide ions.",
+        "B) Because $\\text{OH}^-$ is a large polarizable anion, hydration enthalpy increases down the group while lattice enthalpy remains constant.",
+        "C) The basicity increases because the ionization enthalpy of the alkaline earth metals increases down the group.",
+        "D) The solubility increases solely because the hydration enthalpy of $\\text{Ba}^{2+}$ is significantly more exothermic than that of $\\text{Be}^{2+}$."
+      ],
+      "answer": "A",
+      "explanation": "The standard enthalpy of solution is $\\Delta H^\\circ_{\\text{sol}} = \\Delta H^\\circ_{\\text{lattice}} + \\Delta H^\\circ_{\\text{hyd}}$. Because the hydroxide ion has a relatively small ionic radius ($1.40\\text{ \\AA}$), the lattice energy (proportional to $\\frac{1}{r_+ + r_-}$) is dominated by changes in the cation radius and falls sharply from $\\text{Be(OH)}_2$ to $\\text{Ba(OH)}_2$. Hydration enthalpy of the cation also decreases, but the drop in lattice enthalpy is steeper, rendering $\\Delta H^\\circ_{\\text{sol}}$ more negative (favorable) for $\\text{Ba(OH)}_2$, which drastically increases solubility. In parallel, as the cation radius increases from $\\text{Be}^{2+}$ ($27\\text{ pm}$) to $\\text{Ba}^{2+}$ ($135\\text{ pm}$), the electrostatic attraction between the metal cation and hydroxide decreases, allowing ready heterolytic cleavage of the $\\text{M}-\\text{OH}$ bond in water and generating higher equilibrium concentrations of $\\text{OH}^-$, thereby increasing basic strength."
+    },
+    {
+      "id": "sbe_c01_029",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Potassium superoxide reacts rapidly with water via a disproportionation redox process: $2\\text{KO}_2(s) + 2\\text{H}_2\\text{O}(l) \\to 2\\text{KOH}(aq) + \\text{H}_2\\text{O}_2(aq) + \\text{O}_2(g)$. What are the oxidation state of oxygen in the superoxide reactant and its respective oxidation states in the products, and what fraction of the oxygen atoms originating from the superoxide ions is oxidized to dioxygen gas ($\\text{O}_2$)?",
+      "options": [
+        "A) Reactant: $-1$; Products: $-2$ and $0$; Fraction oxidized $= 1/4$",
+        "B) Reactant: $-1/2$; Products: $-1$ (in $\\text{H}_2\\text{O}_2$) and $0$ (in $\\text{O}_2$); Fraction oxidized $= 1/2$",
+        "C) Reactant: $-2$; Products: $-1$ and $+1$; Fraction oxidized $= 3/4$",
+        "D) Reactant: $-1/2$; Products: $-2$ (in $\\text{KOH}$) and $0$ (in $\\text{O}_2$); Fraction oxidized $= 1$"
+      ],
+      "answer": "B",
+      "explanation": "In the superoxide ion $\\text{O}_2^-$, two oxygen atoms share a net charge of $-1$, meaning each oxygen atom has an average formal oxidation state of $-1/2$. In the product $\\text{KOH}$, the oxygen atom carries an oxidation state of $-2$, but this oxygen originates from the reactant water molecules ($\\text{H}_2\\text{O}$, where oxygen is also $-2$, undergoing no redox change). In $\\text{H}_2\\text{O}_2$, oxygen has an oxidation state of $-1$, representing a one-electron reduction per atom ($-1/2 \\to -1$). In elemental $\\text{O}_2$, oxygen has an oxidation state of $0$, representing a one-electron oxidation per atom ($-1/2 \\to 0$). For the two $\\text{KO}_2$ formula units consumed (containing 4 oxygen atoms in total), 2 atoms end up in $\\text{H}_2\\text{O}_2$ and 2 atoms end up in $\\text{O}_2$. Thus, exactly $\\frac{2}{4} = \\frac{1}{2}$ ($50\\%$) of the superoxide oxygen atoms are oxidized to $\\text{O}_2$."
+    },
+    {
+      "id": "sbe_c01_030",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In a modern industrial chlor-alkali membrane plant, purified aqueous sodium chloride is continuously electrolyzed: $2\\text{NaCl}(aq) + 2\\text{H}_2\\text{O}(l) \\to 2\\text{NaOH}(aq) + \\text{Cl}_2(g) + \\text{H}_2(g)$. If a production run generates exactly $800.0\\text{ kg}$ of pure sodium hydroxide ($\\text{NaOH}$, molar mass $40.0\\text{ g/mol}$), what is the total combined volume (in $\\text{m}^3$, measured at STP where $1.0\\text{ mol}$ of ideal gas occupies $22.4\\text{ dm}^3$ or $0.0224\\text{ m}^3$) of dry chlorine and dihydrogen gases co-produced?",
+      "options": [],
+      "answer": "448",
+      "explanation": "First, determine the moles of sodium hydroxide generated: $n(\\text{NaOH}) = \\frac{800.0 \\times 10^3\\text{ g}}{40.0\\text{ g/mol}} = 20000\\text{ mol} = 20.0\\text{ kmol}$. According to the reaction stoichiometry, $2\\text{ moles of NaOH}$ are co-produced alongside $1\\text{ mole of } \\text{Cl}_2$ and $1\\text{ mole of } \\text{H}_2$. Therefore: $n(\\text{Cl}_2) = \\frac{20000}{2} = 10000\\text{ mol}$, and $n(\\text{H}_2) = \\frac{20000}{2} = 10000\\text{ mol}$. The total quantity of gas evolved is $n_{\\text{gas}} = 10000 + 10000 = 20000\\text{ mol}$. At STP, the combined volume in cubic meters is $V = 20000\\text{ mol} \\times 0.0224\\text{ m}^3\\text{/mol} = 448\\text{ m}^3$."
+    },
+    {
+      "id": "sbe_c01_031",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Among all s-block elements, beryllium readily forms stable tetrahedral complex anions such as $[\\text{BeF}_4]^{2-}$ in aqueous solution, whereas barium forms no analogous $[\\text{BaF}_4]^{2-}$ complex. Which combination of orbital and electrostatic factors accounts for this distinction?",
+      "options": [
+        "A) $\\text{Ba}^{2+}$ lacks accessible d-orbitals for coordination, whereas $\\text{Be}^{2+}$ utilizes empty $2d$ orbitals to form hybrid complexes.",
+        "B) Barium fluoride is completely covalent, preventing fluoride ions from coordinating as ligands.",
+        "C) $\\text{Be}^{2+}$ has an extraordinarily high ionic potential ($z/r$) that strongly polarizes small fluoride ligands into dative covalent bonds, and its valence shell is restricted to $2s$ and $2p$ orbitals ($sp^3$ hybridization, maximum coordination number 4); $\\text{Ba}^{2+}$ has a much larger radius and low charge density, favoring purely electrostatic high-coordination lattices.",
+        "D) $[\\text{BeF}_4]^{2-}$ is stabilized by square-planar crystal field stabilization energy ($dsp^2$), which is unavailable to barium."
+      ],
+      "answer": "C",
+      "explanation": "Beryllium is a second-period element with valence electron shell $n=2$. Having only one $2s$ and three $2p$ orbitals, its maximum covalency is strictly limited to 4. Because $\\text{Be}^{2+}$ has an exceptionally small ionic radius ($27\\text{ pm}$), its extreme surface charge density enables strong orbital overlap with the lone pairs of fluoride ions, forming stable tetrahedral $[\\text{BeF}_4]^{2-}$ complexes via $sp^3$ hybridization. In contrast, $\\text{Ba}^{2+}$ has a large radius ($135\\text{ pm}$) and low charge density, preventing significant covalent overlap; its bonding is predominantly non-directional and ionic, favoring coordination numbers of 8 to 12 in crystalline lattices rather than tetrahedral fluoro-complexes. Beryllium cannot have $2d$ orbitals (which do not exist), and s-block cations do not possess crystal field stabilization energy."
+    },
+    {
+      "id": "sbe_c01_032",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the alkaline earth metals down Group 2, the aqueous solubility of sulfates decreases in the order $\\text{BeSO}_4 > \\text{MgSO}_4 > \\text{CaSO}_4 > \\text{SrSO}_4 > \\text{BaSO}_4$, whereas the solubility of hydroxides follows the opposite trend $\\text{Be(OH)}_2 < \\text{Mg(OH)}_2 < \\text{Ca(OH)}_2 < \\text{Sr(OH)}_2 < \\text{Ba(OH)}_2$. How does the relative size of the anion govern these contrasting solubility trends?",
+      "options": [
+        "A) Sulfate is small, so lattice energy drops quickly down the group, while hydroxide is large, so hydration energy drops slowly.",
+        "B) Both lattice energy and hydration energy remain invariant for sulfates, while both increase for hydroxides.",
+        "C) Hydroxides are predominantly covalent throughout the group, while sulfates are purely ionic.",
+        "D) The $\\text{SO}_4^{2-}$ ion is large, so lattice enthalpy decreases marginally down the group while cation hydration enthalpy drops sharply, making dissolution less favorable; for the small $\\text{OH}^-$ ion, lattice enthalpy drops much faster than hydration enthalpy, making dissolution more favorable."
+      ],
+      "answer": "D",
+      "explanation": "The standard enthalpy of solution is $\\Delta H^\\circ_{\\text{sol}} = \\Delta H^\\circ_{\\text{lattice}} + \\Delta H^\\circ_{\\text{hyd}}$. In the sulfate series, the $\\text{SO}_4^{2-}$ anion is large ($r \\approx 2.30\\text{ \\AA}$), so the inter-ionic separation $(r_+ + r_-)$ is dominated by the anion radius and changes only modestly from $\\text{Be}^{2+}$ to $\\text{Ba}^{2+}$, meaning lattice enthalpy decreases very little down the group. However, cation hydration enthalpy is proportional to $1/r_+$ and falls dramatically from $\\text{Be}^{2+}$ to $\\text{Ba}^{2+}$. Because hydration enthalpy decreases much faster than lattice enthalpy, $\\Delta H^\\circ_{\\text{sol}}$ becomes increasingly positive, rendering barium sulfate practically insoluble. Conversely, $\\text{OH}^-$ is a small anion ($r \\approx 1.40\\text{ \\AA}$), so the sum $(r_+ + r_-)$ changes drastically, causing lattice enthalpy to drop much faster than hydration enthalpy down the group, which drives $\\Delta H^\\circ_{\\text{sol}}$ in the favorable exothermic direction and increases hydroxide solubility."
+    },
+    {
+      "id": "sbe_c01_033",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Nitrolim is an industrial fertilizer consisting of calcium cyanamide ($\\text{CaCN}_2$, molar mass $80.0\\text{ g/mol}$) and graphite, synthesized by heating calcium carbide with nitrogen gas at $1100^\\circ\\text{C}$: $\\text{CaC}_2 + \\text{N}_2 \\to \\text{CaCN}_2 + \\text{C}$. When applied to agricultural soil, calcium cyanamide hydrolyzes slowly: $\\text{CaCN}_2(s) + 3\\text{H}_2\\text{O}(l) \\to \\text{CaCO}_3(s) + 2\\text{NH}_3(g)$. How many moles of ammonia gas are produced by the complete hydrolysis of $400.0\\text{ g}$ of pure calcium cyanamide?",
+      "options": [],
+      "answer": "10",
+      "explanation": "First, determine the moles of calcium cyanamide reacted: $n(\\text{CaCN}_2) = \\frac{400.0\\text{ g}}{80.0\\text{ g/mol}} = 5.00\\text{ mol}$. From the balanced hydrolysis equation, each mole of $\\text{CaCN}_2$ consumed generates two moles of ammonia gas: $n(\\text{NH}_3) = 2 \\times n(\\text{CaCN}_2) = 2 \\times 5.00\\text{ mol} = 10\\text{ moles of } \\text{NH}_3$."
+    },
+    {
+      "id": "sbe_c01_034",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When ozonized oxygen is passed over dry powdered potassium hydroxide at $-10^\\circ\\text{C}$ to $-15^\\circ\\text{C}$, an orange-red ionic solid potassium ozonide ($\\text{KO}_3$) is formed. Which of the following statements correctly describes the geometry, magnetic behavior, and room-temperature stability of the ozonide ion ($\\text{O}_3^-$)?",
+      "options": [
+        "A) $\\text{O}_3^-$ has 19 valence electrons, adopts a bent geometry ($C_{2v}$, bond angle $\\approx 113^\\circ$), is paramagnetic with one unpaired electron, and decomposes slowly at room temperature into potassium superoxide and dioxygen ($2\\text{KO}_3 \\to 2\\text{KO}_2 + \\text{O}_2$).",
+        "B) $\\text{O}_3^-$ has 18 valence electrons, is strictly linear, diamagnetic, and explodes to yield potassium oxide and ozone.",
+        "C) $\\text{O}_3^-$ is an equilateral triangular cyclic species that is diamagnetic with three equivalent single bonds.",
+        "D) $\\text{O}_3^-$ is isoelectronic with carbon dioxide, possesses a linear structure, and is paramagnetic with two unpaired electrons."
+      ],
+      "answer": "A",
+      "explanation": "The ozonide ion $\\text{O}_3^-$ possesses $3 \\times 6 + 1 = 19$ valence electrons. According to VSEPR and MO theory, it is isoelectronic with chlorine dioxide ($\\text{ClO}_2$) and has a bent geometry with $C_{2v}$ symmetry and a bond angle of approximately $113^\\circ$. The odd electron occupies an antibonding $\\pi^*$ molecular orbital, conferring paramagnetism corresponding to $S = 1/2$ (spin-only magnetic moment $\\mu = 1.73\\text{ B.M.}$). Ozonides of heavy alkali metals are metastable and slowly decompose at ambient room temperature to the more stable superoxide and dioxygen gas via $2\\text{MO}_3(s) \\to 2\\text{MO}_2(s) + \\text{O}_2(g)$. Linear geometry is incompatible with 19 valence electrons, and $\\text{O}_3^-$ does not adopt a cyclic structure."
+    },
+    {
+      "id": "sbe_c01_035",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Although sodium carbonate ($\\text{Na}_2\\text{CO}_3$) is manufactured globally by the Solvay process using brine, ammonia, and carbon dioxide, potassium carbonate ($\\text{K}_2\\text{CO}_3$) CANNOT be manufactured by an analogous Solvay process using potassium chloride ($\\text{KCl}$). What is the physicochemical reason that prevents the preparation of $\\text{K}_2\\text{CO}_3$ by this route?",
+      "options": [
+        "A) $\\text{KCl}$ is completely insoluble in ammoniacal solution, preventing carbonation from occurring.",
+        "B) Potassium hydrogen carbonate ($\\text{KHCO}_3$) has a significantly higher aqueous solubility than $\\text{NaHCO}_3$ and does not precipitate from the ammoniacal brine upon saturation with $\\text{CO}_2$.",
+        "C) Potassium carbonate is thermally unstable and decomposes to potassium metal and $\\text{CO}_2$ upon gentle warming.",
+        "D) Ammonia forms an inert coordination complex with potassium ions, $[\\text{K}(\\text{NH}_3)_6]^+$, which prevents reaction with $\\text{CO}_2$."
+      ],
+      "answer": "B",
+      "explanation": "The Solvay process relies critically on the selective precipitation of sodium hydrogen carbonate from the reaction mixture: $\\text{NaCl} + \\text{NH}_3 + \\text{CO}_2 + \\text{H}_2\\text{O} \\to \\text{NaHCO}_3 \\downarrow + \\text{NH}_4\\text{Cl}$. Because $\\text{NaHCO}_3$ has a relatively low solubility in cold water ($\\sim 9.6\\text{ g}/100\\text{ g } \\text{H}_2\\text{O}$ at $20^\\circ\\text{C}$) and is salted out by excess $\\text{NaCl}$, it precipitates cleanly. In contrast, potassium hydrogen carbonate ($\\text{KHCO}_3$) is substantially more soluble in water ($\\sim 33.7\\text{ g}/100\\text{ g } \\text{H}_2\\text{O}$ at $20^\\circ\\text{C}$). Under Solvay conditions, $\\text{KHCO}_3$ remains dissolved alongside $\\text{NH}_4\\text{Cl}$ and cannot be precipitated, rendering fractional crystallization and isolation impossible. Potassium carbonate is synthesized industrially instead by the carbonation of electrolytic potassium hydroxide."
+    },
+    {
+      "id": "sbe_c01_036",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Alkali and alkaline earth metals react with dioxygen to yield normal oxides ($\\text{O}^{2-}$), peroxides ($\\text{O}_2^{2-}$), and superoxides ($\\text{O}_2^-$). According to Molecular Orbital Theory (MOT) for diatomic oxygen species, which of the following statements is/are correct?",
+      "options": [
+        "A) The bond orders follow the decreasing order: $\\text{O}_2 (2.0) > \\text{O}_2^- (1.5) > \\text{O}_2^{2-} (1.0)$, while the $\\text{O}-\\text{O}$ bond lengths follow the reverse order $\\text{O}_2 < \\text{O}_2^- < \\text{O}_2^{2-}$.",
+        "B) The superoxide ion $\\text{O}_2^-$ possesses an electronic configuration with three electrons in antibonding $\\pi^*$ molecular orbitals ($(\\pi^*_{2p_x})^2(\\pi^*_{2p_y})^1$), giving one unpaired electron and a spin-only magnetic moment of $\\mu \\approx 1.73\\text{ B.M.}$",
+        "C) The peroxide ion $\\text{O}_2^{2-}$ is paramagnetic with two unpaired electrons in its non-bonding molecular orbitals.",
+        "D) The infrared vibrational stretching frequency $\\nu(\\text{O}-\\text{O})$ decreases in the sequence $\\text{O}_2 (\\sim 1580\\text{ cm}^{-1}) > \\text{O}_2^- (\\sim 1145\\text{ cm}^{-1}) > \\text{O}_2^{2-} (\\sim 840\\text{ cm}^{-1})$, correlating directly with bond order."
+      ],
+      "answer": "A,B,D",
+      "explanation": "In step 1, applying Molecular Orbital Theory to diatomic oxygen species: neutral $\\text{O}_2$ has 16 valence electrons with valence configuration $\\sigma_{2s}^2 \\sigma^*_{2s} \\sigma_{2p_z}^2 (\\pi_{2p_x}^2 = \\pi_{2p_y}^2) (\\pi^*_{2p_x}^1 = \\pi^*_{2p_y}^1)$. Bond order is $\\frac{N_b - N_a}{2} = \\frac{8 - 4}{2} = 2.0$. In step 2, adding one electron yields superoxide $\\text{O}_2^-$ with 17 electrons: the extra electron enters a $\\pi^*_{2p}$ orbital, yielding configuration $(\\pi^*_{2p_x})^2 (\\pi^*_{2p_y})^1$. Therefore, bond order becomes $\\frac{8 - 5}{2} = 1.5$. With one unpaired electron, superoxide is paramagnetic with spin-only moment $\\mu = \\sqrt{1(1+2)} = \\sqrt{3} \\approx 1.73\\text{ B.M.}$ In step 3, adding a second electron gives peroxide $\\text{O}_2^{2-}$ with 18 electrons: configuration $(\\pi^*_{2p_x})^2 (\\pi^*_{2p_y})^2$. Hence, bond order is $\\frac{8 - 6}{2} = 1.0$. All molecular orbitals are completely filled, meaning peroxide is strictly diamagnetic, making option C incorrect. In step 4, applying Hooke's law for molecular vibrations, $\\nu = \\frac{1}{2\\pi c}\\sqrt{\\frac{k}{\\mu}}$, where force constant $k$ is directly proportional to bond order. Therefore, vibrational frequency decreases from $\\sim 1580\\text{ cm}^{-1}$ ($\\text{O}_2$) to $\\sim 1145\\text{ cm}^{-1}$ ($\\text{O}_2^-$) to $\\sim 840\\text{ cm}^{-1}$ ($\\text{O}_2^{2-}$), validating statements A, B, and D."
+    },
+    {
+      "id": "sbe_c01_037",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Alkali metals dissolve in anhydrous liquid ammonia to generate solvated electrons and ammoniated metal cations. Which of the following statements regarding the physical properties, chemical reactivity, and synthetic applications of these solutions is/are correct?",
+      "options": [
+        "A) Dilute solutions of sodium in liquid ammonia act as powerful reducing agents in the Birch reduction of benzene in the presence of an alcohol proton donor, selectively yielding unconjugated $1,4\\text{-cyclohexadiene}$.",
+        "B) Terminal alkynes react with sodium in liquid ammonia to undergo stereoselective anti-addition to yield exclusively cis-alkenes.",
+        "C) In the Birch reduction mechanism, single-electron transfer (SET) from the solvated electron to the aromatic ring generates a radical anion intermediate, which undergoes protonation by the alcohol followed by a second SET step.",
+        "D) As the metal concentration increases from $0.05\\text{ M}$ to $> 3\\text{ M}$, the electrical conductivity exhibits a pronounced minimum around $0.05\\text{ M}$ to $0.1\\text{ M}$ before surging by several orders of magnitude to approach metallic conductivity."
+      ],
+      "answer": "A,C,D",
+      "explanation": "In step 1, evaluating Birch reduction: dissolving metal reduction of benzene using $\\text{Na}/\\text{NH}_3(l)$ with an alcohol proton source like ethanol proceeds via single electron transfer (SET). The solvated electron attacks the aromatic ring, yielding a delocalized radical anion intermediate. In step 2, protonation by the alcohol yields a neutral cyclohexadienyl radical. Applying a second SET step, a cyclohexadienyl anion is generated, which upon second protonation yields unconjugated $1,4\\text{-cyclohexadiene}$. Therefore, statements A and C are correct. In step 3, examining alkyne reduction: internal alkynes undergo dissolving metal reduction via trans-radical-anion intermediates to yield exclusively trans-alkenes (anti-addition), not cis-alkenes (which are formed by catalytic Lindlar hydrogenation); furthermore, terminal alkynes react with $\\text{Na}/\\text{NH}_3$ as acids to form sodium acetylides and release $\\text{H}_2$, making statement B incorrect. In step 4, analyzing conductance behavior: in very dilute solution, conductivity is ionic; around $0.05-0.1\\text{ M}$, ion pairing between $\\text{Na}^+(\\text{NH}_3)_x$ and $e^-(\\text{NH}_3)_y$ reduces the number of free charge carriers, yielding a conductivity minimum. Beyond $1\\text{ M}$, cavity overlap occurs, forming an expanded conduction band with delocalized electrons, hence conductivity surges to liquid metal values ($> 10^4\\text{ S/cm}$), confirming statement D."
+    },
+    {
+      "id": "sbe_c01_038",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Beryllium exhibits several structural and organometallic anomalies that set it apart from all other Group 2 alkaline earth elements. Which of the following statements is/are correct?",
+      "options": [
+        "A) Basic beryllium acetate, $[\\text{Be}_4\\text{O}(\\text{CH}_3\\text{COO})_6]$, is a volatile, sublimable molecular compound containing a central four-coordinate oxygen atom surrounded tetrahedrally by four beryllium atoms, with six acetate groups bridging along the six edges of the tetrahedron.",
+        "B) Dimethylberyllium, $[\\text{Be(CH}_3)_2]_n$, in the solid state exists as an electron-deficient polymer held together by three-center two-electron ($3c-2e$) bridging methyl groups, with beryllium adopting $sp^3$ hybridization.",
+        "C) In basic beryllium acetate, each beryllium atom achieves a coordination number of 4 and is coordinated to one central oxygen and three carboxylate oxygen atoms.",
+        "D) Basic beryllium acetate is insoluble in nonpolar organic solvents such as benzene and chloroform because of its high crystal lattice energy."
+      ],
+      "answer": "A,B,C",
+      "explanation": "In step 1, analyzing basic beryllium acetate $[\\text{Be}_4\\text{O}(\\text{CH}_3\\text{COO})_6]$: it is synthesized by evaporating $\\text{Be(OH)}_2$ with glacial acetic acid. The core features a central oxide $\\text{O}^{2-}$ coordinated tetrahedrally to four $\\text{Be}$ atoms in an ideal $T_d$ symmetry. In step 2, the six bidentate acetate ligands bridge along the six edges of the $\\text{Be}_4$ tetrahedron. Each beryllium is tetrahedrally bonded to the central oxygen and to three acetate oxygen atoms, yielding a coordination number of 4 ($sp^3$ hybridization). Therefore, statements A and C are correct. In step 3, because $[\\text{Be}_4\\text{O}(\\text{CH}_3\\text{COO})_6]$ consists of neutral, non-ionic molecules whose exterior is enveloped by nonpolar methyl groups, it is readily soluble in nonpolar organic solvents like benzene and chloroform and can be purified by sublimation at $100^\\circ\\text{C}$, making statement D incorrect. In step 4, solid dimethylberyllium $[\\text{Be(CH}_3)_2]_n$ is isostructural with polymeric $(\\text{BeCl}_2)_n$ and forms an electron-deficient chain where each bridging methyl carbon forms a $3c-2e$ bond overlapping with two beryllium $sp^3$ hybrid orbitals, confirming statement B."
+    },
+    {
+      "id": "sbe_c01_039",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Portland cement clinker consists primarily of four crystalline mineral phases: tricalcium silicate ($\\text{C}_3\\text{S}$), dicalcium silicate ($\\text{C}_2\\text{S}$), tricalcium aluminate ($\\text{C}_3\\text{A}$), and tetracalcium aluminoferrite ($\\text{C}_4\\text{AF}$). Which of the following statements regarding the hydration reactions and setting kinetics of cement is/are correct?",
+      "options": [
+        "A) Gypsum ($\\text{CaSO}_4 \\cdot 2\\text{H}_2\\text{O}$) is added to Portland cement clinker to accelerate the setting time of $\\text{C}_3\\text{A}$.",
+        "B) In the absence of gypsum, $\\text{C}_3\\text{A}$ hydrates violently within minutes, causing an irreversible premature stiffening known as \"flash set\".",
+        "C) Gypsum retards the hydration of $\\text{C}_3\\text{A}$ by reacting with aluminate and calcium ions in solution to precipitate a protective crystalline coating of ettringite ($3\\text{CaO} \\cdot \\text{Al}_2\\text{O}_3 \\cdot 3\\text{CaSO}_4 \\cdot 32\\text{H}_2\\text{O}$) on the aluminate grains.",
+        "D) $\\text{C}_3\\text{S}$ hydrates rapidly to provide early compressive strength within the first $7$ to $28$ days, whereas $\\text{C}_2\\text{S}$ hydrates slowly, contributing to long-term strength development over several months."
+      ],
+      "answer": "B,C,D",
+      "explanation": "In step 1, evaluating clinker phase hydration rates: tricalcium aluminate $\\text{C}_3\\text{A}$ reacts most vigorously with water among all cement phases. If cement is mixed with water without an additive, $\\text{C}_3\\text{A}$ undergoes rapid dissolution and exothermically precipitates calcium aluminate hydrates within 2 to 5 minutes, resulting in premature solidification termed flash set. Therefore, statement B is correct. In step 2, to prevent flash set, $2\\%$ to $3\\%$ gypsum ($\\text{CaSO}_4 \\cdot 2\\text{H}_2\\text{O}$) is interground with clinker. Gypsum dissolves to supply calcium and sulfate ions, reacting with hydrating $\\text{C}_3\\text{A}$ via: $3\\text{CaO} \\cdot \\text{Al}_2\\text{O}_3 + 3(\\text{CaSO}_4 \\cdot 2\\text{H}_2\\text{O}) + 26\\text{H}_2\\text{O} \\to 3\\text{CaO} \\cdot \\text{Al}_2\\text{O}_3 \\cdot 3\\text{CaSO}_4 \\cdot 32\\text{H}_2\\text{O}$ (ettringite). Ettringite crystals form a passivating needle-like shell around $\\text{C}_3\\text{A}$ grains, severely retarding further water diffusion and delaying setting to allow workable concrete placement. Hence, gypsum acts as a retarder, not an accelerator, making A incorrect and C correct. In step 3, comparing silicates: $\\text{C}_3\\text{S}$ hydrates rapidly according to $2\\text{C}_3\\text{S} + 6\\text{H}_2\\text{O} \\to \\text{C}-\\text{S}-\\text{H} + 3\\text{Ca(OH)}_2$, dominating early strength from day 1 to 28. Dicalcium silicate $\\text{C}_2\\text{S}$ hydrates much more slowly, producing similar calcium silicate hydrate gel that provides continuous gain in compressive strength over months and years, validating statement D."
+    },
+    {
+      "id": "sbe_c01_040",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The isolation of stable crystalline alkalides (salts containing alkali metal anions $\\text{M}^-$) and electrides (salts where trapped electrons act as stoichiometric counter-anions) represents a milestone in s-block chemistry. Which of the following statements regarding these species is/are correct?",
+      "options": [
+        "A) In electride crystals such as $[\\text{Cs}(\\text{crypt-222})]^+ e^-$, the trapped electron resides in an empty crystallographic cavity behaving as an s-like non-nuclear quantum anion.",
+        "B) In the sodide salt $[\\text{Na}(\\text{crypt-222})]^+\\text{Na}^-$, the $\\text{Na}^-$ anion possesses an effective ionic radius larger than that of neutral sodium and an electron configuration of $[\\text{Ne}]\\,3s^2$.",
+        "C) Both alkalide and electride salts are thermally robust solids that remain stable in air above $200^\\circ\\text{C}$.",
+        "D) Alkalides and electrides are extremely powerful reducing agents capable of reducing aromatic rings and decomposing water or oxygen instantaneously."
+      ],
+      "answer": "A,B,D",
+      "explanation": "In step 1, examining alkalides: addition of cryptand-222 to a solution of alkali metal in amine drives the disproportionation $2\\text{M} \\to [\\text{M}(\\text{crypt})]^+ + \\text{M}^-$. In $[\\text{Na}(\\text{crypt-222})]^+\\text{Na}^-$, the sodide ion $\\text{Na}^-$ contains two electrons in the $3s$ orbital ($[\\text{Ne}]\\,3s^2$). Because of electron-electron repulsion and low nuclear charge ($Z=11$) shielding, the ionic radius of $\\text{Na}^-$ ($\\sim 2.16\\text{ \\AA}$) is substantially larger than that of neutral sodium ($1.86\\text{ \\AA}$) and $\\text{Na}^+$ ($1.02\\text{ \\AA}$). Thus, statement B is correct. In step 2, examining electrides: in $[\\text{Cs}(\\text{crypt-222})]^+ e^-$, stoichiometric electrons are localized in solvent-free voids within the crystal lattice, held by polarization of surrounding cryptated cations; they behave as non-nuclear quantum anions ($e^-$ in a box) with characteristic optical absorption and magnetic properties, confirming statement A. In step 3, evaluating stability and reactivity: because the electron in $\\text{M}^-$ or in an electride cavity is exceptionally weakly bound, both classes are among the most powerful chemical reducing agents known, reacting violently with moisture, air, and protons, and decomposing thermally even at room temperature, making C false and D true."
+    },
+    {
+      "id": "sbe_c01_041",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The thermal stability of alkali and alkaline earth oxo-compounds (carbonates, peroxides, and nitrates) exhibits marked periodicity governed by cation polarizing power ($\\phi = z/r$) and lattice energy differentials. Which of the following statements is/are correct?",
+      "options": [
+        "A) Across Group 2, the thermal decomposition temperature of carbonates increases in the order $\\text{BeCO}_3 < \\text{MgCO}_3 < \\text{CaCO}_3 < \\text{SrCO}_3 < \\text{BaCO}_3$ because smaller cations with higher charge density polarize the $\\text{C}-\\text{O}$ bond in $\\text{CO}_3^{2-}$ more strongly, facilitating cleavage into $\\text{MO}$ and $\\text{CO}_2$.",
+        "B) Lithium carbonate $\\text{Li}_2\\text{CO}_3$ is the most thermally stable alkali metal carbonate, resisting decomposition even above $1200^\\circ\\text{C}$.",
+        "C) The thermal decomposition of group 2 peroxides $\\text{MO}_2(s) \\to \\text{MO}(s) + 0.5\\text{O}_2(g)$ is thermodynamically favored for $\\text{BeO}_2$ and $\\text{MgO}_2$ at much lower temperatures than for $\\text{BaO}_2$ due to the huge lattice energy of small $\\text{BeO}$ and $\\text{MgO}$.",
+        "D) While $\\text{NaNO}_3$ decomposes on heating to yield $\\text{NaNO}_2$ and $\\text{O}_2$, $\\text{LiNO}_3$ decomposes to $\\text{Li}_2\\text{O}$, $\\text{NO}_2$, and $\\text{O}_2$ because the lattice energy of $\\text{Li}_2\\text{O}$ is exceptionally large."
+      ],
+      "answer": "A,C,D",
+      "explanation": "In step 1, evaluating carbonate decomposition $\\text{MCO}_3(s) \\rightleftharpoons \\text{MO}(s) + \\text{CO}_2(g)$: the driving force is $\\Delta H^\\circ_{\\text{decomp}} = \\Delta H^\\circ_{\\text{lattice}}(\\text{MCO}_3) - \\Delta H^\\circ_{\\text{lattice}}(\\text{MO})$. For smaller cations with high polarizing power ($\\text{Be}^{2+}, \\text{Mg}^{2+}$), the high charge density strongly distorts the electron cloud of the carbonate anion, weakening the $\\text{C}-\\text{O}$ bond. Simultaneously, the lattice energy of the resulting small oxide $\\text{MO}$ is exceptionally large, making decomposition enthalpy $\\Delta H^\\circ$ relatively small and enabling decomposition at low temperatures. Therefore, statement A is correct. In step 2, examining $\\text{Li}_2\\text{CO}_3$: due to lithium's small radius and high polarizing power (diagonal relationship with $\\text{Mg}$), $\\text{Li}_2\\text{CO}_3$ is the least stable alkali carbonate and decomposes to $\\text{Li}_2\\text{O}$ and $\\text{CO}_2$ upon gentle red heat ($\\sim 700^\\circ\\text{C}$), whereas $\\text{Na}_2\\text{CO}_3$ and $\\text{K}_2\\text{CO}_3$ do not decompose below $1000^\\circ\\text{C}$, rendering statement B false. In step 3, examining peroxides and nitrates: the huge lattice energies of $\\text{BeO}$, $\\text{MgO}$, and $\\text{Li}_2\\text{O}$ drive facile decomposition of their respective peroxides and nitrates into oxides, whereas large cations like $\\text{Ba}^{2+}$ and $\\text{Na}^+$ stabilize large polarizable anions ($\\text{O}_2^{2-}, \\text{NO}_2^-$), validating statements C and D."
+    },
+    {
+      "id": "sbe_c01_042",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "When alkali metals react with oxygen, lithium forms normal oxide $\\text{Li}_2\\text{O}$, sodium forms predominantly peroxide $\\text{Na}_2\\text{O}_2$, and potassium forms superoxide $\\text{KO}_2$. Consider the Born-Haber enthalpy changes for oxide vs peroxide vs superoxide formation: The formation of superoxide involves the addition of one electron to $\\text{O}_2$ ($\\Delta H_{\\text{eg1}} = -141\\text{ kJ/mol}$), whereas peroxide requires two electrons ($\\Delta H_{\\text{eg}} = +702\\text{ kJ/mol}$ net endothermic), and oxide requires complete atomization of $\\text{O}_2$ ($+498\\text{ kJ/mol}$) plus double electron gain to form $\\text{O}^{2-}$ ($+744\\text{ kJ/mol}$). Which of the following thermodynamic rationalizations correctly explains why the superoxide phase becomes progressively more stable down Group 1 from $\\text{Li}$ to $\\text{Cs}$?",
+      "options": [
+        "A) The first ionization energy of alkali metals increases down the group, providing extra energy to form superoxide.",
+        "B) Superoxides are stabilized exclusively because the superoxide ion $\\text{O}_2^-$ has a higher bond order than the peroxide ion $\\text{O}_2^{2-}$.",
+        "C) Formation of $\\text{O}^{2-}$ and $\\text{O}_2^{2-}$ requires high input enthalpies (bond dissociation and second electron gain); for small cations like $\\text{Li}^+$ and $\\text{Na}^+$, the massive lattice energy of the resulting oxide or peroxide easily compensates this cost. However, as cation radius increases from $\\text{K}^+$ to $\\text{Cs}^+$, lattice energies diminish, and only the superoxide pathway (which requires minimal preparation energy for $\\text{O}_2^-$) remains thermodynamically favored.",
+        "D) The entropy of formation of superoxides is overwhelmingly positive compared to oxides, making $\\Delta G^\\circ$ negative at all temperatures."
+      ],
+      "answer": "C",
+      "explanation": "In step 1, evaluating the energetic cost of preparing the oxygen anions: producing $\\text{O}^{2-}$ requires breaking the strong $\\text{O}=\\text{O}$ double bond ($\\frac{1}{2} \\Delta H_{\\text{diss}} = +249\\text{ kJ/mol}$) plus the highly endothermic second electron affinity of oxygen, totalling $\\sim +993\\text{ kJ/mol}$. Producing peroxide $\\text{O}_2^{2-}$ does not dissociate the $\\text{O}-\\text{O}$ bond, but still requires endothermic double electron addition ($+702\\text{ kJ/mol}$). Producing superoxide $\\text{O}_2^-$ requires neither bond dissociation nor a second electron addition; its single electron gain is exothermic ($-141\\text{ kJ/mol}$). In step 2, comparing lattice energies: by Kapustinskii's equation, lattice energy is proportional to $\\frac{z_+ z_-}{r_+ + r_-}$. For the tiny $\\text{Li}^+$ cation, the lattice energy of $\\text{Li}_2\\text{O}$ is enormous ($-2800\\text{ kJ/mol}$), easily overwhelming the energy required to prepare $\\text{O}^{2-}$. In step 3, for potassium, rubidium, and cesium, the cation radius is large, causing lattice energies for all phases to drop steeply. The modest lattice energy of $\\text{K}_2\\text{O}$ is insufficient to compensate for the $+993\\text{ kJ/mol}$ preparation penalty. Hence, the low-cost superoxide $\\text{KO}_2$ is thermodynamically favored."
+    },
+    {
+      "id": "sbe_c01_043",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "When Plaster of Paris ($\\text{CaSO}_4 \\cdot 0.5\\text{H}_2\\text{O}$) is mixed with water, it rehydrates to form gypsum ($\\text{CaSO}_4 \\cdot 2\\text{H}_2\\text{O}$) via an exothermic setting reaction: $\\text{CaSO}_4 \\cdot 0.5\\text{H}_2\\text{O}(s) + 1.5\\text{H}_2\\text{O}(l) \\to \\text{CaSO}_4 \\cdot 2\\text{H}_2\\text{O}(s)$, with $\\Delta H^\\circ = -17.0\\text{ kJ/mol}$. At $20^\\circ\\text{C}$, the solubility of the hemihydrate is $3.0\\text{ g/L}$, whereas that of the dihydrate gypsum is only $2.0\\text{ g/L}$. Which of the following statements correctly explains the crystallization driving force and the volumetric dimensional changes that occur during the setting of Plaster of Paris?",
+      "options": [
+        "A) The hemihydrate has lower solubility than gypsum, so it precipitates first and causes a $5\\%$ contraction in overall volume upon drying.",
+        "B) Setting is governed by topotactic solid-state diffusion of water without any dissolution step, resulting in zero volume change.",
+        "C) Plaster sets through endothermic evaporation of water, forming amorphous calcium oxide that expands by $15\\%$.",
+        "D) The hemihydrate dissolves to form a solution that is supersaturated with respect to the less soluble dihydrate, causing gypsum to precipitate out as an interlocking mass of needle-like monoclinic prisms accompanied by a slight ($sim 1\\%$) net expansion in volume."
+      ],
+      "answer": "D",
+      "explanation": "In step 1, identifying solubility differentials: hemihydrate $\\text{CaSO}_4 \\cdot 0.5\\text{H}_2\\text{O}$ is approximately 1.5 to 4 times more soluble in water than gypsum $\\text{CaSO}_4 \\cdot 2\\text{H}_2\\text{O}$ depending on temperature. In step 2, when hemihydrate powder is gauged with water, it rapidly dissolves, generating $\\text{Ca}^{2+}$ and $\\text{SO}_4^{2-}$ ions. This solution immediately exceeds the solubility product of gypsum ($K_{sp} = 2.4 \\times 10^{-5}$ at $20^\\circ\\text{C}$), becoming strongly supersaturated with respect to dihydrate. In step 3, dihydrate nucleates and crystallizes out as elongated monoclinic needles. The depletion of ions in solution prompts further hemihydrate dissolution, driving continuous crystallization until the entire mass forms an interlocking crystalline framework. In step 4, although the theoretical solid volume of dihydrate is slightly less than the sum of hemihydrate plus water, the random orientation of growing needle crystals creates internal microscopic voids, yielding a net external volumetric expansion of $\\sim 0.5\\%$ to $1.0\\%$. This expansion ensures that the setting paste completely fills the finest crevices of a mold, making Plaster of Paris ideal for dental, orthopedic, and architectural casts."
+    },
+    {
+      "id": "sbe_c01_044",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A high-early-strength Portland cement clinker is formulated containing exclusively tricalcium silicate ($\\text{C}_3\\text{S} = 3\\text{CaO}\\cdot\\text{SiO}_2$, molar mass $228.3\\text{ g/mol}$) and dicalcium silicate ($\\text{C}_2\\text{S} = 2\\text{CaO}\\cdot\\text{SiO}_2$, molar mass $172.2\\text{ g/mol}$) as its silicate phases. An analytical chemical assay of the silicate fraction reveals that the molar ratio of total combined calcium oxide to total combined silicon dioxide is exactly $\\frac{n(\\text{CaO})}{n(\\text{SiO}_2)} = 2.75$. Determine the mole percentage of tricalcium silicate ($\\text{C}_3\\text{S}$) among the total silicate minerals in this clinker.",
+      "options": [],
+      "answer": "75",
+      "explanation": "In step 1, define the molar quantities: let $n(\\text{C}_3\\text{S}) = x\\text{ mol}$ and $n(\\text{C}_2\\text{S}) = y\\text{ mol}$. In step 2, express total moles of calcium oxide and silica in terms of $x$ and $y$: each mole of $\\text{C}_3\\text{S}$ ($3\\text{CaO}\\cdot\\text{SiO}_2$) provides $3\\text{ moles of CaO}$ and $1\\text{ mole of SiO}_2$. Each mole of $\\text{C}_2\\text{S}$ ($2\\text{CaO}\\cdot\\text{SiO}_2$) provides $2\\text{ moles of CaO}$ and $1\\text{ mole of SiO}_2$. Therefore, $n(\\text{CaO}) = 3x + 2y$ and $n(\\text{SiO}_2) = x + y$. In step 3, setting up the given ratio: $\\frac{3x + 2y}{x + y} = 2.75$. Cross-multiplying yields $3x + 2y = 2.75(x + y) = 2.75x + 2.75y$. Grouping like terms gives $3x - 2.75x = 2.75y - 2y \\implies 0.25x = 0.75y$, which simplifies to $x = 3y$. In step 4, calculating the mole percentage of $\\text{C}_3\\text{S}$: $\\%\\text{C}_3\\text{S} = \\frac{x}{x + y} \\times 100 = \\frac{3y}{3y + y} \\times 100 = \\frac{3}{4} \\times 100 = 75\\%$."
+    },
+    {
+      "id": "sbe_c01_045",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "The liquid-liquid extraction of potassium picrate ($\\text{K}^+\\text{Pic}^-$) from an aqueous solution into dichloromethane ($\\text{CH}_2\\text{Cl}_2$) by 18-crown-6 ($L$) is governed by the two-phase equilibrium: $\\text{K}^+(aq) + \\text{Pic}^-(aq) + L(org) \\rightleftharpoons [\\text{K}L^+\\text{Pic}^-](org)$, with overall extraction constant $K_{ex} = \\frac{[(\\text{K}L^+\\text{Pic}^-)]_{org}}{[\\text{K}^+]_{aq} [\\text{Pic}^-]_{aq} [L]_{org}}$. In an experiment with equal phase volumes ($V_{aq} = V_{org}$), the initial concentration of 18-crown-6 in the organic phase was $0.050\\text{ M}$. At equilibrium, chemical analysis reveals $[\\text{K}^+]_{aq} = 0.020\\text{ M}$, $[\\text{Pic}^-]_{aq} = 0.020\\text{ M}$, and $[(\\text{K}L^+\\text{Pic}^-)]_{org} = 0.010\\text{ M}$. Calculate the value of the extraction constant $K_{ex}$ in $\\text{M}^{-2}$.",
+      "options": [],
+      "answer": "625",
+      "explanation": "In step 1, applying the mass balance for the macrocyclic ligand in the organic phase: since $V_{aq} = V_{org}$ and uncomplexed crown ether resides predominantly in the organic phase, the equilibrium concentration of free 18-crown-6 is $[L]_{org} = [L]_{\\text{initial}} - [(\\text{K}L^+\\text{Pic}^-)]_{org}$. Substituting the given values: $[L]_{org} = 0.050\\text{ M} - 0.010\\text{ M} = 0.040\\text{ M}$. In step 2, substituting the equilibrium concentrations into the expression for $K_{ex}$: $K_{ex} = \\frac{[(\\text{K}L^+\\text{Pic}^-)]_{org}}{[\\text{K}^+]_{aq} [\\text{Pic}^-]_{aq} [L]_{org}} = \\frac{0.010}{(0.020)(0.020)(0.040)}$. In step 3, solving the denominator: $(0.020) \\times (0.020) = 4.0 \\times 10^{-4}\\text{ M}^2$, and $(4.0 \\times 10^{-4}) \\times (0.040) = 1.6 \\times 10^{-5}\\text{ M}^3$. In step 4, evaluating the quotient: $K_{ex} = \\frac{0.010}{1.6 \\times 10^{-5}} = \\frac{1.0 \\times 10^{-2}}{1.6 \\times 10^{-5}} = \\frac{1000}{1.6} = 625\\text{ M}^{-2}$. Therefore, the value of $K_{ex}$ is 625."
+    },
+    {
+      "id": "sbe_c01_046",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Basic beryllium acetate, $[\\text{Be}_4\\text{O}(\\text{CH}_3\\text{COO})_6]$, is a benchmark molecular cluster in s-block chemistry. It features an oxo-centered $\\text{OBe}_4$ tetrahedron surrounded by six bridging acetate ligands. What are the formal oxidation state of the central oxygen atom, the coordination number of each beryllium atom, and the total number of six-membered chelate/bridging rings formed in the cluster?",
+      "options": [
+        "A) Central oxygen oxidation state: $-1$; Be coordination number: $3$; Total rings: $4$",
+        "B) Central oxygen oxidation state: $-2$; Be coordination number: $6$; Total rings: $6$",
+        "C) Central oxygen oxidation state: $-2$; Be coordination number: $4$; Total rings: $6$",
+        "D) Central oxygen oxidation state: $0$; Be coordination number: $4$; Total rings: $12$"
+      ],
+      "answer": "C",
+      "explanation": "In step 1, determining the oxidation states: each of the four beryllium atoms has an oxidation state of $+2$, and each of the six acetate ligands carries a formal charge of $-1$ ($\\text{CH}_3\\text{COO}^-$). Therefore, the central oxygen atom carries a formal oxidation state of $-2$ ($\\text{O}^{2-}$), balancing the charge: $4(+2) + (-2) + 6(-1) = 0$. In step 2, evaluating the beryllium coordination geometry: the central $\\text{O}^{2-}$ is shared tetrahedrally among four $\\text{Be}$ atoms ($sp^3$ hybridized central oxygen). Each beryllium atom coordinates to this central oxygen atom and to one oxygen from each of three different bridging acetate groups. Hence, each Be atom is four-coordinate ($sp^3$, coordination number 4). In step 3, identifying the ring systems: each of the six acetate ligands bridges across one edge of the $\\text{Be}_4$ tetrahedron, forming a closed six-membered ring comprising $\\text{O}_{\\text{central}}-\\text{Be}_1-\\text{O}-\\text{C}-\\text{O}-\\text{Be}_2$. Because a tetrahedron has exactly six edges, there are exactly six such six-membered rings. Therefore, statement C is correct."
+    },
+    {
+      "id": "sbe_c01_047",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "When a $0.100\\text{ mol}$ sample of pure potassium superoxide ($\\text{KO}_2$, molar mass $71.1\\text{ g/mol}$) is carefully introduced into an acidified aqueous solution of potassium iodide, the superoxide first reacts with hydronium ions to generate hydrogen peroxide and dioxygen gas: $2\\text{KO}_2 + 2\\text{H}^+ \\to 2\\text{K}^+ + \\text{H}_2\\text{O}_2 + \\text{O}_2(g)$. The generated $\\text{H}_2\\text{O}_2$ quantitatively oxidizes iodide to triiodide/iodine: $\\text{H}_2\\text{O}_2 + 2\\text{I}^- + 2\\text{H}^+ \\to \\text{I}_2 + 2\\text{H}_2\\text{O}$. The liberated iodine is subsequently titrated to a starch end-point against standardized sodium thiosulfate: $\\text{I}_2 + 2\\text{S}_2\\text{O}_3^{2-} \\to 2\\text{I}^- + \\text{S}_4\\text{O}_6^{2-}$. How many millimoles of $\\text{Na}_2\\text{S}_2\\text{O}_3$ are consumed in this titration?",
+      "options": [],
+      "answer": "100",
+      "explanation": "In step 1, determining the moles of superoxide reacted: $n(\\text{KO}_2) = 0.100\\text{ mol} = 100\\text{ mmol}$. In step 2, applying the stoichiometry of the superoxide disproportionation reaction: $2\\text{ moles of } \\text{KO}_2$ produce $1\\text{ mole of } \\text{H}_2\\text{O}_2$. Therefore, the amount of hydrogen peroxide generated is $n(\\text{H}_2\\text{O}_2) = \\frac{100\\text{ mmol}}{2} = 50\\text{ mmol}$. In step 3, applying the iodide oxidation stoichiometry: $1\\text{ mole of } \\text{H}_2\\text{O}_2$ oxidizes iodide to generate $1\\text{ mole of } \\text{I}_2$, which yields $n(\\text{I}_2) = 50\\text{ mmol}$. In step 4, applying the iodometric titration stoichiometry: each mole of $\\text{I}_2$ consumes two moles of thiosulfate ions ($\\text{S}_2\\text{O}_3^{2-}$). Therefore, the millimoles of sodium thiosulfate required is $n(\\text{S}_2\\text{O}_3^{2-}) = 2 \\times n(\\text{I}_2) = 2 \\times 50\\text{ mmol} = 100\\text{ mmol}$."
+    },
+    {
+      "id": "sbe_c01_048",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The standard enthalpy of solution ($\\Delta H^\\circ_{\\text{sol}}$) is obtained from the lattice enthalpy and ionic hydration enthalpies via: $\\Delta H^\\circ_{\\text{sol}} = \\Delta H^\\circ_{\\text{lattice}} + \\Delta H^\\circ_{\\text{hyd}}(\\text{cation}) + \\Delta H^\\circ_{\\text{hyd}}(\\text{anion})$. Given the following experimental values: For $\\text{LiF}$: $\\Delta H^\\circ_{\\text{lattice}} = +1036\\text{ kJ/mol}$, $\\Delta H^\\circ_{\\text{hyd}}(\\text{Li}^+) = -520\\text{ kJ/mol}$, $\\Delta H^\\circ_{\\text{hyd}}(\\text{F}^-) = -512\\text{ kJ/mol}$. For $\\text{LiCl}$: $\\Delta H^\\circ_{\\text{lattice}} = +853\\text{ kJ/mol}$, $\\Delta H^\\circ_{\\text{hyd}}(\\text{Cl}^-) = -370\\text{ kJ/mol}$. Calculate $\\Delta H^\\circ_{\\text{sol}}$ for $\\text{LiF}$ and $\\text{LiCl}$, and using the van 't Hoff equation $\\frac{d \\ln K_{sp}}{dT} = \\frac{\\Delta H^\\circ_{\\text{sol}}}{RT^2}$, deduce how temperature affects their solubilities in water.",
+      "options": [
+        "A) $\\Delta H^\\circ_{\\text{sol}}(\\text{LiF}) = -4\\text{ kJ/mol}$ and $\\Delta H^\\circ_{\\text{sol}}(\\text{LiCl}) = +37\\text{ kJ/mol}$; the solubility of $\\text{LiF}$ increases with temperature, while that of $\\text{LiCl}$ decreases.",
+        "B) $\\Delta H^\\circ_{\\text{sol}}(\\text{LiF}) = +2068\\text{ kJ/mol}$ and $\\Delta H^\\circ_{\\text{sol}}(\\text{LiCl}) = +1743\\text{ kJ/mol}$; both are insoluble at all temperatures.",
+        "C) $\\Delta H^\\circ_{\\text{sol}}(\\text{LiF}) = -1032\\text{ kJ/mol}$ and $\\Delta H^\\circ_{\\text{sol}}(\\text{LiCl}) = -1353\\text{ kJ/mol}$; both dissolve exothermically, and both solubilities decrease with temperature.",
+        "D) $\\Delta H^\\circ_{\\text{sol}}(\\text{LiF}) = +4\\text{ kJ/mol}$ (endothermic) and $\\Delta H^\\circ_{\\text{sol}}(\\text{LiCl}) = -37\\text{ kJ/mol}$ (exothermic); the solubility of $\\text{LiF}$ increases slightly with increasing temperature, whereas that of $\\text{LiCl}$ decreases with increasing temperature."
+      ],
+      "answer": "D",
+      "explanation": "In step 1, calculating $\\Delta H^\\circ_{\\text{sol}}(\\text{LiF})$: $\\Delta H^\\circ_{\\text{sol}} = +1036 + (-520) + (-512) = +1036 - 1032 = +4\\text{ kJ/mol}$. Because $\\Delta H^\\circ_{\\text{sol}} > 0$, the dissolution of $\\text{LiF}$ is endothermic. In step 2, calculating $\\Delta H^\\circ_{\\text{sol}}(\\text{LiCl})$: $\\Delta H^\\circ_{\\text{sol}} = +853 + (-520) + (-370) = +853 - 890 = -37\\text{ kJ/mol}$. Because $\\Delta H^\\circ_{\\text{sol}} < 0$, the dissolution of $\\text{LiCl}$ is exothermic. In step 3, applying the van 't Hoff relation $\\frac{d \\ln K_{sp}}{dT} = \\frac{\\Delta H^\\circ_{\\text{sol}}}{RT^2}$: for an endothermic process ($\\Delta H^\\circ_{\\text{sol}} > 0$ as in $\\text{LiF}$), $\\frac{d \\ln K_{sp}}{dT} > 0$, meaning solubility increases as temperature rises. Conversely, for an exothermic process ($\\Delta H^\\circ_{\\text{sol}} < 0$ as in $\\text{LiCl}$), $\\frac{d \\ln K_{sp}}{dT} < 0$, meaning solubility decreases with increasing temperature. Therefore, statement D is correct."
+    },
+    {
+      "id": "sbe_c01_049",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In solid crystalline hydrates of Group 2 salts, water molecules coordinate directly to the metal cation to satisfy its primary hydration shell. In beryllium sulfate tetrahydrate, $[\\text{Be(H}_2\\text{O)}_4]\\text{SO}_4$, beryllium coordinates exclusively four water molecules in a tetrahedral arrangement via $sp^3$ hybridization. In magnesium chloride hexahydrate, $[\\text{Mg(H}_2\\text{O)}_6]\\text{Cl}_2$, magnesium coordinates six water molecules in an octahedral arrangement via $sp^3d^2$ hybridization. What is the sum of the primary hydration coordination numbers of $\\text{Be}^{2+}$ in $[\\text{Be(H}_2\\text{O)}_4]\\text{SO}_4$ and $\\text{Mg}^{2+}$ in $[\\text{Mg(H}_2\\text{O)}_6]\\text{Cl}_2$?",
+      "options": [],
+      "answer": "10",
+      "explanation": "In step 1, evaluating beryllium: $\\text{Be}^{2+}$ is in Period 2 with valence shell $n=2$, possessing only one $2s$ and three $2p$ valence orbitals. Its maximum covalency is strictly limited to 4. In crystalline $[\\text{Be(H}_2\\text{O)}_4]\\text{SO}_4$, four water molecules donate lone pairs into these four $sp^3$ hybrid orbitals, yielding a primary coordination number of 4. In step 2, evaluating magnesium: $\\text{Mg}^{2+}$ is in Period 3 with accessible empty $3d$ orbitals. It undergoes $sp^3d^2$ hybridization to accommodate six water molecules in an octahedral geometry in $[\\text{Mg(H}_2\\text{O)}_6]\\text{Cl}_2$, giving a primary coordination number of 6. In step 3, calculating the sum of the primary coordination numbers: $4 + 6 = 10$. Therefore, the required sum is 10."
+    },
+    {
+      "id": "sbe_c01_050",
+      "subject": "Chemistry",
+      "topic": "s-Block Elements",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Calcium metal undergoes a series of sequential chemical transformations: (I) Heating calcium metal in dry $\\text{N}_2$ yields compound $P$. (II) Treating compound $P$ with water yields a suspension of sparingly soluble $Q$ and evolves gas $R$. (III) Passing gas $R$ through Nessler's reagent ($[\\text{HgI}_4]^{2-}$ in alkaline solution) yields a reddish-brown precipitate $S$ (iodide of Millon's base). (IV) Heating calcium metal with coke in an electric arc furnace yields compound $T$, which on hydrolysis yields gas $U$. Which of the following statements regarding this reaction cascade is/are correct?",
+      "options": [
+        "A) Compound $P$ is calcium nitride ($\\text{Ca}_3\\text{N}_2$), and gas $R$ is ammonia ($\\text{NH}_3$).",
+        "B) Compound $Q$ is calcium hydroxide ($\\text{Ca(OH)}_2$), and the precipitate $S$ is represented by the formula $\\text{H}_2\\text{N}-\\text{Hg}-\\text{O}-\\text{Hg}-\\text{I}$.",
+        "C) Compound $T$ is calcium carbide ($\\text{CaC}_2$), and gas $U$ is ethyne ($\\text{C}_2\\text{H}_2$), which forms a red precipitate of copper(I) acetylide when passed through ammoniacal cuprous chloride.",
+        "D) Gas $U$ is methane, which does not react with ammoniacal cuprous chloride."
+      ],
+      "answer": "A,B,C",
+      "explanation": "In step 1, identifying reactions (I) and (II): calcium reacts with nitrogen at red heat to form ionic calcium nitride: $3\\text{Ca} + \\text{N}_2 \\to \\text{Ca}_3\\text{N}_2$ ($P$). Hydrolysis of $\\text{Ca}_3\\text{N}_2$ yields calcium hydroxide and ammonia gas: $\\text{Ca}_3\\text{N}_2 + 6\\text{H}_2\\text{O} \\to 3\\text{Ca(OH)}_2 (Q) + 2\\text{NH}_3 (R)$. Therefore, statement A is correct. In step 2, analyzing reaction (III): ammonia reacts with alkaline Nessler's reagent ($2\\text{K}_2[\\text{HgI}_4] + 3\\text{KOH} + \\text{NH}_3$) to form a brown precipitate of the iodide of Millon's base, whose chemical formula is $[\\text{Hg}_2\\text{N}]\\text{I} \\cdot \\text{H}_2\\text{O}$ or $\\text{H}_2\\text{N}-\\text{Hg}-\\text{O}-\\text{Hg}-\\text{I}$, validating statement B. In step 3, analyzing reaction (IV): heating calcium with carbon yields calcium dicarbide: $\\text{Ca} + 2\\text{C} \\xrightarrow{\\Delta} \\text{CaC}_2$ ($T$). Hydrolysis of calcium carbide gives ethyne (acetylene, $\\text{C}_2\\text{H}_2$, gas $U$): $\\text{CaC}_2 + 2\\text{H}_2\\text{O} \\to \\text{Ca(OH)}_2 + \\text{C}_2\\text{H}_2$. Ethyne has acidic terminal hydrogens and reacts with ammoniacal $\\text{Cu}_2\\text{Cl}_2$ to give a red precipitate of copper(I) acetylide ($\\text{Cu}_2\\text{C}_2$), confirming statement C. Statement D is false because the hydrolysis of calcium carbide produces ethyne, not methane (methane is produced from $\\text{Be}_2\\text{C}$ or $\\text{Al}_4\\text{C}_3$)."
+    }
+  ]
+}

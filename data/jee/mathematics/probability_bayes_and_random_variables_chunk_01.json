@@ -1,0 +1,804 @@
+{
+  "questions": [
+    {
+      "id": "pbr_c01_001",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two cards are drawn successively without replacement from a well-shuffled standard pack of $52$ playing cards. Given that at least one of the drawn cards is an Ace, find the conditional probability that both drawn cards are Aces.",
+      "options": [
+        "A) $\\frac{1}{33}$",
+        "B) $\\frac{1}{17}$",
+        "C) $\\frac{1}{221}$",
+        "D) $\\frac{2}{33}$"
+      ],
+      "answer": "A",
+      "explanation": "The total number of ways to choose $2$ cards from $52$ is $\\binom{52}{2} = 1326$. The number of ways to choose $2$ cards with no Ace is $\\binom{48}{2} = 1128$. Hence, the number of outcomes with at least one Ace is $1326 - 1128 = 198$. The number of outcomes where both cards are Aces is $\\binom{4}{2} = 6$. Therefore, the conditional probability is $\\frac{6}{198} = \\frac{1}{33}$. The value $\\frac{1}{17}$ incorrectly assumes a designated card is an Ace; $\\frac{1}{221}$ is the unconditional probability; and $\\frac{2}{33}$ represents a calculation error in counting favorable pairs."
+    },
+    {
+      "id": "pbr_c01_002",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a population, $2\\%$ of people have a specific viral infection. A clinical diagnostic test has a sensitivity of $95\\%$ (true positive rate) and a specificity of $90\\%$ (true negative rate). If a randomly selected individual tests positive, the probability that the individual actually has the viral infection is:",
+      "options": [
+        "A) $\\frac{19}{100}$",
+        "B) $\\frac{19}{117}$",
+        "C) $\\frac{95}{100}$",
+        "D) $\\frac{19}{98}$"
+      ],
+      "answer": "B",
+      "explanation": "Let $D$ denote the event that the person has the infection and $T$ denote a positive test result. We are given $P(D) = 0.02$, $P(D^c) = 0.98$, $P(T \\mid D) = 0.95$, and $P(T \\mid D^c) = 1 - 0.90 = 0.10$. By the law of total probability, $P(T) = P(D)P(T \\mid D) + P(D^c)P(T \\mid D^c) = (0.02)(0.95) + (0.98)(0.10) = 0.019 + 0.098 = 0.117$. Applying Bayes' theorem, we get $P(D \\mid T) = \\frac{P(D \\cap T)}{P(T)} = \\frac{0.019}{0.117} = \\frac{19}{117}$. The value $\\frac{95}{100}$ commits the base-rate fallacy by ignoring false positives, while $\\frac{19}{98}$ omits true positives from the denominator."
+    },
+    {
+      "id": "pbr_c01_003",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A factory produces microchips using two production lines, $M_1$ and $M_2$. Machine $M_1$ manufactures $60\\%$ of the output and has a defect rate of $3\\%$, while machine $M_2$ manufactures $40\\%$ of the output and has a defect rate of $5\\%$. A microchip is chosen at random from the output and found to be defective. The probability that it was produced by machine $M_2$ is:",
+      "options": [
+        "A) $\\frac{9}{19}$",
+        "B) $\\frac{2}{5}$",
+        "C) $\\frac{10}{19}$",
+        "D) $\\frac{5}{8}$"
+      ],
+      "answer": "C",
+      "explanation": "Let $D$ be the event that a chosen microchip is defective. We have $P(M_1) = 0.60$, $P(M_2) = 0.40$, $P(D \\mid M_1) = 0.03$, and $P(D \\mid M_2) = 0.05$. By the total probability theorem, $P(D) = (0.60)(0.03) + (0.40)(0.05) = 0.018 + 0.020 = 0.038$. Applying Bayes' theorem yields $P(M_2 \\mid D) = \\frac{P(M_2)P(D \\mid M_2)}{P(D)} = \\frac{0.020}{0.038} = \\frac{10}{19}$. The fraction $\\frac{9}{19}$ corresponds to machine $M_1$; $\\frac{2}{5}$ is the unconditioned prior probability; and $\\frac{5}{8}$ ignores the differing manufacturing volumes."
+    },
+    {
+      "id": "pbr_c01_004",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Box I contains $4$ red balls and $6$ black balls. Box II contains $5$ red balls and $3$ black balls. A box is chosen at random with equal probability and a ball is drawn. If the drawn ball is red, what is the probability that it came from Box I?",
+      "options": [
+        "A) $\\frac{25}{41}$",
+        "B) $\\frac{4}{9}$",
+        "C) $\\frac{2}{5}$",
+        "D) $\\frac{16}{41}$"
+      ],
+      "answer": "D",
+      "explanation": "Let $B_1, B_2$ denote choosing Box I and Box II respectively, so $P(B_1) = P(B_2) = \\frac{1}{2}$. The conditional probabilities of drawing a red ball are $P(R \\mid B_1) = \\frac{4}{10} = \\frac{2}{5}$ and $P(R \\mid B_2) = \\frac{5}{8}$. By total probability, $P(R) = \\frac{1}{2}\\left(\\frac{2}{5}\\right) + \\frac{1}{2}\\left(\\frac{5}{8}\\right) = \\frac{1}{5} + \\frac{5}{16} = \\frac{41}{80}$. Applying Bayes' theorem, we get $P(B_1 \\mid R) = \\frac{1/5}{41/80} = \\frac{16}{41}$. The fraction $\\frac{25}{41}$ corresponds to Box II; $\\frac{2}{5}$ confuses the likelihood with the posterior; and $\\frac{4}{9}$ ignores the unequal urn capacities."
+    },
+    {
+      "id": "pbr_c01_005",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For two events $A$ and $B$, let $P(A) = \\frac{2}{5}$, $P(B) = \\frac{1}{3}$, and $P(A \\cup B) = \\frac{1}{2}$. The conditional probability $P\\left(A' \\mid B'\\right)$ is equal to:",
+      "options": [
+        "A) $\\frac{3}{4}$",
+        "B) $\\frac{1}{4}$",
+        "C) $\\frac{2}{3}$",
+        "D) $\\frac{5}{8}$"
+      ],
+      "answer": "A",
+      "explanation": "By definition of conditional probability, $P(A' \\mid B') = \\frac{P(A' \\cap B')}{P(B')}$. Using De Morgan's law, $A' \\cap B' = (A \\cup B)'$, so $P(A' \\cap B') = 1 - P(A \\cup B) = 1 - \\frac{1}{2} = \\frac{1}{2}$. Also, $P(B') = 1 - P(B) = 1 - \\frac{1}{3} = \\frac{2}{3}$. Therefore, $P(A' \\mid B') = \\frac{1/2}{2/3} = \\frac{3}{4}$. The value $\\frac{1}{4}$ gives the complement $P(A \\mid B')$; $\\frac{2}{3}$ confuses the ratio with $P(B')$; and $\\frac{5}{8}$ results from misapplying the union formula."
+    },
+    {
+      "id": "pbr_c01_006",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A discrete random variable $X$ has the probability mass function given by $P(X = x) = k(x+1)$ for $x \\in \\{0, 1, 2, 3\\}$, and $P(X = x) = 0$ otherwise. If $k$ is a positive constant, the expected value $E(X)$ is:",
+      "options": [
+        "A) $\\frac{3}{2}$",
+        "B) $2$",
+        "C) $\\frac{5}{2}$",
+        "D) $\\frac{7}{5}$"
+      ],
+      "answer": "B",
+      "explanation": "Since the sum of all probabilities must equal $1$, we have $\\sum_{x=0}^3 k(x+1) = k(1 + 2 + 3 + 4) = 10k = 1$, yielding $k = \\frac{1}{10}$. The mathematical expectation is $E(X) = \\sum_{x=0}^3 x P(X = x) = 0\\left(\\frac{1}{10}\\right) + 1\\left(\\frac{2}{10}\\right) + 2\\left(\\frac{3}{10}\\right) + 3\\left(\\frac{4}{10}\\right) = \\frac{2 + 6 + 12}{10} = \\frac{20}{10} = 2$. The value $\\frac{3}{2}$ is the unweighted average of the states; $\\frac{5}{2}$ comes from miscomputing the normalisation constant; and $\\frac{7}{5}$ drops the final term."
+    },
+    {
+      "id": "pbr_c01_007",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Two balanced six-faced dice are rolled independently. Let $E_1$ be the event that the sum of the numbers obtained is an even number, and let $E_2$ be the event that the sum is greater than or equal to $8$. If the conditional probability $P(E_1 \\mid E_2) = \\frac{p}{q}$, where $p$ and $q$ are coprime positive integers, find the value of $p + q$.",
+      "options": [],
+      "answer": "8",
+      "explanation": "The sample space of pairs with sum $\\ge 8$ consists of sums $8, 9, 10, 11, 12$. The number of outcomes for each sum is: sum $8$ has $5$ pairs; sum $9$ has $4$ pairs; sum $10$ has $3$ pairs; sum $11$ has $2$ pairs; and sum $12$ has $1$ pair. Hence, the total number of outcomes in $E_2$ is $5 + 4 + 3 + 2 + 1 = 15$. Among these, the outcomes with an even sum are those with sums $8, 10, 12$, giving $5 + 3 + 1 = 9$ favorable outcomes. Thus, $P(E_1 \\mid E_2) = \\frac{9}{15} = \\frac{3}{5}$. Since $p=3$ and $q=5$ are coprime positive integers, we get $p + q = 3 + 5 = 8$."
+    },
+    {
+      "id": "pbr_c01_008",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A person is known to speak the truth in $3$ out of $4$ cases. He rolls an unbiased six-faced die and reports that the number obtained is a $6$. The probability that it was actually a $6$ is:",
+      "options": [
+        "A) $\\frac{3}{4}$",
+        "B) $\\frac{1}{6}$",
+        "C) $\\frac{3}{8}$",
+        "D) $\\frac{5}{8}$"
+      ],
+      "answer": "C",
+      "explanation": "Let $E$ be the event that a six actually occurs, so $P(E) = \\frac{1}{6}$ and $P(E^c) = \\frac{5}{6}$. Let $R$ be the event that the person reports a six. Then $P(R \\mid E) = \\frac{3}{4}$ (truth) and $P(R \\mid E^c) = 1 - \\frac{3}{4} = \\frac{1}{4}$ (lie). By the law of total probability, $P(R) = \\left(\\frac{1}{6}\\right)\\left(\\frac{3}{4}\\right) + \\left(\\frac{5}{6}\\right)\\left(\\frac{1}{4}\\right) = \\frac{3 + 5}{24} = \\frac{8}{24} = \\frac{1}{3}$. Using Bayes' theorem, $P(E \\mid R) = \\frac{3/24}{8/24} = \\frac{3}{8}$. The option $\\frac{3}{4}$ ignores the prior rarity of rolling a six; $\\frac{1}{6}$ is the unconditioned prior; and $\\frac{5}{8}$ is the probability that the reporter lied."
+    },
+    {
+      "id": "pbr_c01_009",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For a binomial distribution $B(n, p)$, the mean is $4$ and the variance is $3$. The probability of obtaining exactly $2$ successes in this distribution is given by:",
+      "options": [
+        "A) $\\binom{12}{2}\\left(\\frac{1}{3}\\right)^2\\left(\\frac{2}{3}\\right)^{10}$",
+        "B) $\\binom{16}{2}\\left(\\frac{3}{4}\\right)^2\\left(\\frac{1}{4}\\right)^{14}$",
+        "C) $\\binom{8}{2}\\left(\\frac{1}{2}\\right)^8$",
+        "D) $\\binom{16}{2}\\left(\\frac{1}{4}\\right)^2\\left(\\frac{3}{4}\\right)^{14}$"
+      ],
+      "answer": "D",
+      "explanation": "For a binomial random variable, the mean is $np = 4$ and the variance is $np(1-p) = 3$. Dividing variance by mean gives $1 - p = \\frac{3}{4}$, which implies $p = \\frac{1}{4}$. Substituting $p = \\frac{1}{4}$ into $np = 4$ yields $n = 16$. Therefore, the probability of exactly $2$ successes is $P(X = 2) = \\binom{16}{2}\\left(\\frac{1}{4}\\right)^2\\left(\\frac{3}{4}\\right)^{14}$. The expression with $n=12$ miscalculates the failure probability; the swapped powers version reverses successes and failures; and the $n=8$ option assumes a symmetric coin distribution."
+    },
+    {
+      "id": "pbr_c01_010",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Three urns $U_1, U_2, U_3$ contain balls as follows: $U_1$ has $2$ white and $3$ red balls; $U_2$ has $4$ white and $1$ red ball; $U_3$ has $3$ white and $7$ red balls. An urn is selected with probabilities $P(U_1) = \\frac{1}{2}$, $P(U_2) = \\frac{1}{3}$, and $P(U_3) = \\frac{1}{6}$. A ball is drawn from the selected urn. The probability that the drawn ball is white is:",
+      "options": [
+        "A) $\\frac{31}{60}$",
+        "B) $\\frac{29}{60}$",
+        "C) $\\frac{1}{2}$",
+        "D) $\\frac{7}{12}$"
+      ],
+      "answer": "A",
+      "explanation": "The conditional probabilities of drawing a white ball are $P(W \\mid U_1) = \\frac{2}{5}$, $P(W \\mid U_2) = \\frac{4}{5}$, and $P(W \\mid U_3) = \\frac{3}{10}$. Applying the law of total probability, we have $P(W) = P(U_1)P(W \\mid U_1) + P(U_2)P(W \\mid U_2) + P(U_3)P(W \\mid U_3) = \\frac{1}{2}\\left(\\frac{2}{5}\\right) + \\frac{1}{3}\\left(\\frac{4}{5}\\right) + \\frac{1}{6}\\left(\\frac{3}{10}\\right) = \\frac{1}{5} + \\frac{4}{15} + \\frac{1}{20} = \\frac{12 + 16 + 3}{60} = \\frac{31}{60}$. The fraction $\\frac{29}{60}$ is the complementary probability of drawing a red ball; $\\frac{1}{2}$ results from unweighted urn averaging; and $\\frac{7}{12}$ is an arithmetic fraction error."
+    },
+    {
+      "id": "pbr_c01_011",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A random variable $X$ takes values in $\\{-1, 0, 1, 2\\}$ with probabilities $P(X = -1) = 0.2$, $P(X = 0) = 0.3$, $P(X = 1) = 0.4$, and $P(X = 2) = 0.1$. The variance $\\text{Var}(X)$ is equal to:",
+      "options": [
+        "A) $1.00$",
+        "B) $0.84$",
+        "C) $0.68$",
+        "D) $0.96$"
+      ],
+      "answer": "B",
+      "explanation": "First, compute the mean: $E(X) = (-1)(0.2) + (0)(0.3) + (1)(0.4) + (2)(0.1) = -0.2 + 0 + 0.4 + 0.2 = 0.4$. Next, compute the second moment: $E(X^2) = (-1)^2(0.2) + (0)^2(0.3) + (1)^2(0.4) + (2)^2(0.1) = 0.2 + 0 + 0.4 + 0.4 = 1.0$. Hence, the variance is $\\text{Var}(X) = E(X^2) - [E(X)]^2 = 1.0 - (0.4)^2 = 1.0 - 0.16 = 0.84$. The value $1.00$ simply equals $E(X^2)$ without subtracting the squared mean; $0.68$ doubles the mean correction; and $0.96$ fails to square the negative value properly."
+    },
+    {
+      "id": "pbr_c01_012",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An electronic system consists of two independent subsystems $S_1$ and $S_2$ connected in parallel, so that the system functions if at least one subsystem works. The probabilities that $S_1$ and $S_2$ fail during a $1$-year period are $0.2$ and $0.3$, respectively. Given that the system is functioning at the end of the year, find the conditional probability that subsystem $S_1$ had failed.",
+      "options": [
+        "A) $\\frac{1}{5}$",
+        "B) $\\frac{3}{47}$",
+        "C) $\\frac{7}{47}$",
+        "D) $\\frac{21}{94}$"
+      ],
+      "answer": "C",
+      "explanation": "Let $F_1$ and $F_2$ denote the failure events of $S_1$ and $S_2$ respectively, with $P(F_1) = 0.2$ and $P(F_2) = 0.3$. The system functions unless both subsystems fail, so $P(\\text{system functions}) = 1 - P(F_1 \\cap F_2) = 1 - (0.2)(0.3) = 1 - 0.06 = 0.94$. The event that $S_1$ has failed while the system functions occurs precisely when $S_1$ fails and $S_2$ does not fail, which has probability $P(F_1 \\cap F_2^c) = (0.2)(0.7) = 0.14$. Thus, the conditional probability is $\\frac{0.14}{0.94} = \\frac{7}{47}$. The value $\\frac{1}{5}$ is the unconditional failure probability; $\\frac{3}{47}$ uses the joint failure probability; and $\\frac{21}{94}$ swaps the roles of the two subsystems."
+    },
+    {
+      "id": "pbr_c01_013",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $A, B, C$ be three events such that $P(A) = P(B) = P(C) = \\frac{1}{4}$, $P(A \\cap B) = P(B \\cap C) = P(C \\cap A) = \\frac{1}{16}$, and $P(A \\cap B \\cap C) = 0$. The probability that at least one of the three events occurs is:",
+      "options": [
+        "A) $\\frac{3}{4}$",
+        "B) $\\frac{7}{16}$",
+        "C) $\\frac{5}{8}$",
+        "D) $\\frac{9}{16}$"
+      ],
+      "answer": "D",
+      "explanation": "By the principle of inclusion-exclusion for three events, we have $P(A \\cup B \\cup C) = P(A) + P(B) + P(C) - [P(A \\cap B) + P(B \\cap C) + P(C \\cap A)] + P(A \\cap B \\cap C)$. Substituting the given values gives $P(A \\cup B \\cup C) = 3\\left(\\frac{1}{4}\\right) - 3\\left(\\frac{1}{16}\\right) + 0 = \\frac{3}{4} - \\frac{3}{16} = \\frac{12 - 3}{16} = \\frac{9}{16}$. The value $\\frac{3}{4}$ ignores intersections altogether; $\\frac{7}{16}$ inadvertently adds pairwise intersections; and $\\frac{5}{8}$ subtracts only two pairwise intersections."
+    },
+    {
+      "id": "pbr_c01_014",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A biased coin with probability of showing heads equal to $\\frac{2}{3}$ is tossed independently $9$ times. Let $X$ denote the total number of heads obtained. If $Y = 3X - 7$, determine the expected value $E(Y)$.",
+      "options": [],
+      "answer": "11",
+      "explanation": "The random variable $X$ follows a binomial distribution $B\\left(9, \\frac{2}{3}\\right)$. Its expected value is $E(X) = np = 9 \\times \\frac{2}{3} = 6$. By the linearity of expectation, we have $E(Y) = E(3X - 7) = 3 E(X) - 7$. Substituting $E(X) = 6$ yields $E(Y) = 3(6) - 7 = 18 - 7 = 11$."
+    },
+    {
+      "id": "pbr_c01_015",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In an entrance test, a candidate either knows the answer to a multiple-choice question with probability $\\frac{3}{5}$ or guesses with probability $\\frac{2}{5}$. The question has $4$ options with exactly one correct answer. If the candidate answers the question correctly, the probability that the candidate actually knew the answer is:",
+      "options": [
+        "A) $\\frac{3}{5}$",
+        "B) $\\frac{5}{7}$",
+        "C) $\\frac{6}{7}$",
+        "D) $\\frac{1}{7}$"
+      ],
+      "answer": "C",
+      "explanation": "Let $K$ be the event that the candidate knows the answer and $G$ be the event that the candidate guesses, so $P(K) = \\frac{3}{5}$ and $P(G) = \\frac{2}{5}$. Let $C$ be the event that the candidate answers correctly. We have $P(C \\mid K) = 1$ and $P(C \\mid G) = \\frac{1}{4}$. By the law of total probability, $P(C) = P(K)P(C \\mid K) + P(G)P(C \\mid G) = \\left(\\frac{3}{5}\\right)(1) + \\left(\\frac{2}{5}\\right)\\left(\\frac{1}{4}\\right) = \\frac{3}{5} + \\frac{1}{10} = \\frac{7}{10}$. Applying Bayes' theorem, $P(K \\mid C) = \\frac{P(K \\cap C)}{P(C)} = \\frac{3/5}{7/10} = \\frac{6}{7}$. The value $\\frac{3}{5}$ is the unconditioned prior probability; $\\frac{1}{7}$ is the posterior probability of guessing; and $\\frac{5}{7}$ is an arithmetic error in the fraction reduction."
+    },
+    {
+      "id": "pbr_c01_016",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Urn I contains $3$ white balls and $2$ black balls. Urn II contains $2$ white balls and $4$ black balls. One ball is transferred at random from Urn I to Urn II, and then one ball is drawn from Urn II. If the ball drawn from Urn II is found to be white, what is the conditional probability that the transferred ball was white?",
+      "options": [
+        "A) $\\frac{9}{13}$",
+        "B) $\\frac{4}{13}$",
+        "C) $\\frac{3}{5}$",
+        "D) $\\frac{3}{7}$"
+      ],
+      "answer": "A",
+      "explanation": "Let $W_1$ and $B_1$ be the events that the transferred ball from Urn I is white and black, respectively. Then $P(W_1) = \\frac{3}{5}$ and $P(B_1) = \\frac{2}{5}$. Let $W_2$ be the event that a white ball is drawn from Urn II. If a white ball was transferred, Urn II contains $3$ white and $4$ black balls, so $P(W_2 \\mid W_1) = \\frac{3}{7}$. If a black ball was transferred, Urn II contains $2$ white and $5$ black balls, so $P(W_2 \\mid B_1) = \\frac{2}{7}$. By the law of total probability, $P(W_2) = \\left(\\frac{3}{5}\\right)\\left(\\frac{3}{7}\\right) + \\left(\\frac{2}{5}\\right)\\left(\\frac{2}{7}\\right) = \\frac{9 + 4}{35} = \\frac{13}{35}$. Applying Bayes' theorem, we get $P(W_1 \\mid W_2) = \\frac{9/35}{13/35} = \\frac{9}{13}$. The fraction $\\frac{4}{13}$ corresponds to a transferred black ball; $\\frac{3}{5}$ is the unconditioned prior probability; and $\\frac{3}{7}$ is the conditional likelihood."
+    },
+    {
+      "id": "pbr_c01_017",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The probability mass function of a discrete random variable $X$ is given by $P(X = x) = c(x^2 + 1)$ for $x \\in \\{0, 1, 2, 3\\}$, and $P(X = x) = 0$ otherwise, where $c$ is a normalizing constant. The probability $P(X \\ge 2)$ is equal to:",
+      "options": [
+        "A) $\\frac{2}{3}$",
+        "B) $\\frac{5}{6}$",
+        "C) $\\frac{7}{18}$",
+        "D) $\\frac{1}{6}$"
+      ],
+      "answer": "B",
+      "explanation": "Since the sum of probabilities across the support must equal $1$, we have $\\sum_{x=0}^3 c(x^2 + 1) = c[(0+1) + (1+1) + (4+1) + (9+1)] = c(1 + 2 + 5 + 10) = 18c = 1$, which gives $c = \\frac{1}{18}$. Next, the probability of interest is $P(X \\ge 2) = P(X = 2) + P(X = 3) = c(5 + 10) = 15c = \\frac{15}{18} = \\frac{5}{6}$. The value $\\frac{2}{3}$ omits the constant term $+1$ for $x=3$; $\\frac{7}{18}$ is an erroneous sum of lower states; and $\\frac{1}{6}$ is the complement $P(X \\le 1)$."
+    },
+    {
+      "id": "pbr_c01_018",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a binomial distribution $B(n, p)$ with $n = 6$, it is given that $9 P(X = 4) = P(X = 2)$. Assuming the success probability satisfies $p \\in (0, 1)$, the value of the parameter $p$ is:",
+      "options": [
+        "A) $\\frac{1}{3}$",
+        "B) $\\frac{1}{2}$",
+        "C) $\\frac{1}{4}$",
+        "D) $\\frac{3}{4}$"
+      ],
+      "answer": "C",
+      "explanation": "The binomial probabilities are given by $P(X = 4) = \\binom{6}{4} p^4 (1-p)^2 = 15 p^4 (1-p)^2$ and $P(X = 2) = \\binom{6}{2} p^2 (1-p)^4 = 15 p^2 (1-p)^4$. Substituting these into $9 P(X = 4) = P(X = 2)$ yields $9 \\times 15 p^4 (1-p)^2 = 15 p^2 (1-p)^4$. Dividing both sides by $15 p^2 (1-p)^2 > 0$ gives $9 p^2 = (1-p)^2$. Taking the positive square root on both sides since $p \\in (0, 1)$ leads to $3p = 1 - p$, which implies $4p = 1$ and therefore $p = \\frac{1}{4}$. The fraction $\\frac{1}{3}$ drops the square root; $\\frac{1}{2}$ assumes a symmetric coin; and $\\frac{3}{4}$ is the failure probability $1-p$."
+    },
+    {
+      "id": "pbr_c01_019",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A target is shot at repeatedly and independently until a hit is scored. The probability of scoring a hit on any single shot is $p = 0.2$. Let $N$ denote the total number of shots fired until the first hit is scored. The conditional probability $P(N \\ge 6 \\mid N > 3)$ is:",
+      "options": [
+        "A) $0.80$",
+        "B) $0.512$",
+        "C) $0.32$",
+        "D) $0.64$"
+      ],
+      "answer": "D",
+      "explanation": "The random variable $N$ follows a geometric distribution with success probability $p = 0.2$ and failure probability $q = 1 - p = 0.8$. The tail probability is given by $P(N > k) = q^k$. Since the event $N \\ge 6$ for integer $N$ is equivalent to $N > 5$, we have $P(N \\ge 6 \\mid N > 3) = \\frac{P(N > 5)}{P(N > 3)} = \\frac{q^5}{q^3} = q^2$. Substituting $q = 0.8$ yields $q^2 = (0.8)^2 = 0.64$. The value $0.80$ confuses $N \\ge 6$ with $N > 4$; $0.512$ evaluates $q^3$; and $0.32$ is an arithmetic calculation error."
+    },
+    {
+      "id": "pbr_c01_020",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A bag contains $5$ red balls and $3$ green balls. Two balls are drawn simultaneously at random without replacement. Let the random variable $X$ denote the number of red balls drawn. Find the integer value of $112 \\, \\text{Var}(X)$.",
+      "options": [],
+      "answer": "45",
+      "explanation": "The total number of ways to draw $2$ balls from $8$ is $\\binom{8}{2} = 28$. The possible values of $X$ are $0, 1, 2$. The respective probabilities are: $P(X = 0) = \\frac{\\binom{3}{2}}{28} = \\frac{3}{28}$, $P(X = 1) = \\frac{\\binom{5}{1}\\binom{3}{1}}{28} = \\frac{15}{28}$, and $P(X = 2) = \\frac{\\binom{5}{2}}{28} = \\frac{10}{28}$. The expectation is $E(X) = 0\\left(\\frac{3}{28}\\right) + 1\\left(\\frac{15}{28}\\right) + 2\\left(\\frac{10}{28}\\right) = \\frac{35}{28} = \\frac{5}{4}$. The second moment is $E(X^2) = 0^2\\left(\\frac{3}{28}\\right) + 1^2\\left(\\frac{15}{28}\\right) + 2^2\\left(\\frac{10}{28}\\right) = \\frac{15 + 40}{28} = \\frac{55}{28}$. Hence, $\\text{Var}(X) = E(X^2) - [E(X)]^2 = \\frac{55}{28} - \\frac{25}{16} = \\frac{220 - 175}{112} = \\frac{45}{112}$. Therefore, $112 \\, \\text{Var}(X) = 45$."
+    },
+    {
+      "id": "pbr_c01_021",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A disease affects $1\\%$ of a large demographic. A diagnostic screen correctly identifies an infected patient with probability $0.99$ (sensitivity), but also incorrectly identifies a healthy person as infected with probability $0.02$ (false positive rate). If a person chosen at random tests positive on this screen, the probability that the person is truly infected is:",
+      "options": [
+        "A) $\\frac{1}{3}$",
+        "B) $\\frac{1}{2}$",
+        "C) $\\frac{99}{100}$",
+        "D) $\\frac{1}{4}$"
+      ],
+      "answer": "A",
+      "explanation": "Let $D$ denote the infected status and $+$ denote a positive test. We are given $P(D) = 0.01$, $P(D^c) = 0.99$, $P(+ \\mid D) = 0.99$, and $P(+ \\mid D^c) = 0.02$. By the law of total probability, $P(+) = P(D)P(+ \\mid D) + P(D^c)P(+ \\mid D^c) = (0.01)(0.99) + (0.99)(0.02) = 0.0099 + 0.0198 = 0.0297$. Applying Bayes' theorem, we have $P(D \\mid +) = \\frac{P(D \\cap +)}{P(+)} = \\frac{0.0099}{0.0297} = \\frac{99}{297} = \\frac{1}{3}$. The fraction $\\frac{1}{2}$ underestimates false positives; $\\frac{99}{100}$ is the sensitivity ignoring population base rates; and $\\frac{1}{4}$ is an arithmetic fraction error."
+    },
+    {
+      "id": "pbr_c01_022",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Urn A contains $4$ white and $2$ red balls, while Urn B contains $3$ white and $5$ red balls. One urn is chosen at random with equal probability, and two balls are drawn from it simultaneously without replacement. If both drawn balls are white, the probability that they were drawn from Urn A is:",
+      "options": [
+        "A) $\\frac{15}{71}$",
+        "B) $\\frac{56}{71}$",
+        "C) $\\frac{2}{5}$",
+        "D) $\\frac{4}{7}$"
+      ],
+      "answer": "B",
+      "explanation": "Let $A$ and $B$ denote selecting Urn A and Urn B respectively, with $P(A) = P(B) = \\frac{1}{2}$. The probability of drawing two white balls from Urn A is $P(WW \\mid A) = \\frac{\\binom{4}{2}}{\\binom{6}{2}} = \\frac{6}{15} = \\frac{2}{5}$. From Urn B, $P(WW \\mid B) = \\frac{\\binom{3}{2}}{\\binom{8}{2}} = \\frac{3}{28}$. By total probability, $P(WW) = \\frac{1}{2}\\left(\\frac{2}{5}\\right) + \\frac{1}{2}\\left(\\frac{3}{28}\\right) = \\frac{1}{5} + \\frac{3}{56} = \\frac{56 + 15}{280} = \\frac{71}{280}$. By Bayes' theorem, $P(A \\mid WW) = \\frac{1/5}{71/280} = \\frac{56}{71}$. The fraction $\\frac{15}{71}$ is the posterior probability for Urn B; $\\frac{2}{5}$ is the unconditioned likelihood; and $\\frac{4}{7}$ assumes replacement."
+    },
+    {
+      "id": "pbr_c01_023",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A balanced six-faced die is rolled independently $10$ times. Let $X$ denote the number of times an even number appears. What is the probability that $X$ takes a value strictly greater than its expected value?",
+      "options": [
+        "A) $\\frac{1}{2}$",
+        "B) $\\frac{63}{256}$",
+        "C) $\\frac{193}{512}$",
+        "D) $\\frac{319}{512}$"
+      ],
+      "answer": "C",
+      "explanation": "The probability of rolling an even number on a single die roll is $p = \\frac{3}{6} = \\frac{1}{2}$. Thus, $X \\sim B\\left(10, \\frac{1}{2}\\right)$ with expected value $E(X) = 10 \\times \\frac{1}{2} = 5$. By symmetry of the binomial distribution with $p = \\frac{1}{2}$, we have $P(X < 5) = P(X > 5)$. Since $\\sum_{k=0}^{10} P(X = k) = 1$, we get $2 P(X > 5) + P(X = 5) = 1$. The central term is $P(X = 5) = \\binom{10}{5}\\left(\\frac{1}{2}\\right)^{10} = \\frac{252}{1024} = \\frac{63}{256}$. Solving for $P(X > 5)$ yields $2 P(X > 5) = 1 - \\frac{63}{256} = \\frac{193}{256}$, hence $P(X > 5) = \\frac{193}{512}$. The option $\\frac{1}{2}$ ignores the central point mass; $\\frac{63}{256}$ is $P(X = 5)$; and $\\frac{319}{512}$ includes $X = 5$."
+    },
+    {
+      "id": "pbr_c01_024",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $X$ and $Y$ be two independent random variables such that $E(X) = 3$, $E(Y) = -2$, $\\text{Var}(X) = 4$, and $\\text{Var}(Y) = 5$. If $Z = 2X - 3Y + 4$, the standard deviation $\\sigma_Z$ is equal to:",
+      "options": [
+        "A) $\\sqrt{31}$",
+        "B) $61$",
+        "C) $7$",
+        "D) $\\sqrt{61}$"
+      ],
+      "answer": "D",
+      "explanation": "For independent random variables, the variance of a linear combination $aX + bY + c$ satisfies $\\text{Var}(aX + bY + c) = a^2 \\text{Var}(X) + b^2 \\text{Var}(Y)$. Substituting the given values gives $\\text{Var}(Z) = 2^2 \\text{Var}(X) + (-3)^2 \\text{Var}(Y) = 4(4) + 9(5) = 16 + 45 = 61$. The standard deviation is the positive square root of the variance, so $\\sigma_Z = \\sqrt{\\text{Var}(Z)} = \\sqrt{61}$. The value $\\sqrt{31}$ subtracts the second variance component; $61$ confuses standard deviation with variance; and $7$ applies a false linear combination of standard deviations."
+    },
+    {
+      "id": "pbr_c01_025",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A shooter hits a target with probability $p = \\frac{1}{4}$ on each independent shot. Let $m$ be the minimum number of shots the shooter must fire so that the probability of hitting the target at least once is strictly greater than $0.999$. Given that $\\log_{10} 2 \\approx 0.3010$ and $\\log_{10} 3 \\approx 0.4771$, find the integer value of $m$.",
+      "options": [],
+      "answer": "25",
+      "explanation": "The probability of hitting the target at least once in $m$ shots is $1 - (1 - p)^m = 1 - \\left(\\frac{3}{4}\\right)^m$. We require $1 - \\left(\\frac{3}{4}\\right)^m > 0.999$, which simplifies to $\\left(\\frac{3}{4}\\right)^m < 0.001 = 10^{-3}$. Taking $\\log_{10}$ on both sides yields $m \\log_{10}\\left(\\frac{3}{4}\\right) < -3$. Since $\\log_{10}(3/4) = \\log_{10} 3 - 2 \\log_{10} 2 = 0.4771 - 2(0.3010) = -0.1249$, dividing by $-0.1249$ reverses the inequality to $m > \\frac{3}{0.1249} \\approx 24.019$. Since $m$ must be an integer, the minimum value is $m = 25$."
+    },
+    {
+      "id": "pbr_c01_026",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Three coins are placed in a box: Coin 1 is two-headed (both sides heads), Coin 2 is a biased coin that lands on heads with probability $\\frac{3}{4}$, and Coin 3 is an unbiased coin with heads probability $\\frac{1}{2}$. A coin is chosen at random and tossed twice. If both tosses result in heads, the probability that the chosen coin was Coin 1 is:",
+      "options": [
+        "A) $\\frac{16}{29}$",
+        "B) $\\frac{9}{29}$",
+        "C) $\\frac{4}{29}$",
+        "D) $\\frac{1}{3}$"
+      ],
+      "answer": "A",
+      "explanation": "Each coin has prior probability $P(C_1) = P(C_2) = P(C_3) = \\frac{1}{3}$. The conditional probabilities of obtaining two heads in two independent tosses are $P(HH \\mid C_1) = 1^2 = 1$, $P(HH \\mid C_2) = \\left(\\frac{3}{4}\\right)^2 = \\frac{9}{16}$, and $P(HH \\mid C_3) = \\left(\\frac{1}{2}\\right)^2 = \\frac{4}{16}$. By total probability, $P(HH) = \\frac{1}{3}\\left(1 + \\frac{9}{16} + \\frac{4}{16}\\right) = \\frac{1}{3}\\left(\\frac{29}{16}\\right) = \\frac{29}{48}$. Applying Bayes' theorem, we find $P(C_1 \\mid HH) = \\frac{\\frac{1}{3}(1)}{29/48} = \\frac{16}{29}$. The fraction $\\frac{9}{29}$ is the posterior probability for Coin 2; $\\frac{4}{29}$ is for Coin 3; and $\\frac{1}{3}$ is the unconditioned prior probability."
+    },
+    {
+      "id": "pbr_c01_027",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A player rolls an unbiased six-faced die. If a prime number appears, the player wins ₹ $50$; if a composite number appears, the player loses ₹ $30$; and if the number $1$ appears, the player loses ₹ $10$. What is the expected net gain (in ₹) of the player per roll?",
+      "options": [
+        "A) ₹ $10$",
+        "B) ₹ $\\frac{40}{3}$",
+        "C) ₹ $\\frac{50}{3}$",
+        "D) ₹ $15$"
+      ],
+      "answer": "B",
+      "explanation": "The six equally likely outcomes of a die are $\\{1, 2, 3, 4, 5, 6\\}$. Prime numbers are $\\{2, 3, 5\\}$ ($3$ outcomes), composite numbers are $\\{4, 6\\}$ ($2$ outcomes), and the unit is $\\{1\\}$ ($1$ outcome). Let $W$ be the net gain. The expected value is $E(W) = \\frac{3}{6}(50) + \\frac{2}{6}(-30) + \\frac{1}{6}(-10) = \\frac{150 - 60 - 10}{6} = \\frac{80}{6} = \\frac{40}{3}$. The option ₹ $10$ erroneously treats $1$ as a prime number; ₹ $\\frac{50}{3}$ neglects the loss on $1$; and ₹ $15$ results from an unweighted average of the cash payoffs."
+    },
+    {
+      "id": "pbr_c01_028",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Three machines $A, B, C$ produce $50\\%$, $30\\%$, and $20\\%$ of the total bolts in a factory, respectively. The percentages of defective bolts produced by these machines are $3\\%$, $4\\%$, and $5\\%$, respectively. If a bolt drawn at random from the output is found to be defective, what is the probability that it was manufactured by machine $B$?",
+      "options": [
+        "A) $\\frac{15}{37}$",
+        "B) $\\frac{10}{37}$",
+        "C) $\\frac{12}{37}$",
+        "D) $\\frac{1}{3}$"
+      ],
+      "answer": "C",
+      "explanation": "Let $D$ be the event that a bolt is defective. We are given priors $P(A) = 0.50$, $P(B) = 0.30$, $P(C) = 0.20$ and likelihoods $P(D \\mid A) = 0.03$, $P(D \\mid B) = 0.04$, $P(D \\mid C) = 0.05$. By total probability, $P(D) = (0.50)(0.03) + (0.30)(0.04) + (0.20)(0.05) = 0.015 + 0.012 + 0.010 = 0.037$. Applying Bayes' theorem, $P(B \\mid D) = \\frac{P(B)P(D \\mid B)}{P(D)} = \\frac{0.012}{0.037} = \\frac{12}{37}$. The fraction $\\frac{15}{37}$ corresponds to machine $A$; $\\frac{10}{37}$ corresponds to machine $C$; and $\\frac{1}{3}$ divides the defect rates without weighting by total production."
+    },
+    {
+      "id": "pbr_c01_029",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A balanced six-faced die is rolled twice independently. Let $X_1$ and $X_2$ be the outcomes of the first and second rolls, respectively. Given that $X_1 + X_2 = 8$, the conditional expected value $E(X_1 X_2 \\mid X_1 + X_2 = 8)$ is equal to:",
+      "options": [],
+      "answer": "14",
+      "explanation": "The pairs $(X_1, X_2)$ of die outcomes satisfying $X_1 + X_2 = 8$ are $(2, 6), (3, 5), (4, 4), (5, 3), (6, 2)$. Each of these $5$ outcomes is equally likely in the conditional sample space. The corresponding values of the product $X_1 X_2$ are: for $(2, 6)$ and $(6, 2)$, $X_1 X_2 = 12$; for $(3, 5)$ and $(5, 3)$, $X_1 X_2 = 15$; and for $(4, 4)$, $X_1 X_2 = 16$. Summing these products gives $12 + 15 + 16 + 15 + 12 = 70$. Hence, the conditional expected value is $E(X_1 X_2 \\mid X_1 + X_2 = 8) = \\frac{70}{5} = 14$."
+    },
+    {
+      "id": "pbr_c01_030",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A random variable $X$ follows a binomial distribution $B(n, p)$ such that $P(X = 1) = 8 P(X = 0)$ and $P(X = 2) = 24 P(X = 0)$. The value of $n$ is:",
+      "options": [
+        "A) $8$",
+        "B) $6$",
+        "C) $5$",
+        "D) $4$"
+      ],
+      "answer": "D",
+      "explanation": "Using the binomial formula with $q = 1 - p$, we have $P(X = 0) = q^n$, $P(X = 1) = n p q^{n-1}$, and $P(X = 2) = \\frac{n(n-1)}{2} p^2 q^{n-2}$. From $P(X = 1) = 8 P(X = 0)$, dividing by $q^{n-1}$ yields $n \\frac{p}{q} = 8$, so $\\frac{p}{q} = \\frac{8}{n}$. From $P(X = 2) = 24 P(X = 0)$, we get $\\frac{n(n-1)}{2} \\left(\\frac{p}{q}\\right)^2 = 24$. Substituting $\\frac{p}{q} = \\frac{8}{n}$ gives $\\frac{n(n-1)}{2} \\cdot \\frac{64}{n^2} = 24$, which simplifies to $\\frac{32(n-1)}{n} = 24$. Dividing by $8$ gives $4(n-1) = 3n$, which solves to $4n - 4 = 3n \\implies n = 4$. The value $8$ confuses the ratio with $n$; $6$ drops the factor of $2$ in $\\binom{n}{2}$; and $5$ is an algebra rearrangement slip."
+    },
+    {
+      "id": "pbr_c01_031",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A card from a standard pack of $52$ playing cards is lost. From the remaining $51$ cards, two cards are drawn at random and are found to be both diamonds. What is the probability that the lost card was also a diamond?",
+      "options": [
+        "A) $\\frac{11}{50}$",
+        "B) $\\frac{13}{50}$",
+        "C) $\\frac{1}{4}$",
+        "D) $\\frac{39}{50}$"
+      ],
+      "answer": "A",
+      "explanation": "Let $D$ be the event that the lost card is a diamond, so $P(D) = \\frac{13}{52} = \\frac{1}{4}$ and $P(D^c) = \\frac{39}{52} = \\frac{3}{4}$. Let $A$ be the event that two randomly drawn cards from the remaining $51$ cards are diamonds. If $D$ occurred, $12$ diamonds remain, so $P(A \\mid D) = \\frac{\\binom{12}{2}}{\\binom{51}{2}} = \\frac{12 \\times 11}{51 \\times 50}$. If $D^c$ occurred, $13$ diamonds remain, so $P(A \\mid D^c) = \\frac{\\binom{13}{2}}{\\binom{51}{2}} = \\frac{13 \\times 12}{51 \\times 50}$. Applying Bayes' theorem, we find $P(D \\mid A) = \\frac{\\frac{1}{4} \\times 12 \\times 11}{\\frac{1}{4} \\times 12 \\times 11 + \\frac{3}{4} \\times 13 \\times 12} = \\frac{11}{11 + 39} = \\frac{11}{50}$. The fraction $\\frac{13}{50}$ ignores that a diamond was removed; $\\frac{1}{4}$ is the unconditioned prior; and $\\frac{39}{50}$ is the complementary probability."
+    },
+    {
+      "id": "pbr_c01_032",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A random variable $X$ takes values in $\\{1, 2, 3, 4, 5\\}$ with probabilities given by $P(X = x) = \\frac{x}{15}$. If a new random variable is defined as $Y = 3X - 5$, determine the variance $\\text{Var}(Y)$.",
+      "options": [],
+      "answer": "14",
+      "explanation": "First compute the first moment: $E(X) = \\sum_{x=1}^5 x \\left(\\frac{x}{15}\\right) = \\frac{1}{15} \\sum_{x=1}^5 x^2 = \\frac{1}{15} \\left(\\frac{5 \\times 6 \\times 11}{6}\\right) = \\frac{55}{15} = \\frac{11}{3}$. Next, compute the second moment: $E(X^2) = \\sum_{x=1}^5 x^2 \\left(\\frac{x}{15}\\right) = \\frac{1}{15} \\sum_{x=1}^5 x^3 = \\frac{1}{15} \\left(\\frac{5 \\times 6}{2}\\right)^2 = \\frac{225}{15} = 15$. The variance of $X$ is $\\text{Var}(X) = E(X^2) - [E(X)]^2 = 15 - \\left(\\frac{11}{3}\\right)^2 = 15 - \\frac{121}{9} = \\frac{14}{9}$. Since $Y = 3X - 5$, we have $\\text{Var}(Y) = 3^2 \\text{Var}(X) = 9 \\left(\\frac{14}{9}\\right) = 14$."
+    },
+    {
+      "id": "pbr_c01_033",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two fair dice are rolled independently. Let $M = \\max(X_1, X_2)$ denote the maximum of the two numbers obtained. Given that $M = 5$, find the conditional probability that the absolute difference $|X_1 - X_2| \\le 2$.",
+      "options": [
+        "A) $\\frac{4}{9}$",
+        "B) $\\frac{5}{9}$",
+        "C) $\\frac{2}{3}$",
+        "D) $\\frac{1}{3}$"
+      ],
+      "answer": "B",
+      "explanation": "The event $M = \\max(X_1, X_2) = 5$ consists of all pairs with maximum equal to $5$, which has $5^2 - 4^2 = 25 - 16 = 9$ outcomes: $(5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (1, 5), (2, 5), (3, 5), (4, 5)$. For $|X_1 - X_2| \\le 2$ within these $9$ outcomes, the other die value $y$ must satisfy $|5 - y| \\le 2$, meaning $y \\in \\{3, 4, 5\\}$. The favorable pairs are $(5, 3), (5, 4), (5, 5), (3, 5), (4, 5)$, which gives $5$ favorable outcomes. Thus, the conditional probability is $\\frac{5}{9}$. The fraction $\\frac{4}{9}$ misses the diagonal pair $(5, 5)$; $\\frac{2}{3}$ improperly includes $y = 2$; and $\\frac{1}{3}$ fails to count both symmetrical roll orders."
+    },
+    {
+      "id": "pbr_c01_034",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A player flips an unbiased coin repeatedly. The game terminates as soon as the sequence $HT$ (a head immediately followed by a tail) appears. What is the expected total number of flips required until the game terminates?",
+      "options": [
+        "A) $6$",
+        "B) $5$",
+        "C) $4$",
+        "D) $3$"
+      ],
+      "answer": "C",
+      "explanation": "Let $E$ be the expected number of flips from the start (no heads seen), and let $E_H$ be the expected additional flips once a head is currently showing. From the initial state, with probability $\\frac{1}{2}$ the flip is $T$ (returning to the start) and with probability $\\frac{1}{2}$ the flip is $H$, so $E = 1 + \\frac{1}{2}E + \\frac{1}{2}E_H$, yielding $E = 2 + E_H$. From state $H$, with probability $\\frac{1}{2}$ the flip is $T$ (completing $HT$) and with probability $\\frac{1}{2}$ the flip is $H$ (remaining in state $H$), so $E_H = 1 + \\frac{1}{2}(0) + \\frac{1}{2}E_H$, which gives $E_H = 2$. Substituting back, we obtain $E = 2 + 2 = 4$. The value $6$ is the expected time for $HH$; $5$ miscounts transitions from state $H$; and $3$ is too small to account for restarts."
+    },
+    {
+      "id": "pbr_c01_035",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Three distinguishable balls are distributed randomly and independently into $3$ distinguishable cells. Let $X$ denote the number of empty cells. If the expected value $E(X) = \\frac{p}{q}$, where $p$ and $q$ are coprime positive integers, find the value of $p + q$.",
+      "options": [],
+      "answer": "17",
+      "explanation": "The total number of ways to distribute $3$ distinguishable balls into $3$ cells is $3^3 = 27$. For each cell $i \\in \\{1, 2, 3\\}$, let $I_i$ be an indicator random variable such that $I_i = 1$ if cell $i$ is empty and $0$ otherwise. The probability that cell $i$ remains empty after all $3$ balls are placed is $\\left(\\frac{2}{3}\\right)^3 = \\frac{8}{27}$. By linearity of expectation, the expected number of empty cells is $E(X) = \\sum_{i=1}^3 E(I_i) = 3 \\times \\frac{8}{27} = \\frac{8}{9}$. Since $8$ and $9$ are coprime positive integers, $p = 8$ and $q = 9$, yielding $p + q = 8 + 9 = 17$."
+    },
+    {
+      "id": "pbr_c01_036",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A gambler starts with an initial capital of ₹ $2$ and bets ₹ $1$ on each round of a game. In each round, the gambler wins ₹ $1$ with probability $p = \\frac{2}{3}$ and loses ₹ $1$ with probability $q = \\frac{1}{3}$. The gambler stops playing when either their capital reaches ₹ $4$ (success) or drops to ₹ $0$ (ruin). The probability that the gambler reaches ₹ $4$ before going broke is:",
+      "options": [
+        "A) $\\frac{1}{2}$",
+        "B) $\\frac{2}{3}$",
+        "C) $\\frac{3}{4}$",
+        "D) $\\frac{4}{5}$"
+      ],
+      "answer": "D",
+      "explanation": "Let $P_k$ be the probability of reaching ₹ $4$ starting from capital ₹ $k$, where $k \\in \\{0, 1, 2, 3, 4\\}$. The recurrence relation is $P_k = p P_{k+1} + q P_{k-1}$ with absorbing boundary conditions $P_0 = 0$ and $P_4 = 1$. Since $p \\ne q$, the characteristic equation yields the general solution $P_k = A + B\\left(\\frac{q}{p}\\right)^k$. Applying $P_0 = 0$ implies $A + B = 0$, so $B = -A$. Substituting into the second boundary condition gives $P_4 = A\\left[1 - \\left(\\frac{1}{2}\\right)^4\\right] = 1$, yielding $A = \\frac{16}{15}$. Therefore, for initial capital $k = 2$, we get $P_2 = \\frac{1 - (1/2)^2}{1 - (1/2)^4} = \\frac{3/4}{15/16} = \\frac{4}{5}$. The value $\\frac{1}{2}$ is the symmetric gambler's ruin value; $\\frac{2}{3}$ is the single-round win probability; and $\\frac{3}{4}$ ignores absorption boundaries."
+    },
+    {
+      "id": "pbr_c01_037",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A continuous random variable $X$ has the probability density function $f(x) = c(1-x)$ for $0 \\le x \\le 1$, and $f(x) = 0$ otherwise, where $c$ is a positive constant. If the variance of $X$ is $\\text{Var}(X) = \\frac{1}{k}$, determine the integer value of $k$.",
+      "options": [],
+      "answer": "18",
+      "explanation": "First, determine the normalization constant $c$ by integrating over the support: $\\int_0^1 c(1-x) \\, dx = c\\left[x - \\frac{x^2}{2}\\right]_0^1 = \\frac{c}{2} = 1$, which implies $c = 2$. Next, compute the first moment: $E(X) = \\int_0^1 2x(1-x) \\, dx = 2\\left[\\frac{x^2}{2} - \\frac{x^3}{3}\\right]_0^1 = 2\\left(\\frac{1}{2} - \\frac{1}{3}\\right) = \\frac{1}{3}$. Then compute the second moment: $E(X^2) = \\int_0^1 2x^2(1-x) \\, dx = 2\\left[\\frac{x^3}{3} - \\frac{x^4}{4}\\right]_0^1 = 2\\left(\\frac{1}{3} - \\frac{1}{4}\\right) = \\frac{1}{6}$. Substituting into the variance formula yields $\\text{Var}(X) = E(X^2) - [E(X)]^2 = \\frac{1}{6} - \\left(\\frac{1}{3}\\right)^2 = \\frac{1}{6} - \\frac{1}{9} = \\frac{1}{18}$. Since $\\text{Var}(X) = \\frac{1}{k}$, we obtain $k = 18$."
+    },
+    {
+      "id": "pbr_c01_038",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A continuous random variable $X$ has the probability density function $f(x)$ defined by:\n$$f(x) = \\begin{cases} k x, & 0 \\le x < 1 \\\\ k(2 - x), & 1 \\le x \\le 2 \\\\ 0, & \\text{otherwise} \\end{cases}$$\nwhere $k$ is a real constant. Which of the following statements is/are correct?",
+      "options": [
+        "A) The normalizing constant is $k = 1$.",
+        "B) The mathematical expectation satisfies $E(X) = 1$.",
+        "C) The cumulative distribution function at $x = \\frac{3}{2}$ is $F\\left(\\frac{3}{2}\\right) = \\frac{3}{4}$.",
+        "D) The variance of $X$ is $\\text{Var}(X) = \\frac{1}{6}$."
+      ],
+      "answer": "A,B,D",
+      "explanation": "To determine $k$, integrate the triangular density over $[0, 2]$: $\\int_0^2 f(x)\\,dx = k \\times \\frac{1}{2}(2)(1) = k = 1$, which confirms that statement A is correct. By symmetry of $f(x)$ about $x = 1$, the first moment is $E(X) = 1$, so statement B is correct. For the cumulative distribution function at $x = \\frac{3}{2}$, we have $F\\left(\\frac{3}{2}\\right) = 1 - \\int_{3/2}^2 (2-t)\\,dt = 1 - \\frac{1}{2}\\left(\\frac{1}{2}\\right)\\left(\\frac{1}{2}\\right) = 1 - \\frac{1}{8} = \\frac{7}{8} \\ne \\frac{3}{4}$, so statement C is incorrect. The second moment is $E(X^2) = \\int_0^1 x^3\\,dx + \\int_1^2 x^2(2-x)\\,dx = \\frac{1}{4} + \\left[\\frac{2x^3}{3} - \\frac{x^4}{4}\\right]_1^2 = \\frac{7}{6}$. Thus $\\text{Var}(X) = \\frac{7}{6} - 1^2 = \\frac{1}{6}$, showing that statement D is correct."
+    },
+    {
+      "id": "pbr_c01_039",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "An urn initially contains $2$ white balls and $3$ black balls. A ball is drawn at random, its color is noted, and it is returned to the urn along with $2$ additional balls of the same color. A second ball is then drawn from the urn. Given that the second ball drawn is white, the conditional probability that the first ball drawn was white is:",
+      "options": [
+        "A) $\\frac{4}{7}$",
+        "B) $\\frac{3}{7}$",
+        "C) $\\frac{2}{5}$",
+        "D) $\\frac{1}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "Let $W_1$ and $B_1$ be the events that the first ball is white and black, respectively, so $P(W_1) = \\frac{2}{5}$ and $P(B_1) = \\frac{3}{5}$. If $W_1$ occurs, $2$ white balls are added, so Urn contains $4$ white and $3$ black balls ($7$ total), giving $P(W_2 \\mid W_1) = \\frac{4}{7}$. If $B_1$ occurs, $2$ black balls are added, so Urn contains $2$ white and $5$ black balls, giving $P(W_2 \\mid B_1) = \\frac{2}{7}$. By the law of total probability, $P(W_2) = \\left(\\frac{2}{5}\\right)\\left(\\frac{4}{7}\\right) + \\left(\\frac{3}{5}\\right)\\left(\\frac{2}{7}\\right) = \\frac{8 + 6}{35} = \\frac{14}{35} = \\frac{2}{5}$. Applying Bayes' theorem yields $P(W_1 \\mid W_2) = \\frac{P(W_1 \\cap W_2)}{P(W_2)} = \\frac{8/35}{14/35} = \\frac{8}{14} = \\frac{4}{7}$. The fraction $\\frac{3}{7}$ corresponds to the first ball being black; $\\frac{2}{5}$ is the unconditional probability; and $\\frac{1}{2}$ assumes equal likelihood."
+    },
+    {
+      "id": "pbr_c01_040",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $X \\sim B(4, p)$ with $p = \\frac{1}{2}$. Consider the conditional distribution of $X$ given that $X \\ge 1$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The conditional probability $P(X = 2 \\mid X \\ge 1) = \\frac{3}{8}$.",
+        "B) The conditional expected value $E(X \\mid X \\ge 1) = \\frac{32}{15}$.",
+        "C) The conditional probability $P(X \\ge 3 \\mid X \\ge 1) = \\frac{1}{3}$.",
+        "D) The conditional variance satisfies $\\text{Var}(X \\mid X \\ge 1) = 1$."
+      ],
+      "answer": "B,C",
+      "explanation": "For $X \\sim B(4, 1/2)$, the total probability is distributed across $16$ outcomes. We have $P(X = 0) = \\left(\\frac{1}{2}\\right)^4 = \\frac{1}{16}$, so $P(X \\ge 1) = 1 - \\frac{1}{16} = \\frac{15}{16}$. For statement A, $P(X = 2) = \\binom{4}{2}\\left(\\frac{1}{2}\\right)^4 = \\frac{6}{16}$, giving $P(X = 2 \\mid X \\ge 1) = \\frac{6/16}{15/16} = \\frac{2}{5} \\ne \\frac{3}{8}$, so statement A is incorrect. For statement B, since $0 \\times P(X = 0) = 0$, we have $E(X \\mid X \\ge 1) = \\frac{E(X)}{P(X \\ge 1)} = \\frac{4(1/2)}{15/16} = \\frac{2}{15/16} = \\frac{32}{15}$, so statement B is correct. For statement C, $P(X \\ge 3) = P(X = 3) + P(X = 4) = \\frac{4 + 1}{16} = \\frac{5}{16}$, so $P(X \\ge 3 \\mid X \\ge 1) = \\frac{5/16}{15/16} = \\frac{1}{3}$, so statement C is correct. For statement D, $E(X^2) = \\text{Var}(X) + [E(X)]^2 = 1 + 4 = 5$, so $E(X^2 \\mid X \\ge 1) = \\frac{5}{15/16} = \\frac{16}{3}$, yielding $\\text{Var}(X \\mid X \\ge 1) = \\frac{16}{3} - \\left(\\frac{32}{15}\\right)^2 = \\frac{176}{225} \\ne 1$, so statement D is incorrect."
+    },
+    {
+      "id": "pbr_c01_041",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A continuous random variable $X$ has the probability density function $f(x) = \\frac{1}{2} e^{-x/2}$ for $x \\ge 0$, and $f(x) = 0$ for $x < 0$. Determine the conditional expected value $E(X^2 \\mid X > 2)$.",
+      "options": [],
+      "answer": "20",
+      "explanation": "By the memoryless property of the exponential distribution with rate parameter $\\lambda = \\frac{1}{2}$, the conditional random variable $X - 2$ given $X > 2$ is distributed as an independent exponential variable $Y \\sim \\text{Exp}\\left(\\frac{1}{2}\\right)$. Hence, $X \\mid (X > 2)$ has the same distribution as $Y + 2$. The moments of $Y$ are $E(Y) = \\frac{1}{\\lambda} = 2$ and $E(Y^2) = \\frac{2}{\\lambda^2} = 8$. Expanding the conditional second moment yields $E(X^2 \\mid X > 2) = E[(Y + 2)^2] = E(Y^2 + 4Y + 4) = E(Y^2) + 4E(Y) + 4$. Substituting the values gives $8 + 4(2) + 4 = 8 + 8 + 4 = 20$."
+    },
+    {
+      "id": "pbr_c01_042",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Three events $A, B, C$ are defined on a probability sample space $\\Omega$. Which of the following statements is/are correct?",
+      "options": [
+        "A) Pairwise independence of $A, B$, and $C$ does not necessarily imply mutual independence of $A, B$, and $C$.",
+        "B) If $P(A \\cap B \\cap C) = P(A)P(B)P(C)$, then $A, B$, and $C$ are guaranteed to be mutually independent.",
+        "C) If $A, B, C$ are mutually independent, then $A$ is independent of the event $B \\cup C$.",
+        "D) If $A$ and $B$ are independent, then their complements $A'$ and $B'$ are also independent."
+      ],
+      "answer": "A,C,D",
+      "explanation": "Statement A is correct because pairwise independence requires only $P(E_i \\cap E_j) = P(E_i)P(E_j)$, which can hold without satisfying the triple product condition $P(A \\cap B \\cap C) = P(A)P(B)P(C)$. Statement B is incorrect because mutual independence requires all four conditions (three pairwise and one triple product); satisfying the triple condition alone does not enforce pairwise independence. Statement C is correct because $P(A \\cap (B \\cup C)) = P(A \\cap B) + P(A \\cap C) - P(A \\cap B \\cap C) = P(A)[P(B) + P(C) - P(B \\cap C)] = P(A)P(B \\cup C)$. Statement D is correct because $P(A' \\cap B') = 1 - P(A \\cup B) = 1 - P(A) - P(B) + P(A)P(B) = (1 - P(A))(1 - P(B)) = P(A')P(B')$."
+    },
+    {
+      "id": "pbr_c01_043",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A particle executes a random walk on the integer lattice points $\\{0, 1, 2, 3, 4, 5\\}$. At each time step, it moves one unit to the right with probability $p = \\frac{3}{5}$ and one unit to the left with probability $q = \\frac{2}{5}$. The points $0$ and $5$ are absorbing barriers. If the particle starts at the point $x = 1$, what is the probability that it is absorbed at $5$?",
+      "options": [
+        "A) $\\frac{1}{5}$",
+        "B) $\\frac{32}{211}$",
+        "C) $\\frac{81}{211}$",
+        "D) $\\frac{130}{211}$"
+      ],
+      "answer": "C",
+      "explanation": "Let $u_k$ be the absorption probability at $5$ starting from position $k \\in \\{0, 1, \\dots, 5\\}$, with boundary conditions $u_0 = 0$ and $u_5 = 1$. The difference equation is $u_k = p u_{k+1} + q u_{k-1}$. The ratio of stepping probabilities is $\\frac{q}{p} = \\frac{2/5}{3/5} = \\frac{2}{3} \\ne 1$. The standard solution is $u_k = \\frac{1 - (q/p)^k}{1 - (q/p)^5}$. Setting $k = 1$ yields $u_1 = \\frac{1 - 2/3}{1 - (2/3)^5} = \\frac{1/3}{1 - 32/243} = \\frac{1/3}{211/243} = \\frac{81}{211}$. The fraction $\\frac{1}{5}$ corresponds to a symmetric random walk; $\\frac{32}{211}$ inverts the absorbing boundaries; and $\\frac{130}{211}$ is the probability of absorption at $0$."
+    },
+    {
+      "id": "pbr_c01_044",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A manufacturer includes one of $3$ distinct collectible toy figures uniformly at random in each product package. Let $T$ be the total number of packages a collector must purchase to collect all $3$ distinct figures. Which of the following statements is/are correct?",
+      "options": [
+        "A) The expected number of packages to obtain the complete collection is $E(T) = \\frac{11}{2}$.",
+        "B) The probability of completing the collection in exactly $3$ packages is $P(T = 3) = \\frac{2}{9}$.",
+        "C) The variance of the total number of purchases is $\\text{Var}(T) = \\frac{27}{4}$.",
+        "D) The probability of requiring strictly more than $4$ packages is $P(T > 4) = \\frac{7}{27}$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Decompose $T = T_1 + T_2 + T_3$, where $T_i$ is the number of additional purchases needed to find the $i$-th distinct figure. Here $T_1 = 1$, $T_2 \\sim \\text{Geom}(2/3)$, and $T_3 \\sim \\text{Geom}(1/3)$ are mutually independent. Statement A is correct because $E(T) = 1 + \\frac{3}{2} + 3 = \\frac{11}{2}$. Statement B is correct because $P(T = 3) = 1 \\times \\frac{2}{3} \\times \\frac{1}{3} = \\frac{2}{9}$. Statement C is correct because $\\text{Var}(T) = \\text{Var}(T_1) + \\text{Var}(T_2) + \\text{Var}(T_3) = 0 + \\frac{1 - 2/3}{(2/3)^2} + \\frac{1 - 1/3}{(1/3)^2} = \\frac{3}{4} + 6 = \\frac{27}{4}$. Statement D is incorrect because the number of ways $4$ packages contain all $3$ toys is $3! S(4, 3) = 6 \\times 6 = 36$, giving $P(T \\le 4) = \\frac{36}{81} = \\frac{4}{9}$, so $P(T > 4) = 1 - \\frac{4}{9} = \\frac{5}{9} \\ne \\frac{7}{27}$."
+    },
+    {
+      "id": "pbr_c01_045",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Ten distinct letters are placed randomly into $10$ corresponding addressed envelopes, with exactly one letter per envelope. Let the random variable $X$ denote the number of letters that are placed into their correct envelopes. If $Y = 3X^2 + 4X$, determine the expected value $E(Y)$.",
+      "options": [],
+      "answer": "10",
+      "explanation": "Let $I_i$ be the indicator variable that letter $i$ is placed in envelope $i$, so $X = \\sum_{i=1}^{10} I_i$. Since each letter is equally likely to be placed in any envelope, $P(I_i = 1) = \\frac{1}{10}$, giving $E(X) = 10 \\times \\frac{1}{10} = 1$. Next, expand $X^2 = \\sum_{i=1}^{10} I_i^2 + \\sum_{i \\ne j} I_i I_j$. Because $I_i^2 = I_i$ and $P(I_i = 1, I_j = 1) = \\frac{1}{10 \\times 9} = \\frac{1}{90}$, taking expectations gives $E(X^2) = 10\\left(\\frac{1}{10}\\right) + 90\\left(\\frac{1}{90}\\right) = 1 + 1 = 2$. By linearity of expectation, $E(Y) = 3 E(X^2) + 4 E(X) = 3(2) + 4(1) = 6 + 4 = 10$."
+    },
+    {
+      "id": "pbr_c01_046",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A continuous random variable $X$ has the probability density function:\n$$f(x) = \\begin{cases} \\frac{3}{4}(2x - x^2), & 0 \\le x \\le 2 \\\\ 0, & \\text{otherwise} \\end{cases}$$\nWhich of the following statements is/are correct?",
+      "options": [
+        "A) The cumulative distribution function satisfies $F(1) = \\frac{1}{4}$.",
+        "B) The distribution is symmetric about $x = 1$, so the median equals $1$.",
+        "C) The mathematical expectation is $E(X) = \\frac{3}{4}$.",
+        "D) The mode of the distribution is located at $x = 1$."
+      ],
+      "answer": "B,D",
+      "explanation": "Statement B is correct because $f(2 - x) = \\frac{3}{4}[2(2-x) - (2-x)^2] = \\frac{3}{4}(2x - x^2) = f(x)$, establishing that $f(x)$ is symmetric about $x = 1$, which implies the median is $1$. Statement D is correct because $f'(x) = \\frac{3}{4}(2 - 2x) = 0$ at $x = 1$, with $f''(1) = -\\frac{3}{2} < 0$, making $x = 1$ the unique global maximum (mode). Statement A is incorrect because by symmetry $F(1) = \\int_0^1 \\frac{3}{4}(2x - x^2)\\,dx = \\frac{3}{4}\\left[1 - \\frac{1}{3}\\right] = \\frac{1}{2} \\ne \\frac{1}{4}$. Statement C is incorrect because symmetry about $x = 1$ implies $E(X) = 1 \\ne \\frac{3}{4}$."
+    },
+    {
+      "id": "pbr_c01_047",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $X$ and $Y$ be two independent continuous random variables, each uniformly distributed on the interval $[0, 1]$. What is the conditional probability $P\\left(X + Y \\le 1 \\;\\middle|\\; X \\le \\frac{3}{4}\\right)$?",
+      "options": [
+        "A) $\\frac{1}{2}$",
+        "B) $\\frac{5}{8}$",
+        "C) $\\frac{2}{3}$",
+        "D) $\\frac{9}{16}$"
+      ],
+      "answer": "B",
+      "explanation": "The joint density is $f_{X,Y}(x, y) = 1$ on the unit square $[0, 1]^2$. The conditioning event is $E = \\{X \\le 3/4\\}$, which has area $P(E) = \\frac{3}{4}$. The joint event is $A = \\{X + Y \\le 1\\}$. The intersection $A \\cap E$ consists of the triangle $x + y \\le 1$ minus the small corner triangle where $x > 3/4$. The triangle $x + y \\le 1$ has area $\\frac{1}{2}$. The excluded corner triangle has vertices $(3/4, 0), (1, 0), (3/4, 1/4)$, with base $1/4$ and height $1/4$, giving area $\\frac{1}{2}\\left(\\frac{1}{4}\\right)\\left(\\frac{1}{4}\\right) = \\frac{1}{32}$. Hence, $P(A \\cap E) = \\frac{1}{2} - \\frac{1}{32} = \\frac{15}{32}$. The conditional probability is $\\frac{P(A \\cap E)}{P(E)} = \\frac{15/32}{3/4} = \\frac{5}{8}$. The fraction $\\frac{1}{2}$ is the unconditioned probability; $\\frac{2}{3}$ is the naive area ratio; and $\\frac{9}{16}$ is $(3/4)^2$."
+    },
+    {
+      "id": "pbr_c01_048",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $X$ be a non-negative random variable with finite mean $\\mu = 10$ and variance $\\sigma^2 = 4$. Which of the following statements is/are correct?",
+      "options": [
+        "A) By Markov's inequality, the probability $P(X \\ge 25) \\le \\frac{2}{5}$.",
+        "B) By Chebyshev's inequality, the probability $P(|X - 10| \\ge 6) \\le \\frac{1}{6}$.",
+        "C) By Chebyshev's inequality, the probability $P(6 < X < 14) \\ge \\frac{3}{4}$.",
+        "D) The expectation $E(X^2)$ is equal to $100$."
+      ],
+      "answer": "A,C",
+      "explanation": "Statement A is correct because Markov's inequality for a non-negative random variable states $P(X \\ge a) \\le \\frac{E(X)}{a}$. For $a = 25$, we obtain $P(X \\ge 25) \\le \\frac{10}{25} = \\frac{2}{5}$. Statement B is incorrect because Chebyshev's inequality states $P(|X - \\mu| \\ge k) \\le \\frac{\\sigma^2}{k^2}$. For $k = 6$, $P(|X - 10| \\ge 6) \\le \\frac{4}{36} = \\frac{1}{9} \\ne \\frac{1}{6}$. Statement C is correct because $P(6 < X < 14) = P(|X - 10| < 4) \\ge 1 - \\frac{\\sigma^2}{4^2} = 1 - \\frac{4}{16} = \\frac{3}{4}$. Statement D is incorrect because $E(X^2) = \\text{Var}(X) + [E(X)]^2 = 4 + 10^2 = 104 \\ne 100$."
+    },
+    {
+      "id": "pbr_c01_049",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Two urns $U_1$ and $U_2$ are placed before a player. Urn $U_1$ contains $3$ red and $1$ white ball, while Urn $U_2$ contains $1$ red and $3$ white balls. One urn is chosen at random with equal probability. Balls are repeatedly drawn one by one with replacement from the chosen urn until a red ball is drawn. If the first red ball is obtained on the $3\\text{rd}$ draw, what is the probability that Urn $U_1$ was chosen?",
+      "options": [
+        "A) $\\frac{3}{4}$",
+        "B) $\\frac{1}{2}$",
+        "C) $\\frac{1}{3}$",
+        "D) $\\frac{1}{4}$"
+      ],
+      "answer": "D",
+      "explanation": "Let $E$ be the event that the first red ball appears on the $3\\text{rd}$ draw. For Urn $U_1$, the probability of white is $\\frac{1}{4}$ and red is $\\frac{3}{4}$, so $P(E \\mid U_1) = \\left(\\frac{1}{4}\\right)^2 \\left(\\frac{3}{4}\\right) = \\frac{3}{64}$. For Urn $U_2$, the probability of white is $\\frac{3}{4}$ and red is $\\frac{1}{4}$, so $P(E \\mid U_2) = \\left(\\frac{3}{4}\\right)^2 \\left(\\frac{1}{4}\\right) = \\frac{9}{64}$. Since each urn has prior probability $\\frac{1}{2}$, Bayes' theorem gives $P(U_1 \\mid E) = \\frac{\\frac{1}{2}\\left(\\frac{3}{64}\\right)}{\\frac{1}{2}\\left(\\frac{3}{64}\\right) + \\frac{1}{2}\\left(\\frac{9}{64}\\right)} = \\frac{3}{3 + 9} = \\frac{3}{12} = \\frac{1}{4}$. The fraction $\\frac{3}{4}$ corresponds to Urn $U_2$; $\\frac{1}{2}$ is the unconditioned prior probability; and $\\frac{1}{3}$ is an arithmetic error."
+    },
+    {
+      "id": "pbr_c01_050",
+      "subject": "Mathematics",
+      "topic": "Probability (Bayes and Random Variables)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Two fair tetrahedral dice (each with faces marked $1, 2, 3, 4$) are rolled independently. Let $X$ be the minimum and $Y$ be the maximum of the two numbers obtained. Which of the following statements is/are correct?",
+      "options": [
+        "A) The joint probability $P(X = 2, Y = 3) = \\frac{1}{8}$.",
+        "B) The random variables $X$ and $Y$ are not independent.",
+        "C) The marginal expectation of $X$ is $E(X) = \\frac{15}{8}$.",
+        "D) The covariance $\\text{Cov}(X, Y)$ is strictly positive."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "The sample space has $16$ equally likely pairs $(a, b) \\in \\{1, 2, 3, 4\\}^2$. Statement A is correct because $X = 2, Y = 3$ corresponds to the two outcomes $(2, 3)$ and $(3, 2)$, giving $P(X = 2, Y = 3) = \\frac{2}{16} = \\frac{1}{8}$. Statement B is correct because $P(X = 4, Y = 1) = 0 \\ne P(X = 4)P(Y = 1) = \\left(\\frac{1}{16}\\right)\\left(\\frac{1}{16}\\right) > 0$. Statement C is correct because $P(X \\ge k) = \\left(\\frac{5-k}{4}\\right)^2$, yielding $E(X) = \\sum_{k=1}^4 P(X \\ge k) = 1 + \\frac{9}{16} + \\frac{4}{16} + \\frac{1}{16} = \\frac{15}{8}$. Statement D is correct because $XY = ab$, so $E(XY) = E(a)E(b) = \\left(\\frac{5}{2}\\right)^2 = \\frac{25}{4} = \\frac{400}{64}$, while $E(X) = \\frac{15}{8}$ and $E(Y) = 5 - \\frac{15}{8} = \\frac{25}{8}$ gives $E(X)E(Y) = \\frac{375}{64}$. Hence $\\text{Cov}(X, Y) = \\frac{400 - 375}{64} = \\frac{25}{64} > 0$."
+    }
+  ]
+}

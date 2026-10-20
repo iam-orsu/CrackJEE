@@ -1,0 +1,804 @@
+{
+  "questions": [
+    {
+      "id": "ec_c01_001",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The molar conductivity of a $0.02\\text{ M}$ solution of acetic acid ($\\text{CH}_3\\text{COOH}$) is measured to be $11.60\\text{ S cm}^2\\text{ mol}^{-1}$ at $298\\text{ K}$. Given the limiting molar conductivities: $\\Lambda_m^\\circ(\\text{HCl}) = 426.0\\text{ S cm}^2\\text{ mol}^{-1}$, $\\Lambda_m^\\circ(\\text{CH}_3\\text{COONa}) = 91.0\\text{ S cm}^2\\text{ mol}^{-1}$, and $\\Lambda_m^\\circ(\\text{NaCl}) = 126.0\\text{ S cm}^2\\text{ mol}^{-1}$. Determine the acid dissociation constant ($K_a$) of acetic acid.",
+      "options": [
+        "A) $1.81 \\times 10^{-5}\\text{ mol L}^{-1}$",
+        "B) $3.62 \\times 10^{-5}\\text{ mol L}^{-1}$",
+        "C) $5.43 \\times 10^{-4}\\text{ mol L}^{-1}$",
+        "D) $1.81 \\times 10^{-4}\\text{ mol L}^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Applying Kohlrausch's law of independent migration of ions yields the limiting molar conductivity of acetic acid: $\\Lambda_m^\\circ(\\text{CH}_3\\text{COOH}) = \\Lambda_m^\\circ(\\text{HCl}) + \\Lambda_m^\\circ(\\text{CH}_3\\text{COONa}) - \\Lambda_m^\\circ(\\text{NaCl}) = 426.0 + 91.0 - 126.0 = 391.0\\text{ S cm}^2\\text{ mol}^{-1}$. Step 2: Substituting into the degree of dissociation expression gives $\\alpha = \\frac{\\Lambda_m}{\\Lambda_m^\\circ} = \\frac{11.60}{391.0} \\approx 0.02967$. Step 3: Hence, solving Ostwald's dilution law $K_a = \\frac{C\\alpha^2}{1-\\alpha}$, we get $K_a = \\frac{0.02 \\times (0.02967)^2}{1 - 0.02967} = \\frac{0.02 \\times 8.803 \\times 10^{-4}}{0.97033} \\approx 1.815 \\times 10^{-5}\\text{ mol L}^{-1}$. The distractor with $3.62 \\times 10^{-5}$ arises from omitting the divisor $(1-\\alpha)$ and doubling the concentration, while $1.81 \\times 10^{-4}$ results from forgetting to square the degree of dissociation $\\alpha$."
+    },
+    {
+      "id": "ec_c01_002",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An aqueous solution of dilute sulfuric acid is electrolyzed between inert platinum electrodes by passing a steady current of $4.0\\text{ A}$ for $965\\text{ s}$. Assuming the current efficiency of the electrolytic process is $80.0\\%$, what is the total combined volume of dry gases evolved at the cathode and anode measured at STP ($273\\text{ K}, 1\\text{ atm}$, where the molar gas volume is $22.4\\text{ L}$)?",
+      "options": [
+        "A) $358.4\\text{ mL}$",
+        "B) $537.6\\text{ mL}$",
+        "C) $268.8\\text{ mL}$",
+        "D) $672.0\\text{ mL}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Applying Faraday's law, total charge transferred is $Q = I \\times t \\times \\eta = 4.0 \\times 965 \\times 0.80 = 3088\\text{ C}$. Therefore, the moles of electrons passed are $n(e^-) = \\frac{3088}{96500} = 0.032\\text{ mol}$. Step 2: At the cathode, hydrogen is produced via $2\\text{H}^+ + 2e^- \\to \\text{H}_2(g)$, yielding $n(\\text{H}_2) = \\frac{0.032}{2} = 0.016\\text{ mol}$. At the anode, oxygen is produced via $2\\text{H}_2\\text{O} \\to \\text{O}_2(g) + 4\\text{H}^+ + 4e^-$, yielding $n(\\text{O}_2) = \\frac{0.032}{4} = 0.008\\text{ mol}$. Step 3: Total moles of dry gas evolved are $n_{\\text{total}} = 0.016 + 0.008 = 0.024\\text{ mol}$. Hence, substituting the molar volume, we get $V = 0.024 \\times 22.4\\text{ L} = 0.5376\\text{ L} = 537.6\\text{ mL}$. Distractor $358.4\\text{ mL}$ corresponds to considering only the cathode gas, while $268.8\\text{ mL}$ mistakenly uses 4 electrons for both gases, and $672.0\\text{ mL}$ neglects the current efficiency factor."
+    },
+    {
+      "id": "ec_c01_003",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A hydrogen electrode at $298\\text{ K}$ is set up using platinum foil immersed in an acidic solution of unknown $\\text{pH}$ under a hydrogen gas partial pressure of $p_{\\text{H}_2} = 0.01\\text{ bar}$. If the reduction potential of this electrode is experimentally found to be $-0.177\\text{ V}$, determine the value of the $\\text{pH}$ of the solution. (Take $\\frac{2.303 RT}{F} = 0.059\\text{ V}$ at $298\\text{ K}$).",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: The reduction half-reaction at the hydrogen electrode is $2\\text{H}^+(aq) + 2e^- \\rightleftharpoons \\text{H}_2(g)$, where $n = 2$ and $E^\\circ = 0.00\\text{ V}$. Step 2: Applying the Nernst equation at $298\\text{ K}$, we get $E = E^\\circ - \\frac{0.059}{2}\\log\\left(\\frac{p_{\\text{H}_2}}{[\\text{H}^+]^2}\\right)$. Step 3: Substituting $p_{\\text{H}_2} = 10^{-2}\\text{ bar}$ into the logarithm yields $E = 0 - \\frac{0.059}{2}\\left[\\log(10^{-2}) - 2\\log[\\text{H}^+]\\right] = -0.0295\\left[-2 + 2\\text{pH}\\right] = 0.059 - 0.059\\,\\text{pH}$. Step 4: Setting this equal to the given potential implies $-0.177 = 0.059(1 - \\text{pH})$, therefore $1 - \\text{pH} = -3$, which upon solving gives $\\text{pH} = 4$."
+    },
+    {
+      "id": "ec_c01_004",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider a standard Daniell galvanic cell operating at $298\\text{ K}$ with non-standard electrolyte concentrations: $\\text{Zn}(s) \\mid \\text{Zn}^{2+}(aq, 1.0\\text{ M}) \\parallel \\text{Cu}^{2+}(aq, 0.01\\text{ M}) \\mid \\text{Cu}(s)$. Given standard reduction potentials $E^\\circ(\\text{Zn}^{2+}/\\text{Zn}) = -0.76\\text{ V}$ and $E^\\circ(\\text{Cu}^{2+}/\\text{Cu}) = +0.34\\text{ V}$, calculate the cell electromotive force ($E_{\\text{cell}}$) at $298\\text{ K}$. (Take $\\frac{2.303 RT}{F} = 0.059\\text{ V}$).",
+      "options": [
+        "A) $1.159\\text{ V}$",
+        "B) $1.100\\text{ V}$",
+        "C) $1.041\\text{ V}$",
+        "D) $0.982\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The overall cell reaction is $\\text{Zn}(s) + \\text{Cu}^{2+}(aq) \\rightleftharpoons \\text{Zn}^{2+}(aq) + \\text{Cu}(s)$ with $n = 2$ electrons transferred. The standard cell potential is $E^\\circ_{\\text{cell}} = E^\\circ_{\\text{cathode}} - E^\\circ_{\\text{anode}} = +0.34 - (-0.76) = 1.10\\text{ V}$. Step 2: The reaction quotient is $Q = \\frac{[\\text{Zn}^{2+}]}{[\\text{Cu}^{2+}]} = \\frac{1.0}{0.01} = 100$. Step 3: Applying the Nernst equation, we get $E_{\\text{cell}} = E^\\circ_{\\text{cell}} - \\frac{0.059}{2}\\log Q = 1.10 - 0.0295 \\log(100) = 1.10 - 0.0295 \\times 2 = 1.10 - 0.059 = 1.041\\text{ V}$. Distractor $1.159\\text{ V}$ comes from inverting the reaction quotient ratio $[\\text{Cu}^{2+}]/[\\text{Zn}^{2+}]$, $1.100\\text{ V}$ ignores the concentration gradient completely, and $0.982\\text{ V}$ inadvertently doubles the Nernst correction factor."
+    },
+    {
+      "id": "ec_c01_005",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A conductivity cell with two parallel platinum electrodes of area $2.5\\text{ cm}^2$ separated by a distance of $1.0\\text{ cm}$ is filled with $0.05\\text{ M}$ aqueous ammonium hydroxide ($\\text{NH}_4\\text{OH}$). The measured electrical resistance of the solution inside the cell is $800\\;\\Omega$ at $298\\text{ K}$. Given the limiting ionic conductivities $\\lambda^\\circ(\\text{NH}_4^+) = 73.4\\text{ S cm}^2\\text{ mol}^{-1}$ and $\\lambda^\\circ(\\text{OH}^-) = 197.6\\text{ S cm}^2\\text{ mol}^{-1}$, calculate the percent degree of dissociation ($\\alpha \\times 100$) of $\\text{NH}_4\\text{OH}$.",
+      "options": [
+        "A) $1.85\\%$",
+        "B) $7.38\\%$",
+        "C) $5.42\\%$",
+        "D) $3.69\\%$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The cell constant is $G^* = \\frac{l}{A} = \\frac{1.0\\text{ cm}}{2.5\\text{ cm}^2} = 0.40\\text{ cm}^{-1}$. Step 2: The electrolytic conductivity (specific conductance) is $\\kappa = \\frac{G^*}{R} = \\frac{0.40}{800} = 5.0 \\times 10^{-4}\\text{ S cm}^{-1}$. Step 3: Substituting into the molar conductivity expression yields $\\Lambda_m = \\frac{1000 \\times \\kappa}{C} = \\frac{1000 \\times 5.0 \\times 10^{-4}}{0.05} = 10.0\\text{ S cm}^2\\text{ mol}^{-1}$. Step 4: Applying Kohlrausch's law, we get $\\Lambda_m^\\circ(\\text{NH}_4\\text{OH}) = 73.4 + 197.6 = 271.0\\text{ S cm}^2\\text{ mol}^{-1}$. Therefore, solving for the degree of dissociation implies $\\alpha = \\frac{\\Lambda_m}{\\Lambda_m^\\circ} = \\frac{10.0}{271.0} \\approx 0.0369$, which corresponds to $3.69\\%$. The distractor $1.85\\%$ arises from dividing the cell constant erroneously by 2, and $7.38\\%$ comes from doubling the conductivity."
+    },
+    {
+      "id": "ec_c01_006",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A thin rectangular metallic sheet of dimensions $10.0\\text{ cm} \\times 10.0\\text{ cm}$ is to be electroplated on both faces with a uniform layer of metallic nickel of thickness $0.0050\\text{ cm}$ from a $\\text{NiSO}_4$ bath. The density of nickel is $8.90\\text{ g cm}^{-3}$ and its atomic mass is $58.7\\text{ g mol}^{-1}$. If a constant electric current of $5.0\\text{ A}$ is passed with a current efficiency of $90.0\\%$, calculate the total time required for the electrodeposition process. (Take $1\\text{ F} = 96500\\text{ C mol}^{-1}$).",
+      "options": [
+        "A) $108.3\\text{ min}$",
+        "B) $54.2\\text{ min}$",
+        "C) $120.3\\text{ min}$",
+        "D) $97.5\\text{ min}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The total surface area to be electroplated on both sides is $A = 2 \\times (10.0 \\times 10.0) = 200.0\\text{ cm}^2$. The volume of nickel deposited is $V = A \\times t_{\\text{film}} = 200.0 \\times 0.0050 = 1.00\\text{ cm}^3$. Step 2: The required mass of nickel is $m = V \\times d = 1.00 \\times 8.90 = 8.90\\text{ g}$. Step 3: For the cathode reduction $\\text{Ni}^{2+} + 2e^- \\to \\text{Ni}$, the valence factor is $n = 2$. Applying Faraday's law, $m = \\frac{M \\times I \\times t \\times \\eta}{n \\times F}$. Substituting the known parameters gives $8.90 = \\frac{58.7 \\times 5.0 \\times t \\times 0.90}{2 \\times 96500}$. Step 4: Solving for time, we get $t = \\frac{8.90 \\times 2 \\times 96500}{58.7 \\times 4.5} = \\frac{1717700}{264.15} \\approx 6502.7\\text{ s}$, which implies $t = \\frac{6502.7}{60} \\approx 108.38\\text{ min} \\approx 108.3\\text{ min}$. Distractor $54.2\\text{ min}$ considers electroplating only on one face of the plate, and $97.5\\text{ min}$ neglects the $90\\%$ current efficiency factor."
+    },
+    {
+      "id": "ec_c01_007",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A direct current of $9.65\\text{ A}$ is passed through an aqueous solution of copper(II) sulfate ($\\text{CuSO}_4$) in an electrolytic cell for exactly $1000\\text{ seconds}$. If the cathodic current efficiency for the deposition of metallic copper is determined to be $80.0\\%$, calculate the quantity of copper deposited at the cathode expressed in millimoles ($\\text{mmol}$). (Take $1\\text{ F} = 96500\\text{ C mol}^{-1}$).",
+      "options": [],
+      "answer": "40",
+      "explanation": "Step 1: Total electric charge supplied during the process is $Q_{\\text{total}} = I \\times t = 9.65\\text{ A} \\times 1000\\text{ s} = 9650\\text{ C}$. Step 2: Applying the current efficiency factor $\\eta = 0.80$, the effective charge utilized in copper deposition is $Q_{\\text{eff}} = 9650 \\times 0.80 = 7720\\text{ C}$. Step 3: Therefore, the moles of electrons effectively consumed are $n(e^-) = \\frac{7720}{96500} = 0.080\\text{ mol}$. Step 4: The cathode reaction is $\\text{Cu}^{2+}(aq) + 2e^- \\to \\text{Cu}(s)$, which implies that $2\\text{ moles}$ of electrons deposit $1\\text{ mole}$ of copper. Hence, substituting into the mole relation, we get $n(\\text{Cu}) = \\frac{0.080}{2} = 0.040\\text{ mol} = 40\\text{ mmol}$."
+    },
+    {
+      "id": "ec_c01_008",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The standard reduction potentials for copper half-reactions at $298\\text{ K}$ are given as: $E^\\circ(\\text{Cu}^+/\\text{Cu}) = +0.520\\text{ V}$ and $E^\\circ(\\text{Cu}^{2+}/\\text{Cu}^+) = +0.160\\text{ V}$. For the spontaneous disproportionation reaction $2\\text{Cu}^+(aq) \\rightleftharpoons \\text{Cu}^{2+}(aq) + \\text{Cu}(s)$, evaluate the standard equilibrium constant $K_c$ at $298\\text{ K}$. (Take $\\frac{2.303 RT}{F} = 0.060\\text{ V}$ and $10^{6} = 1.0 \\times 10^6$).",
+      "options": [
+        "A) $1.0 \\times 10^{3}$",
+        "B) $1.0 \\times 10^{6}$",
+        "C) $1.0 \\times 10^{12}$",
+        "D) $3.16 \\times 10^{5}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The disproportionation reaction consists of two half-reactions: Cathode: $\\text{Cu}^+ + e^- \\to \\text{Cu}(s)$ with $E^\\circ = +0.520\\text{ V}$; Anode: $\\text{Cu}^+ \\to \\text{Cu}^{2+} + e^-$ with $E^\\circ = +0.160\\text{ V}$. Step 2: Applying the relation $E^\\circ_{\\text{cell}} = E^\\circ_{\\text{cathode}} - E^\\circ_{\\text{anode}}$, we get $E^\\circ_{\\text{cell}} = 0.520 - 0.160 = +0.360\\text{ V}$. Step 3: Here, the number of electrons transferred in the balanced cell reaction is $n = 1$. Substituting into the equilibrium potential equation implies $E^\\circ_{\\text{cell}} = \\frac{0.060}{n}\\log K_c$. Step 4: Solving for the logarithm yields $\\log K_c = \\frac{1 \\times 0.360}{0.060} = 6.0$, therefore $K_c = 10^6 = 1.0 \\times 10^6$. Distractor $1.0 \\times 10^{12}$ results from erroneously using $n = 2$, and $1.0 \\times 10^3$ results from using $0.180\\text{ V}$ as cell potential."
+    },
+    {
+      "id": "ec_c01_009",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A concentration cell without transference is assembled at $298\\text{ K}$: $\\text{Ag}(s) \\mid \\text{AgCl}(s), \\text{KCl}(aq, 0.10\\text{ M}) \\parallel \\text{AgNO}_3(aq, 0.05\\text{ M}) \\mid \\text{Ag}(s)$. If the observed electromotive force ($E_{\\text{cell}}$) of this galvanic cell is $0.236\\text{ V}$ at $298\\text{ K}$, calculate the solubility product constant ($K_{sp}$) of $\\text{AgCl}$. (Take $\\frac{2.303 RT}{F} = 0.059\\text{ V}$).",
+      "options": [
+        "A) $1.0 \\times 10^{-10}$",
+        "B) $2.5 \\times 10^{-9}$",
+        "C) $5.0 \\times 10^{-7}$",
+        "D) $5.0 \\times 10^{-10}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The cathode reaction is $\\text{Ag}^+(0.05\\text{ M}) + e^- \\to \\text{Ag}(s)$, and the anode reaction is $\\text{Ag}(s) \\to \\text{Ag}^+(\\text{anode}) + e^-$. Step 2: Applying the Nernst equation for a silver concentration cell, we get $E_{\\text{cell}} = \\frac{0.059}{1}\\log\\left(\\frac{[\\text{Ag}^+]_{\\text{cathode}}}{[\\text{Ag}^+]_{\\text{anode}}}\\right)$. Substituting the measured EMF yields $0.236 = 0.059\\log\\left(\\frac{0.05}{[\\text{Ag}^+]_{\\text{anode}}}\\right)$. Step 3: Solving gives $\\log\\left(\\frac{0.05}{[\\text{Ag}^+]_{\\text{anode}}}\\right) = \\frac{0.236}{0.059} = 4.0$, which implies $\\frac{0.05}{[\\text{Ag}^+]_{\\text{anode}}} = 10^4$, yielding $[\\text{Ag}^+]_{\\text{anode}} = 5.0 \\times 10^{-6}\\text{ M}$. Step 4: In the anode compartment, $[\\text{Cl}^-] = 0.10\\text{ M}$. Hence, the solubility product is $K_{sp} = [\\text{Ag}^+][\\text{Cl}^-] = 5.0 \\times 10^{-6} \\times 0.10 = 5.0 \\times 10^{-7}$. Distractor $5.0 \\times 10^{-10}$ results from forgetting to multiply by $[\\text{Cl}^-]$ and squaring, whereas $1.0 \\times 10^{-10}$ uses pure water assumptions."
+    },
+    {
+      "id": "ec_c01_010",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The electrical conductivity of a saturated aqueous solution of barium sulfate ($\\text{BaSO}_4$) at $298\\text{ K}$ is $4.58 \\times 10^{-6}\\text{ S cm}^{-1}$, while that of the pure water used to prepare the solution is $1.52 \\times 10^{-6}\\text{ S cm}^{-1}$. The limiting equivalent conductivities are $\\lambda^\\circ\\left(\\frac{1}{2}\\text{Ba}^{2+}\\right) = 63.6\\text{ S cm}^2\\text{ eq}^{-1}$ and $\\lambda^\\circ\\left(\\frac{1}{2}\\text{SO}_4^{2-}\\right) = 79.8\\text{ S cm}^2\\text{ eq}^{-1}$. Calculate the solubility product constant ($K_{sp}$) of $\\text{BaSO}_4$ in $\\text{mol}^2\\text{ L}^{-2}$.",
+      "options": [
+        "A) $4.58 \\times 10^{-10}\\text{ mol}^2\\text{ L}^{-2}$",
+        "B) $2.56 \\times 10^{-10}\\text{ mol}^2\\text{ L}^{-2}$",
+        "C) $1.14 \\times 10^{-8}\\text{ mol}^2\\text{ L}^{-2}$",
+        "D) $1.14 \\times 10^{-10}\\text{ mol}^2\\text{ L}^{-2}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Correcting for the electrolytic conductivity of the water solvent yields $\\kappa(\\text{BaSO}_4) = \\kappa_{\\text{solution}} - \\kappa_{\\text{water}} = 4.58 \\times 10^{-6} - 1.52 \\times 10^{-6} = 3.06 \\times 10^{-6}\\text{ S cm}^{-1}$. Step 2: Applying Kohlrausch's law for the 2:2 electrolyte gives the limiting molar conductivity $\\Lambda_m^\\circ(\\text{BaSO}_4) = 2 \\times \\lambda^\\circ\\left(\\frac{1}{2}\\text{Ba}^{2+}\\right) + 2 \\times \\lambda^\\circ\\left(\\frac{1}{2}\\text{SO}_4^{2-}\\right) = 2 \\times (63.6 + 79.8) = 286.8\\text{ S cm}^2\\text{ mol}^{-1}$. Step 3: Substituting into the molar solubility relation, we get $S = \\frac{1000 \\times \\kappa}{\\Lambda_m^\\circ} = \\frac{1000 \\times 3.06 \\times 10^{-6}}{286.8} \\approx 1.067 \\times 10^{-5}\\text{ mol L}^{-1}$. Step 4: Solving for the solubility product implies $K_{sp} = S^2 = (1.067 \\times 10^{-5})^2 \\approx 1.139 \\times 10^{-10} \\approx 1.14 \\times 10^{-10}\\text{ mol}^2\\text{ L}^{-2}$. Distractor $2.56 \\times 10^{-10}$ omits water conductivity correction, and $1.14 \\times 10^{-8}$ forgets the 1000 conversion factor."
+    },
+    {
+      "id": "ec_c01_011",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In an acidic electrolytic cell, $100.0\\text{ mL}$ of a $0.020\\text{ M}$ solution of potassium dichromate ($\\text{K}_2\\text{Cr}_2\\text{O}_7$) is completely reduced to chromium(III) ions ($\\text{Cr}^{3+}$) at a cathode using a steady electric current of $0.965\\text{ A}$. Calculate the total time required for this quantitative electrochemical reduction in hundreds of seconds (i.e. determine the value of $\\frac{t}{100\\text{ s}}$). (Take $1\\text{ F} = 96500\\text{ C mol}^{-1}$).",
+      "options": [],
+      "answer": "12",
+      "explanation": "Step 1: The balanced reduction half-reaction at the cathode in acidic medium is $\\text{Cr}_2\\text{O}_7^{2-} + 14\\text{H}^+ + 6e^- \\to 2\\text{Cr}^{3+} + 7\\text{H}_2\\text{O}$, which shows that $n = 6\\text{ moles}$ of electrons are required per mole of dichromate. Step 2: The moles of $\\text{Cr}_2\\text{O}_7^{2-}$ present are $n = M \\times V = 0.020\\text{ mol L}^{-1} \\times 0.100\\text{ L} = 2.0 \\times 10^{-3}\\text{ mol}$. Step 3: Therefore, the total charge required is $Q = 6 \\times (2.0 \\times 10^{-3}\\text{ mol}) \\times 96500\\text{ C mol}^{-1} = 0.012 \\times 96500 = 1158\\text{ C}$. Step 4: Applying $t = \\frac{Q}{I}$, we get $t = \\frac{1158\\text{ C}}{0.965\\text{ A}} = 1200\\text{ s}$. Solving for $\\frac{t}{100}$ implies $\\frac{1200}{100} = 12$."
+    },
+    {
+      "id": "ec_c01_012",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A galvanic cell is represented by $\\text{Cd}(s) \\mid \\text{Cd}^{2+}(aq, 0.040\\text{ M}) \\parallel \\text{Sn}^{2+}(aq, 0.010\\text{ M}) \\mid \\text{Sn}(s)$ at $298\\text{ K}$. Given standard reduction potentials $E^\\circ(\\text{Cd}^{2+}/\\text{Cd}) = -0.403\\text{ V}$ and $E^\\circ(\\text{Sn}^{2+}/\\text{Sn}) = -0.136\\text{ V}$. Calculate the electromotive force ($E_{\\text{cell}}$) of the cell at $298\\text{ K}$. (Take $\\frac{2.303 RT}{F} = 0.059\\text{ V}$ and $\\log 2 = 0.301$).",
+      "options": [
+        "A) $0.249\\text{ V}$",
+        "B) $0.285\\text{ V}$",
+        "C) $0.267\\text{ V}$",
+        "D) $0.231\\text{ V}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The standard cell potential is $E^\\circ_{\\text{cell}} = E^\\circ_{\\text{cathode}} - E^\\circ_{\\text{anode}} = -0.136 - (-0.403) = +0.267\\text{ V}$. Step 2: The cell reaction is $\\text{Cd}(s) + \\text{Sn}^{2+}(aq) \\rightleftharpoons \\text{Cd}^{2+}(aq) + \\text{Sn}(s)$, for which $n = 2$ and the reaction quotient is $Q = \\frac{[\\text{Cd}^{2+}]}{[\\text{Sn}^{2+}]} = \\frac{0.040}{0.010} = 4.0$. Step 3: Applying the Nernst equation at $298\\text{ K}$, we get $E_{\\text{cell}} = E^\\circ_{\\text{cell}} - \\frac{0.059}{2}\\log(4.0) = 0.267 - 0.0295(2\\log 2) = 0.267 - 0.0295(0.602) = 0.267 - 0.01776 = 0.24924\\text{ V} \\approx 0.249\\text{ V}$. Distractor $0.285\\text{ V}$ corresponds to inverting the ion concentration ratio, $0.267\\text{ V}$ represents the uncorrected standard potential, and $0.231\\text{ V}$ erroneously doubles the logarithmic correction factor."
+    },
+    {
+      "id": "ec_c01_013",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "According to the Debye-Hückel-Onsager equation for a strong 1:1 electrolyte in aqueous solution, $\\Lambda_m = \\Lambda_m^\\circ - A\\sqrt{C}$. The molar conductivities of a strong electrolyte $MA$ measured at concentrations $C_1 = 0.0004\\text{ M}$ and $C_2 = 0.0016\\text{ M}$ at $298\\text{ K}$ are $148.0\\text{ S cm}^2\\text{ mol}^{-1}$ and $146.0\\text{ S cm}^2\\text{ mol}^{-1}$, respectively. Determine the limiting molar conductivity $\\Lambda_m^\\circ$ and the Onsager coefficient $A$.",
+      "options": [
+        "A) $\\Lambda_m^\\circ = 149.0\\text{ S cm}^2\\text{ mol}^{-1},\\; A = 50.0\\text{ S cm}^2\\text{ mol}^{-3/2}\\text{ L}^{1/2}$",
+        "B) $\\Lambda_m^\\circ = 150.0\\text{ S cm}^2\\text{ mol}^{-1},\\; A = 100.0\\text{ S cm}^2\\text{ mol}^{-3/2}\\text{ L}^{1/2}$",
+        "C) $\\Lambda_m^\\circ = 152.0\\text{ S cm}^2\\text{ mol}^{-1},\\; A = 200.0\\text{ S cm}^2\\text{ mol}^{-3/2}\\text{ L}^{1/2}$",
+        "D) $\\Lambda_m^\\circ = 150.0\\text{ S cm}^2\\text{ mol}^{-1},\\; A = 50.0\\text{ S cm}^2\\text{ mol}^{-3/2}\\text{ L}^{1/2}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluating the square roots of concentration: $\\sqrt{C_1} = \\sqrt{0.0004} = 0.020\\text{ mol}^{1/2}\\text{ L}^{-1/2}$ and $\\sqrt{C_2} = \\sqrt{0.0016} = 0.040\\text{ mol}^{1/2}\\text{ L}^{-1/2}$. Step 2: Substituting both points into the Onsager linear equation gives: (i) $148.0 = \\Lambda_m^\\circ - 0.020 A$ and (ii) $146.0 = \\Lambda_m^\\circ - 0.040 A$. Step 3: Subtracting equation (ii) from equation (i) yields $2.0 = 0.020 A$, which implies $A = \\frac{2.0}{0.020} = 100.0\\text{ S cm}^2\\text{ mol}^{-3/2}\\text{ L}^{1/2}$. Step 4: Hence, substituting $A$ back into equation (i), we get $\\Lambda_m^\\circ = 148.0 + 0.020(100.0) = 148.0 + 2.0 = 150.0\\text{ S cm}^2\\text{ mol}^{-1}$. Distractor A averages the values, while distractor C doubles the slope."
+    },
+    {
+      "id": "ec_c01_014",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two separate electrolytic cells, Cell 1 containing aqueous copper(II) sulfate ($\\text{CuSO}_4$) and Cell 2 containing concentrated aqueous sodium chloride ($\\text{NaCl}$, brine), are connected in series with platinum electrodes. A total electric charge of $2.0\\text{ F}$ is passed through both cells. Assuming $100\\%$ current efficiency at the electrodes, what is the ratio of the volume of dry gas liberated at the anode of Cell 1 to that at the anode of Cell 2 when measured under identical temperature and pressure conditions?",
+      "options": [
+        "A) $2 : 1$",
+        "B) $1 : 1$",
+        "C) $1 : 2$",
+        "D) $1 : 4$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In Cell 1 containing aqueous $\\text{CuSO}_4$, oxidation of water occurs preferentially at the inert platinum anode: $2\\text{H}_2\\text{O}(l) \\to \\text{O}_2(g) + 4\\text{H}^+(aq) + 4e^-$. Step 2: The passage of $2.0\\text{ F}$ (i.e. $2.0\\text{ moles}$ of electrons) produces $n(\\text{O}_2) = \\frac{2.0}{4} = 0.50\\text{ mol}$ of oxygen gas. Step 3: In Cell 2 containing concentrated brine, chloride oxidation is kinetically favored at the platinum anode due to oxygen overpotential: $2\\text{Cl}^-(aq) \\to \\text{Cl}_2(g) + 2e^-$. Therefore, $2.0\\text{ F}$ of charge yields $n(\\text{Cl}_2) = \\frac{2.0}{2} = 1.00\\text{ mol}$ of chlorine gas. Step 4: Applying Avogadro's hypothesis, the volume ratio under identical conditions is equal to the mole ratio: $\\frac{V_1}{V_2} = \\frac{n(\\text{O}_2)}{n(\\text{Cl}_2)} = \\frac{0.50}{1.00} = \\frac{1}{2}$, which implies a ratio of $1 : 2$. Distractor $2:1$ inverts the cell identities, and $1:1$ wrongly assumes equal electron stoichiometry for both gas evolution reactions."
+    },
+    {
+      "id": "ec_c01_015",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A quinhydrone electrode (consisting of an equimolar mixture of quinone $\\text{Q}$ and hydroquinone $\\text{QH}_2$, with $E^\\circ = +0.699\\text{ V}$ at $298\\text{ K}$) is immersed in an aqueous buffer solution of unknown $\\text{pH}$ and coupled with a saturated calomel electrode (SCE, $E_{\\text{SCE}} = +0.242\\text{ V}$). The cell is represented as: $\\text{Hg}(l) \\mid \\text{Hg}_2\\text{Cl}_2(s) \\mid \\text{KCl}(\\text{sat}) \\parallel \\text{Buffer}, \\text{Q}, \\text{QH}_2 \\mid \\text{Pt}(s)$. If the measured cell potential at $298\\text{ K}$ is $0.161\\text{ V}$, determine the $\\text{pH}$ of the buffer solution. (Take $\\frac{2.303 RT}{F} = 0.0591\\text{ V}$).",
+      "options": [
+        "A) $3.2$",
+        "B) $4.2$",
+        "C) $6.5$",
+        "D) $5.0$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The reduction half-reaction for the quinhydrone electrode is $\\text{Q} + 2\\text{H}^+ + 2e^- \\rightleftharpoons \\text{QH}_2$. Step 2: Applying the Nernst equation at $298\\text{ K}$, $E_{\\text{QH}} = E^\\circ - \\frac{0.0591}{2}\\log\\left(\\frac{[\\text{QH}_2]}{[\\text{Q}][\\text{H}^+]^2}\\right)$. Since $[\\text{Q}] = [\\text{QH}_2]$ in quinhydrone, this simplifies to $E_{\\text{QH}} = 0.699 - 0.0591\\,\\text{pH}$. Step 3: The measured cell potential is $E_{\\text{cell}} = E_{\\text{QH}} - E_{\\text{SCE}} = (0.699 - 0.0591\\,\\text{pH}) - 0.242 = 0.457 - 0.0591\\,\\text{pH}$. Step 4: Substituting $E_{\\text{cell}} = 0.161\\text{ V}$ gives $0.0591\\,\\text{pH} = 0.457 - 0.161 = 0.296\\text{ V}$. Therefore, solving yields $\\text{pH} = \\frac{0.296}{0.0591} \\approx 5.008 \\approx 5.0$. Distractor $4.2$ results from adding the calomel potential, and $6.5$ comes from omitting the calomel reference potential entirely."
+    },
+    {
+      "id": "ec_c01_016",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A silver-silver iodide concentration cell without liquid junction is set up at $298\\text{ K}$: $\\text{Ag}(s) \\mid \\text{AgI}(s) \\mid \\text{KI}(aq, 0.050\\text{ M}) \\parallel \\text{AgNO}_3(aq, 0.0020\\text{ M}) \\mid \\text{Ag}(s)$. The experimental electromotive force of the cell is found to be $E_{\\text{cell}} = 0.767\\text{ V}$ at $298\\text{ K}$. Calculate the thermodynamic solubility product constant ($K_{sp}$) of silver iodide ($\\text{AgI}$). (Take $\\frac{2.303 RT}{F} = 0.059\\text{ V}$).",
+      "options": [
+        "A) $1.0 \\times 10^{-17}\\text{ mol}^2\\text{ L}^{-2}$",
+        "B) $2.0 \\times 10^{-16}\\text{ mol}^2\\text{ L}^{-2}$",
+        "C) $5.0 \\times 10^{-18}\\text{ mol}^2\\text{ L}^{-2}$",
+        "D) $1.0 \\times 10^{-15}\\text{ mol}^2\\text{ L}^{-2}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The cathode reaction is $\\text{Ag}^+(0.0020\\text{ M}) + e^- \\to \\text{Ag}(s)$ and the anode reaction is $\\text{Ag}(s) + \\text{I}^-(0.050\\text{ M}) \\to \\text{AgI}(s) + e^-$. Step 2: Applying the concentration cell EMF relation, $E_{\\text{cell}} = \\frac{0.059}{1}\\log\\left(\\frac{[\\text{Ag}^+]_{\\text{cathode}}}{[\\text{Ag}^+]_{\\text{anode}}}\\right)$. Substituting the experimental potential yields $0.767 = 0.059\\log\\left(\\frac{0.0020}{[\\text{Ag}^+]_{\\text{anode}}}\\right)$. Step 3: Solving gives $\\log\\left(\\frac{0.0020}{[\\text{Ag}^+]_{\\text{anode}}}\\right) = \\frac{0.767}{0.059} = 13.0$, which implies $\\frac{0.0020}{[\\text{Ag}^+]_{\\text{anode}}} = 10^{13}$, yielding $[\\text{Ag}^+]_{\\text{anode}} = 2.0 \\times 10^{-16}\\text{ M}$. Step 4: In the anode compartment, $[\\text{I}^-] = 0.050\\text{ M}$. Hence, substituting into the solubility product expression, we get $K_{sp}(\\text{AgI}) = [\\text{Ag}^+][\\text{I}^-] = (2.0 \\times 10^{-16})(0.050) = 1.0 \\times 10^{-17}\\text{ mol}^2\\text{ L}^{-2}$. Distractor $2.0 \\times 10^{-16}$ corresponds to taking $[\\text{Ag}^+]$ alone without multiplying by iodide concentration, and $1.0 \\times 10^{-15}$ forgets the concentration factor of KI."
+    },
+    {
+      "id": "ec_c01_017",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For a reversible galvanic cell reaction involving the transfer of $n = 2$ electrons, the electromotive force at $293\\text{ K}$ is $1.0180\\text{ V}$, and its temperature coefficient of cell potential at constant pressure is $\\left(\\frac{\\partial E}{\\partial T}\\right)_P = -5.00 \\times 10^{-5}\\text{ V K}^{-1}$. Determine the standard reaction enthalpy change ($\\Delta H^\\circ$) for the cell reaction at $293\\text{ K}$. (Take $1\\text{ F} = 96500\\text{ C mol}^{-1}$).",
+      "options": [
+        "A) $-196.47\\text{ kJ mol}^{-1}$",
+        "B) $-199.30\\text{ kJ mol}^{-1}$",
+        "C) $-193.64\\text{ kJ mol}^{-1}$",
+        "D) $-202.13\\text{ kJ mol}^{-1}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The standard Gibbs free energy change of the cell reaction is given by $\\Delta G^\\circ = -nFE$. Substituting the values: $\\Delta G^\\circ = -2 \\times 96500\\text{ C mol}^{-1} \\times 1.0180\\text{ V} = -196474\\text{ J mol}^{-1} = -196.474\\text{ kJ mol}^{-1}$. Step 2: Applying the thermodynamic relation for standard entropy change yields $\\Delta S^\\circ = nF\\left(\\frac{\\partial E}{\\partial T}\\right)_P = 2 \\times 96500 \\times (-5.00 \\times 10^{-5}) = -9.65\\text{ J K}^{-1}\\text{ mol}^{-1}$. Step 3: From the fundamental Gibbs-Helmholtz thermodynamic relation $\\Delta G^\\circ = \\Delta H^\\circ - T\\Delta S^\\circ$, solving for enthalpy gives $\\Delta H^\\circ = \\Delta G^\\circ + T\\Delta S^\\circ$. Step 4: Hence, substituting $T = 293\\text{ K}$, we get $\\Delta H^\\circ = -196.474 + 293 \\times (-0.00965) = -196.474 - 2.82745 = -199.301\\text{ kJ mol}^{-1} \\approx -199.30\\text{ kJ mol}^{-1}$. Distractor A represents only $\\Delta G^\\circ$, while C results from an inverted sign of the entropy term."
+    },
+    {
+      "id": "ec_c01_018",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A potentiometric redox titration of $25.0\\text{ mL}$ of $0.10\\text{ M}\\;\\text{Fe}^{2+}$ solution is carried out by adding $0.10\\text{ M}\\;\\text{Ce}^{4+}$ solution in an acidic medium at $298\\text{ K}$. Given standard reduction potentials: $E^\\circ(\\text{Fe}^{3+}/\\text{Fe}^{2+}) = 0.770\\text{ V}$ and $E^\\circ(\\text{Ce}^{4+}/\\text{Ce}^{3+}) = 1.610\\text{ V}$. Let $E_{1/2}$ be the potential of the indicator electrode versus SHE when $12.5\\text{ mL}$ of titrant is added, and $E_{\\text{eq}}$ be the potential at the equivalence point. If the difference $\\Delta E = E_{\\text{eq}} - E_{1/2}$ expressed in millivolts is divided by $105$, determine this integer value.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: The titration reaction is $\\text{Fe}^{2+} + \\text{Ce}^{4+} \\rightleftharpoons \\text{Fe}^{3+} + \\text{Ce}^{3+}$. Step 2: At the half-equivalence point ($12.5\\text{ mL}$ added), $[\text{Fe}^{3+}] = [\\text{Fe}^{2+}]$, so applying the Nernst equation yields $E_{1/2} = E^\\circ(\\text{Fe}^{3+}/\\text{Fe}^{2+}) = 0.770\\text{ V}$. Step 3: At the stoichiometric equivalence point ($25.0\\text{ mL}$ added), $[\\text{Fe}^{3+}] = [\\text{Ce}^{3+}]$ and $[\\text{Fe}^{2+}] = [\\text{Ce}^{4+}]$. Adding both Nernst equations implies $2E_{\\text{eq}} = E^\\circ(\\text{Fe}^{3+}/\\text{Fe}^{2+}) + E^\\circ(\\text{Ce}^{4+}/\\text{Ce}^{3+}) = 0.770 + 1.610 = 2.380\\text{ V}$, therefore $E_{\\text{eq}} = 1.190\\text{ V}$. Step 4: The potential difference is $\\Delta E = 1.190 - 0.770 = 0.420\\text{ V} = 420\\text{ mV}$. Hence, solving for $\\frac{\\Delta E}{105}$, we get $\\frac{420}{105} = 4$."
+    },
+    {
+      "id": "ec_c01_019",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider a hydrogen concentration cell with transference at $298\\text{ K}$: $\\text{Pt} \\mid \\text{H}_2(g, 1\\text{ bar}) \\mid \\text{HCl}(aq, a_1 = 0.010) : \\text{HCl}(aq, a_2 = 0.100) \\mid \\text{H}_2(g, 1\\text{ bar}) \\mid \\text{Pt}$. The transference number of the chloride ion in this solution is $t_- = 0.170$. Calculate the liquid junction potential ($E_{lj}$) established across the boundary between the two hydrochloric acid solutions. (Take $\\frac{2.303 RT}{F} = 0.059\\text{ V}$).",
+      "options": [
+        "A) $+20.1\\text{ mV}$",
+        "B) $+38.9\\text{ mV}$",
+        "C) $-38.9\\text{ mV}$",
+        "D) $-20.1\\text{ mV}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The transference number of the hydrogen cation is $t_+ = 1 - t_- = 1 - 0.170 = 0.830$. Step 2: The liquid junction potential at the boundary of a 1:1 electrolyte concentration cell is given by $E_{lj} = (t_- - t_+)\\frac{RT}{F}\\ln\\left(\\frac{a_2}{a_1}\\right)$. Step 3: Converting to base-10 logarithm, $E_{lj} = (t_- - t_+)\\left(\\frac{2.303 RT}{F}\\right)\\log\\left(\\frac{a_2}{a_1}\\right)$. Step 4: Substituting the values yields $E_{lj} = (0.170 - 0.830)(0.059\\text{ V})\\log\\left(\\frac{0.100}{0.010}\\right) = (-0.660)(0.059)(1) = -0.03894\\text{ V} = -38.94\\text{ mV} \\approx -38.9\\text{ mV}$. The negative sign indicates that the faster diffusion of $\\text{H}^+$ ions creates a negative potential in the more dilute solution. Distractor B represents a sign error, while A and D represent the net cell EMF with transference."
+    },
+    {
+      "id": "ec_c01_020",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A silver-silver bromide electrode is immersed in an aqueous solution where the bromide ion concentration is maintained at $[\\text{Br}^-] = 0.10\\text{ M}$ at $298\\text{ K}$. Given the standard reduction potential of the silver electrode $E^\\circ(\\text{Ag}^+/\\text{Ag}) = +0.800\\text{ V}$ and the solubility product of silver bromide $K_{sp}(\\text{AgBr}) = 5.0 \\times 10^{-13}$. Determine the reduction potential ($E$) of this silver-silver bromide half-cell at $298\\text{ K}$. (Take $\\frac{2.303 RT}{F} = 0.059\\text{ V}$ and $\\log 5.0 = 0.70$).",
+      "options": [
+        "A) $+0.074\\text{ V}$",
+        "B) $+0.800\\text{ V}$",
+        "C) $+0.015\\text{ V}$",
+        "D) $+0.133\\text{ V}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The standard reduction potential of the metal-insoluble salt-anion electrode $\\text{AgBr}(s) + e^- \\rightleftharpoons \\text{Ag}(s) + \\text{Br}^-(aq)$ is related to the metal electrode potential by $E^\\circ(\\text{AgBr}/\\text{Ag},\\text{Br}^-) = E^\\circ(\\text{Ag}^+/\\text{Ag}) + \\frac{2.303 RT}{F}\\log K_{sp}$. Step 2: Substituting the values yields $E^\\circ(\\text{AgBr}/\\text{Ag},\\text{Br}^-) = 0.800 + 0.059\\log(5.0 \\times 10^{-13}) = 0.800 + 0.059(0.70 - 13.0) = 0.800 + 0.059(-12.30) = 0.800 - 0.7257 = +0.0743\\text{ V}$. Step 3: Applying the Nernst equation for the electrode at $[\\text{Br}^-] = 0.10\\text{ M}$, we get $E = E^\\circ - 0.059\\log[\\text{Br}^-]$. Step 4: Hence, solving gives $E = 0.0743 - 0.059\\log(10^{-1}) = 0.0743 + 0.059 = +0.1333\\text{ V} \\approx +0.133\\text{ V}$. Distractor A gives only the standard potential $E^\\circ$, while C subtracts the bromide term incorrectly."
+    },
+    {
+      "id": "ec_c01_021",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An aqueous electrolytic bath contains a mixture of $0.10\\text{ M}\\;\\text{Cu}^{2+}$ and $0.10\\text{ M}\\;\\text{Cd}^{2+}$ at $298\\text{ K}$. The standard reduction potentials are $E^\\circ(\\text{Cu}^{2+}/\\text{Cu}) = +0.340\\text{ V}$ and $E^\\circ(\\text{Cd}^{2+}/\\text{Cd}) = -0.400\\text{ V}$. During controlled potential electrolysis, what is the residual concentration of $\\text{Cu}^{2+}$ remaining in solution at the exact moment when metallic cadmium just begins to co-deposit at the cathode? (Take $\\frac{2.303 RT}{F} = 0.059\\text{ V}$ and $10^{-0.08} \\approx 0.83$).",
+      "options": [
+        "A) $8.3 \\times 10^{-27}\\text{ M}$",
+        "B) $1.2 \\times 10^{-25}\\text{ M}$",
+        "C) $5.4 \\times 10^{-14}\\text{ M}$",
+        "D) $2.1 \\times 10^{-20}\\text{ M}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Metallic cadmium begins to deposit when the cathode potential matches the reversible reduction potential of $\\text{Cd}^{2+}$. Applying the Nernst equation: $E_{\\text{cathode}} = E^\\circ(\\text{Cd}^{2+}/\\text{Cd}) - \\frac{0.059}{2}\\log\\left(\\frac{1}{[\\text{Cd}^{2+}]}\\right) = -0.400 - 0.0295\\log(10) = -0.4295\\text{ V}$. Step 2: At this identical cathode potential, copper reduction is also in dynamic equilibrium: $E_{\\text{cathode}} = E^\\circ(\\text{Cu}^{2+}/\\text{Cu}) - \\frac{0.059}{2}\\log\\left(\\frac{1}{[\\text{Cu}^{2+}]}\\right)$. Step 3: Equating the potentials implies $-0.4295 = +0.340 + 0.0295\\log[\\text{Cu}^{2+}]$. Step 4: Solving for the logarithm yields $0.0295\\log[\\text{Cu}^{2+}] = -0.7695$, therefore $\\log[\\text{Cu}^{2+}] = -26.084$. Substituting into power of 10 gives $[\\text{Cu}^{2+}] = 10^{-26.084} = 10^{-0.084} \\times 10^{-26} \\approx 8.3 \\times 10^{-27}\\text{ M}$. Distractor C corresponds to using a single electron reduction, and D arises from omitting the standard potential of cadmium."
+    },
+    {
+      "id": "ec_c01_022",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A lead-acid storage battery contains $1.00\\text{ L}$ of aqueous sulfuric acid solution of initial concentration $6.00\\text{ M}$. During discharging, a continuous electric current of $9.65\\text{ A}$ is drawn from the battery for $10000\\text{ seconds}$. The overall discharging reaction is: $\\text{Pb}(s) + \\text{PbO}_2(s) + 2\\text{H}_2\\text{SO}_4(aq) \\to 2\\text{PbSO}_4(s) + 2\\text{H}_2\\text{O}(l)$. Assuming the total volume of the solution remains constant at $1.00\\text{ L}$, determine the final molarity of sulfuric acid in the battery.",
+      "options": [],
+      "answer": "5",
+      "explanation": "Step 1: The total charge drawn from the battery is $Q = I \\times t = 9.65\\text{ A} \\times 10000\\text{ s} = 96500\\text{ C} = 1.00\\text{ Faraday}$. Step 2: The number of moles of electrons transferred during discharge is $n(e^-) = \\frac{96500}{96500} = 1.00\\text{ mol}$. Step 3: From the balanced cell stoichiometry, $2\\text{ moles}$ of electrons transferred consume $2\\text{ moles}$ of $\\text{H}_2\\text{SO}_4$. Therefore, the moles of $\\text{H}_2\\text{SO}_4$ consumed are $n(\\text{H}_2\\text{SO}_4)_{\\text{consumed}} = 1.00\\text{ mol}$. Step 4: The initial amount of $\\text{H}_2\\text{SO}_4$ was $n_0 = 6.00\\text{ mol L}^{-1} \\times 1.00\\text{ L} = 6.00\\text{ mol}$. Hence, solving for remaining moles yields $n_{\\text{final}} = 6.00 - 1.00 = 5.00\\text{ mol}$, which implies a final molarity of $\\frac{5.00\\text{ mol}}{1.00\\text{ L}} = 5\\text{ M}$."
+    },
+    {
+      "id": "ec_c01_023",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A potentiometric cell is set up at $298\\text{ K}$ to determine the overall stability constant ($\\beta_2$) of the diammine silver(I) complex ion: $\\text{Ag}(s) \\mid \\text{Ag}^+(aq, 0.010\\text{ M}) \\parallel [\\text{Ag}(\\text{NH}_3)_2]^+(aq, 1.0 \\times 10^{-3}\\text{ M}), \\text{NH}_3(aq, 0.50\\text{ M}) \\mid \\text{Ag}(s)$. If the measured cell potential is $E_{\\text{cell}} = 0.413\\text{ V}$ at $298\\text{ K}$, calculate the formation constant $\\beta_2 = \\frac{[[\\text{Ag}(\\text{NH}_3)_2]^+]}{[\\text{Ag}^+][\\text{NH}_3]^2}$. (Take $\\frac{2.303 RT}{F} = 0.059\\text{ V}$).",
+      "options": [
+        "A) $1.0 \\times 10^{7}\\text{ M}^{-2}$",
+        "B) $4.0 \\times 10^{6}\\text{ M}^{-2}$",
+        "C) $2.0 \\times 10^{6}\\text{ M}^{-2}$",
+        "D) $8.0 \\times 10^{7}\\text{ M}^{-2}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: For the concentration cell, the left electrode has $[\\text{Ag}^+]_L = 0.010\\text{ M}$. Since $E_{\\text{cell}} = 0.413\\text{ V}$ with the left electrode acting as the cathode, we have $E_{\\text{cell}} = 0.059\\log\\left(\\frac{[\\text{Ag}^+]_L}{[\\text{Ag}^+]_R}\\right)$. Step 2: Substituting the known values: $0.413 = 0.059\\log\\left(\\frac{0.010}{[\\text{Ag}^+]_R}\\right)$. Solving for the logarithm yields $\\log\\left(\\frac{0.010}{[\\text{Ag}^+]_R}\\right) = \\frac{0.413}{0.059} = 7.0$, which implies $\\frac{0.010}{[\\text{Ag}^+]_R} = 10^7$, yielding $[\\text{Ag}^+]_R = 1.0 \\times 10^{-9}\\text{ M}$. Step 3: In the right half-cell, $[[\\text{Ag}(\\text{NH}_3)_2]^+] = 1.0 \\times 10^{-3}\\text{ M}$ and $[\\text{NH}_3] = 0.50\\text{ M}$. Step 4: Applying the stability constant expression, we get $\\beta_2 = \\frac{1.0 \\times 10^{-3}}{(1.0 \\times 10^{-9})(0.50)^2} = \\frac{10^{-3}}{10^{-9} \\times 0.25} = \\frac{10^6}{0.25} = 4.0 \\times 10^6\\text{ M}^{-2}$. Distractor A forgets the squaring of ammonia concentration, and C neglects the factor of 2 in ammonia stoichiometry."
+    },
+    {
+      "id": "ec_c01_024",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The standard reduction potential for the aqueous iron redox couple is $E^\\circ(\\text{Fe}^{3+}/\\text{Fe}^{2+}) = +0.770\\text{ V}$. Upon coordinated complexation with 1,10-phenanthroline (phen), the standard reduction potential of the complex couple $[\text{Fe}(\\text{phen})_3]^{3+} + e^- \\rightleftharpoons [\\text{Fe}(\\text{phen})_3]^{2+}$ shifts to $+1.140\\text{ V}$ at $298\\text{ K}$. Calculate the ratio of the overall thermodynamic stability constants of the reduced complex to that of the oxidized complex, $\\frac{\\beta_{\\text{red}}}{\\beta_{\\text{ox}}} = \\frac{\\beta([\\text{Fe}(\\text{phen})_3]^{2+})}{\\beta([\\text{Fe}(\\text{phen})_3]^{3+})}$. (Take $\\frac{2.303 RT}{F} = 0.059\\text{ V}$ and $10^{6.27} \\approx 1.86 \\times 10^6$).",
+      "options": [
+        "A) $5.38 \\times 10^{-7}$",
+        "B) $3.24 \\times 10^{4}$",
+        "C) $1.86 \\times 10^{6}$",
+        "D) $9.82 \\times 10^{7}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Applying the thermodynamic Nernst cycle linking free and complexed metal ions, the standard potentials are related by $E^\\circ_{\\text{complex}} = E^\\circ_{\\text{free}} - \\frac{2.303 RT}{nF}\\log\\left(\\frac{\\beta_{\\text{ox}}}{\\beta_{\\text{red}}}\\right)$. Step 2: Substituting $n = 1$ and the given reduction potentials yields $1.140 = 0.770 - 0.059\\log\\left(\\frac{\\beta_{\\text{ox}}}{\\beta_{\\text{red}}}\\right) = 0.770 + 0.059\\log\\left(\\frac{\\beta_{\\text{red}}}{\\beta_{\\text{ox}}}\\right)$. Step 3: Rearranging terms gives $0.059\\log\\left(\\frac{\\beta_{\\text{red}}}{\\beta_{\\text{ox}}}\\right) = 1.140 - 0.770 = 0.370\\text{ V}$. Step 4: Solving for the logarithm implies $\\log\\left(\\frac{\\beta_{\\text{red}}}{\\beta_{\\text{ox}}}\\right) = \\frac{0.370}{0.059} \\approx 6.271$, therefore we get $\\frac{\\beta_{\\text{red}}}{\\beta_{\\text{ox}}} = 10^{6.271} \\approx 1.86 \\times 10^6$. The higher stability of the iron(II) complex stabilizes the reduced form and shifts the potential positively. Distractor A represents the inverted ratio $\\frac{\\beta_{\\text{ox}}}{\\beta_{\\text{red}}}$."
+    },
+    {
+      "id": "ec_c01_025",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The Latimer diagram for chlorine species in acidic aqueous solution at $298\\text{ K}$ is given as: $\\text{ClO}_3^- \\xrightarrow{1.18\\text{ V}} \\text{HClO}_2 \\xrightarrow{1.67\\text{ V}} \\text{HClO} \\xrightarrow{1.63\\text{ V}} \\frac{1}{2}\\text{Cl}_2 \\xrightarrow{1.36\\text{ V}} \\text{Cl}^-$. Calculate the standard reduction potential ($E^\\circ$) for the direct multi-electron reduction of chlorate to chloride: $\\text{ClO}_3^- + 6\\text{H}^+ + 6e^- \\to \\text{Cl}^- + 3\\text{H}_2\\text{O}$.",
+      "options": [
+        "A) $1.18\\text{ V}$",
+        "B) $1.36\\text{ V}$",
+        "C) $1.51\\text{ V}$",
+        "D) $1.45\\text{ V}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Standard reduction potentials are not directly additive, but Gibbs free energies are state functions: $\\Delta G^\\circ = -nFE^\\circ$, which implies $n_{\\text{total}}E^\\circ = \\sum n_i E_i^\\circ$. Step 2: Identifying the number of electrons for each consecutive step: (i) $\\text{ClO}_3^-(+5) \\to \\text{HClO}_2(+3)$ involves $n_1 = 2, E_1^\\circ = 1.18\\text{ V}$; (ii) $\\text{HClO}_2(+3) \\to \\text{HClO}(+1)$ involves $n_2 = 2, E_2^\\circ = 1.67\\text{ V}$; (iii) $\\text{HClO}(+1) \\to \\frac{1}{2}\\text{Cl}_2(0)$ involves $n_3 = 1, E_3^\\circ = 1.63\\text{ V}$; (iv) $\\frac{1}{2}\\text{Cl}_2(0) \\to \\text{Cl}^-(-1)$ involves $n_4 = 1, E_4^\\circ = 1.36\\text{ V}$. Step 3: Total electrons transferred are $n_{\\text{total}} = 2 + 2 + 1 + 1 = 6$. Calculating the total voltage-electron product: $\\sum n_i E_i^\\circ = 2(1.18) + 2(1.67) + 1(1.63) + 1(1.36) = 2.36 + 3.34 + 1.63 + 1.36 = 8.69\\text{ V}$. Step 4: Solving for standard potential yields $E^\\circ = \\frac{8.69}{6} = 1.4483\\text{ V} \\approx 1.45\\text{ V}$. Distractor C represents a simple arithmetic average of the potentials without weighting by electron count."
+    },
+    {
+      "id": "ec_c01_026",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In a solid oxide fuel cell (SOFC), pure methane gas ($\\text{CH}_4$) undergoes complete electrochemical oxidation at the anode according to the overall reaction: $\\text{CH}_4(g) + 2\\text{O}_2(g) \\to \\text{CO}_2(g) + 2\\text{H}_2\\text{O}(l)$. Anode half-reaction: $\\text{CH}_4(g) + 4\\text{O}^{2-} \\to \\text{CO}_2(g) + 2\\text{H}_2\\text{O}(l) + 8e^-$. When $32.0\\text{ g}$ of methane is completely consumed in this fuel cell at $100\\%$ coulombic efficiency, the total electric charge generated is subsequently used to deposit magnesium metal from molten $\\text{MgCl}_2$ in an electrolytic cell operating at $100\\%$ cathodic current efficiency. Determine the number of moles of magnesium metal ($\\text{Mg}$) deposited at the cathode. (Take molar mass of $\\text{CH}_4 = 16.0\\text{ g mol}^{-1}$).",
+      "options": [],
+      "answer": "8",
+      "explanation": "Step 1: First, calculate the moles of methane reacted. Given mass $m = 32.0\\text{ g}$ and molar mass $M = 16.0\\text{ g mol}^{-1}$, solving gives $n_{\\text{CH}_4} = \\frac{32.0}{16.0} = 2.0\\text{ mol}$. Step 2: From the anodic half-reaction $\\text{CH}_4 + 4\\text{O}^{2-} \\to \\text{CO}_2 + 2\\text{H}_2\\text{O} + 8e^-$, each mole of methane oxidized releases $8$ moles of electrons. Therefore, total moles of electrons transferred is $n_e = 2.0 \\times 8 = 16.0\\text{ mol of } e^-$, yielding a total charge of $Q = 16.0\\text{ F}$. Step 3: In the molten salt electrolytic cell, the cathode reaction is $\\text{Mg}^{2+} + 2e^- \\to \\text{Mg}(s)$. Hence, each mole of magnesium deposited requires $2$ Faradays of charge. Step 4: Applying Faraday's law of electrolysis, the moles of magnesium metal deposited is $n_{\\text{Mg}} = \\frac{16.0\\text{ F}}{2\\text{ F mol}^{-1}} = 8\\text{ mol}$. Substituting into the integer answer yields 8."
+    },
+    {
+      "id": "ec_c01_027",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A potentiometric cell is constructed at $298\\text{ K}$ by coupling a standard hydrogen electrode (SHE) as the cathode with a hydrogen electrode immersed in a $0.10\\text{ M}$ aqueous solution of ammonium chloride ($\\text{NH}_4\\text{Cl}$) as the anode: $\\text{Pt}(s) \\mid \\text{H}_2(g, 1.0\\text{ bar}) \\mid \\text{NH}_4\\text{Cl}(aq, 0.10\\text{ M}) \\parallel \\text{H}^+(aq, 1.0\\text{ M}) \\mid \\text{H}_2(g, 1.0\\text{ bar}) \\mid \\text{Pt}(s)$. The observed cell EMF is $E_{\\text{cell}} = 0.295\\text{ V}$. Taking $\\frac{2.303 RT}{F} = 0.059\\text{ V}$ at $298\\text{ K}$, calculate the hydrolysis constant ($K_h$) of the ammonium ion ($\\text{NH}_4^+$).",
+      "options": [
+        "A) $1.0 \\times 10^{-9}$",
+        "B) $1.0 \\times 10^{-5}$",
+        "C) $1.0 \\times 10^{-10}$",
+        "D) $1.0 \\times 10^{-14}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The cell potential is related to the $\\text{pH}$ of the anode solution by $E_{\\text{cell}} = E_{\\text{cathode}} - E_{\\text{anode}} = 0.000 - (-0.059 \\text{pH}) = 0.059 \\text{pH}$. Step 2: Substituting the observed potential yields $0.295 = 0.059 \\text{pH}$, which implies $\\text{pH} = \\frac{0.295}{0.059} = 5.0$. Therefore, $[\\text{H}^+] = 10^{-5.0} = 1.0 \\times 10^{-5}\\text{ M}$. Step 3: Ammonium chloride is a salt of a weak base and strong acid, hydrolyzing as $\\text{NH}_4^+ + \\text{H}_2\\text{O} \\rightleftharpoons \\text{NH}_3 + \\text{H}_3\\text{O}^+$. The hydrogen ion concentration is given by $[\\text{H}^+] = \\sqrt{K_h c}$. Step 4: Solving for $K_h$ with $c = 0.10\\text{ M}$ yields $K_h = \\frac{[\\text{H}^+]^2}{c} = \\frac{(1.0 \\times 10^{-5})^2}{0.10} = 1.0 \\times 10^{-9}$. Hence, the correct hydrolysis constant is $1.0 \\times 10^{-9}$. Distractor $1.0 \\times 10^{-5}$ confuses $K_h$ with $K_b$ of ammonia, while $1.0 \\times 10^{-10}$ erroneously omits dividing by salt concentration $c$."
+    },
+    {
+      "id": "ec_c01_028",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An aqueous solution of potassium propanoate ($\\text{CH}_3\\text{CH}_2\\text{COOK}$) is subjected to Kolbe electrolytic decarboxylation using smooth platinum electrodes. A steady electric current of $5.0\\text{ A}$ is passed through the cell for $3860\\text{ seconds}$. If the anodic current efficiency for the formation of $n$-butane is $80.0\\%$, what is the actual mass of $n$-butane ($\\text{C}_4\\text{H}_{10}$) collected at the anode? (Take $1\\text{ F} = 96500\\text{ C mol}^{-1}$, molar mass of $n$-butane $= 58.0\\text{ g mol}^{-1}$).",
+      "options": [
+        "A) $5.80\\text{ g}$",
+        "B) $4.64\\text{ g}$",
+        "C) $2.32\\text{ g}$",
+        "D) $9.28\\text{ g}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The anodic half-reaction in Kolbe electrolysis of propanoate is: $2\\text{CH}_3\\text{CH}_2\\text{COO}^- \\to \\text{CH}_3\\text{CH}_2\\text{CH}_2\\text{CH}_3 + 2\\text{CO}_2 + 2e^-$. Thus, formation of $1\\text{ mol}$ of $n$-butane requires $2$ Faradays of electric charge. Step 2: The total electric charge passed is $Q = I \\times t = 5.0\\text{ A} \\times 3860\\text{ s} = 19300\\text{ C}$. In Faradays, this corresponds to $\\frac{19300}{96500} = 0.20\\text{ F}$. Step 3: Theoretical moles of $n$-butane formed would be $n_{\\text{theo}} = \\frac{0.20\\text{ F}}{2\\text{ F mol}^{-1}} = 0.10\\text{ mol}$, corresponding to a theoretical mass of $m_{\\text{theo}} = 0.10\\text{ mol} \\times 58.0\\text{ g mol}^{-1} = 5.80\\text{ g}$. Step 4: Applying the current efficiency of $80.0\\%$, we get $m_{\\text{actual}} = 5.80\\text{ g} \\times 0.80 = 4.64\\text{ g}$. Distractor $5.80\\text{ g}$ represents $100\\%$ theoretical yield without efficiency correction, while $2.32\\text{ g}$ mistakenly assumes $4$ electrons per butane molecule."
+    },
+    {
+      "id": "ec_c01_029",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In an aqueous electrolyte solution at $298\\text{ K}$ and $\\text{pH} = 7.00$, the thermodynamic redox stability window of liquid water under standard ambient partial pressures ($P_{\\text{O}_2} = P_{\\text{H}_2} = 1.0\\text{ bar}$) is bounded by the cathodic hydrogen evolution reaction (HER) and anodic oxygen evolution reaction (OER). Given standard reduction potentials: $E^\\circ(\\text{O}_2, \\text{H}^+/\\text{H}_2\\text{O}) = +1.23\\text{ V}$ and $E^\\circ(\\text{H}^+/\\text{H}_2) = 0.00\\text{ V}$ at $298\\text{ K}$ (taking $\\frac{2.303 RT}{F} = 0.059\\text{ V}$), determine the thermodynamic potential range $[E_{\\text{HER}}, E_{\\text{OER}}]$ versus SHE within which water remains electrochemically stable at $\\text{pH} = 7.00$.",
+      "options": [
+        "A) $[-0.83\\text{ V}, +0.40\\text{ V}]$",
+        "B) $[0.00\\text{ V}, +1.23\\text{ V}]$",
+        "C) $[-0.413\\text{ V}, +0.817\\text{ V}]$",
+        "D) $[-0.413\\text{ V}, +1.230\\text{ V}]$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The cathodic reduction boundary is the hydrogen evolution reaction: $2\\text{H}^+ + 2e^- \\rightleftharpoons \\text{H}_2(g)$. Applying the Nernst equation at $P_{\\text{H}_2} = 1.0\\text{ bar}$: $E_{\\text{HER}} = E^\\circ(\\text{H}^+/\\text{H}_2) - 0.059\\text{ pH} = 0.00 - 0.059(7.00) = -0.413\\text{ V}$. Water is thermodynamically reduced to hydrogen below $-0.413\\text{ V}$. Step 2: The anodic oxidation boundary is the oxygen evolution reaction: $\\text{O}_2(g) + 4\\text{H}^+ + 4e^- \\rightleftharpoons 2\\text{H}_2\\text{O}(l)$. Applying the Nernst equation at $P_{\\text{O}_2} = 1.0\\text{ bar}$: $E_{\\text{OER}} = E^\\circ(\\text{O}_2/\\text{H}_2\\text{O}) - 0.059\\text{ pH} = 1.23 - 0.059(7.00) = 1.23 - 0.413 = +0.817\\text{ V}$. Step 3: Water is thermodynamically oxidized to oxygen above $+0.817\\text{ V}$. Step 4: Hence, solving for the stability window yields the range $[-0.413\\text{ V}, +0.817\\text{ V}]$. The total span remains $\\Delta E = 1.23\\text{ V}$, independent of $\\text{pH}$. Distractor A represents $\\text{pH} = 14$, and B represents $\\text{pH} = 0$."
+    },
+    {
+      "id": "ec_c01_030",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In the industrial electrometallurgy of aluminum (Hall-Héroult process), pure alumina ($\\text{Al}_2\\text{O}_3$) is dissolved in molten cryolite and electrolyzed at carbon electrodes according to the overall stoichiometry: $2\\text{Al}_2\\text{O}_3 + 3\\text{C}(s) \\to 4\\text{Al}(l) + 3\\text{CO}_2(g)$. Cathode reaction: $\\text{Al}^{3+} + 3e^- \\to \\text{Al}(l)$. Anode reaction: $2\\text{O}^{2-} + \\text{C}(s) \\to \\text{CO}_2(g) + 4e^-$. In an electrolytic reduction operation, exactly $102.0\\text{ g}$ of pure alumina is completely decomposed into aluminum metal and carbon dioxide. Assuming $100\\%$ coulombic efficiency, calculate the total electric charge passed through the cell in units of Faradays ($F$). (Take molar mass of $\\text{Al}_2\\text{O}_3 = 102.0\\text{ g mol}^{-1}$).",
+      "options": [],
+      "answer": "6",
+      "explanation": "Step 1: Calculate the amount of alumina consumed: $n = \\frac{102.0\\text{ g}}{102.0\\text{ g mol}^{-1}} = 1.0\\text{ mol of } \\text{Al}_2\\text{O}_3$. Step 2: One mole of $\\text{Al}_2\\text{O}_3$ dissociates into $2.0\\text{ mol of } \\text{Al}^{3+}$ cations and $3.0\\text{ mol of } \\text{O}^{2-}$ anions. Step 3: Reduction of $2.0\\text{ mol of } \\text{Al}^{3+}$ ions at the cathode requires: $2.0\\text{ mol} \\times 3\\text{ mol } e^-/\\text{mol} = 6.0\\text{ mol of } e^- = 6.0\\text{ F}$. Step 4: Verifying at the anode, oxidation of $3.0\\text{ mol of } \\text{O}^{2-}$ gives: $3\\text{O}^{2-} + \\frac{3}{2}\\text{C} \\to \\frac{3}{2}\\text{CO}_2 + 6e^-$, which also requires exactly $6.0\\text{ F}$. Therefore, the total charge passed is $6\\text{ F}$, yielding the integer value 6."
+    },
+    {
+      "id": "ec_c01_031",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An aqueous mixture containing equimolar quantities of hydrochloric acid ($\\text{HCl}$) and acetic acid ($\\text{CH}_3\\text{COOH}$) is titrated conductometrically against a standard sodium hydroxide ($\\text{NaOH}$) solution. Which of the following statements correctly describes the trend in electrolytic conductivity ($\\kappa$) of the solution during the course of the titration from start to beyond the equivalence points?",
+      "options": [
+        "A) $\\kappa$ decreases steadily until all acids are neutralized, then remains constant.",
+        "B) $\\kappa$ increases initially due to salt formation, reaches a plateau, and then increases steeply.",
+        "C) $\\kappa$ remains constant until $\\text{HCl}$ is neutralized, then increases sharply throughout the remainder of the titration.",
+        "D) $\\kappa$ decreases sharply until the first equivalence point, rises moderately until the second equivalence point, and increases steeply beyond the second equivalence point."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The standard molar ionic conductivity of $\\text{H}^+$ is exceptionally high ($\\lambda^\\circ \\approx 350\\text{ S cm}^2\\text{ mol}^{-1}$) due to Grotthuss proton jumping. Strong acid $\\text{HCl}$ is completely ionized and neutralizes preferentially: $\\text{H}^+ + \\text{OH}^- \\to \\text{H}_2\\text{O}$. As fast $\\text{H}^+$ ions are replaced by slower $\\text{Na}^+$ ions ($\\lambda^\\circ \\approx 50$), conductivity decreases sharply until the first equivalence point. Step 2: Once $\\text{HCl}$ is completely neutralized, $\\text{CH}_3\\text{COOH}$ reacts with $\\text{NaOH}$ forming $\\text{CH}_3\\text{COONa}$. This introduces additional conducting $\\text{Na}^+$ and $\\text{CH}_3\\text{COO}^-$ ions into solution, causing conductivity to increase with a moderate slope until the second equivalence point. Step 3: Beyond the second equivalence point, both acids are neutralized. Adding excess $\\text{NaOH}$ introduces highly mobile hydroxide ions ($\\lambda^\\circ \\approx 199$) and sodium ions, causing conductivity to rise steeply. Step 4: Therefore, the conductivity profile exhibits an initial steep drop, followed by a moderate rise, followed by a steep increase. Distractor A ignores excess titrant conductivity, and C ignores $\\text{H}^+$ depletion."
+    },
+    {
+      "id": "ec_c01_032",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A gas concentration cell without transference is assembled at $298\\text{ K}$ with unequal hydrogen gas pressures: $\\text{Pt}(s) \\mid \\text{H}_2(g, 10.0\\text{ bar}) \\mid \\text{H}^+(aq, 1.0\\text{ M}) \\parallel \\text{H}^+(aq, 1.0\\text{ M}) \\mid \\text{H}_2(g, 0.10\\text{ bar}) \\mid \\text{Pt}(s)$. Taking $\\frac{2.303 RT}{F} = 0.0591\\text{ V}$ at $298\\text{ K}$, what is the electromotive force ($E_{\\text{cell}}$) of this galvanic cell?",
+      "options": [
+        "A) $+59.1\\text{ mV}$",
+        "B) $-59.1\\text{ mV}$",
+        "C) $+29.6\\text{ mV}$",
+        "D) $+118.2\\text{ mV}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write the half-cell reactions. Anode oxidation: $\\text{H}_2(g, 10.0\\text{ bar}) \\to 2\\text{H}^+(aq, 1.0\\text{ M}) + 2e^-$. Cathode reduction: $2\\text{H}^+(aq, 1.0\\text{ M}) + 2e^- \\to \\text{H}_2(g, 0.10\\text{ bar})$. Step 2: The overall cell reaction is the spontaneous transfer of gas from high to low pressure: $\\text{H}_2(g, 10.0\\text{ bar}) \\to \\text{H}_2(g, 0.10\\text{ bar})$ with $n = 2$ electrons transferred. Step 3: Applying the Nernst equation for a gas concentration cell with identical electrolyte concentrations: $E_{\\text{cell}} = E^\\circ_{\\text{cell}} - \\frac{0.0591}{2}\\log\\left(\\frac{P_{\\text{cathode}}}{P_{\\text{anode}}}\\right) = 0 - \\frac{0.0591}{2}\\log\\left(\\frac{0.10}{10.0}\\right)$. Step 4: Solving gives $\\log(10^{-2}) = -2$. Substituting this yields $E_{\\text{cell}} = -\\frac{0.0591}{2} \\times (-2) = +0.0591\\text{ V} = +59.1\\text{ mV}$. Distractor B has an inverted pressure ratio, and C uses $n = 4$ erroneously."
+    },
+    {
+      "id": "ec_c01_033",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A student constructs an electrochemical cell to determine the dissociation constant ($K_a$) of an unknown weak monobasic organic acid $\\text{HA}$. A $0.10\\text{ M}$ solution of $\\text{HA}$ is titrated with standard $\\text{NaOH}$ until it is exactly $50\\%$ neutralized. The resulting buffer solution is placed in a half-cell with a hydrogen electrode: $\\text{Pt}(s) \\mid \\text{H}_2(g, 1.0\\text{ bar}) \\mid \\text{buffer solution} \\parallel \\text{SCE}$, where the saturated calomel electrode (SCE) acts as cathode with potential $E_{\\text{SCE}} = +0.242\\text{ V}$. The measured cell EMF at $298\\text{ K}$ is $0.537\\text{ V}$. Given $\\frac{2.303 RT}{F} = 0.059\\text{ V}$ at $298\\text{ K}$, calculate $K_a$ of the weak acid.",
+      "options": [
+        "A) $1.0 \\times 10^{-4}$",
+        "B) $1.0 \\times 10^{-5}$",
+        "C) $2.0 \\times 10^{-6}$",
+        "D) $1.0 \\times 10^{-6}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Express the cell potential in terms of cathode and anode potentials: $E_{\\text{cell}} = E_{\\text{SCE}} - E_{\\text{H}^+/\\text{H}_2}$. For the hydrogen anode, $E_{\\text{anode}} = -0.059\\text{ pH}$. Step 2: Substituting known potentials: $0.537 = 0.242 - (-0.059\\text{ pH}) = 0.242 + 0.059\\text{ pH}$. Solving yields $0.059\\text{ pH} = 0.537 - 0.242 = 0.295\\text{ V}$, which implies $\\text{pH} = \\frac{0.295}{0.059} = 5.00$. Step 3: For a half-neutralized weak acid buffer, $[\\text{A}^-] = [\\text{HA}]$. Applying the Henderson-Hasselbalch equation: $\\text{pH} = pK_a + \\log\\left(\\frac{[\\text{A}^-]}{[\\text{HA}]}\\right) = pK_a + \\log(1) = pK_a$. Step 4: Hence, $pK_a = 5.00$, yielding $K_a = 10^{-5.00} = 1.0 \\times 10^{-5}$. Distractor $1.0 \\times 10^{-4}$ results from subtracting the potentials in reverse, while $1.0 \\times 10^{-6}$ corresponds to an erroneous $\\text{pH} = 6.00$."
+    },
+    {
+      "id": "ec_c01_034",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The electrochemical corrosion of metallic iron in an aerated aqueous medium proceeds via the spontaneous redox reaction: $2\\text{Fe}(s) + \\text{O}_2(g) + 4\\text{H}^+(aq) \\to 2\\text{Fe}^{2+}(aq) + 2\\text{H}_2\\text{O}(l)$. Standard reduction potentials at $298\\text{ K}$ are: $E^\\circ(\\text{Fe}^{2+}/\\text{Fe}) = -0.440\\text{ V}$ and $E^\\circ(\\text{O}_2, \\text{H}^+/\\text{H}_2\\text{O}) = +1.230\\text{ V}$. Taking $\\frac{2.303 RT}{F} = 0.059\\text{ V}$, what is the corrosion cell electromotive force ($E_{\\text{cell}}$) when the iron surface is in contact with an aqueous environment where $[\\text{Fe}^{2+}] = 1.0 \\times 10^{-6}\\text{ M}$, partial pressure of oxygen $P_{\\text{O}_2} = 0.20\\text{ bar}$, and $\\text{pH} = 6.00$?",
+      "options": [
+        "A) $+1.670\\text{ V}$",
+        "B) $+1.294\\text{ V}$",
+        "C) $+1.483\\text{ V}$",
+        "D) $+1.857\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate the standard cell EMF: $E^\\circ_{\\text{cell}} = E^\\circ(\\text{cathode}) - E^\\circ(\\text{anode}) = +1.230 - (-0.440) = +1.670\\text{ V}$. The reaction involves $n = 4$ electrons transferred per $2\\text{Fe}$ oxidized and $1\\text{ O}_2$ reduced. Step 2: Formulate the reaction quotient expression: $Q = \\frac{[\\text{Fe}^{2+}]^2}{P_{\\text{O}_2}[\\text{H}^+]^4}$. Given $[\\text{Fe}^{2+}] = 1.0 \\times 10^{-6}\\text{ M}$, $[\\text{H}^+] = 1.0 \\times 10^{-6}\\text{ M}$, and $P_{\\text{O}_2} = 0.20\\text{ bar}$. Step 3: Substituting into $Q$: $Q = \\frac{(10^{-6})^2}{0.20 \\times (10^{-6})^4} = \\frac{10^{-12}}{0.20 \\times 10^{-24}} = \\frac{10^{12}}{0.20} = 5.0 \\times 10^{12}$. Solving for the logarithm: $\\log Q = \\log 5 + 12 = 0.699 + 12 = 12.699$. Step 4: Applying the Nernst equation: $E_{\\text{cell}} = E^\\circ_{\\text{cell}} - \\frac{0.059}{4}\\log Q = 1.670 - \\frac{0.059}{4} \\times 12.699 = 1.670 - 0.1873 = +1.4827\\text{ V} \\approx +1.483\\text{ V}$. Distractor A represents standard potential without concentration correction, B assumes $n = 2$ instead of $4$, and D mistakenly adds the Nernst correction term."
+    },
+    {
+      "id": "ec_c01_035",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The standard reduction potential of lithium is the most negative among all alkali metals ($E^\\circ_{\\text{Li}^+/\\text{Li}} = -3.04\\text{ V}$), rendering metallic lithium the strongest reducing agent in aqueous medium, despite lithium having the highest first ionization enthalpy ($\\Delta_i H^\\circ_1 = 520\\text{ kJ mol}^{-1}$) among the Group 1 elements. Which of the following thermodynamic factors is fundamentally responsible for this anomalously negative reduction potential?",
+      "options": [
+        "A) Abnormally low standard enthalpy of sublimation of solid lithium metal.",
+        "B) High negative electron gain enthalpy of hydrated lithium cations.",
+        "C) Abnormally large positive standard entropy of sublimation of lithium.",
+        "D) Exceptionally exothermic standard hydration enthalpy of the small $\\text{Li}^+$ ion, which overcompensates for its high ionization enthalpy."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The standard electrode potential $E^\\circ(M^+/M)$ is governed by the standard free energy change $\\Delta G^\\circ$ for the half-reaction $M^+(aq) + e^- \\to M(s)$, which is the reverse of $M(s) \\to M^+(aq) + e^-$. Step 2: Applying the Born-Haber thermodynamic cycle, the atomization-ionization-hydration process entails: $\\Delta H^\\circ = \\Delta_{\\text{sub}} H^\\circ(M) + \\Delta_i H^\\circ_1(M) + \\Delta_{\\text{hyd}} H^\\circ(M^+)$. Step 3: Although lithium possesses a high sublimation energy and the highest first ionization enthalpy among alkali metals, its ionic radius is exceptionally small ($r_{\\text{Li}^+} \\approx 76\\text{ pm}$). The electrostatic hydration enthalpy is inversely proportional to ionic radius (Born equation: $\\Delta_{\\text{hyd}} H^\\circ \\propto -\\frac{z^2}{r}$). Step 4: The hydration enthalpy of $\\text{Li}^+$ is extremely exothermic ($-544\\text{ kJ mol}^{-1}$), significantly larger in magnitude than those of $\\text{Na}^+$ ($-406\\text{ kJ mol}^{-1}$) and $\\text{K}^+$ ($-322\\text{ kJ mol}^{-1}$). This colossal hydration energy release more than compensates for the high sublimation and ionization energies, making $\\Delta G^\\circ$ for oxidation highly negative and $E^\\circ_{\\text{red}}$ correspondingly most negative ($-3.04\\text{ V}$). Distractors A, B, and C identify non-existent or irrelevant thermodynamic drivers."
+    },
+    {
+      "id": "ec_c01_036",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the operational thermodynamics and electrochemistry of a secondary lead-acid storage battery operating at $298\\text{ K}$. During the discharge process, the spontaneous cell reaction is: $\\text{Pb}(s) + \\text{PbO}_2(s) + 2\\text{H}_2\\text{SO}_4(aq) \\to 2\\text{PbSO}_4(s) + 2\\text{H}_2\\text{O}(l)$, with standard electromotive force $E^\\circ_{\\text{cell}} \\approx 2.04\\text{ V}$. Which of the following statements concerning this electrochemical system is/are correct?",
+      "options": [
+        "A) During discharge, both the negative electrode (spongy lead) and positive electrode (lead dioxide) are converted into solid lead(II) sulfate ($\\text{PbSO}_4$).",
+        "B) As the battery discharges, sulfuric acid is consumed and water is generated, leading to a continuous decrease in the density of the aqueous electrolyte solution.",
+        "C) To recharge the battery, an external DC voltage source exceeding the cell EMF must be connected with its positive terminal to the battery's $\\text{PbO}_2$ electrode.",
+        "D) The standard cell electromotive force of a single lead-acid cell is independent of sulfuric acid activity because all other reactants and products are pure solids or liquids."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Write down the half-cell reactions during discharge. Anode oxidation: $\\text{Pb}(s) + \\text{HSO}_4^-(aq) \\to \\text{PbSO}_4(s) + \\text{H}^+(aq) + 2e^-$. Cathode reduction: $\\text{PbO}_2(s) + \\text{HSO}_4^-(aq) + 3\\text{H}^+(aq) + 2e^- \\to \\text{PbSO}_4(s) + 2\\text{H}_2\\text{O}(l)$. Both electrodes form $\\text{PbSO}_4(s)$, confirming statement A. Step 2: Summing the half-reactions gives the overall discharge reaction: $\\text{Pb}(s) + \\text{PbO}_2(s) + 2\\text{H}_2\\text{SO}_4(aq) \\to 2\\text{PbSO}_4(s) + 2\\text{H}_2\\text{O}(l)$. Sulfuric acid (density $\\approx 1.28\\text{ g mL}^{-1}$) is consumed while water (density $1.00\\text{ g mL}^{-1}$) is produced. Therefore, the specific gravity of the electrolyte decreases progressively during discharge, confirming statement B. Step 3: During recharging, the non-spontaneous reverse reaction must be driven: $2\\text{PbSO}_4(s) + 2\\text{H}_2\\text{O}(l) \\to \\text{Pb}(s) + \\text{PbO}_2(s) + 2\\text{H}_2\\text{SO}_4(aq)$. The positive terminal of the external power supply must be connected to the positive $\\text{PbO}_2$ plate to force oxidation of $\\text{PbSO}_4$ back to $\\text{PbO}_2$, confirming statement C. Step 4: Applying the Nernst equation, $E_{\\text{cell}} = E^\\circ_{\\text{cell}} - \\frac{RT}{2F}\\ln\\left(\\frac{a_{\\text{H}_2\\text{O}}^2}{a_{\\text{H}_2\\text{SO}_4}^2}\\right) = E^\\circ_{\\text{cell}} + \\frac{RT}{F}\\ln a_{\\text{H}_2\\text{SO}_4}$. Hence, cell EMF depends strongly on acid activity and concentration, refuting statement D."
+    },
+    {
+      "id": "ec_c01_037",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "An aqueous electrochemical bath contains a mixture of $0.10\\text{ M}\\;\\text{Cu}^{2+}$ and $0.10\\text{ M}\\;\\text{Ni}^{2+}$ ions at $298\\text{ K}$. Given standard reduction potentials: $E^\\circ(\\text{Cu}^{2+}/\\text{Cu}) = +0.340\\text{ V}$ and $E^\\circ(\\text{Ni}^{2+}/\\text{Ni}) = -0.250\\text{ V}$, and taking $\\frac{2.303 RT}{F} = 0.059\\text{ V}$. As the cathode potential is shifted to progressively more negative values, metallic copper deposits first. What is the residual concentration of $\\text{Cu}^{2+}$ remaining in solution at the exact potential where metallic nickel just begins to co-deposit?",
+      "options": [
+        "A) $1.0 \\times 10^{-21}\\text{ M}$",
+        "B) $1.0 \\times 10^{-10}\\text{ M}$",
+        "C) $3.2 \\times 10^{-15}\\text{ M}$",
+        "D) $1.0 \\times 10^{-25}\\text{ M}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Determine the cathode potential at which $\\text{Ni}^{2+}$ begins to electrodeposit from solution. Applying the Nernst equation for nickel deposition: $E_{\\text{cath}}(\\text{Ni}) = E^\\circ(\\text{Ni}^{2+}/\\text{Ni}) + \\frac{0.059}{2}\\log[\\text{Ni}^{2+}]$. Substituting $E^\\circ = -0.250\\text{ V}$ and $[\\text{Ni}^{2+}] = 0.10\\text{ M}$ yields: $E_{\\text{cath}}(\\text{Ni}) = -0.250 + 0.0295(-1) = -0.2795\\text{ V}$. Step 2: At this identical cathode potential, copper is in dynamic electrochemical equilibrium with its remaining ions in solution: $E_{\\text{cath}} = E^\\circ(\\text{Cu}^{2+}/\\text{Cu}) + \\frac{0.059}{2}\\log[\\text{Cu}^{2+}]_{\\text{residual}}$. Step 3: Substituting the numerical values gives: $-0.2795 = +0.340 + 0.0295\\log[\\text{Cu}^{2+}]_{\\text{residual}}$. Solving for the logarithmic term: $0.0295\\log[\\text{Cu}^{2+}]_{\\text{residual}} = -0.2795 - 0.340 = -0.6195\\text{ V}$. Step 4: Therefore, $\\log[\\text{Cu}^{2+}]_{\\text{residual}} = \\frac{-0.6195}{0.0295} = -21.0$, which implies $[\\text{Cu}^{2+}]_{\\text{residual}} = 10^{-21.0} = 1.0 \\times 10^{-21}\\text{ M}$. Hence, copper is quantitatively separated prior to nickel deposition. Distractor $1.0 \\times 10^{-10}\\text{ M}$ results from failing to divide by $n = 2$, and $1.0 \\times 10^{-25}\\text{ M}$ arises from an arithmetic sign blunder."
+    },
+    {
+      "id": "ec_c01_038",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A hydrogen concentration cell is constructed at $298\\text{ K}$ using two acetic acid/sodium acetate buffer solutions connected by a potassium chloride salt bridge: $\\text{Pt}(s) \\mid \\text{H}_2(g, 1.0\\text{ bar}) \\mid \\text{Buffer A} \\parallel \\text{Buffer B} \\mid \\text{H}_2(g, 1.0\\text{ bar}) \\mid \\text{Pt}(s)$. Buffer A consists of $0.010\\text{ M}\\;\\text{CH}_3\\text{COOH}$ and $0.10\\text{ M}\\;\\text{CH}_3\\text{COONa}$, while Buffer B consists of $0.10\\text{ M}\\;\\text{CH}_3\\text{COOH}$ and $0.10\\text{ M}\\;\\text{CH}_3\\text{COONa}$. Given $pK_a(\\text{CH}_3\\text{COOH}) = 4.76$ and taking $\\frac{2.303 RT}{F} = 0.059\\text{ V}$, which of the following statements is/are correct?",
+      "options": [
+        "A) The spontaneous cell reaction involves oxidation of $\\text{H}_2$ gas at the electrode immersed in Buffer A and reduction of $\\text{H}^+$ ions at the electrode immersed in Buffer B.",
+        "B) Addition of a small quantity of solid sodium chloride to Buffer B drastically alters the cell electromotive force by shifting the $pK_a$ of acetic acid by more than two units.",
+        "C) The electromotive force of the cell at $298\\text{ K}$ is equal to $+0.059\\text{ V}$.",
+        "D) If the salt bridge is replaced by a porous glass diaphragm, a non-zero liquid junction potential develops across the boundary due to differences in ionic mobilities."
+      ],
+      "answer": "A,C,D",
+      "explanation": "Step 1: Calculate the $\\text{pH}$ of each buffer compartment using the Henderson-Hasselbalch equation. For Buffer A (anode): $\\text{pH}_A = pK_a + \\log\\left(\\frac{[\\text{CH}_3\\text{COO}^-]}{[\\text{CH}_3\\text{COOH}]}\\right) = 4.76 + \\log\\left(\\frac{0.10}{0.010}\\right) = 4.76 + 1.00 = 5.76$. Step 2: For Buffer B (cathode): $\\text{pH}_B = 4.76 + \\log\\left(\\frac{0.10}{0.10}\\right) = 4.76 + 0.00 = 4.76$. Since $[\\text{H}^+]_B = 10^{-4.76} > [\\text{H}^+]_A = 10^{-5.76}$, Buffer B has higher proton activity and acts as cathode. Step 3: Applying the cell potential relationship: $E_{\\text{cell}} = E_{\\text{cathode}} - E_{\\text{anode}} = (-0.059\\text{ pH}_B) - (-0.059\\text{ pH}_A) = 0.059(\\text{pH}_A - \\text{pH}_B) = 0.059(5.76 - 4.76) = +0.059\\text{ V}$. Therefore, oxidation occurs in Buffer A and reduction occurs in Buffer B, confirming statements A and C. Step 4: Statement D is correct because direct liquid contact between different electrolyte compositions generates a diffusion potential ($E_{lj}$) governed by unequal transference numbers. Statement B is incorrect because adding moderate amounts of inert neutral salt affects only ionic strength slightly and does not shift intrinsic $pK_a$ by two units."
+    },
+    {
+      "id": "ec_c01_039",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A dilute aqueous solution of sodium sulfate ($\\text{Na}_2\\text{SO}_4$) is electrolyzed at $298\\text{ K}$ between inert platinum electrodes by passing a constant electric current of $2.00\\text{ A}$. The gaseous products evolved at both electrodes ($\\text{H}_2$ at the cathode and $\\text{O}_2$ at the anode) are completely collected and dried. The total combined volume of the dry gases measured at standard temperature and pressure (STP: $0^\\circ\\text{C}$, $1\\text{ atm}$, where standard molar gas volume is $22.4\\text{ L mol}^{-1}$) is exactly $67.2\\text{ mL}$. Calculate the duration of the electrolysis in seconds. (Take $1\\text{ F} = 96500\\text{ C mol}^{-1}$).",
+      "options": [],
+      "answer": "193",
+      "explanation": "Step 1: Write the electrode half-reactions for the electrolysis of aqueous $\\text{Na}_2\\text{SO}_4$. Cathode: $4\\text{H}_2\\text{O}(l) + 4e^- \\to 2\\text{H}_2(g) + 4\\text{OH}^-(aq)$. Anode: $2\\text{H}_2\\text{O}(l) \\to \\text{O}_2(g) + 4\\text{H}^+(aq) + 4e^-$. Overall reaction: $2\\text{H}_2\\text{O}(l) \\to 2\\text{H}_2(g) + \\text{O}_2(g)$. Step 2: The passage of $4$ moles of electrons ($4\\text{ F}$) produces $2\\text{ mol of } \\text{H}_2$ and $1\\text{ mol of } \\text{O}_2$, yielding a total of $3\\text{ moles of gas}$. Step 3: Determine the total moles of gas collected at STP: $n_{\\text{total}} = \\frac{67.2\\text{ mL}}{22400\\text{ mL mol}^{-1}} = 3.00 \\times 10^{-3}\\text{ mol}$. Since $3\\text{ mol of gas} \\equiv 4\\text{ mol of } e^-$, the quantity of charge required is $n_e = \\frac{4}{3} \\times (3.00 \\times 10^{-3}\\text{ mol}) = 4.00 \\times 10^{-3}\\text{ mol of } e^-$. Step 4: Applying Faraday's law, total charge is $Q = n_e \\times F = 4.00 \\times 10^{-3} \\times 96500\\text{ C} = 386.0\\text{ C}$. Solving for the electrolysis duration with $I = 2.00\\text{ A}$ gives: $t = \\frac{Q}{I} = \\frac{386.0\\text{ C}}{2.00\\text{ A}} = 193\\text{ seconds}$. Substituting into the final integer yields 193."
+    },
+    {
+      "id": "ec_c01_040",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The maximum theoretical thermodynamic efficiency of an electrochemical fuel cell operating reversibly at constant temperature and pressure is defined as $\\eta_{\\text{max}} = \\frac{\\Delta G^\\circ}{\\Delta H^\\circ}$, where $\\Delta G^\\circ$ is the standard Gibbs free energy change and $\\Delta H^\\circ$ is the standard reaction enthalpy change. Consider the hydrogen-oxygen fuel cell: $\\text{H}_2(g) + \\frac{1}{2}\\text{O}_2(g) \\to \\text{H}_2\\text{O}(l)$ and the high-temperature direct carbon monoxide fuel cell: $\\text{C}(s) + \\frac{1}{2}\\text{O}_2(g) \\to \\text{CO}(g)$. Which of the following thermodynamic deductions is/are correct?",
+      "options": [
+        "A) For the $\\text{H}_2(g) - \\text{O}_2(g)$ cell producing liquid water, the temperature coefficient of the standard cell electromotive force $\\left(\\frac{\\partial E^\\circ}{\\partial T}\\right)_P$ is strictly positive.",
+        "B) For the $\\text{H}_2(g) - \\text{O}_2(g)$ cell forming liquid water, $\\eta_{\\text{max}} < 100\\%$ because the standard entropy change of the reaction is negative ($\\Delta S^\\circ < 0$).",
+        "C) For a fuel cell reaction exhibiting a positive standard entropy change ($\\Delta S^\\circ > 0$), such as $\\text{C}(s) + \\frac{1}{2}\\text{O}_2(g) \\to \\text{CO}(g)$, the theoretical efficiency $\\eta_{\\text{max}}$ can exceed $100\\%$ by absorbing heat reversibly from the surroundings.",
+        "D) The maximum electrical work obtainable from any galvanic cell operating under reversible isothermal-isobaric conditions is equal to $-\\Delta H^\\circ$."
+      ],
+      "answer": "B,C",
+      "explanation": "Step 1: The standard free energy change is related to enthalpy and entropy by $\\Delta G^\\circ = \\Delta H^\\circ - T\\Delta S^\\circ$. The temperature coefficient of cell potential is given by $\\left(\\frac{\\partial E^\\circ}{\\partial T}\\right)_P = \\frac{\\Delta S^\\circ}{nF}$. Step 2: In the reaction $\\text{H}_2(g) + \\frac{1}{2}\\text{O}_2(g) \\to \\text{H}_2\\text{O}(l)$, gaseous reactants condense into liquid water, so $\\Delta S^\\circ < 0$. Therefore, $\\left(\\frac{\\partial E^\\circ}{\\partial T}\\right)_P < 0$, refuting statement A. Step 3: Because $\\Delta S^\\circ < 0$, the quantity $-T\\Delta S^\\circ > 0$, implying $|\\Delta G^\\circ| < |\\Delta H^\\circ|$. Hence, $\\eta_{\\text{max}} = \\frac{\\Delta G^\\circ}{\\Delta H^\\circ} < 1.00$ ($83\\%$ at $298\\text{ K}$), confirming statement B. Step 4: In the reaction $\\text{C}(s) + \\frac{1}{2}\\text{O}_2(g) \\to \\text{CO}(g)$, half a mole of gas produces one mole of gas, yielding $\\Delta S^\\circ > 0$. Therefore, $|\\Delta G^\\circ| > |\\Delta H^\\circ|$, meaning the cell delivers more electrical energy than the enthalpy released by absorbing heat from the ambient surroundings ($q_{\\text{rev}} = T\\Delta S^\\circ > 0$), confirming statement C. Statement D is false because maximum electrical work is equal to $-\\Delta G^\\circ$, not $-\\Delta H^\\circ$."
+    },
+    {
+      "id": "ec_c01_041",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A dibasic organic acid $\\text{H}_2\\text{A}$ has a first dissociation constant $pK_{a1} = 3.00$. An equimolar buffer solution containing $0.050\\text{ M}\\;\\text{NaHA}$ and $0.050\\text{ M}\\;\\text{Na}_2\\text{A}$ is placed in a potentiometric cell equipped with a hydrogen indicator electrode at $298\\text{ K}$: $\\text{Pt}(s) \\mid \\text{H}_2(g, 1.0\\text{ bar}) \\mid \\text{buffer solution} \\parallel \\text{SCE}$, where the saturated calomel electrode (SCE) serves as the cathode with standard potential $E_{\\text{SCE}} = +0.244\\text{ V}$. The measured cell EMF is $E_{\\text{cell}} = 0.657\\text{ V}$. Taking $\\frac{2.303 RT}{F} = 0.059\\text{ V}$, calculate the second dissociation constant ($K_{a2}$) of this dibasic acid.",
+      "options": [
+        "A) $1.0 \\times 10^{-3}$",
+        "B) $1.0 \\times 10^{-7}$",
+        "C) $1.0 \\times 10^{-5}$",
+        "D) $1.0 \\times 10^{-8}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Relate the measured cell potential to the half-cell potentials: $E_{\\text{cell}} = E_{\\text{cathode}} - E_{\\text{anode}} = E_{\\text{SCE}} - E_{\\text{H}^+/\\text{H}_2}$. For the hydrogen electrode at $1.0\\text{ bar}$, $E_{\\text{H}^+/\\text{H}_2} = -0.059\\text{ pH}$. Step 2: Substituting into the potential equation: $0.657 = 0.244 - (-0.059\\text{ pH}) = 0.244 + 0.059\\text{ pH}$. Solving yields: $0.059\\text{ pH} = 0.657 - 0.244 = 0.413\\text{ V}$, which implies $\\text{pH} = \\frac{0.413}{0.059} = 7.00$. Step 3: The second ionization equilibrium is $\\text{HA}^-(aq) \\rightleftharpoons \\text{H}^+(aq) + \\text{A}^{2-}(aq)$. Applying the Henderson-Hasselbalch equation: $\\text{pH} = pK_{a2} + \\log\\left(\\frac{[\\text{A}^{2-}]}{[\\text{HA}^-]}\\right)$. Since the buffer is equimolar in $\\text{HA}^-$ and $\\text{A}^{2-}$, the logarithmic term vanishes: $\\log\\left(\\frac{0.050}{0.050}\\right) = \\log(1) = 0$. Step 4: Therefore, $pK_{a2} = \\text{pH} = 7.00$, yielding $K_{a2} = 10^{-7.00} = 1.0 \\times 10^{-7}$. Distractor $1.0 \\times 10^{-3}$ represents $K_{a1}$, and $1.0 \\times 10^{-5}$ arises from misidentifying the potential subtraction."
+    },
+    {
+      "id": "ec_c01_042",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "According to the Debye-Hückel limiting law for dilute aqueous electrolyte solutions at $298\\text{ K}$, the mean ionic activity coefficient $\\gamma_\\pm$ is related to the ionic strength $I = \\frac{1}{2}\\sum c_i z_i^2$ by $\\log_{10} \\gamma_\\pm = -A |z_+ z_-| \\sqrt{I}$, where $A = 0.509\\text{ kg}^{1/2}\\text{ mol}^{-1/2}$. When applying this non-ideal correction to the Nernst equation for galvanic cells, which of the following statements is/are correct?",
+      "options": [
+        "A) For a 1:1 symmetrical electrolyte such as $\\text{NaCl}$ in dilute aqueous solution, the ionic strength equals the molar concentration ($I = c$), leading to $\\log_{10} \\gamma_\\pm = -0.509\\sqrt{c}$.",
+        "B) Addition of an inert spectator salt such as $\\text{KNO}_3$ increases the solution ionic strength $I$, which always causes the mean activity coefficient $\\gamma_\\pm$ to increase above unity in the dilute regime.",
+        "C) For the half-cell reduction $\\text{Zn}^{2+}(aq) + 2e^- \\to \\text{Zn}(s)$, the true reduction potential is completely independent of the ionic activity coefficient of $\\text{Zn}^{2+}$.",
+        "D) In a $0.010\\text{ M}$ aqueous $\\text{CaCl}_2$ solution, the ionic strength is $I = 0.030\\text{ M}$, and the mean activity coefficient satisfies $\\gamma_\\pm < 1.0$."
+      ],
+      "answer": "A,D",
+      "explanation": "Step 1: Calculate the ionic strength for a 1:1 electrolyte $\\text{NaCl}$ at concentration $c$: $I = \\frac{1}{2}[c(1)^2 + c(-1)^2] = c$. With $z_+ = +1$ and $z_- = -1$, the Debye-Hückel limiting law yields $\\log_{10} \\gamma_\\pm = -0.509(1)(1)\\sqrt{c} = -0.509\\sqrt{c}$, confirming statement A. Step 2: In dilute solutions, increasing ionic strength $I$ through addition of an inert salt makes $\\log_{10} \\gamma_\\pm$ more negative, which implies $\\gamma_\\pm$ decreases further below unity ($0 < \\gamma_\\pm < 1$). Thus, statement B is fundamentally false. Step 3: For the zinc half-cell, $E = E^\\circ + \\frac{RT}{2F}\\ln a_{\\text{Zn}^{2+}} = E^\\circ + \\frac{RT}{2F}\\ln(\\gamma_{\\text{Zn}^{2+}}[\\text{Zn}^{2+}])$. The electrode potential depends directly on the activity coefficient, refuting statement C. Step 4: For $0.010\\text{ M}\\;\\text{CaCl}_2$, $[\\text{Ca}^{2+}] = 0.010\\text{ M}$ and $[\\text{Cl}^-] = 0.020\\text{ M}$. Substituting into the ionic strength formula yields: $I = \\frac{1}{2}[(0.010)(2)^2 + (0.020)(-1)^2] = \\frac{1}{2}[0.040 + 0.020] = 0.030\\text{ M}$. Since $\\sqrt{I} = \\sqrt{0.030} > 0$, $\\log_{10} \\gamma_\\pm = -0.509(2)(1)\\sqrt{0.030} = -0.176 < 0$, which yields $\\gamma_\\pm \\approx 0.67 < 1.0$, confirming statement D."
+    },
+    {
+      "id": "ec_c01_043",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Consider an electrochemical hydrogen concentration cell without liquid junction at $298\\text{ K}$: $\\text{Pt}(s) \\mid \\text{H}_2(g, 1.0\\text{ bar}) \\mid \\text{Buffer A} \\parallel \\text{Buffer B} \\mid \\text{H}_2(g, 1.0\\text{ bar}) \\mid \\text{Pt}(s)$. Buffer A is prepared from a weak acid $\\text{HA}$ ($pK_a = 5.00$) and its conjugate base with ratio $[\\text{A}^-]/[\\text{HA}] = 10$. Buffer B is prepared from another weak acid $\\text{HB}$ ($pK_a = 4.00$) and its conjugate base with ratio $[\\text{B}^-]/[\\text{HB}] = 0.10$. Taking $\\frac{2.303 RT}{F} = 0.059\\text{ V}$, the measured electromotive force of the cell is $E_{\\text{cell}} = \\Delta \\text{pH} \\times 59\\text{ mV}$. Determine the integer value of $\\Delta \\text{pH} = \\text{pH}_A - \\text{pH}_B$.",
+      "options": [],
+      "answer": "3",
+      "explanation": "Step 1: Calculate the $\\text{pH}$ of Buffer A using the Henderson-Hasselbalch equation: $\\text{pH}_A = pK_a(\\text{HA}) + \\log\\left(\\frac{[\\text{A}^-]}{[\\text{HA}]}\\right) = 5.00 + \\log(10) = 5.00 + 1.00 = 6.00$. Step 2: Calculate the $\\text{pH}$ of Buffer B using the Henderson-Hasselbalch equation: $\\text{pH}_B = pK_a(\\text{HB}) + \\log\\left(\\frac{[\\text{B}^-]}{[\\text{HB}]}\\right) = 4.00 + \\log(0.10) = 4.00 - 1.00 = 3.00$. Step 3: For this hydrogen concentration cell, Buffer B has lower $\\text{pH}$ (higher $[\\text{H}^+]$) and functions as the cathode, while Buffer A functions as the anode. The electromotive force is $E_{\\text{cell}} = E_{\\text{cathode}} - E_{\\text{anode}} = (-0.059\\text{ pH}_B) - (-0.059\\text{ pH}_A) = 0.059(\\text{pH}_A - \\text{pH}_B)$. Step 4: Solving for the difference in $\\text{pH}$: $\\Delta \\text{pH} = \\text{pH}_A - \\text{pH}_B = 6.00 - 3.00 = 3$. Hence, the integer value is 3."
+    },
+    {
+      "id": "ec_c01_044",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The kinetics of heterogeneous electron transfer across an electrode/electrolyte interface are governed by the Butler-Volmer equation: $j = j_0 \\left[ \\exp\\left(\\frac{\\alpha_a n F \\eta}{RT}\\right) - \\exp\\left(-\\frac{\\alpha_c n F \\eta}{RT}\\right) \\right]$, where $j_0$ is the exchange current density, $\\eta = E - E_{\\text{eq}}$ is the overpotential, and $\\alpha_a, \\alpha_c$ are anodic and cathodic transfer coefficients ($\\alpha_a + \\alpha_c = 1$). Which of the following statements regarding electrode kinetics and polarization is/are correct?",
+      "options": [
+        "A) At dynamic electrochemical equilibrium ($\\eta = 0$), the net current density is zero because all electron transfer reactions across the interface cease completely.",
+        "B) An electrode system possessing a very large exchange current density ($j_0$) exhibits rapid charge transfer kinetics and behaves as a reversible, non-polarizable electrode under small external currents.",
+        "C) The anodic Tafel slope $b = \\left(\\frac{\\partial \\eta}{\\partial \\log_{10} j}\\right)$ is inversely proportional to absolute temperature $T$.",
+        "D) At sufficiently large cathodic overpotentials ($-\\eta \\gg \\frac{RT}{F}$), the anodic oxidation term becomes negligible, yielding a linear relationship between overpotential $\\eta$ and $\\log_{10} |j|$ (Tafel approximation)."
+      ],
+      "answer": "B,D",
+      "explanation": "Step 1: At dynamic electrochemical equilibrium ($\\eta = 0$), microscopic reversibility dictates that the forward and backward electron transfer rates are equal and opposite: $j_a = |j_c| = j_0 > 0$. Electron transfer does not cease; rather, dynamic balance ensures zero net current, refuting statement A. Step 2: When $j_0$ is extremely large, even minute overpotentials $\\eta$ sustain substantial currents without significant deviation from equilibrium potential ($E \\approx E_{\\text{eq}}$). Such electrodes are classified as non-polarizable or kinetically facile, confirming statement B. Step 3: For high overpotentials, the Butler-Volmer equation simplifies to the Tafel equation: $\\eta = a + b\\log_{10} j$, where the Tafel slope is $b = \\frac{2.303 RT}{\\alpha n F}$. Therefore, $b$ is directly proportional to temperature $T$, not inversely proportional, refuting statement C. Step 4: When $-\\eta \\gg \\frac{RT}{F}$, the anodic term $\\exp\\left(\\frac{\\alpha_a n F \\eta}{RT}\\right) \\approx 0$, leaving $j \\approx -j_0 \\exp\\left(-\\frac{\\alpha_c n F \\eta}{RT}\\right)$. Taking the logarithm yields $\\eta = \\frac{2.303 RT}{\\alpha_c n F}\\log_{10} j_0 - \\frac{2.303 RT}{\\alpha_c n F}\\log_{10} |j|$, which is linear in $\\log_{10} |j|$, confirming statement D."
+    },
+    {
+      "id": "ec_c01_045",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The equilibrium formation of the triiodide complex ion in aqueous solution proceeds according to: $\\text{I}_2(aq) + \\text{I}^-(aq) \\rightleftharpoons \\text{I}_3^-(aq)$. The standard reduction potentials for the relevant redox couples at $298\\text{ K}$ are: $\\text{I}_2(aq) + 2e^- \\rightleftharpoons 2\\text{I}^-(aq)$ with $E^\\circ_1 = +0.6245\\text{ V}$, and $\\text{I}_3^-(aq) + 2e^- \\rightleftharpoons 3\\text{I}^-(aq)$ with $E^\\circ_2 = +0.5360\\text{ V}$. Taking $\\frac{2.303 RT}{F} = 0.059\\text{ V}$ at $298\\text{ K}$, calculate the thermodynamic formation constant ($K_f$) of the triiodide ion.",
+      "options": [
+        "A) $1.0 \\times 10^{1}\\text{ M}^{-1}$",
+        "B) $1.0 \\times 10^{2}\\text{ M}^{-1}$",
+        "C) $1.0 \\times 10^{3}\\text{ M}^{-1}$",
+        "D) $1.0 \\times 10^{6}\\text{ M}^{-1}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Write down the two reduction half-reactions and their Gibbs free energy changes: (1) $\\text{I}_2(aq) + 2e^- \\to 2\\text{I}^-(aq)$ with $\\Delta G^\\circ_1 = -2FE^\\circ_1$. (2) $\\text{I}_3^-(aq) + 2e^- \\to 3\\text{I}^-(aq)$ with $\\Delta G^\\circ_2 = -2FE^\\circ_2$. Step 2: Subtracting equation (2) from equation (1) yields the triiodide formation reaction: $\\text{I}_2(aq) + \\text{I}^-(aq) \\rightleftharpoons \\text{I}_3^-(aq)$. The corresponding standard Gibbs free energy change is $\\Delta G^\\circ_{\\text{rxn}} = \\Delta G^\\circ_1 - \\Delta G^\\circ_2 = -2F(E^\\circ_1 - E^\\circ_2)$. Step 3: Applying the thermodynamic relationship $\\Delta G^\\circ_{\\text{rxn}} = -2.303 RT\\log_{10} K_f$, we equate both expressions: $-2.303 RT\\log_{10} K_f = -2F(E^\\circ_1 - E^\\circ_2)$, which implies $\\log_{10} K_f = \\frac{2(E^\\circ_1 - E^\\circ_2)}{0.059}$. Step 4: Substituting the standard potentials gives: $E^\\circ_1 - E^\\circ_2 = 0.6245 - 0.5360 = 0.0885\\text{ V}$. Hence, $\\log_{10} K_f = \\frac{2 \\times 0.0885}{0.059} = \\frac{0.1770}{0.059} = 3.00$. Therefore, $K_f = 10^{3.00} = 1.0 \\times 10^3\\text{ M}^{-1}$. Distractor $1.0 \\times 10^2$ results from taking $n = 1$ instead of $2$, and $1.0 \\times 10^6$ squares the formation constant erroneously."
+    },
+    {
+      "id": "ec_c01_046",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In cyclic voltammetry (CV) of an electrochemically reversible redox couple in solution, $O + ne^- \\rightleftharpoons R$ (where both oxidized and reduced species are freely soluble in the electrolyte), the potential of a stationary planar working electrode is scanned linearly back and forth at scan rate $\\nu$. Which of the following diagnostic criteria correctly identify an ideal reversible diffusion-controlled electrochemical process at $298\\text{ K}$?",
+      "options": [
+        "A) The peak-to-peak potential separation between the anodic and cathodic current peaks satisfies $\\Delta E_p = |E_{pa} - E_{pc}| \\approx \\frac{59\\text{ mV}}{n}$, and is theoretically independent of scan rate $\\nu$.",
+        "B) The peak current $i_p$ is directly proportional to the square root of the scan rate ($i_p \\propto \\nu^{1/2}$), as described by the Randles-Sevcik equation.",
+        "C) For a kinetically sluggish (irreversible) electron transfer process, the peak separation $\\Delta E_p$ progressively decreases as the scan rate $\\nu$ is increased.",
+        "D) For a chemically stable and reversible couple, the ratio of anodic peak current to cathodic peak current is equal to unity ($|i_{pa} / i_{pc}| = 1.0$)."
+      ],
+      "answer": "A,B,D",
+      "explanation": "Step 1: For a Nernstian reversible couple where interfacial charge transfer is rapid compared to semi-infinite linear diffusion, the peak potentials are given by $E_{pa} = E_{1/2} + \\frac{1.109 RT}{nF}$ and $E_{pc} = E_{1/2} - \\frac{1.109 RT}{nF}$. Step 2: The peak potential separation at $298\\text{ K}$ is $\\Delta E_p = E_{pa} - E_{pc} = \\frac{2.218 RT}{nF} = \\frac{0.059\\text{ V}}{n} = \\frac{59\\text{ mV}}{n}$, which is invariant with scan rate, confirming statement A. Step 3: The Randles-Sevcik relationship for a reversible couple states: $i_p = (2.69 \\times 10^5) n^{3/2} A D^{1/2} C \\nu^{1/2}$. Peak current scales directly with $\\nu^{1/2}$, characteristic of planar semi-infinite diffusion, confirming statement B. Step 4: When the electrogenerated product is chemically stable on the voltammetric timescale, all species reduced during the forward scan are available for re-oxidation on the reverse scan, yielding $|i_{pa} / i_{pc}| = 1.0$, confirming statement D. Statement C is incorrect because for quasi-reversible or irreversible systems, finite charge transfer kinetics cause peak separation $\\Delta E_p$ to increase as scan rate increases."
+    },
+    {
+      "id": "ec_c01_047",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "For the Daniell cell reaction: $\\text{Zn}(s) + \\text{Cu}^{2+}(aq) \\to \\text{Zn}^{2+}(aq) + \\text{Cu}(s)$ operating reversibly at $298\\text{ K}$, the standard cell EMF is $E^\\circ = 1.100\\text{ V}$ and its temperature coefficient at constant pressure is $\\left(\\frac{\\partial E^\\circ}{\\partial T}\\right)_P = -1.00 \\times 10^{-4}\\text{ V K}^{-1}$. When $1.0\\text{ mol}$ of zinc reacts reversibly in this galvanic cell, determine the reversible heat exchanged with the surroundings ($q_{\\text{rev}} = T\\Delta S^\\circ$). (Take $1\\text{ F} = 96500\\text{ C mol}^{-1}$).",
+      "options": [
+        "A) $+212.30\\text{ kJ mol}^{-1}$",
+        "B) $-218.05\\text{ kJ mol}^{-1}$",
+        "C) $+5.75\\text{ kJ mol}^{-1}$",
+        "D) $-5.75\\text{ kJ mol}^{-1}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The standard reaction entropy change $\\Delta S^\\circ$ of a galvanic cell reaction is related to the temperature coefficient of cell potential by $\\Delta S^\\circ = nF\\left(\\frac{\\partial E^\\circ}{\\partial T}\\right)_P$. Step 2: In the Daniell cell, $n = 2$ moles of electrons are transferred per mole of zinc reacted. Substituting values gives: $\\Delta S^\\circ = 2 \\times 96500\\text{ C mol}^{-1} \\times (-1.00 \\times 10^{-4}\\text{ V K}^{-1}) = -19.30\\text{ J K}^{-1}\\text{ mol}^{-1}$. Step 3: For a reversible electrochemical process at constant temperature, the reversible heat exchanged with the surrounding thermostat is $q_{\\text{rev}} = T\\Delta S^\\circ$. Step 4: Substituting $T = 298\\text{ K}$ yields: $q_{\\text{rev}} = 298\\text{ K} \\times (-19.30\\text{ J K}^{-1}\\text{ mol}^{-1}) = -5751.4\\text{ J mol}^{-1} = -5.75\\text{ kJ mol}^{-1}$. The negative sign indicates that this quantity of heat is dissipated to the surroundings during reversible galvanic discharge. Distractor $+5.75\\text{ kJ mol}^{-1}$ has an inverted sign, while $-218.05\\text{ kJ mol}^{-1}$ represents total reaction enthalpy $\\Delta H^\\circ$, and $+212.30\\text{ kJ mol}^{-1}$ represents maximum electrical work $-\\Delta G^\\circ$."
+    },
+    {
+      "id": "ec_c01_048",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In the modern membrane chlor-alkali industry, brine (concentrated aqueous $\\text{NaCl}$) is electrolyzed in a membrane cell employing a perfluorosulfonate cation-exchange membrane (such as Nafion). Which of the following statements correctly describe the electrochemistry, transport mechanisms, and selectivity of this industrial process?",
+      "options": [
+        "A) The perfluorosulfonate membrane allows free migration of both sodium cations and hydroxide anions across the compartments to equalize pH.",
+        "B) The cation-exchange membrane selectively allows $\\text{Na}^+$ ions to migrate from the anode compartment to the cathode compartment, while rejecting $\\text{Cl}^-$ and $\\text{OH}^-$ anions due to electrostatic Donnan exclusion by fixed $-\\text{SO}_3^-$ groups.",
+        "C) At the cathode, water is reduced to hydrogen gas and hydroxide ions ($2\\text{H}_2\\text{O} + 2e^- \\to \\text{H}_2 + 2\\text{OH}^-$) because $E^\\circ(\\text{H}_2\\text{O}/\\text{H}_2, \\text{OH}^-) = -0.83\\text{ V}$ is far more positive than $E^\\circ(\\text{Na}^+/\\text{Na}) = -2.71\\text{ V}$.",
+        "D) At the anode, $\\text{Cl}^-$ is oxidized to $\\text{Cl}_2$ in preference to $\\text{H}_2\\text{O}$ oxidation, even though $E^\\circ(\\text{O}_2/\\text{H}_2\\text{O}) = +1.23\\text{ V} < E^\\circ(\\text{Cl}_2/\\text{Cl}^-) = +1.36\\text{ V}$, primarily because the overpotential for oxygen evolution is substantially larger than that for chlorine evolution on dimensionally stable anodes (DSA)."
+      ],
+      "answer": "B,C,D",
+      "explanation": "Step 1: In the chlor-alkali membrane cell, saturated brine enters the anode chamber and water enters the cathode chamber. At the cathode, reduction of water ($2\\text{H}_2\\text{O} + 2e^- \\to \\text{H}_2 + 2\\text{OH}^-$, $E^\\circ = -0.83\\text{ V}$) occurs much more favorably than reduction of sodium ($E^\\circ = -2.71\\text{ V}$), generating $\\text{H}_2$ gas and $\\text{OH}^-$, confirming statement C. Step 2: The cation-exchange membrane contains covalently bound negatively charged sulfonate groups ($-\\text{SO}_3^-$). These fixed negative charges electrostatically repel co-ions ($\\text{Cl}^-$ and $\\text{OH}^-$) via Donnan exclusion, while permitting counter-ions ($\\text{Na}^+$) to migrate toward the cathode. This prevents hydroxide ions from entering the anode compartment where they would react with chlorine, confirming statement B and refuting statement A. Step 3: Thermodynamically, water oxidation to oxygen ($E^\\circ = +1.23\\text{ V}$) has a lower potential than chloride oxidation to chlorine ($E^\\circ = +1.36\\text{ V}$). However, on DSA electrodes ($\\text{RuO}_2/\\text{TiO}_2$), the kinetic overpotential for $\\text{O}_2$ evolution is very high ($>0.5\\text{ V}$), whereas that for $\\text{Cl}_2$ evolution is very low ($<0.05\\text{ V}$). Hence, chlorine discharge dominates, confirming statement D."
+    },
+    {
+      "id": "ec_c01_049",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In acidic aqueous solution, the dark-green manganate(VI) ion ($\\text{MnO}_4^{2-}$) is unstable and undergoes spontaneous electrochemical disproportionation into purple permanganate ($\\text{MnO}_4^-$) and solid manganese dioxide ($\\text{MnO}_2$) according to the stoichiometric redox equation: $3\\text{MnO}_4^{2-}(aq) + 4\\text{H}^+(aq) \\rightleftharpoons 2\\text{MnO}_4^-(aq) + \\text{MnO}_2(s) + 2\\text{H}_2\\text{O}(l)$. Given standard electrode reduction potentials at $298\\text{ K}$: $E^\\circ(\\text{MnO}_4^-/\\text{MnO}_4^{2-}) = +0.56\\text{ V}$ and $E^\\circ(\\text{MnO}_4^{2-}/\\text{MnO}_2) = +2.26\\text{ V}$. Determine the number of moles of electrons ($n$) transferred in this balanced chemical equation as written.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: Separate the disproportionation reaction into two distinct half-reactions. In the oxidation half-reaction, manganese is oxidized from oxidation state $+6$ in $\\text{MnO}_4^{2-}$ to $+7$ in $\\text{MnO}_4^-$: $\\text{MnO}_4^{2-}(aq) \\to \\text{MnO}_4^-(aq) + e^-$. Step 2: In the reduction half-reaction, manganese is reduced from oxidation state $+6$ in $\\text{MnO}_4^{2-}$ to $+4$ in $\\text{MnO}_2$: $\\text{MnO}_4^{2-}(aq) + 4\\text{H}^+(aq) + 2e^- \\to \\text{MnO}_2(s) + 2\\text{H}_2\\text{O}(l)$. Step 3: To balance the electron transfer between the two half-reactions, multiply the oxidation half-reaction by 2: $2\\text{MnO}_4^{2-} \\to 2\\text{MnO}_4^- + 2e^-$. Summing the multiplied oxidation half-reaction and reduction half-reaction yields: $3\\text{MnO}_4^{2-}(aq) + 4\\text{H}^+(aq) \\to 2\\text{MnO}_4^-(aq) + \\text{MnO}_2(s) + 2\\text{H}_2\\text{O}(l)$. Step 4: The total number of electrons cancelled and transferred in the balanced cell reaction as written is $n = 2$. Substituting into the answer yields 2."
+    },
+    {
+      "id": "ec_c01_050",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In modern lithium-ion secondary cells, energy storage occurs through reversible intercalation/deintercalation of lithium ions within host interstitial lattices. A standard cell utilizes a graphite intercalation anode ($\\text{Li}_x\\text{C}_6$) and a lithium cobalt oxide cathode ($\\text{Li}_{1-x}\\text{CoO}_2$) immersed in a non-aqueous electrolyte of $\\text{LiPF}_6$ dissolved in organic alkyl carbonates. Which of the following electrochemical statements regarding this system is/are correct?",
+      "options": [
+        "A) During charging of the battery, $\\text{Li}^+$ ions deintercalate from the transition metal oxide cathode and migrate through the electrolyte to intercalate into the graphitic carbon anode.",
+        "B) Pure liquid water can serve as an ideal non-volatile solvent in commercial high-voltage ($4.2\\text{ V}$) lithium-ion cells due to its exceptionally high dielectric permittivity.",
+        "C) The solid electrolyte interphase (SEI) passivation layer formed on the graphite anode during initial charge cycles must be electronically insulating to halt further solvent decomposition, while remaining ionically conducting to allow $\\text{Li}^+$ passage.",
+        "D) During cell discharge, lithium metal plates out as metallic dendrites on the surface of the positive electrode."
+      ],
+      "answer": "A,C",
+      "explanation": "Step 1: During the charging process, an external power supply drives electrons into the negative graphite electrode while extracting electrons from the positive $\\text{LiCoO}_2$ electrode. To maintain electroneutrality, $\\text{Li}^+$ ions deintercalate from $\\text{Li}_{1-x}\\text{CoO}_2$ and migrate through the separator to intercalate between graphene sheets: $\\text{Li}_{1-x}\\text{CoO}_2 + x\\text{Li}^+ + xe^- \\to \\text{LiCoO}_2$ in reverse, confirming statement A. Step 2: The operating cell voltage of a Li-ion battery ($3.7 - 4.2\\text{ V}$) vastly exceeds the thermodynamic electrochemical stability window of liquid water ($1.23\\text{ V}$). In aqueous media, water would rapidly undergo electrolysis into $\\text{H}_2$ and $\\text{O}_2$, and metallic/intercalated lithium would react violently, refuting statement B. Step 3: Graphite operates at a potential near $0.1 - 0.2\\text{ V}$ vs $\\text{Li}/\\text{Li}^+$, well below the reductive stability limit of organic carbonate solvents ($\\approx 0.8\\text{ V}$). During the initial formation cycles, controlled solvent reduction generates an insoluble passivation film (SEI) comprising $\\text{Li}_2\\text{CO}_3$, lithium alkyl carbonates, and $\\text{LiF}$. This SEI layer must be electronically insulating to stop electron tunneling and parasitic electrolyte reduction, yet ionically porous to facilitate $\\text{Li}^+$ transport, confirming statement C. Step 4: Statement D is incorrect because during discharge, lithium ions intercalate into the cathode host lattice without any metallic lithium plating."
+    }
+  ]
+}

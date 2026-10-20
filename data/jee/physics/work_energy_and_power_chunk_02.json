@@ -1,0 +1,503 @@
+{
+  "questions": [
+    {
+      "id": "wep_c02_001",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A particle of mass $m = 1\\text{ kg}$ is constrained to move in the vertical $xy$-plane from the origin $(0,0)$ to the point $(2\\text{ m}, 2\\text{ m})$ along the smooth parabolic guide $y = 0.5x^2$. It is driven by an applied force $\\vec{F}(x,y) = (6x^2\\hat{i} + 30y\\hat{j})\\text{ N}$ in the presence of downward gravity $\\vec{F}_g = -mg\\hat{j}$. If the particle is released from rest at the origin, calculate its kinetic energy when it reaches $(2\\text{ m}, 2\\text{ m})$. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $56\\text{ J}$",
+        "B) $76\\text{ J}$",
+        "C) $96\\text{ J}$",
+        "D) $36\\text{ J}$"
+      ],
+      "answer": "A",
+      "explanation": "To find the kinetic energy at $(2\\text{ m}, 2\\text{ m})$, we apply the work-energy theorem: $W_{\\text{total}} = \\Delta K = K_f - K_i$. Since the particle starts from rest, $K_i = 0$, hence $K_f = W_{\\text{total}} = W_F + W_g$. The work done by the applied force is obtained by integrating along the path: $W_F = \\int_0^2 6x^2\\,dx + \\int_0^2 30y\\,dy = \\left[2x^3\\right]_0^2 + \\left[15y^2\\right]_0^2 = 2(8) + 15(4) = 16 + 60 = 76\\text{ J}$. Next, the work done by gravity depends solely on the vertical displacement $\\Delta y = 2\\text{ m}$: $W_g = -mg\\Delta y = -(1)(10)(2) = -20\\text{ J}$. Substituting these values, we get $K_f = 76 - 20 = 56\\text{ J}$. Forgetting to include the negative work done by gravity yields the distractor $76\\text{ J}$, while erroneously adding gravity's contribution yields $96\\text{ J}$."
+    },
+    {
+      "id": "wep_c02_002",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An electric utility vehicle of total mass $m = 1200\\text{ kg}$ accelerates from rest on a straight horizontal testing track under a constant mechanical power output of $P = 45\\text{ kW}$. Assuming all dissipative forces such as air resistance and rolling friction are negligible, determine the total distance traversed by the vehicle (in metres) by the instant its speed reaches $v = 15\\text{ m/s}$.",
+      "options": [],
+      "answer": "30",
+      "explanation": "The mechanical power delivered by the motor is given by $P = F v = m a v = m v \\frac{dv}{dt}$. By applying the chain rule for acceleration, $a = v \\frac{dv}{dx}$, the relation becomes $P = m v^2 \\frac{dv}{dx}$. Rearranging terms to express spatial displacement yields $dx = \\frac{m}{P} v^2\\,dv$. Integrating both sides from initial speed $v = 0$ to final speed $v = 15\\text{ m/s}$ gives the total distance: $x = \\frac{m}{P} \\int_0^{15} v^2\\,dv = \\frac{m}{P} \\left[\\frac{v^3}{3}\\right]_0^{15} = \\frac{1200}{45000} \\times \\frac{3375}{3}$. Simplifying the fraction, $\\frac{1200}{45000} = \\frac{4}{150}$, and multiplying by $1125$ gives $x = \\frac{4 \\times 1125}{150} = \\frac{4500}{150} = 30\\text{ m}$. Therefore, the vehicle traverses exactly $30\\text{ m}$."
+    },
+    {
+      "id": "wep_c02_003",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A light horizontal spring of stiffness $k = 400\\text{ N/m}$ is anchored to a vertical wall and attached to a block of mass $m = 2\\text{ kg}$ on a frictionless horizontal floor. The spring is initially stretched by $x_1 = 0.1\\text{ m}$ from its relaxed position. An external mechanism slowly pulls the block, extending the spring further to $x_2 = 0.3\\text{ m}$. Throughout the displacement, a position-dependent resistive force $F_{\\text{drag}} = c x$ opposes the motion, where $c = 100\\text{ N/m}$. Determine the total work performed by the external mechanism.",
+      "options": [
+        "A) $20\\text{ J}$",
+        "B) $16\\text{ J}$",
+        "C) $10\\text{ J}$",
+        "D) $22.5\\text{ J}$"
+      ],
+      "answer": "A",
+      "explanation": "Because the external mechanism moves the block quasi-statically (slowly at constant speed), the net external force at every extension $x$ must balance both the spring restoring force and the drag resistance: $F_{\\text{ext}}(x) = F_{\\text{spring}} + F_{\\text{drag}} = kx + cx = (k + c)x$. Substituting the given constants yields $F_{\\text{ext}}(x) = (400 + 100)x = 500x\\text{ N}$. The total work done by the mechanism is obtained by integrating this applied force from $x_1 = 0.1\\text{ m}$ to $x_2 = 0.3\\text{ m}$: $W_{\\text{ext}} = \\int_{x_1}^{x_2} 500x\\,dx = 250\\left[x^2\\right]_{0.1}^{0.3} = 250(0.09 - 0.01) = 250(0.08) = 20\\text{ J}$. Neglecting the drag resistance gives $16\\text{ J}$, whereas mistakenly calculating $\\frac{1}{2}(k+c)(x_2 - x_1)^2 = 250(0.04) = 10\\text{ J}$ conflates $\\Delta(x^2)$ with $(\\Delta x)^2$."
+    },
+    {
+      "id": "wep_c02_004",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A particle of mass $m = 1\\text{ kg}$ is initially at rest at the origin at $t = 0$. It is acted upon by a time-varying two-dimensional force $\\vec{F}(t) = (3t\\hat{i} + 4\\hat{j})\\text{ N}$, where $t$ is in seconds. Determine the ratio of the instantaneous power $P_{\\text{inst}}(2)$ delivered by the force at $t = 2\\text{ s}$ to the average power $P_{\\text{avg}}$ delivered over the interval from $t = 0$ to $t = 2\\text{ s}$.",
+      "options": [
+        "A) $\\frac{68}{25}$",
+        "B) $\\frac{34}{25}$",
+        "C) $\\frac{17}{10}$",
+        "D) $2$"
+      ],
+      "answer": "A",
+      "explanation": "Applying Newton's second law, the particle's acceleration is $\\vec{a}(t) = \\frac{\\vec{F}(t)}{m} = 3t\\hat{i} + 4\\hat{j}\\text{ m/s}^2$. Integrating with respect to time from rest yields the velocity vector: $\\vec{v}(t) = \\int_0^t (3\\tau\\hat{i} + 4\\hat{j})\\,d\\tau = 1.5t^2\\hat{i} + 4t\\hat{j}\\text{ m/s}$. The instantaneous power is given by the dot product $P_{\\text{inst}}(t) = \\vec{F}(t) \\cdot \\vec{v}(t) = (3t)(1.5t^2) + (4)(4t) = 4.5t^3 + 16t$. At $t = 2\\text{ s}$, this yields $P_{\\text{inst}}(2) = 4.5(8) + 16(2) = 36 + 32 = 68\\text{ W}$. The total work done over the interval $[0, 2\\text{ s}]$ is found by integrating power: $W = \\int_0^2 (4.5t^3 + 16t)\\,dt = \\left[\\frac{4.5}{4}t^4 + 8t^2\\right]_0^2 = 1.125(16) + 8(4) = 18 + 32 = 50\\text{ J}$. The average power over $\\Delta t = 2\\text{ s}$ is therefore $P_{\\text{avg}} = \\frac{W}{\\Delta t} = \\frac{50}{2} = 25\\text{ W}$. Hence, the required ratio is $\\frac{P_{\\text{inst}}(2)}{P_{\\text{avg}}} = \\frac{68}{25}$. The distractor $\\frac{34}{25}$ arises from omitting the time duration division, and $2$ is the naive linear assumption."
+    },
+    {
+      "id": "wep_c02_005",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A slider of mass $m = 2\\text{ kg}$ moving with an initial speed $v_0 = 3\\text{ m/s}$ along a track encounters an uncompressed horizontal buffer spring of stiffness $k = 160\\text{ N/m}$. The section of the track where the spring undergoes compression is rough, with a position-dependent coefficient of friction given by $\\mu(x) = 2x$, where $x$ represents the compression in metres. Taking $g = 10\\text{ m/s}^2$, find the maximum compression $x_m$ of the buffer spring.",
+      "options": [
+        "A) $0.30\\text{ m}$",
+        "B) $0.335\\text{ m}$",
+        "C) $0.274\\text{ m}$",
+        "D) $0.424\\text{ m}$"
+      ],
+      "answer": "A",
+      "explanation": "At maximum compression $x_m$, the slider momentarily comes to rest, so $K_f = 0$. The initial kinetic energy is $K_i = \\frac{1}{2} m v_0^2 = \\frac{1}{2}(2)(3^2) = 9\\text{ J}$. Applying the work-energy theorem, $W_{\\text{total}} = \\Delta K = -K_i$. The total work done against the slider during compression comprises the spring restoring force and position-dependent friction: $W_{\\text{spring}} = -\\int_0^{x_m} kx\\,dx = -\\frac{1}{2}(160)x_m^2 = -80x_m^2$, and $W_{\\text{friction}} = -\\int_0^{x_m} \\mu(x)mg\\,dx = -\\int_0^{x_m} (2x)(2)(10)\\,dx = -\\int_0^{x_m} 40x\\,dx = -20x_m^2$. Summing these contributions yields $W_{\\text{total}} = -100x_m^2$. Equating this to $-K_i = -9\\text{ J}$ gives $100x_m^2 = 9 \\implies x_m^2 = 0.09$, yielding $x_m = 0.30\\text{ m}$. Neglecting the friction term entirely yields $x_m = \\sqrt{9/80} \\approx 0.335\\text{ m}$, and failing to integrate $\\mu(x)$ yields $0.274\\text{ m}$."
+    },
+    {
+      "id": "wep_c02_006",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A particle moves in the horizontal $xy$-plane from $(0,0)$ to $(1\\text{ m}, 1\\text{ m})$ under the action of a force field $\\vec{F}(x,y) = (2xy\\hat{i} + x^2\\hat{j})\\text{ N}$. Consider Path 1 along the straight line $y = x$, and Path 2 along the parabola $y = x^2$. Calculate the work done by the force along each path, and identify whether the force field is conservative.",
+      "options": [
+        "A) $W_1 = 1\\text{ J}$, $W_2 = 1\\text{ J}$, and $\\vec{F}$ is conservative",
+        "B) $W_1 = 1\\text{ J}$, $W_2 = \\frac{2}{3}\\text{ J}$, and $\\vec{F}$ is non-conservative",
+        "C) $W_1 = \\frac{2}{3}\\text{ J}$, $W_2 = \\frac{2}{3}\\text{ J}$, and $\\vec{F}$ is conservative",
+        "D) $W_1 = 2\\text{ J}$, $W_2 = 1\\text{ J}$, and $\\vec{F}$ is non-conservative"
+      ],
+      "answer": "A",
+      "explanation": "To check if $\\vec{F}$ is conservative, we evaluate the curl: $\\frac{\\partial F_y}{\\partial x} = \\frac{\\partial}{\\partial x}(x^2) = 2x$, and $\\frac{\\partial F_x}{\\partial y} = \\frac{\\partial}{\\partial y}(2xy) = 2x$. Since $\\frac{\\partial F_y}{\\partial x} = \\frac{\\partial F_x}{\\partial y}$, the curl vanishes everywhere in the plane, establishing that $\\vec{F}$ is conservative. A scalar potential exists such that $\\vec{F} = \\nabla \\phi$, where $\\phi(x,y) = x^2 y$. By the gradient theorem, the work done along any path from $(0,0)$ to $(1,1)$ depends strictly on the endpoints: $W = \\phi(1,1) - \\phi(0,0) = (1^2)(1) - 0 = 1\\text{ J}$. Explicit integration along Path 1 ($y = x, dy = dx$) gives $\\int_0^1 (2x^2 + x^2)dx = \\int_0^1 3x^2 dx = 1\\text{ J}$. Along Path 2 ($y = x^2, dy = 2x dx$), $\\int_0^1 (2x^3 + 2x^3)dx = \\int_0^1 4x^3 dx = 1\\text{ J}$. Both paths yield $1\\text{ J}$, confirming option A."
+    },
+    {
+      "id": "wep_c02_007",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An electric construction hoist raises a skip containing concrete of total mass $m = 500\\text{ kg}$ vertically upward from rest with a uniform acceleration of $a = 2.0\\text{ m/s}^2$ for an elapsed time of $t = 4.0\\text{ s}$. Taking $g = 10\\text{ m/s}^2$, determine the instantaneous power delivered by the hoisting cable at $t = 4.0\\text{ s}$ and the average power delivered over the interval from $t = 0$ to $t = 4.0\\text{ s}$.",
+      "options": [
+        "A) $P_{\\text{inst}} = 48\\text{ kW},\\; P_{\\text{avg}} = 24\\text{ kW}$",
+        "B) $P_{\\text{inst}} = 40\\text{ kW},\\; P_{\\text{avg}} = 20\\text{ kW}$",
+        "C) $P_{\\text{inst}} = 48\\text{ kW},\\; P_{\\text{avg}} = 48\\text{ kW}$",
+        "D) $P_{\\text{inst}} = 32\\text{ kW},\\; P_{\\text{avg}} = 16\\text{ kW}$"
+      ],
+      "answer": "A",
+      "explanation": "Applying Newton's second law vertically, the cable tension is $T = m(g + a) = 500(10 + 2.0) = 6000\\text{ N}$. The velocity as a function of time under constant acceleration is $v(t) = at = 2.0t\\text{ m/s}$. At $t = 4.0\\text{ s}$, the speed is $v(4.0) = 8.0\\text{ m/s}$. Thus, the instantaneous power delivered by the cable tension is $P_{\\text{inst}}(4.0) = T v(4.0) = 6000 \\times 8.0 = 48000\\text{ W} = 48\\text{ kW}$. The vertical displacement during these $4.0\\text{ s}$ is $h = \\frac{1}{2} a t^2 = \\frac{1}{2}(2.0)(16) = 16\\text{ m}$. Hence, the total work performed by the cable is $W = T h = 6000 \\times 16 = 96000\\text{ J} = 96\\text{ kJ}$. Dividing by the time duration yields the average power: $P_{\\text{avg}} = \\frac{W}{t} = \\frac{96000}{4.0} = 24000\\text{ W} = 24\\text{ kW}$. The distractor of $40\\text{ kW}$ arises from neglecting the accelerating force ($T = mg$)."
+    },
+    {
+      "id": "wep_c02_008",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A body of mass $m = 2\\text{ kg}$ moves along the positive $x$-axis from $x = 0$ to $x = 3\\text{ m}$ under the influence of a conservative one-dimensional force $F(x) = (3x^2 - 2x + 1)\\text{ N}$. If the initial speed of the body at $x = 0$ is $v_i = 2\\text{ m/s}$, calculate its final speed (in $\\text{m/s}$) upon reaching $x = 3\\text{ m}$.",
+      "options": [],
+      "answer": "5",
+      "explanation": "According to the work-energy theorem, the change in kinetic energy equals the net work done by the applied force: $\\Delta K = K_f - K_i = W$. The work done by $F(x)$ over the displacement from $x = 0$ to $x = 3\\text{ m}$ is computed by integrating the force function: $W = \\int_0^3 (3x^2 - 2x + 1)\\,dx = \\left[x^3 - x^2 + x\\right]_0^3 = (27 - 9 + 3) - 0 = 21\\text{ J}$. The initial kinetic energy of the body is $K_i = \\frac{1}{2} m v_i^2 = \\frac{1}{2}(2)(2^2) = 4\\text{ J}$. Substituting into the work-energy relation, the final kinetic energy is $K_f = K_i + W = 4 + 21 = 25\\text{ J}$. Equating this to $\\frac{1}{2} m v_f^2$ gives $\\frac{1}{2}(2) v_f^2 = 25 \\implies v_f^2 = 25$, yielding $v_f = 5\\text{ m/s}$."
+    },
+    {
+      "id": "wep_c02_009",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_multi",
+      "questionText": "A block of mass $m = 1\\text{ kg}$ is held against a horizontal spring of stiffness $k = 100\\text{ N/m}$, compressing it by $x_0 = 0.4\\text{ m}$ from its relaxed length on a rough horizontal floor. The coefficient of kinetic friction between the block and floor is $\\mu_k = 0.20$ and the static coefficient is $\\mu_s = 0.25$. Taking $g = 10\\text{ m/s}^2$, the block is released from rest. Which of the following statements is/are correct regarding the subsequent motion until it first momentarily stops?",
+      "options": [
+        "A) The maximum speed of the block occurs when the spring compression is $2\\text{ cm}$",
+        "B) The maximum speed attained by the block is $3.8\\text{ m/s}$",
+        "C) The spring undergoes a maximum extension of $0.36\\text{ m}$ past its natural length before the block momentarily stops",
+        "D) The block remains permanently at rest at its first turning point"
+      ],
+      "answer": "A,B,C",
+      "explanation": "During forward motion, the net force on the block is $F_{\\text{net}} = kx - \\mu_k mg = 100x - (0.20)(1)(10) = 100x - 2$. Maximum speed occurs when acceleration is zero, requiring $F_{\\text{net}} = 0 \\implies x = 2/100 = 0.02\\text{ m} = 2\\text{ cm}$ compression, verifying statement A. Applying the work-energy theorem from release ($x_0 = 0.4\\text{ m}$) to this position: $\\frac{1}{2} m v_{\\max}^2 = \\frac{1}{2}k(x_0^2 - x^2) - \\mu_k mg(x_0 - x) = 50(0.16 - 0.0004) - 2(0.38) = 7.98 - 0.76 = 7.22\\text{ J}$. Thus $v_{\\max} = \\sqrt{2(7.22)/1} = \\sqrt{14.44} = 3.8\\text{ m/s}$, confirming statement B. At the first turning point where extension is $x_1$, $K_f = 0$: $\\frac{1}{2}k x_0^2 - \\frac{1}{2}k x_1^2 = \\mu_k mg(x_0 + x_1) \\implies \\frac{1}{2}k(x_0 - x_1) = \\mu_k mg \\implies x_0 - x_1 = \\frac{2(2)}{100} = 0.04\\text{ m}$, yielding $x_1 = 0.36\\text{ m}$, verifying statement C. At this position, the restoring force is $k x_1 = 100(0.36) = 36\\text{ N}$, which vastly exceeds maximum static friction $f_{s,\\max} = \\mu_s mg = 0.25(10) = 2.5\\text{ N}$; therefore, the block rebounds and does not remain at rest, making statement D incorrect."
+    },
+    {
+      "id": "wep_c02_010",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A rail tractor of mass $m$ operates at a constant rated power output $P$ along a horizontal track. A resistive air drag force of magnitude $F_r = b v$ opposes its motion, where $b$ is a constant resistance coefficient and $v$ is the instantaneous speed. Determine the terminal speed $v_t$ of the tractor and its instantaneous acceleration $a$ when its speed is exactly half of the terminal speed, $v = \\frac{1}{2}v_t$.",
+      "options": [
+        "A) $v_t = \\sqrt{\\frac{P}{b}}$ and $a = \\frac{3\\sqrt{Pb}}{2m}$",
+        "B) $v_t = \\frac{P}{b}$ and $a = \\frac{\\sqrt{Pb}}{2m}$",
+        "C) $v_t = \\sqrt{\\frac{P}{b}}$ and $a = \\frac{\\sqrt{Pb}}{m}$",
+        "D) $v_t = \\sqrt{\\frac{2P}{b}}$ and $a = \\frac{3\\sqrt{Pb}}{4m}$"
+      ],
+      "answer": "A",
+      "explanation": "At terminal speed $v_t$, the acceleration vanishes, meaning the tractive force from the engine equals the drag force: $F_{\\text{engine}} = F_r$. Since $P = F_{\\text{engine}} v$, the tractive force is $F_{\\text{engine}} = \\frac{P}{v_t}$. Equating this to the resistive drag yields $\\frac{P}{v_t} = b v_t \\implies v_t^2 = \\frac{P}{b} \\implies v_t = \\sqrt{\\frac{P}{b}}$. Now, when the speed is $v = \\frac{1}{2}v_t$, the engine's tractive force becomes $F_{\\text{engine}} = \\frac{P}{v_t / 2} = \\frac{2P}{v_t} = 2b v_t$. Meanwhile, the opposing drag force is $F_r = b v = \\frac{1}{2} b v_t$. The net forward force is therefore $F_{\\text{net}} = F_{\\text{engine}} - F_r = 2b v_t - \\frac{1}{2}b v_t = \\frac{3}{2}b v_t$. Substituting $v_t = \\sqrt{\\frac{P}{b}}$, we get $F_{\\text{net}} = \\frac{3}{2}b\\sqrt{\\frac{P}{b}} = \\frac{3}{2}\\sqrt{Pb}$. Applying Newton's second law, the acceleration is $a = \\frac{F_{\\text{net}}}{m} = \\frac{3\\sqrt{Pb}}{2m}$, which matches option A."
+    },
+    {
+      "id": "wep_c02_011",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A small bob of mass $m$ is suspended by a light inextensible string of length $L$ from a fixed ceiling point. The bob is projected horizontally from its lowest equilibrium position with speed $u = \\sqrt{3gL}$. During the upward circular motion, the string slackens at a vertical height $h$ above the lowest point. The bob subsequently travels along a parabolic free-flight trajectory. Find $h$ and the maximum total height $H_{\\max}$ above the lowest point reached by the bob.",
+      "options": [
+        "A) $h = \\frac{4}{3}L$ and $H_{\\max} = \\frac{40}{27}L$",
+        "B) $h = \\frac{4}{3}L$ and $H_{\\max} = \\frac{3}{2}L$",
+        "C) $h = \\frac{5}{3}L$ and $H_{\\max} = \\frac{50}{27}L$",
+        "D) $h = \\frac{4}{3}L$ and $H_{\\max} = \\frac{38}{27}L$"
+      ],
+      "answer": "A",
+      "explanation": "Let $\\theta$ denote the angle between the string and the downward vertical. By conservation of mechanical energy, the speed $v$ at angle $\theta$ satisfies $\\frac{1}{2}mu^2 = \\frac{1}{2}mv^2 + mgL(1 - \\cos\\theta)$, which implies $v^2 = 3gL - 2gL(1 - \\cos\\theta) = gL(1 + 2\\cos\\theta)$. The string tension is given by $T = mg\\cos\\theta + \\frac{mv^2}{L} = mg(1 + 3\\cos\\theta)$. The string slackens when $T = 0$, yielding $\\cos\\theta = -\\frac{1}{3}$. The height of the slack point above the lowest point is therefore $h = L(1 - \\cos\\theta) = L\\left(1 - \\left(-\\frac{1}{3}\\right)\\right) = \\frac{4}{3}L$. At this point, the speed is $v_s = \\sqrt{gL(1 + 2(-1/3))} = \\sqrt{\\frac{gL}{3}}$. The velocity vector is tangential to the circle, making an angle $\\theta - 90^\\circ$ with the horizontal, so its vertical velocity component is $v_y = v_s \\sin\\theta$. Since $\\sin^2\\theta = 1 - \\cos^2\\theta = 1 - \\frac{1}{9} = \\frac{8}{9}$, we have $v_y^2 = \\frac{gL}{3} \\times \\frac{8}{9} = \\frac{8}{27}gL$. The additional vertical rise in projectile motion is $\\Delta h = \\frac{v_y^2}{2g} = \\frac{4}{27}L$. Therefore, the total maximum height attained above the lowest point is $H_{\\max} = h + \\Delta h = \\frac{4}{3}L + \\frac{4}{27}L = \\frac{40}{27}L$, matching option A."
+    },
+    {
+      "id": "wep_c02_012",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A particle of mass $m = 0.5\\text{ kg}$ is constrained to move along the $x$-axis in a conservative one-dimensional force field with potential energy given by $U(x) = x^4 - 8x^2 + 12$ (where $U$ is in Joules and $x$ is in metres). Identify the positions of stable equilibrium and determine the angular frequency $\\omega$ of small oscillations executed by the particle about these stable equilibrium positions.",
+      "options": [
+        "A) $x = \\pm 2\\text{ m}$ (stable) with $\\omega = 8\\text{ rad/s}$",
+        "B) $x = 0\\text{ m}$ (stable) with $\\omega = 4\\text{ rad/s}$",
+        "C) $x = \\pm 2\\text{ m}$ (stable) with $\\omega = 4\\sqrt{2}\\text{ rad/s}$",
+        "D) $x = \\pm 2\\text{ m}$ (unstable) with $\\omega = 8\\text{ rad/s}$"
+      ],
+      "answer": "A",
+      "explanation": "Equilibrium points occur where the conservative force is zero: $F(x) = -\\frac{dU}{dx} = -(4x^3 - 16x) = -4x(x^2 - 4) = 0$. This yields three equilibrium coordinates: $x = 0$ and $x = \\pm 2\\text{ m}$. To evaluate stability, we take the second derivative of the potential energy: $\\frac{d^2U}{dx^2} = 12x^2 - 16$. At $x = 0$, $\\frac{d^2U}{dx^2} = -16 < 0$, which corresponds to a local maximum and hence unstable equilibrium. At $x = \\pm 2\\text{ m}$, $\\frac{d^2U}{dx^2} = 12(4) - 16 = 32 > 0$, indicating a local potential minimum and stable equilibrium. For small displacements about either stable position, the effective restoring spring constant is $k_{\\text{eff}} = \\left.\\frac{d^2U}{dx^2}\\right|_{x=\\pm 2} = 32\\text{ N/m}$. The angular frequency of small oscillations is given by $\\omega = \\sqrt{\\frac{k_{\\text{eff}}}{m}} = \\sqrt{\\frac{32}{0.5}} = \\sqrt{64} = 8\\text{ rad/s}$. Option C incorrectly omits the factor of $0.5\\text{ kg}$ in the denominator, yielding $\\sqrt{32} = 4\\sqrt{2}\\text{ rad/s}$."
+    },
+    {
+      "id": "wep_c02_013",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A small sphere of mass $m = 2\\text{ kg}$ is attached to the free end of a light rigid rod of length $L = 1.25\\text{ m}$ pivoted smoothly at the other end. The sphere is given an initial horizontal velocity $u$ at the lowest position such that it just manages to complete the full vertical circle. Determine the tension in the rod (in Newtons) at the instant the sphere passes through the horizontal position (where the rod is horizontal). (Take $g = 10\\text{ m/s}^2$).",
+      "options": [],
+      "answer": "40",
+      "explanation": "Because the mass is supported by a rigid rod rather than an inextensible string, the system can withstand compressive forces. Consequently, the minimum velocity required at the highest point to complete the circle is zero ($v_{\\text{top}} = 0$), rather than $\\sqrt{gL}$. Applying conservation of mechanical energy between the lowest point and the top: $\\frac{1}{2}mu^2 = mg(2L) \\implies u^2 = 4gL$. At the horizontal position (height $h = L$), conservation of energy yields $\\frac{1}{2}mu^2 = \\frac{1}{2}mv^2 + mgL \\implies v^2 = u^2 - 2gL = 4gL - 2gL = 2gL$. At this horizontal position, the force of gravity is perpendicular to the rod, so the rod's tension provides the entire centripetal force directed toward the pivot: $T = \\frac{mv^2}{L} = \\frac{m(2gL)}{L} = 2mg$. Substituting the values $m = 2\\text{ kg}$ and $g = 10\\text{ m/s}^2$, we get $T = 2 \\times 2 \\times 10 = 40\\text{ N}$. Notice that the length $L$ cancels out completely."
+    },
+    {
+      "id": "wep_c02_014",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A particle of mass $m = 1\\text{ kg}$ moves along the positive $x$-axis in a conservative field governed by the potential energy function $U(x) = \\frac{a}{x^2} - \\frac{b}{x}$ for $x > 0$, where $a = 8\\text{ J}\\cdot\\text{m}^2$ and $b = 16\\text{ J}\\cdot\\text{m}$. The total mechanical energy of the particle is fixed at $E = -6\\text{ J}$. Determine the coordinates of the turning points of the motion and find the maximum speed $v_{\\max}$ attained by the particle.",
+      "options": [
+        "A) Turning points at $x = \\frac{2}{3}\\text{ m},\\; 2\\text{ m}$, and $v_{\\max} = 2\\text{ m/s}$",
+        "B) Turning points at $x = \\frac{1}{2}\\text{ m},\\; 2\\text{ m}$, and $v_{\\max} = 4\\text{ m/s}$",
+        "C) Turning points at $x = \\frac{2}{3}\\text{ m},\\; 2\\text{ m}$, and $v_{\\max} = \\sqrt{2}\\text{ m/s}$",
+        "D) Turning points at $x = 1\\text{ m},\\; 3\\text{ m}$, and $v_{\\max} = 2\\text{ m/s}$"
+      ],
+      "answer": "A",
+      "explanation": "At the turning points of the motion, the kinetic energy is momentarily zero, which implies $U(x) = E = -6\\text{ J}$. Substituting the parameters gives $\\frac{8}{x^2} - \\frac{16}{x} = -6$. Multiplying the entire equation by $x^2$ and rearranging leads to the quadratic equation: $6x^2 - 16x + 8 = 0 \\implies 3x^2 - 8x + 4 = 0$. Factoring this expression gives $(3x - 2)(x - 2) = 0$, yielding turning points at $x_1 = \\frac{2}{3}\\text{ m}$ and $x_2 = 2\\text{ m}$. Maximum speed occurs where potential energy is minimized, i.e., $\\frac{dU}{dx} = -\\frac{2a}{x^3} + \\frac{b}{x^2} = 0 \\implies x_0 = \\frac{2a}{b} = \\frac{2 \\times 8}{16} = 1\\text{ m}$. The minimum potential energy is $U_{\\min} = U(1) = 8 - 16 = -8\\text{ J}$. Thus, the maximum kinetic energy is $K_{\\max} = E - U_{\\min} = -6 - (-8) = 2\\text{ J}$. Solving $\\frac{1}{2}mv_{\\max}^2 = 2$ with $m = 1\\text{ kg}$ gives $v_{\\max}^2 = 4 \\implies v_{\\max} = 2\\text{ m/s}$, matching option A."
+    },
+    {
+      "id": "wep_c02_015",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A small bead of mass $m$ is threaded onto a smooth vertical circular hoop of radius $R$. The bead is projected from the lowest point $A$ with an initial horizontal speed $u$. Let $N$ denote the normal force exerted by the wire on the bead, defined as positive when directed radially inward toward the center. Which of the following statements is/are correct regarding the motion of the bead?",
+      "options": [
+        "A) The minimum projection speed at the lowest point required for the bead to complete the full vertical circle is $2\\sqrt{gR}$",
+        "B) The difference between the normal force at the lowest point and the highest point, $(N_{\\text{bottom}} - N_{\\text{top}})$, equals $6mg$ whenever the bead completes the circle",
+        "C) If $u = \\sqrt{3gR}$, the bead detaches from the circular track and follows a parabolic projectile trajectory",
+        "D) If $2\\sqrt{gR} < u < \\sqrt{5gR}$, the bead successfully completes the circle and the normal force at the top is directed radially outward"
+      ],
+      "answer": "A,B,D",
+      "explanation": "Because the bead is threaded on the rigid hoop, it cannot detach from the track. To complete the circle, the bead only requires a non-zero speed at the top: $v_{\\text{top}} > 0$. Using energy conservation $\\frac{1}{2}mu^2 = \\frac{1}{2}mv_{\\text{top}}^2 + mg(2R)$ yields $u_{\\min} = \\sqrt{4gR} = 2\\sqrt{gR}$, confirming statement A. The radial equation of motion gives $N - mg\\cos\\theta = \\frac{mv^2}{R}$. Substituting $v^2 = u^2 - 2gR(1 - \\cos\\theta)$ yields $N(\\theta) = \\frac{mu^2}{R} - 2mg + 3mg\\cos\\theta$. At the lowest point ($\\theta = 0$), $N_{\\text{bottom}} = \\frac{mu^2}{R} + mg$. At the highest point ($\\theta = \\pi$), $N_{\\text{top}} = \\frac{mu^2}{R} - 5mg$. Subtracting these gives $N_{\\text{bottom}} - N_{\\text{top}} = 6mg$, which is strictly constant and independent of $u$, confirming statement B. When $2\\sqrt{gR} < u < \\sqrt{5gR}$, $v_{\\text{top}} > 0$ so it completes the circle, but $N_{\\text{top}} = \\frac{mu^2}{R} - 5mg < 0$, which signifies a radially outward normal reaction from the wire, confirming statement D. Statement C is false because the threaded wire exerts bilateral normal constraint forces, preventing detachment."
+    },
+    {
+      "id": "wep_c02_016",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Two blocks $A$ and $B$ of masses $m_A = 16\\text{ kg}$ and $m_B = 9\\text{ kg}$ are connected by a light horizontal spring of force constant $k = 200\\text{ N/m}$ on a frictionless horizontal table. Block $B$ is held against a fixed vertical wall while block $A$ is pushed toward the wall, compressing the spring by $x_0 = 50\\text{ cm}$ from its natural length. Block $A$ is then released from rest. When the spring recovers its natural length, block $B$ breaks contact with the wall. Calculate the maximum extension (in centimetres) of the spring during the subsequent motion.",
+      "options": [],
+      "answer": "30",
+      "explanation": "While block $B$ remains pressed against the wall, only block $A$ moves under the spring restoring force. When the spring reaches its natural length, the elastic potential energy is entirely converted into the kinetic energy of block $A$: $K_A = \\frac{1}{2} k x_0^2$. At this instant, block $B$ is still at rest, so the total momentum of the two-block system is $P = m_A v_A = \\sqrt{2 m_A K_A}$. The velocity of the center of mass is $v_{cm} = \\frac{P}{m_A + m_B}$, and the kinetic energy associated with the center of mass motion is $K_{cm} = \\frac{P^2}{2(m_A + m_B)} = \\frac{m_A}{m_A + m_B} K_A$. In the center-of-mass frame, the energy available for relative oscillation is $K_{\\text{rel}} = K_A - K_{cm} = K_A \\left(1 - \\frac{m_A}{m_A + m_B}\\right) = \\frac{m_B}{m_A + m_B} K_A = \\frac{m_B}{m_A + m_B} \\left(\\frac{1}{2} k x_0^2\\right)$. At the point of maximum spring extension $x_{\\max}$, the relative velocity of the blocks vanishes, so all relative kinetic energy is converted into spring potential energy: $\\frac{1}{2} k x_{\\max}^2 = \\frac{m_B}{m_A + m_B} \\left(\\frac{1}{2} k x_0^2\\right)$. Hence, $x_{\\max} = x_0 \\sqrt{\\frac{m_B}{m_A + m_B}}$. Substituting $x_0 = 50\\text{ cm}$, $m_A = 16\\text{ kg}$, and $m_B = 9\\text{ kg}$ yields $x_{\\max} = 50 \\times \\sqrt{\\frac{9}{25}} = 50 \\times \\frac{3}{5} = 30\\text{ cm}$."
+    },
+    {
+      "id": "wep_c02_017",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A particle of mass $m = 2\\text{ kg}$ moves in a three-dimensional conservative force field described by $\\vec{F}(\\vec{r}) = (2xy + z^2)\\hat{i} + x^2\\hat{j} + 2xz\\hat{k}\\text{ N}$ from point $P(1, 0, 2)$ to point $Q(2, 3, 2)$ (coordinates in metres). If the speed of the particle at point $P$ is $v_P = 3\\text{ m/s}$, find its speed $v_Q$ upon arriving at point $Q$.",
+      "options": [
+        "A) $5\\text{ m/s}$",
+        "B) $4\\text{ m/s}$",
+        "C) $\\sqrt{17}\\text{ m/s}$",
+        "D) $7\\text{ m/s}$"
+      ],
+      "answer": "A",
+      "explanation": "We determine the work function $\\phi(x,y,z)$ such that $\\vec{F} = \\nabla \\phi$. Integrating $F_x$: $\\phi(x,y,z) = \\int (2xy + z^2)\\,dx = x^2 y + x z^2 + g(y,z)$. Differentiating with respect to $y$ gives $\\frac{\\partial \\phi}{\\partial y} = x^2 + \\frac{\\partial g}{\\partial y} = F_y = x^2 \\implies \\frac{\\partial g}{\\partial y} = 0$. Differentiating with respect to $z$ gives $\\frac{\\partial \\phi}{\\partial z} = 2xz + \\frac{\\partial g}{\\partial z} = F_z = 2xz \\implies g(y,z) = C$. Hence, $\\phi(x,y,z) = x^2 y + x z^2$. The work done by $\\vec{F}$ is given by the change in potential function: $W = \\phi(Q) - \\phi(P)$. Evaluating at $Q(2, 3, 2)$ yields $\\phi(2, 3, 2) = (2^2)(3) + 2(2^2) = 12 + 8 = 20\\text{ J}$. Evaluating at $P(1, 0, 2)$ yields $\\phi(1, 0, 2) = (1^2)(0) + 1(2^2) = 4\\text{ J}$. Thus, $W = 20 - 4 = 16\\text{ J}$. By the work-energy theorem, $K_Q = K_P + W$. With $K_P = \\frac{1}{2}(2)(3^2) = 9\\text{ J}$, we find $K_Q = 9 + 16 = 25\\text{ J}$. Solving $\\frac{1}{2}(2)v_Q^2 = 25$ yields $v_Q = 5\\text{ m/s}$, matching option A."
+    },
+    {
+      "id": "wep_c02_018",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two ideal springs with spring constants $k_1 = 300\\text{ N/m}$ and $k_2 = 600\\text{ N/m}$ are connected end-to-end in series. One outer end is secured to a rigid wall, and the other end is pulled slowly by an external tensile force until the combined extension of the two springs reaches $\\Delta L = 0.3\\text{ m}$. Determine the total work done by the external force and the fraction of this total energy stored in spring 1.",
+      "options": [
+        "A) $W = 9\\text{ J}$, fraction $= \\frac{2}{3}$",
+        "B) $W = 9\\text{ J}$, fraction $= \\frac{1}{3}$",
+        "C) $W = 40.5\\text{ J}$, fraction $= \\frac{2}{3}$",
+        "D) $W = 18\\text{ J}$, fraction $= \\frac{1}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "For two springs connected in series, the equivalent spring constant is given by $\\frac{1}{k_{\\text{eq}}} = \\frac{1}{k_1} + \\frac{1}{k_2} \\implies k_{\\text{eq}} = \\frac{k_1 k_2}{k_1 + k_2} = \\frac{300 \\times 600}{300 + 600} = \\frac{180000}{900} = 200\\text{ N/m}$. The total work done by the external agent in slowly stretching the combination by $\\Delta L = 0.3\\text{ m}$ is $W = \\frac{1}{2} k_{\\text{eq}} (\\Delta L)^2 = \\frac{1}{2}(200)(0.3^2) = 100 \\times 0.09 = 9\\text{ J}$. Because the springs are in series, they experience identical tensile force: $T = k_{\\text{eq}} \\Delta L = 200 \\times 0.3 = 60\\text{ N}$. The elastic potential energy stored in each spring can be written as $U_i = \\frac{T^2}{2k_i}$. Hence, the ratio of stored energies is inversely proportional to stiffness: $\\frac{U_1}{U_2} = \\frac{k_2}{k_1} = \\frac{600}{300} = 2$. Therefore, the fraction stored in spring 1 is $\\frac{U_1}{U_1 + U_2} = \\frac{2}{1 + 2} = \\frac{2}{3}$. Option B incorrectly inverts the stiffness ratio, while option C erroneously uses parallel addition ($k_1 + k_2 = 900\\text{ N/m}$)."
+    },
+    {
+      "id": "wep_c02_019",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A small block of mass $m$ is given an initial horizontal velocity $u = \\sqrt{0.2gR}$ at the crown of a smooth fixed hemispherical dome of radius $R$. The block slides down along the spherical surface until the normal reaction vanishes and separation occurs. Determine the value of $\\cos\\theta$ at the exact instant the block leaves the surface of the hemisphere, where $\\theta$ is the angle measured from the upward vertical.",
+      "options": [
+        "A) $\\cos\\theta = \\frac{11}{15}$",
+        "B) $\\cos\\theta = \\frac{2}{3}$",
+        "C) $\\cos\\theta = \\frac{3}{5}$",
+        "D) $\\cos\\theta = \\frac{4}{5}$"
+      ],
+      "answer": "A",
+      "explanation": "At an angle $\\theta$ from the apex, the block has descended through a vertical distance $\\Delta y = R(1 - \\cos\\theta)$. Applying conservation of mechanical energy: $\\frac{1}{2}mu^2 + mgR = \\frac{1}{2}mv^2 + mgR\\cos\\theta$, which implies $v^2 = u^2 + 2gR(1 - \\cos\\theta)$. In the radial direction, gravity has a component $mg\\cos\\theta$ pointing toward the center. Applying Newton's second law: $mg\\cos\\theta - N = \\frac{mv^2}{R}$. Separation occurs at the instant the normal reaction vanishes ($N = 0$). Substituting $N = 0$ yields $mg\\cos\\theta = \\frac{m}{R}[u^2 + 2gR(1 - \\cos\\theta)]$. Dividing both sides by $m$ and rearranging: $g\\cos\\theta = \\frac{u^2}{R} + 2g - 2g\\cos\\theta \\implies 3g\\cos\\theta = 2g + \\frac{u^2}{R}$. Given $u = \\sqrt{0.2gR}$, we have $\\frac{u^2}{R} = 0.2g$. Substituting this value: $3g\\cos\\theta = 2g + 0.2g = 2.2g \\implies \\cos\\theta = \\frac{2.2}{3} = \\frac{11}{15}$. Option B corresponds to the familiar case where the block is released from rest ($u = 0$)."
+    },
+    {
+      "id": "wep_c02_020",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A particle of mass $m = 1\\text{ kg}$ is constrained to move along the $x$-axis under a conservative force field characterized by the potential energy function $U(x) = 2x^3 - 15x^2 + 24x + 50$ (with $U$ in Joules and $x$ in metres). Calculate the potential energy difference $\\Delta U = U(x_{\\text{unstable}}) - U(x_{\\text{stable}})$ (in Joules) between the unstable and stable equilibrium positions.",
+      "options": [],
+      "answer": "27",
+      "explanation": "Equilibrium points are located where the conservative force is zero: $F(x) = -\\frac{dU}{dx} = -(6x^2 - 30x + 24) = -6(x^2 - 5x + 4) = 0$. Factoring the quadratic gives $-6(x - 1)(x - 4) = 0$, yielding two equilibrium positions at $x = 1\\text{ m}$ and $x = 4\\text{ m}$. To determine stability, we evaluate the second derivative of the potential function: $\\frac{d^2U}{dx^2} = 12x - 30$. At $x = 1\\text{ m}$, $\\frac{d^2U}{dx^2} = 12(1) - 30 = -18 < 0$, establishing a local maximum and hence unstable equilibrium ($x_{\\text{unstable}} = 1\\text{ m}$). At $x = 4\\text{ m}$, $\\frac{d^2U}{dx^2} = 12(4) - 30 = 18 > 0$, establishing a local minimum and stable equilibrium ($x_{\\text{stable}} = 4\\text{ m}$). Evaluating $U(x)$ at these coordinates: $U(1) = 2(1)^3 - 15(1)^2 + 24(1) + 50 = 2 - 15 + 24 + 50 = 61\\text{ J}$, and $U(4) = 2(64) - 15(16) + 24(4) + 50 = 128 - 240 + 96 + 50 = 34\\text{ J}$. The required potential energy difference is $\\Delta U = U(1) - U(4) = 61 - 34 = 27\\text{ J}$."
+    },
+    {
+      "id": "wep_c02_021",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A small bob of mass $m$ is suspended from a fixed pivot $O$ by a light inextensible string of length $L$. The bob is projected horizontally from its lowest equilibrium position with an initial speed $u = \\sqrt{\\frac{7}{2}gL}$. During upward ascent, the string slackens at an angle $\\theta$ measured relative to the downward vertical, after which the bob proceeds in free projectile flight. Determine the angle $\\theta$ and calculate the maximum vertical height $y_{\\max}$ attained by the bob above the horizontal level of the suspension point $O$.",
+      "options": [
+        "A) $\\theta = 120^\\circ$ and $y_{\\max} = \\frac{11}{16}L$",
+        "B) $\\theta = 120^\\circ$ and $y_{\\max} = \\frac{3}{16}L$",
+        "C) $\\theta = 135^\\circ$ and $y_{\\max} = \\frac{9}{16}L$",
+        "D) $\\theta = 120^\\circ$ and $y_{\\max} = \\frac{13}{16}L$"
+      ],
+      "answer": "A",
+      "explanation": "Applying conservation of mechanical energy from the lowest point to angle $\\theta$: $\\frac{1}{2}mu^2 = \\frac{1}{2}mv^2 + mgL(1 - \\cos\\theta)$, which implies $v^2 = u^2 - 2gL(1 - \\cos\\theta) = \\frac{7}{2}gL - 2gL + 2gL\\cos\\theta = gL\\left(\\frac{3}{2} + 2\\cos\\theta\\right)$. The string tension is given by $T = mg\\cos\\theta + \\frac{mv^2}{L}$. Setting $T = 0$ for string slackness yields $mg\\cos\\theta + mg\\left(\\frac{3}{2} + 2\\cos\\theta\\right) = 0 \\implies 3\\cos\\theta = -\\frac{3}{2} \\implies \\cos\\theta = -\\frac{1}{2}$. Therefore, $\\theta = 120^\\circ$. At this instant, the bob's height above the suspension point $O$ is $y_0 = -L\\cos\\theta = \\frac{1}{2}L$. The speed at slack is $v_s = \\sqrt{gL\\left(\\frac{3}{2} + 2(-1/2)\\right)} = \\sqrt{\\frac{gL}{2}}$. The tangential velocity makes an angle of $\\theta - 90^\\circ = 30^\\circ$ with the horizontal, so its vertical velocity component is $v_y = v_s \\sin 60^\\circ = v_s \\frac{\\sqrt{3}}{2} = \\frac{\\sqrt{3}}{2}\\sqrt{\\frac{gL}{2}}$. Applying projectile kinematics, the vertical rise during free flight is $\\Delta y = \\frac{v_y^2}{2g} = \\frac{\\frac{3}{4} v_s^2}{2g} = \\frac{\\frac{3}{8}gL}{2g} = \\frac{3}{16}L$. Hence, the maximum vertical height attained above the suspension level $O$ is $y_{\\max} = y_0 + \\Delta y = \\frac{1}{2}L + \\frac{3}{16}L = \\frac{11}{16}L$, confirming option A."
+    },
+    {
+      "id": "wep_c02_022",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Gravel drops vertically at a constant mass flow rate $\\frac{dm}{dt} = \\mu$ from a stationary overhead hopper onto a horizontal conveyor belt moving steadily at constant velocity $v$. An electric drive motor maintains the belt's uniform velocity against the drag of incoming gravel. Which of the following correctly identifies the rate of work done by the motor ($P_{\\text{motor}}$), the rate of increase of kinetic energy of the gravel on the belt ($\\frac{dK}{dt}$), and the rate of thermal energy dissipation due to friction ($P_{\\text{diss}}$)?",
+      "options": [
+        "A) $P_{\\text{motor}} = \\mu v^2,\\quad \\frac{dK}{dt} = \\frac{1}{2}\\mu v^2,\\quad P_{\\text{diss}} = \\frac{1}{2}\\mu v^2$",
+        "B) $P_{\\text{motor}} = \\frac{1}{2}\\mu v^2,\\quad \\frac{dK}{dt} = \\frac{1}{2}\\mu v^2,\\quad P_{\\text{diss}} = 0$",
+        "C) $P_{\\text{motor}} = \\mu v^2,\\quad \\frac{dK}{dt} = \\mu v^2,\\quad P_{\\text{diss}} = 0$",
+        "D) $P_{\\text{motor}} = 2\\mu v^2,\\quad \\frac{dK}{dt} = \\frac{1}{2}\\mu v^2,\\quad P_{\\text{diss}} = \\frac{3}{2}\\mu v^2$"
+      ],
+      "answer": "A",
+      "explanation": "Because the falling gravel has zero horizontal momentum initially, the belt must impart horizontal momentum at the rate $\\frac{dp}{dt} = \\left(\\frac{dm}{dt}\\right) v = \\mu v$. By Newton's third law, the motor must exert a driving force $F_{\\text{motor}} = \\mu v$ to sustain the constant speed $v$. Consequently, the mechanical power delivered by the motor is $P_{\\text{motor}} = F_{\\text{motor}} v = (\\mu v)v = \\mu v^2$. Meanwhile, the rate of increase of kinetic energy of the deposited gravel moving at speed $v$ is $\\frac{dK}{dt} = \\frac{d}{dt}\\left(\\frac{1}{2}mv^2\\right) = \\frac{1}{2}\\left(\\frac{dm}{dt}\\right)v^2 = \\frac{1}{2}\\mu v^2$. Applying the first law of thermodynamics / energy conservation to the interface reveals an energy imbalance: $P_{\\text{diss}} = P_{\\text{motor}} - \\frac{dK}{dt} = \\mu v^2 - \\frac{1}{2}\\mu v^2 = \\frac{1}{2}\\mu v^2$. This energy is dissipated as frictional heat as each grain of gravel slides over the belt before matching its speed, independent of the friction coefficient."
+    },
+    {
+      "id": "wep_c02_023",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A heavy sled of mass $m = 20\\text{ kg}$ on a frictionless horizontal floor is connected to an anchor post by a non-linear hardening spring whose restoring force is governed by $F(x) = -(kx + \\beta x^3)$, where $k = 40\\text{ N/m}$ and $\\beta = 80\\text{ N/m}^3$. The sled is displaced from the neutral equilibrium position ($x = 0$) to an initial displacement $x_0 = 2.0\\text{ m}$ and released from rest. Calculate the speed of the sled as it passes through the intermediate position $x_1 = 1.0\\text{ m}$.",
+      "options": [
+        "A) $6.0\\text{ m/s}$",
+        "B) $2.45\\text{ m/s}$",
+        "C) $11.49\\text{ m/s}$",
+        "D) $6.32\\text{ m/s}$"
+      ],
+      "answer": "A",
+      "explanation": "The force is conservative, so we define the potential energy function by integrating: $U(x) = -\\int_0^x F(s)\\,ds = \\int_0^x (ks + \\beta s^3)\\,ds = \\frac{1}{2}kx^2 + \\frac{1}{4}\\beta x^4$. Substituting the given parameters $k = 40\\text{ N/m}$ and $\\beta = 80\\text{ N/m}^3$ yields $U(x) = 20x^2 + 20x^4 = 20x^2(1 + x^2)\\text{ J}$. At the release point $x_0 = 2.0\\text{ m}$, the sled is at rest, hence the total mechanical energy is $E = U(2.0) = 20(4)(1 + 4) = 400\\text{ J}$. When the sled reaches $x_1 = 1.0\\text{ m}$, the potential energy becomes $U(1.0) = 20(1)(1 + 1) = 40\\text{ J}$. By conservation of mechanical energy, the kinetic energy at this instant is $K = E - U(1.0) = 400 - 40 = 360\\text{ J}$. Equating this to $\\frac{1}{2}mv^2$ with $m = 20\\text{ kg}$ gives $\\frac{1}{2}(20)v^2 = 360 \\implies 10v^2 = 360 \\implies v^2 = 36$, yielding $v = 6.0\\text{ m/s}$. The linear approximation (neglecting the $\\beta$ term) erroneously yields $v = \\sqrt{6} \\approx 2.45\\text{ m/s}$."
+    },
+    {
+      "id": "wep_c02_024",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A collar of mass $m = 1.5\\text{ kg}$ is threaded onto a smooth fixed vertical guide rod. Two identical linear springs, each of unstretched length $l_0 = 0.6\\text{ m}$ and force constant $k = 75\\text{ N/m}$, have their outer extremities pinned to fixed anchor points symmetrically situated at a horizontal distance $d = 0.6\\text{ m}$ on opposite sides of the rod. The collar is released from rest at the horizontal centerline joining the anchors (where both springs are unstretched). Taking $g = 10\\text{ m/s}^2$, find the maximum vertical downward displacement $y_m$ (in centimetres) reached by the collar before momentarily halting.",
+      "options": [],
+      "answer": "80",
+      "explanation": "Let $y$ denote the vertical downward displacement of the collar from the anchor line. At displacement $y$, by Pythagoras' theorem, the stretched length of each spring is $l(y) = \\sqrt{d^2 + y^2}$. Because the unstressed length equals the pin separation distance ($l_0 = d = 0.6\\text{ m}$), the extension of each spring is $\\Delta l = \\sqrt{d^2 + y^2} - d$. The total elastic potential energy stored in both springs is $U_s(y) = 2 \\times \\left[\\frac{1}{2} k (\\sqrt{d^2 + y^2} - d)^2\\right] = k(\\sqrt{d^2 + y^2} - d)^2$. The loss in gravitational potential energy of the collar is $\\Delta U_g = mgy$. At the maximum downward displacement $y_m$, the collar comes momentarily to rest ($K = 0$). By conservation of mechanical energy: $k(\\sqrt{d^2 + y_m^2} - d)^2 = mgy_m$. Substituting the values $k = 75\\text{ N/m}$, $d = 0.6\\text{ m}$, and $mg = 15\\text{ N}$ yields $75(\\sqrt{0.36 + y_m^2} - 0.6)^2 = 15y_m \\implies 5(\\sqrt{0.36 + y_m^2} - 0.6)^2 = y_m$. Testing $y_m = 0.8\\text{ m}$, we observe $\\sqrt{0.36 + 0.64} = 1.0\\text{ m}$, so the extension is $1.0 - 0.6 = 0.4\\text{ m}$. Then $5(0.4)^2 = 5(0.16) = 0.8\\text{ m}$, which matches $y_m$ identically! Therefore, $y_m = 0.8\\text{ m} = 80\\text{ cm}$."
+    },
+    {
+      "id": "wep_c02_025",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A smooth wedge of mass $M$ with an inclined face of angle $\\alpha = 30^\\circ$ is driven horizontally to the right across a frictionless floor with a constant acceleration $a = \\frac{g}{\\sqrt{3}}$. A block of mass $m$ is released from rest from the top of the wedge face of slant length $L = 2\\text{ m}$ relative to the wedge. Which of the following statements is/are correct regarding the subsequent motion of the block in the non-inertial reference frame of the accelerating wedge? (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) The work done by the fictitious pseudo-force on the block in the wedge frame is $\\frac{1}{2}mgL$",
+        "B) The normal contact force exerted by the incline on the block is $N = \\frac{mg}{\\sqrt{3}}$",
+        "C) The relative acceleration of the block down the incline is $g = 10\\text{ m/s}^2$",
+        "D) The speed of the block relative to the wedge when it reaches the bottom of the incline is $\\sqrt{gL}$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "In the accelerating reference frame of the wedge, an inertial pseudo-force $\\vec{F}_{\\text{pseudo}} = -m\\vec{a}$ acts horizontally to the left on the block with magnitude $F_{\\text{pseudo}} = ma = \\frac{mg}{\\sqrt{3}}$. Projecting forces perpendicular to the incline: $N + F_{\\text{pseudo}}\\sin 30^\\circ = mg\\cos 30^\\circ$ implies $N = mg\\frac{\\sqrt{3}}{2} - m\\frac{g}{\\sqrt{3}}\\left(\\frac{1}{2}\\right) = mg\\left(\\frac{3 - 1}{2\\sqrt{3}}\\right) = \\frac{mg}{\\sqrt{3}}$, confirming statement B. Along the incline pointing downward, the effective driving force is $F_{\\text{parallel}} = mg\\sin 30^\\circ + F_{\\text{pseudo}}\\cos 30^\\circ = \\frac{mg}{2} + \\left(\\frac{mg}{\\sqrt{3}}\\right)\\frac{\\sqrt{3}}{2} = \\frac{mg}{2} + \\frac{mg}{2} = mg$. Thus, the relative acceleration is $a_{\\text{rel}} = \\frac{F_{\\text{parallel}}}{m} = g = 10\\text{ m/s}^2$, confirming statement C. The work done by the pseudo-force along the displacement $L$ down the incline is $W_{\\text{pseudo}} = (F_{\\text{pseudo}}\\cos 30^\\circ) L = \\left(\\frac{mg}{\\sqrt{3}} \\times \\frac{\\sqrt{3}}{2}\\right) L = \\frac{1}{2}mgL$, confirming statement A. By the work-energy theorem in the wedge frame, $\\frac{1}{2}mv_{\\text{rel}}^2 = W_g + W_{\\text{pseudo}} = mgL\\sin 30^\\circ + \\frac{1}{2}mgL = mgL$. Solving yields $v_{\\text{rel}} = \\sqrt{2gL}$, which disproves statement D."
+    },
+    {
+      "id": "wep_c02_026",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "An irrigation booster pump drives water of density $\\rho = 1000\\text{ kg/m}^3$ through a horizontal pipeline that tapers smoothly from cross-sectional area $A_1 = 0.04\\text{ m}^2$ to an exit nozzle of area $A_2 = 0.01\\text{ m}^2$. The stream discharges into open atmosphere at an exit speed of $v_2 = 12\\text{ m/s}$. Assuming steady, incompressible, and non-viscous flow, determine the rate of kinetic energy delivery (useful fluid power $P_{\\text{useful}}$) in the exiting jet and the gauge pressure $P_{1,\\text{gauge}}$ in the wider pipeline section.",
+      "options": [
+        "A) $P_{\\text{useful}} = 8.64\\text{ kW}$ and $P_{1,\\text{gauge}} = 67.5\\text{ kPa}$",
+        "B) $P_{\\text{useful}} = 8.64\\text{ kW}$ and $P_{1,\\text{gauge}} = 72.0\\text{ kPa}$",
+        "C) $P_{\\text{useful}} = 4.32\\text{ kW}$ and $P_{1,\\text{gauge}} = 67.5\\text{ kPa}$",
+        "D) $P_{\\text{useful}} = 17.28\\text{ kW}$ and $P_{1,\\text{gauge}} = 135.0\\text{ kPa}$"
+      ],
+      "answer": "A",
+      "explanation": "By the equation of continuity, the volumetric flow rate is uniform throughout: $Q = A_2 v_2 = (0.01\\text{ m}^2)(12\\text{ m/s}) = 0.12\\text{ m}^3/\\text{s}$. The mass discharge rate is $\\frac{dm}{dt} = \\rho Q = (1000\\text{ kg/m}^3)(0.12\\text{ m}^3/\\text{s}) = 120\\text{ kg/s}$. The flow speed in the upstream section is $v_1 = \\frac{A_2}{A_1}v_2 = \\frac{0.01}{0.04}(12) = 3\\text{ m/s}$. The rate of kinetic energy output carried by the discharging water jet is $P_{\\text{useful}} = \\frac{1}{2}\\left(\\frac{dm}{dt}\\right)v_2^2 = \\frac{1}{2}(120)(12^2) = 60 \\times 144 = 8640\\text{ W} = 8.64\\text{ kW}$. Applying Bernoulli's equation horizontally between sections 1 and 2: $P_1 + \\frac{1}{2}\\rho v_1^2 = P_{\\text{atm}} + \\frac{1}{2}\\rho v_2^2$. Therefore, the gauge pressure in section 1 is $P_{1,\\text{gauge}} = P_1 - P_{\\text{atm}} = \\frac{1}{2}\\rho (v_2^2 - v_1^2) = \\frac{1}{2}(1000)(144 - 9) = 500 \\times 135 = 67500\\text{ Pa} = 67.5\\text{ kPa}$. Neglecting the upstream kinetic head $v_1^2$ produces the incorrect distractor $72.0\\text{ kPa}$."
+    },
+    {
+      "id": "wep_c02_027",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A metal bucket of empty mass $m_0 = 10\\text{ kg}$ initially filled with $M_0 = 50\\text{ kg}$ of water is hoisted vertically out of a mine shaft of depth $H = 20\\text{ m}$ at a steady constant speed $v = 2\\text{ m/s}$. Water leaks out uniformly through a perforated seam at the bottom at a constant mass depletion rate of $\\lambda = 1.5\\text{ kg/s}$. Taking $g = 10\\text{ m/s}^2$ and neglecting the cable's mass, calculate the total mechanical work (in Joules) done by the hoisting winch to bring the bucket to ground level.",
+      "options": [],
+      "answer": "10500",
+      "explanation": "Because the bucket is lifted at constant speed $v = 2\\text{ m/s}$, the vertical acceleration is zero throughout, so the cable tension at any height $y$ balances the instantaneous total weight: $T(y) = m_{\\text{total}}(y) g$. The time elapsed when the bucket reaches height $y$ is $t = \\frac{y}{v} = \\frac{y}{2}$. The mass of water remaining at height $y$ is $M(y) = M_0 - \\lambda t = 50 - 1.5\\left(\\frac{y}{2}\\right) = 50 - 0.75y\\text{ kg}$. The total mass of bucket plus remaining water at height $y$ is $m_{\\text{total}}(y) = m_0 + M(y) = 10 + 50 - 0.75y = 60 - 0.75y\\text{ kg}$. The hoisting tension as a function of $y$ is $T(y) = (60 - 0.75y)(10) = 600 - 7.5y\\text{ N}$. Integrating this tension from the bottom ($y = 0$) to the top ($y = 20\\text{ m}$) gives the total work done: $W = \\int_0^{20} (600 - 7.5y)\\,dy = \\left[600y - \\frac{7.5}{2}y^2\\right]_0^{20} = 600(20) - 3.75(400) = 12000 - 1500 = 10500\\text{ J}$."
+    },
+    {
+      "id": "wep_c02_028",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A small bob of mass $m$ is suspended from a fixed origin $O$ by a light string of length $L$. It is projected horizontally with an initial speed $u$ from the lowest point. During upward motion, the string slackens at an angle $\\theta$ ($90^\\circ < \\theta < 180^\\circ$) with the downward vertical. During its subsequent free projectile trajectory, the bob passes directly through the lowest point of the original circular path. Find the value of $\\cos\\theta$.",
+      "options": [
+        "A) $\\cos\\theta = -\\frac{1}{2}$",
+        "B) $\\cos\\theta = -\\frac{1}{3}$",
+        "C) $\\cos\\theta = -\\frac{1}{\\sqrt{3}}$",
+        "D) $\\cos\\theta = -\\frac{2}{3}$"
+      ],
+      "answer": "A",
+      "explanation": "Let the suspension point $O$ be the origin $(0,0)$. The lowest point has coordinates $(0, -L)$. Let $c = -\\cos\\theta > 0$. At slackness, string tension vanishes, so the radial gravity component provides the centripetal acceleration: $mg c = \\frac{mv_s^2}{L} \\implies v_s^2 = gcL$. The coordinates of the slack point $S$ are $x_0 = L\\sin\\theta = L\\sqrt{1 - c^2}$ and $y_0 = -L\\cos\\theta = Lc$. The initial velocity components at $S$ for the projectile motion are $v_{0x} = v_s\\cos\\theta = -c v_s$ and $v_{0y} = v_s\\sin\\theta = v_s\\sqrt{1 - c^2}$. The parametric equations of projectile flight are $x(t) = L\\sqrt{1-c^2} - c v_s t$ and $y(t) = Lc + v_s\\sqrt{1-c^2}t - \\frac{1}{2}gt^2$. Setting $x(t_1) = 0$ yields $t_1 = \\frac{L\\sqrt{1-c^2}}{c v_s}$. Substituting this time into the condition $y(t_1) = -L$ gives $-L = Lc + \\frac{v_s^2(1-c^2)}{c} - \\frac{g L^2 (1-c^2)}{2 c^2 v_s^2}$. Substituting $v_s^2 = gcL$, we get $-1 = c + \\frac{1-c^2}{c} - \\frac{1-c^2}{2c^3} = \\frac{1}{c} - \\frac{1-c^2}{2c^3}$. Multiplying through by $2c^3$ and rearranging yields $2c^3 + 3c^2 - 1 = 0$. Factoring the cubic gives $(c + 1)^2(2c - 1) = 0$. Discarding the unphysical root $c = -1$, we obtain $2c - 1 = 0 \\implies c = \\frac{1}{2}$. Thus, $\\cos\\theta = -c = -\\frac{1}{2}$, matching option A."
+    },
+    {
+      "id": "wep_c02_029",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A research sounding rocket of initial total launch mass $m_0$ in deep space (free from gravity and atmospheric drag) accelerates from rest by expelling combustion exhaust gases at a constant relative velocity $u$ backwards. Propellant burn continues until the final empty dry mass of the rocket reaches $m_f = \\frac{m_0}{e}$ (where $e \\approx 2.718$). Which of the following statements is/are correct regarding the energy and momentum transformations of this propulsion process?",
+      "options": [
+        "A) The final burnout speed of the rocket payload is equal to the exhaust speed $u$",
+        "B) The total mechanical work liberated by the chemical fuel combustion is $\\frac{1}{2}m_0 u^2\\left(1 - \\frac{1}{e}\\right)$",
+        "C) The final kinetic energy of the rocket payload structure in the original rest frame is $\\frac{m_0 u^2}{2e}$",
+        "D) The total kinetic energy carried away by the ejected exhaust stream exceeds $80\\%$ of the liberated fuel energy"
+      ],
+      "answer": "A,B,C",
+      "explanation": "By Tsiolkovsky's rocket equation, the final burnout velocity is $v_f = u\\ln\\left(\\frac{m_0}{m_f}\\right) = u\\ln(e) = u$, confirming statement A. In the instantaneous frame of the rocket, mass element $|dm|$ is ejected with speed $u$, carrying kinetic energy $dE = \\frac{1}{2}|dm|u^2$. Integrating over the entire burn gives the total chemical energy transformed into mechanical energy: $E_{\\text{total}} = \\frac{1}{2}(m_0 - m_f)u^2 = \\frac{1}{2}m_0 u^2\\left(1 - \\frac{1}{e}\\right)$, confirming statement B. In the original resting frame, the final kinetic energy retained by the rocket hull is $K_{\\text{rocket}} = \\frac{1}{2}m_f v_f^2 = \\frac{1}{2}\\left(\\frac{m_0}{e}\\right)u^2 = \\frac{m_0 u^2}{2e}$, confirming statement C. By global energy conservation, the kinetic energy of the exhaust gas plume in the inertial frame is $K_{\\text{exhaust}} = E_{\\text{total}} - K_{\\text{rocket}} = \\frac{1}{2}m_0 u^2\\left(1 - \\frac{2}{e}\\right)$. The fraction of energy carried by the exhaust is $\\frac{1 - 2/e}{1 - 1/e} = \\frac{e - 2}{e - 1} \\approx \\frac{0.718}{1.718} \\approx 41.8\\%$, which is strictly less than $50\\%$, refuting statement D."
+    },
+    {
+      "id": "wep_c02_030",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A rail buffer trolley of mass $m = 4\\text{ kg}$ gliding along a frictionless horizontal track with initial speed $v_0 = 2\\text{ m/s}$ impacts head-on against an end-stop buffer spring. The spring provides a non-linear stiffening resistance given by $F(x) = -(k_1 x + k_2 x^3)$, where $k_1 = 200\\text{ N/m}$ and $k_2 = 10000\\text{ N/m}^3$, with $x$ representing the compression in metres. Determine the maximum compression $x_m$ (in centimetres) sustained by the buffer spring before the trolley momentarily arrests.",
+      "options": [],
+      "answer": "20",
+      "explanation": "At maximum compression $x_m$, the trolley's kinetic energy is completely converted into the elastic potential energy of the non-linear spring: $K_0 = U(x_m)$. The initial kinetic energy is $K_0 = \\frac{1}{2} m v_0^2 = \\frac{1}{2}(4)(2^2) = 8\\text{ J}$. The potential energy stored in the spring is obtained by integrating the restoring force: $U(x_m) = \\int_0^{x_m} (k_1 x + k_2 x^3)\\,dx = \\frac{1}{2}k_1 x_m^2 + \\frac{1}{4}k_2 x_m^4$. Substituting $k_1 = 200\\text{ N/m}$ and $k_2 = 10000\\text{ N/m}^3$ yields $8 = 100x_m^2 + 2500x_m^4$. Letting $z = x_m^2$, we formulate the quadratic equation: $2500z^2 + 100z - 8 = 0$. Dividing the equation by $4$ gives $625z^2 + 25z - 2 = 0$. Applying the quadratic formula: $z = \\frac{-25 \\pm \\sqrt{25^2 - 4(625)(-2)}}{2(625)} = \\frac{-25 \\pm \\sqrt{625 + 5000}}{1250} = \\frac{-25 \\pm \\sqrt{5625}}{1250} = \\frac{-25 \\pm 75}{1250}$. Taking the physically positive root yields $z = \\frac{50}{1250} = \\frac{1}{25} = 0.04\\text{ m}^2$. Therefore, the maximum compression is $x_m = \\sqrt{0.04} = 0.2\\text{ m} = 20\\text{ cm}$."
+    },
+    {
+      "id": "wep_c02_031",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A uniform heavy chain of total length $L = 2.0\\text{ m}$ and total mass $M = 3.0\\text{ kg}$ is laid horizontally on a rough table with an initial overhang of length $y_0 = 0.4\\text{ m}$ dangling freely over the smooth rounded edge. The coefficient of kinetic friction between the chain links and the tabletop is $\\mu_k = 0.25$. The chain is released from rest in this position. Taking $g = 10\\text{ m/s}^2$, find the speed $v$ with which the trailing end link of the chain slips off the edge of the table.",
+      "options": [
+        "A) $4.0\\text{ m/s}$",
+        "B) $4.5\\text{ m/s}$",
+        "C) $3.2\\text{ m/s}$",
+        "D) $5.0\\text{ m/s}$"
+      ],
+      "answer": "A",
+      "explanation": "Let $\\lambda = \\frac{M}{L} = 1.5\\text{ kg/m}$ be the linear mass density. When an overhang of length $y$ hangs vertically ($y_0 \\le y \\le L$), the mass remaining on the horizontal table is $\\lambda(L - y)$, giving a normal force $N(y) = \\lambda(L - y)g$. The opposing kinetic friction force is $f_k(y) = \\mu_k N(y) = \\mu_k \\lambda g(L - y)$. The work done by friction as the overhang increases from $y_0 = 0.4\\text{ m}$ to $L = 2.0\\text{ m}$ is $W_f = -\\int_{y_0}^L \\mu_k \\lambda g(L - y)\\,dy = -\\frac{1}{2}\\mu_k \\lambda g(L - y_0)^2$. The gravitational potential energy of the chain with overhang $y$ (taking the table surface as reference $U=0$) is $U(y) = -(\\lambda y g)\\frac{y}{2} = -\\frac{1}{2}\\lambda g y^2$. The work done by gravity is $W_g = U(y_0) - U(L) = \\frac{1}{2}\\lambda g(L^2 - y_0^2)$. By the work-energy theorem: $\\frac{1}{2}M v^2 = W_g + W_f \\implies \\frac{1}{2}(\\lambda L)v^2 = \\frac{1}{2}\\lambda g \\left[(L^2 - y_0^2) - \\mu_k(L - y_0)^2\\right]$. Factoring $(L - y_0)$ gives $v^2 = \\frac{g}{L}(L - y_0)[(L + y_0) - \\mu_k(L - y_0)]$. Substituting $L = 2.0\\text{ m}$, $y_0 = 0.4\\text{ m}$, $\\mu_k = 0.25$, and $g = 10\\text{ m/s}^2$: $L - y_0 = 1.6\\text{ m}$, $L + y_0 = 2.4\\text{ m}$, and bracket term $= 2.4 - 0.25(1.6) = 2.4 - 0.4 = 2.0\\text{ m}$. Hence, $v^2 = \\frac{10}{2.0} \\times 1.6 \\times 2.0 = 16\\text{ m}^2/\\text{s}^2$, yielding $v = 4.0\\text{ m/s}$, confirming option A."
+    },
+    {
+      "id": "wep_c02_032",
+      "subject": "Physics",
+      "topic": "Work Energy and Power",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A flexible heavy chain of total mass $M = 10\\text{ kg}$ and length $L = 5\\text{ m}$ hangs vertically from its upper tip such that its lower link barely touches the pan of a sensitive weighing platform. At time $t = 0$, the top end is released from rest. Each falling link collapses instantaneously onto the scale pan upon impact without rebounding. Taking $g = 10\\text{ m/s}^2$, determine the normal load reading of the scale (in Newtons) at the exact instant the topmost link strikes the platform.",
+      "options": [],
+      "answer": "300",
+      "explanation": "Let the linear mass density of the chain be $\\lambda = \\frac{M}{L} = \\frac{10}{5} = 2\\text{ kg/m}$. At an intermediate instant when a length $y$ has fallen onto the pan, the free-falling portion above has accelerated under gravity, acquiring a downward velocity $v = \\sqrt{2gy}$. The total normal force $N(y)$ exerted on the weighing platform arises from two distinct physical mechanisms: (1) The static deadweight of the chain links already resting on the pan: $W(y) = (\\lambda y)g = \\lambda g y$. (2) The dynamic impulsive reaction force due to the continuous loss of momentum of falling links arriving at rate $\\frac{dm}{dt} = \\lambda v$: $F_{\\text{impact}} = v\\frac{dm}{dt} = v(\\lambda v) = \\lambda v^2 = \\lambda(2gy) = 2\\lambda g y$. Combining both terms, the instantaneous normal force recorded by the scale is $N(y) = W(y) + F_{\\text{impact}} = \\lambda g y + 2\\lambda g y = 3\\lambda g y$. At the terminal instant when the entire length has collapsed ($y = L$), the scale registers $N(L) = 3\\lambda g L = 3Mg$. Substituting $M = 10\\text{ kg}$ and $g = 10\\text{ m/s}^2$ yields $N(L) = 3 \\times 10 \\times 10 = 300\\text{ N}$, which is exactly three times the resting weight of the chain."
+    }
+  ]
+}

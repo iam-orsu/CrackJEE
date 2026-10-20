@@ -1,0 +1,513 @@
+{
+  "questions": [
+    {
+      "id": "phy_ud_beg_001",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The energy density of an electromagnetic field in vacuum is given by $u = \\frac{B^2}{2\\mu_0} + \\frac{1}{2}\\epsilon_0 E^2$. In a magneto-hydrodynamic modeling framework, a new transport quantity is defined as $\\Psi = \\frac{u}{\\mu_0 \\sigma^2}$, where $\\sigma$ represents the electrical conductivity of the conducting fluid. What is the dimensional formula of $\\Psi$ in terms of base dimensions $[M, L, T, A]$?",
+      "options": [
+        "A) $[M^2 L^4 T^{-6} A^{-2}]$",
+        "B) $[M^2 L^4 T^{-6} A^2]$",
+        "C) $[M L T^{-3} A^0]$",
+        "D) $[M^2 L^1 T^{-6} A^{-2}]$"
+      ],
+      "answer": "A",
+      "explanation": "The dimensional formula of energy density is $[u] = [\\text{Energy}]/[\\text{Volume}] = [M L^2 T^{-2}] / [L^3] = [M L^{-1} T^{-2}]$. From Ohm's law in microscopic form, current density is $\\vec{J} = \\sigma \\vec{E}$, hence $[\\sigma] = [J]/[E] = [A L^{-2}] / [M L T^{-3} A^{-1}] = [M^{-1} L^{-3} T^3 A^2]$. The magnetic permeability of vacuum satisfies $[\\mu_0] = [M L T^{-2} A^{-2}]$. Substituting these dimensional relations into the denominator gives $[\\mu_0 \\sigma^2] = [M L T^{-2} A^{-2}] [M^{-1} L^{-3} T^3 A^2]^2 = [M L T^{-2} A^{-2}] [M^{-2} L^{-6} T^6 A^4] = [M^{-1} L^{-5} T^4 A^2]$. Therefore, solving for $[\\Psi] = [u]/[\\mu_0 \\sigma^2]$ yields $[\\Psi] = [M L^{-1} T^{-2}] / [M^{-1} L^{-5} T^4 A^2] = [M^2 L^4 T^{-6} A^{-2}]$. This quantity dimensionally matches the square of an electric potential $(V^2)$. Forgetting the squaring of conductivity leads erroneously to option C."
+    },
+    {
+      "id": "phy_ud_beg_002",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A vernier caliper has main scale divisions of $0.5\\text{ mm}$ ($1\\text{ MSD} = 0.5\\text{ mm}$) and $20$ vernier scale divisions ($20\\text{ VSD}$) coinciding with $19\\text{ MSD}$. When the two jaws are brought together without any object, the zero mark of the vernier scale lies to the left of the main scale zero mark, and the $6\\text{th}$ vernier division coincides with a main scale division. When measuring the external diameter of a hollow metal sphere, the main scale reads $3.5\\text{ cm}$ and the $14\\text{th}$ vernier division coincides with a main scale line. What is the corrected external diameter of the sphere?",
+      "options": [
+        "A) $3.570\\text{ cm}$",
+        "B) $3.500\\text{ cm}$",
+        "C) $3.550\\text{ cm}$",
+        "D) $3.520\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "The least count is calculated as $\\text{LC} = 1\\text{ MSD} - 1\\text{ VSD} = 0.5\\text{ mm} - \\frac{19}{20}(0.5\\text{ mm}) = \\frac{0.5}{20}\\text{ mm} = 0.025\\text{ mm}$. Since the vernier zero lies to the left of the main scale zero, the instrument exhibits a negative zero error. Applying the negative zero error rule, $\\text{Zero Error} = -(20 - 6) \\times \\text{LC} = -14 \\times 0.025\\text{ mm} = -0.350\\text{ mm} = -0.035\\text{ cm}$. The observed reading is $\\text{MSR} + \\text{VSR} = 35.0\\text{ mm} + 14 \\times 0.025\\text{ mm} = 35.0 + 0.350 = 35.350\\text{ mm} = 3.535\\text{ cm}$. Therefore, substituting into the correction formula yields $\\text{Corrected reading} = \\text{Observed reading} - (\\text{Zero Error}) = 3.535\\text{ cm} - (-0.035\\text{ cm}) = 3.570\\text{ cm}$. Mistakenly treating the zero error as positive gives $3.500\\text{ cm}$, while failing to take $(20 - 6)$ for negative zero error gives $3.550\\text{ cm}$."
+    },
+    {
+      "id": "phy_ud_beg_003",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A micrometer screw gauge has a pitch of $0.5\\text{ mm}$ and its circular scale contains $50$ equal divisions. When the measuring faces are in contact without an object, the circular scale zero is $4$ divisions above the horizontal reference line on the main sleeve (indicating a negative zero error). When measuring the diameter of a uniform metallic wire, the main scale reveals $4$ complete divisions past the zero mark, and the $38\\text{th}$ division of the circular thimble coincides with the reference line. Determine the corrected diameter of the wire.",
+      "options": [
+        "A) $2.42\\text{ mm}$",
+        "B) $2.34\\text{ mm}$",
+        "C) $4.42\\text{ mm}$",
+        "D) $2.38\\text{ mm}$"
+      ],
+      "answer": "A",
+      "explanation": "The least count of the screw gauge is $\\text{LC} = \\frac{\\text{Pitch}}{\\text{Number of circular divisions}} = \\frac{0.5\\text{ mm}}{50} = 0.01\\text{ mm}$. Because the circular zero mark lies above the reference line, the zero error is negative: $\\text{Zero Error} = -4 \\times 0.01\\text{ mm} = -0.04\\text{ mm}$. The main scale reading corresponds to $4$ divisions of $0.5\\text{ mm}$ each, yielding $\\text{MSR} = 4 \\times 0.5\\text{ mm} = 2.00\\text{ mm}$. The circular scale reading is $\\text{CSR} = 38 \\times 0.01\\text{ mm} = 0.38\\text{ mm}$. The observed diameter is therefore $\\text{Observed} = 2.00\\text{ mm} + 0.38\\text{ mm} = 2.38\\text{ mm}$. Applying the zero correction formula, $\\text{Corrected diameter} = \\text{Observed} - (\\text{Zero Error}) = 2.38\\text{ mm} - (-0.04\\text{ mm}) = 2.42\\text{ mm}$. Subtracting the zero error without the negative sign yields $2.34\\text{ mm}$, whereas omitting zero error altogether gives $2.38\\text{ mm}$."
+    },
+    {
+      "id": "phy_ud_beg_004",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "According to the Stefan-Boltzmann law, the total radiant energy emitted per unit surface area per second by a blackbody at temperature $T$ is given by $E = \\sigma T^4$. The mean thermal kinetic energy per molecule of an ideal gas is $\\frac{3}{2} k_B T$. In a unified radiation-gas model, a composite physical quantity is defined as $\\Lambda = \\frac{\\sigma \\hbar^3 c^2}{k_B^4}$, where $\\hbar$ is the reduced Planck constant and $c$ is the speed of light in vacuum. What is the dimensional formula of $\\Lambda$?",
+      "options": [
+        "A) $[M^0 L^0 T^0]$",
+        "B) $[M L^2 T^{-1}]$",
+        "C) $[M^0 L^2 T^{-2}]$",
+        "D) $[M^0 L^0 T^{-1}]$"
+      ],
+      "answer": "A",
+      "explanation": "From the radiant flux formula $E = \\sigma T^4$, the dimensions of Stefan's constant are $[\\sigma] = [E]/[T^4] = \\frac{[M L^2 T^{-2}]}{[L^2][T][\\Theta^4]} = [M T^{-3} \\Theta^{-4}]$. Boltzmann's constant has dimensions $[k_B] = [\\text{Energy}]/[\\Theta] = [M L^2 T^{-2} \\Theta^{-1}]$, so $[k_B^4] = [M^4 L^8 T^{-8} \\Theta^{-4}]$. The reduced Planck constant has dimensions $[\\hbar] = [M L^2 T^{-1}]$, yielding $[\\hbar^3] = [M^3 L^6 T^{-3}]$. The speed of light squared has dimensions $[c^2] = [L^2 T^{-2}]$. Multiplying the numerator terms yields $[\\sigma \\hbar^3 c^2] = [M T^{-3} \\Theta^{-4}][M^3 L^6 T^{-3}][L^2 T^{-2}] = [M^4 L^8 T^{-8} \\Theta^{-4}]$. Therefore, substituting numerator and denominator into $[\\Lambda]$ gives $[\\Lambda] = \\frac{[M^4 L^8 T^{-8} \\Theta^{-4}]}{[M^4 L^8 T^{-8} \\Theta^{-4}]} = [M^0 L^0 T^0]$. Thus $\\Lambda$ is a pure dimensionless constant. Indeed, from quantum statistical mechanics, $\\sigma = \\frac{\\pi^2 k_B^4}{60 \\hbar^3 c^2}$, so $\\Lambda = \\frac{\\pi^2}{60}$."
+    },
+    {
+      "id": "phy_ud_beg_005",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The time period of oscillation of a torsional pendulum comprising a solid uniform disc of mass $M$ and radius $R$ suspended at its center by a thin wire of length $L$ and circular wire radius $r$ is given by $T = 2\\pi \\sqrt{\\frac{I}{C}}$, where $I = \\frac{1}{2} M R^2$ is the moment of inertia and $C = \\frac{\\pi \\eta r^4}{2 L}$ is the torsional rigidity, with $\\eta$ denoting the shear modulus. In an experimental trial, the maximum percentage uncertainties are: mass $M$ has $1.0\\%$, disc radius $R$ has $1.5\\%$, wire length $L$ has $2.0\\%$, wire radius $r$ has $1.0\\%$, and oscillation period $T$ has $2.0\\%$. If the maximum permissible percentage error in the calculated shear modulus $\\eta$ is $X\\%$, find the integer value of $X$.",
+      "options": [],
+      "answer": "14",
+      "explanation": "Substituting the expressions for moment of inertia $I$ and torsional rigidity $C$ into the period formula gives $T = 2\\pi \\sqrt{\\frac{M R^2 L}{\\pi \\eta r^4}}$. Squaring both sides yields $T^2 = \\frac{4\\pi M R^2 L}{\\eta r^4}$, which can be rearranged to express the shear modulus as $\\eta = \\frac{4\\pi M R^2 L}{r^4 T^2}$. Taking logarithms and applying the maximum fractional error formula, we obtain $\\frac{\\Delta \\eta}{\\eta} = \\frac{\\Delta M}{M} + 2\\frac{\\Delta R}{R} + \\frac{\\Delta L}{L} + 4\\frac{\\Delta r}{r} + 2\\frac{\\Delta T}{T}$. Substituting the given percentage values: $\\frac{\\Delta M}{M} = 1.0\\%$, $2\\frac{\\Delta R}{R} = 2(1.5\\%) = 3.0\\%$, $\\frac{\\Delta L}{L} = 2.0\\%$, $4\\frac{\\Delta r}{r} = 4(1.0\\%) = 4.0\\%$, and $2\\frac{\\Delta T}{T} = 2(2.0\\%) = 4.0\\%$. Therefore, summing these fractional errors yields $\\frac{\\Delta \\eta}{\\eta} = 1.0\\% + 3.0\\% + 2.0\\% + 4.0\\% + 4.0\\% = 14.0\\%$. Hence $X = 14$."
+    },
+    {
+      "id": "phy_ud_beg_006",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The electrical resistivity $\\rho$ of a uniform wire of circular cross-section is experimentally determined using the formula $\\rho = \\frac{R \\pi d^2}{4 L}$. The electrical resistance is measured as $R = (25.0 \\pm 0.5)\\,\\Omega$, the wire diameter is measured with a micrometer as $d = (1.20 \\pm 0.03)\\text{ mm}$, and the length of the wire is measured with a meter rule as $L = (80.0 \\pm 0.4)\\text{ cm}$. What is the maximum percentage error in the determined value of the resistivity $\\rho$?",
+      "options": [
+        "A) $7.5\\%$",
+        "B) $5.0\\%$",
+        "C) $6.5\\%$",
+        "D) $5.4\\%$"
+      ],
+      "answer": "A",
+      "explanation": "From the relation $\\rho = \\frac{\\pi R d^2}{4 L}$, the fractional error expression is given by $\\frac{\\Delta \\rho}{\\rho} = \\frac{\\Delta R}{R} + 2\\frac{\\Delta d}{d} + \\frac{\\Delta L}{L}$. Substituting the respective values: $\\frac{\\Delta R}{R} = \\frac{0.5}{25.0} = 0.020 = 2.0\\%$. For the diameter, $\\frac{\\Delta d}{d} = \\frac{0.03\\text{ mm}}{1.20\\text{ mm}} = 0.025 = 2.5\\%$, so the contribution from $d^2$ is $2 \\times 2.5\\% = 5.0\\%$. For the wire length, $\\frac{\\Delta L}{L} = \\frac{0.4\\text{ cm}}{80.0\\text{ cm}} = 0.005 = 0.5\\%$. Therefore, adding all independent uncertainty contributions yields the maximum percentage error $\\frac{\\Delta \\rho}{\\rho} = 2.0\\% + 5.0\\% + 0.5\\% = 7.5\\%$. Omitting the exponent factor 2 on diameter yields $5.0\\%$, while subtracting the length uncertainty produces $6.5\\%$."
+    },
+    {
+      "id": "phy_ud_beg_007",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In an electromagnetic laboratory circuit, four electrical parameters are measured: self-inductance $L$, capacitance $C$, resistance $R$, and magnetic flux $\\Phi$. Which one of the following algebraic combinations of these quantities possesses the physical dimension of electric charge ($[A T]$)?",
+      "options": [
+        "A) $\\frac{\\Phi}{R}$",
+        "B) $\\frac{L}{R}$",
+        "C) $\\sqrt{\\frac{L}{C}}$",
+        "D) $\\frac{R \\Phi}{L}$"
+      ],
+      "answer": "A",
+      "explanation": "By Faraday's law of electromagnetic induction, the induced electromotive force is $\\mathcal{E} = -\\frac{d\\Phi}{dt}$, which gives $[\\Phi] = [\\text{EMF}][T] = [V][T]$. According to Ohm's law, $I = \\frac{\\mathcal{E}}{R} = \\frac{dq}{dt}$, meaning the infinitesimal charge displaced across resistance $R$ satisfies $dq = \\frac{d\\Phi}{R}$. Integrating this relation implies $\\Delta q = \\frac{\\Delta \\Phi}{R}$. Therefore, the dimensional formula of $\\frac{\\Phi}{R}$ is $\\frac{[V T]}{[V A^{-1}]} = [A T]$, which is identical to the dimension of electric charge. In contrast, $[L/R] = [T]$ represents time, $[\\sqrt{L/C}] = [\\Omega]$ represents characteristic impedance, and $[R\\Phi/L] = [R \\cdot I] = [V]$ represents electric potential."
+    },
+    {
+      "id": "phy_ud_beg_008",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A rectangular sample of a newly synthesized dense alloy has dimensions measured by precision calipers: length $l = 10.5\\text{ cm}$, width $w = 2.15\\text{ cm}$, and thickness $t = 0.420\\text{ cm}$. The mass of the specimen is measured on an electronic analytical balance as $m = 85.34\\text{ g}$. Applying the standard scientific conventions of significant figures, what is the correctly reported density of the alloy?",
+      "options": [
+        "A) $9.00\\text{ g/cm}^3$",
+        "B) $9.0\\text{ g/cm}^3$",
+        "C) $9.001\\text{ g/cm}^3$",
+        "D) $8.98\\text{ g/cm}^3$"
+      ],
+      "answer": "A",
+      "explanation": "First, we evaluate the volume of the rectangular block: $V = l \\times w \\times t = 10.5\\text{ cm} \\times 2.15\\text{ cm} \\times 0.420\\text{ cm} = 9.4815\\text{ cm}^3$. The factors $l$, $w$, and $t$ each have $3$ significant figures (note that the trailing zero in $0.420$ is significant), while the measured mass $m = 85.34\\text{ g}$ has $4$ significant figures. According to the rules of multiplication and division, the final computed quantity must retain the number of significant figures of the least precise factor, which is $3$. Computing the raw density gives $\\rho = \\frac{m}{V} = \\frac{85.34}{9.4815} \\approx 9.000685...\\text{ g/cm}^3$. Rounding to three significant figures gives exactly $9.00\\text{ g/cm}^3$. Reporting $9.0\\text{ g/cm}^3$ prematurely drops a significant figure, while $9.001\\text{ g/cm}^3$ claims unjustified precision."
+    },
+    {
+      "id": "phy_ud_beg_009",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A micrometer screw gauge has a main sleeve graduated in millimeters ($1\\text{ MSD} = 1.0\\text{ mm}$) and a thimble containing $100$ circular scale divisions. One complete turn of the thimble advances the spindle by $1.0\\text{ mm}$. When the anvils are closed firmly without any specimen, the circular zero mark has advanced past the reference datum line such that the $5\\text{th}$ division on the circular scale aligns with the datum line (positive zero error). When a microscope glass slide is clamped between the anvils, the sleeve displays $6$ complete divisions, and the $42\\text{nd}$ division on the thimble aligns with the datum line. What is the true thickness of the glass slide?",
+      "options": [
+        "A) $6.47\\text{ mm}$",
+        "B) $6.37\\text{ mm}$",
+        "C) $6.42\\text{ mm}$",
+        "D) $5.95\\text{ mm}$"
+      ],
+      "answer": "B",
+      "explanation": "The least count of the micrometer is given by $\\text{LC} = \\frac{1.0\\text{ mm}}{100} = 0.01\\text{ mm}$. The zero error is positive since the thimble zero has advanced past the datum line: $\\text{Zero Error} = +5 \\times 0.01\\text{ mm} = +0.05\\text{ mm}$. When measuring the glass slide, the main scale reading is $\\text{MSR} = 6.00\\text{ mm}$, and the circular scale reading is $\\text{CSR} = 42 \\times 0.01\\text{ mm} = 0.42\\text{ mm}$. The observed thickness is $\\text{Observed} = 6.00 + 0.42 = 6.42\\text{ mm}$. Applying the zero correction principle: $\\text{Corrected thickness} = \\text{Observed} - (\\text{Zero Error}) = 6.42\\text{ mm} - 0.05\\text{ mm} = 6.37\\text{ mm}$. Mistakenly adding the zero error gives $6.47\\text{ mm}$, whereas failing to correct gives $6.42\\text{ mm}$."
+    },
+    {
+      "id": "phy_ud_beg_010",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The relativistic-corrected non-relativistic kinetic energy $K$ of a subatomic projectile of rest mass $m$ is determined indirectly by measuring its momentum $p$ and mass $m$ using the kinetic relation $K = \\frac{p^2}{2m}$. In a calibrated particle detector experiment, the momentum is measured with an uncertainty of $3.0\\%$ and the mass is measured with an uncertainty of $2.0\\%$. If the maximum permissible percentage error in the evaluated kinetic energy $K$ is $N\\%$, determine the integer value of $N$.",
+      "options": [],
+      "answer": "8",
+      "explanation": "The kinetic energy is expressed as $K = \\frac{p^2}{2m}$. Differentiating logarithmically yields the maximum fractional error equation: $\\frac{\\Delta K}{K} = 2\\frac{\\Delta p}{p} + \\frac{\\Delta m}{m}$. Substituting the measured percentage uncertainties: $\\frac{\\Delta p}{p} = 3.0\\%$ and $\\frac{\\Delta m}{m} = 2.0\\%$. Therefore, solving for the total error gives $\\frac{\\Delta K}{K} = 2(3.0\\%) + 2.0\\% = 6.0\\% + 2.0\\% = 8.0\\%$. Hence the maximum percentage error is $N = 8$. A common student error of omitting the exponent $2$ on momentum yields $3.0\\% + 2.0\\% = 5.0\\%$, while incorrectly subtracting the mass error gives $4.0\\%$."
+    },
+    {
+      "id": "phy_ud_int_001",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The critical velocity $v_c$ for the onset of turbulence of a viscous fluid flowing through a circular pipe of diameter $D$ depends on dynamic viscosity $\\eta$, pipe diameter $D$, and fluid density $\\rho$ through the dimensional relation $v_c = k \\eta^a D^b \\rho^c$, where $k$ is the dimensionless Reynolds number. Determine the exponent triplet $(a, b, c)$ and the dimensional formula of the fluid dynamic ratio $\\Gamma = \\frac{\\eta^2}{\\rho D^2 \\Delta P}$, where $\\Delta P$ is the pressure drop across the pipe.",
+      "options": [
+        "A) $(a,b,c) = (1, -1, -1)$ and $[\\Gamma] = [M^0 L^0 T^0]$",
+        "B) $(a,b,c) = (1, 1, -1)$ and $[\\Gamma] = [M L^{-1} T^{-1}]$",
+        "C) $(a,b,c) = (-1, 1, 1)$ and $[\\Gamma] = [M^0 L^0 T^0]$",
+        "D) $(a,b,c) = (1, -1, -1)$ and $[\\Gamma] = [M^0 L^2 T^{-2}]$"
+      ],
+      "answer": "A",
+      "explanation": "Writing the dimensional equation for critical velocity: $[v_c] = [L T^{-1}] = [\\eta]^a [D]^b [\\rho]^c = [M L^{-1} T^{-1}]^a [L]^b [M L^{-3}]^c = M^{a+c} L^{-a+b-3c} T^{-a}$. Equating powers of corresponding base units: from time $T$, $-a = -1 \\implies a = 1$. From mass $M$, $a + c = 0 \\implies c = -1$. From length $L$, $-a + b - 3c = 1 \\implies -1 + b - 3(-1) = 1 \\implies b = -1$. Thus $(a, b, c) = (1, -1, -1)$, yielding $v_c = k \\frac{\\eta}{\\rho D}$. Next, examining the ratio $\\Gamma = \\frac{\\eta^2}{\\rho D^2 \\Delta P}$: the numerator has $[\\eta^2] = [M L^{-1} T^{-1}]^2 = [M^2 L^{-2} T^{-2}]$. The denominator has $[\\rho D^2 \\Delta P] = [M L^{-3}][L^2][M L^{-1} T^{-2}] = [M^2 L^{-2} T^{-2}]$. Dividing these terms yields $[\\Gamma] = \\frac{[M^2 L^{-2} T^{-2}]}{[M^2 L^{-2} T^{-2}]} = [M^0 L^0 T^0]$, confirming that $\\Gamma$ is completely dimensionless."
+    },
+    {
+      "id": "phy_ud_int_002",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two precision wire-wound resistors are measured as $R_1 = (100 \\pm 3)\\,\\Omega$ and $R_2 = (200 \\pm 4)\\,\\Omega$. They are connected in parallel in a testing circuit to form an equivalent resistance $R_p = \\frac{R_1 R_2}{R_1 + R_2}$. What is the equivalent resistance $R_p$ and its maximum absolute uncertainty $\\Delta R_p$?",
+      "options": [
+        "A) $R_p = (66.7 \\pm 1.8)\\,\\Omega$",
+        "B) $R_p = (66.7 \\pm 3.3)\\,\\Omega$",
+        "C) $R_p = (66.7 \\pm 7.0)\\,\\Omega$",
+        "D) $R_p = (66.7 \\pm 0.9)\\,\\Omega$"
+      ],
+      "answer": "A",
+      "explanation": "The equivalent parallel resistance is $R_p = \\frac{R_1 R_2}{R_1 + R_2} = \\frac{100 \\times 200}{100 + 200} = \\frac{20000}{300} = \\frac{200}{3} \\approx 66.67\\,\\Omega$. Differentiating the reciprocal relation $\\frac{1}{R_p} = \\frac{1}{R_1} + \\frac{1}{R_2}$ gives $-\\frac{\\Delta R_p}{R_p^2} = -\\frac{\\Delta R_1}{R_1^2} - \\frac{\\Delta R_2}{R_2^2}$. Solving for the maximum absolute error yields $\\Delta R_p = R_p^2 \\left( \\frac{\\Delta R_1}{R_1^2} + \\frac{\\Delta R_2}{R_2^2} \\right)$. Evaluating the individual terms: $\\frac{\\Delta R_1}{R_1^2} = \\frac{3}{100^2} = 3.0 \\times 10^{-4}\\,\\Omega^{-1}$, and $\\frac{\\Delta R_2}{R_2^2} = \\frac{4}{200^2} = \\frac{4}{40000} = 1.0 \\times 10^{-4}\\,\\Omega^{-1}$. Summing these gives $4.0 \\times 10^{-4}\\,\\Omega^{-1}$. Therefore, substituting $R_p = \\frac{200}{3}\\,\\Omega$ yields $\\Delta R_p = \\left(\\frac{200}{3}\\right)^2 \\times 4.0 \\times 10^{-4} = \\frac{40000}{9} \\times \\frac{4}{10000} = \\frac{16}{9} \\approx 1.78\\,\\Omega \\approx 1.8\\,\\Omega$. Erroneously adding percentage errors $(3\\% + 2\\% = 5\\%)$ yields $\\Delta R_p = 3.3\\,\\Omega$."
+    },
+    {
+      "id": "phy_ud_int_003",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In quantum cosmology, the Planck scale represents the fundamental frontier where gravitational and quantum effects merge. The Planck energy is given by $E_P = \\sqrt{\\frac{\\hbar c^5}{G}}$, where $\\hbar$ is the reduced Planck constant, $c$ is the speed of light, and $G$ is Newton's gravitational constant. By equating the thermal energy scale $k_B T_P$ to the Planck energy $E_P$, where $k_B$ is Boltzmann's constant, the Planck temperature $T_P$ is defined. Express the Planck temperature $T_P$ in terms of these fundamental constants.",
+      "options": [
+        "A) $\\sqrt{\\frac{\\hbar c^5}{G k_B^2}}$",
+        "B) $\\sqrt{\\frac{\\hbar c^3}{G k_B^2}}$",
+        "C) $\\sqrt{\\frac{G \\hbar^2}{c^3 k_B}}$",
+        "D) $\\sqrt{\\frac{\\hbar^2 c^5}{G^2 k_B}}$"
+      ],
+      "answer": "A",
+      "explanation": "Setting the thermal energy equal to the Planck energy yields $k_B T_P = E_P = \\sqrt{\\frac{\\hbar c^5}{G}}$. Solving directly for $T_P$ gives $T_P = \\frac{1}{k_B} \\sqrt{\\frac{\\hbar c^5}{G}} = \\sqrt{\\frac{\\hbar c^5}{G k_B^2}}$. To verify the dimensions, we substitute the base dimensions: $[\\hbar] = [M L^2 T^{-1}]$, $[c^5] = [L^5 T^{-5}]$, $[G] = [M^{-1} L^3 T^{-2}]$, and $[k_B^2] = [M^2 L^4 T^{-4} \\Theta^{-2}]$. The numerator dimension is $[\\hbar c^5] = [M L^7 T^{-6}]$, and the denominator dimension is $[G k_B^2] = [M^{-1} L^3 T^{-2}][M^2 L^4 T^{-4} \\Theta^{-2}] = [M L^7 T^{-6} \\Theta^{-2}]$. Taking the square root of the ratio yields $\\sqrt{\\frac{M L^7 T^{-6}}{M L^7 T^{-6} \\Theta^{-2}}} = \\sqrt{\\Theta^2} = [\\Theta]$, which confirms the dimension of temperature. Option B incorrectly uses $c^3$ (corresponding to Planck mass scaled), while option C inverts the constants."
+    },
+    {
+      "id": "phy_ud_int_004",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a calorimetry experiment to measure the specific heat capacity $s$ of a metal, a specimen of mass $m_1 = (100.0 \\pm 1.0)\\text{ g}$ is heated to $T_1 = (100.0 \\pm 0.5)^\\circ\\text{C}$ and dropped into a calorimeter of water equivalent $W = (200.0 \\pm 2.0)\\text{ g}$, initially at $T_2 = (20.0 \\pm 0.2)^\\circ\\text{C}$. The final steady equilibrium temperature is recorded as $T_f = (30.0 \\pm 0.3)^\\circ\\text{C}$. Neglecting heat exchange with the surroundings, the heat equation is $m_1 s (T_1 - T_f) = W (T_f - T_2)$ (with specific heat of water taken as $1.0\\text{ cal/g}\\cdot^\\circ\\text{C}$). What is the maximum percentage error $\\frac{\\Delta s}{s} \\times 100\\%$ in the calculated specific heat capacity?",
+      "options": [
+        "A) $8.14\\%$",
+        "B) $7.00\\%$",
+        "C) $3.29\\%$",
+        "D) $9.28\\%$"
+      ],
+      "answer": "A",
+      "explanation": "Rearranging the heat balance equation gives $s = \\frac{W(T_f - T_2)}{m_1(T_1 - T_f)}$. Let $\\Delta \\theta_2 = T_f - T_2 = 30.0 - 20.0 = 10.0^\\circ\\text{C}$. The maximum absolute error in $\\Delta \\theta_2$ is $\\Delta(\\Delta \\theta_2) = \\Delta T_f + \\Delta T_2 = 0.3 + 0.2 = 0.5^\\circ\\text{C}$, yielding a fractional error of $\\frac{0.5}{10.0} = 0.0500 = 5.00\\%$. Let $\\Delta \\theta_1 = T_1 - T_f = 100.0 - 30.0 = 70.0^\\circ\\text{C}$. The maximum absolute error is $\\Delta(\\Delta \\theta_1) = \\Delta T_1 + \\Delta T_f = 0.5 + 0.3 = 0.8^\\circ\\text{C}$, giving a fractional error of $\\frac{0.8}{70.0} = \\frac{8}{700} \\approx 0.0114 = 1.14\\%$. For mass and water equivalent: $\\frac{\\Delta m_1}{m_1} = \\frac{1.0}{100.0} = 1.00\\%$, and $\\frac{\\Delta W}{W} = \\frac{2.0}{200.0} = 1.00\\%$. Summing all independent relative errors gives $\\frac{\\Delta s}{s} = 1.00\\% + 1.00\\% + 5.00\\% + 1.14\\% = 8.14\\%$. Incorrectly subtracting temperature uncertainties produces $3.29\\%$."
+    },
+    {
+      "id": "phy_ud_int_005",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In a capillary rise experiment to evaluate the surface tension $\\gamma$ of a liquid, the governing formula is $\\gamma = \\frac{d h \\rho g}{4 \\cos\\theta}$, where $d = 2r$ is the internal diameter of the bore, $h$ is the capillary ascent, $\\rho$ is the liquid density, $g$ is the local acceleration of gravity, and $\\theta = 0^\\circ$ is the contact angle. A student measures the bore diameter using a traveling microscope as $d = (0.40 \\pm 0.01)\\text{ mm}$ and the liquid column height as $h = (5.00 \\pm 0.01)\\text{ cm}$. The liquid density is known to within $0.5\\%$ uncertainty, and $g$ is known to within $0.1\\%$ uncertainty. If the maximum percentage error in $\\gamma$ is expressed in the form $\\frac{P}{10}\\%$, find the integer value of $P$.",
+      "options": [],
+      "answer": "33",
+      "explanation": "For zero contact angle, $\\cos\\theta = 1$, so the surface tension equation reduces to $\\gamma = \\frac{d h \\rho g}{4}$. Taking the total logarithmic differential yields the fractional error expression $\\frac{\\Delta \\gamma}{\\gamma} = \\frac{\\Delta d}{d} + \\frac{\\Delta h}{h} + \\frac{\\Delta \\rho}{\\rho} + \\frac{\\Delta g}{g}$. We evaluate each component: for the bore diameter, $\\frac{\\Delta d}{d} = \\frac{0.01\\text{ mm}}{0.40\\text{ mm}} = \\frac{1}{40} = 0.025 = 2.5\\%$. For the capillary height, $\\frac{\\Delta h}{h} = \\frac{0.01\\text{ cm}}{5.00\\text{ cm}} = \\frac{1}{500} = 0.002 = 0.2\\%$. Density uncertainty contributes $0.5\\%$, and gravity uncertainty contributes $0.1\\%$. Therefore, substituting these into the error equation gives $\\frac{\\Delta \\gamma}{\\gamma} = 2.5\\% + 0.2\\% + 0.5\\% + 0.1\\% = 3.3\\%$. Since the error is expressed as $\\frac{P}{10}\\%$, we have $\\frac{P}{10} = 3.3 \\implies P = 33$."
+    },
+    {
+      "id": "phy_ud_int_006",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "An open cylindrical container filled with an incompressible liquid of density $\\rho$ rotates about its vertical axis of symmetry with constant angular speed $\\omega$. The liquid forms a parabolic free surface where the height difference $H$ between the liquid level at radius $R$ and the lowest central vertex depends on $R$, $\\omega$, acceleration due to gravity $g$, and density $\\rho$ through the relation $H \\propto R^\\alpha \\omega^\\beta g^\\gamma \\rho^\\delta$. Dimensional analysis uniquely constrains these exponents. Determine the values of $(\\alpha, \\beta, \\gamma)$ and the value of the exponent product $\\alpha \\beta \\gamma$.",
+      "options": [
+        "A) $\\alpha = 2, \\beta = 2, \\gamma = -1$ with product $-4$",
+        "B) $\\alpha = 1, \\beta = 2, \\gamma = -1$ with product $-2$",
+        "C) $\\alpha = 2, \\beta = 1, \\gamma = -1$ with product $-2$",
+        "D) $\\alpha = 2, \\beta = 2, \\gamma = 1$ with product $4$"
+      ],
+      "answer": "A",
+      "explanation": "Writing the dimensional formulation: $[H] = [L] = [L]^\\alpha [T^{-1}]^\\beta [L T^{-2}]^\\gamma [M L^{-3}]^\\delta = M^\\delta L^{\\alpha + \\gamma - 3\\delta} T^{-\\beta - 2\\gamma}$. Equating powers of base dimensions: for mass $M$, $\\delta = 0$, implying that the surface profile is entirely independent of liquid density. For time $T$, $-\\beta - 2\\gamma = 0 \\implies \\beta = -2\\gamma$. For length $L$, $\\alpha + \\gamma = 1 \\implies \\alpha = 1 - \\gamma$. From centrifugal-gravitational balance, the surface slope satisfies $\\frac{dz}{dr} = \\frac{\\omega^2 r}{g}$, which upon integration yields $H = \\frac{\\omega^2 R^2}{2g}$. Comparing exponents gives $\\alpha = 2$, $\\beta = 2$, and $\\gamma = -1$. Substituting these values into the product gives $\\alpha \\beta \\gamma = 2 \\times 2 \\times (-1) = -4$."
+    },
+    {
+      "id": "phy_ud_int_007",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In semiconductor transport physics, when a current density $J_x$ flows along the $x$-axis in the presence of a transverse magnetic field $B_z$, an electric field $E_y$ develops along the $y$-axis. The Hall coefficient is defined as $R_H = \\frac{E_y}{J_x B_z}$, and the carrier drift mobility is given by $\\mu = \\sigma |R_H|$, where $\\sigma$ is the electrical conductivity. Determine the base dimensional formulas of $R_H$ and $\\mu$ in terms of $[M, L, T, A]$.",
+      "options": [
+        "A) $[R_H] = [M^0 L^3 T^{-1} A^{-1}]$ and $[\\mu] = [M^{-1} L^0 T^2 A]$",
+        "B) $[R_H] = [M^0 L^2 T^{-1} A^{-1}]$ and $[\\mu] = [M^{-1} L T^2 A]$",
+        "C) $[R_H] = [M L^3 T^{-2} A^{-1}]$ and $[\\mu] = [M^0 L^0 T^2 A]$",
+        "D) $[R_H] = [M^0 L^3 T^{-1} A^{-2}]$ and $[\\mu] = [M^{-1} L^0 T A]$"
+      ],
+      "answer": "A",
+      "explanation": "The dimensions of the quantities are: $[E_y] = [M L T^{-3} A^{-1}]$, current density $[J_x] = [I]/[\\text{Area}] = [A L^{-2}]$, and magnetic field $[B_z] = [M T^{-2} A^{-1}]$. Substituting into the denominator of the Hall coefficient gives $[J_x B_z] = [A L^{-2}][M T^{-2} A^{-1}] = [M L^{-2} T^{-2}]$. Therefore, solving for $[R_H]$ yields $[R_H] = \\frac{[M L T^{-3} A^{-1}]}{[M L^{-2} T^{-2}]} = [M^0 L^3 T^{-1} A^{-1}]$ (which corresponds to $1/(n q)$). Next, electrical conductivity has dimensions $[\\sigma] = [M^{-1} L^{-3} T^3 A^2]$. Multiplying yields the drift mobility dimensions: $[\\mu] = [\\sigma][R_H] = [M^{-1} L^{-3} T^3 A^2][M^0 L^3 T^{-1} A^{-1}] = [M^{-1} L^0 T^2 A]$. This also matches $[v_d / E] = [L T^{-1}] / [M L T^{-3} A^{-1}] = [M^{-1} L^0 T^2 A]$."
+    },
+    {
+      "id": "phy_ud_int_008",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In an optical bench experiment to determine the focal length $f$ of a concave spherical mirror, an illuminated pin is placed at object distance $u = -(30.0 \\pm 0.3)\\text{ cm}$ and its sharp inverted real image forms on a screen at distance $v = -(60.0 \\pm 0.6)\\text{ cm}$. Applying the mirror equation $\\frac{1}{f} = \\frac{1}{v} + \\frac{1}{u}$, what is the focal length of the mirror together with its maximum absolute error $\\Delta f$?",
+      "options": [
+        "A) $f = (-20.0 \\pm 0.2)\\text{ cm}$",
+        "B) $f = (-20.0 \\pm 0.4)\\text{ cm}$",
+        "C) $f = (-20.0 \\pm 0.9)\\text{ cm}$",
+        "D) $f = (-20.0 \\pm 0.1)\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "From the mirror formula $\\frac{1}{f} = \\frac{1}{v} + \\frac{1}{u}$, we have $\\frac{1}{f} = \\frac{1}{-60.0} + \\frac{1}{-30.0} = -\\frac{3}{60.0} = -\\frac{1}{20.0}\\text{ cm}^{-1}$, yielding $f = -20.0\\text{ cm}$. Differentiating the mirror equation gives $-\\frac{\\Delta f}{f^2} = -\\frac{\\Delta v}{v^2} - \\frac{\\Delta u}{u^2}$. Hence the maximum absolute uncertainty is $\\Delta f = f^2 \\left( \\frac{\\Delta u}{u^2} + \\frac{\\Delta v}{v^2} \\right)$. Calculating the two bracketed terms: $\\frac{\\Delta u}{u^2} = \\frac{0.3}{(30.0)^2} = \\frac{0.3}{900} = \\frac{1}{3000}\\text{ cm}^{-1}$, and $\\frac{\\Delta v}{v^2} = \\frac{0.6}{(60.0)^2} = \\frac{0.6}{3600} = \\frac{1}{6000}\\text{ cm}^{-1}$. Summing these gives $\\frac{1}{3000} + \\frac{1}{6000} = \\frac{3}{6000} = \\frac{1}{2000}\\text{ cm}^{-1}$. Multiplying by $f^2 = (-20.0)^2 = 400\\text{ cm}^2$ yields $\\Delta f = 400 \\times \\frac{1}{2000} = 0.20\\text{ cm}$. Therefore, the focal length is reported as $f = (-20.0 \\pm 0.2)\\text{ cm}$. Adding fractional errors naively gives $0.4\\text{ cm}$."
+    },
+    {
+      "id": "phy_ud_int_009",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The gyromagnetic ratio $\\gamma_e$ of an orbiting atomic electron is defined as the ratio of its orbital magnetic dipole moment $\\mu_L$ to its orbital angular momentum $L$, with theoretical value $\\gamma_e = \\frac{e}{2 m_e}$. A hypothetical magnetic quantum particle possesses an intrinsic magnetic dipole moment $M_{hyp}$ expressed purely in terms of $\\gamma_e$, the reduced Planck constant $\\hbar$, and the vacuum speed of light $c$ via the dimensional relation $M_{hyp} \\propto \\gamma_e^\\alpha \\hbar^\\beta c^\\gamma$. Determine the unique exponent triplet $(\\alpha, \\beta, \\gamma)$.",
+      "options": [
+        "A) $(1, 1, 0)$",
+        "B) $(1, 1, 1)$",
+        "C) $(1, 2, -1)$",
+        "D) $(2, 1, 0)$"
+      ],
+      "answer": "A",
+      "explanation": "The dimensions of magnetic dipole moment are $[M_{hyp}] = [I][\\text{Area}] = [A L^2]$. For angular momentum, $[L] = [M L^2 T^{-1}]$. The gyromagnetic ratio has dimensions $[\\gamma_e] = \\frac{[A L^2]}{[M L^2 T^{-1}]} = [M^{-1} T A]$. The reduced Planck constant has dimensions $[\\hbar] = [M L^2 T^{-1}]$, and the speed of light has $[c] = [L T^{-1}]$. Setting up the dimensional equality: $[A L^2] = [M^{-1} T A]^\\alpha [M L^2 T^{-1}]^\\beta [L T^{-1}]^\\gamma = M^{-\\alpha + \\beta} L^{2\\beta + \\gamma} T^{\\alpha - \\beta - \\gamma} A^\\alpha$. Equating powers of fundamental dimensions: for current $A$, $\\alpha = 1$. For mass $M$, $-\\alpha + \\beta = 0 \\implies \\beta = \\alpha = 1$. For length $L$, $2\\beta + \\gamma = 2 \\implies 2(1) + \\gamma = 2 \\implies \\gamma = 0$. Checking time $T$: $\\alpha - \\beta - \\gamma = 1 - 1 - 0 = 0$. Therefore, the exponent triplet is uniquely $(\\alpha, \\beta, \\gamma) = (1, 1, 0)$. This directly reproduces the Bohr magneton $\\mu_B = \\gamma_e \\hbar = \\frac{e\\hbar}{2m_e}$."
+    },
+    {
+      "id": "phy_ud_int_010",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In an experiment to measure the local gravitational acceleration $g$ using a simple pendulum, the length of the suspension is measured as $L = (100.0 \\pm 0.1)\\text{ cm}$. The time for $50$ complete swings is recorded using a digital timer of least count $0.1\\text{ s}$ as $t = (100.0 \\pm 0.1)\\text{ s}$. The acceleration due to gravity is calculated using $g = 4\\pi^2 \\frac{L}{(t/50)^2} = 4\\pi^2 \\frac{2500 L}{t^2}$. If the maximum percentage error in the calculated value of $g$ is $\\delta\\%$, find the integer value of $1000 \\times \\delta$.",
+      "options": [],
+      "answer": "300",
+      "explanation": "The formula for gravity is $g = 4\\pi^2 n^2 \\frac{L}{t^2}$, where $n = 50$. Differentiating logarithmically yields the maximum fractional error formula $\\frac{\\Delta g}{g} = \\frac{\\Delta L}{L} + 2\\frac{\\Delta t}{t}$. Substituting the measured experimental parameters: $\\frac{\\Delta L}{L} = \\frac{0.1\\text{ cm}}{100.0\\text{ cm}} = 0.0010 = 0.10\\%$. For the total time, $\\frac{\\Delta t}{t} = \\frac{0.1\\text{ s}}{100.0\\text{ s}} = 0.0010 = 0.10\\%$. Since the time period appears squared, the timing contribution is $2\\frac{\\Delta t}{t} = 2 \\times 0.10\\% = 0.20\\%$. Therefore, summing the contributions yields $\\delta = 0.10\\% + 0.20\\% = 0.30\\%$. Multiplying by $1000$ yields $1000 \\times \\delta = 1000 \\times 0.30 = 300$."
+    },
+    {
+      "id": "phy_ud_adv_001",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A retrograde vernier caliper is designed such that $10$ vernier scale divisions (VSD) coincide with $11$ main scale divisions (MSD), with each main scale division measuring $1.0\\text{ mm}$. When the jaws are completely closed without any object, the zero mark of the vernier scale lies to the left of the main scale zero mark, and the $7\\text{th}$ vernier division coincides exactly with a main scale division. When a solid metallic cylinder is placed between the measuring jaws, the main scale reads $24\\text{ mm}$ and the $3\\text{rd}$ vernier division coincides with a main scale mark. Which of the following statements is/are correct regarding this measurement?",
+      "options": [
+        "A) The least count of the retrograde vernier caliper is $0.1\\text{ mm}$.",
+        "B) The zero error of the instrument is $-0.7\\text{ mm}$.",
+        "C) The true corrected length of the metallic cylinder is $25.0\\text{ mm}$.",
+        "D) Each vernier scale division is longer than a main scale division, with $1\\text{ VSD} = 1.1\\text{ mm}$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "For a retrograde vernier caliper, $n\\text{ VSD} = (n+1)\\text{ MSD}$. Substituting $n = 10$ and $1\\text{ MSD} = 1.0\\text{ mm}$, we get $1\\text{ VSD} = \\frac{11}{10}\\text{ MSD} = 1.1\\text{ mm}$. The least count is given by $\\text{LC} = 1\\text{ VSD} - 1\\text{ MSD} = 1.1\\text{ mm} - 1.0\\text{ mm} = 0.1\\text{ mm}$. When the jaws are closed, the zero of the vernier scale lies to the left of the main scale zero by an amount $z$. Since the $7\\text{th}$ vernier division coincides with the $7\\text{th}$ main scale mark, $-z + 7(1.1\\text{ mm}) = 7.0\\text{ mm}$, yielding $z = 0.7\\text{ mm}$. Therefore, the zero error is $-0.7\\text{ mm}$. When measuring the cylinder, the observed reading is $\\text{Main Scale Reading} + (p \\times \\text{LC}) = 24.0\\text{ mm} + (3 \\times 0.1\\text{ mm}) = 24.3\\text{ mm}$. Applying the zero correction, the true length is $\\text{True Length} = \\text{Observed Reading} - (\\text{Zero Error}) = 24.3\\text{ mm} - (-0.7\\text{ mm}) = 25.0\\text{ mm}$. Hence, statements A, B, C, and D are all correct."
+    },
+    {
+      "id": "phy_ud_adv_002",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In black hole thermodynamics, a non-rotating Schwarzschild black hole of mass $M$ emits thermal radiation with Hawking temperature $T_H$ and possesses Bekenstein-Hawking entropy $S_{BH}$. The quantities are expressed in terms of the fundamental physical constants: the speed of light $c$, Newton's gravitational constant $G$, the reduced Planck constant $\\hbar$, and Boltzmann's constant $k_B$. Which of the following statements is/are dimensionally and physically correct?",
+      "options": [
+        "A) The Hawking temperature is dimensionally represented by $T_H \\propto \\frac{\\hbar c^3}{G M k_B}$ and scales inversely with black hole mass as $T_H \\propto M^{-1}$.",
+        "B) The dimensional formula of the combination $\\frac{\\hbar c^3}{G M k_B}$ is $[\\text{K}]$ (Kelvin).",
+        "C) The Bekenstein-Hawking entropy is proportional to the event horizon area $A = 4\\pi R_s^2$, giving $S_{BH} \\propto \\frac{k_B c^3 A}{G \\hbar} \\propto M^2$.",
+        "D) The dimensionless parameter formed by the gravitational and quantum constants is $\\frac{G M^2}{\\hbar c} = [M^0 L^0 T^0]$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "We analyze the dimensions of each fundamental constant: $[\\hbar] = [M L^2 T^{-1}]$, $[c] = [L T^{-1}]$, $[G] = [M^{-1} L^3 T^{-2}]$, and $[k_B] = [M L^2 T^{-2} K^{-1}]$. Evaluating the numerator, $[\\hbar c^3] = [M L^2 T^{-1}][L^3 T^{-3}] = [M L^5 T^{-4}]$. Evaluating the denominator, $[G M k_B] = [M^{-1} L^3 T^{-2}][M][M L^2 T^{-2} K^{-1}] = [M L^5 T^{-4} K^{-1}]$. Dividing them yields $[\\hbar c^3 / (G M k_B)] = [K]$, which confirms statement B and proves $T_H \\propto M^{-1}$ (statement A). Next, Schwarzschild radius is $R_s = \\frac{2GM}{c^2}$, so area $A = 16\\pi G^2 M^2 / c^4$. Substituting $A$ into $S_{BH} = \\frac{k_B c^3 A}{4 G \\hbar}$, we get $S_{BH} = \\frac{4\\pi k_B G M^2}{\\hbar c}$, which scales as $M^2$ (statement C). Finally, checking the dimensionless ratio: $[G M^2] = [M L^3 T^{-2}]$ and $[\\hbar c] = [M L^3 T^{-2}]$, therefore $[G M^2 / (\\hbar c)] = [M^0 L^0 T^0]$, confirming statement D. Hence, all four statements are correct."
+    },
+    {
+      "id": "phy_ud_adv_003",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In an optical spectrometer experiment to determine the refractive index $\\mu$ of a dense flint glass prism using Brewster's law $\\mu = \\tan\\theta_p$, the polarizing angle is measured to be $\\theta_p = 60^\\circ$ with an absolute measurement uncertainty of $\\Delta\\theta_p = 0.5^\\circ$. Taking $\\pi \\approx 3.1416$ and $\\sqrt{3} \\approx 1.732$, the maximum percentage uncertainty in the determined refractive index, $\\frac{\\Delta\\mu}{\\mu} \\times 100\\%$, is closest to:",
+      "options": [
+        "A) $2.02\\%$",
+        "B) $1.01\\%$",
+        "C) $0.83\\%$",
+        "D) $1.15\\%$"
+      ],
+      "answer": "A",
+      "explanation": "From Brewster's law, the refractive index is $\\mu = \\tan\\theta_p$. Differentiating both sides with respect to $\\theta_p$, we get $d\\mu = \\sec^2\\theta_p\\, d\\theta_p$. The relative fractional error is $\\frac{\\Delta\\mu}{\\mu} = \\frac{\\sec^2\\theta_p\\,\\Delta\\theta_p}{\\tan\\theta_p} = \\frac{1}{\\sin\\theta_p\\cos\\theta_p}\\Delta\\theta_p = \\frac{2}{\\sin(2\\theta_p)}\\Delta\\theta_p$. Substituting $\\theta_p = 60^\\circ$, we have $\\sin(2\\theta_p) = \\sin(120^\\circ) = \\frac{\\sqrt{3}}{2}$. The angular error must be expressed in radians: $\\Delta\\theta_p = 0.5^\\circ \\times \\frac{\\pi}{180^\\circ} = \\frac{\\pi}{360}\\text{ rad} \\approx 0.008727\\text{ rad}$. Substituting this yields $\\frac{\\Delta\\mu}{\\mu} = \\frac{2}{\\sqrt{3}/2} \\times \\frac{\\pi}{360} = \\frac{4}{\\sqrt{3}} \\times \\frac{\\pi}{360} = \\frac{\\pi}{90\\sqrt{3}} \\approx \\frac{3.1416}{155.88} \\approx 0.02015$. Therefore, the percentage uncertainty is $0.02015 \\times 100\\% = 2.02\\%$. Hence, option A is correct. Distractor B ($1.01\\%$) arises from omitting the factor of 2 in $\\sin(2\\theta)$, distractor C ($0.83\\%$) from direct substitution $\\Delta\\theta/\\theta = 0.5/60$, and distractor D ($1.15\\%$) from failing to convert degrees into radians."
+    },
+    {
+      "id": "phy_ud_adv_004",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In quantum electrodynamics and atomic physics, four fundamental length scales characterize the electron: the Bohr radius $a_0 = \\frac{4\\pi\\varepsilon_0\\hbar^2}{m_e e^2}$, the reduced Compton wavelength $\\bar{\\lambda}_C = \\frac{\\hbar}{m_e c}$, the classical electron radius $r_e = \\frac{e^2}{4\\pi\\varepsilon_0 m_e c^2}$, and the fine-structure constant $\\alpha = \\frac{e^2}{4\\pi\\varepsilon_0\\hbar c} \\approx \\frac{1}{137}$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The fine-structure constant $\\alpha$ is a pure dimensionless quantity with dimensions $[M^0 L^0 T^0 I^0]$.",
+        "B) The three characteristic lengths form a geometric progression according to $a_0 : \\bar{\\lambda}_C : r_e = 1 : \\alpha : \\alpha^2$.",
+        "C) The ratio of the Bohr radius to the classical electron radius is $a_0 / r_e = \\alpha^{-2} \\approx (137)^2$.",
+        "D) The classical electron radius $r_e$ has the dimension of length $[L]$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "We check the dimensions and definitions systematically. The fine-structure constant is $\\alpha = \\frac{e^2}{4\\pi\\varepsilon_0 \\hbar c}$. Substituting $[e^2/(4\\pi\\varepsilon_0)] = [M L^3 T^{-2}]$ and $[\\hbar c] = [M L^3 T^{-2}]$, we get $[\\alpha] = [M^0 L^0 T^0 I^0]$, confirming statement A. By definition, $\\bar{\\lambda}_C = \\frac{\\hbar}{m_e c}$, and the Bohr radius can be rewritten as $a_0 = \\frac{\\hbar^2 (4\\pi\\varepsilon_0)}{m_e e^2} = \\frac{\\hbar}{m_e c} \\cdot \\frac{4\\pi\\varepsilon_0\\hbar c}{e^2} = \\frac{\\bar{\\lambda}_C}{\\alpha}$. Similarly, the classical electron radius is $r_e = \\frac{e^2}{4\\pi\\varepsilon_0 m_e c^2} = \\frac{e^2}{4\\pi\\varepsilon_0\\hbar c}\\frac{\\hbar}{m_e c} = \\alpha \\bar{\\lambda}_C$. Combining these expressions yields $a_0 = \\alpha^{-1}\\bar{\\lambda}_C$ and $r_e = \\alpha\\bar{\\lambda}_C$. Solving the ratio gives $a_0 : \\bar{\\lambda}_C : r_e = 1 : \\alpha : \\alpha^2$, which confirms statement B. The ratio between the outermost scale and innermost scale is $a_0 / r_e = \\alpha^{-2} \\approx (137)^2 \\approx 1.88 \\times 10^4$, verifying statement C. Evaluating the dimension of $r_e$: $[e^2/(4\\pi\\varepsilon_0 m_e c^2)] = \\frac{[M L^3 T^{-2}]}{[M][L^2 T^{-2}]} = [L]$, confirming statement D. Hence, all four statements are correct."
+    },
+    {
+      "id": "phy_ud_adv_005",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In a resonance tube experiment conducted to determine the speed of sound in air without requiring an independent measurement of the end correction, first and second resonances are obtained with a tuning fork of nominal frequency $f = 500 \\pm 2\\text{ Hz}$ at water column lengths $l_1 = 15.0 \\pm 0.1\\text{ cm}$ and $l_2 = 55.0 \\pm 0.1\\text{ cm}$ respectively. The speed of sound is calculated using the relation $v = 2f(l_2 - l_1)$. If the maximum fractional uncertainty in the speed of sound is expressed as $N \\times 10^{-4}$, determine the value of the positive integer $N$.",
+      "options": [],
+      "answer": "90",
+      "explanation": "The speed of sound in the resonance column is given by $v = 2f(l_2 - l_1)$, which eliminates the end correction $e$ since $l_1 + e = \\lambda/4$ and $l_2 + e = 3\\lambda/4$, implying $l_2 - l_1 = \\lambda/2$. The relative fractional error in $v$ is obtained by applying logarithmic differentiation: $\\frac{\\Delta v}{v} = \\frac{\\Delta f}{f} + \\frac{\\Delta(l_2 - l_1)}{l_2 - l_1}$. The absolute uncertainty in the length difference is $\\Delta(l_2 - l_1) = \\Delta l_1 + \\Delta l_2 = 0.1\\text{ cm} + 0.1\\text{ cm} = 0.2\\text{ cm}$. The length difference is $l_2 - l_1 = 55.0\\text{ cm} - 15.0\\text{ cm} = 40.0\\text{ cm}$. Substituting these values, the fractional error due to length is $\\frac{0.2\\text{ cm}}{40.0\\text{ cm}} = \\frac{1}{200} = 0.0050 = 50 \\times 10^{-4}$. The fractional error in frequency is $\\frac{\\Delta f}{f} = \\frac{2\\text{ Hz}}{500\\text{ Hz}} = \\frac{4}{1000} = 0.0040 = 40 \\times 10^{-4}$. Summing both contributions gives the total maximum fractional uncertainty: $\\frac{\\Delta v}{v} = 0.0040 + 0.0050 = 0.0090 = 90 \\times 10^{-4}$. Therefore, the integer value is $N = 90$."
+    },
+    {
+      "id": "phy_ud_adv_006",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A rotating magnetized neutron star (pulsar) has mass $M$, radius $R$, average mass density $\\rho$, angular frequency of rotation $\\Omega$, and magnetic dipole moment $\\mu_m$. The maximum rotation frequency before centrifugal mass shedding occurs at the equator is $\\Omega_{\\max}$, and the electromagnetic spin-down power radiated by its rotating magnetic dipole in vacuum is $P$. Which of the following statements is/are correct based on physical and dimensional considerations?",
+      "options": [
+        "A) The maximum angular velocity against equatorial mass shedding scales with density as $\\Omega_{\\max} \\propto (G\\rho)^{1/2}$.",
+        "B) The electromagnetic spin-down power radiated by the rotating dipole is dimensionally consistent with $P \\propto \\frac{\\mu_0 \\mu_m^2 \\Omega^4}{c^3}$.",
+        "C) The combination $\\frac{\\mu_0 \\mu_m^2 \\Omega^4}{c^3}$ has the dimensional formula $[M L^2 T^{-3}]$.",
+        "D) The magnetic dipole moment $\\mu_m$ has the dimensional formula $[I L^2]$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "We analyze the gravitational and electrodynamic equations. For equatorial stability, centrifugal acceleration cannot exceed gravitational acceleration: $\\Omega_{\\max}^2 R = \\frac{GM}{R^2} \\implies \\Omega_{\\max} = \\sqrt{\\frac{GM}{R^3}}$. Substituting mass in terms of density $M = \\frac{4}{3}\\pi R^3 \\rho$, we obtain $\\Omega_{\\max} = \\sqrt{\\frac{4\\pi}{3} G \\rho} \\propto (G\\rho)^{1/2}$, confirming statement A. Next, magnetic dipole moment is $\\mu_m = I A$, so $[\\mu_m] = [I L^2]$, which confirms statement D. In magnetohydrodynamics, the power radiated by a rotating dipole is $P = \\frac{\\mu_0 \\mu_m^2 \\Omega^4 \\sin^2\\theta}{6\\pi c^3}$. We verify dimensions of each term: $[\\mu_0] = [M L T^{-2} I^{-2}]$, $[\\mu_m^2] = [I^2 L^4]$, $[\\Omega^4] = [T^{-4}]$, and $[c^3] = [L^3 T^{-3}]$. Multiplying the numerator gives $[\\mu_0 \\mu_m^2 \\Omega^4] = [M L T^{-2} I^{-2}][I^2 L^4][T^{-4}] = [M L^5 T^{-6}]$. Dividing by $[c^3] = [L^3 T^{-3}]$ yields $[M L^5 T^{-6}] / [L^3 T^{-3}] = [M L^2 T^{-3}]$, which is the dimension of power (Watts), confirming statements B and C. Hence, all statements A, B, C, and D are correct."
+    },
+    {
+      "id": "phy_ud_adv_007",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A student measures the diameter $d$ and length $L$ of a precision cylindrical rod using a micrometer screw gauge and a vernier caliper respectively. The screw gauge has a pitch of $0.5\\text{ mm}$ and $100$ circular divisions with a positive zero error of $+0.025\\text{ mm}$. When measuring $d$, the main scale reads $3.5\\text{ mm}$ and the $45\\text{th}$ circular division aligns with the reference line. The vernier caliper has $1\\text{ MSD} = 1\\text{ mm}$, $20\\text{ VSD} = 19\\text{ MSD}$, and a negative zero error of $-0.10\\text{ mm}$. When measuring $L$, the main scale reads $42\\text{ mm}$ and the $8\\text{th}$ vernier division coincides with a main scale mark. Taking the absolute measurement errors as the least counts of the respective instruments, the percentage uncertainty in the calculated volume $V = \\frac{\\pi d^2 L}{4}$ is closest to:",
+      "options": [
+        "A) $0.39\\%$",
+        "B) $0.25\\%$",
+        "C) $0.51\\%$",
+        "D) $0.18\\%$"
+      ],
+      "answer": "A",
+      "explanation": "We first determine the least counts and corrected readings for both instruments. For the screw gauge: $\\text{LC}_{\\text{screw}} = \\frac{0.5\\text{ mm}}{100} = 0.005\\text{ mm}$. The observed diameter is $3.5\\text{ mm} + 45 \\times 0.005\\text{ mm} = 3.725\\text{ mm}$. Applying the zero correction: $d = 3.725\\text{ mm} - (+0.025\\text{ mm}) = 3.700\\text{ mm}$. For the vernier caliper: $\\text{LC}_{\\text{vernier}} = 1\\text{ MSD} - 1\\text{ VSD} = 1\\text{ mm} - \\frac{19}{20}\\text{ mm} = 0.05\\text{ mm}$. The observed length is $42.0\\text{ mm} + 8 \\times 0.05\\text{ mm} = 42.40\\text{ mm}$. Applying the zero correction: $L = 42.40\\text{ mm} - (-0.10\\text{ mm}) = 42.50\\text{ mm}$. The volume of the cylinder is $V = \\frac{\\pi d^2 L}{4}$. Differentiating logarithmically, the maximum fractional uncertainty is $\\frac{\\Delta V}{V} = 2\\frac{\\Delta d}{d} + \\frac{\\Delta L}{L}$. Substituting $\\Delta d = 0.005\\text{ mm}$ and $\\Delta L = 0.05\\text{ mm}$, we get: $2\\frac{\\Delta d}{d} = 2 \\times \\frac{0.005\\text{ mm}}{3.700\\text{ mm}} = \\frac{0.010}{3.700} \\approx 0.002703$ ($0.270\\%$), and $\\frac{\\Delta L}{L} = \\frac{0.05\\text{ mm}}{42.50\\text{ mm}} = \\frac{1}{850} \\approx 0.001176$ ($0.118\\%$). Summing both gives $\\frac{\\Delta V}{V} = 0.002703 + 0.001176 = 0.003879 \\implies 0.388\\% \\approx 0.39\\%$. Hence, option A is correct. Distractor B ($0.25\\%$) occurs if the power factor of 2 on $d$ is omitted ($0.135\\% + 0.118\\% = 0.253\\%$)."
+    },
+    {
+      "id": "phy_ud_adv_008",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "According to quantum field theory, two uncharged, perfectly conducting parallel plates placed in vacuum at a separation distance $d$ attract each other due to quantum vacuum fluctuations (the Casimir effect). The Casimir attractive pressure (force per unit area) $P_C$ depends only on the reduced Planck constant $\\hbar$, the speed of light in vacuum $c$, and the plate separation $d$, such that $P_C \\propto \\hbar^a c^b d^c$. Using dimensional analysis, the exact power-law scaling of the Casimir pressure is:",
+      "options": [
+        "A) $P_C \\propto \\frac{\\hbar c}{d^4}$",
+        "B) $P_C \\propto \\frac{\\hbar^2 c}{d^3}$",
+        "C) $P_C \\propto \\frac{\\hbar c^2}{d^4}$",
+        "D) $P_C \\propto \\frac{\\hbar^2}{c d^4}$"
+      ],
+      "answer": "A",
+      "explanation": "Pressure is defined as force per unit area, so its dimensional formula is $[P_C] = \\frac{[F]}{[A]} = \\frac{[M L T^{-2}]}{[L^2]} = [M L^{-1} T^{-2}]$. The fundamental parameters have dimensions: $[\\hbar] = [M L^2 T^{-1}]$, $[c] = [L T^{-1}]$, and $[d] = [L]$. Setting up the dimensional equation: $[M L^{-1} T^{-2}] = [M L^2 T^{-1}]^a [L T^{-1}]^b [L]^c = [M^a L^{2a+b+c} T^{-a-b}]$. Equating the exponents of fundamental dimensions: For mass $[M]$: $a = 1$. For time $[T]$: $-a - b = -2 \\implies -1 - b = -2 \\implies b = 1$. For length $[L]$: $2a + b + c = -1$. Substituting $a=1$ and $b=1$, we get $2(1) + 1 + c = -1 \\implies 3 + c = -1 \\implies c = -4$. Therefore, the Casimir pressure scales as $P_C \\propto \\hbar^1 c^1 d^{-4} = \\frac{\\hbar c}{d^4}$. Hence, option A is correct. Distractors B, C, and D are dimensionally inconsistent with pressure."
+    },
+    {
+      "id": "phy_ud_adv_009",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A spherical deep-space probe of radius $R$ acts as an ideal blackbody radiator emitting total thermal radiation power according to the Stefan-Boltzmann law $P = 4\\pi \\sigma R^2 T^4$, where $\\sigma$ is the Stefan-Boltzmann constant and $T$ is its absolute surface temperature. During pre-flight qualification tests in a cryogenic vacuum chamber, the radius of the sphere is determined with an uncertainty of $1\\%$, and its absolute temperature is measured with an uncertainty of $2\\%$. Assuming $\\sigma$ is known with negligible error, calculate the maximum percentage uncertainty in the determined thermal radiation power $P$.",
+      "options": [],
+      "answer": "10",
+      "explanation": "The thermal power emitted by a blackbody sphere of radius $R$ and absolute temperature $T$ is given by $P = 4\\pi \\sigma R^2 T^4$. Differentiating both sides logarithmically yields $\\ln P = \\ln(4\\pi\\sigma) + 2\\ln R + 4\\ln T$. Differentiating produces the fractional error relation: $\\frac{dP}{P} = 2\\frac{dR}{R} + 4\\frac{dT}{T}$. Applying the worst-case error propagation for maximum possible uncertainty: $\\left(\\frac{\\Delta P}{P}\\right)_{\\max} = 2\\left(\\frac{\\Delta R}{R}\\right) + 4\\left(\\frac{\\Delta T}{T}\\right)$. We are given that $\\frac{\\Delta R}{R} \\times 100\\% = 1\\%$ and $\\frac{\\Delta T}{T} \\times 100\\% = 2\\%$. Substituting these percentage errors into the propagation formula: $\\left(\\frac{\\Delta P}{P}\\right)_{\\max} \\times 100\\% = 2(1\\%) + 4(2\\%) = 2\\% + 8\\% = 10\\%$. Therefore, the maximum percentage uncertainty is $10$."
+    },
+    {
+      "id": "phy_ud_adv_010",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In Einstein's General Theory of Relativity, the gravitational field equations with a cosmological constant $\\Lambda$ are expressed as $G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = \\kappa T_{\\mu\\nu}$, where $g_{\\mu\\nu}$ is the dimensionless spacetime metric tensor, $G_{\\mu\\nu}$ is the Einstein curvature tensor, $T_{\\mu\\nu}$ is the energy-momentum-stress tensor, and $\\kappa = \\frac{8\\pi G}{c^4}$ is Einstein's gravitational constant. Which of the following statements is/are dimensionally correct?",
+      "options": [
+        "A) The Einstein curvature tensor $G_{\\mu\\nu}$ and the cosmological constant $\\Lambda$ both have the dimensional formula $[L^{-2}]$.",
+        "B) The components of the energy-momentum tensor $T_{\\mu\\nu}$ have the dimensions of energy density and pressure, represented by $[M L^{-1} T^{-2}]$.",
+        "C) Einstein's gravitational constant $\\kappa = \\frac{8\\pi G}{c^4}$ has the dimensional formula $[M^{-1} L^{-1} T^2]$.",
+        "D) The product $\\kappa T_{\\mu\\nu}$ has the dimensional formula $[L^{-2}]$, ensuring dimensional homogeneity with $G_{\\mu\\nu}$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "We verify the dimensions of each physical quantity in Einstein's field equations. The spacetime metric $g_{\\mu\\nu}$ relates coordinate differentials to proper interval $ds^2 = g_{\\mu\\nu} dx^\\mu dx^\\nu$, so $g_{\\mu\\nu}$ is dimensionless. The Ricci tensor and Einstein tensor $G_{\\mu\\nu}$ are defined from spacetime derivatives of Christoffel symbols, involving second spatial derivatives of the metric, so $[G_{\\mu\\nu}] = [\\partial^2 / \\partial x^2] = [L^{-2}]$. For dimensional consistency in the sum $G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu}$, the cosmological constant must satisfy $[\\Lambda] = [G_{\\mu\\nu}] = [L^{-2}]$, confirming statement A. The $T_{00}$ component represents energy density: $[\\text{Energy}/\\text{Volume}] = [M L^2 T^{-2}] / [L^3] = [M L^{-1} T^{-2}]$, and spatial components represent shear and pressure stresses, which also have dimensions $[M L^{-1} T^{-2}]$, confirming statement B. For Einstein's gravitational constant $\\kappa = \\frac{8\\pi G}{c^4}$, we substitute $[G] = [M^{-1} L^3 T^{-2}]$ and $[c^4] = [L^4 T^{-4}]$. This yields $[\\kappa] = \\frac{[M^{-1} L^3 T^{-2}]}{[L^4 T^{-4}]} = [M^{-1} L^{-1} T^2]$, confirming statement C. Multiplying $[\\kappa]$ and $[T_{\\mu\\nu}]$ gives $[\\kappa T_{\\mu\\nu}] = [M^{-1} L^{-1} T^2][M L^{-1} T^{-2}] = [L^{-2}]$, matching the dimension of $G_{\\mu\\nu}$ and verifying statement D. Hence, all four statements are correct."
+    },
+    {
+      "id": "phy_ud_adv_011",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A transmission diffraction grating with grating ruling spacing $d$ is used on a spectrometer to measure the wavelength $\\lambda$ of a monochromatic spectral line using the grating relation $d \\sin\\theta = m\\lambda$. In the first spectral order ($m=1$), the diffraction angle is measured to be $\\theta = 30^\\circ$ with an absolute uncertainty $\\Delta\\theta = 0.05^\\circ$. The uncertainty in the grating spacing is $\\frac{\\Delta d}{d} = 0.10\\%$. Taking $\\pi \\approx 3.1416$ and $\\sqrt{3} \\approx 1.732$, the maximum percentage uncertainty in the determined wavelength $\\lambda$ is closest to:",
+      "options": [
+        "A) $0.25\\%$",
+        "B) $0.15\\%$",
+        "C) $0.19\\%$",
+        "D) $8.76\\%$"
+      ],
+      "answer": "A",
+      "explanation": "From the grating equation, $\\lambda = \\frac{d\\sin\\theta}{m}$. Differentiating logarithmically: $\\ln\\lambda = \\ln d + \\ln(\\sin\\theta) - \\ln m$. Taking differentials yields $\\frac{d\\lambda}{\\lambda} = \\frac{dd}{d} + \\frac{\\cos\\theta}{\\sin\\theta} d\\theta = \\frac{dd}{d} + \\cot\\theta\\, d\\theta$. Therefore, the maximum relative error is $\\frac{\\Delta\\lambda}{\\lambda} = \\frac{\\Delta d}{d} + \\cot\\theta\\,\\Delta\\theta$. The angle measurement uncertainty must be converted to radians: $\\Delta\\theta = 0.05^\\circ \\times \\frac{\\pi}{180^\\circ} = \\frac{\\pi}{3600}\\text{ rad} \\approx 8.7266 \\times 10^{-4}\\text{ rad}$. At $\\theta = 30^\\circ$, we have $\\cot(30^\\circ) = \\sqrt{3} \\approx 1.73205$. Thus, the angular contribution to the fractional error is $\\cot(30^\\circ)\\,\\Delta\\theta = 1.73205 \\times 8.7266 \\times 10^{-4} \\approx 1.5115 \\times 10^{-3} = 0.151\\%$. Adding the grating spacing uncertainty: $\\frac{\\Delta\\lambda}{\\lambda} \\times 100\\% = 0.10\\% + 0.151\\% = 0.251\\% \\approx 0.25\\%$. Hence, option A is correct. Distractor B ($0.15\\%$) neglects the grating spacing uncertainty $\\Delta d/d$, distractor C ($0.19\\%$) results from mistakenly using $\\tan\\theta$ instead of $\\cot\\theta$, and distractor D ($8.76\\%$) results from failing to convert the angular error from degrees to radians."
+    },
+    {
+      "id": "phy_ud_adv_012",
+      "subject": "Physics",
+      "topic": "Units and Dimensions",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In the integer quantum Hall effect discovered by Klaus von Klitzing, the quantized Hall resistance plateaus are given by $R_H = \\frac{R_K}{n}$ where $n$ is an integer. The fundamental quantum standard of electrical resistance, known as the von Klitzing constant $R_K$, is expressed in terms of Planck's constant $h$ and the elementary charge $e$ as $R_K = h^p e^{-q}$, where $p$ and $q$ are positive integers. Determine the value of the integer sum $(p + q)$.",
+      "options": [],
+      "answer": "3",
+      "explanation": "The von Klitzing constant is defined as $R_K = \\frac{h}{e^2}$. We verify that this ratio has the dimensions of electrical resistance. Electrical resistance is defined by Ohm's law: $R = \\frac{V}{I} = \\frac{W / q}{I}$, giving $[R] = \\frac{[M L^2 T^{-2}]}{[I T][I]} = [M L^2 T^{-3} I^{-2}]$. Planck's constant $h$ has dimensions of angular momentum or action: $[h] = [M L^2 T^{-1}]$. The elementary charge $e$ has dimensions $[e] = [I T]$. Evaluating the ratio: $\\left[\\frac{h}{e^2}\\right] = \\frac{[M L^2 T^{-1}]}{[I^2 T^2]} = [M L^2 T^{-3} I^{-2}]$, which exactly matches the dimension of electrical resistance. In the power-law formulation $R_K = h^p e^{-q}$, we have $R_K = h^1 e^{-2}$, yielding $p = 1$ and $q = 2$. Solving for their sum gives $p + q = 1 + 2 = 3$. Therefore, the integer answer is $3$."
+    }
+  ]
+}

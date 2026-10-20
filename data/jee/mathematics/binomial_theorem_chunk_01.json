@@ -1,0 +1,704 @@
+{
+  "questions": [
+    {
+      "id": "bt_c01_001",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the coefficient of $x^{5}$ in the product $(2+x)^{7}(1-3x)$ once the product is fully expanded as a polynomial in $x$.",
+      "options": [
+        "A) $84$",
+        "B) $-1008$",
+        "C) $-756$",
+        "D) $924$"
+      ],
+      "answer": "C",
+      "explanation": "The $x^{5}$ term arises from two places: the $x^{5}$ term of $(2+x)^{7}$ times $1$, and the $x^{4}$ term of $(2+x)^{7}$ times $-3x$. The coefficient of $x^{k}$ in $(2+x)^{7}$ is $\\binom{7}{k}2^{7-k}$, which gives $\\binom{7}{5}2^{2}=84$ and $\\binom{7}{4}2^{3}=280$. The total is $84+(-3)(280)=-756$. The 84 option ignores the factor $(1-3x)$ entirely, the 924 option drops the minus sign on the $-3x$ term, and the -1008 option swaps the powers of 2 by using $2^{k}$ instead of $2^{7-k}$."
+    },
+    {
+      "id": "bt_c01_002",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the constant term (the term independent of $x$) in the expansion of $\\left(x^{2}+\\frac{1}{x}\\right)^{9}$.",
+      "options": [],
+      "answer": "84",
+      "explanation": "The general term is $\\binom{9}{r}(x^{2})^{9-r}\\left(\\frac{1}{x}\\right)^{r}$, whose power of $x$ is $2(9-r)-r=18-3r$. This vanishes when $r=6$, so the constant term is $\\binom{9}{6}=84$. A student who forgets to subtract the exponent carried by $\\frac{1}{x}$ would solve for $r=4$ and report $\\binom{9}{4}=126$ instead."
+    },
+    {
+      "id": "bt_c01_003",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the coefficient of $x^{3}$ in the expansion of $(1+x)^{5}(1+2x)$ after the two factors are multiplied together and like powers are collected.",
+      "options": [
+        "A) $30$",
+        "B) $90$",
+        "C) $20$",
+        "D) $10$"
+      ],
+      "answer": "A",
+      "explanation": "Two products produce $x^{3}$: the constant $1$ from $(1+2x)$ times the $x^{3}$ term $\\binom{5}{3}x^{3}=10x^{3}$, and the linear term $2x$ times the $x^{2}$ term $\\binom{5}{2}x^{2}=10x^{2}$. The coefficient is $10+2\\cdot10=30$. The 90 option uses $2^{3}$ instead of $2$ on the linear term, the 20 option keeps only the $2x$ contribution, and the 10 option drops the $(1+2x)$ factor."
+    },
+    {
+      "id": "bt_c01_004",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the coefficient of $x^{4}$ in the expansion of $(1+x)^{6}(1-x)^{2}$ after the two factors are multiplied together and the result is written as a polynomial in $x$.",
+      "options": [
+        "A) $70$",
+        "B) $-10$",
+        "C) $30$",
+        "D) $-40$"
+      ],
+      "answer": "B",
+      "explanation": "The factor $(1-x)^{2}=1-2x+x^{2}$ pairs with the coefficients of $(1+x)^{6}$, namely $\\binom{6}{4}=15$, $\\binom{6}{3}=20$ and $\\binom{6}{2}=15$. So the $x^{4}$ coefficient is $15\\cdot1+20\\cdot(-2)+15\\cdot1=-10$. The 70 option drops the minus sign on the $-2x$ term, the 30 option forgets the middle cross term altogether, and the -40 option keeps only the middle product."
+    },
+    {
+      "id": "bt_c01_005",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the sum of all the coefficients of the polynomial $(1+2x-x^{2})^{4}(1+x)$ after the product is fully expanded into powers of $x$.",
+      "options": [],
+      "answer": "32",
+      "explanation": "The sum of all coefficients of a polynomial equals its value at $x=1$. At $x=1$ the expression becomes $(1+2-1)^{4}(1+1)=2^{4}\\cdot2=32$. Expanding the full polynomial and adding the coefficients reaches the same total, but evaluating at $x=1$ avoids the many sign slips that arise in the cross terms."
+    },
+    {
+      "id": "bt_c01_006",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the coefficient of $x^{2}$ in the expansion of $\\left(1+\\frac{x}{2}\\right)^{8}\\left(1-x\\right)^{3}$ as a polynomial in $x$.",
+      "options": [
+        "A) $-5$",
+        "B) $22$",
+        "C) $19$",
+        "D) $-2$"
+      ],
+      "answer": "D",
+      "explanation": "The coefficients of $\\left(1+\\frac{x}{2}\\right)^{8}$ are $1$, $\\binom{8}{1}\\cdot\\frac{1}{2}=4$ and $\\binom{8}{2}\\cdot\\frac{1}{4}=7$. Those of $(1-x)^{3}$ are $1$, $-3$ and $3$. So the $x^{2}$ coefficient is $7\\cdot1+4\\cdot(-3)+1\\cdot3=-2$. The -5 option forgets the $3x^{2}$ term of $(1-x)^{3}$, the 22 option drops the sign on the $-3x$ term, and the 19 option uses $\\binom{8}{2}=28$ without dividing by $4$."
+    },
+    {
+      "id": "bt_c01_007",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the coefficient of $x^{2}$ in the expansion of $(1+x)^{6}(2+x)$ after the two factors are multiplied out as a polynomial in $x$.",
+      "options": [],
+      "answer": "36",
+      "explanation": "Multiplying by $(2+x)$ gives the $x^{2}$ coefficient $2\\cdot[x^{2}](1+x)^{6}+1\\cdot[x^{1}](1+x)^{6}$. With $[x^{2}](1+x)^{6}=\\binom{6}{2}=15$ and $[x^{1}](1+x)^{6}=\\binom{6}{1}=6$, the total is $30+6=36$. A student who treats $(2+x)$ as $(1+x)$ gets $21$, and one who drops the $x$ term of $(2+x)$ gets $30$."
+    },
+    {
+      "id": "bt_c01_008",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the expansion of $\\left(\\sqrt{x}+\\frac{1}{x^{2}}\\right)^{10}$, which term is independent of $x$?",
+      "options": [
+        "A) The 2nd term",
+        "B) The 3rd term",
+        "C) The 5th term",
+        "D) The 4th term"
+      ],
+      "answer": "B",
+      "explanation": "The general term is $\\binom{10}{r}\\left(x^{1/2}\\right)^{10-r}\\left(x^{-2}\\right)^{r}$, with power of $x$ equal to $5-\\frac{5r}{2}$. Setting this to zero gives $r=2$, so the independent term is $T_{r+1}=T_{3}$, the 3rd term. The 2nd term option uses $r$ directly as the term number, the 4th term option comes from dropping the $\\sqrt{x}$ exponent and solving $10-3r=0$ to get $r=10/3$ rounded to $3$, and the 5th term option takes $r=4$ as a guess at the central position."
+    },
+    {
+      "id": "bt_c01_009",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the coefficient of $x^{4}$ in the expansion of $\\left(1+x+x^{2}\\right)^{3}$ once the three identical factors are multiplied out and like powers are collected.",
+      "options": [
+        "A) $6$",
+        "B) $3$",
+        "C) $7$",
+        "D) $12$"
+      ],
+      "answer": "A",
+      "explanation": "Exponents chosen from the three factors that sum to 4, each taken from $\\{0,1,2\\}$, are $(2,2,0)$ with $3$ arrangements and $(2,1,1)$ with $3$ arrangements, so the coefficient is $3+3=6$. The 3 option keeps only the arrangements of $(2,2,0)$, the 7 option reads the $x^{3}$ coefficient instead, and the 12 option doubles every arrangement by counting both orders of the factors."
+    },
+    {
+      "id": "bt_c01_010",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the remainder when $7^{11}$ is divided by $9$, where the remainder is taken to be the least non-negative residue.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Write $7=9-2$, so $7^{11}=(9-2)^{11}$. Every term of the expansion except $(-2)^{11}$ contains a factor of $9$, so the remainder equals that of $(-2)^{11}=-2048$. Since $2048=9\\cdot227+5$, we get $-2048\\equiv-5\\equiv4 \\pmod{9}$, so the remainder is $4$."
+    },
+    {
+      "id": "bt_c01_011",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the sum of the coefficients of the even powers of $x$ in the expansion of $(1+x)^{7}$ as a polynomial in $x$.",
+      "options": [
+        "A) $128$",
+        "B) $63$",
+        "C) $64$",
+        "D) $32$"
+      ],
+      "answer": "C",
+      "explanation": "The even-power coefficients are $\\binom{7}{0}$, $\\binom{7}{2}$, $\\binom{7}{4}$ and $\\binom{7}{6}$, which sum to $1+21+35+7=64$. The 128 option takes the total of all coefficients without halving, the 63 option forgets the constant term $\\binom{7}{0}=1$, and the 32 option uses $2^{5}$ by miscounting the number of even powers."
+    },
+    {
+      "id": "bt_c01_012",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the coefficient of $x^{10}$ in the sum $(1+x)^{10}+(1+x)^{11}+(1+x)^{12}$, written as a single polynomial in $x$.",
+      "options": [
+        "A) $12$",
+        "B) $66$",
+        "C) $67$",
+        "D) $78$"
+      ],
+      "answer": "D",
+      "explanation": "The coefficient of $x^{10}$ in $(1+x)^{n}$ is $\\binom{n}{10}$. For $n=10,11,12$ these are $\\binom{10}{10}=1$, $\\binom{11}{10}=11$ and $\\binom{12}{10}=66$, so the total is $1+11+66=78$. The 12 option drops the $(1+x)^{12}$ term, the 66 option keeps only that term, and the 67 option drops the $(1+x)^{11}$ term."
+    },
+    {
+      "id": "bt_c01_013",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "How many terms in the expansion of $\\left(\\sqrt{2}+\\sqrt[3]{3}\\right)^{12}$ are rational numbers, counting each term of the expansion once?",
+      "options": [],
+      "answer": "3",
+      "explanation": "The general term is $\\binom{12}{r}2^{\\frac{12-r}{2}}3^{\\frac{r}{3}}$. It is rational only when both $\\frac{12-r}{2}$ and $\\frac{r}{3}$ are integers, which means $r$ is even and divisible by $3$. The admissible values are $r\\in\\{0,6,12\\}$, so there are $3$ rational terms."
+    },
+    {
+      "id": "bt_c01_014",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the coefficient of $x^{2}$ in the sum $(1-2x)^{5}+(1+2x)^{5}$ after the two expansions are added together and simplified.",
+      "options": [
+        "A) $0$",
+        "B) $80$",
+        "C) $40$",
+        "D) $160$"
+      ],
+      "answer": "B",
+      "explanation": "The $x^{2}$ term of $(1-2x)^{5}$ is $\\binom{5}{2}(-2)^{2}=40$, and the $x^{2}$ term of $(1+2x)^{5}$ is $\\binom{5}{2}(2)^{2}=40$. Adding gives $80$. The 0 option assumes the two contributions cancel, the 40 option counts only one of the expansions, and the 160 option uses $2^{3}$ in place of $2^{2}$."
+    },
+    {
+      "id": "bt_c01_015",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the coefficient of $x^{6}$ in $\\left(x+\\frac{1}{x}\\right)^{8}(1+x)$ after the whole product is expanded and like powers are collected.",
+      "options": [
+        "A) $8$",
+        "B) $0$",
+        "C) $16$",
+        "D) $28$"
+      ],
+      "answer": "A",
+      "explanation": "The factor $\\left(x+\\frac{1}{x}\\right)^{8}$ has terms $\\binom{8}{r}x^{8-2r}$, so its only $x^{6}$ term is at $r=1$, with coefficient $8$. Its $x^{5}$ coefficient is zero because $8-2r$ is always even, so the factor $x$ from $(1+x)$ adds nothing. The 0 option wrongly claims that no $x^{6}$ term survives, the 16 option counts the factor $(1+x)$ twice, and the 28 option uses $r=2$, which is the wrong power of $x$."
+    },
+    {
+      "id": "bt_c01_016",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the coefficient of $x^{7}$ in the expansion of $(1+x)^{11}(1-x+x^{2})$ after the product is written out as a polynomial in $x$.",
+      "options": [
+        "A) $120$",
+        "B) $210$",
+        "C) $660$",
+        "D) $330$"
+      ],
+      "answer": "D",
+      "explanation": "Since $(1+x)(1-x+x^{2})=1+x^{3}$, the product equals $(1+x)^{10}(1+x^{3})$. Its $x^{7}$ coefficient is $\\binom{10}{7}+\\binom{10}{4}=120+210=330$. The 120 option keeps only the $\\binom{10}{7}$ term, the 210 option keeps only the $\\binom{10}{4}$ term, and the 660 option uses $(1+x)^{11}$ in place of $(1+x)^{10}$, which doubles the answer."
+    },
+    {
+      "id": "bt_c01_017",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the middle term of the expansion of $\\left(2x-\\frac{1}{x}\\right)^{8}$ and state its numerical value.",
+      "options": [
+        "A) $1120$",
+        "B) $70$",
+        "C) $-1120$",
+        "D) $560$"
+      ],
+      "answer": "A",
+      "explanation": "There are $9$ terms, so the middle term is $T_{5}$, which corresponds to $r=4$. It equals $\\binom{8}{4}(2x)^{4}\\left(-\\frac{1}{x}\\right)^{4}=70\\cdot16\\cdot x^{0}=1120$, since the powers of $x$ cancel. The 70 option forgets the factor $2^{4}$, the -1120 option misapplies the sign from $(-1)^{4}$, and the 560 option uses $2^{3}$ instead of $2^{4}$."
+    },
+    {
+      "id": "bt_c01_018",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the coefficient of the term independent of $x$ in the expansion of $\\left(2x^{2}+\\frac{1}{x}\\right)^{6}$, that is, the numerical value of that constant term.",
+      "options": [],
+      "answer": "60",
+      "explanation": "The general term $\\binom{6}{r}(2x^{2})^{6-r}x^{-r}$ has power of $x$ equal to $12-3r$, which is zero at $r=4$. Its value is $\\binom{6}{4}2^{2}=15\\cdot4=60$. Forgetting to square the $2$ inside $(2x^{2})^{6-r}$ gives $15$ instead of $60$."
+    },
+    {
+      "id": "bt_c01_019",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the value of $\\sum_{r=0}^{6} r\\binom{6}{r}$, that is, the sum of the products $r\\binom{6}{r}$ taken for every $r$ from $0$ to $6$.",
+      "options": [
+        "A) $64$",
+        "B) $96$",
+        "C) $192$",
+        "D) $384$"
+      ],
+      "answer": "C",
+      "explanation": "Using $r\\binom{6}{r}=6\\binom{5}{r-1}$, the sum becomes $6\\sum_{s=0}^{5}\\binom{5}{s}=6\\cdot32=192$. The 64 option treats the sum as $2^{6}$ and forgets the weight $r$, the 96 option halves the correct value, and the 384 option uses $2^{6}$ in place of $2^{5}$ inside the factor $6$."
+    },
+    {
+      "id": "bt_c01_020",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the greatest integer that is less than or equal to the real number $(\\sqrt{3}+1)^{4}$.",
+      "options": [],
+      "answer": "55",
+      "explanation": "Expanding gives $(\\sqrt{3})^{4}+4(\\sqrt{3})^{3}+6(\\sqrt{3})^{2}+4\\sqrt{3}+1=9+12\\sqrt{3}+18+4\\sqrt{3}+1=28+16\\sqrt{3}$. Since $\\sqrt{3}\\approx1.732$, we have $16\\sqrt{3}\\approx27.71$, so the value is about $55.71$ and its integer part is $55$. Replacing $\\sqrt{3}$ by $2$ would wrongly give $60$ as the floor."
+    },
+    {
+      "id": "bt_c01_022",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the value of $\\sum_{r=0}^{3}\\frac{\\binom{3}{r}}{r+1}$, and express the result as a fraction in lowest terms.",
+      "options": [
+        "A) $\\frac{11}{4}$",
+        "B) $4$",
+        "C) $\\frac{15}{2}$",
+        "D) $\\frac{15}{4}$"
+      ],
+      "answer": "D",
+      "explanation": "The four terms are $\\binom{3}{0}/1=1$, $\\binom{3}{1}/2=\\frac{3}{2}$, $\\binom{3}{2}/3=1$ and $\\binom{3}{3}/4=\\frac{1}{4}$, which sum to $\\frac{15}{4}$. The $\\frac{11}{4}$ option drops the $r=0$ term, the 4 option evaluates $\\frac{2^{4}}{4}$ and forgets the $-1$ that belongs in the numerator, and the $\\frac{15}{2}$ option doubles the answer by miscounting the denominator."
+    },
+    {
+      "id": "bt_c01_023",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the value of $\\sum_{r=0}^{5}\\binom{5}{r}\\binom{7}{r}$ and report it as an integer.",
+      "options": [
+        "A) $792$",
+        "B) $596$",
+        "C) $462$",
+        "D) $924$"
+      ],
+      "answer": "A",
+      "explanation": "Term by term: $1\\cdot1+5\\cdot7+10\\cdot21+10\\cdot35+5\\cdot35+1\\cdot21=792$. This equals $\\binom{12}{5}$ by the identity $\\sum_{r}\\binom{m}{r}\\binom{n}{r}=\\binom{m+n}{m}$. The 596 option stops the sum after $r=3$, the 462 option is the value of $\\binom{11}{5}$, and the 924 option is the value of $\\binom{12}{6}$, both misapplied to this sum."
+    },
+    {
+      "id": "bt_c01_024",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the coefficient of $x^{4}$ in the expansion of $(1+x)^{6}(1-x)^{5}$ after the product is fully multiplied out as a polynomial in $x$.",
+      "options": [],
+      "answer": "10",
+      "explanation": "Since $(1+x)^{5}(1-x)^{5}=(1-x^{2})^{5}$, the product is $(1+x)(1-x^{2})^{5}$. The $x^{4}$ coefficient is $[x^{4}](1-x^{2})^{5}+[x^{3}](1-x^{2})^{5}=\\binom{5}{2}+0=10$. Expanding both factors separately and multiplying term by term reaches the same value, but it is far more error-prone."
+    },
+    {
+      "id": "bt_c01_025",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the constant term in the expansion of $\\left(x+\\frac{1}{x}\\right)^{4}\\left(x-\\frac{1}{x}\\right)^{4}$ as a polynomial in $x$.",
+      "options": [
+        "A) $-6$",
+        "B) $0$",
+        "C) $6$",
+        "D) $12$"
+      ],
+      "answer": "C",
+      "explanation": "The product equals $\\left(x^{2}-x^{-2}\\right)^{4}$, whose general term is $\\binom{4}{r}(x^{2})^{4-r}(-x^{-2})^{r}$ with power of $x$ equal to $8-4r$. The constant term occurs at $r=2$ and equals $\\binom{4}{2}(-1)^{2}=6$. The -6 option mishandles the sign $(-1)^{2}$, the 12 option counts the $r=2$ term twice, and the 0 option wrongly assumes that the terms cancel."
+    },
+    {
+      "id": "bt_c01_026",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the coefficient of $x^{5}$ in the expansion of $\\left(1+x+x^{2}\\right)^{5}$ as a polynomial in $x$ after the five identical factors are multiplied.",
+      "options": [
+        "A) $30$",
+        "B) $51$",
+        "C) $45$",
+        "D) $56$"
+      ],
+      "answer": "B",
+      "explanation": "Build the trinomial row for power 5: the coefficients of $(1+x+x^{2})^{5}$ begin $1,5,15,30,45,51,\\ldots$, so the coefficient of $x^{5}$ is $51$. Check by writing $(1+x+x^{2})^{5}=(1-x^{3})^{5}(1-x)^{-5}$, which gives $126-75=51$. The 30 option reads the $x^{3}$ entry, the 45 option reads the $x^{4}$ entry, and the 56 option treats the trinomial as $(1+x)^{8}$ and reads $\\binom{8}{5}$."
+    },
+    {
+      "id": "bt_c01_027",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the term independent of $x$ in the expansion of $\\left(x^{3}+\\frac{1}{2x}\\right)^{8}$ and state its numerical value.",
+      "options": [
+        "A) $\\frac{7}{16}$",
+        "B) $\\frac{7}{4}$",
+        "C) $28$",
+        "D) $\\frac{7}{64}$"
+      ],
+      "answer": "A",
+      "explanation": "The general term $\\binom{8}{r}(x^{3})^{8-r}\\left(\\frac{1}{2x}\\right)^{r}$ has power of $x$ equal to $24-4r$, which is zero at $r=6$. Its value is $\\binom{8}{6}\\left(\\frac{1}{2}\\right)^{6}=\\frac{28}{64}=\\frac{7}{16}$. The 7/4 option uses $r=5$ instead of $r=6$, the 28 option forgets the factor $\\left(\\frac{1}{2}\\right)^{6}$, and the 7/64 option uses $\\left(\\frac{1}{2}\\right)^{8}$ in place of $\\left(\\frac{1}{2}\\right)^{6}$."
+    },
+    {
+      "id": "bt_c01_028",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the coefficient of $x^{3}$ in the expansion of $(1+x)^{3}(1-x)^{5}$ after the two factors are multiplied together.",
+      "options": [
+        "A) $-6$",
+        "B) $5$",
+        "C) $56$",
+        "D) $6$"
+      ],
+      "answer": "D",
+      "explanation": "The coefficients of $(1+x)^{3}$ are $1,3,3,1$, and those of $(1-x)^{5}$ are $1,-5,10,-10$. So the $x^{3}$ coefficient is $1\\cdot(-10)+3\\cdot10+3\\cdot(-5)+1\\cdot1=6$. The -6 option flips the sign of the cubic term, the 5 option drops the $1\\cdot x^{3}$ term of $(1+x)^{3}$, and the 56 option replaces $(1-x)^{5}$ with $(1+x)^{5}$ and reads $\\binom{8}{3}$."
+    },
+    {
+      "id": "bt_c01_029",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the sum of the coefficients of those terms in $(1+x)^{9}$ whose power of $x$ is a multiple of $3$, including the term with power zero.",
+      "options": [
+        "A) $84$",
+        "B) $255$",
+        "C) $170$",
+        "D) $510$"
+      ],
+      "answer": "C",
+      "explanation": "The powers $0,3,6,9$ contribute $\\binom{9}{0}+\\binom{9}{3}+\\binom{9}{6}+\\binom{9}{9}=1+84+84+1=170$. The 84 option keeps only $\\binom{9}{3}$, the 510 option forgets to divide the total by $3$, and the 255 option halves 510 by mistake."
+    },
+    {
+      "id": "bt_c01_030",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the remainder when $13^{12}$ is divided by $100$, where the remainder is taken in the range from $0$ to $99$ inclusive.",
+      "options": [],
+      "answer": "81",
+      "explanation": "Write $13^{12}=(10+3)^{12}$. Modulo $100$, only the first two terms survive: $3^{12}+12\\cdot10\\cdot3^{11}$. Here $3^{12}=531441\\equiv41$ and $120\\cdot3^{11}\\equiv20\\cdot177147\\equiv40 \\pmod{100}$, which gives $81$. Repeated squaring of $13$ modulo $100$ gives the same value."
+    },
+    {
+      "id": "bt_c01_033",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the expansion of $(1+x)^{n}$, the coefficients of $x^{2}$ and $x^{3}$ are equal. Find the value of $n$.",
+      "options": [
+        "A) $4$",
+        "B) $6$",
+        "C) $10$",
+        "D) $5$"
+      ],
+      "answer": "D",
+      "explanation": "Equal coefficients give $\\binom{n}{2}=\\binom{n}{3}$. Dividing the second by the first gives $\\frac{\\binom{n}{3}}{\\binom{n}{2}}=\\frac{n-2}{3}=1$, so $n=5$. Check: $\\binom{5}{2}=\\binom{5}{3}=10$. The 4 option comes from taking $n=2+2$, the 6 option from taking $n=2\\cdot3$, and the 10 option reads the shared coefficient value $\\binom{5}{2}=10$ as $n$."
+    },
+    {
+      "id": "bt_c01_034",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the value of the sum $\\sum_{k=0}^{4}\\binom{4}{k}\\binom{4}{k+1}$, taken over all integers $k$ from $0$ to $4$ inclusive.",
+      "options": [
+        "A) $28$",
+        "B) $112$",
+        "C) $56$",
+        "D) $70$"
+      ],
+      "answer": "C",
+      "explanation": "Term by term: $1\\cdot4+4\\cdot6+6\\cdot4+4\\cdot1+1\\cdot0=56$. Equivalently, $\\binom{4}{k+1}=\\binom{4}{3-k}$, so the sum is $\\binom{8}{3}=56$. The 28 option halves the sum by an invalid symmetry argument, the 112 option doubles it, and the 70 option replaces $\\binom{8}{3}$ with $\\binom{8}{4}$."
+    },
+    {
+      "id": "bt_c01_035",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the coefficient of $x^{2}$ in the expansion of $(1+2x)^{5}(1+x)$ after the product is written as a polynomial in $x$.",
+      "options": [],
+      "answer": "50",
+      "explanation": "The coefficients of $(1+2x)^{5}$ are $\\binom{5}{k}2^{k}$, namely $1$, $10$ and $40$ for $k=0,1,2$. The $x^{2}$ coefficient of the product is $40\\cdot1+10\\cdot1=50$, from the $x^{2}$ term times $1$ and the $x$ term times $x$. Forgetting the factor $x$ from $(1+x)$ would give $40$ instead."
+    },
+    {
+      "id": "bt_c01_036",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $a_n=\\sum_{r=0}^{n}\\frac{\\binom{n}{r}}{r+1}$ for each positive integer $n$. Find $\\lim_{n\\to\\infty}\\frac{\\log_2 a_n}{n}$.",
+      "options": [],
+      "answer": "1",
+      "explanation": "Since $\\frac{\\binom{n}{r}}{r+1}=\\frac{1}{n+1}\\binom{n+1}{r+1}$, the sum becomes $a_n=\\frac{2^{n+1}-1}{n+1}$. Then $\\log_2 a_n=(n+1)-\\log_2(n+1)+\\log_2\\left(1-2^{-(n+1)}\\right)$. Dividing by $n$ and letting $n\\to\\infty$, the logarithmic and constant terms become negligible compared with $n$, leaving the limit $1$."
+    },
+    {
+      "id": "bt_c01_037",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $(1+i)^{10}=\\sum_{r=0}^{10}\\binom{10}{r}i^{r}$, where $i^{2}=-1$. Which of the following statements is or are correct?",
+      "options": [
+        "A) $\\sum_{r=0}^{10}\\binom{10}{r}\\cos\\frac{r\\pi}{2}=0$",
+        "B) $\\sum_{r=0}^{10}\\binom{10}{r}\\sin\\frac{r\\pi}{2}=32$",
+        "C) $\\sum_{r=0}^{10}\\binom{10}{r}\\cos\\frac{r\\pi}{4}=32$",
+        "D) $\\sum_{r\\in\\{0,2,4,6,8,10\\}}(-1)^{r/2}\\binom{10}{r}=0$"
+      ],
+      "answer": "A,B,D",
+      "explanation": "Since $(1+i)^{2}=2i$, we get $(1+i)^{10}=(2i)^{5}=32i$. Its real part gives $\\sum\\binom{10}{r}\\cos\\frac{r\\pi}{2}=0$, so the cosine statement is correct, and its imaginary part gives $\\sum\\binom{10}{r}\\sin\\frac{r\\pi}{2}=32$, so the sine statement is correct. The even-index alternating sum is the real part of the same expansion and equals $0$. The statement using $\\cos\\frac{r\\pi}{4}$ is false: it corresponds to $\\left(1+e^{i\\pi/4}\\right)^{10}$, whose modulus is $2^{10}\\cos^{10}\\frac{\\pi}{8}$, not $32$."
+    },
+    {
+      "id": "bt_c01_038",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $p(x)=(1+x)^{20}=\\sum_{r=0}^{20}a_{r}x^{r}$. Find the value of $\\sum_{r=0}^{10}(-1)^{r}\\,r\\,a_{r}$.",
+      "options": [
+        "A) $-972400$",
+        "B) $972400$",
+        "C) $48620$",
+        "D) $184756$"
+      ],
+      "answer": "B",
+      "explanation": "Use $r\\binom{20}{r}=20\\binom{19}{r-1}$ to write the sum as $20\\sum_{r=1}^{10}(-1)^{r}\\binom{19}{r-1}=-20\\sum_{s=0}^{9}(-1)^{s}\\binom{19}{s}$. The partial alternating sum equals $(-1)^{9}\\binom{18}{9}=-48620$, so the value is $-20\\cdot(-48620)=972400$. The negative option ignores the sign flip produced by $(-1)^{s+1}$, the 48620 option forgets the factor $20$, and the 184756 option is $\\binom{20}{10}$, which comes from misreading the upper limit."
+    },
+    {
+      "id": "bt_c01_039",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $N=\\sum_{k=0}^{10}\\binom{10}{k}3^{k}$. Find the remainder when $N$ is divided by $7$, taking the least non-negative residue.",
+      "options": [],
+      "answer": "4",
+      "explanation": "By the binomial theorem $N=(1+3)^{10}=4^{10}=1048576$. Modulo $7$, we have $4^{3}=64\\equiv1$, so $4^{10}=4^{9}\\cdot4\\equiv4$. Hence the remainder is $4$."
+    },
+    {
+      "id": "bt_c01_040",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $P(x)=(1+x)^{6}(1-x)^{4}=\\sum_{k=0}^{10}c_{k}x^{k}$. Which of the following statements is or are correct?",
+      "options": [
+        "A) $c_{2}=-3$",
+        "B) $c_{4}=2$",
+        "C) $c_{3}=-4$",
+        "D) $c_{0}+c_{2}+c_{4}+c_{6}+c_{8}+c_{10}=1$"
+      ],
+      "answer": "A,B",
+      "explanation": "Since $(1+x)^{6}(1-x)^{4}=(1-x^{2})^{4}(1+x)^{2}$, expanding gives $c_{0}=1$, $c_{2}=-4+1=-3$ and $c_{4}=6-4=2$. The coefficient $c_{3}=-8$, so the claim $c_{3}=-4$ comes from keeping only the constant term of $(1+x)^{6}$ and the $x^{3}$ term of $(1-x)^{4}$. The even coefficients sum to $\\frac{P(1)+P(-1)}{2}=0$, so the claim that they sum to $1$ only counts the constant term and ignores the rest."
+    },
+    {
+      "id": "bt_c01_041",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The coefficients of $x^{4}$, $x^{5}$ and $x^{6}$ in the expansion of $(1+x)^{n}$ form an arithmetic progression in that order. Which set of values of $n$ satisfies this condition?",
+      "options": [
+        "A) $n=6$ or $n=12$",
+        "B) $n=7$ only",
+        "C) $n=7$ or $n=14$",
+        "D) $n=14$ only"
+      ],
+      "answer": "C",
+      "explanation": "The progression condition gives $2\\binom{n}{5}=\\binom{n}{4}+\\binom{n}{6}$. Using $\\binom{n}{5}=\\frac{n-4}{5}\\binom{n}{4}$ and $\\binom{n}{6}=\\frac{n-5}{6}\\binom{n}{5}$ reduces this to $(n-4)(17-n)=30$, that is $n^{2}-21n+98=0$, so $n=7$ or $n=14$. Both work: $35,21,7$ and $1001,2002,3003$ are arithmetic progressions. The n=7 only option discards $n=14$ by assuming $n\\le10$, the n=14 only option discards $n=7$ by wrongly requiring $n\\ge8$ for an $x^{6}$ term, and the n=6 or 12 option results from using the wrong pair of indices."
+    },
+    {
+      "id": "bt_c01_042",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $T=\\sum_{k=0}^{9}\\binom{9}{k}6^{k}$ be a positive integer. Find the units digit of $T$.",
+      "options": [],
+      "answer": "7",
+      "explanation": "By the binomial theorem $T=(1+6)^{9}=7^{9}=40353607$. The units digits of powers of $7$ cycle as $7,9,3,1$ with period $4$, and $9\\equiv1 \\pmod{4}$, so the units digit is $7$."
+    },
+    {
+      "id": "bt_c01_043",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Find the real part of $\\sum_{r=0}^{20}\\binom{20}{r}e^{\\,ir\\pi/3}$, where $i=\\sqrt{-1}$.",
+      "options": [
+        "A) $-\\frac{59049}{2}$",
+        "B) $\\frac{59049}{2}$",
+        "C) $-59049$",
+        "D) $-\\frac{3^{20}}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "The sum equals $\\left(1+e^{i\\pi/3}\\right)^{20}$. Since $1+e^{i\\pi/3}=\\sqrt{3}\\,e^{i\\pi/6}$, the sum is $3^{10}e^{i\\,10\\pi/3}=3^{10}e^{i\\,4\\pi/3}$. Its real part is $3^{10}\\cos\\frac{4\\pi}{3}=-\\frac{59049}{2}$. The positive option flips the sign of the cosine, the -59049 option takes $\\cos\\frac{4\\pi}{3}=-1$, and the $-\\frac{3^{20}}{2}$ option uses modulus $3$ instead of $\\sqrt{3}$."
+    },
+    {
+      "id": "bt_c01_044",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "For $n=8$, which of the following statements about the binomial coefficients $\\binom{8}{k}$ is or are correct?",
+      "options": [
+        "A) $\\sum_{k=0}^{8}\\binom{8}{k}^{2}=\\binom{16}{8}$",
+        "B) $\\sum_{k=0}^{4}\\binom{8}{k}=128$",
+        "C) $\\sum_{k=0}^{8}k\\binom{8}{k}=1024$",
+        "D) $\\sum_{k=0}^{8}(-1)^{k}k\\binom{8}{k}=0$"
+      ],
+      "answer": "A,C,D",
+      "explanation": "Statement A follows from $\\binom{8}{k}=\\binom{8}{8-k}$ and the Vandermonde identity, giving $\\binom{16}{8}=12870$. Statement C holds because $\\sum k\\binom{n}{k}=n\\cdot2^{n-1}=1024$. Statement D holds because the alternating weighted sum vanishes for $n\\ge2$. Statement B is false: the partial sum is $1+8+28+56+70=163$, and the claimed 128 comes from halving $2^{8}$ while forgetting that the middle term $\\binom{8}{4}$ lies in the first half."
+    },
+    {
+      "id": "bt_c01_045",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "For which integer $k$ is the term $\\binom{12}{k}\\left(\\frac{3}{2}\\right)^{k}$ of the expansion of $\\left(1+\\frac{3}{2}\\right)^{12}$ the greatest?",
+      "options": [
+        "A) $6$",
+        "B) $8$",
+        "C) $5$",
+        "D) $7$"
+      ],
+      "answer": "D",
+      "explanation": "The ratio of consecutive terms is $\\frac{T_{k+1}}{T_{k}}=\\frac{3(12-k)}{2(k+1)}$, which is at least $1$ exactly when $k\\le6.8$. So the terms increase up to $k=7$ and decrease afterwards, making $k=7$ the greatest. The 6 option stops one step early, the 8 option rounds the threshold $6.8$ up and moves past the peak, and the 5 option reverses the direction of the inequality."
+    },
+    {
+      "id": "bt_c01_047",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $p(x)=\\left(x+\\frac{1}{x}\\right)^{6}$ and $q(x)=\\left(x-\\frac{1}{x}\\right)^{6}$. Which of the following statements about these polynomials and their product is or are correct?",
+      "options": [
+        "A) The constant term of $p(x)$ equals $20$.",
+        "B) The constant term of $q(x)$ equals $20$.",
+        "C) The constant term of $p(x)q(x)$ equals $0$.",
+        "D) The coefficient of $x^{4}$ in $p(x)q(x)$ equals $15$."
+      ],
+      "answer": "A,D",
+      "explanation": "The constant term of $p(x)$ is $\\binom{6}{3}=20$, so statement A is correct. The constant term of $q(x)$ is $\\binom{6}{3}(-1)^{3}=-20$, so statement B is false because it drops the sign on the odd power. Since $p(x)q(x)=\\left(x^{2}-x^{-2}\\right)^{6}$, its constant term is again $-20$, not $0$, so statement C is false. The $x^{4}$ coefficient arises from $r=2$ in $\\left(x^{2}-x^{-2}\\right)^{6}$, giving $\\binom{6}{2}=15$, so statement D is correct."
+    },
+    {
+      "id": "bt_c01_049",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Find the coefficient of $x^{10}$ in the power series expansion of $\\frac{1}{(1-x)^{3}(1+x)}$ in powers of $x$.",
+      "options": [
+        "A) $35$",
+        "B) $66$",
+        "C) $36$",
+        "D) $286$"
+      ],
+      "answer": "C",
+      "explanation": "Write $\\frac{1}{(1-x)^{3}(1+x)}=\\frac{1}{(1-x)^{2}(1-x^{2})}$, so the coefficient of $x^{10}$ is $\\sum_{j=0}^{5}(11-2j)=11+9+7+5+3+1=36$. The 35 option stops the sum one term early, the 66 option is the $x^{10}$ coefficient of $(1-x)^{-3}$ alone and ignores the factor $\\frac{1}{1+x}$, and the 286 option treats $\\frac{1}{1+x}$ as $\\frac{1}{1-x}$."
+    },
+    {
+      "id": "bt_c01_050",
+      "subject": "Mathematics",
+      "topic": "Binomial Theorem",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the alternating weighted sum $\\sum_{k=0}^{3}(-1)^{k}\\binom{3}{k}\\frac{1}{k+2}$ and give it as a reduced fraction.",
+      "options": [
+        "A) $\\frac{1}{30}$",
+        "B) $\\frac{1}{20}$",
+        "C) $-\\frac{1}{20}$",
+        "D) $\\frac{1}{4}$"
+      ],
+      "answer": "B",
+      "explanation": "The four terms are $\\frac{1}{2},-1,\\frac{3}{4},-\\frac{1}{5}$, which sum to $\\frac{1}{20}$. The same value follows from $\\int_0^1 x(1-x)^{3}\\,dx=\\frac{1}{4\\cdot5}$. The 1/30 option uses $(k+2)(k+3)$ in the denominator, the -1/20 option flips the overall sign, and the 1/4 option uses the denominator $k+1$ instead of $k+2$."
+    }
+  ]
+}

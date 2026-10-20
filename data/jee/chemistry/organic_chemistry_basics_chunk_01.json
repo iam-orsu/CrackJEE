@@ -1,0 +1,804 @@
+{
+  "questions": [
+    {
+      "id": "ocb_c01_001",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "What is the correct IUPAC name of the polyfunctional acyclic carboxylic acid having the constitutional structure $\\text{HO}-\\text{CH}_2-\\text{CH}=\\text{CH}-\\text{CO}-\\text{CH}_2-\\text{COOH}$?",
+      "options": [
+        "A) 6-hydroxy-3-oxohex-4-enoic acid",
+        "B) 1-hydroxy-4-oxohex-2-en-6-oic acid",
+        "C) 6-hydroxy-3-ketohex-4-enoic acid",
+        "D) 3-oxo-6-hydroxyhex-4-enoic acid"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Identify the principal functional group according to IUPAC seniority rules. The carboxylic acid group ($-\\text{COOH}$) outranks ketone ($=\\text{O}$), alkene, and alcohol ($-\\text{OH}$). The carboxylic carbon is designated as C-1.\nStep 2: Number the continuous parent carbon chain containing the principal group and multiple bond: C-1 ($-\\text{COOH}$), C-2 ($-\\text{CH}_2-$), C-3 ($-\\text{CO}-$, oxo prefix), C-4 ($-\\text{CH}=$, alkene starts at position 4), C-5 ($=\\text{CH}-$), C-6 ($-\\text{CH}_2\\text{OH}$, hydroxy prefix). This gives a hex-4-enoic acid stem.\nStep 3: Arrange substituent prefixes alphabetically: 'hydroxy' precedes 'oxo'. Therefore, the correct IUPAC name is 6-hydroxy-3-oxohex-4-enoic acid.\nNaming from the alcohol end (giving 1-hydroxy-4-oxohex-2-en-6-oic acid) violates principal group priority. Using 'keto' is non-IUPAC nomenclature. Listing 'oxo' before 'hydroxy' violates alphabetical ordering."
+    },
+    {
+      "id": "ocb_c01_002",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the correct IUPAC name of the branched ester represented by the structural formula $\\text{Cl}-\\text{CH}_2-\\text{CH}(\\text{CHO})-\\text{CH}(\\text{CH}_3)-\\text{COOCH}_3$.",
+      "options": [
+        "A) Methyl 4-chloro-2-formyl-3-methylbutanoate",
+        "B) Methyl 4-chloro-3-formyl-2-methylbutanoate",
+        "C) Methyl 3-(chloromethyl)-2-methyl-4-oxobutanoate",
+        "D) 4-chloro-3-formyl-2-methylbutanoic acid methyl ester"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Identify the principal functional group. The compound is an ester of a carboxylic acid; thus, the alkyl group bonded to the ester oxygen ('methyl') is cited first as a separate word.\nStep 2: Trace the principal carbon chain of the carboxylate acyl component starting at the ester carbonyl carbon C-1: C-1 is $-\\text{CO}-$, C-2 carries a methyl substituent ($-\\text{CH}(\\text{CH}_3)-$ ), C-3 carries a formyl group ($-\\text{CH}(\\text{CHO})-$ ), and C-4 terminates at $-\\text{CH}_2\\text{Cl}$. The parent chain contains 4 carbon atoms, yielding a 'butanoate' stem.\nStep 3: Arrange the substituent prefixes at C-2, C-3, and C-4 in alphabetical order: 'chloro' (at C-4), followed by 'formyl' (at C-3), followed by 'methyl' (at C-2). Hence, combining these parts yields Methyl 4-chloro-3-formyl-2-methylbutanoate.\nReversing the locants along the parent chain yields incorrect numbering. Selecting an incorrect parent chain gives the erroneous oxobutanoate name."
+    },
+    {
+      "id": "ocb_c01_003",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Acid-catalyzed dehydration of 2-methylbutan-2-ol yields the more stable Saytzeff alkene $\\text{P}$ as the major product. Calculate the total number of hyperconjugative $\\alpha$-hydrogens present in alkene $\\text{P}$.",
+      "options": [],
+      "answer": "9",
+      "explanation": "Step 1: Protonation of 2-methylbutan-2-ol followed by loss of water yields the tertiary carbocation intermediate: $(\\text{CH}_3)_2\\text{C}^+-\\text{CH}_2\\text{CH}_3$.\nStep 2: Elimination of a proton follows Zaitsev's (Saytzeff's) rule to generate the more substituted, thermodynamically stable alkene. Deprotonation from C-3 ($-\\text{CH}_2-$) gives 2-methylbut-2-ene, $(\\text{CH}_3)_2\\text{C}=\\text{CH}-\\text{CH}_3$, rather than the less substituted terminal alkene 2-methylbut-1-ene.\nStep 3: Count the $\\alpha$-hydrogens bonded to $sp^3$ carbons directly attached to the $sp^2$ alkene carbons. In 2-methylbut-2-ene, there are two methyl groups attached to C-2 ($2 \\times 3 = 6$ $\\alpha$-H) and one methyl group attached to C-3 ($3$ $\\alpha$-H). Therefore, the total number of hyperconjugative $\\alpha$-hydrogens is $6 + 3 = 9$."
+    },
+    {
+      "id": "ocb_c01_004",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the four isomeric alkenes: (I) hex-1-ene, (II) cis-hex-2-ene, (III) trans-hex-2-ene, and (IV) 2-methylpent-2-ene. Arrange them in strictly decreasing order of the magnitude of their molar heat of hydrogenation ($|\\Delta H_{\\text{hyd}}|$).",
+      "options": [
+        "A) $\\text{IV} > \\text{III} > \\text{II} > \\text{I}$",
+        "B) $\\text{I} > \\text{III} > \\text{II} > \\text{IV}$",
+        "C) $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$",
+        "D) $\\text{IV} > \\text{II} > \\text{III} > \\text{I}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate the relative thermodynamic stability of the isomeric alkenes based on the degree of substitution and hyperconjugation. Alkene IV (2-methylpent-2-ene) is trisubstituted with $8$ $\\alpha$-hydrogens ($3 + 3 + 2 = 8$). Alkenes II and III are disubstituted with $5$ $\\alpha$-hydrogens. Between geometrical isomers, trans-hex-2-ene (III) suffers less steric repulsion than cis-hex-2-ene (II). Alkene I (hex-1-ene) is monosubstituted with only $2$ $\\alpha$-hydrogens. Thus, thermodynamic stability follows: $\\text{IV} > \\text{III} > \\text{II} > \\text{I}$.\nStep 2: Since all four isomers upon complete catalytic hydrogenation yield identical $n$-hexane, the molar heat of hydrogenation ($|\\Delta H_{\\text{hyd}}|$) is inversely proportional to alkene stability. The least stable alkene releases the maximum enthalpy upon reduction. Therefore, the decreasing order of $|\\Delta H_{\\text{hyd}}|$ is $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$."
+    },
+    {
+      "id": "ocb_c01_005",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When 1-bromo-2,2-dimethylpropane (neopentyl bromide) is heated in ethanol in the presence of silver nitrate, solvolysis proceeds with rearrangement. Identify the major organic substitution product formed in this reaction.",
+      "options": [
+        "A) 1-ethoxy-2,2-dimethylpropane",
+        "B) 2-ethoxy-3-methylbutane",
+        "C) 1-ethoxy-2-methylbutane",
+        "D) 2-ethoxy-2-methylbutane"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Silver cation assists the heterolytic cleavage of the carbon-bromine bond, precipitating $\\text{AgBr}$ and generating the incipient primary neopentyl carbocation, $(\\text{CH}_3)_3\\text{C}-\\text{CH}_2^+$.\nStep 2: Primary carbocations are highly unstable and undergo an extremely rapid 1,2-methyl shift (Wagner-Meerwein rearrangement) synchronously with ionization to relieve severe steric congestion, yielding the significantly more stable tertiary carbocation: $(\\text{CH}_3)_2\\text{C}^+-\\text{CH}_2\\text{CH}_3$ (2-methylbutan-2-yl cation).\nStep 3: Nucleophilic capture of this tertiary carbocation by ethanol followed by deprotonation yields 2-ethoxy-2-methylbutane as the predominant substitution product.\nDirect substitution without rearrangement produces 1-ethoxy-2,2-dimethylpropane, which is disfavored due to extreme neopentyl steric hindrance. Proposing a hydride shift yields the secondary ether 2-ethoxy-3-methylbutane, which is impossible because neopentyl carbon has no $\\beta$-hydrogens."
+    },
+    {
+      "id": "ocb_c01_006",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Consider the acyclic polyol pentane-2,3,4-triol, $\\text{CH}_3-\\text{CH(OH)}-\\text{CH(OH)}-\\text{CH(OH)}-\\text{CH}_3$. Determine the total number of stereoisomers (including both optically active enantiomers and optically inactive meso forms) possible for this compound.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: Analyze the constitution of pentane-2,3,4-triol. The molecule is symmetrical with identical terminal groups ($-\\text{CH(OH)}\\text{CH}_3$). The terminal stereocenters C-2 and C-4 have identical ligand sets, while the central carbon C-3 is attached to $-\\text{H}$, $-\\text{OH}$, and two 1-hydroxyethyl groups.\nStep 2: When C-2 and C-4 have identical configurations, $(2R, 4R)$ and $(2S, 4S)$, the two attached groups on C-3 are homomorphic and identical in configuration, making C-3 achiral. This gives a pair of non-superimposable chiral enantiomers: $(2R, 4R)$ and $(2S, 4S)$ (2 optically active isomers).\nStep 3: When C-2 and C-4 have opposite configurations, $(2R, 4S)$, a plane of symmetry passes through C-3. The two ligands on C-3 are enantiomorphic, turning C-3 into a pseudoasymmetric center. This gives two distinct diastereomeric meso forms depending on the pseudoasymmetric configuration: $(2R, 3r, 4S)$ and $(2R, 3s, 4S)$ (2 meso isomers).\nApplying the formula for symmetrical molecules with odd stereocenters ($n = 3$): active $= 2^{n-1} - 2^{(n-1)/2} = 4 - 2 = 2$; meso $= 2^{(n-1)/2} = 2$. Therefore, the total number of stereoisomers is $2 + 2 = 4$."
+    },
+    {
+      "id": "ocb_c01_007",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Arrange the following four carboxylic acids in order of strictly decreasing acid dissociation constant ($K_a$): (I) 2-fluorobutanoic acid, (II) 3-fluorobutanoic acid, (III) 2-chlorobutanoic acid, and (IV) 4-fluorobutanoic acid.",
+      "options": [
+        "A) $\\text{I} > \\text{III} > \\text{II} > \\text{IV}$",
+        "B) $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$",
+        "C) $\\text{III} > \\text{I} > \\text{II} > \\text{IV}$",
+        "D) $\\text{I} > \\text{III} > \\text{IV} > \\text{II}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The acidity of haloalkanoic acids is governed by the electron-withdrawing inductive ($-I$) effect of the halogen substituent, which stabilizes the conjugate carboxylate anion through $\\sigma$-bonds. The $-I$ effect depends strongly on distance, dropping off dramatically with each intervening $\\sigma$-bond ($\\alpha > \\beta > \\gamma$).\nStep 2: Compare substituents at the $\\alpha$-position (C-2): both fluorine and chlorine exert their strongest $-I$ effect at C-2. Because fluorine is substantially more electronegative than chlorine ($\\chi_{\\text{F}} = 4.0$ vs $\\chi_{\\text{Cl}} = 3.0$), 2-fluorobutanoic acid (I) is stronger than 2-chlorobutanoic acid (III).\nStep 3: Compare halogen distance effects: the $-I$ effect of fluorine at the $\\alpha$-position (C-2, compound I) is stronger than at C-2 for chlorine (compound III), which in turn is stronger than fluorine at the $\\beta$-position (C-3, compound II). At the $\\gamma$-position (C-4, compound IV), the inductive influence across four $\\sigma$-bonds is minimal. Hence, the correct decreasing order of acidity is $\\text{I} > \\text{III} > \\text{II} > \\text{IV}$."
+    },
+    {
+      "id": "ocb_c01_008",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the canonical resonance structures of the formamide molecule: (I) $\\text{H}-\\text{C}(=\\text{O})-\\text{NH}_2$, (II) $\\text{H}-\\text{C}(\\text{O}^-)=\\text{N}^+\\text{H}_2$, (III) $\\text{H}-\\text{C}^+(\\text{O}^-)-\\text{NH}_2$, and (IV) $\\text{H}-\\text{C}(\\text{O}^+)=\\text{N}^-\\text{H}_2$. What is the correct decreasing order of their relative thermodynamic stability (contribution to the resonance hybrid)?",
+      "options": [
+        "A) $\\text{II} > \\text{I} > \\text{III} > \\text{IV}$",
+        "B) $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$",
+        "C) $\\text{I} > \\text{III} > \\text{II} > \\text{IV}$",
+        "D) $\\text{I} > \\text{II} > \\text{IV} > \\text{III}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate octet completion and charge separation. Structure I is uncharged and possesses complete valence octets on all heavy atoms ($\\text{C}, \\text{N}, \\text{O}$); therefore, it is the most stable contributor.\nStep 2: Structure II exhibits charge separation, but carbon, nitrogen, and oxygen retain complete octets. Furthermore, the negative formal charge resides on the more electronegative oxygen atom while the positive formal charge is on nitrogen. Thus, II is a major contributor, though less stable than uncharged I.\nStep 3: Structure III has an incomplete valence octet on carbon (only 6 electrons) with adjacent charge separation, making it considerably higher in energy than II.\nStep 4: Structure IV places a positive formal charge on the highly electronegative oxygen atom and a negative formal charge on nitrogen, representing an unfavorable charge distribution with severe destabilization. Hence, the decreasing order of stability is $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$."
+    },
+    {
+      "id": "ocb_c01_009",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a Kjeldahl estimation of nitrogen, $0.70\\text{ g}$ of an organic compound was digested with concentrated $\\text{H}_2\\text{SO}_4$. The liberated ammonia was quantitatively absorbed in $50.0\\text{ mL}$ of $0.10\\text{ M } \\text{H}_2\\text{SO}_4$. The unreacted acid required $30.0\\text{ mL}$ of $0.10\\text{ M } \\text{NaOH}$ for complete neutralization. What is the mass percentage of nitrogen in the compound?",
+      "options": [
+        "A) $4.0\\%$",
+        "B) $20.0\\%$",
+        "C) $14.0\\%$",
+        "D) $17.0\\%$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate the total milliequivalents of sulfuric acid initially taken. Since $\\text{H}_2\\text{SO}_4$ is a diprotic acid with $n$-factor $= 2$, normality $N = 2 \\times 0.10\\text{ M} = 0.20\\text{ N}$.\nTotal meq of $\\text{H}_2\\text{SO}_4 = 50.0\\text{ mL} \\times 0.20\\text{ N} = 10.0\\text{ meq}$.\nStep 2: Determine the milliequivalents of unreacted $\\text{H}_2\\text{SO}_4$ neutralized by $\\text{NaOH}$ ($n$-factor $= 1$, $N = 0.10\\text{ N}$):\nmeq of excess $\\text{H}_2\\text{SO}_4 = 30.0\\text{ mL} \\times 0.10\\text{ N} = 3.0\\text{ meq}$.\nStep 3: Calculate the milliequivalents of acid neutralized by the evolved $\\text{NH}_3$:\nmeq of $\\text{NH}_3 = 10.0 - 3.0 = 7.0\\text{ meq} = 7.0\\text{ mmol of N atoms}$.\nStep 4: Calculate the mass of nitrogen and percentage:\n$\\text{Mass of N} = \\frac{7.0 \\times 14.0\\text{ mg}}{1000} = 0.098\\text{ g}$.\n$\\text{Percentage of N} = \\frac{0.098\\text{ g}}{0.70\\text{ g}} \\times 100\\% = 14.0\\%$.\nUsing molarity instead of normality yields $4.0\\%$. Omitting the back-titration subtraction yields $20.0\\%$."
+    },
+    {
+      "id": "ocb_c01_010",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Paracetamol (4-acetamidophenol) is an analgesic drug with the molecular formula $\\text{C}_8\\text{H}_9\\text{NO}_2$. Calculate the double bond equivalent (degree of unsaturation) of this molecule.",
+      "options": [],
+      "answer": "5",
+      "explanation": "Step 1: The general formula for the Double Bond Equivalent (DBE) or Degree of Unsaturation of an organic molecule with formula $\\text{C}_c\\text{H}_h\\text{N}_n\\text{O}_o\\text{X}_x$ is given by:\n$$\\text{DBE} = c + 1 - \\frac{h + x - n}{2}$$\nStep 2: For paracetamol ($\\text{C}_8\\text{H}_9\\text{NO}_2$), we have $c = 8$, $h = 9$, $n = 1$, $x = 0$, and divalent oxygen atoms ($o = 2$) do not alter the saturation stoichiometry.\nSubstituting these values:\n$$\\text{DBE} = 8 + 1 - \\frac{9 + 0 - 1}{2} = 9 - \\frac{8}{2} = 9 - 4 = 5$$\nStep 3: Structural verification: Paracetamol consists of one aromatic benzene ring (1 ring $+ 3$ $\\pi$-bonds $= 4$ degrees of unsaturation) and one amide carbonyl group ($C=O$ double bond $= 1$ degree of unsaturation). The sum is $4 + 1 = 5$."
+    },
+    {
+      "id": "ocb_c01_011",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a Carius estimation of sulfur, $0.320\\text{ g}$ of a pure organic compound yielded $0.466\\text{ g}$ of dry barium sulfate ($\\text{BaSO}_4$, molar mass $= 233.0\\text{ g mol}^{-1}$). Taking the atomic mass of sulfur as $32.0\\text{ g mol}^{-1}$, calculate the percentage of sulfur present in the compound.",
+      "options": [
+        "A) $10.0\\%$",
+        "B) $50.0\\%$",
+        "C) $60.0\\%$",
+        "D) $20.0\\%$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Relate the mass of barium sulfate precipitate to the moles of sulfur contained in the sample using stoichiometry:\n$$\\text{Moles of } \\text{BaSO}_4 = \\frac{0.466\\text{ g}}{233.0\\text{ g mol}^{-1}} = 0.0020\\text{ mol}$$\nStep 2: Since each mole of $\\text{BaSO}_4$ contains exactly one mole of sulfur atoms:\n$$\\text{Mass of sulfur} = 0.0020\\text{ mol} \\times 32.0\\text{ g mol}^{-1} = 0.064\\text{ g}$$\nStep 3: Compute the mass percentage of sulfur in the organic sample:\n$$\\%\\text{S} = \\frac{\\text{Mass of sulfur}}{\\text{Mass of organic compound}} \\times 100\\% = \\frac{0.064\\text{ g}}{0.320\\text{ g}} \\times 100\\% = 20.0\\%$$\nUsing the formula mass of sulfate ion (96) instead of sulfur yields $60.0\\%$. Omitting the factor of 2 in conversion gives $10.0\\%$."
+    },
+    {
+      "id": "ocb_c01_012",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Arrange the following four organic compounds in strictly decreasing order of their equilibrium enol content in a non-polar solvent: (I) phenol, (II) pentane-2,4-dione (acetylacetone), (III) ethyl 3-oxobutanoate (ethyl acetoacetate), and (IV) propan-2-one (acetone).",
+      "options": [
+        "A) $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$",
+        "B) $\\text{II} > \\text{I} > \\text{III} > \\text{IV}$",
+        "C) $\\text{I} > \\text{III} > \\text{II} > \\text{IV}$",
+        "D) $\\text{II} > \\text{III} > \\text{I} > \\text{IV}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Phenol (I) exists almost entirely ($>99.99\\%$) in its enol tautomeric form because tautomerization to the keto form would sacrifice the massive resonance stabilization energy of the aromatic benzene ring.\nStep 2: In pentane-2,4-dione (II), the enol form is stabilized by a conjugated double bond system and a quasi-aromatic six-membered chelate ring formed via strong intramolecular hydrogen bonding ($\\text{O}-\\text{H}\\cdots\\text{O}$), resulting in approximately $76-80\\%$ enol content in non-polar solvents.\nStep 3: In ethyl 3-oxobutanoate (III), the ester oxygen donates its lone pair into the ester carbonyl (cross-conjugation), which reduces the electrophilicity of the ester carbonyl and weakens the intramolecular hydrogen bond in the enol tautomer, lowering the enol content to approximately $8-10\\%$.\nStep 4: Propan-2-one (IV) is a simple monocarbonyl with no conjugation or hydrogen-bonding stabilization in its enol tautomer; its enol content is negligible ($\\approx 10^{-4}\\%$).\nTherefore, the correct decreasing order of enol content is $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$."
+    },
+    {
+      "id": "ocb_c01_013",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the dipole moments ($\\mu$) of trans-1,2-dichloroethene and 1,4-dimethoxybenzene. Which of the following statements correctly evaluates their net molecular dipole moments and provides the proper stereochemical rationale?",
+      "options": [
+        "A) Both compounds possess a center of inversion; hence $\\mu = 0$ for both molecules in all conformations.",
+        "B) trans-1,2-dichloroethene has $\\mu = 0$ due to centrosymmetric cancellation, whereas 1,4-dimethoxybenzene has $\\mu \\neq 0$ because of the non-linear $\\text{C}-\\text{O}-\\text{C}$ bond angles.",
+        "C) Both compounds have non-zero dipole moments because halogen and oxygen lone pairs prevent vector cancellation.",
+        "D) 1,4-dimethoxybenzene has $\\mu = 0$ because the two opposite methoxy groups are collinear, whereas trans-1,2-dichloroethene has $\\mu \\neq 0$."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In trans-1,2-dichloroethene, the molecule is strictly planar with a center of inversion ($C_{2h}$ symmetry). The two polar $\\text{C}-\\text{Cl}$ bond dipoles and the two $\\text{C}-\\text{H}$ bond dipoles are oriented in opposite directions with identical magnitude, canceling each other completely. Therefore, its net dipole moment is strictly $\\mu = 0$.\nStep 2: In 1,4-dimethoxybenzene, the oxygen atoms are $sp^3$ hybridized with bent $\\text{C}_{\\text{aromatic}}-\\text{O}-\\text{C}_{\\text{methyl}}$ geometries (bond angle $\\approx 110^\\circ$). Free rotation around the $\\text{C}_{\\text{aromatic}}-\\text{O}$ single bonds allows the molecule to adopt conformations (such as the cisoid conformation) in which the methyl groups point toward the same side of the ring. In these conformers, the vector sum of the two $\\text{C}-\\text{O}$ group dipoles is non-zero, resulting in an experimentally observed average dipole moment of $\\mu \\approx 1.7\\text{ D}$.\nHence, trans-1,2-dichloroethene has $\\mu = 0$, while 1,4-dimethoxybenzene has $\\mu \\neq 0$."
+    },
+    {
+      "id": "ocb_c01_014",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Assign the Cahn-Ingold-Prelog (CIP) descriptor ($(E)$ or $(Z)$) to the alkene where C-2 is bonded to $-\\text{CH}_3$ and $-\\text{CD}_3$, and C-3 is bonded to $-\\text{CH}=\\text{CH}_2$ and $-\\text{C}\\equiv\\text{CH}$, with $-\\text{CD}_3$ and $-\\text{C}\\equiv\\text{CH}$ situated on the same side of the double bond.",
+      "options": [
+        "A) $(E)$-isomer, because $-\\text{CH}_3$ has higher priority than $-\\text{CD}_3$",
+        "B) $(E)$-isomer, because $-\\text{CH}=\\text{CH}_2$ has higher priority than $-\\text{C}\\equiv\\text{CH}$",
+        "C) $(Z)$-isomer, because $-\\text{CD}_3$ and $-\\text{C}\\equiv\\text{CH}$ are the higher priority groups and lie on the same side",
+        "D) $(Z)$-isomer, because $-\\text{CH}_3$ and $-\\text{CH}=\\text{CH}_2$ are the higher priority groups and lie on opposite sides"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Apply CIP priority rules at C-2. Comparing $-\\text{CD}_3$ versus $-\\text{CH}_3$: both attach via carbon, but deuterium ($^2\\text{H}$, mass $\\approx 2$) has a higher mass number than protium ($^1\\text{H}$, mass $\\approx 1$). Therefore, $-\\text{CD}_3$ takes priority over $-\\text{CH}_3$.\nStep 2: Apply CIP priority rules at C-3. Comparing $-\\text{C}\\equiv\\text{CH}$ and $-\\text{CH}=\\text{CH}_2$: multiple bonds are duplicated or triplicated according to CIP convention. The alkynyl carbon in $-\\text{C}\\equiv\\text{CH}$ is treated as bonded to three carbon atoms: $(\\text{C}, \\text{C}, \\text{C})$. The alkenyl carbon in $-\\text{CH}=\\text{CH}_2$ is bonded to two carbons and one hydrogen: $(\\text{C}, \\text{C}, \\text{H})$. Comparing the list of atoms in decreasing atomic number, $(\\text{C}, \\text{C}, \\text{C})$ outranks $(\\text{C}, \\text{C}, \\text{H})$. Hence, $-\\text{C}\\equiv\\text{CH}$ takes priority over $-\\text{CH}=\\text{CH}_2$.\nStep 3: The two priority-1 groups are $-\\text{CD}_3$ and $-\\text{C}\\equiv\\text{CH}$. Since both high-priority groups are positioned on the same side of the double bond plane, the configuration is $(Z)$ (zusammen)."
+    },
+    {
+      "id": "ocb_c01_015",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Arrange the following carbon-centered free radicals in strictly decreasing order of their thermodynamic stability: (I) triphenylmethyl radical, $(\\text{C}_6\\text{H}_5)_3\\text{C}^\\bullet$; (II) benzyl radical, $\\text{C}_6\\text{H}_5\\text{CH}_2^\\bullet$; (III) allyl radical, $\\text{CH}_2=\\text{CH}-\\text{CH}_2^\\bullet$; (IV) tert-butyl radical, $(\\text{CH}_3)_3\\text{C}^\\bullet$; and (V) vinyl radical, $\\text{CH}_2=\\text{CH}^\\bullet$.",
+      "options": [
+        "A) $\\text{I} > \\text{IV} > \\text{II} > \\text{III} > \\text{V}$",
+        "B) $\\text{IV} > \\text{I} > \\text{II} > \\text{III} > \\text{V}$",
+        "C) $\\text{I} > \\text{II} > \\text{IV} > \\text{III} > \\text{V}$",
+        "D) $\\text{I} > \\text{II} > \\text{III} > \\text{IV} > \\text{V}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate resonance stabilization versus hyperconjugation. The triphenylmethyl radical (I) has its unpaired electron delocalized across three phenyl rings (generating 10 principal canonical contributors), giving it exceptional stability such that it exists in equilibrium with its dimer.\nStep 2: The benzyl radical (II) is stabilized by delocalization over one phenyl ring (4 resonance contributors), providing higher resonance energy than the allyl radical (III), which has its radical delocalized over only two equivalent resonance contributors.\nStep 3: The allyl radical (III) has a resonance stabilization energy of approximately $54-63\\text{ kJ mol}^{-1}$, making it more stable than the tert-butyl radical (IV). The tert-butyl radical lacks resonance and is stabilized solely by hyperconjugation involving 9 $\\alpha$-hydrogens ($9$ no-bond structures).\nStep 4: The vinyl radical (V) has its unpaired electron residing in an $sp^2$ hybrid orbital with higher $s$-character ($33\\%$) and strong electronegative retention, resulting in a very high $\\text{C}-\\text{H}$ bond dissociation energy and extreme instability.\nTherefore, the correct decreasing order of stability is $\\text{I} > \\text{II} > \\text{III} > \\text{IV} > \\text{V}$."
+    },
+    {
+      "id": "ocb_c01_016",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the bicyclic conjugated hydrocarbons azulene (bicyclo[5.3.0]decapentaene), pentalene (bicyclo[3.3.0]octatetraene), and heptalene (bicyclo[5.5.0]dodecahexaene). Which of the following statements correctly characterizes their aromatic character according to Hückel's $(4n+2)\\pi$ electronic criteria and peripheral delocalization?",
+      "options": [
+        "A) Azulene is aromatic with a significant dipole moment; pentalene is antiaromatic and unstable; heptalene adopts a non-planar conformation and is non-aromatic.",
+        "B) All three bicyclic hydrocarbons are fully aromatic because they contain fully alternating conjugated double bonds throughout their fused frameworks.",
+        "C) Azulene is non-aromatic due to ring strain between the 5- and 7-membered rings, while pentalene and heptalene are both antiaromatic.",
+        "D) Pentalene is aromatic with $8\\pi$ electrons, whereas azulene and heptalene are both antiaromatic."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate azulene: It possesses $10\\pi$ electrons ($n=2$ in Hückel's $4n+2$ rule). Azulene is planar, aromatic, and exhibits an unusually large molecular dipole moment ($\\approx 1.0\\text{ D}$) due to a major dipolar canonical resonance contributor composed of an aromatic cyclopentadienyl anion ring ($6\\pi$) fused to an aromatic tropylium cation ring ($6\\pi$).\nStep 2: Evaluate pentalene: It contains $8\\pi$ electrons ($4n\\pi$ with $n=2$). As a planar, fused bicyclic system, it is strictly antiaromatic, extremely reactive, and undergoes rapid dimerization even at low temperatures.\nStep 3: Evaluate heptalene: It has $12\\pi$ electrons ($4n\\pi$ with $n=3$). To avoid severe antiaromatic destabilization, heptalene twists into a non-planar puckered (tub-like) geometry, making it non-aromatic rather than antiaromatic.\nTherefore, statement A is correct."
+    },
+    {
+      "id": "ocb_c01_017",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Cyclopentadiene has an unusually low $pK_a$ of $\\approx 16$, whereas cyclohepta-1,3,5-triene has a much higher $pK_a$ of $\\approx 36$. Conversely, cyclohepta-1,3,5-triene readily forms a stable carbocation upon hydride abstraction, whereas cyclopentadiene does not. Which of the following statements correctly accounts for this divergence?",
+      "options": [
+        "A) Cyclopentadiene is more acidic because its five-membered ring relieves ring angle strain upon deprotonation, whereas cycloheptatriene has no angle strain.",
+        "B) Deprotonation of cyclopentadiene forms an aromatic $6\\pi$ anion, whereas ionization of cycloheptatriene forms an aromatic $6\\pi$ cation; the corresponding conjugate cycloheptatrienyl anion is antiaromatic ($8\\pi$).",
+        "C) Cycloheptatriene cannot form an aromatic system in any oxidation state because seven-membered rings are necessarily non-planar.",
+        "D) The cyclopentadienyl anion has $4\\pi$ electrons and is stabilized by pseudo-aromaticity, while the tropylium cation is non-aromatic."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze deprotonation of cyclopentadiene: Loss of $\\text{H}^+$ from the $sp^3$ $-\\text{CH}_2-$ carbon produces the cyclopentadienyl anion. The unhybridized $p$-orbital on the carbanion participates in cyclic conjugation, yielding a planar, completely delocalized ring with $6\\pi$ electrons ($4n+2$ where $n=1$). This tremendous aromatic stabilization accounts for its remarkably low $pK_a \\approx 16$.\nStep 2: Analyze deprotonation of cyclohepta-1,3,5-triene: Deprotonation would create a planar cycloheptatrienyl anion containing $8\\pi$ electrons ($4n\\pi$ with $n=2$). Such a system would be antiaromatic and energetically prohibitive, resulting in a very high $pK_a \\approx 36$.\nStep 3: Analyze hydride abstraction from cycloheptatriene: Removal of $\\text{H}^-$ leaves the tropylium cation ($\\text{C}_7\\text{H}_7^+$). This planar cation contains $6\\pi$ electrons delocalized over 7 carbons ($4n+2$ with $n=1$), conferring extraordinary aromatic stability.\nHence, option B correctly explains both phenomena."
+    },
+    {
+      "id": "ocb_c01_018",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Among the following eight chemical species, calculate the total number of species that are classified as aromatic according to Hückel's $(4n+2)\\pi$ electronic rule:\n(1) Cyclopropenyl cation\n(2) Cyclopropenyl anion\n(3) Cyclopentadienyl anion\n(4) Cyclooctatetraene (at room temperature)\n(5) Tropylium cation\n(6) Cyclohepta-1,3,5-triene\n(7) Pyridine\n(8) Cyclobutadiene",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: Apply Hückel's criteria: cyclic, fully conjugated, planar, containing $(4n+2)\\pi$ electrons.\n(1) Cyclopropenyl cation: $2\\pi$ electrons in a planar 3-membered ring ($n=0$ in $4n+2$). AROMATIC.\n(2) Cyclopropenyl anion: $4\\pi$ electrons ($4n\\pi$ with $n=1$). ANTIAROMATIC.\n(3) Cyclopentadienyl anion: $6\\pi$ electrons in a planar 5-membered ring ($n=1$ in $4n+2$). AROMATIC.\n(4) Cyclooctatetraene: $8\\pi$ electrons; avoids antiaromaticity by adopting a non-planar tub conformation. NON-AROMATIC.\n(5) Tropylium cation: $6\\pi$ electrons in a planar 7-membered ring ($n=1$ in $4n+2$). AROMATIC.\n(6) Cyclohepta-1,3,5-triene: contains an $sp^3$ $-\\text{CH}_2-$ carbon that interrupts cyclic conjugation. NON-AROMATIC.\n(7) Pyridine: $6\\pi$ electrons delocalized in the aromatic ring; the nitrogen lone pair occupies an $sp^2$ hybrid orbital in the ring plane and is not part of the $\\pi$-system ($n=1$ in $4n+2$). AROMATIC.\n(8) Cyclobutadiene: $4\\pi$ electrons in a planar ring ($4n\\pi$ with $n=1$). ANTIAROMATIC.\nStep 2: Total number of aromatic species: (1), (3), (5), and (7) = 4."
+    },
+    {
+      "id": "ocb_c01_019",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the chair conformations of cis-1,2-dimethylcyclohexane and trans-1,2-dimethylcyclohexane. Given that each gauche-butane interaction contributes an energy penalty of $3.8\\text{ kJ mol}^{-1}$ and each 1,3-diaxial methyl-hydrogen interaction contributes the identical value ($3.8\\text{ kJ mol}^{-1}$), what is the calculated energy difference between the most stable conformer of trans-1,2-dimethylcyclohexane and the conformer of cis-1,2-dimethylcyclohexane?",
+      "options": [
+        "A) $0.0\\text{ kJ mol}^{-1}$, because both isomers possess an identical total number of methyl substituents",
+        "B) $3.8\\text{ kJ mol}^{-1}$, with the cis-isomer being more stable",
+        "C) $7.6\\text{ kJ mol}^{-1}$, with the trans-isomer being more stable",
+        "D) $11.4\\text{ kJ mol}^{-1}$, with the trans-isomer being more stable"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate the most stable conformation of trans-1,2-dimethylcyclohexane. The two methyl groups can both occupy equatorial positions, $(e, e)$. In the diequatorial $(e, e)$ conformer, there are zero 1,3-diaxial methyl-hydrogen interactions. However, the adjacent C-1 and C-2 equatorial methyl groups possess a dihedral angle of $60^\\circ$, introducing exactly one gauche-butane interaction ($1 \\times 3.8 = 3.8\\text{ kJ mol}^{-1}$).\nStep 2: Evaluate cis-1,2-dimethylcyclohexane. Ring geometry dictates that one methyl must be equatorial and the other axial, $(e, a)$. The axial methyl group engages in two 1,3-diaxial interactions with axial hydrogens at C-3 and C-5 ($2 \\times 3.8 = 7.6\\text{ kJ mol}^{-1}$). Furthermore, the vicinal $(e, a)$ methyl groups have a dihedral angle of $60^\\circ$, contributing one gauche interaction ($1 \\times 3.8 = 3.8\\text{ kJ mol}^{-1}$). Thus, the total strain in cis-1,2-dimethylcyclohexane is $7.6 + 3.8 = 11.4\\text{ kJ mol}^{-1}$.\nStep 3: Compute the energy difference:\n$$\\Delta E = E_{\\text{cis}} - E_{\\text{trans}} = 11.4\\text{ kJ mol}^{-1} - 3.8\\text{ kJ mol}^{-1} = 7.6\\text{ kJ mol}^{-1}$$\nTherefore, the trans-isomer is more stable by $7.6\\text{ kJ mol}^{-1}$."
+    },
+    {
+      "id": "ocb_c01_020",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Unlike $n$-butane, which predominantly adopts the anti-conformation, 1,2-difluoroethane and ethane-1,2-diol (ethylene glycol) exhibit a distinct conformational preference for the gauche conformer. Which of the following statements correctly identifies the primary stabilizing factors responsible for the gauche preference in these two molecules?",
+      "options": [
+        "A) Both molecules are stabilized in the gauche form by strong intramolecular hydrogen bonding between the vicinal substituents.",
+        "B) Dipole-dipole attractive forces between the anti-parallel C-F and C-O dipoles stabilize the gauche conformers in non-polar media.",
+        "C) Severe steric attraction between the fluorine and hydroxyl lone pairs drives gauche conformer stability.",
+        "D) Ethane-1,2-diol is stabilized by an intramolecular hydrogen bond, while 1,2-difluoroethane is stabilized by $\\sigma_{\\text{C}-\\text{H}} \\to \\sigma^*_{\\text{C}-\\text{F}}$ hyperconjugative orbital interactions."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze ethane-1,2-diol (ethylene glycol): In the gauche conformation, the two vicinal hydroxyl groups are brought into close proximity (dihedral angle $\\approx 60^\\circ$), permitting the formation of a favorable five-membered intramolecular hydrogen-bonded chelate ($\\text{O}-\\text{H}\\cdots\\text{O}$). This intramolecular H-bond provides approximately $8-12\\text{ kJ mol}^{-1}$ of stabilization, which is completely absent in the anti conformation.\nStep 2: Analyze 1,2-difluoroethane: Organic fluorine is an extremely poor hydrogen-bond acceptor and does not engage in significant intramolecular H-bonding with $\\text{C}-\\text{H}$ bonds. The 'fluorine gauche effect' is primarily electronic in origin: the $\\sigma_{\\text{C}-\\text{H}}$ bonding orbital is an excellent electron donor, while the low-lying $\\sigma^*_{\\text{C}-\\text{F}}$ antibonding orbital is an exceptionally strong electron acceptor. In the gauche conformer, both $\\text{C}-\\text{F}$ bonds are antiperiplanar to $\\text{C}-\\text{H}$ bonds, allowing two simultaneous stabilizing $\\sigma_{\\text{C}-\\text{H}} \\to \\sigma^*_{\\text{C}-\\text{F}}$ hyperconjugative interactions. In contrast, the anti conformer only allows weaker $\\sigma_{\\text{C}-\\text{F}} \\to \\sigma^*_{\\text{C}-\\text{F}}$ overlaps.\nTherefore, option D correctly distinguishes between the two stabilizing mechanisms."
+    },
+    {
+      "id": "ocb_c01_021",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A synthetic mixture of 2-bromobutane contains $80.0\\%$ of the $(S)$-enantiomer and $20.0\\%$ of the $(R)$-enantiomer. Pure, optically pristine $(S)$-2-bromobutane has a specific optical rotation of $[\\alpha]_D^{25} = +40.0^\\circ$. Calculate the observed specific optical rotation of this enantiomeric mixture in degrees (reporting the magnitude as an integer).",
+      "options": [],
+      "answer": "24",
+      "explanation": "Step 1: Calculate the enantiomeric excess ($ee$) or optical purity of the mixture:\n$$ee = \\% (S) - \\% (R) = 80.0\\% - 20.0\\% = 60.0\\%$$\nStep 2: The observed specific optical rotation $[\\alpha]_{\\text{obs}}$ of an enantiomeric mixture is directly proportional to its enantiomeric excess:\n$$[\\alpha]_{\\text{obs}} = \\frac{ee}{100} \\times [\\alpha]_{\\text{pure}}$$\nStep 3: Substitute the given values into the expression:\n$$[\\alpha]_{\\text{obs}} = \\frac{60.0}{100} \\times (+40.0^\\circ) = +24.0^\\circ$$\nTherefore, the magnitude of the observed optical rotation is 24."
+    },
+    {
+      "id": "ocb_c01_022",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the absolute configuration ($(R)$ or $(S)$) of the chiral center in 3-isopropylhex-4-en-1-yn-3-ol, where the central carbon C-3 is bonded to $-\\text{OH}$, $-\\text{C}\\equiv\\text{CH}$, $-\\text{CH}=\\text{CH}-\\text{CH}_3$, and $-\\text{CH}(\\text{CH}_3)_2$, oriented such that the $-\\text{CH}(\\text{CH}_3)_2$ group points away from the viewer along the line of sight.",
+      "options": [
+        "A) $(R)$-configuration, because CIP priority order is $-\\text{OH} > -\\text{C}\\equiv\\text{CH} > -\\text{CH}=\\text{CH}-\\text{CH}_3 > -\\text{CH}(\\text{CH}_3)_2$",
+        "B) $(S)$-configuration, because $-\\text{CH}(\\text{CH}_3)_2$ has higher priority than $-\\text{CH}=\\text{CH}-\\text{CH}_3$",
+        "C) $(R)$-configuration, because $-\\text{CH}=\\text{CH}-\\text{CH}_3$ has higher priority than $-\\text{C}\\equiv\\text{CH}$",
+        "D) $(S)$-configuration, because $-\\text{OH}$ has lower priority than the alkynyl group"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Apply Cahn-Ingold-Prelog (CIP) priority rules to the four substituents at C-3.\nSubstituent 1: $-\\text{OH}$ (oxygen, atomic number 8, has highest priority).\nSubstituent comparison among carbon ligands:\n- Alkynyl group $-\\text{C}\\equiv\\text{CH}$: The carbon is treated as bonded to three carbon atoms, $(\\text{C}, \\text{C}, \\text{C})$, due to triple bond duplication.\n- Alkenyl group $-\\text{CH}=\\text{CH}-\\text{CH}_3$: The attached carbon is bonded to $(\\text{C}, \\text{C}, \\text{H})$.\n- Isopropyl group $-\\text{CH}(\\text{CH}_3)_2$: The attached carbon is bonded to $(\\text{C}, \\text{C}, \\text{H})$.\nComparing $(\\text{C}, \\text{C}, \\text{C})$ with $(\\text{C}, \\text{C}, \\text{H})$ establishes $-\\text{C}\\equiv\\text{CH}$ as Priority 2.\nStep 2: Resolve the tie between $-\\text{CH}=\\text{CH}-\\text{CH}_3$ and $-\\text{CH}(\\text{CH}_3)_2$: Moving to the second sphere of atoms, the alkene carbon is bonded to $(\\text{C}, \\text{H}, \\text{H})$, while the isopropyl methyl carbons are bonded to $(\\text{H}, \\text{H}, \\text{H})$. The carbon in the second sphere outranks hydrogen; hence $-\\text{CH}=\\text{CH}-\\text{CH}_3$ is Priority 3, and $-\\text{CH}(\\text{CH}_3)_2$ is Priority 4.\nStep 3: With Priority 4 ($-\\text{CH}(\\text{CH}_3)_2$) pointing away from the viewer, the path from Priority 1 ($-\\text{OH}$) $\\to$ Priority 2 ($-\\text{C}\\equiv\\text{CH}$) $\\to$ Priority 3 ($-\\text{CH}=\\text{CH}-\\text{CH}_3$) describes a clockwise trajectory. Therefore, the absolute configuration is $(R)$."
+    },
+    {
+      "id": "ocb_c01_023",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following substituted biphenyl derivatives exhibits stable atropisomerism and is resolvable into optically active enantiomers at room temperature?",
+      "options": [
+        "A) Biphenyl-2,2'-dicarboxylic acid",
+        "B) 6,6'-dinitrobiphenyl-2,2'-dicarboxylic acid",
+        "C) 2,2',6,6'-tetrachlorobiphenyl",
+        "D) 4,4'-dinitrobiphenyl-2,2'-dicarboxylic acid"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Recall the essential criteria for stable atropisomerism (axial chirality) in biphenyl systems:\n1. The rotational barrier around the central aryl-aryl $\\text{C}-\\text{C}$ single bond must exceed approximately $100\\text{ kJ mol}^{-1}$ to prevent room-temperature racemization, which requires bulky substituents at the four ortho (2, 2', 6, 6') positions.\n2. Each individual aromatic ring must be unsymmetrically substituted so that neither ring contains an internal plane of symmetry perpendicular to its plane.\nStep 2: Evaluate the candidates:\n- In 6,6'-dinitrobiphenyl-2,2'-dicarboxylic acid (B), all four ortho positions are occupied by bulky groups ($-\\text{NO}_2$ and $-\\text{COOH}$). Neither phenyl ring has an internal plane of symmetry. Rotation is completely restricted, locking the rings in perpendicular planes and rendering the molecule chiral and resolvable.\n- In 2,2',6,6'-tetrachlorobiphenyl (C), each ring has identical chloro substituents at positions 2 and 6. Consequently, a plane of symmetry bisects each ring, making the molecule achiral.\n- In biphenyl-2,2'-dicarboxylic acid (A) and 4,4'-dinitrobiphenyl-2,2'-dicarboxylic acid (D), only two ortho positions are substituted; the steric barrier is too low to prevent rapid planar rotation and racemization at room temperature.\nTherefore, option B is correct."
+    },
+    {
+      "id": "ocb_c01_024",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the basicity of methyl-substituted amines: methylamine, dimethylamine, and trimethylamine, along with ammonia. While their basicity in the gas phase strictly follows the order $(\\text{CH}_3)_3\\text{N} > (\\text{CH}_3)_2\\text{NH} > \\text{CH}_3\\text{NH}_2 > \\text{NH}_3$, the order of basic strength in aqueous solution changes to $(\\text{CH}_3)_2\\text{NH} > \\text{CH}_3\\text{NH}_2 > (\\text{CH}_3)_3\\text{N} > \\text{NH}_3$. What is the primary cause for this inversion of trimethylamine in aqueous solution?",
+      "options": [
+        "A) Trimethylamine undergoes rapid pyramidal inversion in water, preventing the nitrogen lone pair from accepting a proton.",
+        "B) The inductive effect of methyl groups reverses from electron-donating to electron-withdrawing in polar protic solvents.",
+        "C) Hydration energy of the conjugate ammonium cation decreases significantly from $1^\\circ$ to $3^\\circ$ due to decreasing number of $\\text{N}-\\text{H}$ hydrogen bonds and increased steric hindrance to water solvation.",
+        "D) Trimethylamine forms a stable neutral dimer in water that encapsulates its lone pair."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In the gas phase, amine basicity is determined solely by the $+I$ electron-releasing inductive effect of alkyl groups, which stabilizes the positive charge of the protonated ammonium cation ($3^\\circ > 2^\\circ > 1^\\circ > \\text{NH}_3$).\nStep 2: In aqueous solution, basicity is governed by the standard free energy of protonation, which balances three opposing factors: the inductive effect, cation hydration stabilization, and steric crowding.\nStep 3: The protonated primary cation $\\text{CH}_3\\text{NH}_3^+$ has three $\\text{N}-\\text{H}$ protons available for hydrogen bonding with water molecules. The secondary cation $(\\text{CH}_3)_2\\text{NH}_2^+$ has two $\\text{N}-\\text{H}$ bonds, whereas the tertiary cation $(\\text{CH}_3)_3\\text{NH}^+$ has only one $\\text{N}-\\text{H}$ bond and is severely congested by three methyl groups. Consequently, hydration energy drops steeply: $1^\\circ > 2^\\circ > 3^\\circ$.\nStep 4: In trimethylamine, the loss of hydration stabilization far outweighs the modest inductive gain of the third methyl group, dropping it below both dimethylamine and methylamine. Thus, the observed order is $2^\\circ > 1^\\circ > 3^\\circ > \\text{NH}_3$.\nHence, option C provides the correct thermodynamic explanation."
+    },
+    {
+      "id": "ocb_c01_025",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "2,6-dimethylbenzoic acid is significantly more acidic than benzoic acid, despite methyl being an electron-donating group. Conversely, N,N-dimethyl-2,6-dimethylaniline is a substantially weaker base than N,N-dimethylaniline. Which fundamental stereoelectronic phenomenon accounts for both of these observations?",
+      "options": [
+        "A) Hyperconjugative electron withdrawal by the ortho methyl groups into the aromatic $\\pi^*$-orbitals",
+        "B) Intramolecular hydrogen bonding between the ortho methyl hydrogens and the functional groups",
+        "C) Strong $+I$ inductive polarization across the $\\sigma$-framework of the benzene ring",
+        "D) Steric inhibition of resonance (SIR) twists the functional group out of coplanarity with the aromatic ring, eliminating resonance donation into the carboxylate while hindering solvation and lone-pair accessibility in the amine."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Steric Inhibition of Resonance (SIR) occurs when bulky ortho substituents force a conjugated functional group out of coplanarity with the aromatic ring, disabling $p-\\pi$ orbital overlap.\nStep 2: In 2,6-dimethylbenzoic acid, the two ortho methyl groups twist the carboxyl group ($-\\text{COOH}$) out of the ring plane. In planar benzoic acid, the phenyl ring donates electron density into the carbonyl carbon via $+M$ resonance, which destabilizes the conjugate carboxylate anion. When twisted out of plane, this resonance donation is abolished. The carboxylate anion is stabilized purely by the $-I$ effect of the $sp^2$ aromatic carbon without resonance destabilization, rendering 2,6-dimethylbenzoic acid a much stronger acid (the ortho effect).\nStep 3: In N,N-dimethyl-2,6-dimethylaniline, the bulky ortho methyl groups force the $-\\text{N}(\\text{CH}_3)_2$ group out of plane and create extreme steric crowding around nitrogen. This sterically inhibits protonation (SIP) and severely prevents water molecules from solvating the resulting ammonium cation, making it a far weaker base.\nHence, option D correctly unifies both observations."
+    },
+    {
+      "id": "ocb_c01_026",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "2-methylbutane is subjected to photochemical free-radical monochlorination. The resulting mixture of all isomeric monochloro derivatives is carefully subjected to fractional distillation. Determine the total number of distinct fractions that can be collected.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: Identify all constitutionally isomeric monochlorination products of 2-methylbutane ($\\text{CH}_3-\\text{CH}(\\text{CH}_3)-\\text{CH}_2-\\text{CH}_3$):\n1. 1-chloro-2-methylbutane: $\\text{ClCH}_2-\\text{CH}^*(\\text{CH}_3)-\\text{CH}_2-\\text{CH}_3$. Contains a chiral center at C-2; exists as a pair of enantiomers: $(R)$ and $(S)$.\n2. 2-chloro-2-methylbutane: $\\text{CH}_3-\\text{C(Cl)}(\\text{CH}_3)-\\text{CH}_2-\\text{CH}_3$. Achiral (1 isomer).\n3. 3-chloro-2-methylbutane (2-chloro-3-methylbutane): $\\text{CH}_3-\\text{CH}(\\text{CH}_3)-\\text{CH}^*(\\text{Cl})-\\text{CH}_3$. Contains a chiral center at C-3; exists as a pair of enantiomers: $(R)$ and $(S)$.\n4. 1-chloro-3-methylbutane: $\\text{CH}_3-\\text{CH}(\\text{CH}_3)-\\text{CH}_2-\\text{CH}_2\\text{Cl}$. Achiral (1 isomer).\nStep 2: Total number of stereoisomers formed $= 2 + 1 + 2 + 1 = 6$.\nStep 3: Fractional distillation separates compounds based on differences in boiling point. Constitutional isomers and diastereomers have different boiling points and separate into distinct fractions. However, enantiomers possess identical physical properties (including vapor pressure and boiling point) in an achiral environment; thus, an enantiomeric pair distills together as a single fraction.\nFraction 1: $(\\pm)$-1-chloro-2-methylbutane (enantiomeric pair)\nFraction 2: 2-chloro-2-methylbutane\nFraction 3: $(\\pm)$-3-chloro-2-methylbutane (enantiomeric pair)\nFraction 4: 1-chloro-3-methylbutane\nTherefore, exactly 4 distinct fractions are collected."
+    },
+    {
+      "id": "ocb_c01_027",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Arrange the following substituted phenols in order of strictly decreasing acid strength ($K_a$): (I) 4-nitrophenol, (II) 2-nitrophenol, (III) 3-nitrophenol, and (IV) 4-chlorophenol.",
+      "options": [
+        "A) $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$",
+        "B) $\\text{II} > \\text{I} > \\text{III} > \\text{IV}$",
+        "C) $\\text{I} > \\text{III} > \\text{II} > \\text{IV}$",
+        "D) $\\text{III} > \\text{I} > \\text{II} > \\text{IV}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The nitro group ($-M, -I$) is a much more powerful electron-withdrawing substituent than the chloro group ($+M, -I$). Hence all nitrophenols are stronger acids than 4-chlorophenol (IV).\nStep 2: In 4-nitrophenol (I), the nitro group stabilizes the phenoxide oxygen through powerful $-M$ resonance delocalization and $-I$ inductive withdrawal without steric hindrance or intramolecular hydrogen bonding ($pK_a = 7.15$).\nStep 3: In 2-nitrophenol (II), the ortho nitro group also provides $-M$ and $-I$ stabilization, but in the neutral molecule, strong intramolecular hydrogen bonding between the phenolic $-\\text{OH}$ and the ortho nitro oxygen stabilizes the undissociated acid and hinders proton release ($pK_a = 7.23$). Thus, 4-nitrophenol is slightly stronger than 2-nitrophenol.\nStep 4: In 3-nitrophenol (III), the nitro group cannot delocalize the phenoxide negative charge by resonance (meta position lacks resonance conjugation with the oxyanion); it acts solely via inductive electron withdrawal ($-I$), yielding $pK_a = 8.36$.\n4-chlorophenol (IV) has $pK_a = 9.38$. Therefore, the decreasing order of acid strength is $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$."
+    },
+    {
+      "id": "ocb_c01_028",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the acid-catalyzed pinacol-pinacolone rearrangement of 1,2-diphenyl-1,2-di-p-tolylethane-1,2-diol, which group migrates preferentially to the carbocation center, and what is the underlying electronic rationale?",
+      "options": [
+        "A) Phenyl group migrates preferentially because it is less sterically hindered than the $p$-tolyl group.",
+        "B) $p$-Tolyl group migrates preferentially over phenyl because its electron-donating methyl group stabilizes the developing positive charge in the bridged phenonium transition state.",
+        "C) A methyl group cleaved from $p$-tolyl migrates via a 1,2-alkyl shift to yield a substituted fluorenone.",
+        "D) Hydride migration occurs exclusively because hydrogen has the lowest steric bulk."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Symmetrical pinacols like 1,2-diphenyl-1,2-di-p-tolylethane-1,2-diol undergo protonation and loss of water from either hydroxyl carbon with equal facility to generate a benzylic carbocation.\nStep 2: The rearrangement proceeds via an intramolecular 1,2-aryl migration through a bridged, three-membered cyclic phenonium ion transition state.\nStep 3: Migratory aptitude in carbocation rearrangements is governed by the electron-donating ability of the migrating aryl ring, which must accommodate positive charge delocalization in the phenonium transition state. The para-methyl substituent on $p$-tolyl donates electron density through inductive ($+I$) and hyperconjugative ($+H$) effects, lowering the activation energy $\\Delta G^\\ddagger$ relative to an unsubstituted phenyl ring.\nConsequently, the migratory aptitude follows: $p\\text{-anisyl} > p\\text{-tolyl} > \\text{phenyl} > p\\text{-chlorophenyl}$.\nTherefore, option B is correct."
+    },
+    {
+      "id": "ocb_c01_029",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a Dumas nitrogen determination, $0.300\\text{ g}$ of an organic compound yielded $40.0\\text{ mL}$ of moist nitrogen gas collected over water at $300\\text{ K}$ and $745.0\\text{ mm Hg}$ total pressure. The aqueous tension of water at $300\\text{ K}$ is $15.0\\text{ mm Hg}$. Taking the molar volume of an ideal gas at STP ($273\\text{ K}, 760\\text{ mm Hg}$) as $22400\\text{ mL mol}^{-1}$ and atomic mass of $\\text{N} = 14.0\\text{ g mol}^{-1}$, calculate the percentage of nitrogen in the compound.",
+      "options": [
+        "A) $7.3\\%$",
+        "B) $29.1\\%$",
+        "C) $14.6\\%$",
+        "D) $18.2\\%$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate the pressure of dry nitrogen gas by correcting for aqueous tension:\n$$P_{\\text{dry}} = P_{\\text{total}} - P_{\\text{aqueous tension}} = 745.0 - 15.0 = 730.0\\text{ mm Hg}$$\nStep 2: Convert the volume of dry nitrogen gas to standard temperature and pressure (STP: $P_0 = 760\\text{ mm Hg}, T_0 = 273\\text{ K}$):\n$$V_0 = \\frac{P_1 V_1 T_0}{P_0 T_1} = \\frac{730.0 \\times 40.0 \\times 273}{760 \\times 300} = \\frac{7971600}{228000} \\approx 34.963\\text{ mL}$$\nStep 3: Calculate the moles and mass of nitrogen gas produced:\n$$\\text{Moles of } \\text{N}_2 = \\frac{34.963\\text{ mL}}{22400\\text{ mL mol}^{-1}} = 1.561 \\times 10^{-3}\\text{ mol}$$\n$$\\text{Mass of N} = 1.561 \\times 10^{-3}\\text{ mol} \\times 28.0\\text{ g mol}^{-1} = 0.04370\\text{ g}$$\nStep 4: Compute the mass percentage of nitrogen:\n$$\\%\\text{N} = \\frac{0.04370\\text{ g}}{0.300\\text{ g}} \\times 100\\% = 14.57\\% \\approx 14.6\\%$$\nHence, option C is correct."
+    },
+    {
+      "id": "ocb_c01_030",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Determine the total number of stereoisomers (including all geometrical and optical isomers) possible for hex-3-ene-2,5-diol, $\\text{CH}_3-\\text{CH(OH)}-\\text{CH}=\\text{CH}-\\text{CH(OH)}-\\text{CH}_3$.",
+      "options": [],
+      "answer": "6",
+      "explanation": "Step 1: Examine the constitution of hex-3-ene-2,5-diol. The molecule has two constitutionally identical chiral centers (C-2 and C-5) and one central double bond (C-3=C-4) capable of geometrical isomerism.\nStep 2: Analyze stereoisomers when the central double bond has the $(E)$-configuration:\n- When C-2 and C-5 have identical configurations: $(2R, 5R, 3E)$ and $(2S, 5S, 3E)$ form a pair of optically active enantiomers (2 active isomers).\n- When C-2 and C-5 have opposite configurations: $(2R, 5S, 3E)$ possesses a center of inversion ($i$) in its centrosymmetric conformation and is an optically inactive meso form (1 meso isomer).\nThus, the $(E)$-alkene generates $2 + 1 = 3$ stereoisomers.\nStep 3: Analyze stereoisomers when the central double bond has the $(Z)$-configuration:\n- When C-2 and C-5 have identical configurations: $(2R, 5R, 3Z)$ and $(2S, 5S, 3Z)$ form a pair of optically active enantiomers (2 active isomers).\n- When C-2 and C-5 have opposite configurations: $(2R, 5S, 3Z)$ possesses a plane of symmetry ($\\sigma$) and is an optically inactive meso form (1 meso isomer).\nThus, the $(Z)$-alkene generates $2 + 1 = 3$ stereoisomers.\nStep 4: Summing all stereoisomers: $3 + 3 = 6$ stereoisomers."
+    },
+    {
+      "id": "ocb_c01_031",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the tautomeric equilibrium between pyridin-2(1H)-one (2-pyridone) and pyridin-2-ol (2-hydroxypyridine), pyridin-2-one exists predominantly as the major tautomer in non-polar solvents and solid state. Which factors correctly explain the predominance of the lactam (2-pyridone) form over the lactim form?",
+      "options": [
+        "A) 2-Hydroxypyridine is antiaromatic, which severely destabilizes the lactim tautomer.",
+        "B) The lactam form is non-aromatic and therefore avoids angle strain.",
+        "C) Pyridine nitrogen cannot form hydrogen bonds with hydroxyl protons.",
+        "D) The lactam form retains $6\\pi$ aromatic stabilization through its dipolar resonance contributor and forms a highly stable cyclic hydrogen-bonded dimer."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate the aromaticity of both tautomers: In pyridin-2-ol, the ring is a classic heteroaromatic pyridine ring with $6\\pi$ electrons. In 2-pyridone, the amide group undergoes dipolar resonance: $\\text{O}=\\text{C}-\\text{NH}- \\leftrightarrow ^-\\text{O}-\\text{C}=\\text{N}^+\\text{H}-$. In this zwitterionic contributor, the ring contains a complete delocalized sextet of $\\pi$-electrons ($6\\pi$), preserving aromatic stabilization.\nStep 2: Dimerization thermodynamics: In non-polar solvents and the solid crystal lattice, 2-pyridone forms an exceptionally stable, centrosymmetric, doubly hydrogen-bonded cyclic dimer ($(\\text{N}-\\text{H}\\cdots\\text{O}=\\text{C})_2$). This cyclic dimerization releases $\\approx 40-50\\text{ kJ mol}^{-1}$ of enthalpy, heavily shifting the equilibrium toward the lactam.\nTherefore, option D correctly identifies the combined electronic and intermolecular driving forces."
+    },
+    {
+      "id": "ocb_c01_032",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Compare the conformational flexibility and thermodynamic stability of trans-decalin (trans-bicyclo[4.4.0]decane) and cis-decalin (cis-bicyclo[4.4.0]decane). Which of the following statements is chemically and conformationally correct?",
+      "options": [
+        "A) trans-Decalin is conformationally rigid and cannot undergo ring flipping, and is thermodynamically more stable than cis-decalin by three gauche-butane interactions.",
+        "B) cis-Decalin is conformationally locked and rigid, whereas trans-decalin flips rapidly between chair conformers at room temperature.",
+        "C) Both decalins undergo rapid chair-chair inversion with identical activation barriers.",
+        "D) cis-Decalin is thermodynamically more stable than trans-decalin because of favorable dipole cancellation."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze trans-decalin: The two cyclohexane rings are fused diequatorially $(e, e)$ at the bridgehead carbons. For trans-decalin to undergo a chair-to-chair ring flip, both equatorial bridgehead bonds would have to flip simultaneously into diaxial $(a, a)$ orientations. The distance between diaxial bridgeheads is far too large for a four-carbon bridging chain to span without intolerable ring strain. Consequently, trans-decalin is conformationally rigid and cannot ring-flip.\nStep 2: Analyze cis-decalin: The two rings are fused equatorial-axial $(e, a)$. Ring flipping converts $(e, a)$ into $(a, e)$, which are isoenergetic enantiomeric conformations. Thus, cis-decalin is conformationally mobile and flips rapidly at room temperature.\nStep 3: Thermodynamic stability: trans-Decalin has zero gauche-butane interactions between the two fused rings. cis-Decalin possesses three gauche-butane interactions (each $\\approx 3.8\\text{ kJ mol}^{-1}$), making it higher in energy by approximately $11.4\\text{ kJ mol}^{-1}$ ($2.7\\text{ kcal mol}^{-1}$).\nTherefore, statement A is correct."
+    },
+    {
+      "id": "ocb_c01_033",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Reaction of buta-1,3-diene with one equivalent of hydrogen bromide ($\\text{HBr}$) at $-80^\\circ\\text{C}$ yields predominantly 3-bromobut-1-ene (1,2-addition), whereas at $40^\\circ\\text{C}$, the major product is 1-bromobut-2-ene (1,4-addition). What is the mechanistic origin of this temperature-dependent product distribution?",
+      "options": [
+        "A) At low temperature the reaction follows a free-radical mechanism, whereas at high temperature it follows an electrophilic addition.",
+        "B) 3-Bromobut-1-ene is formed faster due to lower activation energy and proximity effect (kinetic product), while 1-bromobut-2-ene is more stable due to a more substituted double bond (thermodynamic product).",
+        "C) 1-Bromobut-2-ene is the kinetic product formed at $-80^\\circ\\text{C}$ because 1,4-addition is sterically less crowded.",
+        "D) The allylic carbocation intermediate is formed only at high temperatures, while low temperature proceeds by concerted syn-addition."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Protonation of buta-1,3-diene by $\\text{H}^+$ occurs at C-1 to generate the resonance-stabilized allylic carbocation: $[\\text{CH}_3-\\text{CH}^+-\\text{CH}=\\text{CH}_2 \\leftrightarrow \\text{CH}_3-\\text{CH}=\\text{CH}-\\text{CH}_2^+]$.\nStep 2: At low temperature ($-80^\\circ\\text{C}$), the reaction is under kinetic control. The bromide ion attacks C-2 faster because the bromide counterion is formed adjacent to C-2 immediately upon protonation (proximity / ion-pair effect) and C-2 carries greater positive charge density than primary C-4. This results in a lower activation energy ($E_a$), making 3-bromobut-1-ene the kinetic product.\nStep 3: At elevated temperature ($40^\\circ\\text{C}$), addition is reversible and thermodynamic control dominates. 1-Bromobut-2-ene contains an internal, disubstituted alkene with hyperconjugative stabilization (5 $\\alpha$-hydrogens), whereas 3-bromobut-1-ene is a monosubstituted terminal alkene (2 $\\alpha$-hydrogens). Therefore, 1-bromobut-2-ene is thermodynamically more stable.\nHence, option B is correct."
+    },
+    {
+      "id": "ocb_c01_034",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Compare the basic strength in aqueous medium of the following four aromatic amines: (I) 4-methylaniline ($p$-toluidine), (II) aniline, (III) 2-methylaniline ($o$-toluidine), and (IV) 2,6-dimethylaniline. What is the correct decreasing order of their basic strength ($K_b$ values)?",
+      "options": [
+        "A) $\\text{IV} > \\text{III} > \\text{I} > \\text{II}$",
+        "B) $\\text{I} > \\text{III} > \\text{II} > \\text{IV}$",
+        "C) $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$",
+        "D) $\\text{III} > \\text{I} > \\text{II} > \\text{IV}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In 4-methylaniline (I), the para-methyl group donates electrons via inductive ($+I$) and hyperconjugative ($+H$) effects without creating any steric crowding at the amino group. This stabilizes the anilinium cation, making I more basic than aniline (II).\nStep 2: In 2-methylaniline (III) and 2,6-dimethylaniline (IV), the presence of ortho-methyl substituents triggers the ortho effect in aromatic bases: Steric Inhibition of Protonation (SIP). The ortho-methyl groups create steric resistance to the approach of hydronium ions and, more importantly, severely obstruct hydrogen bonding and hydration of the resulting $-\\text{NH}_3^+$ group by solvent water molecules.\nStep 3: With two bulky ortho-methyl groups, 2,6-dimethylaniline (IV) suffers maximum steric destabilization of its conjugate cation and is the weakest base among the set.\nTherefore, the decreasing order of basic strength is $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$."
+    },
+    {
+      "id": "ocb_c01_035",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Complete combustion of $0.440\\text{ g}$ of a pure liquid organic compound containing carbon, hydrogen, and oxygen produced $0.880\\text{ g}$ of carbon dioxide ($\\text{CO}_2$) and $0.360\\text{ g}$ of water ($\\text{H}_2\\text{O}$). In a separate vapor density determination, the molar mass of the compound was found to be $88.0\\text{ g mol}^{-1}$. What is the molecular formula of the compound?",
+      "options": [
+        "A) $\\text{C}_2\\text{H}_4\\text{O}$",
+        "B) $\\text{C}_3\\text{H}_6\\text{O}_2$",
+        "C) $\\text{C}_5\\text{H}_{12}\\text{O}$",
+        "D) $\\text{C}_4\\text{H}_8\\text{O}_2$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Calculate the mass and moles of carbon:\n$$\\text{Mass of C} = 0.880\\text{ g } \\text{CO}_2 \\times \\frac{12.0\\text{ g C}}{44.0\\text{ g } \\text{CO}_2} = 0.240\\text{ g C}$$\n$$\\text{Moles of C} = \\frac{0.240}{12.0} = 0.020\\text{ mol}$$\nStep 2: Calculate the mass and moles of hydrogen:\n$$\\text{Mass of H} = 0.360\\text{ g } \\text{H}_2\\text{O} \\times \\frac{2.016\\text{ g H}}{18.016\\text{ g } \\text{H}_2\\text{O}} \\approx 0.040\\text{ g H}$$\n$$\\text{Moles of H} = \\frac{0.040}{1.0} = 0.040\\text{ mol}$$\nStep 3: Calculate the mass and moles of oxygen by difference:\n$$\\text{Mass of O} = 0.440\\text{ g} - (0.240\\text{ g} + 0.040\\text{ g}) = 0.160\\text{ g O}$$\n$$\\text{Moles of O} = \\frac{0.160}{16.0} = 0.010\\text{ mol}$$\nStep 4: Determine the empirical formula: Molar ratio $\\text{C} : \\text{H} : \\text{O} = 0.020 : 0.040 : 0.010 = 2 : 4 : 1$. The empirical formula is $\\text{C}_2\\text{H}_4\\text{O}$ (formula mass $= 44.0\\text{ g mol}^{-1}$).\nStep 5: Determine the molecular formula: Ratio $n = \\frac{88.0}{44.0} = 2$. Therefore, the molecular formula is $(\\text{C}_2\\text{H}_4\\text{O})_2 = \\text{C}_4\\text{H}_8\\text{O}_2$."
+    },
+    {
+      "id": "ocb_c01_036",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the solvolysis of optically active exo-2-norbornyl brosylate and the structural nature of the intermediate 2-norbornyl cation ($\\text{C}_7\\text{H}_{11}^+$) established by low-temperature spectroscopic and crystallographic studies. Which of the following statements is/are correct?",
+      "options": [
+        "A) Solvolysis of optically active exo-2-norbornyl brosylate produces completely racemic exo-2-norbornyl product due to the formation of a symmetrical bridged non-classical carbocation.",
+        "B) The non-classical 2-norbornyl cation features a three-center two-electron ($3c-2e$) bond delocalized across C-1, C-2, and C-6.",
+        "C) In the solvolysis of endo-2-norbornyl brosylate, ionization is slower because the leaving group cannot receive anchimeric assistance from the $\\text{C}_1-\\text{C}_6$ $\\sigma$-bond.",
+        "D) The non-classical 2-norbornyl cation consists of a rapidly equilibrating pair of unsymmetrical classical carbocations with zero activation barrier at absolute zero."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: In the solvolysis of optically active exo-2-norbornyl brosylate, ionization proceeds with anchimeric assistance (neighboring group participation) by the $\\text{C}_1-\\text{C}_6$ $\\sigma$-bonding electrons. This yields a symmetrical, bridged non-classical carbocation possessing a mirror plane of symmetry ($\\sigma$). Subsequent attack of solvent nucleophile occurs with equal probability at C-1 and C-2 from the exo face, yielding a completely racemic ($\\%$ enantiomeric excess $= 0$) exo product. Hence statement A is correct.\nStep 2: Low-temperature NMR spectroscopy (by George Olah) and low-temperature X-ray crystal structure determination definitively demonstrate that the 2-norbornyl cation is a single energy minimum featuring a pentacoordinate three-center two-electron ($3c-2e$) bond spanning carbons C-1, C-2, and C-6. Thus statement B is correct.\nStep 3: In endo-2-norbornyl brosylate, the leaving group is not anti-periplanar to the $\\text{C}_1-\\text{C}_6$ $\\sigma$-bond; therefore, it cannot experience neighboring group participation and solvolyzes approximately $350$ times slower than the exo epimer. Hence statement C is correct.\nStep 4: The classical rapidly equilibrating hypothesis proposed by H.C. Brown has been disproved by physical measurement; the bridged non-classical structure is not a pair of classical isomers. Therefore statement D is false."
+    },
+    {
+      "id": "ocb_c01_037",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In the unimolecular solvolysis ($S_N1$) of 2-chloro-2-methylpropane and its deuterated isotopologue 2-chloro-2-(trideuteriomethyl)propane, hyperconjugation plays a central role in stabilizing the developing carbocation. Which of the following statements is/are correct regarding the secondary kinetic isotope effect (KIE)?",
+      "options": [
+        "A) A normal secondary kinetic isotope effect ($k_{\\text{H}} / k_{\\text{D}} > 1$) is observed because the $\\text{C}-\\text{H}$ bond has a higher zero-point vibrational energy (ZPVE) than the $\\text{C}-\\text{D}$ bond.",
+        "B) Deuterium exhibits a stronger hyperconjugative electron-donating effect than protium because the $\\text{C}-\\text{D}$ bond is shorter and more polarizable.",
+        "C) In the carbocation transition state, hyperconjugative donation ($\\sigma_{\\text{C}-\\text{H}} \\to 2p_{\\text{C}^+}$) weakens the $\\text{C}-\\text{H}$ bond, decreasing the vibrational frequency and lowering the activation energy for the protium isotopologue.",
+        "D) An inverse kinetic isotope effect ($k_{\\text{H}} / k_{\\text{D}} < 1$) is observed because deuterium is more electropositive than protium by inductive effect."
+      ],
+      "answer": "A,C",
+      "explanation": "Step 1: Recall that the zero-point vibrational energy (ZPVE) of a chemical bond depends on its reduced mass: $\\text{ZPVE} = \\frac{1}{2}h\\nu$. Because protium ($^1\\text{H}$) is lighter than deuterium ($^2\\text{H}$), the $\\text{C}-\\text{H}$ stretching vibration occurs at a higher frequency ($\\approx 2900\\text{ cm}^{-1}$) than that of $\\text{C}-\\text{D}$ ($\\approx 2100\\text{ cm}^{-1}$), giving $\\text{C}-\\text{H}$ a higher ground-state ZPVE.\nStep 2: In the transition state of $S_N1$ solvolysis, hyperconjugation transfers electron density from the adjacent $\\sigma_{\\text{C}-\\text{H}}$ (or $\\sigma_{\\text{C}-\\text{D}}$) bonding orbital into the vacant $2p$ orbital of the developing carbocation ($\\sigma_{\\text{C}-\\text{H}} \\to 2p_{\\text{C}^+}$). This hyperconjugative interaction weakens the $\\text{C}-\\text{H}$ bond, significantly lowering its vibrational force constant and vibrational frequency in the transition state. Therefore, the loss in ZPVE is larger for the $\\text{C}-\\text{H}$ bond than for the stiffer $\\text{C}-\\text{D}$ bond, yielding a lower free energy of activation $\\Delta G^\\ddagger_{\\text{H}} < \\Delta G^\\ddagger_{\\text{D}}$. Hence $k_{\\text{H}} / k_{\\text{D}} > 1$ (normal secondary $\\beta$-deuterium KIE). Thus statements A and C are correct.\nStep 3: The greater vibrational amplitude of the $\\text{C}-\\text{H}$ bond allows superior orbital overlap with the vacant $2p$ orbital, meaning protium is a more effective hyperconjugative electron donor than deuterium. Therefore statement B is false.\nStep 4: The observed isotope effect is normal ($k_{\\text{H}} / k_{\\text{D}} \\approx 1.10-1.30$), not inverse. Therefore statement D is false."
+    },
+    {
+      "id": "ocb_c01_038",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The Hammett equation, $\\log(K / K_0) = \\rho \\sigma$, quantitatively relates the acid dissociation constants of meta- and para-substituted benzoic acids to electronic substituent constants $\\sigma$. Which of the following statements regarding Hammett parameters and electronic transmission is/are correct?",
+      "options": [
+        "A) The reaction constant $\\rho$ is defined as $+1.00$ for the ionization of substituted phenols in water at $25^\\circ\\text{C}$.",
+        "B) The reaction constant $\\rho$ for the ionization of substituted benzoic acids in water at $25^\\circ\\text{C}$ is defined as $+1.00$ by convention.",
+        "C) Electron-withdrawing substituents such as $-\\text{NO}_2$ have positive $\\sigma$ values, whereas electron-donating substituents such as $-\\text{OCH}_3$ have negative $\\sigma_p$ values.",
+        "D) For the ionization of substituted phenols, $\\rho > 1.00$, indicating that phenol ionization is more sensitive to substituent electronic effects than benzoic acid ionization."
+      ],
+      "answer": "B,C,D",
+      "explanation": "Step 1: The Hammett equation defines the substituent constant $\\sigma$ relative to the ionization of meta- and para-substituted benzoic acids in water at $25^\\circ\\text{C}$ ($298\\text{ K}$), where the reaction constant $\\rho$ is defined as exactly $+1.00$ by international convention: $\\sigma_X = \\log(K_X / K_H)$. Hence statement B is correct, while statement A is incorrect because $\\rho = 1.00$ is not defined for phenols.\nStep 2: Electron-withdrawing groups (such as $-\\text{NO}_2$, $\\sigma_p = +0.78$) stabilize the carboxylate anion, shifting the equilibrium forward ($K_X > K_H$), yielding a positive $\\sigma$. Electron-donating groups (such as $-\\text{OCH}_3$, $\\sigma_p = -0.27$) destabilize the carboxylate, yielding a negative $\\sigma$. Hence statement C is correct.\nStep 3: In the ionization of substituted phenols, the negative charge generated on the phenoxide oxygen atom is directly conjugated with the aromatic $\\pi$-system, without an intervening carbonyl carbon. Consequently, electronic interactions are transmitted more strongly, yielding a reaction constant $\\rho \\approx +2.11$ in water. Since $\\rho > 1.00$, phenol ionization exhibits significantly greater sensitivity to substituent electronic perturbations than benzoic acid. Therefore statement D is correct."
+    },
+    {
+      "id": "ocb_c01_039",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Addition of molecular bromine ($\\text{Br}_2$) in carbon tetrachloride to maleic acid ((Z)-butenedioic acid) and fumaric acid ((E)-butenedioic acid) proceeds via a cyclic bromonium ion intermediate followed by anti-stereospecific nucleophilic attack. Which of the following stereochemical statements is/are correct?",
+      "options": [
+        "A) Addition of $\\text{Br}_2$ to fumaric acid yields an optically inactive meso-2,3-dibromosuccinic acid.",
+        "B) Addition of $\\text{Br}_2$ to maleic acid yields a racemic mixture of $(2R, 3R)$- and $(2S, 3S)$-2,3-dibromosuccinic acid.",
+        "C) Addition of $\\text{Br}_2$ to fumaric acid yields a racemic pair of enantiomers because bromine can attack from either the top or bottom face.",
+        "D) The formation of a bridged cyclic bromonium ion prevents free rotation around the central carbon-carbon bond, ensuring strictly stereospecific anti-addition."
+      ],
+      "answer": "A,B,D",
+      "explanation": "Step 1: Electrophilic addition of $\\text{Br}_2$ across an alkene double bond proceeds via a three-membered cyclic bromonium intermediate, which locks the conformational geometry and enforces backside anti-coplanar nucleophilic attack by the bromide ion (anti-addition).\nStep 2: Apply stereochemical addition principles:\n- For an $(E)$-alkene (trans): anti-addition of two identical substituents ($\\text{Br}$) generates a centrosymmetric molecule possessing a center of inversion ($i$) or a plane of symmetry ($\\sigma$). Fumaric acid is $(E)$-butenedioic acid; therefore, anti-bromination yields meso-2,3-dibromosuccinic acid (optically inactive by internal compensation). Hence statement A is correct, and statement C is false.\n- For a $(Z)$-alkene (cis): anti-addition of two identical substituents generates a pair of non-superimposable enantiomers. Maleic acid is $(Z)$-butenedioic acid; attack of bromide from opposite faces at C-2 and C-3 occurs with equal probability, yielding an equimolar racemic mixture of $(2R, 3R)$- and $(2S, 3S)$-2,3-dibromosuccinic acid. Hence statement B is correct.\nStep 3: The bridged cyclic bromonium ion prevents free rotation around the $\\text{C}-\\text{C}$ bond prior to ring opening, ensuring complete stereospecificity. Thus statement D is correct."
+    },
+    {
+      "id": "ocb_c01_040",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In $^1\\text{H}$ NMR spectroscopy, aromatic and antiaromatic annulenes exhibit characteristic magnetic anisotropy arising from induced ring currents. Consider [18]annulene, a planar $(4n+2)\\pi$ conjugated ring ($n=4$), and [16]annulene, a $4n\\pi$ conjugated ring ($n=4$). Which of the following statements is/are correct?",
+      "options": [
+        "A) [18]Annulene sustains an induced diatropic ring current in an external magnetic field, which shields the interior protons and deshields the exterior protons.",
+        "B) In the $^1\\text{H}$ NMR spectrum of [18]annulene at low temperature, the interior protons appear significantly downfield at $\\delta \\approx 9.3\\text{ ppm}$.",
+        "C) In the $^1\\text{H}$ NMR spectrum of [18]annulene at low temperature, the 12 exterior protons appear downfield at $\\delta \\approx 9.3\\text{ ppm}$, while the 6 interior protons appear far upfield at $\\delta \\approx -3.0\\text{ ppm}$.",
+        "D) Planar $4n\\pi$ antiaromatic systems sustain a paratropic ring current that results in the opposite shielding pattern (interior protons deshielded, exterior protons shielded)."
+      ],
+      "answer": "A,C,D",
+      "explanation": "Step 1: According to Pauling and Pople ring-current theory, a planar aromatic ring containing $(4n+2)\\pi$ electrons (such as [18]annulene with $18\\pi$ electrons) develops an induced diatropic ring current when exposed to an external magnetic field ($B_0$). The induced secondary magnetic field opposes $B_0$ inside the loop of the ring, heavily shielding protons situated in the interior cavity. Outside the ring periphery, the induced field lines loop around to reinforce $B_0$, deshielding exterior protons. Hence statement A is correct.\nStep 2: At $-60^\\circ\\text{C}$ (where conformational conformational exchange is frozen on the NMR timescale), the $^1\\text{H}$ NMR spectrum of [18]annulene displays two distinct signals: 12 exterior protons at $\\delta \\approx 9.28\\text{ ppm}$ (downfield) and 6 interior protons at $\\delta \\approx -2.99\\text{ ppm}$ (dramatically upfield, with negative chemical shift). Thus statement C is correct, and statement B is false.\nStep 3: In planar antiaromatic rings containing $4n\\pi$ electrons (such as planar [16]annulene or planar cyclooctatetraene dication/dianion), an induced paramagnetic (paratropic) ring current is sustained. The induced field reinforces $B_0$ inside the ring and opposes it outside, causing interior protons to appear downfield and exterior protons upfield. Therefore statement D is correct."
+    },
+    {
+      "id": "ocb_c01_041",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the base-promoted E2 elimination of menthyl chloride and neomenthyl chloride upon heating with sodium ethoxide in ethanol. Which of the following statements is/are correct regarding the reaction pathways, stereoelectronic requirements, and the Curtin-Hammett principle?",
+      "options": [
+        "A) Menthyl chloride reacts substantially faster than neomenthyl chloride because its most stable conformation has the chlorine atom in the equatorial position.",
+        "B) Neomenthyl chloride reacts much faster than menthyl chloride because in its most stable chair conformation, the chlorine atom already occupies the requisite axial position for anti-periplanar elimination.",
+        "C) Menthyl chloride eliminates exclusively to give 2-menthene as the minor product and 3-menthene as the major Saytzeff product.",
+        "D) In menthyl chloride, elimination must proceed from the less stable diaxial chair conformer, yielding 2-menthene exclusively because only C-2 bears an anti-periplanar axial hydrogen."
+      ],
+      "answer": "B,D",
+      "explanation": "Step 1: The E2 elimination mechanism mandates a strictly anti-periplanar geometry ($180^\\circ$ dihedral angle between $\\text{C}-\\text{H}$ and $\\text{C}-\\text{Cl}$ bonds). On a cyclohexane ring, this stereoelectronic requirement can only be satisfied when both the chlorine leaving group and the $\\beta$-hydrogen occupy axial positions (diaxial elimination).\nStep 2: In neomenthyl chloride, the most stable chair conformation features the bulky isopropyl and methyl groups in equatorial positions while the chlorine atom occupies an axial position. Because the axial chlorine has adjacent axial $\\beta$-hydrogens at both C-2 and C-4, rapid elimination occurs directly from the major ground-state conformer to give 3-menthene (the more substituted, thermodynamically stable Saytzeff product, $\\approx 75\\%$) as the major product. Hence statement B is correct.\nStep 3: In menthyl chloride, the most stable chair conformation places all three substituents (isopropyl, methyl, and chlorine) in equatorial positions. To achieve diaxial orientation for E2 elimination, the ring must flip into the high-energy conformer where all three substituents are forced into axial positions (governed by the Curtin-Hammett principle). In this diaxial conformer, C-4 carries an axial methyl group rather than an axial hydrogen; only C-2 bears an anti-periplanar axial hydrogen. Consequently, elimination can only occur toward C-2, proceeding slowly and exclusively yielding 2-menthene ($100\\%$, the anti-Saytzeff alkene). Thus statement D is correct, while statements A and C are false."
+    },
+    {
+      "id": "ocb_c01_042",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In the rearrangement of carbocations, 1,2-shifts of alkyl groups, aryl groups, or hydride ions occur with distinct stereochemical and thermodynamic characteristics. Which of the following statements is/are correct?",
+      "options": [
+        "A) In a 1,2-alkyl shift, the migrating alkyl group migrates with complete retention of its own internal stereochemical configuration at the migrating carbon.",
+        "B) Rearrangement of a secondary carbocation to a tertiary carbocation occurs with a typical thermodynamic driving force ($\\Delta H^\\circ$) of approximately $40-60\\text{ kJ mol}^{-1}$ due to hyperconjugative and inductive stabilization.",
+        "C) Ring expansion of a four-membered cyclobutyl carbocation to a five-membered cyclopentyl carbocation is strongly driven by the relief of angle strain ($\\approx 80-105\\text{ kJ mol}^{-1}$).",
+        "D) In a 1,2-shift involving a chiral migrating center, the migrating group undergoes complete inversion of configuration because it attacks the carbocation p-orbital from the backside."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Analyze migrating group stereochemistry: In intramolecular 1,2-shifts (such as Wagner-Meerwein, pinacol, and Whitmore rearrangements), the migrating alkyl or aryl group acts as an internal nucleophile. The migrating carbon interacts with the adjacent empty $2p$ orbital of the carbocation through a bridged three-center two-electron ($3c-2e$) transition state. Because bonding to the new carbocation center is initiated on the same face before the original bond is fully cleaved, the migrating group migrates with strictly complete retention of its own stereochemical configuration. Hence statement A is correct, and statement D is false.\nStep 2: Thermodynamic driving force: Tertiary carbocations are stabilized relative to secondary carbocations by about $10-15\\text{ kcal mol}^{-1}$ ($40-60\\text{ kJ mol}^{-1}$) due to additional inductive donation and hyperconjugation from nine $\\alpha$-hydrogens versus six $\\alpha$-hydrogens. Thus statement B is correct.\nStep 3: Strain relief: Cyclobutane possesses approximately $110\\text{ kJ mol}^{-1}$ ($26.5\\text{ kcal mol}^{-1}$) of total ring strain, whereas cyclopentane has only $\\approx 26\\text{ kJ mol}^{-1}$. Therefore, ring expansion of a 1-cyclobutylethyl cation to a cyclopentyl system releases about $84\\text{ kJ mol}^{-1}$ of strain, providing an immense driving force. Thus statement C is correct."
+    },
+    {
+      "id": "ocb_c01_043",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the thermodynamic acidity and basicity of squaric acid (3,4-dihydroxycyclobut-3-ene-1,2-dione), tropolone (2-hydroxycyclohepta-2,4,6-trien-1-one), and 1,8-bis(dimethylamino)naphthalene (Proton Sponge). Which of the following statements is/are correct?",
+      "options": [
+        "A) Squaric acid is an unusually strong diprotic organic acid ($pK_{a1} \\approx 1.5, pK_{a2} \\approx 3.4$) because its dianion ($\\text{C}_4\\text{O}_4^{2-}$) possesses aromatic character with $2\\pi$-electrons delocalized over a planar ring and four equivalent oxygen atoms.",
+        "B) Squaric acid is strong because its cyclobutenedione ring is completely antiaromatic, which is relieved upon ionization.",
+        "C) 1,8-bis(dimethylamino)naphthalene acts as a 'proton sponge' with an exceptionally high $pK_a \\approx 12.1$ for its conjugate acid because protonation relieves severe lone-pair electrostatic repulsion and creates a strong intramolecular $\\text{N}-\\text{H}^+\\cdots\\text{N}$ hydrogen bond.",
+        "D) Tropolone has an acidic hydroxyl group ($pK_a \\approx 6.7$) because loss of a proton yields a resonance-stabilized tropolonate anion containing a delocalized aromatic $6\\pi$ tropylium-like ring system."
+      ],
+      "answer": "A,C,D",
+      "explanation": "Step 1: Analyze squaric acid: Squaric acid has exceptionally low $pK_a$ values for an organic diol ($pK_{a1} \\approx 1.5$, $pK_{a2} \\approx 3.4$, comparable to inorganic acids). Deprotonation yields the squarate dianion ($\\text{C}_4\\text{O}_4^{2-}$), which is strictly planar with $D_{4h}$ symmetry. All four carbon-carbon bonds have identical lengths ($1.46\\text{ \\AA}$), and all four carbon-oxygen bonds have identical lengths ($1.26\\text{ \\AA}$). The four-membered ring accommodates $2\\pi$ electrons ($n=0$ in Hückel's $4n+2$ rule), conferring aromatic stabilization with the two negative charges completely delocalized across all four oxygen atoms. Hence statement A is correct, and statement B is false.\nStep 2: Analyze 1,8-bis(dimethylamino)naphthalene: In the neutral molecule, the two bulky dimethylamino groups are forced into close contact at the rigid peri-positions of the naphthalene core, causing intense steric strain and severe electrostatic repulsion between the two nitrogen lone pairs. Protonation introduces a proton between the nitrogens, forming a nearly linear, exceptionally strong intramolecular $[\\text{N}-\\text{H}\\cdots\\text{N}]^+$ hydrogen bond that relieves lone-pair repulsion. Consequently, it possesses an extraordinary $pK_a \\approx 12.1$ for its conjugate acid. Hence statement C is correct.\nStep 3: Analyze tropolone: The hydroxyl group has $pK_a = 6.7$, significantly more acidic than phenol ($pK_a \\approx 10$). Deprotonation generates the tropolonate anion, in which the negative charge is delocalized over the seven-membered ring and both oxygen atoms, forming an aromatic $6\\pi$ tropylium-like conjugated core. Thus statement D is correct."
+    },
+    {
+      "id": "ocb_c01_044",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Complete combustion of $0.214\\text{ g}$ of a pure aromatic base $\\text{Z}$ containing carbon, hydrogen, and nitrogen yielded $0.616\\text{ g}$ of $\\text{CO}_2$ and $0.162\\text{ g}$ of $\\text{H}_2\\text{O}$. In a separate Dumas estimation, $0.214\\text{ g}$ of $\\text{Z}$ produced $22.4\\text{ mL}$ of dry nitrogen gas measured at STP ($273\\text{ K}, 1\\text{ atm}$). Compound $\\text{Z}$ reacts with benzenesulfonyl chloride in aqueous potassium hydroxide to yield a precipitate that is completely insoluble in excess aqueous potassium hydroxide. Identify compound $\\text{Z}$.",
+      "options": [
+        "A) N-methylaniline",
+        "B) Benzylamine",
+        "C) 4-methylaniline ($p$-toluidine)",
+        "D) N,N-dimethylaniline"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate the mass and moles of carbon:\n$$\\text{Mass of C} = 0.616\\text{ g } \\text{CO}_2 \\times \\frac{12.0\\text{ g C}}{44.0\\text{ g } \\text{CO}_2} = 0.168\\text{ g C}$$\n$$\\text{Moles of C} = \\frac{0.168}{12.0} = 0.0140\\text{ mol}$$\nStep 2: Calculate the mass and moles of hydrogen:\n$$\\text{Mass of H} = 0.162\\text{ g } \\text{H}_2\\text{O} \\times \\frac{2.016\\text{ g H}}{18.016\\text{ g } \\text{H}_2\\text{O}} \\approx 0.0180\\text{ g H}$$\n$$\\text{Moles of H} = \\frac{0.0180}{1.0} = 0.0180\\text{ mol}$$\nStep 3: Calculate the mass and moles of nitrogen from Dumas collection at STP:\n$$\\text{Moles of } \\text{N}_2 = \\frac{22.4\\text{ mL}}{22400\\text{ mL mol}^{-1}} = 0.0010\\text{ mol}$$\n$$\\text{Moles of N atoms} = 2 \\times 0.0010 = 0.0020\\text{ mol}$$\n$$\\text{Mass of N} = 0.0020\\text{ mol} \\times 14.0\\text{ g mol}^{-1} = 0.0280\\text{ g}$$\nStep 4: Verify sample mass balance: $0.168 + 0.018 + 0.028 = 0.214\\text{ g}$. Thus, no oxygen is present.\nMolar ratio $\\text{C} : \\text{H} : \\text{N} = 0.0140 : 0.0180 : 0.0020 = 7 : 9 : 1$. The molecular formula is $\\text{C}_7\\text{H}_9\\text{N}$.\nStep 5: Apply Hinsberg's test criteria: Primary amines react with benzenesulfonyl chloride to give sulfonamides that dissolve in aqueous $\\text{KOH}$ because of an acidic hydrogen on nitrogen. Secondary amines react to form sulfonamides that have no acidic hydrogen on nitrogen, precipitating as an insoluble solid in aqueous $\\text{KOH}$. Tertiary amines do not react. Since compound $\\text{Z}$ forms a precipitate insoluble in aqueous $\\text{KOH}$, it must be a secondary amine. The only secondary amine isomer of formula $\\text{C}_7\\text{H}_9\\text{N}$ is N-methylaniline.\nTherefore, option A is correct."
+    },
+    {
+      "id": "ocb_c01_045",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Consider the polyfunctional acyclic compound 4-bromo-3-chloro-2-methylhex-5-en-1-ol. Calculate the total number of stereoisomers (all of which are optically active enantiomers) possible for this constitutional structure.",
+      "options": [],
+      "answer": "8",
+      "explanation": "Step 1: Analyze the constitutional connectivity and functional groups of 4-bromo-3-chloro-2-methylhex-5-en-1-ol: $\\text{HO}-\\text{CH}_2-\\text{CH}^*(\\text{CH}_3)-\\text{CH}^*(\\text{Cl})-\\text{CH}^*(\\text{Br})-\\text{CH}=\\text{CH}_2$.\nStep 2: Identify stereogenic units:\n- Carbon C-2 is bonded to $-\\text{CH}_2\\text{OH}$, $-\\text{H}$, $-\\text{CH}_3$, and $-\\text{CH(Cl)}\\cdots$ (four distinct ligands; stereocenter 1).\n- Carbon C-3 is bonded to $-\\text{H}$, $-\\text{Cl}$, $-\\text{CH(CH}_3)\\text{CH}_2\\text{OH}$, and $-\\text{CH(Br)}\\text{CH}=\\text{CH}_2$ (four distinct ligands; stereocenter 2).\n- Carbon C-4 is bonded to $-\\text{H}$, $-\\text{Br}$, $-\\text{CH(Cl)}\\cdots$, and $-\\text{CH}=\\text{CH}_2$ (four distinct ligands; stereocenter 3).\n- Carbon C-5=C-6 is a terminal alkene ($-\\text{CH}=\\text{CH}_2$) carrying two identical hydrogen atoms on C-6; hence it cannot exhibit geometrical isomerism.\nStep 3: Symmetry evaluation: The terminal groups on either end ($-\\text{CH}_2\\text{OH}$ and $-\\text{CH}=\\text{CH}_2$) are constitutionally distinct. The molecule has zero symmetry elements (no plane of symmetry, no center of inversion, no alternating axis of symmetry) in any configuration.\nStep 4: Calculate the total number of stereoisomers using the formula for unsymmetrical molecules with $n$ chiral centers: $N = 2^n = 2^3 = 8$. All 8 stereoisomers are chiral and exist as 4 pairs of enantiomers. Therefore, the total number of stereoisomers is 8."
+    },
+    {
+      "id": "ocb_c01_046",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In the solvolysis of 2-chloro-2-methylpropane compared to 2-chloro-2-(trideuteriomethyl)propane-d9, $(CD_3)_3C-Cl$, at $298\\text{ K}$, hyperconjugation of nine $\\beta$-C-H bonds stabilizes the carbocation transition state. If each individual $\\beta$-deuterium atom contributes a secondary kinetic isotope effect factor of $(k_{\\text{H}} / k_{\\text{D}})_i = 1.030$, calculate the overall cumulative solvolysis rate ratio $k_{(CH_3)_3C-Cl} / k_{(CD_3)_3C-Cl}$ (using $(1.030)^9 \\approx 1.305$).",
+      "options": [
+        "A) $1.03$",
+        "B) $1.31$",
+        "C) $0.77$",
+        "D) $1.09$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In the nonadeutero derivative $(CD_3)_3C-Cl$, there are three trideuteriomethyl groups directly attached to the tertiary carbon, providing a total of $3 \\times 3 = 9$ equivalent $\\beta$-deuterium atoms.\nStep 2: Kinetic isotope effects from independent $\\beta$-bonds act multiplicatively on the rate constant of ionization:\n$$\\frac{k_{(CH_3)_3C-Cl}}{k_{(CD_3)_3C-Cl}} = \\prod_{i=1}^{9} \\left(\\frac{k_{\\text{H}}}{k_{\\text{D}}}\\right)_i = (1.030)^9$$\nStep 3: Compute the power:\n$$(1.030)^9 \\approx 1 + 9(0.030) + \\frac{9 \\times 8}{2}(0.030)^2 = 1 + 0.270 + 0.0324 = 1.3047 \\approx 1.31$$\nStep 4: This demonstrates that non-deuterated tert-butyl chloride ionizes approximately $1.31$ times faster due to cumulative hyperconjugative vibrational relaxation across nine $\\beta-\\text{C}-\\text{H}$ bonds.\nTherefore, option B is correct."
+    },
+    {
+      "id": "ocb_c01_047",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Azulene ($\\text{C}_{10}\\text{H}_8$) is a non-alternant bicyclic aromatic hydrocarbon composed of fused five-membered and seven-membered rings containing five conjugated $\\pi$-bonds. Determine the total number of uncharged Kekulé resonance structures (having fully satisfied octets on all carbon atoms and zero formal charges) that can be drawn for azulene.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: Examine the bicyclic framework of azulene: It consists of a 5-membered ring fused to a 7-membered ring sharing a central bridgehead $\\text{C}_{3a}-\\text{C}_{8a}$ bond, with a total of 10 carbon atoms and 5 double bonds.\nStep 2: Test whether the central bridgehead bond can be a double bond in a neutral Kekulé structure: If the bridgehead bond were a double bond, carbons C-3a and C-8a would each have used three valences (one double bond and one single ring bond). The remaining 3 carbons of the five-membered ring would have to accommodate an integer number of double bonds. However, 3 carbons cannot accommodate an even number of $\\pi$-electrons without leaving an unpaired electron or a charge. Therefore, the bridgehead bond cannot be a double bond in any neutral Kekulé contributor.\nStep 3: Consequently, all 5 double bonds must be located around the 10-carbon conjugated perimeter. Around a 10-membered perimeter, there are exactly two possible alternating single-double bond distributions:\n1. Double bonds at positions 1-2, 3-3a, 4-5, 6-7, and 8-8a.\n2. Double bonds at positions 2-3, 3a-4, 5-6, 7-8, and 8a-1.\nBoth canonical forms have complete octets and zero formal charges. Thus, azulene has exactly 2 uncharged Kekulé resonance structures."
+    },
+    {
+      "id": "ocb_c01_048",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "At $298\\text{ K}$, the keto-enol tautomeric equilibrium of pentane-2,4-dione in cyclohexane solution has a standard Gibbs free energy change of $\\Delta G^\\circ = -3.42\\text{ kJ mol}^{-1}$ for the enolization reaction: $\\text{Keto} \\rightleftharpoons \\text{Enol}$. Taking $R = 8.314\\text{ J mol}^{-1}\\text{ K}^{-1}$ and $\\ln(10) \\approx 2.303$, calculate the enolization equilibrium constant $K_{\\text{enol}} = [\\text{Enol}] / [\\text{Keto}]$ and the percentage of enol present at equilibrium.",
+      "options": [
+        "A) $K_{\\text{enol}} \\approx 0.25$ and $\\%\\text{enol} \\approx 20.0\\%$",
+        "B) $K_{\\text{enol}} \\approx 1.40$ and $\\%\\text{enol} \\approx 58.3\\%$",
+        "C) $K_{\\text{enol}} \\approx 4.0$ and $\\%\\text{enol} \\approx 80.0\\%$",
+        "D) $K_{\\text{enol}} \\approx 0.74$ and $\\%\\text{enol} \\approx 42.5\\%$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate the equilibrium constant $K_{\\text{enol}}$ using the thermodynamic relationship $\\Delta G^\\circ = -RT \\ln K_{\\text{enol}}$:\n$$\\ln K_{\\text{enol}} = -\\frac{\\Delta G^\\circ}{RT} = -\\frac{-3420\\text{ J mol}^{-1}}{8.314\\text{ J mol}^{-1}\\text{ K}^{-1} \\times 298\\text{ K}} = \\frac{3420}{2477.6} \\approx 1.380$$\nStep 2: Convert natural logarithm to exponent:\n$$K_{\\text{enol}} = e^{1.380} = 10^{1.380 / 2.303} = 10^{0.600} \\approx 3.98 \\approx 4.0$$\nStep 3: Compute the percentage of the enol tautomer present at equilibrium:\n$$\\%\\text{Enol} = \\frac{[\\text{Enol}]}{[\\text{Keto}] + [\\text{Enol}]} \\times 100\\% = \\frac{K_{\\text{enol}}}{1 + K_{\\text{enol}}} \\times 100\\%$$\n$$\\%\\text{Enol} = \\frac{4.0}{1 + 4.0} \\times 100\\% = \\frac{4.0}{5.0} \\times 100\\% = 80.0\\%$$\nTherefore, option C is correct."
+    },
+    {
+      "id": "ocb_c01_049",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Determine the total number of enantiomeric pairs (distinct pairs of chiral enantiomers representing the different diastereomeric configurations) formed by 1,2,4-trimethylcyclohexane.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: Examine the constitution of 1,2,4-trimethylcyclohexane: It is a cyclohexane ring with three methyl substituents at C-1, C-2, and C-4.\nStep 2: Check for potential meso forms or internal symmetry: Because C-4 is placed unsymmetrically with respect to C-1 and C-2, no configuration of 1,2,4-trimethylcyclohexane can possess an internal plane of symmetry ($\\sigma$) or center of inversion ($i$). Therefore, all configurations are chiral, and zero meso forms exist.\nStep 3: With $n = 3$ stereocenters, the total number of stereoisomers is $2^3 = 8$ stereoisomers.\nStep 4: Since each stereoisomer is chiral and has a non-superimposable mirror image, these 8 stereoisomers group into $8 / 2 = 4$ distinct enantiomeric pairs (the four diastereomeric cis/trans families: cis-1,2-cis-1,4; cis-1,2-trans-1,4; trans-1,2-cis-1,4; and trans-1,2-trans-1,4). Therefore, the number of enantiomeric pairs is 4."
+    },
+    {
+      "id": "ocb_c01_050",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry Basics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "When $(R)$-2-phenylpropanal is treated with methylmagnesium bromide in diethyl ether followed by aqueous acidic workup, nucleophilic addition to the carbonyl carbon is diastereoselective. Applying the Felkin-Anh stereochemical model, determine the major diastereomeric product formed.",
+      "options": [
+        "A) $(2R, 3R)$-3-phenylbutan-2-ol, formed by attack past the medium methyl group anti to the carbonyl oxygen",
+        "B) $(2S, 3S)$-3-phenylbutan-2-ol, formed with inversion of configuration at C-3",
+        "C) 2-phenylbutan-2-ol, formed by rearrangement of the phenyl group during nucleophilic attack",
+        "D) $(2S, 3R)$-3-phenylbutan-2-ol, formed by attack along the Bürgi-Dunitz trajectory past the small hydrogen atom anti to the bulky phenyl group"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze $(R)$-2-phenylpropanal: The chiral $\\alpha$-carbon C-2 is bonded to three ligands: Large ($L = -\\text{C}_6\\text{H}_5$), Medium ($M = -\\text{CH}_3$), and Small ($S = -\\text{H}$).\nStep 2: Apply the Felkin-Anh conformational model: The largest group ($L = \\text{phenyl}$) is aligned perpendicular ($\\approx 90^\\circ$) to the carbonyl double bond ($C=O$) to maximize stabilizing $\\sigma^*_{\\text{C}-L} \\to \\pi^*_{\\text{C}=\\text{O}}$ hyperconjugation and minimize steric repulsion. Between the two perpendicular orientations, the conformer placing the Medium group ($-\\text{CH}_3$) anti to the carbonyl oxygen is favored over placing it gauche to carbonyl oxygen.\nStep 3: The methyl nucleophile ($\\text{CH}_3^-$) attacks the carbonyl carbon along the Bürgi-Dunitz angle ($\\approx 107^\\circ$) from the least sterically hindered trajectory, which is past the Small group ($S = -\\text{H}$).\nStep 4: Determine the stereochemical descriptor of the newly generated stereocenter: Numbering from the alcohol carbon: C-2 carries $-\\text{OH}$ and $-\\text{CH}_3$, and C-3 carries $-\\text{C}_6\\text{H}_5$ and $-\\text{CH}_3$ (retaining its original $(R)$-configuration). In the major product, the nucleophile addition past hydrogen establishes the $(2S, 3R)$-configuration, yielding $(2S, 3R)$-3-phenylbutan-2-ol.\nTherefore, option D is correct."
+    }
+  ]
+}

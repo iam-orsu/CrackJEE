@@ -1,0 +1,779 @@
+{
+  "questions": [
+    {
+      "id": "cd_c01_001",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the piecewise function $f(x)$ defined on $\\mathbb{R}$ by $f(x) = \\begin{cases} a x^2 + b x + 1, & x \\le 1 \\\\ 3x^2 - x + 2, & x > 1 \\end{cases}$. If $f(x)$ is differentiable at $x = 1$, what is the value of the product $a b$?",
+      "options": [
+        "A) $2$",
+        "B) $-2$",
+        "C) $5$",
+        "D) $6$"
+      ],
+      "answer": "A",
+      "explanation": "Continuity at $x = 1$ requires the left-hand limit to equal the right-hand limit: $\\lim_{x \\to 1^-} f(x) = a(1)^2 + b(1) + 1 = a + b + 1$, and $\\lim_{x \\to 1^+} f(x) = 3(1)^2 - (1) + 2 = 4$. Equating these yields $a + b + 1 = 4 \\implies a + b = 3$. For differentiability at $x = 1$, the left-hand derivative must match the right-hand derivative: $f'(1^-) = \\left.\\frac{d}{dx}(ax^2 + bx + 1)\\right|_{x=1} = 2a(1) + b = 2a + b$, and $f'(1^+) = \\left.\\frac{d}{dx}(3x^2 - x + 2)\\right|_{x=1} = 6(1) - 1 = 5$. Solving the system $a + b = 3$ and $2a + b = 5$ gives $a = 2$ and $b = 1$. Therefore, the product is $a b = 2 \\times 1 = 2$. The distractor $-2$ arises from an algebraic sign error when solving the system; $5$ comes from calculating the sum $2a+b$ instead of $ab$; and $6$ results from ignoring the constant term $+1$ in the continuity equation."
+    },
+    {
+      "id": "cd_c01_002",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be defined by $f(x) = \\begin{cases} \\dfrac{\\sin((a+2)x) + \\sin x}{x}, & x < 0 \\\\ c, & x = 0 \\\\ \\dfrac{\\sqrt{1 + 2x} - 1}{x}, & x > 0 \\end{cases}$. If $f(x)$ is continuous at $x = 0$, determine the value of the integer quantity $a + 2c$.",
+      "options": [],
+      "answer": "0",
+      "explanation": "Evaluating the left-hand limit as $x \\to 0^-$: $\\lim_{x \\to 0^-} \\left[\\frac{\\sin((a+2)x)}{x} + \\frac{\\sin x}{x}\\right] = (a+2) + 1 = a + 3$. Evaluating the right-hand limit as $x \\to 0^+$ by rationalizing the numerator: $\\lim_{x \\to 0^+} \\frac{\\sqrt{1+2x}-1}{x} = \\lim_{x \\to 0^+} \\frac{2x}{x(\\sqrt{1+2x}+1)} = \\frac{2}{1+1} = 1$. For continuity at $x = 0$, both one-sided limits must equal $f(0) = c$. Hence $c = 1$ and $a + 3 = 1 \\implies a = -2$. Substituting these values into the required expression yields $a + 2c = -2 + 2(1) = 0$."
+    },
+    {
+      "id": "cd_c01_003",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f(x) = |x - 1| + |x - 3| + |2x - 8|$ for $x \\in \\mathbb{R}$. The number of points in $\\mathbb{R}$ at which $f(x)$ is not differentiable is:",
+      "options": [
+        "A) $1$",
+        "B) $3$",
+        "C) $2$",
+        "D) $4$"
+      ],
+      "answer": "B",
+      "explanation": "The critical transition points where individual absolute values change definition are $x = 1$, $x = 3$, and $x = 4$. Differentiating piecewise in each open interval: for $x < 1$, $f'(x) = -1 - 1 - 2 = -4$; for $1 < x < 3$, $f'(x) = 1 - 1 - 2 = -2$; for $3 < x < 4$, $f'(x) = 1 + 1 - 2 = 0$; for $x > 4$, $f'(x) = 1 + 1 + 2 = 4$. Comparing one-sided derivatives at each boundary: at $x = 1$, $f'(1^-) = -4 \\neq -2 = f'(1^+)$; at $x = 3$, $f'(3^-) = -2 \\neq 0 = f'(3^+)$; at $x = 4$, $f'(4^-) = 0 \\neq 4 = f'(4^+)$. Because the left-hand and right-hand derivatives are unequal at all three transition points and the function is linear elsewhere, $f(x)$ is non-differentiable at exactly $3$ points. The distractor $1$ results from checking only the vertex of the largest term, $2$ comes from erroneously assuming the slope jump vanishes at $x = 3$, and $4$ includes an extraneous zero of $f(x)$."
+    },
+    {
+      "id": "cd_c01_004",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f(x) = [x] + \\sqrt{\\{x\\}}$, where $[x]$ denotes the greatest integer function and $\\{x\\}$ denotes the fractional part of $x$. The right-hand derivative of $f(x)$ at $x = 2$, denoted by $f'(2^+)$, is:",
+      "options": [
+        "A) $0$",
+        "B) $1$",
+        "C) does not exist",
+        "D) $\\dfrac{1}{2}$"
+      ],
+      "answer": "C",
+      "explanation": "For $x \\in [2, 3)$, we have $[x] = 2$ and $\\{x\\} = x - 2$, so $f(x) = 2 + \\sqrt{x - 2}$. The value at the point is $f(2) = 2 + \\sqrt{0} = 2$. By definition, the right-hand derivative at $x = 2$ is $f'(2^+) = \\lim_{h \\to 0^+} \\frac{f(2+h) - f(2)}{h} = \\lim_{h \\to 0^+} \\frac{(2 + \\sqrt{h}) - 2}{h} = \\lim_{h \\to 0^+} \\frac{\\sqrt{h}}{h} = \\lim_{h \\to 0^+} \\frac{1}{\\sqrt{h}} = +\\infty$. Because this limit is infinite, the right-hand derivative does not exist as a finite real number. The distractor $0$ comes from mistakenly setting the derivative of $[x]$ to 0 and ignoring $\\sqrt{h}/h$; $1$ arises from forgetting the square root and using $h/h$; and $1/2$ comes from applying the power rule $\\frac{1}{2\\sqrt{x}}$ at $x = 1$ rather than evaluating the limit as $h \\to 0^+$."
+    },
+    {
+      "id": "cd_c01_005",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A function $f(x)$ is defined by $f(x) = \\begin{cases} p x^2 + 3, & x \\le 2 \\\\ 8x + q, & x > 2 \\end{cases}$. If $f(x)$ is differentiable at $x = 2$, find the integer value of $p^2 + q^2$.",
+      "options": [],
+      "answer": "29",
+      "explanation": "Differentiability at $x = 2$ requires matching derivatives from both sides: the left-hand derivative is $\\left.\\frac{d}{dx}(px^2 + 3)\\right|_{x=2} = 4p$, and the right-hand derivative is $\\left.\\frac{d}{dx}(8x + q)\\right|_{x=2} = 8$. Equating them gives $4p = 8 \\implies p = 2$. Furthermore, differentiability implies continuity at $x = 2$: the value is $f(2) = 2(2^2) + 3 = 11$, and the right-hand limit is $\\lim_{x \\to 2^+} (8x + q) = 16 + q$. Setting $16 + q = 11$ yields $q = -5$. Evaluating the required sum of squares gives $p^2 + q^2 = 2^2 + (-5)^2 = 4 + 25 = 29$."
+    },
+    {
+      "id": "cd_c01_006",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be defined by $f(x) = \\begin{cases} x^2 \\sin\\left(\\dfrac{1}{x}\\right), & x \\neq 0 \\\\ 0, & x = 0 \\end{cases}$. Which of the following statements is correct regarding $f(x)$ at $x = 0$?",
+      "options": [
+        "A) $f(x)$ is continuous but not differentiable at $x = 0$",
+        "B) $f'(x)$ exists and is continuous at $x = 0$",
+        "C) $f(x)$ is discontinuous at $x = 0$",
+        "D) $f(x)$ is differentiable at $x = 0$, but $f'(x)$ is discontinuous at $x = 0$"
+      ],
+      "answer": "D",
+      "explanation": "Using the limit definition of derivative at the origin: $f'(0) = \\lim_{h \\to 0} \\frac{f(h) - f(0)}{h} = \\lim_{h \\to 0} \\frac{h^2 \\sin(1/h) - 0}{h} = \\lim_{h \\to 0} h \\sin(1/h) = 0$, by the squeeze theorem because $|\\sin(1/h)| \\le 1$. Hence $f'(0) = 0$ exists, proving $f(x)$ is differentiable at $x = 0$. For $x \\neq 0$, applying the product and chain rules yields $f'(x) = 2x \\sin(1/x) - \\cos(1/x)$. As $x \\to 0$, the first term $2x \\sin(1/x) \\to 0$, but $\\cos(1/x)$ oscillates indefinitely between $-1$ and $1$. Consequently, $\\lim_{x \\to 0} f'(x)$ does not exist, which means $f'(x)$ is discontinuous at $x = 0$. The distractor claiming non-differentiability stems from confusing the oscillation of $f'(x)$ with that of the difference quotient; the distractor claiming continuity of $f'$ assumes that differentiability guarantees derivative continuity; and claiming discontinuity of $f$ ignores the squeeze theorem."
+    },
+    {
+      "id": "cd_c01_007",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the function $f(x) = \\max\\{x, x^3\\}$ defined for all $x \\in \\mathbb{R}$. The set of all real numbers where $f(x)$ fails to be differentiable is:",
+      "options": [
+        "A) $\\{-1, 0, 1\\}$",
+        "B) $\\{-1, 1\\}$",
+        "C) $\\{0, 1\\}$",
+        "D) $\\{0\\}$"
+      ],
+      "answer": "A",
+      "explanation": "Examining the difference $x^3 - x = x(x-1)(x+1)$, the curves intersect at $x = -1, 0, 1$. Tracing the maximum over the real line: for $x < -1$, $x > x^3$ so $f(x) = x$; for $-1 \\le x \\le 0$, $x^3 \\ge x$ so $f(x) = x^3$; for $0 < x < 1$, $x > x^3$ so $f(x) = x$; for $x \\ge 1$, $x^3 \\ge x$ so $f(x) = x^3$. Checking differentiability at the intersection points: at $x = -1$, $f'(-1^-) = 1$ while $f'(-1^+) = 3(-1)^2 = 3$, so $f$ is not differentiable; at $x = 0$, $f'(0^-) = 3(0)^2 = 0$ while $f'(0^+) = 1$, so $f$ is not differentiable; at $x = 1$, $f'(1^-) = 1$ while $f'(1^+) = 3(1)^2 = 3$, so $f$ is not differentiable. Hence non-differentiability occurs at exactly $\\{-1, 0, 1\\}$. Distractor $\\{-1, 1\\}$ forgets the origin crossing; $\\{0, 1\\}$ omits the negative intersection; and $\\{0\\}$ checks only the origin."
+    },
+    {
+      "id": "cd_c01_008",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $f(x) = |x^2 - 7x + 12| + |x - 3|$ for $x \\in \\mathbb{R}$. Find the value of $f'(3^+) - f'(3^-)$, where $f'(3^+)$ and $f'(3^-)$ denote the right-hand and left-hand derivatives of $f$ at $x = 3$.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Factoring the quadratic gives $x^2 - 7x + 12 = (x - 3)(x - 4)$. On the interval $(2, 3)$, both factors $(x - 3)$ and $(x - 4)$ are negative, so their product is positive: $|x^2 - 7x + 12| = x^2 - 7x + 12$. Furthermore, $|x - 3| = -(x - 3) = 3 - x$. Thus, for $x \\in (2, 3)$, $f(x) = x^2 - 8x + 15$, which yields the left-hand derivative $f'(3^-) = 2(3) - 8 = -2$. On the interval $(3, 4)$, $(x - 3) > 0$ and $(x - 4) < 0$, making the product negative: $|x^2 - 7x + 12| = -(x^2 - 7x + 12) = -x^2 + 7x - 12$. Also $|x - 3| = x - 3$. Thus, for $x \\in (3, 4)$, $f(x) = -x^2 + 8x - 15$, giving the right-hand derivative $f'(3^+) = -2(3) + 8 = 2$. Calculating the difference gives $f'(3^+) - f'(3^-) = 2 - (-2) = 4$."
+    },
+    {
+      "id": "cd_c01_009",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "If the function $f(x) = \\begin{cases} \\dfrac{1 - \\cos(kx)}{x \\sin x}, & x \\neq 0 \\\\ 8, & x = 0 \\end{cases}$ is continuous at $x = 0$, what are the possible values of the real parameter $k$?",
+      "options": [
+        "A) $\\pm 2$",
+        "B) $\\pm 4$",
+        "C) $\\pm 8$",
+        "D) $\\pm 16$"
+      ],
+      "answer": "B",
+      "explanation": "Continuity at $x = 0$ requires $\\lim_{x \\to 0} f(x) = f(0) = 8$. Expanding the trigonometric limit: $\\lim_{x \\to 0} \\frac{1 - \\cos(kx)}{x \\sin x} = \\lim_{x \\to 0} \\frac{2\\sin^2(kx/2)}{x^2 \\frac{\\sin x}{x}} = \\lim_{x \\to 0} \\frac{2(kx/2)^2}{x^2 \\cdot 1} = \\frac{2 k^2}{4} = \\frac{k^2}{2}$. Equating this limit to $8$ yields $\\frac{k^2}{2} = 8 \\implies k^2 = 16 \\implies k = \\pm 4$. The distractor $\\pm 2$ arises from inadvertently writing $2k^2 = 8$; $\\pm 8$ comes from neglecting the factor of $1/2$ in the Taylor expansion $1 - \\cos \\theta \\approx \\theta^2 / 2$; and $\\pm 16$ comes from forgetting to take the square root."
+    },
+    {
+      "id": "cd_c01_010",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f(x) = \\left[\\dfrac{3}{2 + \\cos x}\\right]$ for $x \\in [0, 2\\pi]$, where $[\\cdot]$ denotes the greatest integer function. The number of points of discontinuity of $f(x)$ in $[0, 2\\pi]$ is:",
+      "options": [
+        "A) $1$",
+        "B) $2$",
+        "C) $3$",
+        "D) $4$"
+      ],
+      "answer": "C",
+      "explanation": "As $x$ ranges in $[0, 2\\pi]$, $\\cos x \\in [-1, 1]$, so $2 + \\cos x \\in [1, 3]$ and $\\frac{3}{2 + \\cos x} \\in [1, 3]$. Specifically, $\\frac{3}{2 + \\cos x} = 1$ when $\\cos x = 1$ ($x = 0, 2\\pi$); $\\frac{3}{2 + \\cos x} = 2$ when $\\cos x = -1/2$ ($x = 2\\pi/3, 4\\pi/3$); and $\\frac{3}{2 + \\cos x} = 3$ when $\\cos x = -1$ ($x = \\pi$). Over the sub-intervals: for $\\cos x > -1/2$, the fraction is in $[1, 2)$ so $[\\cdot] = 1$; for $-1 < \\cos x < -1/2$, the fraction is in $(2, 3)$ so $[\\cdot] = 2$; at $\\cos x = -1$ ($x = \\pi$), the fraction equals $3$ so $[\\cdot] = 3$. As $x \\to \\pi$, $\\cos x > -1$, meaning the fraction is strictly less than $3$ and $[\\cdot] = 2$, but $f(\\pi) = 3$, creating a removable isolated discontinuity at $x = \\pi$. Jump discontinuities occur at $x = 2\\pi/3$ and $x = 4\\pi/3$ where the value transitions between $1$ and $2$. Thus there are exactly $3$ points of discontinuity: $2\\pi/3, \\pi, 4\\pi/3$. The distractor $1$ counts only the isolated point $\\pi$; $2$ counts only the jumps at $2\\pi/3$ and $4\\pi/3$; and $4$ includes endpoints where the function is one-sided continuous."
+    },
+    {
+      "id": "cd_c01_011",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f(x) = \\begin{cases} a x + b, & x \\le -1 \\\\ a x^3 + x + 2b, & x > -1 \\end{cases}$. If $f(x)$ is differentiable for all $x \\in \\mathbb{R}$, what is the value of $a - b$?",
+      "options": [
+        "A) $-\\dfrac{1}{2}$",
+        "B) $\\dfrac{1}{2}$",
+        "C) $\\dfrac{3}{2}$",
+        "D) $-\\dfrac{3}{2}$"
+      ],
+      "answer": "D",
+      "explanation": "Continuity at $x = -1$ requires $f(-1) = \\lim_{x \\to -1^+} f(x)$: $-a + b = -a - 1 + 2b \\implies b = 2b - 1 \\implies b = 1$. Differentiability at $x = -1$ requires matching derivatives: $f'(-1^-) = \\left.\\frac{d}{dx}(ax+b)\\right|_{x=-1} = a$, and $f'(-1^+) = \\left.\\frac{d}{dx}(ax^3+x+2b)\\right|_{x=-1} = 3a(-1)^2 + 1 = 3a + 1$. Equating these gives $a = 3a + 1 \\implies 2a = -1 \\implies a = -1/2$. Computing the requested difference gives $a - b = -1/2 - 1 = -3/2$. The distractor $-1/2$ represents the value of $a$ alone; $1/2$ comes from a sign error in solving $a = 3a + 1$; and $3/2$ comes from calculating $b - a$ instead of $a - b$."
+    },
+    {
+      "id": "cd_c01_012",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Consider the function $f(x) = \\begin{cases} \\dfrac{\\ln(1 + 3x)}{x}, & x > 0 \\\\ \\alpha, & x = 0 \\\\ \\beta \\cos x + 1, & x < 0 \\end{cases}$. If $f(x)$ is continuous at $x = 0$, calculate the value of $\\alpha^2 + \\beta^2$.",
+      "options": [],
+      "answer": "13",
+      "explanation": "Evaluating the right-hand limit as $x \\to 0^+$: $\\lim_{x \\to 0^+} \\frac{\\ln(1+3x)}{x} = 3 \\lim_{x \\to 0^+} \\frac{\\ln(1+3x)}{3x} = 3(1) = 3$. By continuity, $f(0) = \\alpha = 3$. Evaluating the left-hand limit as $x \\to 0^-$: $\\lim_{x \\to 0^-} (\\beta \\cos x + 1) = \\beta(1) + 1 = \\beta + 1$. Setting the left-hand limit equal to the function value gives $\\beta + 1 = 3 \\implies \\beta = 2$. Therefore, the required sum of squares is $\\alpha^2 + \\beta^2 = 3^2 + 2^2 = 9 + 4 = 13$."
+    },
+    {
+      "id": "cd_c01_013",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f(x) = |x - 2| + |x + 1|$ for $x \\in \\mathbb{R}$. The value of the left-hand derivative $f'(2^-)$ is:",
+      "options": [
+        "A) $0$",
+        "B) $-1$",
+        "C) $-2$",
+        "D) $2$"
+      ],
+      "answer": "A",
+      "explanation": "For any $x$ in the open interval $(-1, 2)$, we have $x - 2 < 0$, which implies $|x - 2| = -(x - 2) = 2 - x$. Similarly, $x + 1 > 0$, which implies $|x + 1| = x + 1$. Adding these two terms together gives $f(x) = (2 - x) + (x + 1) = 3$, which is identically constant on $(-1, 2)$. The left-hand derivative at $x = 2$ is computed as $f'(2^-) = \\lim_{h \\to 0^+} \\frac{f(2-h) - f(2)}{-h} = \\lim_{h \\to 0^+} \\frac{3 - 3}{-h} = 0$. The distractor $-1$ arises from differentiating only the term $|x - 2|$ and neglecting $|x + 1|$; $-2$ comes from assuming both absolute values open with negative signs as if $x < -1$; and $2$ is the right-hand derivative $f'(2^+)$."
+    },
+    {
+      "id": "cd_c01_014",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be defined by $f(x) = |x|^3$. Which of the following statements is true regarding the derivatives of $f(x)$ at $x = 0$?",
+      "options": [
+        "A) $f'(0)$ does not exist",
+        "B) Both $f'(0)$ and $f''(0)$ exist, and $f''(0) = 0$",
+        "C) $f'(0)$ exists, but $f''(0)$ does not exist",
+        "D) Both $f'(0)$ and $f''(0)$ exist, but $f''(0) \\neq 0$"
+      ],
+      "answer": "B",
+      "explanation": "Evaluating the first derivative at $x = 0$ via limit definition: $f'(0) = \\lim_{h \\to 0} \\frac{|h|^3 - 0}{h} = \\lim_{h \\to 0} h |h| = 0$. For any $x \\in \\mathbb{R}$, $f'(x) = 3x|x|$. Now evaluating the second derivative at $x = 0$ via limit definition: $f''(0) = \\lim_{h \\to 0} \\frac{f'(h) - f'(0)}{h} = \\lim_{h \\to 0} \\frac{3h|h| - 0}{h} = \\lim_{h \\to 0} 3|h| = 0$. Therefore, both $f'(0)$ and $f''(0)$ exist and $f''(0) = 0$. (Notice that $f'''(0)$ fails to exist because $f''(x) = 6x$ for $x > 0$ and $-6x$ for $x < 0$). The distractor claiming $f'(0)$ does not exist represents the false preconception that absolute values always create non-differentiable sharp points; claiming $f''(0)$ does not exist confuses $f'''(0)$ with $f''(0)$; and asserting $f''(0) \\neq 0$ is an arithmetic error."
+    },
+    {
+      "id": "cd_c01_015",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $f(x) = \\begin{cases} a x^2 + 1, & x \\le 1 \\\\ 4x + b, & x > 1 \\end{cases}$. If $f(x)$ is differentiable at $x = 1$, find the integer value of $a - b$.",
+      "options": [],
+      "answer": "3",
+      "explanation": "Matching the one-sided derivatives at $x = 1$: the left-hand derivative is $f'(1^-) = \\left.\\frac{d}{dx}(ax^2+1)\\right|_{x=1} = 2a(1) = 2a$, and the right-hand derivative is $f'(1^+) = \\left.\\frac{d}{dx}(4x+b)\\right|_{x=1} = 4$. Equating them gives $2a = 4 \\implies a = 2$. For continuity at $x = 1$, the function value $f(1) = a(1^2) + 1 = 2 + 1 = 3$ must match the right-hand limit $\\lim_{x \\to 1^+} (4x + b) = 4 + b$. Solving $4 + b = 3$ yields $b = -1$. Hence the difference is $a - b = 2 - (-1) = 3$."
+    },
+    {
+      "id": "cd_c01_016",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the function $f(x) = e^{-x} \\sin x$ defined on the closed interval $[0, \\pi]$. According to Rolle's Theorem, there exists a point $c \\in (0, \\pi)$ such that $f'(c) = 0$. The value of $c$ is:",
+      "options": [
+        "A) $\\dfrac{\\pi}{2}$",
+        "B) $\\dfrac{3\\pi}{4}$",
+        "C) $\\dfrac{\\pi}{4}$",
+        "D) $\\dfrac{\\pi}{6}$"
+      ],
+      "answer": "C",
+      "explanation": "Checking the hypotheses of Rolle's Theorem: $f(x)$ is continuous on $[0, \\pi]$ and differentiable on $(0, \\pi)$, with $f(0) = 0$ and $f(\\pi) = e^{-\\pi} \\sin \\pi = 0$. Applying the product rule gives the derivative $f'(x) = -e^{-x} \\sin x + e^{-x} \\cos x = e^{-x}(\\cos x - \\sin x)$. Setting $f'(c) = 0$ implies $e^{-c}(\\cos c - \\sin c) = 0$. Because the exponential term $e^{-c} > 0$ for all real $c$, we must have $\\cos c - \\sin c = 0 \\implies \\tan c = 1$. In the interval $(0, \\pi)$, the unique solution to $\\tan c = 1$ is $c = \\frac{\\pi}{4}$. The distractor $\\pi/2$ mistakenly identifies the peak of $\\sin x$ alone; $3\\pi/4$ results from an inadvertent sign switch in the product rule yielding $\\tan c = -1$; and $\\pi/6$ is an arithmetic angle confusion."
+    },
+    {
+      "id": "cd_c01_017",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $f(x) = x^3 - 6x^2 + 11x - 6$ on the closed interval $[1, 3]$. Rolle's Theorem guarantees the existence of points $c \\in (1, 3)$ such that $f'(c) = 0$. If the two valid values of $c$ are $c_1$ and $c_2$, compute the value of $3(c_1^2 + c_2^2)$.",
+      "options": [],
+      "answer": "26",
+      "explanation": "Evaluating at the endpoints: $f(1) = 1 - 6 + 11 - 6 = 0$ and $f(3) = 27 - 54 + 33 - 6 = 0$. Differentiating yields $f'(x) = 3x^2 - 12x + 11$. Setting $f'(c) = 0$ gives a quadratic equation $3c^2 - 12c + 11 = 0$. By Vieta's formulas, the sum and product of the roots are $c_1 + c_2 = \\frac{12}{3} = 4$ and $c_1 c_2 = \\frac{11}{3}$. The discriminant is $(-12)^2 - 4(3)(11) = 144 - 132 = 12 > 0$, so the roots are $c = \\frac{12 \\pm \\sqrt{12}}{6} = 2 \\pm \\frac{1}{\\sqrt{3}}$, both of which strictly belong to $(1, 3)$. Now computing the sum of squares: $c_1^2 + c_2^2 = (c_1 + c_2)^2 - 2c_1 c_2 = 4^2 - 2\\left(\\frac{11}{3}\\right) = 16 - \\frac{22}{3} = \\frac{26}{3}$. Multiplying by $3$ yields $3(c_1^2 + c_2^2) = 3 \\times \\frac{26}{3} = 26$."
+    },
+    {
+      "id": "cd_c01_018",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ satisfy the functional equation $f(x+y) = f(x) f(y)$ for all $x, y \\in \\mathbb{R}$. If $f(x)$ is differentiable at $x = 0$ with $f'(0) = 4$ and $f(0) = 1$, then for any $x \\in \\mathbb{R}$, the derivative $f'(x)$ is equal to:",
+      "options": [
+        "A) $4$",
+        "B) $f(x) + 4$",
+        "C) $e^{4x}$",
+        "D) $4 f(x)$"
+      ],
+      "answer": "D",
+      "explanation": "By the limit definition of the derivative at an arbitrary point $x$: $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$. Applying the functional equation $f(x+h) = f(x)f(h)$, we can factor out $f(x)$: $f'(x) = \\lim_{h \\to 0} \\frac{f(x)f(h) - f(x)}{h} = f(x) \\lim_{h \\to 0} \\frac{f(h) - 1}{h}$. Since $f(0) = 1$, the remaining limit is precisely the definition of the derivative at zero: $\\lim_{h \\to 0} \\frac{f(h) - f(0)}{h} = f'(0) = 4$. Substituting this value gives $f'(x) = 4 f(x)$. The distractor $4$ confuses the derivative function with the constant initial derivative value $f'(0)$; $f(x)+4$ treats the relation as additive rather than multiplicative; and $e^{4x}$ is the closed-form function itself rather than the requested expression for $f'(x)$."
+    },
+    {
+      "id": "cd_c01_019",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "For the function $f(x) = \\sqrt{x - 1}$ on the closed interval $[1, 5]$, the Lagrange Mean Value Theorem states that there exists a point $c \\in (1, 5)$ such that $f'(c) = \\dfrac{f(5) - f(1)}{5 - 1}$. The value of $c$ is:",
+      "options": [
+        "A) $2$",
+        "B) $\\dfrac{3}{2}$",
+        "C) $\\dfrac{5}{2}$",
+        "D) $3$"
+      ],
+      "answer": "A",
+      "explanation": "Evaluating the function at the boundary points gives $f(1) = \\sqrt{1 - 1} = 0$ and $f(5) = \\sqrt{5 - 1} = 2$. The average rate of change on $[1, 5]$ is $\\frac{f(5) - f(1)}{5 - 1} = \\frac{2 - 0}{4} = \\frac{1}{2}$. The derivative of $f(x)$ for $x > 1$ is $f'(x) = \\frac{1}{2\\sqrt{x - 1}}$. Setting $f'(c) = \\frac{1}{2}$ leads to $\\frac{1}{2\\sqrt{c - 1}} = \\frac{1}{2} \\implies \\sqrt{c - 1} = 1$. Squaring both sides yields $c - 1 = 1 \\implies c = 2$, which strictly lies in $(1, 5)$. The distractor $3/2$ comes from solving $\\sqrt{c - 1} = 1/2$; $5/2$ is an unweighted average of the endpoints; and $3$ is the midpoint of the interval $(1, 5)$."
+    },
+    {
+      "id": "cd_c01_020",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $g(x) = |x^2 - 4x + 3|$ for all $x \\in \\mathbb{R}$. The total number of points in $\\mathbb{R}$ where $g(x)$ is not differentiable is:",
+      "options": [
+        "A) $1$",
+        "B) $2$",
+        "C) $3$",
+        "D) $0$"
+      ],
+      "answer": "B",
+      "explanation": "Factoring the quadratic inside the absolute value gives $x^2 - 4x + 3 = (x - 1)(x - 3)$. The inner function has simple zeros at $x = 1$ and $x = 3$. Evaluating the derivative of the inner polynomial $u(x) = x^2 - 4x + 3$: $u'(x) = 2x - 4$. At $x = 1$, $u'(1) = -2 \\neq 0$, which causes the left-hand derivative of $g$ to be $-(-2) = 2$ and the right-hand derivative to be $+(-2) = -2$. Because these one-sided derivatives disagree, $g$ is not differentiable at $x = 1$. At $x = 3$, $u'(3) = 2 \\neq 0$, leading to left-hand derivative $-2$ and right-hand derivative $+2$, so $g$ is not differentiable at $x = 3$. At the vertex $x = 2$, $u(2) = -1 \\neq 0$, so $g(x) = -(x^2 - 4x + 3)$ is smooth. Thus there are exactly $2$ non-differentiable points. The distractor $0$ assumes absolute values of polynomials are always smooth; $1$ tests only the vertex $x = 2$; and $3$ erroneously adds the vertex $x = 2$."
+    },
+    {
+      "id": "cd_c01_021",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ satisfy $f(x+y) = f(x) + f(y) + 4xy - 1$ for all real $x, y$. If $f'(0) = 3$, find the integer value of $f'(5)$.",
+      "options": [],
+      "answer": "23",
+      "explanation": "Substituting $x = y = 0$ into the functional equation gives $f(0) = f(0) + f(0) - 1 \\implies f(0) = 1$. Using the first-principles definition of derivative: $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h} = \\lim_{h \\to 0} \\frac{f(x) + f(h) + 4xh - 1 - f(x)}{h} = \\lim_{h \\to 0} \\left[\\frac{f(h) - 1}{h} + 4x\\right]$. Recognizing that $\\lim_{h \\to 0} \\frac{f(h) - 1}{h} = \\lim_{h \\to 0} \\frac{f(h) - f(0)}{h} = f'(0) = 3$, we find the derivative function is $f'(x) = 3 + 4x$. Substituting $x = 5$ into this expression yields $f'(5) = 3 + 4(5) = 3 + 20 = 23$."
+    },
+    {
+      "id": "cd_c01_022",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f(x) = [x] \\sin(\\pi x)$ for $x \\in \\mathbb{R}$, where $[x]$ is the greatest integer function. At any integer point $x = n \\in \\mathbb{Z}$, which of the following statements is true?",
+      "options": [
+        "A) $f(x)$ is continuous and differentiable at every integer $n$",
+        "B) $f(x)$ is continuous at every integer $n$, but differentiable only when $n = 0$",
+        "C) $f(x)$ is continuous at every integer $n$, but not differentiable at any integer $n$",
+        "D) $f(x)$ is discontinuous at every non-zero integer $n$"
+      ],
+      "answer": "C",
+      "explanation": "For any integer $n$, evaluating one-sided limits: as $x \\to n^+$, $[x] = n$, so $\\lim_{x \\to n^+} f(x) = n \\sin(n\\pi) = 0$. As $x \\to n^-$, $[x] = n - 1$, so $\\lim_{x \\to n^-} f(x) = (n - 1) \\sin(n\\pi) = 0$. Since $f(n) = n \\sin(n\\pi) = 0$, both one-sided limits match $f(n)$, establishing that $f(x)$ is continuous at every integer $n \\in \\mathbb{Z}$. Now evaluating derivatives from definition: the right-hand derivative is $f'(n^+) = \\lim_{h \\to 0^+} \\frac{n \\sin(\\pi(n+h)) - 0}{h} = n \\pi \\cos(n\\pi) = n\\pi (-1)^n$. The left-hand derivative is $f'(n^-) = \\lim_{h \\to 0^+} \\frac{(n-1) \\sin(\\pi(n-h)) - 0}{-h} = (n-1)\\pi (-1)^n$. For differentiability, we require $n\\pi (-1)^n = (n-1)\\pi (-1)^n \\implies n = n - 1$, which is impossible for any integer $n$. Hence $f(x)$ is not differentiable at any integer $n$. The distractor claiming differentiability everywhere assumes the zero value of $\\sin(\\pi n)$ forces derivatives to match; claiming differentiability at $0$ ignores the left slope of $-\\pi$ against right slope $0$; and claiming discontinuity forgets that $\\sin(\\pi n) = 0$ extinguishes the jump in $[x]$."
+    },
+    {
+      "id": "cd_c01_023",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: [0, 2] \\to \\mathbb{R}$ be a twice differentiable function such that $f(0) = 0$, $f(1) = 2$, and $f(2) = 2$. Which of the following conclusions must be true according to Rolle's Theorem and the Mean Value Theorem?",
+      "options": [
+        "A) $f'(c) = 0$ for some $c \\in (0, 1)$",
+        "B) $f''(c) = 0$ for some $c \\in (0, 2)$",
+        "C) $f'(c) = 1$ for some $c \\in (1, 2)$",
+        "D) $f''(c) = -2$ for some $c \\in (0, 2)$"
+      ],
+      "answer": "D",
+      "explanation": "Construct the unique quadratic interpolating polynomial $P(x) = a x^2 + b x + c$ passing through the points $(0, 0)$, $(1, 2)$, and $(2, 2)$: $P(0) = 0 \\implies c = 0$; $P(1) = a + b = 2$; $P(2) = 4a + 2b = 2 \\implies 2a + b = 1$. Solving this system gives $a = -1$ and $b = 3$, so $P(x) = -x^2 + 3x$, which satisfies $P''(x) = -2$. Now define the auxiliary function $g(x) = f(x) - P(x) = f(x) - (-x^2 + 3x)$. By construction, $g(0) = 0$, $g(1) = 0$, and $g(2) = 0$. By Rolle's Theorem applied to $g(x)$ on $[0, 1]$ and $[1, 2]$, there exist $\\xi_1 \\in (0, 1)$ and $\\xi_2 \\in (1, 2)$ such that $g'(\\xi_1) = 0$ and $g'(\\xi_2) = 0$. Applying Rolle's Theorem to $g'(x)$ on $[\\xi_1, \\xi_2]$ guarantees the existence of some $c \\in (\\xi_1, \\xi_2) \\subset (0, 2)$ such that $g''(c) = 0$. Since $g''(x) = f''(x) - P''(x) = f''(x) - (-2) = f''(x) + 2$, we obtain $f''(c) + 2 = 0 \\implies f''(c) = -2$. The distractor $f'(c) = 0$ on $(0, 1)$ falsely asserts zero slope where the average slope is $+2$; $f''(c) = 0$ wrongly assumes an inflection point; and $f'(c) = 1$ on $(1, 2)$ contradicts Rolle's guarantee of zero average rate on $[1, 2]$."
+    },
+    {
+      "id": "cd_c01_024",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $f(x) = \\max\\{1 - x^2, 2x, 0\\}$ for $x \\in [-2, 2]$. Find the number of points in $(-2, 2)$ where $f(x)$ is not differentiable.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Analyzing the three functions across $[-2, 2]$: for $x \\in [-2, -1]$, both $1 - x^2 \\le 0$ and $2x \\le -2 \\le 0$, so $f(x) = 0$. At $x = -1$, $1 - x^2 = 0$ and $2x = -2 < 0$. For $x \\in [-1, \\sqrt{2}-1]$, $1 - x^2 \\ge 2x$ and $1 - x^2 \\ge 0$, so $f(x) = 1 - x^2$. The intersection of $1 - x^2$ and $2x$ occurs where $x^2 + 2x - 1 = 0 \\implies x = \\sqrt{2}-1 \\approx 0.414$. For $x \\in [\\sqrt{2}-1, 2]$, $2x \\ge 1 - x^2$ and $2x > 0$, so $f(x) = 2x$. Checking differentiability at the switching points: at $x = -1$, left derivative is $0$ while right derivative is $-2(-1) = 2 \\neq 0$, so $f$ is non-differentiable. At $x = \\sqrt{2}-1$, left derivative is $-2(\\sqrt{2}-1) = 2 - 2\\sqrt{2} \\approx -0.828$ while right derivative is $2$, so $f$ is non-differentiable. Elsewhere inside $(-2, 2)$, $f(x)$ is locally a smooth single curve. Therefore, $f(x)$ is non-differentiable at exactly $2$ points."
+    },
+    {
+      "id": "cd_c01_025",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a differentiable function satisfying $|f(x) - f(y)| \\le 3(x - y)^2$ for all $x, y \\in \\mathbb{R}$. If $f(1) = 5$, what is the value of $f(10)$?",
+      "options": [
+        "A) $5$",
+        "B) $32$",
+        "C) $248$",
+        "D) $275$"
+      ],
+      "answer": "A",
+      "explanation": "For any fixed $x \\in \\mathbb{R}$ and $h \\neq 0$, the given inequality with $y = x + h$ states $|f(x+h) - f(x)| \\le 3h^2$. Dividing both sides by $|h| > 0$ yields $\\left|\\frac{f(x+h) - f(x)}{h}\\right| \\le 3|h|$. Taking the limit as $h \\to 0$ from both sides gives $|f'(x)| \\le \\lim_{h \\to 0} 3|h| = 0$, which forces $f'(x) = 0$ for all $x \\in \\mathbb{R}$. A function whose derivative vanishes everywhere on an interval must be identically constant. Because $f(1) = 5$, the constant value is $f(x) = 5$ for all $x \\in \\mathbb{R}$. Consequently, $f(10) = 5$. The distractor $32$ assumes linear growth with slope $3$ ($5 + 3 \\times 9$); $248$ integrates quadratic difference as $5 + 3(9^2)$; and $275$ misapplies the difference of squares."
+    },
+    {
+      "id": "cd_c01_026",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f(x) = x(x-1)(x-2)(x-3)$. Between any two consecutive roots of $f(x)$, Rolle's Theorem guarantees at least one root of $f'(x) = 0$. The number of real roots of the equation $f'(x) = 0$ is:",
+      "options": [
+        "A) $2$",
+        "B) $3$",
+        "C) $4$",
+        "D) $1$"
+      ],
+      "answer": "B",
+      "explanation": "The polynomial $f(x)$ has $4$ distinct real roots: $0, 1, 2, 3$. Because $f(x)$ is continuous and differentiable everywhere on $\\mathbb{R}$, we can apply Rolle's Theorem on each consecutive root interval: on $[0, 1]$, there is at least one root $c_1 \\in (0, 1)$; on $[1, 2]$, there is at least one root $c_2 \\in (1, 2)$; on $[2, 3]$, there is at least one root $c_3 \\in (2, 3)$. Because $f(x)$ is of degree $4$, its derivative $f'(x)$ is a polynomial of degree $3$. By the Fundamental Theorem of Algebra, a degree $3$ polynomial can have at most $3$ roots in $\\mathbb{C}$. Having found $3$ distinct real roots in the disjoint intervals, all roots of $f'(x) = 0$ must be real and there are exactly $3$ of them. The distractor $2$ forgets one of the intermediate intervals; $4$ confuses the degree of $f(x)$ with the degree of $f'(x)$; and $1$ assumes only the central symmetry root $1.5$ exists."
+    },
+    {
+      "id": "cd_c01_027",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $f(x) = x^3 + 3x + 1$ for all $x \\in \\mathbb{R}$. Note that $f'(x) = 3x^2 + 3 > 0$, so $f$ is strictly increasing and has an inverse function $g = f^{-1}$. Compute the value of $12 g'(5)$.",
+      "options": [],
+      "answer": "2",
+      "explanation": "We seek the derivative of the inverse function at $y = 5$, given by the inverse function theorem as $g'(5) = \\frac{1}{f'(g(5))}$. To find $g(5)$, solve $f(x) = 5 \\implies x^3 + 3x + 1 = 5 \\implies x^3 + 3x - 4 = 0$. Inspection immediately reveals $x = 1$, since $1^3 + 3(1) - 4 = 0$. Because $f$ is strictly increasing, $x = 1$ is the unique solution, so $g(5) = 1$. The derivative of $f$ is $f'(x) = 3x^2 + 3$. Evaluating at $x = 1$ gives $f'(1) = 3(1)^2 + 3 = 6$. Therefore, $g'(5) = \\frac{1}{6}$. Multiplying by $12$ produces $12 g'(5) = 12 \\times \\frac{1}{6} = 2$."
+    },
+    {
+      "id": "cd_c01_028",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f(x) = \\lim_{n \\to \\infty} \\dfrac{x^{2n} - 1}{x^{2n} + 1}$ for $x \\in \\mathbb{R}$. Which of the following describes the set of all points of discontinuity of $f(x)$?",
+      "options": [
+        "A) $\\{0\\}$",
+        "B) $\\{-1, 0, 1\\}$",
+        "C) $\\{-1, 1\\}$",
+        "D) $\\mathbb{R} \\setminus \\{-1, 1\\}$"
+      ],
+      "answer": "C",
+      "explanation": "Analyzing the limit by regions: when $|x| < 1$, $x^{2n} \\to 0$ as $n \\to \\infty$, so $f(x) = \\frac{0 - 1}{0 + 1} = -1$. When $|x| > 1$, $x^{2n} \\to \\infty$, so dividing numerator and denominator by $x^{2n}$ gives $f(x) = \\lim_{n \\to \\infty} \\frac{1 - x^{-2n}}{1 + x^{-2n}} = 1$. When $|x| = 1$ ($x = 1$ or $x = -1$), $x^{2n} = 1$ for every $n$, so $f(x) = \\frac{1 - 1}{1 + 1} = 0$. At $x = 1$, the left-hand limit is $-1$, the right-hand limit is $1$, and the function value is $0$, creating a jump discontinuity. By symmetry, the same jump occurs at $x = -1$. For all $|x| \\neq 1$, $f(x)$ is locally constant and therefore continuous. Hence the set of discontinuity points is precisely $\\{-1, 1\\}$. The distractor $\\{0\\}$ mistakenly flags the point of zero limit; $\\{-1, 0, 1\\}$ adds an extraneous discontinuity at the origin; and the complement set inverts continuity."
+    },
+    {
+      "id": "cd_c01_029",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f(x) = \\begin{cases} x^p \\cos\\left(\\dfrac{1}{x}\\right), & x \\neq 0 \\\\ 0, & x = 0 \\end{cases}$. The smallest positive integer $p$ for which $f(x)$ is differentiable at $x = 0$ is:",
+      "options": [
+        "A) $1$",
+        "B) $3$",
+        "C) $4$",
+        "D) $2$"
+      ],
+      "answer": "D",
+      "explanation": "By definition of the derivative at the origin: $f'(0) = \\lim_{h \\to 0} \\frac{f(h) - f(0)}{h} = \\lim_{h \\to 0} \\frac{h^p \\cos(1/h) - 0}{h} = \\lim_{h \\to 0} h^{p-1} \\cos\\left(\\frac{1}{h}\\right)$. For $p = 1$, this limit becomes $\\lim_{h \\to 0} \\cos(1/h)$, which does not exist due to oscillation between $-1$ and $1$. For $p \\ge 2$, the exponent satisfies $p - 1 \\ge 1$, so $|h^{p-1} \\cos(1/h)| \\le |h|^{p-1} \\to 0$ as $h \\to 0$ by the squeeze theorem. Thus $f'(0) = 0$ exists if and only if $p \\ge 2$. The smallest positive integer is therefore $p = 2$. The distractor $1$ is the threshold for mere continuity of $f$ rather than differentiability; $3$ is the threshold required for continuity of the derivative $f'(x)$ at zero; and $4$ is the threshold for twice differentiability."
+    },
+    {
+      "id": "cd_c01_030",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a differentiable function such that $f(x + y) = f(x) + f(y) + 3xy$ for all $x, y \\in \\mathbb{R}$. If $\\lim_{x \\to 0} \\dfrac{f(x)}{x} = 5$, evaluate $f'(3)$.",
+      "options": [],
+      "answer": "14",
+      "explanation": "Substituting $x = y = 0$ yields $f(0) = f(0) + f(0) + 0 \\implies f(0) = 0$. The given limit is therefore the derivative at the origin: $f'(0) = \\lim_{x \\to 0} \\frac{f(x) - f(0)}{x} = \\lim_{x \\to 0} \\frac{f(x)}{x} = 5$. Computing $f'(x)$ from first principles: $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h} = \\lim_{h \\to 0} \\frac{f(x) + f(h) + 3xh - f(x)}{h} = \\lim_{h \\to 0} \\left[\\frac{f(h)}{h} + 3x\\right] = 5 + 3x$. Evaluating at $x = 3$ gives $f'(3) = 5 + 3(3) = 5 + 9 = 14$."
+    },
+    {
+      "id": "cd_c01_031",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f(x) = \\begin{cases} (x - 2)^2 \\sin\\left(\\dfrac{1}{x - 2}\\right) - |x - 2|, & x \\neq 2 \\\\ 0, & x = 2 \\end{cases}$. The value of the difference between the right-hand and left-hand derivatives at $x = 2$, $f'(2^+) - f'(2^-)$, is:",
+      "options": [
+        "A) $-2$",
+        "B) $0$",
+        "C) $1$",
+        "D) $2$"
+      ],
+      "answer": "A",
+      "explanation": "For the right-hand derivative at $x = 2$, let $h > 0$: $\\frac{f(2+h) - f(2)}{h} = \\frac{h^2 \\sin(1/h) - h}{h} = h \\sin(1/h) - 1$. As $h \\to 0^+$, $h \\sin(1/h) \\to 0$, so $f'(2^+) = -1$. For the left-hand derivative at $x = 2$, let $h = -k$ with $k > 0$: $\\frac{f(2-k) - f(2)}{-k} = \\frac{(-k)^2 \\sin(-1/k) - k}{-k} = \\frac{-k^2 \\sin(1/k) - k}{-k} = k \\sin(1/k) + 1$. As $k \\to 0^+$, $k \\sin(1/k) \\to 0$, so $f'(2^-) = 1$. The requested difference is $f'(2^+) - f'(2^-) = -1 - 1 = -2$. The distractor $0$ assumes the oscillating quadratic term dominates and makes $f$ differentiable; $1$ is the value of $f'(2^-)$ alone; and $2$ is the inverted difference $f'(2^-) - f'(2^+)$."
+    },
+    {
+      "id": "cd_c01_032",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f(x) = x^2(1 - x)^2$ on $[0, 1]$. By Rolle's Theorem, there exists a point $c \\in (0, 1)$ where $f'(c) = 0$. The number of distinct values of $c \\in (0, 1)$ satisfying $f'(c) = 0$ is:",
+      "options": [
+        "A) $0$",
+        "B) $1$",
+        "C) $2$",
+        "D) $3$"
+      ],
+      "answer": "B",
+      "explanation": "Evaluating at the boundaries gives $f(0) = 0$ and $f(1) = 0$. Differentiating $f(x)$ using the product rule: $f'(x) = 2x(1 - x)^2 - 2x^2(1 - x) = 2x(1 - x)[(1 - x) - x] = 2x(1 - x)(1 - 2x)$. Setting $f'(x) = 0$ yields the roots $x = 0, 1/2, 1$. Rolle's Theorem specifies that the intermediate stationary points must lie strictly in the open interval $(0, 1)$. The endpoints $0$ and $1$ are excluded, leaving only $c = 1/2$. Thus there is exactly $1$ distinct point in $(0, 1)$. The distractor $3$ counts all roots of $f'(x)$ including the endpoints; $2$ erroneously pairs one endpoint with the interior root; and $0$ claims no interior root exists."
+    },
+    {
+      "id": "cd_c01_033",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $f(x) = \\min\\{|x|, |x - 2|, |x - 4|\\}$ for $x \\in [-1, 5]$. Find the sum of all values of $x \\in (-1, 5)$ at which $f(x)$ is not differentiable.",
+      "options": [],
+      "answer": "10",
+      "explanation": "The function represents the distance from $x$ to the nearest integer in the set $\\{0, 2, 4\\}$. Over $[-1, 5]$, we determine the closest center: on $[-1, 1]$, the nearest center is $0$, so $f(x) = |x|$; on $[1, 3]$, the nearest center is $2$, so $f(x) = |x - 2|$; on $[3, 5]$, the nearest center is $4$, so $f(x) = |x - 4|$. Sharp corners occur where each absolute value hits zero: at $x = 0$, $f'(0^-) = -1 \\neq 1 = f'(0^+)$; at $x = 2$, $f'(2^-) = -1 \\neq 1 = f'(2^+)$; at $x = 4$, $f'(4^-) = -1 \\neq 1 = f'(4^+)$. Sharp corners also occur at the equadistant midpoints between centers: at $x = 1$, left derivative is $+1$ (from $|x|$) and right derivative is $-1$ (from $|x - 2|$); at $x = 3$, left derivative is $+1$ and right derivative is $-1$. Thus the set of non-differentiable points in $(-1, 5)$ is $\\{0, 1, 2, 3, 4\\}$. Their sum is $0 + 1 + 2 + 3 + 4 = 10$."
+    },
+    {
+      "id": "cd_c01_034",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: [1, 3] \\to \\mathbb{R}$ be continuous on $[1, 3]$ and differentiable on $(1, 3)$ with $f(1) = 2$ and $f(3) = 10$. According to the Lagrange Mean Value Theorem, there exists $c \\in (1, 3)$ such that the tangent to the curve at $x = c$ is parallel to the secant line joining $(1, 2)$ and $(3, 10)$. The slope of this tangent line is:",
+      "options": [
+        "A) $2$",
+        "B) $3$",
+        "C) $4$",
+        "D) $8$"
+      ],
+      "answer": "C",
+      "explanation": "The secant line connecting $(1, f(1))$ and $(3, f(3))$ has slope $m = \\frac{f(3) - f(1)}{3 - 1} = \\frac{10 - 2}{2} = \\frac{8}{2} = 4$. By the Lagrange Mean Value Theorem, there exists at least one $c \\in (1, 3)$ such that the derivative $f'(c)$ matches this secant slope: $f'(c) = 4$. Because parallel lines have equal slopes, the tangent line at $x = c$ has slope $4$. The distractor $2$ confuses the slope with the initial value $f(1)$; $3$ results from an arithmetic error $(10-2-2)/2$; and $8$ is the difference in function values without dividing by the interval width."
+    },
+    {
+      "id": "cd_c01_035",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f(x) = \\begin{cases} x^2, & x \\le c \\\\ 2x - 1, & x > c \\end{cases}$. The real value of $c$ for which $f(x)$ is differentiable everywhere on $\\mathbb{R}$ is:",
+      "options": [
+        "A) $-1$",
+        "B) $0$",
+        "C) $2$",
+        "D) $1$"
+      ],
+      "answer": "D",
+      "explanation": "Differentiability everywhere on $\\mathbb{R}$ requires both continuity and derivative equality at the transition point $x = c$. For continuity at $x = c$: $\\lim_{x \\to c^-} f(x) = c^2$ must equal $\\lim_{x \\to c^+} f(x) = 2c - 1$, which gives the equation $c^2 = 2c - 1 \\implies c^2 - 2c + 1 = 0 \\implies (c - 1)^2 = 0 \\implies c = 1$. For matching derivatives at $x = c$: $f'(c^-) = \\left.\\frac{d}{dx}(x^2)\\right|_{x=c} = 2c$, and $f'(c^+) = \\left.\\frac{d}{dx}(2x-1)\\right|_{x=c} = 2$. Setting $2c = 2$ also yields $c = 1$. Both conditions are satisfied simultaneously if and only if $c = 1$. The distractor $-1$ solves $c^2 + 2c + 1 = 0$; $0$ is an unsubstantiated guess; and $2$ solves neither equation."
+    },
+    {
+      "id": "cd_c01_036",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be defined by the integral $f(x) = \\int_0^x |t^2 - 3t + 2| \\, dt$. Which of the following statements is/are correct regarding the continuity and differentiability of $f(x)$ and its derivative on $\\mathbb{R}$?",
+      "options": [
+        "A) $f(x)$ is continuous for all $x \\in \\mathbb{R}$",
+        "B) $f(x)$ is differentiable for all $x \\in \\mathbb{R}$ with $f'(x) = |x^2 - 3x + 2|$",
+        "C) $f'(x)$ is differentiable at $x = 1$",
+        "D) $f'(x)$ is not differentiable at $x = 1$ and $x = 2$"
+      ],
+      "answer": "A,B,D",
+      "explanation": "Because the integrand $g(t) = |t^2 - 3t + 2|$ is continuous everywhere on $\\mathbb{R}$, applying the Fundamental Theorem of Calculus ensures that the accumulator function $f(x) = \\int_0^x g(t)\\,dt$ is differentiable for all $x \\in \\mathbb{R}$, yielding $f'(x) = |x^2 - 3x + 2|$. Since differentiability implies continuity, $f(x)$ is also continuous everywhere on $\\mathbb{R}$, confirming both statements A and B. Factoring the quadratic yields $f'(x) = |(x - 1)(x - 2)|$. In a left neighborhood of $x = 1$, $(x - 1)(x - 2) > 0$, hence $f'(x) = x^2 - 3x + 2$, giving left-hand derivative $f''(1^-) = 2(1) - 3 = -1$. In a right neighborhood of $x = 1$, $(x - 1)(x - 2) < 0$, hence $f'(x) = -(x^2 - 3x + 2)$, yielding right-hand derivative $f''(1^+) = -(2(1) - 3) = 1$. Because $f''(1^-) \\neq f''(1^+)$, $f'(x)$ fails to be differentiable at $x = 1$. An identical calculation at $x = 2$ gives $f''(2^-) = -1$ and $f''(2^+) = 1$, implying $f'(x)$ is also not differentiable at $x = 2$. Therefore, statement D is correct, whereas statement C is incorrect because the non-zero slopes of the inner polynomial create sharp corners in the absolute value."
+    },
+    {
+      "id": "cd_c01_037",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $f(x) = \\max\\{|x^2 - 4|, 3 - |x|\\}$ defined on $[-3, 3]$. Which of the following statements is/are correct concerning the continuity and points of non-differentiability of $f(x)$?",
+      "options": [
+        "A) $f(x)$ is differentiable at $x = 0$",
+        "B) $f(x)$ is differentiable at both $x = 2$ and $x = -2$",
+        "C) The total number of points in $(-3, 3)$ where $f(x)$ is not differentiable is $4$",
+        "D) $f(x)$ is not differentiable at $x = 0$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Both component functions $|x^2 - 4|$ and $3 - |x|$ are even, so $f(x)$ is an even function on $[-3, 3]$. For $x \\ge 0$, we compare $y_1 = |x^2 - 4|$ and $y_2 = 3 - x$. At $x = 0$, $y_1(0) = 4 > 3 = y_2(0)$. Near $x = 0$, $f(x) = 4 - x^2$, which is smooth with derivative $f'(0) = 0$, confirming statement A and refuting statement D. At $x = 2$, $y_1(2) = 0$ while $y_2(2) = 3 - 2 = 1 > 0$. Solving for intersections: on $[0, 2]$, $4 - x^2 = 3 - x \\implies x^2 - x - 1 = 0 \\implies x = \\phi = \\frac{1+\\sqrt{5}}{2} \\approx 1.618$. For $x > 2$, $x^2 - 4 = 3 - x \\implies x^2 + x - 7 = 0 \\implies x = x_2 = \\frac{\\sqrt{29}-1}{2} \\approx 2.193$. Thus on the entire interval $(\\phi, x_2)$, which contains $x = 2$, $3 - x > |x^2 - 4|$. Consequently, $f(x) = 3 - x$ throughout a full neighborhood of $x = 2$, implying $f$ is smooth with $f'(2) = -1$. By symmetry, $f$ is also differentiable at $x = -2$, validating statement B. Sharp corners occur strictly at the intersection points $\\pm \\phi$ and $\\pm x_2$, where the dominating function switches, yielding unequal left and right derivatives. Hence, the total number of non-differentiable points in $(-3, 3)$ is exactly $4$, confirming statement C."
+    },
+    {
+      "id": "cd_c01_038",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be defined by $f(x) = \\begin{cases} x^\\alpha \\sin\\left(\\dfrac{1}{x^\\beta}\\right), & x > 0 \\\\ 0, & x \\le 0 \\end{cases}$, where $\\alpha, \\beta > 0$. Which of the following statements is/are correct regarding the differentiability of $f(x)$?",
+      "options": [
+        "A) $f(x)$ is continuous at $x = 0$ for all $\\alpha > 0$",
+        "B) $f(x)$ is differentiable at $x = 0$ if and only if $\\alpha > 1$",
+        "C) $f'(x)$ is continuous at $x = 0$ if and only if $\\alpha > \\beta + 1$",
+        "D) $f'(x)$ is bounded on $[0, 1]$ if and only if $\\alpha \\ge \\beta + 1$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Evaluating continuity at $x = 0$: since $|\\sin(1/x^\\beta)| \\le 1$, we have $|f(x)| \\le x^\\alpha$. Applying the squeeze theorem yields $\\lim_{x \\to 0^+} f(x) = 0 = f(0)$ for any $\\alpha > 0$, so statement A is correct. For differentiability at $x = 0$, the right-hand derivative is $f'(0^+) = \\lim_{h \\to 0^+} \\frac{h^\\alpha \\sin(1/h^\\beta)}{h} = \\lim_{h \\to 0^+} h^{\\alpha - 1} \\sin(1/h^\\beta)$. This limit exists and equals $0$ if and only if the exponent satisfies $\\alpha - 1 > 0 \\iff \\alpha > 1$, which matches the left-hand derivative $f'(0^-) = 0$, proving statement B. Differentiating for $x > 0$ yields $f'(x) = \\alpha x^{\\alpha - 1} \\sin(1/x^\\beta) - \\beta x^{\\alpha - \\beta - 1} \\cos(1/x^\\beta)$. For $f'(x)$ to be continuous at $x = 0$, we require $\\lim_{x \\to 0^+} f'(x) = f'(0) = 0$. While the first term vanishes for $\\alpha > 1$, the oscillatory cosine term vanishes as $x \\to 0^+$ if and only if $\\alpha - \\beta - 1 > 0 \\iff \\alpha > \\beta + 1$, confirming statement C. For $f'(x)$ to remain bounded near zero, the power on the oscillating factor must be non-negative, meaning $\\alpha - \\beta - 1 \\ge 0 \\iff \\alpha \\ge \\beta + 1$, confirming statement D. Therefore, all four statements are correct."
+    },
+    {
+      "id": "cd_c01_039",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "According to Darboux's Theorem, if a function $f$ is differentiable on an open interval $I$, then the derivative function $f'$ satisfies the Intermediate Value Property on $I$, even if $f'$ is not continuous. Which of the following statements is/are correct consequences of this theorem?",
+      "options": [
+        "A) The derivative function $f'(x)$ cannot have simple jump discontinuities on $I$",
+        "B) If $f'(a) < 0$ and $f'(b) > 0$ for $a < b$ in $I$, there must exist some $c \\in (a, b)$ such that $f'(c) = 0$",
+        "C) If $f'(x) \\neq 0$ for all $x \\in I$, then $f'(x)$ must maintain the same sign throughout $I$",
+        "D) The derivative function $f'(x)$ must be continuous on $I$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Darboux's Theorem establishes that every derivative function $f'$ attains all intermediate values between any two values $f'(a)$ and $f'(b)$. If $f'(x)$ possessed a jump discontinuity at $x_0$, the one-sided limits would exist and differ, skipping an entire interval of intermediate values and violating the Intermediate Value Property, establishing statement A. If $f'(a) < 0$ and $f'(b) > 0$, zero is strictly intermediate between $f'(a)$ and $f'(b)$, so Darboux's Theorem guarantees some $c \\in (a, b)$ satisfies $f'(c) = 0$, establishing statement B. If $f'(x)$ changed signs on $I$, say from negative to positive, by Darboux's Theorem it would necessarily vanish at an intermediate point; hence $f'(x) \\neq 0$ on $I$ forces $f'(x)$ to retain constant sign on $I$, establishing statement C. Statement D is false because the canonical function $f(x) = x^2 \\sin(1/x)$ for $x \\neq 0$ with $f(0) = 0$ is differentiable everywhere on $\\mathbb{R}$, yet $f'(x) = 2x\\sin(1/x) - \\cos(1/x)$ is discontinuous at the origin due to infinite oscillation."
+    },
+    {
+      "id": "cd_c01_040",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a continuous function satisfying the integral equation $f(x) = x + \\int_0^x (x - t) f(t) \\, dt$ for all $x \\in \\mathbb{R}$. Which of the following statements is/are correct regarding $f(x)$?",
+      "options": [
+        "A) $f(x)$ is twice differentiable on $\\mathbb{R}$",
+        "B) $f(x)$ satisfies the differential equation $f''(x) - f(x) = 0$ with $f(0) = 0$ and $f'(0) = 1$",
+        "C) $f(x) = \\sinh x = \\dfrac{e^x - e^{-x}}{2}$",
+        "D) $f(x) = \\sin x$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Rewriting the integral equation by separating terms: $f(x) = x + x \\int_0^x f(t)\\,dt - \\int_0^x t f(t)\\,dt$. Since $f$ is continuous, each integral term is differentiable by the Fundamental Theorem of Calculus. Differentiating with respect to $x$ using the product rule and Leibniz rule: $f'(x) = 1 + \\int_0^x f(t)\\,dt + x f(x) - x f(x) = 1 + \\int_0^x f(t)\\,dt$. Evaluating at $x = 0$ gives $f(0) = 0$ and $f'(0) = 1$. Differentiating a second time yields $f''(x) = f(x)$, which proves that $f(x)$ is twice differentiable (in fact, infinitely differentiable), validating statement A. Rearranging yields $f''(x) - f(x) = 0$ with $f(0) = 0$ and $f'(0) = 1$, validating statement B. The general solution to $f'' - f = 0$ is $f(x) = c_1 e^x + c_2 e^{-x}$. Applying initial conditions: $f(0) = c_1 + c_2 = 0 \\implies c_2 = -c_1$, and $f'(0) = c_1 - c_2 = 2c_1 = 1 \\implies c_1 = 1/2$. Thus $f(x) = \\frac{e^x - e^{-x}}{2} = \\sinh x$, confirming statement C. Statement D is incorrect because $\\sin x$ satisfies the equation $f'' + f = 0$ rather than $f'' - f = 0$."
+    },
+    {
+      "id": "cd_c01_041",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $f: [-2, 2] \\to \\mathbb{R}$ be defined by $f(x) = [x] + \\sqrt{\\{x\\}}$, where $[x]$ is the greatest integer function and $\\{x\\} = x - [x]$ is the fractional part of $x$. Which of the following statements is/are correct?",
+      "options": [
+        "A) $f(x)$ is continuous at all points in $[-2, 2)$ except at integer points",
+        "B) $f(x)$ is right-continuous at every integer point $x \\in \\{-1, 0, 1\\}$",
+        "C) $f(x)$ is continuous at every integer point $x \\in \\{-1, 0, 1\\}$",
+        "D) $f'(x)$ fails to exist at every integer point $x \\in \\{-1, 0, 1\\}$"
+      ],
+      "answer": "B,C,D",
+      "explanation": "Let $n \\in \\{-1, 0, 1\\}$ be an arbitrary integer. By definition, $f(n) = n + \\sqrt{0} = n$. Evaluating the right-hand limit as $x \\to n^+$: $[x] = n$ and $\\{x\\} = x - n \\to 0^+$, so $\\lim_{x \\to n^+} f(x) = n + \\sqrt{0} = n = f(n)$. This proves right-continuity at all integers, confirming statement B. Evaluating the left-hand limit as $x \\to n^-$: $[x] = n - 1$ and $\\{x\\} = x - (n - 1) \\to 1^-$, so $\\lim_{x \\to n^-} f(x) = (n - 1) + \\sqrt{1} = n = f(n)$. Because the left-hand and right-hand limits are equal to each other and equal to $f(n)$, $f(x)$ is actually continuous at every integer point $n \\in \\{-1, 0, 1\\}$, validating statement C. Consequently, statement A is false because $f$ does not have discontinuities at the integers. Now checking differentiability at an integer $n$: the right-hand derivative is $f'(n^+) = \\lim_{h \\to 0^+} \\frac{(n + \\sqrt{h}) - n}{h} = \\lim_{h \\to 0^+} \\frac{1}{\\sqrt{h}} = +\\infty$. Because this one-sided derivative is infinite, $f'(n)$ fails to exist as a finite derivative at any integer point, confirming statement D."
+    },
+    {
+      "id": "cd_c01_042",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $F(x) = \\int_0^{x^2} \\dfrac{t}{\\sqrt{1 + t^3}} \\, dt$ for $x \\ge 0$. The value of the second derivative $F''(1)$ is:",
+      "options": [
+        "A) $\\sqrt{2}$",
+        "B) $3\\sqrt{2}$",
+        "C) $\\dfrac{\\sqrt{2}}{2}$",
+        "D) $\\dfrac{3\\sqrt{2}}{2}$"
+      ],
+      "answer": "D",
+      "explanation": "Applying the Leibniz rule for differentiation under the integral sign: $F'(x) = \\frac{x^2}{\\sqrt{1 + (x^2)^3}} \\cdot \\frac{d}{dx}(x^2) = \\frac{x^2}{\\sqrt{1 + x^6}} \\cdot (2x) = \\frac{2x^3}{\\sqrt{1 + x^6}}$. To find $F''(x)$, differentiate $F'(x)$ using the quotient rule: $F''(x) = \\frac{6x^2 \\sqrt{1 + x^6} - 2x^3 \\cdot \\frac{6x^5}{2\\sqrt{1 + x^6}}}{1 + x^6} = \\frac{6x^2(1 + x^6) - 6x^8}{(1 + x^6)^{3/2}} = \\frac{6x^2}{(1 + x^6)^{3/2}}$. Substituting $x = 1$ yields $F''(1) = \\frac{6(1)^2}{(1 + 1)^{3/2}} = \\frac{6}{2^{3/2}} = \\frac{6}{2\\sqrt{2}} = \\frac{3}{\\sqrt{2}} = \\frac{3\\sqrt{2}}{2}$. The distractor $\\sqrt{2}$ drops the factor of $3$; $3\\sqrt{2}$ forgets the denominator factor of $2$; and $\\sqrt{2}/2$ results from dropping the inner chain rule derivative $2x$."
+    },
+    {
+      "id": "cd_c01_043",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: [0, 1] \\to \\mathbb{R}$ be a differentiable function such that $f(0) = 0$ and $f(1) = 1$. Suppose that for all $x \\in (0, 1)$, $|f'(x)| \\le 2$. Let $S = \\int_0^1 f(x) \\, dx$. What is the greatest possible value of $S$?",
+      "options": [
+        "A) $\\dfrac{3}{4}$",
+        "B) $1$",
+        "C) $\\dfrac{9}{8}$",
+        "D) $\\dfrac{7}{8}$"
+      ],
+      "answer": "D",
+      "explanation": "Applying the Mean Value Theorem with the derivative constraint $|f'(t)| \\le 2$: starting from $x = 0$, $f(x) - f(0) \\le 2(x - 0) \\implies f(x) \\le 2x$. Moving backward from $x = 1$, $f(1) - f(x) \\ge -2(1 - x) \\implies f(x) \\le 1 + 2(1 - x) = 3 - 2x$. Thus the upper envelope for $f(x)$ on $[0, 1]$ is $M(x) = \\min\\{2x, 3 - 2x\\}$. The intersection of the two bounding lines occurs where $2x = 3 - 2x \\implies 4x = 3 \\implies x = 3/4$, where the maximum height is $M(3/4) = 2(3/4) = 3/2$. The maximum possible value of the integral is the area under $M(x)$: $S_{\\max} = \\int_0^{3/4} 2x\\,dx + \\int_{3/4}^1 (3 - 2x)\\,dx = \\left[x^2\\right]_0^{3/4} + \\left[3x - x^2\\right]_{3/4}^1 = \\frac{9}{16} + \\left[(3 - 1) - \\left(\\frac{9}{4} - \\frac{9}{16}\\right)\\right] = \\frac{9}{16} + \\left[2 - \\frac{27}{16}\\right] = \\frac{9}{16} + \\frac{5}{16} = \\frac{14}{16} = \\frac{7}{8}$. The distractor $3/4$ comes from integrating a single bounding line without switching; $1$ assumes the function can reach height $2$ on $[0, 1]$; and $9/8$ ignores the slope constraint at the right endpoint."
+    },
+    {
+      "id": "cd_c01_044",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be defined by $f(x) = \\begin{cases} \\dfrac{\\sin(x^2)}{x}, & x \\neq 0 \\\\ 0, & x = 0 \\end{cases}$. The value of the derivative $f'(0)$ and the status of continuity of $f'(x)$ at $x = 0$ are given by:",
+      "options": [
+        "A) $f'(0) = 0$ and $f'(x)$ is continuous at $x = 0$",
+        "B) $f'(0) = 1$ and $f'(x)$ is discontinuous at $x = 0$",
+        "C) $f'(0) = 1$ and $f'(x)$ is continuous at $x = 0$",
+        "D) $f'(0)$ does not exist"
+      ],
+      "answer": "C",
+      "explanation": "Evaluating the derivative at $x = 0$ from the definition: $f'(0) = \\lim_{h \\to 0} \\frac{f(h) - f(0)}{h} = \\lim_{h \\to 0} \\frac{\\frac{\\sin(h^2)}{h} - 0}{h} = \\lim_{h \\to 0} \\frac{\\sin(h^2)}{h^2} = 1$. For $x \\neq 0$, differentiating using the quotient rule yields $f'(x) = \\frac{x(2x \\cos(x^2)) - \\sin(x^2)}{x^2} = 2\\cos(x^2) - \\frac{\\sin(x^2)}{x^2}$. Taking the limit of $f'(x)$ as $x \\to 0$: $\\lim_{x \\to 0} f'(x) = \\lim_{x \\to 0} \\left[2\\cos(x^2) - \\frac{\\sin(x^2)}{x^2}\\right] = 2(1) - 1 = 1$. Because $\\lim_{x \\to 0} f'(x) = f'(0) = 1$, the derivative function $f'(x)$ is continuous at $x = 0$. The distractor $f'(0) = 0$ miscalculates the standard limit $\\sin(u)/u$ as $0$; claiming discontinuity assumes that trigonometric rational derivatives must oscillate erratically; and claiming non-existence ignores the definition of derivative."
+    },
+    {
+      "id": "cd_c01_045",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a twice differentiable function such that $f''(x) > 0$ for all $x \\in \\mathbb{R}$. If $L(x) = f(a) + f'(a)(x - a)$ denotes the tangent line to $f$ at $x = a$, which of the following statements is strictly TRUE for all $x \\neq a$?",
+      "options": [
+        "A) $f(x) < L(x)$",
+        "B) $f(x) > L(x)$",
+        "C) $f(x) \\le L(x)$",
+        "D) $f(x) = L(x)$"
+      ],
+      "answer": "B",
+      "explanation": "Applying Taylor's Theorem with the Lagrange remainder for $f(x)$ expanded around $x = a$: $f(x) = f(a) + f'(a)(x - a) + \\frac{f''(c)}{2}(x - a)^2$ for some point $c$ strictly between $a$ and $x$. Subtracting the tangent line approximation $L(x) = f(a) + f'(a)(x - a)$ from both sides yields the error term $f(x) - L(x) = \\frac{f''(c)}{2}(x - a)^2$. We are given that $f''(t) > 0$ for all real $t$, so $f''(c) > 0$. For any $x \\neq a$, $(x - a)^2 > 0$. Therefore, $\\frac{f''(c)}{2}(x - a)^2 > 0$, implying $f(x) - L(x) > 0 \\implies f(x) > L(x)$. Geometrically, strict convexity ensures that the curve lies strictly above all of its tangent lines everywhere except at the point of tangency. The distractor $f(x) < L(x)$ corresponds to strict concavity where $f'' < 0$; $f(x) \\le L(x)$ allows non-strictness and inverted curvature; and $f(x) = L(x)$ applies only to linear functions where $f'' = 0$."
+    },
+    {
+      "id": "cd_c01_046",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $f(x) = |x| + |x - 1| + \\cos(|x|)$ for $x \\in \\mathbb{R}$. The set of all points where $f(x)$ is not differentiable is:",
+      "options": [
+        "A) $\\{0, 1\\}$",
+        "B) $\\{1\\}$",
+        "C) $\\{-1, 0, 1\\}$",
+        "D) $\\{0\\}$"
+      ],
+      "answer": "A",
+      "explanation": "Because cosine is an even function, $\\cos(|x|) = \\cos x$ for all $x \\in \\mathbb{R}$. The function $\\cos x$ is infinitely differentiable everywhere on $\\mathbb{R}$, so it contributes no points of non-differentiability. The non-differentiability of $f(x)$ is determined solely by the behavior of $|x| + |x - 1|$ at the sharp corners $x = 0$ and $x = 1$. At $x = 0$, the remaining component $|x - 1| + \\cos x$ is differentiable with derivative $-1 - \\sin(0) = -1$, while $|x|$ has left-hand derivative $-1$ and right-hand derivative $+1$. Thus $f'(0^-) = -1 - 1 = -2$ and $f'(0^+) = 1 - 1 = 0$, showing $f$ is non-differentiable at $x = 0$. At $x = 1$, $|x| + \\cos x$ is differentiable while $|x - 1|$ has left-hand derivative $-1$ and right-hand derivative $+1$, so $f'(1^-) \\neq f'(1^+)$, showing $f$ is non-differentiable at $x = 1$. At all other points, $f$ is a sum of smooth functions. Hence $f$ fails to be differentiable at $\\{0, 1\\}$. The distractor $\\{1\\}$ wrongly presumes $\\cos(|x|)$ cancels the corner at $0$; $\\{-1, 0, 1\\}$ introduces a spurious point at $-1$; and $\\{0\\}$ omits the corner at $1$."
+    },
+    {
+      "id": "cd_c01_047",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be defined by $f(x) = \\int_0^x |t^2 - 5t + 6| \\, dt$. Let $k$ be the number of distinct points in $\\mathbb{R}$ where the second derivative $f''(x)$ fails to exist, and let $S$ be the sum of these $x$-coordinates. Determine the integer value of $10k + S$.",
+      "options": [],
+      "answer": "25",
+      "explanation": "Applying the Fundamental Theorem of Calculus to the continuous integrand yields $f'(x) = |x^2 - 5t + 6| = |(x - 2)(x - 3)|$. To determine where $f''(x)$ fails to exist, we analyze the differentiability of $f'(x)$ at the zeros of the quadratic factor, $x = 2$ and $x = 3$. At $x = 2$, the derivative of the inner function $u(x) = x^2 - 5x + 6$ is $u'(2) = 2(2) - 5 = -1 \\neq 0$. Thus the left-hand derivative of $f'$ is $-(-1) = 1$ and the right-hand derivative is $+(-1) = -1$, implying $f''(2)$ does not exist. Similarly, at $x = 3$, $u'(3) = 2(3) - 5 = 1 \\neq 0$, giving left-hand derivative $-1$ and right-hand derivative $+1$, so $f''(3)$ does not exist. At every other point in $\\mathbb{R}$, $f'(x)$ is differentiable. Therefore, $f''(x)$ fails to exist at exactly $k = 2$ points, and their sum is $S = 2 + 3 = 5$. Computing the required integer gives $10k + S = 10(2) + 5 = 25$."
+    },
+    {
+      "id": "cd_c01_048",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let a differentiable function $f: \\mathbb{R} \\to \\mathbb{R}$ satisfy $f(x + y) = f(x) + f(y) + 3xy(x + y)$ for all $x, y \\in \\mathbb{R}$. If $\\lim_{h \\to 0} \\dfrac{f(h)}{h} = 2$, compute the integer value of $f'(4)$.",
+      "options": [],
+      "answer": "50",
+      "explanation": "Substituting $x = y = 0$ into the functional equation yields $f(0) = f(0) + f(0) + 0 \\implies f(0) = 0$. The given limit represents the derivative at the origin: $f'(0) = \\lim_{h \\to 0} \\frac{f(h) - f(0)}{h} = \\lim_{h \\to 0} \\frac{f(h)}{h} = 2$. Evaluating $f'(x)$ from first principles: $f'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h} = \\lim_{h \\to 0} \\frac{f(x) + f(h) + 3xh(x + h) - f(x)}{h} = \\lim_{h \\to 0} \\left[\\frac{f(h)}{h} + 3x(x + h)\\right]$. Taking the limit as $h \\to 0$ yields $f'(x) = 2 + 3x^2$. Substituting $x = 4$ into this derivative expression produces $f'(4) = 2 + 3(4^2) = 2 + 3(16) = 2 + 48 = 50$."
+    },
+    {
+      "id": "cd_c01_049",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $f(x) = \\max\\{|x^2 - 1|, |x^2 - 4|\\}$ for all $x \\in \\mathbb{R}$. Determine the total number of points in $\\mathbb{R}$ where $f(x)$ is not differentiable.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Setting $u = x^2 \\ge 0$, we compare the one-dimensional functions $g_1(u) = |u - 1|$ and $g_2(u) = |u - 4|$. On $[0, 5/2]$, $g_2(u) = 4 - u \\ge g_1(u)$, with equality holding at $u = 5/2$ where $4 - 5/2 = 3/2$ and $5/2 - 1 = 3/2$. On $[5/2, \\infty)$, $g_1(u) = u - 1 \\ge g_2(u)$. Therefore, $f(x) = |x^2 - 4| = 4 - x^2$ for $x^2 \\le 5/2$, and $f(x) = |x^2 - 1| = x^2 - 1$ for $x^2 \\ge 5/2$. Notice that on the inner region $x^2 \\le 5/2 < 4$, the zeros of $x^2 - 4$ are never reached, so $f(x) = 4 - x^2$ is strictly positive and smooth everywhere on $(-\\sqrt{5/2}, \\sqrt{5/2})$. Similarly, on the outer region $x^2 \\ge 5/2 > 1$, the zeros of $x^2 - 1$ are never reached, so $f(x) = x^2 - 1$ is strictly positive and smooth on $(-\\infty, -\\sqrt{5/2}) \\cup (\\sqrt{5/2}, \\infty)$. At the boundary $x = \\sqrt{5/2}$, the left-hand derivative is $-2\\sqrt{5/2} = -\\sqrt{10}$ while the right-hand derivative is $2\\sqrt{5/2} = \\sqrt{10} \\neq -\\sqrt{10}$, so $f$ is not differentiable. By symmetry, $f$ is also not differentiable at $x = -\\sqrt{5/2}$. Hence, non-differentiability occurs at exactly $2$ points."
+    },
+    {
+      "id": "cd_c01_050",
+      "subject": "Mathematics",
+      "topic": "Continuity and Differentiability",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $f: (0, \\infty) \\to \\mathbb{R}$ be defined by $f(x) = \\int_0^{x^3} \\dfrac{\\sin(\\sqrt{t})}{1 + t} \\, dt$. If the limit $L = \\lim_{x \\to 0^+} \\dfrac{f'(x)}{x^{7/2}}$ exists, find the integer value of $L$.",
+      "options": [],
+      "answer": "3",
+      "explanation": "Applying the Leibniz rule to differentiate $f(x)$ with respect to $x$: $f'(x) = \\frac{\\sin(\\sqrt{x^3})}{1 + x^3} \\cdot \\frac{d}{dx}(x^3) = \\frac{\\sin(x^{3/2})}{1 + x^3} \\cdot 3x^2 = \\frac{3x^2 \\sin(x^{3/2})}{1 + x^3}$. Now evaluating the required limit: $L = \\lim_{x \\to 0^+} \\frac{f'(x)}{x^{7/2}} = \\lim_{x \\to 0^+} \\frac{3x^2 \\sin(x^{3/2})}{x^{7/2}(1 + x^3)} = \\lim_{x \\to 0^+} \\frac{3 \\sin(x^{3/2})}{x^{3/2}(1 + x^3)}$. Applying the standard trigonometric limit $\\lim_{u \\to 0^+} \\frac{\\sin u}{u} = 1$ with $u = x^{3/2}$, we obtain $L = 3 \\cdot \\left(\\lim_{u \\to 0^+} \\frac{\\sin u}{u}\\right) \\cdot \\left(\\lim_{x \\to 0^+} \\frac{1}{1 + x^3}\\right) = 3 \\cdot 1 \\cdot 1 = 3$."
+    }
+  ]
+}

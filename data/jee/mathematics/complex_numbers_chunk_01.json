@@ -1,0 +1,804 @@
+{
+  "questions": [
+    {
+      "id": "cn_c01_001",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $z = x + iy$ be a complex number satisfying $|z - 3 - 4i| = |z + 1 - 2i|$. The locus of $z$ is a straight line in the Argand plane. The perpendicular distance from the origin $(0,0)$ to this line is equal to:",
+      "options": [
+        "A) $\\frac{5}{2}$",
+        "B) $\\sqrt{5}$",
+        "C) $2\\sqrt{5}$",
+        "D) $\\frac{5}{\\sqrt{3}}$"
+      ],
+      "answer": "B",
+      "explanation": "Squaring both sides of the given modulus equation yields $|z - (3 + 4i)|^2 = |z - (-1 + 2i)|^2$. Expanding in terms of real and imaginary components $x$ and $y$, we have $(x - 3)^2 + (y - 4)^2 = (x + 1)^2 + (y - 2)^2$. Simplifying both sides, $x^2 - 6x + 9 + y^2 - 8y + 16 = x^2 + 2x + 1 + y^2 - 4y + 4$, which leads to $-6x - 8y + 25 = 2x - 4y + 5$. Grouping like terms gives $8x + 4y - 20 = 0$, or dividing by $4$, $2x + y - 5 = 0$. The perpendicular distance from the origin $(0,0)$ to the line $ax + by + c = 0$ is given by $d = \\frac{|c|}{\\sqrt{a^2 + b^2}} = \\frac{|-5|}{\\sqrt{2^2 + 1^2}} = \\frac{5}{\\sqrt{5}} = \\sqrt{5}$. The value $\\frac{5}{2}$ arises from forgetting the square root in the denominator $\\sqrt{a^2+b^2}$. The value $2\\sqrt{5}$ corresponds to doubling the distance, while $\\frac{5}{\\sqrt{3}}$ comes from erroneously taking the denominator as $\\sqrt{2+1}$."
+    },
+    {
+      "id": "cn_c01_002",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $z$ be a complex number satisfying $|z - (2 + 3i)| \\le 4$. The maximum possible value of $|z + 4 + 5i|$ in the Argand plane is:",
+      "options": [
+        "A) $10$",
+        "B) $6$",
+        "C) $14$",
+        "D) $12$"
+      ],
+      "answer": "C",
+      "explanation": "The condition $|z - (2 + 3i)| \\le 4$ defines a closed circular disc with center $z_0 = 2 + 3i$ and radius $R = 4$. We wish to maximize $|z - z_1|$ where $z_1 = -4 - 5i$. By the triangle inequality, for any point $z$ on or inside the circle, $|z - z_1| = |(z - z_0) + (z_0 - z_1)| \\le |z_0 - z_1| + |z - z_0|$. The distance between the center $z_0$ and the target point $z_1$ is $|z_0 - z_1| = |(2 - (-4)) + i(3 - (-5))| = |6 + 8i| = \\sqrt{6^2 + 8^2} = 10$. Therefore, the maximum value is $|z_0 - z_1| + R = 10 + 4 = 14$. The value $10$ represents the distance from the target point to the center while omitting the radius. The value $6$ corresponds to the minimum distance $|z_0 - z_1| - R = 10 - 4$, and $12$ results from miscalculating the center-to-target distance."
+    },
+    {
+      "id": "cn_c01_003",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\omega = -\\frac{1}{2} + i\\frac{\\sqrt{3}}{2}$ be a non-real cube root of unity. The numerical value of the expression $(1 - \\omega + \\omega^2)^5 + (1 + \\omega - \\omega^2)^5$ is equal to:",
+      "options": [
+        "A) $32$",
+        "B) $-32$",
+        "C) $64$",
+        "D) $-64$"
+      ],
+      "answer": "A",
+      "explanation": "Recall the fundamental relations for cube roots of unity: $1 + \\omega + \\omega^2 = 0$ and $\\omega^3 = 1$. From $1 + \\omega^2 = -\\omega$, the first term simplifies to $1 - \\omega + \\omega^2 = -\\omega - \\omega = -2\\omega$. Raising this to the fifth power gives $(-2\\omega)^5 = -32\\omega^5 = -32\\omega^2$. Similarly, from $1 + \\omega = -\\omega^2$, the second term simplifies to $1 + \\omega - \\omega^2 = -\\omega^2 - \\omega^2 = -2\\omega^2$. Raising this to the fifth power gives $(-2\\omega^2)^5 = -32\\omega^{10} = -32\\omega$. Summing both terms yields $-32(\\omega^2 + \\omega)$. Since $\\omega^2 + \\omega = -1$, we get $-32(-1) = 32$. The value $-32$ results from an incorrect sign evaluation $\\omega + \\omega^2 = 1$. The value $64$ comes from erroneously adding positive magnitudes, and $-64$ combines both magnitude doubling and sign inversion."
+    },
+    {
+      "id": "cn_c01_004",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $z$ be a complex number different from $-2$ such that the quotient $\\frac{z - 2}{z + 2}$ is purely imaginary. If the minimum distance from the point $3 + 4i$ to the locus of $z$ is $d$, determine the value of $d^2$.",
+      "options": [],
+      "answer": "9",
+      "explanation": "A complex number $w$ is purely imaginary if and only if $\\text{Re}(w) = 0$, which is equivalent to $w + \\bar{w} = 0$. Substituting $w = \\frac{z - 2}{z + 2}$, we obtain $\\frac{z - 2}{z + 2} + \\frac{\\bar{z} - 2}{\\bar{z} + 2} = 0$. Multiplying across by the denominators yields $(z - 2)(\\bar{z} + 2) + (z + 2)(\\bar{z} - 2) = 0$. Expanding both products, $(|z|^2 + 2z - 2\\bar{z} - 4) + (|z|^2 - 2z + 2\\bar{z} - 4) = 0$, which simplifies to $2|z|^2 - 8 = 0$, implying $|z|^2 = 4$, so $|z| = 2$. Thus, the locus of $z$ is the circle $|z| = 2$ centered at the origin with radius $r = 2$ (excluding the point $z = -2$). The distance from the point $z_0 = 3 + 4i$ to the origin is $|z_0| = \\sqrt{3^2 + 4^2} = 5$. The minimum distance from $z_0$ to the circle is therefore $d = |z_0| - r = 5 - 2 = 3$. Hence, $d^2 = 3^2 = 9$."
+    },
+    {
+      "id": "cn_c01_005",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the complex expression $W = \\frac{(\\sqrt{3} + i)^{100}}{2^{74}(1 - i)^{50}}$ and express it in Cartesian form $a + ib$:",
+      "options": [
+        "A) $\\sqrt{3} - i$",
+        "B) $-\\sqrt{3} + i$",
+        "C) $\\sqrt{3} + i$",
+        "D) $-\\sqrt{3} - i$"
+      ],
+      "answer": "D",
+      "explanation": "Convert each factor to exponential polar form. First, $\\sqrt{3} + i = 2\\left(\\frac{\\sqrt{3}}{2} + \\frac{i}{2}\\right) = 2e^{i\\pi/6}$. Raising to the 100th power gives $(\\sqrt{3} + i)^{100} = 2^{100}e^{i 100\\pi/6} = 2^{100}e^{i 50\\pi/3}$. Since $50\\pi/3 = 16\\pi + 2\\pi/3$, this simplifies to $2^{100}e^{i 2\\pi/3}$. Next, $1 - i = \\sqrt{2}e^{-i\\pi/4}$. Raising to the 50th power gives $(1 - i)^{50} = (\\sqrt{2})^{50}e^{-i 50\\pi/4} = 2^{25}e^{-i 25\\pi/2}$. Since $-25\\pi/2 = -12\\pi - \\pi/2$, this is $2^{25}e^{-i\\pi/2}$. Substituting both expressions into $W$, we have $W = \\frac{2^{100}e^{i 2\\pi/3}}{2^{74} \\cdot 2^{25}e^{-i\\pi/2}} = \\frac{2^{100}e^{i 2\\pi/3}}{2^{99}e^{-i\\pi/2}} = 2 e^{i(2\\pi/3 + \\pi/2)} = 2 e^{i 7\\pi/6}$. Expanding this in rectangular form, $2\\left(\\cos\\frac{7\\pi}{6} + i\\sin\\frac{7\\pi}{6}\\right) = 2\\left(-\\frac{\\sqrt{3}}{2} - \\frac{i}{2}\\right) = -\\sqrt{3} - i$. The distractor $\\sqrt{3}-i$ reflects dropping the negative sign in the real part. The distractor $-\\sqrt{3}+i$ arises from an erroneous subtraction of phase angles, and $\\sqrt{3}+i$ results from taking the first quadrant angle $\\pi/6$."
+    },
+    {
+      "id": "cn_c01_006",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\alpha$ and $\\beta$ be the roots of the quadratic equation $z^2 - (3 - 2i)z + (5 - 5i) = 0$. The value of $|\\alpha|^2 + |\\beta|^2$ is equal to:",
+      "options": [
+        "A) $15$",
+        "B) $13$",
+        "C) $17$",
+        "D) $25$"
+      ],
+      "answer": "A",
+      "explanation": "We determine the roots via the quadratic formula: $\\Delta = b^2 - 4ac = (3 - 2i)^2 - 4(5 - 5i) = (9 - 12i - 4) - 20 + 20i = -15 + 8i$. To find the square root of $-15 + 8i$, let $u + iv = \\sqrt{-15 + 8i}$. Then $u^2 - v^2 = -15$ and $2uv = 8$. Also, $u^2 + v^2 = \\sqrt{(-15)^2 + 8^2} = \\sqrt{225 + 64} = 17$. Adding the two equations gives $2u^2 = 2 \\implies u = \\pm 1$, and since $uv = 4 > 0$, we get $v = \\pm 4$. Hence, $\\sqrt{\\Delta} = \\pm (1 + 4i)$. The roots are $z = \\frac{(3 - 2i) \\pm (1 + 4i)}{2}$, giving $\\alpha = \\frac{4 + 2i}{2} = 2 + i$ and $\\beta = \\frac{2 - 6i}{2} = 1 - 3i$. Calculating the sum of squared moduli: $|\\alpha|^2 = 2^2 + 1^2 = 5$ and $|\\beta|^2 = 1^2 + (-3)^2 = 10$. Thus, $|\\alpha|^2 + |\\beta|^2 = 5 + 10 = 15$. The distractor $13$ comes from calculating $|\\alpha + \\beta|^2 = |3 - 2i|^2 = 13$ under the false assumption that $|\\alpha|^2 + |\\beta|^2 = |\\alpha + \\beta|^2$. The distractor $17$ corresponds to the modulus of the discriminant $|\\Delta|$, and $25$ results from an arithmetic error in squaring the roots."
+    },
+    {
+      "id": "cn_c01_007",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $z$ be a complex number with $|z| = 2$ and $\\arg(z) = \\frac{\\pi}{6}$. The numerical value of $\\left|z + \\frac{2}{z}\\right|^2 - \\left|z - \\frac{2}{z}\\right|^2$ is equal to:",
+      "options": [
+        "A) $2$",
+        "B) $4$",
+        "C) $2\\sqrt{3}$",
+        "D) $8$"
+      ],
+      "answer": "B",
+      "explanation": "For any two complex numbers $u$ and $v$, the parallelogram identity gives $|u + v|^2 - |u - v|^2 = 4\\text{Re}(u\\bar{v})$. Setting $u = z$ and $v = \\frac{2}{z}$, we evaluate $u\\bar{v} = z \\cdot \\overline{\\left(\\frac{2}{z}\\right)} = z \\cdot \\frac{2}{\\bar{z}} = \\frac{2z^2}{|z|^2}$. Given $|z| = 2$ and $\\arg(z) = \\frac{\\pi}{6}$, we have $z = 2e^{i\\pi/6}$. Thus $z^2 = 4e^{i\\pi/3}$ and $|z|^2 = 4$. Substituting these values gives $u\\bar{v} = \\frac{2(4e^{i\\pi/3})}{4} = 2e^{i\\pi/3} = 2\\left(\\frac{1}{2} + i\\frac{\\sqrt{3}}{2}\\right) = 1 + i\\sqrt{3}$. Taking the real part yields $\\text{Re}(u\\bar{v}) = 1$. Therefore, the required expression is $4\\text{Re}(u\\bar{v}) = 4(1) = 4$. The distractor $2$ results from forgetting the factor of $4$ in the identity. The distractor $2\\sqrt{3}$ comes from mistakenly taking the imaginary part $4\\text{Im}(u\\bar{v})$, and $8$ results from doubling the product of moduli."
+    },
+    {
+      "id": "cn_c01_008",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $z_1$ and $z_2$ be two complex numbers such that $|z_1| = 2$, $|z_2| = 3$, and $|2z_1 - z_2| = 4$. The value of $|2z_1 + z_2|$ is equal to:",
+      "options": [
+        "A) $\\sqrt{26}$",
+        "B) $6$",
+        "C) $\\sqrt{34}$",
+        "D) $5\\sqrt{2}$"
+      ],
+      "answer": "C",
+      "explanation": "Let $u = 2z_1$. The modulus of $u$ is $|u| = 2|z_1| = 2(2) = 4$. We are given $|u - z_2| = 4$ and $|z_2| = 3$. Applying the parallelogram law for complex numbers, $|u + z_2|^2 + |u - z_2|^2 = 2(|u|^2 + |z_2|^2)$. Substituting the known quantities, $|2z_1 + z_2|^2 + 4^2 = 2(4^2 + 3^2) = 2(16 + 9) = 50$. This gives $|2z_1 + z_2|^2 + 16 = 50$, so $|2z_1 + z_2|^2 = 34$. Taking the principal square root yields $|2z_1 + z_2| = \\sqrt{34}$. The distractor $\\sqrt{26}$ corresponds to an arithmetic error subtracting $24$ instead of $16$. The distractor $6$ comes from rounding or linear approximation, and $5\\sqrt{2} = \\sqrt{50}$ represents forgetting to subtract $|u - z_2|^2$ before taking the square root."
+    },
+    {
+      "id": "cn_c01_009",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $z$ be a complex number satisfying $|z + 2 - 3i| \\le 3$. Let $M$ and $m$ denote the maximum and minimum values of $|z - 10 - 8i|$, respectively. Determine the integer value of $M + m$.",
+      "options": [],
+      "answer": "26",
+      "explanation": "The condition $|z - (-2 + 3i)| \\le 3$ defines a closed disc centered at $z_0 = -2 + 3i$ with radius $R = 3$. We examine the distance from any point $z$ in this disc to the target point $z_1 = 10 + 8i$. The distance between the center $z_0$ and $z_1$ is given by $D = |z_1 - z_0| = |(10 - (-2)) + i(8 - 3)| = |12 + 5i| = \\sqrt{12^2 + 5^2} = \\sqrt{144 + 25} = 13$. By the triangle inequality, the maximum distance is $M = D + R = 13 + 3 = 16$, and the minimum distance is $m = D - R = 13 - 3 = 10$. Summing these two extreme values yields $M + m = (D + R) + (D - R) = 2D = 2(13) = 26$."
+    },
+    {
+      "id": "cn_c01_010",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\alpha = \\cos\\left(\\frac{2\\pi}{7}\\right) + i\\sin\\left(\\frac{2\\pi}{7}\\right)$. The numerical value of the finite sum $S = \\sum_{k=1}^6 \\frac{1}{1 - \\alpha^k}$ is equal to:",
+      "options": [
+        "A) $3$",
+        "B) $\\frac{7}{2}$",
+        "C) $6$",
+        "D) $0$"
+      ],
+      "answer": "A",
+      "explanation": "Notice that $\\alpha^7 = 1$ and $\\alpha^k \\cdot \\alpha^{7-k} = \\alpha^7 = 1$, which implies $\\alpha^{7-k} = \\frac{1}{\\alpha^k} = \\bar{\\alpha}^k$. We pair the $k$-th term with the $(7-k)$-th term in the sum: $T_k + T_{7-k} = \\frac{1}{1 - \\alpha^k} + \\frac{1}{1 - \\alpha^{7-k}} = \\frac{1}{1 - \\alpha^k} + \\frac{1}{1 - \\alpha^{-k}}$. Multiplying numerator and denominator of the second fraction by $\\alpha^k$, we get $\\frac{1}{1 - \\alpha^k} + \\frac{\\alpha^k}{\\alpha^k - 1} = \\frac{1}{1 - \\alpha^k} - \\frac{\\alpha^k}{1 - \\alpha^k} = \\frac{1 - \\alpha^k}{1 - \\alpha^k} = 1$. The sum consists of $6$ terms, forming $3$ such complementary pairs: $(k=1,6)$, $(k=2,5)$, and $(k=3,4)$. Hence, $S = 1 + 1 + 1 = 3$. The distractor $\\frac{7}{2}$ arises from mistakenly evaluating $\\frac{n}{2}$ instead of $\\frac{n-1}{2}$. The distractor $6$ comes from treating each term as $1$, and $0$ stems from assuming terms cancel out by symmetry."
+    },
+    {
+      "id": "cn_c01_011",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Evaluate the power of the trigonometric complex fraction $Z = \\left(\\frac{1 + \\cos\\frac{\\pi}{8} + i\\sin\\frac{\\pi}{8}}{1 + \\cos\\frac{\\pi}{8} - i\\sin\\frac{\\pi}{8}}\\right)^8$:",
+      "options": [
+        "A) $1$",
+        "B) $-1$",
+        "C) $i$",
+        "D) $-i$"
+      ],
+      "answer": "B",
+      "explanation": "Using the half-angle trigonometric identities $1 + \\cos\\theta = 2\\cos^2\\left(\\frac{\\theta}{2}\\right)$ and $\\sin\\theta = 2\\sin\\left(\\frac{\\theta}{2}\\right)\\cos\\left(\\frac{\\theta}{2}\\right)$, the numerator becomes $2\\cos\\left(\\frac{\\theta}{2}\\right)\\left[\\cos\\left(\\frac{\\theta}{2}\\right) + i\\sin\\left(\\frac{\\theta}{2}\\right)\\right] = 2\\cos\\left(\\frac{\\theta}{2}\\right)e^{i\\theta/2}$. Similarly, the denominator is $2\\cos\\left(\\frac{\\theta}{2}\\right)\\left[\\cos\\left(\\frac{\\theta}{2}\\right) - i\\sin\\left(\\frac{\\theta}{2}\\right)\\right] = 2\\cos\\left(\\frac{\\theta}{2}\\right)e^{-i\\theta/2}$. Dividing the two expressions, the quotient simplifies to $\\frac{e^{i\\theta/2}}{e^{-i\\theta/2}} = e^{i\\theta}$. Here $\\theta = \\frac{\\pi}{8}$, so the base of the power is $e^{i\\pi/8}$. Raising to the 8th power gives $Z = (e^{i\\pi/8})^8 = e^{i\\pi} = \\cos\\pi + i\\sin\\pi = -1$. The distractor $1$ comes from miscalculating $e^{i\\pi} = 1$. The distractors $i$ and $-i$ arise from errors in multiplying the exponent by the power."
+    },
+    {
+      "id": "cn_c01_012",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The equation $z\\bar{z} + (2 - 3i)z + (2 + 3i)\\bar{z} - 12 = 0$ represents a circle in the complex Argand plane. The radius of this circle is:",
+      "options": [
+        "A) $\\sqrt{13}$",
+        "B) $25$",
+        "C) $5$",
+        "D) $2\\sqrt{3}$"
+      ],
+      "answer": "C",
+      "explanation": "The general equation of a circle in the complex plane is given by $z\\bar{z} + \\bar{\\alpha}z + \\alpha\\bar{z} + c = 0$, where $c$ is a real constant. Here, comparing coefficients gives $\\alpha = 2 + 3i$ and $c = -12$. The center of the circle is located at $z_0 = -\\alpha = -2 - 3i$. The radius $R$ is given by the formula $R = \\sqrt{|\\alpha|^2 - c}$. Computing the modulus squared of $\\alpha$: $|\\alpha|^2 = 2^2 + 3^2 = 4 + 9 = 13$. Substituting this and $c = -12$ yields $R = \\sqrt{13 - (-12)} = \\sqrt{13 + 12} = \\sqrt{25} = 5$. The distractor $\\sqrt{13}$ represents taking $|\\alpha|$ while ignoring the constant term. The distractor $25$ arises from forgetting to take the square root, and $2\\sqrt{3} = \\sqrt{12}$ comes from neglecting the contribution of $|\\alpha|^2$."
+    },
+    {
+      "id": "cn_c01_013",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Determine the exact number of distinct complex numbers $z$ that simultaneously satisfy the system of equations $|z| = 2$ and $|z - (3 + 4i)| = 3$.",
+      "options": [],
+      "answer": "1",
+      "explanation": "The equation $|z| = 2$ represents a circle $C_1$ centered at the origin $O(0,0)$ with radius $r_1 = 2$. The equation $|z - (3 + 4i)| = 3$ represents a second circle $C_2$ centered at $z_0 = 3 + 4i$ with radius $r_2 = 3$. The distance between the two centers is $d = |z_0 - 0| = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = 5$. Notice that the sum of the radii is $r_1 + r_2 = 2 + 3 = 5$. Since the distance between centers equals the sum of the radii ($d = r_1 + r_2$), the two circles touch each other externally at exactly one point of tangency. Therefore, there is exactly $1$ complex number satisfying both equations."
+    },
+    {
+      "id": "cn_c01_014",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $z_1 = 2 + 3i$, $z_2 = -1 + 4i$, and $z_3 = 5 - 2i$ be the vertices of a triangle in the Argand plane. The area of this triangle is equal to:",
+      "options": [
+        "A) $12$",
+        "B) $3$",
+        "C) $8$",
+        "D) $6$"
+      ],
+      "answer": "D",
+      "explanation": "The vertices in Cartesian coordinates are $A(2, 3)$, $B(-1, 4)$, and $C(5, -2)$. The area of a triangle with vertices $(x_1, y_1), (x_2, y_2), (x_3, y_3)$ is given by $\\Delta = \\frac{1}{2}|x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)|$. Substituting the coordinates, we get $\\Delta = \\frac{1}{2}|2(4 - (-2)) + (-1)(-2 - 3) + 5(3 - 4)| = \\frac{1}{2}|2(6) + (-1)(-5) + 5(-1)| = \\frac{1}{2}|12 + 5 - 5| = \\frac{1}{2}|12| = 6$. The distractor $12$ corresponds to forgetting the factor of $\\frac{1}{2}$. The distractor $3$ comes from erroneously dividing by $4$, and $8$ results from sign errors when expanding the coordinate determinant."
+    },
+    {
+      "id": "cn_c01_015",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $z = x + iy$ be a complex number satisfying the unimodular ratio condition $\\left|\\frac{z - 4i}{z + 4}\\right| = 1$. The locus of $z$ in the Argand plane is the straight line given by:",
+      "options": [
+        "A) $x + y = 0$",
+        "B) $x - y = 0$",
+        "C) $x + y = 4$",
+        "D) $x - y = 4$"
+      ],
+      "answer": "A",
+      "explanation": "The given condition implies $|z - 4i| = |z - (-4)|$. Geometrically, this represents the perpendicular bisector of the line segment joining the points $A(0, 4)$ and $B(-4, 0)$. In algebraic terms, $|x + i(y - 4)|^2 = |(x + 4) + iy|^2$. Expanding the modulus squared on both sides: $x^2 + (y - 4)^2 = (x + 4)^2 + y^2$, which yields $x^2 + y^2 - 8y + 16 = x^2 + 8x + 16 + y^2$. Canceling identical terms $x^2 + y^2 + 16$ from both sides gives $-8y = 8x$, which simplifies directly to $x + y = 0$. The distractor $x - y = 0$ results from an erroneous sign swap when equating linear terms. The distractor $x + y = 4$ arises from forgetting to cancel the constant $16$, and $x - y = 4$ combines both algebraic errors."
+    },
+    {
+      "id": "cn_c01_016",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The locus of a complex number $z = x + iy$ satisfying the ratio equation $\\left|\\frac{z - 2}{z - 8}\\right| = \\frac{1}{2}$ is an Apollonius circle in the Argand plane. The center and radius of this circle are given by:",
+      "options": [
+        "A) center $(2, 0)$ and radius $4$",
+        "B) center $(0, 0)$ and radius $16$",
+        "C) center $(5, 0)$ and radius $3$",
+        "D) center $(0, 0)$ and radius $4$"
+      ],
+      "answer": "D",
+      "explanation": "Multiplying both sides by $2|z - 8|$ and squaring gives $4|z - 2|^2 = |z - 8|^2$. Substituting $z = x + iy$, we obtain $4\\left((x - 2)^2 + y^2\\right) = (x - 8)^2 + y^2$. Expanding both sides yields $4(x^2 - 4x + 4 + y^2) = x^2 - 16x + 64 + y^2$, which expands to $4x^2 - 16x + 16 + 4y^2 = x^2 - 16x + 64 + y^2$. Grouping like terms and noting that the linear terms $-16x$ cancel identically from both sides, we get $3x^2 + 3y^2 = 64 - 16 = 48$. Dividing through by $3$ gives the standard circle equation $x^2 + y^2 = 16$. This represents a circle centered at the origin $(0,0)$ with radius $R = \\sqrt{16} = 4$. The distractor center $(2,0)$ and radius $4$ arises from confusing the center with one of the focal points. The distractor center $(0,0)$ and radius $16$ comes from forgetting to take the square root of $R^2$, and center $(5,0)$ with radius $3$ results from erroneously taking the arithmetic mean of the focal points."
+    },
+    {
+      "id": "cn_c01_017",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $z_1, z_2, z_3$ be complex numbers representing the vertices of an equilateral triangle inscribed in the circle $|z| = 2$. If one of the vertices is $z_1 = 2$, evaluate the sum of the squares $z_1^2 + z_2^2 + z_3^2$:",
+      "options": [
+        "A) $12$",
+        "B) $0$",
+        "C) $4$",
+        "D) $-4$"
+      ],
+      "answer": "B",
+      "explanation": "Since the equilateral triangle is inscribed in the circle $|z| = 2$, its circumcentre is located at the origin $O(0,0)$. For any equilateral triangle, the circumcentre coincides with the centroid, which implies that the sum of the vertices is zero: $z_1 + z_2 + z_3 = 0$. Squaring this identity yields $(z_1 + z_2 + z_3)^2 = z_1^2 + z_2^2 + z_3^2 + 2(z_1 z_2 + z_2 z_3 + z_3 z_1) = 0$. Moreover, for any equilateral triangle in the complex plane, the condition $z_1^2 + z_2^2 + z_3^2 = z_1 z_2 + z_2 z_3 + z_3 z_1$ holds identically. Substituting this into the squared sum produces $3(z_1^2 + z_2^2 + z_3^2) = 0$, from which we conclude that $z_1^2 + z_2^2 + z_3^2 = 0$. The distractor $12$ results from mistakenly summing the squared moduli $|z_1|^2 + |z_2|^2 + |z_3|^2 = 4 + 4 + 4 = 12$. The distractor $4$ arises from considering only $z_1^2$, and $-4$ stems from an incorrect sign manipulation of the symmetric product."
+    },
+    {
+      "id": "cn_c01_018",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\alpha_k = e^{i 2k\\pi/7}$ for $k = 1, 2, \\dots, 6$ denote the non-real seventh roots of unity. Evaluate the value of the finite product $P = \\prod_{k=1}^6 (2 - \\alpha_k)$:",
+      "options": [
+        "A) $128$",
+        "B) $63$",
+        "C) $127$",
+        "D) $255$"
+      ],
+      "answer": "C",
+      "explanation": "The roots of the polynomial equation $x^7 - 1 = 0$ are the 7th roots of unity, given by $1, \\alpha_1, \\alpha_2, \\dots, \\alpha_6$. Thus, we can factor the polynomial as $x^7 - 1 = (x - 1)\\prod_{k=1}^6 (x - \\alpha_k)$. Dividing both sides by $(x - 1)$ for $x \\ne 1$, we obtain the cyclotomic polynomial identity $\\prod_{k=1}^6 (x - \\alpha_k) = \\frac{x^7 - 1}{x - 1} = x^6 + x^5 + x^4 + x^3 + x^2 + x + 1$. Substituting $x = 2$ into this identity, the product evaluates to $\\prod_{k=1}^6 (2 - \\alpha_k) = \\frac{2^7 - 1}{2 - 1} = 128 - 1 = 127$. The distractor $128$ comes from calculating $2^7$ without subtracting $1$. The distractor $63$ arises from erroneously taking $2^6 - 1$, and $255$ comes from substituting into an 8th-degree expression $2^8 - 1$."
+    },
+    {
+      "id": "cn_c01_019",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $A(z_1)$ and $B(z_2)$ be points in the Argand plane with $z_1 = 3 + 2i$ and $z_2 = 1 + 6i$. A point $C(z_3)$ is obtained by rotating the vector $\\vec{AB}$ about point $A$ through an angle $\\frac{\\pi}{2}$ in the counterclockwise direction. If $z_3 = a + ib$, determine the integer value of $a^2 + b^2$.",
+      "options": [],
+      "answer": "1",
+      "explanation": "The vector representing the directed segment from $A$ to $B$ is given by $z_2 - z_1 = (1 + 6i) - (3 + 2i) = -2 + 4i$. Rotating this vector about point $A$ by an angle $\\frac{\\pi}{2}$ counterclockwise corresponds to multiplying by $e^{i\\pi/2} = i$. Thus, the rotated vector is $(z_2 - z_1)e^{i\\pi/2} = (-2 + 4i)i = -2i + 4i^2 = -4 - 2i$. Since this equals $z_3 - z_1$, we have $z_3 = z_1 + (-4 - 2i) = (3 + 2i) + (-4 - 2i) = -1 + 0i = -1$. Therefore, $a = -1$ and $b = 0$. Computing the required sum of squares gives $a^2 + b^2 = (-1)^2 + 0^2 = 1$."
+    },
+    {
+      "id": "cn_c01_020",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The locus of a complex number $z$ in the Argand plane satisfying the equation $|z - 3| + |z + 3| = 10$ represents an ellipse. The eccentricity $e$ of this ellipse is equal to:",
+      "options": [
+        "A) $\\frac{3}{5}$",
+        "B) $\\frac{4}{5}$",
+        "C) $\\frac{3}{10}$",
+        "D) $\\frac{\\sqrt{3}}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "The equation $|z - z_1| + |z - z_2| = 2a$ represents an ellipse with foci at $z_1$ and $z_2$, provided that $2a > |z_1 - z_2|$. Here, the foci are $z_1 = 3$ and $z_2 = -3$, so the focal distance is $2c = |z_1 - z_2| = |3 - (-3)| = 6$, giving $c = 3$. The length of the major axis is $2a = 10$, so $a = 5$. Since $2a = 10 > 6 = 2c$, the locus is indeed a non-degenerate ellipse. The eccentricity of the ellipse is defined by $e = \\frac{c}{a} = \\frac{3}{5}$. The distractor $\\frac{4}{5}$ corresponds to the ratio $\\frac{b}{a} = \\sqrt{1 - e^2} = \\frac{\\sqrt{25 - 9}}{5} = \\frac{4}{5}$. The distractor $\\frac{3}{10}$ results from mistakenly dividing the focal coordinate $c=3$ by $2a=10$, and $\\frac{\\sqrt{3}}{2}$ is an arbitrary standard geometric distractor."
+    },
+    {
+      "id": "cn_c01_021",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The locus of a complex number $z$ in the Argand plane given by $||z - 2i| - |z + 2i|| = 2$ represents a hyperbola. The length of its latus rectum is:",
+      "options": [
+        "A) $3$",
+        "B) $12$",
+        "C) $2\\sqrt{3}$",
+        "D) $6$"
+      ],
+      "answer": "D",
+      "explanation": "The equation $||z - z_1| - |z - z_2|| = 2a$ represents a hyperbola with foci at $z_1$ and $z_2$, provided that $0 < 2a < |z_1 - z_2|$. Here, the foci are $z_1 = 2i$ and $z_2 = -2i$. The distance between the foci is $2c = |2i - (-2i)| = |4i| = 4$, so $c = 2$. The given transverse axis length is $2a = 2$, which gives $a = 1$. The eccentricity is $e = \\frac{c}{a} = \\frac{2}{1} = 2$. We determine the conjugate semi-axis $b$ using $b^2 = a^2(e^2 - 1) = 1^2(2^2 - 1) = 4 - 1 = 3$. The length of the latus rectum of a hyperbola is given by $L = \\frac{2b^2}{a}$. Substituting our values yields $L = \\frac{2(3)}{1} = 6$. The distractor $3$ comes from calculating $\\frac{b^2}{a}$ while forgetting the factor of $2$. The distractor $12$ results from erroneously taking $a = \\frac{1}{2}$, and $2\\sqrt{3}$ corresponds to the length of the conjugate axis $2b$."
+    },
+    {
+      "id": "cn_c01_022",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The locus of a complex number $z$ in the Argand plane satisfying the argument equation $\\arg\\left(\\frac{z - 2}{z + 2}\\right) = \\frac{\\pi}{4}$ is a circular arc. The radius of this circle is equal to:",
+      "options": [
+        "A) $4\\sqrt{2}$",
+        "B) $2\\sqrt{2}$",
+        "C) $2$",
+        "D) $4$"
+      ],
+      "answer": "B",
+      "explanation": "Let the points $A$ and $B$ represent $2$ and $-2$ in the Argand plane, respectively. The condition $\\arg\\left(\\frac{z - 2}{z + 2}\\right) = \\frac{\\pi}{4}$ means that the angle subtended by the chord $AB$ at any point $P(z)$ on the arc is $\\angle APB = \\frac{\\pi}{4}$. The length of the chord joining $A(2,0)$ and $B(-2,0)$ is $|2 - (-2)| = 4$. By the circumcircle sine rule for triangle $APB$, the diameter of the circumcircle satisfies $2R = \\frac{AB}{\\sin(\\angle APB)} = \\frac{4}{\\sin(\\pi/4)} = \\frac{4}{1/\\sqrt{2}} = 4\\sqrt{2}$. Dividing by $2$, the radius of the circle is $R = 2\\sqrt{2}$. The distractor $4\\sqrt{2}$ corresponds to the diameter $2R$ rather than the radius. The distractor $2$ is the half-length of the chord $AB$, and $4$ represents the full chord length."
+    },
+    {
+      "id": "cn_c01_023",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $z_1$ and $z_2$ be two complex numbers satisfying the closed disc inequalities $|z_1 - 5| \\le 1$ and $|z_2 - 12i| \\le 2$. Determine the minimum possible value of $|z_1 - z_2|^2$.",
+      "options": [],
+      "answer": "100",
+      "explanation": "The locus of $z_1$ is a closed circular disc centered at $C_1 = 5 + 0i$ with radius $r_1 = 1$. The locus of $z_2$ is a closed circular disc centered at $C_2 = 0 + 12i$ with radius $r_2 = 2$. The distance between the centers $C_1$ and $C_2$ is $d = |C_1 - C_2| = |5 - 12i| = \\sqrt{5^2 + (-12)^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$. The minimum Euclidean distance between any point in disc $1$ and any point in disc $2$ occurs along the line segment joining their centers and is given by $d_{\\min} = d - (r_1 + r_2) = 13 - (1 + 2) = 13 - 3 = 10$. Therefore, the minimum value of $|z_1 - z_2|^2$ is $d_{\\min}^2 = 10^2 = 100$."
+    },
+    {
+      "id": "cn_c01_024",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $z_0, z_1, z_2, z_3, z_4$ be the five roots of the polynomial equation $z^5 - 1 = 0$. Evaluate the finite summation $S = \\sum_{k=0}^4 \\frac{1}{2 - z_k}$:",
+      "options": [
+        "A) $\\frac{16}{31}$",
+        "B) $\\frac{5}{31}$",
+        "C) $\\frac{80}{31}$",
+        "D) $\\frac{40}{31}$"
+      ],
+      "answer": "C",
+      "explanation": "Consider the polynomial $P(z) = z^5 - 1$, which factors over $\\mathbb{C}$ as $P(z) = \\prod_{k=0}^4 (z - z_k)$. Taking the logarithmic derivative of $P(z)$ yields $\\frac{P'(z)}{P(z)} = \\sum_{k=0}^4 \\frac{1}{z - z_k}$. The derivative of $P(z)$ is $P'(z) = 5z^4$. Evaluating this identity at $z = 2$, we have $\\sum_{k=0}^4 \\frac{1}{2 - z_k} = \\frac{P'(2)}{P(2)} = \\frac{5(2^4)}{2^5 - 1} = \\frac{5 \\times 16}{32 - 1} = \\frac{80}{31}$. The distractor $\\frac{16}{31}$ results from omitting the degree factor $5$ from the derivative. The distractor $\\frac{5}{31}$ arises from failing to substitute $z^4 = 16$, and $\\frac{40}{31}$ represents an arithmetic error in evaluating the numerator."
+    },
+    {
+      "id": "cn_c01_025",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $S_1 = \\{z \\in \\mathbb{C} : |z - 1 - i| = \\sqrt{2}\\}$ and $S_2 = \\{z \\in \\mathbb{C} : \\text{Re}(z(1 - i)) = \\sqrt{2}\\}$. The number of elements in the intersection $S_1 \\cap S_2$ is equal to:",
+      "options": [
+        "A) $2$",
+        "B) $1$",
+        "C) $0$",
+        "D) infinitely many"
+      ],
+      "answer": "A",
+      "explanation": "The set $S_1$ is a circle with center $C(1, 1)$ and radius $R = \\sqrt{2}$. For the set $S_2$, let $z = x + iy$. Then $z(1 - i) = (x + iy)(1 - i) = (x + y) + i(y - x)$. The condition $\\text{Re}(z(1 - i)) = \\sqrt{2}$ translates to the straight line $x + y = \\sqrt{2}$, or $x + y - \\sqrt{2} = 0$. The perpendicular distance from the center of the circle $C(1, 1)$ to this line is $d = \\frac{|1 + 1 - \\sqrt{2}|}{\\sqrt{1^2 + 1^2}} = \\frac{2 - \\sqrt{2}}{\\sqrt{2}} = \\sqrt{2} - 1$. Since $\\sqrt{2} \\approx 1.414$, we have $d = \\sqrt{2} - 1 \\approx 0.414 < \\sqrt{2} = R$. Because the perpendicular distance from the center to the line is strictly less than the radius of the circle, the straight line intersects the circle at exactly $2$ distinct points. The distractor $1$ assumes the line is tangent to the circle, $0$ assumes the line does not meet the circle, and 'infinitely many' confuses a line intersection with coincident regions."
+    },
+    {
+      "id": "cn_c01_026",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the Argand plane, $z_1 = 1 + i$ and $z_3 = 5 + 5i$ are two diagonally opposite vertices of a square. The other two vertices $z_2$ and $z_4$ of this square are given by:",
+      "options": [
+        "A) $4 + 2i$ and $2 + 4i$",
+        "B) $5 + i$ and $1 + 5i$",
+        "C) $3 + i$ and $1 + 3i$",
+        "D) $5 - i$ and $-1 + 5i$"
+      ],
+      "answer": "B",
+      "explanation": "The center of the square is the midpoint of the diagonal joining $z_1$ and $z_3$: $z_0 = \\frac{z_1 + z_3}{2} = \\frac{(1 + i) + (5 + 5i)}{2} = \\frac{6 + 6i}{2} = 3 + 3i$. The half-diagonal vector from $z_0$ to $z_1$ is $z_1 - z_0 = (1 + i) - (3 + 3i) = -2 - 2i$. The remaining two vertices are obtained by rotating this half-diagonal vector through $\\pm \\frac{\\pi}{2}$ about $z_0$, which corresponds to multiplying by $\\pm i$. For vertex $z_2$: $z_2 - z_0 = (z_1 - z_0) \\times (-i) = (-2 - 2i)(-i) = 2i + 2i^2 = -2 + 2i$, which yields $z_2 = (3 + 3i) + (-2 + 2i) = 1 + 5i$. For vertex $z_4$: $z_4 - z_0 = (z_1 - z_0) \\times i = (-2 - 2i)(i) = -2i - 2i^2 = 2 - 2i$, yielding $z_4 = (3 + 3i) + (2 - 2i) = 5 + i$. Thus, the other two vertices are $5 + i$ and $1 + 5i$. The distractor $4 + 2i$ and $2 + 4i$ comes from halving the coordinate offsets. The distractor $3 + i$ and $1 + 3i$ uses an incorrect side length, and $5 - i$ with $-1 + 5i$ results from incorrect sign combinations in rotation."
+    },
+    {
+      "id": "cn_c01_027",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\omega = e^{i 2\\pi/3}$ be a complex cube root of unity. Evaluate the multisection binomial sum $S = \\sum_{k=0}^{10} \\binom{30}{3k}$:",
+      "options": [
+        "A) $\\frac{2^{30} - 1}{3}$",
+        "B) $\\frac{2^{30} + 1}{3}$",
+        "C) $\\frac{2^{30} + 2}{3}$",
+        "D) $\\frac{2^{30} - 2}{3}$"
+      ],
+      "answer": "C",
+      "explanation": "By the roots of unity filter for binomial coefficients, for any integer $n$, the sum of every third binomial coefficient in $(1 + x)^n$ is given by $\\sum_{k} \\binom{n}{3k} = \\frac{(1 + 1)^n + (1 + \\omega)^n + (1 + \\omega^2)^n}{3}$. For $n = 30$, we evaluate each term: $(1 + 1)^{30} = 2^{30}$. Using $1 + \\omega = -\\omega^2$, we have $(1 + \\omega)^{30} = (-\\omega^2)^{30} = \\omega^{60} = (\\omega^3)^{20} = 1$. Similarly, using $1 + \\omega^2 = -\\omega$, we have $(1 + \\omega^2)^{30} = (-\\omega)^{30} = \\omega^{30} = (\\omega^3)^{10} = 1$. Adding the three parts gives $S = \\frac{2^{30} + 1 + 1}{3} = \\frac{2^{30} + 2}{3}$. The distractor $\\frac{2^{30} - 1}{3}$ results from misapplying $1 + \\omega + \\omega^2 = 0$ directly without accounting for the powers. The distractor $\\frac{2^{30} + 1}{3}$ stems from omitting one of the complex branches, and $\\frac{2^{30} - 2}{3}$ arises from an incorrect sign evaluation $(-1)^{30} = -1$."
+    },
+    {
+      "id": "cn_c01_028",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $z_1, z_2, z_3$ be three complex numbers representing the vertices of a triangle such that $|z_1| = |z_2| = |z_3| = 3$. If the orthocentre of this triangle is $H = 1 + 2i$ and the centroid is $G = a + ib$, determine the integer value of $9(a^2 + b^2)$.",
+      "options": [],
+      "answer": "5",
+      "explanation": "Since $|z_1| = |z_2| = |z_3| = 3$, all three vertices lie on a circle centered at the origin $O(0,0)$ with radius $3$. Therefore, the circumcentre of the triangle is the origin, $O = 0$. By Euler's line theorem, the circumcentre $O$, the centroid $G$, and the orthocentre $H$ are collinear, with $G$ dividing the segment $OH$ in the ratio $1 : 2$, meaning $3G = 2O + H$. Since $O = 0$, we have $3G = H = 1 + 2i$, which gives $G = \\frac{1}{3} + \\frac{2}{3}i$. Here, $a = \\frac{1}{3}$ and $b = \\frac{2}{3}$. Computing the required value: $9(a^2 + b^2) = 9\\left(\\left(\\frac{1}{3}\\right)^2 + \\left(\\frac{2}{3}\\right)^2\\right) = 9\\left(\\frac{1}{9} + \\frac{4}{9}\\right) = 9 \\times \\frac{5}{9} = 5$."
+    },
+    {
+      "id": "cn_c01_029",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the exact number of non-zero complex solutions $z \\in \\mathbb{C}$ to the equation $z^2 + |z| = 0$:",
+      "options": [
+        "A) $1$",
+        "B) $4$",
+        "C) $0$",
+        "D) $2$"
+      ],
+      "answer": "D",
+      "explanation": "Let $z = r e^{i\\theta}$ with $r > 0$ and $\\theta \\in (-\\pi, \\pi]$. Substituting into the equation gives $r^2 e^{i 2\\theta} + r = 0$. Factoring out $r > 0$ yields $r e^{i 2\\theta} + 1 = 0$, which can be rewritten as $r e^{i 2\\theta} = -1 = 1 \\cdot e^{i\\pi}$. Equating moduli gives $r = 1$. Equating arguments gives $2\\theta = \\pi + 2k\\pi$ for $k \\in \\mathbb{Z}$, which simplifies to $\\theta = \\frac{\\pi}{2} + k\\pi$. In the principal interval $(-\\pi, \\pi]$, the permissible values for $\\theta$ are $\\frac{\\pi}{2}$ (for $k = 0$) and $-\\frac{\\pi}{2}$ (for $k = -1$). These correspond to $z = e^{i\\pi/2} = i$ and $z = e^{-i\\pi/2} = -i$. Checking both: $i^2 + |i| = -1 + 1 = 0$, and $(-i)^2 + |-i| = -1 + 1 = 0$. Thus, there are exactly $2$ non-zero solutions. The distractor $1$ overlooks the conjugate root $-i$. The distractor $4$ erroneously treats the equation as a degree-four polynomial, and $0$ stems from the mistaken belief that $z^2 + |z|$ must be strictly positive."
+    },
+    {
+      "id": "cn_c01_030",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $S = \\left\\{z \\in \\mathbb{C} : \\arg(z - 1 - 2i) = \\frac{\\pi}{3}\\right\\}$ be a ray in the complex plane. The horizontal line $\\text{Im}(z) = 5$ intersects $S$ at the point $z_0 = a + ib$. The value of $a$ is equal to:",
+      "options": [
+        "A) $1 + \\sqrt{3}$",
+        "B) $1 - \\sqrt{3}$",
+        "C) $\\sqrt{3}$",
+        "D) $2 + \\sqrt{3}$"
+      ],
+      "answer": "A",
+      "explanation": "Let $z = x + iy$. The ray condition $\\arg((x - 1) + i(y - 2)) = \\frac{\\pi}{3}$ requires that both $x - 1 > 0$ and $y - 2 > 0$, with $\\frac{y - 2}{x - 1} = \\tan\\left(\\frac{\\pi}{3}\\right) = \\sqrt{3}$. For the horizontal line $\\text{Im}(z) = 5$, we have $y = 5$. Substituting this into the slope equation gives $\\frac{5 - 2}{x - 1} = \\sqrt{3}$, which simplifies to $\\frac{3}{x - 1} = \\sqrt{3}$. Solving for $x - 1$ yields $x - 1 = \\frac{3}{\\sqrt{3}} = \\sqrt{3}$, so $x = 1 + \\sqrt{3}$. Since $1 + \\sqrt{3} > 1$, this point satisfies the ray requirement $x - 1 > 0$. Thus, $a = 1 + \\sqrt{3}$. The distractor $1 - \\sqrt{3}$ corresponds to the opposite ray pointing at argument $-\\frac{2\\pi}{3}$, which violates $x > 1$. The distractor $\\sqrt{3}$ neglects the horizontal shift $+1$, and $2 + \\sqrt{3}$ arises from an arithmetic mistake in the numerator."
+    },
+    {
+      "id": "cn_c01_031",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $z$ be a complex number satisfying $\\left|z + \\frac{12}{z}\\right| = 4$. If $M$ and $m$ are the maximum and minimum values of $|z|$ respectively, determine the integer value of $M^2 + m^2$.",
+      "options": [],
+      "answer": "40",
+      "explanation": "Let $r = |z|$. By the reverse triangle inequality, we have $4 = \\left|z + \\frac{12}{z}\\right| \\ge \\left| |z| - \\frac{12}{|z|} \\right| = \\left| r - \\frac{12}{r} \\right|$. This inequality implies $-4 \\le r - \\frac{12}{r} \\le 4$. From the upper inequality $r - \\frac{12}{r} \\le 4$, multiplying by $r > 0$ gives $r^2 - 4r - 12 \\le 0$, which factors as $(r - 6)(r + 2) \\le 0$. Since $r > 0$, this yields $r \\le 6$, so the maximum modulus is $M = 6$. From the lower inequality $r - \\frac{12}{r} \\ge -4$, we obtain $r^2 + 4r - 12 \\ge 0$, which factors as $(r + 6)(r - 2) \\ge 0$. Since $r > 0$, this yields $r \\ge 2$, so the minimum modulus is $m = 2$. Both extrema are achievable: choosing $z = 6i$ gives $|6i + 12/(6i)| = |6i - 2i| = |4i| = 4$, and choosing $z = 2i$ gives $|2i + 12/(2i)| = |2i - 6i| = |-4i| = 4$. Thus, $M = 6$ and $m = 2$. We compute $M^2 + m^2 = 6^2 + 2^2 = 36 + 4 = 40$."
+    },
+    {
+      "id": "cn_c01_032",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $z_1, z_2, z_3$ be three distinct complex numbers representing the vertices $A, B, C$ of a triangle in the Argand plane such that $\\frac{z_3 - z_1}{z_2 - z_1} = 1 - i\\sqrt{3}$. Which of the following geometric characterizations describes $\\triangle ABC$?",
+      "options": [
+        "A) $\\triangle ABC$ is an equilateral triangle",
+        "B) $\\triangle ABC$ is a right-angled triangle with $\\angle B = 90^\\circ$",
+        "C) $\\triangle ABC$ is an isosceles right-angled triangle",
+        "D) $\\triangle ABC$ is an obtuse-angled triangle with $\\angle B = 120^\\circ$"
+      ],
+      "answer": "B",
+      "explanation": "Evaluating the modulus of the given ratio, $\\left|\\frac{z_3 - z_1}{z_2 - z_1}\\right| = |1 - i\\sqrt{3}| = \\sqrt{1^2 + (-\\sqrt{3})^2} = \\sqrt{1 + 3} = 2$. Hence, the side length $AC = |z_3 - z_1| = 2|z_2 - z_1| = 2 AB$. Next, evaluate the argument: $\\arg\\left(\\frac{z_3 - z_1}{z_2 - z_1}\\right) = \\tan^{-1}\\left(\\frac{-\\sqrt{3}}{1}\\right) = -\\frac{\\pi}{3} = -60^\\circ$. Thus, the angle at vertex $A$ is $\\angle A = 60^\\circ$. In $\\triangle ABC$, letting $c = AB$, we have $b = AC = 2c$. Applying the law of cosines to find the third side $a = BC$: $a^2 = b^2 + c^2 - 2bc\\cos(60^\\circ) = (2c)^2 + c^2 - 2(2c)(c)\\left(\\frac{1}{2}\\right) = 4c^2 + c^2 - 2c^2 = 3c^2$, so $a = c\\sqrt{3}$. Notice that $a^2 + c^2 = 3c^2 + c^2 = 4c^2 = b^2$. By the converse of Pythagoras' theorem, $\\triangle ABC$ is a right-angled triangle with hypotenuse $b = AC$ and right angle at vertex $B$ ($\\,\\angle B = 90^\\circ$). The distractor equilateral triangle results from incorrectly assuming $|1 - i\\sqrt{3}| = 1$. The distractor isosceles right-angled assumes $\\angle A = 45^\\circ$, and obtuse-angled arises from a sign error in the law of cosines."
+    },
+    {
+      "id": "cn_c01_033",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $z$ be a complex number satisfying the circular region inequality $|z - 5 - 5\\sqrt{3}i| \\le 5$. The maximum possible value of the principal argument $\\arg(z) \\in (-\\pi, \\pi]$ for $z$ in this region is:",
+      "options": [
+        "A) $\\frac{\\pi}{3}$",
+        "B) $\\frac{2\\pi}{3}$",
+        "C) $\\frac{\\pi}{2}$",
+        "D) $\\frac{5\\pi}{12}$"
+      ],
+      "answer": "C",
+      "explanation": "The inequality represents a closed circular disc with center $z_0 = 5 + 5\\sqrt{3}i$ and radius $R = 5$. The distance from the origin to the center is $|z_0| = \\sqrt{5^2 + (5\\sqrt{3})^2} = \\sqrt{25 + 75} = \\sqrt{100} = 10$. The inclination angle of the center line from the origin is $\\theta_0 = \\arg(z_0) = \\tan^{-1}\\left(\\frac{5\\sqrt{3}}{5}\\right) = \\tan^{-1}(\\sqrt{3}) = \\frac{\\pi}{3} = 60^\\circ$. The tangents drawn from the origin to the circle form right-angled triangles with the radius to the point of tangency. If $\\alpha$ is the semi-vertical angle between the center line and either tangent, then $\\sin\\alpha = \\frac{R}{|z_0|} = \\frac{5}{10} = \\frac{1}{2}$, which gives $\\alpha = \\frac{\\pi}{6} = 30^\\circ$. The maximum argument occurs at the tangent of greater inclination: $\\theta_{\\max} = \\theta_0 + \\alpha = \\frac{\\pi}{3} + \\frac{\\pi}{6} = \\frac{2\\pi + \\pi}{6} = \\frac{3\\pi}{6} = \\frac{\\pi}{2}$. The distractor $\\frac{\\pi}{3}$ corresponds to the argument of the center, ignoring the disc spread. The distractor $\\frac{2\\pi}{3}$ results from mistakenly adding $\\frac{\\pi}{3}$ instead of $\\frac{\\pi}{6}$, and $\\frac{5\\pi}{12}$ stems from taking $\\alpha = 15^\\circ$."
+    },
+    {
+      "id": "cn_c01_034",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $\\omega$ and $\\omega^2$ be the non-real cube roots of unity. Evaluate the product of $2n$ factors given by $P = (1 - \\omega + \\omega^2)(1 - \\omega^2 + \\omega^4)(1 - \\omega^4 + \\omega^8)(1 - \\omega^8 + \\omega^{16})\\dots$:",
+      "options": [
+        "A) $2^{2n}$",
+        "B) $2^n$",
+        "C) $4^{2n}$",
+        "D) $(-2)^{2n-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Recall that $\\omega^3 = 1$ and $1 + \\omega + \\omega^2 = 0$. Since $\\omega^4 = \\omega$ and $\\omega^8 = \\omega^2$, the exponents of $\\omega$ in the factors repeat in a cycle of length 2. The first factor is $F_1 = 1 - \\omega + \\omega^2 = (1 + \\omega^2) - \\omega = -\\omega - \\omega = -2\\omega$. The second factor is $F_2 = 1 - \\omega^2 + \\omega^4 = 1 - \\omega^2 + \\omega = (1 + \\omega) - \\omega^2 = -\\omega^2 - \\omega^2 = -2\\omega^2$. Multiplying the first two factors gives $F_1 F_2 = (-2\\omega)(-2\\omega^2) = 4\\omega^3 = 4(1) = 4$. The third factor is $F_3 = 1 - \\omega^4 + \\omega^8 = 1 - \\omega + \\omega^2 = F_1$, and the fourth factor is $F_4 = 1 - \\omega^8 + \\omega^{16} = 1 - \\omega^2 + \\omega = F_2$. Thus, the $2n$ factors naturally group into $n$ identical consecutive pairs, each pair having product $4$. Hence, $P = 4^n = (2^2)^n = 2^{2n}$. The distractor $2^n$ results from mistakenly evaluating the product of each pair as $2$. The distractor $4^{2n}$ mistakenly raises $4$ to the power $2n$, and $(-2)^{2n-1}$ assumes an alternating sign pattern."
+    },
+    {
+      "id": "cn_c01_035",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the exact number of common complex roots shared by the cubic equation $z^3 + 2z^2 + 2z + 1 = 0$ and the high-degree equation $z^{2026} + z^{2024} + 1 = 0$:",
+      "options": [
+        "A) $1$",
+        "B) $3$",
+        "C) $0$",
+        "D) $2$"
+      ],
+      "answer": "D",
+      "explanation": "Factor the first equation: $z^3 + 2z^2 + 2z + 1 = (z^3 + 1) + 2z(z + 1) = (z + 1)(z^2 - z + 1) + 2z(z + 1) = (z + 1)(z^2 + z + 1) = 0$. The roots of this cubic are $z = -1$, $z = \\omega$, and $z = \\omega^2$, where $\\omega = e^{i 2\\pi/3}$. We test each of these three candidate roots in $f(z) = z^{2026} + z^{2024} + 1$: (1) For $z = -1$: $f(-1) = (-1)^{2026} + (-1)^{2024} + 1 = 1 + 1 + 1 = 3 \\ne 0$, so $-1$ is not a common root. (2) For $z = \\omega$: since $\\omega^3 = 1$, we compute $2026 = 3(675) + 1$, so $\\omega^{2026} = \\omega$, and $2024 = 3(674) + 2$, so $\\omega^{2024} = \\omega^2$. Thus, $f(\\omega) = \\omega + \\omega^2 + 1 = 0$. (3) For $z = \\omega^2$: $f(\\omega^2) = (\\omega^2)^{2026} + (\\omega^2)^{2024} + 1 = \\omega^{4052} + \\omega^{4048} + 1$. Since $4052 = 3(1350) + 2$, $\\omega^{4052} = \\omega^2$, and since $4048 = 3(1349) + 1$, $\\omega^{4048} = \\omega$. Thus, $f(\\omega^2) = \\omega^2 + \\omega + 1 = 0$. Both $\\omega$ and $\\omega^2$ are roots of $f(z)$. Hence, there are exactly $2$ common roots. The distractor $1$ overlooks the conjugate root $\\omega^2$. The distractor $3$ assumes all roots of the cubic are roots of $f(z)$, and $0$ stems from errors when reducing the large exponents modulo $3$."
+    },
+    {
+      "id": "cn_c01_036",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $S = \\{z \\in \\mathbb{C} : |z - 3 - 4i| = 2\\}$ be a circle in the complex Argand plane. Consider the conformal inversion transformation defined by $w = \\frac{1}{z}$ for every $z \\in S$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The locus traced by $w$ in the complex plane is a circle.",
+        "B) The radius of the circle traced by $w$ is equal to $\\frac{2}{21}$.",
+        "C) The maximum possible value of $|w|$ for $z \\in S$ is $\\frac{1}{3}$.",
+        "D) The center of the circle traced by $w$ is represented by the complex number $\\frac{3 + 4i}{21}$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "The original circle has center $z_0 = 3 + 4i$ and radius $R = 2$. The distance from the origin to the center is $|z_0| = \\sqrt{3^2 + 4^2} = 5$. Since $|z_0| > R$, the circle does not pass through the origin. Under the conformal mapping $w = \\frac{1}{z}$, the inverse of a circle not passing through the origin is another circle. The maximum modulus on $S$ is $|z|_{\\max} = |z_0| + R = 5 + 2 = 7$, which implies the minimum modulus of $w$ is $|w|_{\\min} = \\frac{1}{7}$. The minimum modulus on $S$ is $|z|_{\\min} = |z_0| - R = 5 - 2 = 3$, which implies the maximum modulus of $w$ is $|w|_{\\max} = \\frac{1}{3}$. Because both extrema lie on the ray from the origin through $z_0$, the diameter of the circular locus of $w$ is $2r_w = |w|_{\\max} - |w|_{\\min} = \\frac{1}{3} - \\frac{1}{7} = \\frac{4}{21}$. Thus, the radius of the transformed circle is $r_w = \\frac{2}{21}$. The distance of the center of the transformed circle from the origin is $\\frac{|w|_{\\max} + |w|_{\\min}}{2} = \\frac{1}{2}\\left(\\frac{1}{3} + \\frac{1}{7}\\right) = \\frac{5}{21}$. Since inversion reflects arguments across the real axis, the center lies in the direction of $\\bar{z}_0 = 3 - 4i$. Hence, the center of the transformed circle is $w_0 = \\frac{5}{21}\\left(\\frac{3 - 4i}{5}\\right) = \\frac{3 - 4i}{21}$. Therefore, statements A, B, and C are correct, whereas D is false because the center has an inverted imaginary sign."
+    },
+    {
+      "id": "cn_c01_037",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the fourth-degree polynomial equation with real coefficients given by $P(z) = z^4 - 2z^3 + 3z^2 - 2z + 2 = 0$. Let $z_1, z_2, z_3, z_4 \\in \\mathbb{C}$ denote its four distinct roots. Which of the following statements is/are correct?",
+      "options": [
+        "A) The product of all four roots $z_1 z_2 z_3 z_4$ is equal to $-2$.",
+        "B) All four roots lie on a circle centered at $\\frac{1}{2}$ with radius $\\frac{\\sqrt{5}}{2}$ in the Argand plane.",
+        "C) The four roots form the vertices of a rectangle of area $2$ in the Argand plane.",
+        "D) The sum of the squares of all four roots satisfies $z_1^2 + z_2^2 + z_3^2 + z_4^2 = -2$."
+      ],
+      "answer": "B,C,D",
+      "explanation": "We factor the polynomial by grouping terms: $P(z) = (z^4 - 2z^3 + 2z^2) + (z^2 - 2z + 2) = z^2(z^2 - 2z + 2) + 1(z^2 - 2z + 2) = (z^2 + 1)(z^2 - 2z + 2) = 0$. Solving the two quadratic factors yields: from $z^2 + 1 = 0$, $z_{1,2} = \\pm i$; from $z^2 - 2z + 2 = 0$, $(z - 1)^2 = -1$, yielding $z_{3,4} = 1 \\pm i$. Thus, the roots are $z_1 = i$, $z_2 = -i$, $z_3 = 1 + i$, and $z_4 = 1 - i$. In the Cartesian plane, these correspond to $A(0, 1)$, $B(0, -1)$, $C(1, 1)$, and $D(1, -1)$. The distance from each root to $z_0 = \\frac{1}{2}$ is: $|i - 1/2| = \\sqrt{(-1/2)^2 + 1^2} = \\frac{\\sqrt{5}}{2}$, and similarly for the other three roots. Hence, all four roots lie on the circle centered at $\\frac{1}{2}$ with radius $\\frac{\\sqrt{5}}{2}$, confirming statement B. The vertices form a rectangle with horizontal width $1$ and vertical height $2$, so its area is $1 \\times 2 = 2$, confirming statement C. Computing the sum of squares: $z_1^2 + z_2^2 + z_3^2 + z_4^2 = i^2 + (-i)^2 + (1+i)^2 + (1-i)^2 = -1 - 1 + 2i - 2i = -2$, confirming statement D. Statement A is false because Vieta's formulas give the product of roots as $\\frac{a_0}{a_4} = \\frac{2}{1} = 2 \\ne -2$."
+    },
+    {
+      "id": "cn_c01_038",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $S_1 = \\{z \\in \\mathbb{C} : |z - 1| = 2|z + 1|\\}$ and $S_2 = \\{z \\in \\mathbb{C} : \\text{Re}(z) \\ge -1\\}$ be two geometric sets in the complex Argand plane. Which of the following statements is/are correct?",
+      "options": [
+        "A) The locus $S_1$ is a circle centered at $\\left(-\\frac{5}{3}, 0\\right)$ with radius $\\frac{4}{3}$.",
+        "B) The intersection $S_1 \\cap S_2$ is the empty set.",
+        "C) The maximum value of $|z|$ for $z \\in S_1$ is equal to $3$.",
+        "D) The minimum value of $|z|$ for $z \\in S_1$ is equal to $1$."
+      ],
+      "answer": "A,C",
+      "explanation": "For set $S_1$, squaring both sides gives $|z - 1|^2 = 4|z + 1|^2$. Letting $z = x + iy$, we have $(x - 1)^2 + y^2 = 4((x + 1)^2 + y^2)$. Expanding both sides: $x^2 - 2x + 1 + y^2 = 4x^2 + 8x + 4 + 4y^2$. Grouping all terms produces $3x^2 + 10x + 3y^2 + 3 = 0$. Dividing by $3$, $x^2 + \\frac{10}{3}x + y^2 + 1 = 0$. Completing the square yields $\\left(x + \\frac{5}{3}\\right)^2 + y^2 = \\frac{25}{9} - 1 = \\frac{16}{9} = \\left(\\frac{4}{3}\\right)^2$. Thus, $S_1$ is a circle centered at $\\left(-\\frac{5}{3}, 0\\right)$ with radius $R = \\frac{4}{3}$, which proves statement A. The range of the real coordinate $x$ on this circle is $\\left[-\\frac{5}{3} - \\frac{4}{3}, -\\frac{5}{3} + \\frac{4}{3}\\right] = [-3, -\\frac{1}{3}]$. For the maximum modulus on $S_1$, the point furthest from the origin is $z = -3$, yielding $|z|_{\\max} = 3$, which proves statement C. The point closest to the origin is $z = -\\frac{1}{3}$, yielding $|z|_{\\min} = \\frac{1}{3} \\ne 1$, so statement D is false. Furthermore, the points with $x \\in [-1, -\\frac{1}{3}]$ belong to both $S_1$ and $S_2$, so $S_1 \\cap S_2 \\ne \\emptyset$, meaning statement B is false."
+    },
+    {
+      "id": "cn_c01_039",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $z_1, z_2, z_3$ be three distinct complex numbers representing the vertices $A, B, C$ of an equilateral triangle in the Argand plane described in counterclockwise order. Let $\\omega = e^{i 2\\pi/3}$ be a complex cube root of unity. Which of the following relations is/are correct?",
+      "options": [
+        "A) $z_1 + \\omega z_2 + \\omega^2 z_3 = 0$",
+        "B) $z_1^2 + z_2^2 + z_3^2 = z_1 z_2 + z_2 z_3 + z_3 z_1$",
+        "C) $(z_1 - z_2)^2 + (z_2 - z_3)^2 + (z_3 - z_1)^2 = 3(z_1^2 + z_2^2 + z_3^2)$",
+        "D) $\\frac{1}{z_1 - z_2} + \\frac{1}{z_2 - z_3} + \\frac{1}{z_3 - z_1} = 0$"
+      ],
+      "answer": "A,B,D",
+      "explanation": "For an equilateral triangle described counterclockwise, rotating the vector $z_2 - z_1$ by an angle of $\\frac{\\pi}{3}$ gives $z_3 - z_1 = (z_2 - z_1)e^{i\\pi/3}$. Since $e^{i\\pi/3} = -\\omega^2$, we can rewrite this as $z_3 - z_1 = -\\omega^2(z_2 - z_1)$. Rearranging and using $1 + \\omega + \\omega^2 = 0$ yields $z_1(1 - \\omega^2) + \\omega^2 z_2 - z_3 = 0$, which when multiplied by $-\\omega$ gives $z_1 + \\omega z_2 + \\omega^2 z_3 = 0$. Thus, statement A is correct. Expanding the condition $z_3 - z_1 = (z_2 - z_1)e^{i\\pi/3}$ or squaring cyclic vector differences leads to the classical condition $z_1^2 + z_2^2 + z_3^2 = z_1 z_2 + z_2 z_3 + z_3 z_1$, proving statement B. Computing the sum in statement C: $(z_1 - z_2)^2 + (z_2 - z_3)^2 + (z_3 - z_1)^2 = 2(z_1^2 + z_2^2 + z_3^2 - z_1 z_2 - z_2 z_3 - z_3 z_1) = 2(0) = 0 \\ne 3(z_1^2 + z_2^2 + z_3^2)$, so statement C is false. For statement D, let $u = z_1 - z_2$, $v = z_2 - z_3$, $w = z_3 - z_1$. Notice $u + v + w = 0$. Since the triangle is equilateral, $v = u \\omega$ and $w = u \\omega^2$. Then $\\frac{1}{u} + \\frac{1}{v} + \\frac{1}{w} = \\frac{1}{u}\\left(1 + \\frac{1}{\\omega} + \\frac{1}{\\omega^2}\\right) = \\frac{1}{u}(1 + \\omega^2 + \\omega) = 0$. Thus, statement D is correct."
+    },
+    {
+      "id": "cn_c01_040",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $z = x + iy$ be a complex number and consider the bilinear conformal mapping $w = \\frac{z - i}{z + i}$ defined on $\\mathbb{C} \\setminus \\{-i\\}$. Which of the following geometric and analytical properties is/are correct?",
+      "options": [
+        "A) The upper half-plane $\\text{Im}(z) > 0$ is mapped bijectively onto the open unit disk $|w| < 1$.",
+        "B) The origin $z = 0$ is mapped to the point $w = 1$.",
+        "C) The real axis $\\text{Im}(z) = 0$ is mapped onto the unit circle $|w| = 1$ with the point $w = 1$ excluded.",
+        "D) For every point on the unit circle $|z| = 1$ with $z \\ne -i$, the image $w$ is purely imaginary."
+      ],
+      "answer": "A,C,D",
+      "explanation": "Evaluating the modulus of $w$: $|w| = \\frac{|z - i|}{|z + i|}$. For any point with $\\text{Im}(z) = y > 0$, the distance from $z$ to $i$ is strictly less than the distance from $z$ to $-i$, so $|z - i| < |z + i|$, which implies $|w| < 1$. Thus, the upper half-plane is mapped onto the interior of the unit disk $|w| < 1$, confirming statement A. When $\\text{Im}(z) = y = 0$, $z$ is real, so $|z - i| = |z + i|$, giving $|w| = 1$. The only point that could map to $w = 1$ is obtained by solving $\\frac{z - i}{z + i} = 1 \\implies z - i = z + i \\implies -i = i$, which has no finite solution; hence, $w = 1$ corresponds to the point at infinity and is omitted from the image of the real line, confirming statement C. For statement D, if $|z| = 1$, then $\\bar{z} = \\frac{1}{z}$. Evaluating the complex conjugate of $w$: $\\bar{w} = \\frac{\\bar{z} + i}{\\bar{z} - i} = \\frac{1/z + i}{1/z - i} = \\frac{1 + iz}{1 - iz} = \\frac{i(-i + z)}{-i(i + z)} = -\\frac{z - i}{z + i} = -w$. Since $\\bar{w} = -w$, the image $w$ satisfies $\\text{Re}(w) = 0$, meaning $w$ is purely imaginary, confirming statement D. Statement B is false because $w(0) = \\frac{0 - i}{0 + i} = -1 \\ne 1$."
+    },
+    {
+      "id": "cn_c01_041",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $z_1, z_2, z_3, z_4$ be four distinct complex numbers representing points $A, B, C, D$ lying in counterclockwise order on the unit circle $|z| = 1$. Which of the following statements is/are correct?",
+      "options": [
+        "A) If the diagonals $AC$ and $BD$ intersect perpendicularly, then $|z_1 - z_3|^2 + |z_2 - z_4|^2 = 4$.",
+        "B) The cross-ratio $\\frac{(z_1 - z_3)(z_2 - z_4)}{(z_1 - z_4)(z_2 - z_3)}$ is a strictly positive real number.",
+        "C) The product of the diagonals satisfies $AC \\cdot BD = AB \\cdot BC + CD \\cdot DA$.",
+        "D) The sum of the squared side lengths satisfies $|z_1 - z_2|^2 + |z_2 - z_3|^2 + |z_3 - z_4|^2 + |z_4 - z_1|^2 \\le 8$."
+      ],
+      "answer": "B,D",
+      "explanation": "For four concyclic points in cyclic order, the cross-ratio satisfies $\\arg\\left(\\frac{z_1 - z_3}{z_1 - z_4} \\cdot \\frac{z_2 - z_4}{z_2 - z_3}\\right) = \\angle CAD - \\angle CBD = 0$, because inscribed angles subtended by the same arc are equal. Hence, the cross-ratio has argument $0$, which implies it is a strictly positive real number, proving statement B. Ptolemy's theorem states that $AC \\cdot BD = AB \\cdot CD + BC \\cdot DA$, so statement C is false because it misplaces the vertices in the product terms. For statement D, let the central angles of the chords $AB, BC, CD, DA$ be $\\theta_1, \\theta_2, \\theta_3, \\theta_4$ with $\\sum_{k=1}^4 \\theta_k = 2\\pi$. The square of each chord length is $|z_k - z_{k+1}|^2 = 4\\sin^2\\left(\\frac{\\theta_k}{2}\\right) = 2(1 - \\cos\\theta_k)$. Summing all four: $\\sum_{k=1}^4 2(1 - \\cos\\theta_k) = 8 - 2\\sum_{k=1}^4 \\cos\\theta_k$. Since $\\sum_{k=1}^4 \\cos\\theta_k \\ge 0$ for any quadrilateral inscribed in a circle (achieving $0$ when the quadrilateral is a rectangle with opposite right angles), the maximum possible sum of squared side lengths is $8$, proving statement D. Statement A is false because two perpendicular diameters have sum of squared lengths $2^2 + 2^2 = 8 \\ne 4$."
+    },
+    {
+      "id": "cn_c01_042",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Consider the bilinear transformation $w = \\frac{z - 1}{z + 1}$ defined for complex numbers $z \\ne -1$. The image of the vertical line $\\text{Re}(z) = 2$ in the $w$-plane is a circle. The center and radius of this circle are given by:",
+      "options": [
+        "A) Center $\\left(\\frac{1}{3}, 0\\right)$ and radius $\\frac{2}{3}$",
+        "B) Center $\\left(\\frac{2}{3}, 0\\right)$ and radius $\\frac{1}{3}$",
+        "C) Center $(1, 0)$ and radius $\\frac{1}{2}$",
+        "D) Center $\\left(\\frac{1}{2}, 0\\right)$ and radius $\\frac{1}{4}$"
+      ],
+      "answer": "B",
+      "explanation": "Express $z$ in terms of $w$: from $w(z + 1) = z - 1$, we get $wz + w = z - 1$, so $z(1 - w) = 1 + w$, which implies $z = \\frac{1 + w}{1 - w}$. We are given that $\\text{Re}(z) = 2$. Using $\\text{Re}(z) = \\frac{z + \\bar{z}}{2} = 2$, we obtain $z + \\bar{z} = 4$. Substituting $z = \\frac{1 + w}{1 - w}$ into this equation gives $\\frac{1 + w}{1 - w} + \\frac{1 + \\bar{w}}{1 - \\bar{w}} = 4$. Clearing denominators by multiplying by $(1 - w)(1 - \\bar{w})$, we get $(1 + w)(1 - \\bar{w}) + (1 + \\bar{w})(1 - w) = 4(1 - w)(1 - \\bar{w})$. Expanding both sides: $(1 - \\bar{w} + w - |w|^2) + (1 - w + \\bar{w} - |w|^2) = 4(1 - w - \\bar{w} + |w|^2)$, which simplifies to $2 - 2|w|^2 = 4 - 4(w + \\bar{w}) + 4|w|^2$. Grouping all terms together produces $6|w|^2 - 4(w + \\bar{w}) + 2 = 0$, or dividing by $6$: $|w|^2 - \\frac{2}{3}(w + \\bar{w}) + \\frac{1}{3} = 0$. Writing $w = u + iv$, this becomes $u^2 + v^2 - \\frac{4}{3}u + \\frac{1}{3} = 0$. Completing the square in $u$: $\\left(u - \\frac{2}{3}\\right)^2 + v^2 = \\frac{4}{9} - \\frac{1}{3} = \\frac{1}{9} = \\left(\\frac{1}{3}\\right)^2$. Therefore, the center is $\\left(\\frac{2}{3}, 0\\right)$ and the radius is $\\frac{1}{3}$. The distractor center $(1/3, 0)$ and radius $2/3$ swaps the coordinates of center and radius. The distractor center $(1, 0)$ and radius $1/2$ comes from an algebraic simplification error, and center $(1/2, 0)$ with radius $1/4$ results from an incorrect diameter midpoint calculation."
+    },
+    {
+      "id": "cn_c01_043",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $z$ be a complex number constrained to lie on the unit circle $|z| = 1$. The maximum possible value of the modulus $|z^3 - z + 2|$ is equal to:",
+      "options": [
+        "A) $4$",
+        "B) $2\\sqrt{3}$",
+        "C) $\\sqrt{15}$",
+        "D) $\\sqrt{13}$"
+      ],
+      "answer": "D",
+      "explanation": "Let $f(z) = |z^3 - z + 2|^2 = (z^3 - z + 2)(\\bar{z}^3 - \\bar{z} + 2)$. Since $|z| = 1$, we have $\\bar{z} = \\frac{1}{z}$. Expanding the product: $f(z) = (z^3 - z + 2)\\left(\\frac{1}{z^3} - \\frac{1}{z} + 2\\right) = 1 - z^2 + 2z^3 - \\frac{1}{z^2} + 1 - \\frac{2}{z} + \\frac{2}{z^3} - 2z + 4 = 6 - \\left(z^2 + \\frac{1}{z^2}\\right) - 2\\left(z + \\frac{1}{z}\\right) + 2\\left(z^3 + \\frac{1}{z^3}\\right)$. Let $z = e^{i\\theta}$, so $z + \\frac{1}{z} = 2\\cos\\theta = 2t$ where $t \\in [-1, 1]$. Using Chebyshev polynomials: $z^2 + \\frac{1}{z^2} = 4t^2 - 2$ and $z^3 + \\frac{1}{z^3} = 8t^3 - 6t$. Substituting these into $f(z)$ gives the polynomial $g(t) = 6 - (4t^2 - 2) - 2(2t) + 2(8t^3 - 6t) = 16t^3 - 4t^2 - 16t + 8$. To find the extrema of $g(t)$ on $[-1, 1]$, we compute the derivative: $g'(t) = 48t^2 - 8t - 16 = 8(6t^2 - t - 2) = 8(2t + 1)(3t - 2) = 0$. The critical points are $t = -\\frac{1}{2}$ and $t = \\frac{2}{3}$. Evaluating $g(t)$ at the critical points and endpoints: at $t = -\\frac{1}{2}$, $g(-1/2) = 16\\left(-\\frac{1}{8}\\right) - 4\\left(\\frac{1}{4}\\right) - 16\\left(-\\frac{1}{2}\\right) + 8 = -2 - 1 + 8 + 8 = 13$; at $t = \\frac{2}{3}$, $g(2/3) = \\frac{8}{27}$; at $t = 1$, $g(1) = 4$; at $t = -1$, $g(-1) = 4$. The absolute maximum value of $g(t)$ is $13$. Thus, the maximum modulus is $\\sqrt{13}$. The distractor $4$ arises from naively applying the triangle inequality $|z|^3 + |z| + 2 = 4$, which cannot be achieved because the phases cannot simultaneously align. The distractor $2\\sqrt{3} = \\sqrt{12}$ comes from dropping the constant $+1$, and $\\sqrt{15}$ represents an arithmetic error in evaluating $g(-1/2)$."
+    },
+    {
+      "id": "cn_c01_044",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Consider the cubic polynomial $P(z) = z^3 - 3z^2 + (3 + 4i)z - (1 + 4i)$ with complex coefficients. Let $z_1 = 1$ and let $z_2, z_3$ be the other two roots of $P(z) = 0$. Let $w_1, w_2$ be the roots of the derivative $P'(z) = 0$. The ratio of the distance $|w_1 - w_2|$ to the distance $|z_2 - z_3|$ is equal to:",
+      "options": [
+        "A) $\\frac{1}{\\sqrt{3}}$",
+        "B) $\\frac{1}{2}$",
+        "C) $\\frac{2}{3}$",
+        "D) $\\frac{1}{\\sqrt{2}}$"
+      ],
+      "answer": "A",
+      "explanation": "Factor $P(z)$ using the given root $z_1 = 1$: $P(z) = (z - 1)(z^2 - 2z + (1 + 4i)) = (z - 1)((z - 1)^2 + 4i) = 0$. The other two roots satisfy $(z - 1)^2 = -4i = 4e^{-i\\pi/2}$. Taking square roots yields $z - 1 = \\pm 2e^{-i\\pi/4} = \\pm 2\\left(\\frac{1 - i}{\\sqrt{2}}\\right) = \\pm \\sqrt{2}(1 - i)$. Thus, the roots $z_2$ and $z_3$ are $1 + \\sqrt{2}(1 - i)$ and $1 - \\sqrt{2}(1 - i)$. The distance between these two roots is $|z_2 - z_3| = |2\\sqrt{2}(1 - i)| = 2\\sqrt{2} \\times \\sqrt{2} = 4$. Next, differentiate $P(z)$: $P'(z) = 3z^2 - 6z + (3 + 4i) = 3(z - 1)^2 + 4i = 0$. This gives $(z - 1)^2 = -\\frac{4i}{3} = \\frac{4}{3}e^{-i\\pi/2}$. Taking square roots, the critical points satisfy $z - 1 = \\pm \\frac{2}{\\sqrt{3}}e^{-i\\pi/4} = \\pm \\frac{\\sqrt{2}}{\\sqrt{3}}(1 - i)$. The distance between the critical points is $|w_1 - w_2| = \\left|2 \\frac{\\sqrt{2}}{\\sqrt{3}}(1 - i)\\right| = \\frac{2\\sqrt{2}}{\\sqrt{3}} \\times \\sqrt{2} = \\frac{4}{\\sqrt{3}}$. Therefore, the ratio of the distances is $\\frac{|w_1 - w_2|}{|z_2 - z_3|} = \\frac{4/\\sqrt{3}}{4} = \\frac{1}{\\sqrt{3}}$. The distractor $\\frac{1}{2}$ comes from erroneously assuming the critical points are at the midpoint. The distractor $\\frac{2}{3}$ stems from confusing the power derivative factor $3$ without taking its square root, and $\\frac{1}{\\sqrt{2}}$ is a standard square-root error."
+    },
+    {
+      "id": "cn_c01_045",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $z$ be a complex number lying on the ellipse defined by $|z - 4| + |z + 4| = 10$. Consider the transformation $w = \\frac{1}{z}$. If $M$ and $m$ denote the maximum and minimum values of $|w|$ respectively, determine the integer value of $60(M - m)$.",
+      "options": [],
+      "answer": "8",
+      "explanation": "The equation $|z - 4| + |z + 4| = 10$ represents an ellipse with foci at $z_1 = 4$ and $z_2 = -4$. The major axis length is $2a = 10$, which implies semi-major axis $a = 5$. The focal distance is $2c = |4 - (-4)| = 8$, so $c = 4$. The semi-minor axis is $b = \\sqrt{a^2 - c^2} = \\sqrt{5^2 - 4^2} = \\sqrt{25 - 16} = 3$. The maximum distance from the origin to any point on the ellipse is $|z|_{\\max} = a = 5$, and the minimum distance from the origin is $|z|_{\\min} = b = 3$. For the transformation $w = \\frac{1}{z}$, the modulus is $|w| = \\frac{1}{|z|}$. Thus, the maximum modulus of $w$ is $M = \\frac{1}{|z|_{\\min}} = \\frac{1}{b} = \\frac{1}{3}$, and the minimum modulus of $w$ is $m = \\frac{1}{|z|_{\\max}} = \\frac{1}{a} = \\frac{1}{5}$. The difference between the maximum and minimum values is $M - m = \\frac{1}{3} - \\frac{1}{5} = \\frac{5 - 3}{15} = \\frac{2}{15}$. We compute the requested integer quantity: $60(M - m) = 60 \\times \\frac{2}{15} = 4 \\times 2 = 8$."
+    },
+    {
+      "id": "cn_c01_046",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $\\omega_k = e^{i 2k\\pi/5}$ for $k = 1, 2, 3, 4$ denote the four non-real fifth roots of unity. Evaluate the integer value of the finite product $P = \\prod_{k=1}^4 (3 - \\omega_k)$.",
+      "options": [],
+      "answer": "121",
+      "explanation": "The five fifth roots of unity are the roots of the polynomial equation $x^5 - 1 = 0$. Since $1$ is the unique real root, the polynomial factors over $\\mathbb{C}$ as $x^5 - 1 = (x - 1)\\prod_{k=1}^4 (x - \\omega_k)$. Dividing both sides by $x - 1$ for $x \\ne 1$, we obtain the cyclotomic identity $\\prod_{k=1}^4 (x - \\omega_k) = \\frac{x^5 - 1}{x - 1} = x^4 + x^3 + x^2 + x + 1$. Substituting $x = 3$ into this algebraic identity yields $\\prod_{k=1}^4 (3 - \\omega_k) = \\frac{3^5 - 1}{3 - 1}$. Evaluating the power: $3^5 = 243$, so the numerator is $243 - 1 = 242$. Dividing by $3 - 1 = 2$ gives $P = \\frac{242}{2} = 121$."
+    },
+    {
+      "id": "cn_c01_047",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $C_1$ and $C_2$ be two circles in the Argand plane given by the complex equations $C_1: |z|^2 + (1 + 2i)z + (1 - 2i)\\bar{z} - 4 = 0$ and $C_2: |z|^2 + (3 - 4i)z + (3 + 4i)\\bar{z} + k = 0$, where $k \\in \\mathbb{R}$. If $C_1$ and $C_2$ intersect orthogonally, the value of the constant $k$ is:",
+      "options": [
+        "A) $6$",
+        "B) $-14$",
+        "C) $-6$",
+        "D) $14$"
+      ],
+      "answer": "C",
+      "explanation": "The general equation of a circle in the complex plane is $|z|^2 + \\bar{\\alpha}z + \\alpha\\bar{z} + c = 0$, which has center $-\\alpha$ and radius $R = \\sqrt{|\\alpha|^2 - c}$. Two circles intersect orthogonally if and only if the square of the distance between their centers equals the sum of the squares of their radii: $|(-\\alpha_1) - (-\\alpha_2)|^2 = R_1^2 + R_2^2$, which expands to $|\\alpha_1 - \\alpha_2|^2 = (|\\alpha_1|^2 - c_1) + (|\\alpha_2|^2 - c_2)$. Expanding the left-hand side yields $|\\alpha_1|^2 + |\\alpha_2|^2 - 2\\text{Re}(\\alpha_1 \\bar{\\alpha}_2) = |\\alpha_1|^2 + |\\alpha_2|^2 - (c_1 + c_2)$, which simplifies to the orthogonality condition $2\\text{Re}(\\alpha_1 \\bar{\\alpha}_2) = c_1 + c_2$. For $C_1$: $\\bar{\\alpha}_1 = 1 + 2i$, so $\\alpha_1 = 1 - 2i$, and $c_1 = -4$. For $C_2$: $\\bar{\\alpha}_2 = 3 - 4i$, so $\\alpha_2 = 3 + 4i$, and $c_2 = k$. We compute the product $\\alpha_1 \\bar{\\alpha}_2$: $\\alpha_1 \\bar{\\alpha}_2 = (1 - 2i)(3 - 4i) = 3 - 4i - 6i + 8i^2 = 3 - 8 - 10i = -5 - 10i$. The real part is $\\text{Re}(\\alpha_1 \\bar{\\alpha}_2) = -5$. Substituting into the orthogonality condition: $2(-5) = -4 + k \\implies -10 = -4 + k \\implies k = -6$. The distractor $6$ arises from a sign error in the real part of $\\alpha_1 \\bar{\\alpha}_2$. The distractor $-14$ results from adding $-4$ to $-10$ instead of subtracting, and $14$ combines both algebraic errors."
+    },
+    {
+      "id": "cn_c01_048",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $z$ be a complex number satisfying the circle equation $|z - 1| = 1$ with $z \\ne 2$. The locus of the transformed complex variable $w = \\frac{z}{z - 2}$ in the Argand plane is:",
+      "options": [
+        "A) The real axis $\\text{Im}(w) = 0$",
+        "B) The imaginary axis $\\text{Re}(w) = 0$",
+        "C) The unit circle $|w| = 1$",
+        "D) The vertical line $\\text{Re}(w) = 1$"
+      ],
+      "answer": "B",
+      "explanation": "Solve for $z$ in terms of $w$: $w(z - 2) = z \\implies wz - 2w = z \\implies z(w - 1) = 2w \\implies z = \\frac{2w}{w - 1}$. Substitute this expression into the given geometric condition $|z - 1| = 1$: $\\left|\\frac{2w}{w - 1} - 1\\right| = 1$. Combining terms inside the modulus over a common denominator: $\\left|\\frac{2w - (w - 1)}{w - 1}\\right| = 1 \\implies \\left|\\frac{w + 1}{w - 1}\\right| = 1$. This implies $|w + 1| = |w - 1|$. Geometrically, $|w - (-1)| = |w - 1|$ represents the perpendicular bisector of the segment connecting $-1$ and $+1$ on the real axis. In Cartesian coordinates $w = u + iv$, this is $(u + 1)^2 + v^2 = (u - 1)^2 + v^2 \\implies u^2 + 2u + 1 + v^2 = u^2 - 2u + 1 + v^2 \\implies 4u = 0 \\implies u = 0$. Thus, the locus of $w$ is the imaginary axis $\\text{Re}(w) = 0$. The distractor 'the real axis' confuses the real and imaginary coordinate axes. The distractor 'the unit circle' comes from mistakenly equating $|w| = 1$, and 'the vertical line $\\text{Re}(w) = 1$' arises from a sign error when solving the perpendicular bisector equation."
+    },
+    {
+      "id": "cn_c01_049",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $z$ be a non-real fifth root of unity (i.e., $z^5 = 1$ with $z \\ne 1$). Evaluate the exact integer value of the power sum $S = \\left(z + \\frac{1}{z}\\right)^4 + \\left(z^2 + \\frac{1}{z^2}\\right)^4$.",
+      "options": [],
+      "answer": "7",
+      "explanation": "Let $t_1 = z + \\frac{1}{z} = z + z^4$ and $t_2 = z^2 + \\frac{1}{z^2} = z^2 + z^3$. We find the elementary symmetric polynomials of $t_1$ and $t_2$: first, $t_1 + t_2 = z + z^2 + z^3 + z^4$. Since $z$ is a non-real root of $z^5 - 1 = 0$, we have $1 + z + z^2 + z^3 + z^4 = 0$, so $t_1 + t_2 = -1$. Next, compute their product: $t_1 t_2 = (z + z^4)(z^2 + z^3) = z^3 + z^4 + z^6 + z^7$. Using $z^5 = 1$, we have $z^6 = z$ and $z^7 = z^2$. Thus, $t_1 t_2 = z^3 + z^4 + z + z^2 = -1$. Therefore, $t_1$ and $t_2$ are the roots of the quadratic equation $t^2 - (t_1 + t_2)t + t_1 t_2 = t^2 + t - 1 = 0$. From $t^2 = 1 - t$, we compute higher powers: $t^4 = (1 - t)^2 = 1 - 2t + t^2 = 1 - 2t + (1 - t) = 2 - 3t$. Applying this reduction to both $t_1$ and $t_2$: $S = t_1^4 + t_2^4 = (2 - 3t_1) + (2 - 3t_2) = 4 - 3(t_1 + t_2)$. Substituting $t_1 + t_2 = -1$ yields $S = 4 - 3(-1) = 4 + 3 = 7$."
+    },
+    {
+      "id": "cn_c01_050",
+      "subject": "Mathematics",
+      "topic": "Complex Numbers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $z$ be a complex number constrained to lie on the unit circle $|z| = 1$. The maximum possible value of the sum of distances $|z - 2| + |z + 2|$ is equal to:",
+      "options": [
+        "A) $4$",
+        "B) $2\\sqrt{3}$",
+        "C) $5$",
+        "D) $2\\sqrt{5}$"
+      ],
+      "answer": "D",
+      "explanation": "Let $z = e^{i\\theta} = \\cos\\theta + i\\sin\\theta$. We compute the square of each distance: $|z - 2|^2 = |(\\cos\\theta - 2) + i\\sin\\theta|^2 = (\\cos\\theta - 2)^2 + \\sin^2\\theta = \\cos^2\\theta - 4\\cos\\theta + 4 + \\sin^2\\theta = 5 - 4\\cos\\theta$. Similarly, $|z + 2|^2 = 5 + 4\\cos\\theta$. Let $u = |z - 2| + |z + 2|$. Squaring both sides: $u^2 = |z - 2|^2 + |z + 2|^2 + 2|z - 2||z + 2| = (5 - 4\\cos\\theta) + (5 + 4\\cos\\theta) + 2\\sqrt{(5 - 4\\cos\\theta)(5 + 4\\cos\\theta)} = 10 + 2\\sqrt{25 - 16\\cos^2\\theta}$. To maximize $u^2$, we must maximize the square root term, which requires minimizing $\\cos^2\\theta$. Since $\\cos^2\\theta \\ge 0$, the minimum is achieved when $\\cos\\theta = 0$, corresponding to $\\theta = \\pm \\frac{\\pi}{2}$ (i.e., $z = \\pm i$). Substituting $\\cos^2\\theta = 0$ yields $u^2 = 10 + 2\\sqrt{25} = 10 + 2(5) = 20$. Therefore, the maximum value of $u$ is $\\sqrt{20} = 2\\sqrt{5}$. The distractor $4$ corresponds to the minimum value of $u$, attained when $\\cos^2\\theta = 1$ ($z = \\pm 1$), giving $u^2 = 10 + 2\\sqrt{9} = 16 \\implies u = 4$. The distractor $2\\sqrt{3}$ results from mistakenly taking $\\sqrt{25 - 16} = 3$ without minimizing $\\cos^2\\theta$, and $5$ comes from an arithmetic error."
+    }
+  ]
+}

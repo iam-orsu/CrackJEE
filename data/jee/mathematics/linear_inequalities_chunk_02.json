@@ -1,0 +1,513 @@
+{
+  "questions": [
+    {
+      "id": "li_c02_001",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the total number of integer solutions satisfying the rational inequality $\\frac{(x - 1)^2 (x + 2)(x - 4)}{(x - 3)^3 (x + 5)} \\le 0$.",
+      "options": [
+        "A) $5$",
+        "B) $4$",
+        "C) $6$",
+        "D) $7$"
+      ],
+      "answer": "A",
+      "explanation": "Applying the wavy curve method, we first identify the real critical points of the rational expression: the numerator zeros are $x = 1$ (multiplicity $2$), $x = -2$ (multiplicity $1$), and $x = 4$ (multiplicity $1$). The denominator poles are $x = 3$ (multiplicity $3$, odd) and $x = -5$ (multiplicity $1$, odd). Denominator zeros $x = -5$ and $x = 3$ must be strictly excluded. Since $(x - 1)^2 \\ge 0$ for all real $x$, the sign of the overall fraction is determined by $\\frac{(x + 2)(x - 4)}{(x - 3)(x + 5)}$. In the interval $(4, \\infty)$, all factors are positive, yielding a positive value. Crossing $x = 4$ (odd multiplicity), the sign becomes negative, so $(3, 4]$ satisfies the inequality since the numerator vanishes at $x = 4$. Crossing $x = 3$ (odd multiplicity), the sign changes to positive on $(-2, 3)$, but at $x = 1$, the factor $(x - 1)^2 = 0 \\le 0$, so the isolated point $x = 1$ is included. Crossing $x = -2$, the sign flips to negative on $(-5, -2]$, which satisfies the inequality because the numerator is zero at $x = -2$. Crossing $x = -5$, the sign becomes positive on $(-\\infty, -5)$. Therefore, the complete solution set is $(-5, -2] \\cup \\{1\\} \\cup (3, 4]$. The integers contained in this set are $-4, -3, -2, 1, 4$, which gives exactly $5$ integer solutions. Forgetting the isolated root $x = 1$ yields $4$, while erroneously including the poles $x = -5$ and $x = 3$ results in $7$."
+    },
+    {
+      "id": "li_c02_002",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $S = [a, b]$ be the complete solution set of the modulus inequality $|2x - 3| + |x + 1| \\le 5$ for real $x$. Determine the value of $3b - 2a$.",
+      "options": [
+        "A) $9$",
+        "B) $8$",
+        "C) $\\frac{23}{3}$",
+        "D) $7$"
+      ],
+      "answer": "A",
+      "explanation": "We analyze the continuous piecewise linear function $f(x) = |2x - 3| + |x + 1|$ by partitioning the real line at the critical points $x = -1$ and $x = 3/2$. Step 1: For $x \\ge 3/2$, both absolute value arguments are non-negative, yielding $(2x - 3) + (x + 1) \\le 5 \\implies 3x - 2 \\le 5 \\implies 3x \\le 7 \\implies x \\le 7/3$. Thus we obtain the sub-interval $[3/2, 7/3]$. Step 2: For $-1 \\le x < 3/2$, $2x - 3 < 0$ and $x + 1 \\ge 0$, which gives $-(2x - 3) + (x + 1) \\le 5 \\implies -x + 4 \\le 5 \\implies -x \\le 1 \\implies x \\ge -1$. Hence, the entire sub-interval $[-1, 3/2)$ is valid. Step 3: For $x < -1$, both arguments are negative, yielding $-(2x - 3) - (x + 1) \\le 5 \\implies -3x + 2 \\le 5 \\implies -3x \\le 3 \\implies x \\ge -1$, which yields no values strictly less than $-1$. Combining all three cases, the complete solution set is the single closed interval $S = [-1, 7/3]$. Therefore, comparing with $[a, b]$, we identify $a = -1$ and $b = 7/3$. Substituting these into $3b - 2a$ yields $3(7/3) - 2(-1) = 7 + 2 = 9$."
+    },
+    {
+      "id": "li_c02_003",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the area of the convex polygonal region in the first quadrant of the $xy$-plane bounded by the system of linear inequalities $x \\ge 0$, $y \\ge 0$, $x + 2y \\le 8$, and $3x + 2y \\le 12$.",
+      "options": [
+        "A) $10$",
+        "B) $8$",
+        "C) $11$",
+        "D) $12$"
+      ],
+      "answer": "A",
+      "explanation": "To determine the area of the feasible region, we first find its vertices by solving for the boundary line intersections in the first quadrant $x \\ge 0, y \\ge 0$. The axes intersect at the origin $V_1 = (0, 0)$. On the $x$-axis where $y = 0$, the constraints require $x \\le 8$ and $3x \\le 12 \\implies x \\le 4$, so the $x$-intercept vertex is $V_2 = (4, 0)$. On the $y$-axis where $x = 0$, the constraints require $2y \\le 8 \\implies y \\le 4$ and $2y \\le 12 \\implies y \\le 6$, giving the $y$-intercept vertex $V_4 = (0, 4)$. The two non-trivial boundary lines are $L_1: x + 2y = 8$ and $L_2: 3x + 2y = 12$. Subtracting $L_1$ from $L_2$ yields $2x = 4 \\implies x = 2$. Substituting $x = 2$ into $L_1$ gives $2 + 2y = 8 \\implies y = 3$. Hence, the fourth vertex is $V_3 = (2, 3)$. We can decompose this convex quadrilateral into two non-overlapping triangles: $\\triangle V_1 V_2 V_3$ and $\\triangle V_1 V_3 V_4$. The base of the first triangle along the $x$-axis is $4$, and the altitude is the $y$-coordinate of $V_3$, so $\\text{Area}_1 = \\frac{1}{2} \\times 4 \\times 3 = 6$. The base of the second triangle along the $y$-axis is $4$, and the altitude is the $x$-coordinate of $V_3$, so $\\text{Area}_2 = \\frac{1}{2} \\times 4 \\times 2 = 4$. Therefore, the total area is $6 + 4 = 10$."
+    },
+    {
+      "id": "li_c02_004",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the total number of ordered pairs of integers $(x, y)$ that simultaneously satisfy the system of inequalities $|x| + |y| \\le 4$ and $x - y \\ge 0$.",
+      "options": [],
+      "answer": "23",
+      "explanation": "We analyze the lattice points inside and on the boundary of the diamond $|x| + |y| \\le 4$ lying on or below the diagonal line $y = x$. First, the total number of integer pairs satisfying $|x| + |y| \\le 4$ can be evaluated by summing over $x \\in \\{-4, -3, -2, -1, 0, 1, 2, 3, 4\\}$. For each $x$, the range of $y$ is $-(4 - |x|) \\le y \\le 4 - |x|$, giving $2(4 - |x|) + 1$ points. Summing over all $x$ yields $1 + 2\\sum_{k=1}^4 (2(4 - k) + 1) = 1 + 2(7 + 5 + 3 + 1) = 1 + 2(16) = 41$ total lattice points. Next, we determine the number of points on the line of symmetry $y = x$: this requires $|x| + |x| \\le 4 \\implies 2|x| \\le 4 \\implies |x| \\le 2$. The integers satisfying this are $x \\in \\{-2, -1, 0, 1, 2\\}$, which gives exactly $5$ points on the line. By the reflection symmetry $(x, y) \\leftrightarrow (y, x)$, the remaining $41 - 5 = 36$ points are evenly divided between the region strictly below the line ($x > y$) and strictly above the line ($x < y$). Thus, exactly $36 / 2 = 18$ points satisfy $x > y$. Hence, the number of pairs satisfying $x - y \\ge 0$ is $5 + 18 = 23$."
+    },
+    {
+      "id": "li_c02_005",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the complete solution set of the rational inequality involving absolute values: $\\frac{|x - 2| - 1}{|x + 1| - 3} \\ge 0$.",
+      "options": [
+        "A) $(-\\infty, -4) \\cup [1, 2) \\cup [3, \\infty)$",
+        "B) $(-\\infty, -4] \\cup (1, 2) \\cup [3, \\infty)$",
+        "C) $(-\\infty, -4) \\cup (1, 2] \\cup (3, \\infty)$",
+        "D) $(-4, 1] \\cup (2, 3]$"
+      ],
+      "answer": "A",
+      "explanation": "We investigate the signs of the numerator $N(x) = |x - 2| - 1$ and the denominator $D(x) = |x + 1| - 3$. The numerator vanishes when $|x - 2| = 1 \\implies x = 1$ or $x = 3$. Hence, $N(x) \\ge 0$ on $(-\\infty, 1] \\cup [3, \\infty)$ and $N(x) < 0$ on $(1, 3)$. The denominator vanishes when $|x + 1| = 3 \\implies x = 2$ or $x = -4$. These values are poles where the expression is undefined. Thus, $D(x) > 0$ on $(-\\infty, -4) \\cup (2, \\infty)$ and $D(x) < 0$ on $(-4, 2)$. Marking all transition points on the real axis in ascending order: $-4, 1, 2, 3$: 1) On $(-\\infty, -4)$, $N(x) > 0$ and $D(x) > 0$, so the quotient is positive. 2) On $(-4, 1)$, $N(x) > 0$ and $D(x) < 0$, quotient is negative, except at $x = 1$ where $N(1) = 0$ and $D(1) = -1 \\ne 0$, so $x = 1$ is included. 3) On $(1, 2)$, $N(x) < 0$ and $D(x) < 0$, so the quotient is strictly positive. 4) At $x = 2$, denominator vanishes (pole, excluded). 5) On $(2, 3)$, $N(x) < 0$ and $D(x) > 0$, quotient is negative, except at $x = 3$ where $N(3) = 0$, so $x = 3$ is included. 6) On $(3, \\infty)$, both are positive. Taking the union of all non-negative intervals yields $(-\\infty, -4) \\cup [1, 2) \\cup [3, \\infty)$."
+    },
+    {
+      "id": "li_c02_006",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_multi",
+      "questionText": "Let $S$ denote the set of all real numbers $x$ that satisfy the inequality $|x^2 - 4x + 3| \\le 3 - x$. Which of the following statements is/are TRUE?",
+      "options": [
+        "A) The set $S$ contains exactly $4$ integers.",
+        "B) The maximum value of $x$ in $S$ is $3$.",
+        "C) The set $S$ forms a single contiguous closed interval.",
+        "D) The total length (measure) of $S$ is $2$."
+      ],
+      "answer": "A,B,D",
+      "explanation": "For the inequality $|x^2 - 4x + 3| \\le 3 - x$ to hold, the right-hand side must be non-negative, which requires $3 - x \\ge 0 \\implies x \\le 3$. Under this condition, the modulus inequality unfolds into the double inequality $-(3 - x) \\le x^2 - 4x + 3 \\le 3 - x$. Solving the right part: $x^2 - 4x + 3 \\le 3 - x \\implies x^2 - 3x \\le 0 \\implies x(x - 3) \\le 0$, which yields $x \\in [0, 3]$. Solving the left part: $x^2 - 4x + 3 \\ge x - 3 \\implies x^2 - 5x + 6 \\ge 0 \\implies (x - 2)(x - 3) \\ge 0$, which yields $x \\in (-\\infty, 2] \\cup [3, \\infty)$. Taking the intersection of both solution sets gives $S = [0, 3] \\cap ((-\\infty, 2] \\cup [3, \\infty)) = [0, 2] \\cup \\{3\\}$. We evaluate each statement: A) The integers belonging to $S$ are $0, 1, 2, 3$, which are exactly $4$ integers (TRUE). B) The maximum value in $S$ is $3$ (TRUE). C) $S$ is the union of a closed interval and a disjoint isolated point, so it does not form a single contiguous interval (FALSE). D) The Lebesgue measure of $S$ is the length of $[0, 2]$, which is $2 - 0 = 2$, since the singleton point has measure zero (TRUE)."
+    },
+    {
+      "id": "li_c02_007",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the set of all real values of the parameter $m$ such that the rational inequality $\\frac{x^2 - mx - 2}{x^2 - 3x + 4} > -1$ holds for all real numbers $x \\in \\mathbb{R}$.",
+      "options": [
+        "A) $m \\in (-7, 1)$",
+        "B) $m \\in [-7, 1]$",
+        "C) $m \\in (-1, 7)$",
+        "D) $m \\in (-\\infty, -7) \\cup (1, \\infty)$"
+      ],
+      "answer": "A",
+      "explanation": "First, consider the quadratic denominator $Q(x) = x^2 - 3x + 4$. Its discriminant is $D_Q = (-3)^2 - 4(1)(4) = 9 - 16 = -7 < 0$, and the coefficient of $x^2$ is $1 > 0$. Therefore, $Q(x) > 0$ strictly for all real $x$. Since the denominator is strictly positive everywhere, we can safely clear the denominator without altering the direction of the inequality: $x^2 - mx - 2 > -(x^2 - 3x + 4) = -x^2 + 3x - 4$. Bringing all terms to the left-hand side yields $2x^2 - (m + 3)x + 2 > 0$. For a quadratic expression $Ax^2 + Bx + C$ with $A = 2 > 0$ to be strictly positive for all $x \\in \\mathbb{R}$, its discriminant must be strictly negative: $D = B^2 - 4AC < 0$. Here $B = -(m + 3)$, $A = 2$, and $C = 2$. Thus, we require $(m + 3)^2 - 4(2)(2) < 0 \\implies (m + 3)^2 - 16 < 0 \\implies (m + 3)^2 < 16$. Taking square roots gives $-4 < m + 3 < 4$. Subtracting $3$ across all parts gives $-7 < m < 1$. Hence, $m \\in (-7, 1)$."
+    },
+    {
+      "id": "li_c02_008",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the sum of all distinct integer solutions $x$ satisfying the double modulus inequality $|x - 3| + |2x + 1| \\le 7$.",
+      "options": [],
+      "answer": "5",
+      "explanation": "We solve the inequality $|x - 3| + |2x + 1| \\le 7$ by partitioning the real line using the critical points $x = -1/2$ and $x = 3$. Case 1: $x \\ge 3$. Here $x - 3 \\ge 0$ and $2x + 1 > 0$, so $(x - 3) + (2x + 1) \\le 7 \\implies 3x - 2 \\le 7 \\implies 3x \\le 9 \\implies x \\le 3$. Since this case requires $x \\ge 3$, the only solution here is $x = 3$. Case 2: $-1/2 \\le x < 3$. Here $x - 3 < 0$ and $2x + 1 \\ge 0$, so $-(x - 3) + (2x + 1) \\le 7 \\implies x + 4 \\le 7 \\implies x \\le 3$. This holds for all $x$ in $[-1/2, 3)$. Case 3: $x < -1/2$. Both expressions are negative, so $-(x - 3) - (2x + 1) \\le 7 \\implies -3x + 2 \\le 7 \\implies -3x \\le 5 \\implies x \\ge -5/3$. Thus, the solution on this branch is $[-5/3, -1/2)$. Combining the three cases yields the unified interval $[-5/3, 3]$. Since $-5/3 \\approx -1.67$, the integer values inside this interval are $-1, 0, 1, 2, 3$. The sum of these integer solutions is $(-1) + 0 + 1 + 2 + 3 = 5$."
+    },
+    {
+      "id": "li_c02_009",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A manufacturing unit produces two products, $P_1$ and $P_2$. The production levels $x \\ge 0$ and $y \\ge 0$ (in hundreds of units) are constrained by $2x + y \\le 20$, $x + 2y \\le 20$, and $x + y \\ge 6$. If the objective profit function is $Z = 5x + 4y$, find the difference between the maximum and minimum values of $Z$ in this feasible region.",
+      "options": [
+        "A) $36$",
+        "B) $30$",
+        "C) $26$",
+        "D) $32$"
+      ],
+      "answer": "A",
+      "explanation": "By the Fundamental Theorem of Linear Programming, the extrema of a linear objective function over a bounded convex polygonal feasible region must occur at its corner vertices. We determine the boundary intersections: 1) On the $x$-axis ($y = 0$): $x + y \\ge 6 \\implies x \\ge 6$, and $2x \\le 20 \\implies x \\le 10$. This gives vertices $A(6, 0)$ and $B(10, 0)$. 2) On the $y$-axis ($x = 0$): $x + y \\ge 6 \\implies y \\ge 6$, and $2y \\le 20 \\implies y \\le 10$. This gives vertices $E(0, 6)$ and $D(0, 10)$. 3) The lines $2x + y = 20$ and $x + 2y = 20$ intersect at $C(20/3, 20/3)$, which satisfies $x + y = 40/3 \\ge 6$. Evaluating $Z = 5x + 4y$ at all 5 vertices: at $A(6, 0)$, $Z = 5(6) + 0 = 30$; at $B(10, 0)$, $Z = 5(10) + 0 = 50$; at $C(20/3, 20/3)$, $Z = 5(20/3) + 4(20/3) = 9(20/3) = 60$; at $D(0, 10)$, $Z = 0 + 4(10) = 40$; at $E(0, 6)$, $Z = 0 + 4(6) = 24$. Therefore, the maximum profit is $Z_{\\max} = 60$ (at $C$), and the minimum profit is $Z_{\\min} = 24$ (at $E$). The difference is $Z_{\\max} - Z_{\\min} = 60 - 24 = 36$."
+    },
+    {
+      "id": "li_c02_010",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the complete solution set of the rational inequality $\\frac{(x^2 - 9)(|x| - 2)}{x^2 - 5x + 6} \\le 0$ for all real numbers $x$.",
+      "options": [
+        "A) $[-3, -2]$",
+        "B) $[-3, -2] \\cup \\{3\\}$",
+        "C) $[-3, -2] \\cup (2, 3)$",
+        "D) $(-\\infty, -3] \\cup [-2, 2)$"
+      ],
+      "answer": "A",
+      "explanation": "We factor the components: denominator $x^2 - 5x + 6 = (x - 2)(x - 3)$, which requires $x \\ne 2$ and $x \\ne 3$ to prevent division by zero. Factoring the numerator gives $(x - 3)(x + 3)(|x| - 2)$. For all $x \\ne 3$, we cancel the factor $(x - 3)$, yielding the equivalent inequality $\\frac{(x + 3)(|x| - 2)}{x - 2} \\le 0$ under the domain restrictions $x \\ne 2, 3$. We analyze two cases based on the sign of $x$: Case 1 ($x > 0$): Here $|x| = x$, so $|x| - 2 = x - 2$. For $x \\ne 2$, the factor $(x - 2)$ cancels directly, leaving $x + 3 \\le 0$. But since $x > 0$, $x + 3 > 3 > 0$, so no positive real numbers satisfy the condition. Case 2 ($x \\le 0$): Here $|x| = -x$, so $|x| - 2 = -x - 2 = -(x + 2)$. The expression becomes $\\frac{-(x + 3)(x + 2)}{x - 2} \\le 0 \\iff \\frac{(x + 3)(x + 2)}{x - 2} \\ge 0$. Since $x \\le 0$, the denominator $x - 2$ is strictly negative for all $x$. Dividing by this negative denominator reverses the inequality sign, giving $(x + 3)(x + 2) \\le 0$. The roots of this quadratic are $-3$ and $-2$, leading to the closed interval $x \\in [-3, -2]$. Both boundary points $x = -3$ and $x = -2$ make the numerator zero while avoiding the poles ($x \\ne 2, 3$). Therefore, the complete solution set is $[-3, -2]$."
+    },
+    {
+      "id": "li_c02_011",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $x, y, z$ be positive real numbers satisfying the linear constraint $2x + 3y + 4z = 18$. The maximum possible value of the product $x^2 y^3 z^4$ is:",
+      "options": [
+        "A) $512$",
+        "B) $256$",
+        "C) $1024$",
+        "D) $128$"
+      ],
+      "answer": "A",
+      "explanation": "To apply the weighted AM-GM inequality, we decompose each linear term into equal parts matching the exponents of $x^2 y^3 z^4$. We write $2x = x + x$ ($2$ identical terms), $3y = y + y + y$ ($3$ identical terms), and $4z = z + z + z + z$ ($4$ identical terms). The total number of terms is $2 + 3 + 4 = 9$. By the AM-GM inequality applied to these $9$ positive numbers: $\\frac{(x + x) + (y + y + y) + (z + z + z + z)}{9} \\ge \\sqrt[9]{x \\cdot x \\cdot y \\cdot y \\cdot y \\cdot z \\cdot z \\cdot z \\cdot z} = \\sqrt[9]{x^2 y^3 z^4}$. Substituting the given linear constraint $2x + 3y + 4z = 18$: $\\frac{18}{9} = 2 \\ge \\left( x^2 y^3 z^4 \\right)^{1/9}$. Raising both sides to the 9th power yields $x^2 y^3 z^4 \\le 2^9 = 512$. Equality holds if and only if all $9$ terms are mutually equal: $x = y = z = 2$. Substituting back into the constraint confirms $2(2) + 3(2) + 4(2) = 4 + 6 + 8 = 18$. Therefore, the maximum attainable value is $512$."
+    },
+    {
+      "id": "li_c02_012",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $a, b, c$ be positive real numbers such that $a + b + c = 6$. The minimum value of the expression $S = \\frac{a^2}{b + c} + \\frac{b^2}{c + a} + \\frac{c^2}{a + b}$ is:",
+      "options": [
+        "A) $3$",
+        "B) $\\frac{9}{2}$",
+        "C) $2$",
+        "D) $6$"
+      ],
+      "answer": "A",
+      "explanation": "By Cauchy-Schwarz inequality in Engel form (also known as Titu's Lemma), for any positive real numbers $u_1, u_2, u_3$ and positive denominators $v_1, v_2, v_3$, we have $\\frac{u_1^2}{v_1} + \\frac{u_2^2}{v_2} + \\frac{u_3^2}{v_3} \\ge \\frac{(u_1 + u_2 + u_3)^2}{v_1 + v_2 + v_3}$. Setting $u_1 = a, u_2 = b, u_3 = c$ and denominators $v_1 = b + c, v_2 = c + a, v_3 = a + b$, we obtain: $S \\ge \\frac{(a + b + c)^2}{(b + c) + (c + a) + (a + b)} = \\frac{(a + b + c)^2}{2(a + b + c)} = \\frac{a + b + c}{2}$. Substituting the constraint $a + b + c = 6$, we get $S \\ge \\frac{6}{2} = 3$. Equality holds when $\\frac{a}{b + c} = \\frac{b}{c + a} = \\frac{c}{a + b}$, which occurs when $a = b = c = 2$. Substituting $a = b = c = 2$ gives $S = \\frac{4}{4} + \\frac{4}{4} + \\frac{4}{4} = 3$. Hence, the minimum value is $3$."
+    },
+    {
+      "id": "li_c02_013",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the complete solution set of the logarithmic inequality $\\log_{1/2}\\left(\\frac{3x - 1}{x + 2}\\right) \\ge -1$.",
+      "options": [
+        "A) $(1/3, 5]$",
+        "B) $(-2, 5]$",
+        "C) $[5, \\infty)$",
+        "D) $(1/3, \\infty)$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Determine the domain of the logarithmic function. The argument must be strictly positive: $\\frac{3x - 1}{x + 2} > 0$. By the wavy curve method, the critical points are $-2$ and $1/3$, yielding domain $x \\in (-\\infty, -2) \\cup (1/3, \\infty)$. Step 2: Solve the inequality. Since the base of the logarithm is $1/2 \\in (0, 1)$, applying exponentiation reverses the inequality sign: $\\frac{3x - 1}{x + 2} \\le (1/2)^{-1} = 2$. Subtracting $2$ from both sides gives $\\frac{3x - 1 - 2(x + 2)}{x + 2} \\le 0 \\implies \\frac{x - 5}{x + 2} \\le 0$. The roots of numerator and denominator are $5$ and $-2$. The rational expression is non-positive on $(-2, 5]$, where $x = -2$ is excluded as a pole. Step 3: Intersect the inequality solution set with the domain: $x \\in (-2, 5] \\cap ((-\\infty, -2) \\cup (1/3, \\infty))$. The intersection with $(-\\infty, -2)$ is empty since $-2$ is excluded. The intersection with $(1/3, \\infty)$ gives $(1/3, 5]$. Therefore, the complete solution set is $(1/3, 5]$."
+    },
+    {
+      "id": "li_c02_014",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $a, b, c, d$ be positive real numbers satisfying $a + 2b + 3c + 4d = 10$. Find the minimum possible value of the reciprocal sum $E = \\frac{1}{a} + \\frac{2}{b} + \\frac{3}{c} + \\frac{4}{d}$.",
+      "options": [],
+      "answer": "10",
+      "explanation": "Let $x_1 = a$, $x_2 = 2b$, $x_3 = 3c$, and $x_4 = 4d$. The given constraint becomes $x_1 + x_2 + x_3 + x_4 = 10$, where each $x_i > 0$. We express each term of $E$ in terms of $x_i$: $\\frac{1}{a} = \\frac{1^2}{x_1}$, $\\frac{2}{b} = \\frac{2 \\times 2}{2b} = \\frac{2^2}{x_2}$, $\\frac{3}{c} = \\frac{3 \\times 3}{3c} = \\frac{3^2}{x_3}$, and $\\frac{4}{d} = \\frac{4 \\times 4}{4d} = \\frac{4^2}{x_4}$. Thus, the sum is $E = \\sum_{i=1}^4 \\frac{i^2}{x_i}$. Applying Cauchy-Schwarz inequality in Engel form yields: $\\sum_{i=1}^4 \\frac{i^2}{x_i} \\ge \\frac{(1 + 2 + 3 + 4)^2}{x_1 + x_2 + x_3 + x_4} = \\frac{10^2}{10} = 10$. Equality in Cauchy-Schwarz holds if and only if $\\frac{1}{x_1} = \\frac{2}{x_2} = \\frac{3}{x_3} = \\frac{4}{x_4} = \\lambda$. Hence $x_i = i / \\lambda$. Summing gives $\\sum x_i = \\frac{10}{\\lambda} = 10 \\implies \\lambda = 1$. This implies $x_1 = 1 \\implies a = 1$, $x_2 = 2 \\implies b = 1$, $x_3 = 3 \\implies c = 1$, and $x_4 = 4 \\implies d = 1$. Checking the constraint: $1 + 2(1) + 3(1) + 4(1) = 10$. Substituting into $E$ gives $1 + 2 + 3 + 4 = 10$. Hence the minimum value is $10$."
+    },
+    {
+      "id": "li_c02_015",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $x, y, z$ be real numbers satisfying the system of equations $x^2 + y^2 + z^2 = 14$ and $x + 2y + 3z = 14$. Which of the following statements is/are TRUE?",
+      "options": [
+        "A) The system has a unique real solution $(x, y, z)$.",
+        "B) $x + y + z = 6$.",
+        "C) $x y z = 6$.",
+        "D) $x^3 + y^3 + z^3 = 36$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Consider the vectors $\\vec{u} = (x, y, z)$ and $\\vec{v} = (1, 2, 3)$ in $\\mathbb{R}^3$. We compute their squared norms: $|\\vec{u}|^2 = x^2 + y^2 + z^2 = 14$, and $|\\vec{v}|^2 = 1^2 + 2^2 + 3^2 = 1 + 4 + 9 = 14$. The scalar dot product of the vectors is $\\vec{u} \\cdot \\vec{v} = x(1) + y(2) + z(3) = x + 2y + 3z = 14$. By the Cauchy-Schwarz inequality, $(\\vec{u} \\cdot \\vec{v})^2 \\le |\\vec{u}|^2 |\\vec{v}|^2$. Here, the left-hand side is $14^2 = 196$, and the right-hand side is $14 \\times 14 = 196$. Because equality holds strictly, the vectors $\\vec{u}$ and $\\vec{v}$ must be linearly dependent and point in the same direction: $\\vec{u} = \\lambda \\vec{v}$ for some scalar $\\lambda > 0$. Equating norms gives $\\lambda^2 |\\vec{v}|^2 = |\\vec{u}|^2 \\implies 14\\lambda^2 = 14 \\implies \\lambda = 1$. Thus, the only real solution is $(x, y, z) = (1, 2, 3)$. Evaluating each statement: A) The solution is unique: $(1, 2, 3)$ (TRUE). B) $x + y + z = 1 + 2 + 3 = 6$ (TRUE). C) $x y z = 1 \\times 2 \\times 3 = 6$ (TRUE). D) $x^3 + y^3 + z^3 = 1^3 + 2^3 + 3^3 = 1 + 8 + 27 = 36$ (TRUE)."
+    },
+    {
+      "id": "li_c02_016",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $x, y, z$ be positive real numbers such that $x + y + z = 1$. Find the minimum possible value of the product $\\left(1 + \\frac{1}{x}\\right)\\left(1 + \\frac{1}{y}\\right)\\left(1 + \\frac{1}{z}\\right)$.",
+      "options": [
+        "A) $64$",
+        "B) $27$",
+        "C) $32$",
+        "D) $125$"
+      ],
+      "answer": "A",
+      "explanation": "Consider the function $f(t) = \\ln\\left(1 + \\frac{1}{t}\\right)$ defined on the positive reals $t > 0$. Differentiating with respect to $t$: $f'(t) = \\frac{-1/t^2}{1 + 1/t} = -\\frac{1}{t(t+1)} = \\frac{1}{t+1} - \\frac{1}{t}$. Differentiating again: $f''(t) = -\\frac{1}{(t+1)^2} + \\frac{1}{t^2} = \\frac{(t+1)^2 - t^2}{t^2(t+1)^2} = \\frac{2t+1}{t^2(t+1)^2}$. Since $t > 0$, the numerator $2t+1 > 0$ and the denominator is positive, so $f''(t) > 0$ for all $t > 0$. Thus, $f(t)$ is strictly convex on $(0, \\infty)$. Applying Jensen's inequality for convex functions: $\\frac{f(x) + f(y) + f(z)}{3} \\ge f\\left(\\frac{x + y + z}{3}\\right) = f(1/3)$. Evaluating $f(1/3) = \\ln(1 + 3) = \\ln(4)$. Multiplying both sides by $3$ gives $\\ln\\left[\\left(1 + \\frac{1}{x}\\right)\\left(1 + \\frac{1}{y}\\right)\\left(1 + \\frac{1}{z}\\right)\\right] \\ge 3\\ln(4) = \\ln(4^3) = \\ln(64)$. Taking exponentials yields $\\left(1 + \\frac{1}{x}\\right)\\left(1 + \\frac{1}{y}\\right)\\left(1 + \\frac{1}{z}\\right) \\ge 64$. Equality is attained when $x = y = z = 1/3$."
+    },
+    {
+      "id": "li_c02_017",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the complete solution set of the logarithmic inequality $\\log_{2x - 1}(x^2 - 5x + 7) \\ge 0$ for real $x$.",
+      "options": [
+        "A) $(1, 2] \\cup [3, \\infty)$",
+        "B) $[2, 3]$",
+        "C) $(1/2, 2] \\cup [3, \\infty)$",
+        "D) $(1, \\infty)$"
+      ],
+      "answer": "A",
+      "explanation": "We determine the domain conditions first: the base of the logarithm must satisfy $2x - 1 > 0$ and $2x - 1 \\ne 1$, which gives $x > 1/2$ and $x \\ne 1$. The argument $x^2 - 5x + 7$ has discriminant $\\Delta = (-5)^2 - 4(1)(7) = 25 - 28 = -3 < 0$, with positive leading coefficient, so $x^2 - 5x + 7 > 0$ for all real $x$. We split the analysis into two base intervals: Case 1: Base greater than $1 \\implies 2x - 1 > 1 \\implies x > 1$. The inequality preserves its orientation: $\\log_{2x-1}(x^2 - 5x + 7) \\ge 0 = \\log_{2x-1}(1) \\implies x^2 - 5x + 7 \\ge 1 \\implies x^2 - 5x + 6 \\ge 0$. Factoring gives $(x - 2)(x - 3) \\ge 0 \\implies x \\in (-\\infty, 2] \\cup [3, \\infty)$. Intersecting with $x > 1$ yields $x \\in (1, 2] \\cup [3, \\infty)$. Case 2: Base between $0$ and $1 \\implies 0 < 2x - 1 < 1 \\implies 1/2 < x < 1$. The inequality reverses its orientation: $x^2 - 5x + 7 \\le 1 \\implies x^2 - 5x + 6 \\le 0 \\implies x \\in [2, 3]$. Intersecting $[2, 3]$ with the interval $(1/2, 1)$ yields the empty set $\\emptyset$. Combining the results of both cases yields the complete solution set $(1, 2] \\cup [3, \\infty)$."
+    },
+    {
+      "id": "li_c02_018",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $a, b, c$ be positive real numbers such that $a + b + c = 12$. If $M$ denotes the maximum possible value of $a^3 b^2 c$, find the value of $\\frac{M}{108}$.",
+      "options": [],
+      "answer": "64",
+      "explanation": "To maximize the monomial $a^3 b^2 c$ subject to $a + b + c = 12$, we split the variables into parts matching their powers: we write $a = 3 \\left(\\frac{a}{3}\\right)$ as $3$ equal terms, $b = 2 \\left(\\frac{b}{2}\\right)$ as $2$ equal terms, and $c = 1(c)$ as $1$ term. The total number of terms is $3 + 2 + 1 = 6$. Their sum is $3\\left(\\frac{a}{3}\\right) + 2\\left(\\frac{b}{2}\\right) + c = a + b + c = 12$. Applying the AM-GM inequality to these $6$ positive terms: $\\frac{a/3 + a/3 + a/3 + b/2 + b/2 + c}{6} \\ge \\left[\\left(\\frac{a}{3}\\right)^3 \\left(\\frac{b}{2}\\right)^2 c\\right]^{1/6}$. Substituting the sum gives $\\frac{12}{6} = 2 \\ge \\left[\\frac{a^3 b^2 c}{27 \\times 4}\\right]^{1/6} = \\left[\\frac{a^3 b^2 c}{108}\\right]^{1/6}$. Raising both sides to the 6th power yields $2^6 \\ge \\frac{a^3 b^2 c}{108} \\implies 64 \\ge \\frac{a^3 b^2 c}{108}$. Hence, the maximum value of $a^3 b^2 c$ is $M = 64 \\times 108 = 6912$. Therefore, $\\frac{M}{108} = 64$. Equality holds when $\\frac{a}{3} = \\frac{b}{2} = c = 2 \\implies a = 6, b = 4, c = 2$, which satisfies $6 + 4 + 2 = 12$."
+    },
+    {
+      "id": "li_c02_019",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $(x, y, z)$ be a point in $\\mathbb{R}^3$ lying on the plane $2x - y + 2z = 9$. Using Cauchy-Schwarz optimization, the minimum possible value of $x^2 + y^2 + z^2$ is:",
+      "options": [
+        "A) $9$",
+        "B) $3$",
+        "C) $\\frac{9}{2}$",
+        "D) $27$"
+      ],
+      "answer": "A",
+      "explanation": "By Cauchy-Schwarz inequality applied to vectors $\\vec{u} = (2, -1, 2)$ and $\\vec{v} = (x, y, z)$, we have: $(2x - y + 2z)^2 \\le \\left( 2^2 + (-1)^2 + 2^2 \\right)(x^2 + y^2 + z^2)$. Calculating the magnitude of the coefficient vector: $2^2 + (-1)^2 + 2^2 = 4 + 1 + 4 = 9$. Substituting the planar constraint $2x - y + 2z = 9$: $9^2 \\le 9 (x^2 + y^2 + z^2) \\implies 81 \\le 9(x^2 + y^2 + z^2) \\implies x^2 + y^2 + z^2 \\ge 9$. Equality holds if and only if the vector $(x, y, z)$ is parallel to the normal vector $(2, -1, 2)$, meaning $\\frac{x}{2} = \\frac{y}{-1} = \\frac{z}{2} = k$. Substituting into the planar equation: $2(2k) - (-k) + 2(2k) = 9k = 9 \\implies k = 1$. This corresponds to the point $(2, -1, 2)$, where $x^2 + y^2 + z^2 = 2^2 + (-1)^2 + 2^2 = 4 + 1 + 4 = 9$. Therefore, the minimum value is $9$."
+    },
+    {
+      "id": "li_c02_020",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the inequality $\\left|\\frac{x^2 - 3x - 1}{x^2 + x + 1}\\right| < 3$ for all real $x$. Which of the following statements is/are TRUE?",
+      "options": [
+        "A) The solution set is $(-\\infty, -2) \\cup (-1, \\infty)$.",
+        "B) The value $x = -1.5$ does not belong to the solution set.",
+        "C) There are exactly $2$ integers not belonging to the solution set.",
+        "D) Every point in the solution set satisfies $x > 0$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "The quadratic denominator $x^2 + x + 1$ has discriminant $1^2 - 4(1)(1) = -3 < 0$ and coefficient of $x^2$ equal to $1 > 0$, so $x^2 + x + 1 > 0$ strictly for all real $x$. Clearing fractions without altering inequality signs gives $|x^2 - 3x - 1| < 3(x^2 + x + 1) = 3x^2 + 3x + 3$. This expands into a system of two inequalities: Inequality 1: $x^2 - 3x - 1 < 3x^2 + 3x + 3 \\implies 2x^2 + 6x + 4 > 0 \\implies x^2 + 3x + 2 > 0 \\implies (x + 1)(x + 2) > 0$. The solution set for this part is $(-\\infty, -2) \\cup (-1, \\infty)$. Inequality 2: $x^2 - 3x - 1 > -(3x^2 + 3x + 3) = -3x^2 - 3x - 3 \\implies 4x^2 + 2 > 0$. Because $4x^2 \\ge 0$ for all real $x$, $4x^2 + 2 \\ge 2 > 0$ is trivially satisfied for all $x \\in \\mathbb{R}$. Taking the intersection of both inequalities gives the complete solution set $S = (-\\infty, -2) \\cup (-1, \\infty)$. Evaluating the statements: A) The solution set is indeed $(-\\infty, -2) \\cup (-1, \\infty)$ (TRUE). B) Since $-1.5 \\in [-2, -1]$, it lies outside $S$ (TRUE). C) The integers not in $S$ are the integers in the complement $[-2, -1]$, namely $\\{-2, -1\\}$, which has exactly $2$ elements (TRUE). D) Negative numbers such as $-3$ belong to $S$, so $x > 0$ does not hold for all elements (FALSE)."
+    },
+    {
+      "id": "li_c02_021",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $a, b, c$ be the side lengths of a non-degenerate triangle. Consider the Nesbitt cyclic sum $N = \\frac{a}{b + c} + \\frac{b}{c + a} + \\frac{c}{a + b}$. The sharp range of values that $N$ can attain is:",
+      "options": [
+        "A) $\\left[\\frac{3}{2}, 2\\right)$",
+        "B) $\\left[\\frac{3}{2}, \\infty\\right)$",
+        "C) $(1, 2]$",
+        "D) $\\left[\\frac{3}{2}, 3\\right)$"
+      ],
+      "answer": "A",
+      "explanation": "By Nesbitt's inequality, for any positive real numbers $a, b, c$, we have $N = \\frac{a}{b + c} + \\frac{b}{c + a} + \\frac{c}{a + b} \\ge \\frac{3}{2}$, with equality if and only if $a = b = c$, which represents an equilateral triangle. To establish the upper bound for side lengths of a non-degenerate triangle, we apply the triangle inequalities $b + c > a$, $c + a > b$, and $a + b > c$. Adding $b + c$ to both sides gives $2(b + c) > a + b + c \\implies b + c > \\frac{a + b + c}{2}$. Taking reciprocals and multiplying by $a > 0$ yields $\\frac{a}{b + c} < \\frac{2a}{a + b + c}$. Writing the analogous inequalities for the other two cyclical terms and adding them together: $N = \\frac{a}{b + c} + \\frac{b}{c + a} + \\frac{c}{a + b} < \\frac{2(a + b + c)}{a + b + c} = 2$. To see that $2$ is the supremum, consider the limiting case of a degenerate triangle where $a = 1$, $b = 1$, and $c \\to 0$. In this limit, $N \\to \\frac{1}{1 + 0} + \\frac{1}{0 + 1} + \\frac{0}{1 + 1} = 1 + 1 + 0 = 2$. Since degenerate triangles are excluded, the value $2$ cannot be attained. Thus, the sharp range of $N$ is $\\left[\\frac{3}{2}, 2\\right)$."
+    },
+    {
+      "id": "li_c02_022",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $A, B, C$ be the interior angles of an acute-angled triangle. Applying Jensen's inequality, find the minimum possible value of $\\sec A + \\sec B + \\sec C$.",
+      "options": [],
+      "answer": "6",
+      "explanation": "In an acute-angled triangle, each angle satisfies $A, B, C \\in (0, \\pi/2)$, with the linear angle sum relation $A + B + C = \\pi$. Consider the function $f(x) = \\sec x$ on the open interval $(0, \\pi/2)$. Its first derivative is $f'(x) = \\sec x \\tan x$, and its second derivative is $f''(x) = \\sec x \\tan^2 x + \\sec^3 x$. Because $\\sec x > 0$ and $\\tan x > 0$ for all $x \\in (0, \\pi/2)$, we have $f''(x) > 0$, confirming that $f(x) = \\sec x$ is strictly convex on $(0, \\pi/2)$. Applying Jensen's inequality for convex functions gives: $\\frac{\\sec A + \\sec B + \\sec C}{3} \\ge \\sec\\left(\\frac{A + B + C}{3}\\right) = \\sec\\left(\\frac{\\pi}{3}\\right) = 2$. Multiplying both sides by $3$ yields $\\sec A + \\sec B + \\sec C \\ge 6$. Equality holds if and only if $A = B = C = \\pi/3$, corresponding to an equilateral triangle where $\\sec(\\pi/3) + \\sec(\\pi/3) + \\sec(\\pi/3) = 2 + 2 + 2 = 6$. Therefore, the minimum value is $6$."
+    },
+    {
+      "id": "li_c02_023",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $a, b, c$ be arbitrary positive real numbers. By applying Muirhead's inequality and symmetric sum majorization, which of the following inequalities is/are TRUE?",
+      "options": [
+        "A) $a^3 + b^3 + c^3 \\ge a^2 b + b^2 c + c^2 a$",
+        "B) $a^5 + b^5 + c^5 \\ge a b c (a^2 + b^2 + c^2)$",
+        "C) $a^2 b^2 + b^2 c^2 + c^2 a^2 \\ge a b c (a + b + c)$",
+        "D) $a^4 + b^4 + c^4 \\ge a b^3 + b c^3 + c a^3$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "We analyze each inequality using majorization of exponent vectors: A) Vector $(3, 0, 0)$ majorizes $(2, 1, 0)$ because $3 \\ge 2$ and $3 + 0 + 0 = 2 + 1 + 0 = 3$. By AM-GM, $2a^3 + b^3 = a^3 + a^3 + b^3 \\ge 3a^2 b$. Adding the cyclic permutations yields $3(a^3 + b^3 + c^3) \\ge 3(a^2 b + b^2 c + c^2 a) \\implies a^3 + b^3 + c^3 \\ge a^2 b + b^2 c + c^2 a$ (TRUE). B) Vector $(5, 0, 0)$ majorizes $(3, 1, 1)$ because $5 \\ge 3$, $5 + 0 \\ge 3 + 1 = 4$, and $5 + 0 + 0 = 3 + 1 + 1 = 5$. By Muirhead's theorem, $[5, 0, 0] \\ge [3, 1, 1]$, which translates directly to $a^5 + b^5 + c^5 \\ge a^3 b c + b^3 c a + c^3 a b = a b c(a^2 + b^2 + c^2)$ (TRUE). C) Vector $(2, 2, 0)$ majorizes $(2, 1, 1)$ because $2 \\ge 2$, $2 + 2 \\ge 2 + 1 = 3$, and $2 + 2 + 0 = 2 + 1 + 1 = 4$. Thus $[2, 2, 0] \\ge [2, 1, 1]$, which gives $a^2 b^2 + b^2 c^2 + c^2 a^2 \\ge a b c(a + b + c)$ (TRUE). D) Applying AM-GM to the four terms $a^4 + 3b^4 = a^4 + b^4 + b^4 + b^4 \\ge 4\\sqrt[4]{a^4 b^{12}} = 4ab^3$. Summing the cyclic permutations yields $4(a^4 + b^4 + c^4) \\ge 4(ab^3 + bc^3 + ca^3) \\implies a^4 + b^4 + c^4 \\ge ab^3 + bc^3 + ca^3$ (TRUE). Hence, all statements A, B, C, and D are valid."
+    },
+    {
+      "id": "li_c02_024",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $x, y, z$ be non-negative real numbers satisfying the linear normalization $x + y + z = 1$. By Schur's inequality of degree $3$ ($r=1$), the minimum possible value of the expression $E = 9xyz + 1 - 4(xy + yz + zx)$ is:",
+      "options": [
+        "A) $0$",
+        "B) $1$",
+        "C) $-1$",
+        "D) $\\frac{1}{4}$"
+      ],
+      "answer": "A",
+      "explanation": "Schur's inequality of degree $3$ states that for non-negative $x, y, z$: $x(x - y)(x - z) + y(y - z)(y - x) + z(z - x)(z - y) \\ge 0$. Expanding this expression yields $x^3 + y^3 + z^3 + 3xyz \\ge \\sum_{sym} x^2 y$. In terms of elementary symmetric polynomials $p = x + y + z = 1$, $q = xy + yz + zx$, and $r = xyz$, we have the standard identities $x^3 + y^3 + z^3 = p^3 - 3pq + 3r = 1 - 3q + 3r$, and $\\sum_{sym} x^2 y = pq - 3r = q - 3r$. Substituting these expansions into Schur's inequality gives: $(1 - 3q + 3r) + 3r \\ge q - 3r \\implies 1 - 3q + 6r \\ge q - 3r \\implies 9r + 1 - 4q \\ge 0$. Notice that $E = 9xyz + 1 - 4(xy + yz + zx) = 9r + 1 - 4q$. Therefore, Schur's inequality guarantees $E \\ge 0$ for all non-negative triples satisfying the linear constraint. Equality occurs when $x = y = z = 1/3$, where $q = 3(1/9) = 1/3$ and $r = 1/27$, yielding $E = 9(1/27) + 1 - 4(1/3) = 1/3 + 1 - 4/3 = 0$. Hence, the minimum value is $0$."
+    },
+    {
+      "id": "li_c02_025",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "For any triangle $A B C$, find the maximum possible value of the product $S = \\sin\\left(\\frac{A}{2}\\right) \\sin\\left(\\frac{B}{2}\\right) \\sin\\left(\\frac{C}{2}\\right)$ using Jensen's inequality.",
+      "options": [
+        "A) $\\frac{1}{8}$",
+        "B) $\\frac{1}{4}$",
+        "C) $\\frac{3\\sqrt{3}}{8}$",
+        "D) $\\frac{1}{16}$"
+      ],
+      "answer": "A",
+      "explanation": "In any triangle $A B C$, the angles satisfy $A, B, C \\in (0, \\pi)$ with $A + B + C = \\pi$, which implies that the half-angles satisfy $\\frac{A}{2}, \\frac{B}{2}, \\frac{C}{2} \\in (0, \\pi/2)$. Consider the function $f(x) = \\ln(\\sin x)$ on the interval $(0, \\pi/2)$. Its derivative is $f'(x) = \\frac{\\cos x}{\\sin x} = \\cot x$, and its second derivative is $f''(x) = -\\csc^2 x$. Since $\\csc^2 x > 0$ for all $x \\in (0, \\pi/2)$, we have $f''(x) < 0$, which proves that $f(x) = \\ln(\\sin x)$ is strictly concave on $(0, \\pi/2)$. Applying Jensen's inequality for concave functions: $\\frac{1}{3} \\left[ \\ln\\sin\\frac{A}{2} + \\ln\\sin\\frac{B}{2} + \\ln\\sin\\frac{C}{2} \\right] \\le \\ln\\left( \\sin\\left( \\frac{A/2 + B/2 + C/2}{3} \\right) \\right) = \\ln\\left( \\sin\\frac{\\pi}{6} \\right) = \\ln\\left(\\frac{1}{2}\\right)$. Combining the logarithms: $\\ln\\left[ \\left( \\sin\\frac{A}{2} \\sin\\frac{B}{2} \\sin\\frac{C}{2} \\right)^{1/3} \\right] \\le \\ln\\left(\\frac{1}{2}\\right)$. Taking exponentials on both sides: $\\left( \\sin\\frac{A}{2} \\sin\\frac{B}{2} \\sin\\frac{C}{2} \\right)^{1/3} \\le \\frac{1}{2}$. Cubing both sides yields $\\sin\\frac{A}{2} \\sin\\frac{B}{2} \\sin\\frac{C}{2} \\le \\left(\\frac{1}{2}\\right)^3 = \\frac{1}{8}$. Equality holds if and only if $A = B = C = \\pi/3$ (equilateral triangle). Therefore, the maximum value is $1/8$."
+    },
+    {
+      "id": "li_c02_026",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $x, y, z$ be real numbers satisfying the quadratic constraint $x^2 + 2y^2 + 3z^2 = 5$. By applying the Cauchy-Schwarz inequality, find the maximum possible value of the linear expression $3x + 4y + 3z$.",
+      "options": [],
+      "answer": "10",
+      "explanation": "We express the linear form in terms of the weighted terms appearing in the quadratic constraint: $3x + 4y + 3z = (3)(x) + (2\\sqrt{2})(\\sqrt{2}y) + (\\sqrt{3})(\\sqrt{3}z)$. Define two 3-dimensional vectors: $\\vec{u} = (x, \\sqrt{2}y, \\sqrt{3}z)$ and $\\vec{v} = (3, 2\\sqrt{2}, \\sqrt{3})$. By the Cauchy-Schwarz inequality, $(\\vec{u} \\cdot \\vec{v})^2 \\le |\\vec{u}|^2 |\\vec{v}|^2$. We compute the square norm of $\\vec{u}$: $|\\vec{u}|^2 = x^2 + (\\sqrt{2}y)^2 + (\\sqrt{3}z)^2 = x^2 + 2y^2 + 3z^2 = 5$. Next, we compute the square norm of $\\vec{v}$: $|\\vec{v}|^2 = 3^2 + (2\\sqrt{2})^2 + (\\sqrt{3})^2 = 9 + 8 + 3 = 20$. Therefore, $(3x + 4y + 3z)^2 \\le 5 \\times 20 = 100$, which implies $3x + 4y + 3z \\le \\sqrt{100} = 10$. Equality occurs when the vectors are proportional: $\\frac{x}{3} = \\frac{\\sqrt{2}y}{2\\sqrt{2}} = \\frac{\\sqrt{3}z}{\\sqrt{3}} = k \\implies x = 3k, y = 2k, z = k$. Substituting these into the constraint gives $(3k)^2 + 2(2k)^2 + 3(k)^2 = 9k^2 + 8k^2 + 3k^2 = 20k^2 = 5 \\implies k^2 = 1/4 \\implies k = 1/2$. For $k = 1/2$, $(x, y, z) = (3/2, 1, 1/2)$, and the expression evaluates to $3(3/2) + 4(1) + 3(1/2) = 9/2 + 4 + 3/2 = 10$. Hence, the maximum value is $10$."
+    },
+    {
+      "id": "li_c02_027",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $F$ denote the feasible set of all points $(x, y, z) \\in \\mathbb{R}^3$ satisfying the simultaneous inequalities $x + y + z \\le 3$ and $x^2 + y^2 + z^2 \\le 3$. Which of the following statements is/are TRUE?",
+      "options": [
+        "A) The feasible region $F$ is identical to the solid sphere $x^2 + y^2 + z^2 \\le 3$.",
+        "B) The maximum value of $x + y + z$ on $F$ is $3$, achieved uniquely at $(1, 1, 1)$.",
+        "C) The volume of the feasible region is $4\\sqrt{3}\\pi$.",
+        "D) The point $(2, 0, 0)$ belongs to $F$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Consider the ball $B = \\{(x, y, z) \\in \\mathbb{R}^3 : x^2 + y^2 + z^2 \\le 3\\}$, which has radius $R = \\sqrt{3}$ centered at the origin. By the Cauchy-Schwarz inequality, for any point in $\\mathbb{R}^3$, $(x + y + z)^2 = (1 \\cdot x + 1 \\cdot y + 1 \\cdot z)^2 \\le (1^2 + 1^2 + 1^2)(x^2 + y^2 + z^2) = 3(x^2 + y^2 + z^2)$. For every point $(x, y, z) \\in B$, we have $x^2 + y^2 + z^2 \\le 3$, which implies $(x + y + z)^2 \\le 3 \\times 3 = 9 \\implies -3 \\le x + y + z \\le 3$. Therefore, every point inside the ball $B$ automatically satisfies the linear inequality $x + y + z \\le 3$. Consequently, the intersection of the half-space $x + y + z \\le 3$ with the ball $B$ is the entire ball $B$ itself: $F = B$. Evaluating the options: A) $F$ is indeed the entire solid sphere of radius $\\sqrt{3}$ (TRUE). B) The maximum value of $x + y + z$ on $B$ is $3$, and equality in Cauchy-Schwarz requires $x = y = z$, so $3x^2 = 3 \\implies x = 1 \\implies (1, 1, 1)$ is the unique maximizer (TRUE). C) The volume of the solid ball is $V = \\frac{4}{3}\\pi R^3 = \\frac{4}{3}\\pi (\\sqrt{3})^3 = \\frac{4}{3}\\pi (3\\sqrt{3}) = 4\\sqrt{3}\\pi$ (TRUE). D) Testing $(2, 0, 0)$: $2^2 + 0^2 + 0^2 = 4 > 3$, so it does not lie in $F$ (FALSE)."
+    },
+    {
+      "id": "li_c02_028",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $a, b, c$ be positive real numbers such that $a + b + c = 1$. By applying Jensen's inequality to a suitably chosen convex function, find the minimum possible value of $\\frac{a}{\\sqrt{1 - a}} + \\frac{b}{\\sqrt{1 - b}} + \\frac{c}{\\sqrt{1 - c}}$.",
+      "options": [
+        "A) $\\sqrt{\\frac{3}{2}}$",
+        "B) $\\sqrt{3}$",
+        "C) $\\frac{3}{2}$",
+        "D) $2\\sqrt{2}$"
+      ],
+      "answer": "A",
+      "explanation": "Define the function $f(x) = \\frac{x}{\\sqrt{1 - x}}$ on the open interval $(0, 1)$. We can rewrite $f(x) = \\frac{-(1 - x) + 1}{\\sqrt{1 - x}} = -(1 - x)^{1/2} + (1 - x)^{-1/2}$. Differentiating with respect to $x$: $f'(x) = -\\frac{1}{2}(1 - x)^{-1/2}(-1) + \\left(-\\frac{1}{2}\\right)(1 - x)^{-3/2}(-1) = \\frac{1}{2}(1 - x)^{-1/2} + \\frac{1}{2}(1 - x)^{-3/2}$. Differentiating again: $f''(x) = \\frac{1}{4}(1 - x)^{-3/2} + \\frac{3}{4}(1 - x)^{-5/2}$. For all $x \\in (0, 1)$, $1 - x > 0$, so each term in $f''(x)$ is strictly positive, establishing that $f(x)$ is strictly convex on $(0, 1)$. Applying Jensen's inequality for convex functions: $\\frac{f(a) + f(b) + f(c)}{3} \\ge f\\left(\\frac{a + b + c}{3}\\right) = f(1/3)$. Calculating $f(1/3)$: $f(1/3) = \\frac{1/3}{\\sqrt{1 - 1/3}} = \\frac{1/3}{\\sqrt{2/3}} = \\frac{1/3}{\\sqrt{2}/\\sqrt{3}} = \\frac{\\sqrt{3}}{3\\sqrt{2}} = \\frac{1}{\\sqrt{6}}$. Multiplying by $3$ gives: $f(a) + f(b) + f(c) \\ge 3 \\times \\frac{1}{\\sqrt{6}} = \\frac{3}{\\sqrt{6}} = \\sqrt{\\frac{9}{6}} = \\sqrt{\\frac{3}{2}}$. Equality holds when $a = b = c = 1/3$."
+    },
+    {
+      "id": "li_c02_029",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $x_1, x_2, x_3, x_4 \\in [1, 3]$ be four real numbers satisfying the linear constraint $x_1 + x_2 + x_3 + x_4 = 8$. Using Karamata's majorization principle for convex functions, find the maximum possible value of $x_1^2 + x_2^2 + x_3^2 + x_4^2$.",
+      "options": [],
+      "answer": "20",
+      "explanation": "The function $f(t) = t^2$ is strictly convex on $\\mathbb{R}$ because $f''(t) = 2 > 0$. By Karamata's majorization theorem, the sum of convex functions $\\sum_{i=1}^n f(x_i)$ on a closed bounded convex polytope is maximized at the extreme points (vertices) of the constraint domain. Here, the domain is defined by $1 \\le x_i \\le 3$ for $i \\in \\{1, 2, 3, 4\\}$ and $\\sum_{i=1}^4 x_i = 8$. To find the vector that majorizes all other feasible vectors, we must push components as far apart as possible towards the boundaries $1$ and $3$. Setting three variables to the maximum $3$ would require a sum of $9 > 8$, which is impossible. Thus, we can set at most two variables to $3$. Letting $x_1 = 3$ and $x_2 = 3$, the remaining two variables must satisfy $x_3 + x_4 = 8 - (3 + 3) = 2$. Since $x_3, x_4 \\ge 1$, the only feasible choice is $x_3 = 1$ and $x_4 = 1$. The resulting vector $(3, 3, 1, 1)$ majorizes any other feasible vector in the domain. Evaluating the sum of squares: $3^2 + 3^2 + 1^2 + 1^2 = 9 + 9 + 1 + 1 = 20$. In contrast, the centroid vector $(2, 2, 2, 2)$ achieves the minimum value $4 \\times 2^2 = 16$. Therefore, the maximum possible value is $20$."
+    },
+    {
+      "id": "li_c02_030",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "For any positive real number $x > 0$, find the minimum possible value of the function $f(x) = x^4 + \\frac{128}{x}$ by applying the AM-GM inequality.",
+      "options": [
+        "A) $80$",
+        "B) $64$",
+        "C) $96$",
+        "D) $72$"
+      ],
+      "answer": "A",
+      "explanation": "To apply the AM-GM inequality so that all powers of the variable $x$ cancel out in the product, we split the term $\\frac{128}{x}$ into $4$ equal terms, each having degree $-1$: $\\frac{128}{x} = \\frac{32}{x} + \\frac{32}{x} + \\frac{32}{x} + \\frac{32}{x}$. This gives a sum of $1 + 4 = 5$ positive terms: $f(x) = x^4 + \\frac{32}{x} + \\frac{32}{x} + \\frac{32}{x} + \\frac{32}{x}$. Applying the AM-GM inequality to these $5$ positive terms: $\\frac{x^4 + 4\\left(\\frac{32}{x}\\right)}{5} \\ge \\left[ x^4 \\cdot \\left(\\frac{32}{x}\\right)^4 \\right]^{1/5} = \\left( 32^4 \\right)^{1/5} = \\left((2^5)^4\\right)^{1/5} = 2^4 = 16$. Multiplying both sides by $5$ yields $f(x) \\ge 5 \\times 16 = 80$. Equality holds if and only if all terms in the AM-GM are equal: $x^4 = \\frac{32}{x} \\implies x^5 = 32 \\implies x = 2$. At $x = 2$, we have $f(2) = 2^4 + \\frac{128}{2} = 16 + 64 = 80$. Hence, the minimum value is $80$."
+    },
+    {
+      "id": "li_c02_031",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $a, b, c$ be arbitrary positive real numbers. Which of the following inequalities is/are TRUE for all such $a, b, c$?",
+      "options": [
+        "A) $\\frac{a}{b + 2c} + \\frac{b}{c + 2a} + \\frac{c}{a + 2b} \\ge 1$",
+        "B) $\\frac{a^2 + b^2}{a + b} + \\frac{b^2 + c^2}{b + c} + \\frac{c^2 + a^2}{c + a} \\ge a + b + c$",
+        "C) $(a + b)(b + c)(c + a) \\ge 8abc$",
+        "D) $\\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} \\le \\frac{a + b + c}{3abc}$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "We analyze each inequality systematically: A) Applying Cauchy-Schwarz inequality in Engel form (Titu's Lemma): $\\sum_{cyc} \\frac{a^2}{ab + 2ca} \\ge \\frac{(a + b + c)^2}{\\sum_{cyc} (ab + 2ca)} = \\frac{(a + b + c)^2}{3(ab + bc + ca)}$. Since $(a + b + c)^2 = a^2 + b^2 + c^2 + 2(ab + bc + ca) \\ge 3(ab + bc + ca)$ (which follows from $a^2 + b^2 + c^2 \\ge ab + bc + ca$), this fraction is $\\ge 1$. Hence statement A is TRUE. B) By the Cauchy-Schwarz or power mean inequality, $2(x^2 + y^2) \\ge (x + y)^2 \\implies \\frac{x^2 + y^2}{x + y} \\ge \\frac{x + y}{2}$. Applying this cyclically: $\\frac{a^2 + b^2}{a + b} + \\frac{b^2 + c^2}{b + c} + \\frac{c^2 + a^2}{c + a} \\ge \\frac{a + b}{2} + \\frac{b + c}{2} + \\frac{c + a}{2} = a + b + c$. Hence statement B is TRUE. C) By the AM-GM inequality, $a + b \\ge 2\\sqrt{ab}$, $b + c \\ge 2\\sqrt{bc}$, and $c + a \\ge 2\\sqrt{ca}$. Multiplying the three non-negative inequalities gives $(a + b)(b + c)(c + a) \\ge 8\\sqrt{a^2 b^2 c^2} = 8abc$. Hence statement C is TRUE. D) By AM-HM, $(a + b + c)\\left(\\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c}\\right) \\ge 9$, which implies $\\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} \\ge \\frac{9}{a + b + c}$. Choosing $a = b = c = 1$, LHS is $3$ while RHS is $\\frac{3}{3(1)} = 1$, so $3 \\le 1$ is false. Hence statement D is FALSE. Therefore, A, B, and C are TRUE."
+    },
+    {
+      "id": "li_c02_032",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $x, y$ be real numbers satisfying the quadratic inequality $5x^2 - 6xy + 5y^2 \\le 8$. Find the maximum possible value of the linear combination $x + y$.",
+      "options": [
+        "A) $2\\sqrt{2}$",
+        "B) $4$",
+        "C) $\\sqrt{2}$",
+        "D) $2$"
+      ],
+      "answer": "A",
+      "explanation": "We perform an orthogonal change of variables representing principal axes rotation: define $u = x + y$ and $v = x - y$. Inverting this linear system gives $x = \\frac{u + v}{2}$ and $y = \\frac{u - v}{2}$. We rewrite the quadratic terms: $x^2 + y^2 = \\left(\\frac{u + v}{2}\\right)^2 + \\left(\\frac{u - v}{2}\\right)^2 = \\frac{u^2 + 2uv + v^2 + u^2 - 2uv + v^2}{4} = \\frac{u^2 + v^2}{2}$. Similarly, the cross term is $xy = \\frac{(u + v)(u - v)}{4} = \\frac{u^2 - v^2}{4}$. Substituting into the quadratic form: $5x^2 - 6xy + 5y^2 = 5(x^2 + y^2) - 6xy = 5\\left(\\frac{u^2 + v^2}{2}\\right) - 6\\left(\\frac{u^2 - v^2}{4}\\right) = \\frac{5}{2}u^2 + \\frac{5}{2}v^2 - \\frac{3}{2}u^2 + \\frac{3}{2}v^2 = u^2 + 4v^2$. Thus, the inequality transforms into $u^2 + 4v^2 \\le 8$. Since $v^2 \\ge 0$, we have $u^2 \\le 8 - 4v^2 \\le 8$. Taking square roots gives $-\\sqrt{8} \\le u \\le \\sqrt{8} = 2\\sqrt{2}$. The upper bound $u = 2\\sqrt{2}$ is attained when $v = 0 \\implies x = y$. Substituting $x = y = \\frac{u}{2} = \\sqrt{2}$ into the original quadratic verifies: $5(\\sqrt{2})^2 - 6(\\sqrt{2})(\\sqrt{2}) + 5(\\sqrt{2})^2 = 10 - 12 + 10 = 8 \\le 8$. Hence, the maximum value of $x + y$ is $2\\sqrt{2}$."
+    }
+  ]
+}

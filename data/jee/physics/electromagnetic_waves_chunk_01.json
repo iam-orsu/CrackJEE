@@ -1,0 +1,804 @@
+{
+  "questions": [
+    {
+      "id": "emw_c01_001",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A parallel-plate capacitor with circular plates of radius $R = 10.0\\text{ cm}$ and plate separation $d = 2.0\\text{ mm}$ is being charged by an external circuit providing a constant conduction current $I_c = 1.50\\text{ A}$. Neglecting fringing fields, determine the magnitude of the induced magnetic field $B$ at a point between the plates at a radial distance $r = 4.0\\text{ cm}$ from the central symmetry axis.",
+      "options": [
+        "A) $0.60\\ \\mu\\text{T}$",
+        "B) $3.00\\ \\mu\\text{T}$",
+        "C) $1.20\\ \\mu\\text{T}$",
+        "D) $2.40\\ \\mu\\text{T}$"
+      ],
+      "answer": "C",
+      "explanation": "Applying Gauss's law, the electric field between the plates is uniform: $E = \\frac{q}{\\epsilon_0 \\pi R^2}$. The electric flux through a concentric circular loop of radius $r < R$ is $\\Phi_E(r) = E \\pi r^2 = \\frac{q r^2}{\\epsilon_0 R^2}$. Differentiating with respect to time yields the enclosed displacement current $i_d(r) = \\epsilon_0 \\frac{d\\Phi_E}{dt} = I_c \\frac{r^2}{R^2}$. Applying the Ampère-Maxwell law around the circular path of radius $r$, we get $\\oint \\vec{B} \\cdot d\\vec{l} = \\mu_0 i_d(r) \\implies B(2\\pi r) = \\mu_0 I_c \\frac{r^2}{R^2}$. Solving for $B$, we obtain $B(r) = \\frac{\\mu_0 I_c r}{2\\pi R^2}$. Substituting $I_c = 1.50\\text{ A}$, $r = 0.040\\text{ m}$, $R = 0.10\\text{ m}$, and $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T}\\cdot\\text{m/A}$, we get $B = \\frac{(4\\pi \\times 10^{-7})(1.50)(0.040)}{2\\pi (0.10)^2} = 1.20 \\times 10^{-6}\\text{ T} = 1.20\\ \\mu\\text{T}$. Halving the enclosed area yields $0.60\\ \\mu\\text{T}$; evaluating at the boundary radius $R$ yields $3.00\\ \\mu\\text{T}$; omitting the factor of $2$ in the denominator yields $2.40\\ \\mu\\text{T}$."
+    },
+    {
+      "id": "emw_c01_002",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In vacuum, a sinusoidal plane electromagnetic wave propagates along the positive $x$-axis. Its electric field oscillates parallel to the $y$-axis with peak amplitude $E_0 = 120\\text{ V/m}$, expressed as $\\vec{E}(x, t) = E_0 \\cos(kx - \\omega t)\\hat{j}$. If the speed of light in vacuum is $c = 3.0 \\times 10^8\\text{ m/s}$, find the amplitude $B_0$ of the magnetic field and the unit vector specifying the direction of $\\vec{B}$ at an instant when $\\vec{E}$ points along $+\\hat{j}$.",
+      "options": [
+        "A) $B_0 = 4.0 \\times 10^{-7}\\text{ T}$, along $+\\hat{k}$",
+        "B) $B_0 = 4.0 \\times 10^{-7}\\text{ T}$, along $-\\hat{k}$",
+        "C) $B_0 = 3.6 \\times 10^{10}\\text{ T}$, along $+\\hat{k}$",
+        "D) $B_0 = 2.5 \\times 10^{-6}\\text{ T}$, along $-\\hat{i}$"
+      ],
+      "answer": "A",
+      "explanation": "Applying the electromagnetic wave relation in free space, the peak magnetic field amplitude is $B_0 = \\frac{E_0}{c}$. Substituting $E_0 = 120\\text{ V/m}$ and $c = 3.0 \\times 10^8\\text{ m/s}$, we get $B_0 = \\frac{120}{3.0 \\times 10^8} = 4.0 \\times 10^{-7}\\text{ T}$. For an electromagnetic wave, the direction of energy propagation is given by the unit Poynting vector $\\hat{S} = \\hat{E} \\times \\hat{B} = \\hat{k}_{prop}$. Given $\\hat{k}_{prop} = +\\hat{i}$ and $\\hat{E} = +\\hat{j}$, the relation $\\hat{j} \\times \\hat{B} = \\hat{i}$ implies that $\\hat{B} = +\\hat{k}$. Therefore, the magnetic field is oriented along $+\\hat{k}$. Reversing the vector cross product order yields $-\\hat{k}$; multiplying by $c$ rather than dividing yields $3.6 \\times 10^{10}\\text{ T}$; assuming a longitudinal magnetic component along $-\\hat{i}$ violates the transverse nature $\\vec{k}_{prop} \\cdot \\vec{B} = 0$."
+    },
+    {
+      "id": "emw_c01_003",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A parallel-plate capacitor with square plates of side length $L = 20.0\\text{ cm}$ separated by distance $d = 2.0\\text{ mm}$ in vacuum is charged such that the electric field between the plates increases at a constant rate of $\\frac{dE}{dt} = 4.0 \\times 10^{11}\\text{ V/(m}\\cdot\\text{s)}$. Given the permittivity of free space $\\epsilon_0 = 8.854 \\times 10^{-12}\\text{ C}^2/(\\text{N}\\cdot\\text{m}^2)$, calculate the total displacement current $i_d$ between the capacitor plates in milliamperes ($\\text{mA}$), rounded to the nearest integer.",
+      "options": [],
+      "answer": "142",
+      "explanation": "The cross-sectional area of the square plates is $A = L^2 = (0.20\\text{ m})^2 = 0.040\\text{ m}^2$. The total electric flux through the dielectric region between the plates is $\\Phi_E = E A$. Applying Maxwell's definition of displacement current, we get $i_d = \\epsilon_0 \\frac{d\\Phi_E}{dt} = \\epsilon_0 A \\frac{dE}{dt}$. Substituting the given parameters: $i_d = (8.854 \\times 10^{-12}\\text{ F/m})(0.040\\text{ m}^2)(4.0 \\times 10^{11}\\text{ V/(m}\\cdot\\text{s)})$. Solving the numerical product, we get $i_d = 8.854 \\times 0.160 \\times 10^{-1} = 0.141664\\text{ A} = 141.664\\text{ mA}$. Rounding to the nearest integer yields 142."
+    },
+    {
+      "id": "emw_c01_004",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A collimated monochromatic plane electromagnetic wave with time-averaged intensity $I = 1500\\text{ W/m}^2$ is incident normally on a flat surface of area $A = 0.80\\text{ m}^2$. The surface has an optical reflection coefficient of $R = 0.40$, while the remaining fraction $(1 - R) = 0.60$ is completely absorbed. Given the speed of light $c = 3.0 \\times 10^8\\text{ m/s}$, calculate the total radiation force exerted on this surface.",
+      "options": [
+        "A) $4.00\\ \\mu\\text{N}$",
+        "B) $5.60\\ \\mu\\text{N}$",
+        "C) $8.00\\ \\mu\\text{N}$",
+        "D) $2.40\\ \\mu\\text{N}$"
+      ],
+      "answer": "B",
+      "explanation": "The momentum carried per second by the incident beam is $\\frac{d p_{inc}}{dt} = \\frac{I A}{c}$. For a fraction $R$ reflected specularly, the reflected photons carry momentum away at rate $R \\frac{I A}{c}$ in the opposite direction. Therefore, the net rate of momentum transfer to the surface yields the radiation force $F = \\frac{I A}{c}(1 - R) + 2 R \\frac{I A}{c} = \\frac{I A}{c}(1 + R)$. Substituting $I = 1500\\text{ W/m}^2$, $A = 0.80\\text{ m}^2$, $R = 0.40$, and $c = 3.0 \\times 10^8\\text{ m/s}$, we get $F = \\frac{(1500)(0.80)(1 + 0.40)}{3.0 \\times 10^8} = \\frac{1680}{3.0 \\times 10^8} = 5.60 \\times 10^{-6}\\text{ N} = 5.60\\ \\mu\\text{N}$. Assuming total absorption ($R=0$) yields $4.00\\ \\mu\\text{N}$; assuming total reflection ($R=1$) yields $8.00\\ \\mu\\text{N}$; omitting the absorbed momentum contribution yields $2.40\\ \\mu\\text{N}$."
+    },
+    {
+      "id": "emw_c01_005",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A plane electromagnetic wave propagates through a non-magnetic homogeneous dielectric medium with relative permeability $\\mu_r = 1.0$ and relative permittivity $\\epsilon_r = 4.0$. If the peak amplitude of the magnetic field in the medium is $B_0 = 2.0 \\times 10^{-7}\\text{ T}$ and the speed of light in vacuum is $c = 3.0 \\times 10^8\\text{ m/s}$, find the peak amplitude of the electric field $E_0$ in the medium.",
+      "options": [
+        "A) $60.0\\text{ V/m}$",
+        "B) $15.0\\text{ V/m}$",
+        "C) $120.0\\text{ V/m}$",
+        "D) $30.0\\text{ V/m}$"
+      ],
+      "answer": "D",
+      "explanation": "Applying Maxwell's equations in a linear non-magnetic dielectric medium, the phase velocity is $v = \\frac{c}{\\sqrt{\\mu_r \\epsilon_r}}$. Substituting $\\mu_r = 1.0$ and $\\epsilon_r = 4.0$, we get $v = \\frac{3.0 \\times 10^8}{\\sqrt{4.0}} = 1.50 \\times 10^8\\text{ m/s}$. The electric and magnetic field amplitudes in any uniform dielectric satisfy the constitutive ratio $E_0 = v B_0$. Substituting $v = 1.50 \\times 10^8\\text{ m/s}$ and $B_0 = 2.0 \\times 10^{-7}\\text{ T}$, we get $E_0 = (1.50 \\times 10^8)(2.0 \\times 10^{-7}) = 30.0\\text{ V/m}$. Using the vacuum light speed $c$ instead of the phase velocity $v$ yields $60.0\\text{ V/m}$; dividing by $\\epsilon_r$ rather than $\\sqrt{\\epsilon_r}$ yields $15.0\\text{ V/m}$; multiplying by the dielectric constant yields $120.0\\text{ V/m}$."
+    },
+    {
+      "id": "emw_c01_006",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An isotropic point source radiates monochromatic electromagnetic waves uniformly into space with an average power of $P = 10.0\\text{ W}$. At a radial distance of $r = 5.0\\text{ m}$ from the source in vacuum, the peak electric field amplitude is $E_0$. Taking $\\frac{1}{4\\pi\\epsilon_0} = 9.0 \\times 10^9\\text{ N}\\cdot\\text{m}^2/\\text{C}^2$ and $c = 3.0 \\times 10^8\\text{ m/s}$, find the integer value of $E_0^2$ in $(\\text{V/m})^2$.",
+      "options": [],
+      "answer": "24",
+      "explanation": "The time-averaged intensity at a distance $r$ from an isotropic source radiating power $P$ is $I = \\frac{P}{4\\pi r^2}$. In terms of the peak electric field $E_0$, the intensity of an electromagnetic wave in vacuum is $I = \\frac{1}{2}\\epsilon_0 c E_0^2$. Equating the two expressions for intensity, we get $\\frac{P}{4\\pi r^2} = \\frac{1}{2}\\epsilon_0 c E_0^2$. Solving for $E_0^2$ implies $E_0^2 = \\frac{2 P}{4\\pi \\epsilon_0 c r^2} = \\frac{2 P}{c r^2}\\left(\\frac{1}{4\\pi\\epsilon_0}\\right)$. Substituting $P = 10.0\\text{ W}$, $r = 5.0\\text{ m}$, $\\frac{1}{4\\pi\\epsilon_0} = 9.0 \\times 10^9\\text{ N}\\cdot\\text{m}^2/\\text{C}^2$, and $c = 3.0 \\times 10^8\\text{ m/s}$, we get $E_0^2 = \\frac{2(10.0)(9.0 \\times 10^9)}{(3.0 \\times 10^8)(25.0)} = \\frac{1.80 \\times 10^{11}}{7.50 \\times 10^9} = 24(\\text{V/m})^2$."
+    },
+    {
+      "id": "emw_c01_007",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A parallel-plate capacitor with circular plates of area $A$ and separation $d$ is charged through a resistor $R$ by a DC battery of electromotive force $V_0$. The charging conduction current as a function of time is $i_c(t) = \\frac{V_0}{R} e^{-t/(RC)}$. Neglecting fringing fields, determine the magnitude of the displacement current density $j_d(t)$ in the dielectric gap between the plates as a function of time.",
+      "options": [
+        "A) $\\frac{V_0}{A R} e^{-t/(RC)}$",
+        "B) $\\frac{V_0}{R d} e^{-t/(RC)}$",
+        "C) $\\frac{\\epsilon_0 V_0}{R} (1 - e^{-t/(RC)})$",
+        "D) $\\frac{V_0}{2 A R} e^{-2t/(RC)}$"
+      ],
+      "answer": "A",
+      "explanation": "The instantaneous charge on the plates is $q(t) = C V_0 (1 - e^{-t/(RC)})$. The electric field between the plates is uniform, given by $E(t) = \\frac{q(t)}{\\epsilon_0 A}$. Applying Maxwell's definition, the displacement current density is $j_d(t) = \\epsilon_0 \\frac{\\partial E}{\\partial t} = \\frac{1}{A}\\frac{dq}{dt} = \\frac{i_c(t)}{A}$. Substituting the given current $i_c(t) = \\frac{V_0}{R} e^{-t/(RC)}$, we get $j_d(t) = \\frac{V_0}{A R} e^{-t/(RC)}$. Confusing the plate area $A$ with separation $d$ yields $\\frac{V_0}{R d} e^{-t/(RC)}$; integrating charge rather than differentiating flux yields $\\frac{\\epsilon_0 V_0}{R} (1 - e^{-t/(RC)})$; squaring the exponential argument as in power dissipation yields $\\frac{V_0}{2 A R} e^{-2t/(RC)}$."
+    },
+    {
+      "id": "emw_c01_008",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A plane monochromatic electromagnetic wave traveling in vacuum has an electric field given by $\\vec{E}(z, t) = 60.0 \\cos(kz - \\omega t)\\hat{i}\\text{ V/m}$. Taking the permittivity of free space as $\\epsilon_0 = 8.85 \\times 10^{-12}\\text{ C}^2/(\\text{N}\\cdot\\text{m}^2)$, calculate the total time-averaged electromagnetic energy density $\\langle u \\rangle$ stored in the wave.",
+      "options": [
+        "A) $0.80 \\times 10^{-8}\\text{ J/m}^3$",
+        "B) $3.19 \\times 10^{-8}\\text{ J/m}^3$",
+        "C) $1.59 \\times 10^{-8}\\text{ J/m}^3$",
+        "D) $4.78 \\times 10^{-8}\\text{ J/m}^3$"
+      ],
+      "answer": "C",
+      "explanation": "In an electromagnetic wave in vacuum, energy is shared equally between the electric and magnetic fields. The time-averaged electric energy density is $\\langle u_E \\rangle = \\frac{1}{4}\\epsilon_0 E_0^2$ and the magnetic energy density is $\\langle u_B \\rangle = \\frac{1}{4}\\epsilon_0 E_0^2$. Therefore, the total time-averaged energy density is $\\langle u \\rangle = \\langle u_E \\rangle + \\langle u_B \\rangle = \\frac{1}{2}\\epsilon_0 E_0^2$. Substituting $E_0 = 60.0\\text{ V/m}$ and $\\epsilon_0 = 8.85 \\times 10^{-12}\\text{ F/m}$, we get $\\langle u \\rangle = \\frac{1}{2}(8.85 \\times 10^{-12})(3600) = 1.593 \\times 10^{-8}\\text{ J/m}^3 \\approx 1.59 \\times 10^{-8}\\text{ J/m}^3$. Omitting the magnetic contribution yields $0.80 \\times 10^{-8}\\text{ J/m}^3$; failing to average $\\cos^2$ over a cycle doubles the value to $3.19 \\times 10^{-8}\\text{ J/m}^3$; adding an extraneous spatial mode yields $4.78 \\times 10^{-8}\\text{ J/m}^3$."
+    },
+    {
+      "id": "emw_c01_009",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A uniform continuous laser beam propagating in vacuum impinges normally upon a completely absorbing flat target of cross-sectional area $A = 0.50\\text{ m}^2$. The radiation pressure exerted by the beam on the target is measured to be $P_{rad} = 4.0 \\times 10^{-6}\\text{ N/m}^2$. Given the speed of light $c = 3.0 \\times 10^8\\text{ m/s}$, find the total radiant energy delivered to the target during an exposure duration of $\\Delta t = 20.0\\text{ s}$.",
+      "options": [
+        "A) $6.0\\text{ kJ}$",
+        "B) $12.0\\text{ kJ}$",
+        "C) $24.0\\text{ kJ}$",
+        "D) $18.0\\text{ kJ}$"
+      ],
+      "answer": "B",
+      "explanation": "For normal incidence on a completely absorbing surface, radiation pressure is related to the beam intensity by $P_{rad} = \\frac{I}{c}$. Solving for intensity, we get $I = P_{rad} c = (4.0 \\times 10^{-6}\\text{ N/m}^2)(3.0 \\times 10^8\\text{ m/s}) = 1200\\text{ W/m}^2$. The total energy delivered to the target over duration $\\Delta t$ is $U = I A \\Delta t$. Substituting $A = 0.50\\text{ m}^2$ and $\\Delta t = 20.0\\text{ s}$, we obtain $U = (1200\\text{ W/m}^2)(0.50\\text{ m}^2)(20.0\\text{ s}) = 1.20 \\times 10^4\\text{ J} = 12.0\\text{ kJ}$. Using the reflection formula $P_{rad} = \\frac{2I}{c}$ halves the energy to $6.0\\text{ kJ}$; confusing peak intensity with average intensity doubles the energy to $24.0\\text{ kJ}$; introducing an incorrect geometric factor of $\\cos 45^\\circ$ gives $18.0\\text{ kJ}$."
+    },
+    {
+      "id": "emw_c01_010",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In a plane sinusoidal electromagnetic wave traveling in vacuum, the peak electric field amplitude is $E_0 = 600.0\\text{ V/m}$. If the permittivity of free space is $\\epsilon_0 = 8.854 \\times 10^{-12}\\text{ C}^2/(\\text{N}\\cdot\\text{m}^2)$, the time-averaged magnetic energy density $\\langle u_B \\rangle$ stored in the wave can be written as $N \\times 10^{-9}\\text{ J/m}^3$. Determine the integer value of $N$ rounded to the nearest whole number.",
+      "options": [],
+      "answer": "797",
+      "explanation": "Applying the principle of energy equipartition in an electromagnetic wave in vacuum, the time-averaged magnetic energy density equals the time-averaged electric energy density: $\\langle u_B \\rangle = \\langle u_E \\rangle = \\frac{1}{4}\\epsilon_0 E_0^2$. Substituting $\\epsilon_0 = 8.854 \\times 10^{-12}\\text{ F/m}$ and $E_0 = 600.0\\text{ V/m}$, we get $\\langle u_B \\rangle = \\frac{1}{4}(8.854 \\times 10^{-12})(3.60 \\times 10^5) = (8.854 \\times 10^{-12})(9.0 \\times 10^4) = 7.9686 \\times 10^{-7}\\text{ J/m}^3 = 796.86 \\times 10^{-9}\\text{ J/m}^3$. Rounding to the nearest integer yields $N = 797$."
+    },
+    {
+      "id": "emw_c01_011",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A radio transmitter broadcasts a sinusoidal electromagnetic carrier wave at a frequency of $\\nu = 100.0\\text{ MHz}$ into free space. Assuming the speed of light in vacuum is $c = 3.00 \\times 10^8\\text{ m/s}$, calculate the angular frequency $\\omega$ and the wave propagation number $k$ of the emitted electromagnetic wave.",
+      "options": [
+        "A) $\\omega = 3.14 \\times 10^8\\text{ rad/s},\\ k = 1.05\\text{ rad/m}$",
+        "B) $\\omega = 6.28 \\times 10^8\\text{ rad/s},\\ k = 0.33\\text{ rad/m}$",
+        "C) $\\omega = 1.00 \\times 10^8\\text{ rad/s},\\ k = 3.00\\text{ rad/m}$",
+        "D) $\\omega = 6.28 \\times 10^8\\text{ rad/s},\\ k = 2.09\\text{ rad/m}$"
+      ],
+      "answer": "D",
+      "explanation": "The angular frequency is related to linear frequency by $\\omega = 2\\pi \\nu$. Substituting $\\nu = 100.0\\text{ MHz} = 1.00 \\times 10^8\\text{ s}^{-1}$, we get $\\omega = 2\\pi(1.00 \\times 10^8) \\approx 6.28 \\times 10^8\\text{ rad/s}$. The wave propagation number is defined as $k = \\frac{\\omega}{c} = \\frac{2\\pi}{\\lambda}$. Substituting $\\omega = 6.2832 \\times 10^8\\text{ rad/s}$ and $c = 3.00 \\times 10^8\\text{ m/s}$, we get $k = \\frac{6.2832 \\times 10^8}{3.00 \\times 10^8} \\approx 2.09\\text{ rad/m}$. Omitting the factor of $2\\pi$ in $\\omega$ yields $\\omega = 3.14 \\times 10^8\\text{ rad/s}$; computing $1/\\lambda$ instead of $2\\pi/\\lambda$ yields $k = 0.33\\text{ rad/m}$; confusing linear frequency with angular frequency yields $\\omega = 1.00 \\times 10^8\\text{ rad/s}$."
+    },
+    {
+      "id": "emw_c01_012",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A linearly polarized electromagnetic wave traveling in vacuum along the $+z$ direction has an electric field vector $\\vec{E}(z, t) = E_0 \\sin(kz - \\omega t)\\hat{i}$. Express the instantaneous Poynting vector $\\vec{S}(z, t)$ of the wave in terms of $E_0$, $\\mu_0$, $c$, $k$, $\\omega$, and the Cartesian unit vectors.",
+      "options": [
+        "A) $\\vec{S}(z, t) = \\frac{E_0^2}{\\mu_0 c} \\cos^2(kz - \\omega t)\\hat{i}$",
+        "B) $\\vec{S}(z, t) = \\frac{E_0^2}{2\\mu_0 c} \\sin(2kz - 2\\omega t)\\hat{k}$",
+        "C) $\\vec{S}(z, t) = \\frac{E_0^2}{\\mu_0 c} \\sin^2(kz - \\omega t)\\hat{k}$",
+        "D) $\\vec{S}(z, t) = \\frac{E_0^2}{\\mu_0 c^2} \\sin^2(kz - \\omega t)(-\\hat{k})$"
+      ],
+      "answer": "C",
+      "explanation": "Applying Maxwell's equations for a wave propagating along $+\\hat{k}$, the magnetic field is $\\vec{B}(z, t) = \\frac{1}{c}(\\hat{k} \\times \\vec{E}) = \\frac{E_0}{c}\\sin(kz - \\omega t)\\hat{j}$. The instantaneous Poynting vector is defined as $\\vec{S} = \\frac{1}{\\mu_0}(\\vec{E} \\times \\vec{B})$. Computing the cross product, we get $\\vec{S}(z, t) = \\frac{1}{\\mu_0}[E_0 \\sin(kz - \\omega t)\\hat{i}] \\times \\left[\\frac{E_0}{c}\\sin(kz - \\omega t)\\hat{j}\\right] = \\frac{E_0^2}{\\mu_0 c}\\sin^2(kz - \\omega t)\\hat{k}$. Directing energy along the polarization axis $\\hat{i}$ violates transverse propagation; assuming an out-of-phase cross product yields $\\sin(2kz - 2\\omega t)$; introducing an extra $1/c$ factor and negative sign violates dimensional consistency and positive energy flow."
+    },
+    {
+      "id": "emw_c01_013",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Match the electromagnetic wave regions in List-I with their characteristic primary generation mechanisms in List-II:\nList-I:\n(P) Microwaves\n(Q) Infrared waves\n(R) Ultraviolet light\n(S) X-rays\nList-II:\n(1) Inner shell electronic transitions or rapid deceleration of high-energy electrons\n(2) Transitions of electrons between outer atomic energy levels or mercury vapor arcs\n(3) Vibrational and rotational transitions of molecules or thermal agitation\n(4) Magnetron valves, klystrons, or Gunn diodes",
+      "options": [
+        "A) P-4, Q-3, R-2, S-1",
+        "B) P-3, Q-4, R-1, S-2",
+        "C) P-4, Q-1, R-3, S-2",
+        "D) P-2, Q-3, R-4, S-1"
+      ],
+      "answer": "A",
+      "explanation": "Analyzing the physical emission processes: Microwaves are produced by special vacuum tubes like magnetrons, klystrons, and Gunn diodes, matching (P)-(4). Infrared radiation is emitted by molecular rotations, vibrations, and hot bodies, matching (Q)-(3). Ultraviolet radiation arises from electronic transitions in atoms and gas discharges such as mercury arcs, matching (R)-(2). X-rays are generated when energetic electrons decelerate in metal targets (bremsstrahlung) or knock out inner shell electrons, matching (S)-(1). Therefore, the correct combination is P-4, Q-3, R-2, S-1. Attributing microwave generation to thermal molecular motion leads to P-3; attributing infrared production to inner atomic shells leads to Q-1; confusing ultraviolet sources with magnetron tubes leads to R-4."
+    },
+    {
+      "id": "emw_c01_014",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A continuous-wave laser produces a cylindrical beam of total power $P = 30.0\\text{ mW}$ with a uniform circular cross section of radius $r = 1.0\\text{ mm}$. If the beam propagates in vacuum, find the peak magnetic field amplitude $B_0$ in the beam. Take $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ H/m}$ and $c = 3.0 \\times 10^8\\text{ m/s}$.",
+      "options": [
+        "A) $4.47\\ \\mu\\text{T}$",
+        "B) $8.94\\ \\mu\\text{T}$",
+        "C) $1.26\\ \\mu\\text{T}$",
+        "D) $17.88\\ \\mu\\text{T}$"
+      ],
+      "answer": "B",
+      "explanation": "The cross-sectional area of the beam is $A = \\pi r^2 = \\pi (1.0 \\times 10^{-3}\\text{ m})^2 = \\pi \\times 10^{-6}\\text{ m}^2$. The beam intensity is $I = \\frac{P}{A} = \\frac{30.0 \\times 10^{-3}}{\\pi \\times 10^{-6}} = \\frac{3.0 \\times 10^4}{\\pi}\\text{ W/m}^2$. In terms of the peak magnetic field $B_0$, the intensity is $I = \\frac{c B_0^2}{2\\mu_0}$. Solving for $B_0$, we get $B_0^2 = \\frac{2\\mu_0 I}{c} = \\frac{2(4\\pi \\times 10^{-7})}{3.0 \\times 10^8} \\times \\frac{3.0 \\times 10^4}{\\pi} = 8.0 \\times 10^{-11}\\text{ T}^2$. Taking the square root, we obtain $B_0 = \\sqrt{80 \\times 10^{-12}} = \\sqrt{80} \\times 10^{-6}\\text{ T} \\approx 8.94 \\times 10^{-6}\\text{ T} = 8.94\\ \\mu\\text{T}$. Omitting the factor of $2$ in the intensity formula yields $4.47\\ \\mu\\text{T}$; using diameter instead of radius yields $1.26\\ \\mu\\text{T}$; confusing peak with peak-to-peak amplitude yields $17.88\\ \\mu\\text{T}$."
+    },
+    {
+      "id": "emw_c01_015",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A parallel-plate capacitor of capacitance $C = 50.0\\ \\mu\\text{F}$ is connected across an alternating AC voltage source given by $V(t) = 200.0 \\sin(100\\pi t)\\text{ V}$, where $t$ is in seconds. Determine the peak amplitude of the displacement current $I_{d0}$ flowing across the dielectric gap between the capacitor plates.",
+      "options": [
+        "A) $1.57\\text{ A}$",
+        "B) $6.28\\text{ A}$",
+        "C) $0.78\\text{ A}$",
+        "D) $3.14\\text{ A}$"
+      ],
+      "answer": "D",
+      "explanation": "The instantaneous electric flux between the capacitor plates is $\\Phi_E(t) = \\frac{q(t)}{\\epsilon_0} = \\frac{C V(t)}{\\epsilon_0}$. Applying Maxwell's relation, the displacement current is $i_d(t) = \\epsilon_0 \\frac{d\\Phi_E}{dt} = C \\frac{dV}{dt}$. Substituting $V(t) = V_0 \\sin(\\omega t)$, we get $i_d(t) = C V_0 \\omega \\cos(\\omega t)$. The peak amplitude of displacement current is therefore $I_{d0} = C V_0 \\omega$. Substituting $C = 50.0 \\times 10^{-6}\\text{ F}$, $V_0 = 200.0\\text{ V}$, and $\\omega = 100\\pi\\text{ rad/s}$, we get $I_{d0} = (50.0 \\times 10^{-6})(200.0)(100\\pi) = 1.0 \\times 10^{-2} \\times 100\\pi = \\pi\\text{ A} \\approx 3.14\\text{ A}$. Dividing by $2$ yields $1.57\\text{ A}$; doubling the peak current yields $6.28\\text{ A}$; dividing by $4$ due to confusing linear with angular frequency yields $0.78\\text{ A}$."
+    },
+    {
+      "id": "emw_c01_016",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A straight cylindrical ohmic wire of length $L$, radius $a$, and uniform electrical resistivity $\\rho$ carries a steady direct current $I$ distributed uniformly over its cross section. At the outer cylindrical surface of the wire, find the direction of the Poynting vector $\\vec{S}$ and evaluate the total inward flux of $\\vec{S}$ through the curved surface of the wire.",
+      "options": [
+        "A) Radially outward, total power $\\frac{1}{2} I^2 R$",
+        "B) Parallel to wire axis, total power $I^2 R$",
+        "C) Radially inward, total power $I^2 R$",
+        "D) Radially inward, total power $2 I^2 R$"
+      ],
+      "answer": "C",
+      "explanation": "Inside and along the surface of the wire, the electric field is directed along the axis: $\\vec{E} = \\frac{V}{L}\\hat{z} = \\frac{I R}{L}\\hat{z} = \\frac{\\rho I}{\\pi a^2}\\hat{z}$. By Ampère's law, the magnetic field at the outer surface $r = a$ is azimuthal: $\\vec{B} = \\frac{\\mu_0 I}{2\\pi a}\\hat{\\phi}$. The Poynting vector is $\\vec{S} = \\frac{1}{\\mu_0}(\\vec{E} \\times \\vec{B}) = \\frac{1}{\\mu_0}\\left(\\frac{\\rho I}{\\pi a^2}\\hat{z}\\right) \\times \\left(\\frac{\\mu_0 I}{2\\pi a}\\hat{\\phi}\\right) = -\\frac{\\rho I^2}{2\\pi^2 a^3}\\hat{r}$. This points radially inward ($-\\hat{r}$). The area of the cylindrical curved surface is $A = 2\\pi a L$. Therefore, the total electromagnetic power entering through the surface is $\\Phi_S = |\\vec{S}| A = \\left(\\frac{\\rho I^2}{2\\pi^2 a^3}\\right)(2\\pi a L) = \\frac{\\rho L}{\\pi a^2} I^2 = I^2 R$, which precisely matches the Joule heating rate. Directing power radially outward with half magnitude gives $\\frac{1}{2} I^2 R$; assuming field energy flows entirely parallel to the current axis yields axial propagation; doubling the surface flux yields $2 I^2 R$."
+    },
+    {
+      "id": "emw_c01_017",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A sinusoidal electromagnetic wave of frequency $\\nu = 2.0 \\times 10^{10}\\text{ Hz}$ enters a non-magnetic non-conducting dielectric medium ($\\mu_r = 1.0$) from vacuum. In the medium, the wavelength of the wave is measured to be $\\lambda = 7.5\\text{ mm}$. Given the vacuum speed of light $c = 3.0 \\times 10^8\\text{ m/s}$, calculate the phase velocity $v$ in the medium and the relative permittivity $\\epsilon_r$.",
+      "options": [
+        "A) $v = 1.50 \\times 10^8\\text{ m/s},\\ \\epsilon_r = 4.0$",
+        "B) $v = 1.50 \\times 10^8\\text{ m/s},\\ \\epsilon_r = 2.0$",
+        "C) $v = 3.00 \\times 10^8\\text{ m/s},\\ \\epsilon_r = 1.0$",
+        "D) $v = 0.75 \\times 10^8\\text{ m/s},\\ \\epsilon_r = 16.0$"
+      ],
+      "answer": "A",
+      "explanation": "The phase velocity of a wave is given by $v = \\nu \\lambda$. Substituting the frequency $\\nu = 2.0 \\times 10^{10}\\text{ s}^{-1}$ and wavelength $\\lambda = 7.5 \\times 10^{-3}\\text{ m}$, we get $v = (2.0 \\times 10^{10})(7.5 \\times 10^{-3}) = 1.50 \\times 10^8\\text{ m/s}$. The refractive index is $n = \\frac{c}{v} = \\frac{3.0 \\times 10^8}{1.50 \\times 10^8} = 2.0$. In a non-magnetic medium where $\\mu_r = 1.0$, Maxwell's relation gives $n = \\sqrt{\\epsilon_r \\mu_r} = \\sqrt{\\epsilon_r}$. Squaring both sides yields $\\epsilon_r = n^2 = 2.0^2 = 4.0$. Equating $\\epsilon_r$ directly to $n$ without squaring gives $\\epsilon_r = 2.0$; assuming phase velocity is unchanged yields $v = 3.00 \\times 10^8\\text{ m/s}$; squaring the velocity reduction factor twice yields $v = 0.75 \\times 10^8\\text{ m/s}$ and $\\epsilon_r = 16.0$."
+    },
+    {
+      "id": "emw_c01_018",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A parallel-plate capacitor with circular plates of radius $R = 12.0\\text{ cm}$ is being charged such that the electric field between the plates increases at a constant rate $\\frac{dE}{dt}$. The induced magnetic field at a radial distance $r_1 = 6.0\\text{ cm}$ from the central axis is $B_1$, and the induced magnetic field at a radial distance $r_2 = 24.0\\text{ cm}$ from the central axis is $B_2$. Find the integer ratio $\\frac{B_1}{B_2}$.",
+      "options": [],
+      "answer": "1",
+      "explanation": "Applying the Ampère-Maxwell law for a circular path inside the plates ($r_1 < R$): $B_1(2\\pi r_1) = \\mu_0 \\epsilon_0 \\frac{d\\Phi_E}{dt} = \\mu_0 \\epsilon_0 (\\pi r_1^2)\\frac{dE}{dt}$, which implies $B_1 = \\frac{\\mu_0 \\epsilon_0 r_1}{2}\\frac{dE}{dt}$. For a circular path outside the plates ($r_2 > R$): all electric flux is confined within radius $R$, so $B_2(2\\pi r_2) = \\mu_0 \\epsilon_0 (\\pi R^2)\\frac{dE}{dt}$, yielding $B_2 = \\frac{\\mu_0 \\epsilon_0 R^2}{2 r_2}\\frac{dE}{dt}$. Dividing the two expressions, the ratio is $\\frac{B_1}{B_2} = \\frac{r_1 r_2}{R^2}$. Substituting $r_1 = 6.0\\text{ cm}$, $r_2 = 24.0\\text{ cm}$, and $R = 12.0\\text{ cm}$, we get $\\frac{B_1}{B_2} = \\frac{(6.0)(24.0)}{(12.0)^2} = \\frac{144.0}{144.0} = 1$."
+    },
+    {
+      "id": "emw_c01_019",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A plane electromagnetic wave with electric field amplitude $E_0$ propagates in vacuum along the direction $\\hat{k}_{prop} = \\frac{1}{\\sqrt{2}}(\\hat{i} + \\hat{j})$. The wave is linearly polarized with its electric field oscillating along the unit vector $\\hat{\\epsilon}_E = \\frac{1}{\\sqrt{2}}(\\hat{i} - \\hat{j})$. Determine the unit vector $\\hat{\\epsilon}_B$ along the magnetic field $\\vec{B}$, and write the expression for the magnetic field $\\vec{B}(\\vec{r}, t)$.",
+      "options": [
+        "A) $\\vec{B}(\\vec{r}, t) = \\frac{E_0}{c} \\cos\\left(\\frac{k(x+y)}{\\sqrt{2}} - \\omega t\\right)\\hat{k}$",
+        "B) $\\vec{B}(\\vec{r}, t) = -\\frac{E_0}{c} \\cos\\left(\\frac{k(x+y)}{\\sqrt{2}} - \\omega t\\right)\\hat{k}$",
+        "C) $\\vec{B}(\\vec{r}, t) = \\frac{E_0}{c} \\cos\\left(\\frac{k(x-y)}{\\sqrt{2}} - \\omega t\\right)\\hat{j}$",
+        "D) $\\vec{B}(\\vec{r}, t) = -\\frac{E_0}{c} \\cos(k(x+y) - \\omega t)\\hat{k}$"
+      ],
+      "answer": "B",
+      "explanation": "First check the orthogonality of the wave vector and electric field: $\\hat{k}_{prop} \\cdot \\hat{\\epsilon}_E = \\frac{1}{2}(1 - 1) = 0$. The direction of the magnetic field vector is given by $\\hat{\\epsilon}_B = \\hat{k}_{prop} \\times \\hat{\\epsilon}_E$. Computing the cross product: $\\hat{\\epsilon}_B = \\left(\\frac{\\hat{i} + \\hat{j}}{\\sqrt{2}}\\right) \\times \\left(\\frac{\\hat{i} - \\hat{j}}{\\sqrt{2}}\\right) = \\frac{1}{2}(\\hat{i} \\times \\hat{i} - \\hat{i} \\times \\hat{j} + \\hat{j} \\times \\hat{i} - \\hat{j} \\times \\hat{j}) = \\frac{1}{2}(0 - \\hat{k} - \\hat{k} - 0) = -\\hat{k}$. The wave vector has spatial phase $\\vec{k} \\cdot \\vec{r} = \\frac{k}{\\sqrt{2}}(x + y)$. The amplitude is $B_0 = \\frac{E_0}{c}$. Therefore, we get $\\vec{B}(\\vec{r}, t) = -\\frac{E_0}{c} \\cos\\left(\\frac{k(x+y)}{\\sqrt{2}} - \\omega t\\right)\\hat{k}$. Reversing the cross product yields $+\\hat{k}$; placing the magnetic field along $\\hat{j}$ violates orthogonality with the propagation direction; omitting the $\\sqrt{2}$ factor in the spatial phase modifies the wave vector magnitude."
+    },
+    {
+      "id": "emw_c01_020",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two coherent orthogonal linearly polarized electromagnetic waves propagate in vacuum along the $+z$-axis: $\\vec{E}_1(z, t) = E_0 \\cos(kz - \\omega t)\\hat{i}$ and $\\vec{E}_2(z, t) = E_0 \\cos\\left(kz - \\omega t + \\frac{\\pi}{2}\\right)\\hat{j}$. Determine the state of polarization of the resultant superposition wave and calculate the magnitude of the time-averaged Poynting vector $\\langle |\\vec{S}| \\rangle$.",
+      "options": [
+        "A) Linearly polarized at $45^\\circ$, $\\langle |\\vec{S}| \\rangle = \\frac{1}{2}c\\epsilon_0 E_0^2$",
+        "B) Elliptically polarized, $\\langle |\\vec{S}| \\rangle = \\frac{1}{2}c\\epsilon_0 E_0^2$",
+        "C) Circularly polarized, $\\langle |\\vec{S}| \\rangle = \\frac{1}{2}c\\epsilon_0 E_0^2$",
+        "D) Circularly polarized, $\\langle |\\vec{S}| \\rangle = c\\epsilon_0 E_0^2$"
+      ],
+      "answer": "D",
+      "explanation": "Rewriting the second electric field component: $\\vec{E}_2(z, t) = -E_0 \\sin(kz - \\omega t)\\hat{j}$. At a fixed position $z = 0$, the components are $E_x = E_0 \\cos(\\omega t)$ and $E_y = E_0 \\sin(\\omega t)$. Summing their squares yields $E_x^2 + E_y^2 = E_0^2(\\cos^2\\omega t + \\sin^2\\omega t) = E_0^2$. Because the field components have equal amplitudes and a phase difference of $\\pi/2$, the resultant wave is circularly polarized. The time-averaged intensity of each orthogonal polarization is $\\langle S_x \\rangle = \\frac{1}{2}c\\epsilon_0 E_0^2$ and $\\langle S_y \\rangle = \\frac{1}{2}c\\epsilon_0 E_0^2$. Because the orthogonal modes carry power independently, the total time-averaged Poynting vector magnitude is $\\langle |\\vec{S}| \\rangle = \\langle S_x \\rangle + \\langle S_y \\rangle = c\\epsilon_0 E_0^2$. Claiming linear polarization neglects the phase quadrature; claiming elliptical polarization ignores the equality of amplitudes; taking only one mode's power halves the intensity to $\\frac{1}{2}c\\epsilon_0 E_0^2$."
+    },
+    {
+      "id": "emw_c01_021",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A flat, thin, perfectly reflecting mirror of mass $m = 30.0\\text{ mg}$ is suspended horizontally in vacuum. A vertical laser beam directed upwards is incident normally on the bottom surface of the mirror. The radiation force completely balances the gravitational force on the mirror ($g = 10.0\\text{ m/s}^2$). Taking the speed of light $c = 3.0 \\times 10^8\\text{ m/s}$, calculate the required power $P$ of the laser beam in kilowatts ($\\text{kW}$).",
+      "options": [],
+      "answer": "45",
+      "explanation": "For normal incidence on a perfectly reflecting mirror, each photon undergoes specular reflection with momentum change $\\Delta p = 2\\frac{h\\nu}{c}$. The upward radiation force is $F_{rad} = \\frac{2P}{c}$. For the mirror to be levitated in equilibrium, the upward radiation force must balance the downward gravitational weight: $F_{rad} = m g$. Equating the forces yields $\\frac{2P}{c} = m g \\implies P = \\frac{m g c}{2}$. Substituting $m = 30.0\\text{ mg} = 3.0 \\times 10^{-5}\\text{ kg}$, $g = 10.0\\text{ m/s}^2$, and $c = 3.0 \\times 10^8\\text{ m/s}$, we get $P = \\frac{(3.0 \\times 10^{-5})(10.0)(3.0 \\times 10^8)}{2} = \\frac{9.0 \\times 10^4}{2} = 4.5 \\times 10^4\\text{ W} = 45\\text{ kW}$."
+    },
+    {
+      "id": "emw_c01_022",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The magnetic field component of a plane electromagnetic wave propagating in free space is given by $\\vec{B}(x, y, t) = B_0 \\cos\\left(\\frac{k}{\\sqrt{2}}(x + y) - \\omega t\\right)\\hat{k}$. Determine the corresponding electric field vector $\\vec{E}(x, y, t)$ of the wave.",
+      "options": [
+        "A) $\\vec{E}(x, y, t) = c B_0 \\left(\\frac{\\hat{i} + \\hat{j}}{\\sqrt{2}}\\right) \\cos\\left(\\frac{k}{\\sqrt{2}}(x + y) - \\omega t\\right)$",
+        "B) $\\vec{E}(x, y, t) = c B_0 \\left(\\frac{\\hat{i} - \\hat{j}}{\\sqrt{2}}\\right) \\cos\\left(\\frac{k}{\\sqrt{2}}(x + y) - \\omega t\\right)$",
+        "C) $\\vec{E}(x, y, t) = c B_0 \\left(\\frac{-\\hat{i} + \\hat{j}}{\\sqrt{2}}\\right) \\cos\\left(\\frac{k}{\\sqrt{2}}(x + y) - \\omega t\\right)$",
+        "D) $\\vec{E}(x, y, t) = \\frac{B_0}{c} \\left(\\frac{-\\hat{i} + \\hat{j}}{\\sqrt{2}}\\right) \\cos\\left(\\frac{k}{\\sqrt{2}}(x + y) - \\omega t\\right)$"
+      ],
+      "answer": "C",
+      "explanation": "The unit propagation vector is $\\hat{n} = \\frac{1}{\\sqrt{2}}(\\hat{i} + \\hat{j})$. The Poynting vector requires $\\vec{S} \\propto \\vec{E} \\times \\vec{B}$ to point along $+\\hat{n}$. In an electromagnetic wave, the electric field relates to the magnetic field by $\\vec{E} = c (\\vec{B} \\times \\hat{n})$. Computing the cross product: $\\vec{B} \\times \\hat{n} = B_0 \\hat{k} \\times \\left(\\frac{\\hat{i} + \\hat{j}}{\\sqrt{2}}\\right) = \\frac{B_0}{\\sqrt{2}}(\\hat{k} \\times \\hat{i} + \\hat{k} \\times \\hat{j}) = \\frac{B_0}{\\sqrt{2}}(\\hat{j} - \\hat{i}) = B_0\\left(\\frac{-\\hat{i} + \\hat{j}}{\\sqrt{2}}\\right)$. Therefore, the electric field is $\\vec{E}(x, y, t) = c B_0 \\left(\\frac{-\\hat{i} + \\hat{j}}{\\sqrt{2}}\\right) \\cos\\left(\\frac{k}{\\sqrt{2}}(x + y) - \\omega t\\right)$. Placing $\\vec{E}$ along $\\hat{i} + \\hat{j}$ violates the transverse condition $\\vec{E} \\cdot \\hat{n} = 0$; taking $\\hat{i} - \\hat{j}$ reverses the energy propagation direction; dividing by $c$ instead of multiplying violates $E_0 = c B_0$."
+    },
+    {
+      "id": "emw_c01_023",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A plane electromagnetic wave traveling in vacuum along $+z$ has electric field $\\vec{E}(z, t) = E_0 \\cos(kz - \\omega t)\\hat{i}$. A small square flat loop of conducting wire of side length $a$ lies in the $x$-$z$ plane with vertices at $(0, 0, z_0)$, $(a, 0, z_0)$, $(a, 0, z_0 + a)$, and $(0, 0, z_0 + a)$, where $a \\ll \\lambda = \\frac{2\\pi}{k}$. Applying Faraday's law of induction, find the peak electromotive force $\\mathcal{E}_0$ induced in the square loop.",
+      "options": [
+        "A) $\\mathcal{E}_0 = k E_0 a^2$",
+        "B) $\\mathcal{E}_0 = \\frac{E_0 a}{c}$",
+        "C) $\\mathcal{E}_0 = \\frac{k^2 E_0 a^3}{2}$",
+        "D) $\\mathcal{E}_0 = 2 k E_0 a^2$"
+      ],
+      "answer": "A",
+      "explanation": "For a wave propagating along $+\\hat{k}$ with $\\vec{E} = E_0 \\cos(kz - \\omega t)\\hat{i}$, the associated magnetic field is $\\vec{B}(z, t) = \\frac{E_0}{c}\\cos(kz - \\omega t)\\hat{j}$. The square loop lies in the $x$-$z$ plane, so its normal area vector is $d\\vec{A} = dx dz \\hat{j}$. The magnetic flux through the loop is $\\Phi_B(t) = \\int_{z_0}^{z_0 + a} \\int_0^a B_y(z, t) dx dz = a \\int_{z_0}^{z_0 + a} \\frac{E_0}{c}\\cos(kz - \\omega t) dz$. Because $a \\ll \\lambda$, $k a \\ll 1$, the integral yields $\\Phi_B(t) \\approx \\frac{E_0 a^2}{c}\\cos(kz_0 - \\omega t)$. Applying Faraday's law, the induced electromotive force is $\\mathcal{E}(t) = -\\frac{d\\Phi_B}{dt} = -\\frac{\\omega E_0 a^2}{c}\\sin(kz_0 - \\omega t)$. Because $\\frac{\\omega}{c} = k$, the peak induced electromotive force is $\\mathcal{E}_0 = k E_0 a^2$. Omitting the spatial derivative approximation yields $\\frac{E_0 a}{c}$; higher-order Taylor expansion yields $\\frac{k^2 E_0 a^3}{2}$; doubling the boundary circulation yields $2 k E_0 a^2$."
+    },
+    {
+      "id": "emw_c01_024",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A circular parallel-plate capacitor of plate radius $R = 10.0\\text{ cm}$ is charged by a time-varying conduction current $I_c(t) = I_0 \\left(1 - \\frac{t}{t_0}\\right)$ for $0 \\le t \\le t_0$, where $I_0 = 4.0\\text{ A}$ and $t_0 = 2.0\\ \\mu\\text{s}$. Assuming the electric field between the plates remains uniform over the cross section, determine the magnitude of the displacement current $i_d(t)$ passing through a concentric circular area of radius $r = 5.0\\text{ cm}$ at time $t = 1.0\\ \\mu\\text{s}$, expressed in milliamperes ($\\text{mA}$).",
+      "options": [],
+      "answer": "500",
+      "explanation": "At time $t = 1.0\\ \\mu\\text{s}$, the total conduction current feeding the capacitor plates is $I_c(1.0\\ \\mu\\text{s}) = 4.0\\left(1 - \\frac{1.0}{2.0}\\right) = 2.0\\text{ A}$. By the continuity of current in Maxwell's equations, the total displacement current between the plates equals the total conduction current: $I_{d,total}(t) = I_c(t) = 2.0\\text{ A}$. Because the electric field is spatially uniform, the displacement current density is $j_d(t) = \\frac{I_c(t)}{\\pi R^2}$. The displacement current traversing a concentric circle of radius $r = 5.0\\text{ cm}$ is $i_d(r, t) = j_d(t)(\\pi r^2) = I_c(t)\\left(\\frac{r}{R}\\right)^2$. Substituting $I_c = 2.0\\text{ A}$, $r = 5.0\\text{ cm}$, and $R = 10.0\\text{ cm}$, we get $i_d = (2.0\\text{ A})\\left(\\frac{5.0}{10.0}\\right)^2 = (2.0)\\left(\\frac{1}{4}\\right) = 0.50\\text{ A} = 500\\text{ mA}$."
+    },
+    {
+      "id": "emw_c01_025",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A pulsed laser delivers a pulse of total energy $U = 0.60\\text{ J}$ over a duration of $\\tau = 10.0\\text{ ns}$. The beam is focused to a circular spot of radius $w = 50.0\\ \\mu\\text{m}$. Assuming the beam is a plane wave of uniform intensity over the spot during the pulse and propagates in vacuum ($c = 3.0 \\times 10^8\\text{ m/s}$, $\\epsilon_0 = 8.854 \\times 10^{-12}\\text{ F/m}$), find the peak amplitude of the electric field $E_0$ during the pulse.",
+      "options": [
+        "A) $1.70\\text{ GV/m}$",
+        "B) $2.40\\text{ GV/m}$",
+        "C) $3.39\\text{ GV/m}$",
+        "D) $4.80\\text{ GV/m}$"
+      ],
+      "answer": "B",
+      "explanation": "The average optical power delivered during the pulse is $P = \\frac{U}{\\tau} = \\frac{0.60\\text{ J}}{10.0 \\times 10^{-9}\\text{ s}} = 6.0 \\times 10^7\\text{ W}$. The focal spot area is $A = \\pi w^2 = \\pi (50.0 \\times 10^{-6}\\text{ m})^2 = 2.50\\pi \\times 10^{-9}\\text{ m}^2 \\approx 7.854 \\times 10^{-9}\\text{ m}^2$. The intensity during the pulse is $I = \\frac{P}{A} = \\frac{6.0 \\times 10^7}{7.854 \\times 10^{-9}} \\approx 7.639 \\times 10^{15}\\text{ W/m}^2$. Applying the relation $I = \\frac{1}{2}\\epsilon_0 c E_0^2$, we solve for the peak electric field: $E_0 = \\sqrt{\\frac{2 I}{\\epsilon_0 c}}$. Substituting $\\epsilon_0 c = (8.854 \\times 10^{-12})(3.0 \\times 10^8) = 2.656 \\times 10^{-3}\\ \\Omega^{-1}$, we get $E_0 = \\sqrt{\\frac{2(7.639 \\times 10^{15})}{2.656 \\times 10^{-3}}} = \\sqrt{5.752 \\times 10^{18}} \\approx 2.40 \\times 10^9\\text{ V/m} = 2.40\\text{ GV/m}$. Computing the RMS field instead yields $1.70\\text{ GV/m}$; an extra $\\sqrt{2}$ factor in the numerator yields $3.39\\text{ GV/m}$; using diameter instead of radius yields $4.80\\text{ GV/m}$."
+    },
+    {
+      "id": "emw_c01_026",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A parallel beam of monochromatic electromagnetic radiation with intensity $I_0$ traveling in vacuum is incident obliquely at an angle of incidence $\\theta = 60.0^\\circ$ onto a flat, perfectly absorbing surface. Find the radiation pressure $P_{rad}$ exerted normal to the surface in terms of $I_0$ and the speed of light $c$.",
+      "options": [
+        "A) $\\frac{I_0}{c}$",
+        "B) $\\frac{I_0}{2 c}$",
+        "C) $\\frac{\\sqrt{3} I_0}{4 c}$",
+        "D) $\\frac{I_0}{4 c}$"
+      ],
+      "answer": "D",
+      "explanation": "Consider a surface element of area $A$. The projected cross-sectional area of the beam intercepting this element is $A_{beam} = A \\cos\\theta$. The electromagnetic energy incident on the area per unit time is $P_{inc} = I_0 A \\cos\\theta$. The incident momentum delivered per second is $\\frac{d p}{dt} = \\frac{P_{inc}}{c} = \\frac{I_0 A \\cos\\theta}{c}$, directed along the beam path. For a completely absorbing surface, all incident momentum is deposited. The normal component of force on the surface is $F_n = \\frac{d p}{dt}\\cos\\theta = \\frac{I_0 A \\cos^2\\theta}{c}$. The normal radiation pressure is defined as $P_{rad} = \\frac{F_n}{A} = \\frac{I_0 \\cos^2\\theta}{c}$. For $\\theta = 60.0^\\circ$, $\\cos 60.0^\\circ = \\frac{1}{2}$, which yields $\\cos^2 60.0^\\circ = \\frac{1}{4}$. Therefore, we obtain $P_{rad} = \\frac{I_0}{4 c}$. Assuming normal incidence gives $\\frac{I_0}{c}$; neglecting the projection of momentum yields $\\frac{I_0}{2 c}$; computing shear stress rather than normal pressure yields $\\frac{\\sqrt{3} I_0}{4 c}$."
+    },
+    {
+      "id": "emw_c01_027",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A plane electromagnetic wave with angular frequency $\\omega = 6.0 \\times 10^{14}\\text{ rad/s}$ propagates through a non-magnetic dielectric medium having refractive index $n = 1.50$. Two points along the line of wave propagation are separated by a distance $\\Delta x = \\pi\\ \\mu\\text{m} = \\pi \\times 10^{-6}\\text{ m}$. Given the speed of light in vacuum $c = 3.0 \\times 10^8\\text{ m/s}$, the phase difference between the electric field oscillations at these two points is $\\Delta \\phi = N \\pi\\text{ rad}$. Find the integer value of $N$.",
+      "options": [],
+      "answer": "3",
+      "explanation": "In a dielectric medium of refractive index $n$, the phase velocity is $v = \\frac{c}{n}$. The wave propagation number in the medium is $k = \\frac{\\omega}{v} = \\frac{n \\omega}{c}$. Substituting $n = 1.50$, $\\omega = 6.0 \\times 10^{14}\\text{ rad/s}$, and $c = 3.0 \\times 10^8\\text{ m/s}$, we get $k = \\frac{(1.50)(6.0 \\times 10^{14})}{3.0 \\times 10^8} = 3.0 \\times 10^6\\text{ m}^{-1}$. The spatial phase difference between two points separated by distance $\\Delta x$ along the propagation vector is $\\Delta \\phi = k \\Delta x$. Substituting $\\Delta x = \\pi \\times 10^{-6}\\text{ m}$, we obtain $\\Delta \\phi = (3.0 \\times 10^6\\text{ m}^{-1})(\\pi \\times 10^{-6}\\text{ m}) = 3.0\\pi\\text{ rad} = 3\\pi\\text{ rad}$. Therefore, the integer value is $N = 3$."
+    },
+    {
+      "id": "emw_c01_028",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A standing electromagnetic wave in a resonant cavity is formed by two counter-propagating waves. The electric field profile is described by $E_y(x, t) = 2 E_0 \\sin(kx)\\cos(\\omega t)$. If the wave frequency is $\\nu = 3.0 \\times 10^9\\text{ Hz}$ and $c = 3.0 \\times 10^8\\text{ m/s}$, determine the spatial separation between adjacent electric field nodes and describe the state of the magnetic field at the positions of these electric field nodes.",
+      "options": [
+        "A) Separation $10.0\\text{ cm}$; magnetic field has nodes",
+        "B) Separation $2.5\\text{ cm}$; magnetic field has antinodes",
+        "C) Separation $5.0\\text{ cm}$; magnetic field has antinodes",
+        "D) Separation $5.0\\text{ cm}$; magnetic field has nodes"
+      ],
+      "answer": "C",
+      "explanation": "The wavelength of the wave is $\\lambda = \\frac{c}{\\nu} = \\frac{3.0 \\times 10^8\\text{ m/s}}{3.0 \\times 10^9\\text{ s}^{-1}} = 0.10\\text{ m} = 10.0\\text{ cm}$. Electric field nodes occur where $\\sin(kx) = 0 \\implies kx = m\\pi \\implies x = \\frac{m\\lambda}{2}$. The spatial separation between adjacent nodes is $\\Delta x = \\frac{\\lambda}{2} = 5.0\\text{ cm}$. Applying Faraday's law $\\nabla \\times \\vec{E} = -\\frac{\\partial \\vec{B}}{\\partial t}$, we have $-\\frac{\\partial B_z}{\\partial t} = \\frac{\\partial E_y}{\\partial x} = 2 k E_0 \\cos(kx)\\cos(\\omega t)$. Integrating with respect to time yields $B_z(x, t) = -\\frac{2 k E_0}{\\omega}\\cos(kx)\\sin(\\omega t)$. At the electric field nodes where $\\sin(kx) = 0$, we have $\\cos(kx) = \\pm 1$, which corresponds to maximum magnetic oscillation amplitude. Hence, the magnetic field exhibits antinodes at the electric field nodes. Confusing wavelength with node separation gives $10.0\\text{ cm}$; confusing node spacing with node-to-antinode spacing yields $2.5\\text{ cm}$; asserting that magnetic field has nodes violates electromagnetic energy conservation."
+    },
+    {
+      "id": "emw_c01_029",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A plane monochromatic electromagnetic wave in vacuum propagates along the unit vector $\\hat{k} = \\frac{1}{\\sqrt{3}}(\\hat{i} + \\hat{j} + \\hat{k})$. The electric field vector oscillates along the direction $\\hat{e}_E = \\frac{1}{\\sqrt{6}}(\\hat{i} + \\hat{j} - 2\\hat{k})$. Verify that $\\hat{k} \\cdot \\hat{e}_E = 0$, and find the unit vector $\\hat{e}_B$ pointing along the magnetic field vector.",
+      "options": [
+        "A) $\\hat{e}_B = \\frac{1}{\\sqrt{2}}(\\hat{i} - \\hat{j})$",
+        "B) $\\hat{e}_B = \\frac{1}{\\sqrt{2}}(-\\hat{i} + \\hat{j})$",
+        "C) $\\hat{e}_B = \\frac{1}{\\sqrt{6}}(\\hat{i} - 2\\hat{j} + \\hat{k})$",
+        "D) $\\hat{e}_B = \\frac{1}{\\sqrt{3}}(\\hat{i} - \\hat{j} + \\hat{k})$"
+      ],
+      "answer": "B",
+      "explanation": "Evaluating the scalar dot product: $\\hat{k} \\cdot \\hat{e}_E = \\frac{1}{\\sqrt{18}}(1\\cdot 1 + 1\\cdot 1 + 1\\cdot(-2)) = \\frac{1}{3\\sqrt{2}}(2 - 2) = 0$, confirming the wave is transverse. In an electromagnetic wave, the magnetic field unit vector satisfies $\\hat{e}_B = \\hat{k} \\times \\hat{e}_E$. Evaluating the determinant cross product: $\\hat{k} \\times \\hat{e}_E = \\frac{1}{\\sqrt{18}} \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 1 & 1 & 1 \\\\ 1 & 1 & -2 \\end{vmatrix}$. Expanding: the $\\hat{i}$-component is $1(-2) - 1(1) = -3$; the $\\hat{j}$-component is $-(1(-2) - 1(1)) = +3$; the $\\hat{k}$-component is $1(1) - 1(1) = 0$. Therefore, $\\hat{e}_B = \\frac{1}{3\\sqrt{2}}(-3\\hat{i} + 3\\hat{j}) = \\frac{1}{\\sqrt{2}}(-\\hat{i} + \\hat{j})$. Reversing the cross product yields $\\frac{1}{\\sqrt{2}}(\\hat{i} - \\hat{j})$; choosing non-orthogonal directions yields unit vectors in options C and D."
+    },
+    {
+      "id": "emw_c01_030",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A solar sail spacecraft deploys a large flat reflective sail of total surface area $A = 1.0 \\times 10^4\\text{ m}^2$ oriented perpendicular to solar radiation. At the spacecraft's orbital position, the solar constant (intensity of sunlight) is $I = 1350\\text{ W/m}^2$. The sail has an optical reflectivity of $R = 0.90$, with the remaining fraction $(1 - R) = 0.10$ being absorbed. Calculate the total radiation force exerted by the sunlight on the solar sail ($c = 3.0 \\times 10^8\\text{ m/s}$).",
+      "options": [
+        "A) $85.5\\text{ mN}$",
+        "B) $45.0\\text{ mN}$",
+        "C) $90.0\\text{ mN}$",
+        "D) $40.5\\text{ mN}$"
+      ],
+      "answer": "A",
+      "explanation": "Applying momentum conservation for light striking a surface of area $A$ at normal incidence, the radiation force is $F = \\frac{I A}{c}(1 + R)$. Substituting $I = 1350\\text{ W/m}^2$, $A = 1.0 \\times 10^4\\text{ m}^2$, $R = 0.90$, and $c = 3.0 \\times 10^8\\text{ m/s}$, we get $F = \\frac{(1350)(1.0 \\times 10^4)(1 + 0.90)}{3.0 \\times 10^8} = \\frac{1.35 \\times 10^7 \\times 1.90}{3.0 \\times 10^8} = (4.50 \\times 10^{-2})(1.90) = 8.55 \\times 10^{-2}\\text{ N} = 85.5\\text{ mN}$. Assuming total absorption ($R=0$) gives $45.0\\text{ mN}$; assuming ideal $100\\%$ reflection ($R=1$) gives $90.0\\text{ mN}$; accounting only for the reflected momentum increment gives $40.5\\text{ mN}$."
+    },
+    {
+      "id": "emw_c01_031",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The electric field of a plane electromagnetic wave traveling in vacuum along $+z$ is given by $\\vec{E}(z, t) = E_0 \\cos(kz - \\omega t)\\hat{i} + 2 E_0 \\cos(kz - \\omega t)\\hat{j}$. Find the angle $\\theta$ that the polarization axis of the electric field makes with the positive $x$-axis and calculate the total time-averaged energy density $\\langle u \\rangle$ of the wave in terms of $\\epsilon_0$ and $E_0$.",
+      "options": [
+        "A) $\\theta = \\tan^{-1}(0.5),\\ \\langle u \\rangle = 1.25 \\epsilon_0 E_0^2$",
+        "B) $\\theta = \\tan^{-1}(2),\\ \\langle u \\rangle = 5.0 \\epsilon_0 E_0^2$",
+        "C) $\\theta = \\tan^{-1}(1),\\ \\langle u \\rangle = 2.5 \\epsilon_0 E_0^2$",
+        "D) $\\theta = \\tan^{-1}(2),\\ \\langle u \\rangle = 2.5 \\epsilon_0 E_0^2$"
+      ],
+      "answer": "D",
+      "explanation": "Because both orthogonal components have identical temporal phase $(kz - \\omega t)$, the wave is linearly polarized along the vector $\\hat{i} + 2\\hat{j}$. The polarization angle with the $x$-axis is $\\theta = \\tan^{-1}\\left(\\frac{E_y}{E_x}\\right) = \\tan^{-1}\\left(\\frac{2 E_0}{E_0}\\right) = \\tan^{-1}(2)$. The resultant peak electric field amplitude is $E_{net, 0} = \\sqrt{E_x^2 + E_y^2} = \\sqrt{E_0^2 + (2 E_0)^2} = \\sqrt{5} E_0$. The total time-averaged energy density in an electromagnetic wave in vacuum is $\\langle u \\rangle = \\frac{1}{2}\\epsilon_0 E_{net, 0}^2$. Substituting $E_{net, 0}^2 = 5 E_0^2$, we obtain $\\langle u \\rangle = \\frac{1}{2}\\epsilon_0 (5 E_0^2) = 2.5 \\epsilon_0 E_0^2$. Inverting the tangent ratio yields $\\tan^{-1}(0.5)$; failing to average $\\cos^2$ yields $5.0 \\epsilon_0 E_0^2$; assuming equal components yields $\\theta = \\tan^{-1}(1)$."
+    },
+    {
+      "id": "emw_c01_032",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A long coaxial cable consists of an inner solid cylindrical conductor of radius $a$ carrying a steady direct current $I$ and an outer thin cylindrical shell of radius $b$ carrying the return current $I$. A battery maintains a constant potential difference $V$ between the inner and outer conductors. By integrating the Poynting vector $\\vec{S} = \\frac{1}{\\mu_0}(\\vec{E} \\times \\vec{B})$ over the dielectric cross section between radii $a$ and $b$, determine the total electromagnetic power flow $P$ transmitted through the cable.",
+      "options": [
+        "A) $P = \\frac{V I}{2}$",
+        "B) $P = \\frac{V I}{\\ln(b/a)}$",
+        "C) $P = V I$",
+        "D) $P = 2\\pi V I$"
+      ],
+      "answer": "C",
+      "explanation": "In the dielectric gap $a \\le r \\le b$, Gauss's law gives the radial electric field $E(r) = \\frac{V}{r \\ln(b/a)}\\hat{r}$. Ampère's law gives the azimuthal magnetic field $B(r) = \\frac{\\mu_0 I}{2\\pi r}\\hat{\\phi}$. The Poynting vector is $\\vec{S} = \\frac{1}{\\mu_0}(\\vec{E} \\times \\vec{B}) = \\frac{1}{\\mu_0}\\left(\\frac{V}{r \\ln(b/a)}\\hat{r}\\right) \\times \\left(\\frac{\\mu_0 I}{2\\pi r}\\hat{\\phi}\\right) = \\frac{V I}{2\\pi \\ln(b/a) r^2}\\hat{z}$. The electromagnetic power flows axially along $+\\hat{z}$. Integrating $\\vec{S}$ across the annular cross section from $r = a$ to $r = b$: $P = \\int_a^b S_z (2\\pi r dr) = \\int_a^b \\frac{V I}{2\\pi \\ln(b/a) r^2} 2\\pi r dr = \\frac{V I}{\\ln(b/a)} \\int_a^b \\frac{dr}{r} = \\frac{V I}{\\ln(b/a)} \\ln(b/a) = V I$. Halving the integral yields $\\frac{V I}{2}$; omitting the annular radius integration yields $\\frac{V I}{\\ln(b/a)}$; multiplying by $2\\pi$ yields $2\\pi V I$."
+    },
+    {
+      "id": "emw_c01_033",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A collimated beam of light with uniform intensity $I = 3.0 \\times 10^4\\text{ W/m}^2$ strikes a planar, perfectly reflecting mirror at an angle of incidence $\\theta = 45.0^\\circ$. If the speed of light in vacuum is $c = 3.0 \\times 10^8\\text{ m/s}$, calculate the radiation pressure $P_{rad}$ exerted on the reflecting mirror.",
+      "options": [
+        "A) $200\\ \\mu\\text{N/m}^2$",
+        "B) $100\\ \\mu\\text{N/m}^2$",
+        "C) $70.7\\ \\mu\\text{N/m}^2$",
+        "D) $50\\ \\mu\\text{N/m}^2$"
+      ],
+      "answer": "B",
+      "explanation": "For specular reflection from a flat mirror at angle of incidence $\\theta$, each incoming photon has normal momentum $p_n = \\frac{h\\nu}{c}\\cos\\theta$, which reverses upon reflection to $-\\frac{h\\nu}{c}\\cos\\theta$. The normal momentum change per photon is $\\Delta p_n = 2\\frac{h\\nu}{c}\\cos\\theta$. The beam cross-sectional area intercepting surface area $A$ is $A \\cos\\theta$. The total normal force on the mirror is $F_n = \\frac{2(I A \\cos\\theta)}{c}\\cos\\theta = \\frac{2 I A \\cos^2\\theta}{c}$. The radiation pressure is $P_{rad} = \\frac{F_n}{A} = \\frac{2 I \\cos^2\\theta}{c}$. For $\\theta = 45.0^\\circ$, $\\cos 45.0^\\circ = \\frac{1}{\\sqrt{2}}$, so $\\cos^2 45.0^\\circ = 0.50$. Therefore, $P_{rad} = \\frac{2 I (0.50)}{c} = \\frac{I}{c}$. Substituting $I = 3.0 \\times 10^4\\text{ W/m}^2$ and $c = 3.0 \\times 10^8\\text{ m/s}$, we get $P_{rad} = \\frac{3.0 \\times 10^4}{3.0 \\times 10^8} = 1.0 \\times 10^{-4}\\text{ N/m}^2 = 100\\ \\mu\\text{N/m}^2$. Assuming normal incidence yields $200\\ \\mu\\text{N/m}^2$; including only one factor of $\\cos 45^\\circ$ yields $70.7\\ \\mu\\text{N/m}^2$; treating the surface as absorbing yields $50\\ \\mu\\text{N/m}^2$."
+    },
+    {
+      "id": "emw_c01_034",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a charging parallel-plate capacitor with circular plates of radius $R$, the electric field between the plates increases uniformly at rate $\\frac{dE}{dt}$. At what radial distance $r$ from the central axis inside the plates ($r < R$) does the induced magnetic energy density $u_B(r)$ equal exactly $\\frac{1}{4}$ of the magnetic energy density at the plate edge $r = R$?",
+      "options": [
+        "A) $r = \\frac{R}{2}$",
+        "B) $r = \\frac{R}{4}$",
+        "C) $r = \\frac{R}{\\sqrt{2}}$",
+        "D) $r = \\frac{R}{16}$"
+      ],
+      "answer": "A",
+      "explanation": "Applying the Ampère-Maxwell law for radius $r \\le R$: $B(r)(2\\pi r) = \\mu_0 \\epsilon_0 (\\pi r^2)\\frac{dE}{dt} \\implies B(r) = \\frac{\\mu_0 \\epsilon_0 r}{2}\\frac{dE}{dt}$. The magnetic energy density at radius $r$ is $u_B(r) = \\frac{B(r)^2}{2\\mu_0} = \\frac{1}{2\\mu_0}\\left(\\frac{\\mu_0 \\epsilon_0 r}{2}\\frac{dE}{dt}\\right)^2 \\propto r^2$. Setting the ratio of energy densities to $\\frac{1}{4}$, we get $\\frac{u_B(r)}{u_B(R)} = \\frac{r^2}{R^2} = \\frac{1}{4}$. Taking the positive square root, we obtain $r = \\frac{R}{2}$. Equating the magnetic field ratio instead of energy density yields $r = \\frac{R}{4}$; equating to half the energy density yields $r = \\frac{R}{\\sqrt{2}}$; squaring the ratio twice yields $r = \\frac{R}{16}$."
+    },
+    {
+      "id": "emw_c01_035",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In an isotropic, non-magnetic dielectric medium ($\\mu = \\mu_0$) with refractive index $n = 2.0$, a monochromatic plane electromagnetic wave propagates with electric field amplitude $E_0$ and magnetic field amplitude $B_0$. The magnetic field intensity is defined as $\\vec{H} = \\frac{\\vec{B}}{\\mu_0}$. If the intrinsic wave impedance of free space is $\\eta_0 = \\sqrt{\\frac{\\mu_0}{\\epsilon_0}} \\approx 377\\ \\Omega$, find the intrinsic wave impedance $\\eta = \\frac{E_0}{H_0}$ of the medium in terms of $\\eta_0$ and $n$.",
+      "options": [
+        "A) $\\eta = n \\eta_0$",
+        "B) $\\eta = n^2 \\eta_0$",
+        "C) $\\eta = \\eta_0$",
+        "D) $\\eta = \\frac{\\eta_0}{n}$"
+      ],
+      "answer": "D",
+      "explanation": "In a non-magnetic dielectric medium, the permittivity is $\\epsilon = \\epsilon_r \\epsilon_0 = n^2 \\epsilon_0$ and permeability is $\\mu = \\mu_0$. The phase velocity of the wave is $v = \\frac{1}{\\sqrt{\\mu_0 \\epsilon}} = \\frac{c}{n}$. From Maxwell's equations, the field amplitudes satisfy $E_0 = v B_0$. Expressing $B_0$ in terms of magnetic field intensity $H_0 = \\frac{B_0}{\\mu_0}$, we get $E_0 = v (\\mu_0 H_0)$. Therefore, the intrinsic wave impedance of the medium is $\\eta = \\frac{E_0}{H_0} = \\mu_0 v = \\frac{\\mu_0}{\\sqrt{\\mu_0 \\epsilon}} = \\sqrt{\\frac{\\mu_0}{\\epsilon}} = \\sqrt{\\frac{\\mu_0}{n^2 \\epsilon_0}} = \\frac{1}{n}\\sqrt{\\frac{\\mu_0}{\\epsilon_0}} = \\frac{\\eta_0}{n}$. Multiplying by $n$ rather than dividing yields $n \\eta_0$; multiplying by $n^2$ yields $n^2 \\eta_0$; assuming impedance is unchanged across media yields $\\eta_0$."
+    },
+    {
+      "id": "emw_c01_036",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A solid right circular cone of base radius $R$, semi-vertical angle $\\alpha$, and height $h = R\\cot\\alpha$ is placed in vacuum in the path of a uniform, parallel, monochromatic laser beam of intensity $I_0$. The beam propagates parallel to the symmetry axis of the cone towards its pointed apex. The surface of the cone is completely absorbing. Which of the following statements is/are correct regarding this system?",
+      "options": [
+        "A) The net radiation force on the absorbing cone has magnitude $F = \\frac{\\pi R^2 I_0}{c}$, directed along the incident beam.",
+        "B) The net radiation force on the absorbing cone depends explicitly on the semi-vertical angle $\\alpha$.",
+        "C) If the cone is replaced by a flat circular disc of radius $R$ oriented perpendicular to the beam and completely absorbing, the net radiation force is identical to that on the cone.",
+        "D) If the curved surface of the cone were made perfectly reflecting, the net axial radiation force would vanish."
+      ],
+      "answer": "A,C",
+      "explanation": "Consider an annular strip on the conical surface of slant length $ds$ and radius $r = s \\sin\\alpha$. The area of the strip is $dA = 2\\pi r ds = 2\\pi s \\sin\\alpha ds$. The outward surface normal $\\hat{n}$ makes an angle $\\theta = \\frac{\\pi}{2} - \\alpha$ with the incident beam axis ($-\\hat{z}$). The projected area perpendicular to the beam is $dA_\\perp = dA \\cos\\theta = dA \\sin\\alpha$. Because the surface is completely absorbing, each photon deposits its entire momentum vector $\\vec{p} = \\frac{\\mathcal{E}}{c}\\hat{k}$ along the beam direction. Therefore, the force on element $dA$ is $d\\vec{F} = \\frac{I_0 dA_\\perp}{c}\\hat{k}$. Integrating over the entire cone, we get $F = \\frac{I_0}{c} \\int dA_\\perp = \\frac{I_0}{c} (\\pi R^2)$. Because the total projected area equals the base area $\\pi R^2$, the net radiation force is strictly independent of $\\alpha$, confirming statement A and refuting statement B. A flat circular disc of radius $R$ normal to the beam presents the identical projected area $\\pi R^2$, thus experiencing the exact same radiation force $F = \\frac{\\pi R^2 I_0}{c}$, confirming statement C. For a perfectly reflecting cone, specular reflection imparts axial momentum change $\\Delta p_z = 2\\frac{\\mathcal{E}}{c}\\sin^2\\alpha \\ne 0$, so the axial force is non-zero, refuting statement D."
+    },
+    {
+      "id": "emw_c01_037",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The electric field of a monochromatic electromagnetic wave propagating along the $+z$-axis in vacuum is given by:\n$$\\vec{E}(z, t) = E_0 \\cos(kz - \\omega t)\\hat{i} + E_0 \\cos(kz - \\omega t + \\phi)\\hat{j}$$\nwhere $E_0 > 0$ and $\\phi$ is a constant phase shift. Which of the following statements is/are correct regarding the polarization and energetic properties of this wave?",
+      "options": [
+        "A) For $\\phi = \\frac{\\pi}{4}$, the wave is linearly polarized.",
+        "B) For $\\phi = \\pi$, the wave is linearly polarized along the line $y = -x$.",
+        "C) For $\\phi = \\frac{\\pi}{2}$, the wave is circularly polarized, and the time-averaged Poynting vector has magnitude $\\langle |\\vec{S}| \\rangle = c \\epsilon_0 E_0^2$.",
+        "D) For $\\phi = 0$, the wave is linearly polarized along the line $y = x$."
+      ],
+      "answer": "B,C,D",
+      "explanation": "Analyzing the superposition for various values of $\\phi$: For $\\phi = 0$, $\\vec{E}(z, t) = E_0 \\cos(kz - \\omega t)(\\hat{i} + \\hat{j})$. The components satisfy $E_y = E_x$, yielding a linearly polarized wave along the line $y = x$, confirming statement D. For $\\phi = \\pi$, $\\cos(kz - \\omega t + \\pi) = -\\cos(kz - \\omega t)$, yielding $\\vec{E}(z, t) = E_0 \\cos(kz - \\omega t)(\\hat{i} - \\hat{j})$. Here $E_y = -E_x$, so the wave is linearly polarized along $y = -x$, confirming statement B. For $\\phi = \\frac{\\pi}{2}$, $\\vec{E}(z, t) = E_0 [\\cos(kz - \\omega t)\\hat{i} - \\sin(kz - \\omega t)\\hat{j}]$. The field components satisfy $E_x^2 + E_y^2 = E_0^2$, tracing a circle of radius $E_0$. The time-averaged Poynting vector is $\\langle |\\vec{S}| \\rangle = \\frac{1}{2}c\\epsilon_0 (E_{0x}^2 + E_{0y}^2) = \\frac{1}{2}c\\epsilon_0(E_0^2 + E_0^2) = c\\epsilon_0 E_0^2$, confirming statement C. For $\\phi = \\frac{\\pi}{4}$, the non-zero phase difference produces an elliptical locus $\\frac{E_x^2}{E_0^2} + \\frac{E_y^2}{E_0^2} - \\frac{2 E_x E_y}{E_0^2}\\cos\\frac{\\pi}{4} = \\sin^2\\frac{\\pi}{4}$, which is elliptically polarized rather than linearly polarized, refuting statement A."
+    },
+    {
+      "id": "emw_c01_038",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A small spherical interplanetary dust grain of radius $R = 1.0\\ \\mu\\text{m} = 1.0 \\times 10^{-6}\\text{ m}$ and mass density $\\rho = 2.0 \\times 10^3\\text{ kg/m}^3$ is situated in outer space at distance $r$ from the Sun. The grain completely absorbs all incident solar radiation. The ratio of the outward solar radiation force $F_{rad}$ to the inward solar gravitational force $F_{grav}$ is defined as $\\beta = \\frac{F_{rad}}{F_{grav}}$. Given the solar luminosity $L_\\odot = 3.84 \\times 10^{26}\\text{ W}$, solar mass $M_\\odot = 1.99 \\times 10^{30}\\text{ kg}$, universal gravitational constant $G = 6.67 \\times 10^{-11}\\text{ N}\\cdot\\text{m}^2/\\text{kg}^2$, and speed of light $c = 3.0 \\times 10^8\\text{ m/s}$, find the integer value of $100 \\times \\beta$ rounded to the nearest whole number.",
+      "options": [],
+      "answer": "29",
+      "explanation": "At radial distance $r$ from the Sun, the solar radiation intensity is $I(r) = \\frac{L_\\odot}{4\\pi r^2}$. For a spherical particle of radius $R$, the geometric cross-sectional area intercepting light is $A = \\pi R^2$. Because the particle completely absorbs the radiation, the outward radiation force is $F_{rad} = \\frac{I(r) A}{c} = \\frac{L_\\odot \\pi R^2}{4\\pi r^2 c} = \\frac{L_\\odot R^2}{4 r^2 c}$. The mass of the spherical dust grain is $m = \\frac{4}{3}\\pi R^3 \\rho$. The inward gravitational force exerted by the Sun is $F_{grav} = \\frac{G M_\\odot m}{r^2} = \\frac{4\\pi G M_\\odot \\rho R^3}{3 r^2}$. Taking the ratio $\\beta = \\frac{F_{rad}}{F_{grav}}$, the orbital radius $r$ cancels out: $\\beta = \\frac{3 L_\\odot}{16\\pi G M_\\odot \\rho c R}$. Evaluating the denominator: $16\\pi \\approx 50.2655$, $G M_\\odot = (6.67 \\times 10^{-11})(1.99 \\times 10^{30}) = 1.32733 \\times 10^{20}\\text{ m}^3/\\text{s}^2$, and $\\rho c R = (2.0 \\times 10^3)(3.0 \\times 10^8)(1.0 \\times 10^{-6}) = 6.0 \\times 10^5\\text{ kg}/(\\text{m}\\cdot\\text{s})$. Multiplying these terms yields the denominator $D = (50.2655)(1.32733 \\times 10^{20})(6.0 \\times 10^5) \\approx 4.003 \\times 10^{27}\\text{ W}$. The numerator is $3 L_\\odot = 3(3.84 \\times 10^{26}) = 1.152 \\times 10^{27}\\text{ W}$. Solving for $\\beta$, we get $\\beta = \\frac{1.152 \\times 10^{27}}{4.003 \\times 10^{27}} \\approx 0.2878$. Multiplying by $100$ gives $100 \\times \\beta = 28.78 \\approx 29$."
+    },
+    {
+      "id": "emw_c01_039",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A parallel-plate capacitor with circular plates of radius $R$ and plate separation $d$ ($d \\ll R$) in vacuum is being charged by a steady external conduction current $I$. At any instant $t$, the electric field between the plates is $E(t)$ and the potential difference is $V(t) = E(t) d$. Consider a cylindrical Gaussian boundary surface of radius $R$ and length $d$ enclosing the dielectric volume between the plates. Which of the following statements is/are correct regarding the electromagnetic fields and energy flow?",
+      "options": [
+        "A) The Poynting vector $\\vec{S}$ at all points on the cylindrical curved boundary is directed radially inward towards the central axis.",
+        "B) The total inward flux of the Poynting vector entering the capacitor through the cylindrical boundary equals the rate of increase of stored electrostatic energy, $\\frac{d U_E}{dt}$.",
+        "C) The displacement current density inside the capacitor is non-uniform and depends linearly on the radial distance $r$.",
+        "D) The ratio of the induced magnetic field at radius $r = R/2$ to that at $r = 2R$ is $1 : 1$."
+      ],
+      "answer": "A,B,D",
+      "explanation": "Between the plates, $\\vec{E} = E\\hat{z}$ and the induced azimuthal magnetic field is $\\vec{B} = B\\hat{\\phi}$. The Poynting vector is $\\vec{S} = \\frac{1}{\\mu_0}(\\vec{E} \\times \\vec{B}) = \\frac{E B}{\\mu_0}(\\hat{z} \\times \\hat{\\phi}) = -\\frac{E B}{\\mu_0}\\hat{r}$. This points radially inward, confirming statement A. At the edge $r = R$, $B(R) = \\frac{\\mu_0 I}{2\\pi R}$. The inward Poynting flux through the curved surface of area $A = 2\\pi R d$ is $\\Phi_S = S(R) A = \\left(\\frac{E I}{2\\pi R}\\right)(2\\pi R d) = E d I = V I$. The rate of change of stored electrostatic energy is $\\frac{d U_E}{dt} = \\frac{d}{dt}\\left(\\frac{1}{2} C V^2\\right) = V C \\frac{dV}{dt} = V I$. Therefore, $\\Phi_S = \\frac{d U_E}{dt}$, confirming statement B. Because the charging charge is distributed uniformly over the plates, the displacement current density is $j_d = \\epsilon_0 \\frac{dE}{dt} = \\frac{I}{\\pi R^2}$, which is strictly uniform and independent of $r$, refuting statement C. For $r_1 = R/2 < R$: $B(R/2) = \\frac{\\mu_0 I (R/2)}{2\\pi R^2} = \\frac{\\mu_0 I}{4\\pi R}$. For $r_2 = 2R > R$: $B(2R) = \\frac{\\mu_0 I}{2\\pi (2R)} = \\frac{\\mu_0 I}{4\\pi R}$. Thus, the ratio is $B(R/2) : B(2R) = 1 : 1$, confirming statement D."
+    },
+    {
+      "id": "emw_c01_040",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A uniform parallel beam of monochromatic light of intensity $I$ and circular cross section of radius $R$ is directed along the symmetry axis onto the convex curved surface of a solid, perfectly reflecting hemisphere of radius $R$. Calculate the total radiation force exerted by the beam on the hemisphere ($c$ is the speed of light in vacuum).",
+      "options": [
+        "A) $\\frac{2\\pi R^2 I}{c}$",
+        "B) $\\frac{4\\pi R^2 I}{3c}$",
+        "C) $\\frac{\\pi R^2 I}{c}$",
+        "D) $\\frac{\\pi R^2 I}{2c}$"
+      ],
+      "answer": "C",
+      "explanation": "Let the incident beam propagate along $+\\hat{z}$. An infinitesimal annular ring on the hemisphere at polar angle $\\theta$ has surface area $dA = 2\\pi R^2 \\sin\\theta d\\theta$. The angle of incidence on this surface element is $\\theta$. For a perfectly reflecting surface, specular reflection gives normal radiation pressure $P_{rad} = \\frac{2 I \\cos^2\\theta}{c}$. The normal force on the ring is $dF_n = P_{rad} dA = \\frac{2 I \\cos^2\\theta}{c}(2\\pi R^2 \\sin\\theta d\\theta) = \\frac{4\\pi R^2 I}{c}\\cos^2\\theta \\sin\\theta d\\theta$. By azimuthal symmetry, transverse force components cancel. The axial component along $+\\hat{z}$ is $dF_z = dF_n \\cos\\theta = \\frac{4\\pi R^2 I}{c}\\cos^3\\theta \\sin\\theta d\\theta$. Integrating $\\theta$ from $0$ to $\\frac{\\pi}{2}$, we get $F_z = \\frac{4\\pi R^2 I}{c} \\int_0^{\\pi/2} \\cos^3\\theta \\sin\\theta d\\theta$. Substituting $u = \\cos\\theta$, the integral evaluates to $\\int_0^1 u^3 du = \\frac{1}{4}$. Therefore, $F_z = \\frac{4\\pi R^2 I}{c}\\left(\\frac{1}{4}\\right) = \\frac{\\pi R^2 I}{c}$. Assuming a flat planar mirror facing the beam yields $\\frac{2\\pi R^2 I}{c}$; integrating with an incorrect power of cosine yields $\\frac{4\\pi R^2 I}{3c}$; halving the reflection momentum gives $\\frac{\\pi R^2 I}{2c}$."
+    },
+    {
+      "id": "emw_c01_041",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In a collisionless ionospheric plasma with electron number density $n_e$, the dispersion relation for high-frequency transverse electromagnetic waves is given by $\\omega^2 = \\omega_p^2 + k^2 c^2$, where the plasma frequency is $\\omega_p = \\sqrt{\\frac{n_e e^2}{m_e \\epsilon_0}}$ and $c$ is the speed of light in vacuum. Which of the following statements is/are correct regarding electromagnetic wave propagation in this medium?",
+      "options": [
+        "A) For propagating waves with $\\omega > \\omega_p$, the phase velocity $v_p = \\frac{\\omega}{k}$ is strictly greater than $c$.",
+        "B) For propagating waves with $\\omega > \\omega_p$, the group velocity $v_g = \\frac{d\\omega}{dk}$ is strictly greater than $c$.",
+        "C) The product of phase velocity and group velocity satisfies $v_p v_g = \\frac{1}{2}c^2$.",
+        "D) For frequencies $\\omega < \\omega_p$, the wave vector $k$ becomes purely imaginary, resulting in an evanescent wave that undergoes total reflection."
+      ],
+      "answer": "A,D",
+      "explanation": "From the plasma dispersion relation $\\omega^2 = \\omega_p^2 + k^2 c^2$, we express the wave vector as $k = \\frac{\\sqrt{\\omega^2 - \\omega_p^2}}{c}$. For $\\omega > \\omega_p$, the phase velocity is $v_p = \\frac{\\omega}{k} = \\frac{c}{\\sqrt{1 - \\frac{\\omega_p^2}{\\omega^2}}}$. Because $\\sqrt{1 - \\frac{\\omega_p^2}{\\omega^2}} < 1$, we have $v_p > c$, confirming statement A. Differentiating $\\omega^2 = \\omega_p^2 + k^2 c^2$ with respect to $k$, we get $2\\omega \\frac{d\\omega}{dk} = 2 k c^2 \\implies v_g = \\frac{d\\omega}{dk} = \\frac{k c^2}{\\omega} = c\\sqrt{1 - \\frac{\\omega_p^2}{\\omega^2}}$. Because $\\sqrt{1 - \\frac{\\omega_p^2}{\\omega^2}} < 1$, we have $v_g < c$, which obeys relativistic causality and refutes statement B. Multiplying phase and group velocities yields $v_p v_g = \\left(\\frac{\\omega}{k}\\right)\\left(\\frac{k c^2}{\\omega}\\right) = c^2$, refuting statement C. For $\\omega < \\omega_p$, $k^2 = \\frac{\\omega^2 - \\omega_p^2}{c^2} < 0$, which implies $k = i \\kappa = i \\frac{\\sqrt{\\omega_p^2 - \\omega^2}}{c}$. The wave amplitude decays exponentially as $e^{-\\kappa z}$, forming an evanescent wave with zero time-averaged energy transmission, resulting in total reflection, confirming statement D."
+    },
+    {
+      "id": "emw_c01_042",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A plane electromagnetic wave traveling in vacuum along the $+z$-axis has its magnetic field given by $\\vec{B}(z, t) = B_0 \\sin(kz - \\omega t)\\hat{i} + 2 B_0 \\cos(kz - \\omega t)\\hat{j}$, with $B_0 = 1.0 \\times 10^{-7}\\text{ T}$. If the permeability of free space is $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ H/m}$, the total time-averaged electromagnetic energy density $\\langle u \\rangle$ stored in the wave can be written as $\\alpha \\times 10^{-9}\\text{ J/m}^3$. Find the integer value closest to $\\alpha$.",
+      "options": [],
+      "answer": "20",
+      "explanation": "In an electromagnetic wave in vacuum, the total energy density is equally partitioned between electric and magnetic fields. The total time-averaged energy density is $\\langle u \\rangle = 2 \\langle u_B \\rangle = \\frac{\\langle |\\vec{B}|^2 \\rangle}{\\mu_0}$. Computing the squared magnetic field magnitude: $|\\vec{B}(z, t)|^2 = B_0^2 \\sin^2(kz - \\omega t) + 4 B_0^2 \\cos^2(kz - \\omega t)$. Taking the time average over a full cycle: $\\langle \\sin^2 \\rangle = \\frac{1}{2}$ and $\\langle \\cos^2 \\rangle = \\frac{1}{2}$. This yields $\\langle |\\vec{B}|^2 \\rangle = B_0^2\\left(\\frac{1}{2}\\right) + 4 B_0^2\\left(\\frac{1}{2}\\right) = \\frac{5}{2} B_0^2 = 2.5 B_0^2$. Substituting into the energy density formula: $\\langle u \\rangle = \\frac{2.5 B_0^2}{\\mu_0}$. Substituting $B_0 = 1.0 \\times 10^{-7}\\text{ T}$ and $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ H/m}$, we get $\\langle u \\rangle = \\frac{2.5(1.0 \\times 10^{-14})}{4\\pi \\times 10^{-7}} = \\frac{2.5}{4\\pi} \\times 10^{-7} = \\frac{250}{4\\pi} \\times 10^{-9}\\text{ J/m}^3 = \\frac{62.5}{\\pi} \\times 10^{-9}\\text{ J/m}^3$. Using $\\pi \\approx 3.1416$, we find $\\alpha = \\frac{62.5}{3.1416} \\approx 19.89$. Rounding to the nearest integer yields 20."
+    },
+    {
+      "id": "emw_c01_043",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In a region of vacuum, an electromagnetic field configuration is described by:\n$$\\vec{E}(z, t) = E_0 \\sin(kz)\\sin(\\omega t)\\hat{i}$$\n$$\\vec{B}(z, t) = B_0 \\cos(kz)\\cos(\\omega t)\\hat{j}$$\nwhere $E_0, B_0, k, \\omega$ are positive non-zero constants. Which of the following statements is/are correct regarding this electromagnetic field?",
+      "options": [
+        "A) The fields represent a progressive electromagnetic wave propagating along the $+z$-axis with phase velocity $v = \\frac{\\omega}{k}$.",
+        "B) Consistency with Maxwell's equation $\\nabla \\times \\vec{E} = -\\frac{\\partial \\vec{B}}{\\partial t}$ requires $E_0 = c B_0$, where $c = \\frac{\\omega}{k}$.",
+        "C) The time-averaged Poynting vector $\\langle \\vec{S} \\rangle$ is identically zero at all points in the region.",
+        "D) The electromagnetic energy density within any fixed volume does not oscillate between purely electric and purely magnetic forms."
+      ],
+      "answer": "B,C",
+      "explanation": "Analyzing the field configuration: The spatial and temporal variables are separated into product form $\\sin(kz)\\sin(\\omega t)$ and $\\cos(kz)\\cos(\\omega t)$, which represents a standing electromagnetic wave rather than a traveling wave, refuting statement A. Evaluating Faraday's curl equation: $\\nabla \\times \\vec{E} = \\frac{\\partial E_x}{\\partial z}\\hat{j} = k E_0 \\cos(kz)\\sin(\\omega t)\\hat{j}$. Computing the time derivative of $\\vec{B}$: $-\\frac{\\partial \\vec{B}}{\\partial t} = -(- \\omega B_0 \\cos(kz)\\sin(\\omega t)\\hat{j}) = \\omega B_0 \\cos(kz)\\sin(\\omega t)\\hat{j}$. Equating the two expressions yields $k E_0 = \\omega B_0 \\implies E_0 = \\frac{\\omega}{k} B_0 = c B_0$, confirming statement B. Computing the Poynting vector: $\\vec{S} = \\frac{1}{\\mu_0}(\\vec{E} \\times \\vec{B}) = \\frac{E_0 B_0}{\\mu_0}\\sin(kz)\\cos(kz)\\sin(\\omega t)\\cos(\\omega t)\\hat{k} = \\frac{E_0 B_0}{4\\mu_0}\\sin(2kz)\\sin(2\\omega t)\\hat{k}$. Because $\\langle \\sin(2\\omega t) \\rangle = 0$ over a cycle, the time-averaged Poynting vector is identically zero: $\\langle \\vec{S} \\rangle = 0$, confirming statement C. At $t = 0$, $\\vec{E} = 0$ and the energy is purely magnetic; at $\\omega t = \\frac{\\pi}{2}$, $\\vec{B} = 0$ and the energy is purely electric. Thus the energy completely oscillates between electric and magnetic forms, refuting statement D."
+    },
+    {
+      "id": "emw_c01_044",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A collimated laser beam of uniform intensity $I_0$ and circular cross section of radius $R$ is directed parallel to the symmetry axis onto the vertex of a solid cone of base radius $R$ and semi-vertical angle $\\alpha = 45.0^\\circ$. The curved conical surface is perfectly reflecting. Calculate the magnitude of the net axial radiation force $F_{net}$ exerted on the cone ($c$ is the speed of light in vacuum).",
+      "options": [
+        "A) $F_{net} = \\frac{\\pi R^2 I_0}{c}$",
+        "B) $F_{net} = \\frac{2\\pi R^2 I_0}{c}$",
+        "C) $F_{net} = \\frac{\\pi R^2 I_0}{2c}$",
+        "D) $F_{net} = 0$"
+      ],
+      "answer": "A",
+      "explanation": "Let the beam travel along $+\\hat{z}$ towards the cone vertex. For a cone with semi-vertical angle $\\alpha = 45.0^\\circ$, the outward surface normal $\\hat{n}$ makes an angle $\\theta = 90^\\circ - \\alpha = 45.0^\\circ$ with the incident beam axis ($-\\hat{z}$). Thus, the angle of incidence is $\\theta_i = 45.0^\\circ$. For a specularly reflecting surface element, the normal radiation pressure is $P_n = \\frac{2 I_0 \\cos^2\\theta_i}{c}$. On an infinitesimal area element $dA$, the projected area along the beam axis is $dA_\\perp = dA \\cos\\theta_i$. The normal force is $dF_n = P_n dA = \\frac{2 I_0 \\cos\\theta_i}{c} dA_\\perp$. The axial component along $+\\hat{z}$ is $dF_z = dF_n \\cos\\theta_i = \\frac{2 I_0 \\cos^2\\theta_i}{c} dA_\\perp$. Because $\\theta_i = 45.0^\\circ$ is constant everywhere on the conical surface, we have $\\cos^2 45.0^\\circ = 0.50$. Integrating over the entire beam cross section, we get $\\int dA_\\perp = \\pi R^2$. Therefore, the net radiation force is $F_z = \\frac{2 I_0 (0.50)}{c} (\\pi R^2) = \\frac{\\pi R^2 I_0}{c}$. Assuming normal incidence on a flat mirror gives $\\frac{2\\pi R^2 I_0}{c}$; squaring the cosine term twice yields $\\frac{\\pi R^2 I_0}{2c}$; claiming that transverse reflections cancel all axial force yields $0$."
+    },
+    {
+      "id": "emw_c01_045",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "An elliptically polarized plane electromagnetic wave traveling in vacuum along the $+z$-axis is described by:\n$$\\vec{E}(z, t) = E_{0x} \\cos(kz - \\omega t)\\hat{i} + E_{0y} \\sin(kz - \\omega t)\\hat{j}$$\nwhere $E_{0x}$ and $E_{0y}$ are positive real constants with $E_{0x} \\ne E_{0y}$. Which of the following statements is/are correct regarding this wave?",
+      "options": [
+        "A) In the transverse plane $z = 0$, the tip of the electric field vector traces an ellipse given by $\\frac{E_x^2}{E_{0x}^2} + \\frac{E_y^2}{E_{0y}^2} = 1$.",
+        "B) The associated magnetic field of the wave is $\\vec{B}(z, t) = -\\frac{E_{0y}}{c}\\sin(kz - \\omega t)\\hat{i} + \\frac{E_{0x}}{c}\\cos(kz - \\omega t)\\hat{j}$.",
+        "C) The time-averaged Poynting vector is $\\langle \\vec{S} \\rangle = \\frac{1}{2}c \\epsilon_0 (E_{0x}^2 + E_{0y}^2)\\hat{k}$.",
+        "D) The instantaneous Poynting vector $\\vec{S}(z, t)$ has a non-zero component oscillating perpendicular to the direction of wave propagation."
+      ],
+      "answer": "A,B,C",
+      "explanation": "At $z = 0$, the electric field components are $E_x(t) = E_{0x}\\cos(\\omega t)$ and $E_y(t) = -E_{0y}\\sin(\\omega t)$. Dividing by the amplitudes and squaring: $\\frac{E_x^2}{E_{0x}^2} + \\frac{E_y^2}{E_{0y}^2} = \\cos^2(\\omega t) + \\sin^2(\\omega t) = 1$. This is an ellipse with semi-axes $E_{0x}$ and $E_{0y}$, confirming statement A. In vacuum, the magnetic field relates to the electric field by $\\vec{B} = \\frac{1}{c}(\\hat{k} \\times \\vec{E})$. Evaluating the cross product: $\\hat{k} \\times \\hat{i} = \\hat{j}$ and $\\hat{k} \\times \\hat{j} = -\\hat{i}$. Therefore, $\\vec{B}(z, t) = \\frac{1}{c}[E_{0x}\\cos(kz - \\omega t)\\hat{j} - E_{0y}\\sin(kz - \\omega t)\\hat{i}] = -\\frac{E_{0y}}{c}\\sin(kz - \\omega t)\\hat{i} + \\frac{E_{0x}}{c}\\cos(kz - \\omega t)\\hat{j}$, confirming statement B. Computing the Poynting vector: $\\vec{S} = \\frac{1}{\\mu_0}(\\vec{E} \\times \\vec{B}) = \\frac{1}{\\mu_0 c}[E_{0x}^2 \\cos^2(kz - \\omega t) + E_{0y}^2 \\sin^2(kz - \\omega t)]\\hat{k}$. Notice that $\\vec{S}$ is strictly parallel to $\\hat{k}$ at all instants, so no transverse components exist, refuting statement D. Taking the time average over a cycle: $\\langle \\cos^2 \\rangle = \\frac{1}{2}$ and $\\langle \\sin^2 \\rangle = \\frac{1}{2}$, yielding $\\langle \\vec{S} \\rangle = \\frac{1}{2\\mu_0 c}(E_{0x}^2 + E_{0y}^2)\\hat{k} = \\frac{1}{2}c\\epsilon_0 (E_{0x}^2 + E_{0y}^2)\\hat{k}$, confirming statement C."
+    },
+    {
+      "id": "emw_c01_046",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A small spherical particle of radius $R = 2.0\\ \\mu\\text{m} = 2.0 \\times 10^{-6}\\text{ m}$ is held in vacuum and illuminated by a uniform, collimated laser beam of intensity $I = 1.20 \\times 10^8\\text{ W/m}^2$. The surface of the sphere is perfectly reflecting. The radiation force exerted on the perfectly reflecting sphere is given by $F = \\frac{\\pi R^2 I}{c}$. Taking $c = 3.0 \\times 10^8\\text{ m/s}$ and $\\pi \\approx 3.14$, calculate the magnitude of the radiation force $F$ in picoNewtons ($\\text{pN} = 10^{-12}\\text{ N}$), rounded to the nearest integer.",
+      "options": [],
+      "answer": "5",
+      "explanation": "Integrating the radiation pressure over the illuminated hemisphere: on an annular strip at polar angle $\\theta$, specular reflection imparts an axial force element $dF_z = \\frac{2 I \\cos^2\\theta}{c}\\cos\\theta (2\\pi R^2 \\sin\\theta d\\theta) = \\frac{4\\pi R^2 I}{c}\\cos^3\\theta \\sin\\theta d\\theta$. Evaluating the integral $\\int_0^{\\pi/2} \\cos^3\\theta \\sin\\theta d\\theta = \\frac{1}{4}$ yields the total radiation force $F = \\frac{\\pi R^2 I}{c}$. Substituting $R = 2.0 \\times 10^{-6}\\text{ m}$, the cross-sectional area is $\\pi R^2 = \\pi (2.0 \\times 10^{-6})^2 = 4.0\\pi \\times 10^{-12}\\text{ m}^2$. Substituting $I = 1.20 \\times 10^8\\text{ W/m}^2$ and $c = 3.0 \\times 10^8\\text{ m/s}$, we get $F = \\frac{(4.0\\pi \\times 10^{-12})(1.20 \\times 10^8)}{3.0 \\times 10^8} = 1.60\\pi \\times 10^{-12}\\text{ N}$. Using $\\pi \\approx 3.1416$, we find $F = 1.60 \\times 3.1416\\text{ pN} = 5.0265\\text{ pN} \\approx 5\\text{ pN}$."
+    },
+    {
+      "id": "emw_c01_047",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A monochromatic plane electromagnetic wave traveling in vacuum is incident normally on the planar interface ($z = 0$) of an ideal, non-magnetic, lossless dielectric medium with refractive index $n = 1.50$. Let the incident, reflected, and transmitted electric field amplitudes be $E_{0i}, E_{0r}, E_{0t}$, and the intensities be $I_i, I_r, I_t$. Which of the following statements is/are correct regarding this reflection and transmission process?",
+      "options": [
+        "A) The boundary condition requiring continuity of the tangential electric field across the interface implies $E_{0i} - E_{0r} = E_{0t}$.",
+        "B) The ratio of the amplitude of the reflected electric field to the incident electric field is $\\frac{E_{0r}}{E_{0i}} = \\frac{n - 1}{n + 1} = 0.20$.",
+        "C) The transmission coefficient for beam intensity is $T = \\frac{I_t}{I_i} = 0.80$.",
+        "D) The phase of the reflected electric field reverses by $\\pi$ radians relative to the incident electric field at the interface."
+      ],
+      "answer": "B,D",
+      "explanation": "Applying Maxwell's boundary conditions at $z = 0$: the continuity of tangential electric field requires $E_{tangential, 1} = E_{tangential, 2} \\implies E_{0i} + E_{0r} = E_{0t}$, refuting statement A. Continuity of tangential magnetic field $H_y$ requires $\\frac{E_{0i} - E_{0r}}{\\eta_1} = \\frac{E_{0t}}{\\eta_2} \\implies E_{0i} - E_{0r} = n E_{0t}$. Solving these two linear equations yields the Fresnel reflection amplitude coefficient $r = \\frac{E_{0r}}{E_{0i}} = \\frac{1 - n}{1 + n}$. Substituting $n = 1.50$, we get $r = \\frac{1 - 1.50}{1 + 1.50} = -\\frac{0.50}{2.50} = -0.20$. The magnitude is $\\frac{E_{0r}}{E_{0i}} = 0.20$, confirming statement B. The negative sign represents a phase shift of $\\pi$ radians upon reflection from a medium of higher refractive index, confirming statement D. The intensity reflection coefficient is $R = |r|^2 = (-0.20)^2 = 0.04$. By conservation of energy, the intensity transmission coefficient is $T = 1 - R = 1 - 0.04 = 0.96$, refuting statement C."
+    },
+    {
+      "id": "emw_c01_048",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A parallel-plate capacitor with circular plates of radius $R$ and plate separation $d$ is charged by a constant conduction current $I_c$. At time $t$, the electric field between the plates is $E$ and is increasing. Consider the cylindrical side surface of the capacitor of radius $R$ and height $d$. The rate of total electromagnetic energy flux entering this cylindrical side surface via the Poynting vector is $\\Phi_S$, and the rate of increase of electric field energy inside the capacitor volume is $\\frac{d U_E}{dt}$. Assuming $d \\ll R$, find the ratio $\\frac{\\Phi_S}{\\frac{d U_E}{dt}}$.",
+      "options": [
+        "A) $0.5$",
+        "B) $2.0$",
+        "C) $\\frac{\\pi}{2}$",
+        "D) $1.0$"
+      ],
+      "answer": "D",
+      "explanation": "The electric energy stored in the volume $V = \\pi R^2 d$ of the capacitor is $U_E = \\frac{1}{2}\\epsilon_0 E^2 (\\pi R^2 d)$. Differentiating with respect to time yields $\\frac{d U_E}{dt} = \\epsilon_0 E \\frac{dE}{dt} \\pi R^2 d$. By Maxwell's displacement current relation, the total conduction current is $I_c = \\epsilon_0 \\pi R^2 \\frac{dE}{dt}$. Substituting this gives $\\frac{d U_E}{dt} = E d I_c$. Now evaluating the Poynting flux: at the outer perimeter $r = R$, the induced magnetic field is $B(R) = \\frac{\\mu_0 I_c}{2\\pi R}$. The Poynting vector is directed radially inward with magnitude $S(R) = \\frac{E B(R)}{\\mu_0} = \\frac{E I_c}{2\\pi R}$. The area of the cylindrical curved side surface is $A_{side} = 2\\pi R d$. Therefore, the total inward Poynting flux is $\\Phi_S = S(R) A_{side} = \\left(\\frac{E I_c}{2\\pi R}\\right)(2\\pi R d) = E d I_c$. Dividing the two quantities, we get $\\frac{\\Phi_S}{\\frac{d U_E}{dt}} = \\frac{E d I_c}{E d I_c} = 1.0$. Mistakenly assuming only half the power enters yields $0.5$; doubling the magnetic energy contribution yields $2.0$; introducing geometric factors yields $\\frac{\\pi}{2}$."
+    },
+    {
+      "id": "emw_c01_049",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A circular disc of mass $M = 0.20\\text{ kg}$ with a completely absorbing upper face lies on a smooth horizontal floor. A continuous laser beam carrying total optical power $P = 6.0 \\times 10^7\\text{ W}$ impinges on the upper face of the disc at an angle of incidence $\\theta = 30.0^\\circ$ relative to the vertical normal. All incident radiation is completely absorbed by the disc. If the speed of light is $c = 3.0 \\times 10^8\\text{ m/s}$, calculate the resulting horizontal acceleration $a_x$ of the disc.",
+      "options": [
+        "A) $0.25\\text{ m/s}^2$",
+        "B) $0.50\\text{ m/s}^2$",
+        "C) $0.87\\text{ m/s}^2$",
+        "D) $1.00\\text{ m/s}^2$"
+      ],
+      "answer": "B",
+      "explanation": "The incident laser beam carries optical power $P$. The momentum carried by the beam per unit time has magnitude $\\frac{d p}{dt} = \\frac{P}{c}$. The incident momentum vector makes an angle $\\theta = 30.0^\\circ$ with the vertical normal ($-\\hat{y}$). Resolving into components, the horizontal component of incident momentum per second is $\\left(\\frac{d p}{dt}\\right)_x = \\frac{P}{c}\\sin\\theta$. Because the disc completely absorbs all incident light, all of this horizontal momentum is transferred to the disc. The net horizontal force acting on the disc is therefore $F_x = \\frac{P}{c}\\sin\\theta$. Applying Newton's second law, the horizontal acceleration is $a_x = \\frac{F_x}{M} = \\frac{P \\sin\\theta}{M c}$. Substituting $P = 6.0 \\times 10^7\\text{ W}$, $\\theta = 30.0^\\circ$ (so $\\sin 30.0^\\circ = 0.50$), $M = 0.20\\text{ kg}$, and $c = 3.0 \\times 10^8\\text{ m/s}$, we get $a_x = \\frac{(6.0 \\times 10^7)(0.50)}{(0.20)(3.0 \\times 10^8)} = \\frac{3.0 \\times 10^7}{6.0 \\times 10^7} = 0.50\\text{ m/s}^2$. Squaring the sine factor gives $0.25\\text{ m/s}^2$; using $\\cos 30^\\circ$ instead of $\\sin 30^\\circ$ gives $0.87\\text{ m/s}^2$; assuming retroreflection or normal incidence gives $1.00\\text{ m/s}^2$."
+    },
+    {
+      "id": "emw_c01_050",
+      "subject": "Physics",
+      "topic": "Electromagnetic Waves",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In a region of free space with no charges or currents, the electric field of a monochromatic plane electromagnetic wave is given by $\\vec{E}(\\vec{r}, t) = E_0 (3\\hat{i} - 2\\hat{j} + \\hat{k})\\cos(\\vec{k}\\cdot\\vec{r} - \\omega t)$, where the wave vector is $\\vec{k} = k_0 (2\\hat{i} + b\\hat{j} - 4\\hat{k})$ with $k_0 \\ne 0$. By applying Maxwell's divergence equation $\\nabla \\cdot \\vec{E} = 0$, find the required numerical value of the constant $b$.",
+      "options": [
+        "A) $b = -2$",
+        "B) $b = -1$",
+        "C) $b = 1$",
+        "D) $b = 2$"
+      ],
+      "answer": "C",
+      "explanation": "In charge-free vacuum, Gauss's law requires $\\nabla \\cdot \\vec{E} = 0$. For a plane electromagnetic wave $\\vec{E}(\\vec{r}, t) = \\vec{E}_0 \\cos(\\vec{k}\\cdot\\vec{r} - \\omega t)$, computing the spatial divergence yields $\\nabla \\cdot \\vec{E} = -(\\vec{k} \\cdot \\vec{E}_0) \\sin(\\vec{k}\\cdot\\vec{r} - \\omega t) = 0$. For this condition to hold identically for all coordinates and times, the wave must be strictly transverse, requiring $\\vec{k} \\cdot \\vec{E}_0 = 0$. Given $\\vec{E}_0 = E_0 (3\\hat{i} - 2\\hat{j} + \\hat{k})$ and $\\vec{k} = k_0 (2\\hat{i} + b\\hat{j} - 4\\hat{k})$, we evaluate the scalar dot product: $\\vec{k} \\cdot \\vec{E}_0 = k_0 E_0 [(2)(3) + (b)(-2) + (-4)(1)] = k_0 E_0 [6 - 2b - 4] = k_0 E_0 [2 - 2b]$. Setting this expression equal to zero: $2 - 2b = 0 \\implies 2b = 2 \\implies b = 1$. Miscalculating signs as $6 + 2b - 4 = 0$ yields $b = -1$; miscalculating the cross product yields $b = -2$ or $b = 2$."
+    }
+  ]
+}

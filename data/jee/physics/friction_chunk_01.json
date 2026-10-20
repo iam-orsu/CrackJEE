@@ -1,0 +1,784 @@
+{
+  "questions": [
+    {
+      "id": "fr_c01_001",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A heavy wooden block of mass $m = 4\\text{ kg}$ rests on a rough horizontal floor with coefficient of static friction $\\mu_s = 0.75$. A pulling force $F$ is applied to the block at an angle $\\theta$ above the horizontal. Find the minimum magnitude of $F$ required to initiate motion of the block. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $24\\text{ N}$",
+        "B) $30\\text{ N}$",
+        "C) $18\\text{ N}$",
+        "D) $40\\text{ N}$"
+      ],
+      "answer": "A",
+      "explanation": "To initiate motion, the horizontal component of the pulling force must balance the limiting static friction: $F\\cos\\theta = \\mu_s N$. Vertical equilibrium gives $N + F\\sin\\theta = mg \\implies N = mg - F\\sin\\theta$. Substituting $N$ into the horizontal condition yields $F(\\cos\\theta + \\mu_s\\sin\\theta) = \\mu_s mg$, hence $F = \\frac{\\mu_s mg}{\\cos\\theta + \\mu_s\\sin\\theta}$. To minimize $F$, the denominator is maximized: $\\max(\\cos\\theta + \\mu_s\\sin\\theta) = \\sqrt{1 + \\mu_s^2} = \\sqrt{1 + 0.75^2} = 1.25$ when $\\tan\\theta = \\mu_s = 0.75$. Therefore, $F_{\\min} = \\frac{0.75 \\times 4 \\times 10}{1.25} = \\frac{30}{1.25} = 24\\text{ N}$. Pulling purely horizontally requires $F = \\mu_s mg = 30\\text{ N}$, which neglects the normal-reduction benefit of pulling at an upward angle. Equating the force directly to $mg$ gives $40\\text{ N}$, and dividing by $(1 + \\mu_s)$ incorrectly yields $18\\text{ N}$."
+    },
+    {
+      "id": "fr_c01_002",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A block of mass $m = 2\\text{ kg}$ is held against an incline making an angle $\\theta = 45^\\circ$ with the horizontal. The coefficient of static friction between the block and the incline is $\\mu_s = 0.6$. A horizontal force $F$ is applied pushing directly toward the incline. What is the minimum magnitude of $F$ required to prevent the block from slipping down the incline? (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $20\\text{ N}$",
+        "B) $12\\text{ N}$",
+        "C) $5\\text{ N}$",
+        "D) $8\\text{ N}$"
+      ],
+      "answer": "C",
+      "explanation": "Resolving forces perpendicular to the incline gives the normal reaction $N = mg\\cos 45^\\circ + F\\sin 45^\\circ$. Along the incline, the downward component of gravity is balanced by the upward component of the horizontal push and the limiting static friction acting up the incline: $mg\\sin 45^\\circ = F\\cos 45^\\circ + f_{s,\\max}$. Since $f_{s,\\max} = \\mu_s N = \\mu_s(mg\\cos 45^\\circ + F\\sin 45^\\circ)$, substituting and using $\\sin 45^\\circ = \\cos 45^\\circ = \\frac{1}{\\sqrt{2}}$ gives $mg = F + \\mu_s(mg + F)$. Rearranging terms yields $F(1 + \\mu_s) = mg(1 - \\mu_s)$, so $F = mg\\frac{1 - \\mu_s}{1 + \\mu_s} = 20 \\times \\frac{1 - 0.6}{1 + 0.6} = 20 \\times \\frac{0.4}{1.6} = 5\\text{ N}$. Taking $F = \\mu_s mg$ yields $12\\text{ N}$ by ignoring the incline geometry. Directly balancing gravity without the incline gives $20\\text{ N}$, while forgetting the normal force contribution of $F$ leads to $8\\text{ N}$."
+    },
+    {
+      "id": "fr_c01_003",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Block $A$ of mass $m_A = 2\\text{ kg}$ rests on top of block $B$ of mass $m_B = 3\\text{ kg}$, which sits on a frictionless horizontal floor. The coefficient of static friction between block $A$ and block $B$ is $\\mu_s = 0.4$. A horizontal force $F$ is applied directly to the lower block $B$. Find the maximum value of $F$ (in newtons) such that block $A$ does not slip relative to block $B$. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [],
+      "answer": "20",
+      "explanation": "Block $A$ accelerates solely due to the static friction force exerted on it by block $B$: $f_s = m_A a$. The maximum static friction available between the two blocks is $f_{s,\\max} = \\mu_s m_A g = 0.4 \\times 2 \\times 10 = 8\\text{ N}$. Thus, the maximum acceleration of block $A$ without slipping is $a_{\\max} = \\frac{f_{s,\\max}}{m_A} = \\mu_s g = 4\\text{ m/s}^2$. For both blocks to accelerate together at this maximum common acceleration without slipping, the total horizontal force applied to the combined system of mass $(m_A + m_B)$ is $F_{\\max} = (m_A + m_B) a_{\\max} = (2 + 3) \\times 4 = 20\\text{ N}$."
+    },
+    {
+      "id": "fr_c01_004",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A block of mass $m = 4\\text{ kg}$ is held against a rough vertical wall by applying an external force $F$ at an angle of $37^\\circ$ above the horizontal (so that $\\cos 37^\\circ = 0.8$ and $\\sin 37^\\circ = 0.6$). The coefficient of static friction between the wall and the block is $\\mu_s = 0.5$. Determine the minimum magnitude of $F$ required to keep the block from sliding down the wall. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $50\\text{ N}$",
+        "B) $40\\text{ N}$",
+        "C) $80\\text{ N}$",
+        "D) $25\\text{ N}$"
+      ],
+      "answer": "B",
+      "explanation": "Horizontal equilibrium requires the normal force from the wall to balance the horizontal component of the applied force: $N = F\\cos 37^\\circ = 0.8F$. When the block is on the verge of sliding downward, the upward forces acting on the block are the vertical component of the applied force and the maximum static friction: $F\\sin 37^\\circ + f_{s,\\max} = mg$. Since $f_{s,\\max} = \\mu_s N = 0.5(0.8F) = 0.4F$, substituting gives $0.6F + 0.4F = 4 \\times 10 \\implies 1.0F = 40\\text{ N} \\implies F = 40\\text{ N}$. Neglecting friction and relying solely on the horizontal push gives $50\\text{ N}$, while setting $N = F$ without resolving the angle gives $80\\text{ N}$. Dividing by the sum of cosines gives $25\\text{ N}$."
+    },
+    {
+      "id": "fr_c01_005",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A small body of mass $m = 5\\text{ kg}$ is projected up a rough plane inclined at an angle $\\theta = 30^\\circ$ to the horizontal with an initial velocity $u = 10\\text{ m/s}$. The coefficient of kinetic friction between the body and the plane is $\\mu_k = \\frac{1}{\\sqrt{3}}$. Determine the time taken $t$ to reach the highest point and the total distance $s$ traversed along the incline. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $t = 2\\text{ s},\\ s = 10\\text{ m}$",
+        "B) $t = 0.5\\text{ s},\\ s = 2.5\\text{ m}$",
+        "C) $t = 1.5\\text{ s},\\ s = 7.5\\text{ m}$",
+        "D) $t = 1\\text{ s},\\ s = 5\\text{ m}$"
+      ],
+      "answer": "D",
+      "explanation": "During the upward motion, both the component of gravity along the plane and kinetic friction act downward along the incline to retard the body: $a_{\\text{up}} = g\\sin 30^\\circ + \\mu_k g\\cos 30^\\circ$. Substituting the given values: $a_{\\text{up}} = 10(0.5) + \\frac{1}{\\sqrt{3}} \\times 10 \\times \\frac{\\sqrt{3}}{2} = 5 + 5 = 10\\text{ m/s}^2$. The time taken to reach momentary rest at the highest point is $t = \\frac{u}{a_{\\text{up}}} = \\frac{10}{10} = 1\\text{ s}$. The distance traversed along the incline is $s = \\frac{u^2}{2a_{\\text{up}}} = \\frac{10^2}{20} = 5\\text{ m}$. Neglecting friction entirely gives $a = g\\sin 30^\\circ = 5\\text{ m/s}^2$, leading to an erroneous $t = 2\\text{ s}$ and $s = 10\\text{ m}$. Subtracting friction instead of adding it gives $1.5\\text{ s}$, and doubling friction gives $0.5\\text{ s}$."
+    },
+    {
+      "id": "fr_c01_006",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A block of mass $m = 2\\text{ kg}$ rests on a rough horizontal floor with coefficient of kinetic friction $\\mu_k = 0.2$. It is attached to the free end of a relaxed horizontal spring of stiffness $k = 40\\text{ N/m}$ whose other end is fixed to a vertical wall. A constant horizontal pulling force $F = 16\\text{ N}$ directed away from the wall is applied to the block. Find the maximum extension of the spring (in centimeters) before the block momentarily stops. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [],
+      "answer": "60",
+      "explanation": "Let $x_{\\max}$ be the maximum elongation of the spring. The block starts from rest and momentarily comes to rest at maximum extension, so the change in kinetic energy is zero: $\\Delta K = 0$. By the Work-Energy Theorem, $W_{\\text{net}} = W_F + W_{\\text{spring}} + W_{\\text{friction}} = 0$. The kinetic friction is $f_k = \\mu_k mg = 0.2 \\times 2 \\times 10 = 4\\text{ N}$. Thus, $F x_{\\max} - \\frac{1}{2} k x_{\\max}^2 - f_k x_{\\max} = 0$. Factoring out $x_{\\max} \\ne 0$ gives $(F - f_k) - \\frac{1}{2} k x_{\\max} = 0 \\implies x_{\\max} = \\frac{2(F - f_k)}{k}$. Substituting the values yields $x_{\\max} = \\frac{2(16 - 4)}{40} = \\frac{24}{40} = 0.6\\text{ m} = 60\\text{ cm}$."
+    },
+    {
+      "id": "fr_c01_007",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A horizontal conveyor belt moves with a constant speed of $v = 6\\text{ m/s}$. A parcel of mass $m = 3\\text{ kg}$ is gently placed on the belt with zero horizontal velocity. The coefficient of kinetic friction between the parcel and the belt is $\\mu_k = 0.3$. Find the total thermal energy generated by friction by the time relative slipping between the parcel and the belt ceases. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $54\\text{ J}$",
+        "B) $108\\text{ J}$",
+        "C) $27\\text{ J}$",
+        "D) $36\\text{ J}$"
+      ],
+      "answer": "A",
+      "explanation": "The acceleration of the parcel while slipping is $a = \\mu_k g = 0.3 \\times 10 = 3\\text{ m/s}^2$. The time required to attain the belt speed is $t = \\frac{v}{a} = \\frac{6}{3} = 2\\text{ s}$. The displacement of the parcel in the ground frame is $s_{\\text{parcel}} = \\frac{1}{2} a t^2 = \\frac{1}{2}(3)(4) = 6\\text{ m}$. During this same time interval, the belt travels a distance $s_{\\text{belt}} = v t = 6 \\times 2 = 12\\text{ m}$. The relative displacement between the belt and parcel is $\\Delta s_{\\text{rel}} = s_{\\text{belt}} - s_{\\text{parcel}} = 12 - 6 = 6\\text{ m}$. The kinetic friction force is $f_k = \\mu_k mg = 0.3 \\times 30 = 9\\text{ N}$. Therefore, the heat generated is $Q = f_k \\Delta s_{\\text{rel}} = 9 \\times 6 = 54\\text{ J}$. Calculating the total work done by the motor without subtracting the kinetic energy acquired gives $108\\text{ J}$, and halving the work erroneously yields $27\\text{ J}$."
+    },
+    {
+      "id": "fr_c01_008",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A block placed on an inclined plane begins to slide down when the inclination reaches $\\theta_0 = 30^\\circ$. When the angle of inclination of the plane is increased to $\\theta = 45^\\circ$, the block slides with acceleration. If the coefficient of kinetic friction between the block and the plane is $\\mu_k = 0.2$, determine the acceleration of the block down the incline. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $5\\sqrt{2}\\text{ m/s}^2$",
+        "B) $4\\sqrt{2}\\text{ m/s}^2$",
+        "C) $2\\sqrt{2}\\text{ m/s}^2$",
+        "D) $3\\sqrt{2}\\text{ m/s}^2$"
+      ],
+      "answer": "B",
+      "explanation": "When the inclination is $\\theta = 45^\\circ$, the component of gravity down the incline is $mg\\sin 45^\\circ$ and the normal force is $N = mg\\cos 45^\\circ$. The kinetic friction opposing motion is $f_k = \\mu_k N = \\mu_k mg\\cos 45^\\circ$. The resulting acceleration down the plane is $a = g(\\sin 45^\\circ - \\mu_k\\cos 45^\\circ) = g\\cos 45^\\circ(1 - \\mu_k) = \\frac{10}{\\sqrt{2}}(1 - 0.2) = \\frac{8}{\\sqrt{2}} = 4\\sqrt{2}\\text{ m/s}^2$. Neglecting friction completely on the incline yields $5\\sqrt{2}\\text{ m/s}^2$. Erroneously substituting the static friction coefficient $\\mu_s = \\tan 30^\\circ = \\frac{1}{\\sqrt{3}}$ instead of the given kinetic coefficient yields $2\\sqrt{2}\\text{ m/s}^2$."
+    },
+    {
+      "id": "fr_c01_009",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A car negotiates a horizontal circular track of radius $R = 27\\text{ m}$. The coefficient of static friction between the tires and the flat road is $\\mu_s = 0.5$. If the car is accelerating tangentially along the track with a constant rate of $a_t = 4\\text{ m/s}^2$, find the maximum speed $v$ (in m/s) the car can have at that instant without skidding. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [],
+      "answer": "9",
+      "explanation": "The total friction force provides both the tangential acceleration $a_t$ and the centripetal acceleration $a_c = \\frac{v^2}{R}$. The net acceleration of the car is $a_{\\text{net}} = \\sqrt{a_t^2 + a_c^2}$. To prevent skidding, this net acceleration must not exceed the maximum acceleration sustainable by static friction: $a_{\\text{net}} \\le \\mu_s g = 0.5 \\times 10 = 5\\text{ m/s}^2$. Squaring both sides yields $a_t^2 + a_c^2 \\le (\\mu_s g)^2 \\implies 4^2 + a_c^2 \\le 5^2 \\implies 16 + a_c^2 \\le 25 \\implies a_c^2 \\le 9 \\implies a_c \\le 3\\text{ m/s}^2$. Since $a_c = \\frac{v^2}{R}$, we have $\\frac{v^2}{27} \\le 3 \\implies v^2 \\le 81 \\implies v \\le 9\\text{ m/s}$."
+    },
+    {
+      "id": "fr_c01_010",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A block of mass $m = 4\\text{ kg}$ rests on a rough horizontal surface with coefficients of static and kinetic friction $\\mu_s = 0.4$ and $\\mu_k = 0.3$. Starting from $t = 0$, a time-dependent horizontal force $F(t) = 2t$ (with $F$ in newtons and $t$ in seconds) is applied to the block. Find the speed of the block at $t = 12\\text{ s}$. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $18\\text{ m/s}$",
+        "B) $12\\text{ m/s}$",
+        "C) $8\\text{ m/s}$",
+        "D) $4\\text{ m/s}$"
+      ],
+      "answer": "C",
+      "explanation": "The maximum static friction is $f_{s,\\max} = \\mu_s mg = 0.4 \\times 40 = 16\\text{ N}$. The block remains at rest until $F(t) = f_{s,\\max} \\implies 2t_0 = 16 \\implies t_0 = 8\\text{ s}$. For $t > 8\\text{ s}$, kinetic friction acts: $f_k = \\mu_k mg = 0.3 \\times 40 = 12\\text{ N}$. The equation of motion for $t \\ge 8\\text{ s}$ is $m a(t) = F(t) - f_k = 2t - 12 \\implies a(t) = \\frac{t - 6}{2}\\text{ m/s}^2$. The velocity at $t = 12\\text{ s}$ is obtained by integrating from the start of motion: $v(12) = \\int_8^{12} \\frac{t - 6}{2} dt = \\left[ \\frac{(t - 6)^2}{4} \\right]_8^{12} = \\frac{6^2 - 2^2}{4} = \\frac{36 - 4}{4} = 8\\text{ m/s}$. Integrating from $t = 0$ assuming kinetic friction acts throughout yields $18\\text{ m/s}$, while continuing to subtract static friction of $16\\text{ N}$ yields $12\\text{ m/s}$."
+    },
+    {
+      "id": "fr_c01_011",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A uniform flexible chain of length $L$ and total mass $M$ is placed on a rough horizontal table such that a portion of length $y$ hangs over the edge. If the coefficient of static friction between the chain and the table surface is $\\mu_s = 0.25$, determine the maximum fraction $\\frac{y}{L}$ that can hang over the edge without the chain sliding off. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $0.25$",
+        "B) $0.20$",
+        "C) $0.33$",
+        "D) $0.15$"
+      ],
+      "answer": "B",
+      "explanation": "Let the linear mass density of the chain be $\\lambda = \\frac{M}{L}$. The mass of the overhanging portion is $m_{\\text{hang}} = \\lambda y$, which exerts a downward pulling tension $T = \\lambda y g$ at the edge of the table. The mass of the chain resting on the table is $m_{\\text{table}} = \\lambda(L - y)$, giving a normal force $N = \\lambda(L - y)g$. The maximum static friction available to hold the chain is $f_{s,\\max} = \\mu_s N = \\mu_s \\lambda(L - y)g$. For equilibrium without sliding: $\\lambda y g \\le \\mu_s \\lambda(L - y)g \\implies y \\le \\mu_s(L - y) \\implies y(1 + \\mu_s) \\le \\mu_s L$. Thus, the maximum fraction is $\\frac{y}{L} = \\frac{\\mu_s}{1 + \\mu_s} = \\frac{0.25}{1.25} = 0.20$. Simply taking $\\mu_s$ as the fraction directly gives $0.25$ by forgetting that normal force decreases as overhang increases. Setting $y/L = \\mu_s / (1 - \\mu_s)$ gives $0.33$."
+    },
+    {
+      "id": "fr_c01_012",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A small block of mass $m$ is placed on the inclined face of a wedge with inclination angle $\\theta = 45^\\circ$. The coefficient of static friction between the block and the wedge face is $\\mu_s = \\frac{1}{3}$. The wedge is given a constant horizontal acceleration $a$ directed toward the right. Find the minimum acceleration $a_{\\min}$ (in m/s²) of the wedge such that the block does not slip down the incline. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [],
+      "answer": "5",
+      "explanation": "In the non-inertial reference frame of the wedge accelerating rightward with acceleration $a$, a horizontal pseudo-force $ma$ acts to the left on the block. Resolving forces perpendicular to the incline yields $N = mg\\cos 45^\\circ + ma\\sin 45^\\circ = \\frac{m}{\\sqrt{2}}(g + a)$. Resolving forces parallel to the incline, the driving force directed down the plane is $F_{\\text{down}} = mg\\sin 45^\\circ - ma\\cos 45^\\circ = \\frac{m}{\\sqrt{2}}(g - a)$. To prevent the block from slipping down, the static friction acting up the incline must satisfy $F_{\\text{down}} \\le f_{s,\\max} = \\mu_s N$. Therefore, $\\frac{m}{\\sqrt{2}}(g - a) \\le \\mu_s \\frac{m}{\\sqrt{2}}(g + a) \\implies g - a \\le \\mu_s(g + a) \\implies a(1 + \\mu_s) \\ge g(1 - \\mu_s)$. Solving for the minimum acceleration: $a_{\\min} = g\\frac{1 - \\mu_s}{1 + \\mu_s} = 10 \\times \\frac{1 - 1/3}{1 + 1/3} = 10 \\times \\frac{2/3}{4/3} = 5\\text{ m/s}^2$."
+    },
+    {
+      "id": "fr_c01_013",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A crate of mass $M = 50\\text{ kg}$ rests on a rough horizontal surface with static friction coefficient $\\mu_s = 0.5$. One person pushes the crate due North with a horizontal force of $F_1 = 150\\text{ N}$. What is the minimum magnitude of horizontal force $F_2$ that a second person must exert simultaneously due East so that the crate begins to slide? (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $100\\text{ N}$",
+        "B) $150\\text{ N}$",
+        "C) $250\\text{ N}$",
+        "D) $200\\text{ N}$"
+      ],
+      "answer": "D",
+      "explanation": "The maximum static friction force opposes relative motion in the plane and has magnitude $f_{s,\\max} = \\mu_s M g = 0.5 \\times 50 \\times 10 = 250\\text{ N}$. Since the two applied forces are mutually perpendicular (North and East), the magnitude of their resultant horizontal force is $F_{\\text{net}} = \\sqrt{F_1^2 + F_2^2}$. Motion begins when this resultant force just overcomes the limiting static friction: $\\sqrt{F_1^2 + F_2^2} = f_{s,\\max} = 250\\text{ N}$. Squaring both sides: $150^2 + F_2^2 = 250^2 \\implies 22500 + F_2^2 = 62500 \\implies F_2^2 = 40000 \\implies F_2 = 200\\text{ N}$. Scalar subtraction $250 - 150 = 100\\text{ N}$ completely ignores vector orthogonality. Ignoring the first person gives $250\\text{ N}$."
+    },
+    {
+      "id": "fr_c01_014",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A block of mass $m = 2\\text{ kg}$ is placed on an incline of angle $\\theta = 30^\\circ$. The coefficient of static friction between the block and the incline is $\\mu_s = \\frac{\\sqrt{3}}{2} \\approx 0.866$. Determine the magnitude of the total contact force exerted by the incline on the block. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $20\\text{ N}$",
+        "B) $10\\sqrt{3}\\text{ N}$",
+        "C) $10\\sqrt{7}\\text{ N}$",
+        "D) $15\\text{ N}$"
+      ],
+      "answer": "A",
+      "explanation": "First check whether the block remains in static equilibrium. The angle of repose is $\\theta_r = \\tan^{-1}\\mu_s = \\tan^{-1}(0.866) \\approx 40.9^\\circ$. Since $\\theta = 30^\\circ < \\theta_r$, the block remains stationary. For static equilibrium, the friction force self-adjusts to balance the component of gravity down the incline: $f_s = mg\\sin 30^\\circ = 20 \\times 0.5 = 10\\text{ N}$. The normal force is $N = mg\\cos 30^\\circ = 20 \\times \\frac{\\sqrt{3}}{2} = 10\\sqrt{3}\\text{ N}$. The total contact force is the vector resultant of $N$ and $f_s$: $R = \\sqrt{N^2 + f_s^2} = \\sqrt{(10\\sqrt{3})^2 + 10^2} = \\sqrt{300 + 100} = \\sqrt{400} = 20\\text{ N} = mg$, which acts vertically upward to balance gravity. Erroneously using the limiting friction $\\mu_s N$ gives $\\sqrt{N^2 + (\\mu_s N)^2} = 10\\sqrt{7}\\text{ N}$, while taking only the normal reaction gives $10\\sqrt{3}\\text{ N}$."
+    },
+    {
+      "id": "fr_c01_015",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A block of mass $m_1 = 4\\text{ kg}$ on a rough horizontal surface (coefficients $\\mu_s = 0.5$ and $\\mu_k = 0.4$) is connected by a light string over a frictionless pulley to a suspended mass $m_2 = 3\\text{ kg}$. The system is released from rest. Determine the resulting acceleration of the system. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $0\\text{ m/s}^2$",
+        "B) $1.43\\text{ m/s}^2$",
+        "C) $2\\text{ m/s}^2$",
+        "D) $4.29\\text{ m/s}^2$"
+      ],
+      "answer": "C",
+      "explanation": "The maximum static friction holding block $m_1$ is $f_{s,\\max} = \\mu_s m_1 g = 0.5 \\times 4 \\times 10 = 20\\text{ N}$. The driving gravitational force from the hanging mass is $m_2 g = 3 \\times 10 = 30\\text{ N}$. Because $m_2 g = 30\\text{ N} > 20\\text{ N}$, the system breaks static friction and accelerates. Once the system is in motion, kinetic friction opposes the motion of block $m_1$: $f_k = \\mu_k m_1 g = 0.4 \\times 4 \\times 10 = 16\\text{ N}$. Applying Newton's second law to the connected system: $(m_1 + m_2) a = m_2 g - f_k \\implies (4 + 3)a = 30 - 16 \\implies 7a = 14 \\implies a = 2\\text{ m/s}^2$. Assuming the system remains stationary gives $0\\text{ m/s}^2$, while continuing to subtract static friction of $20\\text{ N}$ instead of kinetic friction yields $1.43\\text{ m/s}^2$. Neglecting friction completely yields $4.29\\text{ m/s}^2$."
+    },
+    {
+      "id": "fr_c01_016",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Block $A$ of mass $m_A = 2\\text{ kg}$ rests on top of block $B$ of mass $m_B = 4\\text{ kg}$, which sits on a rough horizontal floor. The coefficient of friction between blocks $A$ and $B$ is $\\mu_1 = 0.4$, and that between block $B$ and the floor is $\\mu_2 = 0.1$. A horizontal force $F = 18\\text{ N}$ is applied to the upper block $A$. Determine the accelerations $a_A$ and $a_B$ of the two blocks. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $a_A = 2\\text{ m/s}^2,\\ a_B = 2\\text{ m/s}^2$",
+        "B) $a_A = 5\\text{ m/s}^2,\\ a_B = 0.5\\text{ m/s}^2$",
+        "C) $a_A = 9\\text{ m/s}^2,\\ a_B = 0\\text{ m/s}^2$",
+        "D) $a_A = 4\\text{ m/s}^2,\\ a_B = 1\\text{ m/s}^2$"
+      ],
+      "answer": "B",
+      "explanation": "The maximum static friction at the interface between $A$ and $B$ is $f_{1,\\max} = \\mu_1 m_A g = 0.4 \\times 20 = 8\\text{ N}$. The maximum friction between block $B$ and the floor is $f_{2,\\max} = \\mu_2(m_A + m_B)g = 0.1 \\times 60 = 6\\text{ N}$. If both blocks were to move together without relative slipping, their common acceleration would be $a = \\frac{F - f_{2,\\max}}{m_A + m_B} = \\frac{18 - 6}{6} = 2\\text{ m/s}^2$. To accelerate block $A$ at $2\\text{ m/s}^2$, the required backward friction on $A$ is given by $F - f_1 = m_A a \\implies 18 - f_1 = 2 \\times 2 = 4 \\implies f_1 = 14\\text{ N}$. Since $14\\text{ N} > f_{1,\\max} = 8\\text{ N}$, slipping occurs between $A$ and $B$. Kinetic friction $f_1 = 8\\text{ N}$ acts backward on $A$ and forward on $B$. For block $A$: $a_A = \\frac{F - f_1}{m_A} = \\frac{18 - 8}{2} = 5\\text{ m/s}^2$. For block $B$: $a_B = \\frac{f_1 - f_2}{m_B} = \\frac{8 - 6}{4} = 0.5\\text{ m/s}^2$. Assuming the blocks move together without checking friction limits yields $a_A = a_B = 2\\text{ m/s}^2$, while completely ignoring friction yields $a_A = 9\\text{ m/s}^2$."
+    },
+    {
+      "id": "fr_c01_017",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A block $A$ of mass $m_A = 2\\text{ kg}$ is placed on top of block $B$ of mass $m_B = 4\\text{ kg}$, which rests on a horizontal floor. The coefficient of friction between blocks $A$ and $B$ is $\\mu_1 = 0.4$, and that between block $B$ and the floor is $\\mu_2 = 0.1$. A horizontal force $F$ is applied to the lower block $B$. Find the maximum value of $F$ (in newtons) such that block $A$ does not slip relative to block $B$. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [],
+      "answer": "30",
+      "explanation": "Block $A$ is accelerated solely by the static friction exerted on it by block $B$. The maximum static friction on $A$ is $f_{1,\\max} = \\mu_1 m_A g = 0.4 \\times 20 = 8\\text{ N}$. The maximum possible acceleration of block $A$ without slipping is therefore $a_{\\max} = \\frac{f_{1,\\max}}{m_A} = \\mu_1 g = 4\\text{ m/s}^2$. At the threshold of slipping, both blocks accelerate together at $a_{\\max} = 4\\text{ m/s}^2$. The friction force between block $B$ and the floor is $f_{2,\\max} = \\mu_2(m_A + m_B)g = 0.1 \\times 60 = 6\\text{ N}$. Applying Newton's second law to the two-block system: $F_{\\max} - f_{2,\\max} = (m_A + m_B) a_{\\max} \\implies F_{\\max} - 6 = (2 + 4) \\times 4 = 24 \\implies F_{\\max} = 30\\text{ N}$."
+    },
+    {
+      "id": "fr_c01_018",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A light flexible cable passes over a fixed rough horizontal circular cylinder with contact angle $\\theta = \\pi\\text{ rad}$. The coefficient of static friction between the cable and the cylinder is $\\mu = \\frac{\\ln 3}{\\pi}$. A load of mass $m_1 = 9\\text{ kg}$ hangs from one end. Find the minimum mass $m_2$ that must be suspended from the other end to prevent the load $m_1$ from slipping downward. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $27\\text{ kg}$",
+        "B) $9\\text{ kg}$",
+        "C) $3\\text{ kg}$",
+        "D) $1\\text{ kg}$"
+      ],
+      "answer": "C",
+      "explanation": "According to the capstan (belt friction) formula, when slipping of mass $m_1$ downward is impending, tension $T_1 = m_1 g$ is larger than tension $T_2 = m_2 g$. The relation at the verge of sliding is $T_1 = T_2 e^{\\mu\\theta} \\implies m_1 g = m_2 g e^{\\mu\\theta}$. Substituting the given friction and angle values: $\\mu\\theta = \\left(\\frac{\\ln 3}{\\pi}\\right)\\pi = \\ln 3$. Thus, the exponential factor is $e^{\\mu\\theta} = e^{\\ln 3} = 3$. Solving for $m_2$ gives $m_2 = \\frac{m_1}{3} = \\frac{9}{3} = 3\\text{ kg}$. Setting $m_2 = m_1 e^{\\mu\\theta}$ gives $27\\text{ kg}$, which is the mass required to lift $m_1$ upward rather than merely hold it in place. Assuming a frictionless cylinder gives $9\\text{ kg}$."
+    },
+    {
+      "id": "fr_c01_019",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Three blocks $A$ ($1\\text{ kg}$), $B$ ($2\\text{ kg}$), and $C$ ($3\\text{ kg}$) are stacked vertically with $A$ on $B$, $B$ on $C$, and $C$ placed on a frictionless horizontal floor. The coefficient of friction between $A$ and $B$ is $\\mu_{AB} = 0.6$, and that between $B$ and $C$ is $\\mu_{BC} = 0.3$. A horizontal pulling force $F$ is applied to the middle block $B$. Find the maximum value of $F$ such that all three blocks accelerate together without any relative slipping. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $18\\text{ N}$",
+        "B) $36\\text{ N}$",
+        "C) $12\\text{ N}$",
+        "D) $9\\text{ N}$"
+      ],
+      "answer": "A",
+      "explanation": "Let the common acceleration of the three blocks be $a$. Block $A$ is accelerated by the static friction at the $A-B$ interface: $f_{AB} = m_A a \\le \\mu_{AB} m_A g \\implies a \\le \\mu_{AB} g = 0.6 \\times 10 = 6\\text{ m/s}^2$. Block $C$ is accelerated by the friction force at the $B-C$ interface: $f_{BC} = m_C a$. The maximum static friction available between $B$ and $C$ is $f_{BC,\\max} = \\mu_{BC}(m_A + m_B)g = 0.3 \\times (1 + 2) \\times 10 = 9\\text{ N}$. Thus, the maximum acceleration of block $C$ without slipping is $a \\le \\frac{f_{BC,\\max}}{m_C} = \\frac{9}{3} = 3\\text{ m/s}^2$. To avoid slipping at either contact surface, the system acceleration must satisfy $a_{\\max} = \\min(6, 3) = 3\\text{ m/s}^2$. Since the floor beneath block $C$ is smooth, the maximum applied force is $F_{\\max} = (m_A + m_B + m_C) a_{\\max} = (1 + 2 + 3) \\times 3 = 18\\text{ N}$. Using the higher acceleration threshold of $6\\text{ m/s}^2$ yields $36\\text{ N}$, causing block $C$ to slip."
+    },
+    {
+      "id": "fr_c01_020",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A block of mass $m = 2\\text{ kg}$ is initially at rest on a rough horizontal surface with $\\mu_s = 0.6$ and $\\mu_k = 0.4$. Starting at $t = 0$, a horizontal force $F(t) = 4t$ (in newtons, with $t$ in seconds) is applied to the block. Determine the speed of the block (in m/s) at time $t = 5\\text{ s}$. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [],
+      "answer": "8",
+      "explanation": "The maximum static friction is $f_{s,\\max} = \\mu_s mg = 0.6 \\times 2 \\times 10 = 12\\text{ N}$. The block remains stationary until the applied force reaches this threshold: $4t_1 = 12 \\implies t_1 = 3\\text{ s}$. Once the block begins to move, kinetic friction opposes the motion: $f_k = \\mu_k mg = 0.4 \\times 2 \\times 10 = 8\\text{ N}$. For $t \\ge 3\\text{ s}$, the acceleration of the block is $a(t) = \\frac{F(t) - f_k}{m} = \\frac{4t - 8}{2} = 2t - 4\\text{ m/s}^2$. The velocity at $t = 5\\text{ s}$ is found by integrating the acceleration from $t = 3\\text{ s}$ to $t = 5\\text{ s}$: $v(5) = \\int_3^5 (2t - 4) dt = \\left[ t^2 - 4t \\right]_3^5 = (25 - 20) - (9 - 12) = 5 - (-3) = 8\\text{ m/s}$."
+    },
+    {
+      "id": "fr_c01_021",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A block of mass $m = 1\\text{ kg}$ is held against a rough vertical wall by applying a normal clamping force $P = 50\\text{ N}$. The coefficient of static friction between the block and the wall is $\\mu_s = 0.4$. In addition to gravity, two forces parallel to the wall act on the block: a downward vertical force $F_y = 6\\text{ N}$ and a horizontal tangential force $F_x = 8\\text{ N}$. Find the magnitude of the friction force acting on the block. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $20\\text{ N}$",
+        "B) $10\\text{ N}$",
+        "C) $16\\text{ N}$",
+        "D) $8\\sqrt{5}\\text{ N}$"
+      ],
+      "answer": "D",
+      "explanation": "The normal force exerted by the wall on the block is $N = P = 50\\text{ N}$. The maximum static friction available is $f_{s,\\max} = \\mu_s N = 0.4 \\times 50 = 20\\text{ N}$. The net applied force parallel to the wall surface has two orthogonal components: the downward vertical component $F_{\\text{down}} = mg + F_y = 10 + 6 = 16\\text{ N}$, and the horizontal tangential component $F_x = 8\\text{ N}$. The resultant tangential force tending to cause slipping is $F_t = \\sqrt{F_{\\text{down}}^2 + F_x^2} = \\sqrt{16^2 + 8^2} = \\sqrt{256 + 64} = \\sqrt{320} = 8\\sqrt{5} \\approx 17.89\\text{ N}$. Since $F_t \\approx 17.89\\text{ N} < f_{s,\\max} = 20\\text{ N}$, the block does not slide. Therefore, static friction self-adjusts to exactly balance $F_t$, so $f_s = 8\\sqrt{5}\\text{ N}$. Assuming friction always attains its limiting value gives $20\\text{ N}$, and neglecting $F_x$ gives $16\\text{ N}$."
+    },
+    {
+      "id": "fr_c01_022",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A block of mass $m = 5\\text{ kg}$ sits on a rough incline of angle $\\theta = 37^\\circ$ ($\\sin 37^\\circ = 0.6,\\ \\cos 37^\\circ = 0.8$). The coefficient of static friction is $\\mu_s = 0.5$. An external force $F$ is applied parallel to the incline pointing uphill. Find the range of $F$ for which the block remains in static equilibrium. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $10\\text{ N} \\le F \\le 50\\text{ N}$",
+        "B) $20\\text{ N} \\le F \\le 40\\text{ N}$",
+        "C) $0\\text{ N} \\le F \\le 30\\text{ N}$",
+        "D) $15\\text{ N} \\le F \\le 45\\text{ N}$"
+      ],
+      "answer": "A",
+      "explanation": "The gravitational component along the incline is $mg\\sin 37^\\circ = 50 \\times 0.6 = 30\\text{ N}$, and the normal reaction is $N = mg\\cos 37^\\circ = 50 \\times 0.8 = 40\\text{ N}$. The maximum static friction force is $f_{s,\\max} = \\mu_s N = 0.5 \\times 40 = 20\\text{ N}$. For impending motion down the incline, static friction acts uphill: $F_{\\min} + f_{s,\\max} = mg\\sin 37^\\circ \\implies F_{\\min} = 30 - 20 = 10\\text{ N}$. For impending motion up the incline, static friction acts downhill: $F_{\\max} = mg\\sin 37^\\circ + f_{s,\\max} = 30 + 20 = 50\\text{ N}$. Hence, static equilibrium is preserved for $10\\text{ N} \\le F \\le 50\\text{ N}$. Underestimating limiting friction yields the narrower range $20\\text{ N} \\le F \\le 40\\text{ N}$, while ignoring the natural tendency to slide down yields $0\\text{ N} \\le F \\le 30\\text{ N}$."
+    },
+    {
+      "id": "fr_c01_023",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A long plank of mass $M = 6\\text{ kg}$ is placed on a frictionless horizontal floor. A small block of mass $m = 2\\text{ kg}$ is placed on top of the plank. The coefficient of kinetic friction between the block and the plank is $\\mu = 0.3$. The block is given an initial horizontal velocity of $u = 8\\text{ m/s}$ relative to the floor, while the plank is initially at rest. Find the time $t$ (in seconds) after which slipping between the block and plank ceases. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [],
+      "answer": "2",
+      "explanation": "The kinetic friction force acting between the block and plank is $f_k = \\mu mg = 0.3 \\times 2 \\times 10 = 6\\text{ N}$. This friction retards the block with acceleration $a_m = \\frac{f_k}{m} = \\frac{6}{2} = 3\\text{ m/s}^2$ backward. By Newton's third law, an equal and opposite force accelerates the plank forward: $a_M = \\frac{f_k}{M} = \\frac{6}{6} = 1\\text{ m/s}^2$. The relative deceleration between the block and the plank is $a_{\\text{rel}} = a_m + a_M = 3 + 1 = 4\\text{ m/s}^2$. Relative slipping ceases when the relative velocity reaches zero: $t = \\frac{u_{\\text{rel}}}{a_{\\text{rel}}} = \\frac{8}{4} = 2\\text{ s}$."
+    },
+    {
+      "id": "fr_c01_024",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a block-plank system, a block of mass $m = 2\\text{ kg}$ with initial velocity $u = 8\\text{ m/s}$ slides on a plank of mass $M = 6\\text{ kg}$ resting on a frictionless table. The coefficient of friction between block and plank is $\\mu = 0.3$. Find the total mechanical energy dissipated into heat by friction during the entire slipping process. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $64\\text{ J}$",
+        "B) $16\\text{ J}$",
+        "C) $32\\text{ J}$",
+        "D) $48\\text{ J}$"
+      ],
+      "answer": "D",
+      "explanation": "The initial kinetic energy of the system is $K_i = \\frac{1}{2} m u^2 = \\frac{1}{2}(2)(8^2) = 64\\text{ J}$. Since the horizontal floor is frictionless, the linear momentum of the (block + plank) system is conserved: $m u = (m + M) v_f \\implies 2 \\times 8 = (2 + 6) v_f \\implies v_f = 2\\text{ m/s}$. The final kinetic energy when both move together is $K_f = \\frac{1}{2}(m + M) v_f^2 = \\frac{1}{2}(8)(2^2) = 16\\text{ J}$. By energy conservation, the thermal energy dissipated by friction is $Q = K_i - K_f = 64 - 16 = 48\\text{ J}$. Alternatively, the relative stopping distance is $s_{\\text{rel}} = \\frac{u^2}{2 a_{\\text{rel}}} = \\frac{64}{2 \\times 4} = 8\\text{ m}$, yielding $Q = f_k s_{\\text{rel}} = 6 \\times 8 = 48\\text{ J}$. Assuming all initial energy is lost yields $64\\text{ J}$, while reporting the final kinetic energy gives $16\\text{ J}$."
+    },
+    {
+      "id": "fr_c01_025",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A mooring line from a ship is wrapped $1.5$ full turns (contact angle $\\theta = 3\\pi\\text{ rad}$) around a fixed horizontal cylindrical bollard. The coefficient of friction between the rope and bollard is $\\mu = \\frac{\\ln 8}{3\\pi}$. A sailor can hold the loose end with a tension of at most $T_1 = 50\\text{ N}$. Find the maximum tension $T_2$ from the ship that the sailor can secure without slippage.",
+      "options": [
+        "A) $400\\text{ N}$",
+        "B) $50\\text{ N}$",
+        "C) $150\\text{ N}$",
+        "D) $200\\text{ N}$"
+      ],
+      "answer": "A",
+      "explanation": "The capstan relation governs belt friction over a cylindrical surface: $T_2 = T_1 e^{\\mu\\theta}$. For $1.5$ turns, the angle of wrap is $\\theta = 1.5 \\times 2\\pi = 3\\pi\\text{ rad}$. The exponent is $\\mu\\theta = \\left(\\frac{\\ln 8}{3\\pi}\\right)(3\\pi) = \\ln 8$. Hence, the tension amplification factor is $e^{\\mu\\theta} = e^{\\ln 8} = 8$. The maximum holding tension from the ship is therefore $T_2 = T_1 e^{\\mu\\theta} = 50 \\times 8 = 400\\text{ N}$. Assuming no amplification gives $50\\text{ N}$, while assuming linear scaling with turns gives $150\\text{ N}$."
+    },
+    {
+      "id": "fr_c01_026",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A block of mass $m_1 = 4\\text{ kg}$ on a rough horizontal surface with $\\mu_k = 0.3$ is connected by a taut string over a light pulley to a hanging mass $m_2 = 6\\text{ kg}$. The system is released from rest. When the block reaches a speed of $v_0 = 6\\text{ m/s}$, the connecting string is suddenly cut. Find the additional distance (in meters) the block travels before coming to rest. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [],
+      "answer": "6",
+      "explanation": "Once the string is severed, tension vanishes and the only horizontal force acting on block $m_1$ is kinetic friction: $f_k = \\mu_k m_1 g = 0.3 \\times 4 \\times 10 = 12\\text{ N}$. The deceleration of the block is $a = \\frac{f_k}{m_1} = \\mu_k g = 0.3 \\times 10 = 3\\text{ m/s}^2$. With an initial speed of $v_0 = 6\\text{ m/s}$ and final speed $v = 0$, the additional distance travelled before stopping is given by kinematics: $v^2 = v_0^2 - 2as \\implies 0 = 6^2 - 2(3)s \\implies 6s = 36 \\implies s = 6\\text{ m}$."
+    },
+    {
+      "id": "fr_c01_027",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Block $A$ of mass $3\\text{ kg}$ is placed on top of block $B$ of mass $5\\text{ kg}$. The coefficient of static friction between blocks $A$ and $B$ is $\\mu_s = 0.5$, and the floor beneath block $B$ is frictionless. A horizontal force $F = 12\\text{ N}$ is applied to block $A$. Find the magnitude of the friction force acting between block $A$ and block $B$. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $15.0\\text{ N}$",
+        "B) $7.5\\text{ N}$",
+        "C) $12.0\\text{ N}$",
+        "D) $4.5\\text{ N}$"
+      ],
+      "answer": "B",
+      "explanation": "The maximum static friction at the interface is $f_{s,\\max} = \\mu_s m_A g = 0.5 \\times 3 \\times 10 = 15\\text{ N}$. If the two blocks accelerate together without slipping, the common acceleration is $a = \\frac{F}{m_A + m_B} = \\frac{12}{3 + 5} = 1.5\\text{ m/s}^2$. Block $B$ is accelerated solely by the static friction from block $A$: $f_s = m_B a = 5 \\times 1.5 = 7.5\\text{ N}$. Since the required static friction $7.5\\text{ N} \\le f_{s,\\max} = 15\\text{ N}$, no slipping occurs and the static friction force is exactly $7.5\\text{ N}$. Assuming friction reaches its limiting value gives $15.0\\text{ N}$, while assuming the entire applied force is transferred as friction yields $12.0\\text{ N}$. Taking $m_A a$ yields $4.5\\text{ N}$."
+    },
+    {
+      "id": "fr_c01_028",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An insect crawls up the inside surface of a fixed rough hemispherical bowl of radius $R$. The coefficient of static friction between the insect and the bowl surface is $\\mu_s = 0.75$. Find the maximum height $h$ above the lowest point of the bowl to which the insect can crawl without slipping.",
+      "options": [
+        "A) $\\frac{R}{4}$",
+        "B) $\\frac{3R}{5}$",
+        "C) $\\frac{R}{5}$",
+        "D) $\\frac{2R}{5}$"
+      ],
+      "answer": "C",
+      "explanation": "Let $\\theta$ be the angle that the normal at the insect's position makes with the vertical. The tangential component of gravity tending to cause slipping is $mg\\sin\\theta$, and the normal reaction is $N = mg\\cos\\theta$. For static equilibrium without slipping: $mg\\sin\\theta \\le \\mu_s mg\\cos\\theta \\implies \\tan\\theta \\le \\mu_s = 0.75 = \\frac{3}{4}$. At the limiting position, $\\tan\\theta = \\frac{3}{4}$, which implies $\\cos\\theta = \\frac{4}{5} = 0.8$. The vertical height above the lowest point of the bowl is $h = R(1 - \\cos\\theta) = R(1 - 0.8) = 0.2R = \\frac{R}{5}$. Confusing $\\sin\\theta = 0.6$ with the height from the bottom gives $\\frac{3R}{5}$, while miscalculating $\\cos\\theta$ as $0.6$ yields $\\frac{2R}{5}$."
+    },
+    {
+      "id": "fr_c01_029",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A block of mass $m = 10\\text{ kg}$ is initially at rest on a rough horizontal surface with $\\mu_s = 0.5$ and $\\mu_k = 0.4$. A horizontal force of $F_1 = 40\\text{ N}$ acts on the block for the first $4\\text{ s}$, after which the force is increased to $F_2 = 60\\text{ N}$ and maintained for another $3\\text{ s}$. Find the speed of the block (in m/s) at the end of the $7\\text{ s}$ interval. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [],
+      "answer": "6",
+      "explanation": "The maximum static friction force is $f_{s,\\max} = \\mu_s mg = 0.5 \\times 10 \\times 10 = 50\\text{ N}$. During the first $4\\text{ s}$, the applied force is $F_1 = 40\\text{ N} < f_{s,\\max} = 50\\text{ N}$. The block does not move, so its velocity at $t = 4\\text{ s}$ is zero. At $t = 4\\text{ s}$, the force increases to $F_2 = 60\\text{ N} > 50\\text{ N}$, overcoming static friction and initiating motion. For $t \\in [4\\text{ s}, 7\\text{ s}]$, kinetic friction acts: $f_k = \\mu_k mg = 0.4 \\times 100 = 40\\text{ N}$. The acceleration is $a = \\frac{F_2 - f_k}{m} = \\frac{60 - 40}{10} = 2\\text{ m/s}^2$. The final speed at $t = 7\\text{ s}$ is $v = 0 + a \\times \\Delta t = 2 \\times 3 = 6\\text{ m/s}$."
+    },
+    {
+      "id": "fr_c01_030",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A uniform ladder of mass $M$ and length $L$ leans against a smooth vertical wall, making an angle $\\theta$ with the rough horizontal ground. What is the minimum coefficient of static friction $\\mu_s$ between the ladder and the ground required to maintain equilibrium without slipping?",
+      "options": [
+        "A) $\\cot\\theta$",
+        "B) $\\frac{1}{2}\\tan\\theta$",
+        "C) $\\frac{1}{2}\\cot\\theta$",
+        "D) $\\frac{1}{4}\\cot\\theta$"
+      ],
+      "answer": "C",
+      "explanation": "Vertical force equilibrium gives the ground normal force $N_g = Mg$, as the vertical wall is frictionless. Horizontal force equilibrium gives $f_s = N_w$, where $N_w$ is the normal reaction from the wall. Taking torque about the base contact point with the ground: $N_w(L\\sin\\theta) - Mg\\left(\\frac{L}{2}\\cos\\theta\\right) = 0 \\implies N_w = \\frac{Mg\\cos\\theta}{2\\sin\\theta} = \\frac{Mg}{2\\tan\\theta}$. For static equilibrium without slipping: $f_s \\le \\mu_s N_g \\implies \\frac{Mg}{2\\tan\\theta} \\le \\mu_s Mg \\implies \\mu_s \\ge \\frac{1}{2\\tan\\theta} = \\frac{1}{2}\\cot\\theta$. Forgetting the factor of $1/2$ from the center of mass yields $\\cot\\theta$, while inverting the trigonometric function gives $\\frac{1}{2}\\tan\\theta$."
+    },
+    {
+      "id": "fr_c01_031",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two blocks $A$ ($m_1 = 2\\text{ kg}$) and $B$ ($m_2 = 4\\text{ kg}$) are connected by an unstretched light horizontal spring of stiffness $k = 200\\text{ N/m}$ on a rough horizontal floor (with $\\mu_s = \\mu_k = 0.5$). What minimum constant horizontal force $F$ applied to block $B$ will cause block $A$ to just begin to move? (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $30\\text{ N}$",
+        "B) $25\\text{ N}$",
+        "C) $20\\text{ N}$",
+        "D) $35\\text{ N}$"
+      ],
+      "answer": "B",
+      "explanation": "Block $A$ begins to move when the spring force equals the limiting static friction on $A$: $f_{s1,\\max} = \\mu_s m_1 g = 0.5 \\times 20 = 10\\text{ N}$. The required elongation of the spring is $x_0 = \\frac{f_{s1,\\max}}{k} = \\frac{10}{200} = 0.05\\text{ m}$. Applying the Work-Energy Theorem to block $B$ over displacement $x_0$ until it momentarily stops: $W_{\\text{net}} = F x_0 - f_{k2} x_0 - \\frac{1}{2} k x_0^2 = 0$. The kinetic friction on $B$ is $f_{k2} = \\mu_k m_2 g = 0.5 \\times 40 = 20\\text{ N}$. Dividing by $x_0$: $F - 20 - \\frac{1}{2}(200)(0.05) = 0 \\implies F - 20 - 5 = 0 \\implies F = 25\\text{ N}$. Quasistatic reasoning where $F = f_{k2} + k x_0$ incorrectly yields $30\\text{ N}$ by ignoring the kinetic energy overshoot. Considering only friction on $B$ gives $20\\text{ N}$."
+    },
+    {
+      "id": "fr_c01_032",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A block is released from rest at the top of an inclined plane of inclination angle $\\theta = 45^\\circ$. The upper half of the incline is completely frictionless, while the lower half is rough with coefficient of kinetic friction $\\mu_k$. If the block comes to rest exactly at the bottom of the incline, find $\\mu_k$.",
+      "options": [
+        "A) $1.0$",
+        "B) $0.5$",
+        "C) $1.5$",
+        "D) $2.0$"
+      ],
+      "answer": "D",
+      "explanation": "Let the total length of the inclined plane be $L$. The block moves a distance $L/2$ along the smooth upper half and $L/2$ along the rough lower half. The work done by gravity over the full distance $L$ is $W_g = mg L \\sin 45^\\circ$. The work done by kinetic friction along the lower half is $W_f = -f_k\\left(\\frac{L}{2}\\right) = -(\\mu_k mg\\cos 45^\\circ)\\left(\\frac{L}{2}\\right)$. By the Work-Energy Theorem, since the block starts from rest and ends at rest: $W_g + W_f = 0 \\implies mg L\\sin 45^\\circ = \\mu_k mg\\cos 45^\\circ\\left(\\frac{L}{2}\\right)$. Since $\\sin 45^\\circ = \\cos 45^\\circ$, simplifying yields $1 = \\frac{\\mu_k}{2} \\implies \\mu_k = 2.0$. Taking $\\mu_k = \\tan 45^\\circ = 1.0$ assumes the entire plane is rough and the speed remains constant. Inverting the ratio gives $0.5$."
+    },
+    {
+      "id": "fr_c01_033",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A wedge of mass $M = 4\\text{ kg}$ with incline angle $\\theta = 37^\\circ$ ($\\sin 37^\\circ = 0.6,\\ \\cos 37^\\circ = 0.8$) rests on a frictionless horizontal floor. A block of mass $m = 1\\text{ kg}$ is placed on the incline. The coefficient of static friction between the block and the incline is $\\mu_s = 0.5$. Find the maximum horizontal force $F$ (in newtons) that can be applied to the wedge directed toward the right such that the block does not slip UP the incline. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [],
+      "answer": "100",
+      "explanation": "Let the horizontal acceleration of the wedge be $a$ to the right. In the frame of the wedge, the pseudo-force $ma$ acts to the left on the block. The normal force is $N = mg\\cos 37^\\circ + ma\\sin 37^\\circ = 0.8 mg + 0.6 ma$. The force pushing the block up the incline is $ma\\cos 37^\\circ - mg\\sin 37^\\circ = 0.8 ma - 0.6 mg$. Limiting static friction opposes upward motion: $f_s \\le \\mu_s N = 0.5(0.8 mg + 0.6 ma) = 0.4 mg + 0.3 ma$. At the verge of slipping up: $0.8 ma - 0.6 mg = 0.4 mg + 0.3 ma \\implies 0.5 ma = 1.0 mg \\implies a = 2g = 20\\text{ m/s}^2$. The total horizontal force applied to the wedge-block system is $F = (M + m) a = (4 + 1) \\times 20 = 100\\text{ N}$."
+    },
+    {
+      "id": "fr_c01_034",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A uniform heavy rope of mass $M$ and length $L$ lies straight on a rough horizontal table with uniform kinetic friction coefficient $\\mu$. A horizontal force $F_0$ pulls one end such that the entire rope accelerates along its length. Find the tension $T(x)$ in the rope at a distance $x$ from the pulled end ($0 \\le x \\le L$).",
+      "options": [
+        "A) $F_0\\left(1 - \\frac{x}{L}\\right) - \\mu M g\\frac{x}{L}$",
+        "B) $F_0\\frac{x}{L}$",
+        "C) $(F_0 - \\mu M g)\\left(1 - \\frac{x}{L}\\right)$",
+        "D) $F_0\\left(1 - \\frac{x}{L}\\right)$"
+      ],
+      "answer": "D",
+      "explanation": "The total friction force on the entire rope is $f_{\\text{total}} = \\mu Mg$. Newton's second law for the whole rope gives $F_0 - \\mu Mg = Ma \\implies a = \\frac{F_0}{M} - \\mu g$. Now consider the rear segment of length $(L - x)$. Its mass is $m' = M\\frac{L - x}{L}$, and the friction acting on it is $f' = \\mu m' g = \\mu M\\frac{L - x}{L}g$. Tension $T(x)$ pulls this segment forward, so $T(x) - f' = m' a \\implies T(x) = f' + m' a = \\mu M\\frac{L - x}{L}g + M\\frac{L - x}{L}\\left(\\frac{F_0}{M} - \\mu g\\right)$. The friction terms $\\mu M\\frac{L - x}{L}g$ cancel out identically, leaving $T(x) = F_0\\left(1 - \\frac{x}{L}\\right)$. The tension distribution is completely independent of the friction coefficient. Erroneously keeping residual friction terms gives Option A, while measuring from the trailing end gives Option B."
+    },
+    {
+      "id": "fr_c01_035",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A small block of mass $m$ is projected with an initial speed $v_0$ along a rough horizontal plane where the local coefficient of kinetic friction increases linearly with displacement: $\\mu(x) = \\mu_0\\left(1 + \\frac{x}{L}\\right)$. Find the distance $d$ travelled by the block before it comes to rest.",
+      "options": [
+        "A) $L\\left(\\sqrt{1 + \\frac{v_0^2}{\\mu_0 g L}} - 1\\right)$",
+        "B) $\\frac{v_0^2}{2\\mu_0 g}$",
+        "C) $L\\left(\\sqrt{1 + \\frac{2v_0^2}{\\mu_0 g L}} - 1\\right)$",
+        "D) $L\\ln\\left(1 + \\frac{v_0^2}{\\mu_0 g L}\\right)$"
+      ],
+      "answer": "A",
+      "explanation": "The deceleration as a function of position is $a(x) = -\\mu(x)g = -\\mu_0 g\\left(1 + \\frac{x}{L}\\right)$. Using $v\\frac{dv}{dx} = a(x)$: $\\int_{v_0}^0 v dv = -\\mu_0 g\\int_0^d \\left(1 + \\frac{x}{L}\\right) dx \\implies -\\frac{v_0^2}{2} = -\\mu_0 g\\left(d + \\frac{d^2}{2L}\\right)$. Rearranging gives the quadratic equation: $d^2 + 2Ld - \\frac{L v_0^2}{\\mu_0 g} = 0$. Solving for the positive root: $d = \\frac{-2L + \\sqrt{4L^2 + 4\\frac{Lv_0^2}{\\mu_0 g}}}{2} = L\\left(\\sqrt{1 + \\frac{v_0^2}{\\mu_0 g L}} - 1\\right)$. Assuming constant friction $\\mu_0$ gives $\\frac{v_0^2}{2\\mu_0 g}$, which neglects the increasing resistance. Miscalculating the quadratic discriminant introduces an incorrect factor of 2 inside the radical."
+    },
+    {
+      "id": "fr_c01_036",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A uniform solid rectangular block of mass $M$, height $h$, and square base of side width $b$ rests on a rough horizontal floor with static friction coefficient $\\mu_s$. A horizontal force $F$ is applied to a side face of the block at a height $y$ above the base ($0 < y \\le h$). Which of the following statements is/are correct regarding the conditions for sliding and toppling?",
+      "options": [
+        "A) The block begins to slide without toppling if $\\mu_s < \\frac{b}{2y}$.",
+        "B) The block topples before it can slide if $\\mu_s > \\frac{b}{2y}$.",
+        "C) In static equilibrium under applied force $F$, the line of action of the normal reaction shifts forward from the center of the base by a distance $x = \\frac{Fy}{Mg}$.",
+        "D) If $\\mu_s > \\frac{b}{2y}$, the minimum force required to initiate motion (by toppling) is $F = \\frac{Mgb}{2y}$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "To analyze sliding versus toppling, step 1 is finding the sliding threshold: sliding occurs when $F = f_{s,\\max} = \\mu_s Mg$. Step 2 is finding the toppling threshold: as $F$ increases, the normal reaction shifts forward toward the front bottom tipping edge. At the verge of toppling, the entire normal force $N = Mg$ acts along the front edge, which is at distance $b/2$ from the center of mass. Taking torque equilibrium about this front bottom edge, we get $F y - Mg\\frac{b}{2} = 0$, yielding the toppling threshold force $F_{\\text{topple}} = \\frac{Mgb}{2y}$. Therefore, toppling precedes sliding if $F_{\\text{topple}} < F_{\\text{slide}}$, which implies $\\frac{Mgb}{2y} < \\mu_s Mg \\implies \\mu_s > \\frac{b}{2y}$. Conversely, sliding occurs first if $\\mu_s < \\frac{b}{2y}$. In static equilibrium prior to tipping, taking torque about the center of mass gives $F y = N x = Mg x$, which implies the forward shift is $x = \\frac{Fy}{Mg} \\le \\frac{b}{2}$. When $\\mu_s > \\frac{b}{2y}$, motion is initiated strictly by toppling at the minimum applied force $F = \\frac{Mgb}{2y}$."
+    },
+    {
+      "id": "fr_c01_037",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A uniform flat circular disc of mass $M$ and radius $R$ is spinning about its fixed central vertical axis with an initial angular speed $\\omega_0$. The spinning disc is gently placed flat onto a rough horizontal surface with a uniform coefficient of kinetic friction $\\mu_k$. Assume the normal contact pressure is uniformly distributed over the entire area of the disc. Which of the following statements is/are correct?",
+      "options": [
+        "A) The magnitude of the retarding frictional torque acting on the disc is $\\tau = \\frac{2}{3}\\mu_k MgR$.",
+        "B) The angular deceleration of the disc is $\\alpha = \\frac{4\\mu_k g}{3R}$.",
+        "C) The time required for the disc to come to complete rotational rest is $t = \\frac{3\\omega_0 R}{4\\mu_k g}$.",
+        "D) The total mechanical work done by kinetic friction during this process is $-\\frac{1}{4}MR^2\\omega_0^2$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: The normal pressure per unit area is $P = \\frac{Mg}{\\pi R^2}$. Consider an infinitesimal annular ring of radius $r$ and radial width $dr$. Its area is $dA = 2\\pi r dr$, and the normal force on it is $dN = P dA = \\frac{2Mg}{R^2} r dr$. Step 2: The kinetic friction on this element acts tangentially opposing rotation: $df_k = \\mu_k dN = \\frac{2\\mu_k Mg}{R^2} r dr$. Step 3: Integrating the torque $d\\tau = r df_k$ from $r = 0$ to $r = R$, we get $\\tau = \\int_0^R \\frac{2\\mu_k Mg}{R^2} r^2 dr = \\frac{2}{3}\\mu_k MgR$. Step 4: The moment of inertia of the disc is $I = \\frac{1}{2}MR^2$. Applying $\\tau = I\\alpha$, the angular deceleration is $\\alpha = \\frac{\\tau}{I} = \\frac{\\frac{2}{3}\\mu_k MgR}{\\frac{1}{2}MR^2} = \\frac{4\\mu_k g}{3R}$. Step 5: The time taken to come to rest is $t = \\frac{\\omega_0}{\\alpha} = \\frac{3\\omega_0 R}{4\\mu_k g}$. Step 6: By the Work-Energy Theorem, the work done by friction equals the change in rotational kinetic energy: $W_f = 0 - \\frac{1}{2}I\\omega_0^2 = -\\frac{1}{2}\\left(\\frac{1}{2}MR^2\\right)\\omega_0^2 = -\\frac{1}{4}MR^2\\omega_0^2$."
+    },
+    {
+      "id": "fr_c01_038",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A thin uniform annular washer of mass $M$, inner radius $R_1$, and outer radius $R_2$ rotates with an initial angular speed $\\omega_0$ and is placed flat on a rough horizontal surface with friction coefficient $\\mu_k$. The contact pressure is uniformly distributed. Which of the following statements is/are correct?",
+      "options": [
+        "A) The frictional torque about the central axis is $\\tau = \\frac{2}{3}\\mu_k Mg\\frac{R_2^3 - R_1^3}{R_2^2 - R_1^2}$.",
+        "B) The moment of inertia of the annular washer about its central axis is $I = \\frac{1}{2}M(R_1^2 + R_2^2)$.",
+        "C) In the limiting case of a thin hoop ($R_1 \\to R_2 = R$), the retarding frictional torque approaches $\\mu_k MgR$.",
+        "D) The angular deceleration $\\alpha$ depends directly on the mass $M$ of the washer."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: The area of the annular washer is $A = \\pi(R_2^2 - R_1^2)$. For an elemental ring of radius $r$ and width $dr$, the normal force is $dN = \\frac{Mg}{\\pi(R_2^2 - R_1^2)}(2\\pi r dr) = \\frac{2Mg}{R_2^2 - R_1^2} r dr$. Step 2: Integrating the frictional torque $d\\tau = r (\\mu_k dN)$ yields $\\tau = \\frac{2\\mu_k Mg}{R_2^2 - R_1^2}\\int_{R_1}^{R_2} r^2 dr = \\frac{2}{3}\\mu_k Mg\\frac{R_2^3 - R_1^3}{R_2^2 - R_1^2}$, confirming statement A. Step 3: By integrating $r^2 dm$, the moment of inertia about the central perpendicular axis is $I = \\frac{1}{2}M(R_1^2 + R_2^2)$, confirming statement B. Step 4: In the thin hoop limit where $R_1 \\to R_2 = R$, $\\frac{R_2^3 - R_1^3}{R_2^2 - R_1^2} = \\frac{(R_2 - R_1)(R_2^2 + R_1 R_2 + R_1^2)}{(R_2 - R_1)(R_2 + R_1)} \\to \\frac{3R^2}{2R} = \\frac{3}{2}R$. Substituting this gives $\\tau \\to \\frac{2}{3}\\mu_k Mg\\left(\\frac{3}{2}R\\right) = \\mu_k MgR$, confirming statement C. Step 5: The angular deceleration is $\\alpha = \\frac{\\tau}{I} = \\frac{4\\mu_k g}{3}\\frac{R_2^3 - R_1^3}{(R_2^2 - R_1^2)(R_1^2 + R_2^2)}$. Notice that mass $M$ cancels out completely from the ratio $\\tau / I$, hence $\\alpha$ is completely independent of $M$, making statement D false."
+    },
+    {
+      "id": "fr_c01_039",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A uniform solid cylinder of mass $m$ and radius $R$ is released from rest on an inclined plane of inclination angle $\\theta$. The static and kinetic coefficients of friction between the cylinder and the plane are $\\mu_s$ and $\\mu_k$, respectively. Which of the following statements is/are correct?",
+      "options": [
+        "A) The minimum coefficient of static friction required for pure rolling without slipping is $\\mu_{\\min} = \\frac{1}{3}\\tan\\theta$.",
+        "B) During pure rolling, the linear acceleration of the center of mass down the plane is $a = \\frac{2}{3}g\\sin\\theta$.",
+        "C) The work done by the static friction force during pure rolling along any displacement $s$ is strictly zero.",
+        "D) If $\\mu_s < \\frac{1}{3}\\tan\\theta$, the cylinder undergoes slipping with angular acceleration $\\alpha = \\frac{2\\mu_k g\\cos\\theta}{R}$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: For rolling motion, Newton's second law down the incline gives $mg\\sin\\theta - f = ma$. Step 2: Torque about the center of mass is $\\tau = f R = I\\alpha = \\left(\\frac{1}{2}mR^2\\right)\\alpha$. For pure rolling, the kinematic rolling constraint is $a = R\\alpha$, which implies $f = \\frac{1}{2}ma$. Step 3: Substituting $f$ into Newton's law yields $mg\\sin\\theta - \\frac{1}{2}ma = ma \\implies a = \\frac{2}{3}g\\sin\\theta$. The required static friction is therefore $f = \\frac{1}{3}mg\\sin\\theta$. Step 4: Pure rolling requires $f \\le f_{s,\\max} = \\mu_s mg\\cos\\theta$, which implies $\\frac{1}{3}mg\\sin\\theta \\le \\mu_s mg\\cos\\theta \\implies \\mu_s \\ge \\frac{1}{3}\\tan\\theta$. Step 5: During pure rolling, the point of contact is instantaneously at rest ($v_{\\text{contact}} = 0$), so the power and work done by static friction are identically zero. Step 6: When $\\mu_s < \\frac{1}{3}\\tan\\theta$, slipping occurs and kinetic friction acts: $f_k = \\mu_k mg\\cos\\theta$. Torque is $\\tau = f_k R = \\mu_k mgR\\cos\\theta = \\left(\\frac{1}{2}mR^2\\right)\\alpha$, yielding $\\alpha = \\frac{2\\mu_k g\\cos\\theta}{R}$."
+    },
+    {
+      "id": "fr_c01_040",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Two blocks $A$ (mass $m$) and $B$ (mass $2m$) are connected by a light inextensible string and placed on a rough inclined plane of inclination $\\theta$. Block $A$ is placed higher up the incline and block $B$ is placed lower down. The coefficients of kinetic friction for blocks $A$ and $B$ are $\\mu_A$ and $\\mu_B$ respectively, with $\\tan\\theta > \\max(\\mu_A, \\mu_B)$ so both blocks slide downward. Which of the following statements is/are correct?",
+      "options": [
+        "A) If $\\mu_A > \\mu_B$, the tension in the connecting string is non-zero and equal to $T = \\frac{2}{3}m(\\mu_A - \\mu_B)g\\cos\\theta$.",
+        "B) If $\\mu_A < \\mu_B$, the connecting string remains slack ($T = 0$) and the blocks accelerate independently.",
+        "C) If $\\mu_A > \\mu_B$, the common acceleration of the combined system is $a = g\\sin\\theta - \\frac{\\mu_A + 2\\mu_B}{3}g\\cos\\theta$.",
+        "D) If $\\mu_A = \\mu_B$, the tension in the connecting string is $T = \\frac{1}{3}mg\\cos\\theta$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: If the blocks were uncoupled, their independent downward accelerations would be $a_A = g(\\sin\\theta - \\mu_A\\cos\\theta)$ and $a_B = g(\\sin\\theta - \\mu_B\\cos\\theta)$. Step 2: If $\\mu_A > \\mu_B$, block $B$ has a smaller friction coefficient and tends to accelerate faster down the plane than block $A$. Consequently, the connecting string becomes taut ($T > 0$) to pull block $A$ forward and retard block $B$. Step 3: For the combined system of mass $3m$, the total downhill force is $3mg\\sin\\theta - (\\mu_A mg\\cos\\theta + 2\\mu_B mg\\cos\\theta) = 3ma$, giving common acceleration $a = g\\sin\\theta - \\frac{\\mu_A + 2\\mu_B}{3}g\\cos\\theta$, which confirms statement C. Step 4: Writing the equation of motion for block $A$: $mg\\sin\\theta + T - \\mu_A mg\\cos\\theta = ma$. Substituting $a$ yields $T = ma - mg\\sin\\theta + \\mu_A mg\\cos\\theta = m\\left(-\\frac{\\mu_A + 2\\mu_B}{3}g\\cos\\theta + \\mu_A g\\cos\\theta\\right) = \\frac{2}{3}m(\\mu_A - \\mu_B)g\\cos\\theta$, confirming statement A. Step 5: If $\\mu_A < \\mu_B$, block $A$ accelerates faster than block $B$, causing the string to become slack ($T = 0$), which confirms statement B. When $\\mu_A = \\mu_B$, substituting into formula gives $T = 0$, so statement D is false."
+    },
+    {
+      "id": "fr_c01_041",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A uniform round rigid body of mass $M$, radius $R$, and moment of inertia $I_{cm}$ about its central axis rests on a rough horizontal surface. A sharp horizontal impulse $J$ is applied at a height $h$ above its center of mass. Which of the following statements is/are correct regarding the subsequent motion?",
+      "options": [
+        "A) Pure rolling begins immediately without any initial friction force if $h = \\frac{I_{cm}}{MR}$.",
+        "B) For a uniform solid sphere, the required height for instantaneous pure rolling without friction is $h = \\frac{2}{5}R$.",
+        "C) For a uniform solid cylinder, the required height for instantaneous pure rolling without friction is $h = \\frac{1}{2}R$.",
+        "D) If the impulse is applied at a height $h > \\frac{I_{cm}}{MR}$, the initial friction force at the contact point acts in the forward direction."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: The horizontal impulse $J$ imparts an initial center of mass velocity $v_0 = \\frac{J}{M}$. The angular impulse about the center of mass is $\\tau_{\\text{imp}} = J h = I_{cm}\\omega_0$, giving an initial angular velocity $\\omega_0 = \\frac{Jh}{I_{cm}}$. Step 2: The velocity of the bottom contact point immediately following the impulse is $v_{\\text{contact}} = v_0 - R\\omega_0 = \\frac{J}{M} - \\frac{JhR}{I_{cm}} = J\\left(\\frac{1}{M} - \\frac{hR}{I_{cm}}\\right)$. Step 3: For instantaneous pure rolling, the contact point must have zero velocity ($v_{\\text{contact}} = 0$), which yields $\\frac{1}{M} = \\frac{hR}{I_{cm}} \\implies h = \\frac{I_{cm}}{MR}$. At this critical height, no slipping occurs, hence no friction force is exerted at $t = 0^+$. Step 4: For a solid sphere, $I_{cm} = \\frac{2}{5}MR^2$, so $h = \\frac{2}{5}R$. For a solid cylinder, $I_{cm} = \\frac{1}{2}MR^2$, so $h = \\frac{1}{2}R$. Step 5: If $h > \\frac{I_{cm}}{MR}$, then $R\\omega_0 > v_0$, meaning the bottom contact point tends to slip backward. Consequently, the friction force on the body acts in the forward direction."
+    },
+    {
+      "id": "fr_c01_042",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A uniform solid cube of mass $M$ and side length $a$ rests on an inclined plane whose inclination angle $\\theta$ is slowly and continuously increased from $0^\\circ$. The coefficient of static friction between the cube and the plane is $\\mu_s$. Which of the following statements is/are correct regarding the stability and motion of the cube?",
+      "options": [
+        "A) If $\\mu_s < 1$, the cube begins to slide down the incline before it can topple, at an angle $\\theta = \\tan^{-1}\\mu_s$.",
+        "B) If $\\mu_s > 1$, the cube topples before it slides, at an inclination angle $\\theta = 45^\\circ$.",
+        "C) Prior to any motion, the line of action of the normal reaction shifts downslope from the center of the base by a distance $x = \\frac{a}{2}\\tan\\theta$.",
+        "D) If $\\mu_s = 1$, sliding and impending toppling occur simultaneously when $\\theta = 45^\\circ$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: The condition for sliding is reached when the component of gravity down the incline overcomes maximum static friction: $Mg\\sin\\theta \\ge \\mu_s Mg\\cos\\theta \\implies \\tan\\theta \\ge \\mu_s$. Step 2: Toppling occurs when the normal reaction shifts all the way to the lowest contact edge of the cube base. Taking torque about the lowest edge, the tipping threshold is reached when the line of action of gravity passes through this edge: $(Mg\\sin\\theta)\\frac{a}{2} - (Mg\\cos\\theta)\\frac{a}{2} = 0 \\implies \\tan\\theta = 1 \\implies \\theta = 45^\\circ$. Step 3: If $\\mu_s < 1$, the angle of sliding $\\theta_{\\text{slide}} = \\tan^{-1}\\mu_s < 45^\\circ$, so sliding occurs first. If $\\mu_s > 1$, $\\theta_{\\text{topple}} = 45^\\circ < \\tan^{-1}\\mu_s$, so toppling occurs first. Step 4: Before motion starts, torque equilibrium about the center of mass gives $(f_s)\\frac{a}{2} = N x$. Since $f_s = Mg\\sin\\theta$ and $N = Mg\\cos\\theta$, we find $x = \\frac{f_s a}{2N} = \\frac{Mg\\sin\\theta}{Mg\\cos\\theta}\\frac{a}{2} = \\frac{a}{2}\\tan\\theta$. When $\\theta = 45^\\circ$, $x = a/2$, reaching the front edge. If $\\mu_s = 1$, both thresholds coincide at $45^\\circ$."
+    },
+    {
+      "id": "fr_c01_043",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A uniform solid rectangular crate of mass $M = 20\\text{ kg}$, height $H = 1.2\\text{ m}$, and base width $W = 0.6\\text{ m}$ is placed upright on the horizontal flatbed of a truck. The coefficient of static friction between the crate and the truck bed is $\\mu_s = 0.6$. The truck accelerates horizontally forward on a straight level road. Find the maximum acceleration $a_{\\max}$ (in m/s²) the truck can achieve without the crate either slipping or toppling. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [],
+      "answer": "5",
+      "explanation": "Step 1: Analyze the sliding threshold. In the reference frame of the truck accelerating forward with acceleration $a$, a backward pseudo-force $Ma$ acts on the crate through its center of mass. To prevent sliding, static friction must balance this force: $Ma \\le f_{s,\\max} = \\mu_s Mg \\implies a \\le \\mu_s g = 0.6 \\times 10 = 6\\text{ m/s}^2$. Step 2: Analyze the toppling threshold. The crate tends to tip over its rear bottom edge. The destabilizing torque of the pseudo-force about the rear edge is $\\tau_{\\text{topple}} = Ma\\left(\\frac{H}{2}\\right)$. The stabilizing restoring torque due to gravity about the rear edge is $\\tau_{\\text{gravity}} = Mg\\left(\\frac{W}{2}\\right)$. To prevent toppling: $Ma\\frac{H}{2} \\le Mg\\frac{W}{2} \\implies a \\le g\\frac{W}{H}$. Substituting the given dimensions: $a \\le 10 \\times \\frac{0.6}{1.2} = 5\\text{ m/s}^2$. Step 3: To prevent both sliding and toppling simultaneously, the truck acceleration is restricted by the smaller threshold: $a_{\\max} = \\min(6, 5) = 5\\text{ m/s}^2$."
+    },
+    {
+      "id": "fr_c01_044",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A cylindrical spool has an inner winding axle of radius $r = 10\\text{ cm}$ and outer circular flanges of radius $R = 20\\text{ cm}$. It rests on a rough horizontal surface. A light thread wound around the inner axle is pulled with a steady force $F$ at an angle $\\theta$ above the horizontal. Find the critical angle $\\theta_c$ (in degrees) such that the spool tends neither to roll to the left nor to the right, but experiences zero net torque about its instantaneous contact point with the floor.",
+      "options": [],
+      "answer": "60",
+      "explanation": "Step 1: Consider rolling without slipping on a horizontal surface. The instantaneous axis of rotation is the line of contact $P$ between the outer flanges and the floor. Step 2: The tendency to roll is determined by the sign of the torque about this contact line $P$. The normal reaction, gravity, and static friction all exert zero torque about $P$. The only force producing torque about $P$ is the pulling force $F$. Step 3: The perpendicular distance from point $P$ to the line of action of force $F$ pulled upward and to the right from the bottom of the axle is $d = R\\cos\\theta - r$. Step 4: The torque about $P$ is $\\tau_P = F(R\\cos\\theta - r)$. If $R\\cos\\theta > r$, the spool rolls forward to the right. If $R\\cos\\theta < r$, the spool rolls backward to the left. The critical transition occurs when the net torque about $P$ vanishes: $R\\cos\\theta_c = r \\implies \\cos\\theta_c = \\frac{r}{R} = \\frac{10}{20} = 0.5$. Therefore, the critical angle is $\\theta_c = \\cos^{-1}(0.5) = 60^\\circ$."
+    },
+    {
+      "id": "fr_c01_045",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A uniform flat circular disc of mass $M$ and radius $R$ is projected on a rough horizontal floor with an initial linear velocity $v_0$ and an initial spinning angular velocity $\\omega_0$ about its central vertical axis. The coefficient of kinetic friction $\\mu$ is uniform. Find the relation between $v_0$ and $\\omega_0$ such that both the translational motion and the rotational motion of the disc cease at the exact same instant.",
+      "options": [
+        "A) $v_0 = \\frac{3}{4}\\omega_0 R$",
+        "B) $v_0 = \\omega_0 R$",
+        "C) $v_0 = \\frac{2}{3}\\omega_0 R$",
+        "D) $v_0 = \\frac{1}{2}\\omega_0 R$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The linear deceleration due to kinetic friction is $a = \\mu g$. The time required for translational velocity to reach zero is $t_1 = \\frac{v_0}{a} = \\frac{v_0}{\\mu g}$. Step 2: The retarding frictional torque on the flat circular disc rotating about its central vertical axis on the rough surface is derived by integrating over annular rings: $\\tau = \\int_0^R r(\\mu dN) = \\frac{2\\mu Mg}{R^2}\\int_0^R r^2 dr = \\frac{2}{3}\\mu MgR$. Step 3: The moment of inertia of the disc is $I = \\frac{1}{2}MR^2$. The angular deceleration is $\\alpha = \\frac{\\tau}{I} = \\frac{\\frac{2}{3}\\mu MgR}{\\frac{1}{2}MR^2} = \\frac{4\\mu g}{3R}$. Step 4: The time taken for rotational motion to stop is $t_2 = \\frac{\\omega_0}{\\alpha} = \\frac{3\\omega_0 R}{4\\mu g}$. Step 5: For both motions to terminate simultaneously, we equate $t_1 = t_2$: $\\frac{v_0}{\\mu g} = \\frac{3\\omega_0 R}{4\\mu g} \\implies v_0 = \\frac{3}{4}\\omega_0 R$. Option B confuses pure rolling ($v = \\omega R$) with simultaneous cessation under sliding friction. Option C results from using the torque of a thin hoop instead of a solid disc."
+    },
+    {
+      "id": "fr_c01_046",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A small bead of mass $m$ is threaded on a fixed rough horizontal circular wire hoop of radius $R$. The coefficient of kinetic friction between the bead and the wire is $\\mu$. The bead is projected with an initial speed $v_0$ along the wire in a gravity-free environment. Find the distance $s$ traversed by the bead along the wire until its speed decreases to $v = \\frac{v_0}{e}$.",
+      "options": [
+        "A) $\\frac{R}{2\\mu}$",
+        "B) $\\frac{R}{\\mu}$",
+        "C) $\\frac{2R}{\\mu}$",
+        "D) $\\frac{R}{\\mu e}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In the absence of gravity, the normal force exerted by the circular wire on the bead is purely centripetal: $N = \\frac{m v^2}{R}$. Step 2: The kinetic friction opposing tangential motion is $f_k = \\mu N = \\mu \\frac{m v^2}{R}$. Step 3: Writing the tangential equation of motion using $v\\frac{dv}{ds}$: $m v\\frac{dv}{ds} = -f_k = -\\mu \\frac{m v^2}{R}$. Step 4: Dividing both sides by $m v$ yields $\\frac{dv}{ds} = -\\frac{\\mu}{R}v \\implies \\frac{dv}{v} = -\\frac{\\mu}{R}ds$. Step 5: Integrating from initial speed $v_0$ (at $s = 0$) to final speed $v_0/e$: $\\int_{v_0}^{v_0/e} \\frac{dv}{v} = -\\frac{\\mu}{R}\\int_0^s ds \\implies \\ln\\left(\\frac{v_0/e}{v_0}\\right) = -\\frac{\\mu s}{R}$. Since $\\ln(e^{-1}) = -1$, we get $-1 = -\\frac{\\mu s}{R} \\implies s = \\frac{R}{\\mu}$. Treating the acceleration as constant gives $\\frac{R}{2\\mu}$, while integrating $\\frac{1}{v^2}$ incorrectly produces $\\frac{R}{\\mu e}$."
+    },
+    {
+      "id": "fr_c01_047",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A heavy flexible cable is wound around a fixed rough horizontal cylindrical bollard with a coefficient of static friction $\\mu = \\frac{\\ln 2}{2\\pi}$. A small tension force of $T_1 = 10\\text{ N}$ applied by a worker at one end is sufficient to hold a huge mooring load of $T_2 = 320\\text{ N}$ at the other end on the verge of slipping. Determine the total integer number of full turns $N$ the cable makes around the bollard.",
+      "options": [],
+      "answer": "5",
+      "explanation": "Step 1: The capstan relation for belt friction on a curved cylinder is $T_2 = T_1 e^{\\mu\\theta}$, where $\\theta$ is the total contact wrap angle in radians. Step 2: If the cable makes $N$ full revolutions around the bollard, the total angle of wrap is $\\theta = 2\\pi N$. Step 3: Substituting $\\mu = \\frac{\\ln 2}{2\\pi}$, the exponent becomes $\\mu\\theta = \\left(\\frac{\\ln 2}{2\\pi}\\right)(2\\pi N) = N\\ln 2$. Step 4: The exponential tension amplification is $e^{\\mu\\theta} = e^{N\\ln 2} = (e^{\\ln 2})^N = 2^N$. Step 5: Equating the tension ratio to the amplification factor: $\\frac{T_2}{T_1} = \\frac{320}{10} = 32$. Since $32 = 2^5$, we have $2^N = 2^5 \\implies N = 5$ full turns."
+    },
+    {
+      "id": "fr_c01_048",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A small washer of mass $m$ is placed on a rough horizontal turntable at a radial distance $r = 1\\text{ m}$ from the central rotation axis. The coefficient of static friction between the washer and the turntable is $\\mu_s = 0.5$. The turntable starts from rest at $t = 0$ and accelerates with a constant angular acceleration $\\alpha = 3\\text{ rad/s}^2$. Find the time $t$ (in seconds) at which the washer begins to slip. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $\\frac{1}{3}\\text{ s}$",
+        "B) $1\\text{ s}$",
+        "C) $\\frac{2}{3}\\text{ s}$",
+        "D) $\\frac{\\sqrt{5}}{3}\\text{ s}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: At time $t$, the angular speed of the turntable is $\\omega(t) = \\alpha t = 3t$. Step 2: The tangential acceleration of the washer is constant: $a_t = \\alpha r = 3 \\times 1 = 3\\text{ m/s}^2$. The centripetal acceleration is $a_c = \\omega^2 r = (3t)^2 \\times 1 = 9t^2\\text{ m/s}^2$. Step 3: Since tangential and centripetal accelerations are orthogonal, the net acceleration of the washer is $a_{\\text{net}} = \\sqrt{a_t^2 + a_c^2} = \\sqrt{3^2 + (9t^2)^2} = \\sqrt{9 + 81t^4}$. Step 4: To prevent slipping, static friction must supply this net acceleration: $a_{\\text{net}} \\le \\mu_s g = 0.5 \\times 10 = 5\\text{ m/s}^2$. Step 5: At the verge of slipping: $\\sqrt{9 + 81t^4} = 5 \\implies 9 + 81t^4 = 25 \\implies 81t^4 = 16 \\implies 9t^2 = 4 \\implies t^2 = \\frac{4}{9} \\implies t = \\frac{2}{3}\\text{ s}$. Considering only centripetal acceleration and neglecting tangential acceleration yields $\\frac{\\sqrt{5}}{3}\\text{ s}$. Setting tangential acceleration equal to $\\mu_s g$ yields $\\frac{1}{3}\\text{ s}$."
+    },
+    {
+      "id": "fr_c01_049",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A uniform solid sphere of mass $M$ and radius $R$ is placed on an incline of angle $\\theta = 45^\\circ$. The coefficient of friction between the sphere and the incline is $\\mu = \\frac{1}{7}$. Find the linear acceleration $a$ of the center of mass and the angular acceleration $\\alpha$ of the sphere about its center of mass. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [
+        "A) $a = \\frac{5g}{7\\sqrt{2}},\\ \\alpha = \\frac{5g}{7\\sqrt{2}R}$",
+        "B) $a = \\frac{g}{\\sqrt{2}},\\ \\alpha = 0$",
+        "C) $a = \\frac{4g}{7\\sqrt{2}},\\ \\alpha = \\frac{5g}{7\\sqrt{2}R}$",
+        "D) $a = \\frac{6g}{7\\sqrt{2}},\\ \\alpha = \\frac{5g}{14\\sqrt{2}R}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Check whether pure rolling is possible. The minimum friction coefficient required for pure rolling of a solid sphere on an incline is $\\mu_{\\min} = \\frac{2}{7}\\tan\\theta = \\frac{2}{7}\\tan 45^\\circ = \\frac{2}{7}$. Since the given $\\mu = \\frac{1}{7} < \\frac{2}{7}$, the sphere cannot roll purely and must slip down the incline. Step 2: Since slipping occurs, the friction force reaches its limiting kinetic value: $f_k = \\mu N = \\mu Mg\\cos 45^\\circ = \\frac{1}{7}Mg\\frac{1}{\\sqrt{2}}$. Step 3: Newton's second law for translational motion down the incline gives $Mg\\sin 45^\\circ - f_k = Ma \\implies a = g\\sin 45^\\circ - \\mu g\\cos 45^\\circ = \\frac{g}{\\sqrt{2}}\\left(1 - \\frac{1}{7}\\right) = \\frac{6g}{7\\sqrt{2}}$. Step 4: The torque about the center of mass is produced solely by kinetic friction: $\\tau = f_k R = \\left(\\frac{1}{7\\sqrt{2}}Mg\\right)R$. Step 5: The moment of inertia of the solid sphere is $I = \\frac{2}{5}MR^2$. Applying $\\tau = I\\alpha$: $\\alpha = \\frac{\\tau}{I} = \\frac{\\frac{1}{7\\sqrt{2}}MgR}{\\frac{2}{5}MR^2} = \\frac{5g}{14\\sqrt{2}R}$. Option A erroneously assumes pure rolling ($a = R\\alpha$), giving an incorrect acceleration. Option B neglects friction entirely."
+    },
+    {
+      "id": "fr_c01_050",
+      "subject": "Physics",
+      "topic": "Friction",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Two blocks $A$ ($m_A = 1\\text{ kg}$) and $B$ ($m_B = 2\\text{ kg}$) rest on a rough horizontal table with friction coefficient $\\mu_s = \\mu_k = 0.4$, connected by an unstretched light spring of stiffness $k = 80\\text{ N/m}$. Block $A$ is held fixed while block $B$ is pulled to the right, stretching the spring by distance $x$. Block $A$ is then released while block $B$ is released from rest. Find the minimum initial stretch $x$ (in centimeters) such that block $A$ will eventually just begin to slip. (Take $g = 10\\text{ m/s}^2$).",
+      "options": [],
+      "answer": "25",
+      "explanation": "Step 1: For block $A$ to begin to slip, the spring force pulling it must reach the maximum static friction on block $A$: $F_{\\text{spring}} = f_{sA,\\max} = \\mu_s m_A g = 0.4 \\times 1 \\times 10 = 4\\text{ N}$. Step 2: This required threshold corresponds to a spring compression of $x_c = \\frac{F_{\\text{spring}}}{k} = \\frac{4}{80} = 0.05\\text{ m} = 5\\text{ cm}$. Step 3: When block $B$ is released from rest at initial extension $+x$, it accelerates to the left. The kinetic friction opposing block $B$ is $f_{kB} = \\mu_k m_B g = 0.4 \\times 2 \\times 10 = 8\\text{ N}$. Step 4: Applying the Work-Energy Theorem to block $B$ from initial position $+x$ to the turning point of maximum compression $-x_c$ where it momentarily comes to rest: $W_{\\text{spring}} + W_{\\text{friction}} = \\Delta K = 0$. Step 5: The work done by the spring is $W_{\\text{spring}} = \\frac{1}{2}kx^2 - \\frac{1}{2}kx_c^2$. The total distance travelled by block $B$ is $d = x + x_c$, so the work done by friction is $W_{\\text{friction}} = -f_{kB}(x + x_c)$. Step 6: Setting the net work to zero: $\\frac{1}{2}k(x^2 - x_c^2) - f_{kB}(x + x_c) = 0$. Factoring $(x + x_c) \\ne 0$ yields $\\frac{1}{2}k(x - x_c) = f_{kB} \\implies x - x_c = \\frac{2f_{kB}}{k}$. Step 7: Substituting the values: $x = x_c + \\frac{2f_{kB}}{k} = 0.05 + \\frac{2 \\times 8}{80} = 0.05 + 0.20 = 0.25\\text{ m} = 25\\text{ cm}$."
+    }
+  ]
+}

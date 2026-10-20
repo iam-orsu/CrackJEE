@@ -1,0 +1,533 @@
+{
+  "questions": [
+    {
+      "id": "mcm_c02_001",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A particle of mass $m$ and positive charge $q$ enters the region between two horizontal parallel plates of length $L$ separated by distance $d$ through an entrance aperture located midway between the plates ($y = d/2$). A uniform downward electric field $\\vec{E} = -E_0\\hat{j}$ and a uniform magnetic field $\\vec{B} = -B_0\\hat{k}$ exist between the plates. When the particle travels with speed $v_0 = E_0/B_0$, it passes through undeflected along the central line. If the electric field is abruptly switched off while the magnetic field $\\vec{B}$ is maintained, determine the minimum speed $v_{\\min}$ the particle must possess at entry so that it emerges from the right exit boundary ($x = L$) without striking either plate.",
+      "options": [
+        "A) $\\frac{q B_0}{m}\\left(\\frac{L^2}{d} + \\frac{d}{4}\\right)$",
+        "B) $\\frac{q B_0}{2m}\\left(\\frac{L^2}{d} + \\frac{d}{2}\\right)$",
+        "C) $\\frac{q B_0 L^2}{m d}$",
+        "D) $\\frac{q B_0}{m}\\left(\\frac{L^2}{2d} + \\frac{d}{8}\\right)$"
+      ],
+      "answer": "A",
+      "explanation": "When only the magnetic field $\\vec{B} = -B_0\\hat{k}$ acts, the magnetic Lorentz force at entry is $\\vec{F} = q(\\vec{v}\\times\\vec{B}) = q(v\\hat{i}\\times -B_0\\hat{k}) = q v B_0\\hat{j}$. The particle curves upward in a circular arc of gyration radius $R = \\frac{m v}{q B_0}$ with center at $(0, d/2 + R)$. The equation of this trajectory is $x^2 + (y - d/2 - R)^2 = R^2$, giving upward vertical displacement $y(x) = d/2 + R - \\sqrt{R^2 - x^2}$. To emerge from the exit boundary at $x = L$ without striking the top plate at $y = d$, the vertical position at exit must satisfy $y(L) \\le d$. Substituting $x = L$ yields $d/2 + R - \\sqrt{R^2 - L^2} \\le d$, which simplifies to $\\sqrt{R^2 - L^2} \\ge R - d/2$. Squaring both sides gives $R^2 - L^2 \\ge R^2 - R d + d^2/4$. Solving for $R$ yields $R \\ge \\frac{L^2}{d} + \\frac{d}{4}$. Substituting $R = \\frac{m v}{q B_0}$, the minimum required entry speed is $v_{\\min} = \\frac{q B_0}{m}\\left(\\frac{L^2}{d} + \\frac{d}{4}\\right)$. Hence, option A is correct. Option B incorrectly replaces $d/4$ with $d/2$; option C prematurely neglects the initial half-plate offset $d/4$; option D erroneously includes an extra factor of $1/2$ on $L^2/d$."
+    },
+    {
+      "id": "mcm_c02_002",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Four long, parallel, straight conducting wires are positioned at the four vertices of a square of side length $a$ in the $xy$-plane, aligned parallel to the $z$-axis. Wires $1, 2,$ and $3$ located at $(0, a)$, $(a, a)$, and $(a, 0)$ respectively carry equal steady currents $I$ directed into the page ($-\\hat{k}$). Wire $4$ located at the origin $(0, 0)$ carries current $I$ directed out of the page ($+\\hat{k}$). What is the magnitude of the net magnetic force per unit length acting on wire $1$ located at $(0, a)$?",
+      "options": [
+        "A) $\\frac{\\sqrt{10}\\mu_0 I^2}{4\\pi a}$",
+        "B) $\\frac{3\\mu_0 I^2}{4\\pi a}$",
+        "C) $\\frac{\\sqrt{5}\\mu_0 I^2}{4\\pi a}$",
+        "D) $\\frac{(2\\sqrt{2} - 1)\\mu_0 I^2}{4\\pi a}$"
+      ],
+      "answer": "A",
+      "explanation": "Let wire $1$ be at $(0, a)$. The magnetic force per unit length between two parallel wires separated by distance $r$ carrying currents $I_1$ and $I_2$ is $f = \\frac{\\mu_0 I_1 I_2}{2\\pi r}$, being attractive for parallel currents and repulsive for antiparallel currents. Applying this to wire $1$: (1) Wire $2$ at $(a, a)$ carries current in the same direction ($-\\hat{k}$), so it attracts wire $1$ along $+\\hat{i}$ with force $\\vec{f}_{12} = \\frac{\\mu_0 I^2}{2\\pi a}\\hat{i}$. (2) Wire $4$ at $(0, 0)$ carries opposite current ($+\\hat{k}$), so it repels wire $1$ away along $+\\hat{j}$ with force $\\vec{f}_{14} = \\frac{\\mu_0 I^2}{2\\pi a}\\hat{j}$. (3) Wire $3$ at $(a, 0)$ carries current in the same direction ($-\\hat{k}$), so it attracts wire $1$ along the displacement vector $a\\hat{i} - a\\hat{j}$. The separation is $\\sqrt{2}a$, yielding force $\\vec{f}_{13} = \\frac{\\mu_0 I^2}{2\\pi (\\sqrt{2}a)}\\left(\\frac{\\hat{i} - \\hat{j}}{\\sqrt{2}}\\right) = \\frac{\\mu_0 I^2}{4\\pi a}(\\hat{i} - \\hat{j})$. Summing all components: $f_x = \\frac{\\mu_0 I^2}{2\\pi a} + \\frac{\\mu_0 I^2}{4\\pi a} = \\frac{3\\mu_0 I^2}{4\\pi a}$, and $f_y = \\frac{\\mu_0 I^2}{2\\pi a} - \\frac{\\mu_0 I^2}{4\\pi a} = \\frac{\\mu_0 I^2}{4\\pi a}$. Therefore, the net force magnitude is $f_{net} = \\sqrt{f_x^2 + f_y^2} = \\frac{\\mu_0 I^2}{4\\pi a}\\sqrt{3^2 + 1^2} = \\frac{\\sqrt{10}\\mu_0 I^2}{4\\pi a}$, confirming option A. Option B omits the vertical net component; option C ignores diagonal wire attraction; option D uses scalar subtraction instead of orthogonal vector summation."
+    },
+    {
+      "id": "mcm_c02_003",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A circular conducting loop of radius $R$ carrying a steady direct current $I$ is bent along one of its diameters so that the two semicircular halves lie in mutually perpendicular planes: one semicircle lies in the $xy$-plane and the other lies in the $yz$-plane. Determine the magnitude of the net magnetic field $\\vec{B}$ at the common center of the two semicircles.",
+      "options": [
+        "A) $\\frac{\\mu_0 I}{2\\sqrt{2} R}$",
+        "B) $\\frac{\\mu_0 I}{4 R}$",
+        "C) $\\frac{\\mu_0 I}{2 R}$",
+        "D) $\\frac{\\sqrt{3}\\mu_0 I}{4 R}$"
+      ],
+      "answer": "A",
+      "explanation": "By the Biot-Savart law, the magnetic field at the center of curvature of a planar semicircular arc of radius $R$ carrying steady current $I$ is given by $B_{semi} = \\frac{\\mu_0 I}{4 R}$. For the semicircle lying in the $xy$-plane, the right-hand grip rule dictates that its magnetic field vector is directed along the normal to the $xy$-plane: $\\vec{B}_1 = \\pm \\frac{\\mu_0 I}{4 R}\\hat{k}$. For the second semicircle lying in the $yz$-plane, its magnetic field vector is directed along the normal to the $yz$-plane: $\\vec{B}_2 = \\pm \\frac{\\mu_0 I}{4 R}\\hat{i}$. Because the unit vectors $\\hat{i}$ and $\\hat{k}$ are mutually orthogonal, the net magnetic field vector at the common center is $\\vec{B}_{net} = \\vec{B}_1 + \\vec{B}_2$. Computing the vector magnitude yields $B_{net} = \\sqrt{B_1^2 + B_2^2} = \\sqrt{\\left(\\frac{\\mu_0 I}{4 R}\\right)^2 + \\left(\\frac{\\mu_0 I}{4 R}\\right)^2} = \\frac{\\sqrt{2}\\mu_0 I}{4 R} = \\frac{\\mu_0 I}{2\\sqrt{2} R}$. Thus, option A is correct. Option B accounts for only one semicircular contribution; option C treats the loop as an unbent planar full circle; option D assumes an incorrect $60^\\circ$ spatial inclination angle."
+    },
+    {
+      "id": "mcm_c02_004",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An equilateral triangular conducting loop and a square conducting loop are both inscribed in the same circle of radius $R$. Each loop carries the same steady direct current $I$. Let $B_3$ and $B_4$ denote the magnitudes of the magnetic fields produced at the center of the equilateral triangle and the center of the square, respectively. Determine the ratio $\\frac{B_3}{B_4}$.",
+      "options": [
+        "A) $\\frac{3\\sqrt{3}}{4}$",
+        "B) $\\frac{3\\sqrt{3}}{8}$",
+        "C) $\\frac{9}{4\\sqrt{2}}$",
+        "D) $\\frac{\\sqrt{6}}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "For any regular polygon with $n$ sides inscribed in a circle of radius $R$, the perpendicular distance from the center to any side is $d_n = R \\cos(\\pi/n)$. Each side subtends an angle $2\\pi/n$ at the center, so the half-angles measured from the perpendicular bisector are $\\theta = \\pi/n$. The magnetic field produced by a single straight segment of current $I$ is $b_1 = \\frac{\\mu_0 I}{4\\pi d_n}[\\sin(\\pi/n) + \\sin(\\pi/n)] = \\frac{\\mu_0 I}{2\\pi R \\cos(\\pi/n)}\\sin(\\pi/n) = \\frac{\\mu_0 I}{2\\pi R}\\tan(\\pi/n)$. Summing over all $n$ symmetric sides, the total field at the center is $B_n = n b_1 = \\frac{n\\mu_0 I}{2\\pi R}\\tan(\\pi/n)$. For the equilateral triangle ($n = 3$), we substitute $\\tan(\\pi/3) = \\sqrt{3}$, giving $B_3 = \\frac{3\\sqrt{3}\\mu_0 I}{2\\pi R}$. For the square ($n = 4$), we substitute $\\tan(\\pi/4) = 1$, giving $B_4 = \\frac{4\\mu_0 I}{2\\pi R}$. Evaluating the ratio yields $\\frac{B_3}{B_4} = \\frac{\\frac{3\\sqrt{3}\\mu_0 I}{2\\pi R}}{\\frac{4\\mu_0 I}{2\\pi R}} = \\frac{3\\sqrt{3}}{4}$. Hence, option A is correct. Option B erroneously doubles the denominator; option C incorrectly uses circumradius in place of apothem; option D introduces spurious square roots from polygon side formulas."
+    },
+    {
+      "id": "mcm_c02_005",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A particle of mass $m$ and positive charge $q$ is projected from the origin with initial velocity $\\vec{v}_0 = v_0\\hat{i}$ into a region of crossed uniform fields $\\vec{E} = E_0\\hat{j}$ and $\\vec{B} = B_0\\hat{k}$, where $v_0 > \\frac{E_0}{B_0}$. The particle follows a trochoidal path in the $xy$-plane and subsequently crosses the $x$-axis again at a point $(x_1, 0, 0)$. Find the distance $x_1$ from the origin.",
+      "options": [
+        "A) $\\frac{2\\pi m E_0}{q B_0^2}$",
+        "B) $\\frac{2\\pi m v_0}{q B_0}$",
+        "C) $\\frac{2\\pi m}{q B_0}\\left(v_0 - \\frac{E_0}{B_0}\\right)$",
+        "D) $\\frac{\\pi m E_0}{q B_0^2}$"
+      ],
+      "answer": "A",
+      "explanation": "Applying Newton's second law with the Lorentz force: $m \\frac{d\\vec{v}}{dt} = q(\\vec{E} + \\vec{v}\\times\\vec{B}) = q[E_0\\hat{j} + (v_y B_0\\hat{i} - v_x B_0\\hat{j})]$. Resolving into Cartesian components: $\\dot{v}_x = \\omega v_y$ and $\\dot{v}_y = \\omega(u - v_x)$, where $\\omega = \\frac{q B_0}{m}$ is the cyclotron frequency and $u = \\frac{E_0}{B_0}$ is the drift speed. Differentiating the first equation yields $\\ddot{v}_x = \\omega \\dot{v}_y = -\\omega^2(v_x - u)$. Solving with initial conditions $v_x(0) = v_0$ and $v_y(0) = 0$ yields $v_x(t) = u + (v_0 - u)\\cos\\omega t$ and $v_y(t) = -(v_0 - u)\\sin\\omega t$. Integrating $v_y(t)$ gives the vertical coordinate $y(t) = \\frac{v_0 - u}{\\omega}(\\cos\\omega t - 1)$. Because $v_0 \\ne u$, the condition for re-crossing the $x$-axis ($y(t) = 0$) requires $\\cos\\omega t = 1$, which occurs at $t_1 = \\frac{2\\pi}{\\omega} = \\frac{2\\pi m}{q B_0}$. Integrating $v_x(t)$ to find the horizontal coordinate gives $x(t_1) = \\int_0^{t_1} [u + (v_0 - u)\\cos\\omega t] dt = u t_1 + 0 = \\left(\\frac{E_0}{B_0}\\right)\\left(\\frac{2\\pi m}{q B_0}\\right) = \\frac{2\\pi m E_0}{q B_0^2}$. Strikingly, this displacement is independent of $v_0$, validating option A. Option B incorrectly replaces drift velocity with initial speed; option C assumes net displacement is proportional to $(v_0 - u)$; option D omits the factor of $2$ from the full period."
+    },
+    {
+      "id": "mcm_c02_006",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A circular loop of radius $R$ carries a steady electric current $I$. Points $P_1$ and $P_2$ lie on the central axis perpendicular to the plane of the loop at distances $z_1 = R$ and $z_2 = \\sqrt{3}R$ from the center of the loop, respectively. Determine the ratio of the magnetic field magnitudes $\\frac{B(P_1)}{B(P_2)}$ at these two points.",
+      "options": [
+        "A) $2\\sqrt{2}$",
+        "B) $4$",
+        "C) $\\sqrt{2}$",
+        "D) $4\\sqrt{2}$"
+      ],
+      "answer": "A",
+      "explanation": "The axial magnetic field produced by a circular current loop of radius $R$ carrying steady current $I$ at distance $z$ from its center is given by the standard formula $B(z) = \\frac{\\mu_0 I R^2}{2(R^2 + z^2)^{3/2}}$. At point $P_1$, where $z_1 = R$, the denominator term evaluates to $(R^2 + R^2)^{3/2} = (2R^2)^{3/2} = 2\\sqrt{2}R^3$. Thus, the field magnitude is $B(P_1) = \\frac{\\mu_0 I R^2}{2(2\\sqrt{2}R^3)} = \\frac{\\mu_0 I}{4\\sqrt{2}R}$. At point $P_2$, where $z_2 = \\sqrt{3}R$, the denominator term evaluates to $(R^2 + 3R^2)^{3/2} = (4R^2)^{3/2} = 8R^3$. Thus, the field magnitude is $B(P_2) = \\frac{\\mu_0 I R^2}{2(8R^3)} = \\frac{\\mu_0 I}{16R}$. Taking the direct ratio of the two magnetic fields: $\\frac{B(P_1)}{B(P_2)} = \\frac{\\frac{\\mu_0 I}{4\\sqrt{2}R}}{\\frac{\\mu_0 I}{16R}} = \\frac{16}{4\\sqrt{2}} = \\frac{4}{\\sqrt{2}} = 2\\sqrt{2}$. Therefore, option A is correct. Option B fails to include the square root factor from $2^{3/2}$; option C inverts the ratio factors incorrectly; option D doubles the numerator through miscalculating the $z_2$ denominator as $4R^3$."
+    },
+    {
+      "id": "mcm_c02_007",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two infinitely long, horizontal, parallel conducting wires are fixed a distance $2d$ apart in a horizontal plane, each carrying an identical steady current $I$ in the positive $x$-direction. A third light conducting wire of linear mass density $\\lambda$ carrying a steady current $I_0$ in the negative $x$-direction is placed horizontally parallel to the fixed wires directly above their midpoint at height $h$. What is the maximum linear mass density $\\lambda_{\\max}$ that can be supported in mechanical equilibrium against downward gravity $g$ by the magnetic repulsive forces?",
+      "options": [
+        "A) $\\frac{\\mu_0 I I_0}{2\\pi g d}$",
+        "B) $\\frac{\\mu_0 I I_0}{\\pi g d}$",
+        "C) $\\frac{\\mu_0 I I_0}{4\\pi g d}$",
+        "D) $\\frac{\\sqrt{2}\\mu_0 I I_0}{\\pi g d}$"
+      ],
+      "answer": "A",
+      "explanation": "Let the fixed wires be located at coordinates $(x, -d, 0)$ and $(x, d, 0)$, and the third wire at $(x, 0, h)$. The distance from each fixed wire to the third wire is $r = \\sqrt{d^2 + h^2}$. Because the third wire carries current $I_0$ opposite to $I$, each fixed wire repels the third wire with a force per unit length $f = \\frac{\\mu_0 I I_0}{2\\pi r}$. The angle $\\theta$ between this repulsive force vector and the vertical upward direction satisfies $\\cos\\theta = \\frac{h}{r} = \\frac{h}{\\sqrt{d^2 + h^2}}$. By symmetry, horizontal repulsive components cancel, while upward vertical components add constructively: $F_{up}(h) = 2 f \\cos\\theta = 2\\left(\\frac{\\mu_0 I I_0}{2\\pi \\sqrt{d^2 + h^2}}\\right)\\left(\\frac{h}{\\sqrt{d^2 + h^2}}\\right) = \\frac{\\mu_0 I I_0 h}{\\pi(d^2 + h^2)}$. For gravitational equilibrium, $\\lambda g = F_{up}(h)$. To maximize $F_{up}(h)$, differentiate with respect to $h$: $\\frac{d}{dh}\\left(\\frac{h}{d^2 + h^2}\\right) = \\frac{d^2 - h^2}{(d^2 + h^2)^2} = 0$, giving an optimal height of $h = d$. At $h = d$, the upward force attains its maximum value: $F_{up,\\max} = \\frac{\\mu_0 I I_0 d}{\\pi(2d^2)} = \\frac{\\mu_0 I I_0}{2\\pi d}$. Equating to $\\lambda_{\\max} g$ yields $\\lambda_{\\max} = \\frac{\\mu_0 I I_0}{2\\pi g d}$. Hence, option A is correct. Option B omits the factor of $2$ in the denominator; option C halves the contribution from one wire; option D uses $h = d/\\sqrt{2}$ erroneously."
+    },
+    {
+      "id": "mcm_c02_008",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A thin conducting wire carrying a steady direct current $I$ is bent into a planar hairpin configuration consisting of two semi-infinite straight parallel segments separated by distance $2R$ connected at their ends by a semicircular arc of radius $R$. If the current flows toward the arc along the top straight wire, circulates clockwise through the semicircular arc, and flows away along the bottom straight wire, find the magnitude of the net magnetic field $\\vec{B}$ at the center $O$ of the semicircular arc.",
+      "options": [
+        "A) $\\frac{\\mu_0 I}{4\\pi R}(\\pi + 2)$",
+        "B) $\\frac{\\mu_0 I}{4\\pi R}(\\pi + 1)$",
+        "C) $\\frac{\\mu_0 I}{2\\pi R}(\\pi + 2)$",
+        "D) $\\frac{\\mu_0 I}{4\\pi R}(\\pi - 2)$"
+      ],
+      "answer": "A",
+      "explanation": "Let the center of the semicircular arc be at the origin $(0, 0)$. The circuit consists of three continuous sections: (1) The upper semi-infinite straight wire runs from $x = -\\infty$ to $x = 0$ along $y = R$. The perpendicular distance to $O$ is $R$. The angles subtended by the wire endpoints are $\\theta_1 = 90^\\circ$ and $\\theta_2 = 0^\\circ$. By the Biot-Savart formula, $B_1 = \\frac{\\mu_0 I}{4\\pi R}(\\sin 90^\\circ - \\sin 0^\\circ) = \\frac{\\mu_0 I}{4\\pi R}$. By the right-hand rule, $\\vec{B}_1$ points into the page ($-\\hat{k}$). (2) The semicircular arc of radius $R$ carries current clockwise from $(0, R)$ to $(0, -R)$. Its contribution at the center of curvature is $B_{arc} = \\frac{\\mu_0 I}{4 R}$, also directed into the page ($-\\hat{k}$). (3) The lower semi-infinite wire runs from $x = 0$ to $x = -\\infty$ along $y = -R$. The perpendicular distance is $R$. By the right-hand rule, its magnetic field is $B_2 = \\frac{\\mu_0 I}{4\\pi R}$, also pointing into the page ($-\\hat{k}$). Summing all three aligned contributions: $B_{net} = B_{arc} + B_1 + B_2 = \\frac{\\mu_0 I}{4 R} + 2\\left(\\frac{\\mu_0 I}{4\\pi R}\\right) = \\frac{\\mu_0 I}{4\\pi R}(\\pi + 2)$. Thus, option A is correct. Option B accounts for only one straight wire; option C doubles the field incorrectly; option D subtracts the straight wire contributions due to sign confusion."
+    },
+    {
+      "id": "mcm_c02_009",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A uniform magnetic field $\\vec{B} = B_0\\hat{k}$ is confined to a slab region between the parallel planes $x = 0$ and $x = d$. A particle of mass $m$ and positive charge $q$ is launched from the origin $(0, 0, 0)$ with velocity $\\vec{v}_0 = v_0(\\cos 30^\\circ\\hat{i} + \\sin 30^\\circ\\hat{j})$. The slab thickness is chosen as $d = \\frac{m v_0}{2 q B_0}$. Calculate the total time $t$ spent by the particle inside the magnetic field region before it exits the slab.",
+      "options": [
+        "A) $\\frac{\\pi m}{6 q B_0}$",
+        "B) $\\frac{\\pi m}{3 q B_0}$",
+        "C) $\\frac{\\pi m}{4 q B_0}$",
+        "D) $\\frac{5\\pi m}{6 q B_0}$"
+      ],
+      "answer": "A",
+      "explanation": "The cyclotron radius of the particle is $R_c = \\frac{m v_0}{q B_0}$. The slab thickness is given as $d = \\frac{R_c}{2}$. The equation of motion along the $y$-axis is $m \\frac{dv_y}{dt} = -q B_0 v_x = -q B_0 \\frac{dx}{dt}$, which upon integration from $x = 0$ to $x = d$ gives $\\Delta v_y = v_y(d) - v_y(0) = -\\frac{q B_0}{m} d = -\\left(\\frac{q B_0}{m}\\right)\\left(\\frac{m v_0}{2 q B_0}\\right) = -\\frac{v_0}{2}$. Since the initial vertical velocity component is $v_y(0) = v_0 \\sin 30^\\circ = \\frac{v_0}{2}$, the vertical velocity at the exit boundary $x = d$ is $v_y(d) = \\frac{v_0}{2} - \\frac{v_0}{2} = 0$. Because the magnetic force does zero work, speed is constant ($|\\vec{v}| = v_0$), meaning the exit velocity is purely along the $+x$-direction: $\\vec{v}(d) = v_0\\hat{i}$. The velocity vector has therefore rotated through an angle $\\Delta \\theta = 30^\\circ - 0^\\circ = 30^\\circ = \\frac{\\pi}{6}\\text{ rad}$. The angular frequency of cyclotron rotation is $\\omega = \\frac{q B_0}{m}$. The total time spent in the magnetic field is $t = \\frac{\\Delta \\theta}{\\omega} = \\frac{\\pi / 6}{q B_0 / m} = \\frac{\\pi m}{6 q B_0}$. Hence, option A is correct. Option B incorrectly uses $\\Delta \\theta = 60^\\circ$; option C assumes a $45^\\circ$ deflection; option D computes the complement angle $150^\\circ$."
+    },
+    {
+      "id": "mcm_c02_010",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An infinitely long straight wire carrying a steady current $I_1$ along the $x$-axis lies in the same plane as a rigid equilateral triangular wire loop of side length $a$ carrying a steady clockwise current $I_2$. The base of the triangle of length $a$ is parallel to the long wire at a perpendicular distance $d$, and the current in the base flows in the same direction as $I_1$. The opposite vertex of the triangle lies further away at distance $d + \\frac{\\sqrt{3}}{2}a$. Determine the magnitude of the net magnetic force exerted on the triangular loop by the long wire.",
+      "options": [
+        "A) $\\frac{\\mu_0 I_1 I_2}{2\\pi}\\left[\\frac{a}{d} - \\frac{2}{\\sqrt{3}}\\ln\\left(1 + \\frac{\\sqrt{3}a}{2d}\\right)\\right]$",
+        "B) $\\frac{\\mu_0 I_1 I_2}{2\\pi}\\left[\\frac{a}{d} - \\frac{1}{\\sqrt{3}}\\ln\\left(1 + \\frac{\\sqrt{3}a}{2d}\\right)\\right]$",
+        "C) $\\frac{\\mu_0 I_1 I_2}{\\pi}\\left[\\frac{a}{d} - \\frac{2}{\\sqrt{3}}\\ln\\left(1 + \\frac{\\sqrt{3}a}{2d}\\right)\\right]$",
+        "D) $\\frac{\\mu_0 I_1 I_2}{2\\pi}\\left[\\frac{a}{d} + \\frac{2}{\\sqrt{3}}\\ln\\left(1 + \\frac{\\sqrt{3}a}{2d}\\right)\\right]$"
+      ],
+      "answer": "A",
+      "explanation": "Let the long wire lie along the $x$-axis. The magnetic field at distance $y > 0$ is $\\vec{B}(y) = \\frac{\\mu_0 I_1}{2\\pi y}\\hat{k}$. The force on an element $I_2 d\\vec{l}$ is $d\\vec{F} = I_2 d\\vec{l} \\times \\vec{B} = \\frac{\\mu_0 I_1 I_2}{2\\pi y}(dx\\hat{i} + dy\\hat{j})\\times\\hat{k} = \\frac{\\mu_0 I_1 I_2}{2\\pi y}(-dx\\hat{j} + dy\\hat{i})$. For the base segment at $y = d$, the current flows parallel to $I_1$ from $x = -a/2$ to $x = a/2$. The magnetic force is purely downward (attractive towards the wire): $F_{base} = \\frac{\\mu_0 I_1 I_2 a}{2\\pi d}$ along $-\\hat{j}$. For the two inclined sides, by lateral symmetry the horizontal forces cancel. The vertical force on the two inclined sides combined is given by integrating $-\\frac{\\mu_0 I_1 I_2}{2\\pi y}dx$. The height of the triangle is $h = \\frac{\\sqrt{3}}{2}a$. Along each inclined side, the relation between $x$ and $y$ gives $dx = \\pm \\frac{a/2}{h} dy$. Integrating from the base to the top vertex yields $\\int \\frac{dx}{y} = -\\frac{a}{h}\\int_d^{d+h}\\frac{dy}{y} = -\\frac{a}{h}\\ln\\left(1 + \\frac{h}{d}\\right) = -\\frac{2}{\\sqrt{3}}\\ln\\left(1 + \\frac{\\sqrt{3}a}{2d}\\right)$. This vertical force opposes the base attraction (repulsive away from wire). Subtracting gives the net attractive force magnitude: $F_{net} = \\frac{\\mu_0 I_1 I_2}{2\\pi}\\left[\\frac{a}{d} - \\frac{2}{\\sqrt{3}}\\ln\\left(1 + \\frac{\\sqrt{3}a}{2d}\\right)\\right]$. Hence, option A is correct. Option B misses the factor of $2$ from combining both inclined legs; option C doubles the field factor; option D adds the forces instead of subtracting opposing directions."
+    },
+    {
+      "id": "mcm_c02_011",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A long solid non-magnetic cylindrical conductor of radius $R$ carries a total current $I$ directed along its axis ($z$-axis). The current density inside the conductor ($0 \\le r \\le R$) is axially symmetric but radially non-uniform, given by $J(r) = J_0\\left(1 - \\frac{r^2}{R^2}\\right)$, where $r$ is the radial distance from the cylinder's axis and $J_0$ is a constant. At what radial distance $r_m$ does the internal magnetic field magnitude $B(r)$ attain its maximum value?",
+      "options": [
+        "A) $R\\sqrt{\\frac{2}{3}}$",
+        "B) $\\frac{R}{\\sqrt{2}}$",
+        "C) $R\\sqrt{\\frac{1}{3}}$",
+        "D) $\\frac{2R}{3}$"
+      ],
+      "answer": "A",
+      "explanation": "To determine the magnetic field inside the conductor at radial distance $r < R$, we first calculate the enclosed current using an Amperian loop of radius $r$: $I_{encl}(r) = \\int_0^r J(r') 2\\pi r' dr' = 2\\pi J_0 \\int_0^r \\left(r' - \\frac{r'^3}{R^2}\\right) dr' = 2\\pi J_0 \\left[\\frac{r^2}{2} - \\frac{r^4}{4R^2}\\right] = \\pi J_0 r^2 \\left(1 - \\frac{r^2}{2R^2}\\right)$. Applying Ampere's circuital law along the circular loop: $\\oint \\vec{B}\\cdot d\\vec{l} = B(r)(2\\pi r) = \\mu_0 I_{encl}(r)$. Solving for $B(r)$: $B(r) = \\frac{\\mu_0 J_0 r}{2}\\left(1 - \\frac{r^2}{2R^2}\\right) = \\frac{\\mu_0 J_0}{2}\\left(r - \\frac{r^3}{2R^2}\\right)$. To find the radial position of maximum magnetic field, we set the first derivative with respect to $r$ to zero: $\\frac{dB}{dr} = \\frac{\\mu_0 J_0}{2}\\left(1 - \\frac{3r^2}{2R^2}\\right) = 0$. This yields $1 - \\frac{3r^2}{2R^2} = 0 \\implies r^2 = \\frac{2}{3}R^2 \\implies r_m = R\\sqrt{\\frac{2}{3}}$. Because $\\frac{d^2 B}{dr^2} = -\\frac{3\\mu_0 J_0 r}{2R^2} < 0$, this extremum is indeed a local maximum. Thus, option A is correct. Option B misses the factor of $3$ in the derivative; option C assumes an incorrect derivative coefficient; option D incorrectly neglects the quadratic exponent."
+    },
+    {
+      "id": "mcm_c02_012",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A long solid cylindrical copper conductor of radius $R$ carries a total current $I$ uniformly distributed over its cross-section. A cylindrical cavity of radius $a$ ($a < R/2$) is drilled parallel to the cylinder's axis, with its center displaced by a vector $\\vec{d} = d\\hat{i}$ ($d + a < R$) from the cylinder axis. Determine the magnetic field vector $\\vec{B}$ at any point inside the cavity in terms of the total current $I$, $R$, $a$, and $d$.",
+      "options": [
+        "A) $\\frac{\\mu_0 I d}{2\\pi(R^2 - a^2)}\\hat{j}$",
+        "B) $\\frac{\\mu_0 I d}{\\pi(R^2 - a^2)}\\hat{j}$",
+        "C) $\\frac{\\mu_0 I d}{2\\pi R^2}\\hat{j}$",
+        "D) $\\frac{\\mu_0 I (R - d)}{2\\pi(R^2 - a^2)}\\hat{j}$"
+      ],
+      "answer": "A",
+      "explanation": "The net cross-sectional conducting area is $A = \\pi(R^2 - a^2)$. The uniform current density is therefore $\\vec{J} = \\frac{I}{\\pi(R^2 - a^2)}\\hat{k}$. By the principle of linear superposition, the conductor with the cavity is equivalent to a complete solid cylinder of radius $R$ carrying current density $+\\vec{J}$ superposed with a fictitious cylinder of radius $a$ occupying the cavity carrying current density $-\\vec{J}$. Inside a solid cylinder carrying uniform current density $\\vec{J}$, the magnetic field at a position vector $\\vec{r}$ measured from its axis is $\\vec{B}(\\vec{r}) = \\frac{\\mu_0}{2}(\\vec{J}\\times\\vec{r})$. For an arbitrary point inside the cavity, let $\\vec{r}$ be its position vector relative to the main cylinder axis, and $\\vec{r}' = \\vec{r} - \\vec{d}$ be its position relative to the cavity axis. Superposing the two fields gives $\\vec{B}_{cavity} = \\frac{\\mu_0}{2}(\\vec{J}\\times\\vec{r}) - \\frac{\\mu_0}{2}(\\vec{J}\\times\\vec{r}') = \\frac{\\mu_0}{2}\\vec{J}\\times(\\vec{r} - \\vec{r}') = \\frac{\\mu_0}{2}(\\vec{J}\\times\\vec{d})$. Substituting $\\vec{J} = J\\hat{k}$ and $\\vec{d} = d\\hat{i}$: $\\vec{J}\\times\\vec{d} = (J\\hat{k})\\times(d\\hat{i}) = J d \\hat{j}$. Thus, $\\vec{B}_{cavity} = \\frac{\\mu_0 J d}{2}\\hat{j} = \\frac{\\mu_0 I d}{2\\pi(R^2 - a^2)}\\hat{j}$. The magnetic field is remarkably uniform throughout the cavity, validating option A. Option B omits the factor of $2$; option C neglects the missing cavity area; option D introduces radial coordinate dependence incorrectly."
+    },
+    {
+      "id": "mcm_c02_013",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A finite solenoid of length $L$ and circular radius $R$ is closely wound with $n$ turns per unit length carrying a steady current $I$. The length of the solenoid is related to its radius by $L = 2\\sqrt{2}R$. Let $B_{center}$ be the magnitude of the magnetic field on the solenoid axis at its axial center, and let $B_{end}$ be the magnitude of the magnetic field on the solenoid axis at one of its ends. Find the ratio $\\frac{B_{center}}{B_{end}}$.",
+      "options": [
+        "A) $\\sqrt{3}$",
+        "B) $2$",
+        "C) $\\sqrt{2}$",
+        "D) $\\frac{3}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "The axial magnetic field of a finite solenoid of radius $R$ with $n$ turns per unit length carrying current $I$ is given by $B = \\frac{1}{2}\\mu_0 n I(\\cos\\theta_1 + \\cos\\theta_2)$, where $\\theta_1$ and $\\theta_2$ are the angles subtended by the axis with the edges of the end coils. At the axial center, each end is at distance $z = L/2 = \\sqrt{2}R$. Symmetrically, $\\cos\\theta_1 = \\cos\\theta_2 = \\frac{L/2}{\\sqrt{(L/2)^2 + R^2}} = \\frac{\\sqrt{2}R}{\\sqrt{2R^2 + R^2}} = \\frac{\\sqrt{2}}{\\sqrt{3}}$. Thus, $B_{center} = \\frac{1}{2}\\mu_0 n I\\left(2\\frac{\\sqrt{2}}{\\sqrt{3}}\\right) = \\mu_0 n I\\sqrt{\\frac{2}{3}}$. At one end of the solenoid, the near end is at $z = 0$ (so $\\theta_1 = 90^\\circ$ and $\\cos\\theta_1 = 0$), while the far end is at distance $L = 2\\sqrt{2}R$. The angle for the far end satisfies $\\cos\\theta_2 = \\frac{L}{\\sqrt{L^2 + R^2}} = \\frac{2\\sqrt{2}R}{\\sqrt{(2\\sqrt{2}R)^2 + R^2}} = \\frac{2\\sqrt{2}R}{\\sqrt{8R^2 + R^2}} = \\frac{2\\sqrt{2}}{3}$. Thus, $B_{end} = \\frac{1}{2}\\mu_0 n I\\left(\\frac{2\\sqrt{2}}{3}\\right) = \\frac{\\sqrt{2}}{3}\\mu_0 n I$. Computing the ratio yields $\\frac{B_{center}}{B_{end}} = \\frac{\\mu_0 n I\\sqrt{2/3}}{\\frac{\\sqrt{2}}{3}\\mu_0 n I} = \\frac{\\sqrt{2}/\\sqrt{3}}{\\sqrt{2}/3} = \\frac{3}{\\sqrt{3}} = \\sqrt{3}$. Hence, option A is correct. Option B assumes an infinitely long solenoid ratio of $2$; option C drops the $\\sqrt{3}$ factor; option D uses linear interpolation between ends."
+    },
+    {
+      "id": "mcm_c02_014",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A thin circular non-conducting disk of total mass $M$ and radius $R$ has a non-uniform surface charge distribution given by $\\sigma(r) = \\sigma_0\\frac{r}{R}$ for $0 \\le r \\le R$, carrying a total charge $Q$. The disk rotates at a constant angular velocity $\\omega$ about its central symmetry axis perpendicular to the disk. Given that the mass of the disk is uniformly distributed over its area, find the gyromagnetic ratio $\\gamma = \\frac{\\mu}{L}$, where $\\mu$ is the magnetic dipole moment and $L$ is the mechanical angular momentum of the disk.",
+      "options": [
+        "A) $\\frac{3}{5}\\left(\\frac{Q}{M}\\right)$",
+        "B) $\\frac{1}{2}\\left(\\frac{Q}{M}\\right)$",
+        "C) $\\frac{2}{5}\\left(\\frac{Q}{M}\\right)$",
+        "D) $\\frac{3}{4}\\left(\\frac{Q}{M}\\right)$"
+      ],
+      "answer": "A",
+      "explanation": "First, express the constant $\\sigma_0$ in terms of the total charge $Q$: $Q = \\int_0^R \\sigma(r) 2\\pi r dr = 2\\pi \\sigma_0 \\int_0^R \\frac{r^2}{R} dr = \\frac{2\\pi \\sigma_0 R^2}{3} \\implies \\sigma_0 = \\frac{3Q}{2\\pi R^2}$. To find the magnetic dipole moment $\\mu$, consider an elemental circular ring of radius $r$ and width $dr$. The charge on this ring is $dq = \\sigma(r) 2\\pi r dr = \\frac{2\\pi \\sigma_0 r^2}{R} dr$. The rotating ring constitutes an electric current $dI = \\frac{\\omega}{2\\pi} dq = \\frac{\\omega \\sigma_0 r^2}{R} dr$. The magnetic dipole moment of this circular loop is $d\\mu = dI (\\pi r^2) = \\frac{\\pi \\omega \\sigma_0 r^4}{R} dr$. Integrating from $r = 0$ to $r = R$ gives $\\mu = \\int_0^R \\frac{\\pi \\omega \\sigma_0 r^4}{R} dr = \\frac{\\pi \\omega \\sigma_0 R^4}{5}$. Substituting $\\sigma_0 = \\frac{3Q}{2\\pi R^2}$ yields $\\mu = \\frac{\\pi \\omega R^4}{5}\\left(\\frac{3Q}{2\\pi R^2}\\right) = \\frac{3}{10} Q \\omega R^2$. Since the mass $M$ is uniformly distributed over the disk, its moment of inertia about the central axis is $I_{disk} = \\frac{1}{2} M R^2$. The mechanical angular momentum is $L = I_{disk}\\omega = \\frac{1}{2} M R^2 \\omega$. Taking the gyromagnetic ratio: $\\gamma = \\frac{\\mu}{L} = \\frac{\\frac{3}{10} Q \\omega R^2}{\\frac{1}{2} M R^2 \\omega} = \\frac{3}{5}\\left(\\frac{Q}{M}\\right)$. Hence, option A is correct. Option B blindly assumes uniform charge density where $\\gamma = Q/(2M)$; option C uses spherical mass distribution; option D integrates radius powers incorrectly."
+    },
+    {
+      "id": "mcm_c02_015",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the Bohr model of the hydrogen atom, an electron of mass $m_e$ and charge $-e$ orbits a stationary proton in a circular orbit of principal quantum number $n$. Let $\\mu_n$ be the orbital magnetic dipole moment of the revolving electron and $B_n$ be the magnitude of the magnetic field produced by the orbiting electron at the position of the proton (nucleus). Which of the following proportionalities correctly describes the dependence of $\\mu_n$ and $B_n$ on the principal quantum number $n$?",
+      "options": [
+        "A) $\\mu_n \\propto n$ and $B_n \\propto n^{-5}$",
+        "B) $\\mu_n \\propto n^2$ and $B_n \\propto n^{-3}$",
+        "C) $\\mu_n \\propto n$ and $B_n \\propto n^{-3}$",
+        "D) $\\mu_n \\propto n^{-1}$ and $B_n \\propto n^{-5}$"
+      ],
+      "answer": "A",
+      "explanation": "By Bohr's quantization postulate, the orbital angular momentum of the electron is $L_n = n\\hbar$. The gyromagnetic ratio for an electron orbital motion is constant: $\\frac{\\mu_n}{L_n} = \\frac{e}{2m_e}$. Therefore, the orbital magnetic dipole moment is $\\mu_n = \\frac{e}{2m_e} L_n = \\frac{e\\hbar}{2m_e} n = n \\mu_B$, which yields $\\mu_n \\propto n$. Next, we evaluate the magnetic field $B_n$ at the nucleus: in Bohr's model, the orbital radius scales as $r_n \\propto n^2$, and the orbital speed scales as $v_n \\propto n^{-1}$. The orbital period is $T_n = \\frac{2\\pi r_n}{v_n} \\propto \\frac{n^2}{n^{-1}} = n^3$. The equivalent circulating electric current is $I_n = \\frac{e}{T_n} \\propto n^{-3}$. The magnetic field at the center of a circular current loop is $B_n = \\frac{\\mu_0 I_n}{2r_n}$. Substituting the $n$-proportionalities gives $B_n \\propto \\frac{I_n}{r_n} \\propto \\frac{n^{-3}}{n^2} = n^{-5}$. Thus, $\\mu_n \\propto n$ and $B_n \\propto n^{-5}$, confirming option A. Option B incorrectly squares $n$ in the angular momentum; option C forgets the $1/r_n$ factor in the Biot-Savart center formula; option D inverts the relationship between $\\mu_n$ and $n$."
+    },
+    {
+      "id": "mcm_c02_016",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In a classical cyclotron, protons (mass $m_p$, charge $e$) are accelerated across two D-shaped hollow metallic chambers (dees) separated by a narrow accelerating gap where an alternating potential difference $V(t) = V_0 \\cos(2\\pi f_c t)$ is applied. A uniform perpendicular magnetic field $\\vec{B} = B\\hat{k}$ is maintained throughout the dees. Protons are extracted when they reach the outer perimeter of the dees at radius $R$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The maximum kinetic energy $K_{\\max}$ of the extracted protons is independent of the accelerating peak voltage $V_0$.",
+        "B) The total time $t_{total}$ spent by a proton inside the cyclotron before extraction at radius $R$ is independent of the proton mass $m_p$ and charge $e$.",
+        "C) If deuterons (mass $m_d \\approx 2m_p$, charge $e$) are accelerated in the same cyclotron without altering $B$, the cyclotron resonance frequency $f_c$ must be halved.",
+        "D) For the same extraction radius $R$ and Dee voltage $V_0$, a deuteron completes twice as many revolutions as a proton before extraction."
+      ],
+      "answer": "A,B,C",
+      "explanation": "At the extraction radius $R$, the magnetic Lorentz force provides the centripetal acceleration: $\\frac{m_p v_{\\max}^2}{R} = e v_{\\max} B \\implies v_{\\max} = \\frac{e B R}{m_p}$. The maximum kinetic energy upon extraction is $K_{\\max} = \\frac{1}{2}m_p v_{\\max}^2 = \\frac{e^2 B^2 R^2}{2m_p}$. This is strictly determined by the radius $R$ and magnetic field $B$, being entirely independent of the peak dee voltage $V_0$, validating statement A. Across each full circular revolution, the proton crosses the dee gap twice, acquiring energy $2 e V_0$. The total number of revolutions to reach $K_{\\max}$ is $N = \\frac{K_{\\max}}{2 e V_0} = \\frac{e B^2 R^2}{4 m_p V_0}$. The time period of each revolution is $T = \\frac{2\\pi m_p}{e B}$. Therefore, the total transit time is $t_{total} = N T = \\left(\\frac{e B^2 R^2}{4 m_p V_0}\\right)\\left(\\frac{2\\pi m_p}{e B}\\right) = \\frac{\\pi B R^2}{2 V_0}$. Both the mass $m_p$ and charge $e$ cancel out completely, proving statement B is correct. The cyclotron resonance frequency is $f_c = \\frac{q B}{2\\pi m}$. For a deuteron ($m_d = 2m_p, q = e$), $f_{c,d} = \\frac{e B}{4\\pi m_p} = \\frac{1}{2}f_{c,p}$, verifying statement C. For statement D: $N_d = \\frac{e B^2 R^2}{4 m_d V_0} = \\frac{e B^2 R^2}{8 m_p V_0} = \\frac{1}{2} N_p$, so the deuteron completes half as many revolutions as the proton, making statement D false. Hence, statements A, B, and C are correct."
+    },
+    {
+      "id": "mcm_c02_017",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A long coaxial cable consists of a solid inner cylindrical conductor of radius $a$ carrying a steady current $I$ uniformly distributed over its cross-section, and a thin coaxial outer cylindrical shell of radius $b$ ($b > a$) carrying the return current $I$ uniformly distributed over its surface. Let $U_{in}'$ be the magnetic energy stored per unit length inside the inner conductor ($0 \\le r \\le a$) and $U_{out}'$ be the magnetic energy stored per unit length in the space between the conductors ($a < r < b$). If the outer and inner radii satisfy $\\frac{b}{a} = e^2$, determine the ratio $\\frac{U_{out}'}{U_{in}'}$.",
+      "options": [
+        "A) $8$",
+        "B) $4$",
+        "C) $2$",
+        "D) $16$"
+      ],
+      "answer": "A",
+      "explanation": "The magnetic energy density is $u_B = \\frac{B^2}{2\\mu_0}$. Inside the inner solid conductor ($r \\le a$), by Ampere's law, $B(r)(2\\pi r) = \\mu_0 I \\frac{\\pi r^2}{\\pi a^2} \\implies B(r) = \\frac{\\mu_0 I r}{2\\pi a^2}$. The magnetic energy stored per unit length within the inner conductor is $U_{in}' = \\int_0^a \\frac{B(r)^2}{2\\mu_0} 2\\pi r dr = \\int_0^a \\frac{\\mu_0 I^2 r^2}{8\\pi^2 a^4} 2\\pi r dr = \\frac{\\mu_0 I^2}{4\\pi a^4}\\int_0^a r^3 dr = \\frac{\\mu_0 I^2}{16\\pi}$. Notice that this internal energy per unit length is independent of $a$. In the region between conductors ($a < r < b$), the enclosed current is $I$. By Ampere's law, $B(r) = \\frac{\\mu_0 I}{2\\pi r}$. The magnetic energy per unit length stored in this intermediate space is $U_{out}' = \\int_a^b \\frac{B(r)^2}{2\\mu_0} 2\\pi r dr = \\int_a^b \\frac{\\mu_0 I^2}{8\\pi^2 r^2} 2\\pi r dr = \\frac{\\mu_0 I^2}{4\\pi}\\int_a^b \\frac{dr}{r} = \\frac{\\mu_0 I^2}{4\\pi}\\ln\\left(\\frac{b}{a}\\right)$. Computing the ratio of these energies: $\\frac{U_{out}'}{U_{in}'} = \\frac{\\frac{\\mu_0 I^2}{4\\pi}\\ln(b/a)}{\\frac{\\mu_0 I^2}{16\\pi}} = 4\\ln\\left(\\frac{b}{a}\\right)$. Given $\\frac{b}{a} = e^2$, we have $\\ln(b/a) = 2$. Therefore, $\\frac{U_{out}'}{U_{in}'} = 4(2) = 8$. Hence, option A is correct. Option B misses the factor of $2$ from the exponent; option C assumes an incorrect internal energy of $\\mu_0 I^2/(8\\pi)$; option D doubles the ratio erroneously."
+    },
+    {
+      "id": "mcm_c02_018",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two non-ferromagnetic toroids $T_1$ and $T_2$ of rectangular cross-section have the same vertical height $h$ and are closely wound with the same total number of turns $N$. Toroid $T_1$ has an inner radius $a$ and outer radius $2a$. Toroid $T_2$ has an inner radius $2a$ and outer radius $4a$. If $L_1$ and $L_2$ denote the self-inductances of toroids $T_1$ and $T_2$ respectively, find the ratio $\\frac{L_1}{L_2}$.",
+      "options": [
+        "A) $1$",
+        "B) $\\frac{1}{2}$",
+        "C) $2$",
+        "D) $4$"
+      ],
+      "answer": "A",
+      "explanation": "By Ampere's circuital law, the magnetic field inside a toroid of rectangular cross-section at radial distance $r$ from the central axis is azimuthal and given by $B(r) = \\frac{\\mu_0 N I}{2\\pi r}$. The total magnetic flux $\\Phi$ passing through a single rectangular turn of height $h$ extending from inner radius $r_{in}$ to outer radius $r_{out}$ is: $\\Phi = \\int_{r_{in}}^{r_{out}} B(r) h dr = \\frac{\\mu_0 N I h}{2\\pi}\\int_{r_{in}}^{r_{out}} \\frac{dr}{r} = \\frac{\\mu_0 N I h}{2\\pi}\\ln\\left(\\frac{r_{out}}{r_{in}}\\right)$. The self-inductance of the toroid is $L = \\frac{N\\Phi}{I} = \\frac{\\mu_0 N^2 h}{2\\pi}\\ln\\left(\\frac{r_{out}}{r_{in}}\\right)$. For toroid $T_1$: $r_{in} = a$ and $r_{out} = 2a$, so $\\frac{r_{out}}{r_{in}} = \\frac{2a}{a} = 2$. Thus, $L_1 = \\frac{\\mu_0 N^2 h}{2\\pi}\\ln 2$. For toroid $T_2$: $r_{in} = 2a$ and $r_{out} = 4a$, so $\\frac{r_{out}}{r_{in}} = \\frac{4a}{2a} = 2$. Thus, $L_2 = \\frac{\\mu_0 N^2 h}{2\\pi}\\ln 2$. Dividing the two inductances gives $\\frac{L_1}{L_2} = \\frac{\\ln 2}{\\ln 2} = 1$. Therefore, option A is correct. Option B incorrectly approximates the magnetic field using the mean radius $r_{mean}$ leading to ratio $1/2$; option C assumes inductance scales with the mean circumference; option D assumes inductance scales directly with the cross-sectional area."
+    },
+    {
+      "id": "mcm_c02_019",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Body $A$ is a thin spherical shell of radius $R$ carrying a total charge $Q$ uniformly distributed over its surface. Body $B$ is a uniform solid sphere of radius $R$ carrying the same total charge $Q$ uniformly distributed throughout its volume. Both bodies rotate about their respective central diameters with the same constant angular velocity $\\omega$. Determine the ratio of the magnetic dipole moment of the spherical shell to that of the solid sphere, $\\frac{\\mu_A}{\\mu_B}$.",
+      "options": [
+        "A) $\\frac{5}{3}$",
+        "B) $\\frac{3}{5}$",
+        "C) $\\frac{5}{2}$",
+        "D) $\\frac{2}{3}$"
+      ],
+      "answer": "A",
+      "explanation": "For the thin spherical shell $A$ of radius $R$, consider a circular ring element subtending polar angle $\\theta$ to $\\theta + d\\theta$. The ring radius is $r = R\\sin\\theta$, and its area is $dA = 2\\pi R^2 \\sin\\theta d\\theta$. The ring charge is $dq = \\frac{Q}{4\\pi R^2} dA = \\frac{1}{2}Q\\sin\\theta d\\theta$. The equivalent circulating current is $dI = \\frac{\\omega}{2\\pi} dq = \\frac{\\omega Q}{4\\pi}\\sin\\theta d\\theta$. The magnetic moment of this elemental ring is $d\\mu = dI (\\pi r^2) = \\frac{\\omega Q R^2}{4}\\sin^3\\theta d\\theta$. Integrating from $\\theta = 0$ to $\\pi$: $\\mu_A = \\frac{\\omega Q R^2}{4}\\int_0^\\pi \\sin^3\\theta d\\theta = \\frac{\\omega Q R^2}{4}\\left(\\frac{4}{3}\\right) = \\frac{1}{3} Q \\omega R^2$. For the solid sphere $B$, we slice it into concentric spherical shells of radius $r$ ($0 \\le r \\le R$) and thickness $dr$. The charge of each shell is $dq(r) = \\frac{3Q}{R^3} r^2 dr$. Using the shell result: $d\\mu_B = \\frac{1}{3} dq(r) \\omega r^2 = \\frac{1}{3}\\left(\\frac{3Q}{R^3} r^2 dr\\right)\\omega r^2 = \\frac{Q\\omega}{R^3} r^4 dr$. Integrating from $r = 0$ to $R$: $\\mu_B = \\frac{Q\\omega}{R^3}\\left(\\frac{R^5}{5}\\right) = \\frac{1}{5} Q \\omega R^2$. Computing the ratio: $\\frac{\\mu_A}{\\mu_B} = \\frac{\\frac{1}{3} Q \\omega R^2}{\\frac{1}{5} Q \\omega R^2} = \\frac{5}{3}$. Thus, option A is correct. Option B inverts the numerator and denominator; option C incorrectly uses the solid sphere moment of inertia ratio; option D uses $2/3$ from moment of inertia coefficients."
+    },
+    {
+      "id": "mcm_c02_020",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a high-energy cyclotron, the resonance condition fails at high particle speeds due to the special relativistic increase of the particle mass $m = \\frac{m_0}{\\sqrt{1 - v^2/c^2}}$. The alternating radio-frequency oscillator operates at the fixed non-relativistic cyclotron frequency $f_0 = \\frac{q B}{2\\pi m_0}$. As the particle accelerates, its orbital frequency drops to $f = f_0\\sqrt{1 - v^2/c^2}$. If the maximum fractional frequency decrease that the cyclotron can tolerate before the particle completely slips out of phase with the accelerating dee voltage is $\\eta = 1 - \\frac{f}{f_0}$ (where $\\eta \\ll 1$), determine the maximum kinetic energy $K_{\\max}$ achievable by the particle in terms of its rest energy $E_0 = m_0 c^2$ and $\\eta$.",
+      "options": [
+        "A) $E_0\\left(\\frac{\\eta}{1 - \\eta}\\right)$",
+        "B) $E_0\\eta(1 - \\eta)$",
+        "C) $E_0\\sqrt{\\eta}$",
+        "D) $E_0\\left(\\frac{1}{1 - \\eta}\\right)$"
+      ],
+      "answer": "A",
+      "explanation": "The frequency of the particle in the cyclotron is $f = \\frac{q B}{2\\pi m} = \\frac{q B}{2\\pi m_0}\\sqrt{1 - v^2/c^2} = f_0\\sqrt{1 - v^2/c^2}$. The fractional frequency decrease is defined by $\\eta = 1 - \\frac{f}{f_0} = 1 - \\sqrt{1 - v^2/c^2}$. Rearranging this relation gives $\\sqrt{1 - v^2/c^2} = 1 - \\eta$. The relativistic mass of the particle is therefore $m = \\frac{m_0}{\\sqrt{1 - v^2/c^2}} = \\frac{m_0}{1 - \\eta}$. By relativistic mechanics, the kinetic energy $K$ of a particle is given by $K = (m - m_0)c^2 = mc^2 - m_0 c^2$. Substituting the expression for $m$: $K_{\\max} = \\left(\\frac{m_0}{1 - \\eta} - m_0\\right)c^2 = m_0 c^2\\left(\\frac{1}{1 - \\eta} - 1\\right) = m_0 c^2\\left(\\frac{1 - (1 - \\eta)}{1 - \\eta}\\right) = m_0 c^2\\left(\\frac{\\eta}{1 - \\eta}\\right) = E_0\\left(\\frac{\\eta}{1 - \\eta}\\right)$. Therefore, option A is correct. Option B incorrectly replaces the denominator with a multiplication; option C uses a non-relativistic square-root approximation; option D mistakenly gives the total relativistic energy instead of the kinetic energy."
+    },
+    {
+      "id": "mcm_c02_021",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A particle of mass $m$ and positive charge $q$ is projected from the origin at $t = 0$ with initial velocity $\\vec{v}_0 = v_{0x}\\hat{i} + v_{0z}\\hat{k}$ into a region of uniform collinear fields $\\vec{E} = E_0\\hat{k}$ and $\\vec{B} = B_0\\hat{k}$. The particle executes helical motion along the $z$-axis with a continuously increasing pitch. Let $p_n = z(nT) - z((n-1)T)$ denote the axial pitch of the $n$-th revolution, where $T = \\frac{2\\pi m}{q B_0}$ is the cyclotron orbital period. Determine the difference in pitch between consecutive revolutions, $\\Delta p = p_{n+1} - p_n$.",
+      "options": [
+        "A) $\\frac{4\\pi^2 m E_0}{q B_0^2}$",
+        "B) $\\frac{2\\pi^2 m E_0}{q B_0^2}$",
+        "C) $\\frac{8\\pi^2 m E_0}{q B_0^2}$",
+        "D) $\\frac{4\\pi m E_0}{q B_0^2}$"
+      ],
+      "answer": "A",
+      "explanation": "The Lorentz force acting on the particle is $\\vec{F} = q(\\vec{E} + \\vec{v}\\times\\vec{B}) = q E_0\\hat{k} + q(\\vec{v}\\times B_0\\hat{k})$. In the transverse $xy$-plane, the electric field has no component, and the magnetic force provides the centripetal acceleration, resulting in uniform circular motion with radius $R = \\frac{m v_{0x}}{q B_0}$ and constant cyclotron orbital period $T = \\frac{2\\pi m}{q B_0}$. Along the $z$-axis, the magnetic force is zero because $\\vec{v}_z \\parallel \\vec{B}$, so the particle experiences a constant acceleration driven solely by the electric field: $a_z = \\frac{q E_0}{m}$. The axial displacement as a function of time is $z(t) = v_{0z} t + \\frac{1}{2} a_z t^2$. The pitch of the $n$-th turn is the axial distance traversed during the time interval from $t = (n-1)T$ to $t = nT$: $p_n = z(nT) - z((n-1)T) = v_{0z} T + \\frac{1}{2} a_z [n^2 - (n-1)^2] T^2 = v_{0z} T + \\frac{1}{2} a_z (2n - 1) T^2$. Similarly, for the $(n+1)$-th turn: $p_{n+1} = v_{0z} T + \\frac{1}{2} a_z [2(n+1) - 1] T^2 = v_{0z} T + \\frac{1}{2} a_z (2n + 1) T^2$. The difference in pitch between consecutive revolutions is: $\\Delta p = p_{n+1} - p_n = \\frac{1}{2} a_z [(2n+1) - (2n-1)] T^2 = a_z T^2$. Remarkably, $\\Delta p$ is completely independent of the turn index $n$ and the initial velocities $v_{0x}$ and $v_{0z}$. Substituting $a_z = \\frac{q E_0}{m}$ and $T = \\frac{2\\pi m}{q B_0}$: $\\Delta p = \\left(\\frac{q E_0}{m}\\right)\\left(\\frac{2\\pi m}{q B_0}\\right)^2 = \\left(\\frac{q E_0}{m}\\right)\\left(\\frac{4\\pi^2 m^2}{q^2 B_0^2}\\right) = \\frac{4\\pi^2 m E_0}{q B_0^2}$. Thus, option A is correct. Option B misses the factor of $2$ from the square of $2\\pi$; option C doubles the pitch interval erroneously; option D omits the square on $\\pi$ in the cyclotron period."
+    },
+    {
+      "id": "mcm_c02_022",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A charged particle of mass $m$ and positive charge $q$ moves in an axisymmetric non-uniform magnetic field configured as a magnetic mirror. The axial magnetic field on the symmetry axis ($z$-axis) is given by $B_z(0, z) = B_0(1 + \\alpha z^2)$, where $\\alpha > 0$ is a constant. At $z = 0$, the particle has speed $v_0$ with velocity components $v_\\parallel = v_0 \\cos\\theta_0$ along the $+z$-axis and $v_\\perp = v_0 \\sin\\theta_0$ perpendicular to the axis ($0 < \\theta_0 < \\pi/2$). Assuming the magnetic field varies slowly enough that the magnetic moment $\\mu = \\frac{m v_\\perp^2}{2 B_z}$ is an adiabatic invariant: which of the following statements is/are correct?",
+      "options": [
+        "A) The particle is reflected and reverses its axial motion at a maximum axial coordinate $z_{\\max} = \\frac{\\cot\\theta_0}{\\sqrt{\\alpha}}$.",
+        "B) For small axial displacements about $z = 0$, the motion along the $z$-axis is simple harmonic with angular frequency $\\omega_z = v_0 \\sqrt{\\alpha}\\sin\\theta_0$.",
+        "C) The instantaneous axial force acting on the particle is given by $F_z = -\\mu \\frac{\\partial B_z}{\\partial z}$.",
+        "D) The total kinetic energy $K = \\frac{1}{2}m(v_\\parallel^2 + v_\\perp^2)$ remains strictly constant throughout the entire trajectory."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Because the magnetic Lorentz force $\\vec{F} = q(\\vec{v}\\times\\vec{B})$ is always strictly perpendicular to the velocity vector $\\vec{v}$, the magnetic field does zero work on the charged particle at all instants ($dW = \\vec{F}\\cdot\\vec{v}\\,dt = 0$). Consequently, the total kinetic energy $K = \\frac{1}{2}m v_0^2 = \\frac{1}{2}m(v_\\parallel^2 + v_\\perp^2)$ remains strictly conserved. Statement D is correct. The adiabatic invariance of the orbital magnetic dipole moment means $\\mu = \\frac{m v_\\perp^2}{2 B(z)} = \\text{constant} = \\frac{m v_0^2 \\sin^2\\theta_0}{2 B_0}$. The axial magnetic force arises from the interaction of this effective magnetic dipole with the field gradient: $\\vec{F} = \\nabla(\\vec{\\mu}\\cdot\\vec{B}) = -\\mu \\nabla B$. Along the axis: $F_z = -\\mu \\frac{\\partial B_z}{\\partial z}$. Statement C is correct. At the reflection point (turning point), the particle's axial velocity vanishes: $v_\\parallel = 0$, which implies all kinetic energy is converted into transverse motion: $v_\\perp = v_0$. Applying adiabatic invariance at $z = z_{\\max}$: $\\frac{m v_0^2}{2 B(z_{\\max})} = \\frac{m v_0^2 \\sin^2\\theta_0}{2 B_0} \\implies B(z_{\\max}) = \\frac{B_0}{\\sin^2\\theta_0}$. Substituting the profile $B_z(z) = B_0(1 + \\alpha z^2)$: $B_0(1 + \\alpha z_{\\max}^2) = \\frac{B_0}{\\sin^2\\theta_0} \\implies 1 + \\alpha z_{\\max}^2 = \\csc^2\\theta_0 \\implies \\alpha z_{\\max}^2 = \\csc^2\\theta_0 - 1 = \\cot^2\\theta_0$. Solving for $z_{\\max}$ gives $z_{\\max} = \\frac{\\cot\\theta_0}{\\sqrt{\\alpha}}$. Statement A is correct. Differentiating $B_z$ with respect to $z$: $\\frac{\\partial B_z}{\\partial z} = 2 B_0 \\alpha z$. The axial equation of motion is $m \\ddot{z} = -\\mu(2 B_0 \\alpha z) = -\\left(\\frac{m v_0^2 \\sin^2\\theta_0}{2 B_0}\\right)(2 B_0 \\alpha z) = -m(v_0^2 \\alpha \\sin^2\\theta_0)z$. Dividing by $m$ yields $\\ddot{z} + (v_0^2 \\alpha \\sin^2\\theta_0)z = 0$, which is the equation of simple harmonic motion with angular frequency $\\omega_z = v_0 \\sqrt{\\alpha}\\sin\\theta_0$. Statement B is correct. Thus, statements A, B, C, and D are all correct."
+    },
+    {
+      "id": "mcm_c02_023",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A thin hollow truncated conical shell of semi-vertical angle $\\alpha$ has its apex at the origin. The slant generator of the truncated cone extends from slant distance $s = a$ to $s = b$ ($b > a$) from the apex. A total steady azimuthal current $I$ is uniformly distributed along the slant height $(b - a)$ of the cone, circulating symmetrically around the cone's axis. Determine the magnitude of the net magnetic field $\\vec{B}$ produced at the apex of the cone.",
+      "options": [
+        "A) $\\frac{\\mu_0 I \\sin^2\\alpha}{2(b - a)}\\ln\\left(\\frac{b}{a}\\right)$",
+        "B) $\\frac{\\mu_0 I \\sin\\alpha}{2(b - a)}\\ln\\left(\\frac{b}{a}\\right)$",
+        "C) $\\frac{\\mu_0 I \\cos^2\\alpha}{2(b - a)}\\ln\\left(\\frac{b}{a}\\right)$",
+        "D) $\\frac{\\mu_0 I \\tan^2\\alpha}{2(b - a)}\\ln\\left(\\frac{b}{a}\\right)$"
+      ],
+      "answer": "A",
+      "explanation": "Let $s$ denote the slant distance from the apex along any generator of the cone ($a \\le s \\le b$). The total slant length is $b - a$. Because current $I$ is uniformly distributed along the slant height, the linear current density along the generator is $\\lambda = \\frac{I}{b - a}$. Consider an elemental circular ring of width $ds$ at slant distance $s$. The current carried by this ring is $dI = \\lambda ds = \\frac{I}{b - a} ds$. The radius of this circular ring is $r = s \\sin\\alpha$. The axial distance from the apex (origin) to the center of this ring is $z = s \\cos\\alpha$. The distance from the apex to every point on the circumference of this ring is $\\sqrt{r^2 + z^2} = \\sqrt{s^2 \\sin^2\\alpha + s^2 \\cos^2\\alpha} = s$. According to the Biot-Savart law, the axial magnetic field produced at distance $z$ from the center of a circular ring of radius $r$ carrying current $dI$ is: $dB = \\frac{\\mu_0 dI r^2}{2(r^2 + z^2)^{3/2}} = \\frac{\\mu_0 dI (s^2 \\sin^2\\alpha)}{2 s^3} = \\frac{\\mu_0 dI \\sin^2\\alpha}{2 s}$. Substituting $dI = \\frac{I}{b - a} ds$: $dB = \\frac{\\mu_0 I \\sin^2\\alpha}{2(b - a)}\\frac{ds}{s}$. Integrating over the entire slant extent of the truncated cone from $s = a$ to $s = b$: $B = \\int_a^b \\frac{\\mu_0 I \\sin^2\\alpha}{2(b - a)}\\frac{ds}{s} = \\frac{\\mu_0 I \\sin^2\\alpha}{2(b - a)}\\ln\\left(\\frac{b}{a}\\right)$. By symmetry, radial components cancel, leaving the net field purely along the cone's axis of magnitude $B = \\frac{\\mu_0 I \\sin^2\\alpha}{2(b - a)}\\ln\\left(\\frac{b}{a}\\right)$. Thus, option A is correct. Option B incorrectly uses $\\sin\\alpha$ instead of $\\sin^2\\alpha$; option C mistakenly replaces sine with cosine; option D uses tangent."
+    },
+    {
+      "id": "mcm_c02_024",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A flat spiral coil (Archimedean spiral) consists of $N$ closely spaced concentric coplanar turns carrying a steady current $I$. The inner radius of the winding is $a$ and the outer radius is $b$ ($b > a$). The turns are wound with uniform radial turn density $n_r = \\frac{N}{b - a}$. Which of the following statements is/are correct regarding this planar spiral coil?",
+      "options": [
+        "A) The magnitude of the magnetic field at the center of the spiral is $B_{center} = \\frac{\\mu_0 N I}{2(b - a)}\\ln\\left(\\frac{b}{a}\\right)$.",
+        "B) The total magnetic dipole moment of the spiral coil is $\\mu_{total} = \\frac{\\pi N I}{3}(b^2 + ab + a^2)$.",
+        "C) If $b = 2a$, the magnetic field at the center is $B_{center} = \\frac{\\mu_0 N I}{2a}\\ln 2$.",
+        "D) At a point on the axis at distance $z \\gg b$, the magnetic field magnitude decays as $B(z) \\propto \\frac{1}{z^2}$."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Consider a thin annular element of radius $r$ and width $dr$ ($a \\le r \\le b$). The number of turns in this element is $dN = n_r dr = \\frac{N}{b - a}dr$. Each turn is approximately a circular loop carrying current $I$. The magnetic field at the center produced by this annular element is $dB = \\frac{\\mu_0 I dN}{2r} = \\frac{\\mu_0 N I}{2(b - a)}\\frac{dr}{r}$. Integrating from $r = a$ to $r = b$: $B_{center} = \\int_a^b \\frac{\\mu_0 N I}{2(b - a)}\\frac{dr}{r} = \\frac{\\mu_0 N I}{2(b - a)}\\ln\\left(\\frac{b}{a}\\right)$. Statement A is correct. Substituting $b = 2a$ into this formula gives $B_{center} = \\frac{\\mu_0 N I}{2(2a - a)}\\ln\\left(\\frac{2a}{a}\\right) = \\frac{\\mu_0 N I}{2a}\\ln 2$. Statement C is correct. The magnetic dipole moment of the annular element is $d\\mu = dN \\cdot I \\cdot (\\pi r^2) = \\frac{\\pi N I}{b - a} r^2 dr$. Integrating over the coil gives: $\\mu_{total} = \\frac{\\pi N I}{b - a}\\int_a^b r^2 dr = \\frac{\\pi N I}{b - a}\\left(\\frac{b^3 - a^3}{3}\\right) = \\frac{\\pi N I (b - a)(b^2 + ab + a^2)}{3(b - a)} = \\frac{\\pi N I}{3}(b^2 + ab + a^2)$. Statement B is correct. For statement D: at large axial distances ($z \\gg b$), the magnetic field of any planar localized current distribution is that of a magnetic dipole, which scales as $B(z) \\approx \\frac{\\mu_0 \\mu_{total}}{2\\pi z^3} \\propto \\frac{1}{z^3}$, not $\\frac{1}{z^2}$. Hence statement D is false. Therefore, statements A, B, and C are correct."
+    },
+    {
+      "id": "mcm_c02_025",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A rigid conducting wire frame carrying a steady direct current $I = 10\\text{ A}$ forms a non-planar closed loop along six edges of a cube of side length $L = 0.50\\text{ m}$. The vertices of the cube are situated such that the current flows sequentially along the directed paths: $(0,0,0) \\to (L,0,0) \\to (L,L,0) \\to (0,L,0) \\to (0,L,L) \\to (0,0,L) \\to (0,0,0)$. A uniform external magnetic field $\\vec{B} = 6.0\\hat{i} + 8.0\\hat{k}\\text{ T}$ is applied across the region. Find the magnitude of the net magnetic torque $|\\vec{\\tau}|$ (in $\\text{N}\\cdot\\text{m}$) experienced by the wire frame.",
+      "options": [],
+      "answer": "5",
+      "explanation": "The non-planar closed circuit consists of 6 segments. By the principle of superposition, we introduce two equal and opposite virtual currents of magnitude $I$ along the diagonal segment from $(0,L,0)$ to $(0,0,0)$ and back. This decomposes the 3D loop into two independent planar square loops of side $L$: (1) Loop 1 in the $xy$-plane: vertices $(0,0,0) \\to (L,0,0) \\to (L,L,0) \\to (0,L,0) \\to (0,0,0)$. The current circulates counter-clockwise when viewed from $+z$. The area vector is $\\vec{A}_1 = L^2\\hat{k}$. (2) Loop 2 in the $yz$-plane: vertices $(0,L,0) \\to (0,L,L) \\to (0,0,L) \\to (0,0,0) \\to (0,L,0)$. Applying the right-hand grip rule, traversing $(0,L,0) \\to (0,L,L)$ along $+z$ and $(0,L,L) \\to (0,0,L)$ along $-y$ gives normal $(\\hat{k})\\times(-\\hat{j}) = +\\hat{i}$. Thus the area vector is $\\vec{A}_2 = L^2\\hat{i}$. The net magnetic dipole moment of the complete frame is: $\\vec{M} = I(\\vec{A}_1 + \\vec{A}_2) = I L^2(\\hat{i} + \\hat{k})$. Substituting the numerical values $I = 10\\text{ A}$ and $L = 0.50\\text{ m}$: $I L^2 = (10\\text{ A})(0.50\\text{ m})^2 = (10)(0.25) = 2.5\\text{ A}\\cdot\\text{m}^2$. Hence $\\vec{M} = 2.5(\\hat{i} + \\hat{k})\\text{ A}\\cdot\\text{m}^2$. The external magnetic field is $\\vec{B} = 6.0\\hat{i} + 8.0\\hat{k}\\text{ T}$. The net magnetic torque acting on the frame is given by: $\\vec{\\tau} = \\vec{M} \\times \\vec{B} = [2.5(\\hat{i} + \\hat{k})] \\times (6.0\\hat{i} + 8.0\\hat{k})$. Expanding the vector cross product: $\\vec{\\tau} = 2.5 [ 6.0(\\hat{i} \\times \\hat{i}) + 8.0(\\hat{i} \\times \\hat{k}) + 6.0(\\hat{k} \\times \\hat{i}) + 8.0(\\hat{k} \\times \\hat{k}) ]$. Using $\\hat{i} \\times \\hat{k} = -\\hat{j}$ and $\\hat{k} \\times \\hat{i} = +\\hat{j}$: $\\vec{\\tau} = 2.5 [ 8.0(-\\hat{j}) + 6.0(\\hat{j}) ] = 2.5 (-2.0\\hat{j}) = -5.0\\hat{j}\\text{ N}\\cdot\\text{m}$. The magnitude of the net torque is $|\\vec{\\tau}| = 5.0\\text{ N}\\cdot\\text{m} = 5\\text{ N}\\cdot\\text{m}$. Therefore, the integer answer is 5."
+    },
+    {
+      "id": "mcm_c02_026",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A real single-layer helical solenoid of radius $R$ and total length $L$ has $N$ tightly wound turns carrying a steady electric current $I$. The winding has a non-zero pitch $h = L/N$. Unlike an idealized solenoid modeled by stacked circular rings, the actual continuous helical wire possesses both an azimuthal circulating current component and an axial drift current component along the $z$-axis. Which of the following statements is/are correct?",
+      "options": [
+        "A) Outside the helical solenoid at radial distance $r > R$, there exists a non-zero azimuthal magnetic field given by $B_\\theta(r) = \\frac{\\mu_0 I}{2\\pi r}$.",
+        "B) Inside the helical solenoid on the central axis ($r = 0$), the axial magnetic field at the midpoint is $B_z = \\frac{\\mu_0 N I}{\\sqrt{L^2 + 4R^2}}$.",
+        "C) Adjacent turns of the helical winding carry currents in the same azimuthal direction, resulting in mutual attractive magnetic forces that tend to compress the solenoid axially.",
+        "D) Inside the helical solenoid ($r < R$), the azimuthal magnetic field $B_\\theta(r)$ is identically zero."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Because the winding is a continuous helix advancing along the $z$-axis, each turn advances by the pitch $h = L/N$ while circulating through $2\\pi$ radians. The current vector can be decomposed into an azimuthal circular component and a purely axial component. Over the entire length $L$, the wire transports net current $I$ from one terminal to the other along the $z$-direction. Applying Ampere's circuital law along a coaxial circular Amperian loop of radius $r$ centered on the axis: for an exterior loop ($r > R$), the Amperian circle encloses the total axial current $I$. Thus $\\oint \\vec{B}\\cdot d\\vec{l} = B_\\theta(2\\pi r) = \\mu_0 I \\implies B_\\theta(r) = \\frac{\\mu_0 I}{2\\pi r}$, validating statement A. For an interior loop ($r < R$), the Amperian circle lies inside the cylinder and encloses zero axial current ($I_{encl} = 0$), so $B_\\theta(r) = 0$ everywhere inside the core, confirming statement D. Along the central axis, each turn subtends an angle with the midpoint. Integrating the Biot-Savart contribution of all turns yields $B_z = \\mu_0 n I \\cos\\theta = \\frac{\\mu_0 N I}{L}\\frac{L/2}{\\sqrt{(L/2)^2 + R^2}} (2) = \\frac{\\mu_0 N I}{\\sqrt{L^2 + 4R^2}}$, confirming statement B. Finally, adjacent turns carry electric current in the same azimuthal direction. Because parallel currents attract each other via the magnetic Lorentz force, adjacent loops experience mutual longitudinal attraction, exerting a compressive force that tends to compress the helix axially, confirming statement C. All statements A, B, C, and D are correct."
+    },
+    {
+      "id": "mcm_c02_027",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A semi-infinite solenoid of radius $R$ has $n$ turns per unit length carrying steady direct current $I$. The solenoid has its open circular mouth located in the $xy$-plane at $z = 0$ and extends indefinitely along the positive $z$-axis ($z > 0$). Near the open end of the solenoid at $z = 0$, consider a point at a small radial distance $r \\ll R$ from the axis. Using Gauss's law for magnetism ($\\nabla \\cdot \\vec{B} = 0$), determine the radial component of the magnetic field $B_r(r, 0)$.",
+      "options": [
+        "A) $\\frac{\\mu_0 n I r}{4 R}$",
+        "B) $\\frac{\\mu_0 n I r}{2 R}$",
+        "C) $\\frac{\\mu_0 n I r}{R}$",
+        "D) $\\frac{\\mu_0 n I r}{8 R}$"
+      ],
+      "answer": "A",
+      "explanation": "The axial magnetic field on the central axis ($r = 0$) of a semi-infinite solenoid extending from $z = 0$ to $z = +\\infty$ is: $B_z(0, z) = \\frac{1}{2}\\mu_0 n I\\left(1 + \\frac{z}{\\sqrt{z^2 + R^2}}\\right)$. To find the radial magnetic field $B_r$ off-axis, we apply Gauss's law for magnetism $\\nabla \\cdot \\vec{B} = 0$ in cylindrical coordinates: $\\frac{1}{r}\\frac{\\partial}{\\partial r}(r B_r) + \\frac{\\partial B_z}{\\partial z} = 0$. Assuming $B_z$ near the axis ($r \\ll R$) is approximately equal to its on-axis value $B_z(0, z)$: $\\frac{\\partial}{\\partial r}(r B_r) \\approx -r \\frac{\\partial B_z}{\\partial z}$. Integrating with respect to $r$: $r B_r \\approx -\\frac{\\partial B_z}{\\partial z} \\int_0^r r' dr' = -\\frac{r^2}{2}\\frac{\\partial B_z}{\\partial z} \\implies B_r(r, z) \\approx -\\frac{r}{2}\\frac{\\partial B_z}{\\partial z}$. Differentiating $B_z(0, z)$ with respect to $z$: $\\frac{\\partial B_z}{\\partial z} = \\frac{1}{2}\\mu_0 n I \\frac{d}{dz}\\left(\\frac{z}{\\sqrt{z^2 + R^2}}\\right) = \\frac{1}{2}\\mu_0 n I \\frac{(z^2 + R^2) - z^2}{(z^2 + R^2)^{3/2}} = \\frac{\\mu_0 n I R^2}{2(z^2 + R^2)^{3/2}}$. Evaluating this gradient at the mouth of the solenoid ($z = 0$): $\\left.\\frac{\\partial B_z}{\\partial z}\\right|_{z=0} = \\frac{\\mu_0 n I R^2}{2 R^3} = \\frac{\\mu_0 n I}{2 R}$. Substituting this into the radial field expression: $B_r(r, 0) = -\\frac{r}{2}\\left(\\frac{\\mu_0 n I}{2 R}\\right) = -\\frac{\\mu_0 n I r}{4 R}$. The magnitude of the radial magnetic field at $z = 0$ for $r \\ll R$ is therefore $|B_r| = \\frac{\\mu_0 n I r}{4 R}$. Thus, option A is correct. Option B misses the factor of $1/2$ from the cylindrical divergence integration; option C omits both factors of $2$; option D inserts an extra factor of $2$."
+    },
+    {
+      "id": "mcm_c02_028",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A rigid conducting wire frame carrying a steady current $I$ consists of four straight segments forming a closed non-planar quadrilateral path: from the origin $O(0,0,0)$ to $P_1(L,0,0)$, then to $P_2(0,L,0)$, then to $P_3(0,0,L)$, and finally returning back to the origin $O(0,0,0)$. A uniform magnetic field $\\vec{B} = B_0(\\hat{i} + \\hat{j} + \\hat{k})$ is applied throughout space. Which of the following statements is/are correct?",
+      "options": [
+        "A) The magnetic dipole moment of the loop is $\\vec{M} = \\frac{1}{2} I L^2(\\hat{i} + \\hat{k})$.",
+        "B) The magnitude of the net magnetic torque acting on the loop is $|\\vec{\\tau}| = \\frac{1}{\\sqrt{2}} I L^2 B_0$.",
+        "C) The magnetic potential energy of the loop in the field is $U = -I L^2 B_0$.",
+        "D) The net magnetic force experienced by the closed loop is zero."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "First, any closed current loop placed in a strictly uniform magnetic field experiences zero net magnetic force: $\\vec{F} = \\oint I d\\vec{l} \\times \\vec{B} = I \\left(\\oint d\\vec{l}\\right) \\times \\vec{B} = \\vec{0}$. Statement D is correct. To find the magnetic dipole moment $\\vec{M}$, we use $\\vec{M} = \\frac{1}{2} I \\oint \\vec{r} \\times d\\vec{r}$. Evaluating each of the four segments: (1) $O(0,0,0) \\to P_1(L,0,0)$: $\\vec{r}$ is parallel to $d\\vec{r}$, so $\\vec{r}\\times d\\vec{r} = \\vec{0}$. (2) $P_1(L,0,0) \\to P_2(0,L,0)$: Parameterize $\\vec{r}(t) = (1-t)L\\hat{i} + t L\\hat{j}$ for $0 \\le t \\le 1$. Then $d\\vec{r} = (-L\\hat{i} + L\\hat{j})dt$. $\\vec{r}\\times d\\vec{r} = [(1-t)L\\hat{i} + t L\\hat{j}] \\times [-L\\hat{i} + L\\hat{j}] dt = [(1-t)L^2\\hat{k} + t L^2\\hat{k}]dt = L^2\\hat{k} dt$. Integrating from $t=0$ to $1$ gives $L^2\\hat{k}$. (3) $P_2(0,L,0) \\to P_3(0,0,L)$: Parameterize $\\vec{r}(t) = (1-t)L\\hat{j} + t L\\hat{k}$. Then $d\\vec{r} = (-L\\hat{j} + L\\hat{k})dt$. $\\vec{r}\\times d\\vec{r} = [(1-t)L\\hat{j} + t L\\hat{k}] \\times [-L\\hat{j} + L\\hat{k}] dt = [(1-t)L^2\\hat{i} + t L^2\\hat{i}]dt = L^2\\hat{i} dt$. Integrating gives $L^2\\hat{i}$. (4) $P_3(0,0,L) \\to O(0,0,0)$: $\\vec{r}$ is antiparallel to $d\\vec{r}$, so $\\vec{r}\\times d\\vec{r} = \\vec{0}$. Summing all contributions: $\\oint \\vec{r}\\times d\\vec{r} = L^2\\hat{i} + L^2\\hat{k}$. Therefore, $\\vec{M} = \\frac{1}{2} I (L^2\\hat{i} + L^2\\hat{k}) = \\frac{1}{2} I L^2(\\hat{i} + \\hat{k})$. Statement A is correct. The torque is $\\vec{\\tau} = \\vec{M} \\times \\vec{B} = \\frac{1}{2} I L^2 B_0 (\\hat{i} + \\hat{k}) \\times (\\hat{i} + \\hat{j} + \\hat{k}) = \\frac{1}{2} I L^2 B_0 [(\\hat{k} - \\hat{j}) + (\\hat{j} - \\hat{i})] = \\frac{1}{2} I L^2 B_0 (-\\hat{i} + \\hat{k})$. Magnitude: $|\\vec{\\tau}| = \\frac{1}{2} I L^2 B_0 \\sqrt{(-1)^2 + 1^2} = \\frac{\\sqrt{2}}{2} I L^2 B_0 = \\frac{1}{\\sqrt{2}} I L^2 B_0$. Statement B is correct. The magnetic potential energy is $U = -\\vec{M}\\cdot\\vec{B} = -\\left[\\frac{1}{2} I L^2(\\hat{i} + \\hat{k})\\right]\\cdot [B_0(\\hat{i} + \\hat{j} + \\hat{k})] = -\\frac{1}{2} I L^2 B_0 (1 + 0 + 1) = -I L^2 B_0$. Statement C is correct. All statements A, B, C, and D are correct."
+    },
+    {
+      "id": "mcm_c02_029",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A particle of mass $m$ and positive charge $q$ is projected from the origin at $t = 0$ with an initial velocity $\\vec{v}_0 = v_0\\hat{i}$ in the presence of uniform collinear electric and magnetic fields $\\vec{E} = E_0\\hat{k}$ and $\\vec{B} = B_0\\hat{k}$. The particle executes a helical path along the $z$-axis with an expanding pitch. Let $p_n = z(nT) - z((n-1)T)$ be the axial pitch of the $n$-th complete revolution, where $T = \\frac{2\\pi m}{q B_0}$ is the orbital period. Find the numerical ratio $\\frac{p_5}{p_1}$ of the pitch of the fifth turn to the pitch of the first turn.",
+      "options": [],
+      "answer": "9",
+      "explanation": "In the transverse $xy$-plane, the equation of motion is governed solely by the magnetic force: $m \\frac{d\\vec{v}_\\perp}{dt} = q(\\vec{v}_\\perp \\times B_0\\hat{k})$. With initial condition $\\vec{v}_\\perp(0) = v_0\\hat{i}$, the particle executes uniform circular motion with constant speed $v_0$, radius $R = \\frac{m v_0}{q B_0}$, and orbital time period $T = \\frac{2\\pi m}{q B_0}$. Along the $z$-axis, the magnetic force is zero. The particle is accelerated uniformly by the electric field: $a_z = \\frac{q E_0}{m}$. Given that the initial axial velocity is zero ($v_{0z} = 0$), the axial position at time $t$ is: $z(t) = \\frac{1}{2} a_z t^2 = \\frac{q E_0}{2m} t^2$. The pitch $p_n$ of the $n$-th revolution is the distance traversed along the $z$-axis between $t = (n-1)T$ and $t = nT$: $p_n = z(nT) - z((n-1)T) = \\frac{q E_0}{2m} [ (nT)^2 - ((n-1)T)^2 ] = \\frac{q E_0 T^2}{2m} [ n^2 - (n^2 - 2n + 1) ] = \\frac{q E_0 T^2}{2m} (2n - 1)$. For the first turn ($n = 1$): $p_1 = \\frac{q E_0 T^2}{2m} (2(1) - 1) = \\frac{q E_0 T^2}{2m} (1)$. For the fifth turn ($n = 5$): $p_5 = \\frac{q E_0 T^2}{2m} (2(5) - 1) = \\frac{q E_0 T^2}{2m} (9)$. Taking the ratio: $\\frac{p_5}{p_1} = \\frac{9}{1} = 9$. Therefore, the integer answer is 9."
+    },
+    {
+      "id": "mcm_c02_030",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A hollow thin truncated conical shell of semi-vertical angle $\\alpha = 45^\\circ$ has its apex at the origin. The slant generator of the cone extends from slant distance $s_0$ to $s_1 = e^8 s_0$ from the apex. A steady azimuthal current flows symmetrically around the cone with a uniform linear current density $\\lambda$ per unit slant length. The magnitude of the resulting magnetic field at the apex of the cone is $B = k \\mu_0 \\lambda$. Determine the dimensionless integer value of $k$.",
+      "options": [],
+      "answer": "2",
+      "explanation": "Let $s$ denote the slant distance measured from the apex along any generator of the cone ($s_0 \\le s \\le s_1$). Consider an elemental circular ring of width $ds$ at slant distance $s$. The azimuthal current carried by this ring is $dI = \\lambda ds$. The radius of the ring is $r = s \\sin\\alpha$, and its axial distance from the apex is $z = s \\cos\\alpha$. The distance from the apex to every point on the circumference of this ring is $\\sqrt{r^2 + z^2} = \\sqrt{s^2 \\sin^2\\alpha + s^2 \\cos^2\\alpha} = s$. By the Biot-Savart law, the axial magnetic field produced at the apex by this elemental circular current loop is: $dB = \\frac{\\mu_0 dI r^2}{2(r^2 + z^2)^{3/2}} = \\frac{\\mu_0 (\\lambda ds)(s^2 \\sin^2\\alpha)}{2 s^3} = \\frac{\\mu_0 \\lambda \\sin^2\\alpha}{2}\\frac{ds}{s}$. Integrating over the entire slant extent from $s = s_0$ to $s = s_1$: $B = \\int_{s_0}^{s_1} \\frac{\\mu_0 \\lambda \\sin^2\\alpha}{2}\\frac{ds}{s} = \\frac{\\mu_0 \\lambda \\sin^2\\alpha}{2}\\ln\\left(\\frac{s_1}{s_0}\\right)$. Given $\\alpha = 45^\\circ$, we have $\\sin 45^\\circ = \\frac{1}{\\sqrt{2}}$, so $\\sin^2 45^\\circ = \\frac{1}{2}$. Given $s_1 = e^8 s_0$, the logarithmic term evaluates to $\\ln(e^8) = 8$. Substituting these values: $B = \\frac{\\mu_0 \\lambda (1/2)}{2} (8) = \\frac{\\mu_0 \\lambda}{4} (8) = 2 \\mu_0 \\lambda$. Comparing with $B = k \\mu_0 \\lambda$, we obtain $k = 2$. Therefore, the integer answer is 2."
+    },
+    {
+      "id": "mcm_c02_031",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A hollow conducting conical shell of semi-vertical angle $\\alpha$ and height $H$ has its apex at the origin $(0,0,0)$ and base in the plane $z = H$. A steady electric current $I$ enters the apex and flows symmetrically along the conical surface toward the base along generators (meridional surface current), leaving through the base rim. Let $r$ denote the cylindrical radial distance from the central symmetry axis ($z$-axis). Which of the following statements is/are correct regarding the magnetic field $\\vec{B}$ in the region $0 < z < H$?",
+      "options": [
+        "A) Inside the conical shell ($r < z\\tan\\alpha$), the magnetic field is identically zero: $\\vec{B} = \\vec{0}$.",
+        "B) Outside the conical shell ($r > z\\tan\\alpha$), the magnetic field is purely azimuthal and given by $\\vec{B} = \\frac{\\mu_0 I}{2\\pi r}\\hat{\\theta}$.",
+        "C) The surface current density on the cone at axial coordinate $z$ has magnitude $K(z) = \\frac{I}{2\\pi z \\tan\\alpha}$.",
+        "D) The magnetic field experiences a tangential discontinuity across the conical shell equal to $\\Delta B = \\mu_0 K$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "At an axial coordinate $z$ ($0 < z < H$), the conical cross-section is a circle of radius $R(z) = z \\tan\\alpha$. The total current $I$ flows along the generators and is distributed uniformly over the perimeter of this circular section of length $2\\pi R(z) = 2\\pi z \\tan\\alpha$. The linear surface current density (current per unit width transverse to the flow) is therefore $K(z) = \\frac{I}{2\\pi R(z)} = \\frac{I}{2\\pi z \\tan\\alpha}$, verifying statement C. Due to the complete rotational symmetry about the $z$-axis, the magnetic field can only possess an azimuthal component $B_\\theta(r, z)$. We construct a coaxial circular Amperian loop of radius $r$ in a horizontal plane at height $z$: (1) For an interior loop ($r < R(z)$), the Amperian circle lies entirely inside the cone. Since current flows strictly along the shell at $r = R(z)$, the enclosed current is zero ($I_{encl} = 0$). By Ampere's law, $\\oint \\vec{B}\\cdot d\\vec{l} = B_\\theta(2\\pi r) = 0 \\implies \\vec{B} = \\vec{0}$, validating statement A. (2) For an exterior loop ($r > R(z)$), the Amperian circle encloses the full current $I$ streaming down the cone. Thus $\\oint \\vec{B}\\cdot d\\vec{l} = B_\\theta(2\\pi r) = \\mu_0 I \\implies \\vec{B} = \\frac{\\mu_0 I}{2\\pi r}\\hat{\\theta}$, confirming statement B. (3) Crossing the conical surface radially from inside to outside, the tangential magnetic field steps from $B_{inside} = 0$ to $B_{outside} = \\frac{\\mu_0 I}{2\\pi R(z)} = \\mu_0 K(z)$. The step discontinuity is $\\Delta B = \\mu_0 K(z)$, which precisely satisfies the electrodynamic boundary condition for surface currents $\\hat{n}\\times(\\vec{B}_{out} - \\vec{B}_{in}) = \\mu_0 \\vec{K}$, validating statement D. All statements A, B, C, and D are correct."
+    },
+    {
+      "id": "mcm_c02_032",
+      "subject": "Physics",
+      "topic": "Moving Charges and Magnetism",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A small magnetic dipole of magnetic dipole moment $\\vec{M} = -M\\hat{k}$ ($M > 0$) and mass $m$ is positioned on the vertical $z$-axis at height $z > 0$ above a fixed horizontal circular wire loop of radius $R$ lying in the $xy$-plane centered at the origin. The loop carries a steady electric current $I$ circulating counter-clockwise (producing an upward magnetic field along $+\\hat{k}$). A uniform downward gravitational field $\\vec{g} = -g\\hat{k}$ acts on the dipole. Which of the following statements is/are correct?",
+      "options": [
+        "A) The upward magnetic repulsive force on the dipole attains its maximum value at height $z = \\frac{R}{2}$.",
+        "B) If the dipole is in equilibrium at an axial height $z_0 > \\frac{R}{2}$, the equilibrium is stable against vertical displacements.",
+        "C) If the dipole is in equilibrium at an axial height $z_0 < \\frac{R}{2}$, the equilibrium is unstable against vertical displacements.",
+        "D) In accordance with Earnshaw's theorem for static magnetic fields, whenever vertical equilibrium is stable ($z_0 > R/2$), the dipole is unstable against lateral (horizontal) displacements."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "The axial magnetic field produced by the circular loop on the $+z$-axis is $\\vec{B}(z) = \\frac{\\mu_0 I R^2}{2(R^2 + z^2)^{3/2}}\\hat{k}$. The magnetic dipole moment is oriented antiparallel to the field: $\\vec{M} = -M\\hat{k}$. The magnetic potential energy of the dipole is $U_B(z) = -\\vec{M}\\cdot\\vec{B} = -(-M\\hat{k})\\cdot\\left[\\frac{\\mu_0 I R^2}{2(R^2 + z^2)^{3/2}}\\hat{k}\\right] = +\\frac{\\mu_0 M I R^2}{2(R^2 + z^2)^{3/2}}$. The magnetic force exerted on the dipole is: $F_z = -\\frac{dU_B}{dz} = -\\frac{\\mu_0 M I R^2}{2}\\left(-\\frac{3}{2}\\right)(R^2 + z^2)^{-5/2}(2z) = +\\frac{3\\mu_0 M I R^2 z}{2(R^2 + z^2)^{5/2}}$. Because $F_z > 0$, this is an upward repulsive magnetic force. To find where $F_z$ is maximized, differentiate with respect to $z$: $\\frac{dF_z}{dz} = \\frac{3\\mu_0 M I R^2}{2} \\frac{(R^2 + z^2)^{5/2}(1) - z\\left(\\frac{5}{2}\\right)(R^2 + z^2)^{3/2}(2z)}{(R^2 + z^2)^5} = \\frac{3\\mu_0 M I R^2}{2} \\frac{R^2 - 4z^2}{(R^2 + z^2)^{7/2}} = 0$. Setting the numerator to zero: $R^2 - 4z^2 = 0 \\implies z = \\frac{R}{2}$. Statement A is correct. For vertical equilibrium under gravity, $F_{net}(z) = F_z(z) - mg = 0$. The condition for stable equilibrium under vertical perturbation is that the net restoring force opposes the displacement: $\\frac{dF_{net}}{dz} = \\frac{dF_z}{dz} < 0$. From the derivative, $\\frac{dF_z}{dz} < 0$ when $R^2 - 4z^2 < 0$, which corresponds to $z_0 > \\frac{R}{2}$. Thus, for $z_0 > R/2$, the vertical equilibrium is stable. Statement B is correct. Conversely, for $z_0 < R/2$, $\\frac{dF_z}{dz} > 0$, so the force increases as the particle moves upward, making vertical equilibrium unstable. Statement C is correct. Finally, Gauss's law for magnetic fields requires $\\nabla \\cdot \\vec{B} = 0$, which leads to Laplace's equation for the potential energy $\\nabla^2 U = \\frac{\\partial^2 U}{\\partial x^2} + \\frac{\\partial^2 U}{\\partial y^2} + \\frac{\\partial^2 U}{\\partial z^2} = 0$. If vertical stability holds, $\\frac{\\partial^2 U}{\\partial z^2} > 0$. Consequently, $\\frac{\\partial^2 U}{\\partial x^2} + \\frac{\\partial^2 U}{\\partial y^2} < 0$, which proves that the dipole is unconditionally unstable to lateral horizontal displacements (Earnshaw's theorem). Statement D is correct. All statements A, B, C, and D are correct."
+    }
+  ]
+}

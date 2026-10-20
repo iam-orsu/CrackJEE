@@ -1,0 +1,784 @@
+{
+  "questions": [
+    {
+      "id": "ro_c01_001",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A point object $O$ is placed at the bottom of a container filled with water (refractive index $\\mu_1 = \\frac{4}{3}$) to a depth of $12\\text{ cm}$. Above the water floats an immiscible layer of transparent oil (refractive index $\\mu_2 = 1.5$) of thickness $9\\text{ cm}$. A concave spherical mirror of focal length $20\\text{ cm}$ is mounted facing downwards in air at a height of $15\\text{ cm}$ above the oil surface, with its principal axis vertical and coincident with the normal through $O$. The distance of the image formed by the mirror from the mirror's pole is:",
+      "options": [
+        "A) $60\\text{ cm}$",
+        "B) $45\\text{ cm}$",
+        "C) $30\\text{ cm}$",
+        "D) $75\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "First, determine the apparent depth of object $O$ as seen from air above the oil surface: $d' = \\frac{d_1}{\\mu_1} + \\frac{d_2}{\\mu_2} = \\frac{12}{4/3} + \\frac{9}{1.5} = 9\\text{ cm} + 6\\text{ cm} = 15\\text{ cm}$. Therefore, the apparent position of the object lies at a distance of $15\\text{ cm} + 15\\text{ cm} = 30\\text{ cm}$ below the pole of the concave mirror, giving object distance $u = -30\\text{ cm}$. Applying the mirror formula $\\frac{1}{v} + \\frac{1}{u} = \\frac{1}{f}$, we substitute $f = -20\\text{ cm}$ and $u = -30\\text{ cm}$: $\\frac{1}{v} = -\\frac{1}{20} - \\frac{1}{-30} = -\\frac{1}{20} + \\frac{1}{30} = -\\frac{1}{60}\\text{ cm}^{-1}$. Solving yields $v = -60\\text{ cm}$, meaning the image is formed at a distance of $60\\text{ cm}$ from the pole of the mirror. A common conceptual mistake leading to distractor $45\\text{ cm}$ is neglecting the apparent shift in water and only considering the oil layer; distractor $75\\text{ cm}$ arises from using the real depths directly without dividing by the respective refractive indices."
+    },
+    {
+      "id": "ro_c01_002",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A thin biconvex glass lens (refractive index $\\mu_g = 1.50$) has radii of curvature $R_1 = 20\\text{ cm}$ and $R_2 = 30\\text{ cm}$. When the lens is completely immersed in a transparent liquid of refractive index $\\mu_l = 1.25$, its focal length becomes $f_l$. The ratio of the focal length of the lens in liquid to its focal length in air, $\\frac{f_l}{f_a}$, is:",
+      "options": [
+        "A) $1.50$",
+        "B) $2.50$",
+        "C) $3.25$",
+        "D) $4.00$"
+      ],
+      "answer": "B",
+      "explanation": "Applying the lens maker's formula in air (refractive index $1$): $\\frac{1}{f_a} = (\\mu_g - 1)\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right) = (1.50 - 1)\\left(\\frac{1}{20} - \\left(-\\frac{1}{30}\\right)\\right) = 0.50 \\times \\left(\\frac{5}{60}\\right) = \\frac{1}{24}\\text{ cm}^{-1}$, yielding $f_a = 24\\text{ cm}$. When immersed in the liquid, the relative refractive index of the lens is $\\frac{\\mu_g}{\\mu_l} = \\frac{1.50}{1.25} = 1.20$. Applying the lens maker's formula in the liquid medium: $\\frac{1}{f_l} = \\left(\\frac{\\mu_g}{\\mu_l} - 1\\right)\\left(\\frac{1}{20} + \\frac{1}{30}\\right) = (1.20 - 1)\\left(\\frac{1}{12}\\right) = \\frac{0.20}{12} = \\frac{1}{60}\\text{ cm}^{-1}$, which implies $f_l = 60\\text{ cm}$. Hence, the required ratio is $\\frac{f_l}{f_a} = \\frac{60}{24} = 2.50$. The distractor $1.50$ occurs if one erroneously computes $\\frac{\\mu_l}{\\mu_g - 1}$; distractor $4.00$ arises if the term $(\\mu_l - 1)$ is incorrectly used in the denominator without relative index division."
+    },
+    {
+      "id": "ro_c01_003",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A plano-convex lens made of glass with refractive index $\\mu = 1.5$ has a curved surface of radius of curvature $R = 30\\text{ cm}$. The curved surface is silvered on the outside to convert it into a reflecting optical system. A small object is placed along the principal axis in front of the flat unsilvered face. In order for the final image to coincide with the object itself, the distance of the object from the flat face must be (in $\\text{cm}$):",
+      "options": [],
+      "answer": "20",
+      "explanation": "The optical system consists of refraction through the plano-convex lens, reflection from the curved silvered surface, and refraction back through the lens. The power of the lens is $P_L = (\\mu - 1)\\left(\\frac{1}{\\infty} - \\left(-\\frac{1}{R}\\right)\\right) = \\frac{1.5 - 1}{30} = \\frac{1}{60}\\text{ cm}^{-1}$. The silvered curved surface acts as a concave mirror of radius $R = 30\\text{ cm}$, whose power is $P_M = \\frac{2}{R} = \\frac{2}{30} = \\frac{1}{15}\\text{ cm}^{-1}$. The total equivalent power of the silvered lens system is $P = 2P_L + P_M = 2\\left(\\frac{1}{60}\\right) + \\frac{1}{15} = \\frac{1}{30} + \\frac{2}{30} = \\frac{3}{30} = \\frac{1}{10}\\text{ cm}^{-1}$. Hence, the equivalent focal length of the concave mirror system is $F = \\frac{1}{P} = 10\\text{ cm}$. An object forms an image coincident with itself when placed at the center of curvature of the equivalent concave mirror, therefore $u = 2F = 2 \\times 10 = 20\\text{ cm}$."
+    },
+    {
+      "id": "ro_c01_004",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a displacement method experiment using a convex lens, the distance between the illuminated object and the observation screen is fixed at $D = 100\\text{ cm}$. Two distinct sharp images are obtained on the screen for two positions of the lens separated by a displacement $d = 20\\text{ cm}$. If the height of the smaller image formed is $4\\text{ mm}$, find the height of the object and the focal length of the lens respectively.",
+      "options": [
+        "A) $8\\text{ mm}, 20\\text{ cm}$",
+        "B) $5\\text{ mm}, 25\\text{ cm}$",
+        "C) $6\\text{ mm}, 24\\text{ cm}$",
+        "D) $6\\text{ mm}, 20\\text{ cm}$"
+      ],
+      "answer": "C",
+      "explanation": "Applying the displacement formula for the focal length of a convex lens: $f = \\frac{D^2 - d^2}{4D} = \\frac{100^2 - 20^2}{4 \\times 100} = \\frac{10000 - 400}{400} = \\frac{9600}{400} = 24\\text{ cm}$. For the two lens positions, the object distances are $u_1 = \\frac{D + d}{2} = 60\\text{ cm}$ and $u_2 = \\frac{D - d}{2} = 40\\text{ cm}$. The corresponding linear magnifications are $m_1 = \\frac{D - d}{D + d} = \\frac{80}{120} = \\frac{2}{3}$ (diminished) and $m_2 = \\frac{D + d}{D - d} = \\frac{3}{2}$ (magnified). Given that the smaller image height is $I_1 = 4\\text{ mm}$, we substitute into $I_1 = m_1 O$: $4\\text{ mm} = \\frac{2}{3} O \\implies O = 6\\text{ mm}$. A student error leading to distractor $25\\text{ cm}$ is assuming $f = D/4$ ignoring displacement $d$; distractor $8\\text{ mm}$ comes from inverting the magnification ratio."
+    },
+    {
+      "id": "ro_c01_005",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A monochromatic ray of light enters an equilateral glass prism of refractive index $\\mu = \\sqrt{3}$ at an angle of incidence $i$. The ray traverses symmetrically through the prism, undergoing minimum deviation $\\delta_m$. The value of the angle of incidence $i$ and the minimum deviation $\\delta_m$ are respectively:",
+      "options": [
+        "A) $45^\\circ, 30^\\circ$",
+        "B) $60^\\circ, 30^\\circ$",
+        "C) $30^\\circ, 60^\\circ$",
+        "D) $60^\\circ, 60^\\circ$"
+      ],
+      "answer": "D",
+      "explanation": "For an equilateral prism, the apex angle is $A = 60^\\circ$. At the minimum deviation condition, the ray travels parallel to the base inside the prism, which implies $r_1 = r_2 = \\frac{A}{2} = \\frac{60^\\circ}{2} = 30^\\circ$. Applying Snell's law at the first refracting face: $1 \\cdot \\sin i = \\mu \\sin r_1 = \\sqrt{3} \\sin 30^\\circ = \\sqrt{3} \\times \\frac{1}{2} = \\frac{\\sqrt{3}}{2}$, which yields $i = 60^\\circ$. The angle of minimum deviation is then calculated using $\\delta_m = 2i - A = 2(60^\\circ) - 60^\\circ = 60^\\circ$. Distractor $60^\\circ, 30^\\circ$ arises from confusing $\\delta_m$ with $i - r_1$; distractor $45^\\circ, 30^\\circ$ results from mistakenly using $\\mu = \\sqrt{2}$."
+    },
+    {
+      "id": "ro_c01_006",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A point source of light is placed at the bottom of a calm water tank containing water of refractive index $\\mu = \\frac{4}{3}$. The depth of the water in the tank is $h = \\sqrt{7}\\text{ m}$. Light rays emerge from the flat horizontal water surface into the air through a circular illuminated patch of diameter $D$. Find the value of $D$ in meters.",
+      "options": [],
+      "answer": "6",
+      "explanation": "Light rays can only escape from water into air if their angle of incidence at the water-air boundary is less than or equal to the critical angle $\\theta_c$. By Snell's law for total internal reflection: $\\sin \\theta_c = \\frac{1}{\\mu} = \\frac{3}{4}$. Using trigonometric identities, $\\cos \\theta_c = \\sqrt{1 - \\sin^2 \\theta_c} = \\sqrt{1 - \\frac{9}{16}} = \\frac{\\sqrt{7}}{4}$. The tangent of the critical angle is therefore $\\tan \\theta_c = \\frac{\\sin \\theta_c}{\\cos \\theta_c} = \\frac{3/4}{\\sqrt{7}/4} = \\frac{3}{\\sqrt{7}}$. The radius of the circular illuminated spot at the surface is $r = h \\tan \\theta_c = \\sqrt{7} \\times \\frac{3}{\\sqrt{7}} = 3\\text{ m}$. Therefore, the diameter of the illuminated circle is $D = 2r = 2 \\times 3 = 6\\text{ m}$."
+    },
+    {
+      "id": "ro_c01_007",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two thin convex lenses of focal lengths $f_1 = 20\\text{ cm}$ and $f_2 = 30\\text{ cm}$ are mounted coaxially with an axial separation of $d = 5\\text{ cm}$. A parallel beam of light is incident from the left on the first lens. The distance from the second lens at which the light beam finally converges to a point is:",
+      "options": [
+        "A) $10\\text{ cm}$",
+        "B) $15\\text{ cm}$",
+        "C) $12\\text{ cm}$",
+        "D) $8\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "The parallel incident beam on the first lens converges at its principal focal point, giving image distance $v_1 = +20\\text{ cm}$ to the right of lens 1. Since the second lens is positioned $5\\text{ cm}$ to the right of the first lens, this converging beam strikes the second lens, acting as a virtual object at a distance $u_2 = v_1 - d = 20 - 5 = +15\\text{ cm}$. Applying the lens formula to the second lens: $\\frac{1}{v_2} - \\frac{1}{u_2} = \\frac{1}{f_2} \\implies \\frac{1}{v_2} - \\frac{1}{15} = \\frac{1}{30}$. Solving for $v_2$: $\\frac{1}{v_2} = \\frac{1}{30} + \\frac{1}{15} = \\frac{1 + 2}{30} = \\frac{3}{30} = \\frac{1}{10}\\text{ cm}^{-1} \\implies v_2 = +10\\text{ cm}$. Distractor $15\\text{ cm}$ arises if the virtual object is treated incorrectly with a negative sign ($u_2 = -15\\text{ cm}$); distractor $12\\text{ cm}$ comes from treating the lenses as if they were in direct contact without separation."
+    },
+    {
+      "id": "ro_c01_008",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A transparent glass slab of thickness $t = 6\\text{ cm}$ and refractive index $\\mu = 1.5$ has its flat bottom surface silvered to act as a plane mirror. A small object is placed in air at a distance of $10\\text{ cm}$ above the top unsilvered surface of the slab. The distance of the final image from the top unsilvered surface of the slab is:",
+      "options": [
+        "A) $14\\text{ cm}$",
+        "B) $18\\text{ cm}$",
+        "C) $22\\text{ cm}$",
+        "D) $16\\text{ cm}$"
+      ],
+      "answer": "B",
+      "explanation": "When light rays from the object pass into the slab, the apparent position of the object measured from the top surface inside the glass is $u' = \\mu \\times 10 = 1.5 \\times 10 = 15\\text{ cm}$. The distance of this apparent object from the silvered bottom mirror is $15 + 6 = 21\\text{ cm}$. The plane mirror forms a virtual image at a distance of $21\\text{ cm}$ below the silvered face, which corresponds to a physical depth of $21 + 6 = 27\\text{ cm}$ from the top surface inside the glass. When the reflected rays emerge back into air, the apparent depth observed from above is $d' = \\frac{27}{\\mu} = \\frac{27}{1.5} = 18\\text{ cm}$ below the top surface. Distractor $22\\text{ cm}$ comes from ignoring refraction completely ($10 + 2 \\times 6 = 22\\text{ cm}$); distractor $14\\text{ cm}$ subtracts the slab shift only once."
+    },
+    {
+      "id": "ro_c01_009",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An equiconvex thin lens of focal length $f = 20\\text{ cm}$ is sliced into two identical symmetric halves along its principal axis. The two halves are then separated perpendicularly to the principal axis by a gap of $1\\text{ mm}$ ($0.5\\text{ mm}$ shift for each half in opposite directions). A point source of light is placed on the original symmetry axis at a distance of $30\\text{ cm}$ in front of the cut lenses. Find the distance between the two real images formed by the two half-lenses, in millimeters.",
+      "options": [],
+      "answer": "3",
+      "explanation": "For each half-lens, the radii of curvature and focal length remain unchanged, so $f = 20\\text{ cm}$. Applying the lens equation: $\\frac{1}{v} - \\frac{1}{-30} = \\frac{1}{20} \\implies \\frac{1}{v} = \\frac{1}{20} - \\frac{1}{30} = \\frac{1}{60} \\implies v = +60\\text{ cm}$. The linear magnification produced by each half is $m = \\frac{v}{u} = \\frac{60}{-30} = -2$. For the upper half-lens, whose optical axis is displaced upward by $+0.5\\text{ mm}$, the point source lies at $y_o = -0.5\\text{ mm}$ below its axis. The image is formed at $y_i = m y_o = (-2)(-0.5\\text{ mm}) = +1.0\\text{ mm}$ above the upper lens axis, which is $+0.5 + 1.0 = +1.5\\text{ mm}$ from the symmetry axis. Similarly, the lower half-lens forms an image at $-1.5\\text{ mm}$. Hence, the total separation between the two images is $1.5 - (-1.5) = 3\\text{ mm}$."
+    },
+    {
+      "id": "ro_c01_010",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A solid glass sphere of radius $R = 10\\text{ cm}$ and refractive index $\\mu = 1.5$ contains a small trapped air bubble situated at a distance of $4\\text{ cm}$ from the center of the sphere. An observer views the bubble from the side nearer to the bubble along the diameter containing the bubble. The apparent distance of the bubble from the nearest spherical surface is:",
+      "options": [
+        "A) $4\\text{ cm}$",
+        "B) $6\\text{ cm}$",
+        "C) $5\\text{ cm}$",
+        "D) $3\\text{ cm}$"
+      ],
+      "answer": "C",
+      "explanation": "Light travels from the bubble inside the glass ($\\mu_1 = 1.5$) into air ($\\mu_2 = 1.0$) across the spherical boundary. Choosing the pole $P$ at the nearest spherical surface with the direction of outgoing light as positive: the bubble is at real distance $10 - 4 = 6\\text{ cm}$ inside the glass, so $u = -6\\text{ cm}$. The center of curvature lies inside the glass to the left of the pole, so $R = -10\\text{ cm}$. Applying the single spherical surface refraction formula: $\\frac{\\mu_2}{v} - \\frac{\\mu_1}{u} = \\frac{\\mu_2 - \\mu_1}{R} \\implies \\frac{1.0}{v} - \\frac{1.5}{-6} = \\frac{1.0 - 1.5}{-10}$. Simplifying the right side: $\\frac{-0.5}{-10} = +\\frac{1}{20}$. Substituting into the equation: $\\frac{1}{v} + \\frac{1}{4} = \\frac{1}{20} \\implies \\frac{1}{v} = \\frac{1}{20} - \\frac{5}{20} = -\\frac{4}{20} = -\\frac{1}{5}\\text{ cm}^{-1}$. Thus $v = -5\\text{ cm}$, meaning the bubble appears at a distance of $5\\text{ cm}$ from the nearest surface. Distractor $6\\text{ cm}$ comes from neglecting spherical curvature; distractor $4\\text{ cm}$ results from taking the radius of curvature with the wrong sign."
+    },
+    {
+      "id": "ro_c01_011",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An object moves with velocity $\\vec{v}_o = 3\\hat{i} + 4\\hat{j}\\text{ m/s}$ in front of a vertical plane mirror lying in the $y$-$z$ plane (normal to the mirror is along the $+x$-axis, $\\hat{i}$). The mirror itself moves with velocity $\\vec{v}_m = 2\\hat{i} - 2\\hat{j}\\text{ m/s}$. The velocity of the image formed by the mirror is:",
+      "options": [
+        "A) $-\\hat{i} + 4\\hat{j}\\text{ m/s}$",
+        "B) $\\hat{i} - 8\\hat{j}\\text{ m/s}$",
+        "C) $7\\hat{i} + 4\\hat{j}\\text{ m/s}$",
+        "D) $\\hat{i} + 4\\hat{j}\\text{ m/s}$"
+      ],
+      "answer": "D",
+      "explanation": "For a plane mirror with unit normal $\\hat{n} = \\hat{i}$, reflection kinematics governs the perpendicular velocity components: $v_{i,x} - v_{m,x} = -(v_{o,x} - v_{m,x}) \\implies v_{i,x} = 2v_{m,x} - v_{o,x}$. Substituting the values $v_{m,x} = 2\\text{ m/s}$ and $v_{o,x} = 3\\text{ m/s}$, we get $v_{i,x} = 2(2) - 3 = 1\\text{ m/s}$. For velocity components parallel to the mirror surface ($\\hat{j}$ and $\\hat{k}$), motion of the mirror has zero influence on the image formation, hence $v_{i,y} = v_{o,y} = 4\\text{ m/s}$. Therefore, the velocity of the image is $\\vec{v}_i = \\hat{i} + 4\\hat{j}\\text{ m/s}$. Distractor $-\\hat{i} + 4\\hat{j}\\text{ m/s}$ arises if mirror motion is completely ignored; distractor $\\hat{i} - 8\\hat{j}\\text{ m/s}$ erroneously applies the relative reflection formula to the parallel velocity component."
+    },
+    {
+      "id": "ro_c01_012",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A thin crown glass prism of refracting angle $A_1 = 9^\\circ$ and refractive index $\\mu_1 = 1.50$ is combined with a thin flint glass prism of refractive index $\\mu_2 = 1.75$ in opposite orientation to produce dispersion without average deviation for yellow light. Find the refracting angle of the flint glass prism, $A_2$, in degrees.",
+      "options": [],
+      "answer": "6",
+      "explanation": "For a thin prism, the deviation produced for mean yellow light is given by $\\delta = (\\mu - 1)A$. To achieve dispersion without average deviation, the net deviation produced by the combination must vanish: $\\delta_{\\text{net}} = \\delta_1 - \\delta_2 = (\\mu_1 - 1)A_1 - (\\mu_2 - 1)A_2 = 0$. Substituting the given optical parameters: $(1.50 - 1)(9^\\circ) = (1.75 - 1)A_2$. Simplifying: $0.50 \\times 9^\\circ = 0.75 \\times A_2 \\implies 4.5^\\circ = 0.75 A_2$. Solving for $A_2$: $A_2 = \\frac{4.5^\\circ}{0.75} = 6^\\circ$. Therefore, the required refracting angle of the flint glass prism is $6^\\circ$."
+    },
+    {
+      "id": "ro_c01_013",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A small linear object of length $2\\text{ mm}$ is placed along the principal axis of a concave mirror of focal length $f = 20\\text{ cm}$. The center of the object is located at a distance of $30\\text{ cm}$ from the pole of the mirror. The length of the image formed by the mirror is:",
+      "options": [
+        "A) $8\\text{ mm}$",
+        "B) $4\\text{ mm}$",
+        "C) $16\\text{ mm}$",
+        "D) $2\\text{ mm}$"
+      ],
+      "answer": "A",
+      "explanation": "Applying the mirror formula for the center of the object: $\\frac{1}{v} + \\frac{1}{u} = \\frac{1}{f} \\implies \\frac{1}{v} + \\frac{1}{-30} = \\frac{1}{-20}$. Solving: $\\frac{1}{v} = -\\frac{1}{20} + \\frac{1}{30} = -\\frac{1}{60} \\implies v = -60\\text{ cm}$. The lateral magnification is $m = -\\frac{v}{u} = -\\frac{-60}{-30} = -2$. For a small object element $du$ lying along the principal axis, the longitudinal magnification is obtained by differentiating the mirror equation: $-\\frac{1}{v^2}dv - \\frac{1}{u^2}du = 0 \\implies m_L = \\left|\\frac{dv}{du}\\right| = \\left(\\frac{v}{u}\\right)^2 = m^2 = (-2)^2 = 4$. Consequently, the length of the image is $L_i = m_L \\times L_o = 4 \\times 2\\text{ mm} = 8\\text{ mm}$. Distractor $4\\text{ mm}$ is obtained if lateral magnification $|m| = 2$ is erroneously applied to the longitudinal dimension; distractor $16\\text{ mm}$ results from squaring twice."
+    },
+    {
+      "id": "ro_c01_014",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A concave mirror of radius of curvature $30\\text{ cm}$ lies horizontally facing upward at the bottom of a basin filled with water (refractive index $\\mu = \\frac{4}{3}$) to a depth of $10\\text{ cm}$. A point object $O$ is situated on the principal axis of the mirror in air at a height $h$ above the water surface such that light rays from $O$ reflect from the mirror and retrace their path back to $O$. The height $h$ is:",
+      "options": [
+        "A) $20\\text{ cm}$",
+        "B) $15\\text{ cm}$",
+        "C) $12\\text{ cm}$",
+        "D) $25\\text{ cm}$"
+      ],
+      "answer": "B",
+      "explanation": "For rays to retrace their path after reflecting from a concave mirror, they must strike the mirror normally, which means they must be directed toward the center of curvature $C$ of the mirror. With radius of curvature $R = 30\\text{ cm}$, the center of curvature lies at a distance of $30\\text{ cm}$ above the mirror's pole. Since the water has a depth of $10\\text{ cm}$, the apparent position of the object inside water must lie at a distance of $30 - 10 = 20\\text{ cm}$ below the water surface. When an object in air at height $h$ is viewed from inside water, its apparent distance from the water surface is given by $h' = \\mu h$. Setting $\\mu h = 20\\text{ cm}$: $\\frac{4}{3}h = 20 \\implies h = 20 \\times \\frac{3}{4} = 15\\text{ cm}$. Distractor $20\\text{ cm}$ neglects refraction at the water surface; distractor $12\\text{ cm}$ incorrectly multiplies by $3/5$."
+    },
+    {
+      "id": "ro_c01_015",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A real object is placed in front of a thin convex lens of focal length $f = 20\\text{ cm}$. The lens forms a sharp real image on an observation screen with a linear magnification of $-2$. The distance between the real object and the screen is:",
+      "options": [
+        "A) $80\\text{ cm}$",
+        "B) $60\\text{ cm}$",
+        "C) $90\\text{ cm}$",
+        "D) $100\\text{ cm}$"
+      ],
+      "answer": "C",
+      "explanation": "For a real image formed on a screen by a convex lens, the magnification is negative: $m = \\frac{v}{u} = -2 \\implies v = -2u$. Substituting into the thin lens formula $\\frac{1}{v} - \\frac{1}{u} = \\frac{1}{f}$: $\\frac{1}{-2u} - \\frac{1}{u} = \\frac{1}{20} \\implies -\\frac{3}{2u} = \\frac{1}{20} \\implies u = -30\\text{ cm}$. The image distance is therefore $v = -2(-30) = +60\\text{ cm}$. The total separation between the real object and the screen is $D = |u| + v = 30 + 60 = 90\\text{ cm}$. Distractor $80\\text{ cm}$ corresponds to the minimum possible separation $4f$ occurring at $m = -1$; distractor $60\\text{ cm}$ represents only the image distance $v$."
+    },
+    {
+      "id": "ro_c01_016",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An astronomical telescope has an objective lens of focal length $f_o = 100\\text{ cm}$ and an eyepiece of focal length $f_e = 5\\text{ cm}$. The telescope is used to view a distant star. The ratio of the angular magnification when focused at the least distance of distinct vision ($D = 25\\text{ cm}$) to that in normal adjustment (image at infinity), and the difference in the corresponding tube lengths ($L_{\\infty} - L_D$), are respectively:",
+      "options": [
+        "A) $1.25, 1.25\\text{ cm}$",
+        "B) $1.10, 0.50\\text{ cm}$",
+        "C) $1.50, 1.00\\text{ cm}$",
+        "D) $1.20, \\frac{5}{6}\\text{ cm}$"
+      ],
+      "answer": "D",
+      "explanation": "In normal adjustment, the angular magnification is $M_1 = \\frac{f_o}{f_e} = \\frac{100}{5} = 20$, and the tube length is $L_{\\infty} = f_o + f_e = 100 + 5 = 105\\text{ cm}$. When the final image is formed at the least distance of distinct vision ($v_e = -25\\text{ cm}$), the angular magnification is $M_2 = \\frac{f_o}{f_e}\\left(1 + \\frac{f_e}{D}\\right) = 20\\left(1 + \\frac{5}{25}\\right) = 20 \\times 1.20 = 24$. To find the corresponding tube length $L_D = f_o + |u_e|$, we apply the lens formula to the eyepiece: $\\frac{1}{-25} - \\frac{1}{-|u_e|} = \\frac{1}{5} \\implies \\frac{1}{|u_e|} = \\frac{1}{5} + \\frac{1}{25} = \\frac{6}{25} \\implies |u_e| = \\frac{25}{6}\\text{ cm}$. The tube length is $L_D = 100 + \\frac{25}{6} = \\frac{625}{6}\\text{ cm}$. The difference in tube lengths is $L_{\\infty} - L_D = 105 - \\frac{625}{6} = \\frac{630 - 625}{6} = \\frac{5}{6}\\text{ cm}$. The ratio of magnifications is $\\frac{M_2}{M_1} = \\frac{24}{20} = 1.20$. Distractor $1.25$ occurs if $D/f_e$ is mistakenly used instead of $f_e/D$; distractor $1.50$ comes from mixing microscope and telescope formulas."
+    },
+    {
+      "id": "ro_c01_017",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A compound microscope has an objective lens of focal length $f_o = 1.0\\text{ cm}$ and an eyepiece of focal length $f_e = 2.5\\text{ cm}$. A tiny specimen is placed at a distance of $1.2\\text{ cm}$ from the objective. If the final virtual image is formed at the least distance of distinct vision ($D = 25\\text{ cm}$), determine the total magnifying power of the microscope.",
+      "options": [],
+      "answer": "55",
+      "explanation": "Applying the lens formula to the objective lens with $u_o = -1.2\\text{ cm}$ and $f_o = +1.0\\text{ cm}$: $\\frac{1}{v_o} - \\frac{1}{-1.2} = \\frac{1}{1.0} \\implies \\frac{1}{v_o} = 1.0 - \\frac{5}{6} = \\frac{1}{6}\\text{ cm}^{-1} \\implies v_o = +6.0\\text{ cm}$. The linear magnification produced by the objective lens is $m_o = \\left|\\frac{v_o}{u_o}\\right| = \\frac{6.0}{1.2} = 5$. For the eyepiece forming the final image at the near point ($D = 25\\text{ cm}$), the angular magnification is given by $m_e = 1 + \\frac{D}{f_e} = 1 + \\frac{25}{2.5} = 1 + 10 = 11$. The total magnifying power of the compound microscope is the product of the individual magnifications: $M = m_o \\times m_e = 5 \\times 11 = 55$."
+    },
+    {
+      "id": "ro_c01_018",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A step-index optical fiber has a cylindrical core of refractive index $n_1 = 1.50$ surrounded by an outer cladding of refractive index $n_2 = 1.44$. The fiber is surrounded by air ($n_0 = 1.00$). A light beam is launched into the core through its flat perpendicular entrance face. The numerical aperture ($\\text{NA}$) of the fiber and the maximum acceptance angle $\\theta_{\\max}$ in air are:",
+      "options": [
+        "A) $\\text{NA} = 0.42, \\theta_{\\max} = \\sin^{-1}(0.42)$",
+        "B) $\\text{NA} = 0.24, \\theta_{\\max} = \\sin^{-1}(0.24)$",
+        "C) $\\text{NA} = 0.50, \\theta_{\\max} = 30^\\circ$",
+        "D) $\\text{NA} = 0.60, \\theta_{\\max} = \\sin^{-1}(0.60)$"
+      ],
+      "answer": "A",
+      "explanation": "For a ray to undergo total internal reflection at the core-cladding interface, the angle of incidence $\\phi$ at the boundary must satisfy $\\sin \\phi \\ge \\frac{n_2}{n_1}$. Since the entrance face is normal to the axis, the internal angle of refraction $r$ satisfies $r = 90^\\circ - \\phi$, so $\\cos r = \\sin \\phi \\ge \\frac{n_2}{n_1}$. Applying trigonometric identities, $\\sin r = \\sqrt{1 - \\cos^2 r} \\le \\sqrt{1 - \\left(\\frac{n_2}{n_1}\\right)^2} = \\frac{\\sqrt{n_1^2 - n_2^2}}{n_1}$. By Snell's law at the air-core entrance: $n_0 \\sin \\theta_{\\max} = n_1 \\sin r = \\sqrt{n_1^2 - n_2^2} = \\text{NA}$. Substituting the given values: $\\text{NA} = \\sqrt{1.50^2 - 1.44^2} = \\sqrt{2.25 - 2.0736} = \\sqrt{0.1764} = 0.42$. Hence, $\\theta_{\\max} = \\sin^{-1}(0.42)$. Distractor $0.24$ arises from incorrectly calculating $(n_1 - n_2) \\times 4$; distractor $0.60$ is an incorrect difference of squares."
+    },
+    {
+      "id": "ro_c01_019",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A point object moves with a constant speed of $v_o = 6\\text{ cm/s}$ along the principal axis towards a convex spherical glass surface ($R = 20\\text{ cm}$, $\\mu = 1.5$) that bounds a semi-infinite glass block in air. At the instant when the object is at a distance of $30\\text{ cm}$ from the vertex of the surface, the velocity of the image formed inside the glass is:",
+      "options": [
+        "A) $96\\text{ cm/s}$",
+        "B) $216\\text{ cm/s}$",
+        "C) $144\\text{ cm/s}$",
+        "D) $36\\text{ cm/s}$"
+      ],
+      "answer": "C",
+      "explanation": "Applying the single spherical surface refraction formula: $\\frac{\\mu_2}{v} - \\frac{\\mu_1}{u} = \\frac{\\mu_2 - \\mu_1}{R}$. Here $\\mu_1 = 1.0, \\mu_2 = 1.5, R = +20\\text{ cm}$, and $u = -30\\text{ cm}$. Substituting: $\\frac{1.5}{v} - \\frac{1.0}{-30} = \\frac{1.5 - 1.0}{20} = \\frac{0.5}{20} = \\frac{1}{40}$. Therefore: $\\frac{1.5}{v} = \\frac{1}{40} - \\frac{1}{30} = -\\frac{1}{120} \\implies v = -180\\text{ cm}$. Differentiating the refraction equation with respect to time gives: $-\\frac{\\mu_2}{v^2}\\frac{dv}{dt} + \\frac{\\mu_1}{u^2}\\frac{du}{dt} = 0 \\implies \\frac{dv}{dt} = \\frac{\\mu_1}{\\mu_2}\\left(\\frac{v}{u}\\right)^2 \\frac{du}{dt}$. The index ratio is $\\frac{\\mu_1}{\\mu_2} = \\frac{1.0}{1.5} = \\frac{2}{3}$. The positional ratio is $\\frac{v}{u} = \\frac{-180}{-30} = 6 \\implies \\left(\\frac{v}{u}\\right)^2 = 36$. Since the object moves toward the surface, $\\frac{du}{dt} = +6\\text{ cm/s}$. Hence, $v_i = \\frac{dv}{dt} = \\frac{2}{3} \\times 36 \\times (+6) = 24 \\times 6 = +144\\text{ cm/s}$. Distractor $216\\text{ cm/s}$ is obtained by omitting the refractive index ratio $\\mu_1/\\mu_2$; distractor $96\\text{ cm/s}$ inverts this ratio."
+    },
+    {
+      "id": "ro_c01_020",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A step-index optical fiber of length $L = 240\\text{ m}$ has a core of refractive index $n_1 = 1.50$ and cladding of refractive index $n_2 = 1.44$. A short optical pulse is launched at the input end. Find the modal dispersion time delay (in nanoseconds) between the slowest ray (traveling along the zigzag critical angle path) and the fastest ray (traveling straight along the fiber axis). Take the speed of light in vacuum as $c = 3.0 \\times 10^8\\text{ m/s}$.",
+      "options": [],
+      "answer": "50",
+      "explanation": "The speed of light in the core is $v = \\frac{c}{n_1}$. The fastest ray travels directly along the fiber axis of length $L$, taking time $t_{\\min} = \\frac{L}{v} = \\frac{L n_1}{c}$. The slowest ray undergoes total internal reflection at the critical angle $\\theta_c$, where $\\sin \\theta_c = \\frac{n_2}{n_1}$. The total path length traversed along this zigzag path is $L_{\\max} = \\frac{L}{\\sin \\theta_c} = \\frac{L n_1}{n_2}$, and its transit time is $t_{\\max} = \\frac{L_{\\max}}{v} = \\frac{L n_1^2}{c n_2}$. The modal dispersion time delay is therefore $\\Delta t = t_{\\max} - t_{\\min} = \\frac{L n_1}{c}\\left(\\frac{n_1}{n_2} - 1\\right)$. Substituting the values: $\\frac{n_1}{n_2} - 1 = \\frac{1.50}{1.44} - 1 = \\frac{25}{24} - 1 = \\frac{1}{24}$. Thus, $\\Delta t = \\frac{240 \\times 1.50}{3.0 \\times 10^8} \\times \\frac{1}{24} = \\frac{360}{3.0 \\times 10^8 \\times 24} = 5.0 \\times 10^{-8}\\text{ s} = 50\\text{ ns}$."
+    },
+    {
+      "id": "ro_c01_021",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A long cylindrical glass rod of refractive index $\\mu = 1.5$ has one end polished into a hemispherical surface of radius $R = 4\\text{ cm}$. A small luminous object is placed on the axis in air at a distance $u$ in front of the hemispherical pole. The refracted rays converge to form a real image inside the glass rod at a distance of $24\\text{ cm}$ from the pole. The object distance $u$ is:",
+      "options": [
+        "A) $12\\text{ cm}$",
+        "B) $16\\text{ cm}$",
+        "C) $20\\text{ cm}$",
+        "D) $24\\text{ cm}$"
+      ],
+      "answer": "B",
+      "explanation": "Applying the single spherical surface refraction formula from air ($\\mu_1 = 1.0$) to glass ($\\mu_2 = 1.5$): $\\frac{\\mu_2}{v} - \\frac{\\mu_1}{u} = \\frac{\\mu_2 - \\mu_1}{R}$. Here, the convex surface facing air has radius of curvature $R = +4\\text{ cm}$, and the real image forms inside glass at $v = +24\\text{ cm}$. Substituting: $\\frac{1.5}{24} - \\frac{1.0}{u} = \\frac{1.5 - 1.0}{4} = \\frac{0.5}{4} = \\frac{1}{8}$. Simplifying the first term: $\\frac{1.5}{24} = \\frac{1}{16}$. Hence, $\\frac{1}{16} - \\frac{1}{u} = \\frac{1}{8} \\implies \\frac{1}{u} = \\frac{1}{16} - \\frac{1}{8} = -\\frac{1}{16}\\text{ cm}^{-1}$. This yields $u = -16\\text{ cm}$, which corresponds to an object distance of $16\\text{ cm}$ in front of the pole. Distractor $12\\text{ cm}$ results from taking $R$ as negative; distractor $24\\text{ cm}$ arises from naively assuming $u = v$; distractor $20\\text{ cm}$ omits $\\mu_2$ in the first numerator."
+    },
+    {
+      "id": "ro_c01_022",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An equiconvex glass lens of focal length $f = 20\\text{ cm}$ in air (refractive index $\\mu_g = 1.50$) rests on a horizontal plane mirror. The thin space between the lower curved face of the lens and the mirror is completely filled with water (refractive index $\\mu_w = \\frac{4}{3}$). A luminous point object is moved along the vertical axis of the lens. At what distance above the lens must the object be positioned so that the final image coincides with the object itself?",
+      "options": [
+        "A) $20\\text{ cm}$",
+        "B) $45\\text{ cm}$",
+        "C) $30\\text{ cm}$",
+        "D) $15\\text{ cm}$"
+      ],
+      "answer": "C",
+      "explanation": "For an equiconvex lens: $\\frac{1}{f_g} = (\\mu_g - 1)\\frac{2}{R} \\implies \\frac{1}{20} = (1.5 - 1)\\frac{2}{R} = \\frac{1}{R} \\implies R = 20\\text{ cm}$. The water layer beneath forms a plano-concave liquid lens with $R_1 = -20\\text{ cm}$ and $R_2 = \\infty$. The focal length of this water lens is $\\frac{1}{f_w} = (\\mu_w - 1)\\left(-\\frac{1}{R}\\right) = \\left(\\frac{4}{3} - 1\\right)\\left(-\\frac{1}{20}\\right) = -\\frac{1}{60}\\text{ cm}^{-1}$, so $f_w = -60\\text{ cm}$. The combined focal length of the glass and water lenses is $\\frac{1}{F} = \\frac{1}{f_g} + \\frac{1}{f_w} = \\frac{1}{20} - \\frac{1}{60} = \\frac{2}{60} = \\frac{1}{30}\\text{ cm}^{-1} \\implies F = 30\\text{ cm}$. For the rays to retrace their path after reflecting from the horizontal plane mirror, they must hit the mirror normally, meaning the rays exiting the liquid lens must be parallel to the axis. Thus, the object must be placed at the focal point of the two-lens combination, giving $u = F = 30\\text{ cm}$. Distractor $20\\text{ cm}$ ignores the water lens; distractor $45\\text{ cm}$ uses the wrong sign for the water lens."
+    },
+    {
+      "id": "ro_c01_023",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An astronomical telescope is adjusted for normal observation (final image at infinity). It has an angular magnification of $15$ and the separation between the objective lens and the eyepiece lens is $80\\text{ cm}$. Find the focal length of the objective lens, in centimeters.",
+      "options": [],
+      "answer": "75",
+      "explanation": "In normal adjustment of an astronomical telescope, the angular magnification is given by $M = \\frac{f_o}{f_e} = 15 \\implies f_o = 15 f_e$. The distance between the objective lens and the eyepiece lens (the tube length) is the sum of their focal lengths: $L = f_o + f_e = 80\\text{ cm}$. Substituting $f_o = 15 f_e$ into the tube length equation: $15 f_e + f_e = 80 \\implies 16 f_e = 80 \\implies f_e = 5\\text{ cm}$. Therefore, the focal length of the objective lens is $f_o = 15 \\times 5 = 75\\text{ cm}$."
+    },
+    {
+      "id": "ro_c01_024",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A right-angled isosceles glass prism (angles $45^\\circ$-$45^\\circ$-$90^\\circ$) of refractive index $\\mu$ is immersed in a liquid of refractive index $\\mu_l = 1.25$. A ray of light enters the prism normally through one of its shorter legs and strikes the hypotenuse face. Find the minimum value of $\\mu$ such that the ray undergoes total internal reflection at the hypotenuse face.",
+      "options": [
+        "A) $\\frac{5\\sqrt{2}}{4}$",
+        "B) $\\frac{4\\sqrt{2}}{5}$",
+        "C) $\\frac{5}{4}$",
+        "D) $\\sqrt{2}$"
+      ],
+      "answer": "A",
+      "explanation": "Because the incident ray enters normally through one of the perpendicular legs, it suffers no deviation at the entrance face and proceeds directly to the hypotenuse face. In an isosceles right-angled prism, the angle between the leg and the hypotenuse is $45^\\circ$, so the angle of incidence on the hypotenuse face is $\\theta = 45^\\circ$. For total internal reflection to occur at the glass-liquid interface, the angle of incidence must satisfy $\\sin \\theta \\ge \\sin \\theta_c = \\frac{\\mu_l}{\\mu}$. Substituting $\\theta = 45^\\circ$ and $\\mu_l = 1.25$: $\\sin 45^\\circ = \\frac{1}{\\sqrt{2}} \\ge \\frac{1.25}{\\mu} \\implies \\mu \\ge 1.25\\sqrt{2} = \\frac{5}{4}\\sqrt{2} = \\frac{5\\sqrt{2}}{4}$. Distractor $\\frac{4\\sqrt{2}}{5}$ is the inverted fraction; distractor $\\frac{5}{4}$ neglects $\\sin 45^\\circ$; distractor $\\sqrt{2}$ ignores the surrounding liquid entirely."
+    },
+    {
+      "id": "ro_c01_025",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A prism of refracting angle $A = 60^\\circ$ is made of a glass material with refractive index $\\mu = \\sqrt{2}$. A ray of light is incident on the first face at an angle of incidence $i$. The minimum value of $i$ for which the light ray can emerge from the second face without suffering total internal reflection is:",
+      "options": [
+        "A) $\\sin^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right)$",
+        "B) $\\sin^{-1}\\left(\\frac{1}{\\sqrt{2}}\\right)$",
+        "C) $\\sin^{-1}\\left(\\frac{\\sqrt{3} + 1}{2\\sqrt{2}}\\right)$",
+        "D) $\\sin^{-1}\\left(\\frac{\\sqrt{3} - 1}{2}\\right)$"
+      ],
+      "answer": "D",
+      "explanation": "The critical angle for the glass-air interface is given by $\\sin \\theta_c = \\frac{1}{\\mu} = \\frac{1}{\\sqrt{2}} \\implies \\theta_c = 45^\\circ$. For a ray to emerge from the second face, the internal angle of incidence on the second face must satisfy $r_2 \\le \\theta_c = 45^\\circ$. Since the refracting angle of the prism satisfies $r_1 + r_2 = A = 60^\\circ$, we have $r_1 = 60^\\circ - r_2 \\ge 60^\\circ - 45^\\circ = 15^\\circ$. Applying Snell's law at the first face: $\\sin i = \\mu \\sin r_1 \\ge \\sqrt{2} \\sin 15^\\circ$. Using the exact trigonometric identity $\\sin 15^\\circ = \\frac{\\sqrt{6} - \\sqrt{2}}{4}$, we compute: $\\sin i_{\\min} = \\sqrt{2}\\left(\\frac{\\sqrt{6} - \\sqrt{2}}{4}\\right) = \\frac{\\sqrt{12} - 2}{4} = \\frac{2\\sqrt{3} - 2}{4} = \\frac{\\sqrt{3} - 1}{2}$. Thus, $i_{\\min} = \\sin^{-1}\\left(\\frac{\\sqrt{3} - 1}{2}\\right)$. Distractor $\\sin^{-1}(\\frac{\\sqrt{3}}{2}) = 60^\\circ$ corresponds to minimum deviation; distractor $\\sin^{-1}(\\frac{\\sqrt{3}+1}{2\\sqrt{2}}) = 75^\\circ$ adds angles mistakenly."
+    },
+    {
+      "id": "ro_c01_026",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A plane mirror of width $w = 20\\text{ cm}$ is fixed vertically on a wall. A point light source $S$ is placed at a perpendicular distance $d = 30\\text{ cm}$ in front of the center of the mirror. An observer walks along a straight path parallel to the mirror at a distance $2d = 60\\text{ cm}$ in front of the mirror. The maximum distance along this path over which the observer can view the image of $S$ is:",
+      "options": [
+        "A) $40\\text{ cm}$",
+        "B) $60\\text{ cm}$",
+        "C) $80\\text{ cm}$",
+        "D) $30\\text{ cm}$"
+      ],
+      "answer": "B",
+      "explanation": "By law of reflection, the virtual image $S'$ of the point source is located at a perpendicular distance $d = 30\\text{ cm}$ behind the plane mirror. The observer walks along a line parallel to the mirror at a distance $2d = 60\\text{ cm}$ in front of the mirror, so the perpendicular distance from the image $S'$ to the observer's line is $d + 2d = 3d = 90\\text{ cm}$. The field of view for the observer is delimited by the rays diverging from $S'$ that pass through the two extreme edges of the mirror of width $w = 20\\text{ cm}$. By similar triangles, the ratio of the visible field of view $W_{\\text{view}}$ on the observer's line to the mirror width $w$ is equal to the ratio of their distances from $S'$: $\\frac{W_{\\text{view}}}{w} = \\frac{3d}{d} = 3$. Therefore, $W_{\\text{view}} = 3w = 3 \\times 20\\text{ cm} = 60\\text{ cm}$. Distractor $40\\text{ cm}$ is obtained if the distance from the mirror ($2d$) is used instead of the distance from the image ($3d$); distractor $80\\text{ cm}$ assumes a distance ratio of $4$."
+    },
+    {
+      "id": "ro_c01_027",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A point source of light is placed at the center of the bottom face of a thick horizontal glass slab of height $H = 6\\text{ cm}$ and refractive index $\\mu = 1.25 = \\frac{5}{4}$. An opaque circular disc is placed symmetrically on the top face of the slab to prevent any light from emerging into the air. Find the minimum radius of the disc, in centimeters.",
+      "options": [],
+      "answer": "8",
+      "explanation": "Rays of light incident on the top glass-air interface at angles greater than or equal to the critical angle $\\theta_c$ undergo total internal reflection. The critical angle satisfies $\\sin \\theta_c = \\frac{1}{\\mu} = \\frac{1}{5/4} = \\frac{4}{5}$. The cosine of the critical angle is $\\cos \\theta_c = \\sqrt{1 - \\left(\\frac{4}{5}\\right)^2} = \\frac{3}{5}$, so $\\tan \\theta_c = \\frac{\\sin \\theta_c}{\\cos \\theta_c} = \\frac{4/5}{3/5} = \\frac{4}{3}$. Light rays striking the interface at angles $\\theta < \\theta_c$ would escape into the air. These rays form a circular cone of semi-vertical angle $\\theta_c$ with apex at the source. The circular base of this cone on the top face has radius $R = H \\tan \\theta_c = 6\\text{ cm} \\times \\frac{4}{3} = 8\\text{ cm}$. An opaque disc of minimum radius $8\\text{ cm}$ completely intercepts and blocks all escaping rays."
+    },
+    {
+      "id": "ro_c01_028",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A monochromatic ray of light strikes a transparent plane glass plate of thickness $t = 3\\sqrt{3}\\text{ cm}$ and refractive index $\\mu = \\sqrt{3}$ at an angle of incidence $i = 60^\\circ$. The lateral displacement of the emergent ray relative to the incident ray path is:",
+      "options": [
+        "A) $1.5\\text{ cm}$",
+        "B) $4.5\\text{ cm}$",
+        "C) $3.0\\text{ cm}$",
+        "D) $2.0\\text{ cm}$"
+      ],
+      "answer": "C",
+      "explanation": "Applying Snell's law at the front surface: $1 \\cdot \\sin 60^\\circ = \\mu \\sin r \\implies \\frac{\\sqrt{3}}{2} = \\sqrt{3} \\sin r \\implies \\sin r = \\frac{1}{2} \\implies r = 30^\\circ$. The lateral displacement of a ray passing through a parallel plate of thickness $t$ is given by $\\Delta x = \\frac{t \\sin(i - r)}{\\cos r}$. Here $i - r = 60^\\circ - 30^\\circ = 30^\\circ$. Substituting the values: $\\Delta x = \\frac{3\\sqrt{3} \\sin 30^\\circ}{\\cos 30^\\circ} = 3\\sqrt{3} \\tan 30^\\circ = 3\\sqrt{3} \\times \\frac{1}{\\sqrt{3}} = 3.0\\text{ cm}$. Distractor $1.5\\text{ cm}$ arises if $\\sqrt{3}$ is omitted from the plate thickness; distractor $4.5\\text{ cm}$ comes from multiplying by $\\cos r$ instead of dividing."
+    },
+    {
+      "id": "ro_c01_029",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a compound microscope, the focal lengths of the objective and the eyepiece are $f_o = 0.8\\text{ cm}$ and $f_e = 2.5\\text{ cm}$ respectively. The distance between the objective and the eyepiece is set to $14.5\\text{ cm}$. When the final virtual image is formed at infinity (relaxed eye), find the distance of the object from the objective lens and the total magnifying power ($D = 25\\text{ cm}$).",
+      "options": [
+        "A) $\\frac{6}{7}\\text{ cm}, 140$",
+        "B) $\\frac{5}{6}\\text{ cm}, 120$",
+        "C) $\\frac{4}{5}\\text{ cm}, 150$",
+        "D) $\\frac{6}{7}\\text{ cm}, 154$"
+      ],
+      "answer": "A",
+      "explanation": "For the final image to form at infinity in normal adjustment, the intermediate real image produced by the objective must lie at the focal point of the eyepiece. Thus, $v_o = L - f_e = 14.5 - 2.5 = 12.0\\text{ cm}$. Applying the lens equation to the objective lens: $\\frac{1}{v_o} - \\frac{1}{u_o} = \\frac{1}{f_o} \\implies \\frac{1}{12} - \\frac{1}{u_o} = \\frac{1}{0.8} = \\frac{5}{4} = \\frac{15}{12}$. Solving for $u_o$: $\\frac{1}{u_o} = \\frac{1}{12} - \\frac{15}{12} = -\\frac{14}{12} = -\\frac{7}{6}\\text{ cm}^{-1} \\implies |u_o| = \\frac{6}{7}\\text{ cm} \\approx 0.857\\text{ cm}$. The linear magnification produced by the objective is $m_o = \\frac{v_o}{|u_o|} = \\frac{12}{6/7} = 14$. The angular magnification of the eyepiece for an image at infinity is $m_e = \\frac{D}{f_e} = \\frac{25}{2.5} = 10$. The total magnifying power is $M = m_o \\times m_e = 14 \\times 10 = 140$. Distractor $154$ uses the near point formula $1 + D/f_e = 11$ instead of $D/f_e = 10$; distractor $120$ comes from taking $v_o = 10\\text{ cm}$."
+    },
+    {
+      "id": "ro_c01_030",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two plane mirrors are inclined at an angle of $\\theta = 72^\\circ$. A point object is placed between them. The number of images formed when the object is placed (i) symmetrically on the angle bisector, and (ii) asymmetrically off the bisector, are respectively:",
+      "options": [
+        "A) $5, 5$",
+        "B) $4, 4$",
+        "C) $5, 4$",
+        "D) $4, 5$"
+      ],
+      "answer": "D",
+      "explanation": "Compute the integer parameter $n = \\frac{360^\\circ}{\\theta} = \\frac{360^\\circ}{72^\\circ} = 5$, which is an odd integer. For reflection in two intersecting plane mirrors when $n$ is odd: (i) If the object is placed symmetrically on the angle bisector, two images from the alternating reflection chains coincide at the opposite point on the circle, so the total number of distinct visible images is $n - 1 = 5 - 1 = 4$. (ii) If the object is placed asymmetrically off the bisector, no two images overlap, and the total number of distinct visible images is $n = 5$. Hence, the number of images is $4$ and $5$ respectively. Distractor $5, 4$ inverts the symmetry condition; distractor $4, 4$ erroneously assumes $n - 1$ applies uniformly regardless of object location."
+    },
+    {
+      "id": "ro_c01_031",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A plano-concave lens of refractive index $\\mu = 1.5$ has its curved concave surface of radius of curvature $R = 30\\text{ cm}$ silvered. A point object is placed on the principal axis in front of the flat unsilvered face at a distance $u$ such that the final image is formed at the object itself. Determine the value of $u$ in centimeters.",
+      "options": [],
+      "answer": "60",
+      "explanation": "Light refracts through the flat surface into the lens, reflects off the silvered concave surface, and refracts back out through the flat surface. The power of the plano-concave lens is $P_L = (\\mu - 1)\\left(\\frac{1}{\\infty} - \\frac{1}{+30}\\right) = 0.5 \\times \\left(-\\frac{1}{30}\\right) = -\\frac{1}{60}\\text{ cm}^{-1}$. The silvered curved surface forms a concave mirror of radius $R = 30\\text{ cm}$, whose power is $P_M = \\frac{2}{R} = \\frac{2}{30} = +\\frac{1}{15}\\text{ cm}^{-1}$. The power of the equivalent mirror system is $P_{\\text{eq}} = 2P_L + P_M = 2\\left(-\\frac{1}{60}\\right) + \\frac{1}{15} = -\\frac{1}{30} + \\frac{2}{30} = +\\frac{1}{30}\\text{ cm}^{-1}$. Since $P_{\\text{eq}} > 0$, the combination behaves as an equivalent concave mirror of focal length $F = \\frac{1}{P_{\\text{eq}}} = 30\\text{ cm}$. Coincidence of real object and real image occurs when the object is placed at the center of curvature of this equivalent concave mirror, giving $u = 2F = 2 \\times 30 = 60\\text{ cm}$."
+    },
+    {
+      "id": "ro_c01_032",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A point object is placed in air at a distance of $33\\text{ cm}$ in front of a concave mirror of focal length $f = 20\\text{ cm}$. A glass slab of thickness $t = 9\\text{ cm}$ and refractive index $\\mu = 1.5$ is placed between the object and the mirror with its faces perpendicular to the principal axis. The distance of the final real image from the pole of the mirror is:",
+      "options": [
+        "A) $57\\text{ cm}$",
+        "B) $63\\text{ cm}$",
+        "C) $60\\text{ cm}$",
+        "D) $66\\text{ cm}$"
+      ],
+      "answer": "B",
+      "explanation": "As rays from the object travel towards the mirror, passing through the slab shifts the apparent position of the object in the direction of light propagation by $\\Delta s = t\\left(1 - \\frac{1}{\\mu}\\right) = 9\\left(1 - \\frac{1}{1.5}\\right) = 9\\left(\\frac{1}{3}\\right) = 3\\text{ cm}$. The apparent object distance from the mirror's pole is $u' = -(33 - 3) = -30\\text{ cm}$. Applying the mirror formula: $\\frac{1}{v'} + \\frac{1}{-30} = \\frac{1}{-20} \\implies \\frac{1}{v'} = -\\frac{1}{20} + \\frac{1}{30} = -\\frac{1}{60} \\implies v' = -60\\text{ cm}$. The rays reflected from the mirror travel back through the slab towards the image. Passing through the slab shifts the convergence point away from the mirror by an additional $\\Delta s = 3\\text{ cm}$. Therefore, the distance of the final image from the mirror is $v_{\\text{final}} = 60 + 3 = 63\\text{ cm}$. Distractor $60\\text{ cm}$ neglects the second passage through the slab; distractor $57\\text{ cm}$ subtracts the second shift instead of adding it along the direction of reflected ray propagation."
+    },
+    {
+      "id": "ro_c01_033",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Light is incident at the polarizing Brewster angle $i_p$ on the first face of a prism of apex angle $A$. The refracted ray inside the prism travels parallel to the base (minimum deviation condition). The refractive index $\\mu$ of the prism material is related to the apex angle $A$ by:",
+      "options": [
+        "A) $\\mu = \\tan(A/2)$",
+        "B) $\\mu = \\sin(A/2)$",
+        "C) $\\mu = \\cot(A/2)$",
+        "D) $\\mu = \\cos(A/2)$"
+      ],
+      "answer": "C",
+      "explanation": "According to Brewster's law, when light is incident at Brewster's angle $i_p$, the reflected ray and refracted ray are mutually perpendicular, which gives $i_p + r_1 = 90^\\circ \\implies r_1 = 90^\\circ - i_p$. By Brewster's condition, $\\tan i_p = \\mu$. Under the condition of minimum deviation, the ray traverses symmetrically through the prism parallel to the base, which implies $r_1 = \\frac{A}{2}$. Equating the two expressions for $r_1$: $90^\\circ - i_p = \\frac{A}{2} \\implies i_p = 90^\\circ - \\frac{A}{2}$. Taking the tangent of both sides: $\\mu = \\tan i_p = \\tan\\left(90^\\circ - \\frac{A}{2}\\right) = \\cot\\left(\\frac{A}{2}\\right)$. Distractor $\\tan(A/2)$ arises from confusing the complementary angle; distractor $\\sin(A/2)$ confuses Brewster's angle with the critical angle."
+    },
+    {
+      "id": "ro_c01_034",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Two thin convex lenses of focal lengths $f_1 = 20\\text{ cm}$ and $f_2 = 30\\text{ cm}$ are mounted coaxially with an axial separation of $d = 10\\text{ cm}$. Determine the equivalent focal length (in centimeters) of this two-lens combination.",
+      "options": [],
+      "answer": "15",
+      "explanation": "The equivalent focal length $F$ of two thin coaxial lenses separated by distance $d$ is given by Gullstrand's formula: $\\frac{1}{F} = \\frac{1}{f_1} + \\frac{1}{f_2} - \\frac{d}{f_1 f_2}$. Substituting the given parameters: $f_1 = 20\\text{ cm}, f_2 = 30\\text{ cm}$, and $d = 10\\text{ cm}$. We calculate: $\\frac{1}{F} = \\frac{1}{20} + \\frac{1}{30} - \\frac{10}{20 \\times 30} = \\frac{3}{60} + \\frac{2}{60} - \\frac{10}{600} = \\frac{5}{60} - \\frac{1}{60} = \\frac{4}{60} = \\frac{1}{15}\\text{ cm}^{-1}$. Taking the reciprocal gives the equivalent focal length: $F = 15\\text{ cm}$."
+    },
+    {
+      "id": "ro_c01_035",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A point light source is fixed at the center $C$ of a solid glass sphere of radius $R = 15\\text{ cm}$ and refractive index $\\mu = 1.5$. An observer moves radially away from the sphere along a straight line with a constant speed of $5\\text{ m/s}$. The apparent velocity of the source as observed by the moving observer has magnitude:",
+      "options": [
+        "A) $5\\text{ m/s}$",
+        "B) $7.5\\text{ m/s}$",
+        "C) $3.33\\text{ m/s}$",
+        "D) $0\\text{ m/s}$"
+      ],
+      "answer": "A",
+      "explanation": "All light rays originating from the geometric center $C$ of the glass sphere strike the spherical boundary along the normal direction, meaning the angle of incidence is $i = 0^\\circ$ everywhere on the surface. Because the angle of incidence is zero, no refraction or deviation occurs as rays pass from glass into air. The rays emerge radially into air and trace back to the center $C$ itself. Consequently, the apparent image of the source is stationary at $C$ in the laboratory frame. Since the observer is moving away with speed $v = 5\\text{ m/s}$ relative to the laboratory frame, the apparent velocity of the source relative to the moving observer has magnitude $|\\vec{v}_{\\text{source}} - \\vec{v}_{\\text{observer}}| = |0 - 5| = 5\\text{ m/s}$. Distractor $7.5\\text{ m/s}$ mistakenly multiplies by $\\mu = 1.5$; distractor $3.33\\text{ m/s}$ divides by $\\mu$; distractor $0\\text{ m/s}$ confuses relative velocity with lab frame velocity."
+    },
+    {
+      "id": "ro_c01_036",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In the region $0 \\le y < h$, the refractive index of an inhomogeneous optical medium varies with height according to $n(y) = n_0 \\sqrt{1 - \\frac{y}{h}}$, where $n_0$ and $h$ are positive constants. A narrow monochromatic light ray is launched from the origin $(0,0)$ at an angle $\\theta_0$ with the horizontal $x$-axis into the first quadrant. Which of the following statements is/are correct regarding the trajectory of the ray?",
+      "options": [
+        "A) The trajectory of the light ray in the medium is a parabola.",
+        "B) The maximum height reached by the ray before bending downwards is $y_{\\max} = h \\sin^2\\theta_0$.",
+        "C) The horizontal coordinate at which the ray returns to $y = 0$ is $x = 2h \\sin(2\\theta_0)$.",
+        "D) The radius of curvature of the ray trajectory at its highest point is $2h \\cos^2\\theta_0$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Applying Snell's law in a horizontally stratified medium where $n = n(y)$: the invariant is $n(y) \\cos\\theta(y) = n_0 \\cos\\theta_0$, where $\\theta(y)$ is the angle made by the ray with the horizontal $x$-axis. At the highest point of the trajectory ($y = y_{\\max}$), the ray is horizontal, so $\\theta = 0$ and $\\cos\\theta = 1$. Substituting this into the invariant yields $n(y_{\\max}) = n_0 \\cos\\theta_0 \\implies n_0 \\sqrt{1 - \\frac{y_{\\max}}{h}} = n_0 \\cos\\theta_0 \\implies 1 - \\frac{y_{\\max}}{h} = \\cos^2\\theta_0 \\implies y_{\\max} = h(1 - \\cos^2\\theta_0) = h \\sin^2\\theta_0$. Next, determining the differential equation of the ray path: $\\tan\\theta = \\frac{dy}{dx}$, so $\\left(\\frac{dy}{dx}\\right)^2 = \\frac{1 - \\cos^2\\theta}{\\cos^2\\theta} = \\frac{n(y)^2 - n_0^2\\cos^2\\theta_0}{n_0^2\\cos^2\\theta_0} = \\frac{\\sin^2\\theta_0 - y/h}{\\cos^2\\theta_0}$. Integrating the differential equation $\\int_0^y \\frac{dy}{\\sqrt{\\sin^2\\theta_0 - y/h}} = \\int_0^x \\frac{dx}{\\cos\\theta_0}$, we get $-2h\\sqrt{\\sin^2\\theta_0 - y/h} \\Big|_0^y = \\frac{x}{\\cos\\theta_0} \\implies 2h\\left(\\sin\\theta_0 - \\sqrt{\\sin^2\\theta_0 - y/h}\\right) = \\frac{x}{\\cos\\theta_0}$. Rearranging and solving for $y$ yields the parabolic equation $y(x) = x \\tan\\theta_0 - \\frac{x^2}{4h\\cos^2\\theta_0}$, which proves the path is a parabola. Setting $y(x) = 0$ gives the return coordinate $x = 4h\\tan\\theta_0\\cos^2\\theta_0 = 4h\\sin\\theta_0\\cos\\theta_0 = 2h\\sin(2\\theta_0)$. Differentiating $y(x)$ twice gives $\\frac{d^2 y}{dx^2} = -\\frac{1}{2h\\cos^2\\theta_0}$, yielding the radius of curvature at the apex $\\rho = \\frac{1}{|y''|} = 2h\\cos^2\\theta_0$. Hence, statements A, B, C, and D are all correct."
+    },
+    {
+      "id": "ro_c01_037",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Two identical right-angled crown glass prisms of apex angle $A = 30^\\circ$ and refractive index $\\mu_1 = \\sqrt{3}$ are joined along their hypotenuses with a thin transparent liquid film of refractive index $\\mu_2$ between them, forming a rectangular block. A monochromatic light ray enters normally through the horizontal base of the first prism and propagates vertically upward towards the hypotenuse interface. Which of the following statements is/are correct?",
+      "options": [
+        "A) The ray incident normally from the base strikes the hypotenuse interface at an angle of incidence $\\theta = 60^\\circ$.",
+        "B) If the liquid film is water with refractive index $\\mu_2 = \\frac{4}{3}$, the ray undergoes total internal reflection at the hypotenuse interface.",
+        "C) If the liquid film has refractive index $\\mu_2 = 1.60$, the ray refracts through the film into the second prism and emerges parallel to the incident ray.",
+        "D) The maximum refractive index of the liquid film for which total internal reflection occurs at the hypotenuse interface is $\\mu_2 = 1.50$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Analyzing the geometry of the prism: the angle between the horizontal base and the inclined hypotenuse is $90^\\circ - 30^\\circ = 60^\\circ$. A ray entering normally through the base travels vertically along $+y$ without deviation. The normal to the hypotenuse makes an angle of $90^\\circ - 30^\\circ = 60^\\circ$ with the vertical ray. Hence, the angle of incidence on the hypotenuse is $\\theta = 60^\\circ$, confirming statement A. Applying the condition for total internal reflection at the glass-liquid boundary: $\\sin \\theta \\ge \\sin \\theta_c = \\frac{\\mu_2}{\\mu_1} \\implies \\sin 60^\\circ \\ge \\frac{\\mu_2}{\\sqrt{3}}$. Substituting $\\sin 60^\\circ = \\frac{\\sqrt{3}}{2}$, we get $\\frac{\\sqrt{3}}{2} \\ge \\frac{\\mu_2}{\\sqrt{3}} \\implies \\mu_2 \\le \\frac{3}{2} = 1.50$. Thus, the threshold refractive index for total internal reflection is $\\mu_2 = 1.50$, proving statement D. For water, $\\mu_2 = 4/3 \\approx 1.33 < 1.50$, so the condition $\\mu_2 \\le 1.50$ is satisfied, implying that total internal reflection occurs, verifying statement B. If $\\mu_2 = 1.60 > 1.50$, total internal reflection cannot occur, so the ray refracts through the film. By Snell's law across parallel planar interfaces, $\\mu_1 \\sin \\theta_1 = \\mu_2 \\sin \\theta_2 = \\mu_1 \\sin \\theta_3$, yielding $\\theta_3 = \\theta_1$. The ray continues through the identical second prism and exits through its parallel top face without net angular deviation, confirming statement C. Therefore, all statements A, B, C, and D are correct."
+    },
+    {
+      "id": "ro_c01_038",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "An achromatic doublet of net focal length $F = +30\\text{ cm}$ is constructed by placing two thin lenses $L_1$ (crown glass, dispersive power $\\omega_1 = 0.020$) and $L_2$ (flint glass, dispersive power $\\omega_2 = 0.030$) in optical contact. Which of the following statements is/are correct?",
+      "options": [
+        "A) Lens $L_1$ is a converging lens with focal length $f_1 = +10\\text{ cm}$.",
+        "B) Lens $L_2$ is a diverging lens with focal length $f_2 = -15\\text{ cm}$.",
+        "C) The condition for achromatism of two thin lenses in contact requires $\\frac{\\omega_1}{f_1} + \\frac{\\omega_2}{f_2} = 0$.",
+        "D) Two thin lenses made of the same glass material cannot form an achromatic doublet in contact, but can do so when separated by an axial distance $d = \\frac{f_1 + f_2}{2}$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "For two thin lenses in contact, the equivalent focal length satisfies $\\frac{1}{F} = \\frac{1}{f_1} + \\frac{1}{f_2}$. Differentiating with respect to wavelength to eliminate chromatic aberration yields the condition for achromatism: $d\\left(\\frac{1}{F}\\right) = -\\frac{df_1}{f_1^2} - \\frac{df_2}{f_2^2} = 0$. Using the definition of dispersive power $\\omega = -\\frac{df}{f}$, this simplifies to $\\frac{\\omega_1}{f_1} + \\frac{\\omega_2}{f_2} = 0$, confirming statement C. Substituting the given values $\\omega_1 = 0.020$ and $\\omega_2 = 0.030$: $\\frac{0.020}{f_1} + \\frac{0.030}{f_2} = 0 \\implies f_2 = -1.5 f_1$. Substituting this relation into the focal length equation: $\\frac{1}{f_1} + \\frac{1}{-1.5 f_1} = \\frac{1}{30} \\implies \\frac{1}{f_1}\\left(1 - \\frac{2}{3}\\right) = \\frac{1}{30} \\implies \\frac{1}{3 f_1} = \\frac{1}{30} \\implies f_1 = +10\\text{ cm}$. Solving for $f_2$ yields $f_2 = -1.5(+10) = -15\\text{ cm}$. This confirms that $L_1$ is converging with $f_1 = +10\\text{ cm}$ (statement A) and $L_2$ is diverging with $f_2 = -15\\text{ cm}$ (statement B). For two lenses of the same material ($\\omega_1 = \\omega_2$), $\\frac{\\omega}{f_1} + \\frac{\\omega}{f_2} = 0$ requires one focal length to be negative with equal magnitude, yielding infinite net focal length. However, when separated by distance $d$, differentiating $\\frac{1}{F} = \\frac{1}{f_1} + \\frac{1}{f_2} - \\frac{d}{f_1 f_2}$ gives the condition $d = \\frac{f_1 + f_2}{2}$, verifying statement D. Hence, all statements A, B, C, and D are correct."
+    },
+    {
+      "id": "ro_c01_039",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A solid transparent sphere of radius $R$ and uniform refractive index $\\mu$ is situated in air. A paraxial beam of parallel monochromatic light rays is incident on the sphere. Which of the following statements is/are correct regarding the refraction and focusing of the beam?",
+      "options": [
+        "A) If $\\mu = 2.0$, the parallel beam focuses precisely at the rear vertex of the sphere.",
+        "B) If $\\mu = 1.5$, the beam focuses outside the sphere at a distance of $R/2$ from the rear vertex.",
+        "C) If $\\mu = 1.5$, the distance of the final focal point from the center of the sphere is $1.5 R$.",
+        "D) If the rear hemisphere is silvered for a sphere with $\\mu = 1.5$, the optical system acts as an equivalent concave mirror."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Applying the single spherical surface refraction formula $\\frac{\\mu_2}{v} - \\frac{\\mu_1}{u} = \\frac{\\mu_2 - \\mu_1}{R}$ at the front surface (pole $V_1$, radius $+R$): here $\\mu_1 = 1, \\mu_2 = \\mu$, and $u = -\\infty$. Substituting yields $\\frac{\\mu}{v_1} - 0 = \\frac{\\mu - 1}{R} \\implies v_1 = \\frac{\\mu R}{\\mu - 1}$. For the rays to focus precisely at the rear vertex $V_2$ of the sphere, the image distance from $V_1$ must equal the diameter $2R$. Setting $\\frac{\\mu R}{\\mu - 1} = 2R$ implies $\\mu = 2(\\mu - 1) = 2\\mu - 2 \\implies \\mu = 2.0$, verifying statement A. For $\\mu = 1.5$, the first image is formed at $v_1 = \\frac{1.5 R}{1.5 - 1} = 3R$ from $V_1$. Relative to the rear vertex $V_2$ (located at $2R$ from $V_1$), this converging beam acts as a virtual object at distance $u_2 = +(3R - 2R) = +R$. At the rear surface, light passes from glass ($\\mu_1 = 1.5$) to air ($\\mu_2 = 1.0$), with radius of curvature $-R$. Applying the refraction formula: $\\frac{1.0}{v_2} - \\frac{1.5}{+R} = \\frac{1.0 - 1.5}{-R} = \\frac{-0.5}{-R} = +\\frac{0.5}{R}$. Solving: $\\frac{1}{v_2} = \\frac{0.5}{R} + \\frac{1.5}{R} = \\frac{2.0}{R} \\implies v_2 = +\\frac{R}{2}$. Thus, the beam focuses at a distance of $R/2$ behind the rear vertex outside the sphere, verifying statement B. The distance of this focal point from the center of the sphere is $R + R/2 = 1.5 R$, verifying statement C. When the rear hemisphere is silvered, reflection at the concave silvered boundary combined with the converging refractive power yields an overall positive optical power, behaving as an equivalent concave mirror, confirming statement D. Hence, all options A, B, C, and D are correct."
+    },
+    {
+      "id": "ro_c01_040",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A long solid transparent cylinder of radius $R$ and refractive index $\\mu = \\sqrt{2}$ has its cylinder axis aligned along the $z$-axis. A narrow parallel beam of light traveling in the $+x$-direction strikes the curved surface with impact parameter $b$ from the central axis ($0 < b < R$). The ray enters the cylinder, undergoes one internal reflection at the back boundary, and emerges. Which of the following statements is/are correct?",
+      "options": [
+        "A) The angle of incidence $i$ and angle of refraction $r$ satisfy $\\sin r = \\frac{b}{\\mu R}$.",
+        "B) The total angular deviation suffered by the ray upon emergence is $\\delta = \\pi + 2i - 4r$.",
+        "C) The condition for minimum deviation (caustic concentration of rays) satisfies $\\cos^2 i = \\frac{\\mu^2 - 1}{3}$.",
+        "D) For $\\mu = \\sqrt{2}$, the impact parameter that produces the caustic concentration of rays is $b = R\\sqrt{\\frac{2}{3}}$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "From the circular cross-section geometry, the impact parameter is $b = R \\sin i \\implies \\sin i = \\frac{b}{R}$. By Snell's law at the first boundary: $\\sin i = \\mu \\sin r \\implies \\sin r = \\frac{\\sin i}{\\mu} = \\frac{b}{\\mu R}$, which confirms statement A. The deviation at the first refraction is $i - r$. Inside the circle, triangle symmetry ensures the ray strikes the back boundary at angle $r$, reflecting at angle $r$ with deviation $\\pi - 2r$. The second refraction at emergence produces deviation $i - r$. Summing the deviations gives $\\delta(i) = (i - r) + (\\pi - 2r) + (i - r) = \\pi + 2i - 4r$, verifying statement B. The caustic concentration of emerging rays occurs at the stationary deviation condition: $\\frac{d\\delta}{di} = 2 - 4\\frac{dr}{di} = 0 \\implies \\frac{dr}{di} = \\frac{1}{2}$. Differentiating Snell's law $\\sin i = \\mu \\sin r$ gives $\\cos i = \\mu \\cos r \\frac{dr}{di} = \\frac{\\mu}{2}\\cos r$. Squaring both sides yields $4\\cos^2 i = \\mu^2 \\cos^2 r = \\mu^2(1 - \\sin^2 r) = \\mu^2 - \\sin^2 i = \\mu^2 - (1 - \\cos^2 i)$. Simplifying: $3\\cos^2 i = \\mu^2 - 1 \\implies \\cos^2 i = \\frac{\\mu^2 - 1}{3}$, confirming statement C. For $\\mu = \\sqrt{2}$, we have $\\cos^2 i = \\frac{2 - 1}{3} = \\frac{1}{3} \\implies \\sin^2 i = 1 - \\frac{1}{3} = \\frac{2}{3} \\implies \\sin i = \\sqrt{\\frac{2}{3}}$. The corresponding impact parameter is $b = R \\sin i = R\\sqrt{\\frac{2}{3}}$, confirming statement D. Hence, all statements A, B, C, and D are correct."
+    },
+    {
+      "id": "ro_c01_041",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A point object is placed on the principal axis of a concave mirror of focal length $f = 20\\text{ cm}$ at an initial distance of $33\\text{ cm}$ from the pole. A transparent glass slab of thickness $t = 9\\text{ cm}$ and refractive index $\\mu = 1.5$ is placed between the object and the mirror. The object moves away from the mirror at speed $v_o = 1\\text{ cm/s}$ while the slab moves towards the mirror at speed $v_s = 2\\text{ cm/s}$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The apparent optical shift produced by the slab is independent of the slab's position between the object and the mirror.",
+        "B) The translational motion of the slab does not contribute to the velocity of the image.",
+        "C) The initial distance of the final image from the mirror's pole is $63\\text{ cm}$.",
+        "D) The speed of the final image at this initial instant is $4\\text{ cm/s}$."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "The apparent shift produced by a parallel slab of thickness $t$ and index $\\mu$ is $\\Delta s = t\\left(1 - \\frac{1}{\\mu}\\right) = 9\\left(1 - \\frac{1}{1.5}\\right) = 3\\text{ cm}$. This shift depends solely on thickness $t$ and refractive index $\\mu$, and is entirely independent of the position of the slab between the object and the mirror, confirming statement A. Consequently, translating the slab at speed $v_s$ produces $\\frac{d(\\Delta s)}{dt} = 0$, meaning slab motion has zero effect on image velocity, verifying statement B. The apparent object distance for the mirror is $u' = -(33 - 3) = -30\\text{ cm}$. Applying the mirror formula: $\\frac{1}{v'} + \\frac{1}{-30} = \\frac{1}{-20} \\implies v' = -60\\text{ cm}$. Reflected rays pass back through the slab, shifting the image away from the mirror by an additional $3\\text{ cm}$, giving initial image position $60 + 3 = 63\\text{ cm}$, confirming statement C. Differentiating the apparent positions: since the object moves away at $1\\text{ cm/s}$, $\\frac{du'}{dt} = -1\\text{ cm/s}$. Differentiating the mirror equation: $\\frac{dv'}{dt} = -\\left(\\frac{v'}{u'}\\right)^2 \\frac{du'}{dt} = -\\left(\\frac{-60}{-30}\\right)^2 (-1) = +4\\text{ cm/s}$, directed towards the mirror. Thus, the speed of the final image is $4\\text{ cm/s}$, verifying statement D. Hence, all statements A, B, C, and D are correct."
+    },
+    {
+      "id": "ro_c01_042",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A parabolic graded-index (GRIN) optical fiber has a core radius $a$ and a refractive index profile $n(r) = n_0 \\left[1 - \\Delta \\left(\\frac{r}{a}\\right)^2\\right]$ for radial distance $r \\le a$, where $\\Delta \\ll 1$. In the paraxial ray approximation, the ray trajectory $r(z)$ along the fiber axis $z$ satisfies the equation $\\frac{d^2 r}{dz^2} + \\left(\\frac{2\\Delta}{a^2}\\right) r = 0$. The spatial period (pitch) $Z_p$ of the undulating sinusoidal ray path along the fiber axis is:",
+      "options": [
+        "A) $\\frac{2\\pi a}{\\Delta}$",
+        "B) $\\frac{2\\pi a}{\\sqrt{2\\Delta}}$",
+        "C) $\\frac{\\pi a}{\\sqrt{\\Delta}}$",
+        "D) $\\frac{4\\pi a}{\\sqrt{\\Delta}}$"
+      ],
+      "answer": "B",
+      "explanation": "Comparing the ray trajectory equation $\\frac{d^2 r}{dz^2} + \\left(\\frac{2\\Delta}{a^2}\\right) r = 0$ with the standard simple harmonic oscillator differential equation $\\frac{d^2 r}{dz^2} + k_z^2 r = 0$, we identify the spatial angular frequency of oscillation as $k_z = \\sqrt{\\frac{2\\Delta}{a^2}} = \\frac{\\sqrt{2\\Delta}}{a}$. The spatial wavelength, or pitch $Z_p$, is the distance along the fiber axis $z$ after which the undulating ray repeats its radial position and slope: $Z_p = \\frac{2\\pi}{k_z} = \\frac{2\\pi a}{\\sqrt{2\\Delta}}$. Distractor $\\frac{2\\pi a}{\\Delta}$ is obtained if the square root is omitted; distractor $\\frac{\\pi a}{\\sqrt{\\Delta}}$ omits the factor of $\\sqrt{2}$ in the numerator."
+    },
+    {
+      "id": "ro_c01_043",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "An optical medium occupies the upper half-space $y \\ge 0$ with a vertical refractive index profile given by $n(y) = n_0 \\sqrt{1 + \\frac{y}{h}}$, where $n_0 = 1.0$ and $h = 20\\text{ cm}$. A narrow light ray enters the medium at the origin $(0,0)$ making an angle $\\theta_0 = 45^\\circ$ with the horizontal $x$-axis. As the ray propagates upward, it bends towards the vertical normal. The vertical coordinate $y$ at which the angle of the ray with the horizontal becomes $60^\\circ$ is:",
+      "options": [
+        "A) $10\\text{ cm}$",
+        "B) $40\\text{ cm}$",
+        "C) $30\\text{ cm}$",
+        "D) $20\\text{ cm}$"
+      ],
+      "answer": "D",
+      "explanation": "Applying Snell's law in a horizontally stratified medium: $n(y) \\cos\\theta(y) = \\text{constant}$, where $\\theta(y)$ is the angle made by the ray tangent with the horizontal $x$-axis. At the origin ($y = 0$), $n(0) = n_0 = 1.0$ and $\\theta_0 = 45^\\circ$. Therefore, the Snell invariant is $C = n_0 \\cos 45^\\circ = 1.0 \\times \\frac{1}{\\sqrt{2}} = \\frac{1}{\\sqrt{2}}$. At the height $y$ where the angle with the horizontal becomes $\\theta = 60^\\circ$, we have $n(y) \\cos 60^\\circ = \\frac{1}{\\sqrt{2}}$. Since $\\cos 60^\\circ = \\frac{1}{2}$, substituting yields $n(y) \\times \\frac{1}{2} = \\frac{1}{\\sqrt{2}} \\implies n(y) = \\frac{2}{\\sqrt{2}} = \\sqrt{2}$. Substituting the refractive index profile $n(y) = \\sqrt{1 + \\frac{y}{h}}$: $\\sqrt{1 + \\frac{y}{h}} = \\sqrt{2} \\implies 1 + \\frac{y}{h} = 2 \\implies \\frac{y}{h} = 1 \\implies y = h$. Given $h = 20\\text{ cm}$, the required vertical coordinate is $y = 20\\text{ cm}$. Distractor $10\\text{ cm}$ arises if $\\cos\\theta$ is confused with $\\sin\\theta$; distractor $40\\text{ cm}$ comes from squaring incorrectly."
+    },
+    {
+      "id": "ro_c01_044",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Two thin prisms $P_1$ (crown glass, refracting angle $A_1 = 6^\\circ$, refractive indices $\\mu_{v1} = 1.523$, $\\mu_{r1} = 1.513$) and $P_2$ (flint glass, refractive indices $\\mu_{v2} = 1.665$, $\\mu_{r2} = 1.645$) are combined in opposite orientation to produce deviation without dispersion (an achromatic prism combination). The refracting angle $A_2$ of the flint prism and the net angular deviation produced for mean yellow light (where $\\mu_{y1} = 1.518$ and $\\mu_{y2} = 1.655$) are:",
+      "options": [
+        "A) $A_2 = 3.0^\\circ, \\delta_{\\text{net}} = 1.143^\\circ$",
+        "B) $A_2 = 4.0^\\circ, \\delta_{\\text{net}} = 1.500^\\circ$",
+        "C) $A_2 = 3.0^\\circ, \\delta_{\\text{net}} = 2.150^\\circ$",
+        "D) $A_2 = 2.0^\\circ, \\delta_{\\text{net}} = 0.850^\\circ$"
+      ],
+      "answer": "A",
+      "explanation": "Applying the condition for an achromatic combination of thin prisms: the net angular dispersion between violet and red rays must be zero, so $\\theta_{\\text{net}} = (\\mu_{v1} - \\mu_{r1})A_1 - (\\mu_{v2} - \\mu_{r2})A_2 = 0$. Substituting the values: $(1.523 - 1.513)(6^\\circ) = (1.665 - 1.645)A_2 \\implies 0.010 \\times 6^\\circ = 0.020 \\times A_2 \\implies 0.060^\\circ = 0.020 A_2$. Solving yields $A_2 = 3.0^\\circ$. The deviation for yellow light produced by the crown prism is $\\delta_1 = (\\mu_{y1} - 1)A_1 = (1.518 - 1)(6^\\circ) = 0.518 \\times 6^\\circ = 3.108^\\circ$. The opposing deviation produced by the flint prism is $\\delta_2 = (\\mu_{y2} - 1)A_2 = (1.655 - 1)(3^\\circ) = 0.655 \\times 3^\\circ = 1.965^\\circ$. Therefore, the net angular deviation is $\\delta_{\\text{net}} = \\delta_1 - \\delta_2 = 3.108^\\circ - 1.965^\\circ = 1.143^\\circ$. Distractor $A_2 = 4.0^\\circ$ arises if dispersive powers are inverted; distractor $2.150^\\circ$ occurs if the opposing deviation is subtracted incorrectly."
+    },
+    {
+      "id": "ro_c01_045",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The refractive index of a dense flint glass prism varies with wavelength according to Cauchy's dispersion formula $\\mu(\\lambda) = 1.50 + \\frac{7.2 \\times 10^4}{\\lambda^2}$, where $\\lambda$ is the wavelength in vacuum in nanometers ($\\text{nm}$). For a thin prism of refracting angle $A = 4.0^\\circ$, find the angular dispersion (in degrees) between the spectral lines $\\lambda_1 = 600\\text{ nm}$ and $\\lambda_2 = 400\\text{ nm}$.",
+      "options": [
+        "A) $0.5^\\circ$",
+        "B) $1.5^\\circ$",
+        "C) $2.0^\\circ$",
+        "D) $1.0^\\circ$"
+      ],
+      "answer": "D",
+      "explanation": "Applying Cauchy's formula at the two specified wavelengths: for $\\lambda_1 = 600\\text{ nm}$, $\\lambda_1^2 = 360000\\text{ nm}^2$, so $\\mu_1 = 1.50 + \\frac{72000}{360000} = 1.50 + 0.20 = 1.70$. For $\\lambda_2 = 400\\text{ nm}$, $\\lambda_2^2 = 160000\\text{ nm}^2$, so $\\mu_2 = 1.50 + \\frac{72000}{160000} = 1.50 + 0.45 = 1.95$. The difference in refractive index between the two wavelengths is $\\Delta \\mu = \\mu_2 - \\mu_1 = 1.95 - 1.70 = 0.25$. For a thin prism of apex angle $A = 4.0^\\circ$, the angular dispersion is given by $\\theta = \\Delta \\delta = (\\Delta \\mu)A$. Substituting the values: $\\theta = 0.25 \\times 4.0^\\circ = 1.0^\\circ$. Distractor $0.5^\\circ$ arises if only half the refractive index difference is considered; distractor $2.0^\\circ$ uses $A = 8.0^\\circ$."
+    },
+    {
+      "id": "ro_c01_046",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Parallel sunlight rays strike a spherical water droplet of radius $R$ and refractive index $\\mu = \\frac{4}{3}$. The rays undergo one refraction into the droplet, one internal reflection at the rear boundary, and one refraction emerging into the air (forming the primary rainbow). The angle of incidence $i$ that produces the minimum deviation (the Descartes rainbow condition $\\cos^2 i = \\frac{\\mu^2 - 1}{3}$) has $\\sin i$ equal to:",
+      "options": [
+        "A) $\\sqrt{\\frac{7}{27}}$",
+        "B) $\\frac{2\\sqrt{15}}{9}$",
+        "C) $\\frac{\\sqrt{5}}{3}$",
+        "D) $\\frac{4}{9}$"
+      ],
+      "answer": "B",
+      "explanation": "Applying Descartes' condition for the primary rainbow ray: the angle of incidence $i$ for stationary deviation satisfies $\\cos^2 i = \\frac{\\mu^2 - 1}{3}$. Substituting the refractive index of water $\\mu = \\frac{4}{3}$, we have $\\mu^2 = \\frac{16}{9}$. The numerator evaluates to $\\mu^2 - 1 = \\frac{16}{9} - 1 = \\frac{7}{9}$. Dividing by $3$ yields $\\cos^2 i = \\frac{7/9}{3} = \\frac{7}{27}$. Using the fundamental identity $\\sin^2 i = 1 - \\cos^2 i$: $\\sin^2 i = 1 - \\frac{7}{27} = \\frac{20}{27}$. Taking the square root gives $\\sin i = \\sqrt{\\frac{20}{27}} = \\frac{\\sqrt{4 \\times 5}}{\\sqrt{9 \\times 3}} = \\frac{2\\sqrt{5}}{3\\sqrt{3}} = \\frac{2\\sqrt{15}}{9}$. Distractor $\\sqrt{7/27}$ represents $\\cos i$ instead of $\\sin i$; distractor $\\sqrt{5}/3$ forgets the factor of $3$ in the denominator; distractor $4/9$ is a rough decimal approximation."
+    },
+    {
+      "id": "ro_c01_047",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In an optical medium occupying the region $y \\ge 0$, the refractive index varies vertically as $n(y) = n_0 \\sqrt{1 + \\frac{y}{h}}$, where $n_0 = 1.0$ and $h = 25\\text{ cm}$. A light ray enters the medium at $(0,0)$ at an angle $\\theta_0 = 30^\\circ$ with the horizontal $x$-axis. As the ray propagates, it continuously bends towards the vertical normal. Find the height $y$ (in centimeters) at which the angle of the ray with the horizontal becomes $60^\\circ$.",
+      "options": [],
+      "answer": "50",
+      "explanation": "Applying Snell's law in horizontally stratified continuous media: the product $n(y) \\cos\\theta(y)$ remains invariant along the ray path, where $\\theta(y)$ is the angle made by the tangent of the ray with the horizontal $x$-axis. At the entrance boundary $y = 0$: $n(0) = n_0 = 1.0$ and $\\theta_0 = 30^\\circ$, giving the invariant constant $C = n_0 \\cos 30^\\circ = 1.0 \\times \\frac{\\sqrt{3}}{2} = \\frac{\\sqrt{3}}{2}$. At the height $y$ where the angle with the horizontal becomes $\\theta = 60^\\circ$, we have $n(y) \\cos 60^\\circ = \\frac{\\sqrt{3}}{2}$. Substituting $\\cos 60^\\circ = \\frac{1}{2}$ yields $n(y) \\times \\frac{1}{2} = \\frac{\\sqrt{3}}{2} \\implies n(y) = \\sqrt{3}$. Substituting the functional form of the refractive index profile: $n(y) = \\sqrt{1 + \\frac{y}{h}} = \\sqrt{3} \\implies 1 + \\frac{y}{h} = 3 \\implies \\frac{y}{h} = 2 \\implies y = 2h$. Given $h = 25\\text{ cm}$, the required height is $y = 2 \\times 25 = 50\\text{ cm}$."
+    },
+    {
+      "id": "ro_c01_048",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "An equiconvex thin glass lens (refractive index $\\mu = 1.50$) of focal length $f = 20\\text{ cm}$ in air is cut along its vertical transverse plane of symmetry into two identical plano-convex lenses. One of these plano-convex lenses has its flat surface silvered. A luminous point object is placed along the principal axis in front of the curved unsilvered face. Find the distance $u$ (in centimeters) from the curved face at which the object must be placed so that the final image coincides with the object itself.",
+      "options": [],
+      "answer": "40",
+      "explanation": "Applying the lens maker's formula to the initial equiconvex lens: $\\frac{1}{f} = (\\mu - 1)\\frac{2}{R} \\implies \\frac{1}{20} = (1.50 - 1)\\frac{2}{R} = \\frac{1}{R} \\implies R = 20\\text{ cm}$. Each cut plano-convex lens has one curved face of radius $R = 20\\text{ cm}$ and one flat face ($R_2 = \\infty$). The focal length of the plano-convex lens is $\\frac{1}{f_L} = (\\mu - 1)\\frac{1}{R} = \\frac{0.50}{20} = \\frac{1}{40}\\text{ cm}^{-1} \\implies f_L = 40\\text{ cm}$, so its refractive power is $P_L = \\frac{1}{40}\\text{ cm}^{-1}$. The flat silvered face acts as a plane mirror with power $P_M = 0$. The total equivalent optical power of the silvered system is $P_{\\text{eq}} = 2P_L + P_M = 2\\left(\\frac{1}{40}\\right) + 0 = \\frac{1}{20}\\text{ cm}^{-1}$. Since $P_{\\text{eq}} > 0$, the combination behaves as an equivalent concave mirror of focal length $F = \\frac{1}{P_{\\text{eq}}} = 20\\text{ cm}$. In order for the final reflected image to coincide with the object, the object must be placed at the center of curvature of the equivalent concave mirror: $u = 2F = 2 \\times 20 = 40\\text{ cm}$."
+    },
+    {
+      "id": "ro_c01_049",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "An oil-immersion objective lens of a research microscope has a numerical aperture $\\text{NA} = n \\sin\\alpha = 1.25$. Monochromatic illumination of wavelength $\\lambda = 500\\text{ nm}$ in vacuum is used to view a microstructural specimen. Determine the theoretical limit of resolution $d_{\\min}$ (the minimum resolvable distance between two object points according to Abbe's criterion, $d_{\\min} = \\frac{\\lambda}{2\\,\\text{NA}}$), in nanometers.",
+      "options": [],
+      "answer": "200",
+      "explanation": "According to Ernst Abbe's criterion for the limit of resolution of an optical microscope, two self-luminous or coherently illuminated object points can be resolved if their lateral separation exceeds $d_{\\min} = \\frac{\\lambda}{2\\,\\text{NA}}$, where $\\lambda$ is the vacuum wavelength of the illuminating light and $\\text{NA} = n \\sin\\alpha$ is the numerical aperture of the objective. Substituting the given optical parameters $\\lambda = 500\\text{ nm}$ and $\\text{NA} = 1.25$: $d_{\\min} = \\frac{500\\text{ nm}}{2 \\times 1.25} = \\frac{500}{2.50} = 200\\text{ nm}$. Therefore, the minimum resolvable separation is $200\\text{ nm}$."
+    },
+    {
+      "id": "ro_c01_050",
+      "subject": "Physics",
+      "topic": "Ray Optics",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A right-angled crown glass prism (refractive index $\\mu_g = 1.50$) has angles $30^\\circ$-$60^\\circ$-$90^\\circ$, with the $90^\\circ$ angle located between the vertical leg and the horizontal base, and the apex angle $30^\\circ$ at the top. A drop of liquid of refractive index $\\mu_l$ is placed on the inclined hypotenuse face. A horizontal ray of light enters normally through the vertical leg and strikes the hypotenuse face. Find the maximum value of $100 \\times \\mu_l$ (rounded to the nearest integer) such that the ray undergoes total internal reflection at the hypotenuse.",
+      "options": [],
+      "answer": "130",
+      "explanation": "Since the light ray enters normally through the vertical face, it enters undeflected and continues horizontally. In a right-angled triangle with angles $30^\\circ$ at the top apex, $90^\\circ$ at the corner between vertical face and base, the angle between the horizontal base and the inclined hypotenuse is $60^\\circ$. The hypotenuse surface has an outward unit normal that makes an angle of $60^\\circ$ with the horizontal ray. Therefore, the angle of incidence of the horizontal ray at the hypotenuse interface is $\\theta = 60^\\circ$. For total internal reflection to occur at the glass-liquid interface, the angle of incidence must satisfy $\\sin \\theta \\ge \\sin \\theta_c = \\frac{\\mu_l}{\\mu_g}$. Substituting $\\theta = 60^\\circ$ and $\\mu_g = 1.50$: $\\sin 60^\\circ = \\frac{\\sqrt{3}}{2} \\ge \\frac{\\mu_l}{1.50} \\implies \\mu_l \\le 1.50 \\times \\frac{\\sqrt{3}}{2} = \\frac{3\\sqrt{3}}{4}$. Using the approximation $\\sqrt{3} \\approx 1.73205$: $\\mu_l \\le \\frac{3 \\times 1.73205}{4} = \\frac{5.19615}{4} \\approx 1.29904$. Multiplying by $100$ gives $100 \\times \\mu_l \\le 129.904$. Rounding to the nearest integer yields $130$."
+    }
+  ]
+}

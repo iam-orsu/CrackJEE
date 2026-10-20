@@ -1,0 +1,691 @@
+{
+  "questions": [
+    {
+      "id": "tpm_c02_001",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A copper rod of length 1.5 m has linear expansion coefficient $17\\times10^{-6}$ per kelvin. It is heated from 20°C to 120°C. By how many millimetres does the rod lengthen?",
+      "options": [
+        "A) 0.255 mm",
+        "B) 25.5 mm",
+        "C) 2.55 mm",
+        "D) 1.70 mm"
+      ],
+      "answer": "C",
+      "explanation": "The temperature change is $\\Delta T = 100$ K. The lengthening is $\\Delta L = \\alpha L_0 \\Delta T = 17\\times10^{-6}\\times1.5\\times100 = 2.55\\times10^{-3}$ m, which is 2.55 mm. Option D uses a length of 1.0 m instead of 1.5 m."
+    },
+    {
+      "id": "tpm_c02_002",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An aluminium cube of side 10 cm has linear expansion coefficient $24\\times10^{-6}$ per kelvin. It is heated from 20°C to 120°C. Find the increase in its volume in cm$^3$, to the nearest whole number.",
+      "options": [],
+      "answer": "7",
+      "explanation": "The original volume is $V_0 = 10^3 = 1000$ cm$^3$ and the temperature change is 100 K. Volume expansion gives $\\Delta V = 3\\alpha V_0\\Delta T = 3\\times24\\times10^{-6}\\times1000\\times100 = 7.2$ cm$^3$, which rounds to 7."
+    },
+    {
+      "id": "tpm_c02_003",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "300 g of water at 10°C is mixed with 200 g of water at 60°C in an insulated vessel. Neglecting the vessel's heat capacity, what is the final temperature of the mixture?",
+      "options": [
+        "A) 35°C",
+        "B) 30°C",
+        "C) 50°C",
+        "D) 20°C"
+      ],
+      "answer": "B",
+      "explanation": "Heat gained by the cold water equals heat lost by the hot water: $0.3(T-10) = 0.2(60-T)$. This gives $0.3T - 3 = 12 - 0.2T$, so $0.5T = 15$ and $T = 30$°C. Option C divides the total heat by the cold water mass alone."
+    },
+    {
+      "id": "tpm_c02_004",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Heat flows steadily through a wall of area 0.5 m$^2$ and thickness 0.25 m. The wall's thermal conductivity is 0.6 W/m K and the temperature difference across it is 50 K. Find the rate of heat flow in watts.",
+      "options": [],
+      "answer": "60",
+      "explanation": "The heat current is $P = kA\\Delta T/L = 0.6\\times0.5\\times50/0.25$. Evaluating gives $P = 15/0.25 = 60$ W."
+    },
+    {
+      "id": "tpm_c02_005",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A 300 W heater warms a 0.6 kg metal block from 20°C to 50°C in 90 s with no losses. What is the specific heat capacity of the metal in J/kg K?",
+      "options": [
+        "A) 1500 J/kg K",
+        "B) 900 J/kg K",
+        "C) 450 J/kg K",
+        "D) 25 J/kg K"
+      ],
+      "answer": "A",
+      "explanation": "The energy supplied is $Q = Pt = 300\\times90 = 27000$ J. Using $Q = mc\\Delta T$ gives $c = 27000/(0.6\\times30) = 1500$ J/kg K. Option B forgets the mass of the block, while option C uses a temperature change of 100 K."
+    },
+    {
+      "id": "tpm_c02_006",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A black body at 327°C is compared with the same body at 27°C. Find the ratio of its total radiated power at 327°C to that at 27°C, to the nearest whole number.",
+      "options": [],
+      "answer": "16",
+      "explanation": "Temperatures must be in kelvin: 600 K and 300 K. Total power scales as $T^4$, so the ratio is $(600/300)^4 = 2^4 = 16$. Using Celsius values would give an absurd ratio."
+    },
+    {
+      "id": "tpm_c02_007",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "How much heat is needed to melt 40 g of ice at 0°C and then warm the resulting water to 20°C? Take $L_f = 3.36\\times10^{5}$ J/kg and the specific heat of water as 4200 J/kg K.",
+      "options": [
+        "A) 13440 J",
+        "B) 3360 J",
+        "C) 30240 J",
+        "D) 16800 J"
+      ],
+      "answer": "D",
+      "explanation": "Melting gives $0.04\\times3.36\\times10^{5} = 13440$ J. Warming the water gives $0.04\\times4200\\times20 = 3360$ J. The total is $16800$ J. Option A forgets the warming step and option B forgets the latent heat."
+    },
+    {
+      "id": "tpm_c02_008",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A 0.5 kg iron piece with specific heat 460 J/kg K cools from 200°C to 100°C and gives all its heat to 0.5 kg of water. By how many kelvin does the water temperature rise, to the nearest whole number? Take the specific heat of water as 4200 J/kg K.",
+      "options": [],
+      "answer": "11",
+      "explanation": "The heat released by the iron is $0.5\\times460\\times100 = 23000$ J. The water temperature rise is $\\Delta T = 23000/(0.5\\times4200) = 10.95$ K, which rounds to 11."
+    },
+    {
+      "id": "tpm_c02_009",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A glass rod of length 80 cm has linear expansion coefficient $9\\times10^{-6}$ per kelvin. Its temperature rises by 50 K. What is its increase in length?",
+      "options": [
+        "A) 3.6 mm",
+        "B) 0.36 mm",
+        "C) 0.72 mm",
+        "D) 0.18 mm"
+      ],
+      "answer": "B",
+      "explanation": "Convert the length to 0.80 m. The increase is $\\Delta L = 9\\times10^{-6}\\times0.80\\times50 = 3.6\\times10^{-4}$ m, which is 0.36 mm. Option A is a unit slip by a factor of ten."
+    },
+    {
+      "id": "tpm_c02_010",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A calorimeter whose heat capacity equals that of 20 g of water contains 180 g of water at 15°C, and 100 g of water at 75°C is poured in. Find the final temperature in °C, to the nearest whole number.",
+      "options": [],
+      "answer": "35",
+      "explanation": "Heat lost by the hot water equals heat gained by the water plus the calorimeter: $100(75-T) = (180+20)(T-15)$. This gives $7500 - 100T = 200T - 3000$, so $300T = 10500$ and $T = 35$°C."
+    },
+    {
+      "id": "tpm_c02_011",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A 1 kW cooker with 60% efficiency heats 1.5 kg of water from 20°C to 100°C. Take the specific heat of water as 4200 J/kg K. How many minutes does the cooker take?",
+      "options": [
+        "A) 8.4 min",
+        "B) 14 min",
+        "C) 21 min",
+        "D) 1.4 min"
+      ],
+      "answer": "B",
+      "explanation": "The heat needed is $Q = 1.5\\times4200\\times80 = 5.04\\times10^{5}$ J. The useful power is $0.60\\times1000 = 600$ W, so $t = 5.04\\times10^{5}/600 = 840$ s, which is 14 min. Option A ignores the efficiency."
+    },
+    {
+      "id": "tpm_c02_012",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "How many kilojoules of heat are needed to warm 1.5 kg of ice from $-20^\\circ$C to 0°C? Take the specific heat of ice as 2100 J/kg K. Give the answer as a whole number of kJ.",
+      "options": [],
+      "answer": "63",
+      "explanation": "The heat required is $Q = mc\\Delta T = 1.5\\times2100\\times20 = 63000$ J, which is 63 kJ."
+    },
+    {
+      "id": "tpm_c02_013",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A steel wire of length 3.0 m is at 20°C and is heated to 120°C. Its linear expansion coefficient is $12\\times10^{-6}$ per kelvin. What is its final length?",
+      "options": [
+        "A) 3.0360 m",
+        "B) 3.0018 m",
+        "C) 3.0072 m",
+        "D) 3.0036 m"
+      ],
+      "answer": "D",
+      "explanation": "The expansion is $\\Delta L = 12\\times10^{-6}\\times3.0\\times100 = 3.6\\times10^{-3}$ m. The final length is $3.0 + 0.0036 = 3.0036$ m. Option C uses a temperature change of 200 K, and option A uses a coefficient ten times too large."
+    },
+    {
+      "id": "tpm_c02_014",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "10 g of steam at 100°C is condensed into 500 g of water at 20°C in an insulated container. Take the latent heat of vaporisation as $2.26\\times10^{6}$ J/kg and the specific heat of water as 4200 J/kg K. Find the final temperature in °C, to the nearest whole number.",
+      "options": [],
+      "answer": "32",
+      "explanation": "Let the final temperature be $T$. Heat from steam: $0.01\\times2.26\\times10^{6} + 0.01\\times4200\\,(100-T) = 26800 - 42T$. Heat gained by water: $0.5\\times4200\\,(T-20) = 2100T - 42000$. Equating gives $2142\\,T = 68800$, so $T \\approx 32.1$°C, which rounds to 32."
+    },
+    {
+      "id": "tpm_c02_015",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A grey surface with emissivity 0.25 and area 0.04 m$^2$ is held at 400 K. Using $\\sigma = 5.67\\times10^{-8}$ W/m$^2$K$^4$, what total power does it radiate?",
+      "options": [
+        "A) 58.1 W",
+        "B) 3.6 W",
+        "C) 14.5 W",
+        "D) 0.6 W"
+      ],
+      "answer": "C",
+      "explanation": "The radiated power is $P = e\\sigma A T^4 = 0.25\\times5.67\\times10^{-8}\\times0.04\\times(400)^4 = 0.25\\times5.67\\times10^{-8}\\times0.04\\times2.56\\times10^{10} \\approx 14.5$ W. Option A treats the emissivity as the reciprocal of its value."
+    },
+    {
+      "id": "tpm_c02_016",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A 50 g calorimeter of specific heat 400 J/kg K contains 200 g of water at 25°C. A 50 g ice cube at 0°C is dropped into it. Taking $L_f = 3.36\\times10^{5}$ J/kg and $c_w = 4200$ J/kg K, what is the final temperature?",
+      "options": [
+        "A) 4.4°C",
+        "B) 4.0°C",
+        "C) 0°C",
+        "D) 12.5°C"
+      ],
+      "answer": "A",
+      "explanation": "Heat lost by the water and calorimeter is $(840+20)(25-T)$. This equals the melting heat $16800$ J plus $210T$ J to warm the melt water. Solving $860(25-T) = 16800 + 210T$ gives $T \\approx 4.4$°C. Option B forgets the calorimeter's heat."
+    },
+    {
+      "id": "tpm_c02_017",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A glass bulb of volume 20 cm$^3$ at 0°C is joined to a capillary of cross-section 0.02 cm$^2$ and filled with mercury. Mercury has volume expansion coefficient $1.8\\times10^{-4}$ per kelvin and glass has linear coefficient $9\\times10^{-6}$ per kelvin. On heating by 10 K, how far in mm does the mercury rise in the capillary, to the nearest mm?",
+      "options": [],
+      "answer": "15",
+      "explanation": "The apparent expansion of mercury is $\\gamma_{app} = 1.8\\times10^{-4} - 3(9\\times10^{-6}) = 1.53\\times10^{-4}$ per kelvin. The extra volume is $1.53\\times10^{-4}\\times20\\times10 = 0.0306$ cm$^3$, so the column rises $0.0306/0.02 = 1.53$ cm, or 15 mm."
+    },
+    {
+      "id": "tpm_c02_018",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A circular hole of diameter 2.00 cm is cut in a steel plate with linear expansion coefficient $12\\times10^{-6}$ per kelvin. The plate is heated by 200 K. What is the new diameter of the hole?",
+      "options": [
+        "A) 2.0048 cm",
+        "B) 2.0240 cm",
+        "C) 2.0024 cm",
+        "D) 2.0096 cm"
+      ],
+      "answer": "A",
+      "explanation": "A hole expands as if it were made of the same material, so $D = 2.00(1+\\alpha\\Delta T) = 2.00(1+12\\times10^{-6}\\times200) = 2.0048$ cm. Option D uses the area coefficient $2\\alpha$ for the diameter, and option C uses a 100 K change."
+    },
+    {
+      "id": "tpm_c02_019",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A long insulating pipe of length 1.0 m has inner radius 5.0 cm and outer radius 10 cm, with conductivity 0.20 W/m K. The inside is at 80°C and the outside at 30°C. Find the heat loss rate in watts, to the nearest whole number. Use $P = 2\\pi kL\\Delta T/\\ln(b/a)$.",
+      "options": [],
+      "answer": "91",
+      "explanation": "Substituting gives $P = 2\\pi(0.20)(1.0)(50)/\\ln 2 = 62.83/0.6931 \\approx 90.6$ W, which rounds to 91 W."
+    },
+    {
+      "id": "tpm_c02_020",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "How much heat, in kilojoules, is needed to convert 5.0 g of ice at 0°C into steam at 100°C? Take $L_f = 3.36\\times10^{5}$ J/kg, $c_w = 4200$ J/kg K and $L_v = 2.26\\times10^{6}$ J/kg.",
+      "options": [
+        "A) 15.08 kJ",
+        "B) 13.40 kJ",
+        "C) 1.51 kJ",
+        "D) 3.78 kJ"
+      ],
+      "answer": "A",
+      "explanation": "Melting gives $1.68$ kJ, warming the water gives $2.10$ kJ and vaporising gives $11.30$ kJ. The total is $15.08$ kJ. Option B forgets the melting heat and option D forgets the vaporisation."
+    },
+    {
+      "id": "tpm_c02_021",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A steel bar has thermal conductivity 50 W/m K and cross-section 0.020 m$^2$. Heat flows along the bar under a steady temperature gradient of 40 K per metre. What is the heat flow rate in watts?",
+      "options": [],
+      "answer": "40",
+      "explanation": "Fourier's law gives $P = kA\\,|dT/dx| = 50\\times0.020\\times40 = 40$ W, since the gradient magnitude is 40 K/m."
+    },
+    {
+      "id": "tpm_c02_022",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A steel rail of length 12.0 m has a 6.0 mm gap at a joint when it is at its installation temperature. Its linear expansion coefficient is $12\\times10^{-6}$ per kelvin. What temperature rise closes the gap, to one decimal place?",
+      "options": [
+        "A) 20.8 K",
+        "B) 41.7 K",
+        "C) 83.3 K",
+        "D) 4.2 K"
+      ],
+      "answer": "B",
+      "explanation": "The rail must expand by 6.0 mm, so $\\Delta T = 0.0060/(12\\times10^{-6}\\times12.0) = 41.7$ K. Option A uses a rail length of 24 m, and option C uses 6 m instead of 12 m."
+    },
+    {
+      "id": "tpm_c02_023",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An 800 W heater supplies a 1.5 kg copper block with specific heat 390 J/kg K, heating it from 20°C to 70°C with no losses. How many seconds does this take, to the nearest whole second?",
+      "options": [],
+      "answer": "37",
+      "explanation": "The heat needed is $Q = 1.5\\times390\\times50 = 29250$ J, so $t = 29250/800 = 36.6$ s, which rounds to 37 s."
+    },
+    {
+      "id": "tpm_c02_024",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A calorimeter contains 150 g of water at 20°C. Then 100 g of water at 80°C is poured in and the final temperature is 40°C. What is the water equivalent of the calorimeter, in grams?",
+      "options": [
+        "A) 40 g",
+        "B) 100 g",
+        "C) 50 g",
+        "D) 60 g"
+      ],
+      "answer": "C",
+      "explanation": "Heat lost by the hot water is $100\\times(80-40) = 4000$ g K. Heat gained is $(150+W)(40-20)$, so $150+W = 200$ and $W = 50$ g. Option B uses the hot water mass in place of the water equivalent."
+    },
+    {
+      "id": "tpm_c02_025",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "100 g of ice at 0°C is placed in 200 g of water at 30°C in an insulated container. Taking $c_w = 4200$ J/kg K and $L_f = 3.36\\times10^{5}$ J/kg, how many grams of ice melt?",
+      "options": [],
+      "answer": "75",
+      "explanation": "The water can release $0.2\\times4200\\times30 = 25200$ J before reaching 0°C. Dividing by the latent heat gives $25200/(3.36\\times10^{5}) = 0.075$ kg, so 75 g of the ice melts. This is less than the 100 g available, so the final state is at 0°C."
+    },
+    {
+      "id": "tpm_c02_026",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two large parallel black plates, each of area 0.50 m$^2$, face each other at absolute temperatures 600 K and 300 K. Using $\\sigma = 5.67\\times10^{-8}$ W/m$^2$K$^4$, what net radiant power is exchanged between them?",
+      "options": [
+        "A) 6.89 kW",
+        "B) 3.44 kW",
+        "C) 324 W",
+        "D) 1.72 kW"
+      ],
+      "answer": "B",
+      "explanation": "The net power is $\\sigma A(T_1^4 - T_2^4) = 5.67\\times10^{-8}\\times0.50\\times(1.296\\times10^{11} - 8.1\\times10^{9}) \\approx 3.44\\times10^{3}$ W. Option A doubles the result, option D halves it, and option C uses Celsius-like values in the fourth power."
+    },
+    {
+      "id": "tpm_c02_027",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A wall of area 1.0 m$^2$ is covered with 10 cm of insulation of conductivity 0.04 W/m K. The inside air is at 30°C and the outside air at $-40^\\circ$C. What steady heater power in watts is needed to hold the inside temperature?",
+      "options": [],
+      "answer": "28",
+      "explanation": "The heat loss is $P = kA\\Delta T/L = 0.04\\times1.0\\times70/0.10 = 28$ W, so the heater must supply 28 W."
+    },
+    {
+      "id": "tpm_c02_028",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A steel ring has inner diameter 10.00 cm at 20°C and must be heated so that it slips over a shaft of diameter 10.02 cm. Steel's linear expansion coefficient is $12\\times10^{-6}$ per kelvin. What temperature is needed, to one decimal place?",
+      "options": [
+        "A) 166.7°C",
+        "B) 186.7°C",
+        "C) 226.7°C",
+        "D) 103.3°C"
+      ],
+      "answer": "B",
+      "explanation": "The ring diameter must grow by 0.02 cm, a fractional change of 0.002. So $\\Delta T = 0.002/(12\\times10^{-6}) = 166.7$ K and the temperature is $20 + 166.7 = 186.7$°C. Option A omits the starting temperature, and option D uses a coefficient of $24\\times10^{-6}$."
+    },
+    {
+      "id": "tpm_c02_029",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An aluminium pot of mass 0.10 kg with specific heat 900 J/kg K holds 0.20 kg of water. Both are heated from 20°C to 60°C. How many kilojoules of heat are needed, to the nearest whole kJ? Take the specific heat of water as 4200 J/kg K.",
+      "options": [],
+      "answer": "37",
+      "explanation": "The pot needs $0.10\\times900\\times40 = 3600$ J and the water needs $0.20\\times4200\\times40 = 33600$ J. The total is $37200$ J, or 37.2 kJ, which rounds to 37."
+    },
+    {
+      "id": "tpm_c02_030",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A solid copper sphere of radius 5.0 cm has linear expansion coefficient $17\\times10^{-6}$ per kelvin. Its temperature rises by 100 K. What is its increase in volume, in cm$^3$, to two decimal places?",
+      "options": [
+        "A) 0.89 cm$^3$",
+        "B) 2.67 cm$^3$",
+        "C) 5.35 cm$^3$",
+        "D) 26.7 cm$^3$"
+      ],
+      "answer": "B",
+      "explanation": "The original volume is $V_0 = \\tfrac{4}{3}\\pi(5.0)^3 = 523.6$ cm$^3$. The increase is $\\Delta V = 3\\alpha V_0\\Delta T = 3\\times17\\times10^{-6}\\times523.6\\times100 = 2.67$ cm$^3$. Option A uses the linear coefficient in place of the volume coefficient."
+    },
+    {
+      "id": "tpm_c02_031",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A rod of length 0.50 m and cross-section 3.0 cm$^2$ has its ends at a temperature difference of 40 K. Heat flows steadily through it at 0.60 W. What is its thermal conductivity in W/m K?",
+      "options": [],
+      "answer": "25",
+      "explanation": "Rearranging the heat current formula gives $k = PL/(A\\Delta T) = 0.60\\times0.50/(3.0\\times10^{-4}\\times40) = 25$ W/m K."
+    },
+    {
+      "id": "tpm_c02_032",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A 0.20 kg metal piece with specific heat 500 J/kg K at 200°C is dropped into 0.50 kg of water at 25°C in an insulated container. Taking the specific heat of water as 4200 J/kg K, find the final temperature to the nearest whole degree Celsius.",
+      "options": [],
+      "answer": "33",
+      "explanation": "Let the final temperature be $T$. Then $0.2\\times500\\,(200-T) = 0.5\\times4200\\,(T-25)$, which gives $100(200-T) = 2100(T-25)$. Solving, $2200T = 72500$ and $T \\approx 32.95$°C, which rounds to 33."
+    },
+    {
+      "id": "tpm_c02_033",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "How many kilograms of cold water at 10°C must be mixed with 2.0 kg of water at 80°C to produce water at 40°C?",
+      "options": [
+        "A) 1.33 kg",
+        "B) 4.00 kg",
+        "C) 2.67 kg",
+        "D) 0.67 kg"
+      ],
+      "answer": "C",
+      "explanation": "Heat lost by the hot water is $2.0(80-40) = 80$ kg K. Heat gained by the cold water is $m(40-10) = 30m$, so $m = 80/30 = 2.67$ kg. Option B uses a 20 K rise for the cold water."
+    },
+    {
+      "id": "tpm_c02_034",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A copper wire of cross-section 1.0 mm$^2$ is clamped rigidly and heated by 20 K. Its Young's modulus is $1.2\\times10^{11}$ Pa and its linear expansion coefficient is $17\\times10^{-6}$ per kelvin. To the nearest newton, what force does the wire exert on its clamps?",
+      "options": [],
+      "answer": "41",
+      "explanation": "The force is $F = YA\\alpha\\Delta T = 1.2\\times10^{11}\\times1.0\\times10^{-6}\\times17\\times10^{-6}\\times20 = 40.8$ N, which rounds to 41 N."
+    },
+    {
+      "id": "tpm_c02_035",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A glycerin sample of volume 500 cm$^3$ has volume expansion coefficient $5.0\\times10^{-4}$ per kelvin. Its temperature rises by 40 K. What is the increase in its volume?",
+      "options": [
+        "A) 3.33 cm$^3$",
+        "B) 0.40 cm$^3$",
+        "C) 20 cm$^3$",
+        "D) 10 cm$^3$"
+      ],
+      "answer": "D",
+      "explanation": "The volume increase is $\\Delta V = \\gamma V_0\\Delta T = 5.0\\times10^{-4}\\times500\\times40 = 10$ cm$^3$. Option A uses $\\gamma/3$ as if it were the volume coefficient, and option C doubles the temperature change."
+    },
+    {
+      "id": "tpm_c02_036",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A crystal has linear expansion coefficients $\\alpha_x = 10\\times10^{-6}$, $\\alpha_y = 12\\times10^{-6}$ and $\\alpha_z = 20\\times10^{-6}$ per kelvin along three mutually perpendicular axes. For a small temperature rise, what is its volume expansion coefficient $\\gamma$ for a rectangular block cut along these axes?",
+      "options": [
+        "A) $4.2\\times10^{-5}$ per kelvin",
+        "B) $1.4\\times10^{-5}$ per kelvin",
+        "C) $2.4\\times10^{-15}$ per kelvin",
+        "D) $8.4\\times10^{-5}$ per kelvin"
+      ],
+      "answer": "A",
+      "explanation": "For a block with $V = xyz$, the fractional volume change is $dV/V = dx/x + dy/y + dz/z$, so $\\gamma = \\alpha_x + \\alpha_y + \\alpha_z = 42\\times10^{-6}$ per kelvin. Option B averages the three coefficients, option C multiplies them, and option D doubles the sum."
+    },
+    {
+      "id": "tpm_c02_037",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "10 g of steam at 100°C is passed into 100 g of ice at 0°C in an insulated container. Take $L_f=3.36\\times10^5$ J/kg, $L_v=2.26\\times10^6$ J/kg and $c_w=4200$ J/kg K. Which statements about the final state are correct?",
+      "options": [
+        "A) The final temperature is $0^\\circ$C.",
+        "B) All of the ice melts.",
+        "C) Some ice remains unmelted.",
+        "D) The final temperature is $100^\\circ$C."
+      ],
+      "answer": "A,C",
+      "explanation": "Condensing the steam releases $0.01\\times2.26\\times10^6 = 22600$ J and cooling the condensate to 0°C releases $0.01\\times4200\\times100 = 4200$ J, a total of 26800 J. This melts only $26800/(3.36\\times10^5) \\approx 79.8$ g of the 100 g of ice, so the final temperature is $0^\\circ$C with about 20.2 g of ice left."
+    },
+    {
+      "id": "tpm_c02_038",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A body with heat capacity $mc = 1000$ J/K loses heat at rate $hA = 10$ W/K to its surroundings and is supplied with constant power, so it approaches a steady temperature rise. Find the ratio of the time needed to reach 90% of the steady rise to the thermal time constant $\\tau = mc/(hA)$, to the nearest integer.",
+      "options": [],
+      "answer": "2",
+      "explanation": "The time constant is $\\tau = 1000/10 = 100$ s. The temperature rise follows $1 - e^{-t/\\tau}$, and reaching 90% requires $e^{-t/\\tau} = 0.1$, so $t = \\tau\\ln 10$. The ratio is $\\ln 10 \\approx 2.30$, which rounds to 2."
+    },
+    {
+      "id": "tpm_c02_039",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A body at temperature $T$ exchanges radiation with surroundings at $T_0$, with net power $P = \\sigma A e\\,(T^4 - T_0^4)$. Which of the following statements are correct?",
+      "options": [
+        "A) The net exchange is proportional to $T^4 - T_0^4$.",
+        "B) Newton's law of cooling holds with a constant coefficient for any temperature difference.",
+        "C) For $T$ close to $T_0$, the net power is approximately $4\\sigma A e T_0^3 (T-T_0)$.",
+        "D) A black body absorbs less radiation than a grey body of the same size at the same temperature."
+      ],
+      "answer": "A,C",
+      "explanation": "Statement A follows directly from the given expression. Using $T^4 - T_0^4 \\approx 4T_0^3(T-T_0)$ for small differences gives statement C. Statement B is wrong because the effective coefficient changes with temperature, and D is wrong because a black body absorbs all incident radiation."
+    },
+    {
+      "id": "tpm_c02_040",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Steady heat conduction occurs radially through a long cylindrical tube with inner radius $a$ and outer radius $b$. The inner surface is at $T_1$ and the outer surface at $T_2$, with $T_1 > T_2$. Which expression gives the temperature $T(r)$ at radius $r$, where $a < r < b$?",
+      "options": [
+        "A) $T_1 + (T_2-T_1)\\dfrac{\\ln(r/a)}{\\ln(b/a)}$",
+        "B) $T_1 + (T_2-T_1)\\dfrac{r-a}{b-a}$",
+        "C) $T_1 + (T_2-T_1)\\dfrac{1/a-1/r}{1/a-1/b}$",
+        "D) $T_1 + (T_2-T_1)\\dfrac{\\ln(b/r)}{\\ln(b/a)}$"
+      ],
+      "answer": "A",
+      "explanation": "In a cylinder the heat current per unit length gives $dT/d(\\ln r)$ constant, so $T(r) = T_1 + (T_2-T_1)\\ln(r/a)/\\ln(b/a)$. Option B is the plane-wall linear profile, and option C is the spherical profile. Option D has the wrong endpoint, giving $T_2$ at $r=a$."
+    },
+    {
+      "id": "tpm_c02_042",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A thin black plate in space absorbs solar flux $S$ (W/m$^2$) on its front face and radiates as a black body from both of its faces at temperature $T$. Which expression gives its steady temperature?",
+      "options": [
+        "A) $\\left(\\dfrac{S}{2\\sigma}\\right)^{1/4}$",
+        "B) $\\left(\\dfrac{S}{\\sigma}\\right)^{1/4}$",
+        "C) $\\left(\\dfrac{S}{4\\sigma}\\right)^{1/4}$",
+        "D) $\\dfrac{S}{2\\sigma}$"
+      ],
+      "answer": "A",
+      "explanation": "Steady state requires absorbed power per unit area to equal emitted power, $S = 2\\sigma T^4$, since both faces radiate. Solving gives $T = (S/(2\\sigma))^{1/4}$. Option B forgets the second face, and option D omits the fourth-root operation."
+    },
+    {
+      "id": "tpm_c02_043",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The specific heat of a metal varies with absolute temperature as $c(T) = a + bT$. What heat must be supplied to a mass $m$ of this metal to raise its temperature from $T_1$ to $T_2$?",
+      "options": [
+        "A) $m\\left[a(T_2-T_1)+\\tfrac{b}{2}(T_2^2-T_1^2)\\right]$",
+        "B) $ma(T_2-T_1)$",
+        "C) $m\\left[a+bT_1\\right](T_2-T_1)$",
+        "D) $m\\left[a(T_2-T_1)+b(T_2-T_1)\\right]$"
+      ],
+      "answer": "A",
+      "explanation": "The heat is $\\int m\\,c(T)\\,dT = m\\int_{T_1}^{T_2}(a+bT)\\,dT = m\\left[a(T_2-T_1)+\\tfrac{b}{2}(T_2^2-T_1^2)\\right]$. Option C uses the specific heat at $T_1$ throughout, and option D forgets that the $bT$ term grows with temperature."
+    },
+    {
+      "id": "tpm_c02_046",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A planet of albedo $a$ receives stellar flux $S$ (W/m$^2$) and absorbs the fraction $(1-a)$ of it. It radiates as a black body with uniform surface temperature $T$ and no internal heat source. Which expression gives its equilibrium temperature?",
+      "options": [
+        "A) $\\left(\\dfrac{S(1-a)}{4\\sigma}\\right)^{1/4}$",
+        "B) $\\left(\\dfrac{S(1-a)}{\\sigma}\\right)^{1/4}$",
+        "C) $\\left(\\dfrac{S}{4\\sigma(1-a)}\\right)^{1/4}$",
+        "D) $\\dfrac{S(1-a)}{4\\sigma}$"
+      ],
+      "answer": "A",
+      "explanation": "The planet intercepts $\\pi R^2 S$ and absorbs $\\pi R^2 S(1-a)$. It emits $4\\pi R^2\\sigma T^4$, so $T^4 = S(1-a)/(4\\sigma)$. Option B omits the factor of 4 from the sphere's surface area."
+    },
+    {
+      "id": "tpm_c02_048",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A 50 W heater maintains a body above ambient air. Its total heat-loss coefficient is $hA = 10$ W/K from convection plus $2.5$ W/K from radiation, linearised about the operating point. What steady temperature rise above ambient results, in kelvin, to the nearest integer?",
+      "options": [],
+      "answer": "4",
+      "explanation": "The total loss coefficient is $10 + 2.5 = 12.5$ W/K. The steady rise is $\\Delta T = P/(hA) = 50/12.5 = 4$ K."
+    },
+    {
+      "id": "tpm_c02_049",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A 0.50 kg metal block at 100°C is placed in a container with 0.10 kg of ice at 0°C. In equilibrium, all the ice has just melted and the mixture is at 0°C. Taking $L_f=3.36\\times10^{5}$ J/kg, what is the specific heat of the metal in J/kg K?",
+      "options": [
+        "A) 672",
+        "B) 336",
+        "C) 1344",
+        "D) 84"
+      ],
+      "answer": "A",
+      "explanation": "The metal must release $0.10\\times3.36\\times10^{5} = 33600$ J to melt the ice. Its cooling from 100°C to 0°C gives $0.50\\,c\\,(100) = 33600$, so $c = 672$ J/kg K. Option B uses a 200 K temperature change, and option C uses a 25 K change."
+    },
+    {
+      "id": "tpm_c02_050",
+      "subject": "Physics",
+      "topic": "Thermal Properties of Matter",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A planet is in radiative equilibrium with a star whose flux at the planet is $S$ and whose albedo is $a$. Its equilibrium temperature is $T$. Which statements about $T$ are correct?",
+      "options": [
+        "A) $T$ is proportional to $(1-a)^{1/4}$.",
+        "B) $T$ is proportional to $S^{1/4}$.",
+        "C) A higher albedo increases $T$.",
+        "D) The emitted power per unit area scales as $T^2$."
+      ],
+      "answer": "A,B",
+      "explanation": "Radiative balance gives $T^4 \\propto S(1-a)$, so $T \\propto (1-a)^{1/4}$ and $T \\propto S^{1/4}$, making A and B correct. A higher albedo reflects more energy, lowering $T$, so C is wrong. Emitted power per unit area scales as $T^4$, not $T^2$, so D is wrong."
+    }
+  ]
+}

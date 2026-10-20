@@ -290,10 +290,11 @@ case "$ACTION" in
     ;;
 
   seed)
-    # Manually re-seed the question bank.
-    # Reads data/master_questions.json or any custom json path passed as an argument.
+    # Manually re-seed a question bank into the database.
+    # Default: data/jee/jee_master_questions.json (JEE bank)
+    # For NEET:  ./deploy.sh seed data/neet/neet_master_questions.json
     # Checks existing IDs and guarantees existing questions are left 100% untouched.
-    RAW_PATH=${2:-"data/master_questions.json"}
+    RAW_PATH=${2:-"data/jee/jee_master_questions.json"}
     if [[ "$RAW_PATH" == data/* ]]; then
       CONTAINER_PATH="/app/$RAW_PATH"
     elif [[ "$RAW_PATH" != /* ]]; then
@@ -302,7 +303,7 @@ case "$ACTION" in
       CONTAINER_PATH="$RAW_PATH"
     fi
 
-    echo "Seeding question bank into database from $RAW_PATH..."
+    echo "Seeding question bank into database from: $RAW_PATH"
     wait_backend
     docker compose --env-file "$ENV_FILE" exec -T backend \
       sh -c "node dist/scripts/seedQuestions.js '$CONTAINER_PATH' 2>&1"
@@ -349,7 +350,9 @@ case "$ACTION" in
     echo "  status     - Show service status"
     echo ""
     echo "  migrate    - Run pending database migrations against running containers"
-    echo "  seed       - Import questions without touching existing ones (usage: ./deploy.sh seed [path])"
+    echo "  seed       - Seed a question bank (usage: ./deploy.sh seed [path])"
+  echo "               Default: data/jee/jee_master_questions.json"
+  echo "               NEET:    ./deploy.sh seed data/neet/neet_master_questions.json"
     echo "  baseline   - Mark all migrations applied (run once when upgrading from prisma db push)"
     echo ""
     echo "  ssl-setup  - (Re)generate SSL certs:"

@@ -1,0 +1,513 @@
+{
+  "questions": [
+    {
+      "id": "pb1314_c02_001",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The black solid compound thallium triiodide, nominally written as $\\text{TlI}_3$, does not contain thallium in the $+3$ oxidation state. Given the standard reduction potentials $E^\\circ(\\text{Tl}^{3+}/\\text{Tl}^+) = +1.26\\text{ V}$ and $E^\\circ(\\text{I}_3^-/3\\text{I}^-) = +0.54\\text{ V}$, what is the standard Gibbs free energy change $\\Delta G^\\circ$ for the redox reaction $\\text{Tl}^{3+}(\\text{aq}) + 3\\text{I}^-(\\text{aq}) \\to \\text{Tl}^+(\\text{aq}) + \\text{I}_3^-(\\text{aq})$, and what is the actual formulation of the compound? (Take Faraday constant $F = 96500\\text{ C mol}^{-1}$)",
+      "options": [
+        "A) $\\Delta G^\\circ = -138.96\\text{ kJ mol}^{-1}$; formulated as $\\text{Tl}^+[\\text{I}_3]^-$",
+        "B) $\\Delta G^\\circ = -208.44\\text{ kJ mol}^{-1}$; formulated as $\\text{Tl}^{3+}[\\text{I}^-]\\text{I}_2$",
+        "C) $\\Delta G^\\circ = +138.96\\text{ kJ mol}^{-1}$; formulated as $\\text{Tl}^{3+}[\\text{I}^-]\\text{I}_2$",
+        "D) $\\Delta G^\\circ = -69.48\\text{ kJ mol}^{-1}$; formulated as $\\text{Tl}^+[\\text{I}_3]^-$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The overall internal redox process involves reduction of $\\text{Tl}^{3+}$ to $\\text{Tl}^+$ ($E^\\circ_\\text{red} = +1.26\\text{ V}$) and oxidation of $3\\text{I}^-$ to $\\text{I}_3^-$ ($E^\\circ_\\text{ox} = -0.54\\text{ V}$).\nStep 2: Calculating standard cell EMF: $E^\\circ = E^\\circ(\\text{Tl}^{3+}/\\text{Tl}^+) - E^\\circ(\\text{I}_3^-/3\\text{I}^-) = 1.26 - 0.54 = +0.72\\text{ V}$.\nStep 3: The number of electrons transferred is $n = 2$ according to $\\text{Tl}^{3+} + 2e^- \\to \\text{Tl}^+$ and $3\\text{I}^- \\to \\text{I}_3^- + 2e^-$.\nStep 4: Applying $\\Delta G^\\circ = -nFE^\\circ$, we get $\\Delta G^\\circ = -2 \\times 96500 \\times 0.72 = -138960\\text{ J mol}^{-1} = -138.96\\text{ kJ mol}^{-1}$.\nStep 5: Therefore, $\\text{Tl}^{3+}$ spontaneously oxidizes iodide, yielding thallium(I) triiodide, $\\text{Tl}^+[\\text{I}_3]^-$, driven by the relativistic inert pair effect stabilizing $\\text{Tl}^+$.\nThe distractor B incorrectly takes $n = 3$, giving $-208.44\\text{ kJ mol}^{-1}$, whereas distractor C makes a sign error, and distractor D uses $n = 1$."
+    },
+    {
+      "id": "pb1314_c02_002",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The uncomplexed boron trifluoride molecule $\\text{BF}_3$ exhibits an experimental $\\text{B}-\\text{F}$ bond length of $1.30\\text{ \\AA}$ due to efficient $2p_\\pi-2p_\\pi$ back-bonding. Upon coordination with ammonia to form the Lewis acid-base adduct $\\text{F}_3\\text{B}\\leftarrow\\text{NH}_3$, the hybridization of boron shifts from $sp^2$ to $sp^3$ and back-bonding is eliminated, increasing the $\\text{B}-\\text{F}$ bond length to $1.45\\text{ \\AA}$. What is the percentage elongation of the $\\text{B}-\\text{F}$ bond upon complexation, and what is the relative order of Lewis acid strength among boron trihalides?",
+      "options": [
+        "A) $11.54\\%$ elongation; $\\text{BF}_3 < \\text{BCl}_3 < \\text{BBr}_3 < \\text{BI}_3$",
+        "B) $10.34\\%$ elongation; $\\text{BF}_3 > \\text{BCl}_3 > \\text{BBr}_3 > \\text{BI}_3$",
+        "C) $11.54\\%$ elongation; $\\text{BF}_3 > \\text{BCl}_3 > \\text{BBr}_3 > \\text{BI}_3$",
+        "D) $15.00\\%$ elongation; $\\text{BF}_3 < \\text{BCl}_3 < \\text{BBr}_3 < \\text{BI}_3$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The percentage elongation in bond length is given by: $\\frac{r_\\text{adduct} - r_\\text{free}}{r_\\text{free}} \\times 100\\%$.\nStep 2: Substituting the values: $\\frac{1.45 - 1.30}{1.30} \\times 100\\% = \\frac{0.15}{1.30} \\times 100\\% = 11.538\\% \\approx 11.54\\%$.\nStep 3: In planar $\\text{BF}_3$, $2p_\\pi-2p_\\pi$ back-donation from fluorine into the empty boron $2p_z$ orbital is strongest due to optimal orbital size matching and short bond distance. In $\\text{BCl}_3$, $\\text{BBr}_3$, and $\\text{BI}_3$, back-donation ($2p-3p$, $2p-4p$, $2p-5p$) is progressively much less effective.\nStep 4: Therefore, the electron deficiency at boron increases down the halogen group, making the Lewis acidity order $\\text{BF}_3 < \\text{BCl}_3 < \\text{BBr}_3 < \\text{BI}_3$.\nThe distractor B mistakenly calculates elongation relative to the final length ($0.15/1.45 = 10.34\\%$) and inverts the Lewis acidity trend based purely on halogen electronegativity."
+    },
+    {
+      "id": "pb1314_c02_003",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Buckminsterfullerene, $\\text{C}_{60}$, possesses a truncated icosahedron structure with 60 carbon vertices, where each vertex is occupied by an $sp^2$-hybridized carbon atom. The structure contains $12$ pentagonal rings and $20$ hexagonal rings. What is the ratio of single $(\\text{C}-\\text{C})$ bonds to double $(\\text{C}=\\text{C})$ bonds in a single $\\text{C}_{60}$ molecule, and what is the total number of $\\pi$-electrons delocalized across the cage?",
+      "options": [
+        "A) Ratio is $2 : 1$; total $\\pi$-electrons = $60$",
+        "B) Ratio is $1 : 1$; total $\\pi$-electrons = $60$",
+        "C) Ratio is $2 : 1$; total $\\pi$-electrons = $30$",
+        "D) Ratio is $3 : 2$; total $\\pi$-electrons = $120$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In $\\text{C}_{60}$, each carbon atom has degree 3 (forming three $\\sigma$-bonds). The total number of edges (bonds) is $E = \\frac{3 \\times V}{2} = \\frac{3 \\times 60}{2} = 90$ bonds.\nStep 2: There are 60 valence electrons available for $\\pi$-bonding (one per carbon atom). Since each double bond contains one $\\pi$-bond (2 electrons), the number of double bonds is $\\frac{60}{2} = 30$.\nStep 3: The remaining bonds are single $\\sigma$-bonds: $90 - 30 = 60$ single bonds.\nStep 4: Therefore, the ratio of single bonds to double bonds is $\\frac{60}{30} = 2 : 1$.\nStep 5: Hence, the total number of $\\pi$-electrons is $60$, delocalized over the truncated icosahedral framework.\nDistractor B assumes equal single and double bonds (45 each), while distractor C confuses the number of double bonds (30) with the number of $\\pi$-electrons."
+    },
+    {
+      "id": "pb1314_c02_004",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A $0.050\\text{ mol}$ sample of lead(IV) oxide, $\\text{PbO}_2$, is completely dissolved in excess concentrated hydrochloric acid at $0^\\circ\\text{C}$ to form $\\text{H}_2\\text{PbCl}_6$. Upon gentle warming, lead(IV) undergoes reduction to lead(II) chloride with stoichiometric evolution of chlorine gas due to the inert pair effect. The evolved $\\text{Cl}_2(\\text{g})$ is completely absorbed in an excess aqueous potassium iodide solution. The liberated iodine requires a volume $V\\text{ mL}$ of a $0.20\\text{ M}$ sodium thiosulfate solution for complete titration to a starch end-point. Calculate the value of $V$.",
+      "options": [],
+      "answer": "500",
+      "explanation": "Step 1: The reduction of $\\text{Pb}^{4+}$ by chloride occurs according to the reaction:\n$$\\text{PbO}_2 + 4\\text{HCl} \\to \\text{PbCl}_2 + \\text{Cl}_2 + 2\\text{H}_2\\text{O}$$\nStep 2: Therefore, $1\\text{ mol}$ of $\\text{PbO}_2$ generates $1\\text{ mol}$ of $\\text{Cl}_2$. For $0.050\\text{ mol}$ of $\\text{PbO}_2$, moles of $\\text{Cl}_2$ evolved = $0.050\\text{ mol}$.\nStep 3: The liberated chlorine reacts quantitatively with iodide: $\\text{Cl}_2 + 2\\text{I}^- \\to 2\\text{Cl}^- + \\text{I}_2$. Thus, $0.050\\text{ mol}$ of $\\text{I}_2$ is liberated.\nStep 4: Titration with thiosulfate proceeds via: $\\text{I}_2 + 2\\text{S}_2\\text{O}_3^{2-} \\to 2\\text{I}^- + \\text{S}_4\\text{O}_6^{2-}$. Hence, moles of $\\text{S}_2\\text{O}_3^{2-}$ required = $2 \\times 0.050 = 0.100\\text{ mol}$.\nStep 5: Solving for the volume: $V = \\frac{\\text{moles}}{\\text{Molarity}} = \\frac{0.100\\text{ mol}}{0.20\\text{ mol L}^{-1}} = 0.500\\text{ L} = 500\\text{ mL}$."
+    },
+    {
+      "id": "pb1314_c02_005",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In diamond, carbon atoms form a three-dimensional tetrahedral lattice where the nearest neighbor $\\text{C}-\\text{C}$ distance is $1.54\\text{ \\AA}$. In graphite, carbon atoms are arranged in planar hexagonal honeycomb layers with an in-plane $\\text{C}-\\text{C}$ bond distance of $1.42\\text{ \\AA}$, and adjacent graphene sheets are separated by an interlayer distance of $3.35\\text{ \\AA}$. Which of the following correctly accounts for the shorter in-plane $\\text{C}-\\text{C}$ distance in graphite compared to diamond and compares their densities?",
+      "options": [
+        "A) Graphite has $sp^2$ hybridization with partial double-bond character (bond order $1.33$); diamond has a higher density $(\\approx 3.51\\text{ g cm}^{-3})$ than graphite $(\\approx 2.26\\text{ g cm}^{-3})$",
+        "B) Graphite has $sp^3$ hybridization with compressed bond angles; graphite has a higher density $(\\approx 3.51\\text{ g cm}^{-3})$ than diamond $(\\approx 2.26\\text{ g cm}^{-3})$",
+        "C) Diamond has $sp^2$ hybridization with tetrahedral distortion; diamond has a lower density $(\\approx 2.26\\text{ g cm}^{-3})$ than graphite $(\\approx 3.51\\text{ g cm}^{-3})$",
+        "D) Graphite has $sp$ hybridization with linear chains; both diamond and graphite have identical densities of $2.85\\text{ g cm}^{-3}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In diamond, each carbon is $sp^3$ hybridized, forming four single $\\sigma$-bonds of length $1.54\\text{ \\AA}$ (bond order $1.0$). In graphite, each carbon is $sp^2$ hybridized forming three planar $\\sigma$-bonds with one unhybridized $p$-orbital forming a delocalized $\\pi$-system, yielding a bond order of $1 + \\frac{1}{3} = 1.33$.\nStep 2: A higher bond order and greater $s$-character ($33.3\\%$ in $sp^2$ vs $25\\%$ in $sp^3$) lead to a significantly shorter and stronger bond ($1.42\\text{ \\AA}$ vs $1.54\\text{ \\AA}$).\nStep 3: However, graphite layers are separated by large van der Waals gaps ($3.35\\text{ \\AA}$), resulting in a substantially larger unit volume per carbon atom and a lower density ($\\approx 2.26\\text{ g cm}^{-3}$) compared to diamond's compact 3D covalent lattice ($\\approx 3.51\\text{ g cm}^{-3}$).\nStep 4: Therefore, option A accurately describes both the structural bonding origin and the macroscopic density contrast.\nDistractor B incorrectly states graphite is $sp^3$ and denser, while C and D give erroneous hybridizations and densities."
+    },
+    {
+      "id": "pb1314_c02_006",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The relative thermodynamic stabilities of the $+2$ and $+4$ oxidation states in Group 14 elements govern their redox chemistry. Standard reduction potentials in acidic solution are given as:\n$$E^\\circ(\\text{PbO}_2/\\text{Pb}^{2+}) = +1.69\\text{ V} \\quad \\text{and} \\quad E^\\circ(\\text{Sn}^{4+}/\\text{Sn}^{2+}) = +0.15\\text{ V}$$\nWhat is the standard cell potential $E^\\circ_\\text{cell}$ for the reaction:\n$$\\text{PbO}_2(\\text{s}) + 4\\text{H}^+(\\text{aq}) + \\text{Sn}^{2+}(\\text{aq}) \\to \\text{Pb}^{2+}(\\text{aq}) + \\text{Sn}^{4+}(\\text{aq}) + 2\\text{H}_2\\text{O}(\\text{l})$$\nand what chemical behavior is manifested by $\\text{PbO}_2$ and $\\text{Sn}^{2+}$?",
+      "options": [
+        "A) $E^\\circ_\\text{cell} = +1.54\\text{ V}$; $\\text{PbO}_2$ acts as a strong oxidizing agent while $\\text{Sn}^{2+}$ acts as a reducing agent",
+        "B) $E^\\circ_\\text{cell} = +1.84\\text{ V}$; $\\text{PbO}_2$ acts as a reducing agent while $\\text{Sn}^{2+}$ acts as an oxidizing agent",
+        "C) $E^\\circ_\\text{cell} = -1.54\\text{ V}$; the reaction is non-spontaneous under standard conditions",
+        "D) $E^\\circ_\\text{cell} = +1.39\\text{ V}$; both species act as mutually inert Lewis ampholytes"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The reduction half-reaction at the cathode is:\n$$\\text{PbO}_2 + 4\\text{H}^+ + 2e^- \\to \\text{Pb}^{2+} + 2\\text{H}_2\\text{O}, \\quad E^\\circ_\\text{cathode} = +1.69\\text{ V}$$\nStep 2: The oxidation half-reaction at the anode is:\n$$\\text{Sn}^{2+} \\to \\text{Sn}^{4+} + 2e^-, \\quad E^\\circ_\\text{anode} = +0.15\\text{ V}$$\nStep 3: Calculating standard cell EMF: $E^\\circ_\\text{cell} = E^\\circ_\\text{cathode} - E^\\circ_\\text{anode} = 1.69 - 0.15 = +1.54\\text{ V}$.\nStep 4: Since $E^\\circ_\\text{cell} > 0$, the reaction is highly spontaneous, demonstrating that $\\text{Pb}^{4+}$ readily reduces to stable $\\text{Pb}^{2+}$ (due to inert pair effect), making $\\text{PbO}_2$ a powerful oxidizing agent, whereas $\\text{Sn}^{2+}$ readily oxidizes to $\\text{Sn}^{4+}$, making it a versatile reducing agent.\nDistractor B erroneously adds the potentials ($1.69 + 0.15 = 1.84\\text{ V}$) and inverts roles; C introduces a sign error."
+    },
+    {
+      "id": "pb1314_c02_007",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the chemical behavior and hydrolysis characteristics of boron halides $\\text{BF}_3$ and $\\text{BCl}_3$. Which of the following statements is/are correct?\n(A) $\\text{BF}_3$ does not undergo complete hydrolysis to give only boric acid; it forms the fluoroborate anion $[\\text{BF}_4]^-$\n(B) $\\text{BCl}_3$ hydrolyzes completely to give $\\text{H}_3\\text{BO}_3$ and $\\text{HCl}$ without forming $[\\text{BCl}_4]^-$\n(C) Boron in planar $\\text{BF}_3$ has $sp^2$ hybridization with an empty $2p_z$ orbital involved in $p_\\pi-p_\\pi$ back-bonding\n(D) The adduct formed between $\\text{BF}_3$ and $\\text{NH}_3$ contains a tetrahedral boron center",
+      "options": [
+        "A) (A), (B), (C) and (D)",
+        "B) (A), (C) and (D) only",
+        "C) (B) and (C) only",
+        "D) (A) and (B) only"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In $\\text{BF}_3$, initial hydrolysis yields $\\text{H}_3\\text{BO}_3$ and $\\text{HF}$: $\\text{BF}_3 + 3\\text{H}_2\\text{O} \\to \\text{H}_3\\text{BO}_3 + 3\\text{HF}$. The generated $\\text{HF}$ coordinates with unreacted $\\text{BF}_3$ to form strong fluoboric acid: $3\\text{BF}_3 + 3\\text{HF} \\to 3\\text{H}[\\text{BF}_4]$. Hence, overall: $4\\text{BF}_3 + 3\\text{H}_2\\text{O} \\to \\text{H}_3\\text{BO}_3 + 3\\text{H}[\\text{BF}_4]$. Thus, statement (A) is correct.\nStep 2: For $\\text{BCl}_3$, the $\\text{HCl}$ produced does not combine with $\\text{BCl}_3$ because chlorine cannot efficiently back-bond or fit compactly to stabilize $[\\text{BCl}_4]^-$ in aqueous medium; hence it undergoes quantitative complete hydrolysis: $\\text{BCl}_3 + 3\\text{H}_2\\text{O} \\to \\text{H}_3\\text{BO}_3 + 3\\text{HCl}$. Thus, statement (B) is correct.\nStep 3: Statement (C) is standard: boron is $sp^2$ hybridized with one unhybridized $2p_z$ perpendicular to the molecular plane participating in $2p_\\pi-2p_\\pi$ donation from fluorine.\nStep 4: In the adduct $\\text{F}_3\\text{B}\\leftarrow\\text{NH}_3$, boron forms 4 $\\sigma$-bonds and adopts tetrahedral geometry with $sp^3$ hybridization. Hence, statement (D) is correct.\nTherefore, all four statements (A), (B), (C), and (D) are correct."
+    },
+    {
+      "id": "pb1314_c02_008",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The higher fullerene $\\text{C}_{70}$ is an ellipsoidal closed cage molecule composed entirely of pentagonal and hexagonal carbon rings. According to Euler's polyhedron theorem, every closed fullerene cage has precisely $12$ pentagonal faces regardless of cage size. Calculate the total number of hexagonal faces present in a single $\\text{C}_{70}$ molecule.",
+      "options": [],
+      "answer": "25",
+      "explanation": "Step 1: Let $V$, $E$, and $F$ denote the number of vertices, edges, and faces of the polyhedron. For $\\text{C}_{70}$, $V = 70$.\nStep 2: Since each carbon atom is connected to three adjacent carbon atoms (trivalent vertices), each vertex meets 3 edges. Applying the handshaking lemma: $2E = 3V = 3 \\times 70 = 210$, yielding $E = 105$.\nStep 3: Using Euler's polyhedron formula: $V - E + F = 2$. Substituting the values: $70 - 105 + F = 2 \\implies -35 + F = 2 \\implies F = 37$.\nStep 4: The total faces $F$ consist of $p$ pentagons and $h$ hexagons: $F = p + h$. By Euler's theorem for fullerenes, $p = 12$.\nStep 5: Therefore, solving for the number of hexagonal faces: $h = F - p = 37 - 12 = 25$."
+    },
+    {
+      "id": "pb1314_c02_009",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When graphite is exposed to potassium vapor at elevated temperatures, potassium atoms intercalate between the graphene sheets to form a bronze-colored stoichiometric intercalation compound with formula $\\text{C}_8\\text{K}$. Potassium transfers its valence $4s^1$ electron into the conduction $\\pi^*$-band of graphite. What is the formal oxidation state of carbon in this intercalation compound, and what change occurs in the electrical conductivity parallel to the graphene layers?",
+      "options": [
+        "A) Oxidation state of $\\text{C} = -\\frac{1}{8}$; electrical conductivity increases significantly",
+        "B) Oxidation state of $\\text{C} = +\\frac{1}{8}$; electrical conductivity decreases significantly",
+        "C) Oxidation state of $\\text{C} = -1$; electrical conductivity becomes zero (insulator)",
+        "D) Oxidation state of $\\text{C} = 0$; electrical conductivity remains unaffected"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In the intercalation compound $\\text{C}_8\\text{K}$, potassium acts as an electropositive alkali metal and oxidizes to $\\text{K}^+$, transferring one electron to the 8 carbon atoms of the graphene host network: $\\text{C}_8\\text{K} \\to [\\text{C}_8]^- \\text{K}^+$.\nStep 2: The formal oxidation state of each carbon atom is therefore: $\\frac{-1}{8} = -0.125$.\nStep 3: Graphite is a semimetal with a very small density of states at the Fermi level. The transferred electron populates the empty conduction $\\pi^*$ band, drastically increasing the charge carrier density ($n$).\nStep 4: Consequently, the electrical conductivity parallel to the graphene layers ($\\sigma_\\parallel$) increases substantially (exhibiting metallic behavior with superconductivity observed at very low temperatures $\\approx 0.14\\text{ K}$).\nDistractor B incorrectly assigns a positive oxidation state to carbon, C assumes a 1:1 ionic compound, and D treats the compound as a non-interacting physical mixture."
+    },
+    {
+      "id": "pb1314_c02_010",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Thallium(III) chloride, $\\text{TlCl}_3$, is thermally unstable due to the inert pair effect and undergoes complete decomposition upon heating: $\\text{TlCl}_3(\\text{s}) \\to \\text{TlCl}(\\text{s}) + \\text{Cl}_2(\\text{g})$. A $0.020\\text{ mol}$ sample of pure crystalline $\\text{TlCl}_3$ is placed into an evacuated rigid container of volume $0.821\\text{ L}$ and heated to $500\\text{ K}$ until decomposition is complete. Assuming the volume of the non-volatile solid residue $\\text{TlCl}$ is negligible and chlorine behaves ideally ($R = 0.0821\\text{ L atm K}^{-1}\\text{ mol}^{-1}$), calculate the final total pressure inside the container.",
+      "options": [
+        "A) $1.00\\text{ atm}$",
+        "B) $2.00\\text{ atm}$",
+        "C) $0.50\\text{ atm}$",
+        "D) $1.64\\text{ atm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: From the balanced stoichiometry of thermal decomposition, $1\\text{ mol}$ of solid $\\text{TlCl}_3$ produces $1\\text{ mol}$ of solid $\\text{TlCl}$ and $1\\text{ mol}$ of gaseous $\\text{Cl}_2$.\nStep 2: Therefore, complete decomposition of $0.020\\text{ mol}$ of $\\text{TlCl}_3$ produces $n = 0.020\\text{ mol}$ of $\\text{Cl}_2(\\text{g})$.\nStep 3: The solid $\\text{TlCl}$ has negligible vapor pressure and negligible volume; thus the only gaseous species contributing to container pressure is $\\text{Cl}_2$.\nStep 4: Applying the ideal gas equation $P = \\frac{nRT}{V}$:\n$$P = \\frac{0.020\\text{ mol} \\times 0.0821\\text{ L atm K}^{-1}\\text{ mol}^{-1} \\times 500\\text{ K}}{0.821\\text{ L}}$$\nStep 5: Solving this yields: $P = \\frac{0.020 \\times 41.05}{0.821} = \\frac{0.821}{0.821} = 1.00\\text{ atm}$.\nDistractor B erroneously includes solid $\\text{TlCl}$ as a gaseous mole ($n = 0.040$), yielding $2.00\\text{ atm}$, while distractor C assumes half the chlorine is consumed or uses $n = 0.010\\text{ mol}$."
+    },
+    {
+      "id": "pb1314_c02_011",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When diborane $(\\text{B}_2\\text{H}_6)$ reacts with ammonia at low temperatures, it undergoes unsymmetrical cleavage to form an ionic diammoniate adduct. Upon heating this intermediate to $450\\text{ K}$, it converts quantitatively into 'inorganic benzene' (borazine, $\\text{B}_3\\text{N}_3\\text{H}_6$) with evolution of dihydrogen gas according to:\n$$3\\text{B}_2\\text{H}_6 + 6\\text{NH}_3 \\xrightarrow{\\text{low } T} 3[\\text{H}_2\\text{B}(\\text{NH}_3)_2]^+[\\text{BH}_4]^- \\xrightarrow{450\\text{ K}} 2\\text{B}_3\\text{N}_3\\text{H}_6 + 12\\text{H}_2$$\nIf $8.28\\text{ g}$ of $\\text{B}_2\\text{H}_6$ reacts with excess ammonia and the subsequent thermal conversion produces borazine with an $80.0\\%$ overall yield, what mass of pure borazine is obtained? (Atomic masses: $\\text{B} = 10.8\\text{ g mol}^{-1}$, $\\text{N} = 14.0\\text{ g mol}^{-1}$, $\\text{H} = 1.0\\text{ g mol}^{-1}$)",
+      "options": [
+        "A) $12.86\\text{ g}$",
+        "B) $16.08\\text{ g}$",
+        "C) $6.43\\text{ g}$",
+        "D) $19.30\\text{ g}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The molar mass of diborane $\\text{B}_2\\text{H}_6$ is $2(10.8) + 6(1.0) = 27.6\\text{ g mol}^{-1}$. Moles of diborane used: $n(\\text{B}_2\\text{H}_6) = \\frac{8.28\\text{ g}}{27.6\\text{ g mol}^{-1}} = 0.300\\text{ mol}$.\nStep 2: From the balanced stoichiometric equation, $3\\text{ mol}$ of $\\text{B}_2\\text{H}_6$ produces $2\\text{ mol}$ of borazine $\\text{B}_3\\text{N}_3\\text{H}_6$. Therefore, theoretical moles of borazine formed: $n_\\text{theoretical} = \\frac{2}{3} \\times 0.300 = 0.200\\text{ mol}$.\nStep 3: Calculating molar mass of borazine $\\text{B}_3\\text{N}_3\\text{H}_6$: $M = 3(10.8) + 3(14.0) + 6(1.0) = 32.4 + 42.0 + 6.0 = 80.4\\text{ g mol}^{-1}$.\nStep 4: Theoretical mass of borazine $= 0.200\\text{ mol} \\times 80.4\\text{ g mol}^{-1} = 16.08\\text{ g}$.\nStep 5: Applying the reaction yield of $80.0\\%$: $m_\\text{actual} = 0.800 \\times 16.08\\text{ g} = 12.864\\text{ g} \\approx 12.86\\text{ g}$.\nDistractor B represents the $100\\%$ theoretical yield ($16.08\\text{ g}$), while distractor C represents an erroneous $1:1$ stoichiometric ratio with $50\\%$ yield, and D incorrectly multiplies by $1.2$."
+    },
+    {
+      "id": "pb1314_c02_012",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the borax bead test, a platinum wire loop containing $\\text{Na}_2\\text{B}_4\\text{O}_7\\cdot 10\\text{H}_2\\text{O}$ is heated in a non-luminous Bunsen flame until it fuses into a transparent glassy bead consisting of sodium metaborate and boric anhydride:\n$$\\text{Na}_2\\text{B}_4\\text{O}_7 \\xrightarrow{\\Delta} 2\\text{NaBO}_2 + \\text{B}_2\\text{O}_3$$\nWhen a pinch of copper(II) sulfate is incorporated and heated in an oxidizing flame, a clear blue bead $(X)$ forms on cooling. When this bead is transferred into the reducing flame containing incandescent carbon, it turns into a ruby-red opaque bead $(Y)$ on cooling. What are the chemical identities of $X$ and $Y$?",
+      "options": [
+        "A) $X = \\text{Cu(BO}_2)_2$ (copper(II) metaborate); $Y = \\text{Cu}$ (colloidal metallic copper dispersed in the bead)",
+        "B) $X = \\text{CuBO}_2$ (copper(I) metaborate); $Y = \\text{Cu}_2\\text{O}$ (cuprous oxide)",
+        "C) $X = \\text{Cu(BO}_2)_2$; $Y = \\text{Cu}_3\\text{B}_2$ (copper boride)",
+        "D) $X = \\text{Na}_2[\\text{Cu(BO}_2)_4]$; $Y = \\text{Cu(OH)}_2$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In the oxidizing flame, copper(II) sulfate decomposes to copper(II) oxide: $\\text{CuSO}_4 \\to \\text{CuO} + \\text{SO}_3$. The basic $\\text{CuO}$ reacts with the acidic boric anhydride $\\text{B}_2\\text{O}_3$ present in the glassy bead to yield copper(II) metaborate:\n$$\\text{CuO} + \\text{B}_2\\text{O}_3 \\to \\text{Cu(BO}_2)_2$$\nStep 2: On cooling, copper(II) metaborate $\\text{Cu(BO}_2)_2$ confers a characteristic light blue color to the bead (hence $X = \\text{Cu(BO}_2)_2$).\nStep 3: When the bead is subsequently held in the reducing flame, hot incandescent carbon reduces copper(II) metaborate first to colorless $\\text{CuBO}_2$ and then completely to elemental metallic copper:\n$$2\\text{Cu(BO}_2)_2 + 2\\text{C} \\to 2\\text{Cu} + 2\\text{B}_2\\text{O}_3 + 2\\text{CO}$$\nStep 4: Upon cooling, tiny colloidal particles of metallic copper disperse throughout the bead, imparting a ruby-red opaque coloration (hence $Y = \\text{Cu}$).\nTherefore, option A is correct. Distractors B, C, and D propose incorrect formulations that ignore the high-temperature redox chemistry of metaborate fusion."
+    },
+    {
+      "id": "pb1314_c02_013",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The amphibole asbestos mineral tremolite has the chemical formula $\\text{Ca}_2\\text{Mg}_5\\text{Si}_8\\text{O}_{22}(\\text{OH})_2$. Its silicate framework consists of linear double-chains formed by the sideways condensation of two single pyroxene chains. What is the repeating discrete silicate polyanion unit in this amphibole structure, and what is the average number of shared oxygen atoms per $[\\text{SiO}_4]$ tetrahedron in the double-chain framework?",
+      "options": [
+        "A) Discrete unit is $[\\text{Si}_4\\text{O}_{11}]_n^{6n-}$; average shared oxygen atoms per tetrahedron = $2.50$",
+        "B) Discrete unit is $[\\text{Si}_2\\text{O}_7]_n^{6n-}$; average shared oxygen atoms per tetrahedron = $1.00$",
+        "C) Discrete unit is $[\\text{SiO}_3]_n^{2n-}$; average shared oxygen atoms per tetrahedron = $2.00$",
+        "D) Discrete unit is $[\\text{Si}_2\\text{O}_5]_n^{2n-}$; average shared oxygen atoms per tetrahedron = $3.00$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In the tremolite formula $\\text{Ca}_2\\text{Mg}_5\\text{Si}_8\\text{O}_{22}(\\text{OH})_2$, the non-silicate anions are $2[\\text{OH}]^-$ (total $-2$ charge). The silicate portion contains $\\text{Si}_8\\text{O}_{22}$, which simplifies to the repeat unit $[\\text{Si}_4\\text{O}_{11}]_n^{6n-}$.\nStep 2: In a double-chain amphibole silicate, two parallel single chains are joined by sharing corner oxygen atoms across alternating tetrahedra.\nStep 3: Specifically, in every repeat block of four $[\\text{SiO}_4]$ tetrahedra, two tetrahedra share $2$ oxygen vertices each, while the other two tetrahedra share $3$ oxygen vertices each.\nStep 4: Solving for the average shared oxygens: $\\frac{2 + 2 + 3 + 3}{4} = \\frac{10}{4} = 2.50$ shared oxygen atoms per tetrahedron.\nStep 5: Hence, the repeat unit is $[\\text{Si}_4\\text{O}_{11}]^{6-}$ with an average of $2.50$ shared oxygens.\nDistractor B corresponds to pyrosilicates (sorosilicates), C to single-chain pyroxenes (inosilicates), and D to two-dimensional sheet silicates (phyllosilicates)."
+    },
+    {
+      "id": "pb1314_c02_014",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the industrial synthesis and structural properties of organosilicon polymers (silicones). Which of the following statements is/are correct?\n(A) Hydrolysis of pure dimethyldichlorosilane $\\text{Me}_2\\text{SiCl}_2$ followed by condensation polymerization yields straight-chain silicone polymers or cyclic oligomers $[(\\text{Me}_2\\text{SiO})_n]$ ($n = 3, 4$)\n(B) The addition of trimethylchlorosilane $\\text{Me}_3\\text{SiCl}$ to the hydrolysis reaction acts as a chain terminator, capping terminal $-\\text{Si}-\\text{OH}$ groups and controlling polymer chain length\n(C) Hydrolysis and condensation of methyltrichlorosilane $\\text{MeSiCl}_3$ introduces cross-linking between polymer chains, forming rigid three-dimensional thermosetting resins\n(D) Silicones exhibit exceptional hydrophobic properties because the non-polar alkyl methyl groups orient outwardly, shielding the polar $\\text{Si}-\\text{O}-\\text{Si}$ backbone",
+      "options": [
+        "A) (A), (B), (C) and (D)",
+        "B) (A) and (B) only",
+        "C) (B) and (C) only",
+        "D) (A), (C) and (D) only"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluating statement (A): $\\text{Me}_2\\text{SiCl}_2$ has two hydrolyzable $\\text{Si}-\\text{Cl}$ bonds. Upon hydrolysis, it forms the diol $\\text{Me}_2\\text{Si(OH)}_2$, which undergoes condensation to yield linear polymers $-[\\text{SiMe}_2-\\text{O}]_n-$ or cyclic oligomers such as hexamethylcyclotrisiloxane ($n=3$) and octamethylcyclotetrasiloxane ($n=4$). Thus, (A) is correct.\nStep 2: Evaluating statement (B): $\\text{Me}_3\\text{SiCl}$ has only one $\\text{Si}-\\text{Cl}$ bond. Hydrolysis gives $\\text{Me}_3\\text{SiOH}$, which can condense only once to form an end-cap $-\\text{O}-\\text{SiMe}_3$. This terminates chain growth and precisely regulates average molecular weight. Thus, (B) is correct.\nStep 3: Evaluating statement (C): $\\text{MeSiCl}_3$ is trifunctional; upon hydrolysis, it generates $\\text{MeSi(OH)}_3$, which undergoes 3D condensation to form branching and cross-links yielding thermosetting silicone resins. Thus, (C) is correct.\nStep 4: Evaluating statement (D): The $\\text{Si}-\\text{O}$ backbone has high polar character, but the exterior is densely blanketed by nonpolar methyl groups, rendering silicone surfaces strongly water-repellent (hydrophobic) and thermally robust. Thus, (D) is correct.\nTherefore, all statements (A), (B), (C), and (D) are correct."
+    },
+    {
+      "id": "pb1314_c02_015",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "The crystallographic structural formula of borax is formulated as $\\text{Na}_2[\\text{B}_4\\text{O}_5(\\text{OH})_4]\\cdot 8\\text{H}_2\\text{O}$. In a single polyborate dianion $[\\text{B}_4\\text{O}_5(\\text{OH})_4]^{2-}$, let:\n$a = $ number of tetrahedral $(sp^3)$ boron atoms,\n$b = $ number of bridging $\\text{B}-\\text{O}-\\text{B}$ oxygen atoms in the cage framework,\n$c = $ number of trigonal planar $(sp^2)$ boron atoms, and\n$d = $ number of terminal $-\\text{OH}$ groups.\nCalculate the numerical value of the expression: $N = (a \\times b) + (c \\times d)$.",
+      "options": [],
+      "answer": "18",
+      "explanation": "Step 1: In the tetranuclear polyborate dianion $[\\text{B}_4\\text{O}_5(\\text{OH})_4]^{2-}$, two boron atoms are four-coordinated (tetrahedral) with a formal negative charge on each: $a = 2$.\nStep 2: The remaining two boron atoms are three-coordinated (trigonal planar): $c = 2$.\nStep 3: The polyborate skeleton contains two fused six-membered rings sharing a common $\\text{B}-\\text{O}-\\text{B}$ bridge. The total number of bridging oxygen atoms connecting boron centers in the network is $b = 5$.\nStep 4: Each boron atom bears one terminal hydroxyl group; thus, there are four terminal $-\\text{OH}$ groups: $d = 4$.\nStep 5: Substituting these stoichiometric numbers into the given expression:\n$$N = (a \\times b) + (c \\times d) = (2 \\times 5) + (2 \\times 4) = 10 + 8 = 18$$\nHence, the calculated value of $N$ is 18."
+    },
+    {
+      "id": "pb1314_c02_016",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the diborane $(\\text{B}_2\\text{H}_6)$ molecule, boron utilizes $sp^3$ hybrid orbitals to form both terminal and bridging bonds. The experimental bond parameters reveal that the terminal $\\text{B}-\\text{H}_t$ bond length is $1.19\\text{ \\AA}$ while the bridge $\\text{B}-\\text{H}_b$ bond length is $1.33\\text{ \\AA}$. Which of the following statements correctly rationalizes the bond lengths and electron distribution in diborane?",
+      "options": [
+        "A) Each $\\text{B}-\\text{H}_t$ bond is a standard two-center two-electron $(2c-2e)$ $\\sigma$-bond with bond order $1.0$; each $\\text{B}-\\text{H}_b-\\text{B}$ bridge is a three-center two-electron $(3c-2e)$ bond where $2$ electrons are shared over three nuclei, resulting in an effective bond order of $0.5$ per $\\text{B}-\\text{H}_b$ linkage",
+        "B) Each $\\text{B}-\\text{H}_t$ bond is a three-center two-electron bond while each bridge is a conventional two-center two-electron bond; hence bridge bonds are stronger and shorter",
+        "C) All six hydrogen atoms are identical in bonding energy and bond order, but bridging hydrogens experience steric repulsion from the boron core causing bond stretching",
+        "D) Diborane contains a direct $\\text{B}-\\text{B}$ covalent bond of order $1.0$, which repels the bridging hydrogen atoms and lengthens the $\\text{B}-\\text{H}_b$ bonds"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Diborane possesses $2(3) + 6(1) = 12$ valence electrons. The four terminal $\\text{B}-\\text{H}_t$ bonds consume $4 \\times 2 = 8$ valence electrons, forming localized $2c-2e$ $\\sigma$-bonds with a standard bond order of $1.0$.\nStep 2: The remaining 4 valence electrons are allocated to the two three-center two-electron ($3c-2e$) 'banana' bridge bonds ($\\text{B}-\\text{H}_b-\\text{B}$), consuming 2 electrons per bridge.\nStep 3: Because 2 bonding electrons are delocalized across two $\\text{B}-\\text{H}_b$ linkages in each bridge, the formal bond order per $\\text{B}-\\text{H}_b$ interaction is $\\frac{2\\text{ electrons}}{4\\text{ electron equivalents}} = 0.5$.\nStep 4: A lower bond order ($0.5$ vs $1.0$) directly implies a weaker bond force constant and a significantly longer interatomic distance ($1.33\\text{ \\AA}$ vs $1.19\\text{ \\AA}$).\nStep 5: There is no direct localized $\\text{B}-\\text{B}$ bond in diborane; the two boron atoms are held together entirely by the two bridging hydrogen atoms.\nTherefore, option A is the correct rationale. Distractors B, C, and D contain fundamental bonding misconceptions."
+    },
+    {
+      "id": "pb1314_c02_017",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A co-hydrolysis mixture containing dimethyldichlorosilane $\\text{Me}_2\\text{SiCl}_2$ ($M_1 = 129.06\\text{ g mol}^{-1}$) and trimethylchlorosilane $\\text{Me}_3\\text{SiCl}$ ($M_2 = 108.64\\text{ g mol}^{-1}$) in a precise molar ratio of $98.0 : 2.0$ is condensed to completion to produce linear polydimethylsiloxane capped with trimethylsilyl terminal groups:\n$$\\text{Me}_3\\text{Si}-\\text{O}-[\\text{SiMe}_2-\\text{O}]_n-\\text{SiMe}_3$$\nAssuming all $\\text{Me}_3\\text{SiCl}$ functions exclusively as chain-terminating end-cappers and no cyclic oligomers are formed, calculate the number-average molecular weight $(\\bar{M}_n)$ of the resulting linear silicone polymer. (Atomic masses: $\\text{Si} = 28.09\\text{ g mol}^{-1}$, $\\text{C} = 12.01\\text{ g mol}^{-1}$, $\\text{H} = 1.01\\text{ g mol}^{-1}$, $\\text{O} = 16.00\\text{ g mol}^{-1}$)",
+      "options": [
+        "A) $7.43 \\times 10^3\\text{ g mol}^{-1}$",
+        "B) $3.71 \\times 10^3\\text{ g mol}^{-1}$",
+        "C) $1.49 \\times 10^4\\text{ g mol}^{-1}$",
+        "D) $7.27 \\times 10^3\\text{ g mol}^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Each linear polymer molecule is capped by two trimethylsilyl groups, one at each end, provided by the condensation of two $\\text{Me}_3\\text{Si}-$ units forming an end-cap unit of $(\\text{Me}_3\\text{Si})_2\\text{O}$.\nStep 2: For every $2.0\\text{ mol}$ of $\\text{Me}_3\\text{SiCl}$ present, exactly $1.0\\text{ mol}$ of linear polymer chains is formed. Since $98.0\\text{ mol}$ of $\\text{Me}_2\\text{SiCl}_2$ is incorporated into these chains, the average number of repeating dimethylsiloxane units per chain is:\n$$n = \\frac{\\text{moles of } \\text{Me}_2\\text{SiCl}_2}{\\frac{1}{2} \\times \\text{moles of } \\text{Me}_3\\text{SiCl}} = \\frac{98.0}{1.0} = 98$$\nStep 3: Calculating molar mass of repeat unit $[\\text{SiMe}_2\\text{O}] = \\text{SiC}_2\\text{H}_6\\text{O}$:\n$$M_\\text{repeat} = 28.09 + 2(12.01) + 6(1.01) + 16.00 = 74.17\\text{ g mol}^{-1}$$\nStep 4: Calculating molar mass of end-cap unit $(\\text{Me}_3\\text{Si})_2\\text{O} = \\text{Si}_2\\text{C}_6\\text{H}_{18}\\text{O}$:\n$$M_\\text{end} = 2(28.09) + 6(12.01) + 18(1.01) + 16.00 = 162.42\\text{ g mol}^{-1}$$\nStep 5: Solving for number-average molecular weight $\\bar{M}_n$:\n$$\\bar{M}_n = M_\\text{end} + n \\times M_\\text{repeat} = 162.42 + (98 \\times 74.17) = 162.42 + 7268.66 = 7431.08\\text{ g mol}^{-1} \\approx 7.43 \\times 10^3\\text{ g mol}^{-1}$$\nDistractor B forgets that two $\\text{Me}_3\\text{Si}$ units terminate one chain ($n = 49$, yielding $3.71 \\times 10^3\\text{ g mol}^{-1}$), while C doubles the chain length, and D neglects the contribution of end groups."
+    },
+    {
+      "id": "pb1314_c02_018",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "intermediate",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the analytical chemistry of the borax bead test when performed on salts of various $3d$ transition metal cations. Which of the following statements regarding the observed bead colors and chemical products is/are correct?\n(A) Cobalt salts yield a deep blue bead in both oxidizing and reducing flames due to the formation of cobalt(II) metaborate, $\\text{Co(BO}_2)_2$\n(B) Chromium salts yield an emerald green bead in both oxidizing and reducing flames due to the formation of chromium(III) metaborate, $\\text{Cr(BO}_2)_3$\n(C) Nickel salts give a yellowish-brown bead in the cold oxidizing flame, which reduces to a gray/black turbid bead in the reducing flame due to tiny particles of metallic nickel\n(D) In the oxidizing flame, manganese salts form an amethyst-violet bead of $\\text{Mn(BO}_2)_3$, which turns completely colorless in the reducing flame due to reduction to $\\text{Mn(BO}_2)_2$",
+      "options": [
+        "A) (A), (B), (C) and (D)",
+        "B) (A), (C) and (D) only",
+        "C) (B) and (C) only",
+        "D) (A) and (B) only"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Statement (A): $\\text{Co}^{2+}$ reacts with $\\text{B}_2\\text{O}_3$ to form $\\text{Co(BO}_2)_2$, which produces an intense royal blue bead that resists reduction even under a reducing flame. Hence, (A) is correct.\nStep 2: Statement (B): $\\text{Cr}^{3+}$ reacts to form $\\text{Cr(BO}_2)_3$, giving a persistent bright emerald green bead in both hot and cold states, in both oxidizing and reducing flames. Hence, (B) is correct.\nStep 3: Statement (C): $\\text{Ni}^{2+}$ forms $\\text{Ni(BO}_2)_2$ (brownish-red/yellow in oxidizing flame). In a reducing flame with hot carbon, $\\text{Ni}^{2+}$ is readily reduced to colloidal metallic $\\text{Ni}^0$, which causes the bead to appear gray or black and opaque. Hence, (C) is correct.\nStep 4: Statement (D): In an oxidizing flame, $\\text{Mn}^{2+}$ is oxidized to $\\text{Mn}^{3+}$, forming $\\text{Mn(BO}_2)_3$ (violet/amethyst color). In a reducing flame, it is reduced back to $\\text{Mn}^{2+}$ ($d^5$ high-spin, spin-forbidden $d-d$ transitions), rendering the bead colorless. Hence, (D) is correct.\nTherefore, all statements (A), (B), (C), and (D) are correct."
+    },
+    {
+      "id": "pb1314_c02_019",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In an amphibole silicate mineral of the actinolite series having the stoichiometric formula $\\text{Ca}_2\\text{Mg}_y\\text{Fe}_z(\\text{Si}_4\\text{O}_{11})_2(\\text{OH})_2$, all iron and magnesium cations exist in the $+2$ oxidation state $(\\text{Fe}^{2+} \\text{ and } \\text{Mg}^{2+})$. If analytical titration confirms that the stoichiometric coefficient for iron is $z = 1$, determine the value of the integer coefficient $y$ required to satisfy macroscopic electrical neutrality.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: The silicate backbone consists of two units of the double-chain polyanion $[\\text{Si}_4\\text{O}_{11}]^{6-}$. The total negative charge contributed by the silicate framework is $2 \\times (-6) = -12$.\nStep 2: The mineral also contains two hydroxide anions $[\\text{OH}]^-$, contributing a negative charge of $2 \\times (-1) = -2$.\nStep 3: Therefore, the total negative charge that must be counterbalanced by cations is: $|-12 - 2| = 14$.\nStep 4: The known divalent cations are two $\\text{Ca}^{2+}$ ions and one $\\text{Fe}^{2+}$ ion ($z = 1$). Their total positive charge contribution is:\n$$Q_\\text{known} = 2(+2) + 1(+2) = +4 + +2 = +6$$\nStep 5: The remaining positive charge must be provided entirely by the $y$ magnesium ions $(\\text{Mg}^{2+})$:\n$$y \\times (+2) = 14 - 6 = +8 \\implies y = \\frac{8}{2} = 4$$\nHence, the stoichiometric coefficient $y$ is 4 (giving the formula $\\text{Ca}_2\\text{Mg}_4\\text{Fe}_1(\\text{Si}_4\\text{O}_{11})_2(\\text{OH})_2$ with 7 divalent octahedral cations per unit)."
+    },
+    {
+      "id": "pb1314_c02_020",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Methyltrichlorosilane $\\text{MeSiCl}_3$ ($M = 149.48\\text{ g mol}^{-1}$) is completely hydrolyzed by water and subsequently heated to undergo complete polycondensation to form a cross-linked three-dimensional polymethylsilsesquioxane resin having the empirical formula unit $(\\text{MeSiO}_{1.5})_n$. During this industrial curing process, hydrogen chloride gas is completely driven off. What is the theoretical percentage mass loss of the starting chlorosilane upon its quantitative conversion into dry cured resin? (Atomic masses: $\\text{Si} = 28.09\\text{ g mol}^{-1}$, $\\text{C} = 12.01\\text{ g mol}^{-1}$, $\\text{H} = 1.01\\text{ g mol}^{-1}$, $\\text{O} = 16.00\\text{ g mol}^{-1}$, $\\text{Cl} = 35.45\\text{ g mol}^{-1}$)",
+      "options": [
+        "A) $55.10\\%$",
+        "B) $44.90\\%$",
+        "C) $62.35\\%$",
+        "D) $36.85\\%$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The stoichiometric conversion of methyltrichlorosilane into polymethylsilsesquioxane proceeds according to the equation:\n$$\\text{CH}_3\\text{SiCl}_3 + 1.5\\text{H}_2\\text{O} \\to \\text{CH}_3\\text{SiO}_{1.5} + 3\\text{HCl}\\uparrow$$\nStep 2: Molar mass of starting reactant $\\text{CH}_3\\text{SiCl}_3$:\n$$M_\\text{reactant} = 12.01 + 3(1.01) + 28.09 + 3(35.45) = 149.48\\text{ g mol}^{-1}$$\nStep 3: Molar mass of the repeat unit in the cured cross-linked resin $\\text{CH}_3\\text{SiO}_{1.5}$:\n$$M_\\text{resin unit} = 12.01 + 3(1.01) + 28.09 + 1.5(16.00) = 67.13\\text{ g mol}^{-1}$$\nStep 4: The net solid mass obtained per mole of starting $\\text{MeSiCl}_3$ is $67.13\\text{ g}$. Therefore, the mass lost per mole of starting silane is:\n$$\\Delta m = 149.48\\text{ g} - 67.13\\text{ g} = 82.35\\text{ g}$$\nStep 5: Solving for the percentage mass loss relative to the starting material:\n$$\\% \\text{ mass loss} = \\frac{82.35\\text{ g}}{149.48\\text{ g}} \\times 100\\% = 55.097\\% \\approx 55.10\\%$$\nDistractor B calculates the percentage mass of cured resin remaining ($67.13 / 149.48 = 44.90\\%$), while C calculates mass loss relative to resin mass, and D ignores oxygen addition during hydrolysis."
+    },
+    {
+      "id": "pb1314_c02_021",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "According to Wade's polyhedral skeletal electron pair theory (PSEPT), the structural classification of borane and carborane clusters depends strictly on the number of skeletal electron pairs (SEPs) relative to the number of cage vertices $n$. Consider the following three polyhedral cluster species:\n(I) $\\text{C}_2\\text{B}_4\\text{H}_6$\n(II) $\\text{C}_2\\text{B}_7\\text{H}_{13}$\n(III) $[\\text{C}_2\\text{B}_9\\text{H}_{11}]^{2-}$\nUsing the Wade-Mingos counting rules where each $\\text{B}-\\text{H}$ vertex contributes $2$ skeletal electrons, each $\\text{C}-\\text{H}$ vertex contributes $3$ skeletal electrons, and each bridging hydrogen contributes $1$ skeletal electron, what are the correct structural classifications for clusters (I), (II), and (III), respectively?",
+      "options": [
+        "A) (I) closo, (II) arachno, (III) nido",
+        "B) (I) nido, (II) closo, (III) arachno",
+        "C) (I) closo, (II) nido, (III) arachno",
+        "D) (I) arachno, (II) closo, (III) nido"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For cluster (I) $\\text{C}_2\\text{B}_4\\text{H}_6$, the number of vertices is $n = 2 + 4 = 6$. The total skeletal electrons are $2(\\text{CH}) \\times 3 + 4(\\text{BH}) \\times 2 = 6 + 8 = 14$ electrons, yielding $\\frac{14}{2} = 7$ SEPs. Since $\\text{SEPs} = n + 1 = 6 + 1 = 7$, cluster (I) is a closo-octahedron.\nStep 2: For cluster (II) $\\text{C}_2\\text{B}_7\\text{H}_{13}$, the number of vertices is $n = 2 + 7 = 9$. The 9 vertices account for 9 terminal hydrogens ($2\\text{ C}-\\text{H}$ and $7\\text{ B}-\\text{H}$). The remaining $13 - 9 = 4$ hydrogens are extra bridging hydrogens. Total skeletal electrons $= 2(3) + 7(2) + 4(1) = 6 + 14 + 4 = 24$ electrons, yielding $\\frac{24}{2} = 12$ SEPs. Since $\\text{SEPs} = n + 3 = 9 + 3 = 12$, cluster (II) is an arachno-cluster.\nStep 3: For cluster (III) $[\\text{C}_2\\text{B}_9\\text{H}_{11}]^{2-}$, the number of vertices is $n = 2 + 9 = 11$. Total skeletal electrons $= 2(3) + 9(2) + 2\\text{ (charge)} = 6 + 18 + 2 = 26$ electrons, yielding $\\frac{26}{2} = 13$ SEPs. Since $\\text{SEPs} = n + 2 = 11 + 2 = 13$, cluster (III) is a nido-cluster.\nStep 4: Therefore, the correct structural classifications are closo, arachno, and nido, respectively.\nDistractor B confuses the formulas for nido and closo, C mistakes arachno for nido, and D inverts closo and arachno."
+    },
+    {
+      "id": "pb1314_c02_022",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "The 1-carba-closo-dodecaborate anion, $[\\text{CB}_{11}\\text{H}_{12}]^-$, is an exceptionally stable icosahedral weakly coordinating anion used in the synthesis of superacids and isolating reactive carbocations. In this 12-vertex cage cluster, each $\\text{B}-\\text{H}$ vertex donates $2$ skeletal electrons, the single $\\text{C}-\\text{H}$ vertex donates $3$ skeletal electrons, and the single negative charge contributes $1$ additional skeletal electron. Calculate the total number of skeletal electron pairs (SEPs) delocalized over the cage framework.",
+      "options": [],
+      "answer": "13",
+      "explanation": "Step 1: The total number of cluster vertices in the icosahedron is $n = 1\\text{ (carbon)} + 11\\text{ (boron)} = 12$.\nStep 2: Each of the 11 $\\text{B}-\\text{H}$ vertices contributes 2 skeletal bonding electrons: $11 \\times 2 = 22$ electrons.\nStep 3: The single $\\text{C}-\\text{H}$ vertex contributes 3 skeletal bonding electrons: $1 \\times 3 = 3$ electrons.\nStep 4: The overall ionic charge of $-1$ provides an extra electron to the delocalized skeletal molecular orbitals: $+1$ electron.\nStep 5: Summing all skeletal electrons: $22 + 3 + 1 = 26$ electrons. Therefore, the total number of skeletal electron pairs is $\\frac{26}{2} = 13$ SEPs.\nStep 6: Since $n = 12$ and $\\text{SEPs} = n + 1 = 13$, this confirms the closo-icosahedral geometry predicted by Wade's rules."
+    },
+    {
+      "id": "pb1314_c02_023",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The apparent anomaly in the Lewis acid strength of boron halides towards pyridine ($\\text{BF}_3 < \\text{BCl}_3$) is governed by the competition between $p_\\pi-p_\\pi$ back-bonding and molecular reorganization energy. In the gas phase:\n$$\\text{BX}_3(\\text{g}) + \\text{py}(\\text{g}) \\to \\text{X}_3\\text{B}\\cdot\\text{py}(\\text{g})$$\nThe experimental reaction enthalpies are $\\Delta H^\\circ(\\text{BF}_3) = -105.0\\text{ kJ mol}^{-1}$ and $\\Delta H^\\circ(\\text{BCl}_3) = -135.0\\text{ kJ mol}^{-1}$. Computational quantum chemical analyses show that the reorganization energy $(\\Delta E_\\text{reorg})$ required to distort planar $D_{3h}$ $\\text{BX}_3$ into the pyramidal $C_{3v}$ geometry of the adduct is $+143.0\\text{ kJ mol}^{-1}$ for $\\text{BF}_3$ and $+96.0\\text{ kJ mol}^{-1}$ for $\\text{BCl}_3$. What are the intrinsic donor-acceptor $\\text{B}-\\text{N}$ bond dissociation energies $D_\\text{int} = -\\Delta H^\\circ + \\Delta E_\\text{reorg}$ for the $\\text{BF}_3$ and $\\text{BCl}_3$ adducts, and what is the fundamental origin of the observed Lewis acidity order?",
+      "options": [
+        "A) $D_\\text{int}(\\text{BF}_3) = 248.0\\text{ kJ mol}^{-1}$ and $D_\\text{int}(\\text{BCl}_3) = 231.0\\text{ kJ mol}^{-1}$; $\\text{BF}_3$ forms an intrinsically stronger $\\text{B}-\\text{N}$ bond, but is weaker overall due to the larger energy penalty of disrupting stronger $2p_\\pi-2p_\\pi$ back-bonding",
+        "B) $D_\\text{int}(\\text{BF}_3) = 38.0\\text{ kJ mol}^{-1}$ and $D_\\text{int}(\\text{BCl}_3) = 39.0\\text{ kJ mol}^{-1}$; $\\text{BF}_3$ forms an intrinsically weaker $\\text{B}-\\text{N}$ bond due to severe steric clash between fluorine and pyridine",
+        "C) $D_\\text{int}(\\text{BF}_3) = 105.0\\text{ kJ mol}^{-1}$ and $D_\\text{int}(\\text{BCl}_3) = 135.0\\text{ kJ mol}^{-1}$; reorganization energy is negligible and $\\text{BCl}_3$ has intrinsically stronger bonding",
+        "D) $D_\\text{int}(\\text{BF}_3) = 248.0\\text{ kJ mol}^{-1}$ and $D_\\text{int}(\\text{BCl}_3) = 231.0\\text{ kJ mol}^{-1}$; $\\text{BCl}_3$ is stronger overall because chlorine utilizes $3d$ orbitals to stabilize the adduct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The net enthalpy of adduct formation is related to intrinsic bond energy and reorganization energy by: $\\Delta H^\\circ = \\Delta E_\\text{reorg} - D_\\text{int} \\implies D_\\text{int} = -\\Delta H^\\circ + \\Delta E_\\text{reorg}$.\nStep 2: For $\\text{BF}_3$: substituting values gives $D_\\text{int}(\\text{BF}_3) = -(-105.0) + 143.0 = 105.0 + 143.0 = 248.0\\text{ kJ mol}^{-1}$.\nStep 3: For $\\text{BCl}_3$: substituting values gives $D_\\text{int}(\\text{BCl}_3) = -(-135.0) + 96.0 = 135.0 + 96.0 = 231.0\\text{ kJ mol}^{-1}$.\nStep 4: This reveals a critical chemical insight: the intrinsic Lewis acidity of $\\text{BF}_3$ is actually higher than that of $\\text{BCl}_3$ ($248.0$ vs $231.0\\text{ kJ mol}^{-1}$) because the high electronegativity of fluorine strongly enhances the positive partial charge at boron.\nStep 5: However, because $\\text{BF}_3$ possesses an exceptionally strong planar $2p_\\pi-2p_\\pi$ back-bond, the energy penalty to pyramidalize the molecule $(\\Delta E_\\text{reorg} = 143.0\\text{ kJ mol}^{-1})$ exceeds that of $\\text{BCl}_3$ by $47.0\\text{ kJ mol}^{-1}$. This substantial distortion penalty makes overall complexation less exothermic, rendering $\\text{BF}_3$ a weaker apparent Lewis acid.\nTherefore, option A is correct. Distractor B subtracts instead of adding ($\\Delta E_\\text{reorg} - |\\Delta H^\\circ| = 38\\text{ kJ mol}^{-1}$), C ignores reorganization entirely, and D invokes incorrect $3d$ orbital arguments."
+    },
+    {
+      "id": "pb1314_c02_024",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the structure, bonding, and chemical transformations of the dicarbadodecaborane isomers $(\\text{C}_2\\text{B}_{10}\\text{H}_{12})$ and related heteroboranes under Wade-Mingos principles. Which of the following statements is/are correct?\n(A) In icosahedral $\\text{C}_2\\text{B}_{10}\\text{H}_{12}$, three positional isomers exist: $1,2\\text{-closo}$ (ortho), $1,7\\text{-closo}$ (meta), and $1,12\\text{-closo}$ (para), whose thermodynamic stability increases in the order ortho $<$ meta $<$ para\n(B) In $1,2\\text{-closo-C}_2\\text{B}_{10}\\text{H}_{12}$, the direct $\\text{C}-\\text{C}$ distance is experimentally found to be $\\approx 1.63\\text{ \\AA}$, significantly longer than a standard organic $\\text{C}-\\text{C}$ single bond ($1.54\\text{ \\AA}$), reflecting multi-center skeletal delocalization\n(C) Wade's electron counting rules establish that a neutral $\\text{C}-\\text{H}$ vertex is isolobal to a $[\\text{B}-\\text{H}]^-$ vertex, with both contributing 3 skeletal electrons to cluster bonding\n(D) Nucleophilic degradation of $1,2\\text{-closo-C}_2\\text{B}_{10}\\text{H}_{12}$ with sodium ethoxide in refluxing ethanol selectively removes one boron vertex, yielding the 11-vertex nido-dicarbollide anion $[\\text{C}_2\\text{B}_9\\text{H}_{12}]^-$",
+      "options": [
+        "A) (A), (B), (C) and (D)",
+        "B) (A), (B) and (D) only",
+        "C) (A) and (C) only",
+        "D) (B) and (D) only"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Statement (A): Carbon is more electronegative than boron (Pauling electronegativities: $\\text{C} = 2.55$, $\\text{B} = 2.04$), meaning the cage carbons carry substantial negative partial charges. Placing them in mutually adjacent positions (ortho, $1,2$) creates electrostatic repulsion. Moving them further apart to meta ($1,7$) and para ($1,12$) relieves this repulsion, making the stability order ortho $<$ meta $<$ para. Thus, (A) is correct.\nStep 2: Statement (B): The $\\text{C}-\\text{C}$ bond in ortho-carborane is not a localized two-center two-electron bond, but part of a delocalized multi-center cage system. The bond length is elongated to $1.63\\text{ \\AA}$ (compared to $1.54\\text{ \\AA}$ in ethane). Thus, (B) is correct.\nStep 3: Statement (C): A $\\text{C}-\\text{H}$ unit provides $4 + 1 - 2 = 3$ skeletal electrons, while a $[\\text{B}-\\text{H}]^-$ unit provides $3 + 1 + 1 - 2 = 3$ skeletal electrons. Both have three valence orbitals directed towards the cluster interior; hence they are isolobal and contribute 3 skeletal electrons each. Thus, (C) is correct.\nStep 4: Statement (D): Reaction with ethoxide in ethanol abstracts the most electrophilic boron atom (B3 or B6) as triethyl borate $\\text{B(OEt)}_3$, opening the icosahedral closo cage to generate the 11-vertex nido dicarbollide monoanion $[1,2\\text{-C}_2\\text{B}_9\\text{H}_{12}]^-$. Thus, (D) is correct.\nTherefore, all four statements (A), (B), (C), and (D) are correct."
+    },
+    {
+      "id": "pb1314_c02_025",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The homolytic bond dissociation enthalpies $(D^\\circ_{298})$ of Group 14 single bonds are given as: $\\text{C}-\\text{C} = 348\\text{ kJ mol}^{-1}$ and $\\text{Si}-\\text{Si} = 222\\text{ kJ mol}^{-1}$. Consider the initial gas-phase unimolecular homolytic cracking reactions of ethane and disilane:\n$$\\text{C}_2\\text{H}_6(\\text{g}) \\to 2\\text{CH}_3\\cdot(\\text{g}), \\quad \\Delta H^\\circ_1 = +348\\text{ kJ mol}^{-1}$$\n$$\\text{Si}_2\\text{H}_6(\\text{g}) \\to 2\\text{SiH}_3\\cdot(\\text{g}), \\quad \\Delta H^\\circ_2 = +222\\text{ kJ mol}^{-1}$$\nAssuming equal pre-exponential frequency factors $(A = 10^{16}\\text{ s}^{-1})$ and taking activation energies equal to reaction enthalpies $(E_a \\approx \\Delta H^\\circ)$, calculate the ratio of the first-order rate constant for $\\text{Si}-\\text{Si}$ homolysis to that for $\\text{C}-\\text{C}$ homolysis $(k_\\text{Si}/k_\\text{C})$ at a cracking temperature of $600\\text{ K}$. (Given: $R = 8.314\\text{ J mol}^{-1}\\text{ K}^{-1}$, $e^{25.26} \\approx 9.34 \\times 10^{10}$)",
+      "options": [
+        "A) $9.34 \\times 10^{10}$",
+        "B) $1.07 \\times 10^{-11}$",
+        "C) $3.05 \\times 10^5$",
+        "D) $4.22 \\times 10^{15}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Applying the Arrhenius equation: $k = A \\exp\\left(-\\frac{E_a}{RT}\\right)$. Since the frequency factors $A$ are assumed identical, the ratio of rate constants is:\n$$\\frac{k_\\text{Si}}{k_\\text{C}} = \\exp\\left(\\frac{E_{a,\\text{C}} - E_{a,\\text{Si}}}{RT}\\right)$$\nStep 2: The activation energy difference is: $\\Delta E_a = E_{a,\\text{C}} - E_{a,\\text{Si}} = 348 - 222 = 126\\text{ kJ mol}^{-1} = 126000\\text{ J mol}^{-1}$.\nStep 3: Calculating the product $RT$ at $600\\text{ K}$:\n$$RT = 8.314\\text{ J mol}^{-1}\\text{ K}^{-1} \\times 600\\text{ K} = 4988.4\\text{ J mol}^{-1}$$\nStep 4: Evaluating the exponent: $\\frac{126000}{4988.4} = 25.2585 \\approx 25.26$.\nStep 5: Solving for the rate ratio: $\\frac{k_\\text{Si}}{k_\\text{C}} = \\exp(25.26) \\approx 9.34 \\times 10^{10}$.\nStep 6: Therefore, disilane homolyzes over $10^{10}$ times faster than ethane at $600\\text{ K}$, explaining why silicon catenation fails to produce thermally robust catenated chains at elevated temperatures.\nDistractor B is the inverted ratio $k_\\text{C}/k_\\text{Si} = 1.07 \\times 10^{-11}$, while C uses temperature $1000\\text{ K}$, and D uses $T = 400\\text{ K}$."
+    },
+    {
+      "id": "pb1314_c02_026",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Consider the open-cage carborane molecule $\\text{C}_2\\text{B}_7\\text{H}_{13}$. In this cluster, there are $9$ cluster vertices (comprising two $\\text{C}-\\text{H}$ vertices and seven $\\text{B}-\\text{H}$ vertices). The remaining $4$ hydrogen atoms reside as bridging or endo hydrogens along the open face of the cage. Using Wade's polyhedral electron pair counting rules, calculate the total number of skeletal electron pairs (SEPs) holding this cluster framework together.",
+      "options": [],
+      "answer": "12",
+      "explanation": "Step 1: The total number of cluster vertices is $n = 2\\text{ (carbon)} + 7\\text{ (boron)} = 9$.\nStep 2: Each of the 2 $\\text{C}-\\text{H}$ vertices provides $4 + 1 - 2 = 3$ skeletal electrons: $2 \\times 3 = 6$ electrons.\nStep 3: Each of the 7 $\\text{B}-\\text{H}$ vertices provides $3 + 1 - 2 = 2$ skeletal electrons: $7 \\times 2 = 14$ electrons.\nStep 4: The 4 extra hydrogen atoms ($13 - 9 = 4$) each provide their single valence electron into the skeletal molecular orbitals: $4 \\times 1 = 4$ electrons.\nStep 5: Summing the skeletal electrons: $6 + 14 + 4 = 24$ skeletal electrons.\nStep 6: Solving for the number of skeletal electron pairs: $\\text{SEPs} = \\frac{24}{2} = 12$.\nStep 7: Since the number of vertices is $n = 9$ and $\\text{SEPs} = 12 = n + 3$, this confirms that $\\text{C}_2\\text{B}_7\\text{H}_{13}$ is an arachno-carborane."
+    },
+    {
+      "id": "pb1314_c02_027",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In planar $\\text{BF}_3$, the experimental $\\text{B}-\\text{F}$ bond distance is $1.30\\text{ \\AA}$, whereas the covalent radii sum for a pure single bond is $r_\\text{single} = 1.52\\text{ \\AA}$ and the theoretical pure double bond distance is $r_\\text{double} = 1.22\\text{ \\AA}$. Using Pauling's empirical relation for the extent of $\\pi$-shortening:\n$$\\% \\text{ double-bond character} = \\frac{r_\\text{single} - r_\\text{obs}}{r_\\text{single} - r_\\text{double}} \\times 100\\%$$\nwhat is the percentage double-bond character of each $\\text{B}-\\text{F}$ bond, and why does $\\text{BF}_3$ remain an isolated monomer under ambient conditions while $\\text{BH}_3$ dimerizes instantaneously to form $\\text{B}_2\\text{H}_6$?",
+      "options": [
+        "A) $73.3\\%$ double-bond character; the empty $2p_z$ orbital of boron is substantially stabilized by intramolecular $2p_\\pi-2p_\\pi$ back-donation from three fluorine atoms, removing the thermodynamic driving force for dimerization",
+        "B) $26.7\\%$ double-bond character; $\\text{BF}_3$ cannot dimerize because fluorine atoms are sterically too large to bridge two boron centers",
+        "C) $50.0\\%$ double-bond character; dimerization is forbidden because boron would violate the octet rule by exceeding 8 valence electrons",
+        "D) $15.5\\%$ double-bond character; $\\text{BF}_3$ actually forms a stable planar bridged dimer $(\\text{BF}_3)_2$ at room temperature"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Applying Pauling's formula with the provided parameters: $r_\\text{single} = 1.52\\text{ \\AA}$, $r_\\text{obs} = 1.30\\text{ \\AA}$, and $r_\\text{double} = 1.22\\text{ \\AA}$.\nStep 2: Substituting the values: $\\% \\text{ double-bond character} = \\frac{1.52 - 1.30}{1.52 - 1.22} \\times 100\\% = \\frac{0.22}{0.30} \\times 100\\% = 73.33\\% \\approx 73.3\\%$.\nStep 3: In $\\text{BH}_3$, hydrogen lacks lone pairs; hence no $p_\\pi-p_\\pi$ back-bonding is possible. Boron remains severely electron-deficient (6 valence electrons) and dimerizes with large exothermicity $(\\Delta H^\\circ \\approx -150\\text{ kJ mol}^{-1})$ to form two $3c-2e$ bridge bonds in $\\text{B}_2\\text{H}_6$.\nStep 4: In $\\text{BF}_3$, three fluorine lone pairs provide intense intramolecular $2p_\\pi-2p_\\pi$ back-donation into the empty boron $2p_z$ orbital, satisfying boron's electron deficiency and providing a massive resonance stabilization enthalpy $(\\approx 140\\text{ kJ mol}^{-1})$ that would be lost upon dimerization.\nStep 5: Therefore, dimerization of $\\text{BF}_3$ is thermodynamically unfavored, and the monomer is exceptionally stable.\nDistractor B calculates $\\frac{1.30 - 1.22}{0.30} = 26.7\\%$, while C and D assert chemically false statements."
+    },
+    {
+      "id": "pb1314_c02_028",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the thermodynamic principles governing catenation and oxide structures in Group 14 elements based on the following bond enthalpies:\n$\\text{C}-\\text{C} = 348\\text{ kJ mol}^{-1}$, $\\text{C}-\\text{O} = 358\\text{ kJ mol}^{-1}$, $\\text{C}=\\text{O} = 799\\text{ kJ mol}^{-1}$\n$\\text{Si}-\\text{Si} = 222\\text{ kJ mol}^{-1}$, $\\text{Si}-\\text{O} = 466\\text{ kJ mol}^{-1}$, $\\text{Si}=\\text{O} \\approx 640\\text{ kJ mol}^{-1}$\nWhich of the following thermodynamic deductions is/are correct?\n(A) Carbon dioxide forms a discrete molecular gas because two $\\text{C}=\\text{O}$ double bonds ($2 \\times 799 = 1598\\text{ kJ mol}^{-1}$) are thermodynamically more stable than four single $\\text{C}-\\text{O}$ bonds ($4 \\times 358 = 1432\\text{ kJ mol}^{-1}$)\n(B) Silicon dioxide forms an extended macromolecular network solid because four single $\\text{Si}-\\text{O}$ bonds ($4 \\times 466 = 1864\\text{ kJ mol}^{-1}$) are significantly more stable than two isolated $\\text{Si}=\\text{O}$ double bonds ($2 \\times 640 = 1280\\text{ kJ mol}^{-1}$)\n(C) Silicon shows very poor catenation in an oxidizing atmosphere because oxygen insertion into $\\text{Si}-\\text{Si}$ bonds to form siloxane linkages $(\\text{Si}-\\text{O}-\\text{Si})$ is overwhelmingly exothermic: $\\Delta H^\\circ \\approx 222 - (2 \\times 466) = -710\\text{ kJ mol}^{-1}$ per mole of oxygen atoms inserted\n(D) Elemental lead fails to exhibit significant catenation because its $\\text{Pb}-\\text{Pb}$ bond enthalpy $(\\approx 100\\text{ kJ mol}^{-1})$ is so low that catenated lead hydrides decompose spontaneously into metallic lead and hydrogen at room temperature",
+      "options": [
+        "A) (A), (B), (C) and (D)",
+        "B) (A) and (B) only",
+        "C) (B) and (C) only",
+        "D) (A), (B) and (D) only"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Statement (A): In $\\text{CO}_2$, each carbon forms two double bonds with oxygen, releasing $2 \\times 799 = 1598\\text{ kJ mol}^{-1}$. If it formed a polymeric network with 4 single $\\text{C}-\\text{O}$ bonds, the total bond enthalpy would only be $4 \\times 358 = 1432\\text{ kJ mol}^{-1}$. Since $1598 > 1432$, the discrete monomeric gas with $p_\\pi-p_\\pi$ double bonds is thermodynamically preferred. Thus, (A) is correct.\nStep 2: Statement (B): For silicon, two $\\text{Si}=\\text{O}$ double bonds would yield $2 \\times 640 = 1280\\text{ kJ mol}^{-1}$, whereas four single $\\text{Si}-\\text{O}$ bonds in tetrahedral quartz yield $4 \\times 466 = 1864\\text{ kJ mol}^{-1}$. Since $1864 \\gg 1280$, silica crystallizes exclusively as a covalent network of $[\\text{SiO}_4]$ tetrahedra. Thus, (B) is correct.\nStep 3: Statement (C): For a polysilane chain, inserting an $\\text{O}$ atom breaks one $\\text{Si}-\\text{Si}$ bond ($+222\\text{ kJ mol}^{-1}$) and forms two strong $\\text{Si}-\\text{O}$ bonds ($-2 \\times 466 = -932\\text{ kJ mol}^{-1}$). The net enthalpy change is $\\Delta H^\\circ = 222 - 932 = -710\\text{ kJ mol}^{-1}$. This enormous thermodynamic driving force makes silicon chains oxidize spontaneously to siloxanes/silica in air. Thus, (C) is correct.\nStep 4: Statement (D): Moving down the group, diffuse $6p$ orbitals lead to weak orbital overlap. The $\\text{Pb}-\\text{Pb}$ bond enthalpy is only $\\approx 100\\text{ kJ mol}^{-1}$, rendering catenated lead compounds like plumbanes thermally unstable towards homolytic breakdown into metallic lead. Thus, (D) is correct.\nTherefore, all statements (A), (B), (C), and (D) are correct."
+    },
+    {
+      "id": "pb1314_c02_029",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "The nucleophilic partial deboronation of 1,2-dicarba-closo-dodecaborane with sodium ethoxide followed by acid quenching yields the monoanionic nido-carborane $[1,2\\text{-C}_2\\text{B}_9\\text{H}_{12}]^-$. In this 11-vertex polyhedral anion, carbon, boron, and hydrogen have atomic numbers $6$, $5$, and $1$, respectively. Calculate the total number of valence electrons (including all cluster skeletal electrons, terminal exo-bonding electrons, and bridging electron pairs) present in a single $[1,2\\text{-C}_2\\text{B}_9\\text{H}_{12}]^-$ anion.",
+      "options": [],
+      "answer": "48",
+      "explanation": "Step 1: The valence electron contributions from each neutral atom in the formula $[\\text{C}_2\\text{B}_9\\text{H}_{12}]^-$ are determined from their periodic group numbers.\nStep 2: Carbon belongs to Group 14 and has 4 valence electrons: $2 \\times 4 = 8$ valence electrons.\nStep 3: Boron belongs to Group 13 and has 3 valence electrons: $9 \\times 3 = 27$ valence electrons.\nStep 4: Hydrogen belongs to Group 1 and has 1 valence electron: $12 \\times 1 = 12$ valence electrons.\nStep 5: The anion carries an overall net negative charge of $-1$, which adds 1 additional electron: $+1$ electron.\nStep 6: Summing all valence electron contributions: $N_v = 8 + 27 + 12 + 1 = 48$ valence electrons.\nStep 7: Of these 48 electrons (24 pairs), 11 pairs are localized in exo-terminal bonds (2 $\\text{C}-\\text{H}$ and 9 $\\text{B}-\\text{H}$), leaving 13 pairs (26 electrons) as skeletal electrons delocalized over the 11-vertex nido cage $(n + 2 = 11 + 2 = 13$ pairs).\nTherefore, the total number of valence electrons is 48."
+    },
+    {
+      "id": "pb1314_c02_030",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The complexation thermodynamics of boron trihalides with the soft sulfur donor dimethyl sulfide, $\\text{Me}_2\\text{S}$, in benzene solution proceeds via:\n$$\\text{BX}_3(\\text{solv}) + \\text{Me}_2\\text{S}(\\text{solv}) \\rightleftharpoons \\text{X}_3\\text{B}\\cdot\\text{SMe}_2(\\text{solv})$$\nThe measured thermodynamic parameters at $298.15\\text{ K}$ are:\nFor $\\text{BF}_3$: $\\Delta H^\\circ_1 = -26.0\\text{ kJ mol}^{-1}$, $\\Delta S^\\circ_1 = -62.0\\text{ J K}^{-1}\\text{ mol}^{-1}$\nFor $\\text{BBr}_3$: $\\Delta H^\\circ_2 = -64.0\\text{ kJ mol}^{-1}$, $\\Delta S^\\circ_2 = -74.0\\text{ J K}^{-1}\\text{ mol}^{-1}$\nWhat is the ratio of the equilibrium constant for $\\text{BBr}_3$ complexation to that for $\\text{BF}_3$ complexation $(K_2 / K_1)$ at $298.15\\text{ K}$? (Take $R = 8.314\\text{ J mol}^{-1}\\text{ K}^{-1}$, $e^{13.88} \\approx 1.07 \\times 10^6$)",
+      "options": [
+        "A) $1.07 \\times 10^6$",
+        "B) $2.45 \\times 10^3$",
+        "C) $9.35 \\times 10^{-7}$",
+        "D) $4.82 \\times 10^8$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculating the standard Gibbs free energy of complexation for $\\text{BF}_3$ at $298.15\\text{ K}$:\n$$\\Delta G^\\circ_1 = \\Delta H^\\circ_1 - T\\Delta S^\\circ_1 = -26000\\text{ J mol}^{-1} - (298.15\\text{ K})(-62.0\\text{ J K}^{-1}\\text{ mol}^{-1})$$\n$$\\Delta G^\\circ_1 = -26000 + 18485.3 = -7514.7\\text{ J mol}^{-1} = -7.515\\text{ kJ mol}^{-1}$$\nStep 2: Calculating the standard Gibbs free energy of complexation for $\\text{BBr}_3$ at $298.15\\text{ K}$:\n$$\\Delta G^\\circ_2 = \\Delta H^\\circ_2 - T\\Delta S^\\circ_2 = -64000\\text{ J mol}^{-1} - (298.15\\text{ K})(-74.0\\text{ J K}^{-1}\\text{ mol}^{-1})$$\n$$\\Delta G^\\circ_2 = -64000 + 22063.1 = -41936.9\\text{ J mol}^{-1} = -41.937\\text{ kJ mol}^{-1}$$\nStep 3: Calculating the difference in Gibbs free energy: $\\Delta \\Delta G^\\circ = \\Delta G^\\circ_2 - \\Delta G^\\circ_1 = -41936.9 - (-7514.7) = -34422.2\\text{ J mol}^{-1}$.\nStep 4: Applying the thermodynamic relation $\\ln\\left(\\frac{K_2}{K_1}\\right) = -\\frac{\\Delta \\Delta G^\\circ}{RT}$:\n$$\\ln\\left(\\frac{K_2}{K_1}\\right) = \\frac{34422.2\\text{ J mol}^{-1}}{8.314\\text{ J mol}^{-1}\\text{ K}^{-1} \\times 298.15\\text{ K}} = \\frac{34422.2}{2478.82} = 13.8865 \\approx 13.88$$\nStep 5: Solving for the ratio of equilibrium constants: $\\frac{K_2}{K_1} = \\exp(13.88) \\approx 1.07 \\times 10^6$.\nDistractor B neglects the entropy contribution and calculates the enthalpy ratio directly, C is the inverse ratio $K_1 / K_2$, and D introduces a calculation error in $RT$."
+    },
+    {
+      "id": "pb1314_c02_031",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The thermodynamic tendency of Group 14 divalent halides to undergo disproportionation into the tetrahalide and the elemental state varies drastically down the group. Consider the gas-phase disproportionation of germanium(II) chloride:\n$$2\\text{GeCl}_2(\\text{g}) \\to \\text{Ge}(\\text{s}) + \\text{GeCl}_4(\\text{g})$$\nGiven standard enthalpies of formation: $\\Delta H_f^\\circ[\\text{GeCl}_2(\\text{g})] = -170.0\\text{ kJ mol}^{-1}$, $\\Delta H_f^\\circ[\\text{GeCl}_4(\\text{g})] = -496.0\\text{ kJ mol}^{-1}$, and $\\Delta H_f^\\circ[\\text{Ge}(\\text{s})] = 0\\text{ kJ mol}^{-1}$. What is the standard reaction enthalpy $\\Delta H^\\circ_\\text{rxn}$ per mole of $\\text{GeCl}_2(\\text{g})$ consumed, and how does this contrast with lead(II) halides under standard conditions?",
+      "options": [
+        "A) $\\Delta H^\\circ_\\text{rxn} = -78.0\\text{ kJ mol}^{-1}$; the exothermic disproportionation demonstrates that $\\text{Ge(II)}$ is thermodynamically unstable towards oxidation to $\\text{Ge(IV)}$, whereas for $\\text{Pb}$, the inert pair effect makes $\\text{Pb(II)}$ stable and disproportionation endothermic",
+        "B) $\\Delta H^\\circ_\\text{rxn} = -156.0\\text{ kJ mol}^{-1}$; the reaction enthalpy is exothermic per mole of $\\text{GeCl}_4$ but $\\text{PbCl}_2$ disproportionates even more readily",
+        "C) $\\Delta H^\\circ_\\text{rxn} = +78.0\\text{ kJ mol}^{-1}$; the disproportionation is endothermic, indicating that germanium preferentially retains the $+2$ oxidation state",
+        "D) $\\Delta H^\\circ_\\text{rxn} = -326.0\\text{ kJ mol}^{-1}$; $\\text{GeCl}_2$ acts exclusively as a strong oxidizing agent"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The balanced disproportionation equation is: $2\\text{GeCl}_2(\\text{g}) \\to \\text{Ge}(\\text{s}) + \\text{GeCl}_4(\\text{g})$.\nStep 2: Calculating standard enthalpy of reaction for this equation: $\\Delta H^\\circ = \\Delta H_f^\\circ[\\text{Ge}(\\text{s})] + \\Delta H_f^\\circ[\\text{GeCl}_4(\\text{g})] - 2\\Delta H_f^\\circ[\\text{GeCl}_2(\\text{g})]$.\nStep 3: Substituting the values: $\\Delta H^\\circ = 0 + (-496.0) - 2(-170.0) = -496.0 + 340.0 = -156.0\\text{ kJ}$ for $2\\text{ mol}$ of $\\text{GeCl}_2$.\nStep 4: Solving for the enthalpy change per mole of $\\text{GeCl}_2$ consumed: $\\Delta H^\\circ_\\text{rxn} = \\frac{-156.0\\text{ kJ}}{2\\text{ mol}} = -78.0\\text{ kJ mol}^{-1}$.\nStep 5: The strongly exothermic value proves that $\\text{GeCl}_2$ is thermodynamically prone to disproportionation to reach the more stable $+4$ state.\nStep 6: In contrast, for lead, the $6s^2$ electrons experience strong relativistic stabilization and poor shielding by $4f^{14}$ electrons, making $\\text{Pb(II)}$ exceptionally stable and its disproportionation highly endothermic $(\\Delta H^\\circ \\gg 0)$.\nDistractor B cites the enthalpy for 2 moles of $\\text{GeCl}_2$ without dividing by 2 and mischaracterizes lead, C has a sign error, and D adds enthalpies incorrectly."
+    },
+    {
+      "id": "pb1314_c02_032",
+      "subject": "Chemistry",
+      "topic": "p-Block Elements Group 13 and 14",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The dicarbollide dianion, $[\\eta^5\\text{-C}_2\\text{B}_9\\text{H}_{11}]^{2-}$, is an open-face nido carborane that is isolobal to the cyclopentadienyl anion $[\\eta^5\\text{-C}_5\\text{H}_5]^-$. It coordinates to transition metal ions through its open pentagonal face consisting of three boron atoms and two carbon atoms, providing $3$ frontier $\\pi$-symmetry molecular orbitals containing $6$ electrons. When two such dicarbollide ligands sandwich an iron(II) cation, they form the commo-metallacarborane complex $[(\\eta^5\\text{-C}_2\\text{B}_9\\text{H}_{11})_2\\text{Fe}]^{2-}$. What is the Effective Atomic Number (EAN) of the central iron atom, and does this sandwich complex obey the 18-electron rule? (Atomic number of $\\text{Fe} = 26$)",
+      "options": [
+        "A) $\\text{EAN} = 36$; obeys the 18-electron rule with a stable closed-shell configuration identical to Krypton",
+        "B) $\\text{EAN} = 34$; violates the 18-electron rule as a 16-electron paramagnetic species",
+        "C) $\\text{EAN} = 38$; violates the 18-electron rule as a 20-electron hypervalent complex",
+        "D) $\\text{EAN} = 32$; violates the 18-electron rule as a 14-electron sub-valent complex"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In $[(\\eta^5\\text{-C}_2\\text{B}_9\\text{H}_{11})_2\\text{Fe}]^{2-}$, each dicarbollide ligand carries a formal charge of $-2$. Let $x$ be the formal oxidation state of iron: $x + 2(-2) = -2 \\implies x - 4 = -2 \\implies x = +2$. Thus, iron exists as $\\text{Fe}^{2+}$.\nStep 2: The neutral iron atom has atomic number $Z = 26$. For $\\text{Fe}^{2+}$, the number of metal core and valence electrons is $26 - 2 = 24$ electrons ($d^6$ configuration).\nStep 3: Just like cyclopentadienyl $[\\text{C}_5\\text{H}_5]^-$, each $[\\eta^5\\text{-C}_2\\text{B}_9\\text{H}_{11}]^{2-}$ ligand donates 6 $\\pi$-electrons to the metal center via its three bonding frontier MOs ($a_1$ and $e_1$). Two ligands donate $2 \\times 6 = 12$ electrons.\nStep 4: Calculating the Effective Atomic Number (EAN): $\\text{EAN} = 24\\text{ (from } \\text{Fe}^{2+}) + 12\\text{ (from 2 ligands)} = 36$.\nStep 5: Since $36$ is the atomic number of the noble gas Krypton ($\\text{Kr}$), and the valence shell electron count is $6\\,(d^6) + 12 = 18$ electrons, the complex strictly obeys the 18-electron rule, conferring exceptional chemical stability.\nDistractor B forgets the ligand charges and treats the system as $\\text{Fe}^0$ with 4-electron ligands, C treats each carborane as an 8-electron donor, and D treats the carboranes as 4-electron donors."
+    }
+  ]
+}

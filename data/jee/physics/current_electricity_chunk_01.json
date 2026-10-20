@@ -1,0 +1,799 @@
+{
+  "questions": [
+    {
+      "id": "ce_c01_001",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A uniform copper wire of length $L = 3.0\\text{ m}$ and cross-sectional area $A = 1.5\\text{ mm}^2$ carries a steady direct current of $I = 2.4\\text{ A}$. The conduction electron density of copper is $n = 8.0 \\times 10^{28}\\text{ m}^{-3}$ and the elementary charge is $e = 1.6 \\times 10^{-19}\\text{ C}$. Determine the time taken by a conduction electron to drift from one end of the wire to the other.",
+      "options": [
+        "A) $2.4 \\times 10^{4}\\text{ s}$",
+        "B) $1.2 \\times 10^{4}\\text{ s}$",
+        "C) $3.6 \\times 10^{3}\\text{ s}$",
+        "D) $4.8 \\times 10^{4}\\text{ s}$"
+      ],
+      "answer": "A",
+      "explanation": "The current density is $j = \\frac{I}{A} = \\frac{2.4}{1.5 \\times 10^{-6}} = 1.6 \\times 10^{6}\\text{ A/m}^2$. Applying the relation $j = n e v_d$, the electron drift speed is $v_d = \\frac{j}{n e} = \\frac{1.6 \\times 10^{6}}{(8.0 \\times 10^{28})(1.6 \\times 10^{-19})} = 1.25 \\times 10^{-4}\\text{ m/s}$. The required drift transit time is $t = \\frac{L}{v_d} = \\frac{3.0}{1.25 \\times 10^{-4}} = 2.4 \\times 10^{4}\\text{ s}$. Forgetting to convert square millimeters to square meters yields an incorrect magnitude; halving the transit distance yields $1.2 \\times 10^{4}\\text{ s}$; dividing by an erroneous velocity factor gives $3.6 \\times 10^{3}\\text{ s}$; doubling the effective length yields $4.8 \\times 10^{4}\\text{ s}$."
+    },
+    {
+      "id": "ce_c01_002",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A platinum resistance thermometer has a measured resistance of $R_0 = 10.0\\ \\Omega$ at the ice point ($0^\\circ\\text{C}$) and $R_{100} = 13.8\\ \\Omega$ at the steam point ($100^\\circ\\text{C}$). When placed inside a heated fluid bath, its resistance rises to $R_T = 15.7\\ \\Omega$. Assuming a strictly linear temperature dependence of resistance, determine the temperature $T$ of the bath.",
+      "options": [
+        "A) $125^\\circ\\text{C}$",
+        "B) $150^\\circ\\text{C}$",
+        "C) $165^\\circ\\text{C}$",
+        "D) $180^\\circ\\text{C}$"
+      ],
+      "answer": "B",
+      "explanation": "The fractional change per unit temperature rise gives the temperature coefficient $\\alpha = \\frac{R_{100} - R_0}{R_0 \\times 100} = \\frac{13.8 - 10.0}{10.0 \\times 100} = 3.8 \\times 10^{-3}\\ ^\\circ\\text{C}^{-1}$. For the unknown bath temperature, $R_T = R_0(1 + \\alpha T)$, which implies $T = \\frac{R_T - R_0}{\\alpha R_0} = \\frac{15.7 - 10.0}{(3.8 \\times 10^{-3})(10.0)} = \\frac{5.7}{0.038} = 150^\\circ\\text{C}$. Using $R_{100}$ in the denominator instead of the ice-point base resistance gives $125^\\circ\\text{C}$; scaling directly from the steam point without subtracting the base reference yields $165^\\circ\\text{C}$; neglecting the denominator scaling gives $180^\\circ\\text{C}$."
+    },
+    {
+      "id": "ce_c01_003",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Two resistors $R_1 = 40\\ \\Omega$ with temperature coefficient $\\alpha_1 = 4.0 \\times 10^{-3}\\ ^\\circ\\text{C}^{-1}$ and $R_2 = 60\\ \\Omega$ with temperature coefficient $\\alpha_2 = 1.0 \\times 10^{-3}\\ ^\\circ\\text{C}^{-1}$ defined at $0^\\circ\\text{C}$ are connected in series. The effective temperature coefficient of resistance of the series combination at $0^\\circ\\text{C}$ is $\\alpha_{eq} \\times 10^{-4}\\ ^\\circ\\text{C}^{-1}$. Find the integer value of $\\alpha_{eq}$.",
+      "options": [],
+      "answer": "22",
+      "explanation": "At temperature $T$, the total series resistance is $R_s(T) = R_1(1 + \\alpha_1 T) + R_2(1 + \\alpha_2 T) = (R_1 + R_2) + (R_1 \\alpha_1 + R_2 \\alpha_2)T$. Expressing this in standard form as $R_s(T) = R_s(0)(1 + \\alpha_{eq} T)$, we obtain $\\alpha_{eq} = \\frac{R_1 \\alpha_1 + R_2 \\alpha_2}{R_1 + R_2}$. Substituting the given numerical values: $\\alpha_{eq} = \\frac{(40)(4.0 \\times 10^{-3}) + (60)(1.0 \\times 10^{-3})}{40 + 60} = \\frac{0.16 + 0.06}{100} = 2.2 \\times 10^{-3}\\ ^\\circ\\text{C}^{-1} = 22 \\times 10^{-4}\\ ^\\circ\\text{C}^{-1}$."
+    },
+    {
+      "id": "ce_c01_004",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An ideal DC voltage source supplying $100\\text{ V}$ is connected across a series combination of two resistors $R_1 = 20\\text{ k}\\Omega$ and $R_2 = 30\\text{ k}\\Omega$. A non-ideal voltmeter with an internal coil resistance of $R_V = 60\\text{ k}\\Omega$ is connected across resistor $R_2$ to measure the potential difference across it. What reading is displayed by the voltmeter?",
+      "options": [
+        "A) $60\\text{ V}$",
+        "B) $40\\text{ V}$",
+        "C) $50\\text{ V}$",
+        "D) $45\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "When connected across $R_2$, the voltmeter forms an equivalent parallel resistance $R_p = \\frac{R_2 R_V}{R_2 + R_V} = \\frac{(30)(60)}{30 + 60} = \\frac{1800}{90} = 20\\text{ k}\\Omega$. The total circuit resistance becomes $R_{total} = R_1 + R_p = 20\\text{ k}\\Omega + 20\\text{ k}\\Omega = 40\\text{ k}\\Omega$. Applying the potential divider rule, the voltmeter reading is $V_p = 100 \\times \\frac{R_p}{R_{total}} = 100 \\times \\frac{20}{40} = 50\\text{ V}$. An ideal voltmeter without loading would read $100 \\times \\frac{30}{50} = 60\\text{ V}$; connecting across $R_1$ instead gives $40\\text{ V}$; averaging the unloaded and loaded voltages yields $45\\text{ V}$."
+    },
+    {
+      "id": "ce_c01_005",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a meter bridge setup, a known resistance $R = 3.0\\ \\Omega$ is connected in the left gap and an unknown resistance $X$ is connected in the right gap. The balance null point is observed at $l = 40.0\\text{ cm}$ from the left zero mark. End corrections at the left and right ends of the wire are found to be $\\delta_1 = 1.0\\text{ cm}$ and $\\delta_2 = 2.0\\text{ cm}$ respectively. Calculate the corrected value of the unknown resistance $X$.",
+      "options": [
+        "A) $4.50\\ \\Omega$",
+        "B) $4.20\\ \\Omega$",
+        "C) $4.85\\ \\Omega$",
+        "D) $4.54\\ \\Omega$"
+      ],
+      "answer": "D",
+      "explanation": "The effective length of the left bridge arm including its end correction is $l_1' = l + \\delta_1 = 40.0 + 1.0 = 41.0\\text{ cm}$. The effective length of the right bridge arm is $l_2' = (100.0 - l) + \\delta_2 = (100.0 - 40.0) + 2.0 = 62.0\\text{ cm}$. At Wheatstone bridge balance, $\\frac{R}{X} = \\frac{l_1'}{l_2'} \\implies X = R \\frac{l_2'}{l_1'} = 3.0 \\times \\frac{62.0}{41.0} = \\frac{186.0}{41.0} \\approx 4.537\\ \\Omega \\approx 4.54\\ \\Omega$. Completely ignoring end corrections yields $3.0 \\times \\frac{60}{40} = 4.50\\ \\Omega$; swapping the end corrections yields $4.20\\ \\Omega$; miscalculating the right-arm length gives $4.85\\ \\Omega$."
+    },
+    {
+      "id": "ce_c01_006",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A potentiometer wire of length $400\\text{ cm}$ has a resistance of $8\\ \\Omega$. It is connected in series with a steady driver cell of emf $4.0\\text{ V}$ (having negligible internal resistance) and an external rheostat of $12\\ \\Omega$. A test cell produces a null balance point at $l_1 = 240\\text{ cm}$ on open circuit. When a shunt resistor $R = 6\\ \\Omega$ is placed across the terminals of this test cell, the balance point shifts to $l_2 = 180\\text{ cm}$. Calculate the internal resistance $r$ of the test cell in ohms.",
+      "options": [],
+      "answer": "2",
+      "explanation": "In an open circuit, the balancing length is directly proportional to the cell emf, giving $\\mathcal{E} \\propto l_1$. When shunted by external resistance $R$, the terminal potential difference across the cell is $V = \\frac{\\mathcal{E} R}{R + r} \\propto l_2$. Dividing these expressions yields $\\frac{\\mathcal{E}}{V} = \\frac{R + r}{R} = \\frac{l_1}{l_2}$. Solving for the internal resistance: $r = R \\left(\\frac{l_1 - l_2}{l_2}\\right) = 6 \\left(\\frac{240 - 180}{180}\\right) = 6 \\times \\frac{60}{180} = 2\\ \\Omega$."
+    },
+    {
+      "id": "ce_c01_007",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A moving-coil galvanometer has an internal coil resistance of $G = 99.9\\ \\Omega$ and exhibits full-scale deflection when a current of $I_g = 10\\text{ mA}$ passes through it. To adapt this instrument into an ammeter capable of measuring currents up to $I = 10.0\\text{ A}$, a low-resistance shunt $S$ is connected in parallel with the coil. What is the required resistance of this shunt?",
+      "options": [
+        "A) $0.100\\ \\Omega$",
+        "B) $0.010\\ \\Omega$",
+        "C) $0.090\\ \\Omega$",
+        "D) $1.000\\ \\Omega$"
+      ],
+      "answer": "A",
+      "explanation": "Because the galvanometer coil and shunt resistor are connected in parallel, they share identical potential differences at full scale: $I_g G = (I - I_g) S$. Substituting $I_g = 10\\text{ mA} = 0.010\\text{ A}$, $G = 99.9\\ \\Omega$, and total current $I = 10.0\\text{ A}$: $S = \\frac{I_g G}{I - I_g} = \\frac{(0.010)(99.9)}{10.0 - 0.010} = \\frac{0.999}{9.99} = 0.100\\ \\Omega$. Approximating the shunt current as $I$ and misplacing a decimal gives $0.010\\ \\Omega$; miscalculating the difference $(I - I_g)$ gives $0.090\\ \\Omega$; omitting the division by full-scale current yields $1.000\\ \\Omega$."
+    },
+    {
+      "id": "ce_c01_008",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A real DC battery has an electromotive force of $\\mathcal{E} = 18.0\\text{ V}$ and a non-zero internal resistance of $r = 3.0\\ \\Omega$. The battery is connected across a variable external load resistor $R$. When $R$ is adjusted to extract the maximum possible electrical power from the battery, what is the power dissipated in the load resistor?",
+      "options": [
+        "A) $54.0\\text{ W}$",
+        "B) $27.0\\text{ W}$",
+        "C) $13.5\\text{ W}$",
+        "D) $36.0\\text{ W}$"
+      ],
+      "answer": "B",
+      "explanation": "According to the maximum power transfer theorem, power dissipated in the external load $R$ is maximized when the load resistance equals the internal resistance of the source, $R = r = 3.0\\ \\Omega$. The circuit current under this condition is $I = \\frac{\\mathcal{E}}{R + r} = \\frac{18.0}{3.0 + 3.0} = 3.0\\text{ A}$. The power dissipated in the load is $P = I^2 R = (3.0)^2 \\times 3.0 = 27.0\\text{ W}$. Calculating the total power supplied by the battery gives $54.0\\text{ W}$; halving the current before squaring yields $13.5\\text{ W}$; computing $\\mathcal{E}^2 / r$ without the potential divider drop yields $36.0\\text{ W}$."
+    },
+    {
+      "id": "ce_c01_009",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A solid conductor of length $L$ is machined in the form of a truncated right circular cone with uniform resistivity $\rho$. The radius of the circular cross-section increases linearly from $a$ at the smaller circular face to $b$ at the larger circular face ($b > a$). Assuming current lines flow strictly parallel to the symmetry axis, find the total resistance between the two flat circular ends.",
+      "options": [
+        "A) $\\frac{\\rho L}{\\pi (b^2 - a^2)}$",
+        "B) $\\frac{2\\rho L}{\\pi (a + b)^2}$",
+        "C) $\\frac{\\rho L}{\\pi a b}$",
+        "D) $\\frac{\\rho L}{\\pi (a^2 + b^2)}$"
+      ],
+      "answer": "C",
+      "explanation": "At an axial distance $x$ from the smaller face, the cross-sectional radius is $r(x) = a + \\left(\\frac{b - a}{L}\\right)x$. The resistance of a thin circular disk of thickness $dx$ is $dR = \\frac{\\rho\\, dx}{\\pi [r(x)]^2}$. Integrating from $x = 0$ to $x = L$: $R = \\int_0^L \\frac{\\rho\\, dx}{\\pi [a + kx]^2} = \\frac{\\rho}{\\pi k}\\left[-\\frac{1}{a + kx}\\right]_0^L = \\frac{\\rho}{\\pi \\frac{b-a}{L}}\\left(\\frac{1}{a} - \\frac{1}{b}\\right) = \\frac{\\rho L}{\\pi a b}$. Using the arithmetic mean area gives $\\frac{4\\rho L}{\\pi (a+b)^2}$; integrating the area directly rather than differential resistance yields $\\frac{\\rho L}{\\pi (b^2 - a^2)}$; using root-mean-square radius yields $\\frac{\\rho L}{\\pi (a^2 + b^2)}$."
+    },
+    {
+      "id": "ce_c01_010",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A cylindrical metallic fuse wire of circular cross-section with radius $r_1 = 0.1\\text{ mm}$ melts under a steady fusing current of $I_1 = 4\\text{ A}$. The rate of heat dissipation from the wire surface to the environment is proportional to its surface area and the steady temperature difference. For a wire made of the same metal to melt at steady state, what current in amperes is required if its radius is $r_2 = 0.4\\text{ mm}$?",
+      "options": [],
+      "answer": "32",
+      "explanation": "At steady-state thermal equilibrium before melting, Joule heat generated per second equals heat lost per second: $I^2 R = h (2\\pi r L) \\Delta T$. Substituting $R = \\frac{\\rho L}{\\pi r^2}$ gives $I^2 \\left(\\frac{\\rho L}{\\pi r^2}\\right) = 2\\pi h \\Delta T\\, r L \\implies I^2 \\propto r^3 \\implies I \\propto r^{3/2}$. Taking the ratio for the two fuse wires: $\\frac{I_2}{I_1} = \\left(\\frac{r_2}{r_1}\\right)^{3/2} = \\left(\\frac{0.4}{0.1}\\right)^{3/2} = 4^{3/2} = 8$. Hence, the required fusing current is $I_2 = 8 \\times 4\\text{ A} = 32\\text{ A}$."
+    },
+    {
+      "id": "ce_c01_011",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A collection of $N = 36$ identical cells, each having an emf of $\\mathcal{E} = 1.5\\text{ V}$ and an internal resistance of $r = 0.5\\ \\Omega$, is arranged in a mixed grouping of $m$ parallel rows with $n$ cells connected in series in each row ($m \\times n = 36$). This combination powers an external load of resistance $R_L = 4.5\\ \\Omega$. To achieve the maximum possible current through the load, what should be the values of $n$ and $m$?",
+      "options": [
+        "A) $n = 12,\\ m = 3$",
+        "B) $n = 6,\\ m = 6$",
+        "C) $n = 9,\\ m = 4$",
+        "D) $n = 18,\\ m = 2$"
+      ],
+      "answer": "D",
+      "explanation": "The total equivalent internal resistance of $m$ rows of $n$ series cells is $R_{int} = \\frac{n r}{m}$. The load current is $I_L = \\frac{n \\mathcal{E}}{R_L + \\frac{n r}{m}} = \\frac{m n \\mathcal{E}}{m R_L + n r}$. To maximize current for a fixed product $m n = 36$, the denominator is minimized when $m R_L = n r$, yielding $\\frac{n}{m} = \\frac{R_L}{r} = \\frac{4.5}{0.5} = 9 \\implies n = 9m$. Substituting $n = 9m$ into $m n = 36$ yields $9m^2 = 36 \\implies m = 2$, and consequently $n = 18$. Choosing equal row and series numbers gives $n = 6, m = 6$; setting $n/m = 4$ yields $n = 12, m = 3$; taking non-matching factors gives $n = 9, m = 4$."
+    },
+    {
+      "id": "ce_c01_012",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An unbalanced bridge network has four resistive arms: $R_{AB} = 2.0\\ \\Omega$, $R_{BC} = 4.0\\ \\Omega$, $R_{AD} = 4.0\\ \\Omega$, and $R_{CD} = 2.0\\ \\Omega$. A galvanometer with internal coil resistance $R_g = 10.0\\ \\Omega$ is bridged between nodes $B$ and $D$. An ideal source of emf $\\mathcal{E} = 6.0\\text{ V}$ is applied across nodes $A$ and $C$. Calculate the current flowing through the galvanometer from node $B$ to node $D$.",
+      "options": [
+        "A) $\\frac{3}{19}\\text{ A}$",
+        "B) $\\frac{1}{6}\\text{ A}$",
+        "C) $\\frac{2}{15}\\text{ A}$",
+        "D) $\\frac{5}{38}\\text{ A}$"
+      ],
+      "answer": "A",
+      "explanation": "Taking node $C$ at $0\\text{ V}$, node $A$ is at $6.0\\text{ V}$. By potential division, $V_B = 6.0 \\times \\frac{R_{BC}}{R_{AB} + R_{BC}} = 6.0 \\times \\frac{4}{2 + 4} = 4.0\\text{ V}$ and $V_D = 6.0 \\times \\frac{R_{CD}}{R_{AD} + R_{CD}} = 6.0 \\times \\frac{2}{4 + 2} = 2.0\\text{ V}$. The open-circuit Thevenin voltage is $V_{Th} = V_B - V_D = 4.0 - 2.0 = 2.0\\text{ V}$. The Thevenin output resistance is $R_{Th} = (2 \\parallel 4) + (4 \\parallel 2) = \\frac{4}{3} + \\frac{4}{3} = \\frac{8}{3}\\ \\Omega$. Thus, the galvanometer current is $I_g = \\frac{V_{Th}}{R_{Th} + R_g} = \\frac{2.0}{\\frac{8}{3} + 10} = \\frac{2.0}{\\frac{38}{3}} = \\frac{6}{38} = \\frac{3}{19}\\text{ A}$. Neglecting bridge Thevenin resistance gives $2.0 / 10 = 0.2\\text{ A}$ or $1/6\\text{ A}$; adding arm resistances in series yields $2/15\\text{ A}$; arithmetic slips in the parallel sum yield $5/38\\text{ A}$."
+    },
+    {
+      "id": "ce_c01_013",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A uniform cylindrical metallic wire of initial resistance $R_0 = 16\\ \\Omega$ is drawn out through a die and stretched uniformly along its length until its length increases by $25\\%$. Assuming that the material density and resistivity remain strictly constant throughout the deformation, determine the new electrical resistance of the wire.",
+      "options": [
+        "A) $20\\ \\Omega$",
+        "B) $25\\ \\Omega$",
+        "C) $28\\ \\Omega$",
+        "D) $32\\ \\Omega$"
+      ],
+      "answer": "B",
+      "explanation": "Because mass and density are constant, the wire volume $V = A L$ is conserved during stretching, so $A = \\frac{V}{L}$. The resistance is $R = \\frac{\\rho L}{A} = \\frac{\\rho L^2}{V} \\propto L^2$. When the wire is stretched by $25\\%$, its new length becomes $L = 1.25 L_0 = \\frac{5}{4} L_0$. Consequently, the new resistance is $R = R_0 \\left(\\frac{5}{4}\\right)^2 = 16 \\times \\frac{25}{16} = 25\\ \\Omega$. Assuming the cross-sectional area remains unchanged gives $R = 1.25 \\times 16 = 20\\ \\Omega$; miscalculating the squared fraction gives $28\\ \\Omega$; doubling the resistance arbitrarily gives $32\\ \\Omega$."
+    },
+    {
+      "id": "ce_c01_014",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A circuit contains an ideal DC battery of emf $\\mathcal{E} = 24.0\\text{ V}$ connected across two parallel branches. The first branch contains only a resistor $R_1 = 6.0\\ \\Omega$. The second branch contains a resistor $R_2 = 12.0\\ \\Omega$ in series with an initially uncharged capacitor $C = 5.0\\ \\mu\\text{F}$. Immediately after the switch is closed ($t = 0^+$) and in the final steady state ($t \\to \\infty$), the total currents supplied by the battery are, respectively:",
+      "options": [
+        "A) $4.0\\text{ A}$ and $2.0\\text{ A}$",
+        "B) $2.0\\text{ A}$ and $4.0\\text{ A}$",
+        "C) $6.0\\text{ A}$ and $4.0\\text{ A}$",
+        "D) $6.0\\text{ A}$ and $2.0\\text{ A}$"
+      ],
+      "answer": "C",
+      "explanation": "At $t = 0^+$, the uncharged capacitor has zero initial potential across its plates and behaves as an ideal short circuit. The initial current in branch 1 is $I_1 = \\frac{24.0}{6.0} = 4.0\\text{ A}$ and in branch 2 is $I_2(0^+) = \\frac{24.0}{12.0} = 2.0\\text{ A}$, yielding total initial current $I(0^+) = 4.0 + 2.0 = 6.0\\text{ A}$. In the long-time steady state ($t \\to \\infty$), the fully charged capacitor blocks direct current ($I_2 = 0$), so the battery supplies only branch 1: $I(\\infty) = I_1 = 4.0\\text{ A}$. Treating the capacitor as open initially and shorted in steady state reverses the values to $4.0\\text{ A}$ and $6.0\\text{ A}$ or $2.0\\text{ A}$ and $4.0\\text{ A}$; reading individual branch currents gives $4.0\\text{ A}$ and $2.0\\text{ A}$."
+    },
+    {
+      "id": "ce_c01_015",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Six identical resistors of resistance $R = 6.0\\ \\Omega$ form the perimeter of a regular hexagon $ABCDEF$. In addition, six identical resistors, each also having resistance $R = 6.0\\ \\Omega$, connect each vertex to a central junction node $O$. Determine the equivalent electrical resistance between two diametrically opposite vertices $A$ and $D$.",
+      "options": [
+        "A) $3.6\\ \\Omega$",
+        "B) $5.0\\ \\Omega$",
+        "C) $6.0\\ \\Omega$",
+        "D) $4.8\\ \\Omega$"
+      ],
+      "answer": "D",
+      "explanation": "Applying symmetry with $V_A = 1\\text{ V}$ and $V_D = 0\\text{ V}$, antisymmetry across the perpendicular bisector line sets the central node potential to $V_O = 0.5\\text{ V}$. By longitudinal mirror symmetry, $V_B = V_F$ and $V_C = V_E$. Applying KCL at node $B$: $\\frac{V_B - 1}{6} + \\frac{V_B - 0.5}{6} + \\frac{V_B - V_C}{6} = 0 \\implies 3V_B - V_C = 1.5$. At node $C$: $\\frac{V_C - V_B}{6} + \\frac{V_C - 0.5}{6} + \\frac{V_C - 0}{6} = 0 \\implies 3V_C - V_B = 0.5$. Solving this linear system gives $V_C = \\frac{3}{8}\\text{ V}$ and $V_B = \\frac{5}{8}\\text{ V}$. The total current entering node $A$ is $I_{in} = 2\\left(\\frac{1 - 5/8}{6}\\right) + \\frac{1 - 0.5}{6} = \\frac{6/8 + 4/8}{6} = \\frac{5}{24}\\text{ A}$. The equivalent resistance is $R_{eq} = \\frac{1}{5/24} = \\frac{24}{5} = 4.8\\ \\Omega$. Neglecting the internal spokes gives $3.6\\ \\Omega$; assuming equal splitting across spokes gives $5.0\\ \\Omega$; neglecting nodal coupling gives $6.0\\ \\Omega$."
+    },
+    {
+      "id": "ce_c01_016",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An infinite ladder network is constructed from repeating sections of series resistors $R_1 = 2.0\\ \\Omega$ and shunt resistors $R_2 = 4.0\\ \\Omega$. If input terminals $A$ and $B$ are connected across the front of this ladder, determine the equivalent electrical resistance $R_{eq}$ of the infinite network.",
+      "options": [
+        "A) $4.0\\ \\Omega$",
+        "B) $3.0\\ \\Omega$",
+        "C) $5.5\\ \\Omega$",
+        "D) $6.0\\ \\Omega$"
+      ],
+      "answer": "A",
+      "explanation": "Because the ladder extends infinitely, adding one additional unit cell $(R_1, R_2)$ to the input leaves the total equivalent resistance unchanged: $R_{eq} = R_1 + \\frac{R_{eq} R_2}{R_{eq} + R_2}$. Substituting $R_1 = 2.0\\ \\Omega$ and $R_2 = 4.0\\ \\Omega$ yields $R_{eq} = 2.0 + \\frac{4.0 R_{eq}}{R_{eq} + 4.0}$. Multiplying through by $(R_{eq} + 4.0)$ gives $R_{eq}^2 + 4.0 R_{eq} = 2.0 R_{eq} + 8.0 + 4.0 R_{eq}$, which simplifies to $R_{eq}^2 - 2.0 R_{eq} - 8.0 = 0$. Factoring the quadratic gives $(R_{eq} - 4.0)(R_{eq} + 2.0) = 0$. Rejecting the negative root leaves $R_{eq} = 4.0\\ \\Omega$. Truncating the ladder after two stages gives $3.0\\ \\Omega$; simply summing the two arm values in series yields $6.0\\ \\Omega$; a sign error in solving the quadratic yields $5.5\\ \\Omega$."
+    },
+    {
+      "id": "ce_c01_017",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Twelve identical uniform ohmic resistors, each of resistance $R = 12.0\\ \\Omega$, are soldered together to form the skeletal edges of a regular cube. A battery connects across two diagonally opposite vertices defining a main body diagonal. Find the equivalent resistance of the cube network between these two terminals.",
+      "options": [
+        "A) $14.4\\ \\Omega$",
+        "B) $10.0\\ \\Omega$",
+        "C) $8.0\\ \\Omega$",
+        "D) $12.0\\ \\Omega$"
+      ],
+      "answer": "B",
+      "explanation": "Let total current $I$ enter at corner $A$ and exit at opposite corner $H$. By threefold rotational symmetry about the body diagonal axis, the entering current splits equally among the 3 incident edges, each carrying current $I/3$. At the subsequent vertices, each edge bifurcates into 2 edges, so each of the 6 intermediate edges carries current $I/6$. Before exiting, the current recombines into 3 edges, each carrying current $I/3$. The total potential drop along any path is $V = \\frac{I}{3}R + \\frac{I}{6}R + \\frac{I}{3}R = \\frac{5}{6}IR$. Thus, the equivalent resistance is $R_{eq} = \\frac{5}{6}R = \\frac{5}{6} \\times 12.0 = 10.0\\ \\Omega$. Using the face-diagonal formula $\\frac{3}{4}R$ gives $9.0\\ \\Omega$; using the edge formula $\\frac{7}{12}R$ gives $7.0\\ \\Omega$; adding branches without three-dimensional branching symmetry yields $14.4\\ \\Omega$ or $8.0\\ \\Omega$."
+    },
+    {
+      "id": "ce_c01_018",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Twelve identical resistors, each having a resistance of $R = 24\\ \\Omega$, are connected along the twelve edges of a cube. Find the equivalent electrical resistance, in ohms, across two diagonally opposite vertices situated on the same square face of the cube.",
+      "options": [],
+      "answer": "18",
+      "explanation": "Let the two connection terminals be diagonally opposite corners of a face, say $A$ and $C$. By exploiting reflection symmetry across the vertical diagonal plane passing through $A$ and $C$ as well as the perpendicular symmetry bisector, equipotential nodes can be identified. Reducing the symmetric network yields the standard relation for face-diagonal resistance: $R_{face} = \\frac{3}{4}R$. Substituting $R = 24\\ \\Omega$, we obtain $R_{face} = \\frac{3}{4} \\times 24 = 18\\ \\Omega$."
+    },
+    {
+      "id": "ce_c01_019",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Twelve identical resistors, each of resistance $R = 24.0\\ \\Omega$, form the edges of a regular cube. What is the equivalent electrical resistance between two adjacent vertices defining a single edge of the cube?",
+      "options": [
+        "A) $10.0\\ \\Omega$",
+        "B) $18.0\\ \\Omega$",
+        "C) $14.0\\ \\Omega$",
+        "D) $16.0\\ \\Omega$"
+      ],
+      "answer": "C",
+      "explanation": "Let current enter at vertex $A$ and exit at adjacent vertex $B$. Decomposing the circuit into symmetric and antisymmetric modes across the plane perpendicular to edge $AB$, or applying nodal analysis, the potential difference across edge $AB$ is $V_{AB} = \\frac{7}{12}IR$. The equivalent resistance across an edge of the cube is therefore $R_{edge} = \\frac{7}{12}R = \\frac{7}{12} \\times 24.0 = 14.0\\ \\Omega$. Applying the body-diagonal formula $\\frac{5}{6}R$ yields $20.0\\ \\Omega$; using the face-diagonal formula $\\frac{3}{4}R$ gives $18.0\\ \\Omega$; treating the remaining cube edges as three parallel loops without bridge coupling yields $16.0\\ \\Omega$."
+    },
+    {
+      "id": "ce_c01_020",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A hollow spherical conductor consists of an inner spherical conducting surface of radius $r_1 = 2.0\\text{ cm}$ and a concentric outer spherical conducting surface of radius $r_2 = 6.0\\text{ cm}$. The region between the two concentric surfaces is filled with a uniform material of resistivity $\\rho = 120\\pi\\ \\Omega\\cdot\\text{m}$. Find the total electrical resistance for radial current flow between the inner and outer spherical surfaces.",
+      "options": [
+        "A) $500\\ \\Omega$",
+        "B) $750\\ \\Omega$",
+        "C) $1200\\ \\Omega$",
+        "D) $1000\\ \\Omega$"
+      ],
+      "answer": "D",
+      "explanation": "Consider a concentric spherical shell of radius $r$ and radial thickness $dr$ ($r_1 \\le r \\le r_2$). The surface area through which current flows radially outward is $A(r) = 4\\pi r^2$. The elemental resistance is $dR = \\frac{\\rho\\, dr}{4\\pi r^2}$. Integrating from $r = r_1$ to $r = r_2$: $R = \\frac{\\rho}{4\\pi}\\int_{r_1}^{r_2} \\frac{dr}{r^2} = \\frac{\\rho}{4\\pi}\\left(\\frac{1}{r_1} - \\frac{1}{r_2}\\right)$. Substituting the values: $R = \\frac{120\\pi}{4\\pi}\\left(\\frac{1}{0.02} - \\frac{1}{0.06}\\right) = 30(50 - 16.67) = 30 \\times \\frac{100}{3} = 1000\\ \\Omega$. Taking an arithmetic mean radius yields $500\\ \\Omega$; miscalculating the difference of reciprocals gives $750\\ \\Omega$; dropping the factor of $4\\pi$ gives $1200\\ \\Omega$."
+    },
+    {
+      "id": "ce_c01_021",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An initially uncharged capacitor of capacitance $C = 4.0\\ \\mu\\text{F}$ is charged through a resistor $R = 250\\text{ k}\\Omega$ by an ideal battery of emf $\\mathcal{E} = 12.0\\text{ V}$. Find the time elapsed, in seconds, when the instantaneous current charging the capacitor drops to $e^{-2}$ times its initial current at $t = 0^+$.",
+      "options": [],
+      "answer": "2",
+      "explanation": "The circuit time constant is $\\tau = R C = (250 \\times 10^3\\ \\Omega)(4.0 \\times 10^{-6}\\text{ F}) = 1.0\\text{ s}$. The instantaneous charging current decays exponentially according to $I(t) = I_0 e^{-t/\\tau} = I_0 e^{-t/1.0}$. Setting $I(t) = I_0 e^{-2}$, we have $e^{-t/1.0} = e^{-2} \\implies t = 2.0\\text{ s} = 2\\text{ s}$."
+    },
+    {
+      "id": "ce_c01_022",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An uncharged capacitor of capacitance $C$ is connected in series with a resistor $R$ across an ideal battery of constant electromotive force $\\mathcal{E}$. After a time duration $t \\gg RC$ when the capacitor has attained its full equilibrium charge, which of the following expressions represents the total heat energy dissipated in the resistor $R$?",
+      "options": [
+        "A) $\\frac{1}{2} C \\mathcal{E}^2$",
+        "B) $C \\mathcal{E}^2$",
+        "C) $\\frac{1}{2} \\frac{\\mathcal{E}^2}{R}$",
+        "D) $\\frac{1}{4} C \\mathcal{E}^2$"
+      ],
+      "answer": "A",
+      "explanation": "The battery delivers total charge $Q = C\\mathcal{E}$. The work done by the battery is $W = Q\\mathcal{E} = C\\mathcal{E}^2$. The final electrostatic energy stored in the capacitor electric field is $U = \\frac{1}{2}C\\mathcal{E}^2$. By the law of conservation of energy, the dissipated Joule heat is $H = W - U = C\\mathcal{E}^2 - \\frac{1}{2}C\\mathcal{E}^2 = \\frac{1}{2}C\\mathcal{E}^2$, which is strictly independent of $R$. Confusing total work done by the battery with thermal dissipation yields $C\\mathcal{E}^2$; attempting Ohm's law directly without integrating time leads to dimensional mismatch $\\frac{1}{2}\\frac{\\mathcal{E}^2}{R}$; introducing an unphysical factor of $1/4$ gives $\\frac{1}{4}C\\mathcal{E}^2$."
+    },
+    {
+      "id": "ce_c01_023",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A high-voltage coaxial cable consists of an inner solid cylindrical conductor of radius $a = 1.0\\text{ mm}$ and an outer coaxial cylindrical sheath of inner radius $b = e^2\\text{ mm} \\approx 7.39\\text{ mm}$. The cable length is $L = 100\\text{ m}$. The insulating material between the conductors has a volume resistivity of $\\rho = 2\\pi \\times 10^{11}\\ \\Omega\\cdot\\text{m}$. Find the total radial leakage resistance of the insulation between the inner conductor and outer sheath.",
+      "options": [
+        "A) $1.0\\text{ G}\\Omega$",
+        "B) $2.0\\text{ G}\\Omega$",
+        "C) $4.0\\text{ G}\\Omega$",
+        "D) $0.5\\text{ G}\\Omega$"
+      ],
+      "answer": "B",
+      "explanation": "For a cylindrical shell of radius $r$, thickness $dr$, and length $L$, the radial cross-sectional area is $A(r) = 2\\pi r L$. The elemental radial resistance is $dR = \\frac{\\rho\\, dr}{2\\pi r L}$. Integrating from $r = a$ to $r = b$: $R = \\frac{\\rho}{2\\pi L} \\int_a^b \\frac{dr}{r} = \\frac{\\rho}{2\\pi L}\\ln\\left(\\frac{b}{a}\\right)$. Since $\\frac{b}{a} = e^2$, $\\ln\\left(\\frac{b}{a}\\right) = 2$. Substituting the values: $R = \\frac{2\\pi \\times 10^{11}}{2\\pi \\times 100} \\times 2 = \\frac{10^{11}}{100} \\times 2 = 2 \\times 10^9\\ \\Omega = 2.0\\text{ G}\\Omega$. Omitting the factor of 2 from $\\ln(e^2)$ yields $1.0\\text{ G}\\Omega$; doubling the logarithmic term yields $4.0\\text{ G}\\Omega$; dividing by the logarithmic factor yields $0.5\\text{ G}\\Omega$."
+    },
+    {
+      "id": "ce_c01_024",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Three identical resistors of $6\\ \\Omega$ each form a delta network. The delta network is transformed into an equivalent star network with branches $R_A, R_B, R_C$, where each branch has resistance $2\\ \\Omega$. If branches $R_B$ and $R_C$ are each connected in series with an external $4\\ \\Omega$ resistor and their opposite ends are tied together to terminal $Y$, while branch $R_A$ connects directly to terminal $X$, calculate the equivalent resistance between terminals $X$ and $Y$ in ohms.",
+      "options": [],
+      "answer": "5",
+      "explanation": "In delta-star transformation for three equal resistors $R_\\Delta = 6\\ \\Omega$, each star arm has resistance $R_Y = \\frac{R_\\Delta \\times R_\\Delta}{3 R_\\Delta} = \\frac{R_\\Delta}{3} = 2\\ \\Omega$. Branch $R_B$ with its series resistor has total resistance $R_{B,tot} = 2 + 4 = 6\\ \\Omega$. Similarly, branch $R_C$ with its series resistor has total resistance $R_{C,tot} = 2 + 4 = 6\\ \\Omega$. These two branches are connected in parallel between the star center and terminal $Y$, giving equivalent resistance $R_p = \\frac{6 \\times 6}{6 + 6} = 3\\ \\Omega$. Star branch $R_A = 2\\ \\Omega$ is connected in series between terminal $X$ and the star center. The total equivalent resistance between terminals $X$ and $Y$ is therefore $R_{XY} = R_A + R_p = 2 + 3 = 5\\ \\Omega$."
+    },
+    {
+      "id": "ce_c01_025",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two electrochemical cells with emfs $\\mathcal{E}_1 = 6.0\\text{ V}$ and $\\mathcal{E}_2 = 3.0\\text{ V}$, and internal resistances $r_1 = 1.0\\ \\Omega$ and $r_2 = 2.0\\ \\Omega$ respectively, are connected in parallel with matching polarities. This parallel combination powers an external load resistor of $R_L = 4.0\\ \\Omega$. Determine the terminal potential difference across the load resistor.",
+      "options": [
+        "A) $\\frac{15}{7}\\text{ V}$",
+        "B) $\\frac{45}{14}\\text{ V}$",
+        "C) $\\frac{30}{7}\\text{ V}$",
+        "D) $5.0\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "Applying Millman's theorem for parallel cells: $\\mathcal{E}_{eq} = \\frac{\\frac{\\mathcal{E}_1}{r_1} + \\frac{\\mathcal{E}_2}{r_2}}{\\frac{1}{r_1} + \\frac{1}{r_2}} = \\frac{\\frac{6.0}{1.0} + \\frac{3.0}{2.0}}{\\frac{1}{1.0} + \\frac{1}{2.0}} = \\frac{6.0 + 1.5}{1.0 + 0.5} = \\frac{7.5}{1.5} = 5.0\\text{ V}$. The equivalent internal resistance is $r_{eq} = \\frac{r_1 r_2}{r_1 + r_2} = \\frac{1.0 \\times 2.0}{1.0 + 2.0} = \\frac{2}{3}\\ \\Omega$. The load current is $I = \\frac{\\mathcal{E}_{eq}}{R_L + r_{eq}} = \\frac{5.0}{4.0 + 2/3} = \\frac{5.0}{14/3} = \\frac{15}{14}\\text{ A}$. The terminal potential difference across $R_L$ is $V_L = I R_L = \\frac{15}{14} \\times 4.0 = \\frac{30}{7}\\text{ V} \\approx 4.29\\text{ V}$. Taking open-circuit emf without load drop gives $5.0\\text{ V}$; omitting the multiplication by load resistance yields $\\frac{15}{14}\\text{ V}$; taking a simple arithmetic mean of the cell voltages yields $\\frac{45}{14}\\text{ V}$ or $\\frac{15}{7}\\text{ V}$."
+    },
+    {
+      "id": "ce_c01_026",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A capacitor of capacitance $C = 10\\ \\mu\\text{F}$ is charged to an initial potential difference of $V_0 = 100\\text{ V}$ and then isolated. It is subsequently discharged simultaneously through two parallel resistors $R_1 = 20\\ \\Omega$ and $R_2 = 30\\ \\Omega$ connected across its plates. Calculate the total thermal energy dissipated in resistor $R_1$ during the complete discharge process.",
+      "options": [
+        "A) $20\\text{ mJ}$",
+        "B) $25\\text{ mJ}$",
+        "C) $35\\text{ mJ}$",
+        "D) $30\\text{ mJ}$"
+      ],
+      "answer": "D",
+      "explanation": "The initial electrostatic energy stored in the capacitor is $U_0 = \\frac{1}{2} C V_0^2 = \\frac{1}{2}(10 \\times 10^{-6}\\text{ F})(100\\text{ V})^2 = 0.05\\text{ J} = 50\\text{ mJ}$. At any instant $t$, both resistors experience the same voltage $v(t)$, so the ratio of instantaneous power dissipation is $\\frac{P_1(t)}{P_2(t)} = \\frac{v(t)^2 / R_1}{v(t)^2 / R_2} = \\frac{R_2}{R_1} = \\frac{30}{20} = \\frac{3}{2}$. Because this ratio is constant throughout discharge, heat energy partitions in the same proportion: $H_1 = \\left(\\frac{R_2}{R_1 + R_2}\\right) U_0 = \\frac{3}{3 + 2} \\times 50\\text{ mJ} = 30\\text{ mJ}$. Inverting the resistance ratio yields $20\\text{ mJ}$; assuming equal energy partition yields $25\\text{ mJ}$; adding an arbitrary parallel fraction yields $35\\text{ mJ}$."
+    },
+    {
+      "id": "ce_c01_027",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Six identical resistors, each having a resistance of $R = 12\\ \\Omega$, are connected along the six edges of a regular tetrahedron $ABCD$. Determine the equivalent electrical resistance, in ohms, between any two vertices (such as $A$ and $B$).",
+      "options": [],
+      "answer": "6",
+      "explanation": "Connect a voltage source between vertices $A$ and $B$. By mirror symmetry across the plane passing through the midpoint of edge $AB$ and containing edge $CD$, vertices $C$ and $D$ are at identical potentials ($V_C = V_D$). Since there is zero potential difference across edge $CD$, no current flows through resistor $CD$, which can therefore be removed. The remaining network between $A$ and $B$ consists of edge $AB$ (resistance $R$), series path $ACB$ (resistance $2R$), and series path $ADB$ (resistance $2R$), all connected in parallel: $\\frac{1}{R_{eq}} = \\frac{1}{R} + \\frac{1}{2R} + \\frac{1}{2R} = \\frac{2}{R} \\implies R_{eq} = \\frac{R}{2}$. Substituting $R = 12\\ \\Omega$: $R_{eq} = \\frac{12}{2} = 6\\ \\Omega$."
+    },
+    {
+      "id": "ce_c01_028",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A straight conducting wire of length $L$ and uniform cross-sectional area $A$ has an inhomogeneous resistivity that varies linearly with distance $x$ from one end according to $\\rho(x) = \\rho_0 \\left(1 + \\frac{x}{L}\\right)$ for $0 \\le x \\le L$. If a constant potential difference $V$ is applied across its ends, find the electric field magnitude $E(x)$ inside the wire as a function of position $x$.",
+      "options": [
+        "A) $\\frac{2V}{3L}\\left(1 + \\frac{x}{L}\\right)$",
+        "B) $\\frac{V}{L}\\left(1 + \\frac{x}{L}\\right)$",
+        "C) $\\frac{V}{2L}\\left(1 + \\frac{2x}{L}\\right)$",
+        "D) $\\frac{3V}{2L}\\left(1 + \\frac{x}{L}\\right)$"
+      ],
+      "answer": "A",
+      "explanation": "The total resistance is $R = \\int_0^L \\frac{\\rho(x)\\, dx}{A} = \\frac{\\rho_0}{A}\\int_0^L \\left(1 + \\frac{x}{L}\\right) dx = \\frac{\\rho_0}{A}\\left(L + \\frac{L}{2}\\right) = \\frac{3\\rho_0 L}{2A}$. Under steady conditions, current $I = \\frac{V}{R} = \\frac{2AV}{3\\rho_0 L}$ is uniform along the wire. The current density is $j = \\frac{I}{A} = \\frac{2V}{3\\rho_0 L}$. Applying Ohm's law at position $x$: $E(x) = j \\rho(x) = \\left(\\frac{2V}{3\\rho_0 L}\\right) \\rho_0 \\left(1 + \\frac{x}{L}\\right) = \\frac{2V}{3L}\\left(1 + \\frac{x}{L}\\right)$. Assuming uniform electric field scaled by resistivity without integrating total resistance yields $\\frac{V}{L}(1+x/L)$; inverting the integral factor yields $\\frac{3V}{2L}(1+x/L)$; guessing an unnormalized linear gradient yields $\\frac{V}{2L}(1+2x/L)$."
+    },
+    {
+      "id": "ce_c01_029",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two real DC sources are connected in parallel across an external load resistor $R_L = 3.0\\ \\Omega$. Source 1 has emf $\\mathcal{E}_1 = 10.0\\text{ V}$ and internal resistance $r_1 = 2.0\\ \\Omega$. Source 2 has emf $\\mathcal{E}_2 = 4.0\\text{ V}$ and internal resistance $r_2 = 1.0\\ \\Omega$, but is connected with opposing polarity (the positive terminal of Source 1 is tied to the negative terminal of Source 2). What current flows through the load resistor $R_L$?",
+      "options": [
+        "A) $\\frac{1}{3}\\text{ A}$",
+        "B) $\\frac{2}{11}\\text{ A}$",
+        "C) $\\frac{4}{11}\\text{ A}$",
+        "D) $\\frac{6}{13}\\text{ A}$"
+      ],
+      "answer": "B",
+      "explanation": "Applying Millman's theorem with opposing cell polarities: $\\mathcal{E}_{eq} = \\frac{\\frac{\\mathcal{E}_1}{r_1} - \\frac{\\mathcal{E}_2}{r_2}}{\\frac{1}{r_1} + \\frac{1}{r_2}} = \\frac{\\frac{10.0}{2.0} - \\frac{4.0}{1.0}}{\\frac{1}{2.0} + \\frac{1}{1.0}} = \\frac{5.0 - 4.0}{0.5 + 1.0} = \\frac{1.0}{1.5} = \\frac{2}{3}\\text{ V}$. The equivalent internal resistance of the parallel sources is $r_{eq} = \\frac{r_1 r_2}{r_1 + r_2} = \\frac{2.0 \\times 1.0}{2.0 + 1.0} = \\frac{2}{3}\\ \\Omega$. Connecting to load $R_L = 3.0\\ \\Omega$, the current is $I_L = \\frac{\\mathcal{E}_{eq}}{R_L + r_{eq}} = \\frac{2/3}{3.0 + 2/3} = \\frac{2/3}{11/3} = \\frac{2}{11}\\text{ A}$. Adding the cell emfs instead of subtracting gives $\\mathcal{E}_{eq} = 6\\text{ V}$ and $I_L = \\frac{18}{11}\\text{ A}$; neglecting source internal resistances gives $\\frac{1}{3}\\text{ A}$; taking series internal resistances yields $\\frac{4}{11}\\text{ A}$."
+    },
+    {
+      "id": "ce_c01_030",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A Wheatstone bridge is formed by two parallel branches connected across a $10.0\\text{ V}$ ideal DC voltage supply. Branch $ABC$ consists of $R_{AB} = 100\\ \\Omega$ and $R_{BC} = 100\\ \\Omega$. Branch $ADC$ consists of $R_{AD} = 96\\ \\Omega$ and $R_{DC} = 104\\ \\Omega$. Supply terminals connect to nodes $A$ and $C$. Calculate the magnitude of the open-circuit potential difference between detector nodes $B$ and $D$, in millivolts ($\\text{mV}$).",
+      "options": [],
+      "answer": "200",
+      "explanation": "Taking node $C$ as reference ($V_C = 0\\text{ V}$), node $A$ is at $V_A = 10.0\\text{ V}$. By voltage divider in branch $ABC$, $V_B = V_A \\frac{R_{BC}}{R_{AB} + R_{BC}} = 10.0 \\times \\frac{100}{100 + 100} = 5.00\\text{ V}$. In branch $ADC$, $V_D = V_A \\frac{R_{DC}}{R_{AD} + R_{DC}} = 10.0 \\times \\frac{104}{96 + 104} = 10.0 \\times \\frac{104}{200} = 5.20\\text{ V}$. The magnitude of the potential difference is $\\Delta V = |V_D - V_B| = |5.20 - 5.00| = 0.20\\text{ V} = 200\\text{ mV}$."
+    },
+    {
+      "id": "ce_c01_031",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a meter bridge experiment, the end resistances of the left and right copper strips correspond to lengths $\\alpha = 1.0\\text{ cm}$ and $\\beta = 2.0\\text{ cm}$ of the bridge wire, respectively. When resistance $P$ is placed in the left gap and resistance $Q$ in the right gap, a null point is obtained at $l_1 = 41.0\\text{ cm}$. When $P$ and $Q$ are interchanged, the null point shifts to $l_2 = 60.0\\text{ cm}$. The exact ratio $P/Q$ is:",
+      "options": [
+        "A) $\\frac{41}{59}$",
+        "B) $\\frac{40}{60}$",
+        "C) $\\frac{42}{61}$",
+        "D) $\\frac{43}{62}$"
+      ],
+      "answer": "C",
+      "explanation": "With $P$ in the left gap and $Q$ in the right gap, the effective lengths are $L_1 = l_1 + \\alpha = 41.0 + 1.0 = 42.0\\text{ cm}$ and $L_2 = (100.0 - l_1) + \\beta = 59.0 + 2.0 = 61.0\\text{ cm}$. At balance, $\\frac{P}{Q} = \\frac{L_1}{L_2} = \\frac{42}{61}$. When interchanged, $\\frac{Q}{P} = \\frac{l_2 + \\alpha}{(100.0 - l_2) + \\beta} = \\frac{60.0 + 1.0}{40.0 + 2.0} = \\frac{61}{42}$, perfectly confirming consistency. Completely ignoring end corrections yields $\\frac{41}{59}$; using the uncorrected interchanged values gives $\\frac{40}{60}$; adding end corrections symmetrically gives $\\frac{43}{62}$."
+    },
+    {
+      "id": "ce_c01_032",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An initially uncharged capacitor of capacitance $C$ is charged by connecting it to an ideal battery of emf $\\mathcal{E}$ through a series resistor $R$. At time $t_1 = RC \\ln 2$, the battery is suddenly disconnected and the capacitor is immediately connected across a discharging resistor of resistance $2R$. What is the charge remaining on the capacitor at time $t_2 = t_1 + 2RC \\ln 2$?",
+      "options": [
+        "A) $\\frac{1}{2} C \\mathcal{E}$",
+        "B) $\\frac{3}{8} C \\mathcal{E}$",
+        "C) $\\frac{1}{8} C \\mathcal{E}$",
+        "D) $\\frac{1}{4} C \\mathcal{E}$"
+      ],
+      "answer": "D",
+      "explanation": "During charging ($0 \\le t \\le t_1$), the charge evolves as $q(t) = C\\mathcal{E}(1 - e^{-t/(RC)})$. At $t_1 = RC \\ln 2$, $e^{-t_1/(RC)} = \\frac{1}{2}$, so the accumulated charge is $q_1 = C\\mathcal{E}(1 - 1/2) = \\frac{1}{2}C\\mathcal{E}$. The capacitor then discharges through resistance $2R$ with time constant $\\tau_d = 2RC$. For discharge duration $\\Delta t = 2RC \\ln 2$, the decay factor is $e^{-\\Delta t / \\tau_d} = e^{-\\frac{2RC \\ln 2}{2RC}} = e^{-\\ln 2} = \\frac{1}{2}$. The charge remaining at $t_2$ is $q(t_2) = q_1 \\times \\frac{1}{2} = \\frac{1}{4}C\\mathcal{E}$. Assuming no discharge occurs leaves $\\frac{1}{2}C\\mathcal{E}$; using charging time constant during discharge yields $\\frac{1}{8}C\\mathcal{E}$; averaging the charging and discharging amounts gives $\\frac{3}{8}C\\mathcal{E}$."
+    },
+    {
+      "id": "ce_c01_033",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Six identical uniform resistors, each of resistance $R = 12.0\\ \\Omega$, are connected in series to form a closed regular hexagonal ring $ABCDEF$. What is the equivalent electrical resistance between two adjacent vertices $A$ and $B$?",
+      "options": [
+        "A) $10.0\\ \\Omega$",
+        "B) $12.0\\ \\Omega$",
+        "C) $6.0\\ \\Omega$",
+        "D) $8.0\\ \\Omega$"
+      ],
+      "answer": "A",
+      "explanation": "Connecting terminals across adjacent vertices $A$ and $B$ establishes two parallel conduction paths: single edge $AB$ with resistance $R_1 = R = 12.0\\ \\Omega$, and the remaining five edges in series along path $BCDEFA$ with resistance $R_2 = 5R = 60.0\\ \\Omega$. The equivalent resistance is the parallel combination: $R_{eq} = \\frac{R_1 R_2}{R_1 + R_2} = \\frac{R \\times 5R}{R + 5R} = \\frac{5}{6}R$. Substituting $R = 12.0\\ \\Omega$ gives $R_{eq} = \\frac{5}{6} \\times 12.0 = 10.0\\ \\Omega$. Taking only the direct edge resistance without parallel loop circulation yields $12.0\\ \\Omega$; assuming two equal halves of three resistors each yields $6.0\\ \\Omega$; applying a delta-bridge reduction gives $8.0\\ \\Omega$."
+    },
+    {
+      "id": "ce_c01_034",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A potentiometer wire of total length $L = 100.0\\text{ cm}$ has a non-uniform linear resistance density given by $\\lambda(x) = \\lambda_0 \\left(1 + \\frac{x}{L}\\right)$, where $x$ is the distance from the zero-potential end ($x = 0$). A primary battery maintains a constant steady current $I$ through the entire wire. A secondary cell of emf $\\mathcal{E}$ produces a null balance point at distance $x = 40.0\\text{ cm}$. If an identical second cell is connected in series-aiding with the first cell, find the new balance position $l_2$.",
+      "options": [
+        "A) $80.0\\text{ cm}$",
+        "B) $70.9\\text{ cm}$",
+        "C) $64.0\\text{ cm}$",
+        "D) $75.5\\text{ cm}$"
+      ],
+      "answer": "B",
+      "explanation": "The potential drop along the wire from $x = 0$ to $x$ is $V(x) = I \\int_0^x \\lambda(x')\\, dx' = I \\lambda_0 \\left(x + \\frac{x^2}{2L}\\right)$. For a single cell balancing at $l_1 = 40.0\\text{ cm}$ with $L = 100.0\\text{ cm}$: $\\mathcal{E} = I \\lambda_0 \\left(40.0 + \\frac{1600}{200}\\right) = 48.0 I \\lambda_0$. For two identical cells in series aiding, the total emf is $2\\mathcal{E} = 96.0 I \\lambda_0$. Equating to $V(l_2)$: $l_2 + \\frac{l_2^2}{200} = 96.0 \\implies l_2^2 + 200 l_2 - 19200 = 0$. Solving via the quadratic formula: $l_2 = \\frac{-200 + \\sqrt{40000 + 76800}}{2} = \\frac{-200 + \\sqrt{116800}}{2} \\approx \\frac{-200 + 341.76}{2} \\approx 70.88\\text{ cm} \\approx 70.9\\text{ cm}$. Assuming a uniform wire doubles the balancing length directly to $80.0\\text{ cm}$; neglecting the quadratic term in the second stage yields $64.0\\text{ cm}$; an arithmetic interpolation error gives $75.5\\text{ cm}$."
+    },
+    {
+      "id": "ce_c01_035",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An infinite planar grid is formed by identical resistors of resistance $R = 12.0\\ \\Omega$ arranged in square meshes. An ideal current source injects a total current $I$ into node $A$ and extracts the same current $I$ from an immediately adjacent node $B$. By applying the principle of superposition, find the effective resistance between nodes $A$ and $B$.",
+      "options": [
+        "A) $12.0\\ \\Omega$",
+        "B) $3.0\\ \\Omega$",
+        "C) $6.0\\ \\Omega$",
+        "D) $4.0\\ \\Omega$"
+      ],
+      "answer": "C",
+      "explanation": "When current $I$ is injected into node $A$ and extracted at infinity, four-fold rotational symmetry dictates that the current splits equally among the four branches meeting at $A$, so branch $AB$ carries $I/4$ from $A$ to $B$. When current $I$ is extracted at node $B$ with current supplied from infinity, the four branches meeting at $B$ each draw $I/4$ towards $B$, so branch $AB$ again carries $I/4$ from $A$ to $B$. By superposition, the net current in branch $AB$ is $I_{AB} = \\frac{I}{4} + \\frac{I}{4} = \\frac{I}{2}$. The potential difference is $V_{AB} = I_{AB} R = \\frac{I R}{2}$, giving equivalent resistance $R_{eq} = \\frac{V_{AB}}{I} = \\frac{R}{2}$. Substituting $R = 12.0\\ \\Omega$ gives $R_{eq} = 6.0\\ \\Omega$. Considering only one injection stage without superposition yields $R/4 = 3.0\\ \\Omega$; ignoring the surrounding infinite mesh network yields $12.0\\ \\Omega$; assuming triangular lattice symmetry yields $R/3 = 4.0\\ \\Omega$."
+    },
+    {
+      "id": "ce_c01_036",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A non-linear circuit element has a steady current-voltage characteristic given by $I = \\alpha V^2$ for $V \\ge 0$, where $\\alpha = 0.5\\text{ A/V}^2$, $V$ is the voltage drop across the element, and $I$ is the current flowing through it. This element is connected in series with a linear ohmic resistor of resistance $R = 7.0\\ \\Omega$ across an ideal DC voltage source of emf $\\mathcal{E} = 16.0\\text{ V}$. Which of the following statements is/are correct regarding this circuit?",
+      "options": [
+        "A) The steady current flowing through the circuit is $2.0\\text{ A}$.",
+        "B) The potential difference across the non-linear element is $4.0\\text{ V}$.",
+        "C) The dynamic differential resistance of the non-linear element at the operating point is $0.5\\ \\Omega$.",
+        "D) The power dissipated in the linear resistor is $14.0\\text{ W}$."
+      ],
+      "answer": "A,C",
+      "explanation": "Let $V$ be the voltage drop across the non-linear element. The voltage drop across the linear resistor is $\\mathcal{E} - V = 16.0 - V$. Equating the branch currents: $I = \\alpha V^2 = \\frac{16.0 - V}{R} \\implies 0.5 V^2 = \\frac{16.0 - V}{7.0}$. Multiplying through by $7.0$ yields $3.5 V^2 = 16.0 - V \\implies 7 V^2 + 2 V - 32 = 0$. Factoring the quadratic: $(V - 2)(7V + 16) = 0$. Since $V > 0$, the physical operating voltage is $V = 2.0\\text{ V}$. The circuit current is $I = 0.5(2.0)^2 = 2.0\\text{ A}$. The dynamic differential resistance is $r_d = \\left(\\frac{dI}{dV}\\right)^{-1} = \\frac{1}{2\\alpha V} = \\frac{1}{2(0.5)(2.0)} = 0.5\\ \\Omega$. The power dissipated in the linear resistor is $P_R = I^2 R = (2.0)^2 \\times 7.0 = 28.0\\text{ W}$. Claiming $V = 4.0\\text{ V}$ violates Kirchhoff's voltage law with the quadratic solution; forgetting the current squaring in $I^2 R$ gives $14.0\\text{ W}$."
+    },
+    {
+      "id": "ce_c01_037",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In a transient DC circuit, an ideal battery of emf $\\mathcal{E} = 24.0\\text{ V}$ is connected in series with a resistor $R_1 = 4.0\\ \\Omega$. This series combination is connected through a switch $S$ across a parallel network consisting of a resistor $R_2 = 6.0\\ \\Omega$ and an initially uncharged capacitor $C = 2.0\\ \\mu\\text{F}$. Switch $S$ is closed at time $t = 0$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The current drawn from the battery immediately after closing switch $S$ ($t = 0^+$) is $2.4\\text{ A}$.",
+        "B) The current drawn from the battery immediately after closing switch $S$ ($t = 0^+$) is $6.0\\text{ A}$.",
+        "C) The charging time constant of the capacitor in this circuit is $12.0\\ \\mu\\text{s}$.",
+        "D) The final steady-state charge accumulated on the capacitor is $28.8\\ \\mu\\text{C}$."
+      ],
+      "answer": "B,D",
+      "explanation": "At $t = 0^+$, the uncharged capacitor has zero initial potential across its plates and behaves as an ideal short circuit across $R_2$. The initial equivalent circuit resistance is simply $R_1 = 4.0\\ \\Omega$, so the initial battery current is $I(0^+) = \\frac{\\mathcal{E}}{R_1} = \\frac{24.0}{4.0} = 6.0\\text{ A}$. Conflating the initial resistance with the steady-state series resistance gives $2.4\\text{ A}$. As $t \\to \\infty$, the capacitor behaves as an open circuit, giving steady current $I(\\infty) = \\frac{\\mathcal{E}}{R_1 + R_2} = \\frac{24.0}{4.0 + 6.0} = 2.4\\text{ A}$. The steady-state potential across $R_2$ and the capacitor is $V_C(\\infty) = I(\\infty) R_2 = 2.4 \\times 6.0 = 14.4\\text{ V}$. The final charge is $Q_\\infty = C V_C(\\infty) = (2.0\\ \\mu\\text{F})(14.4\\text{ V}) = 28.8\\ \\mu\\text{C}$. The Thevenin resistance seen by the capacitor is $R_{Th} = R_1 \\parallel R_2 = \\frac{(4.0)(6.0)}{4.0 + 6.0} = 2.4\\ \\Omega$, giving time constant $\\tau = R_{Th} C = (2.4\\ \\Omega)(2.0\\ \\mu\\text{F}) = 4.8\\ \\mu\\text{s}$; taking the series sum $(R_1 + R_2)C$ yields $20.0\\ \\mu\\text{s}$ or $12.0\\ \\mu\\text{s}$."
+    },
+    {
+      "id": "ce_c01_038",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A skeletal resistor network consists of eleven identical resistors, each of resistance $R = 12.0\\ \\Omega$, placed along eleven edges of a cube, with exactly one edge (between vertices $A$ and $B$) removed. An external DC source maintaining a steady potential difference of $V_0 = 84.0\\text{ V}$ is connected across terminals $A$ and $B$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The equivalent electrical resistance of the 11-resistor network between terminals $A$ and $B$ is $\\frac{7}{5}R = 16.8\\ \\Omega$.",
+        "B) The total electric current supplied by the $84.0\\text{ V}$ voltage source is $5.0\\text{ A}$.",
+        "C) The equivalent electrical resistance of the network between terminals $A$ and $B$ is $\\frac{7}{12}R = 7.0\\ \\Omega$.",
+        "D) The total electrical power dissipated in the entire network under this applied voltage is $420.0\\text{ W}$."
+      ],
+      "answer": "A,B,D",
+      "explanation": "In a full 12-resistor cube, the equivalent resistance across an edge is $R_{edge} = \\frac{7}{12}R$. In that complete network, the single edge resistor $R$ is connected in parallel with the remaining 11 resistors whose equivalent resistance is $R_{rem}$. Therefore: $\\frac{1}{R_{edge}} = \\frac{1}{R} + \\frac{1}{R_{rem}} \\implies \\frac{12}{7R} = \\frac{1}{R} + \\frac{1}{R_{rem}} \\implies \\frac{1}{R_{rem}} = \\frac{12}{7R} - \\frac{7}{7R} = \\frac{5}{7R}$. Thus, $R_{rem} = \\frac{7}{5}R = \\frac{7}{5}(12.0) = 16.8\\ \\Omega$. Confusing the 11-resistor network with the complete 12-resistor edge resistance gives $\\frac{7}{12}R = 7.0\\ \\Omega$. With applied voltage $V_0 = 84.0\\text{ V}$, total current is $I = \\frac{V_0}{R_{rem}} = \\frac{84.0}{16.8} = 5.0\\text{ A}$. The total power dissipated is $P = V_0 I = (84.0\\text{ V})(5.0\\text{ A}) = 420.0\\text{ W}$."
+    },
+    {
+      "id": "ce_c01_039",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A temperature-dependent metallic resistor has resistance $R(T) = R_0 [1 + \\alpha(T - T_a)]$, where $R_0 = 10.0\\ \\Omega$, ambient temperature is $T_a = 300\\text{ K}$, and temperature coefficient is $\\alpha = 0.010\\text{ K}^{-1}$. The rate of heat dissipation to the surroundings obeys Newton's law of cooling: $\\frac{dQ_{loss}}{dt} = k(T - T_a)$ with $k = 4.0\\text{ W/K}$. Which of the following statements is/are correct regarding thermal equilibrium?",
+      "options": [
+        "A) Under a constant voltage supply $V$, thermal runaway occurs whenever $V > \\sqrt{\\frac{k R_0}{\\alpha}}$.",
+        "B) Under a constant direct current source $I$, thermal runaway occurs if $I \\ge \\sqrt{\\frac{k}{\\alpha R_0}} \\approx 6.32\\text{ A}$.",
+        "C) Under a constant direct current of $I = 4.0\\text{ A}$, the steady-state temperature rise is $\\Delta T = \\frac{200}{3}\\text{ K} \\approx 66.7\\text{ K}$.",
+        "D) Under a constant voltage supply $V$, the operating point is thermally unstable because resistance increases with temperature."
+      ],
+      "answer": "B,C",
+      "explanation": "Under constant current $I$, rate of Joule heating is $P_{gen} = I^2 R_0 [1 + \\alpha \\Delta T]$. Rate of heat loss is $P_{loss} = k \\Delta T$. Steady state requires $P_{gen} = P_{loss} \\implies I^2 R_0 = (k - \\alpha R_0 I^2)\\Delta T$. For stability, $\\frac{dP_{loss}}{d(\\Delta T)} > \\frac{dP_{gen}}{d(\\Delta T)} \\implies k > \\alpha R_0 I^2$. If $I \\ge \\sqrt{\\frac{k}{\\alpha R_0}} = \\sqrt{\\frac{4.0}{(0.010)(10.0)}} = \\sqrt{40} \\approx 6.32\\text{ A}$, heat generation outpaces cooling, causing thermal runaway. At $I = 4.0\\text{ A}$, $\\Delta T = \\frac{(16)(10.0)}{4.0 - (0.010)(10.0)(16)} = \\frac{160}{4.0 - 1.6} = \\frac{160}{2.4} = \\frac{200}{3}\\text{ K}$. Under constant voltage $V$, $P_{gen} = \\frac{V^2}{R(T)}$ decreases as temperature rises (since $\\alpha > 0$), which provides negative thermal feedback ensuring unconditional stability."
+    },
+    {
+      "id": "ce_c01_040",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "An unknown resistance $R$ is measured using a non-ideal voltmeter (internal resistance $R_V$) and a non-ideal ammeter (internal resistance $R_A$). In Circuit 1, the voltmeter is connected directly across $R$, with the ammeter measuring the total current entering the parallel combination. In Circuit 2, the ammeter is connected in series with $R$, with the voltmeter measuring the potential difference across the series combination of $(R + \\text{ammeter})$. Let $R_{m1}$ and $R_{m2}$ be the apparent measured resistances ($V/I$). Which of the following statements is/are correct?",
+      "options": [
+        "A) $R_{m1}$ always underestimates the true resistance ($R_{m1} < R$), while $R_{m2}$ always overestimates it ($R_{m2} > R$).",
+        "B) Circuit 1 is preferred over Circuit 2 when the test resistance satisfies $R \\gg \\sqrt{R_A R_V}$.",
+        "C) Circuit 1 yields a smaller fractional error than Circuit 2 when $R < \\sqrt{R_A R_V}$.",
+        "D) When $R = \\sqrt{R_A R_V}$, both circuit configurations yield identical magnitudes of fractional error to first order."
+      ],
+      "answer": "A,C,D",
+      "explanation": "In Circuit 1, the voltmeter shunts current away from $R$: $R_{m1} = \\frac{R R_V}{R + R_V} < R$, with fractional error $\\frac{R_{m1} - R}{R} \\approx -\\frac{R}{R_V}$. In Circuit 2, the ammeter adds series resistance: $R_{m2} = R + R_A > R$, with fractional error $\\frac{R_{m2} - R}{R} = +\\frac{R_A}{R}$. Thus $R_{m1} < R < R_{m2}$ always holds. Equating error magnitudes gives $\\frac{R}{R_V} = \\frac{R_A}{R} \\implies R = \\sqrt{R_A R_V}$. When $R < \\sqrt{R_A R_V}$, the shunting error in Circuit 1 is smaller than the series burden in Circuit 2, making Circuit 1 superior for low resistances. For high resistances ($R \\gg \\sqrt{R_A R_V}$), Circuit 2 is preferred; claiming Circuit 1 is preferred for large resistances inverts the physical error criteria."
+    },
+    {
+      "id": "ce_c01_041",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A bridge network consists of four arms: arm $AB$ contains a resistor $R_1$, arm $BC$ contains a resistor $R_2$, arm $AD$ contains an initially uncharged capacitor $C_1$, and arm $CD$ contains an initially uncharged capacitor $C_2$. A sensitive galvanometer is connected between detector nodes $B$ and $D$. An ideal battery of emf $\\mathcal{E}$ is connected across input terminals $A$ and $C$ through a switch closed at $t = 0$. Which of the following statements is/are correct?",
+      "options": [
+        "A) Zero current flows through the galvanometer at all times $t \\ge 0$ if and only if $R_1 C_1 = R_2 C_2$.",
+        "B) Zero current flows through the galvanometer at all times $t \\ge 0$ if and only if $R_1 C_2 = R_2 C_1$.",
+        "C) If $R_1 C_1 = R_2 C_2$, galvanometer current vanishes only in the asymptotic steady state as $t \\to \\infty$.",
+        "D) When $R_1 C_1 = R_2 C_2$, the node potentials satisfy $V_B(t) = V_D(t)$ instantaneously at every instant $t > 0$."
+      ],
+      "answer": "A,D",
+      "explanation": "Taking node $C$ as reference ($0\\text{ V}$), node $A$ is at $\\mathcal{E}$ for all $t > 0$. In the resistive branch $ABC$, the potential at node $B$ is constant: $V_B = \\mathcal{E} \\frac{R_2}{R_1 + R_2}$. In the capacitive branch $ADC$, because the uncharged series capacitors carry identical displacement current, the charge on each is $q(t)$ at all instants, so $V_A - V_D = \\frac{q(t)}{C_1}$ and $V_D - V_C = \\frac{q(t)}{C_2}$. Thus $V_D(t) = \\mathcal{E} \\frac{C_1}{C_1 + C_2}$. For zero current through the detector at all times $t \\ge 0$, we require $V_B(t) = V_D(t)$ identically: $\\frac{R_2}{R_1 + R_2} = \\frac{C_1}{C_1 + C_2} \\implies R_2(C_1 + C_2) = C_1(R_1 + R_2) \\implies R_1 C_1 = R_2 C_2$. Stating $R_1 C_2 = R_2 C_1$ inverts the inverse capacitance divider relationship; claiming balance holds only as $t \\to \\infty$ overlooks that both divider ratios are time-invariant."
+    },
+    {
+      "id": "ce_c01_042",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A solid metallic conductor carrying a steady direct current has a non-uniform circular cross-section that gradually narrows along the direction of current flow. The metal is homogeneous with constant conductivity $\\sigma$ and conduction electron density $n$. Which of the following statements is/are correct regarding the steady state inside and on the surface of the conductor?",
+      "options": [
+        "A) The net volume charge density inside the bulk interior of the conductor is non-zero and increases toward the narrower end.",
+        "B) The net volume charge density inside the bulk interior of the conductor is identically zero ($\\rho_{bulk} = 0$).",
+        "C) A non-zero surface charge distribution resides on the outer lateral boundary of the conductor to guide the electric field lines.",
+        "D) The magnitude of the electric field $\\vec{E}$ and the conduction electron drift speed $v_d$ are both greater in the narrower cross-sections."
+      ],
+      "answer": "B,C,D",
+      "explanation": "In steady state, charge continuity dictates $\\nabla \\cdot \\vec{j} = 0$. Microscopic Ohm's law gives $\\vec{j} = \\sigma \\vec{E}$ with uniform $\\sigma$, so $\\nabla \\cdot \\vec{E} = \\frac{1}{\\sigma}\\nabla \\cdot \\vec{j} = 0$. By Gauss's law, the net volume charge density in the interior bulk is strictly zero: $\\rho_{bulk} = \\varepsilon_0 \\nabla \\cdot \\vec{E} = 0$. To bend the electric field lines along the tapering boundary, surface charges must reside on the lateral boundary of the conductor. By conservation of current $I$, current density $j = \\frac{I}{A}$ is greater in narrower regions, meaning electric field $E = \\frac{j}{\\sigma}$ and electron drift speed $v_d = \\frac{j}{n e}$ are both proportionately larger. Claiming that bulk volume charges accumulate confuses surface boundary charges with interior net charge."
+    },
+    {
+      "id": "ce_c01_043",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "An infinite regular triangular (isometric) planar lattice is constructed from identical resistors, each having resistance $R = 18.0\\ \\Omega$, where six resistors meet at each lattice vertex. Using the principle of superposition, determine the equivalent electrical resistance between two immediately adjacent vertices $A$ and $B$.",
+      "options": [
+        "A) $6.0\\ \\Omega$",
+        "B) $9.0\\ \\Omega$",
+        "C) $3.0\\ \\Omega$",
+        "D) $4.5\\ \\Omega$"
+      ],
+      "answer": "A",
+      "explanation": "Inject current $I$ at vertex $A$ and remove it at infinity. By six-fold rotational symmetry about node $A$, current splits equally among the 6 identical branches, so current in branch $AB$ is $I_1 = \\frac{I}{6}$ from $A$ to $B$. Next, extract current $I$ from vertex $B$ with current supplied from infinity; by the same symmetry, branch $AB$ carries $I_2 = \\frac{I}{6}$ from $A$ to $B$. Superposing both states, net current flowing through the direct resistor $AB$ is $I_{AB} = \\frac{I}{6} + \\frac{I}{6} = \\frac{I}{3}$. The potential difference is $V_{AB} = I_{AB} R = \\frac{I R}{3}$. Hence, the equivalent lattice resistance between adjacent nodes is $R_{eq} = \\frac{V_{AB}}{I} = \\frac{R}{3} = \\frac{18.0}{3} = 6.0\\ \\Omega$. Applying square grid symmetry ($R/2$) yields $9.0\\ \\Omega$; considering only one half of the superposition gives $3.0\\ \\Omega$; taking $R/4$ gives $4.5\\ \\Omega$."
+    },
+    {
+      "id": "ce_c01_044",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The tungsten filament of an incandescent light bulb operating in high vacuum has an electrical resistance directly proportional to its absolute temperature, $R(T) \\propto T$. In thermal equilibrium, the supplied electrical power is dissipated solely via thermal radiation according to the Stefan-Boltzmann law, $P_{rad} \\propto T^4$. If $V$ is the voltage across the filament and $I$ is the resulting current, what is the functional dependence of current on voltage, $I(V)$?",
+      "options": [
+        "A) $I \\propto V^{5/3}$",
+        "B) $I \\propto V^{3/5}$",
+        "C) $I \\propto V^{1/2}$",
+        "D) $I \\propto V^{2/3}$"
+      ],
+      "answer": "B",
+      "explanation": "The electrical power input is $P_{elec} = V I$. At thermal equilibrium, $P_{elec} = P_{rad} \\implies V I \\propto T^4$. By Ohm's law, $R = \\frac{V}{I} \\propto T$, which implies $T \\propto \\frac{V}{I}$. Substituting into the radiation equation gives $V I \\propto \\left(\\frac{V}{I}\\right)^4 = \\frac{V^4}{I^4}$. Rearranging terms yields $I^5 \\propto V^3 \\implies I \\propto V^{3/5} = V^{0.6}$. Inverting the power-law exponent yields $I \\propto V^{5/3}$; confusing convective cooling ($P \\propto T$) with radiative cooling gives $I \\propto V^{1/2}$; failing to account for the voltage dependence in $T$ yields $I \\propto V^{2/3}$."
+    },
+    {
+      "id": "ce_c01_045",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A long solid cylindrical wire of radius $R_0$ has an electrical conductivity that varies parabolically with radial distance $r$ from the central cylinder axis according to $\\sigma(r) = \\sigma_0 \\left(1 - \\frac{r^2}{R_0^2}\\right)$ for $0 \\le r \\le R_0$. A uniform longitudinal electric field $E$ is applied parallel to the axis. What fraction of the total axial current is carried by the inner cylindrical core of radius $r \\le R_0 / 2$?",
+      "options": [
+        "A) $\\frac{1}{4}$",
+        "B) $\\frac{3}{8}$",
+        "C) $\\frac{7}{16}$",
+        "D) $\\frac{9}{16}$"
+      ],
+      "answer": "C",
+      "explanation": "The current density is $j(r) = \\sigma(r) E = \\sigma_0 E \\left(1 - \\frac{r^2}{R_0^2}\\right)$. The current through an annular shell of radius $r$ and width $dr$ is $dI = j(r)(2\\pi r\\, dr)$. The current enclosed within radius $r_0$ is $I(r_0) = 2\\pi \\sigma_0 E \\int_0^{r_0}\\left(r - \\frac{r^3}{R_0^2}\\right) dr = 2\\pi \\sigma_0 E \\left[\\frac{r_0^2}{2} - \\frac{r_0^4}{4 R_0^2}\\right]$. The total wire current ($r_0 = R_0$) is $I_{total} = 2\\pi \\sigma_0 E \\left[\\frac{R_0^2}{2} - \\frac{R_0^2}{4}\\right] = \\frac{\\pi \\sigma_0 E R_0^2}{2}$. For $r_0 = R_0 / 2$: $I(R_0/2) = 2\\pi \\sigma_0 E R_0^2 \\left[\\frac{1}{8} - \\frac{1}{64}\\right] = 2\\pi \\sigma_0 E R_0^2 \\left(\\frac{7}{64}\\right) = \\frac{7\\pi \\sigma_0 E R_0^2}{32}$. The fraction carried by the inner core is $\\frac{I(R_0/2)}{I_{total}} = \\frac{7/32}{1/2} = \\frac{7}{16}$. Assuming uniform current density yields an area ratio of $1/4$; dropping the quartic integration term gives $3/8$; taking the outer complementary fraction yields $9/16$."
+    },
+    {
+      "id": "ce_c01_046",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Twelve identical resistors of resistance $R = 12.0\\ \\Omega$ form the twelve skeletal edges of a regular octahedron having six vertices. Determine the equivalent electrical resistance between two diametrically opposite vertices of this octahedral network.",
+      "options": [
+        "A) $12.0\\ \\Omega$",
+        "B) $8.0\\ \\Omega$",
+        "C) $4.0\\ \\Omega$",
+        "D) $6.0\\ \\Omega$"
+      ],
+      "answer": "D",
+      "explanation": "Let $A$ and $B$ be two diametrically opposite vertices of the octahedron. The remaining four vertices form a planar square in the equatorial plane perpendicular to axis $AB$. When a potential difference is applied across $A$ and $B$, four-fold rotational symmetry about axis $AB$ dictates that all four equatorial vertices are at the exact same potential, $V_{eq} = \\frac{V_A + V_B}{2}$. Therefore, zero current flows through any of the four equatorial resistors connecting adjacent equatorial vertices. Removing these four dormant resistors leaves four parallel identical branches connecting $A$ and $B$, each consisting of two resistors of resistance $R$ in series: $R_{branch} = 2R$. The equivalent resistance is $R_{eq} = \\frac{2R}{4} = \\frac{R}{2} = \\frac{12.0}{2} = 6.0\\ \\Omega$. Treating each branch as a single resistor yields $12.0\\ \\Omega$; assuming current splits into three equal paths yields $8.0\\ \\Omega$; dividing $R$ by 3 yields $4.0\\ \\Omega$."
+    },
+    {
+      "id": "ce_c01_047",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A series circuit comprising a resistor $R$ and an initially uncharged capacitor $C$ is connected at time $t = 0$ across a linearly rising ramp voltage source $V(t) = \\alpha t$ (for $t \\ge 0$), where $\\alpha$ is a constant ramp rate. What is the instantaneous current $I(t)$ flowing in the circuit as a function of time $t$?",
+      "options": [
+        "A) $\\alpha C e^{-t/(RC)}$",
+        "B) $\\frac{\\alpha t}{R} \\left(1 - e^{-t/(RC)}\right)$",
+        "C) $\\frac{\\alpha}{R} t e^{-t/(RC)}$",
+        "D) $\\alpha C \\left(1 - e^{-t/(RC)}\right)$"
+      ],
+      "answer": "D",
+      "explanation": "Applying Kirchhoff's voltage law for $t \\ge 0$: $R I(t) + \\frac{q(t)}{C} = \\alpha t$. Differentiating with respect to $t$, using $I(t) = \\frac{dq}{dt}$: $R \\frac{dI}{dt} + \\frac{I}{C} = \\alpha \\implies \\frac{dI}{dt} + \\frac{1}{RC}I = \\frac{\\alpha}{R}$. The particular steady-state solution is $I_p = \\alpha C$. The complementary homogeneous solution is $I_h(t) = A e^{-t/(RC)}$. Thus $I(t) = \\alpha C + A e^{-t/(RC)}$. At $t = 0$, the capacitor is uncharged ($q(0) = 0$) and applied voltage is $V(0) = 0$, giving $R I(0) = 0 \\implies I(0) = 0$. Imposing this initial condition yields $\\alpha C + A = 0 \\implies A = -\\alpha C$. Therefore, $I(t) = \\alpha C(1 - e^{-t/(RC)})$. Omitting the steady-state particular solution gives decaying transient $\\alpha C e^{-t/(RC)}$; substituting $V(t)/R$ directly yields $\\frac{\\alpha t}{R}(1 - e^{-t/RC})$; guessing a mixed secular term gives $\\frac{\\alpha}{R} t e^{-t/(RC)}$."
+    },
+    {
+      "id": "ce_c01_048",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Twelve identical uniform resistors, each of resistance $R = 8\\ \\Omega$, are connected together to form a planar $2 \\times 2$ grid of squares consisting of four square unit cells (having 9 junction nodes and 12 branch resistors in total). Calculate the equivalent electrical resistance, in ohms, between two diagonally opposite corner nodes of the overall outer square grid.",
+      "options": [],
+      "answer": "12",
+      "explanation": "Let the 9 nodes be indexed as $(i,j)$ for $i,j \\in \\{0,1,2\\}$, with input at $(0,0)$ held at $V = 1\\text{ V}$ and output at $(2,2)$ at $V = 0\\text{ V}$. By reflection symmetry across the main diagonal connecting $(0,0)$ and $(2,2)$, the node potentials satisfy $V(1,0) = V(0,1) = v_1$, $V(2,0) = V(0,2) = v_2$, $V(1,1) = v_3$, and $V(2,1) = V(1,2) = v_4$. Applying Kirchhoff's current law at each independent node yields: at $(1,0)$: $3v_1 - v_2 - v_3 = 1$; at $(2,0)$: $2v_2 - v_1 - v_4 = 0$; at $(1,1)$: $4v_3 - 2v_1 - 2v_4 = 0 \\implies 2v_3 - v_1 - v_4 = 0$; at $(2,1)$: $3v_4 - v_2 - v_3 = 0$. From the second and third equations, $v_2 = v_3$. Solving this linear system gives $v_1 = \\frac{2}{3}\\text{ V}$, $v_2 = v_3 = \\frac{1}{2}\\text{ V}$, and $v_4 = \\frac{1}{3}\\text{ V}$. The total current entering node $(0,0)$ along its two connected branches is $I_{in} = 2 \\times \\frac{1 - v_1}{R} = 2 \\times \\frac{1 - 2/3}{R} = \\frac{2}{3R}$. The equivalent resistance is therefore $R_{eq} = \\frac{1}{I_{in}} = \\frac{3}{2}R$. Substituting $R = 8\\ \\Omega$: $R_{eq} = \\frac{3}{2} \\times 8 = 12\\ \\Omega$."
+    },
+    {
+      "id": "ce_c01_049",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A multi-branch DC circuit consists of three real active branches connected in parallel between common junctions $A$ and $B$. Branch 1 contains a battery of emf $\\mathcal{E}_1 = 26.0\\text{ V}$ in series with internal resistance $r_1 = 2.0\\ \\Omega$. Branch 2 contains a battery of emf $\\mathcal{E}_2 = 9.0\\text{ V}$ in series with internal resistance $r_2 = 3.0\\ \\Omega$. Branch 3 contains a battery of emf $\\mathcal{E}_3 = 12.0\\text{ V}$ in series with internal resistance $r_3 = 6.0\\ \\Omega$. All batteries have their positive terminals facing junction $A$. Calculate the magnitude of the steady direct current, in amperes, delivered by Branch 1 into junction $A$.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Taking junction $B$ as reference potential ($V_B = 0\\text{ V}$), the potential at junction $A$ can be determined directly using Millman's theorem for parallel active branches: $V_A = \\frac{\\frac{\\mathcal{E}_1}{r_1} + \\frac{\\mathcal{E}_2}{r_2} + \\frac{\\mathcal{E}_3}{r_3}}{\\frac{1}{r_1} + \\frac{1}{r_2} + \\frac{1}{r_3}}$. Substituting the parameters: $\\frac{\\mathcal{E}_1}{r_1} = \\frac{26.0}{2.0} = 13.0\\text{ A}$, $\\frac{\\mathcal{E}_2}{r_2} = \\frac{9.0}{3.0} = 3.0\\text{ A}$, $\\frac{\\mathcal{E}_3}{r_3} = \\frac{12.0}{6.0} = 2.0\\text{ A}$, giving numerator $13.0 + 3.0 + 2.0 = 18.0\\text{ A}$. The denominator is $\\frac{1}{2.0} + \\frac{1}{3.0} + \\frac{1}{6.0} = \\frac{3 + 2 + 1}{6.0} = 1.0\\ \\Omega^{-1}$. Hence, the junction potential is $V_A = \\frac{18.0}{1.0} = 18.0\\text{ V}$. The current delivered by Branch 1 into junction $A$ is $I_1 = \\frac{\\mathcal{E}_1 - V_A}{r_1} = \\frac{26.0 - 18.0}{2.0} = \\frac{8.0}{2.0} = 4.0\\text{ A} = 4\\text{ A}$."
+    },
+    {
+      "id": "ce_c01_050",
+      "subject": "Physics",
+      "topic": "Current Electricity",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A long solid cylindrical wire of radius $R_0 = 2.0\\text{ mm}$ carries a uniform axial current density of $j = 1.0 \\times 10^8\\text{ A/m}^2$. The metal has electrical resistivity $\\rho = 1.0 \\times 10^{-7}\\ \\Omega\\cdot\\text{m}$ and thermal conductivity $k = 40.0\\text{ W/(m}\\cdot\\text{K)}$. Under steady-state conditions, the Joule heat generated within the wire is conducted radially outward to its cylindrical surface. Find the temperature difference $\\Delta T = T_{axis} - T_{surface}$, in kelvins, between the central axis and the outer cylindrical surface of the wire.",
+      "options": [],
+      "answer": "25",
+      "explanation": "The rate of volumetric Joule heat generation is $q_{gen} = j^2 \\rho = (1.0 \\times 10^8\\text{ A/m}^2)^2 (1.0 \\times 10^{-7}\\ \\Omega\\cdot\\text{m}) = 1.0 \\times 10^9\\text{ W/m}^3$. In steady state, heat conduction in cylindrical coordinates obeys $-\\frac{1}{r}\\frac{d}{dr}\\left(r k \\frac{dT}{dr}\\right) = q_{gen}$. Integrating once with boundary condition $\\left.\\frac{dT}{dr}\\right|_{r=0} = 0$ gives $r k \\frac{dT}{dr} = -\\frac{q_{gen} r^2}{2} \\implies \\frac{dT}{dr} = -\\frac{q_{gen} r}{2k}$. Integrating from $r = 0$ to $r = R_0$: $T_{surface} - T_{axis} = -\\frac{q_{gen} R_0^2}{4k} \\implies \\Delta T = T_{axis} - T_{surface} = \\frac{q_{gen} R_0^2}{4k} = \\frac{j^2 \\rho R_0^2}{4k}$. Substituting the values: $\\Delta T = \\frac{(1.0 \\times 10^9\\text{ W/m}^3)(2.0 \\times 10^{-3}\\text{ m})^2}{4(40.0\\text{ W/(m}\\cdot\\text{K)})} = \\frac{(1.0 \\times 10^9)(4.0 \\times 10^{-6})}{160.0} = \\frac{4000.0}{160.0} = 25.0\\text{ K} = 25\\text{ K}$."
+    }
+  ]
+}

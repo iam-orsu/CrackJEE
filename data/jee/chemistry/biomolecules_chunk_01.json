@@ -1,0 +1,804 @@
+{
+  "questions": [
+    {
+      "id": "bm_c01_001",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "At $25^\\circ\\text{C}$, the specific optical rotation of pure $\\alpha$-D-glucopyranose is $+112.2^\\circ$ and that of pure $\\beta$-D-glucopyranose is $+18.7^\\circ$. An aqueous solution of D-glucose undergoes mutarotation until an equilibrium specific rotation of $+52.7^\\circ$ is attained. If $18.0\\text{ g}$ of pure D-glucose is dissolved in water to make $100\\text{ mL}$ of solution at $25^\\circ\\text{C}$, calculate the mass of the $\\beta$-anomer present in the solution at mutarotational equilibrium.",
+      "options": [
+        "A) $11.46\\text{ g}$",
+        "B) $6.54\\text{ g}$",
+        "C) $13.50\\text{ g}$",
+        "D) $9.00\\text{ g}$"
+      ],
+      "answer": "A",
+      "explanation": "Let $x$ be the mole fraction of the $\\alpha$-anomer and $(1-x)$ be the mole fraction of the $\\beta$-anomer at equilibrium. The equilibrium specific rotation satisfies $[alpha]_{eq} = x[\\alpha]_\\alpha + (1-x)[\\alpha]_\\beta$. Substituting the values: $+52.7^\\circ = x(112.2^\\circ) + (1-x)(18.7^\\circ) = 18.7^\\circ + 93.5^\\circ x$. Solving yields $93.5 x = 34.0$, which gives $x = \\frac{34.0}{93.5} \\approx 0.3636$ (or $36.36\\%$ $\\alpha$-anomer). Therefore, the fraction of $\\beta$-anomer is $1 - 0.3636 = 0.6364$ (or $63.64\\%$). In an $18.0\\text{ g}$ sample, the mass of $\\beta$-D-glucopyranose present at equilibrium is $0.6364 \\times 18.0\\text{ g} = 11.455\\text{ g} \\approx 11.46\\text{ g}$. Distractor $6.54\\text{ g}$ arises from computing the mass of the minor $\\alpha$-anomer ($0.3636 \\times 18.0\\text{ g}$)."
+    },
+    {
+      "id": "bm_c01_002",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Glutamic acid is an acidic amino acid with macroscopic acid dissociation constants $pK_{a1} (\\alpha\\text{-COOH}) = 2.19$, $pK_{a2} (\\gamma\\text{-COOH}) = 4.25$, and $pK_{a3} (\\alpha\\text{-NH}_3^+) = 9.67$. Determine its isoelectric point ($pI$) and compute the concentration ratio of the mono-anionic conjugate species to the neutral zwitterionic species in an aqueous buffer maintained at $pH = 5.25$.",
+      "options": [
+        "A) $pI = 5.93$; ratio is $1 : 1$",
+        "B) $pI = 3.22$; ratio is $10 : 1$",
+        "C) $pI = 3.22$; ratio is $1 : 10$",
+        "D) $pI = 6.96$; ratio is $10 : 1$"
+      ],
+      "answer": "B",
+      "explanation": "For an acidic amino acid possessing two carboxyl groups, the isoelectric point ($pI$) is the arithmetic mean of the two carboxyl $pK_a$ values that flank the electrically neutral zwitterion: $pI = \\frac{pK_{a1} + pK_{a2}}{2} = \\frac{2.19 + 4.25}{2} = \\frac{6.44}{2} = 3.22$. Next, at $pH = 5.25$, the deprotonation of the side-chain $\\gamma$-carboxyl group converts the neutral zwitterion into the mono-anionic species. Applying the Henderson-Hasselbalch equation: $pH = pK_{a2} + \\log\\left(\\frac{[\\text{mono-anion}]}{[\\text{zwitterion}]}\\right) \\implies 5.25 = 4.25 + \\log R$, which gives $\\log R = 1.00$, and hence $R = 10 : 1$. Distractor $pI = 5.93$ results from erroneously averaging $pK_{a1}$ and $pK_{a3}$."
+    },
+    {
+      "id": "bm_c01_003",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A sample of $3.60\\text{ g}$ of pure D-glucose (molar mass $180.16\\text{ g/mol}$) is treated with excess acetic anhydride in dry pyridine to achieve complete acetylation of all five hydroxyl groups. If the reaction proceeds with an isolated chemical yield of $85.0\\%$, what mass of D-glucose pentaacetate (molar mass $390.34\\text{ g/mol}$) is obtained?",
+      "options": [
+        "A) $7.81\\text{ g}$",
+        "B) $5.45\\text{ g}$",
+        "C) $6.64\\text{ g}$",
+        "D) $8.98\\text{ g}$"
+      ],
+      "answer": "C",
+      "explanation": "D-Glucose contains five hydroxyl groups (one hemiacetal hydroxyl and four alcoholic hydroxyls) that react with acetic anhydride according to: $\\text{C}_6\\text{H}_{12}\\text{O}_6 + 5\\,(\\text{CH}_3\\text{CO})_2\\text{O} \\to \\text{C}_6\\text{H}_7\\text{O}(\\text{OCOCH}_3)_5 + 5\\,\\text{CH}_3\\text{COOH}$. Moles of D-glucose used: $n = \\frac{3.60\\text{ g}}{180.16\\text{ g/mol}} = 0.01998\\text{ mol} \\approx 0.0200\\text{ mol}$. Each mole of glucose yields one mole of pentaacetate. Theoretical yield of pentaacetate: $m_{theo} = 0.01998\\text{ mol} \\times 390.34\\text{ g/mol} = 7.799\\text{ g} \\approx 7.81\\text{ g}$. With an $85.0\\%$ yield, the actual mass isolated is: $m_{actual} = 0.850 \\times 7.799\\text{ g} = 6.63\\text{ g} \\approx 6.64\\text{ g}$. Distractor $7.81\\text{ g}$ represents the theoretical yield without accounting for incomplete reaction recovery."
+    },
+    {
+      "id": "bm_c01_004",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In an analytical experiment, $0.050\\text{ mol}$ of D-glucose is heated with $0.200\\text{ mol}$ of phenylhydrazine in dilute acetic acid to prepare D-glucosazone. Assuming the reaction goes to completion according to standard osazone stoichiometry, what volume of ammonia gas ($NH_3$) is evolved at STP ($273.15\\text{ K}, 1\\text{ atm}$, molar gas volume $22.4\\text{ L/mol}$), and how many moles of unreacted phenylhydrazine remain in solution?",
+      "options": [
+        "A) $2.24\\text{ L}$ of $NH_3$ and $0.100\\text{ mol}$ unreacted phenylhydrazine",
+        "B) $1.12\\text{ L}$ of $NH_3$ and $0.100\\text{ mol}$ unreacted phenylhydrazine",
+        "C) $3.36\\text{ L}$ of $NH_3$ and $0.050\\text{ mol}$ unreacted phenylhydrazine",
+        "D) $1.12\\text{ L}$ of $NH_3$ and $0.050\\text{ mol}$ unreacted phenylhydrazine"
+      ],
+      "answer": "D",
+      "explanation": "The stoichiometric equation for osazone formation is: $\\text{Aldohexose} + 3\\,\\text{PhNHNH}_2 \\to \\text{Osazone} + \\text{PhNH}_2 + \\text{NH}_3 + 2\\,\\text{H}_2\\text{O}$. Since $0.050\\text{ mol}$ of glucose is reacted with $0.200\\text{ mol}$ of phenylhydrazine, glucose is the limiting reagent. Moles of phenylhydrazine consumed $= 3 \\times 0.050\\text{ mol} = 0.150\\text{ mol}$. Unreacted phenylhydrazine remaining $= 0.200 - 0.150 = 0.050\\text{ mol}$. Moles of $NH_3$ produced $= 0.050\\text{ mol}$. At STP, volume of $NH_3 = 0.050\\text{ mol} \\times 22.4\\text{ L/mol} = 1.12\\text{ L}$. Distractor $0.100\\text{ mol}$ phenylhydrazine remaining arises from the common misconception that only 2 moles of phenylhydrazine are consumed per mole of carbohydrate."
+    },
+    {
+      "id": "bm_c01_005",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Sucrose ($C_{12}H_{22}O_{11}$, molar mass $342.3\\text{ g/mol}$) is dextrorotatory with $[alpha]_D = +66.5^\\circ$. A solution containing $34.23\\text{ g}$ of sucrose in $100\\text{ mL}$ is subjected to complete acid-catalyzed hydrolysis to form invert sugar (equimolar D-glucose with $[alpha]_D = +52.5^\\circ$ and D-fructose with $[alpha]_D = -92.5^\\circ$). What is the observed optical rotation ($\\theta_{obs}$) of the hydrolyzed mixture when measured in a $1.0\\text{ dm}$ polarimeter tube at $20^\\circ\\text{C}$?",
+      "options": [
+        "A) $-7.20^\\circ$",
+        "B) $+22.7^\\circ$",
+        "C) $-14.4^\\circ$",
+        "D) $+6.65^\\circ$"
+      ],
+      "answer": "A",
+      "explanation": "Complete hydrolysis of $34.23\\text{ g}$ ($0.100\\text{ mol}$) of sucrose produces $0.100\\text{ mol}$ ($18.02\\text{ g}$) of D-glucose and $0.100\\text{ mol}$ ($18.02\\text{ g}$) of D-fructose in $100\\text{ mL}$ solution. Total hexose concentration is $c = \\frac{18.02\\text{ g} + 18.02\\text{ g}}{100\\text{ mL}} = 0.3604\\text{ g/mL}$. Since the mixture contains equal masses of glucose and fructose, the effective specific rotation of the invert sugar hydrolysate is $[alpha]_{\\text{invert}} = \\frac{[\\alpha]_\\text{glu} + [\\alpha]_\\text{fru}}{2} = \\frac{+52.5^\\circ + (-92.5^\\circ)}{2} = -20.0^\\circ$. Applying Biot's law: $\\theta_{obs} = [\\alpha]_{\\text{invert}} \\times l \\times c = (-20.0^\\circ) \\times (1.0\\text{ dm}) \\times (0.3604\\text{ g/mL}) = -7.208^\\circ \\approx -7.20^\\circ$. Distractor $+22.7^\\circ$ arises from ignoring the negative sign of fructose's levorotation."
+    },
+    {
+      "id": "bm_c01_006",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "L-Lysine is a dibasic amino acid possessing the ionization constants $pK_{a1} (\\alpha\\text{-COOH}) = 2.18$, $pK_{a2} (\\alpha\\text{-NH}_3^+) = 8.95$, and $pK_{a3} (\\epsilon\\text{-NH}_3^+) = 10.53$. Calculate the isoelectric point ($pI$) of L-lysine and determine its net migration behavior during zone electrophoresis in a buffer at $pH = 6.00$.",
+      "options": [
+        "A) $pI = 5.56$; migrates toward the positive anode",
+        "B) $pI = 9.74$; migrates toward the negative cathode",
+        "C) $pI = 9.74$; migrates toward the positive anode",
+        "D) $pI = 6.35$; remains stationary at the application baseline"
+      ],
+      "answer": "B",
+      "explanation": "For basic amino acids with two amino groups, the electrically neutral zwitterionic form exists between $pK_{a2}$ and $pK_{a3}$. Therefore, the isoelectric point is: $pI = \\frac{pK_{a2} + pK_{a3}}{2} = \\frac{8.95 + 10.53}{2} = \\frac{19.48}{2} = 9.74$. In an electrophoresis buffer at $pH = 6.00$, because $pH < pI$, the hydrogen ion concentration is sufficiently high to ensure that the $\\alpha\\text{-COOH}$ is deprotonated ($-\\text{COO}^-$, charge $-1$) while both the $\\alpha\\text{-amino}$ and $\\epsilon\\text{-amino}$ groups remain fully protonated ($-\\text{NH}_3^+$, each $+1$). This gives lysine a net positive charge of approximately $+1$. Consequently, it migrates toward the cathode (negative electrode). Distractor $5.56$ comes from averaging $pK_{a1}$ and $pK_{a2}$, which is valid only for neutral monoamino-monocarboxylic acids."
+    },
+    {
+      "id": "bm_c01_007",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A contiguous $\\alpha$-helical segment of a globular protein consists of exactly $72$ amino acid residues. Given that a standard $\\alpha$-helix has $3.6$ residues per complete turn and a pitch of $5.4\\text{ Å}$ ($0.54\\text{ nm}$), calculate the axial length of this helical segment and the total number of intrachain backbone hydrogen bonds ($i \\to i+4$) stabilizing it.",
+      "options": [
+        "A) Axial length is $7.2\\text{ nm}$, with $72$ intrachain hydrogen bonds",
+        "B) Axial length is $15.0\\text{ nm}$, with $64$ intrachain hydrogen bonds",
+        "C) Axial length is $10.8\\text{ nm}$, with $68$ intrachain hydrogen bonds",
+        "D) Axial length is $5.4\\text{ nm}$, with $36$ intrachain hydrogen bonds"
+      ],
+      "answer": "C",
+      "explanation": "The axial rise per amino acid residue in an $\\alpha$-helix is $d = \\frac{\\text{pitch}}{\\text{residues per turn}} = \\frac{0.54\\text{ nm}}{3.6} = 0.15\\text{ nm}$ ($1.5\\text{ Å}$). For $N = 72$ residues, the axial length along the helix cylinder is: $L = 72 \\times 0.15\\text{ nm} = 10.8\\text{ nm}$ (or $20\\text{ turns} \\times 0.54\\text{ nm/turn} = 10.8\\text{ nm}$). In an $\\alpha$-helix, backbone hydrogen bonds are formed between the carbonyl oxygen of residue $i$ and the amide hydrogen of residue $i+4$. The total number of such hydrogen bonds in an unbroken segment of $N$ residues is $N - 4 = 72 - 4 = 68$. Distractor $72$ bonds forgets that the terminal residues lack four-residue helical partners."
+    },
+    {
+      "id": "bm_c01_008",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the classical Kiliani-Fischer chain lengthening synthesis, D-arabinose is treated with hydrogen cyanide ($HCN$) to form cyanohydrin intermediates, which are subsequently hydrolyzed and reduced to produce aldohexoses. Which statement accurately identifies the number, stereochemical relationship, and names of the aldohexoses produced from D-arabinose?",
+      "options": [
+        "A) Two enantiomers are formed, which yield D-glucose and L-glucose",
+        "B) Four diastereomers are formed, which yield D-glucose, D-mannose, D-galactose, and D-talose",
+        "C) A single optically inactive meso compound is formed, which yields D-glucose and D-fructose",
+        "D) Two diastereomers (C2-epimers) are formed, which yield D-glucose and D-mannose"
+      ],
+      "answer": "D",
+      "explanation": "D-Arabinose is an aldopentose with stereocenters at C2, C3, and C4 having the configurations $(2S, 3R, 4R)$ (or in Fischer projection: C2-OH left, C3-OH right, C4-OH right). Nucleophilic addition of cyanide to the planar $sp^2$ aldehyde carbon introduces a new stereocenter at C2 of the hexose backbone. Cyanide can attack from either facial side, producing two diastereomeric cyanohydrins that differ solely in their stereochemistry at C2 (C2-epimers: D-glucononitrile and D-mannononitrile). Hydrolysis followed by lactone reduction yields the corresponding C2-epimeric aldohexoses: D-glucose and D-mannose. Distractor A confuses epimers with enantiomers, which would require inverting every chiral center."
+    },
+    {
+      "id": "bm_c01_009",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When $4.0\\text{ mmol}$ of L-alanine is heated with an excess ($10.0\\text{ mmol}$) of ninhydrin in a buffered aqueous medium, oxidative decarboxylation occurs to form Ruhemann's purple. Assuming complete quantitative reaction, what volume of carbon dioxide ($CO_2$) gas is liberated at STP ($22.4\\text{ L/mol}$), and how many millimoles of Ruhemann's purple chromophore are formed?",
+      "options": [
+        "A) $89.6\\text{ mL}$ of $CO_2$ gas and $4.0\\text{ mmol}$ of Ruhemann's purple",
+        "B) $44.8\\text{ mL}$ of $CO_2$ gas and $2.0\\text{ mmol}$ of Ruhemann's purple",
+        "C) $179.2\\text{ mL}$ of $CO_2$ gas and $8.0\\text{ mmol}$ of Ruhemann's purple",
+        "D) $89.6\\text{ mL}$ of $CO_2$ gas and $2.0\\text{ mmol}$ of Ruhemann's purple"
+      ],
+      "answer": "A",
+      "explanation": "The overall stoichiometry of the ninhydrin reaction with a primary $\\alpha$-amino acid is: $2\\,\\text{Ninhydrin} + 1\\,\\alpha\\text{-amino acid} \\to 1\\,\\text{Ruhemann's purple} + 1\\,\\text{RCHO} + 1\\,\\text{CO}_2 + 3\\,\\text{H}_2\\text{O}$. Given $4.0\\text{ mmol}$ of L-alanine and $10.0\\text{ mmol}$ of ninhydrin, L-alanine is the limiting reactant ($4.0\\text{ mmol}$ alanine requires $8.0\\text{ mmol}$ ninhydrin). The amount of $CO_2$ gas liberated is $4.0\\text{ mmol} = 4.0 \\times 10^{-3}\\text{ mol}$. Volume of $CO_2$ at STP: $V = 4.0 \\times 10^{-3}\\text{ mol} \\times 22400\\text{ mL/mol} = 89.6\\text{ mL}$. The amount of Ruhemann's purple formed is stoichiometrically equal to the amino acid consumed, namely $4.0\\text{ mmol}$. Distractor B incorrectly assumes that 2 moles of amino acid are needed per mole of chromophore."
+    },
+    {
+      "id": "bm_c01_010",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A double-stranded linear B-DNA molecule contains $300$ base pairs. Biochemical analysis reveals that $30\\%$ of the total nitrogenous bases in this DNA molecule are adenine. Determine the total number of inter-strand hydrogen bonds and the total number of phosphodiester linkages present in this DNA duplex.",
+      "options": [
+        "A) $780$ hydrogen bonds and $600$ phosphodiester linkages",
+        "B) $720$ hydrogen bonds and $598$ phosphodiester linkages",
+        "C) $720$ hydrogen bonds and $600$ phosphodiester linkages",
+        "D) $840$ hydrogen bonds and $598$ phosphodiester linkages"
+      ],
+      "answer": "B",
+      "explanation": "A duplex of $300$ base pairs contains $600$ total nucleotide bases. According to Chargaff's rules, $\\%A = \\%T = 30\\%$, so the number of adenine and thymine bases is $0.30 \\times 600 = 180$ each ($180$ A-T base pairs). The remaining $40\\%$ consists of $\\%G + \\%C = 40\\%$, giving $\\%G = \\%C = 20\\%$, so there are $0.20 \\times 600 = 120$ G-C base pairs. Each A-T pair contributes $2$ hydrogen bonds ($180 \\times 2 = 360$), and each G-C pair contributes $3$ hydrogen bonds ($120 \\times 3 = 360$). Total hydrogen bonds $= 360 + 360 = 720$. For a linear polynucleotide chain of $N$ nucleotides, there are $N - 1$ phosphodiester linkages. In this duplex consisting of two distinct linear strands of $300$ nucleotides each, total phosphodiester linkages $= 2 \\times (300 - 1) = 2 \\times 299 = 598$. Distractor 600 linkages forgets that linear ends have free terminal phosphate and hydroxyl groups."
+    },
+    {
+      "id": "bm_c01_011",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "D-Glucose and D-galactose are both subjected to vigorous oxidation with concentrated nitric acid ($HNO_3$). Which statement accurately describes the stereochemical nature and symmetry of the resulting dicarboxylic acid products?",
+      "options": [
+        "A) Both D-glucose and D-galactose produce optically inactive meso dicarboxylic acids",
+        "B) D-Glucose produces an optically inactive meso dicarboxylic acid, whereas D-galactose produces an optically active dicarboxylic acid",
+        "C) D-Glucose produces an optically active dicarboxylic acid (D-glucaric acid), whereas D-galactose produces an optically inactive meso dicarboxylic acid (mucic acid)",
+        "D) Both D-glucose and D-galactose produce optically active monocarboxylic acids because the primary alcohol at C6 resists oxidation"
+      ],
+      "answer": "C",
+      "explanation": "Concentrated nitric acid oxidizes both the terminal aldehyde group (C1) and the primary alcoholic group (C6) of aldohexoses into carboxylic acid groups ($-\\text{COOH}$), forming aldaric acids. For D-glucose, oxidation yields D-glucaric (saccharic) acid: $\\text{HOOC}-(\\text{CHOH})_4-\\text{COOH}$. Because the configurations at C2, C3, C4, C5 are $(2R, 3S, 4R, 5R)$, there is no internal plane or center of symmetry, rendering D-glucaric acid chiral and optically active. In contrast, D-galactose is $(2R, 3S, 4S, 5R)$. Oxidation of both ends gives galactaric (mucic) acid, which possesses an internal plane of symmetry dividing C3 and C4 (the two halves are mirror images), making mucic acid an optically inactive meso compound. Distractor A overlooks the asymmetry of D-glucaric acid."
+    },
+    {
+      "id": "bm_c01_012",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Separate solutions containing $0.10\\text{ mol}$ of maltose and $0.10\\text{ mol}$ of $\\alpha,\\alpha$-trehalose are each reacted with an excess of Tollens' reagent ($[Ag(NH_3)_2]^+$) under warm alkaline conditions. What are the molar quantities of metallic silver ($Ag$) precipitated from the two reactions?",
+      "options": [
+        "A) $0.20\\text{ mol}$ of $Ag$ from maltose, and $0.20\\text{ mol}$ of $Ag$ from trehalose",
+        "B) $0.10\\text{ mol}$ of $Ag$ from maltose, and $0.10\\text{ mol}$ of $Ag$ from trehalose",
+        "C) $0.40\\text{ mol}$ of $Ag$ from maltose, and $0.00\\text{ mol}$ of $Ag$ from trehalose",
+        "D) $0.20\\text{ mol}$ of $Ag$ from maltose, and $0.00\\text{ mol}$ of $Ag$ from trehalose"
+      ],
+      "answer": "D",
+      "explanation": "Maltose is a reducing disaccharide with an $\\alpha(1\\to 4)$ glycosidic bond between two D-glucopyranose units. The hemiacetal group at C1 of the second glucose unit can open in aqueous alkaline solution to produce an aldehyde group. Oxidation of 1 mole of an aldehyde by Tollens' reagent reduces 2 moles of silver ions: $\\text{RCHO} + 2\\,[Ag(NH_3)_2]^+ + 3\\,\\text{OH}^- \\to \\text{RCOO}^- + 2\\,\\text{Ag}\\downarrow + 4\\,\\text{NH}_3 + 2\\,\\text{H}_2\\text{O}$. Thus, $0.10\\text{ mol}$ of maltose precipitates $0.20\\text{ mol}$ of metallic $Ag$. In $\\alpha,\\alpha$-trehalose, the two glucose units are linked via their anomeric carbons by an $\\alpha(1\\leftrightarrow 1)$ glycosidic bond. Both anomeric positions are tied up as acetals; therefore, trehalose cannot open into an aldehyde, is non-reducing, and precipitates $0.00\\text{ mol}$ of $Ag$. Distractor A fails to recognize that trehalose is a non-reducing disaccharide."
+    },
+    {
+      "id": "bm_c01_013",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "When one mole of open-chain D-glucose is subjected to exhaustive oxidative cleavage using excess periodic acid ($HIO_4$), several single-carbon fragments are produced. What is the total number of moles of organic carbon-containing products (sum of formic acid and formaldehyde moles) formed per mole of D-glucose?",
+      "options": [],
+      "answer": "6",
+      "explanation": "Open-chain D-glucose has the structural formula $\\text{CHO}-\\text{CHOH}-\\text{CHOH}-\\text{CHOH}-\\text{CHOH}-\\text{CH}_2\\text{OH}$. Periodic acid ($HIO_4$) quantitatively cleaves each of the 5 vicinal carbon-carbon bonds: (1) C1-CHO is oxidized to $1\\text{ mol}$ of formic acid ($HCOOH$); (2) the secondary alcohol carbons C2, C3, C4, and C5 are each oxidized to $1\\text{ mol}$ of formic acid, yielding $4\\text{ mol}$ of $HCOOH$; (3) the primary alcohol carbon C6 is oxidized to $1\\text{ mol}$ of formaldehyde ($HCHO$). The total moles of one-carbon organic fragments is $1\\text{ (from C1)} + 4\\text{ (from C2-C5)} + 1\\text{ (from C6)} = 5\\,\\text{HCOOH} + 1\\,\\text{HCHO} = 6\\text{ moles}$. This requires 5 moles of $HIO_4$."
+    },
+    {
+      "id": "bm_c01_014",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "D-Fructose is a ketohexose that exists in both open-chain and cyclic hemiketal forms. How many asymmetric (chiral) carbon stereocenters are present in one molecule of D-fructose in its open-chain acyclic structure?",
+      "options": [],
+      "answer": "3",
+      "explanation": "The open-chain structural formula of D-fructose is $\\text{HOCH}_2-\\text{C}(=\\text{O})-\\text{C}^*\\text{HOH}-\\text{C}^*\\text{HOH}-\\text{C}^*\\text{HOH}-\\text{CH}_2\\text{OH}$. Examining each carbon atom: C1 is $-\\text{CH}_2\\text{OH}$ (achiral, two identical hydrogens); C2 is a carbonyl carbon with $sp^2$ trigonal planar hybridization (achiral); C3 is bonded to $-\\text{H}$, $-\\text{OH}$, $-\\text{COCH}_2\\text{OH}$, and $-\\text{CHOHCHOHCH}_2\\text{OH}$ (chiral); C4 is bonded to four distinct groups (chiral); C5 is bonded to four distinct groups (chiral); C6 is $-\\text{CH}_2\\text{OH}$ (achiral). Hence, exactly 3 chiral carbon atoms (C3, C4, C5) are present in the open-chain form. In contrast, aldohexoses like D-glucose have 4 chiral carbons."
+    },
+    {
+      "id": "bm_c01_015",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "When open-chain D-glucose cyclizes to form $\\alpha$-D-glucopyranose, an intramolecular nucleophilic addition occurs between the C5-hydroxyl group and the C1-aldehyde group. How many chiral (asymmetric) carbon stereocenters are present in the resulting cyclic pyranose ring of $\\alpha$-D-glucopyranose?",
+      "options": [],
+      "answer": "5",
+      "explanation": "In the acyclic open-chain form of D-glucose, C1 is an achiral $sp^2$ planar carbonyl carbon, while C2, C3, C4, and C5 are chiral stereocenters (4 chiral carbons). Upon intramolecular hemiacetal formation between the C5-OH oxygen and C1, the C1 carbon becomes tetrahedral ($sp^3$) and is bonded to four constitutionally different ligands: $-\\text{H}$, $-\\text{OH}$, the ring oxygen atom, and the C2 carbon atom. Thus, C1 becomes an asymmetric stereocenter (the anomeric carbon). Together with the existing chiral carbons at C2, C3, C4, and C5, the cyclic $\\alpha$-D-glucopyranose molecule contains a total of $1 + 4 = 5$ chiral carbon stereocenters (C6 remains achiral as $-\\text{CH}_2\\text{OH}$)."
+    },
+    {
+      "id": "bm_c01_016",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Methyl $\\alpha$-D-glucopyranoside is treated with an excess of aqueous periodic acid ($HIO_4$). How many moles of $HIO_4$ are consumed per mole of the glucoside, and what are the stoichiometric amounts of formic acid ($HCOOH$) and formaldehyde ($HCHO$) formed?",
+      "options": [
+        "A) $2\\text{ mol } HIO_4$ consumed; producing $1\\text{ mol } HCOOH$ and $0\\text{ mol } HCHO$",
+        "B) $3\\text{ mol } HIO_4$ consumed; producing $2\\text{ mol } HCOOH$ and $1\\text{ mol } HCHO$",
+        "C) $2\\text{ mol } HIO_4$ consumed; producing $2\\text{ mol } HCOOH$ and $0\\text{ mol } HCHO$",
+        "D) $5\\text{ mol } HIO_4$ consumed; producing $5\\text{ mol } HCOOH$ and $1\\text{ mol } HCHO$"
+      ],
+      "answer": "A",
+      "explanation": "In methyl $\\alpha$-D-glucopyranoside, the anomeric carbon C1 is an acetal ($-OCH_3$) and C5 forms the pyranose ring oxygen bridge. The adjacent hydroxyl groups available for Malaprade oxidative cleavage are at C2, C3, and C4 (a contiguous triol segment). The two vicinal bonds cleaved are C2-C3 and C3-C4, consuming exactly $2\\text{ mol}$ of $HIO_4$. Because C3 is flanked by two cleaved bonds, it is excised as $1\\text{ mol}$ of formic acid ($HCOOH$). Carbons C1-C2 and C4-C5-C6 remain linked by the acetal ether linkage, yielding a cyclic dialdehyde. The C6 primary alcohol is isolated (not vicinal to any free hydroxyl), so $0\\text{ mol}$ of formaldehyde ($HCHO$) is produced. Distractor $5\\text{ mol } HIO_4$ represents open-chain free D-glucose."
+    },
+    {
+      "id": "bm_c01_017",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A linear pentapeptide $P$ composed of Ala, Gly, Leu, Phe, and Val is sequenced. Reaction of $P$ with Sanger's reagent (1-fluoro-2,4-dinitrobenzene) followed by complete acid hydrolysis yields DNP-Val. Treatment of $P$ with carboxypeptidase A liberates free Ala first. Partial acid hydrolysis of $P$ yields the dipeptides Val-Gly, Gly-Leu, and Phe-Ala. What is the primary amino acid sequence of pentapeptide $P$?",
+      "options": [
+        "A) Val-Phe-Leu-Gly-Ala",
+        "B) Val-Gly-Leu-Phe-Ala",
+        "C) Ala-Phe-Leu-Gly-Val",
+        "D) Val-Leu-Gly-Phe-Ala"
+      ],
+      "answer": "B",
+      "explanation": "Identification of the termini and overlapping fragment analysis establishes the unique sequence: (1) Reaction with Sanger's reagent labels the unblocked N-terminal amino group; isolation of DNP-Val confirms that Val is the N-terminal residue ($\text{Val}-\\dots$). (2) Carboxypeptidase A cleaves peptide bonds from the C-terminus; liberation of free Ala proves that Ala is the C-terminal residue ($\\dots-\\text{Ala}$). (3) Overlapping the dipeptide fragments from partial hydrolysis: Val-Gly overlaps with Gly-Leu to give the N-terminal tripeptide segment Val-Gly-Leu. The remaining dipeptide Phe-Ala matches the C-terminus ($dots-\\text{Phe}-\\text{Ala}$). Connecting the segments yields the complete sequence Val-Gly-Leu-Phe-Ala. Distractor Ala-Phe-Leu-Gly-Val reverses the directionality of the peptide chain."
+    },
+    {
+      "id": "bm_c01_018",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the hydrogen-bonding networks and geometric conformations of parallel versus antiparallel $\\beta$-pleated sheet secondary structures in proteins. Which statement correctly accounts for their relative thermodynamic stability?",
+      "options": [
+        "A) Parallel $\\beta$-sheets have straight, collinear hydrogen bonds and are thermodynamically more stable than antiparallel sheets",
+        "B) Antiparallel $\\beta$-sheets are stabilized by intrachain hydrogen bonds between residue $i$ and $i+4$, whereas parallel sheets use interchain bonds",
+        "C) Antiparallel $\\beta$-sheets possess nearly collinear, perpendicular inter-strand hydrogen bonds, rendering them more stable than parallel $\\beta$-sheets with skewed, angled hydrogen bonds",
+        "D) Both parallel and antiparallel sheets have identical 3.6 residues per turn and exhibit equal hydrogen bonding geometries"
+      ],
+      "answer": "C",
+      "explanation": "In antiparallel $\\beta$-pleated sheets, adjacent polypeptide strands run in opposite directions ($N \\to C$ alongside $C \\to N$). This orientation allows the inter-strand carbonyl oxygen ($C=O$) and amide hydrogen ($N-H$) groups to align directly opposite each other, forming straight, collinear hydrogen bonds that are essentially perpendicular to the strand axes (bond angle close to $180^\\circ$), maximizing orbital overlap and dipole alignment. In parallel $\\beta$-sheets, adjacent strands run in the same direction, forcing the hydrogen bonds to connect at a distorted, non-collinear angle, which significantly weakens the electrostatic attraction and makes parallel sheets less stable. Distractor B incorrectly attributes intrachain $i \\to i+4$ bonding (which defines an $\\alpha$-helix) to $\\beta$-sheets."
+    },
+    {
+      "id": "bm_c01_019",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When one mole of open-chain D-fructose is subjected to complete oxidative cleavage with excess periodic acid ($HIO_4$), what are the exact stoichiometric amounts of products obtained?",
+      "options": [
+        "A) $5\\text{ mol } HCOOH + 1\\text{ mol } HCHO$",
+        "B) $4\\text{ mol } HCOOH + 2\\text{ mol } HCHO$",
+        "C) $2\\text{ mol } HCOOH + 3\\text{ mol } HCHO + 1\\text{ mol } CO_2$",
+        "D) $3\\text{ mol } HCOOH + 2\\text{ mol } HCHO + 1\\text{ mol } CO_2$"
+      ],
+      "answer": "D",
+      "explanation": "The open-chain structure of D-fructose is $\\text{HOCH}_2-\\text{CO}-\\text{CHOH}-\\text{CHOH}-\\text{CHOH}-\\text{CH}_2\\text{OH}$. Cleavage occurs at all 5 carbon-carbon bonds between adjacent functionalized carbons: (1) C1 ($-\\text{CH}_2\\text{OH}$) is oxidized to $1\\text{ mol}$ of formaldehyde ($HCHO$). (2) C2 ($-\\text{CO}-$) is an $\\alpha$-hydroxy ketone carbonyl flanked by two oxidizable C-C bonds (C1-C2 and C2-C3); cleaving both bonds oxidizes the carbonyl carbon completely to $1\\text{ mol}$ of carbon dioxide ($CO_2$). (3) Secondary alcohol carbons C3, C4, and C5 are each oxidized to $1\\text{ mol}$ of formic acid ($HCOOH$), yielding $3\\text{ mol}$ of $HCOOH$. (4) C6 ($-\\text{CH}_2\\text{OH}$) is oxidized to $1\\text{ mol}$ of formaldehyde ($HCHO$). Summing up: $3\\text{ mol } HCOOH + 2\\text{ mol } HCHO + 1\\text{ mol } CO_2$. Distractor A represents the cleavage products of an aldohexose such as D-glucose."
+    },
+    {
+      "id": "bm_c01_020",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the Edman degradation method for peptide sequencing, phenyl isothiocyanate ($Ph-N=C=S$) labels the uncharged N-terminal amino group. Which atom initiates the subsequent intramolecular cleavage under anhydrous acid conditions, and what is the final heterocyclic derivative identified?",
+      "options": [
+        "A) Sulfur atom of the thiocarbamoyl group attacks the first peptide carbonyl carbon; final product is a phenylthiohydantoin (PTH) amino acid",
+        "B) Oxygen atom of the carboxyl group attacks the isothiocyanate carbon; final product is a 2,4-dinitrophenyl (DNP) amino acid",
+        "C) Nitrogen atom of the phenyl ring attacks the alpha-carbon; final product is a Ruhemann's purple complex",
+        "D) Sulfur atom attacks the C-terminal carboxyl carbon; final product is a peptidyl thioester"
+      ],
+      "answer": "A",
+      "explanation": "In Edman degradation, reaction of the uncharged N-terminal $\\alpha$-amino group with phenyl isothiocyanate produces a phenylthiocarbamoyl (PTC) peptide. When treated with anhydrous acid (such as trifluoroacetic acid), the nucleophilic sulfur atom of the thiocarbonyl group attacks the carbonyl carbon of the first peptide bond in an intramolecular cyclization. This selectively cleaves the first peptide bond via a five-membered anilinothiazolinone (ATZ) intermediate, leaving the remaining peptide chain intact. Subsequent treatment with aqueous acid rearranges the unstable ATZ intermediate into a stable phenylthiohydantoin (PTH) amino acid derivative, which is identified chromatographically. Distractor B confuses Edman degradation with Sanger's method using DNFB."
+    },
+    {
+      "id": "bm_c01_021",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A solution of an unknown disaccharide $X$ reduces Fehling's solution, forms an osazone with phenylhydrazine, and exhibits mutarotation. Enzymatic hydrolysis of $X$ by $\\beta$-galactosidase produces an equimolar mixture of D-galactose and D-glucose. Which of the following correctly identifies $X$, the nature of its glycosidic linkage, and the specific monosaccharide ring that contains the reducing hemiacetal group?",
+      "options": [
+        "A) Maltose; $\\alpha(1\\to 4)$ glycosidic linkage; D-glucose is the reducing unit",
+        "B) Lactose; $\\beta(1\\to 4)$ glycosidic linkage; D-glucose is the reducing unit",
+        "C) Lactose; $\\beta(1\\to 4)$ glycosidic linkage; D-galactose is the reducing unit",
+        "D) Sucrose; $\\alpha,\\beta(1\\to 2)$ glycosidic linkage; D-fructose is the reducing unit"
+      ],
+      "answer": "B",
+      "explanation": "Cleavage of disaccharide $X$ by $\\beta$-galactosidase into D-galactose and D-glucose identifies $X$ as lactose (4-O-$\\beta$-D-galactopyranosyl-D-glucopyranose). In lactose, the anomeric carbon C1 of $\\beta$-D-galactopyranose is tied in a glycosidic bond to C4 of D-glucopyranose ($\beta(1\\to 4)$ linkage). The anomeric carbon C1 of the D-glucose ring remains a free cyclic hemiacetal, capable of mutarotating and opening into a free aldehyde form in aqueous alkali to reduce Fehling's solution. Thus, D-glucose is the reducing unit, whereas the D-galactose unit is locked as a non-reducing acetal. Distractor C wrongly assigns the reducing hemiacetal to galactose, whose C1 is locked in the glycosidic bond."
+    },
+    {
+      "id": "bm_c01_022",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two synthetic pentapeptides are synthesized:\nPeptide 1: $\\text{Ala}-\\text{Lys}-\\text{Gly}-\\text{Tyr}-\\text{Val}$\nPeptide 2: $\\text{Ala}-\\text{Lys}-\\text{Pro}-\\text{Tyr}-\\text{Val}$\nIf each peptide is separately incubated with bovine pancreatic trypsin under optimal conditions, how many distinct peptide fragments are produced from Peptide 1 and Peptide 2, respectively?",
+      "options": [
+        "A) $2$ fragments from Peptide 1, and $2$ fragments from Peptide 2",
+        "B) $1$ fragment from Peptide 1, and $2$ fragments from Peptide 2",
+        "C) $2$ fragments from Peptide 1, and $1$ fragment (remains intact) from Peptide 2",
+        "D) $3$ fragments from Peptide 1, and $3$ fragments from Peptide 2"
+      ],
+      "answer": "C",
+      "explanation": "Trypsin is a serine endopeptidase that specifically cleaves peptide bonds at the carboxyl side of basic residues (Lys and Arg), provided the adjacent residue on the C-terminal side is not proline. In Peptide 1 (Ala-Lys-Gly-Tyr-Val), Lys is followed by Gly; trypsin efficiently hydrolyzes the Lys-Gly bond, yielding 2 fragments: the dipeptide Ala-Lys and the tripeptide Gly-Tyr-Val. In Peptide 2 (Ala-Lys-Pro-Tyr-Val), Lys is immediately followed by a Proline residue. The rigid cyclic pyrrolidine ring of proline sterically prevents the peptide backbone from fitting into the active site catalytic cleft of trypsin, completely blocking hydrolysis. As a result, Peptide 2 remains completely intact (1 fragment). Distractor A fails to account for proline's resistance to tryptic cleavage."
+    },
+    {
+      "id": "bm_c01_023",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When natural starch is digested with the enzyme $\\beta$-amylase, its linear component (amylose) is quantitatively converted into maltose, whereas its branched component (amylopectin) is only partially hydrolyzed, leaving a high-molecular-weight core known as $\\beta$-limit dextrin. What is the fundamental chemical basis for this difference?",
+      "options": [
+        "A) Amylose contains $\\beta(1\\to 4)$ linkages that resist branching, whereas amylopectin contains $\\beta(1\\to 6)$ crosslinks",
+        "B) Amylose is branched via $\\alpha(1\\to 4)$ linkages, whereas amylopectin has linear $\\alpha(1\\to 6)$ bonds",
+        "C) $\\beta$-Amylase cleaves only $\\alpha(1\\to 6)$ linkages, so it leaves linear amylose intact",
+        "D) Amylose contains exclusively $\\alpha(1\\to 4)$ glycosidic linkages, whereas $\\beta$-amylase cannot cleave or bypass the $\\alpha(1\\to 6)$ branch linkages in amylopectin, leaving $\\beta$-limit dextrin"
+      ],
+      "answer": "D",
+      "explanation": "$\\beta$-Amylase is an exoglycosidase that cleaves maltose units sequentially from the non-reducing ends of polyglucan chains by hydrolyzing $\\alpha(1\\to 4)$ glycosidic bonds. Amylose is an unbranched polymer consisting solely of $\\alpha(1\\to 4)$-linked D-glucopyranose units; hence, $\\beta$-amylase proceeds uninterrupted, hydrolyzing amylose essentially to $100\\%$ maltose. In contrast, amylopectin contains linear $\\alpha(1\\to 4)$ chains with $\\alpha(1\\to 6)$ branch points every 24–30 residues. $\\beta$-Amylase is catalytically incapable of cleaving $\\alpha(1\\to 6)$ linkages and halts 2–3 glucose residues upstream of each branch point, leaving approximately $40-45\\%$ of the molecule unhydrolyzed as $\\beta$-limit dextrin. Distractor A incorrectly attributes $\\beta(1\\to 4)$ linkages (which belong to cellulose) to starch."
+    },
+    {
+      "id": "bm_c01_024",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the tetrapeptide $\\text{Glu}-\\text{His}-\\text{Ala}-\\text{Lys}$. The approximate macroscopic ionization constants are: N-terminal $\\alpha\\text{-NH}_3^+ (pK_a = 9.5)$, Glu side-chain $\\gamma\\text{-COOH} (pK_a = 4.2)$, His imidazole ring $(pK_a = 6.0)$, Lys side-chain $\\epsilon\\text{-NH}_3^+ (pK_a = 10.5)$, and C-terminal $\\alpha\\text{-COOH} (pK_a = 2.2)$. What are the net electrical charges of this tetrapeptide at $pH = 1.0$ and at $pH = 8.0$, respectively?",
+      "options": [
+        "A) $+3$ at $pH = 1.0$, and $0$ at $pH = 8.0$",
+        "B) $+2$ at $pH = 1.0$, and $+1$ at $pH = 8.0$",
+        "C) $+3$ at $pH = 1.0$, and $-1$ at $pH = 8.0$",
+        "D) $+4$ at $pH = 1.0$, and $0$ at $pH = 8.0$"
+      ],
+      "answer": "A",
+      "explanation": "At $pH = 1.0$ (well below all $pK_a$ values): both carboxyl groups (Glu $\\gamma\\text{-COOH}$ and C-terminal $\\alpha\\text{-COOH}$) are protonated and electrically neutral ($0$). The three basic nitrogen groups (N-terminal $\\alpha\\text{-NH}_3^+$, His imidazole, and Lys $\\epsilon\\text{-NH}_3^+$) are fully protonated, each carrying a charge of $+1$. Thus, net charge at $pH = 1.0$ is $+1 + 1 + 1 = +3$. At $pH = 8.0$: both carboxyl groups are deprotonated as carboxylates ($-\\text{COO}^-$, charge $-1$ each, total $-2$). His imidazole ($pK_a = 6.0$) is deprotonated and neutral ($0$). N-terminal $\\alpha\\text{-NH}_3^+$ ($pK_a = 9.5$) and Lys $\\epsilon\\text{-NH}_3^+$ ($pK_a = 10.5$) remain protonated (each $+1$, total $+2$). Summing the charges at $pH = 8.0$: $(-2) + (+2) = 0$. Distractor $+4$ incorrectly assumes an amide backbone nitrogen is protonated."
+    },
+    {
+      "id": "bm_c01_025",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An equimolar solution containing $0.10\\text{ mol}$ of glycerol and $0.10\\text{ mol}$ of erythritol is treated with an excess of periodic acid ($HIO_4$). What is the total quantity of $HIO_4$ consumed, and how many moles of formaldehyde ($HCHO$) are generated?",
+      "options": [
+        "A) $0.40\\text{ mol } HIO_4$ consumed, and $0.30\\text{ mol } HCHO$ generated",
+        "B) $0.50\\text{ mol } HIO_4$ consumed, and $0.40\\text{ mol } HCHO$ generated",
+        "C) $0.50\\text{ mol } HIO_4$ consumed, and $0.30\\text{ mol } HCHO$ generated",
+        "D) $0.60\\text{ mol } HIO_4$ consumed, and $0.50\\text{ mol } HCHO$ generated"
+      ],
+      "answer": "B",
+      "explanation": "Glycerol is $\\text{HOCH}_2-\\text{CHOH}-\\text{CH}_2\\text{OH}$ (a triol with two vicinal bonds). Reaction of 1 mole of glycerol consumes $2\\text{ mol } HIO_4$, producing $2\\text{ mol } HCHO$ (from the two terminal $-\\text{CH}_2\\text{OH}$ groups) and $1\\text{ mol } HCOOH$ (from the central $-\\text{CHOH}-$ group). For $0.10\\text{ mol}$ glycerol: $HIO_4$ consumed $= 0.20\\text{ mol}$; $HCHO$ produced $= 0.20\\text{ mol}$. Erythritol is $\\text{HOCH}_2-(\\text{CHOH})_2-\\text{CH}_2\\text{OH}$ (a tetritol with three vicinal bonds). Reaction of 1 mole of erythritol consumes $3\\text{ mol } HIO_4$, producing $2\\text{ mol } HCHO$ and $2\\text{ mol } HCOOH$. For $0.10\\text{ mol}$ erythritol: $HIO_4$ consumed $= 0.30\\text{ mol}$; $HCHO$ produced $= 0.20\\text{ mol}$. Total $HIO_4$ consumed $= 0.20 + 0.30 = 0.50\\text{ mol}$. Total $HCHO$ produced $= 0.20 + 0.20 = 0.40\\text{ mol}$. Distractor A underestimates the cleavage stoichiometry of erythritol."
+    },
+    {
+      "id": "bm_c01_026",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A native globular protein containing four intrachain disulfide bonds is treated with a denaturing solution containing $8\\text{ M}$ urea and $0.1\\text{ M}$ $\\beta$-mercaptoethanol. Which statement accurately specifies the structural changes and the specific chemical bonds broken versus preserved?",
+      "options": [
+        "A) Urea cleaves peptide bonds, while $\\beta$-mercaptoethanol cleaves hydrogen bonds; disulfide bonds remain intact",
+        "B) Both urea and $\\beta$-mercaptoethanol hydrolyze primary peptide bonds, destroying sequence order",
+        "C) Urea disrupts non-covalent hydrogen bonding and hydrophobic packing, $\\beta$-mercaptoethanol reduces covalent disulfide crosslinks, while primary peptide bonds remain completely intact",
+        "D) Denaturation breaks only disulfide bonds, while hydrogen bonds and salt bridges remain unaltered"
+      ],
+      "answer": "C",
+      "explanation": "Denaturation of a globular protein unfolds the native tertiary and secondary conformations into a random coil. Urea acts by disrupting non-covalent interactions (forming competitive hydrogen bonds with the peptide backbone and increasing the solubility of hydrophobic non-polar amino acid side chains). $\\beta$-Mercaptoethanol is a reducing agent that specifically reduces the covalent disulfide bonds ($-S-S-$) formed between cysteine residues to free sulfhydryl ($-SH$) groups. Crucially, neither urea nor $\\beta$-mercaptoethanol hydrolyzes the covalent primary peptide bonds ($-CO-NH-$) of the polypeptide backbone. Thus, primary structure remains fully preserved. Distractor A and B confuse denaturation with proteolysis/peptide bond hydrolysis."
+    },
+    {
+      "id": "bm_c01_027",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the stereochemical relationships among the aldohexoses D-glucose, D-mannose, and D-galactose. Which statement correctly categorizes these sugars in terms of epimers and diastereomers?",
+      "options": [
+        "A) D-Glucose and D-mannose are C4-epimers; D-glucose and D-galactose are C2-epimers",
+        "B) D-Mannose and D-galactose are C2-epimers of each other",
+        "C) D-Glucose, D-mannose, and D-galactose are all mutually enantiomeric pairs",
+        "D) D-Glucose and D-mannose are C2-epimers, D-glucose and D-galactose are C4-epimers, whereas D-mannose and D-galactose differ at two chiral centers and are non-epimeric diastereomers"
+      ],
+      "answer": "D",
+      "explanation": "Aldohexoses contain four chiral stereocenters (C2, C3, C4, C5). In D-glucose, the Fischer configurations are: C2-OH (right), C3-OH (left), C4-OH (right), C5-OH (right). D-Mannose has: C2-OH (left), C3-OH (left), C4-OH (right), C5-OH (right); it differs from D-glucose only at C2, making them C2-epimers. D-Galactose has: C2-OH (right), C3-OH (left), C4-OH (left), C5-OH (right); it differs from D-glucose only at C4, making them C4-epimers. When comparing D-mannose and D-galactose, they differ in stereochemistry at both C2 and C4 (two chiral centers). Because epimers must differ at exactly one chiral center, D-mannose and D-galactose are diastereomers, but not epimers of each other. Distractor B incorrectly identifies mannose and galactose as mutual epimers."
+    },
+    {
+      "id": "bm_c01_028",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An octapeptide $X$ gives the following fragment sets upon two separate partial enzymatic digestions:\nDigestion 1: Ala-Gly-Phe, Val-His-Leu, Ser-Lys\nDigestion 2: Gly-Phe-Val, His-Leu-Ser\nGiven that Ala is the N-terminal residue and Lys is the C-terminal residue, deduce the unambiguous sequence of octapeptide $X$.",
+      "options": [
+        "A) Ala-Gly-Phe-Val-His-Leu-Ser-Lys",
+        "B) Ser-Lys-Val-His-Leu-Ala-Gly-Phe",
+        "C) Val-His-Leu-Ala-Gly-Phe-Ser-Lys",
+        "D) Ala-Gly-Phe-Ser-Lys-Val-His-Leu"
+      ],
+      "answer": "A",
+      "explanation": "We align the overlapping peptide fragments starting from the established N-terminal residue Ala: (1) The tripeptide containing N-terminal Ala is Ala-Gly-Phe. (2) From Digestion 2, the tripeptide Gly-Phe-Val overlaps with Ala-Gly-Phe at the Gly-Phe junction, proving that Val directly follows Phe. This extends the sequence to Ala-Gly-Phe-Val. (3) From Digestion 1, the tripeptide starting with Val is Val-His-Leu. Overlapping this extends the chain to Ala-Gly-Phe-Val-His-Leu. (4) From Digestion 2, His-Leu-Ser overlaps with Val-His-Leu at His-Leu, proving that Ser follows Leu. (5) Finally, the dipeptide Ser-Lys from Digestion 1 places the established C-terminal Lys immediately after Ser. Assembling the sequence gives Ala-Gly-Phe-Val-His-Leu-Ser-Lys. Distractor B reverses the N- and C-terminal ends."
+    },
+    {
+      "id": "bm_c01_029",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Cyanogen bromide (CNBr) is a highly selective chemical reagent utilized in protein sequencing. When a linear polypeptide with the sequence $\\text{Gly}-\\text{Met}-\\text{Ala}-\\text{Phe}-\\text{Met}-\\text{Leu}-\\text{Asp}$ is incubated with CNBr in $70\\%$ formic acid, into how many peptide fragments is it cleaved, and what is the chemical modification of the methionine residues at the cleavage sites?",
+      "options": [
+        "A) $2$ fragments; Met is oxidized to methionine sulfoxide",
+        "B) $3$ fragments; cleavage occurs at the C-side of Met converting it into homoserine lactone",
+        "C) $3$ fragments; cleavage occurs at the N-side of Met converting it into cysteine",
+        "D) $4$ fragments; Met is cleaved into free methyl isocyanate"
+      ],
+      "answer": "B",
+      "explanation": "Cyanogen bromide specifically cleaves peptide bonds at the carboxyl (C-terminal) side of methionine residues. The nucleophilic sulfur atom of methionine attacks the carbon of CNBr, releasing bromide and forming a cyanosulfonium intermediate. Intramolecular attack by the peptide carbonyl oxygen on the $\\gamma$-carbon of methionine eliminates methyl thiocyanate and hydrolyzes the peptide bond, converting the methionine residue into a C-terminal peptidyl homoserine lactone (Hsl). The given heptapeptide contains two internal methionine residues (at positions 2 and 5). Cleavage after Met2 and Met5 produces exactly 3 fragments: Gly-Hsl (dipeptide), Ala-Phe-Hsl (tripeptide), and Leu-Asp (dipeptide). Distractor A overlooks the second methionine cleavage site."
+    },
+    {
+      "id": "bm_c01_030",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the total number of open-chain stereoisomers possible for an aldopentose and a 2-ketopentose, respectively, considering all asymmetric carbon stereocenters.",
+      "options": [
+        "A) $16$ and $8$",
+        "B) $8$ and $8$",
+        "C) $8$ and $4$",
+        "D) $4$ and $2$"
+      ],
+      "answer": "C",
+      "explanation": "For an open-chain aldopentose ($\\text{CHO}-\\text{CHOH}-\\text{CHOH}-\\text{CHOH}-\\text{CH}_2\\text{OH}$), there are three asymmetric carbon atoms (C2, C3, C4). Since the two terminal groups ($-\\text{CHO}$ and $-\\text{CH}_2\\text{OH}$) are constitutionally different, the molecule has no plane of symmetry. The number of stereoisomers is given by $2^n = 2^3 = 8$ (4 pairs of enantiomers: D/L-ribose, D/L-arabinose, D/L-xylose, and D/L-lyxose). For an open-chain 2-ketopentose ($\\text{HOCH}_2-\\text{CO}-\\text{CHOH}-\\text{CHOH}-\\text{CH}_2\\text{OH}$), C1, C2, and C5 are achiral; only C3 and C4 are asymmetric stereocenters ($n = 2$). The number of stereoisomers is $2^n = 2^2 = 4$ (2 pairs of enantiomers: D/L-ribulose and D/L-xylulose). Distractor A results from treating pentoses as having four and three chiral carbons like hexoses."
+    },
+    {
+      "id": "bm_c01_031",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An analytical chemist oxidizes a $0.020\\text{ mol}$ sample of pure open-chain D-glucose completely using excess periodic acid ($HIO_4$). The resulting solution contains formic acid, which is subsequently neutralized in an acid-base titration. How many millimoles of periodic acid ($HIO_4$) are consumed per millimole of D-glucose during this exhaustive oxidative cleavage?",
+      "options": [],
+      "answer": "5",
+      "explanation": "Open-chain D-glucose ($\\text{CHO}-\\text{CHOH}-\\text{CHOH}-\\text{CHOH}-\\text{CHOH}-\\text{CH}_2\\text{OH}$) possesses 5 adjacent carbon-carbon bonds between oxidizable functional groups: C1-C2, C2-C3, C3-C4, C4-C5, and C5-C6. Each oxidative cleavage of a carbon-carbon bond between two hydroxylated/carbonyl carbons stoichiometrically consumes exactly one mole of $HIO_4$. Therefore, for each mole of open-chain aldohexose, exactly 5 moles of $HIO_4$ are consumed ($5\\text{ millimoles of } HIO_4\\text{ per millimole of D-glucose}$), producing 5 moles of formic acid and 1 mole of formaldehyde."
+    },
+    {
+      "id": "bm_c01_032",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An oligopeptide synthesized by solid-phase peptide synthesis has the primary sequence Tyr-Gly-Gly-Phe-Met (Leucine-enkephalin analog). How many covalent peptide (amide) bonds are present in one molecule of this linear pentapeptide?",
+      "options": [],
+      "answer": "4",
+      "explanation": "In any unbranched, linear polypeptide chain composed of $n$ amino acid residues, each peptide bond is formed by condensation of the $\\alpha$-carboxyl group of one amino acid with the $\\alpha$-amino group of the subsequent residue. The total number of peptide (amide) bonds linking $n$ residues is $n - 1$. For this pentapeptide consisting of $n = 5$ residues (Tyr, Gly, Gly, Phe, Met), the number of covalent peptide bonds is $5 - 1 = 4$ (linking Tyr-Gly, Gly-Gly, Gly-Phe, and Phe-Met)."
+    },
+    {
+      "id": "bm_c01_033",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Among the 20 standard proteinogenic $\\alpha$-amino acids found in living organisms, how many amino acids possess two asymmetric (chiral) carbon stereocenters in their chemical structure?",
+      "options": [],
+      "answer": "2",
+      "explanation": "Among the 20 standard amino acids: Glycine is achiral (has no asymmetric carbon). 17 amino acids (such as Ala, Val, Leu, Ser, Cys, etc.) possess exactly one chiral carbon (the $\\alpha$-carbon). Exactly two amino acids contain a second chiral center located within their side chain: (1) L-Isoleucine, which possesses chiral centers at both the $\\alpha$-carbon (C2) and the $\\beta$-carbon (C3: $-\\text{C}^*\\text{H(CH}_3)\\text{CH}_2\\text{CH}_3$); and (2) L-Threonine, which possesses chiral centers at both the $\\alpha$-carbon (C2) and the $\\beta$-carbon (C3: $-\\text{C}^*\\text{H(OH)CH}_3$). Hence, the count is exactly 2."
+    },
+    {
+      "id": "bm_c01_034",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A reaction vessel contains a mixture of $1.0\\text{ mmol}$ of D-glucose and $3.0\\text{ mmol}$ of D-fructose. The mixture is heated with excess phenylhydrazine to quantitatively form osazones. How many total millimoles of water ($H_2O$) are produced as a stoichiometric byproduct of this complete reaction?",
+      "options": [],
+      "answer": "8",
+      "explanation": "The overall balanced stoichiometric equation for osazone formation from any aldohexose or ketohexose with phenylhydrazine is: $\\text{Hexose} + 3\\,\\text{PhNHNH}_2 \\to 1\\,\\text{Osazone} + 1\\,\\text{PhNH}_2 + 1\\,\\text{NH}_3 + 2\\,\\text{H}_2\\text{O}$. Each mole of hexose converted produces stoichiometrically 2 moles of water. The total amount of hexose present in the mixture is $1.0\\text{ mmol (glucose)} + 3.0\\text{ mmol (fructose)} = 4.0\\text{ mmol}$. Therefore, the total amount of water formed during complete osazone formation is $4.0\\text{ mmol} \\times 2 = 8\\text{ mmol}$ (integer 8)."
+    },
+    {
+      "id": "bm_c01_035",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A synthetic hexapeptide has the primary sequence Ala-Lys-Gly-Arg-Leu-Val. When this peptide is subjected to exhaustive enzymatic cleavage by trypsin, into how many peptide fragments is it cleaved?",
+      "options": [],
+      "answer": "3",
+      "explanation": "Trypsin specifically cleaves peptide bonds at the C-terminal side of basic amino acid residues (Lys and Arg), provided they are not followed by proline. In the given hexapeptide Ala-Lys-Gly-Arg-Leu-Val: Lys at position 2 is followed by Gly (cleavage occurs at bond 2-3); Arg at position 4 is followed by Leu (cleavage occurs at bond 4-5). Neither basic residue is followed by proline. Therefore, cleavage takes place at two internal sites, producing exactly 3 peptide fragments: Ala-Lys (dipeptide), Gly-Arg (dipeptide), and Leu-Val (dipeptide)."
+    },
+    {
+      "id": "bm_c01_036",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The thermal denaturation of a globular protein follows an equilibrium two-state transition: $\\text{Native (N)} \\rightleftharpoons \\text{Denatured (D)}$. At the melting temperature $T_m$, the standard enthalpy of denaturation is $\\Delta H^\\circ = +500.0\\text{ kJ/mol}$, and the standard entropy of denaturation is $\\Delta S^\\circ = +1.50\\text{ kJ/(mol}\\cdot\\text{K)}$. Assuming $\\Delta H^\\circ$ and $\\Delta S^\\circ$ remain constant over the temperature interval, calculate the melting temperature $T_m$ (in $^\\circ\\text{C}$) and determine the percentage of denatured protein ($f_D$) present at $T = 340.0\\text{ K}$ (use $R = 8.314\\text{ J/(mol}\\cdot\\text{K)}$).",
+      "options": [
+        "A) $T_m = 75.0^\\circ\\text{C}$; $f_D = 50.0\\%$",
+        "B) $T_m = 60.2^\\circ\\text{C}$; $f_D = 2.8\\%$",
+        "C) $T_m = 50.0^\\circ\\text{C}$; $f_D = 85.0\\%$",
+        "D) $T_m = 60.2^\\circ\\text{C}$; $f_D = 97.2\\%$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: At the melting transition temperature $T_m$, the concentrations of native and denatured forms are equal, so $K_{eq} = 1$ and $\\Delta G^\\circ = 0$. Applying the relation $\\Delta G^\\circ = \\Delta H^\\circ - T_m \\Delta S^\\circ = 0$, substituting the thermodynamic parameters yields: $T_m = \\frac{\\Delta H^\\circ}{\\Delta S^\\circ} = \\frac{500.0\\text{ kJ/mol}}{1.50\\text{ kJ/(mol}\\cdot\\text{K)}} = 333.33\\text{ K}$, therefore in Celsius, $T_m = 333.33 - 273.15 = 60.18^\\circ\\text{C} \\approx 60.2^\\circ\\text{C}$. Step 2: At $T = 340.0\\text{ K}$, the free energy change is $\\Delta G^\\circ(340) = 500.0 - 340.0 \\times 1.50 = 500.0 - 510.0 = -10.0\\text{ kJ/mol} = -10000\\text{ J/mol}$. Hence, the equilibrium constant is calculated by applying $\\ln K_{eq} = -\\frac{\\Delta G^\\circ}{RT} = -\\frac{-10000}{8.314 \\times 340.0} = \\frac{10000}{2826.76} = 3.537$, yielding $K_{eq} = e^{3.537} \\approx 34.38$. Solving for the denatured fraction $f_D$: we get $f_D = \\frac{[D]}{[N]+[D]} = \\frac{K_{eq}}{1 + K_{eq}} = \\frac{34.38}{1 + 34.38} = 0.9717$, implying $97.2\\%$ denaturation. Distractor $2.8\\%$ represents the fraction of remaining native protein."
+    },
+    {
+      "id": "bm_c01_037",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A synthetic double-stranded B-DNA duplex containing $100$ base pairs has a base composition of $40\\text{ mol}\\%$ guanine-cytosine ($G\\equiv C$) base pairs and $60\\text{ mol}\\%$ adenine-thymine ($A=T$) base pairs. In the Watson-Crick base-pairing geometry, calculate the total number of inter-strand hydrogen bonds stabilizing this duplex, and determine the total number of hydrogen bond donor groups provided exclusively by the purine bases across all $100$ base pairs.",
+      "options": [
+        "A) $240$ total hydrogen bonds, and $140$ purine donor groups",
+        "B) $260$ total hydrogen bonds, and $100$ purine donor groups",
+        "C) $240$ total hydrogen bonds, and $100$ purine donor groups",
+        "D) $300$ total hydrogen bonds, and $140$ purine donor groups"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The $100$ base pairs comprise $40$ $G\\equiv C$ pairs and $60$ $A=T$ pairs. Since each $G\\equiv C$ pair contains $3$ hydrogen bonds and each $A=T$ pair contains $2$ hydrogen bonds, substituting these counts gives the total hydrogen bonds: $N_{HB} = (40 \\times 3) + (60 \\times 2) = 120 + 120 = 240$ inter-strand hydrogen bonds. Step 2: Now analyze the donors contributed by purines: In an $A=T$ base pair, the purine Adenine contributes one hydrogen bond donor (the exocyclic amino group at $N6$, donating to $O4$ of Thymine), while $N1$ of Adenine acts as an acceptor. Hence, $60$ $A=T$ pairs provide $60 \\times 1 = 60$ purine donor groups. In a $G\\equiv C$ base pair, the purine Guanine contributes two hydrogen bond donors: the ring nitrogen at $N1$ (donating to $N3$ of Cytosine) and the exocyclic amino group at $N2$ (donating to $O2$ of Cytosine), while $O6$ of Guanine acts as an acceptor. Therefore, $40$ $G\\equiv C$ pairs provide $40 \\times 2 = 80$ purine donor groups. Solving for the total purine donors, we get $60 + 80 = 140$, implying that purines contribute $140$ of the $240$ hydrogen bond donors. Distractor $100$ purine donors mistakenly assumes every purine contributes only one donor."
+    },
+    {
+      "id": "bm_c01_038",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The mutarotation of pure $\\alpha$-D-glucopyranose in water is a reversible first-order process: $\\alpha\\text{-D-glucose} \\underset{k_2}{\\overset{k_1}{\\rightleftharpoons}} \\beta\\text{-D-glucose}$. The specific optical rotations are $[\\alpha]_\\alpha = +112.0^\\circ$, $[\\alpha]_\\beta = +18.7^\\circ$, and at mutarotational equilibrium $[\\alpha]_{eq} = +52.7^\\circ$. The overall observed relaxation rate constant is $k_{obs} = k_1 + k_2 = 1.10 \\times 10^{-3}\\text{ s}^{-1}$. Determine the forward rate constant $k_1$ and reverse rate constant $k_2$.",
+      "options": [
+        "A) $k_1 = 4.0 \\times 10^{-4}\\text{ s}^{-1}$ and $k_2 = 7.0 \\times 10^{-4}\\text{ s}^{-1}$",
+        "B) $k_1 = 7.0 \\times 10^{-4}\\text{ s}^{-1}$ and $k_2 = 4.0 \\times 10^{-4}\\text{ s}^{-1}$",
+        "C) $k_1 = 5.5 \\times 10^{-4}\\text{ s}^{-1}$ and $k_2 = 5.5 \\times 10^{-4}\\text{ s}^{-1}$",
+        "D) $k_1 = 1.1 \\times 10^{-3}\\text{ s}^{-1}$ and $k_2 = 6.3 \\times 10^{-4}\\text{ s}^{-1}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Calculate the equilibrium constant $K_{eq} = \\frac{[\\beta]_{eq}}{[\\alpha]_{eq}} = \\frac{k_1}{k_2}$. At equilibrium, applying the weighted average of optical rotations: $[\\alpha]_{eq} = x_\\alpha [\\alpha]_\\alpha + (1 - x_\\alpha)[\\alpha]_\\beta$, substituting the values gives: $52.7 = 112.0 x_\\alpha + 18.7(1 - x_\\alpha) = 18.7 + 93.3 x_\\alpha$. Solving for $x_\\alpha$, we get $x_\\alpha = \\frac{52.7 - 18.7}{93.3} = \\frac{34.0}{93.3} \\approx 0.3644$, and $x_\\beta = 1 - 0.3644 = 0.6356$. Therefore, the thermodynamic equilibrium constant is $K_{eq} = \\frac{0.6356}{0.3644} = 1.744$. Step 2: The observed kinetic rate constant for an opposed first-order reaction satisfies $k_{obs} = k_1 + k_2$. Since $k_1 = K_{eq} k_2 = 1.744 k_2$, substituting this relation into the sum gives: $1.744 k_2 + k_2 = 2.744 k_2 = 1.10 \\times 10^{-3}\\text{ s}^{-1}$. Solving yields $k_2 = \\frac{1.10 \\times 10^{-3}}{2.744} \\approx 4.01 \\times 10^{-4}\\text{ s}^{-1} \\approx 4.0 \\times 10^{-4}\\text{ s}^{-1}$. Hence, $k_1 = 1.744 \\times 4.01 \\times 10^{-4} = 6.99 \\times 10^{-4}\\text{ s}^{-1} \\approx 7.0 \\times 10^{-4}\\text{ s}^{-1}$, which confirms that the formation of the more stable $\\beta$-anomer is kinetically favored. Distractor A inverts the forward and reverse rate constants."
+    },
+    {
+      "id": "bm_c01_039",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The synthetic dipeptide $\\text{Lys}-\\text{Asp}$ possesses four macroscopic acid-base ionization constants corresponding to its ionizable functional groups: $pK_{a1} = 2.10$ (C-terminal $\\alpha\\text{-COOH}$ of Asp), $pK_{a2} = 3.90$ (side-chain $\\beta\\text{-COOH}$ of Asp), $pK_{a3} = 9.00$ (N-terminal $\\alpha\\text{-NH}_3^+$ of Lys), and $pK_{a4} = 10.50$ (side-chain $\\epsilon\\text{-NH}_3^+$ of Lys). Calculate the exact isoelectric point ($pI$) of this dipeptide.",
+      "options": [
+        "A) $pI = 3.00$",
+        "B) $pI = 5.55$",
+        "C) $pI = 6.45$",
+        "D) $pI = 9.75$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Write the successive protonation states of the dipeptide from fully protonated to fully deprotonated: At $pH < 2.10$, all groups are protonated ($-\\text{COOH}$ neutral, $-\\text{NH}_3^+$ positive), giving species $H_4A^{2+}$ with net charge $+2$. Step 2: At $pK_{a1} = 2.10$, the C-terminal $\\alpha\\text{-COOH}$ deprotonates, yielding species $H_3A^+$ with net charge $+1$. At $pK_{a2} = 3.90$, the side-chain $\\beta\\text{-COOH}$ deprotonates to $-\\text{COO}^-$, yielding species $H_2A^0$ with net charge $0$. At $pK_{a3} = 9.00$, the $\\alpha\\text{-NH}_3^+$ loses its proton to become neutral $-\\text{NH}_2$, yielding species $HA^-$ with net charge $-1$. At $pK_{a4} = 10.50$, the $\\epsilon\\text{-NH}_3^+$ deprotonates, yielding species $A^{2-}$ with net charge $-2$. Therefore, the electrically neutral zwitterionic species ($H_2A^0$) is strictly bounded between $pK_{a2}$ and $pK_{a3}$. Applying the isoelectric principle: $pI = \\frac{pK_{a2} + pK_{a3}}{2} = \\frac{3.90 + 9.00}{2} = \\frac{12.90}{2} = 6.45$. Hence, substituting these boundary values gives $pI = 6.45$. Distractor $3.00$ erroneously averages the two carboxyl groups, while distractor $9.75$ erroneously averages the two amino groups."
+    },
+    {
+      "id": "bm_c01_040",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The thermal stability of a native double-stranded DNA duplex in aqueous solution is monitored by UV spectrophotometry at $260\\text{ nm}$. The melting temperature ($T_m$) reflects the midpoint of the cooperative helix-to-coil transition. Under which of the following solution conditions will the given double-stranded DNA duplex exhibit the highest thermal melting temperature ($T_m$)?",
+      "options": [
+        "A) $10\\text{ mM } NaCl$ in neutral aqueous buffer without chemical denaturants",
+        "B) $10\\text{ mM } NaCl$ in the presence of $6\\text{ M}$ urea",
+        "C) $500\\text{ mM } NaCl$ in the presence of $6\\text{ M}$ urea",
+        "D) $500\\text{ mM } NaCl$ in neutral aqueous buffer without chemical denaturants"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In duplex DNA, each nucleotide carries a negatively charged phosphodiester group ($-\\text{PO}_4^-$). These closely spaced negative charges along the helical backbones create strong electrostatic repulsion that destabilizes the double helix. Step 2: Increasing the ionic strength by adding sodium chloride ($NaCl$ from $10\\text{ mM}$ to $500\\text{ mM}$) increases counterion Debye screening; $Na^+$ cations effectively shield the negatively charged phosphate backbones, drastically reducing electrostatic repulsion and stabilizing base stacking, which raises the melting temperature $T_m$. Step 3: Chemical denaturants such as $6\\text{ M}$ urea competitively form hydrogen bonds with the donor and acceptor sites of purine and pyrimidine bases, displacing native inter-strand hydrogen bonds and lowering $T_m$. Therefore, maximizing the salt concentration ($500\\text{ mM } NaCl$) while excluding all hydrogen-bonding denaturants like urea yields the maximum electrostatic shielding and maximum duplex stability, implying the highest $T_m$. Distractor B exhibits the lowest $T_m$ due to combined low ionic screening and high denaturant concentration."
+    },
+    {
+      "id": "bm_c01_041",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Which of the following statements regarding the structural chemistry, stereochemical conformations, and chemical reactions of D-(+)-glucose is/are correct?",
+      "options": [
+        "A) Mild oxidation of D-glucose with bromine water gives D-gluconic acid, whereas vigorous oxidation with concentrated nitric acid yields the dicarboxylic D-glucaric acid",
+        "B) The pentaacetate derivative of $\\alpha$-D-glucopyranose does not react with hydroxylamine ($NH_2OH$), proving that the cyclic hemiacetal hydroxyl is locked as an ester and cannot open to a free aldehyde",
+        "C) D-Glucose and D-fructose give distinct, non-identical phenylosazone derivatives when heated with excess phenylhydrazine because their carbonyl groups reside at C1 and C2, respectively",
+        "D) In aqueous solution, $\\beta$-D-glucopyranose is thermodynamically more stable than $\\alpha$-D-glucopyranose because all five bulky substituents occupy equatorial orientations in the $^4C_1$ chair conformation"
+      ],
+      "answer": "A,B,D",
+      "explanation": "Statement A is correct: Bromine water selectively oxidizes the aldehyde carbon C1 to a carboxylic acid ($-\\text{COOH}$), forming D-gluconic acid, whereas concentrated $HNO_3$ oxidizes both C1 and the primary alcohol C6, yielding D-glucaric acid. Statement B is correct: Complete acetylation with acetic anhydride forms glucose pentaacetate, locking the anomeric C1-OH as an acetate ester. Because an ester cannot undergo ring opening to generate a free aldehyde group, the pentaacetate fails to form an oxime with $NH_2OH$. Statement C is incorrect: D-Glucose, D-mannose, and D-fructose yield identical phenylosazones because the reaction consumes only C1 and C2, while the stereocenters at C3, C4, and C5 are identical in all three hexoses. Statement D is correct: In the $^4C_1$ chair conformation of $\\beta$-D-glucopyranose, the four hydroxyl groups at C1, C2, C3, C4 and the $-\\text{CH}_2\\text{OH}$ group at C5 all occupy equatorial positions, minimizing 1,3-diaxial steric repulsions and making the $\\beta$-anomer the dominant species ($64\\%$) at equilibrium."
+    },
+    {
+      "id": "bm_c01_042",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Which of the following statements concerning the chemical constitution, optical activity, and reactivity of disaccharides is/are correct?",
+      "options": [
+        "A) Sucrose exhibits mutarotation and readily reduces Fehling's reagent because the hemiacetal hydroxyl at C1 of its fructose moiety remains free in solution",
+        "B) Maltose is a reducing disaccharide consisting of two $\\alpha$-D-glucopyranose units linked by an $\\alpha(1\\to 4)$ glycosidic bond, leaving one anomeric hemiacetal carbon free to equilibrate with the open-chain aldehyde",
+        "C) The acid-catalyzed hydrolysis of dextrorotatory sucrose produces a levorotatory mixture (invert sugar) because the specific levorotation of D-(-)-fructose ($[\\alpha]_D = -92.5^\\circ$) exceeds the specific dextrorotation of D-(+)-glucose ($[\\alpha]_D = +52.5^\\circ$)",
+        "D) Hydrolysis of lactose by lactase yields two moles of D-glucose linked by an $\\alpha(1\\to 4)$ glycosidic bond"
+      ],
+      "answer": "B,C",
+      "explanation": "Statement A is incorrect: In sucrose, the glycosidic bond connects the anomeric C1 of $\\alpha$-D-glucose to the anomeric C2 of $\\beta$-D-fructose. Both reducing anomeric centers are tied in the acetal/ketal linkage; therefore, sucrose lacks a free hemiacetal, is non-reducing, and does not exhibit mutarotation. Statement B is correct: Maltose possesses an $\\alpha(1\\to 4)$ glycosidic linkage; the second glucose ring retains a free anomeric hemiacetal at C1, allowing mutarotation and reduction of Fehling's/Tollens' reagents. Statement C is correct: Sucrose ($[\\alpha]_D = +66.5^\\circ$) hydrolyzes to an equimolar mixture of D-glucose ($+52.5^\\circ$) and D-fructose ($-92.5^\\circ$). The net specific rotation is negative (approx. $-20.0^\\circ$), causing optical inversion. Statement D is incorrect: Lactose is 4-O-$\\beta$-D-galactopyranosyl-D-glucopyranose, which yields one mole of D-galactose and one mole of D-glucose via a $\\beta(1\\to 4)$ linkage."
+    },
+    {
+      "id": "bm_c01_043",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Which of the following statements regarding the physical, chemical, and stereochemical properties of standard amino acids is/are correct?",
+      "options": [
+        "A) For an acidic amino acid such as aspartic acid, the isoelectric point is calculated from $pI = \\frac{pK_{a1} + pK_{a2}}{2}$, where $pK_{a1}$ and $pK_{a2}$ represent the ionization constants of the two carboxyl groups",
+        "B) In an electrophoresis chamber maintained at a buffer $pH$ higher than its isoelectric point ($pH > pI$), an amino acid carries a net positive charge and migrates toward the cathode",
+        "C) Among the 20 standard proteinogenic amino acids, exactly two amino acids—L-threonine and L-isoleucine—possess two asymmetric (chiral) carbon centers in their structures",
+        "D) Due to their internal dipolar zwitterionic structure ($^+\\text{H}_3\\text{N}-\\text{CHR}-\\text{COO}^-$), crystalline $\\alpha$-amino acids behave like ionic salts, exhibiting high melting points and high solubility in water"
+      ],
+      "answer": "A,C,D",
+      "explanation": "Statement A is correct: In acidic amino acids (Asp, Glu), the net neutral zwitterionic form exists between the deprotonation of the $\\alpha\\text{-COOH}$ ($pK_{a1}$) and the side-chain carboxyl ($pK_{a2}$). Thus, $pI = \\frac{pK_{a1} + pK_{a2}}{2}$. Statement B is incorrect: When $pH > pI$, the excess hydroxide ions deprotonate the amino acid, imparting a net negative charge; therefore, it exists as an anion and migrates toward the positive anode, not the cathode. Statement C is correct: Standard amino acids have chiral $\\alpha$-carbons except glycine. L-Threonine and L-Isoleucine uniquely have a second chiral center at the $\\beta$-carbon. Statement D is correct: Zwitterions have high permanent dipole moments and strong electrostatic intermolecular lattice energies, leading to high decomposition melting temperatures ($>200^\\circ\\text{C}$) and insolubility in non-polar organic solvents."
+    },
+    {
+      "id": "bm_c01_044",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Which of the following statements regarding the conformational dynamics and secondary structures of proteins is/are correct?",
+      "options": [
+        "A) In a canonical right-handed $\\alpha$-helix, each peptide carbonyl oxygen forms an intrachain hydrogen bond with the backbone amide hydrogen of the fourth residue down the chain ($i \\to i+4$)",
+        "B) Proline acts as an $\\alpha$-helix disruptor because its cyclic pyrrolidine side chain lacks an amide hydrogen for backbone hydrogen bonding and restricts the $\\phi$ dihedral angle to approximately $-60^\\circ$",
+        "C) Antiparallel $\\beta$-pleated sheets are thermodynamically more stable than parallel $\\beta$-sheets because their inter-strand hydrogen bonds are nearly collinear and perpendicular to the peptide chains",
+        "D) Mild thermal denaturation of a globular protein at $65^\\circ\\text{C}$ hydrolyzes its covalent primary peptide backbone bonds into individual free amino acids"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Statement A is correct: The regular $\\alpha$-helix structure is defined by intrachain hydrogen bonds between the carbonyl oxygen of residue $i$ and the amide $N-H$ of residue $i+4$, with $3.6$ residues per turn and a pitch of $5.4\\text{ Å}$. Statement B is correct: Proline is a secondary cyclic amino acid (imino acid); when integrated into a peptide, its nitrogen lacks a hydrogen atom, preventing hydrogen bond donation. Furthermore, its rigid five-membered pyrrolidine ring sterically clashes with the helix cylinder. Statement C is correct: In antiparallel $\\beta$-sheets, the $C=O$ and $N-H$ groups point directly at each other across neighboring strands, creating linear, collinear hydrogen bonds with optimal orbital overlap. Statement D is incorrect: Denaturation disrupts only non-covalent interactions (hydrogen bonds, hydrophobic effects) and sometimes disulfide bonds; it does not hydrolyze primary covalent peptide bonds."
+    },
+    {
+      "id": "bm_c01_045",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Which of the following statements concerning the molecular architecture and chemical properties of nucleic acids is/are correct?",
+      "options": [
+        "A) In Watson-Crick B-DNA, adenine pairs with thymine via three hydrogen bonds, while guanine pairs with cytosine via two hydrogen bonds",
+        "B) Adjacent nucleoside units in a polynucleotide chain are covalently linked by $3' \\to 5'$ phosphodiester bonds between the 3'-OH of one deoxyribose and the 5'-phosphate of the next",
+        "C) Thermal denaturation of double-stranded DNA into single strands is accompanied by an increase in optical absorbance at $260\\text{ nm}$, an effect termed the hyperchromic shift",
+        "D) In any double-stranded DNA molecule, Chargaff's rules mandate that the purine-to-pyrimidine molar ratio satisfies $\\frac{[A] + [G]}{[T] + [C]} = 1.0$"
+      ],
+      "answer": "B,C,D",
+      "explanation": "Statement A is incorrect: Adenine pairs with thymine via two hydrogen bonds ($A=T$), whereas guanine pairs with cytosine via three hydrogen bonds ($G\\equiv C$). Statement B is correct: Polynucleotide chains are formed by condensation where a phosphate group esterifies the $3'$-hydroxyl of one pentose sugar and the $5'$-hydroxyl of the adjacent pentose sugar, giving $3' \\to 5'$ phosphodiester linkage directionality. Statement C is correct: In the native duplex, base stacking restricts the electronic transition dipoles of the heterocyclic aromatic rings, lowering UV absorption (hypochromism). Upon thermal denaturation, base unstacking increases UV absorbance at $260\\text{ nm}$ by $30-40\\%$ (hyperchromic effect). Statement D is correct: Because each adenine pairs with thymine ($[A] = [T]$) and each guanine pairs with cytosine ($[G] = [C]$), total purines equal total pyrimidines: $[A] + [G] = [T] + [C]$, giving a ratio of $1.0$."
+    },
+    {
+      "id": "bm_c01_046",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Which of the following statements regarding classical qualitative diagnostic tests for biomolecules is/are correct?",
+      "options": [
+        "A) The Biuret test gives a characteristic violet coordination complex with alkaline $Cu^{2+}$ only for compounds containing two or more peptide linkages, giving a negative result for free glycine and dipeptides",
+        "B) The Xanthoproteic test involves electrophilic aromatic nitration of benzene rings in phenylalanine, tyrosine, and tryptophan using concentrated nitric acid, producing a yellow color that turns orange in alkali",
+        "C) Reaction of ninhydrin with primary $\\alpha$-amino acids produces a blue-violet chromophore known as Ruhemann's purple, whereas secondary amino acids such as proline yield a yellow complex",
+        "D) Ketoses such as D-fructose do not reduce Tollens' reagent or Fehling's solution because they lack a free aldehyde group in both open and cyclic forms"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Statement A is correct: The Biuret reaction requires a minimum of two peptide bonds (forming a tetra-dentate coordination complex with $Cu^{2+}$ in basic solution); hence, free amino acids and dipeptides (which contain only one peptide bond) give a negative Biuret test. Statement B is correct: Concentrated $HNO_3$ nitrates activated aromatic side chains (Tyr, Trp, and slowly Phe) to form yellow nitro derivatives; addition of base generates orange quinonoid salts. Statement C is correct: Primary $\\alpha$-amino acids undergo oxidative decarboxylation with ninhydrin yielding Ruhemann's purple ($lambda_{max} \\approx 570\\text{ nm}$), whereas proline's secondary amine forms a distinct yellow condensation product ($lambda_{max} \\approx 440\\text{ nm}$). Statement D is incorrect: In alkaline Tollens' and Fehling's reagents, D-fructose rapidly isomerizes into D-glucose and D-mannose via an enediol intermediate (Lobry de Bruyn-Alberda van Ekenstein rearrangement), vigorously reducing both reagents."
+    },
+    {
+      "id": "bm_c01_047",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Which of the following statements regarding the periodic acid ($HIO_4$) oxidative cleavage of carbohydrates and polyols is/are correct?",
+      "options": [
+        "A) One mole of methyl $\\alpha$-D-glucopyranoside consumes exactly two moles of $HIO_4$ to yield one mole of formic acid and zero moles of formaldehyde",
+        "B) One mole of open-chain D-fructose consumes five moles of $HIO_4$ to yield three moles of formic acid, two moles of formaldehyde, and one mole of carbon dioxide",
+        "C) Periodic acid cleaves isolated (non-adjacent) secondary alcohol carbons along a polysaccharide chain into carboxylic acids",
+        "D) One mole of glycerol consumes two moles of $HIO_4$ to produce two moles of formic acid and one mole of formaldehyde"
+      ],
+      "answer": "A,B",
+      "explanation": "Statement A is correct: In methyl $\\alpha$-D-glucopyranoside, only C2, C3, and C4 have free vicinal hydroxyls. Cleavage of the two vicinal bonds (C2-C3 and C3-C4) consumes $2\\text{ mol } HIO_4$ and releases C3 as $1\\text{ mol } HCOOH$; C6 is not vicinal to a free hydroxyl, so no $HCHO$ is formed. Statement B is correct: Open-chain D-fructose ($\\text{HOCH}_2-\\text{CO}-\\text{CHOH}-\\text{CHOH}-\\text{CHOH}-\\text{CH}_2\\text{OH}$) has 5 cleavable vicinal bonds, consuming $5\\text{ mol } HIO_4$. C1 and C6 yield $2\\text{ mol } HCHO$; C3, C4, C5 yield $3\\text{ mol } HCOOH$; the C2 carbonyl carbon flanked by two cleavages is oxidized to $1\\text{ mol } CO_2$. Statement C is incorrect: Malaprade cleavage strictly requires vicinal (adjacent) functional groups (1,2-diols, $\\alpha$-hydroxy carbonyls, or 1,2-dicarbonyls); isolated alcohols are completely inert to $HIO_4$. Statement D is incorrect: Glycerol ($\\text{HOCH}_2-\\text{CHOH}-\\text{CH}_2\\text{OH}$) produces two moles of formaldehyde and one mole of formic acid ($2\\,HCHO + 1\\,HCOOH$), not vice versa."
+    },
+    {
+      "id": "bm_c01_048",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In the study of biochemical metabolism, enzyme catalysis kinetics, and physiological micronutrients, which of the following comparative statements regarding vitamins, prosthetic groups, cofactors, and biocatalysts is/are correct?",
+      "options": [
+        "A) Vitamins B and C are fat-soluble vitamins that accumulate in the liver and adipose tissue, posing a high risk of hypervitaminosis upon excessive consumption",
+        "B) Vitamin C (L-ascorbic acid) functions as an essential biological reducing agent and cofactor in the enzymatic hydroxylation of proline and lysine residues during collagen biosynthesis; its deficiency leads to scurvy",
+        "C) Vitamin $B_{12}$ (cyanocobalamin) possesses an octahedral coordination complex of cobalt($\\text{III}$) coordinated within a planar corrin macrocycle; its deficiency impairs erythrocyte maturation, causing pernicious anemia",
+        "D) Enzymes accelerate biochemical reactions by preferentially binding and stabilizing the transition state, thereby reducing the activation free energy barrier ($\\Delta G^\\ddagger$) without altering the equilibrium constant ($K_{eq}$) or standard free energy change ($\\Delta G^\\circ$)"
+      ],
+      "answer": "B,C,D",
+      "explanation": "Statement A is incorrect: Vitamins B-complex and C are water-soluble vitamins that are readily excreted in urine and must be regularly supplied in the diet; fat-soluble vitamins are A, D, E, and K. Statement B is correct: Ascorbate maintains the iron atom of prolyl and lysyl hydroxylases in the active $\\text{Fe}^{2+}$ state, enabling collagen cross-linking; therefore, deficiency causes defective collagen and scurvy. Statement C is correct: Vitamin {12}$ contains a cobalt ion centered in a corrin ring (similar to porphyrin); lack of intrinsic factor impairs its absorption, yielding pernicious anemia. Statement D is correct: Applying the transition-state stabilization model of biocatalysis, enzymes lower the activation free energy $\\Delta G^\\ddagger$ without altering $\\Delta G^\\circ$ or {eq}$, hence accelerating the rate."
+    },
+    {
+      "id": "bm_c01_049",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A synthetic peptide consisting of an $11$-amino-acid segment adopts a complete, unbroken $\\alpha$-helical conformation in aqueous solution. In this helical structure, each peptide carbonyl group at residue $i$ forms a canonical backbone hydrogen bond with the amide hydrogen of residue $i+4$. Calculate the total number of such intrachain backbone hydrogen bonds stabilizing this $11$-residue $\\alpha$-helix.",
+      "options": [],
+      "answer": "7",
+      "explanation": "Step 1: In a standard $\\alpha$-helix composed of $N$ amino acid residues, the hydrogen bonding pattern involves the backbone carbonyl oxygen of residue $i$ acting as an acceptor for the amide hydrogen of residue $i+4$ acting as a donor. Step 2: The residues that can participate as donors in this $i \\to i+4$ interaction are those having four residues ahead in the sequence. For an $11$-residue peptide ($N = 11$), the permissible values for residue $i$ are $i = 1, 2, 3, 4, 5, 6, 7$. Therefore, hydrogen bonds form between residues: $(1, 5)$, $(2, 6)$, $(3, 7)$, $(4, 8)$, $(5, 9)$, $(6, 10)$, and $(7, 11)$. Substituting the total residues into the formula: $N_{HB} = N - 4 = 11 - 4 = 7$. Solving for the number of bonds yields exactly 7 intrachain backbone hydrogen bonds, which implies that four residues at each terminus lack helical partners."
+    },
+    {
+      "id": "bm_c01_050",
+      "subject": "Chemistry",
+      "topic": "Biomolecules",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A segment of double-stranded B-DNA has a total contour axial length of $13.6\\text{ nm}$. In standard B-DNA geometry, each base pair contributes an axial rise of $0.34\\text{ nm}$ along the central helical axis, and there are exactly $10$ base pairs per complete $360^\\circ$ helical turn. Assuming an uninterrupted double-helical structure, calculate the total number of complete helical turns present in this DNA segment.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: Calculate the total number of base pairs ($N_{bp}$) present in the DNA duplex. Applying the relation between contour length and axial rise per base pair: $N_{bp} = \\frac{\\text{Total axial length}}{\\text{Rise per base pair}}$. Substituting the given physical parameters gives: $N_{bp} = \\frac{13.6\\text{ nm}}{0.34\\text{ nm/bp}} = 40\\text{ base pairs}$. Step 2: In canonical B-form DNA, there are exactly $10$ base pairs per complete $360^\\circ$ helical turn (pitch $P = 10 \\times 0.34\\text{ nm} = 3.4\\text{ nm/turn}$). Therefore, the number of complete helical turns is determined by: $N_{\\text{turns}} = \\frac{N_{bp}}{10\\text{ bp/turn}} = \\frac{40}{10} = 4$. Solving this relation yields exactly 4 complete turns, implying that the duplex rotates through $4 \\times 360^\\circ = 1440^\\circ$ of total helical twist."
+    }
+  ]
+}

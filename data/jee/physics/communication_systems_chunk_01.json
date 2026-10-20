@@ -1,0 +1,794 @@
+{
+  "questions": [
+    {
+      "id": "com_c01_001",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A sinusoidal carrier wave is amplitude modulated by an audio signal such that the maximum and minimum peak-to-peak voltages observed on an oscilloscope are $V_{max} = 30.0\\text{ V}$ and $V_{min} = 10.0\\text{ V}$, respectively. The modulated signal is transmitted into an antenna with an effective radiation resistance of $R = 50.0\\ \\Omega$. Calculate the total average power radiated by the antenna.",
+      "options": [
+        "A) $1.125\\text{ W}$",
+        "B) $1.250\\text{ W}$",
+        "C) $1.000\\text{ W}$",
+        "D) $2.250\\text{ W}$"
+      ],
+      "answer": "A",
+      "explanation": "Applying the envelope relations, the peak carrier amplitude is $A_c = \\frac{V_{max} + V_{min}}{4} = \\frac{30.0 + 10.0}{4} = 10.0\\text{ V}$, and the modulating signal amplitude is $A_m = \\frac{V_{max} - V_{min}}{4} = \\frac{30.0 - 10.0}{4} = 5.0\\text{ V}$. The modulation index is $\\mu = \\frac{A_m}{A_c} = \\frac{5.0}{10.0} = 0.50$. The unmodulated carrier power delivered to the antenna is $P_c = \\frac{A_c^2}{2R} = \\frac{(10.0)^2}{2(50.0)} = 1.00\\text{ W}$. Substituting into the total radiated power relation yields $P_t = P_c\\left(1 + \\frac{\\mu^2}{2}\\right) = 1.00\\left(1 + \\frac{0.25}{2}\\right) = 1.125\\text{ W}$. Forgetting the factor of $1/2$ in the sideband power expression yields $1.250\\text{ W}$; taking only the unmodulated carrier power yields $1.000\\text{ W}$; using the peak voltage rather than rms voltage without the factor of $2$ in the power denominator yields $2.250\\text{ W}$."
+    },
+    {
+      "id": "com_c01_002",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A line-of-sight (LOS) space wave transmission system utilizes a transmitting antenna of height $h_T = 180\\text{ m}$ and a receiving antenna of height $h_R = 80\\text{ m}$. Taking the radius of the Earth as $R = 6400\\text{ km}$ and assuming a spherical Earth with negligible atmospheric refraction, determine the maximum direct line-of-sight communication distance between the two antennas.",
+      "options": [
+        "A) $64.0\\text{ km}$",
+        "B) $80.0\\text{ km}$",
+        "C) $96.0\\text{ km}$",
+        "D) $112.0\\text{ km}$"
+      ],
+      "answer": "B",
+      "explanation": "Applying the horizon formula for space wave propagation over a spherical Earth of radius $R$, the radio horizon distance for the transmitter is $d_T = \\sqrt{2 R h_T}$. Substituting $R = 6.4 \\times 10^6\\text{ m}$ and $h_T = 180\\text{ m}$, we get $d_T = \\sqrt{2(6.4 \\times 10^6)(180)} = \\sqrt{2.304 \\times 10^9} = 4.8 \\times 10^4\\text{ m} = 48.0\\text{ km}$. Similarly, for the receiving antenna of height $h_R = 80\\text{ m}$, we get $d_R = \\sqrt{2 R h_R} = \\sqrt{2(6.4 \\times 10^6)(80)} = \\sqrt{1.024 \\times 10^9} = 3.2 \\times 10^4\\text{ m} = 32.0\\text{ km}$. The maximum line-of-sight distance is the sum of these two individual horizons: $d_{max} = d_T + d_R = 48.0\\text{ km} + 32.0\\text{ km} = 80.0\\text{ km}$. Erroneously computing $\\sqrt{2R(h_T + h_R)}$ inside a single square root yields approximately $57.7\\text{ km}$; neglecting the receiver antenna height gives $48.0\\text{ km}$; doubling the transmitting horizon yields $96.0\\text{ km}$; adding an arbitrary refractive correction factor yields $112.0\\text{ km}$."
+    },
+    {
+      "id": "com_c01_003",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An amplitude modulated (AM) transmitter radiates a total power of $P_{t1} = 59.0\\text{ kW}$ when modulated sinusoidally to a modulation depth of $60\\%$ ($\\mu_1 = 0.60$). If the modulation depth is subsequently increased to $80\\%$ ($\\mu_2 = 0.80$) while keeping the carrier amplitude strictly constant, determine the new total radiated power in $\\text{kW}$.",
+      "options": [],
+      "answer": "66",
+      "explanation": "Applying the total radiated power formula $P_t = P_c\\left(1 + \\frac{\\mu^2}{2}\\right)$, we can first determine the unmodulated carrier power $P_c$. For $\\mu_1 = 0.60$, we have $P_{t1} = P_c\\left(1 + \\frac{(0.60)^2}{2}\\right) = P_c(1 + 0.18) = 1.18 P_c$. Solving for $P_c$, we get $P_c = \\frac{59.0\\text{ kW}}{1.18} = 50.0\\text{ kW}$. Next, substituting the increased modulation index $\\mu_2 = 0.80$ while keeping $P_c$ unchanged, the new total power is $P_{t2} = P_c\\left(1 + \\frac{\\mu_2^2}{2}\\right) = 50.0\\left(1 + \\frac{(0.80)^2}{2}\\right) = 50.0(1 + 0.32) = 50.0 \\times 1.32 = 66.0\\text{ kW}$. Therefore, the new radiated power is $66\\text{ kW}$."
+    },
+    {
+      "id": "com_c01_004",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An unmodulated carrier voltage $c(t) = 40.0 \\cos(2\\pi \\times 10^6 t)\\text{ V}$ is amplitude modulated by a single-tone audio signal with modulation index $\\mu = 0.75$. The modulated voltage is applied across a load resistance of $R = 100\\ \\Omega$. Find the total power contained strictly within both sidebands.",
+      "options": [
+        "A) $4.50\\text{ W}$",
+        "B) $1.125\\text{ W}$",
+        "C) $2.25\\text{ W}$",
+        "D) $10.25\\text{ W}$"
+      ],
+      "answer": "C",
+      "explanation": "Applying Ohm's law for sinusoidal signals, the unmodulated carrier power across load resistance $R$ is $P_c = \\frac{A_c^2}{2R} = \\frac{(40.0)^2}{2(100)} = \\frac{1600}{200} = 8.00\\text{ W}$. In amplitude modulation, the total power contained in both the upper sideband (USB) and lower sideband (LSB) combined is $P_{SB} = P_{USB} + P_{LSB} = P_c\\frac{\\mu^2}{2}$. Substituting $P_c = 8.00\\text{ W}$ and $\\mu = 0.75$, we get $P_{SB} = 8.00 \\times \\frac{(0.75)^2}{2} = 8.00 \\times \\frac{0.5625}{2} = 8.00 \\times 0.28125 = 2.25\\text{ W}$. Omitting the factor of $2$ in the denominator yields $4.50\\text{ W}$; calculating the power of only a single sideband gives $1.125\\text{ W}$; adding the carrier power to obtain total transmitted power yields $10.25\\text{ W}$."
+    },
+    {
+      "id": "com_c01_005",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A vertical quarter-wave monopole antenna is designed to transmit an electromagnetic signal at a carrier frequency of $f = 150\\text{ MHz}$ into free space ($c = 3.0 \\times 10^8\\text{ m/s}$). The radiation resistance of the antenna is measured to be $R_{rad} = 36.5\\ \\Omega$. If the transmitter radiates an average power of $P = 146\\text{ W}$, determine the physical length of the antenna $L$ and the rms current $I_{rms}$ at the base of the antenna.",
+      "options": [
+        "A) $L = 1.00\\text{ m},\\ I_{rms} = 4.00\\text{ A}$",
+        "B) $L = 0.25\\text{ m},\\ I_{rms} = 2.00\\text{ A}$",
+        "C) $L = 0.50\\text{ m},\\ I_{rms} = 4.00\\text{ A}$",
+        "D) $L = 0.50\\text{ m},\\ I_{rms} = 2.00\\text{ A}$"
+      ],
+      "answer": "D",
+      "explanation": "Applying the wave relation $\\lambda = \\frac{c}{f}$, the operating wavelength is $\\lambda = \\frac{3.0 \\times 10^8\\text{ m/s}}{150 \\times 10^6\\text{ Hz}} = 2.00\\text{ m}$. For a quarter-wave monopole antenna, the physical length required is $L = \\frac{\\lambda}{4} = \\frac{2.00\\text{ m}}{4} = 0.50\\text{ m}$. The radiated power is related to the rms antenna base current by $P = I_{rms}^2 R_{rad}$. Solving for $I_{rms}$, we get $I_{rms} = \\sqrt{\\frac{P}{R_{rad}}} = \\sqrt{\\frac{146\\text{ W}}{36.5\\ \\Omega}} = \\sqrt{4.00} = 2.00\\text{ A}$. Using the half-wavelength relation yields $L = 1.00\\text{ m}$; using an eighth-wavelength yields $L = 0.25\\text{ m}$; calculating $P / R_{rad}$ without taking the square root yields $I_{rms} = 4.00\\text{ A}$."
+    },
+    {
+      "id": "com_c01_006",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A television transmitting antenna mounted atop a tall tower has a height of $h = 70.0\\text{ m}$. The signals are transmitted via space wave to receivers situated at ground level. Taking the radius of the Earth as $R = 6400\\text{ km}$ and assuming an average population density of $\\rho = \\frac{1500}{\\pi}\\text{ persons/km}^2$ uniformly distributed across the broadcast area, calculate the total population reached by the transmission.",
+      "options": [
+        "A) $1.344 \\times 10^6\\text{ persons}$",
+        "B) $2.688 \\times 10^6\\text{ persons}$",
+        "C) $6.720 \\times 10^5\\text{ persons}$",
+        "D) $4.032 \\times 10^6\\text{ persons}$"
+      ],
+      "answer": "A",
+      "explanation": "Applying the line-of-sight horizon relation, the transmission radius over flat terrain is $d = \\sqrt{2 R h}$. The total circular surface area covered by the transmission is $A = \\pi d^2 = \\pi (2 R h) = 2\\pi R h$. Substituting $R = 6400\\text{ km}$ and $h = 70.0\\text{ m} = 0.070\\text{ km}$, we obtain $A = 2\\pi (6400)(0.070) = 896\\pi\\text{ km}^2$. Multiplying this area by the given population density $\\rho = \\frac{1500}{\\pi}\\text{ persons/km}^2$, we get the total population reached: $N = \\rho A = \\left(\\frac{1500}{\\pi}\\right)(896\\pi) = 1500 \\times 896 = 1.344 \\times 10^6\\text{ persons}$. Doubling the coverage radius yields a fourfold area increase; using $A = \\pi R h$ without the factor of $2$ yields $6.720 \\times 10^5\\text{ persons}$; multiplying by an erroneous geometry factor of $3$ yields $4.032 \\times 10^6\\text{ persons}$."
+    },
+    {
+      "id": "com_c01_007",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An ionospheric layer has a maximum electron density of $N_{max} = 1.44 \\times 10^{12}\\text{ m}^{-3}$. A sky wave is transmitted toward this layer at an angle of incidence of $\\theta_i = 60^\\circ$ relative to the vertical normal. Determine the critical frequency $f_c$ for vertical incidence and the maximum usable frequency ($MUF$) for this oblique path.",
+      "options": [
+        "A) $f_c = 10.8\\text{ MHz},\\ MUF = 5.4\\text{ MHz}$",
+        "B) $f_c = 10.8\\text{ MHz},\\ MUF = 21.6\\text{ MHz}$",
+        "C) $f_c = 12.0\\text{ MHz},\\ MUF = 24.0\\text{ MHz}$",
+        "D) $f_c = 9.0\\text{ MHz},\\ MUF = 18.0\\text{ MHz}$"
+      ],
+      "answer": "B",
+      "explanation": "Applying the ionospheric plasma frequency formula, the critical frequency for vertical incidence is $f_c = 9\\sqrt{N_{max}}$ where $N_{max}$ is in $\\text{m}^{-3}$. Substituting $N_{max} = 1.44 \\times 10^{12}\\text{ m}^{-3}$, we get $f_c = 9\\sqrt{1.44 \\times 10^{12}} = 9 \\times (1.20 \\times 10^6) = 1.08 \\times 10^7\\text{ Hz} = 10.8\\text{ MHz}$. For oblique incidence at angle $\\theta_i$, applying Martyn's equivalence theorem yields the maximum usable frequency $MUF = f_c \\sec\\theta_i = \\frac{f_c}{\\cos 60^\\circ} = \\frac{10.8\\text{ MHz}}{0.50} = 21.6\\text{ MHz}$. Multiplying by $\\cos 60^\\circ$ rather than dividing yields $5.4\\text{ MHz}$; taking $9\\sqrt{N}$ with an incorrect power of ten yields $12.0\\text{ MHz}$ and $24.0\\text{ MHz}$; assuming $N_{max} = 1.0 \\times 10^{12}\\text{ m}^{-3}$ yields $9.0\\text{ MHz}$ and $18.0\\text{ MHz}$."
+    },
+    {
+      "id": "com_c01_008",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An amplitude modulated transmitter operates with a sinusoidal carrier and a single audio tone with a modulation index of $\\mu = 0.60$. If the transmitter is switched to a Double Sideband Suppressed Carrier (DSB-SC) system while maintaining identical sideband power, calculate the percentage of total transmitted power saved by suppressing the carrier.",
+      "options": [
+        "A) $15.25\\%$",
+        "B) $66.67\\%$",
+        "C) $84.75\\%$",
+        "D) $33.33\\%$"
+      ],
+      "answer": "C",
+      "explanation": "Applying the power distribution formulas in amplitude modulation, the total power in the standard AM wave is $P_t = P_c\\left(1 + \\frac{\\mu^2}{2}\\right) = P_c + P_{SB}$, where the carrier power is $P_c$ and the total sideband power is $P_{SB} = P_c\\frac{\\mu^2}{2}$. For $\\mu = 0.60$, we get $P_t = P_c\\left(1 + \\frac{0.36}{2}\\right) = 1.18 P_c$. When the carrier is completely suppressed in DSB-SC, the power saved is precisely the carrier power $P_c$. The fraction of total power saved is $\\frac{P_c}{P_t} = \\frac{P_c}{1.18 P_c} = \\frac{1}{1.18} = \\frac{50}{59} \\approx 0.84746$, which corresponds to $84.75\\%$. Confusing the modulation efficiency $\\eta = \\frac{P_{SB}}{P_t} = \\frac{0.18}{1.18} \\approx 15.25\\%$ with the power saved yields $15.25\\%$; assuming $100\\%$ modulation ($\\mu = 1.0$) yields $66.67\\%$; taking sideband power fraction for $\\mu = 1.0$ yields $33.33\\%$."
+    },
+    {
+      "id": "com_c01_009",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A step-index optical fiber has a core of refractive index $n_1 = 1.50$ and a cladding of refractive index $n_2 = 1.44$. The fiber is immersed in water of refractive index $n_0 = \\frac{4}{3} \\approx 1.333$. Determine the numerical aperture ($NA$) of the fiber in air and the sine of the maximum acceptance angle $\\sin\\theta_a$ for light entering the core from the water.",
+      "options": [
+        "A) $NA = 0.600,\\ \\sin\\theta_a = 0.450$",
+        "B) $NA = 0.420,\\ \\sin\\theta_a = 0.560$",
+        "C) $NA = 0.300,\\ \\sin\\theta_a = 0.225$",
+        "D) $NA = 0.420,\\ \\sin\\theta_a = 0.315$"
+      ],
+      "answer": "D",
+      "explanation": "Applying Snell's law and total internal reflection at the core-cladding boundary, the numerical aperture of the fiber is defined as $NA = \\sqrt{n_1^2 - n_2^2}$. Substituting $n_1 = 1.50$ and $n_2 = 1.44$, we get $NA = \\sqrt{(1.50)^2 - (1.44)^2} = \\sqrt{2.25 - 2.0736} = \\sqrt{0.1764} = 0.420$. When the launching medium has refractive index $n_0$, Snell's law at the fiber entrance face gives $n_0 \\sin\\theta_a = NA$. Substituting $n_0 = \\frac{4}{3}$, we solve for the acceptance angle: $\\sin\\theta_a = \\frac{NA}{n_0} = \\frac{0.420}{4/3} = 0.420 \\times \\frac{3}{4} = 0.315$. Subtracting the indices directly yields $n_1 - n_2 = 0.06$; multiplying by $n_0$ rather than dividing yields $0.560$; miscalculating the difference of squares as $0.600$ yields $0.450$."
+    },
+    {
+      "id": "com_c01_010",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An amplitude modulation (AM) broadcast band is allocated the frequency spectrum extending from $500\\text{ kHz}$ to $1100\\text{ kHz}$. Each AM station transmits audio programming with a maximum baseband audio frequency of $f_m = 20\\text{ kHz}$. To prevent adjacent channel interference, a guard band of $10\\text{ kHz}$ is mandated between successive channels. Determine the maximum number of independent AM stations that can be accommodated simultaneously within this allocated band.",
+      "options": [],
+      "answer": "12",
+      "explanation": "Applying standard AM transmission theory, an AM signal with maximum modulating frequency $f_m$ occupies a transmission bandwidth of $BW = 2 f_m$. Substituting $f_m = 20\\text{ kHz}$, the signal bandwidth of each station is $BW = 2(20\\text{ kHz}) = 40\\text{ kHz}$. Including the guard band of $10\\text{ kHz}$, the total channel spacing required per station is $W_{ch} = 40\\text{ kHz} + 10\\text{ kHz} = 50\\text{ kHz}$. The total frequency spectrum available in the allocated band is $B_{total} = 1100\\text{ kHz} - 500\\text{ kHz} = 600\\text{ kHz}$. Therefore, the maximum number of stations that can be accommodated is $N = \\frac{B_{total}}{W_{ch}} = \\frac{600\\text{ kHz}}{50\\text{ kHz}} = 12$. Hence, the integer answer is 12."
+    },
+    {
+      "id": "com_c01_011",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An audio signal $m(t) = 12.0 \\cos(2\\pi \\times 10^3 t)\\text{ V}$ amplitude modulates a radio frequency carrier wave $c(t) = 30.0 \\cos(2\\pi \\times 10^6 t)\\text{ V}$. Determine the modulation index $\\mu$, the frequency of the upper sideband ($f_{USB}$), and the peak voltage amplitude of each sideband component.",
+      "options": [
+        "A) $\\mu = 0.40,\\ f_{USB} = 1001\\text{ kHz},\\ V_{SB} = 6.00\\text{ V}$",
+        "B) $\\mu = 0.40,\\ f_{USB} = 1001\\text{ kHz},\\ V_{SB} = 12.00\\text{ V}$",
+        "C) $\\mu = 0.25,\\ f_{USB} = 1002\\text{ kHz},\\ V_{SB} = 3.00\\text{ V}$",
+        "D) $\\mu = 0.40,\\ f_{USB} = 999\\text{ kHz},\\ V_{SB} = 6.00\\text{ V}$"
+      ],
+      "answer": "A",
+      "explanation": "Applying the definition of modulation index, $\\mu = \\frac{A_m}{A_c} = \\frac{12.0\\text{ V}}{30.0\\text{ V}} = 0.40$. The carrier frequency is $f_c = 10^6\\text{ Hz} = 1000\\text{ kHz}$, and the modulating frequency is $f_m = 10^3\\text{ Hz} = 1\\text{ kHz}$. The upper sideband frequency is $f_{USB} = f_c + f_m = 1000 + 1 = 1001\\text{ kHz}$. The mathematical form of the AM wave is $s(t) = A_c \\cos(\\omega_c t) + \\frac{\\mu A_c}{2} \\cos((\\omega_c + \\omega_m)t) + \\frac{\\mu A_c}{2} \\cos((\\omega_c - \\omega_m)t)$. Hence, the peak amplitude of each sideband component is $V_{SB} = \\frac{\\mu A_c}{2} = \\frac{0.40 \\times 30.0\\text{ V}}{2} = 6.00\\text{ V}$. Forgetting the factor of $2$ in the sideband amplitude yields $12.00\\text{ V}$; computing $\\mu = A_m / (A_c + A_m)$ yields $0.25$; selecting the lower sideband frequency yields $999\\text{ kHz}$."
+    },
+    {
+      "id": "com_c01_012",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An electromagnetic signal of frequency $f = 60.0\\text{ MHz}$ is transmitted via space wave across flat terrain. What is the length $L$ of a resonant half-wave dipole antenna designed for this frequency, and what is the minimum height $h_T$ of the transmitting antenna if it must achieve line-of-sight communication with a ground-level receiver ($h_R = 0$) located at distance $d = 32.0\\text{ km}$? (Take $c = 3.0 \\times 10^8\\text{ m/s}$ and Earth radius $R = 6400\\text{ km}$).",
+      "options": [
+        "A) $L = 5.00\\text{ m},\\ h_T = 160.0\\text{ m}$",
+        "B) $L = 2.50\\text{ m},\\ h_T = 80.0\\text{ m}$",
+        "C) $L = 1.25\\text{ m},\\ h_T = 40.0\\text{ m}$",
+        "D) $L = 2.50\\text{ m},\\ h_T = 160.0\\text{ m}$"
+      ],
+      "answer": "B",
+      "explanation": "Applying the wave relation $\\lambda = \\frac{c}{f}$, the wavelength is $\\lambda = \\frac{3.0 \\times 10^8\\text{ m/s}}{60.0 \\times 10^6\\text{ Hz}} = 5.00\\text{ m}$. For a half-wave dipole antenna, the resonant length is $L = \\frac{\\lambda}{2} = \\frac{5.00\\text{ m}}{2} = 2.50\\text{ m}$. For line-of-sight propagation over a spherical Earth to a receiver at ground level ($h_R = 0$), the maximum range is $d = \\sqrt{2 R h_T}$. Squaring both sides yields $h_T = \\frac{d^2}{2R}$. Substituting $d = 32.0\\text{ km} = 3.2 \\times 10^4\\text{ m}$ and $R = 6.4 \\times 10^6\\text{ m}$, we get $h_T = \\frac{(32.0)^2}{2 \\times 6400} = \\frac{1024}{12800} = 0.080\\text{ km} = 80.0\\text{ m}$. Taking the full wavelength for the antenna length yields $L = 5.00\\text{ m}$; taking quarter-wave yields $1.25\\text{ m}$; forgetting the factor of $2$ in the denominator for $h_T$ yields $160.0\\text{ m}$."
+    },
+    {
+      "id": "com_c01_013",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An amplitude modulated signal with carrier frequency $f_c = 1.0\\text{ MHz}$ and modulating audio frequency $f_m = 5.0\\text{ kHz}$ is demodulated using a simple diode envelope detector consisting of a load resistor $R = 10.0\\text{ k}\\Omega$ in parallel with a capacitor $C$. For satisfactory detection without envelope distortion or carrier ripple, the circuit time constant is selected as $RC = 20.0\\ \\mu\\text{s}$. Determine the required capacitance $C$ and verify whether $RC$ satisfies $\\frac{1}{f_c} \\ll RC \\ll \\frac{1}{f_m}$.",
+      "options": [
+        "A) $C = 0.50\\text{ nF}$; does not satisfy $\\frac{1}{f_c} \\ll RC$",
+        "B) $C = 20.0\\text{ nF}$; violates $RC \\ll \\frac{1}{f_m}$",
+        "C) $C = 2.00\\text{ nF}$; satisfies $1.0\\ \\mu\\text{s} \\ll 20.0\\ \\mu\\text{s} \\ll 200.0\\ \\mu\\text{s}$",
+        "D) $C = 0.20\\text{ nF}$; violates $\\frac{1}{f_c} \\ll RC$"
+      ],
+      "answer": "C",
+      "explanation": "Applying the definition of the RC time constant $\\tau = RC$, we have $C = \\frac{\\tau}{R} = \\frac{20.0 \\times 10^{-6}\\text{ s}}{10.0 \\times 10^3\\ \\Omega} = 2.00 \\times 10^{-9}\\text{ F} = 2.00\\text{ nF}$. The period of the carrier wave is $T_c = \\frac{1}{f_c} = \\frac{1}{1.0 \\times 10^6\\text{ Hz}} = 1.0\\ \\mu\\text{s}$, and the period of the modulating audio signal is $T_m = \\frac{1}{f_m} = \\frac{1}{5.0 \\times 10^3\\text{ Hz}} = 200.0\\ \\mu\\text{s}$. Comparing the values: $1.0\\ \\mu\\text{s} \\ll 20.0\\ \\mu\\text{s} \\ll 200.0\\ \\mu\\text{s}$. The time constant is twenty times the carrier period (ensuring carrier filtering) and one-tenth of the modulating period (ensuring faithful envelope tracking). Dividing by an incorrect resistance factor yields $0.50\\text{ nF}$; multiplying by $10$ yields $20.0\\text{ nF}$ causing diagonal clipping; taking $0.20\\text{ nF}$ causes excessive carrier ripple."
+    },
+    {
+      "id": "com_c01_014",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An analog audio signal is bandlimited to a maximum frequency of $f_{max} = 3.0\\text{ kHz}$. It is sampled at exactly the Nyquist rate. Each sample is converted into digital words using a uniform pulse code modulation (PCM) quantizer with $L = 256$ distinct quantization levels. Calculate the resulting transmission bit rate in kilobits per second ($\\text{kbps}$).",
+      "options": [],
+      "answer": "48",
+      "explanation": "Applying the Nyquist sampling theorem, the minimum sampling frequency required to avoid aliasing is $f_s = 2 f_{max}$. Substituting $f_{max} = 3.0\\text{ kHz}$, we get $f_s = 2(3.0\\text{ kHz}) = 6.0\\text{ kHz} = 6000\\text{ samples/second}$. In a uniform PCM system with $L$ quantization levels, the number of binary bits $n$ required per sample is given by $L = 2^n \\implies n = \\log_2(256) = 8\\text{ bits/sample}$. The transmission bit rate $R_b$ is the product of the sampling rate and the number of bits per sample: $R_b = n f_s = 8 \\times 6.0\\text{ kHz} = 48.0\\text{ kbps}$. Therefore, the integer value is 48."
+    },
+    {
+      "id": "com_c01_015",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A carrier wave of peak voltage $A_c = 50.0\\text{ V}$ is simultaneously modulated in amplitude by two independent audio tones with modulation indices $\\mu_1 = 0.40$ and $\\mu_2 = 0.30$. The composite AM wave is transmitted through an antenna having a radiation resistance of $R = 50.0\\ \\Omega$. Determine the total average power radiated by the antenna.",
+      "options": [
+        "A) $33.750\\text{ W}$",
+        "B) $25.000\\text{ W}$",
+        "C) $31.250\\text{ W}$",
+        "D) $28.125\\text{ W}$"
+      ],
+      "answer": "D",
+      "explanation": "Applying the multi-tone modulation principle, when multiple independent audio signals modulate a single carrier, the effective total modulation index is given by $\\mu_{eff} = \\sqrt{\\mu_1^2 + \\mu_2^2}$. Substituting $\\mu_1 = 0.40$ and $\\mu_2 = 0.30$, we get $\\mu_{eff} = \\sqrt{(0.40)^2 + (0.30)^2} = \\sqrt{0.16 + 0.09} = \\sqrt{0.25} = 0.50$. The unmodulated carrier power across resistance $R$ is $P_c = \\frac{A_c^2}{2R} = \\frac{(50.0)^2}{2(50.0)} = 25.0\\text{ W}$. The total average radiated power is $P_t = P_c\\left(1 + \\frac{\\mu_{eff}^2}{2}\\right) = 25.0\\left(1 + \\frac{0.25}{2}\\right) = 25.0(1 + 0.125) = 25.0 \\times 1.125 = 28.125\\text{ W}$. Directly adding the modulation indices ($\\mu = 0.70$) yields $31.125\\text{ W}$; neglecting the factor of $2$ in the denominator yields $31.250\\text{ W}$; using only carrier power yields $25.000\\text{ W}$; taking sum of linear powers without proper root-sum-square yields $33.750\\text{ W}$."
+    },
+    {
+      "id": "com_c01_016",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An ionospheric reflecting layer situated at a virtual height of $h = 200\\text{ km}$ above the flat ground surface has a peak electron density of $N_{max} = 1.0 \\times 10^{12}\\text{ m}^{-3}$. A high-frequency radio signal of frequency $f = 15.0\\text{ MHz}$ is transmitted upward for sky wave communication. Determine the critical frequency $f_c$ for vertical incidence and the skip distance $D_{skip}$ along the ground for this frequency.",
+      "options": [
+        "A) $f_c = 9.0\\text{ MHz},\\ D_{skip} = 533.3\\text{ km}$",
+        "B) $f_c = 9.0\\text{ MHz},\\ D_{skip} = 266.7\\text{ km}$",
+        "C) $f_c = 8.1\\text{ MHz},\\ D_{skip} = 620.5\\text{ km}$",
+        "D) $f_c = 10.0\\text{ MHz},\\ D_{skip} = 400.0\\text{ km}$"
+      ],
+      "answer": "A",
+      "explanation": "Applying the plasma frequency formula, the critical frequency for vertical incidence is $f_c = 9\\sqrt{N_{max}} = 9\\sqrt{1.0 \\times 10^{12}} = 9.0 \\times 10^6\\text{ Hz} = 9.0\\text{ MHz}$. For oblique sky wave propagation, the skip distance over flat terrain is given by $D_{skip} = 2h \\sqrt{\\left(\\frac{f}{f_c}\\right)^2 - 1}$. Substituting $h = 200\\text{ km}$, $f = 15.0\\text{ MHz}$, and $f_c = 9.0\\text{ MHz}$, we get $\\frac{f}{f_c} = \\frac{15}{9} = \\frac{5}{3}$. Thus, $\\sqrt{\\left(\\frac{5}{3}\\right)^2 - 1} = \\sqrt{\\frac{25}{9} - 1} = \\sqrt{\\frac{16}{9}} = \\frac{4}{3}$. Evaluating the skip distance yields $D_{skip} = 2(200)\\left(\\frac{4}{3}\\right) = \\frac{1600}{3} \\approx 533.3\\text{ km}$. Forgetting the factor of $2$ in the skip geometry yields $266.7\\text{ km}$; using $f_c = 81\\sqrt{N}$ or incorrect constants yields $8.1\\text{ MHz}$; taking $\\sqrt{(f/f_c)^2}$ without subtracting $1$ yields $400.0\\text{ km}$."
+    },
+    {
+      "id": "com_c01_017",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A step-index optical fiber has a core refractive index of $n_1 = 1.500$ and a cladding refractive index of $n_2 = \\sqrt{2.000} \\approx 1.414$. The fiber is submerged in an optical matching liquid having a refractive index of $n_0 = 1.250$. Determine the numerical aperture ($NA$) of the fiber in air and the sine of the maximum acceptance angle $\\sin\\theta_a$ for light launched into the core from this liquid.",
+      "options": [
+        "A) $NA = 0.250,\\ \\sin\\theta_a = 0.200$",
+        "B) $NA = 0.500,\\ \\sin\\theta_a = 0.400$",
+        "C) $NA = 0.500,\\ \\sin\\theta_a = 0.625$",
+        "D) $NA = 0.707,\\ \\sin\\theta_a = 0.566$"
+      ],
+      "answer": "B",
+      "explanation": "Applying Snell's law at the core-cladding boundary, total internal reflection occurs if the internal angle satisfies $\\sin\\phi \\ge \\frac{n_2}{n_1}$. The numerical aperture of the fiber is intrinsic to the waveguide and given by $NA = \\sqrt{n_1^2 - n_2^2} = \\sqrt{(1.500)^2 - 2.000} = \\sqrt{2.250 - 2.000} = \\sqrt{0.250} = 0.500$. At the entrance interface between the external liquid ($n_0$) and the core ($n_1$), Snell's law gives $n_0 \\sin\\theta_a = \\sqrt{n_1^2 - n_2^2} = NA$. Solving for the acceptance angle in the liquid: $\\sin\\theta_a = \\frac{NA}{n_0} = \\frac{0.500}{1.250} = 0.400$. Taking $n_1^2 - n_2^2$ without the square root yields $NA = 0.250$; multiplying by $n_0$ rather than dividing yields $0.625$; taking $\\sqrt{n_1^2 - n_2^2} / n_1$ gives $0.566$."
+    },
+    {
+      "id": "com_c01_018",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A square-law diode modulator has a non-linear current-voltage characteristic described by $i(t) = a v_{in}(t) + b v_{in}^2(t)$, where $a = 10.0\\text{ mA/V}$ and $b = 2.50\\text{ mA/V}^2$. The composite input voltage is $v_{in}(t) = A_m \\cos(\\omega_m t) + A_c \\cos(\\omega_c t)$ with modulating amplitude $A_m = 1.60\\text{ V}$ and carrier amplitude $A_c = 4.00\\text{ V}$. An ideal bandpass filter centered at $\\omega_c$ extracts the standard AM waveform. Determine the modulation index $\\mu$ and the peak current amplitude of each sideband component ($I_{SB}$).",
+      "options": [
+        "A) $\\mu = 0.40,\\ I_{SB} = 8.00\\text{ mA}$",
+        "B) $\\mu = 0.80,\\ I_{SB} = 32.00\\text{ mA}$",
+        "C) $\\mu = 0.80,\\ I_{SB} = 16.00\\text{ mA}$",
+        "D) $\\mu = 0.50,\\ I_{SB} = 10.00\\text{ mA}$"
+      ],
+      "answer": "C",
+      "explanation": "Expanding $v_{in}^2(t)$ gives cross-product term $2 A_m A_c \\cos(\\omega_m t)\\cos(\\omega_c t) = A_m A_c [\\cos((\\omega_c + \\omega_m)t) + \\cos((\\omega_c - \\omega_m)t)]$. The current components around carrier frequency $\\omega_c$ are the carrier $a A_c \\cos(\\omega_c t)$ and the sidebands $b A_m A_c \\cos((\\omega_c \\pm \\omega_m)t)$. The standard AM wave expression is $s(t) = a A_c\\left[1 + \\frac{2b A_m}{a}\\cos(\\omega_m t)\\right]\\cos(\\omega_c t)$. Comparing terms, the modulation index is $\\mu = \\frac{2b A_m}{a} = \\frac{2(2.50)(1.60)}{10.0} = \\frac{8.00}{10.0} = 0.80$. The peak amplitude of each sideband is $I_{SB} = b A_m A_c = (2.50\\text{ mA/V}^2)(1.60\\text{ V})(4.00\\text{ V}) = 16.00\\text{ mA}$. Forgetting the factor of $2$ in $\\mu$ yields $\\mu = 0.40$; doubling the sideband amplitude yields $32.00\\text{ mA}$; using incorrect linear coefficients yields $10.00\\text{ mA}$."
+    },
+    {
+      "id": "com_c01_019",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A composite baseband video signal with a maximum spectral frequency of $f_{max} = 4.50\\text{ MHz}$ is sampled at a rate $33\\frac{1}{3}\\%$ above its theoretical Nyquist rate. Each sample is digitized using a uniform quantizer into an $n = 10$ bit binary code word in a pulse code modulation (PCM) system. Calculate the transmission bit rate of the resulting digitized stream in megabits per second ($\\text{Mbps}$).",
+      "options": [],
+      "answer": "120",
+      "explanation": "Applying Nyquist's sampling theorem, the minimum sampling rate required to completely reconstruct the signal without aliasing is $f_{Nyq} = 2 f_{max} = 2(4.50\\text{ MHz}) = 9.00\\text{ MHz}$. The actual sampling rate is specified to be $33\\frac{1}{3}\\%$ above the Nyquist rate: $f_s = f_{Nyq}\\left(1 + \\frac{1}{3}\\right) = 9.00 \\times \\frac{4}{3} = 12.00\\text{ MHz} = 12.00 \\times 10^6\\text{ samples/second}$. In the PCM system, each sample is encoded into $n = 10$ bits. The total transmission bit rate $R_b$ is given by $R_b = n f_s = 10 \\times 12.00\\text{ MHz} = 120.0\\text{ Mbps}$. Thus, the integer answer is 120."
+    },
+    {
+      "id": "com_c01_020",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A space wave communication link operates between a transmitting antenna of height $h_1 = 45.0\\text{ m}$ and a receiving antenna of height $h_2 = 125.0\\text{ m}$ over a spherical Earth of radius $R = 6400\\text{ km}$. Determine the maximum line-of-sight distance $d_{LOS}$ between the two towers, and calculate the geometric path difference $\\Delta r$ between the direct ray and ground-reflected ray when the towers are separated by a distance of $d = 30.0\\text{ km}$.",
+      "options": [
+        "A) $d_{LOS} = 50.0\\text{ km},\\ \\Delta r = 18.75\\text{ cm}$",
+        "B) $d_{LOS} = 64.0\\text{ km},\\ \\Delta r = 75.0\\text{ cm}$",
+        "C) $d_{LOS} = 88.0\\text{ km},\\ \\Delta r = 37.5\\text{ cm}$",
+        "D) $d_{LOS} = 64.0\\text{ km},\\ \\Delta r = 37.5\\text{ cm}$"
+      ],
+      "answer": "D",
+      "explanation": "Applying the line-of-sight formula, the maximum horizon distance is $d_{LOS} = \\sqrt{2 R h_1} + \\sqrt{2 R h_2}$. With $2R = 12800\\text{ km}$, we have $d_1 = \\sqrt{12800 \\times 0.045} = \\sqrt{576} = 24.0\\text{ km}$, and $d_2 = \\sqrt{12800 \\times 0.125} = \\sqrt{1600} = 40.0\\text{ km}$. Thus, $d_{LOS} = 24.0 + 40.0 = 64.0\\text{ km}$. For the two-ray multipath reflection model over flat ground with separation $d \\gg h_1, h_2$, the geometric path difference is given by $\\Delta r \\approx \\frac{2 h_1 h_2}{d}$. Substituting $h_1 = 45.0\\text{ m}$, $h_2 = 125.0\\text{ m}$, and $d = 30000\\text{ m}$, we get $\\Delta r = \\frac{2(45.0)(125.0)}{30000} = \\frac{11250}{30000} = 0.375\\text{ m} = 37.5\\text{ cm}$. Halving the path difference yields $18.75\\text{ cm}$; doubling yields $75.0\\text{ cm}$; erroneously taking $d_{LOS} = \\sqrt{2R(h_1 + h_2)}$ gives $50.0\\text{ km}$."
+    },
+    {
+      "id": "com_c01_021",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A carrier voltage $c(t) = 100.0 \\cos(2\\pi \\times 10^6 t)\\text{ V}$ is amplitude modulated simultaneously by two audio tones: $m_1(t) = 30.0 \\cos(2\\pi \\times 10^3 t)\\text{ V}$ and $m_2(t) = 40.0 \\cos(4\\pi \\times 10^3 t)\\text{ V}$. The resulting wave is fed into an antenna with an input resistance of $R = 50.0\\ \\Omega$. Find the total transmitted power $P_t$ and the total power contained in all sideband components $P_{SB}$.",
+      "options": [
+        "A) $P_t = 112.5\\text{ W},\\ P_{SB} = 12.5\\text{ W}$",
+        "B) $P_t = 124.5\\text{ W},\\ P_{SB} = 24.5\\text{ W}$",
+        "C) $P_t = 112.5\\text{ W},\\ P_{SB} = 6.25\\text{ W}$",
+        "D) $P_t = 106.25\\text{ W},\\ P_{SB} = 6.25\\text{ W}$"
+      ],
+      "answer": "A",
+      "explanation": "The individual modulation indices are $\\mu_1 = \\frac{30.0}{100.0} = 0.30$ and $\\mu_2 = \\frac{40.0}{100.0} = 0.40$. Applying the multi-tone AM relation, the total effective modulation index is $\\mu_t = \\sqrt{\\mu_1^2 + \\mu_2^2} = \\sqrt{(0.30)^2 + (0.40)^2} = \\sqrt{0.09 + 0.16} = \\sqrt{0.25} = 0.50$. The unmodulated carrier power across load $R = 50.0\\ \\Omega$ is $P_c = \\frac{A_c^2}{2R} = \\frac{(100.0)^2}{2(50.0)} = 100.0\\text{ W}$. The total transmitted power is $P_t = P_c\\left(1 + \\frac{\\mu_t^2}{2}\\right) = 100.0\\left(1 + \\frac{0.25}{2}\\right) = 100.0(1.125) = 112.5\\text{ W}$. The total sideband power is $P_{SB} = P_t - P_c = 112.5 - 100.0 = 12.5\\text{ W}$. Directly summing modulation indices ($\\mu = 0.70$) yields $P_t = 124.5\\text{ W}$; taking only one sideband yields $P_{SB} = 6.25\\text{ W}$; dividing the total power increase by $2$ yields $106.25\\text{ W}$."
+    },
+    {
+      "id": "com_c01_022",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An ionospheric layer contains a maximum electron density of $N_{max} = 4.0 \\times 10^{12}\\text{ m}^{-3}$. Determine the plasma critical frequency $f_p$ of this layer. If a high-frequency radio wave of frequency $f = 30.0\\text{ MHz}$ penetrates into the region of peak ionization, calculate the refractive index $n$ of the plasma medium for this wave.",
+      "options": [
+        "A) $f_p = 18.0\\text{ MHz},\\ n = 0.60$",
+        "B) $f_p = 18.0\\text{ MHz},\\ n = 0.80$",
+        "C) $f_p = 36.0\\text{ MHz},\\ n = 0.80$",
+        "D) $f_p = 9.0\\text{ MHz},\\ n = 0.95$"
+      ],
+      "answer": "B",
+      "explanation": "Applying the plasma frequency relation derived from the Appleton-Hartree equation, the plasma critical frequency is $f_p = \\sqrt{\\frac{N_{max} e^2}{4\\pi^2 \\epsilon_0 m}} \\approx 9\\sqrt{N_{max}}$ (with $N_{max}$ in $\\text{m}^{-3}$). Substituting $N_{max} = 4.0 \\times 10^{12}\\text{ m}^{-3}$, we get $f_p = 9\\sqrt{4.0 \\times 10^{12}} = 9 \\times (2.0 \\times 10^6) = 1.80 \\times 10^7\\text{ Hz} = 18.0\\text{ MHz}$. The refractive index of the unmagnetized collisionless plasma is given by $n = \\sqrt{1 - \\frac{f_p^2}{f^2}}$. Substituting $f = 30.0\\text{ MHz}$ and $f_p = 18.0\\text{ MHz}$, we get $\\frac{f_p}{f} = \\frac{18.0}{30.0} = 0.60$. Thus, $n = \\sqrt{1 - (0.60)^2} = \\sqrt{1 - 0.36} = \\sqrt{0.64} = 0.80$. Confusing $n$ with $f_p / f$ yields $0.60$; doubling the critical frequency yields $36.0\\text{ MHz}$; taking $9\\sqrt{N/4}$ gives $9.0\\text{ MHz}$."
+    },
+    {
+      "id": "com_c01_023",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An unmodulated AM carrier transmitter delivers a power of $P_c = 100.0\\text{ kW}$ to an antenna. When a single audio tone is applied, the total radiated power increases to $P_{t1} = 120.0\\text{ kW}$. When a second independent audio tone is applied simultaneously with the first tone, the total radiated power rises to $P_{t2} = 132.5\\text{ kW}$. Determine the percentage modulation index of the second audio tone alone (i.e. $\\mu_2 \\times 100$).",
+      "options": [],
+      "answer": "50",
+      "explanation": "Applying the AM total radiated power relation $P_{t1} = P_c\\left(1 + \\frac{\\mu_1^2}{2}\\right)$, we substitute $P_c = 100.0\\text{ kW}$ and $P_{t1} = 120.0\\text{ kW}$: $120.0 = 100.0\\left(1 + \\frac{\\mu_1^2}{2}\\right) \\implies 1.20 = 1 + \\frac{\\mu_1^2}{2} \\implies \\mu_1^2 = 0.40$. When both tones are applied simultaneously, the effective modulation index is $\\mu_{eff}^2 = \\mu_1^2 + \\mu_2^2$. The total radiated power is $P_{t2} = P_c\\left(1 + \\frac{\\mu_{eff}^2}{2}\\right)$. Substituting $P_{t2} = 132.5\\text{ kW}$, we get $132.5 = 100.0\\left(1 + \\frac{0.40 + \\mu_2^2}{2}\\right) \\implies 1.325 = 1 + 0.20 + \\frac{\\mu_2^2}{2}$. Solving for $\\mu_2^2$, we obtain $\\frac{\\mu_2^2}{2} = 1.325 - 1.20 = 0.125 \\implies \\mu_2^2 = 0.250 \\implies \\mu_2 = 0.50$. Therefore, the percentage modulation index is $0.50 \\times 100 = 50\\%$."
+    },
+    {
+      "id": "com_c01_024",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An optical fiber communication link uses a cable with an attenuation coefficient of $\\alpha = 0.50\\text{ dB/km}$. An input optical power of $P_{in} = 8.00\\text{ mW}$ is launched into a link of length $L = 40.0\\text{ km}$. If the receiver photodiode requires a minimum optical power threshold of $P_{min} = 0.80\\ \\mu\\text{W}$ for reliable signal detection, calculate the received power $P_{out}$ after $40.0\\text{ km}$ and the maximum possible repeaterless link length $L_{max}$.",
+      "options": [
+        "A) $P_{out} = 40.0\\ \\mu\\text{W},\\ L_{max} = 60.0\\text{ km}$",
+        "B) $P_{out} = 80.0\\ \\mu\\text{W},\\ L_{max} = 40.0\\text{ km}$",
+        "C) $P_{out} = 80.0\\ \\mu\\text{W},\\ L_{max} = 80.0\\text{ km}$",
+        "D) $P_{out} = 160.0\\ \\mu\\text{W},\\ L_{max} = 100.0\\text{ km}$"
+      ],
+      "answer": "C",
+      "explanation": "Applying the definition of optical attenuation in decibels, the total loss over length $L = 40.0\\text{ km}$ is $\\text{Loss}_{dB} = \\alpha L = (0.50\\text{ dB/km})(40.0\\text{ km}) = 20.0\\text{ dB}$. Using $\\text{Loss}_{dB} = 10 \\log_{10}\\left(\\frac{P_{in}}{P_{out}}\\right)$, we have $20.0 = 10 \\log_{10}\\left(\\frac{P_{in}}{P_{out}}\\right) \\implies \\log_{10}\\left(\\frac{P_{in}}{P_{out}}\\right) = 2.0 \\implies \\frac{P_{in}}{P_{out}} = 100$. Thus, $P_{out} = \\frac{8.00\\text{ mW}}{100} = 0.080\\text{ mW} = 80.0\\ \\mu\\text{W}$. For maximum repeaterless link length, the maximum allowable attenuation before reaching $P_{min} = 0.80\\ \\mu\\text{W}$ is $\\text{Loss}_{max} = 10 \\log_{10}\\left(\\frac{8.00 \\times 10^{-3}\\text{ W}}{0.80 \\times 10^{-6}\\text{ W}}\\right) = 10 \\log_{10}(10000) = 40.0\\text{ dB}$. The maximum length is $L_{max} = \\frac{\\text{Loss}_{max}}{\\alpha} = \\frac{40.0\\text{ dB}}{0.50\\text{ dB/km}} = 80.0\\text{ km}$. Halving the received power yields $40.0\\ \\mu\\text{W}$; taking $L_{max} = 40\\text{ km}$ assumes zero margin; doubling power yields $160.0\\ \\mu\\text{W}$."
+    },
+    {
+      "id": "com_c01_025",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Two ground radio stations separated by a horizontal distance of $d = 800\\text{ km}$ communicate via single-hop ionospheric sky wave reflection. The virtual height of the reflecting layer is $h = 300\\text{ km}$ and the critical frequency for vertical incidence is $f_c = 8.00\\text{ MHz}$. Using the flat-Earth approximation, determine the maximum usable frequency ($MUF$) for this link and the angle of incidence $\\theta_i$ of the wave at the ionospheric layer.",
+      "options": [
+        "A) $MUF = 10.67\\text{ MHz},\\ \\theta_i = 36.87^\\circ$",
+        "B) $MUF = 22.80\\text{ MHz},\\ \\theta_i = 69.44^\\circ$",
+        "C) $MUF = 16.00\\text{ MHz},\\ \\theta_i = 45.00^\\circ$",
+        "D) $MUF = 13.33\\text{ MHz},\\ \\theta_i = 53.13^\\circ$"
+      ],
+      "answer": "D",
+      "explanation": "In single-hop propagation over distance $d$, reflection occurs symmetrically at ground distance $d/2 = 400\\text{ km}$ from each station. By simple right-triangle geometry, the angle of incidence relative to the vertical normal satisfies $\\tan\\theta_i = \\frac{d/2}{h} = \\frac{400\\text{ km}}{300\\text{ km}} = \\frac{4}{3}$. This yields $\\theta_i = \\tan^{-1}\\left(\\frac{4}{3}\\right) \\approx 53.13^\\circ$, and $\\sec\\theta_i = \\sqrt{1 + \\tan^2\\theta_i} = \\sqrt{1 + \\frac{16}{9}} = \\frac{5}{3}$. Applying Martyn's equivalence theorem, the maximum usable frequency is $MUF = f_c \\sec\\theta_i = 8.00\\text{ MHz} \\times \\frac{5}{3} = \\frac{40.0}{3} \\approx 13.33\\text{ MHz}$. Confusing angle of incidence with grazing elevation angle ($36.87^\\circ$) yields $10.67\\text{ MHz}$; using full distance $d$ in the triangle without halving gives $22.80\\text{ MHz}$; assuming $\\theta_i = 45^\\circ$ yields $16.00\\text{ MHz}$."
+    },
+    {
+      "id": "com_c01_026",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A continuous-time analog signal given by $x(t) = 5.0 \\cos(2\\pi \\cdot 2000 t) + 3.0 \\cos(2\\pi \\cdot 5000 t)$ is sampled at a sampling frequency of $f_s = 7000\\text{ Hz}$. The discrete-time samples are subsequently passed through an ideal low-pass reconstruction filter having a sharp cutoff frequency at $f_{cutoff} = \\frac{f_s}{2} = 3500\\text{ Hz}$. Determine the spectral composition of the reconstructed continuous-time output signal.",
+      "options": [
+        "A) A single sinusoidal frequency component at $2000\\text{ Hz}$",
+        "B) Two distinct components at $2000\\text{ Hz}$ and $5000\\text{ Hz}$",
+        "C) Two distinct components at $2000\\text{ Hz}$ and $3000\\text{ Hz}$",
+        "D) A single sinusoidal frequency component at $3500\\text{ Hz}$"
+      ],
+      "answer": "A",
+      "explanation": "Applying the sampling theorem, sampling creates spectral replicas at $f_{alias} = |f \\pm k f_s|$. The first component has frequency $f_1 = 2000\\text{ Hz}$, which satisfies $f_1 < \\frac{f_s}{2} = 3500\\text{ Hz}$; it passes through the filter unaltered at $2000\\text{ Hz}$. The second component has frequency $f_2 = 5000\\text{ Hz} > 3500\\text{ Hz}$, which violates the Nyquist condition and undergoes aliasing (spectral folding). Its lowest alias frequency is $|f_2 - f_s| = |5000 - 7000| = 2000\\text{ Hz}$. Because $2000\\text{ Hz} < 3500\\text{ Hz}$, this aliased component also falls directly within the passband at exactly $2000\\text{ Hz}$. The reconstructed signal contains only a single combined frequency component at $2000\\text{ Hz}$. Assuming the $5000\\text{ Hz}$ component passes violates filter cutoff; assuming it aliases to $f_s - 2f_1$ gives $3000\\text{ Hz}$; assuming energy concentrates at cutoff gives $3500\\text{ Hz}$."
+    },
+    {
+      "id": "com_c01_027",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An amplitude modulated signal with carrier frequency $f_c = 500\\text{ kHz}$ is modulated to a modulation depth of $\\mu = 0.80$ by a sinusoidal audio signal of frequency $f_m = 2.0\\text{ kHz}$. The demodulator is an envelope detector consisting of a load resistor $R = 10.0\\text{ k}\\Omega$ in parallel with capacitor $C$. To prevent diagonal peak clipping distortion, the time constant must satisfy $RC \\le \\frac{\\sqrt{1 - \\mu^2}}{\\mu \\omega_m}$. Determine the maximum allowable capacitor value $C_{max}$.",
+      "options": [
+        "A) $C_{max} = 7.96\\text{ nF}$",
+        "B) $C_{max} = 5.97\\text{ nF}$",
+        "C) $C_{max} = 10.61\\text{ nF}$",
+        "D) $C_{max} = 3.98\\text{ nF}$"
+      ],
+      "answer": "B",
+      "explanation": "The angular modulating frequency is $\\omega_m = 2\\pi f_m = 2\\pi(2000\\text{ Hz}) = 4000\\pi\\text{ rad/s} \\approx 1.2566 \\times 10^4\\text{ rad/s}$. For modulation index $\\mu = 0.80$, we compute $\\sqrt{1 - \\mu^2} = \\sqrt{1 - (0.80)^2} = \\sqrt{1 - 0.64} = 0.60$. The coefficient ratio is $\\frac{\\sqrt{1 - \\mu^2}}{\\mu} = \\frac{0.60}{0.80} = 0.75$. Applying the diagonal clipping limit: $RC \\le \\frac{0.75}{4000\\pi\\text{ rad/s}} = \\frac{3}{16000\\pi}\\text{ s} \\approx 5.968 \\times 10^{-5}\\text{ s} = 59.68\\ \\mu\\text{s}$. Given $R = 10.0\\text{ k}\\Omega = 10^4\\ \\Omega$, the maximum capacitance is $C_{max} = \\frac{5.968 \\times 10^{-5}\\text{ s}}{10^4\\ \\Omega} \\approx 5.97 \\times 10^{-9}\\text{ F} = 5.97\\text{ nF}$. Omitting the factor $\\frac{\\sqrt{1-\\mu^2}}{\\mu}$ and using $\\frac{1}{\\omega_m R}$ yields $7.96\\text{ nF}$; inverting the factor to $\\frac{\\mu}{\\sqrt{1-\\mu^2}}$ yields $10.61\\text{ nF}$; using $\\mu = 1$ limit gives $3.98\\text{ nF}$."
+    },
+    {
+      "id": "com_c01_028",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An analog voice communication channel is bandlimited to $f_m = 4.50\\text{ kHz}$. The signal is sampled at exactly the Nyquist rate and converted into a digital bitstream using uniform pulse code modulation (PCM). To ensure high fidelity, the signal-to-quantization noise ratio must be at least $\\text{SQNR}_{min} = 45.0\\text{ dB}$. Using the standard formula $\\text{SQNR}_{dB} = 1.76 + 6.02 n$ where $n$ is the integer number of quantization bits per sample, calculate the resulting transmission bit rate in kilobits per second ($\\text{kbps}$).",
+      "options": [],
+      "answer": "72",
+      "explanation": "Applying Nyquist's criterion, the sampling frequency is $f_s = 2 f_m = 2(4.50\\text{ kHz}) = 9.00\\text{ kHz} = 9000\\text{ samples/second}$. To meet the SQNR threshold: $1.76 + 6.02 n \\ge 45.0 \\implies 6.02 n \\ge 45.0 - 1.76 = 43.24 \\implies n \\ge \\frac{43.24}{6.02} \\approx 7.18$. Since the number of bits $n$ must be an integer, we round up to the nearest integer: $n = 8\\text{ bits/sample}$. The transmission bit rate $R_b$ is the product of the sampling rate and the bits per sample: $R_b = n f_s = 8 \\times 9.00\\text{ kHz} = 72.0\\text{ kbps}$. Therefore, the integer answer is 72."
+    },
+    {
+      "id": "com_c01_029",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A carrier wave $c(t) = 20.0 \\cos(2\\pi \\times 10^8 t)\\text{ V}$ is frequency-modulated by a single-tone audio signal $m(t) = 5.0 \\cos(2\\pi \\times 10^4 t)\\text{ V}$. The frequency deviation sensitivity of the modulator is $k_f = 15.0\\text{ kHz/V}$. Determine the frequency modulation index $\\beta$ and the transmission bandwidth $BW$ of the modulated FM signal according to Carson's bandwidth rule.",
+      "options": [
+        "A) $BW = 150.0\\text{ kHz},\\ \\beta = 7.50$",
+        "B) $BW = 85.0\\text{ kHz},\\ \\beta = 15.0$",
+        "C) $BW = 170.0\\text{ kHz},\\ \\beta = 7.50$",
+        "D) $BW = 20.0\\text{ kHz},\\ \\beta = 3.75$"
+      ],
+      "answer": "C",
+      "explanation": "The peak frequency deviation is $\\Delta f = k_f A_m = (15.0\\text{ kHz/V})(5.0\\text{ V}) = 75.0\\text{ kHz}$. The modulating frequency is $f_m = 10^4\\text{ Hz} = 10.0\\text{ kHz}$. The modulation index is defined as $\\beta = \\frac{\\Delta f}{f_m} = \\frac{75.0\\text{ kHz}}{10.0\\text{ kHz}} = 7.50$. Applying Carson's bandwidth rule for angle-modulated signals: $BW = 2(\\Delta f + f_m) = 2(75.0\\text{ kHz} + 10.0\\text{ kHz}) = 2(85.0\\text{ kHz}) = 170.0\\text{ kHz}$. Taking only $2\\Delta f$ (wideband approximation) yields $150.0\\text{ kHz}$; taking $\\Delta f + f_m$ without the factor of $2$ yields $85.0\\text{ kHz}$; using narrowband approximation $2f_m$ yields $20.0\\text{ kHz}$."
+    },
+    {
+      "id": "com_c01_030",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A point-to-point high-frequency sky wave communication link spans a total ground distance of $D_{total} = 2600\\text{ km}$ via multi-hop ionospheric reflection. The reflecting layer has virtual height $h = 250\\text{ km}$ and critical frequency $f_c = 6.00\\text{ MHz}$. The carrier frequency is $f = 12.00\\text{ MHz}$. If each ionospheric reflection introduces a transmission loss of $3.0\\text{ dB}$ and each intermediate ground reflection introduces a loss of $2.0\\text{ dB}$, determine the minimum number of hops $N$ required and the total reflection loss incurred along the path.",
+      "options": [
+        "A) $N = 3\\text{ hops},\\ \\text{Loss} = 13.0\\text{ dB}$",
+        "B) $N = 4\\text{ hops},\\ \\text{Loss} = 20.0\\text{ dB}$",
+        "C) $N = 5\\text{ hops},\\ \\text{Loss} = 23.0\\text{ dB}$",
+        "D) $N = 4\\text{ hops},\\ \\text{Loss} = 18.0\\text{ dB}$"
+      ],
+      "answer": "D",
+      "explanation": "The maximum single-hop skip distance is $d_{skip} = 2h \\sqrt{\\left(\\frac{f}{f_c}\\right)^2 - 1} = 2(250) \\sqrt{\\left(\\frac{12.0}{6.0}\\right)^2 - 1} = 500 \\sqrt{4 - 1} = 500\\sqrt{3} \\approx 500(1.732) = 866.0\\text{ km}$. The minimum integer number of hops required to span $D_{total} = 2600\\text{ km}$ is $N = \\left\\lceil \\frac{2600}{866.0} \\right\\rceil = \\lceil 3.002 \\rceil = 4\\text{ hops}$. An $N$-hop path undergoes $N$ ionospheric reflections and $(N - 1)$ ground reflections. For $N = 4$, there are 4 ionospheric reflections and 3 ground reflections. The total reflection loss is $\\text{Loss}_{total} = 4(3.0\\text{ dB}) + 3(2.0\\text{ dB}) = 12.0 + 6.0 = 18.0\\text{ dB}$. Truncating to 3 hops yields 3 hops and $13.0\\text{ dB}$ (failing to bridge the distance); counting 4 ground reflections yields $20.0\\text{ dB}$; using 5 hops yields $23.0\\text{ dB}$."
+    },
+    {
+      "id": "com_c01_031",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A step-index multimode optical fiber of length $L = 2.00\\text{ km}$ has a core refractive index $n_1 = 1.500$ and a cladding refractive index $n_2 = 1.485$. Given the speed of light in vacuum $c = 3.00 \\times 10^8\\text{ m/s}$, calculate the intermodal dispersion pulse broadening $\\Delta\\tau$ across the length of the fiber (using $\\Delta\\tau \\approx \\frac{L n_1 \\Delta}{c}$ where $\\Delta = \\frac{n_1 - n_2}{n_1}$) and the maximum achievable digital bit rate $R_{max} = \\frac{1}{2\\Delta\\tau}$ without intersymbol interference.",
+      "options": [
+        "A) $\\Delta\\tau = 100.0\\text{ ns},\\ R_{max} = 5.0\\text{ Mbps}$",
+        "B) $\\Delta\\tau = 50.0\\text{ ns},\\ R_{max} = 10.0\\text{ Mbps}$",
+        "C) $\\Delta\\tau = 100.0\\text{ ns},\\ R_{max} = 10.0\\text{ Mbps}$",
+        "D) $\\Delta\\tau = 200.0\\text{ ns},\\ R_{max} = 2.5\\text{ Mbps}$"
+      ],
+      "answer": "A",
+      "explanation": "The fractional index difference is $\\Delta = \\frac{n_1 - n_2}{n_1} = \\frac{1.500 - 1.485}{1.500} = \\frac{0.015}{1.500} = 0.010$. The total time delay difference between the slowest propagating meridional mode and the fastest axial mode over length $L = 2000\\text{ m}$ is $\\Delta\\tau \\approx \\frac{L n_1 \\Delta}{c} = \\frac{(2000\\text{ m})(1.500)(0.010)}{3.00 \\times 10^8\\text{ m/s}} = \\frac{30.0}{3.00 \\times 10^8} = 1.00 \\times 10^{-7}\\text{ s} = 100.0\\text{ ns}$. To prevent overlapping of consecutive optical pulses, the maximum bit rate is $R_{max} = \\frac{1}{2\\Delta\\tau} = \\frac{1}{2(100.0 \\times 10^{-9}\\text{ s})} = \\frac{1}{200 \\times 10^{-9}} = 5.00 \\times 10^6\\text{ bps} = 5.0\\text{ Mbps}$. Halving the pulse delay gives $50.0\\text{ ns}$; omitting the factor of $2$ in the bit rate formula yields $10.0\\text{ Mbps}$; doubling delay gives $200.0\\text{ ns}$ and $2.5\\text{ Mbps}$."
+    },
+    {
+      "id": "com_c01_032",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An amplitude-modulated signal $s(t) = 20.0[1 + 0.60 \\cos(2000\\pi t)] \\cos(2\\pi \\times 10^6 t)\\text{ V}$ is demodulated using a square-law detector whose output is $v_{out}(t) = k v_{in}^2(t)$ with device constant $k = 0.10\\text{ V}^{-1}$. The detector is followed by a narrow bandpass audio filter that passes only the fundamental audio tone at $\\omega_m = 2000\\pi\\text{ rad/s}$. Determine the peak voltage amplitude of this recovered sinusoidal audio component in volts.",
+      "options": [],
+      "answer": "24",
+      "explanation": "Expanding the squared AM input voltage yields $v_{in}^2(t) = A_c^2 [1 + \\mu \\cos(\\omega_m t)]^2 \\cos^2(\\omega_c t) = A_c^2 [1 + 2\\mu \\cos(\\omega_m t) + \\mu^2 \\cos^2(\\omega_m t)]\\left(\\frac{1 + \\cos(2\\omega_c t)}{2}\\right)$. Multiplying out, the baseband low-frequency term containing the fundamental modulating frequency $\\omega_m$ is $A_c^2 \\cdot 2\\mu \\cos(\\omega_m t) \\cdot \\frac{1}{2} = \\mu A_c^2 \\cos(\\omega_m t)$. Multiplying by the detector parameter $k = 0.10\\text{ V}^{-1}$, the output fundamental voltage is $v_{audio}(t) = k \\mu A_c^2 \\cos(\\omega_m t)$. Substituting $k = 0.10\\text{ V}^{-1}$, $\\mu = 0.60$, and $A_c = 20.0\\text{ V}$, we obtain the peak audio amplitude: $V_{peak} = (0.10)(0.60)(20.0)^2 = (0.10)(0.60)(400.0) = 24.0\\text{ V}$. Therefore, the integer answer is 24."
+    },
+    {
+      "id": "com_c01_033",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A superheterodyne AM radio receiver uses high-side local oscillator injection ($f_{LO} > f_{RF}$) and an intermediate frequency of $f_{IF} = 455\\text{ kHz}$. The receiver is tuned to an incoming radio broadcast station at $f_{RF} = 1000\\text{ kHz}$. If the RF preselector tuned circuit has a loaded quality factor of $Q = 60.0$, calculate the image frequency $f_{image}$ and the image rejection ratio ($\\text{IRR}_{dB}$) in decibels (defined as $\\text{IRR}_{dB} = 20 \\log_{10}\\rho$ where $\\rho = \\sqrt{1 + Q^2\\left(\\frac{f_{img}}{f_{RF}} - \\frac{f_{RF}}{f_{img}}\\right)^2}$).",
+      "options": [
+        "A) $f_{image} = 1455\\text{ kHz},\\ \\text{IRR} = 25.6\\text{ dB}$",
+        "B) $f_{image} = 1910\\text{ kHz},\\ \\text{IRR} = 38.4\\text{ dB}$",
+        "C) $f_{image} = 1910\\text{ kHz},\\ \\text{IRR} = 42.1\\text{ dB}$",
+        "D) $f_{image} = 545\\text{ kHz},\\ \\text{IRR} = 30.2\\text{ dB}$"
+      ],
+      "answer": "B",
+      "explanation": "In a superheterodyne receiver with high-side injection, the local oscillator frequency is $f_{LO} = f_{RF} + f_{IF} = 1000 + 455 = 1455\\text{ kHz}$. The image frequency is located at $f_{image} = f_{RF} + 2 f_{IF} = 1000 + 2(455) = 1910\\text{ kHz}$. Computing the detuning parameter: $\\rho_0 = \\frac{f_{img}}{f_{RF}} - \\frac{f_{RF}}{f_{img}} = \\frac{1910}{1000} - \\frac{1000}{1910} = 1.910 - 0.5236 = 1.3864$. The image rejection ratio is $\\rho = \\sqrt{1 + Q^2 \\rho_0^2} = \\sqrt{1 + (60.0 \\times 1.3864)^2} = \\sqrt{1 + (83.184)^2} \\approx 83.19$. Expressing this in decibels: $\\text{IRR}_{dB} = 20 \\log_{10}(83.19) \\approx 20(1.920) = 38.4\\text{ dB}$. Confusing the local oscillator frequency with the image frequency yields $1455\\text{ kHz}$; evaluating $10\\log_{10}\\rho$ yields $19.2\\text{ dB}$; using low-side image frequency yields $545\\text{ kHz}$; miscalculating detuning yields $42.1\\text{ dB}$."
+    },
+    {
+      "id": "com_c01_034",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A line-of-sight microwave communication link operates at a frequency of $f = 3.00\\text{ GHz}$ ($c = 3.00 \\times 10^8\\text{ m/s}$). The transmitter radiates a power of $P_t = 20.0\\text{ W}$ through an antenna with gain $G_t = 15.0\\text{ dBi}$ (linear gain $G_t \\approx 31.62$). The receiving antenna is situated at distance $d = 10.0\\text{ km}$ and has a gain of $G_r = 10.0\\text{ dBi}$ (linear gain $G_r = 10.0$). Applying the Friis transmission formula $P_r = P_t G_t G_r \\left(\\frac{\\lambda}{4\\pi d}\\right)^2$, determine the power $P_r$ collected by the receiving antenna.",
+      "options": [
+        "A) $P_r = 1.25\\text{ nW}$",
+        "B) $P_r = 2.50\\text{ nW}$",
+        "C) $P_r = 4.00\\text{ nW}$",
+        "D) $P_r = 8.00\\text{ nW}$"
+      ],
+      "answer": "C",
+      "explanation": "The carrier wavelength is $\\lambda = \\frac{c}{f} = \\frac{3.00 \\times 10^8\\text{ m/s}}{3.00 \\times 10^9\\text{ Hz}} = 0.100\\text{ m}$. The free-space path loss factor is $\\left(\\frac{\\lambda}{4\\pi d}\\right)^2 = \\left(\\frac{0.100}{4\\pi \\times 10^4}\\right)^2 = \\frac{1}{(4\\pi \\times 10^5)^2} = \\frac{1}{16\\pi^2 \\times 10^{10}} \\approx \\frac{1}{1.5791 \\times 10^{12}} \\approx 6.3326 \\times 10^{-13}$. Substituting transmitter power $P_t = 20.0\\text{ W}$, transmitting gain $G_t = 31.623$, and receiving gain $G_r = 10.0$ into Friis' formula yields $P_r = (20.0)(31.623)(10.0)(6.3326 \\times 10^{-13}) = 6324.6 \\times 6.3326 \\times 10^{-13} \\approx 4.005 \\times 10^{-9}\\text{ W} = 4.00\\text{ nW}$. Omitting the receiving antenna gain yields $0.40\\text{ nW}$; calculating with decibel arithmetic incorrectly gives $1.25\\text{ nW}$; forgetting the factor of $2$ in the transmitter voltage yields $2.50\\text{ nW}$; doubling the wavelength yields $8.00\\text{ nW}$."
+    },
+    {
+      "id": "com_c01_035",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A line-of-sight space wave link connects a transmitting tower of height $h_T = 125.0\\text{ m}$ to a receiving tower of height $h_R = 45.0\\text{ m}$ over a spherical Earth of radius $R = 6400\\text{ km}$. The receiving station is subsequently relocated farther away such that the line-of-sight distance increases by exactly $50\\%$. If the transmitting antenna height $h_T$ remains unchanged, by what minimum height (in meters) must the receiving antenna be raised to maintain uninterrupted line-of-sight communication?",
+      "options": [],
+      "answer": "200",
+      "explanation": "The radio horizon distances are $d_T = \\sqrt{2 R h_T} = \\sqrt{12800 \\times 0.125\\text{ km}} = \\sqrt{1600} = 40.0\\text{ km}$, and $d_R = \\sqrt{2 R h_R} = \\sqrt{12800 \\times 0.045\\text{ km}} = \\sqrt{576} = 24.0\\text{ km}$. The initial line-of-sight range is $d_1 = d_T + d_R = 40.0 + 24.0 = 64.0\\text{ km}$. Increasing this distance by $50\\%$ gives the new total distance: $d_2 = 1.50 \\times 64.0\\text{ km} = 96.0\\text{ km}$. Since $h_T$ is unchanged, the transmitter horizon remains $d_T = 40.0\\text{ km}$. The required new receiver horizon is $d_R' = d_2 - d_T = 96.0 - 40.0 = 56.0\\text{ km}$. The new receiver antenna height is $h_R' = \\frac{(d_R')^2}{2R} = \\frac{(56.0)^2}{12800} = \\frac{3136}{12800} = 0.245\\text{ km} = 245.0\\text{ m}$. The required increase in the receiving antenna height is $\\Delta h_R = h_R' - h_R = 245.0\\text{ m} - 45.0\\text{ m} = 200\\text{ m}$. Thus, the integer answer is 200."
+    },
+    {
+      "id": "com_c01_036",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A transcontinental fiber-optic communication backbone consists of $N = 100$ identical cascaded repeater amplifier spans. Each fiber span introduces an optical attenuation loss of $L = 20.0\\text{ dB}$, which is exactly compensated by a optical amplifier providing an identical power gain of $G = 20.0\\text{ dB}$ (net signal gain per span is unity, $G L = 1$). Each optical amplifier has a noise figure of $F = 6.0\\text{ dB}$ ($F = 4.0$ in linear units). If the transmitter launches a signal with an initial signal-to-noise ratio of $\\text{SNR}_{in} = 50.0\\text{ dB}$, determine the final output signal-to-noise ratio $\\text{SNR}_{out}$ after traversing the entire $100$-stage repeater chain.",
+      "options": [
+        "A) $24.0\\text{ dB}$",
+        "B) $44.0\\text{ dB}$",
+        "C) $30.0\\text{ dB}$",
+        "D) $14.0\\text{ dB}$"
+      ],
+      "answer": "A",
+      "explanation": "Applying Friis' noise cascade formula for identical repeaters with unity net stage gain, each amplifier adds an equal independent noise power of $N_{add} = (F - 1) G k T_0 B$ to the link. After $N$ cascaded spans with unity gain, the total accumulated noise power at the receiver is $N_{total} = N_{in} + N \\cdot N_{add} = N \\cdot F N_{in}$ (for large $N$). Consequently, the output SNR degrades inversely with the number of cascaded repeater spans: $\\text{SNR}_{out} = \\frac{\\text{SNR}_{in}}{N \\cdot F}$. Converting this relation to decibels, we get $\\text{SNR}_{out, dB} = \\text{SNR}_{in, dB} - F_{dB} - 10 \\log_{10}(N)$. Substituting $\\text{SNR}_{in, dB} = 50.0\\text{ dB}$, $F_{dB} = 6.0\\text{ dB}$, and $N = 100$, we obtain $10 \\log_{10}(100) = 20.0\\text{ dB}$. Therefore, $\\text{SNR}_{out, dB} = 50.0\\text{ dB} - 6.0\\text{ dB} - 20.0\\text{ dB} = 24.0\\text{ dB}$. Neglecting the noise accumulation of the 100 stages yields $44.0\\text{ dB}$; omitting the amplifier noise figure $F$ yields $30.0\\text{ dB}$; doubling the decibel subtraction yields $14.0\\text{ dB}$."
+    },
+    {
+      "id": "com_c01_037",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "An amplitude-modulated signal $v_{in}(t) = A_c [1 + \\mu \\cos(\\omega_m t)] \\cos(\\omega_c t)$ with modulation index $\\mu = 0.50$ is demodulated using a non-linear square-law detector whose output current is given by $i(t) = k v_{in}^2(t)$, followed by a baseband low-pass filter that eliminates all radio-frequency components around $2\\omega_c$. Due to the non-linear squaring operation, the recovered baseband audio current contains both the desired fundamental frequency $\\omega_m$ and an unwanted second harmonic distortion component at $2\\omega_m$. Determine the percentage ratio of the second harmonic amplitude to the fundamental audio amplitude ($\\frac{A_2}{A_1} \\times 100\\%$).",
+      "options": [
+        "A) $25.0\\%$",
+        "B) $12.5\\%$",
+        "C) $50.0\\%$",
+        "D) $6.25\\%$"
+      ],
+      "answer": "B",
+      "explanation": "Expanding the squared AM signal: $v_{in}^2(t) = A_c^2 [1 + \\mu \\cos(\\omega_m t)]^2 \\cos^2(\\omega_c t) = A_c^2 [1 + 2\\mu \\cos(\\omega_m t) + \\mu^2 \\cos^2(\\omega_m t)]\\left(\\frac{1 + \\cos(2\\omega_c t)}{2}\\right)$. Applying the trigonometric identity $\\cos^2(\\omega_m t) = \\frac{1 + \\cos(2\\omega_m t)}{2}$, the baseband low-frequency signal passing through the low-pass filter is $i_{BB}(t) = \\frac{k A_c^2}{2}\\left[1 + \\frac{\\mu^2}{2} + 2\\mu \\cos(\\omega_m t) + \\frac{\\mu^2}{2}\\cos(2\\omega_m t)\\right]$. The peak amplitude of the fundamental audio frequency $\\omega_m$ is $A_1 = \\frac{k A_c^2}{2}(2\\mu) = k A_c^2 \\mu$. The peak amplitude of the second harmonic distortion component at $2\\omega_m$ is $A_2 = \\frac{k A_c^2}{2}\\left(\\frac{\\mu^2}{2}\\right) = \\frac{k A_c^2 \\mu^2}{4}$. Computing the distortion ratio: $\\frac{A_2}{A_1} = \\frac{k A_c^2 \\mu^2 / 4}{k A_c^2 \\mu} = \\frac{\\mu}{4}$. Substituting $\\mu = 0.50$, we get $\\frac{A_2}{A_1} = \\frac{0.50}{4} = 0.125 = 12.5\\%$. Forgetting the factor of $2$ in the fundamental expansion yields $25.0\\%$; taking $\\mu$ directly yields $50.0\\%$; squaring $\\mu/4$ yields $6.25\\%$."
+    },
+    {
+      "id": "com_c01_038",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the angle modulation of a sinusoidal carrier wave $c(t) = A_c \\cos(\\omega_c t)$ by a single-tone baseband message signal $m(t) = A_m \\cos(\\omega_m t)$ using either Frequency Modulation (FM) with frequency sensitivity $k_f$ (rad/(s$\\cdot$V)) or Phase Modulation (PM) with phase sensitivity $k_p$ (rad/V). Which of the following statements is/are mathematically and physically CORRECT?",
+      "options": [
+        "A) In frequency modulation, doubling the modulating frequency $\\omega_m$ while keeping the amplitude $A_m$ constant halves the modulation index $\\beta$",
+        "B) In phase modulation, doubling the modulating frequency $\\omega_m$ while keeping the amplitude $A_m$ constant doubles the modulation index $\\beta$",
+        "C) In phase modulation, the peak frequency deviation $\\Delta\\omega$ is directly proportional to the modulating frequency $\\omega_m$",
+        "D) In frequency modulation, the peak frequency deviation $\\Delta\\omega$ increases linearly with the modulating frequency $\\omega_m$"
+      ],
+      "answer": "A,C",
+      "explanation": "Applying angle modulation definitions: In Phase Modulation, the phase deviation is $\\theta(t) = \\omega_c t + k_p A_m \\cos(\\omega_m t)$. The modulation index is $\\beta_{PM} = k_p A_m$, which is strictly independent of $\\omega_m$ (making statement B false). The instantaneous angular frequency in PM is $\\omega_i(t) = \\frac{d\\theta}{dt} = \\omega_c - k_p A_m \\omega_m \\sin(\\omega_m t)$, giving peak frequency deviation $\\Delta\\omega = k_p A_m \\omega_m$, which scales linearly with $\\omega_m$ (making statement C true). In Frequency Modulation, the instantaneous frequency is $\\omega_i(t) = \\omega_c + k_f A_m \\cos(\\omega_m t)$, meaning peak frequency deviation $\\Delta\\omega = k_f A_m$ is independent of $\\omega_m$ (making statement D false). The FM modulation index is $\\beta_{FM} = \\frac{\\Delta\\omega}{\\omega_m} = \\frac{k_f A_m}{\\omega_m}$; hence, doubling $\\omega_m$ at constant $A_m$ halves $\\beta_{FM}$ (making statement A true). Therefore, statements A and C are correct."
+    },
+    {
+      "id": "com_c01_039",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A center-fed resonant thin half-wave dipole antenna in free space has a theoretical radiation resistance of $R_{rad} = 73.1\\ \\Omega$ and an internal ohmic loss resistance of $R_{loss} = 6.9\\ \\Omega$. The directive gain of the half-wave dipole is $D = 1.64$ ($2.15\\text{ dBi}$). The antenna is driven by an RF transmitter feeding a total input power of $P_{in} = 500.0\\text{ W}$. Determine the overall power gain $G$ of the antenna and the rms electric field strength $E_{rms}$ produced along the direction of maximum radiation at a distance of $d = 10.0\\text{ km}$. (Use $E_{rms} = \\frac{\\sqrt{30 \\cdot \\text{EIRP}}}{d}$).",
+      "options": [
+        "A) $G = 1.64,\\ E_{rms} = 22.2\\text{ mV/m}$",
+        "B) $G = 1.35,\\ E_{rms} = 12.5\\text{ mV/m}$",
+        "C) $G = 1.50,\\ E_{rms} = 15.0\\text{ mV/m}$",
+        "D) $G = 1.50,\\ E_{rms} = 30.0\\text{ mV/m}$"
+      ],
+      "answer": "C",
+      "explanation": "Applying antenna radiation theory, the antenna radiation efficiency is $\\eta = \\frac{R_{rad}}{R_{rad} + R_{loss}} = \\frac{73.1\\ \\Omega}{73.1\\ \\Omega + 6.9\\ \\Omega} = \\frac{73.1}{80.0} = 0.91375$. The power gain is the product of radiation efficiency and directive gain: $G = \\eta D = (0.91375)(1.64) = 1.49855 \\approx 1.50$. The Effective Isotropically Radiated Power is $\\text{EIRP} = P_{in} G = (500.0\\text{ W})(1.50) = 750.0\\text{ W}$. The rms electric field strength in free space at distance $d = 10.0\\text{ km} = 10^4\\text{ m}$ along the broadside direction of maximum radiation is $E_{rms} = \\frac{\\sqrt{30 \\cdot \\text{EIRP}}}{d} = \\frac{\\sqrt{30 \\times 750.0}}{10000} = \\frac{\\sqrt{22500}}{10000} = \\frac{150.0}{10000} = 0.0150\\text{ V/m} = 15.0\\text{ mV/m}$. Assuming $100\\%$ radiation efficiency gives $G = 1.64$ and $E_{rms} = 22.2\\text{ mV/m}$; miscalculating antenna loss gives $12.5\\text{ mV/m}$; doubling the field strength yields $30.0\\text{ mV/m}$."
+    },
+    {
+      "id": "com_c01_040",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A full-scale sinusoidal audio voltage $m(t) = A \\cos(2\\pi f_m t)$ spanning the peak-to-peak voltage dynamic range $[-A, +A]$ is digitized using an $n$-bit uniform midrise quantizer in a PCM system. The quantization noise is assumed to be uniformly distributed across each quantization interval of step size $\\Delta = \\frac{2A}{2^n}$. Which of the following analytical deductions regarding the quantization noise power $N_q$ and the signal-to-quantization noise ratio ($SQNR$) is/are CORRECT?",
+      "options": [
+        "A) Increasing the word length from $n$ to $n+1$ bits improves the signal-to-quantization noise ratio by approximately $3.01\\text{ dB}$",
+        "B) Increasing the word length from $n$ to $n+2$ bits reduces the total quantization noise power $N_q$ by a factor of 16 ($12.04\\text{ dB}$)",
+        "C) If the signal amplitude is attenuated to $A/2$ while the quantizer voltage dynamic range $[-A, +A]$ is held fixed, the resulting SQNR remains unchanged",
+        "D) For this full-scale sinusoidal signal, the theoretical signal-to-quantization noise power ratio is given by $\\left(\\frac{S}{N_q}\\right) = \\frac{3}{2} \\cdot 2^{2n}$"
+      ],
+      "answer": "B,D",
+      "explanation": "Applying quantization noise theory, the step size is $\\Delta = \\frac{2A}{2^n} = A 2^{-(n-1)}$. The mean-square quantization noise power is $N_q = \\frac{\\Delta^2}{12} = \\frac{A^2 2^{-2(n-1)}}{12} = \\frac{A^2 2^{-2n}}{3}$. The average power of the full-scale sinusoid is $S = \\frac{A^2}{2}$. The ratio is $\\frac{S}{N_q} = \\frac{A^2 / 2}{A^2 2^{-2n} / 3} = \\frac{3}{2} 2^{2n}$ (making statement D true). Expressed in decibels, $\\text{SQNR}_{dB} = 10 \\log_{10}(1.5) + 20 n \\log_{10}(2) = 1.76 + 6.02 n\\text{ dB}$. Increasing $n$ by $1$ bit increases SQNR by $6.02\\text{ dB}$, not $3.01\\text{ dB}$ (making statement A false). Increasing by $2$ bits reduces step size $\\Delta$ by factor $2^2 = 4$, hence noise power $N_q \\propto \\Delta^2$ is reduced by $4^2 = 16$, which is $10\\log_{10}(16) = 12.04\\text{ dB}$ (making statement B true). If amplitude is halved to $A/2$ with fixed quantizer range, signal power drops by factor $4$ ($6.02\\text{ dB}$) while $N_q$ remains constant, degrading SQNR by $6.02\\text{ dB}$ (making statement C false). Thus, B and D are correct."
+    },
+    {
+      "id": "com_c01_041",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In an AM envelope detector, the diode conducts during positive RF carrier peaks, charging capacitor $C$, which then discharges through load resistor $R$ during the remainder of the carrier cycle. If the envelope decreases faster than the capacitor discharge rate, the diode remains reverse-biased, causing diagonal clipping distortion. For an AM wave with modulation depth $\\mu = 0.60$ and modulating audio frequency $f_m = 5.00\\text{ kHz}$, determine the maximum allowable filter capacitance $C_{max}$ when the load resistor is $R = 10.0\\text{ k}\\Omega$. (Use $RC \\le \\frac{\\sqrt{1 - \\mu^2}}{\\mu \\omega_m}$).",
+      "options": [
+        "A) $C_{max} = 10.61\\text{ nF}$",
+        "B) $C_{max} = 8.49\\text{ nF}$",
+        "C) $C_{max} = 6.37\\text{ nF}$",
+        "D) $C_{max} = 4.24\\text{ nF}$"
+      ],
+      "answer": "D",
+      "explanation": "Applying the envelope decay criterion: The envelope is $E(t) = A_c[1 + \\mu \\cos(\\omega_m t)]$. The downward slope is $\\left|\\frac{dE}{dt}\\right| = A_c \\mu \\omega_m \\sin(\\omega_m t)$. The capacitor discharges according to $\\frac{E(t)}{RC}$. The condition that prevents the envelope from falling faster than the exponential decay at any point in the cycle is $RC \\le \\frac{\\sqrt{1 - \\mu^2}}{\\mu \\omega_m}$. Substituting $\\mu = 0.60$, we get $\\sqrt{1 - \\mu^2} = \\sqrt{1 - 0.36} = 0.80$, so $\\frac{\\sqrt{1 - \\mu^2}}{\\mu} = \\frac{0.80}{0.60} = \\frac{4}{3}$. The modulating angular frequency is $\\omega_m = 2\\pi f_m = 2\\pi(5000) = 10000\\pi\\text{ rad/s}$. Thus, the maximum time constant is $(RC)_{max} = \\frac{4/3}{10000\\pi} = \\frac{4}{30000\\pi}\\text{ s} \\approx 4.244 \\times 10^{-5}\\text{ s} = 42.44\\ \\mu\\text{s}$. Given $R = 10.0\\text{ k}\\Omega = 10^4\\ \\Omega$, the maximum allowable capacitance is $C_{max} = \\frac{4.244 \\times 10^{-5}\\text{ s}}{10^4\\ \\Omega} = 4.244 \\times 10^{-9}\\text{ F} \\approx 4.24\\text{ nF}$. Using $\\frac{1}{\\omega_m R}$ yields $6.37\\text{ nF}$; using $\\frac{1}{\\mu \\omega_m R}$ yields $10.61\\text{ nF}$; taking $\\frac{\\mu}{\\sqrt{1-\\mu^2}}$ yields $2.39\\text{ nF}$."
+    },
+    {
+      "id": "com_c01_042",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A communication engineering team evaluates three distinct analog amplitude modulation formats: Double Sideband Full Carrier (DSB-FC / standard AM), Double Sideband Suppressed Carrier (DSB-SC), and Single Sideband Suppressed Carrier (SSB-SC). Which of the following comparative statements regarding bandwidth, power efficiency, and demodulation requirements is/are CORRECT?",
+      "options": [
+        "A) In standard AM with $100\\%$ modulation depth ($\\mu = 1.0$), suppressing the carrier to convert to DSB-SC saves $66.7\\%$ of the total radiated power without losing any transmitted information",
+        "B) SSB-SC transmission occupies exactly half the radio-frequency transmission bandwidth of standard AM ($BW_{SSB} = f_m$ versus $BW_{AM} = 2f_m$) and saves $83.3\\%$ of total power at $\\mu = 1.0$",
+        "C) An SSB-SC signal can be directly demodulated using a simple diode envelope detector without requiring a local carrier re-insertion oscillator",
+        "D) In DSB-SC coherent demodulation, if the local oscillator has a phase error $\\phi$ such that $c_{LO}(t) = \\cos(\\omega_c t + \\phi)$, the demodulated output amplitude is proportional to $\\cos\\phi$, causing total signal null when $\\phi = \\frac{\\pi}{2}$"
+      ],
+      "answer": "A,B,D",
+      "explanation": "Applying modulation power distribution equations: For standard AM with $\\mu = 1.0$, $P_t = P_c\\left(1 + \\frac{1}{2}\\right) = 1.5 P_c$. The carrier power is $P_c$, which is $\\frac{P_c}{1.5 P_c} = \\frac{2}{3} = 66.7\\%$ of total power. Suppressing the carrier saves $66.7\\%$ of transmitted power (statement A is correct). In SSB-SC, only one sideband of power $P_{USB} = 0.25 P_c$ is transmitted, requiring bandwidth $BW = f_m$ (half of $2f_m$). The power saved is $\\frac{1.5 P_c - 0.25 P_c}{1.5 P_c} = \\frac{1.25}{1.5} = \\frac{5}{6} = 83.33\\%$ (statement B is correct). An envelope detector requires an intact carrier envelope; an SSB-SC waveform lacks this envelope and will severely distort if fed to a diode envelope detector without carrier re-insertion (statement C is false). In coherent detection of DSB-SC, multiplying $s(t) = m(t)\\cos(\\omega_c t)$ by $\\cos(\\omega_c t + \\phi)$ yields $\\frac{1}{2}m(t)[\\cos\\phi + \\cos(2\\omega_c t + \\phi)]$. After low-pass filtering, the output is $\\frac{1}{2}m(t)\\cos\\phi$, which vanishes completely when $\\phi = \\pi/2$ (quadrature null effect, making statement D correct). Thus, A, B, and D are correct."
+    },
+    {
+      "id": "com_c01_043",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "A wideband frequency modulation (WBFM) transmitter operates with a carrier frequency of $f_c = 100.0\\text{ MHz}$. When an initial sinusoidal audio signal with amplitude $A_{m1}$ and frequency $f_{m1} = 15.0\\text{ kHz}$ is applied, the observed peak frequency deviation is $\\Delta f_1 = 75.0\\text{ kHz}$. Subsequently, the audio modulating signal is adjusted such that its voltage amplitude increases by $20.0\\%$ while its frequency is reduced to $f_{m2} = 12.0\\text{ kHz}$. Determine the new transmission bandwidth $BW_2$ of the modulated FM signal according to Carson's bandwidth rule.",
+      "options": [
+        "A) $180.0\\text{ kHz}$",
+        "B) $192.0\\text{ kHz}$",
+        "C) $198.0\\text{ kHz}$",
+        "D) $204.0\\text{ kHz}$"
+      ],
+      "answer": "D",
+      "explanation": "In frequency modulation, peak frequency deviation is directly proportional to modulating amplitude: $\\Delta f = k_f A_m$. When the modulating voltage amplitude increases by $20.0\\%$, the new frequency deviation becomes $\\Delta f_2 = 1.20 \\times \\Delta f_1 = 1.20 \\times 75.0\\text{ kHz} = 90.0\\text{ kHz}$. The new modulating audio frequency is $f_{m2} = 12.0\\text{ kHz}$. The new modulation index is $\\beta_2 = \\frac{\\Delta f_2}{f_{m2}} = \\frac{90.0\\text{ kHz}}{12.0\\text{ kHz}} = 7.50$. Applying Carson's bandwidth rule $BW = 2(\\Delta f + f_m)$, we compute the new transmission bandwidth: $BW_2 = 2(\\Delta f_2 + f_{m2}) = 2(90.0\\text{ kHz} + 12.0\\text{ kHz}) = 2(102.0\\text{ kHz}) = 204.0\\text{ kHz}$. The initial bandwidth was $BW_1 = 2(75.0 + 15.0) = 180.0\\text{ kHz}$; neglecting the amplitude increase and using $\\Delta f_1$ with $f_{m2}$ yields $2(75 + 12) = 174.0\\text{ kHz}$; calculating $2\\Delta f_2 + f_{m2}$ yields $192.0\\text{ kHz}$; taking $2(\\Delta f_2 + f_{m1})$ yields $2(90 + 15) = 210.0\\text{ kHz}$."
+    },
+    {
+      "id": "com_c01_044",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider space-wave propagation between a transmitting antenna of height $h_T$ and a receiving antenna of height $h_R$ separated by ground distance $d$ over a flat, highly conducting Earth. The direct ray of electric field amplitude $E_0 / d$ interferes with a ground-reflected ray. Which of the following deductions regarding the two-ray multipath interference model at large distances ($d \\gg h_T, h_R$) is/are CORRECT?",
+      "options": [
+        "A) Upon grazing reflection from the Earth's surface, the horizontal electric field component experiences zero phase change",
+        "B) The geometric path length difference between the reflected ray and the direct ray is approximately $\\Delta r \\approx \\frac{2 h_T h_R}{d}$",
+        "C) At very large distances where $\\frac{4\\pi h_T h_R}{\\lambda d} \\ll 1$, the net received electric field strength $E_r$ falls off asymptotically as $d^{-2}$ rather than $d^{-1}$",
+        "D) At very large distances, the received signal power $P_r$ obeys an inverse fourth-power distance law ($P_r \\propto d^{-4}$), resulting in significantly steeper attenuation than free-space propagation"
+      ],
+      "answer": "B,C,D",
+      "explanation": "Applying the two-ray ground reflection model: Direct path length is $r_1 = \\sqrt{d^2 + (h_T - h_R)^2} \\approx d + \\frac{(h_T - h_R)^2}{2d}$, and reflected path length is $r_2 = \\sqrt{d^2 + (h_T + h_R)^2} \\approx d + \\frac{(h_T + h_R)^2}{2d}$. The path difference is $\\Delta r = r_2 - r_1 = \\frac{(h_T + h_R)^2 - (h_T - h_R)^2}{2d} = \\frac{2 h_T h_R}{d}$ (making statement B true). At grazing incidence, reflection from the ground introduces a phase inversion of $\\pi$ radians (making statement A false). The net phase difference is $\\Delta\\theta = \\frac{2\\pi}{\\lambda}\\Delta r + \\pi = \\frac{4\\pi h_T h_R}{\\lambda d} + \\pi$. Combining the two equal-amplitude rays: $E_r = 2 \\frac{E_0}{d} \\sin\\left(\\frac{2\\pi h_T h_R}{\\lambda d}\\right)$. For large distance $d$, using small-angle approximation $\\sin x \\approx x$, we get $E_r \\approx 2 \\frac{E_0}{d}\\left(\\frac{2\\pi h_T h_R}{\\lambda d}\\right) = \\frac{4\\pi E_0 h_T h_R}{\\lambda d^2} \\propto \\frac{1}{d^2}$ (making statement C true). The received power is proportional to $E_r^2$, so $P_r \\propto E_r^2 \\propto \\frac{1}{d^4}$, confirming the inverse fourth-power law (making statement D true). Thus, B, C, and D are correct."
+    },
+    {
+      "id": "com_c01_045",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In a commercial wideband frequency modulation (FM) system, when an initial sinusoidal audio test tone of peak amplitude $V_1 = 4.00\\text{ V}$ and frequency $f_1 = 5.00\\text{ kHz}$ is applied, the observed modulation index is $\\beta_1 = 12.0$. The audio test tone is subsequently modified to a new peak amplitude of $V_2 = 3.00\\text{ V}$ and a new frequency of $f_2 = 2.50\\text{ kHz}$. Calculate the resulting new modulation index $\\beta_2$ of the frequency-modulated signal.",
+      "options": [],
+      "answer": "18",
+      "explanation": "Applying the definition of frequency modulation index: $\\beta = \\frac{\\Delta f}{f_m} = \\frac{k_f V_m}{f_m}$, where $k_f$ is the frequency deviation sensitivity of the modulator in $\\text{kHz/V}$. For the initial tone: $\\beta_1 = \\frac{k_f V_1}{f_1} \\implies 12.0 = \\frac{k_f (4.00\\text{ V})}{5.00\\text{ kHz}}$. Solving for $k_f$, we obtain $k_f = \\frac{12.0 \\times 5.00}{4.00} = 15.0\\text{ kHz/V}$. For the modified audio test tone with $V_2 = 3.00\\text{ V}$ and $f_2 = 2.50\\text{ kHz}$, the peak frequency deviation becomes $\\Delta f_2 = k_f V_2 = (15.0\\text{ kHz/V})(3.00\\text{ V}) = 45.0\\text{ kHz}$. The new modulation index is $\\beta_2 = \\frac{\\Delta f_2}{f_2} = \\frac{45.0\\text{ kHz}}{2.50\\text{ kHz}} = 18.0$. Therefore, the integer answer is 18."
+    },
+    {
+      "id": "com_c01_046",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "An electromagnetic wave of angular frequency $\\omega$ propagates through an unmagnetized, collisionless ionospheric plasma layer with plasma frequency $\\omega_p = \\sqrt{\\frac{N e^2}{\\epsilon_0 m}}$. The dispersion relation is given by $\\omega^2 = \\omega_p^2 + c^2 k^2$, where $c$ is the speed of light in vacuum and $k$ is the wavenumber. Which of the following physical statements regarding wave propagation, phase velocity $v_p$, and group velocity $v_g$ in this medium is/are CORRECT?",
+      "options": [
+        "A) For frequencies above the plasma frequency ($\\omega > \\omega_p$), the phase velocity exceeds the vacuum speed of light ($v_p > c$), but this does not violate relativity because signal energy travels at the group velocity",
+        "B) The group velocity $v_g$ inside the ionospheric plasma is strictly greater than the vacuum speed of light ($v_g > c$)",
+        "C) The product of the phase velocity and group velocity in the unmagnetized ionospheric plasma is identically equal to the square of the speed of light in vacuum ($v_p v_g = c^2$)",
+        "D) When the wave frequency is strictly less than the plasma frequency ($\\omega < \\omega_p$), the wavenumber $k$ becomes purely imaginary, resulting in an evanescent, exponentially decaying field with total reflection"
+      ],
+      "answer": "A,C,D",
+      "explanation": "Applying electromagnetic plasma wave theory: The refractive index is $n = \\sqrt{1 - \\frac{\\omega_p^2}{\\omega^2}}$. For $\\omega > \\omega_p$, $n < 1$. The phase velocity is $v_p = \\frac{\\omega}{k} = \\frac{c}{n} = \\frac{c}{\\sqrt{1 - \\omega_p^2 / \\omega^2}} > c$ (making statement A true). Differentiating the dispersion relation $\\omega^2 = \\omega_p^2 + c^2 k^2$ with respect to $k$ yields $2\\omega \\frac{d\\omega}{dk} = 2 c^2 k \\implies v_g = \\frac{d\\omega}{dk} = c^2 \\frac{k}{\\omega} = \\frac{c^2}{v_p} = c \\sqrt{1 - \\frac{\\omega_p^2}{\\omega^2}} < c$. This proves $v_g < c$ (making statement B false). Multiplying the two velocities: $v_p v_g = \\left(\\frac{\\omega}{k}\\right)\\left(\\frac{c^2 k}{\\omega}\\right) = c^2$ (making statement C true). For $\\omega < \\omega_p$, $k^2 = \\frac{\\omega^2 - \\omega_p^2}{c^2} < 0 \\implies k = \\pm i \\frac{\\sqrt{\\omega_p^2 - \\omega^2}}{c} = \\pm i \\alpha$. The spatial dependence becomes $e^{i k z} = e^{-\\alpha z}$, which represents an evanescent non-propagating mode that decays exponentially with depth, causing total wave reflection (making statement D true). Thus, A, C, and D are correct."
+    },
+    {
+      "id": "com_c01_047",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A digital telecommunications transmission system utilizes a strictly bandlimited baseband channel of bandwidth $B = 4.00\\text{ kHz}$. According to Nyquist's criterion for zero intersymbol interference (ISI), an ideal channel can support a maximum symbol transmission rate of $R_s = 2B$ (symbols per second / baud). If the system employs a 16-QAM (Quadrature Amplitude Modulation) signaling constellation where each transmitted symbol uniquely represents $n = \\log_2(16) = 4$ binary data bits, determine the maximum theoretical transmission bit rate $R_b$ in kilobits per second ($\\text{kbps}$).",
+      "options": [],
+      "answer": "32",
+      "explanation": "Applying Nyquist's zero-ISI criterion for an ideal low-pass channel of bandwidth $B = 4.00\\text{ kHz}$, the maximum symbol transmission rate without intersymbol interference is $R_s = 2 B = 2(4.00\\text{ kHz}) = 8.00\\text{ kbaud} = 8000\\text{ symbols/second}$. In an $M$-ary modulation scheme with $M = 16$ constellation points (16-QAM), each symbol encodes $n = \\log_2(M) = \\log_2(16) = 4\\text{ bits}$. The transmission bit rate $R_b$ is the product of the symbol rate and the number of bits encoded per symbol: $R_b = n R_s = 4 \\times 8.00\\text{ kbaud} = 32.0\\text{ kbps}$. Therefore, the integer answer is 32."
+    },
+    {
+      "id": "com_c01_048",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "A step-index multimode optical fiber operating at optical wavelength $\\lambda_0 = 1.55\\ \\mu\\text{m}$ has a core radius $a = 25.0\\ \\mu\\text{m}$ (core diameter $d = 50.0\\ \\mu\\text{m}$), core refractive index $n_1 = 1.480$, and cladding refractive index $n_2 = 1.460$. The normalized frequency parameter is $V = \\frac{2\\pi a}{\\lambda_0}\\sqrt{n_1^2 - n_2^2} = \\frac{\\pi d}{\\lambda_0} NA$. Which of the following statements regarding the waveguiding characteristics of this fiber is/are CORRECT?",
+      "options": [
+        "A) The numerical aperture of the fiber is given by $NA = \\sqrt{n_1^2 - n_2^2} \\approx 0.2425$",
+        "B) The fiber behaves strictly as a single-mode optical waveguide if its normalized frequency satisfies $V < 2.405$",
+        "C) For this highly multimode fiber ($V \\gg 1$), the total number of bound guided modes $M$ is approximately $M \\approx \\frac{V^2}{2} \\approx 302$",
+        "D) Increasing the core-cladding index difference $(n_1 - n_2)$ reduces the intermodal dispersion pulse broadening in the fiber"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Applying optical waveguide theory: The numerical aperture is $NA = \\sqrt{n_1^2 - n_2^2} = \\sqrt{(1.480)^2 - (1.460)^2} = \\sqrt{(1.480 - 1.460)(1.480 + 1.460)} = \\sqrt{0.020 \\times 2.940} = \\sqrt{0.0588} \\approx 0.24249$ (making statement A true). Single-mode operation in a step-index fiber occurs when the normalized frequency is below the first non-zero Bessel cutoff root, $V < 2.405$ (making statement B true). The normalized frequency parameter is $V = \\frac{\\pi d}{\\lambda_0} NA = \\frac{\\pi(50.0\\ \\mu\\text{m})}{1.55\\ \\mu\\text{m}}(0.24249) \\approx (101.34)(0.24249) \\approx 24.57$. For a step-index fiber with $V \\gg 1$, the approximate number of guided modes is $M \\approx \\frac{V^2}{2} = \\frac{(24.57)^2}{2} = \\frac{603.9}{2} \\approx 302$ modes (making statement C true). The intermodal dispersion delay per unit length is $\\frac{\\Delta\\tau}{L} \\approx \\frac{n_1 - n_2}{c}$; increasing the index difference $(n_1 - n_2)$ increases modal dispersion, worsening pulse broadening rather than reducing it (making statement D false). Thus, A, B, and C are correct."
+    },
+    {
+      "id": "com_c01_049",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A frequency-modulated radio transmitter has a frequency deviation constant of $k_f = 6.00\\text{ kHz/V}$. A sinusoidal baseband message signal described by $m(t) = 5.00 \\cos(15000\\pi t)\\text{ V}$ is applied to modulate the carrier. According to Carson's bandwidth rule, calculate the total transmission bandwidth $BW$ of the modulated FM signal in kilohertz ($\\text{kHz}$).",
+      "options": [],
+      "answer": "75",
+      "explanation": "From the expression for the modulating signal $m(t) = 5.00 \\cos(15000\\pi t)\\text{ V}$, the peak amplitude is $A_m = 5.00\\text{ V}$ and the angular frequency is $\\omega_m = 15000\\pi\\text{ rad/s}$. The modulating cyclic frequency is $f_m = \\frac{\\omega_m}{2\\pi} = \\frac{15000\\pi}{2\\pi} = 7500\\text{ Hz} = 7.50\\text{ kHz}$. The peak frequency deviation is $\\Delta f = k_f A_m = (6.00\\text{ kHz/V})(5.00\\text{ V}) = 30.00\\text{ kHz}$. The modulation index is $\\beta = \\frac{\\Delta f}{f_m} = \\frac{30.00\\text{ kHz}}{7.50\\text{ kHz}} = 4.00$. Applying Carson's bandwidth rule: $BW = 2(\\Delta f + f_m) = 2(30.00\\text{ kHz} + 7.50\\text{ kHz}) = 2(37.50\\text{ kHz}) = 75.0\\text{ kHz}$. Therefore, the integer bandwidth in kilohertz is 75."
+    },
+    {
+      "id": "com_c01_050",
+      "subject": "Physics",
+      "topic": "Communication Systems",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A microwave line-of-sight link connects a transmitting tower of height $h_T = 320.0\\text{ m}$ to a receiving tower of height $h_R = 180.0\\text{ m}$ separated by ground distance $d = 112.0\\text{ km}$ over a spherical Earth of radius $R = 6400\\text{ km}$. The direct ray path between the tower summits forms a straight chord above the Earth's curved surface. Taking the Earth's surface bulge height above the straight baseline at a distance $x$ from the transmitter as $y_{bulge}(x) = \\frac{x(d - x)}{2R}$, determine the vertical clearance height (in meters) between this direct line-of-sight ray and the Earth's surface at a distance of $x = 48.0\\text{ km}$ from the transmitter.",
+      "options": [],
+      "answer": "20",
+      "explanation": "The straight line connecting the summits of the two towers has height $h_T = 320.0\\text{ m}$ at $x = 0$ and $h_R = 180.0\\text{ m}$ at $x = d = 112.0\\text{ km}$. By linear interpolation, the height of this direct line-of-sight ray above the straight chord connecting the tower bases at distance $x = 48.0\\text{ km}$ is $h_{ray}(x) = h_T - \\left(\\frac{h_T - h_R}{d}\\right)x = 320.0 - \\left(\\frac{320.0 - 180.0}{112.0}\\right)(48.0) = 320.0 - \\left(\\frac{140.0}{112.0}\\right)(48.0) = 320.0 - (1.25)(48.0) = 320.0 - 60.0 = 260.0\\text{ m}$. Due to Earth curvature, the Earth's surface bulges upward above this straight baseline by $y_{bulge}(x) = \\frac{x(d - x)}{2R}$. Substituting $x = 48.0\\text{ km}$, $d - x = 112.0 - 48.0 = 64.0\\text{ km}$, and $2R = 12800\\text{ km}$, we get $y_{bulge} = \\frac{(48.0)(64.0)}{12800} = \\frac{3072}{12800} = 0.240\\text{ km} = 240.0\\text{ m}$. The vertical clearance between the direct line-of-sight ray and the Earth's surface is $h_{clearance} = h_{ray}(x) - y_{bulge}(x) = 260.0\\text{ m} - 240.0\\text{ m} = 20.0\\text{ m}$. Therefore, the integer clearance is 20."
+    }
+  ]
+}

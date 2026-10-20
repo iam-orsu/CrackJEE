@@ -1,0 +1,799 @@
+{
+  "questions": [
+    {
+      "id": "ak_c01_001",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When 1.0 mole of acetaldehyde ($\\text{CH}_3\\text{CHO}$) is treated with 4.0 moles of formaldehyde ($\\text{HCHO}$) in the presence of excess calcium hydroxide ($\\text{Ca(OH)}_2$) in aqueous medium at room temperature, it undergoes consecutive crossed aldol additions followed by a crossed Cannizzaro reaction to yield a polyhydroxy compound $X$. What is the identity of compound $X$ and the total number of primary alcohol ($-\\text{CH}_2\\text{OH}$) groups present in one molecule of $X$?",
+      "options": [
+        "A) Pentaerythritol, containing 4 primary alcohol groups",
+        "B) Tris(hydroxymethyl)acetaldehyde, containing 3 primary alcohol groups",
+        "C) 2-(hydroxymethyl)propane-1,3-diol, containing 3 primary alcohol groups",
+        "D) 1,1,1-tris(hydroxymethyl)ethanol, containing 3 primary alcohol groups"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Acetaldehyde ($\\text{CH}_3\\text{CHO}$) possesses three active $\\alpha$-hydrogens. In the presence of the basic catalyst $\\text{Ca(OH)}_2$, each of these three $\\alpha$-hydrogens undergoes a base-catalyzed crossed aldol addition with one equivalent of formaldehyde ($\\text{HCHO}$). This sequential addition of three moles of formaldehyde replaces all three $\\alpha$-hydrogens to form the intermediate tris(hydroxymethyl)acetaldehyde, $(\\text{HOCH}_2)_3\\text{C}-\\text{CHO}$.\n\nStep 2: The intermediate $(\\text{HOCH}_2)_3\\text{C}-\\text{CHO}$ now completely lacks $\\alpha$-hydrogens. Consequently, it undergoes a crossed Cannizzaro reaction with the fourth mole of formaldehyde. In this redox disproportionation, the more electrophilic formaldehyde is oxidized to calcium formate ($(\\text{HCOO})_2\\text{Ca}$), while the aldehyde group of $(\\text{HOCH}_2)_3\\text{C}-\\text{CHO}$ is reduced to a primary alcohol ($-\\text{CH}_2\\text{OH}$).\n\nStep 3: This reaction sequence produces pentaerythritol, whose chemical structure is $\\text{C}(\\text{CH}_2\\text{OH})_4$. Therefore, pentaerythritol contains exactly 4 primary alcohol groups. Tris(hydroxymethyl)acetaldehyde is only the unreduced intermediate prior to the Cannizzaro step, and branched triols like 2-(hydroxymethyl)propane-1,3-diol or 1,1,1-tris(hydroxymethyl)ethanol omit either the aldol stoichiometry or the terminal reduction."
+    },
+    {
+      "id": "ak_c01_002",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An alkyne $P$ ($\\text{C}_6\\text{H}_{10}$) having a terminal triple bond is treated with dilute sulfuric acid ($\\text{H}_2\\text{SO}_4$) in the presence of mercuric sulfate ($\\text{HgSO}_4$) at 60°C to form a ketone $Q$. Ketone $Q$ is subsequently warmed with alkaline iodine solution ($\\text{I}_2/\\text{NaOH}$), forming a bright yellow precipitate $R$ and a sodium salt $S$. Acidification of salt $S$ with dilute hydrochloric acid produces an organic compound $T$. What is the IUPAC name of compound $T$?",
+      "options": [
+        "A) Hexanoic acid",
+        "B) Pentanoic acid",
+        "C) Butanoic acid",
+        "D) 2-methylbutanoic acid"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The terminal alkyne hex-1-yne, $\\text{CH}_3(\\text{CH}_2)_3\\text{C}\\equiv\\text{CH}$, undergoes electrophilic hydration catalyzed by $\\text{Hg}^{2+}$ and $\\text{H}^+$. Markovnikov addition of water places the hydroxyl group on $\\text{C}-2$, yielding an unstable enol intermediate $\\text{CH}_3(\\text{CH}_2)_3\\text{C}(\\text{OH})=\\text{CH}_2$, which rapidly tautomerizes to hexan-2-one ($Q$, $\\text{CH}_3(\\text{CH}_2)_3\\text{COCH}_3$).\n\nStep 2: Because hexan-2-one contains a methyl ketone moiety ($-\\text{COCH}_3$), treatment with alkaline $\\text{I}_2/\\text{NaOH}$ initiates the haloform reaction. Sequential iodination of the methyl group forms a triiodomethyl ketone, which undergoes nucleophilic acyl substitution by hydroxide, yielding a yellow crystalline precipitate of iodoform ($\\text{CHI}_3$, $R$) and sodium pentanoate ($S$, $\\text{CH}_3(\\text{CH}_2)_3\\text{COONa}$).\n\nStep 3: Acidification of sodium pentanoate ($S$) with dilute $\\text{HCl}$ protonates the carboxylate group, yielding pentanoic acid ($T$, $\\text{CH}_3(\\text{CH}_2)_3\\text{COOH}$). Therefore, pentanoic acid is the final isolated product. Hexanoic acid fails because one carbon atom is cleaved away as $\\text{CHI}_3$, butanoic acid would require hydration of a five-carbon alkyne, and 2-methylbutanoic acid would require a branched carbon skeleton absent in hex-1-yne."
+    },
+    {
+      "id": "ak_c01_003",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A symmetrical aliphatic diketone, heptane-2,6-dione, is treated with dilute aqueous sodium hydroxide ($\\text{NaOH}$) and heated under reflux. The reaction proceeds via intramolecular aldol condensation followed by dehydration to yield a cyclic $\\alpha,\\beta$-unsaturated ketone $X$ as the major thermodynamic product. What is the IUPAC name of compound $X$?",
+      "options": [
+        "A) 1-(2-methylcyclobut-1-en-1-yl)ethan-1-one",
+        "B) 2-methylcyclohex-2-en-1-one",
+        "C) 3-methylcyclohex-2-en-1-one",
+        "D) cyclohept-2-en-1-one"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Heptane-2,6-dione has the chemical formula $\\text{CH}_3\\text{CO}(\\text{CH}_2)_3\\text{COCH}_3$. It possesses two constitutionally distinct sets of $\\alpha$-hydrogens: the terminal methyl carbons ($\\text{C}-1$ and $\\text{C}-7$) and the internal methylene carbons ($\\text{C}-3$ and $\\text{C}-5$).\n\nStep 2: Deprotonation at an internal methylene carbon ($\\text{C}-3$) would generate an enolate whose intramolecular attack on the carbonyl carbon $\\text{C}-6$ would form a highly strained four-membered cyclobutane ring, which is thermodynamically disfavored.\n\nStep 3: Deprotonation at a terminal methyl carbon ($\\text{C}-1$) generates an enolate carbanion ($^-\\text{CH}_2-\\text{CO}-\\text{CH}_2\\text{CH}_2\\text{CH}_2-\\text{CO}-\\text{CH}_3$). Nucleophilic attack of this carbanion on the carbonyl carbon $\\text{C}-6$ forms a stable, strain-free six-membered ring intermediate, 1-hydroxy-3-methylcyclohexan-1-one.\n\nStep 4: Subsequent base-catalyzed dehydration (aldol condensation) of the $\\beta$-hydroxy ketone eliminates a molecule of water to yield 3-methylcyclohex-2-en-1-one ($X$), in which the $\\text{C}=\\text{C}$ double bond is conjugated with the carbonyl group. Therefore, 3-methylcyclohex-2-en-1-one is the predominant product. The cyclobutene derivative suffers from severe angle strain, 2-methylcyclohex-2-en-1-one has incorrect regiochemical substitution, and cyclohept-2-en-1-one requires an impossible skeletal expansion."
+    },
+    {
+      "id": "ak_c01_004",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An equimolar liquid mixture of ethanal ($\\text{CH}_3\\text{CHO}$) and propanal ($\\text{CH}_3\\text{CH}_2\\text{CHO}$) is treated with dilute aqueous $\\text{NaOH}$ and heated to induce complete aldol condensation (addition followed by dehydration). What is the total number of constitutionally isomeric $\\alpha,\\beta$-unsaturated aldehydes (structural isomers only, excluding stereoisomers) formed in this reaction?",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: In a crossed aldol condensation between two distinct aldehydes containing $\\alpha$-hydrogens, both self-condensation and crossed condensation occur, yielding distinct constitutional isomers upon dehydration.\n\nStep 2: Self-aldol condensation of ethanal ($\\text{CH}_3\\text{CHO}$): The enolate of ethanal attacks another molecule of ethanal, yielding 3-hydroxybutanal, which dehydrates to but-2-enal ($\\text{CH}_3-\\text{CH}=\\text{CH}-\\text{CHO}$, isomer 1).\n\nStep 3: Self-aldol condensation of propanal ($\\text{CH}_3\\text{CH}_2\\text{CHO}$): The enolate formed by deprotonation at $\\text{C}-2$ of propanal attacks another molecule of propanal, yielding 3-hydroxy-2-methylpentanal, which dehydrates to 2-methylpent-2-enal ($\\text{CH}_3\\text{CH}_2-\\text{CH}=\\text{C}(\\text{CH}_3)-\\text{CHO}$, isomer 2).\n\nStep 4: Crossed aldol condensation (ethanal enolate + propanal carbonyl): The enolate of ethanal attacks the carbonyl of propanal to form 3-hydroxypentanal, which dehydrates to pent-2-enal ($\\text{CH}_3\\text{CH}_2-\\text{CH}=\\text{CH}-\\text{CHO}$, isomer 3).\n\nStep 5: Crossed aldol condensation (propanal enolate + ethanal carbonyl): The enolate of propanal attacks the carbonyl of ethanal to form 3-hydroxy-2-methylbutanal, which dehydrates to 2-methylbut-2-enal ($\\text{CH}_3-\\text{CH}=\\text{C}(\\text{CH}_3)-\\text{CHO}$, isomer 4).\n\nTherefore, counting structural isomers only, the total number of constitutionally isomeric $\\alpha,\\beta$-unsaturated aldehydes is exactly 4."
+    },
+    {
+      "id": "ak_c01_005",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Benzaldehyde-formyl-$d$ ($\\text{PhCDO}$), labeled with deuterium at the formyl carbon, is subjected to disproportionation in concentrated aqueous sodium hydroxide ($\\text{NaOH}$) under reflux conditions. Which of the following pairs represents the major organic products formed from this Cannizzaro reaction?",
+      "options": [
+        "A) $\\text{PhCOOH}$ and $\\text{PhCH}_2\\text{OH}$",
+        "B) $\\text{PhCOOD}$ and $\\text{PhCDHOH}$",
+        "C) $\\text{PhCOONa}$ and $\\text{PhCDHOH}$",
+        "D) $\\text{PhCOONa}$ and $\\text{PhCD}_2\\text{OH}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The Cannizzaro reaction of benzaldehyde proceeds via initial reversible nucleophilic addition of hydroxide ion ($\\text{OH}^-$) to the carbonyl group of $\\text{PhCDO}$, yielding the tetrahedral intermediate $\\text{Ph}-\\text{C}(\\text{O}^-)(\\text{OH})(\\text{D})$ or its dianion $\\text{Ph}-\\text{C}(\\text{O}^-)_2(\\text{D})$.\n\nStep 2: In the rate-determining step, a deuteride ion ($\\text{D}^-$) is directly transferred from the tetrahedral intermediate to the carbonyl carbon of a second molecule of $\\text{PhCDO}$.\n\nStep 3: The donor molecule, having lost $\\text{D}^-$ and a proton, is oxidized to benzoate ion ($\\text{PhCOO}^-$), isolated as sodium benzoate ($\\text{PhCOONa}$). Notice that the formyl deuterium is lost during oxidation, so no deuterium remains on the carbonyl carbon of the benzoate product.\n\nStep 4: The acceptor molecule ($\\text{PhCDO}$) receives the transferring deuteride ion ($\\text{D}^-$) at its formyl carbon, forming $\\text{Ph}-\\text{CD}_2-\\text{O}^-$. Subsequent protonation by the solvent water yields $\\alpha,\\alpha$-dideuteriobenzyl alcohol ($\\text{PhCD}_2\\text{OH}$).\n\nTherefore, the isolated products are $\\text{PhCOONa}$ and $\\text{PhCD}_2\\text{OH}$. Unlabeled products like $\\text{PhCH}_2\\text{OH}$ ignore the deuterated reactant, and monodeuterated benzyl alcohols like $\\text{PhCDHOH}$ incorrectly assume hydride rather than deuteride transfer."
+    },
+    {
+      "id": "ak_c01_006",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Cyclopentanone is treated with semicarbazide hydrochloride ($\\text{H}_2\\text{N}-\\text{NH}-\\text{CO}-\\text{NH}_2 \\cdot \\text{HCl}$) in aqueous solution buffered with sodium acetate ($\\text{CH}_3\\text{COONa}$) at $\\text{pH} \\approx 4.5$. Which nitrogen atom of semicarbazide acts as the nucleophilic center during the addition step, and what is the structure of the resulting condensation product?",
+      "options": [
+        "A) The terminal hydrazine nitrogen ($-\\text{NH}_2$) acts as the nucleophile, yielding $\\text{C}_5\\text{H}_8=\\text{N}-\\text{NH}-\\text{CO}-\\text{NH}_2$",
+        "B) The terminal amide nitrogen ($-\\text{CONH}_2$) acts as the nucleophile, yielding $\\text{C}_5\\text{H}_8=\\text{N}-\\text{CO}-\\text{NH}-\\text{NH}_2$",
+        "C) The secondary imino nitrogen ($-\\text{NH}-$) acts as the nucleophile, yielding $\\text{C}_5\\text{H}_8=\\text{N}(\\text{NH}_2)-\\text{CO}-\\text{NH}_2$",
+        "D) Both the hydrazine and amide nitrogens attack simultaneously, yielding a fused diaziridine ring"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Semicarbazide has the molecular formula $\\text{H}_2\\text{N}-\\text{NH}-\\text{CO}-\\text{NH}_2$. It contains three nitrogen atoms: a terminal hydrazine nitrogen ($-\\text{NH}_2$), a secondary imino nitrogen ($-\\text{NH}-$), and an amide nitrogen ($-\\text{CONH}_2$).\n\nStep 2: Both the amide nitrogen and the internal secondary nitrogen have their non-bonding lone pairs conjugated directly with the strongly electron-withdrawing carbonyl group ($\\text{C}=\\text{O}$) via resonance ($-\\ddot{\\text{N}}\\text{H}-\\text{C}(=\\text{O})-\\leftrightarrow -\\text{NH}^+=\\text{C}(\\text{O}^-)-$). This delocalization drastically decreases the electron density and nucleophilicity of these two nitrogen atoms.\n\nStep 3: In contrast, the terminal hydrazine nitrogen atom is separated from the carbonyl group by the $-\\text{NH}-$ spacer and is not conjugated with the carbonyl $\\pi$-system. Its lone pair of electrons remains localized and highly nucleophilic.\n\nStep 4: Nucleophilic attack of this terminal hydrazine nitrogen on the carbonyl carbon of cyclopentanone, followed by proton transfers and elimination of water, forms cyclopentanone semicarbazone ($\\text{C}_5\\text{H}_8=\\text{N}-\\text{NH}-\\text{CO}-\\text{NH}_2$). Therefore, the terminal hydrazine nitrogen is the active nucleophile. Reactions through the amide nitrogen or the secondary nitrogen fail because resonance delocalization renders them non-nucleophilic."
+    },
+    {
+      "id": "ak_c01_007",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Acetophenone ($\\text{PhCOCH}_3$) is oxidized by heating with selenium dioxide ($\\text{SeO}_2$) in dioxane to yield a dicarbonyl compound $M$. When compound $M$ is stirred with aqueous sodium hydroxide ($\\text{NaOH}$) at room temperature followed by acidification with dilute hydrochloric acid, an organic compound $N$ is obtained. What is the IUPAC name of compound $N$?",
+      "options": [
+        "A) 2-phenylethanoic acid",
+        "B) 2-hydroxy-2-phenylacetic acid",
+        "C) 2-oxo-2-phenylacetic acid",
+        "D) 1-phenylethane-1,2-diol"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Selenium dioxide ($\\text{SeO}_2$) selectively oxidizes active methyl or methylene groups adjacent to a carbonyl group. The oxidation of acetophenone ($\\text{PhCOCH}_3$) converts the methyl group into an aldehyde, yielding phenylglyoxal ($M$, $\\text{PhCOCHO}$).\n\nStep 2: Phenylglyoxal ($M$) is an $\\alpha$-keto aldehyde containing an electrophilic aldehyde carbonyl and an adjacent ketone carbonyl, with no $\\alpha$-hydrogens. Upon treatment with aqueous $\\text{NaOH}$, it undergoes an intramolecular Cannizzaro reaction.\n\nStep 3: Hydroxide ion ($\\text{OH}^-$) selectively attacks the more electrophilic and sterically unhindered aldehyde carbonyl carbon. Intramolecular hydride shift from the hydrate intermediate to the adjacent ketone carbonyl carbon forms the sodium salt of mandelic acid ($\\text{PhCH(OH)COONa}$).\n\nStep 4: Acidification with dilute hydrochloric acid protonates the carboxylate, yielding 2-hydroxy-2-phenylacetic acid ($N$, mandelic acid). Therefore, 2-hydroxy-2-phenylacetic acid is the major product. 2-phenylethanoic acid lacks the $\\alpha$-hydroxyl group, 2-oxo-2-phenylacetic acid is the unreduced keto-acid from over-oxidation, and 1-phenylethane-1,2-diol would require non-selective hydride reduction of both carbonyl groups."
+    },
+    {
+      "id": "ak_c01_008",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "When pure propanal ($\\text{CH}_3\\text{CH}_2\\text{CHO}$) is treated with dilute aqueous sodium hydroxide ($\\text{NaOH}$) at 0°C without heating, it undergoes self-aldol addition to form the $\\beta$-hydroxy aldehyde 3-hydroxy-2-methylpentanal. What is the total number of stereoisomers (including all enantiomers and diastereomers) that exist for this 3-hydroxy-2-methylpentanal product?",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: The self-aldol addition of propanal ($\\text{CH}_3\\text{CH}_2\\text{CHO}$) involves deprotonation at $\\text{C}-2$ to form the enolate ion $\\text{CH}_3-\\text{CH}^--\\text{CHO}$, which nucleophilically attacks the carbonyl carbon of a second propanal molecule to yield 3-hydroxy-2-methylpentanal:\n$$\\text{CH}_3-\\text{CH}_2-\\text{CH}(\\text{OH})-\\text{CH}(\\text{CH}_3)-\\text{CHO}$$\n\nStep 2: Let us examine the chiral stereocenters present in this acyclic molecule:\n- Carbon $\\text{C}-2$ is bonded to four distinct substituents: $-\\text{H}$, $-\\text{CH}_3$, $-\\text{CHO}$, and $-\\text{CH}(\\text{OH})\\text{CH}_2\\text{CH}_3$. Thus, $\\text{C}-2$ is an asymmetric chiral center.\n- Carbon $\\text{C}-3$ is bonded to four distinct substituents: $-\\text{H}$, $-\\text{OH}$, $-\\text{CH}_2\\text{CH}_3$, and $-\\text{CH}(\\text{CH}_3)\\text{CHO}$. Thus, $\\text{C}-3$ is also an asymmetric chiral center.\n\nStep 3: The molecule is constitutionally unsymmetrical, meaning the two chiral centers have distinct environments and substituents. Consequently, there is no internal plane of symmetry or center of inversion to produce meso forms.\n\nStep 4: For an unsymmetrical molecule containing $n = 2$ independent asymmetric carbon centers, the total number of stereoisomers is given by $2^n = 2^2 = 4$ (consisting of two pairs of enantiomers: $(2R,3R)$, $(2S,3S)$, $(2R,3S)$, and $(2S,3R)$).\n\nTherefore, the total number of stereoisomers is exactly 4."
+    },
+    {
+      "id": "ak_c01_009",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following four carbonyl compounds:\n(I) Formaldehyde ($\\text{HCHO}$)\n(II) Acetaldehyde ($\\text{CH}_3\\text{CHO}$)\n(III) Acetone ($\\text{CH}_3\\text{COCH}_3$)\n(IV) Acetophenone ($\\text{PhCOCH}_3$)\nWhat is the correct decreasing order of their equilibrium constants ($K_{\\text{eq}}$) for nucleophilic addition of hydrogen cyanide ($\\text{HCN}$) to form the corresponding cyanohydrin?",
+      "options": [
+        "A) $\\text{IV} > \\text{III} > \\text{II} > \\text{I}$",
+        "B) $\\text{II} > \\text{I} > \\text{III} > \\text{IV}$",
+        "C) $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$",
+        "D) $\\text{I} > \\text{III} > \\text{II} > \\text{IV}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The position of equilibrium ($K_{\\text{eq}}$) for reversible nucleophilic addition of $\\text{HCN}$ to carbonyl compounds depends on electronic and steric factors. Electron-withdrawing environments increase the electrophilicity of the carbonyl carbon, raising $K_{\\text{eq}}$, whereas electron-donating groups and steric hindrance stabilize the planar $sp^2$ ground state relative to the crowded tetrahedral $sp^3$ adduct, lowering $K_{\\text{eq}}$.\n\nStep 2: Formaldehyde ($\\text{HCHO}$, $\\text{I}$) has no alkyl substituents; it possesses the highest partial positive charge ($\\delta^+$) on carbon and minimal steric hindrance, yielding the highest $K_{\\text{eq}}$ ($>99\\%$ cyanohydrin at equilibrium).\n\nStep 3: Acetaldehyde ($\\text{CH}_3\\text{CHO}$, $\\text{II}$) has one electron-donating methyl group (+I effect and hyperconjugation) and minor steric crowding, making it less reactive than formaldehyde but more reactive than ketones.\n\nStep 4: Acetone ($\\text{CH}_3\\text{COCH}_3$, $\\text{III}$) has two methyl groups providing inductive electron donation and steric crowding in the tetrahedral cyanohydrin intermediate.\n\nStep 5: Acetophenone ($\\text{PhCOCH}_3$, $\\text{IV}$) possesses a phenyl ring directly conjugated with the carbonyl group ($+R$ resonance donation), significantly stabilizing the ground-state reactant and drastically reducing carbonyl electrophilicity, along with steric crowding from the bulky phenyl ring.\n\nTherefore, the correct decreasing order of equilibrium constants is $\\text{I} > \\text{II} > \\text{III} > \\text{IV}$. Orders placing ketones ahead of aldehydes or conjugated aromatics ahead of aliphatics contradict basic electrostatic and steric principles."
+    },
+    {
+      "id": "ak_c01_010",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An organic keto-aldehyde, 4-oxopentanal ($\\text{CH}_3\\text{CO}-\\text{CH}_2\\text{CH}_2-\\text{CHO}$), is treated with exactly 1.0 equivalent of ethylene glycol ($\\text{HO}-\\text{CH}_2\\text{CH}_2-\\text{OH}$) in dry toluene containing a catalytic amount of $p$-toluenesulfonic acid ($p$-TsOH) with azeotropic removal of water. What is the major protected organic product formed from this chemoselective reaction?",
+      "options": [
+        "A) 2-methyl-2-(3-oxopropyl)-1,3-dioxolane",
+        "B) 2-(2-(2-methyl-1,3-dioxolan-2-yl)ethyl)-1,3-dioxolane",
+        "C) 4-hydroxypentanoic acid cyclic lactone",
+        "D) 4-(1,3-dioxolan-2-yl)butan-2-one"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: 4-oxopentanal possesses two distinct carbonyl groups: an aldehyde group ($-\\text{CHO}$) at $\\text{C}-1$ and a ketone group ($-\\text{COCH}_3$) at $\\text{C}-4$.\n\nStep 2: Aldehyde carbonyl carbons are significantly more electrophilic than ketone carbonyl carbons because aldehydes have only one electron-donating alkyl substituent compared to two alkyl groups in ketones. Furthermore, the aldehyde carbon experiences far less steric hindrance during nucleophilic attack by the diol to form the tetrahedral intermediate.\n\nStep 3: In the presence of exactly 1.0 equivalent of ethylene glycol under thermodynamic acid-catalyzed conditions, acetalization occurs selectively at the more reactive aldehyde carbonyl group.\n\nStep 4: Condensation of ethylene glycol with the aldehyde forms a cyclic 1,3-dioxolane ring, leaving the less electrophilic ketone carbonyl untouched to yield 4-(1,3-dioxolan-2-yl)butan-2-one ($D$). Therefore, 4-(1,3-dioxolan-2-yl)butan-2-one is the major product. Protection at the ketone to form 2-methyl-2-(3-oxopropyl)-1,3-dioxolane ignores aldehyde electrophilicity, bis-protection requires 2.0 equivalents of diol, and lactonization cannot occur from an external diol without oxidation."
+    },
+    {
+      "id": "ak_c01_011",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In the quantitative haloform reaction, 1.0 mole of pure pentan-2-one ($\\text{CH}_3\\text{COCH}_2\\text{CH}_2\\text{CH}_3$) is completely converted into 1.0 mole of iodoform ($\\text{CHI}_3$) and 1.0 mole of sodium butanoate by reacting with $x$ moles of iodine ($\\text{I}_2$) and $y$ moles of sodium hydroxide ($\\text{NaOH}$). What is the numerical value of the stoichiometric sum $(x + y)$?",
+      "options": [],
+      "answer": "7",
+      "explanation": "Step 1: The balanced chemical equation for the haloform oxidation of a methyl ketone ($\\text{R}-\\text{COCH}_3$) with iodine in aqueous sodium hydroxide is:\n$$\\text{R}-\\text{COCH}_3 + 3\\text{I}_2 + 4\\text{NaOH} \\to \\text{R}-\\text{COONa} + \\text{CHI}_3\\downarrow + 3\\text{NaI} + 3\\text{H}_2\\text{O}$$\n\nStep 2: In the first phase of the reaction, three moles of iodine ($\\text{I}_2$) are consumed to progressively replace all three $\\alpha$-hydrogens of the terminal methyl group via sequential base-promoted enolate iodinations, forming a triiodomethyl ketone intermediate ($\\text{R}-\\text{CO}-\\text{CI}_3$). Hence, $x = 3$.\n\nStep 3: In the second phase, three moles of $\\text{NaOH}$ neutralize the three equivalents of $\\text{HI}$ produced during iodination to form $3\\text{NaI} + 3\\text{H}_2\\text{O}$. A fourth mole of $\\text{NaOH}$ provides the nucleophilic hydroxide ion that attacks the carbonyl carbon of $\\text{R}-\\text{CO}-\\text{CI}_3$. Cleavage of the triiodomethyl carbanion ($^-\\text{CI}_3$, a stabilized leaving group) followed by rapid proton transfer yields the carboxylate salt $\\text{R}-\\text{COONa}$ and iodoform ($\\text{CHI}_3$). Thus, exactly $y = 4$ moles of $\\text{NaOH}$ are consumed.\n\nStep 4: Adding the stoichiometric coefficients gives:\n$$(x + y) = 3 + 4 = 7$$\n\nTherefore, the numerical value of $(x + y)$ is exactly 7."
+    },
+    {
+      "id": "ak_c01_012",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Benzoyl chloride ($\\text{PhCOCl}$) is hydrogenated in boiling xylene in the presence of palladium supported on barium sulfate ($\\text{Pd}-\\text{BaSO}_4$) poisoned with quinoline to produce compound $P$. Compound $P$ is subsequently reacted with an equimolar amount of acetone in the presence of dilute aqueous sodium hydroxide ($\\text{NaOH}$) at room temperature to form an $\\alpha,\\beta$-unsaturated ketone $Q$. What is the IUPAC name of compound $Q$?",
+      "options": [
+        "A) (E)-4-phenylbut-3-en-2-one",
+        "B) (1E,4E)-1,5-diphenylpenta-1,4-dien-3-one",
+        "C) (E)-1-phenylbut-2-en-1-one",
+        "D) (E)-2-methyl-3-phenylprop-2-enal"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Catalytic hydrogenation of an acyl chloride over poisoned catalyst ($\\text{Pd}-\\text{BaSO}_4$/quinoline, Rosenmund reduction) selectively reduces the acid chloride to an aldehyde while preventing over-reduction to a primary alcohol. Thus, benzoyl chloride ($\\text{PhCOCl}$) is converted cleanly into benzaldehyde ($P$, $\\text{PhCHO}$).\n\nStep 2: In the subsequent crossed aldol reaction, benzaldehyde ($P$) possesses no $\\alpha$-hydrogens and cannot form an enolate, whereas acetone ($\\text{CH}_3\\text{COCH}_3$) has six enolizable $\\alpha$-hydrogens.\n\nStep 3: Deprotonation of acetone by hydroxide forms the enolate ion $^-\\text{CH}_2\\text{COCH}_3$, which nucleophilically attacks the more electrophilic carbonyl carbon of benzaldehyde to form 4-hydroxy-4-phenylbutan-2-one.\n\nStep 4: Elimination of water (aldol dehydration) occurs spontaneously to produce extended conjugation with the aromatic ring, yielding (E)-4-phenylbut-3-en-2-one ($Q$, commonly known as benzylideneacetone). Therefore, (E)-4-phenylbut-3-en-2-one is the major product. Dibenzylideneacetone requires two equivalents of benzaldehyde, 1-phenylbut-2-en-1-one has an inverted carbonyl position, and 2-methyl-3-phenylprop-2-enal requires propanal instead of acetone."
+    },
+    {
+      "id": "ak_c01_013",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following organic carbonyl compounds exhibits the HIGHEST percentage of enol tautomer at dynamic equilibrium in a dilute solution in a non-polar solvent (such as hexane) at 25°C?",
+      "options": [
+        "A) Ethyl acetoacetate ($\\text{CH}_3\\text{COCH}_2\\text{COOCH}_2\\text{CH}_3$)",
+        "B) Pentane-2,4-dione ($\\text{CH}_3\\text{COCH}_2\\text{COCH}_3$)",
+        "C) Diethyl malonate ($\\text{CH}_2(\\text{COOCH}_2\\text{CH}_3)_2$)",
+        "D) Cyclohexanone"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The percentage of enol form at tautomeric equilibrium depends on the thermodynamic stability of the enol relative to the keto form. Simple monocarbonyls like cyclohexanone have negligible enol content ($<0.01\\%$) because the $\\text{C}=\\text{O}$ double bond is significantly stronger than a $\\text{C}=\\text{C}$ double bond and no special stabilization exists in the enol.\n\nStep 2: In $\\beta$-dicarbonyl compounds, the enol form is exceptionally stabilized by two synergistic factors: (i) an extended conjugated system ($\\text{O}-\\text{C}=\\text{C}-\\text{C}=\\text{O}$), and (ii) a very strong intramolecular hydrogen bond forming a quasi-aromatic six-membered planar ring.\n\nStep 3: Comparing pentane-2,4-dione (acetylacetone) and ethyl acetoacetate: In ethyl acetoacetate, resonance donation from the ester ethoxy oxygen into the ester carbonyl ($\\text{EtO}-\\ddot{\\text{O}}-\\text{C}(=\\text{O})-\\leftrightarrow \\text{EtO}^+=\\text{C}(\\text{O}^-)-$) partially satisfies the electron deficiency of the carbonyl carbon, weakening the driving force for enolization and diminishing hydrogen-bond strength (enol content $\\approx 8\\%$ in water, $\\approx 15-20\\%$ in hexane).\n\nStep 4: In contrast, pentane-2,4-dione has two ketone carbonyls with no competing ester resonance. In non-polar solvents like hexane, intramolecular hydrogen bonding is fully favored without solvent competition, resulting in an enol content exceeding $75-80\\%$.\n\nTherefore, pentane-2,4-dione displays the highest enol percentage. Diethyl malonate has two competing ester oxygens resulting in negligible enol content ($<0.001\\%$), and cyclohexanone lacks any conjugated enol stabilization."
+    },
+    {
+      "id": "ak_c01_014",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A chemist attempts to reduce the carbonyl group of 4-hydroxy-4-methylpentan-2-one directly to a methylene group ($-\\text{CH}_2-$) by subjecting it to Clemmensen reduction conditions ($\\text{Zn}-\\text{Hg}$ in concentrated aqueous $\\text{HCl}$ at reflux). Instead of obtaining 2-methylpentan-2-ol, an unexpected fully reduced hydrocarbon $Z$ is isolated as the major product. What is the identity of hydrocarbon $Z$?",
+      "options": [
+        "A) 2-methylpentan-2-ol",
+        "B) 4-methylpent-3-en-2-one (mesityl oxide)",
+        "C) 2-methylpentane",
+        "D) 2-chloro-2-methylpentane"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Clemmensen reduction operates under strongly acidic conditions using concentrated hydrochloric acid ($\\text{HCl}$) and amalgamated zinc ($\\text{Zn}-\\text{Hg}$).\n\nStep 2: The starting substrate, 4-hydroxy-4-methylpentan-2-one, contains a tertiary alcohol ($-\\text{OH}$) group at $\\text{C}-4$. Under the action of hot concentrated $\\text{HCl}$, the tertiary alcohol is protonated to form an oxonium ion ($-\\text{OH}_2^+$), which rapidly departs as water to generate a stable tertiary carbocation, $(\\text{CH}_3)_2\\text{C}^+-\\text{CH}_2\\text{COCH}_3$.\n\nStep 3: Loss of a proton from this carbocation yields the conjugated enone 4-methylpent-3-en-2-one (mesityl oxide), or capture by chloride yields 4-chloro-4-methylpentan-2-one.\n\nStep 4: Under the vigorous reducing conditions of Clemmensen reduction ($\\text{Zn}-\\text{Hg}/\\text{HCl}$), not only is the ketone carbonyl group reduced to a methylene group, but the conjugated $\\text{C}=\\text{C}$ double bond (or tertiary alkyl halide) is simultaneously reduced via electron transfer from zinc.\n\nStep 5: Consequently, both functional groups are completely reduced to saturated hydrocarbons, yielding 2-methylpentane ($Z$) as the final isolated product. Therefore, 2-methylpentane is formed. 2-methylpentan-2-ol incorrectly presumes the tertiary alcohol survives hot concentrated acid, mesityl oxide is an unreduced intermediate, and 2-chloro-2-methylpentane ignores the active zinc reduction of alkyl halides."
+    },
+    {
+      "id": "ak_c01_015",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An equimolar reaction mixture containing 2.0 moles of benzaldehyde ($\\text{PhCHO}$) and 2.0 moles of formaldehyde ($\\text{HCHO}$) is treated with excess concentrated aqueous sodium hydroxide ($\\text{NaOH}$) at room temperature until complete consumption of the aldehydes occurs via crossed Cannizzaro reaction. Assuming quantitative yield and zero side-reactions, how many moles of sodium formate ($\\text{HCOONa}$) are formed?",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: In the crossed Cannizzaro reaction between an aromatic aldehyde (benzaldehyde, $\\text{PhCHO}$) and formaldehyde ($\\text{HCHO}$), both species lack $\\alpha$-hydrogens and cannot undergo aldol condensation.\n\nStep 2: Formaldehyde has a much less sterically crowded and significantly more electrophilic carbonyl carbon than benzaldehyde (whose carbonyl group is stabilized by $+R$ conjugation with the benzene ring). Thus, nucleophilic attack by hydroxide ion ($\\text{OH}^-$) occurs exclusively and rapidly at the carbonyl carbon of formaldehyde, forming the tetrahedral intermediate $\\text{H}-\\text{CH}(\\text{O}^-)(\\text{OH})$.\n\nStep 3: In the subsequent hydride transfer step, this formaldehyde-derived intermediate transfers a hydride ion ($\\text{H}^-$) to the less electrophilic carbonyl carbon of benzaldehyde. Consequently, formaldehyde is exclusively oxidized to formic acid, which is neutralized by base to yield sodium formate ($\\text{HCOONa}$), while benzaldehyde is exclusively reduced to benzyl alcohol ($\\text{PhCH}_2\\text{OH}$).\n\nStep 4: The stoichiometric chemical equation is:\n$$\\text{PhCHO} + \\text{HCHO} + \\text{NaOH} \\to \\text{PhCH}_2\\text{OH} + \\text{HCOONa}$$\n\nStep 5: Because the reaction starts with 2.0 moles of benzaldehyde and 2.0 moles of formaldehyde, exactly 2.0 moles of sodium formate are produced upon complete consumption.\n\nTherefore, the number of moles of sodium formate formed is exactly 2."
+    },
+    {
+      "id": "ak_c01_016",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "1-(4-methoxyphenyl)propan-2-one ($\\text{CH}_3\\text{COCH}_2-\\text{C}_6\\text{H}_4-p-\\text{OCH}_3$) is treated with 1.1 equivalents of $m$-chloroperbenzoic acid (mCPBA) in dichloromethane at room temperature to undergo Baeyer-Villiger oxidation. What is the major ester product formed from this regioselective reaction?",
+      "options": [
+        "A) Methyl 2-(4-methoxyphenyl)acetate",
+        "B) 4-methoxyphenyl propanoate",
+        "C) 1-(4-methoxyphenyl)propan-2-yl formate",
+        "D) 4-methoxybenzyl acetate"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Baeyer-Villiger oxidation of ketones with peroxy acids involves initial nucleophilic addition of the peroxy acid ($\\text{RCOOOH}$) to the ketone carbonyl carbon to form a tetrahedral peroxyhemiacetal intermediate (Criegee intermediate).\n\nStep 2: In the subsequent rate-determining step, one of the two groups bonded to the original carbonyl carbon undergoes a 1,2-migration onto the adjacent peroxy oxygen atom, with simultaneous expulsion of the carboxylate leaving group ($m$-chlorobenzoate).\n\nStep 3: The regiochemical outcome is governed by the relative migratory aptitudes of the two groups. The established order of migratory aptitude is: tertiary alkyl $>$ cyclohexyl $>$ secondary alkyl $>$ benzyl $>$ phenyl $>$ primary alkyl $>$ methyl.\n\nStep 4: In 1-(4-methoxyphenyl)propan-2-one, the two competing groups are a methyl group ($-\\text{CH}_3$) and a 4-methoxybenzyl group ($-\\text{CH}_2-\\text{C}_6\\text{H}_4-p-\\text{OCH}_3$). The 4-methoxybenzyl group is an electron-rich benzylic group that stabilizes developing positive charge during migration and has a vastly higher migratory aptitude than a primary methyl group.\n\nStep 5: Migration of the 4-methoxybenzyl group inserts the oxygen atom between the carbonyl carbon and the benzylic carbon, yielding 4-methoxybenzyl acetate ($\\text{CH}_3\\text{COOCH}_2-\\text{C}_6\\text{H}_4-p-\\text{OCH}_3$, $D$). Therefore, 4-methoxybenzyl acetate is the predominant product. Methyl 2-(4-methoxyphenyl)acetate represents migration of the methyl group, which is electronically disfavored; 4-methoxyphenyl propanoate assumes migration of a nonexistent aryl-carbonyl linkage; and the formate ester involves cleavage of the wrong carbon-carbon bond."
+    },
+    {
+      "id": "ak_c01_017",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "To selectively reduce the keto group of ethyl 4-oxopentanoate ($\\text{CH}_3\\text{COCH}_2\\text{CH}_2\\text{COOCH}_2\\text{CH}_3$) to a methylene group ($-\\text{CH}_2-$) without causing hydrolysis, reduction, or cleavage of the ethyl ester functional group, which of the following reaction protocols should be employed?",
+      "options": [
+        "A) Ethane-1,2-dithiol with $\\text{BF}_3\\cdot\\text{OEt}_2$, followed by heating with Raney $\\text{Ni}$ in ethanol",
+        "B) $\\text{Zn}-\\text{Hg}$ in concentrated aqueous $\\text{HCl}$ at reflux temperature",
+        "C) Hydrazine hydrate ($\\text{NH}_2\\text{NH}_2\\cdot\\text{H}_2\\text{O}$) and $\\text{KOH}$ in ethylene glycol at 200°C",
+        "D) Excess lithium aluminium hydride ($\\text{LiAlH}_4$) in dry diethyl ether followed by aqueous workup"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Ethyl 4-oxopentanoate contains two carbonyl functions: a ketone ($\\text{C}=\\text{O}$) and an ester ($-\\text{COOEt}$). An ideal protocol must selectively reduce the ketone to $-\\text{CH}_2-$ while preserving the acid- and base-sensitive ester group.\n\nStep 2: Clemmensen reduction ($\\text{Zn}-\\text{Hg}/\\text{conc. HCl}$) employs hot concentrated mineral acid, which rapidly hydrolyzes the ethyl ester into 4-oxopentanoic acid and ethanol, failing chemoselectivity.\n\nStep 3: Wolff-Kishner reduction ($\\text{NH}_2\\text{NH}_2/\\text{KOH}/200^\\circ\\text{C}$) utilizes concentrated potassium hydroxide at high temperature, which instantly saponifies the ester into a carboxylate salt and forms hydrazide side-products.\n\nStep 4: Mozingo reduction circumvents both acidic and basic extremes. Treatment of the keto-ester with ethane-1,2-dithiol and the mild Lewis acid $\\text{BF}_3\\cdot\\text{OEt}_2$ selectively converts the more electrophilic ketone into a cyclic 1,3-dithiane (dithioacetal), leaving the ester unaffected.\n\nStep 5: Subsequent neutral desulfurization of the dithioacetal with hydrogen over Raney Nickel in ethanol smoothly reduces the $\\text{C}-\\text{S}$ bonds to $\\text{C}-\\text{H}$ bonds, delivering ethyl pentanoate in high yield with the ester intact.\n\nTherefore, the Mozingo reduction protocol is the correct choice. $\\text{LiAlH}_4$ indiscriminately reduces both the ketone and the ester to primary/secondary alcohols."
+    },
+    {
+      "id": "ak_c01_018",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Benzaldehyde is subjected to Wittig olefination under two distinct conditions:\nReaction 1: Benzaldehyde is treated with the unstabilized ylide ethylidenetriphenylphosphorane ($\\text{Ph}_3\\text{P}=\\text{CHCH}_3$) in dry THF at $-78^\\circ\\text{C}$.\nReaction 2: Benzaldehyde is treated with the resonance-stabilized ylide (carbomethoxymethylidene)triphenylphosphorane ($\\text{Ph}_3\\text{P}=\\text{CHCOOCH}_3$) in refluxing benzene.\nWhat are the predominant stereochemical configurations of the major alkene products obtained in Reaction 1 and Reaction 2, respectively?",
+      "options": [
+        "A) (E)-alkene in Reaction 1, and (Z)-alkene in Reaction 2",
+        "B) (Z)-alkene in Reaction 1, and (E)-alkene in Reaction 2",
+        "C) (E)-alkene in both Reaction 1 and Reaction 2",
+        "D) (Z)-alkene in both Reaction 1 and Reaction 2"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The stereochemical outcome of the Wittig reaction depends fundamentally on whether the phosphorus ylide is non-stabilized or resonance-stabilized.\n\nStep 2: In Reaction 1, ethylidenetriphenylphosphorane ($\\text{Ph}_3\\text{P}=\\text{CHCH}_3$) is an unstabilized, reactive ylide. The cycloaddition between the ylide and benzaldehyde is kinetically controlled and essentially irreversible. The reaction proceeds through a puckered early transition state where steric repulsion between the phenyl substituents on phosphorus and the aldehyde group dictates the formation of a cis-disubstituted oxaphosphetane intermediate. Rapid collapse with loss of $\\text{Ph}_3\\text{P}=\\text{O}$ yields the (Z)-alkene ((Z)-1-phenylprop-1-ene) as the major kinetic product.\n\nStep 3: In Reaction 2, (carbomethoxymethylidene)triphenylphosphorane ($\\text{Ph}_3\\text{P}=\\text{CHCOOCH}_3$) is stabilized by resonance delocalization of negative charge into the ester carbonyl ($\\text{P}^+-\\text{C}^--\\text{C}(=\\text{O})\\text{OMe} \\leftrightarrow \\text{P}^+=\\text{C}=\\text{C}(\\text{O}^-)\\text{OMe}$). This stabilization makes oxaphosphetane formation reversible.\n\nStep 4: Under thermodynamic equilibration, the intermediate equilibrates to the more stable trans-substituted oxaphosphetane, in which steric clash between the phenyl and ester substituents is minimized. Subsequent cycloreversion selectively expels the (E)-alkene (methyl (E)-cinnamate) as the major thermodynamic product.\n\nTherefore, Reaction 1 yields predominantly the (Z)-isomer and Reaction 2 yields predominantly the (E)-isomer. Reversing these stereochemical outcomes overlooks the mechanistic difference between kinetic and thermodynamic oxaphosphetane control."
+    },
+    {
+      "id": "ak_c01_019",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the cyanide-catalyzed benzoin condensation of benzaldehyde ($\\text{PhCHO}$) to form benzoin ($\\text{PhCH(OH)COPh}$), cyanide ion ($\\text{CN}^-$) acts as a unique catalyst. Which of the following mechanistic descriptions correctly accounts for the essential dual role of the cyanide ion in this reaction?",
+      "options": [
+        "A) It acts solely as a Brønsted base that deprotonates the formyl hydrogen atom directly in a single concerted step",
+        "B) It acts as a one-electron reducing agent that generates a transient ketyl radical anion intermediate",
+        "C) It acts as a nucleophile that attacks the carbonyl to invert formyl carbon polarity (umpolung) and subsequently departs as a leaving group",
+        "D) It acts as a Lewis acid that coordinates to the carbonyl oxygen atom to enhance its electrophilicity"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Benzaldehyde cannot undergo aldol condensation because its formyl hydrogen is bonded to a carbonyl carbon, not to an $\\alpha$-carbon, and is not acidic ($\\text{p}K_a \\approx 42$).\n\nStep 2: In the benzoin condensation, cyanide ion ($\\text{CN}^-$) first acts as an effective carbon nucleophile, attacking the carbonyl carbon of benzaldehyde to form a tetrahedral cyanohydrin alkoxide, $\\text{Ph}-\\text{CH}(\\text{O}^-)-\\text{CN}$.\n\nStep 3: Rapid proton transfer from the formyl carbon to the alkoxide oxygen converts this intermediate into a resonance-stabilized carbanion, $\\text{Ph}-\\text{C}^-(\\text{OH})-\\text{CN} \\leftrightarrow \\text{Ph}-\\text{C}(\\text{OH})=\\text{C}=\\text{N}^-$. The presence of the cyano group significantly acidifies the benzylic proton by inductive ($-I$) and mesomeric ($-M$) electron withdrawal. This reverses the normal electrophilic character of the carbonyl carbon into a nucleophilic center (umpolung / polarity reversal).\n\nStep 4: The carbanion then attacks the carbonyl carbon of a second molecule of benzaldehyde to construct a new carbon-carbon bond, yielding the alkoxide intermediate $\\text{Ph}-\\text{C}(\\text{OH})(\\text{CN})-\\text{CH}(\\text{O}^-)-\\text{Ph}$.\n\nStep 5: Finally, an internal proton transfer followed by departure of cyanide ion ($\\text{CN}^-$ as an excellent leaving group) restores the carbonyl double bond to form benzoin ($\\text{Ph}-\\text{CO}-\\text{CH}(\\text{OH})-\\text{Ph}$) and regenerates the active catalyst $\\text{CN}^-$.\n\nTherefore, cyanide functions by nucleophilically inducing umpolung and subsequently serving as a good leaving group. Descriptions asserting direct proton abstraction or one-electron redox contradict the known carbanionic mechanism."
+    },
+    {
+      "id": "ak_c01_020",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "In the synthesis of dibenzylideneacetone ((1E,4E)-1,5-diphenylpenta-1,4-dien-3-one), benzaldehyde ($\\text{PhCHO}$) is reacted with acetone ($\\text{CH}_3\\text{COCH}_3$) in an ethanol-water solvent system in the presence of dilute aqueous sodium hydroxide ($\\text{NaOH}$). How many total moles of water ($\\text{H}_2\\text{O}$) are eliminated via dehydration per mole of dibenzylideneacetone produced?",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: The synthesis of dibenzylideneacetone is a double crossed aldol condensation between two equivalents of benzaldehyde and one equivalent of acetone.\n\nStep 2: In the first stage, deprotonation of acetone generates the enolate ion $^-\\text{CH}_2\\text{COCH}_3$, which nucleophilically attacks the first molecule of benzaldehyde to form 4-hydroxy-4-phenylbutan-2-one. Base-catalyzed dehydration of this intermediate eliminates 1 mole of water ($\\text{H}_2\\text{O}$) to form benzylideneacetone ($\\text{PhCH}=\\text{CH}-\\text{COCH}_3$).\n\nStep 3: In the second stage, the remaining methyl group of benzylideneacetone retains three enolizable $\\alpha$-hydrogens. Deprotonation by hydroxide produces the second enolate ion ($\\text{PhCH}=\\text{CH}-\\text{CO}-\\text{CH}_2^-$), which attacks the second molecule of benzaldehyde to yield 1,5-diphenyl-1-hydroxypent-4-en-3-one.\n\nStep 4: Base-catalyzed dehydration of this second $\\beta$-hydroxy unit eliminates a second mole of water ($\\text{H}_2\\text{O}$) to establish full conjugation across the dienone system, delivering dibenzylideneacetone:\n$$2\\text{PhCHO} + \\text{CH}_3\\text{COCH}_3 \\xrightarrow{\\text{NaOH}} \\text{PhCH}=\\text{CH}-\\text{CO}-\\text{CH}=\\text{CHPh} + 2\\text{H}_2\\text{O}$$\n\nStep 5: Thus, exactly 2 moles of water are eliminated during the formation of 1 mole of dibenzylideneacetone.\n\nTherefore, the total number of moles of water eliminated is exactly 2."
+    },
+    {
+      "id": "ak_c01_021",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When butan-2-one ($\\text{CH}_3\\text{COCH}_2\\text{CH}_3$) is reacted with an equimolar amount of benzaldehyde ($\\text{PhCHO}$) in the presence of dilute aqueous sodium hydroxide ($\\text{NaOH}$) at 15°C, what is the major mono-aldol dehydration product obtained?",
+      "options": [
+        "A) (E)-3-methyl-4-phenylbut-3-en-2-one",
+        "B) 1-phenylpent-2-en-3-one",
+        "C) 4-phenylpent-3-en-2-one",
+        "D) (E)-1-phenylpent-1-en-3-one"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Butan-2-one is an unsymmetrical ketone possessing two distinct sites with enolizable $\\alpha$-hydrogens: the primary methyl carbon ($\\text{C}-1$, three hydrogens) and the secondary methylene carbon ($\\text{C}-3$, two hydrogens).\n\nStep 2: Under dilute basic conditions at low to moderate temperature, deprotonation of the less sterically crowded primary methyl group ($\\text{C}-1$) occurs significantly faster than deprotonation of the secondary methylene group ($\\text{C}-3$).\n\nStep 3: Furthermore, the less hindered methyl enolate ($^-\\text{CH}_2-\\text{CO}-\\text{CH}_2\\text{CH}_3$) attacks the electrophilic carbonyl carbon of benzaldehyde with far lower steric activation barrier than the more congested branched methylene enolate ($\\text{CH}_3-\\text{CO}-\\text{CH}^--\\text{CH}_3$).\n\nStep 4: Addition of the $\\text{C}-1$ enolate to benzaldehyde yields the $\\beta$-hydroxy ketone 1-hydroxy-1-phenylpentan-3-one, which undergoes spontaneous base-promoted E1cB dehydration to establish conjugation with the aromatic ring, yielding (E)-1-phenylpent-1-en-3-one ($D$, $\\text{PhCH}=\\text{CH}-\\text{CO}-\\text{CH}_2\\text{CH}_3$).\n\nTherefore, (E)-1-phenylpent-1-en-3-one is the major product. The branched isomer (E)-3-methyl-4-phenylbut-3-en-2-one forms only as a minor product due to steric hindrance during enolate addition, while unconjugated isomers like 1-phenylpent-2-en-3-one lack extended $\\pi$-stabilization."
+    },
+    {
+      "id": "ak_c01_022",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When 2-methylcyclohexan-1-one is treated with $m$-chloroperbenzoic acid (mCPBA) in dichloromethane, it undergoes a regioselective Baeyer-Villiger ring expansion to form a cyclic lactone $P$. What is the IUPAC name and structure of the major lactone $P$?",
+      "options": [
+        "A) 7-methyloxepan-2-one (oxygen atom inserted between the carbonyl carbon and the substituted $\\text{C}-2$ carbon)",
+        "B) 3-methyloxepan-2-one (oxygen atom inserted between the carbonyl carbon and the unsubstituted $\\text{C}-6$ carbon)",
+        "C) 6-methyl-2-oxabicyclo[3.2.0]heptan-7-one",
+        "D) 2-methyladipic acid resulting from complete ring cleavage"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The Baeyer-Villiger oxidation of cyclic ketones produces cyclic esters (lactones) through insertion of an oxygen atom adjacent to the carbonyl carbon.\n\nStep 2: In 2-methylcyclohexan-1-one, the carbonyl carbon ($\\text{C}-1$) is flanked by two constitutionally distinct $\\alpha$-carbons: the secondary methylene carbon ($\\text{C}-6$) and the tertiary methine carbon ($\\text{C}-2$, which bears the methyl substituent).\n\nStep 3: The key migration step involves electron donation from the migrating $\\sigma$-bond into the antibonding $\\sigma^*(\\text{O}-\\text{O})$ orbital of the peroxy ester. As the migrating group moves, it develops partial positive carbocation character in the transition state.\n\nStep 4: Because a tertiary carbon stabilizes partial positive charge substantially better than a secondary carbon, the migratory aptitude follows: tertiary alkyl $>$ secondary alkyl. Hence, $\\text{C}-2$ migrates preferentially over $\\text{C}-6$.\n\nStep 5: Migration of $\\text{C}-2$ places the peroxy oxygen directly between $\\text{C}-1$ and $\\text{C}-2$, resulting in a seven-membered ring with the methyl substituent adjacent to the ring oxygen: 7-methyloxepan-2-one ($A$).\n\nTherefore, 7-methyloxepan-2-one is the major product. 3-methyloxepan-2-one incorrectly assumes migration of the less substituted secondary carbon, bicyclic oxetanes are energetically impossible under these conditions, and ring cleavage requires oxidative bond breakage absent here."
+    },
+    {
+      "id": "ak_c01_023",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A synthetic chemist needs to reduce the carbonyl group of 4-nitroacetophenone ($\\text{O}_2\\text{N}-\\text{C}_6\\text{H}_4-\\text{COCH}_3$) to synthesize 1-ethyl-4-nitrobenzene ($\\text{O}_2\\text{N}-\\text{C}_6\\text{H}_4-\\text{CH}_2\\text{CH}_3$) without reducing or altering the aromatic nitro group ($-\\text{NO}_2$). Which of the following reagents will accomplish this conversion chemoselectively?",
+      "options": [
+        "A) $\\text{Zn}-\\text{Hg}$ in concentrated aqueous $\\text{HCl}$ at reflux (Clemmensen reduction)",
+        "B) $\\text{NH}_2\\text{NH}_2\\cdot\\text{H}_2\\text{O}$ and $\\text{KOH}$ in ethylene glycol at 180°C (Wolff-Kishner reduction)",
+        "C) $\\text{Sn}$ metal in concentrated aqueous $\\text{HCl}$ followed by neutralization",
+        "D) Catalytic hydrogenation over $\\text{Pd}/\\text{C}$ in methanol at room temperature"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The transformation requires the selective reduction of an aromatic ketone ($-\\text{COCH}_3$) into an ethyl group ($-\\text{CH}_2\\text{CH}_3$) while keeping the aromatic nitro group ($-\\text{NO}_2$) completely intact.\n\nStep 2: Under Clemmensen reduction conditions ($\\text{Zn}-\\text{Hg}/\\text{conc. HCl}$), zinc in concentrated acid is a vigorous single-electron reducing system that rapidly and quantitatively reduces aromatic nitro groups ($-\\text{NO}_2$) to primary amines ($-\\text{NH}_3^+\\text{Cl}^-$). Consequently, Clemmensen reduction of 4-nitroacetophenone produces 4-ethylaniline, completely failing chemoselectivity.\n\nStep 3: Similarly, $\\text{Sn}/\\text{HCl}$ and catalytic hydrogenation ($\\text{H}_2/\\text{Pd}-\\text{C}$) are standard classical methods for reducing aromatic nitro groups to amines, leaving the ketone intact or partially reducing it.\n\nStep 4: In contrast, the Wolff-Kishner reduction ($\\text{NH}_2\\text{NH}_2/\\text{KOH}/\\Delta$) operates under strongly basic conditions. Hydrazine selectively condenses with the ketone carbonyl to form a hydrazone, which upon heating with potassium hydroxide undergoes proton transfers and concerted extrusion of dinitrogen gas ($\\text{N}_2$) to form the ethyl group. The aromatic nitro group is completely resistant to reduction by hydrazine under strongly alkaline conditions.\n\nTherefore, Wolff-Kishner reduction is the uniquely selective reagent. The acidic reducing agents all reduce the nitro group to an amine."
+    },
+    {
+      "id": "ak_c01_024",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Consider all constitutionally isomeric acyclic aldehydes having the molecular formula $\\text{C}_5\\text{H}_{10}\\text{O}$. When each of these structural isomers is separately treated with dilute aqueous sodium hydroxide ($\\text{NaOH}$) solution at room temperature, how many of these isomeric aldehydes are able to undergo self-aldol condensation?",
+      "options": [],
+      "answer": "3",
+      "explanation": "Step 1: First, identify all constitutionally isomeric acyclic aldehydes possessing the molecular formula $\\text{C}_5\\text{H}_{10}\\text{O}$:\n1. Pentanal: $\\text{CH}_3\\text{CH}_2\\text{CH}_2\\text{CH}_2\\text{CHO}$\n2. 2-methylbutanal: $\\text{CH}_3\\text{CH}_2\\text{CH}(\\text{CH}_3)\\text{CHO}$\n3. 3-methylbutanal: $(\\text{CH}_3)_2\\text{CHCH}_2\\text{CHO}$\n4. 2,2-dimethylpropanal (pivalaldehyde): $(\\text{CH}_3)_3\\text{C}-\\text{CHO}$\nThere are exactly 4 constitutional aldehyde isomers.\n\nStep 2: Self-aldol condensation requires the presence of at least one $\\alpha$-hydrogen on the carbon adjacent to the carbonyl group so that base can abstract a proton to generate a nucleophilic enolate carbanion.\n\nStep 3: Evaluate each isomer for the presence of $\\alpha$-hydrogens:\n- Pentanal has two $\\alpha$-hydrogens at $\\text{C}-2$ $\\implies$ undergoes self-aldol condensation.\n- 2-methylbutanal has one $\\alpha$-hydrogen at $\\text{C}-2$ $\\implies$ undergoes self-aldol condensation.\n- 3-methylbutanal has two $\\alpha$-hydrogens at $\\text{C}-2$ $\\implies$ undergoes self-aldol condensation.\n- 2,2-dimethylpropanal has three methyl groups bonded to $\\text{C}-2$, so it possesses zero $\\alpha$-hydrogens. When treated with aqueous base, it cannot form an enolate and instead undergoes the Cannizzaro disproportionation reaction.\n\nStep 4: Therefore, exactly 3 out of the 4 constitutional isomers can undergo self-aldol condensation.\n\nThus, the required integer value is exactly 3."
+    },
+    {
+      "id": "ak_c01_025",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When an equimolar mixture of benzaldehyde ($\\text{PhCHO}$) and 4-methoxybenzaldehyde ($p\\text{-anisaldehyde}$, $p-\\text{CH}_3\\text{O}-\\text{C}_6\\text{H}_4-\\text{CHO}$) is heated with catalytic potassium cyanide ($\\text{KCN}$) in aqueous ethanol under reflux, which of the following is isolated as the major crossed benzoin condensation product?",
+      "options": [
+        "A) 2-hydroxy-1-(4-methoxyphenyl)-2-phenylethan-1-one",
+        "B) 1,2-bis(4-methoxyphenyl)-2-hydroxyethan-1-one",
+        "C) 2-hydroxy-2-(4-methoxyphenyl)-1-phenylethan-1-one",
+        "D) 1,2-diphenylethane-1,2-dione"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In the benzoin condensation, the initial nucleophilic addition of cyanide ion ($\\text{CN}^-$) occurs preferentially at the more electrophilic carbonyl carbon. Benzaldehyde has a significantly more electrophilic carbonyl carbon than 4-methoxybenzaldehyde because the strong electron-donating resonance effect ($+M$) of the $p$-methoxy group delocalizes electron density into the aromatic ring and diminishes the partial positive charge on the carbonyl carbon of 4-methoxybenzaldehyde.\n\nStep 2: Consequently, cyanide ion attacks benzaldehyde preferentially to generate the cyanohydrin intermediate, which undergoes proton transfer to form the active nucleophilic acyl anion equivalent (the carbanion $\\text{Ph}-\\text{C}^-(\\text{OH})-\\text{CN}$).\n\nStep 3: This benzaldehyde-derived carbanion then attacks the carbonyl group of the remaining aldehyde present in the mixture. Attack on 4-methoxybenzaldehyde forms the crossed tetrahedral intermediate $\\text{Ph}-\\text{C}(\\text{OH})(\\text{CN})-\\text{CH}(\\text{O}^-)-\\text{C}_6\\text{H}_4-p-\\text{OCH}_3$.\n\nStep 4: Proton transfer followed by expulsion of cyanide ion ($\\text{CN}^-$) regenerates the carbonyl group at the phenyl carbon while the 4-methoxyphenyl carbon remains as a secondary alcohol, producing 2-hydroxy-2-(4-methoxyphenyl)-1-phenylethan-1-one ($\\text{Ph}-\\text{CO}-\\text{CH}(\\text{OH})-\\text{C}_6\\text{H}_4-p-\\text{OCH}_3$, $C$).\n\nTherefore, 2-hydroxy-2-(4-methoxyphenyl)-1-phenylethan-1-one is the major product. The regioisomer with the carbonyl adjacent to the anisyl group requires initial cyanide attack on the deactivated aldehyde, symmetrical bis-anisoin is formed only in minor amounts, and the dione requires subsequent oxidation."
+    },
+    {
+      "id": "ak_c01_026",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the Baeyer-Villiger oxidation of two substituted acetophenones with trifluoroperacetic acid ($\\text{CF}_3\\text{CO}_3\\text{H}$):\nReaction 1: 4-nitroacetophenone ($p-\\text{NO}_2-\\text{C}_6\\text{H}_4-\\text{COCH}_3$) reacts to form product $P$.\nReaction 2: 4-methoxyacetophenone ($p-\\text{CH}_3\\text{O}-\\text{C}_6\\text{H}_4-\\text{COCH}_3$) reacts to form product $Q$.\nWhich of the following correctly identifies the structures of products $P$ and $Q$?",
+      "options": [
+        "A) $P$ is 4-nitrophenyl acetate, and $Q$ is 4-methoxyphenyl acetate",
+        "B) $P$ is methyl 4-nitrobenzoate, and $Q$ is methyl 4-methoxybenzoate",
+        "C) $P$ is 4-nitrophenyl acetate, and $Q$ is methyl 4-methoxybenzoate",
+        "D) $P$ is methyl 4-nitrobenzoate, and $Q$ is 4-methoxyphenyl acetate"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In the Baeyer-Villiger oxidation of acetophenones ($\\text{Ar}-\\text{COCH}_3$), the two migrating candidates are the substituted aryl group ($\\text{Ar}$) and the methyl group ($-\\text{CH}_3$).\n\nStep 2: Migration of an aryl group proceeds via a phenonium-like transition state where the aromatic ring donates electron density into the developing electron-deficient migration terminus. Therefore, electron-donating substituents strongly accelerate aryl migration, whereas electron-withdrawing substituents strongly retard it.\n\nStep 3: In Reaction 2 with 4-methoxyacetophenone, the methoxy group is a powerful resonance electron-donor ($+M$). The $p$-methoxyphenyl group has a vastly higher migratory aptitude than a methyl group. Oxygen inserts between the aryl ring and the carbonyl carbon, producing 4-methoxyphenyl acetate ($Q$, $\\text{CH}_3\\text{COO}-\\text{C}_6\\text{H}_4-p-\\text{OCH}_3$).\n\nStep 4: In Reaction 1 with 4-nitroacetophenone, the nitro group exerts powerful $-M$ and $-I$ electron-withdrawing effects, drastically depleting electron density from the aromatic ring and destabilizing the migration transition state. This retards aryl migration so severely that its migratory aptitude drops below that of a methyl group! Consequently, the methyl group migrates preferentially, inserting oxygen between the carbonyl carbon and methyl group to yield methyl 4-nitrobenzoate ($P$, $p-\\text{NO}_2-\\text{C}_6\\text{H}_4-\\text{COOCH}_3$).\n\nTherefore, $P$ is methyl 4-nitrobenzoate and $Q$ is 4-methoxyphenyl acetate. Option combinations assuming that aryl always migrates or methyl always migrates fail to recognize the dramatic reversal in migratory aptitude caused by the nitro group."
+    },
+    {
+      "id": "ak_c01_027",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Cyclohexanone is reacted with methylenetriphenylphosphorane ($\\text{Ph}_3\\text{P}=\\text{CH}_2$, prepared in situ from methyltriphenylphosphonium bromide and $n$-butyllithium) in dry diethyl ether to afford an exocyclic alkene $A$. Alkene $A$ is subsequently subjected to hydroboration-oxidation by reaction with diborane ($\\text{B}_2\\text{H}_6$) in THF followed by alkaline hydrogen peroxide ($\\text{H}_2\\text{O}_2/\\text{NaOH}$). What is the IUPAC name of the final alcohol $B$?",
+      "options": [
+        "A) Cyclohexylmethanol",
+        "B) 1-methylcyclohexan-1-ol",
+        "C) 2-methylcyclohexan-1-ol",
+        "D) Cycloheptanol"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The reaction of cyclohexanone with the unstabilized phosphorus ylide methylenetriphenylphosphorane ($\\text{Ph}_3\\text{P}=\\text{CH}_2$) is an archetypal Wittig olefination. The ylide carbanion attacks the cyclohexanone carbonyl carbon, forming an oxaphosphetane that decomposes irreversibly with loss of triphenylphosphine oxide ($\\text{Ph}_3\\text{P}=\\text{O}$) to replace the $\\text{C}=\\text{O}$ bond with an exocyclic $\\text{C}=\\text{CH}_2$ double bond, yielding methylenecyclohexane ($A$).\n\nStep 2: Methylenecyclohexane ($A$) is then subjected to hydroboration-oxidation. Addition of borane ($\\text{BH}_3$) across the carbon-carbon double bond is stereospecifically syn and regioselectively anti-Markovnikov.\n\nStep 3: Boron preferentially binds to the less sterically hindered, less substituted terminal methylene carbon ($-\\text{CH}_2-$), while hydrogen attaches to the fully substituted $\\text{C}-1$ ring carbon, forming a trialkylborane intermediate.\n\nStep 4: Oxidation with alkaline hydrogen peroxide ($\\text{H}_2\\text{O}_2/\\text{NaOH}$) replaces the carbon-boron bond with a carbon-oxygen bond with complete retention of stereochemistry, yielding the primary alcohol cyclohexylmethanol ($B$, $\\text{C}_6\\text{H}_{11}-\\text{CH}_2\\text{OH}$).\n\nTherefore, cyclohexylmethanol is the final product. 1-methylcyclohexan-1-ol arises from Markovnikov hydration of the alkene, 2-methylcyclohexan-1-ol would require an endocyclic double bond, and cycloheptanol would require a ring expansion rearrangement."
+    },
+    {
+      "id": "ak_c01_028",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Cinnamaldehyde ((2E)-3-phenylprop-2-enal, $\\text{PhCH}=\\text{CH}-\\text{CHO}$) is treated with acetophenone ($\\text{PhCOCH}_3$) in ethanol in the presence of dilute aqueous sodium hydroxide ($\\text{NaOH}$) with gentle heating. What is the IUPAC name of the major conjugated condensation product obtained after dehydration?",
+      "options": [
+        "A) (1E,4E)-1,5-diphenylpenta-1,4-dien-3-one",
+        "B) (2E,4E)-1,5-diphenylpenta-2,4-dien-1-one",
+        "C) (E)-1,3-diphenylprop-2-en-1-one",
+        "D) (2E,4E)-1,5-diphenylpenta-2,4-dien-1-ol"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In this crossed aldol condensation, acetophenone ($\\text{PhCOCH}_3$) possesses three active $\\alpha$-hydrogens on its methyl group, whereas cinnamaldehyde ($\\text{PhCH}=\\text{CH}-\\text{CHO}$) has no enolizable $\\alpha$-hydrogens adjacent to its formyl group.\n\nStep 2: Sodium hydroxide abstracts a proton from the methyl group of acetophenone to generate the phenacyl enolate carbanion, $\\text{Ph}-\\text{CO}-\\text{CH}_2^-$.\n\nStep 3: This enolate attacks the electrophilic formyl carbonyl carbon of cinnamaldehyde to form a $\\beta$-hydroxy ketone intermediate: $\\text{PhCH}=\\text{CH}-\\text{CH}(\\text{OH})-\\text{CH}_2-\\text{COPh}$.\n\nStep 4: Under the reaction conditions, this intermediate undergoes base-promoted dehydration (loss of $\\text{H}_2\\text{O}$) to produce an extended, uninterrupted conjugated $\\pi$-electron system connecting both phenyl rings across a conjugated diene-one framework: $\\text{PhCH}=\\text{CH}-\\text{CH}=\\text{CH}-\\text{COPh}$.\n\nStep 5: Numbering the carbon chain according to IUPAC rules, the principal functional group is the ketone carbonyl at $\\text{C}-1$. The five-carbon chain extends to $\\text{C}-5$, with double bonds between $\\text{C}-2/\\text{C}-3$ and $\\text{C}-4/\\text{C}-5$, and phenyl substituents at $\\text{C}-1$ and $\\text{C}-5$. Because both newly formed and existing double bonds adopt the thermodynamically favored trans geometry, the compound is (2E,4E)-1,5-diphenylpenta-2,4-dien-1-one ($B$).\n\nTherefore, (2E,4E)-1,5-diphenylpenta-2,4-dien-1-one is the major product. (1E,4E)-1,5-diphenylpenta-1,4-dien-3-one has the carbonyl in the middle from acetone, (E)-1,3-diphenylprop-2-en-1-one is chalcone from benzaldehyde, and the alcohol represents an unformed carbonyl."
+    },
+    {
+      "id": "ak_c01_029",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Methyl 4-oxocyclohexanecarboxylate is treated with 1.0 equivalent of sodium borohydride ($\\text{NaBH}_4$) in methanol at 0°C to selectively reduce the ketone carbonyl group, followed by aqueous workup to afford compound $P$. Subsequent alkaline hydrolysis of the ester group in $P$ with aqueous sodium hydroxide ($\\text{NaOH}$) followed by acidification with dilute hydrochloric acid yields the hydroxy acid $Q$. What is the total number of stereoisomers (geometrical cis/trans isomers) that exist for compound $Q$?",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: Methyl 4-oxocyclohexanecarboxylate contains both a ketone carbonyl at $\\text{C}-4$ and an ester group at $\\text{C}-1$. Sodium borohydride ($\\text{NaBH}_4$) is a mild hydride donor that selectively reduces ketones and aldehydes in the presence of esters. Reduction of the $\\text{C}-4$ ketone converts it into a secondary alcohol, producing methyl 4-hydroxycyclohexanecarboxylate ($P$).\n\nStep 2: Saponification of the ester with aqueous $\\text{NaOH}$ followed by acidification hydrolyzes the methyl ester to a carboxylic acid, yielding 4-hydroxycyclohexanecarboxylic acid ($Q$, $\\text{HO}-\\text{C}_6\\text{H}_9-\\text{COOH}$).\n\nStep 3: Analyze the stereochemistry of 4-hydroxycyclohexanecarboxylic acid:\n- The molecule possesses a vertical plane of symmetry passing through carbon atoms $\\text{C}-1$ and $\\text{C}-4$ and their attached substituents ($-\\text{COOH}$, $-\\text{H}$, $-\\text{OH}$, and $-\\text{H}$).\n- Because of this internal plane of symmetry, neither $\\text{C}-1$ nor $\\text{C}-4$ is an asymmetric chiral carbon center; the molecule is completely achiral and lacks optical activity.\n\nStep 4: However, the substituents at $\\text{C}-1$ and $\\text{C}-4$ can be oriented on the same face or opposite faces of the cyclohexane chair/ring conformation, giving rise to exactly two diastereomeric geometrical isomers:\n1. cis-4-hydroxycyclohexanecarboxylic acid (both $-\\text{OH}$ and $-\\text{COOH}$ groups on the same face of the ring)\n2. trans-4-hydroxycyclohexanecarboxylic acid ($-\\text{OH}$ and $-\\text{COOH}$ groups on opposite faces of the ring)\n\nTherefore, the total number of stereoisomers for compound $Q$ is exactly 2."
+    },
+    {
+      "id": "ak_c01_030",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When benzaldehyde ($\\text{PhCHO}$) is heated with concentrated aqueous sodium hydroxide ($\\text{NaOH}$), a mixture of organic compounds $X$ is obtained. In contrast, when benzaldehyde is heated under reflux with a catalytic amount of potassium cyanide ($\\text{KCN}$) in aqueous ethanol, a single organic compound $Y$ is obtained. What are the identities of $X$ and $Y$?",
+      "options": [
+        "A) $X$ is benzoin; $Y$ is a mixture of benzyl alcohol and sodium benzoate",
+        "B) $X$ is benzoic acid; $Y$ is mandelic acid",
+        "C) $X$ is a mixture of benzyl alcohol and sodium benzoate; $Y$ is benzoin",
+        "D) $X$ is cinnamic acid; $Y$ is benzyl cyanide"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Benzaldehyde lacks $\\alpha$-hydrogens adjacent to its carbonyl carbon and therefore cannot undergo aldol condensation in basic media.\n\nStep 2: When heated with concentrated aqueous sodium hydroxide ($\\text{NaOH}$, a strong Brønsted base and oxygen nucleophile), benzaldehyde undergoes the Cannizzaro reaction. Hydride transfer from a hydroxide-carbonyl tetrahedral intermediate to a second molecule of benzaldehyde disproportionates the starting material into an equimolar mixture of an oxidized product, sodium benzoate ($\\text{PhCOONa}$), and a reduced product, benzyl alcohol ($\\text{PhCH}_2\\text{OH}$). Thus, mixture $X$ consists of benzyl alcohol and sodium benzoate.\n\nStep 3: When heated with catalytic potassium cyanide ($\\text{KCN}$ in aqueous ethanol), cyanide ion acts as a specialized soft carbon nucleophile. Cyanide attacks the carbonyl carbon to form a cyanohydrin carbanion that undergoes umpolung (inversion of carbonyl polarity), enabling it to attack another molecule of benzaldehyde.\n\nStep 4: Subsequent proton transfer and elimination of cyanide ion regenerates the catalyst and forms benzoin ($Y$, 2-hydroxy-1,2-diphenylethan-1-one, $\\text{PhCH(OH)COPh}$).\n\nTherefore, $X$ is a mixture of benzyl alcohol and sodium benzoate, and $Y$ is benzoin. Interchanging the reagents fails to distinguish between the nucleophilic umpolung behavior of cyanide and the simple redox disproportionation promoted by hydroxide."
+    },
+    {
+      "id": "ak_c01_031",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An enantiomerically pure ketone, (3S)-3-phenylbutan-2-one, is treated with trifluoroperacetic acid ($\\text{CF}_3\\text{CO}_3\\text{H}$) in dichloromethane. The reaction undergoes Baeyer-Villiger oxidation with complete regioselectivity. What is the absolute stereochemical configuration of the chiral center in the resulting ester product?",
+      "options": [
+        "A) Completely racemized (±)-1-phenylethyl acetate",
+        "B) Inversion of configuration yielding (1R)-1-phenylethyl acetate",
+        "C) Retention of configuration yielding methyl (2S)-2-phenylpropanoate",
+        "D) Retention of configuration yielding (1S)-1-phenylethyl acetate"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In (3S)-3-phenylbutan-2-one ($\\text{CH}_3\\text{CO}-\\text{CH(Ph)CH}_3$), the carbonyl carbon is flanked by a methyl group ($-\\text{CH}_3$) and a secondary benzylic chiral group ((1S)-1-phenylethyl, $-\\text{CH(Ph)CH}_3$).\n\nStep 2: Migratory aptitude in Baeyer-Villiger oxidation follows: secondary alkyl/benzyl $\\gg$ primary alkyl/methyl. Therefore, the (1S)-1-phenylethyl group migrates exclusively to the peroxy oxygen atom, inserting oxygen between the carbonyl carbon and the chiral benzylic center to form 1-phenylethyl acetate ($\\text{CH}_3\\text{COOCH(Ph)CH}_3$).\n\nStep 3: The migration of the chiral group occurs via a concerted front-side intramolecular shift onto the adjacent oxygen atom with simultaneous displacement of the trifluoroacetate leaving group.\n\nStep 4: Because the migrating carbon never becomes a free planar carbocation or radical, this concerted rearrangement proceeds with strict $100\\%$ retention of stereochemical configuration at the migrating carbon center.\n\nStep 5: Assigning Cahn-Ingold-Prelog priorities to the four substituents at the chiral carbon of the product ($-\\text{OCOCH}_3 > -\\text{Ph} > -\\text{CH}_3 > -\\text{H}$): The spatial arrangement of the groups is preserved, and the priority ranking of the oxygen-bearing group matches that of the original carbonyl group, confirming the absolute configuration remains (1S).\n\nTherefore, the product is (1S)-1-phenylethyl acetate with complete retention of configuration. Racemization would require an unobserved free carbocation, and inversion would require an intermolecular backside substitution."
+    },
+    {
+      "id": "ak_c01_032",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An organic compound containing two distinct carbonyl functions, 4-oxocyclohexanecarbaldehyde, is treated with 1.0 equivalent of ethane-1,2-dithiol in dry diethyl ether in the presence of catalytic boron trifluoride etherate ($\\text{BF}_3\\cdot\\text{OEt}_2$). The resulting mono-dithioacetal intermediate is subsequently stirred with excess sodium borohydride ($\\text{NaBH}_4$) in ethanol, followed by heating with active Raney Nickel. What is the major organic product obtained?",
+      "options": [
+        "A) 4-methylcyclohexan-1-ol",
+        "B) 4-(hydroxymethyl)cyclohexan-1-one",
+        "C) 1-methylcyclohexane-1,4-diol",
+        "D) Cyclohexylmethanol"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: 4-oxocyclohexanecarbaldehyde possesses two carbonyl groups: an aldehyde group ($-\\text{CHO}$) and a ketone group (cyclohexanone $\\text{C}=\\text{O}$). Aldehyde carbonyls are less sterically hindered and possess higher electrophilicity than cyclic ketone carbonyls.\n\nStep 2: In the presence of exactly 1.0 equivalent of ethane-1,2-dithiol and $\\text{BF}_3\\cdot\\text{OEt}_2$, thioacetalization occurs chemoselectively at the aldehyde carbonyl to form a 1,3-dithiolane ring, yielding 4-(1,3-dithiolan-2-yl)cyclohexan-1-one.\n\nStep 3: Treatment with $\\text{NaBH}_4$ selectively reduces the unprotected ketone carbonyl to a secondary alcohol without affecting the dithiolane protecting group, producing 4-(1,3-dithiolan-2-yl)cyclohexan-1-ol.\n\nStep 4: Subsequent heating with excess active Raney Nickel in ethanol brings about hydrogenolytic desulfurization (Mozingo desulfurization). Both carbon-sulfur bonds of the 1,3-dithiolane are cleaved and replaced by carbon-hydrogen bonds, converting the protected formyl group ($-\\text{CH}(\\text{S}-\\text{CH}_2)_2$) directly into a methyl group ($-\\text{CH}_3$).\n\nStep 5: The resulting molecule is 4-methylcyclohexan-1-ol ($A$).\n\nTherefore, 4-methylcyclohexan-1-ol is the major product. 4-(hydroxymethyl)cyclohexan-1-one represents protection at the wrong carbonyl, 1-methylcyclohexane-1,4-diol assumes an additional nucleophilic methylation, and cyclohexylmethanol incorrectly presumes loss of the ketone."
+    },
+    {
+      "id": "ak_c01_033",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "During the Wittig reaction between an unstabilized phosphorus ylide ($\\text{Ph}_3\\text{P}=\\text{CHCH}_3$) and an aldehyde ($\\text{RCHO}$), what is the key neutral four-membered heterocyclic intermediate whose formation and subsequent cycloreversion governs the extrusion of the alkene?",
+      "options": [
+        "A) Phosphirane",
+        "B) 1,2-oxaphosphetane",
+        "C) 1,3,2-dioxaphospholane",
+        "D) Phosphonium betaine"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In the modern mechanistic understanding of the Wittig reaction (confirmed by low-temperature $^{31}\\text{P}$ NMR spectroscopy), the nucleophilic ylide carbanion attacks the electrophilic carbonyl carbon of the aldehyde.\n\nStep 2: This addition rapidly and concertedly forms a neutral four-membered ring consisting of one phosphorus atom, one oxygen atom, and two carbon atoms, designated as a 1,2-oxaphosphetane.\n\nStep 3: The 1,2-oxaphosphetane intermediate undergoes a stereospecific retro-[2+2] cycloreversion. The driving force for this ring opening is the formation of the exceptionally strong phosphorus-oxygen double bond in triphenylphosphine oxide ($\\text{Ph}_3\\text{P}=\\text{O}$, bond dissociation energy $\\approx 540\\text{ kJ/mol}$), accompanied by the extrusion of the alkene ($\\text{R}-\\text{CH}=\\text{CH}-\\text{CH}_3$).\n\nStep 4: Phosphonium betaine (an acyclic zwitterionic intermediate) was historically proposed by Georg Wittig, but extensive kinetic and spectroscopic studies have established that oxaphosphetanes are the actual observable resting intermediates, especially in non-polar solvents.\n\nTherefore, 1,2-oxaphosphetane is the key four-membered intermediate. Phosphiranes are three-membered phosphorus heterocycles, and dioxaphospholanes are five-membered rings containing two oxygen atoms."
+    },
+    {
+      "id": "ak_c01_034",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Acetophenone ($\\text{PhCOCH}_3$) and propiophenone ($\\text{PhCOCH}_2\\text{CH}_3$) are placed in separate flasks and treated with excess iodine and aqueous sodium hydroxide solution ($\\text{I}_2/\\text{NaOH}$). Let $n_1$ be the number of moles of yellow iodoform ($\\text{CHI}_3$) precipitated from 1.0 mole of acetophenone, and let $n_2$ be the number of moles of iodoform precipitated from 1.0 mole of propiophenone. What is the numerical value of the expression $(10n_1 + n_2)$?",
+      "options": [],
+      "answer": "10",
+      "explanation": "Step 1: The haloform reaction requires the presence of a methyl group directly bonded to a carbonyl group ($-\\text{COCH}_3$) or a secondary alcohol with a methyl group ($-\\text{CH(OH)CH}_3$) that can be oxidized in situ to a methyl carbonyl.\n\nStep 2: Acetophenone ($\\text{PhCOCH}_3$) contains a methyl ketone group. In the presence of excess $\\text{I}_2$ and $\\text{NaOH}$, all three $\\alpha$-hydrogens of the methyl group are sequentially replaced by iodine to form 2,2,2-triiodo-1-phenylethan-1-one ($\\text{PhCOCI}_3$). Hydroxide attack at the carbonyl carbon cleaves the triiodomethyl anion ($^-\\text{CI}_3$), which rapidly abstracts a proton to precipitate 1.0 mole of yellow iodoform ($\\text{CHI}_3$) per mole of acetophenone. Thus, $n_1 = 1$.\n\nStep 3: Propiophenone ($\\text{PhCOCH}_2\\text{CH}_3$) contains an ethyl group bonded to the carbonyl carbon. It has two $\\alpha$-hydrogens on a methylene carbon ($-\\text{CH}_2-$). In the presence of $\\text{I}_2/\\text{NaOH}$, $\\alpha$-iodination occurs to give $\\text{PhCOCH(I)}\\text{CH}_3$ and $\\text{PhCOCI}_2\\text{CH}_3$. However, because there is no methyl group attached to the carbonyl, the leaving group upon nucleophilic attack would be a primary or secondary carbanion, which is an extremely poor leaving group and cannot cleave to form iodoform. Consequently, no iodoform precipitate forms. Thus, $n_2 = 0$.\n\nStep 4: Evaluating the expression:\n$$(10n_1 + n_2) = 10(1) + 0 = 10$$\n\nTherefore, the numerical value is exactly 10."
+    },
+    {
+      "id": "ak_c01_035",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the Wolff-Kishner reduction, a ketone or aldehyde is heated with hydrazine hydrate ($\\text{NH}_2\\text{NH}_2\\cdot\\text{H}_2\\text{O}$) and potassium hydroxide ($\\text{KOH}$) in a high-boiling solvent like diethylene glycol to reduce the carbonyl group to a methylene group ($-\\text{CH}_2-$). What is the primary thermodynamic driving force that renders this multi-step reaction completely irreversible?",
+      "options": [
+        "A) The high boiling point and coordinating ability of diethylene glycol",
+        "B) The precipitation of potassium carbonate from the alkaline reaction mixture",
+        "C) The irreversible extrusion of extremely stable dinitrogen gas ($\\text{N}_2$) accompanied by a large increase in entropy",
+        "D) The oxidation of hydrazine to hydroxylamine by the carbonyl substrate"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The Wolff-Kishner reduction begins with condensation between the carbonyl compound and hydrazine to form a hydrazone intermediate, $\\text{R}_2\\text{C}=\\text{N}-\\text{NH}_2$.\n\nStep 2: Under strongly basic conditions, hydroxide deprotonates the terminal nitrogen of the hydrazone, generating a resonance-stabilized diazenyl carbanion:\n$$\\text{R}_2\\text{C}=\\text{N}-\\bar{\\text{N}}\\text{H} \\longleftrightarrow \\text{R}_2\\bar{\\text{C}}-\\text{N}=\\text{NH}$$\nProtonation of the carbon atom by the solvent forms an alkyldiazene intermediate, $\\text{R}_2\\text{CH}-\\text{N}=\\text{NH}$.\n\nStep 3: Deprotonation of the remaining nitrogen proton by base triggers a concerted bond reorganization in which the carbon-nitrogen bond is broken, an alkyl carbanion ($\\text{R}_2\\text{CH}^-$) is expelled, and molecular dinitrogen gas ($\\text{N}_2$) is released:\n$$\\text{R}_2\\text{CH}-\\text{N}=\\bar{\\text{N}} \\longrightarrow \\text{R}_2\\text{CH}^- + \\text{N}_2\\uparrow$$\n\nStep 4: The formation of the exceptionally strong nitrogen-nitrogen triple bond in $\\text{N}_2$ (bond dissociation energy $\\approx 945\\text{ kJ/mol}$) contributes a very large negative enthalpy change ($\\Delta H^\\circ \\ll 0$). In addition, the generation of a gaseous product that escapes from the open reflux system provides a large positive entropy change ($\\Delta S^\\circ > 0$), making the Gibbs free energy change ($\\Delta G^\\circ = \\Delta H^\\circ - T\\Delta S^\\circ$) overwhelmingly negative and the step strictly irreversible.\n\nStep 5: Rapid protonation of $\\text{R}_2\\text{CH}^-$ delivers the final alkane product $\\text{R}_2\\text{CH}_2$.\n\nTherefore, the irreversible release of dinitrogen gas ($\\text{N}_2$) with large positive entropy provides the primary driving force. Solvent properties or precipitation effects are purely ancillary."
+    },
+    {
+      "id": "ak_c01_036",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In a Reformatsky reaction, benzaldehyde ($\\text{PhCHO}$) is reacted with ethyl 2-bromopropanoate ($\\text{CH}_3\\text{CH(Br)COOCH}_2\\text{CH}_3$) in the presence of activated zinc dust in refluxing anhydrous benzene. Subsequent hydrolysis with dilute sulfuric acid yields a $\\beta$-hydroxy ester $P$. When ester $P$ is heated in the presence of a catalytic amount of concentrated $\\text{H}_2\\text{SO}_4$, it undergoes dehydration to produce an $\\alpha,\\beta$-unsaturated ester $Q$. What is the IUPAC name of the major (E)-stereoisomer of compound $Q$?",
+      "options": [
+        "A) Ethyl (2E)-2-methyl-3-phenylprop-2-enoate",
+        "B) Ethyl (2Z)-2-methyl-3-phenylprop-2-enoate",
+        "C) Ethyl (3E)-2-methyl-3-phenylprop-3-enoate",
+        "D) Ethyl (2E)-3-methyl-3-phenylprop-2-enoate"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In the Reformatsky reaction, activated zinc metal inserts oxidative-addition fashion into the carbon-bromine bond of ethyl 2-bromopropanoate to generate the zinc enolate intermediate (Reformatsky reagent):\n$$\\text{CH}_3\\text{CH(Br)COOEt} + \\text{Zn} \\longrightarrow \\text{CH}_3\\text{CH(ZnBr)COOEt} \\longleftrightarrow \\text{CH}_3\\text{CH}=\\text{C}(\\text{OZnBr})\\text{OEt}$$\n\nStep 2: The nucleophilic $\\alpha$-carbon of this organozinc enolate adds across the carbonyl group of benzaldehyde ($\\text{PhCHO}$) via a chair-like six-membered cyclic transition state involving zinc coordination to the carbonyl oxygen. Protonation during mild acidic hydrolysis yields the $\\beta$-hydroxy ester ethyl 3-hydroxy-2-methyl-3-phenylpropanoate ($P$):\n$$\\text{PhCH(OH)}-\\text{CH}(\\text{CH}_3)-\\text{COOCH}_2\\text{CH}_3$$\n\nStep 3: When $\\beta$-hydroxy ester $P$ is heated with catalytic concentrated $\\text{H}_2\\text{SO}_4$, protonation of the hydroxyl group followed by loss of water generates a resonance-stabilized carbocation at the benzylic position ($\\text{Ph}-\\text{CH}^+-\\text{CH}(\\text{CH}_3)\\text{COOEt}$).\n\nStep 4: Deprotonation at $\\text{C}-2$ eliminates a proton to form the conjugated $\\alpha,\\beta$-unsaturated ester. Thermodynamic control dictates that the major product adopts the (E)-configuration, in which the bulky phenyl group at $\\text{C}-3$ and the bulky ethoxycarbonyl group ($-\\text{COOEt}$) at $\\text{C}-2$ are oriented trans (anti-periplanar) to each other to minimize steric repulsion.\n\nStep 5: Numbering from the ester carbonyl as $\\text{C}-1$, the double bond is between $\\text{C}-2$ and $\\text{C}-3$, with a methyl substituent at $\\text{C}-2$ and a phenyl substituent at $\\text{C}-3$. This delivers ethyl (2E)-2-methyl-3-phenylprop-2-enoate ($A$).\n\nTherefore, ethyl (2E)-2-methyl-3-phenylprop-2-enoate is the major stereoisomer. The (Z)-isomer suffers from severe steric clash between the coplanar phenyl and carbethoxy groups, and the other options have invalid IUPAC locants."
+    },
+    {
+      "id": "ak_c01_037",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The Perkin reaction is a classical synthetic method for the preparation of $\\alpha,\\beta$-unsaturated aromatic carboxylic acids, exemplified by heating benzaldehyde with acetic anhydride in the presence of anhydrous sodium acetate at 180°C. Which of the following statements regarding the mechanism and characteristics of the Perkin reaction is/are TRUE?",
+      "options": [
+        "A) Sodium acetate acts as a base to abstract an $\\alpha$-proton from acetic anhydride, generating an anhydride-derived enolate carbanion.",
+        "B) Nucleophilic addition of the anhydride enolate to benzaldehyde forms a mixed anhydride $\\beta$-alkoxide, which undergoes intramolecular acyl transfer to form an acetoxy intermediate.",
+        "C) Dehydration of the intermediate occurs via an E1cB pathway, and subsequent aqueous hydrolysis selectively yields (E)-cinnamic acid as the major thermodynamic product.",
+        "D) Replacing benzaldehyde with trimethylacetaldehyde (pivalaldehyde) gives the corresponding $\\alpha,\\beta$-unsaturated carboxylic acid in comparable high yield under identical conditions."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: In the Perkin reaction, sodium acetate ($\\text{CH}_3\\text{COONa}$) serves as a weak Brønsted base. It selectively abstracts an $\\alpha$-hydrogen from acetic anhydride ($(\\text{CH}_3\\text{CO})_2\\text{O}$) rather than acting as a nucleophile, generating the resonance-stabilized anhydride enolate carbanion ($^-\\text{CH}_2-\\text{CO}-\\text{O}-\\text{COCH}_3$). Hence, statement A is correct.\n\nStep 2: This enolate carbanion nucleophilically attacks the electrophilic carbonyl carbon of benzaldehyde ($\\text{PhCHO}$) to construct the new carbon-carbon bond, forming a $\\beta$-aryl alkoxide. Intramolecular acyl transfer or acetylation by excess acetic anhydride converts this into a $\\beta$-acetoxy mixed anhydride intermediate ($\\text{PhCH(OAc)}-\\text{CH}_2-\\text{CO}-\\text{O}-\\text{COCH}_3$). Hence, statement B is correct.\n\nStep 3: Elimination of acetic acid from the $\\beta$-acetoxy intermediate proceeds readily via base-promoted E1cB elimination. The newly formed carbon-carbon double bond adopts the thermodynamically favored trans ((E)) configuration to minimize steric congestion between the phenyl ring and the carbonyl group. Subsequent aqueous hydrolysis of the mixed anhydride liberates (E)-cinnamic acid ($\\text{PhCH}=\\text{CH}-\\text{COOH}$) and acetic acid. Hence, statement C is correct.\n\nStep 4: The Perkin reaction is specifically successful for aromatic aldehydes. Aliphatic aldehydes, even those lacking $\\alpha$-hydrogens like pivalaldehyde ($(\\text{CH}_3)_3\\text{C}-\\text{CHO}$), give extremely poor yields or fail entirely under these vigorous conditions (180°C) due to competing aldol-type degradations, ester cleavages, and polymerization. Hence, statement D is incorrect.\n\nTherefore, statements A, B, and C are correct."
+    },
+    {
+      "id": "ak_c01_038",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "In a Knoevenagel condensation, benzaldehyde ($\\text{PhCHO}$) is reacted with diethyl malonate ($\\text{CH}_2(\\text{COOCH}_2\\text{CH}_3)_2$) in dry ethanol in the presence of piperidine and a catalytic amount of benzoic acid at reflux to afford an alkylidene diester $X$. Compound $X$ is subsequently hydrolyzed with aqueous potassium hydroxide ($\\text{KOH}$) and then heated strongly in dilute sulfuric acid at 180°C. What is the identity of the final organic product $Y$?",
+      "options": [
+        "A) 2-phenylethanoic acid",
+        "B) 3-phenylpropanoic acid",
+        "C) (2E)-3-phenylprop-2-enoic acid",
+        "D) 4-phenylbut-3-en-2-one"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Diethyl malonate contains an active methylene group flanked by two electron-withdrawing ester groups ($\\text{p}K_a \\approx 13$). In the presence of piperidine (a secondary amine base), deprotonation generates the stabilized resonance-delocalized carbanion, which attacks the carbonyl carbon of benzaldehyde.\n\nStep 2: Spontaneous dehydration of the aldol-like carbinol intermediate yields diethyl 2-benzylidenemalonate ($X$, $\\text{PhCH}=\\text{C}(\\text{COOEt})_2$), an $\\alpha,\\beta$-unsaturated diester.\n\nStep 3: Alkaline hydrolysis of $X$ with aqueous $\\text{KOH}$ saponifies both ethyl ester groups to potassium carboxylates, which upon acidification give 2-benzylidenemalonic acid ($\\text{PhCH}=\\text{C}(\\text{COOH})_2$).\n\nStep 4: 2-benzylidenemalonic acid is a gem-dicarboxylic acid ($\\beta$-dicarbonyl acid). Upon heating at 180°C in acidic medium, it undergoes thermal decarboxylation via a concerted cyclic six-membered transition state involving intramolecular hydrogen bonding:\n$$\\text{PhCH}=\\text{C}(\\text{COOH})_2 \\xrightarrow{\\Delta} \\text{PhCH}=\\text{CH}-\\text{COOH} + \\text{CO}_2\\uparrow$$\n\nStep 5: The resulting enol intermediate rapidly tautomerizes to the thermodynamically favored (2E)-3-phenylprop-2-enoic acid ($Y$, (E)-cinnamic acid), with the bulky phenyl group and carboxyl group oriented trans to each other.\n\nTherefore, (2E)-3-phenylprop-2-enoic acid is the final product. 2-phenylethanoic acid misses one carbon, 3-phenylpropanoic acid is the saturated analogue requiring catalytic hydrogenation, and 4-phenylbut-3-en-2-one is a ketone obtained from acetone."
+    },
+    {
+      "id": "ak_c01_039",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "An enantiomerically pure aldehyde, (2R)-2-phenylpropanal ($\\text{CH}_3-\\text{CH}(\\text{Ph})-\\text{CHO}$), is reacted with methylmagnesium bromide ($\\text{CH}_3\\text{MgBr}$) in anhydrous diethyl ether at $-78^\\circ\\text{C}$, followed by quenching with saturated aqueous ammonium chloride ($\\text{NH}_4\\text{Cl}$) to yield diastereomeric secondary alcohols of 3-phenylbutan-2-ol according to the Felkin-Anh model. What is the total number of asymmetric chiral carbon centers present in each resulting stereoisomer of 3-phenylbutan-2-ol?",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: The starting material is (2R)-2-phenylpropanal, which has the structure:\n$$\\text{CH}_3-\\text{CH}(\\text{Ph})-\\text{CHO}$$\nCarbon $\\text{C}-2$ is an asymmetric chiral carbon center bonded to four distinct substituents: $-\\text{H}$, $-\\text{CH}_3$, $-\\text{Ph}$, and $-\\text{CHO}$, configured in the (R) absolute stereochemistry.\n\nStep 2: Nucleophilic addition of the methyl group from $\\text{CH}_3\\text{MgBr}$ occurs at the prochiral formyl carbonyl carbon ($\\text{C}-1$). Diastereoselective addition occurs according to the Felkin-Anh transition-state model, converting the planar $sp^2$ carbonyl carbon into an $sp^3$ tetrahedral secondary alcohol center.\n\nStep 3: The resulting alcohol product is 3-phenylbutan-2-ol, whose skeletal structure is:\n$$\\text{CH}_3-\\text{CH}(\\text{Ph})-\\text{CH}(\\text{OH})-\\text{CH}_3$$\n\nStep 4: Now, analyze the asymmetric chiral carbon centers in 3-phenylbutan-2-ol:\n- Carbon $\\text{C}-3$: Bonded to four distinct groups: $-\\text{H}$, $-\\text{CH}_3$, $-\\text{Ph}$, and $-\\text{CH}(\\text{OH})\\text{CH}_3$. This is an asymmetric chiral carbon center.\n- Carbon $\\text{C}-2$: Bonded to four distinct groups: $-\\text{H}$, $-\\text{OH}$, $-\\text{CH}_3$, and $-\\text{CH}(\\text{Ph})\\text{CH}_3$. This is also an asymmetric chiral carbon center.\n- Neither the terminal methyl carbons ($\\text{C}-1$ and $\\text{C}-4$) nor any phenyl carbons possess four distinct substituents.\n\nStep 5: Thus, each resulting diastereomer contains exactly two asymmetric chiral centers ($\\text{C}-2$ and $\\text{C}-3$).\n\nTherefore, the total number of asymmetric chiral carbon centers is exactly 2."
+    },
+    {
+      "id": "ak_c01_040",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "4-methylpent-3-en-2-one (mesityl oxide, $(\\text{CH}_3)_2\\text{C}=\\text{CH}-\\text{COCH}_3$) is an $\\alpha,\\beta$-unsaturated ketone possessing two distinct electrophilic sites. It is subjected to two separate organometallic reactions:\nReaction 1: Mesityl oxide is treated with lithium dimethylcuprate ($(\\text{CH}_3)_2\\text{CuLi}$, Gilman reagent) in diethyl ether at $0^\\circ\\text{C}$, followed by mild aqueous acid workup.\nReaction 2: Mesityl oxide is treated with methyllithium ($\\text{CH}_3\\text{Li}$) in diethyl ether at $-78^\\circ\\text{C}$, followed by mild aqueous acid workup.\nWhat are the major organic products formed in Reaction 1 and Reaction 2, respectively?",
+      "options": [
+        "A) Reaction 1 yields 2,4-dimethylpent-3-en-2-ol; Reaction 2 yields 4,4-dimethylpentan-2-one",
+        "B) Reaction 1 yields 4,4-dimethylpentan-2-one; Reaction 2 yields 2,4-dimethylpent-3-en-2-ol",
+        "C) Both reactions yield 4,4-dimethylpentan-2-one as the thermodynamic product",
+        "D) Both reactions yield 2,4-dimethylpent-3-en-2-ol as the kinetic product"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: An $\\alpha,\\beta$-unsaturated ketone has two electrophilic centers: the carbonyl carbon ($\\text{C}-2$, hard electrophile with higher partial positive charge) and the $\\beta$-carbon ($\\text{C}-4$, soft electrophile with a larger LUMO coefficient).\n\nStep 2: In Reaction 1, lithium dimethylcuprate ($(\\text{CH}_3)_2\\text{CuLi}$) is a soft, low-polarity organocopper nucleophile. According to Klopman-Salem frontier molecular orbital theory and the Hard-Soft Acid-Base (HSAB) principle, soft nucleophiles preferentially attack the softer $\\beta$-carbon via 1,4-conjugate addition (Michael-type addition).\n\nStep 3: Transfer of a methyl group to the $\\beta$-carbon forms an enolate intermediate, $(\\text{CH}_3)_3\\text{C}-\\text{CH}=\\text{C}(\\text{O}^-)\\text{CH}_3$. Subsequent aqueous protonation gives the saturated ketone 4,4-dimethylpentan-2-one.\n\nStep 4: In Reaction 2, methyllithium ($\\text{CH}_3\\text{Li}$) is an extremely reactive, hard nucleophile with concentrated negative charge on carbon and significant ionic character. Hard nucleophiles are electrostatically directed to attack the harder carbonyl carbon directly via 1,2-addition.\n\nStep 5: Nucleophilic attack at the carbonyl carbon forms a lithium alkoxide intermediate, which upon aqueous protonation yields the tertiary allylic alcohol 2,4-dimethylpent-3-en-2-ol.\n\nTherefore, Reaction 1 gives 4,4-dimethylpentan-2-one and Reaction 2 gives 2,4-dimethylpent-3-en-2-ol. Reversing these modes of addition overlooks the fundamental difference between hard organolithium reagents and soft organocuprates."
+    },
+    {
+      "id": "ak_c01_041",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Carbonyl condensation and rearrangement reactions proceed through precisely orchestrated mechanistic steps. Which of the following statements regarding the reaction kinetics and mechanisms of carbonyl transformations is/are TRUE?",
+      "options": [
+        "A) In the Cannizzaro reaction of benzaldehyde, the rate-determining step is the direct intermolecular transfer of a hydride ion from the tetrahedral intermediate to a second molecule of aldehyde.",
+        "B) In the base-promoted haloform reaction of acetone, the overall rate of halogenation is first order in acetone and first order in hydroxide, but zero order with respect to the concentration of halogen.",
+        "C) In the benzil-benzilic acid rearrangement, nucleophilic attack of hydroxide on one of the carbonyl carbons is followed by an intramolecular 1,2-phenyl shift as the rate-determining step.",
+        "D) In the acid-catalyzed aldol condensation of acetone, the rate-determining step is the final dehydration of 4-hydroxy-4-methylpentan-2-one to form mesityl oxide."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: In the Cannizzaro reaction of benzaldehyde, hydroxide rapidly adds to benzaldehyde to establish an equilibrium with the hydrated tetrahedral monoanion or dianion. Detailed kinetic isotope studies ($k_{\\text{H}}/k_{\\text{D}} \\approx 2-3$) confirm that the rate-determining step is the intermolecular hydride ion ($\\text{H}^-$) transfer from this tetrahedral intermediate to the second aldehyde molecule. Hence, statement A is correct.\n\nStep 2: In the base-promoted haloform reaction of acetone ($\\text{CH}_3\\text{COCH}_3$), the rate-limiting step is the base-catalyzed abstraction of an $\\alpha$-hydrogen by $\\text{OH}^-$ to form the enolate ion ($\\text{Rate} = k[\\text{ketone}][\\text{OH}^-]$). Subsequent halogenation of the enolate is extremely rapid. Consequently, the rates of chlorination, bromination, and iodination are identical and completely independent of the concentration and nature of the halogen ($\\text{Cl}_2$, $\\text{Br}_2$, or $\\text{I}_2$). Hence, statement B is correct.\n\nStep 3: In the benzil-benzilic acid rearrangement ($\\text{PhCOCOPh} + \\text{OH}^- \\to \\text{Ph}_2\\text{C(OH)COO}^-$), hydroxide rapidly attacks one of the carbonyl carbons. The subsequent rate-determining step is the intramolecular 1,2-migration of a phenyl group with its bonding electron pair to the adjacent carbonyl carbon, yielding the potassium benzilate salt. Hence, statement C is correct.\n\nStep 4: In the acid-catalyzed aldol reaction, the rate-determining step is either the slow acid-catalyzed enolization of the ketone or the carbon-carbon bond-forming attack of the enol on the protonated carbonyl. Under strongly acidic conditions, dehydration of the $\\beta$-hydroxy ketone is very fast because the hydroxyl group is easily protonated into an excellent leaving group ($-\\text{OH}_2^+$). Hence, statement D is incorrect.\n\nTherefore, statements A, B, and C are correct."
+    },
+    {
+      "id": "ak_c01_042",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "When enantiopure (2S)-2-chloropropanal is treated with ethylmagnesium bromide ($\\text{CH}_3\\text{CH}_2\\text{MgBr}$) in dry diethyl ether at $-78^\\circ\\text{C}$ followed by aqueous ammonium chloride workup, nucleophilic addition proceeds with high diastereoselectivity. According to the Felkin-Anh open-chain transition state model, which of the following conformations and trajectories correctly predicts the major diastereomer?",
+      "options": [
+        "A) The carbonyl oxygen and chlorine atom chelate simultaneously to magnesium to form a rigid cyclic five-membered intermediate prior to attack",
+        "B) The nucleophile attacks along the trajectory anti-periplanar to the small hydrogen atom because chlorine attracts the incoming Grignard reagent",
+        "C) The carbonyl bond eclipses the largest substituent, and the ethyl group attacks perpendicular to the carbon-chlorine bond",
+        "D) The large electronegative chlorine substituent adopts a perpendicular orientation to the carbonyl group, and the ethyl group attacks the carbonyl carbon past the small hydrogen atom"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The Felkin-Anh transition-state model predicts the diastereoselective nucleophilic addition to chiral carbonyl compounds lacking chelation. In (2S)-2-chloropropanal ($\\text{CH}_3-\\text{CH(Cl)}-\\text{CHO}$), the three substituents on the $\\alpha$-chiral center are classified by steric and electronic (polar) size:\n- Large ($L$): $-\\text{Cl}$ (due to its high electronegativity and low-lying $\\sigma^*(\\text{C}-\\text{Cl})$ LUMO which overlaps favorably with the developing $\\pi$-bond)\n- Medium ($M$): $-\\text{CH}_3$\n- Small ($S$): $-\\text{H}$\n\nStep 2: In the Felkin-Anh reactive conformation, the large group ($L = -\\text{Cl}$) is oriented perpendicular ($90^\\circ-100^\\circ$) to the carbonyl double bond ($\\text{C}=\\text{O}$) to minimize unfavorable torsional interactions and maximize stabilization from electron transfer into the $\\sigma^*(\\text{C}-\\text{Cl})$ orbital.\n\nStep 3: The incoming nucleophile (ethyl group from $\\text{CH}_3\\text{CH}_2\\text{MgBr}$) attacks the carbonyl carbon at the Bürgi-Dunitz trajectory angle ($\\approx 107^\\circ$) from the face opposite the large chlorine atom.\n\nStep 4: Between the remaining two trajectories, attack past the small hydrogen atom ($S = -\\text{H}$) experiences significantly less steric hindrance than attack past the bulkier medium methyl group ($M = -\\text{CH}_3$).\n\nStep 5: This favored trajectory leads directly to the predominant diastereomer, (2S,3R)-3-chloropentan-2-ol. Chelation control does not operate here because monodentate ether solvent prevents bidentate coordination, and halogen-chelation to magnesium is extremely weak compared to oxygen or nitrogen chelation.\n\nTherefore, option D correctly describes the Felkin-Anh transition state."
+    },
+    {
+      "id": "ak_c01_043",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The Beckmann rearrangement is an acid-catalyzed isomerization of ketoximes into substituted amides. Which of the following statements regarding the mechanism, stereospecificity, and applications of the Beckmann rearrangement is/are TRUE?",
+      "options": [
+        "A) The rearrangement is strictly stereospecific, involving the anti-migration of the group oriented trans (anti) to the departing oxime hydroxyl ($-\\text{OH}$) group.",
+        "B) The migrating group shifts with complete retention of stereochemical configuration at the migrating carbon center.",
+        "C) When (E)-acetophenone oxime (in which the phenyl group is anti to the hydroxyl group) is treated with concentrated $\\text{H}_2\\text{SO}_4$, N-phenylacetamide (acetanilide) is formed as the sole rearrangement product.",
+        "D) Treatment of cyclohexanone oxime with concentrated sulfuric acid induces ring expansion to yield $\\varepsilon$-caprolactam, the industrial monomer for Nylon-6."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: The Beckmann rearrangement is catalyzed by strong Brønsted or Lewis acids ($\\text{H}_2\\text{SO}_4$, $\\text{PCl}_5$, $\\text{SOCl}_2$). Protonation or acylation converts the oxime $-\\text{OH}$ into an excellent leaving group ($-\\text{OH}_2^+$ or $-\\text{OPCl}_4$).\n\nStep 2: Migration of the hydrocarbyl group to nitrogen occurs concertedly with the departure of the leaving group from the back side (anti-periplanar geometry). Only the substituent situated anti (trans) to the leaving group can migrate into the developing $\\sigma^*(\\text{N}-\\text{O})$ orbital. Thus, the rearrangement is strictly stereospecific. Hence, statement A is correct.\n\nStep 3: Because the 1,2-shift is concerted and proceeds via an intramolecular frontside migration onto nitrogen without forming a free planar carbocation, chiral migrating centers migrate with complete $100\\%$ retention of configuration. Hence, statement B is correct.\n\nStep 4: In (E)-acetophenone oxime, the phenyl ring is oriented anti to the $-\\text{OH}$ group, while the methyl group is syn. Selective anti-migration of the phenyl group onto the nitrogen atom produces the nitrilium intermediate $\\text{CH}_3-\\text{C}\\equiv\\text{N}^+-\\text{Ph}$, which on hydration and tautomerization gives N-phenylacetamide ($\\text{CH}_3\\text{CONHPh}$, acetanilide). Hence, statement C is correct.\n\nStep 5: For cyclic ketoximes like cyclohexanone oxime, anti-migration of the ring carbon concertedly breaks a carbon-carbon bond of the six-membered ring and forms a seven-membered cyclic amide (lactam). This reaction industrially produces $\\varepsilon$-caprolactam, which is polymerized to make Nylon-6. Hence, statement D is correct.\n\nTherefore, all statements A, B, C, and D are correct."
+    },
+    {
+      "id": "ak_c01_044",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In a Reformatsky condensation, 2-methylpropanal ($(\\text{CH}_3)_2\\text{CHCHO}$) is reacted with ethyl 2-bromobutanoate ($\\text{CH}_3\\text{CH}_2\\text{CH(Br)COOCH}_2\\text{CH}_3$) in the presence of activated zinc in anhydrous tetrahydrofuran (THF), followed by mild hydrolysis with dilute aqueous ammonium chloride ($\\text{NH}_4\\text{Cl}$) to yield the $\\beta$-hydroxy ester $P$. How many asymmetric chiral carbon centers are present in one molecule of compound $P$?",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: Ethyl 2-bromobutanoate has the structure $\\text{CH}_3-\\text{CH}_2-\\text{CH}(\\text{Br})-\\text{COOEt}$. Zinc metal inserts into the carbon-bromine bond to form the Reformatsky zinc enolate:\n$$\\text{CH}_3\\text{CH}_2\\text{CH}(\\text{ZnBr})\\text{COOEt} \\longleftrightarrow \\text{CH}_3\\text{CH}_2\\text{CH}=\\text{C}(\\text{OZnBr})\\text{OEt}$$\n\nStep 2: Nucleophilic addition of this enolate to the carbonyl carbon of 2-methylpropanal ($(\\text{CH}_3)_2\\text{CH}-\\text{CHO}$) followed by protonation delivers the $\\beta$-hydroxy ester $P$:\n$$(\\text{CH}_3)_2\\text{CH}-\\text{CH}(\\text{OH})-\\text{CH}(\\text{CH}_2\\text{CH}_3)-\\text{COOCH}_2\\text{CH}_3$$\n\nStep 3: Analyze each carbon atom in the molecule for stereogenic asymmetry:\n- Carbon $\\text{C}-3$ of the ester chain (bearing the $-\\text{OH}$ group): Attached to $-\\text{H}$, $-\\text{OH}$, $-\\text{CH}(\\text{CH}_3)_2$ (isopropyl), and $-\\text{CH}(\\text{CH}_2\\text{CH}_3)\\text{COOEt}$. All four attached groups are constitutionally distinct $\\implies$ Asymmetric chiral carbon center 1.\n- Carbon $\\text{C}-2$ of the ester chain (the $\\alpha$-carbon): Attached to $-\\text{H}$, $-\\text{CH}_2\\text{CH}_3$ (ethyl), $-\\text{COOEt}$, and $-\\text{CH}(\\text{OH})\\text{CH}(\\text{CH}_3)_2$. All four attached groups are constitutionally distinct $\\implies$ Asymmetric chiral carbon center 2.\n- The isopropyl methine carbon: Attached to $-\\text{H}$, $-\\text{CH}(\\text{OH})\\dots$, and two identical methyl groups ($-\\text{CH}_3$). Because two ligands are identical, it is achiral.\n- The ethyl methylene carbon and ethoxy methylene carbon are each bonded to two hydrogens and are achiral.\n\nStep 4: Therefore, exactly 2 asymmetric chiral carbon centers exist in compound $P$.\n\nThus, the integer answer is exactly 2."
+    },
+    {
+      "id": "ak_c01_045",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "When acetophenone ($\\text{PhCOCH}_3$) is treated with ethyl chloroacetate ($\\text{ClCH}_2\\text{COOCH}_2\\text{CH}_3$) in the presence of sodium ethoxide ($\\text{NaOCH}_2\\text{CH}_3$) in ethanol at 0°C, a condensation reaction known as the Darzens reaction takes place. What is the structural classification of the primary organic product obtained from this reaction?",
+      "options": [
+        "A) $\\beta$-chloro-$\\alpha$-hydroxy ester",
+        "B) $\\alpha,\\beta$-unsaturated ester",
+        "C) $\\beta$-keto ester",
+        "D) $\\alpha,\\beta$-epoxy ester (glycidic ester)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The Darzens reaction involves the base-promoted condensation of an $\\alpha$-halo ester with an aldehyde or ketone to synthesize an $\\alpha,\\beta$-epoxy ester (commonly called a glycidic ester).\n\nStep 2: Sodium ethoxide abstracts an $\\alpha$-hydrogen from ethyl chloroacetate ($\\text{ClCH}_2\\text{COOEt}$) to form the resonance-stabilized carbanion $\\text{Cl}-\\bar{\\text{C}}\\text{H}-\\text{COOEt}$.\n\nStep 3: This chloromethyl carbanion nucleophilically attacks the carbonyl carbon of acetophenone ($\\text{PhCOCH}_3$) to produce a tetrahedral chlorohydrin alkoxide intermediate:\n$$\\text{Ph}-\\text{C}(\\text{CH}_3)(\\text{O}^-)-\\text{CH}(\\text{Cl})-\\text{COOEt}$$\n\nStep 4: The alkoxide oxygen atom then undergoes an intramolecular nucleophilic substitution ($S_N2$-like displacement) attacking the adjacent carbon bearing the chloride leaving group from the backside, displacing the chloride ion ($\\text{Cl}^-$) and closing a three-membered oxirane ring.\n\nStep 5: The resulting product is ethyl 3-methyl-3-phenyloxirane-2-carboxylate, which belongs to the class of $\\alpha,\\beta$-epoxy esters (glycidic esters, $D$). Upon alkaline hydrolysis and acid-catalyzed decarboxylation, glycidic esters rearrange into higher aldehydes or ketones.\n\nTherefore, the primary organic product is an $\\alpha,\\beta$-epoxy ester. A $\\beta$-chloro-$\\alpha$-hydroxy ester is the open tetrahedral intermediate prior to ring closure, an $\\alpha,\\beta$-unsaturated ester is the product of Reformatsky dehydration, and a $\\beta$-keto ester arises from Claisen ester condensation."
+    },
+    {
+      "id": "ak_c01_046",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The nucleophilic addition of nitrogen derivatives ($\\text{H}_2\\text{N}-\\text{G}$) to aldehydes and ketones represents a fundamental class of reversible transformations. Which of the following statements regarding the mechanisms and pH dependence of these reactions is/are TRUE?",
+      "options": [
+        "A) The reaction of an aldehyde or ketone with a primary aliphatic amine at $\\text{pH} \\approx 4.5$ proceeds via an initial neutral carbinolamine intermediate to yield an imine (Schiff base).",
+        "B) The reaction of cyclohexanone with a secondary amine such as pyrrolidine in the presence of catalytic acid yields an enamine containing a $\\text{C}=\\text{C}-\\text{N}$ conjugated system.",
+        "C) At highly acidic conditions ($\\text{pH} < 2$), the rate of imine formation decreases sharply because the amine nucleophile is almost completely protonated into an unreactive ammonium salt.",
+        "D) At basic conditions ($\\text{pH} > 8$), the rate of imine formation drops significantly because the proton concentration is insufficient to catalyze the dehydration of the carbinolamine intermediate."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Nucleophilic addition of primary amines ($\\text{R}-\\text{NH}_2$) to aldehydes and ketones begins with unshared electron pair attack on the carbonyl carbon to form a dipolar zwitterionic intermediate, which undergoes proton transfer to give a neutral carbinolamine ($\\text{R}_2\\text{C(OH)}-\\text{NHR}'$). Acid-catalyzed loss of water yields the imine ($\\text{R}_2\\text{C}=\\text{NR}'$, Schiff base). Hence, statement A is correct.\n\nStep 2: With secondary amines ($\\text{R}_2'\\text{NH}$), the carbinolamine intermediate ($\\text{R}_2\\text{C(OH)}-\\text{NR}_2'$) lacks a proton on the nitrogen atom. Consequently, elimination of water cannot form a neutral $\\text{C}=\\text{N}$ bond and instead proceeds via loss of a proton from the adjacent $\\alpha$-carbon, forming an enamine ($\\text{C}=\\text{C}-\\text{NR}_2'$). Hence, statement B is correct.\n\nStep 3: The rate of imine formation shows a classic bell-shaped pH profile with a rate maximum around $\\text{pH} \\approx 4.5$. In strongly acidic media ($\\text{pH} < 2$), the free amine ($\\text{R}-\\text{NH}_2$) is converted almost entirely into its conjugate acid, the ammonium cation ($\\text{R}-\\text{NH}_3^+$). Because the ammonium cation lacks a lone pair, it is completely non-nucleophilic, and the rate-determining initial addition step becomes prohibitively slow. Hence, statement C is correct.\n\nStep 4: In basic or neutral media ($\\text{pH} > 8$), although free unprotonated amine is abundant, the elimination step requires acid catalysis to convert the poor leaving group $-\\text{OH}$ into the good leaving group $-\\text{OH}_2^+$. In the absence of sufficient hydronium ions, the dehydration of the carbinolamine becomes rate-limiting and extremely slow. Hence, statement D is correct.\n\nTherefore, all statements A, B, C, and D are correct."
+    },
+    {
+      "id": "ak_c01_047",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "When (2R)-2-methoxy-1-phenylpropan-1-one is reacted with methylmagnesium iodide ($\\text{CH}_3\\text{MgI}$) in anhydrous diethyl ether at $-20^\\circ\\text{C}$, the reaction proceeds with high diastereoselectivity governed by Cram's chelation-control model. Which of the following statements correctly describes the conformational organization and stereochemical pathway of this reaction?",
+      "options": [
+        "A) Nucleophilic addition occurs via a planar carbocation intermediate without any participation of the magnesium counterion",
+        "B) The magnesium ion coordinates solely to the phenyl ring $\\pi$-cloud forming an inverted sandwich complex",
+        "C) Magnesium coordinates simultaneously to the carbonyl oxygen and the $\\alpha$-methoxy oxygen to form a rigid five-membered cyclic chelate, directing attack to the less hindered face",
+        "D) The $\\alpha$-methoxy group undergoes rapid $\\beta$-elimination before organometallic addition can take place"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The substrate (2R)-2-methoxy-1-phenylpropan-1-one ($\\text{Ph}-\\text{CO}-\\text{CH}(\\text{OCH}_3)\\text{CH}_3$) possesses two Lewis basic oxygen donor atoms separated by two carbon atoms: the carbonyl oxygen and the $\\alpha$-methoxy oxygen atom.\n\nStep 2: In the presence of a Lewis acidic, divalent metal halide such as $\\text{Mg}^{2+}$ from $\\text{CH}_3\\text{MgI}$, both oxygen atoms coordinate simultaneously to the metal center.\n\nStep 3: This bidentate coordination locks the substrate into a rigid, planar five-membered cyclic chelate ring. In this locked chelate conformation, rotation around the $\\text{C}_\\alpha-\\text{C}_{\\text{carbonyl}}$ bond is completely frozen.\n\nStep 4: Looking at the two diastereotopic faces of the chelated carbonyl group, one face is sterically shielded by the methyl group attached to the chiral center, while the opposite face exposes only the small hydrogen atom.\n\nStep 5: The nucleophilic methyl group from a second equivalent of Grignard reagent attacks the carbonyl carbon selectively from the less hindered face (past the hydrogen atom), providing high diastereomeric excess according to Cram's chelate rule.\n\nTherefore, option C provides the exact mechanistic description. Carbocation intermediates do not form with Grignard reagents, $\\pi$-sandwich complexes are irrelevant to organomagnesium additions, and methoxy elimination does not occur."
+    },
+    {
+      "id": "ak_c01_048",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "The Robinson annulation and conjugate Michael additions are premier synthetic methods for constructing polycyclic ring systems. Which of the following statements regarding these reaction cascades is/are TRUE?",
+      "options": [
+        "A) The Robinson annulation cascade begins with a base-promoted conjugate Michael addition of a ketone enolate to an $\\alpha,\\beta$-unsaturated ketone, followed by an intramolecular aldol condensation.",
+        "B) In the conjugate addition of diethyl malonate to cyclohex-2-en-1-one in the presence of sodium ethoxide, the resonance-stabilized malonate carbanion attacks selectively at $\\text{C}-3$ (the $\\beta$-carbon) rather than $\\text{C}-1$.",
+        "C) The final dehydration step in the Robinson annulation forms a six-membered cyclohex-2-en-1-one ring due to the thermodynamic stability of the conjugated enone system.",
+        "D) Conjugate addition of potassium cyanide ($\\text{KCN}/\\text{NH}_4\\text{Cl}$) to conjugated enones is completely irreversible and occurs without forming any tetrahedral 1,2-addition side products."
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: The Robinson annulation is an established two-stage cascade: (i) Michael addition: A ketone containing active $\\alpha$-hydrogens (such as cyclohexanone) is deprotonated by base and attacks an $\\alpha,\\beta$-unsaturated ketone (such as methyl vinyl ketone, but-3-en-2-one) via 1,4-conjugate addition to form a 1,5-diketone intermediate; (ii) Intramolecular aldol condensation: The resulting 1,5-diketone undergoes base-promoted intramolecular aldol addition and dehydration. Hence, statement A is correct.\n\nStep 2: In the addition of diethyl malonate to cyclohex-2-en-1-one, the resonance-stabilized malonate carbanion is a soft nucleophile. Under thermodynamic control, soft nucleophiles attack the soft $\\beta$-carbon ($\\text{C}-3$) of the $\\alpha,\\beta$-unsaturated enone, generating an enolate that on protonation yields 3-(diethoxycarbonylmethyl)cyclohexan-1-one. Hence, statement B is correct.\n\nStep 3: In the Robinson annulation, the intermediate 1,5-diketone can theoretically form several ring sizes, but base-catalyzed intramolecular aldol cyclization selectively constructs a six-membered ring. Subsequent dehydration generates a conjugated cyclohex-2-en-1-one ring system, whose thermodynamic stability and extended conjugation drive the cascade to completion. Hence, statement C is correct.\n\nStep 4: In the hydrocyanation of $\\alpha,\\beta$-unsaturated carbonyl compounds (Nagata reaction / $\\text{HCN}$ addition), cyanohydrin formation via 1,2-addition at the carbonyl carbon is often a rapid, reversible kinetic side reaction. Under thermodynamic equilibration, reversible 1,2-adducts decompose and funnel into the more stable 1,4-conjugate addition product. Thus, calling 1,2-addition absent or the process completely irreversible under all conditions is chemically false. Hence, statement D is incorrect.\n\nTherefore, statements A, B, and C are correct."
+    },
+    {
+      "id": "ak_c01_049",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "In a Perkin condensation, benzaldehyde ($\\text{PhCHO}$) is heated with propanoic anhydride ($(\\text{CH}_3\\text{CH}_2\\text{CO})_2\\text{O}$) in the presence of anhydrous sodium propanoate ($\\text{CH}_3\\text{CH}_2\\text{COONa}$) at 180°C, followed by acidic aqueous hydrolysis to produce an $\\alpha$-methyl-substituted cinnamic acid derivative $M$. What is the total number of $\\pi$-bonds present in one molecule of compound $M$?",
+      "options": [],
+      "answer": "5",
+      "explanation": "Step 1: In the Perkin reaction between benzaldehyde ($\\text{PhCHO}$) and propanoic anhydride ($(\\text{CH}_3\\text{CH}_2\\text{CO})_2\\text{O}$) catalyzed by sodium propanoate, the base selectively abstracts an $\\alpha$-proton from the methylene carbon ($-\\text{CH}_2-$) of propanoic anhydride.\n\nStep 2: The generated anhydride enolate carbanion ($\\text{CH}_3-\\text{CH}^--\\text{CO}-\\text{O}-\\text{COCH}_2\\text{CH}_3$) nucleophilically attacks the carbonyl carbon of benzaldehyde.\n\nStep 3: Subsequent intramolecular acyl transfer, dehydration (elimination of propanoic acid), and aqueous hydrolysis of the mixed anhydride yield (2E)-2-methyl-3-phenylprop-2-enoic acid ($M$, also known as $\\alpha$-methylcinnamic acid):\n$$\\text{Ph}-\\text{CH}=\\text{C}(\\text{CH}_3)-\\text{COOH}$$\n\nStep 4: Now, systematically count the total number of $\\pi$-bonds in one molecule of (2E)-2-methyl-3-phenylprop-2-enoic acid ($M$):\n- The phenyl ring ($\\text{C}_6\\text{H}_5-$) contains an aromatic sextet with exactly 3 $\\pi$-bonds.\n- The acyclic carbon-carbon alkene double bond ($-\\text{CH}=\\text{C}-$) contains exactly 1 $\\pi$-bond.\n- The carboxylic acid carbonyl group ($-\\text{C}(=\\text{O})\\text{OH}$) contains exactly 1 $\\pi$-bond.\n- The methyl group, single $\\text{C}-\\text{C}$ bonds, and $\\text{C}-\\text{O}$ single bonds contain only $\\sigma$-bonds.\n\nStep 5: Total number of $\\pi$-bonds:\n$$\\text{Total } \\pi\\text{-bonds} = 3 + 1 + 1 = 5$$\n\nTherefore, the total number of $\\pi$-bonds is exactly 5."
+    },
+    {
+      "id": "ak_c01_050",
+      "subject": "Chemistry",
+      "topic": "Aldehydes and Ketones",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Aldehydes and ketones exhibit rich and multifaceted oxidation and oxidative-cleavage behaviors. Which of the following statements regarding oxidation and cleavage reactions of carbonyl compounds is/are TRUE?",
+      "options": [
+        "A) Benzaldehyde reduces ammoniacal silver nitrate (Tollens' reagent) to form a metallic silver mirror, but fails to reduce alkaline cupric tartrate (Fehling's solution) under standard conditions.",
+        "B) Selenium dioxide ($\\text{SeO}_2$) oxidizes acetophenone selectively at the methyl group to form phenylglyoxal ($\\text{PhCOCHO}$), preserving the aromatic ring.",
+        "C) Severe oxidative cleavage of unsymmetrical ketones with hot alkaline $\\text{KMnO}_4$ occurs via enolization followed by cleavage of the enolic double bond according to Popoff's rule.",
+        "D) Baeyer-Villiger oxidation of cyclobutanone with peroxy acids proceeds smoothly with ring expansion to produce $\\gamma$-butyrolactone, driven by relief of four-membered ring strain."
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Benzaldehyde is an aromatic aldehyde. While it is easily oxidized by Tollens' reagent ($\\text{[Ag(NH}_3)_2]^+$) because silver ion is a sufficiently strong oxidizing agent ($E^\\circ \\approx +0.80\\text{ V}$), it does not reduce Fehling's or Benedict's solutions because cupric ion complexed with tartrate is a weaker oxidizing agent that cannot oxidize aromatic aldehydes under standard conditions. Hence, statement A is correct.\n\nStep 2: Selenium dioxide ($\\text{SeO}_2$) is a specialized reagent that specifically oxidizes active $\\alpha$-methyl or $\\alpha$-methylene groups adjacent to carbonyl or alkene functions. Treatment of acetophenone ($\\text{PhCOCH}_3$) with $\\text{SeO}_2$ converts the methyl group into an aldehyde group, quantitatively yielding phenylglyoxal ($\\text{PhCOCHO}$) without affecting the aromatic ring. Hence, statement B is correct.\n\nStep 3: Vigorous oxidation of ketones using hot alkaline $\\text{KMnO}_4$ or concentrated $\\text{HNO}_3$ requires tautomerization to the enol form. The resulting enolic $\\text{C}=\\text{C}$ double bond is then oxidatively cleaved. According to Popoff's empirical rule, in the cleavage of unsymmetrical aliphatic ketones, the carbonyl group remains preferentially attached to the smaller alkyl group. Hence, statement C is correct.\n\nStep 4: Cyclobutanone undergoes Baeyer-Villiger oxidation exceptionally rapidly with peroxy acids (such as mCPBA or trifluoroperacetic acid). Insertion of oxygen into the four-membered cyclic ketone expands the ring to form the five-membered cyclic ester $\\gamma$-butyrolactone. This transformation is heavily driven by the relief of high ring strain ($\\approx 110\\text{ kJ/mol}$) present in the four-membered cyclobutanone ring. Hence, statement D is correct.\n\nTherefore, all statements A, B, C, and D are correct."
+    }
+  ]
+}

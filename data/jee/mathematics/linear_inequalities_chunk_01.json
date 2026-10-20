@@ -1,0 +1,804 @@
+{
+  "questions": [
+    {
+      "id": "li_c01_001",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the number of integer values of $x$ satisfying the simultaneous linear inequalities $\\frac{3x - 4}{2} \\ge \\frac{x + 1}{4} - 1$ and $\\frac{2x - 5}{3} < \\frac{3x - 1}{5} + \\frac{2}{3}$.",
+      "options": [
+        "A) $31$",
+        "B) $30$",
+        "C) $32$",
+        "D) $29$"
+      ],
+      "answer": "A",
+      "explanation": "For the first inequality, multiplying through by $4$ clears fractions: $2(3x - 4) \\ge (x + 1) - 4 \\implies 6x - 8 \\ge x - 3$. Rearranging like terms yields $5x \\ge 5$, which implies $x \\ge 1$. For the second inequality, multiplying through by the common denominator $15$ gives $5(2x - 5) < 3(3x - 1) + 10 \\implies 10x - 25 < 9x - 3 + 10$. Simplifying the right side gives $10x - 25 < 9x + 7$, whence subtracting $9x$ and adding $25$ gives $x < 32$. Taking the intersection of both solution sets yields the half-open interval $[1, 32)$. Therefore, the integral solutions are $x \\in \\{1, 2, 3, \\dots, 31\\}$, giving exactly $31$ integers. Miscounting by treating the upper bound as inclusive gives $32$, while omitting the boundary point $x = 1$ leads to $30$."
+    },
+    {
+      "id": "li_c01_002",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the set of all real numbers $x$ satisfying the system of absolute value inequalities $|2x - 5| \\le 9$ and $|3x + 1| \\ge 4$.",
+      "options": [
+        "A) $[-2, 7]$",
+        "B) $\\left[-2, -\\frac{5}{3}\\right] \\cup [1, 7]$",
+        "C) $\\left(-\\infty, -\\frac{5}{3}\\right] \\cup [1, \\infty)$",
+        "D) $\\left[-2, -\\frac{4}{3}\\right] \\cup [1, 7]$"
+      ],
+      "answer": "B",
+      "explanation": "Solving the first inequality: $|2x - 5| \\le 9$ is equivalent to the double inequality $-9 \\le 2x - 5 \\le 9$. Adding $5$ throughout yields $-4 \\le 2x \\le 14$, and dividing by $2$ gives $-2 \\le x \\le 7$, so $x \\in [-2, 7]$. Solving the second inequality: $|3x + 1| \\ge 4$ splits into two disjoint rays: $3x + 1 \\ge 4$ or $3x + 1 \\le -4$. Thus $3x \\ge 3 \\implies x \\ge 1$, or $3x \\le -5 \\implies x \\le -\\frac{5}{3}$. Hence, the second condition is $x \\in \\left(-\\infty, -\\frac{5}{3}\\right] \\cup [1, \\infty)$. Intersecting this with $[-2, 7]$ yields $\\left[-2, -\\frac{5}{3}\\right] \\cup [1, 7]$. Forgetting to restrict the solution to the bounded interval of the first inequality yields unbounded rays, while arithmetic errors in the constant term yield $-\\frac{4}{3}$."
+    },
+    {
+      "id": "li_c01_003",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the sum of all integer values of $x$ satisfying the double rational inequality $1 \\le \\frac{x + 5}{2x - 1} \\le 3$.",
+      "options": [
+        "A) $14$",
+        "B) $18$",
+        "C) $20$",
+        "D) $21$"
+      ],
+      "answer": "C",
+      "explanation": "We analyze the two inequalities simultaneously with domain condition $2x - 1 \\ne 0 \\implies x \\ne \\frac{1}{2}$. First, $\\frac{x + 5}{2x - 1} \\ge 1 \\implies \\frac{x + 5 - (2x - 1)}{2x - 1} \\ge 0 \\implies \\frac{-x + 6}{2x - 1} \\ge 0 \\implies \\frac{x - 6}{2x - 1} \\le 0$. Testing intervals gives $x \\in \\left(\\frac{1}{2}, 6\\right]$. Second, $\\frac{x + 5}{2x - 1} \\le 3 \\implies \\frac{x + 5 - 3(2x - 1)}{2x - 1} \\le 0 \\implies \\frac{-5x + 8}{2x - 1} \\le 0 \\implies \\frac{5x - 8}{2x - 1} \\ge 0$. This yields $x \\in \\left(-\\infty, \\frac{1}{2}\\right) \\cup \\left[\\frac{8}{5}, \\infty\\right)$. Taking the intersection of both sets: since $\\frac{8}{5} = 1.6 > 0.5$, the common solution interval is $\\left[\\frac{8}{5}, 6\\right]$. The integer solutions in this range are $x \\in \\{2, 3, 4, 5, 6\\}$. Their sum is $2 + 3 + 4 + 5 + 6 = 20$. Inadvertently including $x = 1$ leads to $21$, whereas failing to include the right endpoint $x = 6$ yields $14$."
+    },
+    {
+      "id": "li_c01_004",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the complete set of all real numbers $x$ that satisfy the linear absolute value inequality $|3x - 4| > 2x + 1$.",
+      "options": [
+        "A) $(5, \\infty)$",
+        "B) $\\left(-\\frac{1}{2}, \\frac{3}{5}\\right) \\cup (5, \\infty)$",
+        "C) $\\left(-\\infty, \\frac{3}{5}\\right)$",
+        "D) $\\left(-\\infty, \\frac{3}{5}\\right) \\cup (5, \\infty)$"
+      ],
+      "answer": "D",
+      "explanation": "We consider two cases based on the definition of absolute value. Case 1: $2x + 1 < 0 \\implies x < -\\frac{1}{2}$. The absolute value $|3x - 4|$ is non-negative for all real $x$, so it is strictly greater than the negative quantity $2x + 1$ whenever $x \\ne \\frac{4}{3}$, which is trivially true for $x < -\\frac{1}{2}$. Hence $\\left(-\\infty, -\\frac{1}{2}\\right)$ is part of the solution. Case 2: $2x + 1 \\ge 0 \\implies x \\ge -\\frac{1}{2}$. Here, $|3x - 4| > 2x + 1$ is equivalent to $3x - 4 > 2x + 1$ or $3x - 4 < -(2x + 1)$. Solving the first branch gives $x > 5$. Solving the second branch gives $3x - 4 < -2x - 1 \\implies 5x < 3 \\implies x < \\frac{3}{5}$. Restricted to $x \\ge -\\frac{1}{2}$, this yields $\\left[-\\frac{1}{2}, \\frac{3}{5}\\right) \\cup (5, \\infty)$. Taking the union of both cases gives $\\left(-\\infty, \\frac{3}{5}\\right) \\cup (5, \\infty)$. Squaring both sides blindly without accounting for the negativity of $2x + 1$ improperly excludes the ray $\\left(-\\infty, -\\frac{1}{2}\\right)$."
+    },
+    {
+      "id": "li_c01_005",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the total number of integer values of $x$ satisfying both the absolute value inequality $|x - 3| \\le 5$ and the rational inequality $\\frac{x + 2}{x - 4} \\le 0$.",
+      "options": [],
+      "answer": "6",
+      "explanation": "First, solving $|x - 3| \\le 5$: this translates to $-5 \\le x - 3 \\le 5$, and adding $3$ to each part yields $-2 \\le x \\le 8$, which is the interval $[-2, 8]$. Next, for the rational inequality $\\frac{x + 2}{x - 4} \\le 0$, the expression has critical points at $x = -2$ (where the numerator vanishes) and $x = 4$ (where the denominator vanishes). Testing signs reveals that the quotient is negative or zero on the interval $[-2, 4)$, excluding $x = 4$ because division by zero is undefined. Finding the intersection of the two solution sets gives $[-2, 8] \\cap [-2, 4) = [-2, 4)$. The integers in this interval are $\\{-2, -1, 0, 1, 2, 3\\}$. Counting these elements gives exactly $6$ integer solutions."
+    },
+    {
+      "id": "li_c01_006",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Solve the following system of linear inequalities for all real values of $x$: $\\frac{5x}{4} + \\frac{3x}{8} > \\frac{39}{8}$ and $\\frac{2x - 1}{12} - \\frac{x - 1}{3} < \\frac{3x + 1}{4}$.",
+      "options": [
+        "A) $(3, \\infty)$",
+        "B) $(0, \\infty)$",
+        "C) $(0, 3)$",
+        "D) $(-\\infty, 0) \\cup (3, \\infty)$"
+      ],
+      "answer": "A",
+      "explanation": "For the first inequality, combining terms with common denominator $8$ yields $\\frac{10x + 3x}{8} > \\frac{39}{8} \\implies 13x > 39 \\implies x > 3$. For the second inequality, multiplying through by the least common multiple $12$ gives $(2x - 1) - 4(x - 1) < 3(3x + 1)$. Expanding both sides: $2x - 1 - 4x + 4 < 9x + 3 \\implies -2x + 3 < 9x + 3$. Subtracting $3$ from both sides gives $-2x < 9x$, which simplifies to $-11x < 0$. Dividing by the negative number $-11$ reverses the inequality sign, yielding $x > 0$. Taking the intersection of $x > 3$ and $x > 0$ yields $x > 3$, or the open ray $(3, \\infty)$. Taking the union instead of the intersection erroneously gives $(0, \\infty)$, while forgetting to flip the inequality sign produces $(0, 3)$."
+    },
+    {
+      "id": "li_c01_007",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In a chemistry laboratory, an acid solution must be kept at a temperature between $30^\\circ\\text{C}$ and $35^\\circ\\text{C}$. The relation between Celsius ($C$) and Fahrenheit ($F$) scales is given by $C = \\frac{5}{9}(F - 32)$. What is the allowable temperature range on the Fahrenheit scale?",
+      "options": [
+        "A) $(80^\\circ\\text{F}, 92^\\circ\\text{F})$",
+        "B) $(86^\\circ\\text{F}, 95^\\circ\\text{F})$",
+        "C) $(82^\\circ\\text{F}, 91^\\circ\\text{F})$",
+        "D) $(88^\\circ\\text{F}, 97^\\circ\\text{F})$"
+      ],
+      "answer": "B",
+      "explanation": "The temperature condition is expressed as $30 < C < 35$. Substituting the linear conversion relation gives $30 < \\frac{5}{9}(F - 32) < 35$. Multiplying each part of the double inequality by $\\frac{9}{5}$ clears the fraction: $30 \\times \\frac{9}{5} < F - 32 < 35 \\times \\frac{9}{5}$, which simplifies to $54 < F - 32 < 63$. Adding $32$ across all parts gives $54 + 32 < F < 63 + 32 \\implies 86 < F < 95$. Thus, the temperature range on the Fahrenheit scale is between $86^\\circ\\text{F}$ and $95^\\circ\\text{F}$. Using the inverted conversion fraction $\\frac{5}{9}$ instead of $\\frac{9}{5}$ or forgetting the additive shift leads to incorrect temperature bounds."
+    },
+    {
+      "id": "li_c01_008",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the complete solution set for the rational linear inequality $\\frac{2}{x - 3} < 1$, where $x \\in \\mathbb{R}$ and $x \\ne 3$.",
+      "options": [
+        "A) $(3, 5)$",
+        "B) $(5, \\infty)$",
+        "C) $(-\\infty, 3) \\cup (5, \\infty)$",
+        "D) $(-\\infty, 3]$"
+      ],
+      "answer": "C",
+      "explanation": "Subtracting $1$ from both sides brings the inequality to standard comparison form with zero: $\\frac{2}{x - 3} - 1 < 0 \\implies \\frac{2 - (x - 3)}{x - 3} < 0 \\implies \\frac{5 - x}{x - 3} < 0$. Multiplying the numerator by $-1$ reverses the inequality: $\\frac{x - 5}{x - 3} > 0$. The critical points are $x = 3$ and $x = 5$. Testing intervals: for $x > 5$, both factors are positive so the quotient is positive; for $3 < x < 5$, $x - 5 < 0$ and $x - 3 > 0$, making the quotient negative; for $x < 3$, both factors are negative, making the quotient positive. Hence, the quotient is strictly positive on $(-\\infty, 3) \\cup (5, \\infty)$. Multiplying across by $x - 3$ without considering its sign assumes $x - 3 > 0$ and wrongly drops the negative ray $(-\\infty, 3)$."
+    },
+    {
+      "id": "li_c01_009",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "How many litres of pure water must be added to $1125$ litres of a $45\\%$ acid solution so that the resulting mixture contains more than $25\\%$ but less than $30\\%$ acid content?",
+      "options": [
+        "A) Between $450$ and $750$ litres",
+        "B) Between $500$ and $850$ litres",
+        "C) Between $600$ and $950$ litres",
+        "D) More than $562.5$ litres but less than $900$ litres"
+      ],
+      "answer": "D",
+      "explanation": "Let $x$ litres of water be added to the solution. The volume of pure acid remains constant at $45\\% \\times 1125 = 0.45 \\times 1125 = 506.25$ litres. The total volume becomes $1125 + x$ litres. The concentration requirement gives the double inequality $0.25 < \\frac{506.25}{1125 + x} < 0.30$. Solving the left inequality: $0.25(1125 + x) < 506.25 \\implies 281.25 + 0.25x < 506.25 \\implies 0.25x < 225 \\implies x < 900$. Solving the right inequality: $506.25 < 0.30(1125 + x) \\implies 506.25 < 337.5 + 0.30x \\implies 0.30x > 168.75 \\implies x > 562.5$. Thus, the volume of water added must be strictly between $562.5$ and $900$ litres. Calculating acid volume without decimal accuracy or ignoring the denominator increase causes substantial deviation in bounds."
+    },
+    {
+      "id": "li_c01_010",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the number of integer values of $x$ satisfying the simultaneous inequalities $|x - 2| \\le 4$ and $x^2 - 4x - 5 \\le 0$.",
+      "options": [],
+      "answer": "7",
+      "explanation": "Solving the first inequality: $|x - 2| \\le 4$ is equivalent to $-4 \\le x - 2 \\le 4$. Adding $2$ across all parts gives $-2 \\le x \\le 6$, so $x \\in [-2, 6]$. For the second inequality, factoring the quadratic gives $(x - 5)(x + 1) \\le 0$. The roots of the polynomial are $-1$ and $5$, and the parabola opens upward, so the product is non-positive between the roots: $-1 \\le x \\le 5$, giving $x \\in [-1, 5]$. Finding the intersection of both intervals yields $[-2, 6] \\cap [-1, 5] = [-1, 5]$. The integer values in this closed interval are $\\{-1, 0, 1, 2, 3, 4, 5\\}$. The total number of integers is $5 - (-1) + 1 = 7$."
+    },
+    {
+      "id": "li_c01_011",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the complete set of all real values of $x$ satisfying the fractional absolute value inequality $\\left|\\frac{x - 1}{x + 2}\\right| > 1$.",
+      "options": [
+        "A) $(-\\infty, -2) \\cup \\left(-2, -\\frac{1}{2}\\right)$",
+        "B) $\\left(-\\infty, -\\frac{1}{2}\\right)$",
+        "C) $\\left(-2, -\\frac{1}{2}\\right)$",
+        "D) $\\left(-\\frac{1}{2}, \\infty\\right)$"
+      ],
+      "answer": "A",
+      "explanation": "The domain restriction requires $x \\ne -2$. The inequality $|A| > 1$ breaks into two branches: $A > 1$ or $A < -1$. Branch 1: $\\frac{x - 1}{x + 2} > 1 \\implies \\frac{x - 1 - (x + 2)}{x + 2} > 0 \\implies \\frac{-3}{x + 2} > 0$. Since $-3 < 0$, this requires $x + 2 < 0 \\implies x < -2$. Branch 2: $\\frac{x - 1}{x + 2} < -1 \\implies \\frac{x - 1 + (x + 2)}{x + 2} < 0 \\implies \\frac{2x + 1}{x + 2} < 0$. The critical points are $-2$ and $-\\frac{1}{2}$, giving $-2 < x < -\\frac{1}{2}$. Combining both disjoint branches yields $(-\\infty, -2) \\cup \\left(-2, -\\frac{1}{2}\\right)$. Overlooking the domain exclusion at the pole $x = -2$ leads to the incorrect connected interval $\\left(-\\infty, -\\frac{1}{2}\\right)$."
+    },
+    {
+      "id": "li_c01_012",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "The feasible region defined by the system of linear inequalities $2x + y \\le 6$, $x + 2y \\le 6$, $x \\ge 0$, and $y \\ge 0$ forms a closed polygon in the $xy$-plane. Determine the area of this polygon.",
+      "options": [
+        "A) $5$",
+        "B) $6$",
+        "C) $7$",
+        "D) $8$"
+      ],
+      "answer": "B",
+      "explanation": "We determine the vertices of the polygonal feasible region in the first quadrant. The non-negativity constraints $x \\ge 0, y \\ge 0$ bound the region by the coordinate axes. The line $2x + y = 6$ intersects the $x$-axis at $(3, 0)$. The line $x + 2y = 6$ intersects the $y$-axis at $(0, 3)$. The intersection point of the two boundary lines is found by subtracting $x + 2y = 6$ from $2(2x + y = 6)$: $4x + 2y - (x + 2y) = 12 - 6 \\implies 3x = 6 \\implies x = 2$, which gives $y = 2$. Thus, the vertices in cyclic order are $(0, 0), (3, 0), (2, 2), (0, 3)$. Splitting the polygon into two triangles by the diagonal from $(0, 0)$ to $(2, 2)$: the lower triangle has base $3$ on the $x$-axis and height $2$, so its area is $\\frac{1}{2} \\times 3 \\times 2 = 3$; the upper triangle has base $3$ on the $y$-axis and height $2$, so its area is $\\frac{1}{2} \\times 3 \\times 2 = 3$. Summing the two areas yields $3 + 3 = 6$ square units."
+    },
+    {
+      "id": "li_c01_013",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the complete set of all real numbers $x$ that satisfy the double absolute value inequality $2 \\le |x - 1| \\le 5$.",
+      "options": [
+        "A) $[-4, 6]$",
+        "B) $[-1, 3]$",
+        "C) $[-4, -1] \\cup [3, 6]$",
+        "D) $[-5, -2] \\cup [2, 5]$"
+      ],
+      "answer": "C",
+      "explanation": "The double inequality requires both $|x - 1| \\le 5$ and $|x - 1| \\ge 2$. Solving $|x - 1| \\le 5$ yields $-5 \\le x - 1 \\le 5 \\implies -4 \\le x \\le 6$, so $x \\in [-4, 6]$. Solving $|x - 1| \\ge 2$ splits into two branches: $x - 1 \\ge 2 \\implies x \\ge 3$, or $x - 1 \\le -2 \\implies x \\le -1$. This gives $x \\in (-\\infty, -1] \\cup [3, \\infty)$. Taking the intersection of $[-4, 6]$ with $(-\\infty, -1] \\cup [3, \\infty)$ produces two closed intervals: $[-4, -1] \\cup [3, 6]$. Forgetting the lower bound constraint $|x - 1| \\ge 2$ incorrectly yields the entire interval $[-4, 6]$, while neglecting the horizontal shift $+1$ gives $[-5, -2] \\cup [2, 5]$."
+    },
+    {
+      "id": "li_c01_014",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the smallest positive integer $n$ for which the rational linear inequality $\\frac{n}{n + 30} > \\frac{1}{4}$ holds true.",
+      "options": [
+        "A) $9$",
+        "B) $10$",
+        "C) $12$",
+        "D) $11$"
+      ],
+      "answer": "D",
+      "explanation": "Since $n$ is a positive integer, $n > 0$ and $n + 30 > 0$. We may multiply both sides of the inequality by the positive quantity $4(n + 30)$ without altering the inequality sign: $4n > n + 30$. Subtracting $n$ from both sides gives $3n > 30$. Dividing by $3$ gives $n > 10$. The set of positive integers strictly greater than $10$ is $\\{11, 12, 13, \\dots\\}$. Therefore, the smallest positive integer is $n = 11$. Choosing $n = 10$ yields $\\frac{10}{40} = \\frac{1}{4}$, which satisfies equality but fails the strict inequality condition."
+    },
+    {
+      "id": "li_c01_015",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the number of integer solutions $x$ that simultaneously satisfy $\\frac{2x - 1}{3} - \\frac{x - 2}{4} > 1$ and $|x - 4| \\le 2$.",
+      "options": [],
+      "answer": "4",
+      "explanation": "For the first inequality, multiplying through by $12$ eliminates the denominators: $4(2x - 1) - 3(x - 2) > 12$. Expanding gives $8x - 4 - 3x + 6 > 12 \\implies 5x + 2 > 12$. Subtracting $2$ yields $5x > 10$, which implies $x > 2$. For the second inequality, $|x - 4| \\le 2$ expands to $-2 \\le x - 4 \\le 2$. Adding $4$ across all parts gives $2 \\le x \\le 6$, so $x \\in [2, 6]$. The intersection of $x > 2$ and $x \\in [2, 6]$ is the half-open interval $(2, 6]$. The integers lying in $(2, 6]$ are $3, 4, 5, 6$. Therefore, there are exactly $4$ integer solutions. Erroneously including the strict boundary $x = 2$ would overcount and give $5$ integers."
+    },
+    {
+      "id": "li_c01_016",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the complete solution set of the rational inequality $\\frac{(x - 1)^3 (x + 2)^4 (x - 5)}{(x - 3)^2 (x + 4)} \\le 0$ using the method of intervals (wavy curve method).",
+      "options": [
+        "A) $(-\\infty, -4) \\cup \\{-2\\} \\cup [1, 3) \\cup (3, 5]$",
+        "B) $(-\\infty, -4) \\cup [1, 5]$",
+        "C) $(-\\infty, -4) \\cup [1, 3) \\cup (3, 5]$",
+        "D) $[-4, -2] \\cup [1, 5]$"
+      ],
+      "answer": "A",
+      "explanation": "We analyze the critical points where the numerator or denominator vanishes: $x = -4$ (odd multiplicity $1$, pole), $x = -2$ (even multiplicity $4$, zero), $x = 1$ (odd multiplicity $3$, zero), $x = 3$ (even multiplicity $2$, pole), and $x = 5$ (odd multiplicity $1$, zero). Points $x = -4$ and $x = 3$ must be excluded to prevent division by zero. For $x > 5$, all factors are positive, so the rational expression is positive. As the curve passes through $x = 5$ (odd power), the sign changes to negative, making the expression negative on $(3, 5]$. At $x = 3$ (even power), the sign does not alternate and remains negative on $(1, 3)$. At $x = 1$ (odd power), the sign changes to positive on $(-2, 1)$. At $x = -2$ (even power), the sign does not change and remains positive on $(-4, -2)$, but the expression vanishes at $x = -2$, satisfying $\\le 0$. Finally, crossing $x = -4$ (odd power) changes the sign to negative on $(-\\infty, -4)$. Combining all valid intervals yields $(-\\infty, -4) \\cup \\{-2\\} \\cup [1, 3) \\cup (3, 5]$. Omitting the isolated point $\\{-2\\}$ neglects a valid root, while including $x = 3$ violates the domain constraint."
+    },
+    {
+      "id": "li_c01_017",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the complete set of all real numbers $x$ that satisfy the inequality $|x - 2| + |x - 5| \\le 7$.",
+      "options": [
+        "A) $[2, 5]$",
+        "B) $[0, 7]$",
+        "C) $[-1, 6]$",
+        "D) $[0, 5]$"
+      ],
+      "answer": "B",
+      "explanation": "We partition the real number line into three regions determined by the critical points $x = 2$ and $x = 5$. Case 1: $x < 2$. Both expressions inside the absolute values are negative, so the inequality becomes $-(x - 2) - (x - 5) \\le 7 \\implies 7 - 2x \\le 7 \\implies -2x \\le 0 \\implies x \\ge 0$. Intersecting with $x < 2$ yields $[0, 2)$. Case 2: $2 \\le x \\le 5$. The first expression is non-negative and the second is non-positive: $(x - 2) - (x - 5) \\le 7 \\implies 3 \\le 7$, which is unconditionally true for all $x \\in [2, 5]$. Case 3: $x > 5$. Both expressions are positive: $(x - 2) + (x - 5) \\le 7 \\implies 2x - 7 \\le 7 \\implies 2x \\le 14 \\implies x \\le 7$. Intersecting with $x > 5$ yields $(5, 7]$. Taking the union of the three regions gives $[0, 2) \\cup [2, 5] \\cup (5, 7] = [0, 7]$. Considering only the flat plateau region where the sum equals the distance between critical points leads to the incomplete solution $[2, 5]$."
+    },
+    {
+      "id": "li_c01_018",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the area of the geometric region in the $xy$-plane defined by the simultaneous inequalities $|x| + |y| \\le 3$ and $|x| \\ge 1$.",
+      "options": [
+        "A) $10$",
+        "B) $12$",
+        "C) $8$",
+        "D) $6$"
+      ],
+      "answer": "C",
+      "explanation": "The inequality $|x| + |y| \\le 3$ represents a solid square centered at the origin whose diagonals lie along the coordinate axes with length $2 \\times 3 = 6$. The total area of this diamond-shaped square is $\\frac{1}{2} d_1 d_2 = \\frac{1}{2} (6)(6) = 18$. The condition $|x| \\ge 1$ removes the central vertical strip $-1 < x < 1$ from this square. By four-fold symmetry, we examine the first quadrant where $x \\ge 0$ and $y \\ge 0$: the line $x + y = 3$ intersects $x = 1$ at $(1, 2)$ and the $x$-axis at $(3, 0)$. For $x \\ge 1$, the feasible region in the first quadrant is a right triangle with vertices $(1, 0), (3, 0)$, and $(1, 2)$. The base of this triangle along the $x$-axis is $3 - 1 = 2$, and its vertical height is $2$. Thus, the area in the first quadrant is $\\frac{1}{2} \\times 2 \\times 2 = 2$. By symmetry across all four quadrants, the total area of the bounded region is $4 \\times 2 = 8$ square units. Calculating the area of the excluded central strip instead yields $10$."
+    },
+    {
+      "id": "li_c01_019",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the complete solution set of the nested absolute value inequality $||x - 2| - 3| < 2$ for all real numbers $x$.",
+      "options": [
+        "A) $(-3, 7)$",
+        "B) $(1, 3)$",
+        "C) $(-5, 1) \\cup (3, 9)$",
+        "D) $(-3, 1) \\cup (3, 7)$"
+      ],
+      "answer": "D",
+      "explanation": "Unfolding the outer absolute value gives $-2 < |x - 2| - 3 < 2$. Adding $3$ across all parts of the inequality yields $1 < |x - 2| < 5$. This double inequality requires two conditions to hold simultaneously: $|x - 2| < 5$ and $|x - 2| > 1$. The condition $|x - 2| < 5$ expands to $-5 < x - 2 < 5 \\implies -3 < x < 7$, which defines the interval $(-3, 7)$. The condition $|x - 2| > 1$ expands to $x - 2 > 1$ or $x - 2 < -1 \\implies x > 3$ or $x < 1$, which defines the union of open rays $(-\\infty, 1) \\cup (3, \\infty)$. Taking the intersection of $(-3, 7)$ with $(-\\infty, 1) \\cup (3, \\infty)$ eliminates the middle interval $[1, 3]$ and leaves $(-3, 1) \\cup (3, 7)$. Forgetting to apply the inner lower bound $|x - 2| > 1$ incorrectly yields $(-3, 7)$, whereas confusing the exclusion boundaries gives $(1, 3)$."
+    },
+    {
+      "id": "li_c01_020",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the total number of integer solutions $x$ satisfying the absolute value inequality $|x - 2| + |x - 6| \\le 8$.",
+      "options": [],
+      "answer": "9",
+      "explanation": "We analyze the piece-wise linear function $f(x) = |x - 2| + |x - 6|$. On the central interval $[2, 6]$, the sum of distances simplifies directly to $(x - 2) + (6 - x) = 4 < 8$, so every $x \\in [2, 6]$ is an immediate solution. For $x > 6$, both terms are positive: $(x - 2) + (x - 6) \\le 8 \\implies 2x - 8 \\le 8 \\implies 2x \\le 16 \\implies x \\le 8$. This yields $(6, 8]$. For $x < 2$, both terms are negative: $-(x - 2) - (x - 6) \\le 8 \\implies 8 - 2x \\le 8 \\implies -2x \\le 0 \\implies x \\ge 0$. This yields $[0, 2)$. Uniting the three regions gives the complete closed interval $[0, 8]$. The integer solutions in $[0, 8]$ are $\\{0, 1, 2, 3, 4, 5, 6, 7, 8\\}$. Counting these values yields $8 - 0 + 1 = 9$ integer solutions."
+    },
+    {
+      "id": "li_c01_021",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Solve the rational inequality $\\frac{x + 2}{x - 1} \\ge \\frac{x - 3}{x + 1}$ for all real values of $x$.",
+      "options": [
+        "A) $\\left(-1, \\frac{1}{7}\\right] \\cup (1, \\infty)$",
+        "B) $\\left[-1, \\frac{1}{7}\\right] \\cup [1, \\infty)$",
+        "C) $(-\\infty, -1) \\cup \\left[\\frac{1}{7}, 1\\right)$",
+        "D) $\\left(-\\infty, \\frac{1}{7}\\right] \\cup (1, \\infty)$"
+      ],
+      "answer": "A",
+      "explanation": "We bring all terms to the left-hand side to compare with zero: $\\frac{x + 2}{x - 1} - \\frac{x - 3}{x + 1} \\ge 0$. Finding a common denominator $(x - 1)(x + 1)$, the numerator becomes $(x + 2)(x + 1) - (x - 3)(x - 1) = (x^2 + 3x + 2) - (x^2 - 4x + 3) = 7x - 1$. The inequality is therefore $\\frac{7x - 1}{(x - 1)(x + 1)} \\ge 0$. The critical points are $x = -1, x = \\frac{1}{7}$, and $x = 1$. The poles $x = -1$ and $x = 1$ must be excluded because the denominator cannot be zero. Testing sign intervals: for $x > 1$, all factors are positive so the fraction is positive; for $\\frac{1}{7} < x < 1$, the factor $x - 1$ is negative, so the fraction is negative; for $-1 < x \\le \\frac{1}{7}$, two factors are negative ($7x - 1$ and $x - 1$) and one is positive ($x + 1$), so the fraction is positive; for $x < -1$, all three factors are negative, making the fraction negative. Therefore, the fraction is non-negative on $\\left(-1, \\frac{1}{7}\\right] \\cup (1, \\infty)$. Including the boundary points $-1$ and $1$ incorrectly violates the domain of the rational expression."
+    },
+    {
+      "id": "li_c01_022",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the complete solution set of the absolute value inequality $|x - 3| - |x + 1| \\ge 2$ over the set of real numbers.",
+      "options": [
+        "A) $(-\\infty, -1]$",
+        "B) $(-\\infty, 0]$",
+        "C) $[0, 3]$",
+        "D) $[-1, 0]$"
+      ],
+      "answer": "B",
+      "explanation": "We divide the real line into three regions using the critical points $x = -1$ and $x = 3$. Case 1: $x \\ge 3$. Here $x - 3 \\ge 0$ and $x + 1 > 0$, so $|x - 3| - |x + 1| = (x - 3) - (x + 1) = -4$. The inequality becomes $-4 \\ge 2$, which is impossible. Hence there are no solutions for $x \\ge 3$. Case 2: $-1 \\le x < 3$. Here $x - 3 < 0$ and $x + 1 \\ge 0$, so the expression simplifies to $-(x - 3) - (x + 1) = 3 - x - x - 1 = 2 - 2x$. The inequality becomes $2 - 2x \\ge 2 \\implies -2x \\ge 0 \\implies x \\le 0$. Intersecting with $[-1, 3)$ gives $[-1, 0]$. Case 3: $x < -1$. Both arguments are negative: $-(x - 3) - (-(x + 1)) = 3 - x + x + 1 = 4$. The inequality becomes $4 \\ge 2$, which holds unconditionally for all $x < -1$. Combining Case 2 and Case 3 gives $(-\\infty, -1) \\cup [-1, 0] = (-\\infty, 0]$. Restricting the solution solely to $[-1, 0]$ erroneously drops the entire left ray $(-\\infty, -1)$."
+    },
+    {
+      "id": "li_c01_023",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Compute the area of the closed planar region bounded by the two-variable inequality $|x| + 2|y| \\le 4$.",
+      "options": [
+        "A) $8$",
+        "B) $12$",
+        "C) $16$",
+        "D) $32$"
+      ],
+      "answer": "C",
+      "explanation": "The given inequality $|x| + 2|y| \\le 4$ is invariant under the transformations $x \\to -x$ and $y \\to -y$, so the region is symmetric about both coordinate axes as well as the origin. In the first quadrant where $x \\ge 0$ and $y \\ge 0$, the inequality reduces to the linear constraint $x + 2y \\le 4$. The boundary line $x + 2y = 4$ intersects the $x$-axis at $(4, 0)$ and the $y$-axis at $(0, 2)$. Together with the axes, this defines a right-angled triangle with vertices at $(0, 0), (4, 0)$, and $(0, 2)$. The area of this triangle in the first quadrant is $\\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times 4 \\times 2 = 4$. By the four-fold symmetry across all four quadrants, the total area of the rhombus-shaped region is $4 \\times 4 = 16$ square units. Alternatively, the lengths of the perpendicular diagonals along the $x$-axis and $y$-axis are $d_1 = 8$ and $d_2 = 4$, yielding $\\frac{1}{2} d_1 d_2 = \\frac{1}{2} \\times 8 \\times 4 = 16$. Evaluating only two quadrants yields $8$, while calculating the bounding box area yields $32$."
+    },
+    {
+      "id": "li_c01_024",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the number of integer values of $x$ that satisfy the system of inequalities $|x - 5| \\le 3$ and $\\frac{x - 3}{x - 8} \\le 0$.",
+      "options": [],
+      "answer": "5",
+      "explanation": "We solve each inequality independently and find the intersection of their solution sets. For the first inequality, $|x - 5| \\le 3$ unfolds to $-3 \\le x - 5 \\le 3$. Adding $5$ throughout yields $2 \\le x \\le 8$, which defines the closed interval $[2, 8]$. For the second inequality, $\\frac{x - 3}{x - 8} \\le 0$, the critical points are the root of the numerator $x = 3$ and the pole of the denominator $x = 8$. The rational expression is non-positive when the numerator and denominator have opposite signs or when the numerator is zero. Since $x = 8$ makes the denominator zero, it must be excluded. Hence, the solution set is the half-open interval $[3, 8)$. Taking the intersection of both solution sets gives $[2, 8] \\cap [3, 8) = [3, 8)$. The integers contained in $[3, 8)$ are $\\{3, 4, 5, 6, 7\\}$. Counting these values yields exactly $5$ integer solutions. Erroneously including the pole $x = 8$ would yield $6$."
+    },
+    {
+      "id": "li_c01_025",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the complete set of all real numbers $x$ satisfying the rational inequality $\\frac{(x^2 + x + 1)(x - 2)}{(x + 3)(x - 4)} \\le 0$.",
+      "options": [
+        "A) $(-3, 2] \\cup (4, \\infty)$",
+        "B) $(-\\infty, -3] \\cup [2, 4]$",
+        "C) $[-3, 2] \\cup [4, \\infty)$",
+        "D) $(-\\infty, -3) \\cup [2, 4)$"
+      ],
+      "answer": "D",
+      "explanation": "We analyze the quadratic factor $x^2 + x + 1$. Its discriminant is $D = 1^2 - 4(1)(1) = -3 < 0$, and its leading coefficient is $1 > 0$. Because the discriminant is strictly negative and the leading coefficient is positive, $x^2 + x + 1 > 0$ for all real numbers $x$. Dividing the entire inequality by this strictly positive factor does not change the direction of the inequality sign: $\\frac{x - 2}{(x + 3)(x - 4)} \\le 0$. The critical points are $x = -3, x = 2$, and $x = 4$. The poles $x = -3$ and $x = 4$ must be excluded to prevent division by zero, while the zero $x = 2$ is included. Arranging the critical points in ascending order: $-3, 2, 4$. For $x > 4$, all three linear factors are positive, so the fraction is positive. For $2 \\le x < 4$, the factor $x - 4$ is negative while $x - 2$ and $x + 3$ are positive, so the fraction is negative or zero. For $-3 < x < 2$, two factors are negative, so the fraction is positive. For $x < -3$, all three factors are negative, making the fraction negative. Therefore, the inequality holds on $(-\\infty, -3) \\cup [2, 4)$. Including the poles $-3$ and $4$ leads to domain violations."
+    },
+    {
+      "id": "li_c01_026",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A linear programming problem requires maximizing the objective function $Z = 4x + 3y$ subject to the constraints $x + y \\le 6$, $2x + y \\le 8$, $x \\ge 0$, and $y \\ge 0$. Find the maximum value of $Z$.",
+      "options": [
+        "A) $20$",
+        "B) $18$",
+        "C) $24$",
+        "D) $16$"
+      ],
+      "answer": "A",
+      "explanation": "The feasible region is a bounded convex polygon in the first quadrant formed by the intersection of the given half-planes. We identify its corner points: (1) The origin $(0, 0)$. (2) The intersection of $2x + y = 8$ with the $x$-axis: setting $y = 0$ gives $x = 4$, so $(4, 0)$, which satisfies $4 + 0 \\le 6$. (3) The intersection of $x + y = 6$ with the $y$-axis: setting $x = 0$ gives $y = 6$, so $(0, 6)$, which satisfies $2(0) + 6 \\le 8$. (4) The intersection of the two boundary lines: solving the linear system $x + y = 6$ and $2x + y = 8$ by subtraction gives $x = 2$, which implies $y = 4$. Point $(2, 4)$ is feasible. By the fundamental theorem of linear programming, the maximum value occurs at one of these vertices. We evaluate $Z = 4x + 3y$ at each vertex: $Z(0, 0) = 0$; $Z(4, 0) = 4(4) + 0 = 16$; $Z(0, 6) = 0 + 3(6) = 18$; $Z(2, 4) = 4(2) + 3(4) = 8 + 12 = 20$. Comparing these values, the maximum value of $Z$ is $20$. Testing only axis intercepts produces $18$ or $16$, while using the infeasible intercept $(6, 0)$ produces $24$."
+    },
+    {
+      "id": "li_c01_027",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let the function $f: \\mathbb{R} \\to \\mathbb{R}$ be defined by $f(x) = |x - 1| + |x - 3| + |x - 7|$. Determine the minimum value attained by $f(x)$ over all real numbers $x$.",
+      "options": [
+        "A) $4$",
+        "B) $6$",
+        "C) $7$",
+        "D) $8$"
+      ],
+      "answer": "B",
+      "explanation": "For any sum of absolute value distances $f(x) = \\sum_{i=1}^n |x - a_i|$ with $a_1 \\le a_2 \\le \\dots \\le a_n$, the function is convex and piece-wise linear, achieving its minimum at the median of the distribution of points. Here the points in ascending order are $1, 3, 7$. The median of these three points is the middle value $x = 3$. Evaluating the function at $x = 3$ gives $f(3) = |3 - 1| + |3 - 3| + |3 - 7| = 2 + 0 + 4 = 6$. To verify across the piece-wise intervals: for $x < 1$, $f(x) = (1 - x) + (3 - x) + (7 - x) = 11 - 3x > 8$; for $1 \\le x \\le 3$, $f(x) = (x - 1) + (3 - x) + (7 - x) = 9 - x$, which decreases from $8$ down to $6$; for $3 \\le x \\le 7$, $f(x) = (x - 1) + (x - 3) + (7 - x) = x + 3$, which increases from $6$ up to $10$; for $x > 7$, $f(x) = 3x - 11 > 10$. Thus, the absolute minimum value is $6$. Using the arithmetic mean $\\frac{11}{3}$ yields a non-optimal value, while evaluating at endpoints gives values strictly greater than $6$."
+    },
+    {
+      "id": "li_c01_028",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the area of the closed polygonal region in the Cartesian plane defined by the inequality $|2x| + 3|y| \\le 6$.",
+      "options": [],
+      "answer": "12",
+      "explanation": "The inequality $|2x| + 3|y| \\le 6$ can be rewritten as $2|x| + 3|y| \\le 6$. This inequality is invariant under reflections across both the $x$-axis and the $y$-axis, so the bounded region is a rhombus centered at the origin. In the first quadrant where $x \\ge 0$ and $y \\ge 0$, the inequality reduces to the linear equation $2x + 3y \\le 6$. The boundary line intersects the $x$-axis at $(3, 0)$ and the $y$-axis at $(0, 2)$. The region in the first quadrant is therefore a right triangle with base $3$ and height $2$. The area of this triangular section is $\\frac{1}{2} \\times 3 \\times 2 = 3$. By symmetry, the complete region consists of four congruent triangles, one in each quadrant. The total area is $4 \\times 3 = 12$ square units. Alternatively, the horizontal diagonal has length $d_1 = 3 - (-3) = 6$ and the vertical diagonal has length $d_2 = 2 - (-2) = 4$, giving $\\text{Area} = \\frac{1}{2} d_1 d_2 = \\frac{1}{2} \\times 6 \\times 4 = 12$."
+    },
+    {
+      "id": "li_c01_029",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the set of all real values of the parameter $k$ for which the inequality $\\frac{x^2 - kx + 1}{x^2 + x + 1} < 3$ holds for every real number $x$.",
+      "options": [
+        "A) $(-4, 4)$",
+        "B) $(-1, 7)$",
+        "C) $(-7, 1)$",
+        "D) $(-\\infty, -7) \\cup (1, \\infty)$"
+      ],
+      "answer": "C",
+      "explanation": "The denominator $x^2 + x + 1$ has discriminant $D = 1^2 - 4(1)(1) = -3 < 0$ and leading coefficient $1 > 0$, so $x^2 + x + 1 > 0$ for all real numbers $x$. We can multiply both sides of the inequality by this positive expression without reversing the inequality: $x^2 - kx + 1 < 3(x^2 + x + 1) = 3x^2 + 3x + 3$. Collecting all terms on one side yields $2x^2 + (k + 3)x + 2 > 0$ for all $x \\in \\mathbb{R}$. A quadratic expression $Ax^2 + Bx + C$ is strictly positive for all real $x$ if and only if its leading coefficient is positive ($A > 0$) and its discriminant is strictly negative ($D < 0$). Here $A = 2 > 0$ is satisfied. The discriminant condition gives $B^2 - 4AC < 0 \\implies (k + 3)^2 - 4(2)(2) < 0 \\implies (k + 3)^2 - 16 < 0$. This inequality simplifies to $(k + 3)^2 < 16$, which yields $-4 < k + 3 < 4$. Subtracting $3$ across all parts gives $-7 < k < 1$. Hence, $k \\in (-7, 1)$. Neglecting the constant term $+3$ inside the squared linear form produces $(-4, 4)$, while sign errors yield $(-1, 7)$."
+    },
+    {
+      "id": "li_c01_030",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the total number of integer solutions $x$ that simultaneously satisfy the system $\\left|\\frac{3x - 2}{x + 1}\\right| \\le 2$ and $x^2 - 6x \\le 0$.",
+      "options": [
+        "A) $3$",
+        "B) $4$",
+        "C) $6$",
+        "D) $5$"
+      ],
+      "answer": "D",
+      "explanation": "First, solving the quadratic inequality $x^2 - 6x \\le 0$: factoring gives $x(x - 6) \\le 0$, which yields $x \\in [0, 6]$. For any $x \\in [0, 6]$, the denominator $x + 1$ satisfies $x + 1 \\ge 1 > 0$, so $x + 1$ is strictly positive and non-zero. This allows us to clear the denominator without sign reversal: $|3x - 2| \\le 2(x + 1) = 2x + 2$. This absolute value inequality unfolds to the simultaneous linear inequalities $-2x - 2 \\le 3x - 2 \\le 2x + 2$. Solving the left inequality: $-2x - 2 \\le 3x - 2 \\implies 5x \\ge 0 \\implies x \\ge 0$. Solving the right inequality: $3x - 2 \\le 2x + 2 \\implies x \\le 4$. The intersection of these two conditions is $x \\in [0, 4]$. Intersecting $[0, 4]$ with $[0, 6]$ leaves $[0, 4]$. The integer values in $[0, 4]$ are $x \\in \\{0, 1, 2, 3, 4\\}$. Counting these integers gives exactly $5$ solutions. Failing to include $0$ gives $4$, while mistakenly including $5$ gives $6$."
+    },
+    {
+      "id": "li_c01_031",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A bounded polygonal feasible region in the first quadrant is defined by the linear constraints $x + y \\le 5$, $x + 2y \\le 8$, $x \\ge 0$, and $y \\ge 0$. Determine the maximum value attained by the linear objective function $Z = x + 2y$ over this region.",
+      "options": [],
+      "answer": "8",
+      "explanation": "We determine the vertices of the closed convex polygon: (1) The origin $(0, 0)$. (2) The intersection of $x + y = 5$ with the $x$-axis: setting $y = 0$ gives $(5, 0)$, which satisfies $5 + 2(0) = 5 \\le 8$. (3) The intersection of $x + 2y = 8$ with the $y$-axis: setting $x = 0$ gives $(0, 4)$, which satisfies $0 + 4 = 4 \\le 5$. (4) The intersection point of the two boundary lines: subtracting $x + y = 5$ from $x + 2y = 8$ yields $y = 3$, which gives $x = 2$. Point $(2, 3)$ is feasible since $2 \\ge 0, 3 \\ge 0$. Evaluating the objective function $Z = x + 2y$ at each vertex: $Z(0, 0) = 0 + 0 = 0$; $Z(5, 0) = 5 + 2(0) = 5$; $Z(0, 4) = 0 + 2(4) = 8$; $Z(2, 3) = 2 + 2(3) = 2 + 6 = 8$. The maximum value occurs along the entire boundary segment connecting $(2, 3)$ and $(0, 4)$, and is equal to $8$."
+    },
+    {
+      "id": "li_c01_032",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Solve the rational inequality $\\frac{(x - 2)^2 (x + 1)(x - 4)^3}{(x + 3)^4 (x - 6)} \\ge 0$ over the real numbers using the wavy curve method.",
+      "options": [
+        "A) $[-1, 4] \\cup (6, \\infty)$",
+        "B) $(-3, -1] \\cup [4, 6)$",
+        "C) $[-1, 2) \\cup (2, 4] \\cup (6, \\infty)$",
+        "D) $(-\\infty, -3) \\cup [-1, 4] \\cup (6, \\infty)$"
+      ],
+      "answer": "A",
+      "explanation": "We list the critical points: $x = -3$ (multiplicity $4$, even, pole), $x = -1$ (multiplicity $1$, odd, zero), $x = 2$ (multiplicity $2$, even, zero), $x = 4$ (multiplicity $3$, odd, zero), and $x = 6$ (multiplicity $1$, odd, pole). Poles $x = -3$ and $x = 6$ must be strictly excluded. For $x > 6$, all linear factors are positive, so the fraction is positive. Crossing $x = 6$ (odd multiplicity), the sign flips to negative on $(4, 6)$. Crossing $x = 4$ (odd multiplicity), the sign flips to positive on $(2, 4)$. Crossing $x = 2$ (even multiplicity), the sign does not flip and remains positive on $(-1, 2)$. Furthermore, at $x = 2$, the numerator is zero, satisfying $\\ge 0$, so $x = 2$ is included. Crossing $x = -1$ (odd multiplicity), the sign flips to negative on $(-3, -1)$. Crossing $x = -3$ (even multiplicity), the sign does not flip and remains negative on $(-\\infty, -3)$. Therefore, the expression is non-negative on $[-1, 4] \\cup (6, \\infty)$. Unnecessarily puncturing the interval at $x = 2$ fails to recognize that the numerator vanishes there, while toggling signs across even powers produces incorrect intervals."
+    },
+    {
+      "id": "li_c01_033",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the complete set of all real solutions to the absolute value equation $|2x - 3| + |2x - 7| = 4$.",
+      "options": [
+        "A) $\\left\\{\\frac{3}{2}, \\frac{7}{2}\\right\\}$",
+        "B) $\\left[\\frac{3}{2}, \\frac{7}{2}\\right]$",
+        "C) $\\left(-\\infty, \\frac{3}{2}\\right] \\cup \\left[\\frac{7}{2}, \\infty\\right)$",
+        "D) $\\left(\\frac{3}{2}, \\frac{7}{2}\\right)$"
+      ],
+      "answer": "B",
+      "explanation": "By the reverse triangle inequality for real numbers, $|a| + |b| \\ge |a - b|$. Letting $a = 2x - 3$ and $b = 2x - 7$, we compute $|a - b| = |(2x - 3) - (2x - 7)| = |4| = 4$. Therefore, $|2x - 3| + |2x - 7| \\ge 4$ holds for all real $x$. Equality $|a| + |b| = |a - b|$ holds if and only if the product $a$ and $b$ is non-positive with opposite signs, meaning $(2x - 3)(2x - 7) \\le 0$. Solving this inequality: the roots are $x = \\frac{3}{2}$ and $x = \\frac{7}{2}$. The parabola opens upwards, so the product is non-positive between the roots: $\\frac{3}{2} \\le x \\le \\frac{7}{2}$. Thus, the solution set is the entire closed interval $\\left[\\frac{3}{2}, \\frac{7}{2}\\right]$. Treating this as an equation with only discrete endpoint solutions neglects the infinitely many intermediate solutions on the plateau where the sum of distances is constant."
+    },
+    {
+      "id": "li_c01_034",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Find the complete solution set for the rational linear inequality $\\frac{5 - 2x}{3x + 4} \\le 1$ over the real numbers.",
+      "options": [
+        "A) $\\left[-\\frac{4}{3}, \\frac{1}{5}\\right]$",
+        "B) $\\left(-\\frac{4}{3}, \\frac{1}{5}\\right]$",
+        "C) $\\left(-\\infty, -\\frac{4}{3}\\right) \\cup \\left[\\frac{1}{5}, \\infty\\right)$",
+        "D) $\\left(-\\infty, -\\frac{4}{3}\\right] \\cup \\left[\\frac{1}{5}, \\infty\\right)$"
+      ],
+      "answer": "C",
+      "explanation": "Subtracting $1$ from both sides brings the inequality to standard comparison form with zero: $\\frac{5 - 2x}{3x + 4} - 1 \\le 0 \\implies \\frac{5 - 2x - (3x + 4)}{3x + 4} \\le 0 \\implies \\frac{1 - 5x}{3x + 4} \\le 0$. Multiplying the numerator by $-1$ reverses the inequality: $\\frac{5x - 1}{3x + 4} \\ge 0$. The critical points are the pole $x = -\\frac{4}{3}$ and the zero $x = \\frac{1}{5}$. The pole $x = -\\frac{4}{3}$ must be excluded because the denominator cannot vanish. Testing intervals: for $x \\ge \\frac{1}{5}$, both linear factors are positive, so the fraction is non-negative; for $-\\frac{4}{3} < x < \\frac{1}{5}$, the numerator is negative and the denominator is positive, making the fraction negative; for $x < -\\frac{4}{3}$, both numerator and denominator are negative, so their quotient is strictly positive. Therefore, the inequality holds on $\\left(-\\infty, -\\frac{4}{3}\\right) \\cup \\left[\\frac{1}{5}, \\infty\\right)$. Including the pole $-\\frac{4}{3}$ violates the domain, while multiplying across directly assumes $3x + 4 > 0$ and loses the left ray."
+    },
+    {
+      "id": "li_c01_035",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Find the total number of integer solutions $x$ satisfying the simultaneous linear inequalities $\\frac{x - 2}{x - 13} \\le 0$ and $|x - 6| \\le 5$.",
+      "options": [],
+      "answer": "10",
+      "explanation": "We solve each inequality and find their intersection. For the first inequality, $\\frac{x - 2}{x - 13} \\le 0$, the critical points are $x = 2$ (where the numerator is zero) and $x = 13$ (where the denominator is zero). The fraction is non-positive between these points, with $x = 13$ excluded to avoid division by zero: $x \\in [2, 13)$. For the second inequality, $|x - 6| \\le 5$ unfolds to $-5 \\le x - 6 \\le 5$. Adding $6$ across all parts gives $1 \\le x \\le 11$, which defines the interval $[1, 11]$. The intersection of the two solution intervals is $[2, 13) \\cap [1, 11] = [2, 11]$. The integers in this closed interval are $\\{2, 3, 4, 5, 6, 7, 8, 9, 10, 11\\}$. Counting these values yields $11 - 2 + 1 = 10$ integer solutions."
+    },
+    {
+      "id": "li_c01_036",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Determine the complete set of all real values of the parameter $m$ for which the simultaneous rational inequality $-3 < \\frac{x^2 + mx - 2}{x^2 - x + 1} < 2$ holds true for every real number $x \\in \\mathbb{R}$.",
+      "options": [
+        "A) $(-6, 7)$",
+        "B) $(-1, 7)$",
+        "C) $(-6, 2)$",
+        "D) $(-1, 2)$"
+      ],
+      "answer": "D",
+      "explanation": "We analyze the quadratic denominator $x^2 - x + 1$. Its discriminant is $D = (-1)^2 - 4(1)(1) = -3 < 0$, and its leading coefficient is $1 > 0$. Therefore, $x^2 - x + 1 > 0$ strictly for all $x \\in \\mathbb{R}$. Multiplying the double inequality through by this positive quantity preserves the direction of both inequalities: $-3(x^2 - x + 1) < x^2 + mx - 2 < 2(x^2 - x + 1)$. We split this into two independent quadratic conditions: First, $-3x^2 + 3x - 3 < x^2 + mx - 2 \\implies 4x^2 + (m - 3)x + 1 > 0$. For this quadratic to be strictly positive everywhere, its leading coefficient $4 > 0$ is satisfied and its discriminant must be strictly negative: $D_1 = (m - 3)^2 - 4(4)(1) < 0 \\implies (m - 3)^2 < 16 \\implies -4 < m - 3 < 4 \\implies -1 < m < 7$. Second, $x^2 + mx - 2 < 2x^2 - 2x + 2 \\implies x^2 - (m + 2)x + 4 > 0$. For this quadratic to remain strictly positive for all $x \\in \\mathbb{R}$, its discriminant must also be strictly negative: $D_2 = (m + 2)^2 - 4(1)(4) < 0 \\implies (m + 2)^2 < 16 \\implies -4 < m + 2 < 4 \\implies -6 < m < 2$. Taking the intersection of both parameter intervals yields $(-1, 7) \\cap (-6, 2) = (-1, 2)$. Taking the union instead gives $(-6, 7)$, while satisfying only one branch produces $(-1, 7)$ or $(-6, 2)$."
+    },
+    {
+      "id": "li_c01_037",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Consider the convex polygonal feasible region $\\mathcal{P}$ in the $xy$-plane defined by the system of linear inequalities $x \\ge 0$, $y \\ge 0$, $x + 2y \\ge 4$, $x + y \\le 6$, and $3x + y \\le 14$. Determine the maximum value attained by the objective function $Z = 5x + 2y$ over $\\mathcal{P}$.",
+      "options": [
+        "A) $24$",
+        "B) $\\frac{70}{3}$",
+        "C) $20$",
+        "D) $26$"
+      ],
+      "answer": "A",
+      "explanation": "We systematically determine all vertices of the convex polygon $\\mathcal{P}$ defined by the linear constraints: (1) Intersection of $x = 0$ with $x + y = 6$: gives $(0, 6)$, which satisfies $0 + 2(6) = 12 \\ge 4$ and $3(0) + 6 = 6 \\le 14$. (2) Intersection of $x = 0$ with $x + 2y = 4$: gives $(0, 2)$, which satisfies $0 + 2 \\le 6$ and $3(0) + 2 \\le 14$. (3) Intersection of $y = 0$ with $x + 2y = 4$: gives $(4, 0)$, which satisfies $4 + 0 \\le 6$ and $3(4) + 0 = 12 \\le 14$. (4) Intersection of $y = 0$ with $3x + y = 14$: gives $\\left(\\frac{14}{3}, 0\\right)$, which satisfies $\\frac{14}{3} \\ge 4$ and $\\frac{14}{3} \\le 6$. (5) Intersection of $x + y = 6$ and $3x + y = 14$: subtracting gives $2x = 8 \\implies x = 4, y = 2$. Point $(4, 2)$ satisfies $4 + 2(2) = 8 \\ge 4$. By the fundamental theorem of linear programming, we evaluate the objective function $Z = 5x + 2y$ at all five extreme points: $Z(0, 2) = 5(0) + 2(2) = 4$; $Z(0, 6) = 5(0) + 2(6) = 12$; $Z(4, 0) = 5(4) + 2(0) = 20$; $Z\\left(\\frac{14}{3}, 0\\right) = 5\\left(\\frac{14}{3}\\right) + 0 = \\frac{70}{3} \\approx 23.33$; $Z(4, 2) = 5(4) + 2(2) = 20 + 4 = 24$. Comparing these values, the maximum value is $24$. Evaluating solely along the coordinate axis intercepts yields $\\frac{70}{3}$ or $20$, missing the true optimal interior corner."
+    },
+    {
+      "id": "li_c01_038",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the real inequality $|x^2 - 4x| < 3x - 2$ for $x \\in \\mathbb{R}$. Which of the following analytical statements is/are correct regarding the solution set and its properties?",
+      "options": [
+        "A) The complete solution set is the open interval $\\left(2, \\frac{7 + \\sqrt{41}}{2}\\right)$",
+        "B) The total number of integer solutions satisfying the inequality is $4$",
+        "C) The sum of all integer solutions is $20$",
+        "D) The inequality holds true for the integer value $x = 1$"
+      ],
+      "answer": "A,B",
+      "explanation": "Because the absolute value $|x^2 - 4x|$ is non-negative, the inequality demands $3x - 2 > 0 \\implies x > \\frac{2}{3}$. Unfolding the absolute value produces the simultaneous system: $-(3x - 2) < x^2 - 4x < 3x - 2$. Solving the right branch: $x^2 - 4x < 3x - 2 \\implies x^2 - 7x + 2 < 0$. The roots of the quadratic equation $x^2 - 7x + 2 = 0$ are $x = \\frac{7 \\pm \\sqrt{49 - 8}}{2} = \\frac{7 \\pm \\sqrt{41}}{2}$. Since $\\sqrt{41} \\approx 6.403$, the roots are approximately $0.298$ and $6.702$. Thus, $x \\in \\left(\\frac{7 - \\sqrt{41}}{2}, \\frac{7 + \\sqrt{41}}{2}\\right)$. Solving the left branch: $x^2 - 4x > -3x + 2 \\implies x^2 - x - 2 > 0 \\implies (x - 2)(x + 1) > 0$. This requires $x > 2$ or $x < -1$. Intersecting with $x > \\frac{2}{3}$ eliminates $x < -1$. Since $\\frac{7 - \\sqrt{41}}{2} \\approx 0.298 < 2$, the intersection with $x > 2$ yields $x \\in \\left(2, \\frac{7 + \\sqrt{41}}{2}\\right)$. The integers in this interval $(2, 6.702)$ are $\\{3, 4, 5, 6\\}$, giving exactly $4$ integers. Their sum is $3 + 4 + 5 + 6 = 18 \\ne 20$. Testing $x = 1$ yields $|1 - 4| = 3 < 3(1) - 2 = 1$, which is false."
+    },
+    {
+      "id": "li_c01_039",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $\\mathcal{S}$ denote the closed convex polygonal region in the Cartesian coordinate plane defined by the system of linear inequalities $x - y + 1 \\ge 0$, $2x + y - 4 \\le 0$, $x \\ge -1$, and $y \\ge -2$. Which of the following statements is/are TRUE?",
+      "options": [
+        "A) The area of the polygonal region $\\mathcal{S}$ is $12$ square units",
+        "B) The area of the polygonal region $\\mathcal{S}$ is $10$ square units",
+        "C) The maximum value attained by the linear function $Z = 3x + 2y$ over $\\mathcal{S}$ is $7$",
+        "D) The origin $(0, 0)$ lies strictly in the interior of the region $\\mathcal{S}$"
+      ],
+      "answer": "B,C,D",
+      "explanation": "We determine the vertices of the closed polygon $\\mathcal{S}$ by finding the pairwise intersections of the boundary lines: (1) Intersection of $x = -1$ and $y = -2$: yields $A(-1, -2)$, which satisfies $-1 - (-2) + 1 = 2 \\ge 0$ and $2(-1) - 2 - 4 = -8 \\le 0$. (2) Intersection of $x = -1$ and $x - y + 1 = 0$: yields $D(-1, 0)$, which satisfies $2(-1) + 0 - 4 = -6 \\le 0$ and $0 \\ge -2$. (3) Intersection of $x - y + 1 = 0$ and $2x + y - 4 = 0$: adding gives $3x - 3 = 0 \\implies x = 1, y = 2$, yielding $C(1, 2)$, which satisfies $1 \\ge -1, 2 \\ge -2$. (4) Intersection of $2x + y - 4 = 0$ and $y = -2$: gives $2x - 2 = 4 \\implies x = 3, y = -2$, yielding $B(3, -2)$, which satisfies $3 - (-2) + 1 = 6 \\ge 0$ and $3 \\ge -1$. The polygon is a quadrilateral with vertices in cyclic order $A(-1, -2), B(3, -2), C(1, 2), D(-1, 0)$. Applying the surveyor's shoelace formula: $2 \\times \\text{Area} = |(-1)(-2) - (-2)(3) + 3(2) - (-2)(1) + 1(0) - 2(-1) + (-1)(-2) - 0(-1)| = |8 + 8 + 2 + 2| = 20 \\implies \\text{Area} = 10$. Evaluating $Z = 3x + 2y$ at each vertex: $Z(-1, -2) = -7$; $Z(3, -2) = 5$; $Z(1, 2) = 3(1) + 2(2) = 7$; $Z(-1, 0) = -3$. The maximum value is $7$. Testing the origin $(0, 0)$: $0 - 0 + 1 = 1 > 0$, $2(0) + 0 - 4 = -4 < 0$, $0 > -1$, and $0 > -2$, so $(0, 0)$ satisfies all four inequalities strictly and lies in the interior."
+    },
+    {
+      "id": "li_c01_040",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $S$ denote the set of all real numbers $a$ for which the rational quadratic-linear inequality $\\frac{x^2 - 8x + 20}{a x^2 + 2(a + 1)x + 9a + 4} < 0$ holds true for every $x \\in \\mathbb{R}$. Which of the following analytical assertions is/are correct?",
+      "options": [
+        "A) The parameter set is given by $S = \\left(-\\infty, -\\frac{1}{2}\\right)$",
+        "B) The parameter set is given by $S = \\left(-\\frac{1}{2}, \\frac{1}{4}\\right)$",
+        "C) The value $a = -1$ belongs to the set $S$",
+        "D) The value $a = 0$ belongs to the set $S$"
+      ],
+      "answer": "A,C",
+      "explanation": "Examining the numerator: $x^2 - 8x + 20 = (x - 4)^2 + 4 > 0$ for all real numbers $x \\in \\mathbb{R}$. Because the numerator is strictly positive everywhere, the rational fraction is strictly negative for all $x \\in \\mathbb{R}$ if and only if the denominator is strictly negative everywhere: $P(x) = a x^2 + 2(a + 1)x + (9a + 4) < 0$ for all $x \\in \\mathbb{R}$. If $a = 0$, $P(x) = 2x + 4$, which changes sign on $\\mathbb{R}$ and is not negative everywhere; hence $a = 0 \\notin S$. For $a \\ne 0$, a quadratic polynomial is strictly negative for all real $x$ if and only if its leading coefficient is negative ($a < 0$) and its discriminant is strictly negative: $\\frac{D}{4} = (a + 1)^2 - a(9a + 4) < 0$. Expanding gives $a^2 + 2a + 1 - 9a^2 - 4a < 0 \\implies -8a^2 - 2a + 1 < 0 \\implies 8a^2 + 2a - 1 > 0$. Factoring the quadratic: $(4a - 1)(2a + 1) > 0$. The roots are $a = \\frac{1}{4}$ and $a = -\\frac{1}{2}$. The inequality holds for $a < -\\frac{1}{2}$ or $a > \\frac{1}{4}$. Intersecting with the condition $a < 0$ yields $a \\in \\left(-\\infty, -\\frac{1}{2}\\right)$. Since $-1 < -\\frac{1}{2}$, $a = -1 \\in S$."
+    },
+    {
+      "id": "li_c01_041",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Find the total number of integer coordinate pairs $(x, y) \\in \\mathbb{Z} \\times \\mathbb{Z}$ that satisfy the simultaneous system of inequalities $|x| + |y| \\le 4$ and $x - y \\ge 2$.",
+      "options": [
+        "A) $12$",
+        "B) $14$",
+        "C) $16$",
+        "D) $18$"
+      ],
+      "answer": "B",
+      "explanation": "We rewrite the second inequality as $y \\le x - 2$. From $|x| + |y| \\le 4$, we deduce $-4 \\le x \\le 4$ and $-(4 - |x|) \\le y \\le 4 - |x|$. Combining these constraints, for each integer $x \\in [-4, 4]$, the integer $y$ must satisfy: $|x| - 4 \\le y \\le \\min(4 - |x|, x - 2)$. We systematically enumerate integer solutions for each $x$: For $x = -4$: $|-4| - 4 = 0 \\le y \\le \\min(0, -6) = -6$, no solutions. For $x = -3$: $-1 \\le y \\le -5$, no solutions. For $x = -2$: $-2 \\le y \\le -4$, no solutions. For $x = -1$: $-3 \\le y \\le \\min(3, -3) = -3 \\implies y = -3$ ($1$ pair: $(-1, -3)$). For $x = 0$: $-4 \\le y \\le \\min(4, -2) = -2 \\implies y \\in \\{-4, -3, -2\\}$ ($3$ pairs). For $x = 1$: $-3 \\le y \\le \\min(3, -1) = -1 \\implies y \\in \\{-3, -2, -1\\}$ ($3$ pairs). For $x = 2$: $-2 \\le y \\le \\min(2, 0) = 0 \\implies y \\in \\{-2, -1, 0\\}$ ($3$ pairs). For $x = 3$: $-1 \\le y \\le \\min(1, 1) = 1 \\implies y \\in \\{-1, 0, 1\\}$ ($3$ pairs). For $x = 4$: $0 \\le y \\le \\min(0, 2) = 0 \\implies y = 0$ ($1$ pair: $(4, 0)$). Summing the counts: $1 + 3 + 3 + 3 + 3 + 1 = 14$ pairs. Missing boundary lattice points on the line $x - y = 2$ gives $12$, while ignoring the absolute value bound gives $16$."
+    },
+    {
+      "id": "li_c01_042",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $f(x) = \\frac{|x - 1| - 2}{|x + 2| - 3}$. Consider the inequality $f(x) \\le 0$ for $x \\in \\mathbb{R}$. Which of the following analytical assertions is/are correct?",
+      "options": [
+        "A) The complete solution set is $(-5, -1] \\cup (1, 3]$",
+        "B) The number of integer solutions satisfying the inequality is $6$",
+        "C) The value $x = 1$ is a valid solution to the inequality",
+        "D) The sum of all integer solutions satisfying the inequality is $-5$"
+      ],
+      "answer": "A,B,D",
+      "explanation": "First, determine the domain by finding where the denominator vanishes: $|x + 2| - 3 = 0 \\implies |x + 2| = 3 \\implies x + 2 = 3$ or $x + 2 = -3$. This gives poles at $x = 1$ and $x = -5$. Next, find the roots of the numerator: $|x - 1| - 2 = 0 \\implies |x - 1| = 2 \\implies x = 3$ or $x = -1$. Arranging all critical points in ascending order: $-5, -1, 1, 3$. Testing sign intervals: For $x > 3$: numerator $> 0$, denominator $> 0$, so $f(x) > 0$. For $1 < x \\le 3$: testing $x = 2$ gives numerator $|1| - 2 = -1 < 0$, denominator $|4| - 3 = 1 > 0$, so $f(x) \\le 0$, yielding $(1, 3]$. For $-1 \\le x < 1$: testing $x = 0$ gives numerator $-1 < 0$, denominator $-1 < 0$, so $f(x) > 0$, except $f(-1) = 0$. For $-5 < x \\le -1$: testing $x = -2$ gives numerator $|-3| - 2 = 1 > 0$, denominator $|0| - 3 = -3 < 0$, so $f(x) \\le 0$, yielding $(-5, -1]$. For $x < -5$: testing $x = -6$ gives numerator $> 0$, denominator $> 0$, so $f(x) > 0$. Combining valid regions yields $(-5, -1] \\cup (1, 3]$. The integer solutions in this set are $\\{-4, -3, -2, -1, 2, 3\\}$. There are exactly $6$ integers. Their sum is $(-4) + (-3) + (-2) + (-1) + 2 + 3 = -5$. The point $x = 1$ is excluded because it causes division by zero."
+    },
+    {
+      "id": "li_c01_043",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $\\mathcal{R}$ be the closed planar region defined by the simultaneous system of linear inequalities $|x + y| \\le 2$ and $|x - y| \\le 2$. Which of the following geometric statements is/are TRUE?",
+      "options": [
+        "A) The region $\\mathcal{R}$ defines a rectangle with area equal to $16$ square units",
+        "B) The region $\\mathcal{R}$ defines a square with area equal to $8$ square units",
+        "C) The maximum value of $x^2 + y^2$ over $\\mathcal{R}$ is $8$",
+        "D) The maximum value of $x^2 + y^2$ over $\\mathcal{R}$ is $4$"
+      ],
+      "answer": "B,D",
+      "explanation": "Let $u = x + y$ and $v = x - y$. In the $(u, v)$ coordinate plane, the inequalities $|u| \\le 2$ and $|v| \\le 2$ define a square $[-2, 2] \\times [-2, 2]$ of area $4 \\times 4 = 16$. Transforming back to $(x, y)$ coordinates: $x = \\frac{u + v}{2}$ and $y = \\frac{u - v}{2}$. The vertices in $(u, v)$ are $(\\pm 2, \\pm 2)$: (1) $(2, 2) \\implies (x, y) = (2, 0)$. (2) $(2, -2) \\implies (x, y) = (0, 2)$. (3) $(-2, 2) \\implies (x, y) = (0, -2)$. (4) $(-2, -2) \\implies (x, y) = (-2, 0)$. In the $xy$-plane, the region is a square rotated by $45^\\circ$ with vertices $(2, 0), (0, 2), (-2, 0)$, and $(0, -2)$. The side length of this square is $s = \\sqrt{2^2 + 2^2} = \\sqrt{8} = 2\\sqrt{2}$. The area of the square is $s^2 = 8$ square units. Alternatively, the Jacobian of the linear transformation from $(u, v)$ to $(x, y)$ is $|\\det J| = \\left|\\frac{1}{2}\\left(-\\frac{1}{2}\\right) - \\frac{1}{2}\\left(\\frac{1}{2}\\right)\\right| = \\frac{1}{2}$, giving $\\text{Area} = 16 \\times \\frac{1}{2} = 8$. The distance from the origin to any point in the square is maximized at the vertices: $x^2 + y^2 = 2^2 + 0^2 = 4$. Forgetting the transformation Jacobian erroneously gives an area of $16$, while confusing vertices with $(2, 2)$ yields an incorrect maximum distance squared of $8$."
+    },
+    {
+      "id": "li_c01_044",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $S$ denote the set of all real numbers $k$ for which the simultaneous system of inequalities $|x - 1| \\le 2$ and $|x - k| \\le 3$ has at least one common real solution. Which of the following analytical assertions is/are correct?",
+      "options": [
+        "A) The parameter set is the closed interval $S = [-4, 6]$",
+        "B) The total number of integer values of $k$ belonging to $S$ is $10$",
+        "C) The total number of integer values of $k$ belonging to $S$ is $11$",
+        "D) For $k = 6$, the intersection of the two solution sets consists of the singleton $\\{3\\}$"
+      ],
+      "answer": "A,C,D",
+      "explanation": "Solving the first inequality: $|x - 1| \\le 2 \\implies -2 \\le x - 1 \\le 2 \\implies -1 \\le x \\le 3$. This gives the closed interval $I_1 = [-1, 3]$. Solving the second inequality: $|x - k| \\le 3 \\implies -3 \\le x - k \\le 3 \\implies k - 3 \\le x \\le k + 3$. This gives the closed interval $I_2 = [k - 3, k + 3]$. Two non-empty closed intervals $[a, b]$ and $[c, d]$ have a non-empty intersection if and only if the left endpoint of each is less than or equal to the right endpoint of the other: $c \\le b$ and $a \\le d$. Applying this criterion to $I_1$ and $I_2$: $k - 3 \\le 3 \\implies k \\le 6$, and $-1 \\le k + 3 \\implies k \\ge -4$. Combining both inequalities yields $k \\in [-4, 6]$, so $S = [-4, 6]$. The integer values of $k$ in $[-4, 6]$ are $\\{-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6\\}$. Counting these integers gives $6 - (-4) + 1 = 11$ integers. When $k = 6$, $I_2 = [3, 9]$, so $I_1 \\cap I_2 = [-1, 3] \\cap [3, 9] = \\{3\\}$, which is a single isolated point."
+    },
+    {
+      "id": "li_c01_045",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Determine the minimum value attained by the non-linear objective function $f(x, y) = \\max(|x|, |y|)$ subject to the linear inequality constraint $2x + 3y \\ge 15$ for non-negative real numbers $x \\ge 0$ and $y \\ge 0$.",
+      "options": [
+        "A) $2$",
+        "B) $\\frac{5}{2}$",
+        "C) $3$",
+        "D) $\\frac{15}{4}$"
+      ],
+      "answer": "C",
+      "explanation": "Since $x \\ge 0$ and $y \\ge 0$, we have $|x| = x$ and $|y| = y$, so $f(x, y) = \\max(x, y)$. Let $M = \\max(x, y)$. By definition, $x \\le M$ and $y \\le M$. We wish to find the infimum of $M$ such that there exists a pair $(x, y)$ in the first quadrant satisfying $x \\le M$, $y \\le M$, and $2x + 3y \\ge 15$. For any fixed value $M > 0$, the maximum possible value of the linear expression $2x + 3y$ inside the square region $[0, M] \\times [0, M]$ is attained at the upper-right corner $(M, M)$, yielding $2M + 3M = 5M$. For the constraint $2x + 3y \\ge 15$ to be satisfied by at least one feasible point in the square, we must have $5M \\ge 15 \\implies M \\ge 3$. Setting $M = 3$, the point $(3, 3)$ satisfies $x \\le 3, y \\le 3$ and $2(3) + 3(3) = 6 + 9 = 15 \\ge 15$. At this point, $\\max(|3|, |3|) = 3$. Hence, the minimum value is $3$. Minimizing along the axes gives $x = \\frac{15}{2}$ or $y = 5$, while taking the arithmetic midpoint of coordinates produces $\\frac{15}{4}$."
+    },
+    {
+      "id": "li_c01_046",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the real inequality $\\frac{|x + 3| - 1}{|2x - 1| - 3} \\ge 0$ over the real numbers $\\mathbb{R}$. Which of the following statements is/are correct regarding the solution set?",
+      "options": [
+        "A) The complete solution set is $(-\\infty, -4] \\cup [-2, -1) \\cup (2, \\infty)$",
+        "B) The points $x = -4$ and $x = -2$ are boundary points belonging to the solution set",
+        "C) The inequality is not satisfied by any real number in the open interval $(-1, 2)$",
+        "D) The value $x = 0$ is a valid solution to the inequality"
+      ],
+      "answer": "A,B,C",
+      "explanation": "First, find the domain restrictions by solving $|2x - 1| - 3 = 0 \\implies |2x - 1| = 3 \\implies 2x - 1 = 3 \\implies x = 2$, or $2x - 1 = -3 \\implies x = -1$. These poles $x = -1$ and $x = 2$ must be strictly excluded. The denominator $|2x - 1| - 3 > 0$ for $x \\in (-\\infty, -1) \\cup (2, \\infty)$, and $|2x - 1| - 3 < 0$ for $x \\in (-1, 2)$. Next, the roots of the numerator are given by $|x + 3| - 1 = 0 \\implies |x + 3| = 1 \\implies x = -2$ or $x = -4$. The numerator is non-negative for $x \\in (-\\infty, -4] \\cup [-2, \\infty)$, and negative on $(-4, -2)$. Arranging critical points in ascending order: $-4, -2, -1, 2$. Determining the sign of the quotient: For $x > 2$: Num $> 0$, Den $> 0 \\implies \\ge 0$ (valid on $(2, \\infty)$). For $-1 < x < 2$: Num $> 0$, Den $< 0 \\implies < 0$ (invalid, no solutions in $(-1, 2)$). For $-2 \\le x < -1$: Num $\\ge 0$, Den $> 0 \\implies \\ge 0$ (valid on $[-2, -1)$). For $-4 < x < -2$: Num $< 0$, Den $> 0 \\implies < 0$. At $x = -4$ and $x = -2$: Num $= 0$, Den $> 0 \\implies 0$ (valid). For $x < -4$: Num $> 0$, Den $> 0 \\implies \\ge 0$ (valid on $(-\\infty, -4)$). Uniting all valid sets yields $(-\\infty, -4] \\cup [-2, -1) \\cup (2, \\infty)$. Testing $x = 0$: numerator is $|3| - 1 = 2 > 0$, denominator is $|-1| - 3 = -2 < 0$, giving quotient $-1 < 0$."
+    },
+    {
+      "id": "li_c01_047",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be defined by $f(x) = |x - 2| + |x - 5| + |x - 9| + |x - 14|$. Which of the following analytical assertions is/are correct regarding the extrema and level sets of $f(x)$?",
+      "options": [
+        "A) The minimum value attained by $f(x)$ over $\\mathbb{R}$ is $16$",
+        "B) The minimum value of $f(x)$ is achieved at a unique point $x = 7$",
+        "C) The equation $f(x) = 16$ has exactly two distinct real roots",
+        "D) The set of all real numbers $x$ for which $f(x) = 16$ is the closed interval $[5, 9]$"
+      ],
+      "answer": "A,D",
+      "explanation": "We analyze the piece-wise linear convex function $f(x) = \\sum_{i=1}^4 |x - a_i|$ with ordered points $a_1 = 2, a_2 = 5, a_3 = 9, a_4 = 14$. For an even number of nodes $2m = 4$, the function attains its global minimum over the entire median interval $[a_2, a_3] = [5, 9]$. We pair the terms symmetrically: $|x - 2| + |x - 14| \\ge |(x - 2) - (x - 14)| = 12$, with equality holding for all $x \\in [2, 14]$. Similarly, $|x - 5| + |x - 9| \\ge |(x - 5) - (x - 9)| = 4$, with equality holding for all $x \\in [5, 9]$. Adding these two triangle inequalities: $f(x) \\ge 12 + 4 = 16$. Simultaneous equality holds on the intersection $[2, 14] \\cap [5, 9] = [5, 9]$. For any $x \\in [5, 9]$, $f(x) = (x - 2) + (x - 5) + (9 - x) + (14 - x) = 16$. For $x > 9$, the slope of $f(x)$ is $+2$ or $+4$, so $f(x) > 16$. For $x < 5$, the slope of $f(x)$ is $-2$ or $-4$, so $f(x) > 16$. Therefore, the minimum value is $16$ and the solution set to $f(x) = 16$ is the continuous closed interval $[5, 9]$, which contains infinitely many points."
+    },
+    {
+      "id": "li_c01_048",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Find the complete range of the non-negative real parameter $\\lambda \\ge 0$ such that the system of linear inequalities $2x + 3y \\le 12$, $x \\ge 0$, $y \\ge 0$, and $y \\ge \\lambda x$ defines a bounded triangular region in the first quadrant with area greater than or equal to $4$ square units.",
+      "options": [
+        "A) $\\left[0, \\frac{2}{3}\\right]$",
+        "B) $\\left[\\frac{4}{3}, \\infty\\right)$",
+        "C) $[0, 1]$",
+        "D) $\\left[0, \\frac{4}{3}\\right]$"
+      ],
+      "answer": "D",
+      "explanation": "In the first quadrant ($x \\ge 0, y \\ge 0$), the region bounded by $x \\ge 0$ (the $y$-axis), the ray $y = \\lambda x$, and the line $2x + 3y = 12$ forms a triangle. Its vertices are: (1) The origin $(0, 0)$. (2) The $y$-intercept of the line $2x + 3y = 12$: setting $x = 0$ gives $(0, 4)$. (3) The intersection of $y = \\lambda x$ and $2x + 3y = 12$: substituting $y = \\lambda x$ yields $2x + 3\\lambda x = 12 \\implies x = \\frac{12}{2 + 3\\lambda}$. The triangle has a vertical base along the $y$-axis from $(0, 0)$ to $(0, 4)$, so the length of the base is $b = 4$. The height of the triangle corresponding to this base is the horizontal distance from the $y$-axis to the third vertex, which is the $x$-coordinate $h = \\frac{12}{2 + 3\\lambda}$. The area of the triangle is $\\text{Area} = \\frac{1}{2} \\times b \\times h = \\frac{1}{2} \\times 4 \\times \\frac{12}{2 + 3\\lambda} = \\frac{24}{2 + 3\\lambda}$. We require $\\text{Area} \\ge 4$: $\\frac{24}{2 + 3\\lambda} \\ge 4 \\implies 2 + 3\\lambda \\le 6 \\implies 3\\lambda \\le 4 \\implies \\lambda \\le \\frac{4}{3}$. Since $\\lambda \\ge 0$, the allowable range is $\\left[0, \\frac{4}{3}\\right]$. Reversing the inequality yields $\\left[\\frac{4}{3}, \\infty\\right)$, while forgetting the factor of $2$ in the denominator produces $\\left[0, \\frac{2}{3}\\right]$."
+    },
+    {
+      "id": "li_c01_049",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Find the total number of integer coordinate pairs $(x, y) \\in \\mathbb{Z} \\times \\mathbb{Z}$ satisfying the simultaneous system of linear inequalities $|x| \\le 2$, $|y| \\le 2$, and $|x - y| \\le 1$.",
+      "options": [],
+      "answer": "13",
+      "explanation": "The condition $|x| \\le 2$ restricts the integer $x$ to the set $\\{-2, -1, 0, 1, 2\\}$. The condition $|y| \\le 2$ restricts the integer $y$ to $\\{-2, -1, 0, 1, 2\\}$. The third inequality $|x - y| \\le 1$ translates to $x - 1 \\le y \\le x + 1$. We systematically count the allowable integer values of $y$ for each possible value of $x$: For $x = -2$: $y \\in [-3, -1] \\cap [-2, 2] = \\{-2, -1\\}$, yielding $2$ pairs: $(-2, -2), (-2, -1)$. For $x = -1$: $y \\in [-2, 0] \\cap [-2, 2] = \\{-2, -1, 0\\}$, yielding $3$ pairs: $(-1, -2), (-1, -1), (-1, 0)$. For $x = 0$: $y \\in [-1, 1] \\cap [-2, 2] = \\{-1, 0, 1\\}$, yielding $3$ pairs: $(0, -1), (0, 0), (0, 1)$. For $x = 1$: $y \\in [0, 2] \\cap [-2, 2] = \\{0, 1, 2\\}$, yielding $3$ pairs: $(1, 0), (1, 1), (1, 2)$. For $x = 2$: $y \\in [1, 3] \\cap [-2, 2] = \\{1, 2\\}$, yielding $2$ pairs: $(2, 1), (2, 2)$. Summing the valid pairs across all values of $x$: $2 + 3 + 3 + 3 + 2 = 13$ pairs."
+    },
+    {
+      "id": "li_c01_050",
+      "subject": "Mathematics",
+      "topic": "Linear Inequalities",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Determine the exact area of the closed convex polygonal region formed by all points $(x, y) \\in \\mathbb{R}^2$ satisfying the inequality $|x + y| + |x - y| \\le 5$.",
+      "options": [],
+      "answer": "25",
+      "explanation": "We analyze the inequality $|x + y| + |x - y| \\le 5$. Because replacing $x$ with $-x$ or $y$ with $-y$ preserves the value of $|x + y| + |x - y|$, the region possesses four-fold reflection symmetry about both the $x$-axis and the $y$-axis. In the first quadrant where $x \\ge 0$ and $y \\ge 0$: Case 1: $x \\ge y \\ge 0$. Here $x + y \\ge 0$ and $x - y \\ge 0$, so $|x + y| + |x - y| = (x + y) + (x - y) = 2x \\le 5 \\implies x \\le \\frac{5}{2}$. Combined with $0 \\le y \\le x$, this defines a triangular region with vertices $(0, 0), \\left(\\frac{5}{2}, 0\\right)$, and $\\left(\\frac{5}{2}, \\frac{5}{2}\\right)$. Case 2: $y \\ge x \\ge 0$. Here $x + y \\ge 0$ and $x - y \\le 0$, so $|x + y| + |x - y| = (x + y) + (y - x) = 2y \\le 5 \\implies y \\le \\frac{5}{2}$. Combined with $0 \\le x \\le y$, this defines a triangular region with vertices $(0, 0), \\left(0, \\frac{5}{2}\\right)$, and $\\left(\\frac{5}{2}, \\frac{5}{2}\\right)$. The union of these two triangular regions in the first quadrant forms the square $\\left[0, \\frac{5}{2}\\right] \\times \\left[0, \\frac{5}{2}\\right]$ of area $\\frac{5}{2} \\times \\frac{5}{2} = \\frac{25}{4}$. By symmetry across all four quadrants, the complete feasible region is the axis-aligned square $\\left[-\\frac{5}{2}, \\frac{5}{2}\\right] \\times \\left[-\\frac{5}{2}, \\frac{5}{2}\\right]$. The side length of this square is $\\frac{5}{2} - \\left(-\\frac{5}{2}\\right) = 5$. Thus, the total area is $5 \\times 5 = 25$ square units. Alternatively, in rotated coordinates $u = x + y, v = x - y$, the region is $|u| + |v| \\le 5$ with diamond area $\\frac{1}{2}(10)(10) = 50$, and scaling by the Jacobian determinant $|\\det J| = \\frac{1}{2}$ gives $\\frac{1}{2} \\times 50 = 25$."
+    }
+  ]
+}

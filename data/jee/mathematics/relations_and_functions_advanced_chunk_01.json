@@ -1,0 +1,804 @@
+{
+  "questions": [
+    {
+      "id": "rfa_c01_001",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $A = \\{1, 2, 3, 4, 5\\}$ and let $R$ be an equivalence relation on $A$. If it is given that $(1, 2) \\in R$ and $(3, 4) \\in R$, determine the minimum possible number of ordered pairs contained in $R$.",
+      "options": [
+        "A) $7$",
+        "B) $8$",
+        "C) $9$",
+        "D) $11$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Recall that an equivalence relation on a set $A$ corresponds uniquely to a partition of $A$ into disjoint equivalence classes. If an equivalence class has size $c_i$, the number of ordered pairs it contributes to the relation is $c_i^2$. Therefore, the total number of ordered pairs in $R$ is $\\sum c_i^2$. Step 2: To minimize $\\sum c_i^2$, we must keep the equivalence classes as small as possible while respecting the given constraints. The condition $(1, 2) \\in R$ implies that $1$ and $2$ belong to the same equivalence class, so that class has size at least $2$. Similarly, $(3, 4) \\in R$ implies that $3$ and $4$ share an equivalence class of size at least $2$. The element $5$ can form its own singleton class $\\{5\\}$. Step 3: By keeping $\\{1, 2\\}$, $\\{3, 4\\}$, and $\\{5\\}$ disjoint, we obtain the minimal partition. The corresponding number of ordered pairs is $2^2 + 2^2 + 1^2 = 4 + 4 + 1 = 9$. Merging the classes yields $4^2 + 1^2 = 17$ pairs, and neglecting reflexivity pairs $(5, 5)$ leads to undercounting distractors such as $7$ or $8$."
+    },
+    {
+      "id": "rfa_c01_002",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the exact range of the real-valued rational function $f(x) = \\frac{x^2 - 2x + 4}{x^2 + 2x + 4}$ defined for all real numbers $x \\in \\mathbb{R}$.",
+      "options": [
+        "A) $\\left[\\frac{1}{3}, 3\\right]$",
+        "B) $\\left[\\frac{1}{4}, 4\\right]$",
+        "C) $\\left[\\frac{1}{2}, 2\\right]$",
+        "D) $(0, \\infty)$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Set $y = \\frac{x^2 - 2x + 4}{x^2 + 2x + 4}$. Because the denominator has discriminant $\\Delta = 2^2 - 4(1)(4) = -12 < 0$, $x^2 + 2x + 4 > 0$ for all real $x$, and the domain of $f$ is all of $\\mathbb{R}$. Multiplying out yields $y(x^2 + 2x + 4) = x^2 - 2x + 4$, which rearranges into the quadratic in $x$: $(y - 1)x^2 + 2(y + 1)x + 4(y - 1) = 0$. Step 2: Since $x \\in \\mathbb{R}$, this quadratic equation must have a non-negative discriminant $\\Delta_x \\ge 0$. Evaluating $\\frac{\\Delta_x}{4} = [2(y+1)/2]^2 - (y-1)[4(y-1)] = (y+1)^2 - 4(y-1)^2$. Factoring using the difference of squares gives $[(y + 1) - 2(y - 1)][(y + 1) + 2(y - 1)] = (3 - y)(3y - 1) \\ge 0$. Step 3: Solving $(3 - y)(3y - 1) \\ge 0$ yields $(y - 3)(3y - 1) \\le 0$, which implies $y \\in \\left[\\frac{1}{3}, 3\\right]$. For $y = 1$, the quadratic reduces to $4x = 0 \\implies x = 0$, which is a valid real solution. Therefore, the complete range is $\\left[\\frac{1}{3}, 3\\right]$. Inverting the signs in the discriminant leads to distractor C, while omitting the quadratic coefficient factor produces distractor B."
+    },
+    {
+      "id": "rfa_c01_003",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $S = \\{1, 2, 3, 4\\}$. Determine the total number of distinct equivalence relations that can be defined on the set $S$.",
+      "options": [],
+      "answer": "15",
+      "explanation": "Step 1: An equivalence relation on a finite set $S$ corresponds bijectively to a set partition of $S$. The number of partitions of an $n$-element set is given by the Bell number $B_n$. Step 2: We classify the partitions of a $4$-element set by their integer partition structures: 1) One block of size $4$: $\\binom{4}{4} = 1$ partition. 2) Two blocks of sizes $3+1$: $\\binom{4}{3} = 4$ partitions. 3) Two blocks of sizes $2+2$: $\\frac{1}{2!}\\binom{4}{2}\\binom{2}{2} = \\frac{6}{2} = 3$ partitions. 4) Three blocks of sizes $2+1+1$: $\\frac{1}{2!}\\binom{4}{2}\\binom{2}{1}\\binom{1}{1} = \\frac{6 \\times 2}{2} = 6$ partitions. 5) Four blocks of size $1$: $1$ partition. Step 3: Summing all possible partitions yields $1 + 4 + 3 + 6 + 1 = 15$. Hence, there are exactly $15$ distinct equivalence relations on $S$."
+    },
+    {
+      "id": "rfa_c01_004",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the real-valued function $f: \\mathbb{R} \\to \\mathbb{R}$ defined by $f(x) = \\frac{e^x - e^{-x}}{e^x + e^{-x}} + x^3 + 5x$. Which of the following statements correctly describes the mapping properties of $f$?",
+      "options": [
+        "A) One-one and into",
+        "B) One-one and onto",
+        "C) Many-one and onto",
+        "D) Many-one and into"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Differentiating $f(x)$ with respect to $x$: the first term is $\\tanh(x)$, whose derivative is $\\operatorname{sech}^2(x) = 1 - \\tanh^2(x)$. Thus $f'(x) = \\operatorname{sech}^2(x) + 3x^2 + 5$. Step 2: Since $\\operatorname{sech}^2(x) > 0$ and $3x^2 \\ge 0$ for all real $x$, we have $f'(x) \\ge 0 + 0 + 5 = 5 > 0$ everywhere on $\\mathbb{R}$. Because the derivative is strictly positive throughout its domain, $f(x)$ is strictly increasing on $\\mathbb{R}$, which implies that $f$ is strictly one-one (injective). Step 3: Examining the end behavior: as $x \\to \\infty$, $\\tanh(x) \\to 1$ and $x^3 + 5x \\to \\infty$, so $\\lim_{x \\to \\infty} f(x) = \\infty$. Similarly, as $x \\to -\\infty$, $\\tanh(x) \\to -1$ and $x^3 + 5x \\to -\\infty$, so $\\lim_{x \\to -\\infty} f(x) = -\\infty$. Since $f$ is continuous on $\\mathbb{R}$, by the Intermediate Value Theorem its range is $(-\\infty, \\infty) = \\mathbb{R}$. Hence $f$ is onto (surjective). Therefore, $f$ is one-one and onto (bijective). Mistaking the bounded nature of the hyperbolic tangent term for an overall bounded range leads to distractor A."
+    },
+    {
+      "id": "rfa_c01_005",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $R_1$ and $R_2$ be two equivalence relations on a non-empty set $A$. Consider the composite relations $S = R_1 \\cap R_2$ and $T = R_1 \\cup R_2$. Which statement accurately characterizes $S$ and $T$ on $A$?",
+      "options": [
+        "A) Both $S$ and $T$ are necessarily equivalence relations on $A$",
+        "B) $S$ is necessarily an equivalence relation, whereas $T$ is always reflexive and symmetric but need not be transitive",
+        "C) $T$ is necessarily an equivalence relation, whereas $S$ need not be transitive",
+        "D) Neither $S$ nor $T$ is necessarily an equivalence relation on $A$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Check $S = R_1 \\cap R_2$. For reflexivity, for every $a \\in A$, $(a, a) \\in R_1$ and $(a, a) \\in R_2$, hence $(a, a) \\in S$. For symmetry, if $(a, b) \\in S$, then $(a, b) \\in R_1 \\implies (b, a) \\in R_1$ and $(a, b) \\in R_2 \\implies (b, a) \\in R_2$, so $(b, a) \\in S$. For transitivity, if $(a, b) \\in S$ and $(b, c) \\in S$, both pairs belong to $R_1$ (hence $(a, c) \\in R_1$) and to $R_2$ (hence $(a, c) \\in R_2$), showing $(a, c) \\in S$. Thus $S$ is always an equivalence relation. Step 2: Check $T = R_1 \\cup R_2$. Reflexivity and symmetry hold immediately. However, transitivity can fail: let $A = \\{1, 2, 3\\}$, $R_1 = \\{(1,1), (2,2), (3,3), (1,2), (2,1)\\}$ and $R_2 = \\{(1,1), (2,2), (3,3), (2,3), (3,2)\\}$. In $T = R_1 \\cup R_2$, we have $(1, 2) \\in T$ and $(2, 3) \\in T$, but $(1, 3) \\notin T$. Thus $T$ is not transitive in general. Step 3: Therefore, $S$ is an equivalence relation whereas $T$ need not be transitive. Overlooking the counterexample in the union leads to distractor A, while assuming intersection loses transitivity leads to distractor C."
+    },
+    {
+      "id": "rfa_c01_006",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the exact natural domain of the real-valued function $f(x) = \\sqrt{\\log_{0.5}\\left(\\frac{x-1}{x+5}\\right)} + \\frac{1}{\\sqrt{x^2 - 16}}$ defined for real numbers $x$.",
+      "options": [
+        "A) $(1, 4)$",
+        "B) $(-5, -4) \\cup (4, \\infty)$",
+        "C) $(4, \\infty)$",
+        "D) $[4, \\infty)$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: For the square root of the logarithm to be well-defined in $\\mathbb{R}$, we require the base-$0.5$ logarithm to be non-negative: $\\log_{0.5}\\left(\\frac{x-1}{x+5}\\right) \\ge 0$. Because the logarithmic base is $0.5 \\in (0, 1)$, inverting the inequality reverses the sign: $0 < \\frac{x-1}{x+5} \\le (0.5)^0 = 1$. Solving $\\frac{x-1}{x+5} > 0$ yields $x \\in (-\\infty, -5) \\cup (1, \\infty)$. Solving $\\frac{x-1}{x+5} \\le 1 \\implies \\frac{x-1 - (x+5)}{x+5} \\le 0 \\implies \\frac{-6}{x+5} \\le 0 \\implies x + 5 > 0 \\implies x > -5$. The intersection of $x > -5$ with $(-\\infty, -5) \\cup (1, \\infty)$ is $x \\in (1, \\infty)$. Step 2: For the second fractional radical term, the radicand in the denominator must be strictly positive: $x^2 - 16 > 0 \\implies x \\in (-\\infty, -4) \\cup (4, \\infty)$. Step 3: Finding the common intersection of $x \\in (1, \\infty)$ and $x \\in (-\\infty, -4) \\cup (4, \\infty)$ yields $(4, \\infty)$. Failing to reverse the inequality when base is less than $1$ produces distractor A, and including the zero of the denominator produces distractor D."
+    },
+    {
+      "id": "rfa_c01_007",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $A = \\{1, 2, 3, 4, 5\\}$ and $B = \\{1, 2, 3\\}$. Determine the total number of surjective (onto) functions that can be mapped from set $A$ to set $B$.",
+      "options": [],
+      "answer": "150",
+      "explanation": "Step 1: The total number of surjective functions from an $m$-element set $A$ to an $n$-element set $B$ can be computed using the principle of inclusion-exclusion: $N = \\sum_{k=0}^n (-1)^{n-k} \\binom{n}{k} k^m = n! \\, S(m, n)$, where $S(m, n)$ is the Stirling number of the second kind. Step 2: Here $m = 5$ and $n = 3$. Expanding the summation gives $N = \\binom{3}{3} 3^5 - \\binom{3}{2} 2^5 + \\binom{3}{1} 1^5 - \\binom{3}{0} 0^5 = 1 \\cdot 243 - 3 \\cdot 32 + 3 \\cdot 1 - 0$. Step 3: Computing the arithmetic: $243 - 96 + 3 = 150$. Alternatively, partitioning $5$ elements into $3$ non-empty subsets can be done as $3+1+1$ (giving $\\frac{5!}{3!1!1!2!} = 10$ partitions) or $2+2+1$ (giving $\\frac{5!}{2!2!1!2!} = 15$ partitions). Total partitions $S(5, 3) = 10 + 15 = 25$. Multiplying by $3! = 6$ arrangements yields $25 \\times 6 = 150$ surjective functions."
+    },
+    {
+      "id": "rfa_c01_008",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let the function $f: \\mathbb{R} \\to (-1, 1)$ be defined by $f(x) = \\frac{x}{1 + |x|}$. If $g: (-1, 1) \\to \\mathbb{R}$ denotes the inverse function of $f$, determine the explicit analytical formula for $g(x)$.",
+      "options": [
+        "A) $\\frac{x}{1 + |x|}$",
+        "B) $\\frac{|x|}{1 - x}$",
+        "C) $\\frac{x}{|x| - 1}$",
+        "D) $\\frac{x}{1 - |x|}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Let $y = f(x) = \\frac{x}{1 + |x|}$. Since $|x| \\ge 0$, the denominator $1 + |x| \\ge 1 > 0$, and notice that the sign of $y$ is identical to the sign of $x$. Specifically, $|y| = \\frac{|x|}{1 + |x|}$. Step 2: For $x \\ge 0$, we have $y \\ge 0$ and $|x| = x$, so $y = \\frac{x}{1 + x} \\implies y + yx = x \\implies x(1 - y) = y \\implies x = \\frac{y}{1 - y}$. For $x < 0$, we have $y < 0$ and $|x| = -x$, so $y = \\frac{x}{1 - x} \\implies y - yx = x \\implies x(1 + y) = y \\implies x = \\frac{y}{1 + y}$. Step 3: Observing that $1 - y = 1 - |y|$ when $y \\ge 0$, and $1 + y = 1 - |y|$ when $y < 0$, both branches unify elegantly into $x = \\frac{y}{1 - |y|}$ for all $y \\in (-1, 1)$. Hence, replacing the variable gives $g(x) = \\frac{x}{1 - |x|}$. Dropping the absolute value sign produces distractor B, while sign confusion leads to distractors A and C."
+    },
+    {
+      "id": "rfa_c01_009",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: [2, \\infty) \\to [1, \\infty)$ be a bijective function defined by $f(x) = x^2 - 4x + 5$. If $f^{-1}(x)$ denotes the inverse function of $f$, find the exact value of $f^{-1}(10)$.",
+      "options": [
+        "A) $5$",
+        "B) $3$",
+        "C) $-1$",
+        "D) $7$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Completing the square for $f(x)$: $f(x) = (x - 2)^2 + 1$. Since the domain is restricted to $[2, \\infty)$, $x - 2 \\ge 0$, ensuring the function is strictly increasing on $[2, \\infty)$ with range $[1, \\infty)$, and hence invertible. Step 2: To compute $f^{-1}(10)$, let $x = f^{-1}(10) \\implies f(x) = 10$. Substituting into the function yields $(x - 2)^2 + 1 = 10 \\implies (x - 2)^2 = 9$. Step 3: Taking the square root gives $x - 2 = \\pm 3$, which leads to $x = 2 + 3 = 5$ or $x = 2 - 3 = -1$. Because the domain is explicitly constrained to $x \\in [2, \\infty)$, we reject the extraneous root $x = -1$ and conclude $x = 5$. Selecting the extraneous root outside the restricted domain yields distractor C, while arithmetic errors lead to distractors B and D."
+    },
+    {
+      "id": "rfa_c01_010",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $R$ be a binary relation defined on the set of natural numbers $\\mathbb{N} = \\{1, 2, 3, \\dots\\}$ such that $(a, b) \\in R$ if and only if $a^2 - 4ab + 3b^2 = 0$. Which of the following best classifies the relation $R$?",
+      "options": [
+        "A) Reflexive and transitive but not symmetric",
+        "B) Reflexive and symmetric but not transitive",
+        "C) Reflexive but neither symmetric nor transitive",
+        "D) An equivalence relation"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Factor the defining equation: $a^2 - 4ab + 3b^2 = (a - b)(a - 3b) = 0$. Thus, $(a, b) \\in R$ if and only if $a = b$ or $a = 3b$. Step 2: Testing reflexivity: for any $a \\in \\mathbb{N}$, substituting $b = a$ yields $a = a$, which satisfies the equation. Hence $(a, a) \\in R$ for all $a \\in \\mathbb{N}$, so $R$ is reflexive. Step 3: Testing symmetry: consider the pair $(3, 1)$. Here $a = 3$ and $b = 1$, so $a = 3b$ holds, meaning $(3, 1) \\in R$. However, for $(1, 3)$, $a = 1$ and $b = 3$, so neither $1 = 3$ nor $1 = 3(3)$ holds. Thus $(1, 3) \\notin R$, showing $R$ is not symmetric. Step 4: Testing transitivity: take $(9, 3) \\in R$ (since $9 = 3 \\times 3$) and $(3, 1) \\in R$ (since $3 = 3 \\times 1$). For transitivity to hold, $(9, 1)$ must belong to $R$. But $9 \\ne 1$ and $9 \\ne 3(1) = 3$. Hence $(9, 1) \\notin R$, which proves that $R$ is not transitive. Therefore, $R$ is reflexive but neither symmetric nor transitive. Assuming transitivity holds by false chain multiplication yields distractor A."
+    },
+    {
+      "id": "rfa_c01_011",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the domain and range of the real-valued function $f(x) = \\sqrt{x^2 - 6x + 8} + \\sqrt{5x - x^2 - 6}$.",
+      "options": [
+        "A) Domain is $[2, 4]$ and Range is $[0, 2]$",
+        "B) Domain is $\\{2\\}$ and Range is $\\{0\\}$",
+        "C) Domain is $[2, 3]$ and Range is $[0, 1]$",
+        "D) Domain is $\\emptyset$ and Range is $\\emptyset$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: For $f(x)$ to be defined for real values, both expressions under the square roots must be non-negative simultaneously. The first condition requires $x^2 - 6x + 8 \\ge 0 \\implies (x - 2)(x - 4) \\ge 0$, which yields $x \\in (-\\infty, 2] \\cup [4, \\infty)$. Step 2: The second condition requires $5x - x^2 - 6 \\ge 0 \\implies x^2 - 5x + 6 \\le 0 \\implies (x - 2)(x - 3) \\le 0$, which yields $x \\in [2, 3]$. Step 3: To find the natural domain, we take the intersection of these two sets: $[(-\\infty, 2] \\cup [4, \\infty)] \\cap [2, 3]$. The only common point satisfying both intervals is the singleton point $x = 2$. Evaluating $f$ at this point gives $f(2) = \\sqrt{4 - 12 + 8} + \\sqrt{10 - 4 - 6} = 0 + 0 = 0$. Hence, the domain is the singleton set $\\{2\\}$ and the range is the singleton set $\\{0\\}$. Incorrectly taking the union instead of intersection yields distractor A, and ignoring the isolated boundary intersection yields distractor D."
+    },
+    {
+      "id": "rfa_c01_012",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a function satisfying the Cauchy functional equation $f(x + y) = f(x) + f(y)$ for all $x, y \\in \\mathbb{R}$. If $f(1) = 4$, evaluate the sum $\\sum_{r=1}^{10} f(r)$.",
+      "options": [],
+      "answer": "220",
+      "explanation": "Step 1: From the additive functional equation $f(x + y) = f(x) + f(y)$, setting $x = y = 0$ gives $f(0) = 2f(0) \\implies f(0) = 0$. Step 2: For any positive integer $r$, by standard induction, $f(r) = f(1 + 1 + \\dots + 1) = r \\cdot f(1)$. Given $f(1) = 4$, it follows directly that $f(r) = 4r$ for every integer $r$. Step 3: Evaluating the required finite series sum: $\\sum_{r=1}^{10} f(r) = \\sum_{r=1}^{10} 4r = 4 \\sum_{r=1}^{10} r$. Applying the formula for the sum of the first $n$ natural numbers: $\\sum_{r=1}^{10} r = \\frac{10 \\times 11}{2} = 55$. Multiplying gives $4 \\times 55 = 220$."
+    },
+    {
+      "id": "rfa_c01_013",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f(x) = \\frac{4^x}{4^x + 2}$. Find the exact value of the finite sum $S = \\sum_{k=1}^{2025} f\\left(\\frac{k}{2026}\\right)$.",
+      "options": [
+        "A) $1012$",
+        "B) $\\frac{2025}{4}$",
+        "C) $2025$",
+        "D) $\\frac{2025}{2}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Consider the symmetry identity $f(x) + f(1 - x)$. Substituting gives $f(1 - x) = \\frac{4^{1-x}}{4^{1-x} + 2} = \\frac{4/4^x}{4/4^x + 2} = \\frac{4}{4 + 2 \\cdot 4^x} = \\frac{2}{2 + 4^x}$. Step 2: Adding $f(x)$ and $f(1 - x)$ yields $f(x) + f(1 - x) = \\frac{4^x}{4^x + 2} + \\frac{2}{4^x + 2} = \\frac{4^x + 2}{4^x + 2} = 1$ for all real $x$. Step 3: In the sum $S = \\sum_{k=1}^{2025} f\\left(\\frac{k}{2026}\\right)$, pairing the $k$-th term with the $(2026 - k)$-th term gives $\\frac{k}{2026} + \\frac{2026 - k}{2026} = 1$. There are $2025$ terms in total. Pairing $k = 1, 2, \\dots, 1012$ with $k = 2025, 2024, \\dots, 1014$ yields $1012$ pairs, each summing to $1$. Step 4: The middle unpaired term corresponds to $k = 1013$: $f\\left(\\frac{1013}{2026}\\right) = f\\left(\\frac{1}{2}\\right) = \\frac{4^{1/2}}{4^{1/2} + 2} = \\frac{2}{2 + 2} = \\frac{1}{2}$. Thus, the total sum is $S = 1012 \\times 1 + \\frac{1}{2} = \\frac{2025}{2}$. Forgetting the unpaired middle term produces distractor A, and miscounting the number of terms produces distractor C."
+    },
+    {
+      "id": "rfa_c01_014",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $A = \\mathbb{R} \\setminus \\{0, 1\\}$. Define the functions on $A$ by $f_1(x) = x$, $f_2(x) = 1 - x$, $f_3(x) = \\frac{1}{x}$, $f_4(x) = \\frac{1}{1-x}$, $f_5(x) = \\frac{x-1}{x}$, and $f_6(x) = \\frac{x}{x-1}$. If a function $g(x)$ satisfies the functional composition $f_2 \\circ g \\circ f_1 = f_4$, determine which of the given functions is identical to $g(x)$.",
+      "options": [
+        "A) $f_6(x)$",
+        "B) $f_5(x)$",
+        "C) $f_3(x)$",
+        "D) $f_4(x)$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Since $f_1(x) = x$ is the identity function on $A$, the composition simplifies to $(f_2 \\circ g)(x) = f_2(g(x)) = f_4(x)$. Step 2: By definition of $f_2$, $f_2(u) = 1 - u$. Therefore, substituting $u = g(x)$ gives $1 - g(x) = f_4(x) = \\frac{1}{1 - x}$. Step 3: Solving for $g(x)$ yields $g(x) = 1 - \\frac{1}{1 - x} = \\frac{(1 - x) - 1}{1 - x} = \\frac{-x}{1 - x} = \\frac{x}{x - 1}$. Comparing this resulting expression with the defined family of functions, we identify $g(x) = f_6(x)$. Reversing the numerator subtraction leads to $f_5(x)$ in distractor B, while omitting algebraic simplification produces distractor C."
+    },
+    {
+      "id": "rfa_c01_015",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the real function $f: \\mathbb{R} \\to \\mathbb{R}$ defined by $f(x) = \\lfloor x \\rfloor + \\sqrt{x - \\lfloor x \\rfloor}$, where $\\lfloor \\cdot \\rfloor$ denotes the greatest integer function. Which of the following statements is true regarding $f$?",
+      "options": [
+        "A) Neither one-one nor onto",
+        "B) One-one and onto",
+        "C) One-one but not onto",
+        "D) Onto but not one-one"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Any real number $x$ can be uniquely written as $x = n + \\{x\\}$, where $n = \\lfloor x \\rfloor \\in \\mathbb{Z}$ and the fractional part $\\{x\\} = x - \\lfloor x \\rfloor \\in [0, 1)$. Then $f(x) = n + \\sqrt{\\{x\\}}$. Step 2: On each semi-open interval $[n, n + 1)$, $n$ is constant while $\\{x\\}$ increases strictly monotonically from $0$ to $1$. Consequently, $\\sqrt{\\{x\\}}$ strictly increases from $0$ to $1$, making $f(x)$ strictly increase from $n$ to $n+1$. Step 3: At the integer boundary, $\\lim_{x \\to (n+1)^-} f(x) = n + \\lim_{\\{x\\} \\to 1^-} \\sqrt{\\{x\\}} = n + 1 = f(n + 1)$. This proves that $f(x)$ is continuous everywhere on $\\mathbb{R}$ and strictly increasing throughout $(-\\infty, \\infty)$. Step 4: Because $f(x)$ is continuous and strictly increasing with $\\lim_{x \\to \\pm\\infty} f(x) = \\pm\\infty$, its range is the entire real line $\\mathbb{R}$. Thus $f$ is both injective and surjective, meaning it is one-one and onto (bijective). Mistaking the discontinuity of $\\lfloor x \\rfloor$ for a discontinuity in $f(x)$ leads to distractor C."
+    },
+    {
+      "id": "rfa_c01_016",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{R} \\setminus \\{0\\} \\to \\mathbb{R}$ be a function satisfying the functional relation $2f(x) + 3f\\left(\\frac{1}{x}\\right) = x^2 - 1$ for all non-zero real numbers $x$. Determine the exact value of $f(2)$.",
+      "options": [
+        "A) $-\\frac{33}{20}$",
+        "B) $\\frac{27}{20}$",
+        "C) $-\\frac{9}{10}$",
+        "D) $\\frac{3}{5}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Substitute $x = 2$ into the given functional relation to form the first linear equation: $2f(2) + 3f\\left(\\frac{1}{2}\\right) = 2^2 - 1 = 3$. Step 2: Now substitute $x = \\frac{1}{2}$ into the original equation to obtain a companion relation: $2f\\left(\\frac{1}{2}\\right) + 3f(2) = \\left(\\frac{1}{2}\\right)^2 - 1 = \\frac{1}{4} - 1 = -\\frac{3}{4}$. Step 3: We now have a system of two linear equations in the unknowns $f(2)$ and $f(1/2)$: (i) $2f(2) + 3f(1/2) = 3$ and (ii) $3f(2) + 2f(1/2) = -\\frac{3}{4}$. Multiplying (i) by $2$ gives $4f(2) + 6f(1/2) = 6$, and multiplying (ii) by $3$ gives $9f(2) + 6f(1/2) = -\\frac{9}{4}$. Step 4: Subtracting the first equation from the second eliminates $f(1/2)$: $5f(2) = -\\frac{9}{4} - 6 = -\\frac{33}{4} \\implies f(2) = -\\frac{33}{20}$. Neglecting to invert $x$ in the right-hand polynomial leads to distractor B, and arithmetic sign slips yield distractors C and D."
+    },
+    {
+      "id": "rfa_c01_017",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $f_1(x) = \\frac{x}{\\sqrt{1 + x^2}}$ for $x \\in \\mathbb{R}$, and for every integer $n \\ge 2$, define the $n$-th composite iterate by $f_n(x) = f_1(f_{n-1}(x))$. If $f_{2025}(x) = \\frac{1}{\\sqrt{2026}}$, determine the positive real value of $x$.",
+      "options": [],
+      "answer": "1",
+      "explanation": "Step 1: Compute the first few composite iterates to identify the recurrence structure. For $n = 2$: $f_2(x) = f_1(f_1(x)) = \\frac{\\frac{x}{\\sqrt{1+x^2}}}{\\sqrt{1 + \\left(\\frac{x}{\\sqrt{1+x^2}}\\right)^2}} = \\frac{\\frac{x}{\\sqrt{1+x^2}}}{\\sqrt{\\frac{1+2x^2}{1+x^2}}} = \\frac{x}{\\sqrt{1 + 2x^2}}$. Step 2: By mathematical induction, assume $f_k(x) = \\frac{x}{\\sqrt{1 + kx^2}}$. Then $f_{k+1}(x) = \\frac{\\frac{x}{\\sqrt{1+kx^2}}}{\\sqrt{1 + \\frac{x^2}{1+kx^2}}} = \\frac{x}{\\sqrt{1 + (k+1)x^2}}$. Thus the formula holds for all positive integers $n$, yielding $f_{2025}(x) = \\frac{x}{\\sqrt{1 + 2025x^2}}$. Step 3: Equating this expression to the given value gives $\\frac{x}{\\sqrt{1 + 2025x^2}} = \\frac{1}{\\sqrt{2026}}$. Squaring both sides yields $\\frac{x^2}{1 + 2025x^2} = \\frac{1}{2026} \\implies 2026x^2 = 1 + 2025x^2 \\implies x^2 = 1$. Since $x > 0$, we conclude that $x = 1$."
+    },
+    {
+      "id": "rfa_c01_018",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a polynomial function satisfying $f(x + y) = f(x) + f(y) + 3xy(x + y)$ for all real numbers $x$ and $y$. If $f'(0) = 2$, find the exact value of $f(3)$.",
+      "options": [
+        "A) $29$",
+        "B) $33$",
+        "C) $35$",
+        "D) $39$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Recall the binomial expansion $(x + y)^3 = x^3 + y^3 + 3xy(x + y)$. Subtracting $(x + y)^3$ from both sides of the given functional equation suggests defining a modified function $g(x) = f(x) - x^3$. Step 2: Expressing the equation in terms of $g(x)$ gives $g(x + y) + (x + y)^3 = g(x) + x^3 + g(y) + y^3 + 3xy(x + y)$. Canceling the cubic terms leaves Cauchy's additive functional equation: $g(x + y) = g(x) + g(y)$. Step 3: Since $f(x)$ is a polynomial, $g(x)$ is also a polynomial satisfying Cauchy's equation, which implies $g(x) = cx$ for some constant $c$. Consequently, $f(x) = x^3 + cx$. Differentiating with respect to $x$ gives $f'(x) = 3x^2 + c$. Substituting $x = 0$ yields $f'(0) = c = 2$. Step 4: The explicit function is therefore $f(x) = x^3 + 2x$. Evaluating at $x = 3$ gives $f(3) = 3^3 + 2(3) = 27 + 6 = 33$. Forgetting the linear term yields $27$ (distractor A), while misidentifying the derivative constant leads to distractors C and D."
+    },
+    {
+      "id": "rfa_c01_019",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a function satisfying $f(x + 2) = \\frac{1 + f(x)}{1 - f(x)}$ for all real $x$ where the expression is defined. Determine the fundamental period $T > 0$ of $f(x)$.",
+      "options": [
+        "A) $4$",
+        "B) $6$",
+        "C) $16$",
+        "D) $8$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Advance the argument by $2$ units: $f(x + 4) = f((x + 2) + 2) = \\frac{1 + f(x+2)}{1 - f(x+2)}$. Step 2: Substitute $f(x + 2) = \\frac{1 + f(x)}{1 - f(x)}$ into this expression: $f(x + 4) = \\frac{1 + \\frac{1 + f(x)}{1 - f(x)}}{1 - \\frac{1 + f(x)}{1 - f(x)}} = \\frac{(1 - f(x)) + (1 + f(x))}{(1 - f(x)) - (1 + f(x))} = \\frac{2}{-2f(x)} = -\\frac{1}{f(x)}$. Step 3: Advance the argument again by $4$ units: $f(x + 8) = f((x + 4) + 4) = -\\frac{1}{f(x+4)} = -\\frac{1}{-1/f(x)} = f(x)$. Step 4: Therefore, $f(x + 8) = f(x)$ holds for all $x$, proving that the fundamental period is $8$. Halting at the half-period anti-periodic step leads to distractor A, and incorrect fraction composition leads to distractors B and C."
+    },
+    {
+      "id": "rfa_c01_020",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a piecewise function defined by $f(x) = 2x + a$ for $x \\le 1$ and $f(x) = x^2 + bx + 3$ for $x > 1$. If $f$ is bijective and differentiable on the entire real line $\\mathbb{R}$, find the ordered pair $(a, b)$.",
+      "options": [
+        "A) $(1, -1)$",
+        "B) $(3, 1)$",
+        "C) $(0, -2)$",
+        "D) $(2, 0)$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For $f$ to be differentiable on $\\mathbb{R}$, it must be both continuous and differentiable at the transition point $x = 1$. Continuity at $x = 1$ requires $\\lim_{x \\to 1^-} f(x) = \\lim_{x \\to 1^+} f(x) = f(1)$, which gives $2(1) + a = 1^2 + b(1) + 3 \\implies 2 + a = b + 4 \\implies a - b = 2$. Step 2: Differentiability at $x = 1$ requires the left-hand derivative to equal the right-hand derivative: $f'_-(1) = 2$ and $f'_+(1) = 2(1) + b = 2 + b$. Equating the two derivatives gives $2 + b = 2 \\implies b = 0$. Step 3: Substituting $b = 0$ into the continuity condition yields $a - 0 = 2 \\implies a = 2$. Step 4: Now we verify bijectivity for $(a, b) = (2, 0)$. For $x \\le 1$, $f(x) = 2x + 2$ is strictly increasing with range $(-\\infty, 4]$. For $x > 1$, $f(x) = x^2 + 3$; its derivative is $2x > 0$ for $x > 1$, so it is strictly increasing with range $(4, \\infty)$. Since both branches are strictly increasing and patch continuously at $(1, 4)$, $f$ is strictly increasing on $\\mathbb{R}$ with range $(-\\infty, \\infty)$. Thus $f$ is bijective. The unique valid pair is $(2, 0)$."
+    },
+    {
+      "id": "rfa_c01_021",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $f(x) = \\frac{x - 1}{x + 1}$ for $x \\in \\mathbb{R} \\setminus \\{-1, 0, 1\\}$, and let $f^n(x)$ denote the $n$-fold composition of $f$ with itself. If the $2026$-th iterate satisfies $f^{2026}(x) = -4$, determine the value of $100x$.",
+      "options": [],
+      "answer": "25",
+      "explanation": "Step 1: Compute successive compositions of $f(x)$ to establish the cyclic period: $f^1(x) = \\frac{x-1}{x+1}$. $f^2(x) = f(f(x)) = \\frac{\\frac{x-1}{x+1} - 1}{\\frac{x-1}{x+1} + 1} = \\frac{(x - 1) - (x + 1)}{(x - 1) + (x + 1)} = \\frac{-2}{2x} = -\\frac{1}{x}$. Step 2: Compute the third and fourth compositions: $f^3(x) = f\\left(-\\frac{1}{x}\\right) = \\frac{-1/x - 1}{-1/x + 1} = \\frac{-1 - x}{-1 + x} = \\frac{x + 1}{1 - x}$. $f^4(x) = f(f^3(x)) = \\frac{\\frac{x+1}{1-x} - 1}{\\frac{x+1}{1-x} + 1} = \\frac{(x + 1) - (1 - x)}{(x + 1) + (1 - x)} = \\frac{2x}{2} = x$. Step 3: Since $f^4(x) = x$, the composition has cycle length $4$. Dividing the iteration index by $4$: $2026 = 4 \\times 506 + 2$, which implies $f^{2026}(x) = f^2(x) = -\\frac{1}{x}$. Step 4: Given $f^{2026}(x) = -4$, we have $-\\frac{1}{x} = -4 \\implies x = \\frac{1}{4}$. Therefore, $100x = 100 \\times \\frac{1}{4} = 25$."
+    },
+    {
+      "id": "rfa_c01_022",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a continuous non-identically zero function satisfying the d'Alembert functional equation $f(x + y) + f(x - y) = 2f(x)f(y)$ for all $x, y \\in \\mathbb{R}$. If $f(1) = \\cos(1)$, determine the exact value of $f(\\pi)$.",
+      "options": [
+        "A) $-1$",
+        "B) $0$",
+        "C) $1$",
+        "D) $\\frac{1}{2}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Set $x = y = 0$ in the functional equation: $f(0) + f(0) = 2f(0)^2 \\implies 2f(0) = 2f(0)^2$. Since $f$ is not identically zero, this yields $f(0) = 1$. Step 2: Set $x = 0$ in the functional equation: $f(y) + f(-y) = 2f(0)f(y) = 2f(y) \\implies f(-y) = f(y)$, which proves that $f$ is an even function. Step 3: The standard continuous solutions to d'Alembert's equation bounded on $\\mathbb{R}$ have the form $f(x) = \\cos(\\omega x)$ for some real constant $\\omega$. Given $f(1) = \\cos(1)$, we deduce $\\omega = 1$, so the unique continuous solution is $f(x) = \\cos(x)$. Step 4: Evaluating the function at $x = \\pi$ yields $f(\\pi) = \\cos(\\pi) = -1$. Assuming the sine solution leads to distractor B, and taking magnitude only leads to distractor C."
+    },
+    {
+      "id": "rfa_c01_023",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $A = \\{1, 2, 3, 4, 5\\}$. A function $f: A \\to A$ is termed a self-inverse mapping (or involution) if $(f \\circ f)(x) = x$ for all $x \\in A$. Determine the total number of such functions that can be constructed on $A$.",
+      "options": [
+        "A) $20$",
+        "B) $16$",
+        "C) $26$",
+        "D) $31$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The condition $f(f(x)) = x$ means that the cycle decomposition of the permutation $f$ on $A$ consists exclusively of fixed points ($1$-cycles) and transpositions ($2$-cycles). Step 2: Since $|A| = 5$, we partition the count by the number of transpositions ($2$-cycles): Case 1: Zero $2$-cycles and five $1$-cycles. This corresponds only to the identity function, giving $\\binom{5}{5} = 1$ function. Case 2: Exactly one $2$-cycle and three $1$-cycles. Choosing $2$ elements to form the transposition can be done in $\\binom{5}{2} = 10$ ways. Case 3: Exactly two $2$-cycles and one $1$-cycle. Choosing the fixed point can be done in $\\binom{5}{1} = 5$ ways, and partitioning the remaining $4$ elements into two unordered pairs can be done in $\\frac{1}{2!}\\binom{4}{2} = 3$ ways. Thus, this case yields $5 \\times 3 = 15$ functions. Step 3: Summing the counts from all disjoint cases gives $1 + 10 + 15 = 26$. Forgetting the identity mapping produces $25$, and undercounting pair partitions leads to distractors A, B, and D."
+    },
+    {
+      "id": "rfa_c01_024",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{R} \\to [1/2, 1]$ be a real function satisfying the functional equation $f(x + a) = \\frac{1}{2} + \\sqrt{f(x) - (f(x))^2}$ for all $x \\in \\mathbb{R}$, where $a > 0$ is a fixed positive constant. Determine the fundamental period of $f(x)$.",
+      "options": [
+        "A) $a$",
+        "B) $4a$",
+        "C) $8a$",
+        "D) $2a$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Let $g(x) = f(x) - \\frac{1}{2}$. Since $f(x) \\in [1/2, 1]$, we have $g(x) \\in [0, 1/2]$. Step 2: Express the radicand in terms of $g(x)$: $f(x) - f(x)^2 = \\left(g(x) + \\frac{1}{2}\\right) - \\left(g(x) + \\frac{1}{2}\\right)^2 = g(x) + \\frac{1}{2} - \\left(g(x)^2 + g(x) + \\frac{1}{4}\\right) = \\frac{1}{4} - g(x)^2$. Thus, the functional relation simplifies to $g(x + a) = \\sqrt{\\frac{1}{4} - g(x)^2}$. Step 3: Now compute $g(x + 2a)$ by advancing the argument: $g(x + 2a) = g((x + a) + a) = \\sqrt{\\frac{1}{4} - g(x + a)^2} = \\sqrt{\\frac{1}{4} - \\left(\\frac{1}{4} - g(x)^2\\right)} = \\sqrt{g(x)^2} = |g(x)|$. Since $g(x) \\ge 0$, $|g(x)| = g(x)$. Step 4: This yields $g(x + 2a) = g(x)$, which directly implies $f(x + 2a) = f(x)$ for all $x$. Hence, the fundamental period of $f(x)$ is $2a$. Assuming squaring doubles the period needlessly leads to distractor B ($4a$)."
+    },
+    {
+      "id": "rfa_c01_025",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A function $f: \\mathbb{R} \\to \\mathbb{R}$ is symmetric about the vertical line $x = 2$ and centrally symmetric about the point $(4, 0)$. Determine the fundamental period of $f(x)$.",
+      "options": [
+        "A) $4$",
+        "B) $8$",
+        "C) $12$",
+        "D) $16$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Symmetry of $f(x)$ about the line $x = 2$ means that $f(2 - x) = f(2 + x)$ for all $x \\in \\mathbb{R}$. Replacing $x$ with $x - 2$ yields $f(4 - x) = f(x)$. Step 2: Central symmetry about the point $(4, 0)$ means that $f(4 - x) + f(4 + x) = 2 \\times 0 = 0$, which simplifies to $f(4 - x) = -f(4 + x)$. Step 3: Combining these two symmetry relations: since $f(x) = f(4 - x)$ and $f(4 - x) = -f(4 + x)$, we get $f(x) = -f(x + 4)$, or equivalently $f(x + 4) = -f(x)$. Step 4: Advancing the argument by $4$ once more yields $f(x + 8) = f((x + 4) + 4) = -f(x + 4) = -(-f(x)) = f(x)$. Therefore, $f(x)$ is periodic with fundamental period $8$. Confusing point and line symmetries yields distractor A ($4$), while incorrect multiplication yields distractor D ($16$)."
+    },
+    {
+      "id": "rfa_c01_026",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $S = \\{1, 2, 3, 4, 5, 6\\}$. Determine the total number of distinct equivalence relations on $S$ that partition the set into exactly three equivalence classes of equal cardinality.",
+      "options": [],
+      "answer": "15",
+      "explanation": "Step 1: The set $S$ contains $6$ elements. Since the partition must contain exactly $3$ equivalence classes of equal size, each equivalence class must contain exactly $6 / 3 = 2$ elements. Step 2: The problem is therefore equivalent to finding the number of ways to partition a set of $6$ distinct elements into $3$ unlabeled blocks of size $2$ each. Step 3: Using the multinomial partition formula divided by the permutation of identical block sizes: $N = \\frac{1}{3!} \\binom{6}{2} \\binom{4}{2} \\binom{2}{2} = \\frac{1}{6} \\times 15 \\times 6 \\times 1 = 15$. Step 4: Hence, there are exactly $15$ such distinct equivalence relations on $S$."
+    },
+    {
+      "id": "rfa_c01_027",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be defined by $f(x) = x^3 + 3x - 3$. The function $f$ is strictly monotonic and therefore possesses an inverse $f^{-1}: \\mathbb{R} \\to \\mathbb{R}$. Determine the sum of the coordinates $(x_0 + y_0)$ of the unique intersection point $(x_0, y_0)$ between the graphs of $y = f(x)$ and $y = f^{-1}(x)$.",
+      "options": [
+        "A) $2$",
+        "B) $0$",
+        "C) $1$",
+        "D) $4$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Differentiating $f(x)$ yields $f'(x) = 3x^2 + 3 = 3(x^2 + 1) \\ge 3 > 0$ for all real $x$. Since $f'(x) > 0$ everywhere, $f$ is strictly increasing on $\\mathbb{R}$. Step 2: A fundamental theorem of invertible functions states that for any strictly increasing function $f$, all real intersection points between $y = f(x)$ and $y = f^{-1}(x)$ must lie on the line of symmetry $y = x$. Step 3: Setting $f(x) = x$ gives $x^3 + 3x - 3 = x \\implies x^3 + 2x - 3 = 0$. Factoring this cubic yields $(x - 1)(x^2 + x + 3) = 0$. The quadratic factor has discriminant $\\Delta = 1 - 12 = -11 < 0$, so its roots are non-real. The only real solution is $x = 1$. Step 4: Since the intersection lies on $y = x$, the intersection point is $(x_0, y_0) = (1, 1)$. The sum of the coordinates is $x_0 + y_0 = 1 + 1 = 2$. Looking only at the $x$-coordinate gives distractor C ($1$), while miscalculating the roots leads to distractors B and D."
+    },
+    {
+      "id": "rfa_c01_028",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the exact natural domain of the real-valued function $f(x) = \\frac{\\sqrt{9 - x^2}}{\\ln(2 - x)} + \\frac{1}{\\sqrt{\\{x\\} - \\{x\\}^2}}$, where $\\{x\\}$ denotes the fractional part of $x$.",
+      "options": [
+        "A) $[-3, 2) \\setminus \\mathbb{Z}$",
+        "B) $[-3, 1) \\cup (1, 2)$",
+        "C) $(-3, 2) \\setminus \\{1\\}$",
+        "D) $(-3, 2) \\setminus \\{-2, -1, 0, 1\\}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For $\\sqrt{9 - x^2}$ to be real, $9 - x^2 \\ge 0 \\implies x \\in [-3, 3]$. Step 2: For the logarithmic denominator $\\ln(2 - x)$, we require $2 - x > 0 \\implies x < 2$, and the denominator cannot vanish: $\\ln(2 - x) \\ne 0 \\implies 2 - x \\ne 1 \\implies x \\ne 1$. Intersecting with $[-3, 3]$ yields $x \\in [-3, 1) \\cup (1, 2)$. Step 3: For the fractional radical term, the denominator requires $\\{x\\} - \\{x\\}^2 > 0 \\implies \\{x\\}(1 - \\{x\\}) > 0$. Because $\\{x\\} \\in [0, 1)$ by definition, this product is strictly positive if and only if $\\{x\\} \\ne 0$, which mandates that $x$ cannot be an integer ($x \\notin \\mathbb{Z}$). Step 4: The integers lying inside the interval $[-3, 2)$ are $-3, -2, -1, 0, 1$. Removing all of them from $[-3, 1) \\cup (1, 2)$ eliminates the left endpoint $-3$ (since it is an integer) and the interior integer points, leaving $(-3, 2) \\setminus \\{-2, -1, 0, 1\\}$. Including integers where the denominator vanishes leads to distractors A, B, and C."
+    },
+    {
+      "id": "rfa_c01_029",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a function satisfying $f(x) + f(x + 3) = 4$ for all $x \\in \\mathbb{R}$. Determine the exact numerical value of the finite sum $S = \\sum_{k=1}^{60} f(k)$.",
+      "options": [
+        "A) $60$",
+        "B) $80$",
+        "C) $120$",
+        "D) $240$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: From the given functional equation, $f(x + 3) = 4 - f(x)$. Advancing the argument by $3$ units gives $f(x + 6) = 4 - f(x + 3) = 4 - (4 - f(x)) = f(x)$. Thus, $f(x)$ is periodic with period $6$. Step 2: Consider the sum of any six consecutive integer values $k, k+1, \\dots, k+5$: $\\sum_{r=1}^6 f(r) = [f(1) + f(4)] + [f(2) + f(5)] + [f(3) + f(6)]$. Step 3: By the given equation, $f(1) + f(4) = 4$, $f(2) + f(5) = 4$, and $f(3) + f(6) = 4$. Therefore, the sum over one complete period of six integers is $4 + 4 + 4 = 12$. Step 4: The required sum contains $60$ terms, which constitutes exactly $\\frac{60}{6} = 10$ full periods of length $6$. Multiplying gives $S = 10 \\times 12 = 120$. Overlooking the pairing of terms leads to distractor A, and double counting leads to distractor D."
+    },
+    {
+      "id": "rfa_c01_030",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f(x) = \\frac{ax + b}{cx + d}$ be a non-constant rational function with $ad - bc \\ne 0$ and $c \\ne 0$. Which of the following conditions is necessary and sufficient for $f$ to be self-inverse, meaning $f(f(x)) = x$ for all $x$ in its domain?",
+      "options": [
+        "A) $a + d = 0$",
+        "B) $a = d$",
+        "C) $ad = 1$",
+        "D) $b = c$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Compute the composite function $f(f(x))$: $f(f(x)) = \\frac{a\\left(\\frac{ax+b}{cx+d}\\right) + b}{c\\left(\\frac{ax+b}{cx+d}\\right) + d} = \\frac{a(ax + b) + b(cx + d)}{c(ax + b) + d(cx + d)} = \\frac{(a^2 + bc)x + b(a + d)}{c(a + d)x + (bc + d^2)}$. Step 2: For this expression to identically equal $x$, we require the coefficient of $x^2$ in the cross-multiplication to match, which demands: $c(a + d) = 0$, $b(a + d) = 0$, and $a^2 + bc = bc + d^2 \\implies a^2 = d^2$. Step 3: Since $c \\ne 0$ by assumption, $c(a + d) = 0$ forces $a + d = 0$. When $a + d = 0$, we have $d = -a$, so $a^2 = d^2$ holds automatically and $b(a+d) = 0$. Step 4: The numerator becomes $(a^2 + bc)x$ and the denominator becomes $bc + (-a)^2 = a^2 + bc$. Since $ad - bc \\ne 0 \\implies -a^2 - bc \\ne 0 \\implies a^2 + bc \\ne 0$, the scalar cancels out, leaving $f(f(x)) = x$. Thus, $a + d = 0$ is the exact necessary and sufficient condition. Confusing self-inverse with identical coefficients leads to distractor B ($a = d$)."
+    },
+    {
+      "id": "rfa_c01_031",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Let $A = \\{1, 2, 3, 4, 5, 6\\}$. Find the total number of strictly increasing functions $f: \\{1, 2, 3\\} \\to A$ such that $f(1) < f(2) < f(3)$ and the image $f(2)$ is an even integer.",
+      "options": [],
+      "answer": "10",
+      "explanation": "Step 1: Since $f$ is strictly increasing, $f(1) < f(2) < f(3)$. The even values in $A$ available for $f(2)$ are $2, 4, 6$. Step 2: Case 1: $f(2) = 2$. For $f(1) < 2$, $f(1) \\in \\{1\\}$ (1 choice). For $f(3) > 2$, $f(3) \\in \\{3, 4, 5, 6\\}$ (4 choices). Total functions in this case $= 1 \\times 4 = 4$. Step 3: Case 2: $f(2) = 4$. For $f(1) < 4$, $f(1) \\in \\{1, 2, 3\\}$ (3 choices). For $f(3) > 4$, $f(3) \\in \\{5, 6\\}$ (2 choices). Total functions in this case $= 3 \\times 2 = 6$. Step 4: Case 3: $f(2) = 6$. For $f(3) > 6$, there are no elements in $A$, yielding $0$ functions. Step 5: Summing all cases gives $4 + 6 + 0 = 10$ valid functions."
+    },
+    {
+      "id": "rfa_c01_032",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $P(x)$ be a polynomial function with real coefficients satisfying $P(x)P\\left(\\frac{1}{x}\\right) = P(x) + P\\left(\\frac{1}{x}\\right)$ for all non-zero real $x$. If $P(3) = 28$, determine the value of $P(4)$.",
+      "options": [
+        "A) $63$",
+        "B) $65$",
+        "C) $82$",
+        "D) $64$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Rearrange the functional relation as $P(x)P(1/x) - P(x) - P(1/x) + 1 = 1 \\implies [P(x) - 1][P(1/x) - 1] = 1$. Step 2: Define $Q(x) = P(x) - 1$. Then $Q(x)$ is a polynomial satisfying $Q(x)Q(1/x) = 1$. Since the product of two polynomials evaluated at $x$ and $1/x$ equals $1$, the only non-zero polynomial solutions are $Q(x) = \\pm x^n$ for some non-negative integer $n$. Step 3: Therefore, $P(x) = 1 \\pm x^n$. Using the given condition $P(3) = 28$, we test: $1 \\pm 3^n = 28 \\implies \\pm 3^n = 27$. The positive sign must hold, giving $3^n = 27 = 3^3 \\implies n = 3$. Hence, $P(x) = 1 + x^3$. Step 4: Evaluating at $x = 4$ yields $P(4) = 1 + 4^3 = 1 + 64 = 65$. Neglecting the constant $+1$ gives distractor D ($64$), taking the negative sign gives distractor A ($63$), and setting $n=4$ leads to distractor C ($82$)."
+    },
+    {
+      "id": "rfa_c01_033",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Determine the exact range of the real-valued function $f(x) = \\sqrt{x - 2} + \\sqrt{8 - x}$ defined on its maximal real domain.",
+      "options": [
+        "A) $[0, 2\\sqrt{3}]$",
+        "B) $[\\sqrt{6}, 4]$",
+        "C) $[2, 8]$",
+        "D) $[\\sqrt{6}, 2\\sqrt{3}]$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The natural domain requires $x - 2 \\ge 0$ and $8 - x \\ge 0$, which gives $x \\in [2, 8]$. Step 2: Let $y = \\sqrt{x - 2} + \\sqrt{8 - x}$. Since square roots are non-negative, $y \\ge 0$. Squaring both sides: $y^2 = (x - 2) + (8 - x) + 2\\sqrt{(x - 2)(8 - x)} = 6 + 2\\sqrt{-(x - 5)^2 + 9}$. Step 3: On the interval $x \\in [2, 8]$, the term $-(x - 5)^2 + 9$ attains its minimum value of $0$ at the endpoints $x = 2$ and $x = 8$, and its maximum value of $9$ at the midpoint $x = 5$. Step 4: Consequently, the minimum of $y^2$ is $6 + 2\\sqrt{0} = 6 \\implies y_{\\min} = \\sqrt{6}$. The maximum of $y^2$ is $6 + 2\\sqrt{9} = 6 + 6 = 12 \\implies y_{\\max} = \\sqrt{12} = 2\\sqrt{3}$. Because $f(x)$ is continuous on $[2, 8]$, the range is $[\\sqrt{6}, 2\\sqrt{3}]$. Confusing domain with range leads to distractor C, and assuming the minimum is $0$ leads to distractor A."
+    },
+    {
+      "id": "rfa_c01_034",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f(x) = \\frac{2x + 1}{x - 1}$ and $g(x) = \\sqrt{x - 3}$. Determine the natural domain of the composite function $(g \\circ f)(x)$.",
+      "options": [
+        "A) $[1, 4]$",
+        "B) $[3, 4]$",
+        "C) $(1, 4]$",
+        "D) $(1, \\infty)$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The composition is $(g \\circ f)(x) = g(f(x)) = \\sqrt{f(x) - 3} = \\sqrt{\\frac{2x + 1}{x - 1} - 3}$. Step 2: For the inner function $f(x)$ to be defined, $x \\ne 1$. For the outer square root to be real-valued, we require $\\frac{2x + 1}{x - 1} - 3 \\ge 0$. Step 3: Simplifying the algebraic inequality: $\\frac{2x + 1 - 3(x - 1)}{x - 1} \\ge 0 \\implies \\frac{4 - x}{x - 1} \\ge 0$. Multiplying numerator and denominator by $-1$ reverses the inequality: $\\frac{x - 4}{x - 1} \\le 0$. Step 4: The critical points are $x = 1$ and $x = 4$. Testing the sign intervals shows that the quotient is non-positive for $x \\in (1, 4]$. Since $x = 1$ makes the denominator zero, it must be excluded. Hence, the domain is $(1, 4]$. Erroneously including the singularity $x = 1$ yields distractor A, and misidentifying the inequality intervals yields distractors B and D."
+    },
+    {
+      "id": "rfa_c01_035",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a differentiable function satisfying $f(x + y) = f(x)e^y + f(y)e^x$ for all $x, y \\in \\mathbb{R}$. If $f'(0) = 2$, determine the exact value of $f(2)$.",
+      "options": [
+        "A) $2e^2$",
+        "B) $4e$",
+        "C) $8e^2$",
+        "D) $4e^2$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Divide both sides of the given functional equation by $e^{x+y} = e^x e^y$: $\\frac{f(x + y)}{e^{x+y}} = \\frac{f(x)}{e^x} + \\frac{f(y)}{e^y}$. Step 2: Define the auxiliary function $g(x) = \\frac{f(x)}{e^x} = f(x)e^{-x}$. Then the equation becomes $g(x + y) = g(x) + g(y)$, which is Cauchy's additive functional equation. Step 3: Because $f$ is differentiable, $g$ is differentiable. The only differentiable solutions to Cauchy's equation are linear: $g(x) = kx$. Setting $x = y = 0$ in the original equation gives $f(0) = 2f(0) \\implies f(0) = 0$. Step 4: Differentiating $g(x) = f(x)e^{-x}$ gives $g'(x) = f'(x)e^{-x} - f(x)e^{-x}$. At $x = 0$, $g'(0) = f'(0) - f(0) = 2 - 0 = 2$. Thus $k = 2$, which implies $g(x) = 2x$, so $f(x) = 2x e^x$. Step 5: Evaluating at $x = 2$ yields $f(2) = 2(2)e^2 = 4e^2$. Forgetting the factor of $x$ produces distractor A, and miscalculating derivatives produces distractors B and C."
+    },
+    {
+      "id": "rfa_c01_036",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the real-valued function $f: \\mathbb{R} \\to \\mathbb{R}$ defined by $f(x) = \\frac{x^2 - x + 1}{x^2 + 1}$. Which of the following statements is/are correct regarding the geometric and mapping properties of $f$?",
+      "options": [
+        "A) The exact range of $f$ is $\\left[\\frac{1}{2}, \\frac{3}{2}\\right]$",
+        "B) The graph of $y = f(x)$ is centrally symmetric about the point $(0, 1)$",
+        "C) The function $f$ is neither injective (one-one) nor surjective (onto)",
+        "D) The function $f$ attains a strict local maximum at $x = 1$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Rewrite $f(x)$ as $f(x) = 1 - \\frac{x}{x^2 + 1}$. To find the extrema, compute the first derivative: $f'(x) = -\\frac{(x^2 + 1)(1) - x(2x)}{(x^2 + 1)^2} = \\frac{x^2 - 1}{(x^2 + 1)^2}$. Setting $f'(x) = 0$ gives critical points at $x = -1$ and $x = 1$. Step 2: For $x < -1$, $f'(x) > 0$; for $-1 < x < 1$, $f'(x) < 0$; for $x > 1$, $f'(x) > 0$. Thus, $x = -1$ is a local maximum with value $f(-1) = \\frac{1 + 1 + 1}{1 + 1} = \\frac{3}{2}$, and $x = 1$ is a local minimum with value $f(1) = \\frac{1 - 1 + 1}{1 + 1} = \\frac{1}{2}$. As $x \\to \\pm\\infty$, $f(x) \\to 1$. Because $f$ is continuous on $\\mathbb{R}$, its exact range is $\\left[\\frac{1}{2}, \\frac{3}{2}\\right]$. Hence statement A is correct, while statement D is false because $x = 1$ is a minimum, not a maximum. Step 3: Check central symmetry about $(0, 1)$: $f(x) + f(-x) = \\left(1 - \\frac{x}{x^2 + 1}\\right) + \\left(1 + \\frac{x}{x^2 + 1}\\right) = 2 = 2 \\times 1$. This confirms central symmetry about $(0, 1)$, so statement B is correct. Step 4: The range is $\\left[\\frac{1}{2}, \\frac{3}{2}\\right] \\ne \\mathbb{R}$, so $f$ is into (not surjective). Furthermore, multiple values yield the same output (e.g. $f(0) = 1$ and $\\lim_{x \\to \\pm\\infty} f(x) = 1$), so $f$ is many-one (not injective). Hence statement C is correct."
+    },
+    {
+      "id": "rfa_c01_037",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $\\mathbb{N} = \\{1, 2, 3, \\dots\\}$ denote the set of natural numbers. Let $f: \\mathbb{N} \\to \\mathbb{N}$ be a function satisfying $f(1) = 2$, $f(2) = 1$, and the recurrence relation $f(n + 2) = f(n) + 2$ for all $n \\in \\mathbb{N}$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The function $f$ is a bijection from $\\mathbb{N}$ to $\\mathbb{N}$",
+        "B) The composite function satisfies $(f \\circ f)(n) = n$ for all $n \\in \\mathbb{N}$",
+        "C) For every natural number $n$, $f(n) + f(n + 1) = 2n + 1$",
+        "D) The function $f$ is strictly increasing on $\\mathbb{N}$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Solve the linear recurrence separately for odd and even integers. For odd numbers $n = 2k - 1$: $f(1) = 2$, $f(3) = 4$, and by induction $f(2k - 1) = 2k$. Thus, odd natural numbers map bijectively to even natural numbers. Step 2: For even numbers $n = 2k$: $f(2) = 1$, $f(4) = 3$, and by induction $f(2k) = 2k - 1$. Thus, even natural numbers map bijectively to odd natural numbers. Step 3: Every natural number appears as an image exactly once, so $f$ is both injective and surjective, establishing that $f$ is a bijection on $\\mathbb{N}$ (statement A is correct). Step 4: Evaluate the double composition: for odd $n = 2k - 1$, $f(f(2k - 1)) = f(2k) = 2k - 1$. For even $n = 2k$, $f(f(2k)) = f(2k - 1) = 2k$. Thus $(f \\circ f)(n) = n$ for all $n \\in \\mathbb{N}$ (statement B is correct). Step 5: For odd $n = 2k - 1$, $f(n) + f(n + 1) = f(2k - 1) + f(2k) = 2k + (2k - 1) = 4k - 1 = 2(2k - 1) + 1 = 2n + 1$. For even $n = 2k$, $f(n) + f(n + 1) = f(2k) + f(2k + 1) = (2k - 1) + (2k + 2) = 4k + 1 = 2(2k) + 1 = 2n + 1$. Thus statement C is correct. Finally, statement D is false since $f(1) = 2 > f(2) = 1$."
+    },
+    {
+      "id": "rfa_c01_038",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $S = \\mathbb{R} \\setminus \\{0, 1\\}$. Suppose a function $f: S \\to \\mathbb{R}$ satisfies the functional equation $f(x) + f\\left(\\frac{x - 1}{x}\\right) = 1 + x$ for all $x \\in S$. Which of the following evaluations is/are correct?",
+      "options": [
+        "A) $f(2) = \\frac{3}{4}$",
+        "B) $f(-1) = -\\frac{3}{4}$",
+        "C) $f\\left(\\frac{1}{2}\\right) = \\frac{9}{4}$",
+        "D) $f(x)$ is an odd function on its domain"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: Consider the cyclic transformation $T(x) = \\frac{x - 1}{x} = 1 - \\frac{1}{x}$. Its iterates are $T^2(x) = \\frac{T(x) - 1}{T(x)} = \\frac{1}{1 - x}$ and $T^3(x) = x$. Thus $T$ generates a cyclic group of order $3$. Step 2: Set up the cyclic system of equations by substituting $x$, $T(x)$, and $T^2(x)$: (1) $f(x) + f(T(x)) = 1 + x$, (2) $f(T(x)) + f(T^2(x)) = 1 + T(x) = 2 - \\frac{1}{x}$, (3) $f(T^2(x)) + f(x) = 1 + T^2(x) = 1 + \\frac{1}{1 - x}$. Step 3: Adding equations (1) and (3) and subtracting equation (2) eliminates $f(T(x))$ and $f(T^2(x))$: $2f(x) = (1 + x) + \\left(1 + \\frac{1}{1-x}\\right) - \\left(2 - \\frac{1}{x}\\right) = x + \\frac{1}{x} + \\frac{1}{1-x}$. Thus $f(x) = \\frac{1}{2}\\left(x + \\frac{1}{x} + \\frac{1}{1-x}\\right)$. Step 4: Evaluating the specific values: for $x = 2$, $f(2) = \\frac{1}{2}\\left(2 + \\frac{1}{2} + \\frac{1}{-1}\\right) = \\frac{1}{2}\\left(\\frac{3}{2}\\right) = \\frac{3}{4}$ (statement A is correct). For $x = -1$, $f(-1) = \\frac{1}{2}\\left(-1 - 1 + \\frac{1}{2}\\right) = \\frac{1}{2}\\left(-\\frac{3}{2}\\right) = -\\frac{3}{4}$ (statement B is correct). For $x = \\frac{1}{2}$, $f(1/2) = \\frac{1}{2}\\left(\\frac{1}{2} + 2 + 2\\right) = \\frac{9}{4}$ (statement C is correct). Statement D is false because $f(-2) = \\frac{1}{2}\\left(-2 - \\frac{1}{2} + \\frac{1}{3}\\right) = -\\frac{13}{12} \\ne -f(2)$."
+    },
+    {
+      "id": "rfa_c01_039",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $f: [0, 1] \\to [0, 1]$ be an arbitrary continuous function mapping the closed unit interval into itself. Which of the following assertions must necessarily be TRUE?",
+      "options": [
+        "A) There exists at least one point $c \\in [0, 1]$ such that $f(c) = c$",
+        "B) If $f$ is strictly decreasing on $[0, 1]$, then the fixed point $c$ satisfying $f(c) = c$ is unique",
+        "C) If $f(0) = 1$ and $f(1) = 0$, there exists at least one $d \\in [0, 1]$ such that $f(d) = 1 - d$",
+        "D) If $f(f(x)) = x$ for all $x \\in [0, 1]$, then either $f(x) = x$ identically on $[0, 1]$ or $f$ is strictly decreasing"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Define $g(x) = f(x) - x$. Since $f: [0, 1] \\to [0, 1]$, $g(0) = f(0) - 0 \\ge 0$ and $g(1) = f(1) - 1 \\le 0$. By the Intermediate Value Theorem, there exists $c \\in [0, 1]$ such that $g(c) = 0 \\implies f(c) = c$. Thus A is true. Step 2: If $f$ is strictly decreasing, then for $x_1 < x_2$, $f(x_1) > f(x_2)$, so $g(x_1) - g(x_2) = (f(x_1) - f(x_2)) + (x_2 - x_1) > 0$. Therefore $g(x)$ is strictly decreasing on $[0, 1]$, implying it can have at most one root. Hence the fixed point is unique, so B is true. Step 3: Define $h(x) = f(x) - (1 - x)$. Then $h(0) = f(0) - 1 = 1 - 1 = 0$, which immediately satisfies the condition at $d = 0$. Thus C is true. Step 4: If $f(f(x)) = x$ on $[0, 1]$ and $f$ is continuous, $f$ must be strictly monotonic. If $f$ were strictly increasing, assuming $f(x) > x$ yields $x = f(f(x)) > f(x) > x$, a contradiction, forcing $f(x) = x$ everywhere. Otherwise, $f$ must be strictly decreasing. Thus D is true."
+    },
+    {
+      "id": "rfa_c01_040",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the family of cubic polynomials $f: \\mathbb{R} \\to \\mathbb{R}$ defined by $f(x) = x^3 + 3(a - 1)x^2 + 3(a^2 - 1)x + b$, where $a, b \\in \\mathbb{R}$ are real parameters. Which of the following statements is/are correct?",
+      "options": [
+        "A) The function $f$ is surjective on $\\mathbb{R}$ for every choice of real parameters $a$ and $b$",
+        "B) The function $f$ is injective on $\\mathbb{R}$ if and only if $a \\ge 1$",
+        "C) For $a = 2$ and $b = 5$, the function $f$ is invertible on $\\mathbb{R}$",
+        "D) For $a = 0$, the function $f$ is strictly monotonic on $\\mathbb{R}$"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: As a polynomial of odd degree with positive leading coefficient, $\\lim_{x \\to \\infty} f(x) = \\infty$ and $\\lim_{x \\to -\\infty} f(x) = -\\infty$. Since $f$ is continuous on $\\mathbb{R}$, by the Intermediate Value Theorem its range is $(-\\infty, \\infty) = \\mathbb{R}$ for all real $a$ and $b$. Thus $f$ is always surjective, confirming statement A. Step 2: For $f$ to be injective, it must be strictly monotonic, which requires $f'(x) \\ge 0$ for all $x \\in \\mathbb{R}$. Differentiating gives $f'(x) = 3[x^2 + 2(a - 1)x + (a^2 - 1)]$. The quadratic factor is non-negative everywhere if and only if its discriminant is non-positive: $\\frac{\\Delta}{4} = (a - 1)^2 - (a^2 - 1) \\le 0$. Expanding gives $a^2 - 2a + 1 - a^2 + 1 \\le 0 \\implies 2 - 2a \\le 0 \\implies a \\ge 1$. Hence, $f$ is injective if and only if $a \\ge 1$, confirming statement B. Step 3: For $a = 2 \\ge 1$ and $b = 5$, $f$ is both injective and surjective, meaning it is bijective and therefore invertible on $\\mathbb{R}$, confirming statement C. Step 4: For $a = 0$, $a < 1$, so the derivative changes sign and $f$ is not monotonic, making statement D false."
+    },
+    {
+      "id": "rfa_c01_041",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "On the Cartesian product set $X = \\mathbb{Z} \\times (\\mathbb{Z} \\setminus \\{0\\})$, define a binary relation $R$ such that $(a, b) R (c, d)$ if and only if $ad = bc$. Which of the following statements is/are correct?",
+      "options": [
+        "A) $R$ is an equivalence relation on $X$",
+        "B) The equivalence class $[(2, 4)]$ contains the ordered pair $(3, 6)$",
+        "C) The quotient set $X / R$ of equivalence classes is in bijective correspondence with the set of rational numbers $\\mathbb{Q}$",
+        "D) The equivalence class $[(0, 1)]$ contains all ordered pairs of the form $(0, k)$ for any non-zero integer $k$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Verify reflexivity: for any $(a, b) \\in X$, $ab = ba$, so $(a, b) R (a, b)$. Verify symmetry: $(a, b) R (c, d) \\implies ad = bc \\implies cb = da \\implies (c, d) R (a, b)$. Step 2: Verify transitivity: suppose $(a, b) R (c, d)$ and $(c, d) R (e, f)$. Then $ad = bc$ and $cf = de$. Multiplying these gives $(ad)(cf) = (bc)(de) \\implies d(acf - bce) = 0$. Since $d \\ne 0$, we have $c(af - be) = 0$. If $c \\ne 0$, then $af = be$. If $c = 0$, then $ad = 0 \\implies a = 0$ (as $d \\ne 0$) and $de = 0 \\implies e = 0$, so $af - be = 0 - 0 = 0$. Thus in all cases $af = be$, proving $(a, b) R (e, f)$. Thus $R$ is an equivalence relation (statement A is true). Step 3: Check $(3, 6) \\in [(2, 4)]$: $2 \\times 6 = 12$ and $4 \\times 3 = 12$. Since $12 = 12$, $(3, 6) R (2, 4)$ holds (statement B is true). Step 4: Each equivalence class $[(a, b)]$ corresponds uniquely to the reduced fraction $\\frac{a}{b} \\in \\mathbb{Q}$, which is the standard set-theoretic construction of $\\mathbb{Q}$ from $\\mathbb{Z}$ (statement C is true). Step 5: For $(0, k)$ with $k \\ne 0$, testing with $(0, 1)$ gives $0 \\times 1 = k \\times 0 = 0$, so $(0, k) \\in [(0, 1)]$ (statement D is true)."
+    },
+    {
+      "id": "rfa_c01_042",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a function satisfying the subadditive inequality $f(x + y) \\ge f(x) + f(y)$ and the upper bound $f(x) \\le x$ for all real numbers $x, y \\in \\mathbb{R}$. Which of the following statements is/are correct?",
+      "options": [
+        "A) The function must be the identity map $f(x) = x$ for all $x \\in \\mathbb{R}$",
+        "B) The function $f$ is a bijective mapping on $\\mathbb{R}$",
+        "C) The function satisfies $f(xy) = f(x)f(y)$ for all $x, y \\in \\mathbb{R}$",
+        "D) The composite function satisfies $(f \\circ f)(x) = x$ for all $x \\in \\mathbb{R}$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Setting $x = y = 0$ in the subadditive inequality gives $f(0) \\ge f(0) + f(0) = 2f(0) \\implies f(0) \\le 0$. Using the second inequality gives $f(0) \\le 0$. Step 2: Now evaluate $0 = f(0) = f(x + (-x)) \\ge f(x) + f(-x)$, which implies $f(x) \\le -f(-x)$. Step 3: Apply the upper bound $f(t) \\le t$ to $t = -x$: $f(-x) \\le -x \\implies -f(-x) \\ge x$. Combining the chain of inequalities: $x \\ge f(x) \\ge -f(-x) \\ge x$. By the squeeze principle, this forces $f(x) = x$ for every real number $x$. Step 4: Since $f(x) = x$ is the identity function on $\\mathbb{R}$, it is trivially bijective (statement B is true), satisfies $f(xy) = xy = f(x)f(y)$ (statement C is true), and satisfies $(f \\circ f)(x) = f(x) = x$ (statement D is true). Statement A is the core deduction, hence all four statements A, B, C, and D are correct."
+    },
+    {
+      "id": "rfa_c01_043",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $P(x)$ be a quadratic polynomial with real coefficients and leading coefficient $1$ satisfying the functional equation $P(x^2) = P(x)P(x - 1)$ for all $x \\in \\mathbb{R}$. Determine the exact numerical value of $P(3)$.",
+      "options": [
+        "A) $7$",
+        "B) $11$",
+        "C) $13$",
+        "D) $17$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: If $\\alpha$ is a complex root of $P(x)$, then $P(\\alpha^2) = P(\\alpha)P(\\alpha - 1) = 0$, which implies that $\\alpha^2, \\alpha^4, \\alpha^8, \\dots$ must also be roots of $P(x)$. Since a non-zero polynomial has finitely many roots, we must have $|\\alpha| = 1$ or $\\alpha = 0$. Step 2: Similarly, setting $x = \\alpha + 1$ gives $P((\\alpha + 1)^2) = P(\\alpha + 1)P(\\alpha) = 0$, which implies $|\\alpha + 1| = 1$ or $\\alpha + 1 = 0$. The roots on the unit circle satisfying $|\\alpha| = 1$ and $|\\alpha + 1| = 1$ are the primitive cube roots of unity: $\\alpha = e^{\\pm i 2\\pi/3} = -\\frac{1}{2} \\pm i\\frac{\\sqrt{3}}{2}$. Step 3: The quadratic polynomial with these conjugate roots and monic leading coefficient is $P(x) = (x - e^{i 2\\pi/3})(x - e^{-i 2\\pi/3}) = x^2 + x + 1$. Step 4: Verify the functional equation: $P(x^2) = x^4 + x^2 + 1$. On the other hand, $P(x - 1) = (x - 1)^2 + (x - 1) + 1 = x^2 - x + 1$, and $P(x)P(x - 1) = (x^2 + x + 1)(x^2 - x + 1) = x^4 + x^2 + 1 = P(x^2)$, which confirms the identity. Step 5: Evaluating at $x = 3$ yields $P(3) = 3^2 + 3 + 1 = 9 + 3 + 1 = 13$. Omitting the linear term gives $10$, and sign errors lead to distractors A, B, and D."
+    },
+    {
+      "id": "rfa_c01_044",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a non-trivial function satisfying the functional relation $f(x + 1) + f(x - 1) = \\sqrt{3} f(x)$ for all $x \\in \\mathbb{R}$. Determine the fundamental period of $f(x)$.",
+      "options": [
+        "A) $12$",
+        "B) $6$",
+        "C) $8$",
+        "D) $24$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The recurrence relation is $f(x + 1) - \\sqrt{3}f(x) + f(x - 1) = 0$. Replacing $x$ with $x + 1$ gives $f(x + 2) = \\sqrt{3}f(x + 1) - f(x)$. Step 2: Compute successive shifts to detect the anti-periodic cycle: $f(x + 3) = \\sqrt{3}f(x + 2) - f(x + 1) = \\sqrt{3}(\\sqrt{3}f(x + 1) - f(x)) - f(x + 1) = 2f(x + 1) - \\sqrt{3}f(x)$. $f(x + 4) = \\sqrt{3}f(x + 3) - f(x + 2) = \\sqrt{3}(2f(x + 1) - \\sqrt{3}f(x)) - (\\sqrt{3}f(x + 1) - f(x)) = \\sqrt{3}f(x + 1) - 2f(x)$. Step 3: Advance once more: $f(x + 5) = \\sqrt{3}f(x + 4) - f(x + 3) = \\sqrt{3}(\\sqrt{3}f(x + 1) - 2f(x)) - (2f(x + 1) - \\sqrt{3}f(x)) = f(x + 1) - \\sqrt{3}f(x) = -f(x - 1)$. Replacing $x$ with $x + 1$ yields $f(x + 6) = -f(x)$ for all $x$. Step 4: Advancing by $6$ units gives $f(x + 12) = -f(x + 6) = -(-f(x)) = f(x)$. Thus, the function is periodic with fundamental period $12$. Stopping at the anti-period gives distractor B ($6$), while confusing coefficients produces distractors C and D."
+    },
+    {
+      "id": "rfa_c01_045",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{N} \\to \\mathbb{N}$ be a function mapping the set of natural numbers to itself that satisfies the recurrence relation $f(f(n)) + f(n) = 2n + 3$ for all $n \\in \\mathbb{N}$. Determine the exact value of $f(2025)$.",
+      "options": [
+        "A) $2025$",
+        "B) $2026$",
+        "C) $4053$",
+        "D) $1013$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Consider linear trial solutions of the form $f(n) = an + b$. Substituting this form into the recurrence yields $f(f(n)) = a(an + b) + b = a^2 n + ab + b$. Step 2: The functional equation becomes $(a^2 n + ab + b) + (an + b) = 2n + 3 \\implies (a^2 + a)n + (ab + 2b) = 2n + 3$. Equating the coefficients of $n$: $a^2 + a = 2 \\implies a^2 + a - 2 = 0 \\implies (a - 1)(a + 2) = 0$. Since $f: \\mathbb{N} \\to \\mathbb{N}$, the slope must be positive, so we select $a = 1$. Step 3: Equating the constant terms with $a = 1$: $1\\cdot b + 2b = 3 \\implies 3b = 3 \\implies b = 1$. Thus, the unique valid linear solution is $f(n) = n + 1$. Step 4: Evaluating this solution at $n = 2025$ yields $f(2025) = 2025 + 1 = 2026$. Neglecting the offset $+1$ produces distractor A, and misidentifying the slope produces distractors C and D."
+    },
+    {
+      "id": "rfa_c01_046",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: (0, \\infty) \\to (0, \\infty)$ be defined by $f(x) = \\frac{x}{\\sqrt[3]{1 + x^3}}$. If $g(x) = f^7(x)$ denotes the $7$-th composite iterate of $f$, determine the explicit analytical formula for the inverse function $g^{-1}(x)$.",
+      "options": [
+        "A) $\\frac{x}{\\sqrt[3]{1 + 7x^3}}$",
+        "B) $\\frac{x}{\\sqrt[3]{7 - x^3}}$",
+        "C) $\\frac{x}{\\sqrt[3]{1 - 7x^3}}$",
+        "D) $\\frac{7x}{\\sqrt[3]{1 + x^3}}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Compute the second composite iterate: $f^2(x) = f(f(x)) = \\frac{\\frac{x}{\\sqrt[3]{1+x^3}}}{\\sqrt[3]{1 + \\left(\\frac{x}{\\sqrt[3]{1+x^3}}\\right)^3}} = \\frac{\\frac{x}{\\sqrt[3]{1+x^3}}}{\\sqrt[3]{\\frac{1+2x^3}{1+x^3}}} = \\frac{x}{\\sqrt[3]{1 + 2x^3}}$. Step 2: By mathematical induction, the $n$-th iterate is $f^n(x) = \\frac{x}{\\sqrt[3]{1 + nx^3}}$. Thus for $n = 7$, $g(x) = f^7(x) = \\frac{x}{\\sqrt[3]{1 + 7x^3}}$. Step 3: To find the inverse function $g^{-1}(x)$, set $y = \\frac{x}{\\sqrt[3]{1 + 7x^3}}$ and solve for $x$ in terms of $y$: $y^3 = \\frac{x^3}{1 + 7x^3} \\implies y^3 + 7x^3 y^3 = x^3 \\implies x^3(1 - 7y^3) = y^3 \\implies x^3 = \\frac{y^3}{1 - 7y^3}$. Step 4: Taking the cube root gives $x = \\frac{y}{\\sqrt[3]{1 - 7y^3}}$. Swapping variables yields $g^{-1}(x) = \\frac{x}{\\sqrt[3]{1 - 7x^3}}$. Confusing $g$ with its inverse gives distractor A, and denominator inversion errors produce distractors B and D."
+    },
+    {
+      "id": "rfa_c01_047",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be defined by $f(x) = x^2 - 2$. Determine the total number of distinct real solutions to the iterated equation $(f \\circ f)(x) = x$.",
+      "options": [
+        "A) $1$",
+        "B) $2$",
+        "C) $3$",
+        "D) $4$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The equation $(f \\circ f)(x) = x$ is equivalent to $f(f(x)) - x = 0$. Any fixed point of $f(x)$ satisfying $f(x) = x$ automatically satisfies $f(f(x)) = f(x) = x$. Step 2: Solve the fixed point equation: $x^2 - 2 = x \\implies x^2 - x - 2 = 0 \\implies (x - 2)(x + 1) = 0$. This yields two distinct real solutions: $x = 2$ and $x = -1$. Step 3: Compute the explicit polynomial for $(f \\circ f)(x)$: $f(f(x)) = (x^2 - 2)^2 - 2 = x^4 - 4x^2 + 2$. The equation becomes $x^4 - 4x^2 - x + 2 = 0$. Step 4: Since $x = 2$ and $x = -1$ are roots, $(x^2 - x - 2)$ must be a polynomial factor. Performing polynomial long division: $\\frac{x^4 - 4x^2 - x + 2}{x^2 - x - 2} = x^2 + x - 1$. Step 5: Solve the remaining quadratic factor $x^2 + x - 1 = 0$: $x = \\frac{-1 \\pm \\sqrt{1 - 4(1)(-1)}}{2} = \\frac{-1 \\pm \\sqrt{5}}{2}$. The discriminant is $5 > 0$, so this quadratic contributes two additional distinct real roots. None of these coincide with $2$ or $-1$. Thus, there are exactly $2 + 2 = 4$ distinct real solutions. Counting only the fixed points of $f$ gives distractor B ($2$)."
+    },
+    {
+      "id": "rfa_c01_048",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $S$ be a set containing exactly $5$ distinct elements. Determine the total number of distinct equivalence relations that can be defined on $S$.",
+      "options": [],
+      "answer": "52",
+      "explanation": "Step 1: The number of equivalence relations on an $n$-element set equals the number of partitions of the set, which is given by the Bell number $B_n$. Step 2: The Bell numbers satisfy the recurrence relation $B_{n+1} = \\sum_{k=0}^n \\binom{n}{k} B_k$, with initial values $B_0 = 1$, $B_1 = 1$, $B_2 = 2$, $B_3 = 5$, and $B_4 = 15$. Step 3: Compute $B_5$ using $n = 4$: $B_5 = \\sum_{k=0}^4 \\binom{4}{k} B_k = \\binom{4}{0}B_0 + \\binom{4}{1}B_1 + \\binom{4}{2}B_2 + \\binom{4}{3}B_3 + \\binom{4}{4}B_4$. Step 4: Substitute the known values: $B_5 = 1(1) + 4(1) + 6(2) + 4(5) + 1(15) = 1 + 4 + 12 + 20 + 15 = 52$. Step 5: Hence, there are exactly $52$ distinct equivalence relations that can be defined on a set of $5$ elements."
+    },
+    {
+      "id": "rfa_c01_049",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Determine the total number of distinct real solutions to the equation $x^2 - 8\\lfloor x \\rfloor + 7 = 0$, where $\\lfloor \\cdot \\rfloor$ denotes the greatest integer function.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: Rearrange the equation to express the integer part in terms of $x$: $\\lfloor x \\rfloor = \\frac{x^2 + 7}{8}$. Step 2: By the fundamental definition of the greatest integer function, $\\lfloor x \\rfloor \\le x < \\lfloor x \\rfloor + 1$. Substituting gives two simultaneous inequalities: (i) $\\frac{x^2 + 7}{8} \\le x \\implies x^2 - 8x + 7 \\le 0 \\implies (x - 1)(x - 7) \\le 0 \\implies x \\in [1, 7]$. (ii) $x < \\frac{x^2 + 7}{8} + 1 = \\frac{x^2 + 15}{8} \\implies x^2 - 8x + 15 > 0 \\implies (x - 3)(x - 5) > 0 \\implies x < 3$ or $x > 5$. Step 3: The intersection of these intervals gives the permissible domain for solutions: $x \\in [1, 3) \\cup (5, 7]$. Step 4: For any solution, $n = \\lfloor x \\rfloor$ must be an integer. The possible integers are $n \\in \\{1, 2, 5, 6, 7\\}$. We test each case using $x = \\sqrt{8n - 7}$: Case $n = 1$: $x = \\sqrt{1} = 1$; $\\lfloor 1 \\rfloor = 1$ (valid). Case $n = 2$: $x = \\sqrt{9} = 3$; but $\\lfloor 3 \\rfloor = 3 \\ne 2$ (invalid). Case $n = 5$: $x = \\sqrt{33} \\approx 5.74$; $\\lfloor \\sqrt{33} \\rfloor = 5$ (valid). Case $n = 6$: $x = \\sqrt{41} \\approx 6.40$; $\\lfloor \\sqrt{41} \\rfloor = 6$ (valid). Case $n = 7$: $x = \\sqrt{49} = 7$; $\\lfloor 7 \\rfloor = 7$ (valid). Step 5: Exactly $4$ values satisfy the equation: $x \\in \\{1, \\sqrt{33}, \\sqrt{41}, 7\\}$."
+    },
+    {
+      "id": "rfa_c01_050",
+      "subject": "Mathematics",
+      "topic": "Relations and Functions (Advanced)",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a continuous function satisfying the quadratic functional equation $f(x + y) + f(x - y) = 2f(x) + 2f(y)$ for all real numbers $x, y \\in \\mathbb{R}$. If $f(1) = 3$, determine the exact value of $f(5)$.",
+      "options": [],
+      "answer": "75",
+      "explanation": "Step 1: Setting $x = y = 0$ in the given quadratic functional equation gives $f(0) + f(0) = 2f(0) + 2f(0) \\implies 2f(0) = 4f(0) \\implies f(0) = 0$. Step 2: Setting $x = 0$ gives $f(y) + f(-y) = 2f(0) + 2f(y) = 2f(y) \\implies f(-y) = f(y)$, establishing that $f$ is an even function. Step 3: Setting $y = x$ gives $f(2x) + f(0) = 2f(x) + 2f(x) \\implies f(2x) = 4f(x) = 2^2 f(x)$. By standard mathematical induction for integers, it follows that $f(nx) = n^2 f(x)$ for all integers $n$. For any continuous function satisfying this relation on $\\mathbb{R}$, $f(x) = c x^2$ for some real constant $c$. Step 4: Given $f(1) = 3$, we have $c(1)^2 = 3 \\implies c = 3$, so the function is $f(x) = 3x^2$. Step 5: Evaluating at $x = 5$ yields $f(5) = 3(5^2) = 3 \\times 25 = 75$."
+    }
+  ]
+}

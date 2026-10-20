@@ -1,0 +1,804 @@
+{
+  "questions": [
+    {
+      "id": "ape_c01_001",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When 1-methylcyclopentene is subjected to hydroboration-oxidation (Step 1: $\\text{BH}_3\\cdot\\text{THF}$, Step 2: alkaline $\\text{H}_2\\text{O}_2$), it furnishes compound $X$. When the same alkene is subjected to oxymercuration-demercuration (Step 1: $\\text{Hg(OAc)}_2/\\text{H}_2\\text{O}$, Step 2: $\\text{NaBH}_4$), it furnishes compound $Y$. What are the IUPAC names and stereochemical configurations of $X$ and $Y$?",
+      "options": [
+        "A) $X$ is $\\text{trans}$-2-methylcyclopentan-1-ol and $Y$ is 1-methylcyclopentan-1-ol",
+        "B) $X$ is $\\text{cis}$-2-methylcyclopentan-1-ol and $Y$ is 1-methylcyclopentan-1-ol",
+        "C) $X$ is 1-methylcyclopentan-1-ol and $Y$ is $\\text{trans}$-2-methylcyclopentan-1-ol",
+        "D) $X$ is $\\text{trans}$-2-methylcyclopentan-1-ol and $Y$ is 2-methylcyclopentan-1-ol"
+      ],
+      "answer": "A",
+      "explanation": "Hydroboration-oxidation proceeds via a concerted four-membered cyclic transition state yielding syn-addition of boron and hydrogen across the alkene double bond with anti-Markovnikov regiochemistry. Oxidation by alkaline $\\text{H}_2\\text{O}_2$ replaces the boron atom with retention of stereochemistry, therefore yielding $\\text{trans}$-2-methylcyclopentan-1-ol ($X$) where the $-\\text{OH}$ and $-\\text{CH}_3$ groups are oriented trans to each other. In contrast, oxymercuration-demercuration proceeds via an intermediate mercurinium ion attacked by water at the more substituted carbon, yielding 1-methylcyclopentan-1-ol ($Y$) with Markovnikov regiochemistry without carbocation rearrangement. Distractor B incorrectly assigns syn-relationship between $-\\text{OH}$ and $-\\text{CH}_3$, distractor C reverses the regiochemical outcomes of the two methods, and distractor D assigns an unrearranged secondary alcohol to oxymercuration."
+    },
+    {
+      "id": "ape_c01_002",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "An organic molecular formula $\\text{C}_4\\text{H}_{10}\\text{O}$ corresponds to four constitutionally isomeric aliphatic alcohols: butan-1-ol, butan-2-ol, 2-methylpropan-1-ol, and 2-methylpropan-2-ol. Let $n_1$ be the number of these isomers that produce immediate turbidity at room temperature when treated with Lucas reagent ($\\text{conc. HCl} + \\text{anhydrous ZnCl}_2$). Let $n_2$ be the number of these isomers that exhibit a characteristic intense blue coloration upon completion of the Victor Meyer test (treatment with $\\text{P} + \\text{I}_2$, then $\\text{AgNO}_2$, then $\\text{HNO}_2$, followed by aqueous $\\text{NaOH}$). Determine the numerical value of $(n_1^2 + 2n_2)$.",
+      "options": [],
+      "answer": "3",
+      "explanation": "Applying the Lucas test: tertiary alcohols react immediately via an $S_N1$ mechanism forming insoluble alkyl chlorides, secondary alcohols react in $5\\text{ minutes}$, and primary alcohols do not produce turbidity at room temperature. Among the four isomers, only 2-methylpropan-2-ol is a tertiary alcohol, hence $n_1 = 1$. In the Victor Meyer test: primary alcohols form nitrolic acids which dissolve in alkali to yield a blood-red color; secondary alcohols form pseudonitrols which dissolve in alkali yielding a distinct blue color; tertiary alcohols do not possess an $\\alpha$-hydrogen and yield a colorless solution. Among the four isomers, only butan-2-ol is a secondary alcohol, hence $n_2 = 1$. Therefore, calculating the required expression gives $n_1^2 + 2n_2 = 1^2 + 2(1) = 3$."
+    },
+    {
+      "id": "ape_c01_003",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When 3,3-dimethylbut-1-ene is subjected to acid-catalyzed hydration using dilute $\\text{H}_2\\text{SO}_4$, it undergoes protonation and subsequent rearrangement to afford alcohol $P$ as the major product. Conversely, when the same alkene is treated with $\\text{B}_2\\text{H}_6$ in THF followed by basic $\\text{H}_2\\text{O}_2$, alcohol $Q$ is formed as the sole major product. What are the IUPAC names of $P$ and $Q$?",
+      "options": [
+        "A) $P$ is 3,3-dimethylbutan-2-ol and $Q$ is 3,3-dimethylbutan-1-ol",
+        "B) $P$ is 2,3-dimethylbutan-2-ol and $Q$ is 3,3-dimethylbutan-1-ol",
+        "C) $P$ is 2,3-dimethylbutan-2-ol and $Q$ is 2,3-dimethylbutan-1-ol",
+        "D) $P$ is 3,3-dimethylbutan-1-ol and $Q$ is 2,3-dimethylbutan-2-ol"
+      ],
+      "answer": "B",
+      "explanation": "In acid-catalyzed hydration, protonation of 3,3-dimethylbut-1-ene gives the secondary carbocation $(\\text{CH}_3)_3\\text{C}-\\text{CH}^+-\\text{CH}_3$. A rapid 1,2-methyl shift occurs to relieve steric strain and form the more stable tertiary carbocation $(\\text{CH}_3)_2\\text{C}^+-\\text{CH}(\\text{CH}_3)_2$. Subsequent nucleophilic attack by $\\text{H}_2\\text{O}$ followed by deprotonation yields 2,3-dimethylbutan-2-ol ($P$). In hydroboration-oxidation, addition proceeds anti-Markovnikov without carbocation formation, yielding 3,3-dimethylbutan-1-ol ($Q$). Distractor A neglects the 1,2-methyl shift in the carbocation intermediate, distractor C erroneously introduces rearrangement into hydroboration, and distractor D inverts the reagents."
+    },
+    {
+      "id": "ape_c01_004",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the industrial preparation of phenol from isopropylbenzene (cumene), cumene is first oxidized by air to cumene hydroperoxide. Subsequent treatment with dilute aqueous $\\text{H}_2\\text{SO}_4$ triggers an acid-catalyzed rearrangement. Which of the following statements correctly identifies the migrating group, the leaving group during the rearrangement step, and the commercially valuable co-product isolated?",
+      "options": [
+        "A) Migrating group is methyl, leaving group is hydroxide ion, co-product is acetaldehyde",
+        "B) Migrating group is phenyl, leaving group is hydroxide ion, co-product is propan-2-ol",
+        "C) Migrating group is phenyl, leaving group is water ($\\text{H}_2\\text{O}$), co-product is propan-2-one (acetone)",
+        "D) Migrating group is methyl, leaving group is water ($\\text{H}_2\\text{O}$), co-product is propan-2-one (acetone)"
+      ],
+      "answer": "C",
+      "explanation": "Protonation of the terminal oxygen of cumene hydroperoxide generates an oxonium ion $-\\text{O}^+-\\text{H}_2$. As water ($\\text{H}_2\\text{O}$) departs as the leaving group, the electron-rich phenyl group undergoes a 1,2-shift from carbon to the electron-deficient oxygen atom because phenyl has a much higher migratory aptitude than methyl. This concerted rearrangement forms a resonance-stabilized oxocarbenium ion, which is subsequently trapped by water and hydrolyzed to yield phenol and propan-2-one (acetone) as the co-product. Distractor A mistakenly chooses methyl migration and hydroxide as leaving group, distractor B incorrectly names propan-2-ol, and distractor D errs in the migrating aptitude."
+    },
+    {
+      "id": "ape_c01_005",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "D-Glucitol (also known as sorbitol) is a hexahydric polyol with the structural formula $\\text{HOCH}_2-(\\text{CHOH})_4-\\text{CH}_2\\text{OH}$. When 1 mole of D-glucitol is subjected to exhaustive oxidative cleavage using an excess of periodic acid ($\\text{HIO}_4$), how many total moles of carboxylic acid ($\\text{HCOOH}$) are produced?",
+      "options": [],
+      "answer": "4",
+      "explanation": "Periodic acid ($\\text{HIO}_4$) selectively cleaves vicinal diol $\\text{C}-\\text{C}$ bonds via a cyclic periodate ester intermediate. In D-glucitol, there are five contiguous carbon-carbon single bonds linking hydroxylated carbon atoms, hence 5 moles of $\\text{HIO}_4$ are consumed per mole of D-glucitol. The terminal primary alcohol groups ($-\\text{CH}_2\\text{OH}$ at $\\text{C}-1$ and $\\text{C}-6$) are cleaved to yield 2 moles of formaldehyde ($\\text{HCHO}$). The four internal secondary alcohol groups ($-\\text{CHOH}-$ at $\\text{C}-2, \\text{C}-3, \\text{C}-4, \\text{C}-5$) are each oxidized to a molecule of formic acid ($\\text{HCOOH}$). Therefore, the total number of moles of formic acid ($\\text{HCOOH}$) formed is exactly 4."
+    },
+    {
+      "id": "ape_c01_006",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Consider the relative acid strength of the following aromatic hydroxyl compounds in aqueous solution: (I) Phenol, (II) 4-nitrophenol, (III) 3-nitrophenol, (IV) 4-methylphenol, and (V) 2,4,6-trinitrophenol. What is the correct order of decreasing acidity?",
+      "options": [
+        "A) $\\text{V} > \\text{III} > \\text{II} > \\text{I} > \\text{IV}$",
+        "B) $\\text{II} > \\text{V} > \\text{III} > \\text{IV} > \\text{I}$",
+        "C) $\\text{V} > \\text{II} > \\text{IV} > \\text{III} > \\text{I}$",
+        "D) $\\text{V} > \\text{II} > \\text{III} > \\text{I} > \\text{IV}$"
+      ],
+      "answer": "D",
+      "explanation": "Acidity depends on the stability of the conjugate phenoxide anion. In 2,4,6-trinitrophenol (picric acid, V), three strong electron-withdrawing nitro groups exert both $-M$ and $-I$ effects, delocalizing the negative charge intensely ($\\text{p}K_a \\approx 0.38$). In 4-nitrophenol (II), the $-\\text{NO}_2$ group exerts both strong $-M$ and $-I$ effects directly stabilizing the phenoxide oxygen ($\\text{p}K_a \\approx 7.15$). In 3-nitrophenol (III), the $-\\text{NO}_2$ group is meta and operates solely via its electron-withdrawing inductive effect ($-I$) without resonance participation ($\\text{p}K_a \\approx 8.35$). Phenol (I) has $\\text{p}K_a \\approx 9.95$. In 4-methylphenol (IV), the electron-donating methyl group destabilizes the phenoxide anion via hyperconjugation and $+I$ effects ($\\text{p}K_a \\approx 10.26$). Hence the correct decreasing order is $\\text{V} > \\text{II} > \\text{III} > \\text{I} > \\text{IV}$. Distractor A places meta above para, distractor B underestimates picric acid, and distractor C places cresol above meta-nitrophenol."
+    },
+    {
+      "id": "ape_c01_007",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Optically pure $(R)$-butan-2-ol is converted into 2-chlorobutane via two distinct reaction conditions:\nReaction 1: Treatment with thionyl chloride ($\\text{SOCl}_2$) in 1,4-dioxane.\nReaction 2: Treatment with thionyl chloride ($\\text{SOCl}_2$) in pyridine solvent.\nWhat are the absolute stereochemical configurations of 2-chlorobutane produced in Reaction 1 and Reaction 2, respectively?",
+      "options": [
+        "A) $(R)$-2-chlorobutane in Reaction 1 and $(S)$-2-chlorobutane in Reaction 2",
+        "B) $(S)$-2-chlorobutane in Reaction 1 and $(R)$-2-chlorobutane in Reaction 2",
+        "C) $(R)$-2-chlorobutane in both Reaction 1 and Reaction 2",
+        "D) $(S)$-2-chlorobutane in both Reaction 1 and Reaction 2"
+      ],
+      "answer": "A",
+      "explanation": "Reaction 1 occurs via an internal nucleophilic substitution ($S_N i$) mechanism. Reaction of $(R)$-butan-2-ol with $\\text{SOCl}_2$ forms an intermediate chlorosulfite ester, $\\text{R}-\\text{O}-\\text{SOCl}$. In an ether solvent like 1,4-dioxane, decomposition proceeds via an ion pair where chloride attacks the carbocation from the same face as the leaving group $\\text{SO}_2$, yielding $(R)$-2-chlorobutane with retention of configuration. In Reaction 2, pyridine acts as a base and nucleophile, reacting with $\\text{HCl}$ to form pyridinium chloride ($\\text{C}_5\\text{H}_5\\text{NH}^+\\text{Cl}^-$). The generated free chloride ions attack the chlorosulfite intermediate from the backside in a bimolecular nucleophilic substitution ($S_N 2$) pathway, leading to complete inversion of configuration to give $(S)$-2-chlorobutane. Distractors B, C, and D ignore the role of pyridine in converting the $S_N i$ mechanism into an $S_N 2$ pathway."
+    },
+    {
+      "id": "ape_c01_008",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Consider the following six proposed reaction combinations for the preparation of ethers via Williamson ether synthesis:\n(1) Sodium methoxide $+$ benzyl chloride\n(2) Sodium tert-butoxide $+$ iodomethane\n(3) Sodium phenoxide $+$ bromoethane\n(4) Sodium ethoxide $+$ bromobenzene\n(5) Sodium tert-butoxide $+$ 2-chloro-2-methylpropane\n(6) Sodium methoxide $+$ 2-bromo-2-methylpropane\nHow many of these six reactions proceed predominantly via nucleophilic substitution ($S_N 2$) to afford the intended ether in high yield rather than undergoing elimination ($E2$) or no reaction?",
+      "options": [],
+      "answer": "3",
+      "explanation": "Williamson ether synthesis involves bimolecular nucleophilic substitution ($S_N 2$). (1) Primary benzylic chloride reacts rapidly with methoxide to yield benzyl methyl ether in high yield (proceeds via $S_N 2$). (2) Hindered tert-butoxide attacks unhindered primary methyl iodide cleanly via $S_N 2$ to afford methyl tert-butyl ether (proceeds via $S_N 2$). (3) Sodium phenoxide acts as a nucleophile attacking primary ethyl bromide to afford ethyl phenyl ether in high yield (proceeds via $S_N 2$). (4) Bromobenzene has partial double bond character due to resonance, preventing $S_N 2$ displacement by ethoxide (no reaction). (5) and (6) Both involve tertiary alkyl halides with strongly basic alkoxides, which undergo exclusive $E2$ elimination to yield 2-methylpropene rather than substitution. Therefore, exactly 3 reaction combinations successfully afford the intended ether."
+    },
+    {
+      "id": "ape_c01_009",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Three constitutional isomers $X$, $Y$, and $Z$ have the molecular formula $\\text{C}_5\\text{H}_{12}\\text{O}$. When treated with Lucas reagent at $25^\\circ\\text{C}$, $X$ develops turbidity instantaneously, $Y$ develops turbidity after approximately 5 minutes, and $Z$ remains clear for over 30 minutes. Upon treatment with acidic $\\text{KMnO}_4$, $Z$ is oxidized to a carboxylic acid containing five carbon atoms, while $Y$ is oxidized to a ketone. What are the identities of $X$, $Y$, and $Z$?",
+      "options": [
+        "A) $X$ is pentan-1-ol, $Y$ is pentan-2-ol, $Z$ is 2-methylbutan-2-ol",
+        "B) $X$ is 2-methylbutan-2-ol, $Y$ is pentan-2-ol, $Z$ is pentan-1-ol",
+        "C) $X$ is pentan-2-ol, $Y$ is 2-methylbutan-2-ol, $Z$ is pentan-1-ol",
+        "D) $X$ is 2-methylbutan-2-ol, $Y$ is pentan-1-ol, $Z$ is pentan-2-ol"
+      ],
+      "answer": "B",
+      "explanation": "Lucas reagent ($\\text{conc. HCl} + \\text{anhydrous ZnCl}_2$) acts via carbocation intermediates to convert alcohols into insoluble alkyl chlorides. Instant turbidity indicates a tertiary alcohol forming a stable $3^\\circ$ carbocation; among the isomers, 2-methylbutan-2-ol is tertiary, so $X$ is 2-methylbutan-2-ol. Turbidity appearing after 5 minutes indicates a secondary alcohol; pentan-2-ol is secondary and oxidizes to pentan-2-one, confirming $Y$ is pentan-2-ol. No turbidity at room temperature indicates a primary alcohol; pentan-1-ol is primary and undergoes oxidation with acidic $\\text{KMnO}_4$ to pentanoic acid without carbon loss, confirming $Z$ is pentan-1-ol. Distractor A inverts tertiary and primary alcohols, distractor C misidentifies the rates of tertiary and secondary alcohols, and distractor D swaps the secondary and primary alcohols."
+    },
+    {
+      "id": "ape_c01_010",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A chemist wishes to synthesize 2-phenylbutan-2-ol, $\\text{C}_6\\text{H}_5-\\text{C}(\\text{OH})(\\text{CH}_3)-\\text{CH}_2\\text{CH}_3$, using an appropriate Grignard reagent followed by aqueous acidic workup. Which of the following sets of starting materials will fail to yield 2-phenylbutan-2-ol?",
+      "options": [
+        "A) Acetophenone ($\\text{C}_6\\text{H}_5\\text{COCH}_3$) and ethylmagnesium bromide",
+        "B) Propiophenone ($\\text{C}_6\\text{H}_5\\text{COCH}_2\\text{CH}_3$) and methylmagnesium iodide",
+        "C) Benzaldehyde ($\\text{C}_6\\text{H}_5\\text{CHO}$) and ethylmagnesium bromide",
+        "D) Butan-2-one ($\\text{CH}_3\\text{COCH}_2\\text{CH}_3$) and phenylmagnesium bromide"
+      ],
+      "answer": "C",
+      "explanation": "2-Phenylbutan-2-ol is a tertiary alcohol bearing phenyl, methyl, and ethyl groups on the carbinol carbon. It can be synthesized via three logical disconnections: (1) addition of ethyl Grignard to acetophenone ($\\text{C}_6\\text{H}_5\\text{COCH}_3 + \\text{CH}_3\\text{CH}_2\\text{MgBr}$); (2) addition of methyl Grignard to propiophenone ($\\text{C}_6\\text{H}_5\\text{COCH}_2\\text{CH}_3 + \\text{CH}_3\\text{MgI}$); and (3) addition of phenyl Grignard to butan-2-one ($\\text{CH}_3\\text{COCH}_2\\text{CH}_3 + \\text{C}_6\\text{H}_5\\text{MgBr}$). In contrast, addition of ethylmagnesium bromide to benzaldehyde ($\\text{C}_6\\text{H}_5\\text{CHO}$) yields 1-phenylpropan-1-ol, which is a secondary alcohol lacking the methyl substituent on the carbinol carbon. Therefore, combination C fails to produce the desired compound."
+    },
+    {
+      "id": "ape_c01_011",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "When phenol is reacted with excess bromine water at room temperature, it yields a white precipitate $P$ containing $n_1$ bromine atoms per molecule. When phenol is reacted with bromine dissolved in carbon disulfide ($\\text{CS}_2$) at $0^\\circ\\text{C}$, the major product $Q$ isolated contains $n_2$ bromine atoms per molecule. Determine the value of the sum $(n_1 + n_2)$.",
+      "options": [],
+      "answer": "4",
+      "explanation": "In aqueous solution, water is a highly polar ionizing medium that facilitates ionization of phenol into the phenoxide anion ($\\text{C}_6\\text{H}_5\\text{O}^-$). The phenoxide oxygen strongly activates the aromatic ring toward electrophilic attack through extensive resonance delocalization, causing simultaneous electrophilic substitution at all activated ortho and para positions to yield 2,4,6-tribromophenol as a white precipitate, so $n_1 = 3$. In a non-polar solvent such as $\\text{CS}_2$, phenol does not ionize significantly and remains largely unionized. The hydroxyl group is moderately activating, so monosubstitution occurs predominantly at the less sterically hindered para position yielding 4-bromophenol as the major product, so $n_2 = 1$. Therefore, the sum is $n_1 + n_2 = 3 + 1 = 4$."
+    },
+    {
+      "id": "ape_c01_012",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When 1-ethoxypropane is heated with one equivalent of concentrated hydriodic acid ($\\text{HI}$), cleavage of the ether linkage occurs. What are the principal organic products formed and what is the governing reaction mechanism?",
+      "options": [
+        "A) 1-Iodopropane and ethanol, proceeding via an $S_N1$ mechanism",
+        "B) 1-Iodopropane and ethanol, proceeding via an $S_N2$ mechanism",
+        "C) Iodoethane and 1-iodopropane with liberation of water",
+        "D) Iodoethane and propan-1-ol, proceeding via an $S_N2$ mechanism"
+      ],
+      "answer": "D",
+      "explanation": "The first step of ether cleavage is protonation of the ethereal oxygen by $\\text{HI}$ to form an oxonium ion: $\\text{CH}_3\\text{CH}_2-\\text{O}^+(\\text{H})-\\text{CH}_2\\text{CH}_2\\text{CH}_3$. Because both alkyl groups are primary ($1^\\circ$), carbocation formation is energetically unfavorable, and cleavage proceeds strictly via an $S_N2$ pathway. The iodide nucleophile ($\\text{I}^-$) preferentially attacks the less sterically encumbered primary carbon of the ethyl group rather than the bulkier propyl group. Consequently, backside displacement yields iodoethane ($\\text{CH}_3\\text{CH}_2\\text{I}$) and leaves propan-1-ol ($\\text{CH}_3\\text{CH}_2\\text{CH}_2\\text{OH}$) as the departing alcohol. Distractor A invokes an incorrect $S_N1$ pathway, distractor B attacks the more hindered propyl carbon, and distractor C incorrectly requires two equivalents of $\\text{HI}$."
+    },
+    {
+      "id": "ape_c01_013",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "An organic compound $A$ with formula $\\text{C}_4\\text{H}_{10}\\text{O}$ gives a bright yellow precipitate of iodoform ($\\text{CHI}_3$) when treated with $\\text{I}_2$ in aqueous $\\text{NaOH}$. When vapor of $A$ is passed over heated copper at $573\\text{ K}$, it is converted into a carbonyl compound $B$. When $B$ is vigorously oxidized with acidic $\\text{KMnO}_4$, it undergoes $\\text{C}-\\text{C}$ bond cleavage according to Popoff's rule to give predominantly ethanoic acid. Identify compounds $A$ and $B$.",
+      "options": [
+        "A) $A$ is butan-2-ol and $B$ is butan-2-one",
+        "B) $A$ is butan-1-ol and $B$ is butanal",
+        "C) $A$ is 2-methylpropan-1-ol and $B$ is 2-methylpropanal",
+        "D) $A$ is 2-methylpropan-2-ol and $B$ is 2-methylpropene"
+      ],
+      "answer": "A",
+      "explanation": "A positive iodoform test requires the structural motif $\\text{CH}_3-\\text{CH}(\\text{OH})-$ or $\\text{CH}_3-\\text{C}=\\text{O}$. Among the four isomeric alcohols of formula $\\text{C}_4\\text{H}_{10}\\text{O}$, only butan-2-ol ($\\text{CH}_3\\text{CH}(\\text{OH})\\text{CH}_2\\text{CH}_3$) possesses the secondary methyl carbinol group. Dehydrogenation of butan-2-ol over copper at $573\\text{ K}$ oxidizes the secondary alcohol to butan-2-one ($B$). Vigorous oxidation of unsymmetrical ketone butan-2-one by acidic $\\text{KMnO}_4$ cleaves the keto bond such that the carbonyl group remains predominantly with the smaller alkyl group (Popoff's rule), yielding ethanoic acid ($\\text{CH}_3\\text{COOH}$). Distractor B is a primary alcohol that fails the iodoform test, distractor C is also primary, and distractor D undergoes dehydration over copper to an alkene rather than dehydrogenation."
+    },
+    {
+      "id": "ape_c01_014",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the Fischer esterification of acetic acid ($\\text{CH}_3\\text{COOH}$) catalyzed by dry $\\text{HCl}$ gas, the nucleophilic attack of the alcohol molecule on the protonated carbonyl carbon is the rate-determining step. What is the correct order of decreasing reactivity for the four constitutional isomeric alcohols of formula $\\text{C}_4\\text{H}_{10}\\text{O}$?",
+      "options": [
+        "A) 2-Methylpropan-2-ol $>$ butan-2-ol $>$ 2-methylpropan-1-ol $>$ butan-1-ol",
+        "B) Butan-1-ol $>$ 2-methylpropan-1-ol $>$ butan-2-ol $>$ 2-methylpropan-2-ol",
+        "C) Butan-1-ol $>$ butan-2-ol $>$ 2-methylpropan-1-ol $>$ 2-methylpropan-2-ol",
+        "D) 2-Methylpropan-1-ol $>$ butan-1-ol $>$ butan-2-ol $>$ 2-methylpropan-2-ol"
+      ],
+      "answer": "B",
+      "explanation": "In acid-catalyzed esterification, the transition state involves tetrahedral coordination around the carbonyl carbon, which increases steric congestion. Consequently, the rate of reaction is extremely sensitive to steric hindrance around the hydroxyl group of the attacking alcohol: $1^\\circ > 2^\\circ > 3^\\circ$. Comparing the two primary alcohols, butan-1-ol has a straight unbranched chain whereas 2-methylpropan-1-ol has branching at the $\\beta$-carbon which adds steric hindrance, making butan-1-ol more reactive than 2-methylpropan-1-ol. Butan-2-ol is secondary and thus slower, while 2-methylpropan-2-ol is tertiary and has severe steric hindrance resulting in the lowest esterification rate (and often undergoes competing acid-catalyzed dehydration). Therefore, the reactivity order is butan-1-ol $>$ 2-methylpropan-1-ol $>$ butan-2-ol $>$ 2-methylpropan-2-ol."
+    },
+    {
+      "id": "ape_c01_015",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "beginner",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When tert-butyl ethyl ether is stirred with one equivalent of concentrated hydriodic acid ($\\text{HI}$) at room temperature, it cleanly cleaves to afford two products. Which of the following pairs of products is obtained, and via which reaction mechanism?",
+      "options": [
+        "A) Ethyl iodide and tert-butanol via an $S_N2$ mechanism",
+        "B) Ethyl iodide and tert-butanol via an $S_N1$ mechanism",
+        "C) Tert-butyl iodide and ethanol via an $S_N1$ mechanism",
+        "D) Tert-butyl iodide and ethanol via an $S_N2$ mechanism"
+      ],
+      "answer": "C",
+      "explanation": "Protonation of tert-butyl ethyl ether gives the tert-butylethyloxonium ion, $(\\text{CH}_3)_3\\text{C}-\\text{O}^+(\\text{H})-\\text{CH}_2\\text{CH}_3$. Because one of the substituents is a tertiary alkyl group, the carbon-oxygen bond readily dissociates via an unimolecular pathway ($S_N1$) to generate the highly stable tert-butyl carbocation ($(\\text{CH}_3)_3\\text{C}^+$) and neutral ethanol ($\\text{CH}_3\\text{CH}_2\\text{OH}$). The tert-butyl cation is rapidly captured by the iodide ion ($\\text{I}^-$) to form tert-butyl iodide ($(\\text{CH}_3)_3\\text{C}-\\text{I}$). Backside $S_N2$ attack on the ethyl group does not compete effectively with the rapid unimolecular heterolysis forming the tertiary carbocation. Distractor A incorrectly predicts $S_N2$ displacement at the ethyl group, distractor B suggests an unfeasible $S_N1$ cleavage of the primary ethyl group, and distractor D invokes an impossible backside $S_N2$ attack on a congested tertiary carbon."
+    },
+    {
+      "id": "ape_c01_016",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When 1-(4-methoxyphenyl)-1,2-diphenylethane-1,2-diol is heated with concentrated sulfuric acid, it undergoes a pinacol-pinacolone rearrangement. Protonation and departure of water occur selectively at the carbon bearing the 4-methoxyphenyl substituent. Which group subsequently undergoes 1,2-migration from the adjacent carbon, and what is the relative migratory aptitude of substituted aryl groups in this rearrangement?",
+      "options": [
+        "A: Hydride migrates; migratory aptitude order is $\\text{alkyl} > p\\text{-anisyl} > \\text{phenyl}$",
+        "B: Phenyl group migrates; migratory aptitude order is $p\\text{-nitrophenyl} > p\\text{-chlorophenyl} > \\text{phenyl} > p\\text{-anisyl}$",
+        "C: 4-Methoxyphenyl group migrates; migratory aptitude order is $\\text{alkyl} > \\text{phenyl} > p\\text{-anisyl}$",
+        "D: Phenyl group migrates; migratory aptitude order is $p\\text{-anisyl} > p\\text{-tolyl} > \\text{phenyl} > p\\text{-chlorophenyl} > p\\text{-nitrophenyl}$"
+      ],
+      "answer": "D",
+      "explanation": "Protonation occurs preferentially at $\\text{C}-1$ because departure of water yields a diarylcarbenium ion stabilized by the strong $+M$ resonance donation of the 4-methoxy ($-p\\text{-OCH}_3$) substituent. The adjacent carbon $\\text{C}-2$ bears two phenyl groups, a hydrogen, and an $-\\text{OH}$ group. A phenyl group undergoes 1,2-migration to $\\text{C}-1$, generating an oxocarbenium ion that deprotonates to give 1,2,2-triphenyl-2-(4-methoxyphenyl)ethan-1-one. In carbocation-driven pinacol rearrangements, migration involves an electron-deficient phenonium-like transition state; therefore, electron-donating groups significantly increase migratory aptitude: $p\\text{-anisyl} > p\\text{-tolyl} > \\text{phenyl} > p\\text{-chlorophenyl} > p\\text{-nitrophenyl}$. Distractor A incorrectly proposes hydride shift, distractor B inverts the migratory aptitude of aryl groups, and distractor C migrates the group attached to the already-formed carbocation center."
+    },
+    {
+      "id": "ape_c01_017",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the classic Reimer-Tiemann reaction of phenol with chloroform ($\\text{CHCl}_3$) in aqueous $\\text{KOH}$ at $60^\\circ\\text{C}$, salicylaldehyde is obtained as the major product. What is the active electrophilic intermediate, what directs the substitution predominantly to the ortho position, and what product is obtained if carbon tetrachloride ($\\text{CCl}_4$) is employed instead of chloroform?",
+      "options": [
+        "A) Electrophile is neutral singlet dichlorocarbene ($:\\text{CCl}_2$); ortho-selectivity is favored by chelation involving the phenoxide oxygen and alkali cation in the transition state; $\\text{CCl}_4$ affords salicylic acid",
+        "B) Electrophile is trichloromethyl carbanion ($^-\\text{CCl}_3$); ortho-selectivity is driven by steric hindrance; $\\text{CCl}_4$ affords salicylaldehyde",
+        "C) Electrophile is chloromethyl carbocation ($^+\\text{CH}_2\\text{Cl}$); ortho-selectivity is favored by hydrogen bonding; $\\text{CCl}_4$ affords chlorobenzene",
+        "D) Electrophile is singlet dichlorocarbene ($:\\text{CCl}_2$); para-selectivity always predominates due to dipole alignment; $\\text{CCl}_4$ affords 4-hydroxybenzoic acid exclusively"
+      ],
+      "answer": "A",
+      "explanation": "Strong base abstracts a proton from $\\text{CHCl}_3$ to form $^-\\text{CCl}_3$, which undergoes $\\alpha$-elimination of chloride to yield the neutral, electron-deficient singlet dichlorocarbene ($:\\text{CCl}_2$). Singlet dichlorocarbene attacks phenoxide at the ortho position, guided by a cyclic transition state in which the alkali metal cation ($\\\\text{K}^+$ or $\\\\text{Na}^+$) coordinates simultaneously to the phenoxide oxygen and the developing carbene lone pair. Hydrolysis of the resulting $-\\text{CHCl}_2$ group affords salicylaldehyde. When $\\text{CCl}_4$ is used, electrophilic attack followed by alkaline hydrolysis of the resulting $-\\text{CCl}_3$ group yields salicylic acid (2-hydroxybenzoic acid). Distractor B wrongly names the carbanion as electrophile, distractor C invents a carbocation, and distractor D asserts false para-regioselectivity."
+    },
+    {
+      "id": "ape_c01_018",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A sample of $0.182\\text{ g}$ of a pure aromatic compound containing methoxy groups (molar mass $= 182\\text{ g mol}^{-1}$) is boiled with excess concentrated hydroiodic acid ($\\text{HI}$). The evolved volatile methyl iodide ($\\text{CH}_3\\text{I}$) is absorbed into an ethanolic solution of silver nitrate ($\\text{AgNO}_3$). The resulting silver iodide precipitate ($\\text{AgI}$, molar mass $= 235\\text{ g mol}^{-1}$) is washed, dried, and weighed. If $0.470\\text{ g}$ of $\\text{AgI}$ is collected, how many methoxy ($-\\text{OCH}_3$) groups are present per molecule of the aromatic compound?",
+      "options": [],
+      "answer": "2",
+      "explanation": "Step 1: Calculate moles of the aromatic compound: $n_{\\text{compound}} = \\frac{0.182\\text{ g}}{182\\text{ g mol}^{-1}} = 0.0010\\text{ mol} = 1.0\\text{ mmol}$. Step 2: Calculate moles of silver iodide collected: $n_{\\text{AgI}} = \\frac{0.470\\text{ g}}{235\\text{ g mol}^{-1}} = 0.0020\\text{ mol} = 2.0\\text{ mmol}$. Step 3: Each methoxy group ($-\\text{OCH}_3$) reacts with concentrated $\\text{HI}$ according to: $\\text{Ar}-\\text{OCH}_3 + \\text{HI} \\rightarrow \\text{Ar}-\\text{OH} + \\text{CH}_3\\text{I}$. Step 4: Each mole of $\\text{CH}_3\\text{I}$ reacts with alcoholic $\\text{AgNO}_3$ to precipitate 1 mole of $\\text{AgI}$: $\\text{CH}_3\\text{I} + \\text{AgNO}_3 + \\text{H}_2\\text{O} \\rightarrow \\text{AgI}\\downarrow + \\text{CH}_3\\text{OH} + \\text{HNO}_3$. Hence, the number of methoxy groups per molecule is $\\frac{n_{\\text{AgI}}}{n_{\\text{compound}}} = \\frac{2.0\\text{ mmol}}{1.0\\text{ mmol}} = 2$."
+    },
+    {
+      "id": "ape_c01_019",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "In the Kolbe-Schmitt reaction, dry sodium phenoxide is heated with carbon dioxide ($\\text{CO}_2$) at $400\\text{ K}$ under a pressure of $4-7\\text{ atm}$, followed by acidification to give salicylic acid as the predominant product. However, when potassium phenoxide is used under identical reaction conditions, 4-hydroxybenzoic acid is obtained as the major product. What is the fundamental mechanistic reason for this counterion dependence?",
+      "options": [
+        "A) Potassium phenoxide is insoluble in liquid $\\text{CO}_2$, causing physical precipitation at the para position",
+        "B) Sodium cation ($\\text{Na}^+$) has a small ionic radius and forms a stable 6-membered cyclic chelate complex with phenoxide oxygen and $\\text{CO}_2$ at the ortho position, whereas the larger $\\text{K}^+$ cannot effectively chelate and directs attack to the less hindered para position",
+        "C) Potassium phenoxide undergoes nucleophilic aromatic substitution rather than electrophilic aromatic substitution",
+        "D) Sodium phenoxide oxidizes $\\text{CO}_2$ to carbonate radical anion, whereas potassium phenoxide acts as a one-electron reducing agent"
+      ],
+      "answer": "B",
+      "explanation": "In the Kolbe-Schmitt synthesis, electrophilic aromatic substitution by the weak electrophile $\\text{CO}_2$ on phenoxide is directed by the counterion. The smaller $\\text{Na}^+$ cation ($r \\approx 102\\text{ pm}$) has high charge density and coordinates simultaneously to the phenoxide oxygen and an oxygen atom of $\\text{CO}_2$. This forms a favorable, rigid six-membered cyclic chelated transition state, guiding electrophilic attack specifically to the ortho carbon to yield sodium salicylate. Conversely, the larger potassium cation $\\text{K}^+$ ($r \\approx 138\\text{ pm}$) has lower charge density and cannot form a tight six-membered chelate ring. Consequently, electrophilic attack occurs preferentially at the less sterically crowded para position, affording potassium 4-hydroxybenzoate as the major product. Distractors A, C, and D propose unphysical solubilities or incorrect mechanisms."
+    },
+    {
+      "id": "ape_c01_020",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When phenyl acetate is treated with anhydrous aluminum chloride ($\\text{AlCl}_3$) in nitrobenzene solvent, it undergoes a Fries rearrangement. At a lower temperature of $60^\\circ\\text{C}$ ($333\\text{ K}$), the major product is 4-hydroxyacetophenone ($X$), whereas at an elevated temperature of $160^\\circ\\text{C}$ ($433\\text{ K}$), the major product is 2-hydroxyacetophenone ($Y$). What governs the distribution of products $X$ and $Y$ at these respective temperatures?",
+      "options": [
+        "A) $X$ is formed via an intermolecular pathway, whereas $Y$ is formed via an entirely free-radical mechanism",
+        "B) $Y$ is kinetically controlled due to lower activation barrier, whereas $X$ is thermodynamically controlled",
+        "C) $X$ is the kinetically controlled product favored at lower temperature due to minimal steric hindrance, whereas $Y$ is the thermodynamically controlled product favored at higher temperature due to stabilizing intramolecular hydrogen bonding",
+        "D) $X$ and $Y$ are formed in equal amounts at all temperatures because the acylium ion attacks ortho and para positions with identical rate constants"
+      ],
+      "answer": "C",
+      "explanation": "The Fries rearrangement of aryl esters involves Lewis acid coordination followed by generation of an acylium ion ($\\text{CH}_3\\text{CO}^+$), which attacks the activated aromatic ring. The para position is less sterically hindered, so electrophilic attack at the para position has a lower activation energy, making 4-hydroxyacetophenone ($X$) the kinetically controlled product predominant at $60^\\circ\\text{C}$. At $160^\\circ\\text{C}$, the reaction becomes reversible and reaches thermodynamic equilibrium. 2-Hydroxyacetophenone ($Y$) is thermodynamically more stable than the para isomer because of strong resonance-assisted intramolecular hydrogen bonding between the phenolic hydroxyl group and the carbonyl oxygen, forming a stable six-membered quasi-aromatic chelate ring. Therefore, higher temperature shifts the equilibrium to the ortho isomer $Y$."
+    },
+    {
+      "id": "ape_c01_021",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "2,2-Dimethyloxirane (isobutylene oxide) is subjected to ring opening under two distinct conditions:\nCondition 1: Reaction with methanol in the presence of a catalytic amount of sulfuric acid ($\\text{CH}_3\\text{OH}/\\text{H}^+$).\nCondition 2: Reaction with sodium methoxide in methanol ($\\text{NaOCH}_3/\\text{CH}_3\\text{OH}$).\nWhat are the major organic products formed in Condition 1 and Condition 2, respectively?",
+      "options": [
+        "A) 1-Methoxy-2-methylpropan-2-ol in both Condition 1 and Condition 2",
+        "B) 2-Methoxy-2-methylpropan-1-ol in both Condition 1 and Condition 2",
+        "C) 1-Methoxy-2-methylpropan-2-ol in Condition 1 and 2-methoxy-2-methylpropan-1-ol in Condition 2",
+        "D) 2-Methoxy-2-methylpropan-1-ol in Condition 1 and 1-methoxy-2-methylpropan-2-ol in Condition 2"
+      ],
+      "answer": "D",
+      "explanation": "Under acidic conditions (Condition 1), the epoxide oxygen is protonated to form an oxonium ion. The tertiary carbon bears substantial partial positive charge ($\\delta^+$) because it can better stabilize positive charge via hyperconjugation and inductive donation. The weak nucleophile ($\\text{CH}_3\\text{OH}$) attacks the more substituted tertiary carbon via an $S_N1$-like transition state, yielding 2-methoxy-2-methylpropan-1-ol. Under basic conditions (Condition 2), the epoxide is unprotonated and the strong methoxide nucleophile ($\\text{CH}_3\\text{O}^-$) attacks strictly via an $S_N2$ mechanism at the sterically less encumbered primary carbon, yielding 1-methoxy-2-methylpropan-2-ol. Distractor C completely inverts the regiochemical outcomes of acid- and base-catalyzed ring opening, while A and B fail to distinguish between the mechanisms."
+    },
+    {
+      "id": "ape_c01_022",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Glycerol (propane-1,2,3-triol) is subjected to complete oxidative cleavage by treatment with an excess of periodic acid ($\\text{HIO}_4$). Let $x$ be the number of moles of $\\text{HIO}_4$ consumed per mole of glycerol. Let $y$ be the number of moles of formaldehyde ($\\text{HCHO}$) produced per mole of glycerol. Let $z$ be the number of moles of formic acid ($\\text{HCOOH}$) produced per mole of glycerol. Determine the numerical value of $(x + y + z)$.",
+      "options": [],
+      "answer": "5",
+      "explanation": "Glycerol has the structural formula $\\text{HOCH}_2-\\text{CHOH}-\\text{CH}_2\\text{OH}$. Step 1: There are two adjacent carbon-carbon bonds linking hydroxyl-bearing carbons: $\\text{C}_1-\\text{C}_2$ and $\\text{C}_2-\\text{C}_3$. Cleaving each bond consumes 1 mole of $\\text{HIO}_4$, so $x = 2$ moles of $\\text{HIO}_4$ are consumed per mole of glycerol. Step 2: The two terminal primary alcohol groups ($-\\text{CH}_2\\text{OH}$ at $\\text{C}-1$ and $\\text{C}-3$) each oxidize to a molecule of formaldehyde ($\\text{HCHO}$), yielding $y = 2$ moles of $\\text{HCHO}$. Step 3: The middle secondary alcohol group ($-\\text{CHOH}-$ at $\\text{C}-2$) is cleaved from both sides and oxidizes to formic acid ($\\text{HCOOH}$), yielding $z = 1$ mole of $\\text{HCOOH}$. Therefore, calculating the required sum gives $x + y + z = 2 + 2 + 1 = 5$."
+    },
+    {
+      "id": "ape_c01_023",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When benzyl methyl ether ($\\text{C}_6\\text{H}_5\\text{CH}_2-\\text{O}-\\text{CH}_3$) and anisole ($\\text{C}_6\\text{H}_5-\\text{O}-\\text{CH}_3$) are each separately heated with excess concentrated hydroiodic acid ($\\text{HI}$), what are the final isolated halogenated organic products?",
+      "options": [
+        "A) Benzyl methyl ether gives benzyl iodide and methyl iodide, whereas anisole gives methyl iodide and phenol (which does not form iodobenzene)",
+        "B) Benzyl methyl ether gives benzyl alcohol and methyl iodide, whereas anisole gives iodobenzene and methanol",
+        "C) Benzyl methyl ether gives benzyl iodide and methanol, whereas anisole gives iodobenzene and methyl iodide",
+        "D) Both ethers yield iodobenzene and methyl iodide via identical pathways"
+      ],
+      "answer": "A",
+      "explanation": "In benzyl methyl ether, protonation gives $\\text{C}_6\\text{H}_5\\text{CH}_2-\\text{O}^+(\\text{H})-\\text{CH}_3$. Cleavage of the benzylic $\\text{C}-\\text{O}$ bond occurs readily because the benzyl carbocation is resonance-stabilized (or via facile $S_N2$ on benzylic carbon), producing benzyl iodide and methanol. In the presence of excess $\\text{HI}$, the generated methanol is further converted into methyl iodide ($\\text{CH}_3\\text{I}$) via $S_N2$ displacement with water as leaving group. In anisole, protonation forms $\\text{C}_6\\text{H}_5-\\text{O}^+(\\text{H})-\\text{CH}_3$. The phenyl-oxygen bond has significant partial double bond character due to resonance delocalization of oxygen lone pairs into the aromatic ring ($sp^2$ hybridized carbon), preventing nucleophilic attack at the phenyl ring. Thus, iodide attacks only the methyl group, producing phenol and methyl iodide. Phenol does not react with excess $\\text{HI}$ to form iodobenzene under these conditions. Distractors B, C, and D incorrectly claim iodobenzene formation or incomplete conversion of methanol."
+    },
+    {
+      "id": "ape_c01_024",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When phenol is treated with sodium nitrite ($\\text{NaNO}_2$) and concentrated sulfuric acid, a brown or deep red solution forms, which on dilution with water turns deep red, and upon addition of excess aqueous $\\text{NaOH}$ changes to an intense deep blue or green. What is this reaction known as, and what is the chemical identity of the blue-colored species?",
+      "options": [
+        "A) Reimer-Tiemann test; sodium salt of salicylaldehyde",
+        "B) Liebermann's nitroso test; sodium salt of indophenol",
+        "C) Schotten-Baumann reaction; sodium salt of phenyl benzoate",
+        "D) Kolbe's electrolytic reaction; sodium phenoxide dimer"
+      ],
+      "answer": "B",
+      "explanation": "This sequence is Liebermann's nitroso reaction, a sensitive diagnostic test for phenols having an unsubstituted para position. In the first step, $\\text{NaNO}_2 + \\text{H}_2\\text{SO}_4$ generates nitrous acid, which nitrosates phenol at the para position to give 4-nitrosophenol. 4-Nitrosophenol tautomerizes to 1,4-benzoquinone monoxime. In the presence of concentrated $\\text{H}_2\\text{SO}_4$, this intermediate condenses with a second molecule of phenol to form indophenol, which appears red in acidic solution. Upon treatment with excess aqueous $\\text{NaOH}$, indophenol is deprotonated to yield the resonance-stabilized indophenol anion (sodium salt of indophenol), exhibiting an intense blue or bluish-green coloration. Distractor A is an aldehyde synthesis, C is esterification, and D is an electrochemical oxidation."
+    },
+    {
+      "id": "ape_c01_025",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When 2-methyl-1-phenylpropane-1,2-diol is heated with dilute $\\text{H}_2\\text{SO}_4$, it undergoes pinacol rearrangement. Between the secondary benzylic hydroxyl group and the tertiary aliphatic hydroxyl group, which $-\\text{OH}$ is preferentially protonated and lost, which group migrates, and what is the major carbonyl product?",
+      "options": [
+        "A) Tertiary $-\\text{OH}$ is lost, phenyl group migrates, product is 3-phenylbutan-2-one",
+        "B) Tertiary $-\\text{OH}$ is lost, hydride migrates, product is 2-methyl-1-phenylpropan-1-one",
+        "C) Secondary benzylic $-\\text{OH}$ is preferentially lost due to benzylic resonance, followed by a 1,2-methyl shift to yield 3-phenylbutan-2-one",
+        "D) Secondary benzylic $-\\text{OH}$ is lost, hydride migrates, product is 2-methyl-3-phenylpropanal"
+      ],
+      "answer": "C",
+      "explanation": "Protonation and loss of water occur preferentially at the secondary benzylic carbon $\\text{C}-1$ because the resulting carbocation is extensively stabilized by resonance delocalization into the adjacent aromatic ring: $\\text{C}_6\\text{H}_5-\\text{CH}^+-\\text{C}(\\text{OH})(\\text{CH}_3)_2$. The adjacent tertiary carbon $\\text{C}-2$ carries two methyl groups and a hydroxyl group. A 1,2-methyl shift from $\\text{C}-2$ to $\\text{C}-1$ occurs rapidly to convert the secondary benzylic carbocation into an oxocarbenium ion: $\\text{C}_6\\text{H}_5-\\text{CH}(\\text{CH}_3)-\\text{C}(=\\text{O}^+\\text{H})-\\text{CH}_3$. Deprotonation then affords 3-phenylbutan-2-one as the major product. Distractor A incorrectly assigns loss of the tertiary aliphatic $-\\text{OH}$ and phenyl migration, distractor B assumes tertiary $-\\text{OH}$ loss with hydride shift, and distractor D invents an aldehyde product."
+    },
+    {
+      "id": "ape_c01_026",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "A polyhydroxy aromatic compound $M$ has the molecular formula $\\text{C}_7\\text{H}_8\\text{O}_4$. When $0.156\\text{ g}$ of compound $M$ (molar mass $= 156\\text{ g mol}^{-1}$) is treated with an excess of methylmagnesium iodide ($\\text{CH}_3\\text{MgI}$) in anhydrous diethyl ether, methane gas ($\\text{CH}_4$) is quantitatively evolved. If the volume of methane evolved is $89.6\\text{ mL}$ measured at STP ($0^\\circ\\text{C}$ and $1\\text{ atm}$, where molar volume of an ideal gas is $22.4\\text{ L mol}^{-1}$), how many active, acidic hydrogen atoms are present per molecule of compound $M$?",
+      "options": [],
+      "answer": "4",
+      "explanation": "Step 1: Calculate the number of moles of compound $M$: $n_M = \\frac{0.156\\text{ g}}{156\\text{ g mol}^{-1}} = 0.0010\\text{ mol} = 1.0\\text{ mmol}$. Step 2: Calculate the number of moles of methane gas evolved: $n_{\\text{CH}_4} = \\frac{89.6\\text{ mL}}{22400\\text{ mL mol}^{-1}} = 0.0040\\text{ mol} = 4.0\\text{ mmol}$. Step 3: The Zerewitinoff active hydrogen determination is based on the quantitative reaction: $\\text{R}-(\\text{OH})_x + x\\,\\text{CH}_3\\text{MgI} \\rightarrow \\text{R}-(\\text{OMgI})_x + x\\,\\text{CH}_4\\uparrow$. Step 4: The number of active hydrogen atoms per molecule is: $x = \\frac{n_{\\text{CH}_4}}{n_M} = \\frac{4.0\\text{ mmol}}{1.0\\text{ mmol}} = 4$. Therefore, compound $M$ contains exactly 4 active hydrogen atoms."
+    },
+    {
+      "id": "ape_c01_027",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When phenol is heated with phthalic anhydride in the presence of concentrated $\\text{H}_2\\text{SO}_4$, it undergoes electrophilic condensation to yield the pH indicator phenolphthalein. Which of the following statements correctly describes the molecular structure and color changes of phenolphthalein across different pH ranges?",
+      "options": [
+        "A) Phenolphthalein contains a quinonoid ring in acidic solution producing a pink color, and converts to a lactone form in base",
+        "B) Phenolphthalein is pink at $\\text{pH } < 8.2$ and colorless at $\\text{pH } 8.2-10.0$ due to opening of the cyclic anhydride",
+        "C) In strongly alkaline solution ($\\text{pH} > 12$), phenolphthalein turns intensely purple due to conversion into a tetra-anion with extended conjugation",
+        "D) Phenolphthalein is colorless in acidic solution ($\\text{pH} < 8.2$) due to a spiro-lactone ring with $sp^3$ central carbon, turns pink at $\\text{pH } 8.2-10.0$ due to opening of the lactone ring forming a resonance-delocalized dianion with a quinonoid structure, and turns colorless again in excess alkali ($\\text{pH} > 12$) due to addition of $\\text{OH}^-$ forming a trianion with an $sp^3$ carbinol carbon"
+      ],
+      "answer": "D",
+      "explanation": "In acidic and neutral solutions ($\\text{pH} < 8.2$), phenolphthalein exists in a lactone form where the central carbon is $sp^3$ hybridized, disconnecting conjugation between the three benzene rings and resulting in a colorless solution. In basic medium ($\\text{pH } 8.2-10$), deprotonation of the phenolic groups opens the lactone ring to form a carboxylate dianion containing a quinonoid chromophore; the central carbon becomes $sp^2$ hybridized, allowing extensive $\\pi$-delocalization across all three rings and giving an intense pink/magenta color. In strongly alkaline solution ($\\text{pH} > 12$), hydroxide ion ($\\text{OH}^-$) acts as a nucleophile and adds to the central $sp^2$ carbon to form a carbinol trianion; this converts the central carbon back to tetrahedral $sp^3$ hybridization, disrupting the extended conjugated chromophore and causing the solution to turn colorless again. Distractors A, B, and C present incorrect structures and inverted color changes."
+    },
+    {
+      "id": "ape_c01_028",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Nitration of phenol with dilute $\\text{HNO}_3$ at $298\\text{ K}$ affords a mixture of 2-nitrophenol (ortho) and 4-nitrophenol (para). The two isomers can be cleanly separated by steam distillation. What accounts for the steam volatility of 2-nitrophenol compared to 4-nitrophenol?",
+      "options": [
+        "A) 2-Nitrophenol exhibits intramolecular hydrogen bonding forming a six-membered chelate ring, which prevents intermolecular association and lowers its boiling point, whereas 4-nitrophenol undergoes extensive intermolecular hydrogen bonding resulting in molecular association and higher boiling point",
+        "B) 4-Nitrophenol exhibits intramolecular hydrogen bonding between opposite sides of the ring, decreasing its boiling point",
+        "C) 2-Nitrophenol has a significantly higher dipole moment than 4-nitrophenol, making it more soluble in water vapor",
+        "D) 4-Nitrophenol undergoes spontaneous dimerization through covalent ether linkages during distillation"
+      ],
+      "answer": "A",
+      "explanation": "In 2-nitrophenol, the spatial proximity of the phenolic $-\\text{OH}$ and the ortho $-\\text{NO}_2$ group permits the formation of a planar six-membered chelate ring via strong intramolecular hydrogen bonding ($\\text{O}-\\text{H}\\cdots\\text{O}=\\text{N}^+-\\text{O}^-$). This internal chelation prevents the hydroxyl group from engaging in intermolecular hydrogen bonds with neighboring molecules, keeping its boiling point low ($216^\\circ\\text{C}$) and imparting high steam volatility. In contrast, in 4-nitrophenol, the para orientation places the $-\\text{OH}$ and $-\\text{NO}_2$ groups too far apart for internal bonding, leading to extensive intermolecular hydrogen bonding. This causes strong intermolecular association, significantly raising its boiling point ($279^\\circ\\text{C}$) and rendering it non-volatile in steam. Distractors B, C, and D state incorrect structural and physical concepts."
+    },
+    {
+      "id": "ape_c01_029",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When 1-(1-hydroxyethyl)cyclopentan-1-ol is warmed with concentrated $\\text{H}_2\\text{SO}_4$, it undergoes a pinacol rearrangement involving a change in ring size. Which hydroxyl group departs, which bond migrates, and what is the major organic product formed?",
+      "options": [
+        "A) The exocyclic $-\\text{OH}$ departs, ring contraction occurs, and the product is 1-cyclobutylpropan-1-one",
+        "B) The exocyclic secondary $-\\text{OH}$ departs to form a secondary carbocation, a ring $\\text{C}-\\text{C}$ single bond migrates to relieve five-membered ring strain via ring expansion, yielding 2-methylcyclohexan-1-one",
+        "C) The endocyclic tertiary $-\\text{OH}$ departs, hydride migrates, and the product is 2-cyclopentylethanal",
+        "D) Both $-\\text{OH}$ groups are eliminated simultaneously to afford 1-vinylcyclopent-1-ene"
+      ],
+      "answer": "B",
+      "explanation": "Protonation of the exocyclic secondary alcohol followed by loss of $\\text{H}_2\\text{O}$ generates a carbocation adjacent to the tertiary carbinol carbon of the cyclopentane ring: $\\text{cyclo-C}_5\\text{H}_8(\\text{OH})-\\text{CH}^+-\\text{CH}_3$. Migration of an endocyclic $\\text{C}-\\text{C}$ bond of the five-membered cyclopentyl ring onto the electron-deficient exocyclic carbocation carbon results in ring expansion from a strained five-membered ring to a thermodynamically more stable six-membered ring, generating a protonated six-membered cyclic ketone (oxonium ion). Subsequent loss of $\\text{H}^+$ affords 2-methylcyclohexan-1-one as the major product. Ring expansion is driven by the relief of ring strain and the formation of the exceptionally stable carbonyl group. Distractor A incorrectly proposes ring contraction, distractor C loses the wrong $-\\text{OH}$ group, and distractor D assumes dual dehydration."
+    },
+    {
+      "id": "ape_c01_030",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Phenol is subjected to two distinct oxidation protocols:\nProtocol 1: Oxidation with acidified sodium dichromate ($\\text{Na}_2\\text{Cr}_2\\text{O}_7/\\text{H}_2\\text{SO}_4$).\nProtocol 2: Reaction with potassium persulfate ($\\text{K}_2\\text{S}_2\\text{O}_8$) in alkaline medium followed by acid hydrolysis (Elbs persulfate oxidation).\nWhat are the principal organic products of Protocol 1 and Protocol 2, respectively?",
+      "options": [
+        "A) Protocol 1 gives catechol (benzene-1,2-diol) and Protocol 2 gives 1,4-benzoquinone",
+        "B) Protocol 1 gives phthalic acid and Protocol 2 gives resorcinol (benzene-1,3-diol)",
+        "C) Protocol 1 gives 1,4-benzoquinone (cyclohexa-2,5-diene-1,4-dione) and Protocol 2 gives quinol (benzene-1,4-diol)",
+        "D) Protocol 1 gives benzoic acid and Protocol 2 gives salicylic acid"
+      ],
+      "answer": "C",
+      "explanation": "In Protocol 1, treatment of phenol with strong chromic acid oxidizing mixtures ($\\text{Na}_2\\text{Cr}_2\\text{O}_7 + \\text{H}_2\\text{SO}_4$) oxidizes the aromatic ring to a conjugated cyclic diketone, 1,4-benzoquinone (also known as $p$-benzoquinone), accompanied by loss of aromaticity. In Protocol 2, Elbs persulfate oxidation introduces a second hydroxyl group specifically into the para position of a monohydric phenol. Reaction of phenoxide with the persulfate radical/ion ($\\text{S}_2\\text{O}_8^{2-}$) yields a potassium aryl sulfate intermediate at the para position, which upon acid hydrolysis cleanly affords quinol (benzene-1,4-diol / hydroquinone). Distractor A inverts the products, distractor B suggests oxidative ring cleavage to phthalic acid, and distractor D yields mono-carboxylic acids that require alkyl side chains."
+    },
+    {
+      "id": "ape_c01_031",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "integer",
+      "questionText": "Consider the complete oxidative cleavage of 1 mole of butane-1,2,3,4-tetraol (erythritol) using excess periodic acid ($\\text{HIO}_4$). Let $m$ be the number of moles of $\\text{HIO}_4$ consumed. Let $p$ be the number of moles of formaldehyde ($\\text{HCHO}$) produced. Let $q$ be the number of moles of formic acid ($\\text{HCOOH}$) produced. Determine the numerical value of $(m - p + q)$.",
+      "options": [],
+      "answer": "3",
+      "explanation": "Butane-1,2,3,4-tetraol has the structural formula $\\text{HOCH}_2-\\text{CHOH}-\\text{CHOH}-\\text{CH}_2\\text{OH}$. Step 1: There are three contiguous carbon-carbon bonds between hydroxyl-bearing carbons: $\\text{C}_1-\\text{C}_2$, $\\text{C}_2-\\text{C}_3$, and $\\text{C}_3-\\text{C}_4$. Oxidative cleavage of these three bonds consumes exactly $m = 3$ moles of $\\text{HIO}_4$ per mole of tetraol. Step 2: The two terminal carbons ($\\text{C}-1$ and $\\text{C}-4$), being primary alcohol groups ($-\\text{CH}_2\\text{OH}$), each produce 1 mole of formaldehyde, yielding $p = 2$ moles of $\\text{HCHO}$. Step 3: The two internal carbons ($\\text{C}-2$ and $\\text{C}-3$), being secondary alcohol groups ($-\\text{CHOH}-$), each undergo cleavage from two neighboring carbons to yield 1 mole of formic acid, producing $q = 2$ moles of $\\text{HCOOH}$. Therefore, calculating the required expression: $m - p + q = 3 - 2 + 2 = 3$."
+    },
+    {
+      "id": "ape_c01_032",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "A student attempts to prepare 2-methyl-2-phenoxypropane (tert-butyl phenyl ether) by heating sodium phenoxide ($\\text{C}_6\\text{H}_5\\text{O}^-\\text{Na}^+$) with 2-chloro-2-methylpropane in ethanol. What is the major organic product formed, and why does Williamson ether synthesis fail to produce the desired ether?",
+      "options": [
+        "A) 2-Methyl-2-phenoxypropane, because phenoxide is a weak base and undergoes rapid $S_N2$ displacement",
+        "B) Diphenyl ether, because sodium phenoxide dimerizes via homolytic $\\text{C}-\\text{O}$ coupling",
+        "C) Phenyl 2-methylpropyl ether, because the tertiary halide rearranges to a primary halide prior to substitution",
+        "D) 2-Methylpropene (isobutylene), because sodium phenoxide acts as a Brønsted base and abstracts a $\\beta$-hydrogen from the sterically congested tertiary halide, promoting $E2$ elimination"
+      ],
+      "answer": "D",
+      "explanation": "In Williamson ether synthesis, the reaction involves bimolecular nucleophilic attack ($S_N2$) of an alkoxide or phenoxide on an alkyl halide. Because the backside of the $\\text{C}-\\text{Cl}$ bond in tertiary alkyl halides like 2-chloro-2-methylpropane is heavily sterically blocked by three methyl groups, $S_N2$ displacement is completely prevented. Instead, the phenoxide ion ($\\text{C}_6\\text{H}_5\\text{O}^-$) acts as a Brønsted-Lowry base, abstracting a proton from one of the adjacent $\\beta$-methyl carbons in an $E2$ elimination pathway. This rapidly produces 2-methylpropene (isobutylene) as the predominant organic product along with regenerated phenol ($\\text{C}_6\\text{H}_5\\text{OH}$). To synthesize tert-butyl phenyl ether successfully, one must instead react sodium tert-butoxide with a suitable aryl electrophile or use alkene addition. Distractor A incorrectly ignores steric hindrance, B proposes an impossible dimerization, and C invokes an unobserved halide rearrangement."
+    },
+    {
+      "id": "ape_c01_033",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Allyl phenyl ether ($\\text{C}_6\\text{H}_5-\\text{O}-\\text{CH}_2-\\text{CH}=\\text{CH}_2$) is synthesized by reacting sodium phenoxide with allyl bromide. When this ether is heated to $200^\\circ\\text{C}$ in the absence of a catalyst, it undergoes an intramolecular thermal rearrangement to form 2-allylphenol. What is the nature of the pericyclic transition state, and what happens to the specific carbon atoms of the allyl group?",
+      "options": [
+        "A) The reaction proceeds via a concerted [3,3]-sigmatropic shift through a six-membered chair-like cyclic transition state, resulting in complete inversion of the allyl moiety such that the $\\gamma$-carbon attaches to the ortho position of the aromatic ring",
+        "B) The reaction proceeds via a concerted [1,3]-sigmatropic shift through a four-membered transition state with retention of the allyl chain orientation",
+        "C) The reaction proceeds via homolytic dissociation into phenoxy and allyl radicals that recombine randomly at the para position",
+        "D) The reaction involves an intermolecular nucleophilic substitution wherein one ether molecule attacks another"
+      ],
+      "answer": "A",
+      "explanation": "The Claisen rearrangement of allyl aryl ethers is an aromatic [3,3]-sigmatropic rearrangement. Heating allyl phenyl ether to $\\sim 200^\\circ\\text{C}$ promotes a concerted pericyclic rearrangement involving a six-membered chair-like cyclic transition state. In this process, the $\\text{C}-\\text{O}$ single bond breaks as a new $\\text{C}-\\text{C}$ bond forms between the ortho carbon of the ring and the terminal $\\gamma$-carbon of the allyl group. This causes an inversion of the allyl chain (the original $\\gamma$-carbon becomes attached to the aromatic ring, while the original $\\alpha$-carbon becomes the terminal alkene $=\\text{CH}_2$). The initially formed 6-allylcyclohexa-2,4-dien-1-one rapidly tautomerizes (enolizes) to restore aromaticity, yielding 2-allylphenol. Distractor B proposes a geometrically forbidden [1,3]-shift, C proposes a radical dissociation disproved by crossover experiments, and D suggests an intermolecular pathway."
+    },
+    {
+      "id": "ape_c01_034",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "When 2-phenylpropan-1-ol ($\\text{CH}_3-\\text{CH}(\\text{C}_6\\text{H}_5)-\\text{CH}_2\\text{OH}$) is heated with concentrated $\\text{H}_3\\text{PO}_4$, it undergoes acid-catalyzed dehydration. What is the predominant alkene formed, and what mechanistic step accounts for its formation?",
+      "options": [
+        "A) (Prop-1-en-2-yl)benzene, formed via direct loss of water without carbocation rearrangement",
+        "B) Prop-1-en-1-ylbenzene (1-phenylprop-1-ene), formed via a 1,2-hydride shift from the benzylic position yielding a resonance-stabilized benzylic carbocation followed by proton loss",
+        "C) Allylbenzene, formed via a 1,2-phenyl shift",
+        "D) Cyclopropylbenzene, formed via intramolecular carbocation cyclization"
+      ],
+      "answer": "B",
+      "explanation": "Protonation of the primary hydroxyl group of 2-phenylpropan-1-ol followed by departure of $\\text{H}_2\\text{O}$ generates a primary carbocation: $\\text{CH}_3-\\text{CH}(\\text{C}_6\\text{H}_5)-\\text{CH}_2^+$. A spontaneous 1,2-hydride shift occurs immediately from the adjacent benzylic carbon to the primary carbocation carbon. This converts the unstable primary carbocation into a far more stable secondary benzylic carbocation: $\\text{CH}_3-\\text{C}^+(\\text{C}_6\\text{H}_5)-\\text{CH}_3$. Loss of a proton from this intermediate yields prop-1-en-1-ylbenzene ($\\text{C}_6\\text{H}_5-\\text{CH}=\\text{CH}-\\text{CH}_3$, predominantly the thermodynamically favored $(E)$-isomer), in which the double bond is fully conjugated with the aromatic $\\pi$-system. Distractor A produces the non-conjugated alkene, distractor C involves an unobserved phenyl shift, and distractor D forms a strained ring."
+    },
+    {
+      "id": "ape_c01_035",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "intermediate",
+      "examType": "Main",
+      "questionType": "mcq_single",
+      "questionText": "Cyclopentene is converted into diols by two different methods:\nMethod 1: Treatment with cold, dilute, alkaline $\\text{KMnO}_4$ (Baeyer's reagent).\nMethod 2: Treatment with meta-chloroperbenzoic acid ($\\text{mCPBA}$) followed by aqueous acid ($\\text{H}_3\\text{O}^+$).\nWhat are the stereochemical configurations and optical activity of the diols obtained from Method 1 and Method 2, respectively?",
+      "options": [
+        "A) Method 1 yields $\\text{trans}$-cyclopentane-1,2-diol (optically active); Method 2 yields $\\text{cis}$-cyclopentane-1,2-diol (meso compound)",
+        "B) Method 1 yields $\\text{cis}$-cyclopentane-1,2-diol (racemic mixture); Method 2 yields $\\text{trans}$-cyclopentane-1,2-diol (meso compound)",
+        "C) Method 1 yields $\\text{cis}$-cyclopentane-1,2-diol (meso compound, optically inactive); Method 2 yields $(\\pm)\\text{-trans}$-cyclopentane-1,2-diol (racemic mixture, optically inactive)",
+        "D) Both Method 1 and Method 2 yield identical mixtures of cis and trans diols"
+      ],
+      "answer": "C",
+      "explanation": "In Method 1, Baeyer's reagent (cold alkaline $\\text{KMnO}_4$) reacts with cyclopentene via a concerted cyclic manganate ester intermediate where both oxygen atoms add simultaneously to the same face of the double bond (syn-dihydroxylation). Hydrolysis of the cyclic ester preserves the syn configuration, yielding $\\text{cis}$-cyclopentane-1,2-diol. Because $\\text{cis}$-cyclopentane-1,2-diol possesses an internal plane of symmetry ($\\sigma$), it is an achiral meso compound and optically inactive. In Method 2, epoxidation of cyclopentene by $\\text{mCPBA}$ produces cyclopentene oxide. Acid-catalyzed ring opening proceeds via backside nucleophilic attack of water on the protonated epoxide, leading to anti-dihydroxylation. This produces an equimolar enantiomeric mixture of $(1R,2R)$- and $(1S,2S)$-$\\text{trans}$-cyclopentane-1,2-diol, which constitutes an optically inactive racemic mixture ($(\\pm)$). Distractors A, B, and D misassign the stereochemical modes of addition and symmetry elements."
+    },
+    {
+      "id": "ape_c01_036",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Allyl aryl ethers undergo thermal Claisen rearrangement upon heating to $200^\\circ\\text{C}$. Consider the rearrangement of (I) allyl phenyl ether labeled with $^{14}\\text{C}$ at the allyl $\\gamma$-carbon ($\\text{C}_6\\text{H}_5-\\text{O}-\\text{CH}_2-\\text{CH}=^{14}\\!\\!\\text{CH}_2$), and (II) 2,6-dimethylphenyl allyl ether. Which of the following statements is/are correct regarding the mechanisms, intermediates, and isotopic positions in these rearrangements?",
+      "options": [
+        "A) In compound (I), the rearrangement proceeds via an intramolecular [3,3]-sigmatropic shift, yielding 2-allylphenol in which the $^{14}\\text{C}$ label is exclusively bonded directly to the aromatic ring carbon",
+        "B) In compound (II), because both ortho positions are blocked by methyl groups, the initially formed 6-allyl-2,6-dimethylcyclohexa-2,4-dien-1-one undergoes a second [3,3]-sigmatropic shift to the para position, yielding 4-allyl-2,6-dimethylphenol with retention of the original allyl chain orientation",
+        "C) The first [3,3]-sigmatropic rearrangement proceeds through a cyclic chair-like six-membered transition state with an activation enthalpy $\\Delta H^\\ddagger \\approx 130\\text{ kJ mol}^{-1}$ and a characteristically negative activation entropy $\\Delta S^\\ddagger$",
+        "D) In compound (II), migration to the para position proceeds via an intermolecular free-radical dissociation-recombination mechanism"
+      ],
+      "answer": "A,B,C",
+      "explanation": "Step 1: The Claisen rearrangement of allyl phenyl ether (I) is an intramolecular [3,3]-sigmatropic pericyclic rearrangement. The six-membered chair transition state couples the $\\gamma$-carbon ($^{14}\\text{C}$) to the ortho ring carbon while cleaving the $\\text{O}-\\text{C}_\\alpha$ bond, causing complete inversion of the allyl moiety. Therefore, the $^{14}\\text{C}$ label resides exclusively at the benzylic position directly attached to the aromatic ring, making statement A correct. Step 2: In compound (II), both ortho positions are blocked by methyl groups. The initial [3,3]-shift produces a non-aromatic dienone at the ortho position, inverting the allyl group. Because tautomerization cannot occur without losing a methyl group, a second consecutive [3,3]-sigmatropic shift takes place from the ortho dienone to the unsubstituted para position, thereby reinverting the allyl group back to its original orientation. Hence statement B is correct. Step 3: The concerted nature of the cyclic pericyclic transition state imposes strong molecular ordering, resulting in a significantly negative entropy of activation ($\\Delta S^\\ddagger < 0$), hence statement C is correct. Step 4: Crossover experiments demonstrate that both the ortho and para Claisen rearrangements are strictly intramolecular; no free radicals or intermolecular fragments are formed, thus implying statement D is incorrect."
+    },
+    {
+      "id": "ape_c01_037",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "The rate of oxidative cleavage of vicinal diols by periodic acid ($\\text{HIO}_4$) is profoundly influenced by the conformation and dihedral angle between the two $-\\text{OH}$ groups. When cis-cyclopentane-1,2-diol ($A$) and trans-cyclopentane-1,2-diol ($B$) are separately reacted with aqueous $\\text{HIO}_4$ under identical conditions at $25^\\circ\\text{C}$, the second-order rate constant for diol $A$ is observed to be more than $1000$ times greater than that for diol $B$. What is the precise mechanistic reason for this immense rate disparity?",
+      "options": [
+        "A) Diol $B$ is thermodynamically more stable than diol $A$ by $45\\text{ kJ mol}^{-1}$, so its activation barrier is unattainable",
+        "B) Diol $A$ oxidizes via a free-radical intermediate that is resonance-stabilized, whereas diol $B$ oxidizes via a carbocation",
+        "C) Diol $B$ undergoes dehydration to cyclopentadiene rather than oxidative cleavage",
+        "D) The rate-determining step requires the formation of a cyclic periodate ester intermediate; the two hydroxyl groups in cis-diol $A$ readily achieve the coplanar syn-periplanar orientation necessary to form the bidentate cyclic ester, whereas the trans-hydroxyl groups in rigid diol $B$ cannot span the distance without severe ring strain"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The oxidation of 1,2-diols by periodic acid ($\\text{HIO}_4$) proceeds via rapid, reversible coordination of the two hydroxyl oxygens to the iodine atom, forming a five-membered cyclic periodate mono-ester intermediate: $\\text{R}_2\\text{C}(\\text{O})-\\text{C}(\\text{O})\\text{R}_2\\text{IO}_2(\\text{OH})$. Step 2: The rate-determining step involves the unimolecular decomposition of this cyclic periodate ester via a concerted two-electron cyclic transfer, yielding two carbonyl fragments and iodic acid ($\\text{HIO}_3$). Step 3: In cis-cyclopentane-1,2-diol ($A$), the two $-\\text{OH}$ groups are on the same face of the five-membered ring with a dihedral angle close to $0^\\circ$, allowing effortless formation of the five-membered cyclic periodate diester without significant torsional or angle strain, hence yielding a very fast reaction. Step 4: In trans-cyclopentane-1,2-diol ($B$), the two $-\\text{OH}$ groups point to opposite faces of the planar/envelope ring with a dihedral angle near $120^\\circ$. Forcing both oxygens to coordinate simultaneously to the single iodine atom introduces immense ring distortion and torsional strain, raising the activation energy $\\Delta G^\\ddagger$ substantially and decreasing the reaction rate by several orders of magnitude. Therefore, applying transition-state theory confirms that statement D correctly explains the mechanistic origin."
+    },
+    {
+      "id": "ape_c01_038",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the chemical reactivity and reaction pathways of phenol under different reaction environments. Which of the following statements is/are correct regarding electrophilic substitution, oxidation, and coordination of phenol?",
+      "options": [
+        "A) In carbon disulfide ($\\text{CS}_2$) at $273\\text{ K}$, bromination of phenol with $\\text{Br}_2$ produces 2,4,6-tribromophenol as the major product because $\\text{CS}_2$ promotes complete ionization into phenoxide",
+        "B) In aqueous medium, bromine water brominates phenol to 2,4,6-tribromophenol; treatment of this precipitate with excess bromine yields 2,4,4,6-tetrabromocyclohexa-2,5-dien-1-one",
+        "C) During the Kolbe-Schmitt reaction, the electrophile attacking sodium phenoxide is carbon monoxide ($\\text{CO}$), which undergoes insertion into the $\\text{C}-\\text{H}$ bond",
+        "D) Phenol reacts with neutral ferric chloride ($\\text{FeCl}_3$) solution to form an intensely violet-colored coordination complex formulated as $[\\text{Fe}(\\text{OC}_6\\text{H}_5)_6]^{3-}$, serving as a diagnostic test for the phenolic $-\\text{OH}$ group"
+      ],
+      "answer": "B,D",
+      "explanation": "Step 1: Statement A is false because in non-polar $\\text{CS}_2$, phenol does not ionize into the highly reactive phenoxide ion; instead, the moderately activating unionized $-\\text{OH}$ directs monosubstitution predominantly to the para position, yielding 4-bromophenol. Step 2: Statement B is correct because in water, complete ionization gives phenoxide, leading to rapid tribromination to 2,4,6-tribromophenol. In the presence of excess bromine, electrophilic attack occurs at the brominated para position yielding 2,4,4,6-tetrabromocyclohexa-2,5-dien-1-one. Step 3: Statement C is false because the electrophile in the Kolbe-Schmitt synthesis is carbon dioxide ($\\text{CO}_2$), not carbon monoxide. Step 4: Statement D is correct because phenols with free hydroxyl groups coordinate with $\\text{Fe}^{3+}$ ions in neutral or weakly acidic aqueous solution, yielding stable octahedral hexaphenoxoferrate(III) complex anions $[\\text{Fe}(\\text{OC}_6\\text{H}_5)_6]^{3-}$, which exhibit an intense violet coloration due to ligand-to-metal charge transfer ($\\text{LMCT}$). Therefore, applying mechanistic analysis shows that the correct options are B and D."
+    },
+    {
+      "id": "ape_c01_039",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "1,4-Benzoquinone (cyclohexa-2,5-diene-1,4-dione) is synthesized by the chromic acid oxidation of phenol ($\\text{C}_6\\text{H}_5\\text{OH} + [\\text{O}] \\rightarrow \\text{O}=\\text{C}_6\\text{H}_4=\\text{O}$). In this planar conjugated ring system containing two endocyclic carbon-carbon double bonds and two exocyclic carbonyl double bonds, what is the total number of $\\pi$-electrons contributing to the overall conjugated $\\pi$-electron framework?",
+      "options": [],
+      "answer": "8",
+      "explanation": "Step 1: 1,4-Benzoquinone consists of a six-membered carbocycle with two conjugated carbon-carbon double bonds: $\\text{C}_2=\\text{C}_3$ and $\\text{C}_5=\\text{C}_6$. Each $\\text{C}=\\text{C}$ double bond contributes $2\\ \\pi$-electrons, giving $2 \\times 2 = 4\\ \\pi$-electrons from the ring alkene units. Step 2: In addition, there are two exocyclic carbonyl groups at positions $\\text{C}_1$ and $\\text{C}_4$: $\\text{C}_1=\\text{O}$ and $\\text{C}_4=\\text{O}$. Each carbonyl double bond contributes $2\\ \\pi$-electrons to the continuous conjugated $\\pi$-network, yielding $2 \\times 2 = 4\\ \\pi$-electrons from the carbonyl units. Step 3: Therefore, summing all the electrons in the conjugated $p_z$ molecular orbitals across the entire planar molecule: $N_\\pi = 4 + 4 = 8\\ \\pi$-electrons. Hence, the total number of conjugated $\\pi$-electrons is exactly 8."
+    },
+    {
+      "id": "ape_c01_040",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the stereochemical and mechanistic consequences of ether cleavage when chiral or benzylic ethers are treated with concentrated hydrogen halides ($\\text{HX}$). Which of the following statements is/are correct?",
+      "options": [
+        "A) Cleavage of optically active $(R)$-2-methoxybutane with anhydrous $\\text{HI}$ under mild conditions proceeds predominantly with retention of configuration at the stereocenter, yielding $(R)$-butan-2-ol and iodomethane",
+        "B) Cleavage of optically active $(R)$-2-methoxybutane with anhydrous $\\text{HI}$ proceeds with complete inversion of configuration at the $\\text{C}-2$ stereocenter, yielding $(S)$-2-iodobutane and methanol",
+        "C) Cleavage of optically active $(R)$-1-phenylethyl methyl ether with anhydrous $\\text{HBr}$ proceeds via an $S_N1$ mechanism involving a resonance-stabilized benzylic carbocation, leading to extensive racemization of the resulting 1-bromo-1-phenylethane",
+        "D) In the presence of excess hot concentrated $\\text{HI}$, tert-butyl methyl ether cleaves to yield tert-butyl iodide and methyl iodide via distinct $S_N1$ and $S_N2$ steps, respectively"
+      ],
+      "answer": "A,C,D",
+      "explanation": "Step 1: In $(R)$-2-methoxybutane, protonation yields $(R)\\text{-sec-butylmethyloxonium}$ ion. Nucleophilic attack by iodide ion ($\\text{I}^-$) occurs exclusively at the less hindered primary methyl carbon via an $S_N2$ displacement rather than at the secondary $\\text{C}-2$ carbon. Because the $\\text{C}-\\text{O}$ bond to the chiral $\\text{C}-2$ center is never broken, the configuration of the chiral center is completely preserved, yielding $(R)$-butan-2-ol and $\\text{CH}_3\\text{I}$. Thus, statement A is correct and statement B is false. Step 2: In $(R)$-1-phenylethyl methyl ether, the benzylic $\\text{C}-\\text{O}$ bond is weakened upon protonation and cleaves unimolecularly via an $S_N1$ pathway to form a planar, achiral secondary benzylic carbocation ($\\text{C}_6\\text{H}_5-\\text{CH}^+-\\text{CH}_3$). Nucleophilic attack by bromide ion ($\\text{Br}^-$) can take place with equal probability from either face of the planar carbocation, resulting in substantial racemization to give $(\\pm)$-1-bromo-1-phenylethane. Thus, statement C is correct. Step 3: Cleavage of tert-butyl methyl ether initially proceeds via an $S_N1$ pathway at the tertiary carbon, producing $(\\text{CH}_3)_3\\text{C}-\\text{I}$ and neutral $\\text{CH}_3\\text{OH}$. With excess hot $\\text{HI}$, the generated methanol is further protonated to $\\text{CH}_3\\text{OH}_2^+$ and attacked by $\\text{I}^-$ via an $S_N2$ displacement to form $\\text{CH}_3\\text{I}$. Therefore, applying mechanistic analysis confirms that statements A, C, and D are correct."
+    },
+    {
+      "id": "ape_c01_041",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "When 1,2-dimethylcyclohexane-1,2-diol (a cyclic pinacol derivative) is heated in the presence of concentrated sulfuric acid at $100^\\circ\\text{C}$, it undergoes a pinacol-pinacolone rearrangement. What is the major organic ketone formed, and what fundamental factor governs the migratory pathway?",
+      "options": [
+        "A) 2,2-Dimethylcyclohexan-1-one, formed via 1,2-hydride shift",
+        "B) 1-(1-Methylcyclopentyl)ethan-1-one, formed via ring contraction of the six-membered carbocycle to a five-membered ring",
+        "C) 2-Methylcycloheptan-1-one, formed via ring expansion",
+        "D) 2,2-Dimethylcyclohexan-1-one, formed via a 1,2-methyl shift from one carbinol carbon to the adjacent carbocation carbon without ring contraction"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Protonation of one of the tertiary hydroxyl groups in 1,2-dimethylcyclohexane-1,2-diol followed by departure of a water molecule generates a tertiary carbocation within the six-membered cyclohexane ring: a 2-hydroxy-1,2-dimethylcyclohexyl cation. Step 2: There are two competing migration pathways from the adjacent carbinol carbon: migration of a methyl group (1,2-methyl shift) versus migration of an endocyclic $\\text{C}-\\text{C}$ ring bond (ring contraction). Step 3: Migration of the endocyclic ring bond would force ring contraction from a strain-free six-membered chair cyclohexane ring to a more strained five-membered cyclopentane ring bearing an acetyl group (1-acetyl-1-methylcyclopentane). This ring contraction introduces significant thermodynamic and torsional strain penalties. Step 4: In contrast, a 1,2-methyl shift preserves the thermodynamically favorable, strain-free six-membered carbocyclic framework, yielding the protonated oxonium form of 2,2-dimethylcyclohexan-1-one, which deprotonates to give 2,2-dimethylcyclohexan-1-one. Therefore, applying conformational strain analysis confirms that option D is the correct answer."
+    },
+    {
+      "id": "ape_c01_042",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "In biological systems, the oxidation of primary and secondary alcohols is catalyzed by the zinc-dependent enzyme Alcohol Dehydrogenase (ADH) utilizing the nicotinamide adenine dinucleotide ($\\text{NAD}^+$) cofactor. Which of the following statements is/are correct regarding enzymatic alcohol oxidation compared to chemical oxidants?",
+      "options": [
+        "A) ADH stereospecifically abstracts the pro-$R$ hydrogen atom from the $\\text{C}-1$ position of ethanol and transfers it as a hydride ion ($:\\text{H}^-$) to the $re$-face of the nicotinamide ring of $\\text{NAD}^+$, forming $\\text{NADH}$ and acetaldehyde",
+        "B) In cases of severe methanol or ethylene glycol poisoning in humans, ethanol or fomepizole (4-methylpyrazole) is administered as a competitive inhibitor of ADH to slow the enzymatic production of toxic formaldehyde/formic acid or oxalic acid",
+        "C) Unlike chemical oxidation with pyridinium chlorochromate (PCC), ADH continues the oxidation of ethanol all the way to acetic acid in a single enzymatic catalytic cycle without releasing acetaldehyde",
+        "D) ADH oxidizes tertiary alcohols such as 2-methylpropan-2-ol at a faster rate than ethanol due to the higher stability of tertiary carbocations"
+      ],
+      "answer": "A,B",
+      "explanation": "Step 1: The active site of Alcohol Dehydrogenase (ADH) coordinates the alcohol oxygen to a $\\text{Zn}^{2+}$ ion, polarizing the $\\text{O}-\\text{H}$ bond. Enzymatic studies using deuterated ethanol have conclusively demonstrated that ADH exhibits exquisite stereospecificity, selectively abstracting only the pro-$R$ hydrogen as a hydride equivalent ($:\\text{H}^-$) and delivering it specifically to the $re$-face of $\\text{C}-4$ of the pyridinium ring of $\\text{NAD}^+$, producing stereolabeled $(4R)\\text{-NADH}$ and free acetaldehyde. Thus, statement A is correct. Step 2: Methanol is oxidized by ADH to formaldehyde and then formic acid, which causes severe metabolic acidosis and optic nerve damage. Ethylene glycol is similarly oxidized to glycolic and oxalic acids, causing acute renal failure. Ethanol acts as an effective competitive substrate because of its much lower $K_m$ for ADH, and fomepizole acts as a potent competitive inhibitor, halting the generation of lethal metabolites. Thus, statement B is correct. Step 3: Statement C is false because ADH releases free acetaldehyde; conversion of acetaldehyde to acetic acid requires a completely separate enzyme, Aldehyde Dehydrogenase (ALDH). Step 4: Statement D is false because tertiary alcohols lack an $\\alpha$-hydrogen on the carbinol carbon and cannot be oxidized by ADH. Therefore, applying biochemical principles implies that statements A and B are correct."
+    },
+    {
+      "id": "ape_c01_043",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "integer",
+      "questionText": "A naturally occurring phenolic ether derivative $Z$ has the molecular formula $\\text{C}_{11}\\text{H}_{14}\\text{O}_4$ and contains an aromatic ring. Quantitative analysis by Zeisel's method shows that when $0.210\\text{ g}$ of compound $Z$ (molar mass $= 210\\text{ g mol}^{-1}$) is boiled with excess concentrated hydroiodic acid ($\\text{HI}$), the volatile methyl iodide formed is distilled into alcoholic silver nitrate, yielding $0.705\\text{ g}$ of silver iodide precipitate ($\\text{AgI}$, molar mass $= 235\\text{ g mol}^{-1}$). How many methoxy ($-\\text{OCH}_3$) groups are present in each molecule of compound $Z$?",
+      "options": [],
+      "answer": "3",
+      "explanation": "Step 1: Calculate the amount of substance of compound $Z$ taken: $n_Z = \\frac{0.210\\text{ g}}{210\\text{ g mol}^{-1}} = 0.0010\\text{ mol} = 1.0\\text{ mmol}$. Step 2: Calculate the amount of silver iodide precipitate formed: $n_{\\text{AgI}} = \\frac{0.705\\text{ g}}{235\\text{ g mol}^{-1}} = 0.0030\\text{ mol} = 3.0\\text{ mmol}$. Step 3: In Zeisel's determination, each methoxy group ($-\\text{OCH}_3$) undergoes cleavage by $\\text{HI}$ to generate exactly 1 mole of methyl iodide ($\\text{CH}_3\\text{I}$): $\\text{Ar}-(\\text{OCH}_3)_m + m\\,\\text{HI} \\rightarrow \\text{Ar}-(\\text{OH})_m + m\\,\\text{CH}_3\\text{I}$. Step 4: Each mole of methyl iodide precipitates 1 mole of $\\text{AgI}$ with ethanolic silver nitrate: $\\text{CH}_3\\text{I} + \\text{AgNO}_3 + \\text{H}_2\\text{O} \\rightarrow \\text{AgI}\\downarrow + \\text{CH}_3\\text{OH} + \\text{HNO}_3$. Step 5: The number of methoxy groups per molecule of $Z$ is: $m = \\frac{n_{\\text{AgI}}}{n_Z} = \\frac{3.0\\text{ mmol}}{1.0\\text{ mmol}} = 3$. Hence, solving the stoichiometric equation yields exactly 3 methoxy groups."
+    },
+    {
+      "id": "ape_c01_044",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "When 4-methylphenol ($p$-cresol) is treated with chloroform ($\\text{CHCl}_3$) in the presence of concentrated aqueous sodium hydroxide ($\\text{NaOH}$) at $60^\\circ\\text{C}$, it produces both a normal Reimer-Tiemann product $P$ and an abnormal neutral product $Q$. Which of the following statements is/are correct regarding this reaction?",
+      "options": [
+        "A) Product $P$ is 4-methyl-3-hydroxybenzaldehyde formed by electrophilic attack at the para position",
+        "B) Product $P$ is 2-hydroxy-5-methylbenzaldehyde (5-methylsalicylaldehyde), formed by electrophilic attack of singlet dichlorocarbene ($:\\text{CCl}_2$) at the vacant ortho position",
+        "C) Product $Q$ is 4-dichloromethyl-4-methylcyclohexa-2,5-dien-1-one, formed by electrophilic attack of $:\\text{CCl}_2$ at the ipso position (the substituted $\\text{C}-4$ carbon)",
+        "D) Product $Q$ cannot undergo aromatization by loss of a proton because the ipso carbon carries a methyl group instead of a hydrogen atom, thus remaining trapped as a stable conjugated cyclohexadienone"
+      ],
+      "answer": "B,C,D",
+      "explanation": "Step 1: In the Reimer-Tiemann reaction, dichlorocarbene ($:\\text{CCl}_2$) is generated by $\\alpha$-elimination from chloroform. In 4-methylphenol, the para position is blocked by a methyl group. Step 2: Electrophilic attack at the vacant ortho position produces an intermediate $-\\text{CHCl}_2$ derivative which, upon proton loss, rearomatizes to a phenoxide and hydrolyzes to give 2-hydroxy-5-methylbenzaldehyde ($P$). Thus statement B is correct and statement A is false. Step 3: Attack of dichlorocarbene also occurs competitively at the substituted para position ($\\text{C}-4$, the ipso position). This forms a resonance-stabilized dienone intermediate bearing both a methyl group and a $-\\text{CHCl}_2^-$ / $-\\text{CHCl}_2$ group at $\\text{C}-4$. Step 4: Because there is no hydrogen atom at $\\text{C}-4$, the intermediate cannot undergo tautomerization/proton elimination to regain aromaticity. Instead, protonation of the carbanionic center gives the stable neutral ketone 4-dichloromethyl-4-methylcyclohexa-2,5-dien-1-one ($Q$), which is the classic abnormal Reimer-Tiemann product. Hence, applying mechanistic deduction reveals that options B, C, and D are correct."
+    },
+    {
+      "id": "ape_c01_045",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "When salicylaldehyde (2-hydroxybenzaldehyde) is treated with alkaline hydrogen peroxide ($\\text{H}_2\\text{O}_2/\\text{NaOH}$) at room temperature followed by acidification, it is converted into catechol (benzene-1,2-diol). What is the mechanistic classification of this reaction (the Dakin reaction), and what is the key migration step?",
+      "options": [
+        "A) It proceeds via nucleophilic addition of hydroperoxide anion ($^-\\text{OOH}$) to the carbonyl group, followed by a Baeyer-Villiger type 1,2-migration of the electron-rich ortho-hydroxyphenyl ring to the peroxy oxygen with simultaneous departure of hydroxide ion, yielding an ester intermediate that hydrolyzes to catechol",
+        "B) It proceeds via electrophilic aromatic substitution by singlet oxygen at the ortho position followed by decarbonylation",
+        "C) It proceeds via radical homolysis of hydrogen peroxide generating hydroxyl radicals that displace the formyl group directly",
+        "D) It proceeds via Cannizzaro-type disproportionation where salicylaldehyde oxidizes to salicylic acid followed by thermal decarboxylation"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The Dakin reaction is the oxidation of ortho- or para-hydroxybenzaldehydes or acetophenones to benzenediols using alkaline hydrogen peroxide. Step 2: In alkaline medium, $\\text{H}_2\\text{O}_2$ is deprotonated to the hydroperoxide anion ($^-\\text{OOH}$), which acts as a powerful $\\alpha$-effect nucleophile and attacks the carbonyl carbon of the formyl group to form a tetrahedral adduct: $\\text{Ar}-\\text{CH}(\\text{O}^-)-\\text{O}-\\text{OH}$. Step 3: In the key rate-determining rearrangement step, the electron-rich phenoxide ring migrates from the tetrahedral carbon to the adjacent peroxy oxygen atom with simultaneous cleavage of the weak peroxy $\\text{O}-\\text{O}$ bond and expulsion of hydroxide ion ($\\text{OH}^-$). The migration is strongly accelerated by the electron-donating ortho-phenoxide group ($+M$ effect). Step 4: This migration forms a formate ester of the diol, $\\text{Ar}-\\text{O}-\\text{CHO}$, which rapidly undergoes base-catalyzed hydrolysis to yield catechol (benzene-1,2-diol) and sodium formate. Therefore, applying mechanistic analysis confirms that statement A is correct."
+    },
+    {
+      "id": "ape_c01_046",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "When diols are heated in the presence of concentrated sulfuric acid or phosphoric acid, they undergo dehydration to form cyclic ethers or unsaturated compounds depending on chain length and ring stability. Which of the following statements is/are correct regarding these acid-catalyzed dehydration processes?",
+      "options": [
+        "A) Heating ethane-1,2-diol (ethylene glycol) with concentrated $\\text{H}_2\\text{SO}_4$ at $140^\\circ\\text{C}$ leads to intermolecular dehydration yielding the six-membered cyclic diether 1,4-dioxane",
+        "B) Heating propane-1,3-diol with concentrated $\\text{H}_2\\text{SO}_4$ undergoes rapid intramolecular cyclization to produce oxetane as the predominant product in greater than $90\\%$ yield",
+        "C) Heating butane-1,4-diol with concentrated $\\text{H}_2\\text{SO}_4$ or $\\text{H}_3\\text{PO}_4$ at $100^\\circ\\text{C}$ undergoes facile intramolecular $S_N2$ cyclization to produce tetrahydrofuran (oxolane) in near-quantitative yield",
+        "D) Heating pentane-1,5-diol with acid results exclusively in intermolecular polymerization because seven-membered ring formation is kinetically forbidden"
+      ],
+      "answer": "A,C",
+      "explanation": "Step 1: Ethane-1,2-diol undergoes bimolecular condensation: protonation of one hydroxyl followed by nucleophilic attack of a second glycol molecule yields diethylene glycol, which upon subsequent intramolecular acid-catalyzed cyclization forms the six-membered, strain-free ring 1,4-dioxane. Hence statement A is correct. Step 2: Statement B is false because oxetane is a four-membered ring possessing high angle strain ($\\sim 106\\text{ kJ mol}^{-1}$). Intramolecular cyclization of propane-1,3-diol is kinetically and thermodynamically unfavored; instead, intermolecular oligomerization and dehydration to allyl alcohol predominate. Step 3: Butane-1,4-diol readily cyclizes: protonation of one $-\\text{OH}$ group is followed by intramolecular nucleophilic attack by the remaining hydroxyl group to form a stable, strain-free five-membered cyclic ether (tetrahydrofuran, THF) with expulsion of water in nearly quantitative yield. Hence statement C is correct. Step 4: Statement D is false because pentane-1,5-diol cyclizes to form tetrahydropyran (oxane), which is a six-membered ring (not seven-membered) and forms in high yield. Therefore, applying ring-strain thermodynamics confirms that options A and C are correct."
+    },
+    {
+      "id": "ape_c01_047",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "Consider the base-catalyzed nucleophilic ring opening of enantiopure $(2R,3R)$-2,3-dimethyloxirane by sodium methoxide in methanol ($\\text{NaOCH}_3/\\text{CH}_3\\text{OH}$). Which of the following statements correctly identifies the stereochemical configuration and optical activity of the product formed?",
+      "options": [
+        "A) Attack at $\\text{C}-2$ gives $(2R,3R)$-3-methoxybutan-2-ol, which is optically active, while attack at $\\text{C}-3$ gives an identical enantiomer",
+        "B) Nucleophilic attack by methoxide occurs with complete inversion of configuration ($S_N2$) at the attacked carbon while leaving the unattacked carbon configuration unchanged; attack at $\\text{C}-2$ yields $(2S,3R)$-3-methoxybutan-2-ol, and attack at $\\text{C}-3$ yields $(2R,3S)$-3-methoxybutan-2-ol, forming an equimolar, optically inactive racemic mixture",
+        "C) The reaction proceeds with retention of configuration at both stereocenters via an $S_N i$ mechanism, yielding a meso compound",
+        "D) The epoxide ring opens via a planar carbocation intermediate ($S_N1$), yielding exclusively $(2R,3R)$-3-methoxybutan-2-ol"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: $(2R,3R)$-2,3-dimethyloxirane possesses $C_2$ rotational symmetry. Both epoxide carbons ($\\text{C}-2$ and $\\text{C}-3$) are identical in chemical reactivity and steric hindrance. Step 2: Under basic conditions, the strong nucleophile $\\text{CH}_3\\text{O}^-$ attacks directly via an $S_N2$ backside displacement at either $\\text{C}-2$ or $\\text{C}-3$. Step 3: If attack occurs at $\\text{C}-2$, backside inversion changes the configuration from $(R)$ to $(S)$, while the stereocenter at $\\text{C}-3$ is untouched and remains $(R)$. The product is $(2S,3R)$-3-methoxybutan-2-ol. Step 4: Because of symmetry, attack at $\\text{C}-3$ occurs with equal probability ($50\\%$), inverting $\\text{C}-3$ from $(R)$ to $(S)$ while keeping $\\text{C}-2$ as $(R)$, yielding $(2R,3S)$-3-methoxybutan-2-ol. Step 5: The two enantiomeric products $(2S,3R)$ and $(2R,3S)$ are formed in exactly a $1:1$ ratio, resulting in an optically inactive racemic mixture. Distractor A ignores the enantiomeric relationship, C proposes an $S_N i$ mechanism impossible under basic conditions, and D assumes carbocation formation without acid catalysis. Therefore, applying stereochemical inversion rules confirms that option B is correct."
+    },
+    {
+      "id": "ape_c01_048",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Phenols exhibit diverse reactivity toward electrophilic and oxidative reagents. Which of the following statements is/are correct regarding azo coupling, persulfate oxidation, and aminoxyl radical oxidation of phenol?",
+      "options": [
+        "A) Phenol couples with benzenediazonium chloride in weakly alkaline solution ($\\text{pH } 9-10$) to yield 4-hydroxyazobenzene as an orange azo dye, because phenoxide is the active nucleophilic species",
+        "B) Oxidation of phenol with potassium nitrosodisulfonate (Fremy's salt, $(\\text{KSO}_3)_2\\text{NO}^\\bullet$) in aqueous acetone proceeds via a radical mechanism to yield 1,4-benzoquinone in high yield",
+        "C) In the azo coupling of phenol, if the reaction mixture is maintained at strongly acidic $\\text{pH } < 2$, the coupling rate increases dramatically due to protonation of the diazonium ion",
+        "D) In the Elbs persulfate oxidation, monohydric phenols are converted into dihydric phenols (principally quinols) by reaction with alkaline potassium persulfate ($\\text{K}_2\\text{S}_2\\text{O}_8$)"
+      ],
+      "answer": "A,B,D",
+      "explanation": "Step 1: In azo coupling of phenol, the weakly electrophilic diazonium cation ($\\text{Ph}-\\text{N}_2^+$) requires a strongly activated aromatic ring. In alkaline medium ($\\text{pH } 9-10$), phenol is converted to the phenoxide anion ($\\text{Ph}-\\text{O}^-$), whose intense $+M$ resonance activation facilitates rapid electrophilic coupling at the para position to give 4-hydroxyazobenzene (orange dye). Hence statement A is correct. Step 2: At low $\\text{pH} < 2$, phenol exists entirely in the unionized, much less reactive neutral form, and the coupling rate drops to virtually zero. Diazonium salts are already fully formed in acid and do not become more reactive by further protonation. Hence statement C is false. Step 3: Fremy's salt (potassium nitrosodisulfonate, a stable aminoxyl free radical) selectively oxidizes phenols having an open para position via phenoxy radical intermediates to 1,4-benzoquinone in excellent yield under mild conditions. Hence statement B is correct. Step 4: Elbs persulfate oxidation uses $\\text{K}_2\\text{S}_2\\text{O}_8$ in alkaline aqueous solution to introduce an $-\\text{OH}$ group into the para position of phenols, producing quinols (hydroquinones). Hence statement D is correct. Therefore, applying reaction kinetics and mechanisms shows that options A, B, and D are correct."
+    },
+    {
+      "id": "ape_c01_049",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_single",
+      "questionText": "When $(1R,2S)$-1-amino-1,2-diphenylpropan-2-ol is treated with nitrous acid ($\\text{HNO}_2$) at $0^\\circ\\text{C}$, it undergoes a stereospecific semipinacol rearrangement with loss of nitrogen gas ($\\text{N}_2$). What is the stereoelectronic requirement that governs which group migrates from $\\text{C}-2$ to $\\text{C}-1$, and what is the major ketone product?",
+      "options": [
+        "A) Migrating group is always the one with higher intrinsic migratory aptitude ($p\\text{-anisyl} > \\text{phenyl} > \\text{alkyl}$), regardless of conformational alignment; product is 1,2-diphenylpropan-1-one",
+        "B) Hydride migrates exclusively via a planar four-membered transition state to form 1,2-diphenylpropan-2-one",
+        "C) The migrating group must be aligned anti-periplanar (dihedral angle $\\approx 180^\\circ$) to the departing diazonium leaving group ($-\\text{N}_2^+$) in the lowest-energy ground-state conformation, governing migration stereoelectronically",
+        "D) Diazotization forms a free carbocation at $\\text{C}-1$ that completely equilibrates before migration occurs, losing all stereochemical information"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Treatment of a $\\beta$-amino alcohol with nitrous acid ($\\text{HNO}_2$) converts the primary amino group into an exceptionally good leaving group, the diazonium ion ($-\\text{N}_2^+$). Step 2: Unlike the classical pinacol rearrangement where a carbocation is formed and migratory aptitude dictates the shifting group, the departure of molecular nitrogen in semipinacol deamination is concerted with the 1,2-migration. Step 3: The stereoelectronic requirement of this concerted displacement demands that the $\\sigma$-bonding orbital of the migrating group be anti-periplanar (dihedral angle $\\approx 180^\\circ$) to the $\\sigma^*$ antibonding orbital of the $\\text{C}-\\text{N}_2^+$ bond. Step 4: The ground-state conformation that places the leaving group and migrating group anti-periplanar dictates which group shifts, overriding conventional migratory aptitudes. Thus, applying orbital symmetry and stereoelectronic control confirms that statement C is correct. Distractor A ignores stereoelectronics, B assumes an impossible planar transition state, and D falsely asserts a long-lived free carbocation."
+    },
+    {
+      "id": "ape_c01_050",
+      "subject": "Chemistry",
+      "topic": "Alcohols Phenols and Ethers",
+      "difficulty": "advanced",
+      "examType": "Advanced",
+      "questionType": "mcq_multi",
+      "questionText": "Consider the following synthetic sequence starting from 1,2-dimethoxybenzene (veratrole):\nStep 1: Veratrole is treated with 1.0 equivalent of boron tribromide ($\\text{BBr}_3$) in dichloromethane at $-78^\\circ\\text{C}$ followed by aqueous workup to yield compound $A$.\nStep 2: Compound $A$ is treated with allyl bromide in the presence of anhydrous potassium carbonate ($\\text{K}_2\\text{CO}_3$) in acetone to yield compound $B$.\nStep 3: Compound $B$ is heated to $200^\\circ\\text{C}$ in $N,N$-diethylaniline to undergo a Claisen rearrangement, affording compound $C$.\nStep 4: Compound $C$ is treated with a catalytic amount of concentrated sulfuric acid or $\\text{Hg(OAc)}_2$ followed by reductive workup to undergo intramolecular cyclization, forming compound $D$.\nWhich of the following statements is/are correct regarding this reaction sequence?",
+      "options": [
+        "A) In Step 1, $\\text{BBr}_3$ selectively cleaves only one of the methyl ether groups via Lewis acid coordination and nucleophilic attack by $\\text{Br}^-$, cleanly yielding 2-methoxyphenol (guaiacol) as compound $A$",
+        "B) In Step 2, Williamson etherification of guaiacol with allyl bromide occurs chemoselectively at the free phenolic hydroxyl group to afford 1-(allyloxy)-2-methoxybenzene as compound $B$",
+        "C) In Step 3, the thermal Claisen rearrangement of compound $B$ proceeds via a [3,3]-sigmatropic shift to the unoccupied ortho position, yielding 2-allyl-6-methoxyphenol as compound $C$",
+        "D) In Step 4, acid-catalyzed cyclization of compound $C$ proceeds via electrophilic addition of $\\text{H}^+$ to the allyl double bond followed by intramolecular capture of the resulting carbocation by the phenolic $-\\text{OH}$ group according to Markovnikov's rule, yielding 7-methoxy-2-methyl-2,3-dihydrobenzofuran as compound $D$"
+      ],
+      "answer": "A,B,C,D",
+      "explanation": "Step 1: Boron tribromide ($\\text{BBr}_3$) is a premier reagent for the mild, selective deprotection of aryl methyl ethers. Using 1.0 equivalent at low temperature ($-78^\\circ\\text{C}$) selectively mono-demethylates veratrole (1,2-dimethoxybenzene) to 2-methoxyphenol (guaiacol, $A$). Hence statement A is correct. Step 2: In the presence of $\\text{K}_2\\text{CO}_3$, guaiacol is deprotonated to its phenoxide, which undergoes facile $S_N2$ allylation with allyl bromide to yield allyl 2-methoxyphenyl ether ($B$). Hence statement B is correct. Step 3: Thermal activation of $B$ at $200^\\circ\\text{C}$ triggers an aromatic [3,3]-sigmatropic Claisen rearrangement. The allyl group migrates cleanly to the vacant ortho position relative to the allyloxy group, followed by tautomerization to yield 2-allyl-6-methoxyphenol ($C$). Hence statement C is correct. Step 4: In Step 4, treatment of 2-allyl-6-methoxyphenol ($C$) with acid protonates the terminal double bond to give a secondary carbocation at $\\text{C}-2'$: $\\text{Ar}-\\text{CH}_2-\\text{CH}^+-\\text{CH}_3$. Intramolecular nucleophilic capture by the adjacent phenolic oxygen forms a stable five-membered dihydrofuran ring (Markovnikov addition), yielding 7-methoxy-2-methyl-2,3-dihydrobenzofuran ($D$). Therefore, applying mechanistic analysis shows that all statements A, B, C, and D are correct."
+    }
+  ]
+}
