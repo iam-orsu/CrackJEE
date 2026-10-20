@@ -56,8 +56,11 @@ const allowedOrigins = new Set([
     ? frontendUrl.replace('https://', 'http://')
     : frontendUrl.replace('http://', 'https://'),
   'http://localhost',
+  'https://localhost',
   'http://localhost:3000',
+  'https://localhost:3000',
   'http://127.0.0.1',
+  'https://127.0.0.1',
   ...(process.env.EXTRA_CORS_ORIGINS ?? '').split(',').filter(Boolean),
 ]);
 // RFC 1918 private IP ranges — covers any WSL2 / Docker bridge IP for local testing
