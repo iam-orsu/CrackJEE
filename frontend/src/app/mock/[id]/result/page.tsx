@@ -26,9 +26,11 @@ function scoreColor(pct: number): string {
   return '#dc2626';
 }
 
-const SUBJECTS = ['Physics', 'Chemistry', 'Mathematics'] as const;
+const JEE_SUBJECTS = ['Physics', 'Chemistry', 'Mathematics'] as const;
+const NEET_SUBJECTS_LIST = ['Physics', 'Chemistry', 'Botany', 'Zoology'] as const;
 const SUBJECT_COLOR: Record<string, string> = {
   Physics: '#2563eb', Chemistry: '#16a34a', Mathematics: '#7c3aed',
+  Botany: '#16a34a', Zoology: '#0891b2',
 };
 
 /* ── JEE cracking chances bands ─────────────────────────────── */
@@ -53,6 +55,18 @@ function getJeeCrackingChances(pct: number, examType: string): ChanceBand {
   if (pct >= 35) return { label: 'Good', color: '#d97706', bg: '#fffbeb', border: '#fde68a', headline: 'IIT admission possible', details: ['AIR 5,000–15,000 range', 'Lower branches at newer IITs', '2025 closing cutoff was ~35–47% range'], bar: 42 };
   if (pct >= 25) return { label: 'Borderline', color: '#ea580c', bg: '#fff7ed', border: '#fed7aa', headline: 'Near qualifying cutoff', details: ['2025 open category cutoff ~28–30%', 'Work on accuracy — multi-correct guessing costs marks', 'Improve integer-type hit rate'], bar: 25 };
   return { label: 'Needs Work', color: '#dc2626', bg: '#fef2f2', border: '#fecaca', headline: 'Below qualifying cutoff', details: ['Below 2025 open category threshold', 'Master conceptual clarity across all 3 subjects', 'Focus on single-correct accuracy before tackling multi-correct'], bar: 10 };
+}
+
+/* ── NEET cracking chances bands ─────────────────────────────── */
+
+function getNEETCrackingChances(pct: number): ChanceBand {
+  // NEET 2025: General cutoff ~50% (360/720); top medical colleges ~95%+
+  if (pct >= 90) return { label: 'Exceptional', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', headline: 'AIIMS / Top Government Medical Colleges', details: ['AIIMS Delhi, JIPMER — realistic target', 'AIR < 100 range', 'Top 0.01% of ~24 lakh aspirants'], bar: 98 };
+  if (pct >= 75) return { label: 'Excellent', color: '#2563eb', bg: '#eff6ff', border: '#bfdbfe', headline: 'Top Government & Private Medical Colleges', details: ['Top State Government Medical Colleges assured', 'AIR < 5,000 range', 'Top 0.02% of aspirants'], bar: 82 };
+  if (pct >= 60) return { label: 'Very Good', color: '#7c3aed', bg: '#f5f3ff', border: '#ddd6fe', headline: 'Government Medical College assured', details: ['Government seat highly likely', 'AIR 5,000–30,000 range', 'Top 0.1% of aspirants'], bar: 65 };
+  if (pct >= 50) return { label: 'Good', color: '#d97706', bg: '#fffbeb', border: '#fde68a', headline: 'Near qualifying cutoff for government seats', details: ['360+ marks (50%) is the general qualifying cutoff', 'Government seat possible in home state', 'Private college admission assured'], bar: 48 };
+  if (pct >= 40) return { label: 'Average', color: '#ea580c', bg: '#fff7ed', border: '#fed7aa', headline: 'Qualifying threshold — private colleges', details: ['Below general cutoff for government seats', 'Private medical/dental colleges accessible', 'Strengthen Biology and Physics accuracy'], bar: 30 };
+  return { label: 'Needs Work', color: '#dc2626', bg: '#fef2f2', border: '#fecaca', headline: 'Below qualifying cutoff', details: ['Below 40% — below NEET qualifying threshold', 'Focus on NCERT Biology (50% of paper)', 'Revise Physics and Chemistry fundamentals'], bar: 12 };
 }
 
 /* ── Plain text preview (strips LaTeX for snippet) ──────────── */
@@ -111,17 +125,31 @@ export default function MockResultPage() {
   const breakdown = result.scoreBreakdown as Record<string, MockResultBreakdown>;
   const pct = Math.round((result.totalScore / result.maxScore) * 100);
   const examType = exam.examType;
+  const isNEET = examType === 'NEET';
 
-  // Build per-subject scores — sum maxMarks from scoreBreakdown rather than
-  // dividing the total by 3, which is wrong when subjects have different question counts.
+  const SUBJECTS = isNEET ? NEET_SUBJECTS_LIST : JEE_SUBJECTS;
+  const numSubjects = SUBJECTS.length;
+
+  // Build per-subject scores
   const subjectScores = SUBJECTS.map((subj) => {
-    const key = subj.toLowerCase() as 'physics' | 'chemistry' | 'mathematics';
-    const score = key === 'physics' ? result.physicsScore : key === 'chemistry' ? result.chemistryScore : result.mathScore;
+    let score: number;
+    if (subj === 'Physics') score = result.physicsScore;
+    else if (subj === 'Chemistry') score = result.chemistryScore;
+    else if (subj === 'Botany' || subj === 'Zoology') {
+      // For NEET, split biologyScore evenly between Botany/Zoology (or calculate from breakdown)
+      const subjQs = exam.questions.filter((q) => q.subject === subj);
+      score = subjQs.reduce((sum, q) => {
+        const bd = breakdown[(q as any).mockQuestionId ?? q.questionId];
+        return sum + (bd?.awarded ?? 0);
+      }, 0);
+    } else {
+      score = result.mathScore;
+    }
     const subjectQs = exam.questions.filter((q) => q.subject === subj);
     const maxPerSubject = subjectQs.reduce((sum, q) => {
       const bd = breakdown[(q as any).mockQuestionId ?? q.questionId];
       return sum + (bd?.maxMarks ?? 0);
-    }, 0) || Math.round(result.maxScore / 3);
+    }, 0) || Math.round(result.maxScore / numSubjects);
     const sPct = maxPerSubject > 0 ? Math.round((score / maxPerSubject) * 100) : 0;
     return { subj, score, maxPerSubject, pct: sPct, count: subjectQs.length };
   });
@@ -142,7 +170,8 @@ export default function MockResultPage() {
       const ex = topicWeights.get(key);
       if (ex) { ex.weight += weight; } else { topicWeights.set(key, { subject: q.subject, weight }); }
     }
-    if (topicWeights.size === 0) return '/practice';
+    const basePath = isNEET ? '/neet/practice' : '/practice';
+    if (topicWeights.size === 0) return basePath;
     const sorted = [...topicWeights.entries()].sort(([, a], [, b]) => b.weight - a.weight);
     const subjectMap: Record<string, string[]> = {};
     for (const [key, { subject }] of sorted) {
@@ -151,7 +180,7 @@ export default function MockResultPage() {
       subjectMap[subject].push(topic);
     }
     const weakData = encodeURIComponent(JSON.stringify({ subjects: Object.keys(subjectMap), topics: subjectMap }));
-    return `/practice?mode=mock_weak&weakData=${weakData}`;
+    return `${basePath}?mode=mock_weak&weakData=${weakData}`;
   }
   const weakPracticeUrl = buildWeakPracticeUrl();
 
@@ -180,7 +209,9 @@ export default function MockResultPage() {
           <span style={{ color: '#475569' }}>›</span>
           <a href="/mock" style={{ color: '#94a3b8', fontSize: 14, textDecoration: 'none' }}>Mock Tests</a>
           <span style={{ color: '#475569' }}>›</span>
-          <span style={{ fontSize: 14, color: '#f1f5f9', fontWeight: 600 }}>Result — JEE {examType}</span>
+          <span style={{ fontSize: 14, color: '#f1f5f9', fontWeight: 600 }}>
+            Result — {isNEET ? 'NEET UG' : `JEE ${examType}`}
+          </span>
         </div>
         <a href="/mock" style={{
           color: '#fff', fontSize: 13, fontWeight: 600, textDecoration: 'none',
@@ -197,7 +228,7 @@ export default function MockResultPage() {
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: 20 }}>
             <div>
               <div style={{ fontSize: 13, color: '#64748b', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
-                JEE {examType} Mock — Score
+                {isNEET ? 'NEET UG' : `JEE ${examType}`} Mock — Score
               </div>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
                 <span style={{ fontSize: 52, fontWeight: 800, color: scoreColor(pct), lineHeight: 1 }}>
@@ -242,7 +273,7 @@ export default function MockResultPage() {
         {/* Subject breakdown */}
         <div style={{ background: '#fff', borderRadius: 10, border: '1px solid #e2e8f0', padding: 24 }}>
           <h2 style={{ fontSize: 15, fontWeight: 700, color: '#1e293b', marginBottom: 18 }}>Subject-wise Performance</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: `repeat(${isNEET ? 4 : 3}, 1fr)`, gap: 16 }}>
             {subjectScores.map(({ subj, score, maxPerSubject, pct: sPct }) => (
               <div key={subj} style={{
                 padding: '16px 18px', border: `1px solid ${SUBJECT_COLOR[subj]}30`,
@@ -265,15 +296,15 @@ export default function MockResultPage() {
           </div>
         </div>
 
-        {/* JEE Cracking Chances */}
+        {/* Cracking Chances */}
         {(() => {
-          const band = getJeeCrackingChances(pct, examType);
+          const band = isNEET ? getNEETCrackingChances(pct) : getJeeCrackingChances(pct, examType);
           return (
             <div style={{ background: band.bg, borderRadius: 10, border: `1px solid ${band.border}`, padding: 24 }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap' }}>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontSize: 12, fontWeight: 700, color: band.color, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 4 }}>
-                    JEE {examType} — Cracking Chances
+                    {isNEET ? 'NEET UG' : `JEE ${examType}`} — Cracking Chances
                   </div>
                   <div style={{ fontSize: 22, fontWeight: 800, color: band.color, marginBottom: 4 }}>{band.label}</div>
                   <div style={{ fontSize: 14, color: '#374151', fontWeight: 600, marginBottom: 12 }}>{band.headline}</div>
@@ -286,7 +317,10 @@ export default function MockResultPage() {
                     ))}
                   </div>
                   <div style={{ fontSize: 11, color: '#9ca3af', marginTop: 14 }}>
-                    Based on 2025 JEE open category cutoff trends · Your score: {pct}% of max marks
+                    {isNEET
+                      ? `Based on NEET 2025 cutoff trends · Your score: ${result.totalScore}/${result.maxScore} (${pct}%)`
+                      : `Based on 2025 JEE open category cutoff trends · Your score: ${pct}% of max marks`
+                    }
                   </div>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, minWidth: 80 }}>
@@ -313,8 +347,8 @@ export default function MockResultPage() {
           );
         })()}
 
-        {/* JEE Chances Analyzer */}
-        {(() => {
+        {/* JEE Chances Analyzer — only for JEE exams */}
+        {!isNEET && (() => {
           const rawPct = result.maxScore > 0 ? result.totalScore / result.maxScore : 0;
 
           type Band = { label: string; color: string; bg: string; border: string };
@@ -419,8 +453,8 @@ export default function MockResultPage() {
 
           {/* Filters */}
           <div style={{ display: 'flex', gap: 10, marginBottom: 18, flexWrap: 'wrap' }}>
-            <div style={{ display: 'flex', gap: 6 }}>
-              {['All', 'Physics', 'Chemistry', 'Mathematics'].map((s) => (
+            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+              {['All', ...(isNEET ? ['Physics', 'Chemistry', 'Botany', 'Zoology'] : ['Physics', 'Chemistry', 'Mathematics'])].map((s) => (
                 <button key={s} onClick={() => setFilterSubject(s)} style={{
                   padding: '5px 12px', fontSize: 12, fontWeight: 600, cursor: 'pointer',
                   border: '1px solid #e2e8f0', borderRadius: 5,
