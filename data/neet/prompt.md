@@ -9,27 +9,59 @@
 
 Any agent or subagent that wakes up or loses conversational context **MUST read this section first**:
 
-* **Master Compiled Questions**: **110 / 17,940** (Tracked in `data/neet/neet_master_questions.json`)
+* **Master Compiled Questions**: **715 / 17,940** (Tracked in `data/neet/neet_master_questions.json`)
 * **Registry Progress Ledger**: `data/neet/registry/neet_progress.json`
-* **Deduplication Hash Ledger**: `data/neet/registry/neet_hashes.json` (110 SHA-256 hashes recorded)
+* **Deduplication Hash Ledger**: `data/neet/registry/neet_hashes.json` (715 SHA-256 hashes recorded)
 * **Master Compiler Command**: `node data/neet/neet_compiler.js`
 
 ### Topics Progress Status:
 1. **Botany (20 Topics Total)**:
-   - ✅ Topic 1: **The Living World** (`chunk_01` complete: **55 Qs** [22 beg, 19 int, 14 adv]) — `data/neet/botany/the_living_world_chunk_01.json`
-   - ✅ Topic 2: **Biological Classification** (`chunk_01` complete: **55 Qs** [22 beg, 19 int, 14 adv]) — `data/neet/botany/biological_classification_chunk_01.json`
-   - 🎯 Topic 3 (NEXT IN QUEUE): **Plant Kingdom** (`chunk_01`: target 55 Qs) — `data/neet/botany/plant_kingdom_chunk_01.json`
-   - ⏳ Topics 4–20: PENDING
-2. **Zoology (12 Topics Total)**: ⏳ All PENDING
-3. **Chemistry (21 Topics Total)**: ⏳ All PENDING
-4. **Physics (25 Topics Total)**: ⏳ All PENDING
+   - ✅ Topic 1: **The Living World** (`chunk_01`: **55 Qs**) — `data/neet/botany/the_living_world_chunk_01.json`
+   - ✅ Topic 2: **Biological Classification** (`chunk_01`: **55 Qs**) — `data/neet/botany/biological_classification_chunk_01.json`
+   - ✅ Topic 3: **Plant Kingdom** (`chunk_01`: **55 Qs**) — `data/neet/botany/plant_kingdom_chunk_01.json`
+   - ✅ Topic 4: **Morphology of Flowering Plants** (`chunk_01`: **55 Qs**) — `data/neet/botany/morphology_of_flowering_plants_chunk_01.json`
+   - ✅ Topic 5: **Anatomy of Flowering Plants** (`chunk_01`: **55 Qs**) — `data/neet/botany/anatomy_of_flowering_plants_chunk_01.json`
+   - ✅ Topic 6: **Cell: The Unit of Life** (`chunk_01`: **55 Qs**) — `data/neet/botany/cell_the_unit_of_life_chunk_01.json`
+   - ✅ Topic 7: **Cell Cycle and Cell Division** (`chunk_01`: **55 Qs**) — `data/neet/botany/cell_cycle_and_cell_division_chunk_01.json`
+   - ⚡ Topic 8 (ACTIVE WAVE): **Photosynthesis in Higher Plants** (`chunk_01`: 55 Qs)
+   - ⚡ Topic 9 (ACTIVE WAVE): **Respiration in Plants** (`chunk_01`: 55 Qs)
+   - ⚡ Topic 10 (ACTIVE WAVE): **Plant Growth and Development** (`chunk_01`: 55 Qs)
+   - ⚡ Topic 11 (ACTIVE WAVE): **Sexual Reproduction in Flowering Plants** (`chunk_01`: 55 Qs)
+   - ⏳ Topics 12–20: PENDING
+2. **Zoology (12 Topics Total)**:
+   - ✅ Topic 1: **Animal Kingdom** (`chunk_01`: **55 Qs**) — `data/neet/zoology/animal_kingdom_chunk_01.json`
+   - ✅ Topic 2: **Structural Organisation in Animals** (`chunk_01`: **55 Qs**) — `data/neet/zoology/structural_organisation_in_animals_chunk_01.json`
+   - ✅ Topic 3: **Breathing and Exchange of Gases** (`chunk_01`: **55 Qs**) — `data/neet/zoology/breathing_and_exchange_of_gases_chunk_01.json`
+   - ✅ Topic 4: **Body Fluids and Circulation** (`chunk_01`: **55 Qs**) — `data/neet/zoology/body_fluids_and_circulation_chunk_01.json`
+   - ⚡ Topic 5 (ACTIVE WAVE): **Excretory Products and their Elimination** (`chunk_01`: 55 Qs)
+   - ⚡ Topic 6 (ACTIVE WAVE): **Locomotion and Movement** (`chunk_01`: 55 Qs)
+   - ⚡ Topic 7 (ACTIVE WAVE): **Neural Control and Coordination** (`chunk_01`: 55 Qs)
+   - ⚡ Topic 8 (ACTIVE WAVE): **Chemical Coordination and Integration** (`chunk_01`: 55 Qs)
+   - ⏳ Topics 9–12: PENDING
+3. **Chemistry (21 Topics Total)**:
+   - ✅ Topic 4: **Chemical Bonding and Molecular Structure** (`chunk_01`: **55 Qs**) — `data/neet/chemistry/chemical_bonding_and_molecular_structure_chunk_01.json`
+   - ⚡ Topic 1 (ACTIVE WAVE): **Some Basic Concepts of Chemistry** (`chunk_01`: 55 Qs)
+   - ⚡ Topic 2 (ACTIVE WAVE): **Structure of Atom** (`chunk_01`: 55 Qs)
+   - ⏳ Topics 3, 5–21: PENDING
+4. **Physics (25 Topics Total)**:
+   - ✅ Topic 1: **Units and Measurements** (`chunk_01`: **55 Qs**) — `data/neet/physics/units_and_measurements_chunk_01.json`
+   - ⚡ Topic 2 (ACTIVE WAVE): **Motion in a Straight Line** (`chunk_01`: 55 Qs)
+   - ⚡ Topic 3 (ACTIVE WAVE): **Motion in a Plane** (`chunk_01`: 55 Qs)
+   - ⏳ Topics 4–25: PENDING
 
 ### How to Resume Immediately:
-1. Read `data/neet/registry/neet_progress.json` to identify the first topic with status `"PENDING"` or `"IN_PROGRESS"`.
-2. Generate its next chunk of **55 questions** (40% beginner = 22, 35% intermediate = 19, 25% advanced = 14) in `scratch/`.
-3. Balance answer distribution (A, B, C, D ~13–14 each) and write to `data/neet/<subject>/<snake_topic>_chunk_<nn>.json`.
-4. Update `neet_progress.json` and `neet_hashes.json`.
-5. Run `node data/neet/neet_compiler.js` to compile into `neet_master_questions.json`.
+1. **Check Live Progress**: Run `node data/neet/neet_compiler.js` to see exact verified question count across all 4 subjects.
+2. **Find Next Topic**: Inspect `data/neet/registry/neet_progress.json` for topics marked `"PENDING"` or with `totalQuestions < 230`.
+3. **Execution Rule (MANDATORY)**: Never stream 55 questions in a single response (causes Cloud Code SSE token cutoff). Always use the 3-phase modular script in `scratch/<topic_snake>/`:
+   - `part1_beg.js`: 22 Beginner questions (NCERT traps, statement pairs, fundamental principles)
+   - `part2_int.js`: 19 Intermediate questions (Match the column, multi-statement, biochemical pathways/mechanics)
+   - `part3_adv.js`: 14 Advanced questions (Assertion-Reason, higher-order multi-concept synthesis, numericals)
+   - `assemble.js`: Concatenates parts, balances option keys (A, B, C, D ~13–14 each), writes target JSON to `data/neet/<subject>/<topic_snake>_chunk_<nn>.json`, and audits via `data/neet/neet_gatekeeper.js`.
+4. **Audit & Compile**:
+   - Audit individual chunk:
+     `node -e "const { auditChunkFile } = require('./data/neet/neet_gatekeeper.js'); console.log(JSON.stringify(auditChunkFile('data/neet/<subject>/<chunk_file>.json', true)));"`
+   - Compile master question bank:
+     `node data/neet/neet_compiler.js` (syncs `neet_master_questions.json`, `neet_progress.json`, and `neet_hashes.json`).
 
 ---
 
