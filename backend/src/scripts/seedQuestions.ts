@@ -8,7 +8,7 @@
  * Usage (inside backend container after build):
  *   node dist/scripts/seedQuestions.js [path/to/master_questions.json]
  *
- * Default path: /app/data/master_questions.json
+ * Default path: /app/data/jee/jee_master_questions.json
  */
 
 import fs from 'fs';
