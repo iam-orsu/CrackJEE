@@ -116,7 +116,10 @@ export const api = {
       body: JSON.stringify(body),
     }),
 
-    bankStats: () => request<{ total: number; bySubject: Record<string, number> }>('/questions/bank-stats'),
+    bankStats: (examType?: string) =>
+      request<{ total: number; bySubject: Record<string, number> }>(
+        `/questions/bank-stats${examType ? `?examType=${examType}` : ''}`,
+      ),
 
     papers: (body: {
       selections: Array<{ subject: string; topic: string }>;
@@ -135,9 +138,12 @@ export const api = {
       body: JSON.stringify({ questionIds }),
     }),
 
-    topics: (studentClass?: string) => {
-      const qs = studentClass ? `?studentClass=${studentClass}` : '';
-      return request<SplitTopics>(`/questions/topics${qs}`);
+    topics: (studentClass?: string, examMode?: 'JEE' | 'NEET') => {
+      const params = new URLSearchParams();
+      if (studentClass) params.set('studentClass', studentClass);
+      if (examMode) params.set('examMode', examMode);
+      const qs = params.toString();
+      return request<SplitTopics>(`/questions/topics${qs ? `?${qs}` : ''}`);
     },
   },
 
@@ -158,7 +164,7 @@ export const api = {
   },
 
   mock: {
-    start: (body: { examType: 'Main' | 'Advanced'; difficultyMode?: 'easy' | 'medium' | 'hard' }) =>
+    start: (body: { examType: 'Main' | 'Advanced' | 'NEET'; difficultyMode?: 'easy' | 'medium' | 'hard' }) =>
       request<{ id: string; status: string }>('/mock/start', {
         method: 'POST',
         body: JSON.stringify(body),

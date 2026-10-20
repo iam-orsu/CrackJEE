@@ -1,15 +1,15 @@
 import type { Response, NextFunction } from 'express';
 import { z } from 'zod';
 import type { AuthRequest, Subject, Difficulty, QuestionType } from '../types/index';
-import { JEE_TOPICS_BY_CLASS } from '../types/index';
+import { JEE_TOPICS_BY_CLASS, NEET_TOPICS_BY_CLASS, NEET_SUBJECTS } from '../types/index';
 import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
-import { getNextQuestion, distributeTopicSlots, fisherYatesShuffle } from '../services/questionService';
+import { getNextQuestion, getPracticeQuestion, distributeTopicSlots, fisherYatesShuffle } from '../services/questionService';
 import { scoreQuestion, getMaxMarkPerQuestion } from '../services/scoringService';
 import type { Question } from '@prisma/client';
 
 const startSchema = z.object({
-  examType: z.enum(['Main', 'Advanced']),
+  examType: z.enum(['Main', 'Advanced', 'NEET']),
   difficultyMode: z.enum(['easy', 'medium', 'hard']).default('medium'),
 });
 
@@ -64,9 +64,10 @@ function buildQuestionPlan(examType: 'Main' | 'Advanced', difficultyMode: 'easy'
   const totalPerSubject = typePlan.reduce((sum, t) => sum + t.count, 0);
 
   for (const subject of subjects) {
+    const subjectTopics = JEE_TOPICS_BY_CLASS[subject] ?? { class11: [], class12: [] };
     const allTopics = [
-      ...JEE_TOPICS_BY_CLASS[subject].class11,
-      ...JEE_TOPICS_BY_CLASS[subject].class12,
+      ...subjectTopics.class11,
+      ...subjectTopics.class12,
     ];
     // Distribute topics ensuring min 1, max 2 rule across topics
     const allocatedTopics = distributeTopicSlots(allTopics, totalPerSubject);
@@ -88,6 +89,74 @@ function buildQuestionPlan(examType: 'Main' | 'Advanced', difficultyMode: 'easy'
   }
 
   return plan;
+}
+
+/* ── NEET bank-based mock generation ──────────────────────────────── */
+
+async function generateNEETMockQuestions(
+  examId: string,
+  userId: string,
+  difficultyMode: 'easy' | 'medium' | 'hard',
+): Promise<void> {
+  try {
+    const QUESTIONS_PER_SUBJECT = 45;
+    const seenIds = new Set<string>();
+    const questionData: Array<{
+      examId: string; questionId: string; subject: string;
+      questionNumber: number; subjectIndex: number;
+    }> = [];
+    let globalNum = 1;
+
+    for (const subject of NEET_SUBJECTS) {
+      const syllabusTopics = [
+        ...NEET_TOPICS_BY_CLASS[subject]!.class11,
+        ...NEET_TOPICS_BY_CLASS[subject]!.class12,
+      ];
+      // Only use topics that have actual NEET questions in the DB — empty topics would
+      // fail silently and reduce the total question count below the 45-per-subject target.
+      const topicRows = await prisma.question.findMany({
+        where: { subject, examType: 'NEET', validatedAt: { not: null }, topic: { in: syllabusTopics } },
+        select: { topic: true },
+        distinct: ['topic'],
+      });
+      const validTopics = new Set(topicRows.map((r) => r.topic));
+      const allTopics = syllabusTopics.filter((t) => validTopics.has(t));
+      const allocatedTopics = distributeTopicSlots(allTopics.length > 0 ? allTopics : syllabusTopics, QUESTIONS_PER_SUBJECT);
+      const subjectQuestions: string[] = [];
+      const excludeIds: string[] = [];
+
+      for (const topic of allocatedTopics) {
+        if (subjectQuestions.length >= QUESTIONS_PER_SUBJECT) break;
+        try {
+          const difficulty = pickDifficulty('Main', Math.random(), difficultyMode);
+          const q = await getPracticeQuestion(userId, subject, topic, difficulty, 'NEET', excludeIds);
+          if (!seenIds.has(q.id)) {
+            seenIds.add(q.id);
+            excludeIds.push(q.id);
+            subjectQuestions.push(q.id);
+          }
+        } catch {
+          // no question for this topic — skip
+        }
+      }
+
+      const shuffled = fisherYatesShuffle(subjectQuestions);
+      let subjIdx = 0;
+      for (const questionId of shuffled) {
+        questionData.push({ examId, questionId, subject, questionNumber: globalNum++, subjectIndex: subjIdx++ });
+      }
+    }
+
+    if (questionData.length < 20) {
+      await prisma.mockExam.update({ where: { id: examId }, data: { status: 'error' } });
+      return;
+    }
+
+    await prisma.mockExamQuestion.createMany({ data: questionData });
+    await prisma.mockExam.update({ where: { id: examId }, data: { status: 'ready' } });
+  } catch {
+    await prisma.mockExam.update({ where: { id: examId }, data: { status: 'error' } }).catch(() => {});
+  }
 }
 
 /* ── Concurrency-limited promise pool ───────────────────────────── */
@@ -223,9 +292,9 @@ export async function startMock(req: AuthRequest, res: Response, next: NextFunct
       data: { status: 'error' },
     });
 
-    // If student already has an active exam, return it
+    // If student already has an active exam of the SAME type, return it
     const active = await prisma.mockExam.findFirst({
-      where: { userId, status: { in: ['generating', 'ready', 'in_progress'] } },
+      where: { userId, examType, status: { in: ['generating', 'ready', 'in_progress'] } },
       orderBy: { createdAt: 'desc' },
     });
     if (active) {
@@ -238,7 +307,11 @@ export async function startMock(req: AuthRequest, res: Response, next: NextFunct
     });
 
     // Fire and forget — background question generation
-    generateMockQuestions(mockExam.id, userId, examType, difficultyMode).catch(() => {});
+    if (examType === 'NEET') {
+      generateNEETMockQuestions(mockExam.id, userId, difficultyMode).catch(() => {});
+    } else {
+      generateMockQuestions(mockExam.id, userId, examType, difficultyMode).catch(() => {});
+    }
 
     res.json({ success: true, data: { id: mockExam.id, status: 'generating' } });
   } catch (err) {
@@ -393,8 +466,8 @@ export async function submitMock(req: AuthRequest, res: Response, next: NextFunc
     }
     if (exam.status !== 'in_progress') throw new AppError(400, 'Exam not started');
 
-    const examType = exam.examType as 'Main' | 'Advanced';
-    let physicsScore = 0, chemistryScore = 0, mathScore = 0;
+    const examType = exam.examType as 'Main' | 'Advanced' | 'NEET';
+    let physicsScore = 0, chemistryScore = 0, mathScore = 0, biologyScore = 0;
     let correct = 0, partial = 0, incorrect = 0, unattempted = 0, maxScore = 0;
     const breakdown: Record<string, {
       questionId: string; subject: string;
@@ -420,6 +493,7 @@ export async function submitMock(req: AuthRequest, res: Response, next: NextFunc
 
       if (mq.subject === 'Physics') physicsScore += marks;
       else if (mq.subject === 'Chemistry') chemistryScore += marks;
+      else if (mq.subject === 'Botany' || mq.subject === 'Zoology') biologyScore += marks;
       else mathScore += marks;
 
       breakdown[mq.id] = {
@@ -433,7 +507,7 @@ export async function submitMock(req: AuthRequest, res: Response, next: NextFunc
       };
     }
 
-    const totalScore = physicsScore + chemistryScore + mathScore;
+    const totalScore = physicsScore + chemistryScore + mathScore + biologyScore;
     const timeTaken = exam.startedAt
       ? Math.floor((Date.now() - exam.startedAt.getTime()) / 1000)
       : exam.durationSeconds;
@@ -447,6 +521,7 @@ export async function submitMock(req: AuthRequest, res: Response, next: NextFunc
           physicsScore,
           chemistryScore,
           mathScore,
+          biologyScore,
           correct,
           partial,
           incorrect,

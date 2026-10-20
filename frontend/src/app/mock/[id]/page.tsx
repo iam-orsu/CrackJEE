@@ -45,6 +45,7 @@ const STATUS_STYLE: Record<QStatus, { bg: string; color: string; border: string 
 
 const SUBJECT_COLOR: Record<string, string> = {
   Physics: '#2563eb', Chemistry: '#16a34a', Mathematics: '#7c3aed',
+  Botany: '#16a34a', Zoology: '#0891b2',
 };
 
 /* ══════════════════════════════════════════════════════════════
@@ -299,7 +300,10 @@ export default function MockExamPage() {
   if (!exam || !currentQ) return null;
 
   const questions = exam.questions;
-  const subjects = ['Physics', 'Chemistry', 'Mathematics'] as const;
+  const isNEET = exam.examType === 'NEET';
+  const subjects = isNEET
+    ? (['Physics', 'Chemistry', 'Botany', 'Zoology'] as const)
+    : (['Physics', 'Chemistry', 'Mathematics'] as const);
   const bySubject = Object.fromEntries(subjects.map((s) => [s, questions.filter((q) => q.subject === s)]));
 
   // Compute accurate counts using qStatus (single source of truth)
@@ -328,7 +332,9 @@ export default function MockExamPage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
           <span style={{ fontSize: 16, fontWeight: 700, letterSpacing: '-0.02em' }}>CrackJEE</span>
           <span style={{ width: 1, height: 20, background: '#475569' }} />
-          <span style={{ fontSize: 14, color: '#94a3b8' }}>JEE {exam.examType} Mock Test</span>
+          <span style={{ fontSize: 14, color: '#94a3b8' }}>
+            {exam.examType === 'NEET' ? 'NEET UG Mock Test' : `JEE ${exam.examType} Mock Test`}
+          </span>
         </div>
         <div style={{
           display: 'flex', alignItems: 'center', gap: 8,
@@ -378,7 +384,7 @@ export default function MockExamPage() {
                 background: isActive ? `${SUBJECT_COLOR[subj]}18` : '#e2e8f0',
                 color: isActive ? SUBJECT_COLOR[subj] : '#64748b',
               }}>
-                {answeredCount}/{subj === 'Mathematics' || subj === 'Physics' || subj === 'Chemistry' ? subjQs.length : '?'}
+                {answeredCount}/{subjQs.length}
               </span>
             </button>
           );
