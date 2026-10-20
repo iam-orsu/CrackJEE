@@ -67,7 +67,7 @@ export async function appendQuestionsToMasterJson(
           examType: q.examType,
           questionType: q.questionType,
           questionText: q.questionText,
-          options: q.options as string[],
+          options: Array.isArray(q.options) ? (q.options as string[]) : [],
           answer: q.answer,
           explanation: q.explanation ?? '',
           ...(q.diagram ? { diagram: q.diagram } : {}),
@@ -76,6 +76,8 @@ export async function appendQuestionsToMasterJson(
       if (newEntries.length === 0) return;
 
       const merged = [...existing, ...newEntries];
+      // Ensure directory exists (relevant on fresh deployments)
+      fs.mkdirSync(path.dirname(filePath), { recursive: true });
       // Atomic write: temp file → rename
       const tmpPath = `${filePath}.tmp`;
       fs.writeFileSync(tmpPath, JSON.stringify(merged, null, 2), 'utf8');

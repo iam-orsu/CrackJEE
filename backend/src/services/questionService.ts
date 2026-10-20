@@ -612,10 +612,14 @@ export async function generateFreshMockBatch(
         await cacheSetJson(cacheKey, [...existing, ...generated], 3600 * 24);
       }
 
+      // Only add up to `needed` questions to the pool — extras stay in practice cache only
+      let added = 0;
       for (const q of generated) {
+        if (added >= needed) break;
         if (!seenIds.has(q.id)) {
           seenIds.add(q.id);
           allGenerated.push(q);
+          added++;
         }
       }
     }
