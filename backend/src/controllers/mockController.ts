@@ -142,6 +142,12 @@ async function getOverlapRatio(userId: string, examType: string, poolIds: string
 
 /* ── Fresh generation + pool save ──────────────────────────────── */
 
+function expectedPerSubject(examType: 'Main' | 'Advanced' | 'NEET'): number {
+  if (examType === 'NEET') return 45;
+  if (examType === 'Advanced') return 17;
+  return 25;
+}
+
 async function generateAndSavePool(
   examType: 'Main' | 'Advanced' | 'NEET',
   difficultyMode: 'easy' | 'medium' | 'hard',
@@ -151,7 +157,27 @@ async function generateAndSavePool(
     ? buildNEETSlots(difficultyMode)
     : buildJEESlots(examType, difficultyMode);
 
-  const questions = await generateFreshMockBatch(slots, 4);
+  let questions = await generateFreshMockBatch(slots, 4);
+
+  // Top-up pass: detect short subjects and generate extra slots to fill gaps
+  const expected = expectedPerSubject(examType);
+  const subjectCounts = new Map<string, number>();
+  for (const q of questions) subjectCounts.set(q.subject, (subjectCounts.get(q.subject) ?? 0) + 1);
+
+  const topUpSlots: SlotInput[] = [];
+  for (const slot of slots) {
+    const current = subjectCounts.get(slot.subject) ?? 0;
+    if (current < expected) {
+      topUpSlots.push(slot);
+      subjectCounts.set(slot.subject, current + 1);
+    }
+  }
+
+  if (topUpSlots.length > 0) {
+    console.log(`[mockPool] Top-up: generating ${topUpSlots.length} extra slots for short subjects`);
+    const extras = await generateFreshMockBatch(topUpSlots, 4);
+    questions = [...questions, ...extras];
+  }
 
   const items: MockPoolItem[] = questions.map((q) => ({
     questionId: q.id,
