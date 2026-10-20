@@ -89,9 +89,10 @@ export async function getPracticeQuestion(
   batchExcludeIds: string[] = [],
   forceType?: QuestionType,
 ): Promise<Question> {
-  // The bank only contains 'Main' and 'Advanced' — treat 'Both' as 'Main' for
-  // practice queries (the bank has enough Main questions for all topics).
-  const bankExamType: 'Main' | 'Advanced' = examType === 'Advanced' ? 'Advanced' : 'Main';
+  // Map examType to what is stored in the DB:
+  // NEET questions are stored with examType 'NEET'; JEE questions with 'Main' or 'Advanced'.
+  const bankExamType: string = examType === 'NEET' ? 'NEET'
+    : examType === 'Advanced' ? 'Advanced' : 'Main';
 
   const servedKey = `served:${userId}:${subject}:${topic}:practice`;
   const servedIds = (await cacheGetJson<string[]>(servedKey)) ?? [];
@@ -190,6 +191,21 @@ export async function getPracticeQuestionBatch(
   for (const { subject, topic } of selections) {
     if (!subjectGroups.has(subject)) subjectGroups.set(subject, []);
     subjectGroups.get(subject)!.push(topic);
+  }
+
+  // Pre-filter each subject's topics to only those that actually have questions in the DB.
+  // This prevents empty-topic slots from reducing the final count below what was requested.
+  const bankExamType = examType === 'NEET' ? 'NEET' : examType === 'Advanced' ? 'Advanced' : 'Main';
+  for (const [subject, topics] of subjectGroups) {
+    const rows = await prisma.question.findMany({
+      where: { subject, examType: bankExamType, validatedAt: { not: null }, topic: { in: topics } },
+      select: { topic: true },
+      distinct: ['topic'],
+    });
+    const validTopics = new Set(rows.map((r) => r.topic));
+    const filtered = topics.filter((t) => validTopics.has(t));
+    // Keep at least the original list if nothing is valid (fallbacks in getPracticeQuestion will handle it)
+    subjectGroups.set(subject, filtered.length > 0 ? filtered : topics);
   }
 
   const numSubjects = subjectGroups.size;
