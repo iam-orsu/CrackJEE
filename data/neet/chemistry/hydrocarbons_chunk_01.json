@@ -1,0 +1,943 @@
+{
+  "subject": "Chemistry",
+  "topic": "Hydrocarbons",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "chem_hydrocarbons_c01_001",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the laboratory preparation of alkanes by decarboxylation:\nStatement I: Heating sodium ethanoate with soda lime (a mixture of $\\text{NaOH}$ and $\\text{CaO}$ in a $3:1$ mass ratio) produces methane gas.\nStatement II: Soda lime decarboxylation of a sodium carboxylate yields an alkane containing the same number of carbon atoms as the parent carboxylic acid salt.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I. Heating sodium ethanoate ($\\text{CH}_3\\text{COONa}$) with soda lime ($\\text{NaOH} + \\text{CaO}$ in a $3:1$ mass ratio) eliminates carbon dioxide as sodium carbonate according to the reaction:\n$$\\text{CH}_3\\text{COONa} + \\text{NaOH} \\xrightarrow{\\text{CaO}, \\Delta} \\text{CH}_4 + \\text{Na}_2\\text{CO}_3$$\nThis produces methane gas, confirming that Statement I is correct.\nStep 2: Analyze Statement II. Decarboxylation eliminates the carboxyl group as carbonate, yielding an alkane that contains one carbon atom less than the starting sodium carboxylate (descent of homologous series). Therefore, Statement II is incorrect.\nStep 3: Calcium oxide ($\\text{CaO}$) keeps sodium hydroxide dry due to its hygroscopic nature and prevents fusion of glass apparatus at elevated reaction temperatures."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_002",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Kolbe's electrolytic synthesis cannot be employed for the preparation of methane.\nReason (R): In Kolbe's electrolytic decarboxylation of carboxylate salts, the hydrocarbon is formed at the anode via the coupling of two alkyl free radicals.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). In Kolbe's electrolytic method, an aqueous solution of sodium or potassium salt of a carboxylic acid on electrolysis gives an alkane containing an even number of carbon atoms. The smallest carboxylate salt used is acetate ($\\text{CH}_3\\text{COO}^-$), which couples to yield ethane ($\\text{CH}_3\\text{-}\\text{CH}_3$). Methane contains only one carbon atom and cannot be formed by radical dimerization. Thus, Assertion (A) is true.\nStep 2: Evaluate Reason (R). At the anode, acetate ions lose an electron to form acetate radicals, which undergo rapid decarboxylation yielding methyl radicals ($\\dot{\\text{C}}\\text{H}_3$). Two methyl radicals then couple to form ethane:\n$$2\\dot{\\text{C}}\\text{H}_3 \\rightarrow \\text{CH}_3\\text{CH}_3$$\nBecause the coupling step fundamentally requires at least two alkyl radicals (yielding at least two carbon atoms), methane cannot be synthesized. Reason (R) is true and correctly explains Assertion (A)."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_003",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In the conformational analysis of ethane ($\\text{CH}_3\\text{-}\\text{CH}_3$), the dihedral angle between the carbon-hydrogen bonds in the staggered conformation and its relative thermodynamic stability compared to the eclipsed conformation are respectively:",
+      "options": [
+        "A) $0^\\circ$ and less stable due to maximum torsional strain",
+        "B) $60^\\circ$ and more stable due to minimum torsional strain",
+        "C) $120^\\circ$ and less stable due to angle strain",
+        "D) $180^\\circ$ and more stable due to absence of steric hindrance"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Define dihedral angle (torsional angle). It represents the angle between the $\\text{C-H}$ bonds on adjacent carbon atoms when viewed along the $\\text{C-C}$ bond axis (Newman projection).\nStep 2: In the staggered conformation of ethane, each $\\text{C-H}$ bond on the front carbon bisects the angle between the two $\\text{C-H}$ bonds on the rear carbon, making the dihedral angle exactly $60^\\circ$.\nStep 3: In this staggered arrangement, the electron clouds of the $\\text{C-H}$ $\\sigma$-bonds are at maximum possible spatial separation, resulting in minimum electron-electron repulsion (minimum torsional strain). Consequently, the staggered conformation is more stable than the eclipsed conformation (dihedral angle $0^\\circ$) by approximately $12.55\\text{ kJ/mol}$ ($3\\text{ kcal/mol}$)."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_004",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the Wurtz reaction:\nStatement I: The Wurtz reaction of an equimolar mixture of chloromethane ($\\text{CH}_3\\text{Cl}$) and chloroethane ($\\text{C}_2\\text{H}_5\\text{Cl}$) with sodium in dry ether produces exclusively propane.\nStatement II: Unsymmetrical alkanes containing an odd number of carbon atoms are generally not prepared in practical yields by the Wurtz reaction because a mixture of three different alkanes is obtained, which are difficult to separate due to close boiling points.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Statement I. When two different alkyl halides ($\\text{CH}_3\\text{Cl}$ and $\\text{C}_2\\text{H}_5\\text{Cl}$) react with sodium in dry ether, self-coupling as well as cross-coupling occur, producing three distinct alkanes:\n$$\\text{CH}_3\\text{Cl} + \\text{C}_2\\text{H}_5\\text{Cl} \\xrightarrow{\\text{Na/dry ether}} \\text{CH}_3\\text{CH}_3 \\text{ (ethane)} + \\text{CH}_3\\text{CH}_2\\text{CH}_3 \\text{ (propane)} + \\text{CH}_3\\text{CH}_2\\text{CH}_2\\text{CH}_3 \\text{ (butane)}$$\nHence, propane is not obtained exclusively. Statement I is incorrect.\nStep 2: Analyze Statement II. The resulting mixture of homologous alkanes (ethane, propane, and butane) possesses closely spaced boiling points, making separation by fractional distillation extremely difficult and rendering the reaction unsuitable for preparing unsymmetrical alkanes in pure form. Statement II is correct."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_005",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "When methane and dioxygen in a $2:1$ volume ratio are passed through a copper tube at $523\\text{ K}$ under a pressure of $100\\text{ atm}$, the primary organic product obtained is:",
+      "options": [
+        "A) Methanoic acid",
+        "B) Methanal",
+        "C) Carbon monoxide",
+        "D) Methanol"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Recall the conditions for controlled catalytic oxidation of methane as specified in NCERT.\nStep 2: Passing a mixture of methane and oxygen through a copper tube at $523\\text{ K}$ and $100\\text{ atm}$ oxidizes methane selectively to methanol:\n$$2\\text{CH}_4 + \\text{O}_2 \\xrightarrow{\\text{Cu / } 523\\text{ K / } 100\\text{ atm}} 2\\text{CH}_3\\text{OH}$$\nStep 3: In contrast, oxidation with molybdenum oxide ($\\text{Mo}_2\\text{O}_3$) catalyst gives methanal ($\\text{HCHO} + \\text{H}_2\\text{O}$), while oxidation of higher alkanes with manganese acetate yields carboxylic acids."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_006",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Heating n-hexane at $773\\text{ K}$ and $10\\text{--}20\\text{ atm}$ in the presence of chromium oxide supported on alumina ($\\text{Cr}_2\\text{O}_3/\\text{Al}_2\\text{O}_3$) results in the formation of:",
+      "options": [
+        "A) Cyclohexane",
+        "B) Hex-1-ene",
+        "C) Benzene",
+        "D) 2-Methylpentane"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Identify the chemical transformation described by the specified reagents and conditions.\nStep 2: Alkanes containing 6 to 8 carbon atoms on heating to $773\\text{ K}$ at $10\\text{--}20\\text{ atm}$ in the presence of oxides of chromium, vanadium, or molybdenum supported over alumina undergo cyclization followed by dehydrogenation to yield aromatic hydrocarbons. This process is known as aromatization or catalytic reforming.\nStep 3: n-Hexane ($\\text{CH}_3(\\text{CH}_2)_4\\text{CH}_3$) undergoes ring closure with loss of hydrogen to yield benzene ($\\text{C}_6\\text{H}_6$):\n$$\\text{CH}_3(\\text{CH}_2)_4\\text{CH}_3 \\xrightarrow{\\text{Cr}_2\\text{O}_3/\\text{Al}_2\\text{O}_3, \\; 773\\text{ K}, \\; 10\\text{-}20\\text{ atm}} \\text{C}_6\\text{H}_6 + 4\\text{H}_2$$"
+    },
+    {
+      "id": "chem_hydrocarbons_c01_007",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the halogenation of alkanes:\nStatement I: The rate of replacement of hydrogens of alkanes during free radical substitution follows the order: $3^\\circ > 2^\\circ > 1^\\circ$.\nStatement II: Halogenation of alkanes with iodine is reversible and slow, requiring the presence of an oxidizing agent such as $\\text{HIO}_3$ or $\\text{HNO}_3$ to consume the $\\text{HI}$ formed.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect",
+        "B) Both Statement I and Statement II are correct",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Statement I. In free radical halogenation, hydrogen abstraction by a halogen radical generates an alkyl free radical. Since tertiary alkyl radicals are stabilized by hyperconjugation and inductive effects, the stability order is $3^\\circ > 2^\\circ > 1^\\circ > \\dot{\\text{C}}\\text{H}_3$. The bond dissociation enthalpy of the $\\text{C-H}$ bond is lowest for $3^\\circ$ carbons; thus, the rate of replacement follows $3^\\circ > 2^\\circ > 1^\\circ$. Statement I is correct.\nStep 2: Evaluate Statement II. Iodination is endothermic and reversible:\n$$\\text{CH}_4 + \\text{I}_2 \\rightleftharpoons \\text{CH}_3\\text{I} + \\text{HI}$$\nHydroiodic acid ($\\text{HI}$) is a powerful reducing agent that reduces alkyl iodides back to alkanes. Adding an oxidizing agent like iodic acid ($\\text{HIO}_3$) or nitric acid ($\\text{HNO}_3$) oxidizes $\\text{HI}$ to $\\text{I}_2$ ($5\\text{HI} + \\text{HIO}_3 \\rightarrow 3\\text{I}_2 + 3\\text{H}_2\\text{O}$), shifting the equilibrium forward according to Le Chatelier's principle. Statement II is correct."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_008",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding conformations of ethane:\n\nList I (Parameter / Conformation)\nA. Dihedral angle in eclipsed form\nB. Dihedral angle in staggered form\nC. Energy difference between eclipsed and staggered forms\nD. Skew conformation\n\nList II (Value / Description)\nI. $60^\\circ$\nII. $0^\\circ$\nIII. Any intermediate conformation with dihedral angle between $0^\\circ$ and $60^\\circ$\nIV. $\\approx 12.55\\text{ kJ/mol}$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-I, B-II, C-IV, D-III",
+        "B) A-II, B-IV, C-I, D-III",
+        "C) A-II, B-I, C-IV, D-III",
+        "D) A-IV, B-I, C-II, D-III"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In the eclipsed conformation of ethane, hydrogen atoms on adjacent carbons are directly aligned, giving a dihedral angle of $0^\\circ$ (A matches II).\nStep 2: In the staggered conformation, the $\\text{C-H}$ bonds are spaced maximally apart with a dihedral angle of $60^\\circ$ (B matches I).\nStep 3: The magnitude of torsional strain causing the energy difference between the eclipsed and staggered forms of ethane is approximately $12.55\\text{ kJ/mol}$ or $3.0\\text{ kcal/mol}$ (C matches IV).\nStep 4: Any infinite intermediate arrangement between the fully eclipsed and staggered conformations is designated as a skew conformation (D matches III).\nHence, the correct matching is A-II, B-I, C-IV, D-III."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_009",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following alkenes exhibits geometrical (cis-trans) isomerism?",
+      "options": [
+        "A) Propene",
+        "B) But-2-ene",
+        "C) But-1-ene",
+        "D) 2-Methylpropene"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: State the requirement for geometrical isomerism in alkenes: restricted rotation about the $\\text{C=C}$ double bond, and each of the doubly bonded carbon atoms must be attached to two different atoms or groups (i.e. $\\text{abC=Cab}$ or $\\text{abC=Ccd}$).\nStep 2: In propene ($\\text{CH}_2\\text{=CH-CH}_3$), but-1-ene ($\\text{CH}_2\\text{=CH-CH}_2\\text{CH}_3$), and 2-methylpropene ($\\text{CH}_2\\text{=C(CH}_3)_2$), one of the sp2 carbons is bonded to two identical hydrogen atoms. Therefore, swapping groups does not yield a stereoisomer.\nStep 3: In but-2-ene ($\\text{CH}_3\\text{-CH=CH-CH}_3$), each sp2 carbon is bonded to $-\\text{H}$ and $-\\text{CH}_3$ (two distinct groups). Consequently, it exists as two distinct geometrical isomers: cis-but-2-ene (methyl groups on the same side) and trans-but-2-ene (methyl groups on opposite sides)."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_010",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the stereoselective reduction of alkynes to alkenes:\nStatement I: Controlled catalytic hydrogenation of but-2-yne using Lindlar's catalyst (palladised charcoal partially deactivated with quinoline or sulfur) yields cis-but-2-ene.\nStatement II: Reduction of but-2-yne with sodium in liquid ammonia (Birch reduction) yields trans-but-2-ene.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. Lindlar's catalyst is palladium supported on calcium carbonate or barium sulfate poisoned with quinoline or lead salts. The adsorption of the alkyne onto the metal surface allows dihydrogen to add from the same face (syn-addition), yielding predominantly the cis-alkene (cis-but-2-ene). Poisoning prevents over-reduction to the alkane. Statement I is correct.\nStep 2: Evaluate Statement II. Reduction with sodium in liquid ammonia proceeds via single electron transfer and radical-anion intermediates, where the trans-configuration of the vinyl radical anion is thermodynamically favored due to minimum electrostatic and steric repulsion. Protonation results in anti-addition, forming the trans-alkene (trans-but-2-ene). Statement II is correct."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_011",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Electrophilic addition of hydrogen bromide ($\\text{HBr}$) to propene in the absence of peroxides gives 2-bromopropane as the major product.\nReason (R): The addition proceeds via the formation of a secondary carbocation ($\\text{CH}_3\\text{-}\\overset{+}{\\text{C}}\\text{H-CH}_3$), which is more stable than a primary carbocation ($\\text{CH}_3\\text{CH}_2\\overset{+}{\\text{C}}\\text{H}_2$).\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). According to Markovnikov's rule, when an unsymmetrical reagent adds to an unsymmetrical alkene, the negative part of the addendum attaches to the double-bonded carbon having fewer hydrogen atoms. Thus, addition of $\\text{HBr}$ to propene yields 2-bromopropane as the major product. Assertion (A) is true.\nStep 2: Evaluate Reason (R). The mechanism involves initial electrophilic attack by $\\text{H}^+$. Attack at $\\text{C-1}$ produces a secondary carbocation ($\\text{CH}_3\\text{-}\\overset{+}{\\text{C}}\\text{H-CH}_3$) stabilized by 6 hyperconjugative hydrogens, while attack at $\\text{C-2}$ produces a primary carbocation ($\\text{CH}_3\\text{CH}_2\\overset{+}{\\text{C}}\\text{H}_2$) stabilized by only 2 hyperconjugative hydrogens. Rapid nucleophilic capture of the secondary carbocation by $\\text{Br}^-$ yields 2-bromopropane. Thus, Reason (R) is true and correctly explains Assertion (A)."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_012",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the Kharasch (peroxide) effect:\nStatement I: Addition of $\\text{HBr}$ to unsymmetrical alkenes in the presence of benzoyl peroxide yields anti-Markovnikov products via a free radical pathway.\nStatement II: The peroxide effect is readily observed with $\\text{HCl}$ and $\\text{HI}$ under identical reaction conditions.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I. In the presence of organic peroxides, addition of $\\text{HBr}$ to unsymmetrical alkenes occurs contrary to Markovnikov's rule (Kharasch effect) through a free radical chain mechanism where $\\text{Br}^\\bullet$ adds first to generate the more stable free radical. Statement I is correct.\nStep 2: Analyze Statement II. The $\\text{H-Cl}$ bond is strong ($430.5\\text{ kJ/mol}$) and is not cleaved homolytically by the alkoxy radical. Conversely, although the $\\text{H-I}$ bond is weak ($296.8\\text{ kJ/mol}$) and forms iodine radicals readily, the addition of $\\text{I}^\\bullet$ to a double bond is endothermic; instead, iodine radicals combine with each other to regenerate $\\text{I}_2$. Hence, the peroxide effect is observed exclusively with $\\text{HBr}$ and not with $\\text{HCl}$ or $\\text{HI}$. Statement II is incorrect."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_013",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Treatment of propene with cold, dilute, alkaline potassium permanganate solution (Baeyer's reagent) yields which of the following compounds as the major product?",
+      "options": [
+        "A) Propanoic acid",
+        "B) Propan-2-one and methanoic acid",
+        "C) Propan-1-ol",
+        "D) Propane-1,2-diol"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Identify Baeyer's reagent. Baeyer's reagent is a cold, dilute ($1\\%$) aqueous alkaline solution of potassium permanganate ($\\text{KMnO}_4$).\nStep 2: Alkenes react with Baeyer's reagent at room temperature to undergo syn-dihydroxylation across the double bond, converting the alkene into a vicinal glycol.\n$$\\text{CH}_3\\text{-CH=CH}_2 + \\text{H}_2\\text{O} + [\\text{O}] \\xrightarrow{\\text{dil. alkaline KMnO}_4, \\; 273\\text{--}283\\text{ K}} \\text{CH}_3\\text{-CH(OH)-CH}_2\\text{OH}$$\nStep 3: The purple color of permanganate is discharged with the precipitation of brown manganese dioxide ($\\text{MnO}_2$), serving as a qualitative test for unsaturation. The product formed from propene is propane-1,2-diol (propylene glycol)."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_014",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An alkene on reductive ozonolysis with $\\text{O}_3$ followed by cleavage with $\\text{Zn}/\\text{H}_2\\text{O}$ yields an equimolar mixture of propan-2-one (acetone) and ethanal (acetaldehyde). The IUPAC name of the alkene is:",
+      "options": [
+        "A) 2-Methylbut-1-ene",
+        "B) 2-Methylbut-2-ene",
+        "C) Pent-2-ene",
+        "D) 3-Methylbut-1-ene"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Write down the structures of the carbonyl cleavage products:\nPropan-2-one: $\\text{CH}_3\\text{-C}(=\\text{O})\\text{-CH}_3$\nEthanal: $\\text{O=CH-CH}_3$\nStep 2: To deduce the structure of the starting alkene, remove the oxygen atoms from both carbonyl groups and join the two fragments via a carbon-carbon double bond:\n$$\\text{CH}_3\\text{-C}(\\text{CH}_3)\\text{=CH-CH}_3$$\nStep 3: Number the carbon chain according to IUPAC nomenclature from the end closer to the branch: the longest continuous chain contains 4 carbon atoms with a double bond at carbon-2 and a methyl substituent at carbon-2. Therefore, the IUPAC name is 2-methylbut-2-ene."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_015",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Dehydrohalogenation of 2-bromobutane with alcoholic potassium hydroxide ($\\text{alc. } \\text{KOH}$) predominantly produces but-2-ene rather than but-1-ene.\nReason (R): According to Saytzeff's rule, in $\\beta$-elimination reactions, the alkene possessing the lesser number of alkyl substituents attached to the doubly bonded carbon atoms is the preferred (major) product.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Assertion (A). Heating 2-bromobutane with alcoholic $\\text{KOH}$ undergoes an E2 dehydrohalogenation. The base can abstract a $\\beta$-hydrogen from $\\text{C-1}$ to give but-1-ene ($19\\%$) or from $\\text{C-3}$ to give but-2-ene ($81\\%$). Thus, but-2-ene is the major product, and Assertion (A) is true.\nStep 2: Evaluate Reason (R). Saytzeff's rule explicitly states that elimination proceeds preferentially to yield the alkene that has the greater number of alkyl substituents attached to the doubly bonded carbons (more substituted alkene is more stable due to hyperconjugation). The Reason mistakenly claims that the lesser substituted alkene is favored. Thus, Reason (R) is false."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_016",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the acidity of hydrocarbons:\nStatement I: Ethyne is significantly more acidic than ethene and ethane because its carbon atoms are sp hybridized with $50\\%$ s-character, making them strongly electronegative.\nStatement II: Ethyne reacts with sodamide ($\\text{NaNH}_2$) in liquid ammonia to produce sodium acetylide and liberate ammonia gas.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I. The hybridization of carbon atoms in ethyne, ethene, and ethane is $\\text{sp}$ ($50\\%$ s-character), $\\text{sp}^2$ ($33.3\\%$ s-character), and $\\text{sp}^3$ ($25\\%$ s-character), respectively. Electrons in s-orbitals are closer to the atomic nucleus; hence, higher s-character leads to greater electronegativity of the carbon atom. The $\\text{C-H}$ bond in ethyne is strongly polarized, allowing terminal protons to be released to strong bases. The acidity order is $\\text{HC}\\equiv\\text{CH} > \\text{CH}_2\\text{=CH}_2 > \\text{CH}_3\\text{-CH}_3$. Statement I is correct.\nStep 2: Analyze Statement II. Sodamide ($\\text{NaNH}_2$) is the conjugate base of ammonia ($pK_a \\approx 38$). Since ethyne ($pK_a \\approx 25$) is a stronger acid than ammonia, the amide ion ($\\text{NH}_2^-$) deprotonates ethyne to form sodium acetylide ($\\text{HC}\\equiv\\text{C}^-\\text{Na}^+$) and ammonia ($\\text{NH}_3$). Statement II is correct."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_017",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "When propyne ($\\text{CH}_3\\text{-C}\\equiv\\text{CH}$) is warmed with dilute $\\text{H}_2\\text{SO}_4$ in the presence of $\\text{HgSO}_4$ catalyst at $333\\text{ K}$, the major stable product isolated is:",
+      "options": [
+        "A) Propanal",
+        "B) Propan-1-ol",
+        "C) Propanoic acid",
+        "D) Propan-2-one"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Identify the reaction. Acid-catalyzed hydration of alkynes in the presence of mercuric sulfate ($\\text{HgSO}_4$) at $333\\text{ K}$ proceeds via electrophilic addition of water across the triple bond.\nStep 2: For propyne (an unsymmetrical alkyne), addition of water follows Markovnikov's rule. The $\\text{H}^+$ attaches to the terminal $\\text{CH}$ carbon, and $-\\text{OH}$ attaches to the central carbon ($\\text{C-2}$), forming the unstable enol intermediate prop-1-en-2-ol:\n$$\\text{CH}_3\\text{-C}\\equiv\\text{CH} + \\text{H}_2\\text{O} \\xrightarrow{\\text{dil. } \\text{H}_2\\text{SO}_4 / \\text{HgSO}_4, \\; 333\\text{ K}} [\\text{CH}_3\\text{-C(OH)=CH}_2]$$\nStep 3: The enol intermediate rapidly tautomerizes into the thermodynamically favored keto form, yielding propan-2-one (acetone):\n$$[\\text{CH}_3\\text{-C(OH)=CH}_2] \\rightleftharpoons \\text{CH}_3\\text{-CO-CH}_3$$\nStep 4: Note that ethyne is the only alkyne that yields an aldehyde (ethanal) under these hydration conditions; all higher terminal and internal alkynes yield ketones."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_018",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Passing ethyne gas through a red hot iron tube at $873\\text{ K}$ leads to its cyclic polymerization, forming:",
+      "options": [
+        "A) Cyclohexane",
+        "B) Benzene",
+        "C) Toluene",
+        "D) Mesitylene"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Recall the cyclic polymerization reaction of alkynes as described in NCERT Class 11 Chemistry.\nStep 2: When ethyne (acetylene) gas is passed through a red hot iron or copper tube at $873\\text{ K}$, three molecules of ethyne undergo cyclic trimerization to form benzene:\n$$3\\text{C}_2\\text{H}_2 \\xrightarrow{\\text{Red hot iron tube, } 873\\text{ K}} \\text{C}_6\\text{H}_6$$\nStep 3: This reaction represents an important synthetic entry route from aliphatic hydrocarbons to aromatic compounds."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_019",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding aromaticity and $(4n+2)\\pi$ electron counts:\n\nList I (Species)\nA. Benzene\nB. Cyclopentadienyl anion\nC. Tropylium cation (cycloheptatrienyl cation)\nD. Cyclooctatetraene\n\nList II (Aromatic character / Delocalized $\\pi$-electrons)\nI. Aromatic ($6\\pi$-electrons, $n=1$)\nII. Non-aromatic ($8\\pi$-electrons, adopts non-planar tub conformation)\nIII. Aromatic ($6\\pi$-electrons with a carbanionic center, $n=1$)\nIV. Aromatic ($6\\pi$-electrons with a planar carbocationic 7-membered ring, $n=1$)\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-IV, B-III, C-I, D-II",
+        "B) A-I, B-II, C-IV, D-III",
+        "C) A-III, B-I, C-II, D-IV",
+        "D) A-I, B-III, C-IV, D-II"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Benzene is a planar, completely conjugated cyclic hydrocarbon containing $6\\pi$ electrons ($n=1$), making it classic aromatic (A matches I).\nStep 2: Cyclopentadienyl anion contains a 5-membered conjugated planar ring with 4 electrons from two double bonds plus 2 electrons from the lone pair on the carbanion carbon, giving $6\\pi$ electrons ($n=1$) and aromaticity (B matches III).\nStep 3: Tropylium cation is a planar 7-membered cyclic system containing 3 conjugated double bonds with an empty p-orbital on the carbocation carbon, having $6\\pi$ electrons ($n=1$) and exceptional aromatic stability (C matches IV).\nStep 4: Cyclooctatetraene has $8\\pi$ electrons. If planar, it would be an antiaromatic $4n\\pi$ system; to escape antiaromatic destabilization, it distorts into a non-planar tub-shaped geometry, rendering it non-aromatic (D matches II).\nHence, the correct match is A-I, B-III, C-IV, D-II."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_020",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In the nitration of benzene using a mixture of concentrated $\\text{HNO}_3$ and concentrated $\\text{H}_2\\text{SO}_4$, nitric acid acts as a Brønsted-Lowry base.\nReason (R): Concentrated sulfuric acid is a stronger acid than concentrated nitric acid and protonates $\\text{HNO}_3$ to generate the nitronium ion ($\\text{NO}_2^+$).\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). In the nitrating mixture, concentrated $\\text{H}_2\\text{SO}_4$ donates a proton to concentrated $\\text{HNO}_3$:\n$$\\text{HNO}_3 + 2\\text{H}_2\\text{SO}_4 \\rightleftharpoons \\text{NO}_2^+ + \\text{H}_3\\text{O}^+ + 2\\text{HSO}_4^-$$\nBecause $\\text{HNO}_3$ accepts a proton, it functions as a Brønsted-Lowry base. Assertion (A) is true.\nStep 2: Evaluate Reason (R). Sulfuric acid has a much higher acid dissociation constant than nitric acid. Protonation of the hydroxyl oxygen of $\\text{HNO}_3$ gives the protonated species ($\\text{H}_2\\text{O}^+\\text{-NO}_2$), which spontaneously loses water to generate the electrophile nitronium ion ($\\text{NO}_2^+$). Thus, Reason (R) is true and correctly explains Assertion (A)."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_021",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the directive influence of functional groups attached to a benzene ring:\nStatement I: The hydroxyl group ($-\\text{OH}$) in phenol is activating and directs incoming electrophiles predominantly to the ortho and para positions due to the $+M$ resonance effect.\nStatement II: The nitro group ($-\\text{NO}_2$) in nitrobenzene is deactivating and directs incoming electrophiles to the meta position due to its $-M$ and $-I$ electron-withdrawing effects.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I. The oxygen atom of the $-\\text{OH}$ group possesses lone pairs that delocalize into the aromatic $\\pi$-system via the positive resonance ($+M$) effect. Resonance structures reveal that electron density increases specifically at the ortho and para positions relative to the meta positions. Therefore, $-\\text{OH}$ activates the ring and directs electrophilic attack to ortho and para positions. Statement I is correct.\nStep 2: Analyze Statement II. The nitrogen atom in $-\\text{NO}_2$ bears a formal positive charge and is bonded to electronegative oxygens, exerting strong $-M$ and $-I$ electron withdrawal. Resonance delocalization places formal positive charges on the ortho and para carbons, heavily destabilizing electrophilic attack at those sites. The meta position is comparatively less electron-deficient, directing electrophiles to the meta position. Statement II is correct."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_022",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In the Friedel-Crafts alkylation of benzene with chloromethane ($\\text{CH}_3\\text{Cl}$) in the presence of anhydrous aluminium chloride ($\\text{AlCl}_3$), the primary role of anhydrous $\\text{AlCl}_3$ is to:",
+      "options": [
+        "A) Act as a Brønsted-Lowry base to abstract a proton from the Arenium ion",
+        "B) Act as an oxidizing agent to convert toluene to benzoic acid",
+        "C) Act as a Lewis acid to generate the electrophilic methyl cation species from chloromethane",
+        "D) Act as a free radical initiator to initiate homolytic cleavage of the carbon-chlorine bond"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Identify the mechanism of Friedel-Crafts alkylation.\nStep 2: Anhydrous aluminium chloride ($\\text{AlCl}_3$) is an electron-deficient compound with an incomplete octet on aluminium (6 valence electrons), acting as a powerful Lewis acid.\nStep 3: $\\text{AlCl}_3$ coordinates with the lone pair of chlorine in chloromethane to form a polarized complex or methyl cation:\n$$\\text{CH}_3\\text{Cl} + \\text{AlCl}_3 \\rightleftharpoons \\text{CH}_3^{\\delta+} \\dots \\text{Cl} \\dots \\text{AlCl}_3^{\\delta-} \\rightarrow \\text{CH}_3^+ + [\\text{AlCl}_4]^-$$\nStep 4: This generates the electrophilic methyl carbocation species, which attacks the benzene ring to initiate electrophilic aromatic substitution."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_023",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the products of Kolbe's electrolytic synthesis:\nStatement I: Electrolysis of a concentrated aqueous solution of sodium propanoate ($\\text{CH}_3\\text{CH}_2\\text{COONa}$) yields n-butane as the major coupling product at the anode.\nStatement II: In addition to n-butane, disproportionation of intermediate ethyl radicals at the anode yields small amounts of ethane and ethene.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I. During electrolysis of aqueous sodium propanoate, propanoate ions migrate to the anode, lose one electron, and decarboxylate to generate ethyl free radicals ($\\text{CH}_3\\dot{\\text{C}}\\text{H}_2$). Two ethyl radicals undergo radical-radical dimerization to yield n-butane as the principal product:\n$$2\\text{CH}_3\\dot{\\text{C}}\\text{H}_2 \\rightarrow \\text{CH}_3\\text{CH}_2\\text{CH}_2\\text{CH}_3$$\nThus, Statement I is correct.\nStep 2: Analyze Statement II. Alongside symmetrical coupling, two ethyl free radicals can participate in a competing disproportionation pathway, wherein one radical abstracts a $\\beta$-hydrogen from another:\n$$\\text{CH}_3\\dot{\\text{C}}\\text{H}_2 + \\text{CH}_3\\dot{\\text{C}}\\text{H}_2 \\rightarrow \\text{CH}_3\\text{CH}_3 \\text{ (ethane)} + \\text{CH}_2\\text{=CH}_2 \\text{ (ethene)}$$\nConsequently, minor quantities of ethane and ethene are detected at the anode. Statement II is correct."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_024",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Among the structural isomers of pentane ($\\text{C}_5\\text{H}_{12}$), 2,2-dimethylpropane (neopentane) has a lower boiling point ($282.5\\text{ K}$) than n-pentane ($309\\text{ K}$), yet its melting point ($256.4\\text{ K}$) is significantly higher than that of n-pentane ($143.3\\text{ K}$).\nReason (R): Branching causes neopentane to adopt an almost spherical shape with a smaller surface area, decreasing intermolecular van der Waals forces, while its high spherical symmetry allows it to pack more compactly into a crystal lattice.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). As documented in NCERT, isomeric pentanes exhibit the boiling point order: n-pentane ($309\\text{ K}$) > isopentane ($301\\text{ K}$) > neopentane ($282.5\\text{ K}$). Conversely, the melting point of neopentane ($256.4\\text{ K}$) is substantially higher than that of n-pentane ($143.3\\text{ K}$). Assertion (A) is true.\nStep 2: Evaluate Reason (R). Boiling points depend on intermolecular attractive forces in the liquid state. The spherical geometry of neopentane minimizes surface area, diminishing contact area and London dispersion forces, which reduces its boiling point. In contrast, melting points depend on crystal lattice stability. The highly symmetrical, tetrahedral shape of neopentane fits tightly into the crystal lattice, requiring a higher temperature to break the crystalline solid. Thus, Reason (R) is true and correctly explains Assertion (A)."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_025",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Photochemical monobromination of 2-methylpropane gives 2-bromo-2-methylpropane as the almost exclusive product ($>99\\%$), whereas photochemical monochlorination produces 1-chloro-2-methylpropane as the major product ($\\approx 64\\%$).\nReason (R): Bromine free radicals are much more reactive than chlorine free radicals and abstract hydrogen atoms indiscriminately, while chlorine free radicals are sluggish and highly selective.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Assertion (A). 2-Methylpropane possesses nine $1^\\circ$ hydrogens and one $3^\\circ$ hydrogen. For chlorination, relative reactivity is $1^\\circ : 2^\\circ : 3^\\circ = 1 : 3.8 : 5.0$. The statistical yield of $1^\\circ$ alkyl chloride is $9 \\times 1 = 9$ versus $1 \\times 5 = 5$ for $3^\\circ$ chloride, giving $\\approx 64\\%$ 1-chloro-2-methylpropane. For bromination, relative reactivity is $1 : 82 : 1600$. The yield of $3^\\circ$ bromide is $1600 / (1600 + 9) > 99\\%$. Assertion (A) is true.\nStep 2: Evaluate Reason (R). The first propagation step for bromination is endothermic, rendering bromine radicals less reactive and exceptionally selective according to the Hammond postulate. Conversely, hydrogen abstraction by chlorine radicals is exothermic, making chlorine radicals highly reactive and relatively unselective. Reason (R) incorrectly reverses their relative reactivity and selectivity; hence, Reason (R) is false."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_026",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding conformations of butane viewed along the $\\text{C}_2\\text{-C}_3$ bond:\n\nList I (Conformation)\nA. Anti-periplanar conformation\nB. Gauche conformation\nC. Partially eclipsed conformation\nD. Fully eclipsed conformation\n\nList II (Characteristics / Dihedral Angle)\nI. Dihedral angle $60^\\circ$, displays steric strain (gauche interaction) between adjacent methyl groups\nII. Dihedral angle $180^\\circ$, minimum potential energy and maximum thermodynamic stability\nIII. Dihedral angle $0^\\circ$, methyl groups eclipse each other with maximum steric and torsional strain\nIV. Dihedral angle $120^\\circ$, methyl groups eclipse hydrogen atoms with intermediate potential energy\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-I, B-II, C-IV, D-III",
+        "B) A-II, B-I, C-IV, D-III",
+        "C) A-II, B-IV, C-I, D-III",
+        "D) A-IV, B-I, C-II, D-III"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In the anti-periplanar conformation of butane, the two bulky methyl groups are located at an angle of $180^\\circ$ to each other, minimizing dipole, torsional, and steric repulsions, resulting in the lowest energy conformation (A matches II).\nStep 2: In the gauche conformation, the two methyl groups have a dihedral angle of $60^\\circ$. While free of torsional strain, they experience mild steric repulsion (gauche interaction) of approximately $3.8\\text{ kJ/mol}$ (B matches I).\nStep 3: In the partially eclipsed conformation (dihedral angle $120^\\circ$), methyl groups eclipse hydrogen atoms, generating torsional and steric strain (C matches IV).\nStep 4: In the fully eclipsed conformation (dihedral angle $0^\\circ$), the two methyl groups directly overlap, producing the highest torsional and steric repulsions with maximum potential energy (D matches III).\nHence, the correct match is A-II, B-I, C-IV, D-III."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_027",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Acid-catalyzed dehydration of 3,3-dimethylbutan-2-ol with concentrated sulfuric acid ($\\text{H}_2\\text{SO}_4$) at $443\\text{ K}$ yields which of the following alkenes as the major organic product?",
+      "options": [
+        "A) 3,3-Dimethylbut-1-ene",
+        "B) 2,3-Dimethylbut-1-ene",
+        "C) 3,3-Dimethylbut-2-ene",
+        "D) 2,3-Dimethylbut-2-ene"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Protonation of the hydroxyl group of 3,3-dimethylbutan-2-ol followed by loss of water generates a secondary carbocation:\n$$\\text{CH}_3\\text{-C}(\\text{CH}_3)_2\\text{-}\\overset{+}{\\text{C}}\\text{H-CH}_3$$\nStep 2: Because an adjacent quaternary carbon possesses methyl groups, the secondary carbocation undergoes a 1,2-methyl shift to yield a far more stable tertiary carbocation:\n$$\\text{CH}_3\\text{-C}(\\text{CH}_3)_2\\text{-}\\overset{+}{\\text{C}}\\text{H-CH}_3 \\xrightarrow{1,2-\\text{methyl shift}} \\text{CH}_3\\text{-}\\overset{+}{\\text{C}}(\\text{CH}_3)\\text{-CH}(\\text{CH}_3)_2$$\nStep 3: Deprotonation of this rearranged tertiary carbocation according to Saytzeff's rule abstracts a proton from the adjacent carbon with fewer hydrogens ($\\text{C-3}$), yielding the highly substituted, thermodynamically most stable tetrasubstituted alkene, 2,3-dimethylbut-2-ene ($\\approx 80\\%$ yield)."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_028",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the stereospecific addition of bromine to the geometrical isomers of but-2-ene:\nStatement I: Addition of bromine in $\\text{CCl}_4$ to trans-but-2-ene proceeds via anti-addition through a cyclic bromonium ion intermediate to yield an optically inactive meso compound (meso-2,3-dibromobutane).\nStatement II: Addition of bromine in $\\text{CCl}_4$ to cis-but-2-ene through the same anti-addition mechanism yields an equimolar racemic mixture of $(2R,3R)$- and $(2S,3S)$-2,3-dibromobutane.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect",
+        "B) Both Statement I and Statement II are correct",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I. Electrophilic halogenation of alkenes involves initial formation of a bridged cyclic bromonium ion followed by backside nucleophilic attack by bromide ion (anti-addition). For trans-alkenes, anti-addition of two identical substituents creates an internal plane of symmetry in the resulting vicinal dihalide, producing optically inactive meso-2,3-dibromobutane (TAM rule: Trans + Anti $\\rightarrow$ Meso). Statement I is correct.\nStep 2: Analyze Statement II. For cis-alkenes, anti-addition from opposite faces of the planar double bond generates a pair of non-superimposable mirror images in equal amounts, resulting in an optically inactive racemic mixture of enantiomers (CAR rule: Cis + Anti $\\rightarrow$ Racemic). Statement II is correct."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_029",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In the presence of organic peroxides, addition of $\\text{HBr}$ to 2-methylprop-1-ene yields 1-bromo-2-methylpropane as the major product.\nReason (R): Electrophilic addition of a proton to 2-methylprop-1-ene generates a stable tertiary carbocation, whereas radical addition begins with the attack of a bromine radical on the terminal carbon to produce a stable tertiary free radical.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). In the presence of organic peroxides, addition of $\\text{HBr}$ occurs via an anti-Markovnikov pathway (peroxide effect), causing the bromine atom to bind to the less substituted terminal carbon ($\text{C-1}$), yielding 1-bromo-2-methylpropane (isobutyl bromide). Assertion (A) is true.\nStep 2: Evaluate Reason (R). Under ionic conditions (absence of peroxides), addition initiates by electrophilic proton attack at $\\text{C-1}$ to yield the more stable tertiary carbocation ($(\\text{CH}_3)_3\\text{C}^+$). Under peroxide conditions, benzoyl peroxide generates bromine radicals ($\\text{Br}^\\bullet$). Attack of $\\text{Br}^\\bullet$ on the less hindered terminal carbon ($\text{C-1}$) generates a tertiary carbon free radical ($(\\text{CH}_3)_2\\dot{\\text{C}}\\text{-CH}_2\\text{Br}$), which is stabilized by hyperconjugation and inductive effects. Hydrogen abstraction from $\\text{HBr}$ then completes the cycle. Thus, Reason (R) is true and correctly explains Assertion (A)."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_030",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Reaction of 1-methylcyclopentene with diborane ($\\text{B}_2\\text{H}_6$) in THF followed by alkaline oxidation with $\\text{H}_2\\text{O}_2 / \\text{NaOH}$ yields which of the following compounds stereoselectively?",
+      "options": [
+        "A) 1-Methylcyclopentanol",
+        "B) cis-2-Methylcyclopentanol",
+        "C) trans-2-Methylcyclopentanol",
+        "D) Cyclopentylmethanol"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze the regiochemistry of hydroboration-oxidation. Boron is larger than hydrogen and less electronegative; hence, $\\text{B-H}$ adds across the double bond such that boron binds to the less sterically hindered carbon (anti-Markovnikov addition).\nStep 2: Analyze the stereochemistry of the hydroboration step. Addition of $\\text{H}$ and $\\text{B}$ takes place via a concerted four-centered cyclic transition state, resulting in stereospecific syn-addition from the less hindered face of the ring.\nStep 3: In the subsequent alkaline hydrogen peroxide oxidation, the carbon-boron bond is replaced by a hydroxyl group ($-\\text{OH}$) with complete retention of stereochemical configuration.\nStep 4: Because $-\\text{H}$ and $-\\text{OH}$ add to the same side of the ring, the newly introduced $-\\text{OH}$ group at $\\text{C-2}$ ends up trans to the existing methyl group at $\\text{C-1}$, yielding trans-2-methylcyclopentanol."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_031",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A branched hydrocarbon $\\text{X}$ with molecular formula $\\text{C}_6\\text{H}_{12}$ on reductive ozonolysis ($\\text{O}_3$ followed by $\\text{Zn}/\\text{H}_2\\text{O}$) gives a single carbonyl compound $\\text{Y}$. Compound $\\text{Y}$ forms a 2,4-dinitrophenylhydrazone derivative and gives a yellow precipitate with iodine in the presence of $\\text{NaOH}$, but fails to reduce Tollens' reagent. Hydrocarbon $\\text{X}$ is:",
+      "options": [
+        "A) Hex-3-ene",
+        "B) 2,3-Dimethylbut-2-ene",
+        "C) 3,3-Dimethylbut-1-ene",
+        "D) 2-Methylpent-2-ene"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Hydrocarbon $\\text{X}$ ($\text{C}_6\\text{H}_{12}$) possesses one degree of unsaturation. Since reductive ozonolysis produces only one compound $\\text{Y}$, the molecule must be symmetrical around the double bond.\nStep 2: Compound $\\text{Y}$ has 3 carbon atoms ($6 / 2 = 3$). It reacts with 2,4-DNP, confirming it is a carbonyl compound; it gives a positive iodoform test (yellow precipitate of $\\text{CHI}_3$), indicating a methyl carbonyl group ($\\text{CH}_3\\text{-CO-}$); and it fails Tollens' test, proving it is a ketone, not an aldehyde. Thus, compound $\\text{Y}$ is propan-2-one (acetone, $\\text{CH}_3\\text{COCH}_3$).\nStep 3: Rejoining two equivalents of acetone via the carbonyl carbons gives 2,3-dimethylbut-2-ene:\n$$(\\text{CH}_3)_2\\text{C=O} + \\text{O=C}(\\text{CH}_3)_2 \\rightarrow (\\text{CH}_3)_2\\text{C=C}(\\text{CH}_3)_2$$\nTherefore, hydrocarbon $\\text{X}$ is 2,3-dimethylbut-2-ene."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_032",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the oxidative cleavage of alkenes with hot acidified potassium permanganate ($\\text{KMnO}_4$ / $\\text{H}^+$):\nStatement I: Vigorous oxidation of 2-methylbut-2-ene with hot acidic $\\text{KMnO}_4$ yields propan-2-one and ethanoic acid.\nStatement II: Vigorous oxidation of but-1-ene with hot acidic $\\text{KMnO}_4$ yields propanoic acid, carbon dioxide, and water.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Analyze Statement I. Under vigorous oxidative cleavage with hot acidic $\\text{KMnO}_4$, double bonds are completely ruptured. A disubstituted carbon ($\\text{R}_2\\text{C=}$) oxidizes to a ketone, while a monosubstituted carbon ($\\text{R-CH=}$) oxidizes to a carboxylic acid. In 2-methylbut-2-ene ($(\\text{CH}_3)_2\\text{C=CH-CH}_3$), the $(\\text{CH}_3)_2\\text{C=}$ fragment yields propan-2-one (acetone) and the $=\\text{CH-CH}_3$ fragment yields ethanoic acid (acetic acid). Statement I is correct.\nStep 2: Analyze Statement II. In but-1-ene ($\\text{CH}_3\\text{CH}_2\\text{CH=CH}_2$), the monosubstituted fragment $\\text{CH}_3\\text{CH}_2\\text{CH=}$ oxidizes to propanoic acid ($\\text{CH}_3\\text{CH}_2\\text{COOH}$), while the terminal methylene group ($=\\text{CH}_2$) oxidizes first to methanoic acid, which is rapidly oxidized further to carbon dioxide ($\\text{CO}_2$) and water ($\\text{H}_2\\text{O}$). Statement II is correct."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_033",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Hex-1-yne forms a white precipitate when treated with ammoniacal silver nitrate solution (Tollens' reagent), whereas hex-2-yne does not produce any precipitate.\nReason (R): In hex-1-yne, the terminal hydrogen is attached to an sp-hybridized carbon atom with high electronegativity, making it acidic and replaceable by metal cations, whereas hex-2-yne contains no sp $\\text{C-H}$ bonds.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Assertion (A) is false but Reason (R) is true",
+        "B) Assertion (A) is true but Reason (R) is false",
+        "C) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "D) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Assertion (A). Terminal alkynes such as hex-1-yne ($\\text{CH}_3(\\text{CH}_2)_3\\text{C}\\equiv\\text{CH}$) react with ammoniacal silver nitrate (Tollens' reagent) to form an insoluble white precipitate of silver acetylide ($\\text{CH}_3(\\text{CH}_2)_3\\text{C}\\equiv\\text{C-Ag}\\downarrow$). Internal alkynes such as hex-2-yne ($\\text{CH}_3(\\text{CH}_2)_2\\text{C}\\equiv\\text{C-CH}_3$) do not possess a terminal triple bond and fail to react. Assertion (A) is true.\nStep 2: Evaluate Reason (R). The terminal hydrogen in hex-1-yne is attached to an sp-hybridized carbon ($50\\%$ s-character), which exerts high electronegativity and polarizes the $\\text{C-H}$ bond, imparting acidic character ($pK_a \\approx 25$). Consequently, it readily donates a proton to basic reagents to form metal acetylides. Hex-2-yne lacks acetylenic hydrogens entirely. Reason (R) is true and correctly explains Assertion (A)."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_034",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Electrophilic addition of two molar equivalents of anhydrous hydrogen chloride ($\\text{HCl}$) to propyne ($\\text{CH}_3\\text{-C}\\equiv\\text{CH}$) yields which of the following compounds as the major product?",
+      "options": [
+        "A) 1,2-Dichloropropane",
+        "B) 1,3-Dichloropropane",
+        "C) 2,2-Dichloropropane",
+        "D) 1,1-Dichloropropane"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In the first step, electrophilic addition of $\\text{HCl}$ to propyne follows Markovnikov's rule. Proton addition at the terminal carbon forms the more stable vinyl cation at $\\text{C-2}$, which captures chloride ion to yield 2-chloroprop-1-ene:\n$$\\text{CH}_3\\text{-C}\\equiv\\text{CH} + \\text{HCl} \\rightarrow \\text{CH}_3\\text{-C(Cl)=CH}_2$$\nStep 2: In the second step, addition of a second molecule of $\\text{HCl}$ also proceeds according to Markovnikov's rule. Protonation at the terminal carbon ($\\text{C-1}$) forms a carbocation at $\\text{C-2}$ ($\\text{CH}_3\\text{-}\\overset{+}{\\text{C}}\\text{(Cl)-CH}_3$).\nStep 3: This carbocation is strongly stabilized by resonance through lone-pair donation from the chlorine atom ($-\\ddot{\\text{C}}\\text{l}: \\leftrightarrow =\\overset{+}{\\text{Cl}}-$), making attack at $\\text{C-2}$ overwhelmingly favored over attack at $\\text{C-1}$.\nStep 4: Subsequent addition of chloride ion yields 2,2-dichloropropane (a geminal dihalide)."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_035",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "When propyne gas ($\\text{CH}_3\\text{-C}\\equiv\\text{CH}$) is passed through a red hot iron tube at $873\\text{ K}$, it undergoes cyclic trimerization to form:",
+      "options": [
+        "A) 1,2,3-Trimethylbenzene",
+        "B) 1,2,4-Trimethylbenzene",
+        "C) 1,3,5-Trimethylbenzene",
+        "D) Hexamethylbenzene"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Recall the cyclic polymerization of substituted alkynes as described in advanced NCERT curriculum.\nStep 2: When propyne is heated in a red hot iron or copper tube at $873\\text{ K}$, three molecules undergo concerted $[2+2+2]$ cyclic trimerization:\n$$3\\text{CH}_3\\text{-C}\\equiv\\text{CH} \\xrightarrow{\\text{Red hot iron tube, } 873\\text{ K}} \\text{C}_6\\text{H}_3(\\text{CH}_3)_3$$\nStep 3: The trimerization occurs with head-to-tail regioselectivity to minimize steric interactions between adjacent methyl groups, producing symmetrical 1,3,5-trimethylbenzene, which is systematically known as mesitylene."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_036",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Species) with List II (Electronic Configuration and Aromaticity):\n\nList I (Species)\nA. Cyclopropenyl cation\nB. Cyclobutadiene\nC. Cyclooctatetraene\nD. Anthracene\n\nList II (Aromatic Character / Number of $\\pi$-electrons)\nI. $4\\pi$-electrons, planar, antiaromatic\nII. $2\\pi$-electrons, planar, aromatic ($n=0$)\nIII. $14\\pi$-electrons, tricyclic fused, aromatic ($n=3$)\nIV. $8\\pi$-electrons, non-planar tub-shaped, non-aromatic\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-I, B-II, C-IV, D-III",
+        "B) A-II, B-I, C-IV, D-III",
+        "C) A-II, B-IV, C-I, D-III",
+        "D) A-IV, B-I, C-II, D-III"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Cyclopropenyl cation is a planar, completely conjugated 3-membered ring with $2\\pi$ electrons ($4n+2$ with $n=0$), demonstrating exceptional aromatic stability (A matches II).\nStep 2: Cyclobutadiene is a planar cyclic conjugated hydrocarbon containing $4\\pi$ electrons ($4n$ with $n=1$), making it antiaromatic and highly reactive (B matches I).\nStep 3: Cyclooctatetraene has $8\\pi$ electrons. To avoid destabilizing antiaromaticity, it adopts a non-planar tub-like shape, making it non-aromatic (C matches IV).\nStep 4: Anthracene is a planar tricyclic fused aromatic hydrocarbon possessing $14\\pi$ electrons ($4n+2$ with $n=3$), displaying robust aromatic character (D matches III).\nHence, the correct match is A-II, B-I, C-IV, D-III."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_037",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding electrophilic aromatic substitution:\nStatement I: Mononitration of toluene occurs predominantly at the ortho and para positions because the methyl group releases electron density into the ring through hyperconjugation and inductive effects.\nStatement II: Mononitration of nitrobenzene occurs predominantly at the meta position because the nitro group withdraws electron density predominantly from the meta position, leaving ortho and para positions relatively electron-rich.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I. The methyl group in toluene donates electron density through inductive ($+I$) and hyperconjugation effects, preferentially increasing electron density at the ortho and para positions. Consequently, electrophilic attack occurs faster and predominantly at ortho and para positions. Statement I is correct.\nStep 2: Analyze Statement II. The nitro group ($-\\text{NO}_2$) withdraws electron density via both $-M$ (resonance) and $-I$ (inductive) effects. Resonance structures clearly demonstrate that formal positive charges develop specifically at the ortho and para carbons, heavily destabilizing electrophilic attack at these positions. The meta position experiences less electron depletion and is comparatively less deactivated than ortho and para positions. The $-\\text{NO}_2$ group does NOT withdraw electrons predominantly from the meta position. Statement II is incorrect."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_038",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Chlorobenzene is less reactive than benzene towards electrophilic aromatic substitution, yet incoming electrophiles are directed to the ortho and para positions.\nReason (R): Chlorine atom's strong electron-withdrawing inductive effect ($-I$) deactivates the aromatic ring by reducing overall electron density, while its electron-donating resonance effect ($+R$) selectively stabilizes the Arenium ion formed by attack at ortho and para positions.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). Chlorobenzene undergoes electrophilic substitution reactions (e.g. nitration, halogenation) under more vigorous conditions than benzene, proving that it is deactivated. However, substitution occurs almost exclusively at the ortho and para positions. Assertion (A) is true.\nStep 2: Evaluate Reason (R). Chlorine is highly electronegative and withdraws electron density through its strong inductive effect ($-I$), which outweighs its weaker resonance effect ($+R$), thereby deactivating the aromatic ring overall. However, when an electrophile attacks at the ortho or para positions, a resonance contributor is formed in which the unshared lone pair on chlorine is donated to the carbocation ($-\\overset{+}{\\text{C}}\\text{l}=$), providing extra stabilization where every atom attains an octet. This stabilization is impossible for meta attack. Hence, Reason (R) is true and correctly explains Assertion (A)."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_039",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "When toluene is treated with chlorine gas under two distinct conditions:\nCondition (i): In the presence of anhydrous $\\text{FeCl}_3$ in the dark at room temperature.\nCondition (ii): In the presence of ultraviolet light at boiling temperature without a Lewis acid catalyst.\nThe major organic products obtained in condition (i) and condition (ii) are, respectively:",
+      "options": [
+        "A) Benzyl chloride and o-/p-chlorotoluene",
+        "B) m-Chlorotoluene and benzal chloride",
+        "C) Benzyl chloride and m-chlorotoluene",
+        "D) o- and p-Chlorotoluene and benzyl chloride"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze condition (i). In the presence of the Lewis acid $\\text{FeCl}_3$ in the dark, chlorine is polarized to generate the electrophile $\\text{Cl}^+$. Toluene undergoes electrophilic aromatic substitution on the benzene ring. Since the methyl group is ortho/para-directing, a mixture of o-chlorotoluene and p-chlorotoluene is formed.\nStep 2: Analyze condition (ii). In the presence of UV light / sunlight and heat without a Lewis acid, chlorine undergoes homolytic fission to generate chlorine free radicals ($\\text{Cl}^\\bullet$). Hydrogen abstraction occurs specifically at the benzylic position because the resulting benzyl radical ($\\text{PhCH}_2^\\bullet$) is resonance-stabilized by delocalization into the aromatic ring. This yields (chloromethyl)benzene (benzyl chloride, $\\text{C}_6\\text{H}_5\\text{CH}_2\\text{Cl}$).\nStep 3: Therefore, the products under condition (i) and (ii) are o- and p-chlorotoluene and benzyl chloride, respectively."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_040",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the oxidation of alkylbenzenes with alkaline potassium permanganate ($\\text{KMnO}_4$ / $\\text{KOH}$, followed by acidification):\nStatement I: Heating isopropylbenzene (cumene) with alkaline $\\text{KMnO}_4$ followed by dilute $\\text{H}_2\\text{SO}_4$ yields benzoic acid.\nStatement II: Heating tert-butylbenzene with alkaline $\\text{KMnO}_4$ followed by dilute $\\text{H}_2\\text{SO}_4$ yields 2,2-dimethylpropanoic acid.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is incorrect but Statement II is correct",
+        "D) Statement I is correct but Statement II is incorrect"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Statement I. Vigorous oxidation of alkylbenzenes by alkaline $\\text{KMnO}_4$ degrades the entire alkyl side chain to a carboxyl group ($-\\text{COOH}$), provided that the benzylic carbon possesses at least one hydrogen atom (benzylic hydrogen). In isopropylbenzene (cumene, $\\text{C}_6\\text{H}_5\\text{CH(CH}_3)_2$), the benzylic carbon has one hydrogen; thus, it is completely oxidized to benzoic acid. Statement I is correct.\nStep 2: Analyze Statement II. In tert-butylbenzene ($\\text{C}_6\\text{H}_5\\text{C(CH}_3)_3$), the quaternary benzylic carbon has no benzylic hydrogen atoms attached to it. Consequently, it resists oxidation under these conditions and fails to react with alkaline $\\text{KMnO}_4$. Statement II is incorrect."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_041",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Reaction of benzene with 1-chloropropane ($\\text{CH}_3\\text{CH}_2\\text{CH}_2\\text{Cl}$) in the presence of anhydrous aluminium chloride ($\\text{AlCl}_3$) produces isopropylbenzene (cumene) as the major product rather than n-propylbenzene. This regiochemical outcome is best explained by:",
+      "options": [
+        "A) Direct electrophilic attack of the primary carbocation followed by ring expansion",
+        "B) Rapid 1,2-hydride shift converting the less stable primary propyl cation into the more stable secondary isopropyl cation prior to electrophilic attack",
+        "C) Steric hindrance in the benzene ring preventing attack at the primary carbon position",
+        "D) Rapid 1,2-methyl shift occurring after the formation of the Arenium ion intermediate"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In Friedel-Crafts alkylation, the Lewis acid $\\text{AlCl}_3$ abstracts chloride from 1-chloropropane to generate a primary propyl carbocation complex:\n$$\\text{CH}_3\\text{CH}_2\\text{CH}_2\\text{Cl} + \\text{AlCl}_3 \\rightarrow \\text{CH}_3\\text{CH}_2\\overset{+}{\\text{C}}\\text{H}_2 + [\\text{AlCl}_4]^-$$\nStep 2: The primary carbocation is energetically unstable and rapidly undergoes an intramolecular 1,2-hydride shift before it can attack the aromatic ring:\n$$\\text{CH}_3\\text{CH}_2\\overset{+}{\\text{C}}\\text{H}_2 \\xrightarrow{1,2-\\text{H}^- \\text{ shift}} \\text{CH}_3\\text{-}\\overset{+}{\\text{C}}\\text{H-CH}_3$$\nStep 3: The resulting secondary isopropyl carbocation is stabilized by 6 hyperconjugative hydrogens and is thermodynamically more favorable. It attacks the benzene ring as the active electrophile, generating isopropylbenzene (cumene) as the major product ($>70\\%$ yield)."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_042",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding synthetic methodologies for preparing alkanes:\nI. The Corey-House synthesis involves the coupling of a lithium dialkylcuprate (Gilman reagent, $\\text{R}_2\\text{CuLi}$) with a primary alkyl halide ($\\text{R}'\\text{X}$) to produce unsymmetrical alkanes ($\\text{R-R}'$) in high yield.\nII. Secondary and tertiary alkyl halides can be efficiently utilized as the substrate $\\text{R}'\\text{X}$ in the Corey-House reaction without any competing elimination.\nIII. The Wurtz reaction of 1-chloropropane produces n-hexane predominantly, but cross-coupling of 1-chloropropane with chloromethane produces an inseparable mixture of three homologous alkanes.\nIV. Symmetrical alkanes containing an even number of carbon atoms can be prepared in good yields by both Wurtz reaction and Corey-House synthesis.\nWhich of the above statements are correct?",
+      "options": [
+        "A) I, III, and IV only",
+        "B) I and II only",
+        "C) II, III, and IV only",
+        "D) I, II, and IV only"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. In the Corey-House synthesis, an alkyl halide is converted to alkyllithium ($\\text{RLi}$) and then to lithium dialkylcuprate ($\\text{R}_2\\text{CuLi}$). Reaction of $\\text{R}_2\\text{CuLi}$ with a primary alkyl halide ($\\text{R}'\\text{X}$) proceeds cleanly via nucleophilic displacement to yield unsymmetrical alkanes ($\\text{R-R}'$). Statement I is correct.\nStep 2: Evaluate Statement II. Because Gilman reagents are moderately strong bases, secondary and especially tertiary alkyl halides predominantly undergo base-induced E2 elimination rather than nucleophilic substitution, producing alkenes instead of the desired cross-coupled alkane. Statement II is incorrect.\nStep 3: Evaluate Statement III. Wurtz coupling of 1-chloropropane gives n-hexane. In contrast, cross-coupling two different halides ($\\text{C}_3\\text{H}_7\\text{Cl} + \\text{CH}_3\\text{Cl}$) yields ethane, butane, and hexane simultaneously, which have closely spaced boiling points and are difficult to separate. Statement III is correct.\nStep 4: Evaluate Statement IV. Symmetrical even-carbon alkanes can be synthesized in high yield via homocoupling in Wurtz reaction and via lithium dialkylcuprates in Corey-House synthesis. Statement IV is correct.\nHence, statements I, III, and IV only are correct."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_043",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Among the constitutional isomers of hexane ($\\text{C}_6\\text{H}_{14}$), 2,2-dimethylbutane releases the least amount of heat per mole upon complete combustion, whereas n-hexane releases the greatest amount of heat per mole.\nReason (R): Increased chain branching enhances thermodynamic stability in alkanes due to more favorable intramolecular attractive interactions and hyperconjugative stabilization, resulting in lower ground-state potential energy.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Assertion (A). Complete combustion of isomeric alkanes produces identical molar amounts of $\\text{CO}_2$ and $\\text{H}_2\\text{O}$:\n$$\\text{C}_6\\text{H}_{14} + 9.5\\text{O}_2 \\rightarrow 6\\text{CO}_2 + 7\\text{H}_2\\text{O} + \\Delta_c H^\\circ$$\nBecause combustion products reside at identical energy levels, the standard enthalpy of combustion directly reflects the initial potential energy of the isomeric alkane. Highly branched 2,2-dimethylbutane has the lowest molar heat of combustion ($\\approx -4158\\text{ kJ/mol}$), whereas linear n-hexane has the highest ($\\approx -4163\\text{ kJ/mol}$). Assertion (A) is true.\nStep 2: Evaluate Reason (R). Thermodynamic stability increases with branching because compact, branched geometries allow stronger short-range intramolecular electronic and hyperconjugative interactions, lowering the ground-state potential energy of the isomer. Being more stable, branched alkanes lie closer in energy to the oxidation products and thus release less energy upon combustion. Reason (R) is true and correctly explains Assertion (A)."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_044",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding $\\beta$-elimination reactions:\nStatement I: Dehydrohalogenation of 2-bromobutane with potassium tert-butoxide ($(\\text{CH}_3)_3\\text{CO}^-\\text{K}^+$) in tert-butanol predominantly yields but-1-ene (Hofmann product) rather than but-2-ene.\nStatement II: Base-promoted elimination of hydrogen fluoride from 2-fluorobutane with sodium ethoxide yields but-2-ene (Saytzeff product) as the major product because fluoride is an effective leaving group.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I. Potassium tert-butoxide is a sterically bulky base. Steric hindrance prevents the base from easily approaching the more crowded internal $\\beta$-hydrogen at $\\text{C-3}$. Instead, it preferentially abstracts a more accessible $\\beta$-hydrogen from the less hindered terminal methyl group ($\\text{C-1}$), yielding the less substituted alkene, but-1-ene (Hofmann product), as the major product ($>70\\%$). Statement I is correct.\nStep 2: Analyze Statement II. Fluoride is a very poor leaving group with an exceptionally high carbon-fluorine bond dissociation energy and strong $-I$ inductive effect. In 2-fluorobutane, the transition state acquires substantial carbanionic character (E1cb-like mechanism). The primary carbanion formed by deprotonation at $\\text{C-1}$ is more stable than the secondary carbanion at $\\text{C-3}$. Consequently, elimination of $\\text{HF}$ from 2-fluorobutane yields but-1-ene (Hofmann product) as the predominant product ($>80\\%$), not but-2-ene. Statement II is incorrect."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_045",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Addition of bromine in carbon tetrachloride ($\\text{Br}_2 / \\text{CCl}_4$) to cyclohexene at room temperature stereospecifically yields:",
+      "options": [
+        "A) cis-1,2-Dibromocyclohexane exclusively",
+        "B) A $1:1$ mixture of cis- and trans-1,2-dibromocyclohexane",
+        "C) 1,1-Dibromocyclohexane",
+        "D) trans-1,2-Dibromocyclohexane as an enantiomeric pair"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The reaction begins with electrophilic attack of the alkene $\\pi$-bond on $\\text{Br}_2$, creating a bridged, three-membered cyclic bromonium ion intermediate and expelling a bromide ion ($\\text{Br}^-$).\nStep 2: The cyclic bromonium bridge blocks one face of the six-membered ring. In the second step, the nucleophilic bromide ion must attack from the opposite face via backside nucleophilic attack ($S_\\text{N}2$-like ring opening).\nStep 3: This anti-coplanar addition leads exclusively to trans-coplanar orientation of the two bromine substituents, initially forming trans-diaxial 1,2-dibromocyclohexane which rapidly flips into equilibrium with the trans-diequatorial conformer.\nStep 4: Because attack can take place with equal probability at either bridgehead carbon of the symmetrical bromonium ion, an equimolar enantiomeric mixture of $(1R,2R)$- and $(1S,2S)$-trans-1,2-dibromocyclohexane is formed. No cis-isomer is produced."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_046",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An acyclic diene $\\text{A}$ with molecular formula $\\text{C}_8\\text{H}_{14}$ absorbs two moles of dihydrogen on catalytic hydrogenation over $\\text{Pd/C}$ to form 2,5-dimethylhexane. Reductive ozonolysis of compound $\\text{A}$ ($\\text{O}_3$ followed by $\\text{Zn}/\\text{H}_2\\text{O}$) yields two moles of methanal (formaldehyde) and one mole of hexane-2,5-dione ($\\text{CH}_3\\text{COCH}_2\\text{CH}_2\\text{COCH}_3$). The IUPAC name of diene $\\text{A}$ is:",
+      "options": [
+        "A) 2,5-Dimethylhexa-2,4-diene",
+        "B) 2,5-Dimethylhexa-1,5-diene",
+        "C) 3,4-Dimethylhexa-1,5-diene",
+        "D) 2,5-Dimethylhex-1-yne"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The diene $\\text{A}$ has the molecular formula $\\text{C}_8\\text{H}_{14}$ with two degrees of unsaturation. Complete hydrogenation yields 2,5-dimethylhexane, establishing the carbon skeleton:\n$$\\text{CH}_3\\text{-CH(CH}_3)\\text{-CH}_2\\text{CH}_2\\text{-CH(CH}_3)\\text{-CH}_3$$\nStep 2: Reductive ozonolysis produces two moles of formaldehyde ($\\text{H}_2\\text{C=O}$) and one mole of hexane-2,5-dione ($\\text{CH}_3\\text{-C}(=\\text{O})\\text{-CH}_2\\text{CH}_2\\text{-C}(=\\text{O})\\text{-CH}_3$).\nStep 3: Reconstituting the alkene double bonds by joining each carbonyl carbon of the dione to the carbonyl carbon of formaldehyde via a double bond gives:\n$$\\text{CH}_2\\text{=C}(\\text{CH}_3)\\text{-CH}_2\\text{-CH}_2\\text{-C}(\\text{CH}_3)\\text{=CH}_2$$\nStep 4: Numbering the continuous 6-carbon chain gives double bonds at positions 1 and 5, with methyl substituents at positions 2 and 5. Therefore, the IUPAC name is 2,5-dimethylhexa-1,5-diene."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_047",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Reaction Sequence) with List II (Major Organic Product):\n\nList I (Reaction)\nA. Propyne $\\xrightarrow{\\text{dil. } \\text{H}_2\\text{SO}_4 / \\text{HgSO}_4, \\; 333\\text{ K}}$\nB. Propene $\\xrightarrow{\\text{B}_2\\text{H}_6 / \\text{THF}} \\xrightarrow{\\text{H}_2\\text{O}_2 / \\text{OH}^-}$ \nC. 2-Bromopropane $\\xrightarrow{\\text{alc. KOH}, \\; \\Delta}$\nD. Propene $\\xrightarrow{\\text{HBr / benzoyl peroxide}}$\n\nList II (Major Product)\nI. Prop-1-ene\nII. 1-Bromopropane\nIII. Propan-2-one\nIV. Propan-1-ol\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-IV, B-III, C-I, D-II",
+        "B) A-III, B-I, C-IV, D-II",
+        "C) A-I, B-IV, C-III, D-II",
+        "D) A-III, B-IV, C-I, D-II"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Hydration of propyne with dil. $\\text{H}_2\\text{SO}_4 / \\text{HgSO}_4$ gives the enol prop-1-en-2-ol, which tautomerizes to propan-2-one (acetone) (A matches III).\nStep 2: Hydroboration-oxidation of propene with diborane followed by alkaline hydrogen peroxide yields the anti-Markovnikov hydration product propan-1-ol without carbocation rearrangement (B matches IV).\nStep 3: Dehydrohalogenation of 2-bromopropane with alcoholic $\\text{KOH}$ undergoes E2 elimination to yield prop-1-ene (C matches I).\nStep 4: Addition of $\\text{HBr}$ to propene in the presence of benzoyl peroxide proceeds via free radical mechanism with anti-Markovnikov regioselectivity to yield 1-bromopropane (D matches II).\nHence, the correct matching is A-III, B-IV, C-I, D-II."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_048",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Reduction of pent-2-yne with sodium in liquid ammonia ($\\text{Na} / \\text{liq. } \\text{NH}_3$) stereoselectively yields trans-pent-2-ene, whereas hydrogenation over Lindlar's catalyst yields cis-pent-2-ene.\nReason (R): In Birch reduction, addition of electrons to the alkyne produces a radical anion that adopts a trans-geometry to minimize electrostatic and steric repulsion, while Lindlar's catalyst delivers hydrogen atoms simultaneously to the same face of the adsorbed alkyne.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). Dissolving metal reduction of non-terminal alkynes using sodium in liquid ammonia produces trans-alkenes with high stereospecificity. Catalytic hydrogenation using Lindlar's catalyst ($\text{Pd/CaCO}_3$ poisoned with quinoline) produces cis-alkenes. Thus, pent-2-yne gives trans-pent-2-ene and cis-pent-2-ene, respectively. Assertion (A) is true.\nStep 2: Evaluate Reason (R). In Birch reduction, transfer of one electron from sodium to the triple bond creates a vinyl radical anion. The lone pair of electrons and the radical occupy sp2 hybrid orbitals oriented trans to each other to minimize both electrostatic electron-electron repulsion and steric clash between the methyl and ethyl groups. Protonation by ammonia preserves this trans-geometry. On Lindlar's catalyst, heterogeneous syn-addition occurs on the planar metal surface. Reason (R) is true and correctly explains Assertion (A)."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_049",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the acidity and alkylation of terminal alkynes:\nStatement I: Ethyne is readily deprotonated by sodium amide ($\\text{NaNH}_2$) in liquid ammonia to form sodium acetylide, but cannot be deprotonated by aqueous sodium hydroxide ($\\text{NaOH}$) because water is a stronger acid than ethyne.\nStatement II: Reaction of sodium acetylide ($\\text{HC}\\equiv\\text{C}^-\\text{Na}^+$) with 1-bromobutane in liquid ammonia proceeds via an $\\text{S}_\\text{N}2$ nucleophilic displacement to produce hex-1-yne in high yield.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect",
+        "B) Both Statement I and Statement II are correct",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I. The acidity of ethyne ($pK_a \\approx 25$) is higher than that of ammonia ($pK_a \\approx 38$); hence, the strong conjugate base $\\text{NH}_2^-$ quantitatively deprotonates ethyne. However, water ($pK_a \\approx 15.7$) is a much stronger acid than ethyne. Hydroxide ion ($\\text{OH}^-$) is not a strong enough base to deprotonate ethyne, and any acetylide formed would immediately be reprotonated by water. Statement I is correct.\nStep 2: Analyze Statement II. The acetylide anion ($\\text{HC}\\equiv\\text{C}^-$) is a powerful, compact carbon nucleophile. It attacks unhindered primary alkyl halides such as 1-bromobutane ($\\text{CH}_3\\text{CH}_2\\text{CH}_2\\text{CH}_2\\text{Br}$) via a backside $S_\\text{N}2$ displacement, displacing bromide ion to form the elongated chain terminal alkyne hex-1-yne. Statement II is correct."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_050",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding electrophilic aromatic substitution on benzene versus hexadeuterobenzene ($\\text{C}_6\\text{H}_6$ vs $\\text{C}_6\\text{D}_6$):\nStatement I: Nitration of benzene and hexadeuterobenzene with a mixture of concentrated $\\text{HNO}_3$ and $\\text{H}_2\\text{SO}_4$ proceeds at virtually identical rates ($k_\\text{H} / k_\\text{D} \\approx 1.0$), demonstrating the absence of a primary kinetic isotope effect.\nStatement II: In electrophilic aromatic nitration, the rate-determining step is the loss of a proton or deuteron from the Arenium ion intermediate (Wheland intermediate) to re-aromatize the ring.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct",
+        "B) Both Statement I and Statement II are incorrect",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Statement I. Experimental kinetic measurements demonstrate that the rate ratio $k_\\text{H} / k_\\text{D}$ for nitration of $\\text{C}_6\\text{H}_6$ versus $\\text{C}_6\\text{D}_6$ is $1.0 \\pm 0.05$. Because substituting deuterium for protium does not alter the rate, there is no primary kinetic isotope effect. Statement I is correct.\nStep 2: Analyze Statement II. In electrophilic aromatic nitration, the initial attack of the electrophile $\\text{NO}_2^+$ on the aromatic $\\pi$-cloud to generate the non-aromatic Arenium ion ($sigma$-complex) is slow and endergonic, constituting the rate-determining step. The subsequent deprotonation of the Arenium ion to restore aromatic stabilization is fast and exergonic. Because the $\\text{C-H}$ (or $\\text{C-D}$) bond is cleaved in the fast second step, it does not influence the overall reaction rate. Statement II is incorrect."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_051",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The most effective synthetic route to prepare pure n-propylbenzene from benzene is Friedel-Crafts acylation with propanoyl chloride in the presence of anhydrous $\\text{AlCl}_3$ followed by Clemmensen reduction, rather than direct Friedel-Crafts alkylation with 1-chloropropane.\nReason (R): In Friedel-Crafts acylation, the intermediate acylium ion ($\\text{CH}_3\\text{CH}_2\\text{-C}^+\\text{=O}$) does not undergo carbocation rearrangement, and the carbonyl group deactivates the ring, completely preventing polyalkylation.\nIn light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+        "B) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+        "C) Assertion (A) is true but Reason (R) is false",
+        "D) Assertion (A) is false but Reason (R) is true"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Assertion (A). Direct alkylation of benzene with 1-chloropropane produces predominantly isopropylbenzene (cumene) due to rapid 1,2-hydride shift of the primary propyl cation to a secondary carbocation, alongside polyalkylation products. In contrast, acylation with propanoyl chloride followed by Clemmensen reduction ($\text{Zn-Hg} / \text{conc. } \text{HCl}$) cleanly converts propiophenone to n-propylbenzene without structural rearrangement. Assertion (A) is true.\nStep 2: Evaluate Reason (R). Propanoyl chloride and $\\text{AlCl}_3$ generate an acylium ion ($\\text{CH}_3\\text{CH}_2\\text{-}\\overset{+}{\\text{C}}\\text{=O} \\leftrightarrow \\text{CH}_3\\text{CH}_2\\text{-C}\\equiv\\overset{+}{\\text{O}}$) which is resonance-stabilized with a full octet on all atoms; hence, it does not rearrange. Furthermore, the electron-withdrawing acyl group ($-M$) deactivates the monosubstituted product against further electrophilic attack, suppressing polyacylation. Reason (R) is true and correctly explains Assertion (A)."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_052",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the behavior of substituted benzene derivatives in Friedel-Crafts reactions:\nI. Nitrobenzene is strongly deactivated and does not undergo Friedel-Crafts alkylation or acylation, allowing it to be used as an inert solvent for such reactions.\nII. Aniline fails to undergo Friedel-Crafts reactions because the basic amino group ($-\\text{NH}_2$) coordinates with the Lewis acid catalyst ($\\text{AlCl}_3$) to form an adduct ($-\\text{NH}_2^+\\text{-}\\bar{\\text{Al}}\\text{Cl}_3$) that strongly deactivates the aromatic ring.\nIII. Phenol and anisole undergo Friedel-Crafts reactions smoothly in the presence of catalytic amounts of $\\text{AlCl}_3$ without forming any coordination complexes.\nIV. Benzenesulfonic acid and benzaldehyde undergo Friedel-Crafts alkylation readily because their substituents are ring-activating.\nWhich of the above statements are correct?",
+      "options": [
+        "A) I, III, and IV only",
+        "B) II and IV only",
+        "C) I, II, and III only",
+        "D) I and II only"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement I. The nitro group ($-\\text{NO}_2$) is strongly electron-withdrawing through $-M$ and $-I$ effects, reducing $\\pi$-electron density in the ring to such an extent that electrophilic attack by carbocations or acylium ions does not occur. Hence, nitrobenzene serves as a common high-boiling solvent for Friedel-Crafts reactions of other arenes. Statement I is correct.\nStep 2: Evaluate Statement II. Aniline is a Lewis base due to the lone pair on nitrogen. It reacts instantly with the Lewis acid catalyst $\\text{AlCl}_3$ to form an acid-base complex ($\\text{C}_6\\text{H}_5\\text{-}\\overset{+}{\\text{N}}\\text{H}_2\\text{-}\\bar{\\text{Al}}\\text{Cl}_3$). The resulting formal positive charge on nitrogen transforms the substituent into a powerful electron-withdrawing, deactivating meta-directing group, blocking electrophilic aromatic substitution. Statement II is correct.\nStep 3: Evaluate Statement III. The oxygen atoms in phenol and anisole also form coordination complexes with $\\text{AlCl}_3$, requiring stoichiometric or excess quantities of the Lewis acid catalyst, not merely catalytic amounts without coordination. Statement III is incorrect.\nStep 4: Evaluate Statement IV. Both $-\\text{SO}_3\\text{H}$ and $-\\text{CHO}$ are strongly deactivating, meta-directing groups that inhibit Friedel-Crafts reactions. Statement IV is incorrect.\nHence, statements I and II only are correct."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_053",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Electrophilic monobromination of m-cresol (3-methylphenol) with bromine in carbon tetrachloride ($\\text{Br}_2 / \\text{CCl}_4$) at $273\\text{ K}$ selectively yields which of the following regioisomers as the major product?",
+      "options": [
+        "A) 2-Bromo-3-methylphenol",
+        "B) 5-Bromo-3-methylphenol",
+        "C) 4-Bromo-3-methylphenol",
+        "D) 6-Bromo-3-methylphenol"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Identify the directing groups in m-cresol. The hydroxyl group ($-\\text{OH}$) is at carbon-1 and the methyl group ($-\\text{CH}_3$) is at carbon-3.\nStep 2: Compare directing powers. The $-\\text{OH}$ group activates the aromatic ring through strong positive resonance ($+M$) by donating its unshared electron pairs. This resonance activation is significantly more powerful than the weak hyperconjugative and inductive ($+I$) activation provided by the $-\\text{CH}_3$ group. Thus, the $-\\text{OH}$ group governs the regiochemical outcome.\nStep 3: Evaluate positions activated by $-\\text{OH}$. The $-\\text{OH}$ group directs electrophiles to its ortho positions (carbon-2 and carbon-6) and para position (carbon-4).\nStep 4: Carbon-2 is severely sterically hindered because it is situated directly between the $-\\text{OH}$ and $-\\text{CH}_3$ groups. At carbon-4, the position is para to $-\\text{OH}$ and ortho to $-\\text{CH}_3$; both groups direct incoming electrophiles toward carbon-4 cooperatively, and this position is sterically accessible.\nStep 5: Therefore, electrophilic bromination occurs predominantly at carbon-4 to yield 4-bromo-3-methylphenol."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_054",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the reactions of benzene with chlorine:\nStatement I: Reaction of benzene with excess chlorine in the presence of anhydrous aluminium chloride in the dark yields hexachlorobenzene ($\\text{C}_6\\text{Cl}_6$) via exhaustive electrophilic aromatic substitution.\nStatement II: Reaction of benzene with excess chlorine in the presence of ultraviolet light at $500\\text{ K}$ without a Lewis acid catalyst yields benzene hexachloride (BHC / gammaxene, $\\text{C}_6\\text{H}_6\\text{Cl}_6$) via free radical addition across the $\\pi$-system.\nIn light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect",
+        "B) Both Statement I and Statement II are correct",
+        "C) Statement I is correct but Statement II is incorrect",
+        "D) Statement I is incorrect but Statement II is correct"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Statement I. In the presence of anhydrous $\\text{AlCl}_3$ in the dark, chlorine reacts with benzene via electrophilic aromatic substitution ($S_\\text{E}\\text{Ar}$). When chlorine is supplied in excess under persistent conditions, all six ring hydrogen atoms are successively substituted by chlorine to form hexachlorobenzene ($\\text{C}_6\\text{Cl}_6$) with elimination of $6\\text{HCl}$. Statement I is correct.\nStep 2: Analyze Statement II. Under ultraviolet irradiation or strong sunlight at elevated temperatures without any Lewis acid, chlorine undergoes homolytic cleavage to generate chlorine free radicals ($\\text{Cl}^\\bullet$). These radicals add across the conjugated $\\pi$-bonds of benzene, destroying aromaticity to produce 1,2,3,4,5,6-hexachlorocyclohexane (commonly termed benzene hexachloride, BHC, gammaxene, or lindane, with formula $\\text{C}_6\\text{H}_6\\text{Cl}_6$). Statement II is correct."
+    },
+    {
+      "id": "chem_hydrocarbons_c01_055",
+      "subject": "Chemistry",
+      "topic": "Hydrocarbons",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following multi-step reaction sequence:\n$$\\text{Calcium carbide} \\xrightarrow{\\text{H}_2\\text{O}} \\text{A} \\xrightarrow{\\text{red hot iron tube, } 873\\text{ K}} \\text{B} \\xrightarrow{\\text{CH}_3\\text{CH}_2\\text{COCl / anh. AlCl}_3} \\text{C} \\xrightarrow{\\text{Zn-Hg / conc. HCl}} \\text{D}$$\nThe final major organic product $\\text{D}$ is:",
+      "options": [
+        "A) Ethylbenzene",
+        "B) Isopropylbenzene (cumene)",
+        "C) 1-Phenylpropan-2-ol",
+        "D) n-Propylbenzene"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Hydrolysis of calcium carbide yields ethyne gas ($\\text{A}$):\n$$\\text{CaC}_2 + 2\\text{H}_2\\text{O} \\rightarrow \\text{Ca(OH)}_2 + \\text{HC}\\equiv\\text{CH}$$\nStep 2: Passing ethyne through a red hot iron tube at $873\\text{ K}$ causes cyclic trimerization to form benzene ($\\text{B}$):\n$$3\\text{C}_2\\text{H}_2 \\rightarrow \\text{C}_6\\text{H}_6$$\nStep 3: Friedel-Crafts acylation of benzene with propanoyl chloride ($\\text{CH}_3\\text{CH}_2\\text{COCl}$) in the presence of anhydrous $\\text{AlCl}_3$ yields propiophenone (1-phenylpropan-1-one, $\\text{C}$):\n$$\\text{C}_6\\text{H}_6 + \\text{CH}_3\\text{CH}_2\\text{COCl} \\xrightarrow{\\text{anh. AlCl}_3} \\text{C}_6\\text{H}_5\\text{-CO-CH}_2\\text{CH}_3 + \\text{HCl}$$\nStep 4: Clemmensen reduction of the aromatic ketone $\\text{C}$ with zinc amalgam and concentrated hydrochloric acid ($\\text{Zn-Hg} / \\text{conc. } \\text{HCl}$) selectively reduces the carbonyl group to a methylene group ($-CH_2-$) without affecting the aromatic ring, yielding pure n-propylbenzene ($\\text{D}$):\n$$\\text{C}_6\\text{H}_5\\text{-CO-CH}_2\\text{CH}_3 \\xrightarrow{\\text{Zn-Hg / conc. HCl}} \\text{C}_6\\text{H}_5\\text{-CH}_2\\text{CH}_2\\text{CH}_3$$"
+    }
+  ]
+}

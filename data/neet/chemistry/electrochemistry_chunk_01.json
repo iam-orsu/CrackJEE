@@ -1,0 +1,943 @@
+{
+  "subject": "Chemistry",
+  "topic": "Electrochemistry",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "chem_electrochemistry_c01_001",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding a Daniell cell operating under standard conditions:\nStatement I: A salt bridge contains an agar-agar gel mixed with an inert electrolyte such as $\\text{KCl}$, $\\text{KNO}_3$, or $\\text{NH}_4\\text{NO}_3$, whose ionic mobilities of cation and anion are nearly equal.\nStatement II: The primary functions of the salt bridge are to complete the electrical circuit by allowing the flow of ions and to prevent liquid junction potential by maintaining electrical neutrality in both half-cells.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. In a galvanic cell like the Daniell cell, the salt bridge is an inverted U-tube packed with agar-agar gel or gelatin containing an inert electrolyte like $\\text{KCl}$, $\\text{KNO}_3$, or $\\text{NH}_4\\text{NO}_3$. The velocities (transference numbers/mobilities) of the cation and anion must be nearly identical so that no electrical imbalance develops at the junctions. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. The salt bridge allows ions to migrate between half-cells to neutralize accumulating charges (excess $\\text{Zn}^{2+}$ in the anodic compartment and excess $\\text{SO}_4^{2-}$ in the cathodic compartment), thereby maintaining electrical neutrality and eliminating the liquid junction potential while completing the internal circuit without bulk mixing of solutions. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_electrochemistry_c01_002",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The standard electrode potential of the Standard Hydrogen Electrode (SHE) is arbitrarily assigned a value of $0.00\\text{ V}$ at all temperatures.\nReason (R): The potential of an isolated single half-cell cannot be measured directly because neither oxidation nor reduction can occur in isolation.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Understand the measurement of half-cell potential. An individual half-cell reaction (oxidation or reduction) involves electron transfer that cannot take place without a complementary half-cell to supply or accept electrons. Therefore, absolute electrode potential cannot be measured experimentally. Reason (R) is true.\nStep 2: Evaluate standard reference. Because individual potentials cannot be determined independently, IUPAC assigned the Standard Hydrogen Electrode (SHE), represented as $\\text{Pt}(s)|\\text{H}_2(g, 1\\text{ bar})|\\text{H}^+(aq, 1\\text{ M})$, a reference potential of exactly $0.00\\text{ V}$ at all temperatures. Assertion (A) is true.\nStep 3: Relate (A) and (R). Because single electrode potentials cannot be measured in isolation, an arbitrary standard reference (SHE = $0.00\\text{ V}$) is necessitated to measure relative potentials of other electrodes. Hence, Reason (R) is the correct explanation of Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_electrochemistry_c01_003",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding the conventions and components of a standard galvanic cell $\\text{Zn}(s)|\\text{Zn}^{2+}(aq)\\|\\text{Cu}^{2+}(aq)|\\text{Cu}(s)$:\nList I:\n(P) Anode electrode\n(Q) Cathode electrode\n(R) Direction of electron flow in external circuit\n(S) Direction of conventional electric current\nList II:\n(1) From copper electrode to zinc electrode\n(2) Oxidation site where zinc dissolves as $\\text{Zn}^{2+}$\n(3) From zinc electrode to copper electrode\n(4) Reduction site where $\\text{Cu}^{2+}$ deposits as copper\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-4, Q-2, R-1, S-3",
+        "B) P-2, Q-4, R-1, S-3",
+        "C) P-2, Q-4, R-3, S-1",
+        "D) P-4, Q-2, R-3, S-1"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Identify Anode (P). In a Daniell cell, oxidation occurs at the zinc plate (anode): $\\text{Zn}(s) \\to \\text{Zn}^{2+}(aq) + 2e^-$, so zinc dissolves. Thus, P matches (2).\nStep 2: Identify Cathode (Q). Reduction occurs at the copper plate (cathode): $\\text{Cu}^{2+}(aq) + 2e^- \\to \\text{Cu}(s)$, so copper deposits. Thus, Q matches (4).\nStep 3: Identify Electron Flow (R). Electrons are released at the anode (zinc) and migrate through the external metallic wire to the cathode (copper). Thus, R matches (3).\nStep 4: Identify Conventional Current (S). Conventional electric current flows in the direction opposite to electron flow, i.e., from cathode (copper) to anode (zinc). Thus, S matches (1).\nConclusion: The correct matching sequence is P-2, Q-4, R-3, S-1."
+    },
+    {
+      "id": "chem_electrochemistry_c01_004",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An external opposing potential ($E_{\\text{ext}}$) is applied across a Daniell cell having a standard electromotive force of $1.10\\text{ V}$. Which of the following statements is INCORRECT?",
+      "options": [
+        "A) When $E_{\\text{ext}} < 1.10\\text{ V}$, electrons flow from the zinc rod to the copper rod and current flows from copper to zinc.",
+        "B) When $E_{\\text{ext}} = 1.10\\text{ V}$, no chemical reaction takes place and current ceases to flow.",
+        "C) When $E_{\\text{ext}} > 1.10\\text{ V}$, the cell functions as an electrolytic cell with electrons flowing from copper to zinc.",
+        "D) When $E_{\\text{ext}} > 1.10\\text{ V}$, zinc dissolves at the zinc electrode and copper deposits on the copper electrode."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze Daniell cell behavior when $E_{\\text{ext}} < 1.10\\text{ V}$. The cell operates spontaneously as a galvanic cell: zinc dissolves at the anode, copper deposits at the cathode, electrons flow from $\\text{Zn}$ to $\\text{Cu}$, and current flows from $\\text{Cu}$ to $\\text{Zn}$.\nStep 2: Analyze Daniell cell behavior when $E_{\\text{ext}} = 1.10\\text{ V}$. The opposing EMF exactly balances the cell potential. No net electron flow occurs, no current passes, and no chemical reaction takes place.\nStep 3: Analyze Daniell cell behavior when $E_{\\text{ext}} > 1.10\\text{ V}$. The external source overcomes the cell EMF, reversing the direction of current. The cell now acts as an electrolytic cell: electrons flow from $\\text{Cu}$ to $\\text{Zn}$, copper dissolves at the copper electrode ($\text{Cu} \\to \\text{Cu}^{2+} + 2e^-$), and zinc deposits at the zinc electrode ($\text{Zn}^{2+} + 2e^- \\to \\text{Zn}$). Statement D claims zinc dissolves and copper deposits, which is the galvanic mode, making Statement D incorrect.\nConclusion: The incorrect statement is that when $E_{\\text{ext}} > 1.10\\text{ V}$, zinc dissolves at the zinc electrode and copper deposits on the copper electrode."
+    },
+    {
+      "id": "chem_electrochemistry_c01_005",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding standard reduction potentials ($E^\\circ$) at $298\\text{ K}$:\nStatement I: A species with a more positive standard reduction potential has a higher tendency to get reduced and acts as a stronger oxidizing agent.\nStatement II: Fluorine gas ($\\text{F}_2$) has the highest positive standard reduction potential ($+2.87\\text{ V}$) in the electrochemical series, making it the strongest oxidizing agent, while lithium ion ($\\text{Li}^+$) has the most negative potential ($-3.05\\text{ V}$), making lithium metal the strongest reducing agent in aqueous solution.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. By IUPAC convention, standard electrode potentials are expressed as reduction potentials. A greater positive value of $E^\\circ$ indicates a stronger thermodynamic tendency to gain electrons (undergo reduction). A substance that readily reduces itself acts as a strong oxidizing agent. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. According to NCERT electrochemical series data at $298\\text{ K}$, $\\text{F}_2(g) + 2e^- \\to 2\\text{F}^-$ has $E^\\circ = +2.87\\text{ V}$ (highest positive value, making $\\text{F}_2$ the most powerful oxidizing agent). Conversely, $\\text{Li}^+ + e^- \\to \\text{Li}(s)$ has $E^\\circ = -3.05\\text{ V}$ (most negative value, meaning $\\text{Li}$ oxidizes extremely readily, making metallic $\\text{Li}$ the strongest reducing agent in aqueous medium). Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_electrochemistry_c01_006",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Physical Quantity) with List II (SI / Conventional Unit and Formula):\nList I:\n(P) Conductivity ($\\kappa$)\n(Q) Cell constant ($G^*$)\n(R) Molar conductivity ($\\Lambda_m$)\n(S) Conductance ($G$)\nList II:\n(1) $\\text{S m}^2\\text{ mol}^{-1}$ or $\\text{S cm}^2\\text{ mol}^{-1}$\n(2) $\\text{S}$ (Siemens) or $\\Omega^{-1}$\n(3) $\\text{S m}^{-1}$ or $\\text{S cm}^{-1}$\n(4) $\\text{m}^{-1}$ or $\\text{cm}^{-1}$\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-4, Q-3, R-1, S-2",
+        "B) P-3, Q-4, R-1, S-2",
+        "C) P-3, Q-4, R-2, S-1",
+        "D) P-1, Q-2, R-3, S-4"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Determine unit of Conductivity ($\\kappa$). Conductivity is the inverse of resistivity: $\\kappa = \\frac{1}{\\rho} = \\frac{l}{R \\cdot A}$. Its SI unit is $\\text{S m}^{-1}$, and commonly $\\text{S cm}^{-1}$. Thus, P matches (3).\nStep 2: Determine unit of Cell constant ($G^*$). $G^* = \\frac{l}{A}$. Length divided by area gives dimension of $\\text{length}^{-1}$, with units $\\text{m}^{-1}$ or $\\text{cm}^{-1}$. Thus, Q matches (4).\nStep 3: Determine unit of Molar conductivity ($\\Lambda_m$). $\\Lambda_m = \\frac{\\kappa}{c}$, with units $\\frac{\\text{S m}^{-1}}{\\text{mol m}^{-3}} = \\text{S m}^2\\text{ mol}^{-1}$ or $\\text{S cm}^2\\text{ mol}^{-1}$. Thus, R matches (1).\nStep 4: Determine unit of Conductance ($G$). Conductance is the reciprocal of resistance: $G = \\frac{1}{R}$, measured in Siemens ($\\text{S}$) or $\\Omega^{-1}$. Thus, S matches (2).\nConclusion: The correct matching is P-3, Q-4, R-1, S-2."
+    },
+    {
+      "id": "chem_electrochemistry_c01_007",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In measuring the electrical resistance of an electrolytic solution using a Wheatstone bridge, an alternating current (AC) source in the audio frequency range is used instead of a direct current (DC) source.\nReason (R): Passing direct current through an electrolytic solution causes electrolysis, which alters the chemical composition and concentration of the solution near the electrodes.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) Both (A) and (R) are true but (R) is not the correct explanation of (A)."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Assertion (A). To measure the resistance of an electrolytic solution using a Wheatstone bridge, a standard direct current cannot be employed; instead, an alternating current (AC) source typically operating in the frequency range of $550$ to $5000\\text{ Hz}$ is employed. Thus, Assertion (A) is true.\nStep 2: Evaluate Reason (R). If direct current (DC) were passed through the solution, continuous electrolysis would take place, liberating gases or depositing metals at the electrodes. This leads to polarization of electrodes and alters the chemical composition of the electrolyte in the cell. Thus, Reason (R) is true.\nStep 3: Relate (A) and (R). The AC source reverses the current polarity thousands of times per second, preventing net electrolysis and polarization. Hence, Reason (R) correctly explains Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_electrochemistry_c01_008",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding the variation of conductivity ($\\kappa$) of an electrolytic solution upon dilution:\nStatement I: Conductivity ($\\kappa$) is defined as the conductance of a solution enclosed between two electrodes of unit cross-sectional area separated by unit length, which corresponds to the conductance of one unit volume ($1\\text{ cm}^3$ or $1\\text{ m}^3$) of the solution.\nStatement II: On increasing dilution, conductivity ($\\kappa$) increases for strong electrolytes but decreases for weak electrolytes.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. By definition, $G = \\kappa \\frac{A}{l}$. When $A = 1\\text{ cm}^2$ and $l = 1\\text{ cm}$, conductance $G = \\kappa$. This represents the electrical conductance of a $1\\text{ cm}^3$ unit volume of the electrolytic solution. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. Conductivity always decreases with decrease in concentration (i.e., upon dilution) for both strong and weak electrolytes. This is because dilution decreases the total number of current-carrying ions per unit volume ($1\\text{ mL}$ or $1\\text{ cm}^3$) of the solution. Hence, Statement II is incorrect.\nConclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_electrochemistry_c01_009",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding molar conductivity ($\\Lambda_m$) of electrolytes:\nStatement I: Molar conductivity of a solution at a given concentration is the conductance of volume $V$ of solution containing one mole of electrolyte kept between two electrodes with area of cross-section $A$ and distance of unit length.\nStatement II: Molar conductivity increases with decrease in concentration because the increase in volume $V$ containing one mole of electrolyte on dilution more than compensates for the decrease in conductivity ($\\kappa$).\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. According to NCERT, molar conductivity $\\Lambda_m = \\kappa V$, where $V$ is the volume of the solution containing exactly one mole of electrolyte placed between two sufficiently large electrodes unit distance apart. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. On dilution, although conductivity $\\kappa$ (conductance per unit volume) decreases, the total volume $V$ containing one mole of electrolyte increases substantially ($V = 1/c$). The product $\\kappa \\times V$ increases because the proportional expansion in volume exceeds the proportional decrease in conductivity. Therefore, $\\Lambda_m$ always increases with dilution for both strong and weak electrolytes. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_electrochemistry_c01_010",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The limiting molar conductivities ($\\Lambda_m^\\circ$) at $298\\text{ K}$ for $\\text{NaCl}$, $\\text{KBr}$, and $\\text{KCl}$ are $126.4$, $151.8$, and $149.8\\text{ S cm}^2\\text{ mol}^{-1}$, respectively. Using Kohlrausch's law of independent migration of ions, calculate the limiting molar conductivity of $\\text{NaBr}$ at $298\\text{ K}$:",
+      "options": [
+        "A) $175.2\\text{ S cm}^2\\text{ mol}^{-1}$",
+        "B) $128.4\\text{ S cm}^2\\text{ mol}^{-1}$",
+        "C) $124.4\\text{ S cm}^2\\text{ mol}^{-1}$",
+        "D) $147.8\\text{ S cm}^2\\text{ mol}^{-1}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Formulate the relationship using Kohlrausch's law.\nAccording to Kohlrausch's law:\n$\\Lambda_m^\\circ(\\text{NaBr}) = \\lambda^\\circ(\\text{Na}^+) + \\lambda^\\circ(\\text{Br}^-)$\nStep 2: Express $\\Lambda_m^\\circ(\\text{NaBr})$ in terms of the given salts:\n$\\Lambda_m^\\circ(\\text{NaBr}) = \\Lambda_m^\\circ(\\text{NaCl}) + \\Lambda_m^\\circ(\\text{KBr}) - \\Lambda_m^\\circ(\\text{KCl})$\nStep 3: Substitute the numerical values:\n$\\Lambda_m^\\circ(\\text{NaBr}) = 126.4 + 151.8 - 149.8$\n$\\Lambda_m^\\circ(\\text{NaBr}) = 278.2 - 149.8 = 128.4\\text{ S cm}^2\\text{ mol}^{-1}$\nConclusion: The limiting molar conductivity of $\\text{NaBr}$ is $128.4\\text{ S cm}^2\\text{ mol}^{-1}$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_011",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A steady electric current of $1.50\\text{ A}$ is passed through an aqueous solution of silver nitrate ($\\text{AgNO}_3$) for exactly $16\\text{ minutes}$ and $5\\text{ seconds}$. What is the mass of silver deposited at the cathode? (Molar mass of $\\text{Ag} = 108\\text{ g mol}^{-1}$, $1\\text{ F} = 96500\\text{ C mol}^{-1}$)",
+      "options": [
+        "A) $0.54\\text{ g}$",
+        "B) $2.16\\text{ g}$",
+        "C) $1.08\\text{ g}$",
+        "D) $1.62\\text{ g}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Calculate the total time in seconds.\n$t = (16 \\times 60) + 5 = 960 + 5 = 965\\text{ s}$.\nStep 2: Calculate the total charge passed ($Q$).\n$Q = I \\times t = 1.50\\text{ A} \\times 965\\text{ s} = 1447.5\\text{ C}$.\nStep 3: Determine the reduction reaction and number of electrons transferred.\n$\\text{Ag}^+ + e^- \\to \\text{Ag}(s)$\nThus, $1\\text{ mol}$ of electrons ($96500\\text{ C}$) deposits $1\\text{ mol}$ of $\\text{Ag}$ ($108\\text{ g}$).\nStep 4: Calculate the deposited mass ($w$).\n$w = \\frac{Q \\times M}{n \\times F} = \\frac{1447.5 \\times 108}{1 \\times 96500} = \\frac{1.5 \\times 965 \\times 108}{96500} = \\frac{1.5 \\times 108}{100} = \\frac{162}{100} = 1.62\\text{ g}$.\nConclusion: The mass of silver deposited at the cathode is $1.62\\text{ g}$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_012",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding Faraday's laws of electrolysis:\nStatement I: Faraday's first law states that the mass of a substance deposited or liberated at any electrode during electrolysis is directly proportional to the quantity of electricity passed through the electrolyte.\nStatement II: Faraday's second law states that when the same quantity of electricity is passed through solutions of different electrolytes connected in parallel, the masses of substances liberated are directly proportional to their equivalent weights.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. According to Faraday's first law, $m \\propto Q$, or $m = zIt$, where $m$ is the mass deposited or liberated, $Q$ is the electric charge passed, and $z$ is the electrochemical equivalent. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. Faraday's second law explicitly states that the same quantity of electricity must pass through the cells, which requires the electrolytic cells to be connected in SERIES, not in parallel. In a parallel circuit, current divides among branches based on resistance, so different quantities of electricity would pass through different cells. Hence, Statement II is incorrect.\nConclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_electrochemistry_c01_013",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): During the electrolysis of concentrated aqueous sodium chloride solution (brine) using inert platinum electrodes, chlorine gas ($\\text{Cl}_2$) is liberated at the anode rather than oxygen gas ($\\text{O}_2$).\nReason (R): Although the oxidation of water to produce oxygen has a lower standard reduction potential than the oxidation of chloride ions, oxygen evolution is kinetically slow and requires an extra potential known as overpotential.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate the anodic reactions in brine electrolysis.\nPossible oxidation reactions at the anode:\n$2\\text{Cl}^-(aq) \\to \\text{Cl}_2(g) + 2e^-$, $E^\\circ_{\\text{ox}} = -1.36\\text{ V}$\n$2\\text{H}_2\\text{O}(l) \\to \\text{O}_2(g) + 4\\text{H}^+(aq) + 4e^-$, $E^\\circ_{\\text{ox}} = -1.23\\text{ V}$\nThermodynamically, oxidation of water has a lower potential ($1.23\\text{ V} < 1.36\\text{ V}$) and should be preferred.\nStep 2: Evaluate the kinetic effect (overpotential). The oxidation of water involves a complex four-electron transfer producing oxygen, which has very slow reaction kinetics on platinum. It demands significant extra energy termed 'overpotential' (overvoltage). Because of this overpotential of oxygen, the oxidation of chloride ions to $\\text{Cl}_2$ becomes kinetically preferred. Thus, Assertion (A) and Reason (R) are both true, and (R) is the correct explanation of (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_electrochemistry_c01_014",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the electrolysis of an aqueous copper(II) sulfate ($\\text{CuSO}_4$) solution under two different conditions:\nCondition 1: Electrolysis using inert platinum electrodes.\nCondition 2: Electrolysis using attackable copper electrodes.\nWhich of the following statements correctly describes the anodic processes?",
+      "options": [
+        "A) In Condition 1, copper dissolves at the anode, while in Condition 2, oxygen gas is evolved at the anode.",
+        "B) In Condition 1, oxygen gas is evolved at the anode, while in Condition 2, copper dissolves from the anode into the solution as $\\text{Cu}^{2+}$.",
+        "C) In both Condition 1 and Condition 2, oxygen gas is evolved at the anode.",
+        "D) In both Condition 1 and Condition 2, copper metal deposits on the anode."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze Condition 1 (inert platinum electrodes). Platinum does not take part in the chemical reaction. At the cathode, copper is deposited: $\\text{Cu}^{2+} + 2e^- \\to \\text{Cu}$. At the anode, water is oxidized in preference to sulfate ions: $2\\text{H}_2\\text{O} \\to \\text{O}_2 + 4\\text{H}^+ + 4e^-$, liberating oxygen gas and generating sulfuric acid.\nStep 2: Analyze Condition 2 (copper electrodes). Since copper is an active/attackable electrode, the oxidation potential of metallic copper ($E^\\circ_{\\text{Cu}/\\text{Cu}^{2+}} = -0.34\\text{ V}$) is far higher than that of water ($-1.23\\text{ V}$) or sulfate. Consequently, the copper anode itself undergoes oxidation: $\\text{Cu}(s) \\to \\text{Cu}^{2+}(aq) + 2e^-$, dissolving into solution.\nConclusion: In Condition 1, oxygen gas is evolved at the anode, while in Condition 2, copper dissolves from the anode into the solution as $\\text{Cu}^{2+}$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_015",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding the Leclanché dry cell:\nStatement I: In a commercial dry cell, the zinc cylinder acts as the anode, and a carbon (graphite) rod surrounded by powdered manganese dioxide ($\\text{MnO}_2$) and carbon acts as the cathode.\nStatement II: During discharge, manganese is reduced from the $+4$ oxidation state in $\\text{MnO}_2$ to the $+3$ oxidation state in $\\text{MnO(OH)}$, and the ammonia released at the cathode combines with $\\text{Zn}^{2+}$ to form the complex $[\\text{Zn}(\\text{NH}_3)_4]^{2+}$.\nChoose the correct option:",
+      "options": [
+        "A) Statement I is incorrect but Statement II is correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Both Statement I and Statement II are correct.",
+        "D) Statement I is correct but Statement II is incorrect."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Statement I. In the standard Leclanché dry cell, the outer zinc container serves as the anode, and a graphite rod placed centrally and surrounded by powdered $\\text{MnO}_2$ and carbon black serves as the cathode. The space between is filled with a moist paste of $\\text{NH}_4\\text{Cl}$ and $\\text{ZnCl}_2$. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. The half-reactions are:\nAnode: $\\text{Zn}(s) \\to \\text{Zn}^{2+} + 2e^-$\nCathode: $\\text{MnO}_2 + \\text{NH}_4^+ + e^- \\to \\text{MnO(OH)} + \\text{NH}_3$\nIn $\\text{MnO}_2$, Mn is in $+4$ oxidation state; in $\\text{MnO(OH)}$, Mn is in $+3$ state. Free $\\text{NH}_3$ gas could build up internal pressure, but it coordinates with $\\text{Zn}^{2+}$ ions from the electrolyte to yield $[\\text{Zn}(\\text{NH}_3)_4]^{2+}$, preventing gas build-up. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_electrochemistry_c01_016",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The cell potential of a miniature mercury cell remains remarkably constant at approximately $1.35\\text{ V}$ throughout its operational life.\nReason (R): The overall chemical reaction of the mercury cell does not involve any ions in the electrolytic solution whose concentrations could change during operation.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "B) (A) is true but (R) is false.",
+        "C) (A) is false but (R) is true.",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Assertion (A). A mercury cell, used in hearing aids and watches, produces a steady voltage of about $1.35\\text{ V}$ that remains practically unvarying until exhaustion. Assertion (A) is true.\nStep 2: Evaluate Reason (R). The electrode reactions in a mercury cell are:\nAnode: $\\text{Zn(Hg)} + 2\\text{OH}^- \\to \\text{ZnO}(s) + \\text{H}_2\\text{O} + 2e^-$\nCathode: $\\text{HgO}(s) + \\text{H}_2\\text{O} + 2e^- \\to \\text{Hg}(l) + 2\\text{OH}^-$\nOverall reaction: $\\text{Zn(Hg)} + \\text{HgO}(s) \\to \\text{ZnO}(s) + \\text{Hg}(l)$\nThe overall reaction contains only solid and liquid phases (amalgam, $\\text{ZnO}$, $\\text{HgO}$, $\\text{Hg}$), with no ionic species in solution whose concentration changes during discharge. Reason (R) is true.\nStep 3: Relate (A) and (R). According to the Nernst equation, cell potential depends on ion concentrations ($E = E^\\circ - \\frac{RT}{nF}\\ln Q$). Because $Q$ is constant, $E$ remains invariant throughout cell life. Hence, Reason (R) is the correct explanation of Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_electrochemistry_c01_017",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Electrode / Component in Lead Storage Battery) with List II (Composition / Chemical Role during Discharge):\nList I:\n(P) Anode grid\n(Q) Cathode grid\n(R) Electrolyte\n(S) Insoluble precipitate formed at both electrodes\nList II:\n(1) Lead dioxide ($\\text{PbO}_2$)\n(2) Lead sulfate ($\\text{PbSO}_4$)\n(3) Spongy lead ($\\text{Pb}$)\n(4) $38\\%$ by mass sulfuric acid ($\\text{H}_2\\text{SO}_4$, density $\\sim 1.30\\text{ g mL}^{-1}$)\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-3, Q-1, R-4, S-2",
+        "B) P-1, Q-3, R-4, S-2",
+        "C) P-3, Q-1, R-2, S-4",
+        "D) P-2, Q-4, R-3, S-1"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Identify Anode (P). In a lead storage battery, the anode consists of a lead grid packed with finely divided spongy lead. Thus, P matches (3).\nStep 2: Identify Cathode (Q). The cathode is a lead grid packed with lead dioxide ($\\text{PbO}_2$). Thus, Q matches (1).\nStep 3: Identify Electrolyte (R). The electrolyte is an aqueous solution of sulfuric acid, approximately $38\\%$ by mass with a density of $1.30\\text{ g mL}^{-1}$. Thus, R matches (4).\nStep 4: Identify Precipitate (S). During discharge, lead is oxidized at the anode to form insoluble $\\text{PbSO}_4(s)$, and $\\text{PbO}_2$ is reduced at the cathode to also form insoluble $\\text{PbSO}_4(s)$. Thus, S matches (2).\nConclusion: The correct matching is P-3, Q-1, R-4, S-2."
+    },
+    {
+      "id": "chem_electrochemistry_c01_018",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding the recharging process of a secondary lead storage battery:\nStatement I: During recharging, the battery is connected to an external DC power source such that the negative terminal is connected to the lead electrode and the positive terminal is connected to the $\\text{PbO}_2$ electrode.\nStatement II: During the recharge process, $\\text{PbSO}_4(s)$ on the anode is reduced back to spongy $\\text{Pb}(s)$, $\\text{PbSO}_4(s)$ on the cathode is oxidized back to $\\text{PbO}_2(s)$, and sulfuric acid is regenerated, increasing the electrolyte density.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Statement I. During recharge, the lead storage battery operates as an electrolytic cell. The polarity must oppose discharge: the negative terminal of the external source is connected to the spongy lead electrode (where reduction must occur), and the positive terminal is connected to the $\\text{PbO}_2$ electrode (where oxidation must occur). Hence, Statement I is correct.\nStep 2: Evaluate Statement II. The reverse reactions during recharging are:\nAt negative electrode (cathode during electrolysis): $\\text{PbSO}_4(s) + 2e^- \\to \\text{Pb}(s) + \\text{SO}_4^{2-}(aq)$\nAt positive electrode (anode during electrolysis): $\\text{PbSO}_4(s) + 2\\text{H}_2\\text{O} \\to \\text{PbO}_2(s) + \\text{SO}_4^{2-}(aq) + 4\\text{H}^+(aq) + 2e^-$\nOverall recharge reaction: $2\\text{PbSO}_4(s) + 2\\text{H}_2\\text{O}(l) \\to \\text{Pb}(s) + \\text{PbO}_2(s) + 2\\text{H}_2\\text{SO}_4(aq)$.\nSulfuric acid is regenerated, which restores the density of the acid solution. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_electrochemistry_c01_019",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The Nickel-Cadmium (Ni-Cd) cell is a rechargeable secondary cell that possesses a longer operational lifespan than the conventional lead storage battery.\nReason (R): The overall chemical reaction occurring during the discharge of a Ni-Cd cell is represented as:\n$\\text{Cd}(s) + 2\\text{Ni(OH)}_3(s) \\to \\text{CdO}(s) + 2\\text{Ni(OH)}_2(s) + \\text{H}_2\\text{O}(l)$\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true and (R) is not the correct explanation of (A).",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Evaluate Assertion (A). According to NCERT, the nickel-cadmium cell is another important rechargeable secondary cell. It has a significantly longer lifespan and higher reliability than a lead storage battery, though it is more expensive to manufacture. Thus, Assertion (A) is true.\nStep 2: Evaluate Reason (R). During discharge, cadmium metal at the anode is oxidized, and nickel(III) hydroxide at the cathode is reduced to nickel(II) hydroxide. The overall reaction given in NCERT is: $\\text{Cd}(s) + 2\\text{Ni(OH)}_3(s) \\to \\text{CdO}(s) + 2\\text{Ni(OH)}_2(s) + \\text{H}_2\\text{O}(l)$. Thus, Reason (R) is true.\nStep 3: Relate (A) and (R). While Reason (R) correctly specifies the stoichiometric discharge reaction, the extended longevity of the cell arises from the mechanical stability and reversibility of the insoluble hydroxide phases adhering to the electrode grids without corrosive acid degradation. Therefore, Reason (R) is a true statement but not the causal explanation of (A).\nConclusion: Both (A) and (R) are true and (R) is not the correct explanation of (A)."
+    },
+    {
+      "id": "chem_electrochemistry_c01_020",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Which of the following statements regarding the hydrogen-oxygen ($\\text{H}_2\\text{-O}_2$) fuel cell is INCORRECT?",
+      "options": [
+        "A) Porous carbon electrodes impregnated with finely divided catalysts like platinum or palladium are used.",
+        "B) The electrolyte is a concentrated aqueous solution of sodium hydroxide or potassium hydroxide.",
+        "C) The thermodynamic electrical efficiency of a fuel cell is approximately $70\\%$, compared to about $40\\%$ for conventional thermal power plants.",
+        "D) During cell operation, oxygen is bubbled through the anode compartment and hydrogen is bubbled through the cathode compartment."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Analyze electrode gas feeds. In an alkaline $\\text{H}_2\\text{-O}_2$ fuel cell, hydrogen gas is fed into the anode compartment where it undergoes oxidation: $2\\text{H}_2(g) + 4\\text{OH}^-(aq) \\to 4\\text{H}_2\\text{O}(l) + 4e^-$. Oxygen gas is fed into the cathode compartment where it undergoes reduction: $\\text{O}_2(g) + 2\\text{H}_2\\text{O}(l) + 4e^- \\to 4\\text{OH}^-(aq)$. Statement D reverses these feeds (claims oxygen at anode and hydrogen at cathode), making Statement D incorrect.\nStep 2: Check other statements against NCERT. Statement A is correct (porous carbon electrodes with Pt/Pd catalyst). Statement B is correct (concentrated aqueous $\\text{NaOH}$ or $\\text{KOH}$). Statement C is correct (efficiency $\\sim 70\\%$ vs $40\\%$ in thermal plants).\nConclusion: The incorrect statement is that oxygen is bubbled through the anode compartment and hydrogen is bubbled through the cathode compartment."
+    },
+    {
+      "id": "chem_electrochemistry_c01_021",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding the electrochemical mechanism of corrosion (rusting) of iron:\nStatement I: A particular spot on the surface of iron behaves as an anode where iron is oxidized to ferrous ions: $2\\text{Fe}(s) \\to 2\\text{Fe}^{2+} + 4e^-$, with $E^\\circ_{(\\text{Fe}^{2+}/\\text{Fe})} = -0.44\\text{ V}$.\nStatement II: The electrons released at the anodic spot move through the metal to another spot where they reduce atmospheric oxygen in the presence of $\\text{H}^+$ ions: $\\text{O}_2(g) + 4\\text{H}^+(aq) + 4e^- \\to 2\\text{H}_2\\text{O}(l)$, with $E^\\circ = +1.23\\text{ V}$.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. According to the electrochemical theory of rusting presented in NCERT, an anodic spot on the iron surface undergoes oxidation: $2\\text{Fe}(s) \\to 2\\text{Fe}^{2+} + 4e^-$, where $E^\\circ_{(\\text{Fe}^{2+}/\\text{Fe})} = -0.44\\text{ V}$. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. The liberated electrons migrate through the iron metal to another surface area which acts as a cathode. In the presence of $\\text{H}^+$ ions (derived from carbonic acid $\\text{H}_2\\text{CO}_3$ formed by dissolution of atmospheric $\\text{CO}_2$ in moisture), dissolved oxygen is reduced to water: $\\text{O}_2(g) + 4\\text{H}^+(aq) + 4e^- \\to 2\\text{H}_2\\text{O}(l)$, with $E^\\circ = +1.23\\text{ V}$. The overall cell potential is $E^\\circ_{\\text{cell}} = 1.23 - (-0.44) = +1.67\\text{ V}$. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_electrochemistry_c01_022",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): Galvanized iron pipes coated with a layer of zinc do not rust even if the surface zinc coating is scratched or chipped.\nReason (R): Zinc has a more negative standard reduction potential ($E^\\circ_{\\text{Zn}^{2+}/\\text{Zn}} = -0.76\\text{ V}$) than iron ($E^\\circ_{\\text{Fe}^{2+}/\\text{Fe}} = -0.44\\text{ V}$), causing zinc to undergo sacrificial oxidation in preference to iron.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Assertion (A). Galvanization is the coating of iron with metallic zinc. When the zinc layer is cracked or scratched, exposing the underlying iron, the iron still does not rust. Assertion (A) is true.\nStep 2: Evaluate Reason (R). Comparing the standard reduction potentials: $E^\\circ_{\\text{Zn}^{2+}/\\text{Zn}} = -0.76\\text{ V}$ and $E^\\circ_{\\text{Fe}^{2+}/\\text{Fe}} = -0.44\\text{ V}$. Because zinc has a more negative reduction potential, it has a greater oxidation tendency (more electropositive). Zinc acts as the anode and preferentially oxidizes ($\\text{Zn} \\to \\text{Zn}^{2+} + 2e^-$), while iron acts as the cathode and remains protected. Reason (R) is true.\nStep 3: Relate (A) and (R). Because zinc sacrifices itself by preferential oxidation due to its lower reduction potential, galvanized iron remains protected even when scratched. Hence, Reason (R) is the correct explanation of Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_electrochemistry_c01_023",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the standard reduction potentials at $298\\text{ K}$:\n$E^\\circ_{(\\text{Cr}^{3+}/\\text{Cr})} = -0.74\\text{ V}$ and $E^\\circ_{(\\text{Cd}^{2+}/\\text{Cd})} = -0.40\\text{ V}$\nFor the spontaneous redox reaction:\n$2\\text{Cr}(s) + 3\\text{Cd}^{2+}(aq) \\to 2\\text{Cr}^{3+}(aq) + 3\\text{Cd}(s)$\nCalculate the standard cell potential ($E^\\circ_{\\text{cell}}$) and standard Gibbs energy change ($\\Delta_r G^\\circ$). (Take $1\\text{ F} = 96500\\text{ C mol}^{-1}$)",
+      "options": [
+        "A) $E^\\circ_{\\text{cell}} = +0.34\\text{ V}$, $\\Delta_r G^\\circ = -196.86\\text{ kJ mol}^{-1}$",
+        "B) $E^\\circ_{\\text{cell}} = +1.14\\text{ V}$, $\\Delta_r G^\\circ = -660.06\\text{ kJ mol}^{-1}$",
+        "C) $E^\\circ_{\\text{cell}} = -0.34\\text{ V}$, $\\Delta_r G^\\circ = +196.86\\text{ kJ mol}^{-1}$",
+        "D) $E^\\circ_{\\text{cell}} = +0.34\\text{ V}$, $\\Delta_r G^\\circ = -98.43\\text{ kJ mol}^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Determine the cathode and anode half-reactions.\nOxidation at Anode: $2\\text{Cr}(s) \\to 2\\text{Cr}^{3+}(aq) + 6e^-$\nReduction at Cathode: $3\\text{Cd}^{2+}(aq) + 6e^- \\to 3\\text{Cd}(s)$\nThe number of electrons transferred is $n = 6$.\nStep 2: Calculate $E^\\circ_{\\text{cell}}$.\n$E^\\circ_{\\text{cell}} = E^\\circ_{\\text{cathode}} - E^\\circ_{\\text{anode}} = E^\\circ_{(\\text{Cd}^{2+}/\\text{Cd})} - E^\\circ_{(\\text{Cr}^{3+}/\\text{Cr})}$\n$E^\\circ_{\\text{cell}} = -0.40\\text{ V} - (-0.74\\text{ V}) = +0.34\\text{ V}$.\nStep 3: Calculate $\\Delta_r G^\\circ$.\n$\\Delta_r G^\\circ = -nFE^\\circ_{\\text{cell}} = -6 \\times 96500\\text{ C mol}^{-1} \\times 0.34\\text{ V}$\n$\\Delta_r G^\\circ = -196860\\text{ J mol}^{-1} = -196.86\\text{ kJ mol}^{-1}$.\nConclusion: $E^\\circ_{\\text{cell}} = +0.34\\text{ V}$ and $\\Delta_r G^\\circ = -196.86\\text{ kJ mol}^{-1}$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_024",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The reduction potential of a hydrogen electrode dipped in an aqueous solution of $\\text{pH} = 10$ at $298\\text{ K}$ with hydrogen gas maintained at $1\\text{ bar}$ pressure is $-0.591\\text{ V}$.\nReason (R): According to the Nernst equation for the hydrogen half-cell $\\text{H}^+(aq) + e^- \\to \\frac{1}{2}\\text{H}_2(g)$, the electrode potential at $298\\text{ K}$ varies linearly with $\\text{pH}$ as $E = -0.0591 \\times \\text{pH}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Derive the Nernst equation for the hydrogen reduction half-cell.\n$\\text{H}^+(aq) + e^- \\to \\frac{1}{2}\\text{H}_2(g)$\n$E = E^\\circ - \\frac{2.303 RT}{1 \\cdot F} \\log \\frac{p(\\text{H}_2)^{1/2}}{[\\text{H}^+]}$\nSince $E^\\circ = 0.00\\text{ V}$ and $p(\\text{H}_2) = 1\\text{ bar}$:\n$E = 0 - 0.0591 \\log \\frac{1}{[\\text{H}^+]} = -0.0591 \\times (-\\log[\\text{H}^+])$.\nBecause $\\text{pH} = -\\log[\\text{H}^+]$, we obtain $E = -0.0591 \\times \\text{pH}$. Thus, Reason (R) is true.\nStep 2: Calculate the electrode potential at $\\text{pH} = 10$.\n$E = -0.0591 \\times 10 = -0.591\\text{ V}$. Thus, Assertion (A) is true.\nStep 3: Relate (A) and (R). Assertion (A) is directly derived from the mathematical relationship established in Reason (R). Therefore, Reason (R) is the correct explanation of Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_electrochemistry_c01_025",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Calculate the electromotive force ($E_{\\text{cell}}$) at $298\\text{ K}$ for the electrochemical cell:\n$\\text{Zn}(s)|\\text{Zn}^{2+}(0.10\\text{ M})\\|\\text{Cu}^{2+}(0.010\\text{ M})|\\text{Cu}(s)$\nGiven that $E^\\circ_{(\\text{Cu}^{2+}/\\text{Cu})} = +0.34\\text{ V}$ and $E^\\circ_{(\\text{Zn}^{2+}/\\text{Zn})} = -0.76\\text{ V}$. (Use $\\frac{2.303 RT}{F} = 0.059\\text{ V}$)",
+      "options": [
+        "A) $1.100\\text{ V}$",
+        "B) $1.129\\text{ V}$",
+        "C) $1.0705\\text{ V}$",
+        "D) $1.041\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Write the overall cell reaction and determine $n$.\n$\\text{Zn}(s) + \\text{Cu}^{2+}(aq) \\rightleftharpoons \\text{Zn}^{2+}(aq) + \\text{Cu}(s)$, where $n = 2$.\nStep 2: Calculate the standard cell potential $E^\\circ_{\\text{cell}}$.\n$E^\\circ_{\\text{cell}} = E^\\circ_{\\text{cathode}} - E^\\circ_{\\text{anode}} = 0.34 - (-0.76) = 1.10\\text{ V}$.\nStep 3: Apply the Nernst equation at $298\\text{ K}$.\n$E_{\\text{cell}} = E^\\circ_{\\text{cell}} - \\frac{0.059}{n} \\log \\frac{[\\text{Zn}^{2+}]}{[\\text{Cu}^{2+}]}$\n$E_{\\text{cell}} = 1.10 - \\frac{0.059}{2} \\log \\left(\\frac{0.10}{0.010}\\right)$\n$E_{\\text{cell}} = 1.10 - 0.0295 \\log(10) = 1.10 - 0.0295 \\times 1 = 1.0705\\text{ V}$.\nConclusion: The electromotive force of the cell is $1.0705\\text{ V}$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_026",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the concentration cell operating at $298\\text{ K}$:\n$\\text{Pt}(s)|\\text{H}_2(g, 1\\text{ bar})|\\text{H}^+(aq, c_1)\\|\\text{H}^+(aq, c_2)|\\text{H}_2(g, 1\\text{ bar})|\\text{Pt}(s)$\nConsider the following two statements:\nStatement I: The standard cell potential ($E^\\circ_{\\text{cell}}$) for any concentration cell is identically equal to zero.\nStatement II: For this hydrogen concentration cell to operate spontaneously ($E_{\\text{cell}} > 0$), the concentration of hydrogen ions in the anodic compartment must be greater than that in the cathodic compartment ($c_1 > c_2$).\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Statement I is correct but Statement II is incorrect."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Evaluate Statement I. In a concentration cell, both electrodes are made of the same chemical material and dip into solutions of the same electrolyte at different concentrations. Since cathode and anode are chemically identical, $E^\\circ_{\\text{cell}} = E^\\circ_{\\text{cathode}} - E^\\circ_{\\text{anode}} = 0$. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. Anode reaction: $\\frac{1}{2}\\text{H}_2(g) \\to \\text{H}^+(c_1) + e^-$\nCathode reaction: $\\text{H}^+(c_2) + e^- \\to \\frac{1}{2}\\text{H}_2(g)$\nOverall cell reaction: $\\text{H}^+(c_2) \\rightleftharpoons \\text{H}^+(c_1)$\nApplying the Nernst equation: $E_{\\text{cell}} = 0 - \\frac{0.059}{1}\\log \\frac{c_1}{c_2} = +0.059 \\log \\frac{c_2}{c_1}$.\nFor $E_{\\text{cell}} > 0$, we must have $\\log(c_2/c_1) > 0$, which necessitates $c_2 > c_1$ (cathodic concentration greater than anodic concentration). Statement II claims $c_1 > c_2$, which would produce a negative potential. Hence, Statement II is incorrect.\nConclusion: Statement I is correct but Statement II is incorrect."
+    },
+    {
+      "id": "chem_electrochemistry_c01_027",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The standard electromotive force of the cell reaction:\n$\\text{Cu}(s) + 2\\text{Ag}^+(aq) \\rightleftharpoons \\text{Cu}^{2+}(aq) + 2\\text{Ag}(s)$\nis $0.46\\text{ V}$ at $298\\text{ K}$. What is the value of the equilibrium constant ($K_c$) for this reaction at $298\\text{ K}$? (Take $\\frac{2.303 RT}{F} = 0.059\\text{ V}$)",
+      "options": [
+        "A) $3.92 \\times 10^{15}$",
+        "B) $3.92 \\times 10^{7}$",
+        "C) $1.96 \\times 10^{15}$",
+        "D) $7.84 \\times 10^{15}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Identify the relationship between $E^\\circ_{\\text{cell}}$ and $K_c$.\n$E^\\circ_{\\text{cell}} = \\frac{0.059}{n} \\log K_c$\nHere, $\\text{Cu}$ loses $2e^-$ and $2\\text{Ag}^+$ gain $2e^-$, so $n = 2$.\nStep 2: Substitute the known values.\n$0.46 = \\frac{0.059}{2} \\log K_c = 0.0295 \\log K_c$\n$\\log K_c = \\frac{0.46}{0.0295} = \\frac{0.92}{0.059} \\approx 15.593$\nStep 3: Solve for $K_c$.\n$K_c = 10^{15.593} = 10^{0.593} \\times 10^{15}$\nSince $10^{0.602} \\approx 4.0$ and $10^{0.593} \\approx 3.92$:\n$K_c = 3.92 \\times 10^{15}$.\nConclusion: The equilibrium constant $K_c$ is $3.92 \\times 10^{15}$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_028",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A conductivity cell filled with a $0.10\\text{ M KCl}$ solution exhibits an electrical resistance of $100\\ \\Omega$ at $298\\text{ K}$. If the conductivity of $0.10\\text{ M KCl}$ is $1.29\\text{ S m}^{-1}$, and the resistance of the same cell when filled with $0.020\\text{ M KCl}$ solution is $516\\ \\Omega$, what is the conductivity of the $0.020\\text{ M KCl}$ solution?",
+      "options": [
+        "A) $0.500\\text{ S m}^{-1}$",
+        "B) $0.250\\text{ S m}^{-1}$",
+        "C) $0.125\\text{ S m}^{-1}$",
+        "D) $0.050\\text{ S m}^{-1}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Calculate the cell constant ($G^*$) using the first solution.\n$G^* = \\kappa \\times R = 1.29\\text{ S m}^{-1} \\times 100\\ \\Omega = 129\\text{ m}^{-1}$.\nStep 2: Since the cell geometry remains unchanged, the cell constant is identical for the second solution.\n$\\kappa = \\frac{G^*}{R_2}$\nStep 3: Calculate conductivity for the $0.020\\text{ M KCl}$ solution.\n$\\kappa = \\frac{129\\text{ m}^{-1}}{516\\ \\Omega} = \\frac{129}{516} = 0.250\\text{ S m}^{-1}$.\nConclusion: The conductivity of the $0.020\\text{ M KCl}$ solution is $0.250\\text{ S m}^{-1}$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_029",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The electrical resistance of a column of $0.050\\text{ M NaOH}$ solution of diameter $1.0\\text{ cm}$ and length $50.0\\text{ cm}$ is $5.55 \\times 10^3\\ \\Omega$. What is the molar conductivity ($\\Lambda_m$) of this solution? (Take $\\pi = 3.14$)",
+      "options": [
+        "A) $114.8\\text{ S cm}^2\\text{ mol}^{-1}$",
+        "B) $459.2\\text{ S cm}^2\\text{ mol}^{-1}$",
+        "C) $229.6\\text{ S cm}^2\\text{ mol}^{-1}$",
+        "D) $22.96\\text{ S cm}^2\\text{ mol}^{-1}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate the cross-sectional area of the cylindrical column.\nRadius $r = \\frac{d}{2} = 0.50\\text{ cm}$.\n$A = \\pi r^2 = 3.14 \\times (0.50\\text{ cm})^2 = 3.14 \\times 0.25 = 0.785\\text{ cm}^2$.\nStep 2: Calculate the conductivity ($\\kappa$).\n$\\kappa = \\frac{l}{R \\cdot A} = \\frac{50.0\\text{ cm}}{(5.55 \\times 10^3\\ \\Omega) \\times 0.785\\text{ cm}^2} = \\frac{50.0}{4356.75} = 0.011476\\text{ S cm}^{-1}$.\nStep 3: Calculate the molar conductivity ($\\Lambda_m$).\n$\\Lambda_m = \\frac{\\kappa \\times 1000}{M} = \\frac{0.011476 \\times 1000}{0.050} = \\frac{11.476}{0.050} = 229.53 \\approx 229.6\\text{ S cm}^2\\text{ mol}^{-1}$.\nConclusion: The molar conductivity of the sodium hydroxide solution is $229.6\\text{ S cm}^2\\text{ mol}^{-1}$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_030",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the Debye-Hückel-Onsager equation for strong electrolytes in dilute aqueous solutions: $\\Lambda_m = \\Lambda_m^\\circ - A\\sqrt{c}$. Which of the following statements is INCORRECT?",
+      "options": [
+        "A) A plot of $\\Lambda_m$ versus $\\sqrt{c}$ gives a straight line with an intercept equal to $\\Lambda_m^\\circ$ and a slope of $-A$.",
+        "B) The limiting molar conductivity $\\Lambda_m^\\circ$ for a strong electrolyte like $\\text{KCl}$ can be directly obtained by extrapolating the $\\Lambda_m$ versus $\\sqrt{c}$ plot to zero concentration.",
+        "C) For a given solvent and temperature, the value of the constant $A$ depends only on the charge type of the electrolyte (such as 1-1, 1-2, or 2-2) rather than its chemical formula.",
+        "D) For weak electrolytes like $\\text{CH}_3\\text{COOH}$, $\\Lambda_m^\\circ$ can also be obtained accurately by linear extrapolation of $\\Lambda_m$ versus $\\sqrt{c}$ to $c = 0$."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Review behavior of strong electrolytes under the Debye-Hückel-Onsager relationship. Strong electrolytes dissociate completely into ions at all concentrations. Dilution merely diminishes interionic attractions, yielding a smooth linear relation $\\Lambda_m = \\Lambda_m^\\circ - A\\sqrt{c}$. Extrapolation to $\\sqrt{c} \\to 0$ cleanly gives $\\Lambda_m^\\circ$. The coefficient $A$ depends on the dielectric constant, viscosity, temperature, and stoichiometric charge type of electrolyte (e.g. $\\text{NaCl}$ and $\\text{KCl}$ have the same $A$). Thus, statements A, B, and C are correct.\nStep 2: Review behavior of weak electrolytes. For weak electrolytes (such as acetic acid), the degree of dissociation $\\alpha$ increases sharply at extreme dilution, causing $\\Lambda_m$ to increase asymptotically toward the vertical axis at very low concentrations. Consequently, the curve never intersects the y-axis linearly, and $\\Lambda_m^\\circ$ CANNOT be determined by linear extrapolation. Statement D is therefore incorrect.\nConclusion: The incorrect statement is that for weak electrolytes, limiting molar conductivity can be obtained by linear extrapolation of molar conductivity versus square root of concentration."
+    },
+    {
+      "id": "chem_electrochemistry_c01_031",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The limiting molar conductivities ($\\Lambda_m^\\circ$) at $298\\text{ K}$ for $\\text{CH}_3\\text{COONa}$, $\\text{HCl}$, and $\\text{NaCl}$ are $91.0$, $426.0$, and $126.0\\text{ S cm}^2\\text{ mol}^{-1}$, respectively. If the molar conductivity of a $0.020\\text{ M}$ acetic acid solution is $19.55\\text{ S cm}^2\\text{ mol}^{-1}$, what is its degree of dissociation ($\\alpha$)?",
+      "options": [
+        "A) $0.050$",
+        "B) $0.025$",
+        "C) $0.100$",
+        "D) $0.075$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate $\\Lambda_m^\\circ$ for acetic acid using Kohlrausch's law.\n$\\Lambda_m^\\circ(\\text{CH}_3\\text{COOH}) = \\Lambda_m^\\circ(\\text{CH}_3\\text{COONa}) + \\Lambda_m^\\circ(\\text{HCl}) - \\Lambda_m^\\circ(\\text{NaCl})$\n$\\Lambda_m^\\circ(\\text{CH}_3\\text{COOH}) = 91.0 + 426.0 - 126.0 = 517.0 - 126.0 = 391.0\\text{ S cm}^2\\text{ mol}^{-1}$.\nStep 2: Calculate the degree of dissociation ($\\alpha$).\n$\\alpha = \\frac{\\Lambda_m}{\\Lambda_m^\\circ} = \\frac{19.55\\text{ S cm}^2\\text{ mol}^{-1}}{391.0\\text{ S cm}^2\\text{ mol}^{-1}}$\n$\\alpha = \\frac{19.55}{391.0} = 0.050$ (or $5\\%$).\nConclusion: The degree of dissociation of acetic acid is $0.050$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_032",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): For a $0.010\\text{ M}$ weak monobasic acid solution with molar conductivity $\\Lambda_m = 39.0\\text{ S cm}^2\\text{ mol}^{-1}$ and limiting molar conductivity $\\Lambda_m^\\circ = 390.0\\text{ S cm}^2\\text{ mol}^{-1}$, the acid dissociation constant ($K_a$) is approximately $1.11 \\times 10^{-4}\\text{ mol L}^{-1}$.\nReason (R): The degree of dissociation is given by $\\alpha = \\frac{\\Lambda_m}{\\Lambda_m^\\circ}$, and the dissociation constant of a weak monoprotic acid is expressed by Ostwald's dilution law as $K_a = \\frac{c\\alpha^2}{1-\\alpha}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Reason (R). By Kohlrausch's theory and Arrhenius dissociation, the fraction of electrolyte dissociated is $\\alpha = \\frac{\\Lambda_m}{\\Lambda_m^\\circ}$. For a weak monobasic acid $\\text{HA} \\rightleftharpoons \\text{H}^+ + \\text{A}^-$, the equilibrium expression is $K_a = \\frac{c\\alpha^2}{1-\\alpha}$. Thus, Reason (R) is true.\nStep 2: Evaluate Assertion (A) using the formula in (R).\n$\\alpha = \\frac{39.0}{390.0} = 0.10$.\n$K_a = \\frac{0.010 \\times (0.10)^2}{1 - 0.10} = \\frac{0.010 \\times 0.010}{0.90} = \\frac{10^{-4}}{0.90} = 1.11 \\times 10^{-4}\\text{ mol L}^{-1}$.\nThus, Assertion (A) is true.\nStep 3: Relate (A) and (R). Assertion (A) is calculated directly by substituting the given values into the theoretical formula stated in Reason (R). Hence, Reason (R) is the correct explanation of Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_electrochemistry_c01_033",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The conductivity of a saturated solution of a sparingly soluble salt $\\text{AgCl}$ at $298\\text{ K}$ is $3.40 \\times 10^{-6}\\text{ S cm}^{-1}$, and the conductivity of the pure water used to prepare it is $1.60 \\times 10^{-6}\\text{ S cm}^{-1}$. Given that $\\lambda^\\circ(\\text{Ag}^+) = 62.0\\text{ S cm}^2\\text{ mol}^{-1}$ and $\\lambda^\\circ(\\text{Cl}^-) = 76.0\\text{ S cm}^2\\text{ mol}^{-1}$, calculate the solubility product ($K_{\\text{sp}}$) of $\\text{AgCl}$:",
+      "options": [
+        "A) $1.69 \\times 10^{-8}\\text{ mol}^2\\text{ L}^{-2}$",
+        "B) $3.40 \\times 10^{-10}\\text{ mol}^2\\text{ L}^{-2}$",
+        "C) $1.70 \\times 10^{-10}\\text{ mol}^2\\text{ L}^{-2}$",
+        "D) $2.56 \\times 10^{-10}\\text{ mol}^2\\text{ L}^{-2}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate the net conductivity of $\\text{AgCl}$.\n$\\kappa_{\\text{AgCl}} = \\kappa_{\\text{solution}} - \\kappa_{\\text{water}}$\n$\\kappa_{\\text{AgCl}} = 3.40 \\times 10^{-6} - 1.60 \\times 10^{-6} = 1.80 \\times 10^{-6}\\text{ S cm}^{-1}$.\nStep 2: Calculate limiting molar conductivity $\\Lambda_m^\\circ(\\text{AgCl})$.\n$\\Lambda_m^\\circ(\\text{AgCl}) = \\lambda^\\circ(\\text{Ag}^+) + \\lambda^\\circ(\\text{Cl}^-) = 62.0 + 76.0 = 138.0\\text{ S cm}^2\\text{ mol}^{-1}$.\nStep 3: Calculate solubility ($S$) in $\\text{mol L}^{-1}$.\n$S = \\frac{\\kappa_{\\text{AgCl}} \\times 1000}{\\Lambda_m^\\circ} = \\frac{1.80 \\times 10^{-6} \\times 1000}{138.0} = \\frac{1.80 \\times 10^{-3}}{138.0} \\approx 1.304 \\times 10^{-5}\\text{ mol L}^{-1}$.\nStep 4: Calculate the solubility product ($K_{\\text{sp}}$).\n$K_{\\text{sp}} = [\\text{Ag}^+][\\text{Cl}^-] = S^2 = (1.304 \\times 10^{-5})^2 \\approx 1.70 \\times 10^{-10}\\text{ mol}^2\\text{ L}^{-2}$.\nConclusion: The solubility product of $\\text{AgCl}$ is $1.70 \\times 10^{-10}\\text{ mol}^2\\text{ L}^{-2}$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_034",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Three electrolytic cells containing solutions of $\\text{AgNO}_3$, $\\text{CuSO}_4$, and $\\text{AlCl}_3$, respectively, are connected in series. If a constant electric charge of $3\\text{ F}$ is passed through the series combination, what is the ratio of the number of moles of $\\text{Ag}$, $\\text{Cu}$, and $\\text{Al}$ deposited at the respective cathodes?",
+      "options": [
+        "A) $1 : 2 : 3$",
+        "B) $3 : 2 : 1$",
+        "C) $2 : 3 : 6$",
+        "D) $6 : 3 : 2$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Write the cathodic reduction equations for each ion:\n$\\text{Ag}^+ + e^- \\to \\text{Ag}(s)$ (requires $1\\text{ F}$ per mole of $\\text{Ag}$)\n$\\text{Cu}^{2+} + 2e^- \\to \\text{Cu}(s)$ (requires $2\\text{ F}$ per mole of $\\text{Cu}$)\n$\\text{Al}^{3+} + 3e^- \\to \\text{Al}(s)$ (requires $3\\text{ F}$ per mole of $\\text{Al}$)\nStep 2: Calculate moles of each metal deposited by $3\\text{ F}$:\nMoles of $\\text{Ag} = \\frac{3\\text{ F}}{1\\text{ F}} = 3\\text{ mol}$.\nMoles of $\\text{Cu} = \\frac{3\\text{ F}}{2\\text{ F}} = 1.5\\text{ mol}$.\nMoles of $\\text{Al} = \\frac{3\\text{ F}}{3\\text{ F}} = 1\\text{ mol}$.\nStep 3: Determine the integer ratio:\nMolar ratio $\\text{Ag} : \\text{Cu} : \\text{Al} = 3 : 1.5 : 1$.\nMultiply throughout by $2$ to obtain whole numbers: $6 : 3 : 2$.\nConclusion: The ratio of the number of moles deposited is $6 : 3 : 2$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_035",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "During the electrolysis of dilute aqueous sulfuric acid ($\\text{H}_2\\text{SO}_4$) using inert platinum electrodes, an electric charge of $9650\\text{ C}$ is passed through the cell. What is the total combined volume of gases evolved at the cathode and anode measured at standard temperature and pressure ($273\\text{ K}, 1\\text{ bar}$, where molar volume of ideal gas $= 22.7\\text{ L}$)?",
+      "options": [
+        "A) $1.70\\text{ L}$",
+        "B) $1.135\\text{ L}$",
+        "C) $0.567\\text{ L}$",
+        "D) $2.27\\text{ L}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Determine the half-reactions at cathode and anode.\nCathode: $2\\text{H}^+ + 2e^- \\to \\text{H}_2(g)$\n$2\\text{ F}$ of electricity ($2 \\times 96500\\text{ C}$) produces $1\\text{ mol}$ of $\\text{H}_2$.\nAnode: $2\\text{H}_2\\text{O}(l) \\to \\text{O}_2(g) + 4\\text{H}^+ + 4e^-$\n$4\\text{ F}$ of electricity ($4 \\times 96500\\text{ C}$) produces $1\\text{ mol}$ of $\\text{O}_2$.\nStep 2: Calculate moles of $\\text{H}_2$ and $\\text{O}_2$ produced by $9650\\text{ C}$.\nMoles of $\\text{H}_2 = \\frac{9650}{2 \\times 96500} = \\frac{1}{20} = 0.050\\text{ mol}$.\nMoles of $\\text{O}_2 = \\frac{9650}{4 \\times 96500} = \\frac{1}{40} = 0.025\\text{ mol}$.\nStep 3: Calculate the total moles of gas.\nTotal moles $= 0.050 + 0.025 = 0.075\\text{ mol}$.\nStep 4: Calculate the total gas volume at STP ($1\\text{ bar}, 273\\text{ K}$).\nTotal volume $= 0.075\\text{ mol} \\times 22.7\\text{ L mol}^{-1} = 1.7025\\text{ L} \\approx 1.70\\text{ L}$.\nConclusion: The total volume of gases evolved at STP is $1.70\\text{ L}$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_036",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following two statements regarding the anodic oxidation products during the electrolysis of sulfuric acid:\nStatement I: In the electrolysis of dilute sulfuric acid, oxidation of water to liberate oxygen gas occurs preferentially at the anode: $2\\text{H}_2\\text{O}(l) \\to \\text{O}_2(g) + 4\\text{H}^+(aq) + 4e^-$.\nStatement II: In the electrolysis of concentrated sulfuric acid, oxidation of sulfate ions to peroxodisulfate ions occurs preferentially at the anode: $2\\text{SO}_4^{2-}(aq) \\to \\text{S}_2\\text{O}_8^{2-}(aq) + 2e^-$.\nChoose the correct option:",
+      "options": [
+        "A) Statement I is correct but Statement II is incorrect.",
+        "B) Both Statement I and Statement II are correct.",
+        "C) Both Statement I and Statement II are incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Statement I. In dilute $\\text{H}_2\\text{SO}_4$, the concentration of water is very high compared to sulfate ions. The reaction taking place at the anode is the oxidation of water: $2\\text{H}_2\\text{O}(l) \\to \\text{O}_2(g) + 4\\text{H}^+(aq) + 4e^-$, liberating oxygen gas. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. When concentrated $\\text{H}_2\\text{SO}_4$ is electrolyzed with a high current density at lower temperature, sulfate/bisulfate ions are present in very high concentration. Under these conditions, the oxidation of sulfate ions to peroxodisulfate ions ($\\text{S}_2\\text{O}_8^{2-}$): $2\\text{SO}_4^{2-}(aq) \\to \\text{S}_2\\text{O}_8^{2-}(aq) + 2e^-$ predominates over the oxidation of water. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_electrochemistry_c01_037",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are the standard reduction potentials at $298\\text{ K}$:\n$E^\\circ_{(\\text{Cu}^{2+}/\\text{Cu}^+)} = +0.15\\text{ V}$ and $E^\\circ_{(\\text{Cu}^+/\\text{Cu})} = +0.52\\text{ V}$\nWhich of the following deductions regarding copper(I) ions in aqueous solution is correct?",
+      "options": [
+        "A) $\\text{Cu}^+$ is thermodynamically stable in aqueous solution and does not disproportionate.",
+        "B) The disproportionation reaction $2\\text{Cu}^+(aq) \\to \\text{Cu}^{2+}(aq) + \\text{Cu}(s)$ has $E^\\circ_{\\text{cell}} = -0.37\\text{ V}$ and is non-spontaneous.",
+        "C) $\\text{Cu}^{2+}$ spontaneously disproportionates into $\\text{Cu}^+$ and $\\text{Cu}(s)$ in aqueous solution.",
+        "D) $\\text{Cu}^+$ spontaneously disproportionates into $\\text{Cu}^{2+}$ and $\\text{Cu}(s)$ in aqueous solution with $E^\\circ_{\\text{cell}} = +0.37\\text{ V}$."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Write the half-reactions for the disproportionation of $\\text{Cu}^+$:\nReduction: $\\text{Cu}^+ + e^- \\to \\text{Cu}(s)$, $E^\\circ_{\\text{cathode}} = +0.52\\text{ V}$\nOxidation: $\\text{Cu}^+ \\to \\text{Cu}^{2+} + e^-$, $E^\\circ_{\\text{anode}} = +0.15\\text{ V}$\nOverall reaction: $2\\text{Cu}^+(aq) \\to \\text{Cu}^{2+}(aq) + \\text{Cu}(s)$.\nStep 2: Calculate $E^\\circ_{\\text{cell}}$ for disproportionation:\n$E^\\circ_{\\text{cell}} = E^\\circ_{\\text{cathode}} - E^\\circ_{\\text{anode}} = +0.52\\text{ V} - (+0.15\\text{ V}) = +0.37\\text{ V}$.\nStep 3: Analyze spontaneity. Since $E^\\circ_{\\text{cell}} > 0$, $\\Delta G^\\circ < 0$, meaning that $\\text{Cu}^+$ is thermodynamically unstable in aqueous solution and spontaneously disproportionates into $\\text{Cu}^{2+}$ and metallic copper.\nConclusion: Copper(I) spontaneously disproportionates into copper(II) and copper metal in aqueous solution with a standard cell potential of $+0.37\\text{ V}$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_038",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A commercial lead storage battery is discharged until an electric charge corresponding to exactly $2\\text{ F}$ has been drawn from it. Based on the overall discharge reaction:\n$\\text{Pb}(s) + \\text{PbO}_2(s) + 2\\text{H}_2\\text{SO}_4(aq) \\to 2\\text{PbSO}_4(s) + 2\\text{H}_2\\text{O}(l)$\nWhich of the following stoichiometric changes occurs in the battery during this process?",
+      "options": [
+        "A) $1.0\\text{ mol}$ of $\\text{H}_2\\text{SO}_4$ is consumed and $1.0\\text{ mol}$ of $\\text{PbSO}_4$ is deposited.",
+        "B) $4.0\\text{ mol}$ of $\\text{H}_2\\text{SO}_4$ is consumed and $2.0\\text{ mol}$ of $\\text{H}_2\\text{O}$ is formed.",
+        "C) $1.0\\text{ mol}$ of $\\text{Pb}$ is oxidized, but $2.0\\text{ mol}$ of $\\text{PbO}_2$ is reduced.",
+        "D) $2.0\\text{ mol}$ of $\\text{H}_2\\text{SO}_4$ is consumed and $2.0\\text{ mol}$ of $\\text{PbSO}_4$ is deposited across the electrodes."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Write the half-reactions to determine the number of electrons transferred:\nAnode: $\\text{Pb}(s) + \\text{SO}_4^{2-} \\to \\text{PbSO}_4(s) + 2e^-$\nCathode: $\\text{PbO}_2(s) + 4\\text{H}^+ + \\text{SO}_4^{2-} + 2e^- \\to \\text{PbSO}_4(s) + 2\\text{H}_2\\text{O}(l)$\nThus, $2\\text{ mol}$ of electrons ($2\\text{ F}$ of charge) corresponds to $1\\text{ mol}$ of the overall cell reaction.\nStep 2: Determine stoichiometric consumption and production for $2\\text{ F}$ drawn:\nAccording to the overall balanced equation:\n$\\text{Pb}(s) + \\text{PbO}_2(s) + 2\\text{H}_2\\text{SO}_4(aq) \\to 2\\text{PbSO}_4(s) + 2\\text{H}_2\\text{O}(l)$\nFor every $2\\text{ F}$ passed ($n = 2$):\n- $1.0\\text{ mol}$ of $\\text{Pb}$ is consumed\n- $1.0\\text{ mol}$ of $\\text{PbO}_2$ is consumed\n- $2.0\\text{ mol}$ of $\\text{H}_2\\text{SO}_4$ is consumed\n- $2.0\\text{ mol}$ of $\\text{PbSO}_4$ is formed ($1\\text{ mol}$ at anode and $1\\text{ mol}$ at cathode)\n- $2.0\\text{ mol}$ of $\\text{H}_2\\text{O}$ is formed\nConclusion: $2.0\\text{ mol}$ of $\\text{H}_2\\text{SO}_4$ is consumed and $2.0\\text{ mol}$ of $\\text{PbSO}_4$ is deposited across the electrodes."
+    },
+    {
+      "id": "chem_electrochemistry_c01_039",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the thermodynamic efficiency of a hydrogen-oxygen fuel cell operating at $298\\text{ K}$ based on the reaction:\n$2\\text{H}_2(g) + \\text{O}_2(g) \\to 2\\text{H}_2\\text{O}(l)$\nStatement I: The theoretical thermodynamic efficiency ($\\eta$) of a fuel cell is defined as the ratio of standard Gibbs energy change to standard enthalpy of combustion: $\\eta = \\frac{\\Delta G^\\circ}{\\Delta H^\\circ} \\times 100$.\nStatement II: If $\\Delta H^\\circ = -571.6\\text{ kJ mol}^{-1}$ and $\\Delta G^\\circ = -474.4\\text{ kJ mol}^{-1}$ for the formation of two moles of liquid water, the theoretical thermodynamic efficiency of the cell is approximately $83\\%$.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. The electrical work obtained from a fuel cell equals $-\\Delta G^\\circ$, whereas the total heat combustion energy is $-\\Delta H^\\circ$. The theoretical thermodynamic efficiency is defined as $\\eta = \\frac{\\Delta G^\\circ}{\\Delta H^\\circ} \\times 100$. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. Substitute the given values into the efficiency equation:\n$\\eta = \\frac{-474.4\\text{ kJ}}{-571.6\\text{ kJ}} \\times 100 = \\frac{474.4}{571.6} \\times 100 \\approx 82.996\\% \\approx 83\\%$.\nHence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_electrochemistry_c01_040",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Electrode Reaction / Process) with List II (Electrochemical Criterion / Outcome at $298\\text{ K}$):\nList I:\n(P) Feasibility of a spontaneous galvanic cell reaction\n(Q) Condition when cell EMF reaches zero ($E_{\\text{cell}} = 0$)\n(R) Displacement of $\\text{H}_2$ gas from dilute mineral acid by a metal\n(S) Electrolytic cell operating under external voltage $E_{\\text{ext}} > E_{\\text{cell}}$\nList II:\n(1) Negative standard reduction potential ($E^\\circ_{\\text{red}} < 0\\text{ V}$)\n(2) Chemical dynamic equilibrium with reaction quotient $Q = K_c$\n(3) Non-spontaneous reaction driven by an external electrical power source\n(4) Positive cell potential ($E_{\\text{cell}} > 0$) and negative free energy ($\\Delta G < 0$)\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-4, S-3",
+        "B) P-4, Q-2, R-1, S-3",
+        "C) P-4, Q-1, R-2, S-3",
+        "D) P-2, Q-4, R-3, S-1"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Match P (Spontaneous galvanic cell reaction). A spontaneous cell reaction requires positive cell potential ($E_{\\text{cell}} > 0$) and negative Gibbs free energy change ($\\Delta G < 0$). Thus, P matches (4).\nStep 2: Match Q ($E_{\\text{cell}} = 0$). When a galvanic cell runs down, the reaction quotient reaches the equilibrium constant ($Q = K_c$), the chemical reaction attains dynamic equilibrium, and $E_{\\text{cell}}$ drops to zero. Thus, Q matches (2).\nStep 3: Match R (Displacement of $\\text{H}_2$ from acid). For a metal to reduce $\\text{H}^+$ ions to $\\text{H}_2$, its oxidation potential must be positive, which means its standard reduction potential must be negative ($E^\\circ_{\\text{red}} < 0\\text{ V}$). Thus, R matches (1).\nStep 4: Match S ($E_{\\text{ext}} > E_{\\text{cell}}$). When an external voltage exceeds the cell EMF, current is forced in the reverse direction, driving a non-spontaneous chemical reaction as an electrolytic cell. Thus, S matches (3).\nConclusion: The correct matching is P-4, Q-2, R-1, S-3."
+    },
+    {
+      "id": "chem_electrochemistry_c01_041",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Corrosion Prevention Method) with List II (Underlying Chemical Mechanism / Material Used):\nList I:\n(P) Sacrificial anodic protection\n(Q) Galvanization\n(R) Impressed current cathodic protection\n(S) Alkaline phosphate chemical coating\nList II:\n(1) Coating iron sheets with a permanent layer of molten zinc\n(2) Connecting buried iron structures to an external DC power supply to maintain the iron as a cathode\n(3) Formation of an insoluble, passivating metal-phosphate barrier on the iron surface\n(4) Attaching blocks of more electropositive metals like $\\text{Mg}$ or $\\text{Zn}$ to pipelines\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-4, R-2, S-3",
+        "B) P-4, Q-1, R-3, S-2",
+        "C) P-4, Q-1, R-2, S-3",
+        "D) P-2, Q-3, R-4, S-1"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Match P (Sacrificial anodic protection). Buried steel pipelines and ship hulls are connected to blocks of more reactive metals like magnesium or zinc, which corrode preferentially and protect the iron. Thus, P matches (4).\nStep 2: Match Q (Galvanization). Galvanization specifically refers to the process of coating iron or steel sheets with a thin protective layer of molten zinc. Thus, Q matches (1).\nStep 3: Match R (Impressed current cathodic protection). An external direct current (DC) power source is used to supply electrons continuously to the iron structure, suppressing oxidation by maintaining the structure as a cathode. Thus, R matches (2).\nStep 4: Match S (Alkaline phosphate chemical coating). Anti-rust solutions containing alkaline phosphate or chromate form an insoluble, dense, and passive protective layer of iron phosphate on the metal surface. Thus, S matches (3).\nConclusion: The correct matching is P-4, Q-1, R-2, S-3."
+    },
+    {
+      "id": "chem_electrochemistry_c01_042",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the electrochemical cell operating at $298\\text{ K}$ based on the reaction:\n$2\\text{Fe}(s) + \\text{O}_2(g) + 4\\text{H}^+(aq) \\to 2\\text{Fe}^{2+}(aq) + 2\\text{H}_2\\text{O}(l)$\nGiven standard reduction potentials:\n$E^\\circ_{(\\text{Fe}^{2+}/\\text{Fe})} = -0.44\\text{ V}$ and $E^\\circ_{(\\text{O}_2, \\text{H}^+/\\text{H}_2\\text{O})} = +1.23\\text{ V}$\nIf the partial pressure of oxygen is $p(\\text{O}_2) = 1.0\\text{ bar}$, $[\\text{H}^+] = 1.0\\text{ M}$, and $[\\text{Fe}^{2+}] = 1.0 \\times 10^{-3}\\text{ M}$, calculate the cell electromotive force ($E_{\\text{cell}}$) at $298\\text{ K}$. (Take $\\frac{2.303 RT}{F} = 0.059\\text{ V}$)",
+      "options": [
+        "A) $1.670\\text{ V}$",
+        "B) $1.581\\text{ V}$",
+        "C) $1.759\\text{ V}$",
+        "D) $1.847\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Determine the standard cell potential $E^\\circ_{\\text{cell}}$ and the number of electrons transferred ($n$).\nAnode half-reaction: $2\\text{Fe}(s) \\to 2\\text{Fe}^{2+}(aq) + 4e^-$\nCathode half-reaction: $\\text{O}_2(g) + 4\\text{H}^+(aq) + 4e^- \\to 2\\text{H}_2\\text{O}(l)$\nTotal electrons transferred $n = 4$.\n$E^\\circ_{\\text{cell}} = E^\\circ_{\\text{cathode}} - E^\\circ_{\\text{anode}} = +1.23\\text{ V} - (-0.44\\text{ V}) = +1.67\\text{ V}$.\nStep 2: Formulate the reaction quotient ($Q$).\n$Q = \\frac{[\\text{Fe}^{2+}]^2}{p(\\text{O}_2) \\cdot [\\text{H}^+]^4} = \\frac{(1.0 \\times 10^{-3})^2}{1.0 \\times (1.0)^4} = 1.0 \\times 10^{-6}$.\nStep 3: Apply the Nernst equation at $298\\text{ K}$.\n$E_{\\text{cell}} = E^\\circ_{\\text{cell}} - \\frac{0.059}{n} \\log Q$\n$E_{\\text{cell}} = 1.67 - \\frac{0.059}{4} \\log(10^{-6}) = 1.67 - \\frac{0.059}{4} \\times (-6)$\n$E_{\\text{cell}} = 1.67 + \\frac{0.059 \\times 6}{4} = 1.67 + 0.0885 = 1.7585\\text{ V} \\approx 1.759\\text{ V}$.\nConclusion: The electromotive force of the cell is $1.759\\text{ V}$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_043",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the electrochemical cell at $298\\text{ K}$:\n$\\text{Pt}(s)|\\text{H}_2(g, 1\\text{ bar})|\\text{HA}(0.10\\text{ M})\\|\\text{Ag}^+(0.10\\text{ M})|\\text{Ag}(s)$\nwhere $\\text{HA}$ is a weak monoprotic acid with dissociation constant $K_a = 1.0 \\times 10^{-5}$, and $E^\\circ_{(\\text{Ag}^+/\\text{Ag})} = +0.80\\text{ V}$. Which of the following statements is INCORRECT?",
+      "options": [
+        "A) The hydrogen ion concentration in the anodic half-cell is $[\\text{H}^+] = 1.0 \\times 10^{-3}\\text{ M}$.",
+        "B) The oxidation potential of the hydrogen electrode in this cell is $+0.177\\text{ V}$.",
+        "C) Adding solid sodium acetate ($\\text{NaA}$) to the anodic half-cell decreases the hydrogen ion concentration and increases the overall cell electromotive force ($E_{\\text{cell}}$).",
+        "D) Adding solid silver chloride ($\\text{AgCl}$) to the cathodic half-cell will precipitate silver ions and significantly decrease the cell electromotive force."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Calculate $[\\text{H}^+]$ in the anodic half-cell.\nFor weak acid $\\text{HA} \\rightleftharpoons \\text{H}^+ + \\text{A}^-$:\n$[\\text{H}^+] = \\sqrt{K_a \\cdot c} = \\sqrt{1.0 \\times 10^{-5} \\times 0.10} = \\sqrt{1.0 \\times 10^{-6}} = 1.0 \\times 10^{-3}\\text{ M}$. Statement A is correct.\nStep 2: Calculate the potential of the hydrogen electrode.\n$E_{\\text{red}} = 0.00 - 0.059 \\log \\frac{1}{[\\text{H}^+]} = -0.059 \\times 3 = -0.177\\text{ V}$.\nThus, the oxidation potential $E_{\\text{ox}} = -E_{\\text{red}} = +0.177\\text{ V}$. Statement B is correct.\nStep 3: Analyze the effect of adding $\\text{NaA}$ to the anode.\nAdding $\\text{NaA}$ supplies the common ion $\\text{A}^-$, suppressing $\\text{HA}$ ionization and lowering $[\\text{H}^+]$. A lower $[\\text{H}^+]$ at the anode shifts the oxidation equilibrium forward, making the anode potential more negative (oxidation more favorable), thereby increasing $E_{\\text{cell}} = E_{\\text{cathode}} - E_{\\text{anode}}$. Statement C is correct.\nStep 4: Analyze Statement D.\nSilver chloride ($\\text{AgCl}$) is an insoluble salt. Adding solid $\\text{AgCl}$ to an already $0.10\\text{ M Ag}^+$ solution cannot precipitate $\\text{Ag}^+$ because no additional $\\text{Cl}^-$ is provided in excess of solubility; solid $\\text{AgCl}$ merely sits undissolved and does not alter the $0.10\\text{ M Ag}^+$ concentration. Hence, Statement D is incorrect.\nConclusion: The incorrect statement is that adding solid silver chloride to the cathodic half-cell will precipitate silver ions and significantly decrease the cell electromotive force."
+    },
+    {
+      "id": "chem_electrochemistry_c01_044",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For a reversible galvanic cell involving a two-electron transfer ($n = 2$), the standard electromotive force is $E^\\circ_{\\text{cell}} = 1.050\\text{ V}$ at $298\\text{ K}$, and its temperature coefficient at constant pressure is $\\left(\\frac{\\partial E^\\circ_{\\text{cell}}}{\\partial T}\\right)_P = -4.0 \\times 10^{-4}\\text{ V K}^{-1}$. Calculate the standard entropy change ($\\Delta_r S^\\circ$) and standard enthalpy change ($\\Delta_r H^\\circ$) for the cell reaction at $298\\text{ K}$. (Take $1\\text{ F} = 96500\\text{ C mol}^{-1}$)",
+      "options": [
+        "A) $\\Delta_r S^\\circ = -77.2\\text{ J K}^{-1}\\text{ mol}^{-1}$, $\\Delta_r H^\\circ = -225.66\\text{ kJ mol}^{-1}$",
+        "B) $\\Delta_r S^\\circ = +77.2\\text{ J K}^{-1}\\text{ mol}^{-1}$, $\\Delta_r H^\\circ = -179.64\\text{ kJ mol}^{-1}$",
+        "C) $\\Delta_r S^\\circ = -38.6\\text{ J K}^{-1}\\text{ mol}^{-1}$, $\\Delta_r H^\\circ = -214.16\\text{ kJ mol}^{-1}$",
+        "D) $\\Delta_r S^\\circ = -77.2\\text{ J K}^{-1}\\text{ mol}^{-1}$, $\\Delta_r H^\\circ = -202.65\\text{ kJ mol}^{-1}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Calculate standard entropy change ($\\Delta_r S^\\circ$).\nFrom thermodynamic relations of electrochemical cells:\n$\\Delta_r S^\\circ = nF \\left(\\frac{\\partial E^\\circ}{\\partial T}\\right)_P$\nSubstitute $n = 2$, $F = 96500\\text{ C mol}^{-1}$, and $\\left(\\frac{\\partial E^\\circ}{\\partial T}\\right)_P = -4.0 \\times 10^{-4}\\text{ V K}^{-1}$:\n$\\Delta_r S^\\circ = 2 \\times 96500 \\times (-4.0 \\times 10^{-4}) = -77.2\\text{ J K}^{-1}\\text{ mol}^{-1}$.\nStep 2: Calculate standard Gibbs energy change ($\\Delta_r G^\\circ$).\n$\\Delta_r G^\\circ = -nFE^\\circ = -2 \\times 96500 \\times 1.050 = -202650\\text{ J mol}^{-1} = -202.65\\text{ kJ mol}^{-1}$.\nStep 3: Calculate standard enthalpy change ($\\Delta_r H^\\circ$).\nFrom $\\Delta_r G^\\circ = \\Delta_r H^\\circ - T\\Delta_r S^\\circ$:\n$\\Delta_r H^\\circ = \\Delta_r G^\\circ + T\\Delta_r S^\\circ$\n$\\Delta_r H^\\circ = -202650\\text{ J} + [298\\text{ K} \\times (-77.2\\text{ J K}^{-1})]$\n$\\Delta_r H^\\circ = -202650 - 23005.6 = -225655.6\\text{ J mol}^{-1} \\approx -225.66\\text{ kJ mol}^{-1}$.\nConclusion: $\\Delta_r S^\\circ = -77.2\\text{ J K}^{-1}\\text{ mol}^{-1}$ and $\\Delta_r H^\\circ = -225.66\\text{ kJ mol}^{-1}$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_045",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The limiting molar conductivities ($\\Lambda_m^\\circ$) at $298\\text{ K}$ for barium hydroxide [$\\text{Ba(OH)}_2$], barium chloride [$\\text{BaCl}_2$], and ammonium chloride [$\\text{NH}_4\\text{Cl}$] are $457.6$, $240.6$, and $129.8\\text{ S cm}^2\\text{ mol}^{-1}$, respectively. What is the limiting molar conductivity of ammonium hydroxide [$\\text{NH}_4\\text{OH}$] at $298\\text{ K}$?",
+      "options": [
+        "A) $346.8\\text{ S cm}^2\\text{ mol}^{-1}$",
+        "B) $238.3\\text{ S cm}^2\\text{ mol}^{-1}$",
+        "C) $476.6\\text{ S cm}^2\\text{ mol}^{-1}$",
+        "D) $198.5\\text{ S cm}^2\\text{ mol}^{-1}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Write Kohlrausch's equations for each electrolyte:\n$\\Lambda_m^\\circ(\\text{Ba(OH)}_2) = \\lambda^\\circ(\\text{Ba}^{2+}) + 2\\lambda^\\circ(\\text{OH}^-) = 457.6\\text{ S cm}^2\\text{ mol}^{-1}$\n$\\Lambda_m^\\circ(\\text{BaCl}_2) = \\lambda^\\circ(\\text{Ba}^{2+}) + 2\\lambda^\\circ(\\text{Cl}^-) = 240.6\\text{ S cm}^2\\text{ mol}^{-1}$\n$\\Lambda_m^\\circ(\\text{NH}_4\\text{Cl}) = \\lambda^\\circ(\\text{NH}_4^+) + \\lambda^\\circ(\\text{Cl}^-) = 129.8\\text{ S cm}^2\\text{ mol}^{-1}$\nStep 2: Construct the expression for $\\Lambda_m^\\circ(\\text{NH}_4\\text{OH}) = \\lambda^\\circ(\\text{NH}_4^+) + \\lambda^\\circ(\\text{OH}^-)$:\n$\\Lambda_m^\\circ(\\text{NH}_4\\text{OH}) = \\Lambda_m^\\circ(\\text{NH}_4\\text{Cl}) + \\frac{1}{2}\\Lambda_m^\\circ(\\text{Ba(OH)}_2) - \\frac{1}{2}\\Lambda_m^\\circ(\\text{BaCl}_2)$\nStep 3: Substitute the numerical values:\n$\\Lambda_m^\\circ(\\text{NH}_4\\text{OH}) = 129.8 + \\frac{1}{2}(457.6) - \\frac{1}{2}(240.6)$\n$\\Lambda_m^\\circ(\\text{NH}_4\\text{OH}) = 129.8 + 228.8 - 120.3 = 358.6 - 120.3 = 238.3\\text{ S cm}^2\\text{ mol}^{-1}$.\nConclusion: The limiting molar conductivity of ammonium hydroxide is $238.3\\text{ S cm}^2\\text{ mol}^{-1}$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_046",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A silver concentration cell at $298\\text{ K}$ is set up as follows:\n$\\text{Ag}(s)|\\text{Ag}^+(\\text{saturated AgCl in } 0.010\\text{ M KCl})\\|\\text{Ag}^+(0.10\\text{ M})|\\text{Ag}(s)$\nThe electromotive force of the cell is measured to be $0.413\\text{ V}$. What is the solubility product ($K_{\\text{sp}}$) of $\\text{AgCl}$ at $298\\text{ K}$? (Take $\\frac{2.303 RT}{F} = 0.059\\text{ V}$)",
+      "options": [
+        "A) $1.0 \\times 10^{-8}\\text{ mol}^2\\text{ L}^{-2}$",
+        "B) $1.0 \\times 10^{-9}\\text{ mol}^2\\text{ L}^{-2}$",
+        "C) $1.0 \\times 10^{-10}\\text{ mol}^2\\text{ L}^{-2}$",
+        "D) $1.7 \\times 10^{-10}\\text{ mol}^2\\text{ L}^{-2}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Write the Nernst equation for the concentration cell.\n$E_{\\text{cell}} = \\frac{0.059}{1} \\log \\frac{[\\text{Ag}^+]_{\\text{cathode}}}{[\\text{Ag}^+]_{\\text{anode}}}$\nStep 2: Substitute the known values to solve for $[\\text{Ag}^+]_{\\text{anode}}$.\n$0.413 = 0.059 \\log \\left(\\frac{0.10}{[\\text{Ag}^+]_{\\text{anode}}}\\right)$\n$\\log \\left(\\frac{0.10}{[\\text{Ag}^+]_{\\text{anode}}}\\right) = \\frac{0.413}{0.059} = 7$\n$\\frac{0.10}{[\\text{Ag}^+]_{\\text{anode}}} = 10^7 \\implies [\\text{Ag}^+]_{\\text{anode}} = \\frac{0.10}{10^7} = 1.0 \\times 10^{-8}\\text{ M}$.\nStep 3: Relate $[\\text{Ag}^+]$ to $K_{\\text{sp}}$ using the chloride concentration in the anodic compartment.\nIn the anode compartment, $[\\text{Cl}^-] = 0.010\\text{ M}$ (from completely dissociated $\\text{KCl}$).\n$K_{\\text{sp}} = [\\text{Ag}^+][\\text{Cl}^-] = (1.0 \\times 10^{-8}\\text{ M}) \\times (0.010\\text{ M}) = 1.0 \\times 10^{-10}\\text{ mol}^2\\text{ L}^{-2}$.\nConclusion: The solubility product of $\\text{AgCl}$ is $1.0 \\times 10^{-10}\\text{ mol}^2\\text{ L}^{-2}$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_047",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An aqueous solution of chromium(III) sulfate, $\\text{Cr}_2(\\text{SO}_4)_3$, is electrolyzed to electroplate metallic chromium onto a cathode. A steady electrical current of $12.5\\text{ A}$ is passed for exactly $9650\\text{ seconds}$. If the current efficiency of the electroplating process is $80.0\\%$, what mass of chromium metal is deposited? (Molar mass of $\\text{Cr} = 52.0\\text{ g mol}^{-1}$, $1\\text{ F} = 96500\\text{ C mol}^{-1}$)",
+      "options": [
+        "A) $52.00\\text{ g}$",
+        "B) $21.67\\text{ g}$",
+        "C) $13.87\\text{ g}$",
+        "D) $17.33\\text{ g}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Calculate the total electric charge passed through the cell.\n$Q_{\\text{total}} = I \\times t = 12.5\\text{ A} \\times 9650\\text{ s} = 120625\\text{ C}$.\nStep 2: Account for the current efficiency ($80.0\\%$).\n$Q_{\\text{effective}} = 0.80 \\times 120625\\text{ C} = 96500\\text{ C} = 1.00\\text{ F}$.\nStep 3: Write the cathodic half-reaction.\n$\\text{Cr}^{3+} + 3e^- \\to \\text{Cr}(s)$\nThus, $3\\text{ F}$ ($3 \\times 96500\\text{ C}$) deposits $1\\text{ mol}$ of $\\text{Cr}$ ($52.0\\text{ g}$).\nStep 4: Calculate the mass of chromium deposited by $1.00\\text{ F}$.\nMass of $\\text{Cr} = \\frac{1.00\\text{ F}}{3\\text{ F}} \\times 52.0\\text{ g} = \\frac{52.0}{3} = 17.333\\text{ g} \\approx 17.33\\text{ g}$.\nConclusion: The mass of chromium metal deposited is $17.33\\text{ g}$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_048",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the Latimer reduction diagram for manganese species in acidic aqueous medium at $298\\text{ K}$:\n$\\text{MnO}_4^- \\xrightarrow{+0.56\\text{ V}} \\text{MnO}_4^{2-} \\xrightarrow{+2.26\\text{ V}} \\text{MnO}_2 \\xrightarrow{+0.95\\text{ V}} \\text{Mn}^{3+} \\xrightarrow{+1.51\\text{ V}} \\text{Mn}^{2+}$\nStatement I: The standard reduction potential for the direct reduction of permanganate to manganese(II), $\\text{MnO}_4^- + 8\\text{H}^+ + 5e^- \\to \\text{Mn}^{2+} + 4\\text{H}_2\\text{O}$, is $+1.51\\text{ V}$.\nStatement II: The manganate ion ($\\text{MnO}_4^{2-}$) is thermodynamically unstable in acidic aqueous medium and spontaneously disproportionates into $\\text{MnO}_4^-$ and $\\text{MnO}_2$ because the reduction potential to its right ($+2.26\\text{ V}$) is significantly more positive than that to its left ($+0.56\\text{ V}$).\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I using standard free energy summation.\n$\\Delta_r G^\\circ_{\\text{total}} = \\sum \\Delta_r G^\\circ_i = -F \\sum (n_i E^\\circ_i)$\n$-5 F E^\\circ_{(\\text{MnO}_4^-/\\text{Mn}^{2+})} = -F [1(0.56) + 2(2.26) + 1(0.95) + 1(1.51)]$\n$5 E^\\circ = 0.56 + 4.52 + 0.95 + 1.51 = 7.54\\text{ V}$\n$E^\\circ = \\frac{7.54}{5} = 1.508\\text{ V} \\approx +1.51\\text{ V}$. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. For disproportionation of $\\text{MnO}_4^{2-}$:\nReduction: $\\text{MnO}_4^{2-} + 4\\text{H}^+ + 2e^- \\to \\text{MnO}_2 + 2\\text{H}_2\\text{O}$, $E^\\circ_{\\text{cathode}} = +2.26\\text{ V}$\nOxidation: $\\text{MnO}_4^{2-} \\to \\text{MnO}_4^- + e^-$, $E^\\circ_{\\text{anode}} = +0.56\\text{ V}$\n$E^\\circ_{\\text{cell}} = E^\\circ_{\\text{cathode}} - E^\\circ_{\\text{anode}} = +2.26\\text{ V} - 0.56\\text{ V} = +1.70\\text{ V} > 0$.\nSince $E^\\circ_{\\text{cell}} > 0$, disproportionation is strongly spontaneous. In any Latimer diagram, an intermediate species undergoes spontaneous disproportionation whenever the reduction potential on its right is greater than the potential on its left. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_electrochemistry_c01_049",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In dilute aqueous solutions at $298\\text{ K}$, the limiting ionic molar conductivities of alkali metal cations follow the sequence: $\\lambda^\\circ(\\text{Cs}^+) > \\lambda^\\circ(\\text{Rb}^+) > \\lambda^\\circ(\\text{K}^+) > \\lambda^\\circ(\\text{Na}^+) > \\lambda^\\circ(\\text{Li}^+)$.\nReason (R): Lithium ion ($\\text{Li}^+$), having the smallest crystallographic ionic radius among alkali metal cations, exhibits the highest charge density, resulting in the most extensive degree of hydration and largest hydrodynamic (hydrated) radius in aqueous solution.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Evaluate Reason (R). The charge density of an ion is proportional to charge/radius. Among alkali metal cations, $\\text{Li}^+$ has the smallest bare ionic radius ($76\\text{ pm}$). Consequently, $\\text{Li}^+$ exerts the strongest electrostatic attraction on dipolar water molecules, acquiring a thick hydration shell. The hydrated radius follows the order: $\\text{Li}^+(aq) > \\text{Na}^+(aq) > \\text{K}^+(aq) > \\text{Rb}^+(aq) > \\text{Cs}^+(aq)$. Thus, Reason (R) is true.\nStep 2: Evaluate Assertion (A). Ionic mobility ($u$) is inversely proportional to the effective hydrodynamic radius of the hydrated ion in solution ($u = \\frac{q}{6\\pi\\eta r_{\\text{hyd}}}$). Because $\\text{Cs}^+(aq)$ has the smallest hydrated radius, it experiences the least frictional drag from solvent molecules and moves the fastest, yielding the highest limiting ionic conductivity. Conversely, hydrated $\\text{Li}^+$ has the largest size and moves the slowest. Thus, Assertion (A) is true.\nStep 3: Relate (A) and (R). The order of limiting ionic conductivity in (A) is directly explained by the variation in extent of hydration and hydrated radii detailed in (R). Hence, Reason (R) is the correct explanation of Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_electrochemistry_c01_050",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An electrochemical cell consists of a silver-silver bromide electrode and a silver electrode:\n$\\text{Ag}(s)|\\text{AgBr}(s), \\text{KBr}(0.010\\text{ M})\\|\\text{AgNO}_3(0.10\\text{ M})|\\text{Ag}(s)$\nGiven that the solubility product of silver bromide is $K_{\\text{sp}}(\\text{AgBr}) = 5.0 \\times 10^{-13}$ at $298\\text{ K}$, calculate the cell electromotive force ($E_{\\text{cell}}$) at $298\\text{ K}$. (Take $\\frac{2.303 RT}{F} = 0.059\\text{ V}$ and $\\log 2 = 0.301$)",
+      "options": [
+        "A) $0.413\\text{ V}$",
+        "B) $0.726\\text{ V}$",
+        "C) $0.549\\text{ V}$",
+        "D) $0.638\\text{ V}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate the silver ion concentration in the anodic compartment.\nIn the anode compartment, potassium bromide is completely dissociated: $[\\text{Br}^-] = 0.010\\text{ M} = 10^{-2}\\text{ M}$.\nFrom the solubility product equilibrium:\n$[\\text{Ag}^+]_{\\text{anode}} = \\frac{K_{\\text{sp}}(\\text{AgBr})}{[\\text{Br}^-]} = \\frac{5.0 \\times 10^{-13}}{10^{-2}} = 5.0 \\times 10^{-11}\\text{ M}$.\nStep 2: Identify $[\\text{Ag}^+]$ in the cathodic compartment.\n$[\\text{Ag}^+]_{\\text{cathode}} = 0.10\\text{ M} = 10^{-1}\\text{ M}$.\nStep 3: Apply the Nernst equation for a concentration-type cell ($E^\\circ_{\\text{cell}} = 0$):\n$E_{\\text{cell}} = \\frac{0.059}{1} \\log \\left(\\frac{[\\text{Ag}^+]_{\\text{cathode}}}{[\\text{Ag}^+]_{\\text{anode}}}\\right)$\n$E_{\\text{cell}} = 0.059 \\log \\left(\\frac{10^{-1}}{5.0 \\times 10^{-11}}\\right) = 0.059 \\log(2.0 \\times 10^9)$\nStep 4: Compute the logarithm value.\n$\\log(2.0 \\times 10^9) = \\log 2 + 9 = 0.301 + 9 = 9.301$.\n$E_{\\text{cell}} = 0.059 \\times 9.301 = 0.548759\\text{ V} \\approx 0.549\\text{ V}$.\nConclusion: The cell electromotive force is $0.549\\text{ V}$."
+    },
+    {
+      "id": "chem_electrochemistry_c01_051",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Industrial Electrochemical Cell / Process) with List II (Electrode Reactions and Salient Features):\nList I:\n(P) Electrolytic refining of crude blister copper\n(Q) Castner-Kellner cell for sodium hydroxide production\n(R) Hall-Héroult cell for aluminum extraction\n(S) Hydrogen-Oxygen fuel cell\nList II:\n(1) Anode: Carbon rods that burn to $\\text{CO}$ and $\\text{CO}_2$; Cathode: Carbon lining reducing molten $\\text{Al}^{3+}$\n(2) Continuous flow of fluid reactants converting chemical combustion energy directly into electrical energy\n(3) Anode: Impure copper slabs dissolving into $\\text{CuSO}_4$; Cathode: Pure thin copper sheets depositing $\\text{Cu}$\n(4) Flowing mercury cathode forming sodium amalgam, which is subsequently reacted with water to yield $\\text{NaOH}$\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-4, R-3, S-2",
+        "B) P-3, Q-1, R-4, S-2",
+        "C) P-4, Q-3, R-1, S-2",
+        "D) P-3, Q-4, R-1, S-2"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Match P (Electrolytic refining of blister copper). Impure copper acts as the anode and dissolves, while pure copper deposits on thin pure copper cathode sheets suspended in an acidified $\\text{CuSO}_4$ bath. Noble impurities (Ag, Au, Pt) settle as anode mud. Thus, P matches (3).\nStep 2: Match Q (Castner-Kellner cell). A brine solution is electrolyzed using a flowing mercury cathode where sodium is discharged to form sodium amalgam ($\\text{Na-Hg}$). The amalgam is treated with water to produce pure sodium hydroxide. Thus, Q matches (4).\nStep 3: Match R (Hall-Héroult cell). Molten alumina dissolved in molten cryolite is electrolyzed. Carbon anode blocks are consumed by oxidation to $\\text{CO}$ and $\\text{CO}_2$, while molten aluminum collects at the carbon-lined cathode base. Thus, R matches (1).\nStep 4: Match S (Fuel cell). Fuel cells operate continuously as long as gaseous reactants ($\text{H}_2$ and $\text{O}_2$) are supplied, transforming the chemical energy of combustion directly into electrical power without intermediate Carnot heat cycles. Thus, S matches (2).\nConclusion: The correct matching is P-3, Q-4, R-1, S-2."
+    },
+    {
+      "id": "chem_electrochemistry_c01_052",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An aqueous solution containing $1.0\\text{ M}$ each of $\\text{Cu}^{2+}$, $\\text{Ni}^{2+}$, $\\text{Cd}^{2+}$, and $\\text{Zn}^{2+}$ is subjected to electrolysis using inert platinum electrodes at $298\\text{ K}$. Given standard reduction potentials:\n$E^\\circ_{(\\text{Cu}^{2+}/\\text{Cu})} = +0.34\\text{ V}$, $E^\\circ_{(\\text{Ni}^{2+}/\\text{Ni})} = -0.25\\text{ V}$,\n$E^\\circ_{(\\text{Cd}^{2+}/\\text{Cd})} = -0.40\\text{ V}$, $E^\\circ_{(\\text{Zn}^{2+}/\\text{Zn})} = -0.76\\text{ V}$\nConsider the following two statements:\nStatement I: As the external cathode potential is made progressively more negative, the metals will deposit on the cathode in the sequential order: $\\text{Cu} \\to \\text{Ni} \\to \\text{Cd} \\to \\text{Zn}$.\nStatement II: The cation with the most positive standard reduction potential has the lowest activation barrier for discharge and requires the least cathodic overpotential to undergo electrodeposition.\nChoose the correct option:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Evaluate Statement I. In competitive reduction at the cathode, the species with the most positive (least negative) reduction potential is thermodynamically easiest to reduce and discharges first. Comparing the standard reduction potentials:\n$E^\\circ(\\text{Cu}^{2+}) = +0.34\\text{ V} > E^\\circ(\\text{Ni}^{2+}) = -0.25\\text{ V} > E^\\circ(\\text{Cd}^{2+}) = -0.40\\text{ V} > E^\\circ(\\text{Zn}^{2+}) = -0.76\\text{ V}$.\nTherefore, deposition follows the exact sequence: $\\text{Cu}$, followed by $\\text{Ni}$, then $\\text{Cd}$, and finally $\\text{Zn}$. Hence, Statement I is correct.\nStep 2: Evaluate Statement II. Thermodynamically and kinetically, ions with higher reduction potentials require lower negative potentials (least energy input/overpotential) at the cathode to initiate electron transfer, facilitating rapid discharge compared to ions with highly negative reduction potentials. Hence, Statement II is correct.\nConclusion: Both Statement I and Statement II are correct."
+    },
+    {
+      "id": "chem_electrochemistry_c01_053",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): During the complete electrical discharge of a lead-acid storage battery when $2\\text{ F}$ of charge is delivered, the mass of the anode increases by $96\\text{ g}$ while the mass of the cathode increases by $64\\text{ g}$.\nReason (R): During discharge, $1\\text{ mol}$ of spongy lead at the anode is converted to $1\\text{ mol}$ of $\\text{PbSO}_4(s)$, incorporating sulfate ions from solution, whereas $1\\text{ mol}$ of $\\text{PbO}_2(s)$ at the cathode is converted to $1\\text{ mol}$ of $\\text{PbSO}_4(s)$, substituting two oxide ions with one sulfate ion.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Analyze the molar masses of active components:\n$\\text{Pb} = 207\\text{ g mol}^{-1}$\n$\\text{PbO}_2 = 207 + (2 \\times 16) = 239\\text{ g mol}^{-1}$\n$\\text{PbSO}_4 = 207 + 32 + (4 \\times 16) = 303\\text{ g mol}^{-1}$\nStep 2: Evaluate Reason (R).\nAt Anode: $\\text{Pb}(s) + \\text{SO}_4^{2-} \\to \\text{PbSO}_4(s) + 2e^-$.\n$1\\text{ mol}$ of $\\text{Pb}$ ($207\\text{ g}$) gains a sulfate group ($96\\text{ g}$) to form $1\\text{ mol}$ of $\\text{PbSO}_4$ ($303\\text{ g}$).\nAt Cathode: $\\text{PbO}_2(s) + 4\\text{H}^+ + \\text{SO}_4^{2-} + 2e^- \\to \\text{PbSO}_4(s) + 2\\text{H}_2\\text{O}(l)$.\n$1\\text{ mol}$ of $\\text{PbO}_2$ ($239\\text{ g}$) loses two oxygen atoms ($32\\text{ g}$) and gains one sulfate group ($96\\text{ g}$), resulting in a net mass increase of $96 - 32 = 64\\text{ g}$ to form $303\\text{ g}$ of $\\text{PbSO}_4$. Thus, Reason (R) is true.\nStep 3: Evaluate Assertion (A).\nFor $2\\text{ F}$ of electricity delivered, $n = 2$, meaning exactly $1\\text{ mol}$ of $\\text{Pb}$ oxidizes and $1\\text{ mol}$ of $\\text{PbO}_2$ reduces.\nAnode mass change: $303 - 207 = +96\\text{ g}$.\nCathode mass change: $303 - 239 = +64\\text{ g}$.\nThus, Assertion (A) is true, and Reason (R) provides the exact stoichiometric derivation of Assertion (A).\nConclusion: Both (A) and (R) are true and (R) is the correct explanation of (A)."
+    },
+    {
+      "id": "chem_electrochemistry_c01_054",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Four identical clean iron nails are placed under four distinct environmental conditions at room temperature:\nNail 1: Submerged in deaerated, boiled distilled water sealed with a layer of paraffin wax.\nNail 2: Exposed to moist air and sprayed periodically with $3.5\\%$ aqueous sodium chloride solution.\nNail 3: Tightly wrapped with copper wire and exposed to aerated moist air.\nNail 4: Tightly wrapped with zinc wire and exposed to aerated moist air.\nWhich of the following represents the correct sequence of rusting rate, from fastest to slowest?",
+      "options": [
+        "A) Nail 2 > Nail 3 > Nail 4 > Nail 1",
+        "B) Nail 3 > Nail 4 > Nail 2 > Nail 1",
+        "C) Nail 3 > Nail 2 > Nail 4 \\approx Nail 1",
+        "D) Nail 4 > Nail 3 > Nail 2 > Nail 1"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Analyze Nail 3 (Iron connected to copper). Copper is less electropositive than iron ($E^\\circ_{\\text{Cu}^{2+}/\\text{Cu}} = +0.34\\text{ V}$ vs $E^\\circ_{\\text{Fe}^{2+}/\\text{Fe}} = -0.44\\text{ V}$). Copper acts as an efficient cathodic surface with high catalytic activity for oxygen reduction, accelerating galvanic corrosion of iron enormously. Hence, Nail 3 corrodes the fastest.\nStep 2: Analyze Nail 2 (Saline spray). Sodium chloride increases the electrical conductivity of the aqueous surface film and breaks down any passivating oxide films, resulting in rapid electrochemical rusting, though slower than direct metallic galvanic coupling to copper.\nStep 3: Analyze Nail 4 (Iron connected to zinc). Zinc has a lower reduction potential than iron ($-0.76\\text{ V}$ vs $-0.44\\text{ V}$) and acts as a sacrificial anode, preventing iron from rusting.\nStep 4: Analyze Nail 1 (Deaerated sealed water). In the absence of dissolved oxygen, the cathodic reaction cannot occur, completely arresting corrosion.\nConclusion: The correct sequence of rusting rate from fastest to slowest is Nail 3 > Nail 2 > Nail 4 \\approx Nail 1."
+    },
+    {
+      "id": "chem_electrochemistry_c01_055",
+      "subject": "Chemistry",
+      "topic": "Electrochemistry",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A hydrogen-hydrogen concentration cell is constructed at $298\\text{ K}$:\n$\\text{Pt}(s)|\\text{H}_2(g, 1\\text{ bar})|\\text{CH}_3\\text{COOH}(0.10\\text{ M})\\|\\text{HCl}(0.010\\text{ M})|\\text{H}_2(g, 1\\text{ bar})|\\text{Pt}(s)$\nGiven that the ionization constant of acetic acid is $K_a = 1.80 \\times 10^{-5}$ at $298\\text{ K}$, what is the electromotive force ($E_{\\text{cell}}$) of the cell? (Take $\\frac{2.303 RT}{F} = 0.059\\text{ V}$, $\\sqrt{1.8} = 1.34$, and $\\log 7.46 = 0.873$)",
+      "options": [
+        "A) $0.118\\text{ V}$",
+        "B) $0.0295\\text{ V}$",
+        "C) $0.089\\text{ V}$",
+        "D) $0.0515\\text{ V}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Calculate hydrogen ion concentration in the anodic half-cell (acetic acid).\nFor weak acid $\\text{CH}_3\\text{COOH} \\rightleftharpoons \\text{CH}_3\\text{COO}^- + \\text{H}^+$:\n$[\\text{H}^+]_{\\text{anode}} = \\sqrt{K_a \\cdot c} = \\sqrt{1.80 \\times 10^{-5} \\times 0.10} = \\sqrt{1.80 \\times 10^{-6}}$\n$[\\text{H}^+]_{\\text{anode}} = 1.3416 \\times 10^{-3}\\text{ M}$.\nStep 2: Identify hydrogen ion concentration in the cathodic half-cell (hydrochloric acid).\nSince $\\text{HCl}$ is a strong acid, $[\\text{H}^+]_{\\text{cathode}} = 0.010\\text{ M} = 1.0 \\times 10^{-2}\\text{ M}$.\nStep 3: Apply the Nernst equation for the concentration cell at $298\\text{ K}$ ($n = 1$):\n$E_{\\text{cell}} = 0.059 \\log \\left(\\frac{[\\text{H}^+]_{\\text{cathode}}}{[\\text{H}^+]_{\\text{anode}}}\\right)$\n$E_{\\text{cell}} = 0.059 \\log \\left(\\frac{1.0 \\times 10^{-2}}{1.3416 \\times 10^{-3}}\\right) = 0.059 \\log(7.4538) \\approx 0.059 \\log(7.46)$.\nStep 4: Calculate the numerical potential value.\n$E_{\\text{cell}} = 0.059 \\times 0.873 = 0.051507\\text{ V} \\approx 0.0515\\text{ V}$.\nConclusion: The electromotive force of the concentration cell is $0.0515\\text{ V}$."
+    }
+  ]
+}

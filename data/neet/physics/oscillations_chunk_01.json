@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Oscillations",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_oscillations_c01_001",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding periodic and oscillatory motions:\nStatement I: Every oscillatory motion is necessarily periodic, but every periodic motion need not be oscillatory.\nStatement II: The orbital motion of planets around the Sun is periodic but not oscillatory, whereas the to-and-fro motion of a simple pendulum is both periodic and oscillatory.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: By NCERT physics definition, a motion that repeats itself at regular intervals of time is called periodic motion. If a body in periodic motion moves to and fro about a fixed equilibrium position (mean position), the motion is classified as oscillatory or vibratory motion. Thus, every oscillatory motion has a fixed period and repeats itself, making it periodic. However, periodic motions such as the uniform circular motion of planets around the Sun or the rotation of Earth on its axis do not possess a mean position about which the body moves back and forth; hence they are not oscillatory. Thus, Statement I is correct.\nStep 2: Planetary orbits repeat periodically every orbital period without an equilibrium to-and-fro oscillation, while a simple pendulum swings back and forth about its lowest equilibrium position periodically. Thus, Statement II is correct.\nStep 3: Distractor rejection: Since both statements faithfully describe fundamental NCERT distinctions between periodic and oscillatory motions, choices stating that either statement is incorrect must be rejected."
+    },
+    {
+      "id": "phy_oscillations_c01_002",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In simple harmonic motion (SHM), the acceleration of the oscillating particle is directly proportional to its displacement from the mean position and is always directed towards the mean position.\nReason (R): The linear restoring force acting on a particle in simple harmonic motion is given by $F = -kx$, where $k$ is a positive constant and $x$ is the displacement measured from the equilibrium position.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: By Newton's second law, acceleration is related to net force by $a = \\frac{F}{m}$. For simple harmonic motion, the fundamental defining condition is that the restoring force is proportional to displacement from the mean position and directed opposite to it: $F = -kx$. Hence Reason (R) is true.\nStep 2: Substituting $F = -kx$ into Newton's second law yields $a = -\\left(\\frac{k}{m}\\right)x = -\\omega^2 x$. The negative sign signifies that acceleration is directed toward the mean position ($x = 0$) opposite to displacement, and its magnitude is directly proportional to $|x|$. Thus Assertion (A) is true.\nStep 3: Distractor rejection: The linear restoring force law stated in Reason (R) is the exact physical origin and explanation for the acceleration relation in Assertion (A). Therefore, both are true and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_oscillations_c01_003",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle executes simple harmonic motion such that it completes $120$ full oscillations in one minute. The angular frequency $\\omega$ of this oscillation is:",
+      "options": [
+        "A) $2\\pi\\text{ rad/s}$",
+        "B) $4\\pi^2\\text{ rad/s}$",
+        "C) $4\\pi\\text{ rad/s}$",
+        "D) $8\\pi\\text{ rad/s}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The linear frequency $\\nu$ is the number of complete oscillations per unit time. Given that the particle completes $120$ oscillations in $60\\text{ s}$, the frequency is:\n$$\\nu = \\frac{120}{60} = 2\\text{ s}^{-1} = 2\\text{ Hz}$$\nStep 2: Angular frequency $\\omega$ is related to linear frequency $\\nu$ by the standard NCERT relation:\n$$\\omega = 2\\pi \\nu = 2\\pi \\times 2 = 4\\pi\\text{ rad/s}$$\nStep 3: Distractor rejection: $2\\pi\\text{ rad/s}$ incorrectly corresponds to a frequency of $1\\text{ Hz}$; $4\\pi^2\\text{ rad/s}$ results from erroneously squaring $\\pi$; $8\\pi\\text{ rad/s}$ results from doubling the true angular frequency."
+    },
+    {
+      "id": "phy_oscillations_c01_004",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The displacement of a particle executing simple harmonic motion is described by the equation $x(t) = 0.04 \\cos\\left(50\\pi t + \\frac{\\pi}{3}\\right)$, where $x$ is in meters and $t$ is in seconds. The amplitude, linear frequency, and initial phase (epoch) of the motion are respectively:",
+      "options": [
+        "A) $0.08\\text{ m},\\; 50\\text{ Hz},\\; \\frac{\\pi}{6}\\text{ rad}$",
+        "B) $0.04\\text{ m},\\; 50\\text{ Hz},\\; \\frac{\\pi}{3}\\text{ rad}$",
+        "C) $0.02\\text{ m},\\; 25\\text{ Hz},\\; \\frac{\\pi}{4}\\text{ rad}$",
+        "D) $0.04\\text{ m},\\; 25\\text{ Hz},\\; \\frac{\\pi}{3}\\text{ rad}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Comparing the given equation with the standard NCERT displacement formula for simple harmonic motion, $x(t) = A \\cos(\\omega t + \\phi_0)$:\n- Amplitude $A = 0.04\\text{ m}$.\n- Angular frequency $\\omega = 50\\pi\\text{ rad/s}$.\n- Initial phase (epoch) $\\phi_0 = \\frac{\\pi}{3}\\text{ rad}$.\nStep 2: The linear frequency $\\nu$ is determined using $\\omega = 2\\pi \\nu$:\n$$\\nu = \\frac{\\omega}{2\\pi} = \\frac{50\\pi}{2\\pi} = 25\\text{ Hz}$$\nStep 3: Distractor rejection: A linear frequency of $50\\text{ Hz}$ confuses angular frequency $\\omega$ with linear frequency $\\nu$; an amplitude of $0.08\\text{ m}$ erroneously doubles the coefficient $A$."
+    },
+    {
+      "id": "phy_oscillations_c01_005",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the velocity of a particle executing simple harmonic motion with amplitude $A$ and angular frequency $\\omega$:\nStatement I: The speed of the particle attains its maximum value at the mean position ($x = 0$), where $v_{\\max} = \\omega A$.\nStatement II: The speed of the particle is zero at the extreme positions ($x = \\pm A$) because the particle momentarily comes to rest before reversing its direction.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The velocity of a particle in simple harmonic motion as a function of displacement $x$ is given by $v(x) = \\pm \\omega \\sqrt{A^2 - x^2}$. At the mean position, $x = 0$, giving $v = \\pm \\omega A$. Thus, the maximum speed is $v_{\\max} = \\omega A$. Statement I is correct.\nStep 2: At the extreme positions, $x = \\pm A$, substitution into the velocity relation yields $v = \\pm \\omega \\sqrt{A^2 - A^2} = 0$. The particle stops momentarily at the turning points to reverse its direction of motion. Statement II is correct.\nStep 3: Distractor rejection: Both statements correctly state fundamental kinematics of simple harmonic motion according to NCERT; therefore, any choice declaring either statement incorrect is invalid."
+    },
+    {
+      "id": "phy_oscillations_c01_006",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): At the mean position of simple harmonic motion, the magnitude of acceleration of the oscillating particle is zero, while its speed is maximum.\nReason (R): The acceleration of a particle in simple harmonic motion is given by $a = -\\omega^2 x$, which vanishes at $x = 0$, while the restoring force is zero at the equilibrium position.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The acceleration in SHM is given by $a = -\\omega^2 x$. At the mean position ($x = 0$), $a = -\\omega^2 (0) = 0$. Concurrently, speed is given by $v = \\omega\\sqrt{A^2 - x^2}$, which reaches its maximum value $\\omega A$ at $x = 0$. Hence, Assertion (A) is true.\nStep 2: At the mean position, the displacement from equilibrium is zero, so the restoring force $F = -kx = 0$ and the acceleration $a = -\\omega^2 x = 0$. Hence, Reason (R) is true.\nStep 3: Distractor rejection: The mathematical definition $a = -\\omega^2 x$ and vanishing restoring force directly explain why acceleration is zero at the mean position in Assertion (A). Thus, both are true and Reason (R) is the correct explanation of Assertion (A)."
+    },
+    {
+      "id": "phy_oscillations_c01_007",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II for a particle executing simple harmonic motion:\nList I (Kinematic/Phase relationship)\nA. Phase difference between displacement and velocity\nB. Phase difference between displacement and acceleration\nC. Phase difference accumulated between $t = 0$ and $t = \\frac{3T}{4}$ starting from mean position\nD. Phase angle traversed during one complete oscillation cycle\n\nList II (Phase Angle)\nI. $\\frac{\\pi}{2}\\text{ rad}$\nII. $\\pi\\text{ rad}$\nIII. $\\frac{3\\pi}{2}\\text{ rad}$\nIV. $2\\pi\\text{ rad}$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-I, C-IV, D-III",
+        "B) A-I, B-III, C-II, D-IV",
+        "C) A-I, B-II, C-III, D-IV",
+        "D) A-IV, B-II, C-I, D-III"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: If $x(t) = A\\sin(\\omega t)$, then velocity is $v(t) = A\\omega\\cos(\\omega t) = A\\omega\\sin\\left(\\omega t + \\frac{\\pi}{2}\\right)$. Velocity leads displacement by a phase of $\\frac{\\pi}{2}\\text{ rad}$. Thus, A matches I.\nStep 2: Acceleration is $a(t) = -\\omega^2 A\\sin(\\omega t) = \\omega^2 A\\sin(\\omega t + \\pi)$. Acceleration leads displacement by $\\pi\\text{ rad}$ (opposite phase). Thus, B matches II.\nStep 3: At $t = \\frac{3T}{4}$, phase angle $\\Delta\\phi = \\omega t = \\left(\\frac{2\\pi}{T}\\right)\\left(\\frac{3T}{4}\\right) = \\frac{3\\pi}{2}\\text{ rad}$. Thus, C matches III.\nStep 4: In one full oscillation period $T$, the phase advance is $\\omega T = \\left(\\frac{2\\pi}{T}\\right)T = 2\\pi\\text{ rad}$. Thus, D matches IV.\nDistractor rejection: Any combination other than A-I, B-II, C-III, D-IV fails the standard phase relations established in NCERT."
+    },
+    {
+      "id": "phy_oscillations_c01_008",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle of mass $m = 0.2\\text{ kg}$ executes simple harmonic motion of amplitude $A = 0.1\\text{ m}$ with an angular frequency $\\omega = 10\\text{ rad/s}$. The maximum kinetic energy of the particle and its kinetic energy at displacement $x = 0.06\\text{ m}$ are respectively:",
+      "options": [
+        "A) $0.20\\text{ J}$ and $0.128\\text{ J}$",
+        "B) $0.05\\text{ J}$ and $0.032\\text{ J}$",
+        "C) $0.10\\text{ J}$ and $0.036\\text{ J}$",
+        "D) $0.10\\text{ J}$ and $0.064\\text{ J}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The maximum kinetic energy occurs at the mean position ($x = 0$) and is given by:\n$$K_{\\max} = \\frac{1}{2}m\\omega^2 A^2 = \\frac{1}{2}(0.2)(10)^2(0.1)^2 = \\frac{1}{2}(0.2)(100)(0.01) = 0.10\\text{ J}$$\nStep 2: The kinetic energy at an arbitrary displacement $x$ is:\n$$K(x) = \\frac{1}{2}m\\omega^2 (A^2 - x^2) = \\frac{1}{2}(0.2)(100)\\left[(0.1)^2 - (0.06)^2\\right]$$\n$$K(x) = 10 \\times (0.0100 - 0.0036) = 10 \\times 0.0064 = 0.064\\text{ J}$$\nStep 3: Distractor rejection: $0.036\\text{ J}$ is the potential energy at $x = 0.06\\text{ m}$ ($U = \\frac{1}{2}m\\omega^2 x^2 = 10 \\times 0.0036 = 0.036\\text{ J}$); $0.20\\text{ J}$ erroneously omits the factor of $1/2$."
+    },
+    {
+      "id": "phy_oscillations_c01_009",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding potential energy $U$ in simple harmonic motion (taking the potential energy at the mean position as zero):\nStatement I: The potential energy of a simple harmonic oscillator is a parabolic function of displacement given by $U(x) = \\frac{1}{2}m\\omega^2 x^2$.\nStatement II: The potential energy attains its maximum value at the mean position and drops to zero at the extreme positions.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: By NCERT physics, the restoring force is $F = -kx = -m\\omega^2 x$. The work done against the restoring force in displacing the particle from $0$ to $x$ gives the potential energy:\n$$U(x) = \\int_0^x kx\\,dx = \\frac{1}{2}kx^2 = \\frac{1}{2}m\\omega^2 x^2$$\nThis is a parabola symmetric about $x = 0$. Thus, Statement I is correct.\nStep 2: At the mean position ($x = 0$), $U(0) = 0$, which is the minimum potential energy. At the extreme positions ($x = \\pm A$), $U(\\pm A) = \\frac{1}{2}kA^2$, which is the maximum potential energy. Statement II incorrectly states that potential energy is maximum at the mean position and zero at the extremes.\nStep 3: Distractor rejection: Statement I is true and Statement II is false, making the choice indicating Statement I is correct and Statement II is incorrect the only valid choice."
+    },
+    {
+      "id": "phy_oscillations_c01_010",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In an undamped simple harmonic oscillator, the total mechanical energy is conserved and remains constant at every point along the path.\nReason (R): As the oscillating particle moves between the mean position and extreme positions, kinetic energy and potential energy continuously interchange such that their sum $E = K + U = \\frac{1}{2}kA^2$ is independent of time and displacement.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In undamped simple harmonic motion, the only operating force is the conservative restoring force $F = -kx$. By the law of conservation of mechanical energy, the sum of kinetic energy and potential energy is strictly constant throughout the motion. Assertion (A) is true.\nStep 2: At any displacement $x$, kinetic energy is $K = \\frac{1}{2}k(A^2 - x^2)$ and potential energy is $U = \\frac{1}{2}kx^2$. Summing these two gives:\n$$E = K + U = \\frac{1}{2}k(A^2 - x^2) + \\frac{1}{2}kx^2 = \\frac{1}{2}kA^2$$\nThis sum is constant and independent of position $x$ and time $t$. Reason (R) is true.\nStep 3: Distractor rejection: Reason (R) provides the exact mathematical and physical basis for why total mechanical energy is conserved in Assertion (A). Therefore, both are true and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_oscillations_c01_011",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the frequency of energy oscillations in simple harmonic motion:\nStatement I: If a particle executes simple harmonic motion with a linear frequency $\\nu$, both its kinetic energy and potential energy oscillate with a frequency of $2\\nu$.\nStatement II: The total mechanical energy of an undamped simple harmonic oscillator oscillates with a linear frequency of $\\nu$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: If displacement is $x(t) = A\\sin(\\omega t)$, then potential energy is $U(t) = \\frac{1}{2}kA^2\\sin^2(\\omega t) = \\frac{1}{4}kA^2(1 - \\cos(2\\omega t))$. Similarly, kinetic energy is $K(t) = \\frac{1}{2}kA^2\\cos^2(\\omega t) = \\frac{1}{4}kA^2(1 + \\cos(2\\omega t))$. Both expressions contain terms oscillating with angular frequency $2\\omega$, which corresponds to a linear frequency of $2\\nu$. In one full cycle of SHM, KE and PE each reach their maximum twice. Thus, Statement I is correct.\nStep 2: The total mechanical energy is $E = K(t) + U(t) = \\frac{1}{2}kA^2$, which is constant in time. Because it does not oscillate, its frequency of oscillation is zero, not $\\nu$. Statement II is incorrect.\nStep 3: Distractor rejection: Statement I is correct while Statement II is incorrect, so all other options are eliminated."
+    },
+    {
+      "id": "phy_oscillations_c01_012",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A block of mass $m = 0.5\\text{ kg}$ is attached to a light horizontal spring of spring constant $k = 50\\text{ N/m}$ resting on a frictionless horizontal floor. The block is pulled aside by $0.05\\text{ m}$ from its equilibrium position and released from rest. The time period $T$ of oscillation is:",
+      "options": [
+        "A) $\\frac{\\pi}{5}\\text{ s}$",
+        "B) $\\frac{\\pi}{10}\\text{ s}$",
+        "C) $\\frac{2\\pi}{5}\\text{ s}$",
+        "D) $\\pi\\text{ s}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The time period of a horizontal spring-mass system is given by the standard NCERT formula:\n$$T = 2\\pi \\sqrt{\\frac{m}{k}}$$\nStep 2: Substituting $m = 0.5\\text{ kg}$ and $k = 50\\text{ N/m}$:\n$$T = 2\\pi \\sqrt{\\frac{0.5}{50}} = 2\\pi \\sqrt{\\frac{1}{100}} = 2\\pi \\times \\frac{1}{10} = \\frac{\\pi}{5}\\text{ s}$$\nStep 3: Distractor rejection: The initial displacement ($0.05\\text{ m}$) represents the amplitude and does not affect the time period; $\\frac{\\pi}{10}\\text{ s}$ results from forgetting the factor of $2$ in $2\\pi$; $\\frac{2\\pi}{5}\\text{ s}$ results from doubling the period."
+    },
+    {
+      "id": "phy_oscillations_c01_013",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): When a block of mass $m$ is suspended vertically from a light spring of spring constant $k$, the time period of vertical oscillations is identical to that of horizontal oscillations of the same spring-mass system, namely $T = 2\\pi\\sqrt{\\frac{m}{k}}$.\nReason (R): The downward force of gravity shifts the equilibrium position downward by $y_0 = \\frac{mg}{k}$, but it does not alter the effective restoring force constant or the differential equation governing oscillations about the new equilibrium position.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In a vertical spring-mass system, when a mass $m$ hangs at rest, the spring stretches by $y_0$ such that $k y_0 = mg$. When displaced further by $y$, the net restoring force is $F_{net} = mg - k(y_0 + y) = mg - ky_0 - ky = -ky$. Hence, the restoring force remains directly proportional to displacement from the equilibrium point with proportionality constant $k$. Assertion (A) is true.\nStep 2: Gravity acts as a constant force. A constant force only shifts the mean position ($y_0 = \\frac{mg}{k}$) without altering the spring constant $k$ or mass $m$. The equation of motion is $m\\frac{d^2y}{dt^2} + ky = 0$, giving angular frequency $\\omega = \\sqrt{\\frac{k}{m}}$ and $T = 2\\pi\\sqrt{\\frac{m}{k}}$. Reason (R) is true.\nStep 3: Distractor rejection: Reason (R) correctly explains why the time period is independent of gravity and identical in both orientations. Therefore, both are true and Reason (R) is the correct explanation of Assertion (A)."
+    },
+    {
+      "id": "phy_oscillations_c01_014",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding a simple pendulum of length $L$ with a bob of mass $m$ undergoing small oscillations:\nI. The motion of the simple pendulum is strictly simple harmonic only under the small-angle approximation where $\\sin\\theta \\approx \\theta$.\nII. The restoring force acting on the bob is the tangential component of gravity, given by $F_t = -mg\\sin\\theta$.\nIII. The tension in the suspension string remains constant throughout the oscillation and is equal to $mg$.\nIV. The period of oscillation for small angular amplitudes is $T = 2\\pi\\sqrt{\\frac{L}{g}}$.\nWhich of the above statements are correct?",
+      "options": [
+        "A) I, II and IV only",
+        "B) I and II only",
+        "C) II, III and IV only",
+        "D) I, II, III and IV"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The restoring force acting along the circular arc is the tangential component of the bob's weight, $F_t = -mg\\sin\\theta$. For small angles $\\theta$ (in radians), $\\sin\\theta \\approx \\theta = \\frac{x}{L}$, so $F_t \\approx -\\left(\\frac{mg}{L}\\right)x$, which is the defining linear restoring force for SHM. Thus, statements I and II are correct.\nStep 2: Along the radial direction, the tension is given by $T_{str} - mg\\cos\\theta = \\frac{m v^2}{L} \\implies T_{str} = mg\\cos\\theta + \\frac{m v^2}{L}$. Since both $\\theta$ and $v$ vary throughout the oscillation, the tension is not constant (it is maximum at the lowest point and minimum at the extremes). Thus, statement III is incorrect.\nStep 3: With effective force constant $k = \\frac{mg}{L}$, the period of oscillation is $T = 2\\pi\\sqrt{\\frac{m}{k}} = 2\\pi\\sqrt{\\frac{L}{g}}$. Statement IV is correct.\nDistractor rejection: Because statement III is incorrect while I, II, and IV are correct, only the choice containing I, II, and IV is valid."
+    },
+    {
+      "id": "phy_oscillations_c01_015",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a simple pendulum executing small oscillations:\nStatement I: The period of oscillation of a simple pendulum depends directly on the mass and material of the bob.\nStatement II: If the bob of a simple pendulum is replaced by another bob of identical external dimensions but four times the mass, the time period of small oscillations remains completely unchanged.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The time period of a simple pendulum undergoing small oscillations is given by $T = 2\\pi\\sqrt{\\frac{L}{g}}$, where $L$ is the length of the pendulum and $g$ is the acceleration due to gravity. The mass $m$ of the bob cancels out in the equation of motion because inertial mass equals gravitational mass ($m a = -m g \\sin\\theta$). Therefore, the period is strictly independent of the mass and material of the bob. Statement I is incorrect.\nStep 2: Replacing the bob with one that has four times the mass does not change $L$ or $g$, so the time period $T$ remains completely unaltered. Statement II is correct.\nStep 3: Distractor rejection: Since Statement I is false and Statement II is true, the choice identifying Statement I as incorrect and Statement II as correct is the only appropriate response."
+    },
+    {
+      "id": "phy_oscillations_c01_016",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A seconds pendulum is defined as a simple pendulum whose time period of oscillation is exactly $2\\text{ s}$ (it takes $1\\text{ s}$ to swing from one extreme to the other). Taking the acceleration due to gravity as $g = \\pi^2\\text{ m/s}^2$, the effective length $L$ of this seconds pendulum is:",
+      "options": [
+        "A) $0.25\\text{ m}$",
+        "B) $0.50\\text{ m}$",
+        "C) $1.00\\text{ m}$",
+        "D) $2.00\\text{ m}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The time period of a simple pendulum is given by:\n$$T = 2\\pi \\sqrt{\\frac{L}{g}}$$\nStep 2: For a seconds pendulum, $T = 2\\text{ s}$. Substituting $T = 2\\text{ s}$ and $g = \\pi^2\\text{ m/s}^2$:\n$$2 = 2\\pi \\sqrt{\\frac{L}{\\pi^2}} = 2\\pi \\frac{\\sqrt{L}}{\\pi} = 2\\sqrt{L}$$\nDividing both sides by $2$ gives:\n$$\\sqrt{L} = 1 \\implies L = 1.00\\text{ m}$$\nStep 3: Distractor rejection: $0.25\\text{ m}$ corresponds to a pendulum with period $1\\text{ s}$; $0.50\\text{ m}$ is obtained by mistakenly using $T = 1\\text{ s}$ with half the squaring step; $2.00\\text{ m}$ doubles the true length."
+    },
+    {
+      "id": "phy_oscillations_c01_017",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the reference circle representation of simple harmonic motion:\nStatement I: Simple harmonic motion along a straight line can be geometrically represented as the projection of uniform circular motion of a reference particle on a diameter of the reference circle.\nStatement II: The radius of the reference circle corresponds to the amplitude of the SHM, and the constant angular speed of the reference particle equals the angular frequency of the SHM.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: According to NCERT Class 11 Physics, if a reference particle moves uniformly in a circle of radius $A$ with constant angular speed $\\omega$, its projection on the x-axis (or y-axis) executes motion described by $x(t) = A\\cos(\\omega t + \\phi)$, which is the exact equation of simple harmonic motion. Thus, Statement I is correct.\nStep 2: In this geometrical mapping, the radius of the circle is identical to the maximum displacement (amplitude $A$) of the oscillation, and the constant angular velocity of the revolving particle on the circle matches the angular frequency $\\omega$ of the SHM. Thus, Statement II is correct.\nStep 3: Distractor rejection: Both statements are standard NCERT principles defining the phasor and reference circle model for SHM, so any choice claiming either statement is incorrect must be eliminated."
+    },
+    {
+      "id": "phy_oscillations_c01_018",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding oscillatory systems:\nStatement I: In free oscillations, the system vibrates with its natural frequency $\\omega_0$ and, in the absence of any damping forces, its mechanical energy and amplitude remain constant indefinitely.\nStatement II: In damped oscillations, the presence of dissipative forces (such as viscous drag) causes the mechanical energy to be dissipated continuously into heat, resulting in an exponential decay of amplitude over time.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: A system displaced from its equilibrium position and released executes free oscillations with its characteristic natural frequency $\\omega_0 = \\sqrt{k/m}$. When no non-conservative or damping forces act, total mechanical energy is conserved and amplitude remains unchanged indefinitely. Statement I is correct.\nStep 2: Real oscillatory systems encounter dissipative forces such as friction or viscous resistance, commonly modeled as $F_d = -b v$. Work done against these damping forces transforms mechanical energy into internal thermal energy, causing the amplitude to decay exponentially as $A(t) = A_0 e^{-\\frac{b}{2m}t}$. Statement II is correct.\nStep 3: Distractor rejection: Both statements directly reflect the NCERT definitions of free and damped oscillations; hence, both are correct."
+    },
+    {
+      "id": "phy_oscillations_c01_019",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): When an external periodic driving force of angular frequency $\\omega_d$ acts on a damped harmonic oscillator with natural frequency $\\omega_0$, resonance occurs when $\\omega_d$ is very close to $\\omega_0$.\nReason (R): At $\\omega_d \\approx \\omega_0$, the rate of energy transfer from the external periodic driving source to the oscillating system is maximized, resulting in a pronounced peak in the steady-state amplitude.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Forced oscillations occur when a periodic driving force $F(t) = F_0 \\cos(\\omega_d t)$ acts on an oscillator. The phenomenon in which the amplitude of steady-state oscillation becomes exceptionally large when the driving frequency $\\omega_d$ matches the natural frequency $\\omega_0$ of the system is called resonance. Hence, Assertion (A) is true.\nStep 2: The steady-state amplitude is given by $A = \\frac{F_0}{\\sqrt{m^2(\\omega_0^2 - \\omega_d^2)^2 + \\omega_d^2 b^2}}$. When $\\omega_d \\approx \\omega_0$, the inertial and elastic terms cancel, leaving damping alone to limit the response. Under this condition, the driving force is in phase with velocity, maximizing power input and energy transfer to the oscillator. Hence, Reason (R) is true.\nStep 3: Distractor rejection: Reason (R) provides the exact physical cause for the occurrence of resonance stated in Assertion (A). Therefore, both are true and Reason (R) is the correct explanation of Assertion (A)."
+    },
+    {
+      "id": "phy_oscillations_c01_020",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A light spring of spring constant $k$ is cut into two equal halves. One of these half-springs is then attached to a block of mass $m$. The ratio of the new time period of oscillation ($T'$) to the original time period ($T$) of the full spring with the same mass $m$ is:",
+      "options": [
+        "A) $2 : 1$",
+        "B) $\\sqrt{2} : 1$",
+        "C) $1 : 2$",
+        "D) $1 : \\sqrt{2}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The spring constant $k$ of a uniform spring is inversely proportional to its length ($k \\propto \\frac{1}{L}$). When the spring is cut into two equal halves of length $L/2$, the spring constant of each half becomes:\n$$k' = 2k$$\nStep 2: The time period of the original system is $T = 2\\pi \\sqrt{\\frac{m}{k}}$. The time period with one of the half-springs is:\n$$T' = 2\\pi \\sqrt{\\frac{m}{k'}} = 2\\pi \\sqrt{\\frac{m}{2k}} = \\frac{1}{\\sqrt{2}}\\left(2\\pi\\sqrt{\\frac{m}{k}}\\right) = \\frac{T}{\\sqrt{2}}$$\nStep 3: The ratio of the new period to the original period is:\n$$\\frac{T'}{T} = \\frac{1}{\\sqrt{2}} \\quad \\text{or} \\quad 1 : \\sqrt{2}$$\nDistractor rejection: $2:1$ or $\\sqrt{2}:1$ mistakenly assumes cutting the spring decreases the spring constant; $1:2$ forgets the square root relationship between time period and spring constant."
+    },
+    {
+      "id": "phy_oscillations_c01_021",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two identical light springs, each of spring constant $k = 200\\text{ N/m}$, are connected in parallel to a block of mass $m = 4\\text{ kg}$ placed on a frictionless horizontal surface. The time period of horizontal oscillation of the block is:",
+      "options": [
+        "A) $\\frac{\\pi}{10}\\text{ s}$",
+        "B) $\\frac{\\pi}{5}\\text{ s}$",
+        "C) $\\frac{2\\pi}{5}\\text{ s}$",
+        "D) $\\frac{\\pi}{2}\\text{ s}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: When two springs are connected in parallel, both undergo the same displacement $x$. The restoring forces add up, giving an effective spring constant:\n$$k_{eq} = k + k = 2k = 2 \\times 200\\text{ N/m} = 400\\text{ N/m}$$\nStep 2: The time period of horizontal oscillation of mass $m$ attached to this parallel combination is:\n$$T = 2\\pi \\sqrt{\\frac{m}{k_{eq}}} = 2\\pi \\sqrt{\\frac{4}{400}} = 2\\pi \\sqrt{\\frac{1}{100}} = 2\\pi \\times \\frac{1}{10} = \\frac{\\pi}{5}\\text{ s}$$\nStep 3: Distractor rejection: $\\frac{\\pi}{10}\\text{ s}$ omits the factor of $2$ in $2\\pi$; $\\frac{2\\pi}{5}\\text{ s}$ erroneously uses the spring constant of a single spring ($200\\text{ N/m}$) instead of the parallel combination; $\\frac{\\pi}{2}\\text{ s}$ results from an arithmetic error."
+    },
+    {
+      "id": "phy_oscillations_c01_022",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two light springs with spring constants $k_1 = 300\\text{ N/m}$ and $k_2 = 600\\text{ N/m}$ are connected in series. A body of mass $m = 2\\text{ kg}$ is attached to this combination on a frictionless horizontal plane. The effective spring constant $k_{eq}$ and the time period of oscillation $T$ are:",
+      "options": [
+        "A) $k_{eq} = 900\\text{ N/m},\\; T = \\frac{\\pi}{5}\\text{ s}$",
+        "B) $k_{eq} = 200\\text{ N/m},\\; T = \\frac{\\pi}{10}\\text{ s}$",
+        "C) $k_{eq} = 200\\text{ N/m},\\; T = \\frac{\\pi}{5}\\text{ s}$",
+        "D) $k_{eq} = 450\\text{ N/m},\\; T = \\frac{2\\pi}{5}\\text{ s}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: When springs are connected in series, the same restoring force $F$ acts across each spring, and total elongation is $x = x_1 + x_2$. The effective spring constant $k_{eq}$ is determined from:\n$$\\frac{1}{k_{eq}} = \\frac{1}{k_1} + \\frac{1}{k_2} = \\frac{1}{300} + \\frac{1}{600} = \\frac{2 + 1}{600} = \\frac{3}{600} = \\frac{1}{200}$$\n$$k_{eq} = 200\\text{ N/m}$$\nStep 2: The time period of oscillation is:\n$$T = 2\\pi \\sqrt{\\frac{m}{k_{eq}}} = 2\\pi \\sqrt{\\frac{2}{200}} = 2\\pi \\sqrt{\\frac{1}{100}} = 2\\pi \\times \\frac{1}{10} = \\frac{\\pi}{5}\\text{ s}$$\nStep 3: Distractor rejection: $k_{eq} = 900\\text{ N/m}$ erroneously uses the parallel formula ($k_1 + k_2$); $k_{eq} = 450\\text{ N/m}$ takes the arithmetic mean instead of harmonic mean; $T = \\frac{\\pi}{10}\\text{ s}$ drops the factor of $2$."
+    },
+    {
+      "id": "phy_oscillations_c01_023",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle executes simple harmonic motion with an amplitude $A$. At what displacement from the mean position is the kinetic energy of the particle exactly equal to its potential energy (taking the potential energy at the mean position as zero)?",
+      "options": [
+        "A) $x = \\pm \\frac{A}{2}$",
+        "B) $x = \\pm \\frac{A}{\\sqrt{3}}$",
+        "C) $x = \\pm \\frac{A}{4}$",
+        "D) $x = \\pm \\frac{A}{\\sqrt{2}}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The potential energy of a simple harmonic oscillator at displacement $x$ is $U = \\frac{1}{2}kx^2$ and the kinetic energy is $K = \\frac{1}{2}k(A^2 - x^2)$, where $k = m\\omega^2$.\nStep 2: Equating kinetic energy to potential energy:\n$$\\frac{1}{2}k(A^2 - x^2) = \\frac{1}{2}kx^2$$\n$$A^2 - x^2 = x^2 \\implies 2x^2 = A^2 \\implies x^2 = \\frac{A^2}{2}$$\nTaking the square root gives:\n$$x = \\pm \\frac{A}{\\sqrt{2}}$$\nStep 3: Distractor rejection: At $x = \\pm \\frac{A}{2}$, $U = \\frac{1}{8}kA^2$ while $K = \\frac{3}{8}kA^2$, so kinetic energy is three times potential energy; at $x = \\pm \\frac{A}{\\sqrt{3}}$, $U = \\frac{1}{6}kA^2$ while $K = \\frac{1}{3}kA^2$."
+    },
+    {
+      "id": "phy_oscillations_c01_024",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle executing simple harmonic motion has speeds $v_1 = 8\\text{ m/s}$ and $v_2 = 6\\text{ m/s}$ when its displacements from the mean position are $x_1 = 3\\text{ m}$ and $x_2 = 4\\text{ m}$ respectively. The angular frequency $\\omega$ and amplitude $A$ of the motion are:",
+      "options": [
+        "A) $\\omega = 2\\text{ rad/s}$ and $A = 5\\text{ m}$",
+        "B) $\\omega = 4\\text{ rad/s}$ and $A = 5\\text{ m}$",
+        "C) $\\omega = 2\\text{ rad/s}$ and $A = 7\\text{ m}$",
+        "D) $\\omega = 1\\text{ rad/s}$ and $A = 10\\text{ m}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The relation between speed and displacement in SHM is $v^2 = \\omega^2(A^2 - x^2)$. Setting up the two equations from the given data:\n$$8^2 = \\omega^2(A^2 - 3^2) \\implies 64 = \\omega^2(A^2 - 9) \\quad \\text{--- (Equation 1)}$$\n$$6^2 = \\omega^2(A^2 - 4^2) \\implies 36 = \\omega^2(A^2 - 16) \\quad \\text{--- (Equation 2)}$$\nStep 2: Subtracting Equation 2 from Equation 1:\n$$64 - 36 = \\omega^2[(A^2 - 9) - (A^2 - 16)]$$\n$$28 = \\omega^2(7) \\implies \\omega^2 = 4 \\implies \\omega = 2\\text{ rad/s}$$\nStep 3: Substituting $\\omega^2 = 4$ into Equation 1:\n$$64 = 4(A^2 - 9) \\implies 16 = A^2 - 9 \\implies A^2 = 25 \\implies A = 5\\text{ m}$$\nDistractor rejection: $\\omega = 4\\text{ rad/s}$ comes from confusing $\\omega^2$ with $\\omega$; $A = 7\\text{ m}$ incorrectly adds the displacement coordinates."
+    },
+    {
+      "id": "phy_oscillations_c01_025",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle starts from the mean position at $t = 0$ and executes simple harmonic motion of time period $T$ and amplitude $A$. The time taken by the particle to travel from the mean position ($x = 0$) to $x = \\frac{A}{2}$ is $t_1$, and the time taken to travel from $x = \\frac{A}{2}$ to the positive extreme position ($x = A$) is $t_2$. The ratio $t_1 : t_2$ is:",
+      "options": [
+        "A) $1 : 1$",
+        "B) $1 : 2$",
+        "C) $1 : \\sqrt{3}$",
+        "D) $2 : 1$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The displacement equation starting from the mean position at $t = 0$ is $x(t) = A\\sin(\\omega t)$. For the first interval from $x = 0$ to $x = \\frac{A}{2}$:\n$$\\frac{A}{2} = A\\sin(\\omega t_1) \\implies \\sin(\\omega t_1) = \\frac{1}{2} \\implies \\omega t_1 = \\frac{\\pi}{6}$$\nSince $\\omega = \\frac{2\\pi}{T}$, we have $t_1 = \\frac{\\pi / 6}{2\\pi / T} = \\frac{T}{12}$.\nStep 2: The total time taken to reach the extreme position ($x = A$) from the mean position is:\n$$A = A\\sin(\\omega t_{\\text{total}}) \\implies \\omega t_{\\text{total}} = \\frac{\\pi}{2} \\implies t_{\\text{total}} = \\frac{T}{4}$$\nThus, the time taken for the second half of the displacement from $x = \\frac{A}{2}$ to $x = A$ is:\n$$t_2 = t_{\\text{total}} - t_1 = \\frac{T}{4} - \\frac{T}{12} = \\frac{3T - T}{12} = \\frac{2T}{12} = \\frac{T}{6}$$\nStep 3: Comparing the two times:\n$$\\frac{t_1}{t_2} = \\frac{T/12}{T/6} = \\frac{6}{12} = \\frac{1}{2} \\implies t_1 : t_2 = 1 : 2$$\nDistractor rejection: The speed of the particle decreases as it approaches the extreme, so it takes twice as long to cover the second half of the amplitude compared to the first half. Assuming uniform speed gives an erroneous $1:1$ ratio."
+    },
+    {
+      "id": "phy_oscillations_c01_026",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a simple pendulum of time period $T_0$ oscillating inside an elevator:\nStatement I: When the elevator accelerates vertically upwards with a constant acceleration $a$, the effective acceleration due to gravity becomes $g_{\\text{eff}} = g + a$, and the period of oscillation decreases to $T = T_0 \\sqrt{\\frac{g}{g + a}}$.\nStatement II: If the elevator cable snaps and the elevator falls freely under gravity ($a = g$), the effective acceleration due to gravity inside the elevator becomes zero, causing the pendulum to cease oscillating and giving an infinite time period.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In an accelerating reference frame, an inertial pseudo-force $-m\\vec{a}$ acts on the pendulum bob. When the elevator accelerates upwards with acceleration $a$, the pseudo-force acts downwards in the direction of gravity, making the effective acceleration $g_{\\text{eff}} = g + a$. The new time period is $T = 2\\pi\\sqrt{\\frac{L}{g + a}} = T_0\\sqrt{\\frac{g}{g + a}}$. Since $g_{\\text{eff}} > g$, the period decreases. Statement I is correct.\nStep 2: During free fall ($a = g$ downwards), the pseudo-force acts vertically upwards with magnitude $mg$, exactly balancing gravity: $g_{\\text{eff}} = g - g = 0$. In the absence of a net restoring force, the restoring torque vanishes and the pendulum cannot swing back and forth ($T \\to \\infty$). Statement II is correct.\nStep 3: Distractor rejection: Both statements describe standard NCERT mechanics of non-inertial frames and simple pendulums; therefore, both are correct."
+    },
+    {
+      "id": "phy_oscillations_c01_027",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform light spring of force constant $k$ is cut into two segments whose lengths are in the ratio $1 : 2$. The two pieces are then connected in parallel, and a mass $m$ is suspended from the combination. The effective spring constant of this parallel combination is:",
+      "options": [
+        "A) $3k$",
+        "B) $\\frac{9}{2}k$",
+        "C) $\\frac{2}{9}k$",
+        "D) $6k$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The force constant of a spring is inversely proportional to its length ($k \\propto \\frac{1}{L}$). Let the total length be $L$. The lengths of the two pieces in the ratio $1 : 2$ are:\n$$L_1 = \\frac{1}{3}L \\quad \\text{and} \\quad L_2 = \\frac{2}{3}L$$\nStep 2: The spring constants of the individual segments are:\n$$k_1 = \\frac{L}{L_1}k = 3k$$\n$$k_2 = \\frac{L}{L_2}k = \\frac{3}{2}k = 1.5k$$\nStep 3: When these two segments are connected in parallel, their individual force constants add directly:\n$$k_{eq} = k_1 + k_2 = 3k + \\frac{3}{2}k = \\frac{9}{2}k = 4.5k$$\nDistractor rejection: $3k$ accounts for only the shorter piece; $\\frac{2}{9}k$ represents the series combination of the two pieces; $6k$ is obtained by mistakenly adding $3k + 3k$."
+    },
+    {
+      "id": "phy_oscillations_c01_028",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): The graph of kinetic energy ($K$) versus displacement ($x$) for a simple harmonic oscillator is an inverted parabola, while the graph of potential energy ($U$) versus displacement is an upright parabola, intersecting each other at $x = \\pm \\frac{A}{\\sqrt{2}}$.\nReason (R): In simple harmonic motion, $K(x) = \\frac{1}{2}k(A^2 - x^2)$ and $U(x) = \\frac{1}{2}kx^2$, so that at $x = \\pm \\frac{A}{\\sqrt{2}}$, both kinetic energy and potential energy are each equal to half of the total mechanical energy ($\\frac{1}{4}kA^2$).\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The potential energy is given by $U(x) = \\frac{1}{2}kx^2$, which is an upright parabola opening upwards with vertex at $(0, 0)$. The kinetic energy is $K(x) = \\frac{1}{2}k(A^2 - x^2)$, which is an inverted parabola opening downwards with peak $\\frac{1}{2}kA^2$ at $x = 0$ and zeroes at $x = \\pm A$. The curves intersect where $K(x) = U(x)$, giving $\\frac{1}{2}k(A^2 - x^2) = \\frac{1}{2}kx^2 \\implies x = \\pm \\frac{A}{\\sqrt{2}}$. Hence, Assertion (A) is true.\nStep 2: Substituting $x = \\pm \\frac{A}{\\sqrt{2}}$ into either energy expression gives $U = \\frac{1}{2}k\\left(\\frac{A^2}{2}\\right) = \\frac{1}{4}kA^2 = \\frac{E}{2}$, and $K = \\frac{1}{2}k\\left(A^2 - \\frac{A^2}{2}\\right) = \\frac{1}{4}kA^2 = \\frac{E}{2}$. Reason (R) is true.\nStep 3: Distractor rejection: Reason (R) provides the exact mathematical formulas that dictate the parabolic shapes and determine the intersection points stated in Assertion (A). Therefore, both are true and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_oscillations_c01_029",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle is subjected to two collinear simple harmonic motions given by $x_1 = 3\\sin(\\omega t)\\text{ cm}$ and $x_2 = 4\\sin\\left(\\omega t + \\frac{\\pi}{2}\\right)\\text{ cm}$. The amplitude of the resultant simple harmonic motion of the particle is:",
+      "options": [
+        "A) $1\\text{ cm}$",
+        "B) $7\\text{ cm}$",
+        "C) $5\\text{ cm}$",
+        "D) $\\sqrt{7}\\text{ cm}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: When two simple harmonic motions of the same angular frequency $\\omega$ along the same line superpose, the resultant motion is also simple harmonic. The amplitudes are $A_1 = 3\\text{ cm}$ and $A_2 = 4\\text{ cm}$, with a phase difference of $\\phi = \\frac{\\pi}{2}\\text{ rad}$.\nStep 2: The resultant amplitude $A_{\\text{res}}$ is obtained using the phasor vector addition formula:\n$$A_{\\text{res}} = \\sqrt{A_1^2 + A_2^2 + 2 A_1 A_2 \\cos\\phi}$$\nSince $\\phi = \\frac{\\pi}{2}$, $\\cos\\left(\\frac{\\pi}{2}\\right) = 0$:\n$$A_{\\text{res}} = \\sqrt{3^2 + 4^2 + 0} = \\sqrt{9 + 16} = \\sqrt{25} = 5\\text{ cm}$$\nStep 3: Distractor rejection: $7\\text{ cm}$ is obtained if the two motions were in phase ($\\phi = 0$); $1\\text{ cm}$ is obtained if the two motions were in opposite phase ($\\phi = \\pi$); $\\sqrt{7}\\text{ cm}$ is an arithmetic error."
+    },
+    {
+      "id": "phy_oscillations_c01_030",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a pendulum clock regulated by a metallic rod of linear expansion coefficient $\\alpha$:\nStatement I: When the ambient temperature increases by $\\Delta \\theta$, thermal expansion increases the length of the pendulum, resulting in a fractional increase in time period of $\\frac{\\Delta T}{T} \\approx \\frac{1}{2}\\alpha \\Delta \\theta$, causing the clock to run slow (lose time).\nStatement II: The time lost by the pendulum clock in a full solar day ($86400\\text{ s}$) due to a temperature rise $\\Delta \\theta$ is given by $\\Delta t = \\frac{1}{2}\\alpha \\Delta \\theta \\times 86400\\text{ s}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The time period of a simple pendulum is $T = 2\\pi\\sqrt{\\frac{L}{g}}$. Taking the natural logarithm and differentiating:\n$$\\ln T = \\ln(2\\pi) + \\frac{1}{2}\\ln L - \\frac{1}{2}\\ln g \\implies \\frac{\\Delta T}{T} = \\frac{1}{2}\\frac{\\Delta L}{L}$$\nSince thermal expansion gives $\\frac{\\Delta L}{L} = \\alpha \\Delta \\theta$, the fractional change in time period is $\\frac{\\Delta T}{T} = \\frac{1}{2}\\alpha \\Delta \\theta$. As temperature increases, $T$ increases, meaning each tick takes longer; thus the clock records fewer ticks than actual seconds and loses time (runs slow). Statement I is correct.\nStep 2: In a total time interval $t_{\\text{day}} = 86400\\text{ s}$, the time lost is $\\Delta t = \\left(\\frac{\\Delta T}{T}\\right) t_{\\text{day}} = \\frac{1}{2}\\alpha \\Delta \\theta \\times 86400\\text{ s}$. Statement II is correct.\nStep 3: Distractor rejection: Both statements accurately reflect the standard NCERT physics derivations for thermal effects on pendulum clocks; thus both are correct."
+    },
+    {
+      "id": "phy_oscillations_c01_031",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A simple pendulum of length $L$ is suspended from the ceiling of a vehicle that accelerates horizontally with a constant acceleration $a = g\\sqrt{3}$. The equilibrium position of the pendulum makes an angle $\\theta$ with the vertical, and the time period of its small oscillations about this equilibrium position is:",
+      "options": [
+        "A) $\\theta = 30^\\circ$ and $T = 2\\pi\\sqrt{\\frac{L}{g}}$",
+        "B) $\\theta = 45^\\circ$ and $T = 2\\pi\\sqrt{\\frac{L}{\\sqrt{2}g}}$",
+        "C) $\\theta = 60^\\circ$ and $T = 2\\pi\\sqrt{\\frac{L}{2g}}$",
+        "D) $\\theta = 60^\\circ$ and $T = 2\\pi\\sqrt{\\frac{2L}{g}}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In the accelerating frame of the vehicle, the bob experiences a downward gravitational force $mg$ and a horizontal backward pseudo-force $ma = mg\\sqrt{3}$. At the equilibrium position, the string deflects backward by an angle $\\theta$ such that:\n$$\\tan\\theta = \\frac{ma}{mg} = \\frac{g\\sqrt{3}}{g} = \\sqrt{3} \\implies \\theta = 60^\\circ$$\nStep 2: The effective acceleration due to gravity is the vector sum of gravity and the pseudo-acceleration:\n$$g_{\\text{eff}} = \\sqrt{g^2 + a^2} = \\sqrt{g^2 + (g\\sqrt{3})^2} = \\sqrt{g^2 + 3g^2} = \\sqrt{4g^2} = 2g$$\nStep 3: The time period of small oscillations about this inclined equilibrium orientation is:\n$$T = 2\\pi \\sqrt{\\frac{L}{g_{\\text{eff}}}} = 2\\pi \\sqrt{\\frac{L}{2g}}$$\nDistractor rejection: $\\theta = 30^\\circ$ inverts the ratio ($g/a$); $T = 2\\pi\\sqrt{\\frac{2L}{g}}$ mistakenly multiplies by $2$ inside the square root instead of dividing."
+    },
+    {
+      "id": "phy_oscillations_c01_032",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): When an incompressible, non-viscous liquid filling a uniform U-tube to a total column length $L$ is depressed slightly by $y$ in one limb and released, it executes simple harmonic motion with a time period $T = 2\\pi\\sqrt{\\frac{L}{2g}}$.\nReason (R): Depressing the liquid meniscus by $y$ in one limb produces a height difference of $2y$ between the two columns, creating an unbalanced hydrostatic restoring force $F = -2A\\rho g y$ acting on the total liquid mass $m = AL\\rho$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: When the liquid column of uniform cross-sectional area $A$ and density $\\rho$ is pushed down by a distance $y$ in one arm, it rises by $y$ in the other arm. The vertical level difference between the two arms becomes $\\Delta h = 2y$. The restoring force is the weight of this excess liquid column: $F = -(\\Delta h A \\rho g) = -2A\\rho g y$. Thus, Reason (R) is true.\nStep 2: The total mass of the liquid column is $m = A L \\rho$. By Newton's second law, $m a = F$:\n$$(AL\\rho) \\frac{d^2y}{dt^2} = -2A\\rho gy \\implies \\frac{d^2y}{dt^2} = -\\left(\\frac{2g}{L}\\right)y$$\nThis is the standard equation of SHM, $\\frac{d^2y}{dt^2} = -\\omega^2 y$, with $\\omega = \\sqrt{\\frac{2g}{L}}$. The time period is $T = \\frac{2\\pi}{\\omega} = 2\\pi\\sqrt{\\frac{L}{2g}}$. Hence, Assertion (A) is true.\nStep 3: Distractor rejection: Reason (R) presents the precise derivation of the restoring force that leads directly to the time period stated in Assertion (A). Therefore, both are true and Reason (R) is the correct explanation of Assertion (A)."
+    },
+    {
+      "id": "phy_oscillations_c01_033",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A solid uniform cylinder of height $H$, cross-sectional area $A$, and density $\\rho$ floats vertically in an open liquid reservoir containing a liquid of density $\\sigma$ (where $\\sigma > \\rho$). If the cylinder is depressed vertically downward by a small distance and released, it executes simple harmonic motion. The time period of this oscillation is:",
+      "options": [
+        "A) $2\\pi\\sqrt{\\frac{H\\sigma}{\\rho g}}$",
+        "B) $2\\pi\\sqrt{\\frac{H(\\sigma - \\rho)}{\\sigma g}}$",
+        "C) $2\\pi\\sqrt{\\frac{H}{g}}$",
+        "D) $2\\pi\\sqrt{\\frac{H\\rho}{\\sigma g}}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: At equilibrium, let the submerged depth of the floating cylinder be $h_0$. The buoyant force balances the weight of the cylinder:\n$$A h_0 \\sigma g = A H \\rho g \\implies h_0 = \\frac{H\\rho}{\\sigma}$$\nStep 2: When the cylinder is depressed vertically downward by a small displacement $y$, the additional volume of liquid displaced is $A y$. The net restoring force is the excess buoyant force directed upwards:\n$$F_{\\text{restoring}} = -(A y \\sigma g) = -(A\\sigma g) y$$\nStep 3: The mass of the cylinder is $m = A H \\rho$. The acceleration is:\n$$a = \\frac{F}{m} = -\\frac{A\\sigma g}{A H \\rho} y = -\\left(\\frac{\\sigma g}{H\\rho}\\right)y = -\\omega^2 y$$\nThus, the angular frequency is $\\omega = \\sqrt{\\frac{\\sigma g}{H\\rho}}$, and the time period of oscillation is:\n$$T = \\frac{2\\pi}{\\omega} = 2\\pi \\sqrt{\\frac{H\\rho}{\\sigma g}}$$\nDistractor rejection: $2\\pi\\sqrt{\\frac{H\\sigma}{\\rho g}}$ inverts the density ratio; $2\\pi\\sqrt{\\frac{H}{g}}$ ignores the density ratio; choice B inappropriately inserts the density difference."
+    },
+    {
+      "id": "phy_oscillations_c01_034",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two particles execute simple harmonic motion along parallel straight lines about the same mean position with equal amplitudes $A$ and time periods $T_1 = 3\\text{ s}$ and $T_2 = 4\\text{ s}$. If both particles start simultaneously from the mean position in the same direction at $t = 0$, the minimum non-zero time after which their phase difference becomes $\\pi\\text{ rad}$ (opposite phase) is:",
+      "options": [
+        "A) $3\\text{ s}$",
+        "B) $4\\text{ s}$",
+        "C) $6\\text{ s}$",
+        "D) $12\\text{ s}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The angular frequencies of the two particles are:\n$$\\omega_1 = \\frac{2\\pi}{T_1} = \\frac{2\\pi}{3}\\text{ rad/s} \\quad \\text{and} \\quad \\omega_2 = \\frac{2\\pi}{T_2} = \\frac{2\\pi}{4} = \\frac{\\pi}{2}\\text{ rad/s}$$\nStep 2: Since both start from the mean position in the same direction at $t = 0$, their instantaneous phases at time $t$ are $\\phi_1(t) = \\omega_1 t$ and $\\phi_2(t) = \\omega_2 t$. The accumulated phase difference between them is:\n$$\\Delta\\phi(t) = (\\omega_1 - \\omega_2)t = \\left(\\frac{2\\pi}{3} - \\frac{\\pi}{2}\\right)t = \\left(\\frac{4\\pi - 3\\pi}{6}\\right)t = \\frac{\\pi}{6}t$$\nStep 3: For the particles to be in opposite phase, their phase difference must equal $\\pi\\text{ rad}$:\n$$\\frac{\\pi}{6}t = \\pi \\implies t = 6\\text{ s}$$\nDistractor rejection: At $t = 12\\text{ s}$, the phase difference is $\\frac{\\pi}{6}(12) = 2\\pi\\text{ rad}$, which brings them back in phase with each other; $3\\text{ s}$ and $4\\text{ s}$ correspond to the individual time periods."
+    },
+    {
+      "id": "phy_oscillations_c01_035",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a damped harmonic oscillator, the amplitude of oscillation decays exponentially with time according to $A(t) = A_0 e^{-\\gamma t}$, where $\\gamma$ is the damping factor. If the amplitude drops to $\\frac{A_0}{2}$ after a time interval of $20\\text{ s}$, the time taken for the amplitude to reduce to $\\frac{A_0}{8}$ of its initial value is:",
+      "options": [
+        "A) $40\\text{ s}$",
+        "B) $50\\text{ s}$",
+        "C) $80\\text{ s}$",
+        "D) $60\\text{ s}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: According to the exponential decay law, the amplitude at time $t$ is $A(t) = A_0 e^{-\\gamma t}$. Given that $A(20) = \\frac{A_0}{2}$:\n$$A_0 e^{-20\\gamma} = \\frac{A_0}{2} \\implies e^{-20\\gamma} = \\frac{1}{2}$$\nStep 2: We seek the time $t$ at which the amplitude reduces to $\\frac{A_0}{8}$:\n$$A_0 e^{-\\gamma t} = \\frac{A_0}{8} = A_0 \\left(\\frac{1}{2}\\right)^3$$\nSubstituting $e^{-20\\gamma} = \\frac{1}{2}$ into the equation:\n$$e^{-\\gamma t} = (e^{-20\\gamma})^3 = e^{-60\\gamma}$$\nStep 3: Comparing the exponents gives:\n$$\\gamma t = 60\\gamma \\implies t = 60\\text{ s}$$\nDistractor rejection: $40\\text{ s}$ corresponds to an amplitude reduction to $\\frac{A_0}{4}$ (two half-lives); $80\\text{ s}$ corresponds to four half-lives (decay to $\\frac{A_0}{16}$); $50\\text{ s}$ is an incorrect non-exponential guess."
+    },
+    {
+      "id": "phy_oscillations_c01_036",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Physical Oscillating System) with List II (Formula for Time Period):\nList I\nA. Simple pendulum of length $L$ oscillating in a uniform gravitational field $g$\nB. Block of mass $m$ attached to a spring of spring constant $k$\nC. Liquid column of length $L$ oscillating in a uniform vertical U-tube\nD. Particle dropped in a frictionless tunnel drilled along the diameter of Earth (radius $R$, surface gravity $g$)\n\nList II\nI. $T = 2\\pi\\sqrt{\\frac{m}{k}}$\nII. $T = 2\\pi\\sqrt{\\frac{L}{g}}$\nIII. $T = 2\\pi\\sqrt{\\frac{L}{2g}}$\nIV. $T = 2\\pi\\sqrt{\\frac{R}{g}}$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-I, C-III, D-IV",
+        "B) A-I, B-II, C-IV, D-III",
+        "C) A-II, B-III, C-I, D-IV",
+        "D) A-IV, B-I, C-III, D-II"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For a simple pendulum with small oscillations, restoring torque gives $T = 2\\pi\\sqrt{\\frac{L}{g}}$. Thus, A matches II.\nStep 2: For a spring-mass oscillator, restoring force $F = -kx$ gives $T = 2\\pi\\sqrt{\\frac{m}{k}}$. Thus, B matches I.\nStep 3: For liquid oscillating in a uniform U-tube of total column length $L$, the restoring force from a level difference $2y$ gives $T = 2\\pi\\sqrt{\\frac{L}{2g}}$. Thus, C matches III.\nStep 4: For a particle inside a tunnel through the Earth, the gravitational force inside a uniform sphere is $F = -\\left(\\frac{mg}{R}\\right)r$, leading to $T = 2\\pi\\sqrt{\\frac{R}{g}}$. Thus, D matches IV.\nDistractor rejection: The unique correspondence A-II, B-I, C-III, D-IV strictly follows all four standard NCERT time period formulas."
+    },
+    {
+      "id": "phy_oscillations_c01_037",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A particle executing simple harmonic motion has a maximum speed of $v_{\\max} = 10\\text{ m/s}$ and a maximum acceleration of $a_{\\max} = 40\\text{ m/s}^2$. The amplitude of oscillation $A$ and the time period $T$ of the motion are respectively:",
+      "options": [
+        "A) $A = 2.5\\text{ m}$ and $T = \\frac{\\pi}{2}\\text{ s}$",
+        "B) $A = 5.0\\text{ m}$ and $T = \\pi\\text{ s}$",
+        "C) $A = 1.25\\text{ m}$ and $T = \\frac{\\pi}{4}\\text{ s}$",
+        "D) $A = 2.5\\text{ m}$ and $T = \\pi\\text{ s}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The maximum speed in simple harmonic motion is given by $v_{\\max} = \\omega A$, and the maximum acceleration is given by $a_{\\max} = \\omega^2 A$.\nStep 2: Dividing maximum acceleration by maximum speed gives the angular frequency $\\omega$:\n$$\\omega = \\frac{a_{\\max}}{v_{\\max}} = \\frac{40}{10} = 4\\text{ rad/s}$$\nStep 3: The amplitude $A$ is:\n$$A = \\frac{v_{\\max}}{\\omega} = \\frac{10}{4} = 2.5\\text{ m}$$\nThe time period $T$ is:\n$$T = \\frac{2\\pi}{\\omega} = \\frac{2\\pi}{4} = \\frac{\\pi}{2}\\text{ s}$$\nDistractor rejection: $A = 5.0\\text{ m}$ and $T = \\pi\\text{ s}$ results from mistakenly using $\\omega = 2\\text{ rad/s}$; $A = 1.25\\text{ m}$ results from dividing by $\\omega^2$ instead of $\\omega$."
+    },
+    {
+      "id": "phy_oscillations_c01_038",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a hypothetical straight frictionless tunnel drilled through the Earth (radius $R_E = 6400\\text{ km}$, surface gravity $g = 9.8\\text{ m/s}^2$):\nStatement I: A body released from rest at one end of a diametrical tunnel executes simple harmonic motion about the Earth's center with a time period of $T = 2\\pi\\sqrt{\\frac{R_E}{g}} \\approx 84.6\\text{ minutes}$.\nStatement II: If the straight frictionless tunnel is drilled along any non-diametrical chord of the Earth instead of through the center, the time period of oscillation changes and depends on the perpendicular distance of the chord from the center.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Inside a uniform Earth of mass $M_E$ and radius $R_E$, the gravitational force on a mass $m$ at distance $r$ from the center is $F = -\\frac{G M_E m}{R_E^3} r = -\\frac{mg}{R_E} r$. For a diametrical tunnel, the motion is along the line through the center, giving $m a = -\\frac{mg}{R_E} x \\implies a = -\\left(\\frac{g}{R_E}\\right)x$. The motion is simple harmonic with $T = 2\\pi\\sqrt{\\frac{R_E}{g}} = 2\\pi\\sqrt{\\frac{6.4\\times 10^6}{9.8}} \\approx 5078\\text{ s} \\approx 84.6\\text{ minutes}$. Statement I is correct.\nStep 2: For a chord tunnel at perpendicular distance $d$ from the center, the position vector has distance $r = \\sqrt{x^2 + d^2}$ from the center. The component of gravitational force along the tunnel is $F_x = -F \\cos\\theta = -\\left(\\frac{mg}{R_E} r\\right)\\left(\\frac{x}{r}\\right) = -\\left(\\frac{mg}{R_E}\\right)x$. Because the restoring force constant along the chord is identically $k = \\frac{mg}{R_E}$, the time period along any non-diametrical chord is unchanged: $T = 2\\pi\\sqrt{\\frac{R_E}{g}}$. Statement II is incorrect.\nStep 3: Distractor rejection: Statement I is true and Statement II is false, so choice claiming Statement I is correct but Statement II is incorrect is the only valid choice."
+    },
+    {
+      "id": "phy_oscillations_c01_039",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In steady-state forced harmonic oscillations driven by an external periodic force $F(t) = F_0 \\cos(\\omega_d t)$, consider the following statements regarding the phase difference $\\phi$ between the driving force and displacement ($x(t) = A\\cos(\\omega_d t - \\phi)$):\nI. At driving frequencies much smaller than the natural frequency ($\\omega_d \\ll \\omega_0$), the displacement is nearly in phase with the driving force ($\\phi \\approx 0$).\nII. At exact resonance ($\\omega_d = \\omega_0$), the displacement lags behind the driving force by a phase of $\\frac{\\pi}{2}\\text{ rad}$ ($90^\\circ$).\nIII. At driving frequencies much greater than the natural frequency ($\\omega_d \\gg \\omega_0$), the displacement lags behind the driving force by $\\pi\\text{ rad}$ ($180^\\circ$).\nIV. At exact resonance, the velocity of the oscillating particle is completely out of phase with the driving force.\nWhich of the above statements are correct?",
+      "options": [
+        "A) I and II only",
+        "B) II, III and IV only",
+        "C) I, II and IV only",
+        "D) I, II and III only"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The phase difference between driving force and displacement in steady-state forced oscillations is given by $\\tan\\phi = \\frac{\\omega_d b}{m(\\omega_0^2 - \\omega_d^2)}$. For $\\omega_d \\ll \\omega_0$, $\\tan\\phi \\approx 0 \\implies \\phi \\approx 0$, meaning displacement oscillates in phase with the driving force. Statement I is correct.\nStep 2: At resonance ($\\,\\omega_d = \\omega_0\\,$), the denominator vanishes and $\\tan\\phi \\to \\infty$, which yields $\\phi = \\frac{\\pi}{2}\\text{ rad}$. Thus, displacement lags the driving force by $90^\\circ$. Statement II is correct.\nStep 3: For $\\omega_d \\gg \\omega_0$, the denominator is large and negative, yielding $\\tan\\phi \\to -0$, which corresponds to $\\phi = \\pi\\text{ rad}$. Thus, displacement is completely out of phase ($180^\\circ$ lag) with the driving force. Statement III is correct.\nStep 4: Velocity leads displacement by $\\frac{\\pi}{2}\\text{ rad}$. At resonance, since displacement lags the driving force by $\\frac{\\pi}{2}\\text{ rad}$, the velocity is precisely in phase with the driving force ($-\\frac{\\pi}{2} + \\frac{\\pi}{2} = 0$). This zero phase difference between force and velocity produces maximum power transfer. Thus, Statement IV is incorrect.\nDistractor rejection: Statements I, II, and III are correct while IV is incorrect, eliminating all other option combinations."
+    },
+    {
+      "id": "phy_oscillations_c01_040",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A light vertical spring with a mass $m$ attached executes vertical oscillations with a time period $T = 2.0\\text{ s}$. When an additional mass $\\Delta m = 2.5\\text{ kg}$ is attached to the mass $m$, the time period of oscillation increases to $T' = 3.0\\text{ s}$. The initial mass $m$ is:",
+      "options": [
+        "A) $1.0\\text{ kg}$",
+        "B) $1.5\\text{ kg}$",
+        "C) $2.5\\text{ kg}$",
+        "D) $2.0\\text{ kg}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The time period of a vertical spring-mass system is $T = 2\\pi\\sqrt{\\frac{m}{k}}$. For the initial mass $m$:\n$$T = 2\\pi \\sqrt{\\frac{m}{k}} = 2.0\\text{ s}$$\nWhen the additional mass $\\Delta m = 2.5\\text{ kg}$ is added:\n$$T' = 2\\pi \\sqrt{\\frac{m + 2.5}{k}} = 3.0\\text{ s}$$\nStep 2: Taking the ratio of the two time periods:\n$$\\frac{T'}{T} = \\sqrt{\\frac{m + 2.5}{m}} = \\frac{3.0}{2.0} = \\frac{3}{2}$$\nSquaring both sides:\n$$\\frac{m + 2.5}{m} = \\frac{9}{4}$$\nStep 3: Cross-multiplying and solving for $m$:\n$$4(m + 2.5) = 9m \\implies 4m + 10 = 9m \\implies 5m = 10 \\implies m = 2.0\\text{ kg}$$\nDistractor rejection: $1.0\\text{ kg}$ would yield a new period of $2\\sqrt{3.5/1} = 3.74\\text{ s}$; $2.5\\text{ kg}$ would yield a period ratio of $\\sqrt{5/2.5} = \\sqrt{2} \\approx 1.414$ instead of $1.5$."
+    },
+    {
+      "id": "phy_oscillations_c01_041",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): As the length $L$ of a simple pendulum is increased indefinitely ($L \\to \\infty$), its time period of oscillation does not become infinite, but approaches a finite upper limiting value of $T = 2\\pi\\sqrt{\\frac{R_E}{g}} \\approx 84.6\\text{ minutes}$, where $R_E$ is the radius of the Earth.\nReason (R): For a pendulum whose length is comparable to the Earth's radius, gravity cannot be treated as uniform parallel field lines, and the restoring torque depends on the convergence of the gravitational field lines toward the Earth's center, yielding the exact period formula $T = 2\\pi\\sqrt{\\frac{1}{g\\left(\\frac{1}{L} + \\frac{1}{R_E}\\right)}}$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: When the suspension length $L$ of a pendulum is very large, the gravitational acceleration vectors at the bob and at the equilibrium position are not parallel but converge toward the Earth's center. Taking this convergence into account, the restoring force is $F = -mg\\left(\\frac{1}{L} + \\frac{1}{R_E}\\right)x$. The effective time period is $T = 2\\pi\\sqrt{\\frac{1}{g\\left(\\frac{1}{L} + \\frac{1}{R_E}\\right)}}$. Hence, Reason (R) is true.\nStep 2: In the limit as $L \\to \\infty$, the term $\\frac{1}{L} \\to 0$. The formula reduces to:\n$$T = 2\\pi \\sqrt{\\frac{1}{g\\left(0 + \\frac{1}{R_E}\\right)}} = 2\\pi \\sqrt{\\frac{R_E}{g}} \\approx 2\\pi \\sqrt{\\frac{6.4 \\times 10^6}{9.8}} \\approx 84.6\\text{ minutes}$$\nThus, the period does not approach infinity, but reaches an upper bound of $84.6\\text{ minutes}$. Hence, Assertion (A) is true.\nStep 3: Distractor rejection: Reason (R) provides the exact theoretical framework and formula that justifies the finite limit stated in Assertion (A). Therefore, both are true and Reason (R) is the correct explanation of Assertion (A)."
+    },
+    {
+      "id": "phy_oscillations_c01_042",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A simple pendulum of length $L$ has a bob of mass $m$ carrying a positive electrostatic charge $q$. It oscillates with a natural time period $T_0$ in the absence of any electric field. When a uniform electrostatic field $\\vec{E}$ directed vertically downwards is switched on, the new time period of small oscillations becomes $T_1$. If instead the electric field $\\vec{E}$ is directed vertically upwards with magnitude $E < \\frac{mg}{q}$, the time period becomes $T_2$. The correct relationship between $T_1$, $T_0$, and $T_2$ is:",
+      "options": [
+        "A) $T_1 > T_0 > T_2$",
+        "B) $T_0 > T_1 > T_2$",
+        "C) $T_1 < T_0 < T_2$",
+        "D) $T_1 = T_2 < T_0$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In the absence of an electric field, the effective acceleration acting on the bob is simply gravity, $g_{\\text{eff}} = g$, so $T_0 = 2\\pi\\sqrt{\\frac{L}{g}}$.\nStep 2: When a downward electric field $\\vec{E}$ is applied, the positive charge $q$ experiences a downward electrostatic force $F_e = qE$. The total downward force is $F_{\\text{net}} = mg + qE$, giving an effective gravitational acceleration of $g_{\\text{eff}, 1} = g + \\frac{qE}{m} > g$. The new time period is:\n$$T_1 = 2\\pi \\sqrt{\\frac{L}{g + \\frac{qE}{m}}} < T_0$$\nStep 3: When the electric field is directed vertically upwards, the electrostatic force acts upwards against gravity. The net downward force is $F_{\\text{net}} = mg - qE$, yielding $g_{\\text{eff}, 2} = g - \\frac{qE}{m} < g$. The new time period is:\n$$T_2 = 2\\pi \\sqrt{\\frac{L}{g - \\frac{qE}{m}}} > T_0$$\nThus, comparing the three periods gives $T_1 < T_0 < T_2$.\nDistractor rejection: $T_1 > T_0 > T_2$ incorrectly assumes that an increased effective restoring force increases the time period; $T_1 = T_2$ neglects the sign change in the effective acceleration."
+    },
+    {
+      "id": "phy_oscillations_c01_043",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A car moves with a constant speed $v$ along a horizontal circular track of radius $R$. A simple pendulum of length $L$ is suspended from the roof of the car. The time period $T$ of small oscillations of this pendulum about its equilibrium position inside the car is:",
+      "options": [
+        "A) $2\\pi \\sqrt{\\frac{L}{\\sqrt{g^2 - \\frac{v^4}{R^2}}}}$",
+        "B) $2\\pi \\sqrt{\\frac{L}{g + \\frac{v^2}{R}}}$",
+        "C) $2\\pi \\sqrt{\\frac{L}{g - \\frac{v^2}{R}}}$",
+        "D) $2\\pi \\left[\\frac{L^2}{g^2 + \\frac{v^4}{R^2}}\\right]^{1/4}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In the non-inertial frame of the car moving along the circular path, the pendulum bob experiences two perpendicular accelerations: the downward gravitational acceleration $\\vec{g}$ and the horizontally outward centrifugal pseudo-acceleration $\\vec{a}_c$ of magnitude $a_c = \\frac{v^2}{R}$.\nStep 2: Because $\\vec{g}$ is vertical and $\\vec{a}_c$ is horizontal, the angle between them is $90^\\circ$. The effective acceleration due to gravity is the vector resultant:\n$$g_{\\text{eff}} = \\sqrt{g^2 + a_c^2} = \\sqrt{g^2 + \\left(\\frac{v^2}{R}\\right)^2} = \\left(g^2 + \\frac{v^4}{R^2}\\right)^{1/2}$$\nStep 3: The time period of small oscillations about the tilted equilibrium direction is:\n$$T = 2\\pi \\sqrt{\\frac{L}{g_{\\text{eff}}}} = 2\\pi \\sqrt{\\frac{L}{\\left(g^2 + \\frac{v^4}{R^2}\\right)^{1/2}}} = 2\\pi \\left[\\frac{L^2}{g^2 + \\frac{v^4}{R^2}}\\right]^{1/4}$$\nDistractor rejection: Options B and C algebraically add or subtract the centripetal acceleration, which violates the perpendicular vector geometry between gravity and centrifugal acceleration; Option A introduces an unphysical negative sign under the square root."
+    },
+    {
+      "id": "phy_oscillations_c01_044",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): When two blocks of masses $m_1$ and $m_2$ connected by a light spring of force constant $k$ on a frictionless horizontal table are pulled apart and released, the system oscillates with a time period $T = 2\\pi\\sqrt{\\frac{\\mu}{k}}$, where $\\mu = \\frac{m_1 m_2}{m_1 + m_2}$ is the reduced mass of the two-body system.\nReason (R): Since no external horizontal force acts on the two-block system, the center of mass remains stationary, and the relative separation coordinate $x = x_2 - x_1 - L_0$ obeys the differential equation of motion $\\mu \\frac{d^2x}{dt^2} = -kx$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The equations of motion for the two masses are $m_1 \\frac{d^2x_1}{dt^2} = k(x_2 - x_1 - L_0)$ and $m_2 \\frac{d^2x_2}{dt^2} = -k(x_2 - x_1 - L_0)$. Defining the relative displacement from natural length as $x = x_2 - x_1 - L_0$, we have $\\frac{d^2x}{dt^2} = \\frac{d^2x_2}{dt^2} - \\frac{d^2x_1}{dt^2} = -\\frac{kx}{m_2} - \\frac{kx}{m_1} = -kx\\left(\\frac{1}{m_1} + \\frac{1}{m_2}\\right)$. Thus, $\\frac{d^2x}{dt^2} = -\\frac{kx}{\\mu}$, or $\\mu \\frac{d^2x}{dt^2} = -kx$, where $\\mu = \\frac{m_1 m_2}{m_1 + m_2}$. Reason (R) is true.\nStep 2: The relative coordinate executes SHM with angular frequency $\\omega = \\sqrt{\\frac{k}{\\mu}}$. The time period of oscillation is $T = \\frac{2\\pi}{\\omega} = 2\\pi\\sqrt{\\frac{\\mu}{k}}$. Hence, Assertion (A) is true.\nStep 3: Distractor rejection: Reason (R) provides the exact two-body reduction that derives the time period formula in Assertion (A). Therefore, both are true and Reason (R) is the correct explanation of Assertion (A)."
+    },
+    {
+      "id": "phy_oscillations_c01_045",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A small coin of mass $m$ is placed on a horizontal platform that executes vertical simple harmonic motion with an amplitude $A = 0.10\\text{ m}$. Taking the acceleration due to gravity as $g = 10\\text{ m/s}^2$, the maximum angular frequency $\\omega_{\\max}$ at which the platform can oscillate so that the coin never loses contact with the platform is:",
+      "options": [
+        "A) $10\\text{ rad/s}$",
+        "B) $5\\text{ rad/s}$",
+        "C) $20\\text{ rad/s}$",
+        "D) $100\\text{ rad/s}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Consider the forces acting on the coin of mass $m$ on the platform: the downward force of gravity $mg$ and the upward normal contact force $N$ exerted by the platform. The net downward equation of motion is:\n$$mg - N = m a(t)$$\n$$N = m[g - a(t)]$$\nStep 2: The normal force is at its minimum when the downward acceleration of the platform is maximum, which occurs at the highest point of the oscillation where $a_{\\max} = \\omega^2 A$ downwards. Thus:\n$$N_{\\min} = m(g - \\omega^2 A)$$\nStep 3: For the coin to remain in continuous contact without leaving the platform, the normal contact force must satisfy $N_{\\min} \\ge 0$:\n$$m(g - \\omega^2 A) \\ge 0 \\implies \\omega^2 A \\le g \\implies \\omega \\le \\sqrt{\\frac{g}{A}}$$\nSubstituting $g = 10\\text{ m/s}^2$ and $A = 0.10\\text{ m}$:\n$$\\omega_{\\max} = \\sqrt{\\frac{10}{0.10}} = \\sqrt{100} = 10\\text{ rad/s}$$\nDistractor rejection: $100\\text{ rad/s}$ fails to take the square root of $100$; $5\\text{ rad/s}$ and $20\\text{ rad/s}$ result from incorrect factors of $2$."
+    },
+    {
+      "id": "phy_oscillations_c01_046",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A small block of mass $m$ rests on a horizontal plank that oscillates horizontally in simple harmonic motion with a time period $T = \\pi\\text{ s}$. The coefficient of static friction between the block and the plank is $\\mu_s = 0.4$. Taking $g = 10\\text{ m/s}^2$, the maximum amplitude of oscillation $A_{\\max}$ for which the block will not slip on the plank is:",
+      "options": [
+        "A) $0.5\\text{ m}$",
+        "B) $2.0\\text{ m}$",
+        "C) $1.0\\text{ m}$",
+        "D) $0.25\\text{ m}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The angular frequency of horizontal oscillation of the plank is:\n$$\\omega = \\frac{2\\pi}{T} = \\frac{2\\pi}{\\pi} = 2\\text{ rad/s}$$\nStep 2: The acceleration of the plank as a function of displacement is $a(x) = -\\omega^2 x$, which reaches a maximum magnitude of $a_{\\max} = \\omega^2 A$ at the extreme positions. The only horizontal force accelerating the block along with the plank is the static friction force $f_s$. By Newton's second law, $f_s = m a$.\nStep 3: To prevent slipping, the required force must not exceed the maximum limiting static friction $f_{s,\\max} = \\mu_s N = \\mu_s mg$:\n$$m a_{\\max} \\le \\mu_s mg \\implies \\omega^2 A \\le \\mu_s g$$\n$$A_{\\max} = \\frac{\\mu_s g}{\\omega^2} = \\frac{0.4 \\times 10}{2^2} = \\frac{4.0}{4} = 1.0\\text{ m}$$\nDistractor rejection: $0.5\\text{ m}$ mistakenly divides by $8$; $2.0\\text{ m}$ forgets to square $\\omega$; $0.25\\text{ m}$ mistakenly inverts the fraction."
+    },
+    {
+      "id": "phy_oscillations_c01_047",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the superposition of two mutually perpendicular simple harmonic motions of equal frequency $\\omega$:\nStatement I: When a particle is subjected simultaneously to two mutually perpendicular simple harmonic motions of equal amplitude $A$ with a phase difference of $\\frac{\\pi}{2}\\text{ rad}$ ($x = A\\sin(\\omega t)$ and $y = A\\cos(\\omega t)$), the resulting trajectory in the xy-plane is a circle of radius $A$.\nStatement II: If the phase difference between the two mutually perpendicular SHMs is $0$ or $\\pi\\text{ rad}$, the resulting trajectory in the xy-plane is a straight line passing through the origin.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Both Statement I and Statement II are incorrect.",
+        "C) Statement I is correct but Statement II is incorrect.",
+        "D) Statement I is incorrect but Statement II is correct."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For two perpendicular SHMs of equal frequency and equal amplitude with phase difference $\\phi = \\frac{\\pi}{2}$: $x(t) = A\\sin(\\omega t)$ and $y(t) = A\\cos(\\omega t)$. Squaring and adding both equations yields:\n$$x^2 + y^2 = A^2\\sin^2(\\omega t) + A^2\\cos^2(\\omega t) = A^2$$\nThis is the equation of a circle of radius $A$ centered at the origin. Statement I is correct.\nStep 2: When the phase difference is $\\phi = 0$: $x = A\\sin(\\omega t)$ and $y = B\\sin(\\omega t) \\implies y = \\left(\\frac{B}{A}\\right)x$, which is a straight line through the origin with positive slope. When $\\phi = \\pi$: $x = A\\sin(\\omega t)$ and $y = B\\sin(\\omega t + \\pi) = -B\\sin(\\omega t) \\implies y = -\\left(\\frac{B}{A}\\right)x$, which is a straight line through the origin with negative slope. Statement II is correct.\nStep 3: Distractor rejection: Both statements are classic NCERT Lissajous trajectory theorems; therefore, both statements are correct."
+    },
+    {
+      "id": "phy_oscillations_c01_048",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A damped harmonic oscillator of mass $m = 0.5\\text{ kg}$ is attached to a spring of force constant $k = 200\\text{ N/m}$ and experiences a damping force $F_d = -b v$ with damping constant $b = 0.05\\text{ kg/s}$. The mechanical energy of the oscillator decays exponentially with time according to $E(t) = E_0 e^{-\\lambda t}$. The value of the decay constant $\\lambda$ and the time constant $\\tau_E$ for the energy to drop to $\\frac{1}{e}$ of its initial value are:",
+      "options": [
+        "A) $\\lambda = 0.05\\text{ s}^{-1}$ and $\\tau_E = 20\\text{ s}$",
+        "B) $\\lambda = 0.20\\text{ s}^{-1}$ and $\\tau_E = 5\\text{ s}$",
+        "C) $\\lambda = 0.025\\text{ s}^{-1}$ and $\\tau_E = 40\\text{ s}$",
+        "D) $\\lambda = 0.10\\text{ s}^{-1}$ and $\\tau_E = 10\\text{ s}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In a damped harmonic oscillator, the amplitude decays exponentially as $A(t) = A_0 e^{-\\frac{b}{2m}t}$. Because mechanical energy is proportional to the square of amplitude ($E(t) = \\frac{1}{2}k A^2(t)$), the energy decays according to:\n$$E(t) = \\frac{1}{2}k\\left(A_0 e^{-\\frac{b}{2m}t}\\right)^2 = \\frac{1}{2}k A_0^2 e^{-\\frac{b}{m}t} = E_0 e^{-\\lambda t}$$\nStep 2: Comparing exponents gives the energy decay rate constant $\\lambda$:\n$$\\lambda = \\frac{b}{m} = \\frac{0.05\\text{ kg/s}}{0.5\\text{ kg}} = 0.10\\text{ s}^{-1}$$\nStep 3: The time constant $\\tau_E$ is the time required for the energy to drop to $\\frac{E_0}{e}$, which occurs when $\\lambda \\tau_E = 1$:\n$$\\tau_E = \\frac{1}{\\lambda} = \\frac{m}{b} = \\frac{1}{0.10} = 10\\text{ s}$$\nDistractor rejection: $\\lambda = 0.05\\text{ s}^{-1}$ and $\\tau_E = 20\\text{ s}$ confuses the energy decay rate with the amplitude decay rate ($\\,\\frac{b}{2m} = 0.05\\text{ s}^{-1}\\,$); $\\lambda = 0.20\\text{ s}^{-1}$ mistakenly multiplies by $2$."
+    },
+    {
+      "id": "phy_oscillations_c01_049",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): When an object of mass $M$ is attached to a real uniform spring having a non-negligible mass $m_s$ and spring constant $k$, the time period of oscillation is given by $T = 2\\pi\\sqrt{\\frac{M + \\frac{1}{3}m_s}{k}}$.\nReason (R): Different parts of the oscillating spring move with different speeds, varying linearly from zero at the fixed support to $v$ at the attached mass $M$; integrating the kinetic energy over all infinitesimal mass elements of the spring yields $K_{\\text{spring}} = \\frac{1}{6}m_s v^2 = \\frac{1}{2}\\left(\\frac{m_s}{3}\\right)v^2$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Let the uniform spring have total mass $m_s$ and unstretched length $L$. At a distance $y$ from the fixed support, the speed of an infinitesimal mass element $dm = \\left(\\frac{m_s}{L}\\right)dy$ is $v(y) = \\left(\\frac{y}{L}\\right)v$, where $v$ is the velocity of the attached mass $M$. The total kinetic energy of the spring is:\n$$K_{\\text{spring}} = \\int_0^L \\frac{1}{2}(dm) [v(y)]^2 = \\int_0^L \\frac{1}{2}\\left(\\frac{m_s}{L}dy\\right)\\left(\\frac{y}{L}v\\right)^2 = \\frac{m_s v^2}{2 L^3}\\int_0^L y^2 dy = \\frac{m_s v^2}{2 L^3}\\left(\\frac{L^3}{3}\\right) = \\frac{1}{2}\\left(\\frac{m_s}{3}\\right)v^2$$\nThus, Reason (R) is true.\nStep 2: The total mechanical energy of the system is $E = K_{\\text{mass}} + K_{\\text{spring}} + U = \\frac{1}{2}M v^2 + \\frac{1}{2}\\left(\\frac{m_s}{3}\\right)v^2 + \\frac{1}{2}kx^2 = \\frac{1}{2}\\left(M + \\frac{m_s}{3}\\right)v^2 + \\frac{1}{2}kx^2$. Comparing this with standard SHM energy gives the effective oscillating mass $M_{\\text{eff}} = M + \\frac{m_s}{3}$, so $T = 2\\pi\\sqrt{\\frac{M + \\frac{1}{3}m_s}{k}}$. Hence, Assertion (A) is true.\nStep 3: Distractor rejection: Reason (R) provides the exact calculus derivation of the effective inertia fraction ($m_s/3$) stated in Assertion (A). Therefore, both are true and Reason (R) correctly explains Assertion (A)."
+    },
+    {
+      "id": "phy_oscillations_c01_050",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following four displacement functions of time representing the motion of a particle along the y-axis:\nI. $y_1(t) = A\\sin(\\omega t) + B\\cos(\\omega t)$\nII. $y_2(t) = A\\sin^2(\\omega t)$\nIII. $y_3(t) = A\\sin(\\omega t) + B\\sin(2\\omega t)$\nIV. $y_4(t) = A e^{-\\omega t}$\nWhich of the following correctly classifies these four motions?",
+      "options": [
+        "A) I is SHM, II is SHM, III is periodic but not SHM, and IV is non-periodic.",
+        "B) I and III are SHM, while II and IV are non-periodic.",
+        "C) I is SHM, but II, III, and IV are all non-periodic.",
+        "D) I, II, and III are all SHM, and IV is periodic."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For $y_1(t)$: Using the identity $A\\sin(\\omega t) + B\\cos(\\omega t) = \\sqrt{A^2 + B^2}\\sin(\\omega t + \\phi)$, the motion is a single sinusoidal function of frequency $\\omega$. Differentiating twice yields $\\frac{d^2y_1}{dt^2} = -\\omega^2 y_1$, which is the defining equation of simple harmonic motion (SHM).\nStep 2: For $y_2(t)$: Using the trigonometric identity $\\sin^2(\\omega t) = \\frac{1 - \\cos(2\\omega t)}{2}$, we get $y_2(t) = \\frac{A}{2} - \\frac{A}{2}\\cos(2\\omega t)$. Letting $Y = y_2 - \\frac{A}{2}$, we have $Y(t) = -\\frac{A}{2}\\cos(2\\omega t)$, which satisfies $\\frac{d^2Y}{dt^2} = -(2\\omega)^2 Y$. Thus, $y_2(t)$ represents simple harmonic motion about the mean position $y = \\frac{A}{2}$ with angular frequency $2\\omega$.\nStep 3: For $y_3(t)$: It is a linear combination of two distinct harmonic frequencies $\\omega$ and $2\\omega$. The motion repeats after the fundamental period $T = \\frac{2\\pi}{\\omega}$, making it periodic, but $\\frac{d^2y_3}{dt^2} \\neq -\\text{constant} \\times y_3$; thus it is periodic but not simple harmonic.\nStep 4: For $y_4(t) = A e^{-\\omega t}$: The displacement decays monotonically toward zero as $t \\to \\infty$ without repeating. Thus, it is completely non-periodic.\nDistractor rejection: Any classification that treats $y_3(t)$ as SHM or $y_4(t)$ as periodic contradicts fundamental NCERT definitions."
+    },
+    {
+      "id": "phy_oscillations_c01_051",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (State / Quantity in SHM of amplitude $A$, mass $m$, and angular frequency $\\omega$) with List II (Magnitude / Expression):\nList I\nA. Speed of the particle at displacement $x = \\frac{A}{2}$\nB. Kinetic energy of the particle at displacement $x = \\frac{A}{\\sqrt{2}}$\nC. Acceleration magnitude of the particle at displacement $x = A$\nD. Ratio of kinetic energy to potential energy at displacement $x = \\frac{A}{2}$\n\nList II\nI. $\\frac{\\sqrt{3}}{2}\\omega A$\nII. $\\frac{1}{4}m\\omega^2 A^2$\nIII. $\\omega^2 A$\nIV. $3 : 1$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-II, B-I, C-III, D-IV",
+        "B) A-I, B-III, C-II, D-IV",
+        "C) A-I, B-II, C-III, D-IV",
+        "D) A-IV, B-II, C-I, D-III"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The speed at displacement $x = \\frac{A}{2}$ is $v = \\omega\\sqrt{A^2 - x^2} = \\omega\\sqrt{A^2 - \\frac{A^2}{4}} = \\omega\\sqrt{\\frac{3A^2}{4}} = \\frac{\\sqrt{3}}{2}\\omega A$. Thus, A matches I.\nStep 2: The kinetic energy at $x = \\frac{A}{\\sqrt{2}}$ is $K = \\frac{1}{2}m\\omega^2(A^2 - x^2) = \\frac{1}{2}m\\omega^2\\left(A^2 - \\frac{A^2}{2}\\right) = \\frac{1}{4}m\\omega^2 A^2$. Thus, B matches II.\nStep 3: The magnitude of acceleration at $x = A$ is $|a| = |-\\omega^2 x| = \\omega^2 A$. Thus, C matches III.\nStep 4: At $x = \\frac{A}{2}$, potential energy is $U = \\frac{1}{2}m\\omega^2\\left(\\frac{A}{2}\\right)^2 = \\frac{1}{8}m\\omega^2 A^2$. The kinetic energy is $K = \\frac{1}{2}m\\omega^2\\left(A^2 - \\frac{A^2}{4}\\right) = \\frac{3}{8}m\\omega^2 A^2$. The ratio is $\\frac{K}{U} = \\frac{3/8}{1/8} = 3 : 1$. Thus, D matches IV.\nDistractor rejection: The match A-I, B-II, C-III, D-IV is the unique correct pairing satisfying all four calculations."
+    },
+    {
+      "id": "phy_oscillations_c01_052",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R):\nAssertion (A): In forced harmonic oscillations, a smaller damping coefficient $b$ produces a sharper resonance curve with a significantly higher peak amplitude at $\\omega_d \\approx \\omega_0$.\nReason (R): The Quality factor ($Q$) of the driven oscillator is given by $Q = \\frac{\\omega_0 m}{b}$, which represents the ratio of total energy stored to energy dissipated per cycle; smaller damping minimizes energy dissipation and produces a narrow resonance bandwidth $\\Delta \\omega = \\frac{b}{m}$.\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The steady-state amplitude of a forced oscillator driven by $F_0\\cos(\\omega_d t)$ is $A = \\frac{F_0}{\\sqrt{m^2(\\omega_0^2 - \\omega_d^2)^2 + \\omega_d^2 b^2}}$. Near resonance ($\\omega_d \\approx \\omega_0$), the amplitude simplifies to $A_{\\max} \\approx \\frac{F_0}{\\omega_0 b}$. As the damping coefficient $b$ decreases, $A_{\\max}$ increases sharply, producing a tall, narrow peak. Hence, Assertion (A) is true.\nStep 2: The sharpness of resonance is measured quantitatively by the Quality factor $Q = \\frac{\\omega_0}{\\Delta \\omega} = \\frac{\\omega_0 m}{b}$, where $\\Delta \\omega = \\frac{b}{m}$ is the full width at half-maximum power. Since $Q = 2\\pi \\frac{\\text{Energy Stored}}{\\text{Energy Lost per Cycle}}$, lower damping means minimal energy loss and an exceptionally high Quality factor. Hence, Reason (R) is true.\nStep 3: Distractor rejection: Reason (R) provides the exact mathematical and physical foundation defining why smaller damping leads to sharper resonance in Assertion (A). Therefore, both are true and Reason (R) is the correct explanation of Assertion (A)."
+    },
+    {
+      "id": "phy_oscillations_c01_053",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform tube bent into a symmetrical V-shape with each limb inclined at an angle $\\alpha$ to the horizontal is filled with a non-viscous liquid of total column length $L$. When the liquid is displaced along the tube by a distance $x$ from equilibrium and released, it executes simple harmonic motion. The time period of oscillation is:",
+      "options": [
+        "A) $2\\pi\\sqrt{\\frac{L}{g\\sin\\alpha}}$",
+        "B) $2\\pi\\sqrt{\\frac{L\\sin\\alpha}{2g}}$",
+        "C) $2\\pi\\sqrt{\\frac{L}{2g\\sin\\alpha}}$",
+        "D) $2\\pi\\sqrt{\\frac{2L}{g\\cos\\alpha}}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: When the liquid is displaced along the tube by a distance $x$, it rises along one inclined limb by $x$ and falls along the other inclined limb by $x$. The vertical rise in one limb is $h_1 = x\\sin\\alpha$ and the vertical fall in the other limb is $h_2 = x\\sin\\alpha$.\nStep 2: The vertical level difference between the liquid surfaces in the two limbs is:\n$$\\Delta h = h_1 + h_2 = 2x\\sin\\alpha$$\nThe net hydrostatic restoring force acting along the tube is the weight of this excess liquid column:\n$$F = -(\\Delta h A \\rho g) = -(2x\\sin\\alpha A \\rho g) = -(2 A \\rho g \\sin\\alpha) x$$\nStep 3: The total mass of the liquid column is $m = A L \\rho$. The acceleration along the tube is:\n$$a = \\frac{F}{m} = -\\frac{2 A \\rho g \\sin\\alpha}{A L \\rho} x = -\\left(\\frac{2g\\sin\\alpha}{L}\\right)x = -\\omega^2 x$$\nThus, the angular frequency is $\\omega = \\sqrt{\\frac{2g\\sin\\alpha}{L}}$, and the time period of oscillation is:\n$$T = \\frac{2\\pi}{\\omega} = 2\\pi \\sqrt{\\frac{L}{2g\\sin\\alpha}}$$\nNote that when $\\alpha = 90^\\circ$ (vertical U-tube), $\\sin 90^\\circ = 1$, recovering the classic formula $T = 2\\pi\\sqrt{\\frac{L}{2g}}$.\nDistractor rejection: Option A omits the factor of $2$ arising from both limbs; Option B places $\\sin\\alpha$ in the numerator; Option D mistakenly uses $\\cos\\alpha$."
+    },
+    {
+      "id": "phy_oscillations_c01_054",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform circular disc of mass $M$ and radius $R$ is suspended in a horizontal plane by a thin metallic wire clamped at the center of the disc. The wire has a torsional constant $C$. The disc executes torsional oscillations with a time period $T_1 = 2\\pi\\sqrt{\\frac{I}{C}}$. If this disc is replaced by another uniform circular disc made of the same material and of identical thickness but having twice the radius ($R' = 2R$), suspended from the same wire, the new time period of torsional oscillation $T_2$ is:",
+      "options": [
+        "A) $T_2 = T_1$",
+        "B) $T_2 = 2 T_1$",
+        "C) $T_2 = 8 T_1$",
+        "D) $T_2 = 4 T_1$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The mass of a disc of radius $R$, thickness $t$, and density $\\rho$ is $M = \\pi R^2 t \\rho$. When the radius is doubled to $R' = 2R$ while keeping thickness and material identical, the new mass is:\n$$M' = \\pi (2R)^2 t \\rho = 4(\\pi R^2 t \\rho) = 4M$$\nStep 2: The moment of inertia of a uniform circular disc about its central perpendicular axis is $I = \\frac{1}{2}M R^2$. The moment of inertia of the new disc is:\n$$I' = \\frac{1}{2}M' (R')^2 = \\frac{1}{2}(4M)(2R)^2 = \\frac{1}{2}(4M)(4R^2) = 16\\left(\\frac{1}{2}M R^2\\right) = 16 I$$\nStep 3: The time period of a torsional pendulum is $T = 2\\pi\\sqrt{\\frac{I}{C}}$. Because the wire is identical, the torsional constant $C$ remains unchanged. The new time period is:\n$$T_2 = 2\\pi \\sqrt{\\frac{I'}{C}} = 2\\pi \\sqrt{\\frac{16 I}{C}} = 4\\left(2\\pi\\sqrt{\\frac{I}{C}}\\right) = 4 T_1$$\nDistractor rejection: $T_2 = 2T_1$ incorrectly considers only the change in radius while neglecting the four-fold increase in mass; $T_2 = 8T_1$ assumes moment of inertia scales as $R^6$."
+    },
+    {
+      "id": "phy_oscillations_c01_055",
+      "subject": "Physics",
+      "topic": "Oscillations",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding a system in which a block of mass $m$ resting on a smooth horizontal floor is connected between two opposite vertical walls by two collinear light springs of force constants $k_1$ and $k_2$:\nStatement I: Because the two springs are anchored to opposite fixed walls on opposite sides of the block, the combination behaves as a series spring system with an effective spring constant $k_{\\text{eq}} = \\frac{k_1 k_2}{k_1 + k_2}$.\nStatement II: When the block is displaced to the right by a distance $x$, the spring on the left is extended while the spring on the right is compressed, causing their restoring forces to act in mutually opposite directions and partially cancel each other.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are correct.",
+        "B) Statement I is correct but Statement II is incorrect.",
+        "C) Statement I is incorrect but Statement II is correct.",
+        "D) Both Statement I and Statement II are incorrect."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: When the block is displaced to the right by $x$, the left spring (constant $k_1$) is extended by $x$ and exerts a pulling restoring force $F_1 = -k_1 x$ directed to the left. The right spring (constant $k_2$) is compressed by $x$ and exerts a pushing restoring force $F_2 = -k_2 x$ also directed to the left. Thus, both restoring forces act in the SAME direction (to the left), reinforcing each other. The net restoring force is $F_{\\text{net}} = -(k_1 + k_2)x$. Therefore, Statement II is incorrect.\nStep 2: Because the net restoring force is proportional to $(k_1 + k_2)$, the effective spring constant is $k_{\\text{eq}} = k_1 + k_2$, which corresponds to a parallel combination of springs rather than a series combination. Statement I is incorrect.\nStep 3: Distractor rejection: Both statements represent widespread student misconceptions regarding springs on opposite sides of a mass. Since both Statement I and Statement II are false, the choice identifying both as incorrect is the only valid answer."
+    }
+  ]
+}

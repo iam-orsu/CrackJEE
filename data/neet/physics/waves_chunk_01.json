@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Waves",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_waves_c01_001",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the propagation of mechanical waves in different physical media:\n\nStatement I: Transverse mechanical waves can propagate through solids and along the surface of liquids, but cannot propagate through the interior of liquids and gases.\nStatement II: Fluids (liquids and gases) do not possess shear elasticity (modulus of rigidity $\\eta = 0$) necessary to sustain transverse mechanical shear stresses.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: NCERT explicitly states that transverse mechanical waves involve shear deformations where the medium particles oscillate perpendicular to the direction of wave propagation.\nStep 2: Fluids (liquids and gases) can sustain compressive strain (bulk modulus $B$) but possess no static shear modulus (modulus of rigidity $\\eta = 0$). Hence, transverse mechanical waves cannot travel through the volume of fluids.\nStep 3: Only solids possess both shear and bulk elasticity, allowing both transverse and longitudinal waves to propagate through their bulk. On liquid surfaces, surface tension and gravity provide the restoring force for transverse ripples. Therefore, both Statement I and Statement II are true.\nDistractor Analysis: Choices stating that either statement is false contradict the fundamental elastic requirements for transverse wave propagation in mechanical media."
+    },
+    {
+      "id": "phy_waves_c01_002",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Newton's theoretical calculation for the speed of sound in air at STP yielded approximately $280\\text{ m/s}$, which was about $15\\%$ lower than the experimentally measured value of $331\\text{ m/s}$.\nReason (R): Newton assumed that compressions and rarefactions during sound propagation occur under isothermal conditions, whereas Laplace demonstrated that these rapid pressure variations occur under adiabatic conditions.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Newton assumed sound propagation is isothermal, where the bulk modulus equals isothermal bulk modulus $B_{\\text{iso}} = P$. At STP, $v = \\sqrt{P/\\rho} = \\sqrt{1.013 \\times 10^5 / 1.29} \\approx 280\\text{ m/s}$.\nStep 2: Laplace corrected this by recognizing that compressions and rarefactions occur so rapidly that heat does not have time to transfer between adjacent regions, and air is a poor conductor of heat.\nStep 3: Hence, the acoustic process is adiabatic with adiabatic bulk modulus $B_{\\text{ad}} = \\gamma P$. With $\\gamma = 1.41$, $v = \\sqrt{\\gamma P/\\rho} \\approx 331.3\\text{ m/s}$, matching experimental observation. Reason (R) correctly explains why Newton's formula underestimated the speed.\nDistractor Analysis: Alternative options asserting either (A) or (R) to be false contradict Laplace's historical adiabatic correction that resolved Newton's isothermal discrepancy."
+    },
+    {
+      "id": "phy_waves_c01_003",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Wave Parameter / Relation) with List II (Mathematical Expression in SI units for a wave $y(x,t) = A\\sin(kx - \\omega t)$):\n\nList I:\nP. Angular wave number (propagation constant) $k$\nQ. Wave propagation speed $v$\nR. Maximum particle velocity $v_{p,\\max}$\nS. Maximum particle acceleration $a_{p,\\max}$\n\nList II:\n1. $\\omega A$\n2. $\\omega^2 A$\n3. $\\frac{2\\pi}{\\lambda}$\n4. $\\frac{\\omega}{k}$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-3, Q-4, R-1, S-2",
+        "B) P-3, Q-1, R-4, S-2",
+        "C) P-4, Q-3, R-2, S-1",
+        "D) P-2, Q-4, R-1, S-3"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Angular wave number $k$ is defined as $k = 2\\pi/\\lambda$, representing the spatial angular frequency.\nStep 2: The speed of wave propagation is given by the ratio of angular frequency to wave number: $v = \\lambda/T = \\omega/k$.\nStep 3: The particle velocity is $v_p = \\partial y/\\partial t = -\\omega A \\cos(kx - \\omega t)$, yielding maximum particle speed $v_{p,\\max} = \\omega A$. The particle acceleration is $a_p = \\partial^2 y/\\partial t^2 = -\\omega^2 y$, yielding maximum particle acceleration $a_{p,\\max} = \\omega^2 A$. Thus, P-3, Q-4, R-1, S-2 is the correct match.\nDistractor Analysis: Incorrect pairings swap particle velocity with wave velocity or confuse linear velocity with acceleration."
+    },
+    {
+      "id": "phy_waves_c01_004",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the factors affecting the speed of sound in an ideal gas:\n\nStatement I: At a constant temperature, changing the atmospheric pressure of an ideal gas does not affect the speed of sound in that gas.\nStatement II: The speed of sound in an ideal gas is directly proportional to the square root of its absolute temperature ($v \\propto \\sqrt{T}$).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are true.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: According to Laplace's formula, the speed of sound in an ideal gas is $v = \\sqrt{\\gamma P/\\rho}$. From the ideal gas equation, $P/\\rho = RT/M$, so $v = \\sqrt{\\gamma R T / M}$.\nStep 2: At constant temperature, when pressure $P$ changes, gas density $\rho$ changes in the exact same proportion according to Boyle's law ($P/\\rho = \\text{constant}$). Therefore, pressure variations at constant temperature have zero effect on sound speed.\nStep 3: From $v = \\sqrt{\\gamma R T / M}$, the speed is directly proportional to the square root of absolute temperature $T$ in Kelvin ($v \\propto \\sqrt{T}$). Hence, both Statement I and Statement II are true.\nDistractor Analysis: Assertions that sound speed increases with pressure fail because density increases proportionally, canceling any pressure effect."
+    },
+    {
+      "id": "phy_waves_c01_005",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Sound travels faster in moist (humid) air than in dry air at the same temperature and atmospheric pressure.\nReason (R): Water vapor has a lower molar mass ($18\\text{ g/mol}$) than dry air (average molar mass $\\approx 28.8\\text{ g/mol}$), making the density of moist air less than the density of dry air at the same temperature and pressure.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The speed of sound in a gaseous medium is inversely proportional to the square root of its mass density at a given pressure: $v = \\sqrt{\\gamma P/\\rho}$.\nStep 2: Dry air is primarily a mixture of diatomic nitrogen ($M = 28\\text{ g/mol}$) and oxygen ($M = 32\\text{ g/mol}$), with an effective molar mass of $28.8\\text{ g/mol}$. Water vapor has a molar mass of $18\\text{ g/mol}$.\nStep 3: At constant total pressure and temperature, adding water vapor displaces heavier nitrogen and oxygen molecules, which decreases the overall density of moist air ($\\rho_{\\text{moist}} < \\rho_{\\text{dry}}$). Since $v \\propto 1/\\sqrt{\\rho}$, sound travels faster in humid air. Reason (R) provides the exact explanation for Assertion (A).\nDistractor Analysis: Other choices fail because density reduction is the primary physical cause of the increased acoustic speed in humid air."
+    },
+    {
+      "id": "phy_waves_c01_006",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform flexible wire of length $L = 2.5\\text{ m}$ and total mass $m = 25.0\\text{ g}$ is stretched between two fixed supports under a constant tension of $T = 64.0\\text{ N}$. What is the propagation speed of a transverse wave pulse traveling along this wire?",
+      "options": [
+        "A) $160.0\\text{ m/s}$",
+        "B) $40.0\\text{ m/s}$",
+        "C) $50.0\\text{ m/s}$",
+        "D) $80.0\\text{ m/s}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The linear mass density $\\mu$ of the stretched wire is its mass per unit length:\n$$\\mu = \\frac{m}{L} = \\frac{25.0 \\times 10^{-3}\\text{ kg}}{2.5\\text{ m}} = 0.010\\text{ kg/m} = 10^{-2}\\text{ kg/m}$$\nStep 2: The speed of a transverse wave on a stretched string is given by the formula:\n$$v = \\sqrt{\\frac{T}{\\mu}}$$\nStep 3: Substituting the given values $T = 64.0\\text{ N}$ and $\\mu = 10^{-2}\\text{ kg/m}$:\n$$v = \\sqrt{\\frac{64.0}{0.010}} = \\sqrt{6400} = 80.0\\text{ m/s}$$\nDistractor Analysis: The value $40.0\\text{ m/s}$ arises from halving the result; $160.0\\text{ m/s}$ arises from doubling the result; $50.0\\text{ m/s}$ arises from incorrectly using $\\sqrt{T \\mu}$ instead of $\\sqrt{T/\\mu}$."
+    },
+    {
+      "id": "phy_waves_c01_007",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A transverse progressive harmonic wave traveling along a stretched string is represented by the equation:\n$$y(x, t) = 0.04 \\sin(20\\pi t - 2\\pi x)$$\nwhere $x$ and $y$ are in meters and $t$ is in seconds. Consider the following statements:\nI. The wave propagates along the positive $x$-direction with a speed of $10\\text{ m/s}$.\nII. The wavelength of the wave is $1.0\\text{ m}$ and its frequency is $10\\text{ Hz}$.\nIII. The maximum transverse particle velocity is $0.8\\pi\\text{ m/s}$.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) I and II only",
+        "B) II and III only",
+        "C) I, II and III",
+        "D) I and III only"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Comparing with the standard wave equation $y(x,t) = A\\sin(\\omega t - kx)$:\nHere, amplitude $A = 0.04\\text{ m}$, angular frequency $\\omega = 20\\pi\\text{ rad/s}$, and angular wave number $k = 2\\pi\\text{ rad/m}$. Since the signs of $\\omega t$ and $kx$ are opposite, the wave propagates along the positive $x$-direction.\nStep 2: Frequency $f = \\omega/(2\\pi) = 20\\pi/(2\\pi) = 10\\text{ Hz}$. Wavelength $\\lambda = 2\\pi/k = 2\\pi/(2\\pi) = 1.0\\text{ m}$. Wave speed $v = \\omega/k = 20\\pi/(2\\pi) = 10\\text{ m/s}$. Hence, Statements I and II are both correct.\nStep 3: The maximum transverse particle velocity is $v_{p,\\max} = \\omega A = (20\\pi)(0.04) = 0.8\\pi\\text{ m/s}$. Hence, Statement III is also correct. Thus, all three statements I, II, and III are correct.\nDistractor Analysis: Omitting any statement overlooks standard harmonic wave definitions and simple harmonic particle kinematics."
+    },
+    {
+      "id": "phy_waves_c01_008",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): For a transverse wave propagating along the positive $x$-direction, a particle at a point where the wave profile has a positive spatial slope ($\\frac{\\partial y}{\\partial x} > 0$) is moving downward along the negative $y$-direction.\nReason (R): The transverse particle velocity $v_p$ and wave propagation velocity $v$ are related by the differential relation $v_p = -v \\left(\\frac{\\partial y}{\\partial x}\\right)$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For a wave moving along the positive $x$-direction, displacement is given by $y = f(t - x/v)$. Differentiating with respect to time gives $v_p = \\frac{\\partial y}{\\partial t} = f'(t - x/v)$.\nStep 2: Differentiating with respect to position gives $\\frac{\\partial y}{\\partial x} = f'(t - x/v) \\left(-\\frac{1}{v}\\right) = -\\frac{v_p}{v}$, which yields the exact relation $v_p = -v \\left(\\frac{\\partial y}{\\partial x}\\right)$.\nStep 3: Since wave velocity $v > 0$, whenever the spatial slope is positive ($\\frac{\\partial y}{\\partial x} > 0$), the particle velocity must be negative ($v_p < 0$). This means the particle is moving downward. Therefore, both (A) and (R) are true, and (R) is the correct explanation of (A).\nDistractor Analysis: Alternative options fail because the differential relation between particle velocity and wave slope directly dictates particle kinematics."
+    },
+    {
+      "id": "phy_waves_c01_009",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A sinusoidal progressive transverse wave of amplitude $A$ and wavelength $\\lambda$ propagates through an elastic medium. Under what condition is the maximum transverse particle speed ($v_{p,\\max}$) equal to the wave propagation speed ($v$)?",
+      "options": [
+        "A) $A = \\lambda$",
+        "B) $A = \\frac{\\lambda}{2\\pi}$",
+        "C) $A = \\frac{\\lambda}{\\pi}$",
+        "D) $A = 2\\pi\\lambda$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The maximum speed of any particle undergoing simple harmonic motion in the wave is given by $v_{p,\\max} = \\omega A$.\nStep 2: The wave propagation speed is given by $v = \\frac{\\omega}{k} = \\frac{\\omega \\lambda}{2\\pi}$.\nStep 3: Setting the maximum particle speed equal to the wave speed:\n$$\\omega A = \\frac{\\omega \\lambda}{2\\pi} \\implies A = \\frac{\\lambda}{2\\pi}$$\nDistractor Analysis: The choice $A = \\lambda$ ignores the conversion factor between wave number $k$ and wavelength $\\lambda$; $A = \\lambda/\\pi$ omits the factor of 2 in $k = 2\\pi/\\lambda$."
+    },
+    {
+      "id": "phy_waves_c01_010",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Acoustic / Mechanical Resonating System) with List II (Allowed Harmonics and Boundary Conditions):\n\nList I:\nP. Closed organ pipe (closed at one end, open at the other)\nQ. Open organ pipe (open at both ends)\nR. Uniform string stretched between two fixed supports\nS. Stretched string fixed at one end and free at the other\n\nList II:\n1. Only odd harmonics are present ($f_1, 3f_1, 5f_1, \\dots$) with fundamental frequency $f_1 = \\frac{v}{4L}$\n2. All harmonics are present ($f_1, 2f_1, 3f_1, \\dots$) with fundamental frequency $f_1 = \\frac{v}{2L}$ and displacement antinodes at boundaries\n3. All harmonics are present ($f_1, 2f_1, 3f_1, \\dots$) with fundamental frequency $f_1 = \\frac{v}{2L}$ and displacement nodes at boundaries\n4. Only odd harmonics are present ($f_1, 3f_1, 5f_1, \\dots$) with fundamental frequency $f_1 = \\frac{v}{4L}$ and one fixed node, one antinode\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-2, Q-1, R-3, S-4",
+        "C) P-1, Q-3, R-2, S-4",
+        "D) P-4, Q-2, R-3, S-1"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: A closed organ pipe has a displacement node at the closed end and an antinode at the open end, supporting only odd harmonics with $f_1 = v/(4L)$ (P-1).\nStep 2: An open organ pipe has displacement antinodes at both open ends, supporting all integer harmonics with $f_1 = v/(2L)$ (Q-2).\nStep 3: A stretched string fixed at both ends has displacement nodes at both ends, supporting all integer harmonics with $f_1 = v/(2L)$ (R-3). A string fixed at one end and free at the other supports odd harmonics with $f_1 = v/(4L)$ (S-4). Thus, the correct sequence is P-1, Q-2, R-3, S-4.\nDistractor Analysis: Mismatches confuse open pipe antinodal boundary conditions with fixed string nodal boundary conditions."
+    },
+    {
+      "id": "phy_waves_c01_011",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the reflection of transverse waves at boundaries:\n\nStatement I: When a transverse wave traveling on a stretched string is reflected from a fixed (rigid) boundary, the reflected wave undergoes a phase shift of $\\pi$ radians ($180^\\circ$).\nStatement II: When a transverse wave is reflected from an open (free) boundary, the reflected wave undergoes no phase shift ($0$ radians) and the boundary acts as an antinode.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are false.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Statement I is false but Statement II is true.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: At a fixed boundary, the net displacement must remain zero at all times (boundary condition $y_{\\text{net}} = 0$). By Newton's third law, the support exerts an inverted reaction force on the string, producing a reflected wave with an inverted phase change of $\\pi$ radians.\nStep 2: At a free boundary (such as a string attached to a massless ring free to slide along a frictionless rod), no transverse restoring force can be supported. The boundary displacement reaches maximum amplitude ($2A$), and the wave reflects in phase (phase shift of $0$ radians).\nStep 3: Thus, both Statement I and Statement II are fully accurate according to NCERT wave mechanics.\nDistractor Analysis: Inverting the phase shifts contradicts the fundamental boundary value requirements for fixed (nodal) and free (antinodal) boundaries."
+    },
+    {
+      "id": "phy_waves_c01_012",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A cylindrical organ pipe closed at one end has an acoustic length of $L = 0.85\\text{ m}$. If the speed of sound in air is $340\\text{ m/s}$, what are the fundamental frequency and the frequency of the first overtone of this pipe?",
+      "options": [
+        "A) $100\\text{ Hz}$ and $200\\text{ Hz}$",
+        "B) $100\\text{ Hz}$ and $300\\text{ Hz}$",
+        "C) $200\\text{ Hz}$ and $400\\text{ Hz}$",
+        "D) $200\\text{ Hz}$ and $600\\text{ Hz}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: For a pipe closed at one end, the fundamental frequency (first harmonic) is given by:\n$$f_1 = \\frac{v}{4L}$$\nStep 2: Substituting $v = 340\\text{ m/s}$ and $L = 0.85\\text{ m}$:\n$$f_1 = \\frac{340}{4 \\times 0.85} = \\frac{340}{3.40} = 100\\text{ Hz}$$\nStep 3: In a closed organ pipe, only odd harmonics are supported. The first overtone corresponds to the third harmonic ($n = 2$ in $f_n = (2n-1)f_1$):\n$$f_{\\text{1st overtone}} = 3 f_1 = 3 \\times 100\\text{ Hz} = 300\\text{ Hz}$$\nDistractor Analysis: The frequency $200\\text{ Hz}$ represents the second harmonic, which does not exist in an ideal closed organ pipe."
+    },
+    {
+      "id": "phy_waves_c01_013",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An open organ pipe of length $L_{\\text{open}}$ and a closed organ pipe of length $L_{\\text{closed}}$ have identical fundamental frequencies of vibration. Neglecting end corrections, what is the ratio of their lengths, $\\frac{L_{\\text{open}}}{L_{\\text{closed}}}$?",
+      "options": [
+        "A) $1 : 2$",
+        "B) $1 : 4$",
+        "C) $2 : 1$",
+        "D) $4 : 1$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The fundamental frequency of an open organ pipe (open at both ends) is given by:\n$$f_{\\text{open}} = \\frac{v}{2 L_{\\text{open}}}$$\nStep 2: The fundamental frequency of a closed organ pipe (closed at one end) is given by:\n$$f_{\\text{closed}} = \\frac{v}{4 L_{\\text{closed}}}$$\nStep 3: Equating the two fundamental frequencies:\n$$\\frac{v}{2 L_{\\text{open}}} = \\frac{v}{4 L_{\\text{closed}}} \\implies 2 L_{\\text{open}} = 4 L_{\\text{closed}} \\implies \\frac{L_{\\text{open}}}{L_{\\text{closed}}} = \\frac{4}{2} = 2 : 1$$\nDistractor Analysis: The inverted ratio $1 : 2$ erroneously equates $4 L_{\\text{open}} = 2 L_{\\text{closed}}$ by swapping the boundary formulas."
+    },
+    {
+      "id": "phy_waves_c01_014",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In a stationary (standing) wave, there is zero net transfer of mechanical energy across any cross-section of the medium over a full cycle.\nReason (R): Standing waves are formed by the superposition of two identical progressive waves traveling in opposite directions, confining vibrational energy between adjacent displacement nodes where particles are permanently at rest.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Progressive waves transport mechanical energy because each vibrating particle does work on its neighboring particle along the direction of propagation.\nStep 2: In a stationary wave, two waves of identical frequency and amplitude travel in opposite directions. The forward rate of energy transport is exactly balanced and canceled by the backward rate of energy transport.\nStep 3: Moreover, at the nodal positions, the medium displacement and velocity are permanently zero ($y = 0$, $v_p = 0$). No mechanical work can be transmitted across a point that never moves. Hence, energy remains trapped in the loops. Reason (R) correctly explains Assertion (A).\nDistractor Analysis: Assertions that standing waves carry net energy violate the stationary boundary conditions and zero nodal flux."
+    },
+    {
+      "id": "phy_waves_c01_015",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A stationary wave is established on a string with a constituent wavelength of $\\lambda = 60\\text{ cm}$. What is the distance between two consecutive displacement nodes, and what is the distance between a displacement node and its immediately adjacent antinode?",
+      "options": [
+        "A) $30\\text{ cm}$ and $15\\text{ cm}$",
+        "B) $60\\text{ cm}$ and $30\\text{ cm}$",
+        "C) $30\\text{ cm}$ and $30\\text{ cm}$",
+        "D) $15\\text{ cm}$ and $7.5\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In any stationary wave, the separation between two consecutive displacement nodes (or two consecutive antinodes) corresponds to half of the constituent wavelength:\n$$d_{\\text{node-node}} = \\frac{\\lambda}{2} = \\frac{60\\text{ cm}}{2} = 30\\text{ cm}$$\nStep 2: The separation between a displacement node and its immediately adjacent antinode is one quarter of the wavelength:\n$$d_{\\text{node-antinode}} = \\frac{\\lambda}{4} = \\frac{60\\text{ cm}}{4} = 15\\text{ cm}$$\nStep 3: Therefore, the consecutive node distance is $30\\text{ cm}$, and the node-to-adjacent-antinode distance is $15\\text{ cm}$.\nDistractor Analysis: Setting consecutive node distance to $60\\text{ cm}$ confuses the full wavelength (two loops) with a single standing wave loop ($\\lambda/2$)."
+    },
+    {
+      "id": "phy_waves_c01_016",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the vibration of particles in a stationary wave formed on a stretched string:\nI. All particles located between two adjacent nodes vibrate in the same phase with different amplitudes.\nII. Particles located in two adjacent inter-nodal segments vibrate in opposite phase (phase difference $= \\pi\\text{ rad}$).\nIII. All particles in the medium attain their maximum displacement and pass through their mean position simultaneously twice in each cycle.\n\nWhich of the statements given above are correct?",
+      "options": [
+        "A) I and II only",
+        "B) II and III only",
+        "C) I and III only",
+        "D) I, II and III"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In the standing wave equation $y(x,t) = [2A\\sin(kx)]\\cos(\\omega t)$, the spatial factor $2A\\sin(kx)$ determines the amplitude of each particle, which varies continuously from $0$ at nodes to $2A$ at antinodes.\nStep 2: For all positions $x$ between two consecutive nodes, $\\sin(kx)$ maintains the same sign. Hence, all particles within a loop vibrate in unison (same phase). Across a node, $\\sin(kx)$ changes sign, introducing a phase difference of $\\pi$.\nStep 3: The temporal factor $\\cos(\\omega t)$ is identical for all particles, meaning all particles simultaneously attain their extrema and simultaneously cross their equilibrium position. Therefore, statements I, II, and III are all correct.\nDistractor Analysis: Omitting any statement overlooks the clear phase and amplitude distinctions between traveling waves and stationary wave modes."
+    },
+    {
+      "id": "phy_waves_c01_017",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A sonometer wire of fixed vibrating length vibrates in its fundamental mode at a frequency of $250\\text{ Hz}$ under a tension $T$. If the tension is increased by $44\\%$, keeping the vibrating length and linear mass density unchanged, what will be the new fundamental frequency of the wire?",
+      "options": [
+        "A) $360\\text{ Hz}$",
+        "B) $300\\text{ Hz}$",
+        "C) $325\\text{ Hz}$",
+        "D) $275\\text{ Hz}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The fundamental frequency of a sonometer wire is given by $f = \\frac{1}{2L}\\sqrt{\\frac{T}{\\mu}}$. With $L$ and $\\mu$ held constant, $f \\propto \\sqrt{T}$.\nStep 2: When the tension is increased by $44\\%$, the new tension becomes:\n$$T' = T + 0.44T = 1.44T$$\nStep 3: The new fundamental frequency is:\n$$f' = f \\sqrt{\\frac{T'}{T}} = 250 \\times \\sqrt{1.44} = 250 \\times 1.20 = 300\\text{ Hz}$$\nDistractor Analysis: The value $360\\text{ Hz}$ incorrectly assumes a linear relationship ($f \\propto T$) rather than a square-root dependence ($f \\propto \\sqrt{T}$)."
+    },
+    {
+      "id": "phy_waves_c01_018",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two acoustic tuning forks of frequencies $256\\text{ Hz}$ and $262\\text{ Hz}$ are sounded together in air. What is the number of beats heard per second, and what is the time interval between two consecutive intensity maxima?",
+      "options": [
+        "A) $3\\text{ beats/s}$ and $\\frac{1}{3}\\text{ s}$",
+        "B) $6\\text{ beats/s}$ and $\\frac{1}{3}\\text{ s}$",
+        "C) $12\\text{ beats/s}$ and $\\frac{1}{12}\\text{ s}$",
+        "D) $6\\text{ beats/s}$ and $\\frac{1}{6}\\text{ s}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The beat frequency $f_b$ resulting from the superposition of two harmonic waves is the absolute difference between their individual frequencies:\n$$f_b = |f_1 - f_2| = |262\\text{ Hz} - 256\\text{ Hz}| = 6\\text{ beats per second}$$\nStep 2: The time period between two successive intensity maxima (waxing) is the beat period:\n$$T_b = \\frac{1}{f_b} = \\frac{1}{6}\\text{ s}$$\nStep 3: Therefore, $6\\text{ beats}$ are heard per second, and the interval between consecutive maxima is $\\frac{1}{6}\\text{ s}$.\nDistractor Analysis: A beat frequency of $3\\text{ beats/s}$ incorrectly halves the frequency difference; $12\\text{ beats/s}$ doubles the frequency difference."
+    },
+    {
+      "id": "phy_waves_c01_019",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A tuning fork $A$ of unknown frequency produces $5\\text{ beats per second}$ when sounded together with a standard fork $B$ of frequency $320\\text{ Hz}$. When a small piece of wax is attached to one prong of fork $A$, the beat frequency decreases to $2\\text{ beats per second}$. What was the original frequency of tuning fork $A$?",
+      "options": [
+        "A) $315\\text{ Hz}$",
+        "B) $325\\text{ Hz}$",
+        "C) $322\\text{ Hz}$",
+        "D) $318\\text{ Hz}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The beat frequency is $|f_A - f_B| = 5\\text{ Hz}$. Given $f_B = 320\\text{ Hz}$, the two possible initial frequencies for $A$ are $f_A = 320 + 5 = 325\\text{ Hz}$ or $f_A = 320 - 5 = 315\\text{ Hz}$.\nStep 2: Loading fork $A$ with wax increases its vibrating mass, which strictly decreases its frequency ($f_A' < f_A$).\nStep 3: If the initial frequency was $325\\text{ Hz}$, a decrease in frequency moves it closer to $320\\text{ Hz}$, so the beat frequency $|f_A' - 320|$ decreases from $5$ to $2\\text{ beats/s}$. If it had been $315\\text{ Hz}$, decreasing its frequency further would have increased the beat frequency ($|315 - \\delta - 320| > 5$). Thus, the original frequency was $325\\text{ Hz}$.\nDistractor Analysis: Choosing $315\\text{ Hz}$ fails to recognize that waxing decreases frequency, which would cause an already lower frequency to diverge further from $320\\text{ Hz}$."
+    },
+    {
+      "id": "phy_waves_c01_020",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the propagation of longitudinal sound waves through a gas:\n\nStatement I: Laplace argued that compressions and rarefactions occur so rapidly in sound waves that heat has insufficient time to flow between adjacent regions.\nStatement II: Since gases are good thermal conductors, isothermal conditions can be maintained during acoustic wave propagation if the frequency is low.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Statement I is true but Statement II is false."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Audible sound waves oscillate hundreds to thousands of times per second. Even at $100\\text{ Hz}$, an acoustic compression cycle lasts merely $0.005\\text{ s}$. Thermal conduction cannot equalize temperatures over acoustic distances in such brief time intervals. Statement I is therefore true.\nStep 2: Gases like air are inherently poor thermal conductors (thermal conductivity of air is only about $0.026\\text{ W/(m}\\cdot\\text{K)}$). Heat cannot conduct rapidly enough even at very low audible frequencies to maintain isothermal equilibrium. Thus, Statement II is completely false.\nStep 3: Hence, sound wave propagation in gases is fundamentally an adiabatic process throughout the acoustic spectrum. Therefore, Statement I is true but Statement II is false.\nDistractor Analysis: Statement II incorrectly claims gases are good thermal conductors, violating well-established thermal transport physics."
+    },
+    {
+      "id": "phy_waves_c01_021",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II regarding harmonic progressive wave quantities and their conversions:\n\nList I:\nP. Phase difference between two points separated by distance $\\Delta x$\nQ. Phase difference for a single particle between two instants separated by $\\Delta t$\nR. Path difference corresponding to a phase difference of $\\pi$ radians\nS. Time interval corresponding to a phase difference of $\\pi$ radians\n\nList II:\n1. $\\frac{2\\pi}{\\lambda} \\Delta x$\n2. $\\frac{2\\pi}{T} \\Delta t$\n3. $\\frac{\\lambda}{2}$\n4. $\\frac{T}{2}$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-2, Q-1, R-4, S-3",
+        "C) P-1, Q-2, R-4, S-3",
+        "D) P-3, Q-4, R-1, S-2"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Spatial phase difference across a separation $\\Delta x$ at a fixed instant is $\\Delta \\phi = k \\Delta x = \\frac{2\\pi}{\\lambda} \\Delta x$ (P-1).\nStep 2: Temporal phase difference for a fixed particle over an interval $\\Delta t$ is $\\Delta \\phi = \\omega \\Delta t = \\frac{2\\pi}{T} \\Delta t$ (Q-2).\nStep 3: From $\\Delta x = \\frac{\\lambda}{2\\pi} \\Delta \\phi$, a phase difference of $\\pi$ corresponds to a path difference of $\\Delta x = \\frac{\\lambda}{2}$ (R-3). From $\\Delta t = \\frac{T}{2\\pi} \\Delta \\phi$, a phase difference of $\\pi$ corresponds to a time interval of $\\Delta t = \\frac{T}{2}$ (S-4). Thus, the correct match is P-1, Q-2, R-3, S-4.\nDistractor Analysis: Swapping spatial and temporal conversion factors mixes spatial wavelength $\\lambda$ with temporal period $T$."
+    },
+    {
+      "id": "phy_waves_c01_022",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The speed of sound in dry air is measured to be $v_0$ at $0^\\circ\\text{C}$. Assuming air behaves as an ideal gas, at what Celsius temperature $t$ will the speed of sound become exactly twice its value at $0^\\circ\\text{C}$?",
+      "options": [
+        "A) $273^\\circ\\text{C}$",
+        "B) $546^\\circ\\text{C}$",
+        "C) $819^\\circ\\text{C}$",
+        "D) $1092^\\circ\\text{C}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The speed of sound in an ideal gas is proportional to the square root of its absolute temperature: $v = \\sqrt{\\gamma R T / M}$, so $v \\propto \\sqrt{T}$, where $T$ is in Kelvin.\nStep 2: At $0^\\circ\\text{C}$, the absolute temperature is $T_0 = 273\\text{ K}$. For the speed to double ($v = 2v_0$), the required absolute temperature $T$ must satisfy:\n$$\\frac{v}{v_0} = \\sqrt{\\frac{T}{T_0}} = 2 \\implies \\frac{T}{T_0} = 4 \\implies T = 4 \\times 273\\text{ K} = 1092\\text{ K}$$\nStep 3: Converting the absolute temperature back to degrees Celsius:\n$$t = T - 273 = 1092 - 273 = 819^\\circ\\text{C}$$\nDistractor Analysis: Selecting $1092^\\circ\\text{C}$ fails to convert from Kelvin to Celsius; selecting $546^\\circ\\text{C}$ assumes an incorrect linear relation with temperature."
+    },
+    {
+      "id": "phy_waves_c01_023",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A traveling harmonic wave is represented by the equation:\n$$y(x, t) = 0.05 \\sin\\left(100\\pi t - 0.5\\pi x + \\frac{\\pi}{4}\\right)$$\nwhere $x$ and $y$ are in meters and $t$ is in seconds. What is the spatial phase difference between two points separated along the $x$-axis by $\\Delta x = 0.5\\text{ m}$ at any fixed instant, and what is the temporal phase difference for a given particle between two instants separated by $\\Delta t = 5.0\\text{ ms}$?",
+      "options": [
+        "A) $\\frac{\\pi}{4}\\text{ rad}$ and $\\frac{\\pi}{2}\\text{ rad}$",
+        "B) $\\frac{\\pi}{2}\\text{ rad}$ and $\\frac{\\pi}{4}\\text{ rad}$",
+        "C) $\\frac{\\pi}{4}\\text{ rad}$ and $\\pi\\text{ rad}$",
+        "D) $\\frac{\\pi}{8}\\text{ rad}$ and $\\frac{\\pi}{2}\\text{ rad}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In the given wave equation, the angular wave number is $k = 0.5\\pi\\text{ rad/m}$ and the angular frequency is $\\omega = 100\\pi\\text{ rad/s}$.\nStep 2: The spatial phase difference $\\Delta \\phi_x$ between two points separated by distance $\\Delta x$ at a fixed instant is:\n$$\\Delta \\phi_x = k \\Delta x = (0.5\\pi\\text{ rad/m})(0.5\\text{ m}) = 0.25\\pi\\text{ rad} = \\frac{\\pi}{4}\\text{ rad}$$\nStep 3: The temporal phase difference $\\Delta \\phi_t$ for a single particle over a time interval $\\Delta t = 5.0 \\times 10^{-3}\\text{ s}$ is:\n$$\\Delta \\phi_t = \\omega \\Delta t = (100\\pi\\text{ rad/s})(5.0 \\times 10^{-3}\\text{ s}) = 0.5\\pi\\text{ rad} = \\frac{\\pi}{2}\\text{ rad}$$\nDistractor Analysis: Swapping the spatial and temporal values confuses $k \\Delta x$ with $\\omega \\Delta t$."
+    },
+    {
+      "id": "phy_waves_c01_024",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A transverse progressive wave propagates along the positive $x$-direction along a stretched horizontal string. At a particular instant $t$, a small segment of the string around point $P$ has a negative spatial slope, such that $\\frac{\\partial y}{\\partial x} < 0$. What is the direction of motion of the string particle at point $P$ at this instant?",
+      "options": [
+        "A) Downward along the negative $y$-direction",
+        "B) Upward along the positive $y$-direction",
+        "C) Forward along the positive $x$-direction",
+        "D) The particle is instantaneously at rest"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: For any transverse progressive wave traveling in the positive $x$-direction with speed $v > 0$, the transverse particle velocity $v_p$ and the spatial slope $\\frac{\\partial y}{\\partial x}$ are related by the differential identity:\n$$v_p = -v \\left(\\frac{\\partial y}{\\partial x}\\right)$$\nStep 2: The problem specifies that the slope is negative ($\\frac{\\partial y}{\\partial x} < 0$). Substituting this negative slope into the relation gives:\n$$v_p = -(+v)(-) = +v \\left|\\frac{\\partial y}{\\partial x}\\right| > 0$$\nStep 3: Since $v_p > 0$, the transverse particle velocity is directed upward along the positive $y$-direction.\nDistractor Analysis: In transverse waves, particles vibrate perpendicularly to wave propagation, so motion along the $x$-direction is impossible; downward motion would require a positive slope."
+    },
+    {
+      "id": "phy_waves_c01_025",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Both Hydrogen ($\\text{H}_2$) and Oxygen ($\\text{O}_2$) are diatomic gases having the same adiabatic exponent $\\gamma = 1.40$. At the same absolute temperature $T$, what is the ratio of the speed of sound in hydrogen gas to that in oxygen gas ($\\frac{v_{\\text{H}_2}}{v_{\\text{O}_2}}$)?",
+      "options": [
+        "A) $1 : 4$",
+        "B) $1 : 16$",
+        "C) $4 : 1$",
+        "D) $16 : 1$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The speed of sound in an ideal gas according to Laplace's formula is:\n$$v = \\sqrt{\\frac{\\gamma R T}{M}}$$\nStep 2: Since both gases are diatomic with identical $\\gamma = 1.40$ and are held at the same temperature $T$, the speed is inversely proportional to the square root of the molar mass ($v \\propto 1/\\sqrt{M}$).\nStep 3: The molar mass of hydrogen is $M_{\\text{H}_2} = 2.0\\text{ g/mol}$ and that of oxygen is $M_{\\text{O}_2} = 32.0\\text{ g/mol}$. Taking the ratio:\n$$\\frac{v_{\\text{H}_2}}{v_{\\text{O}_2}} = \\sqrt{\\frac{M_{\\text{O}_2}}{M_{\\text{H}_2}}} = \\sqrt{\\frac{32.0}{2.0}} = \\sqrt{16.0} = 4 : 1$$\nDistractor Analysis: The inverse ratio $1 : 4$ incorrectly assumes direct proportionality to molar mass; $16 : 1$ forgets to take the square root."
+    },
+    {
+      "id": "phy_waves_c01_026",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform heavy rope of length $L = 10.0\\text{ m}$ and total mass $M = 2.0\\text{ kg}$ hangs vertically from a rigid ceiling under the influence of gravity. A transverse wave pulse is initiated at the lower free end of the rope. Taking the acceleration due to gravity as $g = 10.0\\text{ m/s}^2$, what is the time taken for this pulse to travel to the top ceiling support?",
+      "options": [
+        "A) $1.0\\text{ s}$",
+        "B) $1.4\\text{ s}$",
+        "C) $4.0\\text{ s}$",
+        "D) $2.0\\text{ s}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: At a distance $x$ measured from the bottom free end, the mass of rope hanging below is $m(x) = \\mu x$, where $\\mu = M/L$. The tension in the rope at this point is $T(x) = m(x)g = \\mu x g$.\nStep 2: The speed of a transverse wave pulse at position $x$ is $v(x) = \\sqrt{T(x)/\\mu} = \\sqrt{gx}$.\nStep 3: The time taken to traverse a distance element $dx$ is $dt = \\frac{dx}{v(x)} = \\frac{dx}{\\sqrt{gx}}$. Integrating from $x = 0$ to $x = L$:\n$$t = \\int_0^L \\frac{dx}{\\sqrt{gx}} = \\frac{1}{\\sqrt{g}} \\left[ 2\\sqrt{x} \\right]_0^L = 2\\sqrt{\\frac{L}{g}}$$\nSubstituting $L = 10.0\\text{ m}$ and $g = 10.0\\text{ m/s}^2$:\n$$t = 2\\sqrt{\\frac{10.0}{10.0}} = 2(1.0) = 2.0\\text{ s}$$\nDistractor Analysis: The value $1.0\\text{ s}$ forgets the factor of 2 resulting from the integration of $x^{-1/2}$; $4.0\\text{ s}$ erroneously squares the result."
+    },
+    {
+      "id": "phy_waves_c01_027",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding acoustic displacement and pressure variations in a longitudinal standing wave:\n\nStatement I: In a standing sound wave in an air column, a displacement node always corresponds to a pressure antinode (point of maximum pressure variation).\nStatement II: The displacement wave and the excess pressure wave in an acoustic medium are out of phase with each other by $\\frac{\\pi}{2}$ radians ($90^\\circ$).\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Acoustic excess pressure $\\Delta P$ is related to longitudinal displacement $s(x,t)$ through the bulk modulus: $\\Delta P = -B \\left(\\frac{\\partial s}{\\partial x}\\right)$.\nStep 2: For a displacement standing wave $s(x,t) = s_0 \\sin(kx) \\cos(\\omega t)$, taking the spatial derivative yields $\\Delta P(x,t) = -B k s_0 \\cos(kx) \\cos(\\omega t)$. The spatial cosine function means that where displacement is zero (displacement nodes, where $\\sin kx = 0$), the pressure variation is maximal ($|\\cos kx| = 1$, pressure antinodes). Statement I is true.\nStep 3: The derivative introduced between sine and cosine represents a spatial and temporal phase difference of $\\frac{\\pi}{2}$ radians ($90^\\circ$) between displacement and pressure waves. Statement II is true. Thus, both statements are true.\nDistractor Analysis: Alternative choices fail because maximum compression occurs where particles from opposite directions crowd into a motionless plane (displacement node)."
+    },
+    {
+      "id": "phy_waves_c01_028",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The acoustic antinode of an open organ pipe does not form exactly at the physical open end of the tube, but extends slightly outside the open end into the surrounding air.\nReason (R): The vibrating air column does not terminate abruptly at the open boundary because air particles just outside the rim are also set into periodic oscillation, requiring an end correction $e \\approx 0.6 r$, where $r$ is the inner radius of the pipe.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: At the open end of a pipe, acoustic pressure must match atmospheric pressure. However, reflection of the sound wave does not occur precisely at the geometric lip of the tube because the air mass immediately outside the opening is entrained in the vibration.\nStep 2: Consequently, the effective displacement antinode forms at a distance $e$ outside the physical end of the pipe, known as the end correction.\nStep 3: Helmholtz and Lord Rayleigh established that for a circular tube of radius $r$, the end correction is approximately $e = 0.6 r$. Therefore, both (A) and (R) are true, and Reason (R) provides the exact physical explanation for Assertion (A).\nDistractor Analysis: Choices claiming (R) does not explain (A) overlook the hydrodynamic mass-loading that pushes the acoustic reflection surface outward."
+    },
+    {
+      "id": "phy_waves_c01_029",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a resonance tube apparatus using an excited tuning fork of frequency $f = 500\\text{ Hz}$, the first resonance occurs at a water level of $l_1 = 16.0\\text{ cm}$ and the second resonance occurs at $l_2 = 50.0\\text{ cm}$. What are the speed of sound in air and the end correction of the resonance tube?",
+      "options": [
+        "A) $330\\text{ m/s}$ and $0.5\\text{ cm}$",
+        "B) $340\\text{ m/s}$ and $2.0\\text{ cm}$",
+        "C) $340\\text{ m/s}$ and $1.0\\text{ cm}$",
+        "D) $350\\text{ m/s}$ and $1.0\\text{ cm}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In a resonance tube, the first and second resonance lengths with end correction $e$ satisfy:\n$$l_1 + e = \\frac{\\lambda}{4} = 16.0\\text{ cm} \\quad \\text{and} \\quad l_2 + e = \\frac{3\\lambda}{4} = 50.0\\text{ cm}$$\nStep 2: Subtracting the first equation from the second eliminates $e$:\n$$l_2 - l_1 = \\frac{3\\lambda}{4} - \\frac{\\lambda}{4} = \\frac{\\lambda}{2} = 50.0 - 16.0 = 34.0\\text{ cm} \\implies \\lambda = 68.0\\text{ cm} = 0.68\\text{ m}$$\nStep 3: The speed of sound is $v = f \\lambda = 500\\text{ Hz} \\times 0.68\\text{ m} = 340\\text{ m/s}$. The end correction is:\n$$e = \\frac{l_2 - 3l_1}{2} = \\frac{50.0 - 3(16.0)}{2} = \\frac{50.0 - 48.0}{2} = 1.0\\text{ cm}$$\nDistractor Analysis: Neglecting the end correction when calculating $\\lambda$ yields inaccurate sound speeds; $2.0\\text{ cm}$ incorrectly doubles the end correction."
+    },
+    {
+      "id": "phy_waves_c01_030",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The third harmonic of a closed organ pipe (closed at one end) is found to have the exact same frequency as the second harmonic of an open organ pipe (open at both ends). Neglecting end corrections, what is the ratio of the length of the closed organ pipe to that of the open organ pipe ($\\frac{L_{\\text{closed}}}{L_{\\text{open}}}$)?",
+      "options": [
+        "A) $3 : 4$",
+        "B) $4 : 3$",
+        "C) $3 : 8$",
+        "D) $3 : 2$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The harmonic frequencies of a closed organ pipe of length $L_c$ are given by $f_n = (2n-1) \\frac{v}{4L_c}$. The third harmonic corresponds to $3 \\frac{v}{4L_c}$ (first overtone).\nStep 2: The harmonic frequencies of an open organ pipe of length $L_o$ are given by $f_m = m \\frac{v}{2L_o}$. The second harmonic corresponds to $2 \\frac{v}{2L_o} = \\frac{v}{L_o}$.\nStep 3: Equating the two frequencies:\n$$3 \\frac{v}{4L_c} = \\frac{v}{L_o} \\implies \\frac{3}{4L_c} = \\frac{1}{L_o} \\implies \\frac{L_c}{L_o} = \\frac{3}{4} = 3 : 4$$\nDistractor Analysis: The inverse ratio $4 : 3$ incorrectly equates $4L_c / 3 = L_o$ instead of solving for $L_c / L_o$; $3 : 8$ results from incorrectly using $f = 2(v/4L)$ for the open pipe."
+    },
+    {
+      "id": "phy_waves_c01_031",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two traveling waves moving along a string in opposite directions are described by the equations:\n$$y_1(x,t) = 0.03\\sin(kx - \\omega t) \\quad \\text{and} \\quad y_2(x,t) = 0.03\\sin(kx + \\omega t)$$\nwhere $x$ and $y$ are in meters. By superposition, a standing wave is formed with a node at $x = 0$. What is the displacement amplitude of vibration of a particle situated at a position $x = \\frac{\\lambda}{6}$?",
+      "options": [
+        "A) $0.03\\text{ m}$",
+        "B) $0.06\\text{ m}$",
+        "C) $0.03\\sqrt{3}\\text{ m}$",
+        "D) $0.015\\sqrt{3}\\text{ m}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Using the trigonometric identity $\\sin(A - B) + \\sin(A + B) = 2\\sin A \\cos B$, the resultant displacement is:\n$$y(x,t) = y_1 + y_2 = 2(0.03) \\sin(kx) \\cos(\\omega t) = 0.06 \\sin(kx) \\cos(\\omega t)$$\nStep 2: The displacement amplitude of a particle at position $x$ is $A(x) = 2A |\\sin(kx)| = 0.06 |\\sin(kx)|$.\nStep 3: Substituting $k = \\frac{2\\pi}{\\lambda}$ and $x = \\frac{\\lambda}{6}$:\n$$kx = \\left(\\frac{2\\pi}{\\lambda}\\right) \\left(\\frac{\\lambda}{6}\\right) = \\frac{\\pi}{3}\\text{ rad} = 60^\\circ$$\n$$A\\left(\\frac{\\lambda}{6}\\right) = 0.06 \\sin\\left(\\frac{\\pi}{3}\\right) = 0.06 \\times \\frac{\\sqrt{3}}{2} = 0.03\\sqrt{3}\\text{ m}$$\nDistractor Analysis: The value $0.03\\text{ m}$ assumes $\\sin(kx) = 1/2$; $0.06\\text{ m}$ is the maximum possible amplitude occurring at an antinode."
+    },
+    {
+      "id": "phy_waves_c01_032",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A sonometer wire vibrates in its fundamental mode with a frequency of $200\\text{ Hz}$ when stretched by a solid metal block of mass $M$ hanging in air. When the metal block is completely immersed in water, the fundamental frequency decreases to $160\\text{ Hz}$. What is the relative density (specific gravity) of the metal block?",
+      "options": [
+        "A) $\\frac{16}{9}$",
+        "B) $\\frac{25}{9}$",
+        "C) $\\frac{25}{16}$",
+        "D) $\\frac{9}{4}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In air, the tension in the wire is $T = Mg$. The fundamental frequency is $f = \\frac{1}{2L}\\sqrt{\\frac{Mg}{\\mu}} = 200\\text{ Hz}$.\nStep 2: When immersed in water, the buoyant force reduces the tension to $T' = Mg - F_B = Mg \\left(1 - \\frac{\\rho_w}{\\rho}\\right) = Mg \\left(1 - \\frac{1}{s}\\right)$, where $s = \\rho/\\rho_w$ is the relative density.\nStep 3: The new frequency is $f' = f \\sqrt{1 - \\frac{1}{s}} = 160\\text{ Hz}$. Taking the ratio:\n$$\\frac{f'}{f} = \\frac{160}{200} = \\frac{4}{5} \\implies \\left(\\frac{4}{5}\\right)^2 = 1 - \\frac{1}{s} \\implies \\frac{16}{25} = 1 - \\frac{1}{s} \\implies \\frac{1}{s} = 1 - \\frac{16}{25} = \\frac{9}{25}$$\n$$s = \\frac{25}{9} \\approx 2.78$$\nDistractor Analysis: Setting $s = 25/16$ equates $s$ directly to $(f/f')^2$; $16/9$ inverts the buoyancy subtraction."
+    },
+    {
+      "id": "phy_waves_c01_033",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A standard tuning fork $X$ has a frequency of $300\\text{ Hz}$. When sounded together with another tuning fork $Y$, it produces $6\\text{ beats per second}$. When the prongs of fork $Y$ are slightly filed, the beat frequency decreases to $2\\text{ beats per second}$. What was the original frequency of tuning fork $Y$ before filing?",
+      "options": [
+        "A) $306\\text{ Hz}$",
+        "B) $298\\text{ Hz}$",
+        "C) $302\\text{ Hz}$",
+        "D) $294\\text{ Hz}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The beat frequency is $|f_Y - f_X| = 6\\text{ Hz}$. Since $f_X = 300\\text{ Hz}$, the two possible initial frequencies for $Y$ are $f_Y = 306\\text{ Hz}$ or $f_Y = 294\\text{ Hz}$.\nStep 2: Filing a tuning fork removes metal from its prongs, reducing their inertia/mass, which strictly increases its natural vibrational frequency ($f_Y' > f_Y$).\nStep 3: If the initial frequency was $294\\text{ Hz}$, filing increases it toward $300\\text{ Hz}$, which decreases the frequency difference $|f_Y' - 300|$ from $6$ to $2\\text{ beats/s}$. If $f_Y$ had been $306\\text{ Hz}$, filing would have increased it further above $306\\text{ Hz}$, increasing the beat frequency above $6$. Therefore, the initial frequency of fork $Y$ was $294\\text{ Hz}$.\nDistractor Analysis: Selecting $306\\text{ Hz}$ confuses filing (which increases frequency) with waxing/loading (which decreases frequency)."
+    },
+    {
+      "id": "phy_waves_c01_034",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Normal mode of vibration of a uniform string of length $L$ fixed rigidly at both ends) with List II (Number of displacement nodes including boundary ends, number of antinodes, and harmonic frequency):\n\nList I:\nP. Fundamental mode ($n = 1$)\nQ. First overtone ($n = 2$)\nR. Second overtone ($n = 3$)\nS. Third overtone ($n = 4$)\n\nList II:\n1. $2\\text{ nodes}$, $1\\text{ antinode}$, $f = \\frac{v}{2L}$\n2. $3\\text{ nodes}$, $2\\text{ antinodes}$, $f = \\frac{v}{L}$\n3. $4\\text{ nodes}$, $3\\text{ antinodes}$, $f = \\frac{3v}{2L}$\n4. $5\\text{ nodes}$, $4\\text{ antinodes}$, $f = \\frac{2v}{L}$\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-1, Q-2, R-3, S-4",
+        "B) P-2, Q-1, R-4, S-3",
+        "C) P-1, Q-3, R-2, S-4",
+        "D) P-4, Q-3, R-2, S-1"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In the $n$-th harmonic mode of a string fixed at both ends, the number of loops is $n$, the number of antinodes is $n$, and the number of nodes (including both fixed ends) is $n + 1$. The frequency is $f_n = n \\frac{v}{2L}$.\nStep 2: For $n = 1$ (fundamental): $2\\text{ nodes}$, $1\\text{ antinode}$, $f = \\frac{v}{2L}$ (P-1). For $n = 2$ (first overtone): $3\\text{ nodes}$, $2\\text{ antinodes}$, $f = \\frac{2v}{2L} = \\frac{v}{L}$ (Q-2).\nStep 3: For $n = 3$ (second overtone): $4\\text{ nodes}$, $3\\text{ antinodes}$, $f = \\frac{3v}{2L}$ (R-3). For $n = 4$ (third overtone): $5\\text{ nodes}$, $4\\text{ antinodes}$, $f = \\frac{4v}{2L} = \\frac{2v}{L}$ (S-4). Thus, the correct match is P-1, Q-2, R-3, S-4.\nDistractor Analysis: Off-by-one errors in node counting fail to include both fixed boundaries as permanent nodes."
+    },
+    {
+      "id": "phy_waves_c01_035",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider the following statements regarding the fundamental frequency of an organ pipe:\nI. When an organ pipe is filled with Helium gas instead of air at the same temperature, its fundamental frequency increases significantly.\nII. If the ambient temperature of the gas inside the pipe increases, its fundamental frequency increases.\nIII. If a small hole is drilled at the exact midpoint of an open organ pipe of length $L$, its fundamental frequency remains completely unchanged.\n\nWhich of the above statements are correct?",
+      "options": [
+        "A) I, II and III",
+        "B) I and II only",
+        "C) II and III only",
+        "D) I and III only"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The fundamental frequency of an open organ pipe is $f = \\frac{v}{2L}$, where $v = \\sqrt{\\frac{\\gamma R T}{M}}$. Helium has a much lower molar mass ($4\\text{ g/mol}$) than air ($28.8\\text{ g/mol}$) and higher $\\gamma = 1.67$. Sound speed in Helium is roughly $1000\\text{ m/s}$ compared to $340\\text{ m/s}$ in air. Hence, the fundamental frequency increases substantially. Statement I is correct.\nStep 2: Since $v \\propto \\sqrt{T}$, increasing temperature increases wave speed $v$ and consequently increases the fundamental frequency. Statement II is correct.\nStep 3: In an open organ pipe in its fundamental mode, the exact midpoint is a displacement node (pressure antinode). Drilling a hole exposes the midpoint to atmosphere, forcing it to become a displacement antinode (pressure node). The pipe now behaves as two open pipes each of length $L/2$, doubling the fundamental frequency ($f' = 2f$). Statement III is false. Thus, only I and II are correct.\nDistractor Analysis: Statement III fails to recognize that drilling a hole destroys the displacement node by relieving excess acoustic pressure."
+    },
+    {
+      "id": "phy_waves_c01_036",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A light string of linear mass density $\\mu_1$ is joined to a heavier string of linear mass density $\\mu_2 = 4\\mu_1$ under the same tension $T$. A harmonic wave pulse of amplitude $A_i = 6.0\\text{ mm}$ travels along the light string toward the boundary junction. What is the amplitude of the wave pulse transmitted into the heavier string?",
+      "options": [
+        "A) $2.0\\text{ mm}$",
+        "B) $3.0\\text{ mm}$",
+        "C) $4.0\\text{ mm}$",
+        "D) $6.0\\text{ mm}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The wave speed in the first string is $v_1 = \\sqrt{T/\\mu_1}$. The wave speed in the second string is $v_2 = \\sqrt{T/\\mu_2} = \\sqrt{T/(4\\mu_1)} = \\frac{v_1}{2}$.\nStep 2: At a junction between two media under boundary continuity conditions, the amplitude of the transmitted wave is given by:\n$$A_t = \\left(\\frac{2 v_2}{v_1 + v_2}\\right) A_i$$\nStep 3: Substituting $v_2 = \\frac{v_1}{2}$ into the transmission formula:\n$$A_t = \\left(\\frac{2 (v_1/2)}{v_1 + v_1/2}\\right) A_i = \\left(\\frac{v_1}{\\frac{3}{2} v_1}\\right) A_i = \\frac{2}{3} A_i$$\nGiven incident amplitude $A_i = 6.0\\text{ mm}$:\n$$A_t = \\frac{2}{3} \\times 6.0\\text{ mm} = 4.0\\text{ mm}$$\nDistractor Analysis: The value $2.0\\text{ mm}$ is the magnitude of the reflected wave amplitude ($|A_r| = \\left|\\frac{v_2 - v_1}{v_1 + v_2}\\right| A_i = \\frac{1}{3} \\times 6.0 = 2.0\\text{ mm}$)."
+    },
+    {
+      "id": "phy_waves_c01_037",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "In a longitudinal harmonic sound wave propagating through a fluid of equilibrium density $\\rho$ with sound speed $v$ and angular frequency $\\omega$, what is the correct mathematical relationship between the acoustic excess pressure amplitude $\\Delta P_{\\max}$ and the displacement amplitude $s_0$?",
+      "options": [
+        "A) $\\Delta P_{\\max} = \\rho v^2 \\omega s_0$",
+        "B) $\\Delta P_{\\max} = \\frac{\\rho v}{\\omega} s_0$",
+        "C) $\\Delta P_{\\max} = \\rho v \\omega s_0$",
+        "D) $\\Delta P_{\\max} = \\frac{\\rho \\omega}{v} s_0$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In a longitudinal acoustic wave, the excess pressure is related to longitudinal strain by $\\Delta P = -B \\left(\\frac{\\partial s}{\\partial x}\\right)$, where $B$ is the bulk modulus of the medium.\nStep 2: For a displacement wave $s(x,t) = s_0 \\sin(kx - \\omega t)$, the spatial derivative has amplitude $k s_0$, which gives $\\Delta P_{\\max} = B k s_0$.\nStep 3: Using the relationships $v = \\sqrt{B/\\rho} \\implies B = \\rho v^2$ and $k = \\omega/v$:\n$$\\Delta P_{\\max} = (\\rho v^2) \\left(\\frac{\\omega}{v}\\right) s_0 = \\rho v \\omega s_0$$\nDistractor Analysis: Dimensional analysis confirms that $[\\rho v \\omega s_0] = (\\text{kg}/\\text{m}^3)(\\text{m}/\\text{s})(\\text{s}^{-1})(\\text{m}) = \\text{N}/\\text{m}^2 = \\text{Pa}$. All other choices violate pressure dimensionality."
+    },
+    {
+      "id": "phy_waves_c01_038",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In a laboratory sonometer apparatus, the vibrating segment of the wire is mounted over two sharp, rigid knife-edged wooden bridges.\nReason (R): Sharp knife-edges constrain the transverse displacement of the wire to zero at exact, well-defined points, establishing rigid nodal boundary conditions and a precise vibrating length.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: In a sonometer, precise experimental determination of resonance frequencies requires the vibrating segment length $L$ to be known with high accuracy.\nStep 2: A broad or rounded support would allow the contact point to shift during oscillation, creating an ill-defined boundary condition and introducing experimental uncertainty in $L$.\nStep 3: Sharp knife-edged bridges provide a single line of contact where transverse motion is strictly arrested, creating true displacement nodes ($y = 0$). Therefore, both (A) and (R) are true, and (R) correctly explains (A).\nDistractor Analysis: Alternative options asserting that knife-edges are used merely to minimize friction fail to identify their primary role in defining fixed boundary conditions."
+    },
+    {
+      "id": "phy_waves_c01_039",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The speed of sound in air is $v_0 = 332\\text{ m/s}$ at $0^\\circ\\text{C}$. For small temperature changes above $0^\\circ\\text{C}$, the speed increases approximately linearly as $v_t \\approx v_0 + \\alpha t$, where $t$ is the Celsius temperature. What is the value of the temperature coefficient $\\alpha$?",
+      "options": [
+        "A) $0.31\\text{ m/(s}\\cdot^\\circ\\text{C)}$",
+        "B) $1.22\\text{ m/(s}\\cdot^\\circ\\text{C)}$",
+        "C) $0.85\\text{ m/(s}\\cdot^\\circ\\text{C)}$",
+        "D) $0.61\\text{ m/(s}\\cdot^\\circ\\text{C)}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The speed of sound as a function of Celsius temperature $t$ is $v_t = v_0 \\sqrt{\\frac{273 + t}{273}} = v_0 \\left(1 + \\frac{t}{273}\\right)^{1/2}$.\nStep 2: Applying the binomial approximation $(1 + x)^{1/2} \\approx 1 + \\frac{1}{2}x$ for $t \\ll 273$:\n$$v_t \\approx v_0 \\left(1 + \\frac{t}{546}\\right) = v_0 + \\left(\\frac{v_0}{546}\\right) t$$\nStep 3: The temperature coefficient $\\alpha$ is:\n$$\\alpha = \\frac{v_0}{546} = \\frac{332\\text{ m/s}}{546^\\circ\\text{C}} \\approx 0.608\\text{ m/(s}\\cdot^\\circ\\text{C)} \\approx 0.61\\text{ m/(s}\\cdot^\\circ\\text{C)}$$\nDistractor Analysis: The value $0.31\\text{ m/(s}\\cdot^\\circ\\text{C)}$ forgets that $(1+x)^{1/2} \\approx 1 + x/2$ introduces a factor of $1/546$ rather than $1/273$; $1.22\\text{ m/(s}\\cdot^\\circ\\text{C)}$ doubles the true value."
+    },
+    {
+      "id": "phy_waves_c01_040",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding energy in a stationary wave on a stretched string:\n\nStatement I: At the instant when all particles of the string pass through their mean equilibrium positions, the elastic potential energy of the string is zero and the total mechanical energy is purely kinetic.\nStatement II: At the instant of maximum transverse displacement, when all particles are momentarily at rest, the kinetic energy is zero and the total mechanical energy is purely elastic potential energy.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In a stationary wave $y(x,t) = [2A\\sin(kx)]\\cos(\\omega t)$, particle velocities are $v_p = \\frac{\\partial y}{\\partial t} = -\\omega [2A\\sin(kx)]\\sin(\\omega t)$. When the string is completely flat ($y = 0$, occurring when $\\cos(\\omega t) = 0$), all particles have their maximum speed ($|\\sin(\\omega t)| = 1$).\nStep 2: When the string is flat, the elastic strain is zero, meaning the potential energy is zero, and the total energy is purely kinetic. Thus, Statement I is true.\nStep 3: At maximum displacement ($|\\cos(\\omega t)| = 1$), the string has maximum curvature/strain, and every particle is momentarily at rest ($v_p = 0$ since $\\sin(\\omega t) = 0$). Hence, kinetic energy is zero and total energy is purely potential. Statement II is true. Therefore, both Statement I and Statement II are true.\nDistractor Analysis: Confusion often arises with traveling waves where kinetic and potential energy densities peak at the same spatial point; in standing waves, energy oscillates globally between kinetic and potential forms."
+    },
+    {
+      "id": "phy_waves_c01_041",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two harmonic sound waves traveling in the same direction along a straight line in air are represented by:\n$$y_1 = 3.0 \\sin(20\\pi t - 4\\pi x) \\quad \\text{and} \\quad y_2 = 4.0 \\sin\\left(20\\pi t - 4\\pi x + \\frac{\\pi}{2}\\right)$$\nwhere displacements are measured in millimeters. What is the amplitude of the resultant wave produced by their interference?",
+      "options": [
+        "A) $7.0\\text{ mm}$",
+        "B) $1.0\\text{ mm}$",
+        "C) $12.0\\text{ mm}$",
+        "D) $5.0\\text{ mm}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The two progressive waves have the same angular frequency $\\omega = 20\\pi\\text{ rad/s}$ and wave number $k = 4\\pi\\text{ rad/m}$. Their constant phase difference is $\\phi = \\frac{\\pi}{2}\\text{ rad} = 90^\\circ$.\nStep 2: By the principle of superposition, the resultant amplitude $A_{\\text{res}}$ of two interfering harmonic waves with amplitudes $A_1 = 3.0\\text{ mm}$ and $A_2 = 4.0\\text{ mm}$ is given by:\n$$A_{\\text{res}} = \\sqrt{A_1^2 + A_2^2 + 2 A_1 A_2 \\cos\\phi}$$\nStep 3: Since $\\cos(\\pi/2) = 0$:\n$$A_{\\text{res}} = \\sqrt{3.0^2 + 4.0^2 + 2(3.0)(4.0)(0)} = \\sqrt{9.0 + 16.0} = \\sqrt{25.0} = 5.0\\text{ mm}$$\nDistractor Analysis: The value $7.0\\text{ mm}$ assumes constructive in-phase interference ($\\phi = 0$); $1.0\\text{ mm}$ assumes completely destructive interference ($\\phi = \\pi$)."
+    },
+    {
+      "id": "phy_waves_c01_042",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A uniform wire of length $L = 0.50\\text{ m}$ is clamped firmly between two rigid walls with zero initial tension at a temperature of $30^\\circ\\text{C}$. The wire has density $\\rho = 4.0 \\times 10^3\\text{ kg/m}^3$, Young's modulus $Y = 1.0 \\times 10^{11}\\text{ N/m}^2$, and coefficient of linear thermal expansion $\\alpha = 2.0 \\times 10^{-5}\\text{ K}^{-1}$. When the temperature falls to $10^\\circ\\text{C}$, thermal contraction induces tension in the wire. What is the fundamental frequency of transverse vibration of the wire at $10^\\circ\\text{C}$?",
+      "options": [
+        "A) $50\\text{ Hz}$",
+        "B) $200\\text{ Hz}$",
+        "C) $100\\text{ Hz}$",
+        "D) $141\\text{ Hz}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: As temperature falls by $\\Delta T = 30^\\circ\\text{C} - 10^\\circ\\text{C} = 20\\text{ K}$, thermal contraction strain prevented by the rigid walls is $\\frac{\\Delta L}{L} = \\alpha \\Delta T = (2.0 \\times 10^{-5})(20) = 4.0 \\times 10^{-4}$.\nStep 2: The induced thermal tension is $T = Y A \\alpha \\Delta T$. The linear mass density of the wire is $\\mu = \\rho A$. The transverse wave speed is:\n$$v = \\sqrt{\\frac{T}{\\mu}} = \\sqrt{\\frac{Y A \\alpha \\Delta T}{\\rho A}} = \\sqrt{\\frac{Y \\alpha \\Delta T}{\\rho}}$$\nSubstituting the values:\n$$v = \\sqrt{\\frac{(1.0 \\times 10^{11})(4.0 \\times 10^{-4})}{4.0 \\times 10^3}} = \\sqrt{\\frac{4.0 \\times 10^7}{4.0 \\times 10^3}} = \\sqrt{10000} = 100\\text{ m/s}$$\nStep 3: The fundamental frequency of a wire fixed at both ends is:\n$$f = \\frac{v}{2L} = \\frac{100\\text{ m/s}}{2 \\times 0.50\\text{ m}} = 100\\text{ Hz}$$\nDistractor Analysis: The value $50\\text{ Hz}$ forgets that $2L = 1.0\\text{ m}$ in $f = v/(2L)$ and divides by $4L$; $200\\text{ Hz}$ multiplies by 2 instead of dividing by $2L$."
+    },
+    {
+      "id": "phy_waves_c01_043",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A resonance tube of internal diameter $D = 4.0\\text{ cm}$ is excited by a tuning fork vibrating at frequency $f = 340\\text{ Hz}$. Given that the speed of sound in air is $v = 340\\text{ m/s}$ and accounting for an end correction of $e = 0.6 r$ (where $r$ is the inner radius), what are the actual physical lengths of the resonating air column for the first and second resonances ($l_1$ and $l_2$)?",
+      "options": [
+        "A) $23.8\\text{ cm}$ and $73.8\\text{ cm}$",
+        "B) $25.0\\text{ cm}$ and $75.0\\text{ cm}$",
+        "C) $26.2\\text{ cm}$ and $76.2\\text{ cm}$",
+        "D) $22.6\\text{ cm}$ and $72.6\\text{ cm}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The acoustic wavelength is $\\lambda = \\frac{v}{f} = \\frac{340\\text{ m/s}}{340\\text{ Hz}} = 1.0\\text{ m} = 100.0\\text{ cm}$.\nStep 2: The tube radius is $r = D/2 = 2.0\\text{ cm}$. The end correction is $e = 0.6 r = 0.6 \\times 2.0\\text{ cm} = 1.2\\text{ cm}$.\nStep 3: For the first resonance: $l_1 + e = \\frac{\\lambda}{4} = 25.0\\text{ cm} \\implies l_1 = 25.0 - 1.2 = 23.8\\text{ cm}$. For the second resonance: $l_2 + e = \\frac{3\\lambda}{4} = 75.0\\text{ cm} \\implies l_2 = 75.0 - 1.2 = 73.8\\text{ cm}$.\nDistractor Analysis: The values $25.0\\text{ cm}$ and $75.0\\text{ cm}$ completely ignore the end correction; $26.2\\text{ cm}$ and $76.2\\text{ cm}$ mistakenly add the end correction to the quarter wavelength rather than subtracting it."
+    },
+    {
+      "id": "phy_waves_c01_044",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A stationary wave established on a stretched string clamped rigidly at both ends ($x = 0$ and $x = L$) is given by the wave equation:\n$$y(x, t) = 0.02 \\sin(15\\pi x) \\cos(60\\pi t)$$\nwhere $x$ and $y$ are in meters and $t$ is in seconds. The string is observed to vibrate in its third harmonic ($3\\text{ loops}$). What are the total length $L$ of the string, the wavelength $\\lambda$ of the constituent traveling waves, and the propagation speed $v$ of the traveling waves?",
+      "options": [
+        "A) $L = 0.10\\text{ m}$, $\\lambda = 0.133\\text{ m}$, $v = 2.0\\text{ m/s}$",
+        "B) $L = 0.20\\text{ m}$, $\\lambda = \\frac{2}{15}\\text{ m}$, $v = 4.0\\text{ m/s}$",
+        "C) $L = 0.30\\text{ m}$, $\\lambda = \\frac{2}{15}\\text{ m}$, $v = 4.0\\text{ m/s}$",
+        "D) $L = 0.20\\text{ m}$, $\\lambda = \\frac{4}{15}\\text{ m}$, $v = 8.0\\text{ m/s}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Comparing with the standing wave equation $y(x,t) = 2A\\sin(kx)\\cos(\\omega t)$, we find $k = 15\\pi\\text{ rad/m}$ and $\\omega = 60\\pi\\text{ rad/s}$.\nStep 2: The wavelength of the constituent waves is $\\lambda = \\frac{2\\pi}{k} = \\frac{2\\pi}{15\\pi} = \\frac{2}{15}\\text{ m}$. The wave propagation speed is $v = \\frac{\\omega}{k} = \\frac{60\\pi}{15\\pi} = 4.0\\text{ m/s}$.\nStep 3: In the third harmonic mode ($n = 3$), the string vibrates in 3 antinodal loops, so $L = 3 \\left(\\frac{\\lambda}{2}\\right) = 3 \\left(\\frac{1}{15}\\right) = \\frac{3}{15} = 0.20\\text{ m} = 20\\text{ cm}$. Therefore, $L = 0.20\\text{ m}$, $\\lambda = \\frac{2}{15}\\text{ m}$, and $v = 4.0\\text{ m/s}$.\nDistractor Analysis: Selecting $L = 0.30\\text{ m}$ assumes $L = 3\\lambda/2$ with $\\lambda = 0.20\\text{ m}$; selecting $v = 8.0\\text{ m/s}$ incorrectly doubles the constituent wave speed."
+    },
+    {
+      "id": "phy_waves_c01_045",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A pipe closed at one end of length $L_1$ and an open organ pipe of length $L_2$ resonate at the same frequency. If both pipes are vibrating in their respective third harmonics, what is the ratio of their acoustic lengths, $\\frac{L_1}{L_2}$?",
+      "options": [
+        "A) $1 : 4$",
+        "B) $2 : 1$",
+        "C) $3 : 4$",
+        "D) $1 : 2$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For a pipe closed at one end, the harmonic frequencies are $f_n = (2n-1) \\frac{v}{4L_1}$. The third harmonic is $f_{3,\\text{closed}} = 3 \\frac{v}{4L_1}$ (which is the first overtone).\nStep 2: For an open organ pipe, all harmonics exist: $f_m = m \\frac{v}{2L_2}$. The third harmonic is $f_{3,\\text{open}} = 3 \\frac{v}{2L_2}$ (which is the second overtone).\nStep 3: Equating the two frequencies:\n$$3 \\frac{v}{4L_1} = 3 \\frac{v}{2L_2} \\implies \\frac{1}{4L_1} = \\frac{1}{2L_2} \\implies \\frac{L_1}{L_2} = \\frac{2}{4} = \\frac{1}{2}$$\nDistractor Analysis: The inverse ratio $2 : 1$ confuses the numerator and denominator; $3 : 4$ assumes different harmonic indices for the closed and open tubes."
+    },
+    {
+      "id": "phy_waves_c01_046",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Wave reflection scenario) with List II (Displacement and Pressure Phase Shifts upon boundary reflection):\n\nList I:\nP. Transverse wave on a string reflecting from a rigid support\nQ. Transverse wave on a string reflecting from a free (massless ring) end\nR. Longitudinal sound wave reflecting from the closed rigid end of an organ pipe\nS. Longitudinal sound wave reflecting from the open boundary of an organ pipe\n\nList II:\n1. Displacement phase shift $= \\pi$, pressure phase shift $= 0$ (compression reflects as compression)\n2. Displacement phase shift $= 0$, pressure phase shift $= \\pi$ (compression reflects as rarefaction)\n3. Transverse displacement undergoes phase reversal of $\\pi$ radians\n4. Transverse displacement undergoes no phase shift ($0$ radians)\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) P-3, Q-4, R-1, S-2",
+        "B) P-4, Q-3, R-2, S-1",
+        "C) P-3, Q-4, R-2, S-1",
+        "D) P-1, Q-2, R-3, S-4"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For transverse waves on a string: a rigid boundary forces displacement to zero, causing a phase change of $\\pi$ (P-3); a free boundary allows free oscillation, producing zero phase change (Q-4).\nStep 2: For longitudinal acoustic waves at a closed rigid wall: the wall is a displacement node (displacement phase shift $\\pi$), meaning incoming air molecules compress against the wall and bounce back as a compression (pressure phase shift $0$, R-1).\nStep 3: At an open pipe boundary: the air is open to atmosphere, creating a pressure node (pressure phase shift $\\pi$, so compression reflects as rarefaction) and a displacement antinode (displacement phase shift $0$, S-2). Thus, the correct sequence is P-3, Q-4, R-1, S-2.\nDistractor Analysis: Mismatches confuse acoustic pressure reflection with mechanical displacement reflection."
+    },
+    {
+      "id": "phy_waves_c01_047",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A stretched string of length $L$ is held under constant tension $T$. Its linear mass density increases linearly along its length from $\\mu_0$ at $x = 0$ to $4\\mu_0$ at $x = L$, according to the relation $\\mu(x) = \\mu_0 \\left(1 + \\frac{3x}{L}\\right)$. What is the time required for a transverse wave pulse to propagate from $x = 0$ to $x = L$?",
+      "options": [
+        "A) $\\frac{7}{9} L \\sqrt{\\frac{\\mu_0}{T}}$",
+        "B) $\\frac{2}{3} L \\sqrt{\\frac{\\mu_0}{T}}$",
+        "C) $\\frac{14}{9} L \\sqrt{\\frac{\\mu_0}{T}}$",
+        "D) $\\frac{4}{3} L \\sqrt{\\frac{\\mu_0}{T}}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The speed of the wave pulse at position $x$ is $v(x) = \\sqrt{\\frac{T}{\\mu(x)}} = \\sqrt{\\frac{T}{\\mu_0 \\left(1 + \\frac{3x}{L}\\right)}}$.\nStep 2: The travel time element is $dt = \\frac{dx}{v(x)} = \\sqrt{\\frac{\\mu_0}{T}} \\left(1 + \\frac{3x}{L}\\right)^{1/2} dx$.\nStep 3: Integrating from $x = 0$ to $x = L$, let $u = 1 + \\frac{3x}{L}$, so $du = \\frac{3}{L} dx$. When $x = 0, u = 1$; when $x = L, u = 4$:\n$$t = \\sqrt{\\frac{\\mu_0}{T}} \\left(\\frac{L}{3}\\right) \\int_1^4 u^{1/2} du = \\sqrt{\\frac{\\mu_0}{T}} \\left(\\frac{L}{3}\\right) \\left[ \\frac{2}{3} u^{3/2} \\right]_1^4$$\n$$u^{3/2}\\Big|_1^4 = 4^{3/2} - 1^{3/2} = 8 - 1 = 7$$\n$$t = \\frac{2L}{9} \\sqrt{\\frac{\\mu_0}{T}} \\times 7 = \\frac{14}{9} L \\sqrt{\\frac{\\mu_0}{T}}$$\nDistractor Analysis: The value $\\frac{7}{9} L \\sqrt{\\mu_0/T}$ forgets the factor of 2 from $\\frac{2}{3} u^{3/2}$; $\\frac{2}{3} L \\sqrt{\\mu_0/T}$ evaluates the integral incorrectly as $u^{-1/2}$."
+    },
+    {
+      "id": "phy_waves_c01_048",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An acoustic pipe open at both ends has a fundamental resonant frequency of $f_0$. If one end of this pipe is completely closed, and simultaneously a small vent hole is drilled at a distance of $\\frac{L}{4}$ from the closed end, what is the fundamental frequency of the resonating air column formed between the closed end and the vent hole?",
+      "options": [
+        "A) $0.5 f_0$",
+        "B) $2.0 f_0$",
+        "C) $1.5 f_0$",
+        "D) $4.0 f_0$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The fundamental frequency of an open organ pipe of length $L$ is $f_0 = \\frac{v}{2L}$.\nStep 2: At the closed end, air particles are prevented from moving, creating a displacement node. The vent hole exposes the internal column to atmospheric pressure, creating a displacement antinode (pressure node).\nStep 3: The air column between the closed end and the vent hole acts as a closed organ pipe of effective length $L' = \\frac{L}{4}$. Its fundamental frequency is:\n$$f' = \\frac{v}{4 L'} = \\frac{v}{4 (L/4)} = \\frac{v}{L}$$\nSince $f_0 = \\frac{v}{2L} \\implies \\frac{v}{L} = 2 f_0$, the new fundamental frequency is $f' = 2.0 f_0$.\nDistractor Analysis: The choice $0.5 f_0$ assumes the entire length is closed ($v/4L$); $4.0 f_0$ erroneously calculates $f = 4(v/L)$."
+    },
+    {
+      "id": "phy_waves_c01_049",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Three tuning forks $X$, $Y$, and $Z$ have vibration frequencies of $(f - 2)\\text{ Hz}$, $f\\text{ Hz}$, and $(f + 2)\\text{ Hz}$ respectively. When all three tuning forks are sounded simultaneously with identical amplitudes $A$, what is the number of beats (cycles of maximum acoustic intensity) heard per second by an observer?",
+      "options": [
+        "A) $1\\text{ beat/s}$",
+        "B) $4\\text{ beats/s}$",
+        "C) $2\\text{ beats/s}$",
+        "D) $3\\text{ beats/s}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The combined acoustic displacement produced by the three tuning forks is:\n$$y(t) = A\\cos[2\\pi(f-2)t] + A\\cos(2\\pi f t) + A\\cos[2\\pi(f+2)t]$$\nStep 2: Grouping the symmetric outer sidebands using $\\cos(\\alpha - \\beta) + \\cos(\\alpha + \\beta) = 2\\cos\\alpha\\cos\\beta$:\n$$A\\cos[2\\pi(f-2)t] + A\\cos[2\\pi(f+2)t] = 2A\\cos(2\\pi f t)\\cos(4\\pi t)$$\nFactoring out the central carrier term $\\cos(2\\pi f t)$:\n$$y(t) = A\\cos(2\\pi f t) [1 + 2\\cos(4\\pi t)]$$\nStep 3: The acoustic intensity is proportional to the square of the envelope: $I(t) \\propto [1 + 2\\cos(4\\pi t)]^2$. The absolute maximum intensity occurs when $\\cos(4\\pi t) = 1$, giving envelope amplitude $3A$. The angular frequency of this modulation is $\\Omega = 4\\pi\\text{ rad/s}$, corresponding to an intensity beat frequency of:\n$$f_{\\text{beat}} = \\frac{\\Omega}{2\\pi} = \\frac{4\\pi}{2\\pi} = 2\\text{ beats per second}$$\nDistractor Analysis: Selecting $4\\text{ beats/s}$ takes the difference between extreme frequencies $|(f+2) - (f-2)| = 4$, which overlooks the constructive interference pattern set by the central carrier fork."
+    },
+    {
+      "id": "phy_waves_c01_050",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): In a standing acoustic wave, the elastic potential energy density fluctuates between zero and a maximum at displacement nodes, while the kinetic energy density remains permanently zero at those points.\nReason (R): At displacement nodes, particles remain permanently at rest at all times ($v_p = 0$), but experience the maximum spatial gradient of displacement (maximum acoustic compression and rarefaction strain).\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Kinetic energy density is given by $u_k = \\frac{1}{2}\\rho v_p^2$. At a displacement node, the medium displacement is permanently zero, so the particle velocity $v_p = 0$ at all times. Hence, kinetic energy density at displacement nodes is strictly zero.\nStep 2: Elastic potential energy density is given by $u_p = \\frac{1}{2} B \\left(\\frac{\\partial s}{\\partial x}\\right)^2$. While the displacement $s(x,t) = s_0 \\sin(kx)\\cos(\\omega t)$ vanishes at $x = 0$, its spatial derivative $\\frac{\\partial s}{\\partial x} = k s_0 \\cos(kx)\\cos(\\omega t)$ attains its maximum amplitude $k s_0$.\nStep 3: Consequently, the potential energy density at displacement nodes oscillates between $0$ and $\\frac{1}{2} B k^2 s_0^2$. Therefore, both (A) and (R) are true, and (R) is the correct explanation of (A).\nDistractor Analysis: Claims that energy is identically zero at nodes confuse total localized mechanical energy with kinetic energy alone."
+    },
+    {
+      "id": "phy_waves_c01_051",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A sonometer wire of vibrating length $L$ resonates in its fundamental mode when tension is provided by a hanging solid body of density $\\rho_s$. When the solid body is completely submerged in a liquid of density $\\rho_L$, the fundamental frequency of the sonometer wire decreases to $\\frac{1}{\\eta}$ times its initial frequency (where $\\eta > 1$). What is the density of the solid body $\\rho_s$ expressed in terms of $\\rho_L$ and $\\eta$?",
+      "options": [
+        "A) $\\rho_s = \\left(\\frac{\\eta}{\\eta - 1}\\right) \\rho_L$",
+        "B) $\\rho_s = \\left(\\frac{\\eta^2 - 1}{\\eta^2}\\right) \\rho_L$",
+        "C) $\\rho_s = \\left(\\frac{\\eta^2}{\\eta^2 - 1}\\right) \\rho_L$",
+        "D) $\\rho_s = (\\eta^2 - 1) \\rho_L$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In air, the tension is $T_1 = V \\rho_s g$. The fundamental frequency is $f_1 = \\frac{1}{2L}\\sqrt{\\frac{V \\rho_s g}{\\mu}}$.\nStep 2: In the liquid, the buoyant force reduces the tension to $T_2 = V(\\rho_s - \\rho_L)g$. The new frequency is $f_2 = \\frac{1}{2L}\\sqrt{\\frac{V(\\rho_s - \\rho_L)g}{\\mu}}$.\nStep 3: Given $f_2 = \\frac{1}{\\eta} f_1$, taking the ratio squared:\n$$\\left(\\frac{f_2}{f_1}\\right)^2 = \\frac{1}{\\eta^2} = \\frac{T_2}{T_1} = \\frac{\\rho_s - \\rho_L}{\\rho_s} = 1 - \\frac{\\rho_L}{\\rho_s}$$\nRearranging for $\\rho_s$:\n$$\\frac{\\rho_L}{\\rho_s} = 1 - \\frac{1}{\\eta^2} = \\frac{\\eta^2 - 1}{\\eta^2} \\implies \\rho_s = \\left(\\frac{\\eta^2}{\\eta^2 - 1}\\right) \\rho_L$$\nDistractor Analysis: The inverted form $\\left(\\frac{\\eta^2 - 1}{\\eta^2}\\right) \\rho_L$ inverts the fraction; the linear form $\\left(\\frac{\\eta}{\\eta - 1}\\right) \\rho_L$ ignores the square root dependence of frequency on tension."
+    },
+    {
+      "id": "phy_waves_c01_052",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A gas mixture contains $n_1 = 1.0\\text{ mole}$ of Helium (monatomic, $M_1 = 4.0\\text{ g/mol}$, $C_{v1} = \\frac{3}{2}R$) and $n_2 = 2.0\\text{ moles}$ of Oxygen (diatomic, $M_2 = 32.0\\text{ g/mol}$, $C_{v2} = \\frac{5}{2}R$). What are the effective molar mass $M_{\\text{mix}}$ and the adiabatic exponent $\\gamma_{\\text{mix}}$ of this gaseous mixture?",
+      "options": [
+        "A) $M_{\\text{mix}} = 18.0\\text{ g/mol}$ and $\\gamma_{\\text{mix}} = \\frac{7}{5}$",
+        "B) $M_{\\text{mix}} = \\frac{68}{3}\\text{ g/mol}$ and $\\gamma_{\\text{mix}} = \\frac{5}{3}$",
+        "C) $M_{\\text{mix}} = 24.0\\text{ g/mol}$ and $\\gamma_{\\text{mix}} = \\frac{19}{13}$",
+        "D) $M_{\\text{mix}} = \\frac{68}{3}\\text{ g/mol}$ and $\\gamma_{\\text{mix}} = \\frac{19}{13}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The effective molar mass of the mixture is given by:\n$$M_{\\text{mix}} = \\frac{n_1 M_1 + n_2 M_2}{n_1 + n_2} = \\frac{1(4.0) + 2(32.0)}{1 + 2} = \\frac{4.0 + 64.0}{3} = \\frac{68}{3}\\text{ g/mol}$$\nStep 2: The molar heat capacity at constant volume of the mixture is:\n$$C_{v,\\text{mix}} = \\frac{n_1 C_{v1} + n_2 C_{v2}}{n_1 + n_2} = \\frac{1(\\frac{3}{2}R) + 2(\\frac{5}{2}R)}{3} = \\frac{\\frac{3}{2}R + 5R}{3} = \\frac{\\frac{13}{2}R}{3} = \\frac{13}{6}R$$\nStep 3: The molar heat capacity at constant pressure is $C_{p,\\text{mix}} = C_{v,\\text{mix}} + R = \\frac{13}{6}R + R = \\frac{19}{6}R$. The adiabatic exponent is:\n$$\\gamma_{\\text{mix}} = \\frac{C_{p,\\text{mix}}}{C_{v,\\text{mix}}} = \\frac{19/6}{13/6} = \\frac{19}{13}$$\nTherefore, $M_{\\text{mix}} = \\frac{68}{3}\\text{ g/mol}$ and $\\gamma_{\\text{mix}} = \\frac{19}{13}$.\nDistractor Analysis: Simple arithmetic averages of $\\gamma$ ($(\\frac{5}{3} + \\frac{7}{5})/2$) violate thermodynamic energy conservation."
+    },
+    {
+      "id": "phy_waves_c01_053",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A stationary wave established on a stretched string is represented by:\n$$y(x,t) = 2A \\sin(kx) \\cos(\\omega t)$$\nWhat is the ratio of the maximum transverse particle speed at an antinode ($v_{\\text{antinode},\\max}$) to the propagation speed of the component progressive waves ($v$)?",
+      "options": [
+        "A) $kA$",
+        "B) $2kA$",
+        "C) $\\frac{kA}{2}$",
+        "D) $\\frac{2\\pi A}{\\lambda}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: At an antinode, $|\\sin(kx)| = 1$. The transverse displacement of an antinodal particle as a function of time is $y_{\\text{antinode}}(t) = 2A \\cos(\\omega t)$.\nStep 2: The transverse velocity of this particle is $v_{\\text{antinode}} = \\frac{\\partial y}{\\partial t} = -2A \\omega \\sin(\\omega t)$. The maximum speed is:\n$$v_{\\text{antinode},\\max} = 2A \\omega$$\nStep 3: The propagation speed of the component traveling waves is $v = \\frac{\\omega}{k}$. Taking the ratio:\n$$\\frac{v_{\\text{antinode},\\max}}{v} = \\frac{2A \\omega}{\\omega/k} = 2kA$$\nDistractor Analysis: The value $kA$ is the ratio of maximum particle speed to wave speed for a single traveling wave of amplitude $A$; in a standing wave, superposition doubles the antinodal amplitude to $2A$."
+    },
+    {
+      "id": "phy_waves_c01_054",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A sonometer wire of length $L$ resonates in its fundamental mode with a tuning fork of frequency $f$. Using the differential relation for small fractional changes, when the length of the wire is increased by $2.0\\%$ without altering the tension, it produces $4\\text{ beats per second}$ when sounded simultaneously with the tuning fork. What is the frequency $f$ of the tuning fork?",
+      "options": [
+        "A) $100\\text{ Hz}$",
+        "B) $400\\text{ Hz}$",
+        "C) $300\\text{ Hz}$",
+        "D) $200\\text{ Hz}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The fundamental frequency of a sonometer wire is $f = \\frac{1}{2L}\\sqrt{\\frac{T}{\\mu}}$. For constant tension and linear mass density, $f \\propto \\frac{1}{L}$.\nStep 2: Taking logarithmic differentiation: $\\frac{df}{f} = -\\frac{dL}{L}$, so for small changes, the magnitude of the frequency shift is $|\\Delta f| = f \\left(\\frac{\\Delta L}{L}\\right)$.\nStep 3: The beat frequency is $|\\Delta f| = 4\\text{ Hz}$, and the fractional length increase is $\\frac{\\Delta L}{L} = 0.020$ ($2.0\\%$). Substituting:\n$$4 = f (0.020) \\implies f = \\frac{4}{0.020} = 200\\text{ Hz}$$\nDistractor Analysis: Selecting $100\\text{ Hz}$ erroneously uses $4 = 0.04 f$; selecting $400\\text{ Hz}$ multiplies 4 by 100 instead of dividing by $0.02$."
+    },
+    {
+      "id": "phy_waves_c01_055",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A sonometer wire of length $L_1 = 100.0\\text{ cm}$ under constant tension vibrates in its fundamental mode in exact unison with a tuning fork of frequency $f$. When the wire is shortened by $1.0\\text{ cm}$ (to $99.0\\text{ cm}$), it produces exactly $4\\text{ beats per second}$ when sounded together with the same tuning fork. What is the exact frequency $f$ of the tuning fork?",
+      "options": [
+        "A) $384\\text{ Hz}$",
+        "B) $400\\text{ Hz}$",
+        "C) $404\\text{ Hz}$",
+        "D) $396\\text{ Hz}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Initially, the wire of length $L_1 = 1.00\\text{ m}$ has frequency $f_1 = \\frac{v}{2 L_1} = f$.\nStep 2: When shortened to $L_2 = 0.99\\text{ m}$, the new fundamental frequency of the wire is $f_2 = \\frac{v}{2 L_2} = \\frac{v}{2(0.99 L_1)} = \\frac{f}{0.99} = \\frac{100}{99} f$.\nStep 3: Since $f_2 > f$, the beat frequency is:\n$$f_2 - f = \\frac{100}{99} f - f = f \\left(\\frac{100 - 99}{99}\\right) = \\frac{f}{99}$$\nGiven that the beat frequency is $4\\text{ beats/second}$:\n$$\\frac{f}{99} = 4 \\implies f = 4 \\times 99 = 396\\text{ Hz}$$\nDistractor Analysis: Using the differential approximation $f \\approx 4/0.01 = 400\\text{ Hz}$ introduces a small error because the exact relation is $f = 4 \\times 99 = 396\\text{ Hz}$; $384\\text{ Hz}$ is a common standard tuning fork frequency unrelated to these parameters."
+    }
+  ]
+}

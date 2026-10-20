@@ -1,0 +1,943 @@
+{
+  "subject": "Physics",
+  "topic": "Kinetic Theory of Gases",
+  "chunkIndex": 1,
+  "questionsInChunk": 55,
+  "questions": [
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_001",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the microscopic model of an ideal gas according to the kinetic theory:\n\nStatement I: The volume occupied by the individual molecules of an ideal gas is assumed to be negligible in comparison with the total volume occupied by the gas.\nStatement II: The intermolecular forces of attraction between ideal gas molecules are assumed to be negligible at all times except during the brief instants of elastic collisions.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: NCERT explicitly defines the microscopic basis of kinetic theory: gas molecules are treated as point masses whose intrinsic volume is negligibly small compared to the enclosure volume $V$.\nStep 2: Postulate II states that molecules exert negligible attractive or repulsive forces on one another except during collisions, which are instantaneous and perfectly elastic.\nStep 3: Therefore, both Statement I and Statement II accurately state the fundamental postulates of kinetic theory.\nDistractor Analysis: Alternative options asserting that either statement is false contradict the standard microscopic model assumptions outlined in NCERT."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_002",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): At standard temperature and pressure ($STP$: $T = 273.15\\text{ K}$, $P = 1.013 \\times 10^5\\text{ Pa}$), one mole of any ideal gas occupies an identical volume of approximately $22.4\\text{ litres}$.\nReason (R): According to Avogadro's hypothesis, equal volumes of all gases under identical conditions of temperature and pressure contain equal numbers of molecules ($N_A \\approx 6.022 \\times 10^{23}\\text{ mol}^{-1}$).\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The ideal gas equation is $PV = nRT$. For $n = 1\\text{ mol}$, at $P = 1.013 \\times 10^5\\text{ Pa}$ and $T = 273.15\\text{ K}$, $V = \\frac{1 \\times 8.314 \\times 273.15}{1.013 \\times 10^5}\\text{ m}^3 \\approx 2.24 \\times 10^{-2}\\text{ m}^3 = 22.4\\text{ L}$.\nStep 2: Avogadro's hypothesis states that under identical temperature and pressure, equal volumes contain equal numbers of particles, meaning one mole of any gas contains $N_A$ molecules and occupies the same molar volume.\nStep 3: Reason (R) provides the direct scientific rationale for Assertion (A).\nDistractor Analysis: Assertions claiming that (R) does not explain (A) or that either statement is false are incorrect because molar volume universality stems directly from Avogadro's law."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_003",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): Real gases approach ideal gas behavior most closely at very high temperatures and very low pressures.\nReason (R): At high temperatures, the average kinetic energy of gas molecules is significantly larger than intermolecular potential energies, and at low pressures, the mean separation between molecules is much larger than molecular dimensions.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is true but (R) is false.",
+        "B) (A) is false but (R) is true.",
+        "C) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "D) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Real gas molecules have finite molecular sizes and exert mutual intermolecular forces (van der Waals interactions).\nStep 2: At very low pressure, gas density is extremely low, making molecular volume negligible compared to the total volume. At high temperature, large thermal kinetic energy renders weak intermolecular forces completely insignificant.\nStep 3: Under these conditions, the real gas satisfies the two kinetic theory assumptions, behaving almost identically to an ideal gas. Hence, both statements are true and Reason explains Assertion.\nDistractor Analysis: Options claiming either statement is false or that (R) is not the correct explanation fail to recognize the thermodynamic criterion for gas ideality."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_004",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "According to the kinetic theory of gases, the pressure $P$ exerted by an ideal gas of density $\\rho$ and root-mean-square speed $v_{rms}$ is related to its translational kinetic energy per unit volume $E$ by which of the following expressions?",
+      "options": [
+        "A) $P = \\frac{1}{2} E$",
+        "B) $P = \\frac{3}{2} E$",
+        "C) $P = 2 E$",
+        "D) $P = \\frac{2}{3} E$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: From kinetic theory, the pressure exerted on the container walls is given by $P = \\frac{1}{3} \\rho v_{rms}^2$.\nStep 2: The translational kinetic energy per unit volume is defined as $E = \\frac{1}{2} \\rho v_{rms}^2$, which means $\\rho v_{rms}^2 = 2 E$.\nStep 3: Substituting this into the pressure equation gives $P = \\frac{1}{3} (2 E) = \\frac{2}{3} E$.\nDistractor Analysis: Factors such as $\\frac{1}{2}$, $\\frac{3}{2}$, and $2$ arise from inverted ratios or confusing total kinetic energy with energy per degree of freedom."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_005",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the kinetic interpretation of temperature for an ideal gas:\n\nStatement I: The average translational kinetic energy of an ideal gas molecule depends solely on the absolute temperature $T$ of the gas and is independent of its chemical nature or molecular mass.\nStatement II: At absolute zero temperature ($T = 0\\text{ K}$), the translational kinetic energy of ideal gas molecules completely vanishes in classical kinetic theory.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The average translational kinetic energy per molecule is $\\bar{E}_{tr} = \\frac{1}{2} m v_{rms}^2 = \\frac{3}{2} k_B T$. This expression contains only the Boltzmann constant $k_B$ and absolute temperature $T$, making it strictly independent of the gas species or molecular mass $m$.\nStep 2: At $T = 0\\text{ K}$, $\\bar{E}_{tr} = \\frac{3}{2} k_B (0) = 0$, meaning molecular translational motion ceases completely according to classical kinetic theory.\nStep 3: Both Statement I and Statement II are entirely valid NCERT principles.\nDistractor Analysis: Alternative options asserting either statement is false overlook the fundamental link between absolute thermodynamic temperature and microscopic translational energy."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_006",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two closed rigid vessels of identical volume contain Helium (monoatomic gas, molar mass $4\\text{ g/mol}$) and Oxygen (diatomic gas, molar mass $32\\text{ g/mol}$) at the same absolute temperature $T$. The ratio of the average translational kinetic energy per molecule of Helium to that of Oxygen is:",
+      "options": [
+        "A) $1 : 8$",
+        "B) $1 : 1$",
+        "C) $8 : 1$",
+        "D) $1 : 4$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Recall the kinetic expression for average translational kinetic energy per molecule: $\\bar{E}_{tr} = \\frac{3}{2} k_B T$.\nStep 2: Notice that the question asks specifically for translational kinetic energy per molecule, which depends only on absolute temperature $T$.\nStep 3: Since both flasks are maintained at the exact same temperature $T$, $\\bar{E}_{tr}(\\text{He}) = \\bar{E}_{tr}(\\text{O}_2) = \\frac{3}{2} k_B T$, resulting in a ratio of $1 : 1$.\nDistractor Analysis: Ratios such as $1 : 8$, $8 : 1$, or $1 : 4$ arise if one erroneously factors in molecular mass ($32/4 = 8$ or $\\sqrt{32/4} = \\sqrt{8}$) or rotational degrees of freedom, which do not alter translational energy."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_007",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Molecular speed / propagation speed in an ideal gas of molecular mass $m$ and absolute temperature $T$) with List II (Mathematical expression):\n\n\\begin{array}{ll}\n\\textbf{List I} & \\textbf{List II} \\\\\n\\text{A. Most probable speed } (v_{mp}) & \\text{I. } \\sqrt{\\frac{3 k_B T}{m}} \\\\\n\\text{B. Average speed } (\\bar{v}) & \\text{II. } \\sqrt{\\frac{8 k_B T}{\\pi m}} \\\\\n\\text{C. Root-mean-square speed } (v_{rms}) & \\text{III. } \\sqrt{\\frac{\\gamma k_B T}{m}} \\\\\n\\text{D. Speed of sound } (v_s) & \\text{IV. } \\sqrt{\\frac{2 k_B T}{m}}\n\\end{array}\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-I, B-II, C-III, D-IV",
+        "B) A-II, B-IV, C-I, D-III",
+        "C) A-IV, B-I, C-II, D-III",
+        "D) A-IV, B-II, C-I, D-III"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The most probable speed corresponds to the maximum of the Maxwell speed distribution: $v_{mp} = \\sqrt{\\frac{2 k_B T}{m}}$ (matches IV).\nStep 2: The mean or average speed of molecules is $\\bar{v} = \\sqrt{\\frac{8 k_B T}{\\pi m}}$ (matches II).\nStep 3: The root-mean-square speed is $v_{rms} = \\sqrt{\\frac{3 k_B T}{m}}$ (matches I).\nStep 4: The speed of sound according to Newton-Laplace formula is $v_s = \\sqrt{\\frac{\\gamma P}{\\rho}} = \\sqrt{\\frac{\\gamma k_B T}{m}}$ (matches III).\nDistractor Analysis: Pairings that interchange $v_{mp}$ (factor $\\sqrt{2}$) with $v_{rms}$ (factor $\\sqrt{3}$) or sound speed confuse the kinetic definitions with the acoustic wave relation."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_008",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For an ideal gas at a given absolute temperature $T$, let $v_{rms}$, $\\bar{v}$, and $v_{mp}$ denote the root-mean-square speed, average speed, and most probable speed of the gas molecules, respectively. Which of the following inequalities correctly depicts their relative magnitudes?",
+      "options": [
+        "A) $v_{rms} > \\bar{v} > v_{mp}$",
+        "B) $v_{mp} > \\bar{v} > v_{rms}$",
+        "C) $\\bar{v} > v_{rms} > v_{mp}$",
+        "D) $v_{rms} > v_{mp} > \\bar{v}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Write down the proportional constants for the three speeds: $v_{rms} = \\sqrt{3} \\approx 1.732$, $\\bar{v} = \\sqrt{\\frac{8}{\\pi}} \\approx \\sqrt{2.546} \\approx 1.596$, and $v_{mp} = \\sqrt{2} \\approx 1.414$ (all in units of $\\sqrt{\\frac{k_B T}{m}}$).\nStep 2: Comparing the numerical coefficients directly: $1.732 > 1.596 > 1.414$.\nStep 3: Therefore, the correct decreasing order is $v_{rms} > \\bar{v} > v_{mp}$. A standard mnemonic is RAM: $R > A > M$.\nDistractor Analysis: Alternative options represent inverted orderings or improperly place the most probable speed above average speed."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_009",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The root-mean-square speed of molecules of an ideal gas at temperature $27^\\circ\\text{C}$ is $v$. If the absolute temperature of the gas is increased to $927^\\circ\\text{C}$, the new root-mean-square speed of the molecules will be:",
+      "options": [
+        "A) $4 v$",
+        "B) $\\sqrt{34.3} v$",
+        "C) $2 v$",
+        "D) $\\frac{v}{2}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Convert temperatures from Celsius to the Kelvin scale: $T_1 = 27 + 273 = 300\\text{ K}$, and $T_2 = 927 + 273 = 1200\\text{ K}$.\nStep 2: The root-mean-square speed is proportional to the square root of absolute temperature: $v_{rms} \\propto \\sqrt{T}$.\nStep 3: Calculate the ratio: $\\frac{v_2}{v_1} = \\sqrt{\\frac{T_2}{T_1}} = \\sqrt{\\frac{1200}{300}} = \\sqrt{4} = 2$. Thus, $v_2 = 2 v$.\nDistractor Analysis: Taking temperatures directly in Celsius yields $\\sqrt{927/27} = \\sqrt{34.3}$, a classic trap for students who fail to convert to Kelvin."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_010",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Molecular model / gas type) with List II (Number of degrees of freedom $f$):\n\n\\begin{array}{ll}\n\\textbf{List I} & \\textbf{List II} \\\\\n\\text{A. Monoatomic gas (e.g., Argon)} & \\text{I. } f = 5 \\\\\n\\text{B. Rigid diatomic gas (e.g., Nitrogen at room temperature)} & \\text{II. } f = 6 \\\\\n\\text{C. Non-linear triatomic gas (e.g., Water vapor, rigid)} & \\text{III. } f = 3 \\\\\n\\text{D. Diatomic gas with one vibrational mode active} & \\text{IV. } f = 7\n\\end{array}\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-III, B-I, C-II, D-IV",
+        "B) A-I, B-III, C-II, D-IV",
+        "C) A-III, B-II, C-I, D-IV",
+        "D) A-II, B-I, C-III, D-IV"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: A monoatomic gas molecule acts as a point particle with only $3$ translational degrees of freedom ($f = 3$, matching III).\nStep 2: A rigid diatomic molecule has $3$ translational and $2$ rotational degrees of freedom ($f = 3 + 2 = 5$, matching I).\nStep 3: A non-linear rigid triatomic molecule has $3$ translational and $3$ rotational degrees of freedom ($f = 3 + 3 = 6$, matching II).\nStep 4: At elevated temperatures, a diatomic molecule activates $1$ vibrational mode, contributing $2$ additional quadratic terms (kinetic and potential), yielding $f = 3 + 2 + 2 = 7$ (matching IV).\nDistractor Analysis: Confusing translational and rotational coordinates leads to mismatched mappings between monoatomic and diatomic systems."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_011",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the law of equipartition of energy:\n\nStatement I: According to the law of equipartition of energy, in thermal equilibrium at absolute temperature $T$, the average energy associated with each quadratic term in the energy expression of a molecule is $\\frac{1}{2} k_B T$.\nStatement II: A single vibrational mode of a diatomic molecule contributes an average energy of $k_B T$ to the molecule because it involves both kinetic and potential energy quadratic terms.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: The law of equipartition of energy states that each coordinate or velocity term appearing quadratically in the Hamiltonian shares an average energy of $\\frac{1}{2} k_B T$ at thermal equilibrium. Thus Statement I is true.\nStep 2: A vibrational mode involves relative motion (kinetic energy $\\frac{1}{2}\\mu v_{rel}^2$) and interatomic stretching/compression (potential energy $\\frac{1}{2}k x^2$). Since it consists of two quadratic terms, its contribution is $2 \\times \\frac{1}{2} k_B T = k_B T$. Thus Statement II is true.\nStep 3: Both statements correctly state NCERT principles.\nDistractor Analysis: Claims that Statement II is false ignore that vibrational modes in molecules always possess both vibrational kinetic and potential energy components."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_012",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For an ideal monoatomic gas (such as Helium or Neon), what are the molar heat capacity at constant volume ($C_v$) and the ratio of specific heats ($\\gamma = C_p / C_v$)?",
+      "options": [
+        "A) $C_v = \\frac{5}{2} R$, $\\gamma = \\frac{7}{5}$",
+        "B) $C_v = \\frac{3}{2} R$, $\\gamma = \\frac{5}{3}$",
+        "C) $C_v = 3 R$, $\\gamma = \\frac{4}{3}$",
+        "D) $C_v = \\frac{1}{2} R$, $\\gamma = 2$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: A monoatomic gas has $f = 3$ degrees of freedom.\nStep 2: The internal energy per mole is $U = \\frac{3}{2} R T$. The molar heat capacity at constant volume is $C_v = \\frac{dU}{dT} = \\frac{3}{2} R$.\nStep 3: Using Mayer's relation $C_p = C_v + R = \\frac{3}{2} R + R = \\frac{5}{2} R$.\nStep 4: The adiabatic index is $\\gamma = \\frac{C_p}{C_v} = \\frac{5/2 R}{3/2 R} = \\frac{5}{3} \\approx 1.67$.\nDistractor Analysis: Values with $C_v = \\frac{5}{2}R$ and $\\gamma = 7/5$ correspond to rigid diatomic gases, not monoatomic gases."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_013",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): For one mole of an ideal gas, the molar heat capacity at constant pressure ($C_p$) is strictly greater than the molar heat capacity at constant volume ($C_v$) such that $C_p - C_v = R$.\nReason (R): When heat is supplied to a gas at constant pressure, a portion of the thermal energy is utilized in doing external work during volume expansion, whereas at constant volume all the supplied heat contributes exclusively to raising internal energy.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: From the First Law of Thermodynamics, $\\Delta Q = \\Delta U + \\Delta W$.\nStep 2: At constant volume, $dV = 0$, so $\\Delta W = P dV = 0$, meaning $\\Delta Q_v = \\Delta U = C_v \\Delta T$.\nStep 3: At constant pressure, the gas expands against external pressure: $\\Delta Q_p = \\Delta U + P \\Delta V = C_v \\Delta T + R \\Delta T = (C_v + R) \\Delta T$. Therefore, $C_p = C_v + R$, which confirms Assertion (A) and shows Reason (R) is the exact physical explanation.\nDistractor Analysis: Alternative options asserting that (R) does not explain (A) fail to recognize that the extra heat required at constant pressure equals the work of expansion $P\\Delta V = R\\Delta T$."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_014",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "According to the kinetic theory of gases, the mean free path $\\lambda$ of molecules of an ideal gas is expressed as $\\lambda = \\frac{1}{\\sqrt{2} n \\pi d^2}$, where $n$ is the molecular number density and $d$ is the effective diameter of the molecule. If the molecular diameter is doubled while maintaining the number density constant, the mean free path becomes:",
+      "options": [
+        "A) $2$ times its initial value",
+        "B) $\\frac{1}{2}$ of its initial value",
+        "C) $\\frac{1}{4}$ of its initial value",
+        "D) $4$ times its initial value"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The mean free path formula is $\\lambda = \\frac{1}{\\sqrt{2} n \\pi d^2}$.\nStep 2: When number density $n$ is held constant, the mean free path is inversely proportional to the square of the molecular diameter: $\\lambda \\propto \\frac{1}{d^2}$.\nStep 3: If $d' = 2d$, then $\\lambda' = \\frac{1}{\\sqrt{2} n \\pi (2d)^2} = \\frac{1}{4} \\lambda$.\nDistractor Analysis: Choosing half-value neglects the squaring of the collision cross-section ($\\pi d^2$)."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_015",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding Dalton's law of partial pressures:\n\nStatement I: The total pressure exerted by a mixture of non-reacting ideal gases enclosed in a container equals the sum of the partial pressures that each constituent gas would exert if it alone occupied the entire volume at the same temperature.\nStatement II: In a mixture of ideal gases, the partial pressure of each individual gas component is directly proportional to its mole fraction in the mixture.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Dalton's Law states that for an inert mixture of ideal gases, $P_{total} = P_1 + P_2 + \\dots = \\sum P_i$, where $P_i = \\frac{n_i R T}{V}$. Thus Statement I is true.\nStep 2: Since $P_i = \\frac{n_i R T}{V}$ and $P_{total} = \\frac{(\\sum n_i) R T}{V} = \\frac{n_{total} R T}{V}$, dividing the two gives $P_i = \\left(\\frac{n_i}{n_{total}}\\right) P_{total} = x_i P_{total}$. Thus partial pressure is directly proportional to mole fraction $x_i$, confirming Statement II.\nStep 3: Both statements are factually and conceptually correct.\nDistractor Analysis: Any option rejecting either statement contradicts Dalton's fundamental relation and the ideal gas mixture laws presented in NCERT."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_016",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A fixed mass of an ideal gas at constant temperature is compressed such that its volume is reduced to half of its initial value ($V' = V/2$). From the perspective of kinetic theory, the pressure doubles because:",
+      "options": [
+        "A) The root-mean-square speed of the gas molecules doubles.",
+        "B) The number of molecules per unit volume doubles, doubling the rate of collisions with the container walls.",
+        "C) The average momentum transferred per individual molecular collision doubles.",
+        "D) The duration of each collision with the container wall is cut in half."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Temperature is held constant, so the root-mean-square speed $v_{rms} = \\sqrt{3 k_B T / m}$ and average momentum change per collision $\\Delta p = 2 m v_x$ remain completely unchanged.\nStep 2: Halving the volume doubles the molecular number density: $n = N / (V/2) = 2 n_0$.\nStep 3: The rate of molecular collisions per unit area with the container wall is directly proportional to $n v$, so the collision rate per unit area doubles, resulting in twice the force per unit area, hence doubling the pressure ($P = \\frac{1}{3} n m v_{rms}^2$).\nDistractor Analysis: Claiming that $v_{rms}$ or momentum transfer per collision doubles is incorrect because kinetic speed and single-collision momentum transfer depend strictly on temperature, which is constant."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_017",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "What is the total internal energy $U$ of $n$ moles of an ideal monoatomic gas at an absolute temperature $T$, where $R$ is the universal gas constant?",
+      "options": [
+        "A) $U = \\frac{1}{2} n R T$",
+        "B) $U = n R T$",
+        "C) $U = \\frac{3}{2} n R T$",
+        "D) $U = \\frac{5}{2} n R T$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: In an ideal gas, there are no intermolecular attractive forces, so intermolecular potential energy is zero ($U_{pot} = 0$).\nStep 2: Internal energy consists exclusively of the thermal kinetic energy of the molecules.\nStep 3: A monoatomic gas has $3$ translational degrees of freedom per molecule. By the equipartition theorem, the average energy per mole is $\\frac{3}{2} R T$.\nStep 4: For $n$ moles, the total internal energy is $U = \\frac{3}{2} n R T$.\nDistractor Analysis: Values such as $n R T$ or $\\frac{5}{2} n R T$ represent wrong degrees of freedom or correspond to diatomic systems."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_018",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For an ideal diatomic gas whose molecules behave as rigid rotators (with no vibrational mode active), the molar heat capacity at constant pressure $C_p$ and the adiabatic exponent $\\gamma$ are respectively given by:",
+      "options": [
+        "A) $C_p = \\frac{5}{2} R$ and $\\gamma = \\frac{7}{5}$",
+        "B) $C_p = \\frac{7}{2} R$ and $\\gamma = \\frac{7}{5}$",
+        "C) $C_p = \\frac{7}{2} R$ and $\\gamma = \\frac{5}{3}$",
+        "D) $C_p = 3 R$ and $\\gamma = \\frac{4}{3}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: A rigid diatomic molecule possesses $f = 5$ degrees of freedom ($3$ translational and $2$ rotational).\nStep 2: The molar heat capacity at constant volume is $C_v = \\frac{f}{2} R = \\frac{5}{2} R$.\nStep 3: Molar heat capacity at constant pressure is $C_p = C_v + R = \\frac{5}{2} R + R = \\frac{7}{2} R$.\nStep 4: The adiabatic index is $\\gamma = \\frac{C_p}{C_v} = \\frac{7/2 R}{5/2 R} = \\frac{7}{5} = 1.40$.\nDistractor Analysis: Mistaking $C_v$ for $C_p$ produces $5/2 R$, and confusing the monoatomic ratio yields $5/3$."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_019",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): For an ideal gas enclosed in a stationary vessel in thermal equilibrium, the average velocity of the gas molecules $\\langle \\vec{v} \\rangle$ is zero, whereas the root-mean-square speed $v_{rms}$ is non-zero.\nReason (R): Molecular motion in thermal equilibrium is completely random and isotropic, so for every molecule moving with velocity $\\vec{v}$, there is statistically another molecule moving with an equal and opposite velocity $-\\vec{v}$.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Velocity is a vector quantity. In a stationary gas container, there is no net bulk movement of the gas in any spatial direction, which implies $\\langle \\vec{v} \\rangle = \\frac{1}{N} \\sum \\vec{v}_i = 0$.\nStep 2: Speed is a scalar ($v = |\\vec{v}| \\ge 0$), and speed squared $v^2$ is strictly positive for moving molecules. Hence $v_{rms} = \\sqrt{\\langle v^2 \\rangle} > 0$.\nStep 3: Reason (R) correctly explains that random, isotropic vector cancellation causes the average vector velocity to vanish while the scalar root-mean-square speed remains non-zero.\nDistractor Analysis: Denying that (R) explains (A) ignores the vector symmetry that leads directly to zero macroscopic momentum for a gas at rest."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_020",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two ideal gases, $A$ and $B$, have molar masses $M_A = 16\\text{ g/mol}$ and $M_B = 64\\text{ g/mol}$ respectively. When both gases are maintained at the same pressure $P$ and temperature $T$, what is the ratio of their mass densities $\\rho_A : \\rho_B$?",
+      "options": [
+        "A) $4 : 1$",
+        "B) $1 : 2$",
+        "C) $2 : 1$",
+        "D) $1 : 4$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Write the ideal gas equation in terms of mass density $\\rho$: $P V = \\frac{m_{total}}{M} R T \\implies P = \\frac{\\rho R T}{M}$.\nStep 2: Rearranging for density: $\\rho = \\frac{P M}{R T}$.\nStep 3: At identical pressure $P$ and temperature $T$, density is directly proportional to molar mass: $\\rho \\propto M$.\nStep 4: Therefore, $\\frac{\\rho_A}{\\rho_B} = \\frac{M_A}{M_B} = \\frac{16}{64} = \\frac{1}{4}$. The ratio is $1 : 4$.\nDistractor Analysis: Inverting the ratio gives $4 : 1$, and taking square roots gives $1 : 2$, which confuses density with RMS speed ($v_{rms} \\propto 1/\\sqrt{M}$)."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_021",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "At a constant absolute temperature $T$, if the pressure of an ideal gas enclosed in a vessel is tripled ($P' = 3P$), the mean free path $\\lambda$ of its molecules will:",
+      "options": [
+        "A) Increase by a factor of $3$",
+        "B) Decrease to $\\frac{1}{3}$ of its original value",
+        "C) Decrease to $\\frac{1}{9}$ of its original value",
+        "D) Remain completely unchanged"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The mean free path is given by $\\lambda = \\frac{1}{\\sqrt{2} n \\pi d^2}$.\nStep 2: From the ideal gas equation, $P = n k_B T$, so the number density is $n = \\frac{P}{k_B T}$.\nStep 3: Substituting $n$ gives $\\lambda = \\frac{k_B T}{\\sqrt{2} \\pi d^2 P}$.\nStep 4: At constant temperature $T$, $\\lambda \\propto \\frac{1}{P}$. When pressure triples, the mean free path decreases to $\\frac{1}{3}$ of its original value.\nDistractor Analysis: Tripling the mean free path incorrectly assumes direct proportionality, while a factor of $1/9$ incorrectly squares the pressure."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_022",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "beginner",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the Maxwell-Boltzmann molecular speed distribution curve for an ideal gas:\n\nStatement I: The speed corresponding to the peak (maximum) of the distribution curve represents the most probable speed $v_{mp}$ of the gas molecules.\nStatement II: The total area under the Maxwell-Boltzmann distribution curve $\\frac{dN}{dv}$ plotted against speed $v$ is equal to the total number of gas molecules $N$ present in the sample.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is false but Statement II is true.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Both Statement I and Statement II are true.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The peak of the distribution curve $\\frac{dN}{dv}$ corresponds to the value of $v$ where $\\frac{d}{dv}\\left(\\frac{dN}{dv}\\right) = 0$. This by definition is the most probable speed $v_{mp} = \\sqrt{2 k_B T / m}$, so Statement I is true.\nStep 2: The integral of $\\frac{dN}{dv}$ over all possible speeds from $0$ to $\\infty$ gives $\\int_0^\\infty \\left(\\frac{dN}{dv}\\right) dv = \\int dN = N$, which is the total number of molecules in the gas. Thus Statement II is true.\nStep 3: Both Statement I and Statement II are accurate NCERT physical statements.\nDistractor Analysis: Asserting that either statement is false confuses most probable speed with root-mean-square speed or misunderstands the normalization of distribution curves."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_023",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "At what absolute temperature will the root-mean-square speed of Oxygen molecules ($O_2$, molar mass $32\\text{ g/mol}$) be equal to the root-mean-square speed of Hydrogen molecules ($H_2$, molar mass $2\\text{ g/mol}$) at $300\\text{ K}$?",
+      "options": [
+        "A) $2400\\text{ K}$",
+        "B) $4800\\text{ K}$",
+        "C) $1200\\text{ K}$",
+        "D) $600\\text{ K}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Write the formula for root-mean-square speed: $v_{rms} = \\sqrt{\\frac{3 R T}{M}}$.\nStep 2: Equate the root-mean-square speeds of the two gases: $\\sqrt{\\frac{3 R T(O_2)}{M(O_2)}} = \\sqrt{\\frac{3 R T(H_2)}{M(H_2)}}$, which simplifies to $\\frac{T(O_2)}{M(O_2)} = \\frac{T(H_2)}{M(H_2)}$.\nStep 3: Substitute the known values: $\\frac{T(O_2)}{32} = \\frac{300}{2} = 150 \\implies T(O_2) = 150 \\times 32 = 4800\\text{ K}$.\nDistractor Analysis: Multiplying by $\\sqrt{16} = 4$ yields $1200\\text{ K}$, which incorrectly assumes $v_{rms} \\propto T$ instead of $v_{rms} \\propto \\sqrt{T}$."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_024",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the effect of increasing temperature on the Maxwell-Boltzmann molecular speed distribution of an ideal gas:\n\nStatement I: As the temperature of the gas increases, the peak of the distribution curve shifts towards higher speed, and the maximum height of the curve decreases.\nStatement II: With an increase in temperature, the fraction of molecules possessing speeds near the most probable speed decreases, while the fraction of molecules with very high speeds increases.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: The most probable speed is $v_{mp} = \\sqrt{2 k_B T / m}$. As $T$ increases, $v_{mp}$ increases, shifting the peak to the right (higher speeds).\nStep 2: The total area under the curve is normalized to the total number of molecules $N$. Because the curve broadens along the horizontal speed axis, its vertical peak height must decrease to maintain constant area. Thus Statement I is true.\nStep 3: A flatter, broader distribution means a smaller fraction of molecules clusters closely around $v_{mp}$, while a larger tail extends into the high-speed regime. Thus Statement II is true.\nDistractor Analysis: Alternative options claiming either statement is false overlook the fundamental conservation of total molecular count represented by the area under the Maxwell distribution."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_025",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A gas mixture contains $1.0\\text{ mole}$ of Helium (monoatomic, rigid, $C_v = \\frac{3}{2}R$) and $1.0\\text{ mole}$ of Oxygen (diatomic, rigid, $C_v = \\frac{5}{2}R$). What are the effective molar heat capacity at constant volume $C_{v,mix}$ and the adiabatic exponent $\\gamma_{mix}$ of this mixture?",
+      "options": [
+        "A) $C_{v,mix} = 2 R$ and $\\gamma_{mix} = 1.40$",
+        "B) $C_{v,mix} = \\frac{5}{2} R$ and $\\gamma_{mix} = 1.40$",
+        "C) $C_{v,mix} = 2 R$ and $\\gamma_{mix} = 1.50$",
+        "D) $C_{v,mix} = \\frac{4}{3} R$ and $\\gamma_{mix} = 1.67$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Calculate the mixture's molar heat capacity at constant volume: $C_{v,mix} = \\frac{n_1 C_{v1} + n_2 C_{v2}}{n_1 + n_2} = \\frac{1(\\frac{3}{2}R) + 1(\\frac{5}{2}R)}{1 + 1} = \\frac{4R}{2} = 2 R$.\nStep 2: Calculate the mixture's molar heat capacity at constant pressure using Mayer's relation: $C_{p,mix} = C_{v,mix} + R = 2 R + R = 3 R$.\nStep 3: Find the adiabatic index: $\\gamma_{mix} = \\frac{C_{p,mix}}{C_{v,mix}} = \\frac{3 R}{2 R} = 1.50$.\nDistractor Analysis: Options listing $\\gamma = 1.40$ or $1.67$ use the pure diatomic or pure monoatomic adiabatic indices rather than evaluating the mixture."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_026",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An ideal gas is enclosed in a rigid, sealed container of fixed volume. The gas is heated such that its pressure increases by $300\\%$ (i.e., from $P_0$ to $4 P_0$). By what factor does the root-mean-square speed of its molecules increase?",
+      "options": [
+        "A) $4$",
+        "B) $\\sqrt{3}$",
+        "C) $3$",
+        "D) $2$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For a sealed rigid container, the volume $V$ and the mass of the gas remain constant. By Gay-Lussac's Law, pressure is directly proportional to absolute temperature: $P \\propto T$.\nStep 2: The final pressure is $P' = P_0 + 3.00 P_0 = 4 P_0$. Thus, the final absolute temperature is $T' = 4 T_0$.\nStep 3: The root-mean-square speed is proportional to $\\sqrt{T}$: $v_{rms} \\propto \\sqrt{T}$.\nStep 4: The factor of increase in $v_{rms}$ is $\\frac{v'_{rms}}{v_{rms}} = \\sqrt{\\frac{T'}{T_0}} = \\sqrt{4} = 2$.\nDistractor Analysis: Selecting $4$ mistakenly assumes $v_{rms}$ is linear in $T$, while selecting $3$ confuses the percentage increase factor with the final speed factor."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_027",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A sealed container of volume $1.0 \\times 10^{-3}\\text{ m}^3$ contains $1.0 \\times 10^{23}$ molecules of a gas, each of mass $5.0 \\times 10^{-26}\\text{ kg}$. If the root-mean-square speed of the molecules is $600\\text{ m/s}$, what is the pressure exerted by the gas on the container walls?",
+      "options": [
+        "A) $6.0 \\times 10^5\\text{ Pa}$",
+        "B) $1.8 \\times 10^6\\text{ Pa}$",
+        "C) $3.0 \\times 10^5\\text{ Pa}$",
+        "D) $9.0 \\times 10^5\\text{ Pa}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Compute the total mass of the gas enclosed in the vessel: $M_{total} = N m = (1.0 \\times 10^{23}) \\times (5.0 \\times 10^{-26}\\text{ kg}) = 5.0 \\times 10^{-3}\\text{ kg}$.\nStep 2: Determine the mass density of the gas: $\\rho = \\frac{M_{total}}{V} = \\frac{5.0 \\times 10^{-3}\\text{ kg}}{1.0 \\times 10^{-3}\\text{ m}^3} = 5.0\\text{ kg/m}^3$.\nStep 3: Apply the kinetic pressure formula: $P = \\frac{1}{3} \\rho v_{rms}^2 = \\frac{1}{3} \\times 5.0 \\times (600)^2 = \\frac{1}{3} \\times 5.0 \\times 3.6 \\times 10^5 = 6.0 \\times 10^5\\text{ Pa}$.\nDistractor Analysis: Omitting the factor of $1/3$ leads to $1.8 \\times 10^6\\text{ Pa}$, and using a factor of $1/2$ leads to $9.0 \\times 10^5\\text{ Pa}$."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_028",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When an ideal gas enclosed in a rigid, sealed vessel of fixed volume is heated from $300\\text{ K}$ to $600\\text{ K}$, the mean free path $\\lambda$ of its molecules remains completely unchanged.\nReason (R): The mean free path depends exclusively on the molecular diameter $d$ and the number density of molecules $n = N/V$, both of which remain strictly constant in a sealed rigid vessel.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) (A) is true but (R) is false."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The mean free path formula is $\\lambda = \\frac{1}{\\sqrt{2} n \\pi d^2}$.\nStep 2: In a rigid, sealed container, neither the total number of molecules $N$ nor the container volume $V$ changes. Therefore, the number density $n = N/V$ is constant.\nStep 3: Even though the gas heats up and molecules travel faster, the geometric collision frequency cross-section and number density are invariant, keeping $\\lambda$ strictly constant. Hence Assertion (A) and Reason (R) are both true, and (R) correctly explains (A).\nDistractor Analysis: Mistakenly applying $\\lambda \\propto T$ fails because that relation holds only at constant pressure, not at constant volume."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_029",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "For an ideal rigid diatomic gas (for which $\\gamma = 7/5$), what is the ratio of the speed of sound $v_s$ in the gas to the root-mean-square speed $v_{rms}$ of its molecules?",
+      "options": [
+        "A) $\\sqrt{\\frac{3}{5}}$",
+        "B) $\\sqrt{\\frac{5}{7}}$",
+        "C) $\\sqrt{\\frac{7}{15}}$",
+        "D) $\\sqrt{\\frac{15}{7}}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The speed of sound in an ideal gas according to Laplace's correction is $v_s = \\sqrt{\\frac{\\gamma R T}{M}}$.\nStep 2: The root-mean-square speed of the gas molecules is $v_{rms} = \\sqrt{\\frac{3 R T}{M}}$.\nStep 3: Divide $v_s$ by $v_{rms}$: $\\frac{v_s}{v_{rms}} = \\sqrt{\\frac{\\gamma R T / M}{3 R T / M}} = \\sqrt{\\frac{\\gamma}{3}}$.\nStep 4: For a rigid diatomic gas, $\\gamma = \\frac{7}{5}$. Substituting this yields $\\frac{v_s}{v_{rms}} = \\sqrt{\\frac{7/5}{3}} = \\sqrt{\\frac{7}{15}}$.\nDistractor Analysis: Inverting the ratio produces $\\sqrt{15/7}$, while taking $\\gamma = 5/3$ (monoatomic) produces $\\sqrt{5/9} = \\sqrt{5}/3$."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_030",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An ideal rigid diatomic gas undergoes an isobaric (constant pressure) expansion. What fraction of the total heat energy absorbed by the gas is converted into mechanical work done by the gas?",
+      "options": [
+        "A) $\\frac{5}{7}$",
+        "B) $\\frac{3}{5}$",
+        "C) $\\frac{2}{5}$",
+        "D) $\\frac{2}{7}$"
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In an isobaric process, the heat absorbed is $\\Delta Q = n C_p \\Delta T$, where $C_p = \\frac{7}{2} R$ for a rigid diatomic gas.\nStep 2: The work done during isobaric expansion is $\\Delta W = P \\Delta V = n R \\Delta T$.\nStep 3: The fraction of absorbed heat converted into work is $\\frac{\\Delta W}{\\Delta Q} = \\frac{n R \\Delta T}{n C_p \\Delta T} = \\frac{R}{C_p} = \\frac{R}{\\frac{7}{2} R} = \\frac{2}{7}$.\nStep 4: Notice that the remaining fraction $\\frac{\\Delta U}{\\Delta Q} = \\frac{C_v}{C_p} = \\frac{5}{7}$ goes into increasing the internal energy.\nDistractor Analysis: Selecting $5/7$ represents the fraction that enters internal energy rather than mechanical work."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_031",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I with List II for the given ideal gas scenarios:\n\n\\begin{array}{ll}\n\\textbf{List I} & \\textbf{List II} \\\\\n\\text{A. Ratio of } v_{rms}\\text{ of He } (M=4) \\text{ at } 300\\text{ K to } v_{rms}\\text{ of } CH_4 \\text{ at } 300\\text{ K} & \\text{I. } 3 \\\\\n\\text{B. Ratio of } v_{rms}\\text{ of } O_2\\text{ at } 2700\\text{ K to } v_{rms}\\text{ of } O_2\\text{ at } 300\\text{ K} & \\text{II. } 4 \\\\\n\\text{C. Ratio of translational KE per mole of gas at } 600\\text{ K to that at } 150\\text{ K} & \\text{III. } 2 \\\\\n\\text{D. Ratio of } C_p\\text{ to } C_v\\text{ for a rigid diatomic gas } (\\gamma) & \\text{IV. } 1.4\n\\end{array}\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-III, B-I, C-II, D-IV",
+        "B) A-I, B-III, C-II, D-IV",
+        "C) A-III, B-II, C-I, D-IV",
+        "D) A-IV, B-I, C-II, D-III"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For item A, $\\frac{v_{rms}(\\text{He})}{v_{rms}(\\text{CH}_4)} = \\sqrt{\\frac{M(\\text{CH}_4)}{M(\\text{He})}} = \\sqrt{\\frac{16}{4}} = 2$ (matches III).\nStep 2: For item B, $\\frac{v_{rms}(2700\\text{ K})}{v_{rms}(300\\text{ K})} = \\sqrt{\\frac{2700}{300}} = \\sqrt{9} = 3$ (matches I).\nStep 3: For item C, translational KE per mole is $\\frac{3}{2} R T$, so the ratio is $\\frac{600}{150} = 4$ (matches II).\nStep 4: For item D, $\\gamma = \\frac{7/2 R}{5/2 R} = 1.4$ (matches IV).\nDistractor Analysis: Inverting mass ratios or confusing square root scaling in temperature leads to erroneous list associations."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_032",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A sealed rigid vessel contains a mixture of $8.0\\text{ g}$ of Oxygen ($O_2$, molar mass $32\\text{ g/mol}$) and $14.0\\text{ g}$ of Nitrogen ($N_2$, molar mass $28\\text{ g/mol}$) at a temperature of $300\\text{ K}$. Given $R = 8.314\\text{ J/(mol}\\cdot\\text{K)}$, the total translational kinetic energy of all the gas molecules in the vessel is approximately:",
+      "options": [
+        "A) $4677\\text{ J}$",
+        "B) $2806\\text{ J}$",
+        "C) $1871\\text{ J}$",
+        "D) $3741\\text{ J}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Calculate the moles of each constituent gas: $n(O_2) = \\frac{8.0\\text{ g}}{32\\text{ g/mol}} = 0.25\\text{ mol}$, and $n(N_2) = \\frac{14.0\\text{ g}}{28\\text{ g/mol}} = 0.50\\text{ mol}$.\nStep 2: Total number of moles in the mixture is $n_{total} = 0.25 + 0.50 = 0.75\\text{ mol}$.\nStep 3: Translational kinetic energy depends exclusively on temperature and total moles: $E_{tr} = \\frac{3}{2} n_{total} R T$.\nStep 4: Compute the numerical value: $E_{tr} = \\frac{3}{2} \\times 0.75 \\times 8.314 \\times 300 = 1.125 \\times 2494.2 \\approx 2806\\text{ J}$.\nDistractor Analysis: Calculating total internal energy including rotational degrees of freedom ($E_{int} = \\frac{5}{2} n R T$) gives $4677\\text{ J}$, but the question strictly asks for translational kinetic energy."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_033",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An ideal gas initially at pressure $P$ and absolute temperature $T$ has a mean free path $\\lambda_0$ and a mean collision frequency $\\nu_0$. If both its absolute temperature and pressure are doubled ($T' = 2T$ and $P' = 2P$), what are the new mean free path $\\lambda'$ and collision frequency $\\nu'$?",
+      "options": [
+        "A) $\\lambda' = 2 \\lambda_0$ and $\\nu' = \\sqrt{2} \\nu_0$",
+        "B) $\\lambda' = \\frac{\\lambda_0}{2}$ and $\\nu' = 2 \\nu_0$",
+        "C) $\\lambda' = \\lambda_0$ and $\\nu' = \\sqrt{2} \\nu_0$",
+        "D) $\\lambda' = \\lambda_0$ and $\\nu' = 2 \\nu_0$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The mean free path is $\\lambda = \\frac{k_B T}{\\sqrt{2} \\pi d^2 P} \\propto \\frac{T}{P}$. Since both $T$ and $P$ are doubled, $\\frac{2T}{2P} = \\frac{T}{P}$, so $\\lambda' = \\lambda_0$.\nStep 2: The average molecular speed is $\\bar{v} = \\sqrt{\\frac{8 k_B T}{\\pi m}} \\propto \\sqrt{T}$. When temperature doubles, $\\bar{v}' = \\sqrt{2} \\bar{v}$.\nStep 3: The collision frequency is $\\nu = \\frac{\\bar{v}}{\\lambda}$. Thus $\\nu' = \\frac{\\sqrt{2} \\bar{v}}{\\lambda_0} = \\sqrt{2} \\nu_0$.\nDistractor Analysis: Assuming collision frequency doubles forgets that molecular speed scales with $\\sqrt{T}$, not $T$."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_034",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the thermal properties of a diatomic gas at very high temperatures:\n\nStatement I: At sufficiently high temperatures, the vibrational modes of a diatomic gas are activated, adding one vibrational degree of freedom comprising two quadratic terms (vibrational kinetic and vibrational potential energy).\nStatement II: For a diatomic gas with an active vibrational mode, the molar heat capacity at constant volume is $C_v = \\frac{7}{2} R$ and the adiabatic index is $\\gamma = \\frac{9}{7} \\approx 1.29$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: At high temperatures, interatomic oscillations become excited. A vibrational mode contributes both kinetic energy ($\\frac{1}{2} \\mu \\dot{r}^2$) and potential energy ($\\frac{1}{2} k r^2$), yielding $2$ quadratic terms. Thus Statement I is true.\nStep 2: Total degrees of freedom become $f = 3\\text{ (trans)} + 2\\text{ (rot)} + 2\\text{ (vib terms)} = 7$.\nStep 3: Therefore, $C_v = \\frac{7}{2} R$, $C_p = C_v + R = \\frac{9}{2} R$, and $\\gamma = \\frac{C_p}{C_v} = \\frac{9}{7} \\approx 1.29$. Thus Statement II is true.\nDistractor Analysis: Forgetting the vibrational potential energy term incorrectly yields $f = 6$, $C_v = 3R$, and $\\gamma = 4/3$."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_035",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): When an ideal gas undergoes free expansion into an evacuated chamber inside a thermally insulated container, its temperature remains unchanged.\nReason (R): In a free expansion into a vacuum, the external work done is zero ($W = 0$) and the process is adiabatic ($Q = 0$), so $\\Delta U = 0$; for an ideal gas, internal energy depends solely on temperature.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) Both (A) and (R) are true and (R) is the correct explanation of (A).",
+        "B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "C) (A) is true but (R) is false.",
+        "D) (A) is false but (R) is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In free expansion, the gas expands against zero opposing pressure ($P_{ext} = 0$), so the work done is $W = \\int P_{ext} dV = 0$.\nStep 2: Because the container is thermally insulated, no heat enters or leaves the system, so $Q = 0$.\nStep 3: By the First Law of Thermodynamics, $\\Delta U = Q - W = 0$. For an ideal gas, $U = U(T)$ only (Joule's law), so $\\Delta U = 0$ guarantees that $\\Delta T = 0$. Hence, Assertion and Reason are true, and (R) correctly explains (A).\nDistractor Analysis: Real gases cool upon Joule expansion because work is done against intermolecular attractions, but an ideal gas exhibits zero intermolecular forces, maintaining constant temperature."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_036",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Two glass bulbs of volumes $V_1 = 2.0\\text{ litres}$ and $V_2 = 3.0\\text{ litres}$ containing an ideal gas at pressures $P_1 = 3.0\\text{ atm}$ and $P_2 = 1.0\\text{ atm}$ respectively are connected by a thin tube of negligible volume fitted with a stopcock. If the stopcock is opened and the temperature of the entire system is kept constant, what is the final equilibrium pressure of the gas?",
+      "options": [
+        "A) $2.0\\text{ atm}$",
+        "B) $1.8\\text{ atm}$",
+        "C) $2.4\\text{ atm}$",
+        "D) $1.5\\text{ atm}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Write the initial mole expressions for the two bulbs: $n_1 = \\frac{P_1 V_1}{R T}$ and $n_2 = \\frac{P_2 V_2}{R T}$.\nStep 2: When the stopcock is opened, the total number of moles is conserved: $n_{total} = n_1 + n_2 = \\frac{P_1 V_1 + P_2 V_2}{R T}$.\nStep 3: The total volume occupied by the gas becomes $V_{total} = V_1 + V_2 = 2.0 + 3.0 = 5.0\\text{ litres}$.\nStep 4: At thermal equilibrium, the final pressure is $P_f = \\frac{n_{total} R T}{V_{total}} = \\frac{P_1 V_1 + P_2 V_2}{V_1 + V_2} = \\frac{(3.0)(2.0) + (1.0)(3.0)}{2.0 + 3.0} = \\frac{6.0 + 3.0}{5.0} = 1.8\\text{ atm}$.\nDistractor Analysis: Simple arithmetic averaging $\\frac{3.0 + 1.0}{2} = 2.0\\text{ atm}$ ignores the differing bulb volumes."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_037",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding specific heat capacities of gases per unit mass (in $\\text{J}/(\\text{kg}\\cdot\\text{K})$):\n\nStatement I: For a gas with molar mass $M$ and universal gas constant $R$, Mayer's relation for specific heat capacities per unit mass is given by $c_p - c_v = \\frac{R}{M}$.\nStatement II: For Hydrogen gas ($M = 2\\text{ g/mol}$) and Oxygen gas ($M = 32\\text{ g/mol}$), the difference $(c_p - c_v)$ for Hydrogen is $16$ times larger than $(c_p - c_v)$ for Oxygen.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is false but Statement II is true.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Both Statement I and Statement II are true.",
+        "D) Both Statement I and Statement II are false."
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The molar heat capacities satisfy $C_p - C_v = R$. Dividing by molar mass $M$ converts them to specific heats per unit mass: $c_p - c_v = \\frac{R}{M}$. Thus Statement I is true.\nStep 2: For Hydrogen, $(c_p - c_v)_{H_2} = \\frac{R}{2\\times 10^{-3}}$. For Oxygen, $(c_p - c_v)_{O_2} = \\frac{R}{32\\times 10^{-3}}$.\nStep 3: Taking their ratio: $\\frac{(c_p - c_v)_{H_2}}{(c_p - c_v)_{O_2}} = \\frac{32}{2} = 16$. Thus Statement II is true.\nDistractor Analysis: Conflating molar heat capacity (where $C_p - C_v = R$ is identical for all ideal gases) with specific heat capacity per unit mass leads students to falsely believe the difference is identical for all gases."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_038",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "The Maxwell-Boltzmann speed distribution function is given by $f(v) = 4\\pi \\left(\\frac{m}{2\\pi k_B T}\\right)^{3/2} v^2 e^{-\\frac{m v^2}{2 k_B T}}$. Which of the following statements correctly explains why $f(v) \\to 0$ both as $v \\to 0$ and as $v \\to \\infty$?",
+      "options": [
+        "A) As $v \\to 0$, the Boltzmann exponential factor vanishes, while as $v \\to \\infty$, the factor $v^2$ approaches zero.",
+        "B) As $v \\to 0$, $f(v) \\to 0$ because the phase space velocity element is proportional to $v^2$; as $v \\to \\infty$, $f(v) \\to 0$ because the Boltzmann exponential factor $e^{-m v^2 / 2 k_B T}$ decays rapidly to zero.",
+        "C) Molecules cannot have zero speed due to Heisenberg uncertainty, and cannot have infinite speed due to relativistic constraints.",
+        "D) The curve is purely symmetric about the average speed, forcing both tails to drop to zero at identical rates."
+      ],
+      "answer": "B",
+      "explanation": "Step 1: The distribution function consists of two competing factors: a geometric prefactor $v^2$ (from the spherical shell $4\\pi v^2 dv$ in velocity space) and the Boltzmann energy factor $e^{-m v^2 / 2 k_B T}$.\nStep 2: As $v \\to 0$, the spherical shell volume $4\\pi v^2 dv \\to 0$, so the number of available microstates vanishes, driving $f(v) \\to 0$.\nStep 3: As $v \\to \\infty$, the kinetic energy becomes very large and the Boltzmann exponential factor $e^{-m v^2 / 2 k_B T}$ approaches zero much faster than $v^2$ grows, suppressing the high-speed probability to zero.\nDistractor Analysis: Claiming that the distribution is symmetric is incorrect because the Maxwell-Boltzmann distribution is positively skewed with a long rightward tail."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_039",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The Moon does not possess a significant atmosphere like the Earth.\nReason (R): The escape velocity from the surface of the Moon ($approx 2.38\\text{ km/s}$) is smaller than or comparable to the root-mean-square speed of light gas molecules at the daytime temperature of the Moon's surface.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: For a celestial body to retain an atmosphere over geological time, the thermal root-mean-square speed of its atmospheric gas molecules must be significantly less (typically $< 1/6$) than the planet's escape velocity.\nStep 2: The Moon has a low surface gravity, giving an escape velocity of only $v_{esc} \\approx 2.38\\text{ km/s}$.\nStep 3: At the Moon's daytime temperature (up to $\\sim 400\\text{ K}$), lighter gas molecules like hydrogen, helium, and water vapor have thermal speeds comparable to or exceeding $2.38\\text{ km/s}$, enabling them to escape the Moon's gravitational field. Therefore, both Assertion and Reason are true, and (R) provides the direct physical explanation.\nDistractor Analysis: Alternative options asserting that Reason (R) does not explain Assertion (A) fail to connect planetary escape kinematics with kinetic theory."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_040",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A mixture of $n_1$ moles of Helium (monoatomic, rigid, $C_{v1} = 1.5R$) and $n_2$ moles of Nitrogen (diatomic, rigid, $C_{v2} = 2.5R$) has an effective adiabatic index $\\gamma_{mix} = 1.50$. What is the ratio of moles $n_1 : n_2$?",
+      "options": [
+        "A) $1 : 2$",
+        "B) $2 : 1$",
+        "C) $1 : 1$",
+        "D) $3 : 2$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: The relationship between the adiabatic index and molar heat capacity is $\\gamma_{mix} = 1 + \\frac{R}{C_{v,mix}}$.\nStep 2: Given $\\gamma_{mix} = 1.50$, we have $1 + \\frac{R}{C_{v,mix}} = 1.50 \\implies \\frac{R}{C_{v,mix}} = 0.50 \\implies C_{v,mix} = 2.0 R$.\nStep 3: Express $C_{v,mix}$ in terms of the component moles: $C_{v,mix} = \\frac{n_1(1.5R) + n_2(2.5R)}{n_1 + n_2} = 2.0 R$.\nStep 4: Solve for $n_1$ and $n_2$: $1.5 n_1 + 2.5 n_2 = 2.0 n_1 + 2.0 n_2 \\implies 0.5 n_2 = 0.5 n_1 \\implies \\frac{n_1}{n_2} = 1$. The ratio is $1 : 1$.\nDistractor Analysis: Obtaining $2 : 1$ or $1 : 2$ results from flipping the monoatomic and diatomic molar heat capacities."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_041",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "intermediate",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Macroscopic / Microscopic physical quantity) with List II (Kinetic theory formula):\n\n\\begin{array}{ll}\n\\textbf{List I} & \\textbf{List II} \\\\\n\\text{A. Kinetic pressure of gas } (P) & \\text{I. } \\frac{1}{\\sqrt{2} n \\pi d^2} \\\\\n\\text{B. Internal energy of } N \\text{ monoatomic molecules } (U) & \\text{II. } \\sqrt{2} \\pi n d^2 \\bar{v} \\\\\n\\text{C. Mean free path of molecules } (\\lambda) & \\text{III. } \\frac{1}{3} \\rho v_{rms}^2 \\\\\n\\text{D. Mean collision frequency } (\\nu) & \\text{IV. } \\frac{3}{2} N k_B T\n\\end{array}\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-III, B-IV, C-I, D-II",
+        "B) A-III, B-I, C-IV, D-II",
+        "C) A-IV, B-III, C-I, D-II",
+        "D) A-I, B-IV, C-III, D-II"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: Kinetic pressure is derived as $P = \\frac{1}{3} \\rho v_{rms}^2$ (matches III).\nStep 2: The total internal energy of $N$ monoatomic molecules is $U = N \\times \\frac{3}{2} k_B T = \\frac{3}{2} N k_B T$ (matches IV).\nStep 3: The mean free path is $\\lambda = \\frac{1}{\\sqrt{2} n \\pi d^2}$ (matches I).\nStep 4: The mean collision frequency is $\\nu = \\frac{\\bar{v}}{\\lambda} = \\sqrt{2} \\pi n d^2 \\bar{v}$ (matches II).\nDistractor Analysis: Pairing mean free path with collision frequency confuses length scale (meters) with frequency ($s^{-1}$)."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_042",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding gas effusion based on the kinetic theory of gases:\n\nStatement I: The rate of effusion of an ideal gas through a small pinhole into a vacuum is directly proportional to its partial pressure and inversely proportional to the square root of the product of its molar mass and absolute temperature ($\\text{Rate} \\propto \\frac{P}{\\sqrt{M T}}$).\nStatement II: A vessel contains an equimolar mixture ($1 : 1$ by moles) of Helium ($M = 4\\text{ g/mol}$) and Methane ($CH_4$, $M = 16\\text{ g/mol}$) at uniform temperature. The initial ratio of the effusion rate of Helium to that of Methane through a pinhole is $2 : 1$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Both Statement I and Statement II are true.",
+        "B) Both Statement I and Statement II are false.",
+        "C) Statement I is true but Statement II is false.",
+        "D) Statement I is false but Statement II is true."
+      ],
+      "answer": "A",
+      "explanation": "Step 1: In kinetic theory, the rate of effusion (number of molecules escaping per unit time through an orifice of area $A$) is given by $\\Phi = \\frac{1}{4} n \\bar{v} A = \\frac{P A}{\\sqrt{2\\pi m k_B T}} = \\frac{P A}{\\sqrt{2\\pi M R T}}$. Thus, the rate is proportional to $\\frac{P}{\\sqrt{M T}}$, confirming Statement I.\nStep 2: For an equimolar mixture, both gases exert identical partial pressures: $P(He) = P(CH_4)$. At the same temperature $T$, the effusion rate ratio depends solely on molar masses: $\\frac{\\text{Rate}(He)}{\\text{Rate}(CH_4)} = \\sqrt{\\frac{M(CH_4)}{M(He)}} = \\sqrt{\\frac{16}{4}} = \\sqrt{4} = 2$. Thus Statement II is true.\nStep 3: Both statements are factually and scientifically sound.\nDistractor Analysis: Inverting the molar mass ratio gives $1 : 2$, which ignores that lighter molecules have higher average thermal speeds."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_043",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An oxygen gas cylinder of volume $30.0\\text{ litres}$ has an initial pressure of $15.0\\text{ atm}$ and temperature of $27^\\circ\\text{C}$. After some oxygen is withdrawn from the cylinder, the pressure drops to $11.0\\text{ atm}$ and its temperature drops to $17^\\circ\\text{C}$. Taking $1\\text{ atm} = 1.013 \\times 10^5\\text{ Pa}$, the gas constant $R = 8.314\\text{ J/(mol}\\cdot\\text{K)}$, and molar mass of $O_2 = 32.0\\text{ g/mol}$, the mass of oxygen gas withdrawn from the cylinder is approximately:",
+      "options": [
+        "A) $0.282\\text{ kg}$",
+        "B) $0.141\\text{ kg}$",
+        "C) $0.071\\text{ kg}$",
+        "D) $0.423\\text{ kg}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Convert units: $V = 30.0\\text{ L} = 0.030\\text{ m}^3$, $T_1 = 27 + 273 = 300\\text{ K}$, and $T_2 = 17 + 273 = 290\\text{ K}$.\nStep 2: Calculate initial number of moles: $n_1 = \\frac{P_1 V}{R T_1} = \\frac{(15.0 \\times 1.013 \\times 10^5) \\times 0.030}{8.314 \\times 300} = \\frac{45585}{2494.2} \\approx 18.277\\text{ mol}$.\nStep 3: Calculate remaining number of moles: $n_2 = \\frac{P_2 V}{R T_2} = \\frac{(11.0 \\times 1.013 \\times 10^5) \\times 0.030}{8.314 \\times 290} = \\frac{33429}{2411.06} \\approx 13.865\\text{ mol}$.\nStep 4: Moles withdrawn: $\\Delta n = n_1 - n_2 = 18.277 - 13.865 = 4.412\\text{ mol}$. Mass of oxygen withdrawn: $\\Delta m = \\Delta n \\times M = 4.412 \\times 32.0\\text{ g} \\approx 141.2\\text{ g} \\approx 0.141\\text{ kg}$.\nDistractor Analysis: Omitting the temperature change ($T_2 = 290\\text{ K}$) and assuming $T$ remains $300\\text{ K}$ yields $\\Delta n = \\frac{4 \\times 1.013 \\times 10^5 \\times 0.030}{8.314 \\times 300} = 4.87\\text{ mol} \\implies 0.156\\text{ kg}$."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_044",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Vessel $1$ contains $1.0\\text{ mole}$ of an ideal monoatomic gas at temperature $T_1 = 500\\text{ K}$. Vessel $2$ contains $1.0\\text{ mole}$ of an ideal rigid diatomic gas at temperature $T_2 = 300\\text{ K}$. The two vessels are connected through a narrow tube of negligible volume and the entire composite system is thermally insulated from the surroundings. What is the final equilibrium temperature $T_f$ of the gas mixture?",
+      "options": [
+        "A) $400\\text{ K}$",
+        "B) $350\\text{ K}$",
+        "C) $375\\text{ K}$",
+        "D) $425\\text{ K}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Because the system is insulated, no heat enters or leaves ($Q = 0$), and no external work is performed ($W = 0$). Hence, total internal energy is conserved: $U_{initial} = U_{final}$.\nStep 2: Express initial internal energies: $U_1 = n_1 C_{v1} T_1 = 1.0 \\times \\left(\\frac{3}{2} R\\right) \\times 500 = 750 R$, and $U_2 = n_2 C_{v2} T_2 = 1.0 \\times \\left(\\frac{5}{2} R\\right) \\times 300 = 750 R$.\nStep 3: Total initial internal energy is $U_{total} = 750 R + 750 R = 1500 R$.\nStep 4: At final equilibrium temperature $T_f$, $U_{final} = (n_1 C_{v1} + n_2 C_{v2}) T_f = (1.5 R + 2.5 R) T_f = 4.0 R T_f$.\nStep 5: Equating $U_{total}$ and $U_{final}$: $4.0 R T_f = 1500 R \\implies T_f = \\frac{1500}{4.0} = 375\\text{ K}$.\nDistractor Analysis: A naive arithmetic average $\\frac{500 + 300}{2} = 400\\text{ K}$ fails because the diatomic gas has a larger molar heat capacity ($2.5R$) than the monoatomic gas ($1.5R$)."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_045",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding the kinetic derivation of gas pressure on a container wall:\n\nStatement I: When an ideal gas molecule of mass $m$ moving with velocity $(v_x, v_y, v_z)$ undergoes an elastic collision with a container wall perpendicular to the $x$-axis, the change in its linear momentum is $\\Delta p_x = -2 m v_x$, while its tangential momentum components ($m v_y$ and $m v_z$) remain unchanged.\nStatement II: The numerical factor of $\\frac{1}{3}$ in the kinetic pressure formula $P = \\frac{1}{3} \\rho v_{rms}^2$ arises because molecular velocities are randomly and isotropically distributed in three dimensions, such that $\\langle v_x^2 \\rangle = \\langle v_y^2 \\rangle = \\langle v_z^2 \\rangle = \\frac{1}{3} \\langle v^2 \\rangle$.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is true but Statement II is false.",
+        "B) Statement I is false but Statement II is true.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In an elastic collision with a frictionless planar wall normal to the $x$-axis, the normal velocity reverses sign ($v_{x,final} = -v_x$) while tangential velocities undergo no acceleration ($v_y, v_z$ constant). The momentum change is $p_{x,f} - p_{x,i} = -m v_x - m v_x = -2 m v_x$. Thus Statement I is true.\nStep 2: The total square speed is $v^2 = v_x^2 + v_y^2 + v_z^2$. By molecular chaos and spatial isotropy, there is no preferred spatial direction, ensuring $\\langle v_x^2 \\rangle = \\langle v_y^2 \\rangle = \\langle v_z^2 \\rangle$. Therefore $\\langle v^2 \\rangle = 3 \\langle v_x^2 \\rangle \\implies \\langle v_x^2 \\rangle = \\frac{1}{3} \\langle v^2 \\rangle$. This directly introduces the factor $\\frac{1}{3}$ into $P = \\rho \\langle v_x^2 \\rangle = \\frac{1}{3} \\rho v_{rms}^2$. Thus Statement II is true.\nStep 3: Both statements accurately capture the foundational mechanics of kinetic theory.\nDistractor Analysis: Rejecting Statement II overlooks the spatial symmetry argument essential to establishing isotropic scalar pressure from directional momentum flux."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_046",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An ideal monoatomic gas (adiabatic index $\\gamma = 5/3$) undergoes a reversible adiabatic expansion. The relationship between the root-mean-square speed $v_{rms}$ of the gas molecules and the gas volume $V$ during this process is:",
+      "options": [
+        "A) $v_{rms} \\propto V^{-1/3}$",
+        "B) $v_{rms} \\propto V^{-2/3}$",
+        "C) $v_{rms} \\propto V^{-1/2}$",
+        "D) $v_{rms} \\propto V^{-5/6}$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For a reversible adiabatic process of an ideal gas, temperature and volume are related by $T V^{\\gamma - 1} = \\text{constant}$.\nStep 2: For a monoatomic gas, $\\gamma = 5/3$, so $\\gamma - 1 = 5/3 - 1 = 2/3$. Thus $T V^{2/3} = \\text{constant} \\implies T \\propto V^{-2/3}$.\nStep 3: The root-mean-square speed of gas molecules depends on temperature as $v_{rms} = \\sqrt{\\frac{3 R T}{M}} \\propto \\sqrt{T}$.\nStep 4: Substitute the temperature-volume relation into the speed expression: $v_{rms} \\propto (V^{-2/3})^{1/2} = V^{-1/3} = \\frac{1}{V^{1/3}}$.\nDistractor Analysis: Selecting $V^{-2/3}$ confuses the proportionality of temperature $T$ with that of root-mean-square speed $v_{rms}$."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_047",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Match List I (Kinetic parameter of an ideal gas) with List II (Its proportionality with absolute temperature $T$ under the specified thermodynamic condition):\n\n\\begin{array}{ll}\n\\textbf{List I} & \\textbf{List II} \\\\\n\\text{A. Mean free path } (\\lambda) \\text{ at constant volume} & \\text{I. } \\propto T^{1/2} \\\\\n\\text{B. Mean free path } (\\lambda) \\text{ at constant pressure} & \\text{II. } \\propto T^{-1/2} \\\\\n\\text{C. Collision frequency } (\\nu) \\text{ at constant volume} & \\text{III. } \\propto T^0 \\text{ (independent of } T) \\\\\n\\text{D. Collision frequency } (\\nu) \\text{ at constant pressure} & \\text{IV. } \\propto T^1\n\\end{array}\n\nChoose the correct answer from the options given below:",
+      "options": [
+        "A) A-I, B-IV, C-III, D-II",
+        "B) A-III, B-IV, C-I, D-II",
+        "C) A-III, B-I, C-IV, D-II",
+        "D) A-IV, B-III, C-II, D-I"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Mean free path is $\\lambda = \\frac{1}{\\sqrt{2} n \\pi d^2}$. At constant volume, $n = N/V$ is constant, so $\\lambda \\propto T^0$ (matches III).\nStep 2: At constant pressure, $n = \\frac{P}{k_B T} \\propto T^{-1}$, so $\\lambda = \\frac{k_B T}{\\sqrt{2} \\pi d^2 P} \\propto T^1$ (matches IV).\nStep 3: Collision frequency is $\\nu = \\frac{\\bar{v}}{\\lambda}$. At constant volume, $\\bar{v} \\propto T^{1/2}$ and $\\lambda$ is constant, so $\\nu \\propto T^{1/2}$ (matches I).\nStep 4: At constant pressure, $\\nu = \\frac{\\bar{v}}{\\lambda} \\propto \\frac{T^{1/2}}{T^1} = T^{-1/2}$ (matches II).\nDistractor Analysis: Failing to distinguish between isochoric (constant volume) and isobaric (constant pressure) constraints leads to swapped power dependencies."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_048",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider two Maxwell-Boltzmann molecular speed distribution curves plotted for the same sample of an ideal gas at two different absolute temperatures $T_1$ and $T_2$ with $T_2 > T_1$. Consider the following statements:\n\nStatement I: The speed corresponding to the peak of the curve at $T_2$ is greater than that at $T_1$.\nStatement II: The peak height of the curve at $T_2$ is lower than that at $T_1$.\nStatement III: The total area bounded under each curve and the speed axis is identical for both temperatures.\nStatement IV: The fraction of molecules having speeds greater than a given high threshold speed $v_0$ (where $v_0 \\gg v_{mp}$) is strictly greater at $T_2$ than at $T_1$.\n\nWhich of the following combinations correctly identifies all the valid statements?",
+      "options": [
+        "A) Statements I and II only",
+        "B) Statements I, II, and III only",
+        "C) Statements I, II, III, and IV",
+        "D) Statements II and IV only"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Statement I is true because the most probable speed $v_{mp} = \\sqrt{2 k_B T / m}$ increases with temperature, shifting the maximum to the right.\nStep 2: Statement II is true because the distribution broadens across higher speeds; to preserve total area, the peak height $\\left(\\frac{dN}{dv}\\right)_{max} \\propto T^{-1/2}$ must decrease.\nStep 3: Statement III is true because the total integral $\\int_0^\\infty \\frac{dN}{dv} dv = N$ represents the total number of molecules in the fixed gas sample, which is temperature-independent.\nStep 4: Statement IV is true because increasing temperature flattens and extends the high-speed exponential tail, significantly increasing the integral $\\int_{v_0}^\\infty \\frac{1}{N} \\frac{dN}{dv} dv$.\nStep 5: Hence, all four statements are fully valid.\nDistractor Analysis: Excluding Statement III or IV overlooks the normalization constraint and the fundamental kinetic basis of activation energy in chemical and physical rate processes."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_049",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Equal moles ($1.0\\text{ mole}$ each) of three different ideal gases are maintained at the same absolute temperature $T$: Gas $X$ is Helium (monoatomic), Gas $Y$ is Oxygen (rigid diatomic), and Gas $Z$ is Ozone ($O_3$, non-linear rigid triatomic). What is the ratio of their total internal energies $U_X : U_Y : U_Z$?",
+      "options": [
+        "A) $1 : 1 : 1$",
+        "B) $3 : 5 : 7$",
+        "C) $3 : 5 : 6$",
+        "D) $5 : 7 : 9$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: For an ideal gas, the total internal energy per mole is given by $U = \\frac{f}{2} R T$, where $f$ is the number of degrees of freedom.\nStep 2: Helium is a monoatomic gas with $f_X = 3$ translational degrees of freedom: $U_X = \\frac{3}{2} R T$.\nStep 3: Oxygen at room temperature is a rigid diatomic gas with $f_Y = 5$ degrees of freedom ($3$ translational + $2$ rotational): $U_Y = \\frac{5}{2} R T$.\nStep 4: Ozone ($O_3$) has a bent, non-linear triatomic structure possessing $f_Z = 6$ degrees of freedom ($3$ translational + $3$ rotational): $U_Z = \\frac{6}{2} R T = 3 R T$.\nStep 5: Forming the ratio: $U_X : U_Y : U_Z = \\frac{3}{2} : \\frac{5}{2} : \\frac{6}{2} = 3 : 5 : 6$.\nDistractor Analysis: Ratio $1 : 1 : 1$ applies only to translational kinetic energy, not total internal energy. Ratio $3 : 5 : 7$ mistakenly treats ozone as possessing an active vibrational mode."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_050",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): For a diatomic gas, even though rotational and vibrational modes contribute substantially to the total internal energy, the pressure exerted by the gas is determined solely by the translational kinetic energy per unit volume ($P = \\frac{2}{3} E_{tr}$).\nReason (R): Pressure on a container wall originates exclusively from the normal linear momentum transferred during molecular collisions with the wall, which depends solely on the translational velocity component perpendicular to the surface.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: Microscopic pressure is defined by $P = \\frac{F}{A} = \\frac{\\Delta p_{total}}{A \\Delta t}$. Elastic collisions with a planar wall reverse the normal linear momentum component $m v_x$, imparting $\\Delta p = 2 m v_x$.\nStep 2: Rotational and vibrational motions do not possess net directed center-of-mass momentum normal to the wall; hence they do not contribute directly to the momentum flux striking the surface.\nStep 3: Thus, pressure remains $P = \\frac{1}{3} n m v_{rms}^2 = \\frac{2}{3} E_{tr}$, where $E_{tr}$ is strictly translational kinetic energy density, regardless of whether the gas is monoatomic, diatomic, or polyatomic. Both Assertion and Reason are true, and (R) correctly explains (A).\nDistractor Analysis: Assuming rotational kinetic energy directly increases pressure confuses total thermal energy density with directed translational momentum transfer."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_051",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "An ideal monoatomic gas ($C_v = \\frac{3}{2}R$) undergoes a polytropic process governed by the equation $P V^2 = \\text{constant}$. What is the molar heat capacity $C$ of the gas during this process?",
+      "options": [
+        "A) $C = \\frac{1}{2} R$",
+        "B) $C = \\frac{5}{2} R$",
+        "C) $C = -\\frac{1}{2} R$",
+        "D) $C = 2 R$"
+      ],
+      "answer": "A",
+      "explanation": "Step 1: For any polytropic process described by $P V^x = \\text{constant}$, the work done per mole for a temperature change $dT$ is $dW = \\frac{R dT}{1 - x}$.\nStep 2: By the First Law of Thermodynamics for one mole: $dQ = dU + dW = C_v dT + \\frac{R dT}{1 - x}$.\nStep 3: The molar heat capacity is therefore $C = \\frac{dQ}{dT} = C_v + \\frac{R}{1 - x}$.\nStep 4: Here, the gas is monoatomic ($C_v = \\frac{3}{2} R$) and the polytropic exponent is $x = 2$. Substituting these values gives $C = \\frac{3}{2} R + \\frac{R}{1 - 2} = \\frac{3}{2} R - R = \\frac{1}{2} R$.\nDistractor Analysis: Selecting $-\\frac{1}{2}R$ results from a sign mistake in evaluating $\\frac{R}{1-2} = -R$ combined with $\\frac{3}{2}R$, while selecting $\\frac{5}{2}R$ erroneously adds $R$ instead of subtracting it."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_052",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Consider Nitrogen gas ($N_2$) at standard temperature and pressure ($STP$: molecular number density $n \\approx 2.7 \\times 10^{25}\\text{ m}^{-3}$). If the effective molecular diameter is $d = 2.0 \\times 10^{-10}\\text{ m}$ ($2.0\\text{ \\AA}$) and the average molecular speed is $\\bar{v} = 450\\text{ m/s}$, the mean free path $\\lambda$ and the mean collision frequency $\\nu$ are approximately:",
+      "options": [
+        "A) $\\lambda \\approx 2.1 \\times 10^{-5}\\text{ m}$ and $\\nu \\approx 2.2 \\times 10^7\\text{ s}^{-1}$",
+        "B) $\\lambda \\approx 2.1 \\times 10^{-7}\\text{ m}$ and $\\nu \\approx 2.2 \\times 10^9\\text{ s}^{-1}$",
+        "C) $\\lambda \\approx 4.2 \\times 10^{-7}\\text{ m}$ and $\\nu \\approx 1.1 \\times 10^9\\text{ s}^{-1}$",
+        "D) $\\lambda \\approx 1.0 \\times 10^{-9}\\text{ m}$ and $\\nu \\approx 4.5 \\times 10^{11}\\text{ s}^{-1}$"
+      ],
+      "answer": "B",
+      "explanation": "Step 1: Calculate the collision cross-section: $\\sigma = \\pi d^2 = 3.1416 \\times (2.0 \\times 10^{-10}\\text{ m})^2 = 1.257 \\times 10^{-19}\\text{ m}^2$.\nStep 2: Calculate the mean free path: $\\lambda = \\frac{1}{\\sqrt{2} n \\pi d^2} = \\frac{1}{1.414 \\times (2.7 \\times 10^{25}\\text{ m}^{-3}) \\times (1.257 \\times 10^{-19}\\text{ m}^2)} = \\frac{1}{4.80 \\times 10^6\\text{ m}^{-1}} \\approx 2.08 \\times 10^{-7}\\text{ m} \\approx 2.1 \\times 10^{-7}\\text{ m}$ ($210\\text{ nm}$).\nStep 3: Calculate the mean collision frequency: $\\nu = \\frac{\\bar{v}}{\\lambda} = \\frac{450\\text{ m/s}}{2.08 \\times 10^{-7}\\text{ m}} \\approx 2.16 \\times 10^9\\text{ s}^{-1} \\approx 2.2 \\times 10^9\\text{ s}^{-1}$.\nStep 4: Notice that the mean free path is roughly $1000$ times the molecular diameter, matching standard NCERT orders of magnitude.\nDistractor Analysis: Omitting the $\\sqrt{2}$ factor yields $\\lambda \\approx 2.9 \\times 10^{-7}\\text{ m}$, while an exponent calculation error of $10^2$ produces $10^{-5}\\text{ m}$."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_053",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements regarding intermolecular forces and the behavior of real gases as discussed in NCERT:\n\nStatement I: The potential energy between two neutral molecules is zero at infinite separation, reaches a negative minimum at an equilibrium separation $r_0$ (attractive regime), and rises extremely steeply to large positive values for separations $r < r_0$ (strong repulsive core).\nStatement II: In the kinetic theory of an ideal gas, molecules are assumed to exert intermolecular forces on one another only during actual physical collisions, which corresponds to setting the attractive potential well depth to zero.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+      "options": [
+        "A) Statement I is false but Statement II is true.",
+        "B) Statement I is true but Statement II is false.",
+        "C) Both Statement I and Statement II are false.",
+        "D) Both Statement I and Statement II are true."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: NCERT explicitly introduces intermolecular potential curves showing that at large distances $r > r_0$, weak attractive forces dominate (negative potential energy), reaching a potential well minimum $-\\varepsilon$ at $r = r_0$. For $r < r_0$, electronic electron-cloud overlap creates an intense repulsive force (steeply positive potential energy). Thus Statement I is true.\nStep 2: The ideal gas approximation neglects these long-range attractions entirely (potential energy is identically zero everywhere except at hard-sphere contact where it becomes infinitely repulsive), meaning collisions are instantaneous. Thus Statement II is true.\nStep 3: Both statements correctly reflect the physical principles in NCERT.\nDistractor Analysis: Claims that either statement is false contradict the intermolecular potential energy diagram and the physical basis of the ideal gas model presented in NCERT."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_054",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "A rigid container holds a mixture of $1.0\\text{ mole}$ of Helium (monoatomic gas, $C_{v1} = 1.5R$) and $2.0\\text{ moles}$ of Oxygen (rigid diatomic gas, $C_{v2} = 2.5R$). How much heat energy $\\Delta Q$ must be transferred to the mixture to raise its temperature by $\\Delta T = 20\\text{ K}$? (Take universal gas constant $R = 8.314\\text{ J/(mol}\\cdot\\text{K)}$).",
+      "options": [
+        "A) $831\\text{ J}$",
+        "B) $1663\\text{ J}$",
+        "C) $1081\\text{ J}$",
+        "D) $541\\text{ J}$"
+      ],
+      "answer": "C",
+      "explanation": "Step 1: Because the container is rigid, volume is constant ($dV = 0$), so the work done is zero ($W = 0$).\nStep 2: By the First Law of Thermodynamics, heat supplied equals the change in total internal energy: $\\Delta Q = \\Delta U$.\nStep 3: Total change in internal energy is $\\Delta U = (n_1 C_{v1} + n_2 C_{v2}) \\Delta T$.\nStep 4: Substitute the given values: $n_1 C_{v1} = 1.0 \\times 1.5 R = 1.5 R$, and $n_2 C_{v2} = 2.0 \\times 2.5 R = 5.0 R$. Total heat capacity at constant volume is $C_{v,total} = 1.5 R + 5.0 R = 6.5 R$.\nStep 5: Compute the numerical value: $\\Delta Q = 6.5 R \\times 20 = 130 R = 130 \\times 8.314\\text{ J} \\approx 1080.82\\text{ J} \\approx 1081\\text{ J}$.\nDistractor Analysis: Using $C_p$ instead of $C_v$ gives $\\Delta Q = (2.5R + 7.0R) \\times 20 = 190 R \\approx 1580\\text{ J}$, which would only apply at constant pressure."
+    },
+    {
+      "id": "phy_kinetic_theory_of_gases_c01_055",
+      "subject": "Physics",
+      "topic": "Kinetic Theory of Gases",
+      "difficulty": "advanced",
+      "examType": "NEET",
+      "questionType": "mcq_single",
+      "questionText": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): The spontaneous evaporation of a liquid from an open container causes a progressive decrease in the temperature of the remaining liquid.\nReason (R): Only molecules in the high-energy tail of the Maxwell-Boltzmann distribution possess sufficient kinetic energy to overcome the attractive surface potential barrier and escape into the vapor phase, leaving behind molecules with a lower average kinetic energy.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+      "options": [
+        "A) (A) is false but (R) is true.",
+        "B) (A) is true but (R) is false.",
+        "C) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).",
+        "D) Both (A) and (R) are true and (R) is the correct explanation of (A)."
+      ],
+      "answer": "D",
+      "explanation": "Step 1: In any liquid, molecules experience attractive intermolecular cohesive forces pulling them inward. To escape through the surface into vapor, a molecule must perform work against this surface energy barrier.\nStep 2: According to the Maxwell-Boltzmann energy distribution, only a fraction of molecules located in the high-speed tail possess kinetic energies exceeding the surface work function.\nStep 3: When these high-energy molecules escape, the total kinetic energy of the liquid decreases faster than the number of remaining particles, causing the mean kinetic energy per particle $\\langle E_k \\rangle$ to fall. Since temperature is directly proportional to average kinetic energy ($T \\propto \\langle E_k \\rangle$), the remaining liquid cools. Hence both Assertion and Reason are true, and (R) is the correct explanation of (A).\nDistractor Analysis: Alternative options asserting that (R) does not explain (A) fail to recognize that evaporative cooling is a direct physical consequence of the Maxwell distribution tail."
+    }
+  ]
+}
