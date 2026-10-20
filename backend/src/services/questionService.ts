@@ -297,6 +297,22 @@ export async function getPracticeQuestionBatch(
     finalQuestions = results.map((q) => (stripSet.has(q.id) ? { ...q, diagram: null } : q));
   }
 
+  // Consolidate served keys — concurrent groups race-write the same key, so do one final
+  // authoritative write per subject:topic that includes every question ID we are returning.
+  const servedByTopicKey = new Map<string, string[]>();
+  for (const q of finalQuestions) {
+    const key = `served:${userId}:${q.subject}:${q.topic}:practice`;
+    if (!servedByTopicKey.has(key)) servedByTopicKey.set(key, []);
+    servedByTopicKey.get(key)!.push(q.id);
+  }
+  await Promise.all(
+    [...servedByTopicKey.entries()].map(async ([key, ids]) => {
+      const existing = (await cacheGetJson<string[]>(key)) ?? [];
+      const merged = [...new Set([...existing, ...ids])];
+      await cacheSetJson(key, merged, 86400 * 7);
+    }),
+  );
+
   // Randomize question sequence so students receive independently shuffled question orders
   return fisherYatesShuffle(finalQuestions);
 }

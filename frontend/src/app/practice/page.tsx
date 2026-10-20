@@ -9,10 +9,12 @@ import { QuestionCard } from '@/components/QuestionCard';
 import type { Question, AnswerResult, Subject, TopicProgress, PaperSet } from '@/types';
 import type { SplitTopics } from '@/lib/api';
 
-const SUBJECT_META: Record<Subject, { emoji: string }> = {
+const SUBJECT_META: Record<string, { emoji: string }> = {
   Mathematics: { emoji: '∑' },
   Physics:     { emoji: '⚛' },
   Chemistry:   { emoji: '⚗' },
+  Botany:      { emoji: '🌿' },
+  Zoology:     { emoji: '🦎' },
 };
 
 const REVIEW_SUBJ: Record<string, { color: string; icon: string; bg: string }> = {

@@ -27,7 +27,7 @@ export function scoreQuestion(
 ): number {
   if (!submitted || submitted.trim() === '') return 0;
 
-  if (examType === 'Main') {
+  if (examType === 'Main' || examType === 'NEET') {
     if (questionType === 'integer') {
       return matchInteger(submitted, correct) ? 4 : 0;
     }
@@ -53,7 +53,7 @@ export function scoreQuestion(
 }
 
 export function getMaxMarkPerQuestion(examType: string, questionType: string): number {
-  if (examType === 'Main') return 4;
+  if (examType === 'Main' || examType === 'NEET') return 4;
   if (questionType === 'mcq_single') return 3;
   return 4; // mcq_multi and integer both max 4 in Advanced
 }

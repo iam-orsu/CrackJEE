@@ -243,7 +243,8 @@ case "$ACTION" in
     wait_backend
     docker compose --env-file "$ENV_FILE" exec -T backend \
       sh -c "node_modules/.bin/prisma migrate resolve --applied 20241001000000_init 2>&1 && \
-             node_modules/.bin/prisma migrate resolve --applied 20241002000000_add_partial_count 2>&1"
+             node_modules/.bin/prisma migrate resolve --applied 20241002000000_add_partial_count 2>&1 && \
+             node_modules/.bin/prisma migrate resolve --applied 20241003000000_add_neet_score 2>&1"
     echo "Baseline complete. Run './deploy.sh migrate' to verify."
     ;;
 

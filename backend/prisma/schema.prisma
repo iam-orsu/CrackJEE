@@ -106,6 +106,7 @@ model MockExamResult {
   physicsScore   Float
   chemistryScore Float
   mathScore      Float
+  biologyScore   Float  @default(0)
   correct        Int
   partial        Int      @default(0)
   incorrect      Int
