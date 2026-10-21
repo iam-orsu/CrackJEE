@@ -8,6 +8,9 @@ import { isAuthenticated } from '@/lib/auth';
 import type { MockExam, MockExamQuestion } from '@/types';
 
 import { MathText, renderMath, stripOptionPrefix } from '@/lib/math';
+import { OrbitalLoader } from '@/components/ui/OrbitalLoader';
+import { DragToConfirm } from '@/components/ui/DragToConfirm';
+import { Badge, qtypeVariant, difficultyVariant } from '@/components/ui/Badge';
 
 /* ── Helpers ──────────────────────────────────────────────────── */
 
@@ -288,12 +291,10 @@ export default function MockExamPage() {
   if (pageStatus === 'loading' || pageStatus === 'polling') {
     return (
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#fff' }}>
-        <div style={{ width: 40, height: 40, border: '3px solid var(--gray-200)', borderTopColor: 'var(--gray-900)', borderRadius: '50%', animation: 'spin 0.8s linear infinite', marginBottom: 20 }} />
-        <div style={{ fontSize: 16, color: 'var(--gray-700)', fontWeight: 500 }}>{loadMsg}</div>
-        {pageStatus === 'polling' && (
-          <div style={{ fontSize: 13, color: 'var(--gray-500)', marginTop: 8 }}>NEET first load takes 3–4 minutes; JEE takes ~60–90 seconds</div>
-        )}
-        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+        <OrbitalLoader
+          message={loadMsg}
+          submessage={pageStatus === 'polling' ? 'NEET first load takes 3–4 minutes · JEE takes ~60–90 seconds' : undefined}
+        />
       </div>
     );
   }
@@ -310,9 +311,7 @@ export default function MockExamPage() {
   if (pageStatus === 'submitting') {
     return (
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#fff' }}>
-        <div style={{ width: 40, height: 40, border: '3px solid var(--gray-200)', borderTopColor: 'var(--gray-900)', borderRadius: '50%', animation: 'spin 0.8s linear infinite', marginBottom: 20 }} />
-        <div style={{ fontSize: 16, color: 'var(--gray-700)', fontWeight: 500 }}>Evaluating your answers…</div>
-        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+        <OrbitalLoader message="Evaluating your answers…" />
       </div>
     );
   }
@@ -422,15 +421,14 @@ export default function MockExamPage() {
             <span style={{ fontSize: 14, fontWeight: 600, color: '#1e293b' }}>
               Question {currentQ.questionNumber} of {total}
             </span>
-            <span style={{
-              padding: '2px 10px', borderRadius: 9999, fontSize: 11, fontWeight: 600,
-              background: qt === 'mcq_multi' ? '#fef3c7' : qt === 'integer' ? '#eff6ff' : '#f1f5f9',
-              color: qt === 'mcq_multi' ? '#92400e' : qt === 'integer' ? '#1e40af' : '#475569',
-            }}>
+            <Badge variant={qtypeVariant(qt)}>
               {qt === 'mcq_single' ? 'Single Correct' : qt === 'mcq_multi' ? 'Multi-Correct' : 'Integer Type'}
-            </span>
+            </Badge>
+            <Badge variant={difficultyVariant(currentQ.difficulty)}>
+              {currentQ.difficulty}
+            </Badge>
             <span style={{ fontSize: 11, color: '#94a3b8', marginLeft: 'auto' }}>
-              {currentQ.topic} · {currentQ.difficulty}
+              {currentQ.topic}
             </span>
           </div>
 
@@ -675,20 +673,16 @@ export default function MockExamPage() {
               )}
               <br />This action cannot be undone.
             </div>
-            <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end' }}>
-              <button
-                onClick={() => setShowSubmitModal(false)}
-                style={{ padding: '9px 20px', border: '1px solid #e2e8f0', borderRadius: 6, background: '#fff', color: '#475569', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}
-              >
-                Review Answers
-              </button>
-              <button
-                onClick={() => handleSubmit(true)}
-                style={{ padding: '9px 20px', border: 'none', borderRadius: 6, background: '#1e293b', color: '#fff', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}
-              >
-                Submit Test
-              </button>
-            </div>
+            <DragToConfirm
+              label="Drag to submit exam →"
+              onConfirm={() => handleSubmit(true)}
+            />
+            <button
+              onClick={() => setShowSubmitModal(false)}
+              style={{ marginTop: 10, width: '100%', padding: '9px 20px', border: '1px solid #e2e8f0', borderRadius: 6, background: '#fff', color: '#64748b', fontSize: 13, fontWeight: 500, cursor: 'pointer' }}
+            >
+              Go back and review
+            </button>
           </div>
         </div>
       )}
