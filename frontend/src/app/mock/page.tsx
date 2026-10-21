@@ -226,8 +226,8 @@ export default function MockPage() {
               color: '#92400e',
             }}>
               {selected === 'NEET'
-  ? '⚠ AI-generated NEET questions. First exam of the day takes 3–4 minutes — subsequent students within 6 hours get instant results from the shared pool.'
-  : '⚠ AI-generated questions. The exam takes 60–90 seconds to prepare. Do not close the tab.'
+  ? '⚠ Deep Tech-generated NEET questions. First exam of the day takes 3–4 minutes — subsequent students within 6 hours get instant results from the shared pool.'
+  : '⚠ Deep Tech-generated questions. The exam takes 60–90 seconds to prepare. Do not close the tab.'
 }
             </div>
           </div>
