@@ -226,8 +226,8 @@ export default function MockPage() {
               color: '#92400e',
             }}>
               {selected === 'NEET'
-  ? '⚠ Questions crafted fresh by our Deep Tech engine. First exam of the day takes 3–4 minutes — subsequent students within 6 hours get instant results from the shared pool.'
-  : '⚠ Questions crafted fresh by our Deep Tech engine. The exam takes 60–90 seconds to prepare. Do not close the tab.'
+  ? '⚠ Questions crafted fresh by our Deep Tech engine. This may take 3–4 minutes. Do not close the tab.'
+  : '⚠ Questions crafted fresh by our Deep Tech engine. This may take 60–90 seconds. Do not close the tab.'
 }
             </div>
           </div>
