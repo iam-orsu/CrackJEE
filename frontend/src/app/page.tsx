@@ -31,7 +31,7 @@ const features = [
       </svg>
     ),
     title: 'Never repeat a question',
-    desc: 'Question tracking ensures you never see the same question twice. The pool refreshes intelligently per topic.',
+    desc: 'Question tracking ensures you never see the same question twice. Fresh problems are served intelligently per topic.',
   },
 ];
 
