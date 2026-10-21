@@ -3,7 +3,7 @@ export interface User {
   name: string;
   email: string;
   class: '11' | '12' | 'Dropper';
-  targetExam: 'Main' | 'Advanced' | 'Both';
+  targetExam: 'Main' | 'Advanced' | 'Both' | 'NEET';
   currentLevel: 'beginner' | 'intermediate' | 'advanced';
   createdAt?: string;
 }
