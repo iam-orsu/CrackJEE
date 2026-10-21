@@ -190,7 +190,7 @@ export default function DashboardPage() {
                 {greeting}{firstName ? `, ${firstName}` : ''}
               </h1>
             </div>
-            <Link href="/practice" className={styles.primaryBtn}>
+            <Link href={user?.targetExam === 'NEET' ? '/neet/practice' : '/practice'} className={styles.primaryBtn}>
               Start practice
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
                 <path d="M5 12h14M13 6l6 6-6 6" />
