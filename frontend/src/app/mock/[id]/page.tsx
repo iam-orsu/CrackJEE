@@ -73,6 +73,10 @@ export default function MockExamPage() {
   const [startedAt, setStartedAt] = useState<string | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  // Per-question time tracking
+  const questionTimesRef = useRef<Record<string, number>>({});   // mqId → total seconds
+  const questionEnteredAtRef = useRef<number | null>(null);      // epoch ms when current question was entered
+
   // UI
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -158,10 +162,11 @@ export default function MockExamPage() {
     }
 
     setPageStatus('exam');
-    // Mark first question as visited
+    // Mark first question as visited and record entry time
     if (data.questions[0]) {
       setVisited((p) => ({ ...p, [data.questions[0]!.mockQuestionId]: true }));
       setDraft(initAnswers[data.questions[0]!.mockQuestionId] ?? '');
+      questionEnteredAtRef.current = Date.now();
     }
   }
 
@@ -180,13 +185,26 @@ export default function MockExamPage() {
   /* ── Navigate between questions ── */
   const currentQ = exam?.questions[currentIdx] ?? null;
 
+  function flushCurrentQuestionTime() {
+    if (!exam) return;
+    const prev = exam.questions[currentIdx];
+    if (prev && questionEnteredAtRef.current !== null) {
+      const elapsed = Math.floor((Date.now() - questionEnteredAtRef.current) / 1000);
+      const mqId = prev.mockQuestionId;
+      questionTimesRef.current[mqId] = (questionTimesRef.current[mqId] ?? 0) + elapsed;
+      questionEnteredAtRef.current = null;
+    }
+  }
+
   function goTo(idx: number) {
     if (!exam) return;
     const q = exam.questions[idx];
     if (!q) return;
+    flushCurrentQuestionTime();
     setCurrentIdx(idx);
     setDraft(answers[q.mockQuestionId] ?? '');
     setVisited((p) => ({ ...p, [q.mockQuestionId]: true }));
+    questionEnteredAtRef.current = Date.now();
   }
 
   /* ── Answer actions ── */
@@ -243,10 +261,12 @@ export default function MockExamPage() {
     if (!auto && !showSubmitModal) { setShowSubmitModal(true); return; }
     submittingRef.current = true;
     if (timerRef.current) clearInterval(timerRef.current);
+    // Flush time for current question before submitting
+    flushCurrentQuestionTime();
     setPageStatus('submitting');
     setShowSubmitModal(false);
     try {
-      await api.mock.submit(examId);
+      await api.mock.submit(examId, questionTimesRef.current);
       router.push(`/mock/${examId}/result`);
     } catch (e) {
       submittingRef.current = false;

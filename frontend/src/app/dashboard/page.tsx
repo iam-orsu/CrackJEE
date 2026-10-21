@@ -144,6 +144,7 @@ export default function DashboardPage() {
   const totalAttempts = data?.stats.totalAttempts ?? 0;
   const correctAttempts = data?.stats.correctAttempts ?? 0;
   const hasActivity = totalAttempts > 0;
+  const isFreshUser = !loading && totalAttempts === 0 && mockWeakTopics.length === 0;
 
   const SUBJECTS = ['Physics', 'Chemistry', 'Mathematics'] as const;
   const subjectRows = SUBJECTS.map((subject) => ({
@@ -200,30 +201,56 @@ export default function DashboardPage() {
 
           {error && <div className={styles.error}>{error}</div>}
 
-          {/* Stat strip — 3 tiles */}
-          <section className={styles.statStrip} aria-label="Summary">
-            <div className={styles.stat}>
-              <p className={styles.statLabel}>Questions done</p>
-              <p className={styles.statValue}>{loading ? '–' : totalAttempts}</p>
-              <p className={styles.statSub}>{loading ? ' ' : `${correctAttempts} correct`}</p>
-            </div>
-            <div className={styles.stat}>
-              <p className={styles.statLabel}>Accuracy</p>
-              <p className={`${styles.statValue} ${hasActivity && accuracy < 60 ? styles.statValueBad : ''} ${hasActivity && accuracy >= 60 ? styles.statValueGood : ''}`}>
-                {loading ? '–' : `${accuracy}%`}
-              </p>
-              <p className={styles.statSub}>
-                {!hasActivity ? 'No attempts yet' : accuracy >= 60 ? 'On track' : 'Below the 60% target'}
-              </p>
-            </div>
-            <div className={styles.stat}>
-              <p className={styles.statLabel}>Weak areas</p>
-              <p className={styles.statValue}>{loading ? '–' : mockWeakTopics.length > 0 ? mockWeakTopics.length : (data?.weakAreas.length ?? 0)}</p>
-              <p className={styles.statSub}>
-                {loading ? ' ' : (mockWeakTopics.length > 0 || (data?.weakAreas.length ?? 0) > 0) ? 'Topics under 60%' : 'None flagged'}
-              </p>
-            </div>
-          </section>
+          {/* Fresh-user CTA — shown instead of stats until first attempt */}
+          {isFreshUser ? (
+            <section className={styles.freshCta}>
+              <div className={styles.freshCtaInner}>
+                <div className={styles.freshCtaIcon}>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+                    <rect x="3" y="4" width="18" height="16" rx="2" />
+                    <path d="M7 8h10M7 12h6M16 16l2-2-2-2" />
+                  </svg>
+                </div>
+                <div>
+                  <p className={styles.freshCtaTitle}>No analytics yet</p>
+                  <p className={styles.freshCtaSub}>
+                    Take your first mock test to start tracking accuracy, weak areas, and time spent per question.
+                  </p>
+                </div>
+                <Link href="/mock" className={`${styles.primaryBtn} ${styles.freshCtaBtn}`}>
+                  Take a mock test
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </Link>
+              </div>
+            </section>
+          ) : (
+            /* Stat strip — 3 tiles */
+            <section className={styles.statStrip} aria-label="Summary">
+              <div className={styles.stat}>
+                <p className={styles.statLabel}>Questions done</p>
+                <p className={styles.statValue}>{loading ? '–' : totalAttempts}</p>
+                <p className={styles.statSub}>{loading ? ' ' : `${correctAttempts} correct`}</p>
+              </div>
+              <div className={styles.stat}>
+                <p className={styles.statLabel}>Accuracy</p>
+                <p className={`${styles.statValue} ${hasActivity && accuracy < 60 ? styles.statValueBad : ''} ${hasActivity && accuracy >= 60 ? styles.statValueGood : ''}`}>
+                  {loading ? '–' : `${accuracy}%`}
+                </p>
+                <p className={styles.statSub}>
+                  {!hasActivity ? 'No attempts yet' : accuracy >= 60 ? 'On track' : 'Below the 60% target'}
+                </p>
+              </div>
+              <div className={styles.stat}>
+                <p className={styles.statLabel}>Weak areas</p>
+                <p className={styles.statValue}>{loading ? '–' : mockWeakTopics.length > 0 ? mockWeakTopics.length : (data?.weakAreas.length ?? 0)}</p>
+                <p className={styles.statSub}>
+                  {loading ? ' ' : (mockWeakTopics.length > 0 || (data?.weakAreas.length ?? 0) > 0) ? 'Topics under 60%' : 'None flagged'}
+                </p>
+              </div>
+            </section>
+          )}
 
           {/* Chart + subject mastery */}
           <div className={styles.grid}>

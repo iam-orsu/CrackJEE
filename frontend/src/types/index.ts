@@ -135,6 +135,7 @@ export interface MockResultBreakdown {
   awarded: number;
   maxMarks: number;
   questionType: string;
+  timeSpentSeconds?: number;
 }
 
 export interface MockExamResult {

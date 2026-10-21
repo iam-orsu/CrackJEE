@@ -187,8 +187,11 @@ export const api = {
         body: JSON.stringify(body),
       }),
 
-    submit: (id: string) =>
-      request<{ resultId: string }>(`/mock/${id}/submit`, { method: 'POST' }),
+    submit: (id: string, questionTimes?: Record<string, number>) =>
+      request<{ resultId: string }>(`/mock/${id}/submit`, {
+        method: 'POST',
+        body: JSON.stringify({ questionTimes: questionTimes ?? {} }),
+      }),
 
     result: (id: string) =>
       request<import('@/types').MockResultData>(`/mock/${id}/result`),
