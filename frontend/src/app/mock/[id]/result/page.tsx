@@ -8,6 +8,8 @@ import { isAuthenticated } from '@/lib/auth';
 import type { MockResultData, MockResultBreakdown } from '@/types';
 
 import { MathText, renderMath } from '@/lib/math';
+import { AnimatedTabs } from '@/components/ui/AnimatedTabs';
+import { Badge, subjectVariant, qtypeVariant } from '@/components/ui/Badge';
 
 /* ── Helpers ─────────────────────────────────────────────────── */
 
@@ -473,31 +475,30 @@ export default function MockResultPage() {
           </div>
 
           {/* Filters */}
-          <div style={{ display: 'flex', gap: 10, marginBottom: 18, flexWrap: 'wrap' }}>
-            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-              {['All', ...(isNEET ? ['Physics', 'Chemistry', 'Botany', 'Zoology'] : ['Physics', 'Chemistry', 'Mathematics'])].map((s) => (
-                <button key={s} onClick={() => setFilterSubject(s)} style={{
-                  padding: '5px 12px', fontSize: 12, fontWeight: 600, cursor: 'pointer',
-                  border: '1px solid #e2e8f0', borderRadius: 5,
-                  background: filterSubject === s ? '#1e293b' : '#fff',
-                  color: filterSubject === s ? '#fff' : '#475569',
-                }}>
-                  {s}
-                </button>
-              ))}
-            </div>
-            <div style={{ display: 'flex', gap: 6 }}>
-              {([['all', 'All'], ['correct', '✓ Correct'], ['incorrect', '✗ Wrong'], ['unattempted', '○ Skipped']] as const).map(([v, label]) => (
-                <button key={v} onClick={() => setFilterStatus(v)} style={{
-                  padding: '5px 12px', fontSize: 12, fontWeight: 600, cursor: 'pointer',
-                  border: '1px solid #e2e8f0', borderRadius: 5,
-                  background: filterStatus === v ? '#1e293b' : '#fff',
-                  color: filterStatus === v ? '#fff' : '#475569',
-                }}>
-                  {label}
-                </button>
-              ))}
-            </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 20 }}>
+            <AnimatedTabs
+              size="sm"
+              tabs={[
+                { value: 'All', label: 'All Subjects' },
+                ...(isNEET
+                  ? (['Physics', 'Chemistry', 'Botany', 'Zoology'] as const).map((s) => ({ value: s, label: s }))
+                  : (['Physics', 'Chemistry', 'Mathematics'] as const).map((s) => ({ value: s, label: s }))
+                ),
+              ]}
+              value={filterSubject}
+              onChange={setFilterSubject}
+            />
+            <AnimatedTabs
+              size="sm"
+              tabs={[
+                { value: 'all',         label: 'All',       count: allQs.length },
+                { value: 'correct',     label: '✓ Correct', count: allQs.filter((q) => { const bd = breakdown[(q as any).mockQuestionId ?? q.questionId]; return !!bd?.submitted && (bd.awarded ?? 0) > 0; }).length },
+                { value: 'incorrect',   label: '✗ Wrong',   count: allQs.filter((q) => { const bd = breakdown[(q as any).mockQuestionId ?? q.questionId]; return !!bd?.submitted && (bd.awarded ?? 0) <= 0; }).length },
+                { value: 'unattempted', label: '○ Skipped', count: allQs.filter((q) => { const bd = breakdown[(q as any).mockQuestionId ?? q.questionId]; return !bd?.submitted; }).length },
+              ]}
+              value={filterStatus}
+              onChange={(v) => setFilterStatus(v as typeof filterStatus)}
+            />
           </div>
 
           <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 14 }}>
@@ -541,13 +542,7 @@ export default function MockResultPage() {
                       {statusLabel}
                     </span>
                     <span style={{ fontSize: 12, color: '#64748b', flexShrink: 0 }}>Q{q.questionNumber}</span>
-                    <span style={{
-                      fontSize: 11, padding: '2px 8px', borderRadius: 9999, fontWeight: 600,
-                      background: `${SUBJECT_COLOR[q.subject]}15`,
-                      color: SUBJECT_COLOR[q.subject],
-                    }}>
-                      {q.subject}
-                    </span>
+                    <Badge variant={subjectVariant(q.subject)}>{q.subject}</Badge>
                     <span style={{ fontSize: 11, color: '#94a3b8' }}>{(q as any).topic}</span>
                     <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: 13, color: '#374151' }}>
                       {toPlainPreview((q as any).questionText ?? '')}

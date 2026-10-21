@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import { QuestionCard } from '@/components/QuestionCard';
+import { VelocityToastProvider, showAnswerToast } from '@/components/ui/VelocityToast';
 import type { Question, AnswerResult, Subject, TopicProgress, PaperSet } from '@/types';
 import type { SplitTopics } from '@/lib/api';
 
@@ -498,6 +499,14 @@ export default function PracticePage() {
     const q = questions[currentIndex]!;
     const result = await api.answers.submit({ questionId: q.id, answer, timeSpent });
     setExamResults((prev) => ({ ...prev, [currentIndex]: { ...result, selectedAnswer: answer } }));
+
+    showAnswerToast({
+      type: result.isCorrect ? 'correct' : 'wrong',
+      title: result.isCorrect ? 'Correct!' : 'Wrong answer',
+      marks: result.isCorrect ? '+4' : '−1',
+      explanation: result.explanation,
+    });
+
     return result;
   }
 
@@ -992,6 +1001,7 @@ export default function PracticePage() {
 
     return (
       <div className="exam-overlay">
+        <VelocityToastProvider />
         <div className="exam-header">
           <span className="exam-logo">CrackJEE</span>
           <div className="exam-meta">
