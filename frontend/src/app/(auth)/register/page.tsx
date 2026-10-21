@@ -77,7 +77,7 @@ export default function RegisterPage() {
                 </svg>
               </span>
               <div>
-                <p className="auth-feature-title">AI generates every question</p>
+                <p className="auth-feature-title">Deep Tech crafts every question</p>
                 <p className="auth-feature-desc">No recycled question banks, unique problems every session</p>
               </div>
             </div>

@@ -43,10 +43,10 @@ export default function LoginPage() {
         <Link href="/" className="auth-brand-logo">CrackJEE</Link>
 
         <div className="auth-brand-body">
-          <div className="auth-brand-eyebrow">AI-powered JEE preparation</div>
+          <div className="auth-brand-eyebrow">Deep Tech-powered JEE preparation</div>
           <p className="auth-brand-tagline">Stop guessing.<br />Start knowing.</p>
           <p className="auth-brand-sub">
-            Every session brings fresh AI-generated questions, tracks your weak spots,
+            Every session brings fresh questions crafted by our Deep Tech engine, tracks your weak spots,
             and builds your mastery across Physics, Chemistry and Mathematics.
           </p>
 
