@@ -163,6 +163,11 @@ export const api = {
     weakAreas: () => request<import('@/types').TopicProgress[]>('/progress/weak-areas'),
   },
 
+  stats: {
+    mockWeakAreas: () => request<import('@/types').MockWeakTopic[]>('/stats/mock-weak-areas'),
+    leaderboard: () => request<import('@/types').LeaderboardData>('/stats/leaderboard'),
+  },
+
   mock: {
     start: (body: { examType: 'Main' | 'Advanced' | 'NEET'; difficultyMode?: 'easy' | 'medium' | 'hard' }) =>
       request<{ id: string; status: string }>('/mock/start', {

@@ -98,3 +98,114 @@ export async function overview(req: AuthRequest, res: Response, next: NextFuncti
     next(err);
   }
 }
+
+export async function mockWeakAreas(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const userId = req.user!.userId;
+
+    const exams = await prisma.mockExam.findMany({
+      where: { userId, status: 'submitted' },
+      include: {
+        questions: {
+          include: { question: { select: { topic: true, subject: true } } },
+        },
+        result: { select: { scoreBreakdown: true } },
+      },
+    });
+
+    const topicMap = new Map<string, { subject: string; topic: string; correct: number; total: number }>();
+
+    for (const exam of exams) {
+      if (!exam.result) continue;
+      const breakdown = exam.result.scoreBreakdown as Record<string, { awarded: number }>;
+
+      for (const mq of exam.questions) {
+        const { topic, subject } = mq.question;
+        const key = `${subject}::${topic}`;
+        const bd = breakdown[mq.id];
+        if (!bd) continue;
+
+        if (!topicMap.has(key)) topicMap.set(key, { subject, topic, correct: 0, total: 0 });
+        const entry = topicMap.get(key)!;
+        entry.total++;
+        if (bd.awarded > 0) entry.correct++;
+      }
+    }
+
+    const weak = [...topicMap.values()]
+      .filter((t) => t.total > 0 && t.correct / t.total < 0.6)
+      .map((t) => ({
+        subject: t.subject,
+        topic: t.topic,
+        attempts: t.total,
+        correct: t.correct,
+        successRate: Math.round((t.correct / t.total) * 100),
+      }))
+      .sort((a, b) => a.successRate - b.successRate);
+
+    res.json({ success: true, data: weak });
+  } catch (err) {
+    next(err);
+  }
+}
+
+export async function leaderboard(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const userId = req.user!.userId;
+
+    const allResults = await prisma.mockExamResult.findMany({
+      include: { exam: { select: { examType: true, userId: true } } },
+    });
+
+    type SubjectStat = { scores: number[]; myScores: number[] };
+    const stats: Record<string, Record<string, SubjectStat>> = {};
+
+    for (const r of allResults) {
+      const examType = r.exam.examType;
+      const isMe = r.exam.userId === userId;
+
+      if (!stats[examType]) stats[examType] = {};
+
+      let subjects: Record<string, { score: number; max: number }>;
+      if (examType === 'NEET') {
+        subjects = {
+          Physics: { score: r.physicsScore, max: 180 },
+          Chemistry: { score: r.chemistryScore, max: 180 },
+          Biology: { score: r.biologyScore, max: 360 },
+        };
+      } else {
+        const maxPerSubj = r.maxScore > 0 ? Math.round(r.maxScore / 3) : 100;
+        subjects = {
+          Physics: { score: r.physicsScore, max: maxPerSubj },
+          Chemistry: { score: r.chemistryScore, max: maxPerSubj },
+          Mathematics: { score: r.mathScore, max: maxPerSubj },
+        };
+      }
+
+      for (const [subj, { score, max }] of Object.entries(subjects)) {
+        if (!stats[examType][subj]) stats[examType][subj] = { scores: [], myScores: [] };
+        const pct = max > 0 ? Math.round((score / max) * 100) : 0;
+        stats[examType][subj].scores.push(pct);
+        if (isMe) stats[examType][subj].myScores.push(pct);
+      }
+    }
+
+    const result: Record<string, Record<string, { top: number; avg: number; mine: number | null; count: number }>> = {};
+    for (const [examType, subjects] of Object.entries(stats)) {
+      result[examType] = {};
+      for (const [subj, stat] of Object.entries(subjects)) {
+        const { scores, myScores } = stat;
+        result[examType][subj] = {
+          top: scores.length > 0 ? Math.max(...scores) : 0,
+          avg: scores.length > 0 ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : 0,
+          mine: myScores.length > 0 ? Math.max(...myScores) : null,
+          count: scores.length,
+        };
+      }
+    }
+
+    res.json({ success: true, data: result });
+  } catch (err) {
+    next(err);
+  }
+}
