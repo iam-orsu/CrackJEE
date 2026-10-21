@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Sidebar } from '@/components/Sidebar';
 import { api } from '@/lib/api';
-import { isAuthenticated } from '@/lib/auth';
+import { isAuthenticated, getUser } from '@/lib/auth';
 import type { MockHistoryItem } from '@/types';
 
 const EXAM_INFO = {
@@ -83,6 +83,12 @@ export default function MockPage() {
   const [history, setHistory] = useState<MockHistoryItem[]>([]);
   const [terminating, setTerminating] = useState<string | null>(null);
 
+  const currentUser = getUser();
+  const isNEET = currentUser?.targetExam === 'NEET';
+  const availableTypes = (['Main', 'Advanced', 'NEET'] as const).filter((t) =>
+    isNEET ? t === 'NEET' : t !== 'NEET',
+  );
+
   async function handleTerminate(id: string) {
     if (!confirm('Terminate this exam session? This cannot be undone.')) return;
     setTerminating(id);
@@ -129,7 +135,7 @@ export default function MockPage() {
 
         {/* Exam type selection */}
         <div style={{ display: 'flex', gap: 16, marginBottom: 28, flexWrap: 'wrap' }}>
-          {(['Main', 'Advanced', 'NEET'] as const).map((type) => (
+          {availableTypes.map((type) => (
             <button
               key={type}
               onClick={() => setSelected(type)}

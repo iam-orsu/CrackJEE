@@ -22,12 +22,19 @@ const MockIcon = () => (
     <path d="M7 8h10M7 12h6M16 16l2-2-2-2" />
   </svg>
 );
-const links = [
-  { href: '/dashboard',      label: 'Dashboard',      Icon: DashIcon },
-  { href: '/practice',       label: 'JEE Practice',   Icon: PracticeIcon },
-  { href: '/neet/practice',  label: 'NEET Practice',  Icon: PracticeIcon },
-  { href: '/mock',           label: 'Mock Test',      Icon: MockIcon },
+
+const ALL_LINKS = [
+  { href: '/dashboard',     label: 'Dashboard',     Icon: DashIcon,     mode: 'all'  as const },
+  { href: '/practice',      label: 'JEE Practice',  Icon: PracticeIcon, mode: 'jee'  as const },
+  { href: '/neet/practice', label: 'NEET Practice', Icon: PracticeIcon, mode: 'neet' as const },
+  { href: '/mock',          label: 'Mock Test',     Icon: MockIcon,     mode: 'all'  as const },
 ];
+
+function userMeta(user: ReturnType<typeof getUser>): string {
+  if (!user) return '';
+  const exam = user.targetExam === 'NEET' ? 'NEET UG' : `JEE ${user.targetExam}`;
+  return `Class ${user.class} · ${exam}`;
+}
 
 export function Sidebar() {
   const pathname = usePathname();
@@ -37,10 +44,8 @@ export function Sidebar() {
 
   useEffect(() => { setUser(getUser()); }, []);
 
-  // Close sidebar on route change
   useEffect(() => { setMobileOpen(false); }, [pathname]);
 
-  // Lock body scroll when mobile sidebar is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -50,6 +55,15 @@ export function Sidebar() {
     clearSession();
     router.push('/login');
   }
+
+  const isNEET = user?.targetExam === 'NEET';
+  const links = user === null
+    ? ALL_LINKS
+    : ALL_LINKS.filter((l) => {
+        if (l.mode === 'jee') return !isNEET;
+        if (l.mode === 'neet') return isNEET;
+        return true;
+      });
 
   const sidebarContent = (
     <>
@@ -71,7 +85,7 @@ export function Sidebar() {
         {user && (
           <>
             <p className="sidebar-user-name">{user.name}</p>
-            <p className="sidebar-user-meta">Class {user.class} · JEE {user.targetExam}</p>
+            <p className="sidebar-user-meta">{userMeta(user)}</p>
           </>
         )}
         <button className="sidebar-signout" onClick={handleLogout}>Sign out</button>
@@ -126,7 +140,7 @@ export function Sidebar() {
           {user && (
             <>
               <p className="sidebar-user-name">{user.name}</p>
-              <p className="sidebar-user-meta">Class {user.class} · JEE {user.targetExam}</p>
+              <p className="sidebar-user-meta">{userMeta(user)}</p>
             </>
           )}
           <button className="sidebar-signout" onClick={handleLogout}>Sign out</button>
