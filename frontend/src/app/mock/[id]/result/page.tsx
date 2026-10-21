@@ -20,6 +20,12 @@ function fmtTime(s: number): string {
   return `${sec}s`;
 }
 
+function fmtQTime(s: number): string {
+  if (s === 0) return '—';
+  if (s < 60) return `${s}s`;
+  return `${Math.floor(s / 60)}m ${s % 60}s`;
+}
+
 function scoreColor(pct: number): string {
   if (pct >= 70) return '#16a34a';
   if (pct >= 50) return '#d97706';
@@ -244,6 +250,12 @@ export default function MockResultPage() {
                 <span style={{ fontSize: 13, color: '#dc2626', fontWeight: 600 }}>✗ {result.incorrect} Wrong</span>
                 <span style={{ fontSize: 13, color: '#64748b', fontWeight: 600 }}>○ {result.unattempted} Skipped</span>
                 <span style={{ fontSize: 13, color: '#64748b' }}>⏱ {fmtTime(result.timeTaken)}</span>
+                {(() => {
+                  const times = Object.values(breakdown).map((b) => b.timeSpentSeconds ?? 0).filter((t) => t > 0);
+                  if (times.length === 0) return null;
+                  const avg = Math.round(times.reduce((a, b) => a + b, 0) / times.length);
+                  return <span style={{ fontSize: 13, color: '#64748b' }}>avg {fmtQTime(avg)}/q</span>;
+                })()}
               </div>
             </div>
 
@@ -540,6 +552,11 @@ export default function MockResultPage() {
                     <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: 13, color: '#374151' }}>
                       {toPlainPreview((q as any).questionText ?? '')}
                     </span>
+                    {(bd?.timeSpentSeconds ?? 0) > 0 && (
+                      <span style={{ fontSize: 11, color: '#94a3b8', flexShrink: 0, whiteSpace: 'nowrap' }}>
+                        ⏱ {fmtQTime(bd!.timeSpentSeconds!)}
+                      </span>
+                    )}
                     <span style={{ fontSize: 12, color: '#94a3b8', flexShrink: 0 }}>
                       {isExpanded ? '▲' : '▼'}
                     </span>

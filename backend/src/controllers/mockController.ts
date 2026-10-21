@@ -437,6 +437,7 @@ export async function submitMock(req: AuthRequest, res: Response, next: NextFunc
   try {
     const { id } = req.params as { id: string };
     const userId = req.user!.userId;
+    const questionTimes: Record<string, number> = (req.body as { questionTimes?: Record<string, number> })?.questionTimes ?? {};
 
     const exam = await prisma.mockExam.findUnique({
       where: { id },
@@ -461,6 +462,7 @@ export async function submitMock(req: AuthRequest, res: Response, next: NextFunc
       questionId: string; subject: string;
       submitted: string | null; correctAnswer: string;
       awarded: number; maxMarks: number; questionType: string;
+      timeSpentSeconds: number;
     }> = {};
 
     for (const mq of exam.questions) {
@@ -483,6 +485,7 @@ export async function submitMock(req: AuthRequest, res: Response, next: NextFunc
         questionId: mq.questionId, subject: mq.subject,
         submitted: mq.savedAnswer, correctAnswer: q.answer,
         awarded: marks, maxMarks, questionType: q.questionType,
+        timeSpentSeconds: questionTimes[mq.id] ?? 0,
       };
     }
 
