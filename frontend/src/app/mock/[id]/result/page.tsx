@@ -449,7 +449,16 @@ export default function MockResultPage() {
 
         {/* Question review */}
         <div style={{ background: '#fff', borderRadius: 10, border: '1px solid #e2e8f0', padding: 24 }}>
-          <h2 style={{ fontSize: 15, fontWeight: 700, color: '#1e293b', marginBottom: 16 }}>Question Review</h2>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16, flexWrap: 'wrap', gap: 10 }}>
+            <h2 style={{ fontSize: 15, fontWeight: 700, color: '#1e293b' }}>Question Review</h2>
+            <a href={weakPracticeUrl} style={{
+              padding: '7px 14px', background: '#fff', color: '#1e293b',
+              border: '1px solid #e2e8f0', borderRadius: 6, fontSize: 13, fontWeight: 600,
+              textDecoration: 'none', whiteSpace: 'nowrap',
+            }}>
+              Practice Weak Areas
+            </a>
+          </div>
 
           {/* Filters */}
           <div style={{ display: 'flex', gap: 10, marginBottom: 18, flexWrap: 'wrap' }}>

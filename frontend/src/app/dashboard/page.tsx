@@ -6,13 +6,16 @@ import { useRouter } from 'next/navigation';
 import { Sidebar } from '@/components/Sidebar';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
-import type { DashboardData, WeeklyPoint } from '@/types';
+import type { DashboardData, WeeklyPoint, MockWeakTopic, LeaderboardData } from '@/types';
 import styles from './dashboard.module.css';
 
-const SUBJECTS = ['Physics', 'Chemistry', 'Mathematics'] as const;
 const DAY_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-/* Round an axis maximum up to a clean number (4, 5, 10, 20, 50, 100 ...) */
+const SUBJECT_COLOR: Record<string, string> = {
+  Physics: '#2563eb', Chemistry: '#16a34a', Mathematics: '#7c3aed',
+  Botany: '#16a34a', Zoology: '#0891b2', Biology: '#059669',
+};
+
 function niceMax(value: number): number {
   if (value <= 4) return 4;
   const pow = Math.pow(10, Math.floor(Math.log10(value)));
@@ -31,7 +34,7 @@ function plural(n: number, word: string): string {
   return `${n} ${word}${n === 1 ? '' : 's'}`;
 }
 
-/* ── Weekly chart: axes, gridlines, bars and a hover tooltip ───── */
+/* ── Weekly chart ────────────────────────────────────────────────── */
 function WeeklyChart({ data }: { data: WeeklyPoint[] }) {
   const [hover, setHover] = useState<number | null>(null);
   const max = niceMax(Math.max(...data.map((d) => d.total), 0));
@@ -77,11 +80,8 @@ function WeeklyChart({ data }: { data: WeeklyPoint[] }) {
               )}
               {d.correct > 0 && (
                 <rect
-                  x={cx - barW / 2}
-                  y={yFor(d.correct)}
-                  width={barW}
-                  height={correctH}
-                  rx={6}
+                  x={cx - barW / 2} y={yFor(d.correct)}
+                  width={barW} height={correctH} rx={6}
                   className={isToday ? styles.barCorrectToday : styles.barCorrect}
                 />
               )}
@@ -94,10 +94,7 @@ function WeeklyChart({ data }: { data: WeeklyPoint[] }) {
       </svg>
 
       {hovered && hover !== null && (
-        <div
-          className={styles.tooltip}
-          style={{ left: `${((PL + slot * hover + slot / 2) / W) * 100}%` }}
-        >
+        <div className={styles.tooltip} style={{ left: `${((PL + slot * hover + slot / 2) / W) * 100}%` }}>
           <div className={styles.tooltipTitle}>
             {new Date(hovered.date + 'T00:00:00').toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' })}
           </div>
@@ -110,19 +107,30 @@ function WeeklyChart({ data }: { data: WeeklyPoint[] }) {
   );
 }
 
-/* ── Page ──────────────────────────────────────────────────────── */
+/* ── Page ─────────────────────────────────────────────────────────── */
 export default function DashboardPage() {
   const router = useRouter();
   const [user, setUser] = useState<ReturnType<typeof getUser>>(null);
   const [data, setData] = useState<DashboardData | null>(null);
+  const [mockWeakTopics, setMockWeakTopics] = useState<MockWeakTopic[]>([]);
+  const [leaderboard, setLeaderboard] = useState<LeaderboardData | null>(null);
+  const [expandedSubject, setExpandedSubject] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
   useEffect(() => {
     setUser(getUser());
     if (!isAuthenticated()) { router.push('/login'); return; }
-    api.dashboard.data()
-      .then(setData)
+    Promise.all([
+      api.dashboard.data(),
+      api.stats.mockWeakAreas().catch(() => [] as MockWeakTopic[]),
+      api.stats.leaderboard().catch(() => null),
+    ])
+      .then(([dashData, weakTopics, lb]) => {
+        setData(dashData);
+        setMockWeakTopics(weakTopics);
+        setLeaderboard(lb);
+      })
       .catch((e: Error) => setError(e.message))
       .finally(() => setLoading(false));
   }, [router]);
@@ -135,23 +143,38 @@ export default function DashboardPage() {
   const accuracy = data?.stats.accuracy ?? 0;
   const totalAttempts = data?.stats.totalAttempts ?? 0;
   const correctAttempts = data?.stats.correctAttempts ?? 0;
-  const weakAreas = data?.weakAreas ?? [];
   const hasActivity = totalAttempts > 0;
 
-  const streak = (() => {
-    if (!data?.weeklyStats?.length) return 0;
-    const sorted = [...data.weeklyStats].sort(
-      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-    );
-    let c = 0;
-    for (const d of sorted) { if (d.total > 0) c++; else break; }
-    return c;
-  })();
-
+  const SUBJECTS = ['Physics', 'Chemistry', 'Mathematics'] as const;
   const subjectRows = SUBJECTS.map((subject) => ({
     subject,
     stat: data?.subjectAccuracy.find((x) => x.subject === subject),
   }));
+
+  // Group mock weak topics by subject
+  const weakBySubject: Record<string, MockWeakTopic[]> = {};
+  for (const t of mockWeakTopics) {
+    if (!weakBySubject[t.subject]) weakBySubject[t.subject] = [];
+    weakBySubject[t.subject].push(t);
+  }
+  const weakSubjects = Object.keys(weakBySubject).sort();
+  const hasMockWeakAreas = weakSubjects.length > 0;
+
+  // Leaderboard: pick exam type relevant to user
+  const targetExam = user?.targetExam ?? 'Main';
+  const lbExamType = targetExam === 'NEET' ? 'NEET' : targetExam === 'Advanced' ? 'Advanced' : 'Main';
+  const lbData = leaderboard?.[lbExamType] ?? null;
+  const lbSubjects = lbData ? Object.entries(lbData).sort(([a], [b]) => a.localeCompare(b)) : [];
+
+  function buildPracticeUrl(subject: string): string {
+    const topics = weakBySubject[subject]?.map((t) => t.topic) ?? [];
+    const isNEET = ['Botany', 'Zoology'].includes(subject);
+    const basePath = isNEET ? '/neet/practice' : '/practice';
+    if (topics.length === 0) return basePath;
+    const subjectMap: Record<string, string[]> = { [subject]: topics };
+    const weakData = encodeURIComponent(JSON.stringify({ subjects: [subject], topics: subjectMap }));
+    return `${basePath}?mode=mock_weak&weakData=${weakData}`;
+  }
 
   return (
     <div className="app-shell">
@@ -177,7 +200,7 @@ export default function DashboardPage() {
 
           {error && <div className={styles.error}>{error}</div>}
 
-          {/* Stat strip */}
+          {/* Stat strip — 3 tiles */}
           <section className={styles.statStrip} aria-label="Summary">
             <div className={styles.stat}>
               <p className={styles.statLabel}>Questions done</p>
@@ -194,15 +217,10 @@ export default function DashboardPage() {
               </p>
             </div>
             <div className={styles.stat}>
-              <p className={styles.statLabel}>Day streak</p>
-              <p className={styles.statValue}>{loading ? '–' : streak}</p>
-              <p className={styles.statSub}>{streak > 0 ? 'Consecutive days' : 'Practice today to start one'}</p>
-            </div>
-            <div className={styles.stat}>
               <p className={styles.statLabel}>Weak areas</p>
-              <p className={styles.statValue}>{loading ? '–' : weakAreas.length}</p>
+              <p className={styles.statValue}>{loading ? '–' : mockWeakTopics.length > 0 ? mockWeakTopics.length : (data?.weakAreas.length ?? 0)}</p>
               <p className={styles.statSub}>
-                {loading ? ' ' : weakAreas.length === 0 ? 'None flagged' : 'Topics under 60%'}
+                {loading ? ' ' : (mockWeakTopics.length > 0 || (data?.weakAreas.length ?? 0) > 0) ? 'Topics under 60%' : 'None flagged'}
               </p>
             </div>
           </section>
@@ -266,9 +284,87 @@ export default function DashboardPage() {
             </section>
           </div>
 
-          {/* Focus areas, or the start guide for new students */}
+          {/* Focus areas — from mock exam performance */}
           <div className={styles.grid} style={{ gridTemplateColumns: '1fr' }}>
-            {!loading && weakAreas.length > 0 && (
+            {!loading && hasMockWeakAreas && (
+              <section className={styles.panel}>
+                <div className={styles.panelHead}>
+                  <div>
+                    <h2 className={styles.panelTitle}>Focus areas</h2>
+                    <p className={styles.panelSub}>Subjects where you scored under 60% in mock exams</p>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  {weakSubjects.map((subject) => {
+                    const topics = weakBySubject[subject]!;
+                    const worstPct = Math.min(...topics.map((t) => t.successRate));
+                    const isOpen = expandedSubject === subject;
+                    const color = SUBJECT_COLOR[subject] ?? '#64748b';
+                    return (
+                      <div key={subject} className={styles.subjCard}>
+                        <button
+                          className={`${styles.subjCardHead} ${isOpen ? styles.subjCardHeadOpen : ''}`}
+                          onClick={() => setExpandedSubject(isOpen ? null : subject)}
+                          style={{ width: '100%', border: 'none', textAlign: 'left' }}
+                        >
+                          <div>
+                            <p className={styles.subjCardName} style={{ color }}>{subject}</p>
+                            <p className={styles.subjCardMeta}>{plural(topics.length, 'weak topic')}</p>
+                          </div>
+                          <div className={styles.subjCardRight}>
+                            <span className={`${styles.subjCardPct} ${worstPct >= 40 ? styles.subjCardPctMid : ''}`}>
+                              Worst {worstPct}%
+                            </span>
+                            <svg
+                              width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                              style={{ transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.15s', color: 'var(--gray-400)', flexShrink: 0 }}
+                            >
+                              <path d="M6 9l6 6 6-6" />
+                            </svg>
+                          </div>
+                        </button>
+
+                        {isOpen && (
+                          <div className={styles.subjCardBody}>
+                            {topics.map((t) => (
+                              <div key={t.topic} className={styles.subjTopicRow}>
+                                <div>
+                                  <p className={styles.subjTopicName}>{t.topic}</p>
+                                  <p className={styles.subjTopicMeta}>{t.correct}/{t.attempts} correct</p>
+                                </div>
+                                <span
+                                  className={styles.subjTopicPct}
+                                  style={{ color: t.successRate >= 40 ? 'var(--amber-600)' : 'var(--red-600)' }}
+                                >
+                                  {t.successRate}%
+                                </span>
+                                <div className={styles.subjTopicBar}>
+                                  <div
+                                    className={styles.subjTopicBarFill}
+                                    style={{ width: `${t.successRate}%`, background: t.successRate >= 40 ? 'var(--amber-600)' : 'var(--red-600)' }}
+                                  />
+                                </div>
+                              </div>
+                            ))}
+                            <div style={{ marginTop: 14 }}>
+                              <Link
+                                href={buildPracticeUrl(subject)}
+                                className={`${styles.primaryBtn} ${styles.primaryBtnSm}`}
+                              >
+                                Practice {subject} weak areas →
+                              </Link>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
+
+            {/* Practice weak areas from TopicProgress (if no mock data yet) */}
+            {!loading && !hasMockWeakAreas && (data?.weakAreas.length ?? 0) > 0 && (
               <section className={styles.panel}>
                 <div className={styles.panelHead}>
                   <div>
@@ -276,12 +372,12 @@ export default function DashboardPage() {
                     <p className={styles.panelSub}>Topics where your accuracy is under 60%</p>
                   </div>
                   <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                    {weakAreas.some((w) => ['Mathematics', 'Physics', 'Chemistry'].includes(w.subject)) && (
+                    {data!.weakAreas.some((w) => ['Mathematics', 'Physics', 'Chemistry'].includes(w.subject)) && (
                       <Link href="/practice?mode=weak" className={`${styles.primaryBtn} ${styles.primaryBtnSm}`}>
                         Practice JEE weak areas
                       </Link>
                     )}
-                    {weakAreas.some((w) => ['Botany', 'Zoology'].includes(w.subject)) && (
+                    {data!.weakAreas.some((w) => ['Botany', 'Zoology'].includes(w.subject)) && (
                       <Link href="/neet/practice?mode=weak" className={`${styles.primaryBtn} ${styles.primaryBtnSm}`}>
                         Practice NEET weak areas
                       </Link>
@@ -289,15 +385,13 @@ export default function DashboardPage() {
                   </div>
                 </div>
                 <div className={styles.focusList}>
-                  {weakAreas.slice(0, 6).map((w) => {
+                  {data!.weakAreas.slice(0, 6).map((w) => {
                     const pct = Math.round(w.successRate * 100);
                     return (
                       <div key={w.id} className={styles.focusRow}>
                         <div>
                           <p className={styles.focusTopic}>{w.topicName}</p>
-                          <p className={styles.focusMeta}>
-                            {w.subject} · {plural(w.attempts, 'attempt')}
-                          </p>
+                          <p className={styles.focusMeta}>{w.subject} · {plural(w.attempts, 'attempt')}</p>
                         </div>
                         <span className={`${styles.focusPct} ${pct >= 40 ? styles.focusPctMid : ''}`}>{pct}%</span>
                         <div className={`${styles.bar} ${styles.focusBarWrap}`}>
@@ -310,6 +404,72 @@ export default function DashboardPage() {
               </section>
             )}
 
+            {/* Leaderboard */}
+            {!loading && lbSubjects.length > 0 && (
+              <section className={styles.panel}>
+                <div className={styles.panelHead}>
+                  <div>
+                    <h2 className={styles.panelTitle}>Platform standings</h2>
+                    <p className={styles.panelSub}>
+                      {lbExamType === 'NEET' ? 'NEET UG' : `JEE ${lbExamType}`} · Your score vs platform top and average (% of max marks)
+                    </p>
+                  </div>
+                </div>
+                <table className={styles.lbTable}>
+                  <thead>
+                    <tr>
+                      <th className={styles.lbHead} style={{ textAlign: 'left' }}>Subject</th>
+                      <th className={styles.lbHead}>My best</th>
+                      <th className={styles.lbHead}>Platform avg</th>
+                      <th className={styles.lbHead}>Platform top</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {lbSubjects.map(([subj, stat]) => {
+                      const mine = stat.mine;
+                      const mineColor = mine == null ? 'var(--gray-400)' : mine >= 60 ? 'var(--green-600)' : mine >= 40 ? 'var(--amber-600)' : 'var(--red-600)';
+                      return (
+                        <tr key={subj} className={styles.lbRow}>
+                          <td>
+                            <span className={styles.lbSubject} style={{ color: SUBJECT_COLOR[subj] ?? 'var(--gray-800)' }}>
+                              {subj}
+                            </span>
+                          </td>
+                          <td className={styles.lbNum} style={{ color: mineColor }}>
+                            {mine != null ? `${mine}%` : '—'}
+                          </td>
+                          <td className={styles.lbNum} style={{ color: 'var(--gray-600)' }}>
+                            {stat.count > 0 ? `${stat.avg}%` : '—'}
+                          </td>
+                          <td>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 8, justifyContent: 'flex-end' }}>
+                              <span className={styles.lbNum} style={{ color: 'var(--gray-900)' }}>
+                                {stat.count > 0 ? `${stat.top}%` : '—'}
+                              </span>
+                              {stat.count > 0 && (
+                                <div className={styles.lbBar} style={{ width: 60 }}>
+                                  <div
+                                    className={styles.lbBarFill}
+                                    style={{ width: `${stat.top}%`, background: SUBJECT_COLOR[subj] ?? '#94a3b8' }}
+                                  />
+                                </div>
+                              )}
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+                {lbSubjects[0]?.[1]?.count != null && (
+                  <p style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 14 }}>
+                    Based on {lbSubjects[0][1].count} mock result{lbSubjects[0][1].count === 1 ? '' : 's'} · scores are anonymous
+                  </p>
+                )}
+              </section>
+            )}
+
+            {/* Start guide for new students */}
             {!loading && !hasActivity && (
               <section className={styles.panel}>
                 <div className={styles.panelHead}>

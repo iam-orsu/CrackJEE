@@ -183,3 +183,20 @@ export interface MockHistoryItem {
   submittedAt: string | null;
   result?: { totalScore: number; maxScore: number; correct: number; partial?: number; incorrect: number; unattempted: number };
 }
+
+export interface MockWeakTopic {
+  subject: string;
+  topic: string;
+  attempts: number;
+  correct: number;
+  successRate: number;
+}
+
+export interface LeaderboardSubject {
+  top: number;
+  avg: number;
+  mine: number | null;
+  count: number;
+}
+
+export type LeaderboardData = Record<string, Record<string, LeaderboardSubject>>;
