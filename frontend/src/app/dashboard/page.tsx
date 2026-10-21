@@ -416,6 +416,12 @@ export default function DashboardPage() {
                   </div>
                 </div>
                 <table className={styles.lbTable}>
+                  <colgroup>
+                    <col style={{ width: '35%' }} />
+                    <col style={{ width: '20%' }} />
+                    <col style={{ width: '20%' }} />
+                    <col style={{ width: '25%' }} />
+                  </colgroup>
                   <thead>
                     <tr>
                       <th className={styles.lbHead} style={{ textAlign: 'left' }}>Subject</th>
@@ -442,16 +448,13 @@ export default function DashboardPage() {
                             {stat.count > 0 ? `${stat.avg}%` : '—'}
                           </td>
                           <td>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 8, justifyContent: 'flex-end' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
                               <span className={styles.lbNum} style={{ color: 'var(--gray-900)' }}>
                                 {stat.count > 0 ? `${stat.top}%` : '—'}
                               </span>
                               {stat.count > 0 && (
-                                <div className={styles.lbBar} style={{ width: 60 }}>
-                                  <div
-                                    className={styles.lbBarFill}
-                                    style={{ width: `${stat.top}%`, background: SUBJECT_COLOR[subj] ?? '#94a3b8' }}
-                                  />
+                                <div style={{ width: '100%', maxWidth: 80, height: 5, background: 'var(--gray-100)', borderRadius: 999, overflow: 'hidden' }}>
+                                  <div style={{ height: '100%', width: `${stat.top}%`, background: SUBJECT_COLOR[subj] ?? '#94a3b8', borderRadius: 999 }} />
                                 </div>
                               )}
                             </div>
