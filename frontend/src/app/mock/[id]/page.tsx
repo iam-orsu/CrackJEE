@@ -11,6 +11,9 @@ import { MathText, renderMath, stripOptionPrefix } from '@/lib/math';
 import { OrbitalLoader } from '@/components/ui/OrbitalLoader';
 import { DragToConfirm } from '@/components/ui/DragToConfirm';
 import { Badge, qtypeVariant, difficultyVariant } from '@/components/ui/Badge';
+import { qStatus, STATUS_STYLE, SUBJECT_COLOR, type QStatus } from '@/components/mock/examStatus';
+import { ExamPalette } from '@/components/mock/ExamPalette';
+import { SubmitModal } from '@/components/mock/SubmitModal';
 
 /* ── Helpers ──────────────────────────────────────────────────── */
 
@@ -25,31 +28,6 @@ function fmtTime(s: number): string {
   return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
 }
 
-type QStatus = 'not_visited' | 'not_answered' | 'answered' | 'marked' | 'answered_marked';
-
-function qStatus(mqId: string, answers: Record<string, string>, marked: Record<string, boolean>, visited: Record<string, boolean>): QStatus {
-  const isAns = !!answers[mqId];
-  const isMark = !!marked[mqId];
-  const isVis = !!visited[mqId] || isAns;
-  if (!isVis) return 'not_visited';
-  if (isAns && isMark) return 'answered_marked';
-  if (isAns) return 'answered';
-  if (isMark) return 'marked';
-  return 'not_answered';
-}
-
-const STATUS_STYLE: Record<QStatus, { bg: string; color: string; border: string }> = {
-  not_visited:     { bg: '#d1d5db', color: '#374151', border: '#9ca3af' },
-  not_answered:    { bg: '#ef4444', color: '#fff',    border: '#dc2626' },
-  answered:        { bg: '#22c55e', color: '#fff',    border: '#16a34a' },
-  marked:          { bg: '#a855f7', color: '#fff',    border: '#9333ea' },
-  answered_marked: { bg: '#7c3aed', color: '#fff',    border: '#6d28d9' },
-};
-
-const SUBJECT_COLOR: Record<string, string> = {
-  Physics: '#2563eb', Chemistry: '#16a34a', Mathematics: '#7c3aed',
-  Botany: '#16a34a', Zoology: '#0891b2',
-};
 
 /* ══════════════════════════════════════════════════════════════
    Main component
@@ -574,124 +552,30 @@ export default function MockExamPage() {
           width: 268, flexShrink: 0, background: '#fff', borderLeft: '1px solid #e2e8f0',
           overflowY: 'auto', padding: '16px 14px', display: 'flex', flexDirection: 'column', gap: 16,
         }}>
-          {/* Summary */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
-            {[
-              { label: 'Answered', count: totalAnswered, bg: '#dcfce7', color: '#166534' },
-              { label: 'Not Answered', count: statusCounts.not_answered, bg: '#fee2e2', color: '#991b1b' },
-              { label: 'Marked', count: totalMarked, bg: '#ede9fe', color: '#5b21b6' },
-              { label: 'Not Visited', count: statusCounts.not_visited, bg: '#f1f5f9', color: '#475569' },
-            ].map(({ label, count, bg, color }) => (
-              <div key={label} style={{ background: bg, borderRadius: 6, padding: '8px 10px', textAlign: 'center' }}>
-                <div style={{ fontSize: 18, fontWeight: 700, color }}>{Math.max(0, count)}</div>
-                <div style={{ fontSize: 10, color, opacity: 0.8 }}>{label}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* Per-subject palette */}
-          {subjects.map((subj) => {
-            const subjectQs = bySubject[subj] ?? [];
-            return (
-              <div key={subj}>
-                <div style={{
-                  fontSize: 11, fontWeight: 700, color: SUBJECT_COLOR[subj],
-                  textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8,
-                  paddingBottom: 6, borderBottom: `2px solid ${SUBJECT_COLOR[subj]}30`,
-                }}>
-                  {subj}
-                </div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5 }}>
-                  {subjectQs.map((q) => {
-                    const status = qStatus(q.mockQuestionId, answers, marked, visited);
-                    const st = STATUS_STYLE[status];
-                    const globalIdx = questions.findIndex((x) => x.mockQuestionId === q.mockQuestionId);
-                    const isCurrent = globalIdx === currentIdx;
-                    return (
-                      <button
-                        key={q.mockQuestionId}
-                        onClick={() => goTo(globalIdx)}
-                        title={`Q${q.questionNumber} — ${status.replace('_', ' ')}`}
-                        style={{
-                          width: 32, height: 32, border: `2px solid ${isCurrent ? '#0f172a' : st.border}`,
-                          borderRadius: status === 'marked' || status === 'answered_marked' ? '50%' : 5,
-                          background: st.bg, color: st.color,
-                          fontSize: 11, fontWeight: 700, cursor: 'pointer',
-                          outline: isCurrent ? '2px solid #0f172a' : 'none',
-                          outlineOffset: 2,
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          position: 'relative',
-                        }}
-                      >
-                        {q.subjectIndex + 1}
-                        {status === 'answered_marked' && (
-                          <span style={{
-                            position: 'absolute', top: -3, right: -3,
-                            width: 10, height: 10, background: '#22c55e',
-                            borderRadius: '50%', border: '1px solid #fff',
-                          }} />
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
-
-          {/* Legend */}
-          <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: 14 }}>
-            <div style={{ fontSize: 10, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8 }}>Legend</div>
-            {([
-              ['not_visited',     'Not Visited'],
-              ['not_answered',    'Not Answered'],
-              ['answered',        'Answered'],
-              ['marked',          'Marked for Review'],
-              ['answered_marked', 'Answered + Marked'],
-            ] as [QStatus, string][]).map(([status, label]) => {
-              const st = STATUS_STYLE[status];
-              return (
-                <div key={status} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 5 }}>
-                  <div style={{
-                    width: 18, height: 18, borderRadius: status === 'marked' || status === 'answered_marked' ? '50%' : 3,
-                    background: st.bg, border: `1.5px solid ${st.border}`,
-                    flexShrink: 0,
-                  }} />
-                  <span style={{ fontSize: 11, color: '#475569' }}>{label}</span>
-                </div>
-              );
-            })}
-          </div>
+          <ExamPalette
+            totalAnswered={totalAnswered}
+            totalMarked={totalMarked}
+            statusCounts={statusCounts}
+            subjects={subjects}
+            bySubject={bySubject}
+            questions={questions}
+            answers={answers}
+            marked={marked}
+            visited={visited}
+            currentIdx={currentIdx}
+            goTo={goTo}
+          />
         </div>
       </div>
 
       {/* ── Submit confirmation modal ── */}
       {showSubmitModal && (
-        <div style={{
-          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 50,
-        }}>
-          <div style={{ background: '#fff', borderRadius: 10, padding: 28, width: 400, boxShadow: '0 20px 60px rgba(0,0,0,0.2)' }}>
-            <h3 style={{ fontSize: 18, fontWeight: 700, color: '#1e293b', marginBottom: 12 }}>Submit Exam?</h3>
-            <div style={{ fontSize: 14, color: '#475569', marginBottom: 20, lineHeight: 1.6 }}>
-              You have answered <strong>{totalAnswered}</strong> of <strong>{total}</strong> questions.
-              {total - totalAnswered > 0 && (
-                <> <span style={{ color: '#dc2626' }}>{total - totalAnswered} question{total - totalAnswered > 1 ? 's' : ''} unanswered.</span></>
-              )}
-              <br />This action cannot be undone.
-            </div>
-            <DragToConfirm
-              label="Drag to submit exam →"
-              onConfirm={() => handleSubmit(true)}
-            />
-            <button
-              onClick={() => setShowSubmitModal(false)}
-              style={{ marginTop: 10, width: '100%', padding: '9px 20px', border: '1px solid #e2e8f0', borderRadius: 6, background: '#fff', color: '#64748b', fontSize: 13, fontWeight: 500, cursor: 'pointer' }}
-            >
-              Go back and review
-            </button>
-          </div>
-        </div>
+        <SubmitModal
+          totalAnswered={totalAnswered}
+          total={total}
+          onConfirm={() => handleSubmit(true)}
+          onCancel={() => setShowSubmitModal(false)}
+        />
       )}
     </div>
   );
