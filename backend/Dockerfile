@@ -9,26 +9,27 @@ RUN npm init -y && \
     npm pkg set scripts.build="tsc" && \
     npm pkg set scripts.start="node dist/index.js" && \
     npm pkg set scripts.test="node --test dist/__tests__/*.test.js" && \
-    npm install \
-      "@prisma/client@^6" \
-      "bcryptjs@^2.4.3" \
-      "cors@^2.8.5" \
-      "express@^4.21.2" \
-      "helmet@^8.0.0" \
-      "ioredis@^5.4.2" \
-      "jsonwebtoken@^9.0.2" \
-      "openai@^4.73.0" \
-      "pino@^9.5.0" \
-      "pino-pretty@^13.0.0" \
-      "zod@^3.23.8" && \
-    npm install --save-dev \
-      "@types/bcryptjs@^2.4.6" \
-      "@types/cors@^2.8.17" \
-      "@types/express@^5.0.0" \
-      "@types/jsonwebtoken@^9.0.7" \
-      "@types/node@^22.0.0" \
-      "prisma@^6" \
-      "typescript@^5.7.0"
+    # Exact versions: these are the ones the QA run tested. Bump deliberately, then re-run the QA suite.
+    npm install --save-exact \
+      "@prisma/client@6.19.3" \
+      "bcryptjs@2.4.3" \
+      "cors@2.8.6" \
+      "express@4.22.3" \
+      "helmet@8.3.0" \
+      "ioredis@5.11.1" \
+      "jsonwebtoken@9.0.3" \
+      "openai@4.104.0" \
+      "pino@9.14.0" \
+      "pino-pretty@13.2.0" \
+      "zod@3.25.76" && \
+    npm install --save-dev --save-exact \
+      "@types/bcryptjs@2.4.6" \
+      "@types/cors@2.8.19" \
+      "@types/express@5.0.6" \
+      "@types/jsonwebtoken@9.0.10" \
+      "@types/node@22.20.5" \
+      "prisma@6.19.3" \
+      "typescript@5.9.3"
 
 # Copy schema and generate Prisma client while network is still available
 COPY backend/prisma/ ./prisma/

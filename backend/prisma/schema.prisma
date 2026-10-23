@@ -37,6 +37,9 @@ model Question {
   questionType String    @default("mcq_single")
   generatedAt  DateTime  @default(now())
   validatedAt  DateTime?
+  // True for questions generated for mock exams. Practice and the question bank never serve these,
+  // so a live mock's answers cannot be looked up through practice.
+  mockOnly     Boolean   @default(false)
 
   attempts          StudentAttempt[]
   mockExamQuestions MockExamQuestion[]

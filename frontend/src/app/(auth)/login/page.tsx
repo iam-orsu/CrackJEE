@@ -26,8 +26,8 @@ export default function LoginPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      const { token, user } = await api.auth.login(form);
-      setSession(token, user);
+      const { user, expiresAt } = await api.auth.login(form);
+      setSession(user, expiresAt);
       router.push('/dashboard');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Login failed');
@@ -46,7 +46,7 @@ export default function LoginPage() {
           <div className="auth-brand-eyebrow">Deep Tech-powered JEE & NEET preparation</div>
           <p className="auth-brand-tagline">Stop guessing.<br />Start knowing.</p>
           <p className="auth-brand-sub">
-            Every session brings fresh questions crafted by our Deep Tech engine, tracks your weak spots,
+            Every session brings questions for your chosen topics, tracks your weak spots,
             and builds your mastery across Physics, Chemistry and Mathematics.
           </p>
 
@@ -59,7 +59,7 @@ export default function LoginPage() {
               </span>
               <div>
                 <p className="auth-feature-title">Fresh questions every time</p>
-                <p className="auth-feature-desc">DeepSeek generates unique JEE-style problems per session</p>
+                <p className="auth-feature-desc">Questions are served from the bank or generated for your topics</p>
               </div>
             </div>
             <div className="auth-feature-item">

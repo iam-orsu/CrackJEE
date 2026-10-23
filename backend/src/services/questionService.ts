@@ -140,6 +140,7 @@ export async function getPracticeQuestion(
     ...(forceType ? { questionType: forceType } : {}),
     id: { notIn: [...allExcluded] },
     validatedAt: { not: null },
+    mockOnly: false,
   };
 
   // Pick a random unseen question. The IDs for this topic/difficulty are cached in Redis for 10 minutes,
@@ -149,6 +150,7 @@ export async function getPracticeQuestion(
   let ids = await cacheGetJson<string[]>(idKey);
   if (!ids) {
     const rows = await prisma.question.findMany({ where: { ...where, id: undefined }, select: { id: true } });
+    // Bank id lists are cached for 10 minutes; they never include mock-only questions (see `where`)
     ids = rows.map((r) => r.id);
     await cacheSetJson(idKey, ids, 600);
   }
@@ -170,6 +172,7 @@ export async function getPracticeQuestion(
         examType: bankExamType,
         ...(forceType ? { questionType: forceType } : {}),
         validatedAt: { not: null },
+        mockOnly: false,
       },
       take: poolSize,
     });
@@ -183,6 +186,7 @@ export async function getPracticeQuestion(
         subject,
         examType: bankExamType,
         validatedAt: { not: null },
+        mockOnly: false,
       },
       take: poolSize,
     });
@@ -195,6 +199,7 @@ export async function getPracticeQuestion(
         topic,
         subject,
         validatedAt: { not: null },
+        mockOnly: false,
       },
       take: poolSize,
     });
@@ -234,7 +239,7 @@ export async function getPracticeQuestionBatch(
   const bankExamType = examType === 'NEET' ? 'NEET' : examType === 'Advanced' ? 'Advanced' : 'Main';
   for (const [subject, topics] of subjectGroups) {
     const rows = await prisma.question.findMany({
-      where: { subject, examType: bankExamType, validatedAt: { not: null }, topic: { in: topics } },
+      where: { subject, examType: bankExamType, validatedAt: { not: null }, mockOnly: false, topic: { in: topics } },
       select: { topic: true },
       distinct: ['topic'],
     });
@@ -350,6 +355,15 @@ export async function getPracticeQuestionBatch(
 
 const BATCH_SIZE = 3;
 
+// Practice/AI pool cache key. The "qp2" prefix replaces the old "q:" keys, which may hold mock questions
+// written before mockOnly existed; the old entries are simply never read again and expire on their own.
+function poolCacheKey(
+  subject: Subject, topic: string, difficulty: Difficulty, examType: ExamType,
+  studentClass: StudentClass, questionType: QuestionType,
+): string {
+  return `qp2:${subject}:${topic}:${difficulty}:${examType}:${studentClass}:${questionType}`;
+}
+
 /**
  * Prepares generated questions for storage. The second-model (OpenAI) check was removed because it
  * rejected nearly every DeepSeek question and its verdicts were not reliable. Questions still pass the
@@ -383,7 +397,7 @@ async function generateAndPersist(
     throw new Error('DeepSeek returned no usable questions');
   }
 
-  const cacheKey = `q:${subject}:${topic}:${difficulty}:${examType}:${studentClass}:${questionType}`;
+  const cacheKey = poolCacheKey(subject, topic, difficulty, examType, studentClass, questionType);
 
   // Store all surviving questions in a single transaction
   const createdQuestions = await prisma.$transaction(
@@ -422,7 +436,7 @@ export async function getNextQuestion(
   forceType?: QuestionType,
 ): Promise<Question> {
   const questionType = forceType ?? pickQuestionType(examType);
-  const cacheKey = `q:${subject}:${topic}:${difficulty}:${examType}:${studentClass}:${questionType}`;
+  const cacheKey = poolCacheKey(subject, topic, difficulty, examType, studentClass, questionType);
   const servedKey = `served:${userId}:${subject}:${topic}:${questionType}`;
   const servedIds = (await cacheGetJson<string[]>(servedKey)) ?? [];
   const allExcluded = new Set([...servedIds, ...batchExcludeIds]);
@@ -438,7 +452,8 @@ export async function getNextQuestion(
     }
   }
 
-  const candidates = await prisma.question.findMany({
+  // Pick uniformly from every unserved bank id (not just the first rows the database returns)
+  const candidateIds = await prisma.question.findMany({
     where: {
       topic,
       subject,
@@ -447,14 +462,18 @@ export async function getNextQuestion(
       questionType,
       id: { notIn: [...allExcluded] },
       validatedAt: { not: null },
+      mockOnly: false,
     },
-    take: 10,
+    select: { id: true },
   });
-  if (candidates.length > 0) {
-    const existing = candidates[Math.floor(Math.random() * candidates.length)]!;
-    await cacheAppendUnique(servedKey, [existing.id], 86400 * 7);
-    incCounter('question_source_total', { source: 'bank' });
-    return existing;
+  if (candidateIds.length > 0) {
+    const pickedId = candidateIds[Math.floor(Math.random() * candidateIds.length)]!.id;
+    const existing = await prisma.question.findUnique({ where: { id: pickedId } });
+    if (existing) {
+      await cacheAppendUnique(servedKey, [existing.id], 86400 * 7);
+      incCounter('question_source_total', { source: 'bank' });
+      return existing;
+    }
   }
 
   // One generation per bank key across all instances. Other callers wait for the new question to appear
@@ -469,6 +488,7 @@ export async function getNextQuestion(
           topic, subject, difficulty, examType, questionType,
           id: { notIn: [...allExcluded] },
           validatedAt: { not: null },
+          mockOnly: false,
         },
       }),
       produce: () => generateAndPersist(subject, topic, difficulty, examType, studentClass, questionType, pool),
@@ -613,55 +633,47 @@ export async function generateFreshMockBatch(
       const [, groupSlots] = groupEntries[idx]!;
       const { subject, topic, difficulty, examType, questionType } = groupSlots[0]!;
       const needed = groupSlots.length;
-      const cacheKey = `q:${subject}:${topic}:${difficulty}:${examType}:Dropper:${questionType}`;
 
       const generated: Question[] = [];
-      // One DeepSeek batch call per ceil(needed / BATCH_SIZE) iterations
+      // One DeepSeek batch call per ceil(needed / BATCH_SIZE) iterations. generateQuestionBatch already
+      // retries 3 times, so each batch gets exactly one attempt here (no nested retry multiplying calls).
       for (let b = 0; b < Math.ceil(needed / BATCH_SIZE); b++) {
-        // Retry once on transient failures so slots don't silently go unfulfilled
-        for (let attempt = 0; attempt < 2; attempt++) {
-          try {
-            const batch = await generateQuestionBatch(
-              BATCH_SIZE, subject, topic, difficulty, examType, 'Dropper', questionType,
-            ).catch(async () => {
-              const s = await generateQuestion(subject, topic, difficulty, examType, 'Dropper', questionType);
-              return [s];
-            });
+        try {
+          const batch = await generateQuestionBatch(
+            BATCH_SIZE, subject, topic, difficulty, examType, 'Dropper', questionType,
+          ).catch(async () => {
+            const s = await generateQuestion(subject, topic, difficulty, examType, 'Dropper', questionType);
+            return [s];
+          });
 
-            const kept = prepareForStorage(batch);
-            if (kept.length === 0) throw new Error('DeepSeek returned no usable questions');
+          const kept = prepareForStorage(batch);
+          if (kept.length === 0) throw new Error('DeepSeek returned no usable questions');
 
-            const created = await prisma.$transaction(
-              kept.map(({ question: q, validatedAt }) =>
-                prisma.question.create({
-                  data: {
-                    topic, subject,
-                    questionText: q.question,
-                    options: q.options,
-                    answer: q.correct_answer,
-                    explanation: q.answer_explanation,
-                    diagram: q.diagram ? JSON.parse(JSON.stringify(q.diagram)) : undefined,
-                    difficulty, examType, questionType,
-                    validatedAt,
-                  },
-                }),
-              ),
-            );
-            generated.push(...created);
-            break; // success — don't retry
-          } catch {
-            // retry once; if second attempt also fails the slot goes unfulfilled
-          }
+          const created = await prisma.$transaction(
+            kept.map(({ question: q, validatedAt }) =>
+              prisma.question.create({
+                data: {
+                  topic, subject,
+                  questionText: q.question,
+                  options: q.options,
+                  answer: q.correct_answer,
+                  explanation: q.answer_explanation,
+                  diagram: q.diagram ? JSON.parse(JSON.stringify(q.diagram)) : undefined,
+                  difficulty, examType, questionType,
+                  validatedAt,
+                  // Mock questions stay out of practice and the bank (see getPracticeQuestion, getNextQuestion)
+                  mockOnly: true,
+                },
+              }),
+            ),
+          );
+          generated.push(...created);
+        } catch {
+          // this batch's slots go unfulfilled; the rest of the group still runs
         }
       }
 
-      // Update practice cache so practice sessions also benefit
-      if (generated.length > 0) {
-        const existing = (await cacheGetJson<Question[]>(cacheKey)) ?? [];
-        await cacheSetJson(cacheKey, [...existing, ...generated].slice(-MAX_POOL_SIZE), 3600 * 24);
-      }
-
-      // Only add up to `needed` questions to the pool — extras stay in practice cache only
+      // Only add up to `needed` questions to the pool
       let added = 0;
       for (const q of generated) {
         if (added >= needed) break;

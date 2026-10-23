@@ -2,16 +2,15 @@
 
 import type { User } from '@/types';
 
-const TOKEN_KEY = 'jee_token';
+/*
+ * The session token lives in an HttpOnly cookie set by the server. Scripts cannot read it, so it is not stored here.
+ * This module keeps only what the page needs: the signed-in user and when the cookie expires.
+ * A request the server rejects with 401 ends the session (see api.ts), so a stale local copy cannot hide that.
+ */
 const USER_KEY = 'jee_user';
-
-export function getToken(): string | null {
-  try {
-    return localStorage.getItem(TOKEN_KEY);
-  } catch {
-    return null;
-  }
-}
+const EXPIRES_KEY = 'jee_session_expires';
+// Earlier builds kept the token here. Remove it so it is never left behind.
+const LEGACY_TOKEN_KEY = 'jee_token';
 
 export function getUser(): User | null {
   try {
@@ -22,60 +21,60 @@ export function getUser(): User | null {
   }
 }
 
-export function setSession(token: string, user: User): void {
+export function setSession(user: User, expiresAt: string): void {
   try {
-    localStorage.setItem(TOKEN_KEY, token);
+    localStorage.removeItem(LEGACY_TOKEN_KEY);
     localStorage.setItem(USER_KEY, JSON.stringify(user));
+    localStorage.setItem(EXPIRES_KEY, expiresAt);
   } catch {
-    // Storage blocked (private mode)
+    // Storage blocked (private mode): the cookie still works, pages just cannot show the user
   }
 }
 
-export function clearSession(): void {
+export function setSessionExpiry(expiresAt: string): void {
   try {
-    localStorage.removeItem(TOKEN_KEY);
-    localStorage.removeItem(USER_KEY);
+    localStorage.setItem(EXPIRES_KEY, expiresAt);
   } catch {
     // Storage blocked
   }
 }
 
-function decodeJwtExp(token: string): number | null {
+export function clearSession(): void {
   try {
-    const b64 = token.split('.')[1]!.replace(/-/g, '+').replace(/_/g, '/');
-    const payload = JSON.parse(atob(b64)) as { exp?: number };
-    return payload.exp ?? null;
+    localStorage.removeItem(LEGACY_TOKEN_KEY);
+    localStorage.removeItem(USER_KEY);
+    localStorage.removeItem(EXPIRES_KEY);
+  } catch {
+    // Storage blocked
+  }
+}
+
+function expiryTime(): number | null {
+  try {
+    const raw = localStorage.getItem(EXPIRES_KEY);
+    if (!raw) return null;
+    const t = Date.parse(raw);
+    return Number.isNaN(t) ? null : t;
   } catch {
     return null;
   }
 }
 
 export function isAuthenticated(): boolean {
-  const token = getToken();
-  if (!token) return false;
-  const exp = decodeJwtExp(token);
-  if (exp && exp * 1000 < Date.now()) {
+  // Sessions from older builds have no expiry time, so they are treated as signed out and must sign in again
+  const exp = expiryTime();
+  if (exp === null || exp <= Date.now()) {
     clearSession();
     return false;
   }
-  return true;
+  return getUser() !== null;
 }
 
+/** True when the session is within an hour of expiring, so the page should renew it. */
 export function shouldRefresh(): boolean {
-  const token = getToken();
-  if (!token) return false;
-  const exp = decodeJwtExp(token);
-  if (!exp) return false;
+  const exp = expiryTime();
+  if (exp === null) return false;
   const now = Date.now();
-  if (exp * 1000 <= now) return false;
-  // Refresh if token expires within 60 minutes
-  return exp * 1000 < now + 60 * 60 * 1000;
-}
-
-export function setToken(token: string): void {
-  try {
-    localStorage.setItem(TOKEN_KEY, token);
-  } catch {
-    // Storage blocked
-  }
+  if (exp <= now) return false;
+  return exp < now + 60 * 60 * 1000;
 }

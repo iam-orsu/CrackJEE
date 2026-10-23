@@ -9,6 +9,10 @@ export const NEET_SUBJECTS: Subject[] = ['Physics', 'Chemistry', 'Botany', 'Zool
 
 export interface AuthPayload {
   userId: string;
+  // Unique token id: lets logout revoke this exact token
+  jti?: string;
+  // When the login session began (ms since epoch); refreshes keep it so sessions have a hard maximum
+  sessionStart?: number;
 }
 
 export interface AuthRequest extends Request {

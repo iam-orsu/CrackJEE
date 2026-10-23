@@ -135,7 +135,9 @@ export default function DashboardPage() {
   const hasActivity = totalAttempts > 0;
   const isFreshUser = !loading && totalAttempts === 0 && mockWeakTopics.length === 0;
 
-  const SUBJECTS = ['Physics', 'Chemistry', 'Mathematics'] as const;
+  const SUBJECTS: readonly string[] = user?.targetExam === 'NEET'
+    ? ['Physics', 'Chemistry', 'Botany', 'Zoology']
+    : ['Physics', 'Chemistry', 'Mathematics'];
   const subjectRows = SUBJECTS.map((subject) => ({
     subject,
     stat: data?.subjectAccuracy.find((x) => x.subject === subject),

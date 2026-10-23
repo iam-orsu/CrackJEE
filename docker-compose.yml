@@ -34,8 +34,10 @@ services:
 
   redis:
     image: redis:7-alpine
-    # maxmemory is 512 MB; mem_limit leaves headroom for Redis's own overhead and the AOF rewrite
-    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru --requirepass ${REDIS_PASSWORD:?REDIS_PASSWORD must be set}
+    # maxmemory is 512 MB; mem_limit leaves headroom for Redis's own overhead and the AOF rewrite.
+    # noeviction: Redis never silently drops served lists, locks or rate counters. When it is full, writes fail
+    # and the app degrades (fail-open limits, cache misses) instead of losing state that correctness depends on.
+    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy noeviction --requirepass ${REDIS_PASSWORD:?REDIS_PASSWORD must be set}
     environment:
       REDISCLI_AUTH: ${REDIS_PASSWORD}
     mem_limit: 640m
@@ -60,7 +62,7 @@ services:
       NODE_ENV: production
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/jeedb?connection_limit=${DB_CONNECTION_LIMIT:-10}&pool_timeout=20
     volumes:
-      - ./data:/app/data:rw
+      - ./data:/app/data:ro
     mem_limit: 768m
     depends_on:
       postgres:
@@ -85,7 +87,8 @@ services:
       DEEPSEEK_CONCURRENCY: ${DEEPSEEK_CONCURRENCY:-6}
       DB_FANOUT_CONCURRENCY: ${DB_FANOUT_CONCURRENCY:-5}
     volumes:
-      - ./data:/app/data:rw
+      # Read-only: the running server never writes the question banks (mock questions live in the database)
+      - ./data:/app/data:ro
     # Two instances share the load. Rate limits, locks and caches live in Redis, so they hold across instances.
     deploy:
       replicas: ${BACKEND_REPLICAS:-2}

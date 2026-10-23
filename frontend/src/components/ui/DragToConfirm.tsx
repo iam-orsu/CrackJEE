@@ -20,6 +20,9 @@ export function DragToConfirm({ onConfirm, label = 'Drag to submit exam', disabl
 
   // offset from thumb's left edge to pointer when drag started
   const dragOffsetRef = useRef(0);
+  // Delay before onConfirm, cleared if the control unmounts first
+  const confirmTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => { if (confirmTimerRef.current) clearTimeout(confirmTimerRef.current); }, []);
 
   useEffect(() => {
     const update = () => {
@@ -56,7 +59,7 @@ export function DragToConfirm({ onConfirm, label = 'Drag to submit exam', disabl
     if (progress >= 0.85) {
       setConfirmed(true);
       setProgress(1);
-      setTimeout(onConfirm, 320);
+      confirmTimerRef.current = setTimeout(onConfirm, 320);
     } else {
       setProgress(0);
     }

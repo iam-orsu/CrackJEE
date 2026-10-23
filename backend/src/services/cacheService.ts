@@ -59,26 +59,32 @@ export async function cacheSetJson(key: string, value: unknown, ttlSeconds = 360
 // Reads the JSON array at `key`, appends any values not already present, and writes it back
 // in one Redis script. Atomic, so concurrent requests cannot overwrite each other's additions.
 // The stored format stays a plain JSON array, so existing readers keep working.
+// ARGV[1] = ttl seconds, ARGV[2] = max list length, ARGV[3..] = values to add.
+// Oldest entries are dropped once the list is longer than the cap, so served lists stay bounded.
 const APPEND_UNIQUE_LUA = `
 local cur = redis.call('GET', KEYS[1])
 local list = {}
 if cur then list = cjson.decode(cur) end
 local seen = {}
 for _, v in ipairs(list) do seen[v] = true end
-for i = 2, #ARGV do
+for i = 3, #ARGV do
   if not seen[ARGV[i]] then
     seen[ARGV[i]] = true
     table.insert(list, ARGV[i])
   end
 end
+local maxLen = tonumber(ARGV[2])
+while #list > maxLen do table.remove(list, 1) end
 redis.call('SET', KEYS[1], cjson.encode(list), 'EX', ARGV[1])
 return #list
 `;
 
+const APPEND_MAX_LIST_LENGTH = 2000;
+
 export async function cacheAppendUnique(key: string, values: string[], ttlSeconds: number): Promise<void> {
   if (values.length === 0) return;
   try {
-    await getClient().eval(APPEND_UNIQUE_LUA, 1, key, String(ttlSeconds), ...values);
+    await getClient().eval(APPEND_UNIQUE_LUA, 1, key, String(ttlSeconds), String(APPEND_MAX_LIST_LENGTH), ...values);
   } catch {
     // Non-fatal, same as the other cache helpers
   }

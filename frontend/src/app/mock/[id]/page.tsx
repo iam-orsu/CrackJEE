@@ -63,6 +63,14 @@ export default function MockExamPage() {
   const [errorMsg, setErrorMsg] = useState('');
   const submittingRef = useRef(false);
 
+  // Latest state for handlers that run outside a render (the timer interval and auto-submit)
+  const stateRef = useRef({ exam: null as MockExam | null, currentIdx: 0, draft: '' });
+  stateRef.current = { exam, currentIdx, draft };
+  // Answer saves go out one at a time, in order, so the last choice the student made is the one stored
+  const saveChainRef = useRef<Promise<void>>(Promise.resolve());
+  const pollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => { if (pollTimerRef.current) clearTimeout(pollTimerRef.current); }, []);
+
   /* ── Load exam ── */
   useEffect(() => {
     if (!isAuthenticated()) { router.replace('/login'); return; }
@@ -103,13 +111,13 @@ export default function MockExamPage() {
       attempt++;
       try {
         const data = await api.mock.get(examId);
-        if (data.status === 'generating') { setTimeout(poll, 3000); return; }
+        if (data.status === 'generating') { pollTimerRef.current = setTimeout(poll, 3000); return; }
         if (data.status === 'error') { setPageStatus('error'); setLoadMsg('Exam generation failed.'); return; }
         // A finished exam belongs on its result page; the exam screen would show a timer and answers that can't be saved
         if (data.status === 'submitted') { router.replace(`/mock/${examId}/result`); return; }
         await initializeExam(data);
       } catch {
-        setTimeout(poll, 4000);
+        pollTimerRef.current = setTimeout(poll, 4000);
       }
     };
     poll();
@@ -170,8 +178,9 @@ export default function MockExamPage() {
   const currentQ = exam?.questions[currentIdx] ?? null;
 
   function flushCurrentQuestionTime() {
-    if (!exam) return;
-    const prev = exam.questions[currentIdx];
+    const { exam: ex, currentIdx: idx } = stateRef.current;
+    if (!ex) return;
+    const prev = ex.questions[idx];
     if (prev && questionEnteredAtRef.current !== null) {
       const elapsed = Math.floor((Date.now() - questionEnteredAtRef.current) / 1000);
       const mqId = prev.mockQuestionId;
@@ -192,20 +201,26 @@ export default function MockExamPage() {
   }
 
   /* ── Answer actions ── */
+
+  /* Store one question's answer, locally and on the server. Every choice is saved as it is made, so moving
+     between questions, the palette, or auto-submit can never drop it. Saves are queued, so they arrive in order. */
+  function persistAnswer(mqId: string, value: string, markedForReview?: boolean) {
+    setAnswers((p) => {
+      const n = { ...p };
+      if (value) n[mqId] = value; else delete n[mqId];
+      return n;
+    });
+    saveChainRef.current = saveChainRef.current
+      .then(() => api.mock.saveAnswer(examId, { mockQuestionId: mqId, answer: value, markedForReview }))
+      .then(() => undefined, () => undefined);
+  }
+
   function saveAndNext(doMark?: boolean) {
     if (!currentQ) return;
     const mqId = currentQ.mockQuestionId;
 
-    // Update local state immediately
-    setAnswers((p) => draft ? { ...p, [mqId]: draft } : { ...p, [mqId]: p[mqId] ?? '' });
     if (doMark !== undefined) setMarked((p) => ({ ...p, [mqId]: doMark }));
-
-    // Persist to server (fire and forget)
-    api.mock.saveAnswer(examId, {
-      mockQuestionId: mqId,
-      answer: draft,
-      markedForReview: doMark,
-    }).catch(() => {});
+    persistAnswer(mqId, draft, doMark);
 
     // Move to next question
     if (currentIdx < (exam?.questions.length ?? 0) - 1) {
@@ -218,13 +233,7 @@ export default function MockExamPage() {
     const mqId = currentQ.mockQuestionId;
 
     setMarked((p) => ({ ...p, [mqId]: true }));
-    if (draft) setAnswers((p) => ({ ...p, [mqId]: draft }));
-
-    api.mock.saveAnswer(examId, {
-      mockQuestionId: mqId,
-      answer: draft,
-      markedForReview: true,
-    }).catch(() => {});
+    persistAnswer(mqId, draft, true);
 
     if (currentIdx < (exam?.questions.length ?? 0) - 1) {
       goTo(currentIdx + 1);
@@ -235,8 +244,7 @@ export default function MockExamPage() {
     if (!currentQ) return;
     const mqId = currentQ.mockQuestionId;
     setDraft('');
-    setAnswers((p) => { const n = { ...p }; delete n[mqId]; return n; });
-    api.mock.saveAnswer(examId, { mockQuestionId: mqId, answer: '' }).catch(() => {});
+    persistAnswer(mqId, '');
   }
 
   /* ── Submit ── */
@@ -247,9 +255,14 @@ export default function MockExamPage() {
     if (timerRef.current) clearInterval(timerRef.current);
     // Flush time for current question before submitting
     flushCurrentQuestionTime();
+    // Store the question on screen (e.g. an integer typed but not yet blurred) before the exam closes
+    const cur = stateRef.current;
+    const curQ = cur.exam?.questions[cur.currentIdx];
+    if (curQ) persistAnswer(curQ.mockQuestionId, cur.draft);
     setPageStatus('submitting');
     setShowSubmitModal(false);
     try {
+      await saveChainRef.current;
       await api.mock.submit(examId, questionTimesRef.current);
       router.push(`/mock/${examId}/result`);
     } catch (e) {
@@ -265,7 +278,9 @@ export default function MockExamPage() {
     const idx = parts.indexOf(letter);
     if (idx >= 0) parts.splice(idx, 1); else parts.push(letter);
     parts.sort();
-    setDraft(parts.join(','));
+    const next = parts.join(',');
+    setDraft(next);
+    if (currentQ) persistAnswer(currentQ.mockQuestionId, next);
   }
 
   /* ── Loading / polling screen ── */
@@ -326,16 +341,15 @@ export default function MockExamPage() {
       {/* ── Top bar ── */}
       <div style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        background: '#1e293b', color: '#fff', padding: '0 20px', height: 52, flexShrink: 0,
-        borderBottom: '2px solid #0f172a',
+        background: '#fff', color: '#1e293b', padding: '0 20px', height: 52, flexShrink: 0,
+        borderBottom: '1px solid #e2e8f0',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          {/* White chip so the navy logo stays readable on the dark bar */}
-          <span style={{ display: 'inline-flex', background: '#fff', borderRadius: 6, padding: '4px 10px' }}>
+          <span style={{ display: 'inline-flex' }}>
             <img src="/logo.png" alt="JEENEET.ai" className="site-logo" />
           </span>
-          <span style={{ width: 1, height: 20, background: '#475569' }} />
-          <span style={{ fontSize: 14, color: '#94a3b8' }}>
+          <span style={{ width: 1, height: 20, background: '#e2e8f0' }} />
+          <span style={{ fontSize: 14, color: '#64748b' }}>
             {exam.examType === 'NEET' ? 'NEET UG Mock Test' : `JEE ${exam.examType} Mock Test`}
           </span>
         </div>
@@ -353,7 +367,7 @@ export default function MockExamPage() {
         <button
           onClick={() => handleSubmit(false)}
           style={{
-            background: '#fff', color: '#1e293b', border: 'none',
+            background: '#fff', color: '#1e293b', border: '1px solid #cbd5e1',
             padding: '7px 20px', borderRadius: 5, fontSize: 13, fontWeight: 700, cursor: 'pointer',
           }}
         >
@@ -442,7 +456,11 @@ export default function MockExamPage() {
                     outline: 'none', color: '#1e293b',
                   }}
                   onFocus={(e) => (e.target.style.borderColor = '#1e293b')}
-                  onBlur={(e) => (e.target.style.borderColor = '#cbd5e1')}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = '#cbd5e1';
+                    // Save what was typed once the field is left; Save & Next, navigation and submit also save it
+                    persistAnswer(currentQ.mockQuestionId, e.target.value);
+                  }}
                 />
               </div>
             ) : (
@@ -459,8 +477,13 @@ export default function MockExamPage() {
                     <button
                       key={letter}
                       onClick={() => {
-                        if (qt === 'mcq_single') setDraft(isSelected ? '' : letter);
-                        else toggleMulti(letter);
+                        if (qt === 'mcq_single') {
+                          const next = isSelected ? '' : letter;
+                          setDraft(next);
+                          persistAnswer(currentQ.mockQuestionId, next);
+                        } else {
+                          toggleMulti(letter);
+                        }
                       }}
                       style={{
                         display: 'flex', alignItems: 'flex-start', gap: 14, padding: '12px 16px',

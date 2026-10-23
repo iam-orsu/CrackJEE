@@ -5,11 +5,41 @@ import { JEE_TOPICS_BY_CLASS, NEET_TOPICS_BY_CLASS, NEET_SUBJECTS } from '../typ
 import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
 import { generateFreshMockBatch, distributeTopicSlots, fisherYatesShuffle } from '../services/questionService';
-import { getSharedPool, setSharedPool, appendQuestionsToMasterJson } from '../services/mockPoolService';
+import { getSharedPool, setSharedPool } from '../services/mockPoolService';
 import { cacheSetNx, cacheDel } from '../services/cacheService';
 import { runOnce } from '../lib/distributedOnce';
+import { logger } from '../lib/logger';
 import type { MockPoolItem } from '../services/mockPoolService';
 import { scoreQuestion, getMaxMarkPerQuestion } from '../services/scoringService';
+
+// Allowance for network latency: answers saved this long after the deadline still count
+const ANSWER_GRACE_MS = 15_000;
+// A generation still "generating" after this long is dead (its process crashed or was stopped)
+export const STUCK_GENERATION_MS = 20 * 60 * 1000;
+
+/** True once the exam's time (plus grace) is up. Answers saved after this are rejected. */
+export function isExamExpired(
+  startedAt: Date | null,
+  durationSeconds: number,
+  now: number = Date.now(),
+  graceMs: number = ANSWER_GRACE_MS,
+): boolean {
+  if (!startedAt) return false;
+  return now > startedAt.getTime() + durationSeconds * 1000 + graceMs;
+}
+
+// Background generations started by this process. Shutdown waits for them instead of killing them.
+const activeGenerations = new Set<Promise<void>>();
+
+/** Resolves when every background generation started by this process has finished (or the timeout hits). */
+export async function waitForActiveGenerations(timeoutMs: number): Promise<void> {
+  if (activeGenerations.size === 0) return;
+  logger.info({ count: activeGenerations.size }, 'Waiting for mock generations to finish');
+  await Promise.race([
+    Promise.allSettled([...activeGenerations]),
+    new Promise((resolve) => setTimeout(resolve, timeoutMs)),
+  ]);
+}
 
 const startSchema = z.object({
   examType: z.enum(['Main', 'Advanced', 'NEET']),
@@ -176,7 +206,7 @@ async function generateAndSavePool(
   }
 
   if (topUpSlots.length > 0) {
-    console.log(`[mockPool] Top-up: generating ${topUpSlots.length} extra slots for short subjects`);
+    logger.info({ slots: topUpSlots.length }, '[mockPool] Top-up: generating extra slots for short subjects');
     const extras = await generateFreshMockBatch(topUpSlots, 4);
     questions = [...questions, ...extras];
   }
@@ -190,9 +220,6 @@ async function generateAndSavePool(
   if (saveToSharedPool && items.length >= 20) {
     await setSharedPool(examType, difficultyMode, items);
   }
-
-  // Append to master JSON in background — never block mock generation
-  appendQuestionsToMasterJson(examType, questions).catch(() => {});
 
   return items;
 }
@@ -317,7 +344,7 @@ export async function startMock(req: AuthRequest, res: Response, next: NextFunct
     const started = await withStartLock(userId, examType, async () => {
       // Fail exams stuck in 'generating' for >10 minutes (e.g. after server restart)
       await prisma.mockExam.updateMany({
-        where: { userId, status: 'generating', createdAt: { lt: new Date(Date.now() - 10 * 60 * 1000) } },
+        where: { userId, status: 'generating', createdAt: { lt: new Date(Date.now() - STUCK_GENERATION_MS) } },
         data: { status: 'error' },
       });
 
@@ -336,7 +363,9 @@ export async function startMock(req: AuthRequest, res: Response, next: NextFunct
 
     // Fire and forget — runMockGeneration handles pool hit/miss + fresh generation
     if (started.isNew) {
-      runMockGeneration(started.exam.id, userId, examType, difficultyMode).catch(() => {});
+      const job = runMockGeneration(started.exam.id, userId, examType, difficultyMode).catch(() => {});
+      activeGenerations.add(job);
+      void job.finally(() => activeGenerations.delete(job));
     }
 
     res.json({ success: true, data: { id: started.exam.id, status: started.exam.status } });
@@ -461,9 +490,14 @@ export async function saveAnswer(req: AuthRequest, res: Response, next: NextFunc
 
     const { mockQuestionId, answer, markedForReview } = body.data;
 
-    const exam = await prisma.mockExam.findUnique({ where: { id }, select: { userId: true, status: true } });
+    const exam = await prisma.mockExam.findUnique({
+      where: { id },
+      select: { userId: true, status: true, startedAt: true, durationSeconds: true },
+    });
     if (!exam || exam.userId !== userId) throw new AppError(404, 'Exam not found');
     if (exam.status !== 'in_progress') throw new AppError(400, 'Exam not in progress');
+    // The server enforces the clock: the client timer is only a display
+    if (isExamExpired(exam.startedAt, exam.durationSeconds)) throw new AppError(400, 'Time is up. Answers can no longer be changed.');
 
     const updated = await prisma.mockExamQuestion.updateMany({
       where: { id: mockQuestionId, examId: id },
@@ -539,25 +573,40 @@ export async function submitMock(req: AuthRequest, res: Response, next: NextFunc
 
     const totalScore = physicsScore + chemistryScore + mathScore + biologyScore;
     const timeTaken = exam.startedAt
-      ? Math.floor((Date.now() - exam.startedAt.getTime()) / 1000)
+      ? Math.min(Math.floor((Date.now() - exam.startedAt.getTime()) / 1000), exam.durationSeconds)
       : exam.durationSeconds;
 
-    const [result] = await prisma.$transaction([
-      prisma.mockExamResult.create({
-        data: {
-          examId: id, totalScore, maxScore,
-          physicsScore, chemistryScore, mathScore, biologyScore,
-          correct, partial, incorrect, unattempted, timeTaken,
-          scoreBreakdown: breakdown,
-        },
-      }),
-      prisma.mockExam.update({
-        where: { id },
-        data: { status: 'submitted', submittedAt: new Date() },
-      }),
-    ]);
+    let resultId: string;
+    try {
+      const [result] = await prisma.$transaction([
+        prisma.mockExamResult.create({
+          data: {
+            examId: id, totalScore, maxScore,
+            physicsScore, chemistryScore, mathScore, biologyScore,
+            correct, partial, incorrect, unattempted, timeTaken,
+            scoreBreakdown: breakdown,
+          },
+        }),
+        prisma.mockExam.update({
+          where: { id },
+          data: { status: 'submitted', submittedAt: new Date() },
+        }),
+      ]);
+      resultId = result.id;
+    } catch (err) {
+      // Two submits raced (double click, retry): the unique examId rejected the second one.
+      // Return the result the first submit created instead of an error.
+      if ((err as { code?: string }).code === 'P2002') {
+        const existing = await prisma.mockExamResult.findUnique({ where: { examId: id } });
+        if (existing) {
+          res.json({ success: true, data: { resultId: existing.id } });
+          return;
+        }
+      }
+      throw err;
+    }
 
-    res.json({ success: true, data: { resultId: result.id } });
+    res.json({ success: true, data: { resultId } });
   } catch (err) {
     next(err);
   }

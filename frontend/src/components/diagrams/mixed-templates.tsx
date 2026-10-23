@@ -1,5 +1,5 @@
 import React from 'react';
-import { Arr, latexToPlain } from './helpers';
+import { Arr, latexToPlain, safeRange } from './helpers';
 import type { CapacitorFieldParams, CoordGeometryParams, EnergyProfileParams, ProjectileMotionParams, PulleySystemParams, PvDiagramParams, WaveDiagramParams } from './types';
 
 /* ── TEMPLATE 4: Energy Profile ─────────────────────────────── */
@@ -60,8 +60,8 @@ export function EnergyProfile({ p }: { p: EnergyProfileParams }) {
 
 /* ── TEMPLATE 5: Coordinate Geometry ────────────────────────── */
 export function CoordGeometry({ p }: { p: CoordGeometryParams }) {
-  const [xMin, xMax]: [number, number] = p.x_range ?? [-5, 5];
-  const [yMin, yMax]: [number, number] = p.y_range ?? [-5, 5];
+  const [xMin, xMax] = safeRange(p.x_range, [-5, 5]);
+  const [yMin, yMax] = safeRange(p.y_range, [-5, 5]);
   const PL = 46, PR = 22, PT = 22, PB = 36;
   const VW = 360, VH = 290;
   const plotW = VW - PL - PR, plotH = VH - PT - PB;

@@ -7,6 +7,10 @@
 
 ## ⚡ LIVE STATUS & EXECUTION TRACKER (Updated October 2026)
 
+> **Source of truth:** the counts in this section are typed by hand and drifted out of step with each other. Do not trust them.
+> The real numbers come from `node data/neet/neet_compiler.js` (it prints the accepted and rejected counts) and from
+> `data/neet/registry/neet_progress.json`. Update those, not this section.
+
 Any agent or subagent that wakes up or loses conversational context **MUST read this section first**:
 
 * **Master Compiled Questions**: **4,455 / 17,940 (24.83%)** (Tracked in `data/neet/neet_master_questions.json`)

@@ -4,6 +4,11 @@ import { Prisma } from '@prisma/client';
 import { prisma } from '../lib/prisma';
 import { cacheGetJson, cacheSetJson } from '../services/cacheService';
 
+// YYYY-MM-DD of an instant in India Standard Time (UTC+5:30, no DST)
+function istDateKey(date: Date): string {
+  return new Date(date.getTime() + 330 * 60 * 1000).toISOString().slice(0, 10);
+}
+
 export async function dashboard(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
   try {
     const userId = req.user!.userId;
@@ -31,11 +36,11 @@ export async function dashboard(req: AuthRequest, res: Response, next: NextFunct
       prisma.topicProgress.findMany({ where: { userId }, take: 300 }),
     ]);
 
-    // Build weekly stats: last 7 calendar days
+    // Build weekly stats: last 7 calendar days in IST, where the students are
     const weeklyStats = Array.from({ length: 7 }, (_, i) => {
       const d = new Date(Date.now() - (6 - i) * 24 * 60 * 60 * 1000);
-      const dateStr = d.toISOString().slice(0, 10);
-      const dayAttempts = last7Days.filter((a) => a.createdAt.toISOString().startsWith(dateStr));
+      const dateStr = istDateKey(d);
+      const dayAttempts = last7Days.filter((a) => istDateKey(a.createdAt) === dateStr);
       return {
         date: dateStr,
         total: dayAttempts.length,
@@ -50,7 +55,7 @@ export async function dashboard(req: AuthRequest, res: Response, next: NextFunct
       subjectMap[p.subject].correct += p.correctCount;
       subjectMap[p.subject].total   += p.attempts;
     }
-    const ALL_SUBJECTS = ['Physics', 'Mathematics', 'Chemistry'];
+    const ALL_SUBJECTS = ['Physics', 'Mathematics', 'Chemistry', 'Botany', 'Zoology'];
     const subjectAccuracy = ALL_SUBJECTS.map((subject) => {
       const d = subjectMap[subject] ?? { correct: 0, total: 0 };
       return {

@@ -13,6 +13,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { createHash } from 'crypto';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -69,7 +70,10 @@ async function seed(filePath: string): Promise<void> {
       invalidCount++;
       continue;
     }
-    const id = (q.id && typeof q.id === 'string' && q.id.trim()) ? q.id.trim() : `gen_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`;
+    // Records without an id get a stable id derived from their content, so re-running the seed never duplicates them
+    const id = (q.id && typeof q.id === 'string' && q.id.trim())
+      ? q.id.trim()
+      : `gen_${createHash('sha256').update(`${q.subject}|${q.topic}|${q.questionText}`).digest('hex').slice(0, 24)}`;
     q.id = id;
 
     if (existingIdSet.has(id)) {

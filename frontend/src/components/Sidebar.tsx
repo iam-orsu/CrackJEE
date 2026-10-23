@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { clearSession, getUser } from '@/lib/auth';
+import { api } from '@/lib/api';
 
 const DashIcon = () => (
   <svg className="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -52,8 +53,13 @@ export function Sidebar() {
   }, [mobileOpen]);
 
   function handleLogout() {
-    clearSession();
-    router.push('/login');
+    // Revoke the token on the server first (best effort), then drop it locally either way
+    api.auth.logout()
+      .catch(() => {})
+      .finally(() => {
+        clearSession();
+        router.push('/login');
+      });
   }
 
   const isNEET = user?.targetExam === 'NEET';

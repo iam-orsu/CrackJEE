@@ -21,6 +21,17 @@ export function latexToPlain(s: string): string {
     .normalize('NFD').replace(/[̀-ͯ]/g, '');
 }
 
+/* ── Axis range from stored (LLM-generated) params ─────────── */
+// Diagram params come from the database, so they are untrusted: a range must be two finite numbers, at least
+// 2 apart and at most 40 wide. Anything else falls back to the default, so tick arrays stay small.
+export function safeRange(r: unknown, fallback: [number, number]): [number, number] {
+  if (!Array.isArray(r) || r.length !== 2) return fallback;
+  const a = Number(r[0]);
+  const b = Number(r[1]);
+  if (!Number.isFinite(a) || !Number.isFinite(b) || b - a < 2 || b - a > 40) return fallback;
+  return [a, b];
+}
+
 /* ── Arrow helper ──────────────────────────────────────────── */
 export function Arr({
   x1, y1, x2, y2, color = '#475569', label, lx, ly, sw,

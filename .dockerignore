@@ -1,0 +1,28 @@
+# Build context for backend/Dockerfile (context = repo root).
+# Keep out version control, secrets, host dependencies, certificates, backups and the generation workspace.
+.git
+.gitignore
+**/node_modules
+**/.next
+.env
+.env.*
+nginx/ssl
+certbot
+backups
+scratch
+**/*.log
+
+# The backend image only needs the two master banks. Chunk files, registries and generator scripts are not used at runtime.
+data/jee/mathematics
+data/jee/physics
+data/jee/chemistry
+data/jee/registry
+data/jee/*.js
+data/neet/botany
+data/neet/zoology
+data/neet/physics
+data/neet/chemistry
+data/neet/registry
+data/neet/*.js
+data/neet/*.md
+data/jee/*.md
