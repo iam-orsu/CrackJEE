@@ -2,6 +2,7 @@ import type { Subject } from '@/types';
 import { CHECK_SVG } from './shared';
 
 interface TopicStepProps {
+  intro: string;
   selectedSubjects: Set<Subject>;
   selectedTopics: Partial<Record<Subject, Set<string>>>;
   studentClass: string;
@@ -11,11 +12,11 @@ interface TopicStepProps {
 }
 
 /* Step 2: pick topics for each chosen subject */
-export function TopicStep({ selectedSubjects, selectedTopics, studentClass, getTopicsForStudent, onToggleAllTopics, onToggleTopic }: TopicStepProps) {
+export function TopicStep({ intro, selectedSubjects, selectedTopics, studentClass, getTopicsForStudent, onToggleAllTopics, onToggleTopic }: TopicStepProps) {
   return (
     <>
       <p className="wizard-section-title">Which topics?</p>
-      <p className="wizard-section-sub">Select all or pick specific ones. Questions rotate across your selection.</p>
+      <p className="wizard-section-sub">{intro}</p>
       {Array.from(selectedSubjects).map((subject) => {
         const topics = getTopicsForStudent(subject);
         const cur = selectedTopics[subject] ?? new Set<string>();

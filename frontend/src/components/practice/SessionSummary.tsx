@@ -7,13 +7,15 @@ interface SessionSummaryProps {
   examResults: Record<number, StoredResult>;
   sessionSecs: number;
   markingScheme: MarkingScheme;
+  /* Exam name for the headings, e.g. "NEET"; JEE leaves it out */
+  examTitle?: string;
   fmtTime: (secs: number) => string;
   onReview: () => void;
   onPracticeAgain: () => void;
 }
 
 /* End-of-session score card: accuracy, counts, JEE-style marks when a scheme is chosen */
-export function SessionSummary({ questions, examResults, sessionSecs, markingScheme, fmtTime, onReview, onPracticeAgain }: SessionSummaryProps) {
+export function SessionSummary({ questions, examResults, sessionSecs, markingScheme, examTitle, fmtTime, onReview, onPracticeAgain }: SessionSummaryProps) {
   const total     = questions.length;
   const correct   = Object.values(examResults).filter((r) => r.isCorrect).length;
   const attempted = Object.keys(examResults).length;
@@ -44,7 +46,7 @@ export function SessionSummary({ questions, examResults, sessionSecs, markingSch
       <div className="summary-wrap">
         <div className="summary-card">
           <div style={{ fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.07em', color: 'var(--gray-500)', marginBottom: 20 }}>
-            Session Results
+            {examTitle ? `${examTitle} Session Results` : 'Session Results'}
           </div>
           <div className="summary-score-big">{accuracy}%</div>
           <div className="summary-score-sub">accuracy · {correct} of {attempted} correct</div>
@@ -70,7 +72,9 @@ export function SessionSummary({ questions, examResults, sessionSecs, markingSch
           {markingScheme !== 'standard' && (
             <div style={{ background: 'var(--navy-50)', border: '1px solid var(--navy-100)', borderRadius: 'var(--radius-lg)', padding: '14px 20px', marginTop: 4 }}>
               <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.07em', color: 'var(--navy-600)', marginBottom: 4 }}>
-                {markingScheme === 'jee_main' ? 'JEE Main Score' : 'JEE Advanced Score (approx.)'}
+                {examTitle
+                  ? `${examTitle} Score (approx.)`
+                  : markingScheme === 'jee_main' ? 'JEE Main Score' : 'JEE Advanced Score (approx.)'}
               </p>
               <p style={{ fontSize: 30, fontWeight: 800, letterSpacing: '-.03em', lineHeight: 1.1,
                 color: jeeScore < 0 ? 'var(--red-600)' : jeeScore === 0 ? 'var(--gray-500)' : 'var(--primary)' }}>
