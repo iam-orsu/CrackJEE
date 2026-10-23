@@ -96,3 +96,18 @@ export async function cacheSetNx(key: string, ttlSeconds: number): Promise<boole
     return true;
   }
 }
+
+/**
+ * Increments a counter that expires `windowSeconds` after its first increment (fixed window).
+ * Returns the new count, or null if Redis is unavailable (callers should then allow the request).
+ */
+export async function cacheIncr(key: string, windowSeconds: number): Promise<number | null> {
+  try {
+    const client = getClient();
+    const count = await client.incr(key);
+    if (count === 1) await client.expire(key, windowSeconds);
+    return count;
+  } catch {
+    return null;
+  }
+}

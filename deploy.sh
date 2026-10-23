@@ -25,43 +25,28 @@ require_vps_ip() {
   echo "  Server address: https://$VPS_IP"
 }
 
-# ── Stop our own stack, then free ports 80 and 443 from anything else ────────
+# ── Check ports 80 and 443 are free before starting ───────────────────────────
+# Our own stack is stopped first (compose down). This never removes other containers or kills host
+# processes: if something else holds the port, it is named and the deploy stops so you can decide.
 free_port_80() {
   echo ""
-  echo "Freeing ports 80 and 443..."
+  echo "Checking ports 80 and 443..."
 
-  # 1) Containers from any compose project that publish port 80
-  local ids
-  ids=$(docker ps -q --filter "publish=80" 2>/dev/null || true)
-  if [ -n "$ids" ]; then
-    echo "  Removing containers on port 80: $ids"
-    docker rm -f $ids >/dev/null 2>&1 || true
-  fi
-
-  # 2) Host web servers that are installed as system services
-  for svc in nginx apache2 httpd caddy; do
-    if systemctl is-active --quiet "$svc" 2>/dev/null; then
-      echo "  Stopping host service: $svc"
-      systemctl stop "$svc" 2>/dev/null || true
-      systemctl disable "$svc" 2>/dev/null || true
-    fi
-  done
-
-  # 3) Any other process still listening on port 80
-  if command -v fuser >/dev/null 2>&1; then
-    fuser -k -9 80/tcp >/dev/null 2>&1 || true
-  elif command -v lsof >/dev/null 2>&1; then
-    lsof -ti :80 2>/dev/null | xargs -r kill -9 2>/dev/null || true
-  fi
-
-  sleep 2
-
-  # 4) Verify port 80 is now free
-  if ss -ltn 2>/dev/null | awk '{print $4}' | grep -qE '(:|\.)80$'; then
-    echo "ERROR: port 80 is still in use after cleanup. Check with: sudo ss -ltnp | grep ':80 '"
+  local holders
+  holders=$(docker ps --format '{{.Names}}  {{.Ports}}' 2>/dev/null | grep -E ':(80|443)->' || true)
+  if [ -n "$holders" ]; then
+    echo "ERROR: another container is using port 80 or 443:"
+    echo "$holders"
+    echo "  Stop it yourself (docker stop <name>), then run this again."
     exit 1
   fi
-  echo "  Port 80 is free."
+
+  if ss -ltn 2>/dev/null | awk '{print $4}' | grep -qE '(:|\.)(80|443)$'; then
+    echo "ERROR: port 80 or 443 is in use by a process on this machine."
+    echo "  Find it with: sudo ss -ltnp | grep -E ':(80|443) '"
+    exit 1
+  fi
+  echo "  Ports 80 and 443 are free."
 }
 
 # ── Wait until postgres is healthy ────────────────────────────────────────────
@@ -340,8 +325,40 @@ case "$ACTION" in
     docker compose --env-file "$ENV_FILE" ps
     ;;
 
+  test)
+    # Smoke test against the running stack: exits non-zero if a core flow is broken
+    bash "$(dirname "$0")/scripts/smoke.sh"
+    ;;
+
+  backup)
+    # Writes a compressed, restorable dump of the database to ./backups
+    mkdir -p backups
+    STAMP=$(date -u +%Y%m%d-%H%M%S)
+    FILE="backups/jeedb-$STAMP.sql.gz"
+    docker compose --env-file "$ENV_FILE" exec -T postgres \
+      pg_dump --clean --if-exists -U "${POSTGRES_USER:-jeeuser}" -d "${POSTGRES_DB:-jeedb}" | gzip > "$FILE"
+    echo "Backup written: $FILE ($(du -h "$FILE" | cut -f1))"
+    ;;
+
+  restore)
+    FILE=${2:-}
+    if [ -z "$FILE" ] || [ ! -f "$FILE" ]; then
+      echo "Usage: ./deploy.sh restore backups/<file>.sql.gz"
+      exit 1
+    fi
+    echo "WARNING: this replaces the current database contents with $FILE."
+    read -r -p "Are you sure? (yes/no): " confirm
+    if [ "$confirm" = "yes" ]; then
+      gunzip -c "$FILE" | docker compose --env-file "$ENV_FILE" exec -T postgres \
+        psql -U "${POSTGRES_USER:-jeeuser}" -d "${POSTGRES_DB:-jeedb}" -v ON_ERROR_STOP=1 >/dev/null
+      echo "Restore complete."
+    else
+      echo "Aborted."
+    fi
+    ;;
+
   *)
-    echo "Usage: ./deploy.sh [start|restart|stop|delete|logs|status|migrate|seed|baseline|ssl-setup|renew-ssl]"
+    echo "Usage: ./deploy.sh [start|restart|stop|delete|logs|status|migrate|seed|baseline|ssl-setup|renew-ssl|test|backup|restore]"
     echo ""
     echo "  start      - Free port 80/443, generate SSL if needed, build and start all services"
     echo "  restart    - Stop, free port 80/443, rebuild and restart all services"

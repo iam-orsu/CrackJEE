@@ -1,6 +1,7 @@
 import { prisma } from '../lib/prisma';
 import { logger } from '../lib/logger';
 import { incCounter } from '../lib/metrics';
+import { runOnce } from '../lib/distributedOnce';
 import { cacheGetJson, cacheSetJson, cacheAppendUnique } from './cacheService';
 import { generateQuestion, generateQuestionBatch } from './deepseekService';
 import type { Subject, Difficulty, ExamType, StudentClass, QuestionType, GeneratedQuestion } from '../types/index';
@@ -141,19 +142,21 @@ export async function getPracticeQuestion(
     validatedAt: { not: null },
   };
 
-  // Pick a random question: fetch a small pool then pick one randomly.
-  // Uses a single DB call — no count+findFirst race condition.
+  // Pick a random unseen question. The IDs for this topic/difficulty are cached in Redis for 10 minutes,
+  // so a batch of N slots costs one cache read per slot instead of one database query per slot.
   const poolSize = 10;
-  const randomSkip = Math.floor(Math.random() * 50); // spread across first 50 unseen rows
-  let candidates = await prisma.question.findMany({
-    where,
-    take: poolSize,
-    skip: randomSkip,
-  });
-
-  // If random offset overshot (near end of result set), fall back to offset 0
-  if (candidates.length === 0) {
-    candidates = await prisma.question.findMany({ where, take: poolSize });
+  const idKey = `bankids:${bankExamType}:${subject}:${topic}:${difficulty}:${forceType ?? 'any'}`;
+  let ids = await cacheGetJson<string[]>(idKey);
+  if (!ids) {
+    const rows = await prisma.question.findMany({ where: { ...where, id: undefined }, select: { id: true } });
+    ids = rows.map((r) => r.id);
+    await cacheSetJson(idKey, ids, 600);
+  }
+  const unseen = ids.filter((id) => !allExcluded.has(id));
+  let candidates: Question[] = [];
+  if (unseen.length > 0) {
+    const chosen = fisherYatesShuffle(unseen).slice(0, poolSize);
+    candidates = await prisma.question.findMany({ where: { id: { in: chosen } } });
   }
 
   // Fallback 1: If user has seen all questions in this topic/diff, reset served cache
@@ -454,11 +457,22 @@ export async function getNextQuestion(
     return existing;
   }
 
+  // One generation per bank key across all instances. Other callers wait for the new question to appear
+  // in the database rather than generating their own.
   let genPromise = pendingGeneration.get(cacheKey);
   if (!genPromise) {
-    genPromise = generateAndPersist(subject, topic, difficulty, examType, studentClass, questionType, pool).finally(
-      () => pendingGeneration.delete(cacheKey),
-    );
+    genPromise = runOnce<Question>(`gen:${cacheKey}`, {
+      lockSeconds: 180,
+      waitMs: 90_000,
+      readShared: () => prisma.question.findFirst({
+        where: {
+          topic, subject, difficulty, examType, questionType,
+          id: { notIn: [...allExcluded] },
+          validatedAt: { not: null },
+        },
+      }),
+      produce: () => generateAndPersist(subject, topic, difficulty, examType, studentClass, questionType, pool),
+    }).finally(() => pendingGeneration.delete(cacheKey));
     pendingGeneration.set(cacheKey, genPromise);
   }
 
