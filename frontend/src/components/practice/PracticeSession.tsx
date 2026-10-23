@@ -170,7 +170,6 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
 
     if (mode !== 'weak') return;
 
-    setWeakMode(true);
     setWeakStartLoading(true);
     api.progress.weakAreas()
       .then((areas: TopicProgress[]) => {
@@ -185,6 +184,8 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
         if (subjectTopics.size === 0) { setWeakStartLoading(false); return; }
         const topicsMap: Partial<Record<Subject, Set<string>>> = {};
         for (const [subj, topicSet] of subjectTopics) topicsMap[subj] = topicSet;
+        // Only label the session as weak-area practice when there are weak topics to pre-select
+        setWeakMode(true);
         setSelectedSubjects(new Set(subjectTopics.keys()));
         setSelectedTopics(topicsMap);
         setWeakSource('global');
