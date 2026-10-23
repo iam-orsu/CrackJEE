@@ -8,9 +8,15 @@ import { isAuthenticated, getUser } from '@/lib/auth';
 import { QuestionCard } from '@/components/QuestionCard';
 import type { Question, AnswerResult, Subject, TopicProgress, PaperSet } from '@/types';
 import type { SplitTopics } from '@/lib/api';
-import { SUBJECT_META, REVIEW_SUBJ, LOAD_MESSAGES, previewText, formatPossible, PaperCard, CHECK_SVG, SUBJECTS_FOR_PAPERS, DIFFICULTY_LABELS } from '@/components/practice/shared';
+import { LOAD_MESSAGES } from '@/components/practice/shared';
 import type { AppState, WizardStep, DiffOption, MarkingScheme, StoredResult } from '@/components/practice/shared';
 import { SessionReview } from '@/components/practice/SessionReview';
+import { WizardHero } from '@/components/practice/WizardHero';
+import { StepBar } from '@/components/practice/StepBar';
+import { SubjectStep } from '@/components/practice/SubjectStep';
+import { TopicStep } from '@/components/practice/TopicStep';
+import { PaperStep } from '@/components/practice/PaperStep';
+import { SessionSettings } from '@/components/practice/SessionSettings';
 import { SessionSummary } from '@/components/practice/SessionSummary';
 import { ExamScreen } from '@/components/practice/ExamScreen';
 
@@ -466,27 +472,6 @@ export default function PracticePage() {
      RENDER: Wizard
   ═══════════════════════════════════════════════════════ */
   if (appState === 'wizard') {
-    const subjects: Subject[] = ['Mathematics', 'Physics', 'Chemistry'];
-
-    /* ── Fake paper data for the teaser stack ─────────────── */
-    const PAPER_STACK = [
-      {
-        subject: 'Physics', left: 0, zIndex: 1,
-        opacity: 0.68, cardBlur: 2.5, rotate: '-5deg', ty: '26px',
-        q: { text: 'A block of mass m on frictionless incline at 30°. Normal reaction on block equals', opts: ['mg/2', 'mg cos30°', 'mg sin30°', 'mg'] },
-      },
-      {
-        subject: 'Mathematics', left: 112, zIndex: 3,
-        opacity: 1, cardBlur: 0, rotate: '0.5deg', ty: '0px',
-        q: { text: 'f(x) = x³ − 3x² + 2x. Number of critical points in ℝ is', opts: ['0', '1', '2', '3'] },
-      },
-      {
-        subject: 'Chemistry', left: 224, zIndex: 2,
-        opacity: 0.68, cardBlur: 2.5, rotate: '5deg', ty: '20px',
-        q: { text: 'The hybridisation of the central atom in XeF₄ is', opts: ['sp³d²', 'sp²', 'sp³', 'sp³d'] },
-      },
-    ];
-
     return (
       <div className="wizard-page">
         <div className="wizard-topbar">
@@ -497,89 +482,7 @@ export default function PracticePage() {
             <span style={{ marginLeft: 'auto', fontSize: 13, color: 'var(--red-600)' }}>{loadError}</span>
           )}
         </div>
-
-        {/* ── Paper teaser hero ──────────────────────────────── */}
-        <div className="paper-hero" style={{ background: '#fff', borderBottom: '1px solid var(--gray-200)', padding: '40px 40px 36px', flexShrink: 0 }}>
-          <div className="paper-hero-inner" style={{ maxWidth: 920, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 48 }}>
-
-            {/* Left: copy + stats */}
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', color: 'var(--gray-400)', textTransform: 'uppercase', marginBottom: 10 }}>
-                Practice Mode
-              </div>
-              <h1 style={{ fontSize: 30, fontWeight: 800, color: 'var(--gray-900)', lineHeight: 1.18, marginBottom: 12, letterSpacing: '-0.025em' }}>
-                A fresh paper<br />every session
-              </h1>
-              <p style={{ fontSize: 13, color: 'var(--gray-500)', lineHeight: 1.65, marginBottom: 28, maxWidth: 340 }}>
-                Each session draws a new set of questions from the bank across Physics, Chemistry and Mathematics. You see the answer and explanation after every question.
-              </p>
-              <div style={{ display: 'flex', gap: 28 }}>
-                {[
-                  { num: bankTotal, label: 'Questions' },
-                  { num: topicTotal !== null ? String(topicTotal) : '—', label: 'Topics' },
-                  { num: '3', label: 'Subjects' },
-                ].map(({ num, label }) => (
-                  <div key={label}>
-                    <div style={{ fontSize: 20, fontWeight: 800, color: 'var(--gray-900)', letterSpacing: '-0.02em' }}>{num}</div>
-                    <div style={{ fontSize: 10, color: 'var(--gray-400)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.07em', marginTop: 1 }}>{label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: 3 side-by-side paper cards with depth blur */}
-            <div className="paper-hero-stack" style={{ flexShrink: 0, position: 'relative', width: 400, height: 290 }}>
-              {PAPER_STACK.map((paper, i) => (
-                <div
-                  key={i}
-                  style={{
-                    position: 'absolute',
-                    left: paper.left,
-                    top: 0,
-                    width: 176,
-                    background: '#fff',
-                    border: '1px solid #e5e7eb',
-                    borderRadius: 6,
-                    padding: '11px 13px 14px',
-                    boxShadow: paper.zIndex === 3
-                      ? '0 6px 24px rgba(0,0,0,0.13)'
-                      : '0 2px 10px rgba(0,0,0,0.07)',
-                    transform: `rotate(${paper.rotate}) translateY(${paper.ty})`,
-                    zIndex: paper.zIndex,
-                    opacity: paper.opacity,
-                    filter: paper.cardBlur > 0 ? `blur(${paper.cardBlur}px)` : undefined,
-                    userSelect: 'none',
-                    pointerEvents: 'none',
-                  }}
-                >
-                  {/* Paper header */}
-                  <div style={{ fontSize: 7.5, fontWeight: 700, letterSpacing: '0.08em', color: '#9ca3af', textTransform: 'uppercase', marginBottom: 8, paddingBottom: 6, borderBottom: '1px solid #f3f4f6' }}>
-                    Practice paper &nbsp;·&nbsp; {paper.subject}
-                  </div>
-                  {/* Single question */}
-                  <div style={{ fontSize: 11, color: '#1f2937', lineHeight: 1.55, marginBottom: 10, fontWeight: 400 }}>
-                    <span style={{ fontWeight: 700, marginRight: 3 }}>Q1.</span>
-                    {paper.q.text}
-                  </div>
-                  {/* Options */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                    {paper.q.opts.map((opt, oi) => (
-                      <div key={oi} style={{
-                        fontSize: 10, color: '#4b5563',
-                        padding: '3px 7px',
-                        border: '1px solid #f3f4f6',
-                        borderRadius: 3,
-                        background: '#fafafa',
-                      }}>
-                        ({String.fromCharCode(65 + oi)}) {opt}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <WizardHero bankTotal={bankTotal} topicTotal={topicTotal} />
 
         <div className="wizard-body">
           <div className="wizard-inner">
@@ -608,221 +511,57 @@ export default function PracticePage() {
                 </button>
               </div>
             )}
-
-            <div className="wizard-step-bar">
-              {(['Subjects', 'Topics', 'Session'] as const).map((label, idx) => {
-                const stepN = (idx + 1) as WizardStep;
-                const isDone = wizardStep > stepN;
-                const isActive = wizardStep === stepN;
-                return (
-                  <div key={label} style={{ display: 'flex', alignItems: 'center', flex: idx < 2 ? 1 : undefined }}>
-                    <div className={`wizard-step-item${isActive ? ' active' : ''}${isDone ? ' done' : ''}`}>
-                      <div className="wizard-step-num">{isDone ? CHECK_SVG : stepN}</div>
-                      <span className="wizard-step-label">{label}</span>
-                    </div>
-                    {idx < 2 && <div className="wizard-step-line" />}
-                  </div>
-                );
-              })}
-            </div>
+            <StepBar wizardStep={wizardStep} />
 
             {wizardStep === 1 && (
-              <>
-                <p className="wizard-section-title">Which subjects?</p>
-                <p className="wizard-section-sub">Pick one or more. You can practice MPC together or focus on one.</p>
-                <div className="subject-cards">
-                  <div className={`subject-card${selectedSubjects.size === 3 ? ' selected' : ''}`} onClick={selectAllSubjects}>
-                    <span className="subject-card-emoji">MPC</span>
-                    <span className="subject-card-name">All Three</span>
-                    <span className="subject-card-sub">Full coverage</span>
-                  </div>
-                  {subjects.map((s) => {
-                    const t = topicsByClass?.[s];
-                    const topicCount = t ? (t.class11.length + t.class12.length) : null;
-                    const questionCount = bank?.bySubject[s];
-                    return (
-                      <div key={s} className={`subject-card${selectedSubjects.has(s) ? ' selected' : ''}`} onClick={() => toggleSubject(s)}>
-                        <span className="subject-card-emoji" style={{ fontFamily: 'serif', fontSize: 28 }}>{SUBJECT_META[s].emoji}</span>
-                        <span className="subject-card-name">{s}</span>
-                        <span className="subject-card-sub">
-                          {topicCount !== null ? `${topicCount} topics` : 'Loading...'}
-                          {questionCount !== undefined && ` · ${questionCount.toLocaleString('en-IN')} questions`}
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div style={{ marginTop: 12, fontSize: 13, color: 'var(--gray-500)' }}>
-                  {selectedSubjects.size} subject{selectedSubjects.size !== 1 ? 's' : ''} selected
-                </div>
-              </>
+              <SubjectStep
+                selectedSubjects={selectedSubjects}
+                topicsByClass={topicsByClass}
+                bank={bank}
+                onSelectAll={selectAllSubjects}
+                onToggleSubject={toggleSubject}
+              />
             )}
 
             {wizardStep === 2 && (
-              <>
-                <p className="wizard-section-title">Which topics?</p>
-                <p className="wizard-section-sub">Select all or pick specific ones. Questions rotate across your selection.</p>
-                {Array.from(selectedSubjects).map((subject) => {
-                  const topics = getTopicsForStudent(subject);
-                  const cur = selectedTopics[subject] ?? new Set<string>();
-                  const allTopics = [...topics.class11, ...topics.class12];
-                  const allSelected = cur.size === allTopics.length;
-                  return (
-                    <div key={subject} className="topic-subject-section">
-                      <div className="topic-subject-header">
-                        <span className="topic-subject-name">{subject}</span>
-                        <button className="btn btn-ghost btn-sm" onClick={() => toggleAllTopics(subject)}>
-                          {allSelected ? 'Deselect all' : 'Select all'}
-                        </button>
-                      </div>
-                      {topics.class11.length > 0 && (
-                        <div className="topic-class-group">
-                          {studentClass !== '11' && <p className="topic-class-label">Class 11</p>}
-                          <div className="wizard-topic-grid">
-                            {topics.class11.map((t) => (
-                              <button key={t} className={`topic-chip${cur.has(t) ? ' selected' : ''}`} onClick={() => toggleTopic(subject, t)}>
-                                <span className="topic-chip-check">{cur.has(t) && CHECK_SVG}</span>
-                                {t}
-                              </button>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                      {topics.class12.length > 0 && (
-                        <div className="topic-class-group" style={{ marginTop: 10 }}>
-                          <p className="topic-class-label">Class 12</p>
-                          <div className="wizard-topic-grid">
-                            {topics.class12.map((t) => (
-                              <button key={t} className={`topic-chip${cur.has(t) ? ' selected' : ''}`} onClick={() => toggleTopic(subject, t)}>
-                                <span className="topic-chip-check">{cur.has(t) && CHECK_SVG}</span>
-                                {t}
-                              </button>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                      <div style={{ marginTop: 8, fontSize: 12, color: 'var(--gray-400)' }}>
-                        {cur.size} of {allTopics.length} topics selected
-                      </div>
-                    </div>
-                  );
-                })}
-              </>
+              <TopicStep
+                selectedSubjects={selectedSubjects}
+                selectedTopics={selectedTopics}
+                studentClass={studentClass}
+                getTopicsForStudent={getTopicsForStudent}
+                onToggleAllTopics={toggleAllTopics}
+                onToggleTopic={toggleTopic}
+              />
             )}
 
             {wizardStep === 3 && showPapers && (
-              <>
-                <p className="wizard-section-title">Choose your paper</p>
-                <p className="wizard-section-sub">
-                  Each paper is a different set of questions from the bank. Pick one to start.
-                </p>
-
-                {papersError && <div className="badge badge-red" style={{ marginBottom: 16 }}>{papersError}</div>}
-
-                {paperSets.length > 0 && (
-                  <div className="paper-combos">
-                    <span className="paper-combos-value">{formatPossible(possibleSets)}</span>
-                    <span className="paper-combos-label">
-                      distinct papers this bank can make for your selection. You are looking at {paperSets.length} of them.
-                    </span>
-                  </div>
-                )}
-
-                {/* The row stays mounted while shuffling, so the page does not jump to the top */}
-                <div className={`paper-row${papersLoading ? ' paper-row-loading' : ''}`} aria-busy={papersLoading}>
-                  {paperSets.map((paper) => (
-                    <PaperCard key={paper.number} paper={paper} onStart={() => choosePaper(paper)} />
-                  ))}
-                  {papersLoading && <div className="paper-row-overlay">Shuffling the bank...</div>}
-                </div>
-
-                <div className="paper-grid-actions">
-                  <button type="button" className="btn btn-outline" onClick={loadPapers} disabled={papersLoading}>
-                    Shuffle papers
-                  </button>
-                  <button type="button" className="btn btn-ghost" onClick={startExam}>
-                    Skip, start a random paper
-                  </button>
-                </div>
-              </>
+              <PaperStep
+                papersError={papersError}
+                paperSets={paperSets}
+                possibleSets={possibleSets}
+                papersLoading={papersLoading}
+                onChoosePaper={choosePaper}
+                onLoadPapers={loadPapers}
+                onStartExam={startExam}
+              />
             )}
 
             {wizardStep === 3 && !showPapers && (
-              <>
-                <p className="wizard-section-title">Session settings</p>
-                <p className="wizard-section-sub">Configure your exam session.</p>
-
-                <div className="config-row">
-                  <p className="config-label">How many questions per subject?</p>
-                  <div className="pill-group">
-                    {([5, 10, 20, 30] as const).map((n) => (
-                      <button key={n} className={`pill${questionCount === n ? ' selected' : ''}`} onClick={() => setQuestionCount(n)}>{n}</button>
-                    ))}
-                    <button className={`pill${questionCount === 'custom' ? ' selected' : ''}`} onClick={() => setQuestionCount('custom')}>Custom</button>
-                    {questionCount === 'custom' && (
-                      <input type="number" className="custom-count-input" placeholder="1-30" min={1} max={30}
-                        value={customCount} onChange={(e) => setCustomCount(e.target.value)} />
-                    )}
-                  </div>
-                </div>
-
-                <div className="config-row">
-                  <p className="config-label">Difficulty</p>
-                  <div className="pill-group">
-                    {(['mixed', 'beginner', 'intermediate', 'advanced'] as DiffOption[]).map((d) => (
-                      <button key={d} className={`pill${difficulty === d ? ' selected' : ''}`} onClick={() => setDifficulty(d)} style={{ textTransform: 'capitalize' }}>
-                        {d === 'mixed' ? 'All levels' : d}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="config-row">
-                  <p className="config-label">Exam type</p>
-                  <div className="pill-group">
-                    {(['Main', 'Advanced'] as const).map((e) => (
-                      <button key={e} className={`pill${examType === e ? ' selected' : ''}`} onClick={() => setExamType(e)}>JEE {e}</button>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="config-row">
-                  <p className="config-label">Marking scheme</p>
-                  <div className="pill-group">
-                    {([
-                      { key: 'standard',     label: 'Standard (1/0)'              },
-                      { key: 'jee_main',     label: 'JEE Main (+4/−1)'            },
-                      { key: 'jee_advanced', label: 'JEE Advanced (+4/−2 wrong)'  },
-                    ] as const).map(({ key, label }) => (
-                      <button key={key} className={`pill${markingScheme === key ? ' selected' : ''}`} onClick={() => setMarkingScheme(key)}>{label}</button>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="card card-sm" style={{ background: 'var(--gray-50)', border: '1px solid var(--gray-200)', marginTop: 8 }}>
-                  <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', fontSize: 13 }}>
-                    <span>
-                      <strong style={{ color: 'var(--gray-900)' }}>{resolvedCount()}</strong>{' '}
-                      <span style={{ color: 'var(--gray-500)' }}>per subject</span>
-                      {selectedSubjects.size > 1 && (
-                        <span style={{ color: 'var(--gray-400)', marginLeft: 4 }}>({resolvedCount() * selectedSubjects.size} total)</span>
-                      )}
-                    </span>
-                    <span>
-                      <strong style={{ color: 'var(--gray-900)', textTransform: 'capitalize' }}>{difficulty}</strong>{' '}
-                      <span style={{ color: 'var(--gray-500)' }}>difficulty</span>
-                    </span>
-                    <span><strong style={{ color: 'var(--gray-900)' }}>JEE {examType}</strong></span>
-                    <span><strong style={{ color: 'var(--gray-900)' }}>{Array.from(selectedSubjects).join(', ')}</strong></span>
-                    <span>
-                      <strong style={{ color: 'var(--gray-900)' }}>
-                        {Array.from(selectedSubjects).reduce((acc, s) => acc + (selectedTopics[s]?.size ?? 0), 0)}
-                      </strong>{' '}
-                      <span style={{ color: 'var(--gray-500)' }}>topics</span>
-                    </span>
-                  </div>
-                </div>
-              </>
+              <SessionSettings
+                questionCount={questionCount}
+                onQuestionCount={setQuestionCount}
+                customCount={customCount}
+                onCustomCount={setCustomCount}
+                difficulty={difficulty}
+                onDifficulty={setDifficulty}
+                examType={examType}
+                onExamType={setExamType}
+                markingScheme={markingScheme}
+                onMarkingScheme={setMarkingScheme}
+                perSubjectCount={resolvedCount()}
+                selectedSubjects={selectedSubjects}
+                selectedTopics={selectedTopics}
+              />
             )}
 
             <div className="wizard-nav">
