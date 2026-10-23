@@ -15,15 +15,6 @@ export const REVIEW_SUBJ: Record<string, { color: string; icon: string; bg: stri
   ]),
 );
 
-/* ─── Loading messages ──────────────────────────────────── */
-export const LOAD_MESSAGES = [
-  'Crafting your questions...',
-  'Checking the JEE syllabus...',
-  'Running quality checks...',
-  'Generating unique problems...',
-  'Sit back, almost ready...',
-];
-
 /* ─── Types ─────────────────────────────────────────────── */
 export type AppState = 'wizard' | 'loading' | 'exam' | 'summary' | 'review';
 export type WizardStep = 1 | 2 | 3;

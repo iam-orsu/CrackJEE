@@ -1,8 +1,10 @@
 import type { Subject } from '@/types';
 import type { SplitTopics } from '@/lib/api';
 import { SUBJECT_ICON } from '@/lib/subjects';
+import type { PracticeExamConfig } from './examConfig';
 
 interface SubjectStepProps {
+  config: PracticeExamConfig;
   selectedSubjects: Set<Subject>;
   topicsByClass: SplitTopics | null;
   bank: { total: number; bySubject: Record<string, number> } | null;
@@ -10,20 +12,19 @@ interface SubjectStepProps {
   onToggleSubject: (subject: Subject) => void;
 }
 
-/* Step 1: pick one, two or all three subjects */
-export function SubjectStep({ selectedSubjects, topicsByClass, bank, onSelectAll, onToggleSubject }: SubjectStepProps) {
-  const subjects: Subject[] = ['Mathematics', 'Physics', 'Chemistry'];
+/* Step 1: pick the subjects to practise (one or more, or all of them) */
+export function SubjectStep({ config, selectedSubjects, topicsByClass, bank, onSelectAll, onToggleSubject }: SubjectStepProps) {
   return (
     <>
       <p className="wizard-section-title">Which subjects?</p>
-      <p className="wizard-section-sub">Pick one or more. You can practice MPC together or focus on one.</p>
+      <p className="wizard-section-sub">{config.subjectsIntro}</p>
       <div className="subject-cards">
-        <div className={`subject-card${selectedSubjects.size === 3 ? ' selected' : ''}`} onClick={onSelectAll}>
-          <span className="subject-card-emoji">MPC</span>
-          <span className="subject-card-name">All Three</span>
+        <div className={`subject-card${selectedSubjects.size === config.subjects.length ? ' selected' : ''}`} onClick={onSelectAll}>
+          <span className="subject-card-emoji">{config.allIcon}</span>
+          <span className="subject-card-name">{config.allLabel}</span>
           <span className="subject-card-sub">Full coverage</span>
         </div>
-        {subjects.map((s) => {
+        {config.subjects.map((s) => {
           const t = topicsByClass?.[s];
           const topicCount = t ? (t.class11.length + t.class12.length) : null;
           const questionCount = bank?.bySubject[s];

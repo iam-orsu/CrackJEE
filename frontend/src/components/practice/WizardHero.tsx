@@ -1,4 +1,6 @@
-/* Teaser stack of sample papers: explains what a practice session is, before the student picks topics */
+import type { PracticeExamConfig } from './examConfig';
+
+/* Hero: what a practice session is, the bank size, and (JEE) a teaser stack of sample papers */
 /* ── Fake paper data for the teaser stack ─────────────── */
 const PAPER_STACK = [
   {
@@ -19,11 +21,12 @@ const PAPER_STACK = [
 ];
 
 interface WizardHeroProps {
+  config: PracticeExamConfig;
   bankTotal: string;
   topicTotal: number | null;
 }
 
-export function WizardHero({ bankTotal, topicTotal }: WizardHeroProps) {
+export function WizardHero({ config, bankTotal, topicTotal }: WizardHeroProps) {
   return (
     <div className="paper-hero" style={{ background: '#fff', borderBottom: '1px solid var(--gray-200)', padding: '40px 40px 36px', flexShrink: 0 }}>
       <div className="paper-hero-inner" style={{ maxWidth: 920, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 48 }}>
@@ -31,19 +34,21 @@ export function WizardHero({ bankTotal, topicTotal }: WizardHeroProps) {
         {/* Left: copy + stats */}
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', color: 'var(--gray-400)', textTransform: 'uppercase', marginBottom: 10 }}>
-            Practice Mode
+            {config.hero.kicker}
           </div>
           <h1 style={{ fontSize: 30, fontWeight: 800, color: 'var(--gray-900)', lineHeight: 1.18, marginBottom: 12, letterSpacing: '-0.025em' }}>
-            A fresh paper<br />every session
+            {config.hero.title.map((line, i) => (
+              <span key={line}>{i > 0 && <br />}{line}</span>
+            ))}
           </h1>
           <p style={{ fontSize: 13, color: 'var(--gray-500)', lineHeight: 1.65, marginBottom: 28, maxWidth: 340 }}>
-            Each session draws a new set of questions from the bank across Physics, Chemistry and Mathematics. You see the answer and explanation after every question.
+            {config.hero.body}
           </p>
           <div style={{ display: 'flex', gap: 28 }}>
             {[
               { num: bankTotal, label: 'Questions' },
               { num: topicTotal !== null ? String(topicTotal) : '—', label: 'Topics' },
-              { num: '3', label: 'Subjects' },
+              { num: String(config.subjects.length), label: 'Subjects' },
             ].map(({ num, label }) => (
               <div key={label}>
                 <div style={{ fontSize: 20, fontWeight: 800, color: 'var(--gray-900)', letterSpacing: '-0.02em' }}>{num}</div>
@@ -53,7 +58,8 @@ export function WizardHero({ bankTotal, topicTotal }: WizardHeroProps) {
           </div>
         </div>
 
-        {/* Right: 3 side-by-side paper cards with depth blur */}
+        {/* Right: 3 side-by-side paper cards with depth blur (JEE only, NEET has no paper preview) */}
+        {config.hero.showTeaser && (
         <div className="paper-hero-stack" style={{ flexShrink: 0, position: 'relative', width: 400, height: 290 }}>
           {PAPER_STACK.map((paper, i) => (
             <div
@@ -104,6 +110,7 @@ export function WizardHero({ bankTotal, topicTotal }: WizardHeroProps) {
             </div>
           ))}
         </div>
+        )}
       </div>
     </div>
   );
