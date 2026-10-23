@@ -465,6 +465,19 @@ When validating generated question:
 - Body: 14px, 400 weight
 - Code: Monospace, 12px
 
+## DEPLOYING CHANGES
+
+Redeploy only the services whose code changed. Do not run `./deploy.sh restart` for a code change: it stops the whole stack, rebuilds everything, and restarts Postgres and Redis too.
+
+- Frontend change (anything under `frontend/`): `./deploy.sh update frontend`
+- Backend change (anything under `backend/`): `./deploy.sh update backend`
+- Both changed: `./deploy.sh update frontend backend`
+- nginx config (`nginx/`): `./deploy.sh update nginx`
+- Database schema or migration files changed: `./deploy.sh update backend`, then `./deploy.sh migrate`
+- Use `./deploy.sh start` or `restart` only for changes to `docker-compose.yml`, `.env`, or first-time setup.
+
+After every deploy, check that services are healthy (`./deploy.sh status`) and run `./scripts/smoke.sh`.
+
 ## DEPLOYMENT CHECKLIST
 
 - [ ] Docker Compose file (postgres, redis, backend, frontend, nginx)
