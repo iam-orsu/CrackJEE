@@ -47,13 +47,16 @@ export async function appendQuestionsToMasterJson(
   const prev = writeLocks.get(filePath) ?? Promise.resolve();
   const next = prev.then(async () => {
     try {
+      // Async I/O so the event loop keeps serving requests while the file is read and written
       let existing: object[] = [];
-      if (fs.existsSync(filePath)) {
-        const raw = fs.readFileSync(filePath, 'utf8');
+      try {
+        const raw = await fs.promises.readFile(filePath, 'utf8');
         const parsed = JSON.parse(raw) as unknown;
         existing = Array.isArray(parsed)
           ? (parsed as object[])
           : ((parsed as { questions?: object[] }).questions ?? []);
+      } catch (err) {
+        if ((err as NodeJS.ErrnoException).code !== 'ENOENT') throw err;
       }
 
       const existingIds = new Set(existing.map((q) => (q as { id: string }).id));
@@ -77,11 +80,11 @@ export async function appendQuestionsToMasterJson(
 
       const merged = [...existing, ...newEntries];
       // Ensure directory exists (relevant on fresh deployments)
-      fs.mkdirSync(path.dirname(filePath), { recursive: true });
-      // Atomic write: temp file → rename
+      await fs.promises.mkdir(path.dirname(filePath), { recursive: true });
+      // Atomic write: temp file → rename (compact JSON: same data, less CPU and disk)
       const tmpPath = `${filePath}.tmp`;
-      fs.writeFileSync(tmpPath, JSON.stringify(merged, null, 2), 'utf8');
-      fs.renameSync(tmpPath, filePath);
+      await fs.promises.writeFile(tmpPath, JSON.stringify(merged), 'utf8');
+      await fs.promises.rename(tmpPath, filePath);
       console.log(`[mockPool] Appended ${newEntries.length} new questions to ${path.basename(filePath)}`);
     } catch (err) {
       // Don't break mock generation if JSON append fails

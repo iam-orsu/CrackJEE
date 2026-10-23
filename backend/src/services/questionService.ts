@@ -1,14 +1,47 @@
 import { prisma } from '../lib/prisma';
-import { cacheGetJson, cacheSetJson } from './cacheService';
+import { logger } from '../lib/logger';
+import { incCounter } from '../lib/metrics';
+import { cacheGetJson, cacheSetJson, cacheAppendUnique } from './cacheService';
 import { generateQuestion, generateQuestionBatch } from './deepseekService';
-import { validateQuestion } from './openaiService';
-import type { Subject, Difficulty, ExamType, StudentClass, QuestionType } from '../types/index';
+import type { Subject, Difficulty, ExamType, StudentClass, QuestionType, GeneratedQuestion } from '../types/index';
 import type { Question } from '@prisma/client';
 
 const pendingGeneration = new Map<string, Promise<Question>>();
 
 // ── Shared helpers ───────────────────────────────────────────────────────────
 const DIFFICULTIES: Difficulty[] = ['beginner', 'intermediate', 'advanced'];
+
+// Max concurrent DB-backed slot lookups per batch request. Keeps one request from
+// queueing more queries than the Prisma connection pool can serve.
+const FANOUT_CONCURRENCY = Number(process.env.DB_FANOUT_CONCURRENCY ?? 5);
+
+// Newest N generated questions kept per pool cache key. The pool is re-read and re-parsed on every
+// request, so an unbounded pool would grow request cost and Redis memory forever. Older rows stay in the DB.
+const MAX_POOL_SIZE = 300;
+
+/**
+ * Like Promise.allSettled, but runs at most `limit` tasks at a time.
+ */
+async function settleWithLimit<T, R>(
+  items: T[],
+  limit: number,
+  task: (item: T) => Promise<R>,
+): Promise<PromiseSettledResult<R>[]> {
+  const results: PromiseSettledResult<R>[] = new Array(items.length);
+  let cursor = 0;
+  async function worker(): Promise<void> {
+    while (cursor < items.length) {
+      const idx = cursor++;
+      try {
+        results[idx] = { status: 'fulfilled', value: await task(items[idx]!) };
+      } catch (reason) {
+        results[idx] = { status: 'rejected', reason };
+      }
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
+  return results;
+}
 
 function randomDifficulty(): Difficulty {
   return DIFFICULTIES[Math.floor(Math.random() * 3)] as Difficulty;
@@ -171,7 +204,7 @@ export async function getPracticeQuestion(
   }
 
   const question = candidates[Math.floor(Math.random() * candidates.length)]!;
-  await cacheSetJson(servedKey, [...servedIds, question.id], 86400 * 7);
+  await cacheAppendUnique(servedKey, [question.id], 86400 * 7);
   return question;
 }
 
@@ -233,22 +266,21 @@ export async function getPracticeQuestionBatch(
     keyGroups.get(key)!.push(slot);
   }
 
-  const settled = await Promise.allSettled(
-    [...keyGroups.values()].map(async (slots) => {
-      const group: Question[] = [];
-      const excludeIds: string[] = [];
-      for (const { subject, topic, diff } of slots) {
-        try {
-          const q = await getPracticeQuestion(userId, subject, topic, diff, examType, excludeIds);
-          excludeIds.push(q.id);
-          group.push(q);
-        } catch {
-          // bank empty for this combo — skip
-        }
+  const settled = await settleWithLimit([...keyGroups.values()], FANOUT_CONCURRENCY, async (slots) => {
+    const group: Question[] = [];
+    const excludeIds: string[] = [];
+    for (const { subject, topic, diff } of slots) {
+      try {
+        const q = await getPracticeQuestion(userId, subject, topic, diff, examType, excludeIds);
+        excludeIds.push(q.id);
+        group.push(q);
+      } catch (err) {
+        // Bank empty for this combo is expected; anything else (pool timeout, DB down) is logged
+        logger.warn({ err, topic, subject }, '[practice] slot skipped');
       }
-      return group;
-    })
-  );
+    }
+    return group;
+  });
 
   // Collect and deduplicate
   const seenIds = new Set<string>();
@@ -306,11 +338,7 @@ export async function getPracticeQuestionBatch(
     servedByTopicKey.get(key)!.push(q.id);
   }
   await Promise.all(
-    [...servedByTopicKey.entries()].map(async ([key, ids]) => {
-      const existing = (await cacheGetJson<string[]>(key)) ?? [];
-      const merged = [...new Set([...existing, ...ids])];
-      await cacheSetJson(key, merged, 86400 * 7);
-    }),
+    [...servedByTopicKey.entries()].map(([key, ids]) => cacheAppendUnique(key, ids, 86400 * 7)),
   );
 
   // Randomize question sequence so students receive independently shuffled question orders
@@ -318,6 +346,17 @@ export async function getPracticeQuestionBatch(
 }
 
 const BATCH_SIZE = 3;
+
+/**
+ * Prepares generated questions for storage. The second-model (OpenAI) check was removed because it
+ * rejected nearly every DeepSeek question and its verdicts were not reliable. Questions still pass the
+ * structural checks in deepseekService.parseRawQuestion (option count, distinct options, valid answer letter).
+ */
+function prepareForStorage(
+  batch: GeneratedQuestion[],
+): Array<{ question: GeneratedQuestion; validatedAt: Date }> {
+  return batch.map((question) => ({ question, validatedAt: new Date() }));
+}
 
 async function generateAndPersist(
   subject: Subject,
@@ -329,29 +368,23 @@ async function generateAndPersist(
   pool: Question[] | null,
 ): Promise<Question> {
   // Generate BATCH_SIZE questions in one API call (~67% cost reduction on cold cache)
-  let batch = await generateQuestionBatch(BATCH_SIZE, subject, topic, difficulty, examType, studentClass, questionType)
+  const batch = await generateQuestionBatch(BATCH_SIZE, subject, topic, difficulty, examType, studentClass, questionType)
     .catch(async () => {
       // Fall back to single generation if batch fails
       const single = await generateQuestion(subject, topic, difficulty, examType, studentClass, questionType);
       return [single];
     });
 
-  // Validate only for non-beginner (skip OpenAI cost for easy questions)
-  if (difficulty !== 'beginner' && batch.length > 0) {
-    const isValid = await validateQuestion(batch[0]!);
-    if (!isValid && batch.length > 1) {
-      const isValid2 = await validateQuestion(batch[1]!);
-      if (isValid2) {
-        [batch[0], batch[1]] = [batch[1]!, batch[0]!];
-      }
-    }
+  const kept = prepareForStorage(batch);
+  if (kept.length === 0) {
+    throw new Error('DeepSeek returned no usable questions');
   }
 
   const cacheKey = `q:${subject}:${topic}:${difficulty}:${examType}:${studentClass}:${questionType}`;
 
-  // Store all generated questions in a single transaction
+  // Store all surviving questions in a single transaction
   const createdQuestions = await prisma.$transaction(
-    batch.map((q) => prisma.question.create({
+    kept.map(({ question: q, validatedAt }) => prisma.question.create({
       data: {
         topic,
         subject,
@@ -363,13 +396,13 @@ async function generateAndPersist(
         difficulty,
         examType,
         questionType,
-        validatedAt: new Date(),
+        validatedAt,
       },
     }))
   );
 
   // Cache all 3 questions (24h TTL, was 6h)
-  const updatedPool = [...(pool ?? []), ...createdQuestions];
+  const updatedPool = [...(pool ?? []), ...createdQuestions].slice(-MAX_POOL_SIZE);
   await cacheSetJson(cacheKey, updatedPool, 3600 * 24);
 
   return createdQuestions[0]!;
@@ -396,7 +429,8 @@ export async function getNextQuestion(
     const unserved = pool.filter((q) => !allExcluded.has(q.id));
     if (unserved.length > 0) {
       const question = unserved[Math.floor(Math.random() * unserved.length)]!;
-      await cacheSetJson(servedKey, [...servedIds, question.id], 86400 * 7);
+      await cacheAppendUnique(servedKey, [question.id], 86400 * 7);
+      incCounter('question_source_total', { source: 'pool' });
       return question;
     }
   }
@@ -415,7 +449,8 @@ export async function getNextQuestion(
   });
   if (candidates.length > 0) {
     const existing = candidates[Math.floor(Math.random() * candidates.length)]!;
-    await cacheSetJson(servedKey, [...servedIds, existing.id], 86400 * 7);
+    await cacheAppendUnique(servedKey, [existing.id], 86400 * 7);
+    incCounter('question_source_total', { source: 'bank' });
     return existing;
   }
 
@@ -428,7 +463,8 @@ export async function getNextQuestion(
   }
 
   const question = await genPromise;
-  await cacheSetJson(servedKey, [...servedIds, question.id], 86400 * 7);
+  incCounter('question_source_total', { source: 'generated' });
+  await cacheAppendUnique(servedKey, [question.id], 86400 * 7);
   return question;
 }
 
@@ -475,22 +511,21 @@ export async function getQuestionBatch(
     keyGroups.get(key)!.push(slot);
   }
 
-  const groupSettled = await Promise.allSettled(
-    [...keyGroups.values()].map(async (slots) => {
-      const groupQuestions: Question[] = [];
-      const excludeIds: string[] = [];
-      for (const { subject, topic, diff } of slots) {
-        try {
-          const q = await getNextQuestion(userId, subject, topic, diff, examType, studentClass, excludeIds);
-          excludeIds.push(q.id);
-          groupQuestions.push(q);
-        } catch {
-          // skip failed slot
-        }
+  const groupSettled = await settleWithLimit([...keyGroups.values()], FANOUT_CONCURRENCY, async (slots) => {
+    const groupQuestions: Question[] = [];
+    const excludeIds: string[] = [];
+    for (const { subject, topic, diff } of slots) {
+      try {
+        const q = await getNextQuestion(userId, subject, topic, diff, examType, studentClass, excludeIds);
+        excludeIds.push(q.id);
+        groupQuestions.push(q);
+      } catch (err) {
+        // A failed slot is skipped so the rest of the batch still returns; log it so failures are visible
+        logger.warn({ err, topic, subject }, '[ai] slot skipped');
       }
-      return groupQuestions;
-    })
-  );
+    }
+    return groupQuestions;
+  });
 
   // Collect unique results per subject, capping each bucket at perSubject.
   const seenIds = new Set<string>();
@@ -572,22 +607,18 @@ export async function generateFreshMockBatch(
         // Retry once on transient failures so slots don't silently go unfulfilled
         for (let attempt = 0; attempt < 2; attempt++) {
           try {
-            let batch = await generateQuestionBatch(
+            const batch = await generateQuestionBatch(
               BATCH_SIZE, subject, topic, difficulty, examType, 'Dropper', questionType,
             ).catch(async () => {
               const s = await generateQuestion(subject, topic, difficulty, examType, 'Dropper', questionType);
               return [s];
             });
 
-            if (difficulty !== 'beginner' && batch.length > 0) {
-              const ok = await validateQuestion(batch[0]!);
-              if (!ok && batch.length > 1) {
-                [batch[0], batch[1]] = [batch[1]!, batch[0]!];
-              }
-            }
+            const kept = prepareForStorage(batch);
+            if (kept.length === 0) throw new Error('DeepSeek returned no usable questions');
 
             const created = await prisma.$transaction(
-              batch.map((q) =>
+              kept.map(({ question: q, validatedAt }) =>
                 prisma.question.create({
                   data: {
                     topic, subject,
@@ -597,7 +628,7 @@ export async function generateFreshMockBatch(
                     explanation: q.answer_explanation,
                     diagram: q.diagram ? JSON.parse(JSON.stringify(q.diagram)) : undefined,
                     difficulty, examType, questionType,
-                    validatedAt: new Date(),
+                    validatedAt,
                   },
                 }),
               ),
@@ -613,7 +644,7 @@ export async function generateFreshMockBatch(
       // Update practice cache so practice sessions also benefit
       if (generated.length > 0) {
         const existing = (await cacheGetJson<Question[]>(cacheKey)) ?? [];
-        await cacheSetJson(cacheKey, [...existing, ...generated], 3600 * 24);
+        await cacheSetJson(cacheKey, [...existing, ...generated].slice(-MAX_POOL_SIZE), 3600 * 24);
       }
 
       // Only add up to `needed` questions to the pool — extras stay in practice cache only

@@ -63,7 +63,7 @@ export default function LandingPage() {
     <>
       {/* ── Header ── */}
       <header className="landing-header">
-        <span className="landing-logo">CrackJEE</span>
+        <span className="landing-logo">JEENEET.ai</span>
         <nav className="landing-nav">
           <Link href="/login" className="btn btn-ghost btn-sm">Sign in</Link>
           <Link href="/register" className="btn btn-primary btn-sm">Get started free</Link>
@@ -77,7 +77,7 @@ export default function LandingPage() {
         </div>
 
         <h1 className="display hero-title">
-          Crack JEE with<br />
+          Crack JEE & NEET with<br />
           practice powered by Deep Tech
         </h1>
 
@@ -115,7 +115,7 @@ export default function LandingPage() {
 
       {/* ── Features ── */}
       <section className="features-section">
-        <p className="section-label text-center">Why CrackJEE</p>
+        <p className="section-label text-center">Why JEENEET.ai</p>
         <h2 className="h1 text-center" style={{ maxWidth: 500, margin: '0 auto' }}>
           Built around how toppers actually study
         </h2>
@@ -160,7 +160,7 @@ export default function LandingPage() {
 
       {/* ── Footer ── */}
       <footer className="landing-footer">
-        <span className="caption">© 2026 CrackJEE</span>
+        <span className="caption">© 2026 JEENEET.ai</span>
         <span className="caption">Built for IIT aspirants</span>
       </footer>
     </>

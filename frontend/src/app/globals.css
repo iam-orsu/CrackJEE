@@ -15,24 +15,25 @@
   --gray-800:  #1e293b;
   --gray-900:  #0f172a;
 
-  /* Navy blue palette — primary brand */
-  --navy-950:  #0a1628;
-  --navy-900:  #0f2744;
-  --navy-800:  #1e3a6b;  /* primary action color */
-  --navy-700:  #1e4a8a;
-  --navy-600:  #2563eb;
-  --navy-500:  #3b82f6;
-  --navy-400:  #60a5fa;
-  --navy-200:  #bfdbfe;
-  --navy-100:  #dbeafe;
-  --navy-50:   #eff6ff;
+  /* Accent scale. Neutral grays per CLAUDE.md (no navy/blue anywhere). Names kept so components don't change. */
+  --navy-950:  #111827;
+  --navy-900:  #1f2937;
+  --navy-800:  #2c3e50;  /* primary action color (spec text color) */
+  --navy-700:  #374151;
+  --navy-600:  #4b5563;
+  --navy-500:  #6b7280;
+  --navy-400:  #9ca3af;
+  --navy-300:  #d1d5db;
+  --navy-200:  #e5e7eb;
+  --navy-100:  #e5e7eb;
+  --navy-50:   #f3f4f6;
 
   /* Semantic aliases */
   --primary:        var(--navy-800);
   --primary-hover:  var(--navy-900);
   --primary-light:  var(--navy-50);
   --primary-border: var(--navy-600);
-  --primary-ring:   rgba(37,99,235,.15);
+  --primary-ring:   rgba(44,62,80,.15);
 
   /* Feedback */
   --green-50:  #f0fdf4;
@@ -269,25 +270,21 @@ img, svg { display: block; }
 
 /* Left panel */
 .auth-brand      {
-  background: linear-gradient(160deg, #060f1e 0%, #0d1f3c 50%, #0f2744 100%);
+  background: var(--white); border-right: 1px solid var(--gray-200);
   padding: 44px 48px; display: flex; flex-direction: column; justify-content: space-between;
   position: relative; overflow: hidden;
 }
-.auth-brand::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 30% 60%, rgba(37,99,235,.12) 0%, transparent 70%);
-  pointer-events: none;
-}
-.auth-brand-logo  { font-size: 20px; font-weight: 800; letter-spacing: -.04em; color: var(--white); position: relative; }
+.auth-brand::before { content: none; }
+.auth-brand-logo  { font-size: 20px; font-weight: 800; letter-spacing: -.04em; color: var(--gray-800); position: relative; }
 .auth-brand-eyebrow {
   font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em;
-  color: #60a5fa; margin-bottom: 14px; position: relative;
+  color: var(--gray-500); margin-bottom: 14px; position: relative;
 }
 .auth-brand-tagline {
   font-size: 36px; font-weight: 800; line-height: 1.15; letter-spacing: -.03em;
-  color: var(--white); margin-bottom: 18px; position: relative;
+  color: var(--gray-800); margin-bottom: 18px; position: relative;
 }
-.auth-brand-sub   { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,.55); margin-bottom: 32px; position: relative; }
+.auth-brand-sub   { font-size: 14px; line-height: 1.75; color: var(--gray-500); margin-bottom: 32px; position: relative; }
 
 /* Feature list */
 .auth-features { display: flex; flex-direction: column; gap: 18px; position: relative; }
@@ -296,8 +293,8 @@ img, svg { display: block; }
   width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
 }
-.auth-feature-title { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 2px; }
-.auth-feature-desc  { font-size: 12px; color: rgba(255,255,255,.45); line-height: 1.5; }
+.auth-feature-title { font-size: 13px; font-weight: 600; color: var(--gray-800); margin-bottom: 2px; }
+.auth-feature-desc  { font-size: 12px; color: var(--gray-500); line-height: 1.5; }
 
 /* Subject tags */
 .auth-subject-tags { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
@@ -612,7 +609,7 @@ img, svg { display: block; }
 .subject-card-name     { font-size: 14px; font-weight: 600; color: var(--gray-800); }
 .subject-card.selected .subject-card-name { color: var(--white); }
 .subject-card-sub      { font-size: 12px; color: var(--gray-500); }
-.subject-card.selected .subject-card-sub   { color: rgba(255,255,255,.55); }
+.subject-card.selected .subject-card-sub   { color: rgba(255,255,255,.85); }
 .subject-card.selected .subject-card-emoji { color: var(--white); }
 
 /* Wizard — topic chips */
@@ -916,7 +913,7 @@ img, svg { display: block; }
 .paper-diff-seg { border-radius: 999px; min-width: 6px; }
 .paper-diff-beginner { background: #cbd5e1; }
 .paper-diff-intermediate { background: #64748b; }
-.paper-diff-advanced { background: #0f172a; }
+.paper-diff-advanced { background: var(--gray-100); color: var(--gray-800); }
 
 .paper-foot {
   margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 8px;

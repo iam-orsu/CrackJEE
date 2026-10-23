@@ -2,9 +2,10 @@ import { randomUUID } from 'crypto';
 import type { Response, NextFunction } from 'express';
 import { z } from 'zod';
 import type { AuthRequest } from '../types/index';
+import { Prisma } from '@prisma/client';
 import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
-import { cacheGetJson } from '../services/cacheService';
+import { cacheGetJson, cacheSetNx, cacheDel } from '../services/cacheService';
 
 // Served-list keys written by the practice, AI batch and paper flows (see questionService / paperService)
 const SERVED_KINDS = ['practice', 'mcq_single', 'mcq_multi', 'integer'];
@@ -86,14 +87,27 @@ export async function submitAnswer(req: AuthRequest, res: Response, next: NextFu
       throw new AppError(403, 'Cannot submit answers for questions in an active mock exam');
     }
 
+    // Double-submit guard: a second POST for the same question within 10s is rejected, so one
+    // click (or a retry) cannot record two attempts. The lock is released if the write fails.
+    const lockKey = `answer-lock:${userId}:${questionId}`;
+    if (!(await cacheSetNx(lockKey, 10))) {
+      throw new AppError(409, 'This answer is already being submitted. Please wait a moment.');
+    }
+
     const isCorrect = checkAnswer(question.questionType ?? 'mcq_single', answer, question.answer);
 
-    await prisma.studentAttempt.create({
-      data: { userId, questionId, answerSubmitted: answer, isCorrect, timeSpent },
-    });
-
-    // Update topic progress
-    await updateTopicProgress(userId, question.topic, question.subject, isCorrect);
+    try {
+      // Attempt row and topic progress commit together or not at all
+      await prisma.$transaction(async (tx) => {
+        await tx.studentAttempt.create({
+          data: { userId, questionId, answerSubmitted: answer, isCorrect, timeSpent },
+        });
+        await updateTopicProgress(tx, userId, question.topic, question.subject, isCorrect);
+      });
+    } catch (err) {
+      await cacheDel(lockKey);
+      throw err;
+    }
 
     res.json({
       success: true,
@@ -109,6 +123,7 @@ export async function submitAnswer(req: AuthRequest, res: Response, next: NextFu
 }
 
 async function updateTopicProgress(
+  tx: Prisma.TransactionClient,
   userId: string,
   topicName: string,
   subject: string,
@@ -117,7 +132,7 @@ async function updateTopicProgress(
   const inc = isCorrect ? 1 : 0;
   // Single atomic statement: no read-then-write race condition
   const newId = randomUUID();
-  await prisma.$executeRaw`
+  await tx.$executeRaw`
     INSERT INTO "TopicProgress" (
       "id", "userId", "topicName", "subject",
       "attempts", "correctCount", "successRate", "markedAsWeak", "lastAttemptAt"

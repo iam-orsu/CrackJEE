@@ -1,5 +1,5 @@
 import { prisma } from '../lib/prisma';
-import { cacheGetJson, cacheSetJson } from './cacheService';
+import { cacheGetJson, cacheAppendUnique } from './cacheService';
 import { fisherYatesShuffle } from './questionService';
 import type { Subject, Difficulty, ExamType } from '../types/index';
 import type { Question } from '@prisma/client';
@@ -159,8 +159,7 @@ export async function claimPaper(userId: string, ids: string[]): Promise<Questio
     groups.get(key)!.push(q.id);
   }
   for (const [key, newIds] of groups) {
-    const previous = (await cacheGetJson<string[]>(key)) ?? [];
-    await cacheSetJson(key, [...new Set([...previous, ...newIds])], SERVED_TTL);
+    await cacheAppendUnique(key, newIds, SERVED_TTL);
   }
 
   return ordered;

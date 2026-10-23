@@ -349,7 +349,7 @@ export default function MockExamPage() {
         borderBottom: '2px solid #0f172a',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <span style={{ fontSize: 16, fontWeight: 700, letterSpacing: '-0.02em' }}>CrackJEE</span>
+          <span style={{ fontSize: 16, fontWeight: 700, letterSpacing: '-0.02em' }}>JEENEET.ai</span>
           <span style={{ width: 1, height: 20, background: '#475569' }} />
           <span style={{ fontSize: 14, color: '#94a3b8' }}>
             {exam.examType === 'NEET' ? 'NEET UG Mock Test' : `JEE ${exam.examType} Mock Test`}

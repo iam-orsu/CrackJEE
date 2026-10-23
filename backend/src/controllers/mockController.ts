@@ -234,6 +234,45 @@ async function createExamQuestionsFromPool(
 
 /* ── Unified background generator ──────────────────────────────── */
 
+// One shared-pool generation per exam type + difficulty at a time. Concurrent starts on an
+// empty pool wait for the same run instead of each paying for a full generation.
+const sharedPoolInFlight = new Map<string, Promise<MockPoolItem[]>>();
+
+function generateSharedPoolOnce(
+  examType: 'Main' | 'Advanced' | 'NEET',
+  difficultyMode: 'easy' | 'medium' | 'hard',
+): Promise<MockPoolItem[]> {
+  const key = `${examType}:${difficultyMode}`;
+  const existing = sharedPoolInFlight.get(key);
+  if (existing) return existing;
+
+  const run = (async () => {
+    // Another run may have published the pool between the caller's read and this call
+    const published = await getSharedPool(examType, difficultyMode);
+    if (published && published.length >= 20) return published;
+    return generateAndSavePool(examType, difficultyMode, true);
+  })().finally(() => sharedPoolInFlight.delete(key));
+
+  sharedPoolInFlight.set(key, run);
+  return run;
+}
+
+// Serializes check-then-create per key within this process, so two quick clicks cannot
+// both create an exam. Single-process only; a multi-replica deploy would need a Redis lock.
+const userLocks = new Map<string, Promise<unknown>>();
+
+async function withUserLock<T>(key: string, task: () => Promise<T>): Promise<T> {
+  const previous = userLocks.get(key) ?? Promise.resolve();
+  const run = previous.then(task);
+  const tail = run.catch(() => {});
+  userLocks.set(key, tail);
+  try {
+    return await run;
+  } finally {
+    if (userLocks.get(key) === tail) userLocks.delete(key);
+  }
+}
+
 async function runMockGeneration(
   examId: string,
   userId: string,
@@ -254,8 +293,8 @@ async function runMockGeneration(
         poolItems = await generateAndSavePool(examType, difficultyMode, false);
       }
     } else {
-      // No pool yet — generate fresh and publish as the shared pool
-      poolItems = await generateAndSavePool(examType, difficultyMode, true);
+      // No pool yet — generate fresh and publish as the shared pool (once, even under concurrent starts)
+      poolItems = await generateSharedPoolOnce(examType, difficultyMode);
     }
 
     if (poolItems.length < 10) {
@@ -279,30 +318,32 @@ export async function startMock(req: AuthRequest, res: Response, next: NextFunct
     const { examType, difficultyMode } = body.data;
     const userId = req.user!.userId;
 
-    // Fail exams stuck in 'generating' for >10 minutes (e.g. after server restart)
-    await prisma.mockExam.updateMany({
-      where: { userId, status: 'generating', createdAt: { lt: new Date(Date.now() - 10 * 60 * 1000) } },
-      data: { status: 'error' },
-    });
+    const started = await withUserLock(`${userId}:${examType}`, async () => {
+      // Fail exams stuck in 'generating' for >10 minutes (e.g. after server restart)
+      await prisma.mockExam.updateMany({
+        where: { userId, status: 'generating', createdAt: { lt: new Date(Date.now() - 10 * 60 * 1000) } },
+        data: { status: 'error' },
+      });
 
-    // If student already has an active exam of the same type, return it
-    const active = await prisma.mockExam.findFirst({
-      where: { userId, examType, status: { in: ['generating', 'ready', 'in_progress'] } },
-      orderBy: { createdAt: 'desc' },
-    });
-    if (active) {
-      res.json({ success: true, data: { id: active.id, status: active.status } });
-      return;
-    }
+      // If student already has an active exam of the same type, return it
+      const active = await prisma.mockExam.findFirst({
+        where: { userId, examType, status: { in: ['generating', 'ready', 'in_progress'] } },
+        orderBy: { createdAt: 'desc' },
+      });
+      if (active) return { exam: active, isNew: false };
 
-    const mockExam = await prisma.mockExam.create({
-      data: { userId, examType, difficultyMode, status: 'generating', durationSeconds: 10800 },
+      const exam = await prisma.mockExam.create({
+        data: { userId, examType, difficultyMode, status: 'generating', durationSeconds: 10800 },
+      });
+      return { exam, isNew: true };
     });
 
     // Fire and forget — runMockGeneration handles pool hit/miss + fresh generation
-    runMockGeneration(mockExam.id, userId, examType, difficultyMode).catch(() => {});
+    if (started.isNew) {
+      runMockGeneration(started.exam.id, userId, examType, difficultyMode).catch(() => {});
+    }
 
-    res.json({ success: true, data: { id: mockExam.id, status: 'generating' } });
+    res.json({ success: true, data: { id: started.exam.id, status: started.exam.status } });
   } catch (err) {
     next(err);
   }
@@ -392,12 +433,23 @@ export async function beginMock(req: AuthRequest, res: Response, next: NextFunct
 
     if (exam.status !== 'ready') throw new AppError(400, 'Exam is not ready to start');
 
-    const updated = await prisma.mockExam.update({
-      where: { id },
-      data: { status: 'in_progress', startedAt: new Date() },
+    // Conditional update: only one concurrent begin can move the exam from 'ready' to 'in_progress'
+    const startedAt = new Date();
+    const claimed = await prisma.mockExam.updateMany({
+      where: { id, userId, status: 'ready', startedAt: null },
+      data: { status: 'in_progress', startedAt },
     });
+    if (claimed.count === 0) {
+      // Another request won the race — return its start time if it set one
+      const current = await prisma.mockExam.findUnique({ where: { id }, select: { startedAt: true } });
+      if (current?.startedAt) {
+        res.json({ success: true, data: { startedAt: current.startedAt.toISOString() } });
+        return;
+      }
+      throw new AppError(400, 'Exam is not ready to start');
+    }
 
-    res.json({ success: true, data: { startedAt: updated.startedAt!.toISOString() } });
+    res.json({ success: true, data: { startedAt: startedAt.toISOString() } });
   } catch (err) {
     next(err);
   }

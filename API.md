@@ -1,4 +1,4 @@
-# CrackJEE API Reference
+# JEENEET.ai API Reference
 
 Backend runs on port **3001**. Frontend runs on port **3000**.
 
