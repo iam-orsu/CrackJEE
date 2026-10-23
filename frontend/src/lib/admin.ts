@@ -1,7 +1,5 @@
 'use client';
 
-// Super admin session. Kept in sessionStorage so it ends when the browser tab closes.
-const ADMIN_TOKEN_KEY = 'jee_admin_token';
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? '/api';
 
 export class AdminError extends Error {
@@ -114,36 +112,11 @@ export interface AdminMockDetail {
   questions: AdminMockRow[];
 }
 
-export function getAdminToken(): string | null {
-  try {
-    return sessionStorage.getItem(ADMIN_TOKEN_KEY);
-  } catch {
-    return null;
-  }
-}
-
-export function setAdminToken(token: string): void {
-  try {
-    sessionStorage.setItem(ADMIN_TOKEN_KEY, token);
-  } catch {
-    // Storage blocked
-  }
-}
-
-export function clearAdminToken(): void {
-  try {
-    sessionStorage.removeItem(ADMIN_TOKEN_KEY);
-  } catch {
-    // Storage blocked
-  }
-}
-
+// The admin session is an HttpOnly cookie set by /api/admin/login. Nothing admin-related is kept in page storage.
 export async function adminFetch<T>(path: string, init: RequestInit = {}): Promise<T> {
-  const token = getAdminToken();
   const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-  if (token) headers['Authorization'] = `Bearer ${token}`;
 
-  const res = await fetch(`${API_URL}/admin${path}`, { ...init, headers });
+  const res = await fetch(`${API_URL}/admin${path}`, { ...init, headers, credentials: 'same-origin' });
   const json = (await res.json().catch(() => ({ success: false, error: `HTTP ${res.status}` }))) as {
     success: boolean;
     data?: T;

@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import { z } from 'zod';
 import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
+import { setAdminCookie, clearAdminCookie } from '../middleware/adminAuth';
 
 const loginSchema = z.object({
   email: z.string().min(1).max(200),
@@ -39,10 +40,16 @@ export async function adminLogin(req: Request, res: Response, next: NextFunction
       algorithm: 'HS256',
       expiresIn: '8h',
     });
-    res.json({ success: true, data: { token } });
+    setAdminCookie(res, token);
+    res.json({ success: true, data: { expiresAt: new Date(Date.now() + 8 * 60 * 60 * 1000).toISOString() } });
   } catch (err) {
     next(err);
   }
+}
+
+export function adminLogout(_req: Request, res: Response): void {
+  clearAdminCookie(res);
+  res.json({ success: true });
 }
 
 export async function adminStats(_req: Request, res: Response, next: NextFunction): Promise<void> {

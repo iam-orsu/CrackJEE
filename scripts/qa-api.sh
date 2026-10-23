@@ -43,6 +43,10 @@ REF=$($C -b "$JAR2" -c "$JAR2" -X POST $B/api/auth/refresh | grep -c expiresAt)
 echo "== admin token must not act as a student =="
 ADMIN_TOKEN=$(docker compose --env-file .env exec -T backend node -e "const jwt=require('jsonwebtoken');console.log(jwt.sign({role:'admin'},process.env.JWT_SECRET,{algorithm:'HS256',expiresIn:'1h'}))")
 [ "$($C -o /dev/null -w '%{http_code}' $B/api/questions/topics -H "Authorization: Bearer $ADMIN_TOKEN")" = "401" ] && ok "admin token -> 401 on student route" || bad "admin token" ""
+[ "$($C -o /dev/null -w '%{http_code}' $B/api/auth/me -H "Cookie: jee_admin=$ADMIN_TOKEN")" = "401" ] && ok "admin cookie -> 401 on student route" || bad "admin cookie on student route" ""
+[ "$($C -o /dev/null -w '%{http_code}' $B/api/admin/stats)" = "401" ] && ok "admin stats requires an admin session" || bad "admin stats anonymous" ""
+[ "$($C -o /dev/null -w '%{http_code}' $B/api/admin/stats -H "Cookie: jee_session=$T2")" = "401" ] && ok "student cookie -> 401 on admin route" || bad "student cookie on admin route" ""
+[ "$($C -o /dev/null -w '%{http_code}' -X POST $B/api/admin/logout)" = "200" ] && ok "admin logout endpoint" || bad "admin logout" ""
 
 echo "== practice =="
 batch=$($C -X POST $B/api/questions/batch -H "Authorization: Bearer $T2" -H 'Content-Type: application/json' \
