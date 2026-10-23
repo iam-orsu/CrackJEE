@@ -1,35 +1,13 @@
-# ── Stage 1: Install all dependencies + generate Prisma client (needs network) ──
+# ── Stage 1: Install dependencies from the committed lockfile + generate Prisma client (needs network) ──
 FROM node:22-alpine AS deps
 WORKDIR /app
 
 RUN apk add --no-cache python3 make g++
 
-RUN npm init -y && \
-    npm pkg set name="jee-backend" version="1.0.0" && \
-    npm pkg set scripts.build="tsc" && \
-    npm pkg set scripts.start="node dist/index.js" && \
-    npm pkg set scripts.test="node --test dist/__tests__/*.test.js" && \
-    # Exact versions: these are the ones the QA run tested. Bump deliberately, then re-run the QA suite.
-    npm install --save-exact \
-      "@prisma/client@6.19.3" \
-      "bcryptjs@2.4.3" \
-      "cors@2.8.6" \
-      "express@4.22.3" \
-      "helmet@8.3.0" \
-      "ioredis@5.11.1" \
-      "jsonwebtoken@9.0.3" \
-      "openai@4.104.0" \
-      "pino@9.14.0" \
-      "pino-pretty@13.2.0" \
-      "zod@3.25.76" && \
-    npm install --save-dev --save-exact \
-      "@types/bcryptjs@2.4.6" \
-      "@types/cors@2.8.19" \
-      "@types/express@5.0.6" \
-      "@types/jsonwebtoken@9.0.10" \
-      "@types/node@22.20.5" \
-      "prisma@6.19.3" \
-      "typescript@5.9.3"
+# package.json and package-lock.json are committed. `npm ci` installs exactly the locked versions of every
+# package, including transitive ones, and fails if the two files disagree.
+COPY backend/package.json backend/package-lock.json ./
+RUN npm ci
 
 # Copy schema and generate Prisma client while network is still available
 COPY backend/prisma/ ./prisma/

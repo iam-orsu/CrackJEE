@@ -1,7 +1,6 @@
-# Dependencies (managed inside Docker)
+# Dependencies: package.json and package-lock.json are committed (the lockfile pins every package).
+# Install with `npm ci`; never edit the lockfile by hand.
 node_modules/
-package.json
-package-lock.json
 yarn.lock
 pnpm-lock.yaml
 .pnpm-store/

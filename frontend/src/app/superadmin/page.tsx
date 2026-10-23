@@ -4,9 +4,6 @@ import { useEffect, useState, type FormEvent } from 'react';
 import {
   adminFetch,
   AdminError,
-  clearAdminToken,
-  getAdminToken,
-  setAdminToken,
   type AdminStats,
 } from '@/lib/admin';
 import styles from './superadmin.module.css';
@@ -34,7 +31,6 @@ export default function SuperAdminPage() {
 
   // Called by detail views when the admin token has expired
   function expireSession() {
-    clearAdminToken();
     setStats(null);
     setSignedIn(false);
     setView({ kind: 'overview' });
@@ -49,9 +45,8 @@ export default function SuperAdminPage() {
       setSignedIn(true);
     } catch (err) {
       if (err instanceof AdminError && err.status === 401) {
-        clearAdminToken();
+        // Not signed in (or the session ended): show the sign-in form without an error
         setSignedIn(false);
-        setError('Your admin session ended. Sign in again.');
       } else {
         setError(err instanceof Error ? err.message : 'Could not load stats');
       }
@@ -61,7 +56,8 @@ export default function SuperAdminPage() {
   }
 
   useEffect(() => {
-    if (getAdminToken()) load();
+    // The cookie decides: if a valid admin session exists, the stats load; otherwise the sign-in form shows
+    load();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -70,11 +66,11 @@ export default function SuperAdminPage() {
     setError('');
     setLoading(true);
     try {
-      const { token } = await adminFetch<{ token: string }>('/login', {
+      // The server sets the HttpOnly admin cookie; the page never sees a token
+      await adminFetch<{ expiresAt: string }>('/login', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
       });
-      setAdminToken(token);
       setPassword('');
       await load();
     } catch (err) {
@@ -84,7 +80,8 @@ export default function SuperAdminPage() {
   }
 
   function handleLogout() {
-    clearAdminToken();
+    // Clears the admin cookie on the server; a failed call still returns the page to the sign-in form
+    adminFetch('/logout', { method: 'POST' }).catch(() => {});
     setStats(null);
     setSignedIn(false);
     setView({ kind: 'overview' });
