@@ -114,9 +114,9 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
       .then(setBank)
       .catch(() => {});
 
-    // When coming from a mock result, always start fresh — don't restore a stale session
+    // A mode link (weak areas, mock drill) always starts fresh — don't restore a stale session
     const incomingMode = new URLSearchParams(window.location.search).get('mode');
-    if (incomingMode === 'mock_weak') {
+    if (incomingMode) {
       try { sessionStorage.removeItem(config.sessionKey); } catch {}
     } else {
       // Restore a saved exam session (survives refresh within the same tab)
