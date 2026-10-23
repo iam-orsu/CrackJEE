@@ -182,7 +182,7 @@ export default function PracticePage() {
   useEffect(() => {
     if (appState === 'wizard' || appState === 'loading') return;
     try {
-      sessionStorage.setItem('crackjee_exam_session', JSON.stringify({
+      sessionStorage.setItem('jeeneet_exam_session', JSON.stringify({
         appState,
         questions,
         currentIndex,
@@ -212,11 +212,11 @@ export default function PracticePage() {
     // When coming from a mock result, always start fresh — don't restore a stale session
     const incomingMode = new URLSearchParams(window.location.search).get('mode');
     if (incomingMode === 'mock_weak') {
-      try { sessionStorage.removeItem('crackjee_exam_session'); } catch {}
+      try { sessionStorage.removeItem('jeeneet_exam_session'); } catch {}
     } else {
       // Restore a saved exam session (survives refresh within the same tab)
       try {
-        const raw = sessionStorage.getItem('crackjee_exam_session');
+        const raw = sessionStorage.getItem('jeeneet_exam_session');
         if (raw) {
           const s = JSON.parse(raw) as {
             appState: AppState; questions: Question[]; currentIndex: number;
@@ -520,7 +520,7 @@ export default function PracticePage() {
 
   function handlePracticeAgain() {
     exitFullscreen();
-    try { sessionStorage.removeItem('crackjee_exam_session'); } catch {}
+    try { sessionStorage.removeItem('jeeneet_exam_session'); } catch {}
     setAppState('wizard');
     setWizardStep(1);
     setQuestions([]);
@@ -590,7 +590,7 @@ export default function PracticePage() {
     return (
       <div className="wizard-page">
         <div className="wizard-topbar">
-          <span className="wizard-topbar-logo">JEENEET.ai</span>
+          <span className="wizard-topbar-logo"><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></span>
           <div className="divider" style={{ width: 1, height: 20, background: 'var(--gray-200)', margin: '0 4px' }} />
           <Link href="/dashboard" className="btn btn-ghost btn-sm">Dashboard</Link>
           {loadError && (
@@ -994,7 +994,7 @@ export default function PracticePage() {
     return (
       <div className="exam-overlay">
         <div className="exam-header">
-          <span className="exam-logo">JEENEET.ai</span>
+          <span className="exam-logo"><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></span>
           <div className="exam-meta">
             <span className="exam-qnum">Q{currentIndex + 1} / {questions.length}</span>
             <span className="exam-topic">{q.subject} · {q.topic}</span>
@@ -1086,7 +1086,7 @@ export default function PracticePage() {
     return (
       <div className="exam-overlay">
         <div className="exam-header">
-          <span className="exam-logo">JEENEET.ai</span>
+          <span className="exam-logo"><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></span>
           <span style={{ fontSize: 14, color: 'var(--gray-500)' }}>Session complete</span>
           <div />
         </div>
@@ -1250,7 +1250,7 @@ export default function PracticePage() {
     return (
       <div className="exam-overlay">
         <div className="exam-header">
-          <span className="exam-logo">JEENEET.ai</span>
+          <span className="exam-logo"><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></span>
           <span style={{ fontSize: 14, color: 'var(--gray-500)' }}>Session analysis</span>
           <div style={{ display: 'flex', gap: 8 }}>
             <button className="btn btn-ghost btn-sm" onClick={() => setAppState('summary')}>Back to score</button>

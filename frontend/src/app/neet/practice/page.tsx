@@ -347,7 +347,7 @@ export default function NEETPracticePage() {
     return (
       <div className="wizard-page">
         <div className="wizard-topbar">
-          <span className="wizard-topbar-logo">JEENEET.ai</span>
+          <span className="wizard-topbar-logo"><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></span>
           <div className="divider" style={{ width: 1, height: 20, background: 'var(--gray-200)', margin: '0 4px' }} />
           <Link href="/dashboard" className="btn btn-ghost btn-sm">Dashboard</Link>
           {loadError && <span style={{ marginLeft: 'auto', fontSize: 13, color: 'var(--red-600)' }}>{loadError}</span>}
@@ -627,7 +627,7 @@ export default function NEETPracticePage() {
     return (
       <div className="exam-overlay">
         <div className="exam-header">
-          <span className="exam-logo">JEENEET.ai · NEET</span>
+          <span className="exam-logo"><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /> · NEET</span>
           <div className="exam-meta">
             <span className="exam-qnum">Q{currentIndex + 1} / {questions.length}</span>
             <span className="exam-topic">{q.subject} · {q.topic}</span>
@@ -708,7 +708,7 @@ export default function NEETPracticePage() {
     return (
       <div className="exam-overlay">
         <div className="exam-header">
-          <span className="exam-logo">JEENEET.ai · NEET</span>
+          <span className="exam-logo"><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /> · NEET</span>
           <span style={{ fontSize: 14, color: 'var(--gray-500)' }}>Session complete</span>
           <div />
         </div>
@@ -811,7 +811,7 @@ export default function NEETPracticePage() {
     return (
       <div className="exam-overlay">
         <div className="exam-header">
-          <span className="exam-logo">JEENEET.ai · NEET</span>
+          <span className="exam-logo"><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /> · NEET</span>
           <span style={{ fontSize: 14, color: 'var(--gray-500)' }}>Session analysis</span>
           <div style={{ display: 'flex', gap: 8 }}>
             <button className="btn btn-ghost btn-sm" onClick={() => setAppState('summary')}>Back to score</button>

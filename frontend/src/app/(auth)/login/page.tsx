@@ -40,10 +40,10 @@ export default function LoginPage() {
     <div className="auth-layout">
       {/* ── Left brand panel ── */}
       <div className="auth-brand">
-        <Link href="/" className="auth-brand-logo">JEENEET.ai</Link>
+        <Link href="/" className="auth-brand-logo"><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></Link>
 
         <div className="auth-brand-body">
-          <div className="auth-brand-eyebrow">Deep Tech-powered JEE preparation</div>
+          <div className="auth-brand-eyebrow">Deep Tech-powered JEE & NEET preparation</div>
           <p className="auth-brand-tagline">Stop guessing.<br />Start knowing.</p>
           <p className="auth-brand-sub">
             Every session brings fresh questions crafted by our Deep Tech engine, tracks your weak spots,

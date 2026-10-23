@@ -97,6 +97,8 @@ export default function MockExamPage() {
       const data = await api.mock.get(examId);
       if (data.status === 'error') { setPageStatus('error'); setLoadMsg('Exam generation failed. Please try again.'); return; }
       if (data.status === 'generating') { setPageStatus('polling'); pollForReady(); return; }
+      // A finished exam belongs on its result page; the exam screen would show a timer and answers that can't be saved
+      if (data.status === 'submitted') { router.replace(`/mock/${examId}/result`); return; }
       await initializeExam(data);
     } catch {
       setPageStatus('error');
@@ -126,6 +128,8 @@ export default function MockExamPage() {
         const data = await api.mock.get(examId);
         if (data.status === 'generating') { setTimeout(poll, 3000); return; }
         if (data.status === 'error') { setPageStatus('error'); setLoadMsg('Exam generation failed.'); return; }
+        // A finished exam belongs on its result page; the exam screen would show a timer and answers that can't be saved
+        if (data.status === 'submitted') { router.replace(`/mock/${examId}/result`); return; }
         await initializeExam(data);
       } catch {
         setTimeout(poll, 4000);
@@ -349,7 +353,10 @@ export default function MockExamPage() {
         borderBottom: '2px solid #0f172a',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <span style={{ fontSize: 16, fontWeight: 700, letterSpacing: '-0.02em' }}>JEENEET.ai</span>
+          {/* White chip so the navy logo stays readable on the dark bar */}
+          <span style={{ display: 'inline-flex', background: '#fff', borderRadius: 6, padding: '4px 10px' }}>
+            <img src="/logo.png" alt="JEENEET.ai" className="site-logo" />
+          </span>
           <span style={{ width: 1, height: 20, background: '#475569' }} />
           <span style={{ fontSize: 14, color: '#94a3b8' }}>
             {exam.examType === 'NEET' ? 'NEET UG Mock Test' : `JEE ${exam.examType} Mock Test`}
