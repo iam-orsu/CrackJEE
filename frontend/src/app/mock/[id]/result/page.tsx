@@ -2,16 +2,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import katex from 'katex';
+import Link from 'next/link';
 import { api } from '@/lib/api';
 import { isAuthenticated } from '@/lib/auth';
 import type { MockResultData, MockResultBreakdown } from '@/types';
 
-import { MathText, renderMath } from '@/lib/math';
-import { AnimatedTabs } from '@/components/ui/AnimatedTabs';
-import { Badge, subjectVariant, qtypeVariant } from '@/components/ui/Badge';
-
-import { fmtTime, fmtQTime, scoreColor, JEE_SUBJECTS, NEET_SUBJECTS_LIST, SUBJECT_COLOR, getJeeCrackingChances, getNEETCrackingChances, toPlainPreview } from '@/components/mock/resultHelpers';
+import { fmtTime, fmtQTime, scoreColor, getJeeCrackingChances, getNEETCrackingChances } from '@/components/mock/resultHelpers';
+import { JEE_SUBJECTS, NEET_SUBJECTS, SUBJECT_COLOR } from '@/lib/subjects';
 import { QuestionReview } from '@/components/mock/QuestionReview';
 
 /* ══════════════════════════════════════════════════════════════
@@ -48,7 +45,7 @@ export default function MockResultPage() {
   if (error || !data) return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#fff', gap: 16 }}>
       <div style={{ color: '#dc2626', fontSize: 15 }}>{error || 'Result not found'}</div>
-      <a href="/mock" style={{ color: '#1e293b', textDecoration: 'underline', fontSize: 14 }}>Back to Mock Tests</a>
+      <Link href="/mock" style={{ color: '#1e293b', textDecoration: 'underline', fontSize: 14 }}>Back to Mock Tests</Link>
     </div>
   );
 
@@ -58,7 +55,7 @@ export default function MockResultPage() {
   const examType = exam.examType;
   const isNEET = examType === 'NEET';
 
-  const SUBJECTS = isNEET ? NEET_SUBJECTS_LIST : JEE_SUBJECTS;
+  const SUBJECTS = isNEET ? NEET_SUBJECTS : JEE_SUBJECTS;
   const numSubjects = SUBJECTS.length;
 
   // Build per-subject scores
@@ -70,7 +67,7 @@ export default function MockResultPage() {
       // For NEET, split biologyScore evenly between Botany/Zoology (or calculate from breakdown)
       const subjQs = exam.questions.filter((q) => q.subject === subj);
       score = subjQs.reduce((sum, q) => {
-        const bd = breakdown[(q as any).mockQuestionId ?? q.questionId];
+        const bd = breakdown[q.mockQuestionId ?? q.questionId];
         return sum + (bd?.awarded ?? 0);
       }, 0);
     } else {
@@ -78,7 +75,7 @@ export default function MockResultPage() {
     }
     const subjectQs = exam.questions.filter((q) => q.subject === subj);
     const maxPerSubject = subjectQs.reduce((sum, q) => {
-      const bd = breakdown[(q as any).mockQuestionId ?? q.questionId];
+      const bd = breakdown[q.mockQuestionId ?? q.questionId];
       return sum + (bd?.maxMarks ?? 0);
     }, 0) || Math.round(result.maxScore / numSubjects);
     const sPct = maxPerSubject > 0 ? Math.round((score / maxPerSubject) * 100) : 0;
@@ -89,12 +86,12 @@ export default function MockResultPage() {
   function buildWeakPracticeUrl(): string {
     const topicWeights = new Map<string, { subject: string; weight: number }>();
     for (const q of exam.questions) {
-      const mqId = (q as any).mockQuestionId ?? q.questionId;
+      const mqId = q.mockQuestionId ?? q.questionId;
       const bd = breakdown[mqId];
       const isWrong = !!bd?.submitted && (bd.awarded ?? 0) <= 0;
       const isUnattempted = !bd?.submitted;
       if (!isWrong && !isUnattempted) continue;
-      const topic = (q as any).topic as string;
+      const topic = q.topic;
       if (!topic || !q.subject) continue;
       const key = `${q.subject}::${topic}`;
       const weight = isWrong ? 2 : 1;
@@ -118,7 +115,7 @@ export default function MockResultPage() {
   // Filter questions for review section
   const allQs = exam.questions;
   const filteredQs = allQs.filter((q) => {
-    const bd = breakdown[(q as any).mockQuestionId ?? q.questionId];
+    const bd = breakdown[q.mockQuestionId ?? q.questionId];
     if (!bd) return filterSubject === 'All' || q.subject === filterSubject;
     const isCorrect = bd.awarded > 0;
     const isUnattempted = !bd.submitted;
@@ -139,18 +136,18 @@ export default function MockResultPage() {
           {/* White chip so the navy logo stays readable on the dark bar */}
           <a href="/dashboard" style={{ display: 'inline-flex', background: '#fff', borderRadius: 6, padding: '4px 10px' }}><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></a>
           <span style={{ color: '#475569' }}>›</span>
-          <a href="/mock" style={{ color: '#94a3b8', fontSize: 14, textDecoration: 'none' }}>Mock Tests</a>
+          <Link href="/mock" style={{ color: '#94a3b8', fontSize: 14, textDecoration: 'none' }}>Mock Tests</Link>
           <span style={{ color: '#475569' }}>›</span>
           <span style={{ fontSize: 14, color: '#f1f5f9', fontWeight: 600 }}>
             Result — {isNEET ? 'NEET UG' : `JEE ${examType}`}
           </span>
         </div>
-        <a href="/mock" style={{
+        <Link href="/mock" style={{
           color: '#fff', fontSize: 13, fontWeight: 600, textDecoration: 'none',
           padding: '6px 16px', border: '1px solid #475569', borderRadius: 5,
         }}>
           New Mock Test
-        </a>
+        </Link>
       </div>
 
       <div style={{ maxWidth: 1000, margin: '0 auto', padding: '24px 20px', display: 'flex', flexDirection: 'column', gap: 20 }}>
@@ -401,12 +398,12 @@ export default function MockResultPage() {
 
         {/* Footer */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: 14, paddingBottom: 32 }}>
-          <a href="/mock" style={{
+          <Link href="/mock" style={{
             padding: '11px 24px', background: '#1e293b', color: '#fff',
             borderRadius: 6, fontSize: 14, fontWeight: 600, textDecoration: 'none',
           }}>
             Take Another Mock
-          </a>
+          </Link>
           <a href={weakPracticeUrl} style={{
             padding: '11px 24px', background: '#fff', color: '#1e293b',
             border: '1px solid #e2e8f0', borderRadius: 6, fontSize: 14, fontWeight: 600, textDecoration: 'none',

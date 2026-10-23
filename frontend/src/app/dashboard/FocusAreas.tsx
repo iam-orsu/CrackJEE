@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import type { DashboardData, MockWeakTopic } from '@/types';
 import styles from './dashboard.module.css';
-import { SUBJECT_COLOR, plural, toneClass } from './helpers';
+import { SUBJECT_COLOR } from '@/lib/subjects';
+import { plural, toneClass } from './helpers';
 
 interface FocusAreasProps {
   loading: boolean;

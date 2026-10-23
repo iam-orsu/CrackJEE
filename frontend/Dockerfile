@@ -18,7 +18,10 @@ RUN npm init -y && \
       "@types/node@^22" \
       "@types/react@^19" \
       "@types/react-dom@^19" \
-      "typescript@^5.7.0"
+      "typescript@^5.7.0" \
+      "eslint@^9" \
+      "eslint-config-next@15" \
+      "@eslint/eslintrc@^3"
 
 # ── Stage 2: Build Next.js ──
 FROM node:22-alpine AS builder
@@ -30,13 +33,17 @@ COPY --from=deps /app/package.json ./package.json
 
 COPY tsconfig.json ./
 COPY next.config.ts ./
+COPY eslint.config.mjs ./
 COPY src/ ./src/
 COPY public/ ./public/
 
 ARG NEXT_PUBLIC_API_URL=/api
 ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
 
-RUN ./node_modules/.bin/next build
+# Quality gates: a lint error or type error stops the build before anything is deployed
+RUN ./node_modules/.bin/eslint src --quiet && \
+    ./node_modules/.bin/tsc --noEmit && \
+    ./node_modules/.bin/next build
 
 # ── Stage 3: Minimal production runner ──
 FROM node:22-alpine AS runner

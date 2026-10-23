@@ -8,7 +8,8 @@ import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import type { DashboardData, WeeklyPoint, MockWeakTopic, LeaderboardData } from '@/types';
 import styles from './dashboard.module.css';
-import { SUBJECT_COLOR, plural, toneClass } from './helpers';
+import { SUBJECT_COLOR } from '@/lib/subjects';
+import { plural, toneClass } from './helpers';
 import { FocusAreas } from './FocusAreas';
 
 const DAY_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];

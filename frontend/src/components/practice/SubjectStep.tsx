@@ -1,6 +1,6 @@
 import type { Subject } from '@/types';
 import type { SplitTopics } from '@/lib/api';
-import { SUBJECT_META } from './shared';
+import { SUBJECT_ICON } from '@/lib/subjects';
 
 interface SubjectStepProps {
   selectedSubjects: Set<Subject>;
@@ -29,7 +29,7 @@ export function SubjectStep({ selectedSubjects, topicsByClass, bank, onSelectAll
           const questionCount = bank?.bySubject[s];
           return (
             <div key={s} className={`subject-card${selectedSubjects.has(s) ? ' selected' : ''}`} onClick={() => onToggleSubject(s)}>
-              <span className="subject-card-emoji" style={{ fontFamily: 'serif', fontSize: 28 }}>{SUBJECT_META[s].emoji}</span>
+              <span className="subject-card-emoji" style={{ fontFamily: 'serif', fontSize: 28 }}>{SUBJECT_ICON[s]}</span>
               <span className="subject-card-name">{s}</span>
               <span className="subject-card-sub">
                 {topicCount !== null ? `${topicCount} topics` : 'Loading...'}

@@ -23,13 +23,6 @@ export function scoreColor(pct: number): string {
   return '#dc2626';
 }
 
-export const JEE_SUBJECTS = ['Physics', 'Chemistry', 'Mathematics'] as const;
-export const NEET_SUBJECTS_LIST = ['Physics', 'Chemistry', 'Botany', 'Zoology'] as const;
-export const SUBJECT_COLOR: Record<string, string> = {
-  Physics: '#2563eb', Chemistry: '#16a34a', Mathematics: '#7c3aed',
-  Botany: '#16a34a', Zoology: '#0891b2',
-};
-
 /* ── JEE cracking chances bands ─────────────────────────────── */
 
 export interface ChanceBand {

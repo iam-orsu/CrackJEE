@@ -1,17 +1,17 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { useRouter, useParams } from 'next/navigation';
-import katex from 'katex';
 import { api } from '@/lib/api';
 import { isAuthenticated } from '@/lib/auth';
-import type { MockExam, MockExamQuestion } from '@/types';
+import type { MockExam } from '@/types';
 
-import { MathText, renderMath, stripOptionPrefix } from '@/lib/math';
+import { MathText, stripOptionPrefix } from '@/lib/math';
 import { OrbitalLoader } from '@/components/ui/OrbitalLoader';
-import { DragToConfirm } from '@/components/ui/DragToConfirm';
 import { Badge, qtypeVariant, difficultyVariant } from '@/components/ui/Badge';
-import { qStatus, STATUS_STYLE, SUBJECT_COLOR, type QStatus } from '@/components/mock/examStatus';
+import { qStatus, type QStatus } from '@/components/mock/examStatus';
+import { SUBJECT_COLOR } from '@/lib/subjects';
 import { ExamPalette } from '@/components/mock/ExamPalette';
 import { SubmitModal } from '@/components/mock/SubmitModal';
 
@@ -60,7 +60,6 @@ export default function MockExamPage() {
 
   // UI
   const [showSubmitModal, setShowSubmitModal] = useState(false);
-  const [saving, setSaving] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const submittingRef = useRef(false);
 
@@ -285,7 +284,7 @@ export default function MockExamPage() {
     return (
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#fff' }}>
         <div style={{ fontSize: 16, color: '#dc2626', marginBottom: 16 }}>{loadMsg}</div>
-        <a href="/mock" style={{ color: 'var(--gray-700)', textDecoration: 'underline' }}>Back to Mock Tests</a>
+        <Link href="/mock" style={{ color: 'var(--gray-700)', textDecoration: 'underline' }}>Back to Mock Tests</Link>
       </div>
     );
   }

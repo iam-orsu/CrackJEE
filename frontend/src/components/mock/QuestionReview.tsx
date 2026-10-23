@@ -1,16 +1,18 @@
 import { MathText } from '@/lib/math';
 import { AnimatedTabs } from '@/components/ui/AnimatedTabs';
 import { Badge, subjectVariant } from '@/components/ui/Badge';
-import type { MockResultBreakdown } from '@/types';
+import type { MockExamQuestion, MockResultBreakdown } from '@/types';
 import { fmtQTime, toPlainPreview } from './resultHelpers';
 
 export type FilterStatus = 'all' | 'correct' | 'incorrect' | 'unattempted';
 
+type ReviewQuestion = MockExamQuestion & { explanation?: string };
+
 interface QuestionReviewProps {
   weakPracticeUrl: string;
   isNEET: boolean;
-  allQs: any[];
-  filteredQs: any[];
+  allQs: ReviewQuestion[];
+  filteredQs: ReviewQuestion[];
   breakdown: Record<string, MockResultBreakdown>;
   expandedQ: string | null;
   onExpand: (questionId: string | null) => void;
@@ -53,9 +55,9 @@ export function QuestionReview({ weakPracticeUrl, isNEET, allQs, filteredQs, bre
         size="sm"
         tabs={[
           { value: 'all',         label: 'All',       count: allQs.length },
-          { value: 'correct',     label: '✓ Correct', count: allQs.filter((q) => { const bd = breakdown[(q as any).mockQuestionId ?? q.questionId]; return !!bd?.submitted && (bd.awarded ?? 0) > 0; }).length },
-          { value: 'incorrect',   label: '✗ Wrong',   count: allQs.filter((q) => { const bd = breakdown[(q as any).mockQuestionId ?? q.questionId]; return !!bd?.submitted && (bd.awarded ?? 0) <= 0; }).length },
-          { value: 'unattempted', label: '○ Skipped', count: allQs.filter((q) => { const bd = breakdown[(q as any).mockQuestionId ?? q.questionId]; return !bd?.submitted; }).length },
+          { value: 'correct',     label: '✓ Correct', count: allQs.filter((q) => { const bd = breakdown[q.mockQuestionId ?? q.questionId]; return !!bd?.submitted && (bd.awarded ?? 0) > 0; }).length },
+          { value: 'incorrect',   label: '✗ Wrong',   count: allQs.filter((q) => { const bd = breakdown[q.mockQuestionId ?? q.questionId]; return !!bd?.submitted && (bd.awarded ?? 0) <= 0; }).length },
+          { value: 'unattempted', label: '○ Skipped', count: allQs.filter((q) => { const bd = breakdown[q.mockQuestionId ?? q.questionId]; return !bd?.submitted; }).length },
         ]}
         value={filterStatus}
         onChange={(v) => onFilterStatus(v as FilterStatus)}
@@ -68,11 +70,10 @@ export function QuestionReview({ weakPracticeUrl, isNEET, allQs, filteredQs, bre
 
     <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
       {filteredQs.map((q) => {
-        const mqId = (q as any).mockQuestionId ?? q.questionId;
+        const mqId = q.mockQuestionId ?? q.questionId;
         const bd = breakdown[mqId];
         const isCorrect = bd && bd.awarded > 0;
         const isUnattempted = !bd?.submitted;
-        const isIncorrect = !!bd?.submitted && bd.awarded <= 0;
         const isExpanded = expandedQ === q.questionId;
 
         const statusColor = isCorrect ? '#16a34a' : isUnattempted ? '#64748b' : '#dc2626';
@@ -104,9 +105,9 @@ export function QuestionReview({ weakPracticeUrl, isNEET, allQs, filteredQs, bre
               </span>
               <span style={{ fontSize: 12, color: '#64748b', flexShrink: 0 }}>Q{q.questionNumber}</span>
               <Badge variant={subjectVariant(q.subject)}>{q.subject}</Badge>
-              <span style={{ fontSize: 11, color: '#94a3b8' }}>{(q as any).topic}</span>
+              <span style={{ fontSize: 11, color: '#94a3b8' }}>{q.topic}</span>
               <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: 13, color: '#374151' }}>
-                {toPlainPreview((q as any).questionText ?? '')}
+                {toPlainPreview(q.questionText ?? '')}
               </span>
               {(bd?.timeSpentSeconds ?? 0) > 0 && (
                 <span style={{ fontSize: 11, color: '#94a3b8', flexShrink: 0, whiteSpace: 'nowrap' }}>
@@ -123,13 +124,13 @@ export function QuestionReview({ weakPracticeUrl, isNEET, allQs, filteredQs, bre
               <div style={{ padding: '0 16px 20px', borderTop: '1px solid #e2e8f0' }}>
                 {/* Question text */}
                 <div style={{ fontSize: 14, color: '#1e293b', lineHeight: 1.7, padding: '14px 0 12px' }}>
-                  <MathText text={(q as any).questionText ?? ''} />
+                  <MathText text={q.questionText ?? ''} />
                 </div>
 
                 {/* Options */}
-                {(q as any).options && (q as any).options.length > 0 && (
+                {q.options && q.options.length > 0 && (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 14 }}>
-                    {((q as any).options as string[]).map((opt, i) => {
+                    {q.options.map((opt, i) => {
                       const letter = ['A', 'B', 'C', 'D'][i]!;
                       const correctAns = bd?.correctAnswer ?? '';
                       const submittedAns = bd?.submitted ?? '';
@@ -155,7 +156,7 @@ export function QuestionReview({ weakPracticeUrl, isNEET, allQs, filteredQs, bre
                 )}
 
                 {/* Integer answer */}
-                {(q as any).questionType === 'integer' && (
+                {q.questionType === 'integer' && (
                   <div style={{ display: 'flex', gap: 20, marginBottom: 14, fontSize: 13 }}>
                     <div style={{ padding: '8px 14px', background: '#f0fdf4', border: '1px solid #86efac', borderRadius: 6 }}>
                       <span style={{ color: '#64748b' }}>Correct: </span>
@@ -180,13 +181,13 @@ export function QuestionReview({ weakPracticeUrl, isNEET, allQs, filteredQs, bre
                 )}
 
                 {/* Explanation */}
-                {(q as any).explanation && (
+                {q.explanation && (
                   <div style={{
                     padding: '14px 16px', background: '#fffbeb', border: '1px solid #fde68a',
                     borderRadius: 6, fontSize: 13, color: '#92400e', lineHeight: 1.7,
                   }}>
                     <div style={{ fontWeight: 700, marginBottom: 6, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Explanation</div>
-                    <MathText text={(q as any).explanation} />
+                    <MathText text={q.explanation} />
                   </div>
                 )}
 
@@ -194,7 +195,7 @@ export function QuestionReview({ weakPracticeUrl, isNEET, allQs, filteredQs, bre
                 <div style={{ marginTop: 12, display: 'flex', gap: 12, fontSize: 12, color: '#64748b' }}>
                   <span>Marks awarded: <strong style={{ color: statusColor }}>{bd?.awarded ?? 0}</strong></span>
                   <span>Max marks: <strong>{bd?.maxMarks ?? 4}</strong></span>
-                  <span>Type: <strong>{(q as any).questionType === 'mcq_single' ? 'Single Correct' : (q as any).questionType === 'mcq_multi' ? 'Multi-Correct' : 'Integer'}</strong></span>
+                  <span>Type: <strong>{q.questionType === 'mcq_single' ? 'Single Correct' : q.questionType === 'mcq_multi' ? 'Multi-Correct' : 'Integer'}</strong></span>
                 </div>
               </div>
             )}

@@ -8,17 +8,15 @@ import { isAuthenticated } from '@/lib/auth';
 import { QuestionCard } from '@/components/QuestionCard';
 import type { Question, AnswerResult, TopicProgress } from '@/types';
 import type { SplitTopics } from '@/lib/api';
+import { NEET_SUBJECTS, SUBJECT_COLOR, SUBJECT_ICON } from '@/lib/subjects';
 
-type NeetSubject = 'Physics' | 'Chemistry' | 'Botany' | 'Zoology';
+type NeetSubject = (typeof NEET_SUBJECTS)[number];
 
-const NEET_SUBJECT_META: Record<NeetSubject, { emoji: string; color: string }> = {
-  Physics:   { emoji: '⚛', color: '#2563eb' },
-  Chemistry: { emoji: '⚗', color: '#16a34a' },
-  Botany:    { emoji: '🌿', color: '#15803d' },
-  Zoology:   { emoji: '🦎', color: '#0891b2' },
-};
+const NEET_SUBJECT_META = Object.fromEntries(
+  NEET_SUBJECTS.map((s) => [s, { emoji: SUBJECT_ICON[s], color: SUBJECT_COLOR[s] }]),
+) as Record<NeetSubject, { emoji: string; color: string }>;
 
-const ALL_NEET_SUBJECTS: NeetSubject[] = ['Physics', 'Chemistry', 'Botany', 'Zoology'];
+const ALL_NEET_SUBJECTS: NeetSubject[] = [...NEET_SUBJECTS];
 
 type AppState = 'wizard' | 'loading' | 'exam' | 'summary' | 'review';
 type WizardStep = 1 | 2 | 3;
