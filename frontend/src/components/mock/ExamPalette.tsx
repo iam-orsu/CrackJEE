@@ -1,5 +1,6 @@
 import type { MockExamQuestion } from '@/types';
-import { qStatus, STATUS_STYLE, SUBJECT_COLOR, type QStatus } from './examStatus';
+import { SUBJECT_COLOR } from '@/lib/subjects';
+import { qStatus, STATUS_STYLE, type QStatus } from './examStatus';
 
 interface ExamPaletteProps {
   totalAnswered: number;

@@ -65,7 +65,7 @@ export default function RegisterPage() {
           <p className="auth-brand-tagline">The only prep tool<br />that learns you.</p>
           <p className="auth-brand-sub">
             We track every topic you attempt. The moment your accuracy drops
-            below 60%, it's flagged as a weak area. No wasted time, only targeted practice.
+            below 60%, it&apos;s flagged as a weak area. No wasted time, only targeted practice.
           </p>
 
           <div className="auth-features">

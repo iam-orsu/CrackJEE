@@ -1,18 +1,19 @@
 import type { PaperSet, Subject, AnswerResult } from '@/types';
+import { SUBJECT_COLOR, SUBJECT_ICON } from '@/lib/subjects';
 
-export const SUBJECT_META: Record<string, { emoji: string }> = {
-  Mathematics: { emoji: '∑' },
-  Physics:     { emoji: '⚛' },
-  Chemistry:   { emoji: '⚗' },
-  Botany:      { emoji: '🌿' },
-  Zoology:     { emoji: '🦎' },
+/* Light background tint used behind each subject on the review screen */
+const REVIEW_BG: Record<string, string> = {
+  Physics: '#eff6ff',
+  Chemistry: '#f0fdf4',
+  Mathematics: '#f5f3ff',
 };
 
-export const REVIEW_SUBJ: Record<string, { color: string; icon: string; bg: string }> = {
-  Physics:     { color: '#2563eb', icon: '⚛', bg: '#eff6ff' },
-  Chemistry:   { color: '#16a34a', icon: '⚗', bg: '#f0fdf4' },
-  Mathematics: { color: '#7c3aed', icon: '∑', bg: '#f5f3ff' },
-};
+export const REVIEW_SUBJ: Record<string, { color: string; icon: string; bg: string }> = Object.fromEntries(
+  Object.keys(REVIEW_BG).map((subject) => [
+    subject,
+    { color: SUBJECT_COLOR[subject], icon: SUBJECT_ICON[subject], bg: REVIEW_BG[subject] },
+  ]),
+);
 
 /* ─── Loading messages ──────────────────────────────────── */
 export const LOAD_MESSAGES = [
@@ -78,7 +79,7 @@ export function PaperCard({ paper, onStart }: { paper: PaperSet; onStart: () => 
 
       <div className="paper-chips">
         {subjectCounts.map(({ s, n }) => (
-          <span key={s} className="paper-chip">{SUBJECT_META[s].emoji} {s} · {n}</span>
+          <span key={s} className="paper-chip">{SUBJECT_ICON[s]} {s} · {n}</span>
         ))}
       </div>
 

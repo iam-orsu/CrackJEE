@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import katex from 'katex';
 import type { Question, AnswerResult } from '@/types';
 import { DiagramRenderer } from './DiagramRenderer';
 

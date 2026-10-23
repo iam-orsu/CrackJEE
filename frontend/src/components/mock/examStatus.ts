@@ -20,8 +20,3 @@ export const STATUS_STYLE: Record<QStatus, { bg: string; color: string; border: 
   marked:          { bg: '#a855f7', color: '#fff',    border: '#9333ea' },
   answered_marked: { bg: '#7c3aed', color: '#fff',    border: '#6d28d9' },
 };
-
-export const SUBJECT_COLOR: Record<string, string> = {
-  Physics: '#2563eb', Chemistry: '#16a34a', Mathematics: '#7c3aed',
-  Botany: '#16a34a', Zoology: '#0891b2',
-};

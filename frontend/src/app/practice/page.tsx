@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
-import { QuestionCard } from '@/components/QuestionCard';
 import type { Question, AnswerResult, Subject, TopicProgress, PaperSet } from '@/types';
 import type { SplitTopics } from '@/lib/api';
 import { LOAD_MESSAGES } from '@/components/practice/shared';

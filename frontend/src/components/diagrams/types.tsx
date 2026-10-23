@@ -1,5 +1,3 @@
-import React from 'react';
-
 /* ── Template param interfaces ──────────────────────────────── */
 export interface InclinedPlaneParams {
   angle_deg?: number;
