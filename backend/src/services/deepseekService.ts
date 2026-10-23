@@ -3,13 +3,20 @@ import type { GeneratedQuestion, Difficulty, ExamType, Subject, StudentClass, Qu
 import { createConcurrencyLimiter } from '../lib/concurrencyLimiter';
 import { incCounter } from '../lib/metrics';
 
-// maxRetries: 0 — the retry loops below own retries, so SDK retries don't multiply them
-const client = new OpenAI({
-  apiKey: process.env.DEEPSEEK_API_KEY,
-  baseURL: 'https://api.deepseek.com',
-  timeout: 60000,
-  maxRetries: 0,
-});
+// Created on first use, not at import: modules that only need the prompt helpers or the parser (and the unit
+// tests) must load without a DeepSeek key. maxRetries: 0 — the retry loops below own retries, so SDK retries don't multiply them
+let client: OpenAI | null = null;
+function getClient(): OpenAI {
+  if (!client) {
+    client = new OpenAI({
+      apiKey: process.env.DEEPSEEK_API_KEY,
+      baseURL: 'https://api.deepseek.com',
+      timeout: 60000,
+      maxRetries: 0,
+    });
+  }
+  return client;
+}
 
 // Caps how many DeepSeek requests run at once across all users and requests in this process
 const withDeepSeekSlot = createConcurrencyLimiter(Number(process.env.DEEPSEEK_CONCURRENCY ?? 6));
@@ -19,7 +26,7 @@ async function callDeepSeek(
   params: OpenAI.Chat.ChatCompletionCreateParamsNonStreaming,
 ): Promise<OpenAI.Chat.ChatCompletion> {
   try {
-    const response = await withDeepSeekSlot(() => client.chat.completions.create(params));
+    const response = await withDeepSeekSlot(() => getClient().chat.completions.create(params));
     incCounter('deepseek_requests_total', { outcome: 'ok' });
     return response;
   } catch (err) {
