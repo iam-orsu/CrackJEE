@@ -355,6 +355,23 @@ export async function getPracticeQuestionBatch(
 
 const BATCH_SIZE = 3;
 
+// Every validated, non-mock bank id for one topic/difficulty/type, cached for 10 minutes. One database query per
+// cache window instead of one per request. A new question is picked up when the list next refreshes.
+async function cachedBankIds(
+  subject: Subject, topic: string, difficulty: Difficulty, examType: ExamType, questionType: QuestionType,
+): Promise<string[]> {
+  const key = `bankids-ai:${subject}:${topic}:${difficulty}:${examType}:${questionType}`;
+  const cached = await cacheGetJson<string[]>(key);
+  if (cached) return cached;
+  const rows = await prisma.question.findMany({
+    where: { topic, subject, difficulty, examType, questionType, validatedAt: { not: null }, mockOnly: false },
+    select: { id: true },
+  });
+  const ids = rows.map((r) => r.id);
+  await cacheSetJson(key, ids, 600);
+  return ids;
+}
+
 // Practice/AI pool cache key. The "qp2" prefix replaces the old "q:" keys, which may hold mock questions
 // written before mockOnly existed; the old entries are simply never read again and expire on their own.
 function poolCacheKey(
@@ -452,22 +469,12 @@ export async function getNextQuestion(
     }
   }
 
-  // Pick uniformly from every unserved bank id (not just the first rows the database returns)
-  const candidateIds = await prisma.question.findMany({
-    where: {
-      topic,
-      subject,
-      difficulty,
-      examType,
-      questionType,
-      id: { notIn: [...allExcluded] },
-      validatedAt: { not: null },
-      mockOnly: false,
-    },
-    select: { id: true },
-  });
-  if (candidateIds.length > 0) {
-    const pickedId = candidateIds[Math.floor(Math.random() * candidateIds.length)]!.id;
+  // Pick uniformly from every unserved bank id. The id list is cached (like practice mode) and filtered in memory,
+  // so a request never sends the served list to Postgres as a NOT IN clause.
+  const bankIds = await cachedBankIds(subject, topic, difficulty, examType, questionType);
+  const unseenIds = bankIds.filter((id) => !allExcluded.has(id));
+  if (unseenIds.length > 0) {
+    const pickedId = unseenIds[Math.floor(Math.random() * unseenIds.length)]!;
     const existing = await prisma.question.findUnique({ where: { id: pickedId } });
     if (existing) {
       await cacheAppendUnique(servedKey, [existing.id], 86400 * 7);
