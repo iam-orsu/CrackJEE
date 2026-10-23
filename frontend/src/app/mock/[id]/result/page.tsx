@@ -11,85 +11,8 @@ import { MathText, renderMath } from '@/lib/math';
 import { AnimatedTabs } from '@/components/ui/AnimatedTabs';
 import { Badge, subjectVariant, qtypeVariant } from '@/components/ui/Badge';
 
-/* ── Helpers ─────────────────────────────────────────────────── */
-
-function fmtTime(s: number): string {
-  const h = Math.floor(s / 3600);
-  const m = Math.floor((s % 3600) / 60);
-  const sec = s % 60;
-  if (h > 0) return `${h}h ${m}m ${sec}s`;
-  if (m > 0) return `${m}m ${sec}s`;
-  return `${sec}s`;
-}
-
-function fmtQTime(s: number): string {
-  if (s === 0) return '—';
-  if (s < 60) return `${s}s`;
-  return `${Math.floor(s / 60)}m ${s % 60}s`;
-}
-
-function scoreColor(pct: number): string {
-  if (pct >= 70) return '#16a34a';
-  if (pct >= 50) return '#d97706';
-  return '#dc2626';
-}
-
-const JEE_SUBJECTS = ['Physics', 'Chemistry', 'Mathematics'] as const;
-const NEET_SUBJECTS_LIST = ['Physics', 'Chemistry', 'Botany', 'Zoology'] as const;
-const SUBJECT_COLOR: Record<string, string> = {
-  Physics: '#2563eb', Chemistry: '#16a34a', Mathematics: '#7c3aed',
-  Botany: '#16a34a', Zoology: '#0891b2',
-};
-
-/* ── JEE cracking chances bands ─────────────────────────────── */
-
-interface ChanceBand {
-  label: string; color: string; bg: string; border: string;
-  headline: string; details: string[]; bar: number;
-}
-
-function getJeeCrackingChances(pct: number, examType: string): ChanceBand {
-  if (examType === 'Main') {
-    if (pct >= 75) return { label: 'Excellent', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', headline: 'Top 1% nationally', details: ['99+ percentile range (AIR < 1,000)', 'Strong NIT/IIIT admission — any branch', 'JEE Advanced qualifier — very likely'], bar: 95 };
-    if (pct >= 60) return { label: 'Very Good', color: '#2563eb', bg: '#eff6ff', border: '#bfdbfe', headline: 'Top 3–5% nationally', details: ['97–99 percentile range (AIR 1,000–10,000)', 'Good NITs assured (CS/Mech/EE)', 'JEE Advanced qualifying range'], bar: 75 };
-    if (pct >= 45) return { label: 'Good', color: '#d97706', bg: '#fffbeb', border: '#fde68a', headline: 'Top 10–15% nationally', details: ['90–97 percentile range', 'Decent NITs/IIITs accessible', 'Near JEE Advanced qualifying threshold'], bar: 55 };
-    if (pct >= 30) return { label: 'Average', color: '#ea580c', bg: '#fff7ed', border: '#fed7aa', headline: 'Top 20–35% nationally', details: ['80–90 percentile range', 'Some NITs/IIITs (lower branches)', 'Below JEE Advanced cutoff — improve accuracy'], bar: 35 };
-    return { label: 'Needs Work', color: '#dc2626', bg: '#fef2f2', border: '#fecaca', headline: 'Below qualifying threshold', details: ['Below 80 percentile range', 'Focus on NCERT fundamentals first', 'Strengthen weak topics before next mock'], bar: 15 };
-  }
-  // JEE Advanced
-  if (pct >= 75) return { label: 'Outstanding', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', headline: 'IIT Top Branches assured', details: ['AIR < 200 range', 'CS/EE at IIT Bombay, Delhi, Madras within reach', 'Top 0.1% of JEE Advanced aspirants'], bar: 98 };
-  if (pct >= 60) return { label: 'Excellent', color: '#2563eb', bg: '#eff6ff', border: '#bfdbfe', headline: 'Top IITs guaranteed', details: ['AIR 200–1,000 range', 'CS/EE at top-5 IITs very likely', 'Top 0.5% of JEE Advanced aspirants'], bar: 80 };
-  if (pct >= 47) return { label: 'Very Good', color: '#7c3aed', bg: '#f5f3ff', border: '#ddd6fe', headline: 'IIT admission assured', details: ['AIR 1,000–5,000 range', 'Good branches at IIT Roorkee, Kharagpur, Guwahati', 'Top 2–3% of JEE Advanced aspirants'], bar: 62 };
-  if (pct >= 35) return { label: 'Good', color: '#d97706', bg: '#fffbeb', border: '#fde68a', headline: 'IIT admission possible', details: ['AIR 5,000–15,000 range', 'Lower branches at newer IITs', '2025 closing cutoff was ~35–47% range'], bar: 42 };
-  if (pct >= 25) return { label: 'Borderline', color: '#ea580c', bg: '#fff7ed', border: '#fed7aa', headline: 'Near qualifying cutoff', details: ['2025 open category cutoff ~28–30%', 'Work on accuracy — multi-correct guessing costs marks', 'Improve integer-type hit rate'], bar: 25 };
-  return { label: 'Needs Work', color: '#dc2626', bg: '#fef2f2', border: '#fecaca', headline: 'Below qualifying cutoff', details: ['Below 2025 open category threshold', 'Master conceptual clarity across all 3 subjects', 'Focus on single-correct accuracy before tackling multi-correct'], bar: 10 };
-}
-
-/* ── NEET cracking chances bands ─────────────────────────────── */
-
-function getNEETCrackingChances(pct: number): ChanceBand {
-  // NEET 2025: General cutoff ~50% (360/720); top medical colleges ~95%+
-  if (pct >= 90) return { label: 'Exceptional', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', headline: 'AIIMS / Top Government Medical Colleges', details: ['AIIMS Delhi, JIPMER — realistic target', 'AIR < 100 range', 'Top 0.01% of ~24 lakh aspirants'], bar: 98 };
-  if (pct >= 75) return { label: 'Excellent', color: '#2563eb', bg: '#eff6ff', border: '#bfdbfe', headline: 'Top Government & Private Medical Colleges', details: ['Top State Government Medical Colleges assured', 'AIR < 5,000 range', 'Top 0.02% of aspirants'], bar: 82 };
-  if (pct >= 60) return { label: 'Very Good', color: '#7c3aed', bg: '#f5f3ff', border: '#ddd6fe', headline: 'Government Medical College assured', details: ['Government seat highly likely', 'AIR 5,000–30,000 range', 'Top 0.1% of aspirants'], bar: 65 };
-  if (pct >= 50) return { label: 'Good', color: '#d97706', bg: '#fffbeb', border: '#fde68a', headline: 'Near qualifying cutoff for government seats', details: ['360+ marks (50%) is the general qualifying cutoff', 'Government seat possible in home state', 'Private college admission assured'], bar: 48 };
-  if (pct >= 40) return { label: 'Average', color: '#ea580c', bg: '#fff7ed', border: '#fed7aa', headline: 'Qualifying threshold — private colleges', details: ['Below general cutoff for government seats', 'Private medical/dental colleges accessible', 'Strengthen Biology and Physics accuracy'], bar: 30 };
-  return { label: 'Needs Work', color: '#dc2626', bg: '#fef2f2', border: '#fecaca', headline: 'Below qualifying cutoff', details: ['Below 40% — below NEET qualifying threshold', 'Focus on NCERT Biology (50% of paper)', 'Revise Physics and Chemistry fundamentals'], bar: 12 };
-}
-
-/* ── Plain text preview (strips LaTeX for snippet) ──────────── */
-
-function toPlainPreview(text: string, max = 80): string {
-  const plain = text
-    .replace(/\$\$[\s\S]+?\$\$/g, '')
-    .replace(/\$([^$\n]*)\$/g, '$1')
-    .replace(/\\[a-zA-Z]+\{([^}]*)\}/g, '$1')
-    .replace(/\\[a-zA-Z]+/g, '')
-    .replace(/[{}[\]]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-  return plain.length > max ? plain.slice(0, max) + '…' : plain;
-}
+import { fmtTime, fmtQTime, scoreColor, JEE_SUBJECTS, NEET_SUBJECTS_LIST, SUBJECT_COLOR, getJeeCrackingChances, getNEETCrackingChances, toPlainPreview } from '@/components/mock/resultHelpers';
+import { QuestionReview } from '@/components/mock/QuestionReview';
 
 /* ══════════════════════════════════════════════════════════════
    Component
@@ -462,187 +385,19 @@ export default function MockResultPage() {
           );
         })()}
 
-        {/* Question review */}
-        <div style={{ background: '#fff', borderRadius: 10, border: '1px solid #e2e8f0', padding: 24 }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16, flexWrap: 'wrap', gap: 10 }}>
-            <h2 style={{ fontSize: 15, fontWeight: 700, color: '#1e293b' }}>Question Review</h2>
-            <a href={weakPracticeUrl} style={{
-              padding: '7px 14px', background: '#fff', color: '#1e293b',
-              border: '1px solid #e2e8f0', borderRadius: 6, fontSize: 13, fontWeight: 600,
-              textDecoration: 'none', whiteSpace: 'nowrap',
-            }}>
-              Practice Weak Areas
-            </a>
-          </div>
-
-          {/* Filters */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 20 }}>
-            <AnimatedTabs
-              size="sm"
-              tabs={[
-                { value: 'All', label: 'All Subjects' },
-                ...(isNEET
-                  ? (['Physics', 'Chemistry', 'Botany', 'Zoology'] as const).map((s) => ({ value: s, label: s }))
-                  : (['Physics', 'Chemistry', 'Mathematics'] as const).map((s) => ({ value: s, label: s }))
-                ),
-              ]}
-              value={filterSubject}
-              onChange={setFilterSubject}
-            />
-            <AnimatedTabs
-              size="sm"
-              tabs={[
-                { value: 'all',         label: 'All',       count: allQs.length },
-                { value: 'correct',     label: '✓ Correct', count: allQs.filter((q) => { const bd = breakdown[(q as any).mockQuestionId ?? q.questionId]; return !!bd?.submitted && (bd.awarded ?? 0) > 0; }).length },
-                { value: 'incorrect',   label: '✗ Wrong',   count: allQs.filter((q) => { const bd = breakdown[(q as any).mockQuestionId ?? q.questionId]; return !!bd?.submitted && (bd.awarded ?? 0) <= 0; }).length },
-                { value: 'unattempted', label: '○ Skipped', count: allQs.filter((q) => { const bd = breakdown[(q as any).mockQuestionId ?? q.questionId]; return !bd?.submitted; }).length },
-              ]}
-              value={filterStatus}
-              onChange={(v) => setFilterStatus(v as typeof filterStatus)}
-            />
-          </div>
-
-          <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 14 }}>
-            Showing {filteredQs.length} of {allQs.length} questions
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-            {filteredQs.map((q) => {
-              const mqId = (q as any).mockQuestionId ?? q.questionId;
-              const bd = breakdown[mqId];
-              const isCorrect = bd && bd.awarded > 0;
-              const isUnattempted = !bd?.submitted;
-              const isIncorrect = !!bd?.submitted && bd.awarded <= 0;
-              const isExpanded = expandedQ === q.questionId;
-
-              const statusColor = isCorrect ? '#16a34a' : isUnattempted ? '#64748b' : '#dc2626';
-              const statusBg = isCorrect ? '#f0fdf4' : isUnattempted ? '#f8fafc' : '#fef2f2';
-              const statusBorder = isCorrect ? '#bbf7d0' : isUnattempted ? '#e2e8f0' : '#fecaca';
-              const statusLabel = isCorrect ? `+${bd!.awarded}` : isUnattempted ? '0' : `${bd?.awarded ?? 0}`;
-
-              return (
-                <div key={q.questionId} style={{
-                  border: `1px solid ${isExpanded ? '#cbd5e1' : statusBorder}`,
-                  borderRadius: 8, overflow: 'hidden',
-                  background: isExpanded ? '#fff' : statusBg,
-                }}>
-                  {/* Row header */}
-                  <button
-                    onClick={() => setExpandedQ(isExpanded ? null : q.questionId)}
-                    style={{
-                      width: '100%', display: 'flex', alignItems: 'center', gap: 12,
-                      padding: '12px 16px', background: 'transparent', border: 'none', cursor: 'pointer', textAlign: 'left',
-                    }}
-                  >
-                    <span style={{
-                      flexShrink: 0, width: 28, height: 28, borderRadius: 5,
-                      background: statusColor, color: '#fff',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: 11, fontWeight: 800,
-                    }}>
-                      {statusLabel}
-                    </span>
-                    <span style={{ fontSize: 12, color: '#64748b', flexShrink: 0 }}>Q{q.questionNumber}</span>
-                    <Badge variant={subjectVariant(q.subject)}>{q.subject}</Badge>
-                    <span style={{ fontSize: 11, color: '#94a3b8' }}>{(q as any).topic}</span>
-                    <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: 13, color: '#374151' }}>
-                      {toPlainPreview((q as any).questionText ?? '')}
-                    </span>
-                    {(bd?.timeSpentSeconds ?? 0) > 0 && (
-                      <span style={{ fontSize: 11, color: '#94a3b8', flexShrink: 0, whiteSpace: 'nowrap' }}>
-                        ⏱ {fmtQTime(bd!.timeSpentSeconds!)}
-                      </span>
-                    )}
-                    <span style={{ fontSize: 12, color: '#94a3b8', flexShrink: 0 }}>
-                      {isExpanded ? '▲' : '▼'}
-                    </span>
-                  </button>
-
-                  {/* Expanded content */}
-                  {isExpanded && (
-                    <div style={{ padding: '0 16px 20px', borderTop: '1px solid #e2e8f0' }}>
-                      {/* Question text */}
-                      <div style={{ fontSize: 14, color: '#1e293b', lineHeight: 1.7, padding: '14px 0 12px' }}>
-                        <MathText text={(q as any).questionText ?? ''} />
-                      </div>
-
-                      {/* Options */}
-                      {(q as any).options && (q as any).options.length > 0 && (
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 14 }}>
-                          {((q as any).options as string[]).map((opt, i) => {
-                            const letter = ['A', 'B', 'C', 'D'][i]!;
-                            const correctAns = bd?.correctAnswer ?? '';
-                            const submittedAns = bd?.submitted ?? '';
-                            const isCorrectOpt = correctAns.includes(letter);
-                            const isSubmittedOpt = submittedAns.includes(letter);
-                            let optBg = '#f8fafc'; let optBorder = '#e2e8f0'; let optColor = '#374151';
-                            if (isCorrectOpt) { optBg = '#f0fdf4'; optBorder = '#86efac'; optColor = '#15803d'; }
-                            if (isSubmittedOpt && !isCorrectOpt) { optBg = '#fef2f2'; optBorder = '#fca5a5'; optColor = '#dc2626'; }
-                            return (
-                              <div key={letter} style={{
-                                display: 'flex', alignItems: 'flex-start', gap: 10,
-                                padding: '8px 12px', borderRadius: 6,
-                                border: `1px solid ${optBorder}`, background: optBg,
-                              }}>
-                                <span style={{ fontWeight: 700, color: optColor, flexShrink: 0 }}>{letter})</span>
-                                <span style={{ fontSize: 13, color: optColor }}><MathText text={opt.replace(/^[A-Da-d][).]\s*/, '')} /></span>
-                                {isCorrectOpt && <span style={{ marginLeft: 'auto', color: '#16a34a', fontWeight: 700, fontSize: 12 }}>✓ Correct</span>}
-                                {isSubmittedOpt && !isCorrectOpt && <span style={{ marginLeft: 'auto', color: '#dc2626', fontWeight: 700, fontSize: 12 }}>✗ Your answer</span>}
-                              </div>
-                            );
-                          })}
-                        </div>
-                      )}
-
-                      {/* Integer answer */}
-                      {(q as any).questionType === 'integer' && (
-                        <div style={{ display: 'flex', gap: 20, marginBottom: 14, fontSize: 13 }}>
-                          <div style={{ padding: '8px 14px', background: '#f0fdf4', border: '1px solid #86efac', borderRadius: 6 }}>
-                            <span style={{ color: '#64748b' }}>Correct: </span>
-                            <strong style={{ color: '#15803d' }}>{bd?.correctAnswer}</strong>
-                          </div>
-                          {bd?.submitted && bd.submitted !== '' && (
-                            <div style={{
-                              padding: '8px 14px', borderRadius: 6,
-                              background: isCorrect ? '#f0fdf4' : '#fef2f2',
-                              border: `1px solid ${isCorrect ? '#86efac' : '#fca5a5'}`,
-                            }}>
-                              <span style={{ color: '#64748b' }}>Your answer: </span>
-                              <strong style={{ color: isCorrect ? '#15803d' : '#dc2626' }}>{bd.submitted}</strong>
-                            </div>
-                          )}
-                          {(!bd?.submitted || bd.submitted === '') && (
-                            <div style={{ padding: '8px 14px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 6 }}>
-                              <span style={{ color: '#64748b' }}>Not attempted</span>
-                            </div>
-                          )}
-                        </div>
-                      )}
-
-                      {/* Explanation */}
-                      {(q as any).explanation && (
-                        <div style={{
-                          padding: '14px 16px', background: '#fffbeb', border: '1px solid #fde68a',
-                          borderRadius: 6, fontSize: 13, color: '#92400e', lineHeight: 1.7,
-                        }}>
-                          <div style={{ fontWeight: 700, marginBottom: 6, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Explanation</div>
-                          <MathText text={(q as any).explanation} />
-                        </div>
-                      )}
-
-                      {/* Marks awarded */}
-                      <div style={{ marginTop: 12, display: 'flex', gap: 12, fontSize: 12, color: '#64748b' }}>
-                        <span>Marks awarded: <strong style={{ color: statusColor }}>{bd?.awarded ?? 0}</strong></span>
-                        <span>Max marks: <strong>{bd?.maxMarks ?? 4}</strong></span>
-                        <span>Type: <strong>{(q as any).questionType === 'mcq_single' ? 'Single Correct' : (q as any).questionType === 'mcq_multi' ? 'Multi-Correct' : 'Integer'}</strong></span>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <QuestionReview
+          weakPracticeUrl={weakPracticeUrl}
+          isNEET={isNEET}
+          allQs={allQs}
+          filteredQs={filteredQs}
+          breakdown={breakdown}
+          expandedQ={expandedQ}
+          onExpand={setExpandedQ}
+          filterSubject={filterSubject}
+          onFilterSubject={setFilterSubject}
+          filterStatus={filterStatus}
+          onFilterStatus={setFilterStatus}
+        />
 
         {/* Footer */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: 14, paddingBottom: 32 }}>
