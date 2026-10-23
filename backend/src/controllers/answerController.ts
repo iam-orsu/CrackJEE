@@ -31,32 +31,9 @@ const submitSchema = z.object({
   timeSpent: z.number().int().min(0).max(3600),
 });
 
-export function checkAnswer(questionType: string, submitted: string, correct: string): boolean {
-  if (questionType === 'mcq_multi') {
-    const sub = new Set(submitted.toUpperCase().split(',').map((s) => s.trim().replace(/[^A-D]/g, '')).filter(Boolean));
-    const cor = new Set(correct.toUpperCase().split(',').map((s) => s.trim().replace(/[^A-D]/g, '')).filter(Boolean));
-    if (sub.size !== cor.size) return false;
-    for (const v of sub) if (!cor.has(v)) return false;
-    return true;
-  }
-  if (questionType === 'integer') {
-    const subClean = submitted.trim().replace(/^\+/, '');
-    const corClean = correct.trim().replace(/^\+/, '');
-    if (subClean === corClean) return true;
-    const subNum = Number(subClean);
-    const corNum = Number(corClean);
-    if (!Number.isNaN(subNum) && !Number.isNaN(corNum)) {
-      return subNum === corNum;
-    }
-    return false;
-  }
-  const subLetter = submitted.trim().toUpperCase().replace(/[^A-D]/g, '').slice(0, 1);
-  const corLetter = correct.trim().toUpperCase().replace(/[^A-D]/g, '').slice(0, 1);
-  if (subLetter && corLetter) {
-    return subLetter === corLetter;
-  }
-  return submitted.trim().toUpperCase() === correct.trim().toUpperCase();
-}
+// Grading lives in services/grading.ts (shared with mock scoring); re-exported for existing imports
+export { checkAnswer } from '../services/grading';
+import { checkAnswer } from '../services/grading';
 
 export async function submitAnswer(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
   try {

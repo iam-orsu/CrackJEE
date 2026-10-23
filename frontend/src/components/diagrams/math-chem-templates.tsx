@@ -293,7 +293,8 @@ export function ArgandPlane({ p }: { p: ArgandPlaneParams }) {
   const PAD = 46;
   const sc = Math.min((VW/2 - PAD) / maxRe, (VH/2 - PAD) / maxIm, 42);
   const toS = (re: number, im: number): [number,number] => [ox + re*sc, oy - im*sc];
-  const reMax = Math.ceil(maxRe / 1.4), imMax = Math.ceil(maxIm / 1.4);
+  // Tick counts from untrusted params: clamp so a huge or non-finite value cannot allocate a huge array
+  const reMax = Math.min(20, Math.ceil(maxRe / 1.4) || 1), imMax = Math.min(20, Math.ceil(maxIm / 1.4) || 1);
 
   return (
     <svg viewBox={`0 0 ${VW} ${VH}`} style={{width:'100%',height:'auto',display:'block'}}>

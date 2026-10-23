@@ -22,9 +22,10 @@ export function SessionSummary({ questions, examResults, sessionSecs, markingSch
   const wrong     = attempted - correct;
   const accuracy  = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
 
-  // Same marks as the mock exam: JEE Main integers have no penalty; Advanced single-correct is +3,
-  // multi-correct is -2 when wrong, integer is +4. Multi-correct partial credit is not tracked here.
-  const pointsIfCorrect = (qt: string) => (markingScheme === 'jee_advanced' && qt === 'mcq_single' ? 3 : 4);
+  // Same marks as the mock exam: JEE Main integers have no penalty; Advanced single-correct and integer are +3,
+  // multi-correct is -2 when wrong. Multi-correct partial credit is not tracked here.
+  const pointsIfCorrect = (qt: string) =>
+    (markingScheme === 'jee_advanced' && (qt === 'mcq_single' || qt === 'integer') ? 3 : 4);
   const jeeScore = markingScheme === 'standard' ? correct : questions.reduce((acc, q, i) => {
     const res = examResults[i];
     if (!res) return acc;

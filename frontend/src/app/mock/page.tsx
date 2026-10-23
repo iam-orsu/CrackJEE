@@ -38,7 +38,7 @@ const EXAM_INFO = {
     marking: [
       'Single Correct: +3 correct, −1 wrong',
       'Multi-Correct: +4 all correct; partial +1/option; −2 any wrong selected',
-      'Integer: +4 correct, 0 wrong',
+      'Integer: +3 correct, 0 wrong',
     ],
   },
   NEET: {

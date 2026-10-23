@@ -64,7 +64,8 @@ export const JEE_PRACTICE: PracticeExamConfig = {
     kicker: 'Practice Mode',
     title: ['A fresh paper', 'every session'],
     body: 'Each session draws a new set of questions from the bank across Physics, Chemistry and Mathematics. You see the answer and explanation after every question.',
-    showTeaser: true,
+    // Off: the decorative stack showed made-up sample questions, which are not real bank content
+    showTeaser: false,
   },
 
   countOptions: [5, 10, 20, 30],

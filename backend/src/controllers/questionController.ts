@@ -119,6 +119,7 @@ export async function bankStats(req: AuthRequest, res: Response, next: NextFunct
       by: ['subject'],
       where: {
         validatedAt: { not: null },
+        mockOnly: false,
         ...(examTypeFilter ? { examType: examTypeFilter } : {}),
       },
       _count: { _all: true },

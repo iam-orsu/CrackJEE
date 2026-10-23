@@ -17,6 +17,11 @@ function fmtDate(iso: string | null): string {
   return new Date(iso).toLocaleString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 }
 
+// NEET is not a JEE exam: label it on its own, and label JEE exams with the JEE prefix
+function examLabel(examType: string): string {
+  return examType === 'NEET' ? 'NEET UG' : `JEE ${examType}`;
+}
+
 function fmtDuration(s: number): string {
   const m = Math.floor(s / 60);
   const sec = s % 60;
@@ -102,7 +107,7 @@ export function StudentDetail({
           <p className={styles.email}>{student.email}</p>
           <div className={styles.meta}>
             <span className={styles.chip}>Class {student.class}</span>
-            <span className={styles.chip}>JEE {student.targetExam}</span>
+            <span className={styles.chip}>{examLabel(student.targetExam)}</span>
             <span className={styles.chip}>{student.currentLevel}</span>
             <span className={styles.chip}>Joined {fmtDate(student.joinedAt)}</span>
           </div>
@@ -141,7 +146,7 @@ export function StudentDetail({
                 {mocks.map((m) => (
                   <tr key={m.id}>
                     <td>{fmtDate(m.createdAt)}</td>
-                    <td>JEE {m.examType}</td>
+                    <td>{examLabel(m.examType)}</td>
                     <td className={styles.capitalize}>{m.difficultyMode}</td>
                     <td>
                       <Pill tone={m.status === 'submitted' ? 'good' : 'neutral'}>{m.status.replace('_', ' ')}</Pill>
@@ -217,7 +222,7 @@ export function MockDetail({
         <div className={styles.avatar}>{initials(exam.studentName)}</div>
         <div>
           <p className={styles.name}>{exam.studentName}</p>
-          <p className={styles.email}>JEE {exam.examType} mock · {fmtDate(exam.submittedAt ?? exam.createdAt)}</p>
+          <p className={styles.email}>{examLabel(exam.examType)} mock · {fmtDate(exam.submittedAt ?? exam.createdAt)}</p>
         </div>
       </div>
 

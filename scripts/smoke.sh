@@ -61,6 +61,12 @@ if [ -n "$TOKEN" ]; then
   [ "$STATUS" = "400" ] && pass "malformed JSON returns 400" || fail "malformed JSON (HTTP $STATUS, expected 400)"
 fi
 
+# Remove the throwaway student this run created, so repeated runs don't pile up accounts in the database.
+# The SQL goes in on stdin, so the email never needs shell quoting.
+printf '%s' "DELETE FROM \"User\" WHERE email = '$EMAIL';" \
+  | docker compose --env-file .env exec -T postgres sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -q' >/dev/null 2>&1 \
+  || echo "  WARN  could not remove the smoke test user $EMAIL"
+
 rm -f /tmp/smoke_body
 echo
 echo "$PASSES passed, $FAILS failed"

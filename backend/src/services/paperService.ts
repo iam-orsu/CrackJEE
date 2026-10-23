@@ -81,6 +81,7 @@ export async function buildPaperSet(userId: string, options: PaperOptions): Prom
   const rows: PoolRow[] = await prisma.question.findMany({
     where: {
       validatedAt: { not: null },
+      mockOnly: false,
       examType: bankExamType,
       OR: options.selections.map((s) => ({
         subject: s.subject,

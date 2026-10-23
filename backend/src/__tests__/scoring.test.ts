@@ -35,5 +35,10 @@ test('max marks per question', () => {
   assert.equal(getMaxMarkPerQuestion('NEET', 'mcq_single'), 4);
   assert.equal(getMaxMarkPerQuestion('Advanced', 'mcq_single'), 3);
   assert.equal(getMaxMarkPerQuestion('Advanced', 'mcq_multi'), 4);
-  assert.equal(getMaxMarkPerQuestion('Advanced', 'integer'), 4);
+  assert.equal(getMaxMarkPerQuestion('Advanced', 'integer'), 3);
+});
+
+test('JEE Advanced integer: +3 right, 0 wrong (CLAUDE.md spec)', () => {
+  assert.equal(scoreQuestion('Advanced', 'integer', '7', '7'), 3);
+  assert.equal(scoreQuestion('Advanced', 'integer', '6', '7'), 0);
 });

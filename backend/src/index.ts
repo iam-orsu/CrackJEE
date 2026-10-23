@@ -14,6 +14,7 @@ import { apiLimiter } from './middleware/rateLimiter';
 import { requestId } from './middleware/requestId';
 import { logger } from './lib/logger';
 import { incCounter, renderMetrics } from './lib/metrics';
+import { waitForActiveGenerations, STUCK_GENERATION_MS } from './controllers/mockController';
 
 /* -- Validate required env vars at startup --------------- */
 const envSchema = z.object({
@@ -70,7 +71,8 @@ app.use(cors({
     if (!origin || allowedOrigins.has(origin) || PRIVATE_IP_RE.test(origin)) return cb(null, true);
     cb(new Error(`CORS: origin ${origin} not allowed`));
   },
-  credentials: true,
+  // Auth is a Bearer header, never a cookie, so credentialed CORS is not needed (and would widen exposure)
+  credentials: false,
 }));
 app.use(express.json({ limit: '10kb' }));
 app.use(apiLimiter);
@@ -126,26 +128,37 @@ async function start(): Promise<void> {
   await prisma.$connect();
   logger.info('Connected to PostgreSQL');
 
-  // Mock generations run inside the backend process. A restart interrupts any still in progress,
-  // so mark them as errors: students see a retry instead of waiting on a generation that will never finish.
-  const interrupted = await prisma.mockExam.updateMany({ where: { status: 'generating' }, data: { status: 'error' } });
-  if (interrupted.count > 0) logger.warn({ count: interrupted.count }, 'Marked interrupted mock generations as error');
+  // Mock generations run inside a backend process. Only mark generations as errors once they are older than
+  // any live generation can be. Sweeping every "generating" row here would also kill the other replica's work.
+  const interrupted = await prisma.mockExam.updateMany({
+    where: { status: 'generating', createdAt: { lt: new Date(Date.now() - STUCK_GENERATION_MS) } },
+    data: { status: 'error' },
+  });
+  if (interrupted.count > 0) logger.warn({ count: interrupted.count }, 'Marked stuck mock generations as error');
 
   const server = app.listen(PORT, '0.0.0.0', () => {
     logger.info(`Backend listening on :${PORT} [${process.env.NODE_ENV ?? 'development'}]`);
   });
 
-  function shutdown(signal: string): void {
+  // On shutdown: stop accepting requests, let in-flight requests and background mock generations finish
+  // (bounded by the compose stop_grace_period of 30s), then disconnect.
+  let shuttingDown = false;
+  async function shutdown(signal: string): Promise<void> {
+    if (shuttingDown) return;
+    shuttingDown = true;
     logger.info(`${signal} received - shutting down`);
-    server.close(async () => {
-      await prisma.$disconnect();
-      logger.info('Shutdown complete');
-      process.exit(0);
-    });
+    await Promise.race([
+      new Promise<void>((resolve) => server.close(() => resolve())),
+      new Promise<void>((resolve) => setTimeout(resolve, 15_000)),
+    ]);
+    await waitForActiveGenerations(12_000);
+    await prisma.$disconnect();
+    logger.info('Shutdown complete');
+    process.exit(0);
   }
 
-  process.on('SIGTERM', () => shutdown('SIGTERM'));
-  process.on('SIGINT',  () => shutdown('SIGINT'));
+  process.on('SIGTERM', () => { void shutdown('SIGTERM'); });
+  process.on('SIGINT',  () => { void shutdown('SIGINT'); });
 }
 
 start().catch((err: unknown) => {

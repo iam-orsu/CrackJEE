@@ -29,17 +29,18 @@ function limiter(opts: LimitOptions) {
   };
 }
 
-// Auth is keyed by IP and shared by everyone on a school or coaching-centre network,
-// so the cap is set high enough for a classroom. Per-account brute force is limited by bcrypt cost.
+// Auth is keyed by IP. Everyone behind one coaching-centre NAT shares that IP, so a classroom
+// logging in together must fit under this cap. Brute force on one account is also limited by bcrypt cost.
 export const authLimiter = limiter({
-  name: 'auth', windowSeconds: 15 * 60, max: 30, keyBy: 'ip',
+  name: 'auth', windowSeconds: 15 * 60, max: 200, keyBy: 'ip',
   message: 'Too many attempts, please try again later',
 });
 
-// Global floor per IP. Runs before auth, so it cannot key by user. The per-user limiters
-// (questionLimiter, answerLimiter, mockStartLimiter) do the real limiting on authenticated routes.
+// Global floor per IP. Runs before auth, so it cannot key by user. A classroom of ~100 students shares
+// one IP, so this is sized for that. The per-user limiters (questionLimiter, answerLimiter,
+// mockStartLimiter) do the fine-grained limiting on authenticated routes.
 export const apiLimiter = limiter({
-  name: 'api', windowSeconds: 60, max: 600, keyBy: 'ip',
+  name: 'api', windowSeconds: 60, max: 3000, keyBy: 'ip',
   message: 'Rate limit exceeded',
 });
 

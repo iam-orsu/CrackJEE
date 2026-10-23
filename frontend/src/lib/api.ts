@@ -1,4 +1,4 @@
-import { getToken, clearSession, shouldRefresh, setToken } from './auth';
+import { clearSession, shouldRefresh, setSessionExpiry } from './auth';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || '/api';
 
@@ -17,24 +17,23 @@ async function request<T>(
   path: string,
   options: RequestInit = {},
 ): Promise<T> {
-  // Silent background token renewal — skips for the refresh endpoint itself
+  // Silent background session renewal — skips for the refresh endpoint itself. The server sets a new cookie.
   if (!_refreshing && path !== '/auth/refresh' && shouldRefresh()) {
     _refreshing = true;
-    // Fire-and-forget: update token in background without blocking current request
-    requestRaw<{ token: string }>('/auth/refresh', { method: 'POST' })
-      .then(({ token }) => setToken(token))
+    // Fire-and-forget: renew in the background without blocking the current request
+    requestRaw<{ expiresAt: string }>('/auth/refresh', { method: 'POST' })
+      .then(({ expiresAt }) => setSessionExpiry(expiresAt))
       .catch(() => {})
       .finally(() => { _refreshing = false; });
   }
 
-  const token = getToken();
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
     ...(options.headers as Record<string, string>),
   };
-  if (token) headers['Authorization'] = `Bearer ${token}`;
 
-  const res = await fetch(`${API_URL}${path}`, { ...options, headers });
+  // Same-origin request: the browser sends the HttpOnly session cookie by itself
+  const res = await fetch(`${API_URL}${path}`, { ...options, headers, credentials: 'same-origin' });
 
   // Session expired or token rejected — clear and redirect to login.
   // Login/register return 401 for a wrong password, so those errors must reach the form.
@@ -57,10 +56,8 @@ async function request<T>(
 
 // Internal raw request used by the refresh path (avoids circular calls)
 async function requestRaw<T>(path: string, options: RequestInit): Promise<T> {
-  const token = getToken();
   const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-  if (token) headers['Authorization'] = `Bearer ${token}`;
-  const res = await fetch(`${API_URL}${path}`, { ...options, headers });
+  const res = await fetch(`${API_URL}${path}`, { ...options, headers, credentials: 'same-origin' });
   const json = await res.json() as { success: boolean; data?: T; error?: string };
   if (!res.ok || !json.success) throw new Error(json.error ?? 'Refresh failed');
   return json.data as T;
@@ -77,20 +74,23 @@ export const api = {
       class: string;
       targetExam: string;
       currentLevel: string;
-    }) => request<{ token: string; user: import('@/types').User }>('/auth/register', {
+    }) => request<{ user: import('@/types').User; expiresAt: string }>('/auth/register', {
       method: 'POST',
       body: JSON.stringify(body),
     }),
 
     login: (body: { email: string; password: string }) =>
-      request<{ token: string; user: import('@/types').User }>('/auth/login', {
+      request<{ user: import('@/types').User; expiresAt: string }>('/auth/login', {
         method: 'POST',
         body: JSON.stringify(body),
       }),
 
     me: () => request<import('@/types').User>('/auth/me'),
 
-    refresh: () => request<{ token: string }>('/auth/refresh', { method: 'POST' }),
+    refresh: () => request<{ expiresAt: string }>('/auth/refresh', { method: 'POST' }),
+
+    // Revokes the session on the server and clears the cookie
+    logout: () => request<void>('/auth/logout', { method: 'POST' }),
   },
 
   questions: {

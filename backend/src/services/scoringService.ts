@@ -1,24 +1,11 @@
-function matchInteger(submitted: string, correct: string): boolean {
-  const subClean = submitted.trim().replace(/^\+/, '');
-  const corClean = correct.trim().replace(/^\+/, '');
-  if (subClean === corClean) return true;
-  const subNum = Number(subClean);
-  const corNum = Number(corClean);
-  if (!Number.isNaN(subNum) && !Number.isNaN(corNum)) {
-    return subNum === corNum;
-  }
-  return false;
-}
+import { matchInteger, matchSingle } from './grading';
 
-function matchSingle(submitted: string, correct: string): boolean {
-  const subLetter = submitted.trim().toUpperCase().replace(/[^A-D]/g, '').slice(0, 1);
-  const corLetter = correct.trim().toUpperCase().replace(/[^A-D]/g, '').slice(0, 1);
-  if (subLetter && corLetter) {
-    return subLetter === corLetter;
-  }
-  return submitted.trim().toUpperCase() === correct.trim().toUpperCase();
-}
-
+/*
+ * Marks per question, per CLAUDE.md:
+ *  - JEE Main / NEET: single-correct +4 / -1, integer +4 / 0
+ *  - JEE Advanced: single-correct +3 / -1, multi-correct +4 all right, +1 per correct option
+ *    when nothing wrong is picked, -2 if any wrong option is picked, integer +3 / 0
+ */
 export function scoreQuestion(
   examType: string,
   questionType: string,
@@ -36,7 +23,7 @@ export function scoreQuestion(
 
   // JEE Advanced
   if (questionType === 'integer') {
-    return matchInteger(submitted, correct) ? 4 : 0;
+    return matchInteger(submitted, correct) ? 3 : 0;
   }
   if (questionType === 'mcq_single') {
     return matchSingle(submitted, correct) ? 3 : -1;
@@ -54,6 +41,6 @@ export function scoreQuestion(
 
 export function getMaxMarkPerQuestion(examType: string, questionType: string): number {
   if (examType === 'Main' || examType === 'NEET') return 4;
-  if (questionType === 'mcq_single') return 3;
-  return 4; // mcq_multi and integer both max 4 in Advanced
+  if (questionType === 'mcq_single' || questionType === 'integer') return 3;
+  return 4; // mcq_multi
 }

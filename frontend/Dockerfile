@@ -8,20 +8,21 @@ RUN npm init -y && \
     npm pkg set scripts.build="next build" && \
     npm pkg set scripts.start="next start" && \
     npm pkg set overrides.postcss="8.5.31" && \
-    npm install \
-      "next@15" \
-      "react@19" \
-      "react-dom@19" \
-      "katex@^0.19.0" \
-      "smiles-drawer@1" && \
-    npm install --save-dev \
-      "@types/node@^22" \
-      "@types/react@^19" \
-      "@types/react-dom@^19" \
-      "typescript@^5.7.0" \
-      "eslint@^9" \
-      "eslint-config-next@15" \
-      "@eslint/eslintrc@^3"
+    # Exact versions: these are the ones the QA run tested. Bump deliberately, then re-run the QA suite.
+    npm install --save-exact \
+      "next@15.5.28" \
+      "react@19.3.1" \
+      "react-dom@19.3.1" \
+      "katex@0.19.0" \
+      "smiles-drawer@1.2.0" && \
+    npm install --save-dev --save-exact \
+      "@types/node@22.20.5" \
+      "@types/react@19.3.0" \
+      "@types/react-dom@19.3.0" \
+      "typescript@5.9.3" \
+      "eslint@9.39.5" \
+      "eslint-config-next@15.5.28" \
+      "@eslint/eslintrc@3.3.7"
 
 # ── Stage 2: Build Next.js ──
 FROM node:22-alpine AS builder

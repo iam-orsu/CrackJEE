@@ -13,7 +13,7 @@ const features = [
       </svg>
     ),
     title: 'Questions crafted by Deep Tech',
-    desc: 'Every question is freshly crafted with full JEE syllabus awareness and validated for mathematical correctness before you see it.',
+    desc: 'Questions are generated for the topic you choose and checked by automatic rules (answer format, four distinct options, no duplicates) before they are stored.',
   },
   {
     icon: (
@@ -30,8 +30,8 @@ const features = [
         <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
       </svg>
     ),
-    title: 'Never repeat a question',
-    desc: 'Question tracking ensures you never see the same question twice. Fresh problems are served intelligently per topic.',
+    title: 'Questions you have seen are tracked',
+    desc: 'Each question you answer is recorded, so you rarely see the same one twice. Once a topic is fully covered, questions can come back.',
   },
 ];
 
@@ -44,7 +44,7 @@ const steps = [
   {
     num: '02',
     title: 'Get a fresh question, every time',
-    desc: 'A unique JEE-style question is crafted on the fly by our Deep Tech engine and validated for correctness before you see it.',
+    desc: 'A JEE-style question for your topic is served from the bank or generated on the fly, and checked by automatic rules before you see it.',
   },
   {
     num: '03',

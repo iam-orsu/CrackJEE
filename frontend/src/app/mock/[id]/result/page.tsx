@@ -131,20 +131,19 @@ export default function MockResultPage() {
     <div style={{ minHeight: '100vh', background: '#f1f5f9', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
 
       {/* Top bar */}
-      <div style={{ background: '#1e293b', color: '#fff', padding: '14px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div style={{ background: '#fff', color: '#1e293b', padding: '14px 24px', borderBottom: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          {/* White chip so the navy logo stays readable on the dark bar */}
-          <a href="/dashboard" style={{ display: 'inline-flex', background: '#fff', borderRadius: 6, padding: '4px 10px' }}><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></a>
-          <span style={{ color: '#475569' }}>›</span>
-          <Link href="/mock" style={{ color: '#94a3b8', fontSize: 14, textDecoration: 'none' }}>Mock Tests</Link>
-          <span style={{ color: '#475569' }}>›</span>
-          <span style={{ fontSize: 14, color: '#f1f5f9', fontWeight: 600 }}>
+          <a href="/dashboard" style={{ display: 'inline-flex' }}><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></a>
+          <span style={{ color: '#cbd5e1' }}>›</span>
+          <Link href="/mock" style={{ color: '#64748b', fontSize: 14, textDecoration: 'none' }}>Mock Tests</Link>
+          <span style={{ color: '#cbd5e1' }}>›</span>
+          <span style={{ fontSize: 14, color: '#1e293b', fontWeight: 600 }}>
             Result — {isNEET ? 'NEET UG' : `JEE ${examType}`}
           </span>
         </div>
         <Link href="/mock" style={{
-          color: '#fff', fontSize: 13, fontWeight: 600, textDecoration: 'none',
-          padding: '6px 16px', border: '1px solid #475569', borderRadius: 5,
+          color: '#1e293b', fontSize: 13, fontWeight: 600, textDecoration: 'none',
+          padding: '6px 16px', border: '1px solid #cbd5e1', borderRadius: 5,
         }}>
           New Mock Test
         </Link>
@@ -253,8 +252,8 @@ export default function MockResultPage() {
                   </div>
                   <div style={{ fontSize: 11, color: '#9ca3af', marginTop: 14 }}>
                     {isNEET
-                      ? `Based on NEET 2025 cutoff trends · Your score: ${result.totalScore}/${result.maxScore} (${pct}%)`
-                      : `Based on 2025 JEE open category cutoff trends · Your score: ${pct}% of max marks`
+                      ? `Rough estimate from your score (${result.totalScore}/${result.maxScore}, ${pct}%). Not an official cutoff prediction.`
+                      : `Rough estimate from your score (${pct}% of max marks). Not an official cutoff prediction.`
                     }
                   </div>
                 </div>
@@ -324,7 +323,7 @@ export default function MockResultPage() {
             <div style={{ background: '#fff', borderRadius: 10, border: '1px solid #e2e8f0', padding: 24 }}>
               <h2 style={{ fontSize: 15, fontWeight: 700, color: '#1e293b', marginBottom: 4 }}>Your JEE Chances</h2>
               <p style={{ fontSize: 12, color: '#94a3b8', marginBottom: 20 }}>
-                Based on JEE 2025 official cutoffs and marks vs rank trends. General (open) category only.
+                Rough estimates from score bands. General (open) category only. These are not official cutoffs or predictions.
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
@@ -376,7 +375,7 @@ export default function MockResultPage() {
               </div>
 
               <div style={{ marginTop: 14, fontSize: 11, color: '#94a3b8', fontStyle: 'italic' }}>
-                * Estimates based on JEE 2025 published data. Actual results vary with paper difficulty, normalization, and candidate count each year.
+                * Rough estimates from fixed score bands, not official data. Actual results vary with paper difficulty, normalization, and candidate count each year.
               </div>
             </div>
           );

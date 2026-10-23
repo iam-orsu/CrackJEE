@@ -1,0 +1,42 @@
+name: ci
+
+# Builds both images exactly as deploy.sh does (lint, type-check and build run inside the Docker stages),
+# then starts the stack and runs the API QA suite. Needs a runner with Docker and a .env built from .env.example.
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create .env for CI
+        run: |
+          cp .env.example .env
+          sed -i "s/^VPS_IP=.*/VPS_IP=127.0.0.1/" .env
+          sed -i "s/^JWT_SECRET=.*/JWT_SECRET=$(openssl rand -hex 32)/" .env
+          sed -i "s/^POSTGRES_PASSWORD=.*/POSTGRES_PASSWORD=$(openssl rand -hex 16)/" .env
+          sed -i "s/^DATABASE_URL=.*/DATABASE_URL=postgresql:\/\/jeeuser:placeholder@postgres:5432\/jeedb/" .env
+          sed -i "s/^REDIS_PASSWORD=.*/REDIS_PASSWORD=$(openssl rand -hex 16)/" .env
+          sed -i "s/^REDIS_URL=.*/REDIS_URL=redis:\/\/:placeholder@redis:6379/" .env
+          sed -i "s/^DEEPSEEK_API_KEY=.*/DEEPSEEK_API_KEY=ci-placeholder-key/" .env
+
+      - name: Start the stack (deploy.sh start)
+        run: ./deploy.sh start
+
+      - name: Backend unit tests (inside the image)
+        run: docker compose --env-file .env run --rm --no-deps --entrypoint sh migrate -c "node --test dist/__tests__/*.test.js"
+
+      - name: API QA suite
+        run: ./deploy.sh qa
+
+      - name: Collect logs on failure
+        if: failure()
+        run: docker compose --env-file .env logs --no-color --tail 200
+
+      - name: Stop the stack
+        if: always()
+        run: docker compose --env-file .env down -v

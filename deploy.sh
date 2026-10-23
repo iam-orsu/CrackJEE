@@ -265,7 +265,7 @@ case "$ACTION" in
     # Renew an existing Let's Encrypt certificate using webroot mode (nginx stays up, zero downtime).
     # Run this every ~60 days or set up a cron job.
     # Nginx must already be running (webroot challenge is served via /.well-known/acme-challenge/).
-    local ENABLE_SSL DOMAIN
+    # Plain assignments: `local` is only valid inside a function, and this is a case branch
     ENABLE_SSL=$(env_value ENABLE_SSL)
     DOMAIN=$(env_value DOMAIN)
     if [ "${ENABLE_SSL:-false}" != "true" ]; then
@@ -344,6 +344,11 @@ case "$ACTION" in
     bash "$(dirname "$0")/scripts/smoke.sh"
     ;;
 
+  qa)
+    # Full API QA suite (auth, practice, mock deadline and persistence, isolation, infra). Creates and deletes its own data
+    bash "$(dirname "$0")/scripts/qa-api.sh"
+    ;;
+
   backup)
     # Writes a compressed, restorable dump of the database to ./backups
     mkdir -p backups
@@ -372,7 +377,7 @@ case "$ACTION" in
     ;;
 
   *)
-    echo "Usage: ./deploy.sh [start|restart|update|stop|delete|logs|status|migrate|seed|baseline|ssl-setup|renew-ssl|test|backup|restore]"
+    echo "Usage: ./deploy.sh [start|restart|update|stop|delete|logs|status|migrate|seed|baseline|ssl-setup|renew-ssl|test|qa|backup|restore]"
     echo ""
     echo "  start      - Free port 80/443, generate SSL if needed, build and start all services"
     echo "  restart    - Stop, free port 80/443, rebuild and restart all services"

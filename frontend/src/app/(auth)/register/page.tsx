@@ -44,8 +44,8 @@ export default function RegisterPage() {
     if (form.password.length < 8) { setError('Password must be at least 8 characters'); return; }
     setLoading(true);
     try {
-      const { token, user } = await api.auth.register(form);
-      setSession(token, user);
+      const { user, expiresAt } = await api.auth.register(form);
+      setSession(user, expiresAt);
       router.push('/dashboard');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Registration failed');
@@ -77,8 +77,8 @@ export default function RegisterPage() {
                 </svg>
               </span>
               <div>
-                <p className="auth-feature-title">Deep Tech crafts every question</p>
-                <p className="auth-feature-desc">No recycled question banks, unique problems every session</p>
+                <p className="auth-feature-title">Questions for your topics</p>
+                <p className="auth-feature-desc">Served from a curated bank and generated fresh when needed</p>
               </div>
             </div>
             <div className="auth-feature-item">
