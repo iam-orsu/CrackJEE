@@ -6,6 +6,8 @@ import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
 import { generateFreshMockBatch, distributeTopicSlots, fisherYatesShuffle } from '../services/questionService';
 import { getSharedPool, setSharedPool, appendQuestionsToMasterJson } from '../services/mockPoolService';
+import { cacheSetNx, cacheDel } from '../services/cacheService';
+import { runOnce } from '../lib/distributedOnce';
 import type { MockPoolItem } from '../services/mockPoolService';
 import { scoreQuestion, getMaxMarkPerQuestion } from '../services/scoringService';
 
@@ -234,42 +236,36 @@ async function createExamQuestionsFromPool(
 
 /* ── Unified background generator ──────────────────────────────── */
 
-// One shared-pool generation per exam type + difficulty at a time. Concurrent starts on an
-// empty pool wait for the same run instead of each paying for a full generation.
-const sharedPoolInFlight = new Map<string, Promise<MockPoolItem[]>>();
+// One shared-pool generation per exam type + difficulty across all backend instances. Other starts wait
+// for the pool to be published instead of each paying for a full generation.
+async function readSharedPool(examType: 'Main' | 'Advanced' | 'NEET', difficultyMode: 'easy' | 'medium' | 'hard') {
+  const pool = await getSharedPool(examType, difficultyMode);
+  return pool && pool.length >= 20 ? pool : null;
+}
 
 function generateSharedPoolOnce(
   examType: 'Main' | 'Advanced' | 'NEET',
   difficultyMode: 'easy' | 'medium' | 'hard',
 ): Promise<MockPoolItem[]> {
-  const key = `${examType}:${difficultyMode}`;
-  const existing = sharedPoolInFlight.get(key);
-  if (existing) return existing;
-
-  const run = (async () => {
-    // Another run may have published the pool between the caller's read and this call
-    const published = await getSharedPool(examType, difficultyMode);
-    if (published && published.length >= 20) return published;
-    return generateAndSavePool(examType, difficultyMode, true);
-  })().finally(() => sharedPoolInFlight.delete(key));
-
-  sharedPoolInFlight.set(key, run);
-  return run;
+  return runOnce<MockPoolItem[]>(`mockpool:${examType}:${difficultyMode}`, {
+    lockSeconds: 900,
+    waitMs: 7 * 60 * 1000,
+    readShared: () => readSharedPool(examType, difficultyMode),
+    // Another run may have published the pool between the lock check and this call
+    produce: async () => (await readSharedPool(examType, difficultyMode)) ?? generateAndSavePool(examType, difficultyMode, true),
+  });
 }
 
-// Serializes check-then-create per key within this process, so two quick clicks cannot
-// both create an exam. Single-process only; a multi-replica deploy would need a Redis lock.
-const userLocks = new Map<string, Promise<unknown>>();
-
-async function withUserLock<T>(key: string, task: () => Promise<T>): Promise<T> {
-  const previous = userLocks.get(key) ?? Promise.resolve();
-  const run = previous.then(task);
-  const tail = run.catch(() => {});
-  userLocks.set(key, tail);
+// Stops two quick clicks (or two instances) from both creating an exam for the same student and type
+async function withStartLock<T>(userId: string, examType: string, task: () => Promise<T>): Promise<T> {
+  const key = `lock:mockstart:${userId}:${examType}`;
+  if (!(await cacheSetNx(key, 15))) {
+    throw new AppError(409, 'Your exam is already being created. Please wait a moment.');
+  }
   try {
-    return await run;
+    return await task();
   } finally {
-    if (userLocks.get(key) === tail) userLocks.delete(key);
+    await cacheDel(key);
   }
 }
 
@@ -318,7 +314,7 @@ export async function startMock(req: AuthRequest, res: Response, next: NextFunct
     const { examType, difficultyMode } = body.data;
     const userId = req.user!.userId;
 
-    const started = await withUserLock(`${userId}:${examType}`, async () => {
+    const started = await withStartLock(userId, examType, async () => {
       // Fail exams stuck in 'generating' for >10 minutes (e.g. after server restart)
       await prisma.mockExam.updateMany({
         where: { userId, status: 'generating', createdAt: { lt: new Date(Date.now() - 10 * 60 * 1000) } },

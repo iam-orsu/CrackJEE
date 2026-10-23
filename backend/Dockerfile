@@ -8,12 +8,12 @@ RUN npm init -y && \
     npm pkg set name="jee-backend" version="1.0.0" && \
     npm pkg set scripts.build="tsc" && \
     npm pkg set scripts.start="node dist/index.js" && \
+    npm pkg set scripts.test="node --test dist/__tests__/*.test.js" && \
     npm install \
       "@prisma/client@^6" \
       "bcryptjs@^2.4.3" \
       "cors@^2.8.5" \
       "express@^4.21.2" \
-      "express-rate-limit@^7.5.0" \
       "helmet@^8.0.0" \
       "ioredis@^5.4.2" \
       "jsonwebtoken@^9.0.2" \

@@ -330,7 +330,7 @@ function cleanExplanation(raw: string): string {
   return s || raw.trim();
 }
 
-function parseRawQuestion(
+export function parseRawQuestion(
   raw: Record<string, unknown>,
   questionType: QuestionType,
   examType: ExamType,

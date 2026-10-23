@@ -86,6 +86,9 @@ services:
       DB_FANOUT_CONCURRENCY: ${DB_FANOUT_CONCURRENCY:-5}
     volumes:
       - ./data:/app/data:rw
+    # Two instances share the load. Rate limits, locks and caches live in Redis, so they hold across instances.
+    deploy:
+      replicas: ${BACKEND_REPLICAS:-2}
     mem_limit: 1g
     # Lets in-flight requests and background mock generations finish on deploy (server.close + SIGTERM handler)
     stop_grace_period: 30s

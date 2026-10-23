@@ -126,6 +126,11 @@ async function start(): Promise<void> {
   await prisma.$connect();
   logger.info('Connected to PostgreSQL');
 
+  // Mock generations run inside the backend process. A restart interrupts any still in progress,
+  // so mark them as errors: students see a retry instead of waiting on a generation that will never finish.
+  const interrupted = await prisma.mockExam.updateMany({ where: { status: 'generating' }, data: { status: 'error' } });
+  if (interrupted.count > 0) logger.warn({ count: interrupted.count }, 'Marked interrupted mock generations as error');
+
   const server = app.listen(PORT, '0.0.0.0', () => {
     logger.info(`Backend listening on :${PORT} [${process.env.NODE_ENV ?? 'development'}]`);
   });

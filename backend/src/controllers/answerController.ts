@@ -31,7 +31,7 @@ const submitSchema = z.object({
   timeSpent: z.number().int().min(0).max(3600),
 });
 
-function checkAnswer(questionType: string, submitted: string, correct: string): boolean {
+export function checkAnswer(questionType: string, submitted: string, correct: string): boolean {
   if (questionType === 'mcq_multi') {
     const sub = new Set(submitted.toUpperCase().split(',').map((s) => s.trim().replace(/[^A-D]/g, '')).filter(Boolean));
     const cor = new Set(correct.toUpperCase().split(',').map((s) => s.trim().replace(/[^A-D]/g, '')).filter(Boolean));
