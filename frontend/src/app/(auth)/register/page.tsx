@@ -58,7 +58,7 @@ export default function RegisterPage() {
     <div className="auth-layout">
       {/* ── Left brand panel ── */}
       <div className="auth-brand">
-        <Link href="/" className="auth-brand-logo">JEENEET.ai</Link>
+        <Link href="/" className="auth-brand-logo"><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></Link>
 
         <div className="auth-brand-body">
           <div className="auth-brand-eyebrow">30 seconds to set up</div>

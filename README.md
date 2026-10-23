@@ -265,7 +265,7 @@ Example format:
 - Keep `.env` out of version control.
 - In production, place Nginx behind your own SSL certificate (such as Certbot or Cloudflare).
 - Set firewall rules on your VPS (allow ports 22, 80, 443; keep internal database ports 5432 and 6379 closed to the public).
-- Make regular backups of the PostgreSQL Docker volume `crackjee_postgres_data`.
+- Make regular backups of the PostgreSQL Docker volume `jeeneet_postgres_data`.
 
 ---
 
