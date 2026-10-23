@@ -86,6 +86,8 @@ services:
       SUPERADMIN_PASSWORD: ${SUPERADMIN_PASSWORD:-}
       DEEPSEEK_CONCURRENCY: ${DEEPSEEK_CONCURRENCY:-6}
       DB_FANOUT_CONCURRENCY: ${DB_FANOUT_CONCURRENCY:-5}
+      # Thread pool for native bcrypt (password hashing). Node's default of 4 would serialise login bursts.
+      UV_THREADPOOL_SIZE: 16
     volumes:
       # Read-only: the running server never writes the question banks (mock questions live in the database)
       - ./data:/app/data:ro

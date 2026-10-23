@@ -4,6 +4,8 @@ import { Prisma } from '@prisma/client';
 import { prisma } from '../lib/prisma';
 import { cacheGetJson, cacheSetJson } from '../services/cacheService';
 
+const MOCK_WEAK_AREA_EXAMS = 30;
+
 // YYYY-MM-DD of an instant in India Standard Time (UTC+5:30, no DST)
 function istDateKey(date: Date): string {
   return new Date(date.getTime() + 330 * 60 * 1000).toISOString().slice(0, 10);
@@ -110,8 +112,12 @@ export async function mockWeakAreas(req: AuthRequest, res: Response, next: NextF
   try {
     const userId = req.user!.userId;
 
+    // Only the most recent submitted exams: the dashboard shows current weak areas, and the cost of this query
+    // otherwise grows with every mock a student has ever taken (each one loads all its questions)
     const exams = await prisma.mockExam.findMany({
       where: { userId, status: 'submitted' },
+      orderBy: { createdAt: 'desc' },
+      take: MOCK_WEAK_AREA_EXAMS,
       include: {
         questions: {
           include: { question: { select: { topic: true, subject: true } } },

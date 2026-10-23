@@ -1,6 +1,8 @@
 import type { Request, Response, NextFunction } from 'express';
 import { randomUUID } from 'crypto';
-import bcrypt from 'bcryptjs';
+// Native bcrypt runs its work on libuv's thread pool. bcryptjs ran the same work on the event loop, so
+// every login stalled all other requests on that process. Hashes are the same $2b$ format, so existing accounts still log in.
+import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { z } from 'zod';
 import { prisma } from '../lib/prisma';
