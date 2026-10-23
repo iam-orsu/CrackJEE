@@ -40,7 +40,7 @@ export default function LoginPage() {
     <div className="auth-layout">
       {/* ── Left brand panel ── */}
       <div className="auth-brand">
-        <Link href="/" className="auth-brand-logo">CrackJEE</Link>
+        <Link href="/" className="auth-brand-logo">JEENEET.ai</Link>
 
         <div className="auth-brand-body">
           <div className="auth-brand-eyebrow">Deep Tech-powered JEE preparation</div>
@@ -158,7 +158,7 @@ export default function LoginPage() {
           </form>
 
           <p className="auth-form-link">
-            New to CrackJEE?{' '}
+            New to JEENEET.ai?{' '}
             <Link href="/register">Create a free account</Link>
           </p>
         </div>

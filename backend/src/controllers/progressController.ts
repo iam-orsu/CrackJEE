@@ -1,6 +1,8 @@
 ﻿import type { Response, NextFunction } from 'express';
 import type { AuthRequest } from '../types/index';
+import { Prisma } from '@prisma/client';
 import { prisma } from '../lib/prisma';
+import { cacheGetJson, cacheSetJson } from '../services/cacheService';
 
 export async function dashboard(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
   try {
@@ -117,13 +119,14 @@ export async function mockWeakAreas(req: AuthRequest, res: Response, next: NextF
 
     for (const exam of exams) {
       if (!exam.result) continue;
-      const breakdown = exam.result.scoreBreakdown as Record<string, { awarded: number }>;
+      const breakdown = exam.result.scoreBreakdown as Record<string, { awarded: number; submitted: string | null }>;
 
       for (const mq of exam.questions) {
         const { topic, subject } = mq.question;
         const key = `${subject}::${topic}`;
         const bd = breakdown[mq.id];
-        if (!bd) continue;
+        // Skipped questions say nothing about the student's ability, so they are not counted as misses
+        if (!bd || bd.submitted === null) continue;
 
         if (!topicMap.has(key)) topicMap.set(key, { subject, topic, correct: 0, total: 0 });
         const entry = topicMap.get(key)!;
@@ -149,59 +152,78 @@ export async function mockWeakAreas(req: AuthRequest, res: Response, next: NextF
   }
 }
 
+const LEADERBOARD_CACHE_KEY = 'leaderboard:global';
+const LEADERBOARD_TTL_SECONDS = 60;
+
+type GlobalLeaderboardRow = { examType: string; subject: string; top: number; avg: number; count: number };
+type MyLeaderboardRow = { examType: string; subject: string; mine: number };
+
+/**
+ * One row per (mock result, subject) with the percentage already computed in SQL.
+ * Same rules as before: NEET max is 180/180/360; JEE max is maxScore/3 (100 if unknown).
+ * Pass a userId to restrict to one student's exams.
+ */
+function scoredRowsSql(userId: string | null): Prisma.Sql {
+  const userFilter = userId ? Prisma.sql`WHERE e."userId" = ${userId}` : Prisma.empty;
+  const jeeMax = Prisma.sql`CASE WHEN r."maxScore" > 0 THEN ROUND(r."maxScore" / 3.0) ELSE 100 END`;
+  return Prisma.sql`
+    WITH parts AS (
+      SELECT e."examType" AS "examType", e."userId" AS "userId", 'Physics' AS subject,
+             r."physicsScore"::float8 AS score,
+             (CASE WHEN e."examType" = 'NEET' THEN 180 ELSE ${jeeMax} END)::float8 AS max
+      FROM "MockExamResult" r JOIN "MockExam" e ON e.id = r."examId" ${userFilter}
+      UNION ALL
+      SELECT e."examType", e."userId", 'Chemistry', r."chemistryScore"::float8,
+             (CASE WHEN e."examType" = 'NEET' THEN 180 ELSE ${jeeMax} END)::float8
+      FROM "MockExamResult" r JOIN "MockExam" e ON e.id = r."examId" ${userFilter}
+      UNION ALL
+      SELECT e."examType", e."userId",
+             CASE WHEN e."examType" = 'NEET' THEN 'Biology' ELSE 'Mathematics' END,
+             (CASE WHEN e."examType" = 'NEET' THEN r."biologyScore" ELSE r."mathScore" END)::float8,
+             (CASE WHEN e."examType" = 'NEET' THEN 360 ELSE ${jeeMax} END)::float8
+      FROM "MockExamResult" r JOIN "MockExam" e ON e.id = r."examId" ${userFilter}
+    )
+    SELECT "examType", subject, "userId",
+           CASE WHEN max > 0 THEN FLOOR(score / max * 100 + 0.5) ELSE 0 END AS pct
+    FROM parts
+  `;
+}
+
 export async function leaderboard(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
   try {
     const userId = req.user!.userId;
 
-    const allResults = await prisma.mockExamResult.findMany({
-      include: { exam: { select: { examType: true, userId: true } } },
-    });
-
-    type SubjectStat = { scores: number[]; myScores: number[] };
-    const stats: Record<string, Record<string, SubjectStat>> = {};
-
-    for (const r of allResults) {
-      const examType = r.exam.examType;
-      const isMe = r.exam.userId === userId;
-
-      if (!stats[examType]) stats[examType] = {};
-
-      let subjects: Record<string, { score: number; max: number }>;
-      if (examType === 'NEET') {
-        subjects = {
-          Physics: { score: r.physicsScore, max: 180 },
-          Chemistry: { score: r.chemistryScore, max: 180 },
-          Biology: { score: r.biologyScore, max: 360 },
-        };
-      } else {
-        const maxPerSubj = r.maxScore > 0 ? Math.round(r.maxScore / 3) : 100;
-        subjects = {
-          Physics: { score: r.physicsScore, max: maxPerSubj },
-          Chemistry: { score: r.chemistryScore, max: maxPerSubj },
-          Mathematics: { score: r.mathScore, max: maxPerSubj },
-        };
-      }
-
-      for (const [subj, { score, max }] of Object.entries(subjects)) {
-        if (!stats[examType][subj]) stats[examType][subj] = { scores: [], myScores: [] };
-        const pct = max > 0 ? Math.round((score / max) * 100) : 0;
-        stats[examType][subj].scores.push(pct);
-        if (isMe) stats[examType][subj].myScores.push(pct);
-      }
+    // Global stats are the same for every student, so cache them briefly
+    let globalRows = await cacheGetJson<GlobalLeaderboardRow[]>(LEADERBOARD_CACHE_KEY);
+    if (!globalRows) {
+      globalRows = await prisma.$queryRaw<GlobalLeaderboardRow[]>(Prisma.sql`
+        SELECT p."examType" AS "examType", p.subject AS subject,
+               MAX(p.pct)::float8 AS top,
+               FLOOR(AVG(p.pct) + 0.5)::float8 AS avg,
+               COUNT(*)::int AS count
+        FROM (${scoredRowsSql(null)}) p
+        GROUP BY p."examType", p.subject
+      `);
+      await cacheSetJson(LEADERBOARD_CACHE_KEY, globalRows, LEADERBOARD_TTL_SECONDS);
     }
 
+    // Only this student's rows — uses the MockExam.userId index
+    const myRows = await prisma.$queryRaw<MyLeaderboardRow[]>(Prisma.sql`
+      SELECT p."examType" AS "examType", p.subject AS subject, MAX(p.pct)::float8 AS mine
+      FROM (${scoredRowsSql(userId)}) p
+      GROUP BY p."examType", p.subject
+    `);
+    const myByKey = new Map(myRows.map((r) => [`${r.examType}|${r.subject}`, r.mine]));
+
     const result: Record<string, Record<string, { top: number; avg: number; mine: number | null; count: number }>> = {};
-    for (const [examType, subjects] of Object.entries(stats)) {
-      result[examType] = {};
-      for (const [subj, stat] of Object.entries(subjects)) {
-        const { scores, myScores } = stat;
-        result[examType][subj] = {
-          top: scores.length > 0 ? Math.max(...scores) : 0,
-          avg: scores.length > 0 ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : 0,
-          mine: myScores.length > 0 ? Math.max(...myScores) : null,
-          count: scores.length,
-        };
-      }
+    for (const row of globalRows) {
+      result[row.examType] ??= {};
+      result[row.examType][row.subject] = {
+        top: row.top,
+        avg: row.avg,
+        mine: myByKey.get(`${row.examType}|${row.subject}`) ?? null,
+        count: row.count,
+      };
     }
 
     res.json({ success: true, data: result });

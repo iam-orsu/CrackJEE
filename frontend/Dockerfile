@@ -7,11 +7,12 @@ RUN npm init -y && \
     npm pkg set scripts.dev="next dev" && \
     npm pkg set scripts.build="next build" && \
     npm pkg set scripts.start="next start" && \
+    npm pkg set overrides.postcss="8.5.31" && \
     npm install \
       "next@15" \
       "react@19" \
       "react-dom@19" \
-      "katex@^0.16.11" \
+      "katex@^0.19.0" \
       "smiles-drawer@1" && \
     npm install --save-dev \
       "@types/node@^22" \

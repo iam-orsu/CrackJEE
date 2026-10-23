@@ -188,7 +188,7 @@ ensure_ssl() {
       alpine/openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
       -keyout /ssl/privkey.pem \
       -out    /ssl/fullchain.pem \
-      -subj "/C=IN/ST=India/L=City/O=CrackJEE/CN=$DOMAIN" 2>/dev/null
+      -subj "/C=IN/ST=India/L=City/O=JEENEET.ai/CN=$DOMAIN" 2>/dev/null
     echo "  Self-signed certificate created."
     echo "  For a trusted cert: set ENABLE_SSL=true, DOMAIN=yourdomain.com, SSL_EMAIL=you@example.com"
     echo "  Then run: ./deploy.sh ssl-setup"
@@ -206,7 +206,7 @@ print_access() {
 case "$ACTION" in
   start)
     require_vps_ip
-    echo "Starting CrackJEE platform..."
+    echo "Starting JEENEET.ai platform..."
     docker compose --env-file "$ENV_FILE" down --remove-orphans >/dev/null 2>&1 || true
     free_port_80
     ensure_ssl
@@ -217,7 +217,7 @@ case "$ACTION" in
 
   restart)
     require_vps_ip
-    echo "Rebuilding and restarting CrackJEE platform..."
+    echo "Rebuilding and restarting JEENEET.ai platform..."
     docker compose --env-file "$ENV_FILE" down --remove-orphans >/dev/null 2>&1 || true
     free_port_80
     ensure_ssl
@@ -312,7 +312,7 @@ case "$ACTION" in
     ;;
 
   stop)
-    echo "Stopping CrackJEE platform..."
+    echo "Stopping JEENEET.ai platform..."
     docker compose --env-file "$ENV_FILE" down
     ;;
 

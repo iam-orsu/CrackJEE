@@ -1,6 +1,6 @@
-# CrackJEE
+# JEENEET.ai
 
-CrackJEE is an open-source test practice platform for students preparing for JEE Main and JEE Advanced. It runs full simulated exams, custom topic tests, tracks student accuracy, and provides instant answer keys with explanations.
+JEENEET.ai is an open-source test practice platform for students preparing for JEE Main, JEE Advanced and NEET UG. It runs full simulated exams, custom topic tests, tracks student accuracy, and provides instant answer keys with explanations.
 
 The platform is containerized with Docker and ready to deploy on any Linux VPS or local machine.
 

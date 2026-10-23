@@ -1,11 +1,32 @@
 import OpenAI from 'openai';
 import type { GeneratedQuestion, Difficulty, ExamType, Subject, StudentClass, QuestionType, DiagramTemplate } from '../types/index';
+import { createConcurrencyLimiter } from '../lib/concurrencyLimiter';
+import { incCounter } from '../lib/metrics';
 
+// maxRetries: 0 — the retry loops below own retries, so SDK retries don't multiply them
 const client = new OpenAI({
   apiKey: process.env.DEEPSEEK_API_KEY,
   baseURL: 'https://api.deepseek.com',
   timeout: 60000,
+  maxRetries: 0,
 });
+
+// Caps how many DeepSeek requests run at once across all users and requests in this process
+const withDeepSeekSlot = createConcurrencyLimiter(Number(process.env.DEEPSEEK_CONCURRENCY ?? 6));
+
+// Every DeepSeek request goes through here, so the cap applies and outcomes are counted
+async function callDeepSeek(
+  params: OpenAI.Chat.ChatCompletionCreateParamsNonStreaming,
+): Promise<OpenAI.Chat.ChatCompletion> {
+  try {
+    const response = await withDeepSeekSlot(() => client.chat.completions.create(params));
+    incCounter('deepseek_requests_total', { outcome: 'ok' });
+    return response;
+  } catch (err) {
+    incCounter('deepseek_requests_total', { outcome: 'error' });
+    throw err;
+  }
+}
 
 const RETRY_DELAYS = [1000, 2000, 4000];
 
@@ -476,7 +497,7 @@ export async function generateQuestion(
 
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
-      const response = await client.chat.completions.create({
+      const response = await callDeepSeek({
         model: 'deepseek-chat',
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.5,
@@ -525,7 +546,7 @@ export async function generateQuestionBatch(
 
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
-      const response = await client.chat.completions.create({
+      const response = await callDeepSeek({
         model: 'deepseek-chat',
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.5,

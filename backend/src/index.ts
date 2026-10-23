@@ -13,6 +13,7 @@ import { errorHandler } from './middleware/errorHandler';
 import { apiLimiter } from './middleware/rateLimiter';
 import { requestId } from './middleware/requestId';
 import { logger } from './lib/logger';
+import { incCounter, renderMetrics } from './lib/metrics';
 
 /* -- Validate required env vars at startup --------------- */
 const envSchema = z.object({
@@ -20,7 +21,6 @@ const envSchema = z.object({
   REDIS_URL:        z.string().startsWith('redis://'),
   JWT_SECRET:       z.string().min(16),
   DEEPSEEK_API_KEY: z.string().min(8),
-  OPENAI_API_KEY:   z.string().min(8),
   FRONTEND_URL:     z.string().url().optional(),
 });
 
@@ -86,11 +86,23 @@ app.use((req, res, next) => {
     if (status >= 500)      logger.error(meta, msg);
     else if (status >= 400) logger.warn(meta, msg);
     else                    logger.info(meta, msg);
+
+    // Route label: ids collapsed to :id, and unmatched paths grouped so scanners can't explode cardinality
+    const route = req.route
+      ? req.originalUrl.split('?')[0]!.replace(/\/[A-Za-z0-9_-]{16,}/g, '/:id')
+      : 'unmatched';
+    incCounter('http_requests_total', { route, status: String(status) });
+    incCounter('http_request_duration_ms_total', { route }, ms);
   });
   next();
 });
 
 /* -- Routes ----------------------------------------------- */
+// Internal only: nginx routes /api and / and never /metrics, and the backend port is not published
+app.get('/metrics', (_req, res) => {
+  res.type('text/plain').send(renderMetrics());
+});
+
 app.get('/health', async (_req, res) => {
   try {
     await prisma.$queryRaw`SELECT 1`;

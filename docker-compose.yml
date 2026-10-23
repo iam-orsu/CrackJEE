@@ -1,3 +1,10 @@
+# Shared log rotation for every service: caps each container's JSON log at 50 MB (5 × 10 MB)
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "5"
+
 services:
   postgres:
     image: postgres:16-alpine
@@ -5,6 +12,15 @@ services:
       POSTGRES_DB: jeedb
       POSTGRES_USER: ${POSTGRES_USER:?POSTGRES_USER must be set}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set}
+    # max_connections covers the backend pool (DB_CONNECTION_LIMIT per process) plus the migrate job.
+    # shared_buffers ≈ 25% of mem_limit. log_min_duration_statement logs slow queries (>500 ms) for monitoring.
+    command: >
+      postgres
+      -c max_connections=150
+      -c shared_buffers=256MB
+      -c effective_cache_size=512MB
+      -c log_min_duration_statement=500
+    mem_limit: 1g
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -13,12 +29,15 @@ services:
       timeout: 5s
       retries: 5
     restart: unless-stopped
+    logging: *default-logging
 
   redis:
     image: redis:7-alpine
-    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru --requirepass ${REDIS_PASSWORD:?REDIS_PASSWORD must be set}
+    # maxmemory is 512 MB; mem_limit leaves headroom for Redis's own overhead and the AOF rewrite
+    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru --requirepass ${REDIS_PASSWORD:?REDIS_PASSWORD must be set}
     environment:
       REDISCLI_AUTH: ${REDIS_PASSWORD}
+    mem_limit: 640m
     volumes:
       - redis_data:/data
     healthcheck:
@@ -27,6 +46,26 @@ services:
       timeout: 5s
       retries: 5
     restart: unless-stopped
+    logging: *default-logging
+
+  # One-shot: applies migrations and seeds the question banks, then exits.
+  # The backend waits for it to complete successfully, so backend replicas never run migrations.
+  migrate:
+    build:
+      context: .                         # project root so COPY data/ works
+      dockerfile: backend/Dockerfile
+    command: ["sh", "/app/migrate.sh"]
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/jeedb?connection_limit=${DB_CONNECTION_LIMIT:-10}&pool_timeout=20
+    volumes:
+      - ./data:/app/data:rw
+    mem_limit: 768m
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: "no"
+    logging: *default-logging
 
   backend:
     build:
@@ -34,31 +73,36 @@ services:
       dockerfile: backend/Dockerfile
     environment:
       NODE_ENV: production
-      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/jeedb
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/jeedb?connection_limit=${DB_CONNECTION_LIMIT:-10}&pool_timeout=20
       REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379
       JWT_SECRET: ${JWT_SECRET}
       DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY}
-      OPENAI_API_KEY: ${OPENAI_API_KEY}
-      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
-      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
       PORT: 3001
       FRONTEND_URL: https://${VPS_IP:?VPS_IP must be set in .env}
       SUPERADMIN_EMAIL: ${SUPERADMIN_EMAIL:-}
       SUPERADMIN_PASSWORD: ${SUPERADMIN_PASSWORD:-}
+      DEEPSEEK_CONCURRENCY: ${DEEPSEEK_CONCURRENCY:-6}
+      DB_FANOUT_CONCURRENCY: ${DB_FANOUT_CONCURRENCY:-5}
     volumes:
       - ./data:/app/data:rw
+    mem_limit: 1g
+    # Lets in-flight requests and background mock generations finish on deploy (server.close + SIGTERM handler)
+    stop_grace_period: 30s
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3001/health"]
       interval: 15s
       timeout: 5s
-      start_period: 120s    # seeder loads 5799 questions on first deploy
+      start_period: 60s
       retries: 3
     depends_on:
       postgres:
         condition: service_healthy
       redis:
         condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
     restart: unless-stopped
+    logging: *default-logging
 
   frontend:
     build:
@@ -67,10 +111,12 @@ services:
     environment:
       NODE_ENV: production
       BACKEND_URL: http://backend:3001
+    mem_limit: 512m
     depends_on:
       backend:
         condition: service_healthy
     restart: unless-stopped
+    logging: *default-logging
 
   nginx:
     image: nginx:alpine
@@ -81,10 +127,12 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/ssl:/etc/nginx/ssl:ro
       - ./certbot/www:/var/www/certbot:ro
+    mem_limit: 128m
     depends_on:
       - frontend
       - backend
     restart: unless-stopped
+    logging: *default-logging
 
 volumes:
   postgres_data:

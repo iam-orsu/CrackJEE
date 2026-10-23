@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import { QuestionCard } from '@/components/QuestionCard';
-import { VelocityToastProvider, showAnswerToast } from '@/components/ui/VelocityToast';
 import type { Question, AnswerResult, Subject, TopicProgress, PaperSet } from '@/types';
 import type { SplitTopics } from '@/lib/api';
 
@@ -500,13 +499,6 @@ export default function PracticePage() {
     const result = await api.answers.submit({ questionId: q.id, answer, timeSpent });
     setExamResults((prev) => ({ ...prev, [currentIndex]: { ...result, selectedAnswer: answer } }));
 
-    showAnswerToast({
-      type: result.isCorrect ? 'correct' : 'wrong',
-      title: result.isCorrect ? 'Correct!' : 'Wrong answer',
-      marks: result.isCorrect ? '+4' : '−1',
-      explanation: result.explanation,
-    });
-
     return result;
   }
 
@@ -598,7 +590,7 @@ export default function PracticePage() {
     return (
       <div className="wizard-page">
         <div className="wizard-topbar">
-          <span className="wizard-topbar-logo">CrackJEE</span>
+          <span className="wizard-topbar-logo">JEENEET.ai</span>
           <div className="divider" style={{ width: 1, height: 20, background: 'var(--gray-200)', margin: '0 4px' }} />
           <Link href="/dashboard" className="btn btn-ghost btn-sm">Dashboard</Link>
           {loadError && (
@@ -1001,9 +993,8 @@ export default function PracticePage() {
 
     return (
       <div className="exam-overlay">
-        <VelocityToastProvider />
         <div className="exam-header">
-          <span className="exam-logo">CrackJEE</span>
+          <span className="exam-logo">JEENEET.ai</span>
           <div className="exam-meta">
             <span className="exam-qnum">Q{currentIndex + 1} / {questions.length}</span>
             <span className="exam-topic">{q.subject} · {q.topic}</span>
@@ -1095,7 +1086,7 @@ export default function PracticePage() {
     return (
       <div className="exam-overlay">
         <div className="exam-header">
-          <span className="exam-logo">CrackJEE</span>
+          <span className="exam-logo">JEENEET.ai</span>
           <span style={{ fontSize: 14, color: 'var(--gray-500)' }}>Session complete</span>
           <div />
         </div>
@@ -1259,7 +1250,7 @@ export default function PracticePage() {
     return (
       <div className="exam-overlay">
         <div className="exam-header">
-          <span className="exam-logo">CrackJEE</span>
+          <span className="exam-logo">JEENEET.ai</span>
           <span style={{ fontSize: 14, color: 'var(--gray-500)' }}>Session analysis</span>
           <div style={{ display: 'flex', gap: 8 }}>
             <button className="btn btn-ghost btn-sm" onClick={() => setAppState('summary')}>Back to score</button>

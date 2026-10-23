@@ -213,7 +213,7 @@ export default function MockResultPage() {
       {/* Top bar */}
       <div style={{ background: '#1e293b', color: '#fff', padding: '14px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <a href="/dashboard" style={{ color: '#94a3b8', fontSize: 14, textDecoration: 'none' }}>CrackJEE</a>
+          <a href="/dashboard" style={{ color: '#94a3b8', fontSize: 14, textDecoration: 'none' }}>JEENEET.ai</a>
           <span style={{ color: '#475569' }}>›</span>
           <a href="/mock" style={{ color: '#94a3b8', fontSize: 14, textDecoration: 'none' }}>Mock Tests</a>
           <span style={{ color: '#475569' }}>›</span>

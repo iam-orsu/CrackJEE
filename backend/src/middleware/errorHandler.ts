@@ -22,6 +22,12 @@ export function errorHandler(
     return;
   }
 
+  // Malformed JSON in a request body is a client error, not a server fault
+  if (err instanceof SyntaxError && 'body' in err) {
+    res.status(400).json({ success: false, error: 'Malformed JSON in request body' });
+    return;
+  }
+
   logger.error({ err }, 'Unhandled error');
   const message = process.env.NODE_ENV === 'production'
     ? 'Internal server error'

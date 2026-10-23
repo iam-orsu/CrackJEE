@@ -1,16 +1,20 @@
 import rateLimit from 'express-rate-limit';
 
+// Auth is keyed by IP and shared by everyone on a school or coaching-centre network,
+// so the cap is set high enough for a classroom. Per-account brute force is limited by bcrypt cost.
 export const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 10,
+  max: 30,
   standardHeaders: true,
   legacyHeaders: false,
   message: { success: false, error: 'Too many attempts, please try again later' },
 });
 
+// Global floor per IP. Runs before auth, so it cannot key by user. The per-user limiters
+// (questionLimiter, answerLimiter, mockStartLimiter) do the real limiting on authenticated routes.
 export const apiLimiter = rateLimit({
   windowMs: 60 * 1000,
-  max: 120,
+  max: 600,
   standardHeaders: true,
   legacyHeaders: false,
   message: { success: false, error: 'Rate limit exceeded' },

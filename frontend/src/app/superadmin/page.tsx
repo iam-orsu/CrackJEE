@@ -94,7 +94,7 @@ export default function SuperAdminPage() {
     return (
       <div className={styles.loginWrap}>
         <form className={styles.loginBox} onSubmit={handleLogin}>
-          <p className={styles.loginTitle}>CrackJEE admin</p>
+          <p className={styles.loginTitle}>JEENEET.ai admin</p>
           <p className={styles.loginSub}>Sign in to view platform metrics.</p>
 
           {error && <div className={styles.error}>{error}</div>}

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 // Keep the admin page out of search engines
 export const metadata: Metadata = {
-  title: 'CrackJEE Admin',
+  title: 'JEENEET.ai Admin',
   robots: { index: false, follow: false },
 };
 
