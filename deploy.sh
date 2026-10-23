@@ -211,6 +211,20 @@ case "$ACTION" in
     print_access
     ;;
 
+  update)
+    # Rebuild and recreate only the named services. Postgres, Redis and the rest keep running.
+    require_vps_ip
+    if [ "$#" -lt 2 ]; then
+      echo "Usage: ./deploy.sh update <service> [service...]   e.g. ./deploy.sh update frontend" >&2
+      exit 1
+    fi
+    shift
+    echo "Rebuilding and restarting only: $*"
+    docker compose --env-file "$ENV_FILE" up -d --build "$@"
+    wait_ready
+    print_access
+    ;;
+
   migrate)
     # Explicit migration run — useful after pulling new schema changes.
     echo "Running database migrations against running containers..."
@@ -358,10 +372,11 @@ case "$ACTION" in
     ;;
 
   *)
-    echo "Usage: ./deploy.sh [start|restart|stop|delete|logs|status|migrate|seed|baseline|ssl-setup|renew-ssl|test|backup|restore]"
+    echo "Usage: ./deploy.sh [start|restart|update|stop|delete|logs|status|migrate|seed|baseline|ssl-setup|renew-ssl|test|backup|restore]"
     echo ""
     echo "  start      - Free port 80/443, generate SSL if needed, build and start all services"
     echo "  restart    - Stop, free port 80/443, rebuild and restart all services"
+    echo "  update     - Rebuild and restart only the named services, e.g. ./deploy.sh update frontend"
     echo "  stop       - Stop all services (keep data)"
     echo "  delete     - Stop and delete all data volumes"
     echo "  logs       - Tail logs (optionally pass service name: ./deploy.sh logs backend)"
