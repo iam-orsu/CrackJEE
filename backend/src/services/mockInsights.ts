@@ -230,3 +230,42 @@ export function subjectOrder(records: QuestionRecord[]): Array<{ subject: string
     }))
     .sort((a, b) => b.correctPerMinute - a.correctPerMinute || b.accuracy - a.accuracy);
 }
+
+/** Share of all students this score is at or above (percentile) and its rank, 1 being the best */
+export function platformStanding(mine: number, everyone: number[]): { percentile: number; rank: number; of: number } {
+  const of = everyone.length;
+  const above = everyone.filter((v) => v > mine).length;
+  const below = everyone.filter((v) => v < mine).length;
+  const equal = of - above - below;
+  return {
+    percentile: Math.round(((below + equal / 2) / of) * 100),
+    rank: above + 1,
+    of,
+  };
+}
+
+export interface CutoffResult {
+  label: string;
+  cutoffPct: number;
+  scorePct: number;
+  status: 'above' | 'below';
+  // Positive: percentage points still needed to reach the cutoff. Negative: points above it.
+  gapPct: number;
+}
+
+/** Where a score (as a percentage of the maximum) sits against each published cutoff line */
+export function cutoffComparison(
+  scorePct: number,
+  lines: Array<{ label: string; marks: number; maxMarks: number }>,
+): CutoffResult[] {
+  return lines.map((line) => {
+    const cutoffPct = Math.round((line.marks / line.maxMarks) * 1000) / 10;
+    return {
+      label: line.label,
+      cutoffPct,
+      scorePct,
+      status: scorePct >= cutoffPct ? 'above' : 'below',
+      gapPct: Math.round((cutoffPct - scorePct) * 10) / 10,
+    };
+  });
+}

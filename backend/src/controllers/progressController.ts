@@ -13,7 +13,12 @@ import {
   timeByType,
   subjectOrder,
 } from '../services/mockInsights';
-import { loadStudentMockData } from '../services/mockInsightsData';
+import { platformStanding, cutoffComparison } from '../services/mockInsights';
+import { loadStudentMockData, loadPlatformAverages } from '../services/mockInsightsData';
+import { cutoffsFor } from '../services/examCutoffs';
+
+// The platform standing is only shown once enough students have mocks of this exam type to mean something
+const MIN_STANDING_STUDENTS = 10;
 
 const MOCK_WEAK_AREA_EXAMS = 30;
 
@@ -301,14 +306,28 @@ export async function leaderboard(req: AuthRequest, res: Response, next: NextFun
 // GET /api/stats/mock-insights — analytics across the student's recent submitted mocks (mock-only data)
 export async function mockInsights(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
   try {
-    const { records, totals, examsAnalysed } = await loadStudentMockData(req.user!.userId);
+    const userId = req.user!.userId;
+    const { records, totals, examsAnalysed, latestExamType } = await loadStudentMockData(userId);
     const stats = topicStats(records);
     const { strong, weak } = strongAndWeak(stats);
+
+    // Standing and cutoffs follow the exam the student sits most recently
+    const cutoffs = latestExamType ? cutoffsFor(latestExamType) : null;
+    const averages = latestExamType ? await loadPlatformAverages(latestExamType) : [];
+    const mine = averages.find((a) => a.userId === userId)?.avgPct ?? null;
+    const standing = mine !== null && averages.length >= MIN_STANDING_STUDENTS
+      ? { available: true as const, mine, ...platformStanding(mine, averages.map((a) => a.avgPct)) }
+      : { available: false as const, mine, students: averages.length, needed: MIN_STANDING_STUDENTS };
 
     res.json({
       success: true,
       data: {
         examsAnalysed,
+        examType: latestExamType,
+        standing,
+        cutoffs: cutoffs
+          ? { name: cutoffs.name, sources: cutoffs.sources, lines: mine !== null ? cutoffComparison(mine, cutoffs.lines) : null }
+          : null,
         strongTopics: strong,
         weakTopics: weak,
         // Revise today: the weakest topics; practise tomorrow uses the same list

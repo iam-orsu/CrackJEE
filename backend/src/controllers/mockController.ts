@@ -6,7 +6,8 @@ import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
 import { generateFreshMockBatch, distributeTopicSlots, fisherYatesShuffle } from '../services/questionService';
 import { findStoredPaper, saveStoredPaper, pastQuestionIds } from '../services/mockPaperService';
-import { topicStats, strongAndWeak, topMarksLost, negativeAnalysis, timeByType, subjectOrder } from '../services/mockInsights';
+import { topicStats, strongAndWeak, topMarksLost, negativeAnalysis, timeByType, subjectOrder, cutoffComparison } from '../services/mockInsights';
+import { cutoffsFor } from '../services/examCutoffs';
 import { loadExamMockData } from '../services/mockInsightsData';
 import type { MockPoolItem } from '../services/mockPaperService';
 import { cacheSetNx, cacheDel } from '../services/cacheService';
@@ -671,14 +672,19 @@ export async function getMockHistory(req: AuthRequest, res: Response, next: Next
 export async function getExamInsights(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
   try {
     const { id } = req.params as { id: string };
-    const records = await loadExamMockData(req.user!.userId, id);
-    if (!records) throw new AppError(404, 'Result not yet available');
+    const exam = await loadExamMockData(req.user!.userId, id);
+    if (!exam) throw new AppError(404, 'Result not yet available');
+    const { records } = exam;
 
     const stats = topicStats(records);
     const { weak } = strongAndWeak(stats);
+    const cutoffs = cutoffsFor(exam.examType);
     res.json({
       success: true,
       data: {
+        cutoffs: cutoffs && exam.scorePct !== null
+          ? { name: cutoffs.name, sources: cutoffs.sources, lines: cutoffComparison(exam.scorePct, cutoffs.lines) }
+          : null,
         topics: [...stats].sort((a, b) => a.accuracy - b.accuracy || b.marksLost - a.marksLost),
         weakTopics: weak,
         marksLostTopics: topMarksLost(stats),
