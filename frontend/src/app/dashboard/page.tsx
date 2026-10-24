@@ -312,20 +312,22 @@ export default function DashboardPage() {
                     <div>
                       <h2 className={styles.panelTitle}>Platform standings</h2>
                       <p className={styles.panelSub}>
-                        {lbExamType === 'NEET' ? 'NEET UG' : `JEE ${lbExamType}`} · Your average vs platform average and top score (% of max marks)
+                        {lbExamType === 'NEET' ? 'NEET UG' : `JEE ${lbExamType}`} · Your highest and average vs platform average and top score (% of max marks)
                       </p>
                     </div>
                   </div>
                   <table className={styles.lbTable}>
                     <colgroup>
-                      <col style={{ width: '35%' }} />
-                      <col style={{ width: '20%' }} />
-                      <col style={{ width: '20%' }} />
                       <col style={{ width: '25%' }} />
+                      <col style={{ width: '17%' }} />
+                      <col style={{ width: '17%' }} />
+                      <col style={{ width: '18%' }} />
+                      <col style={{ width: '23%' }} />
                     </colgroup>
                     <thead>
                       <tr>
                         <th className={styles.lbHead} style={{ textAlign: 'left' }}>Subject</th>
+                        <th className={styles.lbHead}>My highest</th>
                         <th className={styles.lbHead}>My average</th>
                         <th className={styles.lbHead}>Platform avg</th>
                         <th className={styles.lbHead}>Platform top</th>
@@ -333,8 +335,8 @@ export default function DashboardPage() {
                     </thead>
                     <tbody>
                       {lbSubjects.map(([subj, stat]) => {
+                        const best = stat.best;
                         const mine = stat.mine;
-                        const mineColor = mine == null ? 'var(--gray-400)' : toneColor(mine);
                         return (
                           <tr key={subj} className={styles.lbRow}>
                             <td>
@@ -342,7 +344,10 @@ export default function DashboardPage() {
                                 {subj}
                               </span>
                             </td>
-                            <td className={styles.lbNum} style={{ color: mineColor }}>
+                            <td className={styles.lbNum} style={{ color: best == null ? 'var(--gray-400)' : toneColor(best) }}>
+                              {best != null ? `${best}%` : '—'}
+                            </td>
+                            <td className={styles.lbNum} style={{ color: mine == null ? 'var(--gray-400)' : toneColor(mine) }}>
                               {mine != null ? `${mine}%` : '—'}
                             </td>
                             <td className={styles.lbNum} style={{ color: 'var(--gray-600)' }}>
