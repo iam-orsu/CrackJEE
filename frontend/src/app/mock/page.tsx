@@ -172,8 +172,15 @@ export default function MockPage() {
     setPage(1);
   }
 
+  // The exam the student has open right now, if any. A new paper can only start once it is terminated or finished.
+  const activeExam = history.find((h) => ['generating', 'ready', 'in_progress'].includes(h.status));
+
   async function startPaper(examType: ExamType, difficultyMode: DifficultyMode) {
     if (starting) return;
+    if (activeExam) {
+      setError('Terminate your exam in progress before starting a new paper.');
+      return;
+    }
     setStarting(true);
     setError('');
     try {
@@ -277,6 +284,31 @@ export default function MockPage() {
         {/* Paper list: placeholder cards for browsing; the paper is prepared when the student picks one */}
         {selected && (
           <section style={{ marginBottom: 40 }}>
+            {activeExam && (
+              <div style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap',
+                padding: '12px 16px', marginBottom: 20, background: '#fffbeb', border: '1px solid #fde68a',
+                borderRadius: 8, fontSize: 13, color: '#92400e',
+              }}>
+                <span>
+                  You have a {activeExam.examType === 'NEET' ? 'NEET UG' : `JEE ${activeExam.examType}`} exam in progress.
+                  Terminate it before starting a new paper.
+                </span>
+                <span style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+                  <a href={`/mock/${activeExam.id}`} style={{ color: 'var(--gray-700)', fontWeight: 500, textDecoration: 'underline' }}>
+                    Resume
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => handleTerminate(activeExam.id)}
+                    disabled={terminating === activeExam.id}
+                    style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#dc2626', fontWeight: 500, textDecoration: 'underline', padding: 0 }}
+                  >
+                    {terminating === activeExam.id ? 'Terminating…' : 'Terminate'}
+                  </button>
+                </span>
+              </div>
+            )}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, marginBottom: 14, flexWrap: 'wrap' }}>
               <div>
                 <div style={{ fontSize: 16, fontWeight: 600, color: 'var(--gray-900)' }}>

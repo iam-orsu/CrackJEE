@@ -314,12 +314,14 @@ export async function startMock(req: AuthRequest, res: Response, next: NextFunct
         data: { status: 'error' },
       });
 
-      // If student already has an active exam of the same type, return it
+      // One exam at a time: the student must terminate (or finish) the one in progress before starting another
       const active = await prisma.mockExam.findFirst({
-        where: { userId, examType, status: { in: ['generating', 'ready', 'in_progress'] } },
+        where: { userId, status: { in: ['generating', 'ready', 'in_progress'] } },
         orderBy: { createdAt: 'desc' },
       });
-      if (active) return { exam: active, isNew: false };
+      if (active) {
+        throw new AppError(409, 'You have an exam in progress. Terminate it before starting a new one.');
+      }
 
       const exam = await prisma.mockExam.create({
         data: { userId, examType, difficultyMode, status: 'generating', durationSeconds: 10800 },

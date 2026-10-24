@@ -29,7 +29,7 @@ export function PaperStep({ papersError, paperSets, page, pageCount, available, 
         <div className="paper-combos">
           <span className="paper-combos-value">{available >= 10000 ? '10,000+' : available.toLocaleString('en-IN')}</span>
           <span className="paper-combos-label">
-            practice combinations · 10 papers per page · page {page} of {pageCount}
+            practice combinations · 10 papers per page · page {page}
           </span>
         </div>
       )}
