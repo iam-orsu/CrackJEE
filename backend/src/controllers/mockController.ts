@@ -6,6 +6,8 @@ import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
 import { generateFreshMockBatch, distributeTopicSlots, fisherYatesShuffle } from '../services/questionService';
 import { findStoredPaper, saveStoredPaper, pastQuestionIds } from '../services/mockPaperService';
+import { topicStats, strongAndWeak, topMarksLost, negativeAnalysis, timeByType, subjectOrder } from '../services/mockInsights';
+import { loadExamMockData } from '../services/mockInsightsData';
 import type { MockPoolItem } from '../services/mockPaperService';
 import { cacheSetNx, cacheDel } from '../services/cacheService';
 import { runOnce } from '../lib/distributedOnce';
@@ -660,6 +662,31 @@ export async function getMockHistory(req: AuthRequest, res: Response, next: Next
     });
 
     res.json({ success: true, data: exams });
+  } catch (err) {
+    next(err);
+  }
+}
+
+// GET /api/mock/:id/insights — analytics for one submitted exam, shown on its result page
+export async function getExamInsights(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const { id } = req.params as { id: string };
+    const records = await loadExamMockData(req.user!.userId, id);
+    if (!records) throw new AppError(404, 'Result not yet available');
+
+    const stats = topicStats(records);
+    const { weak } = strongAndWeak(stats);
+    res.json({
+      success: true,
+      data: {
+        topics: [...stats].sort((a, b) => a.accuracy - b.accuracy || b.marksLost - a.marksLost),
+        weakTopics: weak,
+        marksLostTopics: topMarksLost(stats),
+        negatives: negativeAnalysis(records),
+        timeByType: timeByType(records),
+        subjectOrder: subjectOrder(records),
+      },
+    });
   } catch (err) {
     next(err);
   }

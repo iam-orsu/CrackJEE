@@ -171,10 +171,12 @@ export const api = {
 
   stats: {
     mockWeakAreas: () => request<import('@/types').MockWeakTopic[]>('/stats/mock-weak-areas'),
+    mockInsights: () => request<import('@/types').MockInsights>('/stats/mock-insights'),
     leaderboard: () => request<import('@/types').LeaderboardData>('/stats/leaderboard'),
   },
 
   mock: {
+    insights: (id: string) => request<import('@/types').ExamInsights>(`/mock/${id}/insights`),
     start: (body: { examType: 'Main' | 'Advanced' | 'NEET'; difficultyMode?: 'easy' | 'medium' | 'hard' }) =>
       request<{ id: string; status: string }>('/mock/start', {
         method: 'POST',

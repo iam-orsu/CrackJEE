@@ -6,7 +6,8 @@ import { useRouter } from 'next/navigation';
 import { Sidebar } from '@/components/Sidebar';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
-import type { DashboardData, WeeklyPoint, MockWeakTopic, LeaderboardData } from '@/types';
+import type { DashboardData, WeeklyPoint, MockWeakTopic, LeaderboardData, MockInsights, TopicStat } from '@/types';
+import { ProjectionCard, MonthlyBars, TopicList, NegativesCard, TimeByTypeCard, SectionOrderCard, PracticeLink } from '@/components/insights/InsightBlocks';
 import styles from './dashboard.module.css';
 import { SUBJECT_COLOR } from '@/lib/subjects';
 import { plural } from './helpers';
@@ -196,6 +197,7 @@ export default function DashboardPage() {
   const [data, setData] = useState<DashboardData | null>(null);
   const [mockWeakTopics, setMockWeakTopics] = useState<MockWeakTopic[]>([]);
   const [leaderboard, setLeaderboard] = useState<LeaderboardData | null>(null);
+  const [insights, setInsights] = useState<MockInsights | null>(null);
   const [expandedSubject, setExpandedSubject] = useState<string | null>(null);
   const [expandedMastery, setExpandedMastery] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -208,11 +210,13 @@ export default function DashboardPage() {
       api.dashboard.data(),
       api.stats.mockWeakAreas().catch(() => [] as MockWeakTopic[]),
       api.stats.leaderboard().catch(() => null),
+      api.stats.mockInsights().catch(() => null),
     ])
-      .then(([dashData, weakTopics, lb]) => {
+      .then(([dashData, weakTopics, lb, insightData]) => {
         setData(dashData);
         setMockWeakTopics(weakTopics);
         setLeaderboard(lb);
+        setInsights(insightData);
       })
       .catch((e: Error) => setError(e.message))
       .finally(() => setLoading(false));
@@ -272,6 +276,18 @@ export default function DashboardPage() {
   }
 
   const history = data?.history ?? [];
+
+  // Practice link for a list of topics, grouped by subject; uses the practice page's weak-topic mode
+  function revisePracticeUrl(topics: TopicStat[]): string {
+    const bySubject: Record<string, string[]> = {};
+    for (const t of topics) {
+      if (!bySubject[t.subject]) bySubject[t.subject] = [];
+      bySubject[t.subject]!.push(t.topic);
+    }
+    const basePath = examIsNEET ? '/neet/practice' : '/practice';
+    const weakData = encodeURIComponent(JSON.stringify({ subjects: Object.keys(bySubject), topics: bySubject }));
+    return `${basePath}?mode=mock_weak&weakData=${weakData}`;
+  }
 
   return (
     <div className="app-shell">
@@ -476,6 +492,52 @@ export default function DashboardPage() {
               )}
             </section>
           </div>
+
+          {/* Mock insights: built only from submitted mock exams */}
+          {!loading && insights && insights.examsAnalysed > 0 && (
+            <section style={{ marginTop: 16 }}>
+              <div style={{ marginBottom: 12 }}>
+                <h2 className={styles.panelTitle}>Mock insights</h2>
+                <p className={styles.panelSub}>From your submitted mock exams only · {insights.examsAnalysed} mocks analysed</p>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16 }}>
+                <ProjectionCard projection={insights.projection} />
+                <MonthlyBars monthly={insights.monthly} />
+                <TopicList
+                  title="Strong topics"
+                  sub="At 60% or above, with at least two answers"
+                  topics={insights.strongTopics}
+                  mode="accuracy"
+                  emptyText="No strong topics yet. A topic needs two answers at 60% or better."
+                />
+                <TopicList
+                  title="Weak topics"
+                  sub="Below 60%, lowest first"
+                  topics={insights.weakTopics}
+                  mode="accuracy"
+                  emptyText="No weak topics yet."
+                />
+                <TopicList
+                  title="Revise today, practise tomorrow"
+                  sub="Your weakest topics first"
+                  topics={insights.reviseToday}
+                  mode="accuracy"
+                  emptyText="Nothing to revise yet."
+                  action={insights.reviseToday.length > 0 ? <PracticeLink href={revisePracticeUrl(insights.reviseToday)} label="Practise these topics →" /> : undefined}
+                />
+                <TopicList
+                  title="Marks lost by topic"
+                  sub="Where most of your marks went, including negatives"
+                  topics={insights.marksLostTopics}
+                  mode="marks"
+                  emptyText="No marks lost yet."
+                />
+                <NegativesCard negatives={insights.negatives} />
+                <TimeByTypeCard rows={insights.timeByType} />
+                <SectionOrderCard rows={insights.subjectOrder} />
+              </div>
+            </section>
+          )}
 
           <div className={styles.grid} style={{ gridTemplateColumns: '1fr' }}>
             <FocusAreas

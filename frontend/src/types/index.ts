@@ -168,6 +168,69 @@ export interface MockResultData {
   result: MockExamResult;
 }
 
+/* ── Mock analytics (from submitted mock exams only) ─────────── */
+
+export interface TopicStat {
+  subject: string;
+  topic: string;
+  attempts: number;
+  correct: number;
+  accuracy: number;
+  marksLost: number;
+  lastAt: string | null;
+}
+
+export type ProjectionData =
+  | { available: false; mocks: number }
+  | { available: true; mocks: number; expected: number; low: number; high: number; trendPerMock: number };
+
+export interface NegativeSummary {
+  answered: number;
+  correct: number;
+  wrong: number;
+  negativeCount: number;
+  negativeMarks: number;
+  timeOnWrongSeconds: number;
+  timeOnCorrectSeconds: number;
+  shareOfTimeOnWrongPct: number;
+}
+
+export interface TimeByTypeRow {
+  questionType: string;
+  answered: number;
+  accuracy: number;
+  avgSeconds: number;
+}
+
+export interface SubjectOrderRow {
+  subject: string;
+  attempts: number;
+  accuracy: number;
+  correctPerMinute: number;
+}
+
+export interface MockInsights {
+  examsAnalysed: number;
+  strongTopics: TopicStat[];
+  weakTopics: TopicStat[];
+  reviseToday: TopicStat[];
+  marksLostTopics: TopicStat[];
+  monthly: Array<{ month: string; avgPct: number; mocks: number }>;
+  projection: ProjectionData;
+  negatives: NegativeSummary;
+  timeByType: TimeByTypeRow[];
+  subjectOrder: SubjectOrderRow[];
+}
+
+export interface ExamInsights {
+  topics: TopicStat[];
+  weakTopics: TopicStat[];
+  marksLostTopics: TopicStat[];
+  negatives: NegativeSummary;
+  timeByType: TimeByTypeRow[];
+  subjectOrder: SubjectOrderRow[];
+}
+
 export interface MockHistoryItem {
   id: string;
   examType: string;
