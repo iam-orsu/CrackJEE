@@ -157,7 +157,7 @@ const LEADERBOARD_CACHE_KEY = 'leaderboard:global';
 const LEADERBOARD_TTL_SECONDS = 60;
 
 type GlobalLeaderboardRow = { examType: string; subject: string; top: number; avg: number; count: number };
-type MyLeaderboardRow = { examType: string; subject: string; mine: number };
+type MyLeaderboardRow = { examType: string; subject: string; best: number; mine: number };
 
 /**
  * One row per (mock result, subject) with the percentage already computed in SQL.
@@ -211,19 +211,22 @@ export async function leaderboard(req: AuthRequest, res: Response, next: NextFun
     // Only this student's rows — uses the MockExam.userId index
     const myRows = await prisma.$queryRaw<MyLeaderboardRow[]>(Prisma.sql`
       SELECT p."examType" AS "examType", p.subject AS subject,
+             MAX(p.pct)::float8 AS best,
              FLOOR(AVG(p.pct) + 0.5)::float8 AS mine
       FROM (${scoredRowsSql(userId)}) p
       GROUP BY p."examType", p.subject
     `);
-    const myByKey = new Map(myRows.map((r) => [`${r.examType}|${r.subject}`, r.mine]));
+    const myByKey = new Map(myRows.map((r) => [`${r.examType}|${r.subject}`, r]));
 
-    const result: Record<string, Record<string, { top: number; avg: number; mine: number | null; count: number }>> = {};
+    const result: Record<string, Record<string, { top: number; avg: number; mine: number | null; best: number | null; count: number }>> = {};
     for (const row of globalRows) {
+      const mineRow = myByKey.get(`${row.examType}|${row.subject}`);
       result[row.examType] ??= {};
       result[row.examType][row.subject] = {
         top: row.top,
         avg: row.avg,
-        mine: myByKey.get(`${row.examType}|${row.subject}`) ?? null,
+        mine: mineRow?.mine ?? null,
+        best: mineRow?.best ?? null,
         count: row.count,
       };
     }

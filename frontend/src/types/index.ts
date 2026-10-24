@@ -189,6 +189,7 @@ export interface LeaderboardSubject {
   top: number;
   avg: number;
   mine: number | null;
+  best: number | null;
   count: number;
 }
 
