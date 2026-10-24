@@ -613,7 +613,8 @@ export async function getQuestionBatch(
  */
 // Questions per DeepSeek call for mock papers. Larger batches cost less per question; 8 stays well inside
 // the size the model produces reliably.
-const MOCK_BATCH_SIZE = 8;
+// Five keeps a full reply inside the model's output limit; eight was cut off mid-JSON in testing.
+const MOCK_BATCH_SIZE = 5;
 const MOCK_BUDGET_WINDOW_S = 40 * 24 * 3600;
 
 function monthlyBatchLimit(): number {
