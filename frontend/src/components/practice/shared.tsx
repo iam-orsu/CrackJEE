@@ -44,7 +44,9 @@ export function previewText(text: string): string {
 
 /* A paper that looks like a real question paper. The questions stay blurred until the student starts it. */
 export function PaperCard({ paper, onStart }: { paper: PaperSet; onStart: () => void }) {
-  const subjectCounts = SUBJECTS_FOR_PAPERS
+  // Subjects come from the paper itself, so NEET papers show Botany and Zoology too
+  const paperSubjects = [...new Set(paper.questions.map((q) => q.subject))];
+  const subjectCounts = paperSubjects
     .map((s) => ({ s, n: paper.questions.filter((q) => q.subject === s).length }))
     .filter((x) => x.n > 0);
   const diffCounts = DIFFICULTY_LABELS

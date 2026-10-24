@@ -26,7 +26,7 @@ const MockIcon = () => (
 
 const ALL_LINKS = [
   { href: '/dashboard',     label: 'Dashboard',     Icon: DashIcon,     mode: 'all'  as const },
-  { href: '/practice',      label: 'JEE & NEET Practice',  Icon: PracticeIcon, mode: 'jee'  as const },
+  { href: '/practice',      label: 'JEE Practice',  Icon: PracticeIcon, mode: 'jee'  as const },
   { href: '/neet/practice', label: 'NEET Practice', Icon: PracticeIcon, mode: 'neet' as const },
   { href: '/mock',          label: 'Mock Test',     Icon: MockIcon,     mode: 'all'  as const },
 ];
