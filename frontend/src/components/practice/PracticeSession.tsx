@@ -52,7 +52,9 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   /* ── Paper row (choose a paper before starting; JEE only) ── */
   const [showPapers, setShowPapers] = useState(false);
   const [paperSets, setPaperSets] = useState<PaperSet[]>([]);
-  const [possibleSets, setPossibleSets] = useState('0');
+  const [paperPage, setPaperPage] = useState(1);
+  const [paperPageCount, setPaperPageCount] = useState(0);
+  const [paperAvailable, setPaperAvailable] = useState(0);
   const [papersLoading, setPapersLoading] = useState(false);
   const [papersError, setPapersError] = useState('');
 
@@ -286,7 +288,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   }
 
   /* ─── Paper row: preview papers, then claim the chosen one (JEE) ── */
-  async function loadPapers() {
+  async function loadPapers(page: number) {
     setShowPapers(true);
     setPapersLoading(true);
     setPapersError('');
@@ -297,10 +299,12 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
         examType,
         studentClass: batchClass,
         perSubject: resolvedCount(),
-        papers: 6,
+        page,
       });
       setPaperSets(res.papers);
-      setPossibleSets(res.possibleSets);
+      setPaperPage(res.page);
+      setPaperPageCount(res.pageCount);
+      setPaperAvailable(res.available);
       if (res.papers.length === 0) setPapersError('No papers can be built from these topics. Try adding more topics.');
     } catch (e) {
       setPaperSets([]);
@@ -328,7 +332,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
     } catch (e) {
       setLoadError(e instanceof Error ? e.message : 'Could not start this paper');
       setAppState('wizard');
-      loadPapers();
+      loadPapers(paperPage);
     }
   }
 
@@ -538,10 +542,12 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
               <PaperStep
                 papersError={papersError}
                 paperSets={paperSets}
-                possibleSets={possibleSets}
+                page={paperPage}
+                pageCount={paperPageCount}
+                available={paperAvailable}
                 papersLoading={papersLoading}
                 onChoosePaper={choosePaper}
-                onLoadPapers={loadPapers}
+                onPageChange={loadPapers}
                 onStartExam={startExam}
               />
             )}
@@ -583,7 +589,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
               ) : showPapers ? null : (
-                <button className="btn btn-primary btn-lg" onClick={loadPapers}>
+                <button className="btn btn-primary btn-lg" onClick={() => loadPapers(1)}>
                   Find papers
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>

@@ -1,10 +1,14 @@
+import { createHash } from 'crypto';
 import { prisma } from '../lib/prisma';
-import { cacheGetJson, cacheAppendUnique } from './cacheService';
-import { fisherYatesShuffle } from './questionService';
+import { cacheGetJson, cacheSetJson, cacheAppendUnique } from './cacheService';
 import type { Subject, Difficulty, ExamType } from '../types/index';
 import type { Question } from '@prisma/client';
 
 const SERVED_TTL = 86400 * 7;
+const POOL_TTL = 600;
+export const PAPER_PAGE_SIZE = 10;
+// Each student can page through this many distinct papers for one selection
+export const PAPER_SPACE_CAP = 10000;
 
 export interface PaperSelection {
   subject: Subject;
@@ -16,12 +20,6 @@ export interface PaperOptions {
   difficulty: Difficulty | 'mixed';
   examType: ExamType;
   perSubject: number;
-  papers: number;
-}
-
-// Same key format getPracticeQuestion uses, so served questions stay excluded everywhere
-function servedKey(userId: string, subject: string, topic: string): string {
-  return `served:${userId}:${subject}:${topic}:practice`;
 }
 
 interface PoolRow {
@@ -30,54 +28,46 @@ interface PoolRow {
   topic: string;
 }
 
-// Round-robin across topics so a paper mixes topics instead of drawing one topic repeatedly
-function drawFromBuckets(buckets: Map<string, string[]>, count: number): string[] {
-  const topics = fisherYatesShuffle([...buckets.keys()]);
-  const out: string[] = [];
-  let cursor = 0;
-  let emptyInARow = 0;
-  while (out.length < count && topics.length > 0 && emptyInARow < topics.length) {
-    const bucket = buckets.get(topics[cursor % topics.length]!)!;
-    cursor++;
-    if (bucket.length > 0) {
-      out.push(bucket.pop()!);
-      emptyInARow = 0;
-    } else {
-      emptyInARow++;
-    }
-  }
-  return out;
-}
-
-function groupByTopic(rows: PoolRow[]): Map<string, string[]> {
-  const buckets = new Map<string, string[]>();
-  for (const row of rows) {
-    if (!buckets.has(row.topic)) buckets.set(row.topic, []);
-    buckets.get(row.topic)!.push(row.id);
-  }
-  for (const [topic, ids] of buckets) buckets.set(topic, fisherYatesShuffle(ids));
-  return buckets;
+// Same key format getPracticeQuestion uses, so served questions stay excluded everywhere
+function servedKey(userId: string, subject: string, topic: string): string {
+  return `served:${userId}:${subject}:${topic}:practice`;
 }
 
 /** C(n, k) as an exact integer, so very large counts are not rounded */
+const binomialCache = new Map<string, bigint>();
 function binomial(n: number, k: number): bigint {
   if (k < 0 || k > n) return 0n;
   const kk = Math.min(k, n - k);
+  const key = `${n}|${kk}`;
+  const cached = binomialCache.get(key);
+  if (cached !== undefined) return cached;
   let result = 1n;
   for (let i = 1; i <= kk; i++) {
     result = (result * BigInt(n - kk + i)) / BigInt(i);
   }
+  binomialCache.set(key, result);
   return result;
 }
 
-/**
- * Build a row of disjoint paper candidates from the bank.
- * Nothing is marked as served here; the student's pick is claimed separately.
- * Also returns how many distinct papers the bank could make for these settings.
- */
-export async function buildPaperSet(userId: string, options: PaperOptions): Promise<{ papers: string[][]; possibleSets: string }> {
-  const bankExamType: 'Main' | 'Advanced' = options.examType === 'Advanced' ? 'Advanced' : 'Main';
+// Stable identifier for the question pool behind a selection (used for the cache key and the per-user offset)
+function poolHash(options: PaperOptions): string {
+  const normalised = {
+    selections: options.selections.map((s) => [s.subject, s.topic]).sort(),
+    difficulty: options.difficulty,
+    examType: options.examType,
+    perSubject: options.perSubject,
+  };
+  return createHash('sha256').update(JSON.stringify(normalised)).digest('hex');
+}
 
+// The question pool for a selection, sorted by id so every page maps to the same combinations.
+// Cached briefly so paging through papers does not query the bank again.
+async function loadPool(options: PaperOptions): Promise<PoolRow[]> {
+  const cacheKey = `paperpool:${poolHash(options)}`;
+  const cached = await cacheGetJson<PoolRow[]>(cacheKey);
+  if (cached) return cached;
+
+  const bankExamType: 'Main' | 'Advanced' = options.examType === 'Advanced' ? 'Advanced' : 'Main';
   const rows: PoolRow[] = await prisma.question.findMany({
     where: {
       validatedAt: { not: null },
@@ -90,43 +80,92 @@ export async function buildPaperSet(userId: string, options: PaperOptions): Prom
       })),
     },
     select: { id: true, subject: true, topic: true },
+    orderBy: { id: 'asc' },
   });
+  await cacheSetJson(cacheKey, rows, POOL_TTL);
+  return rows;
+}
 
-  // Questions the student has already seen go last, so they only appear if the bank runs short
-  const servedIds = new Set<string>();
-  const keys = new Set(options.selections.map((s) => servedKey(userId, s.subject, s.topic)));
-  for (const key of keys) {
-    for (const id of (await cacheGetJson<string[]>(key)) ?? []) servedIds.add(id);
+/**
+ * The k-th combination (0-based, lexicographic) of k items from a sorted list.
+ * Every rank gives a different combination, so ranks never repeat a paper.
+ */
+function unrank(items: PoolRow[], k: number, rank: bigint): PoolRow[] {
+  const picked: PoolRow[] = [];
+  let remaining = rank;
+  let start = 0;
+  for (let i = 0; i < k; i++) {
+    // Skip whole blocks of combinations that begin with an earlier item than the one we want
+    for (;;) {
+      const block = binomial(items.length - start - 1, k - i - 1);
+      if (remaining < block) break;
+      remaining -= block;
+      start++;
+    }
+    picked.push(items[start]!);
+    start++;
   }
-  const freshRows = rows.filter((r) => !servedIds.has(r.id));
-  const reusedRows = rows.filter((r) => servedIds.has(r.id));
+  return picked;
+}
 
+export interface PaperPage {
+  papers: string[][];
+  // How many distinct papers this student can page through, capped at PAPER_SPACE_CAP
+  available: number;
+  pageCount: number;
+  // Exact count of combinations the bank can make for these settings
+  possibleSets: string;
+}
+
+/**
+ * One page of distinct papers for a student. A student's papers are a fixed walk through the
+ * combinations, starting at an offset derived from their id, so the same page always gives the
+ * same papers and no two papers on the first 10,000 positions repeat.
+ */
+export async function buildPaperPage(userId: string, options: PaperOptions, page: number): Promise<PaperPage> {
+  const pool = await loadPool(options);
   const subjects = [...new Set(options.selections.map((s) => s.subject))];
 
-  // Distinct papers = product over subjects of C(questions in subject, perSubject)
-  let possible = 1n;
-  for (const subject of subjects) {
-    possible *= binomial(rows.filter((r) => r.subject === subject).length, options.perSubject);
-  }
+  // Items per subject, in pool order
+  const bySubject = subjects.map((subject) => pool.filter((r) => r.subject === subject));
+  const totals = bySubject.map((items) => binomial(items.length, options.perSubject));
 
-  const papers: string[][] = Array.from({ length: options.papers }, () => []);
-
-  for (const subject of subjects) {
-    const fresh = groupByTopic(freshRows.filter((r) => r.subject === subject));
-    const reused = groupByTopic(reusedRows.filter((r) => r.subject === subject));
-    for (const paper of papers) {
-      let picked = drawFromBuckets(fresh, options.perSubject);
-      if (picked.length < options.perSubject) {
-        picked = picked.concat(drawFromBuckets(reused, options.perSubject - picked.length));
-      }
-      paper.push(...picked);
-    }
-  }
-
-  return {
-    papers: papers.filter((p) => p.length > 0),
+  // Combined combination space: product over subjects of C(questions in subject, perSubject)
+  const possible = totals.reduce((acc, t) => acc * t, 1n);
+  const emptyPage: PaperPage = {
+    papers: [],
+    available: 0,
+    pageCount: 0,
     possibleSets: possible.toString(),
   };
+  if (possible === 0n) return emptyPage;
+
+  const cap = BigInt(PAPER_SPACE_CAP);
+  const available = possible < cap ? possible : cap;
+  const pageCount = Number((available + BigInt(PAPER_PAGE_SIZE) - 1n) / BigInt(PAPER_PAGE_SIZE));
+  if (page < 1 || page > pageCount) return { ...emptyPage, available: Number(available), pageCount };
+
+  // Each student starts at their own offset in the space, so students do not all see the same first papers
+  const offsetSeed = createHash('sha256').update(`${userId}|${poolHash(options)}`).digest('hex');
+  const start = BigInt(`0x${offsetSeed}`) % possible;
+
+  const papers: string[][] = [];
+  const firstIndex = (page - 1) * PAPER_PAGE_SIZE;
+  const lastIndex = Math.min(firstIndex + PAPER_PAGE_SIZE, Number(available));
+  for (let j = firstIndex; j < lastIndex; j++) {
+    // Walk the combined space; mixed-radix split gives each subject its own combination rank
+    let global = (start + BigInt(j)) % possible;
+    const ids: string[] = [];
+    for (let s = 0; s < subjects.length; s++) {
+      const total = totals[s]!;
+      const subjectRank = global % total;
+      global /= total;
+      for (const row of unrank(bySubject[s]!, options.perSubject, subjectRank)) ids.push(row.id);
+    }
+    papers.push(ids);
+  }
+
+  return { papers, available: Number(available), pageCount, possibleSets: possible.toString() };
 }
 
 /** Fetch the question rows for a paper, without answers or explanations */
@@ -144,7 +183,7 @@ export async function fetchPaperQuestions(ids: string[]) {
 
 /**
  * Mark the questions of a chosen paper as served, and return them in paper order.
- * Only this call changes served state, so previewing a row costs nothing.
+ * Only this call changes served state, so previewing a page costs nothing.
  */
 export async function claimPaper(userId: string, ids: string[]): Promise<Question[]> {
   const rows = await prisma.question.findMany({

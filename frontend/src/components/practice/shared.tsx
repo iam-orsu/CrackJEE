@@ -42,13 +42,6 @@ export function previewText(text: string): string {
   return plain.length > 150 ? plain.slice(0, 150) + '…' : plain;
 }
 
-/* Big counts read as "≈ 1.23 × 10^58" instead of a wall of digits */
-export function formatPossible(value: string): string {
-  if (!value || value === '0') return '0';
-  if (value.length <= 9) return Number(value).toLocaleString('en-IN');
-  return `≈ ${value[0]}.${value.slice(1, 3)} × 10^${value.length - 1}`;
-}
-
 /* A paper that looks like a real question paper. The questions stay blurred until the student starts it. */
 export function PaperCard({ paper, onStart }: { paper: PaperSet; onStart: () => void }) {
   const subjectCounts = SUBJECTS_FOR_PAPERS
