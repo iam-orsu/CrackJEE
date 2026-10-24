@@ -1,4 +1,5 @@
 import { createHash } from 'crypto';
+import { generateExplanation } from '../services/deepseekService';
 import type { Response, NextFunction } from 'express';
 import { z } from 'zod';
 import type { AuthRequest, Subject, Difficulty, QuestionType } from '../types/index';
@@ -231,7 +232,9 @@ async function generateFreshPaper(
     for (const slot of slots) {
       const current = subjectCounts.get(slot.subject) ?? 0;
       if (current < expected) {
-        topUpSlots.push(slot);
+        // Ask for two replacements per missing question: about a quarter of questions fail the check.
+        // Surplus is trimmed below, so the exam still has exactly the expected count.
+        topUpSlots.push(slot, slot);
         subjectCounts.set(slot.subject, current + 1);
       }
     }
@@ -787,6 +790,58 @@ export async function getExamInsights(req: AuthRequest, res: Response, next: Nex
         subjectOrder: subjectOrder(records),
       },
     });
+  } catch (err) {
+    next(err);
+  }
+}
+
+// POST /api/mock/:id/questions/:mockQuestionId/explanation — the explanation for one question of a submitted exam.
+// Written on first request and saved on the question, so every later request is served from the database.
+export async function getQuestionExplanation(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const { id, mockQuestionId } = req.params as { id: string; mockQuestionId: string };
+    const userId = req.user!.userId;
+
+    const exam = await prisma.mockExam.findFirst({ where: { id, userId, status: 'submitted' }, select: { id: true } });
+    if (!exam) throw new AppError(404, 'Result not yet available');
+
+    const mq = await prisma.mockExamQuestion.findFirst({
+      where: { id: mockQuestionId, examId: id },
+      include: { question: true },
+    });
+    if (!mq) throw new AppError(404, 'Question not found');
+
+    const q = mq.question;
+    if (q.explanation) {
+      res.json({ success: true, data: { explanation: q.explanation } });
+      return;
+    }
+
+    // Students who open the same question at the same moment share one AI call
+    const explanation = await runOnce<string>(`explain:${q.id}`, {
+      lockSeconds: 60,
+      waitMs: 60_000,
+      readShared: async () => {
+        const fresh = await prisma.question.findUnique({ where: { id: q.id }, select: { explanation: true } });
+        return fresh?.explanation ? fresh.explanation : null;
+      },
+      produce: async () => {
+        const existing = await prisma.question.findUnique({ where: { id: q.id }, select: { explanation: true } });
+        if (existing?.explanation) return existing.explanation;
+        const text = await generateExplanation({
+          questionText: q.questionText,
+          options: q.options as string[],
+          answer: q.answer,
+          questionType: q.questionType,
+          subject: q.subject,
+          topic: q.topic,
+        });
+        await prisma.question.update({ where: { id: q.id }, data: { explanation: text } });
+        return text;
+      },
+    });
+
+    res.json({ success: true, data: { explanation } });
   } catch (err) {
     next(err);
   }

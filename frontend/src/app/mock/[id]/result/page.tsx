@@ -412,6 +412,7 @@ export default function MockResultPage() {
         )}
 
         <QuestionReview
+          examId={examId}
           weakPracticeUrl={weakPracticeUrl}
           isNEET={isNEET}
           allQs={allQs}

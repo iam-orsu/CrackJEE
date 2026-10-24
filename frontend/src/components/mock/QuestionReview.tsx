@@ -3,12 +3,14 @@ import { AnimatedTabs } from '@/components/ui/AnimatedTabs';
 import { Badge, subjectVariant } from '@/components/ui/Badge';
 import type { MockExamQuestion, MockResultBreakdown } from '@/types';
 import { fmtQTime } from './resultHelpers';
+import { ExplanationReveal } from './ExplanationReveal';
 
 export type FilterStatus = 'all' | 'correct' | 'incorrect' | 'unattempted';
 
 type ReviewQuestion = MockExamQuestion & { explanation?: string };
 
 interface QuestionReviewProps {
+  examId: string;
   weakPracticeUrl: string;
   isNEET: boolean;
   allQs: ReviewQuestion[];
@@ -23,7 +25,7 @@ interface QuestionReviewProps {
 }
 
 /* Every question with its marks, correct answer, explanation, and the subject, topic and status filters */
-export function QuestionReview({ weakPracticeUrl, isNEET, allQs, filteredQs, breakdown, expandedQ, onExpand, filterSubject, onFilterSubject, filterStatus, onFilterStatus }: QuestionReviewProps) {
+export function QuestionReview({ examId, weakPracticeUrl, isNEET, allQs, filteredQs, breakdown, expandedQ, onExpand, filterSubject, onFilterSubject, filterStatus, onFilterStatus }: QuestionReviewProps) {
   return (
   <div style={{ background: '#fff', borderRadius: 10, border: '1px solid #e2e8f0', padding: 24 }}>
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16, flexWrap: 'wrap', gap: 10 }}>
@@ -181,7 +183,7 @@ export function QuestionReview({ weakPracticeUrl, isNEET, allQs, filteredQs, bre
                 )}
 
                 {/* Explanation */}
-                {q.explanation && (
+                {q.explanation ? (
                   <div style={{
                     padding: '14px 16px', background: '#fffbeb', border: '1px solid #fde68a',
                     borderRadius: 6, fontSize: 13, color: '#92400e', lineHeight: 1.7,
@@ -189,6 +191,8 @@ export function QuestionReview({ weakPracticeUrl, isNEET, allQs, filteredQs, bre
                     <div style={{ fontWeight: 700, marginBottom: 6, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Explanation</div>
                     <MathText text={q.explanation} />
                   </div>
+                ) : (
+                  <ExplanationReveal examId={examId} mockQuestionId={mqId} />
                 )}
 
                 {/* Marks awarded */}
