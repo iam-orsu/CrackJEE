@@ -26,11 +26,14 @@ export async function loadTopicHistory(
   for (const subject of subjects) result[subject] = { covered: new Set(), weakTopic: null };
 
   // Covered topics: every mock that was generated or taken, oldest first
-  const mocks = await prisma.mockExam.findMany({
+  // The latest 200 mocks are plenty for a rotation of 90 topics at 10 a mock, and keep this query bounded
+  const latest = await prisma.mockExam.findMany({
     where: { userId, examType, status: { in: ['submitted', 'in_progress', 'ready'] } },
-    orderBy: { createdAt: 'asc' },
+    orderBy: { createdAt: 'desc' },
+    take: 200,
     include: { questions: { include: { question: { select: { topic: true, subject: true } } } } },
   });
+  const mocks = latest.reverse();
   for (const mock of mocks) {
     for (const subject of subjects) {
       const topics = mock.questions

@@ -1,3 +1,4 @@
+import { createHash } from 'crypto';
 import type { Response, NextFunction } from 'express';
 import { z } from 'zod';
 import type { AuthRequest, Subject, Difficulty, QuestionType } from '../types/index';
@@ -205,6 +206,16 @@ async function generateFreshPaper(
     questions = [...questions, ...extras];
   }
 
+  // A short paper would be stored and reused for every later student, so refuse to store one
+  const neededPerSubject = expectedPerSubject(examType);
+  const subjectsNeeded: string[] = examType === 'NEET' ? [...NEET_SUBJECTS] : ['Physics', 'Chemistry', 'Mathematics'];
+  for (const subject of subjectsNeeded) {
+    const count = questions.filter((q) => q.subject === subject).length;
+    if (count < neededPerSubject) {
+      throw new Error(`Paper incomplete: ${subject} has ${count} of ${neededPerSubject} questions`);
+    }
+  }
+
   return questions.map((q) => ({
     questionId: q.id,
     subject: q.subject,
@@ -253,8 +264,9 @@ async function createExamQuestionsFromPool(
 /* ── Unified background generator ──────────────────────────────── */
 
 // Stops two quick clicks (or two instances) from both creating an exam for the same student and type
-async function withStartLock<T>(userId: string, examType: string, task: () => Promise<T>): Promise<T> {
-  const key = `lock:mockstart:${userId}:${examType}`;
+// Per student, not per exam type: a student can have only one exam open, so two starts of different types must not both pass
+async function withStartLock<T>(userId: string, task: () => Promise<T>): Promise<T> {
+  const key = `lock:mockstart:${userId}`;
   if (!(await cacheSetNx(key, 15))) {
     throw new AppError(409, 'Your exam is already being created. Please wait a moment.');
   }
@@ -301,12 +313,22 @@ async function runMockGeneration(
     // The student's topic rotation decides which topics this paper uses; a stored paper is reused only if it fits
     const history = await loadTopicHistory(userId, examType);
     const plan = planMockTopics(examType, history);
-    const reuse = () => findStoredPaper(examType, difficultyMode, (items) => paperFitsPlan(items, plan.fit));
+    const expectedTotal = (examType === 'NEET' ? NEET_SUBJECTS.length : 3) * expectedPerSubject(examType);
+    const reuse = () => findStoredPaper(
+      examType,
+      difficultyMode,
+      (items) => items.length === expectedTotal && paperFitsPlan(items, plan.fit),
+    );
+    // Students with the same plan share one generation. A different plan gets its own lock, so it never
+    // waits behind a paper that could not fit it.
+    const planKey = createHash('sha256')
+      .update(JSON.stringify({ topics: plan.topicsBySubject, weak: Object.values(plan.fit).map((f) => f.weakTopic) }))
+      .digest('hex')
+      .slice(0, 16);
 
     let poolItems: MockPoolItem[] | null = await reuse();
     if (!poolItems) {
-      // Concurrent starts for the same exam and difficulty share one generation
-      poolItems = await runOnce<MockPoolItem[]>(`mockpaper:gen:${examType}:${difficultyMode}`, {
+      poolItems = await runOnce<MockPoolItem[]>(`mockpaper:gen:${examType}:${difficultyMode}:${planKey}`, {
         lockSeconds: 900,
         waitMs: 7 * 60 * 1000,
         readShared: reuse,
@@ -341,7 +363,7 @@ export async function startMock(req: AuthRequest, res: Response, next: NextFunct
     const { examType, difficultyMode } = body.data;
     const userId = req.user!.userId;
 
-    const started = await withStartLock(userId, examType, async () => {
+    const started = await withStartLock(userId, async () => {
       // Fail exams stuck in 'generating' for >10 minutes (e.g. after server restart)
       await prisma.mockExam.updateMany({
         where: { userId, status: 'generating', createdAt: { lt: new Date(Date.now() - STUCK_GENERATION_MS) } },

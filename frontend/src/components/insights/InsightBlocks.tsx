@@ -207,7 +207,7 @@ export function StandingCard({ standing }: { standing: StandingData }) {
       {standing.available ? (
         <>
           <div style={{ fontSize: 28, fontWeight: 600, color: 'var(--gray-900)', fontVariantNumeric: 'tabular-nums' }}>
-            Top {Math.max(1, 100 - standing.percentile)}%
+            {standing.rank === 1 ? 'Top scorer' : `Top ${100 - standing.percentile}%`}
           </div>
           <div style={{ fontSize: 12, color: 'var(--gray-500)', marginTop: 4 }}>
             Rank {standing.rank} of {standing.of} students · you are ahead of {standing.percentile}% of them · your average {standing.mine}%

@@ -305,7 +305,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
       setPaperPage(res.page);
       setPaperPageCount(res.pageCount);
       setPaperAvailable(res.available);
-      if (res.papers.length === 0) setPapersError('No papers can be built from these topics. Try adding more topics.');
+      if (res.available === 0) setPapersError('No papers can be built from these topics. Try adding more topics.');
     } catch (e) {
       setPaperSets([]);
       setPapersError(e instanceof Error ? e.message : 'Could not build papers');
