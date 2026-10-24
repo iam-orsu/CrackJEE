@@ -236,7 +236,7 @@ export function CutoffCard({ cutoffs, scoreLabel }: { cutoffs: CutoffData | null
     );
   }
   return (
-    <InsightCard title="Cutoff check" sub={`${cutoffs.name}. Compared as a percentage of maximum marks.`}>
+    <InsightCard title="Cutoff check" sub={`For your latest exam: ${cutoffs.name}. Compared as a percentage of maximum marks.`}>
       {cutoffs.lines === null ? (
         <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>Take a mock to compare with the cutoff.</p>
       ) : (
