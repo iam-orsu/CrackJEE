@@ -123,7 +123,6 @@ export default function MockPage() {
   const router = useRouter();
   const [selected, setSelected] = useState<ExamType | null>(null);
   const [filter, setFilter] = useState<DifficultyFilter>('all');
-  const [filterOpen, setFilterOpen] = useState(false);
   const [page, setPage] = useState(1);
   const [starting, setStarting] = useState(false);
   const [error, setError] = useState('');
@@ -156,7 +155,6 @@ export default function MockPage() {
   function changeFilter(next: DifficultyFilter) {
     setFilter(next);
     setPage(1);
-    setFilterOpen(false);
   }
 
   async function startPaper(examType: ExamType, difficultyMode: DifficultyMode) {
@@ -274,57 +272,36 @@ export default function MockPage() {
                 </div>
               </div>
 
-              {/* Difficulty filter, opened from the three-dot control */}
-              <div style={{ position: 'relative' }}>
-                <button
-                  type="button"
-                  onClick={() => setFilterOpen((open) => !open)}
-                  aria-label="Filter papers by difficulty"
-                  aria-expanded={filterOpen}
+              {/* Difficulty dropdown: picking one rolls the papers out again */}
+              <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: 'var(--gray-600)' }}>
+                Difficulty
+                <select
+                  value={filter}
+                  onChange={(e) => changeFilter(e.target.value as DifficultyFilter)}
                   style={{
                     padding: '8px 12px', border: '1px solid var(--gray-200)', borderRadius: 6, background: '#fff',
-                    cursor: 'pointer', fontSize: 16, lineHeight: 1, color: 'var(--gray-700)', letterSpacing: 2,
+                    fontSize: 13, color: 'var(--gray-900)', cursor: 'pointer', minWidth: 160,
                   }}
                 >
-                  ⋯
-                </button>
-                {filterOpen && (
-                  <div style={{
-                    position: 'absolute', right: 0, top: 'calc(100% + 6px)', zIndex: 10, minWidth: 170,
-                    background: '#fff', border: '1px solid var(--gray-200)', borderRadius: 8, padding: 6,
-                    boxShadow: '0 4px 12px rgba(15, 23, 42, 0.08)',
-                  }}>
-                    {FILTER_OPTIONS.map((option) => (
-                      <button
-                        key={option.value}
-                        type="button"
-                        onClick={() => changeFilter(option.value)}
-                        style={{
-                          display: 'flex', alignItems: 'center', gap: 8, width: '100%', padding: '8px 10px',
-                          border: 'none', borderRadius: 6, cursor: 'pointer', textAlign: 'left', fontSize: 13,
-                          background: filter === option.value ? 'var(--gray-100)' : 'transparent',
-                          color: 'var(--gray-900)', fontWeight: filter === option.value ? 600 : 400,
-                        }}
-                      >
-                        {option.value !== 'all' && (
-                          <span style={{
-                            width: 8, height: 8, borderRadius: 9999,
-                            background: DIFFICULTY_COLORS[option.value].text,
-                          }} />
-                        )}
-                        {option.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
+                  {FILTER_OPTIONS.map((option) => (
+                    <option key={option.value} value={option.value}>{option.label}</option>
+                  ))}
+                </select>
+              </label>
             </div>
 
             <PaperPager page={page} pageCount={pageCount} disabled={starting} onPageChange={setPage} />
 
             <div className={`paper-row${starting ? ' paper-row-loading' : ''}`} aria-busy={starting}>
-              {pagePapers.map(({ difficulty, paper }) => (
-                <PaperCard key={paper.number} paper={paper} onStart={() => startPaper(selected, difficulty)} />
+              {/* Keyed by filter and page, so every change rolls the papers out again, one after another */}
+              {pagePapers.map(({ difficulty, paper }, i) => (
+                <div
+                  key={`${filter}-${page}-${paper.number}`}
+                  className="paper-rollout"
+                  style={{ animationDelay: `${i * 45}ms` }}
+                >
+                  <PaperCard paper={paper} onStart={() => startPaper(selected, difficulty)} />
+                </div>
               ))}
               {starting && <div className="paper-row-overlay">Preparing your paper...</div>}
             </div>
