@@ -74,7 +74,8 @@ const DIFFICULTY_COLORS: Record<DifficultyMode, { bg: string; text: string }> = 
   hard: { bg: '#fee2e2', text: '#991b1b' },
 };
 
-const PAPERS_PER_PAGE = 10;
+// Nine per page fills a 3×3 grid
+const PAPERS_PER_PAGE = 9;
 // Papers shown in the list. These are placeholders for browsing; a real paper is chosen when the student starts one.
 const PLACEHOLDER_TOTAL = 1500;
 
@@ -315,7 +316,7 @@ export default function MockPage() {
                   {filter === 'all' ? `${PLACEHOLDER_TOTAL.toLocaleString('en-IN')}+ mock papers` : `${filteredPlaceholders.length.toLocaleString('en-IN')}+ ${DIFFICULTY_LABELS[filter]} papers`}
                 </div>
                 <div style={{ fontSize: 12, color: 'var(--gray-500)', marginTop: 2 }}>
-                  10 papers per page · a new paper takes 60–90 seconds to prepare (NEET 3–4 minutes)
+                  9 papers per page · a new paper takes 60–90 seconds to prepare (NEET 3–4 minutes)
                 </div>
               </div>
 
