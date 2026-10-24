@@ -11,6 +11,7 @@ import {
   getMockHistory,
   cancelMock,
   getExamInsights,
+  getQuestionExplanation,
 } from '../controllers/mockController';
 
 export const mockRoutes = Router();
@@ -26,4 +27,5 @@ mockRoutes.patch('/:id/answer', saveAnswer);
 mockRoutes.post('/:id/submit', submitMock);
 mockRoutes.get('/:id/result', getMockResult);
 mockRoutes.get('/:id/insights', getExamInsights);
+mockRoutes.post('/:id/questions/:mockQuestionId/explanation', getQuestionExplanation);
 mockRoutes.delete('/:id', cancelMock);

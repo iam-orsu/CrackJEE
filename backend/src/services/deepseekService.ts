@@ -341,6 +341,8 @@ export function parseRawQuestion(
   raw: Record<string, unknown>,
   questionType: QuestionType,
   examType: ExamType,
+  // Mock papers are generated without explanations; they are written later, when a student asks
+  needExplanation = true,
 ): GeneratedQuestion {
   const parsed: GeneratedQuestion = {
     question: String(raw.question ?? ''),
@@ -351,7 +353,7 @@ export function parseRawQuestion(
     diagram: (raw.diagram as DiagramTemplate | null) ?? null,
   };
 
-  if (!parsed.question || !parsed.answer_explanation) {
+  if (!parsed.question || (needExplanation && !parsed.answer_explanation)) {
     throw new Error('Invalid question format: missing question or explanation');
   }
 
@@ -632,7 +634,7 @@ export async function generateMixedTopicBatch(params: {
       for (const rawQ of rawQuestions) {
         let question: GeneratedQuestion;
         try {
-          question = parseRawQuestion(rawQ as Record<string, unknown>, questionType, examType);
+          question = parseRawQuestion(rawQ as Record<string, unknown>, questionType, examType, false);
         } catch {
           continue;
         }
@@ -702,6 +704,46 @@ ${items}
   }
 }
 
+/**
+ * Writes the explanation for one mock question. Called only when a student opens it, and the result is
+ * saved, so each question is explained once.
+ */
+export async function generateExplanation(q: {
+  questionText: string;
+  options: string[];
+  answer: string;
+  questionType: string;
+  subject: string;
+  topic: string;
+}): Promise<string> {
+  const options = q.options.length > 0
+    ? q.options.map((o, i) => `  ${['A', 'B', 'C', 'D'][i]}) ${o}`).join('\n')
+    : '  (integer answer)';
+  const correct = q.questionType === 'mcq_multi' ? `Correct options: ${q.answer}` : `Correct answer: ${q.answer}`;
+  const prompt = `
+<task>
+  Explain to a JEE student why the correct answer is correct. 2-3 sentences, plain and direct.
+  Start with the key idea or formula. No "I'll", no "Let me", no "So the answer is".
+  Write all mathematics in LaTeX between $...$.
+</task>
+
+<question subject="${q.subject}" topic="${q.topic}">
+${q.questionText}
+${options}
+${correct}
+</question>`;
+
+  const response = await callDeepSeek({
+    model: 'deepseek-chat',
+    messages: [{ role: 'user', content: prompt }],
+    temperature: 0.3,
+    max_tokens: 350,
+  });
+  const content = response.choices[0]?.message?.content;
+  if (!content || !content.trim()) throw new Error('Empty explanation from DeepSeek');
+  return cleanExplanation(content);
+}
+
 function buildMixedBatchPrompt(
   subject: Subject,
   examType: ExamType,
@@ -720,11 +762,12 @@ function buildMixedBatchPrompt(
   const letterConstraints = questionType === 'mcq_single'
     ? '\n' + targetLetters.map((l, i) => `  - Question ${i + 1} correct answer MUST be at option ${l}`).join('\n')
     : '';
+  // No explanations here: they are written only when a student asks for one, which saves output tokens
   const exampleObj = questionType === 'mcq_single'
-    ? `{ "topic": "<one topic name>", "question": "...", "question_type": "mcq_single", "options": ["...", "...", "...", "..."], "correct_answer": "B", "answer_explanation": "3-4 sentences.", "diagram": null }`
+    ? `{ "topic": "<one topic name>", "question": "...", "question_type": "mcq_single", "options": ["...", "...", "...", "..."], "correct_answer": "B", "diagram": null }`
     : questionType === 'mcq_multi'
-      ? `{ "topic": "<one topic name>", "question": "...", "question_type": "mcq_multi", "options": ["...", "...", "...", "..."], "correct_answers": ["A", "C"], "answer_explanation": "Option A: ... B: ... C: ... D: ...", "diagram": null }`
-      : `{ "topic": "<one topic name>", "question": "...", "question_type": "integer", "options": [], "correct_answer": "7", "answer_explanation": "Step-by-step solution.", "diagram": null }`;
+      ? `{ "topic": "<one topic name>", "question": "...", "question_type": "mcq_multi", "options": ["...", "...", "...", "..."], "correct_answers": ["A", "C"], "diagram": null }`
+      : `{ "topic": "<one topic name>", "question": "...", "question_type": "integer", "options": [], "correct_answer": "7", "diagram": null }`;
 
   return `
 <context>
