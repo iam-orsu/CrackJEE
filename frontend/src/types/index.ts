@@ -65,7 +65,7 @@ export interface DashboardData {
   };
   weeklyStats: WeeklyPoint[];
   history: Array<{ date: string; pct: number }>;
-  overall: { mine: number | null; platformAvg: number | null; topAvg: number | null };
+  overall: { mine: number | null; platformAvg: number | null; topAvg: number | null; examType: string | null };
 }
 
 export type Subject = 'Mathematics' | 'Physics' | 'Chemistry' | 'Botany' | 'Zoology';

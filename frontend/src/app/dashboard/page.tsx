@@ -139,6 +139,17 @@ function ScoreHistoryChart({
   const ticks = [0, 25, 50, 75, 100];
   const line = history.map((h, i) => `${xFor(i)},${yFor(h.pct)}`).join(' ');
 
+  // Keep the two reference labels apart when the lines sit close together
+  const LABEL_GAP = 16;
+  let topLabelY = topAvg != null ? yFor(topAvg) : 0;
+  let platLabelY = platformAvg != null ? yFor(platformAvg) : 0;
+  if (topAvg != null && platformAvg != null && Math.abs(topLabelY - platLabelY) < LABEL_GAP) {
+    const mid = (topLabelY + platLabelY) / 2;
+    const topIsAbove = topLabelY <= platLabelY;
+    topLabelY = topIsAbove ? mid - LABEL_GAP / 2 : mid + LABEL_GAP / 2;
+    platLabelY = topIsAbove ? mid + LABEL_GAP / 2 : mid - LABEL_GAP / 2;
+  }
+
   return (
     <div className={styles.chart}>
       <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Your mock scores over time, with platform average and top scorer average">
@@ -152,13 +163,13 @@ function ScoreHistoryChart({
         {topAvg != null && (
           <g>
             <line x1={PL} x2={W - PR} y1={yFor(topAvg)} y2={yFor(topAvg)} stroke={COLOR_TOP} strokeDasharray="4 4" strokeWidth={1.5} />
-            <text x={W - PR + 8} y={yFor(topAvg)} dy="0.32em" fontSize={11} fill={COLOR_TOP}>Top scorer {topAvg}%</text>
+            <text x={W - PR + 8} y={topLabelY} dy="0.32em" fontSize={11} fill={COLOR_TOP}>Top scorer {topAvg}%</text>
           </g>
         )}
         {platformAvg != null && (
           <g>
             <line x1={PL} x2={W - PR} y1={yFor(platformAvg)} y2={yFor(platformAvg)} stroke={COLOR_PLATFORM} strokeDasharray="4 4" strokeWidth={1.5} />
-            <text x={W - PR + 8} y={yFor(platformAvg)} dy="0.32em" fontSize={11} fill="#64748b">Platform avg {platformAvg}%</text>
+            <text x={W - PR + 8} y={platLabelY} dy="0.32em" fontSize={11} fill="#64748b">Platform avg {platformAvg}%</text>
           </g>
         )}
 
@@ -234,7 +245,11 @@ export default function DashboardPage() {
   const hasActivity = totalAttempts > 0;
   const isFreshUser = !loading && totalAttempts === 0 && mockWeakTopics.length === 0;
 
-  const SUBJECTS: readonly string[] = user?.targetExam === 'NEET'
+  // The exam you actually sit (from your latest mock) decides the subjects and leaderboard; your profile is the fallback
+  const examType = data?.overall.examType ?? (user?.targetExam === 'NEET' ? 'NEET' : user?.targetExam === 'Advanced' ? 'Advanced' : 'Main');
+  const examIsNEET = examType === 'NEET';
+
+  const SUBJECTS: readonly string[] = examIsNEET
     ? ['Physics', 'Chemistry', 'Biology']
     : ['Physics', 'Chemistry', 'Mathematics'];
 
@@ -256,9 +271,7 @@ export default function DashboardPage() {
   }
 
   // Leaderboard: pick exam type relevant to user
-  const targetExam = user?.targetExam ?? 'Main';
-  const lbExamType = targetExam === 'NEET' ? 'NEET' : targetExam === 'Advanced' ? 'Advanced' : 'Main';
-  const lbData = leaderboard?.[lbExamType] ?? null;
+  const lbData = leaderboard?.[examType] ?? null;
 
   function buildPracticeUrl(subject: string): string {
     const isNEET = ['Botany', 'Zoology', 'Biology'].includes(subject);

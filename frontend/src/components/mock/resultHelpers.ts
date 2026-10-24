@@ -61,14 +61,3 @@ export function getNEETCrackingChances(pct: number): ChanceBand {
 
 /* ── Plain text preview (strips LaTeX for snippet) ──────────── */
 
-export function toPlainPreview(text: string, max = 80): string {
-  const plain = text
-    .replace(/\$\$[\s\S]+?\$\$/g, '')
-    .replace(/\$([^$\n]*)\$/g, '$1')
-    .replace(/\\[a-zA-Z]+\{([^}]*)\}/g, '$1')
-    .replace(/\\[a-zA-Z]+/g, '')
-    .replace(/[{}[\]]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-  return plain.length > max ? plain.slice(0, max) + '…' : plain;
-}
