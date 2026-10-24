@@ -1,11 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { Sidebar } from '@/components/Sidebar';
+import { PaperCard } from '@/components/practice/shared';
+import { PaperPager } from '@/components/practice/PaperPager';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
-import type { MockHistoryItem } from '@/types';
+import type { MockHistoryItem, PaperSet, PaperQuestion } from '@/types';
 
 const EXAM_INFO = {
   Main: {
@@ -60,24 +62,69 @@ const EXAM_INFO = {
   },
 } as const;
 
+type ExamType = 'Main' | 'Advanced' | 'NEET';
 type DifficultyMode = 'easy' | 'medium' | 'hard';
+type DifficultyFilter = 'all' | DifficultyMode;
 
-const DIFFICULTY_OPTIONS: Array<{ value: DifficultyMode; label: string; description: string }> = [
-  { value: 'easy', label: 'Easy', description: 'Single-concept problems, standard formula application' },
-  { value: 'medium', label: 'Medium', description: 'Multi-step, non-standard setups — typical JEE Main' },
-  { value: 'hard', label: 'Hard', description: 'Cross-topic, 3+ reasoning steps — JEE Advanced grade' },
-];
-
+const DIFFICULTY_ORDER: DifficultyMode[] = ['easy', 'medium', 'hard'];
+const DIFFICULTY_LABELS: Record<DifficultyMode, string> = { easy: 'Easy', medium: 'Medium', hard: 'Hard' };
 const DIFFICULTY_COLORS: Record<DifficultyMode, { bg: string; text: string }> = {
   easy: { bg: '#dcfce7', text: '#166534' },
   medium: { bg: '#fef9c3', text: '#854d0e' },
   hard: { bg: '#fee2e2', text: '#991b1b' },
 };
 
+const PAPERS_PER_PAGE = 10;
+// Papers shown in the list. These are placeholders for browsing; a real paper is chosen when the student starts one.
+const PLACEHOLDER_TOTAL = 1500;
+
+const PLACEHOLDER_SUBJECTS: Record<ExamType, string[]> = {
+  Main: ['Physics', 'Chemistry', 'Mathematics'],
+  Advanced: ['Physics', 'Chemistry', 'Mathematics'],
+  NEET: ['Physics', 'Chemistry', 'Botany', 'Zoology'],
+};
+const PLACEHOLDER_QUESTION_COUNT: Record<ExamType, number> = { Main: 75, Advanced: 51, NEET: 180 };
+const PLACEHOLDER_TEXTS = [
+  'Let $f(x)=x^3-3x+2$. Find the number of real roots of $f(x)=0$ in $[-2,2]$.',
+  'A particle moves with velocity $v(t)=3t^2-6t$. Find its displacement from $t=0$ to $t=3$.',
+  'Find the pH of a buffer prepared by mixing $0.1\\text{ M}$ acetic acid and $0.1\\text{ M}$ sodium acetate.',
+  'Identify the major product when propene reacts with $HBr$ in the presence of peroxide.',
+];
+
+// Placeholder metadata for every paper in the list; difficulty cycles so each filter has an equal share
+const PLACEHOLDERS: Array<{ number: number; difficulty: DifficultyMode }> = Array.from(
+  { length: PLACEHOLDER_TOTAL },
+  (_, i) => ({ number: i + 1, difficulty: DIFFICULTY_ORDER[i % 3]! }),
+);
+
+function placeholderPaper(number: number, difficulty: DifficultyMode, examType: ExamType): PaperSet {
+  const subjects = PLACEHOLDER_SUBJECTS[examType];
+  const questions: PaperQuestion[] = Array.from({ length: PLACEHOLDER_QUESTION_COUNT[examType] }, (_, i) => ({
+    id: `placeholder-${number}-${i}`,
+    topic: 'Mock paper',
+    subject: subjects[i % subjects.length]!,
+    questionText: PLACEHOLDER_TEXTS[(number + i) % PLACEHOLDER_TEXTS.length]!,
+    questionType: 'mcq_single',
+    options: [],
+    difficulty,
+    diagram: null,
+  }));
+  return { number, questionIds: [], questions };
+}
+
+const FILTER_OPTIONS: Array<{ value: DifficultyFilter; label: string }> = [
+  { value: 'all', label: 'All difficulties' },
+  { value: 'easy', label: 'Easy' },
+  { value: 'medium', label: 'Medium' },
+  { value: 'hard', label: 'Hard' },
+];
+
 export default function MockPage() {
   const router = useRouter();
-  const [selected, setSelected] = useState<'Main' | 'Advanced' | 'NEET' | null>(null);
-  const [difficultyMode, setDifficultyMode] = useState<DifficultyMode>('medium');
+  const [selected, setSelected] = useState<ExamType | null>(null);
+  const [filter, setFilter] = useState<DifficultyFilter>('all');
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [page, setPage] = useState(1);
   const [starting, setStarting] = useState(false);
   const [error, setError] = useState('');
   const [history, setHistory] = useState<MockHistoryItem[]>([]);
@@ -89,6 +136,42 @@ export default function MockPage() {
     isNEET ? t === 'NEET' : t !== 'NEET',
   );
 
+  const filteredPlaceholders = useMemo(
+    () => (filter === 'all' ? PLACEHOLDERS : PLACEHOLDERS.filter((p) => p.difficulty === filter)),
+    [filter],
+  );
+  const pageCount = Math.ceil(filteredPlaceholders.length / PAPERS_PER_PAGE);
+  const pagePapers = useMemo(() => {
+    if (!selected) return [];
+    return filteredPlaceholders
+      .slice((page - 1) * PAPERS_PER_PAGE, page * PAPERS_PER_PAGE)
+      .map((p) => ({ difficulty: p.difficulty, paper: placeholderPaper(p.number, p.difficulty, selected) }));
+  }, [filteredPlaceholders, page, selected]);
+
+  useEffect(() => {
+    if (!isAuthenticated()) { router.replace('/login'); return; }
+    api.mock.history().then(setHistory).catch(() => {});
+  }, [router]);
+
+  function changeFilter(next: DifficultyFilter) {
+    setFilter(next);
+    setPage(1);
+    setFilterOpen(false);
+  }
+
+  async function startPaper(examType: ExamType, difficultyMode: DifficultyMode) {
+    if (starting) return;
+    setStarting(true);
+    setError('');
+    try {
+      const { id } = await api.mock.start({ examType, difficultyMode });
+      router.push(`/mock/${id}`);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Failed to start exam');
+      setStarting(false);
+    }
+  }
+
   async function handleTerminate(id: string) {
     if (!confirm('Terminate this exam session? This cannot be undone.')) return;
     setTerminating(id);
@@ -99,24 +182,6 @@ export default function MockPage() {
       // ignore
     } finally {
       setTerminating(null);
-    }
-  }
-
-  useEffect(() => {
-    if (!isAuthenticated()) { router.replace('/login'); return; }
-    api.mock.history().then(setHistory).catch(() => {});
-  }, [router]);
-
-  async function handleStart() {
-    if (!selected) return;
-    setStarting(true);
-    setError('');
-    try {
-      const { id } = await api.mock.start({ examType: selected, difficultyMode });
-      router.push(`/mock/${id}`);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Failed to start exam');
-      setStarting(false);
     }
   }
 
@@ -133,12 +198,12 @@ export default function MockPage() {
           </p>
         </div>
 
-        {/* Exam type selection */}
+        {/* Exam type: only the exams that apply to this student */}
         <div style={{ display: 'flex', gap: 16, marginBottom: 28, flexWrap: 'wrap' }}>
           {availableTypes.map((type) => (
             <button
               key={type}
-              onClick={() => setSelected(type)}
+              onClick={() => { setSelected(type); setPage(1); }}
               style={{
                 flex: '1 1 160px',
                 padding: '20px 24px',
@@ -157,34 +222,6 @@ export default function MockPage() {
               <div style={{ fontSize: 13, opacity: 0.75 }}>{EXAM_INFO[type].questions} · {EXAM_INFO[type].duration}</div>
             </button>
           ))}
-        </div>
-
-        {/* Difficulty selector */}
-        <div style={{ marginBottom: 24 }}>
-          <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--gray-600)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 10 }}>
-            Difficulty Level
-          </div>
-          <div style={{ display: 'flex', gap: 10 }}>
-            {DIFFICULTY_OPTIONS.map(({ value, label, description }) => (
-              <button
-                key={value}
-                onClick={() => setDifficultyMode(value)}
-                style={{
-                  flex: 1,
-                  padding: '12px 16px',
-                  border: `2px solid ${difficultyMode === value ? 'var(--gray-700)' : 'var(--gray-200)'}`,
-                  borderRadius: 6,
-                  background: difficultyMode === value ? 'var(--gray-50)' : '#fff',
-                  cursor: 'pointer',
-                  textAlign: 'left',
-                  transition: 'border-color 0.15s',
-                }}
-              >
-                <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--gray-900)', marginBottom: 3 }}>{label}</div>
-                <div style={{ fontSize: 11, color: 'var(--gray-500)', lineHeight: 1.4 }}>{description}</div>
-              </button>
-            ))}
-          </div>
         </div>
 
         {/* Exam details */}
@@ -221,45 +258,84 @@ export default function MockPage() {
                 ))}
               </div>
             </div>
-
-            <div style={{
-              marginTop: 20,
-              padding: '12px 16px',
-              background: '#fffbeb',
-              border: '1px solid #fde68a',
-              borderRadius: 6,
-              fontSize: 13,
-              color: '#92400e',
-            }}>
-              {selected === 'NEET'
-  ? '⚠ Questions crafted fresh by our Deep Tech engine. This may take 3–4 minutes. Do not close the tab.'
-  : '⚠ Questions crafted fresh by our Deep Tech engine. This may take 60–90 seconds. Do not close the tab.'
-}
-            </div>
           </div>
+        )}
+
+        {/* Paper list: placeholder cards for browsing; the paper is prepared when the student picks one */}
+        {selected && (
+          <section style={{ marginBottom: 40 }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, marginBottom: 14, flexWrap: 'wrap' }}>
+              <div>
+                <div style={{ fontSize: 16, fontWeight: 600, color: 'var(--gray-900)' }}>
+                  {filter === 'all' ? `${PLACEHOLDER_TOTAL.toLocaleString('en-IN')}+ mock papers` : `${filteredPlaceholders.length.toLocaleString('en-IN')}+ ${DIFFICULTY_LABELS[filter]} papers`}
+                </div>
+                <div style={{ fontSize: 12, color: 'var(--gray-500)', marginTop: 2 }}>
+                  10 papers per page · a new paper takes 60–90 seconds to prepare (NEET 3–4 minutes)
+                </div>
+              </div>
+
+              {/* Difficulty filter, opened from the three-dot control */}
+              <div style={{ position: 'relative' }}>
+                <button
+                  type="button"
+                  onClick={() => setFilterOpen((open) => !open)}
+                  aria-label="Filter papers by difficulty"
+                  aria-expanded={filterOpen}
+                  style={{
+                    padding: '8px 12px', border: '1px solid var(--gray-200)', borderRadius: 6, background: '#fff',
+                    cursor: 'pointer', fontSize: 16, lineHeight: 1, color: 'var(--gray-700)', letterSpacing: 2,
+                  }}
+                >
+                  ⋯
+                </button>
+                {filterOpen && (
+                  <div style={{
+                    position: 'absolute', right: 0, top: 'calc(100% + 6px)', zIndex: 10, minWidth: 170,
+                    background: '#fff', border: '1px solid var(--gray-200)', borderRadius: 8, padding: 6,
+                    boxShadow: '0 4px 12px rgba(15, 23, 42, 0.08)',
+                  }}>
+                    {FILTER_OPTIONS.map((option) => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => changeFilter(option.value)}
+                        style={{
+                          display: 'flex', alignItems: 'center', gap: 8, width: '100%', padding: '8px 10px',
+                          border: 'none', borderRadius: 6, cursor: 'pointer', textAlign: 'left', fontSize: 13,
+                          background: filter === option.value ? 'var(--gray-100)' : 'transparent',
+                          color: 'var(--gray-900)', fontWeight: filter === option.value ? 600 : 400,
+                        }}
+                      >
+                        {option.value !== 'all' && (
+                          <span style={{
+                            width: 8, height: 8, borderRadius: 9999,
+                            background: DIFFICULTY_COLORS[option.value].text,
+                          }} />
+                        )}
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <PaperPager page={page} pageCount={pageCount} disabled={starting} onPageChange={setPage} />
+
+            <div className={`paper-row${starting ? ' paper-row-loading' : ''}`} aria-busy={starting}>
+              {pagePapers.map(({ difficulty, paper }) => (
+                <PaperCard key={paper.number} paper={paper} onStart={() => startPaper(selected, difficulty)} />
+              ))}
+              {starting && <div className="paper-row-overlay">Preparing your paper...</div>}
+            </div>
+
+            <PaperPager page={page} pageCount={pageCount} disabled={starting} onPageChange={setPage} />
+          </section>
         )}
 
         {error && (
           <div style={{ color: '#dc2626', fontSize: 13, marginBottom: 16 }}>{error}</div>
         )}
-
-        <button
-          onClick={handleStart}
-          disabled={!selected || starting}
-          style={{
-            padding: '12px 32px',
-            background: selected && !starting ? 'var(--gray-900)' : 'var(--gray-300)',
-            color: '#fff',
-            border: 'none',
-            borderRadius: 6,
-            fontSize: 15,
-            fontWeight: 600,
-            cursor: selected && !starting ? 'pointer' : 'not-allowed',
-            marginBottom: 40,
-          }}
-        >
-          {starting ? 'Preparing exam…' : 'Start Exam →'}
-        </button>
 
         {/* Past attempts */}
         {history.length > 0 && (
