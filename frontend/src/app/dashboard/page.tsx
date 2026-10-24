@@ -15,6 +15,7 @@ import { FocusAreas } from './FocusAreas';
 const DAY_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const COLOR_PLATFORM = '#94a3b8';
 const COLOR_TOP = '#16a34a';
+const PREVIOUS_COLOR = '#cbd5e1';
 
 interface LaggingRow {
   key: string;
@@ -119,41 +120,22 @@ function WeeklyChart({ data }: { data: WeeklyPoint[] }) {
   );
 }
 
-/* ── Score history: my mock scores over time against platform figures ── */
-function ScoreHistoryChart({
-  history,
-  platformAvg,
-  topAvg,
-}: {
-  history: Array<{ date: string; pct: number }>;
-  platformAvg: number | null;
-  topAvg: number | null;
-}) {
-  const W = 640, H = 230, PL = 34, PR = 96, PT = 12, PB = 28;
+/* ── Score history: each mock as a bar, beside the score of the mock before it ── */
+function ScoreHistoryChart({ history }: { history: Array<{ date: string; pct: number }> }) {
+  const W = 640, H = 230, PL = 34, PR = 12, PT = 12, PB = 28;
   const plotW = W - PL - PR;
   const plotH = H - PT - PB;
   const n = history.length;
-  // Index 0 is the 0% baseline; mock i (1-based) sits at index i, so the first mock rises from zero
-  const xFor = (i: number) => PL + (plotW * i) / n;
+  const slot = plotW / n;
+  const barW = Math.min(28, slot * 0.32);
   const yFor = (v: number) => PT + plotH - (v / 100) * plotH;
   const ticks = [0, 25, 50, 75, 100];
   // Green at the 60% target and above, red below it
   const bandColor = (pct: number) => (pct >= 60 ? COLOR_TOP : '#dc2626');
 
-  // Keep the two reference labels apart when the lines sit close together
-  const LABEL_GAP = 16;
-  let topLabelY = topAvg != null ? yFor(topAvg) : 0;
-  let platLabelY = platformAvg != null ? yFor(platformAvg) : 0;
-  if (topAvg != null && platformAvg != null && Math.abs(topLabelY - platLabelY) < LABEL_GAP) {
-    const mid = (topLabelY + platLabelY) / 2;
-    const topIsAbove = topLabelY <= platLabelY;
-    topLabelY = topIsAbove ? mid - LABEL_GAP / 2 : mid + LABEL_GAP / 2;
-    platLabelY = topIsAbove ? mid + LABEL_GAP / 2 : mid - LABEL_GAP / 2;
-  }
-
   return (
     <div className={styles.chart}>
-      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Your mock scores over time, with platform average and top scorer average">
+      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Each mock score compared with the mock before it">
         {ticks.map((t) => (
           <g key={t}>
             <line x1={PL} x2={W - PR} y1={yFor(t)} y2={yFor(t)} className={styles.gridLine} />
@@ -161,37 +143,29 @@ function ScoreHistoryChart({
           </g>
         ))}
 
-        {topAvg != null && (
-          <g>
-            <line x1={PL} x2={W - PR} y1={yFor(topAvg)} y2={yFor(topAvg)} stroke={COLOR_TOP} strokeDasharray="4 4" strokeWidth={1.5} />
-            <text x={W - PR + 8} y={topLabelY} dy="0.32em" fontSize={11} fill={COLOR_TOP}>Top scorer {topAvg}%</text>
-          </g>
-        )}
-        {platformAvg != null && (
-          <g>
-            <line x1={PL} x2={W - PR} y1={yFor(platformAvg)} y2={yFor(platformAvg)} stroke={COLOR_PLATFORM} strokeDasharray="4 4" strokeWidth={1.5} />
-            <text x={W - PR + 8} y={platLabelY} dy="0.32em" fontSize={11} fill="#64748b">Platform avg {platformAvg}%</text>
-          </g>
-        )}
-
-        {/* ECG-style trace: flat at the previous level, a sharp spike up to this mock's score, then flat until the next mock */}
         {history.map((h, i) => {
-          const prev = i === 0 ? 0 : history[i - 1]!.pct;
-          const slotStart = xFor(i), slotEnd = xFor(i + 1);
-          const spikeX = slotStart + (slotEnd - slotStart) * 0.25;
-          const color = bandColor(h.pct);
+          const cx = PL + slot * i + slot / 2;
+          const prevPct = i === 0 ? null : history[i - 1]!.pct;
           const dateLabel = new Date(h.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+          // The current mock sits on the right, the previous mock on the left; the first mock is centred alone
+          const currentX = prevPct != null ? cx + 2 : cx - barW / 2;
+          const previousX = cx - barW - 2;
+          const color = bandColor(h.pct);
           return (
             <g key={h.date}>
-              <polyline
-                points={`${slotStart},${yFor(prev)} ${spikeX},${yFor(prev)} ${spikeX},${yFor(h.pct)} ${slotEnd},${yFor(h.pct)}`}
-                fill="none" stroke={color} strokeWidth={2.5} strokeLinejoin="miter" strokeLinecap="round"
-              />
-              <circle cx={spikeX} cy={yFor(h.pct)} r={3.5} fill={color} stroke="#fff" strokeWidth={1.5}>
+              {prevPct != null && (
+                <>
+                  <rect x={previousX} y={yFor(prevPct)} width={barW} height={yFor(0) - yFor(prevPct)} rx={4} fill={PREVIOUS_COLOR}>
+                    <title>{`Previous mock: ${prevPct}%`}</title>
+                  </rect>
+                  <text x={previousX + barW / 2} y={yFor(prevPct) - 6} textAnchor="middle" fontSize={11} fill="#64748b">{prevPct}%</text>
+                </>
+              )}
+              <rect x={currentX} y={yFor(h.pct)} width={barW} height={yFor(0) - yFor(h.pct)} rx={4} fill={color}>
                 <title>{`${dateLabel}: ${h.pct}%`}</title>
-              </circle>
-              <text x={spikeX + 6} y={yFor(h.pct) - 6} fontSize={11} fontWeight={600} fill={color}>{h.pct}%</text>
-              <text x={slotEnd} y={H - 8} textAnchor="middle" className={styles.day}>{dateLabel}</text>
+              </rect>
+              <text x={currentX + barW / 2} y={yFor(h.pct) - 6} textAnchor="middle" fontSize={11} fontWeight={600} fill={color}>{h.pct}%</text>
+              <text x={cx} y={H - 8} textAnchor="middle" className={styles.day}>{dateLabel}</text>
             </g>
           );
         })}
@@ -297,7 +271,6 @@ export default function DashboardPage() {
     return `${basePath}?mode=mock_weak&weakData=${weakData}`;
   }
 
-  const overall = data?.overall;
   const history = data?.history ?? [];
 
   return (
@@ -402,19 +375,18 @@ export default function DashboardPage() {
                 <div className={styles.panelHead}>
                   <div>
                     <h2 className={styles.panelTitle}>Mock score history</h2>
-                    <p className={styles.panelSub}>Your last {history.length} {history.length === 1 ? 'mock' : 'mocks'} against the platform</p>
+                    <p className={styles.panelSub}>Each mock against the one before it</p>
                   </div>
                   <div className={styles.legend}>
+                    <span><span className={styles.legendDot} style={{ background: PREVIOUS_COLOR }} />Previous mock</span>
                     <span><span className={styles.legendDot} style={{ background: COLOR_TOP }} />60% and above</span>
                     <span><span className={styles.legendDot} style={{ background: '#dc2626' }} />Below 60%</span>
-                    <span><span className={styles.legendDot} style={{ background: COLOR_PLATFORM }} />Platform avg</span>
-                    <span><span className={styles.legendDot} style={{ background: COLOR_TOP }} />Top scorer avg</span>
                   </div>
                 </div>
                 {loading ? (
                   <div className={styles.skeleton} style={{ height: 230 }} />
                 ) : history.length > 0 ? (
-                  <ScoreHistoryChart history={history} platformAvg={overall?.platformAvg ?? null} topAvg={overall?.topAvg ?? null} />
+                  <ScoreHistoryChart history={history} />
                 ) : (
                   <p className={styles.empty}>Submit a mock test to see your score history.</p>
                 )}
