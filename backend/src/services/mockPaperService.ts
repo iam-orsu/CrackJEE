@@ -40,6 +40,14 @@ export async function findStoredPaper(
 /** Store a freshly generated paper so later students of the same exam and difficulty can be given it */
 export async function saveStoredPaper(examType: string, difficultyMode: string, items: MockPoolItem[]): Promise<void> {
   if (items.length < MIN_PAPER_QUESTIONS) throw new Error('Generated paper is too short to store');
+
+  // Mock papers may only use mock-only questions, so practice never shows a question a mock has used
+  const ids = [...new Set(items.map((i) => i.questionId))];
+  const mockOnlyCount = await prisma.question.count({ where: { id: { in: ids }, mockOnly: true } });
+  if (mockOnlyCount !== ids.length) {
+    throw new Error('Mock paper contains questions outside the mock-only pool; not stored');
+  }
+
   await prisma.mockPaper.create({
     data: { examType, difficultyMode, items: items as unknown as Prisma.InputJsonValue },
   });
