@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import type { ExamInsights } from '@/types';
+import { TopicList, NegativesCard, TimeByTypeCard, SectionOrderCard } from '@/components/insights/InsightBlocks';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
 import { api } from '@/lib/api';
@@ -26,6 +28,7 @@ export default function MockResultPage() {
   const [expandedQ, setExpandedQ] = useState<string | null>(null);
   const [filterSubject, setFilterSubject] = useState<string>('All');
   const [filterStatus, setFilterStatus] = useState<'all' | 'correct' | 'incorrect' | 'unattempted'>('all');
+  const [examInsights, setExamInsights] = useState<ExamInsights | null>(null);
 
   useEffect(() => {
     if (!isAuthenticated()) { router.replace('/login'); return; }
@@ -33,6 +36,7 @@ export default function MockResultPage() {
       .then(setData)
       .catch((e) => setError(e?.message ?? 'Failed to load result'))
       .finally(() => setLoading(false));
+    api.mock.insights(examId).then(setExamInsights).catch(() => setExamInsights(null));
   }, [examId]);
 
   if (loading) return (
@@ -380,6 +384,31 @@ export default function MockResultPage() {
             </div>
           );
         })()}
+
+        {examInsights && (
+          <section style={{ marginBottom: 20 }}>
+            <h2 style={{ fontSize: 15, fontWeight: 700, color: '#1e293b', marginBottom: 12 }}>What this mock tells you</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
+              <TopicList
+                title="Topic breakdown"
+                sub={`Lowest accuracy first · ${examInsights.topics.length} topics in this mock`}
+                topics={examInsights.topics.slice(0, 8)}
+                mode="accuracy"
+                emptyText="No answered questions in this mock."
+              />
+              <TopicList
+                title="Marks lost by topic"
+                sub="Including negative marks"
+                topics={examInsights.marksLostTopics}
+                mode="marks"
+                emptyText="No marks lost in this mock."
+              />
+              <NegativesCard negatives={examInsights.negatives} />
+              <TimeByTypeCard rows={examInsights.timeByType} />
+              <SectionOrderCard rows={examInsights.subjectOrder} />
+            </div>
+          </section>
+        )}
 
         <QuestionReview
           weakPracticeUrl={weakPracticeUrl}

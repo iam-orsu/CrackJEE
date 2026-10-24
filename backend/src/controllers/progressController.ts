@@ -3,6 +3,17 @@ import type { AuthRequest } from '../types/index';
 import { Prisma } from '@prisma/client';
 import { prisma } from '../lib/prisma';
 import { cacheGetJson, cacheSetJson } from '../services/cacheService';
+import {
+  topicStats,
+  strongAndWeak,
+  topMarksLost,
+  monthlyTrend,
+  projection,
+  negativeAnalysis,
+  timeByType,
+  subjectOrder,
+} from '../services/mockInsights';
+import { loadStudentMockData } from '../services/mockInsightsData';
 
 const MOCK_WEAK_AREA_EXAMS = 30;
 
@@ -282,6 +293,34 @@ export async function leaderboard(req: AuthRequest, res: Response, next: NextFun
     }
 
     res.json({ success: true, data: result });
+  } catch (err) {
+    next(err);
+  }
+}
+
+// GET /api/stats/mock-insights — analytics across the student's recent submitted mocks (mock-only data)
+export async function mockInsights(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const { records, totals, examsAnalysed } = await loadStudentMockData(req.user!.userId);
+    const stats = topicStats(records);
+    const { strong, weak } = strongAndWeak(stats);
+
+    res.json({
+      success: true,
+      data: {
+        examsAnalysed,
+        strongTopics: strong,
+        weakTopics: weak,
+        // Revise today: the weakest topics; practise tomorrow uses the same list
+        reviseToday: weak,
+        marksLostTopics: topMarksLost(stats),
+        monthly: monthlyTrend(totals),
+        projection: projection(totals),
+        negatives: negativeAnalysis(records),
+        timeByType: timeByType(records),
+        subjectOrder: subjectOrder(records),
+      },
+    });
   } catch (err) {
     next(err);
   }
