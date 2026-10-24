@@ -403,12 +403,12 @@ export default function MockResultPage() {
           }}>
             Take Another Mock
           </Link>
-          <a href={weakPracticeUrl} style={{
+          <Link href="/dashboard" style={{
             padding: '11px 24px', background: '#fff', color: '#1e293b',
             border: '1px solid #e2e8f0', borderRadius: 6, fontSize: 14, fontWeight: 600, textDecoration: 'none',
           }}>
-            Practice Weak Areas
-          </a>
+            Go to dashboard
+          </Link>
         </div>
       </div>
     </div>

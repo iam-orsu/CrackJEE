@@ -64,7 +64,8 @@ export interface DashboardData {
     accuracy: number;
   };
   weeklyStats: WeeklyPoint[];
-  subjectAccuracy: SubjectAccuracy[];
+  history: Array<{ date: string; pct: number }>;
+  overall: { mine: number | null; platformAvg: number | null; topAvg: number | null };
 }
 
 export type Subject = 'Mathematics' | 'Physics' | 'Chemistry' | 'Botany' | 'Zoology';
@@ -190,6 +191,7 @@ export interface LeaderboardSubject {
   avg: number;
   mine: number | null;
   best: number | null;
+  topAvg: number | null;
   count: number;
 }
 
