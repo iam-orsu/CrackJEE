@@ -5,11 +5,11 @@ import { JEE_TOPICS_BY_CLASS, NEET_TOPICS_BY_CLASS, NEET_SUBJECTS } from '../typ
 import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
 import { generateFreshMockBatch, distributeTopicSlots, fisherYatesShuffle } from '../services/questionService';
-import { getSharedPool, setSharedPool } from '../services/mockPoolService';
+import { findStoredPaper, saveStoredPaper, pastQuestionIds } from '../services/mockPaperService';
+import type { MockPoolItem } from '../services/mockPaperService';
 import { cacheSetNx, cacheDel } from '../services/cacheService';
 import { runOnce } from '../lib/distributedOnce';
 import { logger } from '../lib/logger';
-import type { MockPoolItem } from '../services/mockPoolService';
 import { scoreQuestion, getMaxMarkPerQuestion } from '../services/scoringService';
 
 // Allowance for network latency: answers saved this long after the deadline still count
@@ -160,19 +160,7 @@ function buildNEETSlots(difficultyMode: 'easy' | 'medium' | 'hard'): SlotInput[]
   return slots;
 }
 
-/* ── Overlap check ──────────────────────────────────────────────── */
-
-async function getOverlapRatio(userId: string, examType: string, poolIds: string[]): Promise<number> {
-  if (poolIds.length === 0) return 0;
-  const past = await prisma.mockExamQuestion.findMany({
-    where: { exam: { userId, examType } },
-    select: { questionId: true },
-  });
-  const seen = new Set(past.map((r) => r.questionId));
-  return poolIds.filter((id) => seen.has(id)).length / poolIds.length;
-}
-
-/* ── Fresh generation + pool save ──────────────────────────────── */
+/* ── Fresh generation ──────────────────────────────────────────── */
 
 function expectedPerSubject(examType: 'Main' | 'Advanced' | 'NEET'): number {
   if (examType === 'NEET') return 45;
@@ -180,10 +168,9 @@ function expectedPerSubject(examType: 'Main' | 'Advanced' | 'NEET'): number {
   return 25;
 }
 
-async function generateAndSavePool(
+async function generateFreshPaper(
   examType: 'Main' | 'Advanced' | 'NEET',
   difficultyMode: 'easy' | 'medium' | 'hard',
-  saveToSharedPool: boolean,
 ): Promise<MockPoolItem[]> {
   const slots = examType === 'NEET'
     ? buildNEETSlots(difficultyMode)
@@ -211,17 +198,11 @@ async function generateAndSavePool(
     questions = [...questions, ...extras];
   }
 
-  const items: MockPoolItem[] = questions.map((q) => ({
+  return questions.map((q) => ({
     questionId: q.id,
     subject: q.subject,
     questionType: q.questionType,
   }));
-
-  if (saveToSharedPool && items.length >= 20) {
-    await setSharedPool(examType, difficultyMode, items);
-  }
-
-  return items;
 }
 
 /* ── Assign question numbers and persist rows ───────────────────── */
@@ -263,26 +244,6 @@ async function createExamQuestionsFromPool(
 
 /* ── Unified background generator ──────────────────────────────── */
 
-// One shared-pool generation per exam type + difficulty across all backend instances. Other starts wait
-// for the pool to be published instead of each paying for a full generation.
-async function readSharedPool(examType: 'Main' | 'Advanced' | 'NEET', difficultyMode: 'easy' | 'medium' | 'hard') {
-  const pool = await getSharedPool(examType, difficultyMode);
-  return pool && pool.length >= 20 ? pool : null;
-}
-
-function generateSharedPoolOnce(
-  examType: 'Main' | 'Advanced' | 'NEET',
-  difficultyMode: 'easy' | 'medium' | 'hard',
-): Promise<MockPoolItem[]> {
-  return runOnce<MockPoolItem[]>(`mockpool:${examType}:${difficultyMode}`, {
-    lockSeconds: 900,
-    waitMs: 7 * 60 * 1000,
-    readShared: () => readSharedPool(examType, difficultyMode),
-    // Another run may have published the pool between the lock check and this call
-    produce: async () => (await readSharedPool(examType, difficultyMode)) ?? generateAndSavePool(examType, difficultyMode, true),
-  });
-}
-
 // Stops two quick clicks (or two instances) from both creating an exam for the same student and type
 async function withStartLock<T>(userId: string, examType: string, task: () => Promise<T>): Promise<T> {
   const key = `lock:mockstart:${userId}:${examType}`;
@@ -303,21 +264,26 @@ async function runMockGeneration(
   difficultyMode: 'easy' | 'medium' | 'hard',
 ): Promise<void> {
   try {
-    let poolItems: MockPoolItem[];
-    const sharedPool = await getSharedPool(examType, difficultyMode);
+    // Prefer a stored paper this student has not mostly taken. Only when none fits is a new paper generated,
+    // and it is stored so later students of this exam and difficulty can be given it.
+    const seen = await pastQuestionIds(userId, examType);
+    const reuse = () => findStoredPaper(examType, difficultyMode, seen);
 
-    if (sharedPool && sharedPool.length >= 20) {
-      const overlap = await getOverlapRatio(userId, examType, sharedPool.map((p) => p.questionId));
-      if (overlap <= 0.30) {
-        // Reuse shared pool — shuffle gives this student a unique order
-        poolItems = sharedPool;
-      } else {
-        // >30% overlap: generate fresh for this student, keep shared pool intact
-        poolItems = await generateAndSavePool(examType, difficultyMode, false);
-      }
-    } else {
-      // No pool yet — generate fresh and publish as the shared pool (once, even under concurrent starts)
-      poolItems = await generateSharedPoolOnce(examType, difficultyMode);
+    let poolItems: MockPoolItem[] | null = await reuse();
+    if (!poolItems) {
+      // Concurrent starts for the same exam and difficulty share one generation
+      poolItems = await runOnce<MockPoolItem[]>(`mockpaper:gen:${examType}:${difficultyMode}`, {
+        lockSeconds: 900,
+        waitMs: 7 * 60 * 1000,
+        readShared: reuse,
+        produce: async () => {
+          const stored = await reuse();
+          if (stored) return stored;
+          const fresh = await generateFreshPaper(examType, difficultyMode);
+          await saveStoredPaper(examType, difficultyMode, fresh);
+          return fresh;
+        },
+      });
     }
 
     if (poolItems.length < 10) {
