@@ -108,22 +108,21 @@ export function weakestTopic(answers: Array<{ topic: string; correct: boolean }>
 }
 
 /**
- * A stored paper fits a student's plan when, for every subject, it only repeats the weak topic from
- * the last mock and uses no topic the student has already covered in this rotation.
+ * A stored paper fits a student's plan when, for every subject, its topics are exactly the topics the
+ * plan asks for (fresh topics plus the weak topic). A paper with any other topic is not reused.
  */
 export function paperFitsPlan(
   items: Array<{ subject: string; topic?: string }>,
-  plan: Record<string, { covered: Set<string>; weakTopic: string | null }>,
+  plan: Record<string, { planned: Set<string> }>,
 ): boolean {
   for (const [subject, subjectPlan] of Object.entries(plan)) {
     const subjectItems = items.filter((i) => i.subject === subject);
     // Papers stored before topics were recorded cannot be checked, so they are not reused
     if (subjectItems.some((i) => !i.topic)) return false;
     const topics = new Set(subjectItems.map((i) => i.topic as string));
-    if (subjectPlan.weakTopic && !topics.has(subjectPlan.weakTopic)) return false;
+    if (topics.size !== subjectPlan.planned.size) return false;
     for (const topic of topics) {
-      if (topic === subjectPlan.weakTopic) continue;
-      if (subjectPlan.covered.has(topic)) return false;
+      if (!subjectPlan.planned.has(topic)) return false;
     }
   }
   return true;

@@ -46,21 +46,26 @@ test('the weakest topic is the one with the lowest accuracy in the last mock', (
 });
 
 test('a stored paper fits when it repeats only the weak topic and uses no covered topic', () => {
-  const plan = { Physics: { covered: new Set(['A']), weakTopic: 'C' } };
+  const plan = { Physics: { planned: new Set(['B', 'C']) } };
   assert.equal(paperFitsPlan([{ subject: 'Physics', topic: 'C' }, { subject: 'Physics', topic: 'B' }], plan), true);
 });
 
 test('a stored paper does not fit when it uses a covered topic', () => {
-  const plan = { Physics: { covered: new Set(['A']), weakTopic: 'C' } };
+  const plan = { Physics: { planned: new Set(['B', 'C']) } };
   assert.equal(paperFitsPlan([{ subject: 'Physics', topic: 'C' }, { subject: 'Physics', topic: 'A' }], plan), false);
 });
 
+test('a stored paper with topics the plan did not ask for does not fit, even when nothing is covered', () => {
+  const plan = { Physics: { planned: new Set(['B', 'C']) } };
+  assert.equal(paperFitsPlan([{ subject: 'Physics', topic: 'Waves' }, { subject: 'Physics', topic: 'B' }], plan), false);
+});
+
 test('a stored paper does not fit when the weak topic is missing', () => {
-  const plan = { Physics: { covered: new Set<string>(), weakTopic: 'C' } };
+  const plan = { Physics: { planned: new Set(['B', 'C']) } };
   assert.equal(paperFitsPlan([{ subject: 'Physics', topic: 'B' }], plan), false);
 });
 
 test('papers stored before topics were recorded are not reused', () => {
-  const plan = { Physics: { covered: new Set<string>(), weakTopic: null } };
+  const plan = { Physics: { planned: new Set(['B']) } };
   assert.equal(paperFitsPlan([{ subject: 'Physics' }], plan), false);
 });

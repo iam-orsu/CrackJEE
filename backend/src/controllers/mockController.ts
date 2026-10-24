@@ -7,7 +7,8 @@ import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
 import { generateFreshMockBatch, distributeTopicSlots, fisherYatesShuffle } from '../services/questionService';
 import { findStoredPaper, saveStoredPaper } from '../services/mockPaperService';
-import { loadTopicHistory, type SubjectHistory } from '../services/mockTopicHistory';
+import { loadTopicHistory, loadSeenQuestionIds, type SubjectHistory } from '../services/mockTopicHistory';
+import { fillSlotsFromBank, slotKey, type BankQuestion, type SlotKey } from '../services/mockBankFill';
 import { planSubjectTopics, fullTopicList, paperFitsPlan } from '../services/mockTopicPlan';
 import { topicStats, strongAndWeak, topMarksLost, negativeAnalysis, timeByType, subjectOrder, cutoffComparison } from '../services/mockInsights';
 import { cutoffsFor } from '../services/examCutoffs';
@@ -175,16 +176,49 @@ function expectedPerSubject(examType: 'Main' | 'Advanced' | 'NEET'): number {
   return 25;
 }
 
+type PaperQuestion = { id: string; subject: string; topic: string; questionType: string };
+
+// Mock-only questions that could fill these slots: same exam type, subject, topic, difficulty and question type
+async function loadMockBank(examType: 'Main' | 'Advanced' | 'NEET', slots: SlotInput[]): Promise<BankQuestion[]> {
+  const keys = new Map<string, SlotKey>();
+  for (const s of slots) {
+    const key: SlotKey = { subject: s.subject, topic: s.topic, difficulty: s.difficulty, questionType: s.questionType };
+    keys.set(slotKey(key), key);
+  }
+  if (keys.size === 0) return [];
+  return prisma.question.findMany({
+    where: {
+      mockOnly: true,
+      validatedAt: { not: null },
+      examType,
+      OR: [...keys.values()],
+    },
+    select: { id: true, subject: true, topic: true, difficulty: true, questionType: true },
+  });
+}
+
 async function generateFreshPaper(
   examType: 'Main' | 'Advanced' | 'NEET',
   difficultyMode: 'easy' | 'medium' | 'hard',
   topicsBySubject: Record<string, string[]>,
+  seen: Set<string>,
 ): Promise<MockPoolItem[]> {
   const slots = examType === 'NEET'
     ? buildNEETSlots(difficultyMode, topicsBySubject)
     : buildJEESlots(examType, difficultyMode, topicsBySubject);
 
-  let questions = await generateFreshMockBatch(slots, 4);
+  // Bank first: reuse mock-only questions for these slots that this student has not seen.
+  // DeepSeek is only asked for the slots the bank cannot fill.
+  const slotKeys: SlotKey[] = slots.map((s) => ({ subject: s.subject, topic: s.topic, difficulty: s.difficulty, questionType: s.questionType }));
+  const bank = await loadMockBank(examType, slots);
+  const picks = fillSlotsFromBank(slotKeys, bank, seen);
+  const bankById = new Map(bank.map((q) => [q.id, q]));
+  const fromBank: PaperQuestion[] = picks.flatMap((id) => (id ? [bankById.get(id)!] : []));
+  const missingSlots = slots.filter((_, i) => picks[i] === null);
+  logger.info({ fromBank: fromBank.length, generate: missingSlots.length }, '[mockPool] Paper slots filled from the bank');
+
+  const generated: PaperQuestion[] = missingSlots.length > 0 ? await generateFreshMockBatch(missingSlots, 4) : [];
+  let questions: PaperQuestion[] = [...fromBank, ...generated];
 
   // Top-up pass: detect short subjects and generate extra slots to fill gaps
   const expected = expectedPerSubject(examType);
@@ -286,17 +320,17 @@ function planMockTopics(
   history: Record<string, SubjectHistory>,
 ): {
   topicsBySubject: Record<string, string[]>;
-  fit: Record<string, { covered: Set<string>; weakTopic: string | null }>;
+  fit: Record<string, { planned: Set<string> }>;
 } {
   const subjects: string[] = examType === 'NEET' ? [...NEET_SUBJECTS] : ['Physics', 'Chemistry', 'Mathematics'];
   const count = expectedPerSubject(examType);
   const topicsBySubject: Record<string, string[]> = {};
-  const fit: Record<string, { covered: Set<string>; weakTopic: string | null }> = {};
+  const fit: Record<string, { planned: Set<string> }> = {};
   for (const subject of subjects) {
     const past = history[subject] ?? { covered: new Set<string>(), weakTopic: null };
     const subjectPlan = planSubjectTopics(fullTopicList(examType, subject), past.covered, past.weakTopic, count);
     topicsBySubject[subject] = subjectPlan.questionTopics;
-    fit[subject] = { covered: subjectPlan.covered, weakTopic: subjectPlan.weakTopic };
+    fit[subject] = { planned: new Set(subjectPlan.questionTopics) };
   }
   return { topicsBySubject, fit };
 }
@@ -312,6 +346,7 @@ async function runMockGeneration(
     // and it is stored so later students of this exam and difficulty can be given it.
     // The student's topic rotation decides which topics this paper uses; a stored paper is reused only if it fits
     const history = await loadTopicHistory(userId, examType);
+    const seen = await loadSeenQuestionIds(userId, examType);
     const plan = planMockTopics(examType, history);
     const expectedTotal = (examType === 'NEET' ? NEET_SUBJECTS.length : 3) * expectedPerSubject(examType);
     const reuse = () => findStoredPaper(
@@ -322,7 +357,7 @@ async function runMockGeneration(
     // Students with the same plan share one generation. A different plan gets its own lock, so it never
     // waits behind a paper that could not fit it.
     const planKey = createHash('sha256')
-      .update(JSON.stringify({ topics: plan.topicsBySubject, weak: Object.values(plan.fit).map((f) => f.weakTopic) }))
+      .update(JSON.stringify(plan.topicsBySubject))
       .digest('hex')
       .slice(0, 16);
 
@@ -335,7 +370,7 @@ async function runMockGeneration(
         produce: async () => {
           const stored = await reuse();
           if (stored) return stored;
-          const fresh = await generateFreshPaper(examType, difficultyMode, plan.topicsBySubject);
+          const fresh = await generateFreshPaper(examType, difficultyMode, plan.topicsBySubject, seen);
           await saveStoredPaper(examType, difficultyMode, fresh);
           return fresh;
         },
