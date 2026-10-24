@@ -113,6 +113,14 @@
 /* Subject mastery ────────────────────────────────────────────── */
 .subjectList { display: flex; flex-direction: column; gap: 10px; }
 .masteryNote { font-size: 12px; color: var(--gray-500); margin-bottom: 4px; }
+.masteryHead { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.masteryBig { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.masteryRows { display: flex; flex-direction: column; gap: 8px; }
+.masteryRow { display: grid; grid-template-columns: 104px 1fr 44px; align-items: center; gap: 10px; }
+.masteryLabel { font-size: 12px; color: var(--gray-500); }
+.masteryTrack { height: 6px; border-radius: 999px; background: var(--gray-100); overflow: hidden; }
+.masteryFill { height: 100%; border-radius: 999px; transition: width 0.6s ease; }
+.masteryValue { font-size: 13px; font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
 .bar {
   grid-column: 1 / -1; height: 6px; border-radius: 999px;
   background: var(--gray-100); overflow: hidden;

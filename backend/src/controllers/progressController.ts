@@ -54,9 +54,50 @@ async function mockAnswers(userId: string): Promise<MockAnswer[]> {
   return answers;
 }
 
+// The student's last 10 submitted mocks, oldest first, as overall percentages
+async function mockHistory(userId: string): Promise<Array<{ date: string; pct: number }>> {
+  const rows = await prisma.mockExamResult.findMany({
+    where: { exam: { userId, status: 'submitted' }, maxScore: { gt: 0 } },
+    orderBy: { exam: { submittedAt: 'desc' } },
+    take: 10,
+    select: { totalScore: true, maxScore: true, exam: { select: { submittedAt: true, createdAt: true } } },
+  });
+  return rows.reverse().map((r) => ({
+    date: (r.exam.submittedAt ?? r.exam.createdAt).toISOString(),
+    pct: Math.round((r.totalScore / r.maxScore) * 100),
+  }));
+}
+
+// Overall mock averages: mine, the platform average, and the highest student average. Platform figures are cached.
+const OVERALL_CACHE_KEY = 'overall:global';
+async function overallMockStats(userId: string): Promise<{ mine: number | null; platformAvg: number | null; topAvg: number | null }> {
+  let globalStats = await cacheGetJson<{ platformAvg: number | null; topAvg: number | null }>(OVERALL_CACHE_KEY);
+  if (!globalStats) {
+    const rows = await prisma.$queryRaw<Array<{ avg: number | null; top: number | null }>>(Prisma.sql`
+      WITH per_exam AS (
+        SELECT e."userId" AS "userId", r."totalScore" * 100.0 / r."maxScore" AS pct
+        FROM "MockExamResult" r JOIN "MockExam" e ON e.id = r."examId"
+        WHERE e.status = 'submitted' AND r."maxScore" > 0
+      )
+      SELECT (SELECT FLOOR(AVG(pct) + 0.5)::float8 FROM per_exam) AS avg,
+             (SELECT FLOOR(MAX(ua) + 0.5)::float8 FROM (SELECT AVG(pct) AS ua FROM per_exam GROUP BY "userId") t) AS top
+    `);
+    globalStats = { platformAvg: rows[0]?.avg ?? null, topAvg: rows[0]?.top ?? null };
+    await cacheSetJson(OVERALL_CACHE_KEY, globalStats, LEADERBOARD_TTL_SECONDS);
+  }
+
+  const mineRows = await prisma.$queryRaw<Array<{ mine: number | null }>>(Prisma.sql`
+    SELECT FLOOR(AVG(r."totalScore" * 100.0 / r."maxScore") + 0.5)::float8 AS mine
+    FROM "MockExamResult" r JOIN "MockExam" e ON e.id = r."examId"
+    WHERE e.status = 'submitted' AND r."maxScore" > 0 AND e."userId" = ${userId}
+  `);
+  return { mine: mineRows[0]?.mine ?? null, platformAvg: globalStats.platformAvg, topAvg: globalStats.topAvg };
+}
+
 export async function dashboard(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
   try {
-    const answers = await mockAnswers(req.user!.userId);
+    const userId = req.user!.userId;
+    const answers = await mockAnswers(userId);
 
     const totalAttempts = answers.length;
     const correctAttempts = answers.filter((a) => a.correct).length;
@@ -74,24 +115,15 @@ export async function dashboard(req: AuthRequest, res: Response, next: NextFunct
       };
     });
 
-    // Accuracy per subject, from mock answers only
-    const subjects = [...new Set(answers.map((a) => a.subject))];
-    const subjectAccuracy = subjects.map((subject) => {
-      const subjectAnswers = answers.filter((a) => a.subject === subject);
-      const correct = subjectAnswers.filter((a) => a.correct).length;
-      return {
-        subject,
-        accuracy: Math.round((correct / subjectAnswers.length) * 100),
-        attempts: subjectAnswers.length,
-      };
-    });
+    const [history, overall] = await Promise.all([mockHistory(userId), overallMockStats(userId)]);
 
     res.json({
       success: true,
       data: {
         stats: { totalAttempts, correctAttempts, accuracy },
         weeklyStats,
-        subjectAccuracy,
+        history,
+        overall,
       },
     });
   } catch (err) {
@@ -156,7 +188,7 @@ export async function mockWeakAreas(req: AuthRequest, res: Response, next: NextF
 const LEADERBOARD_CACHE_KEY = 'leaderboard:global';
 const LEADERBOARD_TTL_SECONDS = 60;
 
-type GlobalLeaderboardRow = { examType: string; subject: string; top: number; avg: number; count: number };
+type GlobalLeaderboardRow = { examType: string; subject: string; top: number; avg: number; topAvg: number | null; count: number };
 type MyLeaderboardRow = { examType: string; subject: string; best: number; mine: number };
 
 /**
@@ -201,7 +233,13 @@ export async function leaderboard(req: AuthRequest, res: Response, next: NextFun
         SELECT p."examType" AS "examType", p.subject AS subject,
                MAX(p.pct)::float8 AS top,
                FLOOR(AVG(p.pct) + 0.5)::float8 AS avg,
-               COUNT(*)::int AS count
+               COUNT(*)::int AS count,
+               -- Highest per-student average in this subject (each student's mocks averaged first)
+               (SELECT FLOOR(MAX(u.ua) + 0.5)::float8
+                FROM (SELECT AVG(q.pct) AS ua
+                      FROM (${scoredRowsSql(null)}) q
+                      WHERE q."examType" = p."examType" AND q.subject = p.subject
+                      GROUP BY q."userId") u) AS "topAvg"
         FROM (${scoredRowsSql(null)}) p
         GROUP BY p."examType", p.subject
       `);
@@ -218,13 +256,14 @@ export async function leaderboard(req: AuthRequest, res: Response, next: NextFun
     `);
     const myByKey = new Map(myRows.map((r) => [`${r.examType}|${r.subject}`, r]));
 
-    const result: Record<string, Record<string, { top: number; avg: number; mine: number | null; best: number | null; count: number }>> = {};
+    const result: Record<string, Record<string, { top: number; avg: number; topAvg: number | null; mine: number | null; best: number | null; count: number }>> = {};
     for (const row of globalRows) {
       const mineRow = myByKey.get(`${row.examType}|${row.subject}`);
       result[row.examType] ??= {};
       result[row.examType][row.subject] = {
         top: row.top,
         avg: row.avg,
+        topAvg: row.topAvg ?? null,
         mine: mineRow?.mine ?? null,
         best: mineRow?.best ?? null,
         count: row.count,

@@ -13,12 +13,14 @@ import { plural } from './helpers';
 import { FocusAreas } from './FocusAreas';
 
 const DAY_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const COLOR_YOU = '#2c3e50';
+const COLOR_PLATFORM = '#94a3b8';
+const COLOR_TOP = '#16a34a';
 
 interface LaggingRow {
   key: string;
   topic: string;
   pct: number;
-  detail: string;
 }
 
 function niceMax(value: number): number {
@@ -118,6 +120,80 @@ function WeeklyChart({ data }: { data: WeeklyPoint[] }) {
   );
 }
 
+/* ── Score history: my mock scores over time against platform figures ── */
+function ScoreHistoryChart({
+  history,
+  platformAvg,
+  topAvg,
+}: {
+  history: Array<{ date: string; pct: number }>;
+  platformAvg: number | null;
+  topAvg: number | null;
+}) {
+  const W = 640, H = 230, PL = 34, PR = 96, PT = 12, PB = 28;
+  const plotW = W - PL - PR;
+  const plotH = H - PT - PB;
+  const n = history.length;
+  const xFor = (i: number) => (n <= 1 ? PL + plotW / 2 : PL + (plotW * i) / (n - 1));
+  const yFor = (v: number) => PT + plotH - (v / 100) * plotH;
+  const ticks = [0, 25, 50, 75, 100];
+  const line = history.map((h, i) => `${xFor(i)},${yFor(h.pct)}`).join(' ');
+
+  return (
+    <div className={styles.chart}>
+      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Your mock scores over time, with platform average and top scorer average">
+        {ticks.map((t) => (
+          <g key={t}>
+            <line x1={PL} x2={W - PR} y1={yFor(t)} y2={yFor(t)} className={styles.gridLine} />
+            <text x={PL - 8} y={yFor(t)} dy="0.32em" textAnchor="end" className={styles.tick}>{t}%</text>
+          </g>
+        ))}
+
+        {topAvg != null && (
+          <g>
+            <line x1={PL} x2={W - PR} y1={yFor(topAvg)} y2={yFor(topAvg)} stroke={COLOR_TOP} strokeDasharray="4 4" strokeWidth={1.5} />
+            <text x={W - PR + 8} y={yFor(topAvg)} dy="0.32em" fontSize={11} fill={COLOR_TOP}>Top scorer {topAvg}%</text>
+          </g>
+        )}
+        {platformAvg != null && (
+          <g>
+            <line x1={PL} x2={W - PR} y1={yFor(platformAvg)} y2={yFor(platformAvg)} stroke={COLOR_PLATFORM} strokeDasharray="4 4" strokeWidth={1.5} />
+            <text x={W - PR + 8} y={yFor(platformAvg)} dy="0.32em" fontSize={11} fill="#64748b">Platform avg {platformAvg}%</text>
+          </g>
+        )}
+
+        {n > 1 && <polyline points={line} fill="none" stroke={COLOR_YOU} strokeWidth={2} strokeLinejoin="round" />}
+        {history.map((h, i) => (
+          <g key={h.date}>
+            <circle cx={xFor(i)} cy={yFor(h.pct)} r={4.5} fill={COLOR_YOU} stroke="#fff" strokeWidth={1.5}>
+              <title>{`${new Date(h.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}: ${h.pct}%`}</title>
+            </circle>
+            <text x={xFor(i)} y={yFor(h.pct) - 10} textAnchor="middle" fontSize={11} fontWeight={600} fill={COLOR_YOU}>{h.pct}%</text>
+            <text x={xFor(i)} y={H - 8} textAnchor="middle" className={styles.day}>
+              {new Date(h.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}
+            </text>
+          </g>
+        ))}
+      </svg>
+    </div>
+  );
+}
+
+/* ── One comparison row inside a subject card ─────────────────────── */
+function MasteryRow({ label, pct, color, strong }: { label: string; pct: number | null; color: string; strong?: boolean }) {
+  return (
+    <div className={styles.masteryRow}>
+      <span className={styles.masteryLabel}>{label}</span>
+      <div className={styles.masteryTrack}>
+        <div className={styles.masteryFill} style={{ width: `${pct ?? 0}%`, background: color }} />
+      </div>
+      <span className={styles.masteryValue} style={{ color: strong ? color : 'var(--gray-700)' }}>
+        {pct != null ? `${pct}%` : '—'}
+      </span>
+    </div>
+  );
+}
+
 /* ── Page ─────────────────────────────────────────────────────────── */
 export default function DashboardPage() {
   const router = useRouter();
@@ -162,14 +238,6 @@ export default function DashboardPage() {
     ? ['Physics', 'Chemistry', 'Biology']
     : ['Physics', 'Chemistry', 'Mathematics'];
 
-  // One card per subject. Accuracy is averaged over attempts, so the merged Biology card weights each part correctly.
-  const subjectRows = SUBJECTS.map((subject) => {
-    const parts = (data?.subjectAccuracy ?? []).filter((x) => groupOf(x.subject) === subject);
-    const attempts = parts.reduce((sum, x) => sum + x.attempts, 0);
-    const weighted = parts.reduce((sum, x) => sum + x.accuracy * x.attempts, 0);
-    return { subject, attempts, pct: attempts ? Math.round(weighted / attempts) : 0 };
-  });
-
   // Group mock weak topics by subject
   const weakBySubject: Record<string, MockWeakTopic[]> = {};
   for (const t of mockWeakTopics) {
@@ -183,7 +251,7 @@ export default function DashboardPage() {
   function laggingTopics(group: string): LaggingRow[] {
     return mockWeakTopics
       .filter((t) => groupOf(t.subject) === group)
-      .map((t) => ({ key: `${t.subject}|${t.topic}`, topic: t.topic, pct: t.successRate, detail: `${t.correct}/${t.attempts} correct` }))
+      .map((t) => ({ key: `${t.subject}|${t.topic}`, topic: t.topic, pct: t.successRate }))
       .sort((a, b) => a.pct - b.pct);
   }
 
@@ -191,7 +259,6 @@ export default function DashboardPage() {
   const targetExam = user?.targetExam ?? 'Main';
   const lbExamType = targetExam === 'NEET' ? 'NEET' : targetExam === 'Advanced' ? 'Advanced' : 'Main';
   const lbData = leaderboard?.[lbExamType] ?? null;
-  const lbSubjects = lbData ? Object.entries(lbData).sort(([a], [b]) => a.localeCompare(b)) : [];
 
   function buildPracticeUrl(subject: string): string {
     const isNEET = ['Botany', 'Zoology', 'Biology'].includes(subject);
@@ -206,6 +273,9 @@ export default function DashboardPage() {
     const weakData = encodeURIComponent(JSON.stringify({ subjects, topics: subjectMap }));
     return `${basePath}?mode=mock_weak&weakData=${weakData}`;
   }
+
+  const overall = data?.overall;
+  const history = data?.history ?? [];
 
   return (
     <div className="app-shell">
@@ -282,7 +352,7 @@ export default function DashboardPage() {
             </section>
           )}
 
-          {/* Left: weekly chart + platform standings · Right: subject mastery cards */}
+          {/* Left: weekly activity + score history · Right: subject mastery */}
           <div className={styles.grid}>
             <div className={styles.column}>
               <section className={styles.panel}>
@@ -305,95 +375,45 @@ export default function DashboardPage() {
                 )}
               </section>
 
-              {/* Platform standings */}
-              {!loading && lbSubjects.length > 0 && (
-                <section className={styles.panel}>
-                  <div className={styles.panelHead}>
-                    <div>
-                      <h2 className={styles.panelTitle}>Platform standings</h2>
-                      <p className={styles.panelSub}>
-                        {lbExamType === 'NEET' ? 'NEET UG' : `JEE ${lbExamType}`} · Your highest and average vs platform average and top score (% of max marks)
-                      </p>
-                    </div>
+              <section className={styles.panel}>
+                <div className={styles.panelHead}>
+                  <div>
+                    <h2 className={styles.panelTitle}>Mock score history</h2>
+                    <p className={styles.panelSub}>Your last {history.length || 10} mocks against the platform</p>
                   </div>
-                  <table className={styles.lbTable}>
-                    <colgroup>
-                      <col style={{ width: '25%' }} />
-                      <col style={{ width: '17%' }} />
-                      <col style={{ width: '17%' }} />
-                      <col style={{ width: '18%' }} />
-                      <col style={{ width: '23%' }} />
-                    </colgroup>
-                    <thead>
-                      <tr>
-                        <th className={styles.lbHead} style={{ textAlign: 'left' }}>Subject</th>
-                        <th className={styles.lbHead}>My highest</th>
-                        <th className={styles.lbHead}>My average</th>
-                        <th className={styles.lbHead}>Platform avg</th>
-                        <th className={styles.lbHead}>Platform top</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {lbSubjects.map(([subj, stat]) => {
-                        const best = stat.best;
-                        const mine = stat.mine;
-                        return (
-                          <tr key={subj} className={styles.lbRow}>
-                            <td>
-                              <span className={styles.lbSubject} style={{ color: SUBJECT_COLOR[subj] ?? 'var(--gray-800)' }}>
-                                {subj}
-                              </span>
-                            </td>
-                            <td className={styles.lbNum} style={{ color: best == null ? 'var(--gray-400)' : toneColor(best) }}>
-                              {best != null ? `${best}%` : '—'}
-                            </td>
-                            <td className={styles.lbNum} style={{ color: mine == null ? 'var(--gray-400)' : toneColor(mine) }}>
-                              {mine != null ? `${mine}%` : '—'}
-                            </td>
-                            <td className={styles.lbNum} style={{ color: 'var(--gray-600)' }}>
-                              {stat.count > 0 ? `${stat.avg}%` : '—'}
-                            </td>
-                            <td>
-                              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
-                                <span className={styles.lbNum} style={{ color: 'var(--gray-900)' }}>
-                                  {stat.count > 0 ? `${stat.top}%` : '—'}
-                                </span>
-                                {stat.count > 0 && (
-                                  <div style={{ width: '100%', maxWidth: 80, height: 5, background: 'var(--gray-100)', borderRadius: 999, overflow: 'hidden' }}>
-                                    <div style={{ height: '100%', width: `${stat.top}%`, background: SUBJECT_COLOR[subj] ?? '#94a3b8', borderRadius: 999 }} />
-                                  </div>
-                                )}
-                              </div>
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                  {lbSubjects[0]?.[1]?.count != null && (
-                    <p style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 14 }}>
-                      Based on {lbSubjects[0][1].count} mock result{lbSubjects[0][1].count === 1 ? '' : 's'} · scores are anonymous
-                    </p>
-                  )}
-                </section>
-              )}
+                  <div className={styles.legend}>
+                    <span><span className={styles.legendDot} style={{ background: COLOR_YOU }} />You</span>
+                    <span><span className={styles.legendDot} style={{ background: COLOR_PLATFORM }} />Platform avg</span>
+                    <span><span className={styles.legendDot} style={{ background: COLOR_TOP }} />Top scorer avg</span>
+                  </div>
+                </div>
+                {loading ? (
+                  <div className={styles.skeleton} style={{ height: 230 }} />
+                ) : history.length > 0 ? (
+                  <ScoreHistoryChart history={history} platformAvg={overall?.platformAvg ?? null} topAvg={overall?.topAvg ?? null} />
+                ) : (
+                  <p className={styles.empty}>Submit a mock test to see your score history.</p>
+                )}
+              </section>
             </div>
 
-            {/* Subject mastery: one card per subject, click to see the topics lagging behind */}
+            {/* Subject mastery: my average beside the platform average and the top scorer's average */}
             <section className={styles.panel}>
               <div className={styles.panelHead}>
                 <div>
                   <h2 className={styles.panelTitle}>Subject mastery</h2>
-                  <p className={styles.panelSub}>Score by subject · tap a card for lagging topics</p>
+                  <p className={styles.panelSub}>Average of all your mocks · tap a subject for lagging topics</p>
                 </div>
               </div>
               {loading ? (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                  {[0, 1, 2].map((i) => <div key={i} className={styles.skeleton} style={{ height: 52 }} />)}
+                  {[0, 1, 2].map((i) => <div key={i} className={styles.skeleton} style={{ height: 96 }} />)}
                 </div>
               ) : (
                 <div className={styles.subjectList}>
-                  {subjectRows.map(({ subject, attempts, pct }) => {
+                  {SUBJECTS.map((subject) => {
+                    const stat = lbData?.[subject];
+                    const mine = stat?.mine ?? null;
                     const isOpen = expandedMastery === subject;
                     return (
                       <div key={subject} className={styles.subjCard}>
@@ -402,21 +422,25 @@ export default function DashboardPage() {
                           onClick={() => setExpandedMastery(isOpen ? null : subject)}
                           style={{ width: '100%', border: 'none', textAlign: 'left' }}
                         >
-                          <div>
-                            <p className={styles.subjCardName} style={{ color: SUBJECT_COLOR[subject] ?? 'var(--gray-900)' }}>{subject}</p>
-                            <p className={styles.subjCardMeta}>{attempts ? plural(attempts, 'question') : 'Not started'}</p>
+                          <div style={{ flex: 1, minWidth: 0 }}>
+                            <div className={styles.masteryHead}>
+                              <p className={styles.subjCardName} style={{ color: SUBJECT_COLOR[subject] ?? 'var(--gray-900)' }}>{subject}</p>
+                              <span className={styles.masteryBig} style={{ color: mine != null ? toneColor(mine) : 'var(--gray-400)' }}>
+                                {mine != null ? `${mine}%` : 'Not started'}
+                              </span>
+                            </div>
+                            <div className={styles.masteryRows}>
+                              <MasteryRow label="My average" pct={mine} color={mine != null ? toneColor(mine) : 'var(--gray-300)'} strong />
+                              <MasteryRow label="Platform avg" pct={stat?.avg ?? null} color={COLOR_PLATFORM} />
+                              <MasteryRow label="Top scorer avg" pct={stat?.topAvg ?? null} color={COLOR_TOP} strong />
+                            </div>
                           </div>
-                          <div className={styles.subjCardRight}>
-                            <span className={styles.subjCardPct} style={{ color: attempts ? toneColor(pct) : 'var(--gray-400)' }}>
-                              {attempts ? `${pct}%` : '—'}
-                            </span>
-                            <svg
-                              width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-                              style={{ transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.15s', color: 'var(--gray-400)', flexShrink: 0 }}
-                            >
-                              <path d="M6 9l6 6 6-6" />
-                            </svg>
-                          </div>
+                          <svg
+                            width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                            style={{ transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.15s', color: 'var(--gray-400)', flexShrink: 0, marginLeft: 12 }}
+                          >
+                            <path d="M6 9l6 6 6-6" />
+                          </svg>
                         </button>
 
                         {isOpen && (() => {
@@ -429,15 +453,10 @@ export default function DashboardPage() {
                                 </p>
                               ) : (
                                 <>
-                                  <p className={styles.masteryNote} style={{ paddingTop: 12 }}>
-                                    Lagging topics · from mock exams
-                                  </p>
+                                  <p className={styles.masteryNote} style={{ paddingTop: 12 }}>Lagging topics · from mock exams</p>
                                   {lagging.map((r) => (
                                     <div key={r.key} className={styles.subjTopicRow}>
-                                      <div>
-                                        <p className={styles.subjTopicName}>{r.topic}</p>
-                                        <p className={styles.subjTopicMeta}>{r.detail}</p>
-                                      </div>
+                                      <p className={styles.subjTopicName}>{r.topic}</p>
                                       <span className={styles.subjTopicPct} style={{ color: toneColor(r.pct) }}>{r.pct}%</span>
                                       <div className={styles.subjTopicBar}>
                                         <div className={styles.subjTopicBarFill} style={{ width: `${r.pct}%`, background: toneColor(r.pct) }} />

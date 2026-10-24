@@ -29,7 +29,6 @@ export function FocusAreas({ loading, hasMockWeakAreas, weakSubjects, weakBySubj
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {weakSubjects.map((subject) => {
             const topics = weakBySubject[subject]!;
-            const worstPct = Math.min(...topics.map((t) => t.successRate));
             const isOpen = expandedSubject === subject;
             const color = SUBJECT_COLOR[subject] ?? '#64748b';
             return (
@@ -44,9 +43,6 @@ export function FocusAreas({ loading, hasMockWeakAreas, weakSubjects, weakBySubj
                     <p className={styles.subjCardMeta}>{plural(topics.length, 'weak topic')}</p>
                   </div>
                   <div className={styles.subjCardRight}>
-                    <span className={`${styles.subjCardPct} ${worstPct >= 40 ? styles.subjCardPctMid : ''}`}>
-                      Worst {worstPct}%
-                    </span>
                     <svg
                       width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
                       style={{ transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.15s', color: 'var(--gray-400)', flexShrink: 0 }}
@@ -60,10 +56,7 @@ export function FocusAreas({ loading, hasMockWeakAreas, weakSubjects, weakBySubj
                   <div className={styles.subjCardBody}>
                     {topics.map((t) => (
                       <div key={t.topic} className={styles.subjTopicRow}>
-                        <div>
-                          <p className={styles.subjTopicName}>{t.topic}</p>
-                          <p className={styles.subjTopicMeta}>{t.correct}/{t.attempts} correct</p>
-                        </div>
+                        <p className={styles.subjTopicName}>{t.topic}</p>
                         <span
                           className={styles.subjTopicPct}
                           style={{ color: t.successRate >= 40 ? 'var(--amber-600)' : 'var(--red-600)' }}
