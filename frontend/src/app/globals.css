@@ -935,9 +935,18 @@ img, svg { display: block; }
 .paper-pager-num-active { background: #1e293b; border-color: #1e293b; color: #fff; }
 .paper-pager-gap { color: #94a3b8; padding: 0 4px; }
 
+/* Roll-out: cards rise in one after another whenever the list changes (mock difficulty dropdown, paging) */
+.paper-rollout { display: flex; flex-direction: column; animation: paperRollout 0.45s ease-out both; }
+.paper-rollout > .paper-sheet { flex: 1; }
+@keyframes paperRollout {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .paper-sheet, .paper-teaser, .paper-row { transition: none; }
   .paper-sheet:hover { transform: none; }
+  .paper-rollout { animation: none; }
 }
 
 /* Brand logo (image) */
