@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { Sidebar } from '@/components/Sidebar';
 import { PaperCard } from '@/components/practice/shared';
@@ -144,6 +144,7 @@ export default function MockPage() {
   const [error, setError] = useState('');
   const [history, setHistory] = useState<MockHistoryItem[]>([]);
   const [terminating, setTerminating] = useState<string | null>(null);
+  const historyRef = useRef<HTMLDivElement | null>(null);
 
   const currentUser = getUser();
   const isNEET = currentUser?.targetExam === 'NEET';
@@ -180,6 +181,8 @@ export default function MockPage() {
     if (starting) return;
     if (activeExam) {
       setError('Terminate your exam in progress before starting a new paper.');
+      // Take the student to the in-progress exam and its Terminate button
+      historyRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
     setStarting(true);
@@ -364,7 +367,7 @@ export default function MockPage() {
 
         {/* Past attempts */}
         {history.length > 0 && (
-          <div>
+          <div ref={historyRef}>
             <h2 style={{ fontSize: 16, fontWeight: 600, color: 'var(--gray-900)', marginBottom: 12 }}>Past Attempts</h2>
             <div style={{ border: '1px solid var(--gray-200)', borderRadius: 8, overflow: 'hidden' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
