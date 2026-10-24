@@ -97,18 +97,33 @@ const PLACEHOLDERS: Array<{ number: number; difficulty: DifficultyMode }> = Arra
   (_, i) => ({ number: i + 1, difficulty: DIFFICULTY_ORDER[i % 3]! }),
 );
 
+// Topic names per subject, so a placeholder paper lists real topics on its card
+const PLACEHOLDER_TOPICS: Record<string, string[]> = {
+  Physics: ['Kinematics', 'Laws of Motion', 'Electrostatics', 'Current Electricity'],
+  Chemistry: ['Mole Concept', 'Chemical Bonding', 'Chemical Equilibrium', 'Organic Basics'],
+  Mathematics: ['Algebra', 'Calculus', 'Coordinate Geometry', 'Trigonometry'],
+  Botany: ['Plant Physiology', 'Genetics', 'Cell Biology', 'Ecology'],
+  Zoology: ['Human Physiology', 'Reproduction', 'Evolution', 'Biotechnology'],
+};
+// PaperCard counts difficulty by the practice keys
+const CARD_DIFFICULTY: Record<DifficultyMode, string> = { easy: 'beginner', medium: 'intermediate', hard: 'advanced' };
+
 function placeholderPaper(number: number, difficulty: DifficultyMode, examType: ExamType): PaperSet {
   const subjects = PLACEHOLDER_SUBJECTS[examType];
-  const questions: PaperQuestion[] = Array.from({ length: PLACEHOLDER_QUESTION_COUNT[examType] }, (_, i) => ({
-    id: `placeholder-${number}-${i}`,
-    topic: 'Mock paper',
-    subject: subjects[i % subjects.length]!,
-    questionText: PLACEHOLDER_TEXTS[(number + i) % PLACEHOLDER_TEXTS.length]!,
-    questionType: 'mcq_single',
-    options: [],
-    difficulty,
-    diagram: null,
-  }));
+  const questions: PaperQuestion[] = Array.from({ length: PLACEHOLDER_QUESTION_COUNT[examType] }, (_, i) => {
+    const subject = subjects[i % subjects.length]!;
+    const topics = PLACEHOLDER_TOPICS[subject]!;
+    return {
+      id: `placeholder-${number}-${i}`,
+      topic: topics[(number + i) % topics.length]!,
+      subject,
+      questionText: PLACEHOLDER_TEXTS[(number + i) % PLACEHOLDER_TEXTS.length]!,
+      questionType: 'mcq_single',
+      options: [],
+      difficulty: CARD_DIFFICULTY[difficulty],
+      diagram: null,
+    };
+  });
   return { number, questionIds: [], questions };
 }
 
