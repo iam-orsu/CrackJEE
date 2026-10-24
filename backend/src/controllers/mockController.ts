@@ -5,7 +5,9 @@ import { JEE_TOPICS_BY_CLASS, NEET_TOPICS_BY_CLASS, NEET_SUBJECTS } from '../typ
 import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
 import { generateFreshMockBatch, distributeTopicSlots, fisherYatesShuffle } from '../services/questionService';
-import { findStoredPaper, saveStoredPaper, pastQuestionIds } from '../services/mockPaperService';
+import { findStoredPaper, saveStoredPaper } from '../services/mockPaperService';
+import { loadTopicHistory, type SubjectHistory } from '../services/mockTopicHistory';
+import { planSubjectTopics, fullTopicList, paperFitsPlan } from '../services/mockTopicPlan';
 import { topicStats, strongAndWeak, topMarksLost, negativeAnalysis, timeByType, subjectOrder, cutoffComparison } from '../services/mockInsights';
 import { cutoffsFor } from '../services/examCutoffs';
 import { loadExamMockData } from '../services/mockInsightsData';
@@ -87,7 +89,12 @@ function pickDifficulty(examType: 'Main' | 'Advanced', seed: number, difficultyM
 
 /* ── JEE question plan (kept for buildJEESlots) ─────────────────── */
 
-function buildQuestionPlan(examType: 'Main' | 'Advanced', difficultyMode: 'easy' | 'medium' | 'hard'): QuestionSlot[] {
+// topicsBySubject gives one topic per question slot for each subject, from the student's topic rotation
+function buildQuestionPlan(
+  examType: 'Main' | 'Advanced',
+  difficultyMode: 'easy' | 'medium' | 'hard',
+  topicsBySubject: Record<string, string[]>,
+): QuestionSlot[] {
   const subjects: Subject[] = ['Physics', 'Chemistry', 'Mathematics'];
   const plan: QuestionSlot[] = [];
   let globalNum = 1;
@@ -97,12 +104,8 @@ function buildQuestionPlan(examType: 'Main' | 'Advanced', difficultyMode: 'easy'
       ? [{ type: 'mcq_single', count: 20 }, { type: 'integer', count: 5 }]
       : [{ type: 'mcq_single', count: 7 }, { type: 'mcq_multi', count: 4 }, { type: 'integer', count: 6 }];
 
-  const totalPerSubject = typePlan.reduce((sum, t) => sum + t.count, 0);
-
   for (const subject of subjects) {
-    const subjectTopics = JEE_TOPICS_BY_CLASS[subject] ?? { class11: [], class12: [] };
-    const allTopics = [...subjectTopics.class11, ...subjectTopics.class12];
-    const allocatedTopics = distributeTopicSlots(allTopics, totalPerSubject);
+    const allocatedTopics = topicsBySubject[subject] ?? [];
     let topicCursor = 0;
     let subjectIndex = 0;
 
@@ -133,8 +136,12 @@ type SlotInput = {
   questionType: QuestionType;
 };
 
-function buildJEESlots(examType: 'Main' | 'Advanced', difficultyMode: 'easy' | 'medium' | 'hard'): SlotInput[] {
-  return buildQuestionPlan(examType, difficultyMode).map((slot) => ({
+function buildJEESlots(
+  examType: 'Main' | 'Advanced',
+  difficultyMode: 'easy' | 'medium' | 'hard',
+  topicsBySubject: Record<string, string[]>,
+): SlotInput[] {
+  return buildQuestionPlan(examType, difficultyMode, topicsBySubject).map((slot) => ({
     subject: slot.subject,
     topic: slot.topic,
     difficulty: slot.difficulty,
@@ -143,14 +150,10 @@ function buildJEESlots(examType: 'Main' | 'Advanced', difficultyMode: 'easy' | '
   }));
 }
 
-function buildNEETSlots(difficultyMode: 'easy' | 'medium' | 'hard'): SlotInput[] {
+function buildNEETSlots(difficultyMode: 'easy' | 'medium' | 'hard', topicsBySubject: Record<string, string[]>): SlotInput[] {
   const slots: SlotInput[] = [];
   for (const subject of NEET_SUBJECTS) {
-    const allTopics = [
-      ...NEET_TOPICS_BY_CLASS[subject]!.class11,
-      ...NEET_TOPICS_BY_CLASS[subject]!.class12,
-    ];
-    for (const topic of distributeTopicSlots(allTopics, 45)) {
+    for (const topic of topicsBySubject[subject] ?? []) {
       slots.push({
         subject,
         topic,
@@ -174,10 +177,11 @@ function expectedPerSubject(examType: 'Main' | 'Advanced' | 'NEET'): number {
 async function generateFreshPaper(
   examType: 'Main' | 'Advanced' | 'NEET',
   difficultyMode: 'easy' | 'medium' | 'hard',
+  topicsBySubject: Record<string, string[]>,
 ): Promise<MockPoolItem[]> {
   const slots = examType === 'NEET'
-    ? buildNEETSlots(difficultyMode)
-    : buildJEESlots(examType, difficultyMode);
+    ? buildNEETSlots(difficultyMode, topicsBySubject)
+    : buildJEESlots(examType, difficultyMode, topicsBySubject);
 
   let questions = await generateFreshMockBatch(slots, 4);
 
@@ -205,6 +209,7 @@ async function generateFreshPaper(
     questionId: q.id,
     subject: q.subject,
     questionType: q.questionType,
+    topic: q.topic,
   }));
 }
 
@@ -260,6 +265,30 @@ async function withStartLock<T>(userId: string, examType: string, task: () => Pr
   }
 }
 
+/**
+ * For each subject: the topics of this mock's questions, and the fit rule a stored paper must meet.
+ * Fresh topics come from the rotation; the weak topic from the last mock is included once.
+ */
+function planMockTopics(
+  examType: 'Main' | 'Advanced' | 'NEET',
+  history: Record<string, SubjectHistory>,
+): {
+  topicsBySubject: Record<string, string[]>;
+  fit: Record<string, { covered: Set<string>; weakTopic: string | null }>;
+} {
+  const subjects: string[] = examType === 'NEET' ? [...NEET_SUBJECTS] : ['Physics', 'Chemistry', 'Mathematics'];
+  const count = expectedPerSubject(examType);
+  const topicsBySubject: Record<string, string[]> = {};
+  const fit: Record<string, { covered: Set<string>; weakTopic: string | null }> = {};
+  for (const subject of subjects) {
+    const past = history[subject] ?? { covered: new Set<string>(), weakTopic: null };
+    const subjectPlan = planSubjectTopics(fullTopicList(examType, subject), past.covered, past.weakTopic, count);
+    topicsBySubject[subject] = subjectPlan.questionTopics;
+    fit[subject] = { covered: subjectPlan.covered, weakTopic: subjectPlan.weakTopic };
+  }
+  return { topicsBySubject, fit };
+}
+
 async function runMockGeneration(
   examId: string,
   userId: string,
@@ -269,8 +298,10 @@ async function runMockGeneration(
   try {
     // Prefer a stored paper this student has not mostly taken. Only when none fits is a new paper generated,
     // and it is stored so later students of this exam and difficulty can be given it.
-    const seen = await pastQuestionIds(userId, examType);
-    const reuse = () => findStoredPaper(examType, difficultyMode, seen);
+    // The student's topic rotation decides which topics this paper uses; a stored paper is reused only if it fits
+    const history = await loadTopicHistory(userId, examType);
+    const plan = planMockTopics(examType, history);
+    const reuse = () => findStoredPaper(examType, difficultyMode, (items) => paperFitsPlan(items, plan.fit));
 
     let poolItems: MockPoolItem[] | null = await reuse();
     if (!poolItems) {
@@ -282,7 +313,7 @@ async function runMockGeneration(
         produce: async () => {
           const stored = await reuse();
           if (stored) return stored;
-          const fresh = await generateFreshPaper(examType, difficultyMode);
+          const fresh = await generateFreshPaper(examType, difficultyMode, plan.topicsBySubject);
           await saveStoredPaper(examType, difficultyMode, fresh);
           return fresh;
         },
