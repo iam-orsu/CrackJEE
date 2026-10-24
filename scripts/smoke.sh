@@ -5,6 +5,8 @@ set -u
 
 BASE="${BASE_URL:-https://localhost}"
 CURL=(curl -sk -m 30)
+# Sessions are HttpOnly cookies (jee_session), so the script keeps a cookie jar like a browser would
+JAR=$(mktemp)
 FAILS=0
 PASSES=0
 
@@ -14,7 +16,7 @@ fail() { FAILS=$((FAILS + 1)); echo "  FAIL  $1"; }
 # Calls the API and stores the HTTP status in $STATUS and the body in $BODY
 call() {
   local method=$1 path=$2 token=${3:-} data=${4:-}
-  local args=(-X "$method" "$BASE$path" -H 'Content-Type: application/json' -o /tmp/smoke_body -w '%{http_code}')
+  local args=(-X "$method" "$BASE$path" -H 'Content-Type: application/json' -o /tmp/smoke_body -w '%{http_code}' -b "$JAR" -c "$JAR")
   [ -n "$token" ] && args+=(-H "Authorization: Bearer $token")
   [ -n "$data" ] && args+=(--data "$data")
   STATUS=$("${CURL[@]}" "${args[@]}")
@@ -35,25 +37,25 @@ fi
 # 2. Register a fresh student
 EMAIL="smoke-$(date +%s)-$RANDOM@example.com"
 call POST /api/auth/register "" "{\"name\":\"Smoke Test\",\"email\":\"$EMAIL\",\"password\":\"SmokeTest123!\",\"class\":\"12\",\"targetExam\":\"Main\",\"currentLevel\":\"beginner\"}"
-TOKEN=$(json_field token)
-if [ "$STATUS" = "201" ] && [ -n "$TOKEN" ]; then pass "register"; else fail "register (HTTP $STATUS)"; fi
+SIGNED_IN=""
+if [ "$STATUS" = "201" ] && grep -q "jee_session" "$JAR"; then pass "register"; SIGNED_IN=1; else fail "register (HTTP $STATUS)"; fi
 
-if [ -n "$TOKEN" ]; then
+if [ -n "$SIGNED_IN" ]; then
   # 3. Practice batch returns questions
-  call POST /api/questions/batch "$TOKEN" '{"selections":[{"subject":"Mathematics","topic":"Sets"}],"difficulty":"mixed","examType":"Main","studentClass":"12","count":3,"mode":"practice"}'
+  call POST /api/questions/batch "" '{"selections":[{"subject":"Mathematics","topic":"Sets"}],"difficulty":"mixed","examType":"Main","studentClass":"12","count":3,"mode":"practice"}'
   QID=$(json_field id)
   if [ "$STATUS" = "200" ] && [ -n "$QID" ]; then pass "practice batch returns questions"; else fail "practice batch (HTTP $STATUS)"; fi
 
   # 4. Answer submission records an attempt
   if [ -n "$QID" ]; then
-    call POST /api/answers/submit "$TOKEN" "{\"questionId\":\"$QID\",\"answer\":\"A\",\"timeSpent\":10}"
+    call POST /api/answers/submit "" "{\"questionId\":\"$QID\",\"answer\":\"A\",\"timeSpent\":10}"
     if [ "$STATUS" = "200" ]; then pass "answer submission"; else fail "answer submission (HTTP $STATUS)"; fi
   fi
 
   # 5. Analytics endpoints
-  call GET /api/user/dashboard "$TOKEN"
+  call GET /api/user/dashboard ""
   [ "$STATUS" = "200" ] && pass "dashboard" || fail "dashboard (HTTP $STATUS)"
-  call GET /api/stats/leaderboard "$TOKEN"
+  call GET /api/stats/leaderboard ""
   [ "$STATUS" = "200" ] && pass "leaderboard" || fail "leaderboard (HTTP $STATUS)"
 
   # 6. Malformed JSON is a client error, not a server error
@@ -67,7 +69,7 @@ printf '%s' "DELETE FROM \"User\" WHERE email = '$EMAIL';" \
   | docker compose --env-file .env exec -T postgres sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -q' >/dev/null 2>&1 \
   || echo "  WARN  could not remove the smoke test user $EMAIL"
 
-rm -f /tmp/smoke_body
+rm -f /tmp/smoke_body "$JAR"
 echo
 echo "$PASSES passed, $FAILS failed"
 [ "$FAILS" -eq 0 ]

@@ -220,7 +220,8 @@ export async function leaderboard(req: AuthRequest, res: Response, next: NextFun
 
     // Only this student's rows — uses the MockExam.userId index
     const myRows = await prisma.$queryRaw<MyLeaderboardRow[]>(Prisma.sql`
-      SELECT p."examType" AS "examType", p.subject AS subject, MAX(p.pct)::float8 AS mine
+      SELECT p."examType" AS "examType", p.subject AS subject,
+             FLOOR(AVG(p.pct) + 0.5)::float8 AS mine
       FROM (${scoredRowsSql(userId)}) p
       GROUP BY p."examType", p.subject
     `);
