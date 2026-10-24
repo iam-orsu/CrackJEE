@@ -174,19 +174,24 @@ function ScoreHistoryChart({
           </g>
         )}
 
-        {/* Each mock draws a segment from the previous score to its own score, coloured by that score */}
+        {/* ECG-style trace: flat at the previous level, a sharp spike up to this mock's score, then flat until the next mock */}
         {history.map((h, i) => {
           const prev = i === 0 ? 0 : history[i - 1]!.pct;
-          const x1 = xFor(i), x2 = xFor(i + 1);
+          const slotStart = xFor(i), slotEnd = xFor(i + 1);
+          const spikeX = slotStart + (slotEnd - slotStart) * 0.25;
+          const color = bandColor(h.pct);
           const dateLabel = new Date(h.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
           return (
             <g key={h.date}>
-              <line x1={x1} y1={yFor(prev)} x2={x2} y2={yFor(h.pct)} stroke={bandColor(h.pct)} strokeWidth={3} strokeLinecap="round" />
-              <circle cx={x2} cy={yFor(h.pct)} r={4.5} fill={bandColor(h.pct)} stroke="#fff" strokeWidth={1.5}>
+              <polyline
+                points={`${slotStart},${yFor(prev)} ${spikeX},${yFor(prev)} ${spikeX},${yFor(h.pct)} ${slotEnd},${yFor(h.pct)}`}
+                fill="none" stroke={color} strokeWidth={2.5} strokeLinejoin="miter" strokeLinecap="round"
+              />
+              <circle cx={spikeX} cy={yFor(h.pct)} r={3.5} fill={color} stroke="#fff" strokeWidth={1.5}>
                 <title>{`${dateLabel}: ${h.pct}%`}</title>
               </circle>
-              <text x={x2} y={yFor(h.pct) - 10} textAnchor="middle" fontSize={11} fontWeight={600} fill={bandColor(h.pct)}>{h.pct}%</text>
-              <text x={x2} y={H - 8} textAnchor="middle" className={styles.day}>{dateLabel}</text>
+              <text x={spikeX + 6} y={yFor(h.pct) - 6} fontSize={11} fontWeight={600} fill={color}>{h.pct}%</text>
+              <text x={slotEnd} y={H - 8} textAnchor="middle" className={styles.day}>{dateLabel}</text>
             </g>
           );
         })}
