@@ -3,7 +3,7 @@ import { logger } from '../lib/logger';
 import { incCounter } from '../lib/metrics';
 import { runOnce } from '../lib/distributedOnce';
 import { cacheGetJson, cacheSetJson, cacheAppendUnique, cacheIncr } from './cacheService';
-import { generateQuestion, generateQuestionBatch, generateMixedTopicBatch } from './deepseekService';
+import { generateQuestion, generateQuestionBatch, generateMixedTopicBatch, verifyQuestionBatch } from './deepseekService';
 import type { Subject, Difficulty, ExamType, StudentClass, QuestionType, GeneratedQuestion } from '../types/index';
 import type { Question } from '@prisma/client';
 
@@ -697,8 +697,15 @@ export async function generateFreshMockBatch(
           questionType: job.questionType,
           plan: job.plan,
         });
+        // Only questions whose stated answer the check confirms are kept; the top-up pass replaces the rest
+        const verdicts = await verifyQuestionBatch(results.map((r) => r.question));
+        const verified = results.filter((_, i) => verdicts[i]);
+        if (verified.length < results.length) {
+          logger.info({ dropped: results.length - verified.length }, '[mockPool] Dropped questions that failed the answer check');
+        }
+        if (verified.length === 0) continue;
         const created = await prisma.$transaction(
-          results.map(({ topic, question: q }) =>
+          verified.map(({ topic, question: q }) =>
             prisma.question.create({
               data: {
                 topic, subject: job.subject,
@@ -723,8 +730,9 @@ export async function generateFreshMockBatch(
           seenIds.add(q.id);
           allGenerated.push(q);
         }
-      } catch {
+      } catch (err) {
         // this job's slots go unfulfilled; the rest of the jobs still run
+        logger.warn({ err: err instanceof Error ? err.message : String(err), topics: job.plan.length }, '[mockPool] Question batch failed');
       }
     }
   }

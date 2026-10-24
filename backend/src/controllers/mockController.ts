@@ -220,22 +220,24 @@ async function generateFreshPaper(
   const generated: PaperQuestion[] = missingSlots.length > 0 ? await generateFreshMockBatch(missingSlots, 4) : [];
   let questions: PaperQuestion[] = [...fromBank, ...generated];
 
-  // Top-up pass: detect short subjects and generate extra slots to fill gaps
+  // Top-up: questions dropped by the answer check leave gaps. Ask for replacements for the short subjects,
+  // up to three rounds, so one bad round does not leave the paper short.
   const expected = expectedPerSubject(examType);
-  const subjectCounts = new Map<string, number>();
-  for (const q of questions) subjectCounts.set(q.subject, (subjectCounts.get(q.subject) ?? 0) + 1);
+  for (let round = 0; round < 5; round++) {
+    const subjectCounts = new Map<string, number>();
+    for (const q of questions) subjectCounts.set(q.subject, (subjectCounts.get(q.subject) ?? 0) + 1);
 
-  const topUpSlots: SlotInput[] = [];
-  for (const slot of slots) {
-    const current = subjectCounts.get(slot.subject) ?? 0;
-    if (current < expected) {
-      topUpSlots.push(slot);
-      subjectCounts.set(slot.subject, current + 1);
+    const topUpSlots: SlotInput[] = [];
+    for (const slot of slots) {
+      const current = subjectCounts.get(slot.subject) ?? 0;
+      if (current < expected) {
+        topUpSlots.push(slot);
+        subjectCounts.set(slot.subject, current + 1);
+      }
     }
-  }
+    if (topUpSlots.length === 0) break;
 
-  if (topUpSlots.length > 0) {
-    logger.info({ slots: topUpSlots.length }, '[mockPool] Top-up: generating extra slots for short subjects');
+    logger.info({ round: round + 1, slots: topUpSlots.length }, '[mockPool] Top-up: generating replacements for short subjects');
     const extras = await generateFreshMockBatch(topUpSlots, 4);
     questions = [...questions, ...extras];
   }
@@ -249,6 +251,9 @@ async function generateFreshPaper(
       throw new Error(`Paper incomplete: ${subject} has ${count} of ${neededPerSubject} questions`);
     }
   }
+
+  // Extra replacements from the top-up rounds are trimmed, so the exam has exactly the expected count
+  questions = subjectsNeeded.flatMap((subject) => questions.filter((q) => q.subject === subject).slice(0, neededPerSubject));
 
   return questions.map((q) => ({
     questionId: q.id,
@@ -383,7 +388,8 @@ async function runMockGeneration(
     }
 
     await createExamQuestionsFromPool(examId, examType, poolItems);
-  } catch {
+  } catch (err) {
+    logger.warn({ examId, err: err instanceof Error ? err.message : String(err) }, '[mockPool] Paper generation failed');
     await prisma.mockExam.update({ where: { id: examId }, data: { status: 'error' } }).catch(() => {});
   }
 }

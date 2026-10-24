@@ -615,7 +615,8 @@ export async function generateMixedTopicBatch(params: {
         model: 'deepseek-chat',
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.5,
-        max_tokens: Math.min(total * 650 + 200, 4000),
+        // Enough room for every question with its explanation; a cut-off response would lose the whole call
+        max_tokens: Math.min(total * 700 + 400, 8000),
         response_format: { type: 'json_object' },
       });
 
@@ -650,6 +651,55 @@ export async function generateMixedTopicBatch(params: {
     }
   }
   throw lastError ?? new Error('Failed to generate mixed question batch after retries');
+}
+
+/**
+ * Checks a batch of generated questions: the model solves each one independently and says whether the
+ * stated answer is right. One call per batch, so the check adds little cost. Returns one verdict per question.
+ * Questions without a clear verdict count as invalid.
+ */
+export async function verifyQuestionBatch(questions: GeneratedQuestion[]): Promise<boolean[]> {
+  if (questions.length === 0) return [];
+  const items = questions.map((q, i) => {
+    const options = q.options.length > 0 ? q.options.map((o, j) => `  ${['A', 'B', 'C', 'D'][j]}) ${o}`).join('\n') : '  (integer answer, no options)';
+    return `Question ${i + 1}: ${q.question}\n${options}\nStated answer: ${q.correct_answer}`;
+  }).join('\n\n');
+
+  const prompt = `
+<task>
+  You are checking competitive exam questions. For each question below, solve it yourself from scratch,
+  then decide whether the stated answer is correct. Mark a question valid only if you reach the same answer.
+  Mark it invalid if the question is ambiguous, has no consistent answer, or the stated answer is wrong.
+</task>
+
+<questions>
+${items}
+</questions>
+
+<format>
+  Return ONLY valid JSON, no markdown: {"verdicts": [{"index": 1, "valid": true}, ... one entry per question in order]}
+</format>`;
+
+  try {
+    const response = await callDeepSeek({
+      model: 'deepseek-chat',
+      messages: [{ role: 'user', content: prompt }],
+      temperature: 0,
+      max_tokens: Math.min(questions.length * 80 + 200, 2000),
+      response_format: { type: 'json_object' },
+    });
+    const content = response.choices[0]?.message?.content;
+    if (!content) return questions.map(() => false);
+    const parsed = JSON.parse(content) as { verdicts?: Array<{ index?: unknown; valid?: unknown }> };
+    const byIndex = new Map<number, boolean>();
+    for (const v of parsed.verdicts ?? []) {
+      if (typeof v.index === 'number') byIndex.set(v.index, v.valid === true);
+    }
+    return questions.map((_, i) => byIndex.get(i + 1) === true);
+  } catch {
+    // If the check cannot run, nothing is trusted: the batch is dropped and the top-up pass replaces it
+    return questions.map(() => false);
+  }
 }
 
 function buildMixedBatchPrompt(
