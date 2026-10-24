@@ -586,3 +586,132 @@ export async function generateQuestionBatch(
 
   throw lastError ?? new Error('Failed to generate question batch after retries');
 }
+
+/**
+ * One DeepSeek call for several topics of the same subject, difficulty and question type. Used for mock papers,
+ * where a call that covers one topic only would cost a request per topic. Each returned question is tagged with
+ * the topic it was asked for; questions the model mislabels go to a topic that still needs questions.
+ */
+export async function generateMixedTopicBatch(params: {
+  subject: Subject;
+  examType: ExamType;
+  difficulty: Difficulty;
+  questionType: QuestionType;
+  plan: Array<{ topic: string; count: number }>;
+}): Promise<Array<{ topic: string; question: GeneratedQuestion }>> {
+  const { subject, examType, difficulty, questionType, plan } = params;
+  const total = plan.reduce((sum, p) => sum + p.count, 0);
+  if (total === 0) return [];
+
+  const difficultySpec = buildDifficultySpec(difficulty, examType);
+  const LETTERS = ['A', 'B', 'C', 'D'] as const;
+  const targetLetters = Array.from({ length: total }, () => LETTERS[Math.floor(Math.random() * 4)]!);
+  const prompt = buildMixedBatchPrompt(subject, examType, questionType, plan, targetLetters, difficultySpec);
+
+  let lastError: Error | null = null;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const response = await callDeepSeek({
+        model: 'deepseek-chat',
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.5,
+        max_tokens: Math.min(total * 650 + 200, 4000),
+        response_format: { type: 'json_object' },
+      });
+
+      const content = response.choices[0]?.message?.content;
+      if (!content) throw new Error('Empty response from DeepSeek');
+
+      const rawBatch = JSON.parse(content) as { questions?: unknown[] };
+      const rawQuestions = Array.isArray(rawBatch.questions) ? rawBatch.questions : [];
+
+      // Each topic may take at most the number of questions asked for it
+      const remaining = new Map(plan.map((p) => [p.topic, p.count]));
+      const result: Array<{ topic: string; question: GeneratedQuestion }> = [];
+      for (const rawQ of rawQuestions) {
+        let question: GeneratedQuestion;
+        try {
+          question = parseRawQuestion(rawQ as Record<string, unknown>, questionType, examType);
+        } catch {
+          continue;
+        }
+        const named = typeof (rawQ as { topic?: unknown }).topic === 'string' ? (rawQ as { topic: string }).topic : '';
+        const topic = remaining.get(named) ? named : plan.find((p) => (remaining.get(p.topic) ?? 0) > 0)?.topic;
+        if (!topic) continue;
+        remaining.set(topic, (remaining.get(topic) ?? 0) - 1);
+        result.push({ topic, question });
+      }
+
+      if (result.length === 0) throw new Error('No valid questions in mixed batch response');
+      return result;
+    } catch (err) {
+      lastError = err instanceof Error ? err : new Error(String(err));
+      if (attempt < 2) await sleep(RETRY_DELAYS[attempt] ?? 1000);
+    }
+  }
+  throw lastError ?? new Error('Failed to generate mixed question batch after retries');
+}
+
+function buildMixedBatchPrompt(
+  subject: Subject,
+  examType: ExamType,
+  questionType: QuestionType,
+  plan: Array<{ topic: string; count: number }>,
+  targetLetters: string[],
+  difficultySpec: string,
+): string {
+  const qTypeName = questionType === 'mcq_single'
+    ? 'single-correct MCQ'
+    : questionType === 'mcq_multi'
+      ? 'multi-correct MCQ'
+      : 'integer-type';
+  const total = plan.reduce((sum, p) => sum + p.count, 0);
+  const topicLines = plan.map((p) => `  - "${p.topic}": exactly ${p.count} question(s)`).join('\n');
+  const letterConstraints = questionType === 'mcq_single'
+    ? '\n' + targetLetters.map((l, i) => `  - Question ${i + 1} correct answer MUST be at option ${l}`).join('\n')
+    : '';
+  const exampleObj = questionType === 'mcq_single'
+    ? `{ "topic": "<one topic name>", "question": "...", "question_type": "mcq_single", "options": ["...", "...", "...", "..."], "correct_answer": "B", "answer_explanation": "3-4 sentences.", "diagram": null }`
+    : questionType === 'mcq_multi'
+      ? `{ "topic": "<one topic name>", "question": "...", "question_type": "mcq_multi", "options": ["...", "...", "...", "..."], "correct_answers": ["A", "C"], "answer_explanation": "Option A: ... B: ... C: ... D: ...", "diagram": null }`
+      : `{ "topic": "<one topic name>", "question": "...", "question_type": "integer", "options": [], "correct_answer": "7", "answer_explanation": "Step-by-step solution.", "diagram": null }`;
+
+  return `
+<context>
+  <subject>${subject}</subject>
+  <exam_type>JEE ${examType} competitive entrance exam</exam_type>
+  <syllabus_scope>Class 11 and Class 12</syllabus_scope>
+</context>
+
+<difficulty_requirement>
+  ${difficultySpec}
+  IMPORTANT: Competitive exam questions — not school-level. Every question requires real reasoning.
+</difficulty_requirement>
+
+<task>
+  Generate exactly ${total} DISTINCT JEE ${examType} ${qTypeName} questions in ${subject}, split across these topics:
+${topicLines}
+  Each question MUST test a different concept, formula or scenario — no repetition.${letterConstraints}
+</task>
+
+<format>
+  Return ONLY valid JSON, no markdown, no extra text:
+  {
+    "questions": [
+      ${exampleObj},
+      ... (${total} total)
+    ]
+  }
+  Each question's "topic" must be exactly one of the topic names above.
+${DIAGRAM_SPEC}
+</format>
+
+<constraints>
+  - Return EXACTLY ${total} question objects in the "questions" array, with the topic counts above
+  ${questionType === 'mcq_single' ? '- Each correct_answer must match its assigned option letter' : ''}
+  ${questionType === 'mcq_multi' ? '- correct_answers: array of letters, never all 4 correct, never all 4 wrong' : ''}
+  ${questionType === 'integer' ? '- Answer MUST be a whole number (not a fraction or decimal)' : ''}
+  - Use LaTeX delimiters ($...$) for all mathematical content
+  - Do NOT use out-of-syllabus concepts
+</constraints>`;
+}

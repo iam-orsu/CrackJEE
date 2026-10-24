@@ -2,8 +2,8 @@ import { prisma } from '../lib/prisma';
 import { logger } from '../lib/logger';
 import { incCounter } from '../lib/metrics';
 import { runOnce } from '../lib/distributedOnce';
-import { cacheGetJson, cacheSetJson, cacheAppendUnique } from './cacheService';
-import { generateQuestion, generateQuestionBatch } from './deepseekService';
+import { cacheGetJson, cacheSetJson, cacheAppendUnique, cacheIncr } from './cacheService';
+import { generateQuestion, generateQuestionBatch, generateMixedTopicBatch } from './deepseekService';
 import type { Subject, Difficulty, ExamType, StudentClass, QuestionType, GeneratedQuestion } from '../types/index';
 import type { Question } from '@prisma/client';
 
@@ -611,6 +611,24 @@ export async function getQuestionBatch(
  * Groups slots by key to minimise API calls (1 DeepSeek batch = 3 questions).
  * Saves generated questions to DB + updates practice cache as a side-benefit.
  */
+// Questions per DeepSeek call for mock papers. Larger batches cost less per question; 8 stays well inside
+// the size the model produces reliably.
+const MOCK_BATCH_SIZE = 8;
+const MOCK_BUDGET_WINDOW_S = 40 * 24 * 3600;
+
+function monthlyBatchLimit(): number {
+  const configured = Number(process.env.MOCK_GEN_MONTHLY_BATCHES);
+  return Number.isFinite(configured) && configured > 0 ? configured : 500;
+}
+
+/** Counts a DeepSeek batch against this month's budget. Returns true once the month's budget is spent. */
+async function mockGenerationBudgetSpent(): Promise<boolean> {
+  const month = new Date().toISOString().slice(0, 7);
+  const used = await cacheIncr(`mockgen:batches:${month}`, MOCK_BUDGET_WINDOW_S);
+  // If the counter cannot be read (cache down), generation continues rather than blocking students
+  return used !== null && used > monthlyBatchLimit();
+}
+
 export async function generateFreshMockBatch(
   slots: Array<{
     subject: Subject;
@@ -621,79 +639,97 @@ export async function generateFreshMockBatch(
   }>,
   concurrency = 4,
 ): Promise<Question[]> {
-  // Group by unique key so the same topic+diff only calls DeepSeek once
-  const groups = new Map<string, typeof slots>();
+  // Questions still needed per topic
+  const neededByTopic = new Map<string, number>();
+  // Calls are grouped by subject, difficulty, exam type and question type. One call covers several topics
+  // of that group, up to MOCK_BATCH_SIZE questions, so a paper needs far fewer DeepSeek calls.
+  const groups = new Map<string, { subject: Subject; difficulty: Difficulty; examType: ExamType; questionType: QuestionType; topics: Map<string, number> }>();
   for (const slot of slots) {
-    const k = `${slot.subject}|${slot.topic}|${slot.difficulty}|${slot.examType}|${slot.questionType}`;
-    if (!groups.has(k)) groups.set(k, []);
-    groups.get(k)!.push(slot);
+    const key = `${slot.subject}|${slot.difficulty}|${slot.examType}|${slot.questionType}`;
+    if (!groups.has(key)) {
+      groups.set(key, { subject: slot.subject, difficulty: slot.difficulty, examType: slot.examType, questionType: slot.questionType, topics: new Map() });
+    }
+    const group = groups.get(key)!;
+    group.topics.set(slot.topic, (group.topics.get(slot.topic) ?? 0) + 1);
+    neededByTopic.set(slot.topic, (neededByTopic.get(slot.topic) ?? 0) + 1);
+  }
+
+  // Split every group into jobs of at most MOCK_BATCH_SIZE questions
+  const jobs: Array<{ subject: Subject; difficulty: Difficulty; examType: ExamType; questionType: QuestionType; plan: Array<{ topic: string; count: number }> }> = [];
+  for (const group of groups.values()) {
+    let plan: Array<{ topic: string; count: number }> = [];
+    let size = 0;
+    const flush = () => {
+      if (plan.length > 0) jobs.push({ ...group, plan });
+      plan = [];
+      size = 0;
+    };
+    for (const [topic, count] of group.topics) {
+      let left = count;
+      while (left > 0) {
+        const take = Math.min(left, MOCK_BATCH_SIZE - size);
+        const last = plan[plan.length - 1];
+        if (last && last.topic === topic) last.count += take;
+        else plan.push({ topic, count: take });
+        size += take;
+        left -= take;
+        if (size === MOCK_BATCH_SIZE) flush();
+      }
+    }
+    flush();
   }
 
   const allGenerated: Question[] = [];
   const seenIds = new Set<string>();
-  const groupEntries = [...groups.entries()];
   let cursor = 0;
 
   async function worker(): Promise<void> {
-    while (cursor < groupEntries.length) {
-      const idx = cursor++;
-      const [, groupSlots] = groupEntries[idx]!;
-      const { subject, topic, difficulty, examType, questionType } = groupSlots[0]!;
-      const needed = groupSlots.length;
-
-      const generated: Question[] = [];
-      // One DeepSeek batch call per ceil(needed / BATCH_SIZE) iterations. generateQuestionBatch already
-      // retries 3 times, so each batch gets exactly one attempt here (no nested retry multiplying calls).
-      for (let b = 0; b < Math.ceil(needed / BATCH_SIZE); b++) {
-        try {
-          const batch = await generateQuestionBatch(
-            BATCH_SIZE, subject, topic, difficulty, examType, 'Dropper', questionType,
-          ).catch(async () => {
-            const s = await generateQuestion(subject, topic, difficulty, examType, 'Dropper', questionType);
-            return [s];
-          });
-
-          const kept = prepareForStorage(batch);
-          if (kept.length === 0) throw new Error('DeepSeek returned no usable questions');
-
-          const created = await prisma.$transaction(
-            kept.map(({ question: q, validatedAt }) =>
-              prisma.question.create({
-                data: {
-                  topic, subject,
-                  questionText: q.question,
-                  options: q.options,
-                  answer: q.correct_answer,
-                  explanation: q.answer_explanation,
-                  diagram: q.diagram ? JSON.parse(JSON.stringify(q.diagram)) : undefined,
-                  difficulty, examType, questionType,
-                  validatedAt,
-                  // Mock questions stay out of practice and the bank (see getPracticeQuestion, getNextQuestion)
-                  mockOnly: true,
-                },
-              }),
-            ),
-          );
-          generated.push(...created);
-        } catch {
-          // this batch's slots go unfulfilled; the rest of the group still runs
-        }
-      }
-
-      // Only add up to `needed` questions to the pool
-      let added = 0;
-      for (const q of generated) {
-        if (added >= needed) break;
-        if (!seenIds.has(q.id)) {
+    while (cursor < jobs.length) {
+      const job = jobs[cursor++]!;
+      // Once the month's budget is spent, stop calling DeepSeek. The paper is then refused, not padded.
+      if (await mockGenerationBudgetSpent()) return;
+      try {
+        // generateMixedTopicBatch retries 3 times itself, so one attempt per job here
+        const results = await generateMixedTopicBatch({
+          subject: job.subject,
+          examType: job.examType,
+          difficulty: job.difficulty,
+          questionType: job.questionType,
+          plan: job.plan,
+        });
+        const created = await prisma.$transaction(
+          results.map(({ topic, question: q }) =>
+            prisma.question.create({
+              data: {
+                topic, subject: job.subject,
+                questionText: q.question,
+                options: q.options,
+                answer: q.correct_answer,
+                explanation: q.answer_explanation,
+                diagram: q.diagram ? JSON.parse(JSON.stringify(q.diagram)) : undefined,
+                difficulty: job.difficulty, examType: job.examType, questionType: job.questionType,
+                validatedAt: new Date(),
+                // Mock questions stay out of practice and the bank (see getPracticeQuestion, getNextQuestion)
+                mockOnly: true,
+              },
+            }),
+          ),
+        );
+        // Keep only what each topic still needs, so a paper is never padded with extra questions
+        for (const q of created) {
+          const left = neededByTopic.get(q.topic) ?? 0;
+          if (left <= 0 || seenIds.has(q.id)) continue;
+          neededByTopic.set(q.topic, left - 1);
           seenIds.add(q.id);
           allGenerated.push(q);
-          added++;
         }
+      } catch {
+        // this job's slots go unfulfilled; the rest of the jobs still run
       }
     }
   }
 
-  const workerCount = Math.min(concurrency, Math.max(1, groups.size));
+  const workerCount = Math.min(concurrency, Math.max(1, jobs.length));
   await Promise.all(Array.from({ length: workerCount }, () => worker()));
   return allGenerated;
 }

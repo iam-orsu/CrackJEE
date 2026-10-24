@@ -68,3 +68,12 @@ export async function loadTopicHistory(
 
   return result;
 }
+
+/** Question ids this student has already had in mocks of this exam type, so a paper never repeats one */
+export async function loadSeenQuestionIds(userId: string, examType: 'Main' | 'Advanced' | 'NEET'): Promise<Set<string>> {
+  const rows = await prisma.mockExamQuestion.findMany({
+    where: { exam: { userId, examType, status: { in: ['submitted', 'in_progress', 'ready'] } } },
+    select: { questionId: true },
+  });
+  return new Set(rows.map((r) => r.questionId));
+}
