@@ -40,6 +40,8 @@ export default function MockExamPage() {
 
   const [exam, setExam] = useState<MockExam | null>(null);
   const [pageStatus, setPageStatus] = useState<'loading' | 'polling' | 'exam' | 'submitting' | 'error'>('loading');
+  // Set while the paper is generating, so the wait message names only this exam's time
+  const [pendingExamType, setPendingExamType] = useState<string | null>(null);
   const [loadMsg, setLoadMsg] = useState('Loading exam…');
 
   // Question state
@@ -81,7 +83,7 @@ export default function MockExamPage() {
     try {
       const data = await api.mock.get(examId);
       if (data.status === 'error') { setPageStatus('error'); setLoadMsg('Exam generation failed. Please try again.'); return; }
-      if (data.status === 'generating') { setPageStatus('polling'); pollForReady(); return; }
+      if (data.status === 'generating') { setPendingExamType(data.examType); setPageStatus('polling'); pollForReady(); return; }
       // A finished exam belongs on its result page; the exam screen would show a timer and answers that can't be saved
       if (data.status === 'submitted') { router.replace(`/mock/${examId}/result`); return; }
       await initializeExam(data);
@@ -289,7 +291,9 @@ export default function MockExamPage() {
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#fff' }}>
         <OrbitalLoader
           message={loadMsg}
-          submessage={pageStatus === 'polling' ? 'NEET first load takes 3–4 minutes · JEE takes ~60–90 seconds' : undefined}
+          submessage={pageStatus === 'polling' && pendingExamType
+            ? (pendingExamType === 'NEET' ? 'NEET first load takes 3–4 minutes' : 'JEE takes about 60–90 seconds')
+            : undefined}
         />
       </div>
     );
