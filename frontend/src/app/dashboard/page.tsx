@@ -179,18 +179,12 @@ export default function DashboardPage() {
   const weakSubjects = Object.keys(weakBySubject).sort();
   const hasMockWeakAreas = weakSubjects.length > 0;
 
-  // Lagging topics for a subject card: mock exam weak topics first, practice topic progress when there are none
-  function laggingTopics(group: string): { source: 'mock' | 'practice'; rows: LaggingRow[] } {
-    const mock = mockWeakTopics
+  // Lagging topics for a subject card, from mock exams only
+  function laggingTopics(group: string): LaggingRow[] {
+    return mockWeakTopics
       .filter((t) => groupOf(t.subject) === group)
       .map((t) => ({ key: `${t.subject}|${t.topic}`, topic: t.topic, pct: t.successRate, detail: `${t.correct}/${t.attempts} correct` }))
       .sort((a, b) => a.pct - b.pct);
-    if (mock.length > 0) return { source: 'mock', rows: mock };
-    const practice = (data?.weakAreas ?? [])
-      .filter((w) => groupOf(w.subject) === group)
-      .map((w) => ({ key: w.id, topic: w.topicName, pct: Math.round(w.successRate * 100), detail: plural(w.attempts, 'attempt') }))
-      .sort((a, b) => a.pct - b.pct);
-    return { source: 'practice', rows: practice };
   }
 
   // Leaderboard: pick exam type relevant to user
@@ -280,9 +274,9 @@ export default function DashboardPage() {
               </div>
               <div className={styles.stat}>
                 <p className={styles.statLabel}>Weak areas</p>
-                <p className={styles.statValue}>{loading ? '–' : mockWeakTopics.length > 0 ? mockWeakTopics.length : (data?.weakAreas.length ?? 0)}</p>
+                <p className={styles.statValue}>{loading ? '–' : mockWeakTopics.length}</p>
                 <p className={styles.statSub}>
-                  {loading ? ' ' : (mockWeakTopics.length > 0 || (data?.weakAreas.length ?? 0) > 0) ? 'Topics under 60%' : 'None flagged'}
+                  {loading ? ' ' : mockWeakTopics.length > 0 ? 'Topics under 60%' : 'None flagged'}
                 </p>
               </div>
             </section>
@@ -424,16 +418,16 @@ export default function DashboardPage() {
                           const lagging = laggingTopics(subject);
                           return (
                             <div className={styles.subjCardBody}>
-                              {lagging.rows.length === 0 ? (
+                              {lagging.length === 0 ? (
                                 <p className={styles.masteryNote} style={{ paddingTop: 12 }}>
-                                  No lagging topics yet. Topics under 60% will show here.
+                                  No lagging topics yet. Topics under 60% in your mock exams will show here.
                                 </p>
                               ) : (
                                 <>
                                   <p className={styles.masteryNote} style={{ paddingTop: 12 }}>
-                                    Lagging topics · {lagging.source === 'mock' ? 'from mock exams' : 'from practice'}
+                                    Lagging topics · from mock exams
                                   </p>
-                                  {lagging.rows.map((r) => (
+                                  {lagging.map((r) => (
                                     <div key={r.key} className={styles.subjTopicRow}>
                                       <div>
                                         <p className={styles.subjTopicName}>{r.topic}</p>
@@ -469,7 +463,6 @@ export default function DashboardPage() {
               hasMockWeakAreas={hasMockWeakAreas}
               weakSubjects={weakSubjects}
               weakBySubject={weakBySubject}
-              weakAreas={data?.weakAreas ?? []}
               expandedSubject={expandedSubject}
               onToggleSubject={setExpandedSubject}
               buildPracticeUrl={buildPracticeUrl}
