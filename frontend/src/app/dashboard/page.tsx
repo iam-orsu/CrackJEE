@@ -13,7 +13,6 @@ import { plural } from './helpers';
 import { FocusAreas } from './FocusAreas';
 
 const DAY_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const COLOR_YOU = '#2c3e50';
 const COLOR_PLATFORM = '#94a3b8';
 const COLOR_TOP = '#16a34a';
 
@@ -134,10 +133,12 @@ function ScoreHistoryChart({
   const plotW = W - PL - PR;
   const plotH = H - PT - PB;
   const n = history.length;
-  const xFor = (i: number) => (n <= 1 ? PL + plotW / 2 : PL + (plotW * i) / (n - 1));
+  // Index 0 is the 0% baseline; mock i (1-based) sits at index i, so the first mock rises from zero
+  const xFor = (i: number) => PL + (plotW * i) / n;
   const yFor = (v: number) => PT + plotH - (v / 100) * plotH;
   const ticks = [0, 25, 50, 75, 100];
-  const line = history.map((h, i) => `${xFor(i)},${yFor(h.pct)}`).join(' ');
+  // Green at the 60% target and above, red below it
+  const bandColor = (pct: number) => (pct >= 60 ? COLOR_TOP : '#dc2626');
 
   // Keep the two reference labels apart when the lines sit close together
   const LABEL_GAP = 16;
@@ -173,18 +174,22 @@ function ScoreHistoryChart({
           </g>
         )}
 
-        {n > 1 && <polyline points={line} fill="none" stroke={COLOR_YOU} strokeWidth={2} strokeLinejoin="round" />}
-        {history.map((h, i) => (
-          <g key={h.date}>
-            <circle cx={xFor(i)} cy={yFor(h.pct)} r={4.5} fill={COLOR_YOU} stroke="#fff" strokeWidth={1.5}>
-              <title>{`${new Date(h.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}: ${h.pct}%`}</title>
-            </circle>
-            <text x={xFor(i)} y={yFor(h.pct) - 10} textAnchor="middle" fontSize={11} fontWeight={600} fill={COLOR_YOU}>{h.pct}%</text>
-            <text x={xFor(i)} y={H - 8} textAnchor="middle" className={styles.day}>
-              {new Date(h.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}
-            </text>
-          </g>
-        ))}
+        {/* Each mock draws a segment from the previous score to its own score, coloured by that score */}
+        {history.map((h, i) => {
+          const prev = i === 0 ? 0 : history[i - 1]!.pct;
+          const x1 = xFor(i), x2 = xFor(i + 1);
+          const dateLabel = new Date(h.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+          return (
+            <g key={h.date}>
+              <line x1={x1} y1={yFor(prev)} x2={x2} y2={yFor(h.pct)} stroke={bandColor(h.pct)} strokeWidth={3} strokeLinecap="round" />
+              <circle cx={x2} cy={yFor(h.pct)} r={4.5} fill={bandColor(h.pct)} stroke="#fff" strokeWidth={1.5}>
+                <title>{`${dateLabel}: ${h.pct}%`}</title>
+              </circle>
+              <text x={x2} y={yFor(h.pct) - 10} textAnchor="middle" fontSize={11} fontWeight={600} fill={bandColor(h.pct)}>{h.pct}%</text>
+              <text x={x2} y={H - 8} textAnchor="middle" className={styles.day}>{dateLabel}</text>
+            </g>
+          );
+        })}
       </svg>
     </div>
   );
@@ -392,10 +397,11 @@ export default function DashboardPage() {
                 <div className={styles.panelHead}>
                   <div>
                     <h2 className={styles.panelTitle}>Mock score history</h2>
-                    <p className={styles.panelSub}>Your last {history.length || 10} mocks against the platform</p>
+                    <p className={styles.panelSub}>Your last {history.length} {history.length === 1 ? 'mock' : 'mocks'} against the platform</p>
                   </div>
                   <div className={styles.legend}>
-                    <span><span className={styles.legendDot} style={{ background: COLOR_YOU }} />You</span>
+                    <span><span className={styles.legendDot} style={{ background: COLOR_TOP }} />60% and above</span>
+                    <span><span className={styles.legendDot} style={{ background: '#dc2626' }} />Below 60%</span>
                     <span><span className={styles.legendDot} style={{ background: COLOR_PLATFORM }} />Platform avg</span>
                     <span><span className={styles.legendDot} style={{ background: COLOR_TOP }} />Top scorer avg</span>
                   </div>
