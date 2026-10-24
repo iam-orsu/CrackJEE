@@ -70,7 +70,7 @@ async function mockHistory(userId: string): Promise<Array<{ date: string; pct: n
 
 // Overall mock averages: mine, the platform average, and the highest student average. Platform figures are cached.
 const OVERALL_CACHE_KEY = 'overall:global';
-async function overallMockStats(userId: string): Promise<{ mine: number | null; platformAvg: number | null; topAvg: number | null }> {
+async function overallMockStats(userId: string): Promise<{ mine: number | null; platformAvg: number | null; topAvg: number | null; examType: string | null }> {
   let globalStats = await cacheGetJson<{ platformAvg: number | null; topAvg: number | null }>(OVERALL_CACHE_KEY);
   if (!globalStats) {
     const rows = await prisma.$queryRaw<Array<{ avg: number | null; top: number | null }>>(Prisma.sql`
@@ -91,7 +91,18 @@ async function overallMockStats(userId: string): Promise<{ mine: number | null; 
     FROM "MockExamResult" r JOIN "MockExam" e ON e.id = r."examId"
     WHERE e.status = 'submitted' AND r."maxScore" > 0 AND e."userId" = ${userId}
   `);
-  return { mine: mineRows[0]?.mine ?? null, platformAvg: globalStats.platformAvg, topAvg: globalStats.topAvg };
+  // Subject cards follow the exam the student actually sits, which may differ from their profile's target
+  const latest = await prisma.mockExam.findFirst({
+    where: { userId, status: 'submitted' },
+    orderBy: { submittedAt: 'desc' },
+    select: { examType: true },
+  });
+  return {
+    mine: mineRows[0]?.mine ?? null,
+    platformAvg: globalStats.platformAvg,
+    topAvg: globalStats.topAvg,
+    examType: latest?.examType ?? null,
+  };
 }
 
 export async function dashboard(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {

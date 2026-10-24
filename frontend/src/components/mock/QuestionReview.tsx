@@ -2,7 +2,7 @@ import { MathText } from '@/lib/math';
 import { AnimatedTabs } from '@/components/ui/AnimatedTabs';
 import { Badge, subjectVariant } from '@/components/ui/Badge';
 import type { MockExamQuestion, MockResultBreakdown } from '@/types';
-import { fmtQTime, toPlainPreview } from './resultHelpers';
+import { fmtQTime } from './resultHelpers';
 
 export type FilterStatus = 'all' | 'correct' | 'incorrect' | 'unattempted';
 
@@ -106,8 +106,8 @@ export function QuestionReview({ weakPracticeUrl, isNEET, allQs, filteredQs, bre
               <span style={{ fontSize: 12, color: '#64748b', flexShrink: 0 }}>Q{q.questionNumber}</span>
               <Badge variant={subjectVariant(q.subject)}>{q.subject}</Badge>
               <span style={{ fontSize: 11, color: '#94a3b8' }}>{q.topic}</span>
-              <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: 13, color: '#374151' }}>
-                {toPlainPreview(q.questionText ?? '')}
+              <span style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: 13, color: '#374151' }}>
+                <MathText text={q.questionText ?? ''} />
               </span>
               {(bd?.timeSpentSeconds ?? 0) > 0 && (
                 <span style={{ fontSize: 11, color: '#94a3b8', flexShrink: 0, whiteSpace: 'nowrap' }}>
