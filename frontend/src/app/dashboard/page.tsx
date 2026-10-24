@@ -9,11 +9,17 @@ import { isAuthenticated, getUser } from '@/lib/auth';
 import type { DashboardData, WeeklyPoint, MockWeakTopic, LeaderboardData } from '@/types';
 import styles from './dashboard.module.css';
 import { SUBJECT_COLOR } from '@/lib/subjects';
-import { plural, toneClass } from './helpers';
+import { plural } from './helpers';
 import { FocusAreas } from './FocusAreas';
 
 const DAY_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
+interface LaggingRow {
+  key: string;
+  topic: string;
+  pct: number;
+  detail: string;
+}
 
 function niceMax(value: number): number {
   if (value <= 4) return 4;
@@ -21,6 +27,22 @@ function niceMax(value: number): number {
   const n = value / pow;
   const step = n <= 1 ? 1 : n <= 2 ? 2 : n <= 5 ? 5 : 10;
   return step * pow;
+}
+
+// Botany and Zoology are one "Biology" card for NEET students
+function groupOf(subject: string): string {
+  return subject === 'Botany' || subject === 'Zoology' ? 'Biology' : subject;
+}
+
+// Raw subject names that a card covers
+function rawSubjectsOf(group: string): string[] {
+  return group === 'Biology' ? ['Botany', 'Zoology', 'Biology'] : [group];
+}
+
+function toneColor(pct: number): string {
+  if (pct >= 60) return 'var(--green-600)';
+  if (pct >= 40) return 'var(--amber-600)';
+  return 'var(--red-600)';
 }
 
 /* ── Weekly chart ────────────────────────────────────────────────── */
@@ -104,6 +126,7 @@ export default function DashboardPage() {
   const [mockWeakTopics, setMockWeakTopics] = useState<MockWeakTopic[]>([]);
   const [leaderboard, setLeaderboard] = useState<LeaderboardData | null>(null);
   const [expandedSubject, setExpandedSubject] = useState<string | null>(null);
+  const [expandedMastery, setExpandedMastery] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -136,12 +159,16 @@ export default function DashboardPage() {
   const isFreshUser = !loading && totalAttempts === 0 && mockWeakTopics.length === 0;
 
   const SUBJECTS: readonly string[] = user?.targetExam === 'NEET'
-    ? ['Physics', 'Chemistry', 'Botany', 'Zoology']
+    ? ['Physics', 'Chemistry', 'Biology']
     : ['Physics', 'Chemistry', 'Mathematics'];
-  const subjectRows = SUBJECTS.map((subject) => ({
-    subject,
-    stat: data?.subjectAccuracy.find((x) => x.subject === subject),
-  }));
+
+  // One card per subject. Accuracy is averaged over attempts, so the merged Biology card weights each part correctly.
+  const subjectRows = SUBJECTS.map((subject) => {
+    const parts = (data?.subjectAccuracy ?? []).filter((x) => groupOf(x.subject) === subject);
+    const attempts = parts.reduce((sum, x) => sum + x.attempts, 0);
+    const weighted = parts.reduce((sum, x) => sum + x.accuracy * x.attempts, 0);
+    return { subject, attempts, pct: attempts ? Math.round(weighted / attempts) : 0 };
+  });
 
   // Group mock weak topics by subject
   const weakBySubject: Record<string, MockWeakTopic[]> = {};
@@ -152,6 +179,20 @@ export default function DashboardPage() {
   const weakSubjects = Object.keys(weakBySubject).sort();
   const hasMockWeakAreas = weakSubjects.length > 0;
 
+  // Lagging topics for a subject card: mock exam weak topics first, practice topic progress when there are none
+  function laggingTopics(group: string): { source: 'mock' | 'practice'; rows: LaggingRow[] } {
+    const mock = mockWeakTopics
+      .filter((t) => groupOf(t.subject) === group)
+      .map((t) => ({ key: `${t.subject}|${t.topic}`, topic: t.topic, pct: t.successRate, detail: `${t.correct}/${t.attempts} correct` }))
+      .sort((a, b) => a.pct - b.pct);
+    if (mock.length > 0) return { source: 'mock', rows: mock };
+    const practice = (data?.weakAreas ?? [])
+      .filter((w) => groupOf(w.subject) === group)
+      .map((w) => ({ key: w.id, topic: w.topicName, pct: Math.round(w.successRate * 100), detail: plural(w.attempts, 'attempt') }))
+      .sort((a, b) => a.pct - b.pct);
+    return { source: 'practice', rows: practice };
+  }
+
   // Leaderboard: pick exam type relevant to user
   const targetExam = user?.targetExam ?? 'Main';
   const lbExamType = targetExam === 'NEET' ? 'NEET' : targetExam === 'Advanced' ? 'Advanced' : 'Main';
@@ -159,12 +200,16 @@ export default function DashboardPage() {
   const lbSubjects = lbData ? Object.entries(lbData).sort(([a], [b]) => a.localeCompare(b)) : [];
 
   function buildPracticeUrl(subject: string): string {
-    const topics = weakBySubject[subject]?.map((t) => t.topic) ?? [];
-    const isNEET = ['Botany', 'Zoology'].includes(subject);
+    const isNEET = ['Botany', 'Zoology', 'Biology'].includes(subject);
     const basePath = isNEET ? '/neet/practice' : '/practice';
-    if (topics.length === 0) return basePath;
-    const subjectMap: Record<string, string[]> = { [subject]: topics };
-    const weakData = encodeURIComponent(JSON.stringify({ subjects: [subject], topics: subjectMap }));
+    const subjectMap: Record<string, string[]> = {};
+    for (const raw of rawSubjectsOf(subject)) {
+      const topics = weakBySubject[raw]?.map((t) => t.topic) ?? [];
+      if (topics.length > 0) subjectMap[raw] = topics;
+    }
+    const subjects = Object.keys(subjectMap);
+    if (subjects.length === 0) return basePath;
+    const weakData = encodeURIComponent(JSON.stringify({ subjects, topics: subjectMap }));
     return `${basePath}?mode=mock_weak&weakData=${weakData}`;
   }
 
@@ -243,33 +288,104 @@ export default function DashboardPage() {
             </section>
           )}
 
-          {/* Chart + subject mastery */}
+          {/* Left: weekly chart + platform standings · Right: subject mastery cards */}
           <div className={styles.grid}>
-            <section className={styles.panel}>
-              <div className={styles.panelHead}>
-                <div>
-                  <h2 className={styles.panelTitle}>Weekly activity</h2>
-                  <p className={styles.panelSub}>Questions attempted, last 7 days</p>
+            <div className={styles.column}>
+              <section className={styles.panel}>
+                <div className={styles.panelHead}>
+                  <div>
+                    <h2 className={styles.panelTitle}>Weekly activity</h2>
+                    <p className={styles.panelSub}>Questions attempted, last 7 days</p>
+                  </div>
+                  <div className={styles.legend}>
+                    <span><span className={styles.legendDot} style={{ background: '#2c3e50' }} />Correct</span>
+                    <span><span className={styles.legendDot} style={{ background: 'var(--gray-200)' }} />Attempted</span>
+                  </div>
                 </div>
-                <div className={styles.legend}>
-                  <span><span className={styles.legendDot} style={{ background: '#2c3e50' }} />Correct</span>
-                  <span><span className={styles.legendDot} style={{ background: 'var(--gray-200)' }} />Attempted</span>
-                </div>
-              </div>
-              {loading ? (
-                <div className={styles.skeleton} style={{ height: 230 }} />
-              ) : data?.weeklyStats?.length ? (
-                <WeeklyChart data={data.weeklyStats} />
-              ) : (
-                <p className={styles.empty}>No activity yet this week.</p>
-              )}
-            </section>
+                {loading ? (
+                  <div className={styles.skeleton} style={{ height: 230 }} />
+                ) : data?.weeklyStats?.length ? (
+                  <WeeklyChart data={data.weeklyStats} />
+                ) : (
+                  <p className={styles.empty}>No activity yet this week.</p>
+                )}
+              </section>
 
+              {/* Platform standings */}
+              {!loading && lbSubjects.length > 0 && (
+                <section className={styles.panel}>
+                  <div className={styles.panelHead}>
+                    <div>
+                      <h2 className={styles.panelTitle}>Platform standings</h2>
+                      <p className={styles.panelSub}>
+                        {lbExamType === 'NEET' ? 'NEET UG' : `JEE ${lbExamType}`} · Your average vs platform average and top score (% of max marks)
+                      </p>
+                    </div>
+                  </div>
+                  <table className={styles.lbTable}>
+                    <colgroup>
+                      <col style={{ width: '35%' }} />
+                      <col style={{ width: '20%' }} />
+                      <col style={{ width: '20%' }} />
+                      <col style={{ width: '25%' }} />
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th className={styles.lbHead} style={{ textAlign: 'left' }}>Subject</th>
+                        <th className={styles.lbHead}>My average</th>
+                        <th className={styles.lbHead}>Platform avg</th>
+                        <th className={styles.lbHead}>Platform top</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {lbSubjects.map(([subj, stat]) => {
+                        const mine = stat.mine;
+                        const mineColor = mine == null ? 'var(--gray-400)' : toneColor(mine);
+                        return (
+                          <tr key={subj} className={styles.lbRow}>
+                            <td>
+                              <span className={styles.lbSubject} style={{ color: SUBJECT_COLOR[subj] ?? 'var(--gray-800)' }}>
+                                {subj}
+                              </span>
+                            </td>
+                            <td className={styles.lbNum} style={{ color: mineColor }}>
+                              {mine != null ? `${mine}%` : '—'}
+                            </td>
+                            <td className={styles.lbNum} style={{ color: 'var(--gray-600)' }}>
+                              {stat.count > 0 ? `${stat.avg}%` : '—'}
+                            </td>
+                            <td>
+                              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
+                                <span className={styles.lbNum} style={{ color: 'var(--gray-900)' }}>
+                                  {stat.count > 0 ? `${stat.top}%` : '—'}
+                                </span>
+                                {stat.count > 0 && (
+                                  <div style={{ width: '100%', maxWidth: 80, height: 5, background: 'var(--gray-100)', borderRadius: 999, overflow: 'hidden' }}>
+                                    <div style={{ height: '100%', width: `${stat.top}%`, background: SUBJECT_COLOR[subj] ?? '#94a3b8', borderRadius: 999 }} />
+                                  </div>
+                                )}
+                              </div>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                  {lbSubjects[0]?.[1]?.count != null && (
+                    <p style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 14 }}>
+                      Based on {lbSubjects[0][1].count} mock result{lbSubjects[0][1].count === 1 ? '' : 's'} · scores are anonymous
+                    </p>
+                  )}
+                </section>
+              )}
+            </div>
+
+            {/* Subject mastery: one card per subject, click to see the topics lagging behind */}
             <section className={styles.panel}>
               <div className={styles.panelHead}>
                 <div>
                   <h2 className={styles.panelTitle}>Subject mastery</h2>
-                  <p className={styles.panelSub}>Accuracy by subject</p>
+                  <p className={styles.panelSub}>Score by subject · tap a card for lagging topics</p>
                 </div>
               </div>
               {loading ? (
@@ -278,22 +394,67 @@ export default function DashboardPage() {
                 </div>
               ) : (
                 <div className={styles.subjectList}>
-                  {subjectRows.map(({ subject, stat }) => {
-                    const attempts = stat?.attempts ?? 0;
-                    const pct = stat?.accuracy ?? 0;
+                  {subjectRows.map(({ subject, attempts, pct }) => {
+                    const isOpen = expandedMastery === subject;
                     return (
-                      <div key={subject} className={styles.subjectRow}>
-                        <div>
-                          <p className={styles.subjectName}>{subject}</p>
-                          <p className={styles.subjectMeta}>{attempts ? plural(attempts, 'question') : 'Not started'}</p>
-                        </div>
-                        <span className={styles.subjectPct}>{attempts ? `${pct}%` : '—'}</span>
-                        <div className={styles.bar}>
-                          <div
-                            className={`${styles.barFill} ${attempts ? toneClass(pct) : styles.toneNone}`}
-                            style={{ width: `${attempts ? pct : 0}%` }}
-                          />
-                        </div>
+                      <div key={subject} className={styles.subjCard}>
+                        <button
+                          className={`${styles.subjCardHead} ${isOpen ? styles.subjCardHeadOpen : ''}`}
+                          onClick={() => setExpandedMastery(isOpen ? null : subject)}
+                          style={{ width: '100%', border: 'none', textAlign: 'left' }}
+                        >
+                          <div>
+                            <p className={styles.subjCardName} style={{ color: SUBJECT_COLOR[subject] ?? 'var(--gray-900)' }}>{subject}</p>
+                            <p className={styles.subjCardMeta}>{attempts ? plural(attempts, 'question') : 'Not started'}</p>
+                          </div>
+                          <div className={styles.subjCardRight}>
+                            <span className={styles.subjCardPct} style={{ color: attempts ? toneColor(pct) : 'var(--gray-400)' }}>
+                              {attempts ? `${pct}%` : '—'}
+                            </span>
+                            <svg
+                              width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                              style={{ transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.15s', color: 'var(--gray-400)', flexShrink: 0 }}
+                            >
+                              <path d="M6 9l6 6 6-6" />
+                            </svg>
+                          </div>
+                        </button>
+
+                        {isOpen && (() => {
+                          const lagging = laggingTopics(subject);
+                          return (
+                            <div className={styles.subjCardBody}>
+                              {lagging.rows.length === 0 ? (
+                                <p className={styles.masteryNote} style={{ paddingTop: 12 }}>
+                                  No lagging topics yet. Topics under 60% will show here.
+                                </p>
+                              ) : (
+                                <>
+                                  <p className={styles.masteryNote} style={{ paddingTop: 12 }}>
+                                    Lagging topics · {lagging.source === 'mock' ? 'from mock exams' : 'from practice'}
+                                  </p>
+                                  {lagging.rows.map((r) => (
+                                    <div key={r.key} className={styles.subjTopicRow}>
+                                      <div>
+                                        <p className={styles.subjTopicName}>{r.topic}</p>
+                                        <p className={styles.subjTopicMeta}>{r.detail}</p>
+                                      </div>
+                                      <span className={styles.subjTopicPct} style={{ color: toneColor(r.pct) }}>{r.pct}%</span>
+                                      <div className={styles.subjTopicBar}>
+                                        <div className={styles.subjTopicBarFill} style={{ width: `${r.pct}%`, background: toneColor(r.pct) }} />
+                                      </div>
+                                    </div>
+                                  ))}
+                                  <div style={{ marginTop: 14 }}>
+                                    <Link href={buildPracticeUrl(subject)} className={`${styles.primaryBtn} ${styles.primaryBtnSm}`}>
+                                      Practice {subject} weak areas →
+                                    </Link>
+                                  </div>
+                                </>
+                              )}
+                            </div>
+                          );
+                        })()}
                       </div>
                     );
                   })}
@@ -313,74 +474,6 @@ export default function DashboardPage() {
               onToggleSubject={setExpandedSubject}
               buildPracticeUrl={buildPracticeUrl}
             />
-
-            {/* Leaderboard */}
-            {!loading && lbSubjects.length > 0 && (
-              <section className={styles.panel}>
-                <div className={styles.panelHead}>
-                  <div>
-                    <h2 className={styles.panelTitle}>Platform standings</h2>
-                    <p className={styles.panelSub}>
-                      {lbExamType === 'NEET' ? 'NEET UG' : `JEE ${lbExamType}`} · Your score vs platform top and average (% of max marks)
-                    </p>
-                  </div>
-                </div>
-                <table className={styles.lbTable}>
-                  <colgroup>
-                    <col style={{ width: '35%' }} />
-                    <col style={{ width: '20%' }} />
-                    <col style={{ width: '20%' }} />
-                    <col style={{ width: '25%' }} />
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th className={styles.lbHead} style={{ textAlign: 'left' }}>Subject</th>
-                      <th className={styles.lbHead}>My best</th>
-                      <th className={styles.lbHead}>Platform avg</th>
-                      <th className={styles.lbHead}>Platform top</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {lbSubjects.map(([subj, stat]) => {
-                      const mine = stat.mine;
-                      const mineColor = mine == null ? 'var(--gray-400)' : mine >= 60 ? 'var(--green-600)' : mine >= 40 ? 'var(--amber-600)' : 'var(--red-600)';
-                      return (
-                        <tr key={subj} className={styles.lbRow}>
-                          <td>
-                            <span className={styles.lbSubject} style={{ color: SUBJECT_COLOR[subj] ?? 'var(--gray-800)' }}>
-                              {subj}
-                            </span>
-                          </td>
-                          <td className={styles.lbNum} style={{ color: mineColor }}>
-                            {mine != null ? `${mine}%` : '—'}
-                          </td>
-                          <td className={styles.lbNum} style={{ color: 'var(--gray-600)' }}>
-                            {stat.count > 0 ? `${stat.avg}%` : '—'}
-                          </td>
-                          <td>
-                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
-                              <span className={styles.lbNum} style={{ color: 'var(--gray-900)' }}>
-                                {stat.count > 0 ? `${stat.top}%` : '—'}
-                              </span>
-                              {stat.count > 0 && (
-                                <div style={{ width: '100%', maxWidth: 80, height: 5, background: 'var(--gray-100)', borderRadius: 999, overflow: 'hidden' }}>
-                                  <div style={{ height: '100%', width: `${stat.top}%`, background: SUBJECT_COLOR[subj] ?? '#94a3b8', borderRadius: 999 }} />
-                                </div>
-                              )}
-                            </div>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-                {lbSubjects[0]?.[1]?.count != null && (
-                  <p style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 14 }}>
-                    Based on {lbSubjects[0][1].count} mock result{lbSubjects[0][1].count === 1 ? '' : 's'} · scores are anonymous
-                  </p>
-                )}
-              </section>
-            )}
 
             {/* Start guide for new students */}
             {!loading && !hasActivity && (
