@@ -2,7 +2,7 @@ import { prisma } from '../lib/prisma';
 import { logger } from '../lib/logger';
 import { incCounter } from '../lib/metrics';
 import { runOnce } from '../lib/distributedOnce';
-import { cacheGetJson, cacheSetJson, cacheAppendUnique, cacheIncr } from './cacheService';
+import { cacheGetJson, cacheSetJson, cacheAppendUnique } from './cacheService';
 import { generateQuestion, generateQuestionBatch, generateMixedTopicBatch, verifyQuestionBatch } from './deepseekService';
 import type { Subject, Difficulty, ExamType, StudentClass, QuestionType, GeneratedQuestion } from '../types/index';
 import type { Question } from '@prisma/client';
@@ -615,21 +615,6 @@ export async function getQuestionBatch(
 // the size the model produces reliably.
 // Five keeps a full reply inside the model's output limit; eight was cut off mid-JSON in testing.
 const MOCK_BATCH_SIZE = 5;
-const MOCK_BUDGET_WINDOW_S = 40 * 24 * 3600;
-
-function monthlyBatchLimit(): number {
-  const configured = Number(process.env.MOCK_GEN_MONTHLY_BATCHES);
-  return Number.isFinite(configured) && configured > 0 ? configured : 500;
-}
-
-/** Counts a DeepSeek batch against this month's budget. Returns true once the month's budget is spent. */
-async function mockGenerationBudgetSpent(): Promise<boolean> {
-  const month = new Date().toISOString().slice(0, 7);
-  const used = await cacheIncr(`mockgen:batches:${month}`, MOCK_BUDGET_WINDOW_S);
-  // If the counter cannot be read (cache down), generation continues rather than blocking students
-  return used !== null && used > monthlyBatchLimit();
-}
-
 export async function generateFreshMockBatch(
   slots: Array<{
     subject: Subject;
@@ -687,8 +672,6 @@ export async function generateFreshMockBatch(
   async function worker(): Promise<void> {
     while (cursor < jobs.length) {
       const job = jobs[cursor++]!;
-      // Once the month's budget is spent, stop calling DeepSeek. The paper is then refused, not padded.
-      if (await mockGenerationBudgetSpent()) return;
       try {
         // generateMixedTopicBatch retries 3 times itself, so one attempt per job here
         const results = await generateMixedTopicBatch({
