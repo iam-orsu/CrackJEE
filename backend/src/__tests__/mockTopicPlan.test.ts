@@ -3,10 +3,20 @@ import * as assert from 'node:assert/strict';
 import { planSubjectTopics, coveredAfterMock, weakestTopic, paperFitsPlan } from '../services/mockTopicPlan';
 
 test('the next mock takes the uncovered topics in syllabus order, with the weak topic asked twice first', () => {
-  // A is covered and C is the weak topic, so the fresh pool is B and D
+  // A is covered and C is the weak topic. B and D are uncovered; with fewer than 10 left, the list wraps to A.
   const plan = planSubjectTopics(['A', 'B', 'C', 'D'], new Set(['A']), 'C', 5);
-  assert.deepEqual(plan.questionTopics, ['C', 'C', 'B', 'D', 'B']);
+  assert.deepEqual(plan.questionTopics, ['C', 'C', 'B', 'D', 'A']);
   assert.equal(plan.questionTopics.length, 5);
+});
+
+test('when fewer than 10 uncovered topics remain, the mock still asks about 10 topics by wrapping around', () => {
+  const plan = planSubjectTopics(['A', 'B', 'C', 'D'], new Set(['A', 'B', 'C']), null, 6);
+  assert.deepEqual(plan.questionTopics, ['D', 'A', 'B', 'C', 'D', 'A']);
+});
+
+test('topics the mock asks are not counted as covered before it, so papers with them still fit', () => {
+  const plan = planSubjectTopics(['A', 'B', 'C', 'D'], new Set(['A', 'B', 'C']), null, 6);
+  assert.equal(plan.covered.size, 0);
 });
 
 test('with no weak topic, every slot goes to fresh topics', () => {

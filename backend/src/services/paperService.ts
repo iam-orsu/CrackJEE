@@ -45,6 +45,8 @@ function binomial(n: number, k: number): bigint {
   for (let i = 1; i <= kk; i++) {
     result = (result * BigInt(n - kk + i)) / BigInt(i);
   }
+  // Bounded: a long-running server would otherwise keep every (n, k) pair it has ever seen
+  if (binomialCache.size >= 5000) binomialCache.clear();
   binomialCache.set(key, result);
   return result;
 }

@@ -53,6 +53,11 @@ export function planSubjectTopics(
     pool = topicList.filter((t) => t !== weak);
   }
   const fresh = pool.slice(0, FRESH_TOPICS_PER_SUBJECT);
+  // Fewer uncovered topics than a mock needs: fill the rest by wrapping around to the start of the list
+  for (const t of topicList) {
+    if (fresh.length >= FRESH_TOPICS_PER_SUBJECT) break;
+    if (t !== weak && !fresh.includes(t)) fresh.push(t);
+  }
 
   const weakSlots = weak ? WEAK_TOPIC_QUESTIONS : 0;
   const questionTopics: string[] = weak ? Array(weakSlots).fill(weak) : [];
@@ -60,7 +65,14 @@ export function planSubjectTopics(
   for (let i = 0; i < freshSlots && fresh.length > 0; i++) {
     questionTopics.push(fresh[i % fresh.length]!);
   }
-  return { questionTopics, covered: rotationCovered, weakTopic: weak };
+
+  // Covered before this mock. Topics this mock asks are not counted, so papers that carry them still fit.
+  const asked = new Set([...fresh, ...(weak ? [weak] : [])]);
+  return {
+    questionTopics,
+    covered: new Set([...rotationCovered].filter((t) => !asked.has(t))),
+    weakTopic: weak,
+  };
 }
 
 /**
