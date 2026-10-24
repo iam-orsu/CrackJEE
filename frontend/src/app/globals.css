@@ -937,6 +937,9 @@ img, svg { display: block; }
 
 /* Roll-out: cards rise in one after another whenever the list changes (mock difficulty dropdown, paging) */
 .paper-rollout { display: flex; flex-direction: column; animation: paperRollout 0.45s ease-out both; }
+/* Mock placeholders stay fully blurred on hover, so students cannot read a question before they start */
+.paper-rollout .paper-sheet:hover .paper-teaser,
+.paper-rollout .paper-sheet:focus-visible .paper-teaser { filter: blur(3.5px); }
 .paper-rollout > .paper-sheet { flex: 1; }
 @keyframes paperRollout {
   from { opacity: 0; transform: translateY(16px); }
