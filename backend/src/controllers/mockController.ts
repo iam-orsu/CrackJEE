@@ -224,7 +224,8 @@ async function generateFreshPaper(
   // Top-up: questions dropped by the answer check leave gaps. Ask for replacements for the short subjects,
   // up to three rounds, so one bad round does not leave the paper short.
   const expected = expectedPerSubject(examType);
-  for (let round = 0; round < 5; round++) {
+  // Eight rounds: the answer check drops a quarter of hard questions, and five rounds left papers one short
+  for (let round = 0; round < 8; round++) {
     const subjectCounts = new Map<string, number>();
     for (const q of questions) subjectCounts.set(q.subject, (subjectCounts.get(q.subject) ?? 0) + 1);
 
