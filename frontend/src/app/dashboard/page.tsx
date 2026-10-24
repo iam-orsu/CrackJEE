@@ -425,7 +425,9 @@ export default function DashboardPage() {
                 <div className={styles.subjectList}>
                   {SUBJECTS.map((subject) => {
                     const stat = lbData?.[subject];
-                    const mine = stat?.mine ?? null;
+                    // A mock total can dip below zero with negative marking; the card shows a score floor of 0%
+                    const floored = (v: number | null | undefined) => (v == null ? null : Math.max(0, v));
+                    const mine = floored(stat?.mine);
                     const isOpen = expandedMastery === subject;
                     return (
                       <div key={subject} className={styles.subjCard}>
@@ -443,8 +445,8 @@ export default function DashboardPage() {
                             </div>
                             <div className={styles.masteryRows}>
                               <MasteryRow label="My average" pct={mine} color={mine != null ? toneColor(mine) : 'var(--gray-300)'} strong />
-                              <MasteryRow label="Platform avg" pct={stat?.avg ?? null} color={COLOR_PLATFORM} />
-                              <MasteryRow label="Top scorer avg" pct={stat?.topAvg ?? null} color={COLOR_TOP} strong />
+                              <MasteryRow label="Platform avg" pct={floored(stat?.avg)} color={COLOR_PLATFORM} />
+                              <MasteryRow label="Top scorer avg" pct={floored(stat?.topAvg)} color={COLOR_TOP} strong />
                             </div>
                           </div>
                           <svg
@@ -498,7 +500,7 @@ export default function DashboardPage() {
             <section style={{ marginTop: 16 }}>
               <div style={{ marginBottom: 12 }}>
                 <h2 className={styles.panelTitle}>Mock insights</h2>
-                <p className={styles.panelSub}>From your submitted mock exams only · {insights.examsAnalysed} mocks analysed</p>
+                <p className={styles.panelSub}>From your submitted mock exams only · {plural(insights.examsAnalysed, 'mock')} analysed</p>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16 }}>
                 <ProjectionCard projection={insights.projection} />
