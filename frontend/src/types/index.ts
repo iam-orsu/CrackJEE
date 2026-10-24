@@ -63,14 +63,6 @@ export interface DashboardData {
     correctAttempts: number;
     accuracy: number;
   };
-  weakAreas: TopicProgress[];
-  recentActivity: Array<{
-    id: string;
-    isCorrect: boolean;
-    timeSpent: number;
-    createdAt: string;
-    question: { topic: string; subject: string; difficulty: string };
-  }>;
   weeklyStats: WeeklyPoint[];
   subjectAccuracy: SubjectAccuracy[];
 }

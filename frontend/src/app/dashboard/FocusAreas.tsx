@@ -1,22 +1,21 @@
 import Link from 'next/link';
-import type { DashboardData, MockWeakTopic } from '@/types';
+import type { MockWeakTopic } from '@/types';
 import styles from './dashboard.module.css';
 import { SUBJECT_COLOR } from '@/lib/subjects';
-import { plural, toneClass } from './helpers';
+import { plural } from './helpers';
 
 interface FocusAreasProps {
   loading: boolean;
   hasMockWeakAreas: boolean;
   weakSubjects: string[];
   weakBySubject: Record<string, MockWeakTopic[]>;
-  weakAreas: DashboardData['weakAreas'];
   expandedSubject: string | null;
   onToggleSubject: (subject: string | null) => void;
   buildPracticeUrl: (subject: string) => string;
 }
 
-/* Weak areas: from mock exams when there are any, otherwise from practice topic progress */
-export function FocusAreas({ loading, hasMockWeakAreas, weakSubjects, weakBySubject, weakAreas, expandedSubject, onToggleSubject, buildPracticeUrl }: FocusAreasProps) {
+/* Focus areas: subjects with weak topics from mock exams */
+export function FocusAreas({ loading, hasMockWeakAreas, weakSubjects, weakBySubject, expandedSubject, onToggleSubject, buildPracticeUrl }: FocusAreasProps) {
   return (
     <>
     {!loading && hasMockWeakAreas && (
@@ -96,46 +95,6 @@ export function FocusAreas({ loading, hasMockWeakAreas, weakSubjects, weakBySubj
       </section>
     )}
 
-    {/* Practice weak areas from TopicProgress (if no mock data yet) */}
-    {!loading && !hasMockWeakAreas && (weakAreas.length) > 0 && (
-      <section className={styles.panel}>
-        <div className={styles.panelHead}>
-          <div>
-            <h2 className={styles.panelTitle}>Focus areas</h2>
-            <p className={styles.panelSub}>Topics where your accuracy is under 60%</p>
-          </div>
-          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-            {weakAreas.some((w) => ['Mathematics', 'Physics', 'Chemistry'].includes(w.subject)) && (
-              <Link href="/practice?mode=weak" className={`${styles.primaryBtn} ${styles.primaryBtnSm}`}>
-                Practice JEE weak areas
-              </Link>
-            )}
-            {weakAreas.some((w) => ['Botany', 'Zoology'].includes(w.subject)) && (
-              <Link href="/neet/practice?mode=weak" className={`${styles.primaryBtn} ${styles.primaryBtnSm}`}>
-                Practice NEET weak areas
-              </Link>
-            )}
-          </div>
-        </div>
-        <div className={styles.focusList}>
-          {weakAreas.slice(0, 6).map((w) => {
-            const pct = Math.round(w.successRate * 100);
-            return (
-              <div key={w.id} className={styles.focusRow}>
-                <div>
-                  <p className={styles.focusTopic}>{w.topicName}</p>
-                  <p className={styles.focusMeta}>{w.subject} · {plural(w.attempts, 'attempt')}</p>
-                </div>
-                <span className={`${styles.focusPct} ${pct >= 40 ? styles.focusPctMid : ''}`}>{pct}%</span>
-                <div className={`${styles.bar} ${styles.focusBarWrap}`}>
-                  <div className={`${styles.barFill} ${toneClass(pct)}`} style={{ width: `${pct}%` }} />
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-    )}
     </>
   );
 }

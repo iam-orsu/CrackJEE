@@ -11,70 +11,85 @@ function istDateKey(date: Date): string {
   return new Date(date.getTime() + 330 * 60 * 1000).toISOString().slice(0, 10);
 }
 
+interface MockAnswer {
+  subject: string;
+  topic: string;
+  correct: boolean;
+  at: Date;
+}
+
+// Every answered question in the student's submitted Mock Test exams, newest exams first.
+// Practice attempts are never read here: the dashboard and lagging topics are mock-only.
+async function mockAnswers(userId: string): Promise<MockAnswer[]> {
+  // Only the most recent exams: the cost of this query otherwise grows with every mock a student has taken
+  const exams = await prisma.mockExam.findMany({
+    where: { userId, status: 'submitted' },
+    orderBy: { createdAt: 'desc' },
+    take: MOCK_WEAK_AREA_EXAMS,
+    include: {
+      questions: {
+        include: { question: { select: { topic: true, subject: true } } },
+      },
+      result: { select: { scoreBreakdown: true } },
+    },
+  });
+
+  const answers: MockAnswer[] = [];
+  for (const exam of exams) {
+    if (!exam.result) continue;
+    const breakdown = exam.result.scoreBreakdown as Record<string, { awarded: number; submitted: string | null }>;
+    const at = exam.submittedAt ?? exam.createdAt;
+    for (const mq of exam.questions) {
+      const bd = breakdown[mq.id];
+      // Skipped questions say nothing about the student's ability, so they are not counted
+      if (!bd || bd.submitted === null) continue;
+      answers.push({
+        subject: mq.question.subject,
+        topic: mq.question.topic,
+        correct: bd.awarded > 0,
+        at,
+      });
+    }
+  }
+  return answers;
+}
+
 export async function dashboard(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
   try {
-    const userId = req.user!.userId;
+    const answers = await mockAnswers(req.user!.userId);
 
-    const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    const totalAttempts = answers.length;
+    const correctAttempts = answers.filter((a) => a.correct).length;
+    const accuracy = totalAttempts > 0 ? Math.round((correctAttempts / totalAttempts) * 100) : 0;
 
-    const [totalAttempts, correctAttempts, weakAreas, recentAttempts, last7Days, allProgress] = await Promise.all([
-      prisma.studentAttempt.count({ where: { userId } }),
-      prisma.studentAttempt.count({ where: { userId, isCorrect: true } }),
-      prisma.topicProgress.findMany({
-        where: { userId, markedAsWeak: true },
-        orderBy: { successRate: 'asc' },
-        take: 6,
-      }),
-      prisma.studentAttempt.findMany({
-        where: { userId },
-        include: { question: { select: { topic: true, subject: true, difficulty: true } } },
-        orderBy: { createdAt: 'desc' },
-        take: 8,
-      }),
-      prisma.studentAttempt.findMany({
-        where: { userId, createdAt: { gte: sevenDaysAgo } },
-        select: { createdAt: true, isCorrect: true },
-      }),
-      prisma.topicProgress.findMany({ where: { userId }, take: 300 }),
-    ]);
-
-    // Build weekly stats: last 7 calendar days in IST, where the students are
+    // Last 7 calendar days in IST, counting questions by the day their mock was submitted
     const weeklyStats = Array.from({ length: 7 }, (_, i) => {
       const d = new Date(Date.now() - (6 - i) * 24 * 60 * 60 * 1000);
       const dateStr = istDateKey(d);
-      const dayAttempts = last7Days.filter((a) => istDateKey(a.createdAt) === dateStr);
+      const dayAnswers = answers.filter((a) => istDateKey(a.at) === dateStr);
       return {
         date: dateStr,
-        total: dayAttempts.length,
-        correct: dayAttempts.filter((a) => a.isCorrect).length,
+        total: dayAnswers.length,
+        correct: dayAnswers.filter((a) => a.correct).length,
       };
     });
 
-    // Subject accuracy — always include all 3 subjects even with zero attempts
-    const subjectMap: Record<string, { correct: number; total: number }> = {};
-    for (const p of allProgress) {
-      if (!subjectMap[p.subject]) subjectMap[p.subject] = { correct: 0, total: 0 };
-      subjectMap[p.subject].correct += p.correctCount;
-      subjectMap[p.subject].total   += p.attempts;
-    }
-    const ALL_SUBJECTS = ['Physics', 'Mathematics', 'Chemistry', 'Botany', 'Zoology'];
-    const subjectAccuracy = ALL_SUBJECTS.map((subject) => {
-      const d = subjectMap[subject] ?? { correct: 0, total: 0 };
+    // Accuracy per subject, from mock answers only
+    const subjects = [...new Set(answers.map((a) => a.subject))];
+    const subjectAccuracy = subjects.map((subject) => {
+      const subjectAnswers = answers.filter((a) => a.subject === subject);
+      const correct = subjectAnswers.filter((a) => a.correct).length;
       return {
         subject,
-        accuracy: d.total > 0 ? Math.round((d.correct / d.total) * 100) : 0,
-        attempts: d.total,
+        accuracy: Math.round((correct / subjectAnswers.length) * 100),
+        attempts: subjectAnswers.length,
       };
     });
-
-    const accuracy = totalAttempts > 0 ? Math.round((correctAttempts / totalAttempts) * 100) : 0;
 
     res.json({
       success: true,
       data: {
         stats: { totalAttempts, correctAttempts, accuracy },
-        weakAreas,
-        recentActivity: recentAttempts,
         weeklyStats,
         subjectAccuracy,
       },
@@ -110,40 +125,15 @@ export async function overview(req: AuthRequest, res: Response, next: NextFuncti
 
 export async function mockWeakAreas(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
   try {
-    const userId = req.user!.userId;
-
-    // Only the most recent submitted exams: the dashboard shows current weak areas, and the cost of this query
-    // otherwise grows with every mock a student has ever taken (each one loads all its questions)
-    const exams = await prisma.mockExam.findMany({
-      where: { userId, status: 'submitted' },
-      orderBy: { createdAt: 'desc' },
-      take: MOCK_WEAK_AREA_EXAMS,
-      include: {
-        questions: {
-          include: { question: { select: { topic: true, subject: true } } },
-        },
-        result: { select: { scoreBreakdown: true } },
-      },
-    });
+    const answers = await mockAnswers(req.user!.userId);
 
     const topicMap = new Map<string, { subject: string; topic: string; correct: number; total: number }>();
-
-    for (const exam of exams) {
-      if (!exam.result) continue;
-      const breakdown = exam.result.scoreBreakdown as Record<string, { awarded: number; submitted: string | null }>;
-
-      for (const mq of exam.questions) {
-        const { topic, subject } = mq.question;
-        const key = `${subject}::${topic}`;
-        const bd = breakdown[mq.id];
-        // Skipped questions say nothing about the student's ability, so they are not counted as misses
-        if (!bd || bd.submitted === null) continue;
-
-        if (!topicMap.has(key)) topicMap.set(key, { subject, topic, correct: 0, total: 0 });
-        const entry = topicMap.get(key)!;
-        entry.total++;
-        if (bd.awarded > 0) entry.correct++;
-      }
+    for (const a of answers) {
+      const key = `${a.subject}::${a.topic}`;
+      if (!topicMap.has(key)) topicMap.set(key, { subject: a.subject, topic: a.topic, correct: 0, total: 0 });
+      const entry = topicMap.get(key)!;
+      entry.total++;
+      if (a.correct) entry.correct++;
     }
 
     const weak = [...topicMap.values()]
