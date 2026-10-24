@@ -127,8 +127,14 @@ export const api = {
       examType: string;
       studentClass: string;
       perSubject: number;
-      papers: number;
-    }) => request<{ papers: import('@/types').PaperSet[]; possibleSets: string }>('/questions/papers', {
+      page: number;
+    }) => request<{
+      papers: import('@/types').PaperSet[];
+      page: number;
+      pageCount: number;
+      available: number;
+      possibleSets: string;
+    }>('/questions/papers', {
       method: 'POST',
       body: JSON.stringify(body),
     }),

@@ -923,6 +923,18 @@ img, svg { display: block; }
 
 .paper-grid-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
 
+/* Paper pagination (top and bottom of the paper row) */
+.paper-pager { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; margin: 16px 0; }
+.paper-pager-num {
+  min-width: 34px; height: 34px; padding: 0 8px; border-radius: 6px;
+  border: 1px solid #e2e8f0; background: #fff; color: #334155;
+  font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.paper-pager-num:hover:not(:disabled) { color: #000; }
+.paper-pager-num:disabled { cursor: default; }
+.paper-pager-num-active { background: #1e293b; border-color: #1e293b; color: #fff; }
+.paper-pager-gap { color: #94a3b8; padding: 0 4px; }
+
 @media (prefers-reduced-motion: reduce) {
   .paper-sheet, .paper-teaser, .paper-row { transition: none; }
   .paper-sheet:hover { transform: none; }
