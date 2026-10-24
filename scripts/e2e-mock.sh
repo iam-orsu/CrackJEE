@@ -48,12 +48,14 @@ run_student() {
   EXAM_ID=$(echo "$BODY" | grep -o '"id":"[^"]*"' | head -n 1 | cut -d'"' -f4)
 
   # Paper generation can take several minutes on a new bank
-  local status=""
-  for _ in $(seq 1 100); do
+  local status="" waited=0
+  while [ "$waited" -lt 1500 ]; do
     api GET "$jar" "/api/mock/$EXAM_ID"
     status=$(echo "$BODY" | grep -o '"status":"[^"]*"' | head -n 1 | cut -d'"' -f4)
-    [ "$status" = "ready" ] || [ "$status" = "error" ] && break
+    if [ "$status" = "ready" ] || [ "$status" = "error" ]; then break; fi
+    echo "  waiting for paper $label: status $status (${waited}s so far, a new paper can take several minutes)"
     sleep 15
+    waited=$((waited + 15))
   done
   [ "$status" = "ready" ] && pass "paper ready $label" || { fail "paper not ready $label (status: $status)"; return 1; }
 
