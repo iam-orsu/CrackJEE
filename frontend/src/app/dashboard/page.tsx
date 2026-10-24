@@ -7,7 +7,7 @@ import { Sidebar } from '@/components/Sidebar';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import type { DashboardData, WeeklyPoint, MockWeakTopic, LeaderboardData, MockInsights, TopicStat } from '@/types';
-import { ProjectionCard, MonthlyBars, TopicList, NegativesCard, TimeByTypeCard, SectionOrderCard, PracticeLink } from '@/components/insights/InsightBlocks';
+import { ProjectionCard, StandingCard, CutoffCard, MonthlyBars, TopicList, NegativesCard, TimeByTypeCard, SectionOrderCard, PracticeLink } from '@/components/insights/InsightBlocks';
 import styles from './dashboard.module.css';
 import { SUBJECT_COLOR } from '@/lib/subjects';
 import { plural } from './helpers';
@@ -502,6 +502,8 @@ export default function DashboardPage() {
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16 }}>
                 <ProjectionCard projection={insights.projection} />
+                <StandingCard standing={insights.standing} />
+                <CutoffCard cutoffs={insights.cutoffs} scoreLabel="Your average" />
                 <MonthlyBars monthly={insights.monthly} />
                 <TopicList
                   title="Strong topics"

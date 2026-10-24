@@ -10,6 +10,8 @@ import {
   timeByType,
   subjectOrder,
   istMonthKey,
+  platformStanding,
+  cutoffComparison,
   type QuestionRecord,
 } from '../services/mockInsights';
 
@@ -167,4 +169,29 @@ test('subject order ranks subjects by correct answers per minute spent', () => {
   assert.equal(order[0]!.subject, 'Mathematics');
   // One correct answer in 240 seconds of Mathematics is 0.25 correct per minute
   assert.equal(order[0]!.correctPerMinute, 0.25);
+});
+
+test('platform standing: rank counts students strictly above, percentile counts ties as half', () => {
+  // Scores 10, 20, 30, 40. For 30: one student above (rank 2), two below, one tied.
+  // Percentile = (2 + 0.5) / 4 = 62.5, rounded to 63.
+  assert.deepEqual(platformStanding(30, [10, 20, 30, 40]), { percentile: 63, rank: 2, of: 4 });
+});
+
+test('platform standing: the top score is rank 1', () => {
+  assert.equal(platformStanding(99, [10, 20, 99]).rank, 1);
+});
+
+test('cutoff comparison converts marks to a percentage of maximum marks before comparing', () => {
+  // 92 out of 360 is 25.6%. A score of 30% is above it by 4.4 points.
+  const [line] = cutoffComparison(30, [{ label: 'General', marks: 92, maxMarks: 360 }]);
+  assert.equal(line!.cutoffPct, 25.6);
+  assert.equal(line!.status, 'above');
+  assert.equal(line!.gapPct, -4.4);
+});
+
+test('cutoff comparison reports how far below a cutoff a score is', () => {
+  // 213 out of 720 is 29.6%. A score of 20% needs 9.6 more points.
+  const [line] = cutoffComparison(20, [{ label: 'UR', marks: 213, maxMarks: 720 }]);
+  assert.equal(line!.status, 'below');
+  assert.equal(line!.gapPct, 9.6);
 });

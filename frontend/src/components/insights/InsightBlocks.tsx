@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
-import type { NegativeSummary, ProjectionData, SubjectOrderRow, TimeByTypeRow, TopicStat } from '@/types';
+import type { CutoffData, NegativeSummary, ProjectionData, StandingData, SubjectOrderRow, TimeByTypeRow, TopicStat } from '@/types';
 import { SUBJECT_COLOR } from '@/lib/subjects';
 
 const QUESTION_TYPE_LABELS: Record<string, string> = {
@@ -196,6 +196,74 @@ export function SectionOrderCard({ rows }: { rows: SubjectOrderRow[] }) {
           ))}
         </>
       )}
+    </InsightCard>
+  );
+}
+
+/* Your average against every student's average on this platform. Not an NTA percentile. */
+export function StandingCard({ standing }: { standing: StandingData }) {
+  return (
+    <InsightCard title="Platform standing" sub="Against other students on this platform only, not an official NTA percentile">
+      {standing.available ? (
+        <>
+          <div style={{ fontSize: 28, fontWeight: 600, color: 'var(--gray-900)', fontVariantNumeric: 'tabular-nums' }}>
+            Top {Math.max(1, 100 - standing.percentile)}%
+          </div>
+          <div style={{ fontSize: 12, color: 'var(--gray-500)', marginTop: 4 }}>
+            Rank {standing.rank} of {standing.of} students · you are ahead of {standing.percentile}% of them · your average {standing.mine}%
+          </div>
+        </>
+      ) : (
+        <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>
+          {standing.mine === null
+            ? 'Take a mock to see where you stand.'
+            : `Standing appears once ${standing.needed} students have mocks in this exam. ${standing.students} so far.`}
+        </p>
+      )}
+    </InsightCard>
+  );
+}
+
+/* Your score against each published 2026 cutoff line, with sources */
+export function CutoffCard({ cutoffs, scoreLabel }: { cutoffs: CutoffData | null; scoreLabel: string }) {
+  if (!cutoffs) {
+    return (
+      <InsightCard title="Cutoff check" sub="2026 published cutoffs">
+        <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>
+          No verified 2026 cutoff is available for this exam, so none is shown.
+        </p>
+      </InsightCard>
+    );
+  }
+  return (
+    <InsightCard title="Cutoff check" sub={`${cutoffs.name}. Compared as a percentage of maximum marks.`}>
+      {cutoffs.lines === null ? (
+        <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>Take a mock to compare with the cutoff.</p>
+      ) : (
+        cutoffs.lines.map((line) => (
+          <div key={line.label} style={{ padding: '10px 0', borderTop: '1px solid var(--gray-100)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, fontSize: 13 }}>
+              <span style={{ color: 'var(--gray-900)', fontWeight: 500 }}>{line.label}</span>
+              <span style={{ color: line.status === 'above' ? 'var(--green-600)' : 'var(--red-600)', fontWeight: 600 }}>
+                {line.status === 'above' ? 'Above' : 'Below'} · cutoff {line.cutoffPct}%
+              </span>
+            </div>
+            <div style={{ fontSize: 12, color: 'var(--gray-500)', marginTop: 2 }}>
+              {scoreLabel} {line.scorePct}%
+              {line.status === 'below' ? ` · ${line.gapPct} points to go` : ` · ${Math.abs(line.gapPct)} points above`}
+            </div>
+          </div>
+        ))
+      )}
+      <p style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 12, lineHeight: 1.5 }}>
+        Cutoffs come from published reports, not an official notice. Check the official NTA or IIT notice before relying on them.
+        {' '}
+        {cutoffs.sources.map((s) => (
+          <a key={s.url} href={s.url} target="_blank" rel="noreferrer" style={{ color: 'var(--gray-600)', textDecoration: 'underline', marginRight: 8 }}>
+            {s.label}
+          </a>
+        ))}
+      </p>
     </InsightCard>
   );
 }

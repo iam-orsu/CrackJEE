@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import type { ExamInsights } from '@/types';
-import { TopicList, NegativesCard, TimeByTypeCard, SectionOrderCard } from '@/components/insights/InsightBlocks';
+import { TopicList, NegativesCard, TimeByTypeCard, SectionOrderCard, CutoffCard } from '@/components/insights/InsightBlocks';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
 import { api } from '@/lib/api';
@@ -403,6 +403,7 @@ export default function MockResultPage() {
                 mode="marks"
                 emptyText="No marks lost in this mock."
               />
+              <CutoffCard cutoffs={examInsights.cutoffs} scoreLabel="This mock" />
               <NegativesCard negatives={examInsights.negatives} />
               <TimeByTypeCard rows={examInsights.timeByType} />
               <SectionOrderCard rows={examInsights.subjectOrder} />

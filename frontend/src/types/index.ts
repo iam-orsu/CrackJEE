@@ -209,8 +209,29 @@ export interface SubjectOrderRow {
   correctPerMinute: number;
 }
 
+export type StandingData =
+  | { available: true; mine: number; percentile: number; rank: number; of: number }
+  | { available: false; mine: number | null; students: number; needed: number };
+
+export interface CutoffRow {
+  label: string;
+  cutoffPct: number;
+  scorePct: number;
+  status: 'above' | 'below';
+  gapPct: number;
+}
+
+export interface CutoffData {
+  name: string;
+  sources: Array<{ label: string; url: string }>;
+  lines: CutoffRow[] | null;
+}
+
 export interface MockInsights {
   examsAnalysed: number;
+  examType: string | null;
+  standing: StandingData;
+  cutoffs: CutoffData | null;
   strongTopics: TopicStat[];
   weakTopics: TopicStat[];
   reviseToday: TopicStat[];
@@ -223,6 +244,7 @@ export interface MockInsights {
 }
 
 export interface ExamInsights {
+  cutoffs: CutoffData | null;
   topics: TopicStat[];
   weakTopics: TopicStat[];
   marksLostTopics: TopicStat[];
