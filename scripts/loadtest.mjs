@@ -59,7 +59,7 @@ async function createUsers(n) {
   const users = [];
   for (let i = 0; i < n; i++) {
     const email = `lt-${RUN}-${i}@example.com`;
-    const r = await call('setup:register', '/api/auth/register', {
+    const r = await call('setup:register', '/api/v1/auth/register', {
       method: 'POST',
       body: { name: `LT ${i}`, email, password: PASSWORD, class: '12', targetExam: 'Main', currentLevel: 'beginner' },
     });
@@ -70,7 +70,7 @@ async function createUsers(n) {
 
 async function vu(user, endAt) {
   // Re-login once per VU to exercise the login path (bcrypt) under load
-  const login = await call('login', '/api/auth/login', {
+  const login = await call('login', '/api/v1/auth/login', {
     method: 'POST',
     body: { email: user.email, password: PASSWORD },
   });
@@ -78,8 +78,8 @@ async function vu(user, endAt) {
   if (!cookie) return;
 
   while (Date.now() < endAt) {
-    await call('dashboard', '/api/user/dashboard', { cookie });
-    const batch = await call('practice-batch', '/api/questions/batch', {
+    await call('dashboard', '/api/v1/user/dashboard', { cookie });
+    const batch = await call('practice-batch', '/api/v1/questions/batch', {
       method: 'POST',
       cookie,
       body: {
@@ -89,13 +89,13 @@ async function vu(user, endAt) {
     });
     const ids = (batch.json?.data ?? []).map((q) => q.id).slice(0, 3);
     for (const questionId of ids) {
-      await call('answer-submit', '/api/answers/submit', {
+      await call('answer-submit', '/api/v1/answers/submit', {
         method: 'POST',
         cookie,
         body: { questionId, answer: 'A', timeSpent: 12 },
       });
     }
-    await call('bank-stats', '/api/questions/bank-stats', { cookie });
+    await call('bank-stats', '/api/v1/questions/bank-stats', { cookie });
     // A student thinks between actions; keeps the load realistic rather than a tight loop
     await new Promise((r) => setTimeout(r, 1000 + Math.random() * 2000));
   }

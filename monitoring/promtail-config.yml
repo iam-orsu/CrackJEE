@@ -1,0 +1,43 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+  - job_name: docker-containers
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: jeeneet
+          # Glob: one log file per container at /var/lib/docker/containers/<id>/<id>-json.log
+          __path__: /var/lib/docker/containers/*/*-json.log
+
+    pipeline_stages:
+      # Docker log files are newline-delimited JSON: {"log":"...\n","stream":"stdout","time":"..."}
+      - json:
+          expressions:
+            output: log
+            stream: stream
+            attrs: attrs
+      # Promote container name from Docker log metadata (available in newer Docker versions)
+      - json:
+          expressions:
+            tag: tag
+          source: attrs
+      - regex:
+          expression: '^(?P<image_name>[^/]+/)?(?P<container_name>[^:]+):?.*$'
+          source: tag
+      - labels:
+          stream:
+          container_name:
+      # Strip the trailing newline Docker appends to every log line
+      - replace:
+          expression: '(.*)\n$'
+          replace: '$1'
+      - output:
+          source: output

@@ -39,14 +39,14 @@ api() {
 # Starts a medium JEE Main mock and waits for its paper. Sets NEW_EXAM_ID. Returns 1 if the paper fails.
 start_and_wait() {
   local label=$1 jar=$2
-  api POST "$jar" /api/mock/start '{"examType":"Main","difficultyMode":"medium"}'
+  api POST "$jar" /api/v1/mock/start '{"examType":"Main","difficultyMode":"medium"}'
   [ "$STATUS" = "200" ] || { fail "start mock $label (HTTP $STATUS)"; return 1; }
   NEW_EXAM_ID=$(echo "$BODY" | grep -o '"id":"[^"]*"' | head -n 1 | cut -d'"' -f4)
 
   # Paper generation can take several minutes on a new bank
   local status="" waited=0
   while [ "$waited" -lt 1500 ]; do
-    api GET "$jar" "/api/mock/$NEW_EXAM_ID"
+    api GET "$jar" "/api/v1/mock/$NEW_EXAM_ID"
     status=$(echo "$BODY" | grep -o '"status":"[^"]*"' | head -n 1 | cut -d'"' -f4)
     if [ "$status" = "ready" ] || [ "$status" = "error" ]; then break; fi
     echo "  waiting for paper $label: status $status (${waited}s so far, a new paper can take several minutes)"
@@ -62,7 +62,7 @@ first_mock() {
   local label=$1 email=$2 jar=$3
   echo "Student $label, first mock"
 
-  api POST "$jar" /api/auth/register "{\"name\":\"E2E $label\",\"email\":\"$email\",\"password\":\"$PASSWORD\",\"class\":\"12\",\"targetExam\":\"Main\",\"currentLevel\":\"beginner\"}"
+  api POST "$jar" /api/v1/auth/register "{\"name\":\"E2E $label\",\"email\":\"$email\",\"password\":\"$PASSWORD\",\"class\":\"12\",\"targetExam\":\"Main\",\"currentLevel\":\"beginner\"}"
   [ "$STATUS" = "201" ] && pass "register $label" || { fail "register $label (HTTP $STATUS)"; return 1; }
 
   start_and_wait "$label" "$jar" || return 1
@@ -73,21 +73,21 @@ first_mock() {
   count=$(db "SELECT count(*) FROM \"MockExamQuestion\" WHERE \"examId\" = '$exam';")
   [ "$count" = "75" ] && pass "75 questions $label" || fail "question count $label is $count, expected 75"
 
-  api POST "$jar" "/api/mock/$exam/begin"
+  api POST "$jar" "/api/v1/mock/$exam/begin"
   local ids
   ids=$(db "SELECT id FROM \"MockExamQuestion\" WHERE \"examId\" = '$exam' ORDER BY \"questionNumber\" LIMIT 10;")
   for id in $ids; do
-    api PATCH "$jar" "/api/mock/$exam/answer" "{\"mockQuestionId\":\"$id\",\"answer\":\"A\"}"
+    api PATCH "$jar" "/api/v1/mock/$exam/answer" "{\"mockQuestionId\":\"$id\",\"answer\":\"A\"}"
   done
-  api POST "$jar" "/api/mock/$exam/submit" '{"questionTimes":{}}'
+  api POST "$jar" "/api/v1/mock/$exam/submit" '{"questionTimes":{}}'
   [ "$STATUS" = "200" ] && pass "submit $label" || fail "submit $label (HTTP $STATUS)"
 
-  api GET "$jar" "/api/mock/$exam/result"
+  api GET "$jar" "/api/v1/mock/$exam/result"
   echo "$BODY" | grep -q '"totalScore"' && pass "result page data $label" || fail "result data $label (HTTP $STATUS)"
 
   local first
   first=$(db "SELECT id FROM \"MockExamQuestion\" WHERE \"examId\" = '$exam' ORDER BY \"questionNumber\" LIMIT 1;")
-  api POST "$jar" "/api/mock/$exam/questions/$first/explanation"
+  api POST "$jar" "/api/v1/mock/$exam/questions/$first/explanation"
   echo "$BODY" | grep -q '"explanation"' && pass "explanation $label" || fail "explanation $label (HTTP $STATUS)"
 
   FIRST_EXAM[$label]=$exam

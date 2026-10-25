@@ -143,6 +143,52 @@ services:
     restart: unless-stopped
     logging: *default-logging
 
+  # ── Monitoring stack (opt-in via COMPOSE_PROFILES=monitoring) ────────────────
+  # Access Grafana by SSH-tunnelling to the VPS: ssh -L 3200:localhost:3200 user@vps
+  # then open http://localhost:3200 (default login: admin / admin — change on first login)
+  loki:
+    image: grafana/loki:2.9.4
+    command: -config.file=/etc/loki/config.yml
+    volumes:
+      - ./monitoring/loki-config.yml:/etc/loki/config.yml:ro
+      - loki_data:/loki
+    mem_limit: 256m
+    profiles: [monitoring]
+    restart: unless-stopped
+    logging: *default-logging
+
+  promtail:
+    image: grafana/promtail:2.9.4
+    command: -config.file=/etc/promtail/config.yml
+    volumes:
+      - ./monitoring/promtail-config.yml:/etc/promtail/config.yml:ro
+      # Read Docker container logs directly from the host filesystem (read-only)
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+    depends_on: [loki]
+    mem_limit: 128m
+    profiles: [monitoring]
+    restart: unless-stopped
+    logging: *default-logging
+
+  grafana:
+    image: grafana/grafana:10.4.2
+    # Bind only to localhost — access via SSH tunnel, never exposed publicly
+    ports:
+      - "127.0.0.1:3200:3000"
+    environment:
+      GF_PATHS_PROVISIONING: /etc/grafana/provisioning
+      GF_AUTH_ANONYMOUS_ENABLED: "false"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana-provisioning:/etc/grafana/provisioning:ro
+    depends_on: [loki]
+    mem_limit: 256m
+    profiles: [monitoring]
+    restart: unless-stopped
+    logging: *default-logging
+
 volumes:
   postgres_data:
   redis_data:
+  loki_data:
+  grafana_data:

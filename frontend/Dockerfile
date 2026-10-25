@@ -22,7 +22,7 @@ COPY vitest.config.mts ./
 COPY src/ ./src/
 COPY public/ ./public/
 
-ARG NEXT_PUBLIC_API_URL=/api
+ARG NEXT_PUBLIC_API_URL=/api/v1
 ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
 
 # Quality gates: a lint error, type error or failing unit test stops the build before anything is deployed
