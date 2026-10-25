@@ -358,11 +358,6 @@ async function runMockGeneration(
     const seen = await loadSeenQuestionIds(userId, examType);
     const plan = planMockTopics(examType, history);
     const expectedTotal = (examType === 'NEET' ? NEET_SUBJECTS.length : 3) * expectedPerSubject(examType);
-    const reuse = () => findStoredPaper(
-      examType,
-      difficultyMode,
-      (items) => items.length === expectedTotal && paperFitsPlan(items, plan.fit),
-    );
     // Students with the same plan share one generation. A different plan gets its own lock, so it never
     // waits behind a paper that could not fit it.
     const planKey = createHash('sha256')
@@ -370,7 +365,19 @@ async function runMockGeneration(
       .digest('hex')
       .slice(0, 16);
 
+    const reuse = () => findStoredPaper(
+      examType,
+      difficultyMode,
+      planKey,
+      (items) => items.length === expectedTotal && paperFitsPlan(items, plan.fit),
+    );
+
     let poolItems: MockPoolItem[] | null = await reuse();
+    if (poolItems) {
+      logger.info({ examId, examType, difficultyMode, planKey }, '[mockPool] Reused stored paper (fast path)');
+    } else {
+      logger.info({ examId, examType, difficultyMode, planKey }, '[mockPool] No stored paper found; generating fresh');
+    }
     if (!poolItems) {
       poolItems = await runOnce<MockPoolItem[]>(`mockpaper:gen:${examType}:${difficultyMode}:${planKey}`, {
         lockSeconds: 900,
@@ -380,7 +387,15 @@ async function runMockGeneration(
           const stored = await reuse();
           if (stored) return stored;
           const fresh = await generateFreshPaper(examType, difficultyMode, plan.topicsBySubject, seen);
-          await saveStoredPaper(examType, difficultyMode, fresh);
+          try {
+            await saveStoredPaper(examType, difficultyMode, fresh, planKey);
+          } catch (saveErr) {
+            // Don't let a storage failure kill the exam — log it so we can investigate
+            logger.warn(
+              { examId, err: saveErr instanceof Error ? saveErr.message : String(saveErr) },
+              '[mockPool] Paper storage failed; exam proceeds but later students will not benefit from this paper',
+            );
+          }
           return fresh;
         },
       });

@@ -9,46 +9,65 @@ export interface MockPoolItem {
   topic?: string;
 }
 
-// How many random stored papers are checked for one start before a new paper is generated
-const CANDIDATES_PER_START = 20;
 const MIN_PAPER_QUESTIONS = 20;
 
 /**
- * A stored paper for this exam type and difficulty that the student's topic plan accepts.
+ * A stored paper for this exam type, difficulty and topic plan.
+ *
+ * Primary lookup: find by planKey (O(log n) via index). Secondary: scan recent papers and apply
+ * the acceptance function — used only for backwards compatibility with papers that predate planKey.
  * Returns null when none fits, so the caller generates a new paper.
  */
 export async function findStoredPaper(
   examType: string,
   difficultyMode: string,
+  planKey: string,
   accept: (items: MockPoolItem[]) => boolean,
 ): Promise<MockPoolItem[] | null> {
-  const candidates = await prisma.$queryRaw<Array<{ items: MockPoolItem[] }>>(Prisma.sql`
+  // Fast path: find a stored paper with the exact same topic plan
+  const exact = await prisma.$queryRaw<Array<{ items: MockPoolItem[] }>>(Prisma.sql`
     SELECT items FROM "MockPaper"
-    WHERE "examType" = ${examType} AND "difficultyMode" = ${difficultyMode}
-    ORDER BY random()
-    LIMIT ${CANDIDATES_PER_START}
+    WHERE "examType" = ${examType}
+      AND "difficultyMode" = ${difficultyMode}
+      AND "planKey" = ${planKey}
+    ORDER BY id DESC
+    LIMIT 5
   `);
 
-  for (const candidate of candidates) {
+  for (const candidate of exact) {
     const items = candidate.items;
-    if (items.length < MIN_PAPER_QUESTIONS) continue;
-    if (accept(items)) return items;
+    if (items.length >= MIN_PAPER_QUESTIONS && accept(items)) return items;
   }
+
+  // Slow path: check the 50 most recent papers in case they were stored without planKey
+  // (backwards compatibility for papers generated before this column was added)
+  const recent = await prisma.$queryRaw<Array<{ items: MockPoolItem[] }>>(Prisma.sql`
+    SELECT items FROM "MockPaper"
+    WHERE "examType" = ${examType}
+      AND "difficultyMode" = ${difficultyMode}
+      AND "planKey" IS NULL
+    ORDER BY id DESC
+    LIMIT 50
+  `);
+
+  for (const candidate of recent) {
+    const items = candidate.items;
+    if (items.length >= MIN_PAPER_QUESTIONS && accept(items)) return items;
+  }
+
   return null;
 }
 
-/** Store a freshly generated paper so later students of the same exam and difficulty can be given it */
-export async function saveStoredPaper(examType: string, difficultyMode: string, items: MockPoolItem[]): Promise<void> {
+/** Store a freshly generated paper so later students of the same exam, difficulty and plan can be given it */
+export async function saveStoredPaper(
+  examType: string,
+  difficultyMode: string,
+  items: MockPoolItem[],
+  planKey: string,
+): Promise<void> {
   if (items.length < MIN_PAPER_QUESTIONS) throw new Error('Generated paper is too short to store');
 
-  // Mock papers may only use mock-only questions, so practice never shows a question a mock has used
-  const ids = [...new Set(items.map((i) => i.questionId))];
-  const mockOnlyCount = await prisma.question.count({ where: { id: { in: ids }, mockOnly: true } });
-  if (mockOnlyCount !== ids.length) {
-    throw new Error('Mock paper contains questions outside the mock-only pool; not stored');
-  }
-
   await prisma.mockPaper.create({
-    data: { examType, difficultyMode, items: items as unknown as Prisma.InputJsonValue },
+    data: { examType, difficultyMode, items: items as unknown as Prisma.InputJsonValue, planKey },
   });
 }

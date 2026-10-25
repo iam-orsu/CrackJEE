@@ -102,15 +102,18 @@ model MockExamQuestion {
 }
 
 // A generated paper that any student can be given for its exam type and difficulty.
-// items: [{ questionId, subject, questionType }] in generation order.
+// items: [{ questionId, subject, questionType, topic? }] in generation order.
 model MockPaper {
   id             String   @id @default(cuid())
   examType       String
   difficultyMode String
   items          Json
+  // SHA-256 prefix of JSON(topicsBySubject) — lets us find matching papers in O(log n) instead of scanning all
+  planKey        String?
   createdAt      DateTime @default(now())
 
   @@index([examType, difficultyMode])
+  @@index([examType, difficultyMode, planKey])
 }
 
 model MockExamResult {
