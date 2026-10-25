@@ -65,6 +65,9 @@ export default function MockExamPage() {
   const [errorMsg, setErrorMsg] = useState('');
   const submittingRef = useRef(false);
 
+  // Ref to the latest handleSubmit so timer/visibilitychange callbacks never call a stale closure
+  const handleSubmitRef = useRef<(auto?: boolean) => Promise<void>>(async () => undefined);
+
   // Latest state for handlers that run outside a render (the timer interval and auto-submit)
   const stateRef = useRef({ exam: null as MockExam | null, currentIdx: 0, draft: '' });
   stateRef.current = { exam, currentIdx, draft };
@@ -167,13 +170,34 @@ export default function MockExamPage() {
   /* ── Timer ── */
   useEffect(() => {
     if (pageStatus !== 'exam' || !startedAt) return;
-    timerRef.current = setInterval(() => {
-      const elapsed = Math.floor((Date.now() - new Date(startedAt).getTime()) / 1000);
-      const remaining = Math.max(0, (exam?.durationSeconds ?? 10800) - elapsed);
+
+    const durationSeconds = exam?.durationSeconds ?? 10800;
+
+    function checkAndAutoSubmit() {
+      const elapsed = Math.floor((Date.now() - new Date(startedAt!).getTime()) / 1000);
+      const remaining = Math.max(0, durationSeconds - elapsed);
       setTimeLeft(remaining);
-      if (remaining === 0) handleSubmit(true);
-    }, 1000);
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+      if (remaining === 0) void handleSubmitRef.current(true);
+    }
+
+    // Immediately check on mount — catches the case where a student reloads an expired exam
+    // or returns to a tab where time has already run out.
+    checkAndAutoSubmit();
+
+    timerRef.current = setInterval(checkAndAutoSubmit, 1000);
+
+    // When the laptop wakes from sleep or the student switches back to this tab, the
+    // setInterval may have been throttled/frozen. Run an immediate check so the exam
+    // auto-submits within milliseconds of the tab becoming active again.
+    const onVisibilityChange = () => {
+      if (document.visibilityState === 'visible') checkAndAutoSubmit();
+    };
+    document.addEventListener('visibilitychange', onVisibilityChange);
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+    };
   }, [pageStatus, startedAt, exam?.durationSeconds]);
 
   /* ── Navigate between questions ── */
@@ -273,6 +297,10 @@ export default function MockExamPage() {
       setPageStatus('exam');
     }
   }
+
+  // Keep handleSubmitRef pointing to the latest version every render so the timer interval
+  // and visibilitychange callback never call a stale closure.
+  handleSubmitRef.current = handleSubmit;
 
   /* ── Multi-correct toggle ── */
   function toggleMulti(letter: string) {

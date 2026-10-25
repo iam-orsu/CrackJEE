@@ -1,10 +1,12 @@
 import { timingSafeEqual, createHash } from 'crypto';
+import bcrypt from 'bcrypt';
 import type { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { z } from 'zod';
 import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
 import { setAdminCookie, clearAdminCookie } from '../middleware/adminAuth';
+import { logger } from '../lib/logger';
 
 const loginSchema = z.object({
   email: z.string().min(1).max(200),
@@ -12,28 +14,42 @@ const loginSchema = z.object({
 });
 
 // Hash both sides to a fixed-length digest so the comparison never
-// branches on string length — prevents the timing side-channel that would
-// let an attacker infer the correct password length.
-function safeEqual(a: string, b: string): boolean {
+// branches on string length — prevents a timing side-channel on the email check.
+function safeEqualStr(a: string, b: string): boolean {
   const left = createHash('sha256').update(a).digest();
   const right = createHash('sha256').update(b).digest();
   return timingSafeEqual(left, right);
 }
 
-// Credentials come from SUPERADMIN_EMAIL / SUPERADMIN_PASSWORD in .env — nothing is hard-coded
+// Credentials come from .env. Preferred: SUPERADMIN_PASSWORD_HASH (bcrypt hash).
+// Legacy: SUPERADMIN_PASSWORD (plaintext) — still works but logs a warning on every login.
+// Generate a hash: node -e "require('bcrypt').hash('yourpassword',12).then(console.log)"
 export async function adminLogin(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
     const expectedEmail = process.env.SUPERADMIN_EMAIL;
-    const expectedPassword = process.env.SUPERADMIN_PASSWORD;
-    if (!expectedEmail || !expectedPassword) {
-      throw new AppError(503, 'Super admin is not configured. Set SUPERADMIN_EMAIL and SUPERADMIN_PASSWORD in .env');
+    const passwordHash = process.env.SUPERADMIN_PASSWORD_HASH;
+    const passwordPlain = process.env.SUPERADMIN_PASSWORD;
+
+    if (!expectedEmail || (!passwordHash && !passwordPlain)) {
+      throw new AppError(503, 'Super admin is not configured. Set SUPERADMIN_EMAIL and SUPERADMIN_PASSWORD_HASH in .env');
     }
 
     const body = loginSchema.safeParse(req.body);
     if (!body.success) throw new AppError(400, 'Invalid credentials');
 
-    const emailOk = safeEqual(body.data.email.trim().toLowerCase(), expectedEmail.trim().toLowerCase());
-    const passwordOk = safeEqual(body.data.password, expectedPassword);
+    const emailOk = safeEqualStr(body.data.email.trim().toLowerCase(), expectedEmail.trim().toLowerCase());
+
+    let passwordOk: boolean;
+    if (passwordHash) {
+      passwordOk = await bcrypt.compare(body.data.password, passwordHash);
+    } else {
+      // Plaintext fallback — warn so operators know to migrate
+      logger.warn('Admin login using plaintext SUPERADMIN_PASSWORD. Set SUPERADMIN_PASSWORD_HASH instead.');
+      const left = createHash('sha256').update(body.data.password).digest();
+      const right = createHash('sha256').update(passwordPlain!).digest();
+      passwordOk = timingSafeEqual(left, right);
+    }
+
     if (!emailOk || !passwordOk) throw new AppError(401, 'Invalid credentials');
 
     const token = jwt.sign({ role: 'admin' }, process.env.JWT_SECRET!, {

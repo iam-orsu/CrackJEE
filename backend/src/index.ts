@@ -105,21 +105,43 @@ app.get('/metrics', (_req, res) => {
   res.type('text/plain').send(renderMetrics());
 });
 
+// DeepSeek reachability: fires a background refresh every 60 s. The health endpoint never awaits
+// the network call — it always returns immediately with the last known state so Docker's 5 s
+// health check timeout is never at risk.
+let _deepseekState: 'up' | 'degraded' | 'unknown' = 'unknown';
+let _deepseekLastCheck = 0;
+let _deepseekRefreshing = false;
+
+function refreshDeepSeekState(): void {
+  if (_deepseekRefreshing) return;
+  _deepseekRefreshing = true;
+  const apiKey = process.env.DEEPSEEK_API_KEY ?? '';
+  fetch('https://api.deepseek.com/models', {
+    headers: { Authorization: `Bearer ${apiKey}` },
+    signal: AbortSignal.timeout(8000),
+  })
+    .then((r) => { _deepseekState = r.ok ? 'up' : 'degraded'; })
+    .catch(() => { _deepseekState = 'degraded'; })
+    .finally(() => { _deepseekLastCheck = Date.now(); _deepseekRefreshing = false; });
+}
+
 app.get('/health', async (_req, res) => {
+  // Trigger a background refresh if the cached state is stale (> 60 s). Never await it.
+  if (Date.now() - _deepseekLastCheck > 60_000) refreshDeepSeekState();
   try {
     await prisma.$queryRaw`SELECT 1`;
-    res.json({ status: 'ok', db: 'up', ts: new Date().toISOString() });
+    res.json({ status: 'ok', db: 'up', deepseek: _deepseekState, ts: new Date().toISOString() });
   } catch {
     res.status(503).json({ status: 'error', db: 'down' });
   }
 });
 
-app.use('/api/auth',      authRoutes);
-app.use('/api/questions', questionRoutes);
-app.use('/api/answers',   answerRoutes);
-app.use('/api/mock',      mockRoutes);
-app.use('/api/admin',     adminRoutes);
-app.use('/api',           progressRoutes);
+app.use('/api/v1/auth',      authRoutes);
+app.use('/api/v1/questions', questionRoutes);
+app.use('/api/v1/answers',   answerRoutes);
+app.use('/api/v1/mock',      mockRoutes);
+app.use('/api/v1/admin',     adminRoutes);
+app.use('/api/v1',           progressRoutes);
 
 app.use(errorHandler);
 
@@ -140,12 +162,28 @@ async function start(): Promise<void> {
     logger.info(`Backend listening on :${PORT} [${process.env.NODE_ENV ?? 'development'}]`);
   });
 
+  // Also sweep periodically — a crash during generation leaves the exam stuck until the next restart.
+  // Running every 5 minutes limits the wait to 5 min instead of "until next deploy".
+  const sweepInterval = setInterval(async () => {
+    try {
+      const swept = await prisma.mockExam.updateMany({
+        where: { status: 'generating', createdAt: { lt: new Date(Date.now() - STUCK_GENERATION_MS) } },
+        data: { status: 'error' },
+      });
+      if (swept.count > 0) logger.warn({ count: swept.count }, 'Periodic sweep: marked stuck mock generations as error');
+    } catch (err) {
+      logger.error({ err }, 'Periodic sweep failed');
+    }
+  }, 5 * 60 * 1000);
+  sweepInterval.unref(); // don't hold the process open if everything else is done
+
   // On shutdown: stop accepting requests, let in-flight requests and background mock generations finish
   // (bounded by the compose stop_grace_period of 30s), then disconnect.
   let shuttingDown = false;
   async function shutdown(signal: string): Promise<void> {
     if (shuttingDown) return;
     shuttingDown = true;
+    clearInterval(sweepInterval);
     logger.info(`${signal} received - shutting down`);
     await Promise.race([
       new Promise<void>((resolve) => server.close(() => resolve())),

@@ -35,12 +35,12 @@ api() {
 # Starts a medium mock for the student and waits for it. Sets NEW_EXAM.
 mock_for() {
   local jar=$1 label=$2
-  api POST "$jar" /api/mock/start '{"examType":"Main","difficultyMode":"medium"}'
+  api POST "$jar" /api/v1/mock/start '{"examType":"Main","difficultyMode":"medium"}'
   [ "$STATUS" = "200" ] || { fail "start $label (HTTP $STATUS)"; NEW_EXAM=""; return 1; }
   NEW_EXAM=$(echo "$BODY" | grep -o '"id":"[^"]*"' | head -n 1 | cut -d'"' -f4)
   local status="" waited=0
   while [ "$waited" -lt 1500 ]; do
-    api GET "$jar" "/api/mock/$NEW_EXAM"
+    api GET "$jar" "/api/v1/mock/$NEW_EXAM"
     status=$(echo "$BODY" | grep -o '"status":"[^"]*"' | head -n 1 | cut -d'"' -f4)
     if [ "$status" = "ready" ] || [ "$status" = "error" ]; then break; fi
     sleep 15
@@ -64,18 +64,18 @@ for i in $(seq 1 "$STUDENTS"); do
   email="multi.$RUN.$i@example.com"
   jar="$WORK/jar$i"
   EMAILS+=("$email")
-  api POST "$jar" /api/auth/register "{\"name\":\"Multi $i\",\"email\":\"$email\",\"password\":\"$PASSWORD\",\"class\":\"12\",\"targetExam\":\"Main\",\"currentLevel\":\"beginner\"}"
+  api POST "$jar" /api/v1/auth/register "{\"name\":\"Multi $i\",\"email\":\"$email\",\"password\":\"$PASSWORD\",\"class\":\"12\",\"targetExam\":\"Main\",\"currentLevel\":\"beginner\"}"
   [ "$STATUS" = "201" ] || { fail "register $i (HTTP $STATUS)"; continue; }
   if mock_for "$jar" "student $i"; then
     echo "$NEW_EXAM" > "$WORK/exam1_$i"
     questions_of "$NEW_EXAM" > "$WORK/q1_$i"
     count=$(wc -l < "$WORK/q1_$i" | tr -d ' ')
     [ "$count" = "75" ] && pass "student $i: first mock has 75 questions" || fail "student $i: $count questions"
-    api POST "$jar" "/api/mock/$NEW_EXAM/begin"
+    api POST "$jar" "/api/v1/mock/$NEW_EXAM/begin"
     for id in $(db "SELECT id FROM \"MockExamQuestion\" WHERE \"examId\" = '$NEW_EXAM' ORDER BY \"questionNumber\" LIMIT 10;"); do
-      api PATCH "$jar" "/api/mock/$NEW_EXAM/answer" "{\"mockQuestionId\":\"$id\",\"answer\":\"A\"}"
+      api PATCH "$jar" "/api/v1/mock/$NEW_EXAM/answer" "{\"mockQuestionId\":\"$id\",\"answer\":\"A\"}"
     done
-    api POST "$jar" "/api/mock/$NEW_EXAM/submit" '{"questionTimes":{}}'
+    api POST "$jar" "/api/v1/mock/$NEW_EXAM/submit" '{"questionTimes":{}}'
     [ "$STATUS" = "200" ] && pass "student $i: submitted" || fail "student $i: submit (HTTP $STATUS)"
   fi
 done

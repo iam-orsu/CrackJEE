@@ -144,6 +144,7 @@ export default function MockPage() {
   const [error, setError] = useState('');
   const [history, setHistory] = useState<MockHistoryItem[]>([]);
   const [terminating, setTerminating] = useState<string | null>(null);
+  const [confirmTerminate, setConfirmTerminate] = useState<string | null>(null);
   const historyRef = useRef<HTMLDivElement | null>(null);
 
   const currentUser = getUser();
@@ -196,8 +197,12 @@ export default function MockPage() {
     }
   }
 
-  async function handleTerminate(id: string) {
-    if (!confirm('Terminate this exam session? This cannot be undone.')) return;
+  function handleTerminate(id: string) {
+    setConfirmTerminate(id);
+  }
+
+  async function confirmTerminateExam(id: string) {
+    setConfirmTerminate(null);
     setTerminating(id);
     try {
       await api.mock.cancel(id);
@@ -359,6 +364,47 @@ export default function MockPage() {
 
             <PaperPager page={page} pageCount={pageCount} disabled={starting} onPageChange={setPage} />
           </section>
+        )}
+
+        {confirmTerminate && (
+          <div style={{
+            position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.35)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 50,
+          }}>
+            <div style={{
+              background: '#fff', borderRadius: 10, padding: '28px 32px', maxWidth: 400, width: '90%',
+              border: '1px solid var(--gray-200)', boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
+            }}>
+              <div style={{ fontSize: 16, fontWeight: 600, color: 'var(--gray-900)', marginBottom: 8 }}>
+                Terminate exam?
+              </div>
+              <div style={{ fontSize: 14, color: 'var(--gray-600)', marginBottom: 24 }}>
+                This will end the session immediately. Your progress will be lost and this cannot be undone.
+              </div>
+              <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end' }}>
+                <button
+                  type="button"
+                  onClick={() => setConfirmTerminate(null)}
+                  style={{
+                    padding: '8px 18px', borderRadius: 6, border: '1px solid var(--gray-200)',
+                    background: '#fff', color: 'var(--gray-700)', fontSize: 14, cursor: 'pointer',
+                  }}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  onClick={() => confirmTerminateExam(confirmTerminate)}
+                  style={{
+                    padding: '8px 18px', borderRadius: 6, border: 'none',
+                    background: '#dc2626', color: '#fff', fontSize: 14, fontWeight: 500, cursor: 'pointer',
+                  }}
+                >
+                  Terminate
+                </button>
+              </div>
+            </div>
+          </div>
         )}
 
         {error && (

@@ -376,8 +376,65 @@ case "$ACTION" in
     fi
     ;;
 
+  test-restore)
+    # Non-destructive restore test: backs up, restores into a temp DB, checks row counts, drops the temp DB.
+    # Run this after every backup to verify the dump is valid and restorable.
+    echo "Running backup restore test..."
+    wait_postgres
+
+    STAMP=$(date -u +%Y%m%d-%H%M%S)
+    TEST_DB="jeedb_restoretest_$STAMP"
+    BACKUP_FILE="backups/restore-test-$STAMP.sql.gz"
+    mkdir -p backups
+
+    # 1. Take a fresh backup
+    echo "  1/4 Taking backup..."
+    docker compose --env-file "$ENV_FILE" exec -T postgres \
+      pg_dump --clean --if-exists -U "${POSTGRES_USER:-jeeuser}" -d "${POSTGRES_DB:-jeedb}" | gzip > "$BACKUP_FILE"
+    echo "  Backup: $BACKUP_FILE ($(du -h "$BACKUP_FILE" | cut -f1))"
+
+    # 2. Create a temporary target database
+    echo "  2/4 Creating test database $TEST_DB..."
+    docker compose --env-file "$ENV_FILE" exec -T postgres \
+      psql -U "${POSTGRES_USER:-jeeuser}" -d postgres -c "CREATE DATABASE \"$TEST_DB\";" >/dev/null
+
+    # 3. Restore into the temp database
+    echo "  3/4 Restoring into $TEST_DB..."
+    if ! gunzip -c "$BACKUP_FILE" | docker compose --env-file "$ENV_FILE" exec -T postgres \
+        psql -U "${POSTGRES_USER:-jeeuser}" -d "$TEST_DB" -v ON_ERROR_STOP=1 >/dev/null 2>&1; then
+      echo "  ERROR: Restore failed. The backup may be corrupted."
+      docker compose --env-file "$ENV_FILE" exec -T postgres \
+        psql -U "${POSTGRES_USER:-jeeuser}" -d postgres -c "DROP DATABASE IF EXISTS \"$TEST_DB\";" >/dev/null 2>&1 || true
+      rm -f "$BACKUP_FILE"
+      exit 1
+    fi
+
+    # 4. Sanity-check row counts in the restored database
+    echo "  4/4 Verifying row counts..."
+    USERS=$(docker compose --env-file "$ENV_FILE" exec -T postgres \
+      psql -U "${POSTGRES_USER:-jeeuser}" -d "$TEST_DB" -tAc 'SELECT COUNT(*) FROM "User";' 2>/dev/null | tr -d '[:space:]')
+    QUESTIONS=$(docker compose --env-file "$ENV_FILE" exec -T postgres \
+      psql -U "${POSTGRES_USER:-jeeuser}" -d "$TEST_DB" -tAc 'SELECT COUNT(*) FROM "Question";' 2>/dev/null | tr -d '[:space:]')
+
+    # Drop the temp database and remove the test backup
+    docker compose --env-file "$ENV_FILE" exec -T postgres \
+      psql -U "${POSTGRES_USER:-jeeuser}" -d postgres -c "DROP DATABASE IF EXISTS \"$TEST_DB\";" >/dev/null 2>&1
+    rm -f "$BACKUP_FILE"
+
+    if [ -z "$USERS" ] || [ -z "$QUESTIONS" ]; then
+      echo "  ERROR: Could not read row counts from restored database."
+      exit 1
+    fi
+
+    echo ""
+    echo "Restore test PASSED."
+    echo "  Users restored:     $USERS"
+    echo "  Questions restored: $QUESTIONS"
+    echo "  The backup is valid and can be restored."
+    ;;
+
   *)
-    echo "Usage: ./deploy.sh [start|restart|update|stop|delete|logs|status|migrate|seed|baseline|ssl-setup|renew-ssl|test|qa|backup|restore]"
+    echo "Usage: ./deploy.sh [start|restart|update|stop|delete|logs|status|migrate|seed|baseline|ssl-setup|renew-ssl|test|qa|backup|restore|test-restore]"
     echo ""
     echo "  start      - Free port 80/443, generate SSL if needed, build and start all services"
     echo "  restart    - Stop, free port 80/443, rebuild and restart all services"
@@ -392,6 +449,10 @@ case "$ACTION" in
   echo "               Default: data/jee/jee_master_questions.json"
   echo "               NEET:    ./deploy.sh seed data/neet/neet_master_questions.json"
     echo "  baseline   - Mark all migrations applied (run once when upgrading from prisma db push)"
+    echo ""
+    echo "  backup     - Write a compressed database dump to ./backups/"
+    echo "  restore    - Restore a backup: ./deploy.sh restore backups/<file>.sql.gz"
+    echo "  test-restore - Non-destructive restore test: backup → restore into temp DB → verify → drop"
     echo ""
     echo "  ssl-setup  - (Re)generate SSL certs:"
     echo "               ENABLE_SSL=false → self-signed (default, no host deps)"

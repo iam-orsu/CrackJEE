@@ -1,19 +1,19 @@
 import type { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
-// The admin session lives in its own HttpOnly cookie, scoped to /api/admin, so student requests never carry it.
+// The admin session lives in its own HttpOnly cookie, scoped to /api/v1/admin, so student requests never carry it.
 export const ADMIN_COOKIE = 'jee_admin';
 export const ADMIN_COOKIE_MAX_AGE_S = 8 * 60 * 60;
 
 export function setAdminCookie(res: Response, token: string): void {
   res.append(
     'Set-Cookie',
-    `${ADMIN_COOKIE}=${token}; Path=/api/admin; HttpOnly; Secure; SameSite=Strict; Max-Age=${ADMIN_COOKIE_MAX_AGE_S}`,
+    `${ADMIN_COOKIE}=${token}; Path=/api/v1/admin; HttpOnly; Secure; SameSite=Strict; Max-Age=${ADMIN_COOKIE_MAX_AGE_S}`,
   );
 }
 
 export function clearAdminCookie(res: Response): void {
-  res.append('Set-Cookie', `${ADMIN_COOKIE}=; Path=/api/admin; HttpOnly; Secure; SameSite=Strict; Max-Age=0`);
+  res.append('Set-Cookie', `${ADMIN_COOKIE}=; Path=/api/v1/admin; HttpOnly; Secure; SameSite=Strict; Max-Age=0`);
 }
 
 function adminTokenFrom(req: Request): string | null {
