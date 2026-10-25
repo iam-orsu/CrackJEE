@@ -27,39 +27,40 @@ json_field() { echo "$BODY" | grep -o "\"$1\":\"[^\"]*\"" | head -n 1 | cut -d'"
 
 echo "Smoke test against $BASE"
 
-# 1. Health: the backend's own health endpoint is internal (nginx does not route it), so ask the container
-if docker compose --env-file .env exec -T backend wget -qO- http://127.0.0.1:3001/health >/dev/null 2>&1; then
-  pass "backend health (one instance checked; compose health checks cover each replica)"
+# 1. Health: nginx routes /health to the backend, so a plain curl works without docker in PATH
+call GET /health
+if [ "$STATUS" = "200" ]; then
+  pass "backend health"
 else
-  fail "backend health"
+  fail "backend health (HTTP $STATUS)"
 fi
 
 # 2. Register a fresh student
 EMAIL="smoke-$(date +%s)-$RANDOM@example.com"
-call POST /api/auth/register "" "{\"name\":\"Smoke Test\",\"email\":\"$EMAIL\",\"password\":\"SmokeTest123!\",\"class\":\"12\",\"targetExam\":\"Main\",\"currentLevel\":\"beginner\"}"
+call POST /api/v1/auth/register "" "{\"name\":\"Smoke Test\",\"email\":\"$EMAIL\",\"password\":\"SmokeTest123!\",\"class\":\"12\",\"targetExam\":\"Main\",\"currentLevel\":\"beginner\"}"
 SIGNED_IN=""
 if [ "$STATUS" = "201" ] && grep -q "jee_session" "$JAR"; then pass "register"; SIGNED_IN=1; else fail "register (HTTP $STATUS)"; fi
 
 if [ -n "$SIGNED_IN" ]; then
   # 3. Practice batch returns questions
-  call POST /api/questions/batch "" '{"selections":[{"subject":"Mathematics","topic":"Sets"}],"difficulty":"mixed","examType":"Main","studentClass":"12","count":3,"mode":"practice"}'
+  call POST /api/v1/questions/batch "" '{"selections":[{"subject":"Mathematics","topic":"Sets"}],"difficulty":"mixed","examType":"Main","studentClass":"12","count":3,"mode":"practice"}'
   QID=$(json_field id)
   if [ "$STATUS" = "200" ] && [ -n "$QID" ]; then pass "practice batch returns questions"; else fail "practice batch (HTTP $STATUS)"; fi
 
   # 4. Answer submission records an attempt
   if [ -n "$QID" ]; then
-    call POST /api/answers/submit "" "{\"questionId\":\"$QID\",\"answer\":\"A\",\"timeSpent\":10}"
+    call POST /api/v1/answers/submit "" "{\"questionId\":\"$QID\",\"answer\":\"A\",\"timeSpent\":10}"
     if [ "$STATUS" = "200" ]; then pass "answer submission"; else fail "answer submission (HTTP $STATUS)"; fi
   fi
 
   # 5. Analytics endpoints
-  call GET /api/user/dashboard ""
+  call GET /api/v1/user/dashboard ""
   [ "$STATUS" = "200" ] && pass "dashboard" || fail "dashboard (HTTP $STATUS)"
-  call GET /api/stats/leaderboard ""
+  call GET /api/v1/stats/leaderboard ""
   [ "$STATUS" = "200" ] && pass "leaderboard" || fail "leaderboard (HTTP $STATUS)"
 
   # 6. Malformed JSON is a client error, not a server error
-  call POST /api/auth/login "" '{"email":'
+  call POST /api/v1/auth/login "" '{"email":'
   [ "$STATUS" = "400" ] && pass "malformed JSON returns 400" || fail "malformed JSON (HTTP $STATUS, expected 400)"
 fi
 
