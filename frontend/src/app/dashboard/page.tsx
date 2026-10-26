@@ -7,7 +7,7 @@ import { Sidebar } from '@/components/Sidebar';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import type { DashboardData, WeeklyPoint, MockWeakTopic, LeaderboardData, MockInsights, TopicStat } from '@/types';
-import { ProjectionCard, StandingCard, CutoffCard, MonthlyBars, TopicList, NegativesCard, TimeByTypeCard, SectionOrderCard, PracticeLink } from '@/components/insights/InsightBlocks';
+import { ProjectionCard, StandingCard, CutoffCard, MonthlyBars, TopicList, NegativesCard, TimeByTypeCard, SectionOrderCard, PracticeLink, CarelessCard, GuessingCard, ImprovementCard, CrackabilityCard } from '@/components/insights/InsightBlocks';
 import styles from './dashboard.module.css';
 import { SUBJECT_COLOR } from '@/lib/subjects';
 import { plural } from './helpers';
@@ -512,8 +512,30 @@ export default function DashboardPage() {
                 <CutoffCard cutoffs={insights.cutoffs} scoreLabel="Your average" />
               </div>
 
-              {/* Row 2: topic performance */}
+              {/* Row 2: verdict + roadmap */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14, marginBottom: 14 }}>
+                <CrackabilityCard projection={insights.projection} cutoffs={insights.cutoffs} examType={insights.examType} />
+                <ImprovementCard cutoffs={insights.cutoffs} subjectOrder={insights.subjectOrder} projection={insights.projection} />
+              </div>
+
+              {/* Row 3: topic performance */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14, marginBottom: 14 }}>
+                <TopicList
+                  title="Revise today"
+                  sub="Your weakest topics — study the concept"
+                  topics={insights.reviseToday}
+                  mode="accuracy"
+                  emptyText="Nothing to revise yet."
+                  action={insights.reviseToday.length > 0 ? <PracticeLink href={revisePracticeUrl(insights.reviseToday)} label="Practise these topics →" /> : undefined}
+                />
+                <TopicList
+                  title="Practice tomorrow"
+                  sub="Borderline topics (40–75%) — do more problems"
+                  topics={insights.practiceTomorrow ?? []}
+                  mode="accuracy"
+                  emptyText="No borderline topics yet."
+                  action={(insights.practiceTomorrow ?? []).length > 0 ? <PracticeLink href={revisePracticeUrl(insights.practiceTomorrow ?? [])} label="Practice these topics →" /> : undefined}
+                />
                 <TopicList
                   title="Strong topics"
                   sub="At 60%+ accuracy, at least 2 answers"
@@ -529,14 +551,6 @@ export default function DashboardPage() {
                   emptyText="No weak topics yet."
                 />
                 <TopicList
-                  title="Revise today"
-                  sub="Your weakest topics first"
-                  topics={insights.reviseToday}
-                  mode="accuracy"
-                  emptyText="Nothing to revise yet."
-                  action={insights.reviseToday.length > 0 ? <PracticeLink href={revisePracticeUrl(insights.reviseToday)} label="Practise these topics →" /> : undefined}
-                />
-                <TopicList
                   title="Marks lost by topic"
                   sub="Where your marks went, including negatives"
                   topics={insights.marksLostTopics}
@@ -545,9 +559,15 @@ export default function DashboardPage() {
                 />
               </div>
 
-              {/* Row 3: time, patterns, monthly */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14 }}>
+              {/* Row 4: behaviour + time patterns */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14, marginBottom: 14 }}>
+                {insights.careless && <CarelessCard careless={insights.careless} />}
+                {insights.guessing && <GuessingCard guessing={insights.guessing} />}
                 <NegativesCard negatives={insights.negatives} />
+              </div>
+
+              {/* Row 5: time, section order, monthly */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14 }}>
                 <TimeByTypeCard rows={insights.timeByType} />
                 <SectionOrderCard rows={insights.subjectOrder} />
                 <MonthlyBars monthly={insights.monthly} />
