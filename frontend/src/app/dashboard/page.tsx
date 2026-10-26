@@ -7,7 +7,7 @@ import { Sidebar } from '@/components/Sidebar';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import type { DashboardData, WeeklyPoint, MockWeakTopic, LeaderboardData, MockInsights, TopicStat } from '@/types';
-import { ProjectionCard, StandingCard, CutoffCard, MonthlyBars, TopicList, NegativesCard, TimeByTypeCard, SectionOrderCard, PracticeLink, CarelessCard, GuessingCard, ImprovementCard, CrackabilityCard } from '@/components/insights/InsightBlocks';
+import { Ring, ProjectionCard, StandingCard, CutoffCard, MonthlyBars, TopicList, NegativesCard, TimeByTypeCard, SectionOrderCard, PracticeLink, CarelessCard, GuessingCard, ImprovementCard, CrackabilityCard } from '@/components/insights/InsightBlocks';
 import styles from './dashboard.module.css';
 import { SUBJECT_COLOR } from '@/lib/subjects';
 import { plural } from './helpers';
@@ -48,58 +48,96 @@ function toneColor(pct: number): string {
   return 'var(--red-600)';
 }
 
-/* ── Weekly chart ────────────────────────────────────────────────── */
+/* Smooth catmull-rom → cubic bezier path through points */
+function smoothPath(pts: Array<{ x: number; y: number }>, t = 0.4): string {
+  if (pts.length < 2) return '';
+  const parts = [`M ${pts[0]!.x},${pts[0]!.y}`];
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[Math.max(0, i - 1)]!;
+    const p1 = pts[i]!;
+    const p2 = pts[i + 1]!;
+    const p3 = pts[Math.min(pts.length - 1, i + 2)]!;
+    const cp1x = p1.x + (p2.x - p0.x) * t / 3;
+    const cp1y = p1.y + (p2.y - p0.y) * t / 3;
+    const cp2x = p2.x - (p3.x - p1.x) * t / 3;
+    const cp2y = p2.y - (p3.y - p1.y) * t / 3;
+    parts.push(`C ${cp1x},${cp1y} ${cp2x},${cp2y} ${p2.x},${p2.y}`);
+  }
+  return parts.join(' ');
+}
+
+/* ── Weekly chart — gradient area ───────────────────────────────── */
 function WeeklyChart({ data }: { data: WeeklyPoint[] }) {
   const [hover, setHover] = useState<number | null>(null);
-  const max = niceMax(Math.max(...data.map((d) => d.total), 0));
+  const max = niceMax(Math.max(...data.map((d) => d.total), 1));
 
-  const W = 640, H = 230, PL = 34, PT = 12, PB = 28;
+  const W = 640, H = 200, PL = 34, PR = 16, PT = 12, PB = 28;
+  const plotW = W - PL - PR;
   const plotH = H - PT - PB;
-  const slot = (W - PL) / data.length;
-  const barW = Math.min(34, slot * 0.46);
+  const xFor = (i: number) => PL + (i / Math.max(data.length - 1, 1)) * plotW;
   const yFor = (v: number) => PT + plotH - (v / max) * plotH;
-  const ticks = [0, 0.25, 0.5, 0.75, 1].map((t) => Math.round(max * t));
+  const bottom = PT + plotH;
+  const ticks = [0, Math.round(max / 2), max];
 
+  const totalPts = data.map((d, i) => ({ x: xFor(i), y: yFor(d.total) }));
+  const correctPts = data.map((d, i) => ({ x: xFor(i), y: yFor(d.correct) }));
+  const totalLine = smoothPath(totalPts);
+  const correctLine = smoothPath(correctPts);
+  const totalArea = totalLine + ` L ${totalPts[totalPts.length - 1]!.x},${bottom} L ${totalPts[0]!.x},${bottom} Z`;
+  const correctArea = correctLine + ` L ${correctPts[correctPts.length - 1]!.x},${bottom} L ${correctPts[0]!.x},${bottom} Z`;
   const hovered = hover !== null ? data[hover] : null;
 
   return (
     <div className={styles.chart}>
       <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Questions attempted per day this week">
+        <defs>
+          <linearGradient id="wk-total-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#2c3e50" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="#2c3e50" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="wk-correct-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#16a34a" stopOpacity="0.22" />
+            <stop offset="100%" stopColor="#16a34a" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+
         {ticks.map((t) => (
           <g key={t}>
-            <line x1={PL} x2={W} y1={yFor(t)} y2={yFor(t)} className={styles.gridLine} />
+            <line x1={PL} x2={W - PR} y1={yFor(t)} y2={yFor(t)} className={styles.gridLine} />
             <text x={PL - 8} y={yFor(t)} dy="0.32em" textAnchor="end" className={styles.tick}>{t}</text>
           </g>
         ))}
 
+        {/* Area fills */}
+        {data.some((d) => d.total > 0) && (
+          <>
+            <path d={totalArea} fill="url(#wk-total-grad)" />
+            <path d={correctArea} fill="url(#wk-correct-grad)" />
+            <path d={totalLine} fill="none" stroke="#2c3e50" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.45" />
+            <path d={correctLine} fill="none" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          </>
+        )}
+
+        {/* Hover hit areas + day labels + dots */}
         {data.map((d, i) => {
-          const cx = PL + slot * i + slot / 2;
+          const cx = xFor(i);
           const isToday = i === data.length - 1;
-          const totalH = (d.total / max) * plotH;
-          const correctH = (d.correct / max) * plotH;
           return (
-            <g
-              key={d.date}
-              onMouseEnter={() => setHover(i)}
-              onMouseLeave={() => setHover(null)}
-              onFocus={() => setHover(i)}
-              onBlur={() => setHover(null)}
-              tabIndex={0}
+            <g key={d.date}
+              onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}
+              onFocus={() => setHover(i)} onBlur={() => setHover(null)} tabIndex={0}
             >
-              <rect x={PL + slot * i} y={PT} width={slot} height={plotH} fill="transparent" />
-              {d.total > 0 ? (
-                <rect x={cx - barW / 2} y={yFor(d.total)} width={barW} height={totalH} rx={6} className={styles.barTotal} />
-              ) : (
-                <rect x={cx - barW / 2} y={yFor(0) - 2} width={barW} height={2} rx={1} className={styles.barEmpty} />
+              <rect x={cx - 36} y={PT} width={72} height={plotH} fill="transparent" />
+              {hover === i && d.total > 0 && (
+                <line x1={cx} x2={cx} y1={PT} y2={bottom} stroke="var(--gray-200)" strokeWidth="1" strokeDasharray="4 3" />
+              )}
+              {d.total > 0 && (
+                <circle cx={cx} cy={yFor(d.total)} r={hover === i ? 5 : 3} fill="#2c3e50" opacity="0.5" />
               )}
               {d.correct > 0 && (
-                <rect
-                  x={cx - barW / 2} y={yFor(d.correct)}
-                  width={barW} height={correctH} rx={6}
-                  className={isToday ? styles.barCorrectToday : styles.barCorrect}
-                />
+                <circle cx={cx} cy={yFor(d.correct)} r={hover === i ? 5.5 : 3.5} fill="#16a34a" stroke="#fff" strokeWidth="1.5" />
               )}
-              <text x={cx} y={H - 8} textAnchor="middle" className={isToday ? styles.dayToday : styles.day}>
+              <text x={cx} y={H - 6} textAnchor="middle" className={isToday ? styles.dayToday : styles.day}>
                 {DAY_SHORT[new Date(d.date + 'T00:00:00').getDay()]}
               </text>
             </g>
@@ -108,7 +146,7 @@ function WeeklyChart({ data }: { data: WeeklyPoint[] }) {
       </svg>
 
       {hovered && hover !== null && (
-        <div className={styles.tooltip} style={{ left: `${((PL + slot * hover + slot / 2) / W) * 100}%` }}>
+        <div className={styles.tooltip} style={{ left: `${((xFor(hover)) / W) * 100}%` }}>
           <div className={styles.tooltipTitle}>
             {new Date(hovered.date + 'T00:00:00').toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' })}
           </div>
@@ -121,22 +159,35 @@ function WeeklyChart({ data }: { data: WeeklyPoint[] }) {
   );
 }
 
-/* ── Score history: each mock as a bar, beside the score of the mock before it ── */
+/* ── Score history: area + line chart, dot per mock ─────────────── */
 function ScoreHistoryChart({ history }: { history: Array<{ date: string; pct: number }> }) {
-  const W = 640, H = 230, PL = 34, PR = 12, PT = 12, PB = 28;
+  const [hover, setHover] = useState<number | null>(null);
+  const W = 640, H = 200, PL = 34, PR = 16, PT = 12, PB = 28;
   const plotW = W - PL - PR;
   const plotH = H - PT - PB;
   const n = history.length;
-  const slot = plotW / n;
-  const barW = Math.min(28, slot * 0.32);
+  const xFor = (i: number) => PL + (i / Math.max(n - 1, 1)) * plotW;
   const yFor = (v: number) => PT + plotH - (v / 100) * plotH;
+  const bottom = PT + plotH;
   const ticks = [0, 25, 50, 75, 100];
-  // Green at the 60% target and above, red below it
-  const bandColor = (pct: number) => (pct >= 60 ? COLOR_TOP : '#dc2626');
+  const pts = history.map((h, i) => ({ x: xFor(i), y: yFor(h.pct) }));
+  const linePath = smoothPath(pts);
+  const areaPath = linePath + ` L ${pts[pts.length - 1]!.x},${bottom} L ${pts[0]!.x},${bottom} Z`;
 
   return (
     <div className={styles.chart}>
-      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Each mock score compared with the mock before it">
+      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Mock score history">
+        <defs>
+          <linearGradient id="hist-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#2563eb" stopOpacity="0.18" />
+            <stop offset="100%" stopColor="#2563eb" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+
+        {/* 60% target line */}
+        <line x1={PL} x2={W - PR} y1={yFor(60)} y2={yFor(60)} stroke="#16a34a" strokeWidth="1" strokeDasharray="6 4" opacity="0.5" />
+        <text x={W - PR - 2} y={yFor(60) - 5} textAnchor="end" fontSize={10} fill="#16a34a" opacity="0.7">target 60%</text>
+
         {ticks.map((t) => (
           <g key={t}>
             <line x1={PL} x2={W - PR} y1={yFor(t)} y2={yFor(t)} className={styles.gridLine} />
@@ -144,29 +195,30 @@ function ScoreHistoryChart({ history }: { history: Array<{ date: string; pct: nu
           </g>
         ))}
 
+        {n >= 2 && (
+          <>
+            <path d={areaPath} fill="url(#hist-grad)" />
+            <path d={linePath} fill="none" stroke="#2563eb" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          </>
+        )}
+
         {history.map((h, i) => {
-          const cx = PL + slot * i + slot / 2;
-          const prevPct = i === 0 ? null : history[i - 1]!.pct;
+          const cx = xFor(i);
+          const cy = yFor(h.pct);
+          const color = h.pct >= 60 ? '#16a34a' : '#dc2626';
           const dateLabel = new Date(h.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
-          // The current mock sits on the right, the previous mock on the left; the first mock is centred alone
-          const currentX = prevPct != null ? cx + 2 : cx - barW / 2;
-          const previousX = cx - barW - 2;
-          const color = bandColor(h.pct);
           return (
-            <g key={h.date}>
-              {prevPct != null && (
-                <>
-                  <rect x={previousX} y={yFor(prevPct)} width={barW} height={yFor(0) - yFor(prevPct)} rx={4} fill={PREVIOUS_COLOR}>
-                    <title>{`Previous mock: ${prevPct}%`}</title>
-                  </rect>
-                  <text x={previousX + barW / 2} y={yFor(prevPct) - 6} textAnchor="middle" fontSize={11} fill="#64748b">{prevPct}%</text>
-                </>
+            <g key={h.date}
+              onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}
+              onFocus={() => setHover(i)} onBlur={() => setHover(null)} tabIndex={0}
+            >
+              <rect x={cx - 30} y={PT} width={60} height={plotH} fill="transparent" />
+              {hover === i && <line x1={cx} x2={cx} y1={PT} y2={bottom} stroke="var(--gray-200)" strokeWidth="1" strokeDasharray="4 3" />}
+              <circle cx={cx} cy={cy} r={hover === i ? 6 : 4} fill={color} stroke="#fff" strokeWidth="2" style={{ transition: 'r 0.1s' }} />
+              {hover === i && (
+                <text x={cx} y={cy - 12} textAnchor="middle" fontSize={11} fontWeight={700} fill={color}>{h.pct}%</text>
               )}
-              <rect x={currentX} y={yFor(h.pct)} width={barW} height={yFor(0) - yFor(h.pct)} rx={4} fill={color}>
-                <title>{`${dateLabel}: ${h.pct}%`}</title>
-              </rect>
-              <text x={currentX + barW / 2} y={yFor(h.pct) - 6} textAnchor="middle" fontSize={11} fontWeight={600} fill={color}>{h.pct}%</text>
-              <text x={cx} y={H - 8} textAnchor="middle" className={styles.day}>{dateLabel}</text>
+              <text x={cx} y={H - 6} textAnchor="middle" className={styles.day}>{dateLabel}</text>
             </g>
           );
         })}
@@ -183,7 +235,7 @@ function MasteryRow({ label, pct, color, strong }: { label: string; pct: number 
       <div className={styles.masteryTrack}>
         <div className={styles.masteryFill} style={{ width: `${pct ?? 0}%`, background: color }} />
       </div>
-      <span className={styles.masteryValue} style={{ color: strong ? color : 'var(--gray-700)' }}>
+      <span className={styles.masteryValue} style={{ color: strong ? color : 'var(--gray-700)', fontWeight: strong ? 700 : 500 }}>
         {pct != null ? `${pct}%` : '—'}
       </span>
     </div>
@@ -338,27 +390,36 @@ export default function DashboardPage() {
               </div>
             </section>
           ) : (
-            /* Stat strip — 3 tiles */
+            /* Stat strip — 3 KPI tiles */
             <section className={styles.statStrip} aria-label="Summary">
-              <div className={styles.stat}>
+              {/* Tile 1: questions */}
+              <div className={styles.stat} style={{ borderTop: '3px solid var(--gray-900)' }}>
                 <p className={styles.statLabel}>Questions done</p>
-                <p className={styles.statValue}>{loading ? '–' : totalAttempts}</p>
-                <p className={styles.statSub}>{loading ? ' ' : `${correctAttempts} correct`}</p>
+                <p className={styles.statValue} style={{ fontVariantNumeric: 'tabular-nums' }}>{loading ? '–' : totalAttempts}</p>
+                <p className={styles.statSub}>{loading ? ' ' : `${correctAttempts} correct`}</p>
               </div>
-              <div className={styles.stat}>
+              {/* Tile 2: accuracy — ring */}
+              <div className={styles.stat} style={{ borderTop: `3px solid ${hasActivity ? (accuracy >= 60 ? 'var(--green-600)' : accuracy >= 40 ? 'var(--amber-600)' : 'var(--red-600)') : 'var(--gray-300)'}` }}>
                 <p className={styles.statLabel}>Accuracy</p>
-                <p className={`${styles.statValue} ${hasActivity && accuracy < 60 ? styles.statValueBad : ''} ${hasActivity && accuracy >= 60 ? styles.statValueGood : ''}`}>
-                  {loading ? '–' : `${accuracy}%`}
-                </p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 4 }}>
+                  {!loading && hasActivity && (
+                    <Ring pct={accuracy} color={accuracy >= 60 ? 'var(--green-600)' : accuracy >= 40 ? 'var(--amber-600)' : 'var(--red-600)'} size={52} stroke={5} />
+                  )}
+                  <p className={`${styles.statValue} ${hasActivity && accuracy < 60 ? styles.statValueBad : ''} ${hasActivity && accuracy >= 60 ? styles.statValueGood : ''}`}
+                    style={{ fontVariantNumeric: 'tabular-nums' }}>
+                    {loading ? '–' : `${accuracy}%`}
+                  </p>
+                </div>
                 <p className={styles.statSub}>
-                  {!hasActivity ? 'No attempts yet' : accuracy >= 60 ? 'On track' : 'Below the 60% target'}
+                  {!hasActivity ? 'No attempts yet' : accuracy >= 60 ? 'On track ✓' : 'Below the 60% target'}
                 </p>
               </div>
-              <div className={styles.stat}>
+              {/* Tile 3: weak areas */}
+              <div className={styles.stat} style={{ borderTop: `3px solid ${mockWeakTopics.length > 0 ? 'var(--red-600)' : 'var(--green-600)'}` }}>
                 <p className={styles.statLabel}>Weak areas</p>
-                <p className={styles.statValue}>{loading ? '–' : mockWeakTopics.length}</p>
+                <p className={styles.statValue} style={{ fontVariantNumeric: 'tabular-nums' }}>{loading ? '–' : mockWeakTopics.length}</p>
                 <p className={styles.statSub}>
-                  {loading ? ' ' : mockWeakTopics.length > 0 ? 'Topics under 60%' : 'None flagged'}
+                  {loading ? ' ' : mockWeakTopics.length > 0 ? 'Topics under 60%' : 'None flagged ✓'}
                 </p>
               </div>
             </section>
@@ -429,22 +490,29 @@ export default function DashboardPage() {
                     const floored = (v: number | null | undefined) => (v == null ? null : Math.max(0, v));
                     const mine = floored(stat?.mine);
                     const isOpen = expandedMastery === subject;
+                    const subjectColor = SUBJECT_COLOR[subject] ?? 'var(--gray-900)';
+                    const mineColor = mine != null ? toneColor(mine) : 'var(--gray-300)';
                     return (
-                      <div key={subject} className={styles.subjCard}>
+                      <div key={subject} className={styles.subjCard} style={{ borderLeft: `3px solid ${subjectColor}` }}>
                         <button
                           className={`${styles.subjCardHead} ${isOpen ? styles.subjCardHeadOpen : ''}`}
                           onClick={() => setExpandedMastery(isOpen ? null : subject)}
                           style={{ width: '100%', border: 'none', textAlign: 'left' }}
                         >
-                          <div style={{ flex: 1, minWidth: 0 }}>
+                          <Ring pct={mine ?? 0} color={mineColor} size={52} stroke={5}>
+                            <span style={{ fontSize: 10, fontWeight: 800, color: mineColor, fontVariantNumeric: 'tabular-nums' }}>
+                              {mine != null ? `${mine}%` : '—'}
+                            </span>
+                          </Ring>
+                          <div style={{ flex: 1, minWidth: 0, marginLeft: 12 }}>
                             <div className={styles.masteryHead}>
-                              <p className={styles.subjCardName} style={{ color: SUBJECT_COLOR[subject] ?? 'var(--gray-900)' }}>{subject}</p>
-                              <span className={styles.masteryBig} style={{ color: mine != null ? toneColor(mine) : 'var(--gray-400)' }}>
+                              <p className={styles.subjCardName} style={{ color: subjectColor }}>{subject}</p>
+                              <span className={styles.masteryBig} style={{ color: mineColor }}>
                                 {mine != null ? `${mine}%` : 'Not started'}
                               </span>
                             </div>
                             <div className={styles.masteryRows}>
-                              <MasteryRow label="My average" pct={mine} color={mine != null ? toneColor(mine) : 'var(--gray-300)'} strong />
+                              <MasteryRow label="My average" pct={mine} color={mineColor} strong />
                               <MasteryRow label="Platform avg" pct={floored(stat?.avg)} color={COLOR_PLATFORM} />
                               <MasteryRow label="Top scorer avg" pct={floored(stat?.topAvg)} color={COLOR_TOP} strong />
                             </div>
