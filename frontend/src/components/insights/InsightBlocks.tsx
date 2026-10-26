@@ -17,73 +17,105 @@ function toneColor(pct: number): string {
   return 'var(--red-600)';
 }
 
-
 function formatSeconds(total: number): string {
   if (total < 60) return `${Math.round(total)}s`;
   return `${Math.floor(total / 60)}m ${Math.round(total % 60)}s`;
 }
 
-/* A white insight card with a title and a one-line explanation */
+/* ── SVG donut ring — the core visual unit ─────────────────────────── */
+export function Ring({ pct, color, size = 72, stroke = 7, children }: {
+  pct: number; color: string; size?: number; stroke?: number; children?: ReactNode;
+}) {
+  const r = (size - stroke) / 2;
+  const circ = 2 * Math.PI * r;
+  const fill = Math.min(1, Math.max(0, pct / 100)) * circ;
+  const cx = size / 2, cy = size / 2;
+  return (
+    <div style={{ position: 'relative', width: size, height: size, flexShrink: 0 }}>
+      <svg width={size} height={size} style={{ display: 'block' }}>
+        <circle cx={cx} cy={cy} r={r} fill="none" stroke="var(--gray-100)" strokeWidth={stroke} />
+        <circle
+          cx={cx} cy={cy} r={r} fill="none" stroke={color} strokeWidth={stroke}
+          strokeDasharray={`${fill} ${circ}`} strokeLinecap="round"
+          transform={`rotate(-90 ${cx} ${cy})`}
+          style={{ transition: 'stroke-dasharray 0.8s ease' }}
+        />
+      </svg>
+      {children && (
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ── Card shell ─────────────────────────────────────────────────────── */
 export function InsightCard({ title, sub, children }: { title: string; sub?: string; children: ReactNode }) {
   return (
-    <section style={{ background: '#fff', border: '1px solid var(--gray-200)', borderRadius: 14, padding: '20px 22px', minWidth: 0 }}>
-      <h3 style={{ fontSize: 13, fontWeight: 600, color: 'var(--gray-500)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 4 }}>{title}</h3>
-      {sub && <p style={{ fontSize: 12, color: 'var(--gray-400)', marginTop: 2, marginBottom: 16 }}>{sub}</p>}
+    <section style={{
+      background: '#fff', border: '1px solid var(--gray-200)', borderRadius: 16,
+      padding: '20px 22px', minWidth: 0,
+      transition: 'box-shadow 0.18s ease, transform 0.18s ease',
+    }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 24px -4px rgba(15,23,42,.10), 0 2px 6px -2px rgba(15,23,42,.06)';
+        (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLElement).style.boxShadow = 'none';
+        (e.currentTarget as HTMLElement).style.transform = 'none';
+      }}
+    >
+      <h3 style={{ fontSize: 11, fontWeight: 700, color: 'var(--gray-400)', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: 4 }}>{title}</h3>
+      {sub && <p style={{ fontSize: 12, color: 'var(--gray-400)', marginTop: 1, marginBottom: 14 }}>{sub}</p>}
       {children}
     </section>
   );
 }
 
-/* Thin progress bar */
-function Bar({ pct, color, height = 6 }: { pct: number; color: string; height?: number }) {
-  return (
-    <div style={{ height, borderRadius: 999, background: 'var(--gray-100)', overflow: 'hidden', flex: 1 }}>
-      <div style={{ height: '100%', width: `${Math.min(100, Math.max(0, pct))}%`, background: color, borderRadius: 999, transition: 'width 0.6s ease' }} />
-    </div>
-  );
-}
-
-/* Likely next score with a visual range bar */
+/* ── Projection — range bar with ring ──────────────────────────────── */
 export function ProjectionCard({ projection }: { projection: ProjectionData }) {
   return (
     <InsightCard title="Likely next score" sub="Estimate from your recent mocks">
       {projection.available ? (
         <>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4 }}>
-            <span style={{ fontSize: 36, fontWeight: 700, color: toneColor(projection.expected), fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>
-              {projection.expected}%
-            </span>
-            <span style={{ fontSize: 13, color: 'var(--gray-500)', fontWeight: 500 }}>
-              {projection.trendPerMock >= 0 ? '↑' : '↓'} {Math.abs(projection.trendPerMock)} per mock
-            </span>
-          </div>
-
-          {/* Range bar: low → expected → high */}
-          <div style={{ position: 'relative', margin: '16px 0 8px' }}>
-            <div style={{ height: 8, borderRadius: 999, background: 'var(--gray-100)', overflow: 'visible', position: 'relative' }}>
-              {/* Range fill */}
-              <div style={{
-                position: 'absolute', top: 0, height: '100%',
-                left: `${projection.low}%`, width: `${projection.high - projection.low}%`,
-                background: toneColor(projection.expected), opacity: 0.25, borderRadius: 999,
-              }} />
-              {/* Expected marker */}
-              <div style={{
-                position: 'absolute', top: -3, width: 14, height: 14, borderRadius: '50%',
-                background: toneColor(projection.expected), border: '2px solid #fff',
-                left: `${projection.expected}%`, transform: 'translateX(-50%)',
-                boxShadow: '0 1px 4px rgba(0,0,0,0.15)',
-              }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
+            <Ring pct={projection.expected} color={toneColor(projection.expected)} size={80} stroke={8}>
+              <span style={{ fontSize: 16, fontWeight: 800, color: toneColor(projection.expected), fontVariantNumeric: 'tabular-nums' }}>
+                {projection.expected}%
+              </span>
+            </Ring>
+            <div>
+              <div style={{ fontSize: 28, fontWeight: 800, color: toneColor(projection.expected), fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em', lineHeight: 1 }}>
+                {projection.expected}%
+              </div>
+              <div style={{ fontSize: 12, color: 'var(--gray-500)', marginTop: 4 }}>
+                {projection.trendPerMock >= 0 ? '↑' : '↓'} {Math.abs(projection.trendPerMock)} per mock
+              </div>
+              <div style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 2 }}>
+                {projection.mocks} mock{projection.mocks !== 1 ? 's' : ''}
+              </div>
             </div>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'var(--gray-400)', marginBottom: 12 }}>
+          <div style={{ position: 'relative', height: 8, borderRadius: 999, background: 'var(--gray-100)' }}>
+            <div style={{
+              position: 'absolute', left: `${projection.low}%`, top: 0, height: '100%',
+              width: `${projection.high - projection.low}%`,
+              background: toneColor(projection.expected), opacity: 0.2, borderRadius: 999,
+            }} />
+            <div style={{
+              position: 'absolute', top: -3, width: 14, height: 14, borderRadius: '50%',
+              background: toneColor(projection.expected), border: '2px solid #fff',
+              left: `${projection.expected}%`, transform: 'translateX(-50%)',
+              boxShadow: '0 1px 4px rgba(0,0,0,0.2)',
+            }} />
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10, color: 'var(--gray-400)', marginTop: 5 }}>
             <span>Low {projection.low}%</span>
-            <span>Expected {projection.expected}%</span>
             <span>High {projection.high}%</span>
           </div>
-
-          <div style={{ fontSize: 11, color: 'var(--gray-400)' }}>Based on {projection.mocks} mock{projection.mocks !== 1 ? 's' : ''}</div>
         </>
       ) : (
         <p style={{ fontSize: 13, color: 'var(--gray-500)', paddingTop: 8 }}>
@@ -94,25 +126,25 @@ export function ProjectionCard({ projection }: { projection: ProjectionData }) {
   );
 }
 
-/* Average score per month, as bars */
+/* ── Monthly bars ──────────────────────────────────────────────────── */
 export function MonthlyBars({ monthly }: { monthly: Array<{ month: string; avgPct: number; mocks: number }> }) {
   return (
     <InsightCard title="Month by month" sub="Average mock score per month">
       {monthly.length === 0 ? (
         <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>No mocks yet.</p>
       ) : (
-        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 10, height: 120, paddingTop: 8 }}>
+        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 10, height: 120 }}>
           {monthly.map((m) => {
-            const monthIndex = Number(m.month.slice(5, 7)) - 1;
+            const idx = Number(m.month.slice(5, 7)) - 1;
             const color = toneColor(m.avgPct);
             return (
               <div key={m.month} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, height: '100%', justifyContent: 'flex-end' }}>
                 <span style={{ fontSize: 11, fontWeight: 700, color }}>{m.avgPct}%</span>
                 <div
                   title={`${m.mocks} mock${m.mocks === 1 ? '' : 's'}`}
-                  style={{ width: '100%', maxWidth: 40, height: `${Math.max(6, m.avgPct)}%`, background: color, borderRadius: '6px 6px 3px 3px', opacity: 0.85 }}
+                  style={{ width: '100%', maxWidth: 40, height: `${Math.max(8, m.avgPct)}%`, background: color, borderRadius: '5px 5px 2px 2px', opacity: 0.85, transition: 'height 0.6s ease' }}
                 />
-                <span style={{ fontSize: 10, color: 'var(--gray-400)' }}>{MONTH_LABELS[monthIndex] ?? m.month}</span>
+                <span style={{ fontSize: 10, color: 'var(--gray-400)' }}>{MONTH_LABELS[idx] ?? m.month}</span>
               </div>
             );
           })}
@@ -122,7 +154,7 @@ export function MonthlyBars({ monthly }: { monthly: Array<{ month: string; avgPc
   );
 }
 
-/* A list of topics with their accuracy or marks lost, now with inline bars */
+/* ── Topic list — ring per row ──────────────────────────────────────── */
 export function TopicList({
   title, sub, topics, mode, emptyText, action,
 }: {
@@ -139,22 +171,19 @@ export function TopicList({
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           {topics.map((t) => {
             const subjectColor = SUBJECT_COLOR[t.subject] ?? 'var(--gray-400)';
-            const barPct = mode === 'accuracy' ? (t.accuracy ?? 0) : ((t.marksLost ?? 0) / maxMarksLost) * 100;
-            const barColor = mode === 'accuracy' ? toneColor(t.accuracy ?? 0) : 'var(--red-600)';
+            const pct = mode === 'accuracy' ? (t.accuracy ?? 0) : Math.round(((t.marksLost ?? 0) / maxMarksLost) * 100);
+            const color = mode === 'accuracy' ? toneColor(t.accuracy ?? 0) : 'var(--red-600)';
+            const label = mode === 'accuracy' ? `${t.accuracy}%` : `−${t.marksLost}`;
             return (
-              <div key={`${t.subject}|${t.topic}`} style={{ padding: '10px 0', borderTop: '1px solid var(--gray-100)' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8, marginBottom: 6 }}>
-                  <div style={{ minWidth: 0 }}>
-                    <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--gray-900)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{t.topic}</div>
-                    <div style={{ fontSize: 11, color: subjectColor, marginTop: 1 }}>{t.subject} · {t.attempts} answered</div>
-                  </div>
-                  {mode === 'accuracy' ? (
-                    <span style={{ fontSize: 14, fontWeight: 700, color: toneColor(t.accuracy ?? 0), fontVariantNumeric: 'tabular-nums', flexShrink: 0 }}>{t.accuracy}%</span>
-                  ) : (
-                    <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--red-600)', fontVariantNumeric: 'tabular-nums', flexShrink: 0 }}>−{t.marksLost}</span>
-                  )}
+              <div key={`${t.subject}|${t.topic}`} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '9px 0', borderTop: '1px solid var(--gray-100)' }}>
+                <Ring pct={pct} color={color} size={36} stroke={4}>
+                  <span style={{ fontSize: 8, fontWeight: 700, color }}>{t.accuracy}%</span>
+                </Ring>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--gray-900)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{t.topic}</div>
+                  <div style={{ fontSize: 11, color: subjectColor, marginTop: 1 }}>{t.subject} · {t.attempts} answered</div>
                 </div>
-                <Bar pct={barPct} color={barColor} height={4} />
+                <span style={{ fontSize: 14, fontWeight: 800, color, fontVariantNumeric: 'tabular-nums', flexShrink: 0 }}>{label}</span>
               </div>
             );
           })}
@@ -165,70 +194,64 @@ export function TopicList({
   );
 }
 
-/* Negative marks: visual ratio + key stats */
+/* ── Negative marking — ring + ratio ───────────────────────────────── */
 export function NegativesCard({ negatives }: { negatives: NegativeSummary }) {
-  const totalAnswered = negatives.answered;
-  const wrongPct = totalAnswered > 0 ? Math.round((negatives.wrong / totalAnswered) * 100) : 0;
-  const correctCount = negatives.answered - negatives.wrong;
+  const total = negatives.answered;
+  const wrongPct = total > 0 ? Math.round((negatives.wrong / total) * 100) : 0;
+  const correct = negatives.answered - negatives.wrong;
 
   return (
     <InsightCard title="Negative marking" sub="How much wrong answers cost you">
-      {/* Visual ratio bar */}
-      <div style={{ display: 'flex', height: 10, borderRadius: 999, overflow: 'hidden', marginBottom: 10 }}>
-        <div style={{ flex: correctCount, background: 'var(--green-600)', opacity: 0.8 }} />
-        <div style={{ flex: negatives.wrong, background: 'var(--red-600)', opacity: 0.8 }} />
-      </div>
-      <div style={{ display: 'flex', gap: 16, marginBottom: 16, fontSize: 12, color: 'var(--gray-500)' }}>
-        <span><span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: 2, background: 'var(--green-600)', marginRight: 5, verticalAlign: 'middle' }} />{correctCount} correct</span>
-        <span><span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: 2, background: 'var(--red-600)', marginRight: 5, verticalAlign: 'middle' }} />{negatives.wrong} wrong</span>
-      </div>
-
-      {/* Big number: wrong % */}
-      <div style={{ display: 'flex', gap: 24, marginBottom: 16 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 14 }}>
+        <Ring pct={wrongPct} color={wrongPct >= 40 ? 'var(--red-600)' : 'var(--amber-600)'} size={80} stroke={8}>
+          <span style={{ fontSize: 14, fontWeight: 800, color: wrongPct >= 40 ? 'var(--red-600)' : 'var(--amber-600)', fontVariantNumeric: 'tabular-nums' }}>
+            {wrongPct}%
+          </span>
+        </Ring>
         <div>
-          <div style={{ fontSize: 28, fontWeight: 700, color: wrongPct >= 40 ? 'var(--red-600)' : 'var(--amber-600)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>{wrongPct}%</div>
-          <div style={{ fontSize: 11, color: 'var(--gray-400)' }}>wrong rate</div>
-        </div>
-        {negatives.negativeCount > 0 && (
-          <div>
-            <div style={{ fontSize: 28, fontWeight: 700, color: 'var(--red-600)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>{negatives.negativeMarks}</div>
-            <div style={{ fontSize: 11, color: 'var(--gray-400)' }}>marks lost</div>
+          <div style={{ fontSize: 11, color: 'var(--gray-400)', marginBottom: 8 }}>wrong rate</div>
+          <div style={{ display: 'flex', gap: 12, fontSize: 12 }}>
+            <span><span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: 2, background: 'var(--green-600)', marginRight: 5 }} />{correct} correct</span>
+            <span><span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: 2, background: 'var(--red-600)', marginRight: 5 }} />{negatives.wrong} wrong</span>
           </div>
-        )}
+          {negatives.negativeCount > 0 && (
+            <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--red-600)', marginTop: 6, fontVariantNumeric: 'tabular-nums' }}>
+              {negatives.negativeMarks} marks lost
+            </div>
+          )}
+        </div>
       </div>
-
       {[
-        ['Time on wrong answers', `${formatSeconds(negatives.timeOnWrongSeconds)} (${negatives.shareOfTimeOnWrongPct}%)`],
-        ['Time on correct answers', formatSeconds(negatives.timeOnCorrectSeconds)],
-      ].map(([label, value]) => (
-        <div key={label} style={{ display: 'flex', justifyContent: 'space-between', gap: 12, padding: '7px 0', borderTop: '1px solid var(--gray-100)', fontSize: 12 }}>
-          <span style={{ color: 'var(--gray-500)' }}>{label}</span>
-          <span style={{ fontWeight: 600, color: 'var(--gray-800)' }}>{value}</span>
+        ['Time on wrong', `${formatSeconds(negatives.timeOnWrongSeconds)} (${negatives.shareOfTimeOnWrongPct}%)`],
+        ['Time on correct', formatSeconds(negatives.timeOnCorrectSeconds)],
+      ].map(([l, v]) => (
+        <div key={l} style={{ display: 'flex', justifyContent: 'space-between', gap: 12, padding: '7px 0', borderTop: '1px solid var(--gray-100)', fontSize: 12 }}>
+          <span style={{ color: 'var(--gray-500)' }}>{l}</span>
+          <span style={{ fontWeight: 600, color: 'var(--gray-800)' }}>{v}</span>
         </div>
       ))}
     </InsightCard>
   );
 }
 
-/* Accuracy and average time for each question type — with inline bars */
+/* ── Time by type — bar per row ─────────────────────────────────────── */
 export function TimeByTypeCard({ rows }: { rows: TimeByTypeRow[] }) {
   return (
     <InsightCard title="Time by question type" sub="Accuracy and average time per type">
       {rows.length === 0 ? (
         <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>No answered questions yet.</p>
       ) : (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+        <div>
           {rows.map((r) => (
-            <div key={r.questionType} style={{ padding: '10px 0', borderTop: '1px solid var(--gray-100)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-                <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--gray-800)' }}>{QUESTION_TYPE_LABELS[r.questionType] ?? r.questionType}</span>
-                <div style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
-                  <span style={{ fontSize: 11, color: 'var(--gray-400)', fontVariantNumeric: 'tabular-nums' }}>{r.answered} answered</span>
-                  <span style={{ fontSize: 13, fontWeight: 700, color: toneColor(r.accuracy), fontVariantNumeric: 'tabular-nums' }}>{r.accuracy}%</span>
-                  <span style={{ fontSize: 12, color: 'var(--gray-500)', fontVariantNumeric: 'tabular-nums', minWidth: 28, textAlign: 'right' }}>{formatSeconds(r.avgSeconds)}</span>
-                </div>
+            <div key={r.questionType} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '9px 0', borderTop: '1px solid var(--gray-100)' }}>
+              <Ring pct={r.accuracy} color={toneColor(r.accuracy)} size={36} stroke={4}>
+                <span style={{ fontSize: 8, fontWeight: 700, color: toneColor(r.accuracy) }}>{r.accuracy}%</span>
+              </Ring>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--gray-900)' }}>{QUESTION_TYPE_LABELS[r.questionType] ?? r.questionType}</div>
+                <div style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 1 }}>{r.answered} answered · avg {formatSeconds(r.avgSeconds)}</div>
               </div>
-              <Bar pct={r.accuracy} color={toneColor(r.accuracy)} height={5} />
+              <span style={{ fontSize: 14, fontWeight: 800, color: toneColor(r.accuracy), fontVariantNumeric: 'tabular-nums', flexShrink: 0 }}>{r.accuracy}%</span>
             </div>
           ))}
         </div>
@@ -237,7 +260,7 @@ export function TimeByTypeCard({ rows }: { rows: TimeByTypeRow[] }) {
   );
 }
 
-/* Which section to attempt first — with efficiency bars */
+/* ── Section order — subject efficiency bars ────────────────────────── */
 export function SectionOrderCard({ rows }: { rows: SubjectOrderRow[] }) {
   const top = rows[0];
   const maxPerMin = Math.max(...rows.map((r) => r.correctPerMinute), 0.1);
@@ -249,87 +272,90 @@ export function SectionOrderCard({ rows }: { rows: SubjectOrderRow[] }) {
       ) : (
         <>
           <p style={{ fontSize: 14, color: 'var(--gray-900)', marginBottom: 14, lineHeight: 1.5 }}>
-            Start with{' '}
-            <strong style={{ color: SUBJECT_COLOR[top.subject] ?? 'var(--gray-900)' }}>{top.subject}</strong>{' '}
-            — you score the most per minute there.
+            Start with <strong style={{ color: SUBJECT_COLOR[top.subject] ?? 'var(--gray-900)' }}>{top.subject}</strong> — most correct per minute.
           </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-            {rows.map((r, i) => {
-              const color = SUBJECT_COLOR[r.subject] ?? 'var(--gray-400)';
-              const barPct = (r.correctPerMinute / maxPerMin) * 100;
-              return (
-                <div key={r.subject} style={{ padding: '9px 0', borderTop: '1px solid var(--gray-100)' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 5 }}>
-                    <span style={{ fontSize: 13, fontWeight: 500, color: i === 0 ? color : 'var(--gray-700)' }}>
-                      {i + 1}. {r.subject}
-                    </span>
-                    <div style={{ display: 'flex', gap: 10, fontSize: 12, color: 'var(--gray-500)', fontVariantNumeric: 'tabular-nums' }}>
-                      <span>{r.accuracy}% accuracy</span>
-                      <span style={{ fontWeight: 600, color }}>{r.correctPerMinute}/min</span>
-                    </div>
+          {rows.map((r, i) => {
+            const color = SUBJECT_COLOR[r.subject] ?? 'var(--gray-400)';
+            const barPct = (r.correctPerMinute / maxPerMin) * 100;
+            return (
+              <div key={r.subject} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '8px 0', borderTop: '1px solid var(--gray-100)' }}>
+                <div style={{
+                  width: 28, height: 28, borderRadius: 8, background: `${color}18`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: 12, fontWeight: 700, color, flexShrink: 0,
+                }}>{i + 1}</div>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
+                    <span style={{ fontSize: 13, fontWeight: 600, color: i === 0 ? color : 'var(--gray-800)' }}>{r.subject}</span>
+                    <span style={{ fontSize: 12, fontWeight: 700, color, fontVariantNumeric: 'tabular-nums' }}>{r.correctPerMinute}/min</span>
                   </div>
-                  <Bar pct={barPct} color={i === 0 ? color : 'var(--gray-300)'} height={4} />
+                  <div style={{ height: 5, borderRadius: 999, background: 'var(--gray-100)', overflow: 'hidden' }}>
+                    <div style={{ height: '100%', width: `${barPct}%`, background: i === 0 ? color : 'var(--gray-300)', borderRadius: 999, transition: 'width 0.6s ease' }} />
+                  </div>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </>
       )}
     </InsightCard>
   );
 }
 
-/* Platform standing — with percentile bar */
+/* ── Platform standing — ring ───────────────────────────────────────── */
 export function StandingCard({ standing }: { standing: StandingData }) {
   return (
     <InsightCard title="Platform standing" sub="Among students on this platform only — not an NTA percentile">
       {standing.available ? (
         <>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4 }}>
-            <span style={{ fontSize: 32, fontWeight: 700, color: 'var(--gray-900)', letterSpacing: '-0.02em', fontVariantNumeric: 'tabular-nums' }}>
-              {standing.rank === 1 ? '#1' : `Top ${100 - standing.percentile}%`}
-            </span>
-          </div>
-          <div style={{ fontSize: 12, color: 'var(--gray-400)', marginBottom: 14 }}>
-            Rank {standing.rank} of {standing.of} · ahead of {standing.percentile}% · your avg {standing.mine}%
-          </div>
-
-          {/* Percentile bar showing position among peers */}
-          <div style={{ position: 'relative', margin: '4px 0 8px' }}>
-            <Bar pct={standing.percentile} color="var(--gray-800)" height={8} />
-            <div style={{ position: 'absolute', top: -3, left: `${standing.percentile}%`, transform: 'translateX(-50%)' }}>
-              <div style={{ width: 14, height: 14, borderRadius: '50%', background: 'var(--gray-900)', border: '2px solid #fff', boxShadow: '0 1px 4px rgba(0,0,0,0.2)' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 14 }}>
+            <Ring pct={standing.percentile} color="var(--gray-800)" size={80} stroke={8}>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: 13, fontWeight: 800, color: 'var(--gray-900)', lineHeight: 1 }}>#{standing.rank}</div>
+              </div>
+            </Ring>
+            <div>
+              <div style={{ fontSize: 26, fontWeight: 800, color: 'var(--gray-900)', letterSpacing: '-0.02em', lineHeight: 1 }}>
+                Top {100 - standing.percentile}%
+              </div>
+              <div style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 5 }}>Rank {standing.rank} of {standing.of}</div>
+              <div style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 2 }}>Ahead of {standing.percentile}% · avg {standing.mine}%</div>
             </div>
           </div>
+          <div style={{ height: 8, borderRadius: 999, background: 'var(--gray-100)', overflow: 'visible', position: 'relative' }}>
+            <div style={{ height: '100%', width: `${standing.percentile}%`, background: 'var(--gray-800)', borderRadius: 999, transition: 'width 0.8s ease' }} />
+            <div style={{
+              position: 'absolute', top: -3, left: `${standing.percentile}%`, transform: 'translateX(-50%)',
+              width: 14, height: 14, borderRadius: '50%', background: 'var(--gray-900)', border: '2px solid #fff',
+              boxShadow: '0 1px 4px rgba(0,0,0,0.2)',
+            }} />
+          </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10, color: 'var(--gray-400)', marginTop: 4 }}>
-            <span>Bottom</span>
-            <span>Top</span>
+            <span>Bottom</span><span>Top</span>
           </div>
         </>
       ) : (
         <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>
           {standing.mine === null
             ? 'Take a mock to see where you stand.'
-            : `Standing appears once ${standing.needed} students have mocks. ${standing.students} so far.`}
+            : `Appears once ${standing.needed} students have mocks. ${standing.students} so far.`}
         </p>
       )}
     </InsightCard>
   );
 }
 
-/* Cutoff check — with visual proximity bars */
+/* ── Cutoff check — bar per line ────────────────────────────────────── */
 export function CutoffCard({ cutoffs, scoreLabel }: { cutoffs: CutoffData | null; scoreLabel: string }) {
   if (!cutoffs) {
     return (
       <InsightCard title="Cutoff check" sub="2026 published cutoffs">
-        <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>
-          No verified 2026 cutoff is available for this exam.
-        </p>
+        <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>No verified 2026 cutoff is available for this exam.</p>
       </InsightCard>
     );
   }
   return (
-    <InsightCard title="Cutoff check" sub={`${cutoffs.name} · compared as % of max marks`}>
+    <InsightCard title="Cutoff check" sub={`${cutoffs.name} · as % of max marks`}>
       {cutoffs.lines === null ? (
         <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>Take a mock to compare with the cutoff.</p>
       ) : (
@@ -340,36 +366,23 @@ export function CutoffCard({ cutoffs, scoreLabel }: { cutoffs: CutoffData | null
           const cutoffPct = line.cutoffPct ?? 0;
           return (
             <div key={line.label} style={{ padding: '12px 0', borderTop: '1px solid var(--gray-100)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8, marginBottom: 8 }}>
-                <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--gray-800)' }}>{line.label}</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--gray-800)' }}>{line.label}</span>
                 <span style={{
-                  fontSize: 11, fontWeight: 600, color,
-                  background: isAbove ? 'var(--green-50, #f0fdf4)' : 'var(--red-50, #fef2f2)',
-                  padding: '2px 7px', borderRadius: 999, flexShrink: 0,
+                  fontSize: 11, fontWeight: 700, color,
+                  background: isAbove ? '#f0fdf4' : '#fef2f2',
+                  padding: '2px 8px', borderRadius: 999,
                 }}>
                   {isAbove ? `+${Math.abs(line.gapPct)} above` : `−${Math.abs(line.gapPct)} to go`}
                 </span>
               </div>
-
-              {/* Bar: shows score vs cutoff */}
-              <div style={{ position: 'relative', height: 8, borderRadius: 999, background: 'var(--gray-100)', overflow: 'visible' }}>
-                {/* Score fill */}
-                <div style={{
-                  position: 'absolute', left: 0, top: 0, height: '100%',
-                  width: `${Math.min(100, scorePct)}%`, background: color,
-                  borderRadius: 999, opacity: 0.7, transition: 'width 0.6s ease',
-                }} />
-                {/* Cutoff marker line */}
+              <div style={{ position: 'relative', height: 8, borderRadius: 999, background: 'var(--gray-100)' }}>
+                <div style={{ position: 'absolute', left: 0, top: 0, height: '100%', width: `${Math.min(100, scorePct)}%`, background: color, borderRadius: 999, opacity: 0.75, transition: 'width 0.6s ease' }} />
                 {cutoffPct <= 100 && (
-                  <div style={{
-                    position: 'absolute', top: -3, left: `${cutoffPct}%`,
-                    width: 2, height: 14, background: 'var(--gray-500)',
-                    transform: 'translateX(-50%)', borderRadius: 1,
-                  }} />
+                  <div style={{ position: 'absolute', top: -3, left: `${cutoffPct}%`, width: 2, height: 14, background: 'var(--gray-500)', transform: 'translateX(-50%)', borderRadius: 1 }} />
                 )}
               </div>
-
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'var(--gray-400)', marginTop: 5 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10, color: 'var(--gray-400)', marginTop: 4 }}>
                 <span>{scoreLabel}: <strong style={{ color }}>{scorePct}%</strong></span>
                 <span>Cutoff: <strong style={{ color: 'var(--gray-600)' }}>{cutoffPct}%</strong></span>
               </div>
@@ -378,121 +391,97 @@ export function CutoffCard({ cutoffs, scoreLabel }: { cutoffs: CutoffData | null
         })
       )}
       <p style={{ fontSize: 10, color: 'var(--gray-400)', marginTop: 10, lineHeight: 1.5 }}>
-        From published reports, not an official notice. Verify with NTA or IIT before relying on these.
-        {cutoffs.sources.length > 0 && (
-          <>
-            {' '}
-            {cutoffs.sources.map((s) => (
-              <a key={s.url} href={s.url} target="_blank" rel="noreferrer" style={{ color: 'var(--gray-500)', textDecoration: 'underline', marginRight: 8 }}>
-                {s.label}
-              </a>
-            ))}
-          </>
-        )}
+        From published reports — verify with NTA or IIT before relying on these.
+        {cutoffs.sources.length > 0 && cutoffs.sources.map((s) => (
+          <a key={s.url} href={s.url} target="_blank" rel="noreferrer" style={{ color: 'var(--gray-500)', textDecoration: 'underline', marginLeft: 6 }}>{s.label}</a>
+        ))}
       </p>
     </InsightCard>
   );
 }
 
-/* A link button for practising a set of topics */
+/* ── Practice link ──────────────────────────────────────────────────── */
 export function PracticeLink({ href, label }: { href: string; label: string }) {
   return (
-    <Link href={href} className="btn btn-primary" style={{ display: 'inline-flex' }}>
-      {label}
-    </Link>
+    <Link href={href} className="btn btn-primary" style={{ display: 'inline-flex' }}>{label}</Link>
   );
 }
 
-/* ── Careless mistakes (#7) ──────────────────────────────────────────── */
+/* ── Careless mistakes (#7) ─────────────────────────────────────────── */
 export function CarelessCard({ careless }: { careless: CarelessSummary }) {
   const { carelessCount, totalWrong, carelessPct, topTopics } = careless;
-  const safe = totalWrong > 0;
+  const color = carelessPct >= 30 ? 'var(--red-600)' : 'var(--amber-600)';
   return (
-    <InsightCard title="Careless mistakes" sub="Wrong answers where you answered faster than half your usual time for that type">
-      {!safe ? (
+    <InsightCard title="Careless mistakes" sub="Wrong answers where you answered in under half your usual time">
+      {totalWrong === 0 ? (
         <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>No wrong answers recorded yet.</p>
       ) : (
         <>
-          <div style={{ display: 'flex', gap: 24, marginBottom: 14 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 14 }}>
+            <Ring pct={carelessPct} color={color} size={80} stroke={8}>
+              <span style={{ fontSize: 14, fontWeight: 800, color, fontVariantNumeric: 'tabular-nums' }}>{carelessPct}%</span>
+            </Ring>
             <div>
-              <div style={{ fontSize: 36, fontWeight: 700, color: carelessPct >= 30 ? 'var(--red-600)' : 'var(--amber-600)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>
-                {carelessPct}%
+              <div style={{ fontSize: 24, fontWeight: 800, color: 'var(--gray-900)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>
+                {carelessCount} <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--gray-400)' }}>careless</span>
               </div>
-              <div style={{ fontSize: 11, color: 'var(--gray-400)' }}>of wrong answers</div>
-            </div>
-            <div>
-              <div style={{ fontSize: 36, fontWeight: 700, color: 'var(--gray-700)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>
-                {carelessCount}
-              </div>
-              <div style={{ fontSize: 11, color: 'var(--gray-400)' }}>careless of {totalWrong} wrong</div>
+              <div style={{ fontSize: 12, color: 'var(--gray-400)', marginTop: 2 }}>out of {totalWrong} wrong answers</div>
+              <div style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 4 }}>Slow down — you likely knew these.</div>
             </div>
           </div>
-          <Bar pct={carelessPct} color={carelessPct >= 30 ? 'var(--red-600)' : 'var(--amber-600)'} height={6} />
           {topTopics.length > 0 && (
-            <div style={{ marginTop: 14 }}>
-              <p style={{ fontSize: 11, fontWeight: 600, color: 'var(--gray-500)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8 }}>
-                Most careless in
-              </p>
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 700, color: 'var(--gray-400)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8 }}>Most careless in</p>
               {topTopics.map((t) => (
                 <div key={`${t.subject}|${t.topic}`} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, padding: '6px 0', borderTop: '1px solid var(--gray-100)' }}>
                   <span style={{ color: 'var(--gray-700)', fontWeight: 500 }}>{t.topic}</span>
-                  <span style={{ color: SUBJECT_COLOR[t.subject] ?? 'var(--gray-400)', fontSize: 11 }}>{t.subject} · {t.count}×</span>
+                  <span style={{ color: SUBJECT_COLOR[t.subject] ?? 'var(--gray-400)' }}>{t.subject} · {t.count}×</span>
                 </div>
               ))}
             </div>
           )}
-          <p style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 12, lineHeight: 1.5 }}>
-            Slow down on these — you likely know the answer but rush through it.
-          </p>
         </>
       )}
     </InsightCard>
   );
 }
 
-/* ── Guessing (#8) ────────────────────────────────────────────────────── */
+/* ── Guessing frequency (#8) ────────────────────────────────────────── */
 export function GuessingCard({ guessing }: { guessing: GuessingAnalysis }) {
   const { guessCount, totalAnswered, guessPct, wrongGuesses, rightGuesses } = guessing;
   const isHigh = guessPct >= 15;
+  const color = isHigh ? 'var(--red-600)' : 'var(--green-600)';
   return (
-    <InsightCard title="Guessing frequency" sub="Answers submitted in under 20 seconds — likely guesses">
+    <InsightCard title="Guessing frequency" sub="Answers submitted in under 20 seconds">
       {totalAnswered === 0 ? (
         <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>No answered questions yet.</p>
       ) : (
         <>
-          <div style={{ display: 'flex', gap: 24, marginBottom: 14 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 14 }}>
+            <Ring pct={guessPct} color={color} size={80} stroke={8}>
+              <span style={{ fontSize: 14, fontWeight: 800, color, fontVariantNumeric: 'tabular-nums' }}>{guessPct}%</span>
+            </Ring>
             <div>
-              <div style={{ fontSize: 36, fontWeight: 700, color: isHigh ? 'var(--red-600)' : 'var(--green-600)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>
-                {guessPct}%
+              <div style={{ fontSize: 24, fontWeight: 800, color: 'var(--gray-900)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>
+                {guessCount} <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--gray-400)' }}>guesses</span>
               </div>
-              <div style={{ fontSize: 11, color: 'var(--gray-400)' }}>of answers</div>
-            </div>
-            <div>
-              <div style={{ fontSize: 36, fontWeight: 700, color: 'var(--gray-700)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>
-                {guessCount}
-              </div>
-              <div style={{ fontSize: 11, color: 'var(--gray-400)' }}>guesses of {totalAnswered}</div>
+              <div style={{ fontSize: 12, color: 'var(--gray-400)', marginTop: 2 }}>of {totalAnswered} answered</div>
             </div>
           </div>
-          <Bar pct={guessPct} color={isHigh ? 'var(--red-600)' : 'var(--green-600)'} height={6} />
-
-          <div style={{ display: 'flex', gap: 16, marginTop: 14 }}>
-            <div style={{ flex: 1, padding: '10px 12px', background: 'var(--red-50, #fef2f2)', borderRadius: 10, textAlign: 'center' }}>
-              <div style={{ fontSize: 20, fontWeight: 700, color: 'var(--red-600)', fontVariantNumeric: 'tabular-nums' }}>{wrongGuesses}</div>
-              <div style={{ fontSize: 11, color: 'var(--gray-500)', marginTop: 2 }}>wrong guesses</div>
-              <div style={{ fontSize: 10, color: 'var(--gray-400)' }}>triggered −ve marks</div>
+          <div style={{ display: 'flex', gap: 10 }}>
+            <div style={{ flex: 1, padding: '10px', background: '#fef2f2', borderRadius: 10, textAlign: 'center' }}>
+              <div style={{ fontSize: 22, fontWeight: 800, color: 'var(--red-600)', fontVariantNumeric: 'tabular-nums' }}>{wrongGuesses}</div>
+              <div style={{ fontSize: 11, color: 'var(--gray-500)' }}>wrong guesses</div>
+              <div style={{ fontSize: 10, color: 'var(--gray-400)' }}>−ve marks risk</div>
             </div>
-            <div style={{ flex: 1, padding: '10px 12px', background: 'var(--green-50, #f0fdf4)', borderRadius: 10, textAlign: 'center' }}>
-              <div style={{ fontSize: 20, fontWeight: 700, color: 'var(--green-600)', fontVariantNumeric: 'tabular-nums' }}>{rightGuesses}</div>
-              <div style={{ fontSize: 11, color: 'var(--gray-500)', marginTop: 2 }}>lucky guesses</div>
+            <div style={{ flex: 1, padding: '10px', background: '#f0fdf4', borderRadius: 10, textAlign: 'center' }}>
+              <div style={{ fontSize: 22, fontWeight: 800, color: 'var(--green-600)', fontVariantNumeric: 'tabular-nums' }}>{rightGuesses}</div>
+              <div style={{ fontSize: 11, color: 'var(--gray-500)' }}>lucky guesses</div>
               <div style={{ fontSize: 10, color: 'var(--gray-400)' }}>got marks</div>
             </div>
           </div>
-
-          <p style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 12, lineHeight: 1.5 }}>
-            {isHigh
-              ? 'High guessing rate. On JEE/NEET wrong guesses cost negative marks — skip or mark for review instead.'
-              : 'Guessing rate is acceptable. Keep skipping questions you are not sure about.'}
+          <p style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 10, lineHeight: 1.5 }}>
+            {isHigh ? 'High guessing rate. Skip or mark-for-review instead of guessing — wrong guesses trigger −ve marks.' : 'Guessing rate is fine. Keep skipping questions you are unsure about.'}
           </p>
         </>
       )}
@@ -515,55 +504,30 @@ export function ImprovementCard({
       </InsightCard>
     );
   }
-
-  // Find which cutoff lines the student is below
   const belowLines = cutoffs.lines.filter((l: CutoffRow) => l.status === 'below').sort((a: CutoffRow, b: CutoffRow) => b.gapPct - a.gapPct);
   const worst = belowLines[0];
-
-  // Weakest subject by accuracy
   const weakestSubject = [...subjectOrder].sort((a, b) => a.accuracy - b.accuracy)[0];
   const strongestSubject = subjectOrder[0];
 
-  const items: Array<{ icon: string; text: string; color: string }> = [];
+  const items: Array<{ icon: string; text: string; kind: 'danger' | 'warn' | 'ok' }> = [];
+  if (worst) items.push({ icon: '🎯', text: `You are ${worst.gapPct} pts below the ${worst.label} cutoff (${worst.cutoffPct}%). That is the gap to close.`, kind: 'danger' });
+  if (weakestSubject) items.push({ icon: '📈', text: `${weakestSubject.subject} is your weakest at ${weakestSubject.accuracy}% accuracy. Bringing it to 60%+ has the biggest impact.`, kind: 'warn' });
+  if (strongestSubject && strongestSubject.subject !== weakestSubject?.subject) items.push({ icon: '⚡', text: `You are most efficient in ${strongestSubject.subject}. Start with it in the exam to bank marks early.`, kind: 'ok' });
+  if ('trendPerMock' in projection && projection.trendPerMock < 0) items.push({ icon: '⚠️', text: 'Your scores are trending down. Address this now.', kind: 'danger' });
+  if (items.length === 0) items.push({ icon: '✅', text: 'You are above all published cutoff lines. Keep the momentum.', kind: 'ok' });
 
-  if (worst) {
-    items.push({
-      icon: '🎯',
-      text: `You are ${worst.gapPct} points below the ${worst.label} cutoff (${worst.cutoffPct}%). That is the gap to close.`,
-      color: 'var(--red-600)',
-    });
-  }
-  if (weakestSubject) {
-    items.push({
-      icon: '📈',
-      text: `${weakestSubject.subject} is your weakest subject at ${weakestSubject.accuracy}% accuracy. Improving it to 60%+ will have the biggest score impact.`,
-      color: 'var(--amber-600)',
-    });
-  }
-  if (strongestSubject && strongestSubject.subject !== weakestSubject?.subject) {
-    items.push({
-      icon: '⚡',
-      text: `You are most efficient in ${strongestSubject.subject}. Attempt it first in the exam to bank marks early.`,
-      color: 'var(--green-600)',
-    });
-  }
-  if (projection && 'trendPerMock' in projection && projection.trendPerMock < 0) {
-    items.push({
-      icon: '⚠️',
-      text: 'Your scores are trending down. Address this before the exam.',
-      color: 'var(--red-600)',
-    });
-  }
-  if (items.length === 0) {
-    items.push({ icon: '✅', text: 'You are above all published cutoff lines. Keep the momentum.', color: 'var(--green-600)' });
-  }
+  const kindStyle: Record<string, { bg: string; border: string }> = {
+    danger: { bg: '#fef2f2', border: '#fca5a533' },
+    warn: { bg: '#fffbeb', border: '#fcd34d33' },
+    ok: { bg: '#f0fdf4', border: '#86efac33' },
+  };
 
   return (
     <InsightCard title="What to improve" sub="Personalised roadmap based on your mock data">
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         {items.map((item, i) => (
-          <div key={i} style={{ display: 'flex', gap: 10, padding: '10px 12px', borderRadius: 10, background: 'var(--gray-50)', border: '1px solid var(--gray-100)' }}>
-            <span style={{ fontSize: 18, lineHeight: 1.3, flexShrink: 0 }}>{item.icon}</span>
+          <div key={i} style={{ display: 'flex', gap: 10, padding: '10px 12px', borderRadius: 10, background: kindStyle[item.kind]!.bg, border: `1px solid ${kindStyle[item.kind]!.border}` }}>
+            <span style={{ fontSize: 16, lineHeight: 1.4, flexShrink: 0 }}>{item.icon}</span>
             <p style={{ fontSize: 13, color: 'var(--gray-700)', lineHeight: 1.5 }}>{item.text}</p>
           </div>
         ))}
@@ -585,85 +549,56 @@ export function CrackabilityCard({
   if (!projection.available) {
     return (
       <InsightCard title={`Can I crack ${examLabel}?`} sub="Based on your mock performance trend">
-        <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>
-          Take at least 2 mocks to get a crackability verdict. You have {projection.mocks} so far.
-        </p>
+        <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>Take at least 2 mocks to get a verdict. You have {projection.mocks} so far.</p>
       </InsightCard>
     );
   }
 
-  const lowestCutoff = cutoffs?.lines
-    ? Math.min(...cutoffs.lines.map((l: CutoffRow) => l.cutoffPct))
-    : null;
-
-  const isAboveCutoff = lowestCutoff !== null && projection.expected >= lowestCutoff;
-  const isTrendingUp = projection.trendPerMock > 0;
-  const isTrendingDown = projection.trendPerMock < -1;
+  const lowestCutoff = cutoffs?.lines ? Math.min(...cutoffs.lines.map((l: CutoffRow) => l.cutoffPct)) : null;
+  const isAbove = lowestCutoff !== null && projection.expected >= lowestCutoff;
+  const isTrendUp = projection.trendPerMock > 0;
+  const isTrendDown = projection.trendPerMock < -1;
   const gap = lowestCutoff !== null ? Math.round(lowestCutoff - projection.expected) : null;
 
-  let verdict: string;
-  let verdictColor: string;
-  let verdictBg: string;
-  let detail: string;
+  let verdict: string, verdictColor: string, verdictBg: string, detail: string;
 
-  if (isAboveCutoff) {
-    verdict = '✅ On track';
-    verdictColor = 'var(--green-600)';
-    verdictBg = 'var(--green-50, #f0fdf4)';
-    detail = `Your projected score of ${projection.expected}% is above the ${lowestCutoff}% cutoff. Maintain consistency.`;
-  } else if (isTrendingDown) {
-    verdict = '⚠️ At risk';
-    verdictColor = 'var(--red-600)';
-    verdictBg = 'var(--red-50, #fef2f2)';
-    detail = `Your scores are declining (${projection.trendPerMock} per mock). You need to reverse the trend${gap !== null ? ` and close a ${gap}-point gap` : ''}.`;
-  } else if (isTrendingUp && gap !== null) {
+  if (isAbove) {
+    verdict = '✅ On track'; verdictColor = 'var(--green-600)'; verdictBg = '#f0fdf4';
+    detail = `Projected ${projection.expected}% is above the ${lowestCutoff}% cutoff. Maintain consistency.`;
+  } else if (isTrendDown) {
+    verdict = '⚠️ At risk'; verdictColor = 'var(--red-600)'; verdictBg = '#fef2f2';
+    detail = `Scores declining (${projection.trendPerMock}/mock). Reverse the trend${gap !== null ? ` and close a ${gap}-pt gap` : ''}.`;
+  } else if (isTrendUp && gap !== null) {
     const mocksNeeded = gap > 0 ? Math.ceil(gap / Math.max(projection.trendPerMock, 0.5)) : 0;
-    verdict = '📈 Improving';
-    verdictColor = 'var(--amber-600)';
-    verdictBg = 'var(--amber-50, #fffbeb)';
-    detail = `You are ${gap} points below the cutoff but improving by ${projection.trendPerMock} per mock. At this rate, ~${mocksNeeded} more mocks to reach it.`;
+    verdict = '📈 Improving'; verdictColor = 'var(--amber-600)'; verdictBg = '#fffbeb';
+    detail = `${gap} pts below cutoff, improving by ${projection.trendPerMock}/mock. ~${mocksNeeded} more mocks at this rate.`;
   } else {
-    verdict = '⏳ Keep going';
-    verdictColor = 'var(--amber-600)';
-    verdictBg = 'var(--amber-50, #fffbeb)';
-    detail = gap !== null
-      ? `You are ${gap} points below the cutoff. Your projected score is ${projection.expected}%. More consistent practice needed.`
-      : `Your projected score is ${projection.expected}%. Keep taking mocks to refine the estimate.`;
+    verdict = '⏳ Keep going'; verdictColor = 'var(--amber-600)'; verdictBg = '#fffbeb';
+    detail = gap !== null ? `${gap} pts below the cutoff. Projected ${projection.expected}%. Needs consistent practice.` : `Projected ${projection.expected}%. Take more mocks to refine.`;
   }
 
   return (
-    <InsightCard title={`Can I crack ${examLabel}?`} sub="Based on your mock performance trend vs published cutoff">
-      <div style={{ padding: '14px 16px', borderRadius: 12, background: verdictBg, border: `1px solid ${verdictColor}22`, marginBottom: 14 }}>
-        <div style={{ fontSize: 18, fontWeight: 700, color: verdictColor, marginBottom: 6 }}>{verdict}</div>
+    <InsightCard title={`Can I crack ${examLabel}?`} sub="Projected score vs published cutoff">
+      <div style={{ padding: '14px 16px', borderRadius: 12, background: verdictBg, marginBottom: 16 }}>
+        <div style={{ fontSize: 17, fontWeight: 800, color: verdictColor, marginBottom: 6 }}>{verdict}</div>
         <p style={{ fontSize: 13, color: 'var(--gray-700)', lineHeight: 1.5 }}>{detail}</p>
       </div>
-
-      {/* Projection vs cutoff visual */}
       {lowestCutoff !== null && (
-        <div style={{ marginTop: 4 }}>
+        <>
           <div style={{ position: 'relative', height: 10, borderRadius: 999, background: 'var(--gray-100)' }}>
-            <div style={{
-              position: 'absolute', left: 0, top: 0, height: '100%',
-              width: `${Math.min(100, projection.expected)}%`,
-              background: verdictColor, borderRadius: 999, opacity: 0.8, transition: 'width 0.8s ease',
-            }} />
+            <div style={{ position: 'absolute', left: 0, top: 0, height: '100%', width: `${Math.min(100, projection.expected)}%`, background: verdictColor, borderRadius: 999, opacity: 0.8, transition: 'width 0.8s ease' }} />
             {lowestCutoff <= 100 && (
-              <div style={{
-                position: 'absolute', top: -4, left: `${lowestCutoff}%`,
-                width: 3, height: 18, background: 'var(--gray-600)',
-                transform: 'translateX(-50%)', borderRadius: 2,
-              }} />
+              <div style={{ position: 'absolute', top: -4, left: `${lowestCutoff}%`, width: 3, height: 18, background: 'var(--gray-600)', transform: 'translateX(-50%)', borderRadius: 2 }} />
             )}
           </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'var(--gray-400)', marginTop: 5 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10, color: 'var(--gray-400)', marginTop: 4 }}>
             <span>Projected: <strong style={{ color: verdictColor }}>{projection.expected}%</strong></span>
             <span>Cutoff: <strong style={{ color: 'var(--gray-600)' }}>{lowestCutoff}%</strong></span>
           </div>
-        </div>
+        </>
       )}
-
-      <div style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 10 }}>
-        Based on {projection.mocks} mocks · trend {projection.trendPerMock >= 0 ? '+' : ''}{projection.trendPerMock} per mock
+      <div style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 8 }}>
+        {projection.mocks} mocks · trend {projection.trendPerMock >= 0 ? '+' : ''}{projection.trendPerMock}/mock
       </div>
     </InsightCard>
   );
