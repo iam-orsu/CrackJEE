@@ -497,19 +497,26 @@ export default function DashboardPage() {
 
           {/* Mock insights: built only from submitted mock exams */}
           {!loading && insights && insights.examsAnalysed > 0 && (
-            <section style={{ marginTop: 16 }}>
-              <div style={{ marginBottom: 12 }}>
+            <section style={{ marginTop: 24 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
                 <h2 className={styles.panelTitle}>Mock insights</h2>
-                <p className={styles.panelSub}>From your submitted mock exams only · {plural(insights.examsAnalysed, 'mock')} analysed</p>
+                <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--gray-500)', background: 'var(--gray-100)', padding: '2px 8px', borderRadius: 999 }}>
+                  {plural(insights.examsAnalysed, 'mock')} analysed
+                </span>
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16 }}>
+
+              {/* Row 1: key stats — projection, standing, cutoff */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14, marginBottom: 14 }}>
                 <ProjectionCard projection={insights.projection} />
                 <StandingCard standing={insights.standing} />
                 <CutoffCard cutoffs={insights.cutoffs} scoreLabel="Your average" />
-                <MonthlyBars monthly={insights.monthly} />
+              </div>
+
+              {/* Row 2: topic performance */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14, marginBottom: 14 }}>
                 <TopicList
                   title="Strong topics"
-                  sub="At 60% or above, with at least two answers"
+                  sub="At 60%+ accuracy, at least 2 answers"
                   topics={insights.strongTopics}
                   mode="accuracy"
                   emptyText="No strong topics yet. A topic needs two answers at 60% or better."
@@ -522,7 +529,7 @@ export default function DashboardPage() {
                   emptyText="No weak topics yet."
                 />
                 <TopicList
-                  title="Revise today, practise tomorrow"
+                  title="Revise today"
                   sub="Your weakest topics first"
                   topics={insights.reviseToday}
                   mode="accuracy"
@@ -531,14 +538,19 @@ export default function DashboardPage() {
                 />
                 <TopicList
                   title="Marks lost by topic"
-                  sub="Where most of your marks went, including negatives"
+                  sub="Where your marks went, including negatives"
                   topics={insights.marksLostTopics}
                   mode="marks"
                   emptyText="No marks lost yet."
                 />
+              </div>
+
+              {/* Row 3: time, patterns, monthly */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14 }}>
                 <NegativesCard negatives={insights.negatives} />
                 <TimeByTypeCard rows={insights.timeByType} />
                 <SectionOrderCard rows={insights.subjectOrder} />
+                <MonthlyBars monthly={insights.monthly} />
               </div>
             </section>
           )}
