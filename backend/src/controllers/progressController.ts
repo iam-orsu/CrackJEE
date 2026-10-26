@@ -13,7 +13,7 @@ import {
   timeByType,
   subjectOrder,
 } from '../services/mockInsights';
-import { platformStanding, cutoffComparison } from '../services/mockInsights';
+import { platformStanding, cutoffComparison, carelessAnalysis, guessingAnalysis, practiceTomorrow } from '../services/mockInsights';
 import { loadStudentMockData, loadPlatformAverages } from '../services/mockInsightsData';
 import { cutoffsFor } from '../services/examCutoffs';
 
@@ -330,14 +330,16 @@ export async function mockInsights(req: AuthRequest, res: Response, next: NextFu
           : null,
         strongTopics: strong,
         weakTopics: weak,
-        // Revise today: the weakest topics; practise tomorrow uses the same list
         reviseToday: weak,
+        practiceTomorrow: practiceTomorrow(stats),
         marksLostTopics: topMarksLost(stats),
         monthly: monthlyTrend(totals),
         projection: projection(totals),
         negatives: negativeAnalysis(records),
         timeByType: timeByType(records),
         subjectOrder: subjectOrder(records),
+        careless: carelessAnalysis(records),
+        guessing: guessingAnalysis(records),
       },
     });
   } catch (err) {

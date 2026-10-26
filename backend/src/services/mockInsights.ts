@@ -244,6 +244,99 @@ export function platformStanding(mine: number, everyone: number[]): { percentile
   };
 }
 
+// Threshold under which an answered question is likely a guess
+const GUESS_SECONDS = 20;
+
+export interface CarelessSummary {
+  carelessCount: number;
+  totalWrong: number;
+  carelessPct: number;
+  topTopics: Array<{ subject: string; topic: string; count: number }>;
+}
+
+/**
+ * Careless mistakes: wrong answers where the student answered in less than half the average
+ * time for that question type and also under 30 seconds — almost certainly didn't think it through.
+ */
+export function carelessAnalysis(records: QuestionRecord[]): CarelessSummary {
+  const typeTime = new Map<string, { total: number; count: number }>();
+  for (const r of records) {
+    if (!r.answered || r.timeSeconds <= 0) continue;
+    const e = typeTime.get(r.questionType) ?? { total: 0, count: 0 };
+    e.total += r.timeSeconds;
+    e.count++;
+    typeTime.set(r.questionType, e);
+  }
+  const avgByType = new Map<string, number>();
+  for (const [type, { total, count }] of typeTime) avgByType.set(type, total / count);
+
+  const topicCount = new Map<string, { subject: string; topic: string; count: number }>();
+  let carelessCount = 0;
+  let totalWrong = 0;
+  for (const r of records) {
+    if (!r.answered) continue;
+    if (r.awarded > 0) continue;
+    totalWrong++;
+    const avg = avgByType.get(r.questionType) ?? 0;
+    if (avg > 0 && r.timeSeconds < avg * 0.5 && r.timeSeconds < 30) {
+      carelessCount++;
+      const key = `${r.subject}|${r.topic}`;
+      const entry = topicCount.get(key) ?? { subject: r.subject, topic: r.topic, count: 0 };
+      entry.count++;
+      topicCount.set(key, entry);
+    }
+  }
+  return {
+    carelessCount,
+    totalWrong,
+    carelessPct: totalWrong > 0 ? round((carelessCount / totalWrong) * 100) : 0,
+    topTopics: [...topicCount.values()].sort((a, b) => b.count - a.count).slice(0, LIST_LIMIT),
+  };
+}
+
+export interface GuessingAnalysis {
+  guessCount: number;
+  totalAnswered: number;
+  guessPct: number;
+  wrongGuesses: number;
+  rightGuesses: number;
+}
+
+/**
+ * Guessing: any answered question where time < 20 s.
+ * Right guesses are lucky; wrong ones are the dangerous kind that trigger negative marking.
+ */
+export function guessingAnalysis(records: QuestionRecord[]): GuessingAnalysis {
+  let guessCount = 0, totalAnswered = 0, wrongGuesses = 0, rightGuesses = 0;
+  for (const r of records) {
+    if (!r.answered) continue;
+    totalAnswered++;
+    if (r.timeSeconds > 0 && r.timeSeconds <= GUESS_SECONDS) {
+      guessCount++;
+      if (r.awarded > 0) rightGuesses++; else wrongGuesses++;
+    }
+  }
+  return {
+    guessCount,
+    totalAnswered,
+    guessPct: totalAnswered > 0 ? round((guessCount / totalAnswered) * 100) : 0,
+    wrongGuesses,
+    rightGuesses,
+  };
+}
+
+/**
+ * Practice tomorrow: topics in the 40–75 % accuracy zone — not your worst (that is "revise today"),
+ * but borderline. Fixing these gives the biggest marks-per-hour return because the student already
+ * understands the concept but makes mistakes under exam conditions. Sorted by marks lost.
+ */
+export function practiceTomorrow(stats: TopicStat[]): TopicStat[] {
+  return stats
+    .filter((s) => s.accuracy >= 40 && s.accuracy < 75 && s.attempts >= 1)
+    .sort((a, b) => b.marksLost - a.marksLost || a.accuracy - b.accuracy)
+    .slice(0, LIST_LIMIT);
+}
+
 export interface CutoffResult {
   label: string;
   cutoffPct: number;

@@ -227,6 +227,21 @@ export interface CutoffData {
   lines: CutoffRow[] | null;
 }
 
+export interface CarelessSummary {
+  carelessCount: number;
+  totalWrong: number;
+  carelessPct: number;
+  topTopics: Array<{ subject: string; topic: string; count: number }>;
+}
+
+export interface GuessingAnalysis {
+  guessCount: number;
+  totalAnswered: number;
+  guessPct: number;
+  wrongGuesses: number;
+  rightGuesses: number;
+}
+
 export interface MockInsights {
   examsAnalysed: number;
   examType: string | null;
@@ -235,12 +250,15 @@ export interface MockInsights {
   strongTopics: TopicStat[];
   weakTopics: TopicStat[];
   reviseToday: TopicStat[];
+  practiceTomorrow: TopicStat[];
   marksLostTopics: TopicStat[];
   monthly: Array<{ month: string; avgPct: number; mocks: number }>;
   projection: ProjectionData;
   negatives: NegativeSummary;
   timeByType: TimeByTypeRow[];
   subjectOrder: SubjectOrderRow[];
+  careless: CarelessSummary;
+  guessing: GuessingAnalysis;
 }
 
 export interface ExamInsights {

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
-import type { CutoffData, NegativeSummary, ProjectionData, StandingData, SubjectOrderRow, TimeByTypeRow, TopicStat } from '@/types';
+import type { CarelessSummary, CutoffData, CutoffRow, GuessingAnalysis, NegativeSummary, ProjectionData, StandingData, SubjectOrderRow, TimeByTypeRow, TopicStat } from '@/types';
 import { SUBJECT_COLOR } from '@/lib/subjects';
 
 const QUESTION_TYPE_LABELS: Record<string, string> = {
@@ -400,5 +400,271 @@ export function PracticeLink({ href, label }: { href: string; label: string }) {
     <Link href={href} className="btn btn-primary" style={{ display: 'inline-flex' }}>
       {label}
     </Link>
+  );
+}
+
+/* ── Careless mistakes (#7) ──────────────────────────────────────────── */
+export function CarelessCard({ careless }: { careless: CarelessSummary }) {
+  const { carelessCount, totalWrong, carelessPct, topTopics } = careless;
+  const safe = totalWrong > 0;
+  return (
+    <InsightCard title="Careless mistakes" sub="Wrong answers where you answered faster than half your usual time for that type">
+      {!safe ? (
+        <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>No wrong answers recorded yet.</p>
+      ) : (
+        <>
+          <div style={{ display: 'flex', gap: 24, marginBottom: 14 }}>
+            <div>
+              <div style={{ fontSize: 36, fontWeight: 700, color: carelessPct >= 30 ? 'var(--red-600)' : 'var(--amber-600)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>
+                {carelessPct}%
+              </div>
+              <div style={{ fontSize: 11, color: 'var(--gray-400)' }}>of wrong answers</div>
+            </div>
+            <div>
+              <div style={{ fontSize: 36, fontWeight: 700, color: 'var(--gray-700)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>
+                {carelessCount}
+              </div>
+              <div style={{ fontSize: 11, color: 'var(--gray-400)' }}>careless of {totalWrong} wrong</div>
+            </div>
+          </div>
+          <Bar pct={carelessPct} color={carelessPct >= 30 ? 'var(--red-600)' : 'var(--amber-600)'} height={6} />
+          {topTopics.length > 0 && (
+            <div style={{ marginTop: 14 }}>
+              <p style={{ fontSize: 11, fontWeight: 600, color: 'var(--gray-500)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8 }}>
+                Most careless in
+              </p>
+              {topTopics.map((t) => (
+                <div key={`${t.subject}|${t.topic}`} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, padding: '6px 0', borderTop: '1px solid var(--gray-100)' }}>
+                  <span style={{ color: 'var(--gray-700)', fontWeight: 500 }}>{t.topic}</span>
+                  <span style={{ color: SUBJECT_COLOR[t.subject] ?? 'var(--gray-400)', fontSize: 11 }}>{t.subject} · {t.count}×</span>
+                </div>
+              ))}
+            </div>
+          )}
+          <p style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 12, lineHeight: 1.5 }}>
+            Slow down on these — you likely know the answer but rush through it.
+          </p>
+        </>
+      )}
+    </InsightCard>
+  );
+}
+
+/* ── Guessing (#8) ────────────────────────────────────────────────────── */
+export function GuessingCard({ guessing }: { guessing: GuessingAnalysis }) {
+  const { guessCount, totalAnswered, guessPct, wrongGuesses, rightGuesses } = guessing;
+  const isHigh = guessPct >= 15;
+  return (
+    <InsightCard title="Guessing frequency" sub="Answers submitted in under 20 seconds — likely guesses">
+      {totalAnswered === 0 ? (
+        <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>No answered questions yet.</p>
+      ) : (
+        <>
+          <div style={{ display: 'flex', gap: 24, marginBottom: 14 }}>
+            <div>
+              <div style={{ fontSize: 36, fontWeight: 700, color: isHigh ? 'var(--red-600)' : 'var(--green-600)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>
+                {guessPct}%
+              </div>
+              <div style={{ fontSize: 11, color: 'var(--gray-400)' }}>of answers</div>
+            </div>
+            <div>
+              <div style={{ fontSize: 36, fontWeight: 700, color: 'var(--gray-700)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>
+                {guessCount}
+              </div>
+              <div style={{ fontSize: 11, color: 'var(--gray-400)' }}>guesses of {totalAnswered}</div>
+            </div>
+          </div>
+          <Bar pct={guessPct} color={isHigh ? 'var(--red-600)' : 'var(--green-600)'} height={6} />
+
+          <div style={{ display: 'flex', gap: 16, marginTop: 14 }}>
+            <div style={{ flex: 1, padding: '10px 12px', background: 'var(--red-50, #fef2f2)', borderRadius: 10, textAlign: 'center' }}>
+              <div style={{ fontSize: 20, fontWeight: 700, color: 'var(--red-600)', fontVariantNumeric: 'tabular-nums' }}>{wrongGuesses}</div>
+              <div style={{ fontSize: 11, color: 'var(--gray-500)', marginTop: 2 }}>wrong guesses</div>
+              <div style={{ fontSize: 10, color: 'var(--gray-400)' }}>triggered −ve marks</div>
+            </div>
+            <div style={{ flex: 1, padding: '10px 12px', background: 'var(--green-50, #f0fdf4)', borderRadius: 10, textAlign: 'center' }}>
+              <div style={{ fontSize: 20, fontWeight: 700, color: 'var(--green-600)', fontVariantNumeric: 'tabular-nums' }}>{rightGuesses}</div>
+              <div style={{ fontSize: 11, color: 'var(--gray-500)', marginTop: 2 }}>lucky guesses</div>
+              <div style={{ fontSize: 10, color: 'var(--gray-400)' }}>got marks</div>
+            </div>
+          </div>
+
+          <p style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 12, lineHeight: 1.5 }}>
+            {isHigh
+              ? 'High guessing rate. On JEE/NEET wrong guesses cost negative marks — skip or mark for review instead.'
+              : 'Guessing rate is acceptable. Keep skipping questions you are not sure about.'}
+          </p>
+        </>
+      )}
+    </InsightCard>
+  );
+}
+
+/* ── What to improve to reach target rank (#12) ─────────────────────── */
+export function ImprovementCard({
+  cutoffs, subjectOrder, projection,
+}: {
+  cutoffs: CutoffData | null;
+  subjectOrder: SubjectOrderRow[];
+  projection: ProjectionData;
+}) {
+  if (!cutoffs?.lines || subjectOrder.length === 0) {
+    return (
+      <InsightCard title="What to improve" sub="Personalised roadmap to clear the cutoff">
+        <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>Submit a mock to see your improvement roadmap.</p>
+      </InsightCard>
+    );
+  }
+
+  // Find which cutoff lines the student is below
+  const belowLines = cutoffs.lines.filter((l: CutoffRow) => l.status === 'below').sort((a: CutoffRow, b: CutoffRow) => b.gapPct - a.gapPct);
+  const worst = belowLines[0];
+
+  // Weakest subject by accuracy
+  const weakestSubject = [...subjectOrder].sort((a, b) => a.accuracy - b.accuracy)[0];
+  const strongestSubject = subjectOrder[0];
+
+  const items: Array<{ icon: string; text: string; color: string }> = [];
+
+  if (worst) {
+    items.push({
+      icon: '🎯',
+      text: `You are ${worst.gapPct} points below the ${worst.label} cutoff (${worst.cutoffPct}%). That is the gap to close.`,
+      color: 'var(--red-600)',
+    });
+  }
+  if (weakestSubject) {
+    items.push({
+      icon: '📈',
+      text: `${weakestSubject.subject} is your weakest subject at ${weakestSubject.accuracy}% accuracy. Improving it to 60%+ will have the biggest score impact.`,
+      color: 'var(--amber-600)',
+    });
+  }
+  if (strongestSubject && strongestSubject.subject !== weakestSubject?.subject) {
+    items.push({
+      icon: '⚡',
+      text: `You are most efficient in ${strongestSubject.subject}. Attempt it first in the exam to bank marks early.`,
+      color: 'var(--green-600)',
+    });
+  }
+  if (projection && 'trendPerMock' in projection && projection.trendPerMock < 0) {
+    items.push({
+      icon: '⚠️',
+      text: 'Your scores are trending down. Address this before the exam.',
+      color: 'var(--red-600)',
+    });
+  }
+  if (items.length === 0) {
+    items.push({ icon: '✅', text: 'You are above all published cutoff lines. Keep the momentum.', color: 'var(--green-600)' });
+  }
+
+  return (
+    <InsightCard title="What to improve" sub="Personalised roadmap based on your mock data">
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+        {items.map((item, i) => (
+          <div key={i} style={{ display: 'flex', gap: 10, padding: '10px 12px', borderRadius: 10, background: 'var(--gray-50)', border: '1px solid var(--gray-100)' }}>
+            <span style={{ fontSize: 18, lineHeight: 1.3, flexShrink: 0 }}>{item.icon}</span>
+            <p style={{ fontSize: 13, color: 'var(--gray-700)', lineHeight: 1.5 }}>{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </InsightCard>
+  );
+}
+
+/* ── Can I crack JEE/NEET (#13) ─────────────────────────────────────── */
+export function CrackabilityCard({
+  projection, cutoffs, examType,
+}: {
+  projection: ProjectionData;
+  cutoffs: CutoffData | null;
+  examType: string | null;
+}) {
+  const examLabel = examType === 'NEET' ? 'NEET' : examType === 'Advanced' ? 'JEE Advanced' : 'JEE Main';
+
+  if (!projection.available) {
+    return (
+      <InsightCard title={`Can I crack ${examLabel}?`} sub="Based on your mock performance trend">
+        <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>
+          Take at least 2 mocks to get a crackability verdict. You have {projection.mocks} so far.
+        </p>
+      </InsightCard>
+    );
+  }
+
+  const lowestCutoff = cutoffs?.lines
+    ? Math.min(...cutoffs.lines.map((l: CutoffRow) => l.cutoffPct))
+    : null;
+
+  const isAboveCutoff = lowestCutoff !== null && projection.expected >= lowestCutoff;
+  const isTrendingUp = projection.trendPerMock > 0;
+  const isTrendingDown = projection.trendPerMock < -1;
+  const gap = lowestCutoff !== null ? Math.round(lowestCutoff - projection.expected) : null;
+
+  let verdict: string;
+  let verdictColor: string;
+  let verdictBg: string;
+  let detail: string;
+
+  if (isAboveCutoff) {
+    verdict = '✅ On track';
+    verdictColor = 'var(--green-600)';
+    verdictBg = 'var(--green-50, #f0fdf4)';
+    detail = `Your projected score of ${projection.expected}% is above the ${lowestCutoff}% cutoff. Maintain consistency.`;
+  } else if (isTrendingDown) {
+    verdict = '⚠️ At risk';
+    verdictColor = 'var(--red-600)';
+    verdictBg = 'var(--red-50, #fef2f2)';
+    detail = `Your scores are declining (${projection.trendPerMock} per mock). You need to reverse the trend${gap !== null ? ` and close a ${gap}-point gap` : ''}.`;
+  } else if (isTrendingUp && gap !== null) {
+    const mocksNeeded = gap > 0 ? Math.ceil(gap / Math.max(projection.trendPerMock, 0.5)) : 0;
+    verdict = '📈 Improving';
+    verdictColor = 'var(--amber-600)';
+    verdictBg = 'var(--amber-50, #fffbeb)';
+    detail = `You are ${gap} points below the cutoff but improving by ${projection.trendPerMock} per mock. At this rate, ~${mocksNeeded} more mocks to reach it.`;
+  } else {
+    verdict = '⏳ Keep going';
+    verdictColor = 'var(--amber-600)';
+    verdictBg = 'var(--amber-50, #fffbeb)';
+    detail = gap !== null
+      ? `You are ${gap} points below the cutoff. Your projected score is ${projection.expected}%. More consistent practice needed.`
+      : `Your projected score is ${projection.expected}%. Keep taking mocks to refine the estimate.`;
+  }
+
+  return (
+    <InsightCard title={`Can I crack ${examLabel}?`} sub="Based on your mock performance trend vs published cutoff">
+      <div style={{ padding: '14px 16px', borderRadius: 12, background: verdictBg, border: `1px solid ${verdictColor}22`, marginBottom: 14 }}>
+        <div style={{ fontSize: 18, fontWeight: 700, color: verdictColor, marginBottom: 6 }}>{verdict}</div>
+        <p style={{ fontSize: 13, color: 'var(--gray-700)', lineHeight: 1.5 }}>{detail}</p>
+      </div>
+
+      {/* Projection vs cutoff visual */}
+      {lowestCutoff !== null && (
+        <div style={{ marginTop: 4 }}>
+          <div style={{ position: 'relative', height: 10, borderRadius: 999, background: 'var(--gray-100)' }}>
+            <div style={{
+              position: 'absolute', left: 0, top: 0, height: '100%',
+              width: `${Math.min(100, projection.expected)}%`,
+              background: verdictColor, borderRadius: 999, opacity: 0.8, transition: 'width 0.8s ease',
+            }} />
+            {lowestCutoff <= 100 && (
+              <div style={{
+                position: 'absolute', top: -4, left: `${lowestCutoff}%`,
+                width: 3, height: 18, background: 'var(--gray-600)',
+                transform: 'translateX(-50%)', borderRadius: 2,
+              }} />
+            )}
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'var(--gray-400)', marginTop: 5 }}>
+            <span>Projected: <strong style={{ color: verdictColor }}>{projection.expected}%</strong></span>
+            <span>Cutoff: <strong style={{ color: 'var(--gray-600)' }}>{lowestCutoff}%</strong></span>
+          </div>
+        </div>
+      )}
+
+      <div style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 10 }}>
+        Based on {projection.mocks} mocks · trend {projection.trendPerMock >= 0 ? '+' : ''}{projection.trendPerMock} per mock
+      </div>
+    </InsightCard>
   );
 }
