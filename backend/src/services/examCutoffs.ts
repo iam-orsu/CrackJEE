@@ -45,12 +45,7 @@ export const JEE_ADVANCED_2026_CUTOFFS: ExamCutoffs = {
     { label: 'GEN-EWS / OBC-NCL', marks: 82, maxMarks: 360 },
     { label: 'SC / ST / PwD', marks: 46, maxMarks: 360 },
   ],
-  sources: [
-    {
-      label: 'Aakash: JEE Advanced 2026 cut-off, category-wise',
-      url: 'https://www.aakash.ac.in/blog/jee-advanced-2026-cut-off-category-wise/',
-    },
-  ],
+  sources: [],
 };
 
 /**

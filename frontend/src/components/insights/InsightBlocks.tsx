@@ -257,12 +257,16 @@ export function CutoffCard({ cutoffs, scoreLabel }: { cutoffs: CutoffData | null
       )}
       <p style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 12, lineHeight: 1.5 }}>
         Cutoffs come from published reports, not an official notice. Check the official NTA or IIT notice before relying on them.
-        {' '}
-        {cutoffs.sources.map((s) => (
-          <a key={s.url} href={s.url} target="_blank" rel="noreferrer" style={{ color: 'var(--gray-600)', textDecoration: 'underline', marginRight: 8 }}>
-            {s.label}
-          </a>
-        ))}
+        {cutoffs.sources.length > 0 && (
+          <>
+            {' '}
+            {cutoffs.sources.map((s) => (
+              <a key={s.url} href={s.url} target="_blank" rel="noreferrer" style={{ color: 'var(--gray-600)', textDecoration: 'underline', marginRight: 8 }}>
+                {s.label}
+              </a>
+            ))}
+          </>
+        )}
       </p>
     </InsightCard>
   );
