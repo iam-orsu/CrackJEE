@@ -274,10 +274,14 @@ export default function DashboardPage() {
       .finally(() => setLoading(false));
   }, [router]);
 
-  const hour = new Date().getHours();
-  const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
+  const [greeting, setGreeting] = useState('');
+  const [today, setToday] = useState('');
+  useEffect(() => {
+    const h = new Date().getHours();
+    setGreeting(h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening');
+    setToday(new Date().toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }));
+  }, []);
   const firstName = user?.name?.split(' ')[0] ?? '';
-  const today = new Date().toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 
   const accuracy = data?.stats.accuracy ?? 0;
   const totalAttempts = data?.stats.totalAttempts ?? 0;
@@ -350,8 +354,8 @@ export default function DashboardPage() {
           {/* Header */}
           <header className={styles.header}>
             <div>
-              <p className={styles.eyebrow} suppressHydrationWarning>{today}</p>
-              <h1 className={styles.title} suppressHydrationWarning>
+              <p className={styles.eyebrow}>{today}</p>
+              <h1 className={styles.title}>
                 {greeting}{firstName ? `, ${firstName}` : ''}
               </h1>
             </div>
