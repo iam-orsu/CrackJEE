@@ -148,7 +148,7 @@ model TopicProgress {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@unique([userId, topicName])
+  @@unique([userId, topicName, subject])
   @@index([userId])
   @@index([userId, markedAsWeak])
 }
