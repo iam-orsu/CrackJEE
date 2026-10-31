@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { Sidebar } from '@/components/Sidebar';
+import { StudySidebar } from '@/components/StudySidebar';
 import { PaperCard } from '@/components/practice/shared';
 import { PaperPager } from '@/components/practice/PaperPager';
 import { api } from '@/lib/api';
@@ -219,7 +220,9 @@ export default function MockPage() {
   return (
     <div className="app-shell">
       <Sidebar />
-      <main className="app-main" style={{ maxWidth: 900 }}>
+      <main className="app-main">
+        <div style={{ display: 'flex', gap: 32, alignItems: 'flex-start', maxWidth: 1200 }}>
+        <div style={{ flex: '1 1 0', minWidth: 0, maxWidth: 900 }}>
         <div style={{ marginBottom: 28 }}>
           <h1 style={{ fontSize: 22, fontWeight: 600, color: 'var(--gray-900)', marginBottom: 4 }}>Mock Test</h1>
           <p style={{ fontSize: 14, color: 'var(--gray-500)' }}>
@@ -487,6 +490,9 @@ export default function MockPage() {
             </div>
           </div>
         )}
+        </div>{/* end content column */}
+          <StudySidebar />
+        </div>{/* end two-column row */}
       </main>
     </div>
   );
