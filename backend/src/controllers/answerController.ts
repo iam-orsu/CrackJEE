@@ -71,6 +71,15 @@ export async function submitAnswer(req: AuthRequest, res: Response, next: NextFu
       throw new AppError(409, 'This answer is already being submitted. Please wait a moment.');
     }
 
+    if (question.questionType === 'integer') {
+      const intVal = parseInt(answer, 10);
+      const maxVal = question.examType === 'Advanced' ? 9 : 99;
+      if (isNaN(intVal) || intVal < 0 || intVal > maxVal) {
+        await cacheDel(lockKey);
+        throw new AppError(400, `Integer answer must be between 0 and ${maxVal}`);
+      }
+    }
+
     const isCorrect = checkAnswer(question.questionType ?? 'mcq_single', answer, question.answer);
 
     try {
@@ -118,7 +127,7 @@ async function updateTopicProgress(
       ${newId}, ${userId}, ${topicName}, ${subject},
       1, ${inc}, ${inc}::float8, false, now()
     )
-    ON CONFLICT ("userId", "topicName") DO UPDATE SET
+    ON CONFLICT ("userId", "topicName", "subject") DO UPDATE SET
       "attempts"     = "TopicProgress"."attempts" + 1,
       "correctCount" = "TopicProgress"."correctCount" + ${inc},
       "successRate"  = ("TopicProgress"."correctCount" + ${inc})::float8
