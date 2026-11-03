@@ -1,7 +1,10 @@
 import OpenAI from 'openai';
 import type { GeneratedQuestion, Difficulty, ExamType, Subject, StudentClass, QuestionType, DiagramTemplate } from '../types/index';
 import { createConcurrencyLimiter } from '../lib/concurrencyLimiter';
+import { createCircuitBreaker, CircuitOpenError } from '../lib/circuitBreaker';
 import { incCounter } from '../lib/metrics';
+
+export { CircuitOpenError } from '../lib/circuitBreaker';
 
 // Created on first use, not at import: modules that only need the prompt helpers or the parser (and the unit
 // tests) must load without a DeepSeek key. maxRetries: 0 — the retry loops below own retries, so SDK retries don't multiply them
@@ -21,15 +24,35 @@ function getClient(): OpenAI {
 // Caps how many DeepSeek requests run at once across all users and requests in this process
 const withDeepSeekSlot = createConcurrencyLimiter(Number(process.env.DEEPSEEK_CONCURRENCY ?? 6));
 
+const deepSeekBreaker = createCircuitBreaker({
+  name: 'deepseek',
+  failureThreshold: Number(process.env.DEEPSEEK_CIRCUIT_FAILURE_THRESHOLD ?? 5),
+  cooldownMs: Number(process.env.DEEPSEEK_CIRCUIT_COOLDOWN_MS ?? 5 * 60 * 1000),
+});
+
+export function isDeepSeekAvailable(): boolean {
+  return !deepSeekBreaker.isOpen();
+}
+
+export function getDeepSeekCircuitState(): string {
+  return deepSeekBreaker.getState();
+}
+
 // Every DeepSeek request goes through here, so the cap applies and outcomes are counted
 async function callDeepSeek(
   params: OpenAI.Chat.ChatCompletionCreateParamsNonStreaming,
 ): Promise<OpenAI.Chat.ChatCompletion> {
+  if (!deepSeekBreaker.canAttempt()) {
+    incCounter('deepseek_requests_total', { outcome: 'circuit_open' });
+    throw new CircuitOpenError();
+  }
   try {
     const response = await withDeepSeekSlot(() => getClient().chat.completions.create(params));
+    deepSeekBreaker.recordSuccess();
     incCounter('deepseek_requests_total', { outcome: 'ok' });
     return response;
   } catch (err) {
+    deepSeekBreaker.recordFailure();
     incCounter('deepseek_requests_total', { outcome: 'error' });
     throw err;
   }

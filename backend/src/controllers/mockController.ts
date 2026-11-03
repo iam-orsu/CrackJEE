@@ -6,7 +6,8 @@ import type { AuthRequest, Subject, Difficulty, QuestionType } from '../types/in
 import { JEE_TOPICS_BY_CLASS, NEET_TOPICS_BY_CLASS, NEET_SUBJECTS } from '../types/index';
 import { prisma } from '../lib/prisma';
 import { AppError } from '../middleware/errorHandler';
-import { generateFreshMockBatch, distributeTopicSlots, fisherYatesShuffle } from '../services/questionService';
+import { generateFreshMockBatch, distributeTopicSlots, fisherYatesShuffle, fillMockSlotsFromPracticeBank } from '../services/questionService';
+import { isDeepSeekAvailable } from '../services/deepseekService';
 import { findStoredPaper, saveStoredPaper } from '../services/mockPaperService';
 import { loadTopicHistory, loadSeenQuestionIds, type SubjectHistory } from '../services/mockTopicHistory';
 import { fillSlotsFromBank, slotKey, type BankQuestion, type SlotKey } from '../services/mockBankFill';
@@ -215,11 +216,22 @@ async function generateFreshPaper(
   const picks = fillSlotsFromBank(slotKeys, bank, seen);
   const bankById = new Map(bank.map((q) => [q.id, q]));
   const fromBank: PaperQuestion[] = picks.flatMap((id) => (id ? [bankById.get(id)!] : []));
-  const missingSlots = slots.filter((_, i) => picks[i] === null);
+  let missingSlots = slots.filter((_, i) => picks[i] === null);
   logger.info({ fromBank: fromBank.length, generate: missingSlots.length }, '[mockPool] Paper slots filled from the bank');
 
+  // When DeepSeek is unavailable, fill remaining slots from the practice (non-mock) bank
+  let practiceBackfill: PaperQuestion[] = [];
+  if (missingSlots.length > 0 && !isDeepSeekAvailable()) {
+    const usedIds = new Set([...seen, ...fromBank.map((q) => q.id)]);
+    const practiceQuestions = await fillMockSlotsFromPracticeBank(missingSlots, usedIds);
+    practiceBackfill = practiceQuestions.map((q) => ({ id: q.id, subject: q.subject, topic: q.topic, questionType: q.questionType }));
+    const practiceFilled = new Set(practiceBackfill.map((q) => q.id));
+    missingSlots = missingSlots.filter((_, i) => i >= practiceBackfill.length);
+    logger.info({ fromPracticeBank: practiceBackfill.length, stillMissing: missingSlots.length }, '[mockPool] Practice bank fallback filled slots');
+  }
+
   const generated: PaperQuestion[] = missingSlots.length > 0 ? await generateFreshMockBatch(missingSlots, 4) : [];
-  let questions: PaperQuestion[] = [...fromBank, ...generated];
+  let questions: PaperQuestion[] = [...fromBank, ...practiceBackfill, ...generated];
 
   // Top-up: questions dropped by the answer check leave gaps. Ask for replacements for the short subjects,
   // up to three rounds, so one bad round does not leave the paper short.
@@ -834,28 +846,34 @@ export async function getQuestionExplanation(req: AuthRequest, res: Response, ne
     }
 
     // Students who open the same question at the same moment share one AI call
-    const explanation = await runOnce<string>(`explain:${q.id}`, {
-      lockSeconds: 60,
-      waitMs: 60_000,
-      readShared: async () => {
-        const fresh = await prisma.question.findUnique({ where: { id: q.id }, select: { explanation: true } });
-        return fresh?.explanation ? fresh.explanation : null;
-      },
-      produce: async () => {
-        const existing = await prisma.question.findUnique({ where: { id: q.id }, select: { explanation: true } });
-        if (existing?.explanation) return existing.explanation;
-        const text = await generateExplanation({
-          questionText: q.questionText,
-          options: q.options as string[],
-          answer: q.answer,
-          questionType: q.questionType,
-          subject: q.subject,
-          topic: q.topic,
-        });
-        await prisma.question.update({ where: { id: q.id }, data: { explanation: text } });
-        return text;
-      },
-    });
+    let explanation: string;
+    try {
+      explanation = await runOnce<string>(`explain:${q.id}`, {
+        lockSeconds: 60,
+        waitMs: 60_000,
+        readShared: async () => {
+          const fresh = await prisma.question.findUnique({ where: { id: q.id }, select: { explanation: true } });
+          return fresh?.explanation ? fresh.explanation : null;
+        },
+        produce: async () => {
+          const existing = await prisma.question.findUnique({ where: { id: q.id }, select: { explanation: true } });
+          if (existing?.explanation) return existing.explanation;
+          const text = await generateExplanation({
+            questionText: q.questionText,
+            options: q.options as string[],
+            answer: q.answer,
+            questionType: q.questionType,
+            subject: q.subject,
+            topic: q.topic,
+          });
+          await prisma.question.update({ where: { id: q.id }, data: { explanation: text } });
+          return text;
+        },
+      });
+    } catch {
+      // Don't save this to DB — it's a temporary message. Next request will retry.
+      explanation = 'Explanation is temporarily unavailable. Please try again in a few minutes.';
+    }
 
     res.json({ success: true, data: { explanation } });
   } catch (err) {
