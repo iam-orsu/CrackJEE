@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { api } from '@/lib/api';
@@ -58,7 +59,7 @@ export default function RegisterPage() {
     <div className="auth-layout">
       {/* ── Left brand panel ── */}
       <div className="auth-brand">
-        <Link href="/" className="auth-brand-logo"><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></Link>
+        <Link href="/" className="auth-brand-logo"><Image src="/logo.png" alt="JEENEET.ai" width={78} height={32} className="site-logo" /></Link>
 
         <div className="auth-brand-body">
           <div className="auth-brand-eyebrow">30 seconds to set up</div>

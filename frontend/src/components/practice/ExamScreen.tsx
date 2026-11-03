@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { Question, AnswerResult } from '@/types';
 import { QuestionCard } from '@/components/QuestionCard';
 import type { StoredResult } from './shared';
@@ -25,7 +26,7 @@ export function ExamScreen({ questions, currentIndex, examResults, sessionSecs, 
   return (
     <div className="exam-overlay">
       <div className="exam-header">
-        <span className="exam-logo"><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></span>
+        <span className="exam-logo"><Image src="/logo.png" alt="JEENEET.ai" width={78} height={32} className="site-logo" /></span>
         <div className="exam-meta">
           <span className="exam-qnum">Q{currentIndex + 1} / {questions.length}</span>
           <span className="exam-topic">{q.subject} · {q.topic}</span>

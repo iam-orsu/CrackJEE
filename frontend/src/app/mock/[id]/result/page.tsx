@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import type { ExamInsights } from '@/types';
 import { TopicList, NegativesCard, TimeByTypeCard, SectionOrderCard, CutoffCard } from '@/components/insights/InsightBlocks';
 import { useRouter, useParams } from 'next/navigation';
@@ -37,7 +38,7 @@ export default function MockResultPage() {
       .catch((e) => setError(e?.message ?? 'Failed to load result'))
       .finally(() => setLoading(false));
     api.mock.insights(examId).then(setExamInsights).catch(() => setExamInsights(null));
-  }, [examId]);
+  }, [examId, router]);
 
   if (loading) return (
     <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff' }}>
@@ -137,7 +138,7 @@ export default function MockResultPage() {
       {/* Top bar */}
       <div style={{ background: '#fff', color: '#1e293b', padding: '14px 24px', borderBottom: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <a href="/dashboard" style={{ display: 'inline-flex' }}><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></a>
+          <a href="/dashboard" style={{ display: 'inline-flex' }}><Image src="/logo.png" alt="JEENEET.ai" width={78} height={32} className="site-logo" /></a>
           <span style={{ color: '#cbd5e1' }}>›</span>
           <Link href="/mock" style={{ color: '#64748b', fontSize: 14, textDecoration: 'none' }}>Mock Tests</Link>
           <span style={{ color: '#cbd5e1' }}>›</span>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
@@ -477,7 +478,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
     return (
       <div className="wizard-page">
         <div className="wizard-topbar">
-          <span className="wizard-topbar-logo"><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></span>
+          <span className="wizard-topbar-logo"><Image src="/logo.png" alt="JEENEET.ai" width={78} height={32} className="site-logo" /></span>
           <div className="divider" style={{ width: 1, height: 20, background: 'var(--gray-200)', margin: '0 4px' }} />
           <Link href="/dashboard" className="btn btn-ghost btn-sm">Dashboard</Link>
           {loadError && (
