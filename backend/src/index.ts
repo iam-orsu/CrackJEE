@@ -175,7 +175,7 @@ async function start(): Promise<void> {
     } catch (err) {
       logger.error({ err }, 'Periodic sweep failed');
     }
-  }, 5 * 60 * 1000);
+  }, 60 * 1000);
   sweepInterval.unref(); // don't hold the process open if everything else is done
 
   // On shutdown: stop accepting requests, let in-flight requests and background mock generations finish
@@ -199,6 +199,14 @@ async function start(): Promise<void> {
   process.on('SIGTERM', () => { void shutdown('SIGTERM'); });
   process.on('SIGINT',  () => { void shutdown('SIGINT'); });
 }
+
+process.on('unhandledRejection', (reason) => {
+  logger.error({ err: reason }, 'Unhandled promise rejection');
+});
+process.on('uncaughtException', (err) => {
+  logger.fatal({ err }, 'Uncaught exception — shutting down');
+  process.exit(1);
+});
 
 start().catch((err: unknown) => {
   logger.error(err, 'Fatal error during startup');

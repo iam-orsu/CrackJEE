@@ -767,7 +767,11 @@ export async function cancelMock(req: AuthRequest, res: Response, next: NextFunc
     if (!exam || exam.userId !== userId) throw new AppError(404, 'Exam not found');
     if (exam.status === 'submitted') throw new AppError(400, 'Cannot cancel a submitted exam');
 
-    await prisma.mockExam.update({ where: { id }, data: { status: 'error' } });
+    const updated = await prisma.mockExam.updateMany({
+      where: { id, status: { not: 'submitted' } },
+      data: { status: 'error' },
+    });
+    if (updated.count === 0) throw new AppError(400, 'Cannot cancel a submitted exam');
     res.json({ success: true });
   } catch (err) {
     next(err);
