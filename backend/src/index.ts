@@ -14,6 +14,7 @@ import { apiLimiter } from './middleware/rateLimiter';
 import { requestId } from './middleware/requestId';
 import { logger } from './lib/logger';
 import { incCounter, renderMetrics } from './lib/metrics';
+import { getDeepSeekCircuitState } from './services/deepseekService';
 import { waitForActiveGenerations, STUCK_GENERATION_MS } from './controllers/mockController';
 
 /* -- Validate required env vars at startup --------------- */
@@ -130,7 +131,7 @@ app.get('/health', async (_req, res) => {
   if (Date.now() - _deepseekLastCheck > 60_000) refreshDeepSeekState();
   try {
     await prisma.$queryRaw`SELECT 1`;
-    res.json({ status: 'ok', db: 'up', deepseek: _deepseekState, ts: new Date().toISOString() });
+    res.json({ status: 'ok', db: 'up', deepseek: _deepseekState, deepseekCircuit: getDeepSeekCircuitState(), ts: new Date().toISOString() });
   } catch {
     res.status(503).json({ status: 'error', db: 'down' });
   }

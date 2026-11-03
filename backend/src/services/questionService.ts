@@ -3,7 +3,8 @@ import { logger } from '../lib/logger';
 import { incCounter } from '../lib/metrics';
 import { runOnce } from '../lib/distributedOnce';
 import { cacheGetJson, cacheSetJson, cacheAppendUnique } from './cacheService';
-import { generateQuestion, generateQuestionBatch, generateMixedTopicBatch, verifyQuestionBatch } from './deepseekService';
+import { generateQuestion, generateQuestionBatch, generateMixedTopicBatch, verifyQuestionBatch, isDeepSeekAvailable } from './deepseekService';
+import { CircuitOpenError } from '../lib/circuitBreaker';
 import type { Subject, Difficulty, ExamType, StudentClass, QuestionType, GeneratedQuestion } from '../types/index';
 import type { Question } from '@prisma/client';
 
@@ -392,6 +393,42 @@ function prepareForStorage(
   return batch.map((question) => ({ question, validatedAt: new Date() }));
 }
 
+/**
+ * Last-resort fallback: when DeepSeek is unavailable (circuit open or generation failed),
+ * pull a question from the DB bank with progressively relaxed filters.
+ */
+async function fallbackFromBank(
+  subject: Subject,
+  topic: string,
+  difficulty: Difficulty,
+  examType: ExamType,
+  excludeIds: Set<string>,
+): Promise<Question> {
+  const bankExamType = examType === 'NEET' ? 'NEET' : examType === 'Advanced' ? 'Advanced' : 'Main';
+  const notIn = [...excludeIds];
+
+  const filters: Array<Record<string, unknown>> = [
+    { topic, subject, difficulty, examType: bankExamType },
+    { topic, subject, examType: bankExamType },
+    { topic, subject },
+    { subject },
+  ];
+
+  for (const where of filters) {
+    const candidates = await prisma.question.findMany({
+      where: { ...where, id: { notIn }, validatedAt: { not: null }, mockOnly: false },
+      take: 10,
+    });
+    if (candidates.length > 0) {
+      return candidates[Math.floor(Math.random() * candidates.length)]!;
+    }
+  }
+
+  throw new Error(
+    `No fallback questions available for ${subject}/${topic}. The AI service is temporarily unavailable and the question bank has no matching questions.`,
+  );
+}
+
 async function generateAndPersist(
   subject: Subject,
   topic: string,
@@ -483,6 +520,19 @@ export async function getNextQuestion(
     }
   }
 
+  // If the circuit breaker is open, skip generation and go straight to fallback
+  if (!isDeepSeekAvailable()) {
+    logger.info({ subject, topic }, '[ai] Circuit open — falling back to DB bank');
+    try {
+      const question = await fallbackFromBank(subject, topic, difficulty, examType, allExcluded);
+      incCounter('question_source_total', { source: 'fallback' });
+      await cacheAppendUnique(servedKey, [question.id], 86400 * 7);
+      return question;
+    } catch {
+      throw new Error('AI service is temporarily unavailable and no fallback questions exist for this topic.');
+    }
+  }
+
   // One generation per bank key across all instances. Other callers wait for the new question to appear
   // in the database rather than generating their own.
   let genPromise = pendingGeneration.get(cacheKey);
@@ -503,10 +553,23 @@ export async function getNextQuestion(
     pendingGeneration.set(cacheKey, genPromise);
   }
 
-  const question = await genPromise;
-  incCounter('question_source_total', { source: 'generated' });
-  await cacheAppendUnique(servedKey, [question.id], 86400 * 7);
-  return question;
+  try {
+    const question = await genPromise;
+    incCounter('question_source_total', { source: 'generated' });
+    await cacheAppendUnique(servedKey, [question.id], 86400 * 7);
+    return question;
+  } catch (err) {
+    // Generation failed — try DB bank as fallback before giving up
+    logger.warn({ err: err instanceof Error ? err.message : String(err), subject, topic }, '[ai] Generation failed — trying DB fallback');
+    try {
+      const question = await fallbackFromBank(subject, topic, difficulty, examType, allExcluded);
+      incCounter('question_source_total', { source: 'fallback' });
+      await cacheAppendUnique(servedKey, [question.id], 86400 * 7);
+      return question;
+    } catch {
+      throw err;
+    }
+  }
 }
 
 export async function getQuestionBatch(
@@ -517,6 +580,12 @@ export async function getQuestionBatch(
   studentClass: StudentClass,
   count: number,
 ): Promise<Question[]> {
+  // When DeepSeek is down, serve from the practice bank instead of making students wait for timeouts
+  if (!isDeepSeekAvailable()) {
+    logger.info({ count, subjects: selections.length }, '[ai-batch] Circuit open — delegating to practice bank');
+    return getPracticeQuestionBatch(userId, selections, difficulty, examType, count);
+  }
+
   // Group selections by subject preserving insertion order (Physics topics, then Chemistry topics, etc.)
   const subjectGroups = new Map<Subject, string[]>();
   for (const { subject, topic } of selections) {
@@ -603,6 +672,48 @@ export async function getQuestionBatch(
 
   // Independently shuffle questions for this student
   return fisherYatesShuffle(finalQuestions);
+}
+
+/**
+ * Pull questions from the non-mock practice bank to fill mock exam slots when DeepSeek is unavailable.
+ * Returns the questions it could find; the caller handles any shortfall.
+ */
+export async function fillMockSlotsFromPracticeBank(
+  slots: Array<{ subject: Subject; topic: string; difficulty: Difficulty; examType: ExamType; questionType: QuestionType }>,
+  excludeIds: Set<string>,
+): Promise<Question[]> {
+  const results: Question[] = [];
+  const used = new Set(excludeIds);
+
+  for (const slot of slots) {
+    const bankExamType = slot.examType === 'NEET' ? 'NEET' : slot.examType === 'Advanced' ? 'Advanced' : 'Main';
+    const filters: Array<Record<string, unknown>> = [
+      { topic: slot.topic, subject: slot.subject, difficulty: slot.difficulty, examType: bankExamType, questionType: slot.questionType },
+      { topic: slot.topic, subject: slot.subject, difficulty: slot.difficulty, examType: bankExamType },
+      { topic: slot.topic, subject: slot.subject, examType: bankExamType },
+      { topic: slot.topic, subject: slot.subject },
+    ];
+
+    let found = false;
+    for (const where of filters) {
+      const candidates = await prisma.question.findMany({
+        where: { ...where, id: { notIn: [...used] }, validatedAt: { not: null }, mockOnly: false },
+        take: 5,
+      });
+      if (candidates.length > 0) {
+        const pick = candidates[Math.floor(Math.random() * candidates.length)]!;
+        used.add(pick.id);
+        results.push(pick);
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      // This slot couldn't be filled from the bank — skip it
+    }
+  }
+
+  return results;
 }
 
 /**
