@@ -54,8 +54,10 @@ batch=$($C -X POST $B/api/v1/questions/batch -H "Authorization: Bearer $T2" -H '
 QID=$(echo "$batch" | field id)
 [ -n "$QID" ] && ok "practice batch" || bad "practice batch" "$batch"
 echo "$batch" | grep -q '"answer"' && bad "answer key leaked in batch" "" || ok "no answer key in batch"
+QT=$(echo "$batch" | grep -o '"questionType":"[^"]*"' | head -n1 | cut -d'"' -f4)
+ANS="A"; [ "$QT" = "integer" ] && ANS="1"
 $C -X POST $B/api/v1/answers/submit -H "Authorization: Bearer $T2" -H 'Content-Type: application/json' \
-  -d "{\"questionId\":\"$QID\",\"answer\":\"A\",\"timeSpent\":5}" | grep -q '"correctAnswer"' && ok "answer submit" || bad "answer submit" ""
+  -d "{\"questionId\":\"$QID\",\"answer\":\"$ANS\",\"timeSpent\":5}" | grep -q '"correctAnswer"' && ok "answer submit" || bad "answer submit" ""
 [ "$($C -o /dev/null -w '%{http_code}' -X POST $B/api/v1/answers/submit -H "Authorization: Bearer $T2" -H 'Content-Type: application/json' -d '{"questionId":"does_not_exist_1","answer":"A","timeSpent":5}')" = "404" ] && ok "unknown question 404" || bad "unknown question" ""
 
 echo "== mock: persistence, deadline, double submit (DB-seeded exam, no DeepSeek) =="

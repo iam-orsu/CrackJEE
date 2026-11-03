@@ -327,7 +327,7 @@ export default function MockResultPage() {
             <div style={{ background: '#fff', borderRadius: 10, border: '1px solid #e2e8f0', padding: 24 }}>
               <h2 style={{ fontSize: 15, fontWeight: 700, color: '#1e293b', marginBottom: 4 }}>Your JEE Chances</h2>
               <p style={{ fontSize: 12, color: '#94a3b8', marginBottom: 20 }}>
-                Rough estimates from score bands. General (open) category only. These are not official cutoffs or predictions.
+                Rough estimates from score bands. These are not official cutoffs or predictions.
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>

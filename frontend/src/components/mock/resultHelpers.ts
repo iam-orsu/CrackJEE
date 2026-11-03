@@ -43,8 +43,8 @@ export function getJeeCrackingChances(pct: number, examType: string): ChanceBand
   if (pct >= 60) return { label: 'Excellent', color: '#2563eb', bg: '#eff6ff', border: '#bfdbfe', headline: 'Top IITs guaranteed', details: ['AIR 200–1,000 range', 'CS/EE at top-5 IITs very likely', 'Top 0.5% of JEE Advanced aspirants'], bar: 80 };
   if (pct >= 47) return { label: 'Very Good', color: '#7c3aed', bg: '#f5f3ff', border: '#ddd6fe', headline: 'IIT admission assured', details: ['AIR 1,000–5,000 range', 'Good branches at IIT Roorkee, Kharagpur, Guwahati', 'Top 2–3% of JEE Advanced aspirants'], bar: 62 };
   if (pct >= 35) return { label: 'Good', color: '#d97706', bg: '#fffbeb', border: '#fde68a', headline: 'IIT admission possible', details: ['AIR 5,000–15,000 range', 'Lower branches at newer IITs', '2025 closing cutoff was ~35–47% range'], bar: 42 };
-  if (pct >= 25) return { label: 'Borderline', color: '#ea580c', bg: '#fff7ed', border: '#fed7aa', headline: 'Near qualifying cutoff', details: ['2025 open category cutoff ~28–30%', 'Work on accuracy — multi-correct guessing costs marks', 'Improve integer-type hit rate'], bar: 25 };
-  return { label: 'Needs Work', color: '#dc2626', bg: '#fef2f2', border: '#fecaca', headline: 'Below qualifying cutoff', details: ['Below 2025 open category threshold', 'Master conceptual clarity across all 3 subjects', 'Focus on single-correct accuracy before tackling multi-correct'], bar: 10 };
+  if (pct >= 25) return { label: 'Borderline', color: '#ea580c', bg: '#fff7ed', border: '#fed7aa', headline: 'Near qualifying cutoff', details: ['2025 qualifying cutoff ~28–30%', 'Work on accuracy — multi-correct guessing costs marks', 'Improve integer-type hit rate'], bar: 25 };
+  return { label: 'Needs Work', color: '#dc2626', bg: '#fef2f2', border: '#fecaca', headline: 'Below qualifying cutoff', details: ['Below 2025 qualifying threshold', 'Master conceptual clarity across all 3 subjects', 'Focus on single-correct accuracy before tackling multi-correct'], bar: 10 };
 }
 
 /* ── NEET cracking chances bands ─────────────────────────────── */
