@@ -347,13 +347,7 @@ export function StandingCard({ standing }: { standing: StandingData }) {
 
 /* ── Cutoff check — bar per line ────────────────────────────────────── */
 export function CutoffCard({ cutoffs, scoreLabel }: { cutoffs: CutoffData | null; scoreLabel: string }) {
-  if (!cutoffs) {
-    return (
-      <InsightCard title="Cutoff check" sub="2026 published cutoffs">
-        <p style={{ fontSize: 13, color: 'var(--gray-500)' }}>No verified 2026 cutoff is available for this exam.</p>
-      </InsightCard>
-    );
-  }
+  if (!cutoffs) return null;
   return (
     <InsightCard title="Cutoff check" sub={`${cutoffs.name} · as % of max marks`}>
       {cutoffs.lines === null ? (
