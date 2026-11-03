@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { clearSession, getUser } from '@/lib/auth';
@@ -74,7 +75,7 @@ export function Sidebar() {
   const sidebarContent = (
     <>
       <Link href="/dashboard" className="sidebar-logo">
-        <img src="/logo.png" alt="JEENEET.ai" className="site-logo" />
+        <Image src="/logo.png" alt="JEENEET.ai" width={78} height={32} className="site-logo" />
       </Link>
       <nav className="sidebar-nav">
         {links.map(({ href, label, Icon }) => {
@@ -108,7 +109,7 @@ export function Sidebar() {
 
       {/* Mobile top bar */}
       <div className="mobile-topbar">
-        <Link href="/dashboard" className="sidebar-logo" style={{ fontSize: 16 }}><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></Link>
+        <Link href="/dashboard" className="sidebar-logo" style={{ fontSize: 16 }}><Image src="/logo.png" alt="JEENEET.ai" width={78} height={32} className="site-logo" /></Link>
         <button className="mobile-burger" onClick={() => setMobileOpen(true)} aria-label="Open menu">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
@@ -124,7 +125,7 @@ export function Sidebar() {
       {/* Mobile drawer */}
       <aside className={`sidebar sidebar-mobile${mobileOpen ? ' open' : ''}`}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', borderBottom: '1px solid var(--gray-200)' }}>
-          <span className="sidebar-logo" style={{ paddingBottom: 0, borderBottom: 'none', marginBottom: 0 }}><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></span>
+          <span className="sidebar-logo" style={{ paddingBottom: 0, borderBottom: 'none', marginBottom: 0 }}><Image src="/logo.png" alt="JEENEET.ai" width={78} height={32} className="site-logo" /></span>
           <button onClick={() => setMobileOpen(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--gray-500)', padding: 4 }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />

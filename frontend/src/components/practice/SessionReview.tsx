@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import type { Question } from '@/types';
 import { REVIEW_SUBJ, type StoredResult } from './shared';
@@ -114,7 +115,7 @@ export function SessionReview({ questions, examResults, sessionSecs, fmtTime, on
   return (
     <div className="exam-overlay">
       <div className="exam-header">
-        <span className="exam-logo"><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></span>
+        <span className="exam-logo"><Image src="/logo.png" alt="JEENEET.ai" width={78} height={32} className="site-logo" /></span>
         <span style={{ fontSize: 14, color: 'var(--gray-500)' }}>Session analysis</span>
         <div style={{ display: 'flex', gap: 8 }}>
           <button className="btn btn-ghost btn-sm" onClick={() => onBackToScore()}>Back to score</button>

@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
 import { isAuthenticated } from '@/lib/auth';
 
@@ -63,7 +64,7 @@ export default function LandingPage() {
     <>
       {/* ── Header ── */}
       <header className="landing-header">
-        <span className="landing-logo"><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></span>
+        <span className="landing-logo"><Image src="/logo.png" alt="JEENEET.ai" width={78} height={32} className="site-logo" /></span>
         <nav className="landing-nav">
           <Link href="/login" className="btn btn-ghost btn-sm">Sign in</Link>
           <Link href="/register" className="btn btn-primary btn-sm">Get started free</Link>

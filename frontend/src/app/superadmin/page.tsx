@@ -58,7 +58,6 @@ export default function SuperAdminPage() {
   useEffect(() => {
     // The cookie decides: if a valid admin session exists, the stats load; otherwise the sign-in form shows
     load();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function handleLogin(e: FormEvent) {

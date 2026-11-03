@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import type { Question } from '@/types';
 import type { StoredResult, MarkingScheme } from './shared';
@@ -40,7 +41,7 @@ export function SessionSummary({ questions, examResults, sessionSecs, markingSch
   return (
     <div className="exam-overlay">
       <div className="exam-header">
-        <span className="exam-logo"><img src="/logo.png" alt="JEENEET.ai" className="site-logo" /></span>
+        <span className="exam-logo"><Image src="/logo.png" alt="JEENEET.ai" width={78} height={32} className="site-logo" /></span>
         <span style={{ fontSize: 14, color: 'var(--gray-500)' }}>Session complete</span>
         <div />
       </div>

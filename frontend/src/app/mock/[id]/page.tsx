@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, useParams } from 'next/navigation';
 import { api } from '@/lib/api';
@@ -79,22 +80,20 @@ export default function MockExamPage() {
   /* ── Load exam ── */
   useEffect(() => {
     if (!isAuthenticated()) { router.replace('/login'); return; }
-    loadExam();
-  }, [examId]);
-
-  async function loadExam() {
-    try {
-      const data = await api.mock.get(examId);
-      if (data.status === 'error') { setPageStatus('error'); setLoadMsg('Exam generation failed. Please try again.'); return; }
-      if (data.status === 'generating') { setPendingExamType(data.examType); setPageStatus('polling'); pollForReady(); return; }
-      // A finished exam belongs on its result page; the exam screen would show a timer and answers that can't be saved
-      if (data.status === 'submitted') { router.replace(`/mock/${examId}/result`); return; }
-      await initializeExam(data);
-    } catch {
-      setPageStatus('error');
-      setLoadMsg('Failed to load exam.');
+    async function loadExam() {
+      try {
+        const data = await api.mock.get(examId);
+        if (data.status === 'error') { setPageStatus('error'); setLoadMsg('Exam generation failed. Please try again.'); return; }
+        if (data.status === 'generating') { setPendingExamType(data.examType); setPageStatus('polling'); pollForReady(); return; }
+        if (data.status === 'submitted') { router.replace(`/mock/${examId}/result`); return; }
+        await initializeExam(data);
+      } catch {
+        setPageStatus('error');
+        setLoadMsg('Failed to load exam.');
+      }
     }
-  }
+    loadExam();
+  }, [examId, router]);
 
   async function pollForReady() {
     const MESSAGES = [
@@ -378,7 +377,7 @@ export default function MockExamPage() {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
           <span style={{ display: 'inline-flex' }}>
-            <img src="/logo.png" alt="JEENEET.ai" className="site-logo" />
+            <Image src="/logo.png" alt="JEENEET.ai" width={78} height={32} className="site-logo" />
           </span>
           <span style={{ width: 1, height: 20, background: '#e2e8f0' }} />
           <span style={{ fontSize: 14, color: '#64748b' }}>
