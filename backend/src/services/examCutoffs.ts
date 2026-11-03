@@ -19,31 +19,25 @@ export interface ExamCutoffs {
   sources: Array<{ label: string; url: string }>;
 }
 
-// Careers360 reports NEET UG 2026 qualifying marks by category. For each category the reported range is
-// read as "highest to lowest"; the lowest figure is taken as the qualifying line.
 export const NEET_2026_CUTOFFS: ExamCutoffs = {
   examType: 'NEET',
   name: 'NEET UG 2026 qualifying',
   lines: [
-    { label: 'UR / EWS (50th percentile)', marks: 213, maxMarks: 720 },
-    { label: 'OBC / SC / ST (40th percentile)', marks: 177, maxMarks: 720 },
+    { label: 'Qualifying cutoff (50th percentile)', marks: 213, maxMarks: 720 },
   ],
   sources: [
     {
-      label: 'Careers360: NEET UG 2026 cut-offs by category',
+      label: 'Careers360: NEET UG 2026 cut-offs',
       url: 'https://news.careers360.com/neet-ug-2026-cut-offs-rise-category-wise-cut-offs-general-obc-sc-st-mcc-counselling/amp',
     },
   ],
 };
 
-// Aggregate cutoffs for JEE Advanced 2026 (out of 360), reported by coaching sites and dated 1 June 2026
 export const JEE_ADVANCED_2026_CUTOFFS: ExamCutoffs = {
   examType: 'Advanced',
   name: 'JEE Advanced 2026 aggregate',
   lines: [
-    { label: 'General (CRL)', marks: 92, maxMarks: 360 },
-    { label: 'GEN-EWS / OBC-NCL', marks: 82, maxMarks: 360 },
-    { label: 'SC / ST / PwD', marks: 46, maxMarks: 360 },
+    { label: 'Qualifying cutoff', marks: 92, maxMarks: 360 },
   ],
   sources: [],
 };
