@@ -21,6 +21,7 @@ import { cutoffsFor } from '../services/examCutoffs';
 const MIN_STANDING_STUDENTS = 10;
 
 const MOCK_WEAK_AREA_EXAMS = 30;
+const MOCK_ANSWERS_TTL = 120; // seconds — data only changes on mock submit (every 3+ hours)
 
 // YYYY-MM-DD of an instant in India Standard Time (UTC+5:30, no DST)
 function istDateKey(date: Date): string {
@@ -34,9 +35,19 @@ interface MockAnswer {
   at: Date;
 }
 
+// Dates serialise to strings in JSON; this is what actually comes back from Redis.
+type SerializedMockAnswer = Omit<MockAnswer, 'at'> & { at: string };
+
+function mockAnswersCacheKey(userId: string): string {
+  return `mock-answers:${userId}`;
+}
+
 // Every answered question in the student's submitted Mock Test exams, newest exams first.
 // Practice attempts are never read here: the dashboard and lagging topics are mock-only.
 async function mockAnswers(userId: string): Promise<MockAnswer[]> {
+  const cached = await cacheGetJson<SerializedMockAnswer[]>(mockAnswersCacheKey(userId));
+  if (cached) return cached.map((a) => ({ ...a, at: new Date(a.at) }));
+
   // Only the most recent exams: the cost of this query otherwise grows with every mock a student has taken
   const exams = await prisma.mockExam.findMany({
     where: { userId, status: 'submitted' },
@@ -67,6 +78,8 @@ async function mockAnswers(userId: string): Promise<MockAnswer[]> {
       });
     }
   }
+
+  await cacheSetJson(mockAnswersCacheKey(userId), answers, MOCK_ANSWERS_TTL);
   return answers;
 }
 
