@@ -6,6 +6,8 @@ import type { QuestionRecord, ExamTotal } from './mockInsights';
 // The most recent submitted mocks the dashboard analyses. Keeps the query bounded as a student's history grows.
 export const INSIGHT_EXAMS = 30;
 
+const STUDENT_MOCK_DATA_TTL = 120; // seconds — same window as mock-answers cache
+
 type BreakdownEntry = {
   awarded: number;
   maxMarks?: number;
@@ -50,13 +52,33 @@ const examInclude = {
   result: { select: { scoreBreakdown: true, totalScore: true, maxScore: true } },
 } as const;
 
-/** Question records and overall score per exam for a student's recent submitted mocks */
-export async function loadStudentMockData(userId: string): Promise<{
+type StudentMockDataResult = {
   records: QuestionRecord[];
   totals: ExamTotal[];
   examsAnalysed: number;
   latestExamType: string | null;
-}> {
+};
+
+// Dates serialise to strings in JSON; this is what actually comes back from Redis.
+type SerializedStudentMockData = {
+  records: Array<Omit<QuestionRecord, 'at'> & { at: string }>;
+  totals: Array<Omit<ExamTotal, 'at'> & { at: string }>;
+  examsAnalysed: number;
+  latestExamType: string | null;
+};
+
+/** Question records and overall score per exam for a student's recent submitted mocks */
+export async function loadStudentMockData(userId: string): Promise<StudentMockDataResult> {
+  const cacheKey = `mock-data:${userId}`;
+  const cached = await cacheGetJson<SerializedStudentMockData>(cacheKey);
+  if (cached) {
+    return {
+      ...cached,
+      records: cached.records.map((r) => ({ ...r, at: new Date(r.at) })),
+      totals: cached.totals.map((t) => ({ ...t, at: new Date(t.at) })),
+    };
+  }
+
   const exams = await prisma.mockExam.findMany({
     where: { userId, status: 'submitted' },
     orderBy: { createdAt: 'desc' },
@@ -73,12 +95,15 @@ export async function loadStudentMockData(userId: string): Promise<{
     });
   }
 
-  return {
+  const result: StudentMockDataResult = {
     records: recordsFromExams(exams),
     totals,
     examsAnalysed: exams.length,
     latestExamType: exams[0]?.examType ?? null,
   };
+
+  await cacheSetJson(cacheKey, result, STUDENT_MOCK_DATA_TTL);
+  return result;
 }
 
 const PLATFORM_AVERAGE_TTL = 60;
