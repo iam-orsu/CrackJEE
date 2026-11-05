@@ -352,10 +352,10 @@ function cleanExplanation(raw: string): string {
   for (const pat of REASONING_NOISE) s = s.replace(pat, '').trim();
   // Collapse multiple blank lines
   s = s.replace(/\n{3,}/g, '\n\n').trim();
-  // Hard cap: keep first 900 chars — enough for multi-step Advanced derivations
-  if (s.length > 900) {
-    const cutoff = s.lastIndexOf('.', 900);
-    s = (cutoff > 100 ? s.slice(0, cutoff + 1) : s.slice(0, 900)).trim();
+  // Hard cap: keep first 1800 chars — JEE Advanced multi-step derivations need the room
+  if (s.length > 1800) {
+    const cutoff = s.lastIndexOf('.', 1800);
+    s = (cutoff > 100 ? s.slice(0, cutoff + 1) : s.slice(0, 1800)).trim();
   }
   return s || raw.trim();
 }
