@@ -151,13 +151,12 @@ ensure_ssl() {
       exit 1
     fi
     echo "  Obtaining Let's Encrypt certificate for $DOMAIN..."
-    echo "  (port 80 must be open and pointing to this server)"
+    echo "  (nginx must be running and port 80 must be reachable from the internet)"
     mkdir -p ./certbot/conf ./certbot/www
     docker run --rm \
       -v "$(pwd)/certbot/conf:/etc/letsencrypt" \
       -v "$(pwd)/certbot/www:/var/www/certbot" \
-      -p 80:80 \
-      certbot/certbot certonly --standalone \
+      certbot/certbot certonly --webroot -w /var/www/certbot \
       --domain "$DOMAIN" \
       --email "$SSL_EMAIL" \
       --agree-tos --no-eff-email --non-interactive
