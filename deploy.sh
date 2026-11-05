@@ -161,8 +161,9 @@ ensure_ssl() {
       --domain "$DOMAIN" \
       --email "$SSL_EMAIL" \
       --agree-tos --no-eff-email --non-interactive
-    cp "$(pwd)/certbot/conf/live/$DOMAIN/fullchain.pem" ./nginx/ssl/
-    cp "$(pwd)/certbot/conf/live/$DOMAIN/privkey.pem"   ./nginx/ssl/
+    sudo cp "$(pwd)/certbot/conf/live/$DOMAIN/fullchain.pem" ./nginx/ssl/
+    sudo cp "$(pwd)/certbot/conf/live/$DOMAIN/privkey.pem"   ./nginx/ssl/
+    sudo chown "$(id -u):$(id -g)" ./nginx/ssl/fullchain.pem ./nginx/ssl/privkey.pem
     echo "  Let's Encrypt certificate installed."
     echo "  Renew later with: ./deploy.sh renew-ssl"
   else
@@ -282,8 +283,9 @@ case "$ACTION" in
       -v "$(pwd)/certbot/conf:/etc/letsencrypt" \
       -v "$(pwd)/certbot/www:/var/www/certbot" \
       certbot/certbot renew --webroot -w /var/www/certbot --non-interactive
-    cp "$(pwd)/certbot/conf/live/$DOMAIN/fullchain.pem" ./nginx/ssl/
-    cp "$(pwd)/certbot/conf/live/$DOMAIN/privkey.pem"   ./nginx/ssl/
+    sudo cp "$(pwd)/certbot/conf/live/$DOMAIN/fullchain.pem" ./nginx/ssl/
+    sudo cp "$(pwd)/certbot/conf/live/$DOMAIN/privkey.pem"   ./nginx/ssl/
+    sudo chown "$(id -u):$(id -g)" ./nginx/ssl/fullchain.pem ./nginx/ssl/privkey.pem
     echo "Certificate renewed. Reloading nginx..."
     docker compose --env-file "$ENV_FILE" exec -T nginx nginx -s reload
     echo "Done. Next renewal: run this command again in ~60 days."
