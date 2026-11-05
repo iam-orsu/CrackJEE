@@ -152,7 +152,8 @@ ensure_ssl() {
     fi
     echo "  Obtaining Let's Encrypt certificate for $DOMAIN..."
     echo "  (nginx must be running and port 80 must be reachable from the internet)"
-    mkdir -p ./certbot/conf ./certbot/www
+    sudo mkdir -p ./certbot/conf ./certbot/www
+    sudo chown -R "$(id -u):$(id -g)" ./certbot
     docker run --rm \
       -v "$(pwd)/certbot/conf:/etc/letsencrypt" \
       -v "$(pwd)/certbot/www:/var/www/certbot" \
