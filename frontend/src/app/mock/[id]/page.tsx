@@ -362,12 +362,13 @@ export default function MockExamPage() {
     setPageStatus('submitting');
     setShowSubmitModal(false);
     try {
-      // Flush any pending offline answers before final evaluation
-      await flushPendingAnswers();
       await saveChainRef.current;
+      if (pendingSyncRef.current.size > 0) {
+        await flushPendingAnswers();
+      }
       await api.mock.submit(examId, questionTimesRef.current);
       try { localStorage.removeItem(`mock_answers_${examId}`); } catch {}
-      router.push(`/mock/${examId}/result`);
+      router.replace(`/mock/${examId}/result`);
     } catch (e) {
       submittingRef.current = false;
       setErrorMsg(e instanceof Error ? e.message : 'Submission failed');
@@ -493,6 +494,18 @@ export default function MockExamPage() {
           Submit Test
         </button>
       </div>
+
+      {/* ── Submission error banner (if network/server drops) ── */}
+      {errorMsg && (
+        <div style={{
+          background: '#fee2e2', borderBottom: '1px solid #fca5a5', color: '#991b1b',
+          padding: '10px 20px', fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          flexShrink: 0,
+        }}>
+          <span><strong>Submission Error:</strong> {errorMsg}. Please check your connection and click Submit Test again.</span>
+          <button onClick={() => setErrorMsg('')} style={{ background: 'transparent', border: 'none', color: '#991b1b', fontWeight: 700, cursor: 'pointer', fontSize: 14 }}>✕</button>
+        </div>
+      )}
 
       {/* ── Subject tabs ── */}
       <div style={{ display: 'flex', background: '#fff', borderBottom: '1px solid #e2e8f0', flexShrink: 0 }}>
