@@ -54,6 +54,7 @@ services:
   # One-shot: applies migrations and seeds the question banks, then exits.
   # The backend waits for it to complete successfully, so backend replicas never run migrations.
   migrate:
+    image: jeeneet-backend:latest
     build:
       context: .                         # project root so COPY data/ works
       dockerfile: backend/Dockerfile
@@ -71,6 +72,7 @@ services:
     logging: *default-logging
 
   backend:
+    image: jeeneet-backend:latest
     build:
       context: .                         # project root so COPY data/ works
       dockerfile: backend/Dockerfile
@@ -114,6 +116,7 @@ services:
     logging: *default-logging
 
   frontend:
+    image: jeeneet-frontend:latest
     build:
       context: ./frontend
       dockerfile: Dockerfile
