@@ -164,6 +164,67 @@ function Pager({ page, pageCount, disabled, onPageChange }: {
   );
 }
 
+// Nine per page fills a 3×3 grid
+const PAPERS_PER_PAGE = 9;
+// Papers shown in the list. These are placeholders for browsing; a real paper is chosen when the student starts one.
+const PLACEHOLDER_TOTAL = 1500;
+
+const PLACEHOLDER_SUBJECTS: Record<ExamType, string[]> = {
+  Main: ['Physics', 'Chemistry', 'Mathematics'],
+  Advanced: ['Physics', 'Chemistry', 'Mathematics'],
+  NEET: ['Physics', 'Chemistry', 'Botany', 'Zoology'],
+};
+const PLACEHOLDER_QUESTION_COUNT: Record<ExamType, number> = { Main: 75, Advanced: 51, NEET: 180 };
+const PLACEHOLDER_TEXTS = [
+  'Let $f(x)=x^3-3x+2$. Find the number of real roots of $f(x)=0$ in $[-2,2]$.',
+  'A particle moves with velocity $v(t)=3t^2-6t$. Find its displacement from $t=0$ to $t=3$.',
+  'Find the pH of a buffer prepared by mixing $0.1\\text{ M}$ acetic acid and $0.1\\text{ M}$ sodium acetate.',
+  'Identify the major product when propene reacts with $HBr$ in the presence of peroxide.',
+];
+
+// Placeholder metadata for every paper in the list; difficulty cycles so each filter has an equal share
+const PLACEHOLDERS: Array<{ number: number; difficulty: DifficultyMode }> = Array.from(
+  { length: PLACEHOLDER_TOTAL },
+  (_, i) => ({ number: i + 1, difficulty: DIFFICULTY_ORDER[i % 3]! }),
+);
+
+// Topic names per subject, so a placeholder paper lists real topics on its card
+const PLACEHOLDER_TOPICS: Record<string, string[]> = {
+  Physics: ['Kinematics', 'Laws of Motion', 'Electrostatics', 'Current Electricity'],
+  Chemistry: ['Mole Concept', 'Chemical Bonding', 'Chemical Equilibrium', 'Organic Basics'],
+  Mathematics: ['Algebra', 'Calculus', 'Coordinate Geometry', 'Trigonometry'],
+  Botany: ['Plant Physiology', 'Genetics', 'Cell Biology', 'Ecology'],
+  Zoology: ['Human Physiology', 'Reproduction', 'Evolution', 'Biotechnology'],
+};
+// PaperCard counts difficulty by the practice keys
+const CARD_DIFFICULTY: Record<DifficultyMode, string> = { easy: 'beginner', medium: 'intermediate', hard: 'advanced' };
+
+function placeholderPaper(number: number, difficulty: DifficultyMode, examType: ExamType): PaperSet {
+  const subjects = PLACEHOLDER_SUBJECTS[examType];
+  const questions: PaperQuestion[] = Array.from({ length: PLACEHOLDER_QUESTION_COUNT[examType] }, (_, i) => {
+    const subject = subjects[i % subjects.length]!;
+    const topics = PLACEHOLDER_TOPICS[subject]!;
+    return {
+      id: `placeholder-${number}-${i}`,
+      topic: topics[(number + i) % topics.length]!,
+      subject,
+      questionText: PLACEHOLDER_TEXTS[(number + i) % PLACEHOLDER_TEXTS.length]!,
+      questionType: 'mcq_single',
+      options: [],
+      difficulty: CARD_DIFFICULTY[difficulty],
+      diagram: null,
+    };
+  });
+  return { number, questionIds: [], questions };
+}
+
+const FILTER_OPTIONS: Array<{ value: DifficultyFilter; label: string }> = [
+  { value: 'all', label: 'All difficulties' },
+  { value: 'easy', label: 'Easy' },
+  { value: 'medium', label: 'Medium' },
+  { value: 'hard', label: 'Hard' },
+];
+
 export default function MockPage() {
   const router = useRouter();
   const [selected, setSelected] = useState<ExamType | null>(null);
