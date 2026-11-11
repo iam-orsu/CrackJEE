@@ -343,40 +343,7 @@ export default function RegisterPage() {
           </svg>
         </section>
 
-        {/* ── Points ── */}
-        <ul className="rg-points">
-          <li>
-            <span className="rg-ico">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
-              </svg>
-            </span>
-            <p>Questions for your topics</p>
-            <small>Served from a curated bank and generated fresh when needed</small>
-          </li>
-          <li>
-            <span className="rg-ico">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="9" />
-                <circle cx="12" cy="12" r="4.5" />
-                <circle cx="12" cy="12" r="0.8" fill="currentColor" />
-              </svg>
-            </span>
-            <p>Instant weak area detection</p>
-            <small>Dashboard shows exactly which topics need work</small>
-          </li>
-          <li>
-            <span className="rg-ico">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M22 10L12 5 2 10l10 5 10-5z" />
-                <path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" />
-              </svg>
-            </span>
-            <p>JEE Main, Advanced &amp; NEET UG</p>
-            <small>Full Class 11 + 12 MPC + Biology syllabus</small>
-          </li>
-        </ul>
+
 
         <div className="rg-subjects">
           <span><i />Physics</span>

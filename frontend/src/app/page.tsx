@@ -564,21 +564,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-
-      {/* ── CTA ── */}
-      <section className="jn-cta">
-        <span className="jn-cta-float" style={{ top: '14%', left: '8%' }}><Atom size={90} /></span>
-        <span className="jn-cta-float" style={{ bottom: '12%', right: '9%', animationDelay: '1.5s' }}><Flask size={90} /></span>
-        <h2>Ready to start?</h2>
-        <p>Join students already preparing for JEE and NEET with our Deep Tech-powered platform.</p>
-        <Link href="/register" className="jn-btn jn-btn-white jn-lg">Create free account →</Link>
-      </section>
-
-      {/* ── Footer ── */}
-      <footer className="jn-footer">
-        <span>© 2026 JEENEET.ai</span>
-        <span>Built for IIT aspirants</span>
-      </footer>
     </>
   );
 }

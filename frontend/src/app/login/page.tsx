@@ -44,7 +44,7 @@ export default function LoginPage() {
     try {
       const { user, expiresAt } = await api.auth.login(form);
       setSession(user, expiresAt);
-      router.push('/dashboard');
+      window.location.href = '/dashboard';
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Login failed');
     } finally {
