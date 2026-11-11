@@ -143,30 +143,6 @@ const ArrowCircle = () => (
 
 /* ───────────────────────── DATA ───────────────────────── */
 
-const subjects = [
-  {
-    name: 'Physics',
-    tone: 'blue',
-    art: <Atom />,
-    topics: ['Kinematics', 'Optics', 'Electrostatics', 'Modern Physics'],
-    line: 'From laws of motion to quantum ideas, practise concept by concept.',
-  },
-  {
-    name: 'Chemistry',
-    tone: 'red',
-    art: <Flask />,
-    topics: ['Mole Concept', 'Equilibrium', 'Organic', 'Periodic Table'],
-    line: 'Reactions, bonding and numericals in bite-sized questions.',
-  },
-  {
-    name: 'Mathematics',
-    tone: 'blue',
-    art: <MathShape />,
-    topics: ['Calculus', 'Algebra', 'Coordinate Geometry', 'Probability'],
-    line: 'Build speed and accuracy with fresh problems on every topic.',
-  },
-];
-
 const superpowers = [
   { icon: <IconChip />, tone: 'purple', text: 'Get your customized learning plan with deep tech' },
   { icon: <IconChart />, tone: 'green', text: 'Get your score prediction' },

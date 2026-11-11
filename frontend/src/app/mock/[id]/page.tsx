@@ -112,26 +112,7 @@ export default function MockExamPage() {
         break; // Still offline, wait for next online event
       }
     }
-    loadExam();
-  }, [examId, router]);
-
-  /* ── Load exam ── */
-  useEffect(() => {
-    if (!isAuthenticated()) { router.replace('/login'); return; }
-    async function loadExam() {
-      try {
-        const data = await api.mock.get(examId);
-        if (data.status === 'error') { setPageStatus('error'); setLoadMsg('Exam generation failed. Please try again.'); return; }
-        if (data.status === 'generating') { setPendingExamType(data.examType); setPageStatus('polling'); pollForReady(); return; }
-        if (data.status === 'submitted') { router.replace(`/mock/${examId}/result`); return; }
-        await initializeExam(data);
-      } catch {
-        setPageStatus('error');
-        setLoadMsg('Failed to load exam.');
-      }
-    }
-    loadExam();
-  }, [examId, router]);
+  }
 
   /* ── Load exam ── */
   useEffect(() => {
