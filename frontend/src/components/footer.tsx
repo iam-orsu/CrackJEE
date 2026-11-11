@@ -293,7 +293,7 @@ export default function Footer() {
 
         {/* Legal row */}
         <div className="jn-legal">
-          <p>© {currentYear} JEENEET.ai (A Product BVS Education Private Limited). All rights reserved.</p>
+          <p>© {currentYear} JEENEET.ai (A Product of BVS Education Private Limited). All rights reserved.</p>
           <p>Made with ♥ for JEE &amp; NEET aspirants</p>
         </div>
       </div>
