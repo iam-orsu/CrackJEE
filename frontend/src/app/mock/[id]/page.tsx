@@ -74,8 +74,46 @@ export default function MockExamPage() {
   stateRef.current = { exam, currentIdx, draft };
   // Answer saves go out one at a time, in order, so the last choice the student made is the one stored
   const saveChainRef = useRef<Promise<void>>(Promise.resolve());
+  const pendingSyncRef = useRef<Map<string, { answer: string; markedForReview?: boolean }>>(new Map());
+  const [isOnline, setIsOnline] = useState(true);
+
   const pollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => () => { if (pollTimerRef.current) clearTimeout(pollTimerRef.current); }, []);
+
+  /* ── Network online/offline listener ── */
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    setIsOnline(navigator.onLine);
+
+    const onOnline = () => {
+      setIsOnline(true);
+      void flushPendingAnswers();
+    };
+    const onOffline = () => {
+      setIsOnline(false);
+    };
+
+    window.addEventListener('online', onOnline);
+    window.addEventListener('offline', onOffline);
+    return () => {
+      window.removeEventListener('online', onOnline);
+      window.removeEventListener('offline', onOffline);
+    };
+  }, [examId]);
+
+  async function flushPendingAnswers() {
+    if (pendingSyncRef.current.size === 0) return;
+    const entries = Array.from(pendingSyncRef.current.entries());
+    for (const [mqId, item] of entries) {
+      try {
+        await api.mock.saveAnswer(examId, { mockQuestionId: mqId, answer: item.answer, markedForReview: item.markedForReview });
+        pendingSyncRef.current.delete(mqId);
+      } catch {
+        break; // Still offline, wait for next online event
+      }
+    }
+    loadExam();
+  }, [examId, router]);
 
   /* ── Load exam ── */
   useEffect(() => {
@@ -135,9 +173,29 @@ export default function MockExamPage() {
       if (q.savedAnswer) initAnswers[q.mockQuestionId] = q.savedAnswer;
       if (q.markedForReview) initMarked[q.mockQuestionId] = true;
     }
+
+    // Restore any local offline answers that hadn't reached the server before a reload
+    try {
+      const local = localStorage.getItem(`mock_answers_${examId}`);
+      if (local) {
+        const parsed = JSON.parse(local) as Record<string, { answer: string; markedForReview?: boolean }>;
+        for (const [mqId, val] of Object.entries(parsed)) {
+          if (val?.answer) {
+            initAnswers[mqId] = val.answer;
+            // Also queue it to sync with server if it wasn't already in data.questions
+            if (!data.questions.find((q) => q.mockQuestionId === mqId && q.savedAnswer === val.answer)) {
+              pendingSyncRef.current.set(mqId, val);
+            }
+          }
+          if (val?.markedForReview !== undefined) initMarked[mqId] = val.markedForReview;
+        }
+      }
+    } catch {}
+
     setAnswers(initAnswers);
     setMarked(initMarked);
     setExam(data);
+    if (pendingSyncRef.current.size > 0) void flushPendingAnswers();
 
     // Start or get startedAt
     let sa = data.startedAt;
@@ -235,9 +293,27 @@ export default function MockExamPage() {
       if (value) n[mqId] = value; else delete n[mqId];
       return n;
     });
+
+    // 1. Mirror to localStorage immediately (never lost on reload, sleep, or tab crash)
+    try {
+      const local = JSON.parse(localStorage.getItem(`mock_answers_${examId}`) ?? '{}');
+      if (value) local[mqId] = { answer: value, markedForReview };
+      else delete local[mqId];
+      localStorage.setItem(`mock_answers_${examId}`, JSON.stringify(local));
+    } catch {}
+
+    // 2. Track in pendingSyncRef
+    pendingSyncRef.current.set(mqId, { answer: value, markedForReview });
+
+    // 3. Queue server sync
     saveChainRef.current = saveChainRef.current
-      .then(() => api.mock.saveAnswer(examId, { mockQuestionId: mqId, answer: value, markedForReview }))
-      .then(() => undefined, () => undefined);
+      .then(async () => {
+        await api.mock.saveAnswer(examId, { mockQuestionId: mqId, answer: value, markedForReview });
+        pendingSyncRef.current.delete(mqId);
+      })
+      .catch(() => {
+        // Preserved in pendingSyncRef and localStorage to retry when back online
+      });
   }
 
   function saveAndNext(doMark?: boolean) {
@@ -288,8 +364,12 @@ export default function MockExamPage() {
     setShowSubmitModal(false);
     try {
       await saveChainRef.current;
+      if (pendingSyncRef.current.size > 0) {
+        await flushPendingAnswers();
+      }
       await api.mock.submit(examId, questionTimesRef.current);
-      router.push(`/mock/${examId}/result`);
+      try { localStorage.removeItem(`mock_answers_${examId}`); } catch {}
+      router.replace(`/mock/${examId}/result`);
     } catch (e) {
       submittingRef.current = false;
       setErrorMsg(e instanceof Error ? e.message : 'Submission failed');
@@ -383,6 +463,16 @@ export default function MockExamPage() {
           <span style={{ fontSize: 14, color: '#64748b' }}>
             {exam.examType === 'NEET' ? 'NEET UG Mock Test' : `JEE ${exam.examType} Mock Test`}
           </span>
+          {!isOnline && (
+            <span style={{
+              fontSize: 12, background: '#fef3c7', color: '#92400e',
+              border: '1px solid #fde68a', borderRadius: 4, padding: '3px 8px',
+              display: 'inline-flex', alignItems: 'center', gap: 6, fontWeight: 500,
+            }}>
+              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#d97706' }} />
+              Offline mode (saved locally)
+            </span>
+          )}
         </div>
         <div style={{
           display: 'flex', alignItems: 'center', gap: 8,
@@ -405,6 +495,18 @@ export default function MockExamPage() {
           Submit Test
         </button>
       </div>
+
+      {/* ── Submission error banner (if network/server drops) ── */}
+      {errorMsg && (
+        <div style={{
+          background: '#fee2e2', borderBottom: '1px solid #fca5a5', color: '#991b1b',
+          padding: '10px 20px', fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          flexShrink: 0,
+        }}>
+          <span><strong>Submission Error:</strong> {errorMsg}. Please check your connection and click Submit Test again.</span>
+          <button onClick={() => setErrorMsg('')} style={{ background: 'transparent', border: 'none', color: '#991b1b', fontWeight: 700, cursor: 'pointer', fontSize: 14 }}>✕</button>
+        </div>
+      )}
 
       {/* ── Subject tabs ── */}
       <div style={{ display: 'flex', background: '#fff', borderBottom: '1px solid #e2e8f0', flexShrink: 0 }}>
