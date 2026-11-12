@@ -1,10 +1,10 @@
 import React from 'react';
-import { Arr, latexToPlain } from './helpers';
+import { Arr, clampNum, latexToPlain } from './helpers';
 import type { InclinedPlaneParams, LensMirrorParams, SimpleCircuitParams } from './types';
 
 /* ── TEMPLATE 1: Inclined Plane ─────────────────────────────── */
 export function InclinedPlane({ p }: { p: InclinedPlaneParams }) {
-  const angle = Math.max(10, Math.min(70, +(p.angle_deg ?? 30)));
+  const angle = clampNum(p.angle_deg, 10, 70, 30);
   const θ = (angle * Math.PI) / 180;
   const lbl = p.labels ?? {};
 

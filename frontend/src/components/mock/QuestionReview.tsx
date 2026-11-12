@@ -134,10 +134,10 @@ export function QuestionReview({ examId, weakPracticeUrl, isNEET, allQs, filtere
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 14 }}>
                     {q.options.map((opt, i) => {
                       const letter = ['A', 'B', 'C', 'D'][i]!;
-                      const correctAns = bd?.correctAnswer ?? '';
-                      const submittedAns = bd?.submitted ?? '';
-                      const isCorrectOpt = correctAns.includes(letter);
-                      const isSubmittedOpt = submittedAns.includes(letter);
+                      const correctSet = new Set((bd?.correctAnswer ?? '').split(',').map((s) => s.trim()).filter(Boolean));
+                      const submittedSet = new Set((bd?.submitted ?? '').split(',').map((s) => s.trim()).filter(Boolean));
+                      const isCorrectOpt = correctSet.has(letter);
+                      const isSubmittedOpt = submittedSet.has(letter);
                       let optBg = '#f8fafc'; let optBorder = '#e2e8f0'; let optColor = '#374151';
                       if (isCorrectOpt) { optBg = '#f0fdf4'; optBorder = '#86efac'; optColor = '#15803d'; }
                       if (isSubmittedOpt && !isCorrectOpt) { optBg = '#fef2f2'; optBorder = '#fca5a5'; optColor = '#dc2626'; }

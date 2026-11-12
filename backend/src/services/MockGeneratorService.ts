@@ -162,43 +162,74 @@ export class MockGeneratorService {
     let practiceBackfill: PaperQuestion[] = [];
     if (missingSlots.length > 0 && !this.deepSeek.isAvailable()) {
       const usedIds = new Set([...seen, ...fromBank.map((q) => q.id)]);
-      const practiceQuestions = await this.questionService.fillMockSlotsFromPracticeBank(missingSlots, usedIds);
-      practiceBackfill = practiceQuestions.map((q) => ({
+      const slotPicks = await this.questionService.fillMockSlotsFromPracticeBank(missingSlots, usedIds);
+      practiceBackfill = slotPicks.flatMap((q) => (q ? [{
         id: q.id,
         subject: q.subject,
         topic: q.topic,
         questionType: q.questionType,
-      }));
-      missingSlots = missingSlots.filter((_, i) => i >= practiceBackfill.length);
+      }] : []));
+      missingSlots = missingSlots.filter((_, i) => slotPicks[i] === null);
       logger.info({ fromPracticeBank: practiceBackfill.length, stillMissing: missingSlots.length }, '[mockPool] Practice bank fallback filled slots');
     }
 
-    const generated: PaperQuestion[] = missingSlots.length > 0
+    const canGenerateWithAi = this.deepSeek.isAvailable();
+    const generated: PaperQuestion[] = missingSlots.length > 0 && canGenerateWithAi
       ? await this.questionService.generateFreshMockBatch(missingSlots, 4)
       : [];
     let questions: PaperQuestion[] = [...fromBank, ...practiceBackfill, ...generated];
 
     const expected = this.expectedPerSubject(examType);
-    for (let round = 0; round < 8; round++) {
-      const subjectCounts = new Map<string, number>();
-      for (const q of questions) subjectCounts.set(q.subject, (subjectCounts.get(q.subject) ?? 0) + 1);
+    if (canGenerateWithAi) {
+      for (let round = 0; round < 8; round++) {
+        if (!this.deepSeek.isAvailable()) break;
+        const subjectCounts = new Map<string, number>();
+        for (const q of questions) subjectCounts.set(q.subject, (subjectCounts.get(q.subject) ?? 0) + 1);
 
-      const topUpSlots: SlotInput[] = [];
-      for (const slot of slots) {
-        const current = subjectCounts.get(slot.subject) ?? 0;
-        if (current < expected) {
-          topUpSlots.push(slot, slot);
-          subjectCounts.set(slot.subject, current + 1);
+        const topUpSlots: SlotInput[] = [];
+        for (const slot of slots) {
+          const current = subjectCounts.get(slot.subject) ?? 0;
+          if (current < expected) {
+            topUpSlots.push(slot, slot);
+            subjectCounts.set(slot.subject, current + 1);
+          }
         }
-      }
-      if (topUpSlots.length === 0) break;
+        if (topUpSlots.length === 0) break;
 
-      logger.info({ round: round + 1, slots: topUpSlots.length }, '[mockPool] Top-up: generating replacements for short subjects');
-      const extras = await this.questionService.generateFreshMockBatch(topUpSlots, 4);
-      questions = [...questions, ...extras];
+        logger.info({ round: round + 1, slots: topUpSlots.length }, '[mockPool] Top-up: generating replacements for short subjects');
+        const extras = await this.questionService.generateFreshMockBatch(topUpSlots, 4);
+        questions = [...questions, ...extras];
+      }
     }
 
     const subjectsNeeded: string[] = examType === 'NEET' ? [...NEET_SUBJECTS] : ['Physics', 'Chemistry', 'Mathematics'];
+    const shortSubjects = subjectsNeeded.filter(
+      (subject) => questions.filter((q) => q.subject === subject).length < expected,
+    );
+    if (shortSubjects.length > 0) {
+      const deficitSlots: SlotInput[] = [];
+      for (const subject of shortSubjects) {
+        const have = questions.filter((q) => q.subject === subject).length;
+        const needed = expected - have;
+        const subjectSlots = slots.filter((s) => s.subject === subject);
+        for (let i = 0; i < needed && i < subjectSlots.length; i++) {
+          deficitSlots.push(subjectSlots[i]!);
+        }
+      }
+      if (deficitSlots.length > 0) {
+        const usedIds = new Set([...seen, ...questions.map((q) => q.id)]);
+        const fallbackPicks = await this.questionService.fillMockSlotsFromPracticeBank(deficitSlots, usedIds);
+        const fallbackQs: PaperQuestion[] = fallbackPicks.flatMap((q) => (q ? [{
+          id: q.id,
+          subject: q.subject,
+          topic: q.topic,
+          questionType: q.questionType,
+        }] : []));
+        questions = [...questions, ...fallbackQs];
+        logger.info({ filled: fallbackQs.length }, '[mockPool] Post-AI practice bank fallback filled remaining slots');
+      }
+    }
+
     for (const subject of subjectsNeeded) {
       const count = questions.filter((q) => q.subject === subject).length;
       if (count < expected) {

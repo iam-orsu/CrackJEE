@@ -52,7 +52,7 @@ export default function MockResultPage() {
 
   const { result, exam } = data;
   const breakdown = result.scoreBreakdown as Record<string, MockResultBreakdown>;
-  const pct = Math.round((result.totalScore / result.maxScore) * 100);
+  const pct = result.maxScore > 0 ? Math.round((result.totalScore / result.maxScore) * 100) : 0;
   const examType = exam.examType;
   const isNEET = examType === 'NEET';
 

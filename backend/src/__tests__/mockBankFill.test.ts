@@ -1,6 +1,13 @@
 import { test } from 'node:test';
 import * as assert from 'node:assert/strict';
-import { fillSlotsFromBank, type BankQuestion, type SlotKey } from '../services/mockBankFill';
+import {
+  fillSlotsFromBank,
+  fillPracticeSlotsWithFallbacks,
+  type BankQuestion,
+  type PracticePoolCandidate,
+  type PracticeSlotRequest,
+  type SlotKey,
+} from '../services/mockBankFill';
 
 const slotA: SlotKey = { subject: 'Physics', topic: 'Kinematics', difficulty: 'beginner', questionType: 'mcq_single' };
 const slotB: SlotKey = { subject: 'Physics', topic: 'Waves', difficulty: 'beginner', questionType: 'mcq_single' };
@@ -35,4 +42,22 @@ test('one paper never uses the same bank question twice', () => {
 test('a question with a different difficulty does not fill the slot', () => {
   const hard: SlotKey = { ...slotA, difficulty: 'advanced' };
   assert.deepEqual(fillSlotsFromBank([hard], bank, new Set()), [null]);
+});
+
+test('fillPracticeSlotsWithFallbacks preserves index alignment and relaxes within subject', () => {
+  const slots: PracticeSlotRequest[] = [
+    { subject: 'Chemistry', topic: 'Atomic Structure', difficulty: 'beginner', questionType: 'mcq_single', bankExamType: 'Main' },
+    { subject: 'Physics', topic: 'Kinematics', difficulty: 'beginner', questionType: 'mcq_single', bankExamType: 'Main' },
+    { subject: 'Physics', topic: 'Optics', difficulty: 'advanced', questionType: 'integer', bankExamType: 'Main' },
+  ];
+  const pool: PracticePoolCandidate[] = [
+    { id: 'excluded', subject: 'Physics', topic: 'Kinematics', difficulty: 'beginner', questionType: 'mcq_single', examType: 'Main' },
+    { id: 'p1', subject: 'Physics', topic: 'Kinematics', difficulty: 'beginner', questionType: 'mcq_single', examType: 'Main' },
+    { id: 'p2', subject: 'Physics', topic: 'Waves', difficulty: 'beginner', questionType: 'mcq_single', examType: 'Main' },
+  ];
+
+  const picks = fillPracticeSlotsWithFallbacks(slots, pool, new Set(['excluded']), () => 0);
+  assert.equal(picks[0], null); // Chemistry has no candidates -> null preserved at index 0
+  assert.equal(picks[1]?.id, 'p1'); // Exact match for Kinematics, skipping excluded
+  assert.equal(picks[2]?.id, 'p2'); // Relaxed fallback within Physics, without reusing p1
 });

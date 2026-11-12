@@ -77,7 +77,7 @@ export class ProgressService {
     const rows = await this.mocks.findRecentSubmittedResults(userId, 10);
     return rows.reverse().map((r) => ({
       date: (r.exam.submittedAt ?? r.exam.createdAt).toISOString(),
-      pct: Math.round((r.totalScore / r.maxScore) * 100),
+      pct: r.maxScore > 0 ? Math.round((r.totalScore / r.maxScore) * 100) : 0,
     }));
   }
 

@@ -32,6 +32,18 @@ export function safeRange(r: unknown, fallback: [number, number]): [number, numb
   return [a, b];
 }
 
+/** Parse an untrusted numeric diagram param safely, falling back on NaN/Infinity/null. */
+export function finiteNum(val: unknown, fallback: number): number {
+  if (val === null || val === undefined || val === '') return fallback;
+  const n = Number(val);
+  return Number.isFinite(n) ? n : fallback;
+}
+
+/** Clamp a numeric diagram param safely (never returns NaN even when input is malformed). */
+export function clampNum(val: unknown, min: number, max: number, fallback: number): number {
+  return Math.max(min, Math.min(max, finiteNum(val, fallback)));
+}
+
 /* ── Arrow helper ──────────────────────────────────────────── */
 export function Arr({
   x1, y1, x2, y2, color = '#475569', label, lx, ly, sw,

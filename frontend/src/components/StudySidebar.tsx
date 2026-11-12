@@ -82,13 +82,18 @@ export function StudySidebar() {
   const [loaded, setLoaded]       = useState(false);
 
   useEffect(() => {
+    let cancelled = false;
     Promise.allSettled([
       api.progress.weakAreas(),
       api.dashboard.data(),
     ]).then(([wa, dd]) => {
+      if (cancelled) return;
       if (wa.status === 'fulfilled') setWeakAreas(wa.value.slice(0, 3));
       if (dd.status === 'fulfilled') setWeek(dd.value.weeklyStats);
-    }).finally(() => setLoaded(true));
+    }).finally(() => {
+      if (!cancelled) setLoaded(true);
+    });
+    return () => { cancelled = true; };
   }, []);
 
   // Pick the nearest upcoming exam for this student's target
@@ -141,7 +146,7 @@ export function StudySidebar() {
       <Card>
         <Label
           action={weakAreas.length > 0
-            ? <a href="/practice?mode=weak" style={{ fontSize: 11, color: 'var(--gray-400)', fontWeight: 500, textDecoration: 'underline', textTransform: 'none', letterSpacing: 'normal' }}>Practice all</a>
+            ? <a href={targetExam === 'NEET' ? '/neet/practice?mode=weak' : '/practice?mode=weak'} style={{ fontSize: 11, color: 'var(--gray-400)', fontWeight: 500, textDecoration: 'underline', textTransform: 'none', letterSpacing: 'normal' }}>Practice all</a>
             : null}
         >
           Weak Areas

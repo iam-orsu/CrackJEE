@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, useParams } from 'next/navigation';
@@ -78,30 +78,16 @@ export default function MockExamPage() {
   const [isOnline, setIsOnline] = useState(true);
 
   const pollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  useEffect(() => () => { if (pollTimerRef.current) clearTimeout(pollTimerRef.current); }, []);
-
-  /* ── Network online/offline listener ── */
+  const mountedRef = useRef(true);
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    setIsOnline(navigator.onLine);
-
-    const onOnline = () => {
-      setIsOnline(true);
-      void flushPendingAnswers();
-    };
-    const onOffline = () => {
-      setIsOnline(false);
-    };
-
-    window.addEventListener('online', onOnline);
-    window.addEventListener('offline', onOffline);
+    mountedRef.current = true;
     return () => {
-      window.removeEventListener('online', onOnline);
-      window.removeEventListener('offline', onOffline);
+      mountedRef.current = false;
+      if (pollTimerRef.current) clearTimeout(pollTimerRef.current);
     };
-  }, [examId]);
+  }, []);
 
-  async function flushPendingAnswers() {
+  const flushPendingAnswers = useCallback(async () => {
     if (pendingSyncRef.current.size === 0) return;
     const entries = Array.from(pendingSyncRef.current.entries());
     for (const [mqId, item] of entries) {
@@ -112,59 +98,10 @@ export default function MockExamPage() {
         break; // Still offline, wait for next online event
       }
     }
-  }
+  }, [examId]);
 
-  /* ── Load exam ── */
-  useEffect(() => {
-    if (!isAuthenticated()) { router.replace('/login'); return; }
-    async function loadExam() {
-      try {
-        const data = await api.mock.get(examId);
-        if (data.status === 'error') { setPageStatus('error'); setLoadMsg('Exam generation failed. Please try again.'); return; }
-        if (data.status === 'generating') { setPendingExamType(data.examType); setPageStatus('polling'); pollForReady(); return; }
-        if (data.status === 'submitted') { router.replace(`/mock/${examId}/result`); return; }
-        await initializeExam(data);
-      } catch {
-        setPageStatus('error');
-        setLoadMsg('Failed to load exam.');
-      }
-    }
-    loadExam();
-  }, [examId, router]);
-
-  async function pollForReady() {
-    const MESSAGES = [
-      'Generating your questions…',
-      'Running quality checks…',
-      'Mixing difficulty levels…',
-      'Building your unique paper…',
-      'Almost ready…',
-    ];
-    const MAX_ATTEMPTS = 100; // ~5 minutes at 3s intervals (NEET first-gen takes 3-4 min)
-    let attempt = 0;
-    const poll = async (): Promise<void> => {
-      if (attempt >= MAX_ATTEMPTS) {
-        setPageStatus('error');
-        setLoadMsg('Exam generation timed out. Please go back and try again.');
-        return;
-      }
-      setLoadMsg(MESSAGES[attempt % MESSAGES.length]!);
-      attempt++;
-      try {
-        const data = await api.mock.get(examId);
-        if (data.status === 'generating') { pollTimerRef.current = setTimeout(poll, 3000); return; }
-        if (data.status === 'error') { setPageStatus('error'); setLoadMsg('Exam generation failed.'); return; }
-        // A finished exam belongs on its result page; the exam screen would show a timer and answers that can't be saved
-        if (data.status === 'submitted') { router.replace(`/mock/${examId}/result`); return; }
-        await initializeExam(data);
-      } catch {
-        pollTimerRef.current = setTimeout(poll, 4000);
-      }
-    };
-    poll();
-  }
-
-  async function initializeExam(data: MockExam) {
+  const initializeExam = useCallback(async (data: MockExam) => {
+    if (!mountedRef.current) return;
     // Initialize local state from server-saved answers
     const initAnswers: Record<string, string> = {};
     const initMarked: Record<string, boolean> = {};
@@ -204,6 +141,7 @@ export default function MockExamPage() {
         sa = res.startedAt;
       } catch {}
     }
+    if (!mountedRef.current) return;
     setStartedAt(sa);
 
     // Compute initial timeLeft
@@ -221,7 +159,85 @@ export default function MockExamPage() {
       setDraft(initAnswers[data.questions[0]!.mockQuestionId] ?? '');
       questionEnteredAtRef.current = Date.now();
     }
-  }
+  }, [examId, flushPendingAnswers]);
+
+  const pollForReady = useCallback(() => {
+    const MESSAGES = [
+      'Generating your questions…',
+      'Running quality checks…',
+      'Mixing difficulty levels…',
+      'Building your unique paper…',
+      'Almost ready…',
+    ];
+    const MAX_ATTEMPTS = 100; // ~5 minutes at 3s intervals (NEET first-gen takes 3-4 min)
+    let attempt = 0;
+    const poll = async (): Promise<void> => {
+      if (!mountedRef.current) return;
+      if (attempt >= MAX_ATTEMPTS) {
+        setPageStatus('error');
+        setLoadMsg('Exam generation timed out. Please go back and try again.');
+        return;
+      }
+      setLoadMsg(MESSAGES[attempt % MESSAGES.length]!);
+      attempt++;
+      try {
+        const data = await api.mock.get(examId);
+        if (!mountedRef.current) return;
+        if (data.status === 'generating') { pollTimerRef.current = setTimeout(poll, 3000); return; }
+        if (data.status === 'error') { setPageStatus('error'); setLoadMsg('Exam generation failed.'); return; }
+        // A finished exam belongs on its result page; the exam screen would show a timer and answers that can't be saved
+        if (data.status === 'submitted') { router.replace(`/mock/${examId}/result`); return; }
+        await initializeExam(data);
+      } catch {
+        if (mountedRef.current) pollTimerRef.current = setTimeout(poll, 4000);
+      }
+    };
+    void poll();
+  }, [examId, router, initializeExam]);
+
+  /* ── Network online/offline listener ── */
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    setIsOnline(navigator.onLine);
+
+    const onOnline = () => {
+      setIsOnline(true);
+      void flushPendingAnswers();
+    };
+    const onOffline = () => {
+      setIsOnline(false);
+    };
+
+    window.addEventListener('online', onOnline);
+    window.addEventListener('offline', onOffline);
+    return () => {
+      window.removeEventListener('online', onOnline);
+      window.removeEventListener('offline', onOffline);
+    };
+  }, [flushPendingAnswers]);
+
+  /* ── Load exam ── */
+  useEffect(() => {
+    if (!isAuthenticated()) { router.replace('/login'); return; }
+    let cancelled = false;
+    async function loadExam() {
+      try {
+        const data = await api.mock.get(examId);
+        if (cancelled) return;
+        if (data.status === 'error') { setPageStatus('error'); setLoadMsg('Exam generation failed. Please try again.'); return; }
+        if (data.status === 'generating') { setPendingExamType(data.examType); setPageStatus('polling'); pollForReady(); return; }
+        if (data.status === 'submitted') { router.replace(`/mock/${examId}/result`); return; }
+        await initializeExam(data);
+      } catch {
+        if (!cancelled) {
+          setPageStatus('error');
+          setLoadMsg('Failed to load exam.');
+        }
+      }
+    }
+    void loadExam();
+    return () => { cancelled = true; };
+  }, [examId, router, pollForReady, initializeExam]);
 
   /* ── Timer ── */
   useEffect(() => {
@@ -296,7 +312,7 @@ export default function MockExamPage() {
     // 1. Mirror to localStorage immediately (never lost on reload, sleep, or tab crash)
     try {
       const local = JSON.parse(localStorage.getItem(`mock_answers_${examId}`) ?? '{}');
-      if (value) local[mqId] = { answer: value, markedForReview };
+      if (value || markedForReview) local[mqId] = { answer: value, markedForReview };
       else delete local[mqId];
       localStorage.setItem(`mock_answers_${examId}`, JSON.stringify(local));
     } catch {}

@@ -3,6 +3,7 @@ import { CACHE_CONSTANTS } from '../config/constants';
 import { QuestionRepository } from '../repositories/QuestionRepository';
 import { CacheService, cacheService as defaultCache } from './CacheService';
 import { DeepSeekService, deepSeekService as defaultDeepSeek } from './DeepSeekService';
+import { fillPracticeSlotsWithFallbacks, type PracticePoolCandidate } from './mockBankFill';
 import { logger } from '../utils/logger';
 import { incCounter } from '../utils/metrics';
 import { runOnce } from '../utils/distributedOnce';
@@ -515,34 +516,18 @@ export class QuestionService {
   public async fillMockSlotsFromPracticeBank(
     slots: Array<{ subject: Subject; topic: string; difficulty: Difficulty; examType: ExamType; questionType: QuestionType }>,
     excludeIds: Set<string>,
-  ): Promise<Question[]> {
-    const results: Question[] = [];
-    const used = new Set(excludeIds);
-
-    for (const slot of slots) {
-      const bankExamType = normalizeBankExamType(slot.examType);
-      const filters: Array<Record<string, unknown>> = [
-        { topic: slot.topic, subject: slot.subject, difficulty: slot.difficulty, examType: bankExamType, questionType: slot.questionType },
-        { topic: slot.topic, subject: slot.subject, difficulty: slot.difficulty, examType: bankExamType },
-        { topic: slot.topic, subject: slot.subject, examType: bankExamType },
-        { topic: slot.topic, subject: slot.subject },
-      ];
-
-      for (const where of filters) {
-        const candidates = await this.questions.findMany(
-          { ...where, id: { notIn: [...used] }, validatedAt: { not: null }, mockOnly: false },
-          5,
-        );
-        if (candidates.length > 0) {
-          const pick = candidates[Math.floor(Math.random() * candidates.length)]!;
-          used.add(pick.id);
-          results.push(pick);
-          break;
-        }
-      }
-    }
-
-    return results;
+  ): Promise<Array<PracticePoolCandidate | null>> {
+    if (slots.length === 0) return [];
+    const subjects = [...new Set(slots.map((s) => s.subject))];
+    const pool = await this.questions.findPracticePoolBySubjects(subjects);
+    const slotRequests = slots.map((slot) => ({
+      subject: slot.subject,
+      topic: slot.topic,
+      difficulty: slot.difficulty,
+      questionType: slot.questionType,
+      bankExamType: normalizeBankExamType(slot.examType),
+    }));
+    return fillPracticeSlotsWithFallbacks(slotRequests, pool, excludeIds);
   }
 
   public async generateFreshMockBatch(

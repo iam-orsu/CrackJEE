@@ -3,6 +3,7 @@ import * as assert from 'node:assert/strict';
 import { CacheService, InMemoryCacheStore } from '../services/CacheService';
 import { envSchema, isCookieSecure } from '../config/env';
 import { istDateKey, istMonthKey } from '../utils/dateIst';
+import { DeepSeekService } from '../services/DeepSeekService';
 
 test('InMemoryCacheStore handles set, get, del, and expiry', async () => {
   const store = new InMemoryCacheStore();
@@ -68,6 +69,16 @@ test('envSchema requires mysql:// DATABASE_URL and treats REDIS_URL as optional'
     assert.equal(ok.data.PORT, 3001);
   }
 
+  const okNoAi = envSchema.safeParse({
+    DATABASE_URL: 'mysql://user:pass@localhost:3306/jeeneet',
+    JWT_SECRET: '0123456789abcdef',
+    DEEPSEEK_API_KEY: '',
+  });
+  assert.equal(okNoAi.success, true);
+  if (okNoAi.success) {
+    assert.equal(okNoAi.data.DEEPSEEK_API_KEY, undefined);
+  }
+
   const badDb = envSchema.safeParse({
     DATABASE_URL: 'postgresql://user:pass@localhost:5432/jeeneet',
     JWT_SECRET: '0123456789abcdef',
@@ -88,4 +99,22 @@ test('IST date helpers compute UTC+5:30 day and month accurately', () => {
   const instant = new Date('2026-03-31T19:00:00Z');
   assert.equal(istDateKey(instant), '2026-04-01');
   assert.equal(istMonthKey(instant), '2026-04');
+});
+
+test('DeepSeekService.isAvailable reflects DEEPSEEK_API_KEY configuration', () => {
+  const prev = process.env.DEEPSEEK_API_KEY;
+  try {
+    delete process.env.DEEPSEEK_API_KEY;
+    const ds = new DeepSeekService();
+    assert.equal(ds.isAvailable(), false);
+
+    process.env.DEEPSEEK_API_KEY = '   ';
+    assert.equal(ds.isAvailable(), false);
+
+    process.env.DEEPSEEK_API_KEY = 'sk-test-valid-key';
+    assert.equal(ds.isAvailable(), true);
+  } finally {
+    if (prev === undefined) delete process.env.DEEPSEEK_API_KEY;
+    else process.env.DEEPSEEK_API_KEY = prev;
+  }
 });

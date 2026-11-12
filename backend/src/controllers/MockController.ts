@@ -4,16 +4,45 @@ import { MockExamService } from '../services/MockExamService';
 import { AppError } from '../utils/AppError';
 import type { AuthRequest } from '../types/index';
 
+const idParamSchema = z.string().min(1).max(64).regex(/^[A-Za-z0-9_-]+$/);
+
 const startSchema = z.object({
   examType: z.enum(['Main', 'Advanced', 'NEET']),
   difficultyMode: z.enum(['easy', 'medium', 'hard']).default('medium'),
 });
 
 const answerSchema = z.object({
-  mockQuestionId: z.string().min(1).max(36),
+  mockQuestionId: z.string().min(1).max(64).regex(/^[A-Za-z0-9_-]+$/),
   answer: z.string().max(20),
   markedForReview: z.boolean().optional(),
 });
+
+const submitSchema = z.object({
+  questionTimes: z
+    .record(
+      z.string().min(1).max(64).regex(/^[A-Za-z0-9_-]+$/),
+      z.number().finite().min(0).max(86400).transform((n) => Math.round(n)),
+    )
+    .optional()
+    .default({}),
+});
+
+export function parseMockIdParam(id: string | undefined, label = 'mock ID'): string {
+  const parsed = idParamSchema.safeParse(id);
+  if (!parsed.success) throw new AppError(400, `Invalid ${label}`);
+  return parsed.data;
+}
+
+export function parseSubmitMockBody(raw: unknown): Record<string, number> {
+  const parsed = submitSchema.safeParse(raw ?? {});
+  if (!parsed.success) throw new AppError(400, 'Invalid questionTimes payload');
+  const sanitized = Object.create(null) as Record<string, number>;
+  for (const [key, val] of Object.entries(parsed.data.questionTimes)) {
+    if (key === '__proto__' || key === 'constructor' || key === 'prototype') continue;
+    sanitized[key] = val;
+  }
+  return sanitized;
+}
 
 export class MockController {
   constructor(private readonly mockExamService: MockExamService = new MockExamService()) {}
@@ -36,7 +65,7 @@ export class MockController {
 
   public readonly getMock = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const { id } = req.params as { id: string };
+      const id = parseMockIdParam((req.params as { id?: string }).id);
       const data = await this.mockExamService.getMock(req.user!.userId, id);
       res.json({ success: true, data });
     } catch (err) {
@@ -46,7 +75,7 @@ export class MockController {
 
   public readonly beginMock = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const { id } = req.params as { id: string };
+      const id = parseMockIdParam((req.params as { id?: string }).id);
       const data = await this.mockExamService.beginMock(req.user!.userId, id);
       res.json({ success: true, data });
     } catch (err) {
@@ -56,7 +85,7 @@ export class MockController {
 
   public readonly saveAnswer = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const { id } = req.params as { id: string };
+      const id = parseMockIdParam((req.params as { id?: string }).id);
       const body = answerSchema.safeParse(req.body);
       if (!body.success) throw new AppError(400, 'Invalid input');
 
@@ -75,8 +104,8 @@ export class MockController {
 
   public readonly submitMock = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const { id } = req.params as { id: string };
-      const questionTimes = (req.body as { questionTimes?: Record<string, number> })?.questionTimes ?? {};
+      const id = parseMockIdParam((req.params as { id?: string }).id);
+      const questionTimes = parseSubmitMockBody(req.body);
       const data = await this.mockExamService.submitMock(req.user!.userId, id, questionTimes);
       res.json({ success: true, data });
     } catch (err) {
@@ -86,7 +115,7 @@ export class MockController {
 
   public readonly getMockResult = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const { id } = req.params as { id: string };
+      const id = parseMockIdParam((req.params as { id?: string }).id);
       const data = await this.mockExamService.getMockResult(req.user!.userId, id);
       res.json({ success: true, data });
     } catch (err) {
@@ -96,7 +125,7 @@ export class MockController {
 
   public readonly cancelMock = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const { id } = req.params as { id: string };
+      const id = parseMockIdParam((req.params as { id?: string }).id);
       await this.mockExamService.cancelMock(req.user!.userId, id);
       res.json({ success: true });
     } catch (err) {
@@ -115,7 +144,7 @@ export class MockController {
 
   public readonly getExamInsights = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const { id } = req.params as { id: string };
+      const id = parseMockIdParam((req.params as { id?: string }).id);
       const data = await this.mockExamService.getExamInsights(req.user!.userId, id);
       res.json({ success: true, data });
     } catch (err) {
@@ -125,7 +154,9 @@ export class MockController {
 
   public readonly getQuestionExplanation = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const { id, mockQuestionId } = req.params as { id: string; mockQuestionId: string };
+      const params = req.params as { id?: string; mockQuestionId?: string };
+      const id = parseMockIdParam(params.id);
+      const mockQuestionId = parseMockIdParam(params.mockQuestionId, 'mockQuestionId');
       const data = await this.mockExamService.getQuestionExplanation(req.user!.userId, id, mockQuestionId);
       res.json({ success: true, data });
     } catch (err) {

@@ -46,3 +46,60 @@ export function fillSlotsFromBank(
     return chosen;
   });
 }
+
+export interface PracticeSlotRequest extends SlotKey {
+  bankExamType: string;
+}
+
+export interface PracticePoolCandidate extends SlotKey {
+  id: string;
+  examType: string;
+}
+
+/**
+ * Index-aligned fallback matcher for non-mock practice bank questions.
+ * Tries exact match first and progressively relaxes questionType -> difficulty -> examType -> topic
+ * within the same subject so missing slots can be covered without N+1 DB queries or positional drift.
+ */
+export function fillPracticeSlotsWithFallbacks<T extends PracticePoolCandidate>(
+  slots: PracticeSlotRequest[],
+  pool: T[],
+  exclude: Set<string>,
+  random: () => number = Math.random,
+): Array<T | null> {
+  const bySubject = new Map<string, T[]>();
+  for (const q of pool) {
+    if (exclude.has(q.id)) continue;
+    let list = bySubject.get(q.subject);
+    if (!list) {
+      list = [];
+      bySubject.set(q.subject, list);
+    }
+    list.push(q);
+  }
+
+  const used = new Set<string>();
+  return slots.map((slot) => {
+    const subjectPool = (bySubject.get(slot.subject) ?? []).filter((q) => !used.has(q.id));
+    if (subjectPool.length === 0) return null;
+
+    const tiers: Array<(q: T) => boolean> = [
+      (q) => q.topic === slot.topic && q.difficulty === slot.difficulty && q.examType === slot.bankExamType && q.questionType === slot.questionType,
+      (q) => q.topic === slot.topic && q.difficulty === slot.difficulty && q.examType === slot.bankExamType,
+      (q) => q.topic === slot.topic && q.examType === slot.bankExamType,
+      (q) => q.topic === slot.topic,
+      (q) => q.difficulty === slot.difficulty && q.examType === slot.bankExamType,
+      () => true,
+    ];
+
+    for (const matches of tiers) {
+      const candidates = subjectPool.filter(matches);
+      if (candidates.length > 0) {
+        const chosen = candidates[Math.floor(random() * candidates.length)]!;
+        used.add(chosen.id);
+        return chosen;
+      }
+    }
+    return null;
+  });
+}

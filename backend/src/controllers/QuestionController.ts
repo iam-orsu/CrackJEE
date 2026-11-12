@@ -34,6 +34,15 @@ const batchSchema = z.object({
   mode: z.enum(['practice', 'ai']).default('practice'),
 });
 
+const bankStatsQuerySchema = z.object({
+  examType: z.enum(['Main', 'Advanced', 'Both', 'NEET']).optional(),
+});
+
+const getTopicsQuerySchema = z.object({
+  studentClass: z.enum(['11', '12', 'Dropper']).default('12'),
+  examMode: z.enum(['JEE', 'NEET']).default('JEE'),
+});
+
 export class QuestionController {
   constructor(private readonly questionService: QuestionService = new QuestionService()) {}
 
@@ -115,8 +124,11 @@ export class QuestionController {
 
   public readonly bankStats = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const examTypeFilter = req.query.examType as string | undefined;
-      const stats = await this.questionService.getBankStats(examTypeFilter);
+      const query = bankStatsQuerySchema.safeParse(req.query);
+      if (!query.success) {
+        throw new AppError(400, 'Invalid examType filter');
+      }
+      const stats = await this.questionService.getBankStats(query.data.examType);
       res.json({ success: true, data: stats });
     } catch (err) {
       next(err);
@@ -125,14 +137,12 @@ export class QuestionController {
 
   public readonly getTopics = (req: AuthRequest, res: Response, next: NextFunction): void => {
     try {
-      const studentClass = (req.query.studentClass as StudentClass | undefined) ?? '12';
-      const examMode = (req.query.examMode as string | undefined) ?? 'JEE';
-
-      if (!(['11', '12', 'Dropper'] as string[]).includes(studentClass)) {
-        throw new AppError(400, 'Invalid studentClass');
+      const query = getTopicsQuerySchema.safeParse(req.query);
+      if (!query.success) {
+        throw new AppError(400, query.error.errors[0]?.message ?? 'Invalid query parameters');
       }
 
-      const data = this.questionService.getTopics(studentClass, examMode);
+      const data = this.questionService.getTopics(query.data.studentClass, query.data.examMode);
       res.json({ success: true, data });
     } catch (err) {
       next(err);

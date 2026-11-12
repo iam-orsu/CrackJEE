@@ -370,6 +370,7 @@ export class MockExamRepository {
             physicsScore: true,
             chemistryScore: true,
             mathScore: true,
+            biologyScore: true,
             correct: true,
             partial: true,
             incorrect: true,

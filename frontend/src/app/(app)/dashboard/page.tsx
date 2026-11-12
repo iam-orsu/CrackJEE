@@ -255,6 +255,7 @@ export default function DashboardPage() {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    let cancelled = false;
     setUser(getUser());
     if (!isAuthenticated()) { router.push('/login'); return; }
     Promise.all([
@@ -264,13 +265,15 @@ export default function DashboardPage() {
       api.stats.mockInsights().catch(() => null),
     ])
       .then(([dashData, weakTopics, lb, insightData]) => {
+        if (cancelled) return;
         setData(dashData);
         setMockWeakTopics(weakTopics);
         setLeaderboard(lb);
         setInsights(insightData);
       })
-      .catch((e: Error) => setError(e.message))
-      .finally(() => setLoading(false));
+      .catch((e: Error) => { if (!cancelled) setError(e.message); })
+      .finally(() => { if (!cancelled) setLoading(false); });
+    return () => { cancelled = true; };
   }, [router]);
 
   const [greeting, setGreeting] = useState('');
@@ -668,7 +671,11 @@ export default function DashboardPage() {
                     <span className={styles.guideNum}>1</span>
                     <div>
                       <p className={styles.guideTitle}>Pick subjects and topics</p>
-                      <p className={styles.guideText}>Choose from Physics, Chemistry and Mathematics.</p>
+                      <p className={styles.guideText}>
+                        {user?.targetExam === 'NEET'
+                          ? 'Choose from Physics, Chemistry, Botany and Zoology.'
+                          : 'Choose from Physics, Chemistry and Mathematics.'}
+                      </p>
                     </div>
                   </div>
                   <div className={styles.guideStep}>
@@ -686,7 +693,7 @@ export default function DashboardPage() {
                     </div>
                   </div>
                 </div>
-                <Link href="/practice" className={styles.primaryBtn}>Start your first session</Link>
+                <Link href={user?.targetExam === 'NEET' ? '/neet/practice' : '/practice'} className={styles.primaryBtn}>Start your first session</Link>
               </section>
             )}
           </div>

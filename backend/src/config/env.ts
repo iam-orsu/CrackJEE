@@ -40,6 +40,7 @@ export function loadDotEnv(): void {
         process.env[key] = val;
       }
     }
+    break;
   }
 }
 
@@ -57,7 +58,10 @@ export const envSchema = z.object({
     z.string().startsWith('redis://').optional(),
   ),
   JWT_SECRET: z.string().min(16),
-  DEEPSEEK_API_KEY: z.string().min(8),
+  DEEPSEEK_API_KEY: z.preprocess(
+    emptyToUndefined,
+    z.string().min(8).optional(),
+  ),
   DEEPSEEK_CONCURRENCY: z.coerce.number().int().min(1).max(50).default(6),
   DB_CONNECTION_LIMIT: z.coerce.number().int().min(1).max(100).default(10),
   DB_FANOUT_CONCURRENCY: z.coerce.number().int().min(1).max(50).default(5),

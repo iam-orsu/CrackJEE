@@ -32,10 +32,17 @@ export class DeepSeekService {
     cooldownMs: Number(process.env.DEEPSEEK_CIRCUIT_COOLDOWN_MS ?? 5 * 60 * 1000),
   });
 
+  private hasApiKey(): boolean {
+    return (process.env.DEEPSEEK_API_KEY ?? '').trim().length >= 8;
+  }
+
   private getClient(): OpenAI {
+    if (!this.hasApiKey()) {
+      throw new Error('DEEPSEEK_API_KEY is not configured');
+    }
     if (!this.client) {
       this.client = new OpenAI({
-        apiKey: process.env.DEEPSEEK_API_KEY,
+        apiKey: process.env.DEEPSEEK_API_KEY!.trim(),
         baseURL: 'https://api.deepseek.com',
         timeout: 60000,
         maxRetries: 0,
@@ -45,7 +52,7 @@ export class DeepSeekService {
   }
 
   public isAvailable(): boolean {
-    return !this.breaker.isOpen();
+    return this.hasApiKey() && !this.breaker.isOpen();
   }
 
   public getCircuitState(): string {
@@ -55,6 +62,9 @@ export class DeepSeekService {
   private async callChat(
     params: OpenAI.Chat.ChatCompletionCreateParamsNonStreaming,
   ): Promise<OpenAI.Chat.ChatCompletion> {
+    if (!this.hasApiKey()) {
+      throw new Error('DEEPSEEK_API_KEY is not configured');
+    }
     if (!this.breaker.canAttempt()) {
       incCounter('deepseek_requests_total', { outcome: 'circuit_open' });
       throw new CircuitOpenError();
@@ -78,6 +88,7 @@ export class DeepSeekService {
         return await fn();
       } catch (err) {
         lastError = err instanceof Error ? err : new Error(String(err));
+        if (err instanceof CircuitOpenError || !this.hasApiKey()) break;
         if (attempt < RETRY_DELAYS.length - 1) await sleep(RETRY_DELAYS[attempt] ?? 1000);
       }
     }

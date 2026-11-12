@@ -240,6 +240,10 @@ export class MockExamService {
         timeTaken,
         scoreBreakdown: breakdown,
       });
+      await Promise.all([
+        this.cache.del(`mock-answers:${userId}`),
+        this.cache.del(`overall:user:${userId}`),
+      ]);
       return { resultId: result.id };
     } catch (err) {
       if ((err as { code?: string }).code === 'P2002') {

@@ -60,7 +60,7 @@ export function renderMath(rawText: string): string {
       const pre  = processed.slice(0, start);
       const math = processed.slice(start).trim();
       try {
-        return (pre ? escapeHtml(pre) : '') + katex.renderToString(math, { throwOnError: false });
+        return (pre ? escapeHtml(pre) : '') + katex.renderToString(math, { throwOnError: false, trust: false });
       } catch {
         return escapeHtml(processed);
       }
@@ -85,7 +85,7 @@ export function renderMath(rawText: string): string {
     else if (raw.startsWith('\\[')) { display = true;  content = raw.slice(2, -2); }
     else if (raw.startsWith('\\('))                   { content = raw.slice(2, -2); }
     try {
-      parts.push(katex.renderToString(content.trim(), { displayMode: display, throwOnError: false }));
+      parts.push(katex.renderToString(content.trim(), { displayMode: display, throwOnError: false, trust: false }));
     } catch {
       parts.push(escapeHtml(raw));
     }

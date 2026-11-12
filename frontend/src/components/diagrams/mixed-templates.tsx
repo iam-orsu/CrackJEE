@@ -1,5 +1,5 @@
 import React from 'react';
-import { Arr, latexToPlain, safeRange } from './helpers';
+import { Arr, clampNum, latexToPlain, safeRange } from './helpers';
 import type { CapacitorFieldParams, CoordGeometryParams, EnergyProfileParams, ProjectileMotionParams, PulleySystemParams, PvDiagramParams, WaveDiagramParams } from './types';
 
 /* ── TEMPLATE 4: Energy Profile ─────────────────────────────── */
@@ -134,7 +134,7 @@ export function CoordGeometry({ p }: { p: CoordGeometryParams }) {
 
 /* ── TEMPLATE 6: Projectile Motion ──────────────────────────── */
 export function ProjectileMotion({ p }: { p: ProjectileMotionParams }) {
-  const angle = Math.max(10, Math.min(80, +(p.angle_deg ?? 45)));
+  const angle = clampNum(p.angle_deg, 10, 80, 45);
   const θ = (angle * Math.PI) / 180;
   const lbl = p.labels ?? {};
   const showComponents: boolean = p.show_components !== false;
@@ -287,7 +287,7 @@ export function PulleySystem({ p }: { p: PulleySystemParams }) {
 export function WaveDiagram({ p }: { p: WaveDiagramParams }) {
   const waveType = (p.type ?? 'transverse').toLowerCase();
   const lbl = p.labels ?? {};
-  const nCycles = Math.max(1, Math.min(3, +(p.num_cycles ?? 2)));
+  const nCycles = Math.round(clampNum(p.num_cycles, 1, 3, 2));
 
   const x0 = 50, xEnd = 382, axY = 105, A = 42;
   const W = xEnd - x0;
@@ -402,7 +402,7 @@ export function WaveDiagram({ p }: { p: WaveDiagramParams }) {
 /* ── TEMPLATE 9: Capacitor / Electric Field ─────────────────── */
 export function CapacitorField({ p }: { p: CapacitorFieldParams }) {
   const lbl = p.labels ?? {};
-  const nLines = Math.max(3, Math.min(7, +(p.num_field_lines ?? 5)));
+  const nLines = Math.round(clampNum(p.num_field_lines, 3, 7, 5));
   const showBattery: boolean = p.show_battery === true;
 
   const leftX = 130, rightX = 300, plateCY = 105, plateH = 130;

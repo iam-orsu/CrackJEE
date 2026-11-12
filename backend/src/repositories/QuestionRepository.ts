@@ -142,6 +142,18 @@ export class QuestionRepository {
     });
   }
 
+  public findPracticePoolBySubjects(subjects: string[]) {
+    if (subjects.length === 0) return Promise.resolve([]);
+    return this.prisma.question.findMany({
+      where: {
+        mockOnly: false,
+        validatedAt: { not: null },
+        subject: { in: subjects },
+      },
+      select: { id: true, subject: true, topic: true, difficulty: true, examType: true, questionType: true },
+    });
+  }
+
   public createGeneratedBatch(
     items: Array<{
       topic: string;

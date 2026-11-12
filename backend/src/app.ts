@@ -62,7 +62,13 @@ export function createApp(): express.Express {
     next();
   });
 
-  app.get('/metrics', (_req, res) => {
+  app.get('/metrics', (req, res) => {
+    const ip = req.ip ?? '';
+    const isLoopback = ip === '127.0.0.1' || ip === '::1' || ip === '::ffff:127.0.0.1';
+    if (!isLoopback) {
+      res.status(403).json({ success: false, error: 'Forbidden' });
+      return;
+    }
     res.type('text/plain').send(renderMetrics());
   });
 

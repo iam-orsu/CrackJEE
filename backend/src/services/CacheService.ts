@@ -135,8 +135,10 @@ export class CacheService {
     if (!url || url.trim() === '') return null;
     if (!this.redisClient) {
       this.redisClient = new Redis(url.trim(), {
-        maxRetriesPerRequest: 3,
+        maxRetriesPerRequest: 1,
+        connectTimeout: 2000,
         lazyConnect: true,
+        retryStrategy: (times) => (times > 3 ? null : Math.min(times * 250, 1000)),
       });
       this.redisClient.on('error', (err: Error) => {
         incCounter('redis_errors_total');
@@ -152,7 +154,7 @@ export class CacheService {
     try {
       return await client.get(key);
     } catch {
-      return null;
+      return this.memory.get(key);
     }
   }
 
@@ -165,7 +167,7 @@ export class CacheService {
     try {
       await client.set(key, value, 'EX', ttlSeconds);
     } catch {
-      // Cache failures are non-fatal
+      this.memory.set(key, value, ttlSeconds);
     }
   }
 
@@ -178,7 +180,7 @@ export class CacheService {
     try {
       await client.del(key);
     } catch {
-      // Non-fatal
+      this.memory.del(key);
     }
   }
 
@@ -206,7 +208,7 @@ export class CacheService {
     try {
       await client.eval(APPEND_UNIQUE_LUA, 1, key, String(ttlSeconds), String(APPEND_MAX_LIST_LENGTH), ...values);
     } catch {
-      // Non-fatal
+      this.memory.appendUnique(key, values, ttlSeconds);
     }
   }
 
@@ -217,7 +219,7 @@ export class CacheService {
       const result = await client.set(key, '1', 'EX', ttlSeconds, 'NX');
       return result === 'OK';
     } catch {
-      return true;
+      return this.memory.setNx(key, ttlSeconds);
     }
   }
 
@@ -229,7 +231,7 @@ export class CacheService {
       if (count === 1) await client.expire(key, windowSeconds);
       return count;
     } catch {
-      return null;
+      return this.memory.incr(key, windowSeconds);
     }
   }
 

@@ -610,6 +610,8 @@ export default function ArcCardCarousel({
               }
             }}
           >
+            {/* Direct <img> keeps GSAP transform layout predictable inside stacked cards */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={it.src} alt={it.alt ?? ""} draggable={false} decoding="async" />
           </div>
         ))}

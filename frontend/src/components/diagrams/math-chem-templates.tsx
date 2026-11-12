@@ -1,15 +1,17 @@
 import React from 'react';
-import { Arr, latexToPlain } from './helpers';
+import { Arr, clampNum, finiteNum, latexToPlain } from './helpers';
 import type { ArgandPlaneParams, CircleGeomParams, ConicSectionParams, CrystalStructParams, ElectrochemCellParams, MoDiagramParams, MolecGeometryParams, OrganicStructParams, TriangleParams } from './types';
 
 /* ── TEMPLATE 11: Triangle ───────────────────────────────────── */
 export function TriangleDiagram({ p }: { p: TriangleParams }) {
   const lbl = p.labels ?? {};
-  let Adeg = +(p.angles?.A ?? p.angle_A ?? 60);
-  let Bdeg = +(p.angles?.B ?? p.angle_B ?? 60);
-  let Cdeg = +(p.angles?.C ?? p.angle_C ?? 60);
-  const tot = Adeg + Bdeg + Cdeg;
-  Adeg = (Adeg / tot) * 180; Bdeg = (Bdeg / tot) * 180; Cdeg = (Cdeg / tot) * 180;
+  const rawA = Math.max(1, finiteNum(p.angles?.A ?? p.angle_A, 60));
+  const rawB = Math.max(1, finiteNum(p.angles?.B ?? p.angle_B, 60));
+  const rawC = Math.max(1, finiteNum(p.angles?.C ?? p.angle_C, 60));
+  const tot = rawA + rawB + rawC || 180;
+  const Adeg = clampNum((rawA / tot) * 180, 5, 170, 60);
+  const Bdeg = clampNum((rawB / tot) * 180, 5, 170, 60);
+  const Cdeg = Math.max(5, 180 - Adeg - Bdeg || rawC * 0 + 60);
   const Ar = Adeg * Math.PI / 180, Br = Bdeg * Math.PI / 180;
 
   // side lengths (law of sines, base BC = 1): c = AB opposite C, b = AC opposite B
@@ -380,7 +382,7 @@ export function MolecGeometry({ p }: { p: MolecGeometryParams }) {
     </svg>;
   }
   if (shape === 'bent') {
-    const ang = +(p.bond_angle ?? 104.5), h = ang/2 * Math.PI/180;
+    const ang = clampNum(p.bond_angle, 60, 175, 104.5), h = ang/2 * Math.PI/180;
     const l1 = [cx-BL*Math.sin(h), cy+BL*Math.cos(h)], l2 = [cx+BL*Math.sin(h), cy+BL*Math.cos(h)];
     return <svg viewBox={`0 0 ${VW} ${VH}`} style={{width:'100%',height:'auto',display:'block'}}>
       {solidLine(cx,cy,l1[0]!,l1[1]!)}{solidLine(cx,cy,l2[0]!,l2[1]!)}

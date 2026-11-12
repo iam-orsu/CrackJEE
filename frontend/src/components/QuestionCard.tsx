@@ -81,9 +81,10 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
     qt === 'integer' ? (initialSelected ?? '') : '',
   );
 
-  const [result, setResult]       = useState<AnswerResult | null>(initialResult ?? null);
+  const [result, setResult]         = useState<AnswerResult | null>(initialResult ?? null);
   const [submitting, setSubmitting] = useState(false);
-  const [elapsed, setElapsed]     = useState(0);
+  const [submitError, setSubmitError] = useState('');
+  const [elapsed, setElapsed]       = useState(0);
   const startRef  = useRef(Date.now());
   const timerRef  = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
 
@@ -106,6 +107,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
     setSelectedMulti(new Set());
     setIntegerInput('');
     setResult(null);
+    setSubmitError('');
     setElapsed(0);
     startRef.current = Date.now();
     timerRef.current = setInterval(() => {
@@ -124,6 +126,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
     if (!canSubmit || submitting || result) return;
     clearInterval(timerRef.current);
     setSubmitting(true);
+    setSubmitError('');
 
     let answer: string;
     if (qt === 'mcq_multi') {
@@ -138,6 +141,11 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
       const timeSpent = Math.max(1, Math.floor((Date.now() - startRef.current) / 1000));
       const res = await onSubmit(answer, timeSpent);
       setResult(res);
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : 'Failed to submit answer. Please try again.');
+      timerRef.current = setInterval(() => {
+        setElapsed(Math.floor((Date.now() - startRef.current) / 1000));
+      }, 1000);
     } finally {
       setSubmitting(false);
     }
@@ -317,6 +325,11 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
 
           {/* Action buttons */}
           <div style={{ marginTop: 16 }}>
+            {submitError && (
+              <p role="alert" style={{ marginBottom: 10, fontSize: 13, color: '#dc2626', fontWeight: 500 }}>
+                {submitError}
+              </p>
+            )}
             {result ? (
               <button className="btn btn-primary" onClick={onNext}>
                 {isLast ? 'Finish session ✓' : 'Next question →'}
