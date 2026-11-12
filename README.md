@@ -168,15 +168,193 @@ cd frontend && npx tsc --noEmit && npm run lint && npm test
 
 ## Production Deployment (PM2 + Manual Nginx & SSL)
 
-```bash
-# 1. Build backend & frontend
-cd backend && npm ci && npm run db:generate && npm run db:migrate && npm run build && npm run db:seed
-cd ../frontend && npm ci && npm run build
+### 1. Server Prerequisites (Ubuntu / Debian)
 
-# 2. Start / reload with PM2 from repo root
-cd ..
-pm2 start ecosystem.config.cjs --env production
-pm2 save
+```bash
+sudo apt-get update && sudo apt-get install -y curl ca-certificates git nginx mysql-server
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo npm install -g pm2
+node -v && npm -v && pm2 -v && nginx -v && mysql --version
 ```
 
-Configure Nginx manually on the server using [`nginx/jeeneet.conf`](nginx/jeeneet.conf) with your SSL certificate and key paths, then reload Nginx (`sudo nginx -t && sudo systemctl reload nginx`).
+*(Omit `mysql-server` above if connecting to a dedicated/separate MySQL server.)*
+
+### 2. MySQL Database & User Setup (if hosting MySQL on this server)
+
+```bash
+sudo systemctl enable --now mysql
+sudo mysql <<'SQL'
+CREATE DATABASE IF NOT EXISTS jeeneet;
+CREATE USER IF NOT EXISTS 'crackjee'@'127.0.0.1' IDENTIFIED BY 'CHANGE_ME_STRONG_PASS';
+GRANT ALL PRIVILEGES ON jeeneet.* TO 'crackjee'@'127.0.0.1';
+FLUSH PRIVILEGES;
+SQL
+```
+
+### 3. Clone & Configure Environment
+
+```bash
+git clone https://github.com/iam-orsu/CrackJEE.git
+cd CrackJEE
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env.local
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
+
+Your production `backend/.env` should look like this (with your own generated secret/passwords):
+
+```env
+NODE_ENV=production
+PORT=3001
+LOG_LEVEL=info
+FRONTEND_URL=https://jeeneet.ai
+EXTRA_CORS_ORIGINS=https://www.jeeneet.ai
+
+DATABASE_URL=mysql://crackjee:<YOUR_MYSQL_PASSWORD>@127.0.0.1:3306/jeeneet
+DB_CONNECTION_LIMIT=10
+DB_FANOUT_CONCURRENCY=5
+
+JWT_SECRET=<YOUR_64_CHAR_HEX_SECRET>
+
+DEEPSEEK_API_KEY=<YOUR_DEEPSEEK_API_KEY_OR_LEAVE_EMPTY>
+DEEPSEEK_CONCURRENCY=6
+DEEPSEEK_CIRCUIT_FAILURE_THRESHOLD=5
+DEEPSEEK_CIRCUIT_COOLDOWN_MS=300000
+
+# Optional Super Admin (/superadmin) — generate hash:
+#   node -e "require('bcrypt').hash('yourpassword', 12).then(console.log)"
+SUPERADMIN_EMAIL=
+SUPERADMIN_PASSWORD_HASH=
+```
+
+*(Leave `REDIS_URL` commented out to use the built-in in-memory TTL store, and leave `COOKIE_SECURE` unset in production HTTPS so `Secure` cookies turn on automatically. `frontend/.env.local` works as-is with its defaults.)*
+
+### 4. Build, Migrate & Seed
+
+```bash
+cd backend && npm ci && npm run db:generate && npm run db:migrate && npm run build && npm run db:seed
+cd ../frontend && npm ci && npm run build
+```
+
+### 5. Start Services with PM2
+
+```bash
+cd ~/CrackJEE
+pm2 start ecosystem.config.cjs
+pm2 save
+pm2 startup
+```
+
+*(Run the `sudo env PATH=...` command printed by `pm2 startup` so PM2 auto-starts on server reboot.)*
+
+### 6. Configure Nginx & HTTPS (Let's Encrypt via Certbot on Server)
+
+Ensure TCP ports `80` and `443` are open in your firewall / AWS Security Group (keep MySQL port `3306` closed to `0.0.0.0/0` when MySQL runs locally).
+
+1. **Create the Nginx site config (HTTP port 80 first so Certbot can verify the domain):**
+
+```bash
+sudo tee /etc/nginx/sites-available/jeeneet.conf > /dev/null <<'EOF'
+upstream jeeneet_frontend {
+    server 127.0.0.1:3000;
+    keepalive 32;
+}
+
+upstream jeeneet_backend {
+    server 127.0.0.1:3001;
+    keepalive 32;
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name jeeneet.ai www.jeeneet.ai;
+
+    server_tokens off;
+    client_max_body_size 1m;
+
+    gzip on;
+    gzip_vary on;
+    gzip_proxied any;
+    gzip_min_length 1024;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml;
+
+    location /api/ {
+        proxy_pass http://jeeneet_backend;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 180s;
+        proxy_send_timeout 180s;
+    }
+
+    location = /health {
+        proxy_pass http://jeeneet_backend/health;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+    }
+
+    location / {
+        proxy_pass http://jeeneet_frontend;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+EOF
+
+sudo ln -sf /etc/nginx/sites-available/jeeneet.conf /etc/nginx/sites-enabled/jeeneet.conf
+sudo rm -f /etc/nginx/sites-enabled/default
+sudo nginx -t && sudo systemctl enable --now nginx && sudo systemctl reload nginx
+```
+
+2. **Issue SSL certificate and enable HTTPS + HTTP→HTTPS redirect:**
+
+```bash
+sudo apt-get update && sudo apt-get install -y certbot python3-certbot-nginx
+sudo certbot --nginx -d jeeneet.ai -d www.jeeneet.ai
+```
+
+*(Certbot sets up background auto-renewal automatically. If you prefer installing your own manual `.pem` certs in `/etc/nginx/ssl/fullchain.pem` and `/etc/nginx/ssl/privkey.pem` instead, use [`nginx/jeeneet.conf`](nginx/jeeneet.conf) directly.)*
+
+3. **Verify live HTTPS health:**
+
+```bash
+curl -s https://jeeneet.ai/health && echo ""
+curl -sI https://jeeneet.ai | head -n 5
+```
+
+---
+
+### 7. Deploying Future Updates (`main` → Production Server)
+
+Whenever you push new changes from your local machine to `origin/main`, run this on the production server to pull, migrate, rebuild, and restart cleanly:
+
+```bash
+cd ~/CrackJEE
+git pull origin main
+
+# Backend: install deps, regenerate Prisma client, apply new migrations, build, re-seed (idempotent)
+cd ~/CrackJEE/backend
+npm ci && npm run db:generate && npm run db:migrate && npm run build && npm run db:seed
+
+# Frontend: install deps & rebuild Next.js
+cd ~/CrackJEE/frontend
+npm ci && npm run build
+
+# Restart PM2 processes with any updated env values & check health
+cd ~/CrackJEE
+pm2 restart ecosystem.config.cjs --update-env
+pm2 status
+curl -s https://jeeneet.ai/health && echo ""
+```
+
+*(If only frontend or only backend changed, you can rebuild/restart just that side — e.g. `pm2 restart jeeneet-backend` or `pm2 restart jeeneet-frontend` — and run `sudo nginx -t && sudo systemctl reload nginx` only if Nginx config changed.)*
