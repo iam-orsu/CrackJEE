@@ -17,35 +17,7 @@ import { PaperStep } from './PaperStep';
 import { SessionSettings } from './SessionSettings';
 import { SessionSummary } from './SessionSummary';
 import { ExamScreen } from './ExamScreen';
-
-/* ───────────────────────── Small presentational pieces ───────────────────────── */
-
-function Loader({ title, message, progress }: { title: string; message: string; progress?: number }) {
-  return (
-    <div className="pr-loader" role="status" aria-live="polite">
-      <div className="pr-lcard">
-        <span className="pr-ltape" />
-        <svg className="pr-atom" viewBox="0 0 200 200" fill="none" aria-hidden>
-          <g stroke="currentColor" strokeWidth="6" strokeLinecap="round">
-            <ellipse cx="100" cy="100" rx="86" ry="32" />
-            <ellipse cx="100" cy="100" rx="86" ry="32" transform="rotate(60 100 100)" />
-            <ellipse cx="100" cy="100" rx="86" ry="32" transform="rotate(120 100 100)" />
-            <circle cx="186" cy="100" r="9" fill="#C8202F" stroke="none" />
-          </g>
-          <circle cx="100" cy="100" r="16" fill="#C8202F" />
-        </svg>
-        <h2>{title}</h2>
-        <p className="pr-hand">{message}</p>
-        {progress !== undefined && (
-          <div className="pr-prog">
-            <div className="pr-track"><i style={{ width: `${progress}%` }} /></div>
-            <small>{progress < 100 ? `${Math.round(progress)}% complete` : 'Ready!'}</small>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
+import Loader from '@/components/loader';
 
 function Steps({ step, labels }: { step: WizardStep; labels: string[] }) {
   return (
@@ -126,7 +98,6 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   const [weakStartLoading, setWeakStartLoading] = useState(false);
 
   /* ── Loading ── */
-  const [loadProgress, setLoadProgress] = useState(0);
   const [loadMsgIdx, setLoadMsgIdx] = useState(0);
   const [loadError, setLoadError] = useState('');
 
@@ -369,11 +340,9 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   async function choosePaper(paper: PaperSet) {
     enterFullscreen();
     setAppState('loading');
-    setLoadProgress(50);
     setLoadError('');
     try {
       const claimed = await api.questions.claimPapers(paper.questionIds);
-      setLoadProgress(100);
       await new Promise((r) => setTimeout(r, 300));
       setQuestions(claimed);
       setCurrentIndex(0);
@@ -392,15 +361,8 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   const startExam = useCallback(async () => {
     enterFullscreen();
     setAppState('loading');
-    setLoadProgress(0);
     setLoadMsgIdx(0);
     setLoadError('');
-
-    let p = 0;
-    const progressInterval = setInterval(() => {
-      p = Math.min(p + (p < 60 ? 4 : p < 80 ? 2 : p < 92 ? 0.8 : 0.15), 98);
-      setLoadProgress(p);
-    }, 300);
 
     const msgInterval = setInterval(() => {
       setLoadMsgIdx((i) => (i + 1) % config.loadMessages.length);
@@ -419,9 +381,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
         count,
       });
 
-      clearInterval(progressInterval);
       clearInterval(msgInterval);
-      setLoadProgress(100);
 
       await new Promise((r) => setTimeout(r, 500));
 
@@ -437,7 +397,6 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
 
       sessionTimerRef.current = setInterval(() => setSessionSecs((s) => s + 1), 1000);
     } catch (e: unknown) {
-      clearInterval(progressInterval);
       clearInterval(msgInterval);
       setLoadError(e instanceof Error ? e.message : 'Failed to generate questions');
       setAppState('wizard');
@@ -511,7 +470,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
      RENDER: Weak areas loading
   ═══════════════════════════════════════════════════════ */
   if (weakStartLoading) {
-    return themed(<Loader title="Loading your weak areas" message={config.weakLoadingText} />);
+    return <Loader fullScreen size={180} text={config.weakLoadingText} />;
   }
 
   /* ═══════════════════════════════════════════════════════
@@ -682,13 +641,8 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
      RENDER: AI Loading screen
   ═══════════════════════════════════════════════════════ */
   if (appState === 'loading') {
-    return themed(
-      <Loader
-        title={config.loadingTitle}
-        message={config.loadMessages[loadMsgIdx] ?? ''}
-        progress={loadProgress}
-      />,
-    );
+    const msg = config.loadMessages[loadMsgIdx] ?? '';
+    return <Loader fullScreen size={180} text={`${config.loadingTitle} — ${msg}`} />;
   }
 
   /* ═══════════════════════════════════════════════════════
@@ -855,31 +809,6 @@ const css = `
 .pr-nav{position:sticky;bottom:0;z-index:20;background:#fff;border-top:3px solid var(--blue);padding:14px clamp(16px,4vw,48px) max(14px,env(safe-area-inset-bottom))}
 .pr-nav-in{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
 
-/* Loader: paper on a ruled notebook page */
-.pr-loader{
-  position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:20px;overflow:hidden;background-color:var(--blue);
-  background-image:
-    repeating-linear-gradient(to bottom, transparent 0 35px, rgba(255,255,255,.11) 35px 36px),
-    radial-gradient(800px 500px at 80% 10%, var(--blue-l) 0%, transparent 70%);
-}
-.pr-loader::before{content:"";position:absolute;top:0;bottom:0;left:clamp(26px,6vw,80px);width:2px;background:var(--red)}
-.pr-lcard{
-  position:relative;width:100%;max-width:440px;text-align:center;padding:36px 26px 28px;background:#fffdf7;border-radius:8px;
-  transform:rotate(-1deg);box-shadow:0 2px 0 #e7e1d0,0 28px 50px rgba(3,10,50,.5);
-  background-image:repeating-linear-gradient(to bottom, transparent 0 27px, #dbe3fb 27px 28px);
-}
-.pr-ltape{position:absolute;top:-12px;left:50%;width:90px;height:24px;margin-left:-45px;background:rgba(255,236,170,.9);transform:rotate(3deg);box-shadow:0 2px 4px rgba(0,0,0,.15)}
-.pr-atom{width:96px;height:96px;margin:0 auto 14px;color:var(--blue);display:block}
-.pr-atom g{transform-origin:100px 100px;animation:pr-spin 6s linear infinite}
-.pr-lcard h2{margin:0;font-family:'Fraunces',serif;font-weight:800;font-size:clamp(22px,5vw,28px);line-height:1.15;color:var(--blue)}
-.pr-hand{margin:10px 0 0;min-height:2.3em;font-family:'Caveat',cursive;font-weight:600;font-size:26px;line-height:1.15;color:var(--red)}
-.pr-prog{margin-top:18px}
-.pr-track{height:14px;border-radius:99px;background:#E4EAFC;border:2px solid var(--blue);overflow:hidden}
-.pr-track i{display:block;height:100%;background:var(--blue);border-radius:99px;transition:width .3s ease-out}
-.pr-prog small{display:block;margin-top:8px;font-size:12px;font-weight:800;color:var(--mute)}
-
-@keyframes pr-spin{to{transform:rotate(360deg)}}
-
 /* ═════════ RESPONSIVE ═════════ */
 @media(max-width:720px){
   .pr-body{padding-top:24px}
@@ -902,14 +831,10 @@ const css = `
 }
 @media(max-width:360px){
   .pr-hero{--hero-l:42px}
-  .pr-hand{font-size:22px}
-  .pr-lcard{padding:32px 18px 22px}
   .pr-nav-in{gap:8px}
 }
 @media(max-height:480px) and (orientation:landscape){
   .pr-sub,.pr-stats{display:none}
-  .pr-lcard{padding:24px 22px 18px}
-  .pr-atom{width:56px;height:56px;margin-bottom:8px}
 }
 @media(hover:none){
   .pr-root .btn-primary:hover:not(:disabled){transform:none;box-shadow:0 6px 0 var(--red-d)}

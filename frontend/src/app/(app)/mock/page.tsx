@@ -3,7 +3,6 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Sidebar } from '@/components/Sidebar';
 import { StudySidebar } from '@/components/StudySidebar';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
@@ -265,11 +264,9 @@ export default function MockPage() {
   const info = selected ? EXAM_INFO[selected] : null;
 
   return (
-    <div className="app-shell">
+    <>
       <style>{css}</style>
-      <Sidebar />
-      <main className="app-main">
-        <div className="mk-row">
+      <div className="mk-row">
           <div className="mk-col">
             {/* ── Header ── */}
             <header className="mk-hero">
@@ -522,22 +519,21 @@ export default function MockPage() {
             <StudySidebar />
           </div>
         </div>
-      </main>
 
-      {/* Kept outside the content column so the fixed overlay always covers the whole screen */}
-      {confirmTerminate && (
-        <div className="mk-modal" onClick={() => setConfirmTerminate(null)}>
-          <div className="mk-dialog" role="dialog" aria-modal="true" aria-labelledby="mk-tt" onClick={(e) => e.stopPropagation()}>
-            <h3 id="mk-tt">Terminate exam?</h3>
-            <p>This will end the session immediately. Your progress will be lost and this cannot be undone.</p>
-            <div className="mk-actions">
-              <button type="button" className="mk-btn-ghost" onClick={() => setConfirmTerminate(null)}>Cancel</button>
-              <button type="button" className="mk-btn-red" onClick={() => confirmTerminateExam(confirmTerminate)}>Terminate</button>
+        {/* Kept outside the content column so the fixed overlay always covers the whole screen */}
+        {confirmTerminate && (
+          <div className="mk-modal" onClick={() => setConfirmTerminate(null)}>
+            <div className="mk-dialog" role="dialog" aria-modal="true" aria-labelledby="mk-tt" onClick={(e) => e.stopPropagation()}>
+              <h3 id="mk-tt">Terminate exam?</h3>
+              <p>This will end the session immediately. Your progress will be lost and this cannot be undone.</p>
+              <div className="mk-actions">
+                <button type="button" className="mk-btn-ghost" onClick={() => setConfirmTerminate(null)}>Cancel</button>
+                <button type="button" className="mk-btn-red" onClick={() => confirmTerminateExam(confirmTerminate)}>Terminate</button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </>
   );
 }
 

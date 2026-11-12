@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import 'katex/dist/katex.min.css';
-import Footer from '@/components/footer';
 
 export const metadata: Metadata = {
   title: 'JEENEET.ai: JEE & NEET preparation powered by Deep Tech',
@@ -45,12 +44,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-        <main style={{ flex: 1 }}>
-          {children}
-        </main>
-        <Footer />
-      </body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

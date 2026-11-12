@@ -9,6 +9,7 @@ import {
 } from '@/lib/admin';
 import { MathText, stripOptionPrefix } from '@/lib/math';
 import styles from './superadmin.module.css';
+import Loader from '@/components/loader';
 
 const LETTERS = ['A', 'B', 'C', 'D'];
 
@@ -86,7 +87,7 @@ export function StudentDetail({
 }) {
   const { data, error, loading } = useAdminData<AdminStudentDetail>(`/students/${studentId}`, onUnauthorized);
 
-  if (loading) return <p className={styles.muted}>Loading…</p>;
+  if (loading) return <Loader fullScreen size={180} text="Loading student details…" />;
   if (error) return <div className={styles.error}>{error}</div>;
   if (!data) return null;
 
@@ -208,7 +209,7 @@ export function MockDetail({
   const { data, error, loading } = useAdminData<AdminMockDetail>(`/mocks/${examId}`, onUnauthorized);
   const [openNo, setOpenNo] = useState<number | null>(null);
 
-  if (loading) return <p className={styles.muted}>Loading…</p>;
+  if (loading) return <Loader fullScreen size={180} text="Loading mock details…" />;
   if (error) return <div className={styles.error}>{error}</div>;
   if (!data) return null;
 

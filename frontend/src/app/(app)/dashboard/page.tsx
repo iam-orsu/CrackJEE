@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Sidebar } from '@/components/Sidebar';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import type { DashboardData, WeeklyPoint, MockWeakTopic, LeaderboardData, MockInsights, TopicStat } from '@/types';
@@ -346,10 +345,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="app-shell">
-      <Sidebar />
-      <main className="app-main">
-        <div className={styles.page}>
+    <div className={styles.page}>
 
           {/* Header */}
           <header className={styles.header}>
@@ -694,9 +690,6 @@ export default function DashboardPage() {
               </section>
             )}
           </div>
-
         </div>
-      </main>
-    </div>
   );
 }
