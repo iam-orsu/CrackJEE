@@ -411,14 +411,16 @@ const css = `
   background:var(--ice);border:1.5px solid #B9C4EE;font-size:13px;font-weight:700;color:var(--blue)}
 .rg-badge i{width:9px;height:9px;border-radius:50%;background:var(--purple);box-shadow:0 0 0 3px rgba(128,54,136,.22)}
 .rg-tagline{
-  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.06em .28em;
+  display:flex;flex-wrap:nowrap;justify-content:center;align-items:center;gap:.06em .28em;
   font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
   font-size:clamp(34px,5.8vw,76px);line-height:1.06;letter-spacing:-.035em;
+  white-space:nowrap;
 }
-.rg-t1{color:var(--blue)}
+.rg-t1{color:var(--blue);white-space:nowrap}
 .rg-t2{
   display:inline-block;color:#fff;background:var(--grad);padding:.02em .2em .09em;border-radius:.22em;
   box-shadow:0 .07em 0 var(--purple-d);transform:rotate(-1.5deg);
+  white-space:nowrap;
 }
 .rg-sub{max-width:580px;font-size:clamp(15px,1.3vw,17px);line-height:1.65;color:var(--blue);opacity:.88}
 

@@ -9,7 +9,7 @@ import { isAuthenticated } from '@/lib/auth';
 import type { MockExam } from '@/types';
 
 import { MathText, stripOptionPrefix } from '@/lib/math';
-import { OrbitalLoader } from '@/components/ui/OrbitalLoader';
+import Loader from '@/components/loader';
 import { Badge, qtypeVariant, difficultyVariant } from '@/components/ui/Badge';
 import { qStatus, type QStatus } from '@/components/mock/examStatus';
 import { SUBJECT_COLOR } from '@/lib/subjects';
@@ -393,15 +393,11 @@ export default function MockExamPage() {
 
   /* ── Loading / polling screen ── */
   if (pageStatus === 'loading' || pageStatus === 'polling') {
+    const subMsg = pageStatus === 'polling' && pendingExamType
+      ? (pendingExamType === 'NEET' ? 'NEET first load takes 3–4 minutes' : 'JEE takes about 60–90 seconds')
+      : undefined;
     return (
-      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#fff' }}>
-        <OrbitalLoader
-          message={loadMsg}
-          submessage={pageStatus === 'polling' && pendingExamType
-            ? (pendingExamType === 'NEET' ? 'NEET first load takes 3–4 minutes' : 'JEE takes about 60–90 seconds')
-            : undefined}
-        />
-      </div>
+      <Loader fullScreen size={180} text={subMsg ? `${loadMsg} — ${subMsg}` : loadMsg} />
     );
   }
 
@@ -415,11 +411,7 @@ export default function MockExamPage() {
   }
 
   if (pageStatus === 'submitting') {
-    return (
-      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#fff' }}>
-        <OrbitalLoader message="Evaluating your answers…" />
-      </div>
-    );
+    return <Loader fullScreen size={180} text="Evaluating your answers…" />;
   }
 
   if (!exam || !currentQ) return null;
