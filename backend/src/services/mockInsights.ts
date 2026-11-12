@@ -1,6 +1,10 @@
+import { istMonthKey } from '../utils/dateIst';
+
+export { istMonthKey };
+
 /*
  * Mock-exam analytics. Pure functions over per-question records, so they can be unit tested
- * without a database. The data loaders live in mockInsightsData.ts.
+ * without a database.
  */
 
 export interface QuestionRecord {
@@ -38,11 +42,6 @@ export const PROJECTION_MOCKS = 5;
 
 const round = (value: number): number => Math.round(value);
 const clamp = (value: number, low: number, high: number): number => Math.min(high, Math.max(low, value));
-
-/** Calendar month of an instant in India Standard Time, as YYYY-MM */
-export function istMonthKey(date: Date): string {
-  return new Date(date.getTime() + 330 * 60 * 1000).toISOString().slice(0, 7);
-}
 
 /** Accuracy, marks lost and last attempt for every topic that was answered */
 export function topicStats(records: QuestionRecord[]): TopicStat[] {

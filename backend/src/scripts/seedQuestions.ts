@@ -1,22 +1,21 @@
 /**
- * seedQuestions.ts — Idempotent seeder for master_questions.json
+ * seedQuestions.ts — Idempotent seeder for JEE and NEET question bank JSON files.
  *
- * Reads the pre-generated question bank and upserts every question into the
- * PostgreSQL Question table. Safe to run multiple times — uses upsert so
- * already-seeded questions are skipped without error.
+ * Reads master question bank JSON files and inserts any new questions into the
+ * MySQL `Question` table. Safe to run multiple times without creating duplicates
+ * or touching already-seeded rows.
  *
- * Usage (inside backend container after build):
- *   node dist/scripts/seedQuestions.js [path/to/master_questions.json]
- *
- * Default path: /app/data/jee/jee_master_questions.json
+ * Usage:
+ *   npm run db:seed                                    # seeds both JEE & NEET banks
+ *   node dist/scripts/seedQuestions.js [file.json]     # seeds a specific JSON file
  */
 
 import fs from 'fs';
 import path from 'path';
 import { createHash } from 'crypto';
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import type { Prisma } from '@prisma/client';
+import { loadDotEnv } from '../config/env';
+import { database } from '../config/database';
 
 interface RawQuestion {
   id: string;
@@ -24,11 +23,11 @@ interface RawQuestion {
   topic: string;
   difficulty: string;
   examType: string;
-  questionType: string;
+  questionType?: string;
   questionText: string;
-  options: string[];
+  options?: string[];
   answer: string;
-  explanation: string;
+  explanation?: string;
   diagram?: unknown;
 }
 
@@ -36,14 +35,31 @@ interface QuestionBank {
   questions: RawQuestion[];
 }
 
-const BATCH_SIZE = 100;
+const BATCH_SIZE = 200;
 
-async function seed(filePath: string): Promise<void> {
+function resolveDefaultBankFiles(): string[] {
+  const roots = [
+    path.resolve(__dirname, '../../../data'),
+    path.resolve(__dirname, '../../data'),
+    path.resolve(process.cwd(), '../data'),
+    path.resolve(process.cwd(), 'data'),
+  ];
+
+  const dataDir = roots.find((dir) => fs.existsSync(dir));
+  if (!dataDir) return [];
+
+  const candidates = [
+    path.join(dataDir, 'jee', 'jee_master_questions.json'),
+    path.join(dataDir, 'neet', 'neet_master_questions.json'),
+  ];
+  return candidates.filter((file) => fs.existsSync(file));
+}
+
+async function seedFile(filePath: string, existingIdSet: Set<string>): Promise<number> {
   console.log(`[seed] Reading question bank from: ${filePath}`);
 
   if (!fs.existsSync(filePath)) {
-    console.error(`[seed] ERROR: File not found — ${filePath}`);
-    process.exit(1);
+    throw new Error(`Question bank file not found: ${filePath}`);
   }
 
   const raw = fs.readFileSync(filePath, 'utf8');
@@ -51,16 +67,10 @@ async function seed(filePath: string): Promise<void> {
   const questions = Array.isArray(bank) ? bank : (bank.questions ?? []);
 
   if (questions.length === 0) {
-    console.log('[seed] No questions found in file. Exiting.');
-    return;
+    console.log('[seed] No questions found in file. Skipping.');
+    return 0;
   }
 
-  console.log(`[seed] Checking existing database records...`);
-  const existingRows = await prisma.question.findMany({ select: { id: true } });
-  const existingIdSet = new Set(existingRows.map((r) => r.id));
-  console.log(`[seed] Database currently contains: ${existingIdSet.size} questions.`);
-
-  const seenNewIds = new Set<string>();
   const validNewQuestions: RawQuestion[] = [];
   let invalidCount = 0;
   let alreadyInDbCount = 0;
@@ -70,7 +80,7 @@ async function seed(filePath: string): Promise<void> {
       invalidCount++;
       continue;
     }
-    // Records without an id get a stable id derived from their content, so re-running the seed never duplicates them
+
     const id = (q.id && typeof q.id === 'string' && q.id.trim())
       ? q.id.trim()
       : `gen_${createHash('sha256').update(`${q.subject}|${q.topic}|${q.questionText}`).digest('hex').slice(0, 24)}`;
@@ -80,76 +90,75 @@ async function seed(filePath: string): Promise<void> {
       alreadyInDbCount++;
       continue;
     }
-    if (seenNewIds.has(id)) {
-      // Intra-file duplicate
-      continue;
-    }
-    seenNewIds.add(id);
+
+    existingIdSet.add(id);
     validNewQuestions.push(q);
   }
 
-  console.log(`[seed] Total questions in JSON:   ${questions.length}`);
-  console.log(`[seed] Already in DB (untouched):  ${alreadyInDbCount}`);
-  if (invalidCount > 0) {
-    console.log(`[seed] Skipped invalid records:    ${invalidCount}`);
-  }
-  console.log(`[seed] New to be inserted:         ${validNewQuestions.length}`);
+  console.log(`[seed] Total in JSON: ${questions.length} | Already present: ${alreadyInDbCount} | New: ${validNewQuestions.length}${invalidCount > 0 ? ` | Skipped invalid: ${invalidCount}` : ''}`);
 
   if (validNewQuestions.length === 0) {
-    console.log(`\n[seed] ✅ No new questions to insert. Existing database records left 100% untouched.`);
-    return;
+    return 0;
   }
 
-  console.log(`[seed] Starting insertion of ${validNewQuestions.length} new questions...`);
   const now = new Date();
-  let processed = 0;
+  let inserted = 0;
 
   for (let i = 0; i < validNewQuestions.length; i += BATCH_SIZE) {
     const batch = validNewQuestions.slice(i, i + BATCH_SIZE);
-
-    await prisma.$transaction(
-      batch.map((q) =>
-        prisma.question.create({
-          data: {
-            id: q.id,
-            subject: q.subject,
-            topic: q.topic,
-            difficulty: q.difficulty,
-            examType: q.examType,
-            questionType: q.questionType ?? 'mcq_single',
-            questionText: q.questionText,
-            options: q.options ?? [],
-            answer: q.answer,
-            explanation: q.explanation,
-            diagram: q.diagram
-              ? (JSON.parse(JSON.stringify(q.diagram)) as object)
-              : undefined,
-            generatedAt: now,
-            validatedAt: now,  // pre-validated
-          },
-        })
-      )
-    );
-
-    processed += batch.length;
-    console.log(`[seed] Insert progress: ${processed} / ${validNewQuestions.length}`);
+    const result = await database.client.question.createMany({
+      data: batch.map((q) => ({
+        id: q.id,
+        subject: q.subject,
+        topic: q.topic,
+        difficulty: q.difficulty,
+        examType: q.examType,
+        questionType: q.questionType ?? 'mcq_single',
+        questionText: q.questionText,
+        options: (q.options ?? []) as Prisma.InputJsonValue,
+        answer: q.answer,
+        explanation: q.explanation ?? '',
+        ...(q.diagram ? { diagram: JSON.parse(JSON.stringify(q.diagram)) as Prisma.InputJsonValue } : {}),
+        generatedAt: now,
+        validatedAt: now,
+      })),
+      skipDuplicates: true,
+    });
+    inserted += result.count;
+    console.log(`[seed] Progress (${path.basename(filePath)}): ${Math.min(i + BATCH_SIZE, validNewQuestions.length)} / ${validNewQuestions.length}`);
   }
 
-  const finalTotal = await prisma.question.count();
-  console.log(`\n[seed] ✅ Seeding complete:`);
-  console.log(`       Untouched (existing): ${alreadyInDbCount}`);
-  console.log(`       Newly inserted:       ${processed}`);
-  console.log(`       Total now in DB:      ${finalTotal}`);
+  return inserted;
 }
 
-const filePath =
-  process.argv[2] ?? path.resolve(__dirname, '../../data/jee/jee_master_questions.json');
+async function main(): Promise<void> {
+  loadDotEnv();
+  await database.connect();
 
-seed(filePath)
+  const argPath = process.argv[2];
+  const files = argPath ? [path.resolve(process.cwd(), argPath)] : resolveDefaultBankFiles();
+  if (files.length === 0) {
+    throw new Error('No question bank JSON files found. Pass a file path or place data/jee and data/neet in the repository root.');
+  }
+
+  const existingRows = await database.client.question.findMany({ select: { id: true } });
+  const existingIdSet = new Set(existingRows.map((r) => r.id));
+  console.log(`[seed] Database currently contains: ${existingIdSet.size} questions.`);
+
+  let totalInserted = 0;
+  for (const file of files) {
+    totalInserted += await seedFile(file, existingIdSet);
+  }
+
+  const finalTotal = await database.client.question.count();
+  console.log(`[seed] Done. Newly inserted: ${totalInserted} | Total in MySQL: ${finalTotal}`);
+}
+
+main()
   .catch((err: unknown) => {
     console.error('[seed] Fatal error:', err);
-    process.exit(1);
+    process.exitCode = 1;
   })
   .finally(async () => {
-    await prisma.$disconnect();
+    await database.disconnect();
   });

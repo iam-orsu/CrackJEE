@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import * as assert from 'node:assert/strict';
-import { checkAnswer } from '../controllers/answerController';
+import { checkAnswer } from '../services/GradingService';
 
 test('single-correct accepts letter case and surrounding text', () => {
   assert.equal(checkAnswer('mcq_single', 'b', 'B'), true);

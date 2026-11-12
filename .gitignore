@@ -36,8 +36,8 @@ nginx/ssl/
 # Prisma generated (re-generated during build)
 backend/src/generated/
 
-# Docker override files (local dev overrides only)
-docker-compose.override.yml
+# PM2 / local overrides
+.pm2/
 
 # Test output
 coverage/

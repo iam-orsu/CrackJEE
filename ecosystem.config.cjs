@@ -1,0 +1,35 @@
+module.exports = {
+  apps: [
+    {
+      name: 'jeeneet-backend',
+      cwd: './backend',
+      script: 'dist/server.js',
+      instances: 1,
+      exec_mode: 'fork',
+      autorestart: true,
+      max_memory_restart: '1G',
+      kill_timeout: 30000,
+      wait_ready: false,
+      env: {
+        NODE_ENV: 'production',
+        PORT: 3001,
+        UV_THREADPOOL_SIZE: '16',
+      },
+    },
+    {
+      name: 'jeeneet-frontend',
+      cwd: './frontend',
+      script: 'npm',
+      args: 'run start',
+      instances: 1,
+      exec_mode: 'fork',
+      autorestart: true,
+      max_memory_restart: '1G',
+      env: {
+        NODE_ENV: 'production',
+        PORT: 3000,
+        BACKEND_URL: 'http://127.0.0.1:3001',
+      },
+    },
+  ],
+};

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import * as assert from 'node:assert/strict';
-import { distributeTopicSlots, fisherYatesShuffle } from '../services/questionService';
+import { distributeTopicSlots, fisherYatesShuffle } from '../utils/questionUtils';
 
 const TOPICS = ['Kinematics', 'Laws of Motion', 'Work Energy', 'Gravitation'];
 

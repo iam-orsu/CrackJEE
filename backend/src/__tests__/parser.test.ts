@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import * as assert from 'node:assert/strict';
-import { parseRawQuestion } from '../services/deepseekService';
+import { parseRawQuestion } from '../utils/deepseekPrompts';
 
 const single = {
   question: 'What is 2+2?',

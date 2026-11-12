@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import * as assert from 'node:assert/strict';
-import { createCircuitBreaker, CircuitOpenError } from '../lib/circuitBreaker';
+import { createCircuitBreaker, CircuitOpenError } from '../utils/circuitBreaker';
 
 test('starts closed and allows attempts', () => {
   const cb = createCircuitBreaker({ name: 'test', failureThreshold: 3, cooldownMs: 1000 });

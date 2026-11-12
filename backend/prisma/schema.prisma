@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -52,7 +52,7 @@ model StudentAttempt {
   id              String   @id @default(cuid())
   userId          String
   questionId      String
-  answerSubmitted String
+  answerSubmitted String   @db.Text
   isCorrect       Boolean
   timeSpent       Int
   createdAt       DateTime @default(now())
@@ -91,7 +91,7 @@ model MockExamQuestion {
   subject         String
   questionNumber  Int
   subjectIndex    Int
-  savedAnswer     String?
+  savedAnswer     String? @db.Text
   markedForReview Boolean @default(false)
 
   exam     MockExam @relation(fields: [examId], references: [id], onDelete: Cascade)

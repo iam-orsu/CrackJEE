@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import * as assert from 'node:assert/strict';
-import { scoreQuestion, getMaxMarkPerQuestion } from '../services/scoringService';
+import { scoreQuestion, getMaxMarkPerQuestion } from '../services/ScoringService';
 
 test('JEE Main single-correct: +4 right, -1 wrong, 0 when skipped', () => {
   assert.equal(scoreQuestion('Main', 'mcq_single', 'B', 'B'), 4);

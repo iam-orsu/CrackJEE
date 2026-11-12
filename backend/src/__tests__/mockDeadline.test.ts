@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import * as assert from 'node:assert/strict';
-import { isExamExpired } from '../controllers/mockController';
-import { isSessionTooOld, SESSION_MAX_MS } from '../middleware/auth';
+import { isExamExpired } from '../utils/questionUtils';
+import { isSessionTooOld, SESSION_MAX_MS } from '../middlewares/auth.middleware';
 
 test('an exam is open until its duration plus grace has passed', () => {
   const start = new Date('2026-01-01T10:00:00Z');
