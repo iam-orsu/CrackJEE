@@ -11,6 +11,9 @@ export function createAdminRoutes(controller = new AdminController()): Router {
   router.get('/stats', requireAdmin, controller.stats);
   router.get('/students/:id', requireAdmin, controller.studentDetail);
   router.get('/mocks/:examId', requireAdmin, controller.mockDetail);
+  router.get('/faculty', requireAdmin, controller.listFaculty);
+  router.post('/faculty', requireAdmin, controller.createFaculty);
+  router.patch('/faculty/:id', requireAdmin, controller.updateFaculty);
 
   return router;
 }

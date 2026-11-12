@@ -46,10 +46,10 @@ export function clampNum(val: unknown, min: number, max: number, fallback: numbe
 
 /* ── Arrow helper ──────────────────────────────────────────── */
 export function Arr({
-  x1, y1, x2, y2, color = '#475569', label, lx, ly, sw,
+  x1, y1, x2, y2, color = '#475569', label, lx, ly, sw, anchor = 'middle',
 }: {
   x1: number; y1: number; x2: number; y2: number;
-  color?: string; label?: string; lx?: number; ly?: number; sw?: number;
+  color?: string; label?: string; lx?: number; ly?: number; sw?: number; anchor?: 'start' | 'middle' | 'end';
 }) {
   const dx = x2 - x1, dy = y2 - y1;
   const len = Math.sqrt(dx * dx + dy * dy);
@@ -63,8 +63,16 @@ export function Arr({
       <line x1={x1} y1={y1} x2={bx} y2={by} stroke={color} strokeWidth={sw ?? 2} strokeLinecap="round" />
       <polygon points={`${x2},${y2} ${bx + px},${by + py} ${bx - px},${by - py}`} fill={color} />
       {label && (
-        <text x={lx ?? x2 + ux * 14} y={ly ?? y2 + uy * 14}
-          fill={color} fontSize="12" fontWeight="600" textAnchor="middle" dominantBaseline="middle">
+        <text
+          x={lx ?? x2 + ux * 14}
+          y={ly ?? y2 + uy * 14}
+          fill={color}
+          fontSize="12"
+          fontWeight="600"
+          textAnchor={anchor}
+          dominantBaseline="middle"
+          style={{ paintOrder: 'stroke', stroke: '#ffffff', strokeWidth: 3.5, strokeLinejoin: 'round' }}
+        >
           {label}
         </text>
       )}

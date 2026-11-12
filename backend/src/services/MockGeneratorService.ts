@@ -58,17 +58,21 @@ export class MockGeneratorService {
     seed: number,
     difficultyMode: 'easy' | 'medium' | 'hard',
   ): Difficulty {
+    // JEE Advanced never asks school-level / beginner single-formula questions, even on accessible mocks.
+    if (examType === 'Advanced') {
+      if (difficultyMode === 'easy') return seed < 0.45 ? 'intermediate' : 'advanced';
+      if (difficultyMode === 'hard') return seed < 0.12 ? 'intermediate' : 'advanced';
+      return seed < 0.25 ? 'intermediate' : 'advanced';
+    }
     if (difficultyMode === 'easy') {
       if (seed < 0.60) return 'beginner';
       if (seed < 0.95) return 'intermediate';
       return 'advanced';
     }
     if (difficultyMode === 'hard') {
-      if (examType === 'Advanced') return seed < 0.12 ? 'intermediate' : 'advanced';
       if (seed < 0.25) return 'intermediate';
       return 'advanced';
     }
-    if (examType === 'Advanced') return seed < 0.35 ? 'intermediate' : 'advanced';
     if (seed < 0.2) return 'beginner';
     if (seed < 0.65) return 'intermediate';
     return 'advanced';

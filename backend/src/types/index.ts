@@ -175,6 +175,36 @@ export const JEE_TOPICS: Record<string, string[]> = {
   ],
 };
 
+/** Chapters deleted from NTA JEE Main 2025-2026 rationalized syllabus. */
+export const JEE_MAIN_EXCLUDED_TOPICS = new Set<string>([
+  'Communication Systems',
+  'Principle of Mathematical Induction',
+  'States of Matter',
+  'Hydrogen',
+  's-Block Elements',
+  'Environmental Chemistry',
+  'Solid State',
+  'Surface Chemistry',
+  'General Principles of Metallurgy',
+  'Polymers',
+]);
+
+/** Chapters excluded even in JEE Advanced (Communication Systems, Math Induction). */
+export const JEE_ADVANCED_EXCLUDED_TOPICS = new Set<string>([
+  'Communication Systems',
+  'Principle of Mathematical Induction',
+]);
+
+/** Returns JEE topics filtered cleanly for Main (Rationalized NCERT) vs Advanced (IIT Syllabus). */
+export function getJeeTopicsForExam(examType: 'Main' | 'Advanced'): Record<string, string[]> {
+  const excluded = examType === 'Main' ? JEE_MAIN_EXCLUDED_TOPICS : JEE_ADVANCED_EXCLUDED_TOPICS;
+  return {
+    Mathematics: JEE_TOPICS.Mathematics.filter((t) => !excluded.has(t)),
+    Physics: JEE_TOPICS.Physics.filter((t) => !excluded.has(t)),
+    Chemistry: JEE_TOPICS.Chemistry.filter((t) => !excluded.has(t)),
+  };
+}
+
 // NEET topics split by NCERT class (NMC Rationalized Syllabus 2024-2026)
 export const NEET_TOPICS_BY_CLASS: Record<string, { class11: string[]; class12: string[] }> = {
   Physics: {

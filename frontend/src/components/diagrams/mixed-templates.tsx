@@ -171,7 +171,7 @@ export function ProjectileMotion({ p }: { p: ProjectileMotionParams }) {
 
       {/* Initial velocity vector */}
       <Arr x1={x0} y1={yg} x2={vx2} y2={vy2} color="#2563eb"
-        label={lbl.v0 ?? 'v₀'} lx={vx2 + 14} ly={vy2 - 5} />
+        label={lbl.v0 ?? 'v₀'} lx={vx2 + 8} ly={vy2 - 6} anchor="start" />
 
       {/* Components */}
       {showComponents && (
@@ -276,9 +276,9 @@ export function PulleySystem({ p }: { p: PulleySystemParams }) {
 
       {/* Acceleration arrows: m1 downward (below box), m2 upward (above box) */}
       <Arr x1={leftX}  y1={m1Y + boxH / 2}      x2={leftX}  y2={m1Y + boxH / 2 + 28}
-        color="#dc2626" label={latexToPlain(lbl.accel ?? 'a')} lx={leftX + 18} ly={m1Y + boxH / 2 + 24} sw={1.5} />
+        color="#dc2626" label={latexToPlain(lbl.accel ?? 'a')} lx={leftX + 10} ly={m1Y + boxH / 2 + 18} sw={1.5} anchor="start" />
       <Arr x1={rightX} y1={m2Y - boxH / 2}      x2={rightX} y2={m2Y - boxH / 2 - 28}
-        color="#16a34a" label={latexToPlain(lbl.accel ?? 'a')} lx={rightX + 18} ly={m2Y - boxH / 2 - 24} sw={1.5} />
+        color="#16a34a" label={latexToPlain(lbl.accel ?? 'a')} lx={rightX + 10} ly={m2Y - boxH / 2 - 18} sw={1.5} anchor="start" />
     </svg>
   );
 }
@@ -372,28 +372,38 @@ export function WaveDiagram({ p }: { p: WaveDiagramParams }) {
       {/* Amplitude bracket */}
       <line x1={firstCrestX} y1={axY} x2={firstCrestX} y2={axY - A}
         stroke="#16a34a" strokeWidth="1" strokeDasharray="3,2" />
-      <line x1={firstCrestX + 20} y1={axY - A} x2={firstCrestX + 20} y2={axY}
+      <line x1={firstCrestX + 16} y1={axY - A} x2={firstCrestX + 16} y2={axY}
         stroke="#16a34a" strokeWidth="1.5" />
-      <polygon points={`${firstCrestX+20},${axY-A} ${firstCrestX+16},${axY-A+8} ${firstCrestX+24},${axY-A+8}`} fill="#16a34a" />
-      <polygon points={`${firstCrestX+20},${axY} ${firstCrestX+16},${axY-8} ${firstCrestX+24},${axY-8}`} fill="#16a34a" />
-      <text x={firstCrestX + 32} y={(axY * 2 - A) / 2}
-        fill="#16a34a" fontSize="11" fontWeight="600" dominantBaseline="middle">
+      <polygon points={`${firstCrestX+16},${axY-A} ${firstCrestX+12},${axY-A+8} ${firstCrestX+20},${axY-A+8}`} fill="#16a34a" />
+      <polygon points={`${firstCrestX+16},${axY} ${firstCrestX+12},${axY-8} ${firstCrestX+20},${axY-8}`} fill="#16a34a" />
+      <text x={firstCrestX + 24} y={(axY * 2 - A) / 2}
+        fill="#16a34a" fontSize="11" fontWeight="600" textAnchor="start" dominantBaseline="middle"
+        style={{ paintOrder: 'stroke', stroke: '#ffffff', strokeWidth: 3.5, strokeLinejoin: 'round' }}>
         {latexToPlain(lbl.amplitude ?? 'A')}
       </text>
 
       {/* Wavelength bracket */}
-      <line x1={x0} y1={axY + 30} x2={x0 + λPx} y2={axY + 30} stroke="#374151" strokeWidth="1.5" />
-      <polygon points={`${x0},${axY+30} ${x0+8},${axY+26} ${x0+8},${axY+34}`} fill="#374151" />
-      <polygon points={`${x0+λPx},${axY+30} ${x0+λPx-8},${axY+26} ${x0+λPx-8},${axY+34}`} fill="#374151" />
-      <text x={x0 + λPx / 2} y={axY + 42}
+      <line x1={x0} y1={axY + 52} x2={x0 + λPx} y2={axY + 52} stroke="#374151" strokeWidth="1.5" />
+      <polygon points={`${x0},${axY+52} ${x0+8},${axY+48} ${x0+8},${axY+56}`} fill="#374151" />
+      <polygon points={`${x0+λPx},${axY+52} ${x0+λPx-8},${axY+48} ${x0+λPx-8},${axY+56}`} fill="#374151" />
+      <text x={x0 + λPx / 2} y={axY + 67}
         fill="#374151" fontSize="11" fontWeight="600" textAnchor="middle">
         {latexToPlain(lbl.wavelength ?? 'λ')}
       </text>
 
-      {/* Wave velocity label */}
+      {/* Wave propagation velocity in dedicated top-right lane — never overlaps wave or labels */}
       {lbl.velocity && (
-        <Arr x1={x0 + λPx * 0.6} y1={axY - 10} x2={x0 + λPx * 0.6 + 32} y2={axY - 10}
-          color="#dc2626" label={lbl.velocity ? latexToPlain(lbl.velocity) : undefined} lx={x0 + λPx * 0.6 + 48} ly={axY - 10} />
+        <Arr
+          x1={215}
+          y1={24}
+          x2={258}
+          y2={24}
+          color="#dc2626"
+          label={latexToPlain(lbl.velocity)}
+          lx={266}
+          ly={24}
+          anchor="start"
+        />
       )}
     </svg>
   );

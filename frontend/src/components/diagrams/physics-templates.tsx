@@ -47,20 +47,20 @@ export function InclinedPlane({ p }: { p: InclinedPlaneParams }) {
       </g>
       {p.show_weight !== false && (
         <Arr x1={bkx} y1={bky} x2={bkx} y2={bky + FL} color="#dc2626"
-          label={lbl.weight ?? 'mg'} lx={bkx + 18} ly={bky + FL - 4} />
+          label={lbl.weight ?? 'mg'} lx={bkx + 8} ly={bky + FL - 4} anchor="start" />
       )}
       {p.show_normal !== false && (
         <Arr x1={bkx} y1={bky} x2={bkx + sinθ * FL} y2={bky - cosθ * FL} color="#16a34a"
-          label={lbl.normal ?? 'N'} lx={bkx + sinθ * FL + 16} ly={bky - cosθ * FL} />
+          label={lbl.normal ?? 'N'} lx={bkx + sinθ * FL + 8} ly={bky - cosθ * FL} anchor="start" />
       )}
       {p.show_friction === true && (
         <Arr x1={bkx} y1={bky} x2={bkx - cosθ * FL} y2={bky - sinθ * FL} color="#d97706"
-          label={lbl.friction ?? 'f'} lx={bkx - cosθ * FL - 14} ly={bky - sinθ * FL} />
+          label={lbl.friction ?? 'f'} lx={bkx - cosθ * FL - 8} ly={bky - sinθ * FL} anchor="end" />
       )}
       {/* Applied force: horizontal (rightward) — distinct from friction to avoid overlap */}
       {p.show_applied === true && (
         <Arr x1={bkx} y1={bky} x2={bkx + FL} y2={bky} color="#7c3aed"
-          label={lbl.applied ?? 'F'} lx={bkx + FL + 14} ly={bky} />
+          label={lbl.applied ?? 'F'} lx={bkx + FL + 8} ly={bky} anchor="start" />
       )}
     </svg>
   );

@@ -4,6 +4,7 @@ import { createQuestionRoutes } from './question.routes';
 import { createAnswerRoutes } from './answer.routes';
 import { createMockRoutes } from './mock.routes';
 import { createAdminRoutes } from './admin.routes';
+import { createFacultyRoutes } from './faculty.routes';
 import { createProgressRoutes } from './progress.routes';
 
 /** Mounts all `/api/v1/*` domain routers onto a single parent router. */
@@ -15,6 +16,7 @@ export function createApiV1Router(): Router {
   router.use('/answers', createAnswerRoutes());
   router.use('/mock', createMockRoutes());
   router.use('/admin', createAdminRoutes());
+  router.use('/faculty', createFacultyRoutes());
   router.use('/', createProgressRoutes());
 
   return router;

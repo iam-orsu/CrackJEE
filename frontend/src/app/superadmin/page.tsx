@@ -8,6 +8,7 @@ import {
 } from '@/lib/admin';
 import styles from './superadmin.module.css';
 import { MockDetail, StudentDetail } from './details';
+import { FacultyAccountsPanel } from '@/components/superadmin/FacultyAccountsPanel';
 
 type View =
   | { kind: 'overview' }
@@ -257,6 +258,8 @@ export default function SuperAdminPage() {
                 </table>
               </div>
             </section>
+
+            <FacultyAccountsPanel onUnauthorized={expireSession} />
           </>
         )}
       </div>

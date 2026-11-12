@@ -13,6 +13,22 @@ import {
   cleanExplanation,
   parseRawQuestion,
 } from '../utils/deepseekPrompts';
+import {
+  answersMatch,
+  buildFacultyBlindVerifyPrompt,
+  buildFacultyGenerationPrompt,
+  validateFacultyQuestion,
+} from '../utils/facultyPrompts';
+
+function extractJsonObject(raw: string): Record<string, unknown> {
+  const trimmed = raw.trim().replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '').trim();
+  const start = trimmed.indexOf('{');
+  const end = trimmed.lastIndexOf('}');
+  if (start === -1 || end === -1 || end < start) {
+    throw new Error('No JSON object found in model output');
+  }
+  return JSON.parse(trimmed.slice(start, end + 1)) as Record<string, unknown>;
+}
 
 export { CircuitOpenError, parseRawQuestion };
 
@@ -301,6 +317,87 @@ ${correct}
     const content = response.choices[0]?.message?.content;
     if (!content || !content.trim()) throw new Error('Empty explanation from DeepSeek');
     return cleanExplanation(content);
+  }
+
+  /** Solution-first faculty question generator with deterministic formatting validation. */
+  public async generateFacultyQuestion(params: {
+    examType: 'Main' | 'Advanced' | 'NEET';
+    subject: Subject;
+    topic: string;
+    difficulty: Difficulty;
+    questionType: QuestionType;
+  }): Promise<GeneratedQuestion> {
+    const targetLetter = LETTERS[Math.floor(Math.random() * 4)]!;
+    const prompt = buildFacultyGenerationPrompt({ ...params, targetLetter });
+    const examType: ExamType = params.examType === 'NEET' ? 'NEET' : params.examType;
+
+    return this.withRetries(async () => {
+      const response = await this.callChat({
+        model: 'deepseek-chat',
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.25,
+        max_tokens: 1400,
+        response_format: { type: 'json_object' },
+      });
+      const content = response.choices[0]?.message?.content;
+      if (!content) throw new Error('Empty response from DeepSeek');
+      const raw = extractJsonObject(content);
+      return validateFacultyQuestion(raw, params.questionType, examType);
+    }, 'Failed to generate faculty question after retries');
+  }
+
+  /** Blind independent verification using `deepseek-reasoner` (falling back to `deepseek-chat` if unavailable). */
+  public async blindVerifyFacultyQuestion(params: {
+    examType: 'Main' | 'Advanced' | 'NEET';
+    subject: Subject;
+    topic: string;
+    question: GeneratedQuestion;
+  }): Promise<boolean> {
+    const prompt = buildFacultyBlindVerifyPrompt({
+      examType: params.examType,
+      subject: params.subject,
+      topic: params.topic,
+      questionType: params.question.question_type,
+      questionText: params.question.question,
+      options: params.question.options,
+      explanation: params.question.answer_explanation,
+    });
+
+    const runVerify = async (useReasoner: boolean): Promise<boolean> => {
+      const response = await this.callChat(
+        useReasoner
+          ? {
+              model: 'deepseek-reasoner',
+              messages: [{ role: 'user', content: prompt }],
+              max_tokens: 2200,
+            }
+          : {
+              model: 'deepseek-chat',
+              messages: [{ role: 'user', content: prompt }],
+              temperature: 0,
+              max_tokens: 600,
+              response_format: { type: 'json_object' },
+            },
+      );
+      const content = response.choices[0]?.message?.content;
+      if (!content) return false;
+      const parsed = extractJsonObject(content);
+      const solved = typeof parsed.solved_answer === 'string' ? parsed.solved_answer : String(parsed.solved_answer ?? '');
+      const unambiguous = parsed.is_unambiguous === true;
+      const explanationConsistent = parsed.explanation_consistent !== false;
+      return unambiguous && explanationConsistent && answersMatch(params.question.question_type, params.question.correct_answer, solved);
+    };
+
+    try {
+      return await runVerify(true);
+    } catch (err) {
+      if (err instanceof CircuitOpenError || !this.hasApiKey()) return false;
+      try {
+        return await runVerify(false);
+      } catch {
+        return false;
+      }
+    }
   }
 }
 

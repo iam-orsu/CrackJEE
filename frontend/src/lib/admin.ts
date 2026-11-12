@@ -128,3 +128,33 @@ export async function adminFetch<T>(path: string, init: RequestInit = {}): Promi
   }
   return json.data as T;
 }
+
+export interface FacultyAccount {
+  id: string;
+  name: string;
+  email: string;
+  isActive: boolean;
+  paperCount: number;
+  createdAt: string;
+}
+
+export function listFacultyAccounts(): Promise<FacultyAccount[]> {
+  return adminFetch<FacultyAccount[]>('/faculty');
+}
+
+export function createFacultyAccount(input: { name: string; email: string; password: string }): Promise<FacultyAccount> {
+  return adminFetch<FacultyAccount>('/faculty', {
+    method: 'POST',
+    body: JSON.stringify(input),
+  });
+}
+
+export function updateFacultyAccount(
+  id: string,
+  input: { name?: string; isActive?: boolean; password?: string },
+): Promise<FacultyAccount> {
+  return adminFetch<FacultyAccount>(`/faculty/${encodeURIComponent(id)}`, {
+    method: 'PATCH',
+    body: JSON.stringify(input),
+  });
+}

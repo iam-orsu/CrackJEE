@@ -3,6 +3,7 @@ import { database } from './config/database';
 import { cacheService } from './services/CacheService';
 import { MockExamService } from './services/MockExamService';
 import { mockGeneratorService } from './services/MockGeneratorService';
+import { facultyPaperService } from './services/FacultyPaperService';
 import { createApp } from './app';
 import { logger } from './utils/logger';
 
@@ -20,6 +21,10 @@ async function start(): Promise<void> {
   if (interrupted > 0) {
     logger.warn({ count: interrupted }, 'Marked stuck mock generations as error');
   }
+  const facultyInterrupted = await facultyPaperService.sweepStuckGenerating();
+  if (facultyInterrupted > 0) {
+    logger.warn({ count: facultyInterrupted }, 'Marked stuck faculty generations as error');
+  }
 
   const app = createApp();
   const server = app.listen(env.PORT, '0.0.0.0', () => {
@@ -31,6 +36,10 @@ async function start(): Promise<void> {
       const swept = await mockExamService.sweepStuckGenerations();
       if (swept > 0) {
         logger.warn({ count: swept }, 'Periodic sweep: marked stuck mock generations as error');
+      }
+      const facultySwept = await facultyPaperService.sweepStuckGenerating();
+      if (facultySwept > 0) {
+        logger.warn({ count: facultySwept }, 'Periodic sweep: marked stuck faculty generations as error');
       }
     } catch (err) {
       logger.error({ err }, 'Periodic sweep failed');
@@ -48,7 +57,10 @@ async function start(): Promise<void> {
       new Promise<void>((resolve) => server.close(() => resolve())),
       new Promise<void>((resolve) => setTimeout(resolve, 15_000)),
     ]);
-    await mockGeneratorService.waitForActiveGenerations(12_000);
+    await Promise.all([
+      mockGeneratorService.waitForActiveGenerations(12_000),
+      facultyPaperService.waitForActiveGenerations(12_000),
+    ]);
     await database.disconnect();
     await cacheService.disconnect();
     logger.info('Shutdown complete');

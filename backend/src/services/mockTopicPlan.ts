@@ -6,20 +6,20 @@
  * Each mock also revisits one weak topic per subject from the student's previous mock.
  */
 
-import { JEE_TOPICS_BY_CLASS, NEET_TOPICS_BY_CLASS } from '../types/index';
+import { getJeeTopicsForExam, NEET_TOPICS_BY_CLASS } from '../types/index';
 
 export const FRESH_TOPICS_PER_SUBJECT = 10;
 // The weak topic from the last mock is asked this many times in the next mock
 export const WEAK_TOPIC_QUESTIONS = 2;
 
-/** Every topic of a subject in syllabus order (Class 11 then Class 12) */
+/** Every topic of a subject in syllabus order (filtered for Main Rationalized NCERT vs Advanced) */
 export function fullTopicList(examType: 'Main' | 'Advanced' | 'NEET', subject: string): string[] {
   if (examType === 'NEET') {
     const map = NEET_TOPICS_BY_CLASS[subject];
     return map ? [...map.class11, ...map.class12] : [];
   }
-  const map = JEE_TOPICS_BY_CLASS[subject];
-  return map ? [...map.class11, ...map.class12] : [];
+  const map = getJeeTopicsForExam(examType);
+  return map[subject] ? [...map[subject]] : [];
 }
 
 export interface SubjectPlan {

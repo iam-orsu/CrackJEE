@@ -195,4 +195,35 @@ export class QuestionRepository {
       _count: { _all: true },
     });
   }
+
+  /** Fetches validated question bank candidates for a single topic as optional fallback. */
+  public findFacultyFallbackQuestions(
+    subject: string,
+    topic: string,
+    examTypes: string[],
+    questionType?: string,
+    take = 10,
+  ) {
+    return this.prisma.question.findMany({
+      where: {
+        subject,
+        topic,
+        examType: { in: examTypes },
+        validatedAt: { not: null },
+        ...(questionType ? { questionType } : {}),
+      },
+      select: {
+        id: true,
+        subject: true,
+        topic: true,
+        questionType: true,
+        questionText: true,
+        options: true,
+        answer: true,
+        explanation: true,
+        diagram: true,
+      },
+      take,
+    });
+  }
 }

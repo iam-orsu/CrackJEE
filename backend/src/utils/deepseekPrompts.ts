@@ -9,6 +9,18 @@ import type {
 } from '../types/index';
 
 export function buildDifficultySpec(difficulty: Difficulty, examType: ExamType): string {
+  if (examType === 'NEET') {
+    const levelLabel = difficulty === 'beginner'
+      ? 'STANDARD NEET-UG (60s direct-to-moderate NCERT application)'
+      : difficulty === 'advanced'
+        ? 'CHALLENGING NEET-UG (rank-decider numericals, multi-statement / Assertion-Reason traps)'
+        : 'MODERATE NEET-UG (authentic NTA NEET difficulty)';
+    return `${levelLabel}: Strictly grounded in Rationalized NCERT Class 11 & 12 concepts.
+Biology (Botany/Zoology): Test precise NCERT wording, metabolic pathways, exceptions, Statement I & II, Assertion-Reason, or match-list reasoning — zero out-of-NCERT trivia.
+Chemistry: Inorganic NCERT trends & exceptions; Organic NCERT reagents/mechanisms; Physical clean numerical formula application.
+Physics: Crisp concept-to-numerical or graph interpretation solvable in ~60-90s under speed pressure — NO IIT-Advanced multi-page calculus derivations.
+NEVER copy verbatim NCERT end-of-chapter exercise wording; vary numbers and phrasing freshly.`;
+  }
   if (difficulty === 'beginner') {
     return `EASY (JEE-entry level): Single-concept problem applying ONE formula or principle to a completely original scenario.
 Physics: Standard formula in a fresh context — e.g. projectile with specific angle and speed, simple circuit applying Ohm's law with real resistance values, friction with given mass and coefficient. NOT F=ma stated directly.
@@ -53,7 +65,7 @@ ANTI-HALLUCINATION RULES:
 A well-prepared student needs 3+ minutes.`;
 }
 
-const DIAGRAM_SPEC = `
+export const DIAGRAM_SPEC = `
   If the question has a geometric/physical setup that benefits from a figure, replace "diagram": null with ONE of these templates. The frontend renders geometry from your params — do NOT invent a different structure.
 
   TEMPLATE "inclined_plane": { "template": "inclined_plane", "params": { "angle_deg": 30, "show_weight": true, "show_normal": true, "show_friction": false, "show_applied": false, "labels": { "angle": "30°", "block": "m", "weight": "mg", "normal": "N", "friction": "f", "applied": "F" } }}
@@ -379,20 +391,27 @@ export function buildMixedBatchPrompt(
       ? `{ "topic": "<one topic name>", "question": "...", "question_type": "mcq_multi", "options": ["...", "...", "...", "..."], "correct_answers": ["A", "C"], "diagram": null }`
       : `{ "topic": "<one topic name>", "question": "...", "question_type": "integer", "options": [], "correct_answer": "7", "diagram": null }`;
 
+  const examLabel = examType === 'NEET' ? 'NEET-UG medical entrance exam' : `JEE ${examType} competitive entrance exam`;
+  const cognitiveRule = examType === 'Advanced'
+    ? 'IIT JEE Advanced cognitive rigor ONLY: cross-topic synthesis, non-routine first-principles setups, limiting/boundary traps — NO board/NCERT exercises or easy single-formula JEE Main style questions.'
+    : examType === 'NEET'
+      ? 'NTA NEET-UG rigor: strictly NCERT Class 11/12 grounded — precise Biology statements/Assertion-Reason, NCERT Chemistry reactions/trends, and crisp Physics numericals.'
+      : 'NTA JEE Main competitive rigor: 2-3 step application, speed-accuracy numericals, and conceptual/sign traps within rationalized NCERT scope — NEVER copy school/NCERT textbook exercises or definitions.';
+
   return `
 <context>
   <subject>${subject}</subject>
-  <exam_type>JEE ${examType} competitive entrance exam</exam_type>
+  <exam_type>${examLabel}</exam_type>
   <syllabus_scope>Class 11 and Class 12</syllabus_scope>
 </context>
 
 <difficulty_requirement>
   ${difficultySpec}
-  IMPORTANT: Competitive exam questions — not school-level. Every question requires real reasoning.
+  IMPORTANT: ${cognitiveRule}
 </difficulty_requirement>
 
 <task>
-  Generate exactly ${total} DISTINCT JEE ${examType} ${qTypeName} questions in ${subject}, split across these topics:
+  Generate exactly ${total} DISTINCT ${examLabel} ${qTypeName} questions in ${subject}, split across these topics:
 ${topicLines}
   Each question MUST test a different concept, formula or scenario — no repetition.${letterConstraints}
 </task>
@@ -415,6 +434,7 @@ ${DIAGRAM_SPEC}
   ${questionType === 'mcq_multi' ? '- correct_answers: array of letters, never all 4 correct, never all 4 wrong' : ''}
   ${questionType === 'integer' ? '- Answer MUST be a whole number (not a fraction or decimal)' : ''}
   - Use LaTeX delimiters ($...$) for all mathematical content
+  - NEVER copy or paraphrase any NCERT example, textbook exercise, or rote school-board definition
   - Do NOT use out-of-syllabus concepts
 </constraints>`;
 }

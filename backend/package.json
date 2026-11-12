@@ -32,7 +32,8 @@
     "db:generate": "tsx src/scripts/prismaWithEnv.ts generate",
     "db:migrate": "tsx src/scripts/prismaWithEnv.ts migrate deploy",
     "db:migrate:dev": "tsx src/scripts/prismaWithEnv.ts migrate dev",
-    "db:seed": "tsx src/scripts/seedQuestions.ts"
+    "db:seed": "tsx src/scripts/seedQuestions.ts",
+    "faculty:create": "tsx src/scripts/createFaculty.ts"
   },
   "overrides": {
     "deepmerge-ts": "8.0.2"
