@@ -99,8 +99,9 @@ export class QuestionService {
       candidates = await this.questions.findManyByIds(chosen);
     }
 
+    const batchExclude = batchExcludeIds.length > 0 ? { id: { notIn: batchExcludeIds } } : {};
+
     if (candidates.length === 0 && allExcluded.size > 0) {
-      await this.cache.setJson(servedKey, [], 1);
       candidates = await this.questions.findMany(
         {
           topic,
@@ -108,6 +109,7 @@ export class QuestionService {
           difficulty,
           examType: bankExamType,
           ...(forceType ? { questionType: forceType } : {}),
+          ...batchExclude,
           validatedAt: { not: null },
           mockOnly: false,
         },
@@ -117,14 +119,14 @@ export class QuestionService {
 
     if (candidates.length === 0) {
       candidates = await this.questions.findMany(
-        { topic, subject, examType: bankExamType, validatedAt: { not: null }, mockOnly: false },
+        { topic, subject, examType: bankExamType, ...batchExclude, validatedAt: { not: null }, mockOnly: false },
         poolSize,
       );
     }
 
     if (candidates.length === 0) {
       candidates = await this.questions.findMany(
-        { topic, subject, validatedAt: { not: null }, mockOnly: false },
+        { topic, subject, ...batchExclude, validatedAt: { not: null }, mockOnly: false },
         poolSize,
       );
     }

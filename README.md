@@ -59,8 +59,8 @@ Update `DATABASE_URL`, `JWT_SECRET`, and `DEEPSEEK_API_KEY` in `.env` (place `.e
 ```bash
 cd backend
 npm install
-npx prisma generate
-npx prisma migrate deploy       # or `npm run db:migrate:dev` on fresh local MySQL
+npm run db:generate
+npm run db:migrate              # or `npm run db:migrate:dev` on fresh local MySQL
 npm run db:seed                 # seeds both data/jee/jee_master_questions.json & data/neet/neet_master_questions.json
 npm run dev                     # starts hot-reload TypeScript dev server on :3001
 ```
@@ -87,7 +87,7 @@ npm test
 
 ```bash
 # 1. Build backend & frontend
-cd backend && npm ci && npx prisma generate && npx prisma migrate deploy && npm run build && npm run db:seed
+cd backend && npm ci && npm run db:generate && npm run db:migrate && npm run build && npm run db:seed
 cd ../frontend && npm ci && npm run build
 
 # 2. Start / reload with PM2 from repo root

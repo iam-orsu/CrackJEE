@@ -29,9 +29,9 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "test": "node --test dist/__tests__/*.test.js",
-    "db:generate": "prisma generate",
-    "db:migrate": "prisma migrate deploy",
-    "db:migrate:dev": "prisma migrate dev",
+    "db:generate": "tsx src/scripts/prismaWithEnv.ts generate",
+    "db:migrate": "tsx src/scripts/prismaWithEnv.ts migrate deploy",
+    "db:migrate:dev": "tsx src/scripts/prismaWithEnv.ts migrate dev",
     "db:seed": "tsx src/scripts/seedQuestions.ts"
   },
   "overrides": {
