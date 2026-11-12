@@ -40,45 +40,128 @@ JEENEET.ai is a practice and full-length mock test platform for **JEE Main**, **
 
 ---
 
-## Local Development Setup
+## Local Deployment & Development Setup
 
 ### Prerequisites
 - Node.js `>= 20`
-- MySQL `8.0+` (local or remote server)
+- MySQL `8.0+` (local Windows/macOS MySQL, Ubuntu WSL MySQL, or a separate MySQL server)
 
-### 1. Configure Environment
+---
 
+### Step 1: Create MySQL Database and User
+
+Without Docker, MySQL does not read `.env` to create accounts automatically — create a database and user once in MySQL (any username, password, and database name you want; each developer can use their own locally).
+
+**On Ubuntu / WSL (`sudo mysql`):**
 ```bash
-cp .env.example .env
+sudo mysql <<'SQL'
+CREATE DATABASE IF NOT EXISTS jeeneet;
+CREATE USER IF NOT EXISTS 'crackjee'@'%' IDENTIFIED BY 'CrackJee_Local123!';
+GRANT ALL PRIVILEGES ON jeeneet.* TO 'crackjee'@'%';
+FLUSH PRIVILEGES;
+SQL
 ```
 
-Update `DATABASE_URL`, `JWT_SECRET`, and `DEEPSEEK_API_KEY` in `.env` (place `.env` in repo root or `backend/.env` — both are loaded automatically). `REDIS_URL` is optional.
+*(If running from Windows PowerShell against WSL Ubuntu MySQL, you can also run `wsl -d ubuntu -e sudo mysql -e "..."`. If you already have an existing remote/separate MySQL server with a DB and user, skip Step 1.)*
 
-### 2. Backend Setup, Migration & JSON Seeding
+---
+
+### Step 2: Copy the `.env` Templates
+
+From the repository root (`CrackJEE/`):
+
+**PowerShell (Windows):**
+```powershell
+copy backend\.env.example backend\.env
+copy frontend\.env.example frontend\.env.local
+```
+
+**Bash (Linux / macOS / WSL):**
+```bash
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env.local
+```
+
+*(Putting `.env` directly inside `backend/` ensures backend scripts always load it cleanly and ignore any old root `.env`.)*
+
+---
+
+### Step 3: Fill in Values in `backend/.env`
+
+1. Generate a secure `JWT_SECRET` (minimum 16 chars):
+   ```bash
+   node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+   ```
+2. Open `backend/.env` and fill in your values:
+   - **`DATABASE_URL`**: replace `CHANGE_ME` with your MySQL credentials from Step 1 (keep a single `DATABASE_URL=` prefix):
+     ```env
+     DATABASE_URL=mysql://crackjee:CrackJee_Local123!@127.0.0.1:3306/jeeneet
+     ```
+   - **`JWT_SECRET`**: paste the random hex string generated above:
+     ```env
+     JWT_SECRET=<your-generated-64-char-hex>
+     ```
+   - **`DEEPSEEK_API_KEY`** *(optional)*: paste your `sk-...` key for AI generation/explanations, or leave empty (`DEEPSEEK_API_KEY=`) to run mocks and practice purely from the seeded question bank.
+   - **`REDIS_URL`** *(optional)*: leave commented out for local/single-node runs (uses built-in in-memory TTL cache).
+   - **`SUPERADMIN_EMAIL` & `SUPERADMIN_PASSWORD_HASH`** *(optional)*: set only if using `/superadmin`.
+3. `frontend/.env.local` already defaults `BACKEND_URL=http://127.0.0.1:3001` and `NEXT_PUBLIC_API_URL=/api/v1` — no edits needed for local development.
+
+---
+
+### Step 4: Install Backend Dependencies, Migrate & Seed
+
+From `backend/` (run in the same OS where you will run `npm run dev` so native modules like `bcrypt` match):
 
 ```bash
 cd backend
 npm install
 npm run db:generate
-npm run db:migrate              # or `npm run db:migrate:dev` on fresh local MySQL
-npm run db:seed                 # seeds both data/jee/jee_master_questions.json & data/neet/neet_master_questions.json
-npm run dev                     # starts hot-reload TypeScript dev server on :3001
+npm run db:migrate              # applies MySQL migrations (`prisma migrate deploy`)
+npm run db:seed                 # seeds 12,677 questions (7,456 JEE + 5,221 NEET)
 ```
 
-### 3. Frontend Setup
+*(If running inside WSL/Linux instead of Windows and `backend/node_modules` already existed from Windows, run `npm ci` first.)*
+
+---
+
+### Step 5: Install Frontend Dependencies
 
 ```bash
 cd frontend
 npm install
-npm run dev                     # starts Next.js dev server on :3000 (proxies /api/* -> http://127.0.0.1:3001)
 ```
 
-### Backend Tests & Build
+> **Note:** Use `npm install` on Windows so Windows-specific optional native packages (`lightningcss`, `sharp`, etc.) resolve cleanly alongside the lockfile. Do not commit local Windows-only `package-lock.json` edits if your team builds on Linux CI (`git checkout -- frontend/package-lock.json`).
+
+---
+
+### Step 6: Start Backend & Frontend (Two Terminals)
+
+1. **Terminal 1 — Backend (`http://localhost:3001`):**
+   ```bash
+   cd backend
+   npm run dev
+   ```
+   Wait for `Backend listening on :3001`.
+
+2. **Terminal 2 — Frontend (`http://localhost:3000`):**
+   ```bash
+   cd frontend
+   npm run dev
+   ```
+
+Open **http://localhost:3000** in your browser.
+
+---
+
+### Tests, Lint & Typecheck
 
 ```bash
-cd backend
-npm run build
-npm test
+# Backend
+cd backend && npm run build && npm test
+
+# Frontend
+cd frontend && npx tsc --noEmit && npm run lint && npm test
 ```
 
 ---
