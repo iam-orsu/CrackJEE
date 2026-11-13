@@ -37,29 +37,66 @@ describe('stripOptionPrefix', () => {
 });
 
 describe('renderExplanationHtml', () => {
-  it('strips markdown asterisks and converts headers & bolding cleanly', () => {
+  it('strips markdown asterisks and converts headers into structured visual cards', () => {
     const raw = '** 💡 Conceptual Insight** The coefficient of $x^3$ is a **convolution sum** over complementary degrees. ** ⚡ Speed Technique / Shortcut** Write the coefficient in one line:';
     const html = renderExplanationHtml(raw);
 
-    // No raw ** should remain
+    // No raw ** should remain anywhere
     expect(html).not.toContain('**');
-    // Section headers should be created
-    expect(html).toContain('explain-section-header');
+    // Structured cards should be created
+    expect(html).toContain('explain-card insight');
+    expect(html).toContain('explain-card shortcut');
+    expect(html).toContain('explain-card-title');
     expect(html).toContain('Conceptual Insight');
     expect(html).toContain('Speed Technique / Shortcut');
-    // Bold words should be in strong tags
+    // Bold words should be converted to strong tags
     expect(html).toContain('<strong>convolution sum</strong>');
     // KaTeX should be rendered for math
     expect(html).toContain('katex');
   });
 
-  it('preserves line breaks and escapes injected HTML', () => {
+  it('parses inline bullet points into structured lists with distinct list items', () => {
+    const raw = '** ⚠️ Common Pitfalls & Traps** - **Evaluating derivative:** Trap 1 explanation. - **Sign slip in $y(3)$:** Dropped sign. - **Missing constant:** Shifts values.';
+    const html = renderExplanationHtml(raw);
+
+    expect(html).not.toContain('**');
+    expect(html).toContain('explain-card trap');
+    expect(html).toContain('Common Pitfalls &amp; Traps');
+    expect(html).toContain('<ul class="explain-list">');
+    expect(html).toContain('<li><strong>Evaluating derivative:</strong> Trap 1 explanation.</li>');
+    expect(html).toContain('<li><strong>Sign slip in');
+    expect(html).toContain('<li><strong>Missing constant:</strong> Shifts values.</li>');
+    expect(html).toContain('</ul>');
+  });
+
+  it('renders Step-by-Step solution with inner substep badges', () => {
+    const raw = '**Step-by-Step Solution**\n**Step 1:** Differentiate curve\n$$\\frac{dy}{dx} = 2x$$\n**Step 2:** Solve for zero\n$x = 0$';
+    const html = renderExplanationHtml(raw);
+
+    expect(html).not.toContain('**');
+    expect(html).toContain('explain-card shortcut');
+    expect(html).toContain('Step-by-Step Solution');
+    expect(html).toContain('explain-substep-badge');
+    expect(html).toContain('Step 1');
+    expect(html).toContain('Step 2');
+    expect(html).toContain('katex');
+  });
+
+  it('renders simple explanations cleanly in minimal container without cards', () => {
+    const raw = 'Differentiating gives $f\'(x) = 6(x-1)(x-2)$. Negative when $1 < x < 2$.';
+    const html = renderExplanationHtml(raw);
+
+    expect(html).toContain('explain-simple-text');
+    expect(html).not.toContain('explain-card');
+    expect(html).toContain('katex');
+  });
+
+  it('escapes injected HTML while preserving math formatting', () => {
     const raw = '**Step 1: Given**\n$v = 10\\text{ m/s}$\n<script>bad()</script>';
     const html = renderExplanationHtml(raw);
 
     expect(html).not.toContain('**');
     expect(html).not.toContain('<script>');
     expect(html).toContain('&lt;script&gt;');
-    expect(html).toContain('explain-section-header');
   });
 });

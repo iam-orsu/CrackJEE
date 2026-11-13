@@ -462,7 +462,9 @@ export function cleanTieredExplanation(raw: string, maxLen = 3500): string {
   let s = raw.trim();
   for (const pat of REASONING_NOISE) s = s.replace(pat, '').trim();
   // Ensure major section headings always start on their own paragraph
-  s = s.replace(/([^\n])\s*(\*\*\s*(?:💡|⚡|⚠️|Step \d|Given Data|Verification))/gi, '$1\n\n$2');
+  s = s.replace(/([^\n])\s*(\*\*\s*(?:💡|⚡|⚠️|Step \d|Given Data|Step-by-Step|Speed Technique|Common Pitfalls|Verification)[^*]*\*\*)/gi, '$1\n\n$2\n\n');
+  // Ensure inline bullet items have separate lines
+  s = s.replace(/([^\n])\s*([•\-])\s+(\*\*[^*]+\*\*|[A-Za-z])/g, '$1\n- $3');
   s = s.replace(/\n{3,}/g, '\n\n').trim();
   if (s.length > maxLen) {
     const cutoff = s.lastIndexOf('.', maxLen);
@@ -536,11 +538,13 @@ ${params.existingExplanation ? `Standard Brief Solution: ${params.existingExplan
   How can a top aspirant solve or eliminate options in under 60 seconds? (e.g. dimensional analysis, boundary/limiting values, graph behavior, order-of-magnitude estimation, or symmetry). If standard calculation is the only path, highlight the algebraic shortcut.
 
   **⚠️ Common Pitfalls & Traps**
-  Analyze why students pick the wrong options. Specifically identify the common sign error, unit mistake, or theoretical misconception the question setter planted in the distractors.
+  Analyze why students pick the wrong options. List 2-4 distinct traps as markdown bullets, each on a new line:
+  - **[Trap Name]:** Explain the setter trap, sign slip, or theoretical misconception in distractors.
 
   Constraints:
   - Format all equations, symbols, numbers with units, and expressions in valid LaTeX math ($...$ or $$...$$).
   - Separate every section with TWO blank lines (\\n\\n) so headers never run into paragraphs.
+  - List traps as bullet points, each on its own line starting with "- **[Trap Name]:** ".
   - High-level, razor-sharp competitive coaching tone.
   - No introductory chatter or meta-commentary. Start immediately with "**💡 Conceptual Insight**".
 </task>

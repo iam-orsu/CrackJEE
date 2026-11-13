@@ -446,7 +446,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
                 <strong>
                   Generating {activeTier === 'better' ? 'Step-by-Step Breakdown' : 'Masterclass Analysis'}...
                 </strong>
-                <p>Consulting DeepSeek AI with JEE/NEET first-principles rigor.</p>
+                <p>Formulating first-principles competitive breakdown...</p>
               </div>
             ) : tierError ? (
               <div className="explanation-error-state">

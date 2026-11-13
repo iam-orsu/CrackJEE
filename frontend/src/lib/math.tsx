@@ -98,24 +98,89 @@ export function renderMath(rawText: string): string {
 
 export const renderMathHtml = renderMath;
 
-function formatMarkdownInline(text: string): string {
+export function formatInlineMarkdown(text: string): string {
   const pre = preprocessLatex(text);
   let s = escapeHtml(pre);
 
-  // Convert **bold** (including leading/trailing space or emoji like ** 💡 Conceptual Insight **)
-  s = s.replace(/\*\*\s*([\s\S]+?)\s*\*\*/g, '<strong>$1</strong>');
+  // Convert **bold** (including any spaces like ** bold **)
+  s = s.replace(/\*\*\s*([^*]+?)\s*\*\*/g, '<strong>$1</strong>');
 
   // Convert *italic*
   s = s.replace(/(^|[^\*])\*([^\*\n]+)\*([^\*]|$)/g, '$1<em>$2</em>$3');
 
-  // Convert single line breaks to <br />
-  s = s.replace(/\n/g, '<br />');
+  // Clean up any remaining rogue asterisks so raw ** never appears
+  s = s.replace(/\*\*/g, '');
 
   return s;
 }
 
+interface SectionItem {
+  kind: 'p' | 'li' | 'math' | 'step_header';
+  text: string;
+}
+
+interface ParsedSection {
+  type: 'insight' | 'shortcut' | 'trap' | 'verification' | 'step' | 'general';
+  icon: string;
+  title: string;
+  isSubStep?: boolean;
+  items: SectionItem[];
+}
+
+function detectHeader(line: string): { type: ParsedSection['type']; icon: string; title: string; isSubStep?: boolean } | null {
+  const m = line.match(/^(?:\*\*\s*|#{1,4}\s*)(💡|⚡|⚠️|📐|📝|✅|Step \d+|Given Data|Step-by-Step|Speed Technique|Common Pitfalls|Verification|Core Principle)([\s\S]*?)(?:\*\*|:)?$/i);
+  if (!m) return null;
+  const lead = m[1]!.trim();
+  const rest = (m[2] ?? '').trim().replace(/^[:\-\s]+/, '');
+  const combined = `${lead} ${rest}`.trim();
+  const title = combined.replace(/^[\p{Extended_Pictographic}\uFE0F\s:*-]+/u, '').trim();
+
+  if (/^Step\s*\d+/i.test(lead)) {
+    return {
+      type: 'step',
+      icon: '🔢',
+      isSubStep: true,
+      title: title || lead,
+    };
+  }
+
+  if (/💡|Conceptual|Given Data|Core Principle|📐/i.test(combined)) {
+    return {
+      type: 'insight',
+      icon: /💡/.test(combined) ? '💡' : '📐',
+      title: title || 'Conceptual Insight',
+    };
+  }
+  if (/⚡|Speed Technique|Shortcut|Step-by-Step|📝/i.test(combined)) {
+    return {
+      type: 'shortcut',
+      icon: /⚡/.test(combined) ? '⚡' : '📝',
+      title: title || 'Step-by-Step Solution',
+    };
+  }
+  if (/⚠️|Pitfalls|Traps/i.test(combined)) {
+    return {
+      type: 'trap',
+      icon: '⚠️',
+      title: title || 'Common Pitfalls & Traps',
+    };
+  }
+  if (/✅|Verification|Sanity/i.test(combined)) {
+    return {
+      type: 'verification',
+      icon: '✅',
+      title: title || 'Verification',
+    };
+  }
+  return {
+    type: 'general',
+    icon: '💡',
+    title: title || combined,
+  };
+}
+
 export function renderExplanationHtml(rawText: string): string {
-  if (!rawText) return '';
+  if (!rawText || !rawText.trim()) return '';
 
   // 1. Separate math spans and replace with tokens so markdown formatting doesn't alter math
   const mathTokens: string[] = [];
@@ -132,6 +197,9 @@ export function renderExplanationHtml(rawText: string): string {
     let rendered = '';
     try {
       rendered = katex.renderToString(content.trim(), { displayMode: display, throwOnError: false, trust: false });
+      if (display) {
+        rendered = `<span class="explain-math-display">${rendered}</span>`;
+      }
     } catch {
       rendered = escapeHtml(match);
     }
@@ -140,39 +208,128 @@ export function renderExplanationHtml(rawText: string): string {
     return token;
   });
 
-  // 2. Ensure section headers always split into their own paragraph if running into previous text
-  textWithTokens = textWithTokens.replace(
-    /([^\n])\s*(\*\*\s*(?:💡|⚡|⚠️|Step \d|Given Data|Verification)[^*]*\*\*)/gi,
-    '$1\n\n$2\n',
-  );
+  // 2. Preprocess spaces inside asterisks: ** 💡 Conceptual Insight ** -> **💡 Conceptual Insight**
+  textWithTokens = textWithTokens.replace(/\*\*\s*([^*]+?)\s*\*\*/g, '**$1**');
 
-  // 3. Split into paragraphs
-  const paragraphs = textWithTokens
-    .split(/\n{2,}/)
-    .map((p) => p.trim())
-    .filter(Boolean);
+  // 3. Ensure section headers have double newlines so they separate cleanly into cards
+  const sectionKeywords = [
+    '💡\\s*Conceptual Insight',
+    '⚡\\s*Speed Technique(?:\\s*\\/\\s*Shortcut)?',
+    '⚠️\\s*Common Pitfalls(?:\\s*&\\s*Traps)?',
+    'Given Data(?:\\s*&\\s*Core Principle)?',
+    'Step-by-Step(?:\\s*Solution|\\s*Walkthrough)?',
+    'Verification(?:\\s*&\\s*Sanity Checks)?',
+    'Step\\s*\\d+',
+  ].join('|');
 
-  const htmlParagraphs = paragraphs.map((para) => {
-    const sectionMatch = para.match(/^\*\*\s*(💡|⚡|⚠️|Step \d|Given Data|Verification)([\s\S]*?)\*\*\s*([\s\S]*)$/i);
-    if (sectionMatch) {
-      const icon = sectionMatch[1] ?? '';
-      const title = sectionMatch[2] ?? '';
-      const rest = sectionMatch[3]?.trim();
-      const headerHtml = `<div class="explain-section-header"><span class="header-icon">${escapeHtml(icon)}</span> <strong>${escapeHtml(title.trim())}</strong></div>`;
-      if (!rest) return headerHtml;
-      const restHtml = formatMarkdownInline(rest);
-      return `${headerHtml}<p class="explain-para">${restHtml}</p>`;
+  const headerRegex = new RegExp('(?:^|\\s*)(\\*\\*\\s*(?:' + sectionKeywords + ')[^*]*\\*\\*|#{1,4}\\s*(?:' + sectionKeywords + ')[^\\n]*)', 'gi');
+  textWithTokens = textWithTokens.replace(headerRegex, (match, p1) => '\n\n' + p1.trim() + '\n\n');
+
+  // 4. Ensure bullet points have newlines: handle "- **Title:**" and "- Title"
+  textWithTokens = textWithTokens.replace(/([^\n])\s*([•\-])\s+(\*\*[^*]+\*\*|[A-Za-z])/g, '$1\n- $3');
+
+  // 5. Parse lines into structured sections
+  const lines = textWithTokens.split('\n').map((l) => l.trim()).filter(Boolean);
+  const sections: ParsedSection[] = [];
+  let currentSection: ParsedSection | null = null;
+
+  for (const line of lines) {
+    const header = detectHeader(line);
+    if (header) {
+      if (header.isSubStep && currentSection && (currentSection.type === 'shortcut' || currentSection.type === 'step')) {
+        currentSection.items.push({ kind: 'step_header', text: header.title });
+        continue;
+      }
+      if (currentSection && currentSection.items.length > 0) {
+        sections.push(currentSection);
+      }
+      currentSection = { ...header, items: [] };
+      continue;
     }
 
-    const formatted = formatMarkdownInline(para);
-    return `<p class="explain-para">${formatted}</p>`;
+    if (!currentSection) {
+      currentSection = {
+        type: 'general',
+        icon: '💡',
+        title: 'Solution Overview',
+        items: [],
+      };
+    }
+
+    const bulletMatch = line.match(/^[-•*]\s+([\s\S]+)$/);
+    if (bulletMatch) {
+      currentSection.items.push({ kind: 'li', text: bulletMatch[1]! });
+    } else if (/^<span class="explain-math-display">@@MATH_TOKEN_\d+@@<\/span>$/.test(line) || /^@@MATH_TOKEN_\d+@@$/.test(line)) {
+      currentSection.items.push({ kind: 'math', text: line });
+    } else {
+      currentSection.items.push({ kind: 'p', text: line });
+    }
+  }
+  if (currentSection && currentSection.items.length > 0) {
+    sections.push(currentSection);
+  }
+
+  if (sections.length === 0) return '';
+
+  // Single general section with no card structure (e.g. Simple Explanation): clean minimal text
+  if (sections.length === 1 && sections[0]!.type === 'general') {
+    let simpleHtml = '';
+    for (const item of sections[0]!.items) {
+      if (item.kind === 'math') simpleHtml += `<div class="explain-math-block">${item.text}</div>`;
+      else simpleHtml += `<p class="explain-para">${formatInlineMarkdown(item.text)}</p>`;
+    }
+    for (let i = 0; i < mathTokens.length; i++) {
+      simpleHtml = simpleHtml.replace(new RegExp(`@@MATH_TOKEN_${i}@@`, 'g'), () => mathTokens[i]!);
+    }
+    return `<div class="explain-simple-text">${simpleHtml}</div>`;
+  }
+
+  // Render cards for structured sections
+  const renderedCards = sections.map((sec) => {
+    let bodyHtml = '';
+    let inList = false;
+
+    for (const item of sec.items) {
+      if (item.kind === 'li') {
+        if (!inList) {
+          bodyHtml += `<ul class="explain-list">`;
+          inList = true;
+        }
+        bodyHtml += `<li>${formatInlineMarkdown(item.text)}</li>`;
+      } else {
+        if (inList) {
+          bodyHtml += `</ul>`;
+          inList = false;
+        }
+        if (item.kind === 'step_header') {
+          bodyHtml += `<div class="explain-substep-badge"><span class="badge-num">▶</span> <strong>${escapeHtml(item.text)}</strong></div>`;
+        } else if (item.kind === 'math') {
+          bodyHtml += `<div class="explain-math-block">${item.text}</div>`;
+        } else {
+          bodyHtml += `<p class="explain-para">${formatInlineMarkdown(item.text)}</p>`;
+        }
+      }
+    }
+    if (inList) bodyHtml += `</ul>`;
+
+    if (sec.type === 'general') {
+      return `<div class="explain-intro-lead">${bodyHtml}</div>`;
+    }
+
+    return `<div class="explain-card ${sec.type}">
+  <div class="explain-card-header">
+    <span class="explain-card-icon">${sec.icon}</span>
+    <span class="explain-card-title">${escapeHtml(sec.title)}</span>
+  </div>
+  <div class="explain-card-body">${bodyHtml}</div>
+</div>`;
   });
 
-  let fullHtml = htmlParagraphs.join('');
+  let fullHtml = renderedCards.join('\n');
 
-  // 4. Restore math tokens
+  // Restore math tokens
   for (let i = 0; i < mathTokens.length; i++) {
-    fullHtml = fullHtml.replace(`@@MATH_TOKEN_${i}@@`, () => mathTokens[i]!);
+    fullHtml = fullHtml.replace(new RegExp(`@@MATH_TOKEN_${i}@@`, 'g'), () => mathTokens[i]!);
   }
 
   return fullHtml;
