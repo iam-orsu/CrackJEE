@@ -43,6 +43,10 @@ const getTopicsQuerySchema = z.object({
   examMode: z.enum(['JEE', 'NEET']).default('JEE'),
 });
 
+const tieredExplanationSchema = z.object({
+  tier: z.enum(['better', 'best']),
+});
+
 export class QuestionController {
   constructor(private readonly questionService: QuestionService = new QuestionService()) {}
 
@@ -143,6 +147,29 @@ export class QuestionController {
       }
 
       const data = this.questionService.getTopics(query.data.studentClass, query.data.examMode);
+      res.json({ success: true, data });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly getTieredExplanation = async (
+    req: AuthRequest,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
+    try {
+      const { id } = req.params;
+      if (!id || typeof id !== 'string' || id.length > 64) {
+        throw new AppError(400, 'Invalid question ID');
+      }
+
+      const body = tieredExplanationSchema.safeParse(req.body);
+      if (!body.success) {
+        throw new AppError(400, 'Tier must be either "better" or "best"');
+      }
+
+      const data = await this.questionService.getTieredExplanation(id, body.data.tier);
       res.json({ success: true, data });
     } catch (err) {
       next(err);

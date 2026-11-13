@@ -30,8 +30,10 @@ model Question {
   questionText String    @db.Text
   options      Json
   answer       String
-  explanation  String    @db.Text
-  diagram      Json?
+  explanation       String    @db.Text
+  betterExplanation String?   @db.Text
+  bestExplanation   String?   @db.Text
+  diagram           Json?
   difficulty   String
   examType     String
   questionType String    @default("mcq_single")

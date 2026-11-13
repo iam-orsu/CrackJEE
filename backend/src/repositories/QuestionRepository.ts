@@ -31,10 +31,38 @@ export class QuestionRepository {
     });
   }
 
+  public findByIdForTieredExplanation(id: string) {
+    return this.prisma.question.findUnique({
+      where: { id },
+      select: {
+        id: true,
+        topic: true,
+        subject: true,
+        questionText: true,
+        options: true,
+        answer: true,
+        explanation: true,
+        betterExplanation: true,
+        bestExplanation: true,
+        questionType: true,
+        examType: true,
+        difficulty: true,
+      },
+    });
+  }
+
   public updateExplanation(id: string, explanation: string) {
     return this.prisma.question.update({
       where: { id },
       data: { explanation },
+    });
+  }
+
+  public updateTieredExplanation(id: string, tier: 'better' | 'best', text: string) {
+    const data = tier === 'better' ? { betterExplanation: text } : { bestExplanation: text };
+    return this.prisma.question.update({
+      where: { id },
+      data,
     });
   }
 

@@ -10,7 +10,9 @@ import {
   buildMCQMultiPrompt,
   buildMCQSinglePrompt,
   buildMixedBatchPrompt,
+  buildTieredExplanationPrompt,
   cleanExplanation,
+  cleanTieredExplanation,
   parseRawQuestion,
 } from '../utils/deepseekPrompts';
 import {
@@ -317,6 +319,30 @@ ${correct}
     const content = response.choices[0]?.message?.content;
     if (!content || !content.trim()) throw new Error('Empty explanation from DeepSeek');
     return cleanExplanation(content);
+  }
+
+  public async generateTieredExplanation(params: {
+    questionText: string;
+    options: string[];
+    answer: string;
+    questionType: string;
+    subject: string;
+    topic: string;
+    examType?: string;
+    tier: 'better' | 'best';
+    existingExplanation?: string;
+  }): Promise<string> {
+    const prompt = buildTieredExplanationPrompt(params);
+    const maxTokens = params.tier === 'best' ? 1200 : 900;
+    const response = await this.callChat({
+      model: 'deepseek-chat',
+      messages: [{ role: 'user', content: prompt }],
+      temperature: 0.25,
+      max_tokens: maxTokens,
+    });
+    const content = response.choices[0]?.message?.content;
+    if (!content || !content.trim()) throw new Error('Empty explanation from DeepSeek');
+    return cleanTieredExplanation(content);
   }
 
   /** Solution-first faculty question generator with deterministic formatting validation. */

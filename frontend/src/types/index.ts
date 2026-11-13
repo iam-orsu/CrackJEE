@@ -28,10 +28,14 @@ export interface Question {
   diagram?: DiagramTemplate | null;
 }
 
+export type ExplanationTier = 'simple' | 'better' | 'best';
+
 export interface AnswerResult {
   isCorrect: boolean;
   correctAnswer: string;
   explanation?: string;
+  betterExplanation?: string | null;
+  bestExplanation?: string | null;
 }
 
 export interface TopicProgress {

@@ -144,6 +144,15 @@ export const api = {
       body: JSON.stringify({ questionIds }),
     }),
 
+    explain: (questionId: string, tier: 'better' | 'best') =>
+      request<{ tier: 'better' | 'best'; explanation: string; cached: boolean }>(
+        `/questions/${encodeURIComponent(questionId)}/explain`,
+        {
+          method: 'POST',
+          body: JSON.stringify({ tier }),
+        },
+      ),
+
     topics: (studentClass?: string, examMode?: 'JEE' | 'NEET') => {
       const params = new URLSearchParams();
       if (studentClass) params.set('studentClass', studentClass);

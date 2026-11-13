@@ -4,6 +4,7 @@ import { QuestionRepository } from '../repositories/QuestionRepository';
 import { CacheService, cacheService as defaultCache } from './CacheService';
 import { DeepSeekService, deepSeekService as defaultDeepSeek } from './DeepSeekService';
 import { fillPracticeSlotsWithFallbacks, type PracticePoolCandidate } from './mockBankFill';
+import { AppError } from '../utils/AppError';
 import { logger } from '../utils/logger';
 import { incCounter } from '../utils/metrics';
 import { runOnce } from '../utils/distributedOnce';
@@ -673,6 +674,60 @@ export class QuestionService {
         ];
       }),
     );
+  }
+
+  /**
+   * Retrieves or on-demand generates a 'better' or 'best' explanation for a question,
+   * with write-through persistence to MySQL Question table and runOnce deduplication.
+   */
+  public async getTieredExplanation(
+    questionId: string,
+    tier: 'better' | 'best',
+  ): Promise<{ tier: 'better' | 'best'; explanation: string; cached: boolean }> {
+    const question = await this.questions.findByIdForTieredExplanation(questionId);
+    if (!question) throw new AppError(404, 'Question not found');
+
+    const existing = tier === 'better' ? question.betterExplanation : question.bestExplanation;
+    if (existing && existing.trim()) {
+      return { tier, explanation: existing, cached: true };
+    }
+
+    const explanation = await runOnce<string>(`explain:${questionId}:${tier}`, {
+      lockSeconds: 60,
+      waitMs: 60_000,
+      readShared: async () => {
+        const fresh = await this.questions.findByIdForTieredExplanation(questionId);
+        const text = tier === 'better' ? fresh?.betterExplanation : fresh?.bestExplanation;
+        return text && text.trim() ? text : null;
+      },
+      produce: async () => {
+        const fresh = await this.questions.findByIdForTieredExplanation(questionId);
+        const alreadySaved = tier === 'better' ? fresh?.betterExplanation : fresh?.bestExplanation;
+        if (alreadySaved && alreadySaved.trim()) return alreadySaved;
+
+        if (!this.deepSeek.isAvailable()) {
+          throw new AppError(503, 'AI explanation service is temporarily unavailable. Please try again in a few moments.');
+        }
+
+        const options = Array.isArray(question.options) ? (question.options as string[]) : [];
+        const text = await this.deepSeek.generateTieredExplanation({
+          questionText: question.questionText,
+          options,
+          answer: question.answer,
+          questionType: question.questionType,
+          subject: question.subject,
+          topic: question.topic,
+          examType: question.examType,
+          tier,
+          existingExplanation: question.explanation,
+        });
+
+        await this.questions.updateTieredExplanation(questionId, tier, text);
+        return text;
+      },
+    });
+
+    return { tier, explanation, cached: false };
   }
 }
 

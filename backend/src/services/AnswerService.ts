@@ -34,7 +34,13 @@ export class AnswerService {
     questionId: string;
     answer: string;
     timeSpent: number;
-  }): Promise<{ isCorrect: boolean; correctAnswer: string; explanation: string }> {
+  }): Promise<{
+    isCorrect: boolean;
+    correctAnswer: string;
+    explanation: string;
+    betterExplanation?: string | null;
+    bestExplanation?: string | null;
+  }> {
     const { userId, questionId, answer, timeSpent } = params;
 
     const question = await this.questions.findById(questionId);
@@ -87,6 +93,8 @@ export class AnswerService {
       isCorrect,
       correctAnswer: question.answer,
       explanation: question.explanation,
+      betterExplanation: (question as { betterExplanation?: string | null }).betterExplanation ?? null,
+      bestExplanation: (question as { bestExplanation?: string | null }).bestExplanation ?? null,
     };
   }
 }

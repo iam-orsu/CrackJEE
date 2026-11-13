@@ -17,6 +17,7 @@ export function createQuestionRoutes(
   router.get('/bank-stats', questionController.bankStats);
   router.post('/papers', questionLimiter, paperController.previewPapers);
   router.post('/papers/claim', questionLimiter, paperController.claimPapers);
+  router.post('/:id/explain', questionLimiter, questionController.getTieredExplanation);
 
   return router;
 }

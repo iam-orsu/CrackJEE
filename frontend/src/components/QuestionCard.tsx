@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import type { Question, AnswerResult } from '@/types';
+import type { Question, AnswerResult, ExplanationTier } from '@/types';
+import { api } from '@/lib/api';
 import { DiagramRenderer } from './DiagramRenderer';
 
 interface Props {
@@ -88,8 +89,45 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
   const startRef  = useRef(Date.now());
   const timerRef  = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
 
+  const [activeTier, setActiveTier] = useState<ExplanationTier>('simple');
+  const [aiExplanations, setAiExplanations] = useState<Record<'better' | 'best', string | null>>({
+    better: initialResult?.betterExplanation ?? null,
+    best: initialResult?.bestExplanation ?? null,
+  });
+  const [loadingTier, setLoadingTier] = useState(false);
+  const [tierError, setTierError]   = useState<string | null>(null);
+
+  const handleSelectTier = useCallback(async (tier: ExplanationTier) => {
+    setActiveTier(tier);
+    setTierError(null);
+
+    if (tier === 'simple') return;
+    if (aiExplanations[tier]) return;
+
+    setLoadingTier(true);
+    try {
+      const data = await api.questions.explain(question.id, tier);
+      setAiExplanations((prev) => ({
+        ...prev,
+        [tier]: data.explanation,
+      }));
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Failed to generate explanation. Please try again.';
+      setTierError(msg);
+    } finally {
+      setLoadingTier(false);
+    }
+  }, [aiExplanations, question.id]);
+
   useEffect(() => {
     clearInterval(timerRef.current);
+    setActiveTier('simple');
+    setAiExplanations({
+      better: initialResult?.betterExplanation ?? null,
+      best: initialResult?.bestExplanation ?? null,
+    });
+    setLoadingTier(false);
+    setTierError(null);
 
     if (initialResult) {
       setResult(initialResult);
@@ -141,6 +179,10 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
       const timeSpent = Math.max(1, Math.floor((Date.now() - startRef.current) / 1000));
       const res = await onSubmit(answer, timeSpent);
       setResult(res);
+      setAiExplanations({
+        better: res.betterExplanation ?? null,
+        best: res.bestExplanation ?? null,
+      });
     } catch (err) {
       setSubmitError(err instanceof Error ? err.message : 'Failed to submit answer. Please try again.');
       timerRef.current = setInterval(() => {
@@ -352,17 +394,97 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
         {/* Explanation panel */}
         {result?.explanation && (
           <div className="qcard-explanation">
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--navy-600)" strokeWidth="2">
-                <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
-              </svg>
-              <span style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: 'var(--navy-600)' }}>
-                Explanation
-              </span>
+            <div className="explanation-header">
+              <div className="explanation-title-row">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--navy-600)" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+                <span style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: 'var(--navy-600)' }}>
+                  Explanation
+                </span>
+              </div>
             </div>
-            <p style={{ fontSize: 14, lineHeight: 1.75, color: 'var(--gray-700)' }}
-              dangerouslySetInnerHTML={{ __html: renderMathHtml(result.explanation ?? '') }}
-            />
+
+            {/* Segmented Tier Tabs */}
+            <div className="explanation-tabs" role="tablist" aria-label="Explanation tier selection">
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTier === 'simple'}
+                className={`explanation-tab ${activeTier === 'simple' ? 'active' : ''}`}
+                onClick={() => handleSelectTier('simple')}
+              >
+                Simple
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTier === 'better'}
+                className={`explanation-tab ${activeTier === 'better' ? 'active' : ''}`}
+                onClick={() => handleSelectTier('better')}
+                title="Detailed step-by-step first-principles derivation"
+              >
+                <span className="tab-sparkle">✨</span> Better
+                {aiExplanations.better && <span className="tab-dot" title="Saved in database" />}
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTier === 'best'}
+                className={`explanation-tab ${activeTier === 'best' ? 'active' : ''}`}
+                onClick={() => handleSelectTier('best')}
+                title="Masterclass: Concepts, shortcuts, and distractor traps"
+              >
+                <span className="tab-sparkle">🌟</span> Best
+                {aiExplanations.best && <span className="tab-dot" title="Saved in database" />}
+              </button>
+            </div>
+
+            {loadingTier ? (
+              <div className="explanation-loading-state">
+                <div className="sparkle-spinner">✨</div>
+                <strong>
+                  Generating {activeTier === 'better' ? 'Step-by-Step Breakdown' : 'Masterclass Analysis'}...
+                </strong>
+                <p>Consulting DeepSeek AI with JEE/NEET first-principles rigor.</p>
+              </div>
+            ) : tierError ? (
+              <div className="explanation-error-state">
+                <p style={{ margin: 0 }}>{tierError}</p>
+                <div className="explanation-error-actions">
+                  <button type="button" className="btn-retry" onClick={() => handleSelectTier(activeTier)}>
+                    Retry
+                  </button>
+                  <button type="button" className="btn-fallback-simple" onClick={() => handleSelectTier('simple')}>
+                    View Simple
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="explanation-content-wrap">
+                {activeTier !== 'simple' && (
+                  <div className="tier-badge-indicator">
+                    {activeTier === 'better' ? (
+                      <span className="tier-pill better">✨ Step-by-Step Walkthrough</span>
+                    ) : (
+                      <span className="tier-pill best">🌟 Masterclass Breakdown</span>
+                    )}
+                  </div>
+                )}
+                <div
+                  className="explanation-text"
+                  dangerouslySetInnerHTML={{
+                    __html: renderMathHtml(
+                      (activeTier === 'better'
+                        ? aiExplanations.better
+                        : activeTier === 'best'
+                        ? aiExplanations.best
+                        : result.explanation) ?? '',
+                    ),
+                  }}
+                />
+              </div>
+            )}
           </div>
         )}
       </div>
