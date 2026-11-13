@@ -64,7 +64,7 @@ const QTYPE_BADGE: Record<string, { label: string; bg: string; color: string }> 
   integer:   { label: 'Integer type',  bg: '#eff6ff', color: '#1e40af' },
 };
 
-import { renderMathHtml, stripOptionPrefix } from '@/lib/math';
+import { renderMathHtml, renderExplanationHtml, stripOptionPrefix } from '@/lib/math';
 
 export function QuestionCard({ question, questionNum, onSubmit, onNext, initialResult, initialSelected, isLast }: Props) {
   const qt = question.questionType ?? 'mcq_single';
@@ -474,7 +474,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
                 <div
                   className="explanation-text"
                   dangerouslySetInnerHTML={{
-                    __html: renderMathHtml(
+                    __html: renderExplanationHtml(
                       (activeTier === 'better'
                         ? aiExplanations.better
                         : activeTier === 'best'

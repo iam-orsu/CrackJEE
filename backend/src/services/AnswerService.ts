@@ -3,6 +3,7 @@ import { AttemptRepository } from '../repositories/AttemptRepository';
 import { MockExamRepository } from '../repositories/MockExamRepository';
 import { CacheService, cacheService as defaultCache } from './CacheService';
 import { GradingService, gradingService as defaultGrading } from './GradingService';
+import { CACHE_CONSTANTS } from '../config/constants';
 import { AppError } from '../utils/AppError';
 
 const SERVED_KINDS = ['practice', 'mcq_single', 'mcq_multi', 'integer'] as const;
@@ -46,13 +47,21 @@ export class AnswerService {
     const question = await this.questions.findById(questionId);
     if (!question) throw new AppError(404, 'Question not found');
 
-    if (!(await this.wasServedToUser(userId, question.id, question.subject, question.topic))) {
-      throw new AppError(403, 'This question is not part of your session. Open it from practice, a paper or a mock first.');
-    }
-
     if (await this.mocks.isQuestionInActiveMock(userId, questionId)) {
       throw new AppError(403, 'Cannot submit answers for questions in an active mock exam');
     }
+
+    if (question.mockOnly) {
+      if (!(await this.wasServedToUser(userId, question.id, question.subject, question.topic))) {
+        throw new AppError(403, 'This question is not part of your session. Open it from practice, a paper or a mock first.');
+      }
+    }
+
+    await this.cache.appendUnique(
+      `served:${userId}:${question.subject}:${question.topic}:practice`,
+      [question.id],
+      CACHE_CONSTANTS.SERVED_TTL_SECONDS,
+    );
 
     const lockKey = `answer-lock:${userId}:${questionId}`;
     if (!(await this.cache.setNx(lockKey, 10))) {

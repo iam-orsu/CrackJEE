@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { renderMath, escapeHtml, stripOptionPrefix } from './math';
+import { renderMath, renderExplanationHtml, escapeHtml, stripOptionPrefix } from './math';
 
 describe('escapeHtml', () => {
   it('escapes markup characters', () => {
@@ -33,5 +33,33 @@ describe('stripOptionPrefix', () => {
     expect(stripOptionPrefix('A) $5$ m')).toBe('$5$ m');
     expect(stripOptionPrefix('c. 10')).toBe('10');
     expect(stripOptionPrefix('no prefix')).toBe('no prefix');
+  });
+});
+
+describe('renderExplanationHtml', () => {
+  it('strips markdown asterisks and converts headers & bolding cleanly', () => {
+    const raw = '** 💡 Conceptual Insight** The coefficient of $x^3$ is a **convolution sum** over complementary degrees. ** ⚡ Speed Technique / Shortcut** Write the coefficient in one line:';
+    const html = renderExplanationHtml(raw);
+
+    // No raw ** should remain
+    expect(html).not.toContain('**');
+    // Section headers should be created
+    expect(html).toContain('explain-section-header');
+    expect(html).toContain('Conceptual Insight');
+    expect(html).toContain('Speed Technique / Shortcut');
+    // Bold words should be in strong tags
+    expect(html).toContain('<strong>convolution sum</strong>');
+    // KaTeX should be rendered for math
+    expect(html).toContain('katex');
+  });
+
+  it('preserves line breaks and escapes injected HTML', () => {
+    const raw = '**Step 1: Given**\n$v = 10\\text{ m/s}$\n<script>bad()</script>';
+    const html = renderExplanationHtml(raw);
+
+    expect(html).not.toContain('**');
+    expect(html).not.toContain('<script>');
+    expect(html).toContain('&lt;script&gt;');
+    expect(html).toContain('explain-section-header');
   });
 });

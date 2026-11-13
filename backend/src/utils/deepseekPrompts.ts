@@ -461,6 +461,8 @@ export function cleanExplanation(raw: string): string {
 export function cleanTieredExplanation(raw: string, maxLen = 3500): string {
   let s = raw.trim();
   for (const pat of REASONING_NOISE) s = s.replace(pat, '').trim();
+  // Ensure major section headings always start on their own paragraph
+  s = s.replace(/([^\n])\s*(\*\*\s*(?:💡|⚡|⚠️|Step \d|Given Data|Verification))/gi, '$1\n\n$2');
   s = s.replace(/\n{3,}/g, '\n\n').trim();
   if (s.length > maxLen) {
     const cutoff = s.lastIndexOf('.', maxLen);
@@ -496,15 +498,21 @@ export function buildTieredExplanationPrompt(params: {
   The student found the standard 1-sentence solution too brief or difficult to follow.
   Provide a clear, detailed, step-by-step first-principles derivation.
 
-  Required structure (use bold headers):
-  1. **Given Data & Core Principle**: State the given values, unknown to find, and fundamental physics/math/chemistry law or formula clearly (define every symbol).
-  2. **Step-by-Step Solution**: Walk through each algebraic manipulation, formula substitution, and intermediate calculation sequentially. DO NOT skip steps or jump straight to numbers.
-  3. **Verification**: Conclude by showing how the final calculated result directly matches ${correctLabel}.
+  Required structure:
+  **Given Data & Core Principle**
+  State the given values, unknown to find, and fundamental physics/math/chemistry law or formula clearly (define every symbol).
+
+  **Step-by-Step Solution**
+  Walk through each algebraic manipulation, formula substitution, and intermediate calculation sequentially. DO NOT skip steps or jump straight to numbers.
+
+  **Verification**
+  Conclude by showing how the final calculated result directly matches ${correctLabel}.
 
   Constraints:
   - Format all equations, symbols, numbers with units, and expressions in valid LaTeX math ($...$ or $$...$$).
+  - Separate every section with TWO blank lines (\\n\\n) so headers never run into paragraphs.
   - Clear and patient pedagogical tone.
-  - No introductory chatter or meta-commentary (no "Here is the step-by-step solution", no "Sure!"). Start immediately with "**Given Data & Core Principle**".
+  - No introductory chatter or meta-commentary. Start immediately with "**Given Data & Core Principle**".
 </task>
 
 <question subject="${params.subject}" topic="${params.topic}">
@@ -520,13 +528,19 @@ ${params.existingExplanation ? `Standard Brief Solution: ${params.existingExplan
   You are an IIT / AIIMS top-ranker exam coach writing a "Best Explanation" (Masterclass Breakdown) for an ambitious ${examContext} aspirant.
   Provide a high-leverage competitive analysis focusing on intuition, rapid exam technique, and distractor traps.
 
-  Required structure (use bold headers):
-  1. **💡 Conceptual Insight**: Explain the intuitive "why" behind this problem. What is the fundamental mechanism, conservation law, or symmetry at play?
-  2. **⚡ Speed Technique / Shortcut**: How can a top aspirant solve or eliminate options in under 60 seconds? (e.g. dimensional analysis, boundary/limiting values, graph behavior, order-of-magnitude estimation, or symmetry). If standard calculation is the only path, highlight the algebraic shortcut.
-  3. **⚠️ Common Pitfalls & Traps**: Analyze why students pick the wrong options. Specifically identify the common sign error, unit mistake, or theoretical misconception the question setter planted in the distractors.
+  Required structure:
+  **💡 Conceptual Insight**
+  Explain the intuitive "why" behind this problem. What is the fundamental mechanism, conservation law, or symmetry at play?
+
+  **⚡ Speed Technique / Shortcut**
+  How can a top aspirant solve or eliminate options in under 60 seconds? (e.g. dimensional analysis, boundary/limiting values, graph behavior, order-of-magnitude estimation, or symmetry). If standard calculation is the only path, highlight the algebraic shortcut.
+
+  **⚠️ Common Pitfalls & Traps**
+  Analyze why students pick the wrong options. Specifically identify the common sign error, unit mistake, or theoretical misconception the question setter planted in the distractors.
 
   Constraints:
   - Format all equations, symbols, numbers with units, and expressions in valid LaTeX math ($...$ or $$...$$).
+  - Separate every section with TWO blank lines (\\n\\n) so headers never run into paragraphs.
   - High-level, razor-sharp competitive coaching tone.
   - No introductory chatter or meta-commentary. Start immediately with "**💡 Conceptual Insight**".
 </task>

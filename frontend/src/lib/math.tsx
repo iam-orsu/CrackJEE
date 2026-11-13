@@ -98,6 +98,86 @@ export function renderMath(rawText: string): string {
 
 export const renderMathHtml = renderMath;
 
+function formatMarkdownInline(text: string): string {
+  const pre = preprocessLatex(text);
+  let s = escapeHtml(pre);
+
+  // Convert **bold** (including leading/trailing space or emoji like ** 💡 Conceptual Insight **)
+  s = s.replace(/\*\*\s*([\s\S]+?)\s*\*\*/g, '<strong>$1</strong>');
+
+  // Convert *italic*
+  s = s.replace(/(^|[^\*])\*([^\*\n]+)\*([^\*]|$)/g, '$1<em>$2</em>$3');
+
+  // Convert single line breaks to <br />
+  s = s.replace(/\n/g, '<br />');
+
+  return s;
+}
+
+export function renderExplanationHtml(rawText: string): string {
+  if (!rawText) return '';
+
+  // 1. Separate math spans and replace with tokens so markdown formatting doesn't alter math
+  const mathTokens: string[] = [];
+  const pattern = /(\$\$[\s\S]+?\$\$|\$[^$\n]+?\$|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\))/g;
+
+  let textWithTokens = rawText.replace(pattern, (match) => {
+    let display = false;
+    let content = match;
+    if (match.startsWith('$$'))       { display = true;  content = match.slice(2, -2); }
+    else if (match.startsWith('$'))                     { content = match.slice(1, -1); }
+    else if (match.startsWith('\\[')) { display = true;  content = match.slice(2, -2); }
+    else if (match.startsWith('\\('))                   { content = match.slice(2, -2); }
+
+    let rendered = '';
+    try {
+      rendered = katex.renderToString(content.trim(), { displayMode: display, throwOnError: false, trust: false });
+    } catch {
+      rendered = escapeHtml(match);
+    }
+    const token = `@@MATH_TOKEN_${mathTokens.length}@@`;
+    mathTokens.push(rendered);
+    return token;
+  });
+
+  // 2. Ensure section headers always split into their own paragraph if running into previous text
+  textWithTokens = textWithTokens.replace(
+    /([^\n])\s*(\*\*\s*(?:💡|⚡|⚠️|Step \d|Given Data|Verification)[^*]*\*\*)/gi,
+    '$1\n\n$2\n',
+  );
+
+  // 3. Split into paragraphs
+  const paragraphs = textWithTokens
+    .split(/\n{2,}/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+
+  const htmlParagraphs = paragraphs.map((para) => {
+    const sectionMatch = para.match(/^\*\*\s*(💡|⚡|⚠️|Step \d|Given Data|Verification)([\s\S]*?)\*\*\s*([\s\S]*)$/i);
+    if (sectionMatch) {
+      const icon = sectionMatch[1] ?? '';
+      const title = sectionMatch[2] ?? '';
+      const rest = sectionMatch[3]?.trim();
+      const headerHtml = `<div class="explain-section-header"><span class="header-icon">${escapeHtml(icon)}</span> <strong>${escapeHtml(title.trim())}</strong></div>`;
+      if (!rest) return headerHtml;
+      const restHtml = formatMarkdownInline(rest);
+      return `${headerHtml}<p class="explain-para">${restHtml}</p>`;
+    }
+
+    const formatted = formatMarkdownInline(para);
+    return `<p class="explain-para">${formatted}</p>`;
+  });
+
+  let fullHtml = htmlParagraphs.join('');
+
+  // 4. Restore math tokens
+  for (let i = 0; i < mathTokens.length; i++) {
+    fullHtml = fullHtml.replace(`@@MATH_TOKEN_${i}@@`, () => mathTokens[i]!);
+  }
+
+  return fullHtml;
+}
+
 export function MathText({
   text,
   className,

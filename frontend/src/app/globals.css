@@ -534,6 +534,48 @@ img, svg { display: block; }
   cursor: pointer;
 }
 
+/* ── Explanation Typography & Section Headers ─────────── */
+.explain-section-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  border-left: 3px solid #3b82f6;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #0f172a;
+  margin-top: 14px;
+  margin-bottom: 8px;
+}
+.explain-section-header:first-child {
+  margin-top: 0;
+}
+.explain-section-header .header-icon {
+  font-size: 14px;
+}
+.explain-section-header strong {
+  font-weight: 700;
+  color: #0f172a;
+}
+.explain-para {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #334155;
+  margin-bottom: 12px;
+}
+.explain-para:last-child {
+  margin-bottom: 0;
+}
+.explain-para strong {
+  font-weight: 700;
+  color: #0f172a;
+}
+.explain-para em {
+  font-style: italic;
+  color: #1e293b;
+}
+
 @media (max-width: 900px) {
   .qcard-body-split  { flex-direction: column; }
   .qcard-explanation { width: 100%; border-left: none; border-top: 1px solid var(--navy-100); }
