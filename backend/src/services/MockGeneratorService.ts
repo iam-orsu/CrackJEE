@@ -1,11 +1,8 @@
 import { createHash } from 'crypto';
-import { Prisma, type Question } from '@prisma/client';
-import { prisma } from '../config/database';
+import type { Question } from '@prisma/client';
 import { MOCK_CONSTANTS } from '../config/constants';
 import { MockExamRepository, type MockPoolItem } from '../repositories/MockExamRepository';
 import { QuestionRepository } from '../repositories/QuestionRepository';
-import { BaseMockPaperRepository, type BaseMockPaperRecord } from '../repositories/BaseMockPaperRepository';
-import { TopicRepository, type TopicRecord } from '../repositories/TopicRepository';
 import { QuestionService } from './QuestionService';
 import { DeepSeekService, deepSeekService as defaultDeepSeek } from './DeepSeekService';
 import { MockDataService, type SubjectHistory } from './MockDataService';
@@ -35,8 +32,6 @@ export class MockGeneratorService {
     private readonly questionService: QuestionService = new QuestionService(),
     private readonly mockData: MockDataService = new MockDataService(),
     private readonly deepSeek: DeepSeekService = defaultDeepSeek,
-    private readonly basePaperRepo: BaseMockPaperRepository = new BaseMockPaperRepository(),
-    private readonly topicRepo: TopicRepository = new TopicRepository(),
   ) {}
 
   public trackGeneration(promise: Promise<void>): void {
@@ -167,27 +162,17 @@ export class MockGeneratorService {
     const bankById = new Map(bank.map((q) => [q.id, q]));
     const fromBank: PaperQuestion[] = picks.flatMap((id) => (id ? [bankById.get(id)!] : []));
     let missingSlots = slots.filter((_, i) => picks[i] === null);
-    logger.info({ fromBank: fromBank.length, generate: missingSlots.length }, '[mockPool] Paper slots filled from the bank');
-
-    let practiceBackfill: PaperQuestion[] = [];
-    if (missingSlots.length > 0 && !this.deepSeek.isAvailable()) {
-      const usedIds = new Set([...seen, ...fromBank.map((q) => q.id)]);
-      const slotPicks = await this.questionService.fillMockSlotsFromPracticeBank(missingSlots, usedIds);
-      practiceBackfill = slotPicks.flatMap((q) => (q ? [{
-        id: q.id,
-        subject: q.subject,
-        topic: q.topic,
-        questionType: q.questionType,
-      }] : []));
-      missingSlots = missingSlots.filter((_, i) => slotPicks[i] === null);
-      logger.info({ fromPracticeBank: practiceBackfill.length, stillMissing: missingSlots.length }, '[mockPool] Practice bank fallback filled slots');
-    }
+    logger.info({ fromBank: fromBank.length, generate: missingSlots.length }, '[mockPool] Mock-only paper slots filled from bank');
 
     const canGenerateWithAi = this.deepSeek.isAvailable();
+    if (missingSlots.length > 0 && !canGenerateWithAi) {
+      throw new Error(`Cannot generate mock paper: DeepSeek AI is required for mock questions. Practice bank questions (mockOnly=false) are strictly isolated and never used in mocks.`);
+    }
+
     const generated: PaperQuestion[] = missingSlots.length > 0 && canGenerateWithAi
       ? await this.questionService.generateFreshMockBatch(missingSlots, 4)
       : [];
-    let questions: PaperQuestion[] = [...fromBank, ...practiceBackfill, ...generated];
+    let questions: PaperQuestion[] = [...fromBank, ...generated];
 
     const expected = this.expectedPerSubject(examType);
     if (canGenerateWithAi) {
@@ -206,44 +191,17 @@ export class MockGeneratorService {
         }
         if (topUpSlots.length === 0) break;
 
-        logger.info({ round: round + 1, slots: topUpSlots.length }, '[mockPool] Top-up: generating replacements for short subjects');
+        logger.info({ round: round + 1, slots: topUpSlots.length }, '[mockPool] Top-up: generating replacements via DeepSeek');
         const extras = await this.questionService.generateFreshMockBatch(topUpSlots, 4);
         questions = [...questions, ...extras];
       }
     }
 
     const subjectsNeeded: string[] = examType === 'NEET' ? [...NEET_SUBJECTS] : ['Physics', 'Chemistry', 'Mathematics'];
-    const shortSubjects = subjectsNeeded.filter(
-      (subject) => questions.filter((q) => q.subject === subject).length < expected,
-    );
-    if (shortSubjects.length > 0) {
-      const deficitSlots: SlotInput[] = [];
-      for (const subject of shortSubjects) {
-        const have = questions.filter((q) => q.subject === subject).length;
-        const needed = expected - have;
-        const subjectSlots = slots.filter((s) => s.subject === subject);
-        for (let i = 0; i < needed && i < subjectSlots.length; i++) {
-          deficitSlots.push(subjectSlots[i]!);
-        }
-      }
-      if (deficitSlots.length > 0) {
-        const usedIds = new Set([...seen, ...questions.map((q) => q.id)]);
-        const fallbackPicks = await this.questionService.fillMockSlotsFromPracticeBank(deficitSlots, usedIds);
-        const fallbackQs: PaperQuestion[] = fallbackPicks.flatMap((q) => (q ? [{
-          id: q.id,
-          subject: q.subject,
-          topic: q.topic,
-          questionType: q.questionType,
-        }] : []));
-        questions = [...questions, ...fallbackQs];
-        logger.info({ filled: fallbackQs.length }, '[mockPool] Post-AI practice bank fallback filled remaining slots');
-      }
-    }
-
     for (const subject of subjectsNeeded) {
       const count = questions.filter((q) => q.subject === subject).length;
       if (count < expected) {
-        throw new Error(`Paper incomplete: ${subject} has ${count} of ${expected} questions`);
+        throw new Error(`Paper incomplete: ${subject} has ${count} of ${expected} mock-only questions. DeepSeek generation required.`);
       }
     }
 
@@ -318,169 +276,11 @@ export class MockGeneratorService {
     difficultyMode: 'easy' | 'medium' | 'hard',
   ): Promise<void> {
     try {
-      // 1. Check for Base Mock Paper (90/10 Hybrid Generator)
-      const paperNumber = await this.basePaperRepo.getNextBasePaperNumber(userId, examType);
-      const basePaper = await this.basePaperRepo.findBasePaper(examType, paperNumber);
-
-      if (basePaper && basePaper.questionIds.length > 0) {
-        logger.info({ examId, examType, paperNumber }, '[mockHybrid] Generating exam from Base Paper');
-        await this.generateHybridExamFromBasePaper(examId, userId, examType, basePaper);
-        return;
-      }
-
-      // 2. Fallback to dynamic rotation pool if no base paper exists
       await this.runDynamicMockGeneration(examId, userId, examType, difficultyMode);
     } catch (err) {
       logger.warn({ examId, err: err instanceof Error ? err.message : String(err) }, '[mockPool] Paper generation failed');
       await this.mockRepo.markError(examId).catch(() => {});
     }
-  }
-
-  private async generateAndSaveWeakQuestions(
-    topic: TopicRecord,
-    count: number,
-    examType: 'Main' | 'Advanced' | 'NEET',
-  ): Promise<Question[]> {
-    const questions = await this.deepSeek.generateQuestionBatch(
-      count,
-      topic.subject as Subject,
-      topic.name,
-      'intermediate',
-      examType === 'NEET' ? 'NEET' : examType,
-      topic.classLevel === '11' ? '11' : '12',
-      'mcq_single',
-    );
-
-    const saved: Question[] = [];
-    for (const q of questions) {
-      const created = await prisma.question.create({
-        data: {
-          topicId: topic.id,
-          topic: topic.name,
-          subject: topic.subject,
-          questionText: q.question,
-          options: q.options,
-          answer: q.correct_answer,
-          explanation: q.answer_explanation,
-          diagram: q.diagram ? (q.diagram as unknown as Prisma.InputJsonValue) : Prisma.JsonNull,
-          difficulty: 'intermediate',
-          examType: examType === 'NEET' ? 'NEET' : 'Main',
-          questionType: 'mcq_single',
-          validatedAt: new Date(),
-          mockOnly: true,
-        },
-      });
-      saved.push(created);
-    }
-    return saved;
-  }
-
-  private async generateHybridExamFromBasePaper(
-    examId: string,
-    userId: string,
-    examType: 'Main' | 'Advanced' | 'NEET',
-    basePaper: BaseMockPaperRecord,
-  ): Promise<void> {
-    const rawQuestions = await this.questionRepo.findManyByIds(basePaper.questionIds);
-    const qMap = new Map(rawQuestions.map((q) => [q.id, q]));
-    const baseOrdered = basePaper.questionIds.map((id) => qMap.get(id)).filter((q): q is Question => !!q);
-
-    // Identify student's weak topic
-    const topWeak = await this.topicRepo.getTopWeakTopicForStudent(userId);
-    let weakInjectedQuestions: Question[] = [];
-
-    if (topWeak) {
-      const seen = await this.mockData.loadSeenQuestionIds(userId, examType);
-      weakInjectedQuestions = await this.questionRepo.findUnseenByTopicId(topWeak.topicId, seen, 5);
-
-      if (weakInjectedQuestions.length < 5 && this.deepSeek.isAvailable()) {
-        const needed = 5 - weakInjectedQuestions.length;
-        const lockKey = `lock:topic:gen:${topWeak.topicId}`;
-        const generated = await runOnce<Question[]>(lockKey, {
-          lockSeconds: 30,
-          waitMs: 15000,
-          readShared: async () => {
-            const fresh = await this.questionRepo.findUnseenByTopicId(topWeak.topicId, seen, 5);
-            return fresh.length >= 5 ? fresh.slice(0, 5) : null;
-          },
-          produce: async () => {
-            return this.generateAndSaveWeakQuestions(topWeak.topic, needed, examType);
-          },
-        }).catch(() => []);
-        if (generated && generated.length > 0) {
-          weakInjectedQuestions = [...weakInjectedQuestions, ...generated].slice(0, 5);
-        }
-      }
-    }
-
-    const weakSubject = topWeak?.topic.subject;
-    const subjects: Subject[] = examType === 'NEET' ? [...NEET_SUBJECTS] : ['Physics', 'Chemistry', 'Mathematics'];
-    const questionsBySubject = new Map<string, Array<{ question: Question; sourceType: string }>>();
-    for (const s of subjects) questionsBySubject.set(s, []);
-
-    for (const q of baseOrdered) {
-      questionsBySubject.get(q.subject)?.push({ question: q, sourceType: 'BASE' });
-    }
-
-    // Inject weak questions into the corresponding subject
-    if (weakSubject && weakInjectedQuestions.length > 0 && questionsBySubject.has(weakSubject)) {
-      const subjectList = questionsBySubject.get(weakSubject)!;
-      const countToReplace = Math.min(weakInjectedQuestions.length, subjectList.length);
-      const replacedIndices = new Set<number>();
-
-      // Prefer replacing mcq_single
-      for (let i = subjectList.length - 1; i >= 0 && replacedIndices.size < countToReplace; i--) {
-        if (subjectList[i]!.question.questionType === 'mcq_single') {
-          replacedIndices.add(i);
-        }
-      }
-      // If needed, replace from the end
-      for (let i = subjectList.length - 1; i >= 0 && replacedIndices.size < countToReplace; i--) {
-        replacedIndices.add(i);
-      }
-
-      let replaceCursor = 0;
-      for (const idx of replacedIndices) {
-        if (replaceCursor < weakInjectedQuestions.length) {
-          subjectList[idx] = {
-            question: weakInjectedQuestions[replaceCursor++]!,
-            sourceType: 'WEAK_INJECTION',
-          };
-        }
-      }
-    }
-
-    // Assemble questionData with Fisher-Yates shuffle per subject for anti-cheating
-    const questionData: Array<{
-      examId: string;
-      questionId: string;
-      subject: string;
-      questionNumber: number;
-      subjectIndex: number;
-      sourceType: string;
-    }> = [];
-
-    let gNum = 1;
-    for (const subj of subjects) {
-      const subjItems = fisherYatesShuffle(questionsBySubject.get(subj) ?? []);
-      let subjIdx = 0;
-      for (const item of subjItems) {
-        questionData.push({
-          examId,
-          questionId: item.question.id,
-          subject: subj,
-          questionNumber: gNum++,
-          subjectIndex: subjIdx++,
-          sourceType: item.sourceType,
-        });
-      }
-    }
-
-    await this.mockRepo.assignQuestionsAndMarkReady(examId, questionData, basePaper.paperNumber);
-    logger.info(
-      { examId, paperNumber: basePaper.paperNumber, total: questionData.length, weakInjected: weakInjectedQuestions.length },
-      '[mockHybrid] Exam assembled and marked ready',
-    );
   }
 
   private async runDynamicMockGeneration(

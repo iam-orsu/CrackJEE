@@ -1,7 +1,6 @@
 import test, { after } from 'node:test';
 import assert from 'node:assert/strict';
 import { TopicRepository } from '../repositories/TopicRepository';
-import { BaseMockPaperRepository } from '../repositories/BaseMockPaperRepository';
 import { fisherYatesShuffle } from '../utils/questionUtils';
 import { cacheService } from '../services/CacheService';
 

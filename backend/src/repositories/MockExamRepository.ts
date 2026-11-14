@@ -80,20 +80,18 @@ export class MockExamRepository {
       subjectIndex: number;
       sourceType?: string;
     }>,
-    basePaperNumber?: number,
   ): Promise<void> {
     await this.prisma.$transaction([
       this.prisma.mockExamQuestion.createMany({
         data: questionData.map((q) => ({
           ...q,
-          sourceType: q.sourceType ?? 'BASE',
+          sourceType: q.sourceType ?? 'SWARM',
         })),
       }),
       this.prisma.mockExam.update({
         where: { id: examId },
         data: {
           status: 'ready',
-          ...(basePaperNumber !== undefined ? { basePaperNumber } : {}),
         },
       }),
     ]);

@@ -95,7 +95,6 @@ model MockExam {
   difficultyMode  String    @default("medium") // easy | medium | hard
   status          String    @default("generating") // generating | ready | in_progress | submitted | error
   durationSeconds Int
-  basePaperNumber Int?
   startedAt       DateTime?
   submittedAt     DateTime?
   createdAt       DateTime  @default(now())
@@ -141,22 +140,6 @@ model MockPaper {
   @@index([examType, difficultyMode, planKey])
 }
 
-// Canonical progressive base mock paper (e.g. Paper #1, Paper #2, etc.)
-// 70 questions for JEE Main (+ 5 weak injected per student = 75)
-// 46 questions for JEE Advanced (+ 5 weak injected per student = 51)
-// 175 questions for NEET (+ 5 weak injected per student = 180)
-model BaseMockPaper {
-  id             String   @id @default(cuid())
-  paperNumber    Int
-  examType       String   // 'Main' | 'Advanced' | 'NEET'
-  title          String
-  totalQuestions Int
-  questionIds    Json     // Array of Question IDs in canonical order
-  createdAt      DateTime @default(now())
-
-  @@unique([examType, paperNumber])
-  @@index([examType])
-}
 
 model StudentTopicMastery {
   id              String   @id @default(cuid())
