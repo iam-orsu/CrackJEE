@@ -499,9 +499,6 @@ export function FacultyPaperPreview({
   }, [paper.id]);
 
   const isGenerating = paper.status === 'generating';
-  const progressPct = paper.questionCount > 0
-    ? Math.min(100, Math.round((paper.items.length / paper.questionCount) * 100))
-    : 0;
 
   const firstSel = paper.selections[0];
   const defaultSubject = firstSel?.subject ?? (Object.keys(topicsBySubject)[0] as FacultyPaperItem['subject'] | undefined) ?? 'Physics';
@@ -532,9 +529,8 @@ export function FacultyPaperPreview({
             <h2 className={styles.title} style={{ fontSize: 18 }}>{paper.title}</h2>
           </div>
           <p className={styles.sub} style={{ marginTop: 4 }}>
-            {paper.examType === 'NEET' ? 'NEET-UG' : `JEE ${paper.examType}`} · {paper.difficulty} ·{' '}
-            {paper.questionCount} Questions
-            {!isGenerating && ` · ${paper.verifiedCount}/${paper.items.length} Verified`}
+            {paper.examType === 'NEET' ? 'NEET-UG' : `JEE ${paper.examType}`} · {paper.difficulty}
+            {!isGenerating && ` · ${paper.questionCount} Questions · ${paper.verifiedCount}/${paper.items.length} Verified`}
           </p>
           {paper.status === 'ready' && (
             <div className={styles.pdfBar}>
@@ -577,16 +573,10 @@ export function FacultyPaperPreview({
       </div>
 
       {isGenerating && (
-        <div className={styles.statusBanner} style={{ padding: '24px 20px', textAlign: 'center' }}>
-          <div style={{ fontSize: 16, fontWeight: 600, color: '#0f766e', marginBottom: 8 }}>
-            Generating questions ({paper.items.length} / {paper.questionCount} completed)…
-          </div>
-          <p style={{ fontSize: 13, color: '#64748b', marginBottom: 16 }}>
-            Questions will be displayed once all {paper.questionCount} questions are fully generated and verified.
-          </p>
-          <div className={styles.progressBarTrack} style={{ height: 10, maxWidth: 500, margin: '0 auto' }}>
-            <div className={styles.progressBarFill} style={{ width: `${progressPct}%` }} />
-          </div>
+        <div className={styles.loadingWrap}>
+          <div className={styles.loadingSpinner} />
+          <div className={styles.loadingTitle}>Generating questions…</div>
+          <p className={styles.loadingSub}>Please wait while your verified questions are prepared.</p>
         </div>
       )}
 
