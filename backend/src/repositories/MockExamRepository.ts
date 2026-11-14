@@ -85,7 +85,7 @@ export class MockExamRepository {
       this.prisma.mockExamQuestion.createMany({
         data: questionData.map((q) => ({
           ...q,
-          sourceType: q.sourceType ?? 'SWARM',
+          sourceType: q.sourceType ?? 'BASE',
         })),
       }),
       this.prisma.mockExam.update({

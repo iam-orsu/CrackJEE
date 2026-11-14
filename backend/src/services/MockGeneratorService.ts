@@ -2,6 +2,7 @@ import type { Question } from '@prisma/client';
 import { MOCK_CONSTANTS } from '../config/constants';
 import { MockExamRepository, type MockPoolItem } from '../repositories/MockExamRepository';
 import { QuestionRepository } from '../repositories/QuestionRepository';
+import { TopicRepository } from '../repositories/TopicRepository';
 import { QuestionService } from './QuestionService';
 import { DeepSeekService, deepSeekService as defaultDeepSeek } from './DeepSeekService';
 import { MockDataService } from './MockDataService';
@@ -31,6 +32,7 @@ export class MockGeneratorService {
     private readonly questionService: QuestionService = new QuestionService(),
     private readonly mockData: MockDataService = new MockDataService(),
     private readonly deepSeek: DeepSeekService = defaultDeepSeek,
+    private readonly topicRepo: TopicRepository = new TopicRepository(),
   ) {}
 
   public trackGeneration(promise: Promise<void>): void {
@@ -214,15 +216,115 @@ export class MockGeneratorService {
     }));
   }
 
+  private async getOrGenerateWeakQuestions(
+    userId: string,
+    examType: 'Main' | 'Advanced' | 'NEET',
+    subject: Subject,
+    topic: string,
+    topicId: string,
+    count = 5,
+  ): Promise<MockPoolItem[]> {
+    const questionType: QuestionType = 'mcq_single';
+    const seen = await this.mockData.loadSeenQuestionIds(userId, examType);
+    const existing = await this.questionRepo.findMockBankSlots(examType, [
+      { subject, topic, difficulty: 'intermediate', questionType },
+      { subject, topic, difficulty: 'beginner', questionType },
+      { subject, topic, difficulty: 'advanced', questionType },
+    ]);
+    const available = existing.filter((q) => !seen.has(q.id));
+
+    if (available.length >= count) {
+      return available.slice(0, count).map((q) => ({
+        questionId: q.id,
+        subject: q.subject as Subject,
+        questionType: q.questionType,
+        topic: q.topic,
+      }));
+    }
+
+    const needed = count - available.length;
+    const lockKey = `topic:mockgen:${examType}:${topicId}`;
+
+    const generated = await runOnce<Question[]>(lockKey, {
+      lockSeconds: 30,
+      waitMs: 15_000,
+      readShared: async () => {
+        const fresh = await this.questionRepo.findMockBankSlots(examType, [
+          { subject, topic, difficulty: 'intermediate', questionType },
+          { subject, topic, difficulty: 'beginner', questionType },
+          { subject, topic, difficulty: 'advanced', questionType },
+        ]);
+        const unread = fresh.filter((q) => !seen.has(q.id));
+        return unread.length >= count ? (unread as unknown as Question[]) : null;
+      },
+      produce: async () => {
+        const slots = Array.from({ length: needed }, () => ({
+          subject,
+          topic,
+          difficulty: 'intermediate' as Difficulty,
+          examType,
+          questionType,
+        }));
+        if (!this.deepSeek.isAvailable()) {
+          return [];
+        }
+        return this.questionService.generateFreshMockBatch(slots, 2);
+      },
+    });
+
+    const combined: MockPoolItem[] = [
+      ...available.map((q) => ({
+        questionId: q.id,
+        subject: q.subject as Subject,
+        questionType: q.questionType,
+        topic: q.topic,
+      })),
+      ...generated.map((q) => ({
+        questionId: q.id,
+        subject: q.subject as Subject,
+        questionType: q.questionType,
+        topic: q.topic,
+      })),
+    ];
+
+    return combined.slice(0, count);
+  }
+
   private async assignExamQuestions(
     examId: string,
     examType: 'Main' | 'Advanced' | 'NEET',
     items: MockPoolItem[],
+    weakItems: MockPoolItem[] = [],
   ): Promise<void> {
     const subjects: Subject[] = examType === 'NEET' ? [...NEET_SUBJECTS] : ['Physics', 'Chemistry', 'Mathematics'];
-    const bySubject = new Map<string, MockPoolItem[]>();
+    const bySubject = new Map<string, Array<{ item: MockPoolItem; sourceType: 'BASE' | 'WEAK_INJECTION' }>>();
     for (const s of subjects) bySubject.set(s, []);
-    for (const item of items) bySubject.get(item.subject)?.push(item);
+
+    for (const item of items) {
+      bySubject.get(item.subject)?.push({ item, sourceType: 'BASE' });
+    }
+
+    if (weakItems.length > 0) {
+      const weakSubject = weakItems[0]!.subject;
+      const list = bySubject.get(weakSubject);
+      if (list && list.length >= weakItems.length) {
+        const replaceIndices: number[] = [];
+        for (let i = list.length - 1; i >= 0 && replaceIndices.length < weakItems.length; i--) {
+          if (list[i]!.item.questionType === 'mcq_single') {
+            replaceIndices.push(i);
+          }
+        }
+        for (let i = list.length - 1; i >= 0 && replaceIndices.length < weakItems.length; i--) {
+          if (!replaceIndices.includes(i)) {
+            replaceIndices.push(i);
+          }
+        }
+        for (let k = 0; k < replaceIndices.length && k < weakItems.length; k++) {
+          const idx = replaceIndices[k]!;
+          list[idx] = { item: weakItems[k]!, sourceType: 'WEAK_INJECTION' };
+        }
+      }
+    }
 
     const questionData: Array<{
       examId: string;
@@ -230,19 +332,21 @@ export class MockGeneratorService {
       subject: string;
       questionNumber: number;
       subjectIndex: number;
+      sourceType: 'BASE' | 'WEAK_INJECTION';
     }> = [];
     let gNum = 1;
 
     for (const subj of subjects) {
       const subjItems = fisherYatesShuffle(bySubject.get(subj) ?? []);
       let subjIdx = 0;
-      for (const item of subjItems) {
+      for (const entry of subjItems) {
         questionData.push({
           examId,
-          questionId: item.questionId,
+          questionId: entry.item.questionId,
           subject: subj,
           questionNumber: gNum++,
           subjectIndex: subjIdx++,
+          sourceType: entry.sourceType,
         });
       }
     }
@@ -341,7 +445,45 @@ export class MockGeneratorService {
       return;
     }
 
-    await this.assignExamQuestions(examId, examType, poolItems);
+    // 90/10 Hybrid: If student has completed previous mocks, inject 5 questions on their weakest topic
+    let weakItems: MockPoolItem[] = [];
+    if (completedMocks > 0) {
+      try {
+        const subjects: Subject[] = examType === 'NEET' ? [...NEET_SUBJECTS] : ['Physics', 'Chemistry', 'Mathematics'];
+        let topWeak = await this.topicRepo.getTopWeakTopicForStudent(userId);
+        if (topWeak?.topic && !subjects.includes(topWeak.topic.subject as Subject)) {
+          for (const s of subjects) {
+            topWeak = await this.topicRepo.getTopWeakTopicForStudent(userId, s);
+            if (topWeak) break;
+          }
+        }
+
+        if (topWeak?.topic && subjects.includes(topWeak.topic.subject as Subject)) {
+          const weakSubject = topWeak.topic.subject as Subject;
+          weakItems = await this.getOrGenerateWeakQuestions(
+            userId,
+            examType,
+            weakSubject,
+            topWeak.topic.name,
+            topWeak.topic.id,
+            5,
+          );
+          if (weakItems.length > 0) {
+            logger.info(
+              { examId, userId, topic: topWeak.topic.name, count: weakItems.length },
+              '[mockPool] Injected targeted weak-topic questions into mock exam',
+            );
+          }
+        }
+      } catch (weakErr) {
+        logger.warn(
+          { examId, err: weakErr instanceof Error ? weakErr.message : String(weakErr) },
+          '[mockPool] Weak topic injection skipped; exam proceeds with base paper',
+        );
+      }
+    }
+
+    await this.assignExamQuestions(examId, examType, poolItems, weakItems);
   }
 
   public async getOrGenerateQuestionExplanation(q: {
