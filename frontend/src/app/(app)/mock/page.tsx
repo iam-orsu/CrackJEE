@@ -225,7 +225,7 @@ export default function MockPage() {
   // The exam the student has open right now, if any. A new paper can only start once it is terminated or finished.
   const activeExam = history.find((h) => ['generating', 'ready', 'in_progress'].includes(h.status));
 
-  async function startPaper(examType: ExamType, difficultyMode: DifficultyMode) {
+  async function startPaper(examType: ExamType, difficultyMode: DifficultyMode, paperNumber?: number) {
     if (starting) return;
     if (activeExam) {
       setError('Terminate your exam in progress before starting a new paper.');
@@ -236,7 +236,7 @@ export default function MockPage() {
     setStarting(true);
     setError('');
     try {
-      const { id } = await api.mock.start({ examType, difficultyMode });
+      const { id } = await api.mock.start({ examType, difficultyMode, paperNumber });
       router.push(`/mock/${id}`);
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Failed to start exam');
@@ -430,7 +430,7 @@ export default function MockPage() {
                           type="button"
                           className="mk-btn-red mk-start"
                           disabled={starting}
-                          onClick={() => startPaper(selected, p.difficulty)}
+                          onClick={() => startPaper(selected, p.difficulty, p.number)}
                         >
                           Start paper →
                         </button>

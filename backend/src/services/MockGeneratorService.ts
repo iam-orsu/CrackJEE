@@ -1,13 +1,12 @@
-import { createHash } from 'crypto';
 import type { Question } from '@prisma/client';
 import { MOCK_CONSTANTS } from '../config/constants';
 import { MockExamRepository, type MockPoolItem } from '../repositories/MockExamRepository';
 import { QuestionRepository } from '../repositories/QuestionRepository';
 import { QuestionService } from './QuestionService';
 import { DeepSeekService, deepSeekService as defaultDeepSeek } from './DeepSeekService';
-import { MockDataService, type SubjectHistory } from './MockDataService';
+import { MockDataService } from './MockDataService';
 import { fillSlotsFromBank, slotKey, type SlotKey } from './mockBankFill';
-import { planSubjectTopics, fullTopicList, paperFitsPlan } from './mockTopicPlan';
+import { fullTopicList } from './mockTopicPlan';
 import { fisherYatesShuffle } from '../utils/questionUtils';
 import { runOnce } from '../utils/distributedOnce';
 import { logger } from '../utils/logger';
@@ -251,22 +250,29 @@ export class MockGeneratorService {
     await this.mockRepo.assignQuestionsAndMarkReady(examId, questionData);
   }
 
-  private planMockTopics(
+  private buildLadderTopicPlan(
     examType: 'Main' | 'Advanced' | 'NEET',
-    history: Record<string, SubjectHistory>,
-  ) {
-    const subjects: string[] = examType === 'NEET' ? [...NEET_SUBJECTS] : ['Physics', 'Chemistry', 'Mathematics'];
+    paperNumber: number,
+  ): Record<string, string[]> {
+    const subjects: Subject[] = examType === 'NEET' ? [...NEET_SUBJECTS] : ['Physics', 'Chemistry', 'Mathematics'];
     const count = this.expectedPerSubject(examType);
     const topicsBySubject: Record<string, string[]> = {};
-    const fit: Record<string, { planned: Set<string> }> = {};
 
     for (const subject of subjects) {
-      const past = history[subject] ?? { covered: new Set<string>(), weakTopic: null };
-      const subjectPlan = planSubjectTopics(fullTopicList(examType, subject), past.covered, past.weakTopic, count);
-      topicsBySubject[subject] = subjectPlan.questionTopics;
-      fit[subject] = { planned: new Set(subjectPlan.questionTopics) };
+      const topicList = fullTopicList(examType, subject);
+      if (topicList.length === 0) {
+        topicsBySubject[subject] = [];
+        continue;
+      }
+      const offset = ((paperNumber - 1) * 10) % topicList.length;
+      const rotated = [...topicList.slice(offset), ...topicList.slice(0, offset)];
+      const questionTopics: string[] = [];
+      for (let i = 0; i < count; i++) {
+        questionTopics.push(rotated[i % rotated.length]!);
+      }
+      topicsBySubject[subject] = questionTopics;
     }
-    return { topicsBySubject, fit };
+    return topicsBySubject;
   }
 
   public async runMockGeneration(
@@ -274,9 +280,10 @@ export class MockGeneratorService {
     userId: string,
     examType: 'Main' | 'Advanced' | 'NEET',
     difficultyMode: 'easy' | 'medium' | 'hard',
+    paperNumber?: number,
   ): Promise<void> {
     try {
-      await this.runDynamicMockGeneration(examId, userId, examType, difficultyMode);
+      await this.runDynamicMockGeneration(examId, userId, examType, difficultyMode, paperNumber);
     } catch (err) {
       logger.warn({ examId, err: err instanceof Error ? err.message : String(err) }, '[mockPool] Paper generation failed');
       await this.mockRepo.markError(examId).catch(() => {});
@@ -288,37 +295,34 @@ export class MockGeneratorService {
     userId: string,
     examType: 'Main' | 'Advanced' | 'NEET',
     difficultyMode: 'easy' | 'medium' | 'hard',
+    paperNumber?: number,
   ): Promise<void> {
-    const history = await this.mockData.loadTopicHistory(userId, examType);
-    const seen = await this.mockData.loadSeenQuestionIds(userId, examType);
-    const plan = this.planMockTopics(examType, history);
+    const completedMocks = await this.mockRepo.countSubmittedForUser(userId, examType);
+    const resolvedPaperNumber = paperNumber ?? ((completedMocks % 50) + 1);
+    const planKey = `ladder:paper:${resolvedPaperNumber}`;
+    const topicsBySubject = this.buildLadderTopicPlan(examType, resolvedPaperNumber);
     const expectedTotal = (examType === 'NEET' ? NEET_SUBJECTS.length : 3) * this.expectedPerSubject(examType);
-    const planKey = createHash('sha256')
-      .update(JSON.stringify(plan.topicsBySubject))
-      .digest('hex')
-      .slice(0, 16);
 
     const reuse = () =>
       this.mockData.findStoredPaper(
         examType,
-        difficultyMode,
         planKey,
-        (items) => items.length === expectedTotal && paperFitsPlan(items, plan.fit),
+        (items) => items.length === expectedTotal,
       );
 
     let poolItems = await reuse();
     if (poolItems) {
-      logger.info({ examId, examType, difficultyMode, planKey }, '[mockPool] Reused stored paper (fast path)');
+      logger.info({ examId, examType, paperNumber: resolvedPaperNumber, planKey }, '[mockPool] Reused shared global ladder paper');
     } else {
-      logger.info({ examId, examType, difficultyMode, planKey }, '[mockPool] No stored paper found; generating fresh');
-      poolItems = await runOnce<MockPoolItem[]>(`mockpaper:gen:${examType}:${difficultyMode}:${planKey}`, {
+      logger.info({ examId, examType, paperNumber: resolvedPaperNumber, planKey }, '[mockPool] Generating fresh shared global ladder paper');
+      poolItems = await runOnce<MockPoolItem[]>(`mockpaper:gen:${examType}:${planKey}`, {
         lockSeconds: MOCK_CONSTANTS.LOCK_SECONDS,
         waitMs: MOCK_CONSTANTS.LOCK_WAIT_MS,
         readShared: reuse,
         produce: async () => {
           const stored = await reuse();
           if (stored) return stored;
-          const fresh = await this.generateFreshPaper(examType, difficultyMode, plan.topicsBySubject, seen);
+          const fresh = await this.generateFreshPaper(examType, difficultyMode, topicsBySubject, new Set());
           try {
             await this.mockData.saveStoredPaper(examType, difficultyMode, fresh, planKey);
           } catch (saveErr) {

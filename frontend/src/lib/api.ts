@@ -188,7 +188,7 @@ export const api = {
     insights: (id: string) => request<import('@/types').ExamInsights>(`/mock/${id}/insights`),
     explanation: (id: string, mockQuestionId: string) =>
       request<{ explanation: string }>(`/mock/${id}/questions/${mockQuestionId}/explanation`, { method: 'POST' }),
-    start: (body: { examType: 'Main' | 'Advanced' | 'NEET'; difficultyMode?: 'easy' | 'medium' | 'hard' }) =>
+    start: (body: { examType: 'Main' | 'Advanced' | 'NEET'; difficultyMode?: 'easy' | 'medium' | 'hard'; paperNumber?: number }) =>
       request<{ id: string; status: string }>('/mock/start', {
         method: 'POST',
         body: JSON.stringify(body),

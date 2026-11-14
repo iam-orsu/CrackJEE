@@ -41,22 +41,14 @@ export class MockDataService {
 
   public async findStoredPaper(
     examType: string,
-    difficultyMode: string,
     planKey: string,
     accept: (items: MockPoolItem[]) => boolean,
   ): Promise<MockPoolItem[] | null> {
-    const exact = await this.mockRepo.findStoredPapersByPlanKey(examType, difficultyMode, planKey, 5);
+    const exact = await this.mockRepo.findStoredPapersByPlanKey(examType, planKey, 5);
     for (const candidate of exact) {
       const items = candidate.items as unknown as MockPoolItem[];
       if (items.length >= MOCK_CONSTANTS.MIN_PAPER_QUESTIONS && accept(items)) return items;
     }
-
-    const recent = await this.mockRepo.findLegacyStoredPapers(examType, difficultyMode, 50);
-    for (const candidate of recent) {
-      const items = candidate.items as unknown as MockPoolItem[];
-      if (items.length >= MOCK_CONSTANTS.MIN_PAPER_QUESTIONS && accept(items)) return items;
-    }
-
     return null;
   }
 

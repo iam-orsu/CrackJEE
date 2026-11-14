@@ -279,9 +279,15 @@ export class MockExamRepository {
     });
   }
 
-  public findStoredPapersByPlanKey(examType: string, difficultyMode: string, planKey: string, take = 5) {
+  public countSubmittedForUser(userId: string, examType: string): Promise<number> {
+    return this.prisma.mockExam.count({
+      where: { userId, examType, status: 'submitted' },
+    });
+  }
+
+  public findStoredPapersByPlanKey(examType: string, planKey: string, take = 5) {
     return this.prisma.mockPaper.findMany({
-      where: { examType, difficultyMode, planKey },
+      where: { examType, planKey },
       orderBy: { id: 'desc' },
       take,
       select: { items: true },

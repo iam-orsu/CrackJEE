@@ -50,6 +50,7 @@ export class MockExamService {
     userId: string,
     examType: 'Main' | 'Advanced' | 'NEET',
     difficultyMode: 'easy' | 'medium' | 'hard',
+    paperNumber?: number,
   ) {
     const started = await this.withStartLock(userId, async () => {
       await this.sweepStuckGenerations(userId);
@@ -65,7 +66,7 @@ export class MockExamService {
 
     if (started.isNew) {
       const job = this.generator
-        .runMockGeneration(started.exam.id, userId, examType, difficultyMode)
+        .runMockGeneration(started.exam.id, userId, examType, difficultyMode, paperNumber)
         .catch(() => {});
       this.generator.trackGeneration(job);
     }

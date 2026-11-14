@@ -9,6 +9,7 @@ const idParamSchema = z.string().min(1).max(64).regex(/^[A-Za-z0-9_-]+$/);
 const startSchema = z.object({
   examType: z.enum(['Main', 'Advanced', 'NEET']),
   difficultyMode: z.enum(['easy', 'medium', 'hard']).default('medium'),
+  paperNumber: z.number().int().min(1).max(5000).optional(),
 });
 
 const answerSchema = z.object({
@@ -56,6 +57,7 @@ export class MockController {
         req.user!.userId,
         body.data.examType,
         body.data.difficultyMode,
+        body.data.paperNumber,
       );
       res.status(201).json({ success: true, data });
     } catch (err) {
