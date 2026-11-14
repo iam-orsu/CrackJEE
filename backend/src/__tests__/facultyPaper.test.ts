@@ -47,7 +47,8 @@ describe('FacultyPaperService slot allocation and rules', () => {
       { id: 'q5', questionText: 'Q5', questionType: 'mcq_single', options: ['A', 'B', 'C', 'D'], answer: 'A', explanation: 'exp5' },
     ];
     const fakeQRepo: any = {
-      findFacultyFallbackQuestions: async () => fallbackQuestions,
+      findFacultyFallbackQuestions: async (_s: any, _t: any, _e: any, qType?: any) =>
+        qType ? fallbackQuestions.filter((q) => q.questionType === qType) : fallbackQuestions,
     };
 
     const service = new FacultyPaperService(fakeRepo, fakeQRepo);
@@ -69,6 +70,75 @@ describe('FacultyPaperService slot allocation and rules', () => {
     assert.equal(createdInput.difficulty, 'mixed');
     // Physics sorted before Chemistry, so Physics gets 3 questions (base 2 + 1 remainder), Chemistry gets 2
     assert.equal(createdInput.questionCount, 5);
+  });
+
+  it('allocates granular per-topic question types (single option MCQ and integer) exactly as requested by faculty', async () => {
+    let createdInput: any = null;
+    let savedSlots: any[] = [];
+    const fakeRepo: any = {
+      createPaper: async (data: any) => {
+        createdInput = data;
+        return {
+          id: 'test-paper-granular',
+          paperCode: 'FP-GRANULAR',
+          facultyId: data.facultyId,
+          title: data.title,
+          examType: data.examType,
+          difficulty: data.difficulty,
+          questionCount: data.questionCount,
+          selections: data.selections,
+          items: [],
+          status: 'ready',
+          verifiedCount: 0,
+        };
+      },
+      updatePaperState: async (_id: string, update: any) => {
+        if (update.items) savedSlots = update.items;
+      },
+    };
+
+    const fallbackQuestions: any[] = [
+      { id: 'q1', questionText: 'Q1', questionType: 'mcq_single', options: ['A', 'B', 'C', 'D'], answer: 'A', explanation: 'exp' },
+      { id: 'q2', questionText: 'Q2', questionType: 'mcq_single', options: ['A', 'B', 'C', 'D'], answer: 'B', explanation: 'exp' },
+      { id: 'q3', questionText: 'Q3', questionType: 'mcq_single', options: ['A', 'B', 'C', 'D'], answer: 'C', explanation: 'exp' },
+      { id: 'q4', questionText: 'Q4', questionType: 'integer', options: [], answer: '15', explanation: 'exp' },
+      { id: 'q5', questionText: 'Q5', questionType: 'integer', options: [], answer: '18', explanation: 'exp' },
+      { id: 'q6', questionText: 'Q6', questionType: 'integer', options: [], answer: '25', explanation: 'exp' },
+    ];
+    const fakeQRepo: any = {
+      findFacultyFallbackQuestions: async (_s: any, _t: any, _e: any, qType?: any) =>
+        qType ? fallbackQuestions.filter((q) => q.questionType === qType) : fallbackQuestions,
+    };
+
+    const service = new FacultyPaperService(fakeRepo, fakeQRepo);
+    const selections: FacultyPaperSelection[] = [
+      { subject: 'Physics', topic: 'Kinematics', mcqCount: 2, integerCount: 1 },
+      { subject: 'Chemistry', topic: 'Thermodynamics', mcqCount: 1, integerCount: 2 },
+    ];
+
+    const result = await service.startPaper('faculty-123', {
+      examType: 'Main',
+      difficulty: 'intermediate',
+      questionCount: 6, // 2+1 + 1+2 = 6
+      selections,
+    });
+
+    await service.waitForActiveGenerations();
+
+    assert.equal(result.id, 'test-paper-granular');
+    assert.equal(createdInput.questionCount, 6);
+    assert.equal(savedSlots.length, 6);
+    // Physics Kinematics has 2 MCQ and 1 Integer
+    const physKin = savedSlots.filter((s: any) => s.subject === 'Physics' && s.topic === 'Kinematics');
+    assert.equal(physKin.length, 3);
+    assert.equal(physKin.filter((s: any) => s.questionType === 'mcq_single').length, 2);
+    assert.equal(physKin.filter((s: any) => s.questionType === 'integer').length, 1);
+
+    // Chemistry Thermodynamics has 1 MCQ and 2 Integer
+    const chemThermo = savedSlots.filter((s: any) => s.subject === 'Chemistry' && s.topic === 'Thermodynamics');
+    assert.equal(chemThermo.length, 3);
+    assert.equal(chemThermo.filter((s: any) => s.questionType === 'mcq_single').length, 1);
+    assert.equal(chemThermo.filter((s: any) => s.questionType === 'integer').length, 2);
   });
 
   it('strictly enforces JEE Advanced parity: always advanced difficulty', async () => {

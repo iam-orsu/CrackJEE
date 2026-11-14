@@ -109,13 +109,65 @@ function buildPaperSlots(input: CreateFacultyPaperInput): PaperSlot[] {
   const sortedSelections = [...input.selections].sort(
     (a, b) => (SUBJECT_ORDER[a.subject] ?? 9) - (SUBJECT_ORDER[b.subject] ?? 9) || a.topic.localeCompare(b.topic),
   );
+
+  const hasGranularCounts = sortedSelections.some(
+    (s) => (s.mcqCount ?? 0) > 0 || (s.integerCount ?? 0) > 0 || (s.multiCount ?? 0) > 0,
+  );
+
+  const slots: PaperSlot[] = [];
+  let number = 1;
+
+  if (hasGranularCounts) {
+    for (const sel of sortedSelections) {
+      const mcqCount = Math.max(0, sel.mcqCount ?? 0);
+      const multiCount = Math.max(0, sel.multiCount ?? 0);
+      const integerCount = Math.max(0, sel.integerCount ?? 0);
+
+      // Single-choice MCQs
+      for (let i = 0; i < mcqCount; i++) {
+        slots.push({
+          number,
+          subject: sel.subject,
+          topic: sel.topic,
+          difficulty: resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
+          questionType: 'mcq_single',
+        });
+        number++;
+      }
+
+      // Multi-choice MCQs (e.g. JEE Advanced)
+      for (let i = 0; i < multiCount; i++) {
+        slots.push({
+          number,
+          subject: sel.subject,
+          topic: sel.topic,
+          difficulty: resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
+          questionType: 'mcq_multi',
+        });
+        number++;
+      }
+
+      // Integer / Numerical
+      for (let i = 0; i < integerCount; i++) {
+        slots.push({
+          number,
+          subject: sel.subject,
+          topic: sel.topic,
+          difficulty: resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
+          questionType: 'integer',
+        });
+        number++;
+      }
+    }
+    return slots;
+  }
+
+  // Fallback: standard equal split when granular counts are not provided
   const n = sortedSelections.length;
   const base = Math.floor(input.questionCount / n);
   const remainder = input.questionCount % n;
   const pref = input.questionType ?? 'auto';
 
-  const slots: PaperSlot[] = [];
-  let number = 1;
   for (let sIdx = 0; sIdx < n; sIdx++) {
     const sel = sortedSelections[sIdx]!;
     const countForSelection = base + (sIdx < remainder ? 1 : 0);
@@ -167,17 +219,18 @@ export class FacultyPaperService {
   public async startPaper(facultyId: string, input: CreateFacultyPaperInput) {
     const title = input.title?.trim() ? input.title.trim() : defaultPaperTitle(input.examType, input.selections);
     const effectiveDifficulty = input.examType === 'Advanced' ? 'advanced' : input.difficulty;
+    const normalizedInput: CreateFacultyPaperInput = { ...input, difficulty: effectiveDifficulty };
+    const slots = buildPaperSlots(normalizedInput);
+    const effectiveQuestionCount = slots.length > 0 ? slots.length : input.questionCount;
+
     const paper = await this.facultyRepo.createPaper({
       facultyId,
       title,
       examType: input.examType,
       difficulty: effectiveDifficulty,
-      questionCount: input.questionCount,
+      questionCount: effectiveQuestionCount,
       selections: input.selections,
     });
-
-    const normalizedInput: CreateFacultyPaperInput = { ...input, difficulty: effectiveDifficulty };
-    const slots = buildPaperSlots(normalizedInput);
     const job = this.runGeneration(paper.id, input.examType, slots)
       .catch((err) => {
         logger.error({ err, paperId: paper.id }, 'Unhandled faculty paper generation failure');

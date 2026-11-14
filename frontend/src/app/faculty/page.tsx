@@ -186,7 +186,16 @@ export default function FacultyPage() {
       setSubjects(res.subjects);
       setTopicsBySubject(res.topics);
       setActiveSubject(res.subjects[0] ?? 'Physics');
-      setSelections((prev) => prev.filter((sel) => res.topics[sel.subject]?.includes(sel.topic)));
+      setSelections((prev) =>
+        prev
+          .filter((sel) => res.topics[sel.subject]?.includes(sel.topic))
+          .map((sel) => ({
+            ...sel,
+            mcqCount: sel.mcqCount ?? (nextExam === 'NEET' ? 5 : nextExam === 'Advanced' ? 3 : 5),
+            integerCount: nextExam === 'NEET' ? 0 : (sel.integerCount ?? 1),
+            multiCount: nextExam === 'Advanced' ? (sel.multiCount ?? 2) : 0,
+          })),
+      );
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load topics');
     }
@@ -221,10 +230,94 @@ export default function FacultyPage() {
   function toggleSelection(subject: FacultyPaperSelection['subject'], topic: string) {
     setSelections((prev) => {
       const exists = prev.some((s) => s.subject === subject && s.topic === topic);
-      return exists
-        ? prev.filter((s) => !(s.subject === subject && s.topic === topic))
-        : [...prev, { subject, topic }];
+      if (exists) {
+        return prev.filter((s) => !(s.subject === subject && s.topic === topic));
+      }
+      const defaultMcq = examType === 'NEET' ? 5 : examType === 'Advanced' ? 3 : 5;
+      const defaultInt = examType === 'NEET' ? 0 : 1;
+      const defaultMulti = examType === 'Advanced' ? 2 : 0;
+      return [
+        ...prev,
+        {
+          subject,
+          topic,
+          mcqCount: defaultMcq,
+          integerCount: defaultInt,
+          multiCount: defaultMulti,
+        },
+      ];
     });
+  }
+
+  const totalCalculatedCount = useMemo(() => {
+    if (selections.length === 0) return 0;
+    return selections.reduce(
+      (acc, s) => acc + (s.mcqCount ?? 0) + (s.integerCount ?? 0) + (s.multiCount ?? 0),
+      0,
+    );
+  }, [selections]);
+
+  function handleCountChange(
+    subject: FacultyPaperSelection['subject'],
+    topic: string,
+    field: 'mcqCount' | 'integerCount' | 'multiCount',
+    val: number,
+  ) {
+    const clamped = Math.max(0, Math.min(100, isNaN(val) ? 0 : val));
+    setSelections((prev) =>
+      prev.map((s) => (s.subject === subject && s.topic === topic ? { ...s, [field]: clamped } : s)),
+    );
+  }
+
+  function handleCountStep(
+    subject: FacultyPaperSelection['subject'],
+    topic: string,
+    field: 'mcqCount' | 'integerCount' | 'multiCount',
+    delta: number,
+  ) {
+    setSelections((prev) =>
+      prev.map((s) => {
+        if (s.subject !== subject || s.topic !== topic) return s;
+        const current = s[field] ?? 0;
+        const next = Math.max(0, Math.min(100, current + delta));
+        return { ...s, [field]: next };
+      }),
+    );
+  }
+
+  function applyPresetToAll(mcq: number, intCount: number, multi = 0) {
+    setSelections((prev) =>
+      prev.map((s) => ({
+        ...s,
+        mcqCount: mcq,
+        integerCount: examType === 'NEET' ? 0 : intCount,
+        multiCount: examType === 'Advanced' ? multi : 0,
+      })),
+    );
+  }
+
+  function applyPresetAcrossTopics(total: number) {
+    setQuestionCount(total);
+    if (selections.length === 0) return;
+    const n = selections.length;
+    const perTopic = Math.max(1, Math.floor(total / n));
+    setSelections((prev) =>
+      prev.map((s, idx) => {
+        const topicTotal = perTopic + (idx < total % n ? 1 : 0);
+        if (examType === 'NEET') {
+          return { ...s, mcqCount: topicTotal, integerCount: 0, multiCount: 0 };
+        } else if (examType === 'Advanced') {
+          const multi = Math.floor(topicTotal * 0.3);
+          const integer = Math.floor(topicTotal * 0.3);
+          const mcq = topicTotal - multi - integer;
+          return { ...s, mcqCount: mcq, multiCount: multi, integerCount: integer };
+        } else {
+          const integer = Math.max(1, Math.round(topicTotal * 0.2));
+          const mcq = Math.max(0, topicTotal - integer);
+          return { ...s, mcqCount: mcq, integerCount: integer, multiCount: 0 };
+        }
+      }),
+    );
   }
 
   async function handleOpenPaper(id: string) {
@@ -246,6 +339,16 @@ export default function FacultyPage() {
       setError('Select at least one subject & topic before generating.');
       return;
     }
+    const finalCount = totalCalculatedCount > 0 ? totalCalculatedCount : questionCount;
+    if (finalCount === 0) {
+      setError('Please configure at least 1 question across your selected topics.');
+      return;
+    }
+    if (finalCount > 180) {
+      setError('Total paper question count cannot exceed 180 questions.');
+      return;
+    }
+
     setCreating(true);
     setError('');
     try {
@@ -253,7 +356,7 @@ export default function FacultyPage() {
         title: title.trim() || undefined,
         examType,
         difficulty: examType === 'Advanced' ? 'advanced' : difficulty,
-        questionCount,
+        questionCount: finalCount,
         questionType,
         selections,
       });
@@ -429,15 +532,20 @@ export default function FacultyPage() {
 
                     <div className={styles.row2}>
                       <div className={styles.field}>
-                        <label className={styles.label} htmlFor="paper-count">Question Count (1–180)</label>
+                        <label className={styles.label} htmlFor="paper-count">
+                          Question Count {totalCalculatedCount > 0 ? `(${totalCalculatedCount} total from topics)` : '(1–180)'}
+                        </label>
                         <input
                           id="paper-count"
                           type="number"
                           min={1}
                           max={180}
                           className={styles.input}
-                          value={questionCount}
-                          onChange={(e) => setQuestionCount(Math.max(1, Math.min(180, Number(e.target.value) || 1)))}
+                          value={totalCalculatedCount > 0 ? totalCalculatedCount : questionCount}
+                          onChange={(e) => {
+                            const val = Math.max(1, Math.min(180, Number(e.target.value) || 1));
+                            applyPresetAcrossTopics(val);
+                          }}
                           required
                         />
                         <div className={styles.presetRow}>
@@ -445,8 +553,8 @@ export default function FacultyPage() {
                             <button
                               key={p.count}
                               type="button"
-                              className={`${styles.presetBtn} ${questionCount === p.count ? styles.presetBtnActive : ''}`}
-                              onClick={() => setQuestionCount(p.count)}
+                              className={`${styles.presetBtn} ${(totalCalculatedCount > 0 ? totalCalculatedCount : questionCount) === p.count ? styles.presetBtnActive : ''}`}
+                              onClick={() => applyPresetAcrossTopics(p.count)}
                             >
                               {p.label}
                             </button>
@@ -455,19 +563,31 @@ export default function FacultyPage() {
                       </div>
 
                       <div className={styles.field}>
-                        <label className={styles.label} htmlFor="paper-qtype">Question Type Mix</label>
+                        <label className={styles.label} htmlFor="paper-qtype">Quick Batch Mix</label>
                         <select
                           id="paper-qtype"
                           className={styles.select}
                           value={questionType}
                           disabled={examType === 'NEET'}
-                          onChange={(e) => setQuestionType(e.target.value as FacultyQuestionTypePref)}
+                          onChange={(e) => {
+                            const next = e.target.value as FacultyQuestionTypePref;
+                            setQuestionType(next);
+                            if (next === 'mcq_single') {
+                              applyPresetToAll(5, 0, 0);
+                            } else if (next === 'integer') {
+                              applyPresetToAll(0, 5, 0);
+                            } else if (next === 'mcq_multi') {
+                              applyPresetToAll(0, 0, 5);
+                            } else {
+                              applyPresetToAll(examType === 'Advanced' ? 3 : 5, 1, examType === 'Advanced' ? 2 : 0);
+                            }
+                          }}
                         >
                           {examType === 'NEET' ? (
                             <option value="mcq_single">Single-correct MCQ (100%)</option>
                           ) : (
                             <>
-                              <option value="auto">Official Pattern Mix</option>
+                              <option value="auto">Official Pattern Mix (5 MCQ + 1 Int)</option>
                               <option value="mcq_single">Single-correct Only</option>
                               <option value="integer">Integer Only</option>
                               {examType === 'Advanced' && <option value="mcq_multi">Multi-correct Only</option>}
@@ -557,13 +677,247 @@ export default function FacultyPage() {
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 8 }}>
+                {selections.length > 0 && (
+                  <div className={styles.topicBreakdownWrap}>
+                    <div className={styles.topicBreakdownHeader}>
+                      <div className={styles.topicBreakdownTitle}>
+                        <span>Selected Topics &amp; Question Mix</span>
+                        <span className={styles.topicBreakdownBadge}>
+                          {totalCalculatedCount} Questions Configured
+                        </span>
+                      </div>
+
+                      <div className={styles.batchPresetsRow}>
+                        <span className={styles.batchPresetLabel}>Set all to:</span>
+                        {examType === 'NEET' ? (
+                          <>
+                            <button
+                              type="button"
+                              className={styles.presetBtn}
+                              onClick={() => applyPresetToAll(5, 0)}
+                            >
+                              5 MCQs
+                            </button>
+                            <button
+                              type="button"
+                              className={styles.presetBtn}
+                              onClick={() => applyPresetToAll(10, 0)}
+                            >
+                              10 MCQs
+                            </button>
+                          </>
+                        ) : examType === 'Advanced' ? (
+                          <>
+                            <button
+                              type="button"
+                              className={styles.presetBtn}
+                              onClick={() => applyPresetToAll(3, 1, 2)}
+                            >
+                              Std (3 Single + 2 Multi + 1 Int)
+                            </button>
+                            <button
+                              type="button"
+                              className={styles.presetBtn}
+                              onClick={() => applyPresetToAll(5, 0, 0)}
+                            >
+                              MCQ Only (5)
+                            </button>
+                            <button
+                              type="button"
+                              className={styles.presetBtn}
+                              onClick={() => applyPresetToAll(0, 5, 0)}
+                            >
+                              Integer Only (5)
+                            </button>
+                          </>
+                        ) : (
+                          <>
+                            <button
+                              type="button"
+                              className={styles.presetBtn}
+                              onClick={() => applyPresetToAll(5, 1)}
+                            >
+                              Std (5 Single + 1 Int)
+                            </button>
+                            <button
+                              type="button"
+                              className={styles.presetBtn}
+                              onClick={() => applyPresetToAll(10, 2)}
+                            >
+                              12 Qs (10 Single + 2 Int)
+                            </button>
+                            <button
+                              type="button"
+                              className={styles.presetBtn}
+                              onClick={() => applyPresetToAll(5, 0)}
+                            >
+                              Single-Option Only (5)
+                            </button>
+                            <button
+                              type="button"
+                              className={styles.presetBtn}
+                              onClick={() => applyPresetToAll(0, 5)}
+                            >
+                              Integer Only (5)
+                            </button>
+                          </>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className={styles.topicGrid}>
+                      {selections.map((sel) => {
+                        const mcq = sel.mcqCount ?? 0;
+                        const integer = sel.integerCount ?? 0;
+                        const multi = sel.multiCount ?? 0;
+                        const topicTotal = mcq + integer + multi;
+
+                        return (
+                          <div key={`${sel.subject}::${sel.topic}`} className={styles.topicConfigCard}>
+                            <div className={styles.topicCardTop}>
+                              <div className={styles.topicCardMeta}>
+                                <span className={styles.topicSubjectTag}>{sel.subject}</span>
+                                <span className={styles.topicCardName}>{sel.topic}</span>
+                              </div>
+                              <div className={styles.topicCardActions}>
+                                <span className={styles.topicCardTotalBadge}>{topicTotal} Qs</span>
+                                <button
+                                  type="button"
+                                  className={styles.topicRemoveBtn}
+                                  title={`Remove ${sel.topic}`}
+                                  onClick={() => toggleSelection(sel.subject, sel.topic)}
+                                >
+                                  ×
+                                </button>
+                              </div>
+                            </div>
+
+                            <div className={styles.typeCountersList}>
+                              {/* Single Option MCQ */}
+                              <div className={styles.counterRow}>
+                                <div className={styles.counterLabel}>
+                                  <span className={`${styles.typeDot} ${styles.typeDotMcq}`} />
+                                  <span>Single Option (MCQ)</span>
+                                </div>
+                                <div className={styles.stepperControl}>
+                                  <button
+                                    type="button"
+                                    className={styles.stepperBtn}
+                                    disabled={mcq <= 0}
+                                    onClick={() => handleCountStep(sel.subject, sel.topic, 'mcqCount', -1)}
+                                  >
+                                    −
+                                  </button>
+                                  <input
+                                    type="number"
+                                    min={0}
+                                    max={100}
+                                    className={styles.stepperInput}
+                                    value={mcq}
+                                    onChange={(e) =>
+                                      handleCountChange(sel.subject, sel.topic, 'mcqCount', parseInt(e.target.value, 10))
+                                    }
+                                  />
+                                  <button
+                                    type="button"
+                                    className={styles.stepperBtn}
+                                    onClick={() => handleCountStep(sel.subject, sel.topic, 'mcqCount', 1)}
+                                  >
+                                    +
+                                  </button>
+                                </div>
+                              </div>
+
+                              {/* Multi-correct MCQ (JEE Advanced only) */}
+                              {examType === 'Advanced' && (
+                                <div className={styles.counterRow}>
+                                  <div className={styles.counterLabel}>
+                                    <span className={`${styles.typeDot} ${styles.typeDotMulti}`} />
+                                    <span>Multi-Correct MCQ</span>
+                                  </div>
+                                  <div className={styles.stepperControl}>
+                                    <button
+                                      type="button"
+                                      className={styles.stepperBtn}
+                                      disabled={multi <= 0}
+                                      onClick={() => handleCountStep(sel.subject, sel.topic, 'multiCount', -1)}
+                                    >
+                                      −
+                                    </button>
+                                    <input
+                                      type="number"
+                                      min={0}
+                                      max={100}
+                                      className={styles.stepperInput}
+                                      value={multi}
+                                      onChange={(e) =>
+                                        handleCountChange(sel.subject, sel.topic, 'multiCount', parseInt(e.target.value, 10))
+                                      }
+                                    />
+                                    <button
+                                      type="button"
+                                      className={styles.stepperBtn}
+                                      onClick={() => handleCountStep(sel.subject, sel.topic, 'multiCount', 1)}
+                                    >
+                                      +
+                                    </button>
+                                  </div>
+                                </div>
+                              )}
+
+                              {/* Integer / Numerical (JEE Main & Advanced only) */}
+                              {examType !== 'NEET' && (
+                                <div className={styles.counterRow}>
+                                  <div className={styles.counterLabel}>
+                                    <span className={`${styles.typeDot} ${styles.typeDotInt}`} />
+                                    <span>Integer / Numerical</span>
+                                  </div>
+                                  <div className={styles.stepperControl}>
+                                    <button
+                                      type="button"
+                                      className={styles.stepperBtn}
+                                      disabled={integer <= 0}
+                                      onClick={() => handleCountStep(sel.subject, sel.topic, 'integerCount', -1)}
+                                    >
+                                      −
+                                    </button>
+                                    <input
+                                      type="number"
+                                      min={0}
+                                      max={100}
+                                      className={styles.stepperInput}
+                                      value={integer}
+                                      onChange={(e) =>
+                                        handleCountChange(sel.subject, sel.topic, 'integerCount', parseInt(e.target.value, 10))
+                                      }
+                                    />
+                                    <button
+                                      type="button"
+                                      className={styles.stepperBtn}
+                                      onClick={() => handleCountStep(sel.subject, sel.topic, 'integerCount', 1)}
+                                    >
+                                      +
+                                    </button>
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 14 }}>
                   <button
                     type="submit"
                     className={styles.btnPrimary}
-                    disabled={creating || selections.length === 0}
+                    disabled={creating || selections.length === 0 || (selections.length > 0 && totalCalculatedCount === 0)}
                   >
-                    {creating ? 'Starting generation…' : `Generate ${questionCount}-Question Verified Paper`}
+                    {creating
+                      ? 'Starting generation…'
+                      : `Generate ${totalCalculatedCount > 0 ? totalCalculatedCount : questionCount}-Question Verified Paper`}
                   </button>
                 </div>
               </form>

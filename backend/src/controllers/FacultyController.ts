@@ -18,6 +18,9 @@ const loginSchema = z.object({
 const selectionSchema = z.object({
   subject: z.enum(['Physics', 'Chemistry', 'Mathematics', 'Botany', 'Zoology']),
   topic: z.string().trim().min(1).max(120),
+  mcqCount: z.number().int().min(0).max(180).optional(),
+  integerCount: z.number().int().min(0).max(180).optional(),
+  multiCount: z.number().int().min(0).max(180).optional(),
 });
 
 const createPaperSchema = z.object({

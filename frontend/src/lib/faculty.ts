@@ -18,6 +18,9 @@ export interface FacultyUser {
 export interface FacultyPaperSelection {
   subject: 'Physics' | 'Chemistry' | 'Mathematics' | 'Botany' | 'Zoology';
   topic: string;
+  mcqCount?: number;
+  integerCount?: number;
+  multiCount?: number;
 }
 
 export interface FacultyPaperItem {

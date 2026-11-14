@@ -5,6 +5,9 @@ import type { DiagramTemplate, QuestionType, Subject } from '../types/index';
 export interface FacultyPaperSelection {
   subject: Subject;
   topic: string;
+  mcqCount?: number;
+  integerCount?: number;
+  multiCount?: number;
 }
 
 export interface FacultyPaperItem {
