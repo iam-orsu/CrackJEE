@@ -2,6 +2,7 @@ import { CACHE_CONSTANTS } from '../config/constants';
 import { AttemptRepository } from '../repositories/AttemptRepository';
 import { MockExamRepository } from '../repositories/MockExamRepository';
 import { ProgressRepository, type GlobalLeaderboardRow } from '../repositories/ProgressRepository';
+import { TopicRepository } from '../repositories/TopicRepository';
 import { CacheService, cacheService as defaultCache } from './CacheService';
 import { MockDataService } from './MockDataService';
 import {
@@ -43,7 +44,24 @@ export class ProgressService {
     private readonly progressRepo: ProgressRepository = new ProgressRepository(),
     private readonly cache: CacheService = defaultCache,
     private readonly mockData: MockDataService = new MockDataService(),
+    private readonly topicRepo: TopicRepository = new TopicRepository(),
   ) {}
+
+  public async getNormalizedWeakTopics(userId: string) {
+    const masteries = await this.topicRepo.getStudentMasteries(userId);
+    return masteries.map((m) => ({
+      topicId: m.topicId,
+      name: m.topic.name,
+      subject: m.topic.subject,
+      classLevel: m.topic.classLevel,
+      attemptsCount: m.attemptsCount,
+      correctCount: m.correctCount,
+      accuracyPct: m.accuracyPct,
+      marksLostTotal: m.marksLostTotal,
+      isWeak: m.isWeak,
+      lastTestedAt: m.lastTestedAt,
+    }));
+  }
 
   private async getMockAnswers(userId: string): Promise<MockAnswer[]> {
     const cacheKey = `mock-answers:${userId}`;

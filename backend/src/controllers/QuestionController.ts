@@ -175,4 +175,27 @@ export class QuestionController {
       next(err);
     }
   };
+
+  public readonly weakPractice = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const topicId = req.query.topicId as string | undefined;
+      const topicIdsParam = req.query.topicIds as string | undefined;
+
+      const topicIds: string[] = [];
+      if (topicId) topicIds.push(topicId);
+      if (topicIdsParam) {
+        topicIds.push(...topicIdsParam.split(',').map((s) => s.trim()).filter(Boolean));
+      }
+
+      if (topicIds.length === 0) {
+        throw new AppError(400, 'topicId or topicIds query parameter is required');
+      }
+
+      const questions = await this.questionService.getWeakTopicsBatch(req.user!.userId, topicIds);
+      const safe = questions.map(({ answer: _, explanation: __, ...q }) => q);
+      res.json({ success: true, count: safe.length, data: safe });
+    } catch (err) {
+      next(err);
+    }
+  };
 }

@@ -7,6 +7,7 @@ export function createProgressRoutes(controller = new ProgressController()): Rou
 
   router.get('/user/dashboard', requireAuth, controller.dashboard);
   router.get('/progress/weak-areas', requireAuth, controller.weakAreas);
+  router.get('/progress/weak-topics', requireAuth, controller.weakTopics);
   router.get('/stats/overview', requireAuth, controller.overview);
   router.get('/stats/mock-weak-areas', requireAuth, controller.mockWeakAreas);
   router.get('/stats/mock-insights', requireAuth, controller.mockInsights);

@@ -41,6 +41,15 @@ export class ProgressController {
     }
   };
 
+  public readonly weakTopics = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const data = await this.progressService.getNormalizedWeakTopics(req.user!.userId);
+      res.json({ success: true, data });
+    } catch (err) {
+      next(err);
+    }
+  };
+
   public readonly leaderboard = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
       const data = await this.progressService.getLeaderboard(req.user!.userId);

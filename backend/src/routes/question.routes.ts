@@ -12,6 +12,7 @@ export function createQuestionRoutes(
 
   router.use(requireAuth);
   router.get('/next', questionLimiter, questionController.nextQuestion);
+  router.get('/weak-practice', questionLimiter, questionController.weakPractice);
   router.post('/batch', questionLimiter, questionController.batchQuestions);
   router.get('/topics', questionController.getTopics);
   router.get('/bank-stats', questionController.bankStats);

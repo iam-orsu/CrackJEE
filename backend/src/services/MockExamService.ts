@@ -1,5 +1,6 @@
 import { MOCK_CONSTANTS } from '../config/constants';
 import { MockExamRepository } from '../repositories/MockExamRepository';
+import { TopicRepository } from '../repositories/TopicRepository';
 import { CacheService, cacheService as defaultCache } from './CacheService';
 import { ScoringService, scoringService as defaultScoring } from './ScoringService';
 import { MockGeneratorService, mockGeneratorService as defaultGenerator } from './MockGeneratorService';
@@ -24,6 +25,7 @@ export class MockExamService {
     private readonly scoring: ScoringService = defaultScoring,
     private readonly generator: MockGeneratorService = defaultGenerator,
     private readonly mockData: MockDataService = new MockDataService(),
+    private readonly topicRepo: TopicRepository = new TopicRepository(),
   ) {}
 
   private async withStartLock<T>(userId: string, task: () => Promise<T>): Promise<T> {
@@ -191,14 +193,27 @@ export class MockExamService {
       timeSpentSeconds: number;
     }> = {};
 
+    const topicResults: Array<{ topicId: string; isCorrect: boolean; marksLost: number }> = [];
+
     for (const mq of exam.questions) {
       const q = mq.question;
       const marks = this.scoring.scoreQuestion(examType, q.questionType, mq.savedAnswer, q.answer);
       const maxMarks = this.scoring.getMaxMarkPerQuestion(examType, q.questionType);
       maxScore += maxMarks;
 
+      const isCorrect = marks === maxMarks;
+      const marksLost = Math.max(0, maxMarks - marks);
+
+      if (q.topicId) {
+        topicResults.push({
+          topicId: q.topicId,
+          isCorrect,
+          marksLost,
+        });
+      }
+
       if (!mq.savedAnswer) unattempted++;
-      else if (marks === maxMarks) correct++;
+      else if (isCorrect) correct++;
       else if (marks > 0) partial++;
       else incorrect++;
 
@@ -240,6 +255,10 @@ export class MockExamService {
         timeTaken,
         scoreBreakdown: breakdown,
       });
+
+      // Update student topic mastery records asynchronously
+      await this.topicRepo.batchRecordExamResults(userId, topicResults).catch(() => {});
+
       await Promise.all([
         this.cache.del(`mock-answers:${userId}`),
         this.cache.del(`overall:user:${userId}`),

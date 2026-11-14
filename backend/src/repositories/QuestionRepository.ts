@@ -100,6 +100,22 @@ export class QuestionRepository {
     return rows.map((r) => r.id);
   }
 
+  public findUnseenByTopicId(
+    topicId: string,
+    excludeIds: Set<string> | string[],
+    limit = 5,
+  ): Promise<Question[]> {
+    const exclude = Array.isArray(excludeIds) ? excludeIds : Array.from(excludeIds);
+    return this.prisma.question.findMany({
+      where: {
+        topicId,
+        validatedAt: { not: null },
+        ...(exclude.length > 0 ? { id: { notIn: exclude } } : {}),
+      },
+      take: limit,
+    });
+  }
+
   public findMany(where: Prisma.QuestionWhereInput, take?: number): Promise<Question[]> {
     return this.prisma.question.findMany({
       where,

@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
 datasource db {
@@ -17,14 +18,32 @@ model User {
   currentLevel String   @default("beginner")
   createdAt    DateTime @default(now())
 
-  attempts      StudentAttempt[]
-  topicProgress TopicProgress[]
-  mockExams     MockExam[]
+  attempts       StudentAttempt[]
+  topicProgress  TopicProgress[]
+  topicMasteries StudentTopicMastery[]
+  mockExams      MockExam[]
+}
 
+model Topic {
+  id           String   @id // e.g. "phy-rotational-motion-11"
+  numericCode  Int      @unique @default(autoincrement())
+  name         String   @unique
+  subject      String   // Physics | Chemistry | Mathematics | Botany | Zoology
+  classLevel   String   // "11" | "12"
+  examCategory String   // "JEE" | "NEET" | "BOTH"
+  syllabusOrder Int     @default(0)
+  isExcluded   Boolean  @default(false)
+
+  questions      Question[]
+  topicMasteries StudentTopicMastery[]
+
+  @@index([subject, classLevel])
+  @@index([examCategory, syllabusOrder])
 }
 
 model Question {
   id           String    @id @default(cuid())
+  topicId      String?
   topic        String
   subject      String
   questionText String    @db.Text
@@ -43,9 +62,11 @@ model Question {
   // so a live mock's answers cannot be looked up through practice.
   mockOnly     Boolean   @default(false)
 
+  topicRef          Topic?   @relation(fields: [topicId], references: [id], onDelete: SetNull)
   attempts          StudentAttempt[]
   mockExamQuestions MockExamQuestion[]
 
+  @@index([topicId, difficulty, questionType])
   @@index([topic, subject, difficulty, questionType])
   @@index([subject, difficulty, examType, questionType])
 }
@@ -70,10 +91,11 @@ model StudentAttempt {
 model MockExam {
   id              String    @id @default(cuid())
   userId          String
-  examType        String    // 'Main' | 'Advanced'
+  examType        String    // 'Main' | 'Advanced' | 'NEET'
   difficultyMode  String    @default("medium") // easy | medium | hard
   status          String    @default("generating") // generating | ready | in_progress | submitted | error
   durationSeconds Int
+  basePaperNumber Int?
   startedAt       DateTime?
   submittedAt     DateTime?
   createdAt       DateTime  @default(now())
@@ -93,6 +115,7 @@ model MockExamQuestion {
   subject         String
   questionNumber  Int
   subjectIndex    Int
+  sourceType      String  @default("BASE") // "BASE" | "WEAK_INJECTION"
   savedAnswer     String? @db.Text
   markedForReview Boolean @default(false)
 
@@ -116,6 +139,42 @@ model MockPaper {
 
   @@index([examType, difficultyMode])
   @@index([examType, difficultyMode, planKey])
+}
+
+// Canonical progressive base mock paper (e.g. Paper #1, Paper #2, etc.)
+// 70 questions for JEE Main (+ 5 weak injected per student = 75)
+// 46 questions for JEE Advanced (+ 5 weak injected per student = 51)
+// 175 questions for NEET (+ 5 weak injected per student = 180)
+model BaseMockPaper {
+  id             String   @id @default(cuid())
+  paperNumber    Int
+  examType       String   // 'Main' | 'Advanced' | 'NEET'
+  title          String
+  totalQuestions Int
+  questionIds    Json     // Array of Question IDs in canonical order
+  createdAt      DateTime @default(now())
+
+  @@unique([examType, paperNumber])
+  @@index([examType])
+}
+
+model StudentTopicMastery {
+  id              String   @id @default(cuid())
+  userId          String
+  topicId         String
+  attemptsCount   Int      @default(0)
+  correctCount    Int      @default(0)
+  accuracyPct     Float    @default(0)
+  marksLostTotal  Float    @default(0)
+  isWeak          Boolean  @default(false)
+  lastTestedAt    DateTime @default(now())
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  topic Topic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, topicId])
+  @@index([userId, isWeak])
+  @@index([topicId])
 }
 
 model MockExamResult {

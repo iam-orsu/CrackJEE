@@ -1,6 +1,8 @@
-import type { Question } from '@prisma/client';
+import { Prisma, type Question } from '@prisma/client';
+import { prisma as defaultPrisma } from '../config/database';
 import { CACHE_CONSTANTS } from '../config/constants';
 import { QuestionRepository } from '../repositories/QuestionRepository';
+import { TopicRepository } from '../repositories/TopicRepository';
 import { CacheService, cacheService as defaultCache } from './CacheService';
 import { DeepSeekService, deepSeekService as defaultDeepSeek } from './DeepSeekService';
 import { fillPracticeSlotsWithFallbacks, type PracticePoolCandidate } from './mockBankFill';
@@ -39,6 +41,7 @@ export class QuestionService {
     private readonly questions: QuestionRepository = new QuestionRepository(),
     private readonly cache: CacheService = defaultCache,
     private readonly deepSeek: DeepSeekService = defaultDeepSeek,
+    private readonly topicRepo: TopicRepository = new TopicRepository(),
   ) {}
 
   private poolCacheKey(
@@ -728,6 +731,90 @@ export class QuestionService {
     });
 
     return { tier, explanation, cached: false };
+  }
+
+  public async getWeakTopicPracticeQuestions(
+    userId: string,
+    topicId: string,
+    count = 5,
+  ): Promise<Question[]> {
+    const topicRecord = await this.topicRepo.findById(topicId);
+    if (!topicRecord) {
+      throw new AppError(404, `Topic with ID "${topicId}" not found`);
+    }
+
+    const servedKey = `served:${userId}:${topicRecord.subject}:${topicRecord.name}:practice`;
+    const servedIds = (await this.cache.getJson<string[]>(servedKey)) ?? [];
+
+    let questions = await this.questions.findUnseenByTopicId(topicId, servedIds, count);
+
+    // If unseen questions in DB are fewer than count and AI is available, generate fresh ones
+    if (questions.length < count && this.deepSeek.isAvailable()) {
+      const needed = count - questions.length;
+      try {
+        const generated = await this.deepSeek.generateQuestionBatch(
+          needed,
+          topicRecord.subject as Subject,
+          topicRecord.name,
+          'intermediate',
+          topicRecord.examCategory === 'NEET' ? 'NEET' : 'Main',
+          topicRecord.classLevel === '11' ? '11' : '12',
+          'mcq_single',
+        );
+
+        for (const gq of generated) {
+          const created = await defaultPrisma.question.create({
+            data: {
+              topicId: topicRecord.id,
+              topic: topicRecord.name,
+              subject: topicRecord.subject,
+              questionText: gq.question,
+              options: gq.options,
+              answer: gq.correct_answer,
+              explanation: gq.answer_explanation,
+              diagram: gq.diagram ? (gq.diagram as unknown as Prisma.InputJsonValue) : Prisma.JsonNull,
+              difficulty: 'intermediate',
+              examType: topicRecord.examCategory === 'NEET' ? 'NEET' : 'Main',
+              questionType: 'mcq_single',
+              validatedAt: new Date(),
+              mockOnly: false,
+            },
+          });
+          questions.push(created);
+        }
+      } catch (err) {
+        logger.warn({ topicId, err: err instanceof Error ? err.message : String(err) }, 'AI generation for weak topic failed');
+      }
+    }
+
+    // If still short, fallback to any questions for this topic in the bank
+    if (questions.length < count) {
+      const existing = await defaultPrisma.question.findMany({
+        where: { topicId, validatedAt: { not: null } },
+        take: count,
+      });
+      const existingMap = new Map(existing.map((q) => [q.id, q]));
+      for (const q of questions) existingMap.set(q.id, q);
+      questions = Array.from(existingMap.values()).slice(0, count);
+    }
+
+    // Record served questions in cache
+    const newIds = questions.map((q) => q.id);
+    await this.cache.appendUnique(servedKey, newIds, CACHE_CONSTANTS.SERVED_TTL_SECONDS);
+
+    return questions;
+  }
+
+  public async getWeakTopicsBatch(
+    userId: string,
+    topicIds: string[],
+  ): Promise<Question[]> {
+    const allQuestions: Question[] = [];
+    for (const topicId of topicIds) {
+      const qs = await this.getWeakTopicPracticeQuestions(userId, topicId, 5);
+      allQuestions.push(...qs);
+    }
+    return allQuestions;
   }
 }
 
