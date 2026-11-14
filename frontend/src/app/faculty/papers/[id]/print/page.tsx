@@ -59,9 +59,16 @@ function FacultyPrintContent() {
   useEffect(() => {
     if (!paper || !autoDownload || printedRef.current) return;
     printedRef.current = true;
-    const timer = setTimeout(() => {
-      window.print();
-    }, 450);
+    const triggerPrint = () => {
+      if (typeof document !== 'undefined' && document.fonts?.ready) {
+        document.fonts.ready.then(() => {
+          setTimeout(() => window.print(), 150);
+        });
+      } else {
+        window.print();
+      }
+    };
+    const timer = setTimeout(triggerPrint, 700);
     return () => clearTimeout(timer);
   }, [paper, autoDownload]);
 
