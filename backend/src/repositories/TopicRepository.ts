@@ -45,6 +45,34 @@ export class TopicRepository {
     });
   }
 
+  private canonicalMap: Map<string, string> | null = null;
+
+  public async getCanonicalTopicId(name: string, subject: string): Promise<string | null> {
+    if (!this.canonicalMap) {
+      const all = await this.findAll();
+      this.canonicalMap = new Map();
+      for (const t of all) {
+        this.canonicalMap.set(`${t.name.toLowerCase().trim()}|${t.subject.toLowerCase().trim()}`, t.id);
+      }
+    }
+    const cleanName = name.toLowerCase().trim();
+    const cleanSubj = subject.toLowerCase().trim();
+    const key = `${cleanName}|${cleanSubj}`;
+    const direct = this.canonicalMap.get(key);
+    if (direct) return direct;
+
+    const subjKey = `|${cleanSubj}`;
+    for (const [entryKey, id] of this.canonicalMap) {
+      if (entryKey.endsWith(subjKey)) {
+        const entryName = entryKey.split('|')[0]!;
+        if (entryName.includes(cleanName) || cleanName.includes(entryName)) {
+          return id;
+        }
+      }
+    }
+    return null;
+  }
+
   public async getStudentMasteries(userId: string): Promise<StudentMasteryRecord[]> {
     return prisma.studentTopicMastery.findMany({
       where: { userId },

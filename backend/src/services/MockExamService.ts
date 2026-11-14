@@ -205,9 +205,13 @@ export class MockExamService {
       const isCorrect = marks === maxMarks;
       const marksLost = Math.max(0, maxMarks - marks);
 
-      if (q.topicId) {
+      let resolvedTopicId = q.topicId;
+      if (!resolvedTopicId && q.topic && mq.subject) {
+        resolvedTopicId = await this.topicRepo.getCanonicalTopicId(q.topic, mq.subject);
+      }
+      if (resolvedTopicId) {
         topicResults.push({
-          topicId: q.topicId,
+          topicId: resolvedTopicId,
           isCorrect,
           marksLost,
         });
