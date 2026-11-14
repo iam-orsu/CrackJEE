@@ -533,7 +533,8 @@ export function FacultyPaperPreview({
           </div>
           <p className={styles.sub} style={{ marginTop: 4 }}>
             {paper.examType === 'NEET' ? 'NEET-UG' : `JEE ${paper.examType}`} · {paper.difficulty} ·{' '}
-            {paper.items.length || paper.questionCount} Questions · {paper.verifiedCount}/{paper.items.length} Verified
+            {paper.questionCount} Questions
+            {!isGenerating && ` · ${paper.verifiedCount}/${paper.items.length} Verified`}
           </p>
           {paper.status === 'ready' && (
             <div className={styles.pdfBar}>
@@ -576,9 +577,14 @@ export function FacultyPaperPreview({
       </div>
 
       {isGenerating && (
-        <div className={styles.statusBanner}>
-          Generating &amp; blind-verifying questions ({paper.items.length} / {paper.questionCount} completed)…
-          <div className={styles.progressBarTrack}>
+        <div className={styles.statusBanner} style={{ padding: '24px 20px', textAlign: 'center' }}>
+          <div style={{ fontSize: 16, fontWeight: 600, color: '#0f766e', marginBottom: 8 }}>
+            Generating questions ({paper.items.length} / {paper.questionCount} completed)…
+          </div>
+          <p style={{ fontSize: 13, color: '#64748b', marginBottom: 16 }}>
+            Questions will be displayed once all {paper.questionCount} questions are fully generated and verified.
+          </p>
+          <div className={styles.progressBarTrack} style={{ height: 10, maxWidth: 500, margin: '0 auto' }}>
             <div className={styles.progressBarFill} style={{ width: `${progressPct}%` }} />
           </div>
         </div>
@@ -590,19 +596,20 @@ export function FacultyPaperPreview({
         </div>
       )}
 
-      {paper.items.map((item) => (
-        <FacultyQuestionCard
-          key={item.number}
-          paperId={paper.id}
-          examType={paper.examType}
-          item={item}
-          canDelete={paper.items.length > 1}
-          busy={isGenerating}
-          topicsBySubject={topicsBySubject}
-          onPaperUpdated={onPaperUpdated}
-          onError={onError}
-        />
-      ))}
+      {!isGenerating &&
+        paper.items.map((item) => (
+          <FacultyQuestionCard
+            key={item.number}
+            paperId={paper.id}
+            examType={paper.examType}
+            item={item}
+            canDelete={paper.items.length > 1}
+            busy={false}
+            topicsBySubject={topicsBySubject}
+            onPaperUpdated={onPaperUpdated}
+            onError={onError}
+          />
+        ))}
 
       {paper.status === 'ready' && (
         <div className={styles.addQuestionBar}>
