@@ -30,7 +30,39 @@ function FacultyPrintContent() {
   const [paper, setPaper] = useState<FacultyPaper | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [copied, setCopied] = useState(false);
   const printedRef = useRef(false);
+
+  function handleCopyAll() {
+    if (!paper) return;
+    const lines: string[] = [];
+    lines.push(`${paper.title} (${paper.paperCode})`);
+    lines.push(`Pattern: ${paper.examType} | Questions: ${paper.items.length}\n`);
+
+    paper.items.forEach((item) => {
+      lines.push(`Q${item.number}. [${item.subject} - ${item.topic}]`);
+      lines.push(item.questionText);
+      if (item.questionType !== 'integer' && item.options.length > 0) {
+        item.options.forEach((opt, idx) => {
+          lines.push(`  (${LETTERS[idx]}) ${stripOptionPrefix(opt)}`);
+        });
+      } else {
+        lines.push(`  Numerical Answer: _______`);
+      }
+      if (mode === 'solutions' || mode === 'key') {
+        lines.push(`Answer: ${item.correctAnswer}`);
+      }
+      if (mode === 'solutions' && item.explanation) {
+        lines.push(`Solution: ${item.explanation}`);
+      }
+      lines.push('');
+    });
+
+    navigator.clipboard.writeText(lines.join('\n')).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }
 
   useEffect(() => {
     if (!paperId) return;
@@ -122,9 +154,14 @@ function FacultyPrintContent() {
             Answer Key
           </Link>
         </div>
-        <button type="button" className={styles.btnAccent} onClick={() => window.print()}>
-          Download / Save PDF (A4)
-        </button>
+        <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          <button type="button" className={styles.btn} onClick={handleCopyAll}>
+            {copied ? '✓ Copied All!' : '📋 Copy Text'}
+          </button>
+          <button type="button" className={styles.btnAccent} onClick={() => window.print()}>
+            Download / Save PDF (A4)
+          </button>
+        </div>
       </div>
 
       <main className={styles.printSheet}>

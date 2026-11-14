@@ -954,7 +954,7 @@ export default function FacultyPage() {
                             <span>Difficulty: {p.difficulty}</span>
                             <span>
                               {p.status === 'ready'
-                                ? `${p.verifiedCount}/${p.questionCount} Verified ✓`
+                                ? 'Ready'
                                 : p.status === 'generating'
                                   ? 'Generating…'
                                   : 'Error'}

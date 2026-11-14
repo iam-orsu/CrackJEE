@@ -340,12 +340,8 @@ function FacultyQuestionCard({
           <span className={styles.qNum}>Q{item.number}</span>
           <span className={styles.qTag}>{item.subject} · {item.topic}</span>
           <span className={styles.qTag}>{typeLabel}</span>
-          {item.editedByFaculty ? (
+          {item.editedByFaculty && (
             <span className={styles.badgeVerified}>Edited ✓</span>
-          ) : item.verified ? (
-            <span className={styles.badgeVerified}>Verified ✓</span>
-          ) : (
-            <span className={styles.badgeWarn}>Unverified — Review</span>
           )}
         </div>
         {!busy && (
@@ -530,7 +526,7 @@ export function FacultyPaperPreview({
           </div>
           <p className={styles.sub} style={{ marginTop: 4 }}>
             {paper.examType === 'NEET' ? 'NEET-UG' : `JEE ${paper.examType}`} · {paper.difficulty}
-            {!isGenerating && ` · ${paper.questionCount} Questions · ${paper.verifiedCount}/${paper.items.length} Verified`}
+            {!isGenerating && ` · ${paper.questionCount} Questions`}
           </p>
           {paper.status === 'ready' && (
             <div className={styles.pdfBar}>
