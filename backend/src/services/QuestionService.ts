@@ -728,7 +728,7 @@ export class QuestionService {
         await this.questions.updateTieredExplanation(questionId, tier, text);
         return text;
       },
-    });
+    }, this.cache);
 
     return { tier, explanation, cached: false };
   }

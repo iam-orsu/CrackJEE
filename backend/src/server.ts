@@ -14,6 +14,8 @@ async function start(): Promise<void> {
 
   if (!cacheService.isRedisEnabled()) {
     logger.warn('REDIS_URL is not set — running with in-memory TTL cache fallback');
+  } else {
+    logger.info('Connected to Redis cache');
   }
 
   const mockExamService = new MockExamService();

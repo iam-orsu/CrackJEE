@@ -1,4 +1,4 @@
-import { cacheService } from '../services/CacheService';
+import { cacheService, type CacheService } from '../services/CacheService';
 
 const POLL_INTERVAL_MS = 2000;
 
@@ -14,13 +14,14 @@ export async function runOnce<T>(
     readShared: () => Promise<T | null>;
     produce: () => Promise<T>;
   },
+  cache: Pick<CacheService, 'setNx' | 'del'> = cacheService,
 ): Promise<T> {
   const lockKey = `lock:${key}`;
-  if (await cacheService.setNx(lockKey, opts.lockSeconds)) {
+  if (await cache.setNx(lockKey, opts.lockSeconds)) {
     try {
       return await opts.produce();
     } finally {
-      await cacheService.del(lockKey);
+      await cache.del(lockKey);
     }
   }
 

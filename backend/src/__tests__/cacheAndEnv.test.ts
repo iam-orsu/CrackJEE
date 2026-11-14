@@ -1,6 +1,6 @@
-import { test } from 'node:test';
+import { test, after } from 'node:test';
 import * as assert from 'node:assert/strict';
-import { CacheService, InMemoryCacheStore } from '../services/CacheService';
+import { CacheService, InMemoryCacheStore, cacheService } from '../services/CacheService';
 import { envSchema, isCookieSecure } from '../config/env';
 import { istDateKey, istMonthKey } from '../utils/dateIst';
 import { DeepSeekService } from '../services/DeepSeekService';
@@ -54,6 +54,18 @@ test('CacheService operates without REDIS_URL via in-memory fallback', async () 
   assert.deepEqual(await cache.getJson<string[]>('served:test'), ['a', 'b']);
   assert.equal(await cache.setNx('nx:test', 60), true);
   assert.equal(await cache.setNx('nx:test', 60), false);
+});
+
+test('CacheService operates with live Redis when configured', async () => {
+  const cache = new CacheService('redis://127.0.0.1:6379');
+  assert.equal(cache.isRedisEnabled(), true);
+  await cache.set('live:test', 'hello-redis', 10);
+  assert.equal(await cache.get('live:test'), 'hello-redis');
+  assert.equal(await cache.setNx('live:lock', 10), true);
+  assert.equal(await cache.setNx('live:lock', 10), false);
+  await cache.del('live:lock');
+  await cache.del('live:test');
+  await cache.disconnect();
 });
 
 test('envSchema requires mysql:// DATABASE_URL and treats REDIS_URL as optional', () => {
@@ -117,4 +129,8 @@ test('DeepSeekService.isAvailable reflects DEEPSEEK_API_KEY configuration', () =
     if (prev === undefined) delete process.env.DEEPSEEK_API_KEY;
     else process.env.DEEPSEEK_API_KEY = prev;
   }
+});
+
+after(async () => {
+  await cacheService.disconnect();
 });

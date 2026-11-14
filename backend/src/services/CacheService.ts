@@ -237,7 +237,7 @@ export class CacheService {
 
   public async disconnect(): Promise<void> {
     if (this.redisClient) {
-      await this.redisClient.quit().catch(() => {});
+      this.redisClient.disconnect();
       this.redisClient = null;
     }
   }
