@@ -466,7 +466,7 @@ export function cleanExplanation(raw: string): string {
   return s || raw.trim();
 }
 
-export function cleanTieredExplanation(raw: string, maxLen = 3500): string {
+export function cleanTieredExplanation(raw: string, maxLen = 8000): string {
   let s = raw.trim();
   for (const pat of REASONING_NOISE) s = s.replace(pat, '').trim();
   // Ensure major section headings always start on their own paragraph
@@ -474,6 +474,11 @@ export function cleanTieredExplanation(raw: string, maxLen = 3500): string {
   // Ensure inline bullet items have separate lines
   s = s.replace(/([^\n])\s*([•\-])\s+(\*\*[^*]+\*\*|[A-Za-z])/g, '$1\n- $3');
   s = s.replace(/\n{3,}/g, '\n\n').trim();
+
+  // Strip dangling incomplete trailing LaTeX commands at end of text (e.g. \frac{)
+  s = s.replace(/(\\[a-zA-Z]+(?:\{[^{}]*\})*)\{[^}]*$/gm, '');
+  s = s.replace(/\\[a-zA-Z]+\s*$/gm, '').trim();
+
   if (s.length > maxLen) {
     const cutoff = s.lastIndexOf('.', maxLen);
     s = (cutoff > 200 ? s.slice(0, cutoff + 1) : s.slice(0, maxLen)).trim();

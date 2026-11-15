@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { renderMath, renderExplanationHtml, escapeHtml, stripOptionPrefix } from './math';
+import { renderMath, renderExplanationHtml, escapeHtml, stripOptionPrefix, sanitizeMathDelimiters } from './math';
 
 describe('escapeHtml', () => {
   it('escapes markup characters', () => {
@@ -98,5 +98,41 @@ describe('renderExplanationHtml', () => {
     expect(html).not.toContain('**');
     expect(html).not.toContain('<script>');
     expect(html).toContain('&lt;script&gt;');
+  });
+
+  it('auto-heals unclosed math delimiters and dangling incomplete commands', () => {
+    const raw = '**✅ Verification**\n• $U_1 = 1$, so $\\frac{1}{U_1} = 1$\n• $U_2 = 3$, so \\(\\frac{1}{U_2} = \\frac{';
+    const html = renderExplanationHtml(raw);
+
+    // Should not render unparsed raw delimiter or raw LaTeX in visible text
+    expect(html).not.toContain('\\(');
+    expect(html).not.toContain('\\)');
+    // KaTeX should render both expressions successfully
+    expect(html).toContain('katex');
+    expect(html).toContain('Verification');
+    // Ensure both U_1 and U_2 math expressions are rendered into KaTeX
+    expect(html).toContain('U_1');
+    expect(html).toContain('U_2');
+  });
+});
+
+describe('sanitizeMathDelimiters', () => {
+  it('strips dangling incomplete LaTeX command and balances delimiters', () => {
+    const broken = '• $U_2 = 3$, so \\(\\frac{1}{U_2} = \\frac{';
+    const sanitized = sanitizeMathDelimiters(broken);
+
+    expect(sanitized).toBe('• $U_2 = 3$, so \\(\\frac{1}{U_2}\\)');
+  });
+
+  it('balances unclosed braces inside an unclosed math block', () => {
+    const broken = 'Formula: \\(\\frac{1}{3';
+    const sanitized = sanitizeMathDelimiters(broken);
+
+    expect(sanitized).toBe('Formula: \\(\\frac{1}{3}\\)');
+  });
+
+  it('balances single dollar signs and double dollar signs', () => {
+    expect(sanitizeMathDelimiters('Compute $x^2')).toBe('Compute $x^2$');
+    expect(sanitizeMathDelimiters('Display $$\\int_0^1 x dx')).toBe('Display $$\\int_0^1 x dx$$');
   });
 });

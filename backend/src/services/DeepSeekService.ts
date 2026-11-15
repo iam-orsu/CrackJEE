@@ -333,7 +333,7 @@ ${correct}
     existingExplanation?: string;
   }): Promise<string> {
     const prompt = buildTieredExplanationPrompt(params);
-    const maxTokens = params.tier === 'best' ? 1200 : 900;
+    const maxTokens = params.tier === 'best' ? 3000 : 2500;
     const response = await this.callChat({
       model: 'deepseek-chat',
       messages: [{ role: 'user', content: prompt }],

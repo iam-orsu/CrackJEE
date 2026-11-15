@@ -48,12 +48,91 @@ export function escapeHtml(s: string): string {
     .replace(/'/g, '&#39;');
 }
 
+export function sanitizeMathDelimiters(text: string): string {
+  if (!text) return '';
+
+  let s = text;
+
+  // 1. Remove dangling trailing LaTeX commands at end of line/text
+  // e.g. "= \frac{", "\frac{", "\sqrt{", "= \", etc. where opening brace or command is never finished
+  s = s.replace(/\s*(?:[=+\-*/]|\\cdot|\\times)?\s*(?:\\[a-zA-Z]*(?:\s*$|(?:\{[^{}]*\})*\{[^{}]*$)|\\$)/gm, (match) => {
+    if (/\{[ \t]*$/.test(match) || /\\[a-zA-Z]+[ \t]*$/.test(match) || /\\$/.test(match)) {
+      return '';
+    }
+    return match;
+  });
+
+  // 2. Balance unclosed `{` if there are more `{` than `}` inside an unclosed math block
+  // Check \( vs \)
+  const openParen = (s.match(/\\\(/g) || []).length;
+  const closeParen = (s.match(/\\\)/g) || []).length;
+  if (openParen > closeParen) {
+    const lastOpenIndex = s.lastIndexOf('\\(');
+    const unclosedSegment = s.slice(lastOpenIndex);
+    const openBraces = (unclosedSegment.match(/\{/g) || []).length;
+    const closeBraces = (unclosedSegment.match(/\}/g) || []).length;
+    if (openBraces > closeBraces) {
+      s += '}'.repeat(openBraces - closeBraces);
+    }
+    s += '\\)'.repeat(openParen - closeParen);
+  }
+
+  // Check \[ vs \]
+  const openBracket = (s.match(/\\\[/g) || []).length;
+  const closeBracket = (s.match(/\\\]/g) || []).length;
+  if (openBracket > closeBracket) {
+    const lastOpenIndex = s.lastIndexOf('\\[');
+    const unclosedSegment = s.slice(lastOpenIndex);
+    const openBraces = (unclosedSegment.match(/\{/g) || []).length;
+    const closeBraces = (unclosedSegment.match(/\}/g) || []).length;
+    if (openBraces > closeBraces) {
+      s += '}'.repeat(openBraces - closeBraces);
+    }
+    s += '\\]'.repeat(openBracket - closeBracket);
+  }
+
+  // Check $$
+  const doubleDollar = (s.match(/\$\$/g) || []).length;
+  if (doubleDollar % 2 !== 0) {
+    const lastOpenIndex = s.lastIndexOf('$$');
+    const unclosedSegment = s.slice(lastOpenIndex);
+    const openBraces = (unclosedSegment.match(/\{/g) || []).length;
+    const closeBraces = (unclosedSegment.match(/\}/g) || []).length;
+    if (openBraces > closeBraces) {
+      s += '}'.repeat(openBraces - closeBraces);
+    }
+    s += '$$';
+  } else {
+    // Check single $ (excluding $$)
+    const withoutDouble = s.replace(/\$\$/g, '');
+    const singleDollar = (withoutDouble.match(/\$/g) || []).length;
+    if (singleDollar % 2 !== 0) {
+      const lastOpenIndex = s.lastIndexOf('$');
+      const unclosedSegment = s.slice(lastOpenIndex);
+      const openBraces = (unclosedSegment.match(/\{/g) || []).length;
+      const closeBraces = (unclosedSegment.match(/\}/g) || []).length;
+      if (openBraces > closeBraces) {
+        s += '}'.repeat(openBraces - closeBraces);
+      }
+      s += '$';
+    }
+  }
+
+  // Remove empty math blocks like \(\), \[\], $$, $$ $$
+  s = s.replace(/\\\(\s*\\\)/g, '');
+  s = s.replace(/\\\[\s*\\\]/g, '');
+  s = s.replace(/\$\$\s*\$\$/g, '');
+
+  return s;
+}
+
 export function renderMath(rawText: string): string {
   if (!rawText) return '';
+  const text = sanitizeMathDelimiters(rawText);
 
   // No explicit delimiters — apply preprocessLatex on full text, then detect bare LaTeX
-  if (!/[$]|\\\(|\\\[/.test(rawText)) {
-    const processed = preprocessLatex(rawText);
+  if (!/[$]|\\\(|\\\[/.test(text)) {
+    const processed = preprocessLatex(text);
     if (/\\[a-zA-Z]|[_^]\{/.test(processed)) {
       let start = processed.search(/\\[a-zA-Z]|[_^]\{/);
       while (start > 0 && /[a-zA-Z0-9]/.test(processed[start - 1]!)) start--;
@@ -75,8 +154,8 @@ export function renderMath(rawText: string): string {
   let lastIndex = 0;
   let match: RegExpExecArray | null;
 
-  while ((match = pattern.exec(rawText)) !== null) {
-    parts.push(escapeHtml(preprocessLatex(rawText.slice(lastIndex, match.index))));
+  while ((match = pattern.exec(text)) !== null) {
+    parts.push(escapeHtml(preprocessLatex(text.slice(lastIndex, match.index))));
     const raw = match[0]!;
     let display = false;
     let content = raw;
@@ -92,7 +171,7 @@ export function renderMath(rawText: string): string {
     lastIndex = match.index + raw.length;
   }
 
-  parts.push(escapeHtml(preprocessLatex(rawText.slice(lastIndex))));
+  parts.push(escapeHtml(preprocessLatex(text.slice(lastIndex))));
   return parts.join('');
 }
 
@@ -181,12 +260,13 @@ function detectHeader(line: string): { type: ParsedSection['type']; icon: string
 
 export function renderExplanationHtml(rawText: string): string {
   if (!rawText || !rawText.trim()) return '';
+  const text = sanitizeMathDelimiters(rawText);
 
   // 1. Separate math spans and replace with tokens so markdown formatting doesn't alter math
   const mathTokens: string[] = [];
   const pattern = /(\$\$[\s\S]+?\$\$|\$[^$\n]+?\$|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\))/g;
 
-  let textWithTokens = rawText.replace(pattern, (match) => {
+  let textWithTokens = text.replace(pattern, (match) => {
     let display = false;
     let content = match;
     if (match.startsWith('$$'))       { display = true;  content = match.slice(2, -2); }
