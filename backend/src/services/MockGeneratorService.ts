@@ -87,8 +87,8 @@ export class MockGeneratorService {
   ): SlotInput[] {
     const subjects: Subject[] = ['Physics', 'Chemistry', 'Mathematics'];
     const typePlan: Array<{ type: QuestionType; count: number }> = examType === 'Main'
-      ? [{ type: 'mcq_single', count: 20 }, { type: 'integer', count: 5 }]
-      : [{ type: 'mcq_single', count: 7 }, { type: 'mcq_multi', count: 4 }, { type: 'integer', count: 6 }];
+      ? [{ type: 'mcq_single', count: 18 }, { type: 'matrix_match', count: 2 }, { type: 'integer', count: 5 }]
+      : [{ type: 'mcq_single', count: 6 }, { type: 'mcq_multi', count: 4 }, { type: 'matrix_match', count: 2 }, { type: 'integer', count: 5 }];
 
     const slots: SlotInput[] = [];
     for (const subject of subjects) {
@@ -115,13 +115,16 @@ export class MockGeneratorService {
   ): SlotInput[] {
     const slots: SlotInput[] = [];
     for (const subject of NEET_SUBJECTS) {
-      for (const topic of topicsBySubject[subject] ?? []) {
+      const topicList = topicsBySubject[subject] ?? [];
+      for (let i = 0; i < topicList.length; i++) {
+        // Guarantee 2 matrix match questions per subject in NEET
+        const questionType: QuestionType = i >= topicList.length - 2 ? 'matrix_match' : 'mcq_single';
         slots.push({
           subject,
-          topic,
+          topic: topicList[i]!,
           difficulty: this.pickDifficulty('Main', Math.random(), difficultyMode),
           examType: 'NEET',
-          questionType: 'mcq_single',
+          questionType,
         });
       }
     }
@@ -411,7 +414,7 @@ export class MockGeneratorService {
       this.mockData.findStoredPaper(
         examType,
         planKey,
-        (items) => items.length === expectedTotal,
+        (items) => items.length === expectedTotal && items.some((i) => i.questionType === 'matrix_match'),
       );
 
     let poolItems = await reuse();

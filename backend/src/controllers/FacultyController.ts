@@ -133,7 +133,14 @@ export class FacultyController {
 
       const catalog = catalogForExam(parsed.data.examType);
       const seen = new Set<string>();
-      const validSelections: Array<{ subject: Subject; topic: string }> = [];
+      const validSelections: Array<{
+        subject: Subject;
+        topic: string;
+        mcqCount?: number;
+        integerCount?: number;
+        multiCount?: number;
+        matrixCount?: number;
+      }> = [];
 
       for (const sel of parsed.data.selections) {
         const allowedTopics = catalog[sel.subject];
@@ -143,7 +150,14 @@ export class FacultyController {
         const key = `${sel.subject}::${sel.topic}`;
         if (!seen.has(key)) {
           seen.add(key);
-          validSelections.push({ subject: sel.subject as Subject, topic: sel.topic });
+          validSelections.push({
+            subject: sel.subject as Subject,
+            topic: sel.topic,
+            mcqCount: sel.mcqCount,
+            integerCount: sel.integerCount,
+            multiCount: sel.multiCount,
+            matrixCount: sel.matrixCount,
+          });
         }
       }
 
