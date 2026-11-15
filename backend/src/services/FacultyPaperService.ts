@@ -616,14 +616,23 @@ export class FacultyPaperService {
     usedBankIds: Set<string>,
     usedTexts: Set<string>,
   ): Promise<FacultyPaperItem | null> {
-    const examTypes = examType === 'NEET' ? ['NEET', 'Main'] : [examType];
-    const candidates = await this.questionRepo.findFacultyFallbackQuestions(
+    const examTypes = ['Main', 'NEET', 'Advanced'];
+    let candidates = await this.questionRepo.findFacultyFallbackQuestions(
       slot.subject,
       slot.topic,
       examTypes,
       slot.questionType,
       15,
     );
+
+    if (
+      candidates.length === 0 &&
+      slot.questionType === 'matrix_match' &&
+      typeof this.questionRepo.findSubjectMatrixFallbackQuestions === 'function'
+    ) {
+      candidates = await this.questionRepo.findSubjectMatrixFallbackQuestions(slot.subject, 15);
+    }
+
     const broadCandidates = candidates.length > 0
       ? candidates
       : await this.questionRepo.findFacultyFallbackQuestions(slot.subject, slot.topic, examTypes, undefined, 15);

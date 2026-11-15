@@ -136,4 +136,21 @@ describe('rationalized syllabus and cognitive depth guards', () => {
     assert.match(prompt, /STRICTLY NO school-level, NCERT back-exercise/i);
     assert.match(prompt, /IIT JEE Advanced/i);
   });
+
+  it('builds structured matrix_match prompt with List I and List II specifications', () => {
+    const prompt = buildFacultyGenerationPrompt({
+      subject: 'Physics',
+      topic: 'Units and Dimensions',
+      examType: 'Main',
+      difficulty: 'intermediate',
+      questionType: 'matrix_match',
+      targetLetter: 'C',
+    });
+
+    assert.match(prompt, /Match List I with List II/i);
+    assert.match(prompt, /List I:/i);
+    assert.match(prompt, /List II:/i);
+    assert.match(prompt, /A-P, B-R, C-S, D-Q/i);
+    assert.match(prompt, /option "C"/i);
+  });
 });

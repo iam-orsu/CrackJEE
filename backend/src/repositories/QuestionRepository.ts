@@ -270,4 +270,27 @@ export class QuestionRepository {
       take,
     });
   }
+
+  /** Fetches validated matrix match fallback questions across a whole subject when topic-specific ones are exhausted. */
+  public findSubjectMatrixFallbackQuestions(subject: string, take = 10) {
+    return this.prisma.question.findMany({
+      where: {
+        subject,
+        questionType: 'matrix_match',
+        validatedAt: { not: null },
+      },
+      select: {
+        id: true,
+        subject: true,
+        topic: true,
+        questionType: true,
+        questionText: true,
+        options: true,
+        answer: true,
+        explanation: true,
+        diagram: true,
+      },
+      take,
+    });
+  }
 }

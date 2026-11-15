@@ -195,11 +195,34 @@ export function buildFacultyGenerationPrompt(params: {
     ? `- Multi-correct MCQ: 1 to 3 correct options (NEVER 0, NEVER all 4), returned sorted in "correct_answers" (e.g. ["A", "C"]).`
     : questionType === 'integer'
       ? `- Integer type: options MUST be [] and "correct_answer" must be an exact non-negative integer (${answerRange}). Design numbers so it resolves cleanly to an integer.`
-      : `- Single-correct MCQ: exactly 4 distinct options; place the exact correct answer at option "${targetLetter}".`;
+      : questionType === 'matrix_match'
+        ? `- Matrix Match / Match the List: Format question stem with two distinct matching lists:
+"Match List I with List II regarding ${topic}:
+List I:
+A. <Item 1>
+B. <Item 2>
+C. <Item 3>
+D. <Item 4>
+
+List II:
+P. <Matching description 1>
+Q. <Matching description 2>
+R. <Matching description 3>
+S. <Matching description 4>
+
+Choose the correct answer from the options given below:"
+Options MUST be exactly 4 distinct matching permutations of the form "A-P, B-R, C-S, D-Q". Place the exact correct matching combination at option "${targetLetter}".`
+        : `- Single-correct MCQ: exactly 4 distinct options; place the exact correct answer at option "${targetLetter}".`;
 
   const formatExample = questionType === 'mcq_multi'
     ? `"correct_answers": ["A", "C"]`
     : `"correct_answer": "${questionType === 'integer' ? '7' : targetLetter}"`;
+
+  const optionsExample = questionType === 'integer'
+    ? '[]'
+    : questionType === 'matrix_match'
+      ? '["A-P, B-R, C-S, D-Q", "A-R, B-P, C-Q, D-S", "A-Q, B-S, C-P, D-R", "A-S, B-Q, C-R, D-P"]'
+      : '["option A", "option B", "option C", "option D"]';
 
   return `
 <context>
@@ -228,7 +251,7 @@ export function buildFacultyGenerationPrompt(params: {
     "computed_answer": "Exact value or option result verified from working_steps.",
     "question": "Clear, self-contained question stem with all given constants/conditions.",
     "question_type": "${questionType}",
-    "options": ${questionType === 'integer' ? '[]' : '["option A", "option B", "option C", "option D"]'},
+    "options": ${optionsExample},
     ${formatExample},
     "answer_explanation": "Clean, student-ready step-by-step solution matching computed_answer.",
     "diagram": null

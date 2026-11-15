@@ -305,17 +305,25 @@ export default function FacultyPage() {
     setSelections((prev) =>
       prev.map((s, idx) => {
         const topicTotal = perTopic + (idx < total % n ? 1 : 0);
+        if (questionType === 'matrix_match') {
+          return { ...s, mcqCount: 0, integerCount: 0, multiCount: 0, matrixCount: topicTotal };
+        }
         if (examType === 'NEET') {
-          return { ...s, mcqCount: topicTotal, integerCount: 0, multiCount: 0 };
+          const matrix = Math.min(s.matrixCount ?? 0, topicTotal);
+          return { ...s, mcqCount: topicTotal - matrix, integerCount: 0, multiCount: 0, matrixCount: matrix };
         } else if (examType === 'Advanced') {
-          const multi = Math.floor(topicTotal * 0.3);
-          const integer = Math.floor(topicTotal * 0.3);
-          const mcq = topicTotal - multi - integer;
-          return { ...s, mcqCount: mcq, multiCount: multi, integerCount: integer };
+          const matrix = Math.min(s.matrixCount ?? 0, topicTotal);
+          const rem = Math.max(0, topicTotal - matrix);
+          const multi = Math.floor(rem * 0.3);
+          const integer = Math.floor(rem * 0.3);
+          const mcq = rem - multi - integer;
+          return { ...s, mcqCount: mcq, multiCount: multi, integerCount: integer, matrixCount: matrix };
         } else {
-          const integer = Math.max(1, Math.round(topicTotal * 0.2));
-          const mcq = Math.max(0, topicTotal - integer);
-          return { ...s, mcqCount: mcq, integerCount: integer, multiCount: 0 };
+          const matrix = Math.min(s.matrixCount ?? 0, topicTotal);
+          const rem = Math.max(0, topicTotal - matrix);
+          const integer = Math.max(1, Math.round(rem * 0.2));
+          const mcq = Math.max(0, rem - integer);
+          return { ...s, mcqCount: mcq, integerCount: integer, multiCount: 0, matrixCount: matrix };
         }
       }),
     );
@@ -569,29 +577,35 @@ export default function FacultyPage() {
                           id="paper-qtype"
                           className={styles.select}
                           value={questionType}
-                          disabled={examType === 'NEET'}
                           onChange={(e) => {
                             const next = e.target.value as FacultyQuestionTypePref;
                             setQuestionType(next);
                             if (next === 'mcq_single') {
-                              applyPresetToAll(5, 0, 0);
+                              applyPresetToAll(5, 0, 0, 0);
                             } else if (next === 'integer') {
-                              applyPresetToAll(0, 5, 0);
+                              applyPresetToAll(0, 5, 0, 0);
                             } else if (next === 'mcq_multi') {
-                              applyPresetToAll(0, 0, 5);
+                              applyPresetToAll(0, 0, 5, 0);
+                            } else if (next === 'matrix_match') {
+                              applyPresetToAll(0, 0, 0, 5);
                             } else {
-                              applyPresetToAll(examType === 'Advanced' ? 3 : 5, 1, examType === 'Advanced' ? 2 : 0);
+                              applyPresetToAll(examType === 'Advanced' ? 3 : 5, 1, examType === 'Advanced' ? 2 : 0, 0);
                             }
                           }}
                         >
                           {examType === 'NEET' ? (
-                            <option value="mcq_single">Single-correct MCQ (100%)</option>
+                            <>
+                              <option value="auto">NEET Standard Mix (MCQ + Match List)</option>
+                              <option value="mcq_single">Single-correct MCQ Only</option>
+                              <option value="matrix_match">Matrix Match (Match the List) Only</option>
+                            </>
                           ) : (
                             <>
                               <option value="auto">Official Pattern Mix (5 MCQ + 1 Int)</option>
                               <option value="mcq_single">Single-correct Only</option>
                               <option value="integer">Integer Only</option>
                               {examType === 'Advanced' && <option value="mcq_multi">Multi-correct Only</option>}
+                              <option value="matrix_match">Matrix Match (Match the List) Only</option>
                             </>
                           )}
                         </select>
@@ -695,16 +709,23 @@ export default function FacultyPage() {
                             <button
                               type="button"
                               className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(5, 0)}
+                              onClick={() => applyPresetToAll(5, 0, 0, 0)}
                             >
                               5 MCQs
                             </button>
                             <button
                               type="button"
                               className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(10, 0)}
+                              onClick={() => applyPresetToAll(10, 0, 0, 0)}
                             >
                               10 MCQs
+                            </button>
+                            <button
+                              type="button"
+                              className={styles.presetBtn}
+                              onClick={() => applyPresetToAll(0, 0, 0, 5)}
+                            >
+                              Matrix Match (5)
                             </button>
                           </>
                         ) : examType === 'Advanced' ? (
@@ -712,23 +733,30 @@ export default function FacultyPage() {
                             <button
                               type="button"
                               className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(3, 1, 2)}
+                              onClick={() => applyPresetToAll(3, 1, 2, 0)}
                             >
                               Std (3 Single + 2 Multi + 1 Int)
                             </button>
                             <button
                               type="button"
                               className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(5, 0, 0)}
+                              onClick={() => applyPresetToAll(5, 0, 0, 0)}
                             >
                               MCQ Only (5)
                             </button>
                             <button
                               type="button"
                               className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(0, 5, 0)}
+                              onClick={() => applyPresetToAll(0, 5, 0, 0)}
                             >
                               Integer Only (5)
+                            </button>
+                            <button
+                              type="button"
+                              className={styles.presetBtn}
+                              onClick={() => applyPresetToAll(0, 0, 0, 5)}
+                            >
+                              Matrix Match (5)
                             </button>
                           </>
                         ) : (
@@ -736,30 +764,37 @@ export default function FacultyPage() {
                             <button
                               type="button"
                               className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(5, 1)}
+                              onClick={() => applyPresetToAll(5, 1, 0, 0)}
                             >
                               Std (5 Single + 1 Int)
                             </button>
                             <button
                               type="button"
                               className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(10, 2)}
+                              onClick={() => applyPresetToAll(10, 2, 0, 0)}
                             >
                               12 Qs (10 Single + 2 Int)
                             </button>
                             <button
                               type="button"
                               className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(5, 0)}
+                              onClick={() => applyPresetToAll(5, 0, 0, 0)}
                             >
                               Single-Option Only (5)
                             </button>
                             <button
                               type="button"
                               className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(0, 5)}
+                              onClick={() => applyPresetToAll(0, 5, 0, 0)}
                             >
                               Integer Only (5)
+                            </button>
+                            <button
+                              type="button"
+                              className={styles.presetBtn}
+                              onClick={() => applyPresetToAll(0, 0, 0, 5)}
+                            >
+                              Matrix Match (5)
                             </button>
                           </>
                         )}
