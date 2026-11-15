@@ -16,12 +16,14 @@ export interface DiagramTemplate {
   params: Record<string, unknown>;
 }
 
+export type QuestionType = 'mcq_single' | 'mcq_multi' | 'integer' | 'matrix_match';
+
 export interface Question {
   id: string;
   topic: string;
   subject: string;
   questionText: string;
-  questionType: 'mcq_single' | 'mcq_multi' | 'integer';
+  questionType: QuestionType;
   options: string[];   // empty [] for integer type
   difficulty: string;
   examType: string;
@@ -82,7 +84,7 @@ export interface PaperQuestion {
   topic: string;
   subject: string;
   questionText: string;
-  questionType: 'mcq_single' | 'mcq_multi' | 'integer';
+  questionType: QuestionType;
   options: string[];
   difficulty: string;
   diagram?: DiagramTemplate | null;
@@ -105,7 +107,7 @@ export interface MockExamQuestion {
   savedAnswer: string | null;
   markedForReview: boolean;
   questionText: string;
-  questionType: 'mcq_single' | 'mcq_multi' | 'integer';
+  questionType: QuestionType;
   options: string[];
   topic: string;
   difficulty: string;

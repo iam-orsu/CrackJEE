@@ -309,9 +309,11 @@ export function buildBatchPrompt(
     ? 'single-correct MCQ'
     : questionType === 'mcq_multi'
       ? 'multi-correct MCQ'
-      : 'integer-type';
+      : questionType === 'matrix_match'
+        ? 'Match List I with List II (Matrix Match)'
+        : 'integer-type';
 
-  const letterConstraints = questionType === 'mcq_single' && targetLetters.length > 0
+  const letterConstraints = (questionType === 'mcq_single' || questionType === 'matrix_match') && targetLetters.length > 0
     ? '\n' + targetLetters.map((l, i) => `  - Question ${i + 1} correct answer MUST be at option ${l}`).join('\n')
     : '';
 
@@ -319,7 +321,9 @@ export function buildBatchPrompt(
     ? `{ "question": "...", "question_type": "mcq_single", "options": ["...", "...", "...", "..."], "correct_answer": "B", "answer_explanation": "3-4 sentences.", "diagram": null }`
     : questionType === 'mcq_multi'
       ? `{ "question": "...", "question_type": "mcq_multi", "options": ["...", "...", "...", "..."], "correct_answers": ["A", "C"], "answer_explanation": "Option A: ... B: ... C: ... D: ...", "diagram": null }`
-      : `{ "question": "...", "question_type": "integer", "options": [], "correct_answer": "7", "answer_explanation": "Step-by-step solution.", "diagram": null }`;
+      : questionType === 'matrix_match'
+        ? `{ "question": "Match List I with List II regarding ...:\\nList I:\\nA. Term 1\\nB. Term 2\\nC. Term 3\\nD. Term 4\\nList II:\\nP. Property 1\\nQ. Property 2\\nR. Property 3\\nS. Property 4\\nChoose the correct answer from the options given below:", "question_type": "matrix_match", "options": ["A-P, B-R, C-S, D-Q", "A-R, B-P, C-Q, D-S", "A-Q, B-S, C-P, D-R", "A-S, B-Q, C-R, D-P"], "correct_answer": "B", "answer_explanation": "A matches with R because... B matches with P because...", "diagram": null }`
+        : `{ "question": "...", "question_type": "integer", "options": [], "correct_answer": "7", "answer_explanation": "Step-by-step solution.", "diagram": null }`;
 
   return `
 <context>
@@ -379,17 +383,21 @@ export function buildMixedBatchPrompt(
     ? 'single-correct MCQ'
     : questionType === 'mcq_multi'
       ? 'multi-correct MCQ'
-      : 'integer-type';
+      : questionType === 'matrix_match'
+        ? 'Match List I with List II (Matrix Match)'
+        : 'integer-type';
   const total = plan.reduce((sum, p) => sum + p.count, 0);
   const topicLines = plan.map((p) => `  - "${p.topic}": exactly ${p.count} question(s)`).join('\n');
-  const letterConstraints = questionType === 'mcq_single'
+  const letterConstraints = (questionType === 'mcq_single' || questionType === 'matrix_match')
     ? '\n' + targetLetters.map((l, i) => `  - Question ${i + 1} correct answer MUST be at option ${l}`).join('\n')
     : '';
   const exampleObj = questionType === 'mcq_single'
     ? `{ "topic": "<one topic name>", "question": "...", "question_type": "mcq_single", "options": ["...", "...", "...", "..."], "correct_answer": "B", "diagram": null }`
     : questionType === 'mcq_multi'
       ? `{ "topic": "<one topic name>", "question": "...", "question_type": "mcq_multi", "options": ["...", "...", "...", "..."], "correct_answers": ["A", "C"], "diagram": null }`
-      : `{ "topic": "<one topic name>", "question": "...", "question_type": "integer", "options": [], "correct_answer": "7", "diagram": null }`;
+      : questionType === 'matrix_match'
+        ? `{ "topic": "<one topic name>", "question": "Match List I with List II regarding ...:\\nList I:\\nA. Term 1\\nB. Term 2\\nList II:\\nP. Prop 1\\nQ. Prop 2\\nChoose the correct answer from the options given below:", "question_type": "matrix_match", "options": ["A-P, B-Q", "A-Q, B-P", "A-P, B-P", "A-Q, B-Q"], "correct_answer": "A", "diagram": null }`
+        : `{ "topic": "<one topic name>", "question": "...", "question_type": "integer", "options": [], "correct_answer": "7", "diagram": null }`;
 
   const examLabel = examType === 'NEET' ? 'NEET-UG medical entrance exam' : `JEE ${examType} competitive entrance exam`;
   const cognitiveRule = examType === 'Advanced'

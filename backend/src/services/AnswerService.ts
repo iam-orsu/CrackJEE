@@ -6,7 +6,7 @@ import { GradingService, gradingService as defaultGrading } from './GradingServi
 import { CACHE_CONSTANTS } from '../config/constants';
 import { AppError } from '../utils/AppError';
 
-const SERVED_KINDS = ['practice', 'mcq_single', 'mcq_multi', 'integer'] as const;
+const SERVED_KINDS = ['practice', 'mcq_single', 'mcq_multi', 'integer', 'matrix_match'] as const;
 
 export class AnswerService {
   constructor(

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { DiagramRenderer } from '@/components/DiagramRenderer';
 import { MathText, stripOptionPrefix } from '@/lib/math';
+import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchListTable';
 import {
   facultyAcceptDraftQuestion,
   facultyDeleteQuestion,
@@ -27,7 +28,11 @@ function QuestionContent({ item }: { item: FacultyPaperItem }) {
   return (
     <>
       <div className={styles.qBody}>
-        <MathText text={item.questionText} />
+        {item.questionType === 'matrix_match' || parseMatchQuestion(item.questionText) ? (
+          <MatchListTable questionText={item.questionText} />
+        ) : (
+          <MathText text={item.questionText} />
+        )}
       </div>
 
       {item.diagram && (
@@ -187,10 +192,11 @@ function SparklePanel({
           <select
             className={styles.select}
             value={questionType}
-            disabled={examType === 'NEET' || generating || accepting}
+            disabled={generating || accepting}
             onChange={(e) => setQuestionType(e.target.value as FacultyQuestionType)}
           >
             <option value="mcq_single">Single-correct MCQ</option>
+            <option value="matrix_match">Matrix Match / Match the List</option>
             {examType !== 'NEET' && <option value="integer">Integer Type</option>}
             {examType === 'Advanced' && <option value="mcq_multi">Multi-correct MCQ</option>}
           </select>
@@ -331,7 +337,9 @@ function FacultyQuestionCard({
     ? 'Multi-correct'
     : item.questionType === 'integer'
       ? 'Integer'
-      : 'Single-correct';
+      : item.questionType === 'matrix_match'
+        ? 'Matrix Match'
+        : 'Single-correct';
 
   return (
     <article className={styles.questionCard}>

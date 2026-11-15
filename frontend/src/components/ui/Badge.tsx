@@ -14,6 +14,7 @@ export type BadgeVariant =
   | 'type-mcq'
   | 'type-integer'
   | 'type-multi'
+  | 'type-matrix'
   | 'type-paragraph'
   | 'status-correct'
   | 'status-wrong'
@@ -32,6 +33,7 @@ const STYLES: Record<BadgeVariant, { bg: string; color: string; border: string }
   'type-mcq':                { bg: '#f1f5f9', color: '#475569', border: '#e2e8f0' },
   'type-integer':            { bg: '#eff6ff', color: '#1e40af', border: '#bfdbfe' },
   'type-multi':              { bg: '#fef3c7', color: '#92400e', border: '#fde68a' },
+  'type-matrix':             { bg: '#f3e8ff', color: '#6b21a8', border: '#e9d5ff' },
   'type-paragraph':          { bg: '#fdf4ff', color: '#86198f', border: '#f5d0fe' },
   'status-correct':          { bg: '#f0fdf4', color: '#15803d', border: '#bbf7d0' },
   'status-wrong':            { bg: '#fef2f2', color: '#dc2626', border: '#fecaca' },
@@ -85,6 +87,7 @@ export function subjectVariant(s: string): BadgeVariant {
 export function qtypeVariant(qt: string): BadgeVariant {
   if (qt === 'integer') return 'type-integer';
   if (qt === 'mcq_multi') return 'type-multi';
+  if (qt === 'matrix_match') return 'type-matrix';
   if (qt === 'paragraph') return 'type-paragraph';
   return 'type-mcq';
 }

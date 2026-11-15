@@ -8,6 +8,7 @@ export interface FacultyPaperSelection {
   mcqCount?: number;
   integerCount?: number;
   multiCount?: number;
+  matrixCount?: number;
 }
 
 export interface FacultyPaperItem {

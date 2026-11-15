@@ -4,7 +4,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || '/api/v1';
 
 export type FacultyExamType = 'Main' | 'Advanced' | 'NEET';
 export type FacultyDifficulty = 'beginner' | 'intermediate' | 'advanced' | 'mixed';
-export type FacultyQuestionType = 'mcq_single' | 'mcq_multi' | 'integer';
+export type FacultyQuestionType = 'mcq_single' | 'mcq_multi' | 'integer' | 'matrix_match';
 export type FacultyQuestionTypePref = 'auto' | FacultyQuestionType;
 export type PrintMode = 'questions' | 'solutions' | 'key';
 
@@ -21,6 +21,7 @@ export interface FacultyPaperSelection {
   mcqCount?: number;
   integerCount?: number;
   multiCount?: number;
+  matrixCount?: number;
 }
 
 export interface FacultyPaperItem {

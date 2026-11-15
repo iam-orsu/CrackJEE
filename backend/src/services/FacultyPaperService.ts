@@ -86,8 +86,8 @@ function resolveSlotQuestionType(
   indexInSelection: number,
   selectionCount: number,
 ): QuestionType {
-  if (examType === 'NEET') return 'mcq_single';
   if (preference !== 'auto') return preference;
+  if (examType === 'NEET') return 'mcq_single';
 
   if (examType === 'Main') {
     if (selectionCount < 3) return 'mcq_single';
@@ -111,7 +111,7 @@ function buildPaperSlots(input: CreateFacultyPaperInput): PaperSlot[] {
   );
 
   const hasGranularCounts = sortedSelections.some(
-    (s) => (s.mcqCount ?? 0) > 0 || (s.integerCount ?? 0) > 0 || (s.multiCount ?? 0) > 0,
+    (s) => (s.mcqCount ?? 0) > 0 || (s.integerCount ?? 0) > 0 || (s.multiCount ?? 0) > 0 || (s.matrixCount ?? 0) > 0,
   );
 
   const slots: PaperSlot[] = [];
@@ -122,6 +122,7 @@ function buildPaperSlots(input: CreateFacultyPaperInput): PaperSlot[] {
       const mcqCount = Math.max(0, sel.mcqCount ?? 0);
       const multiCount = Math.max(0, sel.multiCount ?? 0);
       const integerCount = Math.max(0, sel.integerCount ?? 0);
+      const matrixCount = Math.max(0, sel.matrixCount ?? 0);
 
       // Single-choice MCQs
       for (let i = 0; i < mcqCount; i++) {
@@ -155,6 +156,18 @@ function buildPaperSlots(input: CreateFacultyPaperInput): PaperSlot[] {
           topic: sel.topic,
           difficulty: resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
           questionType: 'integer',
+        });
+        number++;
+      }
+
+      // Matrix Match / Match the List
+      for (let i = 0; i < matrixCount; i++) {
+        slots.push({
+          number,
+          subject: sel.subject,
+          topic: sel.topic,
+          difficulty: resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
+          questionType: 'matrix_match',
         });
         number++;
       }

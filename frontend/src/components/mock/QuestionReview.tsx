@@ -1,4 +1,5 @@
 import { MathText } from '@/lib/math';
+import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchListTable';
 import { AnimatedTabs } from '@/components/ui/AnimatedTabs';
 import { Badge, subjectVariant } from '@/components/ui/Badge';
 import type { MockExamQuestion, MockResultBreakdown } from '@/types';
@@ -126,7 +127,11 @@ export function QuestionReview({ examId, weakPracticeUrl, isNEET, allQs, filtere
               <div style={{ padding: '0 16px 20px', borderTop: '1px solid #e2e8f0' }}>
                 {/* Question text */}
                 <div style={{ fontSize: 14, color: '#1e293b', lineHeight: 1.7, padding: '14px 0 12px' }}>
-                  <MathText text={q.questionText ?? ''} />
+                  {q.questionType === 'matrix_match' || parseMatchQuestion(q.questionText ?? '') ? (
+                    <MatchListTable questionText={q.questionText ?? ''} />
+                  ) : (
+                    <MathText text={q.questionText ?? ''} />
+                  )}
                 </div>
 
                 {/* Options */}
@@ -199,7 +204,7 @@ export function QuestionReview({ examId, weakPracticeUrl, isNEET, allQs, filtere
                 <div style={{ marginTop: 12, display: 'flex', gap: 12, fontSize: 12, color: '#64748b' }}>
                   <span>Marks awarded: <strong style={{ color: statusColor }}>{bd?.awarded ?? 0}</strong></span>
                   <span>Max marks: <strong>{bd?.maxMarks ?? 4}</strong></span>
-                  <span>Type: <strong>{q.questionType === 'mcq_single' ? 'Single Correct' : q.questionType === 'mcq_multi' ? 'Multi-Correct' : 'Integer'}</strong></span>
+                  <span>Type: <strong>{q.questionType === 'mcq_single' ? 'Single Correct' : q.questionType === 'mcq_multi' ? 'Multi-Correct' : q.questionType === 'matrix_match' ? 'Matrix Match' : 'Integer'}</strong></span>
                 </div>
               </div>
             )}

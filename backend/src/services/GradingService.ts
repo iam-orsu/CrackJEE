@@ -34,6 +34,7 @@ export class GradingService {
   public checkAnswer(questionType: string, submitted: string, correct: string): boolean {
     if (questionType === 'mcq_multi') return this.matchMulti(submitted, correct);
     if (questionType === 'integer') return this.matchInteger(submitted, correct);
+    if (questionType === 'matrix_match') return this.matchSingle(submitted, correct);
     return this.matchSingle(submitted, correct);
   }
 }

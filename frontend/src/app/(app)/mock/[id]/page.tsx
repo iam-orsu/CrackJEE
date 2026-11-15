@@ -9,6 +9,7 @@ import { isAuthenticated } from '@/lib/auth';
 import type { MockExam } from '@/types';
 
 import { MathText, stripOptionPrefix } from '@/lib/math';
+import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchListTable';
 import Loader from '@/components/loader';
 import { Badge, qtypeVariant, difficultyVariant } from '@/components/ui/Badge';
 import { qStatus, type QStatus } from '@/components/mock/examStatus';
@@ -560,7 +561,7 @@ export default function MockExamPage() {
               Question {currentQ.questionNumber} of {total}
             </span>
             <Badge variant={qtypeVariant(qt)}>
-              {qt === 'mcq_single' ? 'Single Correct' : qt === 'mcq_multi' ? 'Multi-Correct' : 'Integer Type'}
+              {qt === 'mcq_single' ? 'Single Correct' : qt === 'mcq_multi' ? 'Multi-Correct' : qt === 'matrix_match' ? 'Matrix Match' : 'Integer Type'}
             </Badge>
             <Badge variant={difficultyVariant(currentQ.difficulty)}>
               {currentQ.difficulty}
@@ -575,7 +576,11 @@ export default function MockExamPage() {
             background: '#fff', border: '1px solid #e2e8f0', borderRadius: 8,
             padding: '20px 24px', fontSize: 15, lineHeight: 1.7, color: '#1e293b',
           }}>
-            <MathText text={currentQ.questionText} />
+            {qt === 'matrix_match' || parseMatchQuestion(currentQ.questionText) ? (
+              <MatchListTable questionText={currentQ.questionText} />
+            ) : (
+              <MathText text={currentQ.questionText} />
+            )}
           </div>
 
           {/* Options / Input */}
@@ -612,17 +617,17 @@ export default function MockExamPage() {
                 )}
                 {currentQ.options.map((opt, i) => {
                   const letter = options[i]!;
-                  const isSelected = qt === 'mcq_single' ? draft === letter : multiSelected.has(letter);
+                  const isSelected = qt === 'mcq_multi' ? multiSelected.has(letter) : draft === letter;
                   return (
                     <button
                       key={letter}
                       onClick={() => {
-                        if (qt === 'mcq_single') {
+                        if (qt === 'mcq_multi') {
+                          toggleMulti(letter);
+                        } else {
                           const next = isSelected ? '' : letter;
                           setDraft(next);
                           persistAnswer(currentQ.mockQuestionId, next);
-                        } else {
-                          toggleMulti(letter);
                         }
                       }}
                       style={{
@@ -634,7 +639,7 @@ export default function MockExamPage() {
                     >
                       <span style={{
                         flexShrink: 0, width: 26, height: 26,
-                        borderRadius: qt === 'mcq_single' ? '50%' : 4,
+                        borderRadius: qt === 'mcq_multi' ? 4 : '50%',
                         border: `2px solid ${isSelected ? '#1e293b' : '#94a3b8'}`,
                         background: isSelected ? '#1e293b' : '#fff',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',

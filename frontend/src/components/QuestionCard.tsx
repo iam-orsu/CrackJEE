@@ -60,11 +60,13 @@ const SUBJECT_STYLE: Record<string, { bg: string; accent: string; textColor: str
 };
 
 const QTYPE_BADGE: Record<string, { label: string; bg: string; color: string }> = {
-  mcq_multi: { label: 'Multi-correct', bg: '#fef3c7', color: '#92400e' },
-  integer:   { label: 'Integer type',  bg: '#eff6ff', color: '#1e40af' },
+  mcq_multi:    { label: 'Multi-correct', bg: '#fef3c7', color: '#92400e' },
+  integer:      { label: 'Integer type',  bg: '#eff6ff', color: '#1e40af' },
+  matrix_match: { label: 'Matrix Match',  bg: '#f3e8ff', color: '#6b21a8' },
 };
 
 import { renderMathHtml, renderExplanationHtml, stripOptionPrefix } from '@/lib/math';
+import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchListTable';
 
 export function QuestionCard({ question, questionNum, onSubmit, onNext, initialResult, initialSelected, isLast }: Props) {
   const qt = question.questionType ?? 'mcq_single';
@@ -231,7 +233,11 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
       <div className={`qcard-body${result?.explanation ? ' qcard-body-split' : ''}`}>
         <div className="qcard-left">
           {question.diagram && <DiagramRenderer descriptor={question.diagram} />}
-          <p className="question-text" dangerouslySetInnerHTML={{ __html: renderMathHtml(question.questionText) }} />
+          {qt === 'matrix_match' || parseMatchQuestion(question.questionText) ? (
+            <MatchListTable questionText={question.questionText} className="question-text" />
+          ) : (
+            <p className="question-text" dangerouslySetInnerHTML={{ __html: renderMathHtml(question.questionText) }} />
+          )}
 
           {/* ── Multi-correct hint ── */}
           {qt === 'mcq_multi' && !result && (

@@ -78,7 +78,7 @@
       "topic": "Current Electricity",
       "difficulty": "beginner",
       "examType": "NEET",
-      "questionType": "mcq_single",
+      "questionType": "matrix_match",
       "questionText": "Match List I (Physical Quantity) with List II (Standard SI Unit):\n\nList I:\nA. Electrical conductivity ($\\sigma$)\nB. Electrical resistivity ($\\rho$)\nC. Charge carrier mobility ($\\mu$)\nD. Current density ($j$)\n\nList II:\nI. $\\Omega\\cdot\\text{m}$\nII. $\\Omega^{-1}\\cdot\\text{m}^{-1}$ or $\\text{S}\\cdot\\text{m}^{-1}$\nIII. $\\text{m}^2\\cdot\\text{V}^{-1}\\cdot\\text{s}^{-1}$\nIV. $\\text{A}\\cdot\\text{m}^{-2}$\n\nChoose the correct answer from the options given below:",
       "options": [
         "A) A-(II), B-(I), C-(III), D-(IV)",
@@ -163,7 +163,7 @@
       "topic": "Current Electricity",
       "difficulty": "beginner",
       "examType": "NEET",
-      "questionType": "mcq_single",
+      "questionType": "matrix_match",
       "questionText": "Match List I (Material Category) with List II (Temperature Dependence of Electrical Resistivity $\\rho$):\n\nList I:\nA. Copper (Conductor)\nB. Nichrome (Alloy)\nC. Silicon (Semiconductor)\nD. Lead below $7.2\\text{ K}$ (Superconductor)\n\nList II:\nI. Resistivity drops abruptly to strictly zero below a critical temperature $T_c$\nII. Resistivity decreases exponentially with increasing temperature ($\\alpha < 0$)\nIII. Resistivity exhibits very weak, nearly linear temperature dependence with nearly zero $\\alpha$\nIV. Resistivity increases non-linearly at low temperatures and linearly around room temperature ($\\alpha > 0$)\n\nChoose the correct answer from the options given below:",
       "options": [
         "A) A-(IV), B-(III), C-(II), D-(I)",
@@ -282,7 +282,7 @@
       "topic": "Current Electricity",
       "difficulty": "beginner",
       "examType": "NEET",
-      "questionType": "mcq_single",
+      "questionType": "matrix_match",
       "questionText": "Match List I (Circuit Rule / Network Principle) with List II (Fundamental Conservation Law / Condition):\n\nList I:\nA. Kirchhoff's Junction Rule ($\\sum I = 0$)\nB. Kirchhoff's Loop Rule ($\\sum \\Delta V = 0$)\nC. Balanced Wheatstone Bridge\nD. Maximum Power Transfer to a load\n\nList II:\nI. Conservation of energy around any closed circuit path\nII. Conservation of electric charge at any circuit node\nIII. Load resistance equals internal resistance of the power source ($R = r$)\nIV. Zero potential difference across the detector branch ($I_g = 0$)\n\nChoose the correct answer from the options given below:",
       "options": [
         "A) A-(I), B-(II), C-(III), D-(IV)",
@@ -435,7 +435,7 @@
       "topic": "Current Electricity",
       "difficulty": "intermediate",
       "examType": "NEET",
-      "questionType": "mcq_single",
+      "questionType": "matrix_match",
       "questionText": "Match List I (Circuit Configuration) with List II (Characteristic Equivalent Parameter):\n\nList I:\nA. $n$ identical resistors of resistance $R$ connected in parallel\nB. $n$ identical cells each of EMF $E$ and internal resistance $r$ connected in series\nC. $n$ identical cells each of EMF $E$ and internal resistance $r$ connected in parallel\nD. Two resistors $R_1, R_2$ connected in series across total potential difference $V$\n\nList II:\nI. Total EMF is $E$, total internal resistance is $\\frac{r}{n}$\nII. Potential difference across $R_1$ is $V \\left(\\frac{R_1}{R_1 + R_2}\\right)$\nIII. Total equivalent resistance is $\\frac{R}{n}$\nIV. Total EMF is $nE$, total internal resistance is $nr$\n\nChoose the correct answer from the options given below:",
       "options": [
         "A) A-(III), B-(I), C-(IV), D-(II)",
@@ -537,7 +537,7 @@
       "topic": "Current Electricity",
       "difficulty": "intermediate",
       "examType": "NEET",
-      "questionType": "mcq_single",
+      "questionType": "matrix_match",
       "questionText": "Match List I (Macroscopic / Microscopic Quantity) with List II (Microscopic Expression in terms of electron mass $m$, charge $e$, relaxation time $\\tau$, and density $n$):\n\nList I:\nA. Conduction electron drift speed ($v_d$)\nB. Electrical conductivity ($\\sigma$)\nC. Electrical resistivity ($\\rho$)\nD. Electric current density ($j$)\n\nList II:\nI. $\\frac{n e^2 \\tau}{m}$\nII. $\\frac{e E \\tau}{m}$\nIII. $n e v_d$\nIV. $\\frac{m}{n e^2 \\tau}$\n\nChoose the correct answer from the options given below:",
       "options": [
         "A) A-(I), B-(II), C-(IV), D-(III)",
@@ -673,7 +673,7 @@
       "topic": "Current Electricity",
       "difficulty": "intermediate",
       "examType": "NEET",
-      "questionType": "mcq_single",
+      "questionType": "matrix_match",
       "questionText": "Match List I (Condition in a Four-Arm Bridge Network with bridge arms $P, Q, R, S$) with List II (Circuit Consequence):\n\nList I:\nA. $\\frac{P}{Q} = \\frac{R}{S}$ with galvanometer across junctions $B$ and $D$\nB. $\\frac{P}{Q} > \\frac{R}{S}$ with source positive connected at input junction $A$\nC. Bridge balanced, then source battery and galvanometer are interchanged\nD. Arm resistor $S$ burns out and becomes an open circuit ($S \\to \\infty$)\n\nList II:\nI. Balance is fully preserved; galvanometer still reads zero deflection\nII. Potential at junction $B$ is lower than at junction $D$ ($V_B < V_D$)\nIII. Galvanometer current is zero ($I_g = 0$)\nIV. Bridge becomes heavily unbalanced with maximal current diverted into the intact branches\n\nChoose the correct answer from the options given below:",
       "options": [
         "A) A-(III), B-(I), C-(II), D-(IV)",
@@ -758,7 +758,7 @@
       "topic": "Current Electricity",
       "difficulty": "advanced",
       "examType": "NEET",
-      "questionType": "mcq_single",
+      "questionType": "matrix_match",
       "questionText": "Match List I (Complex Resistor Network) with List II (Equivalent Resistance between specified terminals):\n\nList I:\nA. Twelve identical resistors of resistance $R$ forming the edges of a cube, measured across body-diagonal corners\nB. Twelve identical resistors of resistance $R$ forming the edges of a cube, measured across face-diagonal corners\nC. Twelve identical resistors of resistance $R$ forming the edges of a cube, measured across adjacent edge corners\nD. An infinite ladder network consisting of repeating sections with series resistor $1.0\\,\\Omega$ and shunt resistor $2.0\\,\\Omega$\n\nList II:\nI. $\\frac{3}{4}R$\nII. $\\frac{7}{12}R$\nIII. $2.0\\,\\Omega$\nIV. $\\frac{5}{6}R$\n\nChoose the correct answer from the options given below:",
       "options": [
         "A) A-(I), B-(IV), C-(II), D-(III)",
@@ -911,7 +911,7 @@
       "topic": "Current Electricity",
       "difficulty": "advanced",
       "examType": "NEET",
-      "questionType": "mcq_single",
+      "questionType": "matrix_match",
       "questionText": "Match List I (Symmetric Three-Dimensional Resistor Frame) with List II (Equivalent Resistance between specified vertices):\n\nList I:\nA. Twelve identical resistors $R$ forming a wire cube, measured across body-diagonal corners\nB. Twelve identical resistors $R$ forming a wire cube, measured across face-diagonal corners\nC. Twelve identical resistors $R$ forming a wire cube, measured across adjacent edge corners\nD. Six identical resistors $R$ forming a regular tetrahedron, measured across any one edge\n\nList II:\nI. $\\frac{R}{2}$\nII. $\\frac{7}{12}R$\nIII. $\\frac{3}{4}R$\nIV. $\\frac{5}{6}R$\n\nChoose the correct answer from the options given below:",
       "options": [
         "A) A-(III), B-(IV), C-(II), D-(I)",

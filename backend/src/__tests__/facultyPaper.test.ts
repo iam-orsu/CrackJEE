@@ -103,7 +103,8 @@ describe('FacultyPaperService slot allocation and rules', () => {
       { id: 'q3', questionText: 'Q3', questionType: 'mcq_single', options: ['A', 'B', 'C', 'D'], answer: 'C', explanation: 'exp' },
       { id: 'q4', questionText: 'Q4', questionType: 'integer', options: [], answer: '15', explanation: 'exp' },
       { id: 'q5', questionText: 'Q5', questionType: 'integer', options: [], answer: '18', explanation: 'exp' },
-      { id: 'q6', questionText: 'Q6', questionType: 'integer', options: [], answer: '25', explanation: 'exp' },
+      { id: 'q6', questionText: 'Q6', questionType: 'matrix_match', options: ['A-P', 'A-Q'], answer: 'A', explanation: 'exp' },
+      { id: 'q7', questionText: 'Q7', questionType: 'integer', options: [], answer: '25', explanation: 'exp' },
     ];
     const fakeQRepo: any = {
       findFacultyFallbackQuestions: async (_s: any, _t: any, _e: any, qType?: any) =>
@@ -112,27 +113,28 @@ describe('FacultyPaperService slot allocation and rules', () => {
 
     const service = new FacultyPaperService(fakeRepo, fakeQRepo);
     const selections: FacultyPaperSelection[] = [
-      { subject: 'Physics', topic: 'Kinematics', mcqCount: 2, integerCount: 1 },
+      { subject: 'Physics', topic: 'Kinematics', mcqCount: 2, integerCount: 1, matrixCount: 1 },
       { subject: 'Chemistry', topic: 'Thermodynamics', mcqCount: 1, integerCount: 2 },
     ];
 
     const result = await service.startPaper('faculty-123', {
       examType: 'Main',
       difficulty: 'intermediate',
-      questionCount: 6, // 2+1 + 1+2 = 6
+      questionCount: 7, // 2+1+1 + 1+2 = 7
       selections,
     });
 
     await service.waitForActiveGenerations();
 
     assert.equal(result.id, 'test-paper-granular');
-    assert.equal(createdInput.questionCount, 6);
-    assert.equal(savedSlots.length, 6);
-    // Physics Kinematics has 2 MCQ and 1 Integer
+    assert.equal(createdInput.questionCount, 7);
+    assert.equal(savedSlots.length, 7);
+    // Physics Kinematics has 2 MCQ, 1 Integer, and 1 Matrix Match
     const physKin = savedSlots.filter((s: any) => s.subject === 'Physics' && s.topic === 'Kinematics');
-    assert.equal(physKin.length, 3);
+    assert.equal(physKin.length, 4);
     assert.equal(physKin.filter((s: any) => s.questionType === 'mcq_single').length, 2);
     assert.equal(physKin.filter((s: any) => s.questionType === 'integer').length, 1);
+    assert.equal(physKin.filter((s: any) => s.questionType === 'matrix_match').length, 1);
 
     // Chemistry Thermodynamics has 1 MCQ and 2 Integer
     const chemThermo = savedSlots.filter((s: any) => s.subject === 'Chemistry' && s.topic === 'Thermodynamics');

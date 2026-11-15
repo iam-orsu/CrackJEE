@@ -33,6 +33,7 @@
     "db:migrate": "tsx src/scripts/prismaWithEnv.ts migrate deploy",
     "db:migrate:dev": "tsx src/scripts/prismaWithEnv.ts migrate dev",
     "db:seed": "tsx src/scripts/seedQuestions.ts",
+    "matrix:classify": "tsx src/scripts/classifyMatrixQuestions.ts",
     "faculty:create": "tsx src/scripts/createFaculty.ts"
   },
   "overrides": {

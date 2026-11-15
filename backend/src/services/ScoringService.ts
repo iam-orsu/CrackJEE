@@ -22,7 +22,7 @@ export class ScoringService {
     if (questionType === 'integer') {
       return gradingService.matchInteger(submitted, correct) ? 3 : 0;
     }
-    if (questionType === 'mcq_single') {
+    if (questionType === 'mcq_single' || questionType === 'matrix_match') {
       return gradingService.matchSingle(submitted, correct) ? 3 : -1;
     }
     if (questionType === 'mcq_multi') {
@@ -38,7 +38,7 @@ export class ScoringService {
 
   public getMaxMarkPerQuestion(examType: string, questionType: string): number {
     if (examType === 'Main' || examType === 'NEET') return 4;
-    if (questionType === 'mcq_single' || questionType === 'integer') return 3;
+    if (questionType === 'mcq_single' || questionType === 'integer' || questionType === 'matrix_match') return 3;
     return 4;
   }
 }

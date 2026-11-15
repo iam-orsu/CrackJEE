@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useParams, useSearchParams } from 'next/navigation';
 import { DiagramRenderer } from '@/components/DiagramRenderer';
 import { MathText, stripOptionPrefix } from '@/lib/math';
+import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchListTable';
 import { facultyGetPaper, type FacultyPaper, type PrintMode } from '@/lib/faculty';
 import styles from '../../../faculty.module.css';
 
@@ -194,12 +195,17 @@ function FacultyPrintContent() {
                   <span className={styles.printQSubject}>
                     [{item.subject} · {item.topic}
                     {item.questionType === 'mcq_multi' ? ' · One or More Correct' : ''}
-                    {item.questionType === 'integer' ? ' · Integer Type' : ''}]
+                    {item.questionType === 'integer' ? ' · Integer Type' : ''}
+                    {item.questionType === 'matrix_match' ? ' · Matrix Match' : ''}]
                   </span>
                 </div>
 
                 <div className={styles.qBody}>
-                  <MathText text={item.questionText} />
+                  {item.questionType === 'matrix_match' || parseMatchQuestion(item.questionText) ? (
+                    <MatchListTable questionText={item.questionText} />
+                  ) : (
+                    <MathText text={item.questionText} />
+                  )}
                 </div>
 
                 {item.diagram && (

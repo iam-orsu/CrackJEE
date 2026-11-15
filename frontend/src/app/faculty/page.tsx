@@ -252,7 +252,7 @@ export default function FacultyPage() {
   const totalCalculatedCount = useMemo(() => {
     if (selections.length === 0) return 0;
     return selections.reduce(
-      (acc, s) => acc + (s.mcqCount ?? 0) + (s.integerCount ?? 0) + (s.multiCount ?? 0),
+      (acc, s) => acc + (s.mcqCount ?? 0) + (s.integerCount ?? 0) + (s.multiCount ?? 0) + (s.matrixCount ?? 0),
       0,
     );
   }, [selections]);
@@ -260,7 +260,7 @@ export default function FacultyPage() {
   function handleCountChange(
     subject: FacultyPaperSelection['subject'],
     topic: string,
-    field: 'mcqCount' | 'integerCount' | 'multiCount',
+    field: 'mcqCount' | 'integerCount' | 'multiCount' | 'matrixCount',
     val: number,
   ) {
     const clamped = Math.max(0, Math.min(100, isNaN(val) ? 0 : val));
@@ -272,7 +272,7 @@ export default function FacultyPage() {
   function handleCountStep(
     subject: FacultyPaperSelection['subject'],
     topic: string,
-    field: 'mcqCount' | 'integerCount' | 'multiCount',
+    field: 'mcqCount' | 'integerCount' | 'multiCount' | 'matrixCount',
     delta: number,
   ) {
     setSelections((prev) =>
@@ -285,13 +285,14 @@ export default function FacultyPage() {
     );
   }
 
-  function applyPresetToAll(mcq: number, intCount: number, multi = 0) {
+  function applyPresetToAll(mcq: number, intCount: number, multi = 0, matrix = 0) {
     setSelections((prev) =>
       prev.map((s) => ({
         ...s,
         mcqCount: mcq,
         integerCount: examType === 'NEET' ? 0 : intCount,
         multiCount: examType === 'Advanced' ? multi : 0,
+        matrixCount: matrix,
       })),
     );
   }
@@ -770,7 +771,8 @@ export default function FacultyPage() {
                         const mcq = sel.mcqCount ?? 0;
                         const integer = sel.integerCount ?? 0;
                         const multi = sel.multiCount ?? 0;
-                        const topicTotal = mcq + integer + multi;
+                        const matrix = sel.matrixCount ?? 0;
+                        const topicTotal = mcq + integer + multi + matrix;
 
                         return (
                           <div key={`${sel.subject}::${sel.topic}`} className={styles.topicConfigCard}>
@@ -901,6 +903,41 @@ export default function FacultyPage() {
                                   </div>
                                 </div>
                               )}
+
+                              {/* Matrix Match / Match the List */}
+                              <div className={styles.counterRow}>
+                                <div className={styles.counterLabel}>
+                                  <span className={styles.typeDot} style={{ background: '#9333ea' }} />
+                                  <span>Matrix Match (List)</span>
+                                </div>
+                                <div className={styles.stepperControl}>
+                                  <button
+                                    type="button"
+                                    className={styles.stepperBtn}
+                                    disabled={matrix <= 0}
+                                    onClick={() => handleCountStep(sel.subject, sel.topic, 'matrixCount', -1)}
+                                  >
+                                    −
+                                  </button>
+                                  <input
+                                    type="number"
+                                    min={0}
+                                    max={100}
+                                    className={styles.stepperInput}
+                                    value={matrix}
+                                    onChange={(e) =>
+                                      handleCountChange(sel.subject, sel.topic, 'matrixCount', parseInt(e.target.value, 10))
+                                    }
+                                  />
+                                  <button
+                                    type="button"
+                                    className={styles.stepperBtn}
+                                    onClick={() => handleCountStep(sel.subject, sel.topic, 'matrixCount', 1)}
+                                  >
+                                    +
+                                  </button>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         );

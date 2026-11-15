@@ -21,6 +21,7 @@ const selectionSchema = z.object({
   mcqCount: z.number().int().min(0).max(180).optional(),
   integerCount: z.number().int().min(0).max(180).optional(),
   multiCount: z.number().int().min(0).max(180).optional(),
+  matrixCount: z.number().int().min(0).max(180).optional(),
 });
 
 const createPaperSchema = z.object({
@@ -28,7 +29,7 @@ const createPaperSchema = z.object({
   examType: z.enum(['Main', 'Advanced', 'NEET']),
   difficulty: z.enum(['beginner', 'intermediate', 'advanced', 'mixed']),
   questionCount: z.number().int().min(1).max(180),
-  questionType: z.enum(['auto', 'mcq_single', 'mcq_multi', 'integer']).optional(),
+  questionType: z.enum(['auto', 'mcq_single', 'mcq_multi', 'integer', 'matrix_match']).optional(),
   selections: z.array(selectionSchema).min(1).max(60),
 });
 
@@ -51,13 +52,13 @@ const updateQuestionSchema = z.object({
 const draftQuestionSchema = z.object({
   subject: z.enum(['Physics', 'Chemistry', 'Mathematics', 'Botany', 'Zoology']),
   topic: z.string().trim().min(1).max(120),
-  questionType: z.enum(['mcq_single', 'mcq_multi', 'integer']).optional(),
+  questionType: z.enum(['mcq_single', 'mcq_multi', 'integer', 'matrix_match']).optional(),
 });
 
 const acceptDraftSchema = z.object({
   subject: z.enum(['Physics', 'Chemistry', 'Mathematics', 'Botany', 'Zoology']),
   topic: z.string().trim().min(1).max(120),
-  questionType: z.enum(['mcq_single', 'mcq_multi', 'integer']),
+  questionType: z.enum(['mcq_single', 'mcq_multi', 'integer', 'matrix_match']),
   questionText: z.string().min(1).max(4000),
   options: z.array(z.string().max(1000)).max(4),
   correctAnswer: z.string().min(1).max(20),

@@ -7,6 +7,7 @@ const QUESTION_TYPE_LABELS: Record<string, string> = {
   mcq_single: 'Single correct',
   mcq_multi: 'Multi-correct',
   integer: 'Integer',
+  matrix_match: 'Matrix Match',
 };
 
 const MONTH_LABELS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
