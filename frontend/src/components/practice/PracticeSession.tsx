@@ -9,7 +9,7 @@ import { isAuthenticated, getUser } from '@/lib/auth';
 import type { Question, AnswerResult, Subject, TopicProgress, PaperSet } from '@/types';
 import type { SplitTopics } from '@/lib/api';
 import type { AppState, WizardStep, DiffOption, MarkingScheme, StoredResult, QuestionTypeCounts, DifficultyDistribution } from './shared';
-import { getDefaultQuestionTypes } from './shared';
+import { getDefaultQuestionTypes, DEFAULT_DIFFICULTY_DISTRIBUTION } from './shared';
 import type { PracticeExamConfig } from './examConfig';
 import { SessionReview } from './SessionReview';
 import { SubjectStep } from './SubjectStep';
@@ -66,11 +66,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   const [customCount, setCustomCount] = useState('');
   const [difficulty, setDifficulty] = useState<DiffOption>('mixed');
   const [difficultyMode, setDifficultyMode] = useState<'preset' | 'custom'>('preset');
-  const [difficultyDistribution, setDifficultyDistribution] = useState<DifficultyDistribution>({
-    beginner: 30,
-    intermediate: 30,
-    advanced: 40,
-  });
+  const [difficultyDistribution, setDifficultyDistribution] = useState<DifficultyDistribution>(DEFAULT_DIFFICULTY_DISTRIBUTION);
   const [examType, setExamType] = useState<'Main' | 'Advanced'>('Main');
   const [markingScheme, setMarkingScheme] = useState<MarkingScheme>('jee_main');
   const [questionTypeCounts, setQuestionTypeCounts] = useState<QuestionTypeCounts>(() =>

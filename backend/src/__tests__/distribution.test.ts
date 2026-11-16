@@ -59,6 +59,20 @@ test('planDifficultySlots respects percentage distribution (e.g. 30/30/40)', () 
   assert.equal(adv, 4);
 });
 
+test('planDifficultySlots defaults mixed difficulty to 20% easy, 40% med, 40% hard without jumping', () => {
+  const slots10 = planDifficultySlots(10, 'mixed');
+  assert.equal(slots10.length, 10);
+  assert.equal(slots10.filter((d) => d === 'beginner').length, 2);
+  assert.equal(slots10.filter((d) => d === 'intermediate').length, 4);
+  assert.equal(slots10.filter((d) => d === 'advanced').length, 4);
+
+  const slots20 = planDifficultySlots(20, 'mixed');
+  assert.equal(slots20.length, 20);
+  assert.equal(slots20.filter((d) => d === 'beginner').length, 4);
+  assert.equal(slots20.filter((d) => d === 'intermediate').length, 8);
+  assert.equal(slots20.filter((d) => d === 'advanced').length, 8);
+});
+
 test('planDifficultySlots returns single difficulty when specified without distribution', () => {
   const slots = planDifficultySlots(7, 'advanced');
   assert.equal(slots.length, 7);
@@ -130,4 +144,40 @@ test('PaperService.buildPaperPage partitions questions matching questionTypes', 
   assert.equal(paper0.filter((id) => id.startsWith('p_s_')).length, 5);
   assert.equal(paper0.filter((id) => id.startsWith('p_i_')).length, 3);
   assert.equal(paper0.filter((id) => id.startsWith('p_m_')).length, 2);
+});
+
+test('PaperService.buildPaperPage generates 20% easy, 40% med, 40% hard by default for mixed difficulty', async () => {
+  const { PaperService } = await import('../services/PaperService');
+  const mockRows = [
+    ...Array(10).fill(null).map((_, i) => ({ id: `p_beg_${i}`, subject: 'Physics', topic: 'Kinematics', questionType: 'mcq_single', difficulty: 'beginner' })),
+    ...Array(10).fill(null).map((_, i) => ({ id: `p_int_${i}`, subject: 'Physics', topic: 'Kinematics', questionType: 'mcq_single', difficulty: 'intermediate' })),
+    ...Array(10).fill(null).map((_, i) => ({ id: `p_adv_${i}`, subject: 'Physics', topic: 'Kinematics', questionType: 'mcq_single', difficulty: 'advanced' })),
+  ];
+
+  const mockRepo = {
+    findPaperPoolRows: async () => mockRows,
+    findPaperPreviewByIds: async (ids: string[]) => ids.map((id) => ({ id, questionText: `Question ${id}`, difficulty: id.startsWith('p_beg') ? 'beginner' : id.startsWith('p_int') ? 'intermediate' : 'advanced', subject: 'Physics', topic: 'Kinematics' })),
+  } as any;
+
+  const mockCache = {
+    getJson: async () => null,
+    setJson: async () => {},
+  } as any;
+
+  const service = new PaperService(mockRepo, mockCache);
+  const result = await service.buildPaperPage('user_mixed', {
+    selections: [{ subject: 'Physics', topic: 'Kinematics' }],
+    difficulty: 'mixed',
+    examType: 'Main',
+    perSubject: 10,
+  }, 1);
+
+  assert.ok(result.available > 0);
+  assert.ok(result.papers.length > 0);
+  for (const paper of result.papers) {
+    assert.equal(paper.length, 10);
+    assert.equal(paper.filter((id) => id.startsWith('p_beg_')).length, 2, '20% easy = 2 questions');
+    assert.equal(paper.filter((id) => id.startsWith('p_int_')).length, 4, '40% medium = 4 questions');
+    assert.equal(paper.filter((id) => id.startsWith('p_adv_')).length, 4, '40% hard = 4 questions');
+  }
 });

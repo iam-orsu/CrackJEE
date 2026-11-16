@@ -14,10 +14,16 @@ export function planDifficultySlots(
 ): Difficulty[] {
   if (totalSlots <= 0) return [];
 
-  if (distribution) {
-    const bPct = Math.max(0, distribution.beginner ?? 0);
-    const iPct = Math.max(0, distribution.intermediate ?? 0);
-    const aPct = Math.max(0, distribution.advanced ?? 0);
+  const effDist =
+    distribution ??
+    (difficulty === 'mixed'
+      ? { beginner: 20, intermediate: 40, advanced: 40 }
+      : undefined);
+
+  if (effDist) {
+    const bPct = Math.max(0, effDist.beginner ?? 0);
+    const iPct = Math.max(0, effDist.intermediate ?? 0);
+    const aPct = Math.max(0, effDist.advanced ?? 0);
     const totalPct = bPct + iPct + aPct;
 
     if (totalPct > 0) {
@@ -47,8 +53,8 @@ export function planDifficultySlots(
     return Array(totalSlots).fill(difficulty);
   }
 
-  const bCount = Math.floor(totalSlots / 3);
-  const iCount = Math.floor(totalSlots / 3);
+  const bCount = Math.round(totalSlots * 0.20);
+  const iCount = Math.round(totalSlots * 0.40);
   const aCount = totalSlots - bCount - iCount;
 
   return fisherYatesShuffle([

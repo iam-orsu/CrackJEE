@@ -32,10 +32,16 @@ export interface QuestionTypeCounts {
 }
 
 export interface DifficultyDistribution {
-  beginner: number;     // % e.g. 30
-  intermediate: number; // % e.g. 30
+  beginner: number;     // % e.g. 20
+  intermediate: number; // % e.g. 40
   advanced: number;     // % e.g. 40
 }
+
+export const DEFAULT_DIFFICULTY_DISTRIBUTION: DifficultyDistribution = {
+  beginner: 20,
+  intermediate: 40,
+  advanced: 40,
+};
 
 export function getDefaultQuestionTypes(
   count: number,

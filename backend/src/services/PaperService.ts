@@ -66,6 +66,12 @@ export class PaperService {
   }
 
   private poolHash(options: PaperOptions): string {
+    const effDiff =
+      options.difficultyDistribution ??
+      (options.difficulty === 'mixed' || !options.difficulty
+        ? { beginner: 20, intermediate: 40, advanced: 40 }
+        : null);
+
     const normalised = {
       selections: options.selections.map((s) => [s.subject, s.topic]).sort(),
       difficulty: options.difficulty,
@@ -79,11 +85,11 @@ export class PaperService {
             matrix_match: options.questionTypes.matrix_match ?? 0,
           }
         : null,
-      difficultyDistribution: options.difficultyDistribution
+      difficultyDistribution: effDiff
         ? {
-            beginner: options.difficultyDistribution.beginner ?? 0,
-            intermediate: options.difficultyDistribution.intermediate ?? 0,
-            advanced: options.difficultyDistribution.advanced ?? 0,
+            beginner: effDiff.beginner ?? 0,
+            intermediate: effDiff.intermediate ?? 0,
+            advanced: effDiff.advanced ?? 0,
           }
         : null,
     };
@@ -128,6 +134,11 @@ export class PaperService {
     partitions: Array<{ rows: PoolRow[]; count: number; ways: bigint }>;
     totalWays: bigint;
   } {
+    const isMixedDiff = difficulty === 'mixed' || !difficulty;
+    const effDistribution: DifficultyDistribution | undefined =
+      difficultyDistribution ??
+      (isMixedDiff ? { beginner: 20, intermediate: 40, advanced: 40 } : undefined);
+
     const hasCustomTypes =
       questionTypes &&
       ((questionTypes.mcq_single ?? 0) > 0 ||
@@ -135,6 +146,91 @@ export class PaperService {
         (questionTypes.matrix_match ?? 0) > 0 ||
         (questionTypes.mcq_multi ?? 0) > 0);
 
+    // Case 1: Custom question types AND Mixed/Distributed difficulty
+    if (hasCustomTypes && effDistribution && isMixedDiff) {
+      const diffSlots = planDifficultySlots(perSubject, 'mixed', effDistribution);
+      const targetDiffCounts: Record<Difficulty, number> = {
+        beginner: diffSlots.filter((d) => d === 'beginner').length,
+        intermediate: diffSlots.filter((d) => d === 'intermediate').length,
+        advanced: diffSlots.filter((d) => d === 'advanced').length,
+      };
+
+      const rowsByCell = new Map<string, PoolRow[]>();
+      for (const r of subjectRows) {
+        const d = (r.difficulty as Difficulty) || 'intermediate';
+        const t = (r.questionType as QuestionType) || 'mcq_single';
+        const k = `${d}:${t}`;
+        if (!rowsByCell.has(k)) rowsByCell.set(k, []);
+        rowsByCell.get(k)!.push(r);
+      }
+
+      const cellCounts: Record<string, number> = {};
+      for (const t of ['integer', 'matrix_match', 'mcq_multi'] as QuestionType[]) {
+        const req = Math.max(0, questionTypes![t] ?? 0);
+        if (req <= 0) continue;
+        const toAdv = Math.min(req, Math.floor(req / 2) + (req % 2));
+        const toInt = req - toAdv;
+        cellCounts[`intermediate:${t}`] = toInt;
+        cellCounts[`advanced:${t}`] = toAdv;
+      }
+
+      const nonSingleInt =
+        (cellCounts['intermediate:integer'] || 0) +
+        (cellCounts['intermediate:matrix_match'] || 0) +
+        (cellCounts['intermediate:mcq_multi'] || 0);
+      const nonSingleAdv =
+        (cellCounts['advanced:integer'] || 0) +
+        (cellCounts['advanced:matrix_match'] || 0) +
+        (cellCounts['advanced:mcq_multi'] || 0);
+
+      cellCounts['beginner:mcq_single'] = targetDiffCounts.beginner;
+      cellCounts['intermediate:mcq_single'] = Math.max(0, targetDiffCounts.intermediate - nonSingleInt);
+      cellCounts['advanced:mcq_single'] = Math.max(0, targetDiffCounts.advanced - nonSingleAdv);
+
+      let deficit = 0;
+      for (const k of Object.keys(cellCounts)) {
+        const avail = rowsByCell.get(k)?.length ?? 0;
+        const req = cellCounts[k]!;
+        if (avail < req) {
+          cellCounts[k] = avail;
+          deficit += req - avail;
+        }
+      }
+      if (deficit > 0) {
+        for (const [k, rows] of rowsByCell.entries()) {
+          const cur = cellCounts[k] || 0;
+          const surplus = rows.length - cur;
+          if (surplus > 0) {
+            const add = Math.min(surplus, deficit);
+            cellCounts[k] = cur + add;
+            deficit -= add;
+            if (deficit === 0) break;
+          }
+        }
+      }
+
+      const totalAllocated = Object.values(cellCounts).reduce((a, b) => a + b, 0);
+      if (totalAllocated >= perSubject) {
+        const partitions: Array<{ rows: PoolRow[]; count: number; ways: bigint }> = [];
+        let totalWays = 1n;
+        for (const [k, count] of Object.entries(cellCounts)) {
+          if (count <= 0) continue;
+          const rows = rowsByCell.get(k) || [];
+          const ways = this.binomial(rows.length, count);
+          if (ways === 0n) {
+            totalWays = 0n;
+            break;
+          }
+          partitions.push({ rows, count, ways });
+          totalWays *= ways;
+        }
+        if (totalWays > 0n) {
+          return { partitions, totalWays };
+        }
+      }
+    }
+
+    // Case 2: Custom question types only (or fallback if cell partitioning had 0 ways)
     if (hasCustomTypes) {
       const typeKeys: QuestionType[] = ['mcq_single', 'integer', 'matrix_match', 'mcq_multi'];
       const rowsByType: Record<QuestionType, PoolRow[]> = {
@@ -157,7 +253,7 @@ export class PaperService {
         mcq_multi: 0,
       };
       for (const t of typeKeys) {
-        const req = Math.max(0, questionTypes[t] ?? 0);
+        const req = Math.max(0, questionTypes![t] ?? 0);
         const avail = rowsByType[t].length;
         if (avail >= req) {
           counts[t] = req;
@@ -179,32 +275,30 @@ export class PaperService {
       }
 
       const totalAllocated = Object.values(counts).reduce((a, b) => a + b, 0);
-      if (totalAllocated < perSubject) {
-        return { partitions: [], totalWays: 0n };
+      if (totalAllocated >= perSubject) {
+        const partitions: Array<{ rows: PoolRow[]; count: number; ways: bigint }> = [];
+        let totalWays = 1n;
+        for (const t of typeKeys) {
+          const c = counts[t];
+          if (c <= 0) continue;
+          const ways = this.binomial(rowsByType[t].length, c);
+          if (ways === 0n) {
+            totalWays = 0n;
+            break;
+          }
+          partitions.push({ rows: rowsByType[t], count: c, ways });
+          totalWays *= ways;
+        }
+        if (totalWays > 0n) {
+          return { partitions, totalWays };
+        }
       }
-
-      const partitions: Array<{ rows: PoolRow[]; count: number; ways: bigint }> = [];
-      let totalWays = 1n;
-      for (const t of typeKeys) {
-        const c = counts[t];
-        if (c <= 0) continue;
-        const ways = this.binomial(rowsByType[t].length, c);
-        if (ways === 0n) return { partitions: [], totalWays: 0n };
-        partitions.push({ rows: rowsByType[t], count: c, ways });
-        totalWays *= ways;
-      }
-      return { partitions, totalWays };
     }
 
-    const hasCustomDiff =
-      difficultyDistribution &&
-      ((difficultyDistribution.beginner ?? 0) > 0 ||
-        (difficultyDistribution.intermediate ?? 0) > 0 ||
-        (difficultyDistribution.advanced ?? 0) > 0);
-
-    if (hasCustomDiff && (difficulty === 'mixed' || !difficulty)) {
+    // Case 3: Mixed or custom difficulty distribution (e.g. 20/40/40 default for All levels)
+    if (effDistribution && isMixedDiff) {
       const diffKeys: Difficulty[] = ['beginner', 'intermediate', 'advanced'];
-      const diffSlots = planDifficultySlots(perSubject, difficulty ?? 'mixed', difficultyDistribution);
+      const diffSlots = planDifficultySlots(perSubject, 'mixed', effDistribution);
       const targetCounts: Record<Difficulty, number> = {
         beginner: diffSlots.filter((d) => d === 'beginner').length,
         intermediate: diffSlots.filter((d) => d === 'intermediate').length,
@@ -250,21 +344,24 @@ export class PaperService {
       }
 
       const totalAllocated = Object.values(counts).reduce((a, b) => a + b, 0);
-      if (totalAllocated < perSubject) {
-        return { partitions: [], totalWays: 0n };
+      if (totalAllocated >= perSubject) {
+        const partitions: Array<{ rows: PoolRow[]; count: number; ways: bigint }> = [];
+        let totalWays = 1n;
+        for (const d of diffKeys) {
+          const c = counts[d];
+          if (c <= 0) continue;
+          const ways = this.binomial(rowsByDiff[d].length, c);
+          if (ways === 0n) {
+            totalWays = 0n;
+            break;
+          }
+          partitions.push({ rows: rowsByDiff[d], count: c, ways });
+          totalWays *= ways;
+        }
+        if (totalWays > 0n) {
+          return { partitions, totalWays };
+        }
       }
-
-      const partitions: Array<{ rows: PoolRow[]; count: number; ways: bigint }> = [];
-      let totalWays = 1n;
-      for (const d of diffKeys) {
-        const c = counts[d];
-        if (c <= 0) continue;
-        const ways = this.binomial(rowsByDiff[d].length, c);
-        if (ways === 0n) return { partitions: [], totalWays: 0n };
-        partitions.push({ rows: rowsByDiff[d], count: c, ways });
-        totalWays *= ways;
-      }
-      return { partitions, totalWays };
     }
 
     const ways = this.binomial(subjectRows.length, perSubject);
