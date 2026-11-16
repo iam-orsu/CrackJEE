@@ -97,7 +97,7 @@ export class PaperService {
   }
 
   private async loadPool(options: PaperOptions): Promise<PoolRow[]> {
-    const cacheKey = `paperpool:v4:${this.poolHash(options)}`;
+    const cacheKey = `paperpool:v5:${this.poolHash(options)}`;
     const cached = await this.cache.getJson<PoolRow[]>(cacheKey);
     if (cached) return cached;
 
@@ -188,24 +188,36 @@ export class PaperService {
       cellCounts['intermediate:mcq_single'] = Math.max(0, targetDiffCounts.intermediate - nonSingleInt);
       cellCounts['advanced:mcq_single'] = Math.max(0, targetDiffCounts.advanced - nonSingleAdv);
 
-      let deficit = 0;
-      for (const k of Object.keys(cellCounts)) {
-        const avail = rowsByCell.get(k)?.length ?? 0;
-        const req = cellCounts[k]!;
-        if (avail < req) {
-          cellCounts[k] = avail;
-          deficit += req - avail;
+      // Strictly resolve deficits within each difficulty level ONLY.
+      // Deficits in Intermediate can only be absorbed by Intermediate cells.
+      // Deficits in Advanced can only be absorbed by Advanced cells.
+      // Deficits in Beginner can only be absorbed by Beginner cells.
+      for (const d of ['beginner', 'intermediate', 'advanced'] as Difficulty[]) {
+        let diffDeficit = 0;
+        const typeOrder: QuestionType[] = ['integer', 'matrix_match', 'mcq_multi', 'mcq_single'];
+        for (const t of typeOrder) {
+          const k = `${d}:${t}`;
+          const req = cellCounts[k] || 0;
+          const avail = rowsByCell.get(k)?.length ?? 0;
+          if (avail < req) {
+            cellCounts[k] = avail;
+            diffDeficit += req - avail;
+          }
         }
-      }
-      if (deficit > 0) {
-        for (const [k, rows] of rowsByCell.entries()) {
-          const cur = cellCounts[k] || 0;
-          const surplus = rows.length - cur;
-          if (surplus > 0) {
-            const add = Math.min(surplus, deficit);
-            cellCounts[k] = cur + add;
-            deficit -= add;
-            if (deficit === 0) break;
+        if (diffDeficit > 0) {
+          // Fill deficit strictly within the SAME difficulty level, prioritizing mcq_single then integer
+          const fillOrder: QuestionType[] = ['mcq_single', 'integer', 'mcq_multi', 'matrix_match'];
+          for (const t of fillOrder) {
+            const k = `${d}:${t}`;
+            const avail = rowsByCell.get(k)?.length ?? 0;
+            const cur = cellCounts[k] || 0;
+            const surplus = avail - cur;
+            if (surplus > 0) {
+              const add = Math.min(surplus, diffDeficit);
+              cellCounts[k] = cur + add;
+              diffDeficit -= add;
+              if (diffDeficit === 0) break;
+            }
           }
         }
       }
@@ -316,7 +328,6 @@ export class PaperService {
         else rowsByDiff.intermediate.push(r);
       }
 
-      let deficit = 0;
       const counts: Record<Difficulty, number> = {
         beginner: 0,
         intermediate: 0,
@@ -325,23 +336,10 @@ export class PaperService {
       for (const d of diffKeys) {
         const req = targetCounts[d];
         const avail = rowsByDiff[d].length;
-        if (avail >= req) {
-          counts[d] = req;
-        } else {
-          counts[d] = avail;
-          deficit += req - avail;
+        if (avail < req) {
+          return { partitions: [], totalWays: 0n };
         }
-      }
-      if (deficit > 0) {
-        for (const d of diffKeys) {
-          const surplus = rowsByDiff[d].length - counts[d];
-          if (surplus > 0) {
-            const add = Math.min(surplus, deficit);
-            counts[d] += add;
-            deficit -= add;
-            if (deficit === 0) break;
-          }
-        }
+        counts[d] = req;
       }
 
       const totalAllocated = Object.values(counts).reduce((a, b) => a + b, 0);
