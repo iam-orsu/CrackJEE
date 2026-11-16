@@ -794,7 +794,20 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                         type="button"
                         className="btn btn-primary btn-lg"
                         disabled={!canStartSession}
-                        onClick={startExam}
+                        onClick={(e) => {
+                          if (!canStartSession) {
+                            e.preventDefault();
+                            setLoadError(
+                              !isTypeCountValid
+                                ? totalAllocatedTypes > perSubject
+                                  ? `Question count exceeded (${totalAllocatedTypes}/${perSubject}). Reduce values to proceed.`
+                                  : `Question count under-allocated (${totalAllocatedTypes}/${perSubject}). Add values to proceed.`
+                                : `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`,
+                            );
+                            return;
+                          }
+                          startExam();
+                        }}
                         style={!canStartSession ? { opacity: 0.5, cursor: 'not-allowed' } : undefined}
                       >
                         Start practice

@@ -79,10 +79,20 @@ export function SessionSettings({
   };
 
   const setDirectTypeCount = (key: keyof QuestionTypeCounts, value: number) => {
-    onQuestionTypeCounts((prev) => ({
-      ...prev,
-      [key]: Math.max(0, isNaN(value) ? 0 : value),
-    }));
+    onQuestionTypeCounts((prev) => {
+      const otherTypesSum =
+        (prev.mcq_single || 0) +
+        (prev.integer || 0) +
+        (prev.matrix_match || 0) +
+        (isAdvanced ? (prev.mcq_multi || 0) : 0) -
+        (prev[key] || 0);
+      const maxAllowed = Math.max(0, perSubjectCount - otherTypesSum);
+      const parsed = isNaN(value) ? 0 : Math.max(0, value);
+      return {
+        ...prev,
+        [key]: Math.min(parsed, maxAllowed),
+      };
+    });
   };
 
   // Auto-balance question types to match perSubjectCount

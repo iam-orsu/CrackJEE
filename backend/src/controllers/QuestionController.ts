@@ -113,6 +113,35 @@ export class QuestionController {
         this.validateTopicSelection(subject, topic, examType, studentClass);
       }
 
+      if (questionTypes) {
+        const typeSum =
+          (questionTypes.mcq_single ?? 0) +
+          (questionTypes.mcq_multi ?? 0) +
+          (questionTypes.integer ?? 0) +
+          (questionTypes.matrix_match ?? 0);
+        const subjectCount = new Set(selections.map((s) => s.subject)).size || 1;
+        const perSubjectExpected = Math.floor(count / subjectCount);
+        if (typeSum !== perSubjectExpected) {
+          throw new AppError(
+            400,
+            `Question types allocation (${typeSum}) does not match the required ${perSubjectExpected} questions per subject.`,
+          );
+        }
+      }
+
+      if (difficultyDistribution) {
+        const diffSum =
+          (difficultyDistribution.beginner ?? 0) +
+          (difficultyDistribution.intermediate ?? 0) +
+          (difficultyDistribution.advanced ?? 0);
+        if (diffSum > 0 && diffSum !== 100) {
+          throw new AppError(
+            400,
+            `Difficulty percentages must sum to 100% (currently ${diffSum}%). Please adjust your percentages.`,
+          );
+        }
+      }
+
       const questions = mode === 'practice'
         ? await this.questionService.getPracticeQuestionBatch(
             req.user!.userId,
