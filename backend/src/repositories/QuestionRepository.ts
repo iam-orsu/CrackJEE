@@ -128,15 +128,20 @@ export class QuestionRepository {
   }
 
   public findPaperPoolRows(
-    bankExamType: 'Main' | 'Advanced',
+    bankExamType: 'Main' | 'Advanced' | 'NEET',
     selections: Array<{ subject: Subject; topic: string }>,
     difficulty: Difficulty | 'mixed',
   ) {
+    const examTypeFilter =
+      bankExamType === 'NEET'
+        ? 'NEET'
+        : { in: ['Main', 'Advanced'] };
+
     return this.prisma.question.findMany({
       where: {
         validatedAt: { not: null },
         mockOnly: false,
-        examType: bankExamType,
+        examType: examTypeFilter,
         OR: selections.map((s) => ({
           subject: s.subject,
           topic: s.topic,

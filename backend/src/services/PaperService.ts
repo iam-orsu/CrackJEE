@@ -97,11 +97,12 @@ export class PaperService {
   }
 
   private async loadPool(options: PaperOptions): Promise<PoolRow[]> {
-    const cacheKey = `paperpool:${this.poolHash(options)}`;
+    const cacheKey = `paperpool:v4:${this.poolHash(options)}`;
     const cached = await this.cache.getJson<PoolRow[]>(cacheKey);
     if (cached) return cached;
 
-    const bankExamType: 'Main' | 'Advanced' = options.examType === 'Advanced' ? 'Advanced' : 'Main';
+    const bankExamType: 'Main' | 'Advanced' | 'NEET' =
+      options.examType === 'NEET' ? 'NEET' : options.examType === 'Advanced' ? 'Advanced' : 'Main';
     const rows = await this.questions.findPaperPoolRows(bankExamType, options.selections, options.difficulty);
     await this.cache.setJson(cacheKey, rows, CACHE_CONSTANTS.POOL_TTL_SECONDS);
     return rows;
@@ -148,12 +149,12 @@ export class PaperService {
 
     // Case 1: Custom question types AND Mixed/Distributed difficulty
     if (hasCustomTypes && effDistribution && isMixedDiff) {
-      const diffSlots = planDifficultySlots(perSubject, 'mixed', effDistribution);
       const targetDiffCounts: Record<Difficulty, number> = {
-        beginner: diffSlots.filter((d) => d === 'beginner').length,
-        intermediate: diffSlots.filter((d) => d === 'intermediate').length,
-        advanced: diffSlots.filter((d) => d === 'advanced').length,
+        beginner: Math.round(perSubject * ((effDistribution.beginner ?? 20) / 100)),
+        intermediate: Math.round(perSubject * ((effDistribution.intermediate ?? 40) / 100)),
+        advanced: 0,
       };
+      targetDiffCounts.advanced = perSubject - targetDiffCounts.beginner - targetDiffCounts.intermediate;
 
       const rowsByCell = new Map<string, PoolRow[]>();
       for (const r of subjectRows) {
@@ -298,12 +299,12 @@ export class PaperService {
     // Case 3: Mixed or custom difficulty distribution (e.g. 20/40/40 default for All levels)
     if (effDistribution && isMixedDiff) {
       const diffKeys: Difficulty[] = ['beginner', 'intermediate', 'advanced'];
-      const diffSlots = planDifficultySlots(perSubject, 'mixed', effDistribution);
       const targetCounts: Record<Difficulty, number> = {
-        beginner: diffSlots.filter((d) => d === 'beginner').length,
-        intermediate: diffSlots.filter((d) => d === 'intermediate').length,
-        advanced: diffSlots.filter((d) => d === 'advanced').length,
+        beginner: Math.round(perSubject * ((effDistribution.beginner ?? 20) / 100)),
+        intermediate: Math.round(perSubject * ((effDistribution.intermediate ?? 40) / 100)),
+        advanced: 0,
       };
+      targetCounts.advanced = perSubject - targetCounts.beginner - targetCounts.intermediate;
       const rowsByDiff: Record<Difficulty, PoolRow[]> = {
         beginner: [],
         intermediate: [],
