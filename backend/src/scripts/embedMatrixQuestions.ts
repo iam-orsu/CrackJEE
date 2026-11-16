@@ -26,6 +26,7 @@ async function main(): Promise<void> {
     : [
         path.join(dataDir, 'matrix_math_questions.json'),
         path.join(dataDir, 'matrix_physics_questions.json'),
+        path.join(dataDir, 'matrix_chemistry_questions.json'),
       ].filter((f) => fs.existsSync(f));
 
   if (candidateFiles.length === 0) {
