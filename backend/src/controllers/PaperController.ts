@@ -16,6 +16,17 @@ const papersSchema = z.object({
   studentClass: z.enum(['11', '12', 'Dropper']).default('12'),
   perSubject: z.number().int().min(1).max(30).default(10),
   page: z.number().int().min(1).max(1000).default(1),
+  questionTypes: z.object({
+    mcq_single: z.number().int().min(0).optional(),
+    mcq_multi: z.number().int().min(0).optional(),
+    integer: z.number().int().min(0).optional(),
+    matrix_match: z.number().int().min(0).optional(),
+  }).optional(),
+  difficultyDistribution: z.object({
+    beginner: z.number().min(0).max(100).optional(),
+    intermediate: z.number().min(0).max(100).optional(),
+    advanced: z.number().min(0).max(100).optional(),
+  }).optional(),
 });
 
 const claimSchema = z.object({
@@ -31,7 +42,7 @@ export class PaperController {
       if (!body.success) {
         throw new AppError(400, body.error.errors[0]?.message ?? 'Invalid parameters');
       }
-      const { selections, difficulty, examType, studentClass, perSubject, page } = body.data;
+      const { selections, difficulty, examType, studentClass, perSubject, page, questionTypes, difficultyDistribution } = body.data;
 
       for (const { subject, topic } of selections) {
         if (!JEE_TOPICS[subject].includes(topic)) {
@@ -49,6 +60,8 @@ export class PaperController {
           difficulty,
           examType,
           perSubject,
+          questionTypes,
+          difficultyDistribution,
         },
         page,
       );

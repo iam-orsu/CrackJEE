@@ -143,7 +143,7 @@ export class QuestionRepository {
           ...(difficulty !== 'mixed' ? { difficulty } : {}),
         })),
       },
-      select: { id: true, subject: true, topic: true },
+      select: { id: true, subject: true, topic: true, difficulty: true, questionType: true },
       orderBy: { id: 'asc' },
     });
   }

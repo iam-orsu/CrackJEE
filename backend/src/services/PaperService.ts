@@ -3,7 +3,8 @@ import type { Question } from '@prisma/client';
 import { CACHE_CONSTANTS } from '../config/constants';
 import { QuestionRepository } from '../repositories/QuestionRepository';
 import { CacheService, cacheService as defaultCache } from './CacheService';
-import type { Difficulty, ExamType, Subject } from '../types/index';
+import type { Difficulty, ExamType, Subject, QuestionType, QuestionTypeCounts, DifficultyDistribution } from '../types/index';
+import { planDifficultySlots } from '../utils/questionUtils';
 
 export const PAPER_PAGE_SIZE = 10;
 export const PAPER_SPACE_CAP = 10000;
@@ -18,12 +19,16 @@ export interface PaperOptions {
   difficulty: Difficulty | 'mixed';
   examType: ExamType;
   perSubject: number;
+  questionTypes?: QuestionTypeCounts;
+  difficultyDistribution?: DifficultyDistribution;
 }
 
 interface PoolRow {
   id: string;
   subject: string;
   topic: string;
+  difficulty?: string;
+  questionType?: string;
 }
 
 export interface PaperPage {
@@ -66,6 +71,21 @@ export class PaperService {
       difficulty: options.difficulty,
       examType: options.examType,
       perSubject: options.perSubject,
+      questionTypes: options.questionTypes
+        ? {
+            mcq_single: options.questionTypes.mcq_single ?? 0,
+            mcq_multi: options.questionTypes.mcq_multi ?? 0,
+            integer: options.questionTypes.integer ?? 0,
+            matrix_match: options.questionTypes.matrix_match ?? 0,
+          }
+        : null,
+      difficultyDistribution: options.difficultyDistribution
+        ? {
+            beginner: options.difficultyDistribution.beginner ?? 0,
+            intermediate: options.difficultyDistribution.intermediate ?? 0,
+            advanced: options.difficultyDistribution.advanced ?? 0,
+          }
+        : null,
     };
     return createHash('sha256').update(JSON.stringify(normalised)).digest('hex');
   }
@@ -98,11 +118,176 @@ export class PaperService {
     return picked;
   }
 
+  private getSubjectPlan(
+    subjectRows: PoolRow[],
+    perSubject: number,
+    questionTypes?: QuestionTypeCounts,
+    difficulty?: Difficulty | 'mixed',
+    difficultyDistribution?: DifficultyDistribution,
+  ): {
+    partitions: Array<{ rows: PoolRow[]; count: number; ways: bigint }>;
+    totalWays: bigint;
+  } {
+    const hasCustomTypes =
+      questionTypes &&
+      ((questionTypes.mcq_single ?? 0) > 0 ||
+        (questionTypes.integer ?? 0) > 0 ||
+        (questionTypes.matrix_match ?? 0) > 0 ||
+        (questionTypes.mcq_multi ?? 0) > 0);
+
+    if (hasCustomTypes) {
+      const typeKeys: QuestionType[] = ['mcq_single', 'integer', 'matrix_match', 'mcq_multi'];
+      const rowsByType: Record<QuestionType, PoolRow[]> = {
+        mcq_single: [],
+        integer: [],
+        matrix_match: [],
+        mcq_multi: [],
+      };
+      for (const r of subjectRows) {
+        const t = (r.questionType as QuestionType) || 'mcq_single';
+        if (rowsByType[t]) rowsByType[t].push(r);
+        else rowsByType.mcq_single.push(r);
+      }
+
+      let deficit = 0;
+      const counts: Record<QuestionType, number> = {
+        mcq_single: 0,
+        integer: 0,
+        matrix_match: 0,
+        mcq_multi: 0,
+      };
+      for (const t of typeKeys) {
+        const req = Math.max(0, questionTypes[t] ?? 0);
+        const avail = rowsByType[t].length;
+        if (avail >= req) {
+          counts[t] = req;
+        } else {
+          counts[t] = avail;
+          deficit += req - avail;
+        }
+      }
+      if (deficit > 0) {
+        for (const t of typeKeys) {
+          const surplus = rowsByType[t].length - counts[t];
+          if (surplus > 0) {
+            const add = Math.min(surplus, deficit);
+            counts[t] += add;
+            deficit -= add;
+            if (deficit === 0) break;
+          }
+        }
+      }
+
+      const totalAllocated = Object.values(counts).reduce((a, b) => a + b, 0);
+      if (totalAllocated < perSubject) {
+        return { partitions: [], totalWays: 0n };
+      }
+
+      const partitions: Array<{ rows: PoolRow[]; count: number; ways: bigint }> = [];
+      let totalWays = 1n;
+      for (const t of typeKeys) {
+        const c = counts[t];
+        if (c <= 0) continue;
+        const ways = this.binomial(rowsByType[t].length, c);
+        if (ways === 0n) return { partitions: [], totalWays: 0n };
+        partitions.push({ rows: rowsByType[t], count: c, ways });
+        totalWays *= ways;
+      }
+      return { partitions, totalWays };
+    }
+
+    const hasCustomDiff =
+      difficultyDistribution &&
+      ((difficultyDistribution.beginner ?? 0) > 0 ||
+        (difficultyDistribution.intermediate ?? 0) > 0 ||
+        (difficultyDistribution.advanced ?? 0) > 0);
+
+    if (hasCustomDiff && (difficulty === 'mixed' || !difficulty)) {
+      const diffKeys: Difficulty[] = ['beginner', 'intermediate', 'advanced'];
+      const diffSlots = planDifficultySlots(perSubject, difficulty ?? 'mixed', difficultyDistribution);
+      const targetCounts: Record<Difficulty, number> = {
+        beginner: diffSlots.filter((d) => d === 'beginner').length,
+        intermediate: diffSlots.filter((d) => d === 'intermediate').length,
+        advanced: diffSlots.filter((d) => d === 'advanced').length,
+      };
+      const rowsByDiff: Record<Difficulty, PoolRow[]> = {
+        beginner: [],
+        intermediate: [],
+        advanced: [],
+      };
+      for (const r of subjectRows) {
+        const d = (r.difficulty as Difficulty) || 'intermediate';
+        if (rowsByDiff[d]) rowsByDiff[d].push(r);
+        else rowsByDiff.intermediate.push(r);
+      }
+
+      let deficit = 0;
+      const counts: Record<Difficulty, number> = {
+        beginner: 0,
+        intermediate: 0,
+        advanced: 0,
+      };
+      for (const d of diffKeys) {
+        const req = targetCounts[d];
+        const avail = rowsByDiff[d].length;
+        if (avail >= req) {
+          counts[d] = req;
+        } else {
+          counts[d] = avail;
+          deficit += req - avail;
+        }
+      }
+      if (deficit > 0) {
+        for (const d of diffKeys) {
+          const surplus = rowsByDiff[d].length - counts[d];
+          if (surplus > 0) {
+            const add = Math.min(surplus, deficit);
+            counts[d] += add;
+            deficit -= add;
+            if (deficit === 0) break;
+          }
+        }
+      }
+
+      const totalAllocated = Object.values(counts).reduce((a, b) => a + b, 0);
+      if (totalAllocated < perSubject) {
+        return { partitions: [], totalWays: 0n };
+      }
+
+      const partitions: Array<{ rows: PoolRow[]; count: number; ways: bigint }> = [];
+      let totalWays = 1n;
+      for (const d of diffKeys) {
+        const c = counts[d];
+        if (c <= 0) continue;
+        const ways = this.binomial(rowsByDiff[d].length, c);
+        if (ways === 0n) return { partitions: [], totalWays: 0n };
+        partitions.push({ rows: rowsByDiff[d], count: c, ways });
+        totalWays *= ways;
+      }
+      return { partitions, totalWays };
+    }
+
+    const ways = this.binomial(subjectRows.length, perSubject);
+    if (ways === 0n) return { partitions: [], totalWays: 0n };
+    return {
+      partitions: [{ rows: subjectRows, count: perSubject, ways }],
+      totalWays: ways,
+    };
+  }
+
   public async buildPaperPage(userId: string, options: PaperOptions, page: number): Promise<PaperPage> {
     const pool = await this.loadPool(options);
     const subjects = [...new Set(options.selections.map((s) => s.subject))];
-    const bySubject = subjects.map((subject) => pool.filter((r) => r.subject === subject));
-    const totals = bySubject.map((items) => this.binomial(items.length, options.perSubject));
+    const subjectPlans = subjects.map((subject) =>
+      this.getSubjectPlan(
+        pool.filter((r) => r.subject === subject),
+        options.perSubject,
+        options.questionTypes,
+        options.difficulty,
+        options.difficultyDistribution,
+      ),
+    );
+    const totals = subjectPlans.map((p) => p.totalWays);
 
     const possible = totals.reduce((acc, t) => acc * t, 1n);
     const emptyPage: PaperPage = {
@@ -128,10 +313,17 @@ export class PaperService {
       let global = (start + BigInt(j)) % possible;
       const ids: string[] = [];
       for (let s = 0; s < subjects.length; s++) {
+        const plan = subjectPlans[s]!;
         const total = totals[s]!;
-        const subjectRank = global % total;
+        let subjectRank = global % total;
         global /= total;
-        for (const row of this.unrank(bySubject[s]!, options.perSubject, subjectRank)) ids.push(row.id);
+        for (const part of plan.partitions) {
+          const partRank = subjectRank % part.ways;
+          subjectRank /= part.ways;
+          for (const row of this.unrank(part.rows, part.count, partRank)) {
+            ids.push(row.id);
+          }
+        }
       }
       papers.push(ids);
     }

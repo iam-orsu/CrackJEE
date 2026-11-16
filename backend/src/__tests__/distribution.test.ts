@@ -90,3 +90,44 @@ test('planQuestionTypeSlots scales proportionally when total counts differ', () 
   assert.equal(single + integer + matrix, 12);
   assert.ok(single > integer);
 });
+
+test('PaperService.buildPaperPage partitions questions matching questionTypes', async () => {
+  const { PaperService } = await import('../services/PaperService');
+  const mockRows = [
+    // 8 single, 4 integer, 3 matrix match for Physics
+    ...Array(8).fill(null).map((_, i) => ({ id: `p_s_${i}`, subject: 'Physics', topic: 'Kinematics', questionType: 'mcq_single', difficulty: 'intermediate' })),
+    ...Array(4).fill(null).map((_, i) => ({ id: `p_i_${i}`, subject: 'Physics', topic: 'Kinematics', questionType: 'integer', difficulty: 'intermediate' })),
+    ...Array(3).fill(null).map((_, i) => ({ id: `p_m_${i}`, subject: 'Physics', topic: 'Kinematics', questionType: 'matrix_match', difficulty: 'intermediate' })),
+  ];
+
+  const mockRepo = {
+    findPaperPoolRows: async () => mockRows,
+    findPaperPreviewByIds: async (ids: string[]) => ids.map((id) => ({ id, questionText: `Question ${id}`, difficulty: 'intermediate', subject: 'Physics', topic: 'Kinematics' })),
+  } as any;
+
+  const mockCache = {
+    getJson: async () => null,
+    setJson: async () => {},
+  } as any;
+
+  const service = new PaperService(mockRepo, mockCache);
+  const result = await service.buildPaperPage('user_123', {
+    selections: [{ subject: 'Physics', topic: 'Kinematics' }],
+    difficulty: 'intermediate',
+    examType: 'Main',
+    perSubject: 10,
+    questionTypes: {
+      mcq_single: 5,
+      integer: 3,
+      matrix_match: 2,
+    },
+  }, 1);
+
+  assert.ok(result.available > 0);
+  assert.ok(result.papers.length > 0);
+  const paper0 = result.papers[0]!;
+  assert.equal(paper0.length, 10);
+  assert.equal(paper0.filter((id) => id.startsWith('p_s_')).length, 5);
+  assert.equal(paper0.filter((id) => id.startsWith('p_i_')).length, 3);
+  assert.equal(paper0.filter((id) => id.startsWith('p_m_')).length, 2);
+});

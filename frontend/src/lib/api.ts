@@ -139,6 +139,17 @@ export const api = {
       studentClass: string;
       perSubject: number;
       page: number;
+      questionTypes?: {
+        mcq_single?: number;
+        mcq_multi?: number;
+        integer?: number;
+        matrix_match?: number;
+      };
+      difficultyDistribution?: {
+        beginner?: number;
+        intermediate?: number;
+        advanced?: number;
+      };
     }) => request<{
       papers: import('@/types').PaperSet[];
       page: number;

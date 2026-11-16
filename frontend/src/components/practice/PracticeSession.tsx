@@ -369,6 +369,8 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
         studentClass: batchClass,
         perSubject: resolvedCount(),
         page,
+        questionTypes: questionTypeCounts,
+        difficultyDistribution: difficultyMode === 'custom' || difficulty === 'mixed' ? difficultyDistribution : undefined,
       });
       setPaperSets(res.papers);
       setPaperPage(res.page);
@@ -780,39 +782,55 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                             : `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`}
                         </span>
                       )}
-                      {config.hasPapers && (
+                      {config.hasPapers ? (
                         <button
                           type="button"
-                          className="btn btn-outline btn-lg"
+                          className="btn btn-primary btn-lg"
                           disabled={!canStartSession}
-                          onClick={() => loadPapers(1)}
+                          onClick={(e) => {
+                            if (!canStartSession) {
+                              e.preventDefault();
+                              setLoadError(
+                                !isTypeCountValid
+                                  ? totalAllocatedTypes > perSubject
+                                    ? `Question count exceeded (${totalAllocatedTypes}/${perSubject}). Reduce values to proceed.`
+                                    : `Question count under-allocated (${totalAllocatedTypes}/${perSubject}). Add values to proceed.`
+                                  : `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`,
+                              );
+                              return;
+                            }
+                            loadPapers(1);
+                          }}
+                          style={!canStartSession ? { opacity: 0.5, cursor: 'not-allowed' } : undefined}
                         >
                           Browse papers
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          className="btn btn-primary btn-lg"
+                          disabled={!canStartSession}
+                          onClick={(e) => {
+                            if (!canStartSession) {
+                              e.preventDefault();
+                              setLoadError(
+                                !isTypeCountValid
+                                  ? totalAllocatedTypes > perSubject
+                                    ? `Question count exceeded (${totalAllocatedTypes}/${perSubject}). Reduce values to proceed.`
+                                    : `Question count under-allocated (${totalAllocatedTypes}/${perSubject}). Add values to proceed.`
+                                  : `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`,
+                              );
+                              return;
+                            }
+                            startExam();
+                          }}
+                          style={!canStartSession ? { opacity: 0.5, cursor: 'not-allowed' } : undefined}
+                        >
+                          Start practice
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                         </button>
                       )}
-                      <button
-                        type="button"
-                        className="btn btn-primary btn-lg"
-                        disabled={!canStartSession}
-                        onClick={(e) => {
-                          if (!canStartSession) {
-                            e.preventDefault();
-                            setLoadError(
-                              !isTypeCountValid
-                                ? totalAllocatedTypes > perSubject
-                                  ? `Question count exceeded (${totalAllocatedTypes}/${perSubject}). Reduce values to proceed.`
-                                  : `Question count under-allocated (${totalAllocatedTypes}/${perSubject}). Add values to proceed.`
-                                : `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`,
-                            );
-                            return;
-                          }
-                          startExam();
-                        }}
-                        style={!canStartSession ? { opacity: 0.5, cursor: 'not-allowed' } : undefined}
-                      >
-                        Start practice
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-                      </button>
                     </>
                   );
                 })()}
